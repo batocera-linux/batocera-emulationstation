@@ -6,6 +6,7 @@
 #include <mutex>
 #include "Settings.h"
 #include <iomanip> 
+#include <SDL_timer.h>
 
 #if WIN32
 #include <Windows.h>
@@ -156,4 +157,17 @@ void Log::setupReportingLevel()
 	}
 
 	setReportingLevel(lvl);
+}
+
+StopWatch::StopWatch(const std::string& elapsedMillisecondsMessage, LogLevel level)
+{ 
+	mMessage = elapsedMillisecondsMessage; 
+	mLevel = level;
+	mStartTicks = SDL_GetTicks();
+}
+
+StopWatch::~StopWatch()
+{
+	int elapsed = SDL_GetTicks() - mStartTicks;
+	LOG(mLevel) << mMessage << " " << elapsed << "ms";
 }

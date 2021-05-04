@@ -10,13 +10,11 @@ void rc_parse_trigger_internal(rc_trigger_t* self, const char** memaddr, rc_pars
   aux = *memaddr;
   next = &self->alternative;
 
-  parse->measured_target = 0; /* reset in case multiple triggers are parsed by the same parse_state */
-
   if (*aux == 's' || *aux == 'S') {
     self->requirement = 0;
   }
   else {
-    self->requirement = rc_parse_condset(&aux, parse, 0);
+    self->requirement = rc_parse_condset(&aux, parse);
 
     if (parse->offset < 0) {
       return;
@@ -27,7 +25,7 @@ void rc_parse_trigger_internal(rc_trigger_t* self, const char** memaddr, rc_pars
 
   while (*aux == 's' || *aux == 'S') {
     aux++;
-    *next = rc_parse_condset(&aux, parse, 0);
+    *next = rc_parse_condset(&aux, parse);
 
     if (parse->offset < 0) {
       return;
@@ -48,9 +46,7 @@ void rc_parse_trigger_internal(rc_trigger_t* self, const char** memaddr, rc_pars
 int rc_trigger_size(const char* memaddr) {
   rc_trigger_t* self;
   rc_parse_state_t parse;
-  rc_memref_t* memrefs;
   rc_init_parse_state(&parse, 0, 0, 0);
-  rc_init_parse_state_memrefs(&parse, &memrefs);
 
   self = RC_ALLOC(rc_trigger_t, &parse);
   rc_parse_trigger_internal(self, &memaddr, &parse);
@@ -62,6 +58,10 @@ int rc_trigger_size(const char* memaddr) {
 rc_trigger_t* rc_parse_trigger(void* buffer, const char* memaddr, lua_State* L, int funcs_ndx) {
   rc_trigger_t* self;
   rc_parse_state_t parse;
+
+  if (!buffer || !memaddr)
+    return 0;
+
   rc_init_parse_state(&parse, buffer, L, funcs_ndx);
 
   self = RC_ALLOC(rc_trigger_t, &parse);
@@ -70,7 +70,7 @@ rc_trigger_t* rc_parse_trigger(void* buffer, const char* memaddr, lua_State* L, 
   rc_parse_trigger_internal(self, &memaddr, &parse);
 
   rc_destroy_parse_state(&parse);
-  return parse.offset >= 0 ? self : 0;
+  return (parse.offset >= 0) ? self : 0;
 }
 
 static void rc_reset_trigger_hitcounts(rc_trigger_t* self) {

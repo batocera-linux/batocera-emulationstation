@@ -83,6 +83,18 @@ public:
 	static Features parseFeatures(const std::string features);
 };
 
+struct SystemFeature
+{
+	SystemFeature()
+	{
+		features = EmulatorFeatures::Features::none;
+	}
+
+	std::string name;
+	EmulatorFeatures::Features features;
+	std::vector<CustomFeature> customFeatures;
+};
+
 struct CoreData
 {
 	CoreData() 
@@ -101,6 +113,8 @@ struct CoreData
 	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
+
+	std::vector<SystemFeature> systemFeatures;
 };
 
 struct EmulatorData
@@ -118,6 +132,8 @@ struct EmulatorData
 	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
+
+	std::vector<SystemFeature> systemFeatures;
 };
 
 struct SystemMetadata
@@ -133,14 +149,14 @@ struct SystemMetadata
 struct SystemEnvironmentData
 {
 	std::string mStartPath;
-	std::vector<std::string> mSearchExtensions;
+	std::set<std::string> mSearchExtensions;
 	std::string mLaunchCommand;
 	std::vector<PlatformIds::PlatformId> mPlatformIds;
 	std::string mGroup;
 
-	bool isValidExtension(const std::string extension)
+	inline bool isValidExtension(const std::string& extension)
 	{
-		return std::find(mSearchExtensions.cbegin(), mSearchExtensions.cend(), extension) != mSearchExtensions.cend();
+		return mSearchExtensions.find(extension) != mSearchExtensions.cend();
 	}
 };
 
@@ -153,13 +169,14 @@ public:
 	static SystemData* getSystem(const std::string name);
 	static SystemData* getFirstVisibleSystem();
 
+	static std::map<std::string, EmulatorData> es_features;
 	static bool es_features_loaded;
 
 	inline FolderData* getRootFolder() const { return mRootFolder; };
 	inline const std::string& getName() const { return mMetadata.name; }
 	inline const std::string& getFullName() const { return mMetadata.fullName; }
 	inline const std::string& getStartPath() const { return mEnvData->mStartPath; }
-	inline const std::vector<std::string>& getExtensions() const { return mEnvData->mSearchExtensions; }
+	inline const std::set<std::string>& getExtensions() const { return mEnvData->mSearchExtensions; }
 	inline const std::string& getThemeFolder() const { return mMetadata.themeFolder; }
 	inline SystemEnvironmentData* getSystemEnvData() const { return mEnvData; }
 	inline const std::vector<PlatformIds::PlatformId>& getPlatformIds() const { return mEnvData->mPlatformIds; }
@@ -184,7 +201,10 @@ public:
 	static void writeExampleConfig(const std::string& path);
 	static std::string getConfigPath(bool forWrite); // if forWrite, will only return ~/.emulationstation/es_systems.cfg, never /etc/emulationstation/es_systems.cfg
 
-	static bool loadFeatures();
+	static bool loadEsFeaturesFile();
+	
+	bool loadFeatures();
+
 	static std::vector<CustomFeature> loadCustomFeatures(pugi::xml_node node);
 
 	static std::vector<SystemData*> sSystemVector;
@@ -290,6 +310,7 @@ public:
 	bool getShowFavoritesIcon();
 	bool getShowCheevosIcon();
 	int  getShowFlags();
+	std::string getFolderViewMode();
 	bool getBoolSetting(const std::string& settingName);
 
 	static void resetSettings();
@@ -324,7 +345,8 @@ private:
 	void populateFolder(FolderData* folder, std::unordered_map<std::string, FileData*>& fileMap);
 	void indexAllGameFilters(const FolderData* folder);
 	void setIsGameSystemStatus();
-	
+	void removeMultiDiskContent(std::unordered_map<std::string, FileData*>& fileMap);
+
 	static SystemData* loadSystem(pugi::xml_node system, bool fullMode = true);
 	static void loadAdditionnalConfig(pugi::xml_node& srcSystems);
 

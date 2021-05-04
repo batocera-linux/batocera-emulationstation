@@ -24,6 +24,7 @@
 #include "Gamelist.h"
 #include "components/OptionListComponent.h"
 #include "ApiSystem.h"
+#include "scrapers/Scraper.h"
 #include <set>
 
 GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector<MetaDataDecl>& mdd, ScraperSearchParams scraperParams,
@@ -232,7 +233,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 			if (iter->key == "video")
 				type = GuiFileBrowser::FileTypes::VIDEO;
-			else if (iter->key == "manual" || iter->key == "map")
+			else if (iter->key == "manual" || iter->key == "magazine" || iter->key == "map")
 				type = (GuiFileBrowser::FileTypes) (GuiFileBrowser::FileTypes::IMAGES | GuiFileBrowser::FileTypes::MANUALS);
 
 			auto updateVal = [ed, relativePath](const std::string& newVal)
@@ -399,20 +400,11 @@ bool GuiMetaDataEd::save()
 			}
 
 			if (mMetaData->getType(key) == MD_PATH && !val.empty() && filesToCopy.find(val) != filesToCopy.cend())
-			{
+			{				
 				auto rootPath = mMetaData->getRelativeRootPath();
 				auto sourceFile = Utils::FileSystem::resolveRelativePath(val, rootPath, true);
-				
-				std::string folder = "images";
-				if (key == "manual")
-					folder = "manuals";
-				else if (key == "video")
-					folder = "videos";
 
-				auto romName = mScraperParams.game->getFullPath();
-
-				auto destFile = Utils::FileSystem::getStem(romName) + "-" + key + Utils::FileSystem::getExtension(sourceFile);
-				destFile = Utils::FileSystem::combine(Utils::FileSystem::combine(rootPath, folder), destFile);
+				auto destFile = Scraper::getSaveAsPath(mScraperParams.game, mMetaData->getId(key), Utils::FileSystem::getExtension(sourceFile));
 
 				if (Utils::FileSystem::copyFile(sourceFile, destFile))
 					val = destFile;
@@ -493,7 +485,7 @@ void GuiMetaDataEd::fetchDone(const ScraperSearchResult& result)
 			continue;
 		
 		// Don't override medias when scrap result has nothing
-		if ((key == "image" || key == "thumbnail" || key == "marquee" || key == "fanart" || key == "titleshot" || key == "manual" || key == "map" || key == "video") && result.mdl.get(key).empty())
+		if ((key == "image" || key == "thumbnail" || key == "marquee" || key == "fanart" || key == "titleshot" || key == "manual" || key == "map" || key == "video" || key == "magazine") && result.mdl.get(key).empty())
 			continue;
 
 		mEditors.at(i)->setValue(result.mdl.get(key));

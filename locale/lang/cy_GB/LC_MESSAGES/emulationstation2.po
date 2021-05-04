@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -82,6 +82,12 @@ msgstr "Llawlyfr"
 
 msgid "enter path to manual"
 msgstr "gosod llwybr i'r llawlyfr"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "Map"
@@ -870,6 +876,9 @@ msgstr "CYFRYNGAU GÊM"
 msgid "VIEW GAME MANUAL"
 msgstr "GWELD LLAWLYFR Y GÊM"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "GWELD MAP Y GÊM"
 
@@ -1274,6 +1283,15 @@ msgstr "DEFNYDDIO CHWARAEWR OMX (HW CYFLYMEDIG)"
 msgid "TOOLS"
 msgstr "OFFER"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "GOFYNNIR I AILGYCHWYN Y SYSTEM I GADARNHAU'R FFURFWEDD NEWYDD"
+
 msgid "LOG LEVEL"
 msgstr "LEFEL LOG"
 
@@ -1318,6 +1336,9 @@ msgstr "DOD O HYD I BOB GEM GYDA RHWYDWAITH / CYFLAWNIADAU"
 
 msgid "DATA MANAGEMENT"
 msgstr "RHEOLI DATA"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "GALLUOGI FFILTRAU"
@@ -1460,9 +1481,6 @@ msgstr "DISGLEIRDEB"
 
 msgid "VIDEO OUTPUT"
 msgstr "ALLBWN FIDEO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "GOFYNNIR I AILGYCHWYN Y SYSTEM I GADARNHAU'R FFURFWEDD NEWYDD"
 
 msgid "AUDIO OUTPUT"
 msgstr "ALLBWN SAIN"

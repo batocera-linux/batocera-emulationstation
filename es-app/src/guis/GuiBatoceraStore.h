@@ -72,4 +72,6 @@ private:
 
 	std::string						mTabFilter;
 	std::string						mTextFilter;
+
+	std::string						mArchitecture;
 };

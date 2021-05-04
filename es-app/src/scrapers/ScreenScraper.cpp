@@ -120,11 +120,12 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ MOONLIGHT, 138 }, // "PC Windows"
 	{ MODEL3, 55 },
 	{ TI99, 205 },
+	{ WATARA_SUPERVISION, 207 },
 
 	// Windows
 	{ VISUALPINBALL, 198 },
 	{ FUTUREPINBALL, 199 },
-
+	
 	// Misc
 	{ VIC20, 73 },
 	{ ORICATMOS, 131 },
@@ -230,15 +231,28 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 
 		path += "&romtype=rom";
 
-		if (!params.game->getMetadata(MetaDataId::Md5).empty())
+		std::string fileNameToHash = params.game->getFullPath();
+		size_t length = Utils::FileSystem::getFileSize(fileNameToHash);
+
+		if (length > 1024 * 1024 && !params.game->getMetadata(MetaDataId::Md5).empty()) // 1Mb
 			path += "&md5=" + params.game->getMetadata(MetaDataId::Md5);
 		else
 		{
+
+			if (params.game->hasContentFiles() && Utils::String::toLower(Utils::FileSystem::getExtension(fileNameToHash)) == ".m3u")
+			{
+				auto content = params.game->getContentFiles();
+				if (content.size())
+				{
+					fileNameToHash = (*content.begin());
+					length = Utils::FileSystem::getFileSize(fileNameToHash);
+				}
+			}
+
 			// Use md5 to search scrapped game
-			size_t length = Utils::FileSystem::getFileSize(params.game->getFullPath());
 			if (length > 0 && length <= 131072 * 1024) // 128 Mb max
-			{												
-				std::string val = ApiSystem::getInstance()->getMD5(params.game->getFullPath(), params.system->shouldExtractHashesFromArchives());
+			{		
+				std::string val = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
 				if (!val.empty())
 				{
 					params.game->setMetadata(MetaDataId::Md5, val);

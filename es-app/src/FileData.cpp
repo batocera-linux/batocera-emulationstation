@@ -556,6 +556,147 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	return exitCode == 0;
 }
 
+
+bool FileData::hasContentFiles()
+{
+	if (mPath.empty())
+		return false;
+
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mPath));
+	if (ext == ".m3u" || ext == ".cue" || ext == ".ccd" || ext == ".gdi")
+		return getSourceFileData()->getSystemEnvData()->isValidExtension(ext) && getSourceFileData()->getSystemEnvData()->mSearchExtensions.size() > 1;
+
+	return false;
+}
+
+static std::vector<std::string> getTokens(const std::string& string)
+{
+	std::vector<std::string> tokens;
+
+	bool inString = false;
+	int startPos = 0;
+	int i = 0;
+	for (;;)
+	{
+		char c = string[i];
+
+		switch (c)
+		{
+		case '\"':
+			inString = !inString;
+			if (inString)
+				startPos = i + 1;
+
+		case '\0':
+		case ' ':
+		case '\t':
+		case '\r':
+		case '\n':
+			if (!inString)
+			{
+				std::string value = string.substr(startPos, i - startPos);
+				if (!value.empty())
+					tokens.push_back(value);
+
+				startPos = i + 1;
+			}
+			break;
+		}
+
+		if (c == '\0')
+			break;
+
+		i++;
+	}
+
+	return tokens;
+}
+
+std::set<std::string> FileData::getContentFiles()
+{
+	std::set<std::string> files;
+
+	if (mPath.empty())
+		return files;
+
+	if (Utils::FileSystem::isDirectory(mPath))
+	{
+		for (auto file : Utils::FileSystem::getDirContent(mPath, true, true))
+			files.insert(file);
+	}
+	else if (hasContentFiles())
+	{
+		auto path = Utils::FileSystem::getParent(mPath);
+		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(mPath));
+
+		if (ext == ".cue")
+		{
+			std::string start = "FILE";
+
+			std::ifstream cue(WINSTRINGW(mPath));
+			if (cue && cue.is_open())
+			{
+				std::string line;
+				while (std::getline(cue, line))
+				{
+					if (!Utils::String::startsWith(line, start))
+						continue;
+
+					auto tokens = getTokens(line);
+					if (tokens.size() > 1)
+						files.insert(path + "/" + tokens[1]);
+				}
+
+				cue.close();
+			}
+		}
+		else if (ext == ".ccd")
+		{
+			std::string stem = Utils::FileSystem::getStem(mPath);
+			files.insert(path + "/" + stem + ".cue");
+			files.insert(path + "/" + stem + ".img");
+			files.insert(path + "/" + stem + ".bin");
+			files.insert(path + "/" + stem + ".sub");
+		}
+		else if (ext == ".m3u")
+		{
+			std::ifstream m3u(WINSTRINGW(mPath));
+			if (m3u && m3u.is_open())
+			{
+				std::string line;
+				while (std::getline(m3u, line))
+				{
+					auto trim = Utils::String::trim(line);
+					if (trim[0] == '#' || trim[0] == '\\' || trim[0] == '/')
+						continue;
+
+					files.insert(path + "/" + trim);
+				}
+
+				m3u.close();
+			}
+		}
+		else if (ext == ".gdi")
+		{
+			std::ifstream gdi(WINSTRINGW(mPath));
+			if (gdi && gdi.is_open())
+			{
+				std::string line;
+				while (std::getline(gdi, line))
+				{
+					auto tokens = getTokens(line);
+					if (tokens.size() > 5 && tokens[4].find(".") != std::string::npos)
+						files.insert(path + "/" + tokens[4]);
+				}
+
+				gdi.close();
+			}			
+		}
+	}
+
+	return files;
+}
+
 void FileData::deleteGameFiles()
 {
 	for (auto mdd : mMetadata.getMDD())
@@ -567,6 +708,9 @@ void FileData::deleteGameFiles()
 	}
 
 	Utils::FileSystem::removeFile(getPath());
+
+	for (auto contentFile : getContentFiles())
+		Utils::FileSystem::removeFile(contentFile);
 }
 
 CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
@@ -619,16 +763,8 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 {
 	std::vector<FileData*> ret;
 
-	std::string showFoldersMode = Settings::getInstance()->getString("FolderViewMode");
-
-	auto fvm = Settings::getInstance()->getString(getSystem()->getName() + ".FolderViewMode");
-	if (!fvm.empty() && fvm != "auto") showFoldersMode = fvm;
+	std::string showFoldersMode = getSystem()->getFolderViewMode();
 	
-	if ((fvm.empty() || fvm == "auto") && getSystem() == CollectionSystemManager::get()->getCustomCollectionsBundle())
-		showFoldersMode = "always";
-	else if (getSystem()->getName() == "windows_installers")
-		showFoldersMode = "always";
-
 	bool showHiddenFiles = Settings::getInstance()->getBool("ShowHiddenFiles");
 
 	auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");

@@ -84,7 +84,12 @@ const std::map<PlatformId, unsigned short> cheevosConsoleID
 	{ FMTOWNS, RC_CONSOLE_FM_TOWNS },
 	{ NOKIA_NGAGE, RC_CONSOLE_NOKIA_NGAGE },
 	{ PHILIPS_CDI, RC_CONSOLE_CDI },
-	// { CASSETTEVISION, RC_CONSOLE_CASSETTEVISION },	
+	{ WATARA_SUPERVISION, RC_CONSOLE_SUPERVISION },
+	{ SHARP_X1, RC_CONSOLE_SHARPX1 },
+	{ TIC80, RC_CONSOLE_TIC80 },
+	{ THOMSON_TO_MO, RC_CONSOLE_THOMSONTO8 },
+
+	//{ CASSETTE_VISION, RC_CONSOLE_CASSETTEVISION },	
 };
 
 const std::set<unsigned short> consolesWithmd5hashes 
@@ -112,7 +117,8 @@ const std::set<unsigned short> consolesWithmd5hashes
 	RC_CONSOLE_SG1000,
 	RC_CONSOLE_VECTREX,
 	RC_CONSOLE_VIRTUAL_BOY,
-	RC_CONSOLE_WONDERSWAN
+	RC_CONSOLE_WONDERSWAN,
+	RC_CONSOLE_SUPERVISION
 };
 
 std::string RetroAchievements::getApiUrl(const std::string method, const std::string parameters)

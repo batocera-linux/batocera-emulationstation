@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,6 +78,12 @@ msgstr "매뉴얼"
 
 msgid "enter path to manual"
 msgstr "매뉴얼 경로 입력"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "맵"
@@ -861,6 +867,9 @@ msgstr "게임 미디어"
 msgid "VIEW GAME MANUAL"
 msgstr "게임 매뉴얼 보기"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "게임 맵 보기"
 
@@ -1265,6 +1274,15 @@ msgstr ""
 msgid "TOOLS"
 msgstr "도구"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재시작이 필요합니다."
+
 msgid "LOG LEVEL"
 msgstr "로그 레벨"
 
@@ -1308,6 +1326,9 @@ msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1450,9 +1471,6 @@ msgstr "화면밝기"
 
 msgid "VIDEO OUTPUT"
 msgstr "비디오 출력"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재시작이 필요합니다."
 
 msgid "AUDIO OUTPUT"
 msgstr "오디오 출력"

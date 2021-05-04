@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,6 +78,12 @@ msgstr "Manual"
 
 msgid "enter path to manual"
 msgstr "introduïu el camí per al manual"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "Mapa"
@@ -1264,6 +1270,12 @@ msgstr "USAR REPRODUCTOR OMX (ACCELERACIÓ PER HW)"
 msgid "TOOLS"
 msgstr "EINES"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
 msgid "LOG LEVEL"
 msgstr "NIVELL DE TRAÇA"
 
@@ -1308,6 +1320,9 @@ msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIÓ DE DADES"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "HABILITAR FILTRES"

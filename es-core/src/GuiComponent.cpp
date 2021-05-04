@@ -495,9 +495,23 @@ bool GuiComponent::isStoryBoardRunning(const std::string& name)
 	return mStoryboardAnimator != nullptr && mStoryboardAnimator->isRunning();
 }
 
-bool GuiComponent::storyBoardExists(const std::string& name)
+bool GuiComponent::storyBoardExists(const std::string& name, const std::string& propertyName)
 {
-	return mStoryBoards.size() > 0 && mStoryBoards.find(name) != mStoryBoards.cend();
+	if (mStoryBoards.size() > 0)
+	{
+		auto it = mStoryBoards.find(name);
+		if (it == mStoryBoards.cend())
+			return false;
+
+		if (propertyName.empty())
+			return true;
+		
+		for (auto animation : it->second->animations)
+			if (animation->propertyName == propertyName)
+				return true;
+	}
+
+	return false;
 }
 
 bool GuiComponent::selectStoryboard(const std::string& name)

@@ -1185,4 +1185,18 @@ std::string Win32ApiSystem::getSevenZipCommand()
 	return "";
 }
 
+
+std::string Win32ApiSystem::getHostsName()
+{
+	char buffer[256] = "";
+	DWORD size = sizeof(buffer);
+	if (GetComputerNameA(buffer, &size))
+	{
+		buffer[size] = '\0';
+		return buffer;
+	}
+
+	return "127.0.0.1";
+}
 #endif
+

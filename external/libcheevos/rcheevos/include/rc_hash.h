@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#include "rconsoles.h"
+#include "rc_consoles.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -92,11 +92,7 @@ extern "C" {
 
   /* ===================================================== */
 
-  #define RC_HASH_CDTRACK_FIRST_DATA ((uint32_t)-1)
-  #define RC_HASH_CDTRACK_LAST ((uint32_t)-2)
-  #define RC_HASH_CDTRACK_LARGEST ((uint32_t)-3)
-
-  /* opens a track from the specified file. track 0 indicates the largest data track should be opened.
+  /* opens a track from the specified file. track 0 indicates the first data track should be opened.
    * returns a handle to be passed to the other functions, or NULL if the track could not be opened.
    */
   typedef void* (*rc_hash_cdreader_open_track_handler)(const char* path, uint32_t track);
@@ -109,18 +105,14 @@ extern "C" {
   /* closes the track handle */
   typedef void (*rc_hash_cdreader_close_track_handler)(void* track_handle);
 
-  /* convert absolute sector to track sector */
-  typedef uint32_t(*rc_hash_cdreader_absolute_sector_to_track_sector)(void* track_handle, uint32_t sector);
-
   struct rc_hash_cdreader
   {
-    rc_hash_cdreader_open_track_handler              open_track;
-    rc_hash_cdreader_read_sector_handler             read_sector;
-    rc_hash_cdreader_close_track_handler             close_track;
-    rc_hash_cdreader_absolute_sector_to_track_sector absolute_sector_to_track_sector;
+    rc_hash_cdreader_open_track_handler      open_track;
+    rc_hash_cdreader_read_sector_handler     read_sector;
+    rc_hash_cdreader_close_track_handler     close_track;
   };
 
-  void rc_hash_init_default_cdreader();
+  void rc_hash_init_default_cdreader(void);
   void rc_hash_init_custom_cdreader(struct rc_hash_cdreader* reader);
 
   /* ===================================================== */

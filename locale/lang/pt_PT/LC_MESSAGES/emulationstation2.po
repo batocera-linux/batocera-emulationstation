@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -81,6 +81,12 @@ msgstr "Manual"
 
 msgid "enter path to manual"
 msgstr "insira o caminho para o manual"
+
+msgid "Magazine"
+msgstr "Revista"
+
+msgid "enter path to magazine"
+msgstr "insira o caminho para a revista"
 
 msgid "Map"
 msgstr "Mapa"
@@ -865,6 +871,9 @@ msgstr "MÍDIAS DE JOGOS"
 msgid "VIEW GAME MANUAL"
 msgstr "VISUALIZAR MANUAL DO JOGO"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr "VER REVISTA DE JOGOS"
+
 msgid "VIEW GAME MAP"
 msgstr "VISUALIZAR MAPA DO JOGO"
 
@@ -1237,13 +1246,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISCO DO SISTEMA"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "FABRICANTE DA PLACA GRÁFICA"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "RENDERIZADOR DA PLACA GRÁFICA"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "VERSÃO DA PLACA GRÁFICA"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -1268,6 +1277,15 @@ msgstr "USAR REPRODUTOR OMX (ACELERADO POR HARDWARE)"
 
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
+
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "LOG LEVEL"
 msgstr "NÍVEL DO LOG"
@@ -1313,6 +1331,9 @@ msgstr "ENCONTRAR TODOS OS JOGOS COM NETPLAY/CONQUISTAS"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTÃO DE DADOS"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr "IGNORE O CONTEÚDO DE MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1454,9 +1475,6 @@ msgstr "BRILHO"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAÍDA DE VÍDEO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"

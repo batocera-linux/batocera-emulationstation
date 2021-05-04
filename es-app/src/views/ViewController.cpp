@@ -999,6 +999,8 @@ void ViewController::reloadGameListView(IGameListView* view)
 	if (view == nullptr)
 		return;
 
+	Vector3f position = view->getPosition();
+
 	bool isCurrent = mCurrentView != nullptr && mCurrentView.get() == view;
 	if (isCurrent)
 	{
@@ -1027,6 +1029,7 @@ void ViewController::reloadGameListView(IGameListView* view)
 		if (isCurrent)
 		{		
 			mCurrentView = newView;
+			mCurrentView->setPosition(position);
 
 			ISimpleGameListView* view = dynamic_cast<ISimpleGameListView*>(newView.get());
 			if (view != nullptr)

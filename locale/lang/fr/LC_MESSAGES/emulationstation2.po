@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -81,6 +81,12 @@ msgstr "Manuel"
 
 msgid "enter path to manual"
 msgstr "entrer le chemin vers le manuel"
+
+msgid "Magazine"
+msgstr "Magazine"
+
+msgid "enter path to magazine"
+msgstr "entrer le chemin vers le magazine"
 
 msgid "Map"
 msgstr "Carte"
@@ -865,6 +871,9 @@ msgstr "MEDIAS DU JEU"
 msgid "VIEW GAME MANUAL"
 msgstr "VOIR LE MANUEL DU JEU"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr "VOIR LE MAGAZINE DU JEU"
+
 msgid "VIEW GAME MAP"
 msgstr "VOIR LA CARTE DU JEU"
 
@@ -1267,6 +1276,15 @@ msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION HW)"
 msgid "TOOLS"
 msgstr "OUTILS"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
+
 msgid "LOG LEVEL"
 msgstr "NIVEAU DE LOG"
 
@@ -1311,6 +1329,9 @@ msgstr "TROUVER TOUS LES JEUX AVEC PARTIES EN RÉSEAU/SUCCÈS"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr "IGNORER LE CONTENU DU DISQUE MULTI-FICHIERS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
@@ -1453,9 +1474,6 @@ msgstr "LUMINOSITÉ"
 
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDÉO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"

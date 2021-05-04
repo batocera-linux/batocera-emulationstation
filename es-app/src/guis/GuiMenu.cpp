@@ -1132,9 +1132,18 @@ void GuiMenu::openDeveloperSettings()
 	s->addGroup(_("LOGGING"));
 #else
 	s->addGroup(_("TOOLS"));
+	
+	auto hostName = Utils::String::toLower(ApiSystem::getInstance()->getHostsName());
+
+	auto webAccess = std::make_shared<SwitchComponent>(mWindow);
+	webAccess->setState(Settings::getInstance()->getBool("PublicWebAccess"));
+	s->addWithDescription(_("ENABLE PUBLIC WEB ACCESS"), _("Allow public web access API using ") + " http://" + hostName + ":1234", webAccess);
+	s->addSaveFunc([webAccess, window]
+	{ 
+		if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState()))
+			window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	});
 #endif
-
-
 
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
@@ -1283,6 +1292,12 @@ void GuiMenu::openDeveloperSettings()
 	
 	s->addGroup(_("DATA MANAGEMENT"));
 
+	// ExcludeMultiDiskContent
+	auto excludeMultiDiskContent = std::make_shared<SwitchComponent>(mWindow);
+	excludeMultiDiskContent->setState(Settings::getInstance()->getBool("RemoveMultiDiskContent"));
+	s->addWithLabel(_("IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"), excludeMultiDiskContent);
+	s->addSaveFunc([excludeMultiDiskContent] { Settings::getInstance()->setBool("RemoveMultiDiskContent", excludeMultiDiskContent->getState()); });
+
 	// enable filters (ForceDisableFilters)
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
 	enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
@@ -1304,12 +1319,11 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("PARSE GAMESLISTS ONLY"), parse_gamelists);
 	s->addSaveFunc([parse_gamelists] { Settings::getInstance()->setBool("ParseGamelistOnly", parse_gamelists->getState()); });
 
-
+	// Local Art
 	auto local_art = std::make_shared<SwitchComponent>(mWindow);
 	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
 	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
-
 
 	s->addGroup(_("UI"));
 
@@ -1597,6 +1611,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("正體中文", 	     "zh_TW", language == "zh_TW");
 	s->addWithLabel(_("LANGUAGE"), language_choice);
 
+#if !defined(_ENABLEEMUELEC)
 	// Timezone
 #if !defined(WIN32) || defined(_DEBUG)
 	auto availableTimezones = ApiSystem::getInstance()->getTimezones();
@@ -1618,6 +1633,7 @@ void GuiMenu::openSystemSettings_batocera()
 				ApiSystem::getInstance()->setTimezone(tzChoices->getSelected());
 				});
 	}
+#endif
 #endif
 	// Clock time format (14:42 or 2:42 pm)
 	auto tmFormat = std::make_shared<SwitchComponent>(mWindow);

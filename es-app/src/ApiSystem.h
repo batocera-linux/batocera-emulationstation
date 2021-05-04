@@ -59,6 +59,8 @@ struct PacmanPackage
 	std::string group;
 	std::vector<std::string> licenses;	
 
+	std::string arch;
+
 	bool isInstalled() { return status == "installed"; }
 };
 
@@ -182,6 +184,8 @@ public:
 	virtual int getPdfPageCount(const std::string fileName);
 	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1, bool bestQuality = false);
 
+	virtual std::string getRunningArchitecture();
+
 	std::vector<PacmanPackage> getBatoceraStorePackages();
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 	std::pair<std::string, int> uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
@@ -209,6 +213,7 @@ public:
 	virtual bool setTimezone(std::string tz);
 
 	virtual std::vector<PadInfo> getPadsInfo();
+	virtual std::string getHostsName();
 
 protected:
 	ApiSystem();

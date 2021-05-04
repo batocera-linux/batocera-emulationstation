@@ -117,6 +117,7 @@ void Settings::setDefaults()
 	mBoolMap["SaveGamelistsOnExit"] = true;	
 	mStringMap["ShowBattery"] = "text";	
 	mBoolMap["CheckBiosesAtLaunch"] = true;
+	mBoolMap["RemoveMultiDiskContent"] = true;
 	
 #if WIN32
 	mBoolMap["ShowNetworkIndicator"] = false;
@@ -229,6 +230,7 @@ void Settings::setDefaults()
 	mBoolMap["FavoritesFirst"] = false;
 
 	mBoolMap["LocalArt"] = false;
+	mBoolMap["WebServices"] = false;
 
 	// Audio out device for volume control
 	#if defined _RPI_ || defined _ENABLEEMUELEC

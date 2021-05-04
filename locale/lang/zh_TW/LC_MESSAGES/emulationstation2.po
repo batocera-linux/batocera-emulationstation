@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -81,6 +81,12 @@ msgstr "使用手冊"
 
 msgid "enter path to manual"
 msgstr "輸入使用手冊路徑"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "地圖"
@@ -864,6 +870,9 @@ msgstr "遊戲資料庫"
 msgid "VIEW GAME MANUAL"
 msgstr "觀看遊戲使用手冊"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "觀看遊戲圖片"
 
@@ -1267,6 +1276,15 @@ msgstr ""
 msgid "TOOLS"
 msgstr "工具"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "需要從重啟動才可以保存新的設定"
+
 msgid "LOG LEVEL"
 msgstr "日誌等級"
 
@@ -1310,6 +1328,9 @@ msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1452,9 +1473,6 @@ msgstr "亮度"
 
 msgid "VIDEO OUTPUT"
 msgstr "影像輸出"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要從重啟動才可以保存新的設定"
 
 msgid "AUDIO OUTPUT"
 msgstr "聲音輸出"

@@ -44,6 +44,7 @@ public:
 	std::vector<std::string> getShaderList(const std::string systemName = "") override;
 
 	virtual std::string getSevenZipCommand() override;
+	virtual std::string getHostsName() override;
 
 protected:
 	bool executeScript(const std::string command) override;

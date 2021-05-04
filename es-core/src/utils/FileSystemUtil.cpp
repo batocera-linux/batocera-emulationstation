@@ -472,7 +472,7 @@ namespace Utils
 			homePath = Utils::FileSystem::getGenericPath(_path);
 		}
 
-		std::string getHomePath()
+		std::string& getHomePath()
 		{
 			if (homePath.length())
 				return homePath;
@@ -1270,29 +1270,28 @@ namespace Utils
 
 		std::string	readAllText(const std::string fileName)
 		{
-#if defined(_WIN32)
-			std::ifstream t(Utils::String::convertToWideString(fileName));
-#else
-			std::ifstream t(fileName);
-#endif
+			std::ifstream t(WINSTRINGW(fileName));
 
 			std::stringstream buffer;
 			buffer << t.rdbuf();
 			return buffer.str();
 		}
 
-		void writeAllText(const std::string fileName, const std::string text)
+		void writeAllText(const std::string& fileName, const std::string& text)
 		{
-			std::fstream fs;
-
 #if defined(_WIN32)
-			fs.open(Utils::String::convertToWideString(fileName), std::fstream::out);
+			FILE* file = _wfopen(Utils::String::convertToWideString(fileName).c_str(), L"wb");
 #else
-			fs.open(fileName.c_str(), std::fstream::out);
+			FILE* file = fopen(fileName.c_str(), "wb");
 #endif
+			if (file == nullptr)
+				return;		
 
-			fs << text;
-			fs.close();
+			void* buffer = (void*) text.data();
+			size_t size = text.size();
+
+			fwrite(buffer, 1, size, file);
+			fclose(file);
 		}
 
 		bool renameFile(const std::string src, const std::string dst, bool overWrite)
@@ -1320,6 +1319,8 @@ namespace Utils
 			// don't remove if it doesn't exists
 			if (!exists(path))
 				return true;
+
+			Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(pathD));
 
 			char buf[512];
 			size_t size;

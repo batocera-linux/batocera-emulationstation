@@ -73,38 +73,34 @@ enum {
   RC_MEMSIZE_BIT_5,
   RC_MEMSIZE_BIT_6,
   RC_MEMSIZE_BIT_7,
-  RC_MEMSIZE_BITCOUNT,
-  RC_MEMSIZE_VARIABLE
+  RC_MEMSIZE_BITCOUNT
 };
 
-typedef struct rc_memref_value_t {
-  /* The current value of this memory reference. */
+typedef struct {
+  /* The memory address of this variable. */
+  unsigned address;
+  /* The size of the variable. */
+  char size;
+  /* True if the reference will be used in indirection */
+  char is_indirect;
+} rc_memref_t;
+
+typedef struct rc_memref_value_t rc_memref_value_t;
+
+struct rc_memref_value_t {
+  /* The value of this memory reference. */
   unsigned value;
+  /* The previous value of this memory reference. */
+  unsigned previous;
   /* The last differing value of this memory reference. */
   unsigned prior;
 
-  /* The size of the value. */
-  char size;
-  /* True if the value changed this frame. */
-  char changed;
-  /* True if the reference will be used in indirection.
-   * NOTE: This is actually a property of the rc_memref_t, but we put it here to save space */
-  char is_indirect;
-} rc_memref_value_t;
+  /* The referenced memory */
+  rc_memref_t memref;
 
-typedef struct rc_memref_t rc_memref_t;
-
-struct rc_memref_t {
-  /* The current value at the specified memory address. */
-  rc_memref_value_t value;
-
-  /* The memory address of this variable. */
-  unsigned address;
-
-  /* The next memory reference in the chain. */
-  rc_memref_t* next;
+  /* The next memory reference in the chain */
+  rc_memref_value_t* next;
 };
-
 
 /*****************************************************************************\
 | Operands                                                                    |
@@ -118,14 +114,14 @@ enum {
   RC_OPERAND_FP,             /* A floating point value. */
   RC_OPERAND_LUA,            /* A Lua function that provides the value. */
   RC_OPERAND_PRIOR,          /* The last differing value at this address. */
-  RC_OPERAND_BCD,            /* The BCD-decoded value of a live address in RAM. */
-  RC_OPERAND_INVERTED        /* The twos-complement value of a live address in RAM. */
+  RC_OPERAND_BCD,            /* The BCD-decoded value of a live address in RAM */
+  RC_OPERAND_INVERTED        /* The twos-complement value of a live address in RAM */
 };
 
 typedef struct {
   union {
     /* A value read from memory. */
-    rc_memref_t* memref;
+    rc_memref_value_t* memref;
 
     /* An integer value. */
     unsigned num;
@@ -249,7 +245,7 @@ typedef struct {
   rc_condset_t* alternative;
 
   /* The memory references required by the trigger. */
-  rc_memref_t* memrefs;
+  rc_memref_value_t* memrefs;
 
   /* The current state of the MEASURED condition. */
   unsigned measured_value;
@@ -275,24 +271,14 @@ void rc_reset_trigger(rc_trigger_t* self);
 | Values                                                                      |
 \*****************************************************************************/
 
-typedef struct rc_value_t rc_value_t;
-
-struct rc_value_t {
-  /* The current value of the variable. */
-  rc_memref_value_t value;
-
+typedef struct {
   /* The list of conditions to evaluate. */
   rc_condset_t* conditions;
 
   /* The memory references required by the value. */
-  rc_memref_t* memrefs;
-
-  /* The name of the variable. */
-  const char* name;
-
-  /* The next variable in the chain. */
-  rc_value_t* next;
-};
+  rc_memref_value_t* memrefs;
+}
+rc_value_t;
 
 int rc_value_size(const char* memaddr);
 rc_value_t* rc_parse_value(void* buffer, const char* memaddr, lua_State* L, int funcs_ndx);
@@ -318,7 +304,7 @@ typedef struct {
   rc_trigger_t cancel;
   rc_value_t value;
   rc_value_t* progress;
-  rc_memref_t* memrefs;
+  rc_memref_value_t* memrefs;
 
   char state;
 }
@@ -354,20 +340,17 @@ int rc_format_value(char* buffer, int size, int value, int format);
 typedef struct rc_richpresence_lookup_item_t rc_richpresence_lookup_item_t;
 
 struct rc_richpresence_lookup_item_t {
-  unsigned first;
-  unsigned last;
-  rc_richpresence_lookup_item_t* left;
-  rc_richpresence_lookup_item_t* right;
+  unsigned value;
+  rc_richpresence_lookup_item_t* next_item;
   const char* label;
 };
 
 typedef struct rc_richpresence_lookup_t rc_richpresence_lookup_t;
 
 struct rc_richpresence_lookup_t {
-  rc_richpresence_lookup_item_t* root;
+  rc_richpresence_lookup_item_t* first_item;
   rc_richpresence_lookup_t* next;
   const char* name;
-  const char* default_label;
   unsigned short format;
 };
 
@@ -376,8 +359,8 @@ typedef struct rc_richpresence_display_part_t rc_richpresence_display_part_t;
 struct rc_richpresence_display_part_t {
   rc_richpresence_display_part_t* next;
   const char* text;
-  rc_richpresence_lookup_t* lookup;
-  rc_memref_value_t *value;
+  rc_richpresence_lookup_item_t* first_lookup_item;
+  rc_value_t value;
   unsigned short display_type;
 };
 
@@ -392,8 +375,7 @@ struct rc_richpresence_display_t {
 typedef struct {
   rc_richpresence_display_t* first_display;
   rc_richpresence_lookup_t* first_lookup;
-  rc_memref_t* memrefs;
-  rc_value_t* variables;
+  rc_memref_value_t* memrefs;
 }
 rc_richpresence_t;
 
@@ -410,6 +392,7 @@ typedef struct rc_runtime_trigger_t {
   rc_trigger_t* trigger;
   void* buffer;
   unsigned char md5[16];
+  int serialized_size;
   char owns_memrefs;
 }
 rc_runtime_trigger_t;
@@ -445,11 +428,8 @@ typedef struct rc_runtime_t {
   char* richpresence_display_buffer;
   char  richpresence_update_timer;
 
-  rc_memref_t* memrefs;
-  rc_memref_t** next_memref;
-
-  rc_value_t* variables;
-  rc_value_t** next_variable;
+  rc_memref_value_t* memrefs;
+  rc_memref_value_t** next_memref;
 }
 rc_runtime_t;
 

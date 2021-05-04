@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -86,6 +86,12 @@ msgid "Manual"
 msgstr "Manual"
 
 msgid "enter path to manual"
+msgstr ""
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
 msgstr ""
 
 msgid "Map"
@@ -871,6 +877,9 @@ msgstr "MÈDIAS JÒC"
 msgid "VIEW GAME MANUAL"
 msgstr "VEIRE MANUAL DEL JÒC"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "VEIRE LA MAPA DEL JÒC"
 
@@ -1270,6 +1279,15 @@ msgstr ""
 msgid "TOOLS"
 msgstr "AISINAS"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+
 msgid "LOG LEVEL"
 msgstr ""
 
@@ -1313,6 +1331,9 @@ msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1452,9 +1473,6 @@ msgstr "LUMINOSITAT"
 
 msgid "VIDEO OUTPUT"
 msgstr "SORTIDA VIDÈO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIDA ÀUDIO"

@@ -29,7 +29,7 @@ static int rc_parse_operand_lua(rc_operand_t* self, const char** memaddr, rc_par
     return RC_INVALID_LUA_OPERAND;
   }
 
-  if (!isalpha(*aux)) {
+  if (!isalpha((unsigned char)*aux)) {
     return RC_INVALID_LUA_OPERAND;
   }
 
@@ -37,7 +37,7 @@ static int rc_parse_operand_lua(rc_operand_t* self, const char** memaddr, rc_par
   id = aux;
 #endif
 
-  while (isalnum(*aux) || *aux == '_') {
+  while (isalnum((unsigned char)*aux) || *aux == '_') {
     aux++;
   }
 
@@ -145,7 +145,7 @@ static int rc_parse_operand_memory(rc_operand_t* self, const char** memaddr, rc_
     address = 0xffffffffU;
   }
 
-  self->value.memref = rc_alloc_memref(parse, address, size, is_indirect);
+  self->value.memref = rc_alloc_memref_value(parse, address, size, is_indirect);
   if (parse->offset < 0)
     return parse->offset;
 
@@ -204,10 +204,9 @@ int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, i
       break;
 
     case 'v': case 'V': /* signed integer constant */
-      ++aux;
-      /* fallthrough */
-    case '+': case '-': /* signed integer constant */
       negative = 0;
+      ++aux;
+
       if (*aux == '-')
       {
         negative = 1;
@@ -239,7 +238,7 @@ int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, i
       break;
 
     case '0':
-      if (aux[1] == 'x' || aux[1] == 'X') { /* hex integer constant */
+      if (aux[1] == 'x' || aux[1] == 'X') {
         /* fall through */
     default:
         ret = rc_parse_operand_memory(self, &aux, parse, is_indirect);
@@ -252,7 +251,8 @@ int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, i
       }
 
       /* fall through for case '0' where not '0x' */
-    case '1': case '2': case '3': case '4': case '5': /* unsigned integer constant */
+    case '+': case '-':
+    case '1': case '2': case '3': case '4': case '5':
     case '6': case '7': case '8': case '9':
       value = strtoul(aux, &end, 10);
 
@@ -312,7 +312,7 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
   rc_luapeek_t luapeek;
 #endif /* RC_DISABLE_LUA */
 
-  unsigned value;
+  unsigned value = 0;
 
   /* step 1: read memory */
   switch (self->type) {
@@ -324,9 +324,8 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
       return 0;
 
     case RC_OPERAND_LUA:
-      value = 0;
-
 #ifndef RC_DISABLE_LUA
+
       if (eval_state->L != 0) {
         lua_rawgeti(eval_state->L, LUA_REGISTRYINDEX, self->value.luafunc);
         lua_pushcfunction(eval_state->L, rc_luapeek);
@@ -352,8 +351,18 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
 
       break;
 
-    default:
-      value = rc_get_memref_value(self->value.memref, self->type, eval_state);
+    case RC_OPERAND_ADDRESS:
+    case RC_OPERAND_BCD:
+    case RC_OPERAND_INVERTED:
+      value = rc_get_indirect_memref(self->value.memref, eval_state)->value;
+      break;
+
+    case RC_OPERAND_DELTA:
+      value = rc_get_indirect_memref(self->value.memref, eval_state)->previous;
+      break;
+
+    case RC_OPERAND_PRIOR:
+      value = rc_get_indirect_memref(self->value.memref, eval_state)->prior;
       break;
   }
 
@@ -404,9 +413,6 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
       value = rc_bits_set[(value & 0x0F)]
             + rc_bits_set[((value >> 4) & 0x0F)];
       break;
-
-    default:
-      break;
   }
 
   /* step 3: apply logic */
@@ -437,7 +443,6 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
           break;
 
         case RC_MEMSIZE_32_BITS:
-        case RC_MEMSIZE_VARIABLE:
           value = ((value >> 28) & 0x0f) * 10000000
                 + ((value >> 24) & 0x0f) * 1000000
                 + ((value >> 20) & 0x0f) * 100000
@@ -474,7 +479,6 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
           break;
 
         case RC_MEMSIZE_32_BITS:
-        case RC_MEMSIZE_VARIABLE:
           value ^= 0xffffffff;
           break;
 

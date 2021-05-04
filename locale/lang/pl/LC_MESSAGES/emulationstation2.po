@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -82,6 +82,12 @@ msgstr "Instrukcja"
 
 msgid "enter path to manual"
 msgstr "wprowadź ścieżkę do"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "Mapa"
@@ -370,7 +376,7 @@ msgid "CREATE CUSTOM COLLECTION"
 msgstr "STWÓRZ KOLEKCJĘ NIESTANDARDOWĄ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "STWÓRZ NOWĄ NIESTANDARDOWĄ KOLEKCJĘ Z MOTYWU"
+msgstr "STWÓRZ NOWĄ KOLEKCJĘ NIESTANDARDOWĄ Z MOTYWU"
 
 msgid "SELECT THEME FOLDER"
 msgstr "WYBIERZ FOLDER MOTYWU"
@@ -418,7 +424,7 @@ msgid "START ON GAMELIST"
 msgstr "URUCHOM Z LISTĄ GIER"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPUJ NIESTANDARDOWE KOLEKCJE BEZ MOTYWU"
+msgstr "GRUPUJ KOLEKCJE NIESTANDARDOWE BEZ MOTYWU"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "POKAŻ NAZWĘ SYSTEMU W KOLEKCJACH"
@@ -867,6 +873,9 @@ msgstr "MEDIA GRY"
 msgid "VIEW GAME MANUAL"
 msgstr "ZOBACZ INSTRUKCJĘ DO GRY"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "ZOBACZ MAPĘ GRY"
 
@@ -886,7 +895,7 @@ msgid "SAVE SNAPSHOTS"
 msgstr "ZAPISYWANIE MIGAWEK"
 
 msgid "OPEN"
-msgstr ""
+msgstr "OTWÓRZ"
 
 msgid "START NETPLAY HOST"
 msgstr "URUCHOM HOSTA NETPLAY"
@@ -913,10 +922,10 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY..."
 
 msgid "DELETE ITEM"
-msgstr ""
+msgstr "USUŃ ELEMENT"
 
 msgid "DELETE GAME"
-msgstr ""
+msgstr "USUŃ GRĘ"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -940,7 +949,7 @@ msgid "FAVORITES"
 msgstr "ULUBIONE"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
+msgstr "DODAJ DO KOLEKCJI NIESTANDARDOWEJ..."
 
 msgid "SCRAPE"
 msgstr "SCRAPE'UJ"
@@ -1239,13 +1248,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "UŻYCIE DYSKU SYSTEMOWEGO"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "DOSTAWCA GL"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "RENDERER GL"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "WERSJA GL"
 
 msgid "DEVELOPER"
 msgstr "DEWELOPER"
@@ -1270,6 +1279,16 @@ msgstr "UŻYWAJ ODTWARZACZA OMX (WSPOMAGANY SPRZĘTOWO)"
 
 msgid "TOOLS"
 msgstr "NARZĘDZIA"
+
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "LOG LEVEL"
 msgstr "POZIOM LOGOWANIA"
@@ -1315,6 +1334,9 @@ msgstr "ZNAJDŹ WSZYSTKIE GRY Z NETPLAY/OSIĄGNIĘCIAMI"
 
 msgid "DATA MANAGEMENT"
 msgstr "ZARZĄDZANIE DANYMI"
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "WŁĄCZ FILTRY"
@@ -1457,10 +1479,6 @@ msgstr "JASNOŚĆ"
 
 msgid "VIDEO OUTPUT"
 msgstr "WYJŚCIE WIDEO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"

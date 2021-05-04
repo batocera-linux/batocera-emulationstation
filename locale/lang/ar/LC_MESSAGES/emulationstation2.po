@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 21:35+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -85,6 +85,12 @@ msgstr "دليل الاستخدام"
 
 msgid "enter path to manual"
 msgstr "ادخل المسار لدليل الاستخدام"
+
+msgid "Magazine"
+msgstr ""
+
+msgid "enter path to magazine"
+msgstr ""
 
 msgid "Map"
 msgstr "خريطة"
@@ -873,6 +879,9 @@ msgstr "وسائط اللعبة"
 msgid "VIEW GAME MANUAL"
 msgstr "مشاهدة دليل اللعب"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
 msgid "VIEW GAME MAP"
 msgstr "مشاهدة خريطة اللعبة"
 
@@ -1277,6 +1286,15 @@ msgstr ""
 msgid "TOOLS"
 msgstr "الأدوات"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "يرجى إعادة تشغيل النظام لتطبيق التكوينات الجديدة"
+
 msgid "LOG LEVEL"
 msgstr "مستوى السجل"
 
@@ -1320,6 +1338,9 @@ msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
+msgstr ""
+
+msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1463,9 +1484,6 @@ msgstr "الوضوح"
 
 msgid "VIDEO OUTPUT"
 msgstr "مخرج الفيديو"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "يرجى إعادة تشغيل النظام لتطبيق التكوينات الجديدة"
 
 msgid "AUDIO OUTPUT"
 msgstr "مخرج الصوت"

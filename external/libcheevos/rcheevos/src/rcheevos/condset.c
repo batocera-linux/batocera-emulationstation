@@ -25,12 +25,11 @@ static void rc_update_condition_pause(rc_condition_t* condition, int* in_pause) 
   }
 }
 
-rc_condset_t* rc_parse_condset(const char** memaddr, rc_parse_state_t* parse, int is_value) {
+rc_condset_t* rc_parse_condset(const char** memaddr, rc_parse_state_t* parse) {
   rc_condset_t* self;
   rc_condition_t** next;
   int in_pause;
   int in_add_address;
-  unsigned measured_target = 0;
 
   self = RC_ALLOC(rc_condset_t, parse);
   self->has_pause = self->is_paused = 0;
@@ -58,12 +57,7 @@ rc_condset_t* rc_parse_condset(const char** memaddr, rc_parse_state_t* parse, in
         case RC_CONDITION_SUB_SOURCE:
         case RC_CONDITION_AND_NEXT:
         case RC_CONDITION_OR_NEXT:
-          break;
-
-        case RC_CONDITION_MEASURED:
-          if (is_value)
             break;
-          /* fallthrough to default */
 
         default:
           parse->offset = RC_INVALID_OPERATOR;
@@ -74,49 +68,26 @@ rc_condset_t* rc_parse_condset(const char** memaddr, rc_parse_state_t* parse, in
     self->has_pause |= (*next)->type == RC_CONDITION_PAUSE_IF;
     in_add_address = (*next)->type == RC_CONDITION_ADD_ADDRESS;
 
-    switch ((*next)->type) {
-    case RC_CONDITION_MEASURED:
-      if (measured_target != 0) {
-        /* multiple Measured flags cannot exist in the same group */
-        parse->offset = RC_MULTIPLE_MEASURED;
-        return 0;
-      }
-      else if (is_value) {
-        measured_target = (unsigned)-1;
-        if ((*next)->oper != RC_OPERATOR_NONE)
-          (*next)->required_hits = measured_target;
-      }
-      else if ((*next)->required_hits != 0) {
-        measured_target = (*next)->required_hits;
-      }
-      else if ((*next)->operand2.type == RC_OPERAND_CONST) {
+    if ((*next)->type == RC_CONDITION_MEASURED) {
+      unsigned measured_target = 0;
+      if ((*next)->required_hits == 0) {
+        if ((*next)->operand2.type != RC_OPERAND_CONST) {
+           parse->offset = RC_INVALID_MEASURED_TARGET;
+           return 0;
+        }
+
         measured_target = (*next)->operand2.value.num;
       }
       else {
-        parse->offset = RC_INVALID_MEASURED_TARGET;
-        return 0;
+        measured_target = (*next)->required_hits;
       }
 
       if (parse->measured_target && measured_target != parse->measured_target) {
-        /* multiple Measured flags in separate groups must have the same target */
         parse->offset = RC_MULTIPLE_MEASURED;
         return 0;
       }
 
       parse->measured_target = measured_target;
-      break;
-
-    case RC_CONDITION_STANDARD:
-    case RC_CONDITION_TRIGGER:
-      /* these flags are not allowed in value expressions */
-      if (is_value) {
-        parse->offset = RC_INVALID_VALUE_FLAG;
-        return 0;
-      }
-      break;
-
-    default:
-      break;
     }
 
     next = &(*next)->next;
@@ -129,6 +100,7 @@ rc_condset_t* rc_parse_condset(const char** memaddr, rc_parse_state_t* parse, in
   }
 
   *next = 0;
+
 
   if (parse->buffer != 0) {
     in_pause = 0;
