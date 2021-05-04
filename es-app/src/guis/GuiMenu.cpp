@@ -777,6 +777,13 @@ void GuiMenu::openDeveloperSettings()
 			}
 		}, _("NO"), nullptr));
 	});
+
+	// Clean up pacman cached packages
+	s->addEntry(_("CLEAR CONTENT DOWNLOADER CACHED FILES"), true, [this, s]
+	{
+		ApiSystem::getInstance()->clearBatoceraStoreCachedFiles();
+	});
+
 #endif
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))

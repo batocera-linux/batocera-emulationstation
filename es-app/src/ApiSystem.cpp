@@ -1389,6 +1389,11 @@ void ApiSystem::updateBatoceraStorePackageList()
 	executeScript("batocera-store update");
 }
 
+void ApiSystem::clearBatoceraStoreCachedFiles()
+{
+	executeScript("batocera-store clean-all");
+}
+
 std::vector<std::string> ApiSystem::getShaderList(const std::string systemName)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
