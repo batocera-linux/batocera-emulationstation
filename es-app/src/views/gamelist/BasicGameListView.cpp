@@ -219,17 +219,17 @@ std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
 
 		prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	}
-
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
+	
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string(" / ") + _("GAME OPTIONS")));
 
 	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("select", _("VIEW OPTIONS"))); // batocera
+	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
 
 	if (UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("x", _("GAME OPTIONS")));
+		prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS")));
 	else
-		prompts.push_back(HelpPrompt("x", _("GAME OPTIONS") + std::string(" / ") + _("FAVORITE")));
+		prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS") + std::string(" / ") + _("FAVORITE")));
 
 	prompts.push_back(HelpPrompt("y", _("RANDOM") + std::string(" / ") + _("SEARCH")));
 	/*

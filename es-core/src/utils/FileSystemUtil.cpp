@@ -1282,7 +1282,7 @@ namespace Utils
 #if defined(_WIN32)
 			FILE* file = _wfopen(Utils::String::convertToWideString(fileName).c_str(), L"wb");
 #else
-			FILE* file = fopen(fileName.c_str(), "rb");
+			FILE* file = fopen(fileName.c_str(), "wb");
 #endif
 			if (file == nullptr)
 				return;		
