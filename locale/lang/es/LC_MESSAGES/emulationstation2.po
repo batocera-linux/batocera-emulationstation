@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "introduce la ruta del manual"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Magazine"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "introduce la ruta del magazine"
 
 msgid "Map"
 msgstr "Mapa"
@@ -872,7 +872,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "VER MANUAL DEL JUEGO"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "VER MAGAZINE DEL JUEGO"
 
 msgid "VIEW GAME MAP"
 msgstr "VER MAPA DEL JUEGO"
@@ -947,7 +947,7 @@ msgid "FAVORITES"
 msgstr "FAVORITOS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AÑADIR A COLECCIÓN PERSONALIZADA"
+msgstr "AÑADIR A COLECCIÓN PERSONALIZADA…"
 
 msgid "SCRAPE"
 msgstr "SCRAPEAR"
@@ -1246,13 +1246,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "ESPACIO UTILIZADO POR EL SISTEMA"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "GL VENDOR"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "GL RENDERER"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "GL VERSION"
 
 msgid "DEVELOPER"
 msgstr "DESARROLLADOR"
@@ -1277,6 +1277,15 @@ msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
 
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
+
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
 
 msgid "LOG LEVEL"
 msgstr "DETALLE DEL LOG"
@@ -1324,7 +1333,7 @@ msgid "DATA MANAGEMENT"
 msgstr "MANEJO DE DATOS"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "IGNORAR CONTENIDO DE DISCO MULTIPLE (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "HABILITAR FILTROS"
@@ -1467,9 +1476,6 @@ msgstr "BRILLO"
 
 msgid "VIDEO OUTPUT"
 msgstr "SALIDA DE VÍDEO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
 
 msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"

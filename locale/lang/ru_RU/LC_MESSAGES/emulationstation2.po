@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1279,6 +1279,15 @@ msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР (HW ACCELERATED)"
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
+
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
 
@@ -1468,9 +1477,6 @@ msgstr "ЯРКОСТЬ"
 
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫХОД"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"

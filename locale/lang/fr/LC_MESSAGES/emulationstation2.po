@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1276,6 +1276,15 @@ msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION HW)"
 msgid "TOOLS"
 msgstr "OUTILS"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
+
 msgid "LOG LEVEL"
 msgstr "NIVEAU DE LOG"
 
@@ -1465,9 +1474,6 @@ msgstr "LUMINOSITÉ"
 
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDÉO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"

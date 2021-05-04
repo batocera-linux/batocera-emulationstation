@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1279,6 +1279,17 @@ msgstr "NUTZE OMX PLAYER (HW BESCHLEUNIGT)"
 msgid "TOOLS"
 msgstr "WERKZEUGE"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DIE NEUE KONFIGURATION "
+"ANZUWENDEN"
+
 msgid "LOG LEVEL"
 msgstr "LOG LEVEL"
 
@@ -1469,11 +1480,6 @@ msgstr "HELLIGKEIT"
 
 msgid "VIDEO OUTPUT"
 msgstr "BILD AUSGABE"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"EIN NEUSTART DES SYSTEMS IST ERFORDERLICH UM DIE NEUE KONFIGURATION "
-"ANZUWENDEN"
 
 msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"

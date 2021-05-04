@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v31(21/04/22)\n"
+"Project-Id-Version: batocera-es v31(2021/05/01)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
-"PO-Revision-Date: 2021-04-23 18:30+0900\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"PO-Revision-Date: 2021-05-02 19:31+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "マニュアルのパスを入力"
 
 msgid "Magazine"
-msgstr ""
+msgstr "雑誌"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "雑誌のパスを入力"
 
 msgid "Map"
 msgstr "マップ"
@@ -872,7 +872,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "ゲームマニュアルを表示"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "ゲーム雑誌を表示"
 
 msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
@@ -1246,13 +1246,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "システムデータ使用量/容量"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "GL ベンダー"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "GL レンダラー"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "GL バージョン"
 
 msgid "DEVELOPER"
 msgstr "その他の設定"
@@ -1278,6 +1278,15 @@ msgstr "OMX PLAYERを使用(HW アクセラレーション)"
 
 msgid "TOOLS"
 msgstr "ツール"
+
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "新しい構成を適用するには、システムの再起動が必要です"
 
 msgid "LOG LEVEL"
 msgstr "ログレベル"
@@ -1327,7 +1336,7 @@ msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "マルチディスクファイルの内容を無視(CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
@@ -1342,7 +1351,7 @@ msgid "SEARCH FOR LOCAL ART"
 msgstr "ローカルアートの検索"
 
 msgid "UI"
-msgstr "UI　モード"
+msgstr "UI モード"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "メニュー回転(カルーセル)効果"
@@ -1469,9 +1478,6 @@ msgstr "明るさ"
 
 msgid "VIDEO OUTPUT"
 msgstr "映像出力"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "新しい構成を適用するには、システムの再起動が必要です"
 
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"

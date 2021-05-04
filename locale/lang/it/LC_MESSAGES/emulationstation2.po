@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "inserisci percorso del manuale"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Rivista"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "inserisci il percorso della rivista"
 
 msgid "Map"
 msgstr "Mappa"
@@ -872,7 +872,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "MOSTRA MANUALE DI GIOCO"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "MOSTRA RIVISTA"
 
 msgid "VIEW GAME MAP"
 msgstr "MOSTRA MAPPA DI GIOCO"
@@ -1105,7 +1105,7 @@ msgid "ZFAST"
 msgstr "ZFAST CRT"
 
 msgid "FLATTEN-GLOW"
-msgstr "PIATTO E LUMINOSO"
+msgstr "ABBAGLIANTE"
 
 msgid "RGA SCALING"
 msgstr "SCALING RGA"
@@ -1278,6 +1278,15 @@ msgstr "USA OMX PLAYER (ACCELERAZIONE HW)"
 msgid "TOOLS"
 msgstr "STRUMENTI"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
+
 msgid "LOG LEVEL"
 msgstr "LIVELLO DI LOG"
 
@@ -1324,7 +1333,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTIONE DEI DATI"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "IGNORA CONTENUTO DISCO MULTIFILE (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ABILITA FILTRI"
@@ -1342,10 +1351,10 @@ msgid "UI"
 msgstr "INTERFACCIA UTENTE"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr "MODALITÀ DI TRANSIZIONE CAROUSEL"
+msgstr "TRANSIZIONI A GIOSTRA"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "SELEZIONE RAPIDA DEL SISTEMA"
+msgstr "SELEZIONE RAPIDA SISTEMA"
 
 msgid "ON SCREEN KEYBOARD"
 msgstr "MOSTRA TASTIERA SULLO SCHERMO"
@@ -1466,9 +1475,6 @@ msgstr "LUMINOSITÀ"
 
 msgid "VIDEO OUTPUT"
 msgstr "OUTPUT VIDEO"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
 
 msgid "AUDIO OUTPUT"
 msgstr "USCITA AUDIO"

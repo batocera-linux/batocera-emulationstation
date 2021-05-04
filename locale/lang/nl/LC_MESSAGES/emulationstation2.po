@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1278,6 +1278,16 @@ msgstr ""
 msgid "TOOLS"
 msgstr "HULPMIDDELEN"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"EEN HERSTART VAN HET SYSTEEM IS NODIG OM DE NIEUWE CONFIGURATIE TE GEBRUIKEN"
+
 msgid "LOG LEVEL"
 msgstr "LOG NIVEAU"
 
@@ -1467,10 +1477,6 @@ msgstr "HELDERHEID"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEOUITVOER"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"EEN HERSTART VAN HET SYSTEEM IS NODIG OM DE NIEUWE CONFIGURATIE TE GEBRUIKEN"
 
 msgid "AUDIO OUTPUT"
 msgstr "GELUIDSUITVOER"

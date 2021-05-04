@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 20:19+0200\n"
+"POT-Creation-Date: 2021-05-04 13:09+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1286,6 +1286,15 @@ msgstr ""
 msgid "TOOLS"
 msgstr "الأدوات"
 
+msgid "ENABLE PUBLIC WEB ACCESS"
+msgstr ""
+
+msgid "Allow public web access API using "
+msgstr ""
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "يرجى إعادة تشغيل النظام لتطبيق التكوينات الجديدة"
+
 msgid "LOG LEVEL"
 msgstr "مستوى السجل"
 
@@ -1475,9 +1484,6 @@ msgstr "الوضوح"
 
 msgid "VIDEO OUTPUT"
 msgstr "مخرج الفيديو"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "يرجى إعادة تشغيل النظام لتطبيق التكوينات الجديدة"
 
 msgid "AUDIO OUTPUT"
 msgstr "مخرج الصوت"
