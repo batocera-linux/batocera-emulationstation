@@ -243,18 +243,34 @@ void ImageIO::loadImageCache()
 	std::string relativeTo = "/userdata";	
 #endif
 
+	std::vector<std::string> splits;
+
 	std::string line;
 	while (std::getline(f, line))
 	{
-		auto splits = Utils::String::split(line, '|');
+		splits.clear();
+
+		const char* src = line.c_str();
+
+		while (true)
+		{
+			const char* d = strchr(src, '|');
+			size_t len = (d) ? d - src : strlen(src);
+
+			if (len)
+				splits.push_back(std::string(src, len)); // capture token
+
+			if (d) src += len + 1; else break;
+		}
+
 		if (splits.size() == 4)
 		{
 			std::string file = Utils::FileSystem::resolveRelativePath(splits[0], relativeTo, true);
 
 			CachedFileInfo fi;
-			fi.size = atoi(splits[1].c_str());
-			fi.x = atoi(splits[2].c_str());
-			fi.y = atoi(splits[3].c_str());
+			fi.size = Utils::String::toInteger(splits[1]);
+			fi.x = Utils::String::toInteger(splits[2]);
+			fi.y = Utils::String::toInteger(splits[3]);
 
 			sizeCache[file] = fi;
 		}
