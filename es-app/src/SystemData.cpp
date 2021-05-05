@@ -734,6 +734,8 @@ bool SystemData::loadEsFeaturesFile()
 			}
 		}
 	}
+
+	return true;
 }
 
 bool SystemData::loadFeatures()
