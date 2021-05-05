@@ -92,7 +92,7 @@ FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType
 			}
 
 			// create missing folder
-			FolderData* folder = new FolderData(Utils::FileSystem::getStem(treeNode->getPath()) + "/" + *path_it, system);
+			FolderData* folder = new FolderData(treeNode->getPath() + "/" + *path_it, system);
 			fileMap[key] = folder;
 			treeNode->addChild(folder);
 			treeNode = folder;
