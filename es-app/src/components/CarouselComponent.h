@@ -100,6 +100,9 @@ private:
 	std::string		mScrollSound;
 	float			mTransitionSpeed;
 	float			mMinLogoOpacity;
+
+public:
+	bool isHorizontalCarousel() { return mType == HORIZONTAL || mType == HORIZONTAL_WHEEL; }
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

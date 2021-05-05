@@ -29,7 +29,6 @@ public:
 		return "gamecarousel";
 	}
 
-	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual void launch(FileData* game) override;
 	virtual std::vector<FileData*> getFileDataEntries() override;
 	virtual void update(int deltaTime) override;
