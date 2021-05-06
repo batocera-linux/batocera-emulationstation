@@ -50,6 +50,8 @@ public:
 	void showSelectedGameSaveSnapshots();
 	void toggleFavoritesFilter();
 
+	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+
 protected:	
 	void	  updateFolderPath();
 
@@ -76,6 +78,8 @@ protected:
 	MultiStateInput mSelectButton;
 
 	ThemeData::ExtraImportType mExtraMode;
+
+	bool			mSaveStatesEnabled;
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_ISIMPLE_GAME_LIST_VIEW_H

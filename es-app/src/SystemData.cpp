@@ -123,6 +123,8 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 
 	std::vector<std::string> files;
 
+	std::vector<FolderData*> folders;
+
 	std::stack<FolderData*> stack;
 	stack.push(mRootFolder);
 
@@ -139,7 +141,10 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 					files.push_back(ct);
 			}
 			else if (it->getType() == FOLDER)
+			{
+				folders.push_back((FolderData*)it);
 				stack.push((FolderData*)it);
+			}
 		}
 	}
 
@@ -151,6 +156,20 @@ void SystemData::removeMultiDiskContent(std::unordered_map<std::string, FileData
 			delete it->second;
 			fileMap.erase(it);
 		}
+	}
+
+	// Remove empty folders
+	for (auto folder = folders.crbegin(); folder != folders.crend(); ++folder)
+	{
+		if ((*folder)->getChildren().size())
+			continue;
+		
+		auto it = fileMap.find((*folder)->getPath());
+		if (it != fileMap.cend())
+		{
+			fileMap.erase(it);
+			delete (*folder);
+		}		
 	}
 }
 
