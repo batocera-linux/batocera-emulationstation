@@ -1396,6 +1396,13 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				auto storyBoard = new ThemeStoryboard();
 				if (!storyBoard->fromXmlNode(node, typeMap))
 				{
+					auto sb = element.mStoryBoards.find(storyBoard->eventName);
+					if (sb != element.mStoryBoards.cend())
+					{
+						delete sb->second;
+						element.mStoryBoards.erase(storyBoard->eventName);
+					}
+
 					LOG(LogWarning) << "Storyboard \"" << node.name() << "\" has no <animation> items !";
 					delete storyBoard;
 				}
