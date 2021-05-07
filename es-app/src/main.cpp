@@ -269,6 +269,8 @@ bool loadSystemConfigFile(Window* window, const char** errorString)
 {
 	*errorString = NULL;
 
+	StopWatch stopWatch("loadSystemConfigFile :", LogDebug);
+
 	ImageIO::loadImageCache();
 
 	if(!SystemData::loadConfig(window))
@@ -411,6 +413,8 @@ void playVideo()
 
 int main(int argc, char* argv[])
 {	
+	StopWatch* stopWatch = new StopWatch("main :", LogDebug);
+
 	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);
 	signal(SIGILL, signalHandler);
@@ -599,6 +603,8 @@ int main(int argc, char* argv[])
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
+
+	delete stopWatch;
 
 	bool running = true;
 

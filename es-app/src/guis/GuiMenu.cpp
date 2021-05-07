@@ -1144,7 +1144,6 @@ void GuiMenu::openDeveloperSettings()
 			window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	});
 #endif
-
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
 	std::vector<std::string> modes;
@@ -1504,11 +1503,17 @@ void GuiMenu::openUpdatesSettings()
 	auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
 	
 	std::string updatesType = SystemConf::getInstance()->get("updates.type");
+
+#if WIN32
+	if (updatesType == "unstable")
+		updatesTypeList->add("unstable", "unstable", updatesType == "unstable");
+	else 
+#endif
 	if (updatesType.empty() || updatesType != "beta")
 		updatesType = "stable";
 	
 	updatesTypeList->add("stable", "stable", updatesType == "stable");
-	updatesTypeList->add("beta", "beta", updatesType != "stable");
+	updatesTypeList->add("beta", "beta", updatesType == "beta");
 	
 	updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
 	updatesTypeList->setSelectedChangedCallback([](std::string name)

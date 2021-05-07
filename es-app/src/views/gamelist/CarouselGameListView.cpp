@@ -157,11 +157,17 @@ void CarouselGameListView::addPlaceholder()
 
 std::string CarouselGameListView::getQuickSystemSelectRightButton()
 {
+	if (mList.isHorizontalCarousel())
+		return "r2";
+
 	return "right";
 }
 
 std::string CarouselGameListView::getQuickSystemSelectLeftButton()
 {
+	if (mList.isHorizontalCarousel())
+		return "l2";
+
 	return "left";
 }
 
@@ -191,30 +197,6 @@ void CarouselGameListView::remove(FileData *game)
 	mRoot->removeFromVirtualFolders(game);
 	delete game;                                 // remove before repopulating (removes from parent)
 	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
-}
-
-std::vector<HelpPrompt> CarouselGameListView::getHelpPrompts()
-{
-	std::vector<HelpPrompt> prompts;
-
-	if (mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect"))
-		prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
-
-	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
-
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string(" / ") + _("GAME OPTIONS")));
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
-
-	if (UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS")));
-	else
-		prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS") + std::string(" / ") + _("FAVORITE")));
-
-	prompts.push_back(HelpPrompt("y", _("RANDOM") + std::string(" / ") + _("SEARCH")));
-
-	return prompts;
 }
 
 // batocera

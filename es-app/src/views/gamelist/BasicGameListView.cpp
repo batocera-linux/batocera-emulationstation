@@ -208,50 +208,6 @@ void BasicGameListView::remove(FileData *game)
 	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
 }
 
-std::vector<HelpPrompt> BasicGameListView::getHelpPrompts()
-{
-	std::vector<HelpPrompt> prompts;
-
-	if (Renderer::getScreenProportion() > 1.4)
-	{
-		if (mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect"))
-			prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
-
-		prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
-	}
-	
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string(" / ") + _("GAME OPTIONS")));
-
-	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
-
-	if (UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS")));
-	else
-		prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS") + std::string(" / ") + _("FAVORITE")));
-
-	prompts.push_back(HelpPrompt("y", _("RANDOM") + std::string(" / ") + _("SEARCH")));
-	/*
-	FileData* cursor = getCursor();
-	if (cursor != nullptr && cursor->isNetplaySupported())
-		prompts.push_back(HelpPrompt("x", _("NETPLAY"))); // batocera
-	else
-		prompts.push_back(HelpPrompt("x", _("RANDOM"))); // batocera
-
-	if(mRoot->getSystem()->isGameSystem() && !UIModeController::getInstance()->isUIModeKid())
-	{
-		std::string prompt = CollectionSystemManager::get()->getEditingCollection();
-		
-		if (Utils::String::toLower(prompt) == "favorites")
-			prompts.push_back(HelpPrompt("y", _("Favorites")));
-		else
-			prompts.push_back(HelpPrompt("y", _(prompt.c_str())));
-	}*/
-
-	return prompts;
-}
-
 // batocera
 void BasicGameListView::setCursorIndex(int cursor){
 	mList.setCursorIndex(cursor);

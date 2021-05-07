@@ -33,7 +33,6 @@ public:
 		return "grid";
 	}
 
-	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	virtual void launch(FileData* game) override;
 	virtual void onFileChanged(FileData* file, FileChangeType change);
 

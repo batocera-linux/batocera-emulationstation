@@ -1246,13 +1246,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "DISCO DO SISTEMA"
 
 msgid "GL VENDOR"
-msgstr "FABRICANTE DA PLACA GRÁFICA"
+msgstr "FABRICANTE DA GPU"
 
 msgid "GL RENDERER"
-msgstr "RENDERIZADOR DA PLACA GRÁFICA"
+msgstr "RENDERIZADOR DA GPU"
 
 msgid "GL VERSION"
-msgstr "VERSÃO DA PLACA GRÁFICA"
+msgstr "VERSÃO DA GPU"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -1279,10 +1279,10 @@ msgid "TOOLS"
 msgstr "FERRAMENTAS"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "ATIVAR O ACESSO PÚBLICO À WEB"
 
 msgid "Allow public web access API using "
-msgstr ""
+msgstr "Permitir o acesso publico à web usando API "
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"

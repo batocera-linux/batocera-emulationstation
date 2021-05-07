@@ -1441,17 +1441,18 @@ std::vector<PacmanPackage> ApiSystem::getBatoceraStorePackages()
 
 std::pair<std::string, int> ApiSystem::installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-store install " + name, func);
+	return executeScript("batocera-store install \"" + name + "\"", func);
 }
 
 std::pair<std::string, int> ApiSystem::uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-store remove " + name, func);
+	return executeScript("batocera-store remove \"" + name + "\"", func);
 }
 
 void ApiSystem::refreshBatoceraStorePackageList()
 {
 	executeScript("batocera-store refresh");
+	executeScript("batocera-store clean-all");
 }
 
 void ApiSystem::updateBatoceraStorePackageList()
