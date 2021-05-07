@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-07 08:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "Pfad zum Handbuch eingeben"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Magazin"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "Pfad zum Magazin eingeben"
 
 msgid "Map"
 msgstr "Karte"
@@ -873,7 +873,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "SPIEL-ANLEITUNG ANSEHEN"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "SPIELE-MAGAZIN ANSEHEN"
 
 msgid "VIEW GAME MAP"
 msgstr "SPIELE-KARTE ANSEHEN"
@@ -1247,13 +1247,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEMDATEN-VERBRAUCH"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "GL HERSTELLER"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "GL RENDERER"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "GL VERSION"
 
 msgid "DEVELOPER"
 msgstr "ENTWICKLER"
@@ -1280,10 +1280,10 @@ msgid "TOOLS"
 msgstr "WERKZEUGE"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "ÖFFENTLICHEN WEBZUGRIFF AKTIVIEREN"
 
 msgid "Allow public web access API using "
-msgstr ""
+msgstr "Erlaube die Verwendung der öffentl. Webzugriffs-API "
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
@@ -1336,7 +1336,7 @@ msgid "DATA MANAGEMENT"
 msgstr "DATEI-MANAGEMENT"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "MULTIDISK DATEIEN IGNORIEREN (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "FILTER AKTIVIEREN"
@@ -2069,14 +2069,14 @@ msgstr[1] "Dieser Ordner beinhaltet %i Spiele, einschließlich :%s"
 msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"
 
+msgid "Games similar to"
+msgstr "Spiele ähnlich zu"
+
 msgid "GAME OPTIONS"
 msgstr "SPIEL-OPTIONEN"
 
 msgid "FAVORITE"
 msgstr "FAVORIT"
-
-msgid "Games similar to"
-msgstr "Spiele ähnlich zu"
 
 msgid ""
 "A valid account is required. Please register an account on https://"

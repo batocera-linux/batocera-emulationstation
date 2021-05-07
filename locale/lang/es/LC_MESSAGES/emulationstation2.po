@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-07 08:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -41,7 +41,7 @@ msgid "core"
 msgstr "núcleo"
 
 msgid "Image"
-msgstr "Imagen"
+msgstr "Imagen principal <image>"
 
 msgid "enter path to image"
 msgstr "introduce la ruta de la imagen"
@@ -53,13 +53,13 @@ msgid "enter path to video"
 msgstr "introduce la ruta del vídeo"
 
 msgid "Logo"
-msgstr "Logotipo"
+msgstr "Logotipo <marquee>"
 
 msgid "enter path to logo"
 msgstr "introduce la ruta del logotipo"
 
 msgid "Box"
-msgstr "Caja"
+msgstr "Caja <thumbnail>"
 
 msgid "enter path to box"
 msgstr "introduce la ruta de la caja"
@@ -1159,7 +1159,7 @@ msgid "SCRAPE FROM"
 msgstr "OBTENER LA INFORMACIÓN DE"
 
 msgid "IMAGE SOURCE"
-msgstr "TIPO DE IMAGEN"
+msgstr "IMAGEN PRINCIPAL <IMAGE>"
 
 msgid "SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA"
@@ -1183,10 +1183,10 @@ msgid "FAN ART"
 msgstr "ARTE"
 
 msgid "BOX SOURCE"
-msgstr "FORMATO DE CAJA"
+msgstr "CAJA <THUMBNAIL>"
 
 msgid "LOGO SOURCE"
-msgstr "TIPO DE LOGO"
+msgstr "LOGOTIPO <MARQUEE>"
 
 msgid "WHEEL"
 msgstr "WHEEL"
@@ -1279,10 +1279,10 @@ msgid "TOOLS"
 msgstr "HERRAMIENTAS"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "HABILITAR WEB MANAGER"
 
 msgid "Allow public web access API using "
-msgstr ""
+msgstr "Permitir el acceso usando API "
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
@@ -2065,14 +2065,14 @@ msgstr[1] "Esta carpeta contiene %i juegos, incluyendo :%s"
 msgid "No Entries Found"
 msgstr "No se han encontrado entradas"
 
+msgid "Games similar to"
+msgstr "Juegos similares a"
+
 msgid "GAME OPTIONS"
 msgstr "OPCIONES DEL JUEGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
-
-msgid "Games similar to"
-msgstr "Juegos similares a"
 
 msgid ""
 "A valid account is required. Please register an account on https://"

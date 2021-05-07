@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-07 08:23+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -2080,13 +2080,13 @@ msgstr[5] ""
 msgid "No Entries Found"
 msgstr "لم يتم العثور على مدخلات"
 
+msgid "Games similar to"
+msgstr ""
+
 msgid "GAME OPTIONS"
 msgstr "خيارات الألعاب"
 
 msgid "FAVORITE"
-msgstr ""
-
-msgid "Games similar to"
 msgstr ""
 
 msgid ""

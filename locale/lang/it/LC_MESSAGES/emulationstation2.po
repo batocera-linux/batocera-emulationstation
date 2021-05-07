@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-07 08:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2062,14 +2062,14 @@ msgstr[1] ""
 msgid "No Entries Found"
 msgstr "Nessun Elemento Trovato"
 
+msgid "Games similar to"
+msgstr "Giochi simili a"
+
 msgid "GAME OPTIONS"
 msgstr "OPZIONI GIOCO"
 
 msgid "FAVORITE"
 msgstr "PREFERITO"
-
-msgid "Games similar to"
-msgstr "Giochi simili a"
 
 msgid ""
 "A valid account is required. Please register an account on https://"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(2021/05/01)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-07 08:23+0200\n"
 "PO-Revision-Date: 2021-05-02 19:31+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -2061,14 +2061,14 @@ msgstr[0] "このフォルダには、%i 種のゲームがあります( %s を�
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
+msgid "Games similar to"
+msgstr "類似ゲーム→"
+
 msgid "GAME OPTIONS"
 msgstr "ゲーム設定"
 
 msgid "FAVORITE"
 msgstr "気に入り"
-
-msgid "Games similar to"
-msgstr "類似ゲーム→"
 
 msgid ""
 "A valid account is required. Please register an account on https://"

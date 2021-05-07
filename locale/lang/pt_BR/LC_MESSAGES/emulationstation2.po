@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 17:19-0300\n"
+"POT-Creation-Date: 2021-05-07 08:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2062,14 +2062,14 @@ msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
 
+msgid "Games similar to"
+msgstr "Jogos semelhantes a"
+
 msgid "GAME OPTIONS"
 msgstr "OPÇÕES DE JOGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
-
-msgid "Games similar to"
-msgstr "Jogos semelhantes a"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
