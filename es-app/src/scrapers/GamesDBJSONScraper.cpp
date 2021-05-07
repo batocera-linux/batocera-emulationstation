@@ -119,7 +119,9 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ ARCADE, "23" },
 	{ NAOMI, "23" },
 	{ ATOMISWAVE, "23" },
-	{ DAPHNE, "23" }
+	{ DAPHNE, "23" },
+
+	{ SUPER_NINTENDO_MSU1, "6" },
 
 	/* Non existing systems
 	{ AMIGACDTV, "129" },

@@ -33,7 +33,7 @@ ThemeStoryboard::~ThemeStoryboard()
 	animations.clear();
 }
 
-bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, std::map<std::string, ThemeData::ElementPropertyType> typeMap)
+bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap)
 {
 	if (std::string(root.name()) != "storyboard")
 		return false;

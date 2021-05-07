@@ -155,7 +155,9 @@ namespace PlatformIds
 
 		{ "fmtowns",				FMTOWNS },
 		{ "cdi",					PHILIPS_CDI },			
-			
+
+		{ "snes-msu1",				SUPER_NINTENDO_MSU1 },
+
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
 	};

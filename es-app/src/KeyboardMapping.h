@@ -62,6 +62,7 @@ public:
 	};
 
 	KeyMapping getKeyMapping(int player, const std::string& trigger);
+	std::vector<KeyMapping> getPlayerMappings(int player);
 
 	static std::vector<KeyName> keyMap;
 	static std::vector<KeyName> triggerNames;

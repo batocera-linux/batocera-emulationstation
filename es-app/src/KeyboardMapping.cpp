@@ -763,6 +763,14 @@ KeyMappingFile::KeyMapping KeyMappingFile::getKeyMapping(int player, const std::
 	return empty;
 }
 
+std::vector<KeyMappingFile::KeyMapping> KeyMappingFile::getPlayerMappings(int player)
+{
+	if (player >= players.size())
+		return std::vector<KeyMappingFile::KeyMapping>();
+
+	PlayerMapping& pm = players[player];
+	return pm.mappings;
+}
 
 
 std::string KeyMappingFile::getMappingDescription(int player, const std::string& trigger)
