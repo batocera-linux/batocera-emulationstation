@@ -328,7 +328,7 @@ static float nsvg__normalize(float *x, float* y)
 	return d;
 }
 
-static float nsvg__absf(float x) { return x < 0 ? -x : x; }
+inline static float nsvg__absf(float x) { return x < 0 ? -x : x; }
 
 static void nsvg__flattenCubicBez(NSVGrasterizer* r,
 								  float x1, float y1, float x2, float y2,
@@ -952,9 +952,9 @@ static void nsvg__fillActiveEdges(unsigned char* scanline, int len, NSVGactiveEd
 	}
 }
 
-static float nsvg__clampf(float a, float mn, float mx) { return a < mn ? mn : (a > mx ? mx : a); }
+inline static float nsvg__clampf(float a, float mn, float mx) { return a < mn ? mn : (a > mx ? mx : a); }
 
-static unsigned int nsvg__RGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
+inline static unsigned int nsvg__RGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
 	return (r) | (g << 8) | (b << 16) | (a << 24);
 }
