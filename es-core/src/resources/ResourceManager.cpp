@@ -125,6 +125,9 @@ ResourceData ResourceManager::loadFile(const std::string& path, size_t size) con
 
 bool ResourceManager::fileExists(const std::string& path) const
 {
+	if (path[0] != ':' && path[0] != '~' && path[0] != '/')
+		return Utils::FileSystem::exists(path);
+
 	//if it exists as a resource file, return true
 	if(getResourcePath(path) != path)
 		return true;
