@@ -1475,11 +1475,24 @@ std::vector<std::string> ApiSystem::getTimezones()
 	return ret;
 }
 
+std::string ApiSystem::getCurrentTimezone()
+{
+	LOG(LogInfo) << "ApiSystem::getCurrentTimezone";
+	auto cmd = executeEnumerationScript("batocera-timezone get");
+	std::string tz = Utils::String::join(cmd, "");
+	remove_if(tz.begin(), tz.end(), isspace);
+	if (tz.empty()) {
+		cmd = executeEnumerationScript("batocera-timezone detect");
+		tz = Utils::String::join(cmd, "");
+	}
+	return tz;
+}
+
 bool ApiSystem::setTimezone(std::string tz)
 {
 	if (tz.empty())
 		return false;
-	return executeScript("batocera-config tz " + tz);
+	return executeScript("batocera-timezone set \"" + tz + "\"");
 }
 
 std::vector<PadInfo> ApiSystem::getPadsInfo()
