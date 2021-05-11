@@ -437,6 +437,9 @@ void AudioManager::playSong(const std::string& song)
 
 void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool force)
 {
+	if (theme == nullptr)
+		return;
+
 	if (!force && mSystemName == theme->getSystemThemeFolder())
 		return;
 
