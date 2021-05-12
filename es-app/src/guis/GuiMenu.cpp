@@ -1196,15 +1196,21 @@ void GuiMenu::openSystemSettings_batocera()
 	auto availableTimezones = ApiSystem::getInstance()->getTimezones();
 	if (availableTimezones.size() > 0)
 	{
-		std::string currentTZ = SystemConf::getInstance()->get("system.timezone");
+		std::string currentTZ = ApiSystem::getInstance()->getCurrentTimezone();
+
+		bool valid_tz = false;
+		for (auto list_tz : availableTimezones){
+			if (currentTZ == list_tz) {
+				valid_tz = true;
+			}
+		}
+		if (!valid_tz)
+			currentTZ = "Europe/Paris";
 
 		auto tzChoices= std::make_shared<OptionListComponent<std::string> >(mWindow, _("SELECT YOUR TIMEZONE"), false);
 
 		for (auto tz : availableTimezones)
 			tzChoices->add(_(Utils::String::toUpper(tz).c_str()), tz, currentTZ == tz);
-
-		if (!tzChoices->hasSelection())
-			tzChoices->selectFirstItem();
 
 		s->addWithLabel(_("TIMEZONE"), tzChoices);
 		s->addSaveFunc([tzChoices] {
