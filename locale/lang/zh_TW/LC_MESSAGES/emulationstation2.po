@@ -278,7 +278,7 @@ msgid "None"
 msgstr "無"
 
 msgid "Various"
-msgstr "多間廠商開發"
+msgstr "各式各樣"
 
 #, c-format
 msgid "This collection contains %i game, including :%s"
@@ -346,7 +346,7 @@ msgid "FIND GAMES"
 msgstr "搜尋遊戲"
 
 msgid "Unknown"
-msgstr "未知的"
+msgstr "未知"
 
 msgid "YES"
 msgstr "是"
@@ -515,7 +515,7 @@ msgid "GAMELIST VIEW STYLE"
 msgstr "遊戲清單模式"
 
 msgid "automatic"
-msgstr "自動化"
+msgstr "自動"
 
 msgid "VIEW CUSTOMISATION"
 msgstr "檢視自定義"
@@ -667,7 +667,7 @@ msgid "NO MISSING BIOS"
 msgstr "沒有缺少 BIOS"
 
 msgid "MISSING BIOS"
-msgstr "缺少 BIOS"
+msgstr "缺少的 BIOS"
 
 msgid "dim"
 msgstr "黯淡"
@@ -688,10 +688,10 @@ msgid "start & end"
 msgstr "開始 & 結束"
 
 msgid "never"
-msgstr "永遠不要"
+msgstr "從未玩過"
 
 msgid "none"
-msgstr "無"
+msgstr "沒有"
 
 msgid "systems"
 msgstr "遊戲平台"
@@ -1688,7 +1688,7 @@ msgid "detailed"
 msgstr "詳細樣式"
 
 msgid "DEFAULT GRID SIZE"
-msgstr "預設框架比例"
+msgstr "預設網格比例"
 
 msgid "GAMELIST THEME OPTIONS"
 msgstr "遊戲清單主題選項"
@@ -1751,7 +1751,7 @@ msgid "video"
 msgstr "影片"
 
 msgid "grid"
-msgstr "比例"
+msgstr "網格"
 
 msgid "DISPLAY OPTIONS"
 msgstr "顯示設定"
