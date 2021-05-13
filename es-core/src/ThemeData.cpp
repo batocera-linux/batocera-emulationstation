@@ -403,6 +403,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "roundCorners", FLOAT },
 		{ "color", COLOR },
 		{ "snapshotSource", STRING }, // image, thumbnail, marquee
+		{ "defaultSnapshot", PATH },
 		{ "loops", FLOAT }, // Number of loops to do -1 (default) is infinite 
 		{ "audio", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
