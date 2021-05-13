@@ -49,7 +49,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
 	mHidden = (mIsCollectionSystem ? withTheme : (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) != hiddenSystems.cend()));
-		
+
+	loadFeatures();
+
 	// if it's an actual system, initialize it, if not, just create the data structure
 	if (!mIsCollectionSystem && !mIsGroupSystem)
 	{
@@ -66,7 +68,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 				return;
 
 			if (mHidden && !Settings::getInstance()->getBool("HiddenSystemsShowGames"))
-				return;			
+				return;
 		}
 
 		if (!Settings::getInstance()->getBool("IgnoreGamelist")) // && !hasPlatformId(PlatformIds::IMAGEVIEWER))
@@ -85,7 +87,6 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 	if (withTheme && (!loadThemeOnlyIfElements || mRootFolder->mChildren.size() > 0))
 	{
-		loadFeatures();
 		loadTheme();
 
 		auto defaultView = Settings::getInstance()->getString(getName() + ".defaultView");
