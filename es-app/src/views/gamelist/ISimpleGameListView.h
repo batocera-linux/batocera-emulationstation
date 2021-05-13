@@ -59,6 +59,8 @@ protected:
 	virtual std::string getQuickSystemSelectLeftButton() = 0;
 	virtual void populateList(const std::vector<FileData*>& files) = 0;
 	
+	bool cursorHasSaveStatesEnabled();
+
 	TextComponent mHeaderText;
 	ImageComponent mHeaderImage;
 	ImageComponent mBackground;
@@ -77,9 +79,7 @@ protected:
 	MultiStateInput mYButton;
 	MultiStateInput mSelectButton;
 
-	ThemeData::ExtraImportType mExtraMode;
-
-	bool			mSaveStatesEnabled;
+	ThemeData::ExtraImportType mExtraMode;	
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_ISIMPLE_GAME_LIST_VIEW_H

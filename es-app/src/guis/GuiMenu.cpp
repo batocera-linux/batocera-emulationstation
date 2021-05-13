@@ -978,13 +978,22 @@ void GuiMenu::openDeveloperSettings()
 	auto invertJoy = std::make_shared<SwitchComponent>(mWindow);
 	invertJoy->setState(Settings::getInstance()->getBool("InvertButtons"));
 	s->addWithLabel(_("SWITCH A/B BUTTONS IN EMULATIONSTATION"), invertJoy);
-	s->addSaveFunc([this, invertJoy]
+	s->addSaveFunc([this, s, invertJoy]
 	{
 		if (Settings::getInstance()->setBool("InvertButtons", invertJoy->getState()))
 		{
 			InputConfig::AssignActionButtons();
-			ViewController::get()->reloadAll(mWindow);
+			s->setVariable("reloadAll", true);
 		}
+	});
+
+	auto invertLongPress = std::make_shared<SwitchComponent>(mWindow);
+	invertLongPress->setState(Settings::getInstance()->getBool("GameOptionsAtNorth"));
+	s->addWithDescription(_("ACCESS GAME OPTIONS WITH NORTH BUTTON"), _("Inverts north button (savestates) & long press south (game options)"), invertLongPress);
+	s->addSaveFunc([this, s, invertLongPress]
+	{
+		if (Settings::getInstance()->setBool("GameOptionsAtNorth", invertLongPress->getState()))
+			s->setVariable("reloadAll", true);
 	});
 
 	auto firstJoystickOnly = std::make_shared<SwitchComponent>(mWindow);
@@ -1031,8 +1040,15 @@ void GuiMenu::openDeveloperSettings()
 	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
 	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USE"), optimizeVideo);
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
-
-
+	
+	s->onFinalize([s, window]
+	{
+		if (s->getVariable("reloadAll"))
+		{
+			ViewController::get()->reloadAll(window);
+			window->closeSplashScreen();
+		}
+	});
 
 	mWindow->pushGui(s);
 }
@@ -3675,7 +3691,7 @@ void GuiMenu::popSystemConfigurationGui(Window* mWindow, SystemData* systemData)
 void GuiMenu::popGameConfigurationGui(Window* mWindow, FileData* fileData)
 {
 	popSpecificConfigurationGui(mWindow,
-		fileData->getCleanName(),
+		fileData->getName(),
 		fileData->getConfigurationName(),
 		fileData->getSourceFileData()->getSystem(),
 		fileData);
