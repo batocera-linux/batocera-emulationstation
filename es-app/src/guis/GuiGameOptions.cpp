@@ -243,7 +243,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 			int addToCollectionCount = 0;
 			for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
-				if (customCollection.second.filteredIndex == nullptr && !CollectionSystemManager::get()->inInCustomCollection(game, customCollection.first))
+				if (customCollection.second.filteredIndex == nullptr && customCollection.second.isEnabled && !CollectionSystemManager::get()->inInCustomCollection(game, customCollection.first))
 					addToCollectionCount++;
 
 			if (addToCollectionCount > 1)
@@ -258,13 +258,12 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					
 					for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
 					{
-						if (customCollection.second.filteredIndex != nullptr)
+						if (customCollection.second.filteredIndex != nullptr || !customCollection.second.isEnabled)
 							continue;
 
 						std::string collectionName = customCollection.first;
 						if (CollectionSystemManager::get()->inInCustomCollection(game, collectionName))
 							continue;
-
 						
 						msgBox->addEntry(Utils::String::toUpper(collectionName), false, [pThis, window, msgBox, collectionName, game]
 						{
@@ -282,7 +281,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 			for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
 			{
-				if (customCollection.second.filteredIndex != nullptr)
+				if (customCollection.second.filteredIndex != nullptr || !customCollection.second.isEnabled)
 					continue;
 
 				std::string collectionName = customCollection.first;
