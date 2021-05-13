@@ -1065,6 +1065,8 @@ DetailedContainerHost::DetailedContainerHost(ISimpleGameListView* parent, GuiCom
 
 DetailedContainerHost::~DetailedContainerHost()
 {
+	mWindow->unregisterPostedFunctions(this);
+
 	delete mContainer;
 	for (auto container : mContainers)
 		delete container;
@@ -1099,7 +1101,7 @@ void DetailedContainerHost::update(int deltaTime)
 				cp->onHide();
 			}
 			
-			mWindow->postToUiThread([dc]() { delete dc; });
+			mWindow->postToUiThread([dc]() { delete dc; }, this);
 			break;
 		}
 	}
@@ -1146,7 +1148,7 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 
 		for (auto cp : mContainer->getComponents())
 			cp->onShow();
-	});
+	}, this);
 }
 
 /*
