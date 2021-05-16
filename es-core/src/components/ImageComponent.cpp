@@ -157,7 +157,7 @@ void ImageComponent::setDefaultImage(std::string path)
 void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
 {
 	std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
-	if (mPath == canonicalPath)
+	if (!mPath.empty() && mPath == canonicalPath)
 		return;
 	
 	mPath = canonicalPath;
