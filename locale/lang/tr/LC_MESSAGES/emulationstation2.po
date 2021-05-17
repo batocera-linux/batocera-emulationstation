@@ -32,7 +32,7 @@ msgid "Emulator"
 msgstr "Emulator"
 
 msgid "emulator"
-msgstr "emulator"
+msgstr "emulatör"
 
 msgid "Core"
 msgstr "Çekirdek"
@@ -468,7 +468,7 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d da %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROBAŞARILARI"
+msgstr "RETRO BAŞARILARI"
 
 msgid "Points"
 msgstr "Puanlar"
@@ -543,7 +543,7 @@ msgid "CLOSE"
 msgstr "KAPAT"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr "BUNU SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?"
+msgstr "BUNU SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ ?"
 
 msgid "INPUT"
 msgstr "GİRDİ"
@@ -570,7 +570,7 @@ msgid "UNKNOWN ROM VERSION"
 msgstr "BİLİNMEYEN ROM VERSİYONU"
 
 msgid "DIFFERENT ROM"
-msgstr "DEĞİŞİK ROM"
+msgstr "FARKLI ROM"
 
 msgid "SAME ROM"
 msgstr "AYNI ROM"
@@ -642,7 +642,7 @@ msgid "UPDATE INSTALLED CONTENT"
 msgstr "YÜKLÜ İÇERİĞİ GÜNCELLE"
 
 msgid "There are no items in this view"
-msgstr "Burada görüntülenecek birşey yok"
+msgstr "Burada görüntülenecek bir şey yok"
 
 msgid "MISC"
 msgstr "ÇEŞİTLİ"
@@ -767,19 +767,19 @@ msgid "SWAP IMAGE AFTER (SECS)"
 msgstr "RESMİ (SANİYE) SONRA DEĞİŞTİR"
 
 msgid "STRETCH IMAGES"
-msgstr "GÖRÜNTÜLERİ UZAT"
+msgstr "İMAJI UZAT"
 
 msgid "USE CUSTOM IMAGES"
-msgstr "ÖZEL GÖRÜNTÜLERİ KULLANIN"
+msgstr "ÖZEL İMAJ KULLANIN"
 
 msgid "CUSTOM IMAGE DIR"
-msgstr "ÖZEL GÖRÜNTÜ YOLU"
+msgstr "ÖZEL İMAJ YOLU"
 
 msgid "CUSTOM IMAGE DIR RECURSIVE"
-msgstr "ÖZEL GÖRÜNTÜ RESMİ YOLU"
+msgstr "ÖZEL İMAJ RESMİ YOLU"
 
 msgid "CUSTOM IMAGE FILTER"
-msgstr "ÖZEL GÖRÜNTÜ FİLTRE"
+msgstr "ÖZEL İMAJ FİLTRE"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "KLAVYE AYARLARI İÇİN BASILI TUTUN"
@@ -1289,7 +1289,7 @@ msgstr "API kullanarak web girişine izin ver "
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
-"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAÞLATILMASI GEREKİR"
+"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAŞLATILMASI GEREKİR"
 
 msgid "LOG LEVEL"
 msgstr "LOG SEVİYESİ"
@@ -1379,7 +1379,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "EMULATÖR KONTROLLERİNİ OTOMATİK YAPILANDIR"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr "EMULATIONSTATION DAA/B BUTONLARIN YERİNİ DEĞİŞTİR"
+msgstr "EMULATIONSTATION DA A/B BUTONLARIN YERİNİ DEĞİŞTİR"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "KUZEY BUTONUNU KULLANARAK OYUN AYARLARINA ERİŞİM YAP"
@@ -1390,7 +1390,7 @@ msgstr ""
 "değiştir."
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr "EMULATIONSTATION U SADECE ILK JOYSTICK İLE KUMANDA ET"
+msgstr "EMULATIONSTATION U SADECE İLK KUMANDA İLE YÖNET"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AĞ GÖSTERGESİNİ GÖRÜNTÜLE"
@@ -1519,7 +1519,7 @@ msgid "STORAGE DEVICE"
 msgstr "DEPO CİHAZI"
 
 msgid "BACKUP USER DATA"
-msgstr "YEDEKLEME KULLANICI VERİLERİ"
+msgstr "KULLANICI VERİLERİNİ YEDEKLE"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "YENİ BİR DİSKTE BATOCERA KURULUMU"
@@ -1731,7 +1731,7 @@ msgid "having multiple games"
 msgstr "fazla oyun mevcut"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "'..' ÜN ÜST KLASÖRÜNÜ GÖRÜNTÜLE"
+msgstr "'..' UN ÜST KLASÖRÜNÜ GÖRÜNTÜLE"
 
 msgid "BEFORE NAME"
 msgstr "ÖNCEKİ İSİM"
@@ -1803,7 +1803,7 @@ msgid "MUSIC VOLUME"
 msgstr "MÜZİK SESİ"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
-msgstr "SES DEĞİŞTİĞİNDE OVERLAY GÖRÜNTÜLE"
+msgstr "SES DEĞİŞTİĞİNDE EKRANDA GÖRÜNTÜLE"
 
 msgid "MUSIC"
 msgstr "MÜZİK"
@@ -2327,7 +2327,7 @@ msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
-msgstr "GAMEPAD %i"
+msgstr "KONTROLCÜ %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
 msgstr "GEÇMEK İÇİN BİR TUŞA BASILI TUTUN"
@@ -2341,7 +2341,7 @@ msgid ""
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 "BİR HOTKEY DÜĞMESİ SEÇMEDİN. BU OYUNLARDAN ÇIKMAK İÇİN GEREKLİDİR KONTROL "
-"CİHAZI İLE.SSEÇME TUŞUNU ÖN TANIMLI KULLANMAK İSTER MİSİNİZ? LÜTFEN EVET İSE "
+"CİHAZI İLE. SEÇME TUŞUNU ÖN TANIMLI KULLANMAK İSTER MİSİNİZ? LÜTFEN EVET İSE "
 "SEÇ TUŞUNA BAS HAYIR İSE KISAYOL TUŞUNU AYARLA."
 
 #, c-format
@@ -2362,11 +2362,11 @@ msgstr "HOŞGELDİNİZ"
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i GAMEPAD ALGILANDI"
-msgstr[1] "%i GAMEPAD ALGILANDI"
+msgstr[0] "%i KONTROLCÜ ALGILANDI"
+msgstr[1] "%i KONTROLCÜLER ALGILANDI"
 
 msgid "NO GAMEPADS DETECTED"
-msgstr "GAMEPAD BULUNAMADI"
+msgstr "KONTROLCÜ BULUNAMADI"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "CİHAZI YAPILANDIRMAK İÇİN BİR TUŞA BASILI TUT."
@@ -2459,7 +2459,7 @@ msgstr "%d sn"
 #~ msgstr "DUR"
 
 #~ msgid "stop (progress saved)"
-#~ msgstr "dur ilerleme kayıtlı)"
+#~ msgstr "dur (ilerleme kayıtlı)"
 
 #~ msgid "GAME %i OF %i"
 #~ msgstr "OYUN %i/%i"
