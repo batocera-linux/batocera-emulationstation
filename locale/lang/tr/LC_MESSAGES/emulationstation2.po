@@ -2,12 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 07:48+0200\n"
+"POT-Creation-Date: 2021-05-17 19:13+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
+"X-Generator: Poedit 2.4.3\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 
 msgid "UPDATE AVAILABLE"
@@ -65,7 +68,7 @@ msgid "Fan art"
 msgstr "Fanatik sanatı"
 
 msgid "enter path to fanart"
-msgstr "Fanatik sanatı yolunu girin"
+msgstr "fanatik sanatı yolunu girin"
 
 msgid "Title shot"
 msgstr "Kısa başlık"
@@ -77,7 +80,7 @@ msgid "Manual"
 msgstr "Klavuz"
 
 msgid "enter path to manual"
-msgstr "Klavuzun yolunu girin"
+msgstr "klavuzun yolunu girin"
 
 msgid "Magazine"
 msgstr "Magazin"
@@ -89,13 +92,13 @@ msgid "Map"
 msgstr "Harita"
 
 msgid "enter path to map"
-msgstr "Haritanın yolunu girin"
+msgstr "haritanın yolunu girin"
 
 msgid "Cartridge"
 msgstr "Kartuş"
 
 msgid "enter path to cartridge"
-msgstr "Kartuşun yolunu girin"
+msgstr "kartuşun yolunu girin"
 
 msgid "Alt BoxArt"
 msgstr "Alt Kutu Sanatı"
@@ -107,7 +110,7 @@ msgid "Box backside"
 msgstr "Kutu arkası"
 
 msgid "enter path to box background"
-msgstr "Kutu arkasının yolunu girin"
+msgstr "kutu arkasının yolunu girin"
 
 msgid "Wheel"
 msgstr "Çark"
@@ -119,7 +122,7 @@ msgid "Mix"
 msgstr "Karışık"
 
 msgid "enter path to mix"
-msgstr "Karışık yolunu girin"
+msgstr "karışık yolunu girin"
 
 msgid "Rating"
 msgstr "Puan"
@@ -173,7 +176,7 @@ msgid "Hidden"
 msgstr "Gizli"
 
 msgid "enter hidden"
-msgstr "Gizli girin"
+msgstr "gizli girin"
 
 msgid "Kidgame"
 msgstr "Çocuk oyunu"
@@ -271,7 +274,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "Kaldırıldı'%s' -den'%s'"
 
 msgid "This collection is empty."
-msgstr "Bu koleksiyon boş"
+msgstr "Bu koleksiyon boş."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -305,7 +308,7 @@ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "İŞLEMİ TAMAMLAMAK İÇİN SİSTEMİ YENİDEN BAŞLATMAK GEREKLİ"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "CİHAZ BİÇİMLENDİRME İŞLEMİ HALEN DEVAM EDİYOR"
+msgstr "CİHAZ BİÇİMLENDİRME İŞLEMİ HALEN DEVAM EDİYOR."
 
 msgid "DOWNLOADING"
 msgstr "İNDİRİLİYOR"
@@ -434,7 +437,7 @@ msgid "UPDATE GAMES LISTS"
 msgstr "OYUN LİSTESİNİ GÜNCELLE"
 
 msgid "Loading..."
-msgstr "Yükleniyor"
+msgstr "Yükleniyor..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "KOLEKSİYONLARI SEÇ"
@@ -928,7 +931,8 @@ msgstr "OYUNU SİL"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr "BU OYUN DOSYA(LAR)INI SİLECEK\n"
+msgstr ""
+"BU OYUN DOSYA(LAR)INI SİLECEK !\n"
 "EMİN MİSİN?"
 
 msgid "COLLECTIONS"
@@ -1281,10 +1285,11 @@ msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "WEB ERİŞİMİNE AÇ"
 
 msgid "Allow public web access API using "
-msgstr "API kullanarak web girişine izin ver"
+msgstr "API kullanarak web girişine izin ver "
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAÞLATILMASI GEREKİR"
+msgstr ""
+"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAÞLATILMASI GEREKİR"
 
 msgid "LOG LEVEL"
 msgstr "LOG SEVİYESİ"
@@ -1308,7 +1313,7 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr "OYUN LİSTESİNİ TEMİZLE & KULLANILMAYAN MEDYALARI KALDIR"
 
 msgid "Cleaning "
-msgstr "Temizleniyor"
+msgstr "Temizleniyor "
 
 msgid "CLEAR CACHES"
 msgstr "ÖNBELLEĞİ TEMİZLE"
@@ -1380,10 +1385,12 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "KUZEY BUTONUNU KULLANARAK OYUN AYARLARINA ERİŞİM YAP"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "(oyun ayarları) güney butonuna uzun basılınca & (anlık görüntü) tuşu ile yer değiştir."
+msgstr ""
+"(oyun ayarları) güney butonuna uzun basılınca & (anlık görüntü) tuşu ile yer "
+"değiştir."
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr "EMULATIONSTATION U SADECE ILK JOYSTICK İLE KUMANDA ET."
+msgstr "EMULATIONSTATION U SADECE ILK JOYSTICK İLE KUMANDA ET"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AĞ GÖSTERGESİNİ GÖRÜNTÜLE"
@@ -1572,7 +1579,7 @@ msgid "FIND NEW GAMES"
 msgstr "YENİ OYUNLARI BUL"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr "RETRO BAŞARILAR AKTİF EDİLEMEDİ"
+msgstr "RETRO BAŞARILAR AKTİF EDİLEMEDİ :"
 
 msgid "ENABLE NETPLAY"
 msgstr "NETPLAY AKTİF ET"
@@ -1663,7 +1670,7 @@ msgstr ""
 "TUŞA BASILI TUTARAK BİR SONRAKİ AŞAMAYA GEÇEBİLİRSİNİZ. HOTKEY, FARKLI "
 "TUŞLARLA BİRLİKTE BASILDIĞINDA FARKLI İŞLEMLER YAPMAYI SAĞLAYAN BİR TUŞTUR. "
 "HANGİ TUŞU SEÇMENİZ GEREKTİĞİNİ BİLMİYORSANIZ SELECT TUŞUNA ATAYABİLİRSİNİZ."
-"BUTON TUŞLARININ HARFLERİNDE SNES KONTROLLERİ BAZ ALINMIŞTIR"
+"BUTON TUŞLARININ HARFLERİNDE SNES KONTROLLERİ BAZ ALINMIŞTIR."
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "BLUETOOTH KUMANDA EŞLEŞTİR"
@@ -1949,8 +1956,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"BAĞZI DOSYALAR DIŞARIDA OYUN LİSTESİ \n DİZİNİNDEN DIŞARIDA"
-"BU DOSYALARI İLGİLİ OYUN LİSTESİ NE KOPYALAMAK İSTERMİSİNİZ?"
+"BAĞZI DOSYALAR DIŞARIDA OYUN LİSTESİ \n"
+" DİZİNİNDEN DIŞARIDABU DOSYALARI İLGİLİ OYUN LİSTESİ NE KOPYALAMAK "
+"İSTERMİSİNİZ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "CİHAZ BULUNAMADI"
@@ -2103,7 +2111,7 @@ msgid "Loading system config..."
 msgstr "Sistem yapılandırması yükleniyor..."
 
 msgid "Done."
-msgstr "Tamam"
+msgstr "Tamam."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
@@ -2208,7 +2216,7 @@ msgid "INDEXING COMPLETED"
 msgstr "ENDEKSLEME TAMAMLANDI"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr "DEĞİŞİKLİKLERİ KABUL EDEREK OYUN LİSTESİNİ GÜNCELLE"
+msgstr "DEĞİŞİKLİKLERİ KABUL EDEREK OYUN LİSTESİNİ GÜNCELLE."
 
 msgid "GENRE"
 msgstr "TÜR"
@@ -2258,7 +2266,7 @@ msgid "%s disconnected"
 msgstr "%s bağlantı kesildi"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "ÜST, ALT VE ÖZEL İÇİN DEĞİŞTİRME "
+msgstr "ÜST, ALT VE ÖZEL İÇİN DEĞİŞTİRME"
 
 msgid "ALT GR"
 msgstr "ALT GR"
@@ -2334,7 +2342,7 @@ msgid ""
 msgstr ""
 "BİR HOTKEY DÜĞMESİ SEÇMEDİN. BU OYUNLARDAN ÇIKMAK İÇİN GEREKLİDİR KONTROL "
 "CİHAZI İLE.SSEÇME TUŞUNU ÖN TANIMLI KULLANMAK İSTER MİSİNİZ? LÜTFEN EVET İSE "
-"SEÇ TUŞUNA BAS HAYIR İSE KISAYOL TUŞUNU AYARLA"
+"SEÇ TUŞUNA BAS HAYIR İSE KISAYOL TUŞUNU AYARLA."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2361,7 +2369,7 @@ msgid "NO GAMEPADS DETECTED"
 msgstr "GAMEPAD BULUNAMADI"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "CİHAZI YAPILANDIRMAK İÇİN BİR TUŞA BASILI TUT"
+msgstr "CİHAZI YAPILANDIRMAK İÇİN BİR TUŞA BASILI TUT."
 
 msgid "DISCARD CHANGES"
 msgstr "DEĞİŞİKLİKLERİ KAYDETME"

@@ -260,7 +260,7 @@ msgid "vertical arcade"
 msgstr "arcade verticale"
 
 msgid "lightgun games"
-msgstr ""
+msgstr "giochi lightgun"
 
 msgid "collections"
 msgstr "collezione"
@@ -1381,10 +1381,10 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "SCAMBIA I TASTI A/B IN EMULATIONSTATION"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr ""
+msgstr "ACCEDI ALLE OPZIONI GIOCO CON IL PULSANTE NORD"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr ""
+msgstr "Inverti pulsante nord (salv. istant.) & pressione lunga sud (opzioni gioco)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "UTILIZZO DI ES SOLO PER IL PRIMO CONTROLLER"
