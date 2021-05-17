@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 08:23+0200\n"
+"POT-Creation-Date: 2021-05-17 07:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: chochi (juliansk@gmail.com)\n"
 "Language-Team: \n"
@@ -257,6 +257,9 @@ msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
+msgstr ""
+
+msgid "lightgun games"
 msgstr ""
 
 msgid "collections"
@@ -1377,6 +1380,12 @@ msgstr "AUTOCONFIGURAR CONTROLES DE EMULADORES"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "CAMBIAR LOS BOTONES A/B EN LA ESTACIÓN DE EMULACIÓN"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr ""

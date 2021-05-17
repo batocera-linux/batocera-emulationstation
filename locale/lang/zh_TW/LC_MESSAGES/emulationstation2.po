@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 08:23+0200\n"
+"POT-Creation-Date: 2021-05-17 07:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -258,6 +258,9 @@ msgstr "街機"
 
 msgid "vertical arcade"
 msgstr "直立式街機"
+
+msgid "lightgun games"
+msgstr ""
 
 msgid "collections"
 msgstr "合輯"
@@ -1374,6 +1377,12 @@ msgstr "自動為模擬器設定控制器"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "在 EMULATIONSTATION 中互換 A/B 鍵功能"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "僅透過第一支遊戲搖桿操作 EMULATIONSTATION"

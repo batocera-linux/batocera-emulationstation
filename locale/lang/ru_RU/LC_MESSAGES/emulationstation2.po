@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 08:23+0200\n"
+"POT-Creation-Date: 2021-05-17 07:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "введите путь к руководству"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Журнал"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "введите путь к журналу"
 
 msgid "Map"
 msgstr "Карта"
@@ -258,6 +258,9 @@ msgstr "аркады"
 
 msgid "vertical arcade"
 msgstr "вертикальные акрады"
+
+msgid "lightgun games"
+msgstr ""
 
 msgid "collections"
 msgstr "коллекции"
@@ -867,13 +870,13 @@ msgid "INVALID PARAMETERS"
 msgstr "НЕВЕРНЫЕ ПАРАМЕТРЫ"
 
 msgid "GAME MEDIAS"
-msgstr "МЕДИА ИГРЫ"
+msgstr "МЕДИА"
 
 msgid "VIEW GAME MANUAL"
 msgstr "ПОСМОТРЕТЬ РУКОВОДСТВО"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "ПОСМОТРЕТЬ ЖУРНАЛ"
 
 msgid "VIEW GAME MAP"
 msgstr "ПОСМОТРЕТЬ КАРТУ"
@@ -1247,13 +1250,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "ЗАНЯТО НА СИСТЕМНОМ ДИСКЕ"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "GL ВЕНДОР"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "GL РЕНДЕР"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "GL ВЕРСИЯ"
 
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
@@ -1280,10 +1283,10 @@ msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "РАЗРЕШИТЬ ПУБЛИЧНЫЙ ДОСТУП"
 
 msgid "Allow public web access API using "
-msgstr ""
+msgstr "Разрешить публичный доступ API, используя "
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -1334,7 +1337,7 @@ msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "ИГНОР. СОДЕРЖИМОЕ МНОГОДИСКОВЫХ ФАЙЛОВ (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
@@ -1377,6 +1380,12 @@ msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"

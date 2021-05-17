@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31(2021/05/01)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 08:23+0200\n"
+"POT-Creation-Date: 2021-05-17 07:48+0200\n"
 "PO-Revision-Date: 2021-05-02 19:31+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -258,6 +258,9 @@ msgstr "アーケード"
 
 msgid "vertical arcade"
 msgstr "縦表示アーケード"
+
+msgid "lightgun games"
+msgstr ""
 
 msgid "collections"
 msgstr "コレクション"
@@ -1379,6 +1382,12 @@ msgstr "エミュレーターのコントローラーの自動設定"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの A/B ボタンの入れ替え"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "最初のコントローラだけでESメニューを操作する"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-07 08:23+0200\n"
+"POT-Creation-Date: 2021-05-17 07:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -258,6 +258,9 @@ msgstr "arcade"
 
 msgid "vertical arcade"
 msgstr "arcade verticale"
+
+msgid "lightgun games"
+msgstr ""
 
 msgid "collections"
 msgstr "collezione"
@@ -1279,10 +1282,10 @@ msgid "TOOLS"
 msgstr "STRUMENTI"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "ATTIVA ACCESSO FILE SUL WEB"
 
 msgid "Allow public web access API using "
-msgstr ""
+msgstr "Consenti accesso tramite API"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
@@ -1376,6 +1379,12 @@ msgstr "AUTOCONFIGURAZIONE CONTROLLER EMULATORI"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "SCAMBIA I TASTI A/B IN EMULATIONSTATION"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "UTILIZZO DI ES SOLO PER IL PRIMO CONTROLLER"
