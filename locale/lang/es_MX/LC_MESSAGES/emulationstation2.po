@@ -260,7 +260,7 @@ msgid "vertical arcade"
 msgstr "arcade vertical"
 
 msgid "lightgun games"
-msgstr ""
+msgstr "juegos de pistolas"
 
 msgid "collections"
 msgstr "colecciones"
