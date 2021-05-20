@@ -22,6 +22,7 @@
 #include "guis/GuiSaveState.h"
 #include "guis/GuiGamelistOptions.h"
 #include "BasicGameListView.h"
+#include "utils/Randomizer.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
@@ -443,7 +444,7 @@ void ISimpleGameListView::moveToRandomGame()
 	if (total == 0)
 		return;
 
-	int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
+	int target = Randomizer::random(total); // (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
 	if (target >= 0 && target < total)
 		setCursor(list.at(target));
 }

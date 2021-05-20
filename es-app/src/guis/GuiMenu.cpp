@@ -730,7 +730,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto webAccess = std::make_shared<SwitchComponent>(mWindow);
 	webAccess->setState(Settings::getInstance()->getBool("PublicWebAccess"));
-	s->addWithDescription(_("ENABLE PUBLIC WEB ACCESS"), _("Allow public web access API using ") + " http://" + hostName + ":1234", webAccess);
+	s->addWithDescription(_("ENABLE PUBLIC WEB ACCESS"), Utils::String::format(_("Allow public web access API using %s").c_str(), std::string("http://" + hostName + ":1234").c_str()), webAccess);
 	s->addSaveFunc([webAccess, window]
 	{ 
 		if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState()))

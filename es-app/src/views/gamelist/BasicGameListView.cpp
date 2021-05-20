@@ -148,6 +148,11 @@ std::shared_ptr<std::vector<FileData*>> recurseFind(FileData* toFind, FolderData
 	return nullptr;
 }
 
+void BasicGameListView::resetLastCursor()
+{
+	mList.resetLastCursor();
+}
+
 void BasicGameListView::setCursor(FileData* cursor)
 {
 	if (cursor && !mList.setCursor(cursor) && !cursor->isPlaceHolder())

@@ -8,6 +8,7 @@
 #include "Settings.h"
 #include "SystemData.h"
 #include <pugixml/src/pugixml.hpp>
+#include "Genres.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -177,6 +178,8 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 
 			if (!trustGamelist && !file->getHidden() && Utils::FileSystem::isHidden(path))
 				file->getMetadata().set(MetaDataId::Hidden, "true");
+
+			Genres::convertGenreToGenreIds(&file->getMetadata());
 
 			if (checkSize != SIZE_MAX)
 				file->getMetadata().setDirty();

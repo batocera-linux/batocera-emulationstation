@@ -47,21 +47,27 @@ void MetaDataList::initMetadata()
 		{ Map,			    "map",	       MD_PATH,                "",                 false,      _("Map"),                  _("enter path to map"),		 true },
 
 		// Non scrappable /editable medias
-		{ Cartridge,        "cartridge",   MD_PATH,                "",                 true,      _("Cartridge"),            _("enter path to cartridge"),  true },
-		{ BoxArt,			"boxart",	   MD_PATH,                "",                 true,      _("Alt BoxArt"),		      _("enter path to alt boxart"), true },
+		{ Cartridge,        "cartridge",   MD_PATH,                "",                 true,       _("Cartridge"),            _("enter path to cartridge"),  true },
+		{ BoxArt,			"boxart",	   MD_PATH,                "",                 true,       _("Alt BoxArt"),		      _("enter path to alt boxart"), true },
 		{ BoxBack,			"boxback",	   MD_PATH,                "",                 false,      _("Box backside"),		  _("enter path to box background"), true },
-		{ Wheel,			"wheel",	   MD_PATH,                "",                 true,      _("Wheel"),		          _("enter path to wheel"),      true },
-		{ Mix,			    "mix",	       MD_PATH,                "",                 true,      _("Mix"),                  _("enter path to mix"),		 true },
+		{ Wheel,			"wheel",	   MD_PATH,                "",                 true,       _("Wheel"),		          _("enter path to wheel"),      true },
+		{ Mix,			    "mix",	       MD_PATH,                "",                 true,       _("Mix"),                  _("enter path to mix"),		 true },
 		
 		{ Rating,           "rating",      MD_RATING,              "0.000000",         false,      _("Rating"),               _("enter rating"),			false },
 		{ ReleaseDate,      "releasedate", MD_DATE,                "not-a-date-time",  false,      _("Release date"),         _("enter release date"),		false },
 		{ Developer,        "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("enter game developer"),	false },
 		{ Publisher,        "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("enter game publisher"),	false },
-		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false },
+
+
+		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false }, 
+		{ Family,           "family",      MD_STRING,              "",                 false,      _("Game family"),		  _("enter game family"),		false },
+
+		// GenreIds is not serialized
+		{ GenreIds,         "genres",      MD_STRING,              "",                 false,      _("Genres"),				  _("enter game genres"),		false },
 
 		{ ArcadeSystemName, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("enter game arcade system"), false },
 
-		{ Players,          "players",     MD_INT,                 "",                false,      _("Players"),              _("enter number of players"),	false },
+		{ Players,          "players",     MD_INT,                 "",                false,       _("Players"),              _("enter number of players"),	false },
 		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite"),			false },
 		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden"),			true },
 		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame"),			false },
@@ -73,8 +79,8 @@ void MetaDataList::initMetadata()
 
 		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),            _("how long the game has been played in total (seconds)"), false },
 
-		{ Language,         "lang",        MD_STRING,              "",                 false,       _("Languages"),            _("Languages"),				false },
-		{ Region,           "region",      MD_STRING,              "",                 false,       _("Region"),               _("Region"),					false },
+		{ Language,         "lang",        MD_STRING,              "",                 false,      _("Languages"),            _("Languages"),				false },
+		{ Region,           "region",      MD_STRING,              "",                 false,      _("Region"),               _("Region"),					false },
 
 		{ CheevosHash,      "cheevosHash", MD_STRING,              "",                 true,       _("Cheevos Hash"),          _("Cheevos checksum"),	    false },
 		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false },
@@ -164,6 +170,9 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 			continue;
 		}
 
+		if (mdd.id == MetaDataId::GenreIds)
+			continue;
+
 		if (value == mdd.defaultValue)
 			continue;
 
@@ -239,6 +248,10 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 			parent.append_child("name").text().set(mName.c_str());
 			continue;
 		}
+
+		// Don't save GenreIds
+		if (mddIter->id == MetaDataId::GenreIds)
+			continue;
 
 		auto mapIter = mMap.find(mddIter->id);
 		if(mapIter != mMap.cend())

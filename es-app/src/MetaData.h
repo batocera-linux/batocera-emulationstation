@@ -69,7 +69,9 @@ enum MetaDataId
 	CheevosId = 35,
 	ScraperId = 36,
 	BoxBack = 37,
-	Magazine = 38
+	Magazine = 38,
+	GenreIds = 39,
+	Family = 40
 };
 
 namespace MetaDataImportType
