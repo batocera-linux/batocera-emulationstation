@@ -11,7 +11,6 @@
 #include <iostream>
 #include <SDL_timer.h>
 
-
 #if WIN32 & !_DEBUG
 	// NOBATOCERACONF routes all SystemConf to es_settings for Windows Release version
 
@@ -39,7 +38,6 @@ static std::map<std::string, std::string> defaults =
 	{ "kodi.enabled", "1" },
 	{ "kodi.atstartup", "0" },
 	{ "audio.bgmusic", "1" },
-	{ "global.autosave", "3" },
 	{ "wifi.enabled", "0" },
 	{ "system.hostname", "BATOCERA" },
 	{ "global.retroachievements", "0" },
