@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 07:48+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -153,6 +153,18 @@ msgstr "Genre"
 
 msgid "enter game genre"
 msgstr "entrer le genre du jeu"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Système d'arcade"
@@ -444,6 +456,9 @@ msgstr "CHOISIR LES COLLECTIONS"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SYSTEMES D'ARCADE"
@@ -1282,8 +1297,9 @@ msgstr "OUTILS"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ACTIVER L'ACCÈS WEB PUBLIC"
 
-msgid "Allow public web access API using "
-msgstr "Permettre l'accès public à l'api via "
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
@@ -1382,7 +1398,9 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACCÉDER AUX OPTIONS DU JEUX AVEC LE BOUTON NORD"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Intervertir le bouton nord (sauvegarde de jeu) & sud pression longue (options du jeu)"
+msgstr ""
+"Intervertir le bouton nord (sauvegarde de jeu) & sud pression longue "
+"(options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "CONTROLER L’INTERFACE SEULEMENT AVEC LA PREMIÈRE MANETTE"
@@ -1949,6 +1967,9 @@ msgstr "VOUS ALLEZ FORMATER CE DISQUE. ETES-VOUS SUR(E) ?"
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2220,6 +2241,9 @@ msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS"
 msgid "GENRE"
 msgstr "GENRE"
 
+msgid "FAMILY"
+msgstr ""
+
 msgid "PLAYERS"
 msgstr "JOUEURS"
 
@@ -2445,6 +2469,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Permettre l'accès public à l'api via "
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "UTILISER LE MENU RETROARCH RGUI"

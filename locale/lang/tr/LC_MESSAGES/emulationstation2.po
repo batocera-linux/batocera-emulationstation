@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 19:13+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -153,6 +153,18 @@ msgstr "Tür"
 
 msgid "enter game genre"
 msgstr "oyun türünü girin"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Atari sistemi"
@@ -444,6 +456,9 @@ msgstr "KOLEKSİYONLARI SEÇ"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "OTOMATİK KOLEKSİYONLAR"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "ATARİ SİSTEMLERİ"
@@ -1284,8 +1299,9 @@ msgstr "ARAÇLAR"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "WEB ERİŞİMİNE AÇ"
 
-msgid "Allow public web access API using "
-msgstr "API kullanarak web girişine izin ver "
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
@@ -1952,6 +1968,9 @@ msgstr "BU SÜRÜCÜYÜ BİÇİMLENDİRMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?
 msgid "EDIT METADATA"
 msgstr "METADATA DÜZENLE"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2221,6 +2240,9 @@ msgstr "DEĞİŞİKLİKLERİ KABUL EDEREK OYUN LİSTESİNİ GÜNCELLE."
 msgid "GENRE"
 msgstr "TÜR"
 
+msgid "FAMILY"
+msgstr ""
+
 msgid "PLAYERS"
 msgstr "OYUNCULAR"
 
@@ -2445,6 +2467,9 @@ msgstr "%d d"
 #, c-format
 msgid "%d s"
 msgstr "%d sn"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "API kullanarak web girişine izin ver "
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "ÇEKME İŞLEMİ SÜRÜYOR (SCRAPING)"

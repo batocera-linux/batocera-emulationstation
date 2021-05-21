@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 07:48+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -153,6 +153,18 @@ msgstr "Genre"
 
 msgid "enter game genre"
 msgstr "Genre eingeben"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Arcade System"
@@ -445,6 +457,9 @@ msgstr "SAMMLUNGEN AUSWÄHLEN"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "AUTOMATISCHE SAMMLUNGEN"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "ARCADE SYSTEME"
@@ -1285,8 +1300,9 @@ msgstr "WERKZEUGE"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ÖFFENTLICHEN WEBZUGRIFF AKTIVIEREN"
 
-msgid "Allow public web access API using "
-msgstr "Erlaube die Verwendung der öffentl. Webzugriffs-API "
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
@@ -1387,7 +1403,9 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ZUGRIFF AUF SPIELOPTIONEN MIT DER NORDTASTE"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Invertiert die Nordtaste (Savestates) & langes Drücken der Südtaste (Spieloptionen)"
+msgstr ""
+"Invertiert die Nordtaste (Savestates) & langes Drücken der Südtaste "
+"(Spieloptionen)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "EMULATIONSTATION NUR MIT ERSTEM JOYSTICK STEUERN"
@@ -1955,6 +1973,9 @@ msgstr "BIST DU SICHER, DASS DU DIESES LAUFWERK FORMATIEREN WILLST?"
 msgid "EDIT METADATA"
 msgstr "METADATEN BEARBEITEN"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2226,6 +2247,9 @@ msgstr "AKTUALISIERE DIE SPIELELISTE UM DIE ÄNDERUNGEN ANZUWENDEN."
 msgid "GENRE"
 msgstr "GATTUNG"
 
+msgid "FAMILY"
+msgstr ""
+
 msgid "PLAYERS"
 msgstr "SPIELER"
 
@@ -2453,6 +2477,9 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Erlaube die Verwendung der öffentl. Webzugriffs-API "
 
 #~ msgid "ADD TO CUSTOM COLLECTION"
 #~ msgstr "ZUR BENUTZERDEFINIERTEN SAMMLUNG HINZUFÜGEN"

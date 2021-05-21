@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 07:50+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -153,6 +153,18 @@ msgstr "Genere"
 
 msgid "enter game genre"
 msgstr "inserisci genere"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Sistema Arcade"
@@ -444,6 +456,9 @@ msgstr "SELEZIONA COLLEZIONE"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLLEZIONI AUTOMATICHE"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMI ARCADE"
@@ -1284,8 +1299,9 @@ msgstr "STRUMENTI"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ATTIVA ACCESSO FILE SUL WEB"
 
-msgid "Allow public web access API using "
-msgstr "Consenti accesso tramite API"
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
@@ -1384,7 +1400,8 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACCEDI ALLE OPZIONI GIOCO CON IL PULSANTE NORD"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Inverti pulsante nord (salv. istant.) & pressione lunga sud (opzioni gioco)"
+msgstr ""
+"Inverti pulsante nord (salv. istant.) & pressione lunga sud (opzioni gioco)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "UTILIZZO DI ES SOLO PER IL PRIMO CONTROLLER"
@@ -1949,6 +1966,9 @@ msgstr "SEI SICURO DI VOLER FORMATTARE QUESTO DISPOSITIVO?"
 msgid "EDIT METADATA"
 msgstr "MODIFICA LE INFORMAZIONI"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2219,6 +2239,9 @@ msgstr "AGGIORNA LE LISTE GIOCHI PER APPLICARE I CAMBIAMENTI"
 msgid "GENRE"
 msgstr "GENERE"
 
+msgid "FAMILY"
+msgstr ""
+
 msgid "PLAYERS"
 msgstr "GIOCATORI"
 
@@ -2444,6 +2467,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Consenti accesso tramite API"
 
 #~ msgid "ADD TO CUSTOM COLLECTION"
 #~ msgstr "AGGIUNGI ALLA COLLEZIONE PERS."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 07:48+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -153,6 +153,18 @@ msgstr "Gênero"
 
 msgid "enter game genre"
 msgstr "digite o gênero no jogo"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -444,6 +456,9 @@ msgstr "SELECIONAR COLEÇÕES"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -1285,8 +1300,9 @@ msgstr "FERRAMENTAS"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ATIVAR ACESSO PÚBLICO À WEB"
 
-msgid "Allow public web access API using "
-msgstr "Permitir acesso público à web usando API"
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
@@ -1385,7 +1401,9 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACESSE AS OPÇÕES DE JOGO COM O BOTÃO NORTE"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Inverte o botão norte (savestates) e pressiona longamente o sul (opções de jogo)"
+msgstr ""
+"Inverte o botão norte (savestates) e pressiona longamente o sul (opções de "
+"jogo)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "CONTROLAR EMULATIONSTATION APENAS COM O PRIMEIRO JOYSTICK"
@@ -1951,6 +1969,9 @@ msgstr "TEM CERTEZA QUE DESEJA FORMATAR ESTE DISCO?"
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2219,6 +2240,9 @@ msgstr "ATUALIZE A LISTAS DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 msgid "GENRE"
 msgstr "GÊNERO"
 
+msgid "FAMILY"
+msgstr ""
+
 msgid "PLAYERS"
 msgstr "JOGADORES"
 
@@ -2442,3 +2466,6 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Permitir acesso público à web usando API"

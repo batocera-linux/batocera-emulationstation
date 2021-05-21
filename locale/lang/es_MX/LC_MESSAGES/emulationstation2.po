@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 07:48+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -153,6 +153,18 @@ msgstr "Género"
 
 msgid "enter game genre"
 msgstr "introducir género"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -444,6 +456,9 @@ msgstr "SELECCIONAR COLECCIONES"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLECCIONES AUTOMÁTICAS"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -1284,8 +1299,9 @@ msgstr "HERRAMIENTAS"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "HABILITAR WEB MANAGER"
 
-msgid "Allow public web access API using "
-msgstr "Permitir el acceso usando API "
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
@@ -1384,7 +1400,9 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACCEDER LAS OPCIONES DEL JUEGO CON EL BOTON NORTE"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Invertir el boton norte (estados guardados) & dejar presionado sur (opciones de juegos)"
+msgstr ""
+"Invertir el boton norte (estados guardados) & dejar presionado sur (opciones "
+"de juegos)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "CONTROLAR SISTEMA SOLO CON EL CONTROL PRINCIPAL"
@@ -1668,8 +1686,8 @@ msgstr ""
 "DIRECCIONES COMO SI FUERA UNA CRUCETA E IGNORA LA CONFIGURACIÓN DE LOS "
 "ANALOGICOS MANTENIENDO PRESIONADO UN BOTÓN. \n"
 "SI NO TIENES UN BOTÓN ESPECIAL PARA USARLO COMO HOTKEY, UTILIZA SELECT. "
-"IGNORA LOS BOTONES QUE NO EXISTAN EN TU CONTROL MANTENIENDO PRESIONADO UN BOTÓN. "
-"LOS NOMBRES DE LOS BOTONES SE BASAN EN EL CONTROL DE SUPER NINTENDO."
+"IGNORA LOS BOTONES QUE NO EXISTAN EN TU CONTROL MANTENIENDO PRESIONADO UN "
+"BOTÓN. LOS NOMBRES DE LOS BOTONES SE BASAN EN EL CONTROL DE SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH CONTROLLER"
 msgstr "CONECTAR UN CONTROL BLUETOOTH"
@@ -1951,6 +1969,9 @@ msgstr "¿ESTÁS SEGURO DE FORMATEAR ESTE DISPOSITIVO?"
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2222,6 +2243,9 @@ msgstr "ACTUALIZAR LISTAS DE JUEGOS PARA APLICAR CAMBIOS."
 msgid "GENRE"
 msgstr "GÉNERO"
 
+msgid "FAMILY"
+msgstr ""
+
 msgid "PLAYERS"
 msgstr "JUGADORES"
 
@@ -2342,8 +2366,9 @@ msgid ""
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 "NO HAS ELEGIDO EL BOTÓN \"HOTKEY\", ESTE BOTÓN ES NECESARIO PARA SALIR DE "
-"LOS JUEGOS CON UN CONTROL. ¿DESEAS USAR EL BOTÓN SELECT POR DEFECTO? POR FAVOR "
-"RESPONDE SI PARA USAR SELECT, O NO PARA NO HABILITAR EL BOTÓN \"HOTKEY”."
+"LOS JUEGOS CON UN CONTROL. ¿DESEAS USAR EL BOTÓN SELECT POR DEFECTO? POR "
+"FAVOR RESPONDE SI PARA USAR SELECT, O NO PARA NO HABILITAR EL BOTÓN "
+"\"HOTKEY”."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2446,3 +2471,6 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Permitir el acceso usando API "

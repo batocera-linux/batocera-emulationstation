@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-17 07:48+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -153,6 +153,18 @@ msgstr "類型"
 
 msgid "enter game genre"
 msgstr "輸入遊戲類型"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "街機系統"
@@ -443,6 +455,9 @@ msgstr "選擇合輯"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "自動化合輯"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "街機系統"
@@ -1282,8 +1297,9 @@ msgstr "工具"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "啟用公開網站存取"
 
-msgid "Allow public web access API using "
-msgstr "允許使用公開網站存取 API "
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "需要重新啟動系統才可以套用新的設定"
@@ -1945,6 +1961,9 @@ msgstr "您確定要格式化此裝置嗎？"
 msgid "EDIT METADATA"
 msgstr "編輯中繼資料"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2207,6 +2226,9 @@ msgstr "更新遊戲清單來套用變更。"
 msgid "GENRE"
 msgstr "類型"
 
+msgid "FAMILY"
+msgstr ""
+
 msgid "PLAYERS"
 msgstr "遊戲人數"
 
@@ -2424,6 +2446,9 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "允許使用公開網站存取 API "
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "使用 RGUI 目錄"
