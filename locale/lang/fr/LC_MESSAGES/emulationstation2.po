@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "entrer le genre du jeu"
 
 msgid "Game family"
-msgstr ""
+msgstr "Famille du jeu"
 
 msgid "enter game family"
-msgstr ""
+msgstr "entrer la famille du jeu"
 
 msgid "Genres"
-msgstr ""
+msgstr "Genres"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "entrer les genres du jeu"
 
 msgid "Arcade system"
 msgstr "Système d'arcade"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "PAR GENRE"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SYSTEMES D'ARCADE"
@@ -1299,7 +1299,7 @@ msgstr "ACTIVER L'ACCÈS WEB PUBLIC"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Autoriser l’accès public à l’API via %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
@@ -1968,7 +1968,7 @@ msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GENRES"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2242,7 +2242,7 @@ msgid "GENRE"
 msgstr "GENRE"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMILLE"
 
 msgid "PLAYERS"
 msgstr "JOUEURS"
@@ -2469,9 +2469,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "Allow public web access API using "
-#~ msgstr "Permettre l'accès public à l'api via "
-
-#~ msgid "USE RETROARCH RGUI MENU"
-#~ msgstr "UTILISER LE MENU RETROARCH RGUI"
