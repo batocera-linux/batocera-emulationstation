@@ -25,6 +25,8 @@
 #include "components/OptionListComponent.h"
 #include "ApiSystem.h"
 #include "scrapers/Scraper.h"
+#include "Genres.h"
+#include <algorithm>
 #include <set>
 
 GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector<MetaDataDecl>& mdd, ScraperSearchParams scraperParams,
@@ -164,6 +166,33 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 			// force change event to load core list
 			emul_choice->invalidate();
+			continue;
+		}
+
+		if (iter->key == "genre")
+			continue;
+
+		if (iter->key == "genres")
+		{
+			auto selectedGenres = Utils::String::split(mMetaData->get(MetaDataId::GenreIds), ',');
+
+			auto genres = std::make_shared<OptionListComponent<std::string>>(mWindow, _("GENRES"), true, true);
+			genres->setTag("genres");
+			ed = genres;
+
+			for (auto genre : Genres::getGameGenres())
+			{
+				bool selected = std::find(selectedGenres.cbegin(), selectedGenres.cend(), std::to_string(genre->id)) != selectedGenres.cend();
+				genres->add(genre->getLocalizedName(), std::to_string(genre->id), selected, false, genre->parentId > 0);
+			}
+
+			row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("GENRES")), theme->Text.font, theme->Text.color), true);
+			row.addElement(genres, false);
+
+			mList->addRow(row);
+
+			mEditors.push_back(genres);
+
 			continue;
 		}
 
@@ -393,6 +422,18 @@ bool GuiMetaDataEd::save()
 			if (isStatistic(key))
 				continue;
 
+			if (key == "genre")
+				continue;
+
+			if (key == "genres")
+			{
+				std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
+				val = Utils::String::join(list->getSelectedObjects(), ",");
+
+				if (val != mMetaData->get(MetaDataId::GenreIds))
+					mMetaData->set("genre", Genres::genreStringFromIds(list->getSelectedObjects(), false));
+			}
+
 			if (key == "core" || key == "emulator")
 			{
 				std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
@@ -508,6 +549,15 @@ void GuiMetaDataEd::close(bool closeAllWindows)
 		{
 			std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
 			value = list->getSelected();
+		}
+
+		if (key == "genre")
+			continue;
+
+		if (key == "genres")
+		{
+			std::shared_ptr<OptionListComponent<std::string>> list = std::static_pointer_cast<OptionListComponent<std::string>>(ed);
+			value = Utils::String::join(list->getSelectedObjects(), ",");
 		}
 
 		std::string mdv = mMetaData->get(key, false);

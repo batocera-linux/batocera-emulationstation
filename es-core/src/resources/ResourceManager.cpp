@@ -34,7 +34,7 @@ std::vector<std::string> ResourceManager::getResourcePaths() const
 		paths.push_back(themePath);
 
 	// check if default readonly theme overrides default resources
-#ifdef WIN32
+#ifndef WIN32
 	std::string roThemePath = Utils::FileSystem::getSharedConfigPath() + "/themes/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
 	if (Utils::FileSystem::isDirectory(roThemePath))
 		paths.push_back(roThemePath);

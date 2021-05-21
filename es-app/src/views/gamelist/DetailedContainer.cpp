@@ -547,7 +547,7 @@ void DetailedContainer::updateDetailsForFolder(FolderData* folder)
 		
 		if (mVideo != nullptr && mVideo->showSnapshots())
 		{
-			mVideo->setImage("");
+			mVideo->setImage(":/blank.png");
 			mVideo->setVideo("");
 
 			createFolderGrid(mVideo->getTargetSize(), thumbs);
@@ -582,7 +582,7 @@ void DetailedContainer::updateDetailsForFolder(FolderData* folder)
 		{
 			if (mVideo == nullptr || !mVideo->showSnapshots())
 			{
-				mImage->setImage("");
+				mImage->setImage(":/blank.png");
 
 				createFolderGrid(mImage->getSize(), thumbs);
 				if (mFolderView)

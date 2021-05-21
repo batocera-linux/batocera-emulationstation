@@ -14,7 +14,7 @@
 #include "utils/TimeUtil.h"
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
-
+#include "Genres.h"
 
 using namespace PlatformIds;
 using namespace rapidjson;
@@ -415,7 +415,10 @@ namespace
 			result.mdl.set(MetaDataId::Publisher, getPublisherString(game["publishers"]));
 
 		if (game.HasMember("genres") && game["genres"].IsArray())
+		{
 			result.mdl.set(MetaDataId::Genre, getGenreString(game["genres"]));
+			Genres::convertGenreToGenreIds(&result.mdl);
+		}
 
 		if (game.HasMember("players") && game["players"].IsInt())
 			result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));

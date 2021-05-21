@@ -10,6 +10,7 @@
 #include "SystemData.h"
 #include "utils/TimeUtil.h"
 #include "utils/StringUtil.h"
+#include "Genres.h"
 
 // Current version is release 4 let's test for this value in JSON result
 #ifndef ARCADE_DB_RELEASE_VERSION
@@ -143,7 +144,10 @@ void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
     }
 
 	if (game.HasMember("genre") && game["genre"].IsString())
-	    result.mdl.set(MetaDataId::Genre, getStringOrThrow(game, "genre"));
+	{
+		result.mdl.set(MetaDataId::Genre, getStringOrThrow(game, "genre"));
+		Genres::convertGenreToGenreIds(&result.mdl);
+	}
 
 	if (game.HasMember("players") && game["players"].IsInt())
 		result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));
@@ -203,7 +207,7 @@ bool ArcadeDBJSONRequest::process(HttpReq* request, std::vector<ScraperSearchRes
 		return true;
 	}
 
-    if (!doc.HasMember("release") || !doc["release"].IsInt() || doc["release"] != ARCADE_DB_RELEASE_VERSION)
+    if (!doc.HasMember("release") || !doc["release"].IsInt() || doc["release"].GetInt() < ARCADE_DB_RELEASE_VERSION)
     {
         std::string warn = "ArcadeDBJSONRequest - Response had wrong format.\n";
         LOG(LogWarning) << warn;

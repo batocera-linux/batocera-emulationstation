@@ -127,6 +127,9 @@ HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
 		return;
 	}
 
+	// Ignore expired SSL certificates
+	curl_easy_setopt(mHandle, CURLOPT_SSL_VERIFYPEER, 0L);
+
 	//set curl to handle redirects
 	err = curl_easy_setopt(mHandle, CURLOPT_CONNECTTIMEOUT, 10L);
 	if (err != CURLE_OK)

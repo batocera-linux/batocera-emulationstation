@@ -21,6 +21,7 @@
 #include "math/Vector2i.h"
 #include "SystemConf.h"
 #include "ImageIO.h"
+#include "utils/Randomizer.h"
 
 #define FADE_TIME 			500
 
@@ -45,7 +46,7 @@ SystemScreenSaver::SystemScreenSaver(Window* window) :
 	std::string path = getTitleFolder();
 	if(!Utils::FileSystem::exists(path))
 		Utils::FileSystem::createDirectory(path);
-	srand((unsigned int)time(NULL));
+	
 	mVideoChangeTime = 30000;
 }
 
@@ -372,9 +373,8 @@ std::string SystemScreenSaver::pickRandomVideo()
 	mCurrentGame = NULL;
 	if (mVideoCount == 0)
 		return "";
-	
-	rand();
-	int video = (int)(((float)rand() / float(RAND_MAX)) * (float)mVideoCount);
+		
+	int video = Randomizer::random(mVideoCount); // (int)(((float)rand() / float(RAND_MAX)) * (float)mVideoCount);
 	return pickGameListNode(video, "video");
 }
 
@@ -385,8 +385,8 @@ std::string SystemScreenSaver::pickRandomGameListImage()
 	if (mImageCount == 0)
 		return "";
 	
-	rand();
-	int image = (int)(((float)rand() / float(RAND_MAX)) * (float)mImageCount);
+	//rand();
+	int image = Randomizer::random(mImageCount); // (int)(((float)rand() / float(RAND_MAX)) * (float)mImageCount);
 	return pickGameListNode(image, "image");
 }
 
@@ -419,7 +419,7 @@ std::string SystemScreenSaver::pickRandomCustomImage(bool video)
 		if (fileCount > 0)
 		{
 			// get a random index in the range 0 to fileCount (exclusive)
-			int randomIndex = rand() % fileCount;
+			int randomIndex = Randomizer::random(fileCount); // rand() % fileCount;
 			path = matchingFiles[randomIndex];
 		}
 		else
@@ -588,7 +588,7 @@ void GameScreenSaverBase::setGame(FileData* game)
 	if (decos != "none")
 	{
 		auto sets = GuiMenu::getDecorationsSets(game->getSystem());
-		int setId = (int)(((float)rand() / float(RAND_MAX)) * (float)sets.size());
+		int setId = Randomizer::random(sets.size()); // (int)(((float)rand() / float(RAND_MAX)) * (float)sets.size());
 
 		if (decos == "systems")
 		{

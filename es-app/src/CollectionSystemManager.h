@@ -38,6 +38,9 @@ struct CollectionSystemDecl
 	std::string themeFolder;
 	bool isCustom;	
     bool displayIfEmpty;
+
+	bool isArcadeSubSystem() { return (int)type >= 1000 && (int)type < 10000; }
+	bool isGenreCollection() { return (int)type >= 10000 && (int)type < 20000; }
 };
 
 struct CollectionSystemData

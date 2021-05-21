@@ -8,6 +8,7 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemData.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Gamelist.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Genres.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileFilterIndex.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.h
@@ -106,6 +107,7 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/PlatformId.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemData.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Gamelist.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Genres.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/FileFilterIndex.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemScreenSaver.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/CollectionSystemManager.cpp

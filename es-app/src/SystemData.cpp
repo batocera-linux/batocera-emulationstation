@@ -16,6 +16,7 @@
 #include "Window.h"
 #include "LocaleES.h"
 #include "utils/StringUtil.h"
+#include "utils/Randomizer.h"
 #include "views/ViewController.h"
 #include "ThreadedHasher.h"
 #include <unordered_set>
@@ -80,7 +81,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	else
 	{
 		// virtual systems are updated afterwards, we're just creating the data structure
-		mRootFolder = new FolderData("" + mMetadata.name, this);
+		mRootFolder = new FolderData("" + mMetadata.fullName, this);
 	}
 
 	mRootFolder->getMetadata().resetChangedFlag();
@@ -1587,13 +1588,12 @@ SystemData* SystemData::getRandomSystem()
 	//  this is a bit brute force. It might be more efficient to just to a while (!gameSystem) do random again...
 	unsigned int total = 0;
 	for(auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
-	{
 		if ((*it)->isGameSystem())
-			total ++;
-	}
+			total++;
 
 	// get random number in range
-	int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
+	int target = Randomizer::random(total);
+	//int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
 	for (auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
 	{
 		if ((*it)->isGameSystem())
@@ -1617,11 +1617,11 @@ FileData* SystemData::getRandomGame()
 {
 	std::vector<FileData*> list = mRootFolder->getFilesRecursive(GAME, true);
 	unsigned int total = (int)list.size();
-	int target = 0;
-	// get random number in range
 	if (total == 0)
 		return NULL;
-	target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
+
+	int target = Randomizer::random(total);
+	//target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
 	return list.at(target);
 }
 
