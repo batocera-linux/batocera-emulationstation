@@ -60,6 +60,9 @@ MameNames::MameNames()
 
 		if (gameNode.attribute("vert") && gameNode.attribute("vert").value() == sTrue)
 			mVerticalGames.insert(namePair.mameName);
+
+		if (gameNode.attribute("gun") && gameNode.attribute("gun").value() == sTrue)
+			mLightGunGames.insert(namePair.mameName);
 	}
 	
 	// Read bios
@@ -145,4 +148,9 @@ const bool MameNames::isDevice(const std::string& _deviceName)
 const bool MameNames::isVertical(const std::string& _nameName)
 {
 	return (mVerticalGames.find(_nameName) != mVerticalGames.cend());
+}
+
+const bool MameNames::isLightgun(const std::string& _nameName)
+{
+	return (mLightGunGames.find(_nameName) != mLightGunGames.cend());
 }

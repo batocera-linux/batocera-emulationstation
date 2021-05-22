@@ -41,6 +41,7 @@ public:
 	void	applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
 
 	int getLastCursor() { return mLastCursor; }
+	void resetLastCursor() { mLastCursor = -1; }
 
 protected:
 	void onCursorChanged(const CursorState& state) override;

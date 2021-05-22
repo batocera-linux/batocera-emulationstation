@@ -25,6 +25,8 @@
 #include "Win32ApiSystem.h"
 #endif
 
+#include "Genres.h"
+
 std::string myCollectionsName = "collections";
 
 #define LAST_PLAYED_MAX	50
@@ -46,14 +48,45 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ AUTO_RETROACHIEVEMENTS,"retroachievements",  _("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, // batocera
 
 		// Arcade meta 
-		{ AUTO_ARCADE,           "arcade",      _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, // batocera
-		{ AUTO_VERTICALARCADE,  "vertical",     _("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, // batocera
+		{ AUTO_ARCADE,           "arcade",       _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, // batocera
+		{ AUTO_VERTICALARCADE,   "vertical",     _("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, // batocera
+		{ AUTO_LIGHTGUN,		 "lightgun",     _("lightgun games"),    FileSorts::FILENAME_ASCENDING,    "auto-lightgun",           false,       true }, // batocera
 
 		// Custom collection
 		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
 	};
 
 	auto ret = std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
+
+	// Per Genre collections
+	for (auto genre : Genres::getGameGenres())
+	{
+		if (genre->parentId != 0)
+			continue;
+
+		if (genre->id == GENRE_LIGHTGUN) // see AUTO_LIGHTGUN instead
+			continue;
+
+		std::string shortName = genre->parent == nullptr ? genre->nom_en : genre->parent->nom_en + "_" + genre->nom_en;
+		shortName = Utils::String::toLower(shortName);
+		shortName = Utils::String::replace(shortName, " ", "");
+		shortName = Utils::String::replace(shortName, "'", "");
+		shortName = Utils::String::replace(shortName, ",", "");
+		shortName = Utils::String::replace(shortName, "-", "");
+		shortName = Utils::String::replace(shortName, "game", "");
+
+		std::string longName = genre->parent == nullptr ? genre->getLocalizedName() : genre->parent->getLocalizedName() + " / " + genre->getLocalizedName();
+
+		CollectionSystemDecl decl;
+		decl.type = (CollectionSystemType)(10000 + genre->id);
+		decl.name = "_" + shortName;
+		decl.longName = longName;
+		decl.defaultSortId = FileSorts::FILENAME_ASCENDING;
+		decl.themeFolder = "auto-" + shortName;
+		decl.isCustom = false;
+		decl.displayIfEmpty = false;
+		ret.push_back(decl);
+	}
 
 	// Arcade systems
 	for (auto arcade : PlatformIds::ArcadeSystems)
@@ -68,6 +101,7 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		decl.displayIfEmpty = false;
 		ret.push_back(decl);
 	}
+
 
 	return ret;
 }
@@ -818,6 +852,8 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	rootFolder->setMetadata(MetaDataId::KidGame, "false");
 	rootFolder->setMetadata(MetaDataId::Hidden, "false");
 	rootFolder->setMetadata(MetaDataId::Favorite, "false");
+
+	rootFolder->getMetadata().resetChangedFlag();
 }
 
 void CollectionSystemManager::initCustomCollectionSystems()
@@ -866,7 +902,7 @@ SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, 
 	
 	// we parse the auto collection settings list
 	std::vector<std::string> selected = Utils::String::split(Settings::getInstance()->getString(sysDecl.isCustom ? "CollectionSystemsCustom" : "CollectionSystemsAuto"), ',', true);
-	bool loadThemeIfEnabled = (std::find(selected.cbegin(), selected.cend(), name) != selected.cend());
+	bool loadThemeIfEnabled = (name == myCollectionsName || (std::find(selected.cbegin(), selected.cend(), name) != selected.cend()));
 
 	SystemData* newSys = new SystemData(md, mCollectionEnvData, NULL, true, false, loadThemeIfEnabled); // batocera
 
@@ -904,17 +940,17 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 {
 	SystemData* newSys = sysData->system;
 	CollectionSystemDecl sysDecl = sysData->decl;
-	FolderData* rootFolder = newSys->getRootFolder(); 
+	FolderData* rootFolder = newSys->getRootFolder();
 
 	bool hiddenSystemsShowGames = Settings::getInstance()->getBool("HiddenSystemsShowGames");
 	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
-	
-	for(auto& system : SystemData::sSystemVector)
+
+	for (auto& system : SystemData::sSystemVector)
 	{
 		// we won't iterate all collections
 		if (!system->isGameSystem() || system->isCollection())
 			continue;
-		
+
 		if (!hiddenSystemsShowGames && std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
 			continue;
 
@@ -926,7 +962,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			hiddenExts.push_back("." + Utils::String::toLower(ext));
 
 		std::vector<FileData*> files = system->getRootFolder()->getFilesRecursive(GAME);
-		for(auto& game : files)
+		for (auto& game : files)
 		{
 			if (system->isGroupSystem() && game->getSystem() != system)
 				continue;
@@ -942,72 +978,80 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 					continue;
 			}
 
-			switch(sysDecl.type) 
+			switch (sysDecl.type)
 			{
-				case AUTO_ALL_GAMES:
+			case AUTO_ALL_GAMES:
 #ifdef _ENABLEEMUELEC
 				include = !(game->getSystemName() == "setup") && !(game->getSystemName() == "imageviewer") && !(game->getSystemName() == "mediaplayer");
 #endif
-					break;
-				case AUTO_VERTICALARCADE:
-					include = game->isVerticalArcadeGame();
-					break;
-				case AUTO_RETROACHIEVEMENTS:
-					include = game->hasCheevos();
-					break;
-				case AUTO_LAST_PLAYED:
-					include = game->getMetadata(MetaDataId::PlayCount) > "0";
-					break;
-				case AUTO_NEVER_PLAYED:
-					include = !(game->getMetadata(MetaDataId::PlayCount) > "0");
-					break;					
-				case AUTO_FAVORITES:
-					// we may still want to add files we don't want in auto collections in "favorites"
-					include = game->getFavorite();
-					break;
-				case AUTO_ARCADE:
-					include = isArcade;
-					break;
-				case AUTO_AT2PLAYERS: // batocera
-				case AUTO_AT4PLAYERS:
+			case AUTO_VERTICALARCADE:
+				include = game->isVerticalArcadeGame();
+				break;
+			case AUTO_LIGHTGUN:
+				include = game->isLightGunGame();
+				break;
+			case AUTO_RETROACHIEVEMENTS:
+				include = game->hasCheevos();
+				break;
+			case AUTO_LAST_PLAYED:
+				include = game->getMetadata(MetaDataId::PlayCount) > "0";
+				break;
+			case AUTO_NEVER_PLAYED:
+				include = !(game->getMetadata(MetaDataId::PlayCount) > "0");
+				break;
+			case AUTO_FAVORITES:
+				// we may still want to add files we don't want in auto collections in "favorites"
+				include = game->getFavorite();
+				break;
+			case AUTO_ARCADE:
+				include = isArcade;
+				break;
+			case AUTO_AT2PLAYERS: // batocera
+			case AUTO_AT4PLAYERS:
+			{
+				std::string players = game->getMetadata(MetaDataId::Players);
+				if (players.empty())
+					include = false;
+				else
+				{
+					int min = -1;
+
+					auto split = players.rfind("+");
+					if (split != std::string::npos)
+						players = Utils::String::replace(players, "+", "-999");
+
+					split = players.rfind("-");
+					if (split != std::string::npos)
 					{
-						std::string players = game->getMetadata(MetaDataId::Players);
-						if (players.empty())
-							include = false;
-						else
-						{
-							int min = -1;
-
-							auto split = players.rfind("+");
-							if (split != std::string::npos)
-								players = Utils::String::replace(players, "+", "-999");
-
-							split = players.rfind("-");
-							if (split != std::string::npos)
-							{
-								min = atoi(players.substr(0, split).c_str());
-								players = players.substr(split + 1);
-							}
-
-							int max = atoi(players.c_str());
-							int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
-							include = min <= 0 ? (val == max) : (min <= val && val <= max);
-						}
+						min = atoi(players.substr(0, split).c_str());
+						players = players.substr(split + 1);
 					}
-					break;
-				default:
-					if (!sysDecl.isCustom && !sysDecl.displayIfEmpty)
-						include = isArcade && game->getMetadata(MetaDataId::ArcadeSystemName) == sysDecl.themeFolder;
 
-					break;				
+					int max = atoi(players.c_str());
+					int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
+					include = min <= 0 ? (val == max) : (min <= val && val <= max);
+				}
 			}
-							    
-			if (include) 
+			break;
+
+			default:
+				if (!sysDecl.isCustom && !sysDecl.displayIfEmpty)
+				{
+					if (sysDecl.isGenreCollection())
+						include = Genres::genreExists(&game->getMetadata(), ((int)sysDecl.type) - 10000);
+					else if (sysDecl.isArcadeSubSystem())
+						include = isArcade && game->getMetadata(MetaDataId::ArcadeSystemName) == sysDecl.themeFolder;
+				}
+
+				break;
+			}
+
+			if (include)
 			{
 				CollectionFileData* newGame = new CollectionFileData(game, newSys);
 				rootFolder->addChild(newGame);
 				newSys->addToIndex(newGame);
-			}			
+			}
 		}
 	}
 
@@ -1018,6 +1062,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 	}
 
 	sysData->isPopulated = true;
+	updateCollectionFolderMetadata(newSys);
 }
 
 // populates a Custom Collection System
@@ -1177,6 +1222,9 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 		if (!it->second.isEnabled)
 			continue;
 
+		if (it->second.system->getTheme() == nullptr)
+			it->second.system->loadTheme();
+
 		// check if populated, otherwise populate
 		if (!it->second.isPopulated)
 		{
@@ -1186,8 +1234,22 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 				populateAutoCollection(&(it->second));
 		}
 
+		bool groupableCollection = it->second.decl.isCustom;
+
+		// For Genre & Arcade auto-collections without theme Folder : Check if system logo exist. If not : allow CustomCollections Bundle
+		if (!it->second.decl.isCustom && !themeFolderExists(it->first) && (it->second.decl.isGenreCollection() || it->second.decl.isArcadeSubSystem()))
+		{
+			if (it->second.system != nullptr && it->second.system->getTheme() != nullptr)
+			{
+				auto theme = it->second.system->getTheme();
+				const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
+				if (logoElem == nullptr || !logoElem->has("path") || theme->getSystemThemeFolder() == "default")
+					groupableCollection = true;
+			}
+		}
+
 		// check if it has its own view
-		if (!it->second.decl.isCustom || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) // batocera
+		if (!groupableCollection || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) // batocera
 		{
 			if (it->second.decl.displayIfEmpty || it->second.system->getRootFolder()->getChildren().size() > 0)
 			{

@@ -18,7 +18,7 @@ static std::string mEmptyString = "";
 // these values are NOT saved to es_settings.xml
 // since they're set through command-line arguments, and not the in-program settings menu
 std::vector<const char*> settings_dont_save {
-	{ "Debug" },	
+	{ "Debug" },
 	{ "ForceKid" },
 	{ "ForceKiosk" },
 	{ "IgnoreGamelist" },
@@ -66,7 +66,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["ShowParentFolder"] = true;
 	mBoolMap["DrawFramerate"] = false;
-	mBoolMap["ShowExit"] = true;	
+	mBoolMap["ShowExit"] = true;
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;
@@ -85,8 +85,8 @@ void Settings::setDefaults()
 
     mBoolMap["UseOSK"] = true; // on screen keyboard
     mBoolMap["DrawClock"] = true;
-	mBoolMap["ShowControllerActivity"] = true;		
-	mBoolMap["ShowControllerBattery"] = true;		
+	mBoolMap["ShowControllerActivity"] = true;
+	mBoolMap["ShowControllerBattery"] = true;
     mIntMap["SystemVolume"] = 95;
     mBoolMap["Overscan"] = false;
     mStringMap["Language"] = "en_US";
@@ -97,7 +97,7 @@ void Settings::setDefaults()
     mStringMap["INPUT P5"] = "DEFAULT";
     mStringMap["Overclock"] = "none";
 
-	mBoolMap["VSync"] = true;	
+	mBoolMap["VSync"] = true;
 	mStringMap["FolderViewMode"] = "never";
 	mStringMap["HiddenSystems"] = "";
 
@@ -109,36 +109,39 @@ void Settings::setDefaults()
 #endif
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;
-	mBoolMap["ScrapePadToKey"] = true;	
+	mBoolMap["ScrapePadToKey"] = true;
 	mBoolMap["IgnoreGamelist"] = false;
 	mBoolMap["HideConsole"] = true;
 	mBoolMap["QuickSystemSelect"] = true;
 	mBoolMap["MoveCarousel"] = true;
-	mBoolMap["SaveGamelistsOnExit"] = true;	
-	mStringMap["ShowBattery"] = "text";	
+	mBoolMap["SaveGamelistsOnExit"] = true;
+	mStringMap["ShowBattery"] = "text";
 	mBoolMap["CheckBiosesAtLaunch"] = true;
 	mBoolMap["RemoveMultiDiskContent"] = true;
-	
+
 #if WIN32
 	mBoolMap["ShowNetworkIndicator"] = false;
 #else
 	mBoolMap["ShowNetworkIndicator"] = true;
 #endif
 
-	mBoolMap["Debug"] = false;	
+	mBoolMap["Debug"] = false;
 
 	mBoolMap["InvertButtons"] = false;
+
+	mBoolMap["GameOptionsAtNorth"] = false;
+
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
 	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 
-#if defined(_WIN32) || defined(TINKERBOARD) || defined(X86) || defined(X86_64) || defined(ODROIDN2) || defined(ODROIDC2)
+#if defined(_WIN32) || defined(TINKERBOARD) || defined(X86) || defined(X86_64) || defined(ODROIDN2) || defined(ODROIDC2) || defined(ODROIDXU4) || defined(RPI4)
 	// Boards > 1Gb RAM
 	mIntMap["MaxVRAM"] = 256;
-#elif defined(ODROIDGOA) || defined(RPI2) || defined(RPI3) || defined(RPI4) || defined(ROCKPRO64)
+#elif defined(ODROIDGOA) || defined(RPI2) || defined(RPI3) || defined(ROCKPRO64)
 	// Boards with 1Gb RAM
 	mIntMap["MaxVRAM"] = 128;
-#elif defined(_RPI_) 
+#elif defined(_RPI_)
 	// Rpi 0, 1
 	mIntMap["MaxVRAM"] = 80;
 #elif defined(_ENABLEEMUELEC)
@@ -182,9 +185,9 @@ void Settings::setDefaults()
 #endif
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
-	mBoolMap["SlideshowScreenSaverGameName"] = true;	
+	mBoolMap["SlideshowScreenSaverGameName"] = true;
 	mStringMap["ScreenSaverDecorations"] = "systems";
-	
+
 
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
 #ifdef _ENABLEEMUELEC
@@ -212,19 +215,19 @@ void Settings::setDefaults()
 
 	mBoolMap["VideoAudio"] = true;
 	mBoolMap["ScreenSaverVideoMute"] = false;
-	mBoolMap["VideoLowersMusic"] = true;	
+	mBoolMap["VideoLowersMusic"] = true;
 	mBoolMap["VolumePopup"] = true;
 
 	mIntMap["MusicVolume"] = 128;
-	
+
 	// Audio out device for Video playback using OMX player.
 	mStringMap["OMXAudioDev"] = "both";
 	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // batocera 2players,4players,favorites,recent
 	mStringMap["CollectionSystemsCustom"] = "";
 	mBoolMap["SortAllSystems"] = true; // batocera
-	mStringMap["SortSystems"] = "manufacturer";	
+	mStringMap["SortSystems"] = "manufacturer";
 	mBoolMap["UseCustomCollectionsSystem"] = true;
-		
+
 	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["FavoritesFirst"] = false;
@@ -255,13 +258,13 @@ void Settings::setDefaults()
 	mStringMap["DefaultGridSize"] = "";
 
 	mBoolMap["ThreadedLoading"] = true;
-	mBoolMap["AsyncImages"] = true;	
+	mBoolMap["AsyncImages"] = true;
 	mBoolMap["PreloadUI"] = false;
 	mBoolMap["OptimizeVRAM"] = true;
 	mBoolMap["OptimizeVideo"] = true;
 
 	mBoolMap["ShowFilenames"] = false;
-	
+
 #if defined(_WIN32) || defined(X86) || defined(X86_64)
 	mBoolMap["HideWindow"] = false;
 #else
@@ -291,9 +294,9 @@ void Settings::setDefaults()
 	mBoolMap["audio.bgmusic"] = true;
 	mBoolMap["audio.persystem"] = false;
 	mBoolMap["audio.display_titles"] = true;
-	mBoolMap["audio.thememusics"] = true;	
+	mBoolMap["audio.thememusics"] = true;
 	mIntMap["audio.display_titles_time"] = 10;
-	
+
 	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
 
 #if WIN32
@@ -415,7 +418,7 @@ void Settings::loadFile()
 	for(pugi::xml_node node = root.child("float"); node; node = node.next_sibling("float"))
 		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
 	for(pugi::xml_node node = root.child("string"); node; node = node.next_sibling("string"))
-		setString(node.attribute("name").as_string(), node.attribute("value").as_string());    
+		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
 
 	mWasChanged = false;
 }
@@ -449,7 +452,7 @@ SETTINGS_GETSET(float, mFloatMap, getFloat, setFloat, 0.0f);
 //SETTINGS_GETSET(const std::string&, mStringMap, getString, setString, mEmptyString);
 
 std::string Settings::getString(const std::string& name)
-{ 
+{
 	if (mStringMap.find(name) == mStringMap.cend())
 		return mEmptyString;
 
@@ -457,19 +460,19 @@ std::string Settings::getString(const std::string& name)
 }
 
 bool Settings::setString(const std::string& name, const std::string& value)
-{ 
+{
 	if (mStringMap.count(name) == 0 || mStringMap[name] != value)
 	{
 		if (value == "" && mStringMap.count(name) == 0)
 			return false;
 
 		mStringMap[name] = value;
-		
-		if (std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), name) == settings_dont_save.cend()) 
-			mWasChanged = true; 
-			
-		return true; 
-	} 
 
-	return false; 
+		if (std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), name) == settings_dont_save.cend())
+			mWasChanged = true;
+
+		return true;
+	}
+
+	return false;
 }

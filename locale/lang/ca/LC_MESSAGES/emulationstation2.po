@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -151,6 +151,18 @@ msgstr "Gènere"
 msgid "enter game genre"
 msgstr "introduïu el gènere"
 
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
+
 msgid "Arcade system"
 msgstr "Sistema de màquina recreativa"
 
@@ -251,6 +263,9 @@ msgid "arcade"
 msgstr "recreatives"
 
 msgid "vertical arcade"
+msgstr ""
+
+msgid "lightgun games"
 msgstr ""
 
 msgid "collections"
@@ -446,6 +461,9 @@ msgstr "SELECCIONI COL·LECCIONS"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COL·LECCIONS AUTOMÀTIQUES"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMES DE MÀQUINES RECREATIVES"
@@ -1273,7 +1291,8 @@ msgstr "EINES"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
-msgid "Allow public web access API using "
+#, c-format
+msgid "Allow public web access API using %s"
 msgstr ""
 
 msgid "LOG LEVEL"
@@ -1368,6 +1387,12 @@ msgstr "INTERCANVIAR BOTONS A/B A EMULATIONSTATION"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "AUTOCONFIGURAR COMANDAMENTS D'EMULADORS"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr ""
@@ -1933,6 +1958,9 @@ msgstr "ESTÀ SEGUR DE VOLER FORMATAR AQUESTA UNITAT?"
 msgid "EDIT METADATA"
 msgstr "EDITA LES METADADES"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
@@ -2197,6 +2225,9 @@ msgstr "FAVORITS"
 
 msgid "GENRE"
 msgstr "GÈNERE"
+
+msgid "FAMILY"
+msgstr ""
 
 msgid "PLAYERS"
 msgstr "JUGADORS"

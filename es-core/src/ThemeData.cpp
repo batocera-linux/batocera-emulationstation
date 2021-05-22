@@ -403,6 +403,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "roundCorners", FLOAT },
 		{ "color", COLOR },
 		{ "snapshotSource", STRING }, // image, thumbnail, marquee
+		{ "defaultSnapshot", PATH },
 		{ "loops", FLOAT }, // Number of loops to do -1 (default) is infinite 
 		{ "audio", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
@@ -1386,17 +1387,26 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		if (!parseFilterAttributes(node))
 			continue;
 
+		std::string name = node.name();
+
 		ElementPropertyType type = STRING;
 
-		auto typeIt = typeMap.find(node.name());
+		auto typeIt = typeMap.find(name);
 		if(typeIt == typeMap.cend())
 		{
-			if (std::string(node.name()) == "storyboard")
+			if (name == "storyboard")
 			{
 				auto storyBoard = new ThemeStoryboard();
 				if (!storyBoard->fromXmlNode(node, typeMap))
 				{
-					LOG(LogWarning) << "Storyboard \"" << node.name() << "\" has no <animation> items !";
+					auto sb = element.mStoryBoards.find(storyBoard->eventName);
+					if (sb != element.mStoryBoards.cend())
+					{
+						delete sb->second;
+						element.mStoryBoards.erase(storyBoard->eventName);
+					}
+
+					LOG(LogWarning) << "Storyboard \"" << name << "\" has no <animation> items !";
 					delete storyBoard;
 				}
 				else
@@ -1415,18 +1425,18 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			// Exception for menuIcons that can be extended
 			if (element.type == "menuIcons")
 				type = PATH;
-			else if (std::string(node.name()) == "animate" && std::string(root.name()) == "imagegrid")
+			else if (name == "animate" && std::string(root.name()) == "imagegrid")
 				node.set_name("animateSelection");
 			else
 			{
-				LOG(LogWarning) << "Unknown property type \"" << node.name() << "\" (for element of type " << root.name() << ").";
+				LOG(LogWarning) << "Unknown property type \"" << name << "\" (for element of type " << root.name() << ").";
 				continue;
 			}
 		}
 		else
 			type = typeIt->second;
 		
-		if (!overwrite && element.properties.find(node.name()) != element.properties.cend())
+		if (!overwrite && element.properties.find(name) != element.properties.cend())
 			continue;
 
 		std::string str = resolveSystemVariable(mSystemThemeFolder, resolvePlaceholders(node.text().as_string()));
@@ -1435,16 +1445,16 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		{
 		case NORMALIZED_RECT:
 		{
-			element.properties[node.name()] = Vector4f::parseString(str);
+			element.properties[name] = Vector4f::parseString(str);
 			break;
 		}
 		case NORMALIZED_PAIR:
 		{
-			element.properties[node.name()] = Vector2f::parseString(str);
+			element.properties[name] = Vector2f::parseString(str);
 			break;
 		}
 		case STRING:
-			element.properties[node.name()] = str;
+			element.properties[name] = str;
 			break;
 		case PATH:
 		{
@@ -1468,7 +1478,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				else if (element.type == "image" && path != "{random}" && path != "{random:thumbnail}" && path != "{random:marquee}" && path != "{random:image}" && path != "{random:fanart}" && path != "{random:titleshot}")
 					LOG(LogWarning) << "unknow random element " << path;
 				else
-					element.properties[node.name()] = path;
+					element.properties[name] = path;
 
 				break;
 			}
@@ -1488,38 +1498,37 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 			if (path == "none")
 			{
-				if (element.properties.find(node.name()) != element.properties.cend())
-					element.properties.erase(node.name());
+				if (element.properties.find(name) != element.properties.cend())
+					element.properties.erase(name);
 			}
 			else
 			{
-				if (!ResourceManager::getInstance()->fileExists(path))
+				if (ResourceManager::getInstance()->fileExists(path))
+				{
+					element.properties[name] = path;
+					break;
+				}
+				else if ((str[0] == '.' || str[0] == '~') && mPaths.size() > 1)
 				{
 					std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
 					if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
-						path = rootPath;
-				}
+					{
+						element.properties[name] = rootPath;
+						break;
+					}
+				}				
 
-				if (!ResourceManager::getInstance()->fileExists(path))
-				{
-					std::stringstream ss;
-					ss << "Warning : could not find file \"" << node.text().get() << "\" ";
-					if (node.text().get() != path)
-						ss << "(which resolved to \"" << path << "\") ";
-					LOG(LogWarning) << ss.str();
-				}
-				else
-					element.properties[node.name()] = path;
+				LOG(LogDebug) << "Warning : could not find file \"" << node.text().get() << "\" " << "(which resolved to \"" << path << "\") ";
 			}
 
 			break;
 		}
 		case COLOR:
-			element.properties[node.name()] = parseColor(str);
+			element.properties[name] = parseColor(str);
 			break;
 		case FLOAT:
 		{
-			element.properties[node.name()] = Utils::String::toFloat(str);
+			element.properties[name] = Utils::String::toFloat(str);
 			break;
 		}
 
@@ -1530,11 +1539,11 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			// 1*, t* (true), T* (True), y* (yes), Y* (YES)
 			bool boolVal = (first == '1' || first == 't' || first == 'T' || first == 'y' || first == 'Y');
 
-			element.properties[node.name()] = boolVal;
+			element.properties[name] = boolVal;
 			break;
 		}
 		default:
-			LOG(LogWarning) << "Unknown ElementPropertyType for \"" << root.attribute("name").as_string() << "\", property " << node.name();
+			LOG(LogWarning) << "Unknown ElementPropertyType for \"" << root.attribute("name").as_string() << "\", property " << name;
 			break;
 		}
 	}
@@ -1650,12 +1659,12 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 		ThemeElement& elem = viewIt->second.elements.at(*it);
 		if(elem.extra)
 		{			
-			if (type != ExtraImportType::ALL_EXTRAS && elem.mStoryBoards.size() > 0)
+			if (type != ExtraImportType::ALL_EXTRAS)
 			{
-				bool hasActivationStoryBoard =
+				bool hasActivationStoryBoard = elem.mStoryBoards.size() > 0 && (
 					elem.mStoryBoards.find("activate") != elem.mStoryBoards.cend() ||
 					elem.mStoryBoards.find("activateNext") != elem.mStoryBoards.cend() ||
-					elem.mStoryBoards.find("activatePrev") != elem.mStoryBoards.cend();
+					elem.mStoryBoards.find("activatePrev") != elem.mStoryBoards.cend());
 
 				if ((type & ExtraImportType::WITH_ACTIVATESTORYBOARD) == ExtraImportType::WITH_ACTIVATESTORYBOARD && !hasActivationStoryBoard)
 					continue;

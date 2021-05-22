@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -158,6 +158,18 @@ msgstr "النوع"
 msgid "enter game genre"
 msgstr "ادخل نوع اللعبة"
 
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
+
 msgid "Arcade system"
 msgstr "نظام الأركيد"
 
@@ -261,6 +273,9 @@ msgid "arcade"
 msgstr "اركيد"
 
 msgid "vertical arcade"
+msgstr ""
+
+msgid "lightgun games"
 msgstr ""
 
 msgid "collections"
@@ -448,6 +463,9 @@ msgid "SELECT COLLECTIONS"
 msgstr "اختيار المجموعات"
 
 msgid "AUTOMATIC COLLECTIONS"
+msgstr ""
+
+msgid "PER GENRE"
 msgstr ""
 
 msgid "ARCADE SYSTEMS"
@@ -1289,7 +1307,8 @@ msgstr "الأدوات"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
-msgid "Allow public web access API using "
+#, c-format
+msgid "Allow public web access API using %s"
 msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
@@ -1383,6 +1402,12 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "تكوين تلقائي لوحدات تحكم المحاكي"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgstr ""
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
@@ -1950,6 +1975,9 @@ msgstr "هل انت متأكد بالقيام بتهيئة هذا القرص؟"
 msgid "EDIT METADATA"
 msgstr "تعديل البيانات الوصفية"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2080,13 +2108,13 @@ msgstr[5] ""
 msgid "No Entries Found"
 msgstr "لم يتم العثور على مدخلات"
 
+msgid "Games similar to"
+msgstr ""
+
 msgid "GAME OPTIONS"
 msgstr "خيارات الألعاب"
 
 msgid "FAVORITE"
-msgstr ""
-
-msgid "Games similar to"
 msgstr ""
 
 msgid ""
@@ -2225,6 +2253,9 @@ msgstr ""
 
 msgid "GENRE"
 msgstr "النوع"
+
+msgid "FAMILY"
+msgstr ""
 
 msgid "PLAYERS"
 msgstr "اللاعبين"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -154,6 +154,18 @@ msgstr "Genre"
 msgid "enter game genre"
 msgstr "entrer le genre du jeu"
 
+msgid "Game family"
+msgstr "Famille du jeu"
+
+msgid "enter game family"
+msgstr "entrer la famille du jeu"
+
+msgid "Genres"
+msgstr "Genres"
+
+msgid "enter game genres"
+msgstr "entrer les genres du jeu"
+
 msgid "Arcade system"
 msgstr "Système d'arcade"
 
@@ -258,6 +270,9 @@ msgstr "arcade"
 
 msgid "vertical arcade"
 msgstr "arcade vertical"
+
+msgid "lightgun games"
+msgstr "jeux au pistolet"
 
 msgid "collections"
 msgstr "collections"
@@ -441,6 +456,9 @@ msgstr "CHOISIR LES COLLECTIONS"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
+
+msgid "PER GENRE"
+msgstr "PAR GENRE"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SYSTEMES D'ARCADE"
@@ -1277,10 +1295,11 @@ msgid "TOOLS"
 msgstr "OUTILS"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "ACTIVER L'ACCÈS WEB PUBLIC"
 
-msgid "Allow public web access API using "
-msgstr ""
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr "Autoriser l’accès public à l’API via %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
@@ -1374,6 +1393,14 @@ msgstr "AUTOCONFIGURATION ÉMULATEURS/MANETTES"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr "ACCÉDER AUX OPTIONS DU JEUX AVEC LE BOUTON NORD"
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
+"Intervertir le bouton nord (sauvegarde de jeu) & sud pression longue "
+"(options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "CONTROLER L’INTERFACE SEULEMENT AVEC LA PREMIÈRE MANETTE"
@@ -1940,6 +1967,9 @@ msgstr "VOUS ALLEZ FORMATER CE DISQUE. ETES-VOUS SUR(E) ?"
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
 
+msgid "GENRES"
+msgstr "GENRES"
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2063,14 +2093,14 @@ msgstr[1] "Ce dossier contient %i jeux, incluant :%s"
 msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"
 
+msgid "Games similar to"
+msgstr "Jeux similaires à"
+
 msgid "GAME OPTIONS"
 msgstr "OPTIONS DU JEU"
 
 msgid "FAVORITE"
 msgstr "FAVORIS"
-
-msgid "Games similar to"
-msgstr "Jeux similaires à"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2210,6 +2240,9 @@ msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS"
 
 msgid "GENRE"
 msgstr "GENRE"
+
+msgid "FAMILY"
+msgstr "FAMILLE"
 
 msgid "PLAYERS"
 msgstr "JOUEURS"
@@ -2436,6 +2469,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "USE RETROARCH RGUI MENU"
-#~ msgstr "UTILISER LE MENU RETROARCH RGUI"

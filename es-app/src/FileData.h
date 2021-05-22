@@ -101,13 +101,14 @@ public:
 	virtual std::string getKey();
 	const bool isArcadeAsset();
 	const bool isVerticalArcadeGame();
+	const bool isLightGunGame();
 	inline std::string getFullPath() { return getPath(); };
 	inline std::string getFileName() { return Utils::FileSystem::getFileName(getPath()); };
 	virtual FileData* getSourceFileData();
 	virtual std::string getSystemName() const;
 
 	// Returns our best guess at the "real" name for this file (will attempt to perform MAME name translation)
-	std::string& getDisplayName();
+	virtual std::string& getDisplayName();
 
 	// As above, but also remove parenthesis
 	std::string getCleanName();
@@ -173,6 +174,7 @@ public:
 
 	virtual const MetaDataList& getMetadata() const { return mSourceFileData->getMetadata(); }
 	virtual MetaDataList& getMetadata() { return mSourceFileData->getMetadata(); }
+	virtual std::string& getDisplayName() { return mSourceFileData->getDisplayName(); }
 
 private:
 	// needs to be updated when metadata changes

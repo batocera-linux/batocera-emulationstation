@@ -137,7 +137,7 @@ bool VideoComponent::setVideo(std::string path)
 void VideoComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
 {
 	// Check that the image has changed
-	if (path == mStaticImagePath)
+	if (!path.empty() && path == mStaticImagePath)
 		return;
 
 	mStaticImage.setImage(path, tile, maxSize);
@@ -369,6 +369,8 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	else
 		setClipRect(Vector4f());
 
+	if (elem->has("defaultSnapshot"))
+		mStaticImage.setDefaultImage(elem->get<std::string>("defaultSnapshot"));
 }
 
 std::vector<HelpPrompt> VideoComponent::getHelpPrompts()

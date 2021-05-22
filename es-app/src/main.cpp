@@ -11,6 +11,7 @@
 #include "InputManager.h"
 #include "Log.h"
 #include "MameNames.h"
+#include "Genres.h"
 #include "platform.h"
 #include "PowerSaver.h"
 #include "Settings.h"
@@ -489,6 +490,7 @@ int main(int argc, char* argv[])
 	setLocale(argv[0]);	
 
 	// metadata init
+	Genres::init();
 	MetaDataList::initMetadata();
 
 	Window window;
@@ -496,7 +498,6 @@ int main(int argc, char* argv[])
 	PowerSaver::init();
 	ViewController::init(&window);
 	CollectionSystemManager::init(&window);
-	MameNames::init();
 
 	window.pushGui(ViewController::get());
 	if(!window.init(true, false))
@@ -516,6 +517,9 @@ int main(int argc, char* argv[])
 
 		window.renderSplashScreen(progressText);
 	}
+
+	MameNames::init();
+
 
 	const char* errorMsg = NULL;
 	if(!loadSystemConfigFile(splashScreen && splashScreenProgress ? &window : nullptr, &errorMsg))

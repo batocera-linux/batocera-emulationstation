@@ -11,6 +11,7 @@
 #include "SystemConf.h"
 #include "guis/GuiGamelistOptions.h"
 #include "GameNameFormatter.h"
+#include "utils/Randomizer.h"
 
 GridGameListView::GridGameListView(Window* window, FolderData* root, const std::shared_ptr<ThemeData>& theme, std::string themeName, Vector2f gridSize) :
 	ISimpleGameListView(window, root),
@@ -57,6 +58,11 @@ FileData* GridGameListView::getCursor()
 		return nullptr;
 
 	return mGrid.getSelected();
+}
+
+void GridGameListView::resetLastCursor()
+{
+	mGrid.resetLastCursor();
 }
 
 void GridGameListView::setCursor(FileData* cursor)
@@ -330,4 +336,22 @@ void GridGameListView::update(int deltaTime)
 {
 	mDetails.update(deltaTime);
 	ISimpleGameListView::update(deltaTime);
+}
+
+void GridGameListView::moveToRandomGame()
+{
+	auto list = getFileDataEntries();
+
+	unsigned int total = (int)list.size();
+	if (total == 0)
+		return;
+
+	int target = Randomizer::random(total);
+	if (target >= 0 && target < total)
+	{
+		resetLastCursor();
+		setCursor(list.at(target));
+		if (isShowing())
+			onShow();
+	}
 }

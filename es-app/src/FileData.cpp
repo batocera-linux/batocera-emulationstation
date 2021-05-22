@@ -27,12 +27,13 @@
 #include "resources/ResourceManager.h"
 #include "RetroAchievements.h"
 #include "SaveStateRepository.h"
+#include "Genres.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
 {
 	// metadata needs at least a name field (since that's what getName() will return)
-	if (mMetadata.get(MetaDataId::Name).empty())
+	if (mMetadata.get(MetaDataId::Name).empty() && !mPath.empty())
 		mMetadata.set(MetaDataId::Name, getDisplayName());
 	
 	mMetadata.resetChangedFlag();
@@ -351,12 +352,17 @@ const bool FileData::isArcadeAsset()
 const bool FileData::isVerticalArcadeGame()
 {
 	if (mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE))
-	{
-		const std::string stem = Utils::FileSystem::getStem(getPath());
-		return MameNames::getInstance()->isVertical(stem);
-	}
+		return MameNames::getInstance()->isVertical(Utils::FileSystem::getStem(getPath()));
 
 	return false;
+}
+
+const bool FileData::isLightGunGame()
+{
+	if (mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE))
+		return MameNames::getInstance()->isLightgun(Utils::FileSystem::getStem(getPath()));
+
+	return Genres::genreExists(&getMetadata(), GENRE_LIGHTGUN);
 }
 
 FileData* FileData::getSourceFileData()

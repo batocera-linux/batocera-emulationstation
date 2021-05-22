@@ -215,17 +215,17 @@ void nsvgDelete(NSVGimage* image);
 #endif
 
 
-static int nsvg__isspace(char c)
+inline static int nsvg__isspace(char c)
 {
 	return strchr(" \t\n\v\f\r", c) != 0;
 }
 
-static int nsvg__isdigit(char c)
+inline static int nsvg__isdigit(char c)
 {
 	return c >= '0' && c <= '9';
 }
 
-static int nsvg__isnum(char c)
+inline static int nsvg__isnum(char c)
 {
 	return strchr("0123456789+-.eE", c) != 0;
 }
@@ -1100,9 +1100,17 @@ static double nsvg__atof(const char* s)
 	}
 
 	// Parse integer part
-	if (nsvg__isdigit(*cur)) {
+	if (nsvg__isdigit(*cur)) 
+	{
+		end = cur;
+		for (; *end && *end >= '0' && *end <= '9'; end++)
+		{
+			intPart *= 10;
+			intPart += *end - '0';
+		}
+
 		// Parse digit sequence
-		intPart = strtoll(cur, &end, 10);
+	//	intPart = strtoll(cur, &end, 10);
 		if (cur != end) {
 			res = (double)intPart;
 			hasIntPart = 1;
@@ -1113,9 +1121,17 @@ static double nsvg__atof(const char* s)
 	// Parse fractional part.
 	if (*cur == '.') {
 		cur++; // Skip '.'
-		if (nsvg__isdigit(*cur)) {
+		if (nsvg__isdigit(*cur)) 
+		{
+			end = cur;
+			for (; *end && *end >= '0' && *end <= '9'; end++)
+			{
+				fracPart *= 10;
+				fracPart += *end - '0';
+			}
+
 			// Parse digit sequence
-			fracPart = strtoll(cur, &end, 10);
+			//fracPart = strtoll(cur, &end, 10);
 			if (cur != end) {
 				res += (double)fracPart / pow(10.0, (double)(end - cur));
 				hasFracPart = 1;

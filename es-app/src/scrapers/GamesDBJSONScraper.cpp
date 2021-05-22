@@ -14,7 +14,7 @@
 #include "utils/TimeUtil.h"
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
-
+#include "Genres.h"
 
 using namespace PlatformIds;
 using namespace rapidjson;
@@ -120,7 +120,9 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ ARCADE, "23" },
 	{ NAOMI, "23" },
 	{ ATOMISWAVE, "23" },
-	{ DAPHNE, "23" }
+	{ DAPHNE, "23" },
+
+	{ SUPER_NINTENDO_MSU1, "6" },
 
 	/* Non existing systems
 	{ AMIGACDTV, "129" },
@@ -414,7 +416,10 @@ namespace
 			result.mdl.set(MetaDataId::Publisher, getPublisherString(game["publishers"]));
 
 		if (game.HasMember("genres") && game["genres"].IsArray())
+		{
 			result.mdl.set(MetaDataId::Genre, getGenreString(game["genres"]));
+			Genres::convertGenreToGenreIds(&result.mdl);
+		}
 
 		if (game.HasMember("players") && game["players"].IsInt())
 			result.mdl.set(MetaDataId::Players, std::to_string(game["players"].GetInt()));

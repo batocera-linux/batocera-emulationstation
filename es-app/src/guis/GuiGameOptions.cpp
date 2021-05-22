@@ -53,7 +53,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool hasMap = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Map));
 	bool hasCheevos = game->hasCheevos();
 
-	if (hasManual || hasMap || hasCheevos)
+	if (hasManual || hasMap || hasCheevos || hasMagazine)
 	{
 		mMenu.addGroup(_("GAME MEDIAS"));
 
@@ -207,19 +207,21 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			});
 		}
 
-		mMenu.addEntry(isImageViewer ? _("DELETE ITEM") : _("DELETE GAME"), false, [this, game]
-		{			
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS WILL DELETE THE ACTUAL GAME FILE(S)!\nARE YOU SURE?"), _("YES"),
-				[this, game]
+		if (UIModeController::getInstance()->isUIModeFull())
+		{
+			mMenu.addEntry(isImageViewer ? _("DELETE ITEM") : _("DELETE GAME"), false, [this, game]
+			{
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS WILL DELETE THE ACTUAL GAME FILE(S)!\nARE YOU SURE?"), _("YES"),
+					[this, game]
 				{
 					deleteGame(game);
 					close();
 				},
-				_("NO"), nullptr));
+					_("NO"), nullptr));
 
-			
-		});
 
+			});
+		}
 	}
 
 	bool isCustomCollection = (mSystem->isCollection() && game->getType() == FOLDER && CollectionSystemManager::get()->isCustomCollection(mSystem->getName()));
@@ -243,7 +245,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 			int addToCollectionCount = 0;
 			for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
-				if (customCollection.second.filteredIndex == nullptr && !CollectionSystemManager::get()->inInCustomCollection(game, customCollection.first))
+				if (customCollection.second.filteredIndex == nullptr && customCollection.second.isEnabled && !CollectionSystemManager::get()->inInCustomCollection(game, customCollection.first))
 					addToCollectionCount++;
 
 			if (addToCollectionCount > 1)
@@ -258,13 +260,12 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 					
 					for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
 					{
-						if (customCollection.second.filteredIndex != nullptr)
+						if (customCollection.second.filteredIndex != nullptr || !customCollection.second.isEnabled)
 							continue;
 
 						std::string collectionName = customCollection.first;
 						if (CollectionSystemManager::get()->inInCustomCollection(game, collectionName))
 							continue;
-
 						
 						msgBox->addEntry(Utils::String::toUpper(collectionName), false, [pThis, window, msgBox, collectionName, game]
 						{
@@ -282,7 +283,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 			for (auto customCollection : CollectionSystemManager::get()->getCustomCollectionSystems())
 			{
-				if (customCollection.second.filteredIndex != nullptr)
+				if (customCollection.second.filteredIndex != nullptr || !customCollection.second.isEnabled)
 					continue;
 
 				std::string collectionName = customCollection.first;
@@ -310,7 +311,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		fromPlaceholder = true; 
 	else if (game->getType() == FOLDER && ((FolderData*)game)->isVirtualStorage())
 		fromPlaceholder = true;
-	else if (game->getType() == FOLDER && mSystem->getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
+	else if (game->getType() == FOLDER && mSystem->isCollection()) // >getName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 		fromPlaceholder = true;
 
 	if (!fromPlaceholder && !isCustomCollection && UIModeController::getInstance()->isUIModeFull())

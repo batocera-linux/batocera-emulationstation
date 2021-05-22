@@ -263,12 +263,14 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 				[this, url](ImageDownloadHandle* result)
 				{
 					auto finalFile = result->getImageFileName();
-					mResult.mdl.set(url.first, finalFile);
+
+					if (Utils::FileSystem::getFileSize(finalFile) > 0)
+						mResult.mdl.set(url.first, finalFile);
 
 					if (mResult.urls.find(url.first) != mResult.urls.cend())
 						mResult.urls[url.first].url = "";
 				},
-				suffix, result.mdl.getName())); // "thumbnail"
+				suffix, result.mdl.getName()));
 		}
 	}
 

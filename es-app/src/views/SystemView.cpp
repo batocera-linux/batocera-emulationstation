@@ -403,12 +403,7 @@ bool SystemView::input(InputConfig* config, Input input)
 {
 	if (mYButton.isShortPressed(config, input))
 	{
-		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
-		if (netPlay)
-			setCursor(SystemData::getRandomSystem());
-		else
-			showQuickSearch();
-
+		showQuickSearch();
 		return true;
 	}
 
@@ -679,7 +674,13 @@ void SystemView::update(int deltaTime)
 	GuiComponent::update(deltaTime);
 
 	if (mYButton.isLongPressed(deltaTime))
-		showQuickSearch();
+	{
+		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
+		if (netPlay)
+			setCursor(SystemData::getRandomSystem());
+		else
+			showQuickSearch();
+	}
 }
 
 void SystemView::updateExtraTextBinding()
@@ -1027,7 +1028,7 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	if (netPlay)
 	{
 		prompts.push_back(HelpPrompt("x", _("NETPLAY")));
-		prompts.push_back(HelpPrompt("y", _("RANDOM") + std::string(" / ") + _("SEARCH"))); // QUICK 
+		prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string(" / ") + _("RANDOM"))); // QUICK 
 	}
 	else
 	{

@@ -28,6 +28,8 @@ public:
 	virtual int getCursorIndex() =0; // batocera
 	virtual void setCursorIndex(int index) =0; // batocera
 
+	virtual void resetLastCursor() = 0;
+
 	virtual void update(int deltaTime) override;
 	virtual bool input(InputConfig* config, Input input) override;
 	virtual void launch(FileData* game) = 0;
@@ -43,7 +45,8 @@ public:
 	void setPopupContext(std::shared_ptr<IGameListView> pThis, std::shared_ptr<GuiComponent> parentView, const std::string label, const std::function<void()>& onExitTemporary);
 	void closePopupContext();
 	
-	void moveToRandomGame();
+	virtual void moveToRandomGame();
+
 	void showQuickSearch();
 	void launchSelectedGame();
 	void showSelectedGameOptions();
@@ -59,6 +62,8 @@ protected:
 	virtual std::string getQuickSystemSelectLeftButton() = 0;
 	virtual void populateList(const std::vector<FileData*>& files) = 0;
 	
+	bool cursorHasSaveStatesEnabled();
+
 	TextComponent mHeaderText;
 	ImageComponent mHeaderImage;
 	ImageComponent mBackground;
@@ -77,9 +82,7 @@ protected:
 	MultiStateInput mYButton;
 	MultiStateInput mSelectButton;
 
-	ThemeData::ExtraImportType mExtraMode;
-
-	bool			mSaveStatesEnabled;
+	ThemeData::ExtraImportType mExtraMode;	
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_ISIMPLE_GAME_LIST_VIEW_H

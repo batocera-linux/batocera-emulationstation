@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "Pfad zum Handbuch eingeben"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Magazin"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "Pfad zum Magazin eingeben"
 
 msgid "Map"
 msgstr "Karte"
@@ -153,6 +153,18 @@ msgstr "Genre"
 
 msgid "enter game genre"
 msgstr "Genre eingeben"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Arcade System"
@@ -258,6 +270,9 @@ msgstr "arcade"
 
 msgid "vertical arcade"
 msgstr "vertical arcade"
+
+msgid "lightgun games"
+msgstr "Lightgun-Spiele"
 
 msgid "collections"
 msgstr "Sammlungen"
@@ -442,6 +457,9 @@ msgstr "SAMMLUNGEN AUSWÄHLEN"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "AUTOMATISCHE SAMMLUNGEN"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "ARCADE SYSTEME"
@@ -873,7 +891,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "SPIEL-ANLEITUNG ANSEHEN"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr ""
+msgstr "SPIELE-MAGAZIN ANSEHEN"
 
 msgid "VIEW GAME MAP"
 msgstr "SPIELE-KARTE ANSEHEN"
@@ -1247,13 +1265,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEMDATEN-VERBRAUCH"
 
 msgid "GL VENDOR"
-msgstr ""
+msgstr "GL HERSTELLER"
 
 msgid "GL RENDERER"
-msgstr ""
+msgstr "GL RENDERER"
 
 msgid "GL VERSION"
-msgstr ""
+msgstr "GL VERSION"
 
 msgid "DEVELOPER"
 msgstr "ENTWICKLER"
@@ -1280,9 +1298,10 @@ msgid "TOOLS"
 msgstr "WERKZEUGE"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "ÖFFENTLICHEN WEBZUGRIFF AKTIVIEREN"
 
-msgid "Allow public web access API using "
+#, c-format
+msgid "Allow public web access API using %s"
 msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
@@ -1336,7 +1355,7 @@ msgid "DATA MANAGEMENT"
 msgstr "DATEI-MANAGEMENT"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "MULTIDISK DATEIEN IGNORIEREN (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "FILTER AKTIVIEREN"
@@ -1379,6 +1398,14 @@ msgstr "AUTOKONFIGURIERE EMULATOREN CONTROLLER"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "A/B BUTTONS IN EMULATIONSTATION WECHSELN"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr "ZUGRIFF AUF SPIELOPTIONEN MIT DER NORDTASTE"
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
+"Invertiert die Nordtaste (Savestates) & langes Drücken der Südtaste "
+"(Spieloptionen)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "EMULATIONSTATION NUR MIT ERSTEM JOYSTICK STEUERN"
@@ -1946,6 +1973,9 @@ msgstr "BIST DU SICHER, DASS DU DIESES LAUFWERK FORMATIEREN WILLST?"
 msgid "EDIT METADATA"
 msgstr "METADATEN BEARBEITEN"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2069,14 +2099,14 @@ msgstr[1] "Dieser Ordner beinhaltet %i Spiele, einschließlich :%s"
 msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"
 
+msgid "Games similar to"
+msgstr "Spiele ähnlich zu"
+
 msgid "GAME OPTIONS"
 msgstr "SPIEL-OPTIONEN"
 
 msgid "FAVORITE"
 msgstr "FAVORIT"
-
-msgid "Games similar to"
-msgstr "Spiele ähnlich zu"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2216,6 +2246,9 @@ msgstr "AKTUALISIERE DIE SPIELELISTE UM DIE ÄNDERUNGEN ANZUWENDEN."
 
 msgid "GENRE"
 msgstr "GATTUNG"
+
+msgid "FAMILY"
+msgstr ""
 
 msgid "PLAYERS"
 msgstr "SPIELER"
@@ -2444,6 +2477,9 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Erlaube die Verwendung der öffentl. Webzugriffs-API "
 
 #~ msgid "ADD TO CUSTOM COLLECTION"
 #~ msgstr "ZUR BENUTZERDEFINIERTEN SAMMLUNG HINZUFÜGEN"

@@ -433,6 +433,7 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 	autoOptionList->addGroup(_("AUTOMATIC COLLECTIONS"));
 
 	bool hasGroup = false;
+	bool hasGenreGroup = false;
 
 	auto arcadeGames = CollectionSystemManager::get()->getArcadeCollection()->getRootFolder()->getFilesRecursive(GAME);
 
@@ -445,7 +446,17 @@ void GuiCollectionSystemsOptions::addSystemsToMenu()
 
         if (it->second.decl.displayIfEmpty)
             autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
-        else
+		else if (it->second.decl.isGenreCollection()) // Genre collections
+		{
+			if (!hasGenreGroup)
+			{
+				autoOptionList->addGroup(_("PER GENRE"));
+				hasGenreGroup = true;
+			}
+
+			autoOptionList->add(it->second.decl.longName, it->second.decl.name, it->second.isEnabled);
+		}
+        else if (it->second.decl.isArcadeSubSystem()) // Arcade collections
         {
 			bool hasGames = false;
 

@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
+#include "utils/Randomizer.h"
 #include "SystemConf.h"
 #include "id3v2lib/include/id3v2lib.h"
 #include "ThemeData.h"
@@ -211,13 +212,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 	if (musics.empty())
 		return;
 
-#if defined(WIN32)
-	srand(time(NULL) % getpid());
-#else
-	srand(time(NULL) % getpid() + getppid());
-#endif
-
-	int randomIndex = rand() % musics.size();
+	int randomIndex = Randomizer::random(musics.size());
 
 	// continue playing ?
 	if (mCurrentMusic != nullptr && continueIfPlaying)
@@ -454,6 +449,9 @@ void AudioManager::playSong(const std::string& song)
 
 void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool force)
 {
+	if (theme == nullptr)
+		return;
+
 	if (!force && mSystemName == theme->getSystemThemeFolder())
 		return;
 

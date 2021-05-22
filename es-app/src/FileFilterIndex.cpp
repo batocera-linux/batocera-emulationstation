@@ -12,6 +12,7 @@
 #include "SystemData.h"
 #include "FileData.h"
 #include "CollectionSystemManager.h"
+#include "Genres.h"
 
 #define UNKNOWN_LABEL "UNKNOWN"
 #define INCLUDE_UNKNOWN false;
@@ -25,6 +26,7 @@ FileFilterIndex::FileFilterIndex()
 		//type 				//allKeys 				//filteredBy 		//filteredKeys 				//primaryKey 	//hasSecondaryKey 	//secondaryKey 	//menuLabel
 		{ FAVORITES_FILTER, &favoritesIndexAllKeys, &filterByFavorites,	&favoritesIndexFilteredKeys,"favorite",		false,				"",				_("FAVORITES")	},
 		{ GENRE_FILTER, 	&genreIndexAllKeys, 	&filterByGenre,		&genreIndexFilteredKeys, 	"genre",		true,				"genre",		_("GENRE")	},
+		{ FAMILY_FILTER, 	&familyIndexAllKeys, 	&filterByFamily,	&familyIndexFilteredKeys, 	"family",		false,				"",				_("FAMILY") },
 		{ PLAYER_FILTER, 	&playersIndexAllKeys, 	&filterByPlayers,	&playersIndexFilteredKeys, 	"players",		false,				"",				_("PLAYERS")	},
 		{ PUBDEV_FILTER, 	&pubDevIndexAllKeys, 	&filterByPubDev,	&pubDevIndexFilteredKeys, 	"developer",	true,				"publisher",	_("PUBLISHER / DEVELOPER")	},
 		{ RATINGS_FILTER, 	&ratingsIndexAllKeys, 	&filterByRatings,	&ratingsIndexFilteredKeys, 	"rating",		false,				"",				_("RATING")	},
@@ -95,6 +97,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 	IndexImportStructure indexStructDecls[] = {
 		{ &favoritesIndexAllKeys, &(indexToImport->favoritesIndexAllKeys) },
 		{ &genreIndexAllKeys, &(indexToImport->genreIndexAllKeys) },
+		{ &familyIndexAllKeys, &(indexToImport->familyIndexAllKeys) },
 		{ &playersIndexAllKeys, &(indexToImport->playersIndexAllKeys) },
 		{ &pubDevIndexAllKeys, &(indexToImport->pubDevIndexAllKeys) },
 		{ &ratingsIndexAllKeys, &(indexToImport->ratingsIndexAllKeys) },
@@ -132,7 +135,9 @@ void FileFilterIndex::resetIndex()
 	mUseRelevency = false;
 	mTextFilter = "";
 	clearAllFilters();
+
 	clearIndex(genreIndexAllKeys);
+	clearIndex(familyIndexAllKeys);
 	clearIndex(playersIndexAllKeys);
 	clearIndex(pubDevIndexAllKeys);
 	clearIndex(ratingsIndexAllKeys);
@@ -188,6 +193,15 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			break;
 
 		key = game->getMetadata(MetaDataId::Region);
+		break;
+	}
+
+	case FAMILY_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		key = game->getMetadata(MetaDataId::Family);
 		break;
 	}
 
@@ -306,6 +320,7 @@ void FileFilterIndex::addToIndex(FileData* game)
 	game->detectLanguageAndRegion(false);
 
 	manageGenreEntryInIndex(game);
+	manageFamilyEntryInIndex(game);
 	managePlayerEntryInIndex(game);
 	managePubDevEntryInIndex(game);	
 	manageYearEntryInIndex(game);
@@ -316,6 +331,7 @@ void FileFilterIndex::addToIndex(FileData* game)
 void FileFilterIndex::removeFromIndex(FileData* game)
 {
 	manageGenreEntryInIndex(game, true);
+	manageFamilyEntryInIndex(game, true);
 	managePlayerEntryInIndex(game, true);
 	managePubDevEntryInIndex(game, true);	
 	manageYearEntryInIndex(game, true);
@@ -675,26 +691,40 @@ int FileFilterIndex::showFile(FileData* game)
 		
 		hasFilter = true;
 
-		// try to find a match
-		std::string key = getIndexableKey(game, filterData.type, false);
-		if (filterData.type == LANG_FILTER || filterData.type == REGION_FILTER)
+		if (filterData.type == GENRE_FILTER)
 		{
-			for (auto val : Utils::String::split(key, ','))
+			for (auto val : Genres::getGenreFiltersNames(&game->getMetadata()))
+			{
 				if (isKeyBeingFilteredBy(val, filterData.type))
+				{
 					keepGoing = true;
+					break;
+				}
+			}
 		}
 		else
-			keepGoing = isKeyBeingFilteredBy(key, filterData.type);
-
-		// if we didn't find a match, try for secondary keys - i.e. publisher and dev, or first genre
-		if (!keepGoing)
 		{
-			if (!filterData.hasSecondaryKey)
-				return 0;
+			// try to find a match
+			std::string key = getIndexableKey(game, filterData.type, false);
+			if (filterData.type == LANG_FILTER || filterData.type == REGION_FILTER)
+			{
+				for (auto val : Utils::String::split(key, ','))
+					if (isKeyBeingFilteredBy(val, filterData.type))
+						keepGoing = true;
+			}
+			else
+				keepGoing = isKeyBeingFilteredBy(key, filterData.type);
 
-			std::string secKey = getIndexableKey(game, filterData.type, true);
-			if (secKey != UNKNOWN_LABEL)
-				keepGoing = isKeyBeingFilteredBy(secKey, filterData.type);
+			// if we didn't find a match, try for secondary keys - i.e. publisher and dev, or first genre
+			if (!keepGoing)
+			{
+				if (!filterData.hasSecondaryKey)
+					return 0;
+
+				std::string secKey = getIndexableKey(game, filterData.type, true);
+				if (secKey != UNKNOWN_LABEL)
+					keepGoing = isKeyBeingFilteredBy(secKey, filterData.type);
+			}
 		}
 
 		// if still nothing, then it's not a match
@@ -741,8 +771,20 @@ void FileFilterIndex::manageRegionEntryInIndex(FileData* game, bool remove)
 			manageIndexEntry(&regionIndexAllKeys, val, remove);
 }
 
+void FileFilterIndex::manageFamilyEntryInIndex(FileData* game, bool remove)
+{
+	std::string key = getIndexableKey(game, FAMILY_FILTER, false);
+	if (!key.empty() && key != UNKNOWN_LABEL)
+		manageIndexEntry(&familyIndexAllKeys, key, remove);
+}
+
 void FileFilterIndex::manageGenreEntryInIndex(FileData* game, bool remove)
 {
+	for (auto key : Genres::getGenreFiltersNames(&game->getMetadata()))
+		manageIndexEntry(&genreIndexAllKeys, key, remove);
+
+	/*
+
 	std::string key = getIndexableKey(game, GENRE_FILTER, false);
 
 	// flag for including unknowns
@@ -758,7 +800,7 @@ void FileFilterIndex::manageGenreEntryInIndex(FileData* game, bool remove)
 	if (!includeUnknown && (subkey == UNKNOWN_LABEL || subkey == "BIOS"))
 		return;	 // no valid genre info found
 
-	manageIndexEntry(&genreIndexAllKeys, subkey, remove);
+	manageIndexEntry(&genreIndexAllKeys, subkey, remove);*/
 }
 
 void FileFilterIndex::managePlayerEntryInIndex(FileData* game, bool remove)
@@ -931,7 +973,13 @@ bool CollectionFilter::load(const std::string file)
 		else if (name == "text")
 			mTextFilter = node.text().as_string();
 		else if (name == "genre")
-			genreIndexFilteredKeys.insert(node.text().as_string());
+		{
+			auto genre = Genres::fromGenreName(node.text().as_string());
+			if (genre != nullptr)
+				genreIndexFilteredKeys.insert(std::to_string(genre->id));
+		}
+		else if (name == "family")
+			familyIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "ratings")
 			ratingsIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "year")
@@ -978,7 +1026,14 @@ bool CollectionFilter::save()
 		root.append_child("text").text().set(mTextFilter.c_str());
 
 	for (auto key : genreIndexFilteredKeys)
-		root.append_child("genre").text().set(key.c_str());
+	{
+		auto genreName = Genres::genreStringFromIds({ key });
+		if (!genreName.empty())
+			root.append_child("genre").text().set(Utils::String::toUpper(genreName).c_str());
+	}
+
+	for (auto key : familyIndexFilteredKeys)
+		root.append_child("family").text().set(key.c_str());
 
 	for (auto key : playersIndexFilteredKeys)
 		root.append_child("players").text().set(key.c_str());

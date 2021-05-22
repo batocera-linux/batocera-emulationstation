@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 17:19-0300\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -154,6 +154,18 @@ msgstr "Gênero"
 msgid "enter game genre"
 msgstr "digite o gênero no jogo"
 
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
+
 msgid "Arcade system"
 msgstr "Sistema arcade"
 
@@ -258,6 +270,9 @@ msgstr "arcade"
 
 msgid "vertical arcade"
 msgstr "arcade vertical"
+
+msgid "lightgun games"
+msgstr "jogos de pistola"
 
 msgid "collections"
 msgstr "coleções"
@@ -441,6 +456,9 @@ msgstr "SELECIONAR COLEÇÕES"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -1157,7 +1175,7 @@ msgid "SCRAPER"
 msgstr "SCRAPER"
 
 msgid "SCRAPE FROM"
-msgstr "SCRAPER DO"
+msgstr "BANCO DE DADOS"
 
 msgid "IMAGE SOURCE"
 msgstr "FONTE DA IMAGEM"
@@ -1211,10 +1229,10 @@ msgid "SCRAPE MAP"
 msgstr "OBTER MAPA"
 
 msgid "SCRAPE MANUAL"
-msgstr "SCRAPE MANUAL"
+msgstr "OBTER MANUAL"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SCRAPE CONFIGURAÇÃO DO CONTROLE E TECLADO"
+msgstr "OBTER CONFIGURAÇÃO DO CONTROLE E TECLADO"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -1247,13 +1265,13 @@ msgid "SYSTEM DISK USAGE"
 msgstr "USO DO DISCO DO SISTEMA"
 
 msgid "GL VENDOR"
-msgstr "FABRICANTE DA PLACA DE VÍDEO"
+msgstr "FABRICANTE DA GPU"
 
 msgid "GL RENDERER"
-msgstr "RENDERIZADOR DA PLACA DE VÍDEO"
+msgstr "RENDERIZADOR DA GPU"
 
 msgid "GL VERSION"
-msgstr "VERSÃO DA PLACA DE VÍDEO"
+msgstr "VERSÃO DA GPU"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -1282,8 +1300,9 @@ msgstr "FERRAMENTAS"
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ATIVAR ACESSO PÚBLICO À WEB"
 
-msgid "Allow public web access API using "
-msgstr "Permitir acesso público à web usando API"
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
@@ -1377,6 +1396,14 @@ msgstr "AUTOCONFIGURAR CONTROLES NOS EMULADORES"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr "ACESSE AS OPÇÕES DE JOGO COM O BOTÃO NORTE"
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
+"Inverte o botão norte (savestates) e pressiona longamente o sul (opções de "
+"jogo)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "CONTROLAR EMULATIONSTATION APENAS COM O PRIMEIRO JOYSTICK"
@@ -1811,7 +1838,7 @@ msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "REPRODUZIR MÚSICA ESPECÍFICA DO SISTEMA"
 
 msgid "PLAY THEME MUSICS"
-msgstr "TOCAR MÚSICAS DO TEMA"
+msgstr "REPRODUZIR MÚSICAS DO TEMA"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "MÚSICA DE FUNDO AO REPRODUZIR VÍDEO"
@@ -1862,7 +1889,7 @@ msgid "SKIP TO NEXT SONG"
 msgstr "PASSAR PARA PRÓXIMA MÚSICA"
 
 msgid "LISTENING NOW"
-msgstr "ESCUTANDO AGORA"
+msgstr "TOCANDO AGORA"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE TELA"
@@ -1941,6 +1968,9 @@ msgstr "TEM CERTEZA QUE DESEJA FORMATAR ESTE DISCO?"
 
 msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
+
+msgid "GENRES"
+msgstr ""
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2062,14 +2092,14 @@ msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
 
+msgid "Games similar to"
+msgstr "Jogos semelhantes a"
+
 msgid "GAME OPTIONS"
 msgstr "OPÇÕES DE JOGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
-
-msgid "Games similar to"
-msgstr "Jogos semelhantes a"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2209,6 +2239,9 @@ msgstr "ATUALIZE A LISTAS DE JOGOS PARA APLICAR AS ALTERAÇÕES."
 
 msgid "GENRE"
 msgstr "GÊNERO"
+
+msgid "FAMILY"
+msgstr ""
 
 msgid "PLAYERS"
 msgstr "JOGADORES"
@@ -2433,3 +2466,6 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Permitir acesso público à web usando API"

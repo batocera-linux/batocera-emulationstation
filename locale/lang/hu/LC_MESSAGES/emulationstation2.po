@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -154,6 +154,18 @@ msgstr "Műfaj"
 msgid "enter game genre"
 msgstr "játék műfajának megadása"
 
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
+
 msgid "Arcade system"
 msgstr ""
 
@@ -258,6 +270,9 @@ msgstr "arcade"
 
 msgid "vertical arcade"
 msgstr "vertikális arcade"
+
+msgid "lightgun games"
+msgstr ""
 
 msgid "collections"
 msgstr "gyűjtemények"
@@ -441,6 +456,9 @@ msgstr "GYŰJTEMÉNYEK KIVÁLASZTÁSA"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "AUTOMATIKUS GYŰJTEMÉNY"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "ARCADE RENDSZREK"
@@ -1281,7 +1299,8 @@ msgstr ""
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
-msgid "Allow public web access API using "
+#, c-format
+msgid "Allow public web access API using %s"
 msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
@@ -1376,6 +1395,12 @@ msgstr "EMULÁTOR KONTROLLEREK AUTOMATIKUS KONFIGURÁCIÓJA"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "A/B GOMBOK FELCSERÉLÉSE AZ EMUATIONSTATION FELÜLETEN"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr ""
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr ""
@@ -1940,6 +1965,9 @@ msgstr "BIZTOS, HOGY FORMÁZNI SZERETNÉD EZT A MEGHAJTÓT?"
 msgid "EDIT METADATA"
 msgstr "META SZERKESZTÉSE"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2054,13 +2082,13 @@ msgstr[1] ""
 msgid "No Entries Found"
 msgstr ""
 
+msgid "Games similar to"
+msgstr ""
+
 msgid "GAME OPTIONS"
 msgstr "JÁTÉK BEÁLLÍTÁSOK"
 
 msgid "FAVORITE"
-msgstr ""
-
-msgid "Games similar to"
 msgstr ""
 
 msgid ""
@@ -2199,6 +2227,9 @@ msgstr "FRISSÍTSD A JÁTÉKLISTÁT A VÁLTOZÁSOK ÉRVÉNYESÍTÉSÉHEZ."
 
 msgid "GENRE"
 msgstr "MŰFAJ"
+
+msgid "FAMILY"
+msgstr ""
 
 msgid "PLAYERS"
 msgstr "JÁTÉKOSOK"

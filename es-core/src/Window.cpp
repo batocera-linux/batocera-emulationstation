@@ -883,11 +883,28 @@ void Window::updateAsyncNotifications(int deltaTime)
 		PowerSaver::resume();
 }
 
-void Window::postToUiThread(const std::function<void()>& func)
+void Window::unregisterPostedFunctions(void* data)
+{
+	if (data == nullptr)
+		return;
+
+	for (auto it = mFunctions.cbegin(); it != mFunctions.cend(); )
+	{
+		if ((*it).container == data)
+			it = mFunctions.erase(it);
+		else
+			it++;
+	}
+}
+
+void Window::postToUiThread(const std::function<void()>& func, void* data)
 {	
 	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
 
-	mFunctions.push_back(func);	
+	PostedFunction pf;
+	pf.func = func;
+	pf.container = data;
+	mFunctions.push_back(pf);	
 }
 
 void Window::processPostedFunctions()
@@ -896,7 +913,7 @@ void Window::processPostedFunctions()
 
 	for (auto func : mFunctions)
 	{
-		TRYCATCH("processPostedFunction", func())
+		TRYCATCH("processPostedFunction", func.func())
 	}
 
 	mFunctions.clear();

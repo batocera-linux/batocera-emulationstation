@@ -17,6 +17,7 @@ public:
 	const bool        isBios(const std::string& _biosName);
 	const bool        isDevice(const std::string& _deviceName);
 	const bool        isVertical(const std::string& _nameName);
+	const bool		  isLightgun(const std::string& _nameName);
 
 private:
 
@@ -38,6 +39,7 @@ private:
 	std::unordered_set<std::string> mMameBioses;
 	std::unordered_set<std::string> mMameDevices;
 	std::unordered_set<std::string> mVerticalGames;
+	std::unordered_set<std::string> mLightGunGames;
 
 }; // MameNames
 

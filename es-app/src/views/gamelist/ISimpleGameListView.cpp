@@ -22,6 +22,7 @@
 #include "guis/GuiSaveState.h"
 #include "guis/GuiGamelistOptions.h"
 #include "BasicGameListView.h"
+#include "utils/Randomizer.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
@@ -51,7 +52,6 @@ ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool 
 	addChild(&mBackground);
 	addChild(&mFolderPath);
 
-	mSaveStatesEnabled = (mRoot && mRoot->getSystem() && mRoot->getSystem()->isCurrentFeatureSupported(EmulatorFeatures::autosave));
 }
 
 ISimpleGameListView::~ISimpleGameListView()
@@ -170,7 +170,11 @@ void ISimpleGameListView::update(const int deltaTime)
 
 	if (mOKButton.isLongPressed(deltaTime))
 	{
-		showSelectedGameOptions();
+		if (Settings::getInstance()->getBool("GameOptionsAtNorth"))
+			showSelectedGameSaveSnapshots();
+		else
+			showSelectedGameOptions();
+
 		return;
 	}
 
@@ -188,8 +192,13 @@ void ISimpleGameListView::update(const int deltaTime)
 	
 	if (mXButton.isLongPressed(deltaTime))
 	{
-		if (UIModeController::getInstance()->isUIModeKid() && mSaveStatesEnabled)
-			showSelectedGameSaveSnapshots();
+		if (UIModeController::getInstance()->isUIModeKid() && cursorHasSaveStatesEnabled())
+		{
+			if (Settings::getInstance()->getBool("GameOptionsAtNorth"))
+				showSelectedGameOptions();
+			else
+				showSelectedGameSaveSnapshots();
+		}
 		else if (!UIModeController::getInstance()->isUIModeKid() && (mRoot->getSystem()->isGameSystem() || mRoot->getSystem()->isGroupSystem()))
 			CollectionSystemManager::get()->toggleGameInCollection(getCursor(), "Favorites");
 	}
@@ -211,10 +220,10 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 	if (mXButton.isShortPressed(config, input))
 	{
-		//if (UIModeController::getInstance()->isUIModeKid())
+		if (Settings::getInstance()->getBool("GameOptionsAtNorth"))
+			showSelectedGameOptions();
+		else
 			showSelectedGameSaveSnapshots();
-		//else if (mRoot->getSystem()->isGameSystem() || mRoot->getSystem()->isGroupSystem())
-		//	CollectionSystemManager::get()->toggleGameInCollection(getCursor(), "Favorites");
 
 		return true;
 	}	
@@ -315,11 +324,17 @@ void ISimpleGameListView::showSelectedGameOptions()
 	mWindow->pushGui(new GuiGameOptions(mWindow, cursor));
 }
 
+bool ISimpleGameListView::cursorHasSaveStatesEnabled()
+{
+	FileData* cursor = getCursor();
+	if (cursor == nullptr || cursor->getType() != GAME)
+		return false;
+
+	return SaveStateRepository::isEnabled(cursor);
+}
+
 void ISimpleGameListView::showSelectedGameSaveSnapshots()
 {
-	if (!mSaveStatesEnabled)
-		return;
-
 	FileData* cursor = getCursor();
 	if (cursor == nullptr || cursor->getType() != GAME)
 		return;
@@ -429,7 +444,7 @@ void ISimpleGameListView::moveToRandomGame()
 	if (total == 0)
 		return;
 
-	int target = (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
+	int target = Randomizer::random(total); // (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
 	if (target >= 0 && target < total)
 		setCursor(list.at(target));
 }
@@ -518,18 +533,23 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 		prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
 	}
 
+	bool invertNorthButton = Settings::getInstance()->getBool("GameOptionsAtNorth");
+
+	std::string shortPressX = invertNorthButton ? _("GAME OPTIONS") : _("SAVE SNAPSHOTS");
+	std::string longPressOK = invertNorthButton ? _("SAVE SNAPSHOTS") : _("GAME OPTIONS"); 
+
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string(" / ") + _("GAME OPTIONS")));
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string(" / ") + longPressOK));
 
 	if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
-	
-	if (mSaveStatesEnabled)
+
+	if (cursorHasSaveStatesEnabled())
 	{
 		if (UIModeController::getInstance()->isUIModeKid())
-			prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS")));
+			prompts.push_back(HelpPrompt("x", shortPressX));
 		else
-			prompts.push_back(HelpPrompt("x", _("SAVE SNAPSHOTS") + std::string(" / ") + _("FAVORITE")));
+			prompts.push_back(HelpPrompt("x", shortPressX + std::string(" / ") + _("FAVORITE")));
 	}
 	else if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("x", _("FAVORITE")));

@@ -139,10 +139,16 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 		return false;
 	});
 
-	mTabs->addTab(_("PLAYER 1"), "0", true);	
-	mTabs->addTab(_("PLAYER 2"), "1");
-	mTabs->addTab(_("PLAYER 3"), "2");
-	mTabs->addTab(_("PLAYER 4"), "3");
+	mTabs->addTab(_("PLAYER 1"), "0", true);
+
+	if (mEditable || mMapping.getPlayerMappings(1).size() > 0)
+		mTabs->addTab(_("PLAYER 2"), "1");
+
+	if (mEditable || mMapping.getPlayerMappings(2).size() > 0)
+		mTabs->addTab(_("PLAYER 3"), "2");
+
+	if (mEditable || mMapping.getPlayerMappings(3).size() > 0)
+		mTabs->addTab(_("PLAYER 4"), "3");
 
 	mTabs->setCursorChangedCallback([&](const CursorState& state)
 	{
@@ -263,6 +269,88 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		mList->addRow(row, i == idx, false, km.targets.size() == 0 ? "" : mappingName.name);
 		i++;
 	}
+
+	// Show alternative unknown combinations ( with 2 triggers )
+	for (auto extraMapping : mMapping.getPlayerMappings(mPlayer))
+	{
+		if (extraMapping.triggers.size() < 2)
+			continue;
+
+		bool known = false;
+
+		for (auto mappingName : mMappingNames)
+			known |= extraMapping.triggerEquals(mappingName.name);
+
+		if (!known)
+		{
+			MappingInfo ifo;
+
+			for (auto trigger : extraMapping.triggers)
+			{
+				for (auto mappingName : mMappingNames)
+				{
+					if (mappingName.name == trigger)
+					{
+						if (ifo.icon.empty())
+							ifo.icon = mappingName.icon;
+						else
+							ifo.combination = mappingName.icon;
+
+						if (ifo.dispName.empty())
+							ifo.dispName = mappingName.dispName;
+						else
+							ifo.dispName = ifo.dispName + " + " + mappingName.dispName;
+
+						if (ifo.name.empty())
+							ifo.name = mappingName.name;
+						else
+							ifo.name = ifo.name + " + " + mappingName.name;
+
+						break;
+					}
+				}
+			}
+
+			if (ifo.dispName.empty())
+				continue;
+
+			if (!gp && mEditable)
+			{
+				mList->addGroup(_("COMBINATIONS"));
+				gp = true;
+			}
+
+			ComponentListRow row;
+
+			auto grid = std::make_shared<GuiKeyMappingEditorEntry>(mWindow, ifo, extraMapping);
+			row.addElement(grid, true);
+
+			if (mEditable)
+			{
+				auto accept = [this, ifo](const std::set<std::string>& target)
+				{
+					if (mMapping.updateMapping(mPlayer, ifo.name, target))
+					{
+						mDirty = true;
+						loadList(true);
+					}
+				};
+
+				row.makeAcceptInputHandler([this, extraMapping, accept]
+				{
+					if (GuiKeyboardLayout::isEnabled())
+					{
+						std::set<std::string> tgs = extraMapping.targets;
+						mWindow->pushGui(new GuiKeyboardLayout(mWindow, accept, &tgs));
+					}
+				});
+			}
+
+
+			mList->addRow(row, idx > 0 && last);
+		}
+	}
+
 
 	if (mEditable || !mouseMapping.empty())
 	{

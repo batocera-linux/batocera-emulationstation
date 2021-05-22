@@ -23,5 +23,5 @@ public:
 
 	std::vector<ThemeAnimation*> animations;
 
-	bool fromXmlNode(const pugi::xml_node& root, std::map<std::string, ThemeData::ElementPropertyType> typeMap);
+	bool fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap);
 };

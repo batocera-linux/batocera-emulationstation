@@ -133,6 +133,11 @@ FileData* CarouselGameListView::getCursor()
 	return mList.getSelected();
 }
 
+void CarouselGameListView::resetLastCursor()
+{
+	mList.resetLastCursor();
+}
+
 void CarouselGameListView::setCursor(FileData* cursor)
 {
 	if (cursor && !mList.setCursor(cursor) && !cursor->isPlaceHolder())

@@ -8,11 +8,14 @@
 #include "Settings.h"
 #include "SystemData.h"
 #include <pugixml/src/pugixml.hpp>
-#include <cstring>
 #include "SystemConf.h"
-#include <thread>
 #include "LangParser.h"
 #include "ApiSystem.h"
+#include "Genres.h"
+
+#include <algorithm>
+#include <cstring>
+#include <thread>
 
 using namespace PlatformIds;
 
@@ -151,7 +154,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ARCHIMEDES, 84 },
 	{ ACORN_ELECTRON, 85 },
 	{ ADAM, 89 },
-	{ PHILIPS_CDI, 133 }
+	{ PHILIPS_CDI, 133 },
+	{ SUPER_NINTENDO_MSU1, 210 }
 };
 
 // Help XML parsing method, finding an direct child XML node starting from the parent and filtering by an attribute value list.
@@ -485,11 +489,34 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 		// Genre fallback language: EN. ( Xpath: Data/jeu[0]/genres/genre[*] )		
 		if (game.child("genres"))
 		{
+			bool adultGame = false;
+
+			std::set<std::string> genreIds;
+
 			std::string genre;
 			std::string subgenre;
 
 			for (pugi::xml_node node : game.child("genres").children("genre"))
 			{
+				if (strcmp(node.attribute("langue").value(), "en") == 0)
+				{
+					std::string name = node.text().get();
+					auto typeGenre = Genres::fromGenreName(name);
+					if (typeGenre != nullptr)
+					{
+						adultGame |= (typeGenre->id == GENRE_ADULT);
+
+						if (typeGenre->parentId != 0)
+							genreIds.erase(std::to_string(typeGenre->parentId));
+
+						bool childexists = std::find_if(typeGenre->children.cbegin(), typeGenre->children.cend(),
+							[genreIds](GameGenre* ch) { return genreIds.find(std::to_string(ch->id)) != genreIds.cend(); }) != typeGenre->children.cend();
+
+						if (!childexists)
+							genreIds.insert(std::to_string(typeGenre->id));
+					}
+				}
+
 				if (strcmp(node.attribute("principale").value(), "1") == 0 && strcmp(node.attribute("langue").value(), language.c_str()) == 0)
 					genre = node.text().get();
 			
@@ -521,6 +548,58 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 			if (!genre.empty())
 				result.mdl.set(MetaDataId::Genre, genre);
+
+			if (genreIds.size() > 0)
+			{
+				std::vector<std::string> list;
+				for (auto id : genreIds)
+					list.push_back(id);
+
+				result.mdl.set(MetaDataId::GenreIds, Utils::String::join(list, ","));
+			}
+			else
+				Genres::convertGenreToGenreIds(&result.mdl);
+
+			if (adultGame)
+				result.mdl.set(MetaDataId::KidGame, "false");
+		}
+
+		if (game.child("familles"))
+		{
+			std::string family;
+			for (pugi::xml_node node : game.child("familles").children("famille"))
+			{
+				if (strcmp(node.attribute("principale").value(), "1") == 0 && strcmp(node.attribute("langue").value(), language.c_str()) == 0)
+				{
+					family = node.text().get();
+					break;
+				}
+			}
+
+			if (family.empty())
+			{
+				for (pugi::xml_node node : game.child("familles").children("famille"))
+				{
+					if (strcmp(node.attribute("principale").value(), "1") == 0 && strcmp(node.attribute("langue").value(), "en") == 0)
+					{
+						family = node.text().get();
+						break;
+					}
+				}
+			}
+
+			if (family.empty())
+			{
+				for (pugi::xml_node node : game.child("familles").children("famille"))
+				{
+					family = node.text().get();
+					break;
+				}
+
+			}
+
+			if (!family.empty())
+				result.mdl.set(MetaDataId::Family, family);
 		}
 
 		// Get the date proper. The API returns multiple 'date' children nodes to the 'dates' main child of 'jeu'.

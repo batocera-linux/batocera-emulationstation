@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 13:09+0200\n"
+"POT-Creation-Date: 2021-05-21 20:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -41,7 +41,7 @@ msgid "core"
 msgstr "núcleo"
 
 msgid "Image"
-msgstr "Imagen"
+msgstr "Imagen principal <image>"
 
 msgid "enter path to image"
 msgstr "introduce la ruta de la imagen"
@@ -53,13 +53,13 @@ msgid "enter path to video"
 msgstr "introduce la ruta del vídeo"
 
 msgid "Logo"
-msgstr "Logotipo"
+msgstr "Logotipo <marquee>"
 
 msgid "enter path to logo"
 msgstr "introduce la ruta del logotipo"
 
 msgid "Box"
-msgstr "Caja"
+msgstr "Caja <thumbnail>"
 
 msgid "enter path to box"
 msgstr "introduce la ruta de la caja"
@@ -153,6 +153,18 @@ msgstr "Género"
 
 msgid "enter game genre"
 msgstr "introducir género"
+
+msgid "Game family"
+msgstr ""
+
+msgid "enter game family"
+msgstr ""
+
+msgid "Genres"
+msgstr ""
+
+msgid "enter game genres"
+msgstr ""
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -258,6 +270,9 @@ msgstr "arcade"
 
 msgid "vertical arcade"
 msgstr "arcade vertical"
+
+msgid "lightgun games"
+msgstr "juegos de pistola lightgun"
 
 msgid "collections"
 msgstr "colecciones"
@@ -441,6 +456,9 @@ msgstr "SELECCIONAR COLECCIONES"
 
 msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLECCIONES AUTOMÁTICAS"
+
+msgid "PER GENRE"
+msgstr ""
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -884,7 +902,7 @@ msgid "REQUIRED CORE"
 msgstr "NÚCLEO NECESARIO"
 
 msgid "VIEW GAME ACHIEVEMENTS"
-msgstr "VER LOGROS DEL JUEGO"
+msgstr "VER TROFEOS DEL JUEGO"
 
 msgid "GAME"
 msgstr "JUEGO"
@@ -1159,7 +1177,7 @@ msgid "SCRAPE FROM"
 msgstr "OBTENER LA INFORMACIÓN DE"
 
 msgid "IMAGE SOURCE"
-msgstr "TIPO DE IMAGEN"
+msgstr "IMAGEN PRINCIPAL <IMAGE>"
 
 msgid "SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA"
@@ -1183,10 +1201,10 @@ msgid "FAN ART"
 msgstr "ARTE"
 
 msgid "BOX SOURCE"
-msgstr "FORMATO DE CAJA"
+msgstr "CAJA <THUMBNAIL>"
 
 msgid "LOGO SOURCE"
-msgstr "TIPO DE LOGO"
+msgstr "LOGOTIPO <MARQUEE>"
 
 msgid "WHEEL"
 msgstr "WHEEL"
@@ -1279,9 +1297,10 @@ msgid "TOOLS"
 msgstr "HERRAMIENTAS"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "HABILITAR WEB MANAGER"
 
-msgid "Allow public web access API using "
+#, c-format
+msgid "Allow public web access API using %s"
 msgstr ""
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
@@ -1376,6 +1395,14 @@ msgstr "AUTOCONFIGURAR LOS MANDOS EN EMULADORES"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "INVERTIR LOS BOTONES A/B EN EMULATIONSTATION"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr "ACCEDER A LAS OPCIONES DEL JUEGO CON EL BOTÓN NORTE"
+
+msgid "Inverts north button (savestates) & long press south (game options)"
+msgstr ""
+"Invertir botón norte (partidas guardadas) y pulsación larga sur (opciones "
+"del juego)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "CONTROLAR SISTEMA SOLO CON EL MANDO PRINCIPAL"
@@ -1772,7 +1799,7 @@ msgid "SHOW CLOCK"
 msgstr "MOSTRAR RELOJ"
 
 msgid "ON-SCREEN HELP"
-msgstr "AYUDA EN PANTALLA"
+msgstr "MOSTRAR LA AYUDA DE BOTONES EN PANTALLA"
 
 msgid "SHOW BATTERY STATUS"
 msgstr "MOSTRAR ESTADO DE BATERÍA"
@@ -1942,6 +1969,9 @@ msgstr "¿ESTÁS SEGURO DE FORMATEAR ESTE DISPOSITIVO?"
 msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
 
+msgid "GENRES"
+msgstr ""
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2065,14 +2095,14 @@ msgstr[1] "Esta carpeta contiene %i juegos, incluyendo :%s"
 msgid "No Entries Found"
 msgstr "No se han encontrado entradas"
 
+msgid "Games similar to"
+msgstr "Juegos similares a"
+
 msgid "GAME OPTIONS"
 msgstr "OPCIONES DEL JUEGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
-
-msgid "Games similar to"
-msgstr "Juegos similares a"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2212,6 +2242,9 @@ msgstr "ACTUALIZAR LISTAS DE JUEGOS PARA APLICAR CAMBIOS."
 
 msgid "GENRE"
 msgstr "GÉNERO"
+
+msgid "FAMILY"
+msgstr ""
 
 msgid "PLAYERS"
 msgstr "JUGADORES"
@@ -2437,6 +2470,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Allow public web access API using "
+#~ msgstr "Permitir el acceso usando API "
 
 #~ msgid "ADD TO CUSTOM COLLECTION"
 #~ msgstr "AÑADIR A COLECCIÓN PERSONALIZADA"
