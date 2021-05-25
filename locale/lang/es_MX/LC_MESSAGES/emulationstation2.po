@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "introducir género"
 
 msgid "Game family"
-msgstr ""
+msgstr "familia de juegos"
 
 msgid "enter game family"
-msgstr ""
+msgstr "introduce una familia de juegos"
 
 msgid "Genres"
-msgstr ""
+msgstr "Generos"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "introduce los generos de los juegos"
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLECCIONES AUTOMÁTICAS"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "POR GENERO"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -1301,7 +1301,7 @@ msgstr "HABILITAR WEB MANAGER"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Permitir el acceso web a la API usando %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
@@ -1970,7 +1970,7 @@ msgid "EDIT METADATA"
 msgstr "EDITAR LOS METADATOS"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GENEROS"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2244,7 +2244,7 @@ msgid "GENRE"
 msgstr "GÉNERO"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMILIA"
 
 msgid "PLAYERS"
 msgstr "JUGADORES"
