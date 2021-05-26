@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-05-26 12:23-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -152,19 +152,19 @@ msgid "Genre"
 msgstr "Gênero"
 
 msgid "enter game genre"
-msgstr "digite o gênero no jogo"
+msgstr "digite o gênero do jogo"
 
 msgid "Game family"
-msgstr ""
+msgstr "Família"
 
 msgid "enter game family"
-msgstr ""
+msgstr "digite a família do jogo"
 
 msgid "Genres"
-msgstr ""
+msgstr "Gêneros"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "digite os gêneros do jogo"
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "POR GÊNERO"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -1302,7 +1302,7 @@ msgstr "ATIVAR ACESSO PÚBLICO À WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Permitir acesso público à web usando API"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
@@ -1970,7 +1970,7 @@ msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GÊNEROS"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2241,7 +2241,7 @@ msgid "GENRE"
 msgstr "GÊNERO"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMÍLIA"
 
 msgid "PLAYERS"
 msgstr "JOGADORES"
@@ -2466,6 +2466,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "Allow public web access API using "
-#~ msgstr "Permitir acesso público à web usando API"
