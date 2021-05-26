@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "введите жанр игры"
 
 msgid "Game family"
-msgstr ""
+msgstr "Семейство игры"
 
 msgid "enter game family"
-msgstr ""
+msgstr "введите семейство и гры"
 
 msgid "Genres"
-msgstr ""
+msgstr "Жанры"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "введите жанры игры"
 
 msgid "Arcade system"
 msgstr "Аркадная система"
@@ -459,7 +459,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "АВТО-КОЛЛЕКЦИИ"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "ПО ЖАНРУ"
 
 msgid "ARCADE SYSTEMS"
 msgstr "АРКАДНЫЕ СИСТЕМЫ"
@@ -1302,7 +1302,7 @@ msgstr "РАЗРЕШИТЬ ПУБЛИЧНЫЙ ДОСТУП"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Разрешить публичный доступ API, %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -1401,8 +1401,7 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr ""
-"Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
+msgstr "Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
@@ -1969,7 +1968,7 @@ msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "GENRES"
-msgstr ""
+msgstr "ЖАНРЫ"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2245,7 +2244,7 @@ msgid "GENRE"
 msgstr "ЖАНР"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "СЕМЕЙСТВО"
 
 msgid "PLAYERS"
 msgstr "ИГРОКОВ"

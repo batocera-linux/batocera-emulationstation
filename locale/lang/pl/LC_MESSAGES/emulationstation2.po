@@ -150,22 +150,22 @@ msgid "enter game publisher"
 msgstr "wprowadź wydawcę gry"
 
 msgid "Genre"
-msgstr "Rodzaj"
+msgstr "Gatunek"
 
 msgid "enter game genre"
 msgstr "wprowadź gatunek gry"
 
 msgid "Game family"
-msgstr ""
+msgstr "Rodzina gry"
 
 msgid "enter game family"
-msgstr ""
+msgstr "wprowadź rodzinę gry"
 
 msgid "Genres"
-msgstr ""
+msgstr "Gatunki"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "wprowadź gatunek gry"
 
 msgid "Arcade system"
 msgstr "System gier zręcznościowych"
@@ -460,7 +460,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "KOLEKCJE AUTOMATYCZNE"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "WEDŁUG GATUNKU"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SYSTEMY GIER ZRĘCZNOŚCIOWYCH"
@@ -1303,7 +1303,7 @@ msgstr "WŁĄCZ DOSTĘP PUBLICZNY Z SIECI"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Zezwól na dostęp publiczny do API przy użyciu %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
@@ -1972,7 +1972,7 @@ msgid "EDIT METADATA"
 msgstr "EDYTUJ META DANE"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GATUNKI"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2180,10 +2180,10 @@ msgid "RELEASE DATE, DESCENDING"
 msgstr "DATA PREMIERY, MALEJĄCO"
 
 msgid "GENRE, ASCENDING"
-msgstr "RODZAJ, ROSNĄCO"
+msgstr "GATUNEK, ROSNĄCO"
 
 msgid "GENRE, DESCENDING"
-msgstr "RODZAJ, MALEJĄCO"
+msgstr "GATUNEK, MALEJĄCO"
 
 msgid "DEVELOPER, ASCENDING"
 msgstr "DEWELOPER, ROSNĄCO"
@@ -2246,7 +2246,7 @@ msgid "GENRE"
 msgstr "GATUNEK"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "RODZINA"
 
 msgid "PLAYERS"
 msgstr "GRACZY"
@@ -2467,7 +2467,7 @@ msgstr[1] "%d sekundy temu"
 msgstr[2] "%d sekund temu"
 
 msgid "WORKING..."
-msgstr "DZIAŁAM.."
+msgstr "DZIAŁAM..."
 
 #, c-format
 msgid "%d h"

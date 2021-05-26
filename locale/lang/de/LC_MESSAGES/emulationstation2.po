@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "Genre eingeben"
 
 msgid "Game family"
-msgstr ""
+msgstr "Spiele-Familie"
 
 msgid "enter game family"
-msgstr ""
+msgstr "Spiele-Familie eingeben"
 
 msgid "Genres"
-msgstr ""
+msgstr "Genres"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "Spiele-Genres eingeben"
 
 msgid "Arcade system"
 msgstr "Arcade System"
@@ -459,7 +459,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "AUTOMATISCHE SAMMLUNGEN"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "PER GENRE"
 
 msgid "ARCADE SYSTEMS"
 msgstr "ARCADE SYSTEME"
@@ -1302,7 +1302,7 @@ msgstr "ÖFFENTLICHEN WEBZUGRIFF AKTIVIEREN"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Verwendung der öffentlichen Webzugriffs-API %s erlauben"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
@@ -1974,7 +1974,7 @@ msgid "EDIT METADATA"
 msgstr "METADATEN BEARBEITEN"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GENRES"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2245,10 +2245,10 @@ msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "AKTUALISIERE DIE SPIELELISTE UM DIE ÄNDERUNGEN ANZUWENDEN."
 
 msgid "GENRE"
-msgstr "GATTUNG"
+msgstr "GENRE"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMILIE"
 
 msgid "PLAYERS"
 msgstr "SPIELER"
