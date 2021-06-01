@@ -206,7 +206,7 @@ msgid "Last played"
 msgstr "Zuletzt gespielt"
 
 msgid "enter last played date"
-msgstr "Datum Zuletzt gespielt eintragen"
+msgstr "Datum zuletzt gespielt eintragen"
 
 msgid "Crc32"
 msgstr "Crc32"
@@ -559,7 +559,7 @@ msgid "CLOSE"
 msgstr "SCHLIESSEN"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr "SIND SIE SICHER, DASS SIE DIESES ELEMENT LÖSCHEN MÖCHTEN ?"
+msgstr "BIST DU SICHER, DASS DU DIESES ELEMENT LÖSCHEN MÖCHTEST ?"
 
 msgid "INPUT"
 msgstr "EINGABE"
@@ -849,7 +849,7 @@ msgid "ARE YOU SURE ?"
 msgstr "BIST DU SICHER?"
 
 msgid "UPDATING EMULATIONSTATION"
-msgstr "AKTUALISIERUNG EMULATIONSTATION"
+msgstr "AKTUALISIERE EMULATIONSTATION"
 
 msgid "UPDATING BATOCERA"
 msgstr "AKTUALISIERE BATOCERA"
@@ -997,7 +997,7 @@ msgid "CURRENT THEME"
 msgstr "AKTUELLES THEME"
 
 msgid "Unlocked on"
-msgstr "Freigeschalten am"
+msgstr "Freigeschaltet am"
 
 msgid "THIS GAME HAS NO ACHIEVEMENT YET"
 msgstr "DIESES SPIEL HAT NOCH KEINE ERRUNGENSCHAFTEN"
@@ -1331,7 +1331,7 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
 msgstr "BEREINIGE SPIELLISTE & LÖSCHE UNBENUTZTE MEDIEN"
 
 msgid "Cleaning "
-msgstr "Am Bereinigen "
+msgstr "Räume auf "
 
 msgid "CLEAR CACHES"
 msgstr "LEERE CACHES"
@@ -1367,7 +1367,7 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr "NUR SPIELELISTEN PARSEN"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr "SUCHE NACH LOKALER KUNST"
+msgstr "SUCHE NACH LOKALEN DATEIEN"
 
 msgid "UI"
 msgstr "UI"
@@ -2018,7 +2018,7 @@ msgid "GO TO HARDWARE"
 msgstr "GEHE ZU HARDWARE"
 
 msgid "GO TO DECADE"
-msgstr "GEHE ZU DEKADE"
+msgstr "GEHE ZU JAHRZEHNT"
 
 msgid "CONFIGURATION"
 msgstr "KONFIGURATION"
@@ -2067,7 +2067,7 @@ msgid "Preloading UI"
 msgstr "Vorladen des UI"
 
 msgid "Loading theme"
-msgstr "Lade theme"
+msgstr "Lade Theme"
 
 msgid "Loading gamelists"
 msgstr "Lade Gamelists"
@@ -2218,7 +2218,7 @@ msgid "GAME TIME, DESCENDING"
 msgstr "SPIELZEIT, ABSTEIGEND"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr "SYSTEM, ERSCHEIUNGSJAHR, AUFSTEIGEND"
+msgstr "SYSTEM, ERSCHEINUNGSJAHR, AUFSTEIGEND"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
 msgstr "SYSTEM, ERSCHEINUNGSJAHR, ABSTEIGEND"
