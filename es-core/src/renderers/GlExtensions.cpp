@@ -21,6 +21,7 @@ namespace glext
 	PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation = nullptr;
 	PFNGLGETATTRIBLOCATIONPROC glGetAttribLocation = nullptr;
 	PFNGLBUFFERDATAPROC glBufferData = nullptr;
+	PFNGLBUFFERSUBDATAARBPROC glBufferSubData = nullptr;
 	PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer = nullptr;
 	PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray = nullptr;
 	PFNGLDISABLEVERTEXATTRIBARRAYPROC glDisableVertexAttribArray = nullptr;
@@ -80,6 +81,7 @@ namespace glext
 		glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC)_glProcAddress("glGetUniformLocation");
 		glGetAttribLocation = (PFNGLGETATTRIBLOCATIONPROC)_glProcAddress("glGetAttribLocation");
 		glBufferData = (PFNGLBUFFERDATAPROC)_glProcAddress("glBufferData");
+		glBufferSubData = (PFNGLBUFFERSUBDATAARBPROC)_glProcAddress("glBufferSubData");
 		glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC)_glProcAddress("glVertexAttribPointer");
 		glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC)_glProcAddress("glEnableVertexAttribArray");
 		glDisableVertexAttribArray = (PFNGLDISABLEVERTEXATTRIBARRAYPROC)_glProcAddress("glDisableVertexAttribArray");
@@ -91,7 +93,7 @@ namespace glext
 			glBindBuffer != nullptr && glGetShaderiv != nullptr && glGetShaderInfoLog != nullptr && glAttachShader != nullptr &&
 			glLinkProgram != nullptr && glGetProgramiv != nullptr && glGetProgramInfoLog != nullptr && glUseProgram != nullptr &&
 			glUniform1i != nullptr && glGetUniformLocation != nullptr && glGetAttribLocation != nullptr && glBufferData != nullptr &&
-			glVertexAttribPointer != nullptr && glBufferData != nullptr && glVertexAttribPointer != nullptr && glEnableVertexAttribArray != nullptr &&
+			glVertexAttribPointer != nullptr && glBufferData != nullptr && glBufferSubData != nullptr && glVertexAttribPointer != nullptr && glEnableVertexAttribArray != nullptr &&
 			glDisableVertexAttribArray != nullptr && glUniformMatrix4fv != nullptr && glActiveTexture_ != nullptr;
 	}
 }

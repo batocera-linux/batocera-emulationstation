@@ -84,9 +84,6 @@ namespace Renderer
 	unsigned int convertColor      (const unsigned int _color);
 	unsigned int getWindowFlags    ();
 	void         setupWindow       ();
-        std::string GLVendor();
-        std::string GLRenderer();
-        std::string GLVersion();
 	void         createContext     ();
 	void         destroyContext    ();
 	unsigned int createTexture     (const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data);
@@ -101,6 +98,7 @@ namespace Renderer
 	void         setScissor        (const Rect& _scissor);
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
+	std::vector<std::pair<std::string, std::string>> getDriverInformation();
 
 	// batocera methods
 	bool         isClippingEnabled  ();

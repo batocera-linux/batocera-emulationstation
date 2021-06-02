@@ -110,6 +110,8 @@ private:
 	int mMarqueeOffset2;
 	int mMarqueeTime;
 
+	int mTextLength;
+
 	AutoScrollType mAutoScroll;
 };
 
