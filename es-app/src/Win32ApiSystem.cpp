@@ -998,8 +998,11 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 		if (updatesType == "beta" || updatesType == "unstable")
 			esUpdateScript += " -branch " + updatesType;
 
-		std::string output; 
-		auto ret = executeCMD((char*)esUpdateScript.c_str(), output, (char*)esUpdateDirectory.c_str());
+		std::string cmdOutput; 
+		auto ret = executeCMD((char*)esUpdateScript.c_str(), cmdOutput, (char*)esUpdateDirectory.c_str());
+		if (ret == 0 && !cmdOutput.empty())
+			output.push_back(cmdOutput);
+
 		return (ret == 0);
 	}
 

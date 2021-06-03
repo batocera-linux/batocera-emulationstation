@@ -102,6 +102,9 @@ private:
 	float			mTransitionSpeed;
 	float			mMinLogoOpacity;
 
+	bool			mAnyLogoHasScaleStoryboard;
+	bool			mAnyLogoHasOpacityStoryboard;
+
 public:
 	bool isHorizontalCarousel() { return mType == HORIZONTAL || mType == HORIZONTAL_WHEEL; }
 };

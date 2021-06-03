@@ -34,6 +34,9 @@ CarouselComponent::CarouselComponent(Window* window) :
 	mDefaultTransition = "";
 	mTransitionSpeed = 500;
 	mMinLogoOpacity = 0.5f;
+
+	mAnyLogoHasScaleStoryboard = false;
+	mAnyLogoHasOpacityStoryboard = false;
 }
 
 CarouselComponent::~CarouselComponent()
@@ -199,20 +202,25 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		Sound::get(mScrollSound)->play();
 
 	int oldCursor = mLastCursor;
-
-	// TODO
+	
+	bool oldCursorHasStoryboard = false;
 
 	if (oldCursor >= 0 && oldCursor < mEntries.size())
 	{
-		auto logo = mEntries.at(oldCursor).data.logo;				
+		auto logo = mEntries.at(oldCursor).data.logo;
 		if (logo)
 		{
 			if (logo->selectStoryboard("deactivate"))
+			{
 				logo->startStoryboard();
-			else if (!logo->selectStoryboard())
+				oldCursorHasStoryboard = true;
+			}
+			else
 				logo->deselectStoryboard();
 		}
 	}
+
+	bool cursorHasStoryboard = false;
 
 	if (mCursor >= 0 && mCursor < mEntries.size())
 	{
@@ -220,10 +228,23 @@ void CarouselComponent::onCursorChanged(const CursorState& state)
 		if (logo)
 		{
 			if (logo->selectStoryboard("activate"))
+			{
 				logo->startStoryboard();
-			else if (!logo->selectStoryboard())
+				cursorHasStoryboard = true;
+			}
+			else
 				logo->deselectStoryboard();
 		}
+	}
+
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		if ((cursorHasStoryboard && i == mCursor) || (oldCursorHasStoryboard && i == oldCursor))
+			continue;
+
+		auto logo = mEntries.at(i).data.logo;
+		if (logo && logo->selectStoryboard("scroll"))
+			logo->startStoryboard();
 	}
 
 	Animation* anim;
@@ -414,11 +435,11 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 			comp->setRotationOrigin(mLogoRotationOrigin);
 		}
 		
-		if (!comp->hasStoryBoard())
-		{
-			comp->setScale(scale);
+		if (!mAnyLogoHasOpacityStoryboard)
 			comp->setOpacity((unsigned char)opacity);
-		}
+
+		if (!mAnyLogoHasScaleStoryboard)
+			comp->setScale(scale);
 		
 		comp->render(logoTrans);
 	};
@@ -513,16 +534,36 @@ void CarouselComponent::onShow()
 {
 	GuiComponent::onShow();		
 
+	bool cursorStoryboardSet = false;
+
 	if (mCursor >= 0 && mCursor < mEntries.size())
 	{
 		auto logo = mEntries.at(mCursor).data.logo;
 		if (logo)
 		{
 			if (logo->selectStoryboard("activate"))
+			{
 				logo->startStoryboard();
-			else if (!logo->selectStoryboard())
+				cursorStoryboardSet = true;
+			}
+			else if (logo->selectStoryboard())
+			{
+				logo->startStoryboard();
+				cursorStoryboardSet = true;
+			}
+			else
 				logo->deselectStoryboard();
 		}
+	}
+
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		if (cursorStoryboardSet && mCursor == i)
+			continue;
+
+		auto logo = mEntries.at(i).data.logo;
+		if (logo && (logo->selectStoryboard("scroll") || logo->selectStoryboard()))
+			logo->startStoryboard();
 	}
 }
 
@@ -620,6 +661,20 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 
 	Vector2f denormalized = mLogoSize * entry.data.logo->getOrigin();
 	entry.data.logo->setPosition(denormalized.x(), denormalized.y(), 0.0);
+
+	mAnyLogoHasScaleStoryboard = entry.data.logo->storyBoardExists("deactivate", "scale") ||
+		entry.data.logo->storyBoardExists("activate", "scale") ||
+		entry.data.logo->storyBoardExists("scroll", "scale") ||
+		entry.data.logo->storyBoardExists("", "scale");
+
+	mAnyLogoHasOpacityStoryboard =
+		entry.data.logo->storyBoardExists("deactivate", "opacity") ||
+		entry.data.logo->storyBoardExists("activate", "opacity") ||
+		entry.data.logo->storyBoardExists("scroll", "opacity") ||
+		entry.data.logo->storyBoardExists("", "opacity");
+
+	if (!entry.data.logo->selectStoryboard("deactivate") && !entry.data.logo->selectStoryboard())
+		entry.data.logo->deselectStoryboard();
 }
 
 void CarouselComponent::add(const std::string& name, FileData* obj)
