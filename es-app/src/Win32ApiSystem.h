@@ -8,6 +8,7 @@ class Win32ApiSystem : public ApiSystem
 public:
 	bool isScriptingSupported(ScriptId script) override;
 	std::string getVersion() override;
+	std::string getApplicationName() override;
 
 	std::vector<std::string> getSystemInformations() override;
 	std::vector<std::string> getAvailableStorageDevices() override;

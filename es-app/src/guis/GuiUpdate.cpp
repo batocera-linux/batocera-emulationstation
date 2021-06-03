@@ -20,7 +20,8 @@ public:
 
 		mWndNotification = mWindow->createAsyncNotificationComponent();
 #if WIN32
-		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING EMULATIONSTATION"));
+		auto label = Utils::String::format(_("UPDATING %s").c_str(), ApiSystem::getInstance()->getApplicationName().c_str());
+		mWndNotification->updateTitle(_U("\uF019 ") + label);
 #else
 		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING BATOCERA"));
 #endif

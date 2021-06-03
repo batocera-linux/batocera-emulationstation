@@ -394,6 +394,32 @@ unsigned long Win32ApiSystem::getFreeSpaceGB(std::string mountpoint)
 	return 0;
 }
 
+std::string Win32ApiSystem::getApplicationName()
+{
+	std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
+	if (Utils::FileSystem::exists(localVersionFile))
+	{
+		std::string aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
+		aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
+
+		auto ver = ApiSystem::getInstance()->getVersion();
+		auto cut = aboutInfo.find(" V" + ver);
+		
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(" " + ver);
+
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(ver);
+
+		if (cut != std::string::npos)
+			aboutInfo = aboutInfo.substr(0, cut);
+
+		return aboutInfo;
+	}
+
+	return "EMULATIONSTATION";
+}
+
 std::string Win32ApiSystem::getVersion()
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";

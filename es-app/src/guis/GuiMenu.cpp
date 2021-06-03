@@ -467,15 +467,7 @@ void GuiMenu::addVersionInfo()
 	if (!ApiSystem::getInstance()->getVersion().empty())
 	{
 #if WIN32
-		std::string aboutInfo;
-
-		std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
-		if (Utils::FileSystem::exists(localVersionFile))
-		{
-			aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
-			aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
-		}
-
+		std::string aboutInfo = ApiSystem::getInstance()->getApplicationName()+ " V"+ ApiSystem::getInstance()->getVersion();
 		if (!aboutInfo.empty())
 			mVersion.setText(aboutInfo + buildDate);
 		else
