@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -849,8 +849,9 @@ msgstr "ZAPISAĆ ZMIANY?"
 msgid "ARE YOU SURE ?"
 msgstr "CZY NA PEWNO?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "AKTUALIZOWANIE EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "AKTUALIZUJĘ SYSTEM"
@@ -863,6 +864,12 @@ msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
 
 msgid "REALLY UPDATE?"
 msgstr "ZAKTUALIZOWAĆ?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "WYMAGA POŁĄCZENIA Z INTERNETEM"
@@ -1130,6 +1137,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "SKALOWANIE RGA"
 
+msgid "GL VENDOR"
+msgstr "DOSTAWCA GL"
+
+msgid "GL RENDERER"
+msgstr "RENDERER GL"
+
+msgid "GL VERSION"
+msgstr "WERSJA GL"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
 
@@ -1264,15 +1283,6 @@ msgstr "UŻYCIE DYSKU UŻYTKOWNIKA"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "UŻYCIE DYSKU SYSTEMOWEGO"
-
-msgid "GL VENDOR"
-msgstr "DOSTAWCA GL"
-
-msgid "GL RENDERER"
-msgstr "RENDERER GL"
-
-msgid "GL VERSION"
-msgstr "WERSJA GL"
 
 msgid "DEVELOPER"
 msgstr "DEWELOPER"
@@ -2480,6 +2490,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "AKTUALIZOWANIE EMULATIONSTATION"
 
 #~ msgid "Allow public web access API using "
 #~ msgstr "Zezwól na dostęp publiczny do API przy użyciu "

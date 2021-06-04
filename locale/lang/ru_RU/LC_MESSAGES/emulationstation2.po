@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -848,8 +848,9 @@ msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
 msgid "ARE YOU SURE ?"
 msgstr "ВЫ УВЕРЕНЫ?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "ОБНОВЛЕНИЕ EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "ОБНОВЛЕНИЕ BATOCERA"
@@ -862,6 +863,12 @@ msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "REALLY UPDATE?"
 msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
@@ -1129,6 +1136,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA СКАЛИРОВАНИЕ"
 
+msgid "GL VENDOR"
+msgstr "GL ВЕНДОР"
+
+msgid "GL RENDERER"
+msgstr "GL РЕНДЕР"
+
+msgid "GL VERSION"
+msgstr "GL ВЕРСИЯ"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
 
@@ -1264,15 +1283,6 @@ msgstr "ЗАНЯТО НА ДИСКЕ ПОЛЬЗОВАТЕЛЯ"
 msgid "SYSTEM DISK USAGE"
 msgstr "ЗАНЯТО НА СИСТЕМНОМ ДИСКЕ"
 
-msgid "GL VENDOR"
-msgstr "GL ВЕНДОР"
-
-msgid "GL RENDERER"
-msgstr "GL РЕНДЕР"
-
-msgid "GL VERSION"
-msgstr "GL ВЕРСИЯ"
-
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
 
@@ -1401,7 +1411,8 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
+msgstr ""
+"Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
@@ -2478,6 +2489,9 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "ОБНОВЛЕНИЕ EMULATIONSTATION"
 
 #~ msgid "Allow public web access API using "
 #~ msgstr "Разрешить публичный доступ API, используя "

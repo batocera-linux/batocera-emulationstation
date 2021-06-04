@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31beta(2021/05/22)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-26 23:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:32+0200\n"
 "PO-Revision-Date: 2021-05-22 19:16+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -847,8 +847,9 @@ msgstr "変更を保存しますか？"
 msgid "ARE YOU SURE ?"
 msgstr "よろしいですか？"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "エミュレーションステーションの更新"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERA更新中"
@@ -861,6 +862,12 @@ msgstr "再起動で更新が適用されます"
 
 msgid "REALLY UPDATE?"
 msgstr "更新しますか？"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -1128,6 +1135,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGAスケーリング"
 
+msgid "GL VENDOR"
+msgstr "GL ベンダー"
+
+msgid "GL RENDERER"
+msgstr "GL レンダラー"
+
+msgid "GL VERSION"
+msgstr "GL バージョン"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "メインメニュー"
 
@@ -1262,15 +1281,6 @@ msgstr "データ使用量/容量"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "システムデータ使用量/容量"
-
-msgid "GL VENDOR"
-msgstr "GL ベンダー"
-
-msgid "GL RENDERER"
-msgstr "GL レンダラー"
-
-msgid "GL VERSION"
-msgstr "GL バージョン"
 
 msgid "DEVELOPER"
 msgstr "その他の設定"
@@ -2457,3 +2467,6 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "エミュレーションステーションの更新"

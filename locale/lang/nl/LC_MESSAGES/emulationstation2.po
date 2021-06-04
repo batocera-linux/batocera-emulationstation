@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -847,7 +847,8 @@ msgstr "WIJZIGINGEN OPSLAAN?"
 msgid "ARE YOU SURE ?"
 msgstr "WEET JE HET ZEKER ?"
 
-msgid "UPDATING EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
 msgstr ""
 
 msgid "UPDATING BATOCERA"
@@ -861,6 +862,12 @@ msgstr "HERSTART SYSTEEM OM TOE TE PASSEN"
 
 msgid "REALLY UPDATE?"
 msgstr "WIL JE ECHT UPDATEN?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NETWERKVERBINDING BENODIGD"
@@ -1128,6 +1135,18 @@ msgstr "AFVLAKKEN-GLOEIEN"
 msgid "RGA SCALING"
 msgstr ""
 
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HOOFDMENU"
 
@@ -1262,15 +1281,6 @@ msgstr "GEBRUIKER SCHIJFGEBRUIK"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEEM SCHIJFGEBRUIK"
-
-msgid "GL VENDOR"
-msgstr ""
-
-msgid "GL RENDERER"
-msgstr ""
-
-msgid "GL VERSION"
-msgstr ""
 
 msgid "DEVELOPER"
 msgstr "ONTWIKKELAAR"

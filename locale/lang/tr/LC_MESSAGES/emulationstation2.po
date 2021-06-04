@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -847,8 +847,9 @@ msgstr "DEĞİŞİKLİKLERİ KAYDET?"
 msgid "ARE YOU SURE ?"
 msgstr "EMİN MİSİN ?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "EMULATIONSTATION GÜNCELLENİYOR"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERA GÜNCELLENİYOR"
@@ -861,6 +862,12 @@ msgstr "UYGULAMAK İÇİN SİSTEMİ YENİDEN BAŞLATIN"
 
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "AĞ BAĞLANTISI GEREKİYOR"
@@ -1128,6 +1135,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA ÖLÇEKLENDİRME"
 
+msgid "GL VENDOR"
+msgstr "GL YAPIMCI"
+
+msgid "GL RENDERER"
+msgstr "GL OLUŞTURUCU"
+
+msgid "GL VERSION"
+msgstr "GL VERSİYONU"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
 
@@ -1262,15 +1281,6 @@ msgstr "KULLANICI DİSK KULLANIMI"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SİSTEM DİSK KULLANIMI"
-
-msgid "GL VENDOR"
-msgstr "GL YAPIMCI"
-
-msgid "GL RENDERER"
-msgstr "GL OLUŞTURUCU"
-
-msgid "GL VERSION"
-msgstr "GL VERSİYONU"
 
 msgid "DEVELOPER"
 msgstr "GELİŞTİRİCİ"
@@ -2467,6 +2477,9 @@ msgstr "%d d"
 #, c-format
 msgid "%d s"
 msgstr "%d sn"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "EMULATIONSTATION GÜNCELLENİYOR"
 
 #~ msgid "Allow public web access API using "
 #~ msgstr "API kullanarak web girişine izin ver "

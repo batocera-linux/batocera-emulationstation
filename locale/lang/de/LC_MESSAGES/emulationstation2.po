@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:31+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -848,8 +848,9 @@ msgstr "ÄNDERUNGEN SPEICHERN?"
 msgid "ARE YOU SURE ?"
 msgstr "BIST DU SICHER?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "AKTUALISIERE EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "AKTUALISIERE BATOCERA"
@@ -862,6 +863,12 @@ msgstr "SYSTEM NEU STARTEN UM ANZUWENDEN"
 
 msgid "REALLY UPDATE?"
 msgstr "WIRKLICH AKTUALISIEREN?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NETZWERKVERBINDUNG BENÖTIGT"
@@ -1129,6 +1136,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA SKALIERUNG"
 
+msgid "GL VENDOR"
+msgstr "GL HERSTELLER"
+
+msgid "GL RENDERER"
+msgstr "GL RENDERER"
+
+msgid "GL VERSION"
+msgstr "GL VERSION"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HAUPTMENÜ"
 
@@ -1263,15 +1282,6 @@ msgstr "BENUTZERDATEN-VERBRAUCH"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEMDATEN-VERBRAUCH"
-
-msgid "GL VENDOR"
-msgstr "GL HERSTELLER"
-
-msgid "GL RENDERER"
-msgstr "GL RENDERER"
-
-msgid "GL VERSION"
-msgstr "GL VERSION"
 
 msgid "DEVELOPER"
 msgstr "ENTWICKLER"
@@ -2477,6 +2487,9 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "AKTUALISIERE EMULATIONSTATION"
 
 #~ msgid "Allow public web access API using "
 #~ msgstr "Erlaube die Verwendung der öffentl. Webzugriffs-API "

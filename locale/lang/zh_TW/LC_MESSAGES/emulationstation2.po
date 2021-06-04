@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -846,8 +846,9 @@ msgstr "要儲存修改嗎？"
 msgid "ARE YOU SURE ?"
 msgstr "您確定嗎？"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "正在更新 EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "正在更新 BATOCERA"
@@ -860,6 +861,12 @@ msgstr "系統重新啟動來套用"
 
 msgid "REALLY UPDATE?"
 msgstr "確定要更新嗎？"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要連線到網際網路"
@@ -1126,6 +1133,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA 縮放"
 
+msgid "GL VENDOR"
+msgstr "GL 提供者"
+
+msgid "GL RENDERER"
+msgstr "GL 渲染器"
+
+msgid "GL VERSION"
+msgstr "GL 版本"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "主選單"
 
@@ -1260,15 +1279,6 @@ msgstr "使用者磁碟用量"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "系統磁碟用量"
-
-msgid "GL VENDOR"
-msgstr "GL 提供者"
-
-msgid "GL RENDERER"
-msgstr "GL 渲染器"
-
-msgid "GL VERSION"
-msgstr "GL 版本"
 
 msgid "DEVELOPER"
 msgstr "開發者選項"
@@ -2446,6 +2456,9 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "正在更新 EMULATIONSTATION"
 
 #~ msgid "Allow public web access API using "
 #~ msgstr "允許使用公開網站存取 API "

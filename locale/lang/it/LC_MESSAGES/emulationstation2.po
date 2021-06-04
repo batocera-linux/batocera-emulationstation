@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-04 20:32+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "inserisci genere"
 
 msgid "Game family"
-msgstr ""
+msgstr "Famiglia del Gioco"
 
 msgid "enter game family"
-msgstr ""
+msgstr "inserisci famiglia del gioco"
 
 msgid "Genres"
-msgstr ""
+msgstr "Genere"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "inserisci genere del gioco"
 
 msgid "Arcade system"
 msgstr "Sistema Arcade"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLLEZIONI AUTOMATICHE"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "PER GENERE"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMI ARCADE"
@@ -847,8 +847,9 @@ msgstr "SALVARE LE MODIFICHE?"
 msgid "ARE YOU SURE ?"
 msgstr "SEI SICURO?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "AGGIORNAMENTO EMULATIONSTATOIN"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "AGGIORNAMENTO BATOCERA"
@@ -861,6 +862,12 @@ msgstr "RIAVVIA IL SISTEMA PER APPLICARE"
 
 msgid "REALLY UPDATE?"
 msgstr "VUOI AGGIORNARE?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "È NECESSARIA UNA CONNESSIONE DI RETE"
@@ -1128,6 +1135,18 @@ msgstr "ABBAGLIANTE"
 msgid "RGA SCALING"
 msgstr "SCALING RGA"
 
+msgid "GL VENDOR"
+msgstr "PRODUTTORE GL"
+
+msgid "GL RENDERER"
+msgstr "RENDERER GL"
+
+msgid "GL VERSION"
+msgstr "VERSIONE GL"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
 
@@ -1156,7 +1175,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "IMPOSTAZIONI EMULATORE"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "AGGIORNAMENTI E DOWLOADS"
+msgstr "AGGIORNAMENTI & DOWNLOADS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "OPZIONI SISTEMA"
@@ -1263,15 +1282,6 @@ msgstr "UTILIZZO DISCO UTENTE"
 msgid "SYSTEM DISK USAGE"
 msgstr "UTILIZZO DISCO DI SISTEMA"
 
-msgid "GL VENDOR"
-msgstr "PRODUTTORE GL"
-
-msgid "GL RENDERER"
-msgstr "RENDERER GL"
-
-msgid "GL VERSION"
-msgstr "VERSIONE GL"
-
 msgid "DEVELOPER"
 msgstr "SVILUPPATORE"
 
@@ -1301,7 +1311,7 @@ msgstr "ATTIVA ACCESSO FILE SUL WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Consente l'accesso tramite API - %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
@@ -1500,7 +1510,7 @@ msgid "BRIGHTNESS"
 msgstr "LUMINOSITÀ"
 
 msgid "VIDEO OUTPUT"
-msgstr "OUTPUT VIDEO"
+msgstr "USCITA VIDEO"
 
 msgid "AUDIO OUTPUT"
 msgstr "USCITA AUDIO"
@@ -1632,10 +1642,10 @@ msgid "AUTO SAVE/LOAD"
 msgstr "SALVA/CARICA AUTOMATICO"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr "MOSTRA SALV. ISTANTANEI SEMPRE"
+msgstr "MOSTRA SALV. ISTANTANEI"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr "MOSTRA SALV. ISTANTANEI SE DISPONIBILI"
+msgstr "MOSTRA SALV. ISTANT. SE DISPONIBILI"
 
 msgid "SHADERS SET"
 msgstr "EFFETTO SHADER"
@@ -1967,7 +1977,7 @@ msgid "EDIT METADATA"
 msgstr "MODIFICA LE INFORMAZIONI"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GENERE"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2068,7 +2078,7 @@ msgid "MENU"
 msgstr "MENU"
 
 msgid "Full"
-msgstr "Completo"
+msgstr "Completa"
 
 msgid "Kiosk"
 msgstr "Kiosk"
@@ -2240,7 +2250,7 @@ msgid "GENRE"
 msgstr "GENERE"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMIGLIA"
 
 msgid "PLAYERS"
 msgstr "GIOCATORI"
@@ -2467,6 +2477,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "AGGIORNAMENTO EMULATIONSTATOIN"
 
 #~ msgid "Allow public web access API using "
 #~ msgstr "Consenti accesso tramite API"
