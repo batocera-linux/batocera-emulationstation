@@ -394,6 +394,32 @@ unsigned long Win32ApiSystem::getFreeSpaceGB(std::string mountpoint)
 	return 0;
 }
 
+std::string Win32ApiSystem::getApplicationName()
+{
+	std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
+	if (Utils::FileSystem::exists(localVersionFile))
+	{
+		std::string aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
+		aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
+
+		auto ver = ApiSystem::getInstance()->getVersion();
+		auto cut = aboutInfo.find(" V" + ver);
+		
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(" " + ver);
+
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(ver);
+
+		if (cut != std::string::npos)
+			aboutInfo = aboutInfo.substr(0, cut);
+
+		return aboutInfo;
+	}
+
+	return "EMULATIONSTATION";
+}
+
 std::string Win32ApiSystem::getVersion()
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";
@@ -998,8 +1024,11 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 		if (updatesType == "beta" || updatesType == "unstable")
 			esUpdateScript += " -branch " + updatesType;
 
-		std::string output; 
-		auto ret = executeCMD((char*)esUpdateScript.c_str(), output, (char*)esUpdateDirectory.c_str());
+		std::string cmdOutput; 
+		auto ret = executeCMD((char*)esUpdateScript.c_str(), cmdOutput, (char*)esUpdateDirectory.c_str());
+		if (ret == 0 && !cmdOutput.empty())
+			output.push_back(cmdOutput);
+
 		return (ret == 0);
 	}
 

@@ -13,7 +13,7 @@ TextComponent::TextComponent(Window* window) : GuiComponent(window),
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(ALIGN_LEFT), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0)),
-	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE)
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE), mTextLength(-1)
 {	
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
@@ -25,7 +25,7 @@ TextComponent::TextComponent(Window* window, const std::string& text, const std:
 	mFont(NULL), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(align), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0, 0)),
-	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE)
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE), mTextLength(-1)
 {
 	setFont(font);
 	setColor(color);
@@ -143,24 +143,38 @@ void TextComponent::renderGlow(const Transform4x4f& parentTrans, float yOff, flo
 		glowTrans.translate(Vector3f(xOff, 0, 0));
 
 	mTextCache->setRenderingGlow(true);
-	mTextCache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
 	
-	int x = -mGlowSize;
-	int y = -mGlowSize;
+	if (mGlowSize == 1 && mGlowOffset == Vector2f::Zero())
+	{
+		int a = Math::min(0xFF, (mGlowColor & 0xFF) * 2);
+		mTextCache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)(a * (mOpacity / 255.0)));
 
-	renderSingleGlow(glowTrans, yOff, x, y);
+		renderSingleGlow(glowTrans, yOff, 1, 0);
+		renderSingleGlow(glowTrans, yOff, 0, 1);
+		renderSingleGlow(glowTrans, yOff, -1, 0);
+		renderSingleGlow(glowTrans, yOff, 0, -1);
+	}
+	else
+	{
+		mTextCache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
 
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, ++x, y);
+		int x = -mGlowSize;
+		int y = -mGlowSize;
 
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, x, ++y);
+		renderSingleGlow(glowTrans, yOff, x, y);
 
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, --x, y);
+		for (int i = 0; i < 2 * mGlowSize; i++)
+			renderSingleGlow(glowTrans, yOff, ++x, y);
 
-	for (int i = 0; i < 2 * mGlowSize; i++)
-		renderSingleGlow(glowTrans, yOff, x, --y);
+		for (int i = 0; i < 2 * mGlowSize; i++)
+			renderSingleGlow(glowTrans, yOff, x, ++y);
+
+		for (int i = 0; i < 2 * mGlowSize; i++)
+			renderSingleGlow(glowTrans, yOff, --x, y);
+
+		for (int i = 0; i < 2 * mGlowSize; i++)
+			renderSingleGlow(glowTrans, yOff, x, --y);
+	}
 
 	mTextCache->setRenderingGlow(false);
 }
@@ -318,6 +332,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 
 void TextComponent::onTextChanged()
 {
+	mTextLength = -1;
 	mTextCache = nullptr;
 
 	if (mAutoCalcExtent.x())
@@ -384,6 +399,14 @@ void TextComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
+	if (!mShowing)
+	{
+		mMarqueeTime = 0;
+		mMarqueeOffset = 0;
+		mMarqueeOffset2 = 0;
+		return;
+	}
+
 	int sy = mSize.y() - mPadding.y() - mPadding.w();
 	const bool isMultiline = mAutoScroll != AutoScrollType::HORIZONTAL && (mSize.y() == 0 || sy > mFont->getHeight()*1.95f);
 
@@ -396,7 +419,11 @@ void TextComponent::update(int deltaTime)
 		std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
 
 		// if we're not scrolling and this object's text goes outside our size, marquee it!
-		const float textLength = mFont->sizeText(text).x();
+
+		if (mTextLength < 0)
+			mTextLength = mFont->sizeText(text).x();
+
+		const float textLength = mTextLength;
 		const float limit = mSize.x() - mPadding.x() - mPadding.z();
 		
 		if (textLength > limit)
@@ -426,7 +453,11 @@ void TextComponent::update(int deltaTime)
 		std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
 
 		// if we're not scrolling and this object's text goes outside our size, marquee it!
-		int textLength = mFont->sizeWrappedText(mUppercase ? Utils::String::toUpper(mText) : mText, getSize().x(), mLineSpacing).y();
+
+		if (mTextLength < 0)
+			mTextLength = mFont->sizeWrappedText(mUppercase ? Utils::String::toUpper(mText) : mText, getSize().x(), mLineSpacing).y();
+
+		int textLength = mTextLength;
 		int limit = mSize.y() - mPadding.y() - mPadding.y();
 
 		if (textLength > limit)

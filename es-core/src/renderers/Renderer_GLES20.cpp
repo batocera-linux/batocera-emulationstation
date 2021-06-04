@@ -34,6 +34,67 @@ namespace Renderer
 
 	#define SHADER_VERSION_STRING "#version 100\n"
 
+	static ShaderProgram* currentProgram = nullptr;
+	
+	static void useProgram(ShaderProgram* program)
+	{
+		if (program == currentProgram)
+		{
+			if (currentProgram == &shaderProgramColorTexture)
+				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+			else  if (currentProgram == &shaderProgramColorNoTexture)
+				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+
+			return;
+		}
+
+		if (program == nullptr && currentProgram != nullptr)
+		{
+			if (currentProgram == &shaderProgramColorTexture)
+			{
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.posAttrib));
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.colAttrib));
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.texAttrib));
+			}
+
+			if (currentProgram == &shaderProgramColorNoTexture)
+			{
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+			}
+		}
+
+		currentProgram = program;
+
+		if (currentProgram == &shaderProgramColorTexture)
+		{
+			GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
+			GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.posAttrib));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.colAttrib));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, tex)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.texAttrib));
+		}
+
+		if (currentProgram == &shaderProgramColorNoTexture)
+		{
+			// Setup shader (always NOT textured)
+			GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
+			GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+		}
+	}
+
 	static void setupShaders()
 	{
 		bool result = false;
@@ -60,16 +121,14 @@ namespace Renderer
 			"{                          \n"
 			"    gl_FragColor = v_col;  \n"
 			"}                          \n";
-
-
+		
 		// Compile each shader, link them to make a full program
 		const GLuint vertexShaderColorTextureId = glCreateShader(GL_VERTEX_SHADER);
 		result = vertexShaderNoTexture.compile(vertexShaderColorTextureId, vertexSourceNoTexture);
 		const GLuint fragmentShaderNoTextureId = glCreateShader(GL_FRAGMENT_SHADER);
 		result = fragmentShaderColorNoTexture.compile(fragmentShaderNoTextureId, fragmentSourceNoTexture);
 		result = shaderProgramColorNoTexture.linkShaderProgram(vertexShaderNoTexture, fragmentShaderColorNoTexture);
-
-
+		
 		// Set shader active, retrieve attributes and uniforms locations
 		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
 		shaderProgramColorNoTexture.posAttrib = glGetAttribLocation(shaderProgramColorNoTexture.id, "a_pos");
@@ -125,6 +184,7 @@ namespace Renderer
 		GLint texUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_tex");
 		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
 
+		useProgram(nullptr);
 	} // setupShaders
 
 //////////////////////////////////////////////////////////////////////////
@@ -219,21 +279,28 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-        std::string GLVendor() {
-          const std::string vendor     = glGetString(GL_VENDOR)     ? (const char*)glGetString(GL_VENDOR)     : "";
-          return vendor;
-        }
+	std::vector<std::pair<std::string, std::string>> getDriverInformation()
+	{
+		std::vector<std::pair<std::string, std::string>> info;
 
-        std::string GLRenderer() {
-          const std::string renderer   = glGetString(GL_RENDERER)   ? (const char*)glGetString(GL_RENDERER)   : "";
-          return renderer;
-        }
+		const std::string vendor = glGetString(GL_VENDOR) ? (const char*)glGetString(GL_VENDOR) : "";
+		if (!vendor.empty())
+			info.push_back(std::pair<std::string, std::string>("GL VENDOR", vendor));
 
-        std::string GLVersion() {
-          const std::string version    = glGetString(GL_VERSION)    ? (const char*)glGetString(GL_VERSION)    : "";
-          return version;
-        }
+		const std::string renderer = glGetString(GL_RENDERER) ? (const char*)glGetString(GL_RENDERER) : "";
+		if (!renderer.empty())
+			info.push_back(std::pair<std::string, std::string>("GL RENDERER", renderer));
 
+		const std::string version = glGetString(GL_VERSION) ? (const char*)glGetString(GL_VERSION) : "";
+		if (!version.empty())
+			info.push_back(std::pair<std::string, std::string>("GL VERSION", version));
+
+		const std::string shaders = glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "";
+		if (!shaders.empty())
+			info.push_back(std::pair<std::string, std::string>("GLSL VERSION", shaders));
+
+		return info;
+	}
 
 	void createContext()
 	{
@@ -394,14 +461,7 @@ namespace Renderer
 		// Pass buffer data
 		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
 
-		// Setup shader (always NOT textured)
-		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
-
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+		useProgram(&shaderProgramColorNoTexture);
 
 		// Do rendering
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
@@ -409,62 +469,27 @@ namespace Renderer
 		GL_CHECK_ERROR(glDrawArrays(GL_LINES, 0, _numVertices));
 		GL_CHECK_ERROR(glDisable(GL_BLEND));
 
-		// Restore context
-		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-
 	} // drawLines
 
 //////////////////////////////////////////////////////////////////////////
 
+
 	void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		// Pass buffer data
-		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
+		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));		
 
 		// Setup shader
 		if (boundTexture != 0)
-		{
-			GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.posAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.colAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, tex)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.texAttrib));
-		}
+			useProgram(&shaderProgramColorTexture);
 		else
-		{
-			GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE,  sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-		}
+			useProgram(&shaderProgramColorNoTexture);
 
 		// Do rendering
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
 		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
 		GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
 		GL_CHECK_ERROR(glDisable(GL_BLEND));
-
-		// Restore context
-		if (boundTexture != 0)
-		{
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.posAttrib));
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.colAttrib));
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.texAttrib));
-		}
-		else
-		{
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-			GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-		}
 
 	} // drawTriangleStrips
 
@@ -473,13 +498,7 @@ namespace Renderer
 	void setProjection(const Transform4x4f& _projection)
 	{
 		projectionMatrix = _projection;
-
 		mvpMatrix = projectionMatrix * worldViewMatrix;
-		glUseProgram(shaderProgramColorTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-		glUseProgram(shaderProgramColorNoTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-
 	} // setProjection
 
 //////////////////////////////////////////////////////////////////////////
@@ -488,13 +507,7 @@ namespace Renderer
 	{
 		worldViewMatrix = _matrix;
 		worldViewMatrix.round();
-
 		mvpMatrix = projectionMatrix * worldViewMatrix;
-		glUseProgram(shaderProgramColorTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-		glUseProgram(shaderProgramColorNoTexture.id);
-		GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-
 	} // setMatrix
 
 //////////////////////////////////////////////////////////////////////////
@@ -548,59 +561,51 @@ namespace Renderer
 
 	void swapBuffers()
 	{
+		useProgram(nullptr);
 		SDL_GL_SwapWindow(getSDLWindow());
 		GL_CHECK_ERROR(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
-
 	} // swapBuffers
 
 //////////////////////////////////////////////////////////////////////////
 	
 	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
-	{
+	{		
+		// Pass buffer data
 		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
 
-		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
+		// Setup shader
+		if (boundTexture != 0)
+			useProgram(&shaderProgramColorTexture);
+		else
+			useProgram(&shaderProgramColorNoTexture);
 
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-
-		GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-		GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-
+		// Do rendering
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
 		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
 		GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices));
 		GL_CHECK_ERROR(glDisable(GL_BLEND));
-
-		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-		GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
 	}
 
 	void setStencil(const Vertex* _vertices, const unsigned int _numVertices)
 	{
-		bool tx = glIsEnabled(GL_TEXTURE_2D);
-		glDisable(GL_TEXTURE_2D);
+		useProgram(&shaderProgramColorNoTexture);
 
-		glClear(GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_STENCIL_TEST);
 		glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
 		glDepthMask(GL_FALSE);
 		glStencilFunc(GL_NEVER, 1, 0xFF);
 		glStencilOp(GL_REPLACE, GL_KEEP, GL_KEEP);
-
 		glStencilMask(0xFF);
 		glClear(GL_STENCIL_BUFFER_BIT);
-
-		drawTriangleFan(_vertices, _numVertices);
+		
+		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW);
+		glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices);
 
 		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 		glDepthMask(GL_TRUE);
 		glStencilMask(0x00);
 		glStencilFunc(GL_EQUAL, 0, 0xFF);
 		glStencilFunc(GL_EQUAL, 1, 0xFF);
-
-		if (tx)
-			glEnable(GL_TEXTURE_2D);
 	}
 
 	void disableStencil()

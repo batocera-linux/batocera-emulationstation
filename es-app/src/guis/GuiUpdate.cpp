@@ -20,7 +20,8 @@ public:
 
 		mWndNotification = mWindow->createAsyncNotificationComponent();
 #if WIN32
-		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING EMULATIONSTATION"));
+		auto label = Utils::String::format(_("UPDATING %s").c_str(), ApiSystem::getInstance()->getApplicationName().c_str());
+		mWndNotification->updateTitle(_U("\uF019 ") + label);
 #else
 		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING BATOCERA"));
 #endif
@@ -112,7 +113,12 @@ void GuiUpdate::threadPing()
 	{
 		std::vector<std::string> msgtbl;
 		if (ApiSystem::getInstance()->canUpdate(msgtbl))
+		{
+			if (msgtbl.size() == 1)
+				mUpdateVersion = msgtbl[0];
+
 			onUpdateAvailable();
+		}
 		else
 			onNoUpdateAvailable();
 	}
@@ -154,9 +160,15 @@ void GuiUpdate::update(int deltaTime)
 	switch (mState)
 	{
 		case 1:
-		
+		{
 			mState = 0;
-			window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE?"), _("YES"), [this] 
+
+			std::string message = _("REALLY UPDATE?");
+
+			if (!mUpdateVersion.empty())
+				message = Utils::String::format(_("YOU ARE CURRENTLY USING VERSION : %s\r\nDO YOU WANT TO UPDATE TO VERSION : %s ?").c_str(), ApiSystem::getInstance()->getVersion().c_str(), mUpdateVersion.c_str()),
+
+			window->pushGui(new GuiMsgBox(window, message, _("YES"), [this]
 			{
 				mState = 2;
 				mLoading = true;
@@ -164,9 +176,9 @@ void GuiUpdate::update(int deltaTime)
 				mState = -1;
 				new ThreadedUpdater(mWindow);
 
-			}, _("NO"), [this]  { mState = -1; }));		
-		
-			break;
+			}, _("NO"), [this] { mState = -1; }));
+		}		
+		break;
 
 		case 3:
 		

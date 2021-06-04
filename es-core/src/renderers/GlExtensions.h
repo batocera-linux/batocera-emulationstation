@@ -28,6 +28,7 @@ namespace glext
 	extern PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation;
 	extern PFNGLGETATTRIBLOCATIONPROC glGetAttribLocation;
 	extern PFNGLBUFFERDATAPROC glBufferData;
+	extern PFNGLBUFFERSUBDATAARBPROC glBufferSubData;
 	extern PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer;
 	extern PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray;
 	extern PFNGLDISABLEVERTEXATTRIBARRAYPROC glDisableVertexAttribArray;

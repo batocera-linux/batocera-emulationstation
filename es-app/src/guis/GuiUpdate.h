@@ -33,6 +33,8 @@ private:
     BusyComponent mBusyAnim;
     bool mLoading;
     int mState;
+	std::string mUpdateVersion;
+
     std::pair<std::string, int> mResult;
 
 	std::thread* mPingHandle;
