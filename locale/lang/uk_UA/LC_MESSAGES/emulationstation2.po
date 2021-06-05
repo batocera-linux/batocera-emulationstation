@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 20:32+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -867,7 +867,7 @@ msgstr "ДІЙСНО ОНОВИТИ?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
 

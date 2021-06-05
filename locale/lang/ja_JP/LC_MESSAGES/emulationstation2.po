@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v31beta(2021/05/22)\n"
+"Project-Id-Version: batocera-es v31beta(2021/06/04)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 20:32+0200\n"
-"PO-Revision-Date: 2021-05-22 19:16+0900\n"
+"POT-Creation-Date: 2021-06-05 21:07+0200\n"
+"PO-Revision-Date: 2021-06-06 00:24+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -849,7 +849,7 @@ msgstr "よろしいですか？"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "%s を更新しています"
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERA更新中"
@@ -865,9 +865,11 @@ msgstr "更新しますか？"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"現在バージョン %s を使用しています\r\n"
+"バージョン %s に更新しますか?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -1145,7 +1147,7 @@ msgid "GL VERSION"
 msgstr "GL バージョン"
 
 msgid "GLSL VERSION"
-msgstr ""
+msgstr "GLSL バージョン"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"

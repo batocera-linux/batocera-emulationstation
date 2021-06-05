@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 20:32+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -871,7 +871,7 @@ msgstr "METRE A JORN PER DE BON ?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
 

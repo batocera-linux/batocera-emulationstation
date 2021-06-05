@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 20:31+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -862,7 +862,7 @@ msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\r\n"
+"YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
 
