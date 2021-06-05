@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "輸入遊戲類型"
 
 msgid "Game family"
-msgstr ""
+msgstr "遊戲家族"
 
 msgid "enter game family"
-msgstr ""
+msgstr "輸入遊戲家族"
 
 msgid "Genres"
-msgstr ""
+msgstr "類型"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "輸入遊戲類型"
 
 msgid "Arcade system"
 msgstr "街機系統"
@@ -272,18 +272,18 @@ msgid "vertical arcade"
 msgstr "直立式街機"
 
 msgid "lightgun games"
-msgstr ""
+msgstr "光線槍遊戲"
 
 msgid "collections"
 msgstr "合輯"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "已新增 '%s' 至 '%s"
+msgstr "已新增「%s」至「%s」"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "已將 '%s' 從 '%s' 移除"
+msgstr "已將「%s」從「%s」移除"
 
 msgid "This collection is empty."
 msgstr "此合輯空空的。"
@@ -457,7 +457,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "自動化合輯"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "個別類型"
 
 msgid "ARCADE SYSTEMS"
 msgstr "街機系統"
@@ -666,7 +666,7 @@ msgstr "更新"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "已將 '%s' 加入到下載隊列中"
+msgstr "已將「%s」加入到下載隊列中"
 
 msgid "REMOVE"
 msgstr "刪除"
@@ -848,7 +848,7 @@ msgstr "您確定嗎？"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "正在更新 %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "正在更新 BATOCERA"
@@ -867,6 +867,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\r\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"您正在使用這個版本：%s\n"
+"您想要更新到這個版本：%s 嗎？"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要連線到網際網路"
@@ -1143,7 +1145,7 @@ msgid "GL VERSION"
 msgstr "GL 版本"
 
 msgid "GLSL VERSION"
-msgstr ""
+msgstr "GLSL 版本"
 
 msgid "MAIN MENU"
 msgstr "主選單"
@@ -1309,7 +1311,7 @@ msgstr "啟用公開網站存取"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "允許公開網站透過 %s 存取 API"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "需要重新啟動系統才可以套用新的設定"
@@ -1402,13 +1404,13 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自動為模擬器設定控制器"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr "在 EMULATIONSTATION 中互換 A/B 鍵功能"
+msgstr "在 EMULATIONSTATION 中調換 A/B 鍵功能"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr ""
+msgstr "透過北功能鍵存取遊戲選項"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr ""
+msgstr "調換北功能鍵（即時存檔）與長按南功能鍵（遊戲選項）的按鍵功能"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "僅透過第一支遊戲搖桿操作 EMULATIONSTATION"
@@ -1972,7 +1974,7 @@ msgid "EDIT METADATA"
 msgstr "編輯中繼資料"
 
 msgid "GENRES"
-msgstr ""
+msgstr "類型"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2237,7 +2239,7 @@ msgid "GENRE"
 msgstr "類型"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "家族"
 
 msgid "PLAYERS"
 msgstr "遊戲人數"
@@ -2459,9 +2461,6 @@ msgstr "%d 秒"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "正在更新 EMULATIONSTATION"
-
-#~ msgid "Allow public web access API using "
-#~ msgstr "允許使用公開網站存取 API "
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "使用 RGUI 目錄"
