@@ -75,9 +75,9 @@ namespace Renderer
 
 		static SDL_DisplayMode dispMode;
 
+		initialCursorState = (SDL_ShowCursor(0) != 0);
 		if (windowWidth == 0)
 		{
-			initialCursorState = (SDL_ShowCursor(0) != 0);
 			SDL_GetDesktopDisplayMode(0, &dispMode);
 		}
 
