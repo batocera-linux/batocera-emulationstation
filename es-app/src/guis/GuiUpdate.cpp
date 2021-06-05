@@ -166,7 +166,7 @@ void GuiUpdate::update(int deltaTime)
 			std::string message = _("REALLY UPDATE?");
 
 			if (!mUpdateVersion.empty())
-				message = Utils::String::format(_("YOU ARE CURRENTLY USING VERSION : %s\r\nDO YOU WANT TO UPDATE TO VERSION : %s ?").c_str(), ApiSystem::getInstance()->getVersion().c_str(), mUpdateVersion.c_str()),
+				message = Utils::String::format(_("YOU ARE CURRENTLY USING VERSION : %s\nDO YOU WANT TO UPDATE TO VERSION : %s ?").c_str(), ApiSystem::getInstance()->getVersion().c_str(), mUpdateVersion.c_str()),
 
 			window->pushGui(new GuiMsgBox(window, message, _("YES"), [this]
 			{
