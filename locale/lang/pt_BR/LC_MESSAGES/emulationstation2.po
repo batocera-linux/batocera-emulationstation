@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 20:32+0200\n"
+"POT-Creation-Date: 2021-06-04 18:31-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -849,7 +849,7 @@ msgstr "VOCÊ TEM CERTEZA?"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "ATUALIZANDO %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "ATUALIZANDO O SISTEMA BATOCERA"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\r\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"VOCÊ ESTÁ USANDO A VERSÃO : %s\r\n"
+"DESEJA ATUALIZAR PARA A VERSÃO : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "É NECESSÁRIO CONEXÃO COM A INTERNET"
@@ -1146,7 +1148,7 @@ msgid "GL VERSION"
 msgstr "VERSÃO DA GPU"
 
 msgid "GLSL VERSION"
-msgstr ""
+msgstr "VERSÃO DA GLSL"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -2476,6 +2478,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "UPDATING EMULATIONSTATION"
-#~ msgstr "ATUALIZAR EMULATIONSTATION"
