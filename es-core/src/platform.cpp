@@ -367,3 +367,97 @@ BatteryInformation queryBatteryInformation()
 
 	return ret;
 }
+
+
+std::string getArchString()
+{
+#if WIN32
+	return "windows";
+#endif
+
+#if X86
+	return "x86";
+#endif
+
+#if X86_64
+	return "x86_64";
+#endif
+
+#if RPI1
+	return "rpi1";
+#endif
+
+#if RPI2
+	return "rpi2";
+#endif
+
+#if RPI3
+	return "rpi3";
+#endif
+
+#if RPI4
+	return "rpi4";
+#endif
+
+#if ODROIDGOA
+	return "odroidgoa";
+#endif
+
+#if ODROIDXU4
+	return "odroidxu4";
+#endif
+
+#if ODROIDC2
+	return "odroidc2";
+#endif
+
+#if ODROIDC4
+	return "odroidc4";
+#endif
+
+#if TINKERBOARD
+	return "tinkerboard";
+#endif
+
+#if RK3399
+	return "rk3399";
+#endif
+
+#if MIQI
+	return "miqi";
+#endif
+
+#if LIBRETECH_H5
+	return "libretech_h5";
+#endif
+
+#if ORANGEPI_ZERO2
+	return "orangepi_zero2";
+#endif
+
+#if ORANGEPI_PC
+	return "orangepi_pc";
+#endif
+
+#if S812
+	return "s812";
+#endif
+
+#if S922X
+	return "s922x";
+#endif
+
+#if S905
+	return "s905";
+#endif
+
+#if S905GEN3
+	return "s905gen3";
+#endif
+
+#if S912
+	return "s912";
+#endif
+
+	return "";
+}
