@@ -442,7 +442,12 @@ bool ViewController::doLaunchGame(FileData* game, LaunchGameOptions options)
 }
 
 bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions options, Vector3f center)
-{	
+{
+#ifdef _RPI_
+	if (Settings::getInstance()->getBool("VideoOmxPlayer") && mCurrentView)
+		mCurrentView->onHide();
+#endif
+
 	if (!game->isExtensionCompatible())
 	{
 		auto gui = new GuiMsgBox(mWindow, _("WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\nDO YOU WANT TO LAUNCH IT ANYWAY ?"),

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -847,7 +847,8 @@ msgstr "SPARA ÄNDRINGAR?"
 msgid "ARE YOU SURE ?"
 msgstr ""
 
-msgid "UPDATING EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
 msgstr ""
 
 msgid "UPDATING BATOCERA"
@@ -861,6 +862,12 @@ msgstr "STARTA OM ENHETEN FÖR ATT GENOMFÖRA"
 
 msgid "REALLY UPDATE?"
 msgstr "SÄKER PÅ ATT DU VILL UPPDATERA?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NÄTVERKSANSLUTNING BEHÖVS"
@@ -1126,6 +1133,18 @@ msgstr "PLATTA TILL-GLÖD"
 msgid "RGA SCALING"
 msgstr ""
 
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
 
@@ -1259,15 +1278,6 @@ msgid "USER DISK USAGE"
 msgstr ""
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
-
-msgid "GL VENDOR"
-msgstr ""
-
-msgid "GL RENDERER"
-msgstr ""
-
-msgid "GL VERSION"
 msgstr ""
 
 msgid "DEVELOPER"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -849,8 +849,9 @@ msgstr "ЗБЕРЕГТИ ЗМІНИ?"
 msgid "ARE YOU SURE ?"
 msgstr "ВИ ВПЕВНЕНІ?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "ОНОВЛЕННЯ EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "ОНОВЛЕННЯ BATOCERA"
@@ -863,6 +864,12 @@ msgstr "ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМИ ДЛЯ ЗАСТОСУВ�
 
 msgid "REALLY UPDATE?"
 msgstr "ДІЙСНО ОНОВИТИ?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "НЕОБХІДНО МЕРЕЖЕВЕ З'ЄДНАННЯ"
@@ -1130,6 +1137,18 @@ msgstr ""
 msgid "RGA SCALING"
 msgstr ""
 
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ГОЛОВНЕ МЕНЮ"
 
@@ -1264,15 +1283,6 @@ msgstr "ЗЯЙНЯТИЙ ПРОСТІР КОРИСТУВАЧА"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "ЗАЙНЯТИЙ ПРОСТІР ДИСКУ"
-
-msgid "GL VENDOR"
-msgstr ""
-
-msgid "GL RENDERER"
-msgstr ""
-
-msgid "GL VERSION"
-msgstr ""
 
 msgid "DEVELOPER"
 msgstr "РОЗРОБНИК"
@@ -2469,6 +2479,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "ОНОВЛЕННЯ EMULATIONSTATION"
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "ВИКОРИСТАТИ МЕНЮ RETROARCH RGUI"

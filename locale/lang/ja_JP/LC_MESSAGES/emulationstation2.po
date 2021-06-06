@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v31(2021/05/19)\n"
+"Project-Id-Version: batocera-es v31beta(2021/06/04)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
-"PO-Revision-Date: 2021-05-19 19:30+0900\n"
+"POT-Creation-Date: 2021-06-05 21:07+0200\n"
+"PO-Revision-Date: 2021-06-06 00:24+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "ジャンルを入力"
 
 msgid "Game family"
-msgstr ""
+msgstr "ファミリーゲーム"
 
 msgid "enter game family"
-msgstr ""
+msgstr "ファミリーゲームを入力"
 
 msgid "Genres"
-msgstr ""
+msgstr "ジャンル"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "ジャンルを入力"
 
 msgid "Arcade system"
 msgstr "アーケードシステム"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "自動コレクション"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "ジャンルごと"
 
 msgid "ARCADE SYSTEMS"
 msgstr "アーケードシステム"
@@ -847,8 +847,9 @@ msgstr "変更を保存しますか？"
 msgid "ARE YOU SURE ?"
 msgstr "よろしいですか？"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "エミュレーションステーションの更新"
+#, c-format
+msgid "UPDATING %s"
+msgstr "%s を更新しています"
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERA更新中"
@@ -861,6 +862,14 @@ msgstr "再起動で更新が適用されます"
 
 msgid "REALLY UPDATE?"
 msgstr "更新しますか？"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
+"現在バージョン %s を使用しています\r\n"
+"バージョン %s に更新しますか?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -1128,6 +1137,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGAスケーリング"
 
+msgid "GL VENDOR"
+msgstr "GL ベンダー"
+
+msgid "GL RENDERER"
+msgstr "GL レンダラー"
+
+msgid "GL VERSION"
+msgstr "GL バージョン"
+
+msgid "GLSL VERSION"
+msgstr "GLSL バージョン"
+
 msgid "MAIN MENU"
 msgstr "メインメニュー"
 
@@ -1263,15 +1284,6 @@ msgstr "データ使用量/容量"
 msgid "SYSTEM DISK USAGE"
 msgstr "システムデータ使用量/容量"
 
-msgid "GL VENDOR"
-msgstr "GL ベンダー"
-
-msgid "GL RENDERER"
-msgstr "GL レンダラー"
-
-msgid "GL VERSION"
-msgstr "GL バージョン"
-
 msgid "DEVELOPER"
 msgstr "その他の設定"
 
@@ -1302,7 +1314,7 @@ msgstr "パブリックWebアクセスを有効"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "%s を使用しパブリックWebアクセスAPIを許可"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "新しい構成を適用するには、システムの再起動が必要です"
@@ -1970,7 +1982,7 @@ msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
 
 msgid "GENRES"
-msgstr ""
+msgstr "ジャンル"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2238,7 +2250,7 @@ msgid "GENRE"
 msgstr "ジャンル"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "ファミリー"
 
 msgid "PLAYERS"
 msgstr "プレイヤー数"
@@ -2458,5 +2470,5 @@ msgstr "%d 分"
 msgid "%d s"
 msgstr "%d 秒"
 
-#~ msgid "Allow public web access API using "
-#~ msgstr "パブリックWebアクセスAPIを許可 "
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "エミュレーションステーションの更新"

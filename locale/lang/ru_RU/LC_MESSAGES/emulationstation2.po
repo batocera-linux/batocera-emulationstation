@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "введите жанр игры"
 
 msgid "Game family"
-msgstr ""
+msgstr "Семейство игры"
 
 msgid "enter game family"
-msgstr ""
+msgstr "введите семейство и гры"
 
 msgid "Genres"
-msgstr ""
+msgstr "Жанры"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "введите жанры игры"
 
 msgid "Arcade system"
 msgstr "Аркадная система"
@@ -459,7 +459,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "АВТО-КОЛЛЕКЦИИ"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "ПО ЖАНРУ"
 
 msgid "ARCADE SYSTEMS"
 msgstr "АРКАДНЫЕ СИСТЕМЫ"
@@ -848,8 +848,9 @@ msgstr "СОХРАНИТЬ ИЗМЕНЕНИЯ?"
 msgid "ARE YOU SURE ?"
 msgstr "ВЫ УВЕРЕНЫ?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "ОБНОВЛЕНИЕ EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "ОБНОВЛЕНИЕ BATOCERA"
@@ -862,6 +863,12 @@ msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "REALLY UPDATE?"
 msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
@@ -1129,6 +1136,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA СКАЛИРОВАНИЕ"
 
+msgid "GL VENDOR"
+msgstr "GL ВЕНДОР"
+
+msgid "GL RENDERER"
+msgstr "GL РЕНДЕР"
+
+msgid "GL VERSION"
+msgstr "GL ВЕРСИЯ"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
 
@@ -1264,15 +1283,6 @@ msgstr "ЗАНЯТО НА ДИСКЕ ПОЛЬЗОВАТЕЛЯ"
 msgid "SYSTEM DISK USAGE"
 msgstr "ЗАНЯТО НА СИСТЕМНОМ ДИСКЕ"
 
-msgid "GL VENDOR"
-msgstr "GL ВЕНДОР"
-
-msgid "GL RENDERER"
-msgstr "GL РЕНДЕР"
-
-msgid "GL VERSION"
-msgstr "GL ВЕРСИЯ"
-
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
 
@@ -1302,7 +1312,7 @@ msgstr "РАЗРЕШИТЬ ПУБЛИЧНЫЙ ДОСТУП"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Разрешить публичный доступ API, %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -1969,7 +1979,7 @@ msgid "EDIT METADATA"
 msgstr "РЕДАКТИРОВАТЬ МЕТАДАННЫЕ"
 
 msgid "GENRES"
-msgstr ""
+msgstr "ЖАНРЫ"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2245,7 +2255,7 @@ msgid "GENRE"
 msgstr "ЖАНР"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "СЕМЕЙСТВО"
 
 msgid "PLAYERS"
 msgstr "ИГРОКОВ"
@@ -2479,6 +2489,9 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "ОБНОВЛЕНИЕ EMULATIONSTATION"
 
 #~ msgid "Allow public web access API using "
 #~ msgstr "Разрешить публичный доступ API, используя "

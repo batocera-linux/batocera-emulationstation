@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:07+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -152,19 +152,19 @@ msgid "Genre"
 msgstr "Gênero"
 
 msgid "enter game genre"
-msgstr "digite o gênero no jogo"
+msgstr "digite o gênero do jogo"
 
 msgid "Game family"
-msgstr ""
+msgstr "Família"
 
 msgid "enter game family"
-msgstr ""
+msgstr "digite a família do jogo"
 
 msgid "Genres"
-msgstr ""
+msgstr "Gêneros"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "digite os gêneros do jogo"
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "POR GÊNERO"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -847,8 +847,9 @@ msgstr "SALVAR MODIFICAÇÕES?"
 msgid "ARE YOU SURE ?"
 msgstr "VOCÊ TEM CERTEZA?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "ATUALIZAR EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr "ATUALIZANDO %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "ATUALIZANDO O SISTEMA BATOCERA"
@@ -861,6 +862,14 @@ msgstr "REINICIE O SISTEMA PARA APLICAR AS ALTERAÇÕES"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
+"VOCÊ ESTÁ USANDO A VERSÃO : %s\n"
+"DESEJA ATUALIZAR PARA A VERSÃO : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "É NECESSÁRIO CONEXÃO COM A INTERNET"
@@ -1129,6 +1138,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "ESCALA RGA"
 
+msgid "GL VENDOR"
+msgstr "FABRICANTE DA GPU"
+
+msgid "GL RENDERER"
+msgstr "RENDERIZADOR DA GPU"
+
+msgid "GL VERSION"
+msgstr "VERSÃO DA GPU"
+
+msgid "GLSL VERSION"
+msgstr "VERSÃO DA GLSL"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -1264,15 +1285,6 @@ msgstr "USO DO DISCO DO USUÁRIO"
 msgid "SYSTEM DISK USAGE"
 msgstr "USO DO DISCO DO SISTEMA"
 
-msgid "GL VENDOR"
-msgstr "FABRICANTE DA GPU"
-
-msgid "GL RENDERER"
-msgstr "RENDERIZADOR DA GPU"
-
-msgid "GL VERSION"
-msgstr "VERSÃO DA GPU"
-
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
 
@@ -1302,7 +1314,7 @@ msgstr "ATIVAR ACESSO PÚBLICO À WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Permitir acesso público à web usando API"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
@@ -1970,7 +1982,7 @@ msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GÊNEROS"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2241,7 +2253,7 @@ msgid "GENRE"
 msgstr "GÊNERO"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMÍLIA"
 
 msgid "PLAYERS"
 msgstr "JOGADORES"
@@ -2466,6 +2478,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "Allow public web access API using "
-#~ msgstr "Permitir acesso público à web usando API"

@@ -73,10 +73,14 @@ namespace Renderer
 			return false;
 		}
 
-		initialCursorState = (SDL_ShowCursor(0) != 0);
+		static SDL_DisplayMode dispMode;
 
-		SDL_DisplayMode dispMode;
-		SDL_GetDesktopDisplayMode(0, &dispMode);
+		initialCursorState = (SDL_ShowCursor(0) != 0);
+		if (windowWidth == 0)
+		{
+			SDL_GetDesktopDisplayMode(0, &dispMode);
+		}
+
 		windowWidth   = Settings::getInstance()->getInt("WindowWidth")   ? Settings::getInstance()->getInt("WindowWidth")   : dispMode.w;
 		windowHeight  = Settings::getInstance()->getInt("WindowHeight")  ? Settings::getInstance()->getInt("WindowHeight")  : dispMode.h;
 		screenWidth   = Settings::getInstance()->getInt("ScreenWidth")   ? Settings::getInstance()->getInt("ScreenWidth")   : windowWidth;

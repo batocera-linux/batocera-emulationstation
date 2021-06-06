@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -852,8 +852,9 @@ msgstr "ARBED NEWIDIADAU?"
 msgid "ARE YOU SURE ?"
 msgstr "WYT TI'N SIWR ?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "DIWEDDARU EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "DIWEDDARU BATOCERA"
@@ -866,6 +867,12 @@ msgstr "AILGYCHWYN Y SYSTEM I GWBLHAU'R WEITHRED"
 
 msgid "REALLY UPDATE?"
 msgstr "IAWN I DDIWEDDARU?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ANGEN CYSWLLT RHWYDWAITH"
@@ -1133,6 +1140,18 @@ msgstr "TYWYN-FFLATIO"
 msgid "RGA SCALING"
 msgstr "GRADDIO RGA"
 
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "PRIF DDEWISLEN"
 
@@ -1267,15 +1286,6 @@ msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEM DISG A DEFNYDDIWYD"
-
-msgid "GL VENDOR"
-msgstr ""
-
-msgid "GL RENDERER"
-msgstr ""
-
-msgid "GL VERSION"
-msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DATBLYGWR"
@@ -2512,6 +2522,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d e"
+
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "DIWEDDARU EMULATIONSTATION"
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "DEFNYDDIO DEWISLEN RGUI RETROARCH"

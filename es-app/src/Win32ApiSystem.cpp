@@ -130,12 +130,15 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	return true;
 }
 
-int executeCMD(LPSTR lpCommandLine, std::string& output)
+int executeCMD(LPSTR lpCommandLine, std::string& output, LPSTR lpCurrentDirectory = nullptr, const std::function<void(const std::string)>& func = nullptr)
 {
 	int ret = -1;
 	output = "";
 
-#define BUFSIZE		32768
+
+	std::string lineOutput;
+
+#define BUFSIZE		8192
 
 	STARTUPINFOW si;
 	SECURITY_ATTRIBUTES sa;
@@ -166,7 +169,8 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 
 			//spawn the child process
 			std::wstring commandLineW = Utils::String::convertToWideString(lpCommandLine);
-			if (CreateProcessW(NULL, (LPWSTR)commandLineW.c_str(), NULL, NULL, TRUE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi))
+			std::wstring directory = lpCurrentDirectory == NULL ? L"" : Utils::String::convertToWideString(lpCurrentDirectory);
+			if (CreateProcessW(NULL, (LPWSTR)commandLineW.c_str(), NULL, NULL, TRUE, CREATE_NEW_CONSOLE, NULL, lpCurrentDirectory == NULL ? NULL : (LPWSTR)directory.c_str(), &si, &pi))
 			{
 				unsigned long bread;   //bytes read
 				unsigned long avail;   //bytes available
@@ -183,7 +187,24 @@ int executeCMD(LPSTR lpCommandLine, std::string& output)
 							break;
 
 						buf[bread] = 0;
-						output += std::string(buf);
+
+						std::string data = std::string(buf);
+						output += data;
+
+						if (func != nullptr)
+						{
+							lineOutput += data;
+
+							auto pos = lineOutput.find("\r\n");
+							while (pos != std::string::npos)
+							{
+								std::string line = Utils::String::replace(Utils::String::trim(lineOutput.substr(0, pos)), "\f", "");
+								func(line);
+
+								lineOutput = lineOutput.substr(pos + 2);
+								pos = lineOutput.find("\r\n");
+							}
+						}
 					}
 
 					if (WaitForSingleObject(pi.hProcess, 10) == WAIT_OBJECT_0)
@@ -371,6 +392,32 @@ unsigned long Win32ApiSystem::getFreeSpaceGB(std::string mountpoint)
 		return i64FreeBytes / (1024 * 1024 * 1024);
 
 	return 0;
+}
+
+std::string Win32ApiSystem::getApplicationName()
+{
+	std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
+	if (Utils::FileSystem::exists(localVersionFile))
+	{
+		std::string aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
+		aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
+
+		auto ver = ApiSystem::getInstance()->getVersion();
+		auto cut = aboutInfo.find(" V" + ver);
+		
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(" " + ver);
+
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(ver);
+
+		if (cut != std::string::npos)
+			aboutInfo = aboutInfo.substr(0, cut);
+
+		return aboutInfo;
+	}
+
+	return "EMULATIONSTATION";
 }
 
 std::string Win32ApiSystem::getVersion()
@@ -738,8 +785,59 @@ bool Win32ApiSystem::ping()
 	return connected;
 }
 
+static std::string getScriptPath(const std::string& name)
+{
+	std::vector<std::string> paths = 
+	{
+		Utils::FileSystem::getExePath(),
+		Utils::FileSystem::getEsConfigPath(),
+		Utils::FileSystem::getParent(Utils::FileSystem::getEsConfigPath())
+	};
+
+	for (auto path : paths)
+	{
+		std::string esUpdatePath = Utils::FileSystem::combine(path, name + ".cmd");
+		if (Utils::FileSystem::exists(esUpdatePath))
+			return Utils::FileSystem::getPreferredPath(esUpdatePath);
+
+		esUpdatePath = Utils::FileSystem::combine(path, name + ".bat");
+		if (Utils::FileSystem::exists(esUpdatePath))
+			return Utils::FileSystem::getPreferredPath(esUpdatePath);
+
+		esUpdatePath = Utils::FileSystem::combine(path, name + ".exe");
+		if (Utils::FileSystem::exists(esUpdatePath))
+			return Utils::FileSystem::getPreferredPath(esUpdatePath);
+	}
+
+	return "";
+}
+
 std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<void(const std::string)>& func)
 {
+	std::string esUpdateScript = getScriptPath("es-update");
+	if (!esUpdateScript.empty())
+	{
+		std::string esUpdateDirectory = Utils::FileSystem::getPreferredPath(Utils::FileSystem::getParent(esUpdateScript));
+
+		std::string updatesType = Settings::getInstance()->getString("updates.type");
+		if (updatesType == "beta" || updatesType == "unstable")
+			esUpdateScript += " -branch " + updatesType;
+
+		std::string output;
+		auto ret = executeCMD((char*)esUpdateScript.c_str(), output, (char*)esUpdateDirectory.c_str(), func);
+
+		if (ret != 0)
+		{
+			auto lines = Utils::String::split(Utils::String::replace(output, "\n", ""), '\r', true);
+			if (lines.size() > 0)
+				return std::pair<std::string, int>(lines[lines.size()-1], ret);
+
+			return std::pair<std::string, int>("error", ret);
+		}
+		else
+			return std::pair<std::string, int>("done.", ret);
+	}
+
 	std::string url = getUrlFromUpdateType(UPDATEURL);
 
 	std::string fileName = Utils::FileSystem::getFileName(url);
@@ -916,6 +1014,24 @@ void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::
 
 bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 {
+	// Update using 'es-checkversion.cmd' scripts ?
+	std::string esUpdateScript = getScriptPath("es-checkversion");
+	if (!esUpdateScript.empty())
+	{
+		std::string esUpdateDirectory = Utils::FileSystem::getPreferredPath(Utils::FileSystem::getParent(esUpdateScript));
+
+		std::string updatesType = Settings::getInstance()->getString("updates.type");
+		if (updatesType == "beta" || updatesType == "unstable")
+			esUpdateScript += " -branch " + updatesType;
+
+		std::string cmdOutput; 
+		auto ret = executeCMD((char*)esUpdateScript.c_str(), cmdOutput, (char*)esUpdateDirectory.c_str());
+		if (ret == 0 && !cmdOutput.empty())
+			output.push_back(cmdOutput);
+
+		return (ret == 0);
+	}
+
 	std::string localVersion;
 	std::string localVersionFile = Utils::FileSystem::getExePath() + "/version.info";
 	if (Utils::FileSystem::exists(localVersionFile))

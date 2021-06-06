@@ -45,7 +45,7 @@ int PowerSaver::getTimeout()
 	 if (mMode == INSTANT || mMode == ENHANCED)
 		 return mRunningScreenSaver ? mWakeupTimeout : mScreenSaverTimeout;
 
-	return 1000;	
+	 return 40; // 1000;
 }
 
 void PowerSaver::loadWakeupTime()

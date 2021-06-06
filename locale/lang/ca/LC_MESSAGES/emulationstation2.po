@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -900,6 +900,12 @@ msgstr "REINICII EL SISTEMA PER A APLICAR CANVIS"
 msgid "REALLY UPDATE?"
 msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR?"
 
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ES REQUEREIX CONNEXIÓ A LA XARXA"
 
@@ -1120,6 +1126,18 @@ msgstr ""
 msgid "RGA SCALING"
 msgstr ""
 
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
 
@@ -1254,15 +1272,6 @@ msgstr "ESPAI DE DISC USAT PER L'USUARI"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "ESPAI DE DISC USAT PEL SISTEMA"
-
-msgid "GL VENDOR"
-msgstr ""
-
-msgid "GL RENDERER"
-msgstr ""
-
-msgid "GL VERSION"
-msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DESENVOLUPADOR"

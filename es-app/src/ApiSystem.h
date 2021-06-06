@@ -111,6 +111,8 @@ public:
     bool isFreeSpaceLimit();
 
     virtual std::string getVersion();
+	virtual std::string getApplicationName();
+
     std::string getRootPassword();
 
     bool setOverscan(bool enable);

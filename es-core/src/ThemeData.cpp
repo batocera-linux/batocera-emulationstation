@@ -1396,29 +1396,42 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		{
 			if (name == "storyboard")
 			{
-				auto storyBoard = new ThemeStoryboard();
-				if (!storyBoard->fromXmlNode(node, typeMap))
+				if (node.first_child() == nullptr)
 				{
-					auto sb = element.mStoryBoards.find(storyBoard->eventName);
+					std::string eventName = node.attribute("event").as_string();
+
+					auto sb = element.mStoryBoards.find(eventName);
 					if (sb != element.mStoryBoards.cend())
 					{
 						delete sb->second;
-						element.mStoryBoards.erase(storyBoard->eventName);
+						element.mStoryBoards.erase(eventName);
 					}
-
-					LOG(LogWarning) << "Storyboard \"" << name << "\" has no <animation> items !";
-					delete storyBoard;
 				}
 				else
 				{
-					auto sb = element.mStoryBoards.find(storyBoard->eventName);
-					if (sb != element.mStoryBoards.cend())
-						delete sb->second;
+					auto storyBoard = new ThemeStoryboard();
+					if (!storyBoard->fromXmlNode(node, typeMap))
+					{
+						auto sb = element.mStoryBoards.find(storyBoard->eventName);
+						if (sb != element.mStoryBoards.cend())
+						{
+							delete sb->second;
+							element.mStoryBoards.erase(storyBoard->eventName);
+						}
 
-					element.mStoryBoards[storyBoard->eventName] = storyBoard;
-					// LOG(LogInfo) << "Storyboard \"" << node.name() << "\"!";
+						LOG(LogWarning) << "Storyboard \"" << name << "\" has no <animation> items !";
+						delete storyBoard;
+					}
+					else
+					{
+						auto sb = element.mStoryBoards.find(storyBoard->eventName);
+						if (sb != element.mStoryBoards.cend())
+							delete sb->second;
+
+						element.mStoryBoards[storyBoard->eventName] = storyBoard;
+						// LOG(LogInfo) << "Storyboard \"" << node.name() << "\"!";
+					}
 				}
-
 				continue;
 			}
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,10 +23,10 @@ msgid "enter game name"
 msgstr "digite o nome do jogo"
 
 msgid "Description"
-msgstr "DESCRIÇÃO"
+msgstr "Descrição"
 
 msgid "enter description"
-msgstr "DIGITE A DISCRIÇÃO"
+msgstr "digite a descrição"
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -50,85 +50,85 @@ msgid "Video"
 msgstr "Vídeo"
 
 msgid "enter path to video"
-msgstr "insire o caminho para o vídeo"
+msgstr "digite o caminho para o vídeo"
 
 msgid "Logo"
 msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr "insira o caminho para o logo"
+msgstr "digite o caminho para o logo"
 
 msgid "Box"
 msgstr "caixa"
 
 msgid "enter path to box"
-msgstr "insira o caminho para a caixa"
+msgstr "digite o caminho para a caixa"
 
 msgid "Fan art"
 msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr "insira o caminho para o fanart"
+msgstr "digite o caminho para o fanart"
 
 msgid "Title shot"
 msgstr "Captura de ecrã"
 
 msgid "enter path to title shot"
-msgstr "insira o caminho para a captura de ecrã"
+msgstr "digite o caminho para a captura de ecrã"
 
 msgid "Manual"
 msgstr "Manual"
 
 msgid "enter path to manual"
-msgstr "insira o caminho para o manual"
+msgstr "digite o caminho para o manual"
 
 msgid "Magazine"
 msgstr "Revista"
 
 msgid "enter path to magazine"
-msgstr "insira o caminho para a revista"
+msgstr "digite o caminho para a revista"
 
 msgid "Map"
 msgstr "Mapa"
 
 msgid "enter path to map"
-msgstr "insira o caminho para o mapa"
+msgstr "digite o caminho para o mapa"
 
 msgid "Cartridge"
 msgstr "Cartucho"
 
 msgid "enter path to cartridge"
-msgstr "insira o caminho para o cartucho"
+msgstr "digite o caminho para o cartucho"
 
 msgid "Alt BoxArt"
 msgstr "Caixa Alternativa"
 
 msgid "enter path to alt boxart"
-msgstr "insira o caminho da caixa alternativa"
+msgstr "digite o caminho da caixa alternativa"
 
 msgid "Box backside"
 msgstr "Parte de trás da caixa"
 
 msgid "enter path to box background"
-msgstr "insira o caminho da parte de trás da caixa"
+msgstr "digite o caminho da parte de trás da caixa"
 
 msgid "Wheel"
 msgstr "Logotipo"
 
 msgid "enter path to wheel"
-msgstr "insira o caminho do logotipo"
+msgstr "digite o caminho do logotipo"
 
 msgid "Mix"
 msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr "insira o caminho para o mix"
+msgstr "digite o caminho para o mix"
 
 msgid "Rating"
 msgstr "AVALIAÇÃO"
 
 msgid "enter rating"
-msgstr "DIGITE A CLASSIFICAÇÃO"
+msgstr "digite a classificação"
 
 msgid "Release date"
 msgstr "Data de lançamento"
@@ -155,22 +155,22 @@ msgid "enter game genre"
 msgstr "digite o género"
 
 msgid "Game family"
-msgstr ""
+msgstr "Família de Jogos"
 
 msgid "enter game family"
-msgstr ""
+msgstr "digite uma família de jogos"
 
 msgid "Genres"
-msgstr ""
+msgstr "Géneros"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "digite os géneros do jogo"
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
 
 msgid "enter game arcade system"
-msgstr "insira o sistema arcade do jogo"
+msgstr "digite o sistema arcade do jogo"
 
 msgid "Players"
 msgstr "Jogador"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "COLEÇÕES AUTOMÁTICAS"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "POR GÉNERO"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
@@ -847,8 +847,9 @@ msgstr "GUARDAR MODIFICAÇÕES?"
 msgid "ARE YOU SURE ?"
 msgstr "TEM A CERTEZA ?"
 
-msgid "UPDATING EMULATIONSTATION"
-msgstr "A ATUALIZAR EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
 
 msgid "UPDATING BATOCERA"
 msgstr "A ATUALIZAR O BATOCERA"
@@ -861,6 +862,12 @@ msgstr "REINICIE O SISTEMA PARA APLICAR"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NECESSÁRIO CONECÇÃO A INTERNET"
@@ -1128,6 +1135,18 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "ESCALA RGA"
 
+msgid "GL VENDOR"
+msgstr "FABRICANTE DA GPU"
+
+msgid "GL RENDERER"
+msgstr "RENDERIZADOR DA GPU"
+
+msgid "GL VERSION"
+msgstr "VERSÃO DA GPU"
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -1263,15 +1282,6 @@ msgstr "DISCO DO UTILIZADOR"
 msgid "SYSTEM DISK USAGE"
 msgstr "DISCO DO SISTEMA"
 
-msgid "GL VENDOR"
-msgstr "FABRICANTE DA GPU"
-
-msgid "GL RENDERER"
-msgstr "RENDERIZADOR DA GPU"
-
-msgid "GL VERSION"
-msgstr "VERSÃO DA GPU"
-
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
 
@@ -1301,7 +1311,7 @@ msgstr "ATIVAR O ACESSO PÚBLICO À WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Permitir acesso publico à web usando API %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
@@ -1967,7 +1977,7 @@ msgid "EDIT METADATA"
 msgstr "EDITAR INFORMAÇÕES"
 
 msgid "GENRES"
-msgstr ""
+msgstr "GÉNEROS"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2237,7 +2247,7 @@ msgid "GENRE"
 msgstr "GÉNERO"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMÍLIA"
 
 msgid "PLAYERS"
 msgstr "JOGADORES"
@@ -2463,5 +2473,5 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "Allow public web access API using "
-#~ msgstr "Permitir o acesso publico à web usando API "
+#~ msgid "UPDATING EMULATIONSTATION"
+#~ msgstr "A ATUALIZAR EMULATIONSTATION"

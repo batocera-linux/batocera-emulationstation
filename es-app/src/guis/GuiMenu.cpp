@@ -79,6 +79,11 @@
 #define fake_gettext_flatten_glow	_("FLATTEN-GLOW")
 #define fake_gettext_rgascaling		_("RGA SCALING")
 
+#define fake_gettext_glvendor		_("GL VENDOR")
+#define fake_gettext_glvrenderer	_("GL RENDERER")
+#define fake_gettext_glversion		_("GL VERSION")
+#define fake_gettext_glslversion	_("GLSL VERSION")
+
 GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
 	// MAIN MENU
@@ -861,15 +866,7 @@ void GuiMenu::addVersionInfo()
 	if (!ApiSystem::getInstance()->getVersion().empty())
 	{
 #if WIN32
-		std::string aboutInfo;
-
-		std::string localVersionFile = Utils::FileSystem::getExePath() + "/about.info";
-		if (Utils::FileSystem::exists(localVersionFile))
-		{
-			aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
-		}
-			aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
-
+		std::string aboutInfo = ApiSystem::getInstance()->getApplicationName()+ " V"+ ApiSystem::getInstance()->getVersion();
 		if (!aboutInfo.empty())
 			mVersion.setText(aboutInfo + buildDate);
 		else
@@ -1035,13 +1032,12 @@ void GuiMenu::openSystemInformations_batocera()
 		color);
 	informationsGui->addWithLabel(_("SYSTEM DISK USAGE"), systemspace);
 #endif
-
-	auto glvendor = std::make_shared<TextComponent>(window, Renderer::GLVendor(), font, color);
-	informationsGui->addWithLabel(_("GL VENDOR"), glvendor);
-	auto glrenderer = std::make_shared<TextComponent>(window, Renderer::GLRenderer(), font, color);
-	informationsGui->addWithLabel(_("GL RENDERER"), glrenderer);
-	auto glversion = std::make_shared<TextComponent>(window, Renderer::GLVersion(), font, color);
-	informationsGui->addWithLabel(_("GL VERSION"), glversion);
+	
+	for (auto info : Renderer::getDriverInformation())
+	{
+		auto glversion = std::make_shared<TextComponent>(window, info.second, font, color);
+		informationsGui->addWithLabel(_(info.first.c_str()), glversion);
+	}
 
 	// various informations
 	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();

@@ -3686,6 +3686,13 @@ inline void Server::stop() {
     std::atomic<socket_t> sock(svr_sock_.exchange(INVALID_SOCKET));
     detail::shutdown_socket(sock);
     detail::close_socket(sock);
+
+	int ms = 0;
+	while (is_running_ && ms < 500)
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(1));
+		ms++;
+	}
   }
 }
 

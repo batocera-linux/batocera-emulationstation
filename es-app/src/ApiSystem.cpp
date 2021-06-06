@@ -154,6 +154,11 @@ std::string ApiSystem::getVersion()
 	return "";
 }
 
+std::string ApiSystem::getApplicationName()
+{
+	return "BATOCERA";
+}
+
 bool ApiSystem::setOverscan(bool enable) 
 {
 	return executeScript("batocera-config overscan " + std::string(enable ? "enable" : "disable"));

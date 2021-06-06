@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-21 20:48+0200\n"
+"POT-Creation-Date: 2021-06-05 21:02+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -843,7 +843,8 @@ msgstr "변경 사항을 저장 하시겠습니까?"
 msgid "ARE YOU SURE ?"
 msgstr "확실합니까?"
 
-msgid "UPDATING EMULATIONSTATION"
+#, c-format
+msgid "UPDATING %s"
 msgstr ""
 
 msgid "UPDATING BATOCERA"
@@ -857,6 +858,12 @@ msgstr "적용하려면 시스템을 재시작하세요"
 
 msgid "REALLY UPDATE?"
 msgstr "정말로 업데이트 하시겠습니까?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION : %s\n"
+"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "인터넷 연결이 필요합니다"
@@ -1124,6 +1131,18 @@ msgstr "평면빛"
 msgid "RGA SCALING"
 msgstr ""
 
+msgid "GL VENDOR"
+msgstr ""
+
+msgid "GL RENDERER"
+msgstr ""
+
+msgid "GL VERSION"
+msgstr ""
+
+msgid "GLSL VERSION"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
 
@@ -1258,15 +1277,6 @@ msgstr "사용자 디스크 사용량"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "시스템 디스크 사용량"
-
-msgid "GL VENDOR"
-msgstr ""
-
-msgid "GL RENDERER"
-msgstr ""
-
-msgid "GL VERSION"
-msgstr ""
 
 msgid "DEVELOPER"
 msgstr "개발자"
