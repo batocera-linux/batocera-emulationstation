@@ -283,21 +283,27 @@ namespace Renderer
 	{
 		std::vector<std::pair<std::string, std::string>> info;
 
+#if OPENGL_EXTENSIONS
+		info.push_back(std::pair<std::string, std::string>("GRAPHICS API", "DESKTOP OPENGL 2.1"));
+#else 
+		info.push_back(std::pair<std::string, std::string>("GRAPHICS API", "OPENGL ES 2.0"));
+#endif
+
 		const std::string vendor = glGetString(GL_VENDOR) ? (const char*)glGetString(GL_VENDOR) : "";
 		if (!vendor.empty())
-			info.push_back(std::pair<std::string, std::string>("GL VENDOR", vendor));
+			info.push_back(std::pair<std::string, std::string>("VENDOR", vendor));
 
 		const std::string renderer = glGetString(GL_RENDERER) ? (const char*)glGetString(GL_RENDERER) : "";
 		if (!renderer.empty())
-			info.push_back(std::pair<std::string, std::string>("GL RENDERER", renderer));
+			info.push_back(std::pair<std::string, std::string>("RENDERER", renderer));
 
 		const std::string version = glGetString(GL_VERSION) ? (const char*)glGetString(GL_VERSION) : "";
 		if (!version.empty())
-			info.push_back(std::pair<std::string, std::string>("GL VERSION", version));
+			info.push_back(std::pair<std::string, std::string>("VERSION", version));
 
 		const std::string shaders = glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "";
 		if (!shaders.empty())
-			info.push_back(std::pair<std::string, std::string>("GLSL VERSION", shaders));
+			info.push_back(std::pair<std::string, std::string>("SHADERS", shaders));
 
 		return info;
 	}
@@ -338,8 +344,42 @@ namespace Renderer
 
 		GL_CHECK_ERROR(glPixelStorei(GL_PACK_ALIGNMENT, 1));
 		GL_CHECK_ERROR(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
-
+		
 	} // createContext
+
+	int getAvailableVideoMemory()
+	{
+		float total = 0;
+
+		float megabytes = 10.0;
+		int sz = sqrtf(megabytes * 1024.0 * 1024.0 / 4.0f);
+
+		std::vector<unsigned int> textures;
+		textures.reserve(1000000);
+
+		while (true)
+		{
+			unsigned int textureId;
+			glGenTextures(1, &textureId);
+			if (glGetError() != GL_NO_ERROR)
+				break;
+
+			textures.push_back(textureId);
+
+			bindTexture(textureId);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sz, sz, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+			if (glGetError() != GL_NO_ERROR)
+				break;
+
+			textures.push_back(textureId);
+			total += megabytes;
+		}
+
+		for (auto tx : textures)
+			Renderer::destroyTexture(tx);
+
+		return total;
+	}
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -357,7 +397,19 @@ namespace Renderer
 		const GLenum type = convertTextureType(_type);
 		unsigned int texture;
 
-		GL_CHECK_ERROR(glGenTextures(1, &texture));
+		glGenTextures(1, &texture);
+		if (glGetError() != GL_NO_ERROR)
+		{
+			LOG(LogError) << "CreateTexture error: glGenTextures failed";
+			return 0;
+		}
+/*
+		if (texture > 50)
+		{
+			destroyTexture(texture);
+			return 0;
+		}
+		*/
 		bindTexture(texture);
 
 		GL_CHECK_ERROR(glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _repeat ? GL_REPEAT : GL_CLAMP_TO_EDGE));
@@ -380,12 +432,26 @@ namespace Renderer
 					la_data[(i * 2) + 1] = a_data[i];
 			}
 
-			GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data));
-
+			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
 			delete[] la_data;
+
+			if (glGetError() != GL_NO_ERROR)
+			{
+				LOG(LogError) << "CreateTexture error: glTexImage2D failed";
+				destroyTexture(texture);
+				return 0;
+			}
 		}
 		else
-			GL_CHECK_ERROR(glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data));
+		{
+			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
+			if (glGetError() != GL_NO_ERROR)
+			{
+				LOG(LogError) << "CreateTexture error: glTexImage2D failed";
+				destroyTexture(texture);
+				return 0;
+			}
+		}
 
 		return texture;
 
