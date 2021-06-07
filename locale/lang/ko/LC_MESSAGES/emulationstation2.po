@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1131,16 +1131,16 @@ msgstr "평면빛"
 msgid "RGA SCALING"
 msgstr ""
 
-msgid "GL VENDOR"
+msgid "VENDOR"
 msgstr ""
 
-msgid "GL RENDERER"
+msgid "RENDERER"
 msgstr ""
 
-msgid "GL VERSION"
-msgstr ""
+msgid "VERSION"
+msgstr "버전"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1269,14 +1269,17 @@ msgstr ""
 msgid "INFORMATION"
 msgstr "정보"
 
-msgid "VERSION"
-msgstr "버전"
-
 msgid "USER DISK USAGE"
 msgstr "사용자 디스크 사용량"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "시스템 디스크 사용량"
+
+msgid "SYSTEM"
+msgstr "시스템"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "개발자"
@@ -1455,9 +1458,6 @@ msgstr "업데이트 시작"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "업데이트가 이미 실행 중입니다"
-
-msgid "SYSTEM"
-msgstr "시스템"
 
 msgid "LANGUAGE"
 msgstr "언어"

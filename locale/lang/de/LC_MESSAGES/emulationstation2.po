@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:07+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1138,16 +1138,16 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA SKALIERUNG"
 
-msgid "GL VENDOR"
-msgstr "GL HERSTELLER"
+msgid "VENDOR"
+msgstr ""
 
-msgid "GL RENDERER"
-msgstr "GL RENDERER"
+msgid "RENDERER"
+msgstr ""
 
-msgid "GL VERSION"
-msgstr "GL VERSION"
+msgid "VERSION"
+msgstr "VERSION"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1276,14 +1276,17 @@ msgstr "BITTE CODE EINGEBEN, UM DEN AKTUELLEN UI-MODUS ZU ENTSPERREN"
 msgid "INFORMATION"
 msgstr "INFORMATIONEN"
 
-msgid "VERSION"
-msgstr "VERSION"
-
 msgid "USER DISK USAGE"
 msgstr "BENUTZERDATEN-VERBRAUCH"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SYSTEMDATEN-VERBRAUCH"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "ENTWICKLER"
@@ -1466,9 +1469,6 @@ msgstr "UPDATE STARTEN"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "UPDATE LÄUFT BEREITS"
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
 
 msgid "LANGUAGE"
 msgstr "SPRACHE"
@@ -2489,6 +2489,15 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "GL HERSTELLER"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "GL RENDERER"
+
+#~ msgid "GL VERSION"
+#~ msgstr "GL VERSION"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "AKTUALISIERE EMULATIONSTATION"

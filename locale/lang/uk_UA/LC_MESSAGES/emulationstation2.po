@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1137,16 +1137,16 @@ msgstr ""
 msgid "RGA SCALING"
 msgstr ""
 
-msgid "GL VENDOR"
+msgid "VENDOR"
 msgstr ""
 
-msgid "GL RENDERER"
+msgid "RENDERER"
 msgstr ""
 
-msgid "GL VERSION"
-msgstr ""
+msgid "VERSION"
+msgstr "ВЕРСІЯ"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1275,14 +1275,17 @@ msgstr ""
 msgid "INFORMATION"
 msgstr "ІНФОРМАЦІЯ"
 
-msgid "VERSION"
-msgstr "ВЕРСІЯ"
-
 msgid "USER DISK USAGE"
 msgstr "ЗЯЙНЯТИЙ ПРОСТІР КОРИСТУВАЧА"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "ЗАЙНЯТИЙ ПРОСТІР ДИСКУ"
+
+msgid "SYSTEM"
+msgstr "СИСТЕМА"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "РОЗРОБНИК"
@@ -1461,9 +1464,6 @@ msgstr "ПОЧАТИ ОНОВЛЕННЯ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОНОВЛЕННЯ ВЖЕ ЗАПУЩЕНО"
-
-msgid "SYSTEM"
-msgstr "СИСТЕМА"
 
 msgid "LANGUAGE"
 msgstr "МОВА"

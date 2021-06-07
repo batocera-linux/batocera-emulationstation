@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -850,7 +850,7 @@ msgstr "ВЫ УВЕРЕНЫ?"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "ОБНОВЛЕНИЕ %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "ОБНОВЛЕНИЕ BATOCERA"
@@ -869,6 +869,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"ВЫ ИСПОЛЬЗУЕТЕ ВЕРСИЮ : %s\n"
+"ХОТИТЕ ОБНОВИТЬ ДО ВЕРСИИ : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
@@ -1136,16 +1138,16 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA СКАЛИРОВАНИЕ"
 
-msgid "GL VENDOR"
-msgstr "GL ВЕНДОР"
+msgid "VENDOR"
+msgstr ""
 
-msgid "GL RENDERER"
-msgstr "GL РЕНДЕР"
+msgid "RENDERER"
+msgstr ""
 
-msgid "GL VERSION"
-msgstr "GL ВЕРСИЯ"
+msgid "VERSION"
+msgstr "ВЕРСИЯ"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1274,14 +1276,17 @@ msgstr "ПОЖАЛУЙСТА, ВВЕДИТЕ КОД, ЧТОБЫ РАЗБЛОКИ
 msgid "INFORMATION"
 msgstr "ХАРАКТЕРИСТИКИ"
 
-msgid "VERSION"
-msgstr "ВЕРСИЯ"
-
 msgid "USER DISK USAGE"
 msgstr "ЗАНЯТО НА ДИСКЕ ПОЛЬЗОВАТЕЛЯ"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "ЗАНЯТО НА СИСТЕМНОМ ДИСКЕ"
+
+msgid "SYSTEM"
+msgstr "СИСТЕМА"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
@@ -1461,9 +1466,6 @@ msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУЩЕНО"
-
-msgid "SYSTEM"
-msgstr "СИСТЕМА"
 
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
@@ -2489,6 +2491,18 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "GL ВЕНДОР"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "GL РЕНДЕР"
+
+#~ msgid "GL VERSION"
+#~ msgstr "GL ВЕРСИЯ"
+
+#~ msgid "GLSL VERSION"
+#~ msgstr "GLSL ВЕРСИЯ"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "ОБНОВЛЕНИЕ EMULATIONSTATION"

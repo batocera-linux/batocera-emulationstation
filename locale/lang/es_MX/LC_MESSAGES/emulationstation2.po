@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -1135,16 +1135,16 @@ msgstr "PLANA-BRILLO"
 msgid "RGA SCALING"
 msgstr "ESCALADO RGA"
 
-msgid "GL VENDOR"
-msgstr "GL VENDOR"
+msgid "VENDOR"
+msgstr ""
 
-msgid "GL RENDERER"
-msgstr "GL RENDERER"
+msgid "RENDERER"
+msgstr ""
 
-msgid "GL VERSION"
-msgstr "GL VERSION"
+msgid "VERSION"
+msgstr "VERSIÓN"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1273,14 +1273,17 @@ msgstr "INTRODUCE EL CÓDIGO PARA HABILITAR LA INTERFAZ DEL SISTEMA"
 msgid "INFORMATION"
 msgstr "INFORMACIÓN"
 
-msgid "VERSION"
-msgstr "VERSIÓN"
-
 msgid "USER DISK USAGE"
 msgstr "ESPACIO UTILIZADO POR EL USUARIO"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "ESPACIO UTILIZADO POR EL SISTEMA"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DESARROLLADOR"
@@ -1461,9 +1464,6 @@ msgstr "INICIAR ACTUALIZACIÓN"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA ACTUALIZACIÓN YA ESTÁ EN PROCESO"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
@@ -2481,6 +2481,15 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "GL VENDOR"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "GL RENDERER"
+
+#~ msgid "GL VERSION"
+#~ msgstr "GL VERSION"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "ACTUALIZANDO EMULATIONSTATION"

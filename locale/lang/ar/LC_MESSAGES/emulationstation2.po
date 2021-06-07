@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1143,16 +1143,16 @@ msgstr "توهج مسطح"
 msgid "RGA SCALING"
 msgstr ""
 
-msgid "GL VENDOR"
+msgid "VENDOR"
 msgstr ""
 
-msgid "GL RENDERER"
+msgid "RENDERER"
 msgstr ""
 
-msgid "GL VERSION"
-msgstr ""
+msgid "VERSION"
+msgstr "الإصدار"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1281,14 +1281,17 @@ msgstr ""
 msgid "INFORMATION"
 msgstr "المعلومات"
 
-msgid "VERSION"
-msgstr "الإصدار"
-
 msgid "USER DISK USAGE"
 msgstr "استخدام تخزين المستخدم"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "استخدام تخزين النظام"
+
+msgid "SYSTEM"
+msgstr "النظام"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "مطورون"
@@ -1467,9 +1470,6 @@ msgstr "بدء التحديث"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "التحديث يعمل حاليا"
-
-msgid "SYSTEM"
-msgstr "النظام"
 
 msgid "LANGUAGE"
 msgstr "اللغة"
