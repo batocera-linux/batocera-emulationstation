@@ -334,13 +334,13 @@ bool TextureData::uploadAndBind()
 
 		// Upload texture
 		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
-		if (mTextureID)
-		{
-			if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
-				delete[] mDataRGBA;
+		if (mTextureID == 0)
+			return false;
 
-			mDataRGBA = nullptr;
-		}
+		if (mDataRGBA != nullptr && !mIsExternalDataRGBA)
+			delete[] mDataRGBA;
+
+		mDataRGBA = nullptr;
 	}
 
 	return true;

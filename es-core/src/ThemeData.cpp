@@ -1022,6 +1022,39 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 			return false;
 	}
 
+	if (node.attribute("ifArch"))
+	{
+		std::string arch = getArchString();
+		if (!arch.empty())
+		{
+			const std::string ifBoard = Utils::String::toLower(node.attribute("ifArch").as_string());
+
+			bool hasValue = false;
+			auto values = Utils::String::splitAny(Utils::String::trim(ifBoard), ",|", true);
+			for (auto value : values)
+				if (arch == value)
+					hasValue = true;
+
+			if (!hasValue)
+				return false;
+		}
+	}
+
+	if (node.attribute("ifNotArch"))
+	{
+		std::string arch = getArchString();
+		if (!arch.empty())
+		{
+			const std::string ifBoard = Utils::String::toLower(node.attribute("ifNotArch").as_string());
+
+			auto values = Utils::String::splitAny(Utils::String::trim(ifBoard), "|,", true);
+			for (auto value : values)
+				if (arch == value)
+					return false;
+		}
+	}
+
+
 	if (node.attribute("ifSubset"))
 	{
 		const std::string ifSubset = node.attribute("ifSubset").as_string();

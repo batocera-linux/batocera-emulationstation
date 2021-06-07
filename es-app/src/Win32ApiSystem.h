@@ -54,6 +54,7 @@ protected:
 
 private:
 	void updateEmulatorLauncher(const std::function<void(const std::string)>& func);
+	void installEmulationStationZip(const std::string& zipFile);
 };
 
 

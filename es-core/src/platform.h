@@ -45,4 +45,6 @@ struct BatteryInformation
 BatteryInformation queryBatteryInformation();
 std::string queryIPAdress();
 
+std::string getArchString();
+
 #endif // ES_CORE_PLATFORM_H
