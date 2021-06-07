@@ -849,7 +849,7 @@ msgstr "¿ESTÁS SEGURO?"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "ACTUALIZANDO %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "ACTUALIZANDO BATOCERA"
@@ -868,6 +868,9 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"ESTAS UTILIZANDO LA VERSION : %s\n"
+"QUIERES ACTUALIZAR A LA VERSION : %s ?"
+
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ES NECESARIA UNA CONEXIÓN DE RED"
@@ -1136,16 +1139,16 @@ msgid "RGA SCALING"
 msgstr "ESCALADO RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "DESARROLLADOR"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERIZADOR"
 
 msgid "VERSION"
 msgstr "VERSIÓN"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SOMBRAS"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -1283,7 +1286,7 @@ msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "CONTROLADOR DE VIDEO"
 
 msgid "DEVELOPER"
 msgstr "DESARROLLADOR"
