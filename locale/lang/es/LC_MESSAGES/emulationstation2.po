@@ -437,7 +437,7 @@ msgid "START ON GAMELIST"
 msgstr "INICIAR EN LA LISTA DE JUEGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "ORGANIZAR COLECCIONES PERSONALIZADAS SIN TEMA"
+msgstr "AGRUPAR COLECCIONES PERSONALIZADAS SIN TEMA"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOMBRE DEL SISTEMA EN LAS COLECCIONES"
@@ -480,7 +480,7 @@ msgstr "ESPERE POR FAVOR"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d of %d)"
+msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS (LOGROS)"
@@ -600,7 +600,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "JUEGOS NO DISPONIBLES"
 
 msgid "NO GAME FOUND"
-msgstr "NINGÚN JUEGO ENCONTRADO"
+msgstr "NO SE HA ENCONTRADO NINGÚN JUEGO"
 
 msgid "JOIN GAME"
 msgstr "UNIRTE A LA PARTIDA"
@@ -648,7 +648,7 @@ msgid "ADD COMBINATION KEY"
 msgstr "AÑADIR COMBINACIÓN DE TECLAS"
 
 msgid "CONTENT DOWNLOADER"
-msgstr "GESTOR DE CONTENIDO"
+msgstr "GESTOR DE CONTENIDO INSTALABLE"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SELECCIONAR CONTENIDO A INSTALAR / DESINSTALAR"
@@ -657,7 +657,7 @@ msgid "UPDATE INSTALLED CONTENT"
 msgstr "ACTUALIZAR CONTENIDO INSTALADO"
 
 msgid "There are no items in this view"
-msgstr "No hay más elementos en esta vista"
+msgstr "No hay elementos en esta vista"
 
 msgid "MISC"
 msgstr "MISCELÁNEOS"
@@ -680,7 +680,7 @@ msgstr "INSTALAR"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "YA SE ENCUENTRA EN LA COLA DE DESCARGAS"
+msgstr "ACTUALMENTE EN LA COLA DE DESCARGAS"
 
 msgid "NO MISSING BIOS"
 msgstr "NO FALTAN BIOS"
@@ -800,7 +800,7 @@ msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr "SELECCIONE ACCIONES A CAMBIAR"
+msgstr "SELECCIONA LAS ACCIONES A CAMBIAR"
 
 msgid "SAVE"
 msgstr "GUARDAR"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"ACTUALMENTE ESTÁS USANDO LA VERSIÓN: %s\r\n"
+"¿DESEAS ACTUALIZAR A LA VERSIÓN: %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ES NECESARIA UNA CONEXIÓN DE RED"
@@ -996,7 +998,7 @@ msgid "THEMES DOWNLOADER"
 msgstr "GESTOR DE TEMAS"
 
 msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "SELECCIONAR TEMAS PARA INSTALAR / DESINSTALAR"
+msgstr "SELECCIONAR TEMAS PARA INSTALAR, DESINSTALAR O ACTUALIZAR"
 
 #, c-format
 msgid "CURRENT THEME"
@@ -1097,7 +1099,7 @@ msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "Available memory"
-msgstr "Memoria RAM usada/disponible"
+msgstr "Memoria disponible"
 
 msgid "Battery"
 msgstr "Batería"
@@ -1136,16 +1138,16 @@ msgid "RGA SCALING"
 msgstr "ESCALADO RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "VENDOR"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERIZADOR"
 
 msgid "VERSION"
 msgstr "VERSIÓN"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "EFECTOS DE PANTALLA (SHADERS)"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -1283,7 +1285,7 @@ msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "CONTROLADOR DE VÍDEO"
 
 msgid "DEVELOPER"
 msgstr "DESARROLLADOR"
@@ -1314,7 +1316,7 @@ msgstr "HABILITAR WEB MANAGER"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Permitir el acceso web a la API usando %s"
+msgstr "Permitir el acceso web usando %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
@@ -1602,7 +1604,7 @@ msgid "FIND ALL GAMES"
 msgstr "BUSCAR TODOS LOS JUEGOS"
 
 msgid "FIND NEW GAMES"
-msgstr "BUSCAR NUEVOS JUEGOS"
+msgstr "BUSCAR JUEGOS NUEVOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr "NO ES POSIBLE ACTIVAR LOS LOGROS:"
