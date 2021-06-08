@@ -1139,10 +1139,10 @@ msgid "RGA SCALING"
 msgstr "ESCALA RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "FABRICANTE"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERIZADOR"
 
 msgid "VERSION"
 msgstr "VERSÃO"
@@ -1286,7 +1286,7 @@ msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "DRIVER DE VÍDEO"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
