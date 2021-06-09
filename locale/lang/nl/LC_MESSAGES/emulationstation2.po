@@ -53,76 +53,76 @@ msgid "enter path to video"
 msgstr "voer pad naar video in"
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "voer locatie naar logo in"
 
 msgid "Box"
-msgstr ""
+msgstr "Doos"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "voer locatie naar doos in"
 
 msgid "Fan art"
-msgstr ""
+msgstr "Fanart"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "voer locatie naar fanart in"
 
 msgid "Title shot"
-msgstr ""
+msgstr "titel afbeelding"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "voer locatie naar titel alfbeeling in"
 
 msgid "Manual"
 msgstr "Handleiding"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "voer locatie naar handleiding in"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Magazine"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "voer pad naar magazine in"
 
 msgid "Map"
-msgstr ""
+msgstr "Map"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "voer locatie naar map in"
 
 msgid "Cartridge"
 msgstr "Cardtridge"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "voer locatie naar cardtridge in"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Alternatieve doos"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "voer locatie naar alternatieve doos in"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Achterkant doos"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "voer locatie naar achterkant doos in"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Wiel"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "voer locatie naar wiel in"
 
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "voer locatie naar mix in"
 
 msgid "Rating"
 msgstr "Beoordeling"
@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "wijzig spel genre"
 
 msgid "Game family"
-msgstr ""
+msgstr "Spelfamilie"
 
 msgid "enter game family"
-msgstr ""
+msgstr "voer spelfamilie in"
 
 msgid "Genres"
-msgstr ""
+msgstr "Genres"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "voer spel genres in"
 
 msgid "Arcade system"
 msgstr "Arcadesysteem"
@@ -233,16 +233,16 @@ msgid "Region"
 msgstr "Regio"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos (prestaties) Hash"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Cheevos (prestaties) checksum"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "Cheevos (prestaties) spel ID"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "Screenscraper Spel ID"
 
 msgid "all games"
 msgstr "alle spellen"
@@ -263,16 +263,16 @@ msgid "never played"
 msgstr "nooit gespeeld"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "Retro-prestaties"
 
 msgid "arcade"
 msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "Verticale arcarde"
 
 msgid "lightgun games"
-msgstr ""
+msgstr "lightgun spellen"
 
 msgid "collections"
 msgstr "verzamelingen"
@@ -332,19 +332,19 @@ msgid "AN ERROR OCCURED"
 msgstr "ER IS EEN PROBLEEM OPGETREDEN"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "THEMA SUCCESVOL VERWIJDERD"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BEZELS SUCCESVOL GEÏNSTALLEERD"
+msgstr "OMLIJSTINGEN SUCCESVOL GEÏNSTALLEERD"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "OMLIJSTINGEN SUCCESVOL VERWIJDERD"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PAKKET SUCCESVOL GEÏNSTALLEERD"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PAKKET SUCCESVOL VERWIJDERD"
 
 msgid "FILTER GAMELIST BY"
 msgstr "FILTER SPELLIJST OP"
@@ -407,22 +407,22 @@ msgid "OPTIONS"
 msgstr "OPTIES"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr ""
+msgstr "SORTEER COLLECTIES EN SYSTEMEN"
 
 msgid "ALPHABETICALLY"
-msgstr ""
+msgstr "ALFABETISCH"
 
 msgid "BY MANUFACTURER"
-msgstr ""
+msgstr "OP PRODUCENT"
 
 msgid "BY HARDWARE TYPE"
-msgstr ""
+msgstr "OP HARDWARE SOORT"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "OP JAAR UITGAVE"
 
 msgid "SORT SYSTEMS"
-msgstr ""
+msgstr "SORTEER SYSTEMEN"
 
 msgid "START ON SYSTEM"
 msgstr "START MET SYSTEEM"
@@ -431,7 +431,7 @@ msgid "NONE"
 msgstr "GEEN"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "HERSTEL LAATSTE SELECTIE"
 
 msgid "START ON GAMELIST"
 msgstr "START MET SPELLIJST"
@@ -443,7 +443,7 @@ msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "TOON SYSTEEMNAAM IN VERZAMELINGEN"
 
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr ""
+msgstr "LAAT SPELLEN VAN VERBORGEN SYSTEMEN ZIEN"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "VERVERS SPELLIJST"
@@ -455,10 +455,10 @@ msgid "SELECT COLLECTIONS"
 msgstr "SELECTEER VERZAMELINGEN"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "AUTOMATISCHE VERZAMELINGEN"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "PER GENRE"
 
 msgid "ARCADE SYSTEMS"
 msgstr "ARCADE SYSTEMEN"
@@ -480,19 +480,19 @@ msgstr "EEN MOMENT GEDULD"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d of %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "RETRO-PRESTATIES"
 
 msgid "Points"
-msgstr ""
+msgstr "Punten"
 
 msgid "Rank"
-msgstr ""
+msgstr "Rangorde"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "BEKIJK DETAILS"
 
 msgid "LAUNCH"
 msgstr "STARTEN"
@@ -516,7 +516,7 @@ msgid "JUMP TO LETTER"
 msgstr "Ga naar letter"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "SELECTEER WILLEKEURIG SPEL"
 
 msgid "SORT GAMES BY"
 msgstr "SORTEER OP"
@@ -540,13 +540,13 @@ msgid "VIEW CUSTOMISATION"
 msgstr "WEERGAVE AANPASSINGEN"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "BEKIJK PAD NAAR TOETSENBORD INFORMATIE"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "GEAVANCEERDE SYSTEEMOPTIES"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "HERSTEL FILTERS"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTER SPELLEN OP TEKST"
@@ -558,7 +558,7 @@ msgid "CLOSE"
 msgstr "SLUITEN"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr ""
+msgstr "WEET JE ZEKER DAT JE DIT ITEM WILT VERWIJDEREN ?"
 
 msgid "INPUT"
 msgstr "INVOER"
@@ -582,13 +582,13 @@ msgid "FAILED"
 msgstr "MISLUKT"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "ONBEKENDE VERSIE ROM"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "ANDERE ROM"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "ROM OPSLAAN"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CORE NIET BESCHIKBAAR"
@@ -603,10 +603,10 @@ msgid "NO GAME FOUND"
 msgstr "GEEN SPEL GEVONDEN"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "MEEDOEN AAN SPEL"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "BEKIJK SPEL"
 
 msgid "MANUAL INPUT"
 msgstr "HANDMATIGE INVOER"
@@ -645,10 +645,10 @@ msgid "SELECT"
 msgstr "SELECTEER"
 
 msgid "ADD COMBINATION KEY"
-msgstr ""
+msgstr "COMBINATIE TOETS TOEVOEGEN"
 
 msgid "CONTENT DOWNLOADER"
-msgstr ""
+msgstr "CONTENT DOWNLOADER"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
 msgstr "SELECTEER CONTENT OM TE INSTALLEREN / VERWIJDEREN"
@@ -657,10 +657,10 @@ msgid "UPDATE INSTALLED CONTENT"
 msgstr "UPDATE GEÏNSTALLEERDE CONTENT"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "Er zijn geen items in deze weergave"
 
 msgid "MISC"
-msgstr ""
+msgstr "DIVERSEN"
 
 msgid "UPDATE"
 msgstr "UPDATEN"
@@ -673,14 +673,14 @@ msgid "REMOVE"
 msgstr "VERWIJDER"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr ""
+msgstr "TE VERWIJDEREN TOEGEVOEGD AAN WACHTRIJ"
 
 msgid "INSTALL"
 msgstr "INSTALLEER"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr ""
+msgstr "IN DE DOWNLOADWACHTRIJ"
 
 msgid "NO MISSING BIOS"
 msgstr "GEEN ONTBREKENDE BIOS"
@@ -689,16 +689,16 @@ msgid "MISSING BIOS"
 msgstr "ONTBREKENDE BIOS"
 
 msgid "dim"
-msgstr ""
+msgstr "dim"
 
 msgid "black"
 msgstr "zwart"
 
 msgid "random video"
-msgstr ""
+msgstr "willekeurige video"
 
 msgid "slideshow"
-msgstr ""
+msgstr "diashow"
 
 msgid "always"
 msgstr "altijd"
@@ -764,16 +764,16 @@ msgid "SCREENSAVER CONTROLS"
 msgstr "SCREENSAVER BESTURING"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr ""
+msgstr "GEBRUIK AANGEPASTE VIDEOS"
 
 msgid "CUSTOM VIDEO DIR"
-msgstr ""
+msgstr "AANGEPASTE VIDEO LOCATIE"
 
 msgid "CUSTOM VIDEO DIR RECURSIVE"
-msgstr ""
+msgstr "AANGEPASTE VIDEO LOCATIE RECURSIEF"
 
 msgid "CUSTOM VIDEO FILTER"
-msgstr ""
+msgstr "AANGEPAST VIDEO FILTER"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "SLIDESHOW SCREENSAVER INSTELLINGEN"
@@ -797,10 +797,10 @@ msgid "CUSTOM IMAGE FILTER"
 msgstr "AANGEPASTE AFBEELDINGSFILTER"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr ""
+msgstr "PAD NAAR TOETSENBORD CONFIGURATIE"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr ""
+msgstr "SELECTEER TE VERANDEREN ACTIES"
 
 msgid "SAVE"
 msgstr "OPSLAAN"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"JE GEBRUIKT MOMENTEEL VERSIE : %s\n"
+"WIL JE UPDATEN NAAR VERSIE : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NETWERKVERBINDING BENODIGD"
@@ -1314,11 +1316,10 @@ msgstr "Publieke webtoegang toestaan"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Publieke webtoegang API toestaan met %"
+msgstr "Publieke webtoegang API toestaan met %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"EEN HERSTART VAN HET SYSTEEM IS NODIG OM DE NIEUWE CONFIGURATIE TE GEBRUIKEN"
+msgstr "EEN HERSTART VAN HET SYSTEEM IS NODIG OM DE NIEUWE CONFIGURATIE TE GEBRUIKEN"
 
 msgid "LOG LEVEL"
 msgstr "LOG NIVEAU"
@@ -1366,7 +1367,7 @@ msgid "DATA MANAGEMENT"
 msgstr "DATABEHEER"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "MULTIFILE-SCHIJFINHOUD NEGEREN (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "SCHAKEL FILTERS IN"
@@ -1411,16 +1412,16 @@ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "VERWISSEL A/B KNOPPEN IN EMULATIONSTATION"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr ""
+msgstr "TOEGANG TOT SPEL OPTIES MET NOORDELIJKE KNOP"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr ""
+msgstr "Inverts noordelijke knop (savestates) & lang indrukken zuidelijke knop (spel opties)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "EMULATIONSTATION ALLEEN MET EERSTE JOYSTICK BESTUREN"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr "TOON NETWERKINDICATOR ZIEN"
+msgstr "TOON NETWERKINDICATOR"
 
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMALISATIES"
@@ -1462,7 +1463,7 @@ msgid "START UPDATE"
 msgstr "NU UPDATEN"
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr "UPDATE REEDS GESTART"
+msgstr "UPDATE IS REEDS GESTART"
 
 msgid "LANGUAGE"
 msgstr "TAAL"
@@ -1487,9 +1488,8 @@ msgid ""
 "This will hide most menu-options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"De gebruikersinterface wordt aangepast naar een beperkte modus\n"
-"Dit zal de meeste menuopties verbergen en aanpassingen aan het systeem "
-"voorkomen\n"
+"De gebruikersinterface wordt aangepast naar een beperkte modus:\n"
+"Dit zal de meeste menuopties verbergen en aanpassingen aan het systeem voorkomen.\n"
 "Om terug te keren naar de volledige gebruikersinterface, voer deze code in:"
 
 msgid "Do you want to proceed ?"
@@ -1499,10 +1499,10 @@ msgid "KODI SETTINGS"
 msgstr "KODI INSTELLINGEN"
 
 msgid "ENABLE KODI"
-msgstr "ACTIVEER KODI"
+msgstr "KODI ACTIVEREN"
 
 msgid "KODI AT START"
-msgstr "START SYSTEEM MET KODI"
+msgstr "START KODI MET SYSTEEM"
 
 msgid "HARDWARE"
 msgstr "HARDWARE"
@@ -1517,7 +1517,7 @@ msgid "AUDIO OUTPUT"
 msgstr "GELUIDSUITVOER"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RETROACHIEVEMENTS INSTELLINGEN"
+msgstr "RETROPRESTATIES INSTELLINGEN"
 
 msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY INSTELLINGEN"
@@ -1586,10 +1586,10 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHE SCHERMAFDRUK"
 
 msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-msgstr ""
+msgstr "RETROPRESTATIES ONTGRENDEL GELUID"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "ONTGRENDEL GELUID"
 
 msgid "SHOW IN MAIN MENU"
 msgstr "LAAT IN HOOFDMENU ZIEN"
@@ -1604,7 +1604,7 @@ msgid "FIND NEW GAMES"
 msgstr "VIND NIEUWE SPELLEN"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr ""
+msgstr "NIET MOGELIJK OM RETROPRESTATIES TE ACTIVEREN"
 
 msgid "ENABLE NETPLAY"
 msgstr "SCHAKEL NETPLAY IN"
@@ -1643,10 +1643,10 @@ msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATISCH OPSLAAN/LADEN"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr ""
+msgstr "TOON OPSLAAN-SNAPSHOTS"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr ""
+msgstr "SNAPSHOTS TONEN INDIEN NIET LEEG"
 
 msgid "SHADERS SET"
 msgstr "SHADERS SET"
@@ -1692,7 +1692,7 @@ msgid ""
 "SNES CONTROLLER."
 msgstr ""
 "JE GAAT NU EEN CONTROLLER CONFIGUREREN. ALS JE SLECHTS ÉÉN JOYSTICK HEBT, "
-"CONFIGUREER DE RICHTINGSTOETSEN EN SLA DE JOYSTICK OVER DOOR EEN KNOP "
+"CONFIGUREER DE RICHTINGSTOETSEN DAN EN SLA DE JOYSTICK OVER DOOR EEN KNOP "
 "INGEDRUKT TE HOUDEN. ALS JE GEEN SPECIALE SLEUTEL VOOR DE SNELTOETS HEBT, "
 "KIES JE DE SELECT KNOP. SKIP ALLE KNOPPEN DIE JE NIET HEBT DOOR EEN KNOP "
 "VAST TE HOUDEN. DE NAMEN VAN DE KNOPPEN ZIJN GEBASEERD OP DE SNES CONTROLLER."
@@ -1711,7 +1711,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "TOON CONTROLLERACTIVITEIT"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "TOON BATTERIJNIVEAU VAN CONTROLLER"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
 msgstr "JE MOET HET THEMA TOEPASSEN VOORDAT JE DE CONFIGURATIE VERLAAT"
@@ -1720,7 +1720,7 @@ msgid "THEME CONFIGURATION"
 msgstr "THEMACONFIGURATIE"
 
 msgid "GAMELIST STYLE"
-msgstr ""
+msgstr "SPELLIJST STIJL"
 
 msgid "basic"
 msgstr "eenvoudig"
@@ -1759,19 +1759,19 @@ msgid "SHOW '..' PARENT FOLDER"
 msgstr "TOON '..' BOVENLIGGENDE MAP"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "VOOR NAAM"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "ACHTER NAAM"
 
 msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr ""
+msgstr "TAALVLAG TONEN IN LIJSTEN"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr ""
+msgstr "TOON SAVESTATES VLAG IN LIJSTEN"
 
 msgid "SHOW MANUAL ICON IN LISTS"
-msgstr ""
+msgstr "HANDLEIDING ICOON TONEN IN LIJSTEN"
 
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "TOON BESTANDSNAMEN IN LIJST"
@@ -1801,7 +1801,7 @@ msgid "TRANSITION STYLE"
 msgstr "TRANSITIE STIJL"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "SPEL LANCERING OVERGANG"
 
 msgid "SHOW CLOCK"
 msgstr "DE TIJD WEERGEVEN"
@@ -1936,7 +1936,7 @@ msgid "COLORIZATION"
 msgstr "INKLEURING"
 
 msgid "FULL BOOT"
-msgstr "VOLLEDIG STARTEN"
+msgstr "VOLLEDIG OPSTARTEN"
 
 msgid "EMULATED WIIMOTES"
 msgstr "GEËMULEERDE WIIMOTES"
@@ -2054,15 +2054,15 @@ msgid ""
 "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
-"WAARSCHUWING : HET FORMAAT VAN DIT SPEL WORDT NIET ONDERSTEUND DOOR DE HUIDIGE EMULATOR/CORE.\n"
-"WIL JE HET SPEL TOCH STARTEN?"
+"WAARSCHUWING : HET FORMAAT VAN DIT SPEL WORDT NIET ONDERSTEUND DOOR DE HUIDIGE EMULATOR / CORE.\n"
+"WIL JE HET SPEL TOCH STARTEN ?"
 
 msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
 "WAARSCHUWING: HET SYSTEEM HEEFT GEEN BIOS EN HET SPEL WERKT NIET CORRECT.\n"
-"WIL JE HET SPEL TOCH STARTEN?"
+"WIL JE HET SPEL TOCH STARTEN ?"
 
 msgid "Preloading UI"
 msgstr "Voorladen UI"
@@ -2101,18 +2101,20 @@ msgid "No Entries Found"
 msgstr "Geen ingangen gevonden"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "Spellen gelijkwaardig aan"
 
 msgid "GAME OPTIONS"
 msgstr "SPELOPTIES"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "FAVORIET"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
+"Een geldige account is vereist. Gelieve een account te registreren op https://"
+"retroachievements.org"
 
 msgid "Searching"
 msgstr "Zoeken"
@@ -2211,37 +2213,37 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "BESTANDSAANMAAKDATUM, AFLOPEND"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "SPEELTIJD, OPLOPEND"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "SPEELTIJD, AFLOPEND"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
+msgstr "SYSTEEM, RELEASE JAAR, OPLOPEND"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
+msgstr "SYSTEEM, RELEASE JAAR, AFLOPEND"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
+msgstr "RELEASE JAAR, SYSTEEM, OPLOPEND"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
+msgstr "RELEASE JAAR, SYSTEEM, AFLOPEND"
 
 msgid "Extracting"
 msgstr "Uitpakken"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "ZOEKEN NAAR RETROPRESTATIES"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "NETPLAY SPELLEN ZOEKEN"
 
 msgid "INDEXING COMPLETED"
 msgstr "INDEXERING VOLTOOID"
 
 msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "UPDATE SPELLIJSTEN OM WIJZIGINGEN TOE TE PASSEN."
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2271,19 +2273,19 @@ msgid "ALREADY PLAYED"
 msgstr "REEDS GESPEELD"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "HEEFT PRESTATIES"
 
 msgid "VERTICAL"
 msgstr "VERTICAAL"
 
 msgid "SCRAPING"
-msgstr "SCRAPEN"
+msgstr "SCHRAPEN"
 
 msgid "SCRAPE FAILED"
-msgstr "SCRAPEN MISLUKT"
+msgstr "SCHRAPEN MISLUKT"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "SCHRAPEN AFGEROND"
 
 #, c-format
 msgid "%s connected"
@@ -2369,7 +2371,7 @@ msgid ""
 "ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 "ER IS GEEN HOTKEY-KNOP GEKOZEN. DEZE IS BENODIGD OM SPELLEN TE STOPPEN DOOR "
-"MIDDEL VAN DE CONTROLLER. WIL JE DE STANDAARD SELECT BUTTON GEBRUIKEN? "
+"MIDDEL VAN DE CONTROLLER. WIL JE DE STANDAARD SELECT BUTTON GEBRUIKEN ? "
 "SELECTEER JA OM DE SELECT KNOP TE GEBRUIKEN, OF NEE OM DEZE NIET IN TE "
 "STELLEN."
 
@@ -2465,15 +2467,15 @@ msgstr "BEZIG..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d h"
 
 #, c-format
 msgid "%d m"
-msgstr ""
+msgstr "%d m"
 
 #, c-format
 msgid "%d s"
-msgstr ""
+msgstr "%d s"
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "GEBRUIK RETROARCH RGUI MENU"
@@ -2638,25 +2640,25 @@ msgstr ""
 #~ msgstr "SELECTEER THEMA"
 
 #~ msgid "INSTALL BEZELS"
-#~ msgstr "INSTALLEER BEZELS"
+#~ msgstr "INSTALLEER OMLIJSTINGEN"
 
 #~ msgid "UNINSTALL BEZELS"
-#~ msgstr "DEINSTALLEER BEZELS"
+#~ msgstr "VERWIJDER OMLIJSTINGEN"
 
 #~ msgid "INSTALL THE BEZEL PROJECT"
 #~ msgstr "INSTALLEER THE BEZEL PROJECT"
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE (RE)INSTALLED"
-#~ msgstr "SELECTEER SYSTEEM WAARVOOR BEZELS WORDEN GE(HER)INSTALLEERD"
+#~ msgstr "SELECTEER SYSTEEM WAARVOOR OMLIJSTINGEN WORDEN GE(HER)INSTALLEERD"
 
 #~ msgid "UNINSTALL THE BEZEL PROJECT"
-#~ msgstr "DEINSTALLEER THE BEZEL PROJECT"
+#~ msgstr "VERWIJDER THE BEZEL PROJECT"
 
 #~ msgid "SELECT SYSTEM WHERE BEZELS WILL BE REMOVED"
-#~ msgstr "SELECTEER SYSTEEM WAARVOOR BEZELS WORDEN VERWIJDERD"
+#~ msgstr "SELECTEER SYSTEEM WAARVOOR OMLIJSTINGEN WORDEN VERWIJDERD"
 
 #~ msgid "BEZELS DELETED SUCCESSFULLY"
-#~ msgstr "BEZELS SUCCESVOL VERWIJDERD"
+#~ msgstr "OMLIJSTINGEN SUCCESVOL VERWIJDERD"
 
 #~ msgid "SORT CUSTOM COLLECTIONS AND SYSTEMS"
 #~ msgstr "SORTEER AANGEPASTE VERZAMELINGEN EN SYSTEMEN"
@@ -2671,13 +2673,13 @@ msgstr ""
 #~ msgstr "Thumbnail"
 
 #~ msgid "enter path to thumbnail"
-#~ msgstr "voer pad naar beeld in"
+#~ msgstr "voer pad naar thumbnail in"
 
 #~ msgid "favorite"
 #~ msgstr "favoriet"
 
 #~ msgid "DISK USAGE"
-#~ msgstr "Gebruikt verbruik"
+#~ msgstr "SCHIJFGEBRUIK"
 
 #, fuzzy
 #~ msgid "%i GAME AVAILABLE"
@@ -2688,59 +2690,59 @@ msgstr ""
 #~ msgstr[1] ""
 
 #~ msgid "AUTO UPDATES"
-#~ msgstr "Automatisch Updates"
+#~ msgstr "AUTOMATISCHE UPDATES"
 
 #~ msgid "FORGET BLUETOOTH CONTROLLERS"
-#~ msgstr "Vergeet Bluetooth-controllers"
+#~ msgstr "VERGEET BLUETOOTH CONTROLLERS"
 
 #~ msgid "set hidden"
 #~ msgstr "Maak verborgen"
 
 #~ msgid "CONTROLLER PAIRED"
-#~ msgstr "Controller gekoppeld"
+#~ msgstr "CONTROLLER GEKOPPELD"
 
 #~ msgid "UNABLE TO PAIR CONTROLLER"
-#~ msgstr "Niet mogelijk de controller te koppelen"
+#~ msgstr "NIET MOGELIJKK OM DE CONTROLLER TE KOPPELEN"
 
 #~ msgid "MD5"
-#~ msgstr "MD%"
+#~ msgstr "MD5"
 
 #~ msgid "OUTPUT DEVICE"
-#~ msgstr "Output apparaat"
+#~ msgstr "UITGANGSAPPARAAT"
 
 #~ msgid "UPDATES"
-#~ msgstr "Updates"
+#~ msgstr "UPDATES"
 
 #~ msgid "UPDATE DOWNLOADED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "Update gedownload, het systeem zal nu herstarten"
+#~ msgstr "UPDATE GEDOWNLOAD, HET SYSTEEM ZAL NU HERSTARTEN"
 
 #~ msgid "FILTER GAMELIST"
-#~ msgstr "Spellen filteren"
+#~ msgstr "FILTER SPELLEN"
 
 #~ msgid "Only missing image"
 #~ msgstr "Alleen missende afbeeldingen"
 
 #~ msgid "INSTALL THEMES"
-#~ msgstr "Visuele thema's installeer"
+#~ msgstr "INSTALLEER THEMA'S"
 
 #~ msgid "THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "Het systeem zal nu herstarten"
+#~ msgstr "HET SYSTEEM ZAL NU HERSTARTEN"
 
 #~ msgid "PRESS F4 TO QUIT AT ANY TIME."
-#~ msgstr "Druk F4 om te stoppen"
+#~ msgstr "DRUK TEN ALLE TIJDEN OP F4 OM TE STOPPEN"
 
 #~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
-#~ msgstr "Druk ESC of de Hotkey om te stoppen"
+#~ msgstr "DRUK ESC OF DE HOTKEY OM TE ANNULEREN"
 
 #~ msgid "FAVORITES ONLY"
-#~ msgstr "Alleen favorieten"
+#~ msgstr "ALLEEN FAVORIETEN"
 
 #~ msgid ""
 #~ "THIS WILL DELETE A FILE!\n"
 #~ "ARE YOU SURE?"
 #~ msgstr ""
-#~ "Dit zal een bestand wissen!\n"
-#~ "Weet je het zeker?"
+#~ "DIT ZAL EEN BESTAND VERWIJDEREN!\n"
+#~ "WEET JE HET ZEKER?"
 
 #~ msgid "enter emulator"
 #~ msgstr "Wijzig emulator"
@@ -2767,39 +2769,39 @@ msgstr ""
 #~ msgid "%i FAVORITE"
 #~ msgid_plural "%i FAVORITES"
 #~ msgstr[0] ""
-#~ "%i Favoriet\n"
-#~ "%i Favorieten"
+#~ "%i FAVORIET\n"
+#~ "%i FAVORIETEN"
 #~ msgstr[1] ""
 
 #~ msgid "SCROLL"
-#~ msgstr "Scroll"
+#~ msgstr "SCROLL"
 
 #~ msgid "SEARCH FOR"
-#~ msgstr "Zoeken naar"
+#~ msgstr "ZOEKEN NAAR"
 
 #~ msgid "JOYSTICK 1 UP"
-#~ msgstr "Joystick 1 omhoog"
+#~ msgstr "JOYSTICK 1 OMHOOG"
 
 #~ msgid "JOYSTICK 1 LEFT"
-#~ msgstr "Joystick 1 links"
+#~ msgstr "JOYSTICK 1 LINKS"
 
 #~ msgid "JOYSTICK 2 UP"
-#~ msgstr "Joystick 2 omhoog"
+#~ msgstr "JOYSTICK 2 OMHOOG"
 
 #~ msgid "JOYSTICK 2 LEFT"
-#~ msgstr "Joystick 2 Links"
+#~ msgstr "JOYSTICK 2 LINKS"
 
 #~ msgid "PAGE UP"
-#~ msgstr "Pagina omhoog"
+#~ msgstr "PAGINA OMHOOG"
 
 #~ msgid "PAGE DOWN"
-#~ msgstr "Pagina omlaag"
+#~ msgstr "PAGINA OMLAAG"
 
 #~ msgid "LOADING..."
-#~ msgstr "Laden"
+#~ msgstr "LADEN..."
 
 #~ msgid "PLEASE WAIT..."
-#~ msgstr "Wachten a.u.b."
+#~ msgstr "EVEN GEDULD A.U.B."
 
 #~ msgid "just now"
 #~ msgstr "Net"
@@ -2840,40 +2842,40 @@ msgstr ""
 #~ msgstr "Onbekend"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-#~ msgstr "Er is een update beschikbaar voor je BATOCERA.LINUX"
+#~ msgstr "EEN UPDATE IS BESCHIKBAAR VOOR BATOCERA.LINUXX"
 
 #~ msgid "EXTREM (1100Mhz)"
-#~ msgstr "Extreem (1100MHz)"
+#~ msgstr "EXTREEM (1100MHz)"
 
 #~ msgid "TURBO (1000Mhz)"
-#~ msgstr "Turbo (1000MHz)"
+#~ msgstr "TURBO (1000MHz)"
 
 #~ msgid "HIGH (950Mhz)"
-#~ msgstr "Hoog (950MHz)"
+#~ msgstr "HOOG (950MHz)"
 
 #~ msgid "HIGH (1050Mhz)"
-#~ msgstr "Hoog (1050MHz)"
+#~ msgstr "HOOG (1050MHz)"
 
 #~ msgid "NONE (900Mhz)"
-#~ msgstr "Geen (900MHz)"
+#~ msgstr "GEEN (900MHz)"
 
 #~ msgid "NONE (1200Mhz)"
-#~ msgstr "Geen (1200MHz)"
+#~ msgstr "GEEN (1200MHz)"
 
 #~ msgid "NO CONTROLLERS FOUND"
-#~ msgstr "Geen controllers gevonden"
+#~ msgstr "GEEN CONTROLLERS GEVONDEN"
 
 #~ msgid "NONE (700Mhz)"
-#~ msgstr "Geen (700MHz)"
+#~ msgstr "GEEN (700MHz)"
 
 #~ msgid "TURBO (1050Mhz)+"
-#~ msgstr "Turbo (1050MHz)"
+#~ msgstr "TURBO (1050MHz)"
 
 #~ msgid "HDMI"
 #~ msgstr "HDMI"
 
 #~ msgid "JACK"
-#~ msgstr "Plug"
+#~ msgstr "PLUG"
 
 #~ msgid "UPDATE FAILED, THE SYSTEM WILL NOW REBOOT"
-#~ msgstr "Update fout, het systeem zal nu herstarten"
+#~ msgstr "UPDATE MISLUKT, HET SYSTEEM ZAL NU HERSTARTEN"
