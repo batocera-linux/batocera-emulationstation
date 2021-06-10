@@ -53,11 +53,11 @@
 
 ApiSystem::ApiSystem() { }
 
-ApiSystem* ApiSystem::instance = NULL;
+ApiSystem* ApiSystem::instance = nullptr;
 
 ApiSystem *ApiSystem::getInstance() 
 {
-	if (ApiSystem::instance == NULL)
+	if (ApiSystem::instance == nullptr)
 #if WIN32
 		ApiSystem::instance = new Win32ApiSystem();
 #else

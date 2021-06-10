@@ -24,6 +24,25 @@
 
 #define LAUNCHERURL "https://github.com/fabricecaruso/batocera-ports/releases/download/continuous/batocera-ports.zip"
 
+Win32ApiSystem::Win32ApiSystem()
+{
+	m_hJob = CreateJobObject(NULL, NULL);
+	if (m_hJob)
+	{
+		JOBOBJECT_EXTENDED_LIMIT_INFORMATION jeli = { 0 };
+		jeli.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
+		SetInformationJobObject(m_hJob, JobObjectExtendedLimitInformation, &jeli, sizeof(jeli));
+	}
+}
+
+void Win32ApiSystem::deinit()
+{
+	if (m_hJob)
+	{
+		CloseHandle(m_hJob);
+		m_hJob = NULL;
+	}
+}
 
 std::string getUrlFromUpdateType(std::string url)
 {
@@ -130,11 +149,10 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	return true;
 }
 
-int executeCMD(LPSTR lpCommandLine, std::string& output, LPSTR lpCurrentDirectory = nullptr, const std::function<void(const std::string)>& func = nullptr)
+int Win32ApiSystem::executeCMD(const char* lpCommandLine, std::string& output, const char* lpCurrentDirectory, const std::function<void(const std::string)>& func)
 {
 	int ret = -1;
 	output = "";
-
 
 	std::string lineOutput;
 
@@ -172,6 +190,9 @@ int executeCMD(LPSTR lpCommandLine, std::string& output, LPSTR lpCurrentDirector
 			std::wstring directory = lpCurrentDirectory == NULL ? L"" : Utils::String::convertToWideString(lpCurrentDirectory);
 			if (CreateProcessW(NULL, (LPWSTR)commandLineW.c_str(), NULL, NULL, TRUE, CREATE_NEW_CONSOLE, NULL, lpCurrentDirectory == NULL ? NULL : (LPWSTR)directory.c_str(), &si, &pi))
 			{
+				if (m_hJob != nullptr)
+					AssignProcessToJobObject(m_hJob, pi.hProcess);
+
 				unsigned long bread;   //bytes read
 				unsigned long avail;   //bytes available
 				memset(buf, 0, sizeof(buf));
@@ -310,7 +331,7 @@ bool Win32ApiSystem::executeScript(const std::string command)
 	LOG(LogInfo) << "Running " << command;
 
 	std::string output;
-	return executeCMD((char*)command.c_str(), output) == 0;
+	return executeCMD(command.c_str(), output) == 0;
 }
 
 std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string command, const std::function<void(const std::string)>& func)
@@ -330,7 +351,7 @@ std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string comm
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
 
 		std::string output;
-		auto ret = executeCMD((char*)cmd.c_str(), output);
+		auto ret = executeCMD(cmd.c_str(), output);
 		return std::pair<std::string, int>(output, ret);
 	}
 
@@ -365,7 +386,7 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
 
 		std::string output;
-		if (executeCMD((char*)cmd.c_str(), output) == 0)
+		if (executeCMD(cmd.c_str(), output) == 0)
 		{
 			for (std::string all : Utils::String::splitAny(output, "\r\n"))
 				res.push_back(all);
@@ -912,7 +933,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 			esUpdateScript += " -branch " + updatesType;
 
 		std::string output;
-		auto ret = executeCMD((char*)esUpdateScript.c_str(), output, (char*)esUpdateDirectory.c_str(), func);
+		auto ret = executeCMD(esUpdateScript.c_str(), output, esUpdateDirectory.c_str(), func);
 		if (ret != 0)
 		{
 			auto lines = Utils::String::split(Utils::String::replace(output, "\r", ""), '\n', true);
@@ -1051,7 +1072,7 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 			esUpdateScript += " -branch " + updatesType;
 
 		std::string cmdOutput; 
-		auto ret = executeCMD((char*)esUpdateScript.c_str(), cmdOutput, (char*)esUpdateDirectory.c_str());
+		auto ret = executeCMD(esUpdateScript.c_str(), cmdOutput, esUpdateDirectory.c_str());
 		if (ret == 0 && !cmdOutput.empty())
 		{
 			auto lines = Utils::String::split(Utils::String::replace(cmdOutput, "\r", ""), '\n', true);

@@ -680,6 +680,8 @@ int main(int argc, char* argv[])
 	ThreadedHasher::stop();
 	ThreadedScraper::stop();
 
+	ApiSystem::getInstance()->deinit();
+
 	while(window.peekGui() != ViewController::get())
 		delete window.peekGui();
 
@@ -700,6 +702,7 @@ int main(int argc, char* argv[])
 	window.deinit();
 
 	processQuitMode();
+
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
 
 	return 0;
