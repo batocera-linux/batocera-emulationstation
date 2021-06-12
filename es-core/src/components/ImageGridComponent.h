@@ -28,7 +28,13 @@ enum ImageSource
 	THUMBNAIL,
 	IMAGE,
 	MARQUEE,
-	MARQUEEORTEXT
+	MARQUEEORTEXT,
+	FANART,
+	TITLESHOT,
+	BOXART,
+	CARTRIDGE,
+	BOXBACK,
+	MIX
 };
 
 enum CenterSelection
@@ -598,6 +604,18 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 				mImageSource = MARQUEE;
 			else if (direction == "marqueeortext")
 				mImageSource = MARQUEEORTEXT;
+			else if (direction == "fanart")
+				mImageSource = FANART;
+			else if (direction == "titleshot")
+				mImageSource = TITLESHOT;
+			else if (direction == "boxart")
+				mImageSource = BOXART;
+			else if (direction == "cartridge")
+				mImageSource = CARTRIDGE;
+			else if (direction == "boxback")
+				mImageSource = BOXBACK;
+			else if (direction == "mix")
+				mImageSource = MIX;
 			else
 				mImageSource = THUMBNAIL;
 		}
