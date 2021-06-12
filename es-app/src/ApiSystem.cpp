@@ -950,7 +950,7 @@ bool ApiSystem::getBrighness(int& value)
 
 	close(fd);
 
-	value = (uint32_t) (value / (float)max * 100.0f);
+	value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
 	return true;
 #endif
 }
@@ -988,7 +988,7 @@ void ApiSystem::setBrighness(int value)
 	if (fd < 0)
 		return;
 	
-	float percent = value / 100.0f * (float)max;
+	float percent = (value / 100.0f * (float)max) + 0.5f;
 	sprintf(buffer, "%d\n", (uint32_t)percent);
 
 	count = write(fd, buffer, strlen(buffer));
