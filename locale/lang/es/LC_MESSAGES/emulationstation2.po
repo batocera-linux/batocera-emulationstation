@@ -2483,13 +2483,6 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid ""
-#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
-#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
-#~ msgstr ""
-#~ "ACTUALMENTE ESTÁS USANDO LA VERSIÓN: %s\n"
-#~ "¿DESEAS ACTUALIZAR A LA VERSIÓN: %s?"
-
 #~ msgid "GL VENDOR"
 #~ msgstr "GL VENDOR"
 
