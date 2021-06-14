@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -849,7 +849,7 @@ msgstr "SEI SICURO?"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "IN AGGIORNAMENTO %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "AGGIORNAMENTO BATOCERA"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"LA TUA ATTUALE VERSIONE : %s\n"
+"VUOI AGGIORNARE ALLA VERSIONE : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "È NECESSARIA UNA CONNESSIONE DI RETE"
@@ -1135,16 +1137,16 @@ msgstr "ABBAGLIANTE"
 msgid "RGA SCALING"
 msgstr "SCALING RGA"
 
-msgid "GL VENDOR"
-msgstr "PRODUTTORE GL"
+msgid "VENDOR"
+msgstr ""
 
-msgid "GL RENDERER"
-msgstr "RENDERER GL"
+msgid "RENDERER"
+msgstr ""
 
-msgid "GL VERSION"
-msgstr "VERSIONE GL"
+msgid "VERSION"
+msgstr "VERSIONE"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1273,14 +1275,17 @@ msgstr "SI PREGA DI INSERIRE IL CODICE DI SBLOCCO"
 msgid "INFORMATION"
 msgstr "INFORMAZIONI"
 
-msgid "VERSION"
-msgstr "VERSIONE"
-
 msgid "USER DISK USAGE"
 msgstr "UTILIZZO DISCO UTENTE"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "UTILIZZO DISCO DI SISTEMA"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "SVILUPPATORE"
@@ -1411,7 +1416,7 @@ msgstr "ACCEDI ALLE OPZIONI GIOCO CON IL PULSANTE NORD"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
-"Inverti pulsante nord (salv. istant.) & pressione lunga sud (opzioni gioco)"
+"Inverti pulsante NORD (salv. istant.) & pressione lunga SUD (opzioni gioco)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "UTILIZZO DI ES SOLO PER IL PRIMO CONTROLLER"
@@ -1460,9 +1465,6 @@ msgstr "INIZIA AGGIORNAMENTO"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "L'AGGIORNAMENTO È GIÀ IN ESECUZIONE"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
 
 msgid "LANGUAGE"
 msgstr "LINGUA"
@@ -2477,6 +2479,18 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "PRODUTTORE GL"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "RENDERER GL"
+
+#~ msgid "GL VERSION"
+#~ msgstr "VERSIONE GL"
+
+#~ msgid "GLSL VERSION"
+#~ msgstr "VERSIONE GLSL"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "AGGIORNAMENTO EMULATIONSTATOIN"

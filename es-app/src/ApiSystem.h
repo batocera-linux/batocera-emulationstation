@@ -101,6 +101,7 @@ public:
 	virtual bool isScriptingSupported(ScriptId script);
 
     static ApiSystem* getInstance();
+	virtual void deinit() { };
 
     virtual unsigned long getFreeSpaceGB(std::string mountpoint);
 
@@ -221,7 +222,7 @@ public:
 protected:
 	ApiSystem();
 
-	virtual bool executeScript(const std::string command);	
+	virtual bool executeScript(const std::string command);  
 	virtual std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func);
 	virtual std::vector<std::string> executeEnumerationScript(const std::string command);
 	

@@ -79,10 +79,10 @@
 #define fake_gettext_flatten_glow	_("FLATTEN-GLOW")
 #define fake_gettext_rgascaling		_("RGA SCALING")
 
-#define fake_gettext_glvendor		_("GL VENDOR")
-#define fake_gettext_glvrenderer	_("GL RENDERER")
-#define fake_gettext_glversion		_("GL VERSION")
-#define fake_gettext_glslversion	_("GLSL VERSION")
+#define fake_gettext_glvendor		_("VENDOR")
+#define fake_gettext_glvrenderer	_("RENDERER")
+#define fake_gettext_glversion		_("VERSION")
+#define fake_gettext_glslversion	_("SHADERS")
 
 GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
@@ -1015,6 +1015,8 @@ void GuiMenu::openSystemInformations_batocera()
 	bool isFullUI = UIModeController::getInstance()->isUIModeFull();
 	GuiSettings *informationsGui = new GuiSettings(window, _("INFORMATION").c_str());
 
+	informationsGui->addGroup(_("INFORMATIONS"));
+
 	auto version = std::make_shared<TextComponent>(window, ApiSystem::getInstance()->getVersion(), font, color);
 	informationsGui->addWithLabel(_("VERSION"), version);
 
@@ -1033,11 +1035,7 @@ void GuiMenu::openSystemInformations_batocera()
 	informationsGui->addWithLabel(_("SYSTEM DISK USAGE"), systemspace);
 #endif
 	
-	for (auto info : Renderer::getDriverInformation())
-	{
-		auto glversion = std::make_shared<TextComponent>(window, info.second, font, color);
-		informationsGui->addWithLabel(_(info.first.c_str()), glversion);
-	}
+	informationsGui->addGroup(_("SYSTEM"));
 
 	// various informations
 	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
@@ -1060,6 +1058,13 @@ void GuiMenu::openSystemInformations_batocera()
 		}
 	}
 	
+	informationsGui->addGroup(_("VIDEO DRIVER"));
+	for (auto info : Renderer::getDriverInformation())
+	{
+		auto glversion = std::make_shared<TextComponent>(window, info.second, font, color);
+		informationsGui->addWithLabel(_(info.first.c_str()), glversion);
+	}
+
 	window->pushGui(informationsGui);
 }
 

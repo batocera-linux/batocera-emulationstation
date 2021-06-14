@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1130,16 +1130,16 @@ msgstr ""
 msgid "RGA SCALING"
 msgstr ""
 
-msgid "GL VENDOR"
+msgid "VENDOR"
 msgstr ""
 
-msgid "GL RENDERER"
+msgid "RENDERER"
 msgstr ""
 
-msgid "GL VERSION"
-msgstr ""
+msgid "VERSION"
+msgstr "VERSJON"
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1268,13 +1268,16 @@ msgstr ""
 msgid "INFORMATION"
 msgstr ""
 
-msgid "VERSION"
-msgstr "VERSJON"
-
 msgid "USER DISK USAGE"
 msgstr ""
 
 msgid "SYSTEM DISK USAGE"
+msgstr ""
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "VIDEO DRIVER"
 msgstr ""
 
 msgid "DEVELOPER"
@@ -1454,9 +1457,6 @@ msgstr "START OPPDATERING"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr ""
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
 
 msgid "LANGUAGE"
 msgstr "SPRÅK"

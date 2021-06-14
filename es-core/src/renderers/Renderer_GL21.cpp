@@ -84,17 +84,19 @@ namespace Renderer
 	{
 		std::vector<std::pair<std::string, std::string>> info;
 
+		info.push_back(std::pair<std::string, std::string>("GRAPHICS API", "DESKTOP OPENGL 2.1"));
+
 		const std::string vendor = glGetString(GL_VENDOR) ? (const char*)glGetString(GL_VENDOR) : "";
 		if (!vendor.empty())
-			info.push_back(std::pair<std::string, std::string>("GL VENDOR", vendor));
+			info.push_back(std::pair<std::string, std::string>("VENDOR", vendor));
 
 		const std::string renderer = glGetString(GL_RENDERER) ? (const char*)glGetString(GL_RENDERER) : "";
 		if (!renderer.empty())
-			info.push_back(std::pair<std::string, std::string>("GL RENDERER", renderer));
+			info.push_back(std::pair<std::string, std::string>("RENDERER", renderer));
 
 		const std::string version = glGetString(GL_VERSION) ? (const char*)glGetString(GL_VERSION) : "";
 		if (!version.empty())
-			info.push_back(std::pair<std::string, std::string>("GL VERSION", version));
+			info.push_back(std::pair<std::string, std::string>("VERSION", version));
 
 		return info;
 	}

@@ -48,4 +48,6 @@ std::string queryIPAdress();
 #ifdef _ENABLEEMUELEC
 std::string getShOutput(const std::string& mStr); /* < emuelec */
 #endif
+std::string getArchString();
+
 #endif // ES_CORE_PLATFORM_H

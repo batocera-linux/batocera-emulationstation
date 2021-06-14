@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:07+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1135,17 +1135,17 @@ msgstr "APPLATI ET BRILLANT"
 msgid "RGA SCALING"
 msgstr "RGA SCALING"
 
-msgid "GL VENDOR"
-msgstr "GL VENDOR"
+msgid "VENDOR"
+msgstr ""
 
-msgid "GL RENDERER"
-msgstr "GL RENDERER"
+msgid "RENDERER"
+msgstr ""
 
-msgid "GL VERSION"
-msgstr "GL VERSION"
+msgid "VERSION"
+msgstr "VERSION"
 
-msgid "GLSL VERSION"
-msgstr "VERSION GLSL"
+msgid "SHADERS"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1273,14 +1273,17 @@ msgstr "VEUILLEZ ENTRER LE CODE DE DÉVERROUILLAGE"
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
 
-msgid "VERSION"
-msgstr "VERSION"
-
 msgid "USER DISK USAGE"
 msgstr "DISQUE UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "DISQUE SYSTÈME"
+
+msgid "SYSTEM"
+msgstr "SYSTÈME"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -1461,9 +1464,6 @@ msgstr "LANCER LA MISE À JOUR"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "LA MISE À JOUR EST DÉJÀ EN COURS"
-
-msgid "SYSTEM"
-msgstr "SYSTÈME"
 
 msgid "LANGUAGE"
 msgstr "LANGUE"
@@ -2481,3 +2481,15 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "GL VENDOR"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "GL RENDERER"
+
+#~ msgid "GL VERSION"
+#~ msgstr "GL VERSION"
+
+#~ msgid "GLSL VERSION"
+#~ msgstr "VERSION GLSL"

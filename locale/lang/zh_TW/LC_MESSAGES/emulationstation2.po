@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:07+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1135,17 +1135,17 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA 縮放"
 
-msgid "GL VENDOR"
-msgstr "GL 提供者"
+msgid "VENDOR"
+msgstr ""
 
-msgid "GL RENDERER"
-msgstr "GL 渲染器"
+msgid "RENDERER"
+msgstr ""
 
-msgid "GL VERSION"
-msgstr "GL 版本"
+msgid "VERSION"
+msgstr "版本"
 
-msgid "GLSL VERSION"
-msgstr "GLSL 版本"
+msgid "SHADERS"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "主選單"
@@ -1273,14 +1273,17 @@ msgstr "請輸入代碼來解鎖目前的 UI 模式"
 msgid "INFORMATION"
 msgstr "系統資訊"
 
-msgid "VERSION"
-msgstr "版本"
-
 msgid "USER DISK USAGE"
 msgstr "使用者磁碟用量"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "系統磁碟用量"
+
+msgid "SYSTEM"
+msgstr "遊戲平台"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "開發者選項"
@@ -1459,9 +1462,6 @@ msgstr "開始更新"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "更新已經在進行了"
-
-msgid "SYSTEM"
-msgstr "遊戲平台"
 
 msgid "LANGUAGE"
 msgstr "語言"
@@ -2458,6 +2458,18 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "GL 提供者"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "GL 渲染器"
+
+#~ msgid "GL VERSION"
+#~ msgstr "GL 版本"
+
+#~ msgid "GLSL VERSION"
+#~ msgstr "GLSL 版本"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "正在更新 EMULATIONSTATION"

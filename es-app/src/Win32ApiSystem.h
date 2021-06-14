@@ -5,7 +5,11 @@
 
 class Win32ApiSystem : public ApiSystem
 {
-public:
+public:	
+	Win32ApiSystem();
+	
+	virtual void deinit();
+
 	bool isScriptingSupported(ScriptId script) override;
 	std::string getVersion() override;
 	std::string getApplicationName() override;
@@ -48,12 +52,18 @@ public:
 	virtual std::string getHostsName() override;
 
 protected:
+
 	bool executeScript(const std::string command) override;
 	std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func) override;
 	std::vector<std::string> executeEnumerationScript(const std::string command) override;
 
 private:
 	void updateEmulatorLauncher(const std::function<void(const std::string)>& func);
+	void installEmulationStationZip(const std::string& zipFile);
+
+	int executeCMD(const char* lpCommandLine, std::string& output, const char* lpCurrentDirectory = nullptr, const std::function<void(const std::string)>& func = nullptr);
+
+	void* m_hJob;
 };
 
 

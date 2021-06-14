@@ -36,7 +36,10 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	if (Utils::FileSystem::exists(themeFilePath))
 	{
 		std::map<std::string, std::string> sysData;
-		theme->loadFile("splash", sysData, themeFilePath);
+
+		try { theme->loadFile("splash", sysData, themeFilePath); }
+		catch(...) { }
+		
 		useOldSplashLayout = false;
 	}
 

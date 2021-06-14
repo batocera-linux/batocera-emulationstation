@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:07+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1135,16 +1135,16 @@ msgstr ""
 msgid "RGA SCALING"
 msgstr ""
 
-msgid "GL VENDOR"
+msgid "VENDOR"
 msgstr ""
 
-msgid "GL RENDERER"
+msgid "RENDERER"
 msgstr ""
 
-msgid "GL VERSION"
+msgid "VERSION"
 msgstr ""
 
-msgid "GLSL VERSION"
+msgid "SHADERS"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -1273,13 +1273,16 @@ msgstr ""
 msgid "INFORMATION"
 msgstr ""
 
-msgid "VERSION"
-msgstr ""
-
 msgid "USER DISK USAGE"
 msgstr ""
 
 msgid "SYSTEM DISK USAGE"
+msgstr ""
+
+msgid "SYSTEM"
+msgstr ""
+
+msgid "VIDEO DRIVER"
 msgstr ""
 
 msgid "DEVELOPER"
@@ -1458,9 +1461,6 @@ msgid "START UPDATE"
 msgstr ""
 
 msgid "UPDATE IS ALREADY RUNNING"
-msgstr ""
-
-msgid "SYSTEM"
 msgstr ""
 
 msgid "LANGUAGE"

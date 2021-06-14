@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v31beta(2021/06/04)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:07+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: 2021-06-06 00:24+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -868,7 +868,7 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
-"現在バージョン %s を使用しています\r\n"
+"現在バージョン %s を使用しています\n"
 "バージョン %s に更新しますか?"
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1137,17 +1137,17 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGAスケーリング"
 
-msgid "GL VENDOR"
-msgstr "GL ベンダー"
+msgid "VENDOR"
+msgstr ""
 
-msgid "GL RENDERER"
-msgstr "GL レンダラー"
+msgid "RENDERER"
+msgstr ""
 
-msgid "GL VERSION"
-msgstr "GL バージョン"
+msgid "VERSION"
+msgstr "バージョン"
 
-msgid "GLSL VERSION"
-msgstr "GLSL バージョン"
+msgid "SHADERS"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -1275,14 +1275,17 @@ msgstr "ロックを解除するには、ボタンを順に入力してくださ
 msgid "INFORMATION"
 msgstr "情報"
 
-msgid "VERSION"
-msgstr "バージョン"
-
 msgid "USER DISK USAGE"
 msgstr "データ使用量/容量"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "システムデータ使用量/容量"
+
+msgid "SYSTEM"
+msgstr "システム"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "DEVELOPER"
 msgstr "その他の設定"
@@ -1464,9 +1467,6 @@ msgstr "更新 開始"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "更新は既に実行中です"
-
-msgid "SYSTEM"
-msgstr "システム"
 
 msgid "LANGUAGE"
 msgstr "言語"
@@ -2469,6 +2469,18 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "GL ベンダー"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "GL レンダラー"
+
+#~ msgid "GL VERSION"
+#~ msgstr "GL バージョン"
+
+#~ msgid "GLSL VERSION"
+#~ msgstr "GLSL バージョン"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "エミュレーションステーションの更新"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-05 21:02+0200\n"
+"POT-Creation-Date: 2021-06-07 13:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 
 msgid "UPDATE AVAILABLE"
@@ -155,16 +155,16 @@ msgid "enter game genre"
 msgstr "oyun türünü girin"
 
 msgid "Game family"
-msgstr ""
+msgstr "Oyun ailesi"
 
 msgid "enter game family"
-msgstr ""
+msgstr "oyun ailesine giriş"
 
 msgid "Genres"
-msgstr ""
+msgstr "Türler"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "oyun türlerine giriş"
 
 msgid "Arcade system"
 msgstr "Atari sistemi"
@@ -458,7 +458,7 @@ msgid "AUTOMATIC COLLECTIONS"
 msgstr "OTOMATİK KOLEKSİYONLAR"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "TÜR BAŞINA"
 
 msgid "ARCADE SYSTEMS"
 msgstr "ATARİ SİSTEMLERİ"
@@ -849,7 +849,7 @@ msgstr "EMİN MİSİN ?"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "GÜNCELLENİYOR %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "BATOCERA GÜNCELLENİYOR"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"ŞU ANKİ KULLANDIĞINIZ SÜRÜM : %s\n"
+"GÜNCELLENECEK SÜRÜM :%s YÜLSELTİLSİN Mİ ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "AĞ BAĞLANTISI GEREKİYOR"
@@ -1135,17 +1137,17 @@ msgstr "FLATTEN-GLOW"
 msgid "RGA SCALING"
 msgstr "RGA ÖLÇEKLENDİRME"
 
-msgid "GL VENDOR"
-msgstr "GL YAPIMCI"
+msgid "VENDOR"
+msgstr "YAPIMCI"
 
-msgid "GL RENDERER"
-msgstr "GL OLUŞTURUCU"
+msgid "RENDERER"
+msgstr "İŞLEYİCİ"
 
-msgid "GL VERSION"
-msgstr "GL VERSİYONU"
+msgid "VERSION"
+msgstr "SÜRÜM"
 
-msgid "GLSL VERSION"
-msgstr ""
+msgid "SHADERS"
+msgstr "GÖLGELENDİRMELER"
 
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
@@ -1273,14 +1275,17 @@ msgstr "ARAYÜZ MODUNU AÇMAK İÇİN KODU GİRİNİZ"
 msgid "INFORMATION"
 msgstr "BİLGİ"
 
-msgid "VERSION"
-msgstr "SÜRÜM"
-
 msgid "USER DISK USAGE"
 msgstr "KULLANICI DİSK KULLANIMI"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "SİSTEM DİSK KULLANIMI"
+
+msgid "SYSTEM"
+msgstr "SİSTEM"
+
+msgid "VIDEO DRIVER"
+msgstr "VİDEO SÜRÜCÜSÜ"
 
 msgid "DEVELOPER"
 msgstr "GELİŞTİRİCİ"
@@ -1311,7 +1316,7 @@ msgstr "WEB ERİŞİMİNE AÇ"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Açık web erişimine %s API kullanarak izin ver"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
@@ -1462,9 +1467,6 @@ msgstr "GÜNCELLE"
 
 msgid "UPDATE IS ALREADY RUNNING"
 msgstr "GÜNCELLEME ZATEN ÇALIŞIYOR"
-
-msgid "SYSTEM"
-msgstr "SİSTEM"
 
 msgid "LANGUAGE"
 msgstr "DİL"
@@ -1979,7 +1981,7 @@ msgid "EDIT METADATA"
 msgstr "METADATA DÜZENLE"
 
 msgid "GENRES"
-msgstr ""
+msgstr "TÜRLER"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2251,7 +2253,7 @@ msgid "GENRE"
 msgstr "TÜR"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "AİLE"
 
 msgid "PLAYERS"
 msgstr "OYUNCULAR"
@@ -2477,6 +2479,15 @@ msgstr "%d d"
 #, c-format
 msgid "%d s"
 msgstr "%d sn"
+
+#~ msgid "GL VENDOR"
+#~ msgstr "GL YAPIMCI"
+
+#~ msgid "GL RENDERER"
+#~ msgstr "GL OLUŞTURUCU"
+
+#~ msgid "GL VERSION"
+#~ msgstr "GL VERSİYONU"
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "EMULATIONSTATION GÜNCELLENİYOR"
