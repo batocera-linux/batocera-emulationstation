@@ -849,7 +849,7 @@ msgstr "TEM A CERTEZA ?"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr ""
+msgstr "A ATUALIZAR %s"
 
 msgid "UPDATING BATOCERA"
 msgstr "A ATUALIZAR O BATOCERA"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
+"ESTÁS A UTILIZAR A VERSÃO : %s\n"
+"DESEJAS ATUALIZAR PARA A VERSÃO : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NECESSÁRIO CONECÇÃO A INTERNET"
@@ -1136,16 +1138,16 @@ msgid "RGA SCALING"
 msgstr "ESCALA RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "FABRICANTE"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERIZADOR"
 
 msgid "VERSION"
 msgstr "VERSÃO"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SHADERS"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1283,7 +1285,7 @@ msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "DRIVER DE VÍDEO"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLVEDOR"
@@ -2473,14 +2475,3 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "GL VENDOR"
-#~ msgstr "FABRICANTE DA GPU"
-
-#~ msgid "GL RENDERER"
-#~ msgstr "RENDERIZADOR DA GPU"
-
-#~ msgid "GL VERSION"
-#~ msgstr "VERSÃO DA GPU"
-
-#~ msgid "UPDATING EMULATIONSTATION"
-#~ msgstr "A ATUALIZAR EMULATIONSTATION"
