@@ -216,12 +216,12 @@ template<typename T>
 void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool cheevos, bool folder, bool virtualFolder, const T& obj)
 {
 	// If file system is not yet cached, it will introduce lags later ( during animations mainly ). Manage it now.
-	if (mEntries.size() < 16)
+	/*if (mEntries.size() < 16)
 	{
 		Utils::FileSystem::exists(imagePath);
 		Utils::FileSystem::exists(videoPath);
 		Utils::FileSystem::exists(marqueePath);
-	}
+	}*/
 
 	typename IList<ImageGridData, T>::Entry entry;
 	entry.name = name;
