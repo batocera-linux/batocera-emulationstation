@@ -522,6 +522,18 @@ void CarouselComponent::getCarouselFromTheme(const ThemeData::ThemeElement* elem
 			mImageSource = IMAGE;
 		else if (direction == "marquee")
 			mImageSource = MARQUEE;
+		else if (direction == "fanart")
+			mImageSource = FANART;
+		else if (direction == "titleshot")
+			mImageSource = TITLESHOT;
+		else if (direction == "boxart")
+			mImageSource = BOXART;
+		else if (direction == "cartridge")
+			mImageSource = CARTRIDGE;
+		else if (direction == "boxback")
+			mImageSource = BOXBACK;
+		else if (direction == "mix")
+			mImageSource = MIX;
 		else
 			mImageSource = THUMBNAIL;
 	}
@@ -602,10 +614,22 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 
 	std::string marqueePath;
 
-	if (mImageSource == IMAGE)
-		marqueePath = entry.object->getImagePath();
-	else if (mImageSource == THUMBNAIL)
+	if (mImageSource == TITLESHOT && !entry.object->getMetadata(MetaDataId::TitleShot).empty())
+		marqueePath = entry.object->getMetadata(MetaDataId::TitleShot);
+	else if (mImageSource == BOXART && !entry.object->getMetadata(MetaDataId::BoxArt).empty())
+		marqueePath = entry.object->getMetadata(MetaDataId::BoxArt);
+	else if (mImageSource == MARQUEE && !entry.object->getMarqueePath().empty())
+		marqueePath = entry.object->getMarqueePath();
+	else if ((mImageSource == THUMBNAIL || mImageSource == BOXART) && !entry.object->getThumbnailPath().empty())
 		marqueePath = entry.object->getThumbnailPath();
+	else if ((mImageSource == IMAGE || mImageSource == TITLESHOT) && !entry.object->getImagePath().empty())
+		marqueePath = entry.object->getImagePath();
+	else if (mImageSource == FANART && !entry.object->getMetadata(MetaDataId::FanArt).empty())
+		marqueePath = entry.object->getMetadata(MetaDataId::FanArt);
+	else if (mImageSource == CARTRIDGE && !entry.object->getMetadata(MetaDataId::Cartridge).empty())
+		marqueePath = entry.object->getMetadata(MetaDataId::Cartridge);
+	else if (mImageSource == MIX && !entry.object->getMetadata(MetaDataId::Mix).empty())
+		marqueePath = entry.object->getMetadata(MetaDataId::Mix);
 	else
 		marqueePath = entry.object->getMarqueePath();
 
