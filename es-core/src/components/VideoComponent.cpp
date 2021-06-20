@@ -308,6 +308,18 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			mConfig.snapshotSource = IMAGE;
 		else if (direction == "marquee")
 			mConfig.snapshotSource = MARQUEE;
+		else if (direction == "fanart")
+			mConfig.snapshotSource = FANART;
+		else if (direction == "titleshot")
+			mConfig.snapshotSource = TITLESHOT;
+		else if (direction == "boxart")
+			mConfig.snapshotSource = BOXART;
+		else if (direction == "cartridge")
+			mConfig.snapshotSource = CARTRIDGE;
+		else if (direction == "boxback")
+			mConfig.snapshotSource = BOXBACK;
+		else if (direction == "mix")
+			mConfig.snapshotSource = MIX;
 		else
 			mConfig.snapshotSource = THUMBNAIL;
 	}

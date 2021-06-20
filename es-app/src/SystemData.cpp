@@ -1488,8 +1488,13 @@ std::string SystemData::getConfigPath(bool forWrite)
 
 bool SystemData::isVisible()
 {
-	if (mIsCollectionSystem && (mMetadata.name == "favorites" || UIModeController::getInstance()->isUIModeFull()))
+	if (mIsCollectionSystem)
+	{
+		if (mMetadata.name != "favorites" && !UIModeController::getInstance()->isUIModeFull() && getGameCountInfo()->totalGames == 0)
+			return false;
+
 		return true;
+	}
 
 	if (isGroupChildSystem())
 		return false;

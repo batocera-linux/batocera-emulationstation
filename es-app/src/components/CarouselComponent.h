@@ -76,7 +76,13 @@ private:
 		TEXT,
 		THUMBNAIL,
 		IMAGE,
-		MARQUEE
+		MARQUEE,
+		FANART,
+		TITLESHOT,
+		BOXART,
+		CARTRIDGE,
+		BOXBACK,
+		MIX
 	};
 
 	enum CarouselType : unsigned int
