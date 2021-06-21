@@ -58,7 +58,7 @@ namespace Renderer
 				SDL_FreeSurface(logoSurface);
 			}
 
-			delete rawData;
+			delete[] rawData;
 		}
 
 	} // setIcon
