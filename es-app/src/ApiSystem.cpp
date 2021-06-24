@@ -544,6 +544,16 @@ bool ApiSystem::setStorage(std::string selected)
 	return executeScript("batocera-config storage " + selected);
 }
 
+bool ApiSystem::setButtonColorGameForce(std::string selected)
+{
+	return executeScript("batocera-gameforce buttonColorLed " + selected);
+}
+
+bool ApiSystem::setPowerLedGameForce(std::string selected)
+{
+	return executeScript("batocera-gameforce powerLed " + selected);
+}
+
 bool ApiSystem::forgetBluetoothControllers() 
 {
 	return executeScript("batocera-config forgetBT");
