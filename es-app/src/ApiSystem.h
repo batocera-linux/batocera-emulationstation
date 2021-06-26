@@ -160,6 +160,10 @@ public:
 
     bool setStorage(std::string basic_string);
 
+	bool setButtonColorGameForce(std::string basic_string);
+
+	bool setPowerLedGameForce(std::string basic_string);
+
     bool forgetBluetoothControllers();
 
     /* audio card */

@@ -431,6 +431,10 @@ std::string getArchString()
 	return "odroidgoa";
 #endif
 
+#if GAMEFORCE
+	return "gameforce";
+#endif
+
 #if ODROIDXU4
 	return "odroidxu4";
 #endif
