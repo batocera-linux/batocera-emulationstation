@@ -1068,10 +1068,21 @@ void GuiMenu::openUpdatesSettings()
 			if (!checkNetwork())
 				return;
 
-			mWindow->pushGui(new GuiBatoceraStore(mWindow));
+			mWindow->pushGui(new GuiBatoceraStore(mWindow, ("CONTENT DOWNLOADER"), ("SELECT CONTENT TO INSTALL / REMOVE")));
 		});
 	}
 
+    // RetroLX integration with RetroLX Pacman packages
+    if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROLXPACMAN))
+    {
+        updateGui->addEntry(_("SYSTEM PACKAGES"), true, [this]
+        {
+            if (!checkNetwork())
+                return;
+
+            mWindow->pushGui(new GuiBatoceraStore(mWindow, ("SYSTEM PACKAGES"), ("SELECT PACKAGES TO INSTALL / REMOVE")));
+        });
+    }
 	// Batocera themes installer/browser
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEMESDOWNLOADER))
 	{

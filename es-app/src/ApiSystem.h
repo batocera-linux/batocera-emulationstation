@@ -95,7 +95,8 @@ public:
 		EVMAPY = 14,
 		THEMESDOWNLOADER = 15,
 		THEBEZELPROJECT = 16,
-		PADSINFO = 17
+		PADSINFO = 17,
+        RETROLXPACMAN = 18
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);

@@ -21,7 +21,7 @@
 
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.95f)
 
-GuiBatoceraStore::GuiBatoceraStore(Window* window)
+GuiBatoceraStore::GuiBatoceraStore(Window* window, const std::string& title, const std::string& subtitle)
 	: GuiComponent(window), mGrid(window, Vector2i(1, 4)), mBackground(window, ":/frame.png")
 {
 	mReloadList = 1;
@@ -39,8 +39,8 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 	// Title
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("CONTENT DOWNLOADER"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
-	mSubtitle = std::make_shared<TextComponent>(mWindow, _("SELECT CONTENT TO INSTALL / REMOVE"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, _(title.c_str()), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
+	mSubtitle = std::make_shared<TextComponent>(mWindow, _(subtitle.c_str()), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 

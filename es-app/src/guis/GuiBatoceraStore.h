@@ -34,7 +34,7 @@ private:
 class GuiBatoceraStore : public GuiComponent, IContentInstalledNotify
 {
 public:
-	GuiBatoceraStore(Window* window);
+	GuiBatoceraStore(Window* window, const std::string& title, const std::string& subtitle);
 	~GuiBatoceraStore();
 
 	bool input(InputConfig* config, Input input) override;
