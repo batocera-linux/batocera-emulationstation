@@ -233,7 +233,7 @@ msgid "Region"
 msgstr "リージョン"
 
 msgid "Cheevos Hash"
-msgstr "Cheevos　ハッシュ"
+msgstr "Cheevos ハッシュ"
 
 msgid "Cheevos checksum"
 msgstr "Cheevos チェックサム"
