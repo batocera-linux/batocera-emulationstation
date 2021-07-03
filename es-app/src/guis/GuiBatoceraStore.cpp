@@ -21,7 +21,7 @@
 
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.95f)
 
-GuiBatoceraStore::GuiBatoceraStore(Window* window, const std::string& title, const std::string& subtitle)
+GuiBatoceraStore::GuiBatoceraStore(Window* window, const std::string& title, const std::string& subtitle, const std::string& script)
 	: GuiComponent(window), mGrid(window, Vector2i(1, 4)), mBackground(window, ":/frame.png")
 {
 	mReloadList = 1;
@@ -73,6 +73,8 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window, const std::string& title, con
 
 	mArchitecture = ApiSystem::getInstance()->getRunningArchitecture();
 
+	mScript = script;
+
 	centerWindow();
 
 	ContentInstaller::RegisterNotify(this);
@@ -103,7 +105,7 @@ void GuiBatoceraStore::update(int deltaTime)
 		if (silent)
 		{
 			if (refreshPackages)
-				mPackages = queryPackages();
+				mPackages = queryPackages(mScript);
 
 			if (!restoreIndex)
 				mWindow->postToUiThread([this]() { loadList(false, false); });
@@ -243,10 +245,10 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 	mReloadList = 0;
 }
 
-std::vector<PacmanPackage> GuiBatoceraStore::queryPackages()
+std::vector<PacmanPackage> GuiBatoceraStore::queryPackages(std::string script)
 {
 	auto systemNames = SystemData::getKnownSystemNames();
-	auto packages = ApiSystem::getInstance()->getBatoceraStorePackages();
+	auto packages = ApiSystem::getInstance()->getPackages(script);
 
 	std::vector<PacmanPackage> copy;
 	for (auto& package : packages)
@@ -285,11 +287,11 @@ void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList, bool refreshOnl
 		{	
 			if (updatePackageList)
 				if (refreshOnly)
-					ApiSystem::getInstance()->refreshBatoceraStorePackageList();
+					ApiSystem::getInstance()->refreshPackageList(mScript);
 				else
-					ApiSystem::getInstance()->updateBatoceraStorePackageList();
+					ApiSystem::getInstance()->updatePackageList(mScript);
 
-			return queryPackages();
+			return queryPackages(mScript);
 		},
 		[this, updatePackageList](std::vector<PacmanPackage> packages)
 		{		

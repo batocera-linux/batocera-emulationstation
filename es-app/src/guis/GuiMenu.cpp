@@ -1068,7 +1068,7 @@ void GuiMenu::openUpdatesSettings()
 			if (!checkNetwork())
 				return;
 
-			mWindow->pushGui(new GuiBatoceraStore(mWindow, ("CONTENT DOWNLOADER"), ("SELECT CONTENT TO INSTALL / REMOVE")));
+			mWindow->pushGui(new GuiBatoceraStore(mWindow, ("CONTENT DOWNLOADER"), ("SELECT CONTENT TO INSTALL / REMOVE"), "batocera-store"));
 		});
 	}
 
@@ -1080,7 +1080,7 @@ void GuiMenu::openUpdatesSettings()
             if (!checkNetwork())
                 return;
 
-            mWindow->pushGui(new GuiBatoceraStore(mWindow, ("SYSTEM PACKAGES"), ("SELECT PACKAGES TO INSTALL / REMOVE")));
+            mWindow->pushGui(new GuiBatoceraStore(mWindow, ("SYSTEM PACKAGES"), ("SELECT PACKAGES TO INSTALL / REMOVE"), "retrolx-pacman"));
         });
     }
 	// Batocera themes installer/browser

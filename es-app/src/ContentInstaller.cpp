@@ -203,7 +203,7 @@ void ContentInstaller::threadUpdate()
 		}
 		else if (data.first == ContentType::CONTENT_STORE_INSTALL)
 		{
-			updateStatus = ApiSystem::getInstance()->installBatoceraStorePackage(data.second, [this](const std::string info)
+			updateStatus = ApiSystem::getInstance()->installPackage("batocera-store", data.second, [this](const std::string info)
 			{
 				updateNotificationComponentContent(info);
 			});
@@ -221,7 +221,7 @@ void ContentInstaller::threadUpdate()
 		}
 		else if (data.first == ContentType::CONTENT_STORE_UNINSTALL)
 		{
-			updateStatus = ApiSystem::getInstance()->uninstallBatoceraStorePackage(data.second, [this](const std::string info)
+			updateStatus = ApiSystem::getInstance()->uninstallPackage("batocera-store", data.second, [this](const std::string info)
 			{
 				updateNotificationComponentContent(info);
 			});
