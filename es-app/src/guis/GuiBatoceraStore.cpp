@@ -320,7 +320,8 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), package.name.c_str()); // batocera
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
-			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_INSTALL, package.name);
+            ContentInstaller::ContentType type = !package.arch.empty() && package.arch != "any" ? ContentInstaller::CONTENT_PACKAGE_INSTALL : ContentInstaller::CONTENT_STORE_INSTALL;
+			ContentInstaller::Enqueue(mWindow, type, package.name);
 			mReloadList = 2;
 
 			msgBox->close();
@@ -330,7 +331,8 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 		{
 			mWindow->displayNotificationMessage(_U("\uF014 ") + _("UNINSTALL ADDED TO QUEUE"));
 
-			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_UNINSTALL, package.name);			
+            ContentInstaller::ContentType type = !package.arch.empty() && package.arch != "any" ? ContentInstaller::CONTENT_PACKAGE_INSTALL : ContentInstaller::CONTENT_STORE_INSTALL;
+			ContentInstaller::Enqueue(mWindow, type, package.name);
 			mReloadList = 2;
 
 			msgBox->close();

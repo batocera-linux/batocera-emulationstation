@@ -237,6 +237,42 @@ void ContentInstaller::threadUpdate()
 				mWindow->displayNotificationMessage(ICONINDEX + error);
 			}
 		}
+        else if (data.first == ContentType::CONTENT_PACKAGE_INSTALL)
+        {
+            updateStatus = ApiSystem::getInstance()->installPackage("retrolx-pacman", data.second, [this](const std::string info)
+            {
+                updateNotificationComponentContent(info);
+            });
+
+            if (updateStatus.second == 0)
+            {
+                success = true;
+                mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("PACKAGE INSTALLED SUCCESSFULLY"));
+            }
+            else
+            {
+                std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+                mWindow->displayNotificationMessage(ICONINDEX + error);
+            }
+        }
+        else if (data.first == ContentType::CONTENT_PACKAGE_UNINSTALL)
+        {
+            updateStatus = ApiSystem::getInstance()->uninstallPackage("retrolx-pacman", data.second, [this](const std::string info)
+            {
+                updateNotificationComponentContent(info);
+            });
+
+            if (updateStatus.second == 0)
+            {
+                success = true;
+                mWindow->displayNotificationMessage(ICONINDEX + data.second + " : " + _("PACKAGE REMOVED SUCCESSFULLY"));
+            }
+            else
+            {
+                std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+                mWindow->displayNotificationMessage(ICONINDEX + error);
+            }
+        }
 
 		OnContentInstalled(data.first, data.second, success);
 
