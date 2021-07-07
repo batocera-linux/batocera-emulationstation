@@ -706,7 +706,7 @@ msgid "start & end"
 msgstr "開始 & 結束"
 
 msgid "never"
-msgstr "不要"
+msgstr "從未"
 
 msgid "none"
 msgstr "沒有"
