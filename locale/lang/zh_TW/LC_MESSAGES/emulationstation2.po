@@ -641,7 +641,7 @@ msgid "SCREENSHOTS FOLDER"
 msgstr "螢幕截圖資料夾"
 
 msgid "SELECT"
-msgstr "確定"
+msgstr "選擇"
 
 msgid "ADD COMBINATION KEY"
 msgstr "新增組合按鍵"
@@ -706,7 +706,7 @@ msgid "start & end"
 msgstr "開始 & 結束"
 
 msgid "never"
-msgstr "不要"
+msgstr "從未"
 
 msgid "none"
 msgstr "沒有"
