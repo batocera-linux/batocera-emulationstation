@@ -1139,16 +1139,16 @@ msgid "RGA SCALING"
 msgstr "RGA СКАЛИРОВАНИЕ"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "ПРОИЗВОДИТЕЛЬ"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "РЕНДЕР"
 
 msgid "VERSION"
 msgstr "ВЕРСИЯ"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "ШЕЙДЕРЫ"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -1286,7 +1286,7 @@ msgid "SYSTEM"
 msgstr "СИСТЕМА"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "ВИДЕО ДРАЙВЕР"
 
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
@@ -1416,8 +1416,7 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr ""
-"Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
+msgstr "Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
