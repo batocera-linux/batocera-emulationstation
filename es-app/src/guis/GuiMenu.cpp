@@ -1371,7 +1371,7 @@ void GuiMenu::openSystemSettings_batocera()
 		{
 			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
 
-			if (selectedAudio == (*it))
+			if (selectedAudio == tokens.at(0))
 				vfound = true;
 
 			if (tokens.size() >= 2)
@@ -1383,10 +1383,10 @@ void GuiMenu::openSystemSettings_batocera()
 					if (i > 2) vname += " ";
 					vname += tokens.at(i);
 				}
-				optionsAudio->add(vname, (*it), selectedAudio == (*it));
+				optionsAudio->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
 			}
 			else
-				optionsAudio->add((*it), (*it), selectedAudio == (*it));
+				optionsAudio->add((*it), (*it), selectedAudio == tokens.at(0));
 		}
 
 		if (vfound == false)
