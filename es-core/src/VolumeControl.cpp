@@ -8,7 +8,7 @@
 #include <mmdeviceapi.h>
 #endif
 
-#if defined(__linux__)
+#ifdef _ENABLE_PULSE_
 #include <thread>
 #include <condition_variable>
 #include <pulse/pulseaudio.h>
@@ -293,8 +293,9 @@ void VolumeControl::init()
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 
-	if (PulseAudio.isReady())
-		return;
+#ifdef _ENABLE_PULSE_
+  return;
+#endif
 
 	//try to open mixer device
 	if (mixerHandle == nullptr)
@@ -480,11 +481,13 @@ void VolumeControl::deinit()
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 
+#ifdef _ENABLE_PULSE_
 	if (PulseAudio.isReady())
 	{
 		PulseAudio.exit();
-		return;
 	}
+	return;
+#endif
 
 	if (mixerHandle != nullptr) {
 		snd_mixer_detach(mixerHandle, mixerCard.c_str());
@@ -514,8 +517,11 @@ int VolumeControl::getVolume() const
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 
+#ifdef _ENABLE_PULSE_
 	if (PulseAudio.isReady())
-		return PulseAudio.getVolume();
+	  return PulseAudio.getVolume();
+	return 100;
+#endif
 
 	if (mixerElem != nullptr)
 	{
@@ -614,11 +620,13 @@ void VolumeControl::setVolume(int volume)
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
 
+#ifdef _ENABLE_PULSE_
 	if (PulseAudio.isReady())
 	{
 		PulseAudio.setVolume(volume);
-		return;
 	}
+	return;
+#endif
 
 	if (mixerElem != nullptr)
 	{
@@ -679,8 +687,9 @@ bool VolumeControl::isAvailable()
 	return false;
 #elif defined(__linux__)
 
-	if (PulseAudio.isReady())
-		return true;
+#ifdef _ENABLE_PULSE_
+	return PulseAudio.isReady();
+#endif
 
 	return mixerHandle != nullptr && mixerElem != nullptr;
 #elif defined(WIN32) || defined(_WIN32)
