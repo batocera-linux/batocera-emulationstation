@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -1532,6 +1532,42 @@ msgstr "PÅ"
 msgid "OFF"
 msgstr "AV"
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr "ÖVERKLOCKNING"
 
@@ -2127,9 +2163,6 @@ msgstr "ACCEPTERA RESULTAT"
 msgid "Loading system config..."
 msgstr "Laddar systeminställningar..."
 
-msgid "Done."
-msgstr "Färdig."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SPARAR METADATA. VÄNTA..."
 
@@ -2465,6 +2498,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "Done."
+#~ msgstr "Färdig."
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "ANVÄND RGUI I RETROARCH"

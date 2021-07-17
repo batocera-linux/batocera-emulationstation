@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1539,6 +1539,42 @@ msgstr "LIGADO"
 msgid "OFF"
 msgstr "DESLIGADO"
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -2141,9 +2177,6 @@ msgstr "ACEITAR RESULTADOS"
 msgid "Loading system config..."
 msgstr "Carregando a configuração do sistema..."
 
-msgid "Done."
-msgstr "Concluído."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SALVANDO METADADOS. POR FAVOR, ESPERE..."
 
@@ -2478,6 +2511,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Done."
+#~ msgstr "Concluído."
 
 #~ msgid "GL VENDOR"
 #~ msgstr "FABRICANTE DA GPU"

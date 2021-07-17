@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1534,6 +1534,42 @@ msgstr "ВКЛ"
 msgid "OFF"
 msgstr "ВИКЛ"
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr "РОЗГІН"
 
@@ -2133,9 +2169,6 @@ msgstr "ПРИЙНЯТИ РЕЗУЛЬТАТ"
 msgid "Loading system config..."
 msgstr "Завантаження системних налаштувань..."
 
-msgid "Done."
-msgstr "Готово."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
 
@@ -2479,6 +2512,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "Done."
+#~ msgstr "Готово."
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "ОНОВЛЕННЯ EMULATIONSTATION"

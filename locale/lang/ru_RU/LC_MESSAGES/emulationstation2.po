@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1416,7 +1416,8 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
+msgstr ""
+"Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
@@ -1535,6 +1536,42 @@ msgstr "ВКЛ"
 
 msgid "OFF"
 msgstr "ВЫКЛ"
+
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
@@ -2144,9 +2181,6 @@ msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
 msgid "Loading system config..."
 msgstr "Загрузка системных настроек..."
 
-msgid "Done."
-msgstr "Готово"
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
 
@@ -2490,6 +2524,9 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+#~ msgid "Done."
+#~ msgstr "Готово"
 
 #~ msgid "GL VENDOR"
 #~ msgstr "GL ВЕНДОР"

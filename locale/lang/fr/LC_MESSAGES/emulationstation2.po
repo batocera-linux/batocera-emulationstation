@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1535,6 +1535,42 @@ msgstr "OUI"
 msgid "OFF"
 msgstr "NON"
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -2142,9 +2178,6 @@ msgstr "ACCEPTER LE RESULTAT"
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système..."
 
-msgid "Done."
-msgstr "Terminé"
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
 
@@ -2481,6 +2514,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "Done."
+#~ msgstr "Terminé"
 
 #~ msgid "GL VENDOR"
 #~ msgstr "GL VENDOR"

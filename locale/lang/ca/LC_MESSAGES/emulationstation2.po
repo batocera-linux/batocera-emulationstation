@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1532,6 +1532,42 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -2126,9 +2162,6 @@ msgid "ACCEPT RESULT"
 msgstr "ACCEPTA EL RESULTAT"
 
 msgid "Loading system config..."
-msgstr ""
-
-msgid "Done."
 msgstr ""
 
 msgid "SAVING METADATAS. PLEASE WAIT..."

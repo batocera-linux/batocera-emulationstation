@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1538,6 +1538,42 @@ msgstr "YMLAEN"
 msgid "OFF"
 msgstr "BANT"
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr "TROSGLOCIO"
 
@@ -2155,9 +2191,6 @@ msgstr "DERBYN CANLYNIAD"
 msgid "Loading system config..."
 msgstr "Llwytho system ffurfweddu..."
 
-msgid "Done."
-msgstr "Wedi'i wneud."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
 
@@ -2522,6 +2555,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d e"
+
+#~ msgid "Done."
+#~ msgstr "Wedi'i wneud."
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "DIWEDDARU EMULATIONSTATION"
