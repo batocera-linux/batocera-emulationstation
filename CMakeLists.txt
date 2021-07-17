@@ -100,6 +100,10 @@ find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
 
+if(NOT DEFINED MSVC)
+    find_package(PulseAudio REQUIRED)
+endif()
+
 if(CEC)
   find_package(libCEC)
 endif()
@@ -195,6 +199,7 @@ set(COMMON_INCLUDE_DIRS
 
 if(NOT DEFINED MSVC)
  LIST(APPEND COMMON_INCLUDE_DIRS
+    ${PULSEAUDIO_INCLUDE_DIR}
       )
 endif()
 
@@ -272,6 +277,7 @@ set(COMMON_LIBRARIES
 
 if(NOT DEFINED MSVC)
  LIST(APPEND COMMON_LIBRARIES
+    ${PULSEAUDIO_LIBRARY}
       )
 endif()
 

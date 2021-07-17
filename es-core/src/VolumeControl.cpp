@@ -3,8 +3,225 @@
 #include "math/Misc.h"
 #include "Log.h"
 #include "Settings.h"
+
 #ifdef WIN32
 #include <mmdeviceapi.h>
+#endif
+
+#if defined(__linux__)
+#include <thread>
+#include <condition_variable>
+#include <pulse/pulseaudio.h>
+
+class PulseAudioControl
+{
+#define DEFAULT_SINK_NAME "@DEFAULT_SINK@"
+
+public:
+	PulseAudioControl()
+	{
+		mContext = nullptr;
+    	mMainLoop = nullptr;
+
+	  	mReady   = 0;
+		mMute    = 0;
+		mVolume  = 100;
+
+		mThread = new std::thread(&PulseAudioControl::run, this);
+		WaitEvent();
+
+		LOG(LogDebug) << "PulseAudioControl. Ready = " << mReady;
+	}
+
+	 ~PulseAudioControl()
+	{
+		exit();
+	}
+
+	bool isReady() { return mContext != nullptr && mReady; }
+
+	int getVolume()
+	{
+		if (mContext == nullptr || !mReady)
+		{
+			LOG(LogDebug) << "PulseAudioControl getVolume not ready";
+			return mVolume;
+		}
+
+		pa_operation* o = pa_context_get_sink_info_by_name(mContext, DEFAULT_SINK_NAME, get_sink_volume_callback, this);
+		if (o != NULL) 
+		{
+			WaitEvent();
+			pa_operation_unref(o);
+		}
+
+//		LOG(LogDebug) << "PulseAudioControl.getVolume = " << mVolume;
+		return mVolume;	
+	}
+
+	void setVolume(int value)
+	{
+		if (mContext == nullptr)
+			return;
+
+		mVolume = value;
+          
+		pa_operation* o = pa_context_get_sink_info_by_name(mContext, DEFAULT_SINK_NAME, set_sink_volume_callback, this);
+      	if (o != NULL)
+		{
+			WaitEvent();
+			pa_operation_unref(o);
+		}
+
+		//LOG(LogDebug) << "PulseAudioControl.setVolume = " << mVolume;
+	}
+
+	void exit()
+	{
+		LOG(LogDebug) << "PulseAudioControl.exit";
+
+		mReady = false;
+
+		if (mContext != nullptr)
+		{
+			pa_context_disconnect(mContext);
+			mContext = nullptr;
+		}
+
+		if (mMainLoop != nullptr)
+		{			
+			pa_mainloop_free(mMainLoop);
+			mMainLoop = nullptr;
+		}	
+	}
+
+	void run()	
+	{
+		mMainLoop = pa_mainloop_new();
+		pa_mainloop_api* pa_mlapi = pa_mainloop_get_api(mMainLoop);
+
+  		pa_signal_init(pa_mlapi);
+
+		mContext = pa_context_new(pa_mlapi, "EmulationStation");
+
+		pa_context_set_state_callback(mContext, context_state_callback, this);
+		pa_context_connect(mContext, nullptr, pa_context_flags::PA_CONTEXT_NOFLAGS, nullptr);
+
+		int result = 0;
+		pa_mainloop_run(mMainLoop, &result);
+
+		pa_context_unref(mContext);
+		pa_mainloop_free(mMainLoop);
+
+		LOG(LogDebug) << "PulseAudioControl End Mainloop";
+	}
+
+
+private:
+	static void quit(void* userdata, int code)
+	{
+		PulseAudioControl* pThis = (PulseAudioControl*)userdata;		
+		pThis->exit();
+	}
+
+	static void simple_callback(pa_context *c, int success, void *userdata) 
+	{
+  		if (!success) 
+		{
+			LOG(LogError) << "PulseAudioControl Failure : " << pa_strerror(pa_context_errno(c));    		
+    		quit(userdata, 1);    		
+  		}
+	}
+
+	static void get_sink_volume_callback(pa_context *c, const pa_sink_info *i, int is_last, void *userdata) 
+	{
+		PulseAudioControl* pThis = (PulseAudioControl*)userdata;
+
+		int channel = 0;
+
+		if (is_last == 0)
+		{
+			pThis->mMute = i->mute;
+			pThis->mVolume = (unsigned)(((uint64_t) i->volume.values[channel] * 100 + (uint64_t)PA_VOLUME_NORM / 2) / (uint64_t)PA_VOLUME_NORM);		
+		}
+		
+		pThis->FireEvent();
+	}
+
+	static void set_sink_volume_callback(pa_context *c, const pa_sink_info *i, int is_last, void *userdata) 
+	{
+		PulseAudioControl* pThis = (PulseAudioControl*)userdata;
+
+		pa_cvolume cv;
+
+		if (is_last == 0)
+		{	
+			pa_cvolume_set(&cv, i->channel_map.channels, (pa_volume_t) (pThis->mVolume * (double) PA_VOLUME_NORM / 100));
+			pa_operation_unref(pa_context_set_sink_volume_by_name(c, DEFAULT_SINK_NAME, &cv, simple_callback, NULL));
+		}
+
+		pThis->FireEvent();
+	}
+
+	static void context_state_callback(pa_context *c, void *userdata) 
+	{
+		PulseAudioControl* pThis = (PulseAudioControl*)userdata;
+
+		switch (pa_context_get_state(c)) {
+		case PA_CONTEXT_CONNECTING:
+		case PA_CONTEXT_AUTHORIZING:
+		case PA_CONTEXT_SETTING_NAME:
+			break;
+
+		case PA_CONTEXT_READY:
+			LOG(LogDebug) << "PulseAudioControl Ready";
+
+			pThis->mReady = 1;
+			pThis->FireEvent();
+			break;
+
+		case PA_CONTEXT_TERMINATED:
+			LOG(LogDebug) << "PulseAudioControl Context terminated";    		
+			pThis->mReady = 0;
+			break;
+
+		case PA_CONTEXT_FAILED:
+		default:
+			LOG(LogError) << "PulseAudioControl Connection failure : " << pa_strerror(pa_context_errno(c));    		
+			pThis->mReady = 0;
+			pThis->FireEvent();
+
+			quit(userdata, 1);
+		}
+	}
+
+private:
+	int mReady;
+	int mMute;
+	int mVolume;
+
+	void FireEvent()
+	{
+		mEvent.notify_one();
+	}
+
+	void WaitEvent()
+	{
+		std::unique_lock<std::mutex> lock(mLock);
+		mEvent.wait(lock);
+	}
+
+	std::thread*	mThread;
+
+	std::mutex					mLock;
+	std::condition_variable		mEvent;		
+
+	pa_context* 	mContext;
+    pa_mainloop* 	mMainLoop;
+};
+
+static PulseAudioControl PulseAudio;
+
 #endif
 
 #if defined(__linux__)
@@ -83,6 +300,10 @@ void VolumeControl::init()
 #if defined (__APPLE__)
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
+
+	if (PulseAudio.isReady())
+		return;
+
 	//try to open mixer device
 	if (mixerHandle == nullptr)
 	{
@@ -266,6 +487,13 @@ void VolumeControl::deinit()
 #if defined (__APPLE__)
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
+
+	if (PulseAudio.isReady())
+	{
+		PulseAudio.exit();
+		return;
+	}
+
 	if (mixerHandle != nullptr) {
 		snd_mixer_detach(mixerHandle, mixerCard.c_str());
 		snd_mixer_free(mixerHandle);
@@ -293,6 +521,10 @@ int VolumeControl::getVolume() const
 #if defined (__APPLE__)
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
+
+	if (PulseAudio.isReady())
+		return PulseAudio.getVolume();
+
 	if (mixerElem != nullptr)
 	{
 		if (mixerHandle != nullptr)
@@ -389,6 +621,13 @@ void VolumeControl::setVolume(int volume)
 #if defined (__APPLE__)
 	#error TODO: Not implemented for MacOS yet!!!
 #elif defined(__linux__)
+
+	if (PulseAudio.isReady())
+	{
+		PulseAudio.setVolume(volume);
+		return;
+	}
+
 	if (mixerElem != nullptr)
 	{
 		//get volume range
@@ -447,6 +686,10 @@ bool VolumeControl::isAvailable()
 #if defined (__APPLE__)
 	return false;
 #elif defined(__linux__)
+
+	if (PulseAudio.isReady())
+		return true;
+
 	return mixerHandle != nullptr && mixerElem != nullptr;
 #elif defined(WIN32) || defined(_WIN32)
 	return mixerHandle != nullptr || endpointVolume != nullptr;
