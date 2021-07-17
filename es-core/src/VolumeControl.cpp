@@ -42,21 +42,7 @@ public:
 
 	int getVolume()
 	{
-		if (mContext == nullptr || !mReady)
-		{
-			LOG(LogDebug) << "PulseAudioControl getVolume not ready";
-			return mVolume;
-		}
-
-		pa_operation* o = pa_context_get_sink_info_by_name(mContext, DEFAULT_SINK_NAME, get_sink_volume_callback, this);
-		if (o != NULL) 
-		{
-			WaitEvent();
-			pa_operation_unref(o);
-		}
-
-//		LOG(LogDebug) << "PulseAudioControl.getVolume = " << mVolume;
-		return mVolume;	
+		return mVolume;
 	}
 
 	void setVolume(int value)
@@ -68,12 +54,7 @@ public:
           
 		pa_operation* o = pa_context_get_sink_info_by_name(mContext, DEFAULT_SINK_NAME, set_sink_volume_callback, this);
       	if (o != NULL)
-		{
-			WaitEvent();
 			pa_operation_unref(o);
-		}
-
-		//LOG(LogDebug) << "PulseAudioControl.setVolume = " << mVolume;
 	}
 
 	void exit()
@@ -144,9 +125,7 @@ private:
 			pThis->mMute = i->mute;
 			pThis->mVolume = (unsigned)(((uint64_t) i->volume.values[channel] * 100 + (uint64_t)PA_VOLUME_NORM / 2) / (uint64_t)PA_VOLUME_NORM);		
 		}
-		
-		pThis->FireEvent();
-	}
+}
 
 	static void set_sink_volume_callback(pa_context *c, const pa_sink_info *i, int is_last, void *userdata) 
 	{
@@ -159,8 +138,18 @@ private:
 			pa_cvolume_set(&cv, i->channel_map.channels, (pa_volume_t) (pThis->mVolume * (double) PA_VOLUME_NORM / 100));
 			pa_operation_unref(pa_context_set_sink_volume_by_name(c, DEFAULT_SINK_NAME, &cv, simple_callback, NULL));
 		}
+	}
 
-		pThis->FireEvent();
+	static void subscribe_callback(pa_context *c, pa_subscription_event_type_t type, uint32_t idx, void *userdata) 
+	{		
+		unsigned facility = type & PA_SUBSCRIPTION_EVENT_FACILITY_MASK;
+		pa_operation *o = NULL;
+
+		switch (facility) {
+		case PA_SUBSCRIPTION_EVENT_SINK:
+			if( (o = pa_context_get_sink_info_by_name(c, DEFAULT_SINK_NAME, get_sink_volume_callback, userdata)) != NULL) pa_operation_unref(o);
+			break;
+		}
 	}
 
 	static void context_state_callback(pa_context *c, void *userdata) 
@@ -175,6 +164,9 @@ private:
 
 		case PA_CONTEXT_READY:
 			LOG(LogDebug) << "PulseAudioControl Ready";
+
+ 			pa_context_set_subscribe_callback(c, subscribe_callback, userdata);
+    		pa_context_subscribe(c, PA_SUBSCRIPTION_MASK_SINK, NULL, NULL);
 
 			pThis->mReady = 1;
 			pThis->FireEvent();
