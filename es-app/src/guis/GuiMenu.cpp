@@ -1804,7 +1804,7 @@ void GuiMenu::openSystemSettings_batocera()
 		{
 			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
 
-			if (selectedAudio == (*it))
+			if (selectedAudio == tokens.at(0))
 				vfound = true;
 
 			if (tokens.size() >= 2)
@@ -1816,10 +1816,10 @@ void GuiMenu::openSystemSettings_batocera()
 					if (i > 2) vname += " ";
 					vname += tokens.at(i);
 				}
-				optionsAudio->add(vname, (*it), selectedAudio == (*it));
+				optionsAudio->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
 			}
 			else
-				optionsAudio->add((*it), (*it), selectedAudio == (*it));
+				optionsAudio->add((*it), (*it), selectedAudio == tokens.at(0));
 		}
 
 		if (vfound == false)
@@ -1835,11 +1835,8 @@ void GuiMenu::openSystemSettings_batocera()
 		if (optionsAudio->changed()) {
 			SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
 			ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
-			v_need_reboot = true;
 		}
 		SystemConf::getInstance()->saveSystemConf();
-		if (v_need_reboot)
-			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	});
 #endif
 

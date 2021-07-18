@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -1530,6 +1530,42 @@ msgstr "ACTIVAT"
 msgid "OFF"
 msgstr "DESACTIVAT"
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr ""
 
@@ -2120,9 +2156,6 @@ msgstr "ACCEPTAR RESULTAT"
 msgid "Loading system config..."
 msgstr "Cargament conf. sistma..."
 
-msgid "Done."
-msgstr "Acabat."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
 
@@ -2455,6 +2488,9 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "Done."
+#~ msgstr "Acabat."
 
 #~ msgid "subtitle text"
 #~ msgstr "tèxte sostítol"

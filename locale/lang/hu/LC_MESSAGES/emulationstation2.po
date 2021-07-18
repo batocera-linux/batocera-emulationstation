@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1534,6 +1534,42 @@ msgstr "BE"
 msgid "OFF"
 msgstr "KI"
 
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
@@ -2139,9 +2175,6 @@ msgstr "EREDMÉNYEK MENTÉSE"
 msgid "Loading system config..."
 msgstr "Rendszer konfiguráció betöltése..."
 
-msgid "Done."
-msgstr "Kész."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METAADAT MENTÉSE. VÁRJ..."
 
@@ -2477,6 +2510,9 @@ msgstr "%d p"
 #, c-format
 msgid "%d s"
 msgstr "%d mp"
+
+#~ msgid "Done."
+#~ msgstr "Kész."
 
 #~ msgid "GL VENDOR"
 #~ msgstr "GL GYÁRTÓ"

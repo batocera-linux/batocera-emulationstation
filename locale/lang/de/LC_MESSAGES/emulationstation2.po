@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-07-17 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1139,16 +1139,16 @@ msgid "RGA SCALING"
 msgstr "RGA SKALIERUNG"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "HERSTELLER"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERER"
 
 msgid "VERSION"
 msgstr "VERSION"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SHADER"
 
 msgid "MAIN MENU"
 msgstr "HAUPTMENÜ"
@@ -1286,7 +1286,7 @@ msgid "SYSTEM"
 msgstr "SYSTEM"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "VIDEO TREIBER"
 
 msgid "DEVELOPER"
 msgstr "ENTWICKLER"
@@ -1540,6 +1540,42 @@ msgstr "EIN"
 
 msgid "OFF"
 msgstr "AUS"
+
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
@@ -2148,9 +2184,6 @@ msgstr "ERGEBNIS AKZEPTIEREN"
 msgid "Loading system config..."
 msgstr "Lade System Konfiguration."
 
-msgid "Done."
-msgstr "Fertig."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SICHERE METADATEN. BITTE WARTEN..."
 
@@ -2489,6 +2522,9 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "Done."
+#~ msgstr "Fertig."
 
 #~ msgid "GL VENDOR"
 #~ msgstr "GL HERSTELLER"

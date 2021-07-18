@@ -690,14 +690,9 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 
 	std::ostringstream oss;
 
-	AudioManager::getInstance()->deinit();
-	VolumeControl::getInstance()->deinit();
-
 	oss << "batocera-audio set" << " '" << selected << "'";
 	int exitcode = system(oss.str().c_str());
 
-	VolumeControl::getInstance()->init();
-	AudioManager::getInstance()->init();
 	Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
 
 	return exitcode == 0;
