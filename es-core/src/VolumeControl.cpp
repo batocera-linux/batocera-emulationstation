@@ -66,8 +66,12 @@ public:
 		if (mContext != nullptr)
 		{
 			pa_context_disconnect(mContext);
+			pa_context_unref(mContext);
 			mContext = nullptr;
 		}
+
+		if(mThread != NULL)
+		  mThread->join();
 
 		if (mMainLoop != nullptr)
 		{			
@@ -110,7 +114,7 @@ private:
   		if (!success) 
 		{
 			LOG(LogError) << "PulseAudioControl Failure : " << pa_strerror(pa_context_errno(c));    		
-    		quit(userdata, 1);    		
+			quit(userdata, 1);
   		}
 	}
 
@@ -273,6 +277,13 @@ VolumeControl::~VolumeControl()
 	//setVolume(originalVolume);
 
 	deinit();
+
+#ifdef _ENABLE_PULSE_
+  if (PulseAudio.isReady())
+    {
+      PulseAudio.exit();
+    }
+ #endif
 }
 
 std::shared_ptr<VolumeControl> & VolumeControl::getInstance()
@@ -482,10 +493,6 @@ void VolumeControl::deinit()
 #elif defined(__linux__)
 
 #ifdef _ENABLE_PULSE_
-	if (PulseAudio.isReady())
-	{
-		PulseAudio.exit();
-	}
 	return;
 #endif
 
