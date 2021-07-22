@@ -152,7 +152,7 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 {
 	SystemData* dest = system;
 
-	if (system->isCollection())
+	if (system != nullptr && system->isCollection())
 	{
 		SystemData* bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
 		if (bundle != nullptr)
@@ -174,7 +174,7 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 
 	auto systemList = getSystemListView();
 
-	if (mState.viewing == GAME_LIST && mCurrentView)
+	if (systemList!= nullptr && mState.viewing == GAME_LIST && mCurrentView)
 		systemList->setPosition(mCurrentView->getPosition().x(), systemList->getPosition().y());
 	else
 		systemList->setPosition(getSystemId(dest) * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
@@ -182,10 +182,11 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 	mState.viewing = SYSTEM_SELECT;
 	mState.system = dest;
 
-	systemList->goToSystem(dest, false);
-
-	mCurrentView = systemList;
-
+	if (systemList != nullptr)
+	{
+		systemList->goToSystem(dest, false);
+		mCurrentView = systemList;
+	}
 	// mCurrentView->onShow();
 //	PowerSaver::pause();
 //	PowerSaver::resume();
