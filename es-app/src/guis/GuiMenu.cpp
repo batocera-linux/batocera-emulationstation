@@ -1750,7 +1750,12 @@ void GuiMenu::openSystemSettings_batocera()
 		brightnessComponent->setValue(brighness);
 		brightnessComponent->setOnValueChanged([](const float &newVal)
 		{
+#ifdef _ENABLEEMUELEC
+            auto thebright = std::to_string((int)Math::round(newVal));
+            runSystemCommand("/usr/bin/odroidgoa_utils.sh bright " + thebright, "", nullptr);
+#else
 			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal));
+#endif
 		});
         
        s->addSaveFunc([this, brightnessComponent] {
