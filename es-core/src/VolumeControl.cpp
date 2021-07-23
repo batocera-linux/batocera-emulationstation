@@ -105,8 +105,7 @@ public:
 private:
 	static void quit(void* userdata, int code)
 	{
-		PulseAudioControl* pThis = (PulseAudioControl*)userdata;		
-		pThis->exit();
+		PulseAudioControl* pThis = (PulseAudioControl*)userdata;
 	}
 
 	static void simple_callback(pa_context *c, int success, void *userdata) 
