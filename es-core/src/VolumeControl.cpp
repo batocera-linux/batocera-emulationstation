@@ -66,8 +66,12 @@ public:
 		if (mContext != nullptr)
 		{
 			pa_context_disconnect(mContext);
+			pa_context_unref(mContext);
 			mContext = nullptr;
 		}
+
+		if(mThread != NULL)
+		  mThread->join();
 
 		if (mMainLoop != nullptr)
 		{			
@@ -110,7 +114,7 @@ private:
   		if (!success) 
 		{
 			LOG(LogError) << "PulseAudioControl Failure : " << pa_strerror(pa_context_errno(c));    		
-    		quit(userdata, 1);    		
+			quit(userdata, 1);
   		}
 	}
 
@@ -244,35 +248,19 @@ VolumeControl::VolumeControl()
 	originalVolume = getVolume();
 }
 
-VolumeControl::VolumeControl(const VolumeControl & right):
-	originalVolume(0), internalVolume(0)
-#if defined (__APPLE__)
-	#error TODO: Not implemented for MacOS yet!!!
-#elif defined(__linux__)
-	, mixerIndex(0), mixerHandle(nullptr), mixerElem(nullptr), mixerSelemId(nullptr)
-#elif defined(WIN32) || defined(_WIN32)
-	, mixerHandle(nullptr), endpointVolume(nullptr)
-#endif
-{
-	(void)right;
-	sInstance = right.sInstance;
-}
-
-VolumeControl & VolumeControl::operator=(const VolumeControl & right)
-{
-	if (this != &right) {
-		sInstance = right.sInstance;
-	}
-
-	return *this;
-}
-
 VolumeControl::~VolumeControl()
 {
 	//set original volume levels for system
 	//setVolume(originalVolume);
 
-	deinit();
+#ifdef _ENABLE_PULSE_
+  if (PulseAudio.isReady())
+    {
+      PulseAudio.exit();
+    }
+ #endif
+
+  deinit();
 }
 
 std::shared_ptr<VolumeControl> & VolumeControl::getInstance()
@@ -482,10 +470,6 @@ void VolumeControl::deinit()
 #elif defined(__linux__)
 
 #ifdef _ENABLE_PULSE_
-	if (PulseAudio.isReady())
-	{
-		PulseAudio.exit();
-	}
 	return;
 #endif
 

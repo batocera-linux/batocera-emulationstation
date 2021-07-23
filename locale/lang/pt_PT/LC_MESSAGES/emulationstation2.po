@@ -1537,40 +1537,40 @@ msgid "OFF"
 msgstr "DESLIGADO"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "COR DO BOTÃO LED"
 
 msgid "off"
-msgstr ""
+msgstr "desligado"
 
 msgid "red"
-msgstr ""
+msgstr "vermelho"
 
 msgid "green"
-msgstr ""
+msgstr "verde"
 
 msgid "blue"
-msgstr ""
+msgstr "azul"
 
 msgid "white"
-msgstr ""
+msgstr "branco"
 
 msgid "purple"
-msgstr ""
+msgstr "roxo"
 
 msgid "yellow"
-msgstr ""
+msgstr "amarelo"
 
 msgid "cyan"
-msgstr ""
+msgstr "ciano"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "COR DO LED POWER"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "batimento cardiaco"
 
 msgid "on"
-msgstr ""
+msgstr "ligado"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
@@ -2508,5 +2508,4 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "Done."
-#~ msgstr "Concluído."
+
