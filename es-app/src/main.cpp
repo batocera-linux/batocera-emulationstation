@@ -573,7 +573,15 @@ int main(int argc, char* argv[])
 	AudioManager::getInstance()->init();
 
 	if (ViewController::get()->getState().viewing == ViewController::GAME_LIST || ViewController::get()->getState().viewing == ViewController::SYSTEM_SELECT)
-		AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme());
+	{
+		if (ViewController::get()->getState().getSystem() != nullptr)
+			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme());
+		else
+		{
+			AudioManager::getInstance()->playRandomMusic();
+			window.pushGui(new GuiDetectDevice(&window, false, NULL));
+		}
+	}
 	else
 		AudioManager::getInstance()->playRandomMusic();
 

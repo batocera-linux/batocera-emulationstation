@@ -1034,7 +1034,7 @@ bool SystemData::loadConfig(Window* window)
 	if (systemCount == 0)
 	{
 		LOG(LogError) << "no system found in es_systems.cfg";
-		return false;
+		return true;
 	}
 
 	Utils::FileSystem::FileSystemCacheActivator fsc;
