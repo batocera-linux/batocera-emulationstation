@@ -291,7 +291,7 @@ public:
 
 	FileFilterIndex* getFilterIndex() { return mFilterIndex; }
 
-	static SystemData* loadSystem(std::string systemName, bool fullMode = true);
+	static SystemData* loadSystem(std::string systemName, bool fullMode = false);
 	static std::map<std::string, std::string> getKnownSystemNames();
 
 	bool hasKeyboardMapping();
