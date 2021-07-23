@@ -579,7 +579,7 @@ int main(int argc, char* argv[])
 		else
 		{
 			AudioManager::getInstance()->playRandomMusic();
-			window.pushGui(new GuiDetectDevice(&window, false, NULL));
+			//window.pushGui(new GuiDetectDevice(&window, false, NULL));
 		}
 	}
 	else
