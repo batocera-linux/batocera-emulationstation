@@ -1358,12 +1358,12 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	if (!fullMode)
 		return newSys;
 	
-	if (newSys->getRootFolder()->getChildren().size() == 0)
+	/*if (newSys->getRootFolder()->getChildren().size() == 0)
 	{
 		LOG(LogWarning) << "System \"" << md.name << "\" has no games! Ignoring it.";
 		delete newSys;
 		return nullptr;
-	}	
+	}*/	
 
 	return newSys;
 }
