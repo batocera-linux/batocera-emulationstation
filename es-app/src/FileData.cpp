@@ -232,6 +232,15 @@ const std::string& FileData::getName()
 	return mMetadata.getName();
 }
 
+const std::string FileData::getSortName() const
+{
+	std::string sortName = mMetadata.get("sortname");
+	if (sortName.empty())
+		return mMetadata.get("name");
+	else
+		return sortName;
+}
+
 const std::string FileData::getVideoPath()
 {
 	std::string video = getMetadata(MetaDataId::Video);

@@ -76,8 +76,10 @@ namespace FileSorts
 		if (file1->getType() != file2->getType())
 			return file1->getType() == FOLDER;
 
-		// we compare the actual metadata name, as collection files have the system appended which messes up the order		
-		return Utils::String::compareIgnoreCase(((FileData*)file1)->getName(), ((FileData*)file2)->getName()) < 0;
+		// we compare the actual metadata name, as collection files have the system appended which messes up the order
+		std::string name1 = file1->getSortName();
+		std::string name2 = file2->getSortName();
+		return Utils::String::compareIgnoreCase(name1, name2) < 0;
 	}
 
 	bool compareRating(const FileData* file1, const FileData* file2)

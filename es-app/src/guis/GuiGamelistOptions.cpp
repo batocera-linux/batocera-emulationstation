@@ -78,7 +78,7 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			{
 				mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO LETTER"), false); // batocera
 
-				char curChar = (char)toupper(getGamelist()->getCursor()->getName()[0]);
+				char curChar = (char)toupper(getGamelist()->getCursor()->getSortName()[0]);
 
 				if (std::find(letters.begin(), letters.end(), std::string(1, curChar)) == letters.end())
 					curChar = letters.at(0)[0];
@@ -598,11 +598,11 @@ void GuiGamelistOptions::jumpToLetter()
 		if(files.at(mid)->getName().empty())
 			continue;
 
-		char checkLetter = (char)toupper(files.at(mid)->getName()[0]);
+		char checkLetter = (char)toupper(files.at(mid)->getSortName()[0]);
 
 		if(checkLetter < letter)
 			min = mid + 1;
-		else if(checkLetter > letter || (mid > 0 && (letter == toupper(files.at(mid - 1)->getName()[0]))))
+		else if(checkLetter > letter || (mid > 0 && (letter == toupper(files.at(mid - 1)->getSortName()[0]))))
 			max = mid - 1;
 		else
 			break; //exact match found
