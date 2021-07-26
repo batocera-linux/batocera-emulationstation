@@ -550,9 +550,6 @@ int main(int argc, char* argv[])
 	// this makes for no delays when accessing content, but a longer startup time
 	ViewController::get()->preload();
 
-	if (splashScreen && splashScreenProgress)
-		window.renderSplashScreen(_("Done."));
-
 	// Initialize input
 	InputConfig::AssignActionButtons();
 	InputManager::getInstance()->init();
@@ -577,10 +574,7 @@ int main(int argc, char* argv[])
 		if (ViewController::get()->getState().getSystem() != nullptr)
 			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme());
 		else
-		{
 			AudioManager::getInstance()->playRandomMusic();
-			//window.pushGui(new GuiDetectDevice(&window, false, NULL));
-		}
 	}
 	else
 		AudioManager::getInstance()->playRandomMusic();
