@@ -27,6 +27,12 @@ function reloadGamelists() {
 	xhr.send(); 
 }
 
+function emuKill() {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', '/emukill');
+	xhr.send();
+}
+
 function showGames(arr) {
     var out = "<table width=100% border=0 cellpadding=4 cellspacing=0>";
     var i;
@@ -106,6 +112,7 @@ function showSystems(arr) {
 <div id="toolbar" class="toolbar">
 	<input class="toolbarbutton" type='button' value='Reload games' onClick='reloadGamelists()'/>
 	<input class="toolbarbutton" type='button' value='Exit EmulationStation' onClick='quitES()'/>
+	<input class="toolbarbutton" type='button' value='Kill running emulator' onClick='emuKill()'/>
 </div>
 
 <table height='100%' width='100%' cellpadding=0 cellspacing=0 border=0>

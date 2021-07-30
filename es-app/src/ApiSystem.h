@@ -221,6 +221,7 @@ public:
 
 	virtual std::vector<PadInfo> getPadsInfo();
 	virtual std::string getHostsName();
+	virtual bool emuKill();
 
 protected:
 	ApiSystem();

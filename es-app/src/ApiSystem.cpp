@@ -1576,3 +1576,10 @@ std::string ApiSystem::getHostsName()
 
 	return "127.0.0.1";
 }
+
+bool ApiSystem::emuKill()
+{
+	LOG(LogDebug) << "ApiSystem::emuKill";
+
+	return executeScript("batocera-es-swissknife --emukill");
+}
