@@ -91,7 +91,6 @@ else()
     find_package(OpenGLES REQUIRED)
 endif()
 find_package(Freetype REQUIRED)
-find_package(FreeImage REQUIRED)
 # batocera / background musics
 find_package(SDL2MIXER REQUIRED)
 # batocera / customisations
@@ -181,7 +180,7 @@ endif()
 #add include directories
 set(COMMON_INCLUDE_DIRS
     ${FREETYPE_INCLUDE_DIRS}
-    ${FreeImage_INCLUDE_DIRS}
+    ${STBIMAGE_INCLUDE_DIRS}
     # batocera / background musics
     ${SDLMIXER_INCLUDE_DIR}
     # batocera / customisations    
@@ -257,7 +256,6 @@ endif()
 
 set(COMMON_LIBRARIES
     ${FREETYPE_LIBRARIES}
-    ${FreeImage_LIBRARIES}
     ${SDL2_LIBRARY}
     # batocera / background musics
     ${SDLMIXER_LIBRARY}
