@@ -884,6 +884,8 @@ Can be created as an extra.
     - BATOCERA 5.24 : Tells if the element is visible or hidden.
 * `snapshotSource` - type: STRING.
     - BATOCERA 5.24 : Defines which image to show during delay. Values can be  image, thumbnail, and marquee.
+* `effect` - type: STRING.
+    - BATOCERA 5.24 : Defines the transition in effect when the video is first loaded. Values can be slideRight, size, bump, or none. The default is bump.
 * `x`, 'y', 'w', 'h' - type: FLOAT.    
     - BATOCERA 29 : Respectively x, y position, width or height of  the element. Can be used instead of pos/size.
 * `scale' - type: FLOAT.
