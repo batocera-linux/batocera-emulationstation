@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 14:26+0200\n"
+"POT-Creation-Date: 2021-07-29 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -1538,40 +1538,40 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "COLOR DEL BOTON"
 
 msgid "off"
-msgstr ""
+msgstr "apagado"
 
 msgid "red"
-msgstr ""
+msgstr "rojo"
 
 msgid "green"
-msgstr ""
+msgstr "verde"
 
 msgid "blue"
-msgstr ""
+msgstr "azul"
 
 msgid "white"
-msgstr ""
+msgstr "blanco"
 
 msgid "purple"
-msgstr ""
+msgstr "purpura"
 
 msgid "yellow"
-msgstr ""
+msgstr "amarillo"
 
 msgid "cyan"
-msgstr ""
+msgstr "azul cielo"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "COLOR DEL LED DE ENCENDIDO"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "latido"
 
 msgid "on"
-msgstr ""
+msgstr "encendido"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
