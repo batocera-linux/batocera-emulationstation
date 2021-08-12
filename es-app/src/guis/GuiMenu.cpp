@@ -734,8 +734,12 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithDescription(_("ENABLE PUBLIC WEB ACCESS"), Utils::String::format(_("Allow public web access API using %s").c_str(), std::string("http://" + hostName + ":1234").c_str()), webAccess);
 	s->addSaveFunc([webAccess, window]
 	{ 
-		if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState()))
-			window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	  if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState())) {
+	    window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
+	      quitES(QuitMode::QUIT);
+	    }
+	  }
 	});
 
 
@@ -1353,6 +1357,9 @@ void GuiMenu::openSystemSettings_batocera()
 			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
 			SystemConf::getInstance()->saveSystemConf();
 			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+			if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
+			  quitES(QuitMode::QUIT);
+			}
 		}
 	});
 
@@ -1596,8 +1603,9 @@ void GuiMenu::openSystemSettings_batocera()
 				reboot = true;
 			}
 
-			if (reboot)
-				window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+			if (reboot) {
+			  window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+			}
 		});
 		mWindow->pushGui(securityGui);
 	});
@@ -1609,6 +1617,7 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage, s] 
 	{
 		bool reboot = false;
+		bool rebootForLanguage = false;
 		if (optionsStorage->changed()) 
 		{
 			ApiSystem::getInstance()->setStorage(optionsStorage->getSelected());
@@ -1631,12 +1640,20 @@ void GuiMenu::openSystemSettings_batocera()
 				s->setVariable("reloadGuiMenu", true);
 #ifdef HAVE_INTL
 				reboot = true;
+				rebootForLanguage = true;
 #endif
 			}			
 		}
 
-		if (reboot)
-			window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+		if (reboot) {
+		  window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+
+		  if(rebootForLanguage) {
+		    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
+		      quitES(QuitMode::QUIT);
+		    }
+		  }
+		}
 
 	});
 
