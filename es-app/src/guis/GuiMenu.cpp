@@ -2176,13 +2176,13 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 	
 	if (!confirm)
 	{
-		ViewController::reloadAllGames(window, true);
+		ViewController::reloadAllGames(window, true, true);
 		return;
 	}
 
 	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [window]
 		{
-		ViewController::reloadAllGames(window, true);
+		ViewController::reloadAllGames(window, true, true);
 		}, 
 		_("NO"), nullptr));
 }

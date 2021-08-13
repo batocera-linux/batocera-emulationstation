@@ -1125,7 +1125,10 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::EVMAPY:
 		executables.push_back("evmapy");
-		break;		
+		break;
+	case ApiSystem::BATOCERAPREGAMELISTSHOOK:
+		executables.push_back("batocera-preupdate-gamelists-hook");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1393,6 +1396,11 @@ void ApiSystem::refreshBatoceraStorePackageList()
 {
 	executeScript("batocera-store refresh");
 	executeScript("batocera-store clean-all");
+}
+
+void ApiSystem::callBatoceraPreGameListsHook()
+{
+	executeScript("batocera-preupdate-gamelists-hook");
 }
 
 void ApiSystem::updateBatoceraStorePackageList()
