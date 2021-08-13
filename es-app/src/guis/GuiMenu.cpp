@@ -1204,7 +1204,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("POLISH",               "pl_PL", language == "pl_PL");
 	language_choice->add("PORTUGUES BRASILEIRO", "pt_BR", language == "pt_BR");
 	language_choice->add("PORTUGUES PORTUGAL",   "pt_PT", language == "pt_PT");
-	language_choice->add("RUSSIAN",              "ru_RU", language == "ru_RU");
+	language_choice->add("РУССКИЙ",              "ru_RU", language == "ru_RU");
 	language_choice->add("SVENSKA", 	     "sv_SE", language == "sv_SE");
 	language_choice->add("TÜRKÇE",  	     "tr_TR", language == "tr_TR");
 	language_choice->add("Українська",           "uk_UA", language == "uk_UA");
@@ -2030,7 +2030,7 @@ void GuiMenu::openGamesSettings_batocera()
 		lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
 		lang_choices->add("POLISH", "Po", currentLang == "Po");
 		lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
-		lang_choices->add("RUSSIAN", "Ru", currentLang == "Ru");
+		lang_choices->add("РУССКИЙ", "Ru", currentLang == "Ru");
 		lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
 		lang_choices->add("TÜRKÇE", "Tr", currentLang == "Tr");
 		lang_choices->add("简体中文", "Zh", currentLang == "Zh");

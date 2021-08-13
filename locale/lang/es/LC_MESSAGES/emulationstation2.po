@@ -71,7 +71,7 @@ msgid "enter path to fanart"
 msgstr "introduce la ruta del Fan art"
 
 msgid "Title shot"
-msgstr "Captura del título"
+msgstr "Pantalla de título"
 
 msgid "enter path to title shot"
 msgstr "introduce la ruta de la captura del título"
@@ -1538,40 +1538,40 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "COLOR DEL LED DEL BOTÓN"
 
 msgid "off"
-msgstr ""
+msgstr "off"
 
 msgid "red"
-msgstr ""
+msgstr "rojo"
 
 msgid "green"
-msgstr ""
+msgstr "verde"
 
 msgid "blue"
-msgstr ""
+msgstr "azul"
 
 msgid "white"
-msgstr ""
+msgstr "blanco"
 
 msgid "purple"
-msgstr ""
+msgstr "púrpura"
 
 msgid "yellow"
-msgstr ""
+msgstr "amarillo"
 
 msgid "cyan"
-msgstr ""
+msgstr "cien"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "COLOR DEL LED DE ENCENDIDO"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "latido"
 
 msgid "on"
-msgstr ""
+msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
@@ -1637,10 +1637,10 @@ msgid "GAME INDEXES"
 msgstr "ÍNDICES DE JUEGOS"
 
 msgid "FIND ALL GAMES"
-msgstr "BUSCAR TODOS LOS JUEGOS"
+msgstr "BUSCAR LOGROS EN TODOS LOS JUEGOS"
 
 msgid "FIND NEW GAMES"
-msgstr "BUSCAR JUEGOS NUEVOS"
+msgstr "BUSCAR SOLO EN LOS JUEGOS NUEVOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr "NO ES POSIBLE ACTIVAR LOS LOGROS:"
