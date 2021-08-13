@@ -95,7 +95,8 @@ public:
 		EVMAPY = 14,
 		THEMESDOWNLOADER = 15,
 		THEBEZELPROJECT = 16,
-		PADSINFO = 17
+		PADSINFO = 17,
+		BATOCERAPREGAMELISTSHOOK = 18
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -197,6 +198,8 @@ public:
 	std::pair<std::string, int> uninstallBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
 	void updateBatoceraStorePackageList();
 	void refreshBatoceraStorePackageList();
+
+	void callBatoceraPreGameListsHook();
 
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);

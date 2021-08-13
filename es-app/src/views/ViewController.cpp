@@ -1242,7 +1242,7 @@ void ViewController::onScreenSaverDeactivate()
 		mCurrentView->onScreenSaverDeactivate();
 }
 
-void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui)
+void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool doCallExternalTriggers)
 {
 	if (sInstance == nullptr)
 		return;
@@ -1269,6 +1269,14 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui)
 
 		if (gui != sInstance)
 			delete gui;
+	}
+
+	// call external triggers
+	if(doCallExternalTriggers) {
+	  if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERAPREGAMELISTSHOOK))
+	    {
+	      ApiSystem::getInstance()->callBatoceraPreGameListsHook();
+	    }
 	}
 
 	ViewController::init(window);

@@ -105,7 +105,7 @@ public:
 	SystemData* getSelectedSystem();
 	ViewMode getViewMode();
 
-	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
+	static void reloadAllGames(Window* window, bool deleteCurrentGui = false, bool doCallExternalTriggers = false);
 
 	void setActiveView(std::shared_ptr<GuiComponent> view);
 
