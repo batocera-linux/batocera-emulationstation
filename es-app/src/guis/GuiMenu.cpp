@@ -1412,6 +1412,34 @@ void GuiMenu::openSystemSettings_batocera()
 		}
 		SystemConf::getInstance()->saveSystemConf();
 	});
+
+	// video rotation
+	auto optionsRotation = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SCREEN ROTATION"), false);
+
+	std::string selectedRotation = SystemConf::getInstance()->get("display.rotate");
+	if (selectedRotation.empty())
+		selectedRotation = "auto";
+
+	optionsRotation->add(_("AUTO"),              "auto", selectedRotation == "auto");
+	optionsRotation->add(_("LEFT ROTATION"),        "3", selectedRotation == "3");
+	optionsRotation->add(_("RIGHT ROTATION"),       "1", selectedRotation == "1");
+	optionsRotation->add(_("INVERTED ROTATION"),    "2", selectedRotation == "2");
+
+	s->addWithLabel(_("SCREEN ROTATION"), optionsRotation);
+
+	s->addSaveFunc([this, optionsRotation, selectedRotation]
+	{
+	  if (optionsRotation->changed()) {
+	    SystemConf::getInstance()->set("display.rotate", optionsRotation->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+
+	    mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
+	      quitES(QuitMode::QUIT);
+	    }
+	  }
+	});
+
 #else
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 	{
