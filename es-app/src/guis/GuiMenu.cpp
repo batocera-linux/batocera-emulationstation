@@ -1440,6 +1440,39 @@ void GuiMenu::openSystemSettings_batocera()
 	  }
 	});
 
+	// splash
+	auto optionsSplash = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BOOT SPLASH"), false);
+
+	std::string enabledSplash = SystemConf::getInstance()->get("splash.screen.enabled");
+	std::string soundSplash   = SystemConf::getInstance()->get("splash.screen.sound");
+
+	std::string selectedSplash = "auto";
+	if(enabledSplash == "0")      selectedSplash = "nosplash";
+	else if(soundSplash   == "0") selectedSplash = "silentsplash";
+
+	optionsSplash->add(_("AUTO"),          "auto", selectedSplash == "auto");
+	optionsSplash->add(_("SILENT SPLASH"), "silentsplash", selectedSplash == "silentsplash");
+	optionsSplash->add(_("NO SPLASH"),     "nosplash", selectedSplash == "nosplash");
+
+	s->addWithLabel(_("BOOT SPLASH"), optionsSplash);
+
+	s->addSaveFunc([this, optionsSplash, selectedSplash]
+	{
+	  if (optionsSplash->changed()) {
+	    if(optionsSplash->getSelected() == "nosplash") {
+	      SystemConf::getInstance()->set("splash.screen.enabled", "0");
+	    } else {
+	      SystemConf::getInstance()->set("splash.screen.enabled", "1");
+	      if(optionsSplash->getSelected() == "silentsplash") {
+		SystemConf::getInstance()->set("splash.screen.sound", "0");
+	      } else {
+		SystemConf::getInstance()->set("splash.screen.sound", "1");
+	      }
+	    }
+	    SystemConf::getInstance()->saveSystemConf();
+	  }
+	});
+
 #else
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 	{
