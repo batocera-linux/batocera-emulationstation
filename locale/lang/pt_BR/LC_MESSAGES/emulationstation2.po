@@ -1522,16 +1522,16 @@ msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ROTAÇÃO DE TELA"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "ROTAÇÃO PARA ESQUERDA"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "ROTAÇÃO PARA DIREITA"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "INVERTER ROTAÇÃO"
 
 msgid "BOOT SPLASH"
 msgstr ""
