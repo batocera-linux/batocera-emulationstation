@@ -127,7 +127,7 @@ std::string ApiSystem::getVersion()
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";
 
-	std::ifstream ifs("/usr/share/batocera/batocera.version");
+	std::ifstream ifs("/usr/share/retrolx/retrolx.version");
 	if (ifs.good()) 
 	{
 		std::string contents;
@@ -140,7 +140,7 @@ std::string ApiSystem::getVersion()
 
 std::string ApiSystem::getApplicationName()
 {
-	return "BATOCERA";
+	return "RetroLX";
 }
 
 bool ApiSystem::setOverscan(bool enable) 
