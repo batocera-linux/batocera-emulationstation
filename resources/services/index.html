@@ -33,12 +33,21 @@ function emuKill() {
 	xhr.send();
 }
 
+function launchGame(game) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', '/launch');
+	xhr.send(game);
+}
+
 function showGames(arr) {
     var out = "<table width=100% border=0 cellpadding=4 cellspacing=0>";
     var i;
-    for(i = 0; i < arr.length; i++) {	
-		out += '<tr class="system">';		
-		out += '<td width="72px" align="center"><img height=48 style="max-width:100px" src="' + arr[i].image + '"></td>';		
+    for(i = 0; i < arr.length; i++) {
+		out += '<tr class="system">';
+		if(arr[i].image)
+			out += '<td width="72px" align="center"><img height=48 style="max-width:100px" src="' + arr[i].image + '"></td>';
+		else
+			out += '<td width="72px" align="center"></td>';
 		out += '<td>';
 		out += '<table width=100%>';
 		out += '<tr><td>' + arr[i].name + '</td></tr>';
@@ -46,6 +55,7 @@ function showGames(arr) {
 			out += '<tr><td><div class="desc">' + arr[i].desc + '</div></td></tr>';
 		}
 		out += '</table>';
+		out += '<button class="playitBtn" onclick="launchGame(\'' + arr[i].path + '\')">Play</button>'
 		out += '</td>';
 		out += '<tr/>';
     }

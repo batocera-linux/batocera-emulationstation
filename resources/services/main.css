@@ -36,9 +36,16 @@ html, body {
 	border:none;
 	font-size:12px;
 	padding:6px 8px;
+	cursor: pointer;
 }
 
 
 .toolbarbutton:hover {
 	background-color:#405080FF;
+}
+
+.playitBtn {
+	background-color: #777777;
+	cursor: pointer;
+	font-size: 0.9em;
 }
