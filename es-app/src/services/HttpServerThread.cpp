@@ -18,6 +18,7 @@
 #include "utils/FileSystemUtil.h"
 #include "HttpApi.h"
 #include "Settings.h"
+#include "ApiSystem.h"
 
 /* 
 
@@ -25,6 +26,7 @@ Misc APIS
 -----------------
 GET  /restart
 GET  /quit
+GET  /emukill
 GET  /reloadgames
 POST /messagebox												-> body must contain the message text as text/plain
 POST /notify													-> body must contain the message text as text/plain
@@ -182,6 +184,11 @@ void HttpServerThread::run()
 			"xhr.open('GET', '/reloadgames');\r\n"
 			"xhr.send(); }\r\n"
 
+			"function emuKill() {\r\n"
+			"var xhr = new XMLHttpRequest();\r\n"
+			"xhr.open('GET', '/emukill');\r\n"
+			"xhr.send(); }\r\n"
+
 			"</script>\r\n"
 
 			"<img src='vid.jpg'/>\r\n"
@@ -189,6 +196,8 @@ void HttpServerThread::run()
 			"<input type='button' value='Reload games' onClick='reloadGamelists()'/>\r\n"
 			"<br/>"
 			"<input type='button' value='Quit' onClick='quitES()'/>\r\n"
+			"<br/>"
+			"<input type='button' value='Kill emulator' onClick='emuKill()'/>\r\n"
 
 			"</body>\r\n</html>", "text/html");
 	});
@@ -209,6 +218,13 @@ void HttpServerThread::run()
 		quitES(QuitMode::REBOOT);
 	});
 
+	mHttpServer->Get("/emukill", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		ApiSystem::getInstance()->emuKill();
+	});
 
 	mHttpServer->Get("/systems", [](const httplib::Request& req, httplib::Response& res)
 	{
