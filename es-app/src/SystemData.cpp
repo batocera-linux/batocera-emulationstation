@@ -68,7 +68,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 			if (mRootFolder->getChildren().size() == 0)
 				return;
 
-			if (mHidden && !Settings::getInstance()->getBool("HiddenSystemsShowGames"))
+			if (mHidden && !Settings::HiddenSystemsShowGames())
 				return;
 		}
 

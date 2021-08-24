@@ -353,7 +353,9 @@ void HttpServerThread::run()
 				{
 					if (HttpApi::ImportMedia(game, metadataName, contentType, req.body))
 					{
-						mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });
+						if (ViewController::hasInstance())
+							mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });
+
 						return;
 					}
 				}
@@ -387,7 +389,9 @@ void HttpServerThread::run()
 			{
 				if (HttpApi::ImportFromJson(game, req.body))
 				{
-					mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });					
+					if (ViewController::hasInstance())
+						mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });					
+
 					return;
 				}
 			}
@@ -577,7 +581,7 @@ void HttpServerThread::run()
 			Window* w = mWindow;
 			mWindow->postToUiThread([w]() { GuiMenu::updateGameLists(w, false); });
 		}
-		else
+		else if (ViewController::hasInstance())
 		{
 			mWindow->postToUiThread([system]()
 			{
@@ -650,12 +654,15 @@ void HttpServerThread::run()
 			// delete file; intentionnal mem leak
 		}
 
-		mWindow->postToUiThread([systems]()
+		if (ViewController::hasInstance())
 		{
-			for (auto changedSystem : systems)
-				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			
-		});
-
+			mWindow->postToUiThread([systems]()
+			{
+				for (auto changedSystem : systems)
+					ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			
+			});
+		}
+		
 		res.set_content("OK", "text/html");
 	});
 

@@ -35,6 +35,14 @@ ViewController* ViewController::get()
 	return sInstance;
 }
 
+void ViewController::deinit()
+{
+	if (sInstance != nullptr)
+		delete sInstance;
+
+	sInstance = nullptr;
+}
+
 void ViewController::init(Window* window)
 {
 	if (sInstance != nullptr)
@@ -1271,13 +1279,11 @@ void ViewController::reloadAllGames(Window* window, bool deleteCurrentGui, bool 
 			delete gui;
 	}
 
+	ViewController::deinit();
+
 	// call external triggers
-	if(doCallExternalTriggers) {
-	  if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERAPREGAMELISTSHOOK))
-	    {
-	      ApiSystem::getInstance()->callBatoceraPreGameListsHook();
-	    }
-	}
+	if (doCallExternalTriggers && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERAPREGAMELISTSHOOK))
+		ApiSystem::getInstance()->callBatoceraPreGameListsHook();
 
 	ViewController::init(window);
 	
