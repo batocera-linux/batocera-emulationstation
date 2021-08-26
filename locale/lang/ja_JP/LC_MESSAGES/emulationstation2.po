@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v32(2021/07/03)\n"
+"Project-Id-Version: batocera-es v32(2021/08/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
-"PO-Revision-Date: 2021-07-06 11:22+0900\n"
+"POT-Creation-Date: 2021-06-23 13:22+0200\n"
+"PO-Revision-Date: 2021-08-26 19:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -539,9 +539,6 @@ msgstr "自動"
 msgid "VIEW CUSTOMISATION"
 msgstr "表示をカスタマイズ"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドからキーボード情報を表示"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
 
@@ -994,6 +991,9 @@ msgstr "フォルダのメタ情報を編集"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "パッドからキーボード情報を表示"
+
 msgid "THEMES DOWNLOADER"
 msgstr "テーマダウンローダー"
 
@@ -1319,9 +1319,6 @@ msgstr "パブリックWebアクセスを有効"
 msgid "Allow public web access API using %s"
 msgstr "%s を使用しパブリックWebアクセスAPIを許可"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "新しい構成を適用するには、システムの再起動が必要です"
-
 msgid "LOG LEVEL"
 msgstr "ログレベル"
 
@@ -1516,29 +1513,32 @@ msgstr "明るさ"
 msgid "VIDEO OUTPUT"
 msgstr "映像出力"
 
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "新しい構成を適用するには、システムの再起動が必要です"
+
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "画面の回転"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "左回転"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "右回転"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "反転"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "ブートスプラッシュ映像"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "音声無し"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "映像無し"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
@@ -1559,40 +1559,40 @@ msgid "OFF"
 msgstr "オフ"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "ボタン LED色"
 
 msgid "off"
-msgstr ""
+msgstr "オフ"
 
 msgid "red"
-msgstr ""
+msgstr "赤"
 
 msgid "green"
-msgstr ""
+msgstr "緑"
 
 msgid "blue"
-msgstr ""
+msgstr "青"
 
 msgid "white"
-msgstr ""
+msgstr "白"
 
 msgid "purple"
-msgstr ""
+msgstr "紫"
 
 msgid "yellow"
-msgstr ""
+msgstr "黄"
 
 msgid "cyan"
-msgstr ""
+msgstr "シアン"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "電源 LED色"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "ハートビート"
 
 msgid "on"
-msgstr ""
+msgstr "オン"
 
 msgid "OVERCLOCK"
 msgstr "オーバークロック"
@@ -1925,7 +1925,7 @@ msgid "IP ADDRESS"
 msgstr "IP アドレス"
 
 msgid "CONNECTED"
-msgstr "接続済み"
+msgstr "接続中"
 
 msgid "NOT CONNECTED"
 msgstr "未接続"
@@ -2158,14 +2158,14 @@ msgstr[0] "このフォルダには、%i 種のゲームがあります( %s を�
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
-msgid "Games similar to"
-msgstr "類似ゲーム→"
-
 msgid "GAME OPTIONS"
 msgstr "ゲーム設定"
 
 msgid "FAVORITE"
 msgstr "気に入り"
+
+msgid "Games similar to"
+msgstr "類似ゲーム→"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2194,6 +2194,9 @@ msgstr "了解"
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
+
+msgid "Done."
+msgstr "完了。"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "メタ情報の保存中です。 お待ちください..."
@@ -2344,11 +2347,11 @@ msgstr "スクレイプが終了しました"
 
 #, c-format
 msgid "%s connected"
-msgstr "%s に接続しました"
+msgstr "%s - 接続"
 
 #, c-format
 msgid "%s disconnected"
-msgstr "%s に切断されました"
+msgstr "%s - 切断"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "大文字,小文字,特殊記号用の SHIFT"
@@ -2524,8 +2527,5 @@ msgstr "%d 分"
 msgid "%d s"
 msgstr "%d 秒"
 
-#~ msgid "Done."
-#~ msgstr "完了。"
-
-#~ msgid "GRAPHICS API"
-#~ msgstr "グラフィック API"
+msgid "GRAPHICS API"
+msgstr "グラフィック API"
