@@ -1524,25 +1524,25 @@ msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "BILD-ROTATIOn"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "LINKE ROTATION"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "RECHTE ROTATION"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "INVERTIERTE ROTATION"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "BOOT SPLASH"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "SILENT SPLASH"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "KEIN SPLASH"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS EINSTELLUNGEN"
@@ -1563,40 +1563,40 @@ msgid "OFF"
 msgstr "AUS"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "TASTEN-LED-FARBE"
 
 msgid "off"
-msgstr ""
+msgstr "aus"
 
 msgid "red"
-msgstr ""
+msgstr "rot"
 
 msgid "green"
-msgstr ""
+msgstr "grün"
 
 msgid "blue"
-msgstr ""
+msgstr "blau"
 
 msgid "white"
-msgstr ""
+msgstr "weiß"
 
 msgid "purple"
-msgstr ""
+msgstr "lila"
 
 msgid "yellow"
-msgstr ""
+msgstr "gelb"
 
 msgid "cyan"
-msgstr ""
+msgstr "cyan"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "POWER-LED-FARBE"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "Herzschlag"
 
 msgid "on"
-msgstr ""
+msgstr "an"
 
 msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
