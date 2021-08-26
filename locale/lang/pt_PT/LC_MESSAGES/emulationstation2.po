@@ -1519,25 +1519,25 @@ msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ROTAÇÃO DO ECRÃ"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "ROTAÇÃO PARA A ESQUERDA"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "ROTAÇÃO PARA A DIREITA"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "INVERTER ROTAÇÃO"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "ECRÃ DE INICIALIZAÇÃO"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "INICIALIZAÇÃO SILENCIOSA"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "SEM ECRÃ DE INICIALIZAÇÃO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "DEFINIÇÕES DO RETROACHIEVEMENTS"
