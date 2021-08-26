@@ -481,7 +481,8 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "cheevos") ret = ret | EmulatorFeatures::Features::cheevos;
 		if (trim == "autocontrollers") ret = ret | EmulatorFeatures::Features::autocontrollers;
 #ifdef _ENABLEEMUELEC
-		if (trim == "vertical") ret = ret | EmulatorFeatures::Features::vertical;		
+		if (trim == "vertical") ret = ret | EmulatorFeatures::Features::vertical;
+		if (trim == "nativevideo") ret = ret | EmulatorFeatures::Features::nativevideo;		
 #endif
 	}
 
