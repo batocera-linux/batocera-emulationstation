@@ -29,7 +29,6 @@
 #include "NetworkThread.h"
 #include "scrapers/ThreadedScraper.h"
 #include "ThreadedHasher.h"
-#include <FreeImage.h>
 #include "ImageIO.h"
 #include "components/VideoVlcComponent.h"
 #include <csignal>
@@ -272,7 +271,7 @@ bool loadSystemConfigFile(Window* window, const char** errorString)
 		return false;
 	}
 
-	if(SystemData::sSystemVector.size() == 0)
+	/*if(SystemData::sSystemVector.size() == 0)
 	{
 		LOG(LogError) << "No systems found! Does at least one system have a game present? (check that extensions match!)\n(Also, make sure you've updated your es_systems.cfg for XML!)";
 		*errorString = "WE CAN'T FIND ANY SYSTEMS!\n"
@@ -280,7 +279,7 @@ bool loadSystemConfigFile(Window* window, const char** errorString)
 			"AND YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION.\n\n"
 			"VISIT EMULATIONSTATION.ORG FOR MORE INFORMATION.";
 		return false;
-	}
+	}*/
 
 	return true;
 }
@@ -453,11 +452,6 @@ int main(int argc, char* argv[])
 	}
 #endif
 
-	// call this ONLY when linking with FreeImage as a static library
-#ifdef FREEIMAGE_LIB
-	FreeImage_Initialise();
-#endif
-
 	//if ~/.emulationstation doesn't exist and cannot be created, bail
 	if(!verifyHomeFolderExists())
 		return 1;
@@ -550,9 +544,6 @@ int main(int argc, char* argv[])
 	// this makes for no delays when accessing content, but a longer startup time
 	ViewController::get()->preload();
 
-	if (splashScreen && splashScreenProgress)
-		window.renderSplashScreen(_("Done."));
-
 	// Initialize input
 	InputConfig::AssignActionButtons();
 	InputManager::getInstance()->init();
@@ -573,7 +564,12 @@ int main(int argc, char* argv[])
 	AudioManager::getInstance()->init();
 
 	if (ViewController::get()->getState().viewing == ViewController::GAME_LIST || ViewController::get()->getState().viewing == ViewController::SYSTEM_SELECT)
-		AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme());
+	{
+		if (ViewController::get()->getState().getSystem() != nullptr)
+			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme());
+		else
+			AudioManager::getInstance()->playRandomMusic();
+	}
 	else
 		AudioManager::getInstance()->playRandomMusic();
 
@@ -693,11 +689,6 @@ int main(int argc, char* argv[])
 	ViewController::saveState();
 	CollectionSystemManager::deinit();
 	SystemData::deleteSystems();
-
-	// call this ONLY when linking with FreeImage as a static library
-#ifdef FREEIMAGE_LIB
-	FreeImage_DeInitialise();
-#endif
 
 	window.deinit();
 

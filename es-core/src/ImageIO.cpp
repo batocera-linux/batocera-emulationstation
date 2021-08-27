@@ -1,7 +1,6 @@
 #include "ImageIO.h"
 
 #include "Log.h"
-#include <FreeImage.h>
 #include <string.h>
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
@@ -10,6 +9,88 @@
 #include <map>
 #include <mutex>
 #include "renderers/Renderer.h"
+
+#define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_RESIZE_IMPLEMENTATION
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stbimage/stb_image.h"
+#include "stbimage/stb_image_resize.h"
+#include "stbimage/stb_image_write.h"
+
+//you can pass 0 for width or height to keep aspect ratio
+bool ImageIO::resizeImage(const std::string& path, int maxWidth, int maxHeight)
+{
+	LOG(LogDebug) << "ImageIO::resizeImage " << path << " max=" << maxWidth << "x" << maxHeight;
+
+	// nothing to do
+	if(maxWidth == 0 && maxHeight == 0)
+		return true;
+	
+	//detect the filetype
+	int imgSizeX, imgSizeY, imgChannels;
+	if (stbi_info(path.c_str(), &imgSizeX, &imgSizeY, &imgChannels) != 1)
+	{
+		LOG(LogError) << "Error - could not detect filetype for image \"" << path << "\"!";
+		return false;
+	}
+
+	//make sure we can read this filetype first, then load it
+	stbi_set_flip_vertically_on_load(1);
+	stbi_uc* image = stbi_load(path.c_str(), &imgSizeX, &imgSizeY, &imgChannels, imgChannels);
+	if (image == nullptr)
+	{
+		LOG(LogError) << "Error - file format reading not supported for image \"" << path << "\"!";
+		return false;
+	}
+
+	if (imgSizeX == 0 || imgSizeY == 0)
+	{
+		stbi_image_free(image);
+		return true;
+	}
+
+	float width = imgSizeX;
+	float height = imgSizeY;
+
+	if(maxWidth == 0)
+		maxWidth = (int)((maxHeight / height) * width);
+	else if(maxHeight == 0)
+		maxHeight = (int)((maxWidth / width) * height);
+	
+	if (width <= maxWidth && height <= maxHeight)
+	{
+		stbi_image_free(image);
+		return true;
+	}
+	
+	// Rescale through stb_image_resize (FreeImage was using FILTER_BILINEAR)
+	unsigned char* stbiResizedBitmap = new unsigned char[maxWidth * maxHeight * imgChannels];
+	if (stbir_resize_uint8(image, imgSizeX, imgSizeY, 0, stbiResizedBitmap, maxWidth, maxHeight, 0, imgChannels) != 1)
+	{
+		LOG(LogError) << "Error - Failed to resize image from memory!";
+		delete[] stbiResizedBitmap;
+		return false;
+	}
+	stbi_image_free(image);
+		
+	bool saved = false;
+	
+	try
+	{
+		if (imgChannels == 4)
+			saved = (stbi_write_png(path.c_str(), maxWidth, maxHeight, imgChannels, stbiResizedBitmap, 0) == 1);
+		else
+			saved = (stbi_write_jpg(path.c_str(),maxWidth, maxHeight, imgChannels, stbiResizedBitmap, 90) == 1);
+	}
+	catch(...) { }
+
+	delete[] stbiResizedBitmap;
+
+	if(!saved)
+		LOG(LogError) << "Failed to save resized image!";
+
+	return saved;
+}
 
 unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
 {
@@ -21,94 +102,87 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 	if (baseSize != nullptr)
 		*packedSize = Vector2i(0, 0);
 
-	std::vector<unsigned char> rawData;
+	unsigned char* stbiResizedBitmap = nullptr;
 	width = 0;
 	height = 0;
-	FIMEMORY * fiMemory = FreeImage_OpenMemory((BYTE *)data, (DWORD)size);
-	if (fiMemory != nullptr) 
+
+	// Check image is supported by stb_image
+	int imgSizeX, imgSizeY, imgChannels;
+	if (stbi_info_from_memory(data, size, &imgSizeX, &imgSizeY, &imgChannels) != 1)
 	{
-		//detect the filetype from data
-		FREE_IMAGE_FORMAT format = FreeImage_GetFileTypeFromMemory(fiMemory);
-		if (format != FIF_UNKNOWN && FreeImage_FIFSupportsReading(format))
+			LOG(LogError) << "Error - Failed to decode image from memory!";
+			return nullptr;
+	}
+	
+	// Do the load through stb_image
+	stbi_set_flip_vertically_on_load(1);
+	stbi_uc* stbiBitmap = stbi_load_from_memory(data, size, &imgSizeX, &imgSizeY, &imgChannels, 4);
+	if (stbiBitmap != nullptr) 
+	{
+		width = imgSizeX;
+		height = imgSizeY;
+
+		if (baseSize != nullptr)
+			*baseSize = Vector2i(width, height);
+
+		if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
 		{
-			//file type is supported. load image
-			FIBITMAP * fiBitmap = FreeImage_LoadFromMemory(format, fiMemory);
-			if (fiBitmap != nullptr)
+			Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
+
+			if (sz.x() > Renderer::getScreenWidth() || sz.y() > Renderer::getScreenHeight())
+				sz = adjustPictureSize(sz, Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()), false);
+			
+			if (sz.x() != width || sz.y() != height)
 			{
-				//loaded. convert to 32bit if necessary
-				if (FreeImage_GetBPP(fiBitmap) != 32)
+				LOG(LogDebug) << "ImageIO : rescaling image from " << std::string(std::to_string(width) + "x" + std::to_string(height)).c_str() << " to " << std::string(std::to_string(sz.x()) + "x" + std::to_string(sz.y())).c_str();
+
+				// Rescale through stb_image_resize (FreeImage was using FILTER_BOX)
+				stbiResizedBitmap = new unsigned char[sz.x() * sz.y() * 4];
+				if (stbir_resize_uint8(stbiBitmap, width, height, 0, stbiResizedBitmap, sz.x(), sz.y(), 0, 4) != 1)
 				{
-					FIBITMAP * fiConverted = FreeImage_ConvertTo32Bits(fiBitmap);
-					if (fiConverted != nullptr)
-					{
-						//free original bitmap data
-						FreeImage_Unload(fiBitmap);
-						fiBitmap = fiConverted;
-					}
+					LOG(LogError) << "Error - Failed to resize image from memory!";
+					delete[] stbiResizedBitmap;
+					return nullptr;
 				}
-				if (fiBitmap != nullptr)
-				{
-					width = FreeImage_GetWidth(fiBitmap);
-					height = FreeImage_GetHeight(fiBitmap);
+				stbi_image_free(stbiBitmap);
 
-					if (baseSize != nullptr)
-						*baseSize = Vector2i(width, height);
-
-					if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
-					{
-						Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
-
-						if (sz.x() > Renderer::getScreenWidth() || sz.y() > Renderer::getScreenHeight())
-							sz = adjustPictureSize(sz, Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()), false);
-						
-						if (sz.x() != width || sz.y() != height)
-						{
-							LOG(LogDebug) << "ImageIO : rescaling image from " << std::string(std::to_string(width) + "x" + std::to_string(height)).c_str() << " to " << std::string(std::to_string(sz.x()) + "x" + std::to_string(sz.y())).c_str();
-
-							FIBITMAP* imageRescaled = FreeImage_Rescale(fiBitmap, sz.x(), sz.y(), FILTER_BOX);
-							FreeImage_Unload(fiBitmap);
-							fiBitmap = imageRescaled;
-
-							width = FreeImage_GetWidth(fiBitmap);
-							height = FreeImage_GetHeight(fiBitmap);
-
-							if (packedSize != nullptr)
-								*packedSize = Vector2i(width, height);
-						}
-					}
-
-					unsigned char* tempData = new unsigned char[width * height * 4];
-
-					int w = (int)width;
-
-					for (int y = (int)height; --y >= 0; )
-					{
-						unsigned int* argb = (unsigned int*)FreeImage_GetScanLine(fiBitmap, y);
-						unsigned int* abgr = (unsigned int*)(tempData + (y * width * 4));
-						for (int x = w; --x >= 0;)
-						{
-							unsigned int c = argb[x];
-							abgr[x] = (c & 0xFF00FF00) | ((c & 0xFF) << 16) | ((c >> 16) & 0xFF);
-						}
-					}
-
-					FreeImage_Unload(fiBitmap);
-					FreeImage_CloseMemory(fiMemory);
-
-					return tempData;
-				}
-			}
-			else
-			{
-				LOG(LogError) << "Error - Failed to load image from memory!";
+				width = sz.x();
+				height = sz.y();
+				
+				if (packedSize != nullptr)
+					*packedSize = Vector2i(width, height);
+				
+				stbiBitmap = stbiResizedBitmap;
 			}
 		}
-		else
+
+		LOG(LogDebug) << "ImageIO : returning decoded image ";
+
+		/*unsigned char* tempData = new unsigned char[width * height * 4];
+
+		int w = (int)width;
+
+		for (int y = (int)height; --y >= 0; )
 		{
-			LOG(LogError) << "Error - File type " << (format == FIF_UNKNOWN ? "unknown" : "unsupported") << "!";
+			unsigned int* argb = (unsigned int*)FreeImage_GetScanLine(fiBitmap, y);
+			unsigned int* abgr = (unsigned int*)(tempData + (y * width * 4));
+			for (int x = w; --x >= 0;)
+			{
+				unsigned int c = argb[x];
+				abgr[x] = (c & 0xFF00FF00) | ((c & 0xFF) << 16) | ((c >> 16) & 0xFF);
+			}
 		}
-		//free FIMEMORY again
-		FreeImage_CloseMemory(fiMemory);
+
+		FreeImage_Unload(fiBitmap);
+		FreeImage_CloseMemory(fiMemory);*/
+
+		return stbiBitmap;
+
+	}
+	else
+	{
+			LOG(LogError) << "Error - Failed to load image from memory!";
+			return nullptr;
 	}
 
 	return nullptr;

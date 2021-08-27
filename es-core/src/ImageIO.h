@@ -56,6 +56,8 @@ public:
 	static void		loadImageCache();
 	static void		saveImageCache();
 	static void		clearImageCache();
+
+	static bool		resizeImage(const std::string& path, int maxWidth, int maxHeight);
 };
 
 #endif // ES_CORE_IMAGE_IO

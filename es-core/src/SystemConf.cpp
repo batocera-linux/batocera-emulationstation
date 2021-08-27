@@ -12,10 +12,10 @@
 #include <SDL_timer.h>
 
 #if WIN32 & !_DEBUG
-	// NOBATOCERACONF routes all SystemConf to es_settings for Windows Release version
+	// NORETROLXCONF routes all SystemConf to es_settings for Windows Release version
 
 	#include "Settings.h"
-	#define NOBATOCERACONF
+	#define NORETROLXCONF
 
 	std::string mapSettingsName(const std::string name)
 	{
@@ -51,14 +51,14 @@ static std::map<std::string, std::string> defaults =
 	{ "global.ai_service_enabled", "0" },
 };
 
-std::string systemConfFile = "/userdata/system/batocera.conf";
-std::string systemConfFileTmp = "/userdata/system/batocera.conf.tmp";
+std::string systemConfFile = "/userdata/system/retrolx.conf";
+std::string systemConfFileTmp = "/userdata/system/retrolx.conf.tmp";
 
 SystemConf::SystemConf() 
 {
 #if WIN32
-	systemConfFile = Utils::FileSystem::getEsConfigPath() + "/batocera.conf";
-	systemConfFileTmp = Utils::FileSystem::getEsConfigPath() + "/batocera.conf.tmp";
+	systemConfFile = Utils::FileSystem::getEsConfigPath() + "/retrolx.conf";
+	systemConfFileTmp = Utils::FileSystem::getEsConfigPath() + "/retrolx.conf.tmp";
 #endif
 
     loadSystemConf();
@@ -74,7 +74,7 @@ SystemConf *SystemConf::getInstance()
 
 bool SystemConf::loadSystemConf() 
 {
-#ifdef NOBATOCERACONF
+#ifdef NORETROLXCONF
 	return true;
 #endif
 
@@ -105,7 +105,7 @@ bool SystemConf::loadSystemConf()
 
 bool SystemConf::saveSystemConf()
 {
-#ifdef NOBATOCERACONF
+#ifdef NORETROLXCONF
 	return Settings::getInstance()->saveFile();	
 #endif
 
@@ -203,7 +203,7 @@ bool SystemConf::saveSystemConf()
 
 	fileout.close();
 
-	/* Copy back the tmp to batocera.conf */
+	/* Copy back the tmp to retrolx.conf */
 	std::ifstream  src(systemConfFileTmp, std::ios::binary);
 	std::ofstream  dst(systemConfFile, std::ios::binary);
 	dst << src.rdbuf();
@@ -216,7 +216,7 @@ bool SystemConf::saveSystemConf()
 
 std::string SystemConf::get(const std::string &name) 
 {
-#ifdef NOBATOCERACONF
+#ifdef NORETROLXCONF
 	return Settings::getInstance()->getString(mapSettingsName(name));
 #endif
 	
@@ -233,7 +233,7 @@ std::string SystemConf::get(const std::string &name)
 
 bool SystemConf::set(const std::string &name, const std::string &value) 
 {
-#ifdef NOBATOCERACONF
+#ifdef NORETROLXCONF
 	return Settings::getInstance()->setString(mapSettingsName(name), value == "auto" ? "" : value);
 #endif
 
@@ -249,7 +249,7 @@ bool SystemConf::set(const std::string &name, const std::string &value)
 
 bool SystemConf::getBool(const std::string &name, bool defaultValue)
 {
-#ifdef NOBATOCERACONF
+#ifdef NORETROLXCONF
 	return Settings::getInstance()->getBool(mapSettingsName(name));
 #endif
 
@@ -261,7 +261,7 @@ bool SystemConf::getBool(const std::string &name, bool defaultValue)
 
 bool SystemConf::setBool(const std::string &name, bool value)
 {
-#ifdef NOBATOCERACONF	
+#ifdef NORETROLXCONF	
 	return Settings::getInstance()->setBool(mapSettingsName(name), value);
 #endif
 
