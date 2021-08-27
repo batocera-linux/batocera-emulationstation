@@ -1136,16 +1136,16 @@ msgid "RGA SCALING"
 msgstr "RGA SCALING"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "FABRICANT"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDU"
 
 msgid "VERSION"
 msgstr "VERSION"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "FILTRES"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1283,7 +1283,7 @@ msgid "SYSTEM"
 msgstr "SYSTÈME"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "PILOTE VIDÉO"
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -1518,25 +1518,25 @@ msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ROTATION DE L’ÉCRAN"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "ROTATION À GAUCHE"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "ROTATION À DROITE"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "ROTATION INVERSÉE"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "VIDÉO DE DÉMARRAGE"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "SILENCIEUSE"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "AUCUNE"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
@@ -1557,40 +1557,40 @@ msgid "OFF"
 msgstr "NON"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "COULEUR LED DES BOUTONS"
 
 msgid "off"
-msgstr ""
+msgstr "éteint"
 
 msgid "red"
-msgstr ""
+msgstr "rouge"
 
 msgid "green"
-msgstr ""
+msgstr "vert"
 
 msgid "blue"
-msgstr ""
+msgstr "bleu"
 
 msgid "white"
-msgstr ""
+msgstr "blanc"
 
 msgid "purple"
-msgstr ""
+msgstr "violet"
 
 msgid "yellow"
-msgstr ""
+msgstr "jaune"
 
 msgid "cyan"
-msgstr ""
+msgstr "cyan"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "COULEUR LED D’ALIMENTATION"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "BATTEMENT DE COEUR"
 
 msgid "on"
-msgstr ""
+msgstr "allumé"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
@@ -1713,7 +1713,7 @@ msgid "DECORATION"
 msgstr "DÉCORATIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "ETIRER LES BEZELS (4K & ULTRAWIDE)"
+msgstr "ETIRER LES DÉCORATIONS (4K & ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION DES JEUX"
@@ -2535,18 +2535,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "Done."
-#~ msgstr "Terminé"
-
-#~ msgid "GL VENDOR"
-#~ msgstr "GL VENDOR"
-
-#~ msgid "GL RENDERER"
-#~ msgstr "GL RENDERER"
-
-#~ msgid "GL VERSION"
-#~ msgstr "GL VERSION"
-
-#~ msgid "GLSL VERSION"
-#~ msgstr "VERSION GLSL"
