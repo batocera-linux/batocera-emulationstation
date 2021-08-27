@@ -381,7 +381,8 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	pGlyph->glyphSize = glyphSize;
 
 	// upload glyph bitmap to texture
-	Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
+	if (glyphSize.x() > 0 && glyphSize.y() > 0)
+	    Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
 
 	// update max glyph height
 	if(glyphSize.y() > mMaxGlyphHeight)

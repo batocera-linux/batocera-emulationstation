@@ -729,6 +729,9 @@ void SystemView::updateExtraTextBinding()
 
 void SystemView::onCursorChanged(const CursorState& /*state*/)
 {
+    if (size() == 0)
+        return;
+
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
 
