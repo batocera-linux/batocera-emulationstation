@@ -91,7 +91,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 
 	// KODI >
 	// GAMES SETTINGS >
-	// CONTROLLERS >
+	// CONTROLLERS & BLUETOOTH >
 	// UI SETTINGS >
 	// SOUND SETTINGS >
 	// NETWORK >
@@ -122,7 +122,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	{
 #if !defined(WIN32) || defined(_DEBUG)
 		addEntry(_("GAMES SETTINGS").c_str(), true, [this] { openGamesSettings_batocera(); }, "iconGames");
-		addEntry(_("CONTROLLERS SETTINGS").c_str(), true, [this] { openControllersSettings_batocera(); }, "iconControllers");
+		addEntry(_("CONTROLLERS & BLUETOOTH SETTINGS").c_str(), true, [this] { openControllersSettings_batocera(); }, "iconControllers");
 		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
 		addEntry(_("GAME COLLECTION SETTINGS").c_str(), true, [this] { openCollectionSystemSettings(); }, "iconAdvanced");
 		addEntry(_("SOUND SETTINGS").c_str(), true, [this] { openSoundSettings(); }, "iconSound");
@@ -136,7 +136,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))		
-			addEntry(_("CONTROLLERS SETTINGS").c_str(), true, [this] { openControllersSettings_batocera(); }, "iconControllers");
+			addEntry(_("CONTROLLERS & BLUETOOTH SETTINGS").c_str(), true, [this] { openControllersSettings_batocera(); }, "iconControllers");
 		else
 			addEntry(_("CONFIGURE INPUT"), true, [this] { openConfigInput(); }, "iconControllers");
 
@@ -2353,7 +2353,7 @@ void GuiMenu::openEmulatorSettings()
 
 void GuiMenu::openControllersSettings_batocera(int autoSel)
 {
-	GuiSettings* s = new GuiSettings(mWindow, _("CONTROLLERS SETTINGS").c_str());
+	GuiSettings* s = new GuiSettings(mWindow, _("CONTROLLERS & BLUETOOTH SETTINGS").c_str());
 
 	Window *window = mWindow;
 
@@ -2377,11 +2377,11 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
 	{
-		// PAIR A BLUETOOTH CONTROLLER
-		s->addEntry(_("PAIR A BLUETOOTH CONTROLLER"), false, [window] { ThreadedBluetooth::start(window); });
+		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
+		s->addEntry(_("PAIR A BLUETOOTH DEVICE"), false, [window] { ThreadedBluetooth::start(window); });
 
-		// FORGET BLUETOOTH CONTROLLERS
-		s->addEntry(_("FORGET A BLUETOOTH CONTROLLER"), false, [window, this, s] 
+		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
+		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s]
 		{
 			window->pushGui(new GuiBluetooth(window));
 		});
