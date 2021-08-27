@@ -2229,7 +2229,7 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 	if (ThreadedHasher::isRunning())
 	{
 		window->pushGui(new GuiMsgBox(window, _("GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"),
-			_("YES"), [] { ThreadedScraper::stop(); }, 
+			_("YES"), [] { ThreadedHasher::stop(); },
 			_("NO"), nullptr));
 
 		return;
