@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -617,8 +617,8 @@ msgstr "NINCS WIFI HÁLÓZAT"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFI HÁLÓZAT KERESÉSE"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH KONTROLLER ELTÁVOLÍTÁSA"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "MINDET ELTÁVOLÍT"
@@ -626,8 +626,8 @@ msgstr "MINDET ELTÁVOLÍT"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "KONTROLLER PÁROSÍTÁSOK TÖRÖLVE."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "FÁJL BÖNGÉSZŐ"
@@ -1156,8 +1156,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "JÁTÉK BEÁLLÍTÁSOK"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "KONTROLLER BEÁLLÍTÁSOK"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "KINÉZET BEÁLLÍTÁSOK"
@@ -1754,8 +1754,8 @@ msgstr ""
 "SELECT GOMBOT. UGORD ÁT AZOKAT A GOMBOKAT, AMIK HIÁNYOZNAK BÁRMELYIK GOMB "
 "NYOMVATARTÁSÁVAL. A GOMBOK NEVEI MEGEGYEZNEK AZ SNES KONTROLLERÉVEL."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH KONTROLLER PÁROSÍTÁSA"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2531,6 +2531,18 @@ msgstr "%d p"
 #, c-format
 msgid "%d s"
 msgstr "%d mp"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH KONTROLLER ELTÁVOLÍTÁSA"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "KONTROLLER PÁROSÍTÁSOK TÖRÖLVE."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "KONTROLLER BEÁLLÍTÁSOK"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH KONTROLLER PÁROSÍTÁSA"
 
 #~ msgid "Done."
 #~ msgstr "Kész."

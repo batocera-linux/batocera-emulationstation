@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -625,8 +625,8 @@ msgstr "لم يتم العثور على شبكة WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "جارِ البحث عن شبكة WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "نسيان وحدة تحكم البلوتوث"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "إزالة الكل"
@@ -634,8 +634,8 @@ msgstr "إزالة الكل"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "لم يتم إيجاد أجهزة بلوتوث"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "تم حذف روابط وحدات التحكم"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr ""
@@ -1164,8 +1164,8 @@ msgstr "مشغل الوسائط KODI"
 msgid "GAMES SETTINGS"
 msgstr "إعدادات الألعاب"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "إعدادات وحدات التحكم"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "إعدادات واجهة المستخدم"
@@ -1762,8 +1762,8 @@ msgstr ""
 "اضغط مطولا على أي زر لا يتوفر لديك لتجاهله أسماء الأزرار مبنية على مصفوفة "
 "لوحة تحكم سوبر نينتندو."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "اقتران وحدة تحكم بلوتوث"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2573,6 +2573,18 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "نسيان وحدة تحكم البلوتوث"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "تم حذف روابط وحدات التحكم"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "إعدادات وحدات التحكم"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "اقتران وحدة تحكم بلوتوث"
 
 #~ msgid "Done."
 #~ msgstr "تم."

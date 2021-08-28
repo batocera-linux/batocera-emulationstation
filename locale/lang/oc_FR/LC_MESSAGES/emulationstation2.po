@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: 2020-08-15 15:32+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
@@ -623,8 +623,8 @@ msgstr "CAP DE RET WIFI PAS TROBAT"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "RECÈRCA DE RET WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "OBLIDAR UNA MANETA BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "TOT SUPRIMIR"
@@ -632,8 +632,8 @@ msgstr "TOT SUPRIMIR"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "CAP DE PERIFERIC BLUETOOTH PAS TROBAT"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LIGAMS MANETA SUPRIMIT."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr ""
@@ -1157,8 +1157,8 @@ msgstr "CENTRE MULTIMÈDIA KODI"
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES JÒCS"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "PARAMÈTRES DE MANETAS"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "PARAMÈTRES INTERFÀCIA"
@@ -1745,8 +1745,8 @@ msgid ""
 "SNES CONTROLLER."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "ASSOCIAR UNA MANETA BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2509,6 +2509,18 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "OBLIDAR UNA MANETA BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "LIGAMS MANETA SUPRIMIT."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "PARAMÈTRES DE MANETAS"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "ASSOCIAR UNA MANETA BLUETOOTH"
 
 #~ msgid "Done."
 #~ msgstr "Acabat."

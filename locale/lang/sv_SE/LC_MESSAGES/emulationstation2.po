@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -617,7 +617,7 @@ msgstr "INGA TRÅDLÖSA NÄTVERK HITTADE"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "LETAR TRÅDLÖSA NÄTVERK"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
+msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "REMOVE ALL"
@@ -626,8 +626,8 @@ msgstr ""
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr ""
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr ""
@@ -1154,8 +1154,8 @@ msgstr "KODI MEDIACENTER"
 msgid "GAMES SETTINGS"
 msgstr "SPELINSTÄLLNINGAR"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "KONTROLLINSTÄLLNINGAR"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI-INSTÄLLNINGAR"
@@ -1752,8 +1752,8 @@ msgstr ""
 "HOPPA ÖVER ALLA KNAPPAR DU INTE HAR GENOM ATT HÅLLA NERE A-KNAPPEN. "
 "KNAPPARNAS NAMN BASERAS PÅ SUPERNINTENDO-SPELKONTROLLEN."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PARA IHOP EN SPELKONTROLL VIA BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2519,6 +2519,15 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "KONTROLLINSTÄLLNINGAR"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "PARA IHOP EN SPELKONTROLL VIA BLUETOOTH"
 
 #~ msgid "Done."
 #~ msgstr "Färdig."

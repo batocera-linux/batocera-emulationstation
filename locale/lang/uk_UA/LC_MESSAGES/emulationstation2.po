@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -619,8 +619,8 @@ msgstr "МЕРЕЖА WIFI НЕ ЗНАЙДЕНА"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "ПОШУК МЕРЕЖІ WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "ВІДВ'ЯЗАТИ BLUETOOTH КОНТРОЛЛЕР"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "ВИДАЛИТИ ВСЕ"
@@ -628,8 +628,8 @@ msgstr "ВИДАЛИТИ ВСЕ"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "НЕ ЗНАЙДЕНО BLUETOOTH КОНТРОЛЛЕРІВ"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "BLUETOOTH КОНТРОЛЛЕРИ ВИДАЛЕНО"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr ""
@@ -1158,8 +1158,8 @@ msgstr "МЕДІАЦЕНТР KODI"
 msgid "GAMES SETTINGS"
 msgstr "ІГРОВІ НАЛАШТУВАННЯ"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "НАЛАШТУВАННЯ КОНТРОЛЕРІВ"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "НАЛАШТУВАННЯ ІНТЕРФЕЙСУ"
@@ -1754,8 +1754,8 @@ msgstr ""
 "ВІДСУТНЯ ОКРЕМА \"ГАРЯЧА\" КНОПКА, ВИКОРИСТАЙТЕ ЗАМІСТЬ НЕЇ КНОПКУ SELECT. "
 "НАЗВИ КНОПОК ОСНОВАНІ НА SNES КОНТРОЛЕРІ."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "ПРИВ'ЯЗКА BLUETOOTH КОНТРОЛЕРА"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2533,6 +2533,18 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "ВІДВ'ЯЗАТИ BLUETOOTH КОНТРОЛЛЕР"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "BLUETOOTH КОНТРОЛЛЕРИ ВИДАЛЕНО"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "НАЛАШТУВАННЯ КОНТРОЛЕРІВ"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "ПРИВ'ЯЗКА BLUETOOTH КОНТРОЛЕРА"
 
 #~ msgid "Done."
 #~ msgstr "Готово."

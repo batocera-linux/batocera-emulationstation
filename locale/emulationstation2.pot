@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-20 20:52+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -622,7 +622,7 @@ msgstr ""
 msgid "SEARCHING WIFI NETWORKS"
 msgstr ""
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
+msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "REMOVE ALL"
@@ -631,7 +631,7 @@ msgstr ""
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr ""
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -1156,7 +1156,7 @@ msgstr ""
 msgid "GAMES SETTINGS"
 msgstr ""
 
-msgid "CONTROLLERS SETTINGS"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1744,7 +1744,7 @@ msgid ""
 "SNES CONTROLLER."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 #, c-format

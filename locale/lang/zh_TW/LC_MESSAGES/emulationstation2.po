@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -616,8 +616,8 @@ msgstr "沒有找到 WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "搜尋 WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "解除藍牙控制器"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "移除全部"
@@ -625,8 +625,8 @@ msgstr "移除全部"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "沒有發現藍牙裝置"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "遊戲控制器連結已經刪除。"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "檔案瀏覽器"
@@ -1156,8 +1156,8 @@ msgstr "KODI 多媒體中心"
 msgid "GAMES SETTINGS"
 msgstr "遊戲設定"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "控制器設定"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1750,8 +1750,8 @@ msgstr ""
 "桿的設定。 如果您沒有一個特別的按鈕可指派為「熱鍵」， 請將它指派給「選擇"
 "鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 按鍵名稱是參照超任的遊戲控制器。"
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "配對藍牙遊戲控制器"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2512,6 +2512,18 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "解除藍牙控制器"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "遊戲控制器連結已經刪除。"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "控制器設定"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "配對藍牙遊戲控制器"
 
 #~ msgid "Done."
 #~ msgstr "完成。"

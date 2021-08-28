@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v32(2021/08/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-23 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: 2021-08-26 19:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -539,6 +539,9 @@ msgstr "自動"
 msgid "VIEW CUSTOMISATION"
 msgstr "表示をカスタマイズ"
 
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "パッドからキーボード情報を表示"
+
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
 
@@ -614,8 +617,8 @@ msgstr "WIFI ネットワークが見つかりません"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH コントローラーを解除"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "すべて削除"
@@ -623,8 +626,8 @@ msgstr "すべて削除"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BT コントローラーが見つかりません"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "コントローラーのリンクが切れました。"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "ファイルブラウザ"
@@ -991,9 +994,6 @@ msgstr "フォルダのメタ情報を編集"
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドからキーボード情報を表示"
-
 msgid "THEMES DOWNLOADER"
 msgstr "テーマダウンローダー"
 
@@ -1158,8 +1158,8 @@ msgstr "KODI メディアセンター"
 msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "コントローラー設定"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1318,6 +1318,9 @@ msgstr "パブリックWebアクセスを有効"
 #, c-format
 msgid "Allow public web access API using %s"
 msgstr "%s を使用しパブリックWebアクセスAPIを許可"
+
+msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "新しい構成を適用するには、システムの再起動が必要です"
 
 msgid "LOG LEVEL"
 msgstr "ログレベル"
@@ -1512,9 +1515,6 @@ msgstr "明るさ"
 
 msgid "VIDEO OUTPUT"
 msgstr "映像出力"
-
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "新しい構成を適用するには、システムの再起動が必要です"
 
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"
@@ -1757,8 +1757,8 @@ msgstr ""
 "てのボタンを 長押しで スキップした場合、 ボタン配置が スーパーファミコンを "
 "ベースとしたものに なります。"
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH コントローラのペアリング"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2158,14 +2158,14 @@ msgstr[0] "このフォルダには、%i 種のゲームがあります( %s を�
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
+msgid "Games similar to"
+msgstr "類似ゲーム→"
+
 msgid "GAME OPTIONS"
 msgstr "ゲーム設定"
 
 msgid "FAVORITE"
 msgstr "気に入り"
-
-msgid "Games similar to"
-msgstr "類似ゲーム→"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2194,9 +2194,6 @@ msgstr "了解"
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
-
-msgid "Done."
-msgstr "完了。"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "メタ情報の保存中です。 お待ちください..."
@@ -2527,5 +2524,20 @@ msgstr "%d 分"
 msgid "%d s"
 msgstr "%d 秒"
 
-msgid "GRAPHICS API"
-msgstr "グラフィック API"
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH コントローラーを解除"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "コントローラーのリンクが切れました。"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "コントローラー設定"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH コントローラのペアリング"
+
+#~ msgid "Done."
+#~ msgstr "完了。"
+
+#~ msgid "GRAPHICS API"
+#~ msgstr "グラフィック API"

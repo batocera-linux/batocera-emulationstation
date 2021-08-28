@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -617,8 +617,8 @@ msgstr "NENHUMA REDE WIFI ENCONTRADA"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "PESQUISA DE REDES WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "REMOVER CONTROLE BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "REMOVER TODOS"
@@ -626,8 +626,8 @@ msgstr "REMOVER TODOS"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "EXPLORAR ARQUIVOS"
@@ -1159,8 +1159,8 @@ msgstr "CENTRAL DE MÍDIA KODI"
 msgid "GAMES SETTINGS"
 msgstr "OPÇÕES DE JOGOS"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "OPÇÕES DE CONTROLES"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "OPÇÕES DA INTERFACE"
@@ -1758,8 +1758,8 @@ msgstr ""
 "HOTKEY, UTILIZE O BOTÃO SELECT. IGNORE A CONFIGURAÇÃO DOS BOTÕES QUE NÃO "
 "EXISTEM EM SEU CONTROLE PRESSIONANDO UM BOTÃO JÁ CONFIGURADO EM SEU CONTROLE."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PAREAR UM CONTROLE BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2532,6 +2532,18 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "REMOVER CONTROLE BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "OPÇÕES DE CONTROLES"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "PAREAR UM CONTROLE BLUETOOTH"
 
 #~ msgid "Done."
 #~ msgstr "Concluído."

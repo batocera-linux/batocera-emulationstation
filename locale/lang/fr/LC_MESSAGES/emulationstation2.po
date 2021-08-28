@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 19:40+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -617,8 +617,8 @@ msgstr "PAS DE RÉSEAUX WIFI TROUVÉS"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "OUBLIER UNE MANETTE BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "TOUT SUPPRIMER"
@@ -626,8 +626,8 @@ msgstr "TOUT SUPPRIMER"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "NAVIGATEUR DE FICHIERS"
@@ -1156,8 +1156,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "PARAMÈTRES DES MANETTES"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "PARAMÈTRES DE L'INTERFACE"
@@ -1756,8 +1756,8 @@ msgstr ""
 "N'A PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. LES NOMS DES BOUTONS "
 "SONT BASÉS SUR LA SUPER NINTENDO."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2535,3 +2535,15 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "OUBLIER UNE MANETTE BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "PARAMÈTRES DES MANETTES"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
