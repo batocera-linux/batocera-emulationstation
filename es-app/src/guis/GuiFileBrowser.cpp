@@ -38,6 +38,22 @@ GuiFileBrowser::GuiFileBrowser(Window* window, const std::string startPath, cons
 
 	if (mOkCallback != nullptr)
 	{
+		mMenu.addButton(_("SELECT"), "select", [&]
+		{
+			auto path = mMenu.getSelected();
+
+			if (mTypes == FileTypes::DIRECTORY && path.empty())
+			{
+				mOkCallback(mCurrentPath);
+				delete this;
+			}
+			else if (!path.empty() && (mTypes == FileTypes::DIRECTORY || !Utils::FileSystem::isDirectory(path)))
+			{
+				mOkCallback(path);
+				delete this;
+			}
+		});
+
 		mMenu.addButton(_("RESET"), "back", [&]
 		{
 			mOkCallback("");
