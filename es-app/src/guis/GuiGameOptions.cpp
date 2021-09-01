@@ -55,7 +55,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 	if (hasManual || hasMap || hasCheevos || hasMagazine)
 	{
-		mMenu.addGroup(_("GAME MEDIAS"));
+		mMenu.addGroup(_("GAME MEDIA"));
 
 		if (hasManual)
 		{
@@ -543,7 +543,7 @@ void GuiGameOptions::deleteCollection()
 	if (getCustomCollectionName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 		return;
 
-	mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"), _("YES"),
+	mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"), _("YES"),
 		[this]
 		{
 			std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();
