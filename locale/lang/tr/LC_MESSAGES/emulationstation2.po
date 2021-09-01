@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -617,8 +617,8 @@ msgstr "WIFI AĞI BULUNAMADI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFI AĞLARI TARANIYOR"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH KONTROLCÜSÜNÜ UNUT"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "HEPSİNİ SİL"
@@ -626,8 +626,8 @@ msgstr "HEPSİNİ SİL"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BLUETOOTH CİHAZI BULUNAMADI"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "KUMANDA BAĞLANTILARI SİLİNDİ."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "DOSYA YÖNETİCİSİ"
@@ -1158,8 +1158,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "OYUN AYARLARI"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "KUMANDA AYARLARI"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "ARABİRİM AYARLARI"
@@ -1519,6 +1519,27 @@ msgstr "VİDEO ÇIKIŞI"
 msgid "AUDIO OUTPUT"
 msgstr "SES ÇIKIŞI"
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETRO BAŞARILARI AYARLARI"
 
@@ -1536,6 +1557,42 @@ msgstr "AÇIK"
 
 msgid "OFF"
 msgstr "KAPALI"
+
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "HIZAŞIMI"
@@ -1700,8 +1757,8 @@ msgstr ""
 "HANGİ TUŞU SEÇMENİZ GEREKTİĞİNİ BİLMİYORSANIZ SELECT TUŞUNA ATAYABİLİRSİNİZ."
 "BUTON TUŞLARININ HARFLERİNDE SNES KONTROLLERİ BAZ ALINMIŞTIR."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH KUMANDA EŞLEŞTİR"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2141,9 +2198,6 @@ msgstr "ONAYLA"
 msgid "Loading system config..."
 msgstr "Sistem yapılandırması yükleniyor..."
 
-msgid "Done."
-msgstr "Tamam."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
 
@@ -2479,6 +2533,21 @@ msgstr "%d d"
 #, c-format
 msgid "%d s"
 msgstr "%d sn"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH KONTROLCÜSÜNÜ UNUT"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "KUMANDA BAĞLANTILARI SİLİNDİ."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "KUMANDA AYARLARI"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH KUMANDA EŞLEŞTİR"
+
+#~ msgid "Done."
+#~ msgstr "Tamam."
 
 #~ msgid "GL VENDOR"
 #~ msgstr "GL YAPIMCI"

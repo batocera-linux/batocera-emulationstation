@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -622,8 +622,8 @@ msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "CHWILIO RHWYDWEITHIAU WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "ANGHOFIO RHEOLWR BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "DIDDYMU POPETH"
@@ -631,8 +631,8 @@ msgstr "DIDDYMU POPETH"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "HEB FFEINDIO DYFEISIAU BLUETOOTH"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "CYSYLLTIADAU RHEOLYDDION WEDI EU DILEU."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr ""
@@ -1161,8 +1161,8 @@ msgstr "CANOLFAN CYFRYNGAU KODI"
 msgid "GAMES SETTINGS"
 msgstr "GOSODIADAU GEMAU"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "GOSODIADAU RHEOLYDDION"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "GOSODIADAU UI"
@@ -1520,6 +1520,27 @@ msgstr "ALLBWN FIDEO"
 msgid "AUDIO OUTPUT"
 msgstr "ALLBWN SAIN"
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "GOSODIADAU CYFLAWNIADAU-RETRO"
 
@@ -1537,6 +1558,42 @@ msgstr "YMLAEN"
 
 msgid "OFF"
 msgstr "BANT"
+
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "TROSGLOCIO"
@@ -1701,8 +1758,8 @@ msgstr ""
 "DEWIS Y BOTWM DEWIS. SGIPIO POB BOTWM NAD SYDD GYDA CHI GAN DAL YR ALLWEDD. "
 "MAE ENWAU BOTYMAU YN SEILIEDIG AR REOLYDD SNES."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PARIO RHEOLYDD BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2155,9 +2212,6 @@ msgstr "DERBYN CANLYNIAD"
 msgid "Loading system config..."
 msgstr "Llwytho system ffurfweddu..."
 
-msgid "Done."
-msgstr "Wedi'i wneud."
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
 
@@ -2522,6 +2576,21 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d e"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "ANGHOFIO RHEOLWR BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "CYSYLLTIADAU RHEOLYDDION WEDI EU DILEU."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "GOSODIADAU RHEOLYDDION"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "PARIO RHEOLYDD BLUETOOTH"
+
+#~ msgid "Done."
+#~ msgstr "Wedi'i wneud."
 
 #~ msgid "UPDATING EMULATIONSTATION"
 #~ msgstr "DIWEDDARU EMULATIONSTATION"

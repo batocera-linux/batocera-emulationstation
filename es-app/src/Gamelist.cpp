@@ -254,6 +254,9 @@ bool saveToGamelistRecovery(FileData* file)
 	const char* tag = file->getType() == GAME ? "game" : "folder";
 
 	SystemData* system = file->getSourceFileData()->getSystem();
+	if (!Settings::HiddenSystemsShowGames() && !system->isVisible())
+		return false;
+
 	root.append_attribute("parentHash").set_value(system->getGamelistHash());
 
 	if (addFileDataNode(root, file, tag, system))
@@ -303,7 +306,7 @@ bool removeFromGamelistRecovery(FileData* file)
 
 bool hasDirtyFile(SystemData* system)
 {
-	if (system == nullptr || !system->isGameSystem()) // || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
+	if (system == nullptr || !system->isGameSystem() || (!Settings::HiddenSystemsShowGames() && !system->isVisible())) // || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		return false;
 
 	FolderData* rootFolder = system->getRootFolder();
@@ -327,7 +330,7 @@ void updateGamelist(SystemData* system)
 	if(system == nullptr || Settings::getInstance()->getBool("IgnoreGamelist"))
 		return;
 
-	if (!system->isGameSystem()) // || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
+	if (!system->isGameSystem() || (!Settings::HiddenSystemsShowGames() && !system->isVisible())) // || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		return;
 
 	FolderData* rootFolder = system->getRootFolder();
@@ -428,7 +431,7 @@ void updateGamelist(SystemData* system)
 
 void cleanupGamelist(SystemData* system)
 {
-	if (!system->isGameSystem() || system->isCollection()) //  || system->hasPlatformId(PlatformIds::IMAGEVIEWER)
+	if (!system->isGameSystem() || system->isCollection() || (!Settings::HiddenSystemsShowGames() && !system->isVisible())) //  || system->hasPlatformId(PlatformIds::IMAGEVIEWER)
 		return;
 
 	FolderData* rootFolder = system->getRootFolder();

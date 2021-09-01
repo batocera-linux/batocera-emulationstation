@@ -12,7 +12,7 @@
 #include "GuiLoading.h"
 
 GuiBluetooth::GuiBluetooth(Window* window)
-	: GuiComponent(window), mMenu(window, _("FORGET A BLUETOOTH CONTROLLER").c_str())
+	: GuiComponent(window), mMenu(window, _("FORGET A BLUETOOTH DEVICE").c_str())
 {
 	mWaitingLoad = false;
 
@@ -96,7 +96,7 @@ void GuiBluetooth::onRemoveAll()
 		[this, window](bool ret)
 		{
 			mWaitingLoad = false;
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("CONTROLLERS LINKS HAVE BEEN DELETED."), _("OK")));
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("BLUETOOTH DEVICES HAVE BEEN DELETED."), _("OK")));
 			delete this;
 		}));	
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -622,7 +622,7 @@ msgstr ""
 msgid "SEARCHING WIFI NETWORKS"
 msgstr ""
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
+msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "REMOVE ALL"
@@ -631,7 +631,7 @@ msgstr ""
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr ""
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -1156,7 +1156,7 @@ msgstr ""
 msgid "GAMES SETTINGS"
 msgstr ""
 
-msgid "CONTROLLERS SETTINGS"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1511,6 +1511,27 @@ msgstr ""
 msgid "AUDIO OUTPUT"
 msgstr ""
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr ""
 
@@ -1527,6 +1548,42 @@ msgid "ON"
 msgstr ""
 
 msgid "OFF"
+msgstr ""
+
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
 msgstr ""
 
 msgid "OVERCLOCK"
@@ -1687,7 +1744,7 @@ msgid ""
 "SNES CONTROLLER."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 #, c-format
@@ -2117,9 +2174,6 @@ msgid "ACCEPT RESULT"
 msgstr ""
 
 msgid "Loading system config..."
-msgstr ""
-
-msgid "Done."
 msgstr ""
 
 msgid "SAVING METADATAS. PLEASE WAIT..."

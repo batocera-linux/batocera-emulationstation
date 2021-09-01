@@ -71,8 +71,9 @@ void HttpApi::getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>
 	if (theme != nullptr)
 	{
 		const ThemeData::ThemeElement* elem = theme->getElement("system", "logo", "image");
-		if (elem && elem->has("path"))
+		if (elem && elem->has("path")) {
 			writer.Key("logo"); writer.String(("/systems/" + sys->getName() + "/logo").c_str());
+		}
 	}
 
 	writer.EndObject();

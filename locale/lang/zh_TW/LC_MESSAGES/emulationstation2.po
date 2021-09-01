@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -616,8 +616,8 @@ msgstr "沒有找到 WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "搜尋 WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "解除藍牙控制器"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "移除全部"
@@ -625,8 +625,8 @@ msgstr "移除全部"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "沒有發現藍牙裝置"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "遊戲控制器連結已經刪除。"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "檔案瀏覽器"
@@ -641,7 +641,7 @@ msgid "SCREENSHOTS FOLDER"
 msgstr "螢幕截圖資料夾"
 
 msgid "SELECT"
-msgstr "確定"
+msgstr "選擇"
 
 msgid "ADD COMBINATION KEY"
 msgstr "新增組合按鍵"
@@ -706,7 +706,7 @@ msgid "start & end"
 msgstr "開始 & 結束"
 
 msgid "never"
-msgstr "不要"
+msgstr "從未"
 
 msgid "none"
 msgstr "沒有"
@@ -1156,8 +1156,8 @@ msgstr "KODI 多媒體中心"
 msgid "GAMES SETTINGS"
 msgstr "遊戲設定"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "控制器設定"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1514,6 +1514,27 @@ msgstr "影像輸出"
 msgid "AUDIO OUTPUT"
 msgstr "聲音輸出"
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS 成就設定"
 
@@ -1531,6 +1552,42 @@ msgstr "開"
 
 msgid "OFF"
 msgstr "關"
+
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "超頻"
@@ -1693,8 +1750,8 @@ msgstr ""
 "桿的設定。 如果您沒有一個特別的按鈕可指派為「熱鍵」， 請將它指派給「選擇"
 "鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 按鍵名稱是參照超任的遊戲控制器。"
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "配對藍牙遊戲控制器"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2127,9 +2184,6 @@ msgstr "確認結果"
 msgid "Loading system config..."
 msgstr "正在載入系統設定..."
 
-msgid "Done."
-msgstr "完成。"
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在儲存中繼資料。請稍後..."
 
@@ -2458,6 +2512,21 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "解除藍牙控制器"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "遊戲控制器連結已經刪除。"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "控制器設定"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "配對藍牙遊戲控制器"
+
+#~ msgid "Done."
+#~ msgstr "完成。"
 
 #~ msgid "GL VENDOR"
 #~ msgstr "GL 提供者"

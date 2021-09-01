@@ -544,6 +544,16 @@ bool ApiSystem::setStorage(std::string selected)
 	return executeScript("batocera-config storage " + selected);
 }
 
+bool ApiSystem::setButtonColorGameForce(std::string selected)
+{
+	return executeScript("batocera-gameforce buttonColorLed " + selected);
+}
+
+bool ApiSystem::setPowerLedGameForce(std::string selected)
+{
+	return executeScript("batocera-gameforce powerLed " + selected);
+}
+
 bool ApiSystem::forgetBluetoothControllers() 
 {
 	return executeScript("batocera-config forgetBT");
@@ -618,14 +628,9 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 
 	std::ostringstream oss;
 
-	AudioManager::getInstance()->deinit();
-	VolumeControl::getInstance()->deinit();
-
 	oss << "batocera-audio set" << " '" << selected << "'";
 	int exitcode = system(oss.str().c_str());
 
-	VolumeControl::getInstance()->init();
-	AudioManager::getInstance()->init();
 	Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
 
 	return exitcode == 0;
@@ -1123,7 +1128,10 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::EVMAPY:
 		executables.push_back("evmapy");
-		break;		
+		break;
+	case ApiSystem::BATOCERAPREGAMELISTSHOOK:
+		executables.push_back("batocera-preupdate-gamelists-hook");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1393,6 +1401,11 @@ void ApiSystem::refreshPackageList(std::string script)
 	executeScript(script + " clean-all");
 }
 
+void ApiSystem::callBatoceraPreGameListsHook()
+{
+	executeScript("batocera-preupdate-gamelists-hook");
+}
+
 void ApiSystem::updatePackageList(std::string script)
 {
 	executeScript(script + " update");
@@ -1573,4 +1586,11 @@ std::string ApiSystem::getHostsName()
 		return hostName;
 
 	return "127.0.0.1";
+}
+
+bool ApiSystem::emuKill()
+{
+	LOG(LogDebug) << "ApiSystem::emuKill";
+
+	return executeScript("batocera-es-swissknife --emukill");
 }
