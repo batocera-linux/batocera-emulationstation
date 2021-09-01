@@ -331,7 +331,7 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 		{
 			mWindow->displayNotificationMessage(_U("\uF014 ") + _("UNINSTALL ADDED TO QUEUE"));
 
-            ContentInstaller::ContentType type = package.repository != "batocera" ? ContentInstaller::CONTENT_PACKAGE_INSTALL : ContentInstaller::CONTENT_STORE_INSTALL;
+            ContentInstaller::ContentType type = package.repository != "batocera" ? ContentInstaller::CONTENT_PACKAGE_UNINSTALL : ContentInstaller::CONTENT_STORE_UNINSTALL;
 			ContentInstaller::Enqueue(mWindow, type, package.name);
 			mReloadList = 2;
 
