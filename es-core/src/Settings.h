@@ -5,6 +5,9 @@
 #include <map>
 #include <string>
 
+#define DEFINE_BOOL_SETTING(name) static bool name() { return Settings::getInstance()->getBool(#name); }
+#define DEFINE_STRING_SETTING(name) static std::string name() { return Settings::getInstance()->getString(#name); }
+
 //This is a singleton for storing settings.
 class Settings
 {
@@ -30,6 +33,9 @@ public:
 	static bool DebugText;
 	static bool DebugImage;
 	static bool DebugGrid;
+
+	DEFINE_BOOL_SETTING(HiddenSystemsShowGames)
+	DEFINE_STRING_SETTING(HiddenSystems)
 
 private:
 	static Settings* sInstance;

@@ -96,7 +96,8 @@ public:
 		THEMESDOWNLOADER = 15,
 		THEBEZELPROJECT = 16,
 		PADSINFO = 17,
-        RETROLXPACMAN = 18
+		BATOCERAPREGAMELISTSHOOK = 18,
+                RETROLXPACMAN = 19
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -160,6 +161,10 @@ public:
 
     bool setStorage(std::string basic_string);
 
+	bool setButtonColorGameForce(std::string basic_string);
+
+	bool setPowerLedGameForce(std::string basic_string);
+
     bool forgetBluetoothControllers();
 
     /* audio card */
@@ -195,6 +200,8 @@ public:
 	void updatePackageList(std::string script);
 	void refreshPackageList(std::string script);
 
+	void callBatoceraPreGameListsHook();
+
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);
 
@@ -218,6 +225,7 @@ public:
 
 	virtual std::vector<PadInfo> getPadsInfo();
 	virtual std::string getHostsName();
+	virtual bool emuKill();
 
 protected:
 	ApiSystem();

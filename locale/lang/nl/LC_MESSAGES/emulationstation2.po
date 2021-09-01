@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -617,8 +617,8 @@ msgstr "GEEN WIFI-NETWERKEN GEVONDEN"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "ZOEKEN NAAR WIFI-NETWERKEN"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "VERGEET EEN BLUETOOTH-CONTROLLER"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "VERWIJDER ALLES"
@@ -626,8 +626,8 @@ msgstr "VERWIJDER ALLES"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "GEEN BLUETOOTH APPARATEN GEVONDEN"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "GEKOPPELDE CONTROLLERS ZIJN GEWIST."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "BESTANDSBEHEER"
@@ -1158,8 +1158,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "SPELINSTELLINGEN"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "CONTROLLERS"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "INTERFACE"
@@ -1319,7 +1319,8 @@ msgid "Allow public web access API using %s"
 msgstr "Publieke webtoegang API toestaan met %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "EEN HERSTART VAN HET SYSTEEM IS NODIG OM DE NIEUWE CONFIGURATIE TE GEBRUIKEN"
+msgstr ""
+"EEN HERSTART VAN HET SYSTEEM IS NODIG OM DE NIEUWE CONFIGURATIE TE GEBRUIKEN"
 
 msgid "LOG LEVEL"
 msgstr "LOG NIVEAU"
@@ -1415,7 +1416,9 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "TOEGANG TOT SPEL OPTIES MET NOORDELIJKE KNOP"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "Inverts noordelijke knop (savestates) & lang indrukken zuidelijke knop (spel opties)"
+msgstr ""
+"Inverts noordelijke knop (savestates) & lang indrukken zuidelijke knop (spel "
+"opties)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "EMULATIONSTATION ALLEEN MET EERSTE JOYSTICK BESTUREN"
@@ -1489,7 +1492,8 @@ msgid ""
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
 "De gebruikersinterface wordt aangepast naar een beperkte modus:\n"
-"Dit zal de meeste menuopties verbergen en aanpassingen aan het systeem voorkomen.\n"
+"Dit zal de meeste menuopties verbergen en aanpassingen aan het systeem "
+"voorkomen.\n"
 "Om terug te keren naar de volledige gebruikersinterface, voer deze code in:"
 
 msgid "Do you want to proceed ?"
@@ -1516,6 +1520,27 @@ msgstr "VIDEOUITVOER"
 msgid "AUDIO OUTPUT"
 msgstr "GELUIDSUITVOER"
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROPRESTATIES INSTELLINGEN"
 
@@ -1533,6 +1558,42 @@ msgstr "AAN"
 
 msgid "OFF"
 msgstr "UIT"
+
+msgid "BUTTON LED COLOR"
+msgstr ""
+
+msgid "off"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "green"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+msgid "white"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "POWER LED COLOR"
+msgstr ""
+
+msgid "heartbeat"
+msgstr ""
+
+msgid "on"
+msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "OVERKLOK"
@@ -1697,8 +1758,8 @@ msgstr ""
 "KIES JE DE SELECT KNOP. SKIP ALLE KNOPPEN DIE JE NIET HEBT DOOR EEN KNOP "
 "VAST TE HOUDEN. DE NAMEN VAN DE KNOPPEN ZIJN GEBASEERD OP DE SNES CONTROLLER."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "KOPPEL EEN BLUETOOTH-CONTROLLER"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2054,7 +2115,8 @@ msgid ""
 "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
-"WAARSCHUWING : HET FORMAAT VAN DIT SPEL WORDT NIET ONDERSTEUND DOOR DE HUIDIGE EMULATOR / CORE.\n"
+"WAARSCHUWING : HET FORMAAT VAN DIT SPEL WORDT NIET ONDERSTEUND DOOR DE "
+"HUIDIGE EMULATOR / CORE.\n"
 "WIL JE HET SPEL TOCH STARTEN ?"
 
 msgid ""
@@ -2113,8 +2175,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Een geldige account is vereist. Gelieve een account te registreren op https://"
-"retroachievements.org"
+"Een geldige account is vereist. Gelieve een account te registreren op "
+"https://retroachievements.org"
 
 msgid "Searching"
 msgstr "Zoeken"
@@ -2136,9 +2198,6 @@ msgstr "ACCEPTEER RESULTAAT"
 
 msgid "Loading system config..."
 msgstr "Laden van systeemconfiguratie..."
-
-msgid "Done."
-msgstr "Gereed."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "OPSLAAN VAN METADATA. WACHTEN AUB..."
@@ -2476,6 +2535,21 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "VERGEET EEN BLUETOOTH-CONTROLLER"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "GEKOPPELDE CONTROLLERS ZIJN GEWIST."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "CONTROLLERS"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "KOPPEL EEN BLUETOOTH-CONTROLLER"
+
+#~ msgid "Done."
+#~ msgstr "Gereed."
 
 #~ msgid "USE RETROARCH RGUI MENU"
 #~ msgstr "GEBRUIK RETROARCH RGUI MENU"

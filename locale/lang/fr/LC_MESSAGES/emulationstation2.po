@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -617,8 +617,8 @@ msgstr "PAS DE RÉSEAUX WIFI TROUVÉS"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "OUBLIER UNE MANETTE BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "OUBLIER UN PÉRIPHÉRIQUE BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "TOUT SUPPRIMER"
@@ -626,8 +626,8 @@ msgstr "TOUT SUPPRIMER"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "TOUS LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS"
 
 msgid "FILE BROWSER"
 msgstr "NAVIGATEUR DE FICHIERS"
@@ -689,10 +689,10 @@ msgid "MISSING BIOS"
 msgstr "BIOS MANQUANTS"
 
 msgid "dim"
-msgstr "assombri"
+msgstr "écran assombri"
 
 msgid "black"
-msgstr "noir"
+msgstr "écran noir"
 
 msgid "random video"
 msgstr "vidéo"
@@ -704,7 +704,7 @@ msgid "always"
 msgstr "toujours"
 
 msgid "start & end"
-msgstr "début & fin"
+msgstr "début et fin"
 
 msgid "never"
 msgstr "jamais"
@@ -1082,7 +1082,7 @@ msgid "instant"
 msgstr "instantané"
 
 msgid "fade & slide"
-msgstr "fondu & glissement"
+msgstr "fondu et glissement"
 
 msgid "System"
 msgstr "Système"
@@ -1091,7 +1091,7 @@ msgid "Architecture"
 msgstr "Architecture"
 
 msgid "Disk format"
-msgstr "Format du disque"
+msgstr "Format du disque utilisateur"
 
 msgid "Temperature"
 msgstr "Température"
@@ -1136,16 +1136,16 @@ msgid "RGA SCALING"
 msgstr "RGA SCALING"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "FABRICANT"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDU"
 
 msgid "VERSION"
 msgstr "VERSION"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "FILTRES"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1156,8 +1156,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "PARAMÈTRES DES MANETTES"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "PARAMÈTRES DES MANETTES ET PÉRIPHÉRIQUES BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "PARAMÈTRES DE L'INTERFACE"
@@ -1283,7 +1283,7 @@ msgid "SYSTEM"
 msgstr "SYSTÈME"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "PILOTE VIDÉO"
 
 msgid "DEVELOPER"
 msgstr "DÉVELOPPEUR"
@@ -1365,7 +1365,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "IGNORER LE CONTENU DU DISQUE MULTI-FICHIERS (CUE/GDI/CCD/M3U)"
+msgstr "IGNORER LE CONTENU MULTI-FICHIERS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
@@ -1414,7 +1414,7 @@ msgstr "ACCÉDER AUX OPTIONS DU JEUX AVEC LE BOUTON NORD"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
-"Intervertir le bouton nord (sauvegarde de jeu) & sud pression longue "
+"Intervertir le bouton nord (sauvegarde de jeu) et sud pression longue "
 "(options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
@@ -1517,6 +1517,27 @@ msgstr "SORTIE VIDÉO"
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
 
+msgid "SCREEN ROTATION"
+msgstr "ROTATION DE L’ÉCRAN"
+
+msgid "LEFT ROTATION"
+msgstr "ROTATION À GAUCHE"
+
+msgid "RIGHT ROTATION"
+msgstr "ROTATION À DROITE"
+
+msgid "INVERTED ROTATION"
+msgstr "ROTATION INVERSÉE"
+
+msgid "BOOT SPLASH"
+msgstr "VIDÉO DE DÉMARRAGE"
+
+msgid "SILENT SPLASH"
+msgstr "SILENCIEUSE"
+
+msgid "NO SPLASH"
+msgstr "AUCUNE"
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
 
@@ -1534,6 +1555,42 @@ msgstr "OUI"
 
 msgid "OFF"
 msgstr "NON"
+
+msgid "BUTTON LED COLOR"
+msgstr "COULEUR LED DES BOUTONS"
+
+msgid "off"
+msgstr "éteint"
+
+msgid "red"
+msgstr "rouge"
+
+msgid "green"
+msgstr "vert"
+
+msgid "blue"
+msgstr "bleu"
+
+msgid "white"
+msgstr "blanc"
+
+msgid "purple"
+msgstr "violet"
+
+msgid "yellow"
+msgstr "jaune"
+
+msgid "cyan"
+msgstr "cyan"
+
+msgid "POWER LED COLOR"
+msgstr "COULEUR LED D’ALIMENTATION"
+
+msgid "heartbeat"
+msgstr "BATTEMENT DE COEUR"
+
+msgid "on"
+msgstr "allumé"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
@@ -1656,7 +1713,7 @@ msgid "DECORATION"
 msgstr "DÉCORATIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "ETIRER LES BEZELS (4K & ULTRAWIDE)"
+msgstr "ETIRER LES DÉCORATIONS (4K ET ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION DES JEUX"
@@ -1699,8 +1756,8 @@ msgstr ""
 "N'A PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. LES NOMS DES BOUTONS "
 "SONT BASÉS SUR LA SUPER NINTENDO."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -2142,9 +2199,6 @@ msgstr "ACCEPTER LE RESULTAT"
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système..."
 
-msgid "Done."
-msgstr "Terminé"
-
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
 
@@ -2481,15 +2535,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "GL VENDOR"
-#~ msgstr "GL VENDOR"
-
-#~ msgid "GL RENDERER"
-#~ msgstr "GL RENDERER"
-
-#~ msgid "GL VERSION"
-#~ msgstr "GL VERSION"
-
-#~ msgid "GLSL VERSION"
-#~ msgstr "VERSION GLSL"

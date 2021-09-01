@@ -77,7 +77,11 @@ void GuiFileBrowser::navigateTo(const std::string path)
 			navigateTo(Utils::FileSystem::getParent(mCurrentPath));
 		});
 	}
-
+	files.sort([](const Utils::FileSystem::FileInfo& file1, const Utils::FileSystem::FileInfo& file2) {
+	    auto name1 = Utils::FileSystem::getFileName(file1.path);
+	    auto name2 = Utils::FileSystem::getFileName(file2.path);
+	    return Utils::String::compareIgnoreCase(name1, name2) < 0;
+	});
 	for (auto file : files)
 	{
 		if (!file.directory || file.hidden)

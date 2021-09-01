@@ -155,6 +155,9 @@ bool parseArgs(int argc, char* argv[])
 		}else if(strcmp(argv[i], "--no-exit") == 0)
 		{
 			Settings::getInstance()->setBool("ShowExit", false);
+		}else if(strcmp(argv[i], "--exit-on-reboot-required") == 0)
+		{
+			Settings::getInstance()->setBool("ExitOnRebootRequired", true);
 		}else if(strcmp(argv[i], "--no-splash") == 0)
 		{
 			Settings::getInstance()->setBool("SplashScreen", false);

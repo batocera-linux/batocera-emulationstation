@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -390,7 +390,7 @@ msgid "CREATE CUSTOM COLLECTION"
 msgstr "СОЗДАТЬ СВОЮ КОЛЛЕКЦИЮ"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "СОЗДАТЬ ТЕМАТИЧЕСКУЮ КОЛЛЕКЦИЮ"
+msgstr "СОЗДАТЬ КОЛЛЕКЦИЮ ИЗ ТЕМЫ"
 
 msgid "SELECT THEME FOLDER"
 msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
@@ -618,8 +618,8 @@ msgstr "СЕТЬ WIFI НЕ НАЙДЕНА"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "ПОИСК WIFI СЕТИ"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "ОТВЯЗАТЬ BLUETOOTH КОНТРОЛЛЕР"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "УДАЛИТЬ ВСЕ"
@@ -627,8 +627,8 @@ msgstr "УДАЛИТЬ ВСЕ"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "ФАЙЛОВЫЙ БРАУЗЕР"
@@ -732,7 +732,7 @@ msgid "SCREENSAVER BEHAVIOR"
 msgstr "ПОВЕДЕНИЕ ЗАСТАВКИ"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "ОТКЛЮЧИТЬ МУЗЫКУ НА ЗАСТАВКЕ"
+msgstr "ОТКЛЮЧИТЬ МУЗЫКУ В ЗАСТАВКЕ"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКИ ВИДЕО ЗАСТАВКИ"
@@ -1094,7 +1094,7 @@ msgid "Architecture"
 msgstr "Архитектура"
 
 msgid "Disk format"
-msgstr "Формат диска"
+msgstr "Файловая система"
 
 msgid "Temperature"
 msgstr "Температура"
@@ -1139,16 +1139,16 @@ msgid "RGA SCALING"
 msgstr "RGA СКАЛИРОВАНИЕ"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "ПРОИЗВОДИТЕЛЬ"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "РЕНДЕР"
 
 msgid "VERSION"
 msgstr "ВЕРСИЯ"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "ШЕЙДЕРЫ"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -1159,8 +1159,8 @@ msgstr "МЕДИАЦЕНТР KODI"
 msgid "GAMES SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
@@ -1265,7 +1265,7 @@ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ НАСТРОИТЬ УПРАВЛЕНИЕ?"
 
 msgid "CHOOSE"
-msgstr "ВЫБЕРИТЕ"
+msgstr "ВЫБРАТЬ"
 
 msgid "UI MODE IS NOW UNLOCKED"
 msgstr "ИНТЕРФЕЙС ЗАБЛОКИРОВАН"
@@ -1286,7 +1286,7 @@ msgid "SYSTEM"
 msgstr "СИСТЕМА"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "ВИДЕО ДРАЙВЕР"
 
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
@@ -1377,7 +1377,7 @@ msgid "SAVE METADATA ON EXIT"
 msgstr "СОХРАНИТЬ МЕТАДАННЫЕ ПРИ ВЫХОДЕ"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr "АНАЛИЗИРОВАТЬ ТОЛЬКО СПИСОК ИГР"
+msgstr "СЧИТЫВАТЬ ТОЛЬКО GAMESLIST.XML (УСК. ЗАГРУЗКУ)"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
@@ -1401,7 +1401,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "ПОДРОБНОЕ МЕНЮ ВЫХОДА"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "RETROARCH ДРАЙВЕР МЕНЮ"
+msgstr "МЕНЮ RETROARCH"
 
 msgid "AUTO"
 msgstr "АВТО"
@@ -1519,6 +1519,27 @@ msgstr "ВИДЕО ВЫХОД"
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
 
@@ -1536,6 +1557,42 @@ msgstr "ВКЛ"
 
 msgid "OFF"
 msgstr "ВЫКЛ"
+
+msgid "BUTTON LED COLOR"
+msgstr "ЦВЕТ КНОПКИ"
+
+msgid "off"
+msgstr "выкл"
+
+msgid "red"
+msgstr "красный"
+
+msgid "green"
+msgstr "зелёный"
+
+msgid "blue"
+msgstr "синий"
+
+msgid "white"
+msgstr "белый"
+
+msgid "purple"
+msgstr "фиолетовый"
+
+msgid "yellow"
+msgstr "жёлтый"
+
+msgid "cyan"
+msgstr "голубой"
+
+msgid "POWER LED COLOR"
+msgstr "ЦВЕТ ПИТАНИЯ"
+
+msgid "heartbeat"
+msgstr "пульсация"
+
+msgid "on"
+msgstr "вкл"
 
 msgid "OVERCLOCK"
 msgstr "РАЗГОН"
@@ -1631,7 +1688,7 @@ msgid "GAME RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
 
 msgid "VIDEO MODE"
-msgstr "РЕЖИМ ВИДЕО"
+msgstr "РАЗРЕШЕНИЕ"
 
 msgid "SMOOTH GAMES"
 msgstr "СГЛАЖИВАНИЕ КАРТИНКИ"
@@ -1661,10 +1718,10 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "РАСТЯНУТЬ РАМКИ (4K и ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
-msgstr "ИИ ПЕРЕВОД ИГРЫ"
+msgstr "AI ПЕРЕВОД ИГРЫ"
 
 msgid "ENABLE AI SERVICE"
-msgstr "ВКЛЮЧИТЬ ИИ СЕРВИСЫ"
+msgstr "ВКЛЮЧИТЬ AI СЕРВИСЫ"
 
 msgid "TARGET LANGUAGE"
 msgstr "ЯЗЫК ПЕРЕВОДА"
@@ -1700,8 +1757,8 @@ msgstr ""
 "КОНТРОЛЛЕРЕ ОТСУТСТВУЕТ ОТДЕЛЬНАЯ \"ГОРЯЧАЯ\" КНОПКА, ИСПОЛЬЗУЙТЕ ВМЕСТО НЕЁ "
 "КНОПКУ SELECT. НАЗВАНИЯ КНОПОК ОСНОВАНЫ НА SNES КОНТРОЛЛЕРЕ."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -1771,7 +1828,7 @@ msgid "SHOW LANGUAGE FLAG IN LISTS"
 msgstr "ПОКАЗАТЬ ЯЗЫКОВОЙ ФЛАГ В СПИСКАХ"
 
 msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr "ПОКАЗАТЬ ФЛАГ СОХРАНЕНИЙ В СПИСКАХ"
+msgstr "ПОКАЗАТЬ ИКОНКУ СОХРАНЕНИЙ В СПИСКАХ"
 
 msgid "SHOW MANUAL ICON IN LISTS"
 msgstr "ПОКАЗАТЬ ИКОНКУ РУКОВОДСТВА В СПИСКАХ"
@@ -1995,10 +2052,10 @@ msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
 
 msgid "ZOOM-"
-msgstr "МАСШТАБ-"
+msgstr "УМЕНЬШИТЬ"
 
 msgid "ZOOM+"
-msgstr "МАСШТАБ+"
+msgstr "УВЕЛИЧИТЬ"
 
 msgid "MOVE"
 msgstr "ДВИГАТЬ"
@@ -2101,9 +2158,9 @@ msgstr "Сыграно раз"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Папка содержит %i игру, включая :%s"
+msgstr[1] "Папка содержит %i игры, включая :%s"
+msgstr[2] "Папка содержит %i игр, включая :%s"
 
 msgid "No Entries Found"
 msgstr "Игр не найдено"
@@ -2144,9 +2201,6 @@ msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
 
 msgid "Loading system config..."
 msgstr "Загрузка системных настроек..."
-
-msgid "Done."
-msgstr "Готово"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
@@ -2491,6 +2545,21 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "ОТВЯЗАТЬ BLUETOOTH КОНТРОЛЛЕР"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"
+
+#~ msgid "Done."
+#~ msgstr "Готово"
 
 #~ msgid "GL VENDOR"
 #~ msgstr "GL ВЕНДОР"

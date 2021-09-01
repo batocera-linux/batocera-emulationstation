@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v31beta(2021/06/04)\n"
+"Project-Id-Version: batocera-es v32(2021/08/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-07 13:22+0200\n"
-"PO-Revision-Date: 2021-06-06 00:24+0900\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"PO-Revision-Date: 2021-08-26 19:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -617,8 +617,8 @@ msgstr "WIFI ネットワークが見つかりません"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH コントローラーを解除"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "すべて削除"
@@ -626,8 +626,8 @@ msgstr "すべて削除"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BT コントローラーが見つかりません"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "コントローラーのリンクが切れました。"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "ファイルブラウザ"
@@ -868,8 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
-"現在バージョン %s を使用しています\n"
-"バージョン %s に更新しますか?"
+"現在、バージョン「%s」を使用中\n"
+"バージョン「%s」に更新しますか?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -986,7 +986,7 @@ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
 msgstr "パッドをキーボードに割当て設定作成"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "ゲーム詳細設定"
+msgstr "このゲームの詳細設定"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "フォルダのメタ情報を編集"
@@ -1018,13 +1018,13 @@ msgid "%d%% complete"
 msgstr "%d%% 完了"
 
 msgid "START NEW GAME"
-msgstr "新しくゲームを開始"
+msgstr "セーブせずに開始"
 
 msgid "START AUTO SAVE"
-msgstr "オートセーブを開始"
+msgstr "オートセーブで開始"
 
 msgid "AUTO SAVE"
-msgstr "オートセーブ"
+msgstr "セーブ場所から開始"
 
 msgid "SLOT"
 msgstr "スロット"
@@ -1058,8 +1058,8 @@ msgid ""
 "MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"警告: 選択された いくつかの システムは プラットフォーム設定が ありません。 正"
-"確な 結果と ならない場合が あります！ \n"
+"警告: 選択した いくつかの システムは プラットフォームが設定 されていません。 "
+"正確な 結果と ならない場合が あります！ \n"
 "続けますか？"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
@@ -1081,7 +1081,7 @@ msgid "slide"
 msgstr "横"
 
 msgid "instant"
-msgstr "簡易"
+msgstr "瞬時"
 
 msgid "fade & slide"
 msgstr "フェード & 横"
@@ -1138,16 +1138,16 @@ msgid "RGA SCALING"
 msgstr "RGAスケーリング"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "ベンダー"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "レンダラー"
 
 msgid "VERSION"
 msgstr "バージョン"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "シェーダー"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -1156,10 +1156,10 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI メディアセンター"
 
 msgid "GAMES SETTINGS"
-msgstr "ゲームシステム設定"
+msgstr "システム(エミュレータ)設定"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "コントローラー設定"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1285,7 +1285,7 @@ msgid "SYSTEM"
 msgstr "システム"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "ビデオドライバ"
 
 msgid "DEVELOPER"
 msgstr "その他の設定"
@@ -1370,7 +1370,7 @@ msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "マルチディスクファイルの内容を無視(CUE/GDI/CCD/M3U)"
+msgstr "(CUE/GDI/CCD/M3U)記載ファイルを重複表示しない"
 
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
@@ -1519,6 +1519,27 @@ msgstr "映像出力"
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"
 
+msgid "SCREEN ROTATION"
+msgstr "画面の回転"
+
+msgid "LEFT ROTATION"
+msgstr "左回転"
+
+msgid "RIGHT ROTATION"
+msgstr "右回転"
+
+msgid "INVERTED ROTATION"
+msgstr "反転"
+
+msgid "BOOT SPLASH"
+msgstr "ブートスプラッシュ映像"
+
+msgid "SILENT SPLASH"
+msgstr "音声無し"
+
+msgid "NO SPLASH"
+msgstr "映像無し"
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
 
@@ -1536,6 +1557,42 @@ msgstr "オン"
 
 msgid "OFF"
 msgstr "オフ"
+
+msgid "BUTTON LED COLOR"
+msgstr "ボタン LED色"
+
+msgid "off"
+msgstr "オフ"
+
+msgid "red"
+msgstr "赤"
+
+msgid "green"
+msgstr "緑"
+
+msgid "blue"
+msgstr "青"
+
+msgid "white"
+msgstr "白"
+
+msgid "purple"
+msgstr "紫"
+
+msgid "yellow"
+msgstr "黄"
+
+msgid "cyan"
+msgstr "シアン"
+
+msgid "POWER LED COLOR"
+msgstr "電源 LED色"
+
+msgid "heartbeat"
+msgstr "ハートビート"
+
+msgid "on"
+msgstr "オン"
 
 msgid "OVERCLOCK"
 msgstr "オーバークロック"
@@ -1643,13 +1700,13 @@ msgid "INTEGER SCALE (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "自動セーブ/ロード"
+msgstr "オートセーブ/ロード"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr "保存時スナップショットを表示する"
+msgstr "オートセーブを表示する"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr "スナップショットがあれば表示する"
+msgstr "オートセーブがあれば表示する"
 
 msgid "SHADERS SET"
 msgstr "シェーダー設定"
@@ -1700,8 +1757,8 @@ msgstr ""
 "てのボタンを 長押しで スキップした場合、 ボタン配置が スーパーファミコンを "
 "ベースとしたものに なります。"
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH コントローラのペアリング"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -1868,7 +1925,7 @@ msgid "IP ADDRESS"
 msgstr "IP アドレス"
 
 msgid "CONNECTED"
-msgstr "接続済み"
+msgstr "接続中"
 
 msgid "NOT CONNECTED"
 msgstr "未接続"
@@ -2019,7 +2076,7 @@ msgid "GO TO LETTER"
 msgstr "英数字に移動"
 
 msgid "GO TO MANUFACTURER"
-msgstr "システムに移動"
+msgstr "エミュレータに移動"
 
 msgid "GO TO HARDWARE"
 msgstr "ハードウェアに移動"
@@ -2137,9 +2194,6 @@ msgstr "了解"
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
-
-msgid "Done."
-msgstr "完了。"
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "メタ情報の保存中です。 お待ちください..."
@@ -2290,11 +2344,11 @@ msgstr "スクレイプが終了しました"
 
 #, c-format
 msgid "%s connected"
-msgstr "%s に接続しました"
+msgstr "%s - 接続"
 
 #, c-format
 msgid "%s disconnected"
-msgstr "%s に切断されました"
+msgstr "%s - 切断"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "大文字,小文字,特殊記号用の SHIFT"
@@ -2470,17 +2524,20 @@ msgstr "%d 分"
 msgid "%d s"
 msgstr "%d 秒"
 
-#~ msgid "GL VENDOR"
-#~ msgstr "GL ベンダー"
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH コントローラーを解除"
 
-#~ msgid "GL RENDERER"
-#~ msgstr "GL レンダラー"
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "コントローラーのリンクが切れました。"
 
-#~ msgid "GL VERSION"
-#~ msgstr "GL バージョン"
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "コントローラー設定"
 
-#~ msgid "GLSL VERSION"
-#~ msgstr "GLSL バージョン"
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH コントローラのペアリング"
 
-#~ msgid "UPDATING EMULATIONSTATION"
-#~ msgstr "エミュレーションステーションの更新"
+#~ msgid "Done."
+#~ msgstr "完了。"
+
+#~ msgid "GRAPHICS API"
+#~ msgstr "グラフィック API"

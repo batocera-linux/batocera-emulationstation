@@ -8,8 +8,9 @@ option(CEC "CEC" ON)
 option(BCM "BCM host" OFF)
 
 # batocera
-option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem")
-option(DISABLE_KODI "Set to ON to disable kodi in menu")
+option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem" OFF)
+option(DISABLE_KODI "Set to ON to disable kodi in menu" OFF)
+option(ENABLE_PULSE "Set to ON to enable pulse audio (versus alsa)" OFF)
 
 project(emulationstation-all)
 
@@ -22,7 +23,7 @@ LIST(APPEND CMAKE_MODULE_PATH
 
 # batocera / kodi menu
 # disable kodi
-if("${DISABLE_KODI}" STREQUAL "1")
+if(DISABLE_KODI)
   MESSAGE("kodi disabled")
 else()
   add_definitions(-D_ENABLE_KODI_)
@@ -30,7 +31,7 @@ endif()
 
 # batocera / file manager f1 button
 # disable file manager
-if("${ENABLE_FILEMANAGER}" STREQUAL "1")
+if(ENABLE_FILEMANAGER)
   MESSAGE("file manager enabled")
   add_definitions(-D_ENABLE_FILEMANAGER_)
 endif()
@@ -98,6 +99,14 @@ find_package(SDL2 REQUIRED)
 find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
+
+if(ENABLE_PULSE)
+  MESSAGE("pulse audio enabled")
+  find_package(PulseAudio REQUIRED)
+  add_definitions(-D_ENABLE_PULSE_)
+else()
+  MESSAGE("pulse audio disabled")
+endif()
 
 if(CEC)
   find_package(libCEC)
@@ -192,8 +201,9 @@ set(COMMON_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/es-core/src
 )
 
-if(NOT DEFINED MSVC)
+if(ENABLE_PULSE)
  LIST(APPEND COMMON_INCLUDE_DIRS
+    ${PULSEAUDIO_INCLUDE_DIR}
       )
 endif()
 
@@ -268,8 +278,9 @@ set(COMMON_LIBRARIES
 	libcheevos	
 )
 
-if(NOT DEFINED MSVC)
+if(ENABLE_PULSE)
  LIST(APPEND COMMON_LIBRARIES
+    ${PULSEAUDIO_LIBRARY}
       )
 endif()
 
