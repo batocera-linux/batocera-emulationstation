@@ -886,7 +886,7 @@ msgstr "네트워크가 필요합니다"
 msgid "INVALID PARAMETERS"
 msgstr "매개변수가 잘못되었습니다"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "게임 미디어"
 
 msgid "VIEW GAME MANUAL"
@@ -1152,7 +1152,7 @@ msgstr "KODI 미디어 센터"
 msgid "GAMES SETTINGS"
 msgstr "게임 설정"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1333,10 +1333,10 @@ msgstr "파일 생성 실패"
 msgid "FORMAT A DISK"
 msgstr "디스크를 포맷합니다"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr ""
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr ""
 
 msgid "CLEAR CACHES"
@@ -1384,7 +1384,7 @@ msgstr "회전 목마형 화면 전환"
 msgid "QUICK SYSTEM SELECT"
 msgstr "빠른 시스템 선택"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "화상 키보드"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1402,7 +1402,7 @@ msgstr "자동"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "에뮬레이터 컨트롤러 자동 설정"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1411,7 +1411,7 @@ msgstr ""
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1426,13 +1426,13 @@ msgstr "UI 사전 로드"
 msgid "THREADED LOADING"
 msgstr "쓰레드 로드 중"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "비동기 이미지 로드 중"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr "이미지의 VRAM 사용에 최적화"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr "비디오의 VRAM 사용에 최적화"
 
 msgid "DOWNLOADS"
@@ -1495,7 +1495,7 @@ msgstr "KODI 설정"
 msgid "ENABLE KODI"
 msgstr "KODI 활성화"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "시작 시 KODI 실행"
 
 msgid "HARDWARE"
@@ -1687,7 +1687,7 @@ msgstr "부드러운 게임"
 msgid "REWIND"
 msgstr "되감기"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
 
 msgid "AUTO SAVE/LOAD"
@@ -1699,7 +1699,7 @@ msgstr ""
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr ""
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "셰이더 선택"
 
 msgid "DECORATION"
@@ -1814,10 +1814,10 @@ msgstr ""
 msgid "AFTER NAME"
 msgstr ""
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr ""
 
 msgid "SHOW MANUAL ICON IN LISTS"
