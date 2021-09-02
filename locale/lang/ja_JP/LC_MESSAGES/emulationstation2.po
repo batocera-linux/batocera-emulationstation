@@ -1369,7 +1369,7 @@ msgstr "ネットプレイ/実績 ですべてのゲームを検索"
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "(CUE/GDI/CCD/M3U)記載ファイルを重複表示しない"
 
 msgid "ENABLE FILTERS"
@@ -1417,7 +1417,7 @@ msgstr "ESメニューでの A/B ボタンの入れ替え"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "△(上)ボタンでゲームオプションを開く"
 
-msgid "Inverts north button (savestates) & long press south (game options)"
+msgid "Switches to short press North for Savestates & long press South button for Game Options"
 msgstr "△(上)を反転（ステートセーブ）、×（下）を長押し（ゲームオプション）"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1738,7 +1738,7 @@ msgstr "システム別詳細設定"
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ゲームのハッシュ化が実行されています。 中止しますか？"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS ?"
 msgstr "ゲームリストを更新しますか？"
 
 msgid "CONFIGURE A CONTROLLER"
