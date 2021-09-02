@@ -1735,7 +1735,7 @@ msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ХЕШУВАННЯ ЗАПУЩЕНО. ХОЧЕТЕ ЗУПИНИТИ?"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS ?"
 msgstr "ДІЙСНО ОНОВИТИ СПИСКИ ІГР?"
 
 msgid "CONFIGURE A CONTROLLER"
