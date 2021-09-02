@@ -892,7 +892,7 @@ msgstr "ネットワーク接続が必要です"
 msgid "INVALID PARAMETERS"
 msgstr "無効なパラメーター"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "ゲームメディア"
 
 msgid "VIEW GAME MANUAL"
@@ -1158,7 +1158,7 @@ msgstr "KODI メディアセンター"
 msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1342,10 +1342,10 @@ msgstr "ファイルの作成に失敗しました"
 msgid "FORMAT A DISK"
 msgstr "ディスクをフォーマット"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ゲームリストの整理と未使用のメディアを削除"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "クリーニング "
 
 msgid "CLEAR CACHES"
@@ -1393,7 +1393,7 @@ msgstr "メニュー回転(カルーセル)効果"
 msgid "QUICK SYSTEM SELECT"
 msgstr "クイックシステム選択"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1411,7 +1411,7 @@ msgstr "自動"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "エミュレーターのコントローラーの自動設定"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの A/B ボタンの入れ替え"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1420,7 +1420,7 @@ msgstr "△(上)ボタンでゲームオプションを開く"
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr "△(上)を反転（ステートセーブ）、×（下）を長押し（ゲームオプション）"
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1435,13 +1435,13 @@ msgstr "プレロード(先読み)式 UI"
 msgid "THREADED LOADING"
 msgstr "スレッド読み込み"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "イメージの非同期読み込み"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr "画像表示にVRAMを使用"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr "動画再生にVRAMを使用"
 
 msgid "DOWNLOADS"
@@ -1504,7 +1504,7 @@ msgstr "KODI 設定"
 msgid "ENABLE KODI"
 msgstr "KODI 有効"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "起動時に KODI 実行"
 
 msgid "HARDWARE"
@@ -1696,7 +1696,7 @@ msgstr "スムージング"
 msgid "REWIND"
 msgstr "巻き戻し"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
 msgid "AUTO SAVE/LOAD"
@@ -1708,7 +1708,7 @@ msgstr "オートセーブを表示する"
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr "オートセーブがあれば表示する"
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "シェーダー設定"
 
 msgid "DECORATION"
@@ -1824,10 +1824,10 @@ msgstr "ゲーム名の前"
 msgid "AFTER NAME"
 msgstr "ゲーム名の後"
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr "ゲームリージョンの国旗をリストに表示"
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr "ステートセーブマークをリストに表示"
 
 msgid "SHOW MANUAL ICON IN LISTS"
