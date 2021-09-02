@@ -898,7 +898,7 @@ msgstr "مطلوب الاتصال بالشبكة"
 msgid "INVALID PARAMETERS"
 msgstr "معلمات غير صالحة"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "وسائط اللعبة"
 
 msgid "VIEW GAME MANUAL"
@@ -1164,7 +1164,7 @@ msgstr "مشغل الوسائط KODI"
 msgid "GAMES SETTINGS"
 msgstr "إعدادات الألعاب"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1345,10 +1345,10 @@ msgstr "إنشاء الملف فشل"
 msgid "FORMAT A DISK"
 msgstr "تهيئة القرص"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr ""
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr ""
 
 msgid "CLEAR CACHES"
@@ -1396,7 +1396,7 @@ msgstr "تنقل دائري"
 msgid "QUICK SYSTEM SELECT"
 msgstr "تحديد نظام سريع"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "لوحة مفاتيح على الشاشة"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1414,7 +1414,7 @@ msgstr "تلقائي"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "تكوين تلقائي لوحدات تحكم المحاكي"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1423,7 +1423,7 @@ msgstr ""
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1438,13 +1438,13 @@ msgstr "تحميل واجهة المستخدم"
 msgid "THREADED LOADING"
 msgstr "تحميل مترابط"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "تحميل صور غير متزامنة"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr "تحسين الصور باستخدام VRAM"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr "تحسين الفيديو باستخدام VRAM"
 
 msgid "DOWNLOADS"
@@ -1508,7 +1508,7 @@ msgstr "إعدادات KODI"
 msgid "ENABLE KODI"
 msgstr "تفعيل KODI"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "KODI عند البدء "
 
 msgid "HARDWARE"
@@ -1700,7 +1700,7 @@ msgstr "ألعاب سلسه"
 msgid "REWIND"
 msgstr "الترجيع"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "مقياس العدد الصحيح (بيكسل رائع)"
 
 msgid "AUTO SAVE/LOAD"
@@ -1712,7 +1712,7 @@ msgstr ""
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr ""
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "محسنات"
 
 msgid "DECORATION"
@@ -1829,10 +1829,10 @@ msgstr ""
 msgid "AFTER NAME"
 msgstr ""
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr ""
 
 msgid "SHOW MANUAL ICON IN LISTS"
