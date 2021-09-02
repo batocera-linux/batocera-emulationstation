@@ -893,7 +893,7 @@ msgstr "ES REQUEREIX CONNEXIÓ A INTERNET"
 msgid "INVALID PARAMETERS"
 msgstr "VALORS NO VÀLIDS"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "MITJANS DE JOC"
 
 msgid "VIEW GAME MANUAL"
@@ -1159,7 +1159,7 @@ msgstr "CENTRE MULTIMÈDIA DEL KODI"
 msgid "GAMES SETTINGS"
 msgstr "PARÀMETRES DELS JOCS"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1340,10 +1340,10 @@ msgstr ""
 msgid "FORMAT A DISK"
 msgstr ""
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr ""
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr ""
 
 msgid "CLEAR CACHES"
@@ -1391,7 +1391,7 @@ msgstr ""
 msgid "QUICK SYSTEM SELECT"
 msgstr "SELECCIÓ RÀPIDA DEL SISTEMA"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLAT EN PANTALLA"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1409,7 +1409,7 @@ msgstr "AUTO"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr ""
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1418,7 +1418,7 @@ msgstr ""
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1433,13 +1433,13 @@ msgstr ""
 msgid "THREADED LOADING"
 msgstr ""
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr ""
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr ""
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr ""
 
 msgid "DOWNLOADS"
@@ -1499,7 +1499,7 @@ msgstr "PARÀMETRES DEL KODI"
 msgid "ENABLE KODI"
 msgstr "HABILITA EL KODI"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "KODI A L'INICI"
 
 msgid "HARDWARE"
@@ -1691,7 +1691,7 @@ msgstr "JOCS SUAVITZATS"
 msgid "REWIND"
 msgstr "REBOBINA"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr ""
 
 msgid "AUTO SAVE/LOAD"
@@ -1703,7 +1703,7 @@ msgstr ""
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr ""
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "SHADERS ESTABLERTS"
 
 msgid "DECORATION"
@@ -1820,10 +1820,10 @@ msgstr ""
 msgid "AFTER NAME"
 msgstr ""
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr ""
 
 msgid "SHOW MANUAL ICON IN LISTS"
