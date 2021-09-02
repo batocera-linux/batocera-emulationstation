@@ -144,7 +144,7 @@ const bool GridGameListView::isVirtualFolder(FileData* file)
 
 void GridGameListView::populateList(const std::vector<FileData*>& files)
 {
-	SystemData* system = mCursorStack.size() && mRoot->getSystem()->isGroupSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+	SystemData* system = mCursorStack.size() && !mRoot->getSystem()->isGameSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
 
 	auto groupTheme = system->getTheme();
 	if (groupTheme && mHeaderImage.hasImage())

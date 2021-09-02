@@ -761,7 +761,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 			SystemConf::getInstance()->getBool("global.retroachievements") && (
 			file->getSourceFileData()->getSystem()->isCheevosSupported() || 
 			file->getSystem()->isCollection() || 
-			file->getSystem()->isGroupSystem()); // Fake cheevos supported if the game is in a collection cuz there are lot of games from different systems
+			!file->getSystem()->isGameSystem()); // Fake cheevos supported if the game is in a collection cuz there are lot of games from different systems
 
 		// Cheevos
 		if (mCheevos != nullptr)
