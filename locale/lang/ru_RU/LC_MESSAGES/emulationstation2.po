@@ -893,7 +893,7 @@ msgstr "ТРЕБУЕТСЯ СЕТЬ"
 msgid "INVALID PARAMETERS"
 msgstr "НЕВЕРНЫЕ ПАРАМЕТРЫ"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "МЕДИА"
 
 msgid "VIEW GAME MANUAL"
@@ -1159,7 +1159,7 @@ msgstr "МЕДИАЦЕНТР KODI"
 msgid "GAMES SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1340,10 +1340,10 @@ msgstr "ГЕНЕРАЦИЯ ФАЙЛА НЕ УДАЛАСЬ"
 msgid "FORMAT A DISK"
 msgstr "ФОРМАТИРОВАТЬ"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТЬ СПИСОК ИГР И УДАЛИТЬ НЕ ИСПОЛЬЗУЕМЫЕ МЕДИА"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "Очистка "
 
 msgid "CLEAR CACHES"
@@ -1391,7 +1391,7 @@ msgstr "АНИМАЦИЯ КАРУСЕЛИ"
 msgid "QUICK SYSTEM SELECT"
 msgstr "БЫСТРОЕ ПЕРЕКЛЮЧЕНИЕ СИСТЕМ"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1409,7 +1409,7 @@ msgstr "АВТО"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1419,7 +1419,7 @@ msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
 "Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1434,13 +1434,13 @@ msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
 msgid "THREADED LOADING"
 msgstr "МНОГОПОТОЧНАЯ ЗАГРУЗКА"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "АСИНХРОННАЯ ЗАГРУЗКА ИЗОБРАЖЕНИЙ"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr "ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ ДЛЯ VRAM"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr "ОПТИМИЗАЦИЯ ВИДЕО ДЛЯ VRAM"
 
 msgid "DOWNLOADS"
@@ -1504,7 +1504,7 @@ msgstr "НАСТРОЙКИ KODI"
 msgid "ENABLE KODI"
 msgstr "ВКЛЮЧИТЬ KODI"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "АВТОЗАПУСК KODI"
 
 msgid "HARDWARE"
@@ -1696,7 +1696,7 @@ msgstr "СГЛАЖИВАНИЕ КАРТИНКИ"
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
 msgid "AUTO SAVE/LOAD"
@@ -1708,7 +1708,7 @@ msgstr "ПОКАЗАТЬ СОХРАНЕНИЯ"
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr "ПОКАЗАТЬ СОХРАНЕНИЯ, ЕСЛИ ЕСТЬ"
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
 
 msgid "DECORATION"
@@ -1824,10 +1824,10 @@ msgstr "ПЕРЕД НАЗВАНИЕМ"
 msgid "AFTER NAME"
 msgstr "ПОСЛЕ НАЗВАНИЯ"
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr "ПОКАЗАТЬ ЯЗЫКОВОЙ ФЛАГ В СПИСКАХ"
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr "ПОКАЗАТЬ ИКОНКУ СОХРАНЕНИЙ В СПИСКАХ"
 
 msgid "SHOW MANUAL ICON IN LISTS"
