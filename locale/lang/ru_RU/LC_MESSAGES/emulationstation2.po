@@ -1367,7 +1367,7 @@ msgstr "НАЙТИ ВСЕ ИГРЫ С NETPLAY/ДОСТИЖЕНИЯМИ"
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "ИГНОР. СОДЕРЖИМОЕ МНОГОДИСКОВЫХ ФАЙЛОВ (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
@@ -1738,7 +1738,7 @@ msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "ЗАПУЩЕНО ХЕШИРОВАНИЕ ИГР. ОСТАНОВИТЬ?"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS ?"
 msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ СПИСКИ ИГР?"
 
 msgid "CONFIGURE A CONTROLLER"
