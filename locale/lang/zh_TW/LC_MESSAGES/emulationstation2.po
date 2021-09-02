@@ -891,7 +891,7 @@ msgstr "需要網路連線"
 msgid "INVALID PARAMETERS"
 msgstr "無效的參數"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "遊戲媒體"
 
 msgid "VIEW GAME MANUAL"
@@ -1156,7 +1156,7 @@ msgstr "KODI 多媒體中心"
 msgid "GAMES SETTINGS"
 msgstr "遊戲設定"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1337,10 +1337,10 @@ msgstr "檔案產生失敗"
 msgid "FORMAT A DISK"
 msgstr "格式化磁碟"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "清理遊戲清單 & 移除未使用的媒體"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "清理中 "
 
 msgid "CLEAR CACHES"
@@ -1388,7 +1388,7 @@ msgstr "循環轉場效果"
 msgid "QUICK SYSTEM SELECT"
 msgstr "快速遊戲平台選擇"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "螢幕虛擬鍵盤"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1406,7 +1406,7 @@ msgstr "自動"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自動為模擬器設定控制器"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "在 EMULATIONSTATION 中調換 A/B 鍵功能"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1415,7 +1415,7 @@ msgstr "透過北功能鍵存取遊戲選項"
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr "調換北功能鍵（即時存檔）與長按南功能鍵（遊戲選項）的按鍵功能"
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "僅透過第一支遊戲搖桿操作 EMULATIONSTATION"
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1430,13 +1430,13 @@ msgstr "預先載入 UI"
 msgid "THREADED LOADING"
 msgstr "多執行緒載入"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "非同步圖片載入"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr "最佳化圖片的 VRAM 使用"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr "最佳化影像的 VRAM 使用"
 
 msgid "DOWNLOADS"
@@ -1499,7 +1499,7 @@ msgstr "KODI 設定"
 msgid "ENABLE KODI"
 msgstr "啟用 KODI 媒體播放中心"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "開機時啟動 KODI"
 
 msgid "HARDWARE"
@@ -1691,7 +1691,7 @@ msgstr "平滑遊戲畫面"
 msgid "REWIND"
 msgstr "倒帶功能"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整數縮放 (完美像素)"
 
 msgid "AUTO SAVE/LOAD"
@@ -1703,7 +1703,7 @@ msgstr "顯示存檔快照"
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr "若有快照存在的話則顯示"
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "濾鏡著色器設定"
 
 msgid "DECORATION"
@@ -1817,10 +1817,10 @@ msgstr "在名字前面"
 msgid "AFTER NAME"
 msgstr "在名字後面"
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr "在清單中顯示語言旗幟"
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr "在清單中顯示存檔狀態旗幟"
 
 msgid "SHOW MANUAL ICON IN LISTS"
