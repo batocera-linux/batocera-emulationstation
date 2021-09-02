@@ -886,7 +886,7 @@ msgstr "需要联网"
 msgid "INVALID PARAMETERS"
 msgstr "参数无效"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "游戏媒体"
 
 msgid "VIEW GAME MANUAL"
@@ -1152,7 +1152,7 @@ msgstr "KODI 媒体中心"
 msgid "GAMES SETTINGS"
 msgstr "游戏设置"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1333,10 +1333,10 @@ msgstr "文件生成失败"
 msgid "FORMAT A DISK"
 msgstr "格式化磁盘"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "清除游戏列表并删除未使用的媒体"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "清理中"
 
 msgid "CLEAR CACHES"
@@ -1384,7 +1384,7 @@ msgstr "循环画面转场"
 msgid "QUICK SYSTEM SELECT"
 msgstr "快速系统选择"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "虚拟键盘"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1402,7 +1402,7 @@ msgstr "自动"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "自动配置模拟的控制设备"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "在EMULATIONSTATION中切换 A/B 按键"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1411,7 +1411,7 @@ msgstr ""
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1426,13 +1426,13 @@ msgstr "预加载UI"
 msgid "THREADED LOADING"
 msgstr "线程载入中"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "异步图像载入中"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr "优化图像VRAM使用"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr "优化视频VRAM的使用"
 
 msgid "DOWNLOADS"
@@ -1495,7 +1495,7 @@ msgstr "KODI 设置"
 msgid "ENABLE KODI"
 msgstr "启用 KODI"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "开机时进入KODI"
 
 msgid "HARDWARE"
@@ -1687,7 +1687,7 @@ msgstr "图像平滑处理"
 msgid "REWIND"
 msgstr "倒带功能"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
 
 msgid "AUTO SAVE/LOAD"
@@ -1699,7 +1699,7 @@ msgstr ""
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr ""
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "着色器设置"
 
 msgid "DECORATION"
@@ -1816,10 +1816,10 @@ msgstr ""
 msgid "AFTER NAME"
 msgstr ""
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr ""
 
 msgid "SHOW MANUAL ICON IN LISTS"
