@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-02 08:30+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -86,7 +86,7 @@ msgid "Magazine"
 msgstr "Rivista"
 
 msgid "enter path to magazine"
-msgstr "inserisci il percorso della rivista"
+msgstr "inserisci percorso della rivista"
 
 msgid "Map"
 msgstr "Mappa"
@@ -164,7 +164,7 @@ msgid "Genres"
 msgstr "Genere"
 
 msgid "enter game genres"
-msgstr "inserisci genere del gioco"
+msgstr "inserisci genere"
 
 msgid "Arcade system"
 msgstr "Sistema Arcade"
@@ -191,16 +191,16 @@ msgid "enter hidden"
 msgstr "inserisci nascosto"
 
 msgid "Kidgame"
-msgstr "Gioco per bambini"
+msgstr "per bambini"
 
 msgid "enter kidgame"
 msgstr "inserisci gioco per bambini"
 
 msgid "Play count"
-msgstr "Numero di partite giocate"
+msgstr "Partite giocate"
 
 msgid "enter number of times played"
-msgstr "inserisci numero delle partite giocate"
+msgstr "inserisci numero partite giocate"
 
 msgid "Last played"
 msgstr "Ultima partita"
@@ -657,7 +657,7 @@ msgid "UPDATE INSTALLED CONTENT"
 msgstr "AGGIORNA CONTENUTO INSTALLATO"
 
 msgid "There are no items in this view"
-msgstr "Non ci sono elementi in questa visualizzazione"
+msgstr "Non ci sono elementi in questa schermata"
 
 msgid "MISC"
 msgstr "VARIE"
@@ -868,7 +868,7 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION : %s\n"
 "DO YOU WANT TO UPDATE TO VERSION : %s ?"
 msgstr ""
-"LA TUA ATTUALE VERSIONE : %s\n"
+"LA TUA VERSIONE ATTUALE: %s\n"
 "VUOI AGGIORNARE ALLA VERSIONE : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1138,16 +1138,16 @@ msgid "RGA SCALING"
 msgstr "SCALING RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "VENDOR"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERER"
 
 msgid "VERSION"
 msgstr "VERSIONE"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SHADERS"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -1285,7 +1285,7 @@ msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "DRIVER VIDEO"
 
 msgid "DEVELOPER"
 msgstr "SVILUPPATORE"
@@ -1518,25 +1518,25 @@ msgid "AUDIO OUTPUT"
 msgstr "USCITA AUDIO"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ROTAZIONE SCHERMO"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "A SINISTRA"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "A DESTRA"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "INVERTITA"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "SCHERMATA DI AVVIO"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "SCHERMATA SENZA AUDIO"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "NESSUNA SCHERMATA"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPZIONI RETROACHIEVEMENTS (TROFEI)"
@@ -1557,40 +1557,40 @@ msgid "OFF"
 msgstr "NO"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "COLORE LED PULSANTI"
 
 msgid "off"
-msgstr ""
+msgstr "off"
 
 msgid "red"
-msgstr ""
+msgstr "rosso"
 
 msgid "green"
-msgstr ""
+msgstr "verde"
 
 msgid "blue"
-msgstr ""
+msgstr "blu"
 
 msgid "white"
-msgstr ""
+msgstr "bianco"
 
 msgid "purple"
-msgstr ""
+msgstr "viola"
 
 msgid "yellow"
-msgstr ""
+msgstr "giallo"
 
 msgid "cyan"
-msgstr ""
+msgstr "ciano"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "COLORE LED POWER"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "effetto battito"
 
 msgid "on"
-msgstr ""
+msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
@@ -2064,7 +2064,7 @@ msgid "SYSTEM INFO"
 msgstr "INFORMAZIONI SISTEMA"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "ERRORE: QUALSIASI SISTEMA È STATO NASCOSTO, MOSTRALI TUTTI ORA"
+msgstr "ERRORE: OGNI SISTEMA È NASCOSTO, MOSTRALI TUTTI ORA"
 
 msgid "QUICK SEARCH"
 msgstr "RICERCA RAPIDA"
@@ -2154,8 +2154,8 @@ msgstr "Numero partite"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Questa cartella contiene %i gioco, incluso :%s"
+msgstr[1] "Questa cartella contiene %i giochi, inclusi :%s"
 
 msgid "No Entries Found"
 msgstr "Nessun Elemento Trovato"
@@ -2377,28 +2377,28 @@ msgid "RIGHT"
 msgstr "DESTRA"
 
 msgid "LEFT ANALOG UP"
-msgstr "ANALOGICO SINISTRO - SU"
+msgstr "ANALOGICO SX - SU"
 
 msgid "LEFT ANALOG DOWN"
-msgstr "ANALOGICO SINISTRO- GIÙ"
+msgstr "ANALOGICO SX - GIÙ"
 
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALOGICO SINISTRO - SINISTRA"
+msgstr "ANALOGICO SX - SINISTRA"
 
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANALOGICO SINISTRO - DESTRA"
+msgstr "ANALOGICO SX - DESTRA"
 
 msgid "RIGHT ANALOG UP"
-msgstr "ANALOGICO DESTRO - SU"
+msgstr "ANALOGICO DX - SU"
 
 msgid "RIGHT ANALOG DOWN"
-msgstr "ANALOGICO DESTRO - GIÙ"
+msgstr "ANALOGICO DX - GIÙ"
 
 msgid "RIGHT ANALOG LEFT"
-msgstr "ANALOGICO DESTRO - SINISTRA"
+msgstr "ANALOGICO DX - SINISTRA"
 
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ANALOGICO DESTRO - DESTRA"
+msgstr "ANALOGICO DX- DESTRA"
 
 msgid "HOTKEY"
 msgstr "HOTKEY"
