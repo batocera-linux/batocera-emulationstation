@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-02 10:15+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -618,7 +618,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "BUSCANDO REDES INALÁMBRICAS"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "OLVIDAR DISPOSITIVO BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "DESVINCULAR TODO"
@@ -627,7 +627,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NO SE ENCONTRARON DISPOSITIVOS BLUETOOTH"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "EL DISPOSITIVO HA SIDO ELIMINADO"
 
 msgid "FILE BROWSER"
 msgstr "EXAMINAR"
@@ -1159,7 +1159,7 @@ msgid "GAMES SETTINGS"
 msgstr "CONFIGURACIÓN DE JUEGOS"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE CONTROLES Y BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
@@ -1520,25 +1520,25 @@ msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ORIENTACION DE PANTALLA"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "ROTAR A LA IZQUIERDA"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "ROTAR A LA DERECHA"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "ROTACION INVERTIDA"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "PANTALLA DE INICIO"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "SIN PANTALLA DE INICIO"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "SIN PANTALLA DE INICIO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "CONFIGURACIÓN DE RETROACHIEVEMENTS"
@@ -1759,7 +1759,7 @@ msgstr ""
 "BOTÓN. LOS NOMBRES DE LOS BOTONES SE BASAN EN EL CONTROL DE SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "VINCULAR DISPOSITIVO BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
