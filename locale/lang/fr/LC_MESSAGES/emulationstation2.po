@@ -618,7 +618,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "OUBLIER UN PÉRIPHÉRIQUE BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "TOUT SUPPRIMER"
@@ -627,7 +627,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "TOUS LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS"
 
 msgid "FILE BROWSER"
 msgstr "NAVIGATEUR DE FICHIERS"
@@ -689,10 +689,10 @@ msgid "MISSING BIOS"
 msgstr "BIOS MANQUANTS"
 
 msgid "dim"
-msgstr "assombri"
+msgstr "écran assombri"
 
 msgid "black"
-msgstr "noir"
+msgstr "écran noir"
 
 msgid "random video"
 msgstr "vidéo"
@@ -704,7 +704,7 @@ msgid "always"
 msgstr "toujours"
 
 msgid "start & end"
-msgstr "début & fin"
+msgstr "début et fin"
 
 msgid "never"
 msgstr "jamais"
@@ -1082,7 +1082,7 @@ msgid "instant"
 msgstr "instantané"
 
 msgid "fade & slide"
-msgstr "fondu & glissement"
+msgstr "fondu et glissement"
 
 msgid "System"
 msgstr "Système"
@@ -1091,7 +1091,7 @@ msgid "Architecture"
 msgstr "Architecture"
 
 msgid "Disk format"
-msgstr "Format du disque"
+msgstr "Format du disque utilisateur"
 
 msgid "Temperature"
 msgstr "Température"
@@ -1157,7 +1157,7 @@ msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES DES MANETTES ET PÉRIPHÉRIQUES BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "PARAMÈTRES DE L'INTERFACE"
@@ -1365,7 +1365,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "IGNORER LE CONTENU DU DISQUE MULTI-FICHIERS (CUE/GDI/CCD/M3U)"
+msgstr "IGNORER LE CONTENU MULTI-FICHIERS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ACTIVER LES FILTRES"
@@ -1414,7 +1414,7 @@ msgstr "ACCÉDER AUX OPTIONS DU JEUX AVEC LE BOUTON NORD"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
-"Intervertir le bouton nord (sauvegarde de jeu) & sud pression longue "
+"Intervertir le bouton nord (sauvegarde de jeu) et sud pression longue "
 "(options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1713,7 +1713,7 @@ msgid "DECORATION"
 msgstr "DÉCORATIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "ETIRER LES DÉCORATIONS (4K & ULTRAWIDE)"
+msgstr "ETIRER LES DÉCORATIONS (4K ET ULTRAWIDE)"
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION DES JEUX"
@@ -1757,7 +1757,7 @@ msgstr ""
 "SONT BASÉS SUR LA SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -2535,15 +2535,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "FORGET A BLUETOOTH CONTROLLER"
-#~ msgstr "OUBLIER UNE MANETTE BLUETOOTH"
-
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "TOUTES LES MANETTES BLUETOOTH ONT ÉTÉ SUPPRIMÉES"
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "PARAMÈTRES DES MANETTES"
-
-#~ msgid "PAIR A BLUETOOTH CONTROLLER"
-#~ msgstr "ASSOCIER UNE MANETTE BLUETOOTH"
