@@ -892,7 +892,7 @@ msgstr "ПОТРІБНА МЕРЕЖА"
 msgid "INVALID PARAMETERS"
 msgstr "НЕ ВІРНІ ПАРАМЕТРИ"
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr "ІГРОВІ МЕДІА"
 
 msgid "VIEW GAME MANUAL"
@@ -1158,7 +1158,7 @@ msgstr "МЕДІАЦЕНТР KODI"
 msgid "GAMES SETTINGS"
 msgstr "ІГРОВІ НАЛАШТУВАННЯ"
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
 msgid "UI SETTINGS"
@@ -1339,10 +1339,10 @@ msgstr "ГЕНЕРАЦІЯ ФАЙЛУ НЕ ВДАЛАСЬ"
 msgid "FORMAT A DISK"
 msgstr "ФОРМАТУВАТИ ДИСК"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТИ ГЕЙМЛИСТ ТА ВИДАЛИТИ ДАННІ"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "Очищення"
 
 msgid "CLEAR CACHES"
@@ -1390,7 +1390,7 @@ msgstr "АНИМАЦІЯ КАРУСЕЛІ"
 msgid "QUICK SYSTEM SELECT"
 msgstr "ШВИДКЕ ПЕРЕМИКАННЯ СИСТЕМ"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "ЕКРАННА КЛАВІАТУРА"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1408,7 +1408,7 @@ msgstr "АВТО"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "АВТОНАЛАШТУВАННЯ КОНТРОЛЛЕРІВ"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ЗМІНИТИ МІСЦЯМИ КНОПКИ А/В"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
@@ -1417,7 +1417,7 @@ msgstr ""
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1432,13 +1432,13 @@ msgstr "ПРЕДЗАВАНТАЖЕННЯ ІНТЕРФЕЙСУ"
 msgid "THREADED LOADING"
 msgstr "THREADED ЗАВАНТАЖЕННЯ"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "ЗАВАНТАЖЕННЯ ЗОБРАЖЕНЬ ASYNC"
 
-msgid "OPTIMIZE IMAGES VRAM USE"
+msgid "OPTIMIZE IMAGE VRAM USAGE"
 msgstr "ОПТИМІЗАЦІЯ ЗОБРАЖЕНЬ ДЛЯ VRAM"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO RAM USAGE"
 msgstr "ОПТИМІЗАЦІЯ ВІДЕО ДЛЯ VRAM"
 
 msgid "DOWNLOADS"
@@ -1501,7 +1501,7 @@ msgstr "НАЛАШТУВАННЯ KODI"
 msgid "ENABLE KODI"
 msgstr "ВМИКНУТИ KODI"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "АВТОЗАПУСК KODI"
 
 msgid "HARDWARE"
@@ -1693,7 +1693,7 @@ msgstr "ЗГЛАДЖУВАННЯ ЗОБРАЖЕННЯ"
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
 
 msgid "AUTO SAVE/LOAD"
@@ -1705,7 +1705,7 @@ msgstr ""
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr ""
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "ШЕЙДЕРИ"
 
 msgid "DECORATION"
@@ -1821,10 +1821,10 @@ msgstr ""
 msgid "AFTER NAME"
 msgstr ""
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG IN LISTS"
 msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE FLAG IN LISTS"
 msgstr ""
 
 msgid "SHOW MANUAL ICON IN LISTS"
