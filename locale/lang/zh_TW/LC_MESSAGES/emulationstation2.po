@@ -1364,7 +1364,7 @@ msgstr "尋找所有提供多人遊戲/成就的遊戲"
 msgid "DATA MANAGEMENT"
 msgstr "資料管理"
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "忽略多個檔案的磁碟內容 (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
@@ -1412,7 +1412,7 @@ msgstr "在 EMULATIONSTATION 中調換 A/B 鍵功能"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "透過北功能鍵存取遊戲選項"
 
-msgid "Inverts north button (savestates) & long press south (game options)"
+msgid "Switches to short press North for Savestates & long press South button for Game Options"
 msgstr "調換北功能鍵（即時存檔）與長按南功能鍵（遊戲選項）的按鍵功能"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1733,7 +1733,7 @@ msgstr "遊戲平台個別進階設定"
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "遊戲校驗正在進行中。您想要終止嗎？"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS ?"
 msgstr "確定要更新遊戲清單嗎?"
 
 msgid "CONFIGURE A CONTROLLER"
