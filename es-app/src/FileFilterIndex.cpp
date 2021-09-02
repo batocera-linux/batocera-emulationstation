@@ -912,7 +912,7 @@ bool CollectionFilter::createFromSystem(const std::string name, SystemData* syst
 
 	mSystemFilter.clear();
 
-	if (system != nullptr && !system->isCollection() && !system->isGroupSystem() && system->getName() != "all")
+	if (system != nullptr && !system->isCollection() && system->isGameSystem() && system->getName() != "all")
 		mSystemFilter.insert(system->getName());
 
 	resetIndex();

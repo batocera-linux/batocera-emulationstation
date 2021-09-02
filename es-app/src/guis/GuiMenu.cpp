@@ -871,7 +871,7 @@ void GuiMenu::openDeveloperSettings()
 		{
 			for (auto system : SystemData::sSystemVector)
 			{
-				if (system->isCollection() || system->isGroupSystem())
+				if (system->isCollection() || !system->isGameSystem())
 					continue;
 
 				for (auto game : system->getRootFolder()->getFilesRecursive(GAME))
@@ -2155,7 +2155,7 @@ void GuiMenu::openGamesSettings_batocera()
 		std::vector<SystemData *> systems = SystemData::sSystemVector;
 		for (auto system : systems)
 		{
-			if (system->isCollection() || system->isGroupSystem())
+			if (system->isCollection() || !system->isGameSystem())
 				continue;
 
 			if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
@@ -2919,7 +2919,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		
 
 		// File extensions
-		if (!system->isCollection() && !system->isGroupSystem())
+		if (!system->isCollection() && system->isGameSystem())
 		{
 			auto hiddenExts = Utils::String::split(Settings::getInstance()->getString(system->getName() + ".HiddenExt"), ';');
 

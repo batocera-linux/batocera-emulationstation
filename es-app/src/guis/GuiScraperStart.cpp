@@ -40,7 +40,7 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SCRAPE THESE SYSTEMS"), true); // batocera
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
-		if ((*it)->isGroupSystem())
+		if (!(*it)->isGameSystem())
 			continue;
 
 		if ((*it)->hasPlatformId(PlatformIds::PLATFORM_IGNORE))

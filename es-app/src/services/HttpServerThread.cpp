@@ -502,7 +502,7 @@ void HttpServerThread::run()
 
 		for (auto system : SystemData::sSystemVector)
 		{
-			if (system->isCollection() || system->isGroupSystem())
+			if (system->isCollection() || !system->isGameSystem())
 				continue;
 
 			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))

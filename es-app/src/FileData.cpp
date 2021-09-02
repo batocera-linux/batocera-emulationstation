@@ -776,7 +776,7 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	auto sys = CollectionSystemManager::get()->getSystemToView(mSystem);
 
 	std::vector<std::string> hiddenExts;
-	if (!mSystem->isGroupSystem() && !mSystem->isCollection())
+	if (mSystem->isGameSystem() && !mSystem->isCollection())
 		for (auto ext : Utils::String::split(Settings::getInstance()->getString(mSystem->getName() + ".HiddenExt"), ';'))	
 			hiddenExts.push_back("." + Utils::String::toLower(ext));
 	
@@ -979,7 +979,7 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 	SystemData* pSystem = (system != nullptr ? system : mSystem);
 
 	std::vector<std::string> hiddenExts;
-	if (!pSystem->isGroupSystem() && !pSystem->isCollection())
+	if (pSystem->isGameSystem() && !pSystem->isCollection())
 		for (auto ext : Utils::String::split(Settings::getInstance()->getString(pSystem->getName() + ".HiddenExt"), ';'))
 			hiddenExts.push_back("." + Utils::String::toLower(ext));
 
