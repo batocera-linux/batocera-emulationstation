@@ -1729,7 +1729,7 @@ msgstr "按系统配置"
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
 msgstr "正在效验游戏.你想停止吗?"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS ?"
 msgstr "是否更新游戏列表?"
 
 msgid "CONFIGURE A CONTROLLER"
