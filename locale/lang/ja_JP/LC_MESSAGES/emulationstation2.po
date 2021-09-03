@@ -618,16 +618,16 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH デバイスを削除"
 
 msgid "REMOVE ALL"
 msgstr "すべて削除"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BT コントローラーが見つかりません"
+msgstr "BLUETOOTH デバイスが見つかりません"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "BLUETOOTHデバイスが削除されました。"
 
 msgid "FILE BROWSER"
 msgstr "ファイルブラウザ"
@@ -1159,7 +1159,7 @@ msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "コントローラー＆BT 設定"
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1758,7 +1758,7 @@ msgstr ""
 "ベースとしたものに なります。"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH デバイスのペアリング"
 
 #, c-format
 msgid "INPUT P%i"
