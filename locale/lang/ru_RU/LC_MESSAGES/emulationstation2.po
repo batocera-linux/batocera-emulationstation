@@ -363,7 +363,7 @@ msgid "FIND GAMES"
 msgstr "НАЙТИ ИГРЫ"
 
 msgid "Unknown"
-msgstr " "
+msgstr "Неизвестно"
 
 msgid "YES"
 msgstr "ДА"
@@ -619,7 +619,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "ПОИСК WIFI СЕТИ"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 msgid "REMOVE ALL"
 msgstr "УДАЛИТЬ ВСЕ"
@@ -628,7 +628,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
 
 msgid "FILE BROWSER"
 msgstr "ФАЙЛОВЫЙ БРАУЗЕР"
@@ -1160,7 +1160,7 @@ msgid "GAMES SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
 
 msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
@@ -1416,8 +1416,7 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr ""
-"Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
+msgstr "Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
@@ -1520,25 +1519,25 @@ msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ПОВОРОТ ЭКРАНА"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "ПОВОРОТ ВЛЕВО"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "ПОВОРОТ ВПРАВО"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "ИНВЕРТИРОВАТЬ ПОВОРОТ"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "ВСТУПИТЕЛЬНОЕ ИНТРО"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "ТИХАЯ ЗАГРУЗКА"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "БЕЗ ИНТРО"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
@@ -1758,7 +1757,7 @@ msgstr ""
 "КНОПКУ SELECT. НАЗВАНИЯ КНОПОК ОСНОВАНЫ НА SNES КОНТРОЛЛЕРЕ."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 #, c-format
 msgid "INPUT P%i"
