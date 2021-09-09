@@ -580,6 +580,11 @@ std::string ApiSystem::getRootPassword()
 	return oss.str().c_str();
 }
 
+std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() 
+{
+	return executeEnumerationScript("batocera-config lsoutputs");
+}
+
 std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices() 
 {
 #if WIN32
@@ -589,11 +594,6 @@ std::vector<std::string> ApiSystem::getAvailableAudioOutputDevices()
 #endif
 
 	return executeEnumerationScript("batocera-audio list");
-}
-
-std::vector<std::string> ApiSystem::getAvailableVideoOutputDevices() 
-{
-	return executeEnumerationScript("batocera-config lsoutputs");
 }
 
 std::string ApiSystem::getCurrentAudioOutputDevice() 
@@ -629,6 +629,57 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 	std::ostringstream oss;
 
 	oss << "batocera-audio set" << " '" << selected << "'";
+	int exitcode = system(oss.str().c_str());
+
+	Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
+
+	return exitcode == 0;
+}
+
+std::vector<std::string> ApiSystem::getAvailableAudioOutputProfiles()
+{
+#if WIN32
+	std::vector<std::string> res;
+	res.push_back("auto");
+	return res;
+#endif
+
+	return executeEnumerationScript("batocera-audio list-profiles");
+}
+
+std::string ApiSystem::getCurrentAudioOutputProfile() 
+{
+#if WIN32
+	return "auto";
+#endif
+
+	LOG(LogDebug) << "ApiSystem::getCurrentAudioOutputProfile";
+
+	std::ostringstream oss;
+	oss << "batocera-audio get-profile";
+	FILE *pipe = popen(oss.str().c_str(), "r");
+	char line[1024];
+
+	if (pipe == NULL)
+		return "";	
+
+	if (fgets(line, 1024, pipe)) 
+	{
+		strtok(line, "\n");
+		pclose(pipe);
+		return std::string(line);
+	}
+
+	return "";
+}
+
+bool ApiSystem::setAudioOutputProfile(std::string selected) 
+{
+	LOG(LogDebug) << "ApiSystem::setAudioOutputProfile";
+
+	std::ostringstream oss;
+
+	oss << "batocera-audio set-profile" << " '" << selected << "'";
 	int exitcode = system(oss.str().c_str());
 
 	Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
