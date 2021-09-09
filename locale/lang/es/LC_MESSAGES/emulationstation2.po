@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 14:26+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -71,7 +71,7 @@ msgid "enter path to fanart"
 msgstr "introduce la ruta del Fan art"
 
 msgid "Title shot"
-msgstr "Captura del título"
+msgstr "Pantalla de título"
 
 msgid "enter path to title shot"
 msgstr "introduce la ruta de la captura del título"
@@ -617,8 +617,8 @@ msgstr "NO SE ENCONTRARON REDES INALÁMBRICAS"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "BUSCANDO REDES INALÁMBRICAS"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "DESVINCULAR MANDO BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "DESVINCULAR TODO"
@@ -626,8 +626,8 @@ msgstr "DESVINCULAR TODO"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NO SE ENCONTRARON DISPOSITIVOS BLUETOOTH"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "LOS MANDOS HAN SIDO DESVINCULADOS."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "EXAMINAR"
@@ -1158,8 +1158,8 @@ msgstr "CENTRO MULTIMEDIA KODI"
 msgid "GAMES SETTINGS"
 msgstr "CONFIGURACIÓN DE JUEGOS"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "CONFIGURACIÓN DE MANDOS"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
@@ -1519,6 +1519,27 @@ msgstr "SALIDA DE VÍDEO"
 msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "CONFIGURACIÓN DE RETROACHIEVEMENTS"
 
@@ -1538,40 +1559,40 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "COLOR DEL LED DEL BOTÓN"
 
 msgid "off"
-msgstr ""
+msgstr "off"
 
 msgid "red"
-msgstr ""
+msgstr "rojo"
 
 msgid "green"
-msgstr ""
+msgstr "verde"
 
 msgid "blue"
-msgstr ""
+msgstr "azul"
 
 msgid "white"
-msgstr ""
+msgstr "blanco"
 
 msgid "purple"
-msgstr ""
+msgstr "púrpura"
 
 msgid "yellow"
-msgstr ""
+msgstr "amarillo"
 
 msgid "cyan"
-msgstr ""
+msgstr "cien"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "COLOR DEL LED DE ENCENDIDO"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "latido"
 
 msgid "on"
-msgstr ""
+msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
@@ -1637,10 +1658,10 @@ msgid "GAME INDEXES"
 msgstr "ÍNDICES DE JUEGOS"
 
 msgid "FIND ALL GAMES"
-msgstr "BUSCAR TODOS LOS JUEGOS"
+msgstr "BUSCAR LOGROS EN TODOS LOS JUEGOS"
 
 msgid "FIND NEW GAMES"
-msgstr "BUSCAR JUEGOS NUEVOS"
+msgstr "BUSCAR SOLO EN LOS JUEGOS NUEVOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 msgstr "NO ES POSIBLE ACTIVAR LOS LOGROS:"
@@ -1737,8 +1758,8 @@ msgstr ""
 "IGNORA LOS BOTONES QUE NO EXISTAN EN TU MANDO MANTENIENDO PULSADO UN BOTÓN. "
 "LOS NOMBRES DE LOS BOTONES SE BASAN EN EL MANDO DE SUPER NINTENDO."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "EMPAREJAR UN MANDO BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2515,6 +2536,18 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "DESVINCULAR MANDO BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "LOS MANDOS HAN SIDO DESVINCULADOS."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "CONFIGURACIÓN DE MANDOS"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "EMPAREJAR UN MANDO BLUETOOTH"
 
 #~ msgid "Done."
 #~ msgstr "Listo."

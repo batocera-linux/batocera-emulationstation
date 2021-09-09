@@ -60,6 +60,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ NEOGEO_POCKET_COLOR, 82 },
 	{ NINTENDO_3DS, 17 },
 	{ NINTENDO_64, 14 },
+	{ NINTENDO_64_DISK_DRIVE, 122 },
 	{ NINTENDO_DS, 15 },
 	{ FAMICOM_DISK_SYSTEM, 106 },
 	{ NINTENDO_ENTERTAINMENT_SYSTEM, 3 },

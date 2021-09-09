@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 20:56-0300\n"
+"POT-Creation-Date: 2021-09-03 11:27-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -617,8 +617,8 @@ msgstr "NENHUMA REDE WIFI ENCONTRADA"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "PESQUISA DE REDES WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "REMOVER CONTROLE BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "REMOVER DISPOSITIVO BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "REMOVER TODOS"
@@ -626,8 +626,8 @@ msgstr "REMOVER TODOS"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM REMOVIDOS"
 
 msgid "FILE BROWSER"
 msgstr "EXPLORAR ARQUIVOS"
@@ -1148,7 +1148,7 @@ msgid "VERSION"
 msgstr "VERSÃO"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SHADERS"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1159,8 +1159,8 @@ msgstr "CENTRAL DE MÍDIA KODI"
 msgid "GAMES SETTINGS"
 msgstr "OPÇÕES DE JOGOS"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "OPÇÕES DE CONTROLES"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "OPÇÕES DE CONTROLES & BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "OPÇÕES DA INTERFACE"
@@ -1521,6 +1521,27 @@ msgstr "SAÍDA DE VÍDEO"
 msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
+msgid "SCREEN ROTATION"
+msgstr "ROTAÇÃO DE TELA"
+
+msgid "LEFT ROTATION"
+msgstr "ROTAÇÃO PARA ESQUERDA"
+
+msgid "RIGHT ROTATION"
+msgstr "ROTAÇÃO PARA DIREITA"
+
+msgid "INVERTED ROTATION"
+msgstr "INVERTER ROTAÇÃO"
+
+msgid "BOOT SPLASH"
+msgstr "TELA DE INICIALIZAÇÃO"
+
+msgid "SILENT SPLASH"
+msgstr "INICIALIZAÇÃO SILENCIOSA"
+
+msgid "NO SPLASH"
+msgstr "SEM TELA DE INICIALIZAÇÃO"
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DE RETROACHIEVEMENTS"
 
@@ -1737,8 +1758,8 @@ msgstr ""
 "HOTKEY, UTILIZE O BOTÃO SELECT. IGNORE A CONFIGURAÇÃO DOS BOTÕES QUE NÃO "
 "EXISTEM EM SEU CONTROLE PRESSIONANDO UM BOTÃO JÁ CONFIGURADO EM SEU CONTROLE."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PAREAR UM CONTROLE BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "PAREAR DISPOSITIVO BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -2511,18 +2532,3 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-#~ msgid "Done."
-#~ msgstr "Concluído."
-
-#~ msgid "GL VENDOR"
-#~ msgstr "FABRICANTE DA GPU"
-
-#~ msgid "GL RENDERER"
-#~ msgstr "RENDERIZADOR DA GPU"
-
-#~ msgid "GL VERSION"
-#~ msgstr "VERSÃO DA GPU"
-
-#~ msgid "GLSL VERSION"
-#~ msgstr "VERSÃO DA GLSL"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 14:26+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -618,8 +618,8 @@ msgstr "KEINE WIFI-NETZWERKE GEFUNDEN"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "SUCHE NACH WIFI-NETZWERKEN"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH CONTROLLER LÖSCHEN"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "ALLE ENTFERNEN"
@@ -627,8 +627,8 @@ msgstr "ALLE ENTFERNEN"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "KEINE BLUETOOTH-GERÄTE GEFUNDEN"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "CONTROLLER-VERBINDUNGEN WURDEN GELÖSCHT."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "DATEIBROWSER"
@@ -1159,8 +1159,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "SPIELEINSTELLUNGEN"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "CONTROLLER-EINSTELLUNGEN"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI-EINSTELLUNGEN"
@@ -1523,6 +1523,27 @@ msgstr "BILD AUSGABE"
 msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"
 
+msgid "SCREEN ROTATION"
+msgstr "BILD-ROTATIOn"
+
+msgid "LEFT ROTATION"
+msgstr "LINKE ROTATION"
+
+msgid "RIGHT ROTATION"
+msgstr "RECHTE ROTATION"
+
+msgid "INVERTED ROTATION"
+msgstr "INVERTIERTE ROTATION"
+
+msgid "BOOT SPLASH"
+msgstr "BOOT SPLASH"
+
+msgid "SILENT SPLASH"
+msgstr "SILENT SPLASH"
+
+msgid "NO SPLASH"
+msgstr "KEIN SPLASH"
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS EINSTELLUNGEN"
 
@@ -1542,40 +1563,40 @@ msgid "OFF"
 msgstr "AUS"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "TASTEN-LED-FARBE"
 
 msgid "off"
-msgstr ""
+msgstr "aus"
 
 msgid "red"
-msgstr ""
+msgstr "rot"
 
 msgid "green"
-msgstr ""
+msgstr "grün"
 
 msgid "blue"
-msgstr ""
+msgstr "blau"
 
 msgid "white"
-msgstr ""
+msgstr "weiß"
 
 msgid "purple"
-msgstr ""
+msgstr "lila"
 
 msgid "yellow"
-msgstr ""
+msgstr "gelb"
 
 msgid "cyan"
-msgstr ""
+msgstr "cyan"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "POWER-LED-FARBE"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "Herzschlag"
 
 msgid "on"
-msgstr ""
+msgstr "an"
 
 msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
@@ -1741,8 +1762,8 @@ msgstr ""
 "VORHANDEN SIND, KÖNNEN EINFACH DURCH GEDRÜCKT-HALTEN EINES BUTTONS "
 "ÜBERSPRUNGEN WERDEN."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "EINEN BLUETOOTH-CONTROLLER VERBINDEN"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2522,6 +2543,18 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH CONTROLLER LÖSCHEN"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "CONTROLLER-VERBINDUNGEN WURDEN GELÖSCHT."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "CONTROLLER-EINSTELLUNGEN"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "EINEN BLUETOOTH-CONTROLLER VERBINDEN"
 
 #~ msgid "Done."
 #~ msgstr "Fertig."

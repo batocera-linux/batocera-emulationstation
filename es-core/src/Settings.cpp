@@ -24,6 +24,7 @@ std::vector<const char*> settings_dont_save {
 	{ "IgnoreGamelist" },
 	{ "HideConsole" },
 	{ "ShowExit" },
+	{ "ExitOnRebootRequired" },
 	{ "SplashScreen" },
 	{ "SplashScreenProgress" },
 	// { "VSync" },
@@ -67,6 +68,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowParentFolder"] = true;
 	mBoolMap["DrawFramerate"] = false;
 	mBoolMap["ShowExit"] = true;
+	mBoolMap["ExitOnRebootRequired"] = false;
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
 	mBoolMap["SplashScreenProgress"] = true;

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v32(2021/07/03)\n"
+"Project-Id-Version: batocera-es v32(2021/08/24)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 14:26+0200\n"
-"PO-Revision-Date: 2021-07-06 11:22+0900\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"PO-Revision-Date: 2021-08-26 19:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -617,8 +617,8 @@ msgstr "WIFI ネットワークが見つかりません"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH コントローラーを解除"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "すべて削除"
@@ -626,8 +626,8 @@ msgstr "すべて削除"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BT コントローラーが見つかりません"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "コントローラーのリンクが切れました。"
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "ファイルブラウザ"
@@ -1158,8 +1158,8 @@ msgstr "KODI メディアセンター"
 msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "コントローラー設定"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1519,6 +1519,27 @@ msgstr "映像出力"
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"
 
+msgid "SCREEN ROTATION"
+msgstr "画面の回転"
+
+msgid "LEFT ROTATION"
+msgstr "左回転"
+
+msgid "RIGHT ROTATION"
+msgstr "右回転"
+
+msgid "INVERTED ROTATION"
+msgstr "反転"
+
+msgid "BOOT SPLASH"
+msgstr "ブートスプラッシュ映像"
+
+msgid "SILENT SPLASH"
+msgstr "音声無し"
+
+msgid "NO SPLASH"
+msgstr "映像無し"
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
 
@@ -1538,40 +1559,40 @@ msgid "OFF"
 msgstr "オフ"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "ボタン LED色"
 
 msgid "off"
-msgstr ""
+msgstr "オフ"
 
 msgid "red"
-msgstr ""
+msgstr "赤"
 
 msgid "green"
-msgstr ""
+msgstr "緑"
 
 msgid "blue"
-msgstr ""
+msgstr "青"
 
 msgid "white"
-msgstr ""
+msgstr "白"
 
 msgid "purple"
-msgstr ""
+msgstr "紫"
 
 msgid "yellow"
-msgstr ""
+msgstr "黄"
 
 msgid "cyan"
-msgstr ""
+msgstr "シアン"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "電源 LED色"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "ハートビート"
 
 msgid "on"
-msgstr ""
+msgstr "オン"
 
 msgid "OVERCLOCK"
 msgstr "オーバークロック"
@@ -1736,8 +1757,8 @@ msgstr ""
 "てのボタンを 長押しで スキップした場合、 ボタン配置が スーパーファミコンを "
 "ベースとしたものに なります。"
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "BLUETOOTH コントローラのペアリング"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -1904,7 +1925,7 @@ msgid "IP ADDRESS"
 msgstr "IP アドレス"
 
 msgid "CONNECTED"
-msgstr "接続済み"
+msgstr "接続中"
 
 msgid "NOT CONNECTED"
 msgstr "未接続"
@@ -2323,11 +2344,11 @@ msgstr "スクレイプが終了しました"
 
 #, c-format
 msgid "%s connected"
-msgstr "%s に接続しました"
+msgstr "%s - 接続"
 
 #, c-format
 msgid "%s disconnected"
-msgstr "%s に切断されました"
+msgstr "%s - 切断"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "大文字,小文字,特殊記号用の SHIFT"
@@ -2502,6 +2523,18 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH コントローラーを解除"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "コントローラーのリンクが切れました。"
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "コントローラー設定"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "BLUETOOTH コントローラのペアリング"
 
 #~ msgid "Done."
 #~ msgstr "完了。"

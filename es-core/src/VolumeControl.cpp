@@ -63,21 +63,13 @@ public:
 
 		mReady = false;
 
-		if (mContext != nullptr)
-		{
-			pa_context_disconnect(mContext);
-			pa_context_unref(mContext);
-			mContext = nullptr;
-		}
-
-		if(mThread != NULL)
+		if(mThread != nullptr) {
+		  if (mMainLoop != nullptr) {
+		    pa_mainloop_quit(mMainLoop, 0);
+		  }
 		  mThread->join();
-
-		if (mMainLoop != nullptr)
-		{			
-			pa_mainloop_free(mMainLoop);
-			mMainLoop = nullptr;
-		}	
+		  mThread = nullptr;
+		}
 	}
 
 	void run()	
@@ -97,6 +89,7 @@ public:
 
 		pa_context_unref(mContext);
 		pa_mainloop_free(mMainLoop);
+		mMainLoop = nullptr;
 
 		LOG(LogDebug) << "PulseAudioControl End Mainloop";
 	}

@@ -18,6 +18,7 @@
 #include "utils/FileSystemUtil.h"
 #include "HttpApi.h"
 #include "Settings.h"
+#include "ApiSystem.h"
 
 /* 
 
@@ -25,6 +26,7 @@ Misc APIS
 -----------------
 GET  /restart
 GET  /quit
+GET  /emukill
 GET  /reloadgames
 POST /messagebox												-> body must contain the message text as text/plain
 POST /notify													-> body must contain the message text as text/plain
@@ -182,6 +184,11 @@ void HttpServerThread::run()
 			"xhr.open('GET', '/reloadgames');\r\n"
 			"xhr.send(); }\r\n"
 
+			"function emuKill() {\r\n"
+			"var xhr = new XMLHttpRequest();\r\n"
+			"xhr.open('GET', '/emukill');\r\n"
+			"xhr.send(); }\r\n"
+
 			"</script>\r\n"
 
 			"<img src='vid.jpg'/>\r\n"
@@ -189,6 +196,8 @@ void HttpServerThread::run()
 			"<input type='button' value='Reload games' onClick='reloadGamelists()'/>\r\n"
 			"<br/>"
 			"<input type='button' value='Quit' onClick='quitES()'/>\r\n"
+			"<br/>"
+			"<input type='button' value='Kill emulator' onClick='emuKill()'/>\r\n"
 
 			"</body>\r\n</html>", "text/html");
 	});
@@ -209,6 +218,13 @@ void HttpServerThread::run()
 		quitES(QuitMode::REBOOT);
 	});
 
+	mHttpServer->Get("/emukill", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		ApiSystem::getInstance()->emuKill();
+	});
 
 	mHttpServer->Get("/systems", [](const httplib::Request& req, httplib::Response& res)
 	{
@@ -337,7 +353,9 @@ void HttpServerThread::run()
 				{
 					if (HttpApi::ImportMedia(game, metadataName, contentType, req.body))
 					{
-						mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });
+						if (ViewController::hasInstance())
+							mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });
+
 						return;
 					}
 				}
@@ -371,7 +389,9 @@ void HttpServerThread::run()
 			{
 				if (HttpApi::ImportFromJson(game, req.body))
 				{
-					mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });					
+					if (ViewController::hasInstance())
+						mWindow->postToUiThread([game]() { ViewController::get()->onFileChanged(game, FileChangeType::FILE_METADATA_CHANGED); });					
+
 					return;
 				}
 			}
@@ -482,7 +502,7 @@ void HttpServerThread::run()
 
 		for (auto system : SystemData::sSystemVector)
 		{
-			if (system->isCollection() || system->isGroupSystem())
+			if (system->isCollection() || !system->isGameSystem())
 				continue;
 
 			for (auto file : system->getRootFolder()->getFilesRecursive(GAME))
@@ -561,7 +581,7 @@ void HttpServerThread::run()
 			Window* w = mWindow;
 			mWindow->postToUiThread([w]() { GuiMenu::updateGameLists(w, false); });
 		}
-		else
+		else if (ViewController::hasInstance())
 		{
 			mWindow->postToUiThread([system]()
 			{
@@ -634,12 +654,15 @@ void HttpServerThread::run()
 			// delete file; intentionnal mem leak
 		}
 
-		mWindow->postToUiThread([systems]()
+		if (ViewController::hasInstance())
 		{
-			for (auto changedSystem : systems)
-				ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			
-		});
-
+			mWindow->postToUiThread([systems]()
+			{
+				for (auto changedSystem : systems)
+					ViewController::get()->onFileChanged(changedSystem->getRootFolder(), FILE_REMOVED); // Update root folder			
+			});
+		}
+		
 		res.set_content("OK", "text/html");
 	});
 

@@ -37,6 +37,7 @@ namespace PlatformIds
 		{ "ngpc",					NEOGEO_POCKET_COLOR },
 		{ "n3ds",					NINTENDO_3DS },
 		{ "n64",					NINTENDO_64 },
+		{ "n64dd",					NINTENDO_64_DISK_DRIVE },
 		{ "nds",					NINTENDO_DS },
 		{ "fds",					FAMICOM_DISK_SYSTEM },
 		{ "nes",					NINTENDO_ENTERTAINMENT_SYSTEM },

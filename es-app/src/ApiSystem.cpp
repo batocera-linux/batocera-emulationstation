@@ -1190,7 +1190,10 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::EVMAPY:
 		executables.push_back("evmapy");
-		break;		
+		break;
+	case ApiSystem::BATOCERAPREGAMELISTSHOOK:
+		executables.push_back("batocera-preupdate-gamelists-hook");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1465,6 +1468,11 @@ void ApiSystem::refreshBatoceraStorePackageList()
 	executeScript("batocera-store clean-all");
 }
 
+void ApiSystem::callBatoceraPreGameListsHook()
+{
+	executeScript("batocera-preupdate-gamelists-hook");
+}
+
 void ApiSystem::updateBatoceraStorePackageList()
 {
 	executeScript("batocera-store update");
@@ -1645,4 +1653,11 @@ std::string ApiSystem::getHostsName()
 		return hostName;
 
 	return "127.0.0.1";
+}
+
+bool ApiSystem::emuKill()
+{
+	LOG(LogDebug) << "ApiSystem::emuKill";
+
+	return executeScript("batocera-es-swissknife --emukill");
 }

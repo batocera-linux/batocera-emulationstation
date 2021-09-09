@@ -282,7 +282,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	});
 
 	std::shared_ptr<SwitchComponent> alsoHideGames = std::make_shared<SwitchComponent>(mWindow);
-	alsoHideGames->setState(Settings::getInstance()->getBool("HiddenSystemsShowGames"));
+	alsoHideGames->setState(Settings::HiddenSystemsShowGames());
 	addWithLabel(_("SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"), alsoHideGames);
 	addSaveFunc([this, alsoHideGames]
 	{

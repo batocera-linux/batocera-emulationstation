@@ -95,7 +95,8 @@ public:
 		EVMAPY = 14,
 		THEMESDOWNLOADER = 15,
 		THEBEZELPROJECT = 16,
-		PADSINFO = 17
+		PADSINFO = 17,
+		BATOCERAPREGAMELISTSHOOK = 18
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -199,6 +200,8 @@ public:
 	void updateBatoceraStorePackageList();
 	void refreshBatoceraStorePackageList();
 
+	void callBatoceraPreGameListsHook();
+
 	bool	getBrighness(int& value);
 	void	setBrighness(int value);
 
@@ -222,6 +225,7 @@ public:
 
 	virtual std::vector<PadInfo> getPadsInfo();
 	virtual std::string getHostsName();
+	virtual bool emuKill();
 
 protected:
 	ApiSystem();

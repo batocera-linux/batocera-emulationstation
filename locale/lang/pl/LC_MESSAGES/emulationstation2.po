@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 14:26+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -619,8 +619,8 @@ msgstr "NIE ZNALEZIONO SIECI WIFI"
 msgid "SEARCHING WIFI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WIFI"
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "USUŃ KONTROLER BLUETOOTH"
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
 
 msgid "REMOVE ALL"
 msgstr "USUŃ WSZYSTKO"
@@ -628,8 +628,8 @@ msgstr "USUŃ WSZYSTKO"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "POŁĄCZENIA KONTROLERÓW ZOSTAŁY USUNIĘTE."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "PRZEGLĄDARKA PLIKÓW"
@@ -1160,8 +1160,8 @@ msgstr "CENTRUM MULTIMEDIÓW KODI"
 msgid "GAMES SETTINGS"
 msgstr "USTAWIENIA GIER"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "USTAWIENIA KONTROLERÓW"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "USTAWIENIA INTERFEJSU"
@@ -1522,6 +1522,27 @@ msgstr "WYJŚCIE WIDEO"
 msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "USTAWIENIA RETROACHIEVEMENTS"
 
@@ -1739,8 +1760,8 @@ msgstr ""
 "WYBIERZ PRZYCISK SELECT. POMIŃ WSZYSTKIE PRZYCISKI KTÓRYCH NIE POSIADASZ "
 "PRZEZ PRZYTRZYMANIE PRZYCISKU. NAZWY PRZYCISKÓW BAZUJĄ NA KONTROLERZE SNES."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PODŁĄCZ KONTROLER ZA POMOCĄ BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2525,6 +2546,18 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "USUŃ KONTROLER BLUETOOTH"
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "POŁĄCZENIA KONTROLERÓW ZOSTAŁY USUNIĘTE."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "USTAWIENIA KONTROLERÓW"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "PODŁĄCZ KONTROLER ZA POMOCĄ BLUETOOTH"
 
 #~ msgid "Done."
 #~ msgstr "Zrobione."

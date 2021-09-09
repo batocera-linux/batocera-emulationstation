@@ -207,7 +207,7 @@ void GuiGamelistFilter::addSystemFilterToMenu()
 	mSystemFilter = std::make_shared<OptionListComponent<SystemData*>>(mWindow, _("SYSTEMS"), true);
 	
 	for (auto system : SystemData::sSystemVector)
-		if (!system->isCollection() && !system->isGroupSystem())
+		if (!system->isCollection() && system->isGameSystem())
 			mSystemFilter->add(system->getFullName(), system, cf->isSystemSelected(system->getName()));
 
 	mMenu.addWithLabel(_("SYSTEMS"), mSystemFilter);
@@ -234,7 +234,7 @@ void GuiGamelistFilter::applyFilters()
 		{
 			for (auto system : SystemData::sSystemVector)
 			{
-				if (system->isCollection() || system->isGroupSystem())
+				if (system->isCollection() || !system->isGameSystem())
 					continue;
 
 				bool sel = std::find(sys.cbegin(), sys.cend(), system) != sys.cend();

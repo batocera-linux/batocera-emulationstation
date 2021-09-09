@@ -264,11 +264,13 @@ namespace Utils
 						}
 						break;
 
-						case 'I': // The hour (12-hour clock) [00,12]
+						case 'I': // The hour (12-hour clock) [01,12]
 						{
 							int h = timeStruct.tm_hour;
 							if (h >= 12)
 								h -= 12;
+							if (h == 0)
+								h = 12;
 
 							*s++ = (char)(h / 10) + '0';
 							*s++ = (char)(h % 10) + '0';

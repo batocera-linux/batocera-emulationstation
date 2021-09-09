@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-17 14:26+0200\n"
+"POT-Creation-Date: 2021-08-28 08:17+0200\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -614,7 +614,7 @@ msgstr ""
 msgid "SEARCHING WIFI NETWORKS"
 msgstr ""
 
-msgid "FORGET A BLUETOOTH CONTROLLER"
+msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
 msgid "REMOVE ALL"
@@ -623,8 +623,8 @@ msgstr ""
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr ""
 
-msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr ""
@@ -1151,8 +1151,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "SPILL INNSTILLINGER"
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "KONTROLL INSTILLINGER"
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI INSTILLINGER"
@@ -1506,6 +1506,27 @@ msgstr ""
 msgid "AUDIO OUTPUT"
 msgstr ""
 
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "LEFT ROTATION"
+msgstr ""
+
+msgid "RIGHT ROTATION"
+msgstr ""
+
+msgid "INVERTED ROTATION"
+msgstr ""
+
+msgid "BOOT SPLASH"
+msgstr ""
+
+msgid "SILENT SPLASH"
+msgstr ""
+
+msgid "NO SPLASH"
+msgstr ""
+
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROUTMERKELSES INNSTILLINGER"
 
@@ -1723,8 +1744,8 @@ msgstr ""
 "HOPP OVER ALLE KNAPPENE DU IKKE HAR VED Å HOLDE EN KNAPP. KNAPPENES NAVN ER "
 "BASERT PÅ EN SNES KONTROLLER."
 
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "PAR EN BLUETOOTH KONRTOLLER"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr ""
 
 #, c-format
 msgid "INPUT P%i"
@@ -2487,6 +2508,15 @@ msgstr ""
 #, c-format
 msgid "%d s"
 msgstr ""
+
+#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
+#~ msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
+
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "KONTROLL INSTILLINGER"
+
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "PAR EN BLUETOOTH KONRTOLLER"
 
 #~ msgid "SCRAPING IN PROGRESS"
 #~ msgstr "SØKER ETTER SPILL"

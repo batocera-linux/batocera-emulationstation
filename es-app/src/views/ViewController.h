@@ -27,6 +27,10 @@ public:
 	};
 
 	static void init(Window* window);
+	static void deinit();
+
+	static bool hasInstance() { return sInstance != nullptr; }
+	
 	static void saveState();
 
 	static ViewController* get();
@@ -105,7 +109,7 @@ public:
 	SystemData* getSelectedSystem();
 	ViewMode getViewMode();
 
-	static void reloadAllGames(Window* window, bool deleteCurrentGui = false);
+	static void reloadAllGames(Window* window, bool deleteCurrentGui = false, bool doCallExternalTriggers = false);
 
 	void setActiveView(std::shared_ptr<GuiComponent> view);
 
