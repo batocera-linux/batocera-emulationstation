@@ -1404,11 +1404,57 @@ void GuiMenu::openSystemSettings_batocera()
 
 	s->addSaveFunc([this, optionsAudio, selectedAudio] 
 	{
-		bool v_need_reboot = false;
-
 		if (optionsAudio->changed()) {
 			SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
 			ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
+		}
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	// audio profile
+	auto optionsAudioProfile = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO PROFILE"), false);
+
+	std::vector<std::string> availableAudioProfiles = ApiSystem::getInstance()->getAvailableAudioOutputProfiles();
+	std::string selectedAudioProfile = ApiSystem::getInstance()->getCurrentAudioOutputProfile();
+	if (selectedAudioProfile.empty())
+		selectedAudioProfile = "auto";
+
+	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	{
+		bool vfound = false;
+		for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
+		{
+			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+			if (selectedAudioProfile == tokens.at(0))
+				vfound = true;
+
+			if (tokens.size() >= 2)
+			{
+				// concatenat the ending words
+				std::string vname = "";
+				for (unsigned int i = 1; i < tokens.size(); i++)
+				{
+					if (i > 2) vname += " ";
+					vname += tokens.at(i);
+				}
+				optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
+			}
+			else
+				optionsAudioProfile->add((*it), (*it), selectedAudioProfile == tokens.at(0));
+		}
+
+		if (vfound == false)
+			optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
+
+		s->addWithLabel(_("AUDIO PROFILE"), optionsAudioProfile);
+	}
+
+	s->addSaveFunc([this, optionsAudioProfile, selectedAudioProfile] 
+	{
+		if (optionsAudioProfile->changed()) {
+			SystemConf::getInstance()->set("audio.profile", optionsAudioProfile->getSelected());
+			ApiSystem::getInstance()->setAudioOutputProfile(optionsAudioProfile->getSelected());
 		}
 		SystemConf::getInstance()->saveSystemConf();
 	});
