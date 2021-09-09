@@ -115,6 +115,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ PC, "1" },
 	{ MOONLIGHT, "1" },
 	{ PRBOOM, "1" },
+	{ QUAKE, "1" },
 
 	// 23 = Arcade
 	{ ARCADE, "23" },
