@@ -458,6 +458,19 @@ void GuiMenu::openEmuELECSettings()
 		SystemConf::getInstance()->saveSystemConf();
 	});
 
+	auto enable_randombootvideo = std::make_shared<SwitchComponent>(mWindow);
+	bool randombootEnabled = SystemConf::getInstance()->get("ee_randombootvideo.enabled") == "1";
+	enable_randombootvideo->setState(randombootEnabled);
+	s->addWithLabel(_("RANDOMIZE BOOT VIDEO"), enable_randombootvideo);
+	
+	s->addSaveFunc([enable_randombootvideo, window] {
+		bool randombootvideoenabled = enable_randombootvideo->getState();
+		SystemConf::getInstance()->set("ee_randombootvideo.enabled", randombootvideoenabled ? "1" : "0");
+        if (randombootvideoenabled)
+        SystemConf::getInstance()->set("ee_bootvideo.enabled", "1");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
 	createInputTextRow(s, _("DEFAULT YOUTUBE SEARCH WORD"), "youtube.searchword", false);
 
 	auto enable_advmamegp = std::make_shared<SwitchComponent>(mWindow);
