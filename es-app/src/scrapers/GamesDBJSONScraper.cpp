@@ -109,11 +109,13 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ FMTOWNS, "4932" },
 	{ PHILIPS_CDI, "4917" },
 	{ WATARA_SUPERVISION, "4959" },
+	{ SONIC, "36,21" }, // Sega Mega Drive & Sega CD
 
 	// 1 = PC
 	{ PC, "1" },
 	{ MOONLIGHT, "1" },
 	{ PRBOOM, "1" },
+	{ QUAKE, "1" },
 
 	// 23 = Arcade
 	{ ARCADE, "23" },

@@ -92,6 +92,7 @@ namespace PlatformIds
 		LUTRO,
 		MOONLIGHT,
 		MRBOOM,
+		SONIC,
 		CANNONBALL,
 		NAOMI,
 		NEOGEO_CD,

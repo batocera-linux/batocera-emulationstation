@@ -145,6 +145,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ PICO8, 234 },
 	{ SUPER_CASSETTE_VISION, 67 },
 	{ EASYRPG, 231 },
+	{ SONIC, 0 }, // All systems
+	{ QUAKE, 135 }, // DOS PC
 	{ SUPER_GAME_BOY, 127 },
 	{ COMMODORE_PET, 240 },
 	{ ACORN_ATOM, 36 },
