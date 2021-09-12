@@ -1522,7 +1522,7 @@ msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "PERFIL DE AÚDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DE TELA"
