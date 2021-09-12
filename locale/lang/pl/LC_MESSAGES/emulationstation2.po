@@ -620,7 +620,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "USUŃ URZĄDZENIE BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "USUŃ WSZYSTKO"
@@ -629,7 +629,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "URZĄDZENIA BLUETOOTH ZOSTAŁY USUNIĘTE."
 
 msgid "FILE BROWSER"
 msgstr "PRZEGLĄDARKA PLIKÓW"
@@ -1140,16 +1140,16 @@ msgid "RGA SCALING"
 msgstr "SKALOWANIE RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "DOSTAWCA"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDER"
 
 msgid "VERSION"
 msgstr "WERSJA"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SHADERY"
 
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
@@ -1161,7 +1161,7 @@ msgid "GAMES SETTINGS"
 msgstr "USTAWIENIA GIER"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "KONTROLERY I USTAWIENIA BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "USTAWIENIA INTERFEJSU"
@@ -1287,7 +1287,7 @@ msgid "SYSTEM"
 msgstr "SYSTEM"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "STEROWNIK WIDEO"
 
 msgid "DEVELOPER"
 msgstr "DEWELOPER"
@@ -1523,28 +1523,28 @@ msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "PROFIL AUDIO "
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "OBRÓT EKRANU"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "OBRÓT W LEWO"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "OBRÓT W PRAWO"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "OBRÓT ODWRÓCONY"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "EKRAN STARTOWY"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "WYCISZONY EKRAN STARTOWY"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "BRAK EKRANU STARTOWEGO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "USTAWIENIA RETROACHIEVEMENTS"
@@ -1565,40 +1565,40 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "KOLOR DIODY PRZYCISKU"
 
 msgid "off"
-msgstr ""
+msgstr "wyłączony"
 
 msgid "red"
-msgstr ""
+msgstr "czerwony"
 
 msgid "green"
-msgstr ""
+msgstr "zielony"
 
 msgid "blue"
-msgstr ""
+msgstr "niebieski"
 
 msgid "white"
-msgstr ""
+msgstr "biały"
 
 msgid "purple"
-msgstr ""
+msgstr "fioletowy"
 
 msgid "yellow"
-msgstr ""
+msgstr "żółty"
 
 msgid "cyan"
-msgstr ""
+msgstr "cyjan"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "KOLOR DIODY ZASILANIA"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "pulsujący"
 
 msgid "on"
-msgstr ""
+msgstr "włączony"
 
 msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
@@ -1764,7 +1764,7 @@ msgstr ""
 "PRZEZ PRZYTRZYMANIE PRZYCISKU. NAZWY PRZYCISKÓW BAZUJĄ NA KONTROLERZE SNES."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "PODŁĄCZ URZĄDZENIE BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
