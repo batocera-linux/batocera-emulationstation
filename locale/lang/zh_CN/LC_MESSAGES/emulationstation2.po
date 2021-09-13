@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-09 13:12+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1514,6 +1514,9 @@ msgstr "视频输出"
 
 msgid "AUDIO OUTPUT"
 msgstr "音频输出"
+
+msgid "AUDIO PROFILE"
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr ""
