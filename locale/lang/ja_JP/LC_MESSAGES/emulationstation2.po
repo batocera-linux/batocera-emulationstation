@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v32beta(2021/09/09)\n"
+"Project-Id-Version: batocera-es v32beta(2021/09/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-12 19:29+0200\n"
-"PO-Revision-Date: 2021-09-10 11:22+0900\n"
+"POT-Creation-Date: 2021-06-23 13:22+0200\n"
+"PO-Revision-Date: 2021-09-15 20:16+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -539,9 +539,6 @@ msgstr "自動"
 msgid "VIEW CUSTOMISATION"
 msgstr "表示をカスタマイズ"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドからキーボード情報を表示"
-
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
 
@@ -993,6 +990,9 @@ msgstr "フォルダのメタ情報を編集"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "このゲームのメタ情報を編集"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "パッドからキーボード情報を表示"
 
 msgid "THEMES DOWNLOADER"
 msgstr "テーマダウンローダー"
@@ -1886,10 +1886,10 @@ msgid "VOLUME"
 msgstr "音量"
 
 msgid "SYSTEM VOLUME"
-msgstr "システムBGM音量"
+msgstr "メイン音量"
 
 msgid "MUSIC VOLUME"
-msgstr "ゲーム音量"
+msgstr "ES-BGM音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "音量変更を画面に表示"
@@ -1898,7 +1898,7 @@ msgid "MUSIC"
 msgstr "音楽"
 
 msgid "FRONTEND MUSIC"
-msgstr "フロントエンドBGM"
+msgstr "ES-BGM"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "BGM名の表示"
@@ -2161,14 +2161,14 @@ msgstr[0] "このフォルダには、%i 種のゲームがあります( %s を�
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
 
-msgid "Games similar to"
-msgstr "類似ゲーム→"
-
 msgid "GAME OPTIONS"
 msgstr "ゲーム設定"
 
 msgid "FAVORITE"
 msgstr "気に入り"
+
+msgid "Games similar to"
+msgstr "類似ゲーム→"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2527,5 +2527,5 @@ msgstr "%d 分"
 msgid "%d s"
 msgstr "%d 秒"
 
-#~ msgid "GRAPHICS API"
-#~ msgstr "グラフィック API"
+msgid "GRAPHICS API"
+msgstr "グラフィック API"
