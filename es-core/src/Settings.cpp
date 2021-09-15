@@ -80,6 +80,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowOnlyExit"] = false;
 	mBoolMap["FullscreenBorderless"] = false;
 #endif
+	mBoolMap["TTS"] = false;
 
 	mIntMap["MonitorID"] = -1;
 

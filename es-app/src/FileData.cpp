@@ -28,6 +28,7 @@
 #include "RetroAchievements.h"
 #include "SaveStateRepository.h"
 #include "Genres.h"
+#include "TextToSpeech.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -1511,3 +1512,7 @@ std::string FileData::getCurrentGameSetting(const std::string& settingName)
 
 	return SystemConf::getInstance()->get("global." + settingName);
 }
+
+void FileData::speak() {
+  TextToSpeech::getInstance()->say(getName());
+};

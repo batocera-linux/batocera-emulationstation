@@ -8,6 +8,7 @@
 #include "LocaleES.h"
 #include "ThemeData.h"
 #include "components/MultiLineMenuEntry.h"
+#include "components/MenuComponent.h"
 
 //Used to display a list of options.
 //Can select one or multiple options.
@@ -343,6 +344,8 @@ public:
 		assert(selected.size() == 1);
 		return selected.at(0);
 	}
+
+  	bool IsMultiSelect() { return mMultiSelect; }
         
         // batocera
 	std::string getSelectedName()

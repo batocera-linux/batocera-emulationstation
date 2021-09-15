@@ -23,6 +23,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MultiStateInput.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/TextToSpeech.h
 
 	# Animations
 	${CMAKE_CURRENT_SOURCE_DIR}/src/animations/Animation.h
@@ -128,6 +129,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MultiStateInput.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/TextToSpeech.cpp
 
 	# Animations
 	${CMAKE_CURRENT_SOURCE_DIR}/src/animations/AnimationController.cpp	
