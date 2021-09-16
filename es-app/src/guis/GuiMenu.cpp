@@ -49,6 +49,7 @@
 #include "guis/GuiBios.h"
 #include "guis/GuiKeyMappingEditor.h"
 #include "Gamelist.h"
+#include "TextToSpeech.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -1264,6 +1265,17 @@ void GuiMenu::openSystemSettings_batocera()
 		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
 		PowerSaver::init();
 	});
+
+#ifdef _ENABLETTS
+	// tts
+	auto tts = std::make_shared<SwitchComponent>(mWindow);
+	tts->setState(Settings::getInstance()->getBool("TTS"));
+	s->addWithLabel(_("TEXT TO SPEECH"), tts);
+	s->addSaveFunc([tts] {
+			 TextToSpeech::getInstance()->enable(tts->getState());
+			 Settings::getInstance()->setBool("TTS", tts->getState());
+		       });
+#endif
 
 	// UI RESTRICTIONS
 	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);

@@ -1153,6 +1153,7 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 	}
 
 	mActiveFile = file;
+	mActiveFile->speak();
 	bool clear = isClearing;
 	int by = moveBy;
 

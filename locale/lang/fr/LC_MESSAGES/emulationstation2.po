@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 13:12+0200\n"
+"POT-Creation-Date: 2021-09-16 20:39+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1480,6 +1480,9 @@ msgstr "AFFICHER L’HORLOGE AU FORMAT 12 HEURES"
 msgid "POWER SAVER MODES"
 msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
 
+msgid "TEXT TO SPEECH"
+msgstr "SYNTHÈSE VOCALE"
+
 msgid "UI MODE"
 msgstr "MODE D'AFFICHAGE"
 
@@ -2500,6 +2503,12 @@ msgstr "DÉPLACER LE CURSEUR"
 msgid "EDIT"
 msgstr "EDITER"
 
+msgid "ENABLED"
+msgstr "ACTIVÉ"
+
+msgid "DISABLED"
+msgstr "DÉSACTIVÉ"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2538,3 +2547,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr "SYNTHÈSE VOCALE ACTIVÉE"
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr "SYNTHÈSE VOCALE DÉSACTIVÉE"
