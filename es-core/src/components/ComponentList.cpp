@@ -206,6 +206,9 @@ void ComponentList::onCursorChanged(const CursorState& state)
 
 void ComponentList::saySelectedLine() {
   int n = 0;
+
+  if (!(mCursor >= 0 && mCursor < mEntries.size())) return;
+
   mOldCursor = mCursor;
   for (auto& element : mEntries.at(mCursor).data.elements)
     {
