@@ -1266,7 +1266,7 @@ void GuiMenu::openSystemSettings_batocera()
 		PowerSaver::init();
 	});
 
-#ifdef _ENABLETTS
+#ifdef _ENABLETTS_
 	// tts
 	auto tts = std::make_shared<SwitchComponent>(mWindow);
 	tts->setState(Settings::getInstance()->getBool("TTS"));
