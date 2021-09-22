@@ -1483,7 +1483,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODO POUPANÇA DE ENERGIA"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "TEXTO PARA FALA"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -1522,7 +1522,7 @@ msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "PERFIL DE ÁUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DO ECRÃ"
@@ -2497,10 +2497,10 @@ msgid "EDIT"
 msgstr "EDITAR"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ATIVADO"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "DESATIVADO"
 
 #, c-format
 msgid "%d day ago"
@@ -2542,7 +2542,7 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "TEXTO PARA FALA ATIVADO"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "TEXTO PARA FALA DESATIVADO"
