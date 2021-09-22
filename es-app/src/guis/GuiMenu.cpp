@@ -4968,26 +4968,81 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList
 }
 
 #ifdef _ENABLEEMUELEC
+
+int getResWidth (std::string res)
+{
+	std::string tmp = "";
+	std::size_t pos = res.find("x");
+
+	if (pos != std::string::npos) {
+		tmp = res.substr(0, pos);
+		return atoi( tmp.c_str() );
+	}
+	pos = res.find("p");
+	if (pos != std::string::npos) {
+		tmp = res.substr(0, pos);
+		int resv = atoi(tmp.c_str());
+		return std::ceil(( (float)16 / 9 * resv));
+	}
+	pos = res.find("i");
+	if (pos != std::string::npos) {
+		tmp = res.substr(0, pos);
+		int resv = atoi(tmp.c_str());
+		return std::ceil(( (float)16 / 9 * resv));
+	}
+	return 0;
+}
+
+int getHzFromRes(std::string res)
+{
+	int tmp = atoi(res.substr(res.length()-4, 2).c_str());
+	if (tmp > 0) return tmp;
+	return 60;
+}
+
+bool sortResolutions (std::string a, std::string b) {
+	int ia = getResWidth(a);
+	int ib = getResWidth(b);
+	
+	if (ia == ib) return (getHzFromRes(a) < getHzFromRes(b));
+	
+	return (ia < ib);
+}
+
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createNativeVideoResolutionModeOptionList(Window *window, std::string configname)
 {
 	auto emuelec_video_mode = std::make_shared< OptionListComponent<std::string> >(window, "NATIVE VIDEO", false);
-			std::vector<std::string> videomode;
-	videomode.push_back("1080p60hz");
-	videomode.push_back("1080i60hz");
-	videomode.push_back("720p60hz");
-	videomode.push_back("720p50hz");
+	std::vector<std::string> videomode;
+	videomode.push_back("640x480p60hz");
 	videomode.push_back("480p60hz");
 	videomode.push_back("576p50hz");
-	videomode.push_back("1080p50hz");
+	videomode.push_back("576p60hz");
+	videomode.push_back("720p50hz");	
+	videomode.push_back("720p60hz");
 	videomode.push_back("1080i50hz");
+	videomode.push_back("1080p50hz");
+	videomode.push_back("1080i60hz");
+	videomode.push_back("1080p60hz");
 
+	std::string def_video;
+	for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, def_video, ','); ) {
+		if (!std::count(videomode.begin(), videomode.end(), def_video)) {
+			 videomode.push_back(def_video);
+		}
+	}
+
+	std::sort(videomode.begin(), videomode.end(), sortResolutions);
+
+	std::string index = SystemConf::getInstance()->get(configname + ".nativevideo");
+	if (index.empty())
+		index = SystemConf::getInstance()->get("global.videomode");
+	if (index.empty())
+		index = SystemConf::getInstance()->get("ee_videomode");
+	if (index.empty())
+		index = "auto";
+
+	emuelec_video_mode->add(_("AUTO"), "auto", index == "auto");
 	for (auto it = videomode.cbegin(); it != videomode.cend(); it++) {
-		std::string index = SystemConf::getInstance()->get(configname + ".nativevideo");
-		if (index.empty())
-			index = SystemConf::getInstance()->get("global.videomode");
-		if (index.empty())
-			index = SystemConf::getInstance()->get("ee_videomode");
-
 		emuelec_video_mode->add(*it, *it, index == *it);
 	}
 
