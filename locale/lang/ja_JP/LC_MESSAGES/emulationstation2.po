@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v32beta(2021/09/09)\n"
+"Project-Id-Version: batocera-es v32beta(2021/09/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-12 19:29+0200\n"
-"PO-Revision-Date: 2021-09-10 11:22+0900\n"
+"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"PO-Revision-Date: 2021-09-15 20:16+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1483,6 +1483,9 @@ msgstr "時計を12時間形式で表示"
 msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "UI モード"
 
@@ -1886,10 +1889,10 @@ msgid "VOLUME"
 msgstr "音量"
 
 msgid "SYSTEM VOLUME"
-msgstr "システムBGM音量"
+msgstr "メイン音量"
 
 msgid "MUSIC VOLUME"
-msgstr "ゲーム音量"
+msgstr "ES-BGM音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "音量変更を画面に表示"
@@ -1898,7 +1901,7 @@ msgid "MUSIC"
 msgstr "音楽"
 
 msgid "FRONTEND MUSIC"
-msgstr "フロントエンドBGM"
+msgstr "ES-BGM"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "BGM名の表示"
@@ -2492,6 +2495,12 @@ msgstr "カーソル移動"
 msgid "EDIT"
 msgstr "編集"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2526,6 +2535,12 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

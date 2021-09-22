@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 13:13+0200\n"
+"POT-Creation-Date: 2021-09-16 20:39+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1478,6 +1478,9 @@ msgstr "將時鐘顯示為 12 小時制"
 msgid "POWER SAVER MODES"
 msgstr "省電模式"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "UI 模式"
 
@@ -2481,6 +2484,12 @@ msgstr "移動游標"
 msgid "EDIT"
 msgstr "編輯"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2515,6 +2524,12 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "解除藍牙控制器"

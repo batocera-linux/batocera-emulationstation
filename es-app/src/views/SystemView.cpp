@@ -21,6 +21,7 @@
 #include "resources/TextureDataManager.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "TextToSpeech.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -749,7 +750,7 @@ void SystemView::updateExtraTextBinding()
 	}
 }
 
-void SystemView::onCursorChanged(const CursorState& /*state*/)
+void SystemView::onCursorChanged(const CursorState& state)
 {
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
@@ -850,6 +851,10 @@ void SystemView::onCursorChanged(const CursorState& /*state*/)
 
 	if (mLastCursor == mCursor)
 		return;
+
+	// tts
+	if(state == CURSOR_STOPPED)
+	  TextToSpeech::getInstance()->say(getSelected()->getFullName());
 
 	if (!mCarousel.scrollSound.empty())
 		Sound::get(mCarousel.scrollSound)->play();

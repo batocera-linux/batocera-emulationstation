@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 13:13+0200\n"
+"POT-Creation-Date: 2021-09-16 20:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1478,6 +1478,9 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr ""
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr ""
 
@@ -2479,6 +2482,18 @@ msgstr ""
 msgid "You are about to set EmuELEC Language to:"
 msgstr ""
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "RESTART EMULATIONSTATION"
 msgstr ""
 
@@ -2492,6 +2507,12 @@ msgid "START RETROARCH"
 msgstr ""
 
 msgid "REALLY REBOOT FROM NAND?"
+msgstr ""
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
 
 msgid "REBOOT FROM NAND"

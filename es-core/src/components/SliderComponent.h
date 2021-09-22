@@ -17,6 +17,7 @@ public:
 
 	void setValue(float val);
 	float getValue();
+	std::string getSuffix() {return mSuffix; }
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;

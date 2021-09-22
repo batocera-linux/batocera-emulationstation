@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 13:12+0200\n"
+"POT-Creation-Date: 2021-09-16 20:39+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1483,6 +1483,9 @@ msgstr "SAATİ 12-SAAT FORMATINDA GÖSTER"
 msgid "POWER SAVER MODES"
 msgstr "UYKU MODU SEÇENEKLERİ"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "KULLANICI ARAYÜZÜ"
 
@@ -2498,6 +2501,12 @@ msgstr "İMLECİ TAŞI"
 msgid "EDIT"
 msgstr "DÜZENLE"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2536,6 +2545,12 @@ msgstr "%d d"
 #, c-format
 msgid "%d s"
 msgstr "%d sn"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "BLUETOOTH KONTROLCÜSÜNÜ UNUT"

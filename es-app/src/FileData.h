@@ -148,6 +148,8 @@ public:
 	bool hasContentFiles();
 	std::set<std::string> getContentFiles();
 
+	void speak();
+
 private:
 	std::string getKeyboardMappingFilePath();
 	MetaDataList mMetadata;

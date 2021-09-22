@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 13:12+0200\n"
+"POT-Creation-Date: 2021-09-16 20:39+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1483,6 +1483,9 @@ msgstr "EXIBIR RELÓGIO NO FORMATO DE 12 HORAS"
 msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
 
@@ -2497,6 +2500,12 @@ msgstr "MOVER CURSOR"
 msgid "EDIT"
 msgstr "EDITAR"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2535,3 +2544,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""

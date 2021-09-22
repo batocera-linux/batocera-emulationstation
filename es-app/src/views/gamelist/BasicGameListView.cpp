@@ -10,6 +10,7 @@
 #include "FileData.h"
 #include "LocaleES.h"
 #include "GameNameFormatter.h"
+#include "TextToSpeech.h"
 
 BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 	: ISimpleGameListView(window, root), mList(window)
@@ -19,7 +20,11 @@ BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 	mList.setDefaultZIndex(20);
 
 	mList.setCursorChangedCallback([&](const CursorState& /*state*/) 
-		{ 
+		{
+		  FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
+		  if (file != nullptr)
+		    file->speak();
+		  
 			if (mRoot->getSystem()->isCollection())
 				updateHelpPrompts();
 		});
@@ -164,6 +169,7 @@ void BasicGameListView::setCursor(FileData* cursor)
 			mCursorStack = stack;
 			populateList(*childrenToDisplay.get());
 			mList.setCursor(cursor);
+			TextToSpeech::getInstance()->say(cursor->getName());
 		}
 	}
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 13:12+0200\n"
+"POT-Creation-Date: 2021-09-16 20:39+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1481,6 +1481,9 @@ msgstr "OROLOGIO - FORMATO 12-ORE"
 msgid "POWER SAVER MODES"
 msgstr "MODALITÀ RISPARMIO ENERGETICO"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "MODALITÀ INTERFACCIA"
 
@@ -1518,7 +1521,7 @@ msgid "AUDIO OUTPUT"
 msgstr "USCITA AUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "PROFILO AUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTAZIONE SCHERMO"
@@ -2498,6 +2501,12 @@ msgstr "SPOSTA IL CURSORE"
 msgid "EDIT"
 msgstr "MODIFICA"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2536,6 +2545,12 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "RIMUOVI UN CONTROLLER BLUETOOTH"
