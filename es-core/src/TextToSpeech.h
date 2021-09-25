@@ -2,6 +2,7 @@
 #ifndef ES_APP_TEXTTOSPEECH_H
 #define ES_APP_TEXTTOSPEECH_H
 
+#include <string>
 #include <memory>
 
 /*!
