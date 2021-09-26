@@ -1272,8 +1272,10 @@ void GuiMenu::openSystemSettings_batocera()
 	tts->setState(Settings::getInstance()->getBool("TTS"));
 	s->addWithLabel(_("TEXT TO SPEECH"), tts);
 	s->addSaveFunc([tts] {
-			 TextToSpeech::getInstance()->enable(tts->getState());
-			 Settings::getInstance()->setBool("TTS", tts->getState());
+			 if(TextToSpeech::getInstance()->enabled() != tts->getState()) {
+			   TextToSpeech::getInstance()->enable(tts->getState());
+			   Settings::getInstance()->setBool("TTS", tts->getState());
+			 }
 		       });
 #endif
 

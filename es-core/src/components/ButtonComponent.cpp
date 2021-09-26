@@ -77,7 +77,7 @@ void ButtonComponent::onFocusGained()
 	mFocused = true;
 	updateImage();
 
-	TextToSpeech::getInstance()->say(mText);
+	TextToSpeech::getInstance()->say(mText, true);
 }
 
 void ButtonComponent::onFocusLost()
