@@ -4,11 +4,15 @@
 #include "components/NinePatchComponent.h"
 #include "components/TextComponent.h"
 #include <SDL_timer.h>
+#include "TextToSpeech.h"
 
 GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	GuiComponent(window), mMessage(message), mDuration(duration), mRunning(true), mFadeOut(0)
 {
 	auto theme = ThemeData::getMenuTheme();
+
+	TextToSpeech::getInstance()->say(message, true);
+
 	mBackColor = theme->Background.color;
 
 	mFrame = new NinePatchComponent(window);
