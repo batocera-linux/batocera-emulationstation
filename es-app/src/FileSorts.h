@@ -81,5 +81,7 @@ namespace FileSorts
 
 	bool compareSystemReleaseYear(const FileData* file1, const FileData* file2);
 	bool compareReleaseYearSystem(const FileData* file1, const FileData* file2);
+
+	std::string stripLeadingArticle(const std::string &string, const std::vector<std::string> &articles);
 };
 #endif // ES_APP_FILE_SORTS_H
