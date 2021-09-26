@@ -1712,8 +1712,10 @@ void GuiMenu::openSystemSettings_batocera()
 	tts->setState(Settings::getInstance()->getBool("TTS"));
 	s->addWithLabel(_("TEXT TO SPEECH"), tts);
 	s->addSaveFunc([tts] {
-			 TextToSpeech::getInstance()->enable(tts->getState());
-			 Settings::getInstance()->setBool("TTS", tts->getState());
+			 if(TextToSpeech::getInstance()->enabled() != tts->getState()) {
+			   TextToSpeech::getInstance()->enable(tts->getState());
+			   Settings::getInstance()->setBool("TTS", tts->getState());
+			 }
 		       });
 #endif
 
@@ -3917,6 +3919,16 @@ void GuiMenu::openUISettings()
 		}
 	});
 	
+	auto ignoreArticles = std::make_shared<SwitchComponent>(mWindow);
+	ignoreArticles->setState(Settings::getInstance()->getBool("IgnoreLeadingArticles"));
+	s->addWithLabel(_("IGNORE LEADING ARTICLES WHEN SORTING"), ignoreArticles);
+	s->addSaveFunc([s, ignoreArticles]
+	{
+		if (Settings::getInstance()->setBool("IgnoreLeadingArticles", ignoreArticles->getState()))
+		{
+			s->setVariable("reloadAll", true);
+		}
+	});
 
 	s->onFinalize([s, pthis, window]
 	{
