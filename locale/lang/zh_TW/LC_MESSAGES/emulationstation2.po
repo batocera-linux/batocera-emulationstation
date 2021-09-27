@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1877,6 +1877,9 @@ msgstr "圖示"
 msgid "ICON AND TEXT"
 msgstr "圖示與文字"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "音量"
 
@@ -2279,6 +2282,9 @@ msgstr "發行年份，遊戲平台（升序）"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "發行年份，遊戲平台（降序）"
+
+msgid "A,AN,THE"
+msgstr ""
 
 msgid "Extracting"
 msgstr "提取中"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1885,6 +1885,9 @@ msgstr "EICON"
 msgid "ICON AND TEXT"
 msgstr "EICON A THESTUN"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "LEFEL SAIN"
 
@@ -2306,6 +2309,9 @@ msgid "RELEASE YEAR, SYSTEM, ASCENDING"
 msgstr ""
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr ""
+
+msgid "A,AN,THE"
 msgstr ""
 
 msgid "Extracting"

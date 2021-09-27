@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v32beta(2021/09/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: 2021-09-15 20:16+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1885,6 +1885,9 @@ msgstr "アイコン"
 msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "音量"
 
@@ -2290,6 +2293,9 @@ msgstr "リリース年、システム、昇順"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "リリース年、システム、降順"
+
+msgid "A,AN,THE"
+msgstr ""
 
 msgid "Extracting"
 msgstr "抽出"

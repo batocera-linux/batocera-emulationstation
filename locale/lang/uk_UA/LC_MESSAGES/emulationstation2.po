@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1881,6 +1881,9 @@ msgstr ""
 msgid "ICON AND TEXT"
 msgstr ""
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "ГУЧНІСТЬ"
 
@@ -2284,6 +2287,9 @@ msgid "RELEASE YEAR, SYSTEM, ASCENDING"
 msgstr ""
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr ""
+
+msgid "A,AN,THE"
 msgstr ""
 
 msgid "Extracting"

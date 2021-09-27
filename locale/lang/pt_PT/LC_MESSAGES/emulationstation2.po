@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-27 08:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1882,6 +1882,9 @@ msgstr "ÍCONE"
 msgid "ICON AND TEXT"
 msgstr "ÍCONE E TEXTO"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "VOLUME"
 
@@ -2289,6 +2292,9 @@ msgstr "ANO DE LANÇAMENTO, SISTEMA, CRESCENTE"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANO DE LANÇAMENTO, SISTEMA, DECRESCENTE"
+
+msgid "A,AN,THE"
+msgstr ""
 
 msgid "Extracting"
 msgstr "A extrair"

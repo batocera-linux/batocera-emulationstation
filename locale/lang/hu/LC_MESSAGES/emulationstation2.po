@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1881,6 +1881,9 @@ msgstr "IKON"
 msgid "ICON AND TEXT"
 msgstr "IKON ÉS SZÖVEG"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "HANGERŐ"
 
@@ -2291,6 +2294,9 @@ msgstr "MEGJELENÉSI DÁTUM, RENDSZER, NÖVEKVŐ SORREND"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "MEGJELENÉSI DÁTUM, RENDSZER, CSÖKKENŐ SORREND"
+
+msgid "A,AN,THE"
+msgstr ""
 
 msgid "Extracting"
 msgstr "Kitömörítés"

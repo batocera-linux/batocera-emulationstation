@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:43+0200\n"
+"POT-Creation-Date: 2021-09-27 08:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1880,6 +1880,9 @@ msgstr "아이콘"
 msgid "ICON AND TEXT"
 msgstr "아이콘 및 텍스트"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "볼륨"
 
@@ -2284,6 +2287,9 @@ msgstr "출시일, 시스템, 오름차순"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "출시일, 시스템, 내림차순"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "추출 중"
 
@@ -2536,17 +2542,17 @@ msgid "TEXT TO SPEECH DISABLED"
 msgstr "텍스트 음성 변환 비활성"
 
 # missing string
-msgid "CONTROLLERS SETTINGS"
-msgstr "컨트롤러 설정"
+#~ msgid "CONTROLLERS SETTINGS"
+#~ msgstr "컨트롤러 설정"
 
 # missing string
-msgid "auto"
-msgstr "자동"
+#~ msgid "auto"
+#~ msgstr "자동"
 
 # missing string
-msgid "PAIR A BLUETOOTH CONTROLLER"
-msgstr "블루투스 장치 페어링"
+#~ msgid "PAIR A BLUETOOTH CONTROLLER"
+#~ msgstr "블루투스 장치 페어링"
 
 # missing string
-msgid "FORGET A BLUETOOTH CONTROLLER"
-msgstr "블루투스 장치 제거"
+#~ msgid "FORGET A BLUETOOTH CONTROLLER"
+#~ msgstr "블루투스 장치 제거"
