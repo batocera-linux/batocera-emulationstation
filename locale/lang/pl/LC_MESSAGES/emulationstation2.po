@@ -1486,7 +1486,7 @@ msgid "POWER SAVER MODES"
 msgstr "TRYBY OSZCZĘDZANIA ENERGII"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "ZAMIANA TEKSTU NA MOWĘ"
 
 msgid "UI MODE"
 msgstr "TRYB INTERFEJSU"
@@ -2511,10 +2511,10 @@ msgid "EDIT"
 msgstr "EDYTUJ"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "WŁĄCZONE"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "WYŁĄCZONE"
 
 #, c-format
 msgid "%d day ago"
@@ -2560,10 +2560,10 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "ZAMIANA TEKSTU NA MOWĘ WŁĄCZONA"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "ZAMIANA TEKSTU NA MOWĘ WYŁĄCZONA"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "USUŃ KONTROLER BLUETOOTH"

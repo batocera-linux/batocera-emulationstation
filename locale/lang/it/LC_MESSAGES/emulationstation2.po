@@ -642,7 +642,7 @@ msgid "SCREENSHOTS FOLDER"
 msgstr "CARTELLA SCREENSHOT"
 
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "SELEZIONA"
 
 msgid "ADD COMBINATION KEY"
 msgstr "AGGIUNGI TASTO COMBINAZIONE"
@@ -1431,7 +1431,7 @@ msgid "PRELOAD UI"
 msgstr "UI PRECARICATA"
 
 msgid "THREADED LOADING"
-msgstr "CARICAMENTO INCODATO"
+msgstr "CARICAMENTO ACCODATO"
 
 msgid "ASYNC IMAGES LOADING"
 msgstr "CARICAMENTO IMMAGINI ASINCRONO"
@@ -1482,7 +1482,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODALITÀ RISPARMIO ENERGETICO"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "TEXT TO SPEECH"
 
 msgid "UI MODE"
 msgstr "MODALITÀ INTERFACCIA"
@@ -2502,10 +2502,10 @@ msgid "EDIT"
 msgstr "MODIFICA"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ATTIVATO"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "DISATTIVATO"
 
 #, c-format
 msgid "%d day ago"
@@ -2547,10 +2547,10 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "TEXT TO SPEECH ATTIVATO"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "TEXT TO SPEECH DISATTIVATO"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "RIMUOVI UN CONTROLLER BLUETOOTH"

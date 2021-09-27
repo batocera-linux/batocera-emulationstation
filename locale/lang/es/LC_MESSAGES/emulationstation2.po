@@ -618,7 +618,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "BUSCANDO REDES INALÁMBRICAS"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "DESVINCULAR UN DISPOSITIVO BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "DESVINCULAR TODO"
@@ -627,7 +627,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NO SE ENCONTRARON DISPOSITIVOS BLUETOOTH"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "SE HAN DESVINCULADO LOS DISPOSITIVOS BLUETOOTH."
 
 msgid "FILE BROWSER"
 msgstr "EXAMINAR"
@@ -1159,7 +1159,7 @@ msgid "GAMES SETTINGS"
 msgstr "CONFIGURACIÓN DE JUEGOS"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "CONFIGURACIÓN DE MANDOS Y DISPOSITIVOS BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
@@ -1204,7 +1204,7 @@ msgid "SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA"
 
 msgid "TITLE SCREENSHOT"
-msgstr "CAPTURA DE TÍTULO"
+msgstr "PANTALLA DE TÍTULO"
 
 msgid "MIX V1"
 msgstr "MIX V1"
@@ -1483,7 +1483,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGÍA"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "TEXTO A VOZ"
 
 msgid "UI MODE"
 msgstr "MODO DE INTERFAZ"
@@ -1523,28 +1523,28 @@ msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "PERFIL DE AUDIO"
 
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ROTACIÓN DE PANTALLA"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "ROTACIÓN IZQUIERDA"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "ROTACIÓN DERECHA"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "ROTACIÓN INVERTIDA"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "PANTALLA DE ARRANQUE"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "SIN SONIDO"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "DESACTIVADA"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "CONFIGURACIÓN DE RETROACHIEVEMENTS"
@@ -1765,7 +1765,7 @@ msgstr ""
 "LOS NOMBRES DE LOS BOTONES SE BASAN EN EL MANDO DE SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "EMPAREJAR UN DISPOSITIVO BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -2505,10 +2505,10 @@ msgid "EDIT"
 msgstr "EDITAR"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ACTIVADO"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "DESACTIVADO"
 
 #, c-format
 msgid "%d day ago"
@@ -2550,10 +2550,10 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "TEXTO A VOZ DESACTIVADO"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "DESVINCULAR MANDO BLUETOOTH"

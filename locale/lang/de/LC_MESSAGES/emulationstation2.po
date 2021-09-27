@@ -619,7 +619,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "SUCHE NACH WIFI-NETZWERKEN"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH-GERÄT LÖSCHEN"
 
 msgid "REMOVE ALL"
 msgstr "ALLE ENTFERNEN"
@@ -628,7 +628,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "KEINE BLUETOOTH-GERÄTE GEFUNDEN"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "BLUETOOTH-GERÄTE WURDEN GELÖSCHT"
 
 msgid "FILE BROWSER"
 msgstr "DATEIBROWSER"
@@ -1160,7 +1160,7 @@ msgid "GAMES SETTINGS"
 msgstr "SPIELEINSTELLUNGEN"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "CONTROLLER & BLUETOOTH EINSTELLUNGEN"
 
 msgid "UI SETTINGS"
 msgstr "UI-EINSTELLUNGEN"
@@ -1486,7 +1486,7 @@ msgid "POWER SAVER MODES"
 msgstr "ENERGIESPAR-MODI"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "TEXT ZU SPRACHE"
 
 msgid "UI MODE"
 msgstr "UI MODUS"
@@ -1527,10 +1527,10 @@ msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "AUDIOPROFIL"
 
 msgid "SCREEN ROTATION"
-msgstr "BILD-ROTATIOn"
+msgstr "BILD-ROTATION"
 
 msgid "LEFT ROTATION"
 msgstr "LINKE ROTATION"
@@ -1769,7 +1769,7 @@ msgstr ""
 "ÜBERSPRUNGEN WERDEN."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH-GERÄT PAAREN"
 
 #, c-format
 msgid "INPUT P%i"
@@ -2512,10 +2512,10 @@ msgid "EDIT"
 msgstr "ÄNDERN"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "AKTIVIERT"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "DEAKTIVIERT"
 
 #, c-format
 msgid "%d day ago"
@@ -2557,10 +2557,10 @@ msgid "%d s"
 msgstr "%d S"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "TEXT ZU SPRACHE AKTIVIERT"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "TEXT ZU SPRACHE DEAKTIVIERT"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "BLUETOOTH CONTROLLER LÖSCHEN"

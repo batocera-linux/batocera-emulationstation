@@ -1483,7 +1483,7 @@ msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "ПРЕОБРАЗОВАНИЕ ТЕКСТА В РЕЧЬ"
 
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
@@ -1523,7 +1523,7 @@ msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "АУДИО ПРОФИЛЬ"
 
 msgid "SCREEN ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
@@ -2510,10 +2510,10 @@ msgid "EDIT"
 msgstr "РЕДАКТИРОВАТЬ"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ВКЛЮЧЕНО"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "ОТКЛЮЧЕНО"
 
 #, c-format
 msgid "%d day ago"
@@ -2559,10 +2559,10 @@ msgid "%d s"
 msgstr "%d с"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ВКЛЮЧЕНО"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ОТКЛЮЧЕНО"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "ОТВЯЗАТЬ BLUETOOTH КОНТРОЛЛЕР"
