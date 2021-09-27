@@ -1484,7 +1484,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "TEXTO PARA FALA"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -2501,10 +2501,10 @@ msgid "EDIT"
 msgstr "EDITAR"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "HABILITADO"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "DESABILITADO"
 
 #, c-format
 msgid "%d day ago"
@@ -2546,7 +2546,7 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "TEXTO PARA FALA HABILITADO"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "TEXTO PARA FALA DESABILITADO"
