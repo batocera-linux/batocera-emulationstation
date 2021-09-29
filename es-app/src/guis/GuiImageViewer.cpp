@@ -346,6 +346,25 @@ static std::string _extractZipFile(const std::string& zipFileName, const std::st
 	return "";
 }
 
+void GuiImageViewer::loadImages(std::vector<std::string>& images)
+{
+	if (images.size() == 0)
+	{
+		delete this;
+		return;
+	}
+
+	Window* window = mWindow;
+
+	mWindow->postToUiThread([images, window, this]
+	{
+		for (int i = 0; i < images.size(); i++)
+			mGrid.add("", images[i], "", "", false, false, false, false, std::to_string(i + 1));
+
+		window->pushGui(this);
+	});
+}
+
 void GuiImageViewer::loadCbz(const std::string& imagePath)
 {
 	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
@@ -590,7 +609,18 @@ void GuiImageViewer::showImage(Window* window, const std::string imagePath, bool
 void GuiImageViewer::showPdf(Window* window, const std::string imagePath)
 {
 	auto imgViewer = new GuiImageViewer(window, true);	
-	imgViewer->loadPdf(imagePath);	
+
+	std::string ext = Utils::FileSystem::getExtension(imagePath);
+	if (ext == ".cbz")
+		imgViewer->loadCbz(imagePath);
+	else
+		imgViewer->loadPdf(imagePath);	
+}
+
+void GuiImageViewer::showImages(Window* window, std::vector<std::string>& images)
+{
+	auto imgViewer = new GuiImageViewer(window, false);
+	imgViewer->loadImages(images);
 }
 
 void GuiImageViewer::showCbz(Window* window, const std::string imagePath)
@@ -644,6 +674,8 @@ GuiVideoViewer::GuiVideoViewer(Window* window, const std::string& path) : GuiCom
 		
 	mVideo->setStartDelay(25);
 	mVideo->setVideo(path);
+
+	topWindow(true);
 }
 
 GuiVideoViewer::~GuiVideoViewer()
