@@ -4618,31 +4618,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addWithLabel(_("VERTICAL ASPECT RATIO"), vert_aspect_enabled);
 		systemConfiguration->addSaveFunc([configName, vert_aspect_enabled] { SystemConf::getInstance()->set(configName + ".vert_aspect", vert_aspect_enabled->getSelected()); });
 	}
-
-        // Set as boot game 
-        std::string currentBootEmulator = SystemConf::getInstance()->get(configName + ".core");
-		std::string currentBootCore = SystemConf::getInstance()->get(configName + ".emulator");
-   
-    if (currentBootEmulator == "" || currentBootCore == "") {
-        currentBootEmulator = systemData->getDefaultEmulator();
-        currentBootCore = systemData->getDefaultCore(currentBootEmulator);
-    }
-        std::string gamePath = fileData->getFullPath();
-        
-		auto bootgame_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SET AS BOOT GAME"));
-		bootgame_enabled->add(_("YES"), "1" , SystemConf::getInstance()->get("global.bootgame") == configName + "|" + currentBootEmulator + "|" + currentBootCore);
-		bootgame_enabled->add(_("NO"), "0", SystemConf::getInstance()->get("global.bootgame") != configName + "|" + currentBootEmulator + "|" + currentBootCore);
-		systemConfiguration->addWithLabel(_("SET AS BOOT GAME"), bootgame_enabled);
-		systemConfiguration->addSaveFunc([configName, bootgame_enabled, currentBootEmulator, currentBootCore, gamePath] { 
-            if (bootgame_enabled->getSelected() == "1") {
-                SystemConf::getInstance()->set("global.bootgame", configName + "|" + currentBootEmulator + "|" + currentBootCore);
-                SystemConf::getInstance()->set("global.bootgamepath", gamePath);
-            } else if (bootgame_enabled->getSelected() == "0" && SystemConf::getInstance()->get("global.bootgame") == configName + "|" + currentBootEmulator + "|" + currentBootCore) {
-                SystemConf::getInstance()->set("global.bootgame", "auto");
-                SystemConf::getInstance()->set("global.bootgamepath", "auto");
-            }
-        });
-
 #else
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
