@@ -582,7 +582,6 @@ void VideoComponent::topWindow(bool isTop)
 	manageState();
 }
 
-
 void VideoComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 {
 	mPlaylist = playList;

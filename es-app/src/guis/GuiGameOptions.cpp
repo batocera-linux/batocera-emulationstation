@@ -51,9 +51,11 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(game->getMetadata(MetaDataId::Manual));
 	bool hasMagazine = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(game->getMetadata(MetaDataId::Magazine));
 	bool hasMap = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Map));
+	bool hasVideo = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Video));
+	bool hasAlternateMedias = game->getFileMedias().size() > 0;
 	bool hasCheevos = game->hasCheevos();
 
-	if (hasManual || hasMap || hasCheevos || hasMagazine)
+	if (hasManual || hasMap || hasCheevos || hasMagazine || hasVideo || hasAlternateMedias)
 	{
 		mMenu.addGroup(_("GAME MEDIAS"));
 
@@ -81,6 +83,26 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			{
 				auto imagePath = game->getMetadata(MetaDataId::Map);
 				GuiImageViewer::showImage(window, imagePath, Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) != ".pdf");
+				close();
+			});
+		}
+
+		if (hasVideo)
+		{
+			mMenu.addEntry(_("VIEW FULLSCREEN VIDEO"), false, [window, game, this]
+			{
+				auto imagePath = game->getMetadata(MetaDataId::Video);
+				GuiVideoViewer::playVideo(mWindow, imagePath);
+				close();
+			});
+		}
+		
+		if (hasAlternateMedias)
+		{
+			mMenu.addEntry(_("VIEW GAME MEDIAS"), false, [window, game, this]
+			{
+				auto imageList = game->getFileMedias();				
+				GuiImageViewer::showImages(mWindow, imageList);
 				close();
 			});
 		}

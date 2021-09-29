@@ -562,6 +562,9 @@ int main(int argc, char* argv[])
 	NetworkThread* nthread = new NetworkThread(&window);
 	HttpServerThread httpServer(&window);
 
+	// tts
+	TextToSpeech::getInstance()->enable(Settings::getInstance()->getBool("TTS"), false);
+
 	if (errorMsg == NULL)
 		ViewController::get()->goToStart(true);
 
@@ -578,10 +581,6 @@ int main(int argc, char* argv[])
 	else
 		AudioManager::getInstance()->playRandomMusic();
 
-	// tts
-	if(Settings::getInstance()->getBool("TTS")) {
-	  TextToSpeech::getInstance()->enable(true);
-	}
 
 #ifdef WIN32	
 	DWORD displayFrequency = 60;
