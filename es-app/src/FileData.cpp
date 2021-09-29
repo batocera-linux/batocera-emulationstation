@@ -220,6 +220,31 @@ const bool FileData::hasCheevos()
 	return false;
 }
 
+std::vector<std::string> FileData::getFileMedias()
+{
+	std::vector<std::string> ret;
+
+	for (auto mdd : mMetadata.getMDD())
+	{
+		if (mdd.type != MetaDataType::MD_PATH)
+			continue;
+
+		if (mdd.id == MetaDataId::Video || mdd.id == MetaDataId::Manual || mdd.id == MetaDataId::Magazine)
+			continue;
+
+		std::string path = mMetadata.get(mdd.key);
+
+		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(path));
+		if (ext != ".jpg" && ext != ".png" && ext != ".jpeg" && ext != ".gif")
+			continue;
+		
+		if (Utils::FileSystem::exists(path))
+			ret.push_back(path);
+	}
+
+	return ret;
+}
+
 void FileData::resetSettings() 
 {
 	
@@ -1513,6 +1538,11 @@ std::string FileData::getCurrentGameSetting(const std::string& settingName)
 	return SystemConf::getInstance()->get("global." + settingName);
 }
 
-void FileData::speak() {
-  TextToSpeech::getInstance()->say(getName());
-};
+void FileData::speak()
+{
+	TextToSpeech::getInstance()->say(getName(), false);
+
+	std::string desc = getMetadata(MetaDataId::Desc);
+	if (!desc.empty())
+		TextToSpeech::getInstance()->say(desc, true);
+}

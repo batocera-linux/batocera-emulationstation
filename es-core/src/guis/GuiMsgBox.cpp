@@ -148,6 +148,17 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 
 	addChild(&mBackground);
 	addChild(&mGrid);
+
+	TextToSpeech::getInstance()->say(text);
+
+	for (auto btn : mButtons)
+	{
+		if (btn->hasFocus())
+		{
+			TextToSpeech::getInstance()->say(btn->getText(), true);
+			break;
+		}
+	}
 }
 
 bool GuiMsgBox::input(InputConfig* config, Input input)
