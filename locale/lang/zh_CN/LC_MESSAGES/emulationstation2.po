@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -898,6 +898,12 @@ msgstr ""
 msgid "VIEW GAME MAP"
 msgstr "阅读游戏地图"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr ""
 
@@ -1143,6 +1149,12 @@ msgstr "版本"
 msgid "SHADERS"
 msgstr ""
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "控制器设置"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "主菜单"
 
@@ -1151,9 +1163,6 @@ msgstr "KODI 媒体中心"
 
 msgid "GAMES SETTINGS"
 msgstr "游戏设置"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI 设置"
@@ -1422,6 +1431,12 @@ msgstr "优化"
 
 msgid "PRELOAD UI"
 msgstr "预加载UI"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "线程载入中"
@@ -2536,9 +2551,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "控制器链接已被删除。"
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "控制器设置"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "配对蓝牙控制器"

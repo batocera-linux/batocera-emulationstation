@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -904,6 +904,12 @@ msgstr "OYUN MAGAZİNİNİ GÖR"
 msgid "VIEW GAME MAP"
 msgstr "OYUN HARİTASINI GÖR"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "ŞU ANKİ ÇEKİRDEK UYUMSUZ"
 
@@ -1149,6 +1155,12 @@ msgstr "SÜRÜM"
 msgid "SHADERS"
 msgstr "GÖLGELENDİRMELER"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "KUMANDA AYARLARI"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
 
@@ -1157,9 +1169,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "OYUN AYARLARI"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "ARABİRİM AYARLARI"
@@ -1431,6 +1440,12 @@ msgstr "OPTİMİZASYONLAR"
 
 msgid "PRELOAD UI"
 msgstr "ARAYÜZ ÖNYÜKLEME"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "THREADED YÜKLENİYOR"
@@ -2563,9 +2578,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "KUMANDA BAĞLANTILARI SİLİNDİ."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "KUMANDA AYARLARI"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "BLUETOOTH KUMANDA EŞLEŞTİR"

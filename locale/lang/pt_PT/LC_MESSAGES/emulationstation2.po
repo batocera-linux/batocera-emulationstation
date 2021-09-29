@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 08:00+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -904,6 +904,12 @@ msgstr "VER REVISTA DE JOGOS"
 msgid "VIEW GAME MAP"
 msgstr "VISUALIZAR MAPA DO JOGO"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "O CORE ATUAL NÃO É COMPATIVEL"
 
@@ -1149,6 +1155,12 @@ msgstr "VERSÃO"
 msgid "SHADERS"
 msgstr "SHADERS"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr ""
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "DEFINIÇÕES COMANDOS & BLUETOOTH"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -1157,9 +1169,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "DEFINIÇÕES DE JOGO"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "DEFINIÇÕES COMANDOS & BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "DEFINIÇÕES DA INTERFACE"
@@ -1430,6 +1439,12 @@ msgstr "OTIMIZAÇÕES"
 
 msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"

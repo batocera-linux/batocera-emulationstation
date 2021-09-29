@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -903,6 +903,12 @@ msgstr "檢視遊戲雜誌"
 msgid "VIEW GAME MAP"
 msgstr "檢視遊戲地圖"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "目前的核心並不相容"
 
@@ -1147,6 +1153,12 @@ msgstr "版本"
 msgid "SHADERS"
 msgstr "著色器"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "控制器設定"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "控制器與藍牙設定"
+
 msgid "MAIN MENU"
 msgstr "主選單"
 
@@ -1155,9 +1167,6 @@ msgstr "KODI 多媒體中心"
 
 msgid "GAMES SETTINGS"
 msgstr "遊戲設定"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "控制器與藍牙設定"
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1426,6 +1435,12 @@ msgstr "最佳化"
 
 msgid "PRELOAD UI"
 msgstr "預先載入 UI"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "多執行緒載入"
@@ -2542,9 +2557,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "遊戲控制器連結已經刪除。"
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "控制器設定"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "配對藍牙遊戲控制器"

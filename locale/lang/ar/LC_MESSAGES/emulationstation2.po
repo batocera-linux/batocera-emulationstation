@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -910,6 +910,12 @@ msgstr ""
 msgid "VIEW GAME MAP"
 msgstr "مشاهدة خريطة اللعبة"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr ""
 
@@ -1155,6 +1161,12 @@ msgstr "الإصدار"
 msgid "SHADERS"
 msgstr ""
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "إعدادات وحدات التحكم"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "القائمة الرئيسية"
 
@@ -1163,9 +1175,6 @@ msgstr "مشغل الوسائط KODI"
 
 msgid "GAMES SETTINGS"
 msgstr "إعدادات الألعاب"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "إعدادات واجهة المستخدم"
@@ -1434,6 +1443,12 @@ msgstr ""
 
 msgid "PRELOAD UI"
 msgstr "تحميل واجهة المستخدم"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "تحميل مترابط"
@@ -2603,9 +2618,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "تم حذف روابط وحدات التحكم"
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "إعدادات وحدات التحكم"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "اقتران وحدة تحكم بلوتوث"

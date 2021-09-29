@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -904,6 +904,12 @@ msgstr "BEKIJK MAGAZINE VAN HET SPEL"
 msgid "VIEW GAME MAP"
 msgstr "BEKIJK PLATTEGROND VAN SPEL"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "HUIDIGE CORE IS NIET COMPATIBEL"
 
@@ -1149,6 +1155,12 @@ msgstr "VERSIE"
 msgid "SHADERS"
 msgstr "SHADERS"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "CONTROLLERS"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HOOFDMENU"
 
@@ -1157,9 +1169,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "SPELINSTELLINGEN"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "INTERFACE"
@@ -1431,6 +1440,12 @@ msgstr "OPTIMALISATIES"
 
 msgid "PRELOAD UI"
 msgstr "PRELOAD UI"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "THREADED LADEN"
@@ -2565,9 +2580,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "GEKOPPELDE CONTROLLERS ZIJN GEWIST."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "CONTROLLERS"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "KOPPEL EEN BLUETOOTH-CONTROLLER"

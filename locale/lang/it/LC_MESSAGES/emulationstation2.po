@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -904,6 +904,12 @@ msgstr "MOSTRA RIVISTA"
 msgid "VIEW GAME MAP"
 msgstr "MOSTRA MAPPA DI GIOCO"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "QUESTO CORE NON È COMPATIBILE"
 
@@ -1149,6 +1155,12 @@ msgstr "VERSIONE"
 msgid "SHADERS"
 msgstr "SHADERS"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "OPZIONI CONTROLLER"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "OPZIONI CONTROLLER E BLUETOOTH"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
 
@@ -1157,9 +1169,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "OPZIONI GIOCHI"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "OPZIONI CONTROLLER E BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "OPZIONI INTERFACCIA"
@@ -1429,6 +1438,12 @@ msgstr "OTTIMIZZAZIONI"
 
 msgid "PRELOAD UI"
 msgstr "UI PRECARICATA"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "CARICAMENTO ACCODATO"
@@ -2563,9 +2578,6 @@ msgstr "TEXT TO SPEECH DISATTIVATO"
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "TUTTI I CONTROLLER COLLEGATI SONO STATI RIMOSSI."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "OPZIONI CONTROLLER"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "CERCA UN CONTROLLER BLUETOOTH"

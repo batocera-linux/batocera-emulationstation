@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -904,6 +904,12 @@ msgstr "VER MAGAZINE DEL JUEGO"
 msgid "VIEW GAME MAP"
 msgstr "VER MAPA DEL JUEGO"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "EL NÚCLEO ACTUAL NO ES COMPATIBLE"
 
@@ -1149,6 +1155,12 @@ msgstr "VERSIÓN"
 msgid "SHADERS"
 msgstr "SOMBRAS"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "CONFIGURACIÓN DE CONTROLES"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "AJUSTES DE CONTROLES Y BLUETOOTH"
+
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
 
@@ -1157,9 +1169,6 @@ msgstr "CENTRO MULTIMEDIA KODI"
 
 msgid "GAMES SETTINGS"
 msgstr "CONFIGURACIÓN DE JUEGOS"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "AJUSTES DE CONTROLES Y BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
@@ -1430,6 +1439,12 @@ msgstr "OPTIMIZACIONES"
 
 msgid "PRELOAD UI"
 msgstr "PRECARGAR LA INTERFAZ"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "ACELERAR CARGA DEL SISTEMA"
@@ -2567,9 +2582,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "LOS CONTROLES HAN SIDO DESVINCULADOS."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "CONFIGURACIÓN DE CONTROLES"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "CONECTAR UN CONTROL BLUETOOTH"

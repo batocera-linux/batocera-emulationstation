@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 08:00+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -903,6 +903,12 @@ msgstr "게임 매거진 보기"
 msgid "VIEW GAME MAP"
 msgstr "게임 맵 보기"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "현재 코어가 호환 안됨"
 
@@ -1148,6 +1154,13 @@ msgstr "버전"
 msgid "SHADERS"
 msgstr "셰이더"
 
+# missing string
+msgid "CONTROLLERS SETTINGS"
+msgstr "컨트롤러 설정"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "컨트롤러 및 블루투스 설정"
+
 msgid "MAIN MENU"
 msgstr "메인 메뉴"
 
@@ -1156,9 +1169,6 @@ msgstr "KODI 미디어 센터"
 
 msgid "GAMES SETTINGS"
 msgstr "게임 설정"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "컨트롤러 및 블루투스 설정"
 
 msgid "UI SETTINGS"
 msgstr "UI 설정"
@@ -1428,6 +1438,12 @@ msgstr "최적화"
 
 msgid "PRELOAD UI"
 msgstr "UI 사전 불러오기"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "스레드된 불러오기"
@@ -2540,10 +2556,6 @@ msgstr "텍스트 음성 변환 활성"
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr "텍스트 음성 변환 비활성"
-
-# missing string
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "컨트롤러 설정"
 
 # missing string
 #~ msgid "auto"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -905,6 +905,12 @@ msgstr "VEURE MAGAZINE DEL JOC"
 msgid "VIEW GAME MAP"
 msgstr "VEURE EL MAPA DEL JOC"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "EL NUCLI ACTUAL NO ÉS COMPATIBLE"
 
@@ -1150,6 +1156,12 @@ msgstr "VERSIÓ"
 msgid "SHADERS"
 msgstr ""
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "PARÀMETRES DELS COMANDAMENTS"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
 
@@ -1158,9 +1170,6 @@ msgstr "CENTRE MULTIMÈDIA DEL KODI"
 
 msgid "GAMES SETTINGS"
 msgstr "PARÀMETRES DELS JOCS"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
@@ -1428,6 +1437,12 @@ msgid "OPTIMIZATIONS"
 msgstr ""
 
 msgid "PRELOAD UI"
+msgstr ""
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
 msgstr ""
 
 msgid "THREADED LOADING"
@@ -2547,9 +2562,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "PARÀMETRES DELS COMANDAMENTS"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "APARELLA UN COMANDAMENT BLUETOOTH"
