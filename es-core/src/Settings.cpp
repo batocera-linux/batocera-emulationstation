@@ -7,6 +7,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include <algorithm>
 #include <vector>
+#include "utils/StringUtil.h"
 
 bool Settings::DebugText = false;
 bool Settings::DebugImage = false;
@@ -64,6 +65,7 @@ void Settings::setDefaults()
 	mBoolMap["ParseGamelistOnly"] = false;
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["ShowParentFolder"] = true;
+	mBoolMap["IgnoreLeadingArticles"] = false;
 	mBoolMap["DrawFramerate"] = false;
 	mBoolMap["ShowExit"] = true;
 	mBoolMap["ExitOnRebootRequired"] = false;
@@ -80,6 +82,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowOnlyExit"] = false;
 	mBoolMap["FullscreenBorderless"] = false;
 #endif
+	mBoolMap["TTS"] = false;
 
 	mIntMap["MonitorID"] = -1;
 

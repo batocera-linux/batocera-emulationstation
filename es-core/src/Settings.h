@@ -4,6 +4,7 @@
 
 #include <map>
 #include <string>
+#include <vector>
 
 #define DEFINE_BOOL_SETTING(name) static bool name() { return Settings::getInstance()->getBool(#name); }
 #define DEFINE_STRING_SETTING(name) static std::string name() { return Settings::getInstance()->getString(#name); }

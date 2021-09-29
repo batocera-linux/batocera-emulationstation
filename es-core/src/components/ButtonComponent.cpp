@@ -2,6 +2,7 @@
 #include "resources/Font.h"
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
+#include "TextToSpeech.h"
 
 #define TEXT_PADDING Math::max(12, Renderer::getScreenWidth() * 0.014)
 
@@ -75,6 +76,8 @@ void ButtonComponent::onFocusGained()
 
 	mFocused = true;
 	updateImage();
+
+	TextToSpeech::getInstance()->say(mText, true);
 }
 
 void ButtonComponent::onFocusLost()

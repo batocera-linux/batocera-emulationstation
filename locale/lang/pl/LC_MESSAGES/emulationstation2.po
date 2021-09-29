@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -620,7 +620,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "USUŃ URZĄDZENIE BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "USUŃ WSZYSTKO"
@@ -629,7 +629,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "URZĄDZENIA BLUETOOTH ZOSTAŁY USUNIĘTE."
 
 msgid "FILE BROWSER"
 msgstr "PRZEGLĄDARKA PLIKÓW"
@@ -1140,16 +1140,16 @@ msgid "RGA SCALING"
 msgstr "SKALOWANIE RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "DOSTAWCA"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDER"
 
 msgid "VERSION"
 msgstr "WERSJA"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SHADERY"
 
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
@@ -1161,7 +1161,7 @@ msgid "GAMES SETTINGS"
 msgstr "USTAWIENIA GIER"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "KONTROLERY I USTAWIENIA BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "USTAWIENIA INTERFEJSU"
@@ -1287,7 +1287,7 @@ msgid "SYSTEM"
 msgstr "SYSTEM"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "STEROWNIK WIDEO"
 
 msgid "DEVELOPER"
 msgstr "DEWELOPER"
@@ -1485,6 +1485,9 @@ msgstr "POKAŻ ZEGAR W FORMACIE 12-GODZINNYM"
 msgid "POWER SAVER MODES"
 msgstr "TRYBY OSZCZĘDZANIA ENERGII"
 
+msgid "TEXT TO SPEECH"
+msgstr "ZAMIANA TEKSTU NA MOWĘ"
+
 msgid "UI MODE"
 msgstr "TRYB INTERFEJSU"
 
@@ -1522,26 +1525,29 @@ msgstr "WYJŚCIE WIDEO"
 msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
 
+msgid "AUDIO PROFILE"
+msgstr "PROFIL AUDIO "
+
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "OBRÓT EKRANU"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "OBRÓT W LEWO"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "OBRÓT W PRAWO"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "OBRÓT ODWRÓCONY"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "EKRAN STARTOWY"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "WYCISZONY EKRAN STARTOWY"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "BRAK EKRANU STARTOWEGO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "USTAWIENIA RETROACHIEVEMENTS"
@@ -1562,40 +1568,40 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "KOLOR DIODY PRZYCISKU"
 
 msgid "off"
-msgstr ""
+msgstr "wyłączony"
 
 msgid "red"
-msgstr ""
+msgstr "czerwony"
 
 msgid "green"
-msgstr ""
+msgstr "zielony"
 
 msgid "blue"
-msgstr ""
+msgstr "niebieski"
 
 msgid "white"
-msgstr ""
+msgstr "biały"
 
 msgid "purple"
-msgstr ""
+msgstr "fioletowy"
 
 msgid "yellow"
-msgstr ""
+msgstr "żółty"
 
 msgid "cyan"
-msgstr ""
+msgstr "cyjan"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "KOLOR DIODY ZASILANIA"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "pulsujący"
 
 msgid "on"
-msgstr ""
+msgstr "włączony"
 
 msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
@@ -1761,7 +1767,7 @@ msgstr ""
 "PRZEZ PRZYTRZYMANIE PRZYCISKU. NAZWY PRZYCISKÓW BAZUJĄ NA KONTROLERZE SNES."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "PODŁĄCZ URZĄDZENIE BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1880,6 +1886,9 @@ msgstr "IKONA"
 
 msgid "ICON AND TEXT"
 msgstr "IKONA I TEKST"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "GŁOŚNOŚĆ"
@@ -2293,6 +2302,9 @@ msgstr "DATA PREMIERY, SYSTEM, ROSNĄCO"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "DATA PREMIERY, SYSTEM, MALEJĄCO"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Rozpakowywanie"
 
@@ -2504,6 +2516,12 @@ msgstr "PORUSZ KURSOREM"
 msgid "EDIT"
 msgstr "EDYTUJ"
 
+msgid "ENABLED"
+msgstr "WŁĄCZONE"
+
+msgid "DISABLED"
+msgstr "WYŁĄCZONE"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2546,6 +2564,12 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr "ZAMIANA TEKSTU NA MOWĘ WŁĄCZONA"
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr "ZAMIANA TEKSTU NA MOWĘ WYŁĄCZONA"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "USUŃ KONTROLER BLUETOOTH"

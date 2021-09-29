@@ -1,6 +1,11 @@
 #include "components/ComponentList.h"
-#include "components/TextComponent.h"
 #include "LocaleES.h"
+#include "TextToSpeech.h"
+
+#include "components/TextComponent.h"
+#include "components/SwitchComponent.h"
+#include "components/SliderComponent.h"
+#include "components/OptionListComponent.h"
 
 #define TOTAL_HORIZONTAL_PADDING_PX 20
 
@@ -9,6 +14,7 @@ ComponentList::ComponentList(Window* window) : IList<ComponentListRow, std::stri
 	mSelectorBarOffset = 0;
 	mCameraOffset = 0;
 	mFocused = false;
+	mOldCursor = -1;
 
 	mScrollbar.loadFromMenuTheme();	
 }
@@ -190,6 +196,54 @@ void ComponentList::onCursorChanged(const CursorState& state)
 		mCursorChangedCallback(state);
 
 	updateHelpPrompts();
+
+	// tts
+	if(state == CURSOR_STOPPED)
+	  if(mOldCursor != mCursor) {
+	    saySelectedLine();
+	  }
+}
+
+void ComponentList::saySelectedLine() {
+  int n = 0;
+
+  if (!(mCursor >= 0 && mCursor < mEntries.size())) return;
+
+  mOldCursor = mCursor;
+  for (auto& element : mEntries.at(mCursor).data.elements)
+    {
+      if(element.component->isKindOf<TextComponent>()) {
+	TextToSpeech::getInstance()->say(element.component->getValue(), n > 0);
+	n++;
+      }
+      if(element.component->isKindOf<SliderComponent>()) {
+	SliderComponent* slider = dynamic_cast<SliderComponent*>(element.component.get());
+	if (slider == nullptr)
+	  continue;
+
+	float v = slider->getValue();
+	char strval[32];
+	snprintf(strval, 32, "%.0f", v);
+	TextToSpeech::getInstance()->say(std::string(strval) + _(slider->getSuffix().c_str()), n > 0);
+	n++;
+      }
+      if(element.component->isKindOf<SwitchComponent>()) {
+	TextToSpeech::getInstance()->say(((SwitchComponent*)element.component.get())->getState()?_("ENABLED"):_("DISABLED"), n > 0);
+	n++;
+      }
+      if(element.component->isKindOf<OptionListComponent<std::string>>()) {
+	OptionListComponent<std::string>* optionList = dynamic_cast<OptionListComponent<std::string>*>(element.component.get());
+	if (optionList == nullptr)
+	  continue;
+
+	if (optionList->IsMultiSelect()) {
+	  TextToSpeech::getInstance()->say(Utils::String::join(optionList->getSelectedObjects(), ", "));
+	} else {
+	  TextToSpeech::getInstance()->say(optionList->getSelectedName(), n > 0);
+	}
+	n++;
+      }
+    }
 }
 
 void ComponentList::updateCameraOffset()

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "UPDATE AVAILABLE"
@@ -617,7 +617,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "搜尋 WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "忘記藍牙裝置"
 
 msgid "REMOVE ALL"
 msgstr "移除全部"
@@ -626,7 +626,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "沒有發現藍牙裝置"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "藍牙裝置已被刪除。"
 
 msgid "FILE BROWSER"
 msgstr "檔案瀏覽器"
@@ -1136,16 +1136,16 @@ msgid "RGA SCALING"
 msgstr "RGA 縮放"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "提供者"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "渲染器"
 
 msgid "VERSION"
 msgstr "版本"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "著色器"
 
 msgid "MAIN MENU"
 msgstr "主選單"
@@ -1157,7 +1157,7 @@ msgid "GAMES SETTINGS"
 msgstr "遊戲設定"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "控制器與藍牙設定"
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1283,7 +1283,7 @@ msgid "SYSTEM"
 msgstr "遊戲平台"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "影像驅動程式"
 
 msgid "DEVELOPER"
 msgstr "開發者選項"
@@ -1478,6 +1478,9 @@ msgstr "將時鐘顯示為 12 小時制"
 msgid "POWER SAVER MODES"
 msgstr "省電模式"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "UI 模式"
 
@@ -1514,26 +1517,29 @@ msgstr "影像輸出"
 msgid "AUDIO OUTPUT"
 msgstr "聲音輸出"
 
+msgid "AUDIO PROFILE"
+msgstr "音訊設定檔"
+
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "螢幕旋轉"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "向左旋轉"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "向右旋轉"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "反向旋轉"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "開機畫面"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "無聲開機畫面"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "不使用開機畫面"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS 成就設定"
@@ -1554,40 +1560,40 @@ msgid "OFF"
 msgstr "關"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "按鈕 LED 色彩"
 
 msgid "off"
-msgstr ""
+msgstr "關閉"
 
 msgid "red"
-msgstr ""
+msgstr "紅色"
 
 msgid "green"
-msgstr ""
+msgstr "綠色"
 
 msgid "blue"
-msgstr ""
+msgstr "藍色"
 
 msgid "white"
-msgstr ""
+msgstr "白色"
 
 msgid "purple"
-msgstr ""
+msgstr "紫色"
 
 msgid "yellow"
-msgstr ""
+msgstr "黃色"
 
 msgid "cyan"
-msgstr ""
+msgstr "青色"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "電源 LED 色彩"
 
 msgid "heartbeat"
-msgstr ""
+msgstr "呼吸燈"
 
 msgid "on"
-msgstr ""
+msgstr "開啟"
 
 msgid "OVERCLOCK"
 msgstr "超頻"
@@ -1751,7 +1757,7 @@ msgstr ""
 "鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 按鍵名稱是參照超任的遊戲控制器。"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "配對藍牙裝置"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1870,6 +1876,9 @@ msgstr "圖示"
 
 msgid "ICON AND TEXT"
 msgstr "圖示與文字"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2274,6 +2283,9 @@ msgstr "發行年份，遊戲平台（升序）"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "發行年份，遊戲平台（降序）"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "提取中"
 
@@ -2478,6 +2490,12 @@ msgstr "移動游標"
 msgid "EDIT"
 msgstr "編輯"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2512,6 +2530,12 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "解除藍牙控制器"

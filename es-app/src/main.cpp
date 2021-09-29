@@ -34,6 +34,7 @@
 #include <csignal>
 #include "InputConfig.h"
 #include "RetroAchievements.h"
+#include "TextToSpeech.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -575,6 +576,11 @@ int main(int argc, char* argv[])
 	}
 	else
 		AudioManager::getInstance()->playRandomMusic();
+
+	// tts
+	if(Settings::getInstance()->getBool("TTS")) {
+	  TextToSpeech::getInstance()->enable(true);
+	}
 
 #ifdef WIN32	
 	DWORD displayFrequency = 60;

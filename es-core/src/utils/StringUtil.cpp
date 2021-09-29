@@ -487,6 +487,11 @@ namespace Utils
 
 		} // vectorToCommaString
 
+		stringVector commaStringToVector(const std::string& _string)
+		{
+			return Utils::String::split(_string, ',', false);
+		}
+
 		std::string format(const char* _format, ...)
 		{
 			va_list	args;

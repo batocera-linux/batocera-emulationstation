@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -363,7 +363,7 @@ msgid "FIND GAMES"
 msgstr "НАЙТИ ИГРЫ"
 
 msgid "Unknown"
-msgstr " "
+msgstr "Неизвестно"
 
 msgid "YES"
 msgstr "ДА"
@@ -619,7 +619,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "ПОИСК WIFI СЕТИ"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 msgid "REMOVE ALL"
 msgstr "УДАЛИТЬ ВСЕ"
@@ -628,7 +628,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
 
 msgid "FILE BROWSER"
 msgstr "ФАЙЛОВЫЙ БРАУЗЕР"
@@ -1160,7 +1160,7 @@ msgid "GAMES SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
 
 msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
@@ -1482,6 +1482,9 @@ msgstr "ПОКАЗАТЬ ЧАСЫ В 12-ЧАСОВОМ ФОРМАТЕ "
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
+msgid "TEXT TO SPEECH"
+msgstr "ПРЕОБРАЗОВАНИЕ ТЕКСТА В РЕЧЬ"
+
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
 
@@ -1519,26 +1522,29 @@ msgstr "ВИДЕО ВЫХОД"
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
 
+msgid "AUDIO PROFILE"
+msgstr "АУДИО ПРОФИЛЬ"
+
 msgid "SCREEN ROTATION"
-msgstr ""
+msgstr "ПОВОРОТ ЭКРАНА"
 
 msgid "LEFT ROTATION"
-msgstr ""
+msgstr "ПОВОРОТ ВЛЕВО"
 
 msgid "RIGHT ROTATION"
-msgstr ""
+msgstr "ПОВОРОТ ВПРАВО"
 
 msgid "INVERTED ROTATION"
-msgstr ""
+msgstr "ИНВЕРТИРОВАТЬ ПОВОРОТ"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "ВСТУПИТЕЛЬНОЕ ИНТРО"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "ТИХАЯ ЗАГРУЗКА"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "БЕЗ ИНТРО"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
@@ -1758,7 +1764,7 @@ msgstr ""
 "КНОПКУ SELECT. НАЗВАНИЯ КНОПОК ОСНОВАНЫ НА SNES КОНТРОЛЛЕРЕ."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1877,6 +1883,9 @@ msgstr "ИКОНКА"
 
 msgid "ICON AND TEXT"
 msgstr "ИКОНКА И ТЕКСТ"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -2292,6 +2301,9 @@ msgstr "ДАТА РЕЛИЗА, СИСТЕМЫ, ПО ВОЗРАСТАНИЮ"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ДАТА РЕЛИЗА, СИСТЕМЫ, ПО УБЫВАНИЮ"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Распаковка"
 
@@ -2503,6 +2515,12 @@ msgstr "ПЕРЕДВИНУТЬ КУРСОР"
 msgid "EDIT"
 msgstr "РЕДАКТИРОВАТЬ"
 
+msgid "ENABLED"
+msgstr "ВКЛЮЧЕНО"
+
+msgid "DISABLED"
+msgstr "ОТКЛЮЧЕНО"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2545,6 +2563,12 @@ msgstr "%d м"
 #, c-format
 msgid "%d s"
 msgstr "%d с"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ВКЛЮЧЕНО"
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ОТКЛЮЧЕНО"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "ОТВЯЗАТЬ BLUETOOTH КОНТРОЛЛЕР"

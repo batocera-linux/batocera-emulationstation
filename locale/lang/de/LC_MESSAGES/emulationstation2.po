@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -619,7 +619,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "SUCHE NACH WIFI-NETZWERKEN"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH-GERÄT LÖSCHEN"
 
 msgid "REMOVE ALL"
 msgstr "ALLE ENTFERNEN"
@@ -628,7 +628,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "KEINE BLUETOOTH-GERÄTE GEFUNDEN"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "BLUETOOTH-GERÄTE WURDEN GELÖSCHT"
 
 msgid "FILE BROWSER"
 msgstr "DATEIBROWSER"
@@ -1160,7 +1160,7 @@ msgid "GAMES SETTINGS"
 msgstr "SPIELEINSTELLUNGEN"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "CONTROLLER & BLUETOOTH EINSTELLUNGEN"
 
 msgid "UI SETTINGS"
 msgstr "UI-EINSTELLUNGEN"
@@ -1485,6 +1485,9 @@ msgstr "UHR IM 12-STUNDEN-FORMAT ANZEIGEN"
 msgid "POWER SAVER MODES"
 msgstr "ENERGIESPAR-MODI"
 
+msgid "TEXT TO SPEECH"
+msgstr "TEXT ZU SPRACHE"
+
 msgid "UI MODE"
 msgstr "UI MODUS"
 
@@ -1523,8 +1526,11 @@ msgstr "BILD AUSGABE"
 msgid "AUDIO OUTPUT"
 msgstr "AUDIOAUSGANG"
 
+msgid "AUDIO PROFILE"
+msgstr "AUDIOPROFIL"
+
 msgid "SCREEN ROTATION"
-msgstr "BILD-ROTATIOn"
+msgstr "BILD-ROTATION"
 
 msgid "LEFT ROTATION"
 msgstr "LINKE ROTATION"
@@ -1763,7 +1769,7 @@ msgstr ""
 "ÜBERSPRUNGEN WERDEN."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH-GERÄT PAAREN"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1882,6 +1888,9 @@ msgstr "ICON"
 
 msgid "ICON AND TEXT"
 msgstr "ICON UND TEXT"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "LAUTSTÄRKE"
@@ -2295,6 +2304,9 @@ msgstr "ERSCHEINUNGSJAHR, SYSTEM, AUFSTEIGEND"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ERSCHEINUNGSJAHR, SYSTEM, ABSTEIGEND"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Extrahiere"
 
@@ -2505,6 +2517,12 @@ msgstr "CURSOR BEWEGEN"
 msgid "EDIT"
 msgstr "ÄNDERN"
 
+msgid "ENABLED"
+msgstr "AKTIVIERT"
+
+msgid "DISABLED"
+msgstr "DEAKTIVIERT"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2543,6 +2561,12 @@ msgstr "%d Min"
 #, c-format
 msgid "%d s"
 msgstr "%d S"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr "TEXT ZU SPRACHE AKTIVIERT"
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr "TEXT ZU SPRACHE DEAKTIVIERT"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "BLUETOOTH CONTROLLER LÖSCHEN"

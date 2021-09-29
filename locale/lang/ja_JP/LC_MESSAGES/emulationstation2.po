@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v32(2021/08/24)\n"
+"Project-Id-Version: batocera-es v32beta(2021/09/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
-"PO-Revision-Date: 2021-08-26 19:22+0900\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
+"PO-Revision-Date: 2021-09-15 20:16+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -233,7 +233,7 @@ msgid "Region"
 msgstr "リージョン"
 
 msgid "Cheevos Hash"
-msgstr "Cheevos　ハッシュ"
+msgstr "Cheevos ハッシュ"
 
 msgid "Cheevos checksum"
 msgstr "Cheevos チェックサム"
@@ -513,7 +513,7 @@ msgid "NAVIGATION"
 msgstr "ナビゲーション"
 
 msgid "JUMP TO LETTER"
-msgstr "文字移動"
+msgstr "文字移動(英数字)"
 
 msgid "SELECT RANDOM GAME"
 msgstr "ランダムにゲーム選択"
@@ -618,16 +618,16 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH デバイスを削除"
 
 msgid "REMOVE ALL"
 msgstr "すべて削除"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BT コントローラーが見つかりません"
+msgstr "BLUETOOTH デバイスが見つかりません"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "BLUETOOTH デバイスが削除されました。"
 
 msgid "FILE BROWSER"
 msgstr "ファイルブラウザ"
@@ -673,7 +673,7 @@ msgid "REMOVE"
 msgstr "削除"
 
 msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "追加されたキューをアンインストール"
+msgstr "追加したキューをアンインストール"
 
 msgid "INSTALL"
 msgstr "インストール"
@@ -917,7 +917,7 @@ msgid "GAME"
 msgstr "ゲーム"
 
 msgid "SAVE SNAPSHOTS"
-msgstr "スナップショットを保存"
+msgstr "オートセーブ(終了時保存)"
 
 msgid "OPEN"
 msgstr "開く"
@@ -1159,7 +1159,7 @@ msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "コントローラー＆BLUETOOTH 設定"
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1370,7 +1370,7 @@ msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "(CUE/GDI/CCD/M3U)記載ファイルを重複表示しない"
+msgstr "(CUE/GDI/CCD/M3U)に記載ファイルを表示しない"
 
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
@@ -1409,16 +1409,16 @@ msgid "AUTO"
 msgstr "自動"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "エミュレーターのコントローラーの自動設定"
+msgstr "エミュレーターのコントローラー自動設定"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの A/B ボタンの入れ替え"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "△(上)ボタンでゲームオプションを開く"
+msgstr "△(上)ボタン長押しでゲーム設定を開く"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
-msgstr "△(上)を反転（ステートセーブ）、×（下）を長押し（ゲームオプション）"
+msgstr "△(上)を反転（ステートセーブ）、×（下）を長押し（ゲーム設定）"
 
 msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
 msgstr "最初のコントローラだけでESメニューを操作する"
@@ -1483,6 +1483,9 @@ msgstr "時計を12時間形式で表示"
 msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "UI モード"
 
@@ -1519,6 +1522,9 @@ msgstr "映像出力"
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"
 
+msgid "AUDIO PROFILE"
+msgstr "音声プロファイル"
+
 msgid "SCREEN ROTATION"
 msgstr "画面の回転"
 
@@ -1538,7 +1544,7 @@ msgid "SILENT SPLASH"
 msgstr "音声無し"
 
 msgid "NO SPLASH"
-msgstr "映像無し"
+msgstr "ブート映像無し"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
@@ -1604,10 +1610,10 @@ msgid "STORAGE DEVICE"
 msgstr "ストレージデバイス"
 
 msgid "BACKUP USER DATA"
-msgstr "ユーザデータバックアップ"
+msgstr "データバックアップ"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "BATOCERAを新規ディスクにインストール"
+msgstr "BATOCERAをストレージにインストール"
 
 msgid "ADVANCED"
 msgstr "詳細項目"
@@ -1688,7 +1694,7 @@ msgid "GAME RATIO"
 msgstr "ゲーム画面比率"
 
 msgid "VIDEO MODE"
-msgstr "映像解像度"
+msgstr "ゲーム画面解像度"
 
 msgid "SMOOTH GAMES"
 msgstr "スムージング"
@@ -1703,10 +1709,10 @@ msgid "AUTO SAVE/LOAD"
 msgstr "オートセーブ/ロード"
 
 msgid "SHOW SAVE SNAPSHOTS"
-msgstr "オートセーブを表示する"
+msgstr "オートセーブを表示"
 
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-msgstr "オートセーブがあれば表示する"
+msgstr "オートセーブがあれば表示"
 
 msgid "SHADERS SET"
 msgstr "シェーダー設定"
@@ -1758,7 +1764,7 @@ msgstr ""
 "ベースとしたものに なります。"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH デバイスのペアリング"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1879,14 +1885,17 @@ msgstr "アイコン"
 msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "音量"
 
 msgid "SYSTEM VOLUME"
-msgstr "システムBGM音量"
+msgstr "メイン音量"
 
 msgid "MUSIC VOLUME"
-msgstr "ゲーム音量"
+msgstr "ES-BGM音量"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "音量変更を画面に表示"
@@ -1895,7 +1904,7 @@ msgid "MUSIC"
 msgstr "音楽"
 
 msgid "FRONTEND MUSIC"
-msgstr "フロントエンドBGM"
+msgstr "ES-BGM"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "BGM名の表示"
@@ -2285,6 +2294,9 @@ msgstr "リリース年、システム、昇順"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "リリース年、システム、降順"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "抽出"
 
@@ -2489,6 +2501,12 @@ msgstr "カーソル移動"
 msgid "EDIT"
 msgstr "編集"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2524,20 +2542,11 @@ msgstr "%d 分"
 msgid "%d s"
 msgstr "%d 秒"
 
-#~ msgid "FORGET A BLUETOOTH CONTROLLER"
-#~ msgstr "BLUETOOTH コントローラーを解除"
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
 
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "コントローラーのリンクが切れました。"
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "コントローラー設定"
-
-#~ msgid "PAIR A BLUETOOTH CONTROLLER"
-#~ msgstr "BLUETOOTH コントローラのペアリング"
-
-#~ msgid "Done."
-#~ msgstr "完了。"
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

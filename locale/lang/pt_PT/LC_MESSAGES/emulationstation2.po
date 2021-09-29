@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 08:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1482,6 +1482,9 @@ msgstr "MOSTRAR O RELÓGIO NO FORMATO 12 HORAS"
 msgid "POWER SAVER MODES"
 msgstr "MODO POUPANÇA DE ENERGIA"
 
+msgid "TEXT TO SPEECH"
+msgstr "TEXTO PARA FALA"
+
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
 
@@ -1517,6 +1520,9 @@ msgstr "SAÍDA DE VÍDEO"
 
 msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
+
+msgid "AUDIO PROFILE"
+msgstr "PERFIL DE ÁUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DO ECRÃ"
@@ -1875,6 +1881,9 @@ msgstr "ÍCONE"
 
 msgid "ICON AND TEXT"
 msgstr "ÍCONE E TEXTO"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2284,6 +2293,9 @@ msgstr "ANO DE LANÇAMENTO, SISTEMA, CRESCENTE"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANO DE LANÇAMENTO, SISTEMA, DECRESCENTE"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "A extrair"
 
@@ -2490,6 +2502,12 @@ msgstr "MOVER CURSOR"
 msgid "EDIT"
 msgstr "EDITAR"
 
+msgid "ENABLED"
+msgstr "ATIVADO"
+
+msgid "DISABLED"
+msgstr "DESATIVADO"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2529,4 +2547,8 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
+msgid "TEXT TO SPEECH ENABLED"
+msgstr "TEXTO PARA FALA ATIVADO"
 
+msgid "TEXT TO SPEECH DISABLED"
+msgstr "TEXTO PARA FALA DESATIVADO"

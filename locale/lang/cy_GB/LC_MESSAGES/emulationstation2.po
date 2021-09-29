@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1483,6 +1483,9 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr "MODDAU ARBED PŴER"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "MODD UI"
 
@@ -1519,6 +1522,9 @@ msgstr "ALLBWN FIDEO"
 
 msgid "AUDIO OUTPUT"
 msgstr "ALLBWN SAIN"
+
+msgid "AUDIO PROFILE"
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr ""
@@ -1878,6 +1884,9 @@ msgstr "EICON"
 
 msgid "ICON AND TEXT"
 msgstr "EICON A THESTUN"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "LEFEL SAIN"
@@ -2302,6 +2311,9 @@ msgstr ""
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr ""
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Echdynnu"
 
@@ -2522,6 +2534,12 @@ msgstr "SYMUD CYRCHWR"
 msgid "EDIT"
 msgstr "GOLYGU"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2576,6 +2594,12 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d e"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr ""
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "ANGHOFIO RHEOLWR BLUETOOTH"

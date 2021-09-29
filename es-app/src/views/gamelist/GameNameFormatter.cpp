@@ -87,9 +87,9 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_ASCENDING ||
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_DESCENDING;
 
-	mShowSystemName = (system->isGroupSystem() || system->isCollection()) && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+	mShowSystemName = (!system->isGameSystem() || system->isCollection()) && Settings::getInstance()->getBool("CollectionShowSystemInfo");
 
-	if (mShowSystemName && system->isGroupSystem() && system->getFolderViewMode() != "never")
+	if (mShowSystemName && !system->isGameSystem() && system->getFolderViewMode() != "never")
 		mShowSystemName = false;
 }
 
@@ -110,7 +110,7 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 	{
 		if (fd->getSystem()->isGroupChildSystem())
 			showSystemNameByFile = fd->getSystem()->getRootFolder()->getChildren().size() > 1;
-		else if (fd->getSystem()->isGroupSystem())
+		else if (!fd->getSystem()->isGameSystem())
 			showSystemNameByFile = false;
 	}
 

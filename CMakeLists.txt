@@ -11,6 +11,7 @@ option(BCM "BCM host" OFF)
 option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem" OFF)
 option(DISABLE_KODI "Set to ON to disable kodi in menu" OFF)
 option(ENABLE_PULSE "Set to ON to enable pulse audio (versus alsa)" OFF)
+option(ENABLE_TTS "Set to ON to enable text to speech" OFF)
 
 project(emulationstation-all)
 
@@ -106,6 +107,17 @@ if(ENABLE_PULSE)
   add_definitions(-D_ENABLE_PULSE_)
 else()
   MESSAGE("pulse audio disabled")
+endif()
+
+if(ENABLE_TTS)
+  MESSAGE("tts enabled")
+  find_library(LIBESPEAK_LIBRARIES NAMES espeak REQUIRED)
+  if("${LIBESPEAK_LIBRARIES}" STREQUAL "LIBESPEAK_LIBRARIES-NOTFOUND")
+    MESSAGE(FATAL_ERROR "espeak not found")
+  endif()
+  add_definitions(-D_ENABLE_TTS_)
+else()
+  MESSAGE("tts disabled")
 endif()
 
 if(CEC)
@@ -281,6 +293,12 @@ set(COMMON_LIBRARIES
 if(ENABLE_PULSE)
  LIST(APPEND COMMON_LIBRARIES
     ${PULSEAUDIO_LIBRARY}
+      )
+endif()
+
+if(ENABLE_TTS)
+ LIST(APPEND COMMON_LIBRARIES
+    ${LIBESPEAK_LIBRARIES}
       )
 endif()
 

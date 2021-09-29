@@ -107,6 +107,7 @@ namespace PlatformIds
 		{ "oricatmos",				ORICATMOS },
 		{ "tyrquake",				QUAKE },
 		{ "mrboom",					MRBOOM },
+		{ "sonicretro",					SONIC },
 		{ "cannonball",					CANNONBALL },
 
 		// windows specific systems & names

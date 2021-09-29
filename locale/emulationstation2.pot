@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 08:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1478,6 +1478,9 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr ""
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr ""
 
@@ -1509,6 +1512,9 @@ msgid "VIDEO OUTPUT"
 msgstr ""
 
 msgid "AUDIO OUTPUT"
+msgstr ""
+
+msgid "AUDIO PROFILE"
 msgstr ""
 
 msgid "SCREEN ROTATION"
@@ -1863,6 +1869,9 @@ msgid "ICON"
 msgstr ""
 
 msgid "ICON AND TEXT"
+msgstr ""
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr ""
 
 msgid "VOLUME"
@@ -2266,6 +2275,9 @@ msgstr ""
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr ""
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr ""
 
@@ -2470,6 +2482,12 @@ msgstr ""
 msgid "EDIT"
 msgstr ""
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2507,4 +2525,10 @@ msgstr ""
 
 #, c-format
 msgid "%d s"
+msgstr ""
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
 msgstr ""

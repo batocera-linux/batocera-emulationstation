@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 08:00+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -618,7 +618,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "PESQUISA DE REDES WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "REMOVER DISPOSITIVO BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "REMOVER TODOS"
@@ -627,7 +627,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM REMOVIDOS"
 
 msgid "FILE BROWSER"
 msgstr "EXPLORAR ARQUIVOS"
@@ -1148,7 +1148,7 @@ msgid "VERSION"
 msgstr "VERSÃO"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "SHADERS"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1160,7 +1160,7 @@ msgid "GAMES SETTINGS"
 msgstr "OPÇÕES DE JOGOS"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "OPÇÕES DE CONTROLES & BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "OPÇÕES DA INTERFACE"
@@ -1483,6 +1483,9 @@ msgstr "EXIBIR RELÓGIO NO FORMATO DE 12 HORAS"
 msgid "POWER SAVER MODES"
 msgstr "MODOS ECONOMIA DE ENERGIA"
 
+msgid "TEXT TO SPEECH"
+msgstr "TEXTO PARA FALA"
+
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
 
@@ -1521,6 +1524,9 @@ msgstr "SAÍDA DE VÍDEO"
 msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
+msgid "AUDIO PROFILE"
+msgstr "PERFIL DE AÚDIO"
+
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DE TELA"
 
@@ -1534,13 +1540,13 @@ msgid "INVERTED ROTATION"
 msgstr "INVERTER ROTAÇÃO"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "TELA DE INICIALIZAÇÃO"
 
 msgid "SILENT SPLASH"
-msgstr ""
+msgstr "INICIALIZAÇÃO SILENCIOSA"
 
 msgid "NO SPLASH"
-msgstr ""
+msgstr "SEM TELA DE INICIALIZAÇÃO"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "OPÇÕES DE RETROACHIEVEMENTS"
@@ -1759,7 +1765,7 @@ msgstr ""
 "EXISTEM EM SEU CONTROLE PRESSIONANDO UM BOTÃO JÁ CONFIGURADO EM SEU CONTROLE."
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "PAREAR DISPOSITIVO BLUETOOTH"
 
 #, c-format
 msgid "INPUT P%i"
@@ -1878,6 +1884,9 @@ msgstr "ÍCONE"
 
 msgid "ICON AND TEXT"
 msgstr "ÍCONE E TEXTO"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2288,6 +2297,9 @@ msgstr "ANO DE LANÇAMENTO, SISTEMA, CRESCENTE"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANO DE LANÇAMENTO, SISTEMA, DECRESCENTE"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Extraindo"
 
@@ -2494,6 +2506,12 @@ msgstr "MOVER CURSOR"
 msgid "EDIT"
 msgstr "EDITAR"
 
+msgid "ENABLED"
+msgstr "HABILITADO"
+
+msgid "DISABLED"
+msgstr "DESABILITADO"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2533,29 +2551,8 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-#~ msgid "FORGET A BLUETOOTH CONTROLLER"
-#~ msgstr "REMOVER CONTROLE BLUETOOTH"
+msgid "TEXT TO SPEECH ENABLED"
+msgstr "TEXTO PARA FALA HABILITADO"
 
-#~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
-#~ msgstr "OS LINKS COM OS CONTROLES FORAM EXCLUÍDOS"
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "OPÇÕES DE CONTROLES"
-
-#~ msgid "PAIR A BLUETOOTH CONTROLLER"
-#~ msgstr "PAREAR UM CONTROLE BLUETOOTH"
-
-#~ msgid "Done."
-#~ msgstr "Concluído."
-
-#~ msgid "GL VENDOR"
-#~ msgstr "FABRICANTE DA GPU"
-
-#~ msgid "GL RENDERER"
-#~ msgstr "RENDERIZADOR DA GPU"
-
-#~ msgid "GL VERSION"
-#~ msgstr "VERSÃO DA GPU"
-
-#~ msgid "GLSL VERSION"
-#~ msgstr "VERSÃO DA GLSL"
+msgid "TEXT TO SPEECH DISABLED"
+msgstr "TEXTO PARA FALA DESABILITADO"

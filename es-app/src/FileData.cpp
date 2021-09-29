@@ -28,6 +28,7 @@
 #include "RetroAchievements.h"
 #include "SaveStateRepository.h"
 #include "Genres.h"
+#include "TextToSpeech.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -776,7 +777,7 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	auto sys = CollectionSystemManager::get()->getSystemToView(mSystem);
 
 	std::vector<std::string> hiddenExts;
-	if (!mSystem->isGroupSystem() && !mSystem->isCollection())
+	if (mSystem->isGameSystem() && !mSystem->isCollection())
 		for (auto ext : Utils::String::split(Settings::getInstance()->getString(mSystem->getName() + ".HiddenExt"), ';'))	
 			hiddenExts.push_back("." + Utils::String::toLower(ext));
 	
@@ -979,7 +980,7 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 	SystemData* pSystem = (system != nullptr ? system : mSystem);
 
 	std::vector<std::string> hiddenExts;
-	if (!pSystem->isGroupSystem() && !pSystem->isCollection())
+	if (pSystem->isGameSystem() && !pSystem->isCollection())
 		for (auto ext : Utils::String::split(Settings::getInstance()->getString(pSystem->getName() + ".HiddenExt"), ';'))
 			hiddenExts.push_back("." + Utils::String::toLower(ext));
 
@@ -1511,3 +1512,7 @@ std::string FileData::getCurrentGameSetting(const std::string& settingName)
 
 	return SystemConf::getInstance()->get("global." + settingName);
 }
+
+void FileData::speak() {
+  TextToSpeech::getInstance()->say(getName());
+};

@@ -49,6 +49,7 @@
 #include "guis/GuiBios.h"
 #include "guis/GuiKeyMappingEditor.h"
 #include "Gamelist.h"
+#include "TextToSpeech.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -871,7 +872,7 @@ void GuiMenu::openDeveloperSettings()
 		{
 			for (auto system : SystemData::sSystemVector)
 			{
-				if (system->isCollection() || system->isGroupSystem())
+				if (system->isCollection() || !system->isGameSystem())
 					continue;
 
 				for (auto game : system->getRootFolder()->getFilesRecursive(GAME))
@@ -1276,6 +1277,19 @@ void GuiMenu::openSystemSettings_batocera()
 		PowerSaver::init();
 	});
 
+#ifdef _ENABLE_TTS_
+	// tts
+	auto tts = std::make_shared<SwitchComponent>(mWindow);
+	tts->setState(Settings::getInstance()->getBool("TTS"));
+	s->addWithLabel(_("TEXT TO SPEECH"), tts);
+	s->addSaveFunc([tts] {
+			 if(TextToSpeech::getInstance()->enabled() != tts->getState()) {
+			   TextToSpeech::getInstance()->enable(tts->getState());
+			   Settings::getInstance()->setBool("TTS", tts->getState());
+			 }
+		       });
+#endif
+
 	// UI RESTRICTIONS
 	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
 	std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
@@ -1415,11 +1429,57 @@ void GuiMenu::openSystemSettings_batocera()
 
 	s->addSaveFunc([this, optionsAudio, selectedAudio] 
 	{
-		bool v_need_reboot = false;
-
 		if (optionsAudio->changed()) {
 			SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
 			ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
+		}
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	// audio profile
+	auto optionsAudioProfile = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO PROFILE"), false);
+
+	std::vector<std::string> availableAudioProfiles = ApiSystem::getInstance()->getAvailableAudioOutputProfiles();
+	std::string selectedAudioProfile = ApiSystem::getInstance()->getCurrentAudioOutputProfile();
+	if (selectedAudioProfile.empty())
+		selectedAudioProfile = "auto";
+
+	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	{
+		bool vfound = false;
+		for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
+		{
+			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+			if (selectedAudioProfile == tokens.at(0))
+				vfound = true;
+
+			if (tokens.size() >= 2)
+			{
+				// concatenat the ending words
+				std::string vname = "";
+				for (unsigned int i = 1; i < tokens.size(); i++)
+				{
+					if (i > 2) vname += " ";
+					vname += tokens.at(i);
+				}
+				optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
+			}
+			else
+				optionsAudioProfile->add((*it), (*it), selectedAudioProfile == tokens.at(0));
+		}
+
+		if (vfound == false)
+			optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
+
+		s->addWithLabel(_("AUDIO PROFILE"), optionsAudioProfile);
+	}
+
+	s->addSaveFunc([this, optionsAudioProfile, selectedAudioProfile] 
+	{
+		if (optionsAudioProfile->changed()) {
+			SystemConf::getInstance()->set("audio.profile", optionsAudioProfile->getSelected());
+			ApiSystem::getInstance()->setAudioOutputProfile(optionsAudioProfile->getSelected());
 		}
 		SystemConf::getInstance()->saveSystemConf();
 	});
@@ -2166,7 +2226,7 @@ void GuiMenu::openGamesSettings_batocera()
 		std::vector<SystemData *> systems = SystemData::sSystemVector;
 		for (auto system : systems)
 		{
-			if (system->isCollection() || system->isGroupSystem())
+			if (system->isCollection() || !system->isGameSystem())
 				continue;
 
 			if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
@@ -2930,7 +2990,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		
 
 		// File extensions
-		if (!system->isCollection() && !system->isGroupSystem())
+		if (!system->isCollection() && system->isGameSystem())
 		{
 			auto hiddenExts = Utils::String::split(Settings::getInstance()->getString(system->getName() + ".HiddenExt"), ';');
 
@@ -3356,6 +3416,16 @@ void GuiMenu::openUISettings()
 		}
 	});
 	
+	auto ignoreArticles = std::make_shared<SwitchComponent>(mWindow);
+	ignoreArticles->setState(Settings::getInstance()->getBool("IgnoreLeadingArticles"));
+	s->addWithLabel(_("IGNORE LEADING ARTICLES WHEN SORTING"), ignoreArticles);
+	s->addSaveFunc([s, ignoreArticles]
+	{
+		if (Settings::getInstance()->setBool("IgnoreLeadingArticles", ignoreArticles->getState()))
+		{
+			s->setVariable("reloadAll", true);
+		}
+	});
 
 	s->onFinalize([s, pthis, window]
 	{

@@ -10,6 +10,7 @@
 #include "FileData.h"
 #include "LocaleES.h"
 #include "GameNameFormatter.h"
+#include "TextToSpeech.h"
 
 BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 	: ISimpleGameListView(window, root), mList(window)
@@ -19,7 +20,11 @@ BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 	mList.setDefaultZIndex(20);
 
 	mList.setCursorChangedCallback([&](const CursorState& /*state*/) 
-		{ 
+		{
+		  FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
+		  if (file != nullptr)
+		    file->speak();
+		  
 			if (mRoot->getSystem()->isCollection())
 				updateHelpPrompts();
 		});
@@ -52,7 +57,7 @@ void BasicGameListView::onFileChanged(FileData* file, FileChangeType change)
 
 void BasicGameListView::populateList(const std::vector<FileData*>& files)
 {
-	SystemData* system = mCursorStack.size() && mRoot->getSystem()->isGroupSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+	SystemData* system = mCursorStack.size() && !mRoot->getSystem()->isGameSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
 
 	auto groupTheme = system->getTheme();
 	if (groupTheme && mHeaderImage.hasImage())
@@ -164,6 +169,7 @@ void BasicGameListView::setCursor(FileData* cursor)
 			mCursorStack = stack;
 			populateList(*childrenToDisplay.get());
 			mList.setCursor(cursor);
+			TextToSpeech::getInstance()->say(cursor->getName());
 		}
 	}
 }

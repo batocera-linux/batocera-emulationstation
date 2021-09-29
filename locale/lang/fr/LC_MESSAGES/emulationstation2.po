@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1480,6 +1480,9 @@ msgstr "AFFICHER L’HORLOGE AU FORMAT 12 HEURES"
 msgid "POWER SAVER MODES"
 msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
 
+msgid "TEXT TO SPEECH"
+msgstr "SYNTHÈSE VOCALE"
+
 msgid "UI MODE"
 msgstr "MODE D'AFFICHAGE"
 
@@ -1516,6 +1519,9 @@ msgstr "SORTIE VIDÉO"
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
+
+msgid "AUDIO PROFILE"
+msgstr "PROFIL AUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTATION DE L’ÉCRAN"
@@ -1876,6 +1882,9 @@ msgstr "ICÔNE"
 
 msgid "ICON AND TEXT"
 msgstr "ICÔNE ET TEXTE"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2289,6 +2298,9 @@ msgstr "ANNÉE DE SORTIE, SYSTÈME, CROISSANT"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANNÉE DE SORTIE, SYSTÈME, DÉCROISSANT"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Extraction"
 
@@ -2497,6 +2509,12 @@ msgstr "DÉPLACER LE CURSEUR"
 msgid "EDIT"
 msgstr "EDITER"
 
+msgid "ENABLED"
+msgstr "ACTIVÉ"
+
+msgid "DISABLED"
+msgstr "DÉSACTIVÉ"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2535,3 +2553,9 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr "SYNTHÈSE VOCALE ACTIVÉE"
+
+msgid "TEXT TO SPEECH DISABLED"
+msgstr "SYNTHÈSE VOCALE DÉSACTIVÉE"

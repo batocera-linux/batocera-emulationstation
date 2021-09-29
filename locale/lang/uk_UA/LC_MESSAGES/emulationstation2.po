@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-28 08:17+0200\n"
+"POT-Creation-Date: 2021-09-27 07:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1480,6 +1480,9 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЕНЕРГОЗБЕРЕЖЕННЯ"
 
+msgid "TEXT TO SPEECH"
+msgstr ""
+
 msgid "UI MODE"
 msgstr "РЕЖИМ ІНТЕРФЕЙСУ"
 
@@ -1515,6 +1518,9 @@ msgstr "ВІДЕО ВИХІД"
 
 msgid "AUDIO OUTPUT"
 msgstr "АУДІО ВИХІД"
+
+msgid "AUDIO PROFILE"
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr ""
@@ -1873,6 +1879,9 @@ msgid "ICON"
 msgstr ""
 
 msgid "ICON AND TEXT"
+msgstr ""
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr ""
 
 msgid "VOLUME"
@@ -2280,6 +2289,9 @@ msgstr ""
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr ""
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr ""
 
@@ -2491,6 +2503,12 @@ msgstr "ПЕРЕСУНУТИ КУРСОР"
 msgid "EDIT"
 msgstr "РЕДАГУВАТИ"
 
+msgid "ENABLED"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2532,6 +2550,12 @@ msgstr ""
 
 #, c-format
 msgid "%d s"
+msgstr ""
+
+msgid "TEXT TO SPEECH ENABLED"
+msgstr ""
+
+msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
