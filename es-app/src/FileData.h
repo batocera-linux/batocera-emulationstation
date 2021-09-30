@@ -115,7 +115,8 @@ public:
 	// As above, but also remove parenthesis
 	std::string getCleanName();
 
-	bool launchGame(Window* window, LaunchGameOptions options = LaunchGameOptions());
+	std::string getlaunchCommand(LaunchGameOptions options = LaunchGameOptions(), bool includeControllers = true);
+	bool		launchGame(Window* window, LaunchGameOptions options = LaunchGameOptions());
 
 	static void resetSettings();
 	
