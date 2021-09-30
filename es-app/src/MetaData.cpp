@@ -141,7 +141,10 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 	MetaDataList mdl(type);
 	mdl.mRelativeTo = system;
 	std::string value;
-	
+	std::string relativeTo = mdl.mRelativeTo->getStartPath();
+
+	bool preloadMedias = Settings::getInstance()->getBool("PreloadMedias");
+
 	for (pugi::xml_node xelement : node.children())
 	{
 		std::string name = xelement.name();
@@ -178,7 +181,11 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 
 		if (mdd.type == MD_BOOL)
 			value = Utils::String::toLower(value);
-
+		
+		if (preloadMedias && mdd.type == MD_PATH && (mdd.id == MetaDataId::Image || mdd.id == MetaDataId::Thumbnail || mdd.id == MetaDataId::Marquee) &&
+			!Utils::FileSystem::exists(Utils::FileSystem::resolveRelativePath(value, relativeTo, true)))
+			continue;
+		
 		// Players -> remove "1-"
 		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
 			value = Utils::String::replace(value, "1-", "");
