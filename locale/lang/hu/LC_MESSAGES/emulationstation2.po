@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -902,6 +902,12 @@ msgstr "JÁTÉK MAGAZINE MEGJELENÍTÉSE"
 msgid "VIEW GAME MAP"
 msgstr "JÁTÉK TÉRKÉP MEGJELENÍTÉSE"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "A KIVÁLASZTOTT CORE NEM KOMPATIBILIS"
 
@@ -1147,6 +1153,12 @@ msgstr "VERZIÓ"
 msgid "SHADERS"
 msgstr ""
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "KONTROLLER BEÁLLÍTÁSOK"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "FŐMENÜ"
 
@@ -1155,9 +1167,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "JÁTÉK BEÁLLÍTÁSOK"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "KINÉZET BEÁLLÍTÁSOK"
@@ -1428,6 +1437,12 @@ msgstr "OPTIMALIZÁLÁSOK"
 
 msgid "PRELOAD UI"
 msgstr "UI ELŐTÖLTÉSE"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "TÖBBSZÁLAS TÖLTÉS"
@@ -1881,6 +1896,9 @@ msgstr "IKON"
 msgid "ICON AND TEXT"
 msgstr "IKON ÉS SZÖVEG"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "HANGERŐ"
 
@@ -2292,6 +2310,9 @@ msgstr "MEGJELENÉSI DÁTUM, RENDSZER, NÖVEKVŐ SORREND"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "MEGJELENÉSI DÁTUM, RENDSZER, CSÖKKENŐ SORREND"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Kitömörítés"
 
@@ -2555,9 +2576,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "KONTROLLER PÁROSÍTÁSOK TÖRÖLVE."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "KONTROLLER BEÁLLÍTÁSOK"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "BLUETOOTH KONTROLLER PÁROSÍTÁSA"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -904,6 +904,12 @@ msgstr "VER REVISTA DE JOGOS"
 msgid "VIEW GAME MAP"
 msgstr "VISUALIZAR MAPA DO JOGO"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "O CORE ATUAL NÃO É COMPATIVEL"
 
@@ -1149,6 +1155,12 @@ msgstr "VERSÃO"
 msgid "SHADERS"
 msgstr "SHADERS"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr ""
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "DEFINIÇÕES COMANDOS & BLUETOOTH"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -1157,9 +1169,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "DEFINIÇÕES DE JOGO"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "DEFINIÇÕES COMANDOS & BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "DEFINIÇÕES DA INTERFACE"
@@ -1431,6 +1440,12 @@ msgstr "OTIMIZAÇÕES"
 msgid "PRELOAD UI"
 msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
 
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
 
@@ -1483,7 +1498,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODO POUPANÇA DE ENERGIA"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "TEXTO PARA FALA"
 
 msgid "UI MODE"
 msgstr "MODO DA INTERFACE"
@@ -1522,7 +1537,7 @@ msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "PERFIL DE ÁUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DO ECRÃ"
@@ -1881,6 +1896,9 @@ msgstr "ÍCONE"
 
 msgid "ICON AND TEXT"
 msgstr "ÍCONE E TEXTO"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2290,6 +2308,9 @@ msgstr "ANO DE LANÇAMENTO, SISTEMA, CRESCENTE"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANO DE LANÇAMENTO, SISTEMA, DECRESCENTE"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "A extrair"
 
@@ -2497,10 +2518,10 @@ msgid "EDIT"
 msgstr "EDITAR"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ATIVADO"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "DESATIVADO"
 
 #, c-format
 msgid "%d day ago"
@@ -2542,7 +2563,7 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "TEXTO PARA FALA ATIVADO"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "TEXTO PARA FALA DESATIVADO"

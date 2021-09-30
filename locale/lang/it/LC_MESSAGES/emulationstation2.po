@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -642,7 +642,7 @@ msgid "SCREENSHOTS FOLDER"
 msgstr "CARTELLA SCREENSHOT"
 
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "SELEZIONA"
 
 msgid "ADD COMBINATION KEY"
 msgstr "AGGIUNGI TASTO COMBINAZIONE"
@@ -904,6 +904,12 @@ msgstr "MOSTRA RIVISTA"
 msgid "VIEW GAME MAP"
 msgstr "MOSTRA MAPPA DI GIOCO"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "QUESTO CORE NON È COMPATIBILE"
 
@@ -1149,6 +1155,12 @@ msgstr "VERSIONE"
 msgid "SHADERS"
 msgstr "SHADERS"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "OPZIONI CONTROLLER"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "OPZIONI CONTROLLER E BLUETOOTH"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
 
@@ -1157,9 +1169,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "OPZIONI GIOCHI"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "OPZIONI CONTROLLER E BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "OPZIONI INTERFACCIA"
@@ -1430,8 +1439,14 @@ msgstr "OTTIMIZZAZIONI"
 msgid "PRELOAD UI"
 msgstr "UI PRECARICATA"
 
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
+
 msgid "THREADED LOADING"
-msgstr "CARICAMENTO INCODATO"
+msgstr "CARICAMENTO ACCODATO"
 
 msgid "ASYNC IMAGES LOADING"
 msgstr "CARICAMENTO IMMAGINI ASINCRONO"
@@ -1482,7 +1497,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODALITÀ RISPARMIO ENERGETICO"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "TEXT TO SPEECH"
 
 msgid "UI MODE"
 msgstr "MODALITÀ INTERFACCIA"
@@ -1881,6 +1896,9 @@ msgstr "ICONA"
 
 msgid "ICON AND TEXT"
 msgstr "ICONA E TESTO"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2293,6 +2311,9 @@ msgstr "ANNO DI USCITA, SISTEMA, ASCENDENTE"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANNO DI USCITA, SISTEMA, DISCENDENTE"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Estrazione"
 
@@ -2502,10 +2523,10 @@ msgid "EDIT"
 msgstr "MODIFICA"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ATTIVATO"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "DISATTIVATO"
 
 #, c-format
 msgid "%d day ago"
@@ -2547,19 +2568,16 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "TEXT TO SPEECH ATTIVATO"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "TEXT TO SPEECH DISATTIVATO"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "RIMUOVI UN CONTROLLER BLUETOOTH"
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "TUTTI I CONTROLLER COLLEGATI SONO STATI RIMOSSI."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "OPZIONI CONTROLLER"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "CERCA UN CONTROLLER BLUETOOTH"

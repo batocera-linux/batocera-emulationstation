@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -904,6 +904,12 @@ msgstr "VOIR LE MAGAZINE DU JEU"
 msgid "VIEW GAME MAP"
 msgstr "VOIR LA CARTE DU JEU"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "COEUR ACTUEL NON COMPATIBLE"
 
@@ -1147,6 +1153,12 @@ msgstr "VERSION"
 msgid "SHADERS"
 msgstr "FILTRES"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr ""
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "PARAMÈTRES DES MANETTES ET PÉRIPHÉRIQUES BLUETOOTH"
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -1155,9 +1167,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "PARAMÈTRES DES MANETTES ET PÉRIPHÉRIQUES BLUETOOTH"
 
 msgid "UI SETTINGS"
 msgstr "PARAMÈTRES DE L'INTERFACE"
@@ -1428,6 +1437,12 @@ msgstr "OPTIMISATIONS"
 
 msgid "PRELOAD UI"
 msgstr "PRÉCHARGEMENT DE L'INTERFACE"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "CHARGEMENT EN PARALLÈLE"
@@ -1883,6 +1898,9 @@ msgstr "ICÔNE"
 msgid "ICON AND TEXT"
 msgstr "ICÔNE ET TEXTE"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "VOLUME"
 
@@ -2294,6 +2312,9 @@ msgstr "ANNÉE DE SORTIE, SYSTÈME, CROISSANT"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANNÉE DE SORTIE, SYSTÈME, DÉCROISSANT"
+
+msgid "A,AN,THE"
+msgstr ""
 
 msgid "Extracting"
 msgstr "Extraction"

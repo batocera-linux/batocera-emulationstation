@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -899,6 +899,12 @@ msgstr ""
 msgid "VIEW GAME MAP"
 msgstr ""
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr ""
 
@@ -1142,6 +1148,12 @@ msgstr "VERSJON"
 msgid "SHADERS"
 msgstr ""
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "KONTROLL INSTILLINGER"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HOVED MENY"
 
@@ -1150,9 +1162,6 @@ msgstr "KODI MEDIA CENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "SPILL INNSTILLINGER"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI INSTILLINGER"
@@ -1420,6 +1429,12 @@ msgid "OPTIMIZATIONS"
 msgstr ""
 
 msgid "PRELOAD UI"
+msgstr ""
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
 msgstr ""
 
 msgid "THREADED LOADING"
@@ -1871,6 +1886,9 @@ msgstr ""
 msgid "ICON AND TEXT"
 msgstr ""
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr ""
 
@@ -2272,6 +2290,9 @@ msgstr ""
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr ""
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr ""
 
@@ -2529,9 +2550,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "KONTROLL INSTILLINGER"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "PAR EN BLUETOOTH KONRTOLLER"

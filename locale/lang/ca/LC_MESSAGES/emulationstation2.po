@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -538,15 +538,6 @@ msgstr "VEURE MANUAL DEL JOC"
 msgid "VIEW GAME MAP"
 msgstr "VEURE MAPA DEL JOC"
 
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "REQUIRED CORE"
-msgstr ""
-
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr ""
-
 msgid "COLLECTION"
 msgstr "COL·LECCIÓ"
 
@@ -932,6 +923,24 @@ msgstr "XARXA REQUERIDA"
 msgid "INVALID PARAMETERS"
 msgstr "PARÀMETRES INVÀLIDS"
 
+msgid "VIEW GAME MAGAZINE"
+msgstr "VEURE MAGAZINE DEL JOC"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "EL NUCLI ACTUAL NO ÉS COMPATIBLE"
+
+msgid "REQUIRED CORE"
+msgstr "ES NECESSITA EL NUCLI"
+
+msgid "VIEW GAME ACHIEVEMENTS"
+msgstr "VEURE TROFEUS DEL JOC"
+
 msgid "GAME"
 msgstr "JOC"
 
@@ -1143,6 +1152,12 @@ msgstr "VERSIÓ"
 msgid "SHADERS"
 msgstr ""
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "PARÀMETRES DELS COMANDAMENTS"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
 
@@ -1151,9 +1166,6 @@ msgstr "CENTRE MULTIMÈDIA DEL KODI"
 
 msgid "GAMES SETTINGS"
 msgstr "PARÀMETRES DELS JOCS"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
@@ -1422,6 +1434,12 @@ msgstr "OPTIMITZACIONS"
 
 msgid "PRELOAD UI"
 msgstr "PRECARREGAR IU"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "CÀRREGA MULTI-FIL"
@@ -1876,6 +1894,9 @@ msgstr "ICONA I TEXT"
 msgid "SHOW FILENAMES IN LISTS"
 msgstr "MOSTRAR NOM D'ARXIU ALS LLISTATS"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "VOLUM"
 
@@ -2288,6 +2309,9 @@ msgstr ""
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr ""
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Extraient"
 
@@ -2548,9 +2572,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "S'HA ESBORRAT TOTS ELS COMANDAMENTS."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "PARÀMETRES DELS COMANDAMENTS"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "APARELLA UN COMANDAMENT BLUETOOTH"

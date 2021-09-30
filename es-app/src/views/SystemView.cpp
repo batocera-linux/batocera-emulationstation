@@ -1736,6 +1736,10 @@ void SystemView::onShow()
 
 	for (auto sb : mStaticVideoBackgrounds)
 		sb->onShow();
+
+	if (getSelected() != nullptr)
+		TextToSpeech::getInstance()->say(getSelected()->getFullName());
+
 }
 
 void SystemView::onHide()

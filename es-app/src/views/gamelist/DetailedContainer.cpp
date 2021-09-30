@@ -1139,6 +1139,9 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 {
 	if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
 	{
+		if (file != nullptr && !isClearing)
+			file->speak();
+
 		mContainer->updateControls(file, isClearing, moveBy);
 		return;
 	}

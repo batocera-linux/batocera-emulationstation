@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -902,6 +902,12 @@ msgstr ""
 msgid "VIEW GAME MAP"
 msgstr ""
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr ""
 
@@ -1145,6 +1151,12 @@ msgstr "VERSION"
 msgid "SHADERS"
 msgstr ""
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "KONTROLLINSTÄLLNINGAR"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
 
@@ -1153,9 +1165,6 @@ msgstr "KODI MEDIACENTER"
 
 msgid "GAMES SETTINGS"
 msgstr "SPELINSTÄLLNINGAR"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI-INSTÄLLNINGAR"
@@ -1425,6 +1434,12 @@ msgstr ""
 
 msgid "PRELOAD UI"
 msgstr "LADDA IN UI PÅ FÖRHAND"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "TRÅDAD LADDNING"
@@ -1879,6 +1894,9 @@ msgstr ""
 msgid "ICON AND TEXT"
 msgstr ""
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "VOLYM"
 
@@ -2280,6 +2298,9 @@ msgstr ""
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr ""
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr ""
 
@@ -2540,9 +2561,6 @@ msgstr ""
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "KONTROLLINSTÄLLNINGAR"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "PARA IHOP EN SPELKONTROLL VIA BLUETOOTH"

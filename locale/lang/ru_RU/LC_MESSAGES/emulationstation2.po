@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -905,6 +905,12 @@ msgstr "ПОСМОТРЕТЬ ЖУРНАЛ"
 msgid "VIEW GAME MAP"
 msgstr "ПОСМОТРЕТЬ КАРТУ"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "ТЕКУЩЕЕ ЯДРО НЕ СОВМЕСТИМО"
 
@@ -1150,6 +1156,12 @@ msgstr "ВЕРСИЯ"
 msgid "SHADERS"
 msgstr "ШЕЙДЕРЫ"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
+
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
 
@@ -1158,9 +1170,6 @@ msgstr "МЕДИАЦЕНТР KODI"
 
 msgid "GAMES SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
 
 msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
@@ -1431,6 +1440,12 @@ msgstr "ОПТИМИЗАЦИЯ"
 msgid "PRELOAD UI"
 msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
 
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
+
 msgid "THREADED LOADING"
 msgstr "МНОГОПОТОЧНАЯ ЗАГРУЗКА"
 
@@ -1483,7 +1498,7 @@ msgid "POWER SAVER MODES"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "ПРЕОБРАЗОВАНИЕ ТЕКСТА В РЕЧЬ"
 
 msgid "UI MODE"
 msgstr "РЕЖИМ ИНТЕРФЕЙСА"
@@ -1523,7 +1538,7 @@ msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
 
 msgid "AUDIO PROFILE"
-msgstr ""
+msgstr "АУДИО ПРОФИЛЬ"
 
 msgid "SCREEN ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
@@ -1883,6 +1898,9 @@ msgstr "ИКОНКА"
 
 msgid "ICON AND TEXT"
 msgstr "ИКОНКА И ТЕКСТ"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
 
 msgid "VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -2298,6 +2316,9 @@ msgstr "ДАТА РЕЛИЗА, СИСТЕМЫ, ПО ВОЗРАСТАНИЮ"
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ДАТА РЕЛИЗА, СИСТЕМЫ, ПО УБЫВАНИЮ"
 
+msgid "A,AN,THE"
+msgstr ""
+
 msgid "Extracting"
 msgstr "Распаковка"
 
@@ -2510,10 +2531,10 @@ msgid "EDIT"
 msgstr "РЕДАКТИРОВАТЬ"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ВКЛЮЧЕНО"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "ОТКЛЮЧЕНО"
 
 #, c-format
 msgid "%d day ago"
@@ -2559,19 +2580,16 @@ msgid "%d s"
 msgstr "%d с"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ВКЛЮЧЕНО"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ОТКЛЮЧЕНО"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "ОТВЯЗАТЬ BLUETOOTH КОНТРОЛЛЕР"
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "BLUETOOTH КОНТРОЛЛЕРЫ УДАЛЕНЫ"
-
-#~ msgid "CONTROLLERS SETTINGS"
-#~ msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
 
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "СОПРЯЖЕНИЕ BLUETOOTH КОНТРОЛЛЕРА"

@@ -14,6 +14,7 @@ public:
 	static void showPdf(Window* window, const std::string imagePath);
 	static void showCbz(Window* window, const std::string imagePath);
 	static void showImage(Window* window, const std::string imagePath, bool zoomSingleFile = false);
+	static void showImages(Window* window, std::vector<std::string>& images);
 
 	GuiImageViewer(Window* window, bool linearSmooth = false);
 	~GuiImageViewer();
@@ -27,6 +28,7 @@ public:
 protected:
 	void loadPdf(const std::string& imagePath);
 	void loadCbz(const std::string& imagePath);
+	void loadImages(std::vector<std::string>& images);
 
 	ImageGridComponent<std::string> mGrid;
 	std::shared_ptr<ThemeData> mTheme;

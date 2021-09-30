@@ -5,33 +5,59 @@
 #include <string>
 #include <memory>
 
+#if WIN32
+#include <thread>
+#include <mutex>
+#include <list>
+#include <condition_variable>
+#endif
+
 /*!
 Singleton pattern. Call getInstance() to get an object.
 */
 class TextToSpeech
 {
- private:
-  static std::weak_ptr<TextToSpeech> sInstance;
-  bool m_isAvailable;
-  bool m_enabled;
+public:
+	~TextToSpeech();
+	static std::shared_ptr<TextToSpeech>& getInstance();
 
-  TextToSpeech();
+	bool isAvailable();
+	bool isEnabled();
+	void enable(bool v, bool playSay = true);
+	bool toogle();
 
-  void init();
-  void deinit();
-  
- public:
-  static std::shared_ptr<TextToSpeech> & getInstance();
+	void setLanguage(const std::string language);
+	void say(const std::string text, bool expand = false, const std::string lang = "");
 
-  bool isAvailable();
-  bool enabled();
-  void enable(bool v);
-  bool toogle();
+private:
+	TextToSpeech();
+	
+	static std::weak_ptr<TextToSpeech> sInstance;
 
-  void setLanguage(const std::string language);
-  void say(const std::string text, bool expand = false);
+	bool m_isAvailable;
+	bool m_enabled;
 
-  ~TextToSpeech();
+	void init();
+	void deinit();
+
+#if WIN32
+	void SpeakThread();
+
+	std::thread*				mSpeakThread;
+	std::mutex					mMutex;
+	std::condition_variable		mEvent;
+	bool						mShouldTerminate;
+
+	class SpeakItem
+	{
+	public:
+		std::string text;
+		bool expand;
+	};
+
+	std::list<SpeakItem*>		mSpeechQueue;
+#endif
+
 };
 
 #endif // ES_APP_TEXTTOSPEECH_H

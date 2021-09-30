@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v32beta(2021/09/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-16 20:39+0200\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
 "PO-Revision-Date: 2021-09-15 20:16+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -904,6 +904,12 @@ msgstr "ゲーム雑誌を表示"
 msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
 
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIAS"
+msgstr ""
+
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "現在のコアと互換性がありません"
 
@@ -1149,6 +1155,12 @@ msgstr "バージョン"
 msgid "SHADERS"
 msgstr "シェーダー"
 
+msgid "CONTROLLERS SETTINGS"
+msgstr ""
+
+msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgstr "コントローラー＆BLUETOOTH 設定"
+
 msgid "MAIN MENU"
 msgstr "メインメニュー"
 
@@ -1157,9 +1169,6 @@ msgstr "KODI メディアセンター"
 
 msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr "コントローラー＆BLUETOOTH 設定"
 
 msgid "UI SETTINGS"
 msgstr "UI 設定"
@@ -1431,6 +1440,12 @@ msgstr "最適化"
 
 msgid "PRELOAD UI"
 msgstr "プレロード(先読み)式 UI"
+
+msgid "PRELOAD MEDIAS FILESYSTEM"
+msgstr ""
+
+msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "スレッド読み込み"
@@ -1885,6 +1900,9 @@ msgstr "アイコン"
 msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
 
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
 msgid "VOLUME"
 msgstr "音量"
 
@@ -2290,6 +2308,9 @@ msgstr "リリース年、システム、昇順"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "リリース年、システム、降順"
+
+msgid "A,AN,THE"
+msgstr ""
 
 msgid "Extracting"
 msgstr "抽出"

@@ -39,6 +39,8 @@ public:
 	Vector4f getPadding() { return mPadding; }
 	void setPadding(const Vector4f padding);
 
+	bool hasFocus() { return mFocused; }
+
 private:
 	std::shared_ptr<Font> mFont;
 	std::function<void()> mPressedFunc;

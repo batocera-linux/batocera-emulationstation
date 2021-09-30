@@ -95,6 +95,8 @@ public:
 	virtual const bool getKidGame();
 	virtual const bool hasCheevos();
 
+	std::vector<std::string> getFileMedias();
+
 	const std::string getConfigurationName();
 
 	inline bool isPlaceHolder() { return mType == PLACEHOLDER; };	
