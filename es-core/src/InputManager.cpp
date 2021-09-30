@@ -150,7 +150,12 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
 
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
-	SDL_InitSubSystem(SDL_INIT_JOYSTICK);	
+	
+	// RetroLX force joystick background events for Wayland
+	if (strcmp(SDL_GetCurrentVideoDriver(),"wayland")==0)
+		SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "1");
+
+	SDL_InitSubSystem(SDL_INIT_JOYSTICK);
 
 	mJoysticksLock.lock();
 
