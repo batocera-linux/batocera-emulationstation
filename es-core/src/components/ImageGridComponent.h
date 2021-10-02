@@ -1141,7 +1141,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		{			
 			std::string videoPath = mEntries.at(imgPos).data.videoPath;
 
-			if (!videoPath.empty() && ResourceManager::getInstance()->fileExists(videoPath))
+			if ((preloadMedias && !videoPath.empty()) || (!preloadMedias && ResourceManager::getInstance()->fileExists(videoPath)))
 				tile->setVideo(videoPath, mVideoDelay);
 			else
 				tile->setVideo("");

@@ -182,7 +182,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 		if (mdd.type == MD_BOOL)
 			value = Utils::String::toLower(value);
 		
-		if (preloadMedias && mdd.type == MD_PATH && (mdd.id == MetaDataId::Image || mdd.id == MetaDataId::Thumbnail || mdd.id == MetaDataId::Marquee) &&
+		if (preloadMedias && mdd.type == MD_PATH && (mdd.id == MetaDataId::Image || mdd.id == MetaDataId::Thumbnail || mdd.id == MetaDataId::Marquee || mdd.id == MetaDataId::Video) &&
 			!Utils::FileSystem::exists(Utils::FileSystem::resolveRelativePath(value, relativeTo, true)))
 			continue;
 		
