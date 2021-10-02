@@ -142,7 +142,7 @@ void Settings::setDefaults()
 	mIntMap["MaxVRAM"] = 128;
 #elif defined(_RPI_)
 	// Rpi 0, 1
-	mIntMap["MaxVRAM"] = 80;
+	mIntMap["MaxVRAM"] = 128;
 #else
 	// Other boards
 	mIntMap["MaxVRAM"] = 100;
