@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-30 20:52+0200\n"
-"PO-Revision-Date: 2020-08-15 15:32+0200\n"
-"Last-Translator: Quentin PAGÈS\n"
-"Language-Team: \n"
-"Language: oc\n"
+"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"PO-Revision-Date: 2021-10-02 17:16+0000\n"
+"Last-Translator: Weblate Admin <quentinantonin@free.fr>\n"
+"Language-Team: Occitan <https://fabrica.mejans.fr/projects/autres/batocera/"
+"oc/>\n"
+"Language: oc_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "UPDATE AVAILABLE"
@@ -65,34 +66,34 @@ msgid "enter path to logo"
 msgstr "dintrar lo camin d’accès al lògo"
 
 msgid "Box"
-msgstr ""
+msgstr "Bóstia"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "dintrar lo camin cap a la bóstia"
 
 msgid "Fan art"
-msgstr ""
+msgstr "Creacion d'afogat"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "dintrar lo camin cap a la creacion d'afogat"
 
 msgid "Title shot"
-msgstr ""
+msgstr "Imatge amb títol"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "dintrar lo camin d’accès a l’imatge amb títol"
 
 msgid "Manual"
 msgstr "Manual"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "dintrar lo camin d’accès al manual"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Revista"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "dintrar lo camin cap a la revista"
 
 msgid "Map"
 msgstr "Mapa"
@@ -101,34 +102,34 @@ msgid "enter path to map"
 msgstr "dintrar lo camin d’accès a la mapa"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "Cartocha"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "dintrar lo camin d’accès a la cartocha"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Bóstia (Alt)"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "dintrar lo camin d’accès a la bóstia alternativa"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Darrièr de la bóstia"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "dintrar lo camin d’accès al darrièr de la bóstia"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Logotipe"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "dintrar lo camin d’accès al logotipe"
 
 msgid "Mix"
-msgstr ""
+msgstr "Mix d’imatges"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "dintrar lo camin d’accès al mix d’imatges"
 
 msgid "Rating"
 msgstr "Valoracion"
@@ -161,22 +162,22 @@ msgid "enter game genre"
 msgstr "dintrar lo genre de jòc"
 
 msgid "Game family"
-msgstr ""
+msgstr "Familha del jòc"
 
 msgid "enter game family"
-msgstr ""
+msgstr "picar la familha del jòc"
 
 msgid "Genres"
-msgstr ""
+msgstr "Genres"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "dintrar los genres de jòc"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "Sistèma d'arcade"
 
 msgid "enter game arcade system"
-msgstr ""
+msgstr "dintrar lo nom del sistèma d'arcada"
 
 msgid "Players"
 msgstr "Jogaires"
@@ -194,13 +195,13 @@ msgid "Hidden"
 msgstr "Amagat"
 
 msgid "enter hidden"
-msgstr ""
+msgstr "dintrar lo jòc rescondut"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Jòc infantil"
 
 msgid "enter kidgame"
-msgstr ""
+msgstr "dintrar lo jòc infantil"
 
 msgid "Play count"
 msgstr "Comptador partidas"
@@ -230,7 +231,7 @@ msgid "Game time"
 msgstr "Durada de jòc"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "temps de jòc total (segondas)"
 
 msgid "Languages"
 msgstr "Lengas"
@@ -239,16 +240,16 @@ msgid "Region"
 msgstr "Region"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Soma de contraròtle Cheevos"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "ID Cheevos del jòc"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "ID de jòc Screenscraper"
 
 msgid "all games"
 msgstr "totes los jòcs"
@@ -269,13 +270,13 @@ msgid "never played"
 msgstr "pas jamai jogat"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "succès retro"
 
 msgid "arcade"
-msgstr ""
+msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "arcade verticala"
 
 msgid "lightgun games"
 msgstr ""
@@ -285,11 +286,11 @@ msgstr "colleccions"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr ""
+msgstr "'%s' apondut a %s"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr ""
+msgstr "'%s' tirat de '%s'"
 
 msgid "This collection is empty."
 msgstr "Aquesta colleccion es voida."
@@ -304,8 +305,8 @@ msgstr "Mantun"
 #, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aquesta colleccion conten %i jòc, inclusent : %s"
+msgstr[1] "Aquesta colleccion conten %i jòcs, inclusent : %s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SCAN. BLUETOOTH"
@@ -314,7 +315,7 @@ msgid "Searching controllers..."
 msgstr "Recrca de manetas..."
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr ""
+msgstr "ANALISI BLUETOOTH JA EN CORS."
 
 msgid "FORMATING DEVICE"
 msgstr "FORMATATGE PERIFERIC"
@@ -323,16 +324,16 @@ msgid "Formating"
 msgstr "Formatatge"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "UNA REAVIADA ES NECESSÀRIA PER APLICAR LAS MODIFICACION"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr ""
+msgstr "LO FORMATATGE D'UN DISC ES JA EN CORS."
 
 msgid "DOWNLOADING"
 msgstr "TELECARGAMENT"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "TÈMA INSTALLAT AMB SUCCÈS"
 
 msgid "AN ERROR OCCURED"
 msgstr "UNA ERROR S’ES PRODUCHA"
@@ -341,31 +342,31 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "TÈMA SUPRIMIT CORRÈCTAMENT"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS INSTALLAT AMB SUCCÈS"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS DESINSTALLAT AMB SUCCÈS"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PAQUET INSTALLAT AMB SUCCÈS"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PAQUET SUPRIMIT AMB SUCCÈS"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "FILTRAR LAS LISTAS DE JÒCS PER"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "MODIFICAR LOS FILTRES DE LA COLLECCION"
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "RESTABLIR LOS FILTRES"
 
 msgid "BACK"
 msgstr "TORNAR"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "RECERCAR DE JÒCS"
 
 msgid "Unknown"
 msgstr "Desconegudas"
@@ -386,7 +387,7 @@ msgid "COLLECTIONS TO DISPLAY"
 msgstr "COLLECCIONS A MOSTRAR"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr ""
+msgstr "SISTÈMA MOSTRATS"
 
 msgid "GROUPED SYSTEMS"
 msgstr "SISTÈMAS GROPATS"
@@ -422,25 +423,25 @@ msgid "BY MANUFACTURER"
 msgstr "PER FABRICANT"
 
 msgid "BY HARDWARE TYPE"
-msgstr ""
+msgstr "PER TIPE DE MATERIAL"
 
 msgid "BY RELEASE YEAR"
-msgstr ""
+msgstr "PER ANNADA DE SORTIDA"
 
 msgid "SORT SYSTEMS"
 msgstr "TRIAR LOS SISTÈMAS"
 
 msgid "START ON SYSTEM"
-msgstr ""
+msgstr "AVIAR SUL SISTÈMA"
 
 msgid "NONE"
 msgstr "PAS RES"
 
 msgid "RESTORE LAST SELECTED"
-msgstr ""
+msgstr "LO DARRIÈR SELECCIONAT"
 
 msgid "START ON GAMELIST"
-msgstr ""
+msgstr "AVIAR LA LISTA DE JÒCS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "GROPAR LAS COLLECCIONS E LOS SISTÈMAS"
@@ -449,7 +450,7 @@ msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR LO NOM DEL SISTÈMA DINS LAS COLLECCIONS"
 
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr ""
+msgstr "MOSTRAR LOS JÒCS DELS SISTÈMAS RESCONDUTS A LAS COLLECCIONS"
 
 msgid "UPDATE GAMES LISTS"
 msgstr "ACTUALIZAR LA LISTA DE JÒCS"
@@ -461,10 +462,10 @@ msgid "SELECT COLLECTIONS"
 msgstr "CAUSIR LAS COLLECCIONS"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr ""
+msgstr "COLLECCIONS AUTOMATICAS"
 
 msgid "PER GENRE"
-msgstr ""
+msgstr "PER GENRE"
 
 msgid "ARCADE SYSTEMS"
 msgstr "SISTÈMA D'ARCADA"
@@ -486,25 +487,25 @@ msgstr "ESPERATZ"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
 msgid "Points"
-msgstr ""
+msgstr "Punts"
 
 msgid "Rank"
-msgstr ""
+msgstr "Posicion"
 
 msgid "VIEW DETAILS"
-msgstr ""
+msgstr "VEIRE LOS DETALHS"
 
 msgid "LAUNCH"
 msgstr "LANÇAR"
 
 msgid "FINISHED"
-msgstr ""
+msgstr "TERMINAT"
 
 msgid "OK"
 msgstr "D'ACÒRDI"
@@ -519,10 +520,10 @@ msgid "NAVIGATION"
 msgstr "NAVEGACION"
 
 msgid "JUMP TO LETTER"
-msgstr ""
+msgstr "ANAR A LA LETRA"
 
 msgid "SELECT RANDOM GAME"
-msgstr ""
+msgstr "CAUSIR UN JÒC ALEATÒRIAMENT"
 
 msgid "SORT GAMES BY"
 msgstr "TRIAR PER JÒC"
@@ -546,25 +547,25 @@ msgid "VIEW CUSTOMISATION"
 msgstr "VEIRE PERSONALIZACION"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr ""
+msgstr "VEIRE LA CONFIGURACION PADTOKEY"
 
 msgid "ADVANCED SYSTEM OPTIONS"
-msgstr ""
+msgstr "CONFIGURACION AVANÇADA DEL SISTÈMA"
 
 msgid "RESET FILTERS"
-msgstr ""
+msgstr "RESTABLIR FILTRES"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "FILTRAR LOS JÒCS PER NOM"
 
 msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr ""
+msgstr "AQUESTA FONCION ES DESACTIVA PENDENT LA RECUPERACION DE DONADAS"
 
 msgid "CLOSE"
 msgstr "TAMPAR"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr ""
+msgstr "VOLÈTZ VERTADIÈRAMENT SUPRIMIR AQUESTE ELEMENT ?"
 
 msgid "INPUT"
 msgstr "ENTRADA"
@@ -588,13 +589,13 @@ msgid "FAILED"
 msgstr "FRACÀS"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr ""
+msgstr "VERSION DE ROM DESCONEGUDA"
 
 msgid "DIFFERENT ROM"
-msgstr ""
+msgstr "ROM DIFERENTA"
 
 msgid "SAME ROM"
-msgstr ""
+msgstr "ROM IDENTICA"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CÒS PAS DISPONIBLE"
@@ -609,10 +610,10 @@ msgid "NO GAME FOUND"
 msgstr "CAP DE JÒC PAS TROBAT"
 
 msgid "JOIN GAME"
-msgstr ""
+msgstr "REJÓNHER LO JÒC"
 
 msgid "WATCH GAME"
-msgstr ""
+msgstr "AGACHAR LO JÒC"
 
 msgid "MANUAL INPUT"
 msgstr "ENTRADA MANUALA"
@@ -624,7 +625,7 @@ msgid "SEARCHING WIFI NETWORKS"
 msgstr "RECÈRCA DE RET WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "OBLIDAR LO PERIFERIC BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "TOT SUPRIMIR"
@@ -633,19 +634,19 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "CAP DE PERIFERIC BLUETOOTH PAS TROBAT"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "TOTES LOS PERIFERICS BLUETOOTH SON ESTATS SUPRIMITS."
 
 msgid "FILE BROWSER"
-msgstr ""
+msgstr "NAVEGADOR DE FICHIÈRS"
 
 msgid "RESET"
 msgstr "REÏNICIALIZAR"
 
 msgid "PARENT FOLDER"
-msgstr ""
+msgstr "DOSSIÈR PARENT"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr ""
+msgstr "DOSSIÈR DE LAS CAPTURAS D’ECRAN"
 
 msgid "SELECT"
 msgstr "SELECCIONAR"
@@ -657,16 +658,16 @@ msgid "CONTENT DOWNLOADER"
 msgstr "TELECARGADOR DE CONTENGUT"
 
 msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr ""
+msgstr "SELECCIONATZ LO CONTENGUT D’INSTALLAR / DESINSTALLAR"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr ""
+msgstr "ACTUALIZAR CONTENGUT INSTALLAT"
 
 msgid "There are no items in this view"
-msgstr ""
+msgstr "I a pas cap d’element dins aqueste vista"
 
 msgid "MISC"
-msgstr ""
+msgstr "AUTRE"
 
 msgid "UPDATE"
 msgstr "ACTUALIZAR"
@@ -1864,7 +1865,7 @@ msgid "grid"
 msgstr ""
 
 msgid "DISPLAY OPTIONS"
-msgstr ""
+msgstr "OPCIONS D'AFICHATGE"
 
 msgid "TRANSITION STYLE"
 msgstr "ESTIL DE TRANSICION"
@@ -1882,10 +1883,10 @@ msgid "SHOW BATTERY STATUS"
 msgstr ""
 
 msgid "ICON"
-msgstr ""
+msgstr "ICÒNA"
 
 msgid "ICON AND TEXT"
-msgstr ""
+msgstr "ICÒNA E TÈXTE"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr ""
@@ -2208,28 +2209,28 @@ msgid "Collections"
 msgstr "Colleccions"
 
 msgid "FILENAME, ASCENDING"
-msgstr "NOM DE FICHIÈR, ASC."
+msgstr "NOM DE FICHIÈR, ASCENDENT"
 
 msgid "FILENAME, DESCENDING"
-msgstr "NOM DE FICHIÈR, DESC."
+msgstr "NOM DE FICHIÈR, DESCENDENT"
 
 msgid "RATING, ASCENDING"
-msgstr "VÒTES, ASC."
+msgstr "VÒTES, ASCENDENT"
 
 msgid "RATING, DESCENDING"
-msgstr "VÒTES, DESC."
+msgstr "VÒTES, DESCENDENT"
 
 msgid "TIMES PLAYED, ASCENDING"
-msgstr "TEMPS JOGAT, ASC."
+msgstr "TEMPS JOGAT, ASCENDENT"
 
 msgid "TIMES PLAYED, DESCENDING"
-msgstr "TEMPS JOGAT, DESC."
+msgstr "TEMPS JOGAT, DESCENDENT"
 
 msgid "LAST PLAYED, ASCENDING"
-msgstr "DARRIÈRA PARTIDA, ASC."
+msgstr "DARRIÈRA PARTIDA, ASCENDENT"
 
 msgid "LAST PLAYED, DESCENDING"
-msgstr "DARRIÈRA PARTIDA, DESC."
+msgstr "DARRIÈRA PARTIDA, DESCENDENT"
 
 msgid "NUMBER PLAYERS, ASCENDING"
 msgstr ""
