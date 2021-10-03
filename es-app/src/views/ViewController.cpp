@@ -958,7 +958,10 @@ void ViewController::preload()
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{		
 		if ((*it)->isGroupChildSystem() || !(*it)->isVisible())
+		{
+			i++;
 			continue;
+		}
 
 		if (splash)
 		{
