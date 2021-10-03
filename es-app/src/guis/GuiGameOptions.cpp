@@ -52,7 +52,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	bool hasMagazine = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(game->getMetadata(MetaDataId::Magazine));
 	bool hasMap = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Map));
 	bool hasVideo = Utils::FileSystem::exists(game->getMetadata(MetaDataId::Video));
-	bool hasAlternateMedias = game->getFileMedias().size() > 0;
+	bool hasAlternateMedias = game->getSourceFileData()->getFileMedias().size() > 0;
 	bool hasCheevos = game->hasCheevos();
 
 	if (hasManual || hasMap || hasCheevos || hasMagazine || hasVideo || hasAlternateMedias)
@@ -101,7 +101,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		{
 			mMenu.addEntry(_("VIEW GAME MEDIAS"), false, [window, game, this]
 			{
-				auto imageList = game->getFileMedias();				
+				auto imageList = game->getSourceFileData()->getFileMedias();
 				GuiImageViewer::showImages(mWindow, imageList);
 				close();
 			});

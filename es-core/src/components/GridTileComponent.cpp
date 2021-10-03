@@ -1008,7 +1008,7 @@ void GridTileComponent::startVideo()
 		else
 			mVideo->setResize(mSelectedProperties.Size);
 
-		mVideo->setVideo(mVideoPath);
+		mVideo->setVideo(mVideoPath, false);
 	}
 }
 

@@ -1080,10 +1080,12 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		else
 			tile->setLabel(name);		
 
+		bool preloadMedias = Settings::getInstance()->getBool("PreloadMedias");
+
 		bool setMarquee = true;
 
 		// Image
-		if (ResourceManager::getInstance()->fileExists(imagePath))
+		if ((preloadMedias && !imagePath.empty()) || (!preloadMedias && ResourceManager::getInstance()->fileExists(imagePath)))
 		{
 			if (mEntries.at(imgPos).data.virtualFolder)
 			{
@@ -1124,7 +1126,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 			// Marquee		
 			if (tile->hasMarquee())
 			{
-				if (!marqueePath.empty() && ResourceManager::getInstance()->fileExists(marqueePath))
+				if ((preloadMedias && !marqueePath.empty()) || (!preloadMedias && ResourceManager::getInstance()->fileExists(marqueePath)))				
 					tile->setMarquee(marqueePath);
 				else
 					tile->setMarquee("");
@@ -1139,7 +1141,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		{			
 			std::string videoPath = mEntries.at(imgPos).data.videoPath;
 
-			if (!videoPath.empty() && ResourceManager::getInstance()->fileExists(videoPath))
+			if ((preloadMedias && !videoPath.empty()) || (!preloadMedias && ResourceManager::getInstance()->fileExists(videoPath)))
 				tile->setVideo(videoPath, mVideoDelay);
 			else
 				tile->setVideo("");

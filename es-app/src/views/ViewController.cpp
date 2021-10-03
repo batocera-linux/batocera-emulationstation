@@ -161,32 +161,32 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 {
 	SystemData* dest = system;
 
+	int systemId = getSystemId(dest);
+
 	if (system->isCollection())
 	{
 		SystemData* bundle = CollectionSystemManager::get()->getCustomCollectionsBundle();
-		if (bundle != nullptr)
-		{
-			for (auto child : bundle->getRootFolder()->getChildren())
-			{
-				if (child->getType() == FOLDER && child->getName() == system->getName())
-				{
-					dest = bundle;
-					break;
-				}
-			}
-		}
+		if (bundle != nullptr && systemId < 0)
+			dest = bundle;
 	}
 
 	// Tell any current view it's about to be hidden
 	if (mCurrentView)
 		mCurrentView->onHide();
 
+	// Realign system view
 	auto systemList = getSystemListView();
+	systemList->setPosition(systemId * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
+	
+	// Realign every gamelist views
+	for (auto gameList : mGameListViews)
+	{
+		int id = getSystemId(gameList.first);
+		gameList.second->setPosition(id * (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight() * 2);
+	}
 
-	if (mState.viewing == GAME_LIST && mCurrentView)
-		systemList->setPosition(mCurrentView->getPosition().x(), systemList->getPosition().y());
-	else
-		systemList->setPosition(getSystemId(dest) * (float)Renderer::getScreenWidth(), systemList->getPosition().y());
+	// Realign translation
+	mCamera.translation().x() = -(systemId * (float)Renderer::getScreenWidth());
 
 	mState.viewing = SYSTEM_SELECT;
 	mState.system = dest;
@@ -194,10 +194,6 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 	systemList->goToSystem(dest, false);
 
 	mCurrentView = systemList;
-
-	// mCurrentView->onShow();
-//	PowerSaver::pause();
-//	PowerSaver::resume();
 
 	playViewTransition(forceImmediate);
 }
@@ -257,7 +253,8 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 
 	std::shared_ptr<IGameListView> view = getGameListView(destinationSystem);
 
-	if(mState.viewing == SYSTEM_SELECT)
+
+	if (mState.viewing == SYSTEM_SELECT)
 	{
 		// move system list
 		auto sysList = getSystemListView();
@@ -961,7 +958,10 @@ void ViewController::preload()
 	for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{		
 		if ((*it)->isGroupChildSystem() || !(*it)->isVisible())
+		{
+			i++;
 			continue;
+		}
 
 		if (splash)
 		{
