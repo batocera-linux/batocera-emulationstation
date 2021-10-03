@@ -148,7 +148,7 @@ void Settings::setDefaults()
 	mIntMap["MaxVRAM"] = 128;
 #elif defined(_RPI_)
 	// Rpi 0, 1
-	mIntMap["MaxVRAM"] = 80;
+	mIntMap["MaxVRAM"] = 128;
 #elif defined(_ENABLEEMUELEC)
 	// EmuELEC
 	mIntMap["MaxVRAM"] = 180;

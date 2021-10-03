@@ -81,7 +81,8 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	else
 	{
 		// virtual systems are updated afterwards, we're just creating the data structure
-		mRootFolder = new FolderData("" + mMetadata.fullName, this);
+		mRootFolder = new FolderData(mMetadata.fullName, this);
+		mRootFolder->getMetadata().set(MetaDataId::Name, mMetadata.fullName);
 	}
 
 	mRootFolder->getMetadata().resetChangedFlag();

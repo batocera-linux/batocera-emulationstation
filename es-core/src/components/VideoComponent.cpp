@@ -108,7 +108,7 @@ void VideoComponent::onSizeChanged()
 	mStaticImage.onSizeChanged();
 }
 
-bool VideoComponent::setVideo(std::string path)
+bool VideoComponent::setVideo(std::string path, bool checkFileExists)
 {
 	if (path == mVideoPath)
 		return !path.empty();
@@ -125,7 +125,7 @@ bool VideoComponent::setVideo(std::string path)
 	mStartDelayed = false;
 
 	// If the file exists then set the new video
-	if (!fullPath.empty() && ResourceManager::getInstance()->fileExists(fullPath))
+	if (!fullPath.empty() && (!checkFileExists || ResourceManager::getInstance()->fileExists(fullPath)))
 	{
 		// Return true to show that we are going to attempt to play a video
 		return true;

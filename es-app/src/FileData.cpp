@@ -405,31 +405,19 @@ FileData* FileData::getSourceFileData()
 	return this;
 }
 
-
-bool FileData::launchGame(Window* window, LaunchGameOptions options)
+std::string FileData::getlaunchCommand(LaunchGameOptions options, bool includeControllers)
 {
-	LOG(LogInfo) << "Attempting to launch game...";
-
 	FileData* gameToUpdate = getSourceFileData();
 	if (gameToUpdate == nullptr)
-		return false;
+		return "";
 
 	SystemData* system = gameToUpdate->getSystem();
 	if (system == nullptr)
-		return false;
-
-	AudioManager::getInstance()->deinit(); // batocera
-	VolumeControl::getInstance()->deinit();
+		return "";
 
 	// batocera / must really;-) be done before window->deinit while it closes joysticks
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators();
 
-	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
-#if !WIN32
-	hideWindow = false;
-#endif
-	window->deinit(hideWindow);
-	
 	std::string systemName = system->getName();
 	std::string emulator = getEmulator();
 	std::string core = getCore();
@@ -475,10 +463,12 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	command = Utils::String::replace(command, "%ROM%", rom);
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
-	command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
 	command = Utils::String::replace(command, "%CORE%", core);
 	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
+
+	if (includeControllers)
+		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
 
 	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
@@ -487,7 +477,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	{
 		std::string mode = (options.netPlayMode == SPECTATOR ? "spectator" : "client");
 		std::string pass;
-		
+
 		if (!options.netplayClientPassword.empty())
 			pass = " -netplaypass " + options.netplayClientPassword;
 
@@ -499,7 +489,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 #ifdef _ENABLEEMUELEC
 		command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
 #else
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode " + mode + " -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip + pass);
+			command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode " + mode + " -netplayport " + std::to_string(options.port) + " -netplayip " + options.ip + pass);
 #endif
 	}
 	else if (options.netPlayMode == SERVER)
@@ -512,7 +502,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 #ifdef _ENABLEEMUELEC
 		command = Utils::String::replace(command, "%NETPLAY%", "--host --port " + SystemConf::getInstance()->get("global.netplay.port") + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
 #else
-		command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
+			command = Utils::String::replace(command, "%NETPLAY%", "-netplaymode host");
 #endif
 	}
 	else
@@ -521,9 +511,40 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	int monitorId = Settings::getInstance()->getInt("MonitorID");
 	if (monitorId >= 0 && command.find(" -system ") != std::string::npos)
 		command = command + " -monitor " + std::to_string(monitorId);
-	
+
 	if (SaveStateRepository::isEnabled(this))
 		command = options.saveStateInfo.setupSaveState(this, command);
+
+	return command;
+}
+
+bool FileData::launchGame(Window* window, LaunchGameOptions options)
+{
+	LOG(LogInfo) << "Attempting to launch game...";
+
+	FileData* gameToUpdate = getSourceFileData();
+	if (gameToUpdate == nullptr)
+		return false;
+
+	SystemData* system = gameToUpdate->getSystem();
+	if (system == nullptr)
+		return false;
+
+	std::string command = getlaunchCommand(options);
+	if (command.empty())
+		return false;
+
+	AudioManager::getInstance()->deinit(); // batocera
+	VolumeControl::getInstance()->deinit();
+
+	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
+#ifdef _ENABLEEMUELEC
+	hideWindow = false;
+#endif
+	window->deinit(hideWindow);
+	
+	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
+	const std::string basename = Utils::FileSystem::getStem(getPath());
 
 	Scripting::fireEvent("game-start", rom, basename);
 

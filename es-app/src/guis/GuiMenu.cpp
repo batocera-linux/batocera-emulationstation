@@ -1153,11 +1153,24 @@ void GuiMenu::openDeveloperSettings()
 	});
 #endif
 
-#ifdef _ENABLEEMUELEC 
-	s->addGroup(_("LOGGING"));
-#else
-	s->addGroup(_("TOOLS"));
-	
+	s->addGroup(_("TOOLS"));	
+
+	// GAME AT STARTUP
+	if (!SystemConf::getInstance()->get("global.bootgame.path").empty())
+	{		
+		std::string gamelabel = SystemConf::getInstance()->get("global.bootgame.path");			
+		gamelabel = Utils::FileSystem::getStem(gamelabel) + " [" + Utils::FileSystem::getStem(Utils::FileSystem::getParent(gamelabel)) + "]";
+
+		s->addWithDescription(_("STOP LAUNCHING THIS GAME AT STARTUP"), gamelabel, nullptr, [s]
+		{
+			SystemConf::getInstance()->set("global.bootgame.path", "");
+			SystemConf::getInstance()->set("global.bootgame.cmd", "");
+
+			s->close();
+		});
+	}
+
+	// WEB ACCESS
 	auto hostName = Utils::String::toLower(ApiSystem::getInstance()->getHostsName());
 
 	auto webAccess = std::make_shared<SwitchComponent>(mWindow);
@@ -1172,7 +1185,7 @@ void GuiMenu::openDeveloperSettings()
 	    }
 	  }
 	});
-#endif
+
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
 	std::vector<std::string> modes;
@@ -1317,7 +1330,7 @@ void GuiMenu::openDeveloperSettings()
 	});
 
 	s->addEntry(_("FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_ALL , true); });
-	
+
 	s->addGroup(_("DATA MANAGEMENT"));
 
 	// ExcludeMultiDiskContent
@@ -4988,6 +5001,21 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 		else
 			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
+	}
+	
+	// Set as boot game 
+	if (fileData != nullptr)
+	{
+		std::string gamePath = fileData->getFullPath();
+
+		auto bootgame = std::make_shared<SwitchComponent>(mWindow);
+		bootgame->setState(SystemConf::getInstance()->get("global.bootgame.path") == gamePath);
+		systemConfiguration->addWithLabel(_("LAUNCH THIS GAME AT STARTUP"), bootgame);
+		systemConfiguration->addSaveFunc([bootgame, fileData, gamePath]
+		{ 
+			SystemConf::getInstance()->set("global.bootgame.path", bootgame->getState() ? gamePath : "");
+			SystemConf::getInstance()->set("global.bootgame.cmd", bootgame->getState() ? fileData->getlaunchCommand(LaunchGameOptions(), false) : "");
+		});
 	}
 
 	mWindow->pushGui(systemConfiguration);
