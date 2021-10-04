@@ -1662,6 +1662,7 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("ESPAÑOL MEXICANO",     "es_MX", language == "es_MX");
 	language_choice->add("BASQUE",               "eu_ES", language == "eu_ES");
 	language_choice->add("FRANÇAIS",             "fr_FR", language == "fr_FR" || language == "fr");
+	language_choice->add("עברית",                "he_IL", language == "he_IL");
 	language_choice->add("HUNGARIAN",            "hu_HU", language == "hu_HU");
 	language_choice->add("ITALIANO",             "it_IT", language == "it_IT");
 	language_choice->add("JAPANESE", 	     "ja_JP", language == "ja_JP");
