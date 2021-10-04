@@ -905,10 +905,10 @@ msgid "VIEW GAME MAP"
 msgstr "VOIR LA CARTE DU JEU"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr ""
+msgstr "VOIR LA VIDEO PLEIN ÉCRAN"
 
 msgid "VIEW GAME MEDIAS"
-msgstr ""
+msgstr "VOIR LES MEDIAS DU JEU"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "COEUR ACTUEL NON COMPATIBLE"
@@ -1154,7 +1154,7 @@ msgid "SHADERS"
 msgstr "FILTRES"
 
 msgid "CONTROLLERS SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES DES MANETTES"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
 msgstr "PARAMÈTRES DES MANETTES ET PÉRIPHÉRIQUES BLUETOOTH"
@@ -1439,10 +1439,10 @@ msgid "PRELOAD UI"
 msgstr "PRÉCHARGEMENT DE L'INTERFACE"
 
 msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr ""
+msgstr "PRÉCHARGEMENT DU SYSTÈME DE FICHIERS DES MEDIAS"
 
 msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr ""
+msgstr "Reduit les saccades dans l'interface mais démarre plus lentement"
 
 msgid "THREADED LOADING"
 msgstr "CHARGEMENT EN PARALLÈLE"
@@ -1899,7 +1899,7 @@ msgid "ICON AND TEXT"
 msgstr "ICÔNE ET TEXTE"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr ""
+msgstr "IGNORER LES ARTICLES LORS DU TRI"
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2314,7 +2314,7 @@ msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "ANNÉE DE SORTIE, SYSTÈME, DÉCROISSANT"
 
 msgid "A,AN,THE"
-msgstr ""
+msgstr "LE,LA,LES,L',UN,UNE,DE,DES,D',AU,A,AUX"
 
 msgid "Extracting"
 msgstr "Extraction"
