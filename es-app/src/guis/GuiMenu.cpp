@@ -1169,7 +1169,7 @@ void GuiMenu::openDeveloperSettings()
 			s->close();
 		});
 	}
-
+#ifndef _ENABLEEMUELEC
 	// WEB ACCESS
 	auto hostName = Utils::String::toLower(ApiSystem::getInstance()->getHostsName());
 
@@ -1185,6 +1185,7 @@ void GuiMenu::openDeveloperSettings()
 	    }
 	  }
 	});
+#endif
 
 	// log level
 	auto logLevel = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOG LEVEL"), false);
@@ -1909,7 +1910,7 @@ void GuiMenu::openSystemSettings_batocera()
 		SystemConf::getInstance()->saveSystemConf();
 	});
 #endif
-
+#ifndef _ENABLEEMUELEC
 	// audio profile
 	auto optionsAudioProfile = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO PROFILE"), false);
 
@@ -2017,6 +2018,7 @@ void GuiMenu::openSystemSettings_batocera()
 	    SystemConf::getInstance()->saveSystemConf();
 	  }
 	});
+#endif
 
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 	{
