@@ -4380,8 +4380,10 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addWithLabel(_("LAUNCH THIS GAME AT STARTUP"), bootgame);
 		systemConfiguration->addSaveFunc([bootgame, fileData, gamePath]
 		{ 
+        if (bootgame->changed()) {
 			SystemConf::getInstance()->set("global.bootgame.path", bootgame->getState() ? gamePath : "");
 			SystemConf::getInstance()->set("global.bootgame.cmd", bootgame->getState() ? fileData->getlaunchCommand(LaunchGameOptions(), false) : "");
+        }
 		});
 	}
 
