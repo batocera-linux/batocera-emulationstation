@@ -297,16 +297,16 @@ msgstr "いろいろ"
 
 #, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
+msgid_plural "This collection contains %i games, including:%s"
 msgstr[0] "このコレクションには、%i ゲームが含まれています :%s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH 検出中"
 
-msgid "Searching controllers..."
+msgid "Searching for devices..."
 msgstr "コントローラーを検索..."
 
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "BLUETOOTH は既にスキャン実行中です。"
 
 msgid "FORMATING DEVICE"
@@ -315,7 +315,7 @@ msgstr "デバイスのフォーマット"
 msgid "Formating"
 msgstr "フォーマット"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "操作を完了するには、システムの再起動が必要です"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
@@ -445,7 +445,7 @@ msgstr "コレクションにシステム名を表示"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "隠しシステム内にあるゲームをコレクションに表示"
 
-msgid "UPDATE GAMES LISTS"
+msgid "UPDATE GAME LISTS"
 msgstr "ゲームリストを更新"
 
 msgid "Loading..."
@@ -557,7 +557,7 @@ msgstr "この機能は、スクレイプの実行中は無効になります"
 msgid "CLOSE"
 msgstr "閉じる"
 
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "この項目を削除してもよろしいですか？"
 
 msgid "INPUT"
@@ -611,10 +611,10 @@ msgstr "ゲームを見る"
 msgid "MANUAL INPUT"
 msgstr "手動 入力"
 
-msgid "NO WIFI NETWORKS FOUND"
+msgid "NO WI-FI NETWORKS FOUND"
 msgstr "WIFI ネットワークが見つかりません"
 
-msgid "SEARCHING WIFI NETWORKS"
+msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
 msgid "FORGET A BLUETOOTH DEVICE"
@@ -656,7 +656,7 @@ msgstr "インストール/削除するコンテンツを選択"
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "インストール済みコンテンツを更新"
 
-msgid "There are no items in this view"
+msgid "No items"
 msgstr "項目が無いので表示できません"
 
 msgid "MISC"
@@ -685,7 +685,7 @@ msgstr "現在ダウンロードキューにあります"
 msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
 
-msgid "MISSING BIOS"
+msgid "MISSING BIOS CHECK"
 msgstr "不足BIOSの表示"
 
 msgid "dim"
@@ -724,10 +724,10 @@ msgstr "スクリーンセーバー設定"
 msgid "SETTINGS"
 msgstr "設定"
 
-msgid "SCREENSAVER AFTER"
+msgid "START SCREENSAVER AFTER"
 msgstr "スクリーンセーバー開始時間"
 
-msgid "SCREENSAVER BEHAVIOR"
+msgid "SCREENSAVER TYPE"
 msgstr "スクリーンセーバー動作"
 
 msgid "STOP MUSIC ON SCREENSAVER"
@@ -766,10 +766,10 @@ msgstr "スクリーンセーバー操作"
 msgid "USE CUSTOM VIDEOS"
 msgstr "カスタム動画を使用"
 
-msgid "CUSTOM VIDEO DIR"
+msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "カスタム動画ディレクトリ"
 
-msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
 msgstr "カスタム動画ディレクトリ再帰呼出し"
 
 msgid "CUSTOM VIDEO FILTER"
@@ -778,7 +778,7 @@ msgstr "カスタム動画フィルタ"
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "スライドショーセーバー設定"
 
-msgid "SWAP IMAGE AFTER (SECS)"
+msgid "IMAGE DURATION (SECS)"
 msgstr "(秒)後にイメージを変更"
 
 msgid "STRETCH IMAGES"
@@ -787,10 +787,10 @@ msgstr "イメージを拡大"
 msgid "USE CUSTOM IMAGES"
 msgstr "カスタム画像を使用"
 
-msgid "CUSTOM IMAGE DIR"
+msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "マイ画像のディレクトリ"
 
-msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
 msgstr "マイ画像を含めたディレクトリを参照"
 
 msgid "CUSTOM IMAGE FILTER"
@@ -844,7 +844,7 @@ msgstr "パッドキー設定を削除"
 msgid "SAVE CHANGES?"
 msgstr "変更を保存しますか？"
 
-msgid "ARE YOU SURE ?"
+msgid "ARE YOU SURE?"
 msgstr "よろしいですか？"
 
 #, c-format
@@ -857,7 +857,7 @@ msgstr "BATOCERA更新中"
 msgid "UPDATE IS READY"
 msgstr "更新準備完了"
 
-msgid "REBOOT SYSTEM TO APPLY"
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 msgstr "再起動で更新が適用されます"
 
 msgid "REALLY UPDATE?"
@@ -1013,7 +1013,7 @@ msgstr "現在のテーマ"
 msgid "Unlocked on"
 msgstr "ロック解除"
 
-msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "このゲームにはまだ実績がありません"
 
 msgid "Achievements won"
@@ -1068,7 +1068,7 @@ msgstr ""
 "正確な 結果と ならない場合が あります！ \n"
 "続けますか？"
 
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "スクレイプが実行されています。中止しますか?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
@@ -1155,10 +1155,10 @@ msgstr "バージョン"
 msgid "SHADERS"
 msgstr "シェーダー"
 
-msgid "CONTROLLERS SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "コントローラー＆BLUETOOTH 設定"
 
 msgid "MAIN MENU"
@@ -1170,6 +1170,7 @@ msgstr "KODI メディアセンター"
 msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
+CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "UI 設定"
 
@@ -1328,7 +1329,7 @@ msgstr "パブリックWebアクセスを有効"
 msgid "Allow public web access API using %s"
 msgstr "%s を使用しパブリックWebアクセスAPIを許可"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "新しい構成を適用するには、システムの再起動が必要です"
 
 msgid "LOG LEVEL"
@@ -1337,7 +1338,7 @@ msgstr "ログレベル"
 msgid "CREATE A SUPPORT FILE"
 msgstr "サポートファイルを作成"
 
-msgid "CREATE A SUPPORT FILE ?"
+msgid "CREATE A SUPPORT FILE?"
 msgstr "サポートファイルを作成しますか ?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
@@ -1351,10 +1352,10 @@ msgstr "ファイルの作成に失敗しました"
 msgid "FORMAT A DISK"
 msgstr "ディスクをフォーマット"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ゲームリストの整理と未使用のメディアを削除"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "クリーニング "
 
 msgid "CLEAR CACHES"
@@ -1369,7 +1370,7 @@ msgstr "イメージキャッシュのビルド中"
 msgid "RESET FILE EXTENSIONS"
 msgstr "ファイル拡張子設定をリセット"
 
-msgid "REDETECT GAMES LANG/REGION"
+msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "ゲームの言語/地域を再検出"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
@@ -1378,7 +1379,7 @@ msgstr "ネットプレイ/実績 ですべてのゲームを検索"
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "(CUE/GDI/CCD/M3U)に記載ファイルを表示しない"
 
 msgid "ENABLE FILTERS"
@@ -1402,7 +1403,7 @@ msgstr "メニュー回転(カルーセル)効果"
 msgid "QUICK SYSTEM SELECT"
 msgstr "クイックシステム選択"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1420,16 +1421,16 @@ msgstr "自動"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "エミュレーターのコントローラー自動設定"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの A/B ボタンの入れ替え"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "△(上)ボタン長押しでゲーム設定を開く"
 
-msgid "Inverts north button (savestates) & long press south (game options)"
+msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
 msgstr "△(上)を反転（ステートセーブ）、×（下）を長押し（ゲーム設定）"
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1450,13 +1451,13 @@ msgstr ""
 msgid "THREADED LOADING"
 msgstr "スレッド読み込み"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "イメージの非同期読み込み"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "画像表示にVRAMを使用"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "動画再生にVRAMを使用"
 
 msgid "DOWNLOADS"
@@ -1513,7 +1514,7 @@ msgstr ""
 "ほとんどの設定メニューが 非表示になり、システム変更を 防止します。\n"
 "ロック解除しフルモードに戻すには、 次のボタン順で入力します:"
 
-msgid "Do you want to proceed ?"
+msgid "Do you want to proceed?"
 msgstr "続行しますか？"
 
 msgid "KODI SETTINGS"
@@ -1522,7 +1523,7 @@ msgstr "KODI 設定"
 msgid "ENABLE KODI"
 msgstr "KODI 有効"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "起動時に KODI 実行"
 
 msgid "HARDWARE"
@@ -1558,8 +1559,8 @@ msgstr "ブートスプラッシュ映像"
 msgid "SILENT SPLASH"
 msgstr "音声無し"
 
-msgid "NO SPLASH"
-msgstr "ブート映像無し"
+msgid "DEFAULT"
+msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
@@ -1567,7 +1568,7 @@ msgstr "RetroAchievements 設定"
 msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "ゲーム実行前にBIOSを確認"
 
 msgid "MULTIMEDIA KEYS"
@@ -1717,10 +1718,10 @@ msgstr "スムージング"
 msgid "REWIND"
 msgstr "巻き戻し"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
-msgid "AUTO SAVE/LOAD"
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "オートセーブ/ロード"
 
 msgid "SHOW SAVE SNAPSHOTS"
@@ -1729,7 +1730,7 @@ msgstr "オートセーブを表示"
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr "オートセーブがあれば表示"
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "シェーダー設定"
 
 msgid "DECORATION"
@@ -1756,17 +1757,17 @@ msgstr "翻訳画面で一時停止"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "ゲームのハッシュ化が実行されています。 中止しますか？"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS?"
 msgstr "ゲームリストを更新しますか？"
 
-msgid "CONFIGURE A CONTROLLER"
+msgid "REMAP A CONTROLLER"
 msgstr "ボタン設定"
 
 msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
 "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
@@ -1845,16 +1846,16 @@ msgstr "ゲーム名の前"
 msgid "AFTER NAME"
 msgstr "ゲーム名の後"
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG"
 msgstr "ゲームリージョンの国旗をリストに表示"
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE ICON"
 msgstr "ステートセーブマークをリストに表示"
 
-msgid "SHOW MANUAL ICON IN LISTS"
+msgid "SHOW MANUAL ICON"
 msgstr "マニュアルアイコンをリストに表示"
 
-msgid "SHOW FILENAMES IN LISTS"
+msgid "SHOW FILENAMES INSTEAD"
 msgstr "リストにファイル名を表示"
 
 msgid "FILE EXTENSIONS"
@@ -1879,7 +1880,7 @@ msgstr "グリッド"
 msgid "DISPLAY OPTIONS"
 msgstr "表示設定"
 
-msgid "TRANSITION STYLE"
+msgid "LIST TRANSITION STYLE"
 msgstr "画面遷移スタイル"
 
 msgid "GAME LAUNCH TRANSITION"
@@ -1924,13 +1925,13 @@ msgstr "ES-BGM"
 msgid "DISPLAY SONG TITLES"
 msgstr "BGM名の表示"
 
-msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgid "SONG TITLE DISPLAY DURATION"
 msgstr "BGM名の表示秒数"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "システム固有の音楽フォルダのみ再生"
 
-msgid "PLAY THEME MUSICS"
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
 msgstr "テーマ指定BGMを再生"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
@@ -1942,7 +1943,7 @@ msgstr "音声"
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ナビゲーションサウンドを有効"
 
-msgid "ENABLE VIDEO AUDIO"
+msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "動画音声を有効"
 
 msgid "IP ADDRESS"
@@ -2008,7 +2009,7 @@ msgstr "シャットダウンしますか？"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "システムを高速にシャットダウン"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "メタ情報を保存せずに シャットダウンしますか？"
 
 msgid "QUIT EMULATIONSTATION"
@@ -2056,7 +2057,7 @@ msgstr "フォーマット 開始"
 msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "選択した設定は無効です"
 
-msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "このドライブをフォーマットしますか？"
 
 msgid "EDIT METADATA"
@@ -2324,7 +2325,7 @@ msgstr "ネットプレイゲームを検索しています"
 msgid "INDEXING COMPLETED"
 msgstr "インデックス作成が完了しました"
 
-msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "UPDATE GAME LISTS TO APPLY CHANGES."
 msgstr "「ゲームリストを更新」で変更を適用します。"
 
 msgid "GENRE"

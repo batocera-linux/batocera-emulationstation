@@ -196,7 +196,7 @@ bool GuiSaveState::input(InputConfig* config, Input input)
 	{
 		if (mGrid->size())
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"), _("YES"), 
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"), _("YES"), 
 				[this]
 				{
 					const SaveState& toDelete = mGrid->getSelected();

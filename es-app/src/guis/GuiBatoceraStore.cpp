@@ -233,7 +233,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 		auto theme = ThemeData::getMenuTheme();
 		ComponentListRow row;
 		row.selectable = false;
-		auto text = std::make_shared<TextComponent>(mWindow, _("There are no items in this view"), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
+		auto text = std::make_shared<TextComponent>(mWindow, _("No items"), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
 		row.addElement(text, true, false);
 		mList->addRow(row, false, false);
 	}

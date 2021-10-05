@@ -124,7 +124,7 @@ GuiGameAchievements::GuiGameAchievements(Window* window, GameInfoAndUserProgress
 	}
 
 	if (ra.Achievements.size() == 0)
-		setSubTitle(_("THIS GAME HAS NO ACHIEVEMENT YET"));
+		setSubTitle(_("THIS GAME HAS NO ACHIEVEMENTS YET"));
 	else
 	{
 		auto txt = _("Achievements won") + " : \t" + std::to_string(ra.NumAwardedToUser) + " / " + std::to_string(ra.NumAchievements);

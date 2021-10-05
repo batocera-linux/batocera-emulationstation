@@ -85,8 +85,8 @@
 #define fake_gettext_glversion		_("VERSION")
 #define fake_gettext_glslversion	_("SHADERS")
 
-#define gettext_controllers_settings				_("CONTROLLERS SETTINGS")
-#define gettext_controllers_and_bluetooth_settings  _("CONTROLLERS & BLUETOOTH SETTINGS")
+#define gettext_controllers_settings				_("CONTROLLER SETTINGS")
+#define gettext_controllers_and_bluetooth_settings  _("CONTROLLER & BLUETOOTH SETTINGS")
 
 // Windows build does not have bluetooth support, so affect the label for Windows
 #if WIN32
@@ -102,7 +102,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 
 	// KODI >
 	// GAMES SETTINGS >
-	// CONTROLLERS & BLUETOOTH >
+	// CONTROLLER & BLUETOOTH >
 	// UI SETTINGS >
 	// SOUND SETTINGS >
 	// NETWORK >
@@ -214,7 +214,7 @@ void GuiMenu::openScraperSettings()
 
 		if (ThreadedScraper::isRunning())
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), [this]
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"), _("YES"), [this]
 			{
 				ThreadedScraper::stop();
 			}, _("NO"), nullptr));
@@ -762,7 +762,7 @@ void GuiMenu::openDeveloperSettings()
 	s->addSaveFunc([webAccess, window]
 	{ 
 	  if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState())) {
-	    window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	    window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
 	      quitES(QuitMode::QUIT);
 	    }
@@ -798,7 +798,7 @@ void GuiMenu::openDeveloperSettings()
 #if !defined(WIN32) || defined(_DEBUG)
 	// support
 	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
-		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE ?"), _("YES"),
+		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE?"), _("YES"),
 			[window] {
 			if (ApiSystem::getInstance()->generateSupportFile()) {
 				window->pushGui(new GuiMsgBox(window, _("FILE GENERATED SUCCESSFULLY"), _("OK")));
@@ -813,14 +813,14 @@ void GuiMenu::openDeveloperSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
 		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
 	
-	s->addEntry(_("CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"), true, [this, s]
+	s->addEntry(_("CLEAN GAMELISTS & REMOVE UNUSED MEDIA"), true, [this, s]
 	{
-		mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE ?"), _("YES"), [&]
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE?"), _("YES"), [&]
 		{
 			int idx = 0;
 			for (auto system : SystemData::sSystemVector)
 			{
-				mWindow->renderSplashScreen(_("Cleaning ") + " : " + system->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
+				mWindow->renderSplashScreen(_("Cleaning") + " : " + system->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
 				cleanupGamelist(system);
 				idx++;
 			}
@@ -890,7 +890,7 @@ void GuiMenu::openDeveloperSettings()
 		ViewController::reloadAllGames(mWindow, false);
 	});
 
-	s->addEntry(_("REDETECT GAMES LANG/REGION"), false, [this]
+	s->addEntry(_("REDETECT ALL GAMES' LANG/REGION"), false, [this]
 	{
 		Window* window = mWindow;
 		window->pushGui(new GuiLoading<int>(window, _("PLEASE WAIT"), []
@@ -915,7 +915,7 @@ void GuiMenu::openDeveloperSettings()
 	// ExcludeMultiDiskContent
 	auto excludeMultiDiskContent = std::make_shared<SwitchComponent>(mWindow);
 	excludeMultiDiskContent->setState(Settings::getInstance()->getBool("RemoveMultiDiskContent"));
-	s->addWithLabel(_("IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"), excludeMultiDiskContent);
+	s->addWithLabel(_("IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"), excludeMultiDiskContent);
 	s->addSaveFunc([excludeMultiDiskContent] { Settings::getInstance()->setBool("RemoveMultiDiskContent", excludeMultiDiskContent->getState()); });
 
 	// enable filters (ForceDisableFilters)
@@ -962,7 +962,7 @@ void GuiMenu::openDeveloperSettings()
 	// Enable OSK (On-Screen-Keyboard)
 	auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
 	osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
-	s->addWithLabel(_("ON SCREEN KEYBOARD"), osk_enable);
+	s->addWithLabel(_("ON-SCREEN KEYBOARD"), osk_enable);
 	s->addSaveFunc([osk_enable] { Settings::getInstance()->setBool("UseOSK", osk_enable->getState()); });
 	
 #if defined(_WIN32) || defined(X86) || defined(X86_64)
@@ -1008,7 +1008,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto invertJoy = std::make_shared<SwitchComponent>(mWindow);
 	invertJoy->setState(Settings::getInstance()->getBool("InvertButtons"));
-	s->addWithLabel(_("SWITCH A/B BUTTONS IN EMULATIONSTATION"), invertJoy);
+	s->addWithLabel(_("SWITCH A & B BUTTONS IN EMULATIONSTATION"), invertJoy);
 	s->addSaveFunc([this, s, invertJoy]
 	{
 		if (Settings::getInstance()->setBool("InvertButtons", invertJoy->getState()))
@@ -1020,7 +1020,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto invertLongPress = std::make_shared<SwitchComponent>(mWindow);
 	invertLongPress->setState(Settings::getInstance()->getBool("GameOptionsAtNorth"));
-	s->addWithDescription(_("ACCESS GAME OPTIONS WITH NORTH BUTTON"), _("Inverts north button (savestates) & long press south (game options)"), invertLongPress);
+	s->addWithDescription(_("ACCESS GAME OPTIONS WITH NORTH BUTTON"), _("Switches to short-press North for Savestates & long-press South button for Game Options"), invertLongPress);
 	s->addSaveFunc([this, s, invertLongPress]
 	{
 		if (Settings::getInstance()->setBool("GameOptionsAtNorth", invertLongPress->getState()))
@@ -1029,7 +1029,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto firstJoystickOnly = std::make_shared<SwitchComponent>(mWindow);
 	firstJoystickOnly->setState(Settings::getInstance()->getBool("FirstJoystickOnly"));
-	s->addWithLabel(_("CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"), firstJoystickOnly);
+	s->addWithLabel(_("CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"), firstJoystickOnly);
 	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
 #if defined(WIN32)
@@ -1064,7 +1064,7 @@ void GuiMenu::openDeveloperSettings()
 	// threaded loading
 	auto asyncImages = std::make_shared<SwitchComponent>(mWindow);
 	asyncImages->setState(Settings::getInstance()->getBool("AsyncImages"));
-	s->addWithLabel(_("ASYNC IMAGES LOADING"), asyncImages);
+	s->addWithLabel(_("ASYNC IMAGE LOADING"), asyncImages);
 	s->addSaveFunc([asyncImages] { Settings::getInstance()->setBool("AsyncImages", asyncImages->getState()); });
 
 	// optimizeVram
@@ -1076,7 +1076,7 @@ void GuiMenu::openDeveloperSettings()
 	// optimizeVideo
 	auto optimizeVideo = std::make_shared<SwitchComponent>(mWindow);
 	optimizeVideo->setState(Settings::getInstance()->getBool("OptimizeVideo"));
-	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USE"), optimizeVideo);
+	s->addWithLabel(_("OPTIMIZE VIDEO VRAM USAGE"), optimizeVideo);
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
 	
 	s->onFinalize([s, window]
@@ -1328,7 +1328,7 @@ void GuiMenu::openSystemSettings_batocera()
 		{
 			std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu-options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
 			msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
-			msg += _("Do you want to proceed ?");
+			msg += _("Do you want to proceed?");
 			window->pushGui(new GuiMsgBox(window, msg,
 				_("YES"), [selectedMode] {
 				LOG(LogDebug) << "Setting UI mode to " << selectedMode;
@@ -1352,7 +1352,7 @@ void GuiMenu::openSystemSettings_batocera()
 
 			auto kodiAtStart = std::make_shared<SwitchComponent>(mWindow);
 			kodiAtStart->setState(SystemConf::getInstance()->getBool("kodi.atstartup"));
-			kodiGui->addWithLabel(_("KODI AT START"), kodiAtStart);
+			kodiGui->addWithLabel(_("LAUNCH KODI AT BOOT"), kodiAtStart);
 
 			kodiGui->addSaveFunc([kodiEnabled, kodiAtStart]
 			{
@@ -1405,7 +1405,7 @@ void GuiMenu::openSystemSettings_batocera()
 		if (optionsVideo->changed()) {
 			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
 			SystemConf::getInstance()->saveSystemConf();
-			mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+			mWindow->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
 			if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
 			  quitES(QuitMode::QUIT);
 			}
@@ -1528,7 +1528,7 @@ void GuiMenu::openSystemSettings_batocera()
 	    SystemConf::getInstance()->set("display.rotate", optionsRotation->getSelected());
 	    SystemConf::getInstance()->saveSystemConf();
 
-	    mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	    mWindow->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
 	      quitES(QuitMode::QUIT);
 	    }
@@ -1547,7 +1547,7 @@ void GuiMenu::openSystemSettings_batocera()
 
 	optionsSplash->add(_("AUTO"),          "auto", selectedSplash == "auto");
 	optionsSplash->add(_("SILENT SPLASH"), "silentsplash", selectedSplash == "silentsplash");
-	optionsSplash->add(_("NO SPLASH"),     "nosplash", selectedSplash == "nosplash");
+	optionsSplash->add(_("DEFAULT"),     "nosplash", selectedSplash == "nosplash");
 
 	s->addWithLabel(_("BOOT SPLASH"), optionsSplash);
 
@@ -1580,11 +1580,11 @@ void GuiMenu::openSystemSettings_batocera()
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
 		{
-			s->addEntry(_("MISSING BIOS"), true, [this, s] { openMissingBiosSettings(); });
+			s->addEntry(_("MISSING BIOS CHECK"), true, [this, s] { openMissingBiosSettings(); });
 
 			auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
 			checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
-			s->addWithLabel(_("CHECK BIOSES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
+			s->addWithLabel(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
 			s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
 		}
 	}
@@ -1603,7 +1603,7 @@ void GuiMenu::openSystemSettings_batocera()
 	{
 	  if (multimediakeys_enabled->changed()) {
 	    SystemConf::getInstance()->set("system.multimediakeys.enabled", multimediakeys_enabled->getSelected());
-	    this->mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+	    this->mWindow->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	  }
 	});
 #endif
@@ -1760,7 +1760,7 @@ void GuiMenu::openSystemSettings_batocera()
 			}
 
 			if (reboot) {
-			  window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+			  window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
 			}
 		});
 		mWindow->pushGui(securityGui);
@@ -1802,7 +1802,7 @@ void GuiMenu::openSystemSettings_batocera()
 		}
 
 		if (reboot) {
-		  window->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
+		  window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
 
 		  if(rebootForLanguage) {
 		    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
@@ -2018,7 +2018,7 @@ void GuiMenu::openGamesSettings_batocera()
 		s->addGroup(_("TOOLS"));
 
 		// Game List Update
-		s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });
+		s->addEntry(_("UPDATE GAME LISTS"), false, [this, window] { updateGameLists(window); });
 
 		if (SystemConf::getInstance()->getBool("global.retroachievements") &&
 			!Settings::getInstance()->getBool("RetroachievementsMenuitem") &&
@@ -2065,15 +2065,15 @@ void GuiMenu::openGamesSettings_batocera()
 	s->addSaveFunc([rewind_enabled] { SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected()); });
 	
 	// Integer scale
-	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (PIXEL PERFECT)"));
 	integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
-	s->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+	s->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
 
 	// autosave/load
-	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD ON GAME LAUNCH"));
 	autosave_enabled->addRange({ { _("OFF"), "auto" },{ _("ON") , "1" },{ _("SHOW SAVE SNAPSHOTS") , "2" },{ _("SHOW SNAPSHOTS IF NOT EMPTY") , "3" } }, SystemConf::getInstance()->get("global.autosave"));
-	s->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
+	s->addWithLabel(_("AUTO SAVE/LOAD ON GAME LAUNCH"), autosave_enabled);
 	s->addSaveFunc([autosave_enabled] 
 	{ 
 		SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected()); 
@@ -2087,7 +2087,7 @@ void GuiMenu::openGamesSettings_batocera()
 		{
 			std::string currentShader = SystemConf::getInstance()->get("global.shaderset");
 
-			auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"), false);			
+			auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADER SET"), false);			
 			shaders_choices->add(_("AUTO"), "auto", currentShader.empty() || currentShader == "auto");
 			shaders_choices->add(_("NONE"), "none", currentShader == "none");
 
@@ -2097,7 +2097,7 @@ void GuiMenu::openGamesSettings_batocera()
 			if (!shaders_choices->hasSelection())
 				shaders_choices->selectFirstItem();
 
-			s->addWithLabel(_("SHADERS SET"), shaders_choices);
+			s->addWithLabel(_("SHADER SET"), shaders_choices);
 			s->addSaveFunc([shaders_choices] { SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected()); });
 		}
 	}
@@ -2290,16 +2290,16 @@ void GuiMenu::openGamesSettings_batocera()
 		// Missing Bios
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
 		{
-			s->addEntry(_("MISSING BIOS"), true, [this, s] { openMissingBiosSettings(); });
+			s->addEntry(_("MISSING BIOS CHECK"), true, [this, s] { openMissingBiosSettings(); });
 
 			auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
 			checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
-			s->addWithLabel(_("CHECK BIOSES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
+			s->addWithLabel(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
 			s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
 		}
 
 		// Game List Update
-		// s->addEntry(_("UPDATE GAMES LISTS"), false, [this, window] { updateGameLists(window); });
+		// s->addEntry(_("UPDATE GAME LISTS"), false, [this, window] { updateGameLists(window); });
 	}
 
 	mWindow->pushGui(s);
@@ -2314,7 +2314,7 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 {
 	if (ThreadedScraper::isRunning())
 	{
-		window->pushGui(new GuiMsgBox(window, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"),
+		window->pushGui(new GuiMsgBox(window, _("SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"),
 			_("YES"), [] { ThreadedScraper::stop(); }, 
 			_("NO"), nullptr));
 
@@ -2323,7 +2323,7 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 
 	if (ThreadedHasher::isRunning())
 	{
-		window->pushGui(new GuiMsgBox(window, _("GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"),
+		window->pushGui(new GuiMsgBox(window, _("GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"),
 			_("YES"), [] { ThreadedHasher::stop(); },
 			_("NO"), nullptr));
 
@@ -2336,7 +2336,7 @@ void GuiMenu::updateGameLists(Window* window, bool confirm)
 		return;
 	}
 
-	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAMES LISTS ?"), _("YES"), [window]
+	window->pushGui(new GuiMsgBox(window, _("REALLY UPDATE GAME LISTS?"), _("YES"), [window]
 		{
 		ViewController::reloadAllGames(window, true, true);
 		}, 
@@ -2452,11 +2452,11 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 
 	Window *window = mWindow;
 
-	// CONFIGURE A CONTROLLER
-	s->addEntry(_("CONFIGURE A CONTROLLER"), false, [window, this, s]
+	// REMAP A CONTROLLER
+	s->addEntry(_("REMAP A CONTROLLER"), false, [window, this, s]
 	{
 		window->pushGui(new GuiMsgBox(window,
-			_("YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+			_("YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 				"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
 				"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
 				"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
@@ -2947,7 +2947,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			defSF = _("NO");
 		
 		auto curSF = Settings::getInstance()->getString(system->getName() + ".ShowFlags");
-		auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW LANGUAGE FLAG IN LISTS"), false);
+		auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW REGION FLAG"), false);
 
 		showRegionFlags->addRange({ 
 			{ _("AUTO"), "auto" },
@@ -2956,7 +2956,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			{ _("AFTER NAME"), "2" } }, 
 			curSF);
 
-		themeconfig->addWithDescription(_("SHOW LANGUAGE FLAG IN LISTS"), _("DEFAULT VALUE") + " : " + defSF, showRegionFlags);
+		themeconfig->addWithDescription(_("SHOW REGION FLAG"), _("DEFAULT VALUE") + " : " + defSF, showRegionFlags);
 		themeconfig->addSaveFunc([themeconfig, showRegionFlags, system]
 		{
 			if (Settings::getInstance()->setString(system->getName() + ".ShowFlags", showRegionFlags->getSelected()))
@@ -2966,11 +2966,11 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		// Show SaveStates
 		auto defSS = Settings::getInstance()->getBool("ShowSaveStates") ? _("YES") : _("NO");
 		auto curSS = Settings::getInstance()->getString(system->getName() + ".ShowSaveStates");
-		auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVESTATES FLAG IN LISTS"), false);
+		auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVESTATE ICON"), false);
 		showSaveStates->add(_("AUTO"), "", curSS == "" || curSS == "auto");
 		showSaveStates->add(_("YES"), "1", curSS == "1");
 		showSaveStates->add(_("NO"), "0", curSS == "0");
-		themeconfig->addWithDescription(_("SHOW SAVESTATES FLAG IN LISTS"), _("DEFAULT VALUE") + " : " + defSS, showSaveStates);
+		themeconfig->addWithDescription(_("SHOW SAVESTATE ICON"), _("DEFAULT VALUE") + " : " + defSS, showSaveStates);
 		themeconfig->addSaveFunc([themeconfig, showSaveStates, system]
 		{
 			if (Settings::getInstance()->setString(system->getName() + ".ShowSaveStates", showSaveStates->getSelected()))
@@ -2980,11 +2980,11 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		// Show Manual
 		auto defMM = Settings::getInstance()->getBool("ShowManualIcon") ? _("YES") : _("NO");
 		auto curMM = Settings::getInstance()->getString(system->getName() + ".ShowManualIcon");
-		auto showManual = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW MANUAL ICON IN LISTS"), false);
+		auto showManual = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW MANUAL ICON"), false);
 		showManual->add(_("AUTO"), "", curMM == "" || curMM == "auto");
 		showManual->add(_("YES"), "1", curMM == "1");
 		showManual->add(_("NO"), "0", curMM == "0");
-		themeconfig->addWithDescription(_("SHOW MANUAL ICON IN LISTS"), _("DEFAULT VALUE") + " : " + defMM, showManual);
+		themeconfig->addWithDescription(_("SHOW MANUAL ICON"), _("DEFAULT VALUE") + " : " + defMM, showManual);
 		themeconfig->addSaveFunc([themeconfig, showManual, system]
 		{
 			if (Settings::getInstance()->setString(system->getName() + ".ShowManualIcon", showManual->getSelected()))
@@ -2995,11 +2995,11 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		auto defFn = Settings::getInstance()->getBool("ShowFilenames") ? _("YES") : _("NO");
 		auto curFn = Settings::getInstance()->getString(system->getName() + ".ShowFilenames");
 
-		auto showFilenames = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW FILENAMES IN LISTS"), false);
+		auto showFilenames = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW FILENAMES INSTEAD"), false);
 		showFilenames->add(_("AUTO"), "", curFn == "");
 		showFilenames->add(_("YES"), "1", curFn == "1");
 		showFilenames->add(_("NO"), "0", curFn == "0");
-		themeconfig->addWithDescription(_("SHOW FILENAMES IN LISTS"), _("DEFAULT VALUE") + " : " + defFn, showFilenames);
+		themeconfig->addWithDescription(_("SHOW FILENAMES INSTEAD"), _("DEFAULT VALUE") + " : " + defFn, showFilenames);
 		themeconfig->addSaveFunc([themeconfig, showFilenames, system]
 		{
 			if (Settings::getInstance()->setString(system->getName() + ".ShowFilenames", showFilenames->getSelected()))
@@ -3311,9 +3311,9 @@ void GuiMenu::openUISettings()
 	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
 
 	// transition style
-	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow, _("TRANSITION STYLE"), false);
+	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow, _("LIST TRANSITION STYLE"), false);
 	transition_style->addRange({ "auto", "fade", "slide", "fade & slide", "instant" }, Settings::getInstance()->getString("TransitionStyle"));
-	s->addWithLabel(_("TRANSITION STYLE"), transition_style);
+	s->addWithLabel(_("LIST TRANSITION STYLE"), transition_style);
 	s->addSaveFunc([transition_style] { Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected()); });
 
 	// game transition style
@@ -3395,9 +3395,9 @@ void GuiMenu::openUISettings()
 	});
 
 	// Show flags
-	auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW LANGUAGE FLAG IN LISTS"), false);
+	auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW REGION FLAG"), false);
 	showRegionFlags->addRange({ { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, Settings::getInstance()->getString("ShowFlags"));
-	s->addWithLabel(_("SHOW LANGUAGE FLAG IN LISTS"), showRegionFlags);
+	s->addWithLabel(_("SHOW REGION FLAG"), showRegionFlags);
 	s->addSaveFunc([s, showRegionFlags]
 	{
 		if (Settings::getInstance()->setString("ShowFlags", showRegionFlags->getSelected()))
@@ -3407,7 +3407,7 @@ void GuiMenu::openUISettings()
 	// Show SaveStates
 	auto showSaveStates = std::make_shared<SwitchComponent>(mWindow);
 	showSaveStates->setState(Settings::getInstance()->getBool("ShowSaveStates"));
-	s->addWithLabel(_("SHOW SAVESTATES FLAG IN LISTS"), showSaveStates);
+	s->addWithLabel(_("SHOW SAVESTATE ICON"), showSaveStates);
 	s->addSaveFunc([s, showSaveStates]
 	{
 		if (Settings::getInstance()->setBool("ShowSaveStates", showSaveStates->getState()))
@@ -3417,7 +3417,7 @@ void GuiMenu::openUISettings()
 	// Show Manual 
 	auto showManual = std::make_shared<SwitchComponent>(mWindow);
 	showManual->setState(Settings::getInstance()->getBool("ShowManualIcon"));
-	s->addWithLabel(_("SHOW MANUAL ICON IN LISTS"), showManual);
+	s->addWithLabel(_("SHOW MANUAL ICON"), showManual);
 	s->addSaveFunc([s, showManual]
 	{
 		if (Settings::getInstance()->setBool("ShowManualIcon", showManual->getState()))
@@ -3427,7 +3427,7 @@ void GuiMenu::openUISettings()
 	// filenames
 	auto showFilesnames = std::make_shared<SwitchComponent>(mWindow);
 	showFilesnames->setState(Settings::getInstance()->getBool("ShowFilenames"));
-	s->addWithLabel(_("SHOW FILENAMES IN LISTS"), showFilesnames);
+	s->addWithLabel(_("SHOW FILENAMES INSTEAD"), showFilesnames);
 	s->addSaveFunc([showFilesnames, s]
 	{ 
 		if (Settings::getInstance()->setBool("ShowFilenames", showFilesnames->getState()))
@@ -3535,7 +3535,7 @@ void GuiMenu::openSoundSettings()
 	// batocera - how long to display the song titles?
 	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 120.f, 2.f, "s");
 	titles_time->setValue(Settings::getInstance()->getInt("audio.display_titles_time"));
-	s->addWithLabel(_("HOW MANY SECONDS FOR SONG TITLES"), titles_time);
+	s->addWithLabel(_("SONG TITLE DISPLAY DURATION"), titles_time);
 	s->addSaveFunc([titles_time] {
 		Settings::getInstance()->setInt("audio.display_titles_time", (int)Math::round(titles_time->getValue()));
 	});
@@ -3552,7 +3552,7 @@ void GuiMenu::openSoundSettings()
 	// batocera - music per system
 	auto enableThemeMusics = std::make_shared<SwitchComponent>(mWindow);
 	enableThemeMusics->setState(Settings::getInstance()->getBool("audio.thememusics"));
-	s->addWithLabel(_("PLAY THEME MUSICS"), enableThemeMusics);
+	s->addWithLabel(_("PLAY SYSTEM-SPECIFIC MUSIC"), enableThemeMusics);
 	s->addSaveFunc([enableThemeMusics] {
 		if (Settings::getInstance()->setBool("audio.thememusics", enableThemeMusics->getState()))
 			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
@@ -3582,7 +3582,7 @@ void GuiMenu::openSoundSettings()
 
 	auto video_audio = std::make_shared<SwitchComponent>(mWindow);
 	video_audio->setState(Settings::getInstance()->getBool("VideoAudio"));
-	s->addWithLabel(_("ENABLE VIDEO AUDIO"), video_audio);
+	s->addWithLabel(_("ENABLE VIDEO PREVIEW AUDIO"), video_audio);
 	s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
 
 
@@ -3773,7 +3773,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 	}, "iconShutdown");
 
 	s->addEntry(_("FAST SHUTDOWN SYSTEM"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATAS?"), 
+		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATA?"), 
 			_("YES"), [] { quitES(QuitMode::FAST_SHUTDOWN); },
 			_("NO"), nullptr));
 	}, "iconFastShutdown");
@@ -4021,9 +4021,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// autosave
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave))
 	{
-		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD ON GAME LAUNCH"));
 		autosave_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" }, { _("SHOW SAVE SNAPSHOTS") , "2" }, { _("SHOW SNAPSHOTS IF NOT EMPTY") , "3" } }, SystemConf::getInstance()->get(configName + ".autosave"));
-		systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
+		systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD ON GAME LAUNCH"), autosave_enabled);
 		systemConfiguration->addSaveFunc([configName, autosave_enabled] { SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected()); });
 	}
 
@@ -4036,7 +4036,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		{
 			std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
 
-			auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADERS SET"), false);
+			auto shaders_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHADER SET"), false);
 			shaders_choices->add(_("AUTO"), "auto", currentShader.empty() || currentShader == "auto");
 			shaders_choices->add(_("NONE"), "none", currentShader == "none");
 
@@ -4046,7 +4046,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			if (!shaders_choices->hasSelection())
 				shaders_choices->selectFirstItem();
 
-			systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
+			systemConfiguration->addWithLabel(_("SHADER SET"), shaders_choices);
 			systemConfiguration->addSaveFunc([configName, shaders_choices] { SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected()); });
 		}
 	}
@@ -4054,9 +4054,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// Integer scale
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::pixel_perfect))
 	{
-		auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALE (PIXEL PERFECT)"));
+		auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (PIXEL PERFECT)"));
 		integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".integerscale"));
-		systemConfiguration->addWithLabel(_("INTEGER SCALE (PIXEL PERFECT)"), integerscale_enabled);
+		systemConfiguration->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 		systemConfiguration->addSaveFunc([integerscale_enabled, configName] { SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected()); });
 	}
 
@@ -4582,7 +4582,7 @@ void GuiMenu::openFormatDriveSettings()
 				return;
 			}
 
-			window->pushGui(new GuiMsgBox(window, _("ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"), _("YES"), [s, window, disk, fs]
+			window->pushGui(new GuiMsgBox(window, _("ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"), _("YES"), [s, window, disk, fs]
 			{
 				ThreadedFormatter::start(window, disk, fs);
 				s->close();

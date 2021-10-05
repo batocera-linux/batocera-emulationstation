@@ -14,7 +14,7 @@ ThreadedBluetooth::ThreadedBluetooth(Window* window)
 {
 	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(ICONINDEX + _("SCANNING BLUETOOTH"));	
-	mWndNotification->updateText(_("Searching controllers..."));
+	mWndNotification->updateText(_("Searching for devices..."));
 
 	mHandle = new std::thread(&ThreadedBluetooth::run, this);
 }
@@ -55,7 +55,7 @@ void ThreadedBluetooth::start(Window* window)
 {
 	if (ThreadedBluetooth::mInstance != nullptr)
 	{
-		window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCANNING IS ALREADY RUNNING.")));
+		window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCAN IS ALREADY RUNNING.")));
 		return;
 	}
 	
@@ -109,7 +109,7 @@ void ThreadedFormatter::run()
 	});
 
 	if (ret == 69)
-		mWindow->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"));
+		mWindow->displayNotificationMessage(_("A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"));
 
 	delete this;
 	ThreadedFormatter::mInstance = nullptr;
