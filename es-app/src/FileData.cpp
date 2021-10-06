@@ -186,7 +186,7 @@ const std::string FileData::getThumbnailPath()
 				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(thumbnail));
 				if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 					return ":/pdf.jpg";
-				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
 					return ":/vid.jpg";
 			}
 		}
@@ -280,7 +280,7 @@ const std::string FileData::getVideoPath()
 		else if (getType() == GAME)
 		{
 			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
-			if (ext == ".mp4" || ext == ".avi" || ext == ".mkv")
+			if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == "webm")
 				return getPath();
 		}
 	}
@@ -351,7 +351,7 @@ const std::string FileData::getImagePath()
 				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
 				if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 					return ":/pdf.jpg";
-				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
 					return ":/vid.jpg";
 			}
 		}
