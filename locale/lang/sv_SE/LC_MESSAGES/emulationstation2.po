@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:22+0200\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -297,7 +297,7 @@ msgstr "Diverse"
 
 #, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -865,8 +865,8 @@ msgstr "SÄKER PÅ ATT DU VILL UPPDATERA?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1151,11 +1151,11 @@ msgstr "VERSION"
 msgid "SHADERS"
 msgstr ""
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "KONTROLLINSTÄLLNINGAR"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "KONTROLLINSTÄLLNINGAR"
 
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
@@ -1166,7 +1166,6 @@ msgstr "KODI MEDIACENTER"
 msgid "GAMES SETTINGS"
 msgstr "SPELINSTÄLLNINGAR"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "UI-INSTÄLLNINGAR"
 
@@ -1317,6 +1316,9 @@ msgstr ""
 msgid "TOOLS"
 msgstr "VERKTYG"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
@@ -1421,7 +1423,9 @@ msgstr ""
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr ""
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1555,7 +1559,7 @@ msgid "SILENT SPLASH"
 msgstr ""
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "STANDARD"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR RETROACHIEVEMENTS"
@@ -2036,6 +2040,9 @@ msgstr "INTERN UPPLÖSNING"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr ""
 
@@ -2439,12 +2446,9 @@ msgstr "-INTE DEFINIERAD-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"DU VALDE INGEN HOTKEY-KNAPP. EN SÅDAN BEHÖVS FÖR ATT KUNNA AVSLUTA SPEL OM "
-"DU ANVÄNDER EN SPELKONTROLL. VILL DU ANVÄNDA SELECT-KNAPPEN? JA = ANVÄND "
-"SELECT, NEJ = GÅ VIDARE UTAN KOTKEY-KNAPP."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2559,6 +2563,15 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "DU VALDE INGEN HOTKEY-KNAPP. EN SÅDAN BEHÖVS FÖR ATT KUNNA AVSLUTA SPEL "
+#~ "OM DU ANVÄNDER EN SPELKONTROLL. VILL DU ANVÄNDA SELECT-KNAPPEN? JA = "
+#~ "ANVÄND SELECT, NEJ = GÅ VIDARE UTAN KOTKEY-KNAPP."
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "SPELKONTROLL-LÄNKAR HAR TAGITS BORT."
@@ -2781,9 +2794,6 @@ msgstr ""
 
 #~ msgid "FORGET BLUETOOTH CONTROLLERS"
 #~ msgstr "GLÖM BORT BLUETOOTH-SPELKONTROLLER"
-
-#~ msgid "DEFAULT"
-#~ msgstr "STANDARD"
 
 #~ msgid "VALIDATION"
 #~ msgstr "VALIDERING"

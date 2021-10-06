@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:18+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -864,11 +864,9 @@ msgstr "정말로 업데이트 하시겠습니까?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"현재 사용 버전 : %s\n"
-"다음 버전으로 업데이트 하시겠습니까 : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "인터넷 연결이 필요합니다"
@@ -1154,9 +1152,8 @@ msgstr "버전"
 msgid "SHADERS"
 msgstr "셰이더"
 
-# missing string
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "컨트롤러 설정"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "컨트롤러 및 블루투스 설정"
@@ -1170,7 +1167,6 @@ msgstr "KODI 미디어 센터"
 msgid "GAMES SETTINGS"
 msgstr "게임 설정"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "UI 설정"
 
@@ -1322,6 +1318,9 @@ msgstr "OMX 플레이어 사용 (하드웨어 가속)"
 msgid "TOOLS"
 msgstr "도구"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "공용 인터넷 접속 허용"
 
@@ -1425,7 +1424,9 @@ msgstr "에뮬레이션스테이션에서 A/B 버튼 교체"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "위쪽 버튼으로 게임 옵션 열기"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr "위 버튼(상태저장) 과 아래 버튼(게임 옵션)을 변경"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -2038,6 +2039,9 @@ msgstr "내부 해상도"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "컨트롤러 자동설정"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "장치 포맷"
 
@@ -2444,12 +2448,9 @@ msgstr "-정의 안됨-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"핫키 설정을 선택하지 않았습니다. 컨트롤러를 이용해 게임 종료를 하려면 반드시 "
-"필요한 설정입니다. 셀렉트 버튼을 기본 핫키로 사용하시겠습니까? 예를 선택하면 "
-"셀렉트 버튼으로 설정되고 아니오를 선택하면 핫키를 설정하지 않습니다."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2557,6 +2558,23 @@ msgstr "텍스트 음성 변환 활성"
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr "텍스트 음성 변환 비활성"
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "현재 사용 버전 : %s\n"
+#~ "다음 버전으로 업데이트 하시겠습니까 : %s ?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "핫키 설정을 선택하지 않았습니다. 컨트롤러를 이용해 게임 종료를 하려면 반드"
+#~ "시 필요한 설정입니다. 셀렉트 버튼을 기본 핫키로 사용하시겠습니까? 예를 선"
+#~ "택하면 셀렉트 버튼으로 설정되고 아니오를 선택하면 핫키를 설정하지 않습니"
+#~ "다."
 
 # missing string
 #~ msgid "auto"

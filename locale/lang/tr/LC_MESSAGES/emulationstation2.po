@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -295,9 +295,9 @@ msgstr "Yok"
 msgid "Various"
 msgstr "Çeşitli"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Bu koleksiyon %i oyunu içerir, içerik :%s"
 msgstr[1] "Bu koleksiyon %i oyunları içerir, içerikler :%s"
 
@@ -865,11 +865,9 @@ msgstr "GÜNCELLE?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"ŞU ANKİ KULLANDIĞINIZ SÜRÜM : %s\n"
-"GÜNCELLENECEK SÜRÜM :%s YÜLSELTİLSİN Mİ ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "AĞ BAĞLANTISI GEREKİYOR"
@@ -1155,11 +1153,11 @@ msgstr "SÜRÜM"
 msgid "SHADERS"
 msgstr "GÖLGELENDİRMELER"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "KUMANDA AYARLARI"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "KUMANDA AYARLARI"
 
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
@@ -1170,7 +1168,6 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "OYUN AYARLARI"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "ARABİRİM AYARLARI"
 
@@ -1321,6 +1318,9 @@ msgstr "OMX OYNATICI KULLAN (DONANIM HIZLANDIRMALI)"
 msgid "TOOLS"
 msgstr "ARAÇLAR"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "WEB ERİŞİMİNE AÇ"
 
@@ -1425,7 +1425,9 @@ msgstr "EMULATIONSTATION DA A/B BUTONLARIN YERİNİ DEĞİŞTİR"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "KUZEY BUTONUNU KULLANARAK OYUN AYARLARINA ERİŞİM YAP"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 "(oyun ayarları) güney butonuna uzun basılınca & (anlık görüntü) tuşu ile yer "
 "değiştir."
@@ -2041,6 +2043,9 @@ msgstr "İÇ ÇÖZÜNÜRLÜK"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "KONTROLLERİ OTOMATİK YAPILANDIR"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "CİHAZI BİÇİMLENDİR"
 
@@ -2453,12 +2458,9 @@ msgstr "-TANIMLI DEĞİL-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"BİR HOTKEY DÜĞMESİ SEÇMEDİN. BU OYUNLARDAN ÇIKMAK İÇİN GEREKLİDİR KONTROL "
-"CİHAZI İLE. SEÇME TUŞUNU ÖN TANIMLI KULLANMAK İSTER MİSİNİZ? LÜTFEN EVET İSE "
-"SEÇ TUŞUNA BAS HAYIR İSE KISAYOL TUŞUNU AYARLA."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2573,6 +2575,22 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "ŞU ANKİ KULLANDIĞINIZ SÜRÜM : %s\n"
+#~ "GÜNCELLENECEK SÜRÜM :%s YÜLSELTİLSİN Mİ ?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "BİR HOTKEY DÜĞMESİ SEÇMEDİN. BU OYUNLARDAN ÇIKMAK İÇİN GEREKLİDİR KONTROL "
+#~ "CİHAZI İLE. SEÇME TUŞUNU ÖN TANIMLI KULLANMAK İSTER MİSİNİZ? LÜTFEN EVET "
+#~ "İSE SEÇ TUŞUNA BAS HAYIR İSE KISAYOL TUŞUNU AYARLA."
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "BLUETOOTH KONTROLCÜSÜNÜ UNUT"

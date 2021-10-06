@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -295,9 +295,9 @@ msgstr "無"
 msgid "Various"
 msgstr "各式各樣"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "此合輯包含 %i 個遊戲，包括：%s"
 
 msgid "SCANNING BLUETOOTH"
@@ -864,11 +864,9 @@ msgstr "確定要更新嗎？"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"您正在使用這個版本：%s\n"
-"您想要更新到這個版本：%s 嗎？"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要連線到網際網路"
@@ -1153,8 +1151,8 @@ msgstr "版本"
 msgid "SHADERS"
 msgstr "著色器"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "控制器設定"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "控制器與藍牙設定"
@@ -1168,7 +1166,6 @@ msgstr "KODI 多媒體中心"
 msgid "GAMES SETTINGS"
 msgstr "遊戲設定"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "UI 設定"
 
@@ -1319,6 +1316,9 @@ msgstr "使用 OMX 播放器（硬體加速）"
 msgid "TOOLS"
 msgstr "工具"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "啟用公開網站存取"
 
@@ -1422,7 +1422,9 @@ msgstr "在 EMULATIONSTATION 中調換 A/B 鍵功能"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "透過北功能鍵存取遊戲選項"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr "調換北功能鍵（即時存檔）與長按南功能鍵（遊戲選項）的按鍵功能"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1555,7 +1557,7 @@ msgid "SILENT SPLASH"
 msgstr "無聲開機畫面"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "預設"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RETROACHIEVEMENTS 成就設定"
@@ -2034,6 +2036,9 @@ msgstr "內部解析度"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自動設定遊戲控制器"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "格式化裝置"
 
@@ -2439,12 +2444,9 @@ msgstr "-未定義-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"您沒有指派任何按鈕給「熱鍵」。 這是使用控制器退出遊戲所必須的按鈕。 你是否要"
-"將「選擇鍵」指派為「熱鍵」？ 請選擇「是」同意將「選擇鍵」指派為「熱鍵」， 或"
-"選擇「否」不指派「熱鍵」。"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2552,6 +2554,22 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "您正在使用這個版本：%s\n"
+#~ "您想要更新到這個版本：%s 嗎？"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "您沒有指派任何按鈕給「熱鍵」。 這是使用控制器退出遊戲所必須的按鈕。 你是否"
+#~ "要將「選擇鍵」指派為「熱鍵」？ 請選擇「是」同意將「選擇鍵」指派為「熱"
+#~ "鍵」， 或選擇「否」不指派「熱鍵」。"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "解除藍牙控制器"
@@ -2787,9 +2805,6 @@ msgstr ""
 
 #~ msgid "FORGET BLUETOOTH CONTROLLERS"
 #~ msgstr "解除藍芽控制器配對"
-
-#~ msgid "DEFAULT"
-#~ msgstr "預設"
 
 #~ msgid "SELECT SYSTEMS TO DISPLAY"
 #~ msgstr "選擇要顯示的系統"

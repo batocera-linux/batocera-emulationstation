@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -295,9 +295,9 @@ msgstr "Cap"
 msgid "Various"
 msgstr "Diversos"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Aquesta col·lecció conté %i joc, incloent: %s"
 msgstr[1] "Aquesta col·lecció conté %i jocs, incloent: %s"
 
@@ -866,11 +866,9 @@ msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"ACTUALMENT ESTÀS FENT SERVIR LA VERSIÓ %s\n"
-"VOLS ACTUALITZAR A LA VERSIÓ %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ES REQUEREIX CONNEXIÓ A LA XARXA"
@@ -1156,11 +1154,11 @@ msgstr "VERSIÓ"
 msgid "SHADERS"
 msgstr ""
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "PARÀMETRES DELS COMANDAMENTS"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "PARÀMETRES DELS COMANDAMENTS"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -1171,7 +1169,6 @@ msgstr "CENTRE MULTIMÈDIA DEL KODI"
 msgid "GAMES SETTINGS"
 msgstr "PARÀMETRES DELS JOCS"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
 
@@ -1322,6 +1319,9 @@ msgstr ""
 msgid "TOOLS"
 msgstr ""
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
@@ -1425,7 +1425,9 @@ msgstr ""
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr ""
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -2037,6 +2039,9 @@ msgstr ""
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr ""
 
@@ -2440,8 +2445,8 @@ msgstr "NO S'HA DEFINIT"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 
 #, c-format
@@ -2557,6 +2562,13 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "ACTUALMENT ESTÀS FENT SERVIR LA VERSIÓ %s\n"
+#~ "VOLS ACTUALITZAR A LA VERSIÓ %s ?"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "DESVINCULAR COMANDAMENT BLUETOOTH"

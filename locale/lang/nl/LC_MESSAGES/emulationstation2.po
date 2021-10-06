@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:19+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -295,9 +295,9 @@ msgstr "Geen"
 msgid "Various"
 msgstr "Diversen"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Deze verzameling bevat %i spel, inclusief:%s"
 msgstr[1] "Deze verzameling bevat %i spellen, inclusief:%s"
 
@@ -865,11 +865,9 @@ msgstr "WIL JE ECHT UPDATEN?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"JE GEBRUIKT MOMENTEEL VERSIE : %s\n"
-"WIL JE UPDATEN NAAR VERSIE : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NETWERKVERBINDING BENODIGD"
@@ -1155,11 +1153,11 @@ msgstr "VERSIE"
 msgid "SHADERS"
 msgstr "SHADERS"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "CONTROLLERS"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "CONTROLLERS"
 
 msgid "MAIN MENU"
 msgstr "HOOFDMENU"
@@ -1170,7 +1168,6 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "SPELINSTELLINGEN"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "INTERFACE"
 
@@ -1321,6 +1318,9 @@ msgstr "Gebuik OMX Speler (Met hardware acceleratie)"
 msgid "TOOLS"
 msgstr "HULPMIDDELEN"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "Publieke webtoegang toestaan"
 
@@ -1425,7 +1425,9 @@ msgstr "VERWISSEL A/B KNOPPEN IN EMULATIONSTATION"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "TOEGANG TOT SPEL OPTIES MET NOORDELIJKE KNOP"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 "Inverts noordelijke knop (savestates) & lang indrukken zuidelijke knop (spel "
 "opties)"
@@ -2042,6 +2044,9 @@ msgstr "INTERNE RESOLUTIE"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "CONFIGUREER CONTROLLERS AUTOMATISCH"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FORMATTEER APPARAAT"
 
@@ -2454,13 +2459,9 @@ msgstr "-NIET GEDEFINEERD-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"ER IS GEEN HOTKEY-KNOP GEKOZEN. DEZE IS BENODIGD OM SPELLEN TE STOPPEN DOOR "
-"MIDDEL VAN DE CONTROLLER. WIL JE DE STANDAARD SELECT BUTTON GEBRUIKEN ? "
-"SELECTEER JA OM DE SELECT KNOP TE GEBRUIKEN, OF NEE OM DEZE NIET IN TE "
-"STELLEN."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2575,6 +2576,23 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "JE GEBRUIKT MOMENTEEL VERSIE : %s\n"
+#~ "WIL JE UPDATEN NAAR VERSIE : %s ?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "ER IS GEEN HOTKEY-KNOP GEKOZEN. DEZE IS BENODIGD OM SPELLEN TE STOPPEN "
+#~ "DOOR MIDDEL VAN DE CONTROLLER. WIL JE DE STANDAARD SELECT BUTTON "
+#~ "GEBRUIKEN ? SELECTEER JA OM DE SELECT KNOP TE GEBRUIKEN, OF NEE OM DEZE "
+#~ "NIET IN TE STELLEN."
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "VERGEET EEN BLUETOOTH-CONTROLLER"

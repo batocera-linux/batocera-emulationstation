@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -295,9 +295,9 @@ msgstr "Nenhum"
 msgid "Various"
 msgstr "Várias"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Esta coleção contém %i jogo, incluindo :%s"
 msgstr[1] "Esta coleção contém %i jogos, incluindo :%s"
 
@@ -865,11 +865,9 @@ msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"VOCÊ ESTÁ USANDO A VERSÃO : %s\n"
-"DESEJA ATUALIZAR PARA A VERSÃO : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "É NECESSÁRIO CONEXÃO COM A INTERNET"
@@ -1156,7 +1154,7 @@ msgstr "VERSÃO"
 msgid "SHADERS"
 msgstr "SHADERS"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgid "CONTROLLER SETTINGS"
 msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
@@ -1171,7 +1169,6 @@ msgstr "CENTRAL DE MÍDIA KODI"
 msgid "GAMES SETTINGS"
 msgstr "OPÇÕES DE JOGOS"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "OPÇÕES DA INTERFACE"
 
@@ -1322,6 +1319,9 @@ msgstr "USAR OMX PLAYER (HW ACELERADO)"
 msgid "TOOLS"
 msgstr "FERRAMENTAS"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ATIVAR ACESSO PÚBLICO À WEB"
 
@@ -1425,7 +1425,9 @@ msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACESSE AS OPÇÕES DE JOGO COM O BOTÃO NORTE"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 "Inverte o botão norte (savestates) e pressiona longamente o sul (opções de "
 "jogo)"
@@ -2042,6 +2044,9 @@ msgstr "RESOLUÇÃO INTERNA"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "CONFIGURAR CONTROLES AUTOMÁTICAMENTE"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FORMATO DISPOSITIVO"
 
@@ -2453,11 +2458,9 @@ msgstr "-NÃO DEFINIDO-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAIR DOS JOGOS. QUER "
-"ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECT ?"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2572,3 +2575,18 @@ msgstr "TEXTO PARA FALA HABILITADO"
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr "TEXTO PARA FALA DESABILITADO"
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "VOCÊ ESTÁ USANDO A VERSÃO : %s\n"
+#~ "DESEJA ATUALIZAR PARA A VERSÃO : %s ?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "VOCÊ NÃO CONFIGUROU UM BOTÃO HOTKEY. É NECESSÁRIO PARA SAIR DOS JOGOS. "
+#~ "QUER ATRIBUIR ESTA OPÇÃO AO BOTÃO SELECT ?"

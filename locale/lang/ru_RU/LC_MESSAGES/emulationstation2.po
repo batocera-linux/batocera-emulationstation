@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:22+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -295,9 +295,9 @@ msgstr "Нет"
 msgid "Various"
 msgstr "Различные"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Коллекция содержит %i игру, включая :%s"
 msgstr[1] "Коллекция содержит %i игры, включая :%s"
 msgstr[2] "Коллекция содержит %i игр, включая :%s"
@@ -866,11 +866,9 @@ msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"ВЫ ИСПОЛЬЗУЕТЕ ВЕРСИЮ : %s\n"
-"ХОТИТЕ ОБНОВИТЬ ДО ВЕРСИИ : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
@@ -1156,8 +1154,8 @@ msgstr "ВЕРСИЯ"
 msgid "SHADERS"
 msgstr "ШЕЙДЕРЫ"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
@@ -1171,7 +1169,6 @@ msgstr "МЕДИАЦЕНТР KODI"
 msgid "GAMES SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
 
@@ -1322,6 +1319,9 @@ msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР (HW ACCELERATED)"
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "РАЗРЕШИТЬ ПУБЛИЧНЫЙ ДОСТУП"
 
@@ -1425,7 +1425,9 @@ msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 "Инверт. северную кнопку (сохранения) и удержание южной (параметры игры)"
 
@@ -1560,7 +1562,7 @@ msgid "SILENT SPLASH"
 msgstr "ТИХАЯ ЗАГРУЗКА"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "ПО УМОЛЧАНИЮ"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
@@ -2041,6 +2043,9 @@ msgstr "СОБСТВЕННОЕ РАЗРЕШЕНИЕ"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "ФОРМАТИРОВАТЬ"
 
@@ -2457,13 +2462,9 @@ msgstr "-НЕ НАЗНАЧЕНО-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"ВЫ НЕ НАЗНАЧИЛИ ГОРЯЧУЮ КЛАВИШУ. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
-"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT ПО УМОЛЧАНИЮ? ПОЖАЛУЙСТА, "
-"ОТВЕТЬТЕ \"ДА\", ЧТОБЫ ИСПОЛЬЗОВАТЬ SELECT ИЛИ \"НЕТ\", ЧТОБЫ НЕ "
-"УСТАНАВЛИВАТЬ ГОРЯЧУЮ КЛАВИШУ."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2585,6 +2586,23 @@ msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ВКЛЮЧЕНО"
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ОТКЛЮЧЕНО"
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "ВЫ ИСПОЛЬЗУЕТЕ ВЕРСИЮ : %s\n"
+#~ "ХОТИТЕ ОБНОВИТЬ ДО ВЕРСИИ : %s ?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "ВЫ НЕ НАЗНАЧИЛИ ГОРЯЧУЮ КЛАВИШУ. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С "
+#~ "ПОМОЩЬЮ КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT ПО УМОЛЧАНИЮ? "
+#~ "ПОЖАЛУЙСТА, ОТВЕТЬТЕ \"ДА\", ЧТОБЫ ИСПОЛЬЗОВАТЬ SELECT ИЛИ \"НЕТ\", ЧТОБЫ "
+#~ "НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КЛАВИШУ."
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "ОТВЯЗАТЬ BLUETOOTH КОНТРОЛЛЕР"
@@ -2875,9 +2893,6 @@ msgstr "ПРЕОБР. ТЕКСТА В РЕЧЬ ОТКЛЮЧЕНО"
 
 #~ msgid "FORGET BLUETOOTH CONTROLLERS"
 #~ msgstr "УДАЛЕНИЕ BLUETOOTH КОНТРОЛЛЕРОВ"
-
-#~ msgid "DEFAULT"
-#~ msgstr "ПО УМОЛЧАНИЮ"
 
 #~ msgid "VALIDATION"
 #~ msgstr "ПРОВЕРКА"

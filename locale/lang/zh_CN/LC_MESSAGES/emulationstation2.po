@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:23+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -292,9 +292,9 @@ msgstr "无"
 msgid "Various"
 msgstr "多开发商"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "当前合辑总计有%i个游戏，包括：%s"
 
 msgid "SCANNING BLUETOOTH"
@@ -861,8 +861,8 @@ msgstr "是否进行更新?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1149,11 +1149,11 @@ msgstr "版本"
 msgid "SHADERS"
 msgstr ""
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "控制器设置"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "控制器设置"
 
 msgid "MAIN MENU"
 msgstr "主菜单"
@@ -1164,7 +1164,6 @@ msgstr "KODI 媒体中心"
 msgid "GAMES SETTINGS"
 msgstr "游戏设置"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "UI 设置"
 
@@ -1315,6 +1314,9 @@ msgstr ""
 msgid "TOOLS"
 msgstr "工具"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
@@ -1418,7 +1420,9 @@ msgstr "在EMULATIONSTATION中切换 A/B 按键"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr ""
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -2033,6 +2037,9 @@ msgstr "内部分辨率"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "格式化装置"
 
@@ -2432,13 +2439,9 @@ msgstr "-未定义-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"你没有为 '热键' 按钮配置按键。这是控制器退出游戏所必须的按键。\n"
-"你是否要将 \"选择\" 按钮的按键同时作为 \"热键\" 按钮的按键?\n"
-"请选择 \"是\" 同意将 \"选择\" 按钮同时作为 \"热键\" 按钮，或选择 \"否\" 不启"
-"用 \"热键\" 按钮。"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2546,6 +2549,16 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "你没有为 '热键' 按钮配置按键。这是控制器退出游戏所必须的按键。\n"
+#~ "你是否要将 \"选择\" 按钮的按键同时作为 \"热键\" 按钮的按键?\n"
+#~ "请选择 \"是\" 同意将 \"选择\" 按钮同时作为 \"热键\" 按钮，或选择 \"否\" 不"
+#~ "启用 \"热键\" 按钮。"
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "清除一个蓝牙控制器"

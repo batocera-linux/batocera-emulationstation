@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:09+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -296,9 +296,9 @@ msgstr "Dim"
 msgid "Various"
 msgstr "Amrywiol"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Mae'r casgliad yn cynnwys %i gêm, yn cynnwys :%s"
 msgstr[1] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
 msgstr[2] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
@@ -870,8 +870,8 @@ msgstr "IAWN I DDIWEDDARU?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1158,11 +1158,11 @@ msgstr "FERSIWN"
 msgid "SHADERS"
 msgstr ""
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "GOSODIADAU RHEOLYDDION"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "GOSODIADAU RHEOLYDDION"
 
 msgid "MAIN MENU"
 msgstr "PRIF DDEWISLEN"
@@ -1173,7 +1173,6 @@ msgstr "CANOLFAN CYFRYNGAU KODI"
 msgid "GAMES SETTINGS"
 msgstr "GOSODIADAU GEMAU"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "GOSODIADAU UI"
 
@@ -1324,6 +1323,9 @@ msgstr "DEFNYDDIO CHWARAEWR OMX (HW CYFLYMEDIG)"
 msgid "TOOLS"
 msgstr "OFFER"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
@@ -1427,7 +1429,9 @@ msgstr "CYFNEWID BOTYMAU A/B YN EMULATIONSTATION"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr ""
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -2042,6 +2046,9 @@ msgstr "CYDRANIAD MEWNOL"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AWTO-TRAWSWEDDU RHEOLYDDION"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FFORMATIO DYFAIS"
 
@@ -2467,13 +2474,9 @@ msgstr "-HEB EI DDIFFINIO-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"NID YDYCH CHI WEDI DEWIS BOTWM I ALLUOGI BYSELL FRYS. MAE ANGEN HYN ER MWYN "
-"GADAEL GEMAU GYDA RHEOLYDD. A YDYCH AM DDEFNYDDIO BOTWM DEWIS FEL "
-"RHAGOSODIAD? ATEBWCH YDY I DDEFNYDDIO DEWIS NEU NAC OES I BEIDIO Â GOSOD "
-"BOTWM ALLUOGI BYSELL FRYS."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2616,6 +2619,16 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "NID YDYCH CHI WEDI DEWIS BOTWM I ALLUOGI BYSELL FRYS. MAE ANGEN HYN ER "
+#~ "MWYN GADAEL GEMAU GYDA RHEOLYDD. A YDYCH AM DDEFNYDDIO BOTWM DEWIS FEL "
+#~ "RHAGOSODIAD? ATEBWCH YDY I DDEFNYDDIO DEWIS NEU NAC OES I BEIDIO Â GOSOD "
+#~ "BOTWM ALLUOGI BYSELL FRYS."
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "ANGHOFIO RHEOLWR BLUETOOTH"

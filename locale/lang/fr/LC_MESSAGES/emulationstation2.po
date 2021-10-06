@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:16+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -295,9 +295,9 @@ msgstr "Aucun"
 msgid "Various"
 msgstr "Divers"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Cette collection contient %i jeu, incluant : %s"
 msgstr[1] "Cette collection contient %i jeux, incluant : %s"
 
@@ -865,11 +865,9 @@ msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR ?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"VOUS UTILISEZ ACTUELLEMENT LA VERSION : %s\n"
-"VOULEZ-VOUS METTRE À JOUR EN VERSION : %s ? "
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "CONNEXION RÉSEAU NÉCESSAIRE"
@@ -1153,8 +1151,8 @@ msgstr "VERSION"
 msgid "SHADERS"
 msgstr "FILTRES"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "PARAMÈTRES DES MANETTES"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "PARAMÈTRES DES MANETTES ET PÉRIPHÉRIQUES BLUETOOTH"
@@ -1168,7 +1166,6 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAMES SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "PARAMÈTRES DE L'INTERFACE"
 
@@ -1319,6 +1316,9 @@ msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION HW)"
 msgid "TOOLS"
 msgstr "OUTILS"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ACTIVER L'ACCÈS WEB PUBLIC"
 
@@ -1422,7 +1422,9 @@ msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACCÉDER AUX OPTIONS DU JEUX AVEC LE BOUTON NORD"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 "Intervertir le bouton nord (sauvegarde de jeu) et sud pression longue "
 "(options du jeu)"
@@ -2040,6 +2042,9 @@ msgstr "RÉSOLUTION INTERNE"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURER LES MANETTES"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FORMATER UN PÉRIPHÉRIQUE"
 
@@ -2454,13 +2459,9 @@ msgstr "-NON CONFIGURÉ-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"VOUS N'AVEZ PAS SÉLECTIONNÉ DE BOUTON HOTKEY. CECI EST NÉCESSAIRE POUR "
-"QUITTER UN JEU. VOULEZ-VOUS ATTRIBUER CETTE ACTION AU BOUTON SELECT ? "
-"RÉPONDEZ OUI POUR UTILISER LE BOUTON SELECT OU NON POUR ACTIVER UN BOUTON "
-"HOTKEY."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2575,3 +2576,20 @@ msgstr "SYNTHÈSE VOCALE ACTIVÉE"
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr "SYNTHÈSE VOCALE DÉSACTIVÉE"
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "VOUS UTILISEZ ACTUELLEMENT LA VERSION : %s\n"
+#~ "VOULEZ-VOUS METTRE À JOUR EN VERSION : %s ? "
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "VOUS N'AVEZ PAS SÉLECTIONNÉ DE BOUTON HOTKEY. CECI EST NÉCESSAIRE POUR "
+#~ "QUITTER UN JEU. VOULEZ-VOUS ATTRIBUER CETTE ACTION AU BOUTON SELECT ? "
+#~ "RÉPONDEZ OUI POUR UTILISER LE BOUTON SELECT OU NON POUR ACTIVER UN BOUTON "
+#~ "HOTKEY."

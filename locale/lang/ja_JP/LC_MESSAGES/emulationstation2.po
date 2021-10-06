@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v32beta(2021/09/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:17+0200\n"
 "PO-Revision-Date: 2021-09-15 20:16+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -295,9 +295,9 @@ msgstr "使用しない"
 msgid "Various"
 msgstr "いろいろ"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "このコレクションには、%i ゲームが含まれています :%s"
 
 msgid "SCANNING BLUETOOTH"
@@ -865,11 +865,9 @@ msgstr "更新しますか？"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"現在、バージョン「%s」を使用中\n"
-"バージョン「%s」に更新しますか?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -1155,7 +1153,7 @@ msgstr "バージョン"
 msgid "SHADERS"
 msgstr "シェーダー"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgid "CONTROLLER SETTINGS"
 msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
@@ -1170,7 +1168,6 @@ msgstr "KODI メディアセンター"
 msgid "GAMES SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "UI 設定"
 
@@ -1322,6 +1319,9 @@ msgstr "OMX PLAYERを使用(HW アクセラレーション)"
 msgid "TOOLS"
 msgstr "ツール"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "パブリックWebアクセスを有効"
 
@@ -1427,7 +1427,9 @@ msgstr "ESメニューでの A/B ボタンの入れ替え"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "△(上)ボタン長押しでゲーム設定を開く"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr "△(上)を反転（ステートセーブ）、×（下）を長押し（ゲーム設定）"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -2042,6 +2044,9 @@ msgstr "解像度"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自動コントローラー設定"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "フォーマット"
 
@@ -2450,12 +2455,9 @@ msgstr "-未定義-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"ホットキーを選択しませんでした。 コントローラーでゲームを終了するために 必要"
-"です。「セレクト」ボタンを 使用しますか？使用する場合は「はい」、 ホットキー"
-"対応ボタンを設定しない場合は 「いいえ」を選択してください。"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2563,6 +2565,22 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "現在、バージョン「%s」を使用中\n"
+#~ "バージョン「%s」に更新しますか?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "ホットキーを選択しませんでした。 コントローラーでゲームを終了するために 必"
+#~ "要です。「セレクト」ボタンを 使用しますか？使用する場合は「はい」、 ホット"
+#~ "キー対応ボタンを設定しない場合は 「いいえ」を選択してください。"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

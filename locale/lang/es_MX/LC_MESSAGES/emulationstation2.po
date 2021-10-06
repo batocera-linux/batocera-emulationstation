@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:14+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -295,9 +295,9 @@ msgstr "Ninguno"
 msgid "Various"
 msgstr "Varios"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including:%s"
+msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Esta colección contiene %i juego, incluyendo :%s"
 msgstr[1] "Esta colección contiene %i juegos, incluyendo :%s"
 
@@ -865,11 +865,9 @@ msgstr "¿ESTÁS SEGURO DE ACTUALIZAR?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"ESTAS UTILIZANDO LA VERSION : %s\n"
-"QUIERES ACTUALIZAR A LA VERSION : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ES NECESARIA UNA CONEXIÓN DE RED"
@@ -1155,8 +1153,8 @@ msgstr "VERSIÓN"
 msgid "SHADERS"
 msgstr "SOMBRAS"
 
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "CONFIGURACIÓN DE CONTROLES"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTES DE CONTROLES Y BLUETOOTH"
@@ -1170,7 +1168,6 @@ msgstr "CENTRO MULTIMEDIA KODI"
 msgid "GAMES SETTINGS"
 msgstr "CONFIGURACIÓN DE JUEGOS"
 
-CONTROLLER & BLUETOOTH SETTINGS
 msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
 
@@ -1321,6 +1318,9 @@ msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
 msgid "TOOLS"
 msgstr "HERRAMIENTAS"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "HABILITAR WEB MANAGER"
 
@@ -1424,7 +1424,9 @@ msgstr "INVERTIR LOS BOTONES A/B EN EMULATIONSTATION"
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACCEDER LAS OPCIONES DEL JUEGO CON EL BOTON NORTE"
 
-msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 "Invertir el boton norte (estados guardados) & dejar presionado sur (opciones "
 "de juegos)"
@@ -2042,6 +2044,9 @@ msgstr "RESOLUCIÓN INTERNA"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURAR CONTROLES"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "FORMATEAR DISPOSITIVO"
 
@@ -2456,13 +2461,9 @@ msgstr "-SIN DEFINIR-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"NO HAS ELEGIDO EL BOTÓN \"HOTKEY\", ESTE BOTÓN ES NECESARIO PARA SALIR DE "
-"LOS JUEGOS CON UN CONTROL. ¿DESEAS USAR EL BOTÓN SELECT POR DEFECTO? POR "
-"FAVOR RESPONDE SI PARA USAR SELECT, O NO PARA NO HABILITAR EL BOTÓN "
-"\"HOTKEY”."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2577,6 +2578,23 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "ESTAS UTILIZANDO LA VERSION : %s\n"
+#~ "QUIERES ACTUALIZAR A LA VERSION : %s ?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "NO HAS ELEGIDO EL BOTÓN \"HOTKEY\", ESTE BOTÓN ES NECESARIO PARA SALIR DE "
+#~ "LOS JUEGOS CON UN CONTROL. ¿DESEAS USAR EL BOTÓN SELECT POR DEFECTO? POR "
+#~ "FAVOR RESPONDE SI PARA USAR SELECT, O NO PARA NO HABILITAR EL BOTÓN "
+#~ "\"HOTKEY”."
 
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "DESVINCULAR CONTROL BLUETOOTH"
