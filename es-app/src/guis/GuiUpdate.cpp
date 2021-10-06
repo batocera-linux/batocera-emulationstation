@@ -66,7 +66,7 @@ public:
 			GuiUpdate::state = GuiUpdateState::State::UPDATE_READY;
 
 			mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATE IS READY"));
-			mWndNotification->updateText(_("REBOOT SYSTEM TO APPLY"));
+			mWndNotification->updateText(_("REBOOT SYSTEM TO APPLY THE UPDATE"));
 
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::hours(12));
@@ -166,7 +166,7 @@ void GuiUpdate::update(int deltaTime)
 			std::string message = _("REALLY UPDATE?");
 
 			if (!mUpdateVersion.empty())
-				message = Utils::String::format(_("YOU ARE CURRENTLY USING VERSION : %s\nDO YOU WANT TO UPDATE TO VERSION : %s ?").c_str(), ApiSystem::getInstance()->getVersion().c_str(), mUpdateVersion.c_str()),
+				message = Utils::String::format(_("YOU ARE CURRENTLY USING VERSION %s\nDO YOU WANT TO UPDATE TO VERSION %s?").c_str(), ApiSystem::getInstance()->getVersion().c_str(), mUpdateVersion.c_str()),
 
 			window->pushGui(new GuiMsgBox(window, message, _("YES"), [this]
 			{

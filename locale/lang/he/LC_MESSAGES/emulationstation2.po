@@ -1156,10 +1156,10 @@ msgstr "גרסה"
 msgid "SHADERS"
 msgstr "מצלילים"
 
-msgid "CONTROLLERS SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr ""
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "הגדרות בקרים ובלו-טות'"
 
 msgid "MAIN MENU"

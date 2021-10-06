@@ -44,7 +44,7 @@ void GuiWifi::load(std::vector<std::string> ssids)
 	mMenu.clear();
 
 	if (ssids.size() == 0)
-		mMenu.addEntry(_("NO WIFI NETWORKS FOUND"), false, std::bind(&GuiWifi::onRefresh, this));
+		mMenu.addEntry(_("NO WI-FI NETWORKS FOUND"), false, std::bind(&GuiWifi::onRefresh, this));
 	else
 	{
 		for (auto ssid : ssids)
@@ -103,7 +103,7 @@ void GuiWifi::onRefresh()
 {		
 	Window* window = mWindow;
 
-	mWindow->pushGui(new GuiLoading<std::vector<std::string>>(mWindow, _("SEARCHING WIFI NETWORKS"), 
+	mWindow->pushGui(new GuiLoading<std::vector<std::string>>(mWindow, _("SEARCHING WI-FI NETWORKS"), 
 		[this, window]
 		{
 			mWaitingLoad = true;

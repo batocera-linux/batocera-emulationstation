@@ -60,7 +60,7 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
 ThreadedHasher::~ThreadedHasher()
 {
 	if ((mType & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5)
-		mWindow->displayNotificationMessage(ICONINDEX + _("INDEXING COMPLETED") + std::string(". ") + _("UPDATE GAMES LISTS TO APPLY CHANGES."));
+		mWindow->displayNotificationMessage(ICONINDEX + _("INDEXING COMPLETED") + std::string(". ") + _("UPDATE GAME LISTS TO APPLY CHANGES."));
 
 	mWndNotification->close();
 	mWndNotification = nullptr;
@@ -156,7 +156,7 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		if (silent)
 			return;
 
-		window->pushGui(new GuiMsgBox(window, _("GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"), _("YES"), []
+		window->pushGui(new GuiMsgBox(window, _("GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"), _("YES"), []
 		{
 			ThreadedHasher::stop();
 		}, _("NO"), nullptr));

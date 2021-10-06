@@ -29,7 +29,7 @@ void GuiBios::show(Window* window)
 }
 
 GuiBios::GuiBios(Window* window, const std::vector<BiosSystem> bioses)
-	: GuiComponent(window), mMenu(window, _("MISSING BIOS").c_str())
+	: GuiComponent(window), mMenu(window, _("MISSING BIOS CHECK").c_str())
 {
 	mBios = bioses;
 
@@ -92,7 +92,7 @@ void GuiBios::loadList()
 			spacer->setSize(14, 0);
 			row.addElement(spacer, false);
 
-			std::string status = _(biosFile.status.c_str()) + " - MD5 : " + biosFile.md5;
+			std::string status = _(biosFile.status.c_str()) + " - MD5: " + biosFile.md5;
 
 			auto line = std::make_shared<MultiLineMenuEntry>(mWindow, biosFile.path, status);
 			row.addElement(line, true);

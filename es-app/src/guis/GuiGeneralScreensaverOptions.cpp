@@ -33,7 +33,7 @@ GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, int s
 	// Screensaver time
 	auto ctlTime = std::make_shared<SliderComponent>(mWindow, 0.f, 120.0f, 1.f, "m");
 	ctlTime->setValue((float)(Settings::getInstance()->getInt("ScreenSaverTime") / (1000 * 60)));
-	addWithLabel(_("SCREENSAVER AFTER"), ctlTime);
+	addWithLabel(_("START SCREENSAVER AFTER"), ctlTime);
 	addSaveFunc([ctlTime]
 	{
 	    Settings::getInstance()->setInt("ScreenSaverTime", (int)Math::round(ctlTime->getValue()) * (1000 * 60));
@@ -41,9 +41,9 @@ GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, int s
 	});
 	
 	// Screensaver behavior
-	auto ctlBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SCREENSAVER BEHAVIOR"), false);
+	auto ctlBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SCREENSAVER TYPE"), false);
 	ctlBehavior->addRange({ "dim", "black", "random video", "slideshow" }, ssBehavior);
-	addWithLabel(_("SCREENSAVER BEHAVIOR"), ctlBehavior, selectItem == 1);
+	addWithLabel(_("SCREENSAVER TYPE"), ctlBehavior, selectItem == 1);
 	ctlBehavior->setSelectedChangedCallback([this](const std::string& name)
 	{
 		if (Settings::getInstance()->setString("ScreenSaverBehavior", name))
@@ -171,12 +171,12 @@ void GuiGeneralScreensaverOptions::addVideoScreensaverOptions(int selectItem)
 	if (useCustomVideoSource)
 	{
 		// custom video directory
-		auto sss_image_dir = addBrowsablePath(_("CUSTOM VIDEO DIR"), Settings::getInstance()->getString("SlideshowScreenSaverVideoDir"));
+		auto sss_image_dir = addBrowsablePath(_("CUSTOM VIDEO DIRECTORY"), Settings::getInstance()->getString("SlideshowScreenSaverVideoDir"));
 		addSaveFunc([sss_image_dir] { Settings::getInstance()->setString("SlideshowScreenSaverVideoDir", sss_image_dir->getValue()); });
 
 		// recurse custom video directory
 		auto sss_recurse = std::make_shared<SwitchComponent>(mWindow, Settings::getInstance()->getBool("SlideshowScreenSaverVideoRecurse"));
-		addWithLabel(_("CUSTOM VIDEO DIR RECURSIVE"), sss_recurse);
+		addWithLabel(_("CUSTOM VIDEO DIRECTORY RECURSIVE"), sss_recurse);
 		addSaveFunc([sss_recurse] { Settings::getInstance()->setBool("SlideshowScreenSaverVideoRecurse", sss_recurse->getState()); });
 
 		// custom video filter
@@ -194,7 +194,7 @@ void GuiGeneralScreensaverOptions::addSlideShowScreensaverOptions(int selectItem
 	// image duration (seconds)
 	auto sss_image_sec = std::make_shared<SliderComponent>(mWindow, 1.f, 60.f, 1.f, "s");
 	sss_image_sec->setValue((float)(Settings::getInstance()->getInt("ScreenSaverSwapImageTimeout") / (1000)));
-	addWithLabel(_("SWAP IMAGE AFTER (SECS)"), sss_image_sec);
+	addWithLabel(_("IMAGE DURATION (SECS)"), sss_image_sec);
 	addSaveFunc([sss_image_sec] {
 		int playNextTimeout = (int)Math::round(sss_image_sec->getValue()) * (1000);
 		Settings::getInstance()->setInt("ScreenSaverSwapImageTimeout", playNextTimeout);
@@ -264,12 +264,12 @@ void GuiGeneralScreensaverOptions::addSlideShowScreensaverOptions(int selectItem
 	if (customSource)
 	{
 		// custom image directory
-		auto sss_image_dir = addBrowsablePath(_("CUSTOM IMAGE DIR"), Settings::getInstance()->getString("SlideshowScreenSaverImageDir"));
+		auto sss_image_dir = addBrowsablePath(_("CUSTOM IMAGE DIRECTORY"), Settings::getInstance()->getString("SlideshowScreenSaverImageDir"));
 		addSaveFunc([sss_image_dir] { Settings::getInstance()->setString("SlideshowScreenSaverImageDir", sss_image_dir->getValue()); });
 
 		// recurse custom image directory
 		auto sss_recurse = std::make_shared<SwitchComponent>(mWindow, Settings::getInstance()->getBool("SlideshowScreenSaverRecurse"));
-		addWithLabel(_("CUSTOM IMAGE DIR RECURSIVE"), sss_recurse);
+		addWithLabel(_("CUSTOM IMAGE DIRECTORY RECURSIVE"), sss_recurse);
 		addSaveFunc([sss_recurse] { Settings::getInstance()->setBool("SlideshowScreenSaverRecurse", sss_recurse->getState()); });
 
 		// custom image filter
