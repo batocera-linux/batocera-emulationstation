@@ -308,7 +308,7 @@ msgid "Searching controllers..."
 msgstr "Buscant comandaments…"
 
 msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "EL ESCANEIG BLUETOOTH S’ESTÀ EXECUTANT."
+msgstr "L'ESCANEIG BLUETOOTH S’ESTÀ EXECUTANT."
 
 msgid "FORMATING DEVICE"
 msgstr "FORMATANT DISPOSITIU"
@@ -628,7 +628,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NO S’HA TROBAT CAP DISPOSITIU BLUETOOTH"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "ELS DISPOSITIUS BLUETOOTH S'HAN ELIMINAT"
 
 msgid "FILE BROWSER"
 msgstr "EXAMINAR"
@@ -894,7 +894,7 @@ msgid "INVALID PARAMETERS"
 msgstr "VALORS NO VÀLIDS"
 
 msgid "GAME MEDIAS"
-msgstr "MITJANS DE JOC"
+msgstr "MULTIMÈDIA DE JOC"
 
 msgid "VIEW GAME MANUAL"
 msgstr "VEURE MANUAL DEL JOC"
@@ -906,10 +906,10 @@ msgid "VIEW GAME MAP"
 msgstr "VEURE EL MAPA DEL JOC"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr ""
+msgstr "VEURE VIDEO A PANTALLA COMPLETA"
 
 msgid "VIEW GAME MEDIAS"
-msgstr ""
+msgstr "VEURE MULTIMÈDIA DE JOC"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "EL NUCLI ACTUAL NO ÉS COMPATIBLE"
@@ -1145,22 +1145,22 @@ msgid "RGA SCALING"
 msgstr "ESCALAT RGA"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "FABRICANT"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERITZADOR"
 
 msgid "VERSION"
 msgstr "VERSIÓ"
 
 msgid "SHADERS"
-msgstr ""
+msgstr "FILTRES"
 
 msgid "CONTROLLERS SETTINGS"
 msgstr "PARÀMETRES DELS COMANDAMENTS"
 
 msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-msgstr ""
+msgstr "AJUSTOS DE COMANDAMENTS I BLUETOOTH"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -1208,13 +1208,13 @@ msgid "SCRAPE FROM"
 msgstr "OBTENIR DADES DE"
 
 msgid "IMAGE SOURCE"
-msgstr ""
+msgstr "ORIGEN DE LA IMATGE"
 
 msgid "SCREENSHOT"
-msgstr ""
+msgstr "CAPTURA DE PANTALLA"
 
 msgid "TITLE SCREENSHOT"
-msgstr ""
+msgstr "CAPTURA DEL TÍTOL"
 
 msgid "MIX V1"
 msgstr ""
@@ -1223,46 +1223,46 @@ msgid "MIX V2"
 msgstr ""
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "CAPSA 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "CAPSA 3D"
 
 msgid "FAN ART"
-msgstr ""
+msgstr "FAN ART"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "ORIGEN DE LA CAIXA"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "ORIGEN DEL LOGO"
 
 msgid "WHEEL"
-msgstr ""
+msgstr "RODA"
 
 msgid "MARQUEE"
-msgstr ""
+msgstr "MARQUESINA"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTENIR DADES DE VALORACIÓ"
 
 msgid "SCRAPE VIDEOS"
-msgstr ""
+msgstr "OBTENIR VIDEOS"
 
 msgid "SCRAPE FANART"
-msgstr ""
+msgstr "OBTENIR FAN ART"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
+msgstr "OBTENIR REVERS DE LA CAPSA"
 
 msgid "SCRAPE MAP"
-msgstr ""
+msgstr "OBTENIR MAPA"
 
 msgid "SCRAPE MANUAL"
-msgstr ""
+msgstr "OBTENIR MANUAL"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
+msgstr "OBTENIR AJUSTOS PADTOKEY"
 
 msgid "USERNAME"
 msgstr "USUARI"
@@ -1271,7 +1271,7 @@ msgid "PASSWORD"
 msgstr "CONTRASENYA"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr ""
+msgstr "ESTÀS SEGUR QUE VOLS CONFIGURAR EL DISPOSITIU D'ENTRADA?"
 
 msgid "CHOOSE"
 msgstr "TRIA"
@@ -1280,59 +1280,59 @@ msgid "UI MODE IS NOW UNLOCKED"
 msgstr ""
 
 msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
+msgstr "SI US PLAU, ENTRA EL CODI PER A DESBLOQUEJAR EL MODE D'INTERFÍCIE D'USUARI ACTUAL"
 
 msgid "INFORMATION"
-msgstr ""
+msgstr "INFORMACIÓ"
 
 msgid "USER DISK USAGE"
-msgstr ""
+msgstr "OCUPACIÓ D'USUARI DEL DISC"
 
 msgid "SYSTEM DISK USAGE"
-msgstr ""
+msgstr "OCUPACIÓ DE SISTEMA DEL DISC"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
 
 msgid "VIDEO DRIVER"
-msgstr ""
+msgstr "CONTROLADOR DE VIDEO"
 
 msgid "DEVELOPER"
 msgstr "DESENVOLUPADOR"
 
 msgid "VIDEO OPTIONS"
-msgstr ""
+msgstr "OPCIONS DE VIDEO"
 
 msgid "VRAM LIMIT"
-msgstr ""
+msgstr "LÍMIT VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
 
 msgid "VSYNC"
-msgstr ""
+msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "SOBRE-EXPLORACIÓ"
 
 msgid "USE OMX PLAYER (HW ACCELERATED)"
-msgstr ""
+msgstr "USA EL REPRODUCTOR OMX (ACCELERACIÓ PER HW)"
 
 msgid "TOOLS"
-msgstr ""
+msgstr "EINES"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr ""
+msgstr "HABILITAR L'ACCÈS WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Permetre l'accès a la API web usant %s"
 
 msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
+msgstr "PER A APLICAR LA NOVA CONFIGURACIÓ ES REQUEREIX UN REINICI DEL SISTEMA"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "NIVELL DE FITXER DE REGISTRE"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
@@ -1341,19 +1341,19 @@ msgid "CREATE A SUPPORT FILE ?"
 msgstr ""
 
 msgid "FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "FITXER GERNERAT SATISFACTÒRIAMENT"
 
 msgid "FILE GENERATION FAILED"
-msgstr ""
+msgstr "LA GENERACIÓ DE FITXER HA FALLAT"
 
 msgid "FORMAT A DISK"
-msgstr ""
+msgstr "FORMATAR UN DISC"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr ""
+msgstr "NETEGAR LLISTES DE JOC I ELIMINAR MULTIMÈDIA NO USADA"
 
 msgid "Cleaning "
-msgstr ""
+msgstr "Netejant"
 
 msgid "CLEAR CACHES"
 msgstr ""
@@ -1368,31 +1368,31 @@ msgid "RESET FILE EXTENSIONS"
 msgstr ""
 
 msgid "REDETECT GAMES LANG/REGION"
-msgstr ""
+msgstr "REDETECTAR IDIOMA/REGIÓ DELS JOCS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
-msgstr ""
+msgstr "GESTIÓ DE DADES"
 
 msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr ""
+msgstr "IGNORAR CONTINGUT MULTI-ARXIU (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
-msgstr ""
+msgstr "HABILITAR FILTRES"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr ""
+msgstr "DESAR METADATA AL SORTIR"
 
 msgid "PARSE GAMESLISTS ONLY"
-msgstr ""
+msgstr "INTERPRETAR NOMÉS LLISTES DE JOCS"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
 msgid "UI"
-msgstr ""
+msgstr "IU"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr ""
@@ -1404,25 +1404,25 @@ msgid "ON SCREEN KEYBOARD"
 msgstr "TECLAT EN PANTALLA"
 
 msgid "HIDE WHEN RUNNING A GAME"
-msgstr ""
+msgstr "OCULTAR MENTRE S'EXECUTA UN JOC"
 
 msgid "COMPLETE QUIT MENU"
-msgstr ""
+msgstr "MENÚ SORTIR COMPLET"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr ""
+msgstr "CONTROLADOR DE MENÚ RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTO"
 
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
+msgstr "AUTOCONFIGURAR COMANDAMENTS ALS EMULADORS"
 
 msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "INTERCANVIAR ELS BOTONS A/B A EMULATIONSTATION"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr ""
+msgstr "ACCEDIR A LES OPCIONS DE JOC AMB EL BOTÓ NORD"
 
 msgid "Inverts north button (savestates) & long press south (game options)"
 msgstr ""
