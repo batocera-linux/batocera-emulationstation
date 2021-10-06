@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:09+0200\n"
+"POT-Creation-Date: 2021-10-06 18:29+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -296,7 +296,7 @@ msgstr "Dim"
 msgid "Various"
 msgstr "Amrywiol"
 
-#, fuzzy, c-format
+#, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Mae'r casgliad yn cynnwys %i gêm, yn cynnwys :%s"

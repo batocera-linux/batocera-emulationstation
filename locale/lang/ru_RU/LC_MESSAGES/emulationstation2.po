@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:22+0200\n"
+"POT-Creation-Date: 2021-10-06 18:29+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -295,7 +295,7 @@ msgstr "Нет"
 msgid "Various"
 msgstr "Различные"
 
-#, fuzzy, c-format
+#, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Коллекция содержит %i игру, включая :%s"

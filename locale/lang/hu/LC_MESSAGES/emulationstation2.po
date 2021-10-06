@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:16+0200\n"
+"POT-Creation-Date: 2021-10-06 18:29+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -295,7 +295,7 @@ msgstr "Egyik sem"
 msgid "Various"
 msgstr "Különféle"
 
-#, fuzzy, c-format
+#, c-format
 msgid "This collection contains %i game, including :%s"
 msgid_plural "This collection contains %i games, including :%s"
 msgstr[0] "Ez a gyűjtemény %i játékot tartalmaz, beleértve: %s -t"
