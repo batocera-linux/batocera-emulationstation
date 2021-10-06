@@ -523,64 +523,67 @@ void Font::renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsi
 	}
 }
 
+bool isBidiChar(char c)
+{
+    return (c & 0xE0) == 0xC0 && (c & 0x10) == 0x10;
+}
+
 std::string tryFastBidi(const std::string& text)
 {
-	std::string ret = "";
+    std::string ret = "";
 
-	size_t lastCursor = 0;
-	size_t i = 0;
-	while (i < text.length())
-	{
-		const char&  c = text[i];
-		
-		if ((c & 0xE0) == 0xC0)
-		{
-			if ((c & 0x10) == 0x10)
-			{
-				ret.insert(lastCursor, text.substr(i + 1, 1));
-				ret.insert(lastCursor, text.substr(i, 1));
-				i += 2;
-			}
-			else
-			{
-				ret += text[i++];
-				ret += text[i++];
-				lastCursor = i;
-			}
-		}
-		else if ((c & 0xF0) == 0xE0)
-		{
-			ret += text[i++];
-			ret += text[i++];
-			ret += text[i++];
-			lastCursor = i;
-		}
-		else if ((c & 0xF8) == 0xF0)
-		{
-			ret += text[i++];
-			ret += text[i++];
-			ret += text[i++];
-			ret += text[i++];
-			lastCursor = i;
-		}
-		else
-		{
-			if (c == 32 && 
-				i + 1 < text.length() && (text[i+1] & 0xE0) == 0xC0 && (text[i + 1] & 0x10) == 0x10 && 
-				i > 0 && (text[i - 1] & 0xE0) != 0xC0 && (text[i -1 ] & 0x10) != 0x10)
-			{
-				ret.insert(lastCursor, text.substr(i, 1));
-				i++;
-			}
-			else
-			{
-				ret += text[i++];
-				lastCursor = i;
-			}
-		}
-	}
+    size_t lastCursor = 0;
+    size_t i = 0;
+    while (i < text.length())
+    {
+        const char&  c = text[i];
+        
+        if ((c & 0xE0) == 0xC0)
+        {
+            if (isBidiChar(c))
+            {
+                ret.insert(lastCursor, text.substr(i + 1, 1));
+                ret.insert(lastCursor, text.substr(i, 1));
+                i += 2;
+            }
+            else
+            {
+                ret += text[i++];
+                ret += text[i++];
+                lastCursor = i;
+            }
+        }
+        else if ((c & 0xF0) == 0xE0)
+        {
+            ret += text[i++];
+            ret += text[i++];
+            ret += text[i++];
+            lastCursor = i;
+        }
+        else if ((c & 0xF8) == 0xF0)
+        {
+            ret += text[i++];
+            ret += text[i++];
+            ret += text[i++];
+            ret += text[i++];
+            lastCursor = i;
+        }
+        else
+        {
+            if (c == 32 && i + 1 < text.length() && isBidiChar(text[i + 1]) && i > 1 && isBidiChar(text[i - 2]))
+            {
+                ret.insert(lastCursor, text.substr(i, 1));
+                i++;
+            }
+            else
+            {
+                ret += text[i++];
+                lastCursor = i;
+            }
+        }
+    }
 
-	return ret;
+    return ret;
 }
 
 Vector2f Font::sizeText(std::string text, float lineSpacing)
