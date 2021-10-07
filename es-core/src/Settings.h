@@ -35,6 +35,8 @@ public:
 	static bool DebugImage;
 	static bool DebugGrid;
 
+	DEFINE_BOOL_SETTING(PreloadMedias)
+	DEFINE_BOOL_SETTING(ShowHiddenFiles)
 	DEFINE_BOOL_SETTING(HiddenSystemsShowGames)
 	DEFINE_STRING_SETTING(HiddenSystems)
 

@@ -143,7 +143,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 	std::string value;
 	std::string relativeTo = mdl.mRelativeTo->getStartPath();
 
-	bool preloadMedias = Settings::getInstance()->getBool("PreloadMedias");
+	bool preloadMedias = Settings::PreloadMedias();
 
 	for (pugi::xml_node xelement : node.children())
 	{

@@ -97,7 +97,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 		setIsGameSystemStatus();
 
-		if (Settings::getInstance()->getBool("PreloadMedias"))
+		if (Settings::PreloadMedias())
 			getSaveStateRepository();
 	}
 }
@@ -209,7 +209,8 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 	std::string filePath;
 	std::string extension;
 	bool isGame;
-	bool showHidden = Settings::getInstance()->getBool("ShowHiddenFiles");
+	bool showHidden = Settings::ShowHiddenFiles();
+	bool preloadMedias = Settings::PreloadMedias();
 
 	auto shv = Settings::getInstance()->getString(getName() + ".ShowHiddenFiles");
 	if (shv == "1") showHidden = true;
@@ -250,7 +251,7 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 		{
 			std::string fn = Utils::String::toLower(Utils::FileSystem::getFileName(filePath));
 
-			if (Settings::getInstance()->getBool("PreloadMedias"))
+			if (preloadMedias && (!mHidden || Settings::HiddenSystemsShowGames()))
 			{
 				// Recurse list files in medias folder, just to let OS build filesystem cache 
 				if (fn == "media" || fn == "medias")
