@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v32beta(2021/09/13)\n"
+"Project-Id-Version: batocera-es v33beta(2021/10/07)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:29+0200\n"
-"PO-Revision-Date: 2021-09-15 20:16+0900\n"
+"POT-Creation-Date: 2021-10-07 20:29+0200\n"
+"PO-Revision-Date: 2021-10-08 00:01+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -686,7 +686,7 @@ msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
 
 msgid "MISSING BIOS CHECK"
-msgstr "不足BIOSの表示"
+msgstr "不足BIOSの確認"
 
 msgid "dim"
 msgstr "輝度を落とす"
@@ -728,7 +728,7 @@ msgid "START SCREENSAVER AFTER"
 msgstr "スクリーンセーバー開始時間"
 
 msgid "SCREENSAVER TYPE"
-msgstr "スクリーンセーバー動作"
+msgstr "スクリーンセーバー種類"
 
 msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "スクリーンセーバー実行時音楽を停止"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"現在、バージョン「%s」を使用中\n"
+"バージョン「%s」に更新しますか?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -903,10 +905,10 @@ msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr ""
+msgstr "フルスクリーンビデオを表示"
 
 msgid "VIEW GAME MEDIAS"
-msgstr ""
+msgstr "ゲームメディアを表示"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "現在のコアと互換性がありません"
@@ -1154,7 +1156,7 @@ msgid "SHADERS"
 msgstr "シェーダー"
 
 msgid "CONTROLLER SETTINGS"
-msgstr ""
+msgstr "コントローラー 設定"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "コントローラー＆BLUETOOTH 設定"
@@ -1320,7 +1322,7 @@ msgid "TOOLS"
 msgstr "ツール"
 
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr ""
+msgstr "起動時のゲーム開始を解除"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "パブリックWebアクセスを有効"
@@ -1371,7 +1373,7 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "ファイル拡張子設定をリセット"
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "ゲームの言語/地域を再検出"
+msgstr "すべてのゲームの言語/地域を再検出"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "ネットプレイ/実績 ですべてのゲームを検索"
@@ -1380,7 +1382,7 @@ msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "(CUE/GDI/CCD/M3U)に記載ファイルを表示しない"
+msgstr "(CUE/GDI/CCD/M3U)に記載のファイルを表示しない"
 
 msgid "ENABLE FILTERS"
 msgstr "フィルターを有効"
@@ -1422,7 +1424,7 @@ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "エミュレーターのコントローラー自動設定"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "ESメニューでの A/B ボタンの入れ替え"
+msgstr "ESメニューでの AとB ボタンの入れ替え"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "△(上)ボタン長押しでゲーム設定を開く"
@@ -1442,13 +1444,13 @@ msgid "OPTIMIZATIONS"
 msgstr "最適化"
 
 msgid "PRELOAD UI"
-msgstr "プレロード(先読み)式 UI"
+msgstr "プリロード(先行読込) UI"
 
 msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr ""
+msgstr "メディアファイルシステムの先行読込"
 
 msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr ""
+msgstr "起動時のUIラグを減らす"
 
 msgid "THREADED LOADING"
 msgstr "スレッド読み込み"
@@ -1502,7 +1504,7 @@ msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
 
 msgid "TEXT TO SPEECH"
-msgstr ""
+msgstr "テキスト読み上げ"
 
 msgid "UI MODE"
 msgstr "UI モード"
@@ -1562,7 +1564,7 @@ msgid "SILENT SPLASH"
 msgstr "音声無し"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "既定"
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "RetroAchievements 設定"
@@ -1724,7 +1726,7 @@ msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "オートセーブ/ロード"
+msgstr "起動時にオートセーブを読込む"
 
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "オートセーブを表示"
@@ -1849,13 +1851,13 @@ msgid "AFTER NAME"
 msgstr "ゲーム名の後"
 
 msgid "SHOW REGION FLAG"
-msgstr "ゲームリージョンの国旗をリストに表示"
+msgstr "ゲームリージョンの国旗を表示"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "ステートセーブマークをリストに表示"
+msgstr "ステートセーブアイコンを表示"
 
 msgid "SHOW MANUAL ICON"
-msgstr "マニュアルアイコンをリストに表示"
+msgstr "マニュアルアイコンを表示"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "リストにファイル名を表示"
@@ -1883,7 +1885,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "表示設定"
 
 msgid "LIST TRANSITION STYLE"
-msgstr "画面遷移スタイル"
+msgstr "画面遷移スタイルのリスト"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ゲーム開始時の画面遷移"
@@ -1904,7 +1906,7 @@ msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr ""
+msgstr "ソート時に主要項目を無視"
 
 msgid "VOLUME"
 msgstr "音量"
@@ -1922,7 +1924,7 @@ msgid "MUSIC"
 msgstr "音楽"
 
 msgid "FRONTEND MUSIC"
-msgstr "ES-BGM"
+msgstr "ES-BGM 再生"
 
 msgid "DISPLAY SONG TITLES"
 msgstr "BGM名の表示"
@@ -1931,10 +1933,10 @@ msgid "SONG TITLE DISPLAY DURATION"
 msgstr "BGM名の表示秒数"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "システム固有の音楽フォルダのみ再生"
+msgstr "システム固有のBGMフォルダのみ再生"
 
 msgid "PLAY SYSTEM-SPECIFIC MUSIC"
-msgstr "テーマ指定BGMを再生"
+msgstr "システム固有のBGMを再生"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "動画再生時は音量を下げる"
@@ -1946,7 +1948,7 @@ msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ナビゲーションサウンドを有効"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr "動画音声を有効"
+msgstr "ビデオプレビュー音声を有効"
 
 msgid "IP ADDRESS"
 msgstr "IP アドレス"
@@ -2045,7 +2047,7 @@ msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自動コントローラー設定"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr ""
+msgstr "起動時にこのゲームを開始する"
 
 msgid "FORMAT DEVICE"
 msgstr "フォーマット"
@@ -2142,9 +2144,6 @@ msgid ""
 "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY ?"
 msgstr ""
-"警告：このゲームのフォーマットは、 現在のエミュレータ/コアではサポートされて"
-"いません。\n"
-"実行しますか?"
 
 msgid ""
 "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
@@ -2316,7 +2315,7 @@ msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "リリース年、システム、降順"
 
 msgid "A,AN,THE"
-msgstr ""
+msgstr "A,AN,THE(英タイトル)"
 
 msgid "Extracting"
 msgstr "抽出"
@@ -2458,6 +2457,9 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
 "TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
+"ホットキーを選択しませんでした。 コントローラーでゲームを終了するために 必要"
+"です。「セレクト」ボタンを 使用しますか？使用する場合は「はい」、 ホットキー"
+"対応ボタンを設定しない場合は 「いいえ」を選択してください。"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2520,10 +2522,10 @@ msgid "EDIT"
 msgstr "編集"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "有効"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "無効"
 
 #, c-format
 msgid "%d day ago"
@@ -2561,26 +2563,22 @@ msgid "%d s"
 msgstr "%d 秒"
 
 msgid "TEXT TO SPEECH ENABLED"
-msgstr ""
+msgstr "テキスト読み上げ有効"
 
 msgid "TEXT TO SPEECH DISABLED"
-msgstr ""
+msgstr "テキスト読み上げ無効"
+
+#~ msgid "NO SPLASH"
+#~ msgstr "ブート映像無し"
 
 #~ msgid ""
-#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
-#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/"
+#~ "CORE.\n"
+#~ "DO YOU WANT TO LAUNCH IT ANYWAY?"
 #~ msgstr ""
-#~ "現在、バージョン「%s」を使用中\n"
-#~ "バージョン「%s」に更新しますか?"
-
-#~ msgid ""
-#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
-#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
-#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
-#~ msgstr ""
-#~ "ホットキーを選択しませんでした。 コントローラーでゲームを終了するために 必"
-#~ "要です。「セレクト」ボタンを 使用しますか？使用する場合は「はい」、 ホット"
-#~ "キー対応ボタンを設定しない場合は 「いいえ」を選択してください。"
+#~ "警告：このゲームのフォーマットは、 現在のエミュレータ/コアではサポートされ"
+#~ "ていません。\n"
+#~ "実行しますか?"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"
