@@ -122,7 +122,7 @@ void GuiFileBrowser::navigateTo(const std::string path)
 					icon = DOCUMENT_ICON;
 
 			if ((mTypes & FileTypes::VIDEO) == FileTypes::VIDEO)
-				if (ext == ".mp4")
+				if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm")
 					icon = VIDEO_ICON;
 
 			if (icon.empty())

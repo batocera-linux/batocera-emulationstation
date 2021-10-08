@@ -562,7 +562,7 @@ void GuiImageViewer::add(const std::string imagePath)
 	std::string vid;
 
 	auto ext = Utils::FileSystem::getExtension(imagePath);
-	if (ext == ".mp4")
+	if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm")
 		vid = imagePath;
 	else
 		img = imagePath;
