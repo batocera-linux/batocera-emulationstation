@@ -113,7 +113,7 @@ function showSystems(arr) {
 			if (arr[i].logo) {
 				out += '<td align="center"><a onclick="javascript:loadGames(\''+ arr[i].name +'\')" href="#"><img height=25 style="max-width:100px" src="' + arr[i].logo + '"></a></td>';
 			} else {
-				out += '<td align="center">' + arr[i].fullname + '</td>';
+				out += '<td align="center"><a onclick="javascript:loadGames(\'' + arr[i].name +'\')" href="#">' + arr[i].fullname + '</a></td>';
 			}
 			
 		//	out += '<td>Games : ' + arr[i].totalGames + '</td>';
