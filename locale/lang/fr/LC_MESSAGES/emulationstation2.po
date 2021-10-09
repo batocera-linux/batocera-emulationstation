@@ -558,7 +558,7 @@ msgid "CLOSE"
 msgstr "FERMER"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER CET ÉLEMENT ?"
+msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER CET ÉLÉMENT ?"
 
 msgid "INPUT"
 msgstr "ÉDITER"
@@ -868,6 +868,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"VOUS UTILISEZ ACTUELLEMENT LA VERSION %s\n"
+"VOULEZ-VOUS METTRE À JOUR EN VERSION %s ? "
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "CONNEXION RÉSEAU NÉCESSAIRE"
@@ -903,10 +905,10 @@ msgid "VIEW GAME MAP"
 msgstr "VOIR LA CARTE DU JEU"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr "VOIR LA VIDEO PLEIN ÉCRAN"
+msgstr "VOIR LA VIDÉO PLEIN ÉCRAN"
 
 msgid "VIEW GAME MEDIAS"
-msgstr "VOIR LES MEDIAS DU JEU"
+msgstr "VOIR LES MÉDIAS DU JEU"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "COEUR ACTUEL NON COMPATIBLE"
@@ -951,7 +953,7 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "TROUVER LES JEUX SIMILAIRES…"
 
 msgid "DELETE ITEM"
-msgstr "SUPPRIMER L'ÉLEMENT"
+msgstr "SUPPRIMER L'ÉLÉMENT"
 
 msgid "DELETE GAME"
 msgstr "SUPPRIMER LE JEU"
@@ -1152,7 +1154,7 @@ msgid "SHADERS"
 msgstr "FILTRES"
 
 msgid "CONTROLLER SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES DES MANETTES"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "PARAMÈTRES DES MANETTES ET PÉRIPHÉRIQUES BLUETOOTH"
@@ -1317,7 +1319,7 @@ msgid "TOOLS"
 msgstr "OUTILS"
 
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr ""
+msgstr "ARRÊTER DE LANCER CE JEU AU DÉMARRAGE"
 
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "ACTIVER L'ACCÈS WEB PUBLIC"
@@ -1426,7 +1428,7 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Intervertir le bouton nord (sauvegarde de jeu) et sud pression longue "
+"Intervertit le bouton nord (sauvegarde de jeu) et sud pression longue "
 "(options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1445,7 +1447,7 @@ msgid "PRELOAD MEDIAS FILESYSTEM"
 msgstr "PRÉCHARGEMENT DU SYSTÈME DE FICHIERS DES MEDIAS"
 
 msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "Reduit les saccades dans l'interface mais démarre plus lentement"
+msgstr "Réduit les saccades dans l'interface mais démarre plus lentement"
 
 msgid "THREADED LOADING"
 msgstr "CHARGEMENT EN PARALLÈLE"
@@ -2043,7 +2045,7 @@ msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURER LES MANETTES"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr ""
+msgstr "LANCER CE JEU AU DÉMARRAGE"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATER UN PÉRIPHÉRIQUE"
@@ -2462,6 +2464,10 @@ msgid ""
 "WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
 "TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
+"VOUS N’AVEZ PAS SÉLECTIONNÉ DE BOUTON HOTKEY. CECI EST NÉCESSAIRE POUR "
+"QUITTER UN JEU. VOULEZ-VOUS ATTRIBUER CETTE ACTION AU BOUTON SELECT ? "
+"RÉPONDEZ OUI POUR UTILISER LE BOUTON SELECT OU NON POUR ACTIVER UN BOUTON "
+"HOTKEY."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
