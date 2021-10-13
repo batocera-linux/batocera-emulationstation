@@ -70,8 +70,8 @@ public:
 	{
 		std::vector<HelpPrompt> prompts;
 		prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
-		prompts.push_back(HelpPrompt("l", _("ZOOM-")));
-		prompts.push_back(HelpPrompt("r", _("ZOOM+")));		
+		prompts.push_back(HelpPrompt("l", _("ZOOM OUT")));
+		prompts.push_back(HelpPrompt("r", _("ZOOM IN")));		
 		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE")));
 
 		return prompts;

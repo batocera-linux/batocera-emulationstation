@@ -22,9 +22,9 @@ void MetaDataList::initMetadata()
 	MetaDataDecl gameDecls[] = 
 	{
 		// key,             type,                   default,            statistic,  name in GuiMetaDataEd,  prompt in GuiMetaDataEd
-		{ Name,             "name",        MD_STRING,              "",                 false,      _("Name"),                 _("enter game name"),			true },
+		{ Name,             "name",        MD_STRING,              "",                 false,      _("Name"),                 _("this game's name"),			true },
 	//	{ SortName,         "sortname",    MD_STRING,              "",                 false,      _("sortname"),             _("enter game sort name"),	true },
-		{ Desc,             "desc",        MD_MULTILINE_STRING,    "",                 false,      _("Description"),          _("enter description"),		true },
+		{ Desc,             "desc",        MD_MULTILINE_STRING,    "",                 false,      _("Description"),          _("this game's description"),		true },
 
 #if WIN32 && !_DEBUG
 		{ Emulator,         "emulator",    MD_LIST,				 "",                 false,       _("Emulator"),			 _("emulator"),					false },
@@ -55,19 +55,19 @@ void MetaDataList::initMetadata()
 		
 		{ Rating,           "rating",      MD_RATING,              "0.000000",         false,      _("Rating"),               _("enter rating"),			false },
 		{ ReleaseDate,      "releasedate", MD_DATE,                "not-a-date-time",  false,      _("Release date"),         _("enter release date"),		false },
-		{ Developer,        "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("enter game developer"),	false },
-		{ Publisher,        "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("enter game publisher"),	false },
+		{ Developer,        "developer",   MD_STRING,              "",                 false,      _("Developer"),            _("this game's developer"),	false },
+		{ Publisher,        "publisher",   MD_STRING,              "",                 false,      _("Publisher"),            _("this game's publisher"),	false },
 
 
 		{ Genre,            "genre",       MD_STRING,              "",                 false,      _("Genre"),                _("enter game genre"),		false }, 
-		{ Family,           "family",      MD_STRING,              "",                 false,      _("Game family"),		  _("enter game family"),		false },
+		{ Family,           "family",      MD_STRING,              "",                 false,      _("Game family"),		  _("this game's game family"),		false },
 
 		// GenreIds is not serialized
 		{ GenreIds,         "genres",      MD_STRING,              "",                 false,      _("Genres"),				  _("enter game genres"),		false },
 
-		{ ArcadeSystemName, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("enter game arcade system"), false },
+		{ ArcadeSystemName, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("this game's arcade system"), false },
 
-		{ Players,          "players",     MD_INT,                 "",                false,       _("Players"),              _("enter number of players"),	false },
+		{ Players,          "players",     MD_INT,                 "",                false,       _("Players"),              _("this game's number of players"),	false },
 		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite"),			false },
 		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden"),			true },
 		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame"),			false },
@@ -79,8 +79,8 @@ void MetaDataList::initMetadata()
 
 		{ GameTime,         "gametime",    MD_INT,                 "0",                true,       _("Game time"),            _("how long the game has been played in total (seconds)"), false },
 
-		{ Language,         "lang",        MD_STRING,              "",                 false,      _("Languages"),            _("Languages"),				false },
-		{ Region,           "region",      MD_STRING,              "",                 false,      _("Region"),               _("Region"),					false },
+		{ Language,         "lang",        MD_STRING,              "",                 false,      _("Languages"),            _("this game's languages"),				false },
+		{ Region,           "region",      MD_STRING,              "",                 false,      _("Region"),               _("this game's region"),					false },
 
 		{ CheevosHash,      "cheevosHash", MD_STRING,              "",                 true,       _("Cheevos Hash"),          _("Cheevos checksum"),	    false },
 		{ CheevosId,        "cheevosId",   MD_INT,                 "",				   true,       _("Cheevos Game ID"),       _("Cheevos Game ID"),		false },

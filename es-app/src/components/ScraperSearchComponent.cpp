@@ -59,12 +59,12 @@ ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) 
 	mMD_Genre = std::make_shared<TextComponent>(mWindow, "", font, mdColor);
 	mMD_Players = std::make_shared<TextComponent>(mWindow, "", font, mdColor);
 
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Publisher") + " :"), font, mdLblColor), mMD_Publisher));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Developer") + " :"), font, mdLblColor), mMD_Developer));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Genre") + " :"), font, mdLblColor), mMD_Genre));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Players") + " :"), font, mdLblColor), mMD_Players));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Released") + " :"), font, mdLblColor), mMD_ReleaseDate));
-	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Rating") + " :"), font, mdLblColor), mMD_Rating, false));
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Publisher") + ":"), font, mdLblColor), mMD_Publisher));
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Developer") + ":"), font, mdLblColor), mMD_Developer));
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Genre") + ":"), font, mdLblColor), mMD_Genre));
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Players") + ":"), font, mdLblColor), mMD_Players));
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Released") + ":"), font, mdLblColor), mMD_ReleaseDate));
+	mMD_Pairs.push_back(MetaDataPair(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(_("Rating") + ":"), font, mdLblColor), mMD_Rating, false));
 
 	mMD_Grid = std::make_shared<ComponentGrid>(mWindow, Vector2i(2, (int)mMD_Pairs.size() * 2)); //  - 1
 
@@ -379,7 +379,7 @@ void ScraperSearchComponent::onSearchError(const std::string& error)
 {
 	LOG(LogInfo) << "ScraperSearchComponent search error: " << error;
 
-	mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURED") + " :\n" + Utils::String::toUpper(error),
+	mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURED") + ":\n" + Utils::String::toUpper(error),
 		_("RETRY"), std::bind(&ScraperSearchComponent::search, this, mInitialSearch),
 		_("SKIP"), mSkipCallback, // batocera
 		_("CANCEL"), mCancelCallback, ICON_ERROR)); // batocera

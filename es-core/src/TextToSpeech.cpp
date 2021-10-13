@@ -152,7 +152,7 @@ void TextToSpeech::enable(bool v, bool playSay)
 	if (m_isAvailable && playSay)
 	{
 		m_enabled = true; // Force
-		say(v ? _("TEXT TO SPEECH ENABLED") : _("TEXT TO SPEECH DISABLED"));
+		say(v ? _("SCREEN READER ENABLED") : _("SCREEN READER DISABLED"));
 	}
 
 	m_enabled = v;

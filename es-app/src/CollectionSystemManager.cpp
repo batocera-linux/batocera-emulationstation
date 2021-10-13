@@ -827,8 +827,8 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		games_counter = games.size();
 
 		snprintf(trstring, 1024, ngettext(
-			"This collection contains %i game, including :%s",
-			"This collection contains %i games, including :%s", games_counter), games_counter, games_list.c_str());
+			"This collection contains %i game:%s",
+			"This collection contains %i games, including:%s", games_counter), games_counter, games_list.c_str());
 
 		desc = trstring;
 
