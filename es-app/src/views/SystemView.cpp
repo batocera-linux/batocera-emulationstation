@@ -1027,7 +1027,7 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	}
 #endif
 
-	prompts.push_back(HelpPrompt("F3", _("SCREEN READER")));
+	// prompts.push_back(HelpPrompt("F3", _("SCREEN READER"))); -> Not interesting since most devices don't have Keyboard
 
 	return prompts;
 }
