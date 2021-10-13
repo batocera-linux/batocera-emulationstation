@@ -74,8 +74,8 @@ ThreadedFormatter::ThreadedFormatter(Window* window, const std::string disk, con
 	mFileSystem = fileSystem;
 
 	mWndNotification = mWindow->createAsyncNotificationComponent();
-	mWndNotification->updateTitle(ICONINDEX + _("FORMATING DEVICE"));
-	mWndNotification->updateText(_("Formating") + " " + disk);
+	mWndNotification->updateTitle(ICONINDEX + _("FORMATTING DEVICE"));
+	mWndNotification->updateText(_("Formatting") + " " + disk);
 
 	mHandle = new std::thread(&ThreadedFormatter::run, this);
 }
@@ -119,7 +119,7 @@ void ThreadedFormatter::start(Window* window, const std::string disk, const std:
 {
 	if (ThreadedFormatter::mInstance != nullptr)
 	{
-		window->pushGui(new GuiMsgBox(window, _("DRIVE FORMAT IS ALREADY RUNNING.")));
+		window->pushGui(new GuiMsgBox(window, _("A DRIVE IS ALREADY BEING FORMATTED.")));
 		return;
 	}
 

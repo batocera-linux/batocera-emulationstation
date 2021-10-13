@@ -22,7 +22,7 @@ void GuiBios::show(Window* window)
 		[window](std::vector<BiosSystem> ra) 
 	{ 
 		if (ra.size() == 0)
-			window->pushGui(new GuiMsgBox(window, _("NO MISSING BIOS"), _("OK")));
+			window->pushGui(new GuiMsgBox(window, _("NO MISSING BIOS FILES"), _("OK")));
 		else
 			window->pushGui(new GuiBios(window, ra)); 
 	}));

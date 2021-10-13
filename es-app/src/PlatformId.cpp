@@ -206,7 +206,7 @@ namespace PlatformIds
 		{ 148, { "seta", "Seta" } },
 		{ 150, { "midway", "Midway" } },
 		{ 151, { "capcom", "Capcom" } },
-		{ 152, { "eighting", "Eighting / Raizing" } },		
+		{ 152, { "eighting", "Eighting/Raizing" } },		
 		{ 153, { "tecmo", "Tecmo" } },
 		{ 154, { "snk", "SNK" } },
 		{ 155, { "namco", "Namco" } },

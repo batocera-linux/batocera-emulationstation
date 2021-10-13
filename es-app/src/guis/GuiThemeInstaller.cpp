@@ -20,7 +20,7 @@ GuiThemeInstaller::GuiThemeInstaller(Window* window)
 	addChild(&mMenu);
 	
 	mMenu.setUpdateType(ComponentListFlags::UpdateType::UPDATE_ALWAYS);
-	mMenu.setSubTitle(_("SELECT THEMES TO INSTALL / REMOVE")); 
+	mMenu.setSubTitle(_("SELECT THEMES TO INSTALL/REMOVE")); 
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
 	centerWindow();

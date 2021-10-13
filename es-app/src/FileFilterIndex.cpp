@@ -28,7 +28,7 @@ FileFilterIndex::FileFilterIndex()
 		{ GENRE_FILTER, 	&genreIndexAllKeys, 	&filterByGenre,		&genreIndexFilteredKeys, 	"genre",		true,				"genre",		_("GENRE")	},
 		{ FAMILY_FILTER, 	&familyIndexAllKeys, 	&filterByFamily,	&familyIndexFilteredKeys, 	"family",		false,				"",				_("FAMILY") },
 		{ PLAYER_FILTER, 	&playersIndexAllKeys, 	&filterByPlayers,	&playersIndexFilteredKeys, 	"players",		false,				"",				_("PLAYERS")	},
-		{ PUBDEV_FILTER, 	&pubDevIndexAllKeys, 	&filterByPubDev,	&pubDevIndexFilteredKeys, 	"developer",	true,				"publisher",	_("PUBLISHER / DEVELOPER")	},
+		{ PUBDEV_FILTER, 	&pubDevIndexAllKeys, 	&filterByPubDev,	&pubDevIndexFilteredKeys, 	"developer",	true,				"publisher",	_("PUBLISHER/DEVELOPER")	},
 		{ RATINGS_FILTER, 	&ratingsIndexAllKeys, 	&filterByRatings,	&ratingsIndexFilteredKeys, 	"rating",		false,				"",				_("RATING")	},
 		{ YEAR_FILTER, 		&yearIndexAllKeys, 		&filterByYear,		&yearIndexFilteredKeys, 	"year",			false,				"",				_("YEAR") },
 		{ LANG_FILTER, 	    &langIndexAllKeys,      &filterByLang,	    &langIndexFilteredKeys, 	"lang",		    false,				"",				_("LANGUAGE") },
