@@ -546,7 +546,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 			if (genre.empty() || sep != std::string::npos)
 				genre = subgenre;
 			else if (!genre.empty() && !subgenre.empty())
-				genre = genre + ": " + subgenre;
+				genre = genre + " / " + subgenre;
 
 			if (!genre.empty())
 				result.mdl.set(MetaDataId::Genre, genre);

@@ -87,6 +87,9 @@ bool GuiDetectDevice::input(InputConfig* config, Input input)
 {
 	PowerSaver::pause();
 
+	if (input.device == DEVICE_MOUSE)
+		return true;
+
 	if(!mFirstRun && (input.device == DEVICE_KEYBOARD && input.type == TYPE_KEY && input.value && input.id == SDLK_ESCAPE) ||
 	                 (input.device != DEVICE_KEYBOARD && config->isMappedTo("hotkey", input))) // batocera
 	{

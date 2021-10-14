@@ -174,6 +174,9 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		if (!takeNetplay && !takeCheevos)
 			continue;
 
+		if (!sys->isVisible())
+			continue;
+
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
 		{
 			bool netPlay = takeNetplay && (forceAllGames || file->getMetadata(MetaDataId::Crc32).empty());
