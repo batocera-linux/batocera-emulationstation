@@ -210,7 +210,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 		key = game->getMetadata(MetaDataId::Genre);
 		if (!key.empty())
 		{
-			auto idx = key.find('/');
+			auto idx = key.find(': ');
 
 			if (!getSecondary && idx != std::string::npos)
 				key = Utils::String::trim(key.substr(0, idx));
