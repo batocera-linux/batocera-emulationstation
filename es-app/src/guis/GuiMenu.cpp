@@ -2105,47 +2105,85 @@ void GuiMenu::openGamesSettings_batocera()
 	// decorations
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
 	{		
-		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
-		if (sets.size() > 0)
+		s->addEntry(_("DECORATIONS"), true, [this]
 		{
-			auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION SET"), false);
-			decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+			GuiSettings *decorations_window = new GuiSettings(mWindow, _("DECORATIONS").c_str());
+			Window* window = mWindow;
+			auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
+			if (sets.size() > 0)
 			{
-				createDecorationItemTemplate(window, sets, data, row);
-			});
+				auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION SET"), false);
+				decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+				{
+					createDecorationItemTemplate(window, sets, data, row);
+				});
 
-			std::vector<std::string> decorations_item;
-			decorations_item.push_back(_("AUTO"));
-			decorations_item.push_back(_("NONE"));
-			for (auto set : sets)
-				decorations_item.push_back(set.name);
+				std::vector<std::string> decorations_item;
+				decorations_item.push_back(_("AUTO"));
+				decorations_item.push_back(_("NONE"));
+				for (auto set : sets)
+					decorations_item.push_back(set.name);
 
-			for (auto it = decorations_item.begin(); it != decorations_item.end(); it++)
-				decorations->add(*it, *it,
-				(SystemConf::getInstance()->get("global.bezel") == *it) ||
-					(SystemConf::getInstance()->get("global.bezel") == "none" && *it == _("NONE")) ||
-					(SystemConf::getInstance()->get("global.bezel") == "" && *it == _("AUTO")));
+				for (auto it = decorations_item.begin(); it != decorations_item.end(); it++)
+					decorations->add(*it, *it,
+					(SystemConf::getInstance()->get("global.bezel") == *it) ||
+						(SystemConf::getInstance()->get("global.bezel") == "none" && *it == _("NONE")) ||
+						(SystemConf::getInstance()->get("global.bezel") == "" && *it == _("AUTO")));
 
-			s->addWithLabel(_("DECORATION SET"), decorations);
-			s->addSaveFunc([decorations]
-			{
-				SystemConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
-			});
+				decorations_window->addWithLabel(_("DECORATION SET"), decorations);
+				decorations_window->addSaveFunc([decorations]
+				{
+					SystemConf::getInstance()->set("global.bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+				});
 #if !defined(WIN32) || defined(_DEBUG)
-			// stretch bezels
-			auto bezel_stretch_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("STRETCH BEZELS (4K & ULTRAWIDE)"));
-			bezel_stretch_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel_stretch") != "0" && SystemConf::getInstance()->get("global.bezel_stretch") != "1");
-			bezel_stretch_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.bezel_stretch") == "1");
-			bezel_stretch_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.bezel_stretch") == "0");
-			s->addWithLabel(_("STRETCH BEZELS (4K & ULTRAWIDE)"), bezel_stretch_enabled);
-			s->addSaveFunc([bezel_stretch_enabled] {
-					if (bezel_stretch_enabled->changed()) {
-					SystemConf::getInstance()->set("global.bezel_stretch", bezel_stretch_enabled->getSelected());
-					SystemConf::getInstance()->saveSystemConf();
-					}
-					});
+				// stretch bezels
+				auto bezel_stretch_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("STRETCH BEZELS (4K & ULTRAWIDE)"));
+				bezel_stretch_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel_stretch") != "0" && SystemConf::getInstance()->get("global.bezel_stretch") != "1");
+				bezel_stretch_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("global.bezel_stretch") == "1");
+				bezel_stretch_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("global.bezel_stretch") == "0");
+				decorations_window->addWithLabel(_("STRETCH BEZELS (4K & ULTRAWIDE)"), bezel_stretch_enabled);
+				decorations_window->addSaveFunc([bezel_stretch_enabled] {
+						if (bezel_stretch_enabled->changed()) {
+						SystemConf::getInstance()->set("global.bezel_stretch", bezel_stretch_enabled->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
+				// tattoo and controller overlays
+				auto bezel_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW CONTROLLER OVERLAYS"));
+				bezel_tattoo->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.tattoo") != "0"
+						&& SystemConf::getInstance()->get("global.bezel.tattoo") != "system"
+						&& SystemConf::getInstance()->get("global.bezel.tattoo") != "custom");
+				bezel_tattoo->add(_("NO"), "0", SystemConf::getInstance()->get("global.bezel.tattoo") == "0");
+				bezel_tattoo->add(_("SYSTEM CONTROLLERS"), "system", SystemConf::getInstance()->get("global.bezel.tattoo") == "system");
+				bezel_tattoo->add(_("CUSTOM .PNG IMAGE"), "custom", SystemConf::getInstance()->get("global.bezel.tattoo") == "custom");
+				decorations_window->addWithLabel(_("SHOW CONTROLLER OVERLAYS"), bezel_tattoo);
+				decorations_window->addSaveFunc([bezel_tattoo] {
+						if (bezel_tattoo->changed()) {
+						SystemConf::getInstance()->set("global.bezel.tattoo", bezel_tattoo->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
+				auto bezel_tattoo_corner = std::make_shared<OptionListComponent<std::string>>(mWindow, _("OVERLAY CORNER"));
+				bezel_tattoo_corner->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "NW"
+						&& SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "NE"
+						&& SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "SE"
+						&& SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "SW");
+				bezel_tattoo_corner->add(_("NORTH WEST"), "NW", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "NW");
+				bezel_tattoo_corner->add(_("NORTH EAST"), "NE", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "NE");
+				bezel_tattoo_corner->add(_("SOUTH EAST"), "SE", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "SE");
+				bezel_tattoo_corner->add(_("SOUTH WEST"), "SW", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "SW");
+				decorations_window->addWithLabel(_("OVERLAY CORNER"), bezel_tattoo_corner);
+				decorations_window->addSaveFunc([bezel_tattoo_corner] {
+						if (bezel_tattoo_corner->changed()) {
+						SystemConf::getInstance()->set("global.bezel.tattoo_corner", bezel_tattoo_corner->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
+				createInputTextRow(decorations_window, _("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
 #endif
-		}
+			}
+			mWindow->pushGui(decorations_window);
+		});
 	}
 	
 	// latency reduction
@@ -4064,52 +4102,86 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::decoration))
 	{
-		Window* window = mWindow;
-		auto sets = GuiMenu::getDecorationsSets(systemData);
-		if (sets.size() > 0)
+		systemConfiguration->addEntry(_("DECORATIONS"), true, [mWindow, configName, systemData]
 		{
-			auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION SET"), false);
-			decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+			GuiSettings *decorations_window = new GuiSettings(mWindow, _("DECORATIONS").c_str());
+			Window* window = mWindow;
+			auto sets = GuiMenu::getDecorationsSets(systemData);
+			if (sets.size() > 0)
 			{
-				createDecorationItemTemplate(window, sets, data, row);
-			});
+				auto decorations = std::make_shared<OptionListComponent<std::string> >(mWindow, _("DECORATION SET"), false);
+				decorations->setRowTemplate([window, sets](std::string data, ComponentListRow& row)
+				{
+					createDecorationItemTemplate(window, sets, data, row);
+				});
 
-			std::vector<std::string> decorations_item;
-			decorations_item.push_back(_("AUTO"));
-			decorations_item.push_back(_("NONE"));
+				std::vector<std::string> decorations_item;
+				decorations_item.push_back(_("AUTO"));
+				decorations_item.push_back(_("NONE"));
+				for (auto set : sets)
+					decorations_item.push_back(set.name);
 
-			for (auto set : sets)
-				decorations_item.push_back(set.name);
+				for (auto it = decorations_item.begin(); it != decorations_item.end(); it++)
+					decorations->add(*it, *it,
+					(SystemConf::getInstance()->get(configName + ".bezel") == *it) ||
+						(SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE")) ||
+						(SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO")));
 
-			for (auto it = decorations_item.begin(); it != decorations_item.end(); it++) {
-				decorations->add(*it, *it,
-					(SystemConf::getInstance()->get(configName + ".bezel") == *it)
-					||
-					(SystemConf::getInstance()->get(configName + ".bezel") == "none" && *it == _("NONE"))
-					||
-					(SystemConf::getInstance()->get(configName + ".bezel") == "" && *it == _("AUTO"))
-				);
-			}
-			systemConfiguration->addWithLabel(_("DECORATION SET"), decorations);
-			systemConfiguration->addSaveFunc([decorations, configName]
-			{
-				SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
-			});
+				decorations_window->addWithLabel(_("DECORATION SET"), decorations);
+				decorations_window->addSaveFunc([decorations, configName]
+				{
+					SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
+				});
 #if !defined(WIN32) || defined(_DEBUG)
-			// stretch bezels
-			auto bezel_stretch_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("STRETCH BEZELS (4K & ULTRAWIDE)"));
-			bezel_stretch_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".bezel_stretch") != "0" && SystemConf::getInstance()->get(configName + ".bezel_stretch") != "1");
-			bezel_stretch_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".bezel_stretch") == "1");
-			bezel_stretch_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".bezel_stretch") == "0");
-			systemConfiguration->addWithLabel(_("STRETCH BEZELS (4K & ULTRAWIDE)"), bezel_stretch_enabled);
-			systemConfiguration->addSaveFunc([bezel_stretch_enabled, configName] {
-					if (bezel_stretch_enabled->changed()) {
-					SystemConf::getInstance()->set(configName + ".bezel_stretch", bezel_stretch_enabled->getSelected());
-					SystemConf::getInstance()->saveSystemConf();
-					}
-					});
+				// stretch bezels
+				auto bezel_stretch_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("STRETCH BEZELS (4K & ULTRAWIDE)"));
+				bezel_stretch_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".bezel_stretch") != "0" && SystemConf::getInstance()->get(configName + ".bezel_stretch") != "1");
+				bezel_stretch_enabled->add(_("ON"), "1", SystemConf::getInstance()->get(configName + ".bezel_stretch") == "1");
+				bezel_stretch_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get(configName + ".bezel_stretch") == "0");
+				decorations_window->addWithLabel(_("STRETCH BEZELS (4K & ULTRAWIDE)"), bezel_stretch_enabled);
+				decorations_window->addSaveFunc([bezel_stretch_enabled, configName] {
+						if (bezel_stretch_enabled->changed()) {
+						SystemConf::getInstance()->set(configName + ".bezel_stretch", bezel_stretch_enabled->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
+				// tattoo and controller overlays
+				auto bezel_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW CONTROLLER OVERLAYS"));
+				bezel_tattoo->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".bezel.tattoo") != "0"
+						&& SystemConf::getInstance()->get(configName + ".bezel.tattoo") != "system"
+						&& SystemConf::getInstance()->get(configName + ".bezel.tattoo") != "custom");
+				bezel_tattoo->add(_("NO"), "0", SystemConf::getInstance()->get(configName + ".bezel.tattoo") == "0");
+				bezel_tattoo->add(_("SYSTEM CONTROLLERS"), "system", SystemConf::getInstance()->get(configName + ".bezel.tattoo") == "system");
+				bezel_tattoo->add(_("CUSTOM .PNG IMAGE"), "custom", SystemConf::getInstance()->get(configName + ".bezel.tattoo") == "custom");
+				decorations_window->addWithLabel(_("SHOW CONTROLLER OVERLAYS"), bezel_tattoo);
+				decorations_window->addSaveFunc([bezel_tattoo, configName] {
+						if (bezel_tattoo->changed()) {
+						SystemConf::getInstance()->set(configName + ".bezel.tattoo", bezel_tattoo->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
+				auto bezel_tattoo_corner = std::make_shared<OptionListComponent<std::string>>(mWindow, _("OVERLAY CORNER"));
+				bezel_tattoo_corner->add(_("AUTO"), "auto", SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") != "NW"
+						&& SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") != "NE"
+						&& SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") != "SE"
+						&& SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") != "SW");
+				bezel_tattoo_corner->add(_("NORTH WEST"), "NW", SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") == "NW");
+				bezel_tattoo_corner->add(_("NORTH EAST"), "NE", SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") == "NE");
+				bezel_tattoo_corner->add(_("SOUTH EAST"), "SE", SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") == "SE");
+				bezel_tattoo_corner->add(_("SOUTH WEST"), "SW", SystemConf::getInstance()->get(configName + ".bezel.tattoo_corner") == "SW");
+				decorations_window->addWithLabel(_("OVERLAY CORNER"), bezel_tattoo_corner);
+				decorations_window->addSaveFunc([bezel_tattoo_corner, configName] {
+						if (bezel_tattoo_corner->changed()) {
+						SystemConf::getInstance()->set(configName + ".bezel.tattoo_corner", bezel_tattoo_corner->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
+				// const char *bpath = (configName + ".bezel.tattoo_file").c_str();
+				// createInputTextRow(decorations_window, _("CUSTOM .PNG IMAGE PATH"), bpath, false);
 #endif
-		}
+			}
+			mWindow->pushGui(decorations_window);
+		});
 	}
 
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::latency_reduction))	
