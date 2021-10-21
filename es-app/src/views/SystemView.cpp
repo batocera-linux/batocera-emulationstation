@@ -1027,7 +1027,11 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 	}
 #endif
 
-	// prompts.push_back(HelpPrompt("F3", _("SCREEN READER"))); -> Not interesting since most devices don't have Keyboard
+#ifdef _ENABLE_TTS_
+    if (UIModeController::getInstance()->isUIModeFull()) {
+        prompts.push_back(HelpPrompt("F3", _("SCREEN READER")));
+    }
+#endif
 
 	return prompts;
 }
