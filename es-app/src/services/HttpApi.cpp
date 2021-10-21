@@ -230,7 +230,7 @@ bool HttpApi::ImportMedia(FileData* file, const std::string& mediaType, const st
 
 		if (mdd.id == MetaDataId::Video)
 		{
-			if (extension != ".mp4" && extension != ".avi" && extension != ".mkv")
+			if (extension != ".mp4" && extension != ".avi" && extension != ".mkv" && extension != ".webm")
 				return false;
 		}
 		else if (mdd.id == MetaDataId::Manual || mdd.id == MetaDataId::Magazine)

@@ -248,8 +248,8 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
         if (!mTargetConfig->getInputByName("hotkey", &input)) { // batocera
 #endif
 			mWindow->pushGui(new GuiMsgBox(mWindow,
-				_("YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."),  // batocera
-				_("YES"), [this, okFunction] { // batocera
+				_("NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"),  // batocera
+				_("SET SELECT AS HOTKEY"), [this, okFunction] { // batocera
 					Input input;
 					mTargetConfig->getInputByName("Select", &input);
 #ifdef _ENABLEEMUELEC
@@ -259,7 +259,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 #endif
 					okFunction();
 					},
-				_("NO"), [this, okFunction] { // batocera
+				_("DO NOT ASSIGN HOTKEY"), [this, okFunction] { // batocera
 					// for a disabled hotkey enable button, set to a key with id 0,
 					// so the input configuration script can be backwards compatible.
 #ifdef _ENABLEEMUELEC

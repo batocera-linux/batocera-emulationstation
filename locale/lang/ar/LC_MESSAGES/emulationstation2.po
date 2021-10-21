@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:26+0200\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
-"Language: ar-SA\n"
+"Language: ar_SA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
 "&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Loco https://localise.biz\n"
+"X-Generator: Poedit 3.0\n"
 "X-Loco-Source-Locale: en\n"
 "X-Loco-Project-Id: 90894\n"
 "X-Loco-Api-Version: 1.0.24 20200519-1\n"
@@ -312,10 +312,10 @@ msgstr[5] "هده المجموعة تحتوي %i لعبة, شاملة :%s"
 msgid "SCANNING BLUETOOTH"
 msgstr "بحث بلوتوث"
 
-msgid "Searching controllers..."
+msgid "Searching for devices..."
 msgstr "جار البحث عن وحدة تحكم..."
 
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "بحث البلوتوث يعمل حاليا."
 
 msgid "FORMATING DEVICE"
@@ -324,7 +324,7 @@ msgstr "تهيئة الجهاز"
 msgid "Formating"
 msgstr "جار التهيئة..."
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "يرجى اعادة تشغيل النظام لتتم اكتمال العملية."
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
@@ -453,7 +453,7 @@ msgstr "قم بعرض اسم النظام في المجموعة"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
+msgid "UPDATE GAME LISTS"
 msgstr "تحديث قوائم الألعاب"
 
 msgid "Loading..."
@@ -565,7 +565,7 @@ msgstr "تم تعطيل هذه الوظيفة عندما يتم إجراء عم�
 msgid "CLOSE"
 msgstr "إغلاق"
 
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr ""
 
 msgid "INPUT"
@@ -619,10 +619,10 @@ msgstr ""
 msgid "MANUAL INPUT"
 msgstr "إدخال يدوي"
 
-msgid "NO WIFI NETWORKS FOUND"
+msgid "NO WI-FI NETWORKS FOUND"
 msgstr "لم يتم العثور على شبكة WIFI"
 
-msgid "SEARCHING WIFI NETWORKS"
+msgid "SEARCHING WI-FI NETWORKS"
 msgstr "جارِ البحث عن شبكة WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
@@ -664,7 +664,7 @@ msgstr "اختر محتوى لتثبيته / حذفه"
 msgid "UPDATE INSTALLED CONTENT"
 msgstr ""
 
-msgid "There are no items in this view"
+msgid "No items"
 msgstr ""
 
 msgid "MISC"
@@ -693,7 +693,7 @@ msgstr "حالياً في انتظار التحميل"
 msgid "NO MISSING BIOS"
 msgstr "لا يوجد BIOS مفقود"
 
-msgid "MISSING BIOS"
+msgid "MISSING BIOS CHECK"
 msgstr "الـ BIOS المفقودة"
 
 msgid "dim"
@@ -732,10 +732,10 @@ msgstr "إعدادات شاشة التوقف"
 msgid "SETTINGS"
 msgstr "إعدادات"
 
-msgid "SCREENSAVER AFTER"
+msgid "START SCREENSAVER AFTER"
 msgstr "شاشة التوقف بعد"
 
-msgid "SCREENSAVER BEHAVIOR"
+msgid "SCREENSAVER TYPE"
 msgstr "سلوك شاشة التوقف"
 
 msgid "STOP MUSIC ON SCREENSAVER"
@@ -774,10 +774,10 @@ msgstr "التحكم بشاشة التوقف"
 msgid "USE CUSTOM VIDEOS"
 msgstr "استخدام فيديوهات مخصصة"
 
-msgid "CUSTOM VIDEO DIR"
+msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "مكان الفيديوهات المخصصة"
 
-msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
 msgstr "مكان الفيديوهات المخصصة المكرر"
 
 msgid "CUSTOM VIDEO FILTER"
@@ -786,7 +786,7 @@ msgstr "تصفية الفيديوهات المخصصة"
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "إعدادات شاشة توقف عرض الشرائح"
 
-msgid "SWAP IMAGE AFTER (SECS)"
+msgid "IMAGE DURATION (SECS)"
 msgstr "قم بتبديل الصورة بعد (ثوانِ)"
 
 msgid "STRETCH IMAGES"
@@ -795,10 +795,10 @@ msgstr "تمدد الصور"
 msgid "USE CUSTOM IMAGES"
 msgstr "استخدام صور مخصصة"
 
-msgid "CUSTOM IMAGE DIR"
+msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "دليل الصورة المخصصة"
 
-msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
 msgstr "دليل الصور المخصصة المكررة"
 
 msgid "CUSTOM IMAGE FILTER"
@@ -852,7 +852,7 @@ msgstr ""
 msgid "SAVE CHANGES?"
 msgstr "حفظ التغييرات؟"
 
-msgid "ARE YOU SURE ?"
+msgid "ARE YOU SURE?"
 msgstr "هل أنت متأكد ؟"
 
 #, c-format
@@ -865,7 +865,7 @@ msgstr "تحديث باتوسيرا"
 msgid "UPDATE IS READY"
 msgstr "التحديث جاهز"
 
-msgid "REBOOT SYSTEM TO APPLY"
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 msgstr "أعد تشغيل النظام لتطبيقه"
 
 msgid "REALLY UPDATE?"
@@ -873,8 +873,8 @@ msgstr "هل فعلا تريد التحديث ؟"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1019,7 +1019,7 @@ msgstr "السمة الحالية"
 msgid "Unlocked on"
 msgstr ""
 
-msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr ""
 
 msgid "Achievements won"
@@ -1074,7 +1074,7 @@ msgstr ""
 "دقيقة أكثر من المعتاد!\n"
 "هل تريد المتابعة على أي حال؟"
 
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "الكشط يعمل حاليا. هل تريد إيقافه ؟"
 
 msgid "NO GAMES FIT THAT CRITERIA."
@@ -1161,11 +1161,11 @@ msgstr "الإصدار"
 msgid "SHADERS"
 msgstr ""
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "إعدادات وحدات التحكم"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER SETTINGS"
 msgstr ""
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "إعدادات وحدات التحكم"
 
 msgid "MAIN MENU"
 msgstr "القائمة الرئيسية"
@@ -1326,6 +1326,9 @@ msgstr ""
 msgid "TOOLS"
 msgstr "الأدوات"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
@@ -1333,7 +1336,7 @@ msgstr ""
 msgid "Allow public web access API using %s"
 msgstr ""
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "يرجى إعادة تشغيل النظام لتطبيق التكوينات الجديدة"
 
 msgid "LOG LEVEL"
@@ -1342,7 +1345,7 @@ msgstr "مستوى السجل"
 msgid "CREATE A SUPPORT FILE"
 msgstr "أنشئ ملف دعم"
 
-msgid "CREATE A SUPPORT FILE ?"
+msgid "CREATE A SUPPORT FILE?"
 msgstr "هل تريد إنشاء ملف دعم ؟"
 
 msgid "FILE GENERATED SUCCESSFULLY"
@@ -1354,10 +1357,10 @@ msgstr "إنشاء الملف فشل"
 msgid "FORMAT A DISK"
 msgstr "تهيئة القرص"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr ""
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr ""
 
 msgid "CLEAR CACHES"
@@ -1372,7 +1375,7 @@ msgstr ""
 msgid "RESET FILE EXTENSIONS"
 msgstr "اعادة تعيين امتدادات الملف"
 
-msgid "REDETECT GAMES LANG/REGION"
+msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "إعادة اكتشاف لغة و منطقة الإلعاب"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
@@ -1381,7 +1384,7 @@ msgstr ""
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1405,8 +1408,8 @@ msgstr "تنقل دائري"
 msgid "QUICK SYSTEM SELECT"
 msgstr "تحديد نظام سريع"
 
-msgid "ON SCREEN KEYBOARD"
-msgstr "لوحة مفاتيح على الشاشة"
+msgid "ON-SCREEN KEYBOARD"
+msgstr ""
 
 msgid "HIDE WHEN RUNNING A GAME"
 msgstr "إخفاء عند تشغيل اللعبة"
@@ -1423,16 +1426,18 @@ msgstr "تلقائي"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "تكوين تلقائي لوحدات تحكم المحاكي"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr ""
 
-msgid "Inverts north button (savestates) & long press south (game options)"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1453,14 +1458,14 @@ msgstr ""
 msgid "THREADED LOADING"
 msgstr "تحميل مترابط"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "تحميل صور غير متزامنة"
+msgid "ASYNC IMAGE LOADING"
+msgstr ""
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "تحسين الصور باستخدام VRAM"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "تحسين الفيديو باستخدام VRAM"
+msgid "OPTIMIZE VIDEO VRAM USAGE"
+msgstr ""
 
 msgid "DOWNLOADS"
 msgstr "تنزيل"
@@ -1517,7 +1522,7 @@ msgstr ""
 "للإلغاء والرجوع الى واجهة المستخدم الكاملة لاحقا ادخل هذا الرمز من وحدة "
 "التحكم:"
 
-msgid "Do you want to proceed ?"
+msgid "Do you want to proceed?"
 msgstr "هل تريد المتابعة ؟"
 
 msgid "KODI SETTINGS"
@@ -1526,8 +1531,8 @@ msgstr "إعدادات KODI"
 msgid "ENABLE KODI"
 msgstr "تفعيل KODI"
 
-msgid "KODI AT START"
-msgstr "KODI عند البدء "
+msgid "LAUNCH KODI AT BOOT"
+msgstr ""
 
 msgid "HARDWARE"
 msgstr "العتاد"
@@ -1562,7 +1567,7 @@ msgstr ""
 msgid "SILENT SPLASH"
 msgstr ""
 
-msgid "NO SPLASH"
+msgid "DEFAULT"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -1571,7 +1576,7 @@ msgstr "إعدادات الامتيازات"
 msgid "NETPLAY SETTINGS"
 msgstr "إعدادات  NETPLAY"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "MULTIMEDIA KEYS"
@@ -1721,10 +1726,10 @@ msgstr "ألعاب سلسه"
 msgid "REWIND"
 msgstr "الترجيع"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "مقياس العدد الصحيح (بيكسل رائع)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
+msgstr ""
 
-msgid "AUTO SAVE/LOAD"
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "حفظ/تحميل تلقائي"
 
 msgid "SHOW SAVE SNAPSHOTS"
@@ -1733,8 +1738,8 @@ msgstr ""
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr ""
 
-msgid "SHADERS SET"
-msgstr "محسنات"
+msgid "SHADER SET"
+msgstr ""
 
 msgid "DECORATION"
 msgstr "زخرفة"
@@ -1760,17 +1765,17 @@ msgstr "إيقاف مؤقت للشاشة المترجمة"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "تكوين متقدم لكل نظام"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "تجزئة اللعبة تعمل حالياً. هل تريد ايقافها ؟"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS?"
 msgstr "هل فعلا تريد تحديث قائمة الألعاب ؟"
 
-msgid "CONFIGURE A CONTROLLER"
+msgid "REMAP A CONTROLLER"
 msgstr "تكوين وحدة التحكم"
 
 msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
 "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
@@ -1850,16 +1855,16 @@ msgstr ""
 msgid "AFTER NAME"
 msgstr ""
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG"
 msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE ICON"
 msgstr ""
 
-msgid "SHOW MANUAL ICON IN LISTS"
+msgid "SHOW MANUAL ICON"
 msgstr ""
 
-msgid "SHOW FILENAMES IN LISTS"
+msgid "SHOW FILENAMES INSTEAD"
 msgstr "عرض اسم الملف في القائمة"
 
 msgid "FILE EXTENSIONS"
@@ -1883,7 +1888,7 @@ msgstr "الشبكة"
 msgid "DISPLAY OPTIONS"
 msgstr "خيارات العرض"
 
-msgid "TRANSITION STYLE"
+msgid "LIST TRANSITION STYLE"
 msgstr "نمط التنقل"
 
 msgid "GAME LAUNCH TRANSITION"
@@ -1928,13 +1933,13 @@ msgstr "موسيقى الواجهة"
 msgid "DISPLAY SONG TITLES"
 msgstr "عرض عنوان الاغنية"
 
-msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgid "SONG TITLE DISPLAY DURATION"
 msgstr "عدد الثواني لعرض عنوان الاغنية"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "قم بتشغيل مجلد الموسيقى الخاص بالنظام فقط"
 
-msgid "PLAY THEME MUSICS"
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
 msgstr "تشغيل موسيقى السمة"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
@@ -1946,7 +1951,7 @@ msgstr "أصوات"
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "تفعيل أصوات التنقل"
 
-msgid "ENABLE VIDEO AUDIO"
+msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "تفعيل صوت الفيديو"
 
 msgid "IP ADDRESS"
@@ -2012,7 +2017,7 @@ msgstr "هل فعلا تريد إيقاف التشغيل؟ "
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "إيقاف تشغيل سريع"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "هل فعلا تريد إيقاف التشغيل بدون حفظ البيانات؟"
 
 msgid "QUIT EMULATIONSTATION"
@@ -2045,6 +2050,9 @@ msgstr "دقة الشاشة الداخلية"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "تهيئة الجهاز"
 
@@ -2060,7 +2068,7 @@ msgstr "قم بالتهيئة اآن"
 msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "الخيارات المحددة غير صالحة"
 
-msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "هل انت متأكد بالقيام بتهيئة هذا القرص؟"
 
 msgid "EDIT METADATA"
@@ -2339,7 +2347,7 @@ msgstr ""
 msgid "INDEXING COMPLETED"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "UPDATE GAME LISTS TO APPLY CHANGES."
 msgstr ""
 
 msgid "GENRE"
@@ -2464,12 +2472,9 @@ msgstr "-غير محدد-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"لم تقم باختيار تفعيل المفتاح الرئيسي. حيث انه مطلوب للخروج من اللعبة بواسطة "
-"وحدة التحكم. هل تريد استخدام زر SELECT كأساسي ؟ الرجاء الإجابة بـ نعم "
-"لإستخدام زر SELECT , أو لا لتجاهل الزر الأساسي."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2613,6 +2618,33 @@ msgstr ""
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
 
+#~ msgid "ON SCREEN KEYBOARD"
+#~ msgstr "لوحة مفاتيح على الشاشة"
+
+#~ msgid "ASYNC IMAGES LOADING"
+#~ msgstr "تحميل صور غير متزامنة"
+
+#~ msgid "OPTIMIZE VIDEO VRAM USE"
+#~ msgstr "تحسين الفيديو باستخدام VRAM"
+
+#~ msgid "KODI AT START"
+#~ msgstr "KODI عند البدء "
+
+#~ msgid "INTEGER SCALE (PIXEL PERFECT)"
+#~ msgstr "مقياس العدد الصحيح (بيكسل رائع)"
+
+#~ msgid "SHADERS SET"
+#~ msgstr "محسنات"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "لم تقم باختيار تفعيل المفتاح الرئيسي. حيث انه مطلوب للخروج من اللعبة "
+#~ "بواسطة وحدة التحكم. هل تريد استخدام زر SELECT كأساسي ؟ الرجاء الإجابة بـ "
+#~ "نعم لإستخدام زر SELECT , أو لا لتجاهل الزر الأساسي."
+
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "نسيان وحدة تحكم البلوتوث"
 
@@ -2694,7 +2726,7 @@ msgstr ""
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "المستخدم يقرر عند وجود تعارض"
 
-#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAME LISTS TO APPLY CHANGES."
 #~ msgstr "تم انتهاء الكشط. قم بتحديث قائمة الألعاب لتطبيق التغييرات."
 
 #~ msgid "Editing the '%s' Collection. Add/remove games with Y."

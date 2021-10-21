@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-02 17:36+0200\n"
+"POT-Creation-Date: 2021-10-06 18:16+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -307,11 +307,11 @@ msgstr[3] "אוסף זה מכיל משחק %i כולל :%s"
 msgid "SCANNING BLUETOOTH"
 msgstr "סורק בלו-טות'"
 
-msgid "Searching controllers..."
-msgstr "מחפש בקרים..."
+msgid "Searching for devices..."
+msgstr ""
 
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-msgstr "סריקת בלו-טות' מתבצעת."
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
+msgstr ""
 
 msgid "FORMATING DEVICE"
 msgstr "התקן למחיקה מלאה והכנה לכתיבה"
@@ -319,8 +319,8 @@ msgstr "התקן למחיקה מלאה והכנה לכתיבה"
 msgid "Formating"
 msgstr "מחיקת התקן והכנתו לכתיבה מתבצעת"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "הפעלת המערכת מחדש נחוצה"
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr ""
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
 msgstr "מחיקת התקן והכנתו לכתיבה מתבצעת."
@@ -448,8 +448,8 @@ msgstr "הצג שם מערכת באוסף"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "הצג משחקים של מערכות נסתרות באוספי משחקים"
 
-msgid "UPDATE GAMES LISTS"
-msgstr "עידכון רשימת משחקים"
+msgid "UPDATE GAME LISTS"
+msgstr ""
 
 msgid "Loading..."
 msgstr "טוען..."
@@ -560,8 +560,8 @@ msgstr "אפשרות זו אינה זמינה במהלך SCRAPING"
 msgid "CLOSE"
 msgstr "סגור"
 
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr "האם אתם בטוחים שברצונכם למחוק את הקובץ?"
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "קלט"
@@ -614,11 +614,11 @@ msgstr "צפייה במשחק"
 msgid "MANUAL INPUT"
 msgstr "הזנה ידנית"
 
-msgid "NO WIFI NETWORKS FOUND"
-msgstr "לא נמצאו רשתות אלחוטיות"
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr ""
 
-msgid "SEARCHING WIFI NETWORKS"
-msgstr "חיפוש רשתות אלחוטיות מתבצע"
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr ""
 
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "שכח התקן בלו-טות'"
@@ -659,8 +659,8 @@ msgstr "בחר בתוכן ל התקנה/הסרה"
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "עידכון תוכן מותקן"
 
-msgid "There are no items in this view"
-msgstr "אין פריטים לתצוגה זו"
+msgid "No items"
+msgstr ""
 
 msgid "MISC"
 msgstr "שונות"
@@ -688,8 +688,8 @@ msgstr "נמצא כעת בתור הורדות"
 msgid "NO MISSING BIOS"
 msgstr "אין חוסר BIOS"
 
-msgid "MISSING BIOS"
-msgstr "חסר BIOS"
+msgid "MISSING BIOS CHECK"
+msgstr ""
 
 msgid "dim"
 msgstr "עמום"
@@ -727,11 +727,11 @@ msgstr "הגדרות שומר מסך"
 msgid "SETTINGS"
 msgstr "הגדרות"
 
-msgid "SCREENSAVER AFTER"
-msgstr "אחרי שומר מסך"
+msgid "START SCREENSAVER AFTER"
+msgstr ""
 
-msgid "SCREENSAVER BEHAVIOR"
-msgstr "התנהגות שומר מסך"
+msgid "SCREENSAVER TYPE"
+msgstr ""
 
 msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "הפסקת מוזיקה בשומר מסך"
@@ -769,10 +769,10 @@ msgstr "בקרה על שומר מסך"
 msgid "USE CUSTOM VIDEOS"
 msgstr "שימוש בסרטון בבחירה אישית"
 
-msgid "CUSTOM VIDEO DIR"
-msgstr "תיקיית סרטונים בבחירה אישית"
+msgid "CUSTOM VIDEO DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
 msgstr ""
 
 msgid "CUSTOM VIDEO FILTER"
@@ -781,8 +781,8 @@ msgstr "מסנן סרטון אישי"
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "הגדרות מצגת שומר מסך"
 
-msgid "SWAP IMAGE AFTER (SECS)"
-msgstr "החלפת תמונה לאחר (שניות)"
+msgid "IMAGE DURATION (SECS)"
+msgstr ""
 
 msgid "STRETCH IMAGES"
 msgstr "מתיחת תמונות"
@@ -790,10 +790,10 @@ msgstr "מתיחת תמונות"
 msgid "USE CUSTOM IMAGES"
 msgstr "שימוש בתמונות מותאמות אישית"
 
-msgid "CUSTOM IMAGE DIR"
-msgstr "תיקיית תמונות מותאמות אישית"
+msgid "CUSTOM IMAGE DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
 msgstr ""
 
 msgid "CUSTOM IMAGE FILTER"
@@ -847,8 +847,8 @@ msgstr "מחיקת מיפוי"
 msgid "SAVE CHANGES?"
 msgstr "שמירת שינויים ?"
 
-msgid "ARE YOU SURE ?"
-msgstr "האם את/ה בטוח ?"
+msgid "ARE YOU SURE?"
+msgstr ""
 
 #, c-format
 msgid "UPDATING %s"
@@ -860,19 +860,17 @@ msgstr "מעדכן את מערכת ההפעלה"
 msgid "UPDATE IS READY"
 msgstr "עדכון מוכן להתקנה"
 
-msgid "REBOOT SYSTEM TO APPLY"
-msgstr "הפעל מערכת מחדש להחלת השינויים"
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "באמת לעדכן ?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"הגירסה בשימוש כרגע היא : %s\n"
-"את/ה בטוח שברצונך לעדכן לגירסה: %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "נדרש חיבור לרשת"
@@ -1014,8 +1012,8 @@ msgstr "ערכת נושא נוכחית"
 msgid "Unlocked on"
 msgstr "נעילה בוטלה"
 
-msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-msgstr "למשחק זה אין הישגים, עדיין"
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr ""
 
 msgid "Achievements won"
 msgstr "זכייה בהישגים"
@@ -1069,8 +1067,8 @@ msgstr ""
 "מדויקות מבדרך כלל!\n"
 "להמשיך בכל זאת?"
 
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "פעולת SCRAPING מתבצעת, האם להפסיק SCRAPING?"
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "אין משחק שמתאים לקריטריון."
@@ -1156,10 +1154,10 @@ msgstr "גרסה"
 msgid "SHADERS"
 msgstr "מצלילים"
 
-msgid "CONTROLLERS SETTINGS"
+msgid "CONTROLLER SETTINGS"
 msgstr ""
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "הגדרות בקרים ובלו-טות'"
 
 msgid "MAIN MENU"
@@ -1321,6 +1319,9 @@ msgstr "שימוש בנגן OMX  בהאצת חומרה"
 msgid "TOOLS"
 msgstr "כלים"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "אפשר גישה פומבית מהרשת"
 
@@ -1328,8 +1329,8 @@ msgstr "אפשר גישה פומבית מהרשת"
 msgid "Allow public web access API using %s"
 msgstr "Allow public web access API using %s"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "להחלת השינויים נדרשת הפעלת המערכת מחדש"
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "LOG LEVEL"
 msgstr "רמת חיבור"
@@ -1337,8 +1338,8 @@ msgstr "רמת חיבור"
 msgid "CREATE A SUPPORT FILE"
 msgstr "יצירת קובץ תמיכה"
 
-msgid "CREATE A SUPPORT FILE ?"
-msgstr "ליצור קובץ תמיכה ?"
+msgid "CREATE A SUPPORT FILE?"
+msgstr ""
 
 msgid "FILE GENERATED SUCCESSFULLY"
 msgstr "קובץ נוצר בהצלחה"
@@ -1349,11 +1350,11 @@ msgstr "יצירת קובץ נכשלה"
 msgid "FORMAT A DISK"
 msgstr "מחיקת כונן"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr "ניקוי רשימות משחקים והסרים קבצים שאינם בשימוש"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
+msgstr ""
 
-msgid "Cleaning "
-msgstr "מנקה "
+msgid "Cleaning"
+msgstr ""
 
 msgid "CLEAR CACHES"
 msgstr "מנקה CACHES"
@@ -1367,8 +1368,8 @@ msgstr "בניית תמונת CACHES מתבצעת"
 msgid "RESET FILE EXTENSIONS"
 msgstr "איפוס סיומות קבצים"
 
-msgid "REDETECT GAMES LANG/REGION"
-msgstr "זיהוי חוזר של איזור ושפת משחקים"
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr ""
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "מציאת כל המשחקים בעלי NETPLAY או ACHIEVMENTS"
@@ -1376,8 +1377,8 @@ msgstr "מציאת כל המשחקים בעלי NETPLAY או ACHIEVMENTS"
 msgid "DATA MANAGEMENT"
 msgstr "ניהול DATA"
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr ""
 
 msgid "ENABLE FILTERS"
 msgstr "אפשר מסננים"
@@ -1400,8 +1401,8 @@ msgstr "מעברי קרוסלה"
 msgid "QUICK SYSTEM SELECT"
 msgstr "בחירת מערכת מהירה"
 
-msgid "ON SCREEN KEYBOARD"
-msgstr "מקלדת על המסך"
+msgid "ON-SCREEN KEYBOARD"
+msgstr ""
 
 msgid "HIDE WHEN RUNNING A GAME"
 msgstr "הסתר בזמן משחקים"
@@ -1418,17 +1419,19 @@ msgstr "אוטומטי"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "הגדר אוטומטית בקרי אמולטור (חַקַּאי)"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-msgstr "החלף בין כפתורים A\\B במערכת EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
+msgstr ""
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "פתיחת הגדרות משחק באמצעות מקש 'למעלה'"
 
-msgid "Inverts north button (savestates) & long press south (game options)"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-msgstr "שליטה באמצעות בקר 1 בלבד"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "הצג מחוון רשת"
@@ -1448,14 +1451,14 @@ msgstr ""
 msgid "THREADED LOADING"
 msgstr "טעינה בשיטת THREADED"
 
-msgid "ASYNC IMAGES LOADING"
-msgstr "טעית תמונות ASYNC"
+msgid "ASYNC IMAGE LOADING"
+msgstr ""
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "התאם ליעילות מלאה שימוש תמונה ב VRAM"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
-msgstr "התאם ליעילות מלאה שימוש סרטונים ב VRAM"
+msgid "OPTIMIZE VIDEO VRAM USAGE"
+msgstr ""
 
 msgid "DOWNLOADS"
 msgstr "הורדות"
@@ -1511,8 +1514,8 @@ msgstr ""
 "דבר יביא יביא להסתרת מירב האפשרויות מהתפריטים השונים.\n"
 "לביטול הגבלה זו יש להזין את הסיסמה:"
 
-msgid "Do you want to proceed ?"
-msgstr "להמשיך?"
+msgid "Do you want to proceed?"
+msgstr ""
 
 msgid "KODI SETTINGS"
 msgstr "הגדרות KODI"
@@ -1520,8 +1523,8 @@ msgstr "הגדרות KODI"
 msgid "ENABLE KODI"
 msgstr "הפוך KODI לזמין"
 
-msgid "KODI AT START"
-msgstr "הפעלה KODI בטעינה ראשונית"
+msgid "LAUNCH KODI AT BOOT"
+msgstr ""
 
 msgid "HARDWARE"
 msgstr "חומרה"
@@ -1556,8 +1559,8 @@ msgstr "אנימציית פתיח"
 msgid "SILENT SPLASH"
 msgstr "אנימציה שקטה"
 
-msgid "NO SPLASH"
-msgstr "ללא אנימציה"
+msgid "DEFAULT"
+msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "הגדרות RETROACHIEVEMENTS"
@@ -1565,8 +1568,8 @@ msgstr "הגדרות RETROACHIEVEMENTS"
 msgid "NETPLAY SETTINGS"
 msgstr "הגדרות NETPLAY"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-msgstr "בדיקת BIOS טרם טעינת משחק"
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
+msgstr ""
 
 msgid "MULTIMEDIA KEYS"
 msgstr "מפתחות מולטימדיה"
@@ -1715,11 +1718,11 @@ msgstr "'החלקת' משחקים"
 msgid "REWIND"
 msgstr "החזרה לאחור"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
-msgstr "קנה מידה לפיקסל (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
+msgstr ""
 
-msgid "AUTO SAVE/LOAD"
-msgstr "שמירה/טעינה אוטומטית"
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr ""
 
 msgid "SHOW SAVE SNAPSHOTS"
 msgstr "הצגת SNAPSHOTS שנשמרו"
@@ -1727,8 +1730,8 @@ msgstr "הצגת SNAPSHOTS שנשמרו"
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr "הצגת SNAPSHONTS כל עוד קיימים"
 
-msgid "SHADERS SET"
-msgstr "ערכת SHADERS"
+msgid "SHADER SET"
+msgstr ""
 
 msgid "DECORATION"
 msgstr "קישוטים"
@@ -1754,26 +1757,22 @@ msgstr "השהה במסך מתורגם"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "הגדרות מתקדמות לפי מערכת"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-msgstr "גִּבּוּב (HASHING) משחק פועל כרגע, להפסיק ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
-msgid "REALLY UPDATE GAMES LISTS ?"
-msgstr "לעדכן רשימת משחקים?"
+msgid "REALLY UPDATE GAME LISTS?"
+msgstr ""
 
-msgid "CONFIGURE A CONTROLLER"
-msgstr "קביעת תצורת בקר"
+msgid "REMAP A CONTROLLER"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
 "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
 "SNES CONTROLLER."
 msgstr ""
-"קביעת תצורת בקר תתבצע. במידה והבקר בו נעשה שימוש בעל ג'ויסטיק אחד, יש להגדיר "
-"את חצי הכיוונים ולדלג על הגדרת הג'ויסטיק באמצעות לחיצה על A. במידה ואין בבדר "
-"לחצן מיוחד ל - HOTKEY, בחר בלחצן SELECT. יש לדלג על המקשים שאין בבקר באמצעות "
-"לחיצה על A. שמות הלחצנים מבוססים ע בקר SNES המקורי."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "הצמדת בתקן בלו-טות'"
@@ -1842,17 +1841,17 @@ msgstr "שם קודם"
 msgid "AFTER NAME"
 msgstr "שם נוסף"
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
-msgstr "הצגת דגל שפה ברשימות"
+msgid "SHOW REGION FLAG"
+msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
-msgstr "הצגת דגל מצבים שמורים ברשימות"
+msgid "SHOW SAVESTATE ICON"
+msgstr ""
 
-msgid "SHOW MANUAL ICON IN LISTS"
-msgstr "הצגת סמל ידני ברשימות"
+msgid "SHOW MANUAL ICON"
+msgstr ""
 
-msgid "SHOW FILENAMES IN LISTS"
-msgstr "הצגת שם קובץ ברשימות"
+msgid "SHOW FILENAMES INSTEAD"
+msgstr ""
 
 msgid "FILE EXTENSIONS"
 msgstr "קבצי הרחבה"
@@ -1875,8 +1874,8 @@ msgstr "רשת"
 msgid "DISPLAY OPTIONS"
 msgstr "הצגת אפשרויות"
 
-msgid "TRANSITION STYLE"
-msgstr "סגנון מעבר"
+msgid "LIST TRANSITION STYLE"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "מעבר הפעלת משחק"
@@ -1920,14 +1919,14 @@ msgstr "מוזיקה צד משתמש"
 msgid "DISPLAY SONG TITLES"
 msgstr "הצגת כותרות שירים"
 
-msgid "HOW MANY SECONDS FOR SONG TITLES"
-msgstr "כמות שניות לתצוגת כותרת שירים"
+msgid "SONG TITLE DISPLAY DURATION"
+msgstr ""
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "השמעת מוזיקה לפי תיקיית מערכת מסוימת בלבד"
 
-msgid "PLAY THEME MUSICS"
-msgstr "ניגון מוזיקה של ערכת נושא"
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
+msgstr ""
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "הנמכת מוזיקה בעת ניגון וידאו"
@@ -1938,8 +1937,8 @@ msgstr "צלילים"
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "הוך צלילי ניווט לפעילים"
 
-msgid "ENABLE VIDEO AUDIO"
-msgstr "הפיכת שמע וידאו לזמין"
+msgid "ENABLE VIDEO PREVIEW AUDIO"
+msgstr ""
 
 msgid "IP ADDRESS"
 msgstr "כתובת IP"
@@ -2004,8 +2003,8 @@ msgstr "בטוח?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "כיבוי מהיר"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-msgstr "בטוח לכבות בלי לשמור METADATA"
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr ""
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "יציאה מהאימולטור"
@@ -2037,6 +2036,9 @@ msgstr "רזולוציה פנימית"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "תצורת בקרים אוטומטית"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "איתחול התקן "
 
@@ -2052,7 +2054,7 @@ msgstr "איתחול כעת"
 msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "האפשרויות שנבחרו אינן תקפות"
 
-msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr ""
 
 msgid "EDIT METADATA"
@@ -2323,7 +2325,7 @@ msgstr ""
 msgid "INDEXING COMPLETED"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "UPDATE GAME LISTS TO APPLY CHANGES."
 msgstr ""
 
 msgid "GENRE"
@@ -2448,8 +2450,8 @@ msgstr ""
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
 
 #, c-format
@@ -2579,6 +2581,169 @@ msgstr ""
 
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
+
+#~ msgid "Searching controllers..."
+#~ msgstr "מחפש בקרים..."
+
+#~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+#~ msgstr "סריקת בלו-טות' מתבצעת."
+
+#~ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+#~ msgstr "הפעלת המערכת מחדש נחוצה"
+
+#~ msgid "UPDATE GAMES LISTS"
+#~ msgstr "עידכון רשימת משחקים"
+
+#~ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
+#~ msgstr "האם אתם בטוחים שברצונכם למחוק את הקובץ?"
+
+#~ msgid "NO WIFI NETWORKS FOUND"
+#~ msgstr "לא נמצאו רשתות אלחוטיות"
+
+#~ msgid "SEARCHING WIFI NETWORKS"
+#~ msgstr "חיפוש רשתות אלחוטיות מתבצע"
+
+#~ msgid "There are no items in this view"
+#~ msgstr "אין פריטים לתצוגה זו"
+
+#~ msgid "MISSING BIOS"
+#~ msgstr "חסר BIOS"
+
+#~ msgid "SCREENSAVER AFTER"
+#~ msgstr "אחרי שומר מסך"
+
+#~ msgid "SCREENSAVER BEHAVIOR"
+#~ msgstr "התנהגות שומר מסך"
+
+#~ msgid "CUSTOM VIDEO DIR"
+#~ msgstr "תיקיית סרטונים בבחירה אישית"
+
+#~ msgid "SWAP IMAGE AFTER (SECS)"
+#~ msgstr "החלפת תמונה לאחר (שניות)"
+
+#~ msgid "CUSTOM IMAGE DIR"
+#~ msgstr "תיקיית תמונות מותאמות אישית"
+
+#~ msgid "ARE YOU SURE ?"
+#~ msgstr "האם את/ה בטוח ?"
+
+#~ msgid "REBOOT SYSTEM TO APPLY"
+#~ msgstr "הפעל מערכת מחדש להחלת השינויים"
+
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "הגירסה בשימוש כרגע היא : %s\n"
+#~ "את/ה בטוח שברצונך לעדכן לגירסה: %s ?"
+
+#~ msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+#~ msgstr "למשחק זה אין הישגים, עדיין"
+
+#~ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+#~ msgstr "פעולת SCRAPING מתבצעת, האם להפסיק SCRAPING?"
+
+#~ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+#~ msgstr "להחלת השינויים נדרשת הפעלת המערכת מחדש"
+
+#~ msgid "CREATE A SUPPORT FILE ?"
+#~ msgstr "ליצור קובץ תמיכה ?"
+
+#~ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+#~ msgstr "ניקוי רשימות משחקים והסרים קבצים שאינם בשימוש"
+
+#~ msgid "Cleaning "
+#~ msgstr "מנקה "
+
+#~ msgid "REDETECT GAMES LANG/REGION"
+#~ msgstr "זיהוי חוזר של איזור ושפת משחקים"
+
+#~ msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+#~ msgstr "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+
+#~ msgid "ON SCREEN KEYBOARD"
+#~ msgstr "מקלדת על המסך"
+
+#~ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+#~ msgstr "החלף בין כפתורים A\\B במערכת EMULATIONSTATION"
+
+#~ msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+#~ msgstr "שליטה באמצעות בקר 1 בלבד"
+
+#~ msgid "ASYNC IMAGES LOADING"
+#~ msgstr "טעית תמונות ASYNC"
+
+#~ msgid "OPTIMIZE VIDEO VRAM USE"
+#~ msgstr "התאם ליעילות מלאה שימוש סרטונים ב VRAM"
+
+#~ msgid "Do you want to proceed ?"
+#~ msgstr "להמשיך?"
+
+#~ msgid "KODI AT START"
+#~ msgstr "הפעלה KODI בטעינה ראשונית"
+
+#~ msgid "NO SPLASH"
+#~ msgstr "ללא אנימציה"
+
+#~ msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+#~ msgstr "בדיקת BIOS טרם טעינת משחק"
+
+#~ msgid "INTEGER SCALE (PIXEL PERFECT)"
+#~ msgstr "קנה מידה לפיקסל (PIXEL PERFECT)"
+
+#~ msgid "AUTO SAVE/LOAD"
+#~ msgstr "שמירה/טעינה אוטומטית"
+
+#~ msgid "SHADERS SET"
+#~ msgstr "ערכת SHADERS"
+
+#~ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+#~ msgstr "גִּבּוּב (HASHING) משחק פועל כרגע, להפסיק ?"
+
+#~ msgid "REALLY UPDATE GAMES LISTS ?"
+#~ msgstr "לעדכן רשימת משחקים?"
+
+#~ msgid "CONFIGURE A CONTROLLER"
+#~ msgstr "קביעת תצורת בקר"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+#~ "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A "
+#~ "BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT "
+#~ "BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES "
+#~ "ARE BASED ON THE SNES CONTROLLER."
+#~ msgstr ""
+#~ "קביעת תצורת בקר תתבצע. במידה והבקר בו נעשה שימוש בעל ג'ויסטיק אחד, יש "
+#~ "להגדיר את חצי הכיוונים ולדלג על הגדרת הג'ויסטיק באמצעות לחיצה על A. במידה "
+#~ "ואין בבדר לחצן מיוחד ל - HOTKEY, בחר בלחצן SELECT. יש לדלג על המקשים שאין "
+#~ "בבקר באמצעות לחיצה על A. שמות הלחצנים מבוססים ע בקר SNES המקורי."
+
+#~ msgid "SHOW LANGUAGE FLAG IN LISTS"
+#~ msgstr "הצגת דגל שפה ברשימות"
+
+#~ msgid "SHOW SAVESTATES FLAG IN LISTS"
+#~ msgstr "הצגת דגל מצבים שמורים ברשימות"
+
+#~ msgid "SHOW MANUAL ICON IN LISTS"
+#~ msgstr "הצגת סמל ידני ברשימות"
+
+#~ msgid "SHOW FILENAMES IN LISTS"
+#~ msgstr "הצגת שם קובץ ברשימות"
+
+#~ msgid "TRANSITION STYLE"
+#~ msgstr "סגנון מעבר"
+
+#~ msgid "HOW MANY SECONDS FOR SONG TITLES"
+#~ msgstr "כמות שניות לתצוגת כותרת שירים"
+
+#~ msgid "PLAY THEME MUSICS"
+#~ msgstr "ניגון מוזיקה של ערכת נושא"
+
+#~ msgid "ENABLE VIDEO AUDIO"
+#~ msgstr "הפיכת שמע וידאו לזמין"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+#~ msgstr "בטוח לכבות בלי לשמור METADATA"
 
 #~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
 #~ msgstr "Διαθέσιμη αναβάθμιση για το BATOCERA.LINUX"

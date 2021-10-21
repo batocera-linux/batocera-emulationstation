@@ -456,7 +456,7 @@ bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions option
 
 	if (!game->isExtensionCompatible())
 	{
-		auto gui = new GuiMsgBox(mWindow, _("WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\nDO YOU WANT TO LAUNCH IT ANYWAY ?"),
+		auto gui = new GuiMsgBox(mWindow, _("WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE FORMAT.\nDO YOU WANT TO LAUNCH IT ANYWAY?"),
 			_("YES"), [this, game, options, center] { launch(game, options, center, false); },
 			_("NO"), nullptr, ICON_ERROR);
 
@@ -476,7 +476,7 @@ bool ViewController::checkLaunchOptions(FileData* game, LaunchGameOptions option
 				bool hasMissing = std::find_if(it->bios.cbegin(), it->bios.cend(), [&systemName](const BiosFile& x) { return x.status == "MISSING"; }) != it->bios.cend();
 				if (hasMissing)
 				{
-					auto gui = new GuiMsgBox(mWindow, _("WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY ?"),
+					auto gui = new GuiMsgBox(mWindow, _("WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK CORRECTLY.\nDO YOU WANT TO LAUNCH IT ANYWAY?"),
 						_("YES"), [this, game, options, center] { launch(game, options, center, false); },
 						_("NO"), nullptr, ICON_ERROR);
 
@@ -505,7 +505,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	{
 		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(game->getPath()));
 
-		if (ext == ".mp4" || ext == ".avi" || ext == ".mkv")
+		if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm")
 			GuiVideoViewer::playVideo(mWindow, game->getPath());
 		else if (ext == ".pdf")
 			GuiImageViewer::showPdf(mWindow, game->getPath());

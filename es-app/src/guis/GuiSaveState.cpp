@@ -27,7 +27,7 @@ GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<v
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("SAVE SNAPSHOTS"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, _("SAVE STATE MANAGER"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mLayout.setEntry(mTitle, Vector2i(1, 1), false, true);
 
 	mGrid = std::make_shared<ImageGridComponent<SaveState>>(mWindow);
@@ -196,7 +196,7 @@ bool GuiSaveState::input(InputConfig* config, Input input)
 	{
 		if (mGrid->size())
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"), _("YES"), 
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"), _("YES"), 
 				[this]
 				{
 					const SaveState& toDelete = mGrid->getSelected();

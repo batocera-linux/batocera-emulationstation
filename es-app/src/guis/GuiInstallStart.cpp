@@ -52,7 +52,7 @@ mMenu(window, _("INSTALL BATOCERA").c_str())
 		mMenu.addWithLabel(_("TARGET ARCHITECTURE"), moptionsArchitecture);
 
 		moptionsValidation = std::make_shared<SwitchComponent>(mWindow);
-		mMenu.addWithLabel(_("ARE YOU SURE ?"), moptionsValidation);
+		mMenu.addWithLabel(_("ARE YOU SURE?"), moptionsValidation);
 		
 		mMenu.addButton(_("INSTALL"), "install", std::bind(&GuiInstallStart::start, this));
 		mMenu.addButton(_("BACK"), "back", [&] { delete this; });

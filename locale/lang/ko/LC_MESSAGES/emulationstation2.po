@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:18+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -303,10 +303,10 @@ msgstr[0] "현재 컬렉션에는 %i 게임이 있습니다. 포함 게임 :%s"
 msgid "SCANNING BLUETOOTH"
 msgstr "블루투스 검색"
 
-msgid "Searching controllers..."
-msgstr "컨트롤러를 검색 중입니다..."
+msgid "Searching for devices..."
+msgstr "컨트롤러를 검색 중입니다."
 
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "블루투스 검색이 이미 실행중입니다."
 
 msgid "FORMATING DEVICE"
@@ -315,7 +315,7 @@ msgstr "장치 포맷"
 msgid "Formating"
 msgstr "포맷 중"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "작업을 완료하려면 시스템 재시작이 필요합니다"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
@@ -444,7 +444,7 @@ msgstr "컬렉션에서 시스템 이름 표시"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "컬렉셔이 숨겨진 시스템 게임 표시"
 
-msgid "UPDATE GAMES LISTS"
+msgid "UPDATE GAME LISTS"
 msgstr "게임 목록 업데이트"
 
 msgid "Loading..."
@@ -556,7 +556,7 @@ msgstr "게임 아트워크 수집 중에는 이 기능은 비활성화됩니다
 msgid "CLOSE"
 msgstr "닫기"
 
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "정말로 현재 아이템을 삭제하시겠습니까?"
 
 msgid "INPUT"
@@ -610,10 +610,10 @@ msgstr "게임 관전"
 msgid "MANUAL INPUT"
 msgstr "수동 입력"
 
-msgid "NO WIFI NETWORKS FOUND"
+msgid "NO WI-FI NETWORKS FOUND"
 msgstr "와이파이를 찾지 못했습니다"
 
-msgid "SEARCHING WIFI NETWORKS"
+msgid "SEARCHING WI-FI NETWORKS"
 msgstr "와이파이를 검색 중입니다"
 
 msgid "FORGET A BLUETOOTH DEVICE"
@@ -655,7 +655,7 @@ msgstr "설치/제거할 컨텐츠를 선택하세요"
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "설치된 컨텐츠 업데이트"
 
-msgid "There are no items in this view"
+msgid "No items"
 msgstr "현재 보기에 항목이 없습니다"
 
 msgid "MISC"
@@ -684,7 +684,7 @@ msgstr "현재 다운로드 대기열"
 msgid "NO MISSING BIOS"
 msgstr "바이오스가 모두 구성됨"
 
-msgid "MISSING BIOS"
+msgid "MISSING BIOS CHECK"
 msgstr "누락 바이오스"
 
 msgid "dim"
@@ -723,10 +723,10 @@ msgstr "화면보호기 설정"
 msgid "SETTINGS"
 msgstr "설정"
 
-msgid "SCREENSAVER AFTER"
+msgid "START SCREENSAVER AFTER"
 msgstr "화면 보호기 작동"
 
-msgid "SCREENSAVER BEHAVIOR"
+msgid "SCREENSAVER TYPE"
 msgstr "화면 보호기 행동"
 
 msgid "STOP MUSIC ON SCREENSAVER"
@@ -765,10 +765,10 @@ msgstr "화면보호기 제어"
 msgid "USE CUSTOM VIDEOS"
 msgstr "사용자 동영상 사용"
 
-msgid "CUSTOM VIDEO DIR"
+msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "사용자 동영상 경로"
 
-msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
 msgstr "사용자 동영상 경로 순환"
 
 msgid "CUSTOM VIDEO FILTER"
@@ -777,7 +777,7 @@ msgstr "사용자 동영상 필터"
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "슬라이스쇼 화면보호기 설정"
 
-msgid "SWAP IMAGE AFTER (SECS)"
+msgid "IMAGE DURATION (SECS)"
 msgstr "다음 시간 후 이미지 변경(초)"
 
 msgid "STRETCH IMAGES"
@@ -786,10 +786,10 @@ msgstr "이미지 늘리기"
 msgid "USE CUSTOM IMAGES"
 msgstr "사용자 이미지 사용"
 
-msgid "CUSTOM IMAGE DIR"
+msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "사용자 이미지 경로"
 
-msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
 msgstr "사용자 이미지 경로 순환"
 
 msgid "CUSTOM IMAGE FILTER"
@@ -843,7 +843,7 @@ msgstr "맵핑 삭제"
 msgid "SAVE CHANGES?"
 msgstr "변경 사항을 저장 하시겠습니까?"
 
-msgid "ARE YOU SURE ?"
+msgid "ARE YOU SURE?"
 msgstr "확실합니까?"
 
 #, c-format
@@ -856,7 +856,7 @@ msgstr "바토세라 업데이트 중"
 msgid "UPDATE IS READY"
 msgstr "업데이트가 준비되었습니다"
 
-msgid "REBOOT SYSTEM TO APPLY"
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 msgstr "적용하려면 시스템 재시작"
 
 msgid "REALLY UPDATE?"
@@ -864,11 +864,9 @@ msgstr "정말로 업데이트 하시겠습니까?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"현재 사용 버전 : %s\n"
-"다음 버전으로 업데이트 하시겠습니까 : %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "인터넷 연결이 필요합니다"
@@ -1012,7 +1010,7 @@ msgstr "현재 테마"
 msgid "Unlocked on"
 msgstr "잠금 해제"
 
-msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "현재 게임은 도전과제가 아직 없습니다"
 
 msgid "Achievements won"
@@ -1067,7 +1065,7 @@ msgstr ""
 "수 있습니다!!\n"
 "계속 하시겠습니까?"
 
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "스크랩이 진행중입니다. 중지하시겠습니까?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
@@ -1154,11 +1152,10 @@ msgstr "버전"
 msgid "SHADERS"
 msgstr "셰이더"
 
-# missing string
-msgid "CONTROLLERS SETTINGS"
-msgstr "컨트롤러 설정"
+msgid "CONTROLLER SETTINGS"
+msgstr ""
 
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "컨트롤러 및 블루투스 설정"
 
 msgid "MAIN MENU"
@@ -1321,6 +1318,9 @@ msgstr "OMX 플레이어 사용 (하드웨어 가속)"
 msgid "TOOLS"
 msgstr "도구"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr "공용 인터넷 접속 허용"
 
@@ -1328,7 +1328,7 @@ msgstr "공용 인터넷 접속 허용"
 msgid "Allow public web access API using %s"
 msgstr "다음을 이용한 공용 인터넷 접속을 허용 : %s"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재시작이 필요합니다"
 
 msgid "LOG LEVEL"
@@ -1337,7 +1337,7 @@ msgstr "로그 레벨"
 msgid "CREATE A SUPPORT FILE"
 msgstr "지원용 파일 생성"
 
-msgid "CREATE A SUPPORT FILE ?"
+msgid "CREATE A SUPPORT FILE?"
 msgstr "지원용 파일을 만드시겠습니까?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
@@ -1349,10 +1349,10 @@ msgstr "파일 생성 실패"
 msgid "FORMAT A DISK"
 msgstr "디스크 포맷"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "게임 목록 정리 & 미사용 미디어 삭제"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "정리 중 "
 
 msgid "CLEAR CACHES"
@@ -1367,7 +1367,7 @@ msgstr "이미지 캐시 생성중"
 msgid "RESET FILE EXTENSIONS"
 msgstr "파일 확장자 초기화"
 
-msgid "REDETECT GAMES LANG/REGION"
+msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "게임 언어/지역 재감지"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
@@ -1376,7 +1376,7 @@ msgstr "넷플레이/도전과제가 있는 모든 게임 검색"
 msgid "DATA MANAGEMENT"
 msgstr "데이터 관리"
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "다중 디스크 컨텐츠 무시 (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
@@ -1400,7 +1400,7 @@ msgstr "회전 메뉴 화면전환"
 msgid "QUICK SYSTEM SELECT"
 msgstr "빠른 시스템 선택"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "화상 키보드"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1418,16 +1418,18 @@ msgstr "자동"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "에뮬레이터 컨트롤러 자동 설정"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "에뮬레이션스테이션에서 A/B 버튼 교체"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "위쪽 버튼으로 게임 옵션 열기"
 
-msgid "Inverts north button (savestates) & long press south (game options)"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr "위 버튼(상태저장) 과 아래 버튼(게임 옵션)을 변경"
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "첫 번째 조이스틱으로만 에뮬레이션스테이션 제어"
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1448,13 +1450,13 @@ msgstr ""
 msgid "THREADED LOADING"
 msgstr "스레드된 불러오기"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "비동기 이미지 불러오기"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "이미지 VRAM 사용 최적화"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "비디오 VRAM 사용 최적화"
 
 msgid "DOWNLOADS"
@@ -1511,7 +1513,7 @@ msgstr ""
 "시스템 변경을 막기해 메뉴 옵션의 대부분을 숨기게 됩니다.\n"
 "해제하고 전체 UI로 돌아가려면 다음 코드를 입력하십시오:"
 
-msgid "Do you want to proceed ?"
+msgid "Do you want to proceed?"
 msgstr "계속 진행하시겠습니까?"
 
 msgid "KODI SETTINGS"
@@ -1520,7 +1522,7 @@ msgstr "KODI 설정"
 msgid "ENABLE KODI"
 msgstr "KODI 활성화"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "시작 시 KODI 실행"
 
 msgid "HARDWARE"
@@ -1556,8 +1558,8 @@ msgstr "부트 스플래시"
 msgid "SILENT SPLASH"
 msgstr "조용한 스플래시"
 
-msgid "NO SPLASH"
-msgstr "스플래시 없음"
+msgid "DEFAULT"
+msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
 msgstr "레트로 도전과제 설정"
@@ -1565,7 +1567,7 @@ msgstr "레트로 도전과제 설정"
 msgid "NETPLAY SETTINGS"
 msgstr "넷플레이 설정"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "게임 실행전 바이오스 확인"
 
 msgid "MULTIMEDIA KEYS"
@@ -1715,10 +1717,10 @@ msgstr "부드러운 게임"
 msgid "REWIND"
 msgstr "되감기"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
 
-msgid "AUTO SAVE/LOAD"
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "자동 저장/불러오기"
 
 msgid "SHOW SAVE SNAPSHOTS"
@@ -1727,7 +1729,7 @@ msgstr "저장 스냅샷 보이기"
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr "비어있지 않으면 스냅샷 보이기"
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "셰이더 설정"
 
 msgid "DECORATION"
@@ -1754,17 +1756,17 @@ msgstr "번역화면 일시정지"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "게임 해시 구성이 실행 중입니다. 중지 하시겠습니까?"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS?"
 msgstr "정말로 게임 목록을 업데이트 하시겠습니까?"
 
-msgid "CONFIGURE A CONTROLLER"
+msgid "REMAP A CONTROLLER"
 msgstr "컨트롤러 설정"
 
 msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
 "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
@@ -1842,16 +1844,16 @@ msgstr "이름 앞"
 msgid "AFTER NAME"
 msgstr "이름 뒤"
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG"
 msgstr "목록에 언어 플래그 표시"
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE ICON"
 msgstr "목록에 상태저장 플래그 표시"
 
-msgid "SHOW MANUAL ICON IN LISTS"
+msgid "SHOW MANUAL ICON"
 msgstr "목록에 매뉴얼 아이콘 표시"
 
-msgid "SHOW FILENAMES IN LISTS"
+msgid "SHOW FILENAMES INSTEAD"
 msgstr "목록에 파일이름 표시"
 
 msgid "FILE EXTENSIONS"
@@ -1875,7 +1877,7 @@ msgstr "그리드"
 msgid "DISPLAY OPTIONS"
 msgstr "표시 옵션"
 
-msgid "TRANSITION STYLE"
+msgid "LIST TRANSITION STYLE"
 msgstr "화면 전환 형식"
 
 msgid "GAME LAUNCH TRANSITION"
@@ -1920,13 +1922,13 @@ msgstr "배경 음악"
 msgid "DISPLAY SONG TITLES"
 msgstr "노래 제목 표시"
 
-msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgid "SONG TITLE DISPLAY DURATION"
 msgstr "노래 제목 표시 시간"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "시스템 특정 음악 폴더에서만 플레이"
 
-msgid "PLAY THEME MUSICS"
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
 msgstr "테마 음악 재생"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
@@ -1938,7 +1940,7 @@ msgstr "사운드"
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "이동 효과음 사용"
 
-msgid "ENABLE VIDEO AUDIO"
+msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "동영상 오디오 사용"
 
 msgid "IP ADDRESS"
@@ -2004,7 +2006,7 @@ msgstr "정말로 시스템을 종료하시겠습니까?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "빠른 시스템 종료"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
 
 msgid "QUIT EMULATIONSTATION"
@@ -2037,6 +2039,9 @@ msgstr "내부 해상도"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "컨트롤러 자동설정"
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "장치 포맷"
 
@@ -2052,7 +2057,7 @@ msgstr "지금 포맷"
 msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "선택한 옵션들은 유요하지 않습니다"
 
-msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "정말로 현재 드라이브를 포맷하시겠습니까?"
 
 msgid "EDIT METADATA"
@@ -2318,7 +2323,7 @@ msgstr "넷플레이 검색 중"
 msgid "INDEXING COMPLETED"
 msgstr "인덱싱 완료"
 
-msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "UPDATE GAME LISTS TO APPLY CHANGES."
 msgstr "변경사항을 적용하려면 게임 목록을 업데이트 하십시오."
 
 msgid "GENRE"
@@ -2443,12 +2448,9 @@ msgstr "-정의 안됨-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"핫키 설정을 선택하지 않았습니다. 컨트롤러를 이용해 게임 종료를 하려면 반드시 "
-"필요한 설정입니다. 셀렉트 버튼을 기본 핫키로 사용하시겠습니까? 예를 선택하면 "
-"셀렉트 버튼으로 설정되고 아니오를 선택하면 핫키를 설정하지 않습니다."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2557,6 +2559,23 @@ msgstr "텍스트 음성 변환 활성"
 msgid "TEXT TO SPEECH DISABLED"
 msgstr "텍스트 음성 변환 비활성"
 
+#~ msgid ""
+#~ "YOU ARE CURRENTLY USING VERSION : %s\n"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ msgstr ""
+#~ "현재 사용 버전 : %s\n"
+#~ "다음 버전으로 업데이트 하시겠습니까 : %s ?"
+
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "핫키 설정을 선택하지 않았습니다. 컨트롤러를 이용해 게임 종료를 하려면 반드"
+#~ "시 필요한 설정입니다. 셀렉트 버튼을 기본 핫키로 사용하시겠습니까? 예를 선"
+#~ "택하면 셀렉트 버튼으로 설정되고 아니오를 선택하면 핫키를 설정하지 않습니"
+#~ "다."
+
 # missing string
 #~ msgid "auto"
 #~ msgstr "자동"
@@ -2564,6 +2583,88 @@ msgstr "텍스트 음성 변환 비활성"
 # missing string
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"
 #~ msgstr "블루투스 장치 페어링"
+
+#~ msgid "Done."
+#~ msgstr "완료"
+
+#~ msgid "USE RETROARCH RGUI MENU"
+#~ msgstr "RETROARCH의 RGUI 메뉴 사용"
+
+#~ msgid "RESET GAMELIST CUSTOMISATIONS"
+#~ msgstr "사용자 게임리스트 초기화"
+
+#~ msgid "SCRAPING IN PROGRESS"
+#~ msgstr "게임 아트워크 수집 진행 중"
+
+#~ msgid "subtitle text"
+#~ msgstr "자막"
+
+#~ msgid "search"
+#~ msgstr "검색"
+
+#~ msgid "STOP"
+#~ msgstr "중단"
+
+#~ msgid "stop (progress saved)"
+#~ msgstr "중단 (진행 저장됨)"
+
+#~ msgid "GAME %i OF %i"
+#~ msgstr "게임 %i / %i"
+
+#~ msgid ""
+#~ "WE CAN'T FIND ANY SYSTEMS!\n"
+#~ "CHECK THAT YOUR PATHS ARE CORRECT IN THE SYSTEMS CONFIGURATION FILE, AND "
+#~ "YOUR GAME DIRECTORY HAS AT LEAST ONE GAME WITH THE CORRECT EXTENSION."
+#~ msgstr ""
+#~ "시스템을 찾을수 없습니다!\n"
+#~ "설정 파일에서 시스템 경로가 맞는지 확인하시고, 게임 디렉토리에는 확장자가 "
+#~ "정확한 게임이 한 개 이상이 있는지 확인하세요."
+
+#~ msgid "%i GAME SUCCESSFULLY SCRAPED!"
+#~ msgid_plural "%i GAMES SUCCESSFULLY SCRAPED!"
+#~ msgstr[0] "%i 개의 게임 아트워크를 수집했습니다."
+
+#~ msgid "%i GAME SKIPPED."
+#~ msgid_plural "%i GAMES SKIPPED."
+#~ msgstr[0] "%i 개의 게임 아트워크 수집을 건너뛰었습니다."
+
+#~ msgid "AUTOMATIC SCRAPER"
+#~ msgstr "게임 아트워크 자동 수집"
+
+#~ msgid "REALLY SCRAPE?"
+#~ msgstr "게임 아트워크를 수집 할까요?"
+
+#~ msgid "MANUAL SCRAPER"
+#~ msgstr "게임 아트워크 수동 수집"
+
+#~ msgid "Favorites"
+#~ msgstr "즐겨 찾기"
+
+#~ msgid "AN ERROR HAS OCCURED"
+#~ msgstr "오류가 발생"
+
+#~ msgid "USER DECIDES ON CONFLICTS"
+#~ msgstr "직접 선택"
+
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAME LISTS TO APPLY CHANGES."
+#~ msgstr ""
+#~ "게임 아트워크 수집이 완료됨. 변경사항을 적용하려면 게임리스트 업데이트를 "
+#~ "다시 하세요."
+
+#~ msgid "Editing the '%s' Collection. Add/remove games with Y."
+#~ msgstr "'%s' 컬렉션을 편집하기. Y 버튼으로 게임을 추가/삭제 합니다."
+
+#~ msgid "Finished editing the '%s' Collection."
+#~ msgstr "'%s' 컬렉션 편집을 끝내기"
+
+#~ msgid "FINISH EDITING COLLECTION"
+#~ msgstr "컬렉션 편집 끝내기"
+
+#~ msgid "JUMP TO..."
+#~ msgstr "이동하기"
+
+#~ msgid "COLLECTION MANAGEMENT"
+#~ msgstr "컬렉션 관리"
 
 # missing string
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 20:52+0200\n"
+"POT-Creation-Date: 2021-10-06 18:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -306,10 +306,10 @@ msgstr[2] ""
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНУВАННЯ"
 
-msgid "Searching controllers..."
+msgid "Searching for devices..."
 msgstr "Пошук контролерів..."
 
-msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "СКАНУВАННЯ BLUETOOTH ЗАПУЩЕНО"
 
 msgid "FORMATING DEVICE"
@@ -318,7 +318,7 @@ msgstr "ФОРМАТУВАТИ ДЕВАЙС"
 msgid "Formating"
 msgstr "Форматування"
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "ПОТРІБНО ПЕРЕЗАВАНТАЖИТИ СИСТЕМУ ДЛЯ ЗАВЕРЖЕННЯ ОПЕРАЦІЇ"
 
 msgid "DRIVE FORMAT IS ALREADY RUNNING."
@@ -447,7 +447,7 @@ msgstr "ПОКАЗУВАТИ СИСТЕМУ В НАЗВІ"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS"
+msgid "UPDATE GAME LISTS"
 msgstr "ОНОВИТИ СПИСКИ ІГР"
 
 msgid "Loading..."
@@ -559,8 +559,8 @@ msgstr "ПІД ЧАС ЗАВАНТАЖЕННЯ ЦЯ ФУНКЦІЯ ВІДКЛЮ�
 msgid "CLOSE"
 msgstr "ЗАКРИТИ"
 
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-msgstr ""
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "ВИ ВПЕВНЕНІ ЩО ХОЧЕТЕ ЦЕ ВИДАЛИТИ?"
 
 msgid "INPUT"
 msgstr "ВВІД"
@@ -613,10 +613,10 @@ msgstr "ПОДИВИТИСЬ ГРУ"
 msgid "MANUAL INPUT"
 msgstr "РУЧНИЙ ВВІД"
 
-msgid "NO WIFI NETWORKS FOUND"
+msgid "NO WI-FI NETWORKS FOUND"
 msgstr "МЕРЕЖА WIFI НЕ ЗНАЙДЕНА"
 
-msgid "SEARCHING WIFI NETWORKS"
+msgid "SEARCHING WI-FI NETWORKS"
 msgstr "ПОШУК МЕРЕЖІ WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
@@ -658,7 +658,7 @@ msgstr "ВИБРАТИ КОНТЕНТ ДЛЯ ВСТАНОВЛЕННЯ/ВИДАЛ
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "ОНОВИТИ ВСТАНОВЛЕНИЙ КОНТЕНТ"
 
-msgid "There are no items in this view"
+msgid "No items"
 msgstr "Тут немає елементів"
 
 msgid "MISC"
@@ -687,7 +687,7 @@ msgstr "В ЧЕРЗІ ЗАВАНТАЖЕННЯ"
 msgid "NO MISSING BIOS"
 msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
 
-msgid "MISSING BIOS"
+msgid "MISSING BIOS CHECK"
 msgstr "ВІДСУТНІ БІОСИ"
 
 msgid "dim"
@@ -726,10 +726,10 @@ msgstr "НАЛАШТУВАННЯ ЗАСТАВКИ"
 msgid "SETTINGS"
 msgstr "НАЛАШТУВАННЯ"
 
-msgid "SCREENSAVER AFTER"
+msgid "START SCREENSAVER AFTER"
 msgstr "ЗАСТАВКА ЧЕРЕЗ"
 
-msgid "SCREENSAVER BEHAVIOR"
+msgid "SCREENSAVER TYPE"
 msgstr "ПОВЕДІНКА ЗАСТАВКИ"
 
 msgid "STOP MUSIC ON SCREENSAVER"
@@ -768,10 +768,10 @@ msgstr "КЕРУВАННЯ ЗАСТАВКОЮ"
 msgid "USE CUSTOM VIDEOS"
 msgstr "ВИКОРИСТАТИ ІНШЕ ВІДЕО"
 
-msgid "CUSTOM VIDEO DIR"
+msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "ПАПКА З ІНШИМИ ВІДЕО"
 
-msgid "CUSTOM VIDEO DIR RECURSIVE"
+msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
 msgstr ""
 
 msgid "CUSTOM VIDEO FILTER"
@@ -780,7 +780,7 @@ msgstr ""
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "НАЛАШТУВАННЯ СЛАЙДШОУ ЗАСТАВКИ"
 
-msgid "SWAP IMAGE AFTER (SECS)"
+msgid "IMAGE DURATION (SECS)"
 msgstr "ЗМІНА ЗОБРАЖЕННЯ ПІСЛЯ (СЕК)"
 
 msgid "STRETCH IMAGES"
@@ -789,10 +789,10 @@ msgstr "РОЗТЯГНУТИ ЗОБРАЖЕННЯ"
 msgid "USE CUSTOM IMAGES"
 msgstr "КОРИСТУВАЦЬКЕ ЗОБРАЖЕННЯ"
 
-msgid "CUSTOM IMAGE DIR"
+msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "ПАПКА КОРИС. ЗОБР."
 
-msgid "CUSTOM IMAGE DIR RECURSIVE"
+msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
 msgstr "ПАПКА КОРИС. ЗОБРАЖЕНЬ РЕКУРСИВНО"
 
 msgid "CUSTOM IMAGE FILTER"
@@ -846,7 +846,7 @@ msgstr "ВИДАЛИТИ ПРИЗНАЧЕНІ КНОПКИ"
 msgid "SAVE CHANGES?"
 msgstr "ЗБЕРЕГТИ ЗМІНИ?"
 
-msgid "ARE YOU SURE ?"
+msgid "ARE YOU SURE?"
 msgstr "ВИ ВПЕВНЕНІ?"
 
 #, c-format
@@ -859,7 +859,7 @@ msgstr "ОНОВЛЕННЯ BATOCERA"
 msgid "UPDATE IS READY"
 msgstr "ОНОВЛЕННЯ ГОТОВЕ"
 
-msgid "REBOOT SYSTEM TO APPLY"
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 msgstr "ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМИ ДЛЯ ЗАСТОСУВАННЯ"
 
 msgid "REALLY UPDATE?"
@@ -867,8 +867,8 @@ msgstr "ДІЙСНО ОНОВИТИ?"
 
 #, c-format
 msgid ""
-"YOU ARE CURRENTLY USING VERSION : %s\n"
-"DO YOU WANT TO UPDATE TO VERSION : %s ?"
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1013,7 +1013,7 @@ msgstr "ПОТОЧНА ТЕМА"
 msgid "Unlocked on"
 msgstr ""
 
-msgid "THIS GAME HAS NO ACHIEVEMENT YET"
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr ""
 
 msgid "Achievements won"
@@ -1068,7 +1068,7 @@ msgstr ""
 "МОЖЕ БУТИ НЕ ТОЧНИМ!\n"
 "ПРОДОВЖИТИ В БУДЬ-ЯКОМУ ВИПАДКУ?"
 
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "ДАНІ ЗАВАНТАЖУЮТСЯ. ЗУПИНИТИ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
@@ -1155,11 +1155,11 @@ msgstr "ВЕРСІЯ"
 msgid "SHADERS"
 msgstr ""
 
-msgid "CONTROLLERS SETTINGS"
-msgstr "НАЛАШТУВАННЯ КОНТРОЛЕРІВ"
-
-msgid "CONTROLLERS & BLUETOOTH SETTINGS"
+msgid "CONTROLLER SETTINGS"
 msgstr ""
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "НАЛАШТУВАННЯ КОНТРОЛЕРІВ"
 
 msgid "MAIN MENU"
 msgstr "ГОЛОВНЕ МЕНЮ"
@@ -1320,6 +1320,9 @@ msgstr ""
 msgid "TOOLS"
 msgstr "ІНСТРУМЕНТИ"
 
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "ENABLE PUBLIC WEB ACCESS"
 msgstr ""
 
@@ -1327,7 +1330,7 @@ msgstr ""
 msgid "Allow public web access API using %s"
 msgstr ""
 
-msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "ДЛЯ ЗАСТОСУВАННЯ НАЛАШТУВАНЬ ПОТРІБНО ПЕРЕЗАПУСТИТИ СИСТЕМУ"
 
 msgid "LOG LEVEL"
@@ -1336,7 +1339,7 @@ msgstr "РІВЕНЬ ЖУРНАЛУ"
 msgid "CREATE A SUPPORT FILE"
 msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ"
 
-msgid "CREATE A SUPPORT FILE ?"
+msgid "CREATE A SUPPORT FILE?"
 msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ?"
 
 msgid "FILE GENERATED SUCCESSFULLY"
@@ -1348,10 +1351,10 @@ msgstr "ГЕНЕРАЦІЯ ФАЙЛУ НЕ ВДАЛАСЬ"
 msgid "FORMAT A DISK"
 msgstr "ФОРМАТУВАТИ ДИСК"
 
-msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТИ ГЕЙМЛИСТ ТА ВИДАЛИТИ ДАННІ"
 
-msgid "Cleaning "
+msgid "Cleaning"
 msgstr "Очищення"
 
 msgid "CLEAR CACHES"
@@ -1366,7 +1369,7 @@ msgstr ""
 msgid "RESET FILE EXTENSIONS"
 msgstr "СКИНУТИ РОЗШИРЕННЯ ФАЙЛІВ"
 
-msgid "REDETECT GAMES LANG/REGION"
+msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr ""
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
@@ -1375,7 +1378,7 @@ msgstr ""
 msgid "DATA MANAGEMENT"
 msgstr ""
 
-msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
 msgid "ENABLE FILTERS"
@@ -1399,7 +1402,7 @@ msgstr "АНИМАЦІЯ КАРУСЕЛІ"
 msgid "QUICK SYSTEM SELECT"
 msgstr "ШВИДКЕ ПЕРЕМИКАННЯ СИСТЕМ"
 
-msgid "ON SCREEN KEYBOARD"
+msgid "ON-SCREEN KEYBOARD"
 msgstr "ЕКРАННА КЛАВІАТУРА"
 
 msgid "HIDE WHEN RUNNING A GAME"
@@ -1417,16 +1420,18 @@ msgstr "АВТО"
 msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
 msgstr "АВТОНАЛАШТУВАННЯ КОНТРОЛЛЕРІВ"
 
-msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
+msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ЗМІНИТИ МІСЦЯМИ КНОПКИ А/В"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr ""
 
-msgid "Inverts north button (savestates) & long press south (game options)"
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 
-msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
@@ -1447,13 +1452,13 @@ msgstr ""
 msgid "THREADED LOADING"
 msgstr "THREADED ЗАВАНТАЖЕННЯ"
 
-msgid "ASYNC IMAGES LOADING"
+msgid "ASYNC IMAGE LOADING"
 msgstr "ЗАВАНТАЖЕННЯ ЗОБРАЖЕНЬ ASYNC"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "ОПТИМІЗАЦІЯ ЗОБРАЖЕНЬ ДЛЯ VRAM"
 
-msgid "OPTIMIZE VIDEO VRAM USE"
+msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "ОПТИМІЗАЦІЯ ВІДЕО ДЛЯ VRAM"
 
 msgid "DOWNLOADS"
@@ -1510,7 +1515,7 @@ msgstr ""
 "Це приховає більшість пунктів меню, щоб запобігти зміни в системі.\n"
 "Щоб розблокувати і повернутись до повного інтерфейсу, введіть цей код:"
 
-msgid "Do you want to proceed ?"
+msgid "Do you want to proceed?"
 msgstr "Ви хочете продовжити?"
 
 msgid "KODI SETTINGS"
@@ -1519,7 +1524,7 @@ msgstr "НАЛАШТУВАННЯ KODI"
 msgid "ENABLE KODI"
 msgstr "ВМИКНУТИ KODI"
 
-msgid "KODI AT START"
+msgid "LAUNCH KODI AT BOOT"
 msgstr "АВТОЗАПУСК KODI"
 
 msgid "HARDWARE"
@@ -1555,7 +1560,7 @@ msgstr ""
 msgid "SILENT SPLASH"
 msgstr ""
 
-msgid "NO SPLASH"
+msgid "DEFAULT"
 msgstr ""
 
 msgid "RETROACHIEVEMENTS SETTINGS"
@@ -1564,7 +1569,7 @@ msgstr "НАЛАШТУВАННЯ РЕТРОДОСЯГНЕНЬ"
 msgid "NETPLAY SETTINGS"
 msgstr "НАЛАШТУВАННЯ NETPLAY"
 
-msgid "CHECK BIOSES BEFORE RUNNING A GAME"
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr ""
 
 msgid "MULTIMEDIA KEYS"
@@ -1714,10 +1719,10 @@ msgstr "ЗГЛАДЖУВАННЯ ЗОБРАЖЕННЯ"
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
 
-msgid "INTEGER SCALE (PIXEL PERFECT)"
+msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
 
-msgid "AUTO SAVE/LOAD"
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "АВТО ЗБЕРЕЖЕННЯ/ЗАВАНТАЖЕННЯ"
 
 msgid "SHOW SAVE SNAPSHOTS"
@@ -1726,7 +1731,7 @@ msgstr ""
 msgid "SHOW SNAPSHOTS IF NOT EMPTY"
 msgstr ""
 
-msgid "SHADERS SET"
+msgid "SHADER SET"
 msgstr "ШЕЙДЕРИ"
 
 msgid "DECORATION"
@@ -1753,17 +1758,17 @@ msgstr "ПАУЗА ТРАНСЛЯЦІЇ ЕКРАНА"
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "ХЕШУВАННЯ ЗАПУЩЕНО. ХОЧЕТЕ ЗУПИНИТИ?"
 
-msgid "REALLY UPDATE GAMES LISTS ?"
+msgid "REALLY UPDATE GAME LISTS?"
 msgstr "ДІЙСНО ОНОВИТИ СПИСКИ ІГР?"
 
-msgid "CONFIGURE A CONTROLLER"
+msgid "REMAP A CONTROLLER"
 msgstr "НАЛАШТУВАТИ КОНТРОЛЕР"
 
 msgid ""
-"YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
 "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
 "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
 "ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
@@ -1842,16 +1847,16 @@ msgstr ""
 msgid "AFTER NAME"
 msgstr ""
 
-msgid "SHOW LANGUAGE FLAG IN LISTS"
+msgid "SHOW REGION FLAG"
 msgstr ""
 
-msgid "SHOW SAVESTATES FLAG IN LISTS"
+msgid "SHOW SAVESTATE ICON"
 msgstr ""
 
-msgid "SHOW MANUAL ICON IN LISTS"
+msgid "SHOW MANUAL ICON"
 msgstr ""
 
-msgid "SHOW FILENAMES IN LISTS"
+msgid "SHOW FILENAMES INSTEAD"
 msgstr "ПОКАЗАТИ СПРАВЖНЮ НАЗВУ ФАЙЛУ"
 
 msgid "FILE EXTENSIONS"
@@ -1875,7 +1880,7 @@ msgstr "сітка"
 msgid "DISPLAY OPTIONS"
 msgstr "ОПЦІЇ ЕКРАНУ"
 
-msgid "TRANSITION STYLE"
+msgid "LIST TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДІВ"
 
 msgid "GAME LAUNCH TRANSITION"
@@ -1920,13 +1925,13 @@ msgstr "МУЗИКА В МЕНЮ"
 msgid "DISPLAY SONG TITLES"
 msgstr "ПОКАЗАТИ НАЗВУ ПІСНІ"
 
-msgid "HOW MANY SECONDS FOR SONG TITLES"
+msgid "SONG TITLE DISPLAY DURATION"
 msgstr "ЧАС ПОКАЗУ НАЗВИ ПІСНІ"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "МУЗИКА З ПАПКИ СИСТЕМ"
 
-msgid "PLAY THEME MUSICS"
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
 msgstr "МУЗИКА З ТЕМИ"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
@@ -1938,7 +1943,7 @@ msgstr "ЗВУКИ"
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "УВІМКНУТИ ЗВУКИ НАВИГАЦІЇ"
 
-msgid "ENABLE VIDEO AUDIO"
+msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "УВІМКНУТИ ЗВУК В ВІДЕО"
 
 msgid "IP ADDRESS"
@@ -2004,7 +2009,7 @@ msgstr "ВИМКНУТИ СИСТЕМУ ЗАРАЗ?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "ШВИДКО ВИМКНУТИ СИСТЕМУ"
 
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "ВИМКНУТИ БЕЗ ЗБЕРІГАННЯ МЕТАДАНИХ?"
 
 msgid "QUIT EMULATIONSTATION"
@@ -2037,6 +2042,9 @@ msgstr "ВНУТРІШНЄ РОЗШИРЕННЯ"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
 
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr ""
+
 msgid "FORMAT DEVICE"
 msgstr "ФОРМАТУВАТИ"
 
@@ -2052,7 +2060,7 @@ msgstr "ФОРМАТУВАТИ ЗАРАЗ"
 msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "ОБРАНІ НАЛАШТУВАННЯ НЕДІЙСНІ"
 
-msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE ?"
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "ВИ ВПЕВНЕНІ, ЩО ХОЧЕТЕ ВІДФОРМАТУВАТИ ПРИСТРІЙ?"
 
 msgid "EDIT METADATA"
@@ -2319,7 +2327,7 @@ msgstr ""
 msgid "INDEXING COMPLETED"
 msgstr ""
 
-msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
+msgid "UPDATE GAME LISTS TO APPLY CHANGES."
 msgstr ""
 
 msgid "GENRE"
@@ -2444,13 +2452,9 @@ msgstr "-НЕ НАЗНАЧЕНО-"
 
 msgid ""
 "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? PLEASE "
-"ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
+"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
 msgstr ""
-"ВИ НЕ НАЗНАЧИЛИ ГАРЯЧУ КЛАВІШУ. ЦЕ НЕОБХІДНО ДЛЯ ВИХОДУ З ІГР ЗА ДОПОМОГОЮ "
-"КОНТРОЛЕРА. ВИ ХОЧЕТЕ ВИКОИСТАТИ КНОПКУ SELECT ЗА ЗАМОВЧУВАННЯМ? БУДЬ ЛАСКА, "
-"ДАЙТЕ ВІДПОВІДЬ \"ТАК\", ЩОБ ВИКОРИСТОВУВАТИ SELECT АБО \"НІ\", ЩОБ НЕ "
-"ВСТАНОВЛЮВАТИ ГАРЯЧУ КЛАВІШУ."
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2573,6 +2577,16 @@ msgstr ""
 msgid "TEXT TO SPEECH DISABLED"
 msgstr ""
 
+#~ msgid ""
+#~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
+#~ "GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT ? "
+#~ "PLEASE ANSWER YES TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+#~ msgstr ""
+#~ "ВИ НЕ НАЗНАЧИЛИ ГАРЯЧУ КЛАВІШУ. ЦЕ НЕОБХІДНО ДЛЯ ВИХОДУ З ІГР ЗА "
+#~ "ДОПОМОГОЮ КОНТРОЛЕРА. ВИ ХОЧЕТЕ ВИКОИСТАТИ КНОПКУ SELECT ЗА "
+#~ "ЗАМОВЧУВАННЯМ? БУДЬ ЛАСКА, ДАЙТЕ ВІДПОВІДЬ \"ТАК\", ЩОБ ВИКОРИСТОВУВАТИ "
+#~ "SELECT АБО \"НІ\", ЩОБ НЕ ВСТАНОВЛЮВАТИ ГАРЯЧУ КЛАВІШУ."
+
 #~ msgid "FORGET A BLUETOOTH CONTROLLER"
 #~ msgstr "ВІДВ'ЯЗАТИ BLUETOOTH КОНТРОЛЛЕР"
 
@@ -2651,7 +2665,7 @@ msgstr ""
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "КОНФЛІКТИ ВИРУШУЄ КОРИСТУВАЧ"
 
-#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
+#~ msgid "SCRAPING FINISHED. REFRESH UPDATE GAME LISTS TO APPLY CHANGES."
 #~ msgstr "ЗАВАНТАЖЕННЯ ЗАВЕРШЕНО. ОНОВІТЬ СПИСОК ІГР, ЩОБ ЗАСТОСУВАТИ ЗМІНИ."
 
 #~ msgid "Editing the '%s' Collection. Add/remove games with Y."
@@ -2671,9 +2685,6 @@ msgstr ""
 
 #~ msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
 #~ msgstr "ДОДАТИ/ВИДАЛИТИ ІГРИ ДО КОЛЕКЦІЇ"
-
-#~ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-#~ msgstr "ВИ ВПЕВНЕНІ ЩО ХОЧЕТЕ ЦЕ ВИДАЛИТИ?"
 
 #~ msgid "START KODI WITH X"
 #~ msgstr "ЗАПУСК KODI КНОПКОЮ X"

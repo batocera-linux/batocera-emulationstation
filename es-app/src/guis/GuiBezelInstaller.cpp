@@ -19,7 +19,7 @@ GuiBezelInstaller::GuiBezelInstaller(Window* window)
 	: GuiComponent(window), mMenu(window, _("THE BEZEL PROJECT").c_str()), mReloadList(1)
 {
 	addChild(&mMenu);
-	mMenu.setSubTitle(_("SELECT BEZELS TO INSTALL / REMOVE"));
+	mMenu.setSubTitle(_("SELECT BEZELS TO INSTALL/REMOVE"));
     mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
 	centerWindow();

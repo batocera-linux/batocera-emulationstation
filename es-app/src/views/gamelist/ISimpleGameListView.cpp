@@ -499,7 +499,7 @@ void ISimpleGameListView::setPopupContext(std::shared_ptr<IGameListView> pThis, 
 
 	if (mHeaderImage.hasImage())
 	{
-		mHeaderText.setText(_("Games similar to") + " : " + label); // 
+		mHeaderText.setText(_("Games similar to") + " " + label); // 
 
 		mHeaderImage.setImage("");
 		addChild(&mHeaderText);
@@ -535,11 +535,11 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 
 	bool invertNorthButton = Settings::getInstance()->getBool("GameOptionsAtNorth");
 
-	std::string shortPressX = invertNorthButton ? _("GAME OPTIONS") : _("SAVE SNAPSHOTS");
-	std::string longPressOK = invertNorthButton ? _("SAVE SNAPSHOTS") : _("GAME OPTIONS"); 
+	std::string shortPressX = invertNorthButton ? _("GAME OPTIONS") : _("SAVE STATES");
+	std::string longPressOK = invertNorthButton ? _("SAVE STATES") : _("GAME OPTIONS"); 
 
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string(" / ") + longPressOK));
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string("/") + longPressOK));
 
 	if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
@@ -549,12 +549,12 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 		if (UIModeController::getInstance()->isUIModeKid())
 			prompts.push_back(HelpPrompt("x", shortPressX));
 		else
-			prompts.push_back(HelpPrompt("x", shortPressX + std::string(" / ") + _("FAVORITE")));
+			prompts.push_back(HelpPrompt("x", shortPressX + std::string("/") + _("FAVORITE")));
 	}
 	else if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("x", _("FAVORITE")));
 
-	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string(" / ") + _("RANDOM")));
+	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM")));
 
 	return prompts;
 }

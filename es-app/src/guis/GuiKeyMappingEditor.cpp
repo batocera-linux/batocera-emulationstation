@@ -449,7 +449,7 @@ bool GuiKeyMappingEditor::input(InputConfig* config, Input input)
 
 		if (config->isMappedTo("x", input) && input.value != 0)
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"), _("YES"), [this, mappingName]
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"), _("YES"), [this, mappingName]
 			{
 				if (mMapping.removeMapping(mPlayer, mappingName))
 				{
@@ -501,7 +501,7 @@ void GuiKeyMappingEditor::close()
 void GuiKeyMappingEditor::deleteMapping()
 {
 	mWindow->pushGui(new GuiMsgBox(mWindow,
-		_("ARE YOU SURE ?"),
+		_("ARE YOU SURE?"),
 		_("YES"), [this] { mMapping.deleteFile(); delete this; },
 		_("NO"), [this] { }
 	));

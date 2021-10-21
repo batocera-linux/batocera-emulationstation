@@ -47,9 +47,9 @@ public:
 		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 2));
 				
 		std::string desc = mGameInfo.Description;
-		desc += _U(" - ") + _("Points") + " : " + mGameInfo.Points;
+		desc += _U(" - ") + _("Points") + ": " + mGameInfo.Points;
 		if (!mGameInfo.DateEarned.empty())
-			desc += _U("  \uf091  ") + _("Unlocked on") + " : " + mGameInfo.DateEarned;
+			desc += _U("  \uf091  ") + _("Unlocked on") + ": " + mGameInfo.DateEarned;
 
 		mText = std::make_shared<TextComponent>(mWindow, mGameInfo.Title, theme->Text.font, theme->Text.color);
 		mText->setVerticalAlignment(ALIGN_TOP);
@@ -124,11 +124,11 @@ GuiGameAchievements::GuiGameAchievements(Window* window, GameInfoAndUserProgress
 	}
 
 	if (ra.Achievements.size() == 0)
-		setSubTitle(_("THIS GAME HAS NO ACHIEVEMENT YET"));
+		setSubTitle(_("THIS GAME HAS NO ACHIEVEMENTS YET"));
 	else
 	{
-		auto txt = _("Achievements won") + " : \t" + std::to_string(ra.NumAwardedToUser) + " / " + std::to_string(ra.NumAchievements);
-		txt += "\r\n" + _("Points") + " : \t" + std::to_string(userPoints) + " / " + std::to_string(totalPoints);
+		auto txt = _("Achievements won") + ": \t" + std::to_string(ra.NumAwardedToUser) + "/" + std::to_string(ra.NumAchievements);
+		txt += "\r\n" + _("Points") + ": \t" + std::to_string(userPoints) + "/" + std::to_string(totalPoints);
 //		txt += "\r\n" + _("Completion") + " : \t" + ra.UserCompletion;
 
 		setSubTitle(txt);

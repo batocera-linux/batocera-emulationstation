@@ -14,7 +14,7 @@ ThreadedBluetooth::ThreadedBluetooth(Window* window)
 {
 	mWndNotification = mWindow->createAsyncNotificationComponent();
 	mWndNotification->updateTitle(ICONINDEX + _("SCANNING BLUETOOTH"));	
-	mWndNotification->updateText(_("Searching controllers..."));
+	mWndNotification->updateText(_("Searching for devices..."));
 
 	mHandle = new std::thread(&ThreadedBluetooth::run, this);
 }
@@ -55,7 +55,7 @@ void ThreadedBluetooth::start(Window* window)
 {
 	if (ThreadedBluetooth::mInstance != nullptr)
 	{
-		window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCANNING IS ALREADY RUNNING.")));
+		window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCAN IS ALREADY RUNNING.")));
 		return;
 	}
 	
@@ -74,8 +74,8 @@ ThreadedFormatter::ThreadedFormatter(Window* window, const std::string disk, con
 	mFileSystem = fileSystem;
 
 	mWndNotification = mWindow->createAsyncNotificationComponent();
-	mWndNotification->updateTitle(ICONINDEX + _("FORMATING DEVICE"));
-	mWndNotification->updateText(_("Formating") + " " + disk);
+	mWndNotification->updateTitle(ICONINDEX + _("FORMATTING DEVICE"));
+	mWndNotification->updateText(_("Formatting") + " " + disk);
 
 	mHandle = new std::thread(&ThreadedFormatter::run, this);
 }
@@ -109,7 +109,7 @@ void ThreadedFormatter::run()
 	});
 
 	if (ret == 69)
-		mWindow->displayNotificationMessage(_("A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"));
+		mWindow->displayNotificationMessage(_("A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"));
 
 	delete this;
 	ThreadedFormatter::mInstance = nullptr;
@@ -119,7 +119,7 @@ void ThreadedFormatter::start(Window* window, const std::string disk, const std:
 {
 	if (ThreadedFormatter::mInstance != nullptr)
 	{
-		window->pushGui(new GuiMsgBox(window, _("DRIVE FORMAT IS ALREADY RUNNING.")));
+		window->pushGui(new GuiMsgBox(window, _("A DRIVE IS ALREADY BEING FORMATTED.")));
 		return;
 	}
 

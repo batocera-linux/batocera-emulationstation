@@ -70,8 +70,8 @@ public:
 	{
 		std::vector<HelpPrompt> prompts;
 		prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
-		prompts.push_back(HelpPrompt("l", _("ZOOM-")));
-		prompts.push_back(HelpPrompt("r", _("ZOOM+")));		
+		prompts.push_back(HelpPrompt("l", _("ZOOM OUT")));
+		prompts.push_back(HelpPrompt("r", _("ZOOM IN")));		
 		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE")));
 
 		return prompts;
@@ -562,7 +562,7 @@ void GuiImageViewer::add(const std::string imagePath)
 	std::string vid;
 
 	auto ext = Utils::FileSystem::getExtension(imagePath);
-	if (ext == ".mp4")
+	if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm")
 		vid = imagePath;
 	else
 		img = imagePath;

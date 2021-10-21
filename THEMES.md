@@ -348,6 +348,7 @@ You can now change the order in which elements are rendered by setting `zIndex` 
 		* `text name="md_lbl_players"`
 		* `text name="md_lbl_lastplayed"`
 		* `text name="md_lbl_playcount"`
+		* `text name="md_lbl_gametime"`
 	* Values
 		* `rating name="md_rating"`
 		* `datetime name="md_releasedate"`
@@ -357,6 +358,7 @@ You can now change the order in which elements are rendered by setting `zIndex` 
 		* `text name="md_players"`
 		* `datetime name="md_lastplayed"`
 		* `text name="md_playcount"`
+		* `text name="md_gametime"`
 		* `text name="md_description"`
 		* `text name="md_name"`
 * System Logo/Text - 50
@@ -502,6 +504,8 @@ Reference
 		* `text name="md_lbl_players"` - ALL
 		* `text name="md_lbl_lastplayed"` - ALL
 		* `text name="md_lbl_playcount"` - ALL
+		* `text name="md_lbl_gametime"` - ALL
+
 * Values
 		* All values will follow to the right of their labels if a position isn't specified.
 	
@@ -527,6 +531,8 @@ Reference
 			- The "lastplayed" metadata.  Displayed as a string representing the time relative to "now" (e.g. "3 hours ago").
 		* `text name="md_playcount"` - ALL
 			- The "playcount" metadata (number of times the game has been played).
+		* `text name="md_lbl_gametime"` - ALL
+		        - The "gametime" metadata (how long the game has been run for).
 		* `text name="md_description"` - POSITION | SIZE | FONT_PATH | FONT_SIZE | COLOR | Z_INDEX
 			- Text is the "desc" metadata.  If no `pos`/`size` is specified, will move and resize to fit under the lowest label and reach to the bottom of the screen.
 		* `text name="md_name"` - ALL
@@ -557,11 +563,12 @@ This kind of view is used for retrocompatibility with Retropie themes, but is de
 		* `text name="md_lbl_players"` - ALL
 		* `text name="md_lbl_lastplayed"` - ALL
 		* `text name="md_lbl_playcount"` - ALL
+		* `text name="md_lbl_gametime"` - ALL
 
 	* Values
 		* All values will follow to the right of their labels if a position isn't specified.
 
-		* `image name="md_image"` - POSITION | SIZE | Z_INDEX
+	* `image name="md_image"` - POSITION | SIZE | Z_INDEX
 			- Path is the "image" metadata for the currently selected game.
 		* `image name="md_marquee"` - POSITION | SIZE | Z_INDEX
 			- Path is the "marquee" metadata for the currently selected game.
@@ -583,6 +590,8 @@ This kind of view is used for retrocompatibility with Retropie themes, but is de
 			- The "lastplayed" metadata.  Displayed as a string representing the time relative to "now" (e.g. "3 hours ago").
 		* `text name="md_playcount"` - ALL
 			- The "playcount" metadata (number of times the game has been played).
+		* `text name="md_lbl_gametime"` - ALL
+		        - The "gametime" metadata (how long the game has been run for).
 		* `text name="md_description"` - POSITION | SIZE | FONT_PATH | FONT_SIZE | COLOR | Z_INDEX
 			- Text is the "desc" metadata.  If no `pos`/`size` is specified, will move and resize to fit under the lowest label and reach to the bottom of the screen.
 		* `text name="md_name"` - ALL
@@ -621,11 +630,12 @@ This kind of view is used for retrocompatibility with Retropie themes, but is de
 		* `text name="md_lbl_players"` - ALL
 		* `text name="md_lbl_lastplayed"` - ALL
 		* `text name="md_lbl_playcount"` - ALL
+		* `text name="md_lbl_gametime"` - ALL
 
 	* Values
 		* All values will follow to the right of their labels if a position isn't specified.
 
-		* `rating name="md_rating"` - ALL
+	* `rating name="md_rating"` - ALL
 			- The "rating" metadata.
 		* `datetime name="md_releasedate"` - ALL
 			- The "releasedate" metadata.
@@ -641,6 +651,8 @@ This kind of view is used for retrocompatibility with Retropie themes, but is de
 			- The "lastplayed" metadata.  Displayed as a string representing the time relative to "now" (e.g. "3 hours ago").
 		* `text name="md_playcount"` - ALL
 			- The "playcount" metadata (number of times the game has been played).
+		* `text name="md_lbl_gametime"` - ALL
+		        - The "gametime" metadata (how long the game has been run for).
 		* `text name="md_description"` - POSITION | SIZE | FONT_PATH | FONT_SIZE | COLOR | Z_INDEX
 			- Text is the "desc" metadata.  If no `pos`/`size` is specified, will move and resize to fit under the lowest label and reach to the bottom of the screen.
 		* `text name="md_name"` - ALL

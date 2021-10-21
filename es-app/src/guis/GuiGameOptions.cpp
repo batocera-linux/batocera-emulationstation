@@ -57,7 +57,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 	if (hasManual || hasMap || hasCheevos || hasMagazine || hasVideo || hasAlternateMedias)
 	{
-		mMenu.addGroup(_("GAME MEDIAS"));
+		mMenu.addGroup(_("GAME MEDIA"));
 
 		if (hasManual)
 		{
@@ -99,7 +99,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		
 		if (hasAlternateMedias)
 		{
-			mMenu.addEntry(_("VIEW GAME MEDIAS"), false, [window, game, this]
+			mMenu.addEntry(_("VIEW GAME MEDIA"), false, [window, game, this]
 			{
 				auto imageList = game->getSourceFileData()->getFileMedias();
 				GuiImageViewer::showImages(mWindow, imageList);
@@ -113,14 +113,14 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			{
 				std::string coreList = game->getSourceFileData()->getSystem()->getCompatibleCoreNames(EmulatorFeatures::cheevos);
 				std::string msg = _U("\uF06A  ");
-				msg += _("CURRENT CORE IS NOT COMPATIBLE") + " : " + Utils::String::toUpper(game->getCore(true));
+				msg += _("CURRENT CORE IS NOT COMPATIBLE") + ": " + Utils::String::toUpper(game->getCore(true));
 				if (!coreList.empty())
 				{
 					msg += _U("\r\n\uF05A  ");
-					msg += _("REQUIRED CORE") + " : " + Utils::String::toUpper(coreList);
+					msg += _("COMPATIBLE CORE(S)") + ": " + Utils::String::toUpper(coreList);
 				}
 
-				mMenu.addWithDescription(_("VIEW GAME ACHIEVEMENTS"), msg, nullptr, [window, game, this]
+				mMenu.addWithDescription(_("VIEW THIS GAME'S ACHIEVEMENTS"), msg, nullptr, [window, game, this]
 				{
 					GuiGameAchievements::show(window, Utils::String::toInteger(game->getMetadata(MetaDataId::CheevosId)));
 					close();
@@ -128,7 +128,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			}
 			else
 			{
-				mMenu.addEntry(_("VIEW GAME ACHIEVEMENTS"), false, [window, game, this]
+				mMenu.addEntry(_("VIEW THIS GAME'S ACHIEVEMENTS"), false, [window, game, this]
 				{
 					GuiGameAchievements::show(window, Utils::String::toInteger(game->getMetadata(MetaDataId::CheevosId)));
 					close();
@@ -144,7 +144,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 		if (SaveStateRepository::isEnabled(game))
 		{
-			mMenu.addEntry(_("SAVE SNAPSHOTS"), false, [window, game, this]
+			mMenu.addEntry(_("SAVE STATES"), false, [window, game, this]
 			{
 				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState state)
 				{
@@ -167,13 +167,13 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 		if (game->isNetplaySupported())
 		{
-			mMenu.addEntry(_("START NETPLAY HOST"), false, [window, game, this]
+			mMenu.addEntry(_("NETPLAY HOSTING/OPTIONS"), false, [window, game, this]
 			{
 				GuiSettings* msgBox = new GuiSettings(mWindow, _("NETPLAY"));
 				msgBox->setSubTitle(game->getName());
 				msgBox->addGroup(_("START GAME"));
 
-				msgBox->addEntry(_U("\uF144 ") + _("START NETPLAY HOST"), false, [window, msgBox, game]
+				msgBox->addEntry(_U("\uF144 ") + _("BEGIN HOSTING A NETPLAY SESSION"), false, [window, msgBox, game]
 				{
 					if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
 					{
@@ -340,7 +340,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	{
 		mMenu.addGroup(_("OPTIONS"));
 		
-		mMenu.addEntry(_("SCRAPE"), false, [this, game]
+		mMenu.addEntry(_("MANUALLY SCRAPE METADATA"), false, [this, game]
 		{
 			ScraperSearchParams scraperParams;
 			scraperParams.game = game;
@@ -490,7 +490,7 @@ void GuiGameOptions::openMetaDataEd()
 {
 	if (ThreadedScraper::isRunning() || ThreadedHasher::isRunning())
 	{
-		mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING")));
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING")));
 		return;
 	}
 
@@ -565,7 +565,7 @@ void GuiGameOptions::deleteCollection()
 	if (getCustomCollectionName() == CollectionSystemManager::get()->getCustomCollectionsBundle()->getName())
 		return;
 
-	mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"), _("YES"),
+	mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"), _("YES"),
 		[this]
 		{
 			std::map<std::string, CollectionSystemData> customCollections = CollectionSystemManager::get()->getCustomCollectionSystems();

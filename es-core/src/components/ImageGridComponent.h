@@ -1095,7 +1095,7 @@ void ImageGridComponent<T>::updateTileAtPos(int tilePos, int imgPos, bool allowA
 		else
 			tile->setLabel(name);		
 
-		bool preloadMedias = Settings::getInstance()->getBool("PreloadMedias");
+		bool preloadMedias = Settings::PreloadMedias();
 
 		bool setMarquee = true;
 

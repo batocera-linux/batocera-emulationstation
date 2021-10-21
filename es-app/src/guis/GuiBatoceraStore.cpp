@@ -40,7 +40,7 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
 	mTitle = std::make_shared<TextComponent>(mWindow, _("CONTENT DOWNLOADER"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
-	mSubtitle = std::make_shared<TextComponent>(mWindow, _("SELECT CONTENT TO INSTALL / REMOVE"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
+	mSubtitle = std::make_shared<TextComponent>(mWindow, _("SELECT CONTENT TO INSTALL/REMOVE"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
 
@@ -233,7 +233,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 		auto theme = ThemeData::getMenuTheme();
 		ComponentListRow row;
 		row.selectable = false;
-		auto text = std::make_shared<TextComponent>(mWindow, _("There are no items in this view"), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
+		auto text = std::make_shared<TextComponent>(mWindow, _("No items"), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
 		row.addElement(text, true, false);
 		mList->addRow(row, false, false);
 	}
@@ -324,7 +324,7 @@ void GuiBatoceraStore::processPackage(PacmanPackage package)
 
 		msgBox->addEntry(_U("\uF014 ") + _("REMOVE"), false, [this, msgBox, package]
 		{
-			mWindow->displayNotificationMessage(_U("\uF014 ") + _("UNINSTALL ADDED TO QUEUE"));
+			mWindow->displayNotificationMessage(_U("\uF014 ") + _("UNINSTALLATION ADDED TO QUEUE"));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_STORE_UNINSTALL, package.name);			
 			mReloadList = 2;
