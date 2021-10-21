@@ -2460,7 +2460,7 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 				"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
 				"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
 				"ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE "
-                "SOUTH BUTTON TO CONFIRM WHEN DONE."), _("OK"),
+				"SOUTH BUTTON TO CONFIRM WHEN DONE."), _("OK"),
 			[window, this, s] {
 			window->pushGui(new GuiDetectDevice(window, false, [this, s] {
 				s->setSave(false);
