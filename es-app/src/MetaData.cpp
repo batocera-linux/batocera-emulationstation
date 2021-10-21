@@ -304,7 +304,7 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 	}
 
 	// Players -> remove "1-"
-	if (mType == GAME_METADATA && id == 12 && Utils::String::startsWith(value, "1-")) // "players"
+	if (mType == GAME_METADATA && id == MetaDataId::Players && Utils::String::startsWith(value, "1-")) // "players"
 	{
 		mMap[id] = Utils::String::replace(value, "1-", "");
 		return;

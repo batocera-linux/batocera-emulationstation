@@ -37,7 +37,11 @@ namespace FileSorts
 		SYSTEM_RELEASEDATE_ASCENDING = 24,
 		SYSTEM_RELEASEDATE_DESCENDING = 25,
 		RELEASEDATE_SYSTEM_ASCENDING = 26,
-		RELEASEDATE_SYSTEM_DESCENDING = 27
+		RELEASEDATE_SYSTEM_DESCENDING = 27,
+#ifdef _ENABLEEMUELEC
+		SORTNAME_ASCENDING = 28,
+		SORTNAME_DESCENDING = 29,
+#endif
 	};
 
 	typedef bool ComparisonFunction(const FileData* a, const FileData* b);
@@ -67,6 +71,10 @@ namespace FileSorts
 	const std::vector<SortType>& getSortTypes();
 
 	bool compareName(const FileData* file1, const FileData* file2);
+#ifdef _ENABLEEMUELEC
+	bool compareSortName(const FileData* file1, const FileData* file2);
+	bool compareNames(std::string name1, std::string name2);
+#endif
 	bool compareRating(const FileData* file1, const FileData* file2);
 	bool compareTimesPlayed(const FileData* file1, const FileData* fil2);
 	bool compareLastPlayed(const FileData* file1, const FileData* file2);

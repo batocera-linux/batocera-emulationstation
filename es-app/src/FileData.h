@@ -63,7 +63,10 @@ public:
 	virtual ~FileData();
 
 	virtual const std::string& getName();
-	virtual const std::string getSortName() const;
+#ifdef _ENABLEEMUELEC
+  virtual const std::string& getSortName();
+	virtual const std::string getSortOrName();
+#endif
 
 	inline FileType getType() const { return mType; }
 	
@@ -163,6 +166,9 @@ protected:
 	FileType mType;
 	SystemData* mSystem;
 	std::string* mDisplayName;
+#ifdef _ENABLEEMUELEC
+	std::string* mSortName;
+#endif
 };
 
 class CollectionFileData : public FileData

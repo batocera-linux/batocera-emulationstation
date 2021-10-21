@@ -33,6 +33,10 @@
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
 {
+#ifdef _ENABLEEMUELEC
+    mSortName = nullptr;
+#endif
+
 	// metadata needs at least a name field (since that's what getName() will return)
 	if (mMetadata.get(MetaDataId::Name).empty() && !mPath.empty())
 		mMetadata.set(MetaDataId::Name, getDisplayName());
@@ -102,6 +106,11 @@ FileData::~FileData()
 {
 	if (mDisplayName)
 		delete mDisplayName;
+
+#ifdef _ENABLEEMUELEC
+    if (mSortName)
+        delete mSortName;
+#endif
 
 	if(mParent)
 		mParent->removeChild(this);
@@ -258,14 +267,26 @@ const std::string& FileData::getName()
 	return mMetadata.getName();
 }
 
-const std::string FileData::getSortName() const
+#ifdef _ENABLEEMUELEC
+
+const std::string& FileData::getSortName()
 {
-	std::string sortName = mMetadata.get("sortname");
-	if (sortName.empty())
-		return mMetadata.get("name");
-	else
-		return sortName;
+    if (mSortName == nullptr)
+    {
+        mSortName = new std::string( getMetadata(MetaDataId::SortName));
+    }
+    return *mSortName;
 }
+
+const std::string FileData::getSortOrName()
+{
+	std::string s( getSortName());
+  if (!s.empty())
+    return s;
+  return getName();
+}
+
+#endif
 
 const std::string FileData::getVideoPath()
 {
@@ -779,7 +800,7 @@ CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
 	: FileData(file->getSourceFileData()->getType(), "", system)
 {
 	mSourceFileData = file->getSourceFileData();
-	mParent = NULL;	
+	mParent = NULL; 
 }
 
 SystemEnvironmentData* CollectionFileData::getSystemEnvData() const

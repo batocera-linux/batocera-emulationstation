@@ -69,7 +69,11 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 
 	mShowYear =
 		mSortId == FileSorts::RELEASEDATE_ASCENDING ||
+#ifdef _ENABLEEMUELEC			
+		mSortId == FileSorts::RELEASEDATE_DESCENDING ||
+#else
 		mSortId == FileSorts::RELEASEDATE_ASCENDING ||
+#endif
 		mSortId == FileSorts::SYSTEM_RELEASEDATE_ASCENDING ||
 		mSortId == FileSorts::SYSTEM_RELEASEDATE_DESCENDING ||
 		mSortId == FileSorts::RELEASEDATE_SYSTEM_ASCENDING ||
@@ -104,6 +108,10 @@ std::string valueOrDefault(const std::string value, const std::string defaultVal
 std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 {
 	std::string name = fd->getName();
+#ifdef _ENABLEEMUELEC
+	if ((mSortId == FileSorts::SORTNAME_ASCENDING || mSortId == FileSorts::SORTNAME_DESCENDING) && !fd->getSortName().empty())
+		name = fd->getSortName();
+#endif
 
 	bool showSystemNameByFile = (fd->getType() == GAME || fd->getParent() == nullptr || fd->getParent()->getName() != "collections");
 	if (showSystemNameByFile)

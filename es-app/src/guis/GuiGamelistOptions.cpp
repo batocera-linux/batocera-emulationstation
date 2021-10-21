@@ -78,7 +78,12 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			{
 				mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO LETTER"), false); // batocera
 
-				char curChar = (char)toupper(getGamelist()->getCursor()->getSortName()[0]);
+				char curChar = (char)toupper(getGamelist()->getCursor()->getName()[0]);
+#ifdef _ENABLEEMUELEC				
+				unsigned int sortId = system->getSortId();
+				if (sortId == FileSorts::SORTNAME_ASCENDING || sortId == FileSorts::SORTNAME_DESCENDING)
+					curChar = (char)toupper(getGamelist()->getCursor()->getSortOrName()[0]);
+#endif
 
 				if (std::find(letters.begin(), letters.end(), std::string(1, curChar)) == letters.end())
 					curChar = letters.at(0)[0];
@@ -125,6 +130,21 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		{
 			const FileSorts::SortType& sort = FileSorts::getSortTypes().at(i);
 			mListSort->add(sort.icon + sort.description, sort.id, sort.id == currentSortId); // TODO - actually make the sort type persistent
+#ifdef _ENABLEEMUELEC			
+			if (i == (FileSorts::getSortTypes().size()-3))
+				break;
+			if (i == FileSorts::FILENAME_DESCENDING)
+			{
+			  {
+					const FileSorts::SortType& st = FileSorts::getSortTypes().at(FileSorts::SORTNAME_ASCENDING);
+					mListSort->add(st.icon + st.description, st.id, st.id == currentSortId);
+				}
+				{
+					const FileSorts::SortType& st = FileSorts::getSortTypes().at(FileSorts::SORTNAME_DESCENDING);
+					mListSort->add(st.icon + st.description, st.id, st.id == currentSortId);
+				}
+			}
+#endif
 		}
 
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort); // batocera	
@@ -565,6 +585,16 @@ void GuiGamelistOptions::openMetaDataEd()
 		std::bind(&ViewController::onFileChanged, ViewController::get(), file, FILE_METADATA_CHANGED), deleteBtnFunc, file));
 }
 
+#ifdef _ENABLEEMUELEC
+char getSortLetter(int sortId, FileData* fData) {
+	if (sortId == FileSorts::SORTNAME_ASCENDING || sortId == FileSorts::SORTNAME_DESCENDING)	
+		return toupper(fData->getSortOrName()[0]);
+	if (sortId == FileSorts::FILENAME_ASCENDING || sortId == FileSorts::FILENAME_DESCENDING)	
+		return toupper(fData->getName()[0]);
+	return 0;
+}
+#endif
+
 void GuiGamelistOptions::jumpToLetter()
 {
 	char letter = mJumpToLetterList->getSelected();
@@ -572,9 +602,26 @@ void GuiGamelistOptions::jumpToLetter()
 
 	if (mListSort->getSelected() != 0)
 	{
+#ifdef _ENABLEEMUELEC
+				int nameSorts[4] = {
+					FileSorts::FILENAME_ASCENDING,
+					FileSorts::FILENAME_DESCENDING,
+					FileSorts::SORTNAME_ASCENDING,
+					FileSorts::SORTNAME_DESCENDING};
+				int val = mListSort->getSelected();
+				if (std::find(std::begin(nameSorts), std::end(nameSorts), val) != std::end(nameSorts))
+				{
+					mSystem->setSortId(val);
+				}
+				else {
+					mListSort->selectFirstItem();
+					mSystem->setSortId(0);
+				}
+#else
 		mListSort->selectFirstItem();
 		mSystem->setSortId(0);
-		
+#endif
+
 		FolderData* root = mSystem->getRootFolder();
 		/*
 		const FolderData::SortType& sort = FileSorts::getSortTypes().at(0);
@@ -590,6 +637,48 @@ void GuiGamelistOptions::jumpToLetter()
 	long max = (long)files.size() - 1;
 	long mid = 0;
 
+#ifdef _ENABLEEMUELEC
+	unsigned int sortId = mSystem->getSortId();
+	bool asc = true;
+	if (sortId == FileSorts::SORTNAME_DESCENDING || sortId == FileSorts::FILENAME_DESCENDING) {
+		asc = false;
+	}
+
+	{
+		char letter = mJumpToLetterList->getSelected();
+		while(max >= min)
+		{
+			mid = ((max - min) / 2) + min;
+
+			char checkLetter = getSortLetter(sortId, files.at(mid));
+			if (checkLetter == 0)
+				continue;
+
+			bool midLet = (mid > 0 && letter == getSortLetter(sortId, files.at(mid-1)));
+			if (asc) {
+				if(checkLetter < letter)
+					min = mid + 1;
+				else if(checkLetter > letter || midLet)
+					max = mid - 1;
+				else
+					break;
+			}
+			else {
+				if(checkLetter > letter)
+					min = mid + 1;
+				else if(checkLetter < letter || midLet)
+					max = mid - 1;
+				else
+					break;
+			}
+		}
+	}
+	gamelist->setCursor(files.at(mid));
+	delete this;
+	return;
+
+#endif
+
 	while(max >= min)
 	{
 		mid = ((max - min) / 2) + min;
@@ -598,11 +687,10 @@ void GuiGamelistOptions::jumpToLetter()
 		if(files.at(mid)->getName().empty())
 			continue;
 
-		char checkLetter = (char)toupper(files.at(mid)->getSortName()[0]);
-
+		char checkLetter = (char)toupper(files.at(mid)->getName()[0]);
 		if(checkLetter < letter)
 			min = mid + 1;
-		else if(checkLetter > letter || (mid > 0 && (letter == toupper(files.at(mid - 1)->getSortName()[0]))))
+		else if(checkLetter > letter || (mid > 0 && (letter == toupper(files.at(mid - 1)->getName()[0]))))
 			max = mid - 1;
 		else
 			break; //exact match found
