@@ -368,8 +368,8 @@ void GuiMenu::openScraperSettings()
 		s->addSaveFunc([scrapePadToKey] { Settings::getInstance()->setBool("ScrapePadToKey", scrapePadToKey->getState()); });
 		
 		// Account
-		createInputTextRow(s, _("USERNAME"), "ScreenScraperUser", false, true);
-		createInputTextRow(s, _("PASSWORD"), "ScreenScraperPass", true, true);
+		s->addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
+		s->addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
 	}
 	else
 	{
@@ -1908,8 +1908,8 @@ void GuiMenu::openRetroachievementsSettings()
 	}
 
 	// retroachievements, username, password
-	createInputTextRow(retroachievements, _("USERNAME"), "global.retroachievements.username", false);
-	createInputTextRow(retroachievements, _("PASSWORD"), "global.retroachievements.password", true);
+	retroachievements->addInputTextRow(_("USERNAME"), "global.retroachievements.username", false);
+	retroachievements->addInputTextRow(_("PASSWORD"), "global.retroachievements.password", true);
 
 	// retroachievements_hardcore_mode
 	auto retroachievements_menuitem = std::make_shared<SwitchComponent>(mWindow);
@@ -1961,8 +1961,8 @@ void GuiMenu::openNetplaySettings()
 	if (port.empty())
 		SystemConf::getInstance()->set("global.netplay.port", "55435");
 			
-	createInputTextRow(settings, _("NICKNAME"), "global.netplay.nickname", false);
-	createInputTextRow(settings, _("PORT"), "global.netplay.port", false);
+	settings->addInputTextRow(_("NICKNAME"), "global.netplay.nickname", false);
+	settings->addInputTextRow(_("PORT"), "global.netplay.port", false);
 
 	// RELAY SERVER
 	std::string mitm = SystemConf::getInstance()->get("global.netplay.relay");
@@ -2179,7 +2179,7 @@ void GuiMenu::openGamesSettings_batocera()
 						SystemConf::getInstance()->saveSystemConf();
 						}
 						});
-				createInputTextRow(decorations_window, _("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
+				decorations_window->addInputTextRow(_("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
 #endif
 			}
 			mWindow->pushGui(decorations_window);
@@ -2231,7 +2231,7 @@ void GuiMenu::openGamesSettings_batocera()
 		ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
 
 		// Service  URL
-		createInputTextRow(ai_service, _("AI TRANSLATION SERVICE URL"), "global.ai_service_url", false);
+		ai_service->addInputTextRow(_("AI TRANSLATION SERVICE URL"), "global.ai_service_url", false);
 
 		// Pause game for translation?
 		auto ai_service_pause = std::make_shared<SwitchComponent>(mWindow);
@@ -3662,7 +3662,7 @@ void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 
 #if !WIN32
 	// Hostname
-	createInputTextRow(s, _("HOSTNAME"), "system.hostname", false);
+	s->addInputTextRow(_("HOSTNAME"), "system.hostname", false);
 #endif
 
 	// Wifi enable
@@ -3676,8 +3676,8 @@ void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 
 	if (baseWifiEnabled)
 	{
-		createInputTextRow(s, _("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
-		createInputTextRow(s, _("WIFI KEY"), "wifi.key", true);
+		s->addInputTextRow(_("WIFI SSID"), "wifi.ssid", false, false, &openWifiSettings);
+		s->addInputTextRow(_("WIFI KEY"), "wifi.key", true);
 	}
 	
 	s->addSaveFunc([baseWifiEnabled, baseSSID, baseKEY, enable_wifi, window]
@@ -3833,74 +3833,6 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 		s->getMenu().setPosition((Renderer::getScreenWidth() - s->getMenu().getSize().x()) / 2, (Renderer::getScreenHeight() - s->getMenu().getSize().y()) / 2);
 
 	window->pushGui(s);
-}
-
-void GuiMenu::createInputTextRow(GuiSettings *gui, std::string title, const char *settingsID, bool password, bool storeInSettings
-	, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor)
-{
-	
-
-	auto theme = ThemeData::getMenuTheme();
-	std::shared_ptr<Font> font = theme->Text.font;
-	unsigned int color = theme->Text.color;
-
-	// LABEL
-	Window *window = mWindow;
-	ComponentListRow row;
-
-	auto lbl = std::make_shared<TextComponent>(window, title, font, color);
-	if (EsLocale::isRTL())
-		lbl->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
-
-	row.addElement(lbl, true); // label
-
-	std::string value = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
-
-	std::shared_ptr<TextComponent> ed = std::make_shared<TextComponent>(window, ((password && value != "") ? "*********" : value), font, color, ALIGN_RIGHT);
-	if (EsLocale::isRTL())
-		ed->setHorizontalAlignment(Alignment::ALIGN_LEFT);
-
-	row.addElement(ed, true);
-
-	auto spacer = std::make_shared<GuiComponent>(mWindow);
-	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
-	row.addElement(spacer, false);
-
-	auto bracket = std::make_shared<ImageComponent>(mWindow);
-	bracket->setImage(theme->Icons.arrow);
-	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
-
-	if (EsLocale::isRTL())
-		bracket->setFlipX(true);
-
-	row.addElement(bracket, false);
-
-	auto updateVal = [ed, settingsID, password, storeInSettings](const std::string &newVal) 
-	{
-		if (!password)
-			ed->setValue(newVal);
-		else
-			ed->setValue("*********");
-
-		if (storeInSettings)
-			Settings::getInstance()->setString(settingsID, newVal);
-		else
-			SystemConf::getInstance()->set(settingsID, newVal);
-	}; // ok callback (apply new value to ed)
-	
-	row.makeAcceptInputHandler([this, title, updateVal, settingsID, storeInSettings, customEditor]
-	{
-		std::string data = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
-
-		if (customEditor != nullptr)
-			customEditor(mWindow, title, data, updateVal);
-		else if (Settings::getInstance()->getBool("UseOSK"))
-			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, data, updateVal, false));
-		else
-			mWindow->pushGui(new GuiTextEditPopup(mWindow, title, data, updateVal, false));
-	});
-
-	gui->addRow(row);
 }
 
 void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<DecorationSetInfo> sets, std::string data, ComponentListRow& row)
@@ -4176,8 +4108,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 						SystemConf::getInstance()->saveSystemConf();
 						}
 						});
-				// const char *bpath = (configName + ".bezel.tattoo_file").c_str();
-				// createInputTextRow(decorations_window, _("CUSTOM .PNG IMAGE PATH"), bpath, false);
+				std::string tatpath = configName + ".bezel.tattoo_file";
+				const char *bezelpath = const_cast<char*>(tatpath.data());
+				decorations_window->addInputTextRow(_("CUSTOM .PNG IMAGE PATH"), bezelpath, false);
 #endif
 			}
 			mWindow->pushGui(decorations_window);
