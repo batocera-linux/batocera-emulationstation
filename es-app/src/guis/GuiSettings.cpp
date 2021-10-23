@@ -176,7 +176,10 @@ void GuiSettings::addInputTextRow(std::string title, const char *settingsID, boo
 
 	row.addElement(bracket, false);
 
-	auto updateVal = [ed, settingsID, password, storeInSettings](const std::string &newVal)
+	// it needs a local copy for the lambdas
+	std::string localSettingsID = settingsID;
+
+	auto updateVal = [ed, localSettingsID, password, storeInSettings](const std::string &newVal)
 	{
 		if (!password)
 			ed->setValue(newVal);
@@ -184,14 +187,15 @@ void GuiSettings::addInputTextRow(std::string title, const char *settingsID, boo
 			ed->setValue("*********");
 
 		if (storeInSettings)
-			Settings::getInstance()->setString(settingsID, newVal);
+			Settings::getInstance()->setString(localSettingsID, newVal);
 		else
-			SystemConf::getInstance()->set(settingsID, newVal);
+			SystemConf::getInstance()->set(localSettingsID, newVal);
 	}; // ok callback (apply new value to ed)
 
-	row.makeAcceptInputHandler([this, title, updateVal, settingsID, storeInSettings, customEditor]
+	bool localStoreInSettings = storeInSettings;
+	row.makeAcceptInputHandler([this, title, updateVal, localSettingsID, localStoreInSettings, customEditor]
 	{
-		std::string data = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
+		std::string data = localStoreInSettings ? Settings::getInstance()->getString(localSettingsID) : SystemConf::getInstance()->get(localSettingsID);
 
 		if (customEditor != nullptr)
 			customEditor(mWindow, title, data, updateVal);
