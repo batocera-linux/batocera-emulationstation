@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:29+0200\n"
+"POT-Creation-Date: 2021-10-23 16:06+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -19,14 +19,14 @@ msgstr "ACTUALITZACIÓ DISPONIBLE"
 msgid "Name"
 msgstr "Nom"
 
-msgid "enter game name"
-msgstr "introdueix el nom del joc"
+msgid "this game's name"
+msgstr ""
 
 msgid "Description"
 msgstr "Descripció"
 
-msgid "enter description"
-msgstr "introdueix la descripció"
+msgid "this game's description"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -139,14 +139,14 @@ msgstr "introduïu la data de publicació"
 msgid "Developer"
 msgstr "Desenvolupador"
 
-msgid "enter game developer"
-msgstr "introduïu el desenvolupador"
+msgid "this game's developer"
+msgstr ""
 
 msgid "Publisher"
 msgstr "Distribuïdor"
 
-msgid "enter game publisher"
-msgstr "introduïu el distribuïdor"
+msgid "this game's publisher"
+msgstr ""
 
 msgid "Genre"
 msgstr "Gènere"
@@ -157,8 +157,8 @@ msgstr "introduïu el gènere"
 msgid "Game family"
 msgstr "Família del joc"
 
-msgid "enter game family"
-msgstr "introdueix la família del joc"
+msgid "this game's game family"
+msgstr ""
 
 msgid "Genres"
 msgstr "Gèneres"
@@ -169,14 +169,14 @@ msgstr "introdueix els gèneres del joc"
 msgid "Arcade system"
 msgstr "Sistema arcade"
 
-msgid "enter game arcade system"
-msgstr "introdueix el sistema arcade"
+msgid "this game's arcade system"
+msgstr ""
 
 msgid "Players"
 msgstr "Jugadors"
 
-msgid "enter number of players"
-msgstr "introduïu el nombre de jugadors"
+msgid "this game's number of players"
+msgstr ""
 
 msgid "Favorite"
 msgstr "Preferit"
@@ -229,8 +229,14 @@ msgstr "temps que has jugat en total (SEGONS)"
 msgid "Languages"
 msgstr "Idiomes"
 
+msgid "this game's languages"
+msgstr ""
+
 msgid "Region"
 msgstr "Regió"
+
+msgid "this game's region"
+msgstr ""
 
 msgid "Cheevos Hash"
 msgstr "Cheevos Hash"
@@ -296,10 +302,10 @@ msgid "Various"
 msgstr "Diversos"
 
 #, c-format
-msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] "Aquesta col·lecció conté %i joc, incloent: %s"
-msgstr[1] "Aquesta col·lecció conté %i jocs, incloent: %s"
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "SCANNING BLUETOOTH"
 msgstr "ESCANEJANT BLUETOOTH"
@@ -310,17 +316,17 @@ msgstr "Buscant comandaments…"
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "EL ESCANEIG BLUETOOTH S’ESTÀ EXECUTANT."
 
-msgid "FORMATING DEVICE"
-msgstr "FORMATANT DISPOSITIU"
+msgid "FORMATTING DEVICE"
+msgstr ""
 
-msgid "Formating"
-msgstr "Formatant"
+msgid "Formatting"
+msgstr ""
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "CAL REINICIAR PER A COMPLETAR L’OPERACIÓ"
 
-msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "LA FORMATACIÓ DEL DISC S’ESTÀ EXECUTANT."
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr ""
 
 msgid "DOWNLOADING"
 msgstr "DESCARREGANT"
@@ -445,8 +451,8 @@ msgstr "MOSTRAR EL NOM DEL SISTEMA A LES COL·LECCIONS"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "MOSTRAR JOCS OCULTS A COL·LECCIONS"
 
-msgid "UPDATE GAME LISTS"
-msgstr "ACTUALITZA LES LLISTES DELS JOCS"
+msgid "UPDATE GAMELISTS"
+msgstr ""
 
 msgid "Loading..."
 msgstr "Carregant …"
@@ -512,8 +518,8 @@ msgstr "anar enrere"
 msgid "NAVIGATION"
 msgstr "NAVEGACIÓ"
 
-msgid "JUMP TO LETTER"
-msgstr "SALTA A UNA LLETRA"
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELECCIONAR JOC ALEATORI"
@@ -536,8 +542,8 @@ msgstr "ESTIL DE LA LLISTA DE JOCS"
 msgid "automatic"
 msgstr "automàtic"
 
-msgid "VIEW CUSTOMISATION"
-msgstr "PERSONALITZAR LLISTA"
+msgid "VIEW CUSTOMIZATION"
+msgstr ""
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VEURE INFORMACIÓ DE COMANDAMENT A TECLAT"
@@ -551,9 +557,8 @@ msgstr "RESTABLIR FILTRES"
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JOCS PER TEXT"
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr ""
-"AQUESTA FUNCIÓ ESTÀ DESACTIVADA QUAN L’OBTENCIÓ DE DADES S’ESTÀ EXECUTANT"
 
 msgid "CLOSE"
 msgstr "TANCA"
@@ -573,8 +578,8 @@ msgstr "CANCEL·LA"
 msgid "CONNECT TO NETPLAY"
 msgstr "CONNECTAR A NETPLAY"
 
-msgid "Select the game you want to join"
-msgstr "Selecciona el joc a què vols unir-te"
+msgid "Select a game lobby to join"
+msgstr ""
 
 msgid "REFRESH"
 msgstr "ACTUALITZAR"
@@ -600,8 +605,8 @@ msgstr "JOCS DISPONIBLES"
 msgid "UNAVAILABLE GAMES"
 msgstr "JOCS NO DISPONIBLES"
 
-msgid "NO GAME FOUND"
-msgstr "NO S’HA TROBAT CAP JOC"
+msgid "NO GAMES FOUND"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "UNIR-SE A LA PARTIDA"
@@ -609,8 +614,8 @@ msgstr "UNIR-SE A LA PARTIDA"
 msgid "WATCH GAME"
 msgstr "UNIR-SE COM A ESPECTADOR"
 
-msgid "MANUAL INPUT"
-msgstr "ENTRADA MANUAL"
+msgid "INPUT MANUALLY"
+msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "NO S’HA TROBAR CAP XARXA WIFI"
@@ -651,8 +656,8 @@ msgstr "AFEGIR COMBINACIÓ DE TECLES"
 msgid "CONTENT DOWNLOADER"
 msgstr "GESTOR DE CONTINGUT DESCARREGABLE"
 
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "SELECCIONA EL CONTINGUT A INSTAL·LAR / DESINSTAL·LAR"
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "ACTUALITZAR CONTINGUT INSTAL·LAT"
@@ -673,8 +678,8 @@ msgstr "‘%s’ S’HA AFEGIT A LA CUA DE DESCÀRREGUES"
 msgid "REMOVE"
 msgstr "DESINSTAL·LAR"
 
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "DESINSTAL·LACIÓ AFEGIDA A LA CUA"
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "INSTAL·LAR"
@@ -683,11 +688,14 @@ msgstr "INSTAL·LAR"
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "ACTUALMENT A LA CUA DE DESCÀRREGUES"
 
-msgid "NO MISSING BIOS"
-msgstr "NO FALTEN BIOS"
+msgid "NO MISSING BIOS FILES"
+msgstr ""
 
 msgid "MISSING BIOS CHECK"
 msgstr "BIOS QUE FALTEN"
+
+msgid "NO MISSING BIOS"
+msgstr "NO FALTEN BIOS"
 
 msgid "dim"
 msgstr "atenuar pantalla"
@@ -737,8 +745,8 @@ msgstr "ATURAR MÚSICA A L’ESTALVI DE PANTALLA"
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "CONFIGURAR ESTALVI DE PANTALLA DE VÍDEO ALEATORI"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "CANVIAR VÍDEO CADA (SEGS)"
+msgid "VIDEO DURATION (SECS)"
+msgstr ""
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "UTILITZAR REPRODUCTOR OMX A L’ESTALVI DE PANTALLA"
@@ -746,17 +754,14 @@ msgstr "UTILITZAR REPRODUCTOR OMX A L’ESTALVI DE PANTALLA"
 msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMACIÓ DEL JOC"
 
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "MOSTRAR INFORMACIÓ DEL JOC A L’ESTALVI DE PANTALLA"
-
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UTILITZAR MARQUESINA COM A INFORMACIÓ DEL JOC"
 
-msgid "DECORATIONS"
-msgstr "DECORACIONS"
+msgid "DECORATION SET USED"
+msgstr ""
 
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "AJUSTAR VÍDEO A L’ESTALVI DE PANTALLA"
+msgid "STRETCH VIDEOS"
+msgstr ""
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "INHABILITA EL SO DELS VÍDEOS"
@@ -770,11 +775,11 @@ msgstr "UTILITZAR VÍDEOS PERSONALITZATS"
 msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "CARPETA DE VÍDEOS PERSONALITZATS"
 
-msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
-msgstr "DIRECTORI DE VÍDEO PERSONALITZAT RECURSIU"
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM VIDEO FILTER"
-msgstr "FILTRE DE VÍDEOS PERSONALITZAT"
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "CONFIGURAR L’ESTALVI DE PANTALLA DE PRESENTACIÓ D’IMATGES"
@@ -791,11 +796,11 @@ msgstr "UTILITZAR IMATGES PERSONALITZADES"
 msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "CARPETA D’IMATGES PERSONALITZADES"
 
-msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
-msgstr "DIRECTORI D’IMATGES PERSONALITZAT RECURSIU"
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM IMAGE FILTER"
-msgstr "FILTRE D’IMATGE PERSONALITZAT"
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr ""
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURACIÓ DE COMANDAMENT A TECLAT"
@@ -891,8 +896,8 @@ msgstr "ES REQUEREIX CONNEXIÓ A INTERNET"
 msgid "INVALID PARAMETERS"
 msgstr "VALORS NO VÀLIDS"
 
-msgid "GAME MEDIAS"
-msgstr "MITJANS DE JOC"
+msgid "GAME MEDIA"
+msgstr ""
 
 msgid "VIEW GAME MANUAL"
 msgstr "VEURE MANUAL DEL JOC"
@@ -906,35 +911,38 @@ msgstr "VEURE EL MAPA DEL JOC"
 msgid "VIEW FULLSCREEN VIDEO"
 msgstr ""
 
-msgid "VIEW GAME MEDIAS"
+msgid "VIEW GAME MEDIA"
 msgstr ""
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "EL NUCLI ACTUAL NO ÉS COMPATIBLE"
 
-msgid "REQUIRED CORE"
-msgstr "ES NECESSITA EL NUCLI"
+msgid "COMPATIBLE CORE(S)"
+msgstr ""
 
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr "VEURE TROFEUS DEL JOC"
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr ""
 
 msgid "GAME"
 msgstr "JOC"
 
-msgid "SAVE SNAPSHOTS"
-msgstr "PARTIDES GUARDADES"
+msgid "SAVE STATES"
+msgstr ""
 
 msgid "OPEN"
 msgstr "OBRIR"
 
-msgid "START NETPLAY HOST"
-msgstr "INICIAR EN NETPLAY COM A SERVIDOR"
+msgid "NETPLAY HOSTING/OPTIONS"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
 
 msgid "START GAME"
 msgstr "INICIAR JOC"
+
+msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NO ESTÀS CONNECTAT A CAP XARXA"
@@ -981,8 +989,8 @@ msgstr "FAVORITS"
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "AFEGIR A COL·LECCIÓ PERSONALITZADA …"
 
-msgid "SCRAPE"
-msgstr "OBTENIR DADES DELS JOCS"
+msgid "MANUALLY SCRAPE METADATA"
+msgstr ""
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURACIÓ DE COMANDAMENT A TECLAT"
@@ -1002,8 +1010,8 @@ msgstr "EDITA LES METADADES D'AQUEST JOC"
 msgid "THEMES DOWNLOADER"
 msgstr "GESTOR DE TEMES"
 
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "SELECCIONAR TEMES PER INSTAL·LAR, DESINSTAL·LAR O ACTUALITZAR"
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr ""
 
 #, c-format
 msgid "CURRENT THEME"
@@ -1022,6 +1030,9 @@ msgstr "Trofeus guanyats"
 msgid "%d%% complete"
 msgstr "%d%% completat"
 
+msgid "SAVE STATE MANAGER"
+msgstr ""
+
 msgid "START NEW GAME"
 msgstr "COMENÇAR NOVA PARTIDA"
 
@@ -1037,35 +1048,29 @@ msgstr "RANURA"
 msgid "COPY TO FREE SLOT"
 msgstr "COPIAR A UNA RANURA LLIURE"
 
-msgid "SCRAPE NOW"
-msgstr "INICIAR L’OBTENCIÓ DE DADES"
+msgid "SCRAPING FILTERS"
+msgstr ""
 
-msgid "SCRAPE THESE GAMES"
-msgstr "OBTENIR DADES D'AQUESTS JOCS"
+msgid "SCRAPE SELECTION"
+msgstr ""
 
 msgid "All Games"
 msgstr "Tots els jocs"
 
-msgid "Only missing medias"
-msgstr "Només contingut que falta"
+msgid "Only missing media"
+msgstr ""
 
-msgid "FILTER"
-msgstr "FILTRA"
+msgid "SCRAPE SYSTEM SELECTION"
+msgstr ""
 
-msgid "SCRAPE THESE SYSTEMS"
-msgstr "OBTENIR DADES D'AQUESTS SISTEMES"
-
-msgid "START"
-msgstr "COMENÇA"
+msgid "START SCRAPING"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"AVÍS: ALGUNS DELS SISTEMES SELECCIONATS NO TENEN UNA PLATAFORMA ESTABLERTA. "
-"ELS RESULTATS PODEN SER MENYS PRECISOS DEL NORMAL.\n"
-"VOLEU CONTINUAR DE TOTES MANERES?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "OBTENCIÓ D’INFORMACIÓ EXECUTANT-SE. VOLS PARAR-LO?"
@@ -1076,8 +1081,8 @@ msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
 msgid "THE BEZEL PROJECT"
 msgstr "THE BEZEL PROJECT"
 
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "SELECCIONA ELS BISELLS A INSTAL·LAR / DESINSTAL·LAR"
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "esvair"
@@ -1166,8 +1171,8 @@ msgstr "MENÚ PRINCIPAL"
 msgid "KODI MEDIA CENTER"
 msgstr "CENTRE MULTIMÈDIA DEL KODI"
 
-msgid "GAMES SETTINGS"
-msgstr "PARÀMETRES DELS JOCS"
+msgid "GAME SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
@@ -1184,14 +1189,17 @@ msgstr "CONFIGUREU L'ENTRADA"
 msgid "EMULATOR SETTINGS"
 msgstr "CONFIGURACIÓ DE L’EMULADOR"
 
+msgid "SCRAPER"
+msgstr "SCRAPER"
+
 msgid "UPDATES & DOWNLOADS"
 msgstr "ACTUALITZACIONS I DESCÀRREGUES"
 
 msgid "SYSTEM SETTINGS"
 msgstr "PARÀMETRES DEL SISTEMA"
 
-msgid "INFORMATIONS"
-msgstr "INFORMACIÓ"
+msgid "INFORMATION"
+msgstr ""
 
 msgid "UNLOCK UI MODE"
 msgstr "DESBLOQUEJAR INTERFÍCIE DEL SISTEMA"
@@ -1199,11 +1207,14 @@ msgstr "DESBLOQUEJAR INTERFÍCIE DEL SISTEMA"
 msgid "QUIT"
 msgstr "SURT"
 
-msgid "SCRAPER"
-msgstr "SCRAPER"
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
-msgid "SCRAPE FROM"
-msgstr "OBTENIR DADES DE"
+msgid "SCRAPE NOW/FILTERS"
+msgstr ""
+
+msgid "SCRAPING DATABASE"
+msgstr ""
 
 msgid "IMAGE SOURCE"
 msgstr ""
@@ -1268,19 +1279,16 @@ msgstr "USUARI"
 msgid "PASSWORD"
 msgstr "CONTRASENYA"
 
-msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
 
 msgid "CHOOSE"
 msgstr "TRIA"
 
-msgid "UI MODE IS NOW UNLOCKED"
+msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr ""
 
-msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
-
-msgid "INFORMATION"
+msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr ""
 
 msgid "USER DISK USAGE"
@@ -1313,7 +1321,7 @@ msgstr ""
 msgid "OVERSCAN"
 msgstr "SOBRE-EXPLORACIÓ"
 
-msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
 
 msgid "TOOLS"
@@ -1341,10 +1349,10 @@ msgstr ""
 msgid "CREATE A SUPPORT FILE?"
 msgstr ""
 
-msgid "FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
-msgid "FILE GENERATION FAILED"
+msgid "SUPPORT FILE GENERATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -1404,7 +1412,7 @@ msgstr "SELECCIÓ RÀPIDA DEL SISTEMA"
 msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLAT EN PANTALLA"
 
-msgid "HIDE WHEN RUNNING A GAME"
+msgid "BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -1481,17 +1489,17 @@ msgstr ""
 msgid "START UPDATE"
 msgstr "INICIA L'ACTUALITZACIÓ"
 
-msgid "UPDATE IS ALREADY RUNNING"
+msgid "UPDATER IS ALREADY RUNNING"
 msgstr ""
 
 msgid "LANGUAGE"
 msgstr "IDIOMA"
 
-msgid "SELECT YOUR TIMEZONE"
+msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
-msgid "TIMEZONE"
-msgstr "ZONA HORÀRIA"
+msgid "TIME ZONE"
+msgstr ""
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr ""
@@ -1499,7 +1507,7 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr ""
 
-msgid "TEXT TO SPEECH"
+msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
 msgid "UI MODE"
@@ -1507,7 +1515,7 @@ msgstr ""
 
 msgid ""
 "You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
+"This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
 
@@ -1541,26 +1549,35 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr ""
 
-msgid "LEFT ROTATION"
+msgid "0 DEGREES (AUTO)"
 msgstr ""
 
-msgid "RIGHT ROTATION"
+msgid "90 DEGREES"
 msgstr ""
 
-msgid "INVERTED ROTATION"
+msgid "180 DEGREES"
+msgstr ""
+
+msgid "270 DEGREES"
 msgstr ""
 
 msgid "BOOT SPLASH"
 msgstr ""
 
-msgid "SILENT SPLASH"
+msgid "DEFAULT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "DEFAULT"
+msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "PARÀMETRES DELS ASSOLIMENTS RETRO"
+msgid "BATOCERA SPLASH IMAGE"
+msgstr ""
+
+msgid "SPLASH SETTING"
+msgstr ""
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
 
 msgid "NETPLAY SETTINGS"
 msgstr ""
@@ -1664,13 +1681,13 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
 
-msgid "SHOW IN MAIN MENU"
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -1682,7 +1699,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1697,20 +1714,20 @@ msgstr ""
 msgid "USE RELAY SERVER"
 msgstr ""
 
-msgid "CHECK MISSING INDEXES AT STARTUP"
+msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
 msgstr ""
 
-msgid "DEFAULT SETTINGS"
+msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
-msgid "GAME RATIO"
-msgstr "PROPORCIÓ DEL JOC"
+msgid "GAME ASPECT RATIO"
+msgstr ""
 
 msgid "VIDEO MODE"
 msgstr ""
 
-msgid "SMOOTH GAMES"
-msgstr "JOCS SUAVITZATS"
+msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+msgstr ""
 
 msgid "REWIND"
 msgstr "REBOBINA"
@@ -1721,31 +1738,61 @@ msgstr ""
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "DESA / CARREGA AUTOMÀTICAMENT"
 
-msgid "SHOW SAVE SNAPSHOTS"
+msgid "SHOW SAVE STATES"
 msgstr ""
 
-msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr ""
 
 msgid "SHADER SET"
 msgstr "SHADERS ESTABLERTS"
 
-msgid "DECORATION"
+msgid "DECORATIONS"
+msgstr "DECORACIONS"
+
+msgid "DECORATION SET"
 msgstr ""
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr ""
 
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr ""
+
+msgid "SYSTEM CONTROLLERS"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr ""
+
+msgid "OVERLAY CORNER"
+msgstr ""
+
+msgid "NORTH WEST"
+msgstr ""
+
+msgid "NORTH EAST"
+msgstr ""
+
+msgid "SOUTH EAST"
+msgstr ""
+
+msgid "SOUTH WEST"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE PATH"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr ""
 
-msgid "ENABLE AI SERVICE"
+msgid "ENABLE AI TRANSLATION SERVICE"
 msgstr ""
 
 msgid "TARGET LANGUAGE"
 msgstr ""
 
-msgid "SERVICE URL"
+msgid "AI TRANSLATION SERVICE URL"
 msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
@@ -1757,32 +1804,26 @@ msgstr ""
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
-msgid "REALLY UPDATE GAME LISTS?"
-msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR LES LLISTES DELS JOCS?"
+msgid "REALLY UPDATE GAMELISTS?"
+msgstr ""
 
 msgid "REMAP A CONTROLLER"
 msgstr "CONFIGUREU UN COMANDAMENT"
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
-"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
-"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
-"SNES CONTROLLER."
+"YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
+"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
+"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH BUTTON TO "
+"CONFIRM WHEN DONE."
 msgstr ""
-"ESTEU A PUNT DE CONFIGURAR UN COMANDAMENT. SI NOMÉS TENIU UNA PALANCA DE "
-"CONTROL, CONFIGUREU LES TECLES DE DIRECCIÓ PREMENT EL BOTÓ A. SI NO DISPOSEU "
-"D'UNA TECLA ESPECIAL PER A LA DRECERA DE TECLAT, SELECCIONEU EL BOTÓ "
-"SELECCIONA. PER OMETRE TOTS ELS BOTONS QUE NO TINGUEU MANTENIU PREMUDA LA "
-"TECLA A. ELS NOMS DELS BOTONS ESTAN BASATS EN EL COMANDAMENT DE LA SUPER "
-"NINTENDO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 #, c-format
-msgid "INPUT P%i"
-msgstr "ENTRADA P%i"
+msgid "P%i'S CONTROLLER"
+msgstr ""
 
 msgid "default"
 msgstr ""
@@ -1793,7 +1834,7 @@ msgstr ""
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
@@ -1859,10 +1900,10 @@ msgstr ""
 msgid "FILE EXTENSIONS"
 msgstr ""
 
-msgid "RESET CUSTOMISATIONS"
+msgid "RESET CUSTOMIZATIONS"
 msgstr ""
 
-msgid "APPEARENCE"
+msgid "APPEARANCE"
 msgstr ""
 
 msgid "THEME SET"
@@ -2066,6 +2107,9 @@ msgstr "EDITA LES METADADES"
 msgid "GENRES"
 msgstr ""
 
+msgid "SCRAPE"
+msgstr "OBTENIR DADES DELS JOCS"
+
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
@@ -2074,10 +2118,13 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "ZOOM-"
+msgid "START"
+msgstr "COMENÇA"
+
+msgid "ZOOM OUT"
 msgstr ""
 
-msgid "ZOOM+"
+msgid "ZOOM IN"
 msgstr ""
 
 msgid "MOVE"
@@ -2135,13 +2182,15 @@ msgid "FILES"
 msgstr ""
 
 msgid ""
-"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 
 msgid ""
-"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 
 msgid "Preloading UI"
@@ -2320,7 +2369,7 @@ msgstr ""
 msgid "INDEXING COMPLETED"
 msgstr ""
 
-msgid "UPDATE GAME LISTS TO APPLY CHANGES."
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr ""
 
 msgid "GENRE"
@@ -2332,7 +2381,7 @@ msgstr ""
 msgid "PLAYERS"
 msgstr ""
 
-msgid "PUBLISHER / DEVELOPER"
+msgid "PUBLISHER/DEVELOPER"
 msgstr ""
 
 msgid "RATING"
@@ -2444,9 +2493,14 @@ msgid "-NOT DEFINED-"
 msgstr "NO S'HA DEFINIT"
 
 msgid ""
-"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
-"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+
+msgid "SET SELECT AS HOTKEY"
+msgstr ""
+
+msgid "DO NOT ASSIGN HOTKEY"
 msgstr ""
 
 #, c-format
@@ -2557,11 +2611,181 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
-msgid "TEXT TO SPEECH ENABLED"
+msgid "SCREEN READER ENABLED"
 msgstr ""
 
-msgid "TEXT TO SPEECH DISABLED"
+msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "enter game name"
+#~ msgstr "introdueix el nom del joc"
+
+#~ msgid "enter description"
+#~ msgstr "introdueix la descripció"
+
+#~ msgid "enter game developer"
+#~ msgstr "introduïu el desenvolupador"
+
+#~ msgid "enter game publisher"
+#~ msgstr "introduïu el distribuïdor"
+
+#~ msgid "enter game family"
+#~ msgstr "introdueix la família del joc"
+
+#~ msgid "enter game arcade system"
+#~ msgstr "introdueix el sistema arcade"
+
+#~ msgid "enter number of players"
+#~ msgstr "introduïu el nombre de jugadors"
+
+#~ msgid "This collection contains %i game, including :%s"
+#~ msgid_plural "This collection contains %i games, including :%s"
+#~ msgstr[0] "Aquesta col·lecció conté %i joc, incloent: %s"
+#~ msgstr[1] "Aquesta col·lecció conté %i jocs, incloent: %s"
+
+#~ msgid "FORMATING DEVICE"
+#~ msgstr "FORMATANT DISPOSITIU"
+
+#~ msgid "Formating"
+#~ msgstr "Formatant"
+
+#~ msgid "DRIVE FORMAT IS ALREADY RUNNING."
+#~ msgstr "LA FORMATACIÓ DEL DISC S’ESTÀ EXECUTANT."
+
+#~ msgid "UPDATE GAME LISTS"
+#~ msgstr "ACTUALITZA LES LLISTES DELS JOCS"
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "SALTA A UNA LLETRA"
+
+#~ msgid "VIEW CUSTOMISATION"
+#~ msgstr "PERSONALITZAR LLISTA"
+
+#~ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+#~ msgstr ""
+#~ "AQUESTA FUNCIÓ ESTÀ DESACTIVADA QUAN L’OBTENCIÓ DE DADES S’ESTÀ EXECUTANT"
+
+#~ msgid "Select the game you want to join"
+#~ msgstr "Selecciona el joc a què vols unir-te"
+
+#~ msgid "NO GAME FOUND"
+#~ msgstr "NO S’HA TROBAT CAP JOC"
+
+#~ msgid "MANUAL INPUT"
+#~ msgstr "ENTRADA MANUAL"
+
+#~ msgid "SELECT CONTENT TO INSTALL / REMOVE"
+#~ msgstr "SELECCIONA EL CONTINGUT A INSTAL·LAR / DESINSTAL·LAR"
+
+#~ msgid "UNINSTALL ADDED TO QUEUE"
+#~ msgstr "DESINSTAL·LACIÓ AFEGIDA A LA CUA"
+
+#~ msgid "SWAP VIDEO AFTER (SECS)"
+#~ msgstr "CANVIAR VÍDEO CADA (SEGS)"
+
+#~ msgid "SHOW GAME INFO ON SCREENSAVER"
+#~ msgstr "MOSTRAR INFORMACIÓ DEL JOC A L’ESTALVI DE PANTALLA"
+
+#~ msgid "STRETCH VIDEO ON SCREENSAVER"
+#~ msgstr "AJUSTAR VÍDEO A L’ESTALVI DE PANTALLA"
+
+#~ msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
+#~ msgstr "DIRECTORI DE VÍDEO PERSONALITZAT RECURSIU"
+
+#~ msgid "CUSTOM VIDEO FILTER"
+#~ msgstr "FILTRE DE VÍDEOS PERSONALITZAT"
+
+#~ msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
+#~ msgstr "DIRECTORI D’IMATGES PERSONALITZAT RECURSIU"
+
+#~ msgid "CUSTOM IMAGE FILTER"
+#~ msgstr "FILTRE D’IMATGE PERSONALITZAT"
+
+#~ msgid "GAME MEDIAS"
+#~ msgstr "MITJANS DE JOC"
+
+#~ msgid "REQUIRED CORE"
+#~ msgstr "ES NECESSITA EL NUCLI"
+
+#~ msgid "VIEW GAME ACHIEVEMENTS"
+#~ msgstr "VEURE TROFEUS DEL JOC"
+
+#~ msgid "SAVE SNAPSHOTS"
+#~ msgstr "PARTIDES GUARDADES"
+
+#~ msgid "START NETPLAY HOST"
+#~ msgstr "INICIAR EN NETPLAY COM A SERVIDOR"
+
+#~ msgid "SELECT THEMES TO INSTALL / REMOVE"
+#~ msgstr "SELECCIONAR TEMES PER INSTAL·LAR, DESINSTAL·LAR O ACTUALITZAR"
+
+#~ msgid "SCRAPE NOW"
+#~ msgstr "INICIAR L’OBTENCIÓ DE DADES"
+
+#~ msgid "SCRAPE THESE GAMES"
+#~ msgstr "OBTENIR DADES D'AQUESTS JOCS"
+
+#~ msgid "Only missing medias"
+#~ msgstr "Només contingut que falta"
+
+#~ msgid "FILTER"
+#~ msgstr "FILTRA"
+
+#~ msgid "SCRAPE THESE SYSTEMS"
+#~ msgstr "OBTENIR DADES D'AQUESTS SISTEMES"
+
+#~ msgid ""
+#~ "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. "
+#~ "RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+#~ "CONTINUE ANYWAY?"
+#~ msgstr ""
+#~ "AVÍS: ALGUNS DELS SISTEMES SELECCIONATS NO TENEN UNA PLATAFORMA "
+#~ "ESTABLERTA. ELS RESULTATS PODEN SER MENYS PRECISOS DEL NORMAL.\n"
+#~ "VOLEU CONTINUAR DE TOTES MANERES?"
+
+#~ msgid "SELECT BEZELS TO INSTALL / REMOVE"
+#~ msgstr "SELECCIONA ELS BISELLS A INSTAL·LAR / DESINSTAL·LAR"
+
+#~ msgid "GAMES SETTINGS"
+#~ msgstr "PARÀMETRES DELS JOCS"
+
+#~ msgid "INFORMATIONS"
+#~ msgstr "INFORMACIÓ"
+
+#~ msgid "SCRAPE FROM"
+#~ msgstr "OBTENIR DADES DE"
+
+#~ msgid "TIMEZONE"
+#~ msgstr "ZONA HORÀRIA"
+
+#~ msgid "RETROACHIEVEMENTS SETTINGS"
+#~ msgstr "PARÀMETRES DELS ASSOLIMENTS RETRO"
+
+#~ msgid "GAME RATIO"
+#~ msgstr "PROPORCIÓ DEL JOC"
+
+#~ msgid "SMOOTH GAMES"
+#~ msgstr "JOCS SUAVITZATS"
+
+#~ msgid "REALLY UPDATE GAME LISTS?"
+#~ msgstr "ESTEU SEGUR QUE VOLEU ACTUALITZAR LES LLISTES DELS JOCS?"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+#~ "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A "
+#~ "BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT "
+#~ "BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES "
+#~ "ARE BASED ON THE SNES CONTROLLER."
+#~ msgstr ""
+#~ "ESTEU A PUNT DE CONFIGURAR UN COMANDAMENT. SI NOMÉS TENIU UNA PALANCA DE "
+#~ "CONTROL, CONFIGUREU LES TECLES DE DIRECCIÓ PREMENT EL BOTÓ A. SI NO "
+#~ "DISPOSEU D'UNA TECLA ESPECIAL PER A LA DRECERA DE TECLAT, SELECCIONEU EL "
+#~ "BOTÓ SELECCIONA. PER OMETRE TOTS ELS BOTONS QUE NO TINGUEU MANTENIU "
+#~ "PREMUDA LA TECLA A. ELS NOMS DELS BOTONS ESTAN BASATS EN EL COMANDAMENT "
+#~ "DE LA SUPER NINTENDO."
+
+#~ msgid "INPUT P%i"
+#~ msgstr "ENTRADA P%i"
 
 #~ msgid ""
 #~ "YOU ARE CURRENTLY USING VERSION : %s\n"
