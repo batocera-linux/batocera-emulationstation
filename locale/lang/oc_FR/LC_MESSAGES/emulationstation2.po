@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-23 16:06+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "PO-Revision-Date: 2021-10-02 17:16+0000\n"
 "Last-Translator: Weblate Admin <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://fabrica.mejans.fr/projects/autres/batocera/"
@@ -994,8 +994,8 @@ msgstr "FAVORITS"
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
-msgid "MANUALLY SCRAPE METADATA"
-msgstr ""
+msgid "SCRAPE"
+msgstr "RECUPERAR INFO"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr ""
@@ -1053,19 +1053,19 @@ msgstr ""
 msgid "COPY TO FREE SLOT"
 msgstr ""
 
-msgid "SCRAPING FILTERS"
+msgid "SCRAPE CRITERIA"
 msgstr ""
 
-msgid "SCRAPE SELECTION"
+msgid "MEDIA TO SCRAPE FOR"
 msgstr ""
 
-msgid "All Games"
-msgstr "Totes los jòcs"
-
-msgid "Only missing media"
+msgid "ALL"
 msgstr ""
 
-msgid "SCRAPE SYSTEM SELECTION"
+msgid "ONLY MISSING"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
 msgstr ""
 
 msgid "START SCRAPING"
@@ -1215,7 +1215,7 @@ msgstr "QUITAR"
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
-msgid "SCRAPE NOW/FILTERS"
+msgid "NEXT"
 msgstr ""
 
 msgid "SCRAPING DATABASE"
@@ -1417,7 +1417,7 @@ msgstr ""
 msgid "ON-SCREEN KEYBOARD"
 msgstr "CLAVIÈR VISUAL"
 
-msgid "BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -1812,14 +1812,14 @@ msgstr ""
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
-msgid "REMAP A CONTROLLER"
-msgstr "CONFIGURAR UNA MANETA"
+msgid "CONTROLLER MAPPING"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
 "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
 "YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH BUTTON TO "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
 
@@ -2111,9 +2111,6 @@ msgstr "MODIFICAR METADONADAS"
 
 msgid "GENRES"
 msgstr ""
-
-msgid "SCRAPE"
-msgstr "RECUPERAR INFO"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2621,6 +2618,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "All Games"
+#~ msgstr "Totes los jòcs"
+
+#~ msgid "REMAP A CONTROLLER"
+#~ msgstr "CONFIGURAR UNA MANETA"
 
 #~ msgid "enter game name"
 #~ msgstr "dintratz lo nom del jòc"

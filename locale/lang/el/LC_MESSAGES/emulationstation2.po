@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-23 16:06+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -986,7 +986,7 @@ msgstr "ΑΓΑΠΗΜΕΝΑ"
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "ΠΡΟΣΘΗΚΗ ΣΤΗΝ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗ ΣΥΛΛΟΓΗ"
 
-msgid "MANUALLY SCRAPE METADATA"
+msgid "SCRAPE"
 msgstr ""
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
@@ -1045,19 +1045,19 @@ msgstr ""
 msgid "COPY TO FREE SLOT"
 msgstr "ΑΝΤΙΓΡΑΦΗ ΣΕ ΕΛΕΥΘΕΡΟ SLOT"
 
-msgid "SCRAPING FILTERS"
+msgid "SCRAPE CRITERIA"
 msgstr ""
 
-msgid "SCRAPE SELECTION"
+msgid "MEDIA TO SCRAPE FOR"
 msgstr ""
 
-msgid "All Games"
-msgstr "Ολα τα Παιχνίδια"
-
-msgid "Only missing media"
+msgid "ALL"
 msgstr ""
 
-msgid "SCRAPE SYSTEM SELECTION"
+msgid "ONLY MISSING"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
 msgstr ""
 
 msgid "START SCRAPING"
@@ -1207,7 +1207,7 @@ msgstr "ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ"
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
-msgid "SCRAPE NOW/FILTERS"
+msgid "NEXT"
 msgstr ""
 
 msgid "SCRAPING DATABASE"
@@ -1410,7 +1410,7 @@ msgstr "ΓΡΗΓΟΡΗ ΕΠΙΛΟΓΗ ΣΥΣΤΗΜΑΤΟΣ"
 msgid "ON-SCREEN KEYBOARD"
 msgstr "ΠΛΗΚΤΡΟΛΟΓΙΟ ΟΘΟΝΗΣ"
 
-msgid "BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -1807,14 +1807,14 @@ msgstr "ΤΟ HASHING ΤΟΥ ΠΑΙΧΝΙΔΙΟΥ ΕΚΤΕΛΕΙΤΑΙ. ΘΕΛΕ�
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
-msgid "REMAP A CONTROLLER"
-msgstr "ΡΥΘΜΙΣΤΕ ΕΝΑ ΧΕΙΡΙΣΤΗΡΙΟ"
+msgid "CONTROLLER MAPPING"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
 "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
 "YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH BUTTON TO "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
 
@@ -2106,9 +2106,6 @@ msgstr "ΕΠΕΞΕΡΓΑΣΙΑ ΜΕΤΑΔΕΔΟΜΕΝΩΝ"
 
 msgid "GENRES"
 msgstr "ΕΙΔΗ"
-
-msgid "SCRAPE"
-msgstr ""
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2621,6 +2618,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "All Games"
+#~ msgstr "Ολα τα Παιχνίδια"
+
+#~ msgid "REMAP A CONTROLLER"
+#~ msgstr "ΡΥΘΜΙΣΤΕ ΕΝΑ ΧΕΙΡΙΣΤΗΡΙΟ"
 
 #~ msgid "enter game name"
 #~ msgstr "προσθήκη ονόματος παιχνιδιού"

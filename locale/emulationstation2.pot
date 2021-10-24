@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-23 16:06+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -992,7 +992,7 @@ msgstr ""
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr ""
 
-msgid "MANUALLY SCRAPE METADATA"
+msgid "SCRAPE"
 msgstr ""
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
@@ -1051,19 +1051,19 @@ msgstr ""
 msgid "COPY TO FREE SLOT"
 msgstr ""
 
-msgid "SCRAPING FILTERS"
+msgid "SCRAPE CRITERIA"
 msgstr ""
 
-msgid "SCRAPE SELECTION"
+msgid "MEDIA TO SCRAPE FOR"
 msgstr ""
 
-msgid "All Games"
+msgid "ALL"
 msgstr ""
 
-msgid "Only missing media"
+msgid "ONLY MISSING"
 msgstr ""
 
-msgid "SCRAPE SYSTEM SELECTION"
+msgid "SYSTEMS INCLUDED"
 msgstr ""
 
 msgid "START SCRAPING"
@@ -1213,7 +1213,7 @@ msgstr ""
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
-msgid "SCRAPE NOW/FILTERS"
+msgid "NEXT"
 msgstr ""
 
 msgid "SCRAPING DATABASE"
@@ -1415,7 +1415,7 @@ msgstr ""
 msgid "ON-SCREEN KEYBOARD"
 msgstr ""
 
-msgid "BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -1810,14 +1810,14 @@ msgstr ""
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
-msgid "REMAP A CONTROLLER"
+msgid "CONTROLLER MAPPING"
 msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
 "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
 "YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH BUTTON TO "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
 
@@ -2108,9 +2108,6 @@ msgid "EDIT METADATA"
 msgstr ""
 
 msgid "GENRES"
-msgstr ""
-
-msgid "SCRAPE"
 msgstr ""
 
 msgid ""

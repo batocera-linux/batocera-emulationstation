@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-23 16:06+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -988,8 +988,8 @@ msgstr "我的最愛"
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "新增至自定義合輯..."
 
-msgid "MANUALLY SCRAPE METADATA"
-msgstr ""
+msgid "SCRAPE"
+msgstr "資料搜刮"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "編輯手把轉鍵盤設定檔"
@@ -1047,19 +1047,19 @@ msgstr "檔案槽"
 msgid "COPY TO FREE SLOT"
 msgstr "複製到空檔案槽"
 
-msgid "SCRAPING FILTERS"
+msgid "SCRAPE CRITERIA"
 msgstr ""
 
-msgid "SCRAPE SELECTION"
+msgid "MEDIA TO SCRAPE FOR"
 msgstr ""
 
-msgid "All Games"
-msgstr "所有遊戲"
-
-msgid "Only missing media"
+msgid "ALL"
 msgstr ""
 
-msgid "SCRAPE SYSTEM SELECTION"
+msgid "ONLY MISSING"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
 msgstr ""
 
 msgid "START SCRAPING"
@@ -1209,7 +1209,7 @@ msgstr "離開"
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
-msgid "SCRAPE NOW/FILTERS"
+msgid "NEXT"
 msgstr ""
 
 msgid "SCRAPING DATABASE"
@@ -1411,7 +1411,7 @@ msgstr "快速遊戲平台選擇"
 msgid "ON-SCREEN KEYBOARD"
 msgstr "螢幕虛擬鍵盤"
 
-msgid "BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -1806,14 +1806,14 @@ msgstr "遊戲校驗正在進行中。您想要終止嗎？"
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
-msgid "REMAP A CONTROLLER"
-msgstr "設定遊戲控制器"
+msgid "CONTROLLER MAPPING"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
 "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
 "YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH BUTTON TO "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
 
@@ -2105,9 +2105,6 @@ msgstr "編輯中繼資料"
 
 msgid "GENRES"
 msgstr "類型"
-
-msgid "SCRAPE"
-msgstr "資料搜刮"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2606,6 +2603,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "All Games"
+#~ msgstr "所有遊戲"
+
+#~ msgid "REMAP A CONTROLLER"
+#~ msgstr "設定遊戲控制器"
 
 #~ msgid "enter game name"
 #~ msgstr "輸入遊戲名稱"

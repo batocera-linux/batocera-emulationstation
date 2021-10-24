@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-23 16:06+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -991,8 +991,8 @@ msgstr "PREFERITI"
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "AGGIUNGI "
 
-msgid "MANUALLY SCRAPE METADATA"
-msgstr ""
+msgid "SCRAPE"
+msgstr "SCARICA INFO (SCRAPER)"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "MODIFICA CONFIGURAZIONE PAD2KEY"
@@ -1050,19 +1050,19 @@ msgstr "SLOT"
 msgid "COPY TO FREE SLOT"
 msgstr "COPIA SU SLOT LIBERO"
 
-msgid "SCRAPING FILTERS"
+msgid "SCRAPE CRITERIA"
 msgstr ""
 
-msgid "SCRAPE SELECTION"
+msgid "MEDIA TO SCRAPE FOR"
 msgstr ""
 
-msgid "All Games"
-msgstr "Tutti i Giochi"
-
-msgid "Only missing media"
+msgid "ALL"
 msgstr ""
 
-msgid "SCRAPE SYSTEM SELECTION"
+msgid "ONLY MISSING"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
 msgstr ""
 
 msgid "START SCRAPING"
@@ -1212,7 +1212,7 @@ msgstr "ESCI"
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
-msgid "SCRAPE NOW/FILTERS"
+msgid "NEXT"
 msgstr ""
 
 msgid "SCRAPING DATABASE"
@@ -1414,7 +1414,7 @@ msgstr "SELEZIONE RAPIDA SISTEMA"
 msgid "ON-SCREEN KEYBOARD"
 msgstr "MOSTRA TASTIERA SULLO SCHERMO"
 
-msgid "BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -1810,14 +1810,14 @@ msgstr "GAME HASHING IN ESECUZIONE. VUOI ARRESTARE IL PROCESSO?"
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
-msgid "REMAP A CONTROLLER"
-msgstr "CONFIGURA UN CONTROLLER"
+msgid "CONTROLLER MAPPING"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
 "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
 "YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH BUTTON TO "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
 
@@ -2109,9 +2109,6 @@ msgstr "MODIFICA LE INFORMAZIONI"
 
 msgid "GENRES"
 msgstr "GENERE"
-
-msgid "SCRAPE"
-msgstr "SCARICA INFO (SCRAPER)"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2623,6 +2620,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "All Games"
+#~ msgstr "Tutti i Giochi"
+
+#~ msgid "REMAP A CONTROLLER"
+#~ msgstr "CONFIGURA UN CONTROLLER"
 
 #~ msgid "enter game name"
 #~ msgstr "inserisci nome del gioco"
