@@ -227,7 +227,7 @@ void GuiMenu::openScraperSettings()
 
 	auto s = new GuiSettings(mWindow, 
 		_("SCRAPER"), 
-		_("SCRAPE NOW/FILTERS"), [openScrapeNow](GuiSettings* settings)
+		_("NEXT"), [openScrapeNow](GuiSettings* settings)
 	{
 		settings->save();
 		openScrapeNow();
@@ -969,7 +969,7 @@ void GuiMenu::openDeveloperSettings()
 	// Hide EmulationStation Window when running a game ( windows only )
 	auto hideWindowScreen = std::make_shared<SwitchComponent>(mWindow);
 	hideWindowScreen->setState(Settings::getInstance()->getBool("HideWindow"));
-	s->addWithLabel(_("BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"), hideWindowScreen);
+	s->addWithLabel(_("HIDE EMULATIONSTATION WHEN RUNNING A GAME"), hideWindowScreen);
 	s->addSaveFunc([hideWindowScreen] { Settings::getInstance()->setBool("HideWindow", hideWindowScreen->getState()); });
 #endif
 	
@@ -2490,15 +2490,15 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 
 	Window *window = mWindow;
 
-	// REMAP A CONTROLLER
-	s->addEntry(_("REMAP A CONTROLLER"), false, [window, this, s]
+	// CONTROLLER CONFIGURATION
+	s->addEntry(_("CONTROLLER MAPPING"), false, [window, this, s]
 	{
 		window->pushGui(new GuiMsgBox(window,
-			_("YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
+			_("YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
 				"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
 				"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-				"ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH BUTTON "
-				"TO CONFIRM WHEN DONE."), _("OK"),
+				"ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE "
+				"SOUTH BUTTON TO CONFIRM WHEN DONE."), _("OK"),
 			[window, this, s] {
 			window->pushGui(new GuiDetectDevice(window, false, [this, s] {
 				s->setSave(false);

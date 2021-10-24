@@ -11,7 +11,7 @@
 #include "GuiLoading.h"
 
 GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
-  mMenu(window, _("SCRAPING FILTERS").c_str()) // batocera
+  mMenu(window, _("SCRAPE CRITERIA").c_str()) // batocera
 {
 	mOverwriteMedias = true;
 
@@ -20,15 +20,15 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 	auto scraper = Scraper::getScraper();
 
 	// add filters (with first one selected)
-	mFilters = std::make_shared< OptionListComponent<GameFilterFunc> >(mWindow, _("SCRAPE SELECTION"), false); // batocera
-	mFilters->add(_("All Games"), [](SystemData*, FileData*) -> bool { return true; }, false);
-	mFilters->add(_("Only missing media"), [this, scraper](SystemData*, FileData* g) -> bool
+	mFilters = std::make_shared< OptionListComponent<GameFilterFunc> >(mWindow, _("MEDIA TO SCRAPE FOR"), false); // batocera
+	mFilters->add(_("ALL"), [](SystemData*, FileData*) -> bool { return true; }, false);
+	mFilters->add(_("ONLY MISSING"), [this, scraper](SystemData*, FileData* g) -> bool
 	{ 
 		mOverwriteMedias = false;
 		return scraper->hasMissingMedia(g);
 	}, true);
 
-	mMenu.addWithLabel(_("SCRAPE SELECTION"), mFilters); // batocera
+	mMenu.addWithLabel(_("MEDIA TO SCRAPE FOR"), mFilters); // batocera
 	
 	std::string currentSystem;
 
@@ -37,7 +37,7 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 
 
 	//add systems (all with a platformidz specified selected)
-	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SCRAPE SYSTEM SELECTION"), true); // batocera
+	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SYSTEMS INCLUDED"), true); // batocera
 	for (auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++)
 	{
 		if (!(*it)->isGameSystem())
@@ -55,7 +55,7 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 			(*it)->getName() == currentSystem && !(*it)->getPlatformIds().empty());
 	}
 
-	mMenu.addWithLabel(_("SCRAPE SYSTEM SELECTION"), mSystems); // batocera
+	mMenu.addWithLabel(_("SYSTEMS INCLUDED"), mSystems); // batocera
 
 	// mApproveResults = std::make_shared<SwitchComponent>(mWindow);
 	// mApproveResults->setState(false);
