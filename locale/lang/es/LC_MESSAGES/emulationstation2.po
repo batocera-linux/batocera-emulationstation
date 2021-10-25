@@ -65,7 +65,7 @@ msgid "enter path to box"
 msgstr "introduce la ruta de la caja"
 
 msgid "Fan art"
-msgstr "Fan art <fanart>"
+msgstr "Arte <fanart>"
 
 msgid "enter path to fanart"
 msgstr "introduce la ruta del Fan art"
@@ -101,7 +101,7 @@ msgid "enter path to cartridge"
 msgstr "introduce la ruta del cartucho"
 
 msgid "Alt BoxArt"
-msgstr "Caja Altísimo <boxart>"
+msgstr "Caja Alt <boxart>"
 
 msgid "enter path to alt boxart"
 msgstr "introduce la ruta de la caja alternativa"
@@ -1051,19 +1051,19 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR A UNA RANURA LIBRE"
 
 msgid "SCRAPE CRITERIA"
-msgstr ""
+msgstr "CRITERIOS DEL ESCRAPEADO"
 
 msgid "MEDIA TO SCRAPE FOR"
-msgstr ""
+msgstr "CONTENIDO A ESCRAPEAR PARA"
 
 msgid "ALL"
-msgstr ""
+msgstr "TODOS LOS JUEGOS"
 
 msgid "ONLY MISSING"
-msgstr ""
+msgstr "SOLO CONTENIDO FALTANTE"
 
 msgid "SYSTEMS INCLUDED"
-msgstr ""
+msgstr "SISTEMAS INCLUIDOS"
 
 msgid "START SCRAPING"
 msgstr "COMENZAR ESCRAPEO"
@@ -1216,19 +1216,19 @@ msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "ESCRAPEADO EN MARCHA. ¿DESEAS DETENERLO?"
 
 msgid "NEXT"
-msgstr ""
+msgstr "SIGUIENTE"
 
 msgid "SCRAPING DATABASE"
 msgstr "OBTENER LA INFORMACIÓN DE"
 
 msgid "IMAGE SOURCE"
-msgstr "IMAGEN PRINCIPAL <IMAGE>"
+msgstr "IMAGEN PRINCIPAL"
 
 msgid "SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA"
 
 msgid "TITLE SCREENSHOT"
-msgstr "PANTALLA DE TÍTULO <TITLESHOT>"
+msgstr "PANTALLA DE TÍTULO"
 
 msgid "MIX V1"
 msgstr "MIX V1"
@@ -1243,16 +1243,16 @@ msgid "BOX 3D"
 msgstr "CAJA 3D"
 
 msgid "FAN ART"
-msgstr "ARTE <FANART>"
+msgstr "ARTE"
 
 msgid "BOX SOURCE"
-msgstr "CAJA <THUMBNAIL>"
+msgstr "TIPO DE CAJA"
 
 msgid "LOGO SOURCE"
-msgstr "LOGOTIPO <MARQUEE>"
+msgstr "TIPO DE LOGO"
 
 msgid "WHEEL"
-msgstr "WHEEL"
+msgstr "LOGO DEL JUEGO"
 
 msgid "MARQUEE"
 msgstr "MARQUESINA"
@@ -1261,7 +1261,7 @@ msgid "SCRAPE RATINGS"
 msgstr "OBTENER CALIFICACIONES"
 
 msgid "SCRAPE VIDEOS"
-msgstr "OBTENER VÍDEOS"
+msgstr "OBTENER VÍDEO"
 
 msgid "SCRAPE FANART"
 msgstr "OBTENER FANART"
@@ -1418,7 +1418,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLADO EN PANTALLA"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr ""
+msgstr "OCULTAR EMULATIONSTATION CUANDO SE INICIE UN JUEGO"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "SALIR AL MENÚ"
@@ -1819,7 +1819,7 @@ msgid "REALLY UPDATE GAMELISTS?"
 msgstr "¿DESEAS ACTUALIZAR LA LISTA DE JUEGOS?"
 
 msgid "CONTROLLER MAPPING"
-msgstr ""
+msgstr "CONFIGURAR UN MANDO"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
@@ -1828,6 +1828,12 @@ msgid ""
 "BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
+"VAS A CONFIGURAR UN MANDO \n"
+"- SI NO TIENES UN BOTÓN ESPECIAL PARA USARLO COMO (HOTKEY) PUEDES UTILIZAR "
+"SELECT EN SU LUGAR. \n"
+"- PUEDES IGNORAR LOS BOTONES QUE NO EXISTAN EN TU MANDO MANTENIENDO PULSADO "
+"CUALQUIER BOTÓN. \n"
+"- LAS ETIQUETAS DE LOS BOTONES SE BASAN EN EL MANDO DE SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "EMPAREJAR UN DISPOSITIVO BLUETOOTH"
