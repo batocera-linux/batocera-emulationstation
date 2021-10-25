@@ -776,7 +776,7 @@ void GuiComponent::animateTo(Vector2f from, Vector2f to, unsigned int  flags, in
 	float y1 = from.y();
 	float y2 = to.y();
 
-	if (Settings::getInstance()->getString("PowerSaverMode") == "instant" || Settings::getInstance()->getString("TransitionStyle") == "instant")
+	if (Settings::PowerSaverMode() == "instant" || Settings::TransitionStyle() == "instant")
 		setPosition(x2, y2);
 	else
 	{

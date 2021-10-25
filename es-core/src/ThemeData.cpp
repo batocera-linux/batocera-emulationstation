@@ -1118,6 +1118,9 @@ void ThemeData::parseTheme(const pugi::xml_node& root)
 	if (root.attribute("defaultView"))
 		mDefaultView = root.attribute("defaultView").as_string();
 
+	if (root.attribute("defaultTransition"))
+		mDefaultTransition = root.attribute("defaultTransition").as_string();
+
 	if (mVersion <= 6)
 	{
 		// Unfortunately, recalbox does not do things in order, features have to be loaded after

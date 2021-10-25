@@ -1052,9 +1052,8 @@ void GuiMenu::openDeveloperSettings()
 	auto preloadMedias = std::make_shared<SwitchComponent>(mWindow);
 	preloadMedias->setState(Settings::getInstance()->getBool("PreloadMedias"));
 	s->addWithDescription(_("PRELOAD MEDIAS FILESYSTEM"), _("REDUCE UI LAGS OVER STARTUP TIME"), preloadMedias);
-	s->addSaveFunc([preloadMedias] { Settings::getInstance()->setBool("PreloadMedias", preloadMedias->getState()); });
-
-
+	s->addSaveFunc([preloadMedias] { Settings::setPreloadMedias(preloadMedias->getState()); });
+	
 	// threaded loading
 	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
 	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
@@ -1288,14 +1287,14 @@ void GuiMenu::openSystemSettings_batocera()
 	modes.push_back("enhanced");
 	modes.push_back("instant");
 	for (auto it = modes.cbegin(); it != modes.cend(); it++)
-		power_saver->add(_(it->c_str()), *it, Settings::getInstance()->getString("PowerSaverMode") == *it);
+		power_saver->add(_(it->c_str()), *it, Settings::PowerSaverMode() == *it);
 	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
-	s->addSaveFunc([this, power_saver] {
-		if (Settings::getInstance()->getString("PowerSaverMode") != "instant" && power_saver->getSelected() == "instant") 
-		{						
+	s->addSaveFunc([this, power_saver] 
+	{
+		if (Settings::PowerSaverMode() != "instant" && power_saver->getSelected() == "instant")
 			Settings::getInstance()->setBool("EnableSounds", false);
-		}
-		Settings::getInstance()->setString("PowerSaverMode", power_saver->getSelected());
+
+		Settings::setPowerSaverMode(power_saver->getSelected());
 		PowerSaver::init();
 	});
 
@@ -2929,7 +2928,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 		});
 
 		// Show favorites first in gamelists
-		auto defHid = Settings::getInstance()->getBool("ShowHiddenFiles") ? _("YES") : _("NO");
+		auto defHid = Settings::ShowHiddenFiles() ? _("YES") : _("NO");
 		auto curhid = Settings::getInstance()->getString(system->getName() + ".ShowHiddenFiles");
 		auto hiddenFiles = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW HIDDEN FILES"), false);
 		hiddenFiles->add(_("AUTO"), "", curhid == "" || curhid == "auto");
@@ -3350,15 +3349,15 @@ void GuiMenu::openUISettings()
 
 	// transition style
 	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow, _("LIST TRANSITION STYLE"), false);
-	transition_style->addRange({ "auto", "fade", "slide", "fade & slide", "instant" }, Settings::getInstance()->getString("TransitionStyle"));
+	transition_style->addRange({ "auto", "fade", "slide", "fade & slide", "instant" }, Settings::TransitionStyle());
 	s->addWithLabel(_("LIST TRANSITION STYLE"), transition_style);
-	s->addSaveFunc([transition_style] { Settings::getInstance()->setString("TransitionStyle", transition_style->getSelected()); });
-
+	s->addSaveFunc([transition_style] { Settings::setTransitionStyle(transition_style->getSelected()); });
+		
 	// game transition style
 	auto transitionOfGames_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAME LAUNCH TRANSITION"), false);
-	transitionOfGames_style->addRange({ "auto", "fade", "slide", "instant" }, Settings::getInstance()->getString("GameTransitionStyle"));
+	transitionOfGames_style->addRange({ "auto", "fade", "slide", "instant" }, Settings::GameTransitionStyle());
 	s->addWithLabel(_("GAME LAUNCH TRANSITION"), transitionOfGames_style);
-	s->addSaveFunc([transitionOfGames_style] { Settings::getInstance()->setString("GameTransitionStyle", transitionOfGames_style->getSelected()); });
+	s->addSaveFunc([transitionOfGames_style] { Settings::setGameTransitionStyle(transitionOfGames_style->getSelected()); });
 
 	// clock
 	auto clock = std::make_shared<SwitchComponent>(mWindow);
@@ -3400,11 +3399,11 @@ void GuiMenu::openUISettings()
 
 	// hidden files
 	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
-	hidden_files->setState(Settings::getInstance()->getBool("ShowHiddenFiles"));
+	hidden_files->setState(Settings::ShowHiddenFiles());
 	s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
 	s->addSaveFunc([s, hidden_files]
 	{
-		if (Settings::getInstance()->setBool("ShowHiddenFiles", hidden_files->getState()))
+		if (Settings::setShowHiddenFiles(hidden_files->getState()))
 			s->setVariable("reloadAll", true);
 	});
 
@@ -3607,13 +3606,12 @@ void GuiMenu::openSoundSettings()
 	auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
 	sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
 	s->addWithLabel(_("ENABLE NAVIGATION SOUNDS"), sounds_enabled);
-	s->addSaveFunc([sounds_enabled] {
-	    if (sounds_enabled->getState()
-		  && !Settings::getInstance()->getBool("EnableSounds")
-		  && PowerSaver::getMode() == PowerSaver::INSTANT)
+	s->addSaveFunc([sounds_enabled] 
+	{
+	    if (sounds_enabled->getState() && !Settings::getInstance()->getBool("EnableSounds") && PowerSaver::getMode() == PowerSaver::INSTANT)
 		{
-		  Settings::getInstance()->setString("PowerSaverMode", "default");
-		  PowerSaver::init();
+			Settings::getInstance()->setPowerSaverMode("default");
+			PowerSaver::init();
 		}
 	    Settings::getInstance()->setBool("EnableSounds", sounds_enabled->getState());
 	  });

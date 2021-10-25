@@ -344,6 +344,8 @@ public:
 	
 	std::vector<std::pair<std::string, std::string>> getViewsOfTheme();
 	std::string getDefaultView() { return mDefaultView; };
+	std::string getDefaultTransition() { return mDefaultTransition; };
+	
 
 	std::string getVariable(std::string name)
 	{
@@ -362,7 +364,9 @@ private:
 
 	std::deque<std::string> mPaths;
 	float mVersion;
+	
 	std::string mDefaultView;
+	std::string mDefaultTransition;
 
 	void parseTheme(const pugi::xml_node& root);
 

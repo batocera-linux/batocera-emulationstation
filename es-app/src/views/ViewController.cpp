@@ -326,7 +326,7 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 
 	mDeferPlayViewTransitionTo = nullptr;
 
-	if (forceImmediate || Settings::getInstance()->getString("TransitionStyle") == "fade")
+	if (forceImmediate || Settings::TransitionStyle() == "fade")
 	{
 		if (mCurrentView)
 			mCurrentView->onHide();
@@ -354,8 +354,17 @@ void ViewController::playViewTransition(bool forceImmediate)
 	if(target == -mCamera.translation() && !isAnimationPlaying(0))
 		return;
 
-	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
-	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+	std::string transition_style = Settings::TransitionStyle();
+
+	// check <theme defaultTransition> value
+	if ((transition_style.empty() || transition_style == "auto") && getState().system != nullptr && getState().system->getTheme() != nullptr)
+	{
+		auto defaultTransition = getState().system->getTheme()->getDefaultTransition();
+		if (!defaultTransition.empty() && defaultTransition != "auto")
+			transition_style = defaultTransition;
+	}
+
+	if (Settings::PowerSaverMode() == "instant")
 		transition_style = "instant";
 
 	if (transition_style == "fade & slide")
@@ -537,17 +546,17 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	if (!Settings::getInstance()->getBool("HideWindow"))
 		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName());
 
-	std::string transition_style = Settings::getInstance()->getString("GameTransitionStyle");
+	std::string transition_style = Settings::GameTransitionStyle();
 	if (transition_style.empty() || transition_style == "auto")
-		transition_style = Settings::getInstance()->getString("TransitionStyle");
+		transition_style = Settings::TransitionStyle();
 	
-	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+	if (Settings::PowerSaverMode() == "instant")
 		transition_style = "instant";
 
 	if(transition_style == "auto")
 		transition_style = "slide";
 
-	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+	if (Settings::PowerSaverMode() == "instant")
 		transition_style = "instant";
 
 	if (transition_style == "fade & slide")

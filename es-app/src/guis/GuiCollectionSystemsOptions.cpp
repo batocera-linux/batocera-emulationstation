@@ -286,7 +286,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	addWithLabel(_("SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"), alsoHideGames);
 	addSaveFunc([this, alsoHideGames]
 	{
-		if (Settings::getInstance()->setBool("HiddenSystemsShowGames", alsoHideGames->getState()))
+		if (Settings::setHiddenSystemsShowGames(alsoHideGames->getState()))
 		{
 			FileData::resetSettings();
 			setVariable("reloadSystems", true);

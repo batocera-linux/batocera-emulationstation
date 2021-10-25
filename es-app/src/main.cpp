@@ -150,7 +150,7 @@ bool parseArgs(int argc, char* argv[])
 			Settings::getInstance()->setBool("IgnoreGamelist", true);
 		}else if(strcmp(argv[i], "--show-hidden-files") == 0)
 		{
-			Settings::getInstance()->setBool("ShowHiddenFiles", true);
+			Settings::setShowHiddenFiles(true);
 		}else if(strcmp(argv[i], "--draw-framerate") == 0)
 		{
 			Settings::getInstance()->setBool("DrawFramerate", true);
