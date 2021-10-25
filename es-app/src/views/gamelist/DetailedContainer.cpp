@@ -220,7 +220,7 @@ std::vector<MdComponent> DetailedContainer::getMetaComponents()
 }
 
 
-void DetailedContainer::createImageComponent(ImageComponent** pImage, bool forceLoad)
+void DetailedContainer::createImageComponent(ImageComponent** pImage, bool forceLoad, bool allowFading)
 {
 	if (*pImage != nullptr)
 		return;
@@ -230,7 +230,7 @@ void DetailedContainer::createImageComponent(ImageComponent** pImage, bool force
 
 	// Image	
 	auto image = new ImageComponent(mWindow, !Settings::AllImagesAsync() && (forceLoad || mViewType == DetailedContainerType::VideoView));
-	image->setAllowFading(false);
+	image->setAllowFading(allowFading);
 	image->setOrigin(0.5f, 0.5f);
 	image->setPosition(mSize.x() * 0.25f, mList->getPosition().y() + mSize.y() * 0.2125f);
 	image->setMaxSize(mSize.x() * (0.50f - 2 * padding), mSize.y() * 0.4f);
@@ -348,7 +348,7 @@ void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_
 	auto elem = theme->getElement(getName(), element, "image");
 	if (forceLoad || (elem && elem->properties.size() > 0))
 	{
-		createImageComponent(pImage, element == "md_fanart");
+		createImageComponent(pImage, element == "md_fanart", element == "md_fanart" && Settings::AllImagesAsync());
 		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));
 	}
 	else if ((*pImage) != nullptr)
