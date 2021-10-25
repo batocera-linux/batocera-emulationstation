@@ -55,7 +55,7 @@ void VideoComponent::setScreensaverMode(bool isScreensaver)
 
 VideoComponent::VideoComponent(Window* window) :
 	GuiComponent(window),
-	mStaticImage(window, true),
+	mStaticImage(window, !Settings::AllImagesAsync()),
 	mVideoHeight(0),
 	mVideoWidth(0),
 	mStartDelayed(false),

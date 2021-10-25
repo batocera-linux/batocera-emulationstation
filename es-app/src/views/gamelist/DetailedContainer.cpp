@@ -229,7 +229,7 @@ void DetailedContainer::createImageComponent(ImageComponent** pImage, bool force
 	auto mSize = mParent->getSize();
 
 	// Image	
-	auto image = new ImageComponent(mWindow, forceLoad || mViewType == DetailedContainerType::VideoView);
+	auto image = new ImageComponent(mWindow, !Settings::AllImagesAsync() && (forceLoad || mViewType == DetailedContainerType::VideoView));
 	image->setAllowFading(false);
 	image->setOrigin(0.5f, 0.5f);
 	image->setPosition(mSize.x() * 0.25f, mList->getPosition().y() + mSize.y() * 0.2125f);
@@ -348,7 +348,7 @@ void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_
 	auto elem = theme->getElement(getName(), element, "image");
 	if (forceLoad || (elem && elem->properties.size() > 0))
 	{
-		createImageComponent(pImage); // , element == "md_fanart");
+		createImageComponent(pImage, element == "md_fanart");
 		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));
 	}
 	else if ((*pImage) != nullptr)

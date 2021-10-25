@@ -40,6 +40,8 @@ public:
 	DEFINE_BOOL_SETTING(PreloadMedias)
 	DEFINE_BOOL_SETTING(ShowHiddenFiles)
 	DEFINE_BOOL_SETTING(HiddenSystemsShowGames)
+	DEFINE_BOOL_SETTING(AllImagesAsync)
+		
 	DEFINE_STRING_SETTING(HiddenSystems)
 	DEFINE_STRING_SETTING(TransitionStyle)
 	DEFINE_STRING_SETTING(GameTransitionStyle)		

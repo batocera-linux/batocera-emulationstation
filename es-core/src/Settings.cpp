@@ -284,6 +284,8 @@ void Settings::setDefaults()
 
 	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
 
+	mBoolMap["AllImagesAsync"] = true;
+
 #if WIN32
 	mBoolMap["updates.enabled"] = true;
 	mBoolMap["global.retroachievements"] = false;
