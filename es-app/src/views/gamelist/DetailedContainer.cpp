@@ -348,7 +348,7 @@ void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_
 	auto elem = theme->getElement(getName(), element, "image");
 	if (forceLoad || (elem && elem->properties.size() > 0))
 	{
-		createImageComponent(pImage, element == "md_fanart");
+		createImageComponent(pImage); // , element == "md_fanart");
 		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));
 	}
 	else if ((*pImage) != nullptr)
