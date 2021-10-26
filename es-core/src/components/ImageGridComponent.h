@@ -15,7 +15,7 @@
 #include <set>
 
 #define EXTRAITEMS 2
-#define ALLOWANIMATIONS (Settings::getInstance()->getString("TransitionStyle") != "instant")
+#define ALLOWANIMATIONS (Settings::TransitionStyle() != "instant")
 
 enum ScrollDirection
 {

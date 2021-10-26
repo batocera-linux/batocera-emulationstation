@@ -296,25 +296,9 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		if (!fromPlaceholder)
 		{
 			auto srcSystem = file->getSourceFileData()->getSystem();
-			auto sysOptions = !mSystem->isGameSystem() ? srcSystem : mSystem;
+			auto sysOptions = !mSystem->isGameSystem() || mSystem->isGroupSystem() ? srcSystem : mSystem;
 
 			bool showSystemOptions = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS) && (sysOptions->hasFeatures() || sysOptions->hasEmulatorSelection());
-			/*
-			bool showGameOptions = (file != nullptr && file->getType() != FOLDER);
-
-			if (showGameOptions || showSystemOptions)
-				mMenu.addGroup(_("OPTIONS"));
-
-			if (showGameOptions)
-			{
-				mMenu.addEntry(_("GAME OPTIONS"), true, [this, file] 
-				{
-					Window* window = mWindow;
-					window->pushGui(new GuiGameOptions(window, file));
-					delete this;
-				});
-			}
-			*/
 			if (showSystemOptions)
 			{
 				mMenu.addGroup(_("OPTIONS"));
@@ -334,7 +318,17 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 					});
 				}
 
-				mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
+				/* FCA : Tried to show one item by group child system -> I personnally don't like it at all
+				if (mSystem->isGroupSystem())
+				{
+					for (auto child : SystemData::sSystemVector)
+					{
+						if (child->getParentGroupSystem() == mSystem)
+							mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS") + " : " + child->getFullName(), true, [this, child] { GuiMenu::popSystemConfigurationGui(mWindow, child); });
+					}
+				}
+				else*/
+					mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
 			}
 		}
 	}
