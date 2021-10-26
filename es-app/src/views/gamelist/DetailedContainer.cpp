@@ -657,8 +657,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 				snapShot = file->getMetadata(MetaDataId::Cartridge);
 			else if (src == MIX && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Mix)))
 				snapShot = file->getMetadata(MetaDataId::Mix);
-
-			mVideo->setImage(snapShot);
+			
+			mVideo->setImage(snapShot, false, mVideo->getMaxSizeInfo());
 		}
 
 		if (mThumbnail != nullptr)
