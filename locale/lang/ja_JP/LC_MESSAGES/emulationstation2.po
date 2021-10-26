@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2021/10/25)\n"
+"Project-Id-Version: batocera-es v33beta(2021/10/26)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 20:12+0200\n"
-"PO-Revision-Date: 2021-10-25 14:05+0900\n"
+"POT-Creation-Date: 2021-10-26 20:11+0200\n"
+"PO-Revision-Date: 2021-10-26 17:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -310,19 +310,19 @@ msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH 検出中"
 
 msgid "Searching for devices..."
-msgstr ""
+msgstr "機器を検出中..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr ""
+msgstr "BLUETOOTH は既にスキャン実行中です。"
 
 msgid "FORMATTING DEVICE"
-msgstr ""
+msgstr "デバイスのフォーマット"
 
 msgid "Formatting"
-msgstr ""
+msgstr "フォーマット"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr "操作を完了するには再起動が必要です"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "ドライブのフォーマットはすでに実行中です。"
@@ -618,10 +618,10 @@ msgid "INPUT MANUALLY"
 msgstr "手動 入力"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr ""
+msgstr "WI-FI ネットワークが見つかりません"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr ""
+msgstr "WIFIネットワークの検索"
 
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "BLUETOOTH デバイスを削除"
@@ -673,13 +673,13 @@ msgstr "更新"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' がダウンロード キューに追加されました"
+msgstr "'%s' をダウンロード キューに追加しました"
 
 msgid "REMOVE"
 msgstr "削除"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr ""
+msgstr "アンインストールをキューに追加しました"
 
 msgid "INSTALL"
 msgstr "インストール"
@@ -929,7 +929,7 @@ msgid "GAME"
 msgstr "ゲーム"
 
 msgid "SAVE STATES"
-msgstr "ステートセーブ"
+msgstr "セーブマネージャ"
 
 msgid "OPEN"
 msgstr "開く"
@@ -1023,7 +1023,7 @@ msgid "Unlocked on"
 msgstr "ロック解除"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr ""
+msgstr "このゲームにはまだ実績がありません"
 
 msgid "Achievements won"
 msgstr "達成実績"
@@ -1051,19 +1051,19 @@ msgid "COPY TO FREE SLOT"
 msgstr "空スロットにコピー"
 
 msgid "SCRAPE CRITERIA"
-msgstr ""
+msgstr "スクレイプ 方法"
 
 msgid "MEDIA TO SCRAPE FOR"
-msgstr ""
+msgstr "スクレイプするメディア "
 
 msgid "ALL"
-msgstr ""
+msgstr "全て"
 
 msgid "ONLY MISSING"
-msgstr ""
+msgstr "不足している部分のみ"
 
 msgid "SYSTEMS INCLUDED"
-msgstr ""
+msgstr "含むシステムを選択"
 
 msgid "START SCRAPING"
 msgstr "開始"
@@ -1216,7 +1216,7 @@ msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "スクレイプが実行されています。中止しますか?"
 
 msgid "NEXT"
-msgstr ""
+msgstr "選択へ"
 
 msgid "SCRAPING DATABASE"
 msgstr "スクレイプデータベース"
@@ -1285,7 +1285,7 @@ msgid "PASSWORD"
 msgstr "パスワード"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr ""
+msgstr "ボタン設定してもよろしいですか？"
 
 msgid "CHOOSE"
 msgstr "移動選択"
@@ -1343,7 +1343,7 @@ msgid "Allow public web access API using %s"
 msgstr "%s を使用しパブリックWebアクセスAPIを許可"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
+msgstr "新しい構成を適用するには、再起動が必要です"
 
 msgid "LOG LEVEL"
 msgstr "ログレベル"
@@ -1420,7 +1420,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr ""
+msgstr "ゲーム開始時の画像、ゲーム名を非表示"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
@@ -1692,7 +1692,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
+msgstr "RETROACHIEVEMENTサウンドのロック解除"
 
 msgid "UNLOCK SOUND"
 msgstr "サウンドのロック解除"
@@ -1746,13 +1746,13 @@ msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "ステートセーブ読み込み(起動時)"
+msgstr "ステートセーブ読込(起動時)"
 
 msgid "SHOW SAVE STATES"
-msgstr "ステートセーブを表示"
+msgstr "ステートセーブ表示"
 
 msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "セーブがある場合メニューを表示"
+msgstr "セーブがあれば表示"
 
 msgid "SHADER SET"
 msgstr "シェーダー設定"
@@ -1761,7 +1761,7 @@ msgid "DECORATIONS"
 msgstr "ベゼル装飾(ゲーム画面外表示)"
 
 msgid "DECORATION SET"
-msgstr "ベゼル装飾設定"
+msgstr "ベゼル選択"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "画面に合わせる(4K＆ウルトラワイド)"
@@ -1776,7 +1776,7 @@ msgid "CUSTOM .PNG IMAGE"
 msgstr "カスタムPNG画像"
 
 msgid "OVERLAY CORNER"
-msgstr "角にオーバーレイを表示"
+msgstr "オーバーレイの表示位置"
 
 msgid "NORTH WEST"
 msgstr "左上"
@@ -1812,13 +1812,13 @@ msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
+msgstr "ゲームのハッシュ化が実行されています。 中止しますか？"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "ゲームリストを更新しますか？"
 
 msgid "CONTROLLER MAPPING"
-msgstr ""
+msgstr "ボタン設定"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
@@ -1827,6 +1827,11 @@ msgid ""
 "BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
+"コントローラーのボタン設定を行います。 物理的なものではなく、スーファミコント"
+"ローラー上の 同等のボタンに対するボタンの位置に基づいて設定します。 ホット"
+"キー用の特別なボタンがない場合は、 セレクトボタンを 使用してください。ボタン"
+"を長押しで、  割り当てられないボタン/スティックをスキップします。 完了した"
+"ら、下（決定）ボタンを押して確認します。"
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "BLUETOOTH デバイスのペアリング"
@@ -2625,88 +2630,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "Searching controllers..."
-#~ msgstr "コントローラーを検索..."
-
-#~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-#~ msgstr "BLUETOOTH は既にスキャン実行中です。"
-
-#~ msgid "FORMATING DEVICE"
-#~ msgstr "デバイスのフォーマット"
-
-#~ msgid "Formating"
-#~ msgstr "フォーマット"
-
-#~ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO COMPLETE THE OPERATION"
-#~ msgstr "操作を完了するには、システムの再起動が必要です"
-
-#~ msgid "NO WIFI NETWORKS FOUND"
-#~ msgstr "WIFI ネットワークが見つかりません"
-
-#~ msgid "SEARCHING WIFI NETWORKS"
-#~ msgstr "WIFIネットワークの検索"
-
-#~ msgid "UNINSTALL ADDED TO QUEUE"
-#~ msgstr "追加したキューをアンインストール"
-
-#~ msgid "MANUALLY SCRAPE METADATA"
-#~ msgstr "メタ情報を手動でスクレイプ"
-
-#~ msgid "THIS GAME HAS NO ACHIEVEMENT YET"
-#~ msgstr "このゲームにはまだ実績がありません"
-
-#~ msgid "SCRAPING FILTERS"
-#~ msgstr "スクレイプ 設定"
-
-#~ msgid "SCRAPE SELECTION"
-#~ msgstr "スクレイプ 方法"
-
-#~ msgid "All Games"
-#~ msgstr "全てのゲーム"
-
-#~ msgid "Only missing media"
-#~ msgstr "不足しているメディアのみ"
-
-#~ msgid "SCRAPE SYSTEM SELECTION"
-#~ msgstr "スクレイプするシステムを選択"
-
-#~ msgid "SCRAPE NOW/FILTERS"
-#~ msgstr "開始/設定"
-
-#~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-#~ msgstr "ボタン設定を行いますか？"
-
-#~ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-#~ msgstr "新しい構成を適用するには、システムの再起動が必要です"
-
-#~ msgid "BLANK BACKGROUND DURING GAME LAUNCH TRANSITION"
-#~ msgstr "ゲーム開始時の画像、ゲーム名を非表示"
-
-#~ msgid "RETROACHIEVEMENTS UNLOCK SOUND"
-#~ msgstr "RETROACHIEVEMENTSサウンドのロック解除"
-
-#~ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-#~ msgstr "ゲームのハッシュ化が実行されています。 中止しますか？"
-
-#~ msgid "REMAP A CONTROLLER"
-#~ msgstr "ボタン設定"
-
-#~ msgid ""
-#~ "YOU ARE GOING TO REMAP A CONTROLLER. REMAP BASED ON THE BUTTON'S POSITION "
-#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING A KEY. PRESS THE SOUTH "
-#~ "BUTTON TO CONFIRM WHEN DONE."
-#~ msgstr ""
-#~ "コントローラーのボタン設定を行います。 物理的なものではなく、スーファミコ"
-#~ "ントローラー上の 同等のボタンに対するボタンの位置に基づいて設定します。 "
-#~ "ホットキー用の特別なボタンがない場合は、 セレクトボタンを 使用してくださ"
-#~ "い。ボタンを長押しで、  割り当てられないボタン/スティックをスキップしま"
-#~ "す。 完了したら、下（決定）ボタンを押して確認します。"
-
-#~ msgid "REALLY UPDATE GAME LISTS?"
-#~ msgstr "ゲームリストを更新しますか？"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"
