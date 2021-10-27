@@ -238,7 +238,7 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 		path += "&romtype=rom";
 
 		std::string fileNameToHash = params.game->getFullPath();
-		size_t length = Utils::FileSystem::getFileSize(fileNameToHash);
+		auto length = Utils::FileSystem::getFileSize(fileNameToHash);
 
 		if (length > 1024 * 1024 && !params.game->getMetadata(MetaDataId::Md5).empty()) // 1Mb
 			path += "&md5=" + params.game->getMetadata(MetaDataId::Md5);
