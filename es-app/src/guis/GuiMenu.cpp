@@ -2557,6 +2557,12 @@ void GuiMenu::openGamesSettings_batocera()
 	s->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
 
+	// Integer scale overscale
+	auto integerscaleoverscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (OVERSCALE)"));
+	integerscaleoverscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscaleoverscale"));
+	s->addWithLabel(_("INTEGER SCALING (OVERSCALE)"), integerscaleoverscale_enabled);
+	s->addSaveFunc([integerscaleoverscale_enabled] { SystemConf::getInstance()->set("global.integerscaleoverscale", integerscaleoverscale_enabled->getSelected()); });
+
 	// autosave/load
 	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD ON GAME LAUNCH"));
 	autosave_enabled->addRange({ { _("OFF"), "auto" },{ _("ON") , "1" },{ _("SHOW SAVE STATES") , "2" },{ _("SHOW SAVE STATES IF NOT EMPTY") , "3" } }, SystemConf::getInstance()->get("global.autosave"));
@@ -4668,6 +4674,11 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".integerscale"));
 		systemConfiguration->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 		systemConfiguration->addSaveFunc([integerscale_enabled, configName] { SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected()); });
+		
+        auto integerscaleoverscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (OVERSCALE)"));
+		integerscaleoverscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".integerscaleoverscale"));
+		systemConfiguration->addWithLabel(_("INTEGER SCALING (OVERSCALE)"), integerscaleoverscale_enabled);
+		systemConfiguration->addSaveFunc([integerscaleoverscale_enabled, configName] { SystemConf::getInstance()->set(configName + ".integerscaleoverscale", integerscaleoverscale_enabled->getSelected()); });
 	}
 #ifdef _ENABLEEMUELEC
 	// bezel
