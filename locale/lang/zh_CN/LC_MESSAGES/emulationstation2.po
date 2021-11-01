@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:29+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,14 +16,14 @@ msgstr "发现可用更新"
 msgid "Name"
 msgstr "游戏名"
 
-msgid "enter game name"
-msgstr "输入游戏名称"
+msgid "this game's name"
+msgstr ""
 
 msgid "Description"
 msgstr "游戏描述"
 
-msgid "enter description"
-msgstr "输入游戏描述"
+msgid "this game's description"
+msgstr ""
 
 msgid "Emulator"
 msgstr "模拟器"
@@ -136,14 +136,14 @@ msgstr "输入发行日期"
 msgid "Developer"
 msgstr "开发者"
 
-msgid "enter game developer"
-msgstr "输入游戏开发者"
+msgid "this game's developer"
+msgstr ""
 
 msgid "Publisher"
 msgstr "发行商"
 
-msgid "enter game publisher"
-msgstr "输入游戏发行商"
+msgid "this game's publisher"
+msgstr ""
 
 msgid "Genre"
 msgstr "游戏类型"
@@ -154,7 +154,7 @@ msgstr "输入游戏类型"
 msgid "Game family"
 msgstr ""
 
-msgid "enter game family"
+msgid "this game's game family"
 msgstr ""
 
 msgid "Genres"
@@ -166,14 +166,14 @@ msgstr ""
 msgid "Arcade system"
 msgstr "游戏系统"
 
-msgid "enter game arcade system"
-msgstr "输入游戏系统"
+msgid "this game's arcade system"
+msgstr ""
 
 msgid "Players"
 msgstr "游玩人数"
 
-msgid "enter number of players"
-msgstr "输入游玩人数"
+msgid "this game's number of players"
+msgstr ""
 
 msgid "Favorite"
 msgstr "收藏"
@@ -226,8 +226,14 @@ msgstr "游戏总共玩了多长时间（秒）"
 msgid "Languages"
 msgstr "语言"
 
+msgid "this game's languages"
+msgstr ""
+
 msgid "Region"
 msgstr "区域"
+
+msgid "this game's region"
+msgstr ""
 
 msgid "Cheevos Hash"
 msgstr ""
@@ -298,9 +304,9 @@ msgid "Various"
 msgstr "多开发商"
 
 #, c-format
-msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] "当前合辑总计有%i个游戏，包括：%s"
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] ""
 
 msgid "SCANNING BLUETOOTH"
 msgstr "正在扫描蓝牙设备"
@@ -311,17 +317,17 @@ msgstr "正在搜索控制器..."
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "蓝牙扫描已在运行。"
 
-msgid "FORMATING DEVICE"
-msgstr "格式化设备"
+msgid "FORMATTING DEVICE"
+msgstr ""
 
-msgid "Formating"
-msgstr "格式化"
+msgid "Formatting"
+msgstr ""
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "需要重新启动系统才能完成操作"
 
-msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "驱动器格式已在运行。"
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr ""
 
 msgid "DOWNLOADING"
 msgstr "下载中"
@@ -446,8 +452,8 @@ msgstr "在合辑中显示系统名称"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr ""
 
-msgid "UPDATE GAME LISTS"
-msgstr "更新游戏列表"
+msgid "UPDATE GAMELISTS"
+msgstr ""
 
 msgid "FINISH EDITING COLLECTION"
 msgstr "完成游戏合辑编辑"
@@ -513,7 +519,7 @@ msgstr "返回"
 msgid "NAVIGATION"
 msgstr "导航"
 
-msgid "JUMP TO..."
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
 msgstr "跳转到..."
 
 msgid "SORT GAMES BY"
@@ -558,7 +564,7 @@ msgstr "自动"
 msgid "VIEW OPTIONS"
 msgstr "视图选项"
 
-msgid "VIEW CUSTOMISATION"
+msgid "VIEW CUSTOMIZATION"
 msgstr "视图自定义"
 
 msgid "COLLECTION MANAGEMENT"
@@ -597,8 +603,8 @@ msgstr "重置筛选"
 msgid "FILTER GAMES BY TEXT"
 msgstr "用文本筛选游戏"
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr "这项功能在抓取进行时禁用"
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr ""
 
 msgid "CLOSE"
 msgstr "关闭"
@@ -618,8 +624,8 @@ msgstr "取消"
 msgid "CONNECT TO NETPLAY"
 msgstr "联网游戏"
 
-msgid "Select the game you want to join"
-msgstr "选择参加一个游戏"
+msgid "Select a game lobby to join"
+msgstr ""
 
 msgid "REFRESH"
 msgstr "刷新"
@@ -645,8 +651,8 @@ msgstr "可运行的游戏"
 msgid "UNAVAILABLE GAMES"
 msgstr "无法运行的游戏"
 
-msgid "NO GAME FOUND"
-msgstr "未发现游戏"
+msgid "NO GAMES FOUND"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "加入游戏"
@@ -654,8 +660,8 @@ msgstr "加入游戏"
 msgid "WATCH GAME"
 msgstr "观看游戏"
 
-msgid "MANUAL INPUT"
-msgstr "手动输入"
+msgid "INPUT MANUALLY"
+msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "未发现可用的WIFI网络"
@@ -696,8 +702,8 @@ msgstr "增加组合键"
 msgid "CONTENT DOWNLOADER"
 msgstr "下载内容"
 
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "选择内容以便安装 / 卸载"
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr ""
@@ -718,8 +724,8 @@ msgstr "将 '%s' 添加到下载队列"
 msgid "REMOVE"
 msgstr "卸载"
 
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "添加卸载到队伍"
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "安装"
@@ -728,11 +734,14 @@ msgstr "安装"
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "当前下载排队"
 
-msgid "NO MISSING BIOS"
-msgstr "未缺失的BIOS"
+msgid "NO MISSING BIOS FILES"
+msgstr ""
 
 msgid "MISSING BIOS CHECK"
 msgstr "缺失的BIOS"
+
+msgid "NO MISSING BIOS"
+msgstr "未缺失的BIOS"
 
 msgid "dim"
 msgstr "暗灰"
@@ -782,8 +791,8 @@ msgstr "录屏时停止音乐"
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "屏保-随机视频设置"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "视频替换 (SECS)"
+msgid "VIDEO DURATION (SECS)"
+msgstr ""
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "屏保使用 OMX 播放器"
@@ -791,17 +800,14 @@ msgstr "屏保使用 OMX 播放器"
 msgid "SHOW GAME INFO"
 msgstr "显示游戏信息"
 
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "屏保显示游戏信息"
-
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用悬浮蒙版图片作为游戏信息"
 
-msgid "DECORATIONS"
-msgstr "装饰框"
+msgid "DECORATION SET USED"
+msgstr ""
 
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "屏保拉伸显示"
+msgid "STRETCH VIDEOS"
+msgstr ""
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "视频静音"
@@ -815,11 +821,11 @@ msgstr "使用自定视频"
 msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "自定视频路径"
 
-msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
-msgstr "自定义视频目录递归"
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM VIDEO FILTER"
-msgstr "自定义视频过滤器"
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "屏保-幻灯片设置"
@@ -836,11 +842,11 @@ msgstr "使用自定图像"
 msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "自定图像目录"
 
-msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
-msgstr "递归自定图像目录"
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM IMAGE FILTER"
-msgstr "自定图像筛选"
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr ""
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "pad到键盘自动以"
@@ -930,31 +936,43 @@ msgstr "需要联网"
 msgid "INVALID PARAMETERS"
 msgstr "参数无效"
 
+msgid "GAME MEDIA"
+msgstr ""
+
 msgid "VIEW GAME MAGAZINE"
 msgstr ""
 
 msgid "VIEW FULLSCREEN VIDEO"
 msgstr ""
 
-msgid "VIEW GAME MEDIAS"
+msgid "VIEW GAME MEDIA"
+msgstr ""
+
+msgid "COMPATIBLE CORE(S)"
+msgstr ""
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr ""
 
 msgid "GAME"
 msgstr ""
 
-msgid "SAVE SNAPSHOTS"
+msgid "SAVE STATES"
 msgstr ""
 
 msgid "OPEN"
 msgstr ""
 
-msgid "START NETPLAY HOST"
+msgid "NETPLAY HOSTING/OPTIONS"
 msgstr ""
 
 msgid "NETPLAY"
 msgstr "联网游戏"
 
 msgid "START GAME"
+msgstr ""
+
+msgid "BEGIN HOSTING A NETPLAY SESSION"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -1005,8 +1023,8 @@ msgstr "抓取元数据"
 msgid "THEMES DOWNLOADER"
 msgstr "主题下载"
 
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "选择主题安装 / 卸载"
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr ""
 
 #, c-format
 msgid "CURRENT THEME"
@@ -1025,6 +1043,9 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "SAVE STATE MANAGER"
+msgstr ""
+
 msgid "START NEW GAME"
 msgstr ""
 
@@ -1040,35 +1061,29 @@ msgstr ""
 msgid "COPY TO FREE SLOT"
 msgstr ""
 
-msgid "SCRAPE NOW"
-msgstr "开始抓取"
+msgid "SCRAPE CRITERIA"
+msgstr ""
 
-msgid "SCRAPE THESE GAMES"
-msgstr "抓取游戏元数据"
+msgid "MEDIA TO SCRAPE FOR"
+msgstr ""
 
-msgid "All Games"
-msgstr "全部游戏"
+msgid "ALL"
+msgstr ""
 
-msgid "Only missing medias"
-msgstr "仅抓取缺少的部分"
+msgid "ONLY MISSING"
+msgstr ""
 
-msgid "FILTER"
-msgstr "筛选"
+msgid "SYSTEMS INCLUDED"
+msgstr ""
 
-msgid "SCRAPE THESE SYSTEMS"
-msgstr "选择要抓取的游戏平台"
-
-msgid "START"
-msgstr "开始"
+msgid "START SCRAPING"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"警告: 你的选择中有未进行平台设置的的游戏平台。\n"
-" 抓取结果可能不准确! \n"
-"是否继续抓取?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "抓取进行中"
@@ -1079,8 +1094,8 @@ msgstr "没有匹配的游戏。"
 msgid "THE BEZEL PROJECT"
 msgstr "框架项目"
 
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "选择BEZELS安装 / 卸载"
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "淡出"
@@ -1169,8 +1184,8 @@ msgstr "主菜单"
 msgid "KODI MEDIA CENTER"
 msgstr "KODI 媒体中心"
 
-msgid "GAMES SETTINGS"
-msgstr "游戏设置"
+msgid "GAME SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI 设置"
@@ -1187,14 +1202,17 @@ msgstr "配置控制器"
 msgid "EMULATOR SETTINGS"
 msgstr "模拟器设置"
 
+msgid "SCRAPER"
+msgstr "抓取元数据"
+
 msgid "UPDATES & DOWNLOADS"
 msgstr "更新文件和下载文件"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
 
-msgid "INFORMATIONS"
-msgstr "信息"
+msgid "INFORMATION"
+msgstr "系统信息"
 
 msgid "UNLOCK UI MODE"
 msgstr "界面不锁定"
@@ -1202,11 +1220,14 @@ msgstr "界面不锁定"
 msgid "QUIT"
 msgstr "退出"
 
-msgid "SCRAPER"
-msgstr "抓取元数据"
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
-msgid "SCRAPE FROM"
-msgstr "游戏数据来源"
+msgid "NEXT"
+msgstr ""
+
+msgid "SCRAPING DATABASE"
+msgstr ""
 
 msgid "IMAGE SOURCE"
 msgstr "图片数据"
@@ -1271,20 +1292,17 @@ msgstr "用户名"
 msgid "PASSWORD"
 msgstr "密码"
 
-msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr "你确定需要设置控制器吗"
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "浏览"
 
-msgid "UI MODE IS NOW UNLOCKED"
-msgstr "界面现在未锁定"
+msgid "THE UI MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "请输入代码来解锁当前界面模式"
-
-msgid "INFORMATION"
-msgstr "系统信息"
+msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "USER DISK USAGE"
 msgstr "用户磁盘使用"
@@ -1316,7 +1334,7 @@ msgstr "垂直同步"
 msgid "OVERSCAN"
 msgstr "过扫描"
 
-msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
 
 msgid "TOOLS"
@@ -1344,11 +1362,11 @@ msgstr "创建支持文件"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "是否创建支持文件?"
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "文件生成成功"
+msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgstr ""
 
-msgid "FILE GENERATION FAILED"
-msgstr "文件生成失败"
+msgid "SUPPORT FILE GENERATION FAILED"
+msgstr ""
 
 msgid "FORMAT A DISK"
 msgstr "格式化磁盘"
@@ -1407,8 +1425,8 @@ msgstr "快速系统选择"
 msgid "ON-SCREEN KEYBOARD"
 msgstr "虚拟键盘"
 
-msgid "HIDE WHEN RUNNING A GAME"
-msgstr "运行游戏时隐藏"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr "完成并推出"
@@ -1484,16 +1502,16 @@ msgstr "确认更新"
 msgid "START UPDATE"
 msgstr "开始更新"
 
-msgid "UPDATE IS ALREADY RUNNING"
-msgstr "正在更新中"
+msgid "UPDATER IS ALREADY RUNNING"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "语言"
 
-msgid "SELECT YOUR TIMEZONE"
+msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
-msgid "TIMEZONE"
+msgid "TIME ZONE"
 msgstr ""
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
@@ -1502,7 +1520,7 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr "省电模式"
 
-msgid "TEXT TO SPEECH"
+msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
 msgid "UI MODE"
@@ -1510,12 +1528,9 @@ msgstr "UI模式"
 
 msgid ""
 "You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
+"This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"您即将使用受限模式:\n"
-"此模式为防止系统遭修改，将隐藏部分选项和菜单。\n"
-"如果需要返回完整模式，请按顺序输入以下按键："
 
 msgid "Do you want to proceed?"
 msgstr "是否继续?"
@@ -1547,26 +1562,35 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr ""
 
-msgid "LEFT ROTATION"
+msgid "0 DEGREES (AUTO)"
 msgstr ""
 
-msgid "RIGHT ROTATION"
+msgid "90 DEGREES"
 msgstr ""
 
-msgid "INVERTED ROTATION"
+msgid "180 DEGREES"
+msgstr ""
+
+msgid "270 DEGREES"
 msgstr ""
 
 msgid "BOOT SPLASH"
 msgstr ""
 
-msgid "SILENT SPLASH"
+msgid "DEFAULT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "DEFAULT"
+msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RetroArch成就设置"
+msgid "BATOCERA SPLASH IMAGE"
+msgstr ""
+
+msgid "SPLASH SETTING"
+msgstr ""
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
 
 msgid "NETPLAY SETTINGS"
 msgstr "联网游戏设置"
@@ -1670,14 +1694,14 @@ msgstr "详细模式"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
-msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
 
-msgid "SHOW IN MAIN MENU"
-msgstr "在主菜单中显示"
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "游戏索引"
@@ -1688,7 +1712,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :\r\n"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1703,20 +1727,20 @@ msgstr "端口"
 msgid "USE RELAY SERVER"
 msgstr "使用中继服务"
 
-msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr "启动时检查丢失的索引"
+msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
+msgstr ""
 
-msgid "DEFAULT SETTINGS"
-msgstr "默认设置"
+msgid "DEFAULT GLOBAL SETTINGS"
+msgstr ""
 
-msgid "GAME RATIO"
-msgstr "游戏显示比例"
+msgid "GAME ASPECT RATIO"
+msgstr ""
 
 msgid "VIDEO MODE"
 msgstr "视频模式"
 
-msgid "SMOOTH GAMES"
-msgstr "图像平滑处理"
+msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+msgstr ""
 
 msgid "REWIND"
 msgstr "倒带功能"
@@ -1727,32 +1751,62 @@ msgstr "整数缩放 (像素完美显示)"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "自动保存/加载"
 
-msgid "SHOW SAVE SNAPSHOTS"
+msgid "SHOW SAVE STATES"
 msgstr ""
 
-msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr ""
 
 msgid "SHADER SET"
 msgstr "着色器设置"
 
-msgid "DECORATION"
+msgid "DECORATIONS"
 msgstr "装饰框"
+
+msgid "DECORATION SET"
+msgstr ""
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "弹性挡板（4K和超宽）"
 
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr ""
+
+msgid "SYSTEM CONTROLLERS"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr ""
+
+msgid "OVERLAY CORNER"
+msgstr ""
+
+msgid "NORTH WEST"
+msgstr ""
+
+msgid "NORTH EAST"
+msgstr ""
+
+msgid "SOUTH EAST"
+msgstr ""
+
+msgid "SOUTH WEST"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE PATH"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "AI游戏翻译"
 
-msgid "ENABLE AI SERVICE"
-msgstr "启用AI翻译服务"
+msgid "ENABLE AI TRANSLATION SERVICE"
+msgstr ""
 
 msgid "TARGET LANGUAGE"
 msgstr "目标语言"
 
-msgid "SERVICE URL"
-msgstr "服务URL"
+msgid "AI TRANSLATION SERVICE URL"
+msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻译时暂停"
@@ -1763,32 +1817,26 @@ msgstr "按系统配置"
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "正在效验游戏.你想停止吗?"
 
-msgid "REALLY UPDATE GAME LISTS?"
-msgstr "是否更新游戏列表?"
+msgid "REALLY UPDATE GAMELISTS?"
+msgstr ""
 
-msgid "REMAP A CONTROLLER"
-msgstr "配置控制器"
+msgid "CONTROLLER MAPPING"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
-"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
-"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
-"SNES CONTROLLER."
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
+"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
+"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
+"CONFIRM WHEN DONE."
 msgstr ""
-"您即将开始控制器配置。\n"
-"如果您的控制器只有一个类比摇杆\n"
-"请在设置完方向键后，按住任意键跳过类比摇杆设置。\n"
-"如果您的控制器没有多余的按键可配置为 \"热键\" 按钮，\n"
-"请使用 \"选择\" 按钮的按键同时作为 \"热键\"。\n"
-"长按任意键可跳过设置。按钮名称基于SNES控制器。"
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 #, c-format
-msgid "INPUT P%i"
-msgstr "%i号玩家"
+msgid "P%i'S CONTROLLER"
+msgstr ""
 
 msgid "default"
 msgstr "默认"
@@ -1799,8 +1847,8 @@ msgstr "显示控制器活动"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr "在编辑配置之前必须应用主题"
+msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
+msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr "主题配置"
@@ -1865,11 +1913,11 @@ msgstr "在列表中显示文件名"
 msgid "FILE EXTENSIONS"
 msgstr "文件扩展名"
 
-msgid "RESET CUSTOMISATIONS"
+msgid "RESET CUSTOMIZATIONS"
 msgstr ""
 
-msgid "APPEARENCE"
-msgstr "外观"
+msgid "APPEARANCE"
+msgstr ""
 
 msgid "THEME SET"
 msgstr "主题设置"
@@ -2080,10 +2128,13 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
 
-msgid "ZOOM-"
+msgid "START"
+msgstr "开始"
+
+msgid "ZOOM OUT"
 msgstr ""
 
-msgid "ZOOM+"
+msgid "ZOOM IN"
 msgstr ""
 
 msgid "MOVE"
@@ -2138,13 +2189,15 @@ msgid "FILES"
 msgstr "文件"
 
 msgid ""
-"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 
 msgid ""
-"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 
 msgid "Preloading UI"
@@ -2319,7 +2372,7 @@ msgstr ""
 msgid "INDEXING COMPLETED"
 msgstr ""
 
-msgid "UPDATE GAME LISTS TO APPLY CHANGES."
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr ""
 
 msgid "GENRE"
@@ -2331,8 +2384,8 @@ msgstr ""
 msgid "PLAYERS"
 msgstr "玩家数"
 
-msgid "PUBLISHER / DEVELOPER"
-msgstr "发布者/开发者"
+msgid "PUBLISHER/DEVELOPER"
+msgstr ""
 
 msgid "RATING"
 msgstr "评分"
@@ -2443,9 +2496,14 @@ msgid "-NOT DEFINED-"
 msgstr "-未定义-"
 
 msgid ""
-"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
-"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+
+msgid "SET SELECT AS HOTKEY"
+msgstr ""
+
+msgid "DO NOT ASSIGN HOTKEY"
 msgstr ""
 
 #, c-format
@@ -2549,11 +2607,221 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
-msgid "TEXT TO SPEECH ENABLED"
+msgid "SCREEN READER ENABLED"
 msgstr ""
 
-msgid "TEXT TO SPEECH DISABLED"
+msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "All Games"
+#~ msgstr "全部游戏"
+
+#~ msgid "REMAP A CONTROLLER"
+#~ msgstr "配置控制器"
+
+#~ msgid "enter game name"
+#~ msgstr "输入游戏名称"
+
+#~ msgid "enter description"
+#~ msgstr "输入游戏描述"
+
+#~ msgid "enter game developer"
+#~ msgstr "输入游戏开发者"
+
+#~ msgid "enter game publisher"
+#~ msgstr "输入游戏发行商"
+
+#~ msgid "enter game arcade system"
+#~ msgstr "输入游戏系统"
+
+#~ msgid "enter number of players"
+#~ msgstr "输入游玩人数"
+
+#~ msgid "This collection contains %i game, including :%s"
+#~ msgid_plural "This collection contains %i games, including :%s"
+#~ msgstr[0] "当前合辑总计有%i个游戏，包括：%s"
+
+#~ msgid "FORMATING DEVICE"
+#~ msgstr "格式化设备"
+
+#~ msgid "Formating"
+#~ msgstr "格式化"
+
+#~ msgid "DRIVE FORMAT IS ALREADY RUNNING."
+#~ msgstr "驱动器格式已在运行。"
+
+#~ msgid "UPDATE GAME LISTS"
+#~ msgstr "更新游戏列表"
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "跳转到字母"
+
+#~ msgid "VIEW CUSTOMISATION"
+#~ msgstr "视图自定义"
+
+#~ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+#~ msgstr "这项功能在抓取进行时禁用"
+
+#~ msgid "Select the game you want to join"
+#~ msgstr "选择参加一个游戏"
+
+#~ msgid "NO GAME FOUND"
+#~ msgstr "未发现游戏"
+
+#~ msgid "MANUAL INPUT"
+#~ msgstr "手动输入"
+
+#~ msgid "SELECT CONTENT TO INSTALL / REMOVE"
+#~ msgstr "选择内容以便安装 / 卸载"
+
+#~ msgid "UNINSTALL ADDED TO QUEUE"
+#~ msgstr "添加卸载到队伍"
+
+#~ msgid "SWAP VIDEO AFTER (SECS)"
+#~ msgstr "视频替换 (SECS)"
+
+#~ msgid "SHOW GAME INFO ON SCREENSAVER"
+#~ msgstr "屏保显示游戏信息"
+
+#~ msgid "STRETCH VIDEO ON SCREENSAVER"
+#~ msgstr "屏保拉伸显示"
+
+#~ msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
+#~ msgstr "自定义视频目录递归"
+
+#~ msgid "CUSTOM VIDEO FILTER"
+#~ msgstr "自定义视频过滤器"
+
+#~ msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
+#~ msgstr "递归自定图像目录"
+
+#~ msgid "CUSTOM IMAGE FILTER"
+#~ msgstr "自定图像筛选"
+
+#~ msgid "SELECT THEMES TO INSTALL / REMOVE"
+#~ msgstr "选择主题安装 / 卸载"
+
+#~ msgid "SCRAPE NOW"
+#~ msgstr "开始抓取"
+
+#~ msgid "SCRAPE THESE GAMES"
+#~ msgstr "抓取游戏元数据"
+
+#~ msgid "Only missing medias"
+#~ msgstr "仅抓取缺少的部分"
+
+#~ msgid "FILTER"
+#~ msgstr "筛选"
+
+#~ msgid "SCRAPE THESE SYSTEMS"
+#~ msgstr "选择要抓取的游戏平台"
+
+#~ msgid ""
+#~ "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. "
+#~ "RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+#~ "CONTINUE ANYWAY?"
+#~ msgstr ""
+#~ "警告: 你的选择中有未进行平台设置的的游戏平台。\n"
+#~ " 抓取结果可能不准确! \n"
+#~ "是否继续抓取?"
+
+#~ msgid "SELECT BEZELS TO INSTALL / REMOVE"
+#~ msgstr "选择BEZELS安装 / 卸载"
+
+#~ msgid "GAMES SETTINGS"
+#~ msgstr "游戏设置"
+
+#~ msgid "INFORMATIONS"
+#~ msgstr "信息"
+
+#~ msgid "SCRAPE FROM"
+#~ msgstr "游戏数据来源"
+
+#~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+#~ msgstr "你确定需要设置控制器吗"
+
+#~ msgid "UI MODE IS NOW UNLOCKED"
+#~ msgstr "界面现在未锁定"
+
+#~ msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "请输入代码来解锁当前界面模式"
+
+#~ msgid "FILE GENERATED SUCCESSFULLY"
+#~ msgstr "文件生成成功"
+
+#~ msgid "FILE GENERATION FAILED"
+#~ msgstr "文件生成失败"
+
+#~ msgid "HIDE WHEN RUNNING A GAME"
+#~ msgstr "运行游戏时隐藏"
+
+#~ msgid "UPDATE IS ALREADY RUNNING"
+#~ msgstr "正在更新中"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu-options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "您即将使用受限模式:\n"
+#~ "此模式为防止系统遭修改，将隐藏部分选项和菜单。\n"
+#~ "如果需要返回完整模式，请按顺序输入以下按键："
+
+#~ msgid "RETROACHIEVEMENTS SETTINGS"
+#~ msgstr "RetroArch成就设置"
+
+#~ msgid "SHOW IN MAIN MENU"
+#~ msgstr "在主菜单中显示"
+
+#~ msgid "CHECK MISSING INDEXES AT STARTUP"
+#~ msgstr "启动时检查丢失的索引"
+
+#~ msgid "DEFAULT SETTINGS"
+#~ msgstr "默认设置"
+
+#~ msgid "GAME RATIO"
+#~ msgstr "游戏显示比例"
+
+#~ msgid "SMOOTH GAMES"
+#~ msgstr "图像平滑处理"
+
+#~ msgid "DECORATION"
+#~ msgstr "装饰框"
+
+#~ msgid "ENABLE AI SERVICE"
+#~ msgstr "启用AI翻译服务"
+
+#~ msgid "SERVICE URL"
+#~ msgstr "服务URL"
+
+#~ msgid "REALLY UPDATE GAME LISTS?"
+#~ msgstr "是否更新游戏列表?"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+#~ "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A "
+#~ "BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT "
+#~ "BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES "
+#~ "ARE BASED ON THE SNES CONTROLLER."
+#~ msgstr ""
+#~ "您即将开始控制器配置。\n"
+#~ "如果您的控制器只有一个类比摇杆\n"
+#~ "请在设置完方向键后，按住任意键跳过类比摇杆设置。\n"
+#~ "如果您的控制器没有多余的按键可配置为 \"热键\" 按钮，\n"
+#~ "请使用 \"选择\" 按钮的按键同时作为 \"热键\"。\n"
+#~ "长按任意键可跳过设置。按钮名称基于SNES控制器。"
+
+#~ msgid "INPUT P%i"
+#~ msgstr "%i号玩家"
+
+#~ msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+#~ msgstr "在编辑配置之前必须应用主题"
+
+#~ msgid "APPEARENCE"
+#~ msgstr "外观"
+
+#~ msgid "PUBLISHER / DEVELOPER"
+#~ msgstr "发布者/开发者"
 
 #~ msgid ""
 #~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
@@ -3002,9 +3270,6 @@ msgstr "重启到 NAND"
 
 #~ msgid "PRESS ESC OR THE HOTKEY TO CANCEL."
 #~ msgstr "按 Esc 或 \"热键\"取消。"
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "跳转到字母"
 
 #~ msgid "FAVORITES ONLY"
 #~ msgstr "仅显示收藏"

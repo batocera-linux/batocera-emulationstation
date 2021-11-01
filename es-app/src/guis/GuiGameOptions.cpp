@@ -340,7 +340,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	{
 		mMenu.addGroup(_("OPTIONS"));
 		
-		mMenu.addEntry(_("MANUALLY SCRAPE METADATA"), false, [this, game]
+		mMenu.addEntry(_("SCRAPE"), false, [this, game]
 		{
 			ScraperSearchParams scraperParams;
 			scraperParams.game = game;

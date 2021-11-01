@@ -780,7 +780,7 @@ void SystemView::onCursorChanged(const CursorState& state)
 	cancelAnimation(1);
 	cancelAnimation(2);
 
-	std::string transition_style = Settings::getInstance()->getString("TransitionStyle");
+	std::string transition_style = Settings::TransitionStyle();
 	if (transition_style == "auto")
 	{
 		if (mCarousel.defaultTransition == "instant" || mCarousel.defaultTransition == "fade" || mCarousel.defaultTransition == "slide" || mCarousel.defaultTransition == "fade & slide")
@@ -908,7 +908,7 @@ void SystemView::onCursorChanged(const CursorState& state)
 
 	Animation* anim;
 	bool move_carousel = Settings::getInstance()->getBool("MoveCarousel");
-	if (Settings::getInstance()->getString("PowerSaverMode") == "instant")
+	if (Settings::PowerSaverMode() == "instant")
 		move_carousel = false;
 
 	if (transition_style == "fade" || transition_style == "fade & slide")

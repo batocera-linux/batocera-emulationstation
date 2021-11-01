@@ -86,7 +86,7 @@ protected:
 	TextComponent mDescription;
 
 	void createVideo();
-	void createImageComponent(ImageComponent** pImage, bool forceLoad = false);
+	void createImageComponent(ImageComponent** pImage, bool forceLoad = false, bool allowFading = false);
 	void loadIfThemed(ImageComponent** pImage, const std::shared_ptr<ThemeData>& theme, const std::string& element, bool forceLoad = false, bool loadPath = false);
 
 	ImageComponent* mImage;

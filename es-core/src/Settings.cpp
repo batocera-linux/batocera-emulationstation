@@ -16,6 +16,7 @@ bool Settings::DebugGrid = false;
 Settings* Settings::sInstance = NULL;
 static std::string mEmptyString = "";
 
+
 // these values are NOT saved to es_settings.xml
 // since they're set through command-line arguments, and not the in-program settings menu
 std::vector<const char*> settings_dont_save {
@@ -304,6 +305,8 @@ void Settings::setDefaults()
 	mIntMap["audio.display_titles_time"] = 10;
 
 	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
+
+	mBoolMap["AllImagesAsync"] = true;
 
 #if WIN32
 	mBoolMap["updates.enabled"] = true;

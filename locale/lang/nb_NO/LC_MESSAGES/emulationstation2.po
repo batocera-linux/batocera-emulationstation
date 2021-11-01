@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:18+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,14 +16,14 @@ msgstr ""
 msgid "Name"
 msgstr "Navn"
 
-msgid "enter game name"
-msgstr "skriv inn spillets navn"
+msgid "this game's name"
+msgstr ""
 
 msgid "Description"
 msgstr "Beskrivelse"
 
-msgid "enter description"
-msgstr "skriv inn beskrivelse"
+msgid "this game's description"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -136,14 +136,14 @@ msgstr "skriv inn utgivelsesdato"
 msgid "Developer"
 msgstr "Utvikler"
 
-msgid "enter game developer"
-msgstr "skriv inn spillutvikler"
+msgid "this game's developer"
+msgstr ""
 
 msgid "Publisher"
 msgstr "Utgiver"
 
-msgid "enter game publisher"
-msgstr "skriv inn spillutgiver"
+msgid "this game's publisher"
+msgstr ""
 
 msgid "Genre"
 msgstr "Sjanger"
@@ -154,7 +154,7 @@ msgstr "skriv inn spill sjanger"
 msgid "Game family"
 msgstr ""
 
-msgid "enter game family"
+msgid "this game's game family"
 msgstr ""
 
 msgid "Genres"
@@ -166,14 +166,14 @@ msgstr ""
 msgid "Arcade system"
 msgstr ""
 
-msgid "enter game arcade system"
+msgid "this game's arcade system"
 msgstr ""
 
 msgid "Players"
 msgstr "Spillere"
 
-msgid "enter number of players"
-msgstr "skriv inn antall spillere"
+msgid "this game's number of players"
+msgstr ""
 
 msgid "Favorite"
 msgstr "Favoritt"
@@ -226,8 +226,14 @@ msgstr ""
 msgid "Languages"
 msgstr ""
 
+msgid "this game's languages"
+msgstr ""
+
 msgid "Region"
 msgstr "Region"
+
+msgid "this game's region"
+msgstr ""
 
 msgid "Cheevos Hash"
 msgstr ""
@@ -293,8 +299,8 @@ msgid "Various"
 msgstr ""
 
 #, c-format
-msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -307,16 +313,16 @@ msgstr ""
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr ""
 
-msgid "FORMATING DEVICE"
+msgid "FORMATTING DEVICE"
 msgstr ""
 
-msgid "Formating"
+msgid "Formatting"
 msgstr ""
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr ""
 
-msgid "DRIVE FORMAT IS ALREADY RUNNING."
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr ""
 
 msgid "DOWNLOADING"
@@ -442,8 +448,8 @@ msgstr ""
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr ""
 
-msgid "UPDATE GAME LISTS"
-msgstr "OPPDATER SPILLISTER"
+msgid "UPDATE GAMELISTS"
+msgstr ""
 
 msgid "Loading..."
 msgstr ""
@@ -509,8 +515,8 @@ msgstr ""
 msgid "NAVIGATION"
 msgstr ""
 
-msgid "JUMP TO LETTER"
-msgstr "HOPP TIL"
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
 
 msgid "SELECT RANDOM GAME"
 msgstr ""
@@ -533,7 +539,7 @@ msgstr ""
 msgid "automatic"
 msgstr ""
 
-msgid "VIEW CUSTOMISATION"
+msgid "VIEW CUSTOMIZATION"
 msgstr ""
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
@@ -548,7 +554,7 @@ msgstr ""
 msgid "FILTER GAMES BY TEXT"
 msgstr ""
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr ""
 
 msgid "CLOSE"
@@ -569,7 +575,7 @@ msgstr "AVBRYT"
 msgid "CONNECT TO NETPLAY"
 msgstr ""
 
-msgid "Select the game you want to join"
+msgid "Select a game lobby to join"
 msgstr ""
 
 msgid "REFRESH"
@@ -596,7 +602,7 @@ msgstr ""
 msgid "UNAVAILABLE GAMES"
 msgstr ""
 
-msgid "NO GAME FOUND"
+msgid "NO GAMES FOUND"
 msgstr ""
 
 msgid "JOIN GAME"
@@ -605,7 +611,7 @@ msgstr ""
 msgid "WATCH GAME"
 msgstr ""
 
-msgid "MANUAL INPUT"
+msgid "INPUT MANUALLY"
 msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
@@ -647,7 +653,7 @@ msgstr ""
 msgid "CONTENT DOWNLOADER"
 msgstr ""
 
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
 msgstr ""
 
 msgid "UPDATE INSTALLED CONTENT"
@@ -669,7 +675,7 @@ msgstr ""
 msgid "REMOVE"
 msgstr ""
 
-msgid "UNINSTALL ADDED TO QUEUE"
+msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
 
 msgid "INSTALL"
@@ -679,10 +685,13 @@ msgstr ""
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr ""
 
-msgid "NO MISSING BIOS"
+msgid "NO MISSING BIOS FILES"
 msgstr ""
 
 msgid "MISSING BIOS CHECK"
+msgstr ""
+
+msgid "NO MISSING BIOS"
 msgstr ""
 
 msgid "dim"
@@ -733,7 +742,7 @@ msgstr ""
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr ""
 
-msgid "SWAP VIDEO AFTER (SECS)"
+msgid "VIDEO DURATION (SECS)"
 msgstr ""
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
@@ -742,16 +751,13 @@ msgstr ""
 msgid "SHOW GAME INFO"
 msgstr ""
 
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr ""
-
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
 
-msgid "DECORATIONS"
+msgid "DECORATION SET USED"
 msgstr ""
 
-msgid "STRETCH VIDEO ON SCREENSAVER"
+msgid "STRETCH VIDEOS"
 msgstr ""
 
 msgid "MUTE VIDEO AUDIO"
@@ -766,10 +772,10 @@ msgstr ""
 msgid "CUSTOM VIDEO DIRECTORY"
 msgstr ""
 
-msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr ""
 
-msgid "CUSTOM VIDEO FILTER"
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
@@ -787,10 +793,10 @@ msgstr ""
 msgid "CUSTOM IMAGE DIRECTORY"
 msgstr ""
 
-msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr ""
 
-msgid "CUSTOM IMAGE FILTER"
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr ""
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
@@ -887,7 +893,7 @@ msgstr ""
 msgid "INVALID PARAMETERS"
 msgstr ""
 
-msgid "GAME MEDIAS"
+msgid "GAME MEDIA"
 msgstr ""
 
 msgid "VIEW GAME MANUAL"
@@ -902,34 +908,37 @@ msgstr ""
 msgid "VIEW FULLSCREEN VIDEO"
 msgstr ""
 
-msgid "VIEW GAME MEDIAS"
+msgid "VIEW GAME MEDIA"
 msgstr ""
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr ""
 
-msgid "REQUIRED CORE"
+msgid "COMPATIBLE CORE(S)"
 msgstr ""
 
-msgid "VIEW GAME ACHIEVEMENTS"
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr ""
 
 msgid "GAME"
 msgstr ""
 
-msgid "SAVE SNAPSHOTS"
+msgid "SAVE STATES"
 msgstr ""
 
 msgid "OPEN"
 msgstr ""
 
-msgid "START NETPLAY HOST"
+msgid "NETPLAY HOSTING/OPTIONS"
 msgstr ""
 
 msgid "NETPLAY"
 msgstr ""
 
 msgid "START GAME"
+msgstr ""
+
+msgid "BEGIN HOSTING A NETPLAY SESSION"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -996,7 +1005,7 @@ msgstr "ENDRE DETTE SPILLETS METADATA"
 msgid "THEMES DOWNLOADER"
 msgstr ""
 
-msgid "SELECT THEMES TO INSTALL / REMOVE"
+msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
 
 #, c-format
@@ -1016,6 +1025,9 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
+msgid "SAVE STATE MANAGER"
+msgstr ""
+
 msgid "START NEW GAME"
 msgstr ""
 
@@ -1031,35 +1043,29 @@ msgstr ""
 msgid "COPY TO FREE SLOT"
 msgstr ""
 
-msgid "SCRAPE NOW"
-msgstr "SØK NÅ"
-
-msgid "SCRAPE THESE GAMES"
-msgstr "LEGG TIL DISSE SPILLENE"
-
-msgid "All Games"
-msgstr "Alle spill"
-
-msgid "Only missing medias"
+msgid "SCRAPE CRITERIA"
 msgstr ""
 
-msgid "FILTER"
-msgstr "FILTRER"
+msgid "MEDIA TO SCRAPE FOR"
+msgstr ""
 
-msgid "SCRAPE THESE SYSTEMS"
-msgstr "SKANN DISSE KONSOLLENE"
+msgid "ALL"
+msgstr ""
 
-msgid "START"
-msgstr "START"
+msgid "ONLY MISSING"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
+msgstr ""
+
+msgid "START SCRAPING"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"ADVARSEL: NOEN AV DE VALGTE KONSOLLENE HAR IKKE EN VALGT PLATTFORM. "
-"RESULTATER KAN VÆRE MER UNØYAKTIGE ENN BRUKBARE!\n"
-"FORTSETTE UANSETT?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
@@ -1070,7 +1076,7 @@ msgstr "INGEN SPILL MATCHER DISSE KRITERIENE"
 msgid "THE BEZEL PROJECT"
 msgstr ""
 
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
 msgstr ""
 
 msgid "fade"
@@ -1160,8 +1166,8 @@ msgstr "HOVEDMENY"
 msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
-msgid "GAMES SETTINGS"
-msgstr "SPILL INNSTILLINGER"
+msgid "GAME SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "UI INSTILLINGER"
@@ -1178,13 +1184,16 @@ msgstr "KONFIGUER INNDATA"
 msgid "EMULATOR SETTINGS"
 msgstr ""
 
+msgid "SCRAPER"
+msgstr "INFODATABASE"
+
 msgid "UPDATES & DOWNLOADS"
 msgstr ""
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEM INSTILLINGER"
 
-msgid "INFORMATIONS"
+msgid "INFORMATION"
 msgstr ""
 
 msgid "UNLOCK UI MODE"
@@ -1193,11 +1202,14 @@ msgstr ""
 msgid "QUIT"
 msgstr "SLUTT"
 
-msgid "SCRAPER"
-msgstr "INFODATABASE"
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
-msgid "SCRAPE FROM"
-msgstr "SØK I"
+msgid "NEXT"
+msgstr ""
+
+msgid "SCRAPING DATABASE"
+msgstr ""
 
 msgid "IMAGE SOURCE"
 msgstr ""
@@ -1262,19 +1274,16 @@ msgstr "BRUKERNAVN"
 msgid "PASSWORD"
 msgstr "PASSORD"
 
-msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
 
 msgid "CHOOSE"
 msgstr "VELG"
 
-msgid "UI MODE IS NOW UNLOCKED"
+msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr ""
 
-msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
-
-msgid "INFORMATION"
+msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr ""
 
 msgid "USER DISK USAGE"
@@ -1307,7 +1316,7 @@ msgstr ""
 msgid "OVERSCAN"
 msgstr "OVERSKANN"
 
-msgid "USE OMX PLAYER (HW ACCELERATED)"
+msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
 
 msgid "TOOLS"
@@ -1335,10 +1344,10 @@ msgstr ""
 msgid "CREATE A SUPPORT FILE?"
 msgstr ""
 
-msgid "FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
 msgstr ""
 
-msgid "FILE GENERATION FAILED"
+msgid "SUPPORT FILE GENERATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -1398,7 +1407,7 @@ msgstr "RASKT PLATTFORM VALG"
 msgid "ON-SCREEN KEYBOARD"
 msgstr "Tastatur (På Skjermen)"
 
-msgid "HIDE WHEN RUNNING A GAME"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr ""
 
 msgid "COMPLETE QUIT MENU"
@@ -1475,16 +1484,16 @@ msgstr ""
 msgid "START UPDATE"
 msgstr "START OPPDATERING"
 
-msgid "UPDATE IS ALREADY RUNNING"
+msgid "UPDATER IS ALREADY RUNNING"
 msgstr ""
 
 msgid "LANGUAGE"
 msgstr "SPRÅK"
 
-msgid "SELECT YOUR TIMEZONE"
+msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
-msgid "TIMEZONE"
+msgid "TIME ZONE"
 msgstr ""
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
@@ -1493,7 +1502,7 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr ""
 
-msgid "TEXT TO SPEECH"
+msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
 msgid "UI MODE"
@@ -1501,7 +1510,7 @@ msgstr ""
 
 msgid ""
 "You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
+"This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
 
@@ -1535,26 +1544,35 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr ""
 
-msgid "LEFT ROTATION"
+msgid "0 DEGREES (AUTO)"
 msgstr ""
 
-msgid "RIGHT ROTATION"
+msgid "90 DEGREES"
 msgstr ""
 
-msgid "INVERTED ROTATION"
+msgid "180 DEGREES"
+msgstr ""
+
+msgid "270 DEGREES"
 msgstr ""
 
 msgid "BOOT SPLASH"
 msgstr ""
 
-msgid "SILENT SPLASH"
+msgid "DEFAULT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "DEFAULT"
+msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "RETROUTMERKELSES INNSTILLINGER"
+msgid "BATOCERA SPLASH IMAGE"
+msgstr ""
+
+msgid "SPLASH SETTING"
+msgstr ""
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
 
 msgid "NETPLAY SETTINGS"
 msgstr ""
@@ -1658,13 +1676,13 @@ msgstr ""
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
 
-msgid "SHOW IN MAIN MENU"
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -1676,7 +1694,7 @@ msgstr ""
 msgid "FIND NEW GAMES"
 msgstr ""
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
 
 msgid "ENABLE NETPLAY"
@@ -1691,20 +1709,20 @@ msgstr ""
 msgid "USE RELAY SERVER"
 msgstr ""
 
-msgid "CHECK MISSING INDEXES AT STARTUP"
+msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
 msgstr ""
 
-msgid "DEFAULT SETTINGS"
+msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
-msgid "GAME RATIO"
-msgstr "SPILL FORHOLD"
+msgid "GAME ASPECT RATIO"
+msgstr ""
 
 msgid "VIDEO MODE"
 msgstr ""
 
-msgid "SMOOTH GAMES"
-msgstr "SPILL SOM KJØRER FINT"
+msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+msgstr ""
 
 msgid "REWIND"
 msgstr "SPOL TILBAKE"
@@ -1715,31 +1733,61 @@ msgstr ""
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO LAGRE/LASTE"
 
-msgid "SHOW SAVE SNAPSHOTS"
+msgid "SHOW SAVE STATES"
 msgstr ""
 
-msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr ""
 
 msgid "SHADER SET"
 msgstr "SKYGGELEGGER SETT"
 
-msgid "DECORATION"
+msgid "DECORATIONS"
+msgstr ""
+
+msgid "DECORATION SET"
 msgstr ""
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr ""
 
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr ""
+
+msgid "SYSTEM CONTROLLERS"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr ""
+
+msgid "OVERLAY CORNER"
+msgstr ""
+
+msgid "NORTH WEST"
+msgstr ""
+
+msgid "NORTH EAST"
+msgstr ""
+
+msgid "SOUTH EAST"
+msgstr ""
+
+msgid "SOUTH WEST"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE PATH"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr ""
 
-msgid "ENABLE AI SERVICE"
+msgid "ENABLE AI TRANSLATION SERVICE"
 msgstr ""
 
 msgid "TARGET LANGUAGE"
 msgstr ""
 
-msgid "SERVICE URL"
+msgid "AI TRANSLATION SERVICE URL"
 msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
@@ -1751,31 +1799,26 @@ msgstr ""
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
-msgid "REALLY UPDATE GAME LISTS?"
-msgstr "VIL DU VIRKELIG OPPDATERE SPILLISTENE?"
+msgid "REALLY UPDATE GAMELISTS?"
+msgstr ""
 
-msgid "REMAP A CONTROLLER"
-msgstr "KONFIGUER EN KONTROLLER"
+msgid "CONTROLLER MAPPING"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
-"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
-"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
-"SNES CONTROLLER."
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
+"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
+"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
+"CONFIRM WHEN DONE."
 msgstr ""
-"DU SKAL KONFIGURERE EN KONTROLLER. HVIS DU BARE HAR EN STYRESPAK, KONFIGUER "
-"RETNINGSKNAPPENE OG HOPP OVER KONFIGURASJONEN FOR STYRESPAK VED Å HOLDE EN "
-"KNAPP. HVIS DU IKKE HAR EN EGEN KNAPP FOR HURTIGTAST, VELG SELECT KNAPPEN. "
-"HOPP OVER ALLE KNAPPENE DU IKKE HAR VED Å HOLDE EN KNAPP. KNAPPENES NAVN ER "
-"BASERT PÅ EN SNES KONTROLLER."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 #, c-format
-msgid "INPUT P%i"
-msgstr "SETT IN P%i"
+msgid "P%i'S CONTROLLER"
+msgstr ""
 
 msgid "default"
 msgstr ""
@@ -1786,7 +1829,7 @@ msgstr ""
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
@@ -1852,10 +1895,10 @@ msgstr ""
 msgid "FILE EXTENSIONS"
 msgstr ""
 
-msgid "RESET CUSTOMISATIONS"
+msgid "RESET CUSTOMIZATIONS"
 msgstr ""
 
-msgid "APPEARENCE"
+msgid "APPEARANCE"
 msgstr ""
 
 msgid "THEME SET"
@@ -2067,10 +2110,13 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "ZOOM-"
+msgid "START"
+msgstr "START"
+
+msgid "ZOOM OUT"
 msgstr ""
 
-msgid "ZOOM+"
+msgid "ZOOM IN"
 msgstr ""
 
 msgid "MOVE"
@@ -2128,13 +2174,15 @@ msgid "FILES"
 msgstr ""
 
 msgid ""
-"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 
 msgid ""
-"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 
 msgid "Preloading UI"
@@ -2313,7 +2361,7 @@ msgstr ""
 msgid "INDEXING COMPLETED"
 msgstr ""
 
-msgid "UPDATE GAME LISTS TO APPLY CHANGES."
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr ""
 
 msgid "GENRE"
@@ -2325,7 +2373,7 @@ msgstr ""
 msgid "PLAYERS"
 msgstr ""
 
-msgid "PUBLISHER / DEVELOPER"
+msgid "PUBLISHER/DEVELOPER"
 msgstr ""
 
 msgid "RATING"
@@ -2437,9 +2485,14 @@ msgid "-NOT DEFINED-"
 msgstr "-IKKE DEFINERT-"
 
 msgid ""
-"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
-"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+
+msgid "SET SELECT AS HOTKEY"
+msgstr ""
+
+msgid "DO NOT ASSIGN HOTKEY"
 msgstr ""
 
 #, c-format
@@ -2550,11 +2603,93 @@ msgstr ""
 msgid "%d s"
 msgstr ""
 
-msgid "TEXT TO SPEECH ENABLED"
+msgid "SCREEN READER ENABLED"
 msgstr ""
 
-msgid "TEXT TO SPEECH DISABLED"
+msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "All Games"
+#~ msgstr "Alle spill"
+
+#~ msgid "REMAP A CONTROLLER"
+#~ msgstr "KONFIGUER EN KONTROLLER"
+
+#~ msgid "enter game name"
+#~ msgstr "skriv inn spillets navn"
+
+#~ msgid "enter description"
+#~ msgstr "skriv inn beskrivelse"
+
+#~ msgid "enter game developer"
+#~ msgstr "skriv inn spillutvikler"
+
+#~ msgid "enter game publisher"
+#~ msgstr "skriv inn spillutgiver"
+
+#~ msgid "enter number of players"
+#~ msgstr "skriv inn antall spillere"
+
+#~ msgid "UPDATE GAME LISTS"
+#~ msgstr "OPPDATER SPILLISTER"
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "HOPP TIL"
+
+#~ msgid "SCRAPE NOW"
+#~ msgstr "SØK NÅ"
+
+#~ msgid "SCRAPE THESE GAMES"
+#~ msgstr "LEGG TIL DISSE SPILLENE"
+
+#~ msgid "FILTER"
+#~ msgstr "FILTRER"
+
+#~ msgid "SCRAPE THESE SYSTEMS"
+#~ msgstr "SKANN DISSE KONSOLLENE"
+
+#~ msgid ""
+#~ "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. "
+#~ "RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+#~ "CONTINUE ANYWAY?"
+#~ msgstr ""
+#~ "ADVARSEL: NOEN AV DE VALGTE KONSOLLENE HAR IKKE EN VALGT PLATTFORM. "
+#~ "RESULTATER KAN VÆRE MER UNØYAKTIGE ENN BRUKBARE!\n"
+#~ "FORTSETTE UANSETT?"
+
+#~ msgid "GAMES SETTINGS"
+#~ msgstr "SPILL INNSTILLINGER"
+
+#~ msgid "SCRAPE FROM"
+#~ msgstr "SØK I"
+
+#~ msgid "RETROACHIEVEMENTS SETTINGS"
+#~ msgstr "RETROUTMERKELSES INNSTILLINGER"
+
+#~ msgid "GAME RATIO"
+#~ msgstr "SPILL FORHOLD"
+
+#~ msgid "SMOOTH GAMES"
+#~ msgstr "SPILL SOM KJØRER FINT"
+
+#~ msgid "REALLY UPDATE GAME LISTS?"
+#~ msgstr "VIL DU VIRKELIG OPPDATERE SPILLISTENE?"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+#~ "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A "
+#~ "BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT "
+#~ "BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES "
+#~ "ARE BASED ON THE SNES CONTROLLER."
+#~ msgstr ""
+#~ "DU SKAL KONFIGURERE EN KONTROLLER. HVIS DU BARE HAR EN STYRESPAK, "
+#~ "KONFIGUER RETNINGSKNAPPENE OG HOPP OVER KONFIGURASJONEN FOR STYRESPAK VED "
+#~ "Å HOLDE EN KNAPP. HVIS DU IKKE HAR EN EGEN KNAPP FOR HURTIGTAST, VELG "
+#~ "SELECT KNAPPEN. HOPP OVER ALLE KNAPPENE DU IKKE HAR VED Å HOLDE EN KNAPP. "
+#~ "KNAPPENES NAVN ER BASERT PÅ EN SNES KONTROLLER."
+
+#~ msgid "INPUT P%i"
+#~ msgstr "SETT IN P%i"
 
 #~ msgid "CONTROLLERS LINKS HAVE BEEN DELETED."
 #~ msgstr "KONTROLLER PARINGER HAR BLITT SLETTET."

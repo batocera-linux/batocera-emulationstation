@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-06 18:29+0200\n"
+"POT-Creation-Date: 2021-10-24 23:05+0200\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,14 +20,14 @@ msgstr "DIWEDDARIAD AR GAEL"
 msgid "Name"
 msgstr "Enw"
 
-msgid "enter game name"
-msgstr "gosod enw'r gêm"
+msgid "this game's name"
+msgstr ""
 
 msgid "Description"
 msgstr "Disgrifiad"
 
-msgid "enter description"
-msgstr "gosod disgrifiad"
+msgid "this game's description"
+msgstr ""
 
 msgid "Emulator"
 msgstr "Efelychwr"
@@ -140,14 +140,14 @@ msgstr "gosod dyddiad rhyddhau"
 msgid "Developer"
 msgstr "Datblygwr"
 
-msgid "enter game developer"
-msgstr "gosod datblygwr gemau"
+msgid "this game's developer"
+msgstr ""
 
 msgid "Publisher"
 msgstr "Cyhoeddwr"
 
-msgid "enter game publisher"
-msgstr "gosod cyhoeddwr gemau"
+msgid "this game's publisher"
+msgstr ""
 
 msgid "Genre"
 msgstr "Genre"
@@ -158,7 +158,7 @@ msgstr "gosod genre gemau"
 msgid "Game family"
 msgstr ""
 
-msgid "enter game family"
+msgid "this game's game family"
 msgstr ""
 
 msgid "Genres"
@@ -170,14 +170,14 @@ msgstr ""
 msgid "Arcade system"
 msgstr "System arcêd"
 
-msgid "enter game arcade system"
-msgstr "gosod system arcêd gemau"
+msgid "this game's arcade system"
+msgstr ""
 
 msgid "Players"
 msgstr "Chwaraewyr"
 
-msgid "enter number of players"
-msgstr "gosod nifer o chwaraewyr"
+msgid "this game's number of players"
+msgstr ""
 
 msgid "Favorite"
 msgstr "Ffefryn"
@@ -230,8 +230,14 @@ msgstr "cyfanswm yr amser (eiliadau) chwaraewyd o'r gêm"
 msgid "Languages"
 msgstr "Ieithoedd"
 
+msgid "this game's languages"
+msgstr ""
+
 msgid "Region"
 msgstr "Rhanbarth"
+
+msgid "this game's region"
+msgstr ""
 
 msgid "Cheevos Hash"
 msgstr "Hash Cheevos"
@@ -297,14 +303,14 @@ msgid "Various"
 msgstr "Amrywiol"
 
 #, c-format
-msgid "This collection contains %i game, including :%s"
-msgid_plural "This collection contains %i games, including :%s"
-msgstr[0] "Mae'r casgliad yn cynnwys %i gêm, yn cynnwys :%s"
-msgstr[1] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-msgstr[2] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-msgstr[3] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-msgstr[4] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
-msgstr[5] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SGANIO'R BLUETOOTH"
@@ -315,17 +321,17 @@ msgstr "Chwilio am rheolyddion..."
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "SGANIO BLUETOOTH YN BAROD YN RHEDEG."
 
-msgid "FORMATING DEVICE"
-msgstr "YN FFORMATIO DYFAIS"
+msgid "FORMATTING DEVICE"
+msgstr ""
 
-msgid "Formating"
-msgstr "Fformatio"
+msgid "Formatting"
+msgstr ""
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "ANGEN AILGYCHWYN Y SYSTEM I GWBLHAU'R WEITHRED"
 
-msgid "DRIVE FORMAT IS ALREADY RUNNING."
-msgstr "FFORMATIO GYRIAD YN RHEDEG YN BAROD."
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr ""
 
 msgid "DOWNLOADING"
 msgstr "LAWRLWYTHO"
@@ -450,8 +456,8 @@ msgstr "DANGOS ENW'R SYSTEM MEWN CASGLIADAU"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "DANGOS ENW'R SYSTEMAU CUDD MEWN CASGLIADAU"
 
-msgid "UPDATE GAME LISTS"
-msgstr "DIWEDDARU RHESTR GEMAU"
+msgid "UPDATE GAMELISTS"
+msgstr ""
 
 msgid "Loading..."
 msgstr "Llwytho..."
@@ -517,8 +523,8 @@ msgstr "mynd yn ôl"
 msgid "NAVIGATION"
 msgstr "MORDWYO"
 
-msgid "JUMP TO LETTER"
-msgstr "NEIDIO I LYTHYREN"
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
 
 msgid "SELECT RANDOM GAME"
 msgstr "DEWIS GÊM AR HAP"
@@ -541,8 +547,8 @@ msgstr "GOLWG STEIL RHESTR GEMAU"
 msgid "automatic"
 msgstr "awtomatig"
 
-msgid "VIEW CUSTOMISATION"
-msgstr "GWELD ADDASIADAU"
+msgid "VIEW CUSTOMIZATION"
+msgstr ""
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "GWELD GWYBODAETH PAD I ALWEDDFWRDD"
@@ -556,8 +562,8 @@ msgstr "AILOSOD FFILTRAU"
 msgid "FILTER GAMES BY TEXT"
 msgstr "FFILTRO GEMAU GAN DESTUN"
 
-msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
-msgstr "MAE'R SWYDDOGAETH HON YN ANABL PAN MAE CRAFU'N DIGWYDD"
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr ""
 
 msgid "CLOSE"
 msgstr "CAU"
@@ -577,8 +583,8 @@ msgstr "CANSLO"
 msgid "CONNECT TO NETPLAY"
 msgstr "CYSYLLTWCH Â RHWYDWAITH"
 
-msgid "Select the game you want to join"
-msgstr "Dewiswch y gêm rydych chi am ymuno â hi"
+msgid "Select a game lobby to join"
+msgstr ""
 
 msgid "REFRESH"
 msgstr "ADNEWYDDU"
@@ -604,8 +610,8 @@ msgstr "GEMAU AR GAEL"
 msgid "UNAVAILABLE GAMES"
 msgstr "GEMAU ANNERBYNIOL"
 
-msgid "NO GAME FOUND"
-msgstr "HEB FFEINDIO GÊM"
+msgid "NO GAMES FOUND"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "YMUNO Â GÊM"
@@ -613,8 +619,8 @@ msgstr "YMUNO Â GÊM"
 msgid "WATCH GAME"
 msgstr "GWYLIO GÊM"
 
-msgid "MANUAL INPUT"
-msgstr "MEWNBWN LLAW"
+msgid "INPUT MANUALLY"
+msgstr ""
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
@@ -655,8 +661,8 @@ msgstr "YCHWANEGU ALLWEDD CYFUNO"
 msgid "CONTENT DOWNLOADER"
 msgstr "LAWRLWYTHWR CYNNWYS"
 
-msgid "SELECT CONTENT TO INSTALL / REMOVE"
-msgstr "DEWIS CYNNWYS I OSOD / DIDDYMU"
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "DIWEDDARU CYNNWYS WEDI'I OSOD"
@@ -677,8 +683,8 @@ msgstr "'%s' YCHWANEGWYD I GIW LAWRLWYTHO"
 msgid "REMOVE"
 msgstr "DIDDYMU"
 
-msgid "UNINSTALL ADDED TO QUEUE"
-msgstr "DADOSOD WEDI'I YCHWANEGU AT Y CIW"
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr ""
 
 msgid "INSTALL"
 msgstr "GOSOD"
@@ -687,11 +693,14 @@ msgstr "GOSOD"
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "YN BRESENNOL YN Y CIW LAWRLWYTHO"
 
-msgid "NO MISSING BIOS"
-msgstr "DIM BIOS AR GOLL"
+msgid "NO MISSING BIOS FILES"
+msgstr ""
 
 msgid "MISSING BIOS CHECK"
 msgstr "BIOS AR GOLL"
+
+msgid "NO MISSING BIOS"
+msgstr "DIM BIOS AR GOLL"
 
 msgid "dim"
 msgstr "tywyllu"
@@ -741,8 +750,8 @@ msgstr "STOPIO CERDDORIAETH AR ARBEDYDD SGRIN"
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "GOSODIADAU ARBEDYDD SGRIN FIDEO AR HAP"
 
-msgid "SWAP VIDEO AFTER (SECS)"
-msgstr "SWAPIO FIDEO AR ÔL (EILIADAU)"
+msgid "VIDEO DURATION (SECS)"
+msgstr ""
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "DEFNYDDIWCH CHWARAEWR OMX AM ARBEDYDD SGRIN"
@@ -750,17 +759,14 @@ msgstr "DEFNYDDIWCH CHWARAEWR OMX AM ARBEDYDD SGRIN"
 msgid "SHOW GAME INFO"
 msgstr "DANGOS GWYBODAETH GÊM"
 
-msgid "SHOW GAME INFO ON SCREENSAVER"
-msgstr "DANGOS GWYBODAETH GÊM AR ARBEDYDD SGRIN"
-
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "DEFNYDDIWCH MARQUEE FEL GWYBODAETH GÊM"
 
-msgid "DECORATIONS"
-msgstr "ADDURNIADAU"
+msgid "DECORATION SET USED"
+msgstr ""
 
-msgid "STRETCH VIDEO ON SCREENSAVER"
-msgstr "YMESTYN FIDEO AR ARBEDYDD SGRIN"
+msgid "STRETCH VIDEOS"
+msgstr ""
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "MUDO SAIN FIDEO"
@@ -774,11 +780,11 @@ msgstr "DEFNYDDIO FIDEOS WEDI'I ADDASU"
 msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "CYFEIRIADUR FIDEO WEDI'I ADDASU"
 
-msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
-msgstr "CYFEIRIADUR FIDEO WEDI'I ADDASU DYCHWELIADOL"
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM VIDEO FILTER"
-msgstr "FFILTER VIDEO WEDI'I ADDASU"
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr ""
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "GOSODIADAU SIOE SLEID ARBEDYDD SGRIN"
@@ -795,11 +801,11 @@ msgstr "DEFNYDDIO DELWEDDAU WEDI'I ADDASU"
 msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "CYFEIRIADUR DELWEDD WEDI'I ADDASU"
 
-msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
-msgstr "CYFEIRIADUR DELWEDD WEDI'I ADDASU DYCHWELIADOL"
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr ""
 
-msgid "CUSTOM IMAGE FILTER"
-msgstr "FFILTER DELWEDD WEDI'I ADDASU"
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr ""
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "FFURFWEDDIAD PAD I ALWEDDFWRDD"
@@ -895,8 +901,8 @@ msgstr "ANGEN RHWYDWAITH"
 msgid "INVALID PARAMETERS"
 msgstr "PARAMEDRWYR ANNILYS"
 
-msgid "GAME MEDIAS"
-msgstr "CYFRYNGAU GÊM"
+msgid "GAME MEDIA"
+msgstr ""
 
 msgid "VIEW GAME MANUAL"
 msgstr "GWELD LLAWLYFR Y GÊM"
@@ -910,35 +916,38 @@ msgstr "GWELD MAP Y GÊM"
 msgid "VIEW FULLSCREEN VIDEO"
 msgstr ""
 
-msgid "VIEW GAME MEDIAS"
+msgid "VIEW GAME MEDIA"
 msgstr ""
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "NID YW CRAIDD PRESENNOL YN GYMWYS"
 
-msgid "REQUIRED CORE"
-msgstr "CRAIDD ANGENRHEIDIOL"
+msgid "COMPATIBLE CORE(S)"
+msgstr ""
 
-msgid "VIEW GAME ACHIEVEMENTS"
-msgstr "GWELD CYFLAWNIADAU GÊM"
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr ""
 
 msgid "GAME"
 msgstr "GÊM"
 
-msgid "SAVE SNAPSHOTS"
-msgstr "ARBED CIPLUNIAU"
+msgid "SAVE STATES"
+msgstr ""
 
 msgid "OPEN"
 msgstr ""
 
-msgid "START NETPLAY HOST"
-msgstr "DECHRAU GWESTEIA NETPLAY"
+msgid "NETPLAY HOSTING/OPTIONS"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
 
 msgid "START GAME"
 msgstr "DECHRAU GAME"
+
+msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
@@ -1006,8 +1015,8 @@ msgstr "GOLYGU METADATA Y GÊM HWN"
 msgid "THEMES DOWNLOADER"
 msgstr "LAWRLWYTHWR THEMAU"
 
-msgid "SELECT THEMES TO INSTALL / REMOVE"
-msgstr "DETHOL THEMAU I OSOD / DILEU"
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr ""
 
 #, c-format
 msgid "CURRENT THEME"
@@ -1026,6 +1035,9 @@ msgstr "Cyflawniadau a enillwyd"
 msgid "%d%% complete"
 msgstr "%d% % yn gyflawn"
 
+msgid "SAVE STATE MANAGER"
+msgstr ""
+
 msgid "START NEW GAME"
 msgstr "DECHRAU GÊM NEWYDD"
 
@@ -1041,35 +1053,29 @@ msgstr "SLOT"
 msgid "COPY TO FREE SLOT"
 msgstr "COPI I SLOT RHYDD"
 
-msgid "SCRAPE NOW"
-msgstr "CRAFU NAWR"
+msgid "SCRAPE CRITERIA"
+msgstr ""
 
-msgid "SCRAPE THESE GAMES"
-msgstr "CRAFU'R GEMAU HYN"
+msgid "MEDIA TO SCRAPE FOR"
+msgstr ""
 
-msgid "All Games"
-msgstr "Holl gemau"
+msgid "ALL"
+msgstr ""
 
-msgid "Only missing medias"
-msgstr "Cyfryngau ar goll yn unig"
+msgid "ONLY MISSING"
+msgstr ""
 
-msgid "FILTER"
-msgstr "FFILTER"
+msgid "SYSTEMS INCLUDED"
+msgstr ""
 
-msgid "SCRAPE THESE SYSTEMS"
-msgstr "CRAFU'R SYSTEMAU HYN"
-
-msgid "START"
-msgstr "DECHRAU"
+msgid "START SCRAPING"
+msgstr ""
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"RHYBUDD: NID OES RHAI O'CH SYSTEMAU DETHOL YN CAEL SET SYSTEM. GELLIR ACHOSI "
-"CANLYNIADAU MWY GWALLUS NAG ARFER!\n"
-"PARHAU TA BETH?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "MAE CRAFU YN RHEDEG. A YDYCH AM STOPIO?"
@@ -1080,8 +1086,8 @@ msgstr "DIM GEMAU SY'N FFITIO'R MEINI PRAWF YNA."
 msgid "THE BEZEL PROJECT"
 msgstr "Y PROSIECT GWEFL"
 
-msgid "SELECT BEZELS TO INSTALL / REMOVE"
-msgstr "DETHOL GWEFLAU I OSOD / DILEU"
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "pylu"
@@ -1170,8 +1176,8 @@ msgstr "PRIF DDEWISLEN"
 msgid "KODI MEDIA CENTER"
 msgstr "CANOLFAN CYFRYNGAU KODI"
 
-msgid "GAMES SETTINGS"
-msgstr "GOSODIADAU GEMAU"
+msgid "GAME SETTINGS"
+msgstr ""
 
 msgid "UI SETTINGS"
 msgstr "GOSODIADAU UI"
@@ -1188,13 +1194,16 @@ msgstr "FFURFWEDDU MEWNBWN"
 msgid "EMULATOR SETTINGS"
 msgstr "GOSODIADAU EFELYCHWR"
 
+msgid "SCRAPER"
+msgstr "CRAFWR"
+
 msgid "UPDATES & DOWNLOADS"
 msgstr "DIWEDDARIADAU A LAWRLWYTHO"
 
 msgid "SYSTEM SETTINGS"
 msgstr "GOSODIADAU SYSTEM"
 
-msgid "INFORMATIONS"
+msgid "INFORMATION"
 msgstr "GWYBODAETH"
 
 msgid "UNLOCK UI MODE"
@@ -1203,11 +1212,14 @@ msgstr "DATGLOI MODD UI"
 msgid "QUIT"
 msgstr "GADAEL"
 
-msgid "SCRAPER"
-msgstr "CRAFWR"
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
-msgid "SCRAPE FROM"
-msgstr "CRAFU O"
+msgid "NEXT"
+msgstr ""
+
+msgid "SCRAPING DATABASE"
+msgstr ""
 
 msgid "IMAGE SOURCE"
 msgstr "FFYNHONNELL DELWEDD"
@@ -1272,20 +1284,17 @@ msgstr "ENW DEFNYDDIWR"
 msgid "PASSWORD"
 msgstr "CYFINAIR"
 
-msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-msgstr "A YDYCH CHI'N SIWR CHI EISIAU FFURFWEDDU MEWNBWN?"
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
+msgstr ""
 
 msgid "CHOOSE"
 msgstr "DEWIS"
 
-msgid "UI MODE IS NOW UNLOCKED"
-msgstr "MAE MODD UI WEDI DATGLOI NAWR"
+msgid "THE UI MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "GOSOD Y CÔD I DDATGLOI Y MODD UI PRESENNOL"
-
-msgid "INFORMATION"
-msgstr "GWYBODAETH"
+msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgstr ""
 
 msgid "USER DISK USAGE"
 msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
@@ -1317,8 +1326,8 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "USE OMX PLAYER (HW ACCELERATED)"
-msgstr "DEFNYDDIO CHWARAEWR OMX (HW CYFLYMEDIG)"
+msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
+msgstr ""
 
 msgid "TOOLS"
 msgstr "OFFER"
@@ -1345,11 +1354,11 @@ msgstr "CREU FFEIL CEFNOGAETH"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "CREU FFEIL CEFNOGAETH?"
 
-msgid "FILE GENERATED SUCCESSFULLY"
-msgstr "FFEIL WEDI'I CHYNHYRCHU'N LLWYDDIANNUS"
+msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgstr ""
 
-msgid "FILE GENERATION FAILED"
-msgstr "CYNHYRCHU'R FFEIL WEDI METHU"
+msgid "SUPPORT FILE GENERATION FAILED"
+msgstr ""
 
 msgid "FORMAT A DISK"
 msgstr "FFORMATIO DISG"
@@ -1408,8 +1417,8 @@ msgstr "DETHOL SYSTEM CYFLYM"
 msgid "ON-SCREEN KEYBOARD"
 msgstr "ALWEDDFWRDD AR SGRIN"
 
-msgid "HIDE WHEN RUNNING A GAME"
-msgstr "CUDDIO PAN YN RHEDEG GÊM"
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
+msgstr ""
 
 msgid "COMPLETE QUIT MENU"
 msgstr "DEWISLEN GADAEL TERFYNOL"
@@ -1485,16 +1494,16 @@ msgstr "YMGESIO DIWEDDARIAD"
 msgid "START UPDATE"
 msgstr "DECHRAU DIWEDDARIAD"
 
-msgid "UPDATE IS ALREADY RUNNING"
-msgstr "MAE DIWEDDARIAD YN RHEDEG YN BAROD"
+msgid "UPDATER IS ALREADY RUNNING"
+msgstr ""
 
 msgid "LANGUAGE"
 msgstr "IAITH"
 
-msgid "SELECT YOUR TIMEZONE"
+msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
-msgid "TIMEZONE"
+msgid "TIME ZONE"
 msgstr ""
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
@@ -1503,7 +1512,7 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr "MODDAU ARBED PŴER"
 
-msgid "TEXT TO SPEECH"
+msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
 msgid "UI MODE"
@@ -1511,13 +1520,9 @@ msgstr "MODD UI"
 
 msgid ""
 "You are changing the UI to a restricted mode:\n"
-"This will hide most menu-options to prevent changes to the system.\n"
+"This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
-"Rydych chi'n newid yr UI i fodd cyfyngedig:\n"
-"Bydd hyn yn cuddio'r mwyafrif o opsiynau dewislen i atal newidiadau i'r "
-"system.\n"
-"I ddatgloi a dychwelyd i'r UI llawn, rhowch y côd hwn:"
 
 msgid "Do you want to proceed?"
 msgstr "Ydych chi am barhau?"
@@ -1549,26 +1554,35 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr ""
 
-msgid "LEFT ROTATION"
+msgid "0 DEGREES (AUTO)"
 msgstr ""
 
-msgid "RIGHT ROTATION"
+msgid "90 DEGREES"
 msgstr ""
 
-msgid "INVERTED ROTATION"
+msgid "180 DEGREES"
+msgstr ""
+
+msgid "270 DEGREES"
 msgstr ""
 
 msgid "BOOT SPLASH"
 msgstr ""
 
-msgid "SILENT SPLASH"
+msgid "DEFAULT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "DEFAULT"
+msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS SETTINGS"
-msgstr "GOSODIADAU CYFLAWNIADAU-RETRO"
+msgid "BATOCERA SPLASH IMAGE"
+msgstr ""
+
+msgid "SPLASH SETTING"
+msgstr ""
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
 
 msgid "NETPLAY SETTINGS"
 msgstr "GOSODIADAU NETPLAY"
@@ -1672,14 +1686,14 @@ msgstr "MODD VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SGRINLUN AWTOMATIG"
 
-msgid "RETROACHIEVEMENTS UNLOCK SOUND"
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
 
-msgid "SHOW IN MAIN MENU"
-msgstr "DANGOS YN Y BRIF DDEWISLEN"
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "MYNEGAI GÊM"
@@ -1690,8 +1704,8 @@ msgstr "DOD O HYD I BOB GÊM"
 msgid "FIND NEW GAMES"
 msgstr "DOD O HYD I GEMAU NEWYDD"
 
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
-msgstr "METHU GWEITHREDU CYFLAWNIADAU-RETRO :"
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
 
 msgid "ENABLE NETPLAY"
 msgstr "GALLUOGI NETPLAY"
@@ -1705,20 +1719,20 @@ msgstr "PORTH"
 msgid "USE RELAY SERVER"
 msgstr "DEFNYDDIO GWEINYDD RELAY"
 
-msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr "GWIRIO MYNEGAI CENHADOL YN Y CYFEIRIADUR LLWYTHO"
+msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
+msgstr ""
 
-msgid "DEFAULT SETTINGS"
-msgstr "RHAGOSODIADAU"
+msgid "DEFAULT GLOBAL SETTINGS"
+msgstr ""
 
-msgid "GAME RATIO"
-msgstr "CYFRADD GÊM"
+msgid "GAME ASPECT RATIO"
+msgstr ""
 
 msgid "VIDEO MODE"
 msgstr "MODD FIDEO"
 
-msgid "SMOOTH GAMES"
-msgstr "GEMAU LLYFN"
+msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+msgstr ""
 
 msgid "REWIND"
 msgstr "AILDDIRWYN"
@@ -1729,32 +1743,62 @@ msgstr "GRADDFA CYFANRIF (PIXEL PERFFAITH)"
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AWTO ARBED / LLWYTH"
 
-msgid "SHOW SAVE SNAPSHOTS"
+msgid "SHOW SAVE STATES"
 msgstr ""
 
-msgid "SHOW SNAPSHOTS IF NOT EMPTY"
+msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr ""
 
 msgid "SHADER SET"
 msgstr "SET CYSGODYDD"
 
-msgid "DECORATION"
-msgstr "ADDURN"
+msgid "DECORATIONS"
+msgstr "ADDURNIADAU"
+
+msgid "DECORATION SET"
+msgstr ""
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "YMESTYN GWEFLAU (4K A LLYDAN IAWN)"
 
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr ""
+
+msgid "SYSTEM CONTROLLERS"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr ""
+
+msgid "OVERLAY CORNER"
+msgstr ""
+
+msgid "NORTH WEST"
+msgstr ""
+
+msgid "NORTH EAST"
+msgstr ""
+
+msgid "SOUTH EAST"
+msgstr ""
+
+msgid "SOUTH WEST"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE PATH"
+msgstr ""
+
 msgid "AI GAME TRANSLATION"
 msgstr "CYFIEITHU AI GÊM"
 
-msgid "ENABLE AI SERVICE"
-msgstr "GALLUOGI GWASANAETH AI"
+msgid "ENABLE AI TRANSLATION SERVICE"
+msgstr ""
 
 msgid "TARGET LANGUAGE"
 msgstr "IAITH TARGED"
 
-msgid "SERVICE URL"
-msgstr "GWASANAETH URL"
+msgid "AI TRANSLATION SERVICE URL"
+msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "SAIB AR SGRIN CYFIEITHU"
@@ -1765,31 +1809,26 @@ msgstr "FFURFWEDDU UWCH I BOB SYSTEM"
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "HASHIO GÊM YN RHEDEG. A YDYCH AM EI STOPIO?"
 
-msgid "REALLY UPDATE GAME LISTS?"
-msgstr "DIWEDDARU RHESTR GEMAU YN WIRIONEDDOL?"
+msgid "REALLY UPDATE GAMELISTS?"
+msgstr ""
 
-msgid "REMAP A CONTROLLER"
-msgstr "FFURFWEDDU RHEOLYDD"
+msgid "CONTROLLER MAPPING"
+msgstr ""
 
 msgid ""
-"YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-"CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A BUTTON. "
-"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT BUTTON. SKIP "
-"ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES ARE BASED ON THE "
-"SNES CONTROLLER."
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
+"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
+"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
+"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
+"CONFIRM WHEN DONE."
 msgstr ""
-"RYDYCH YN MYND I FFURFWEDDU RHEOLYDD. OS OES GYDA CHI UN FFON RHEOLI YN "
-"UNIG, FFURFWEDDU CYFARWYDDIADAU ALLWEDDI A SGIPIO FFURFWEDD FFON RHEOLI GAN "
-"DAL BOTWM. OS NAD OES GENNYCH CHI ALLWEDD ARBENNIG AR GYFER BYSELL FRYS , "
-"DEWIS Y BOTWM DEWIS. SGIPIO POB BOTWM NAD SYDD GYDA CHI GAN DAL YR ALLWEDD. "
-"MAE ENWAU BOTYMAU YN SEILIEDIG AR REOLYDD SNES."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
 #, c-format
-msgid "INPUT P%i"
-msgstr "MEWNBWN P %i"
+msgid "P%i'S CONTROLLER"
+msgstr ""
 
 msgid "default"
 msgstr "rhagosodiad"
@@ -1800,8 +1839,8 @@ msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
-msgstr "RHAID I CHI YMGEISIO'R THEMA CYN GOLYGU TRAWSWEDDIAD"
+msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
+msgstr ""
 
 msgid "THEME CONFIGURATION"
 msgstr "TRAWSWEDDIAD THEMA"
@@ -1866,11 +1905,11 @@ msgstr "DANGOS ENWAU FFEILIAU MEWN RHESTR"
 msgid "FILE EXTENSIONS"
 msgstr "ESTYNIADAU FFEIL"
 
-msgid "RESET CUSTOMISATIONS"
+msgid "RESET CUSTOMIZATIONS"
 msgstr ""
 
-msgid "APPEARENCE"
-msgstr "GOLWG"
+msgid "APPEARANCE"
+msgstr ""
 
 msgid "THEME SET"
 msgstr "SET THEMA"
@@ -2081,11 +2120,14 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "DIM DYFAIS WEDI EI DDARGANFOD"
 
-msgid "ZOOM-"
-msgstr "CHWYDDO-"
+msgid "START"
+msgstr "DECHRAU"
 
-msgid "ZOOM+"
-msgstr "CHWYDDO+"
+msgid "ZOOM OUT"
+msgstr ""
+
+msgid "ZOOM IN"
+msgstr ""
 
 msgid "MOVE"
 msgstr "SYMUD"
@@ -2154,19 +2196,16 @@ msgid "FILES"
 msgstr "FFEILIAU"
 
 msgid ""
-"WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/CORE.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"RHYBUDD: NI CHYFLWYNIR FFURF Y GÊM HON GAN YR EFELYCHWR / CRAIDD PRESENNOL.\n"
-"A YDYCH AM LANSIO TA BETH?"
 
 msgid ""
-"WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK CORRECTLY.\n"
-"DO YOU WANT TO LAUNCH IT ANYWAY ?"
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"RHYBUDD: MAE'R SYSTEM GYDA BIOS AR GOLL A FALLE NI FYDD Y GÊM YN GWEITHIO YN "
-"GYWIR.\n"
-"A YDYCH AM LANSIO TA BETH?"
 
 msgid "Preloading UI"
 msgstr "Rhag-lwytho UI"
@@ -2349,8 +2388,8 @@ msgstr "CHWILIO GEMAU NETPLAY"
 msgid "INDEXING COMPLETED"
 msgstr "MYNEGAI WEDI CWBLHAU"
 
-msgid "UPDATE GAME LISTS TO APPLY CHANGES."
-msgstr "DIWEDDARU RHESTR GEMAU I YMGEISIO NEWIDIADAU."
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2361,8 +2400,8 @@ msgstr ""
 msgid "PLAYERS"
 msgstr "CHWARAEWYR"
 
-msgid "PUBLISHER / DEVELOPER"
-msgstr "CYHOEDDWR / DATBLYGWR"
+msgid "PUBLISHER/DEVELOPER"
+msgstr ""
 
 msgid "RATING"
 msgstr "MARCIAU SÊR"
@@ -2473,9 +2512,14 @@ msgid "-NOT DEFINED-"
 msgstr "-HEB EI DDIFFINIO-"
 
 msgid ""
-"YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING GAMES "
-"WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON DEFAULT? ANSWER YES "
-"TO USE SELECT OR NO TO NOT SET A HOTKEY ENABLE BUTTON."
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+
+msgid "SET SELECT AS HOTKEY"
+msgstr ""
+
+msgid "DO NOT ASSIGN HOTKEY"
 msgstr ""
 
 #, c-format
@@ -2614,11 +2658,274 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d e"
 
-msgid "TEXT TO SPEECH ENABLED"
+msgid "SCREEN READER ENABLED"
 msgstr ""
 
-msgid "TEXT TO SPEECH DISABLED"
+msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "All Games"
+#~ msgstr "Holl gemau"
+
+#~ msgid "REMAP A CONTROLLER"
+#~ msgstr "FFURFWEDDU RHEOLYDD"
+
+#~ msgid "enter game name"
+#~ msgstr "gosod enw'r gêm"
+
+#~ msgid "enter description"
+#~ msgstr "gosod disgrifiad"
+
+#~ msgid "enter game developer"
+#~ msgstr "gosod datblygwr gemau"
+
+#~ msgid "enter game publisher"
+#~ msgstr "gosod cyhoeddwr gemau"
+
+#~ msgid "enter game arcade system"
+#~ msgstr "gosod system arcêd gemau"
+
+#~ msgid "enter number of players"
+#~ msgstr "gosod nifer o chwaraewyr"
+
+#~ msgid "This collection contains %i game, including :%s"
+#~ msgid_plural "This collection contains %i games, including :%s"
+#~ msgstr[0] "Mae'r casgliad yn cynnwys %i gêm, yn cynnwys :%s"
+#~ msgstr[1] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
+#~ msgstr[2] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
+#~ msgstr[3] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
+#~ msgstr[4] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
+#~ msgstr[5] "Mae'r casgliad yn cynnwys %i gemau, yn cynnwys :%s"
+
+#~ msgid "FORMATING DEVICE"
+#~ msgstr "YN FFORMATIO DYFAIS"
+
+#~ msgid "Formating"
+#~ msgstr "Fformatio"
+
+#~ msgid "DRIVE FORMAT IS ALREADY RUNNING."
+#~ msgstr "FFORMATIO GYRIAD YN RHEDEG YN BAROD."
+
+#~ msgid "UPDATE GAME LISTS"
+#~ msgstr "DIWEDDARU RHESTR GEMAU"
+
+#~ msgid "JUMP TO LETTER"
+#~ msgstr "NEIDIO I LYTHYREN"
+
+#~ msgid "VIEW CUSTOMISATION"
+#~ msgstr "GWELD ADDASIADAU"
+
+#~ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
+#~ msgstr "MAE'R SWYDDOGAETH HON YN ANABL PAN MAE CRAFU'N DIGWYDD"
+
+#~ msgid "Select the game you want to join"
+#~ msgstr "Dewiswch y gêm rydych chi am ymuno â hi"
+
+#~ msgid "NO GAME FOUND"
+#~ msgstr "HEB FFEINDIO GÊM"
+
+#~ msgid "MANUAL INPUT"
+#~ msgstr "MEWNBWN LLAW"
+
+#~ msgid "SELECT CONTENT TO INSTALL / REMOVE"
+#~ msgstr "DEWIS CYNNWYS I OSOD / DIDDYMU"
+
+#~ msgid "UNINSTALL ADDED TO QUEUE"
+#~ msgstr "DADOSOD WEDI'I YCHWANEGU AT Y CIW"
+
+#~ msgid "SWAP VIDEO AFTER (SECS)"
+#~ msgstr "SWAPIO FIDEO AR ÔL (EILIADAU)"
+
+#~ msgid "SHOW GAME INFO ON SCREENSAVER"
+#~ msgstr "DANGOS GWYBODAETH GÊM AR ARBEDYDD SGRIN"
+
+#~ msgid "STRETCH VIDEO ON SCREENSAVER"
+#~ msgstr "YMESTYN FIDEO AR ARBEDYDD SGRIN"
+
+#~ msgid "CUSTOM VIDEO DIRECTORY RECURSIVE"
+#~ msgstr "CYFEIRIADUR FIDEO WEDI'I ADDASU DYCHWELIADOL"
+
+#~ msgid "CUSTOM VIDEO FILTER"
+#~ msgstr "FFILTER VIDEO WEDI'I ADDASU"
+
+#~ msgid "CUSTOM IMAGE DIRECTORY RECURSIVE"
+#~ msgstr "CYFEIRIADUR DELWEDD WEDI'I ADDASU DYCHWELIADOL"
+
+#~ msgid "CUSTOM IMAGE FILTER"
+#~ msgstr "FFILTER DELWEDD WEDI'I ADDASU"
+
+#~ msgid "GAME MEDIAS"
+#~ msgstr "CYFRYNGAU GÊM"
+
+#~ msgid "REQUIRED CORE"
+#~ msgstr "CRAIDD ANGENRHEIDIOL"
+
+#~ msgid "VIEW GAME ACHIEVEMENTS"
+#~ msgstr "GWELD CYFLAWNIADAU GÊM"
+
+#~ msgid "SAVE SNAPSHOTS"
+#~ msgstr "ARBED CIPLUNIAU"
+
+#~ msgid "START NETPLAY HOST"
+#~ msgstr "DECHRAU GWESTEIA NETPLAY"
+
+#~ msgid "SELECT THEMES TO INSTALL / REMOVE"
+#~ msgstr "DETHOL THEMAU I OSOD / DILEU"
+
+#~ msgid "SCRAPE NOW"
+#~ msgstr "CRAFU NAWR"
+
+#~ msgid "SCRAPE THESE GAMES"
+#~ msgstr "CRAFU'R GEMAU HYN"
+
+#~ msgid "Only missing medias"
+#~ msgstr "Cyfryngau ar goll yn unig"
+
+#~ msgid "FILTER"
+#~ msgstr "FFILTER"
+
+#~ msgid "SCRAPE THESE SYSTEMS"
+#~ msgstr "CRAFU'R SYSTEMAU HYN"
+
+#~ msgid ""
+#~ "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. "
+#~ "RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
+#~ "CONTINUE ANYWAY?"
+#~ msgstr ""
+#~ "RHYBUDD: NID OES RHAI O'CH SYSTEMAU DETHOL YN CAEL SET SYSTEM. GELLIR "
+#~ "ACHOSI CANLYNIADAU MWY GWALLUS NAG ARFER!\n"
+#~ "PARHAU TA BETH?"
+
+#~ msgid "SELECT BEZELS TO INSTALL / REMOVE"
+#~ msgstr "DETHOL GWEFLAU I OSOD / DILEU"
+
+#~ msgid "GAMES SETTINGS"
+#~ msgstr "GOSODIADAU GEMAU"
+
+#~ msgid "INFORMATIONS"
+#~ msgstr "GWYBODAETH"
+
+#~ msgid "SCRAPE FROM"
+#~ msgstr "CRAFU O"
+
+#~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
+#~ msgstr "A YDYCH CHI'N SIWR CHI EISIAU FFURFWEDDU MEWNBWN?"
+
+#~ msgid "UI MODE IS NOW UNLOCKED"
+#~ msgstr "MAE MODD UI WEDI DATGLOI NAWR"
+
+#~ msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "GOSOD Y CÔD I DDATGLOI Y MODD UI PRESENNOL"
+
+#~ msgid "USE OMX PLAYER (HW ACCELERATED)"
+#~ msgstr "DEFNYDDIO CHWARAEWR OMX (HW CYFLYMEDIG)"
+
+#~ msgid "FILE GENERATED SUCCESSFULLY"
+#~ msgstr "FFEIL WEDI'I CHYNHYRCHU'N LLWYDDIANNUS"
+
+#~ msgid "FILE GENERATION FAILED"
+#~ msgstr "CYNHYRCHU'R FFEIL WEDI METHU"
+
+#~ msgid "HIDE WHEN RUNNING A GAME"
+#~ msgstr "CUDDIO PAN YN RHEDEG GÊM"
+
+#~ msgid "UPDATE IS ALREADY RUNNING"
+#~ msgstr "MAE DIWEDDARIAD YN RHEDEG YN BAROD"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu-options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "Rydych chi'n newid yr UI i fodd cyfyngedig:\n"
+#~ "Bydd hyn yn cuddio'r mwyafrif o opsiynau dewislen i atal newidiadau i'r "
+#~ "system.\n"
+#~ "I ddatgloi a dychwelyd i'r UI llawn, rhowch y côd hwn:"
+
+#~ msgid "RETROACHIEVEMENTS SETTINGS"
+#~ msgstr "GOSODIADAU CYFLAWNIADAU-RETRO"
+
+#~ msgid "SHOW IN MAIN MENU"
+#~ msgstr "DANGOS YN Y BRIF DDEWISLEN"
+
+#~ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
+#~ msgstr "METHU GWEITHREDU CYFLAWNIADAU-RETRO :"
+
+#~ msgid "CHECK MISSING INDEXES AT STARTUP"
+#~ msgstr "GWIRIO MYNEGAI CENHADOL YN Y CYFEIRIADUR LLWYTHO"
+
+#~ msgid "DEFAULT SETTINGS"
+#~ msgstr "RHAGOSODIADAU"
+
+#~ msgid "GAME RATIO"
+#~ msgstr "CYFRADD GÊM"
+
+#~ msgid "SMOOTH GAMES"
+#~ msgstr "GEMAU LLYFN"
+
+#~ msgid "DECORATION"
+#~ msgstr "ADDURN"
+
+#~ msgid "ENABLE AI SERVICE"
+#~ msgstr "GALLUOGI GWASANAETH AI"
+
+#~ msgid "SERVICE URL"
+#~ msgstr "GWASANAETH URL"
+
+#~ msgid "REALLY UPDATE GAME LISTS?"
+#~ msgstr "DIWEDDARU RHESTR GEMAU YN WIRIONEDDOL?"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO REMAP A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
+#~ "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A "
+#~ "BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT "
+#~ "BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES "
+#~ "ARE BASED ON THE SNES CONTROLLER."
+#~ msgstr ""
+#~ "RYDYCH YN MYND I FFURFWEDDU RHEOLYDD. OS OES GYDA CHI UN FFON RHEOLI YN "
+#~ "UNIG, FFURFWEDDU CYFARWYDDIADAU ALLWEDDI A SGIPIO FFURFWEDD FFON RHEOLI "
+#~ "GAN DAL BOTWM. OS NAD OES GENNYCH CHI ALLWEDD ARBENNIG AR GYFER BYSELL "
+#~ "FRYS , DEWIS Y BOTWM DEWIS. SGIPIO POB BOTWM NAD SYDD GYDA CHI GAN DAL YR "
+#~ "ALLWEDD. MAE ENWAU BOTYMAU YN SEILIEDIG AR REOLYDD SNES."
+
+#~ msgid "INPUT P%i"
+#~ msgstr "MEWNBWN P %i"
+
+#~ msgid "YOU MUST APPLY THE THEME BEFORE EDIT CONFIGURATION"
+#~ msgstr "RHAID I CHI YMGEISIO'R THEMA CYN GOLYGU TRAWSWEDDIAD"
+
+#~ msgid "APPEARENCE"
+#~ msgstr "GOLWG"
+
+#~ msgid "ZOOM-"
+#~ msgstr "CHWYDDO-"
+
+#~ msgid "ZOOM+"
+#~ msgstr "CHWYDDO+"
+
+#~ msgid ""
+#~ "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/"
+#~ "CORE.\n"
+#~ "DO YOU WANT TO LAUNCH IT ANYWAY ?"
+#~ msgstr ""
+#~ "RHYBUDD: NI CHYFLWYNIR FFURF Y GÊM HON GAN YR EFELYCHWR / CRAIDD "
+#~ "PRESENNOL.\n"
+#~ "A YDYCH AM LANSIO TA BETH?"
+
+#~ msgid ""
+#~ "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK "
+#~ "CORRECTLY.\n"
+#~ "DO YOU WANT TO LAUNCH IT ANYWAY ?"
+#~ msgstr ""
+#~ "RHYBUDD: MAE'R SYSTEM GYDA BIOS AR GOLL A FALLE NI FYDD Y GÊM YN GWEITHIO "
+#~ "YN GYWIR.\n"
+#~ "A YDYCH AM LANSIO TA BETH?"
+
+#~ msgid "UPDATE GAME LISTS TO APPLY CHANGES."
+#~ msgstr "DIWEDDARU RHESTR GEMAU I YMGEISIO NEWIDIADAU."
+
+#~ msgid "PUBLISHER / DEVELOPER"
+#~ msgstr "CYHOEDDWR / DATBLYGWR"
 
 #~ msgid ""
 #~ "YOU DIDN'T CHOOSE A HOTKEY ENABLE BUTTON. THIS IS REQUIRED FOR EXITING "
