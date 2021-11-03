@@ -20,13 +20,13 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "this game's name"
-msgstr ""
+msgstr "nome di questo gioco"
 
 msgid "Description"
 msgstr "Descrizione"
 
 msgid "this game's description"
-msgstr ""
+msgstr "descrizione di questo gioco"
 
 msgid "Emulator"
 msgstr "Emulatore"
@@ -140,13 +140,13 @@ msgid "Developer"
 msgstr "Sviluppatore"
 
 msgid "this game's developer"
-msgstr ""
+msgstr "sviluppatore di questo gioco"
 
 msgid "Publisher"
 msgstr "Editore"
 
 msgid "this game's publisher"
-msgstr ""
+msgstr "editore di questo gioco"
 
 msgid "Genre"
 msgstr "Genere"
@@ -158,7 +158,7 @@ msgid "Game family"
 msgstr "Famiglia del Gioco"
 
 msgid "this game's game family"
-msgstr ""
+msgstr "famiglia di questo gioco"
 
 msgid "Genres"
 msgstr "Genere"
@@ -170,13 +170,13 @@ msgid "Arcade system"
 msgstr "Sistema Arcade"
 
 msgid "this game's arcade system"
-msgstr ""
+msgstr "sistema arcade di questo gioco"
 
 msgid "Players"
 msgstr "Giocatori"
 
 msgid "this game's number of players"
-msgstr ""
+msgstr "numero di giocatori di questo gioco"
 
 msgid "Favorite"
 msgstr "Preferito"
@@ -230,13 +230,13 @@ msgid "Languages"
 msgstr "Lingue"
 
 msgid "this game's languages"
-msgstr ""
+msgstr "lingue di questo gioco"
 
 msgid "Region"
 msgstr "Regione"
 
 msgid "this game's region"
-msgstr ""
+msgstr "regione di questo gioco"
 
 msgid "Cheevos Hash"
 msgstr "Hash per trofei"
@@ -304,8 +304,8 @@ msgstr "Vari"
 #, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Questa collezione contiene %i gioco:%s"
+msgstr[1] "Questa collezione contiene %i giochi, incluso:%s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SCANSIONE BLUETOOTH"
@@ -317,16 +317,16 @@ msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "LA SCANSIONE BLUETOOTH È GIÀ IN ESECUZIONE"
 
 msgid "FORMATTING DEVICE"
-msgstr ""
+msgstr "FORMATTAZIONE DRIVE"
 
 msgid "Formatting"
-msgstr ""
+msgstr "Formattazione"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "È NECESSARIO RIAVVIARE IL SISTEMA PER COMPLETARE L'OPERAZIONE"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr ""
+msgstr "IL DRIVE È GIÀ STATO FORMATTATO"
 
 msgid "DOWNLOADING"
 msgstr "DOWNLOADING"
@@ -452,7 +452,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "MOSTRA I GIOCHI DEI SISTEMI NASCOSTI NELLE COLLEZIONI"
 
 msgid "UPDATE GAMELISTS"
-msgstr ""
+msgstr "AGGIORNA LISTA DEI GIOCHI"
 
 msgid "Loading..."
 msgstr "Caricamento..."
@@ -519,7 +519,7 @@ msgid "NAVIGATION"
 msgstr "NAVIGAZIONE"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr ""
+msgstr "SALTA AL GIOCO CHE INIZIA CON LA LETTERA"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELEZIONA GIOCO CASUALE"
@@ -543,7 +543,7 @@ msgid "automatic"
 msgstr "automatico"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr ""
+msgstr "MOSTRA PERSONALIZZAZIONI"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "MOSTRA INFORMAZIONI PAD2KEY"
@@ -558,7 +558,7 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRA GIOCHI PER NOME"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr ""
+msgstr "QUESTA FUNZIONE È DISATTIVATA DURANTE L'ESECUZIONE DELLO SCRAPER"
 
 msgid "CLOSE"
 msgstr "CHIUDI"
@@ -579,7 +579,7 @@ msgid "CONNECT TO NETPLAY"
 msgstr "COLLEGATI SU NETPLAY"
 
 msgid "Select a game lobby to join"
-msgstr ""
+msgstr "Seleziona una stanza di gioco a cui unirti"
 
 msgid "REFRESH"
 msgstr "AGGIORNA"
@@ -606,7 +606,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "GIOCHI NON DISPONIBILI"
 
 msgid "NO GAMES FOUND"
-msgstr ""
+msgstr "NESSUN GIOCO TROVATO"
 
 msgid "JOIN GAME"
 msgstr "UNISCITI AL GIOCO"
@@ -615,7 +615,7 @@ msgid "WATCH GAME"
 msgstr "GUARDA LA PARTITA"
 
 msgid "INPUT MANUALLY"
-msgstr ""
+msgstr "INSERISCI MANUALMENTE"
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "NESSUNA RETE WIFI TROVATA"
@@ -657,7 +657,7 @@ msgid "CONTENT DOWNLOADER"
 msgstr "DOWNLOADER DEI CONTENUTI"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr ""
+msgstr "SCEGLI IL CONTENUTO DA INSTALLARE/RIMUOVERE"
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "AGGIORNA CONTENUTO INSTALLATO"
@@ -679,7 +679,7 @@ msgid "REMOVE"
 msgstr "RIMUOVI"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr ""
+msgstr "DISINSTALLAZIONE AGGIUNTA IN CODA"
 
 msgid "INSTALL"
 msgstr "INSTALLA"
@@ -689,7 +689,7 @@ msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "ATTUALMENTE IN CODA DOWNLOAD"
 
 msgid "NO MISSING BIOS FILES"
-msgstr ""
+msgstr "NESSUN BIOS MANCANTE"
 
 msgid "MISSING BIOS CHECK"
 msgstr "BIOS MANCANTI"
@@ -746,7 +746,7 @@ msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "OPZIONI VIDEO CASUALI SU SALVASCHERMO"
 
 msgid "VIDEO DURATION (SECS)"
-msgstr ""
+msgstr "DURATA VIDEO (IN SEC)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "UTILIZZA PLAYER OMX PER IL SALVASCHERMO"
@@ -758,10 +758,10 @@ msgid "USE MARQUEE AS GAME INFO"
 msgstr "USA BANNER COME INFO DI GIOCO"
 
 msgid "DECORATION SET USED"
-msgstr ""
+msgstr "SET DECORAZIONE USATO"
 
 msgid "STRETCH VIDEOS"
-msgstr ""
+msgstr "ESTENDI VIDEO"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "MUTA AUDIO DEL VIDEO"
@@ -776,10 +776,10 @@ msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "DIR. VIDEO PERSONALIZZATI"
 
 msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr ""
+msgstr "USA VIDEO NELLA SOTTOCARTELLA DELLA DIRECTORY PERSON."
 
 msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr ""
+msgstr "ESTENSIONI FILE VIDEO PERSONALIZZATE"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "OPZIONI SALVASCHERMO - PRESENTAZIONE"
@@ -797,10 +797,10 @@ msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "DIR. IMMAGINI PERSONALIZZATE"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr ""
+msgstr "USA IMMAGINI NELLA SOTTOCARTELLA DELLA DIRECTORY PERSON."
 
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr ""
+msgstr "ESTENSIONI FILE IMMAGINE PERSONALIZZATE"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURAZIONE PAD2KEY"
@@ -899,7 +899,7 @@ msgid "INVALID PARAMETERS"
 msgstr "PARAMETRI NON VALIDI"
 
 msgid "GAME MEDIA"
-msgstr ""
+msgstr "MEDIA DEL GIOCO"
 
 msgid "VIEW GAME MANUAL"
 msgstr "MOSTRA MANUALE DI GIOCO"
@@ -914,28 +914,28 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "MOSTRA VIDEO A SCHERMO INTERO"
 
 msgid "VIEW GAME MEDIA"
-msgstr ""
+msgstr "MOSTRA I MEDIA DEL GIOCO"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "QUESTO CORE NON È COMPATIBILE"
 
 msgid "COMPATIBLE CORE(S)"
-msgstr ""
+msgstr "CORE COMPATIBILE/I"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr ""
+msgstr "MOSTRA IL TROFEO DEL GIOCO"
 
 msgid "GAME"
 msgstr "GIOCO"
 
 msgid "SAVE STATES"
-msgstr ""
+msgstr "SALVATAGGI ISTANTANEI"
 
 msgid "OPEN"
 msgstr "APRI"
 
 msgid "NETPLAY HOSTING/OPTIONS"
-msgstr ""
+msgstr "HOSTING/OPZIONI NETPLAY"
 
 msgid "NETPLAY"
 msgstr "NEPLAY"
@@ -944,7 +944,7 @@ msgid "START GAME"
 msgstr "INIZIA LA PARTITA"
 
 msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr ""
+msgstr "INIZIA AD OSPITARE UNA SESSIONE NETPLAY"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NON SEI CONNESSO A UNA RETE"
@@ -1013,7 +1013,7 @@ msgid "THEMES DOWNLOADER"
 msgstr "DOWNLOADER TEMI"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
+msgstr "SELEZIONA IL TEMA DA INSTALLARE/RIMUOVERE"
 
 #, c-format
 msgid "CURRENT THEME"
@@ -1033,7 +1033,7 @@ msgid "%d%% complete"
 msgstr "%d%% completo"
 
 msgid "SAVE STATE MANAGER"
-msgstr ""
+msgstr "GESTORE SALVATAGGI INSTANT."
 
 msgid "START NEW GAME"
 msgstr "AVVIA NUOVO GIOCO"
@@ -1051,28 +1051,31 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIA SU SLOT LIBERO"
 
 msgid "SCRAPE CRITERIA"
-msgstr ""
+msgstr "CRITERI DI RICERCA MEDIA"
 
 msgid "MEDIA TO SCRAPE FOR"
-msgstr ""
+msgstr "MEDIA DA CERCARE"
 
 msgid "ALL"
-msgstr ""
+msgstr "TUTTI"
 
 msgid "ONLY MISSING"
-msgstr ""
+msgstr "SOLO MANCANTI"
 
 msgid "SYSTEMS INCLUDED"
-msgstr ""
+msgstr "INCLUSI I SISTEMI"
 
 msgid "START SCRAPING"
-msgstr ""
+msgstr "INIZIA RICERCA"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
+"ATTENZIONE: ALCUNI DEI TUOI SISTEMI POTREBBERO NON ESSERE SUPPORTATI"
+"I RISULTATI POTREBBERO VARIARE!\n"
+"CONTINUARE?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "SCRAPING IN ESECUZIONE. VUOI FERMARLO?"
@@ -1084,7 +1087,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "IL PROGETTO BEZEL"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr ""
+msgstr "SELEZIONA CORNICI DA INSTALLARE/RIMUOVERE"
 
 msgid "fade"
 msgstr "dissolvenza"
@@ -1174,7 +1177,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
 msgid "GAME SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI GIOCO"
 
 msgid "UI SETTINGS"
 msgstr "OPZIONI INTERFACCIA"
@@ -1210,13 +1213,13 @@ msgid "QUIT"
 msgstr "ESCI"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
+msgstr "SCRAPER IN ESECUZIONE. VUOI FERMARLO ORA?"
 
 msgid "NEXT"
-msgstr ""
+msgstr "PROSSIMO"
 
 msgid "SCRAPING DATABASE"
-msgstr ""
+msgstr "DATABASE DI RICERCA"
 
 msgid "IMAGE SOURCE"
 msgstr "SORGENTE IMMAGINE"
@@ -1282,16 +1285,16 @@ msgid "PASSWORD"
 msgstr "PASSWORD"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr ""
+msgstr "SEI SICURO DI CONFIGURARLO?"
 
 msgid "CHOOSE"
 msgstr "SCEGLIERE"
 
 msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "LA MODALITÀ UI È ORA SBLOCCATA"
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
+msgstr "INSERISCI IL CODICE PER SBLOCCARE L'ATTUALE MODALITÀ UI"
 
 msgid "USER DISK USAGE"
 msgstr "UTILIZZO DISCO UTENTE"
@@ -1324,7 +1327,7 @@ msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr ""
+msgstr "USA OMX PLAYER (ACCELERAZIONE HARDWARE)"
 
 msgid "TOOLS"
 msgstr "STRUMENTI"
@@ -1352,10 +1355,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "CREARE UN FILE DI SUPPORTO?"
 
 msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
-msgstr ""
+msgstr "FILE DI SUPPORTO GENERATO CON SUCCESSO"
 
 msgid "SUPPORT FILE GENERATION FAILED"
-msgstr ""
+msgstr "GENERAZIONE FILE DI SUPPORT FALLITA"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATTA DISCO"
@@ -1415,7 +1418,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "MOSTRA TASTIERA SULLO SCHERMO"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr ""
+msgstr "NASCONDI IMMAGINE SPLASH ES ALL'AVVIO DEL GIOCO"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "ESCI DEFINITIVAMENTE DAL MENU"
@@ -1439,7 +1442,7 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Inverti pulsante NORD (salv. istant.) & pressione lunga SUD (opzioni gioco)"
+"Inverti pulsante NORD (salvataggi istant.) & pressione lunga SUD (opzioni gioco)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "UTILIZZO DI ES SOLO PER IL PRIMO CONTROLLER"
@@ -1493,16 +1496,16 @@ msgid "START UPDATE"
 msgstr "INIZIA AGGIORNAMENTO"
 
 msgid "UPDATER IS ALREADY RUNNING"
-msgstr ""
+msgstr "L'AGGIORNAMENTO È GIÀ IN ESECUZIONE"
 
 msgid "LANGUAGE"
 msgstr "LINGUA"
 
 msgid "SELECT YOUR TIME ZONE"
-msgstr ""
+msgstr "SELEZIONA IL TUO FUSO ORARIO"
 
 msgid "TIME ZONE"
-msgstr ""
+msgstr "FUSO ORARIO"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "OROLOGIO - FORMATO 12-ORE"
@@ -1511,7 +1514,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODALITÀ RISPARMIO ENERGETICO"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
-msgstr ""
+msgstr "SINTESI VOCALE (TEXT TO SPEECH)"
 
 msgid "UI MODE"
 msgstr "MODALITÀ INTERFACCIA"
@@ -1521,6 +1524,10 @@ msgid ""
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full UI, enter this code:"
 msgstr ""
+"La tua UI è ora in modalità protetta:\n"
+"Questa funzione permette di nascondere alcune funzioni dei menu.\n"
+"per evitare modifiche accidentali o indesiderate.\n"
+"Per sbloccarla e tornare nella modalità standard, inserisci questo codice:"
 
 msgid "Do you want to proceed?"
 msgstr "Vuoi procedere?"
@@ -1553,37 +1560,37 @@ msgid "SCREEN ROTATION"
 msgstr "ROTAZIONE SCHERMO"
 
 msgid "0 DEGREES (AUTO)"
-msgstr ""
+msgstr "0 GRADI (AUTO)"
 
 msgid "90 DEGREES"
-msgstr ""
+msgstr "90 GRADI"
 
 msgid "180 DEGREES"
-msgstr ""
+msgstr "180 GRADI"
 
 msgid "270 DEGREES"
-msgstr ""
+msgstr "270 GRADI"
 
 msgid "BOOT SPLASH"
 msgstr "SCHERMATA DI AVVIO"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr ""
+msgstr "ATTIVA"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr ""
+msgstr "SENZA AUDIO"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr ""
+msgstr "IMMAGINE DI AVVIO BATOCERA"
 
 msgid "SPLASH SETTING"
-msgstr ""
+msgstr "IMPOSTAZIONE SCHERMATA DI AVVIO"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
+msgstr "OPZIONI TROFEI"
 
 msgid "NETPLAY SETTINGS"
-msgstr "IMPOSTAZIONI NETPLAY"
+msgstr "OPZIONI NETPLAY"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "CONTROLLA I BIOS PRIMA DI AVVIARE UN GIOCO"
@@ -1685,13 +1692,13 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
+msgstr "SUONO DI SBLOCCO TROFEO"
 
 msgid "UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
+msgstr "MOSTRA LA VOCE TROFEI NEL MENU PRINCIPALE"
 
 msgid "GAME INDEXES"
 msgstr "INDICI DI GIOCO"
@@ -1703,7 +1710,7 @@ msgid "FIND NEW GAMES"
 msgstr "TROVA NUOVI GIOCHI"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
+msgstr "IMPOSSIBILE ATTIVARE I TROFEI"
 
 msgid "ENABLE NETPLAY"
 msgstr "ABILITA NETPLAY"
@@ -1718,19 +1725,19 @@ msgid "USE RELAY SERVER"
 msgstr "USA RELAY SERVER"
 
 msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
+msgstr "CONTROLLA GLI INDICI NETPLAY MANCANTI ALL'AVVIO"
 
 msgid "DEFAULT GLOBAL SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI GLOBALI DI DEFAULT"
 
 msgid "GAME ASPECT RATIO"
-msgstr ""
+msgstr "PROPORZIONI VIDEO DEL GIOCO"
 
 msgid "VIDEO MODE"
 msgstr "MODALITÀ VIDEO"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr ""
+msgstr "PIXEL AMMORBIDITI (FILTRO BILINEARE)"
 
 msgid "REWIND"
 msgstr "RIAVVOLGI"
@@ -1742,10 +1749,10 @@ msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SALVA/CARICA AUTOMATICO"
 
 msgid "SHOW SAVE STATES"
-msgstr ""
+msgstr "MOSTRA SALVATAGGIO INSTANT."
 
 msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
+msgstr "MOSTRA SALVATAGGI SE PRESENTI"
 
 msgid "SHADER SET"
 msgstr "EFFETTO SHADER"
@@ -1754,49 +1761,49 @@ msgid "DECORATIONS"
 msgstr "CORNICI"
 
 msgid "DECORATION SET"
-msgstr ""
+msgstr "SET CORNICI"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTENDI CORNICI (4K & ULTRAWIDE)"
 
 msgid "SHOW CONTROLLER OVERLAYS"
-msgstr ""
+msgstr "MOSTRA MAPPA DEL CONTROLLER"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr ""
+msgstr "CONTROLLER DI SISTEMA"
 
 msgid "CUSTOM .PNG IMAGE"
-msgstr ""
+msgstr "IMMAGINE .PNG PERSONALIZZATA"
 
 msgid "OVERLAY CORNER"
-msgstr ""
+msgstr "ANGOLO DELLA MAPPA"
 
 msgid "NORTH WEST"
-msgstr ""
+msgstr "NORD OVEST"
 
 msgid "NORTH EAST"
-msgstr ""
+msgstr "NORD EST"
 
 msgid "SOUTH EAST"
-msgstr ""
+msgstr "SUD EST"
 
 msgid "SOUTH WEST"
-msgstr ""
+msgstr "SUD OVEST"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr ""
+msgstr "PERCORSO IMMAGINE PERSONALIZZATA"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUZIONE GIOCO IA"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr ""
+msgstr "ATTIVA TRADUZIONE GIOCO IA"
 
 msgid "TARGET LANGUAGE"
 msgstr "LINGUA DI DESTINAZIONE"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr ""
+msgstr "URL DEL SERVIZIO"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA SULLA SCHERMATA TRADOTTA"
@@ -1808,10 +1815,10 @@ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "GAME HASHING IN ESECUZIONE. VUOI ARRESTARE IL PROCESSO?"
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr ""
+msgstr "VUOI AGGIORNARE LA LISTA?"
 
 msgid "CONTROLLER MAPPING"
-msgstr ""
+msgstr "CONFIGURA CONTROLLER"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
@@ -1820,13 +1827,18 @@ msgid ""
 "BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
+"STAI PER CONFIGURARE UN CONTROLLER. SE POSSIEDI UN CONTROLLER DOTATO"
+"SOLTANTO DI CROCE DIREZIONALE E PULSANTI STANDARD, PUOI SALTARE IL RESTO"
+"TENENDO PREMUTO IL PULSANTE SUD. SE NON PUOI UTILIZZARE UN PULSANTE SPECIALE"
+"COME TASTO HOTKEY, VERRÀ IMPOSTATO IL TASTO SELECT AUTOMATICAMENTE "
+"PREMERE IL PULSANTE SUD PER CONFERMARE QUANTO TERMINATO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "ACCOPPIA UN DISPOSITIVO BLUETOOTH"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr ""
+msgstr "CONTROLLER P%i"
 
 msgid "default"
 msgstr "default"
@@ -1838,7 +1850,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRA LIVELLO BATTERIA DEL CONTROLLER"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
-msgstr ""
+msgstr "È NECESSARIO APPLICARE IL TEMA PRIMA DI MODIFICARLO"
 
 msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAZIONE DEL TEMA"
@@ -1904,10 +1916,10 @@ msgid "FILE EXTENSIONS"
 msgstr "ESTENSIONI FILE"
 
 msgid "RESET CUSTOMIZATIONS"
-msgstr ""
+msgstr "RESETTA PERSONALIZZAZIONI"
 
 msgid "APPEARANCE"
-msgstr ""
+msgstr "ASPETTO"
 
 msgid "THEME SET"
 msgstr "TEMA SELEZIONATO"
@@ -2124,10 +2136,10 @@ msgid "START"
 msgstr "START"
 
 msgid "ZOOM OUT"
-msgstr ""
+msgstr "RIDUCI"
 
 msgid "ZOOM IN"
-msgstr ""
+msgstr "INGRANDISCI"
 
 msgid "MOVE"
 msgstr "SPOSTA"
@@ -2188,12 +2200,18 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
+"ATTENZIONE: L'EMULATORE O IL CORE POTREBBE NON SUPPORTARE IL FORMATO"
+"FILE DI QUESTO GIOCO.\n"
+"VUOI AVVIARLO COMUNQUE?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
+"ATTENZIONE: IL SISTEMA NECESSITA DEL/I SUO(I) BIOS E IL GIOCO"
+"POTREBBE NON FUNZIONARE CORRETTAMENTE.\n"
+"VUOI AVVIARLO COMUNQUE?"
 
 msgid "Preloading UI"
 msgstr "Precaricamento UI"
@@ -2374,7 +2392,7 @@ msgid "INDEXING COMPLETED"
 msgstr "INDICIZZAZIONE COMPLETATA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "AGGIORNA LISTE DEI GIOCHI PER APPLICARE I CAMBIAMENTI"
 
 msgid "GENRE"
 msgstr "GENERE"
@@ -2386,7 +2404,7 @@ msgid "PLAYERS"
 msgstr "GIOCATORI"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr ""
+msgstr "EDITORE/SVILUPPATORE"
 
 msgid "RATING"
 msgstr "VOTO"
@@ -2500,12 +2518,15 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
+"NESSUN PULSANTE PER IL TASTO HOTKEY È STATO ASSEGNATO. IL PULSANTE È "
+"NECESSARIO PER USCIRE DAL GIOCO O USARE LE SUE FUNZIONI AVANZATE. "
+"VUOI USARE IL PULSANTE SELECT COME TASTO HOTKEY. "
 
 msgid "SET SELECT AS HOTKEY"
-msgstr ""
+msgstr "USA SELECT COME TASTO HOTKEY"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr ""
+msgstr "NESSUN TASTO HOTKEY"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
