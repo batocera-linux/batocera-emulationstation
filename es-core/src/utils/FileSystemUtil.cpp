@@ -1219,7 +1219,7 @@ namespace Utils
 			return gp + filename;
 		}
 
-		unsigned unsigned long long getFileSize(const std::string& _path)
+		unsigned long long getFileSize(const std::string& _path)
 		{
 			std::string path = getGenericPath(_path);
 			struct stat64 info;
