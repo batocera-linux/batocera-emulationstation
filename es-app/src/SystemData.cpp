@@ -1166,12 +1166,20 @@ bool SystemData::loadConfig(Window* window)
 		}
 	}
 
-	if (window != nullptr && SystemConf::getInstance()->getBool("global.netplay") && !ThreadedHasher::isRunning())
+	if (window != nullptr && !ThreadedHasher::isRunning())
 	{
-		if (Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"))
-			ThreadedHasher::start(window, ThreadedHasher::HASH_NETPLAY_CRC, false, true);
+		int checkIndex = 0;
+
+		if (Settings::getInstance()->getBool("CheevosCheckIndexesAtStart"))
+			checkIndex |= (int) ThreadedHasher::HASH_CHEEVOS_MD5;
+
+		if (SystemConf::getInstance()->getBool("global.netplay") && Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"))
+			checkIndex |= (int) ThreadedHasher::HASH_NETPLAY_CRC;
+
+		if (checkIndex != 0)
+			ThreadedHasher::start(window, (ThreadedHasher::HasherType)checkIndex, false, true);
 	}
-	
+
 	return true;
 }
 
@@ -1823,9 +1831,21 @@ std::string SystemData::getCompatibleCoreNames(EmulatorFeatures::Features featur
 	std::string ret;
 
 	for (auto emul : mEmulators)
-		for (auto core : emul.cores)
-			if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
-				ret += ret.empty() ? core.name : ", " + core.name;
+	{
+		if ((emul.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+			ret += ret.empty() ? emul.name : ", " + emul.name;
+		else
+		{
+			for (auto core : emul.cores)
+			{
+				if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+				{
+					std::string name = emul.name == core.name ? core.name : emul.name + "/" + core.name;
+					ret += ret.empty() ? name : ", " + name;
+				}
+			}
+		}
+	}
 
 	return ret;
 }

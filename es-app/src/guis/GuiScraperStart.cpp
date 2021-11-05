@@ -61,7 +61,7 @@ GuiScraperStart::GuiScraperStart(Window* window) : GuiComponent(window),
 	// mApproveResults->setState(false);
 	// mMenu.addWithLabel(_("USER DECIDES ON CONFLICTS"), mApproveResults);
 
-	mMenu.addButton(_("START SCRAPING"), _("START SCRAPING"), std::bind(&GuiScraperStart::pressedStart, this));
+	mMenu.addButton(_("START"), _("START"), std::bind(&GuiScraperStart::pressedStart, this));
 	mMenu.addButton(_("BACK"), _("BACK"), [&] { delete this; });
 
 	if (Renderer::isSmallScreen())
