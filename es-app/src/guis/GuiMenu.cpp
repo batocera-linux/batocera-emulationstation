@@ -8,6 +8,7 @@
 #include "guis/GuiGeneralScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
+#include "guis/GuiHashStart.h"
 #include "guis/GuiThemeInstaller.h" //batocera
 #include "guis/GuiBezelInstaller.h" //batocera
 #include "guis/GuiBatoceraStore.h" //batocera
@@ -1917,8 +1918,23 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements->addSaveFunc([retroachievements_menuitem] { Settings::getInstance()->setBool("RetroachievementsMenuitem", retroachievements_menuitem->getState()); });
 
 	retroachievements->addGroup(_("GAME INDEXES"));
-	retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
-	retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
+
+	// CheckOnStart
+	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
+	checkOnStart->setState(Settings::getInstance()->getBool("CheevosCheckIndexesAtStart"));
+	retroachievements->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
+	retroachievements->addSaveFunc([checkOnStart] { Settings::getInstance()->setBool("CheevosCheckIndexesAtStart", checkOnStart->getState()); });
+
+	// Index games
+	retroachievements->addEntry(_("INDEX GAMES"), true, [this] 
+	{ 
+		if (ThreadedHasher::checkCloseIfRunning(mWindow))
+			mWindow->pushGui(new GuiHashStart(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5));
+	});
+
+
+	//retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
+	//retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
 
 	retroachievements->addSaveFunc([retroachievementsEnabled, retroachievements_enabled, username, password, window]
 	{
@@ -1983,7 +1999,7 @@ void GuiMenu::openNetplaySettings()
 	// CheckOnStart
 	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
 	checkOnStart->setState(Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"));
-	settings->addWithLabel(_("CHECK MISSING NETPLAY INDEXES AT STARTUP"), checkOnStart);
+	settings->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
 	
 	Window* window = mWindow;
 	settings->addSaveFunc([enableNetplay, checkOnStart, mitms, window]
@@ -2000,8 +2016,14 @@ void GuiMenu::openNetplaySettings()
 		}
 	});
 	
-	settings->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
-	settings->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
+	settings->addEntry(_("INDEX GAMES"), true, [this]
+	{
+		if (ThreadedHasher::checkCloseIfRunning(mWindow))
+			mWindow->pushGui(new GuiHashStart(mWindow, ThreadedHasher::HASH_NETPLAY_CRC));
+	});
+
+	//settings->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
+	//settings->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
 	
 	mWindow->pushGui(settings);
 }

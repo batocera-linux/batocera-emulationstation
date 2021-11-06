@@ -14,12 +14,12 @@ void* rc_hash_handle_file_open(const char* path)
 	return intfstream_open_file(path, RETRO_VFS_FILE_ACCESS_READ, RETRO_VFS_FILE_ACCESS_HINT_NONE);
 }
 
-void rc_hash_handle_file_seek(void* file_handle, size_t offset, int origin)
+void rc_hash_handle_file_seek(void* file_handle, int64_t offset, int origin)
 {
 	intfstream_seek((intfstream_t*)file_handle, offset, origin);
 }
 
-size_t rc_hash_handle_file_tell(void* file_handle)
+int64_t rc_hash_handle_file_tell(void* file_handle)
 {
 	return intfstream_tell((intfstream_t*)file_handle);
 }
@@ -86,6 +86,7 @@ bool generateHashFromFile(char hash[33], int console_id, const char* path)
 	{
 		if (!readersinit)
 		{
+
 			filereader.open = rc_hash_handle_file_open;
 			filereader.seek = rc_hash_handle_file_seek;
 			filereader.tell = rc_hash_handle_file_tell;

@@ -1,38 +1,48 @@
 project("libcheevos")
 
 set(CHEEVOS_HEADERS
-
 	${CMAKE_CURRENT_SOURCE_DIR}/cheevos.h
-
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rurl.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rcheevos.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_api_info.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_api_request.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_api_runtime.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_api_user.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_consoles.h
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_hash.h		
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_error.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_hash.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_runtime.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_runtime_types.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include/rc_url.h
 )
 
 set(CHEEVOS_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/cheevos.cpp
-
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash.c	
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/md5.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rapi/rc_api_common.c
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rapi/rc_api_common.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rapi/rc_api_info.c
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rapi/rc_api_runtime.c
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rapi/rc_api_user.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/alloc.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/compat.c
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/compat.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/condition.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/condset.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/consoleinfo.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/format.c
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/internal.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/lboard.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/memref.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/operand.c
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/rc_compat.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/rc_internal.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/rc_libretro.c
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/rc_libretro.h
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/richpresence.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/runtime.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/runtime_progress.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/trigger.c
 	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rcheevos/value.c
-	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rurl/url.c	
-	
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/hash.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rhash/md5.h
+	${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/src/rurl/url.c		
 )
 
 set(LIBRETRO_COMMON_HEADERS

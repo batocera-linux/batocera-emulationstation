@@ -17,10 +17,11 @@ public:
 		HASH_ALL = HASH_NETPLAY_CRC | HASH_CHEEVOS_MD5,
 	};
 
-	static void start(Window* window, HasherType type, bool forceAllGames=false, bool silent=false);
+	static void start(Window* window, HasherType type, bool forceAllGames=false, bool silent=false, std::set<std::string>* systems = nullptr);
 	static void stop();
 	static bool isRunning() { return mInstance != nullptr; }
-	
+	static bool checkCloseIfRunning(Window* window);
+
 	static void pause() { mPaused = true; }
 	static void resume() { mPaused = false; }
 

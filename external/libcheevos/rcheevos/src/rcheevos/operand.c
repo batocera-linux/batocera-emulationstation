@@ -1,4 +1,4 @@
-#include "internal.h"
+#include "rc_internal.h"
 
 #include <stdlib.h>
 #include <ctype.h>
@@ -68,97 +68,56 @@ static int rc_parse_operand_lua(rc_operand_t* self, const char** memaddr, rc_par
 
 static int rc_parse_operand_memory(rc_operand_t* self, const char** memaddr, rc_parse_state_t* parse, int is_indirect) {
   const char* aux = *memaddr;
-  char* end;
-  unsigned long address;
+  unsigned address;
   char size;
+  int ret;
 
-  switch (*aux++) {
+  switch (*aux) {
     case 'd': case 'D':
       self->type = RC_OPERAND_DELTA;
+      ++aux;
       break;
 
     case 'p': case 'P':
       self->type = RC_OPERAND_PRIOR;
+      ++aux;
       break;
 
     case 'b': case 'B':
       self->type = RC_OPERAND_BCD;
+      ++aux;
       break;
 
     case '~':
       self->type = RC_OPERAND_INVERTED;
+      ++aux;
       break;
 
     default:
       self->type = RC_OPERAND_ADDRESS;
-      aux--;
       break;
   }
 
-  if (*aux++ != '0') {
-    return RC_INVALID_MEMORY_OPERAND;
-  }
+  ret = rc_parse_memref(&aux, &self->size, &address);
+  if (ret != RC_OK)
+    return ret;
 
-  if (*aux != 'x' && *aux != 'X') {
-    return RC_INVALID_MEMORY_OPERAND;
-  }
-
-  aux++;
-
-  switch (*aux++) {
-    case 'm': case 'M': self->size = RC_MEMSIZE_BIT_0; size = RC_MEMSIZE_8_BITS; break;
-    case 'n': case 'N': self->size = RC_MEMSIZE_BIT_1; size = RC_MEMSIZE_8_BITS; break;
-    case 'o': case 'O': self->size = RC_MEMSIZE_BIT_2; size = RC_MEMSIZE_8_BITS; break;
-    case 'p': case 'P': self->size = RC_MEMSIZE_BIT_3; size = RC_MEMSIZE_8_BITS; break;
-    case 'q': case 'Q': self->size = RC_MEMSIZE_BIT_4; size = RC_MEMSIZE_8_BITS; break;
-    case 'r': case 'R': self->size = RC_MEMSIZE_BIT_5; size = RC_MEMSIZE_8_BITS; break;
-    case 's': case 'S': self->size = RC_MEMSIZE_BIT_6; size = RC_MEMSIZE_8_BITS; break;
-    case 't': case 'T': self->size = RC_MEMSIZE_BIT_7; size = RC_MEMSIZE_8_BITS; break;
-    case 'l': case 'L': self->size = RC_MEMSIZE_LOW; size = RC_MEMSIZE_8_BITS; break;
-    case 'u': case 'U': self->size = RC_MEMSIZE_HIGH; size = RC_MEMSIZE_8_BITS; break;
-    case 'k': case 'K': self->size = RC_MEMSIZE_BITCOUNT; size = RC_MEMSIZE_8_BITS; break;
-    case 'h': case 'H': self->size = size = RC_MEMSIZE_8_BITS; break;
-    case 'w': case 'W': self->size = size = RC_MEMSIZE_24_BITS; break;
-    case 'x': case 'X': self->size = size = RC_MEMSIZE_32_BITS; break;
-
-    case '0': case '1': case '2': case '3': case '4':
-    case '5': case '6': case '7': case '8': case '9':
-    case 'a': case 'b': case 'c': case 'd': case 'e': case 'f':
-    case 'A': case 'B': case 'C': case 'D': case 'E': case 'F':
-      aux--;
-      /* fallthrough */
-    case ' ':
-      self->size = size = RC_MEMSIZE_16_BITS;
-      break;
-
-    default:
-      return RC_INVALID_MEMORY_OPERAND;
-  }
-
-  address = strtoul(aux, &end, 16);
-
-  if (end == aux) {
-    return RC_INVALID_MEMORY_OPERAND;
-  }
-
-  if (address > 0xffffffffU) {
-    address = 0xffffffffU;
-  }
-
-  self->value.memref = rc_alloc_memref_value(parse, address, size, is_indirect);
+  size = rc_memref_shared_size(self->size);
+  self->value.memref = rc_alloc_memref(parse, address, size, (char)is_indirect);
   if (parse->offset < 0)
     return parse->offset;
 
-  *memaddr = end;
+  *memaddr = aux;
   return RC_OK;
 }
 
-int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, int is_indirect, rc_parse_state_t* parse) {
+int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_indirect, rc_parse_state_t* parse) {
   const char* aux = *memaddr;
   char* end;
   int ret;
   unsigned long value;
   int negative;
+  int allow_decimal = 0;
 
   self->size = RC_MEMSIZE_32_BITS;
 
@@ -170,14 +129,11 @@ int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, i
       }
 
       value = strtoul(++aux, &end, 16);
-
-      if (end == aux) {
+      if (end == aux)
         return RC_INVALID_CONST_OPERAND;
-      }
 
-      if (value > 0xffffffffU) {
+      if (value > 0xffffffffU)
         value = 0xffffffffU;
-      }
 
       self->type = RC_OPERAND_CONST;
       self->value.num = (unsigned)value;
@@ -186,46 +142,61 @@ int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, i
       break;
 
     case 'f': case 'F': /* floating point constant */
-      self->value.dbl = strtod(++aux, &end);
-
-      if (end == aux) {
-        return RC_INVALID_FP_OPERAND;
-      }
-
-      if (floor(self->value.dbl) == self->value.dbl) {
-        self->type = RC_OPERAND_CONST;
-        self->value.num = (unsigned)floor(self->value.dbl);
-      }
-      else {
-        self->type = RC_OPERAND_FP;
-      }
-
-      aux = end;
-      break;
-
+      allow_decimal = 1;
+      /* fall through */
     case 'v': case 'V': /* signed integer constant */
-      negative = 0;
       ++aux;
-
-      if (*aux == '-')
-      {
+      /* fall through */
+    case '+': case '-': /* signed integer constant */
+      negative = 0;
+      if (*aux == '-') {
         negative = 1;
         ++aux;
       }
-      else if (*aux == '+')
-      {
+      else if (*aux == '+') {
         ++aux;
       }
 
       value = strtoul(aux, &end, 10);
 
-      if (end == aux) {
-        return RC_INVALID_CONST_OPERAND;
+      if (*end == '.' && allow_decimal) {
+        /* custom parser for decimal values to ignore locale */
+        unsigned long shift = 1;
+        unsigned long fraction = 0;
+
+        aux = end + 1;
+        if (*aux < '0' || *aux > '9')
+          return RC_INVALID_FP_OPERAND;
+
+        do {
+          fraction *= 10;
+          fraction += (*aux - '0');
+          shift *= 10;
+          ++aux;
+        } while (*aux >= '0' && *aux <= '9');
+
+        /* if fractional part is 0, convert to an integer constant */
+        if (fraction != 0) {
+          /* non-zero fractional part, convert to double and merge in integer portion */
+          const double dbl_fraction = ((double)fraction) / ((double)shift);
+          if (negative)
+            self->value.dbl = ((double)(-((long)value))) - dbl_fraction;
+          else
+            self->value.dbl = (double)value + dbl_fraction;
+
+          self->type = RC_OPERAND_FP;
+          break;
+        }
+      } else {
+        /* not a floating point value, make sure something was read and advance the read pointer */
+        if (end == aux)
+          return allow_decimal ? RC_INVALID_FP_OPERAND : RC_INVALID_CONST_OPERAND;
+
+        aux = end;
       }
 
-      if (value > 0x7fffffffU) {
+      if (value > 0x7fffffffU)
         value = 0x7fffffffU;
-      }
 
       self->type = RC_OPERAND_CONST;
 
@@ -234,35 +205,29 @@ int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, i
       else
         self->value.num = (unsigned)value;
 
-      aux = end;
       break;
 
     case '0':
-      if (aux[1] == 'x' || aux[1] == 'X') {
+      if (aux[1] == 'x' || aux[1] == 'X') { /* hex integer constant */
         /* fall through */
     default:
         ret = rc_parse_operand_memory(self, &aux, parse, is_indirect);
 
-        if (ret < 0) {
+        if (ret < 0)
           return ret;
-        }
 
         break;
       }
 
       /* fall through for case '0' where not '0x' */
-    case '+': case '-':
-    case '1': case '2': case '3': case '4': case '5':
+    case '1': case '2': case '3': case '4': case '5': /* unsigned integer constant */
     case '6': case '7': case '8': case '9':
       value = strtoul(aux, &end, 10);
-
-      if (end == aux) {
+      if (end == aux)
         return RC_INVALID_CONST_OPERAND;
-      }
 
-      if (value > 0xffffffffU) {
+      if (value > 0xffffffffU)
         value = 0xffffffffU;
-      }
 
       self->type = RC_OPERAND_CONST;
       self->value.num = (unsigned)value;
@@ -273,9 +238,8 @@ int rc_parse_operand(rc_operand_t* self, const char** memaddr, int is_trigger, i
     case '@':
       ret = rc_parse_operand_lua(self, &aux, parse);
 
-      if (ret < 0) {
+      if (ret < 0)
         return ret;
-      }
 
       break;
   }
@@ -305,14 +269,24 @@ static int rc_luapeek(lua_State* L) {
 
 #endif /* RC_DISABLE_LUA */
 
-static const unsigned char rc_bits_set[16] = { 0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4 };
+int rc_operand_is_memref(rc_operand_t* self) {
+  switch (self->type) {
+    case RC_OPERAND_CONST:
+    case RC_OPERAND_FP:
+    case RC_OPERAND_LUA:
+      return 0;
+
+    default:
+      return 1;
+  }
+}
 
 unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
 #ifndef RC_DISABLE_LUA
   rc_luapeek_t luapeek;
 #endif /* RC_DISABLE_LUA */
 
-  unsigned value = 0;
+  unsigned value;
 
   /* step 1: read memory */
   switch (self->type) {
@@ -324,8 +298,9 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
       return 0;
 
     case RC_OPERAND_LUA:
-#ifndef RC_DISABLE_LUA
+      value = 0;
 
+#ifndef RC_DISABLE_LUA
       if (eval_state->L != 0) {
         lua_rawgeti(eval_state->L, LUA_REGISTRYINDEX, self->value.luafunc);
         lua_pushcfunction(eval_state->L, rc_luapeek);
@@ -351,69 +326,13 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
 
       break;
 
-    case RC_OPERAND_ADDRESS:
-    case RC_OPERAND_BCD:
-    case RC_OPERAND_INVERTED:
-      value = rc_get_indirect_memref(self->value.memref, eval_state)->value;
-      break;
-
-    case RC_OPERAND_DELTA:
-      value = rc_get_indirect_memref(self->value.memref, eval_state)->previous;
-      break;
-
-    case RC_OPERAND_PRIOR:
-      value = rc_get_indirect_memref(self->value.memref, eval_state)->prior;
+    default:
+      value = rc_get_memref_value(self->value.memref, self->type, eval_state);
       break;
   }
 
   /* step 2: mask off appropriate bits */
-  switch (self->size)
-  {
-    case RC_MEMSIZE_BIT_0:
-      value = (value >> 0) & 1;
-      break;
-
-    case RC_MEMSIZE_BIT_1:
-      value = (value >> 1) & 1;
-      break;
-
-    case RC_MEMSIZE_BIT_2:
-      value = (value >> 2) & 1;
-      break;
-
-    case RC_MEMSIZE_BIT_3:
-      value = (value >> 3) & 1;
-      break;
-
-    case RC_MEMSIZE_BIT_4:
-      value = (value >> 4) & 1;
-      break;
-
-    case RC_MEMSIZE_BIT_5:
-      value = (value >> 5) & 1;
-      break;
-
-    case RC_MEMSIZE_BIT_6:
-      value = (value >> 6) & 1;
-      break;
-
-    case RC_MEMSIZE_BIT_7:
-      value = (value >> 7) & 1;
-      break;
-
-    case RC_MEMSIZE_LOW:
-      value = value & 0x0f;
-      break;
-
-    case RC_MEMSIZE_HIGH:
-      value = (value >> 4) & 0x0f;
-      break;
-
-    case RC_MEMSIZE_BITCOUNT:
-      value = rc_bits_set[(value & 0x0F)]
-            + rc_bits_set[((value >> 4) & 0x0F)];
-      break;
-  }
+  value = rc_transform_memref_value(value, self->size);
 
   /* step 3: apply logic */
   switch (self->type)
@@ -427,6 +346,7 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
           break;
 
         case RC_MEMSIZE_16_BITS:
+        case RC_MEMSIZE_16_BITS_BE:
           value = ((value >> 12) & 0x0f) * 1000
                 + ((value >> 8) & 0x0f) * 100
                 + ((value >> 4) & 0x0f) * 10
@@ -434,6 +354,7 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
           break;
 
         case RC_MEMSIZE_24_BITS:
+        case RC_MEMSIZE_24_BITS_BE:
           value = ((value >> 20) & 0x0f) * 100000
                 + ((value >> 16) & 0x0f) * 10000
                 + ((value >> 12) & 0x0f) * 1000
@@ -443,6 +364,8 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
           break;
 
         case RC_MEMSIZE_32_BITS:
+        case RC_MEMSIZE_32_BITS_BE:
+        case RC_MEMSIZE_VARIABLE:
           value = ((value >> 28) & 0x0f) * 10000000
                 + ((value >> 24) & 0x0f) * 1000000
                 + ((value >> 20) & 0x0f) * 100000
@@ -471,14 +394,18 @@ unsigned rc_evaluate_operand(rc_operand_t* self, rc_eval_state_t* eval_state) {
           break;
 
         case RC_MEMSIZE_16_BITS:
+        case RC_MEMSIZE_16_BITS_BE:
           value ^= 0xffff;
           break;
 
         case RC_MEMSIZE_24_BITS:
+        case RC_MEMSIZE_24_BITS_BE:
           value ^= 0xffffff;
           break;
 
         case RC_MEMSIZE_32_BITS:
+        case RC_MEMSIZE_32_BITS_BE:
+        case RC_MEMSIZE_VARIABLE:
           value ^= 0xffffffff;
           break;
 
