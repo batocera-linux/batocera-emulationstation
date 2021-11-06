@@ -802,10 +802,10 @@ void GuiMenu::openDeveloperSettings()
 		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE?"), _("YES"),
 			[window] {
 			if (ApiSystem::getInstance()->generateSupportFile()) {
-				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE GENERATED SUCCESSFULLY"), _("OK")));
+				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATED IN SAVES FOLDER"), _("OK")));
 			}
 			else {
-				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE GENERATION FAILED"), _("OK")));
+				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATION FAILED"), _("OK")));
 			}
 		}, _("NO"), nullptr));
 	});
@@ -4390,9 +4390,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (fileData == nullptr && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && systemData->isCurrentFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 	{
 		if (systemData->hasKeyboardMapping())
-			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
+			systemConfiguration->addEntry(_("EDIT PADTOKEY PROFILE"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 		else
-			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
+			systemConfiguration->addEntry(_("CREATE PADTOKEY PROFILE"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 	}
 	
 	// Set as boot game 
