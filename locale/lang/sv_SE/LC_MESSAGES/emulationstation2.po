@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -1061,8 +1061,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "STARTA"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1692,10 +1692,10 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "SPELINDEX"
 
-msgid "FIND ALL GAMES"
+msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
-msgid "FIND NEW GAMES"
+msgid "INDEX GAMES"
 msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
@@ -1712,9 +1712,6 @@ msgstr "PORT"
 
 msgid "USE RELAY SERVER"
 msgstr "ANVÄND RELÄSERVER"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2114,9 +2111,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "INGEN ENHET HITTADES"
 
-msgid "START"
-msgstr "STARTA"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2127,6 +2121,9 @@ msgid "MOVE"
 msgstr ""
 
 msgid "ZOOM"
+msgstr ""
+
+msgid "GAMES TO INDEX"
 msgstr ""
 
 msgid "SYSTEM INFO"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1060,8 +1060,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "ΕΚΚΙΝΗΣΗ"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1693,11 +1693,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "ΕΥΡΕΤΗΡΙΑ ΠΑΙΧΝΙΔΙΟΥ"
 
-msgid "FIND ALL GAMES"
-msgstr "ΕΥΡΕΣΗ ΟΛΩΝ ΤΩΝ ΠΑΙΧΝΙΔΙΩΝ"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "ΕΥΡΕΣΗ ΝΕΩΝ ΠΑΙΧΝΙΔΙΩΝ"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1713,9 +1713,6 @@ msgstr "ΘΥΡΑ"
 
 msgid "USE RELAY SERVER"
 msgstr "ΧΡΗΣΗ RELAY ΣΕΡΒΕΡ"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2118,9 +2115,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "ΔΕΝ ΒΡΕΘΗΚΕ ΣΥΣΚΕΥΗ"
 
-msgid "START"
-msgstr "ΕΚΚΙΝΗΣΗ"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2132,6 +2126,9 @@ msgstr "METAKINHΣH"
 
 msgid "ZOOM"
 msgstr "ΜΕΓΕΘΥΝΣΗ"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "ΠΛΗΡΟΦΟΡΙΕΣ ΣΥΣΤΗΜΑΤΟΣ"
@@ -2618,6 +2615,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "ΕΥΡΕΣΗ ΟΛΩΝ ΤΩΝ ΠΑΙΧΝΙΔΙΩΝ"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "ΕΥΡΕΣΗ ΝΕΩΝ ΠΑΙΧΝΙΔΙΩΝ"
 
 #~ msgid "All Games"
 #~ msgstr "Ολα τα Παιχνίδια"

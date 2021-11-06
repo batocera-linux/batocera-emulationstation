@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1063,8 +1063,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "STARTEN"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1696,11 +1696,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "SPELINDEXEN"
 
-msgid "FIND ALL GAMES"
-msgstr "VIND ALLE SPELLEN"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "VIND NIEUWE SPELLEN"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1716,9 +1716,6 @@ msgstr "POORT"
 
 msgid "USE RELAY SERVER"
 msgstr "GEBRUIK RELAY SERVER"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2120,9 +2117,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "GEEN APPARAAT GEVONDEN"
 
-msgid "START"
-msgstr "STARTEN"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2134,6 +2128,9 @@ msgstr "VERPLAATS"
 
 msgid "ZOOM"
 msgstr "ZOOMEN"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "SYSTEEMINFORMATIE"
@@ -2620,6 +2617,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "VIND ALLE SPELLEN"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "VIND NIEUWE SPELLEN"
 
 #~ msgid "All Games"
 #~ msgstr "Alle spellen"

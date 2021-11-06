@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1062,8 +1062,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "開始"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1692,11 +1692,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "遊戲索引"
 
-msgid "FIND ALL GAMES"
-msgstr "尋找全部遊戲"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "尋找新的遊戲"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1712,9 +1712,6 @@ msgstr "連接埠"
 
 msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2116,9 +2113,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "沒有找到裝置"
 
-msgid "START"
-msgstr "開始"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2130,6 +2124,9 @@ msgstr "移動"
 
 msgid "ZOOM"
 msgstr "縮放"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "系統資訊"
@@ -2603,6 +2600,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "尋找全部遊戲"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "尋找新的遊戲"
 
 #~ msgid "All Games"
 #~ msgstr "所有遊戲"

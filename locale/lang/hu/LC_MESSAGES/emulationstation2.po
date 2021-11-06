@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1063,8 +1063,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "START"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1695,11 +1695,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "JÁTÉK INDEXEK"
 
-msgid "FIND ALL GAMES"
-msgstr "MINDEN JÁTÉK KERESÉSE"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "ÚJ JÁTÉKOK KERESÉSE"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1715,9 +1715,6 @@ msgstr "PORT"
 
 msgid "USE RELAY SERVER"
 msgstr "RELAY SZERVER HASZNÁLATA"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2119,9 +2116,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "ESZKÖZ NEM TALÁLHATÓ"
 
-msgid "START"
-msgstr "START"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2133,6 +2127,9 @@ msgstr "MOZGAT"
 
 msgid "ZOOM"
 msgstr "NAGYÍTÁS"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "RENDSZER INFORMÁCIÓ"
@@ -2619,6 +2616,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "MINDEN JÁTÉK KERESÉSE"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "ÚJ JÁTÉKOK KERESÉSE"
 
 #~ msgid "All Games"
 #~ msgstr "Minden Játék"

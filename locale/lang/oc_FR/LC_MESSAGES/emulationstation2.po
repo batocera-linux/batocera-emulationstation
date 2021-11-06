@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: 2021-10-02 17:16+0000\n"
 "Last-Translator: Weblate Admin <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://fabrica.mejans.fr/projects/autres/batocera/"
@@ -1068,8 +1068,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "COMENÇAR"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1698,10 +1698,10 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr ""
 
-msgid "FIND ALL GAMES"
+msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
-msgid "FIND NEW GAMES"
+msgid "INDEX GAMES"
 msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
@@ -1717,9 +1717,6 @@ msgid "PORT"
 msgstr "PÒRT"
 
 msgid "USE RELAY SERVER"
-msgstr ""
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -2120,9 +2117,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "START"
-msgstr "COMENÇAR"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2133,6 +2127,9 @@ msgid "MOVE"
 msgstr ""
 
 msgid "ZOOM"
+msgstr ""
+
+msgid "GAMES TO INDEX"
 msgstr ""
 
 msgid "SYSTEM INFO"

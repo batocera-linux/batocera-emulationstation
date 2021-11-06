@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1064,8 +1064,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "התחלה"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1694,11 +1694,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "אינדקס משחקים"
 
-msgid "FIND ALL GAMES"
-msgstr "חיפוש כל המשחקים"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "חיפוש מחשקים חדשים"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1713,9 +1713,6 @@ msgid "PORT"
 msgstr ""
 
 msgid "USE RELAY SERVER"
-msgstr ""
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -2116,9 +2113,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "START"
-msgstr "התחלה"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2129,6 +2123,9 @@ msgid "MOVE"
 msgstr ""
 
 msgid "ZOOM"
+msgstr ""
+
+msgid "GAMES TO INDEX"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2636,6 +2633,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "חיפוש כל המשחקים"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "חיפוש מחשקים חדשים"
 
 #~ msgid "All Games"
 #~ msgstr "כל המשחקים"

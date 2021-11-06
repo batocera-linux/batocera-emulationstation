@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1064,8 +1064,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "НАЧАТЬ"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1695,11 +1695,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "ИНДЕКСЫ ИГРЫ"
 
-msgid "FIND ALL GAMES"
-msgstr "НАЙТИ ВСЕ ИГРЫ"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "НАЙТИ НОВЫЕ ИГРЫ"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1715,9 +1715,6 @@ msgstr "ПОРТ"
 
 msgid "USE RELAY SERVER"
 msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2120,9 +2117,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
 
-msgid "START"
-msgstr "НАЧАТЬ"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2134,6 +2128,9 @@ msgstr "ДВИГАТЬ"
 
 msgid "ZOOM"
 msgstr "МАСШТАБ"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "СИСТЕМНАЯ ИНФОРМАЦИЯ"
@@ -2631,6 +2628,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "НАЙТИ ВСЕ ИГРЫ"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "НАЙТИ НОВЫЕ ИГРЫ"
 
 #~ msgid "All Games"
 #~ msgstr "Все игры"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1063,8 +1063,8 @@ msgstr "SEULEMENT LES MANQUANTS"
 msgid "SYSTEMS INCLUDED"
 msgstr "SYSTÈMES INCLUS"
 
-msgid "START SCRAPING"
-msgstr "DÉMARRER LE SCRAPE"
+msgid "START"
+msgstr "DÉMARRER"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1702,11 +1702,11 @@ msgstr "AFFICHER UN ACCÈS DANS LE MENU PRINCIPAL"
 msgid "GAME INDEXES"
 msgstr "INDEXATION DES JEUX"
 
-msgid "FIND ALL GAMES"
-msgstr "TROUVER TOUS LES JEUX"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "TROUVER LES NOUVEAUX JEUX"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO :"
@@ -1722,9 +1722,6 @@ msgstr "PORT"
 
 msgid "USE RELAY SERVER"
 msgstr "UTILISER UN SERVEUR RELAIS"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr "INDEXER AUTOMATIQUEMENT AU DÉMARRAGE"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "PARAMÈTRES GLOBAUX PAR DÉFAUT"
@@ -2132,9 +2129,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
 
-msgid "START"
-msgstr "DÉMARRER"
-
 msgid "ZOOM OUT"
 msgstr "ZOOM ARRIÈRE"
 
@@ -2146,6 +2140,9 @@ msgstr "DÉPLACER"
 
 msgid "ZOOM"
 msgstr "ZOOM"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "INFO SYSTÈME"
@@ -2641,6 +2638,18 @@ msgstr "SYNTHÈSE VOCALE ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SYNTHÈSE VOCALE DESACTIVÉE"
+
+#~ msgid "START SCRAPING"
+#~ msgstr "DÉMARRER LE SCRAPE"
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "TROUVER TOUS LES JEUX"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "TROUVER LES NOUVEAUX JEUX"
+
+#~ msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
+#~ msgstr "INDEXER AUTOMATIQUEMENT AU DÉMARRAGE"
 
 #~ msgid "All Games"
 #~ msgstr "Tous les jeux"

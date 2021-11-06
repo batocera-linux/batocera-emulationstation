@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-06 09:50+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1068,8 +1068,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "DECHRAU"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1698,11 +1698,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "MYNEGAI GÊM"
 
-msgid "FIND ALL GAMES"
-msgstr "DOD O HYD I BOB GÊM"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "DOD O HYD I GEMAU NEWYDD"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1718,9 +1718,6 @@ msgstr "PORTH"
 
 msgid "USE RELAY SERVER"
 msgstr "DEFNYDDIO GWEINYDD RELAY"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2120,9 +2117,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "DIM DYFAIS WEDI EI DDARGANFOD"
 
-msgid "START"
-msgstr "DECHRAU"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2134,6 +2128,9 @@ msgstr "SYMUD"
 
 msgid "ZOOM"
 msgstr "CHWYDDO"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "GWYBODAETH SYSTEM"
@@ -2663,6 +2660,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "DOD O HYD I BOB GÊM"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "DOD O HYD I GEMAU NEWYDD"
 
 #~ msgid "All Games"
 #~ msgstr "Holl gemau"
