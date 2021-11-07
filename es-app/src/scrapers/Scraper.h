@@ -81,7 +81,7 @@ protected:
 class ScraperHttpRequest : public ScraperRequest
 {
 public:
-	ScraperHttpRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url);
+	ScraperHttpRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, HttpReqOptions* options = nullptr);
 	~ScraperHttpRequest();
 
 	virtual void update() override;
@@ -91,6 +91,7 @@ protected:
 
 private:
 	HttpReq* mRequest;
+	HttpReqOptions mOptions;
 	int	mRetryCount;
 
 	int mOverQuotaPendingTime;

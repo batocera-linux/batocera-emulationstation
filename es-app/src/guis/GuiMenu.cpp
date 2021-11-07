@@ -368,15 +368,17 @@ void GuiMenu::openScraperSettings()
 		s->addWithLabel(_("SCRAPE PADTOKEY SETTINGS"), scrapePadToKey);
 		s->addSaveFunc([scrapePadToKey] { Settings::getInstance()->setBool("ScrapePadToKey", scrapePadToKey->getState()); });
 		
-		// Account
+		// Account		
 		s->addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
 		s->addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
 	}
 	else
 	{
-		// Image source : <image> tag
 		std::string imageSourceName = Settings::getInstance()->getString("ScrapperImageSrc");
 		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("IMAGE SOURCE"), false);
+
+		// Image source : <image> tag
+			
 		imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
 		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
 		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
@@ -393,6 +395,9 @@ void GuiMenu::openScraperSettings()
 		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
 		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
 		thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
+		
+		if (scraper == "HfsDB")
+			thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
 
 		if (!thumbSource->hasSelection())
 			thumbSource->selectFirstItem();
@@ -413,6 +418,9 @@ void GuiMenu::openScraperSettings()
 		auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
 		logoSource->add(_("NONE"), "", logoSourceName.empty());
 		logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
+		
+		if (scraper == "HfsDB")
+			logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
 
 		if (!logoSource->hasSelection())
 			logoSource->selectFirstItem();
@@ -433,6 +441,32 @@ void GuiMenu::openScraperSettings()
 			scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
 			s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
 			s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
+		}
+		else if (scraper == "HfsDB")
+		{
+			// SCRAPE FANART
+			auto scrape_fanart = std::make_shared<SwitchComponent>(mWindow);
+			scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
+			s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
+			s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
+
+			// scrape video
+			auto scrape_video = std::make_shared<SwitchComponent>(mWindow);
+			scrape_video->setState(Settings::getInstance()->getBool("ScrapeVideos"));
+			s->addWithLabel(_("SCRAPE VIDEOS"), scrape_video);
+			s->addSaveFunc([scrape_video] { Settings::getInstance()->setBool("ScrapeVideos", scrape_video->getState()); });
+
+			// SCRAPE BOX BACKSIDE
+			auto scrape_boxBack = std::make_shared<SwitchComponent>(mWindow);
+			scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
+			s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
+			s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
+
+			// SCRAPE MANUAL
+			auto scrape_manual = std::make_shared<SwitchComponent>(mWindow);
+			scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
+			s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
+			s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
 		}
 		else
 		{		// scrape video
