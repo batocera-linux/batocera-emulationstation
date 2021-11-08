@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1122,6 +1122,9 @@ msgstr "الذاكرة المتوفرة"
 msgid "Battery"
 msgstr "البطارية"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "نوع المعالج"
 
@@ -1514,6 +1517,15 @@ msgstr ""
 
 msgid "POWER SAVER MODES"
 msgstr "أوضاع حفظ الطاقة"
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
@@ -2597,9 +2609,6 @@ msgid "EDIT"
 msgstr "تعديل"
 
 msgid "ENABLED"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 #, c-format

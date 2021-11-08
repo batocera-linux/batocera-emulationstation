@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: 2020-03-01 23:31+0100\n"
 "Last-Translator: Mikael Bergström <krank23@gmail.com>\n"
 "Language-Team: \n"
@@ -1112,6 +1112,9 @@ msgstr ""
 msgid "Battery"
 msgstr "Batteri"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "Processormodell"
 
@@ -1505,6 +1508,15 @@ msgstr ""
 
 msgid "POWER SAVER MODES"
 msgstr "ENERGISPARLÄGE"
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr "STANDARD"
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
@@ -2562,9 +2574,6 @@ msgstr "REDIGERA"
 msgid "ENABLED"
 msgstr ""
 
-msgid "DISABLED"
-msgstr ""
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2718,9 +2727,6 @@ msgstr ""
 #~ "Detta kommer att gömma de flesta menyvalen för att förhindra ändringar i "
 #~ "systemet.\n"
 #~ "För att låsa upp och återgå till fullständigt UI, skriv in denna kod:"
-
-#~ msgid "DEFAULT"
-#~ msgstr "STANDARD"
 
 #~ msgid "RETROACHIEVEMENTS SETTINGS"
 #~ msgstr "INSTÄLLNINGAR FÖR RETROACHIEVEMENTS"

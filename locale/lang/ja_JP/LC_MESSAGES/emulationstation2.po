@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/10/26)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: 2021-10-26 17:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1119,6 +1119,9 @@ msgstr "使用可能なメモリ"
 msgid "Battery"
 msgstr "バッテリー"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "CPU モデル"
 
@@ -1513,6 +1516,15 @@ msgstr "時計を12時間形式で表示"
 
 msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
+
+msgid "DISABLED"
+msgstr "無効"
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "スクリーンリーダー（音声合成）"
@@ -2583,9 +2595,6 @@ msgstr "編集"
 
 msgid "ENABLED"
 msgstr "有効"
-
-msgid "DISABLED"
-msgstr "無効"
 
 #, c-format
 msgid "%d day ago"

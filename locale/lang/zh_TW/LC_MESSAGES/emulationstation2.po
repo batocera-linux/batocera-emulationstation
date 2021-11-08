@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1113,6 +1113,9 @@ msgstr "記憶體"
 msgid "Battery"
 msgstr "電池"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "CPU 型號"
 
@@ -1505,6 +1508,15 @@ msgstr "將時鐘顯示為 12 小時制"
 
 msgid "POWER SAVER MODES"
 msgstr "省電模式"
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr "預設"
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
@@ -2557,9 +2569,6 @@ msgstr "編輯"
 msgid "ENABLED"
 msgstr ""
 
-msgid "DISABLED"
-msgstr ""
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2798,9 +2807,6 @@ msgstr ""
 
 #~ msgid "SILENT SPLASH"
 #~ msgstr "無聲開機畫面"
-
-#~ msgid "DEFAULT"
-#~ msgstr "預設"
 
 #~ msgid "RETROACHIEVEMENTS SETTINGS"
 #~ msgstr "RETROACHIEVEMENTS 成就設定"

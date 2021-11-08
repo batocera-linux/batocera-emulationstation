@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1114,6 +1114,9 @@ msgstr "Memòria disponible"
 msgid "Battery"
 msgstr "Bateria"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "Processador"
 
@@ -1505,6 +1508,15 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr ""
 
 msgid "POWER SAVER MODES"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
 msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
@@ -2561,9 +2573,6 @@ msgid "EDIT"
 msgstr "EDITA"
 
 msgid "ENABLED"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 #, c-format

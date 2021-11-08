@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1114,6 +1114,9 @@ msgstr "Kullanılabilir hafıza"
 msgid "Battery"
 msgstr "Pil"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "Cpu modeli"
 
@@ -1509,6 +1512,15 @@ msgstr "SAATİ 12-SAAT FORMATINDA GÖSTER"
 
 msgid "POWER SAVER MODES"
 msgstr "UYKU MODU SEÇENEKLERİ"
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
@@ -2569,9 +2581,6 @@ msgid "EDIT"
 msgstr "DÜZENLE"
 
 msgid "ENABLED"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 #, c-format

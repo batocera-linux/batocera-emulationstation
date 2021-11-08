@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1113,6 +1113,9 @@ msgstr "사용 가능한 메모리"
 msgid "Battery"
 msgstr "배터리"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "CPU 모델"
 
@@ -1505,6 +1508,15 @@ msgstr "시간을 12시간 형식으로 표시"
 
 msgid "POWER SAVER MODES"
 msgstr "절전 모드"
+
+msgid "DISABLED"
+msgstr "사용안함"
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
@@ -2557,9 +2569,6 @@ msgstr "편집"
 
 msgid "ENABLED"
 msgstr "사용"
-
-msgid "DISABLED"
-msgstr "사용안함"
 
 #, c-format
 msgid "%d day ago"

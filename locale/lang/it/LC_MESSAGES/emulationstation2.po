@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 10:55+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1119,6 +1119,9 @@ msgstr "Memoria disponibile"
 msgid "Battery"
 msgstr "Batteria"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "Modello CPU"
 
@@ -1513,6 +1516,15 @@ msgstr "OROLOGIO - FORMATO 12-ORE"
 
 msgid "POWER SAVER MODES"
 msgstr "MODALITÀ RISPARMIO ENERGETICO"
+
+msgid "DISABLED"
+msgstr "DISATTIVATO"
+
+msgid "DEFAULT"
+msgstr "DEFAULT"
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SINTESI VOCALE (TEXT TO SPEECH)"
@@ -2592,9 +2604,6 @@ msgstr "MODIFICA"
 msgid "ENABLED"
 msgstr "ATTIVATO"
 
-msgid "DISABLED"
-msgstr "DISATTIVATO"
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2851,9 +2860,6 @@ msgstr "SINTESI VOCALE DISATTIVATA"
 
 #~ msgid "SILENT SPLASH"
 #~ msgstr "SCHERMATA SENZA AUDIO"
-
-#~ msgid "DEFAULT"
-#~ msgstr "DEFAULT"
 
 #~ msgid "RETROACHIEVEMENTS SETTINGS"
 #~ msgstr "OPZIONI RETROACHIEVEMENTS (TROFEI)"

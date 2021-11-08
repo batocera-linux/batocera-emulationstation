@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 10:55+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1119,6 +1119,9 @@ msgstr "Verfügbarer Speicher"
 msgid "Battery"
 msgstr "Batterie"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "CPU Modell"
 
@@ -1513,6 +1516,15 @@ msgstr "UHR IM 12-STUNDEN-FORMAT ANZEIGEN"
 
 msgid "POWER SAVER MODES"
 msgstr "ENERGIESPAR-MODI"
+
+msgid "DISABLED"
+msgstr "DEAKTIVIERT"
+
+msgid "DEFAULT"
+msgstr "KEIN SPLASH"
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "BILDSCHIRM-LESER (TEXT ZU SPRACHE)"
@@ -2595,9 +2607,6 @@ msgstr "ÄNDERN"
 msgid "ENABLED"
 msgstr "AKTIVIERT"
 
-msgid "DISABLED"
-msgstr "DEAKTIVIERT"
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2861,9 +2870,6 @@ msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
 
 #~ msgid "SILENT SPLASH"
 #~ msgstr "SILENT SPLASH"
-
-#~ msgid "DEFAULT"
-#~ msgstr "KEIN SPLASH"
 
 #~ msgid "RETROACHIEVEMENTS SETTINGS"
 #~ msgstr "RETROACHIEVEMENTS EINSTELLUNGEN"

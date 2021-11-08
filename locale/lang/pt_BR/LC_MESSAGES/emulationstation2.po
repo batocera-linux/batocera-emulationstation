@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1067,8 +1067,8 @@ msgstr "APENAS AUSENTES"
 msgid "SYSTEMS INCLUDED"
 msgstr "SISTEMAS INCLUÍDOS"
 
-msgid "START SCRAPING"
-msgstr "INCIALIZAR PROCURA POR MÍDIAS DE JOGO"
+msgid "START"
+msgstr "INICIAR"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1120,6 +1120,9 @@ msgstr "Memória RAM disponível"
 
 msgid "Battery"
 msgstr "Bateria"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "Modelo da cpu"
@@ -1516,6 +1519,15 @@ msgstr "EXIBIR RELÓGIO NO FORMATO DE 12 HORAS"
 msgid "POWER SAVER MODES"
 msgstr "MODOS DE ECONOMIA DE ENERGIA"
 
+msgid "DISABLED"
+msgstr "DESABILITADO"
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE TELA (TEXTO PARA VOZ)"
 
@@ -1706,11 +1718,11 @@ msgstr "MOSTRAR CONQUISTAS ALCANÇADAS NO MENU PRINCIPAL"
 msgid "GAME INDEXES"
 msgstr "ÍNDICES DO JOGO"
 
-msgid "FIND ALL GAMES"
-msgstr "PROCURAR TODOS OS JOGOS"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "PROCURAR NOVOS JOGOS APENAS"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "INCAPAZ DE ATIVAR CONQUISTAS:"
@@ -1726,9 +1738,6 @@ msgstr "PORTA"
 
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr "VERIFICAR JOGOS EM REDE NÃO INDEXADOS NA INICIALIZAÇÃO"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DEFINIÇÕES GLOBAIS PADRÃO"
@@ -2138,9 +2147,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
 
-msgid "START"
-msgstr "INICIAR"
-
 msgid "ZOOM OUT"
 msgstr "AMPLIAR MENOS"
 
@@ -2152,6 +2158,9 @@ msgstr "MOVER"
 
 msgid "ZOOM"
 msgstr "AMPLIAR"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAÇÕES DO SISTEMA"
@@ -2601,9 +2610,6 @@ msgstr "EDITAR"
 msgid "ENABLED"
 msgstr "HABILITADO"
 
-msgid "DISABLED"
-msgstr "DESABILITADO"
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2648,6 +2654,18 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "START SCRAPING"
+#~ msgstr "INCIALIZAR PROCURA POR MÍDIAS DE JOGO"
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "PROCURAR TODOS OS JOGOS"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "PROCURAR NOVOS JOGOS APENAS"
+
+#~ msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
+#~ msgstr "VERIFICAR JOGOS EM REDE NÃO INDEXADOS NA INICIALIZAÇÃO"
 
 #~ msgid "All Games"
 #~ msgstr "Todos os Jogos"

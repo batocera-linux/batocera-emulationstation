@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1115,6 +1115,9 @@ msgstr "זכרון זמין"
 msgid "Battery"
 msgstr "סוללה"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "דגם מעבד"
 
@@ -1507,6 +1510,15 @@ msgstr "הצג שעות בתצורת 12 שעות"
 
 msgid "POWER SAVER MODES"
 msgstr "מצבי חיסכון באנרגיה"
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
@@ -2576,9 +2588,6 @@ msgid "EDIT"
 msgstr ""
 
 msgid "ENABLED"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 #, c-format

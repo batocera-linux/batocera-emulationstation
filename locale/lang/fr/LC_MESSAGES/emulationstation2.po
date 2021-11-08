@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:50+0100\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: \n"
@@ -1117,6 +1117,9 @@ msgstr "Mémoire disponible"
 msgid "Battery"
 msgstr "Batterie"
 
+msgid "Model"
+msgstr ""
+
 msgid "Cpu model"
 msgstr "Type de processeur"
 
@@ -1511,6 +1514,15 @@ msgstr "AFFICHER L’HORLOGE AU FORMAT 12 HEURES"
 
 msgid "POWER SAVER MODES"
 msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
+
+msgid "DISABLED"
+msgstr "DÉSACTIVÉ"
+
+msgid "DEFAULT"
+msgstr "AUCUNE"
+
+msgid "INSTANT"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LECTURE À L’ÉCRAN"
@@ -2591,9 +2603,6 @@ msgstr "EDITER"
 msgid "ENABLED"
 msgstr "ACTIVÉ"
 
-msgid "DISABLED"
-msgstr "DÉSACTIVÉ"
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2851,9 +2860,6 @@ msgstr "SYNTHÈSE VOCALE DESACTIVÉE"
 
 #~ msgid "SILENT SPLASH"
 #~ msgstr "SILENCIEUSE"
-
-#~ msgid "DEFAULT"
-#~ msgstr "AUCUNE"
 
 #~ msgid "RETROACHIEVEMENTS SETTINGS"
 #~ msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
