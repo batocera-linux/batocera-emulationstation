@@ -345,6 +345,25 @@ namespace Utils
 			return "";
 		}
 
+		std::string ZipFile::getAllFilesMd5()
+		{
+			if (mZipFile == nullptr)
+				return "";
+
+			MD5 md5 = MD5();
+			Utils::Zip::zip_callback func = [](void *pOpaque, unsigned long long ofs, const void *pBuf, size_t n) { ((MD5*)pOpaque)->update((const char *)pBuf, n); return n; };
+
+			auto fileList = namelist();
+			std::sort(fileList.begin(), fileList.end());
+
+			for (auto it : fileList)
+				if (!readBuffered(it, func, &md5))
+					return "";
+
+			md5.finalize();
+			return md5.hexdigest();
+		}
+
 	} // Zip::
 
 } // Utils::

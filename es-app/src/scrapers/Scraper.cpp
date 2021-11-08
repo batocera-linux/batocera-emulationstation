@@ -13,6 +13,7 @@
 #include "utils/StringUtil.h"
 #include <thread>
 #include <SDL_timer.h>
+#include "HfsDBScraper.h"
 
 #define OVERQUOTA_RETRY_DELAY 15000
 #define OVERQUOTA_RETRY_COUNT 5
@@ -25,6 +26,10 @@ std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers
 
 #ifdef GAMESDB_APIKEY
 	{ "TheGamesDB", new TheGamesDBScraper() },
+#endif
+
+#ifdef HFS_DEV_LOGIN
+	{ "HfsDB", new HfsDBScraper() },
 #endif
 
 	{ "ArcadeDB", new ArcadeDBScraper() }
@@ -122,11 +127,15 @@ void ScraperSearchHandle::update()
 }
 
 // ScraperHttpRequest
-ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url) 
+ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& resultsWrite, const std::string& url, HttpReqOptions* options)
 	: ScraperRequest(resultsWrite)
 {
 	setStatus(ASYNC_IN_PROGRESS);
-	mRequest = new HttpReq(url);
+
+	if (options != nullptr)
+		mOptions = *options;
+
+	mRequest = new HttpReq(url, &mOptions);
 	mRetryCount = 0;
 	mOverQuotaPendingTime = 0;
 }

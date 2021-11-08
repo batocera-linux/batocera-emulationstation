@@ -338,6 +338,9 @@ void ScraperSearchComponent::onSearchDone()
 				if (result.urls.find(MetaDataId::Marquee) != result.urls.cend())
 					icons += _U(" \uF031"); // 09
 
+				if (result.urls.find(MetaDataId::Manual) != result.urls.cend())
+					icons += _U(" \uF02D");
+
 				row.elements.clear();
 				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(result.mdl.get(MetaDataId::Name)) + " " + icons, font, color), true);
 				row.makeAcceptInputHandler([this, result] { returnResult(result); });

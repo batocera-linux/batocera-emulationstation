@@ -31,7 +31,8 @@ namespace Utils
 
 			std::string getFileCrc(const std::string &name);
 			std::string getFileMd5(const std::string &name);
-
+			std::string getAllFilesMd5();
+			
 			std::vector<std::string> namelist();
 			std::vector<ZipInfo> infolist();
 

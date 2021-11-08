@@ -433,8 +433,28 @@ std::string FileData::getlaunchCommand(LaunchGameOptions options, bool includeCo
 			if (forceCore)
 				break;
 		}
-	}
+	}	
+	/*else if (!isExtensionCompatible())
+	{
+		auto extension = Utils::String::toLower(Utils::FileSystem::getExtension(gameToUpdate->getPath()));
 
+		for (auto emul : system->getEmulators())
+		{
+			if (std::find(emul.incompatibleExtensions.cbegin(), emul.incompatibleExtensions.cend(), extension) == emul.incompatibleExtensions.cend())
+			{
+				for (auto coreZ : emul.cores)
+				{
+					if (std::find(coreZ.incompatibleExtensions.cbegin(), coreZ.incompatibleExtensions.cend(), extension) == coreZ.incompatibleExtensions.cend())
+					{
+						emulator = emul.name;
+						core = coreZ.name;
+						break;
+					}
+				}
+			}
+		}
+	}*/
+	
 	std::string command = system->getLaunchCommand(emulator, core);
 
 	if (forceCore)

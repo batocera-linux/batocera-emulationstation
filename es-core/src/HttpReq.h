@@ -6,6 +6,8 @@
 #include <map>
 #include <sstream>
 #include <fstream>
+#include <string>
+#include <vector>
 #include <stdio.h>
 
 /* Usage:
@@ -25,10 +27,26 @@
  * //process contents...
 */
 
+class HttpReqOptions
+{
+public:
+	HttpReqOptions() {}
+	HttpReqOptions(const std::string& filename) 
+	{
+		outputFilename = filename;
+	}
+
+	std::string outputFilename;
+	std::vector<std::string> customHeaders;
+	std::string dataToPost;
+};
+
 class HttpReq
 {
 public:
-	HttpReq(const std::string& url, const std::string outputFilename = "");
+	HttpReq(const std::string& url, HttpReqOptions* options = nullptr);
+	HttpReq(const std::string& url, const std::string& outputFilename);
+
 	~HttpReq();
 
 	enum Status
@@ -73,6 +91,7 @@ public:
 	bool wait();
 
 private:
+	void performRequest(const std::string& url, HttpReqOptions* options);
 	void closeStream();
 
 	static size_t write_content(void* buff, size_t size, size_t nmemb, void* req_ptr);
