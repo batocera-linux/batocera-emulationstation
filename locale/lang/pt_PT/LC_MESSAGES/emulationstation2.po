@@ -248,7 +248,7 @@ msgid "Cheevos Game ID"
 msgstr "ID do Jogo da Conquista"
 
 msgid "Screenscraper Game ID"
-msgstr "ID do jogo a ser procurado"
+msgstr "ID da Media do Jogo"
 
 msgid "all games"
 msgstr "todos os jogos"
@@ -419,10 +419,10 @@ msgid "ALPHABETICALLY"
 msgstr "POR ORDEM ALFABÉTICA"
 
 msgid "BY MANUFACTURER"
-msgstr "PELO FABRICANTE"
+msgstr "POR FABRICANTE"
 
 msgid "BY HARDWARE TYPE"
-msgstr "TIPO DE HARDWARE"
+msgstr "POR TIPO DE HARDWARE"
 
 msgid "BY RELEASE YEAR"
 msgstr "POR ANO DE LANÇAMENTO"
@@ -437,13 +437,13 @@ msgid "NONE"
 msgstr "NENHUM"
 
 msgid "RESTORE LAST SELECTED"
-msgstr "RESTAURAR ÚLTIMO SELECIONADO"
+msgstr "RESTAURAR O ÚLTIMO SELECIONADO"
 
 msgid "START ON GAMELIST"
 msgstr "INICIAR NA LISTA DE JOGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "AGRUPAR COLEÇÕES SEM TEMAS"
+msgstr "GRUPO DE COLEÇÕES PERSONALIZADAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
@@ -519,7 +519,7 @@ msgid "NAVIGATION"
 msgstr "NAVEGAÇÃO"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "SALTE PARA O JOGO COMEÇANDO COM A LETRA"
+msgstr "SALTE PARA O JOGO COMEÇANDO COM"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELECIONAR JOGO ALEATÓRIO"
@@ -558,8 +558,8 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JOGOS POR TEXTO"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr ""
-"ESTA FUNCIONALIDADE ESTÁ DESATIVADA ENQUANTO A PROCURA ESTIVER EM EXECUÇÃO"
+msgstr "ESTA FUNCIONALIDADE ESTÁ DESATIVADA ENQUANTO A PROCURA POR MÍDIAS DE JOGO"
+"ESTIVER EM EXECUÇÃO"
 
 msgid "CLOSE"
 msgstr "FECHAR"
@@ -622,7 +622,7 @@ msgid "NO WI-FI NETWORKS FOUND"
 msgstr "NENHUMA REDE WIFI ENCONTRADA"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "PROCURA DE REDES WIFI"
+msgstr "A PROCURA DE REDES WIFI"
 
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "DESEMPARELHAR DISPOSITIVO BLUETOOTH"
@@ -915,7 +915,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "VISUALIZAR VÍDEO EM FULLSCREEN"
 
 msgid "VIEW GAME MEDIA"
-msgstr "VISUALIZAR MEDIA DO JOGO"
+msgstr "VISUALIZAR MEDIAS DO JOGO"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "O CORE ATUAL NÃO É COMPATIVEL"
@@ -1052,7 +1052,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR PARA UM SLOT LIVRE"
 
 msgid "SCRAPE CRITERIA"
-msgstr "CRITÉRIO DE PROCURA"
+msgstr "CRITÉRIO DE PROCURA POR MEDIAS DE JOGO"
 
 msgid "MEDIA TO SCRAPE FOR"
 msgstr "MEDIA A REALIZAR A PROCURA"
@@ -1067,7 +1067,7 @@ msgid "SYSTEMS INCLUDED"
 msgstr "SISTEMAS INCLUÍDOS"
 
 msgid "START"
-msgstr "INICIAR"
+msgstr "INICIAR PROCURA"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1109,19 +1109,19 @@ msgid "Architecture"
 msgstr "Arquitetura"
 
 msgid "Disk format"
-msgstr "Formato do disco"
+msgstr "Formato da partição do disco"
 
 msgid "Temperature"
 msgstr "Temperatura"
 
 msgid "Available memory"
-msgstr "Memória ram disponível"
+msgstr "Memória RAM disponível"
 
 msgid "Battery"
 msgstr "Bateria"
 
 msgid "Model"
-msgstr ""
+msgstr "MODELO"
 
 msgid "Cpu model"
 msgstr "Processador"
@@ -1151,7 +1151,7 @@ msgid "ZFAST"
 msgstr "ZFAST"
 
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr "BRLIHO ACHATADO"
 
 msgid "RGA SCALING"
 msgstr "ESCALA RGA"
@@ -1217,16 +1217,16 @@ msgid "QUIT"
 msgstr "SAIR"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "PROCURA EM EXECUÇÃO. DESEJA INTERROMPER"
+msgstr "PROCURA EM EXECUÇÃO. DESEJA INTERROMPÊ-LA?"
 
 msgid "NEXT"
 msgstr "PRÓXIMO"
 
 msgid "SCRAPING DATABASE"
-msgstr "BASE DE DADOS"
+msgstr "BASE DE DADOS DAS MEDIA DO JOGO"
 
 msgid "IMAGE SOURCE"
-msgstr "FONTE DA IMAGEM"
+msgstr "FONTE DA MEDIA DE IMAGEM"
 
 msgid "SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ"
@@ -1235,10 +1235,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "TÍTULO CAPTURA DE ECRÃ"
 
 msgid "MIX V1"
-msgstr "MIX V1"
+msgstr "COMBINAÇÃO 1"
 
 msgid "MIX V2"
-msgstr "MIX V2"
+msgstr "COMBINAÇÃO 2"
 
 msgid "BOX 2D"
 msgstr "CAIXA 2D"
@@ -1250,10 +1250,10 @@ msgid "FAN ART"
 msgstr "ARTE DO FÃ"
 
 msgid "BOX SOURCE"
-msgstr "FONTE DA CAIXA"
+msgstr "FONTE DA MEDIA DA CAIXA"
 
 msgid "LOGO SOURCE"
-msgstr "FONTE DO LOGOTIPO"
+msgstr "FONTE DA MEDIA DO LOGOTIPO"
 
 msgid "WHEEL"
 msgstr "LOGOTIPO"
@@ -1268,10 +1268,10 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTER VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr "OBTER ARTE DO FÃ"
+msgstr "OBTER MEDIAS DE ARTE DO FÃ"
 
 msgid "SCRAPE BOX BACKSIDE"
-msgstr "OBTER PARTE DE TRÁS DA CAIXA"
+msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
 
 msgid "SCRAPE MAP"
 msgstr "OBTER MAPA"
@@ -1445,8 +1445,7 @@ msgstr "ACESSE ÀS OPÇÕES DE JOGO COM O BOTÃO NORTE"
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
-msgstr ""
-"Inverter o botão norte (savestates) e pressionar longamente o sul (opções de "
+msgstr "Inverter o botão norte (savestates) e pressionar longamente o sul (opções de "
 "jogo)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1522,10 +1521,10 @@ msgid "DISABLED"
 msgstr "DESATIVADO"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "POR PADRÃO"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "INSTANTÂNEO"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE ECRÃ (TEXTO PARA VOZ)"
@@ -1718,10 +1717,10 @@ msgid "GAME INDEXES"
 msgstr "ÍNDICE DO JOGO"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
+msgstr "INDEXAR NOVOS JOGOS NA INICIALIZAÇÃO"
 
 msgid "INDEX GAMES"
-msgstr ""
+msgstr "INDEXAR JOGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "INCAPAZ DE ATIVAR RETROACHIEVEMENTS"
@@ -1745,7 +1744,7 @@ msgid "GAME ASPECT RATIO"
 msgstr "PROPORÇÃO DO ECRÃ DO JOGO"
 
 msgid "VIDEO MODE"
-msgstr "MODO VÍDEO"
+msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
@@ -1769,10 +1768,10 @@ msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
 msgid "DECORATIONS"
-msgstr "DECORAÇÕES"
+msgstr "MOLDURAS"
 
 msgid "DECORATION SET"
-msgstr "CONJUNTO DE DECORAÇÕES"
+msgstr "CONJUNTO DE MOLDURAS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
@@ -1787,7 +1786,7 @@ msgid "CUSTOM .PNG IMAGE"
 msgstr "IMAGEM PERSONALIZADA .PNG"
 
 msgid "OVERLAY CORNER"
-msgstr "CANTO DOS INDICADORES"
+msgstr " POSIÇÃO DO CANTO DOS INDICADORES"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1805,7 +1804,7 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "CAMINHO DE IMAGEM PERSONALIZADA .PNG"
 
 msgid "AI GAME TRANSLATION"
-msgstr "TRADUÇÃO DO JOGO POR IA"
+msgstr "TRADUÇÃO DE TEXTO DO JOGO POR IA"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
 msgstr "ATIVAR O SERVIÇO DE TRADUÇÃO POR IA"
@@ -2012,7 +2011,7 @@ msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ATIVAR ÁUDIO DO VÍDEO"
 
 msgid "IP ADDRESS"
-msgstr "ENDEREÇO DE IP"
+msgstr "ENDEREÇO IP"
 
 msgid "CONNECTED"
 msgstr "CONECTADO"
@@ -2158,7 +2157,7 @@ msgid "ZOOM"
 msgstr "AMPLIAR"
 
 msgid "GAMES TO INDEX"
-msgstr ""
+msgstr "JOGOS POR INDEXAR"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAÇÃO DO SISTEMA"
@@ -2173,13 +2172,13 @@ msgid "GO TO LETTER"
 msgstr "IR PARA A LETRA"
 
 msgid "GO TO MANUFACTURER"
-msgstr "IR PARA FABRICANTE"
+msgstr "IR PARA O FABRICANTE"
 
 msgid "GO TO HARDWARE"
-msgstr "IR PARA HARDWARE"
+msgstr "IR PARA O HARDWARE"
 
 msgid "GO TO DECADE"
-msgstr "IR PARA DÉCADA"
+msgstr "IR PARA A DÉCADA"
 
 msgid "CONFIGURATION"
 msgstr "CONFIGURAÇÃO"
@@ -2649,14 +2648,3 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "START SCRAPING"
-#~ msgstr "INICIAR A PROCURA"
-
-#~ msgid "FIND ALL GAMES"
-#~ msgstr "ENCONTRAR TODOS OS JOGOS"
-
-#~ msgid "FIND NEW GAMES"
-#~ msgstr "ENCONTRAR NOVOS JOGOS"
-
-#~ msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-#~ msgstr "VERIFICAR JOGOS EM REDE NÃO INDEXADOS NA INICIALIZAÇÃO"
