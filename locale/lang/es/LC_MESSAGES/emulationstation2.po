@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -864,7 +864,7 @@ msgid "UPDATE IS READY"
 msgstr "LA ACTUALIZACIÓN ESTÁ LISTA"
 
 msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REINICIAR BATOCERA PARA APLICAR"
+msgstr "LISTO. REINICIAR PARA APLICAR LA ACTUALIZACIÓN"
 
 msgid "REALLY UPDATE?"
 msgstr "¿ESTÁS SEGURO DE ACTUALIZAR?"
@@ -899,7 +899,7 @@ msgid "INVALID PARAMETERS"
 msgstr "VALORES NO VÁLIDOS"
 
 msgid "GAME MEDIA"
-msgstr "MEDIOS DEL JUEGO"
+msgstr "COMPLEMENTOS DEL JUEGO"
 
 msgid "VIEW GAME MANUAL"
 msgstr "VER MANUAL DEL JUEGO"
@@ -926,7 +926,7 @@ msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr "VER TROFEOS DEL JUEGO"
 
 msgid "GAME"
-msgstr "JUEGO"
+msgstr "OPCIONES DEL JUEGO"
 
 msgid "SAVE STATES"
 msgstr "PARTIDAS GUARDADAS"
@@ -975,7 +975,7 @@ msgstr ""
 "¿ESTÁS SEGURO?"
 
 msgid "COLLECTIONS"
-msgstr "COLECCIONES"
+msgstr "AJUSTE DE COLECCIONES"
 
 #, c-format
 msgid "REMOVE FROM %s"
@@ -992,7 +992,7 @@ msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "AÑADIR A COLECCIÓN PERSONALIZADA…"
 
 msgid "SCRAPE"
-msgstr "ESCRAPEAR (obtener metadatos de juegos)"
+msgstr "ESCRAPEAR"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
@@ -1007,7 +1007,7 @@ msgid "EDIT FOLDER METADATA"
 msgstr "EDITAR LA CARPETA DE METADATOS"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDITAR INFORMACIÓN DEL JUEGO"
+msgstr "EDITAR METADATOS DEL JUEGO"
 
 msgid "THEMES DOWNLOADER"
 msgstr "GESTOR DE TEMAS"
@@ -1023,7 +1023,7 @@ msgid "Unlocked on"
 msgstr "Desbloqueado el"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "AÚN NO TIENES LOGROS EN ESTE JUEGO"
+msgstr "ESTE JUEGO AÚN NO DISPONE DE TROFEOS"
 
 msgid "Achievements won"
 msgstr "Logros conseguidos"
@@ -1065,15 +1065,15 @@ msgstr "SOLO CONTENIDO FALTANTE"
 msgid "SYSTEMS INCLUDED"
 msgstr "SISTEMAS INCLUIDOS"
 
-msgid "START SCRAPING"
-msgstr "COMENZAR ESCRAPEO"
+msgid "START"
+msgstr "INICIAR"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"ADVERTENCIA: ALGUNOS DE DE LOS SISTEMAS SELECCIONADOS NO TIENEN UN "
+"ADVERTENCIA: ALGUNOS DE DE LOS SISTEMAS SELECCIONADOS NO TIENEN UNA "
 "PLATAFORMA DEFINIDA. LOS RESULTADOS PODRÍAN SER DE DIFERENTES SISTEMAS\n"
 "¿CONTINUAR DE TODAS FORMAS?"
 
@@ -1118,6 +1118,9 @@ msgstr "Memoria disponible"
 
 msgid "Battery"
 msgstr "Batería"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "Procesador"
@@ -1195,7 +1198,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "CONFIGURACIÓN DEL EMULADOR"
 
 msgid "SCRAPER"
-msgstr "OBTENCIÓN DE INFORMACIÓN"
+msgstr "OBTENER DATOS DE JUEGOS"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "ACTUALIZACIONES Y DESCARGAS"
@@ -1514,6 +1517,15 @@ msgstr "MOSTRAR RELOJ EN FORMATO 12 HORAS"
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGÍA"
 
+msgid "DISABLED"
+msgstr "DESACTIVADO"
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LECTOR DE PANTALLA (TEXTO A VOZ)"
 
@@ -1630,7 +1642,7 @@ msgid "yellow"
 msgstr "amarillo"
 
 msgid "cyan"
-msgstr "cien"
+msgstr "cian"
 
 msgid "POWER LED COLOR"
 msgstr "COLOR DEL LED DE ENCENDIDO"
@@ -1704,11 +1716,11 @@ msgstr "ACTIVAR EN EL MENÚ PRINCIPAL"
 msgid "GAME INDEXES"
 msgstr "ÍNDICES DE JUEGOS"
 
-msgid "FIND ALL GAMES"
-msgstr "BUSCAR LOGROS EN TODOS LOS JUEGOS"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXAR NUEVOS JUEGOS AL ARRANCAR"
 
-msgid "FIND NEW GAMES"
-msgstr "BUSCAR SOLO EN LOS JUEGOS NUEVOS"
+msgid "INDEX GAMES"
+msgstr "INDEXAR JUEGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NO ES POSIBLE ACTIVAR LOS LOGROS:"
@@ -1724,9 +1736,6 @@ msgstr "PUERTO"
 
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISIÓN"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr "REVISAR ÍNDICES FALTANTES DE NETPLAY AL INICIAR"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "AJUSTES GLOBALES POR DEFECTO"
@@ -2135,9 +2144,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "NINGÚN DISPOSITIVO CONECTADO"
 
-msgid "START"
-msgstr "INICIAR"
-
 msgid "ZOOM OUT"
 msgstr "ALEJAR"
 
@@ -2149,6 +2155,9 @@ msgstr "MOVER"
 
 msgid "ZOOM"
 msgstr "ZOOM"
+
+msgid "GAMES TO INDEX"
+msgstr "JUEGOS A INDEXAR"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMACIÓN DEL SISTEMA"
@@ -2595,9 +2604,6 @@ msgstr "EDITAR"
 msgid "ENABLED"
 msgstr "ACTIVADO"
 
-msgid "DISABLED"
-msgstr "DESACTIVADO"
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2642,6 +2648,18 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "START SCRAPING"
+#~ msgstr "COMENZAR ESCRAPEO"
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "BUSCAR LOGROS EN TODOS LOS JUEGOS"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "BUSCAR SOLO EN LOS JUEGOS NUEVOS"
+
+#~ msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
+#~ msgstr "REVISAR ÍNDICES FALTANTES DE NETPLAY AL INICIAR"
 
 #~ msgid "MANUALLY SCRAPE METADATA"
 #~ msgstr "ESCRAPEAR METADATOS MANUALMENTE"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1071,8 +1071,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "ابدأ"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1121,6 +1121,9 @@ msgstr "الذاكرة المتوفرة"
 
 msgid "Battery"
 msgstr "البطارية"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "نوع المعالج"
@@ -1515,6 +1518,15 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr "أوضاع حفظ الطاقة"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1701,10 +1713,10 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "فهرسة الألعاب"
 
-msgid "FIND ALL GAMES"
+msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
-msgid "FIND NEW GAMES"
+msgid "INDEX GAMES"
 msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
@@ -1721,9 +1733,6 @@ msgstr "المنفذ"
 
 msgid "USE RELAY SERVER"
 msgstr "استخدم خادم حقيقي"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2123,9 +2132,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "لا يمكن العثور على جهاز"
 
-msgid "START"
-msgstr "ابدأ"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2136,6 +2142,9 @@ msgid "MOVE"
 msgstr ""
 
 msgid "ZOOM"
+msgstr ""
+
+msgid "GAMES TO INDEX"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2600,9 +2609,6 @@ msgid "EDIT"
 msgstr "تعديل"
 
 msgid "ENABLED"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 #, c-format

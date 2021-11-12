@@ -113,7 +113,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			{
 				std::string coreList = game->getSourceFileData()->getSystem()->getCompatibleCoreNames(EmulatorFeatures::cheevos);
 				std::string msg = _U("\uF06A  ");
-				msg += _("CURRENT CORE IS NOT COMPATIBLE") + ": " + Utils::String::toUpper(game->getCore(true));
+				msg += _("CURRENT CORE IS NOT COMPATIBLE") + ": " + Utils::String::toUpper(game->getCore(true).empty()? game->getEmulator(true): game->getCore(true));
 				if (!coreList.empty())
 				{
 					msg += _U("\r\n\uF05A  ");
@@ -362,7 +362,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		{
 			if (game->hasKeyboardMapping())
 			{
-				mMenu.addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), false, [this, game]
+				mMenu.addEntry(_("EDIT PADTOKEY PROFILE"), false, [this, game]
 				{ 
 					GuiMenu::editKeyboardMappings(mWindow, game, true); 
 					close();
@@ -370,7 +370,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			}
 			else if (game->isFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 			{
-				mMenu.addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), false, [this, game]
+				mMenu.addEntry(_("CREATE PADTOKEY PROFILE"), false, [this, game]
 				{ 
 					GuiMenu::editKeyboardMappings(mWindow, game, true);
 					close();

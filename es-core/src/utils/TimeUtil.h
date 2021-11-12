@@ -40,6 +40,8 @@ namespace Utils
 
 			double			   elapsedSecondsSince(const DateTime& _since);
 
+			bool				isValid() { return mTime != 0; }
+
 		private:
 
 			time_t      mTime;

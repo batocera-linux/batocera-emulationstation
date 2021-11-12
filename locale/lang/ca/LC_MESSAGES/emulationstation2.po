@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1066,8 +1066,8 @@ msgstr "Només audiovisuals que falten"
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "COMENÇA"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1116,6 +1116,9 @@ msgstr "Memòria disponible"
 
 msgid "Battery"
 msgstr "Bateria"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "Model d'unitat de procès"
@@ -1516,6 +1519,15 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr "MODES D'ESTALVI D'ENERGIA"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1708,10 +1720,13 @@ msgstr "MOSTRAR AL MENÚ PRINCIPAL"
 msgid "ENABLE NETPLAY"
 msgstr "ENCENDRE NETPLAY"
 
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
 msgid "NICKNAME"
 msgstr "SOBRENOM"
 
-msgid "FIND NEW GAMES"
+msgid "INDEX GAMES"
 msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
@@ -1728,12 +1743,6 @@ msgstr "VERIFICAR ÍNDEXS INEXISTENS L'ARRENCAR"
 
 msgid "REINDEX ALL GAMES"
 msgstr "RE-INDEXAR TOTS ELS JOCS"
-
-msgid "INDEX MISSING GAMES"
-msgstr "INDEXAR JOCS INEXISTENTS"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "CONFIGURACIÓ PER DEFECTE"
@@ -2143,9 +2152,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "NO S'HA TROBAT EL DISPOSITIU"
 
-msgid "START"
-msgstr "COMENÇA"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2156,6 +2162,9 @@ msgid "MOVE"
 msgstr ""
 
 msgid "ZOOM"
+msgstr ""
+
+msgid "GAMES TO INDEX"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2599,9 +2608,6 @@ msgid "EDIT"
 msgstr "EDITA"
 
 msgid "ENABLED"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 #, c-format

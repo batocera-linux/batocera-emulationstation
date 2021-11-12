@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -1063,8 +1063,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "INICIAR"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1113,6 +1113,9 @@ msgstr "Memoria RAM usada/disponible"
 
 msgid "Battery"
 msgstr "Batería"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "Procesador"
@@ -1509,6 +1512,15 @@ msgstr "MOSTRAR RELOJ EN FORMATO 12 HORAS"
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGÍA"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1695,11 +1707,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "ÍNDICES DE JUEGOS"
 
-msgid "FIND ALL GAMES"
-msgstr "BUSCAR TODOS LOS JUEGOS"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "BUSCAR NUEVOS JUEGOS"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1715,9 +1727,6 @@ msgstr "PUERTO"
 
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISIÓN"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2120,9 +2129,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "NINGÚN DISPOSITIVO CONECTADO"
 
-msgid "START"
-msgstr "INICIAR"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2134,6 +2140,9 @@ msgstr "MOVER"
 
 msgid "ZOOM"
 msgstr "ZOOM"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "INFORMACIÓN DEL SISTEMA"
@@ -2573,9 +2582,6 @@ msgstr "EDITAR"
 msgid "ENABLED"
 msgstr ""
 
-msgid "DISABLED"
-msgstr ""
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2620,6 +2626,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "BUSCAR TODOS LOS JUEGOS"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "BUSCAR NUEVOS JUEGOS"
 
 #~ msgid "All Games"
 #~ msgstr "Todos los juegos"

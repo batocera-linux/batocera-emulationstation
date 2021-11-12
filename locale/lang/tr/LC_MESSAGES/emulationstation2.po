@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1063,8 +1063,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "BAŞLAT"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1113,6 +1113,9 @@ msgstr "Kullanılabilir hafıza"
 
 msgid "Battery"
 msgstr "Pil"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "Cpu modeli"
@@ -1510,6 +1513,15 @@ msgstr "SAATİ 12-SAAT FORMATINDA GÖSTER"
 msgid "POWER SAVER MODES"
 msgstr "UYKU MODU SEÇENEKLERİ"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1696,11 +1708,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "OYUN ENDEKSLERİ"
 
-msgid "FIND ALL GAMES"
-msgstr "TÜM OYUNLARI BUL"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "YENİ OYUNLARI BUL"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1716,9 +1728,6 @@ msgstr "PORT"
 
 msgid "USE RELAY SERVER"
 msgstr "ARA SUNUCU KULLAN"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2121,9 +2130,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "CİHAZ BULUNAMADI"
 
-msgid "START"
-msgstr "BAŞLAT"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2135,6 +2141,9 @@ msgstr "TAŞI"
 
 msgid "ZOOM"
 msgstr "YAKINLAŞTIR"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "SİSTEM BİLGİSİ"
@@ -2574,9 +2583,6 @@ msgstr "DÜZENLE"
 msgid "ENABLED"
 msgstr ""
 
-msgid "DISABLED"
-msgstr ""
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2621,6 +2627,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "TÜM OYUNLARI BUL"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "YENİ OYUNLARI BUL"
 
 #~ msgid "All Games"
 #~ msgstr "Tüm Oyunlar"

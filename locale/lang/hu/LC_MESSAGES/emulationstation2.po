@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1063,8 +1063,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "START"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1113,6 +1113,9 @@ msgstr "Rendelkezésre álló memória"
 
 msgid "Battery"
 msgstr "Akkumulátor"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "Cpu modell"
@@ -1509,6 +1512,15 @@ msgstr "12 ÓRÁS ÓRA FORMÁTUM BEÁLLÍTÁSA"
 msgid "POWER SAVER MODES"
 msgstr "ENERGIA TAKARÉKOS MÓDOK"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1695,11 +1707,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "JÁTÉK INDEXEK"
 
-msgid "FIND ALL GAMES"
-msgstr "MINDEN JÁTÉK KERESÉSE"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "ÚJ JÁTÉKOK KERESÉSE"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1715,9 +1727,6 @@ msgstr "PORT"
 
 msgid "USE RELAY SERVER"
 msgstr "RELAY SZERVER HASZNÁLATA"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2119,9 +2128,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "ESZKÖZ NEM TALÁLHATÓ"
 
-msgid "START"
-msgstr "START"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2133,6 +2139,9 @@ msgstr "MOZGAT"
 
 msgid "ZOOM"
 msgstr "NAGYÍTÁS"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "RENDSZER INFORMÁCIÓ"
@@ -2572,9 +2581,6 @@ msgstr "SZERKESZT"
 msgid "ENABLED"
 msgstr ""
 
-msgid "DISABLED"
-msgstr ""
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2619,6 +2625,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "MINDEN JÁTÉK KERESÉSE"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "ÚJ JÁTÉKOK KERESÉSE"
 
 #~ msgid "All Games"
 #~ msgstr "Minden Játék"

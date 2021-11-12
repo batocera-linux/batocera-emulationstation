@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1064,8 +1064,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "התחלה"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1114,6 +1114,9 @@ msgstr "זכרון זמין"
 
 msgid "Battery"
 msgstr "סוללה"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "דגם מעבד"
@@ -1508,6 +1511,15 @@ msgstr "הצג שעות בתצורת 12 שעות"
 msgid "POWER SAVER MODES"
 msgstr "מצבי חיסכון באנרגיה"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1694,11 +1706,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "אינדקס משחקים"
 
-msgid "FIND ALL GAMES"
-msgstr "חיפוש כל המשחקים"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "חיפוש מחשקים חדשים"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1713,9 +1725,6 @@ msgid "PORT"
 msgstr ""
 
 msgid "USE RELAY SERVER"
-msgstr ""
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -2116,9 +2125,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr ""
 
-msgid "START"
-msgstr "התחלה"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2129,6 +2135,9 @@ msgid "MOVE"
 msgstr ""
 
 msgid "ZOOM"
+msgstr ""
+
+msgid "GAMES TO INDEX"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2581,9 +2590,6 @@ msgstr ""
 msgid "ENABLED"
 msgstr ""
 
-msgid "DISABLED"
-msgstr ""
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2636,6 +2642,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "חיפוש כל המשחקים"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "חיפוש מחשקים חדשים"
 
 #~ msgid "All Games"
 #~ msgstr "כל המשחקים"

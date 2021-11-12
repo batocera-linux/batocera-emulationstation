@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1062,8 +1062,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "開始"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1112,6 +1112,9 @@ msgstr "記憶體"
 
 msgid "Battery"
 msgstr "電池"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "CPU 型號"
@@ -1506,6 +1509,15 @@ msgstr "將時鐘顯示為 12 小時制"
 msgid "POWER SAVER MODES"
 msgstr "省電模式"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr "預設"
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1692,11 +1704,11 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "遊戲索引"
 
-msgid "FIND ALL GAMES"
-msgstr "尋找全部遊戲"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "尋找新的遊戲"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
@@ -1712,9 +1724,6 @@ msgstr "連接埠"
 
 msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2116,9 +2125,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "沒有找到裝置"
 
-msgid "START"
-msgstr "開始"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2130,6 +2136,9 @@ msgstr "移動"
 
 msgid "ZOOM"
 msgstr "縮放"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "系統資訊"
@@ -2560,9 +2569,6 @@ msgstr "編輯"
 msgid "ENABLED"
 msgstr ""
 
-msgid "DISABLED"
-msgstr ""
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2603,6 +2609,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "尋找全部遊戲"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "尋找新的遊戲"
 
 #~ msgid "All Games"
 #~ msgstr "所有遊戲"
@@ -2795,9 +2807,6 @@ msgstr ""
 
 #~ msgid "SILENT SPLASH"
 #~ msgstr "無聲開機畫面"
-
-#~ msgid "DEFAULT"
-#~ msgstr "預設"
 
 #~ msgid "RETROACHIEVEMENTS SETTINGS"
 #~ msgstr "RETROACHIEVEMENTS 成就設定"

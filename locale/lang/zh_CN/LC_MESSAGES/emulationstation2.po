@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-24 23:05+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1076,8 +1076,8 @@ msgstr ""
 msgid "SYSTEMS INCLUDED"
 msgstr ""
 
-msgid "START SCRAPING"
-msgstr ""
+msgid "START"
+msgstr "开始"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1126,6 +1126,9 @@ msgstr "可用内存"
 
 msgid "Battery"
 msgstr "电池"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "CPU 型号"
@@ -1520,6 +1523,15 @@ msgstr ""
 msgid "POWER SAVER MODES"
 msgstr "省电模式"
 
+msgid "DISABLED"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
@@ -1706,10 +1718,10 @@ msgstr ""
 msgid "GAME INDEXES"
 msgstr "游戏索引"
 
-msgid "FIND ALL GAMES"
+msgid "INDEX NEW GAMES AT STARTUP"
 msgstr ""
 
-msgid "FIND NEW GAMES"
+msgid "INDEX GAMES"
 msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
@@ -1726,9 +1738,6 @@ msgstr "端口"
 
 msgid "USE RELAY SERVER"
 msgstr "使用中继服务"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
@@ -2128,9 +2137,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
 
-msgid "START"
-msgstr "开始"
-
 msgid "ZOOM OUT"
 msgstr ""
 
@@ -2141,6 +2147,9 @@ msgid "MOVE"
 msgstr ""
 
 msgid "ZOOM"
+msgstr ""
+
+msgid "GAMES TO INDEX"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2567,9 +2576,6 @@ msgid "EDIT"
 msgstr "编辑"
 
 msgid "ENABLED"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 #, c-format

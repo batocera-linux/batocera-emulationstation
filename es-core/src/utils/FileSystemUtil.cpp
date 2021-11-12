@@ -1219,18 +1219,19 @@ namespace Utils
 			return gp + filename;
 		}
 
-		size_t getFileSize(const std::string& _path)
+		unsigned long long getFileSize(const std::string& _path)
 		{
 			std::string path = getGenericPath(_path);
 			struct stat64 info;
 
+
 #if defined(_WIN32)
 			if ((_wstat64(Utils::String::convertToWideString(path).c_str(), &info) == 0))
-				return (size_t)info.st_size;			
+				return (unsigned long long)info.st_size;
 #else
 			// check if stat64 succeeded
 			if ((stat64(path.c_str(), &info) == 0))
-				return (size_t)info.st_size;
+				return (unsigned long long)info.st_size;
 #endif
 
 			return 0;

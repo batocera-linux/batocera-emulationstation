@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/10/26)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 20:11+0200\n"
+"POT-Creation-Date: 2021-11-08 21:24+0100\n"
 "PO-Revision-Date: 2021-10-26 17:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1065,7 +1065,7 @@ msgstr "不足している部分のみ"
 msgid "SYSTEMS INCLUDED"
 msgstr "含むシステムを選択"
 
-msgid "START SCRAPING"
+msgid "START"
 msgstr "開始"
 
 msgid ""
@@ -1118,6 +1118,9 @@ msgstr "使用可能なメモリ"
 
 msgid "Battery"
 msgstr "バッテリー"
+
+msgid "Model"
+msgstr ""
 
 msgid "Cpu model"
 msgstr "CPU モデル"
@@ -1514,6 +1517,15 @@ msgstr "時計を12時間形式で表示"
 msgid "POWER SAVER MODES"
 msgstr "省電力モード(rpi用)"
 
+msgid "DISABLED"
+msgstr "無効"
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "INSTANT"
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "スクリーンリーダー（音声合成）"
 
@@ -1703,11 +1715,11 @@ msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
 msgid "GAME INDEXES"
 msgstr "ゲームインデックス"
 
-msgid "FIND ALL GAMES"
-msgstr "すべてのゲームを検索"
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
 
-msgid "FIND NEW GAMES"
-msgstr "新たなゲームを検索"
+msgid "INDEX GAMES"
+msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "RETROACHIEVEMENTSをアクティブ化できません:"
@@ -1723,9 +1735,6 @@ msgstr "ポート"
 
 msgid "USE RELAY SERVER"
 msgstr "リレーサーバーを使用"
-
-msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-msgstr "起動時に欠落インデックスを確認"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "既定のグローバル設定"
@@ -2133,9 +2142,6 @@ msgstr ""
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
 
-msgid "START"
-msgstr "開始"
-
 msgid "ZOOM OUT"
 msgstr "縮小-"
 
@@ -2147,6 +2153,9 @@ msgstr "移動"
 
 msgid "ZOOM"
 msgstr "ズーム"
+
+msgid "GAMES TO INDEX"
+msgstr ""
 
 msgid "SYSTEM INFO"
 msgstr "システム情報"
@@ -2587,9 +2596,6 @@ msgstr "編集"
 msgid "ENABLED"
 msgstr "有効"
 
-msgid "DISABLED"
-msgstr "無効"
-
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -2630,6 +2636,18 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "START SCRAPING"
+#~ msgstr "開始"
+
+#~ msgid "FIND ALL GAMES"
+#~ msgstr "すべてのゲームを検索"
+
+#~ msgid "FIND NEW GAMES"
+#~ msgstr "新たなゲームを検索"
+
+#~ msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
+#~ msgstr "起動時に欠落インデックスを確認"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

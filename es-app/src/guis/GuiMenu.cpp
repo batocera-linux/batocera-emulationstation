@@ -8,6 +8,7 @@
 #include "guis/GuiGeneralScreensaverOptions.h"
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
+#include "guis/GuiHashStart.h"
 #include "guis/GuiThemeInstaller.h" //batocera
 #include "guis/GuiBezelInstaller.h" //batocera
 #include "guis/GuiBatoceraStore.h" //batocera
@@ -67,6 +68,7 @@
 #define fake_gettext_temperature  _("Temperature")
 #define fake_gettext_avail_memory _("Available memory")
 #define fake_gettext_battery      _("Battery")
+#define fake_gettext_model        _("Model")
 #define fake_gettext_cpu_model    _("Cpu model")
 #define fake_gettext_cpu_number   _("Cpu number")
 #define fake_gettext_cpu_frequency _("Cpu max frequency")
@@ -779,15 +781,17 @@ void GuiMenu::openScraperSettings()
 		s->addWithLabel(_("SCRAPE PADTOKEY SETTINGS"), scrapePadToKey);
 		s->addSaveFunc([scrapePadToKey] { Settings::getInstance()->setBool("ScrapePadToKey", scrapePadToKey->getState()); });
 		
-		// Account
+		// Account		
 		s->addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
 		s->addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
 	}
 	else
 	{
-		// Image source : <image> tag
 		std::string imageSourceName = Settings::getInstance()->getString("ScrapperImageSrc");
 		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("IMAGE SOURCE"), false);
+
+		// Image source : <image> tag
+			
 		imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
 		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
 		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
@@ -804,6 +808,9 @@ void GuiMenu::openScraperSettings()
 		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
 		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
 		thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
+		
+		if (scraper == "HfsDB")
+			thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
 
 		if (!thumbSource->hasSelection())
 			thumbSource->selectFirstItem();
@@ -824,6 +831,9 @@ void GuiMenu::openScraperSettings()
 		auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
 		logoSource->add(_("NONE"), "", logoSourceName.empty());
 		logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
+		
+		if (scraper == "HfsDB")
+			logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
 
 		if (!logoSource->hasSelection())
 			logoSource->selectFirstItem();
@@ -844,6 +854,32 @@ void GuiMenu::openScraperSettings()
 			scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
 			s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
 			s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
+		}
+		else if (scraper == "HfsDB")
+		{
+			// SCRAPE FANART
+			auto scrape_fanart = std::make_shared<SwitchComponent>(mWindow);
+			scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
+			s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
+			s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
+
+			// scrape video
+			auto scrape_video = std::make_shared<SwitchComponent>(mWindow);
+			scrape_video->setState(Settings::getInstance()->getBool("ScrapeVideos"));
+			s->addWithLabel(_("SCRAPE VIDEOS"), scrape_video);
+			s->addSaveFunc([scrape_video] { Settings::getInstance()->setBool("ScrapeVideos", scrape_video->getState()); });
+
+			// SCRAPE BOX BACKSIDE
+			auto scrape_boxBack = std::make_shared<SwitchComponent>(mWindow);
+			scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
+			s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
+			s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
+
+			// SCRAPE MANUAL
+			auto scrape_manual = std::make_shared<SwitchComponent>(mWindow);
+			scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
+			s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
+			s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
 		}
 		else
 		{		// scrape video
@@ -1223,10 +1259,10 @@ void GuiMenu::openDeveloperSettings()
 		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE?"), _("YES"),
 			[window] {
 			if (ApiSystem::getInstance()->generateSupportFile()) {
-				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE GENERATED SUCCESSFULLY"), _("OK")));
+				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATED IN SAVES FOLDER"), _("OK")));
 			}
 			else {
-				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE GENERATION FAILED"), _("OK")));
+				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATION FAILED"), _("OK")));
 			}
 		}, _("NO"), nullptr));
 	});
@@ -1722,13 +1758,7 @@ void GuiMenu::openSystemSettings_batocera()
 
 	// power saver
 	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
-	std::vector<std::string> modes;
-	modes.push_back("disabled");
-	modes.push_back("default");
-	modes.push_back("enhanced");
-	modes.push_back("instant");
-	for (auto it = modes.cbegin(); it != modes.cend(); it++)
-		power_saver->add(_(it->c_str()), *it, Settings::PowerSaverMode() == *it);
+	power_saver->addRange({ { _("DISABLED"), "disabled" }, { _("DEFAULT"), "default" }, { _("ENHANCED"), "enhanced" }, { _("INSTANT"), "instant" }, }, Settings::PowerSaverMode());
 	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
 	s->addSaveFunc([this, power_saver] 
 	{
@@ -2386,8 +2416,23 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements->addSaveFunc([retroachievements_menuitem] { Settings::getInstance()->setBool("RetroachievementsMenuitem", retroachievements_menuitem->getState()); });
 
 	retroachievements->addGroup(_("GAME INDEXES"));
-	retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
-	retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
+
+	// CheckOnStart
+	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
+	checkOnStart->setState(Settings::getInstance()->getBool("CheevosCheckIndexesAtStart"));
+	retroachievements->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
+	retroachievements->addSaveFunc([checkOnStart] { Settings::getInstance()->setBool("CheevosCheckIndexesAtStart", checkOnStart->getState()); });
+
+	// Index games
+	retroachievements->addEntry(_("INDEX GAMES"), true, [this] 
+	{ 
+		if (ThreadedHasher::checkCloseIfRunning(mWindow))
+			mWindow->pushGui(new GuiHashStart(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5));
+	});
+
+
+	//retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
+	//retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
 
 	retroachievements->addSaveFunc([retroachievementsEnabled, retroachievements_enabled, username, password, window]
 	{
@@ -2452,7 +2497,7 @@ void GuiMenu::openNetplaySettings()
 	// CheckOnStart
 	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
 	checkOnStart->setState(Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"));
-	settings->addWithLabel(_("CHECK MISSING NETPLAY INDEXES AT STARTUP"), checkOnStart);
+	settings->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
 	
 	Window* window = mWindow;
 	settings->addSaveFunc([enableNetplay, checkOnStart, mitms, window]
@@ -2469,8 +2514,14 @@ void GuiMenu::openNetplaySettings()
 		}
 	});
 	
-	settings->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
-	settings->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
+	settings->addEntry(_("INDEX GAMES"), true, [this]
+	{
+		if (ThreadedHasher::checkCloseIfRunning(mWindow))
+			mWindow->pushGui(new GuiHashStart(mWindow, ThreadedHasher::HASH_NETPLAY_CRC));
+	});
+
+	//settings->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
+	//settings->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
 	
 	mWindow->pushGui(settings);
 }
@@ -5016,9 +5067,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (fileData == nullptr && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::EVMAPY) && systemData->isCurrentFeatureSupported(EmulatorFeatures::Features::padTokeyboard))
 	{
 		if (systemData->hasKeyboardMapping())
-			systemConfiguration->addEntry(_("EDIT PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
+			systemConfiguration->addEntry(_("EDIT PADTOKEY PROFILE"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 		else
-			systemConfiguration->addEntry(_("CREATE PAD TO KEYBOARD CONFIGURATION"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
+			systemConfiguration->addEntry(_("CREATE PADTOKEY PROFILE"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 	}
 	
 	// Set as boot game 

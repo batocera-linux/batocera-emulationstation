@@ -92,12 +92,30 @@ std::string _regGetString(HKEY hKey, const std::string &strPath, const std::stri
 }
 #endif
 
-HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
+HttpReq::HttpReq(const std::string& url, const std::string& outputFilename) 
 	: mStatus(REQ_IN_PROGRESS), mHandle(NULL), mFile(NULL)
 {
-	mUrl = url;
-	mFilePath = outputFilename;
+	HttpReqOptions options;
+	options.outputFilename = outputFilename;	
+	performRequest(url, &options);
+}
 
+HttpReq::HttpReq(const std::string& url, HttpReqOptions* options)
+	: mStatus(REQ_IN_PROGRESS), mHandle(NULL), mFile(NULL)
+{
+	performRequest(url, options);
+}
+
+void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
+{
+	mUrl = url;
+
+	std::string outputFilename;
+
+	if (options != nullptr && !options->outputFilename.empty())
+		outputFilename = options->outputFilename;
+
+	mFilePath = outputFilename;
 	mPosition = -1;
 	mPercent = -1;
 	mHandle = curl_easy_init();
@@ -117,6 +135,32 @@ HttpReq::HttpReq(const std::string& url, const std::string outputFilename)
 		onError(curl_easy_strerror(err));
 		return;
 	}
+
+	if (options != nullptr && !options->dataToPost.empty())
+	{
+		curl_easy_setopt(mHandle, CURLOPT_POST, 1L);
+		curl_easy_setopt(mHandle, CURLOPT_POSTFIELDSIZE, options->dataToPost.length());
+		curl_easy_setopt(mHandle, CURLOPT_COPYPOSTFIELDS, options->dataToPost);
+	}
+
+	if (options != nullptr && options->customHeaders.size() > 0)
+	{
+		struct curl_slist *hs = nullptr;
+
+		for (auto header : options->customHeaders)
+			hs = curl_slist_append(hs, header.c_str());
+
+		curl_easy_setopt(mHandle, CURLOPT_HTTPHEADER, hs);
+	}
+	/*
+	struct curl_slist *hs = NULL;
+	hs = curl_slist_append(hs, "Content-Type: application/json");
+	curl_easy_setopt(mHandle, CURLOPT_HTTPHEADER, hs);
+
+	curl_easy_setopt(mHandle, CURLOPT_POST, 1L);
+	curl_easy_setopt(mHandle, CURLOPT_POSTFIELDS, "postvar1=value1&postvar2=value2&postvar3=value3");
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+	*/
 
 	//set curl to handle redirects
 	err = curl_easy_setopt(mHandle, CURLOPT_FOLLOWLOCATION, 1L);
