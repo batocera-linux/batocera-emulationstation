@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -994,11 +994,11 @@ msgstr "AÑADIR A COLECCIÓN PERSONALIZADA…"
 msgid "SCRAPE"
 msgstr "ESCRAPEAR"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIONES AVANZADAS DEL JUEGO"
@@ -1120,7 +1120,7 @@ msgid "Battery"
 msgstr "Batería"
 
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 msgid "Cpu model"
 msgstr "Procesador"
@@ -1357,11 +1357,11 @@ msgstr "CREAR UN ARCHIVO DE SOPORTE"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "¿DESEAS CREAR UN ARCHIVO DE SOPORTE?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
-msgstr "ARCHIVO DE SOPORTE CREADO CON ÉXITO"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
+msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
-msgstr "OCURRIÓ UN ERROR AL CREAR EL ARCHIVO"
+msgid "SUPPORT FILE CREATION FAILED"
+msgstr ""
 
 msgid "FORMAT A DISK"
 msgstr "FORMATEAR UN DISCO"
@@ -1521,10 +1521,10 @@ msgid "DISABLED"
 msgstr "DESACTIVADO"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "POR DEFECTO"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "INSTANTÁNEO"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LECTOR DE PANTALLA (TEXTO A VOZ)"
@@ -2648,6 +2648,18 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
+
+#~ msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+#~ msgstr "ARCHIVO DE SOPORTE CREADO CON ÉXITO"
+
+#~ msgid "SUPPORT FILE GENERATION FAILED"
+#~ msgstr "OCURRIÓ UN ERROR AL CREAR EL ARCHIVO"
 
 #~ msgid "START SCRAPING"
 #~ msgstr "COMENZAR ESCRAPEO"

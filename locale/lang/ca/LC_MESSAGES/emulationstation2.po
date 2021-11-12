@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -992,11 +992,11 @@ msgstr "AFEGIR A COL·LECCIÓ PERSONALITZADA …"
 msgid "SCRAPE"
 msgstr "OBTENIR DADES DELS JOCS"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "CONFIGURACIÓ DE COMANDAMENT A TECLAT"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "CONFIGURACIÓ DE COMANDAMENT A TECLAT"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPCIONS AVANÇADES DEL JOC"
@@ -1352,10 +1352,10 @@ msgstr ""
 msgid "CREATE A SUPPORT FILE?"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2619,6 +2619,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "CONFIGURACIÓ DE COMANDAMENT A TECLAT"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "CONFIGURACIÓ DE COMANDAMENT A TECLAT"
 
 #~ msgid "All Games"
 #~ msgstr "Tots els jocs"

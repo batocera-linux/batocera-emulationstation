@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -994,11 +994,11 @@ msgstr "AGGIUNGI "
 msgid "SCRAPE"
 msgstr "SCARICA INFO (SCRAPER)"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "MODIFICA CONFIGURAZIONE PAD2KEY"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "CREA CONFIGURAZIONE PAD2KEY"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPZIONI AVANZATE GIOCO"
@@ -1120,7 +1120,7 @@ msgid "Battery"
 msgstr "Batteria"
 
 msgid "Model"
-msgstr ""
+msgstr "Modello"
 
 msgid "Cpu model"
 msgstr "Modello CPU"
@@ -1357,11 +1357,11 @@ msgstr "CREA UN FILE DI SUPPORTO"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "CREARE UN FILE DI SUPPORTO?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
-msgstr "FILE DI SUPPORTO GENERATO CON SUCCESSO"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
+msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
-msgstr "GENERAZIONE FILE DI SUPPORT FALLITA"
+msgid "SUPPORT FILE CREATION FAILED"
+msgstr ""
 
 msgid "FORMAT A DISK"
 msgstr "FORMATTA DISCO"
@@ -1524,7 +1524,7 @@ msgid "DEFAULT"
 msgstr "DEFAULT"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "IMMEDIATO"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SINTESI VOCALE (TEXT TO SPEECH)"
@@ -2648,6 +2648,18 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "MODIFICA CONFIGURAZIONE PAD2KEY"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "CREA CONFIGURAZIONE PAD2KEY"
+
+#~ msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+#~ msgstr "FILE DI SUPPORTO GENERATO CON SUCCESSO"
+
+#~ msgid "SUPPORT FILE GENERATION FAILED"
+#~ msgstr "GENERAZIONE FILE DI SUPPORT FALLITA"
 
 #~ msgid "START SCRAPING"
 #~ msgstr "INIZIA RICERCA"
