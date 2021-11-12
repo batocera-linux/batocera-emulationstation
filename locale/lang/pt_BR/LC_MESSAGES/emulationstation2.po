@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-12 21:32+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,10 +41,10 @@ msgid "core"
 msgstr "núcleo"
 
 msgid "Image"
-msgstr "Imagem"
+msgstr "Captura de Tela"
 
 msgid "enter path to image"
-msgstr "digite o caminho do diretório para a imagem"
+msgstr "digite o caminho do diretório para a captura de tela"
 
 msgid "Video"
 msgstr "Vídeo"
@@ -53,10 +53,10 @@ msgid "enter path to video"
 msgstr "insira o caminho do diretório para o vídeo"
 
 msgid "Logo"
-msgstr "Logo"
+msgstr "Logotipo"
 
 msgid "enter path to logo"
-msgstr "insira o caminho do diretório para o logo"
+msgstr "insira o caminho do diretório para o logotipo"
 
 msgid "Box"
 msgstr "Caixa do jogo"
@@ -71,10 +71,10 @@ msgid "enter path to fanart"
 msgstr "insira o caminho do diretório para a arte do fã"
 
 msgid "Title shot"
-msgstr "Tela de captura"
+msgstr "Imagem da tela inicial"
 
 msgid "enter path to title shot"
-msgstr "insira o caminho do diretório da tela de captura"
+msgstr "insira o caminho do diretório da imagem da tela inicial"
 
 msgid "Manual"
 msgstr "Manual"
@@ -113,16 +113,16 @@ msgid "enter path to box background"
 msgstr "insira o caminho do diretório da parte de trás da caixa"
 
 msgid "Wheel"
-msgstr "Logotipo"
+msgstr "Logotipo para o carrosel"
 
 msgid "enter path to wheel"
-msgstr "insira o caminho do diretório do logotipo"
+msgstr "insira o caminho do diretório do logotipo para o carrosel"
 
 msgid "Mix"
-msgstr "Mix"
+msgstr "Imagem combinada"
 
 msgid "enter path to mix"
-msgstr "insira o caminho do diretório para o mix"
+msgstr "insira o caminho do diretório para a imagem combinada"
 
 msgid "Rating"
 msgstr "Classificação"
@@ -173,7 +173,7 @@ msgid "this game's arcade system"
 msgstr "o sistema arcade deste jogo"
 
 msgid "Players"
-msgstr "Jogadores"
+msgstr "Nº de jogadores"
 
 msgid "this game's number of players"
 msgstr "o número de jogadores deste jogo"
@@ -489,7 +489,7 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "HABILITAR CONQUISTAS RETRÔ"
+msgstr "CONQUISTAS RETRÔ"
 
 msgid "Points"
 msgstr "Pontos"
@@ -1137,7 +1137,7 @@ msgid "Cpu feature"
 msgstr "Recurso da cpu"
 
 msgid "SCANLINES"
-msgstr "LINHAS DE VARREDURA (SCANLINES)"
+msgstr "LINHAS DE VARREDURA"
 
 msgid "RETRO"
 msgstr "RETRÔ"
@@ -1146,10 +1146,10 @@ msgid "ENHANCED"
 msgstr "MELHORADO"
 
 msgid "CURVATURE"
-msgstr "CURVATURA"
+msgstr "CURVADO"
 
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr "TUBO"
 
 msgid "FLATTEN-GLOW"
 msgstr "BRLIHO ACHATADO"
@@ -1429,7 +1429,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "MENU DRIVER DO RETROARCH"
+msgstr "INTERFACE DE MENU UTILIZADA PELO RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
@@ -1517,7 +1517,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "EXIBIR RELÓGIO NO FORMATO DE 12 HORAS"
 
 msgid "POWER SAVER MODES"
-msgstr "MODOS DE ECONOMIA DE ENERGIA"
+msgstr "MODO DE ECONOMIA DE ENERGIA"
 
 msgid "DISABLED"
 msgstr "DESABILITADO"
@@ -1587,19 +1587,19 @@ msgid "270 DEGREES"
 msgstr "270 GRAUS"
 
 msgid "BOOT SPLASH"
-msgstr "TELA DE INICIALIZAÇÃO"
+msgstr "TELA DE ABERTURA"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "VÍDEO(S) PADRÃO(ÕES) DA TELA DE INÍCIO"
+msgstr "VÍDEO(S) PADRÃO(ÕES) DA TELA DE ABERTURA"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "SILECIAR VÍDEO(S) DA TELA DE INÍCIO"
+msgstr "SILENCIAR VÍDEO(S) DA TELA DE ABERTURA"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "IMAGEM DA TELA DE INÍCIO DO BATOCERA"
+msgstr "IMAGEM DA TELA DE ABERTURA DO BATOCERA"
 
 msgid "SPLASH SETTING"
-msgstr "CONFIGURAÇÃO DA TELA DE INÍCIO (SPLASH)"
+msgstr "CONFIGURAÇÃO DA TELA DE ABERTURA"
 
 msgid "RETROACHIEVEMENT SETTINGS"
 msgstr "CONFIGURAÇÔES DAS CONQUISTAS"
@@ -1656,7 +1656,7 @@ msgid "on"
 msgstr "ligado"
 
 msgid "OVERCLOCK"
-msgstr "OVERCLOCK"
+msgstr "AUMETAR CAPACIDADE DE CLOCK DA CPU"
 
 msgid "STORAGE"
 msgstr "ARMAZENAMENTO"
@@ -1710,7 +1710,7 @@ msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR NOVAS CONQUISTAS"
 
 msgid "UNLOCK SOUND"
-msgstr "DESBLOQUEIO DE SOM"
+msgstr "SOM AO DESBLOQEAR CONQUISTAS"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRAR CONQUISTAS ALCANÇADAS NO MENU PRINCIPAL"
@@ -2014,7 +2014,7 @@ msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "ATIVAR ÁUDIO PRÉVIO DO VÍDEO"
 
 msgid "IP ADDRESS"
-msgstr "ENDEREÇO IP "
+msgstr "ENDEREÇO IP"
 
 msgid "CONNECTED"
 msgstr "CONECTADO"
@@ -2250,7 +2250,7 @@ msgid "Kid"
 msgstr "Infantil"
 
 msgid "Released"
-msgstr "Lançado"
+msgstr "Lançamento"
 
 msgid "Times played"
 msgstr "Número de partidas"
@@ -2416,7 +2416,7 @@ msgid "FAMILY"
 msgstr "FAMÍLIA"
 
 msgid "PLAYERS"
-msgstr "JOGADORES"
+msgstr "Nº DE JOGADORES"
 
 msgid "PUBLISHER/DEVELOPER"
 msgstr "PUBLICADORA / DESENVOLVEDORA"
@@ -2661,14 +2661,14 @@ msgstr "LEITOR DE TELA DESATIVADO"
 #~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "CRIAR UMA CONFIGURAÇÃO DO CONTROLE E TECLADO"
 
+#~ msgid "START SCRAPING"
+#~ msgstr "INCIALIZAR PROCURA POR MÍDIAS DE JOGO"
+
 #~ msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
 #~ msgstr "ARQUIVO DE SUPORTE GERADO COM SUCESSO"
 
 #~ msgid "SUPPORT FILE GENERATION FAILED"
 #~ msgstr "FALHA NA GERAÇÃO DO ARQUIVO DE SUPORTE"
-
-#~ msgid "START SCRAPING"
-#~ msgstr "INCIALIZAR PROCURA POR MÍDIAS DE JOGO"
 
 #~ msgid "FIND ALL GAMES"
 #~ msgstr "PROCURAR TODOS OS JOGOS"
