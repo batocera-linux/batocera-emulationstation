@@ -5177,10 +5177,6 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createNativeVideoReso
 
 	std::string index = SystemConf::getInstance()->get(configname + ".nativevideo");
 	if (index.empty())
-		index = SystemConf::getInstance()->get("global.videomode");
-	if (index.empty())
-		index = SystemConf::getInstance()->get("ee_videomode");
-	if (index.empty())
 		index = "auto";
 
 	emuelec_video_mode->add(_("AUTO"), "auto", index == "auto");
