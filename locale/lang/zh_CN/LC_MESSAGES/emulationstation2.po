@@ -1026,15 +1026,6 @@ msgstr ""
 msgid "CREATE PADTOKEY PROFILE"
 msgstr ""
 
-msgid "ADVANCED GAME OPTIONS"
-msgstr "高级游戏选项"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "编辑文件夹的信息"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "编辑此游戏的信息"
-
 msgid "THEMES DOWNLOADER"
 msgstr "主题下载"
 
@@ -2633,12 +2624,6 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
-
-#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-#~ msgstr "编辑pad到键盘自定义"
-
-#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-#~ msgstr "创建pad到键盘自定义"
 
 #~ msgid "All Games"
 #~ msgstr "全部游戏"
