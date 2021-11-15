@@ -322,6 +322,17 @@ namespace Utils
 
 		} // getDirContent
 
+#if WIN32
+		static time_t to_time_t(FILETIME& ft)
+		{
+			ULARGE_INTEGER ull;
+			ull.LowPart = ft.dwLowDateTime;
+			ull.HighPart = ft.dwHighDateTime;
+			time_t ret = (ull.QuadPart / 10000000ULL - 11644473600ULL);
+			return ret;
+		}
+#endif
+
 		fileList getDirectoryFiles(const std::string& _path)
 		{
 			std::string path = getGenericPath(_path);
@@ -382,6 +393,8 @@ namespace Utils
 						fi.path = path + "/" + name;
 						fi.hidden = (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN;
 						fi.directory = (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY;
+						fi.creationTime = to_time_t(findData.ftCreationTime);
+
 						contentList.push_back(fi);
 
 						FileCache::add(fi.path, FileCache((DWORD)findData.dwFileAttributes));

@@ -47,13 +47,15 @@ namespace Utils
 		std::string getEsConfigPath();
 		std::string getSharedConfigPath();
 
-		// FCA
 		struct FileInfo
 		{
 		public:
 			std::string path;
 			bool hidden;
 			bool directory;
+#if WIN32
+			time_t creationTime;
+#endif
 		};
 
 		typedef std::list<FileInfo> fileList;
