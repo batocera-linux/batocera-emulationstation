@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2021/10/26)\n"
+"Project-Id-Version: batocera-es v33beta(2021/11/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
-"PO-Revision-Date: 2021-10-26 17:22+0900\n"
+"POT-Creation-Date: 2021-11-15 08:00+0100\n"
+"PO-Revision-Date: 2021-11-14 13:17+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -501,7 +501,7 @@ msgid "VIEW DETAILS"
 msgstr "詳細を表示"
 
 msgid "LAUNCH"
-msgstr "起動"
+msgstr "開始"
 
 msgid "FINISHED"
 msgstr "完了"
@@ -543,7 +543,7 @@ msgid "automatic"
 msgstr "自動"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr "表示をカスタマイズ"
+msgstr "表示のカスタマイズ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "パッドからキーボード情報を表示"
@@ -911,7 +911,7 @@ msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr "フルスクリーンビデオを表示"
+msgstr "ゲームイメージビデオを表示"
 
 msgid "VIEW GAME MEDIA"
 msgstr "ゲームメディアを表示"
@@ -995,10 +995,10 @@ msgid "SCRAPE"
 msgstr "スクレイプ"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "パッドキープロファイルの編集"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "パッドキープロファイルの作成"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "このゲームの詳細設定"
@@ -1054,7 +1054,7 @@ msgid "SCRAPE CRITERIA"
 msgstr "スクレイプ 方法"
 
 msgid "MEDIA TO SCRAPE FOR"
-msgstr "スクレイプするメディア "
+msgstr "スクレイプするメディア"
 
 msgid "ALL"
 msgstr "全て"
@@ -1066,7 +1066,7 @@ msgid "SYSTEMS INCLUDED"
 msgstr "含むシステムを選択"
 
 msgid "START"
-msgstr "開始"
+msgstr "実行"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1120,7 +1120,7 @@ msgid "Battery"
 msgstr "バッテリー"
 
 msgid "Model"
-msgstr ""
+msgstr "モデル"
 
 msgid "Cpu model"
 msgstr "CPU モデル"
@@ -1219,7 +1219,7 @@ msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "スクレイプが実行されています。中止しますか?"
 
 msgid "NEXT"
-msgstr "選択へ"
+msgstr "次へ"
 
 msgid "SCRAPING DATABASE"
 msgstr "スクレイプデータベース"
@@ -1359,9 +1359,11 @@ msgstr "サポートファイルを作成しますか?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
+"サポートファイルを作成しました\n"
+"(SAVEフォルダに保存)"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "サポートファイルの作成に失敗しました"
 
 msgid "FORMAT A DISK"
 msgstr "ディスクをフォーマット"
@@ -1519,10 +1521,10 @@ msgid "DISABLED"
 msgstr "無効"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "標準"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "瞬時"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "スクリーンリーダー（音声合成）"
@@ -1714,10 +1716,10 @@ msgid "GAME INDEXES"
 msgstr "ゲームインデックス"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
+msgstr "起動時に新規ゲームにインデックスを付ける"
 
 msgid "INDEX GAMES"
-msgstr ""
+msgstr "ゲームにインデックスを付ける"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "RETROACHIEVEMENTSをアクティブ化できません:"
@@ -2153,7 +2155,7 @@ msgid "ZOOM"
 msgstr "ズーム"
 
 msgid "GAMES TO INDEX"
-msgstr ""
+msgstr "インデックスを付けるゲーム"
 
 msgid "SYSTEM INFO"
 msgstr "システム情報"
@@ -2247,7 +2249,7 @@ msgstr "プレイ回数"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "このフォルダには、%i 種のゲームがあります( %s を含む)"
+msgstr[0] "このフォルダには、%i種のゲームがあります。%sフォルダ"
 
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
@@ -2529,7 +2531,7 @@ msgid "SET SELECT AS HOTKEY"
 msgstr "「セレクト」をホットキーに設定"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "ホットキーを割り当てないでください"
+msgstr "ホットキーの割り当てをしない"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2634,32 +2636,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-#~ msgstr "パッドをキーボードに割当て設定編集"
-
-#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-#~ msgstr "パッドをキーボードに割当て設定作成"
-
-#~ msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
-#~ msgstr ""
-#~ "サポートファイルは正常に作成されました\n"
-#~ "(SAVEフォルダに保存)"
-
-#~ msgid "SUPPORT FILE GENERATION FAILED"
-#~ msgstr "サポートファイルの作成に失敗しました"
-
-#~ msgid "START SCRAPING"
-#~ msgstr "開始"
-
-#~ msgid "FIND ALL GAMES"
-#~ msgstr "すべてのゲームを検索"
-
-#~ msgid "FIND NEW GAMES"
-#~ msgstr "新たなゲームを検索"
-
-#~ msgid "CHECK MISSING NETPLAY INDEXES AT STARTUP"
-#~ msgstr "起動時に欠落インデックスを確認"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"
