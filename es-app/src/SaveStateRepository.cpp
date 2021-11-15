@@ -49,7 +49,7 @@ void SaveStateRepository::refresh()
 	auto path = getSavesPath();
 	if (!Utils::FileSystem::exists(path))
 		return;
-
+	
 	auto files = Utils::FileSystem::getDirectoryFiles(path);
 	for (auto file : files)
 	{
@@ -60,6 +60,9 @@ void SaveStateRepository::refresh()
 
 		if (ext == ".bak")
 		{
+			// auto ffstem = Utils::FileSystem::combine(Utils::FileSystem::getParent(file.path), Utils::FileSystem::getStem(file.path));
+			// Utils::FileSystem::removeFile(ffstem);
+			// Utils::FileSystem::renameFile(file.path, ffstem);
 			// TODO RESTORE BAK FILE !? If board was turned off during a game ?
 		}
 
@@ -79,7 +82,12 @@ void SaveStateRepository::refresh()
 				
 		state->rom = stem;
 		state->fileName = file.path;
+
+#if WIN32
+		state->creationDate.setTime(file.creationTime);
+#else
 		state->creationDate = Utils::FileSystem::getFileModificationDate(state->fileName);
+#endif
 
 		mStates[stem].push_back(state);
 	}
@@ -140,42 +148,40 @@ int SaveStateRepository::getNextFreeSlot(FileData* game)
 	if (states.size() == 0)
 		return 0;
 
-	for (int i = 0; i < 99999; i++)
+	for (int i = 99999; i >= 0; i--)
 	{
 		auto it = std::find_if(states.cbegin(), states.cend(), [i](const SaveState* x) { return x->slot == i; });
-		if (it == states.cend())
-			return i;
-	}	
+		if (it != states.cend())
+			return i + 1;
+	}
 
 	return -99;
 }
 
-
-bool SaveStateRepository::copyToSlot(const SaveState& state, int slot)
+void SaveStateRepository::renumberSlots(FileData* game)
 {
-	if (slot < 0)
-		return false;
-	
-	if (!Utils::FileSystem::exists(state.fileName))
-		return false;
-	
-	auto path = getSavesPath();
-
-	std::string destState = Utils::FileSystem::combine(path, state.rom + ".state" + (slot == 0 ? "" : std::to_string(slot)));
-
-	Utils::FileSystem::copyFile(state.fileName, destState);
-	Utils::FileSystem::copyFile(state.getScreenShot(), destState + ".png");
-	return true;
-}
-
-void SaveStateRepository::deleteSaveState(const SaveState& state) const
-{
-	if (!state.isSlotValid())
+	if (!isEnabled(game))
 		return;
 
-	if (!state.fileName.empty())
-		Utils::FileSystem::removeFile(state.fileName);
+	auto repo = game->getSourceFileData()->getSystem()->getSaveStateRepository();	
+	repo->refresh();
 
-	if (!state.getScreenShot().empty())
-		Utils::FileSystem::removeFile(state.getScreenShot());
+	auto states = repo->getSaveStates(game);
+	if (states.size() == 0)
+		return;
+
+	std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->slot < file2->slot; });
+
+	int slot = 0;
+
+	for (auto state : states)
+	{
+		if (state->slot < 0)
+			continue;
+
+		if (state->slot != slot)
+			state->copyToSlot(slot, true);
+		
+		slot++;
+	}	
 }

@@ -17,9 +17,7 @@ public:
 
 	static bool isEnabled(FileData* game);
 	static int	getNextFreeSlot(FileData* game);
-	
-	bool copyToSlot(const SaveState& state, int slot);
-	void deleteSaveState(const SaveState& state) const;
+	static void renumberSlots(FileData* game);
 
 	bool hasSaveStates(FileData* game);
 
