@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -997,11 +997,11 @@ msgstr ""
 msgid "SCRAPE"
 msgstr "CRAFU"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "GOLYGU FFURFWEDDIAD PAD I ALWEDDFWRDD"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "CREU FFURFWEDDIAD PAD I ALWEDDFWRDD"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPSIYNAU GÊM UWCH"
@@ -1357,10 +1357,10 @@ msgstr "CREU FFEIL CEFNOGAETH"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "CREU FFEIL CEFNOGAETH?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2669,6 +2669,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "GOLYGU FFURFWEDDIAD PAD I ALWEDDFWRDD"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "CREU FFURFWEDDIAD PAD I ALWEDDFWRDD"
 
 #~ msgid "FIND ALL GAMES"
 #~ msgstr "DOD O HYD I BOB GÊM"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -994,11 +994,11 @@ msgstr ""
 msgid "SCRAPE"
 msgstr "ЗАВАНТАЖИТИ ДАННІ"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "ЗМІНИТИ КЕРУВАННЯ"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "СТВОРИТИ КЕРУВАННЯ"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ ГРИ"
@@ -1354,10 +1354,10 @@ msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "СТВОРИТИ ФАЙЛ ПІДТРИМКИ?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2632,6 +2632,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "ЗМІНИТИ КЕРУВАННЯ"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "СТВОРИТИ КЕРУВАННЯ"
 
 #~ msgid "All Games"
 #~ msgstr "Всі ігри"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -992,11 +992,11 @@ msgstr "ÖZEL KOLLEKSİYONA EKLE..."
 msgid "SCRAPE"
 msgstr "SCRAPE ÇEK"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "KLAVYE AYARLARINDAKİ TUŞLARI DÜZENLE"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "KLAVYE AYARLARINDAKİ TUŞLARI OLUŞTUR"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "GELİŞMİŞ OYUN AYARLARI"
@@ -1353,10 +1353,10 @@ msgstr "DESTEK DOSYASI OLUŞTURMAK"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "DESTEK DOSYASI OLUŞTUR?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2627,6 +2627,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "KLAVYE AYARLARINDAKİ TUŞLARI DÜZENLE"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "KLAVYE AYARLARINDAKİ TUŞLARI OLUŞTUR"
 
 #~ msgid "FIND ALL GAMES"
 #~ msgstr "TÜM OYUNLARI BUL"

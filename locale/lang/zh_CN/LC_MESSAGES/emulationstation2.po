@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1020,6 +1020,21 @@ msgstr ""
 msgid "SCRAPE"
 msgstr "抓取元数据"
 
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "高级游戏选项"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "编辑文件夹的信息"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "编辑此游戏的信息"
+
 msgid "THEMES DOWNLOADER"
 msgstr "主题下载"
 
@@ -1365,10 +1380,10 @@ msgstr "创建支持文件"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "是否创建支持文件?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2618,6 +2633,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "编辑pad到键盘自定义"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "创建pad到键盘自定义"
 
 #~ msgid "All Games"
 #~ msgstr "全部游戏"

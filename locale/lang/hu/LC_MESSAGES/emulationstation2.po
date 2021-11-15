@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -992,11 +992,11 @@ msgstr "HOZZÁADÁS EGYEDI GYŰJTEMÉNYHEZ..."
 msgid "SCRAPE"
 msgstr "LEKÉRÉS"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "PAD2KEY KONFIGURÁCIÓ SZERKESZTÉSE"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "PAD2KEY KONFIGURÁCIÓ KÉSZÍTÉSE"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "HALADÓ JÁTÉK BEÁLLÍTÁSOK"
@@ -1352,10 +1352,10 @@ msgstr "TÁMOGATÁSI FILE LÉTREHOZÁSA"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "LÉTREHOZ TÁMOGATÁSI FÁJLT?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2625,6 +2625,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "PAD2KEY KONFIGURÁCIÓ SZERKESZTÉSE"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "PAD2KEY KONFIGURÁCIÓ KÉSZÍTÉSE"
 
 #~ msgid "FIND ALL GAMES"
 #~ msgstr "MINDEN JÁTÉK KERESÉSE"

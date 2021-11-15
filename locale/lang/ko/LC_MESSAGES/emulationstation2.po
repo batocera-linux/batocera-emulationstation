@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -991,11 +991,11 @@ msgstr "사용자 컬렉션에 추가..."
 msgid "SCRAPE"
 msgstr "스크랩"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "패드 키보드 전환 설정 변경"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "패드 키보드 변환 설정 생성"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "고급 게임 옵션"
@@ -1351,10 +1351,10 @@ msgstr "지원용 파일 생성"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "지원용 파일을 만드시겠습니까?"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2610,6 +2610,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "패드 키보드 전환 설정 변경"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "패드 키보드 변환 설정 생성"
 
 #~ msgid "FIND ALL GAMES"
 #~ msgstr "모든 게임 검색"

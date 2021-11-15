@@ -426,7 +426,7 @@ FileData* FileData::getSourceFileData()
 	return this;
 }
 
-std::string FileData::getlaunchCommand(LaunchGameOptions options, bool includeControllers)
+std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeControllers)
 {
 	FileData* gameToUpdate = getSourceFileData();
 	if (gameToUpdate == nullptr)
@@ -601,7 +601,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	if (SaveStateRepository::isEnabled(this))
 	{
-		options.saveStateInfo.onGameEnded();
+		options.saveStateInfo.onGameEnded(this);
 		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
 	}
 

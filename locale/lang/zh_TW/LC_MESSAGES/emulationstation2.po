@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -991,11 +991,11 @@ msgstr "新增至自定義合輯..."
 msgid "SCRAPE"
 msgstr "資料搜刮"
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "編輯手把轉鍵盤設定檔"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "建立手把轉鍵盤設定檔"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "進階遊戲選項"
@@ -1351,10 +1351,10 @@ msgstr "建立支援檔案"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "確定要建立支援檔案？"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2609,6 +2609,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "編輯手把轉鍵盤設定檔"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "建立手把轉鍵盤設定檔"
 
 #~ msgid "FIND ALL GAMES"
 #~ msgstr "尋找全部遊戲"

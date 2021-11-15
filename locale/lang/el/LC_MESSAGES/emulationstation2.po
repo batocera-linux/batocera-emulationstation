@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 21:24+0100\n"
+"POT-Creation-Date: 2021-11-12 20:58+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -989,11 +989,11 @@ msgstr "ΠΡΟΣΘΗΚΗ ΣΤΗΝ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗ ΣΥΛΛΟΓΗ"
 msgid "SCRAPE"
 msgstr ""
 
-msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-msgstr "ΕΠΕΞΕΡΓΑΣΙΑ PAD ΣΤΗ ΔΙΑΜΟΡΦΩΣΗ ΠΛΗΚΤΡΟΛΟΓΙΟΥ"
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
 
-msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-msgstr "ΔΗΜΙΟΥΡΓΙΑ PAD ΣΤΗ ΔΙΑΜΟΡΦΩΣΗ ΠΛΗΚΤΡΟΛΟΓΙΟΥ"
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ΣΥΝΘΕΤΕΣ ΡΥΘΜΙΣΕΙΣ ΠΑΙΧΝΙΔΙΟΥ"
@@ -1350,10 +1350,10 @@ msgstr "ΔΗΜΙΟΥΡΓΙΑ ΥΠΟΣΤΗΡΙΚΤΙΚΟΥ ΑΡΧΕΙΟΥ"
 msgid "CREATE A SUPPORT FILE?"
 msgstr "ΝΑ ΔΗΜΙΟΥΡΓΗΘΕΙ ΥΠΟΣΤΗΡΙΚΤΙΚΟ ΑΡΧΕΙΟ ;"
 
-msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 
-msgid "SUPPORT FILE GENERATION FAILED"
+msgid "SUPPORT FILE CREATION FAILED"
 msgstr ""
 
 msgid "FORMAT A DISK"
@@ -2624,6 +2624,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "ΕΠΕΞΕΡΓΑΣΙΑ PAD ΣΤΗ ΔΙΑΜΟΡΦΩΣΗ ΠΛΗΚΤΡΟΛΟΓΙΟΥ"
+
+#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
+#~ msgstr "ΔΗΜΙΟΥΡΓΙΑ PAD ΣΤΗ ΔΙΑΜΟΡΦΩΣΗ ΠΛΗΚΤΡΟΛΟΓΙΟΥ"
 
 #~ msgid "FIND ALL GAMES"
 #~ msgstr "ΕΥΡΕΣΗ ΟΛΩΝ ΤΩΝ ΠΑΙΧΝΙΔΙΩΝ"
