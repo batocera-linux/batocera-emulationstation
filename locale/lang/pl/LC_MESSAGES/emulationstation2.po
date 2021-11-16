@@ -997,10 +997,10 @@ msgid "SCRAPE"
 msgstr "SCRAPE'UJ"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "EDYTUJ PROFIL PADTOKEY"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "STWÓRZ PROFIL PADTOKEY"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ZAAWANSOWANE OPCJE GRY"
@@ -1122,7 +1122,7 @@ msgid "Battery"
 msgstr "Bateria"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Cpu model"
 msgstr "Model procesora"
@@ -1358,13 +1358,13 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "STWÓRZ PLIK POMOCY TECHNICZNEJ"
 
 msgid "CREATE A SUPPORT FILE?"
-msgstr "UTWÓRZYĆ PLIK POMOCY TECHNICZNEJ?"
+msgstr "STWÓRZYĆ PLIK POMOCY TECHNICZNEJ?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "PLIK POMOCY TECHNICZNEJ UTWORZONY W FOLDERZE ZAPISÓW"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "UTWORZENIE PLIKU POMOCY TECHNICZNEJ NIE POWIODŁO SIĘ"
 
 msgid "FORMAT A DISK"
 msgstr "SFORMATUJ DYSK"
@@ -1461,16 +1461,16 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTYMALIZACJE"
 
 msgid "PRELOAD UI ELEMENTS"
-msgstr ""
+msgstr "ZAŁADUJ WSTĘPNIE INTERFEJS"
 
 msgid "Reduce overall menu lag at the cost of storage space"
-msgstr ""
+msgstr "Zmniejsz opóźnienia menu kosztem miejsca na dysku"
 
 msgid "PRELOAD METADATA MEDIA"
-msgstr ""
+msgstr "WCZYTAJ WSTĘPNIE META DANE MEDIÓW"
 
 msgid "Reduce gamelist lag at the cost of storage space"
-msgstr ""
+msgstr "Zmniejsz opóźnienia listy gier kosztem miejsca na dysku"
 
 msgid "THREADED LOADING"
 msgstr "ŁADOWNAIE WĄTKOWE"
@@ -1527,10 +1527,10 @@ msgid "DISABLED"
 msgstr "WYŁĄCZONE"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "DOMYŚLNY"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "NATYCHMIASTOWY"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "CZYTNIK EKRANU (ZAMIANA TEKSTU NA MOWĘ)"
@@ -1774,7 +1774,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "POKAŻ STANY ZAPISÓW JEŚLI NIE SĄ PUSTE"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "PRZYROSTOWY ZAPIS STANU"
 
 msgid "SHADER SET"
 msgstr "ZESTAW SHADERÓW"

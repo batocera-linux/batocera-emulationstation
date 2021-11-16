@@ -995,10 +995,10 @@ msgid "SCRAPE"
 msgstr "SCRAPEN"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "PADTOKEY-PROFIL BEARBEITEN"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "PADTOKEY-PROFIL ERSTELLEN"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ERWEITERTE SPIELE-OPTIONEN"
@@ -1120,7 +1120,7 @@ msgid "Battery"
 msgstr "Batterie"
 
 msgid "Model"
-msgstr ""
+msgstr "Modell"
 
 msgid "Cpu model"
 msgstr "CPU Modell"
@@ -1358,10 +1358,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "EINE SUPPORT-DATEI ERSTELLEN?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "SUPPORT-DATEI IM SAVES-ORDNER ERSTELLT"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "SUPPORT-DATEI-ERSTELLUNG FEHLGESCHLAGEN"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATIERE EINEN DATENTRÄGER"
@@ -1458,16 +1458,16 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMIERUNGEN"
 
 msgid "PRELOAD UI ELEMENTS"
-msgstr ""
+msgstr "UI-ELEMENTE VORLADEN"
 
 msgid "Reduce overall menu lag at the cost of storage space"
-msgstr ""
+msgstr "Gesamte Menüverzögerung auf Kosten des Speicherplatzes reduzieren"
 
 msgid "PRELOAD METADATA MEDIA"
-msgstr ""
+msgstr "METADATEN-MEDIEN VORLADEN"
 
 msgid "Reduce gamelist lag at the cost of storage space"
-msgstr ""
+msgstr "Verzögerung der Spieleliste auf Kosten des Speicherplatzes reduzieren"
 
 msgid "THREADED LOADING"
 msgstr "THREADED LOADING"
@@ -1527,7 +1527,7 @@ msgid "DEFAULT"
 msgstr "KEIN SPLASH"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "SOFORTIG"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "BILDSCHIRM-LESER (TEXT ZU SPRACHE)"
@@ -1771,7 +1771,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "SPEICHERSTÄNDE ANZEIGEN, WENN NICHT LEER"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "INKREMENTELLE SPEICHERSTÄNDE"
 
 msgid "SHADER SET"
 msgstr "SHADER"
