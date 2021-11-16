@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1457,14 +1457,17 @@ msgstr "MOSTRAR INDICADOR DE RED"
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMIZACIONES"
 
-msgid "PRELOAD UI"
-msgstr "PRECARGAR LA INTERFAZ"
+msgid "PRELOAD UI ELEMENTS"
+msgstr ""
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "PRECARGAR CONTENIDO DEL SISTEMA DE ARCHIVOS"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "REDUCIR LAG DE LA INTERFAZ DURANTE EL INICIO"
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "ACELERAR CARGA DEL SISTEMA"
@@ -1737,6 +1740,9 @@ msgstr "PUERTO"
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISIÓN"
 
+msgid "DECORATION SET"
+msgstr "SET DE DECORACIONES"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "AJUSTES GLOBALES POR DEFECTO"
 
@@ -1764,14 +1770,14 @@ msgstr "ELEGIR MANUALMENTE"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "MOSTRAR SI HAY PARTIDAS GUARDADAS"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
 
 msgid "DECORATIONS"
 msgstr "DECORACIONES"
-
-msgid "DECORATION SET"
-msgstr "SET DE DECORACIONES"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "AJUSTAR BISELES (4K & ULTRAWIDE)"
@@ -2648,6 +2654,15 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "PRECARGAR LA INTERFAZ"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "PRECARGAR CONTENIDO DEL SISTEMA DE ARCHIVOS"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "REDUCIR LAG DE LA INTERFAZ DURANTE EL INICIO"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "CONFIGURACIÓN DE MANDO A TECLADO"

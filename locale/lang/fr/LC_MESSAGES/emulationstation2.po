@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: Batocera official\n"
@@ -1455,14 +1455,17 @@ msgstr "AFFICHER L’INDICATEUR RÉSEAU"
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMISATIONS"
 
-msgid "PRELOAD UI"
-msgstr "PRÉCHARGEMENT DE L'INTERFACE"
+msgid "PRELOAD UI ELEMENTS"
+msgstr ""
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "PRÉCHARGEMENT DU SYSTÈME DE FICHIERS DES MÉDIAS"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "Réduit les saccades dans l'interface mais démarre plus lentement"
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "CHARGEMENT EN PARALLÈLE"
@@ -1735,6 +1738,9 @@ msgstr "PORT"
 msgid "USE RELAY SERVER"
 msgstr "UTILISER UN SERVEUR RELAIS"
 
+msgid "DECORATION SET"
+msgstr "PACK DE DÉCORATIONS"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "PARAMÈTRES GLOBAUX PAR DÉFAUT"
 
@@ -1762,14 +1768,14 @@ msgstr "AFFICHER LES SAUV. INSTANTANÉES"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "AFFICHER LES SAUV. INSTANTANÉES SI NON VIDE"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
 
 msgid "DECORATIONS"
 msgstr "DÉCORATIONS"
-
-msgid "DECORATION SET"
-msgstr "PACK DE DÉCORATIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ETIRER LES DÉCORATIONS (4K ET ULTRAWIDE)"
@@ -2647,3 +2653,12 @@ msgstr "SYNTHÈSE VOCALE ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SYNTHÈSE VOCALE DESACTIVÉE"
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "PRÉCHARGEMENT DE L'INTERFACE"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "PRÉCHARGEMENT DU SYSTÈME DE FICHIERS DES MÉDIAS"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "Réduit les saccades dans l'interface mais démarre plus lentement"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/11/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-15 08:00+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: 2021-11-14 13:17+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1457,14 +1457,17 @@ msgstr "ネットワークインジケータを表示"
 msgid "OPTIMIZATIONS"
 msgstr "最適化"
 
-msgid "PRELOAD UI"
-msgstr "プリロード(先行読込) UI"
+msgid "PRELOAD UI ELEMENTS"
+msgstr ""
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "メディアファイルシステムの先行読込"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "起動時のUIラグを減らす"
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "スレッド読み込み"
@@ -1736,6 +1739,9 @@ msgstr "ポート"
 msgid "USE RELAY SERVER"
 msgstr "リレーサーバーを使用"
 
+msgid "DECORATION SET"
+msgstr "ベゼル選択"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "既定のグローバル設定"
 
@@ -1763,14 +1769,14 @@ msgstr "ステートセーブ表示"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "セーブがあれば表示"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "シェーダー設定"
 
 msgid "DECORATIONS"
 msgstr "ベゼル装飾(ゲーム画面外表示)"
-
-msgid "DECORATION SET"
-msgstr "ベゼル選択"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "画面に合わせる(4K＆ウルトラワイド)"
@@ -2636,6 +2642,15 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "プリロード(先行読込) UI"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "メディアファイルシステムの先行読込"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "起動時のUIラグを減らす"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1459,14 +1459,17 @@ msgstr "MOSTRAR INDICADOR DE REDE"
 msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
 
-msgid "PRELOAD UI"
-msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
+msgid "PRELOAD UI ELEMENTS"
+msgstr ""
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "PRÉ-CARREGAR SISTEMA DE ARQUIVOS DE MEDIA"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "REDUZIR OS ATRASOS DA INTERFACE SOBRE O TEMPO DE INICIALIZAÇÃO"
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
@@ -1739,6 +1742,9 @@ msgstr "PORTA"
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
 
+msgid "DECORATION SET"
+msgstr "CONJUNTO DE MOLDURAS"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DEFINIÇÕES GLOBAIS PADRÃO"
 
@@ -1766,14 +1772,14 @@ msgstr "MOSTRAR JOGOS GUARDADOS"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "MOSTRAR JOGOS GUARDADOS SE DISPONÍVEL"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
 msgid "DECORATIONS"
 msgstr "MOLDURAS"
-
-msgid "DECORATION SET"
-msgstr "CONJUNTO DE MOLDURAS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
@@ -2649,6 +2655,15 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "PRÉ-CARREGAR SISTEMA DE ARQUIVOS DE MEDIA"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "REDUZIR OS ATRASOS DA INTERFACE SOBRE O TEMPO DE INICIALIZAÇÃO"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "EDITAR CONFIGURAÇÃO DO COMANDO E TECLADO"

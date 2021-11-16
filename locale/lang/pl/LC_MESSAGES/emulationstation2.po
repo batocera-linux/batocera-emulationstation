@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1460,14 +1460,17 @@ msgstr "POKAŻ INDYKATOR SIECI"
 msgid "OPTIMIZATIONS"
 msgstr "OPTYMALIZACJE"
 
-msgid "PRELOAD UI"
-msgstr "ZAŁADUJ WSTĘPNIE INTERFEJS"
+msgid "PRELOAD UI ELEMENTS"
+msgstr ""
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "WCZYTAJ WSTĘPNIE SYSTEM PLIKÓW MEDIÓW"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "ZMNIEJSZ OPÓŹNIENIA INTERFEJSU PODCZAS URUCHAMIANIA"
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "ŁADOWNAIE WĄTKOWE"
@@ -1740,6 +1743,9 @@ msgstr "PORT"
 msgid "USE RELAY SERVER"
 msgstr "UŻYJ SERWERA PRZEKAZUJĄCEGO"
 
+msgid "DECORATION SET"
+msgstr "ZESTAW DEKORACJI"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DOMYŚLNE USTAWIENIA GLOBALNE"
 
@@ -1767,14 +1773,14 @@ msgstr "POKAŻ STANY ZAPISÓW"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "POKAŻ STANY ZAPISÓW JEŚLI NIE SĄ PUSTE"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "ZESTAW SHADERÓW"
 
 msgid "DECORATIONS"
 msgstr "DEKORACJE"
-
-msgid "DECORATION SET"
-msgstr "ZESTAW DEKORACJI"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ROZCIĄGNIJ RAMKI (4K + ULTRAWIDE)"
@@ -2658,6 +2664,15 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "ZAŁADUJ WSTĘPNIE INTERFEJS"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "WCZYTAJ WSTĘPNIE SYSTEM PLIKÓW MEDIÓW"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "ZMNIEJSZ OPÓŹNIENIA INTERFEJSU PODCZAS URUCHAMIANIA"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "EDYTUJ KONFIGURACJĘ KLAWIATURY NA KONTROLERZE"

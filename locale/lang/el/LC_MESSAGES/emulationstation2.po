@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1450,14 +1450,17 @@ msgstr "ΕΜΦΑΝΙΣΗ ΔΕΙΚΤΗ ΔΙΚΤΥΟΥ"
 msgid "OPTIMIZATIONS"
 msgstr "ΒΕΛΤΙΣΤΟΠΟΙΗΣΕΙΣ"
 
-msgid "PRELOAD UI"
-msgstr "ΠΡΟΦΟΡΤΩΣΗ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+msgid "PRELOAD UI ELEMENTS"
+msgstr ""
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "ΠΡΟΦΟΡΤΩΣΗ ΜΕΣΩΝ ΣΥΣΤΗΜΑΤΟΣ ΑΡΧΕΙΩΝ"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "ΠΕΡΙΟΡΙΣΜΟΣ ΚΟΛΛΗΜΑΤΩΝ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ ΚΑΤΑ ΤΗΝ ΕΚΚΙΝΗΣΗ"
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "THREADED ΦΟΡΤΩΣΗ"
@@ -1726,6 +1729,9 @@ msgstr "ΘΥΡΑ"
 msgid "USE RELAY SERVER"
 msgstr "ΧΡΗΣΗ RELAY ΣΕΡΒΕΡ"
 
+msgid "DECORATION SET"
+msgstr ""
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
@@ -1753,14 +1759,14 @@ msgstr ""
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr ""
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "ΟΡΙΣΜΟΣ ΣΚΙΑΣΕΩΝ"
 
 msgid "DECORATIONS"
 msgstr "ΔΙΑΚΟΣΜΗΣΕΙΣ"
-
-msgid "DECORATION SET"
-msgstr ""
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ΕΠΕΚΤΑΣΗ ΠΕΡΙΘΟΡΙΩΝ (4K & ULTRAWIDE)"
@@ -2624,6 +2630,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "ΠΡΟΦΟΡΤΩΣΗ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "ΠΡΟΦΟΡΤΩΣΗ ΜΕΣΩΝ ΣΥΣΤΗΜΑΤΟΣ ΑΡΧΕΙΩΝ"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "ΠΕΡΙΟΡΙΣΜΟΣ ΚΟΛΛΗΜΑΤΩΝ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ ΚΑΤΑ ΤΗΝ ΕΚΚΙΝΗΣΗ"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "ΕΠΕΞΕΡΓΑΣΙΑ PAD ΣΤΗ ΔΙΑΜΟΡΦΩΣΗ ΠΛΗΚΤΡΟΛΟΓΙΟΥ"
