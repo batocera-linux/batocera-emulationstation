@@ -145,6 +145,19 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	*/
 };
 
+const std::set<Scraper::ScraperMediaSource>& TheGamesDBScraper::getSupportedMedias()
+{
+	static std::set<ScraperMediaSource> mdds = {
+		ScraperMediaSource::Screenshot,
+		ScraperMediaSource::Box2d,
+		ScraperMediaSource::Wheel,
+		ScraperMediaSource::FanArt,
+		ScraperMediaSource::TitleShot
+	};
+
+	return mdds;
+}
+
 bool TheGamesDBScraper::isSupportedPlatform(SystemData* system)
 {
 	std::string platformQueryParam;
@@ -153,26 +166,6 @@ bool TheGamesDBScraper::isSupportedPlatform(SystemData* system)
 	for (auto platform : platforms)
 		if (gamesdb_new_platformid_map.find(platform) != gamesdb_new_platformid_map.cend())
 			return true;
-
-	return false;
-}
-
-bool TheGamesDBScraper::hasMissingMedia(FileData* file)
-{
-	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeFanart") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
-		return true;
 
 	return false;
 }

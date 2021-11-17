@@ -127,6 +127,25 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ ZX_SPECTRUM, "100295" },
 };
 
+const std::set<Scraper::ScraperMediaSource>& HfsDBScraper::getSupportedMedias()
+{
+	static std::set<ScraperMediaSource> mdds =
+	{
+		ScraperMediaSource::Screenshot,
+		ScraperMediaSource::Box2d,
+		ScraperMediaSource::Box3d,
+		ScraperMediaSource::Marquee,
+		ScraperMediaSource::Wheel,
+		ScraperMediaSource::TitleShot,
+		ScraperMediaSource::Video,
+		ScraperMediaSource::FanArt,
+		ScraperMediaSource::Manual,
+		ScraperMediaSource::BoxBack
+	};
+
+	return mdds;
+}
+
 void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queue<std::unique_ptr<ScraperRequest>>& requests, std::vector<ScraperSearchResult>& results)
 {
 	if (mToken.empty() || Utils::Time::DateTime::now().elapsedSecondsSince(mTokenDate) > 1800) // make Token expire after 30mn
@@ -211,32 +230,6 @@ bool HfsDBScraper::isSupportedPlatform(SystemData* system)
 	for (auto platform : platforms)
 		if (hfsdb_platformids.find(platform) != hfsdb_platformids.cend())
 			return true;
-
-	return false;
-}
-
-bool HfsDBScraper::hasMissingMedia(FileData* file)
-{
-	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video)))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeFanart") && (file->getMetadata(MetaDataId::FanArt).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt))))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeManual") && (file->getMetadata(MetaDataId::Manual).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual))))
-		return true;
 
 	return false;
 }

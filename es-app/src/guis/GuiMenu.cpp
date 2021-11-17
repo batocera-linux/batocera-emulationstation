@@ -240,7 +240,7 @@ void GuiMenu::openScraperSettings()
 	// scrape from
 	auto scraper_list = std::make_shared< OptionListComponent< std::string > >(mWindow, _("SCRAPING DATABASE"), false);
 	std::vector<std::string> scrapers = Scraper::getScraperList();
-
+	
 	// Select either the first entry of the one read from the settings, just in case the scraper from settings has vanished.
 	for(auto it = scrapers.cbegin(); it != scrapers.cend(); it++)
 		scraper_list->add(*it, *it, *it == scraper);
@@ -254,227 +254,153 @@ void GuiMenu::openScraperSettings()
 		scraper = scraper_list->getSelected();
 	}
 
-	if (scraper == "ScreenScraper")
+	auto scrap = Scraper::getScraper(scraper);
+	if (scrap != nullptr)
 	{
-		// Image source : <image> tag
 		std::string imageSourceName = Settings::getInstance()->getString("ScrapperImageSrc");
 		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("IMAGE SOURCE"), false);
-		imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
-		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
-		imageSource->add(_("MIX V1"), "mixrbv1", imageSourceName == "mixrbv1");
-		imageSource->add(_("MIX V2"), "mixrbv2", imageSourceName == "mixrbv2");
-		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
-		imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
-		imageSource->add(_("FAN ART"), "fanart", imageSourceName == "fanart");
-		imageSource->add(_("NONE"), "", imageSourceName.empty());
 
-		if (!imageSource->hasSelection())
-			imageSource->selectFirstItem();
-
-		s->addWithLabel(_("IMAGE SOURCE"), imageSource);
-		s->addSaveFunc([imageSource] { Settings::getInstance()->setString("ScrapperImageSrc", imageSource->getSelected()); });
-
-		// Box source : <thumbnail> tag
-		std::string thumbSourceName = Settings::getInstance()->getString("ScrapperThumbSrc");
-		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
-		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
-		thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
-		thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
-
-		if (!thumbSource->hasSelection())
-			thumbSource->selectFirstItem();
-
-		s->addWithLabel(_("BOX SOURCE"), thumbSource);
-		s->addSaveFunc([thumbSource] { Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected()); });
-
-		imageSource->setSelectedChangedCallback([this, thumbSource](std::string value)
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Screenshot) ||
+			scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d) ||
+			scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d) ||
+			scrap->isMediaSupported(Scraper::ScraperMediaSource::Mix) ||
+			scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt) ||
+			scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))		
 		{
-			if (value == "box-2D")
-				thumbSource->remove(_("BOX 2D"));
-			else
-				thumbSource->add(_("BOX 2D"), "box-2D", false);
+			// Image source : <image> tag
 
-			if (value == "box-3D")
-				thumbSource->remove(_("BOX 3D"));
-			else
-				thumbSource->add(_("BOX 3D"), "box-3D", false);
-		});
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Screenshot))
+				imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
 
-		// Logo source : <marquee> tag
-		std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
-		auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
-		logoSource->add(_("NONE"), "", logoSourceName.empty());
-		logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
-		logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
+				imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
 
-		if (!logoSource->hasSelection())
-			logoSource->selectFirstItem();
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Mix))
+			{
+				imageSource->add(_("MIX V1"), "mixrbv1", imageSourceName == "mixrbv1");
+				imageSource->add(_("MIX V2"), "mixrbv2", imageSourceName == "mixrbv2");
+			}
 
-		s->addWithLabel(_("LOGO SOURCE"), logoSource);
-		s->addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
+				imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
 
-		// scrape ratings
-		auto scrape_ratings = std::make_shared<SwitchComponent>(mWindow);
-		scrape_ratings->setState(Settings::getInstance()->getBool("ScrapeRatings"));
-		s->addWithLabel(_("SCRAPE RATINGS"), scrape_ratings); // batocera
-		s->addSaveFunc([scrape_ratings] { Settings::getInstance()->setBool("ScrapeRatings", scrape_ratings->getState()); });
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
+				imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
 
-		// scrape video
-		auto scrape_video = std::make_shared<SwitchComponent>(mWindow);
-		scrape_video->setState(Settings::getInstance()->getBool("ScrapeVideos"));
-		s->addWithLabel(_("SCRAPE VIDEOS"), scrape_video);
-		s->addSaveFunc([scrape_video] { Settings::getInstance()->setBool("ScrapeVideos", scrape_video->getState()); });
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
+				imageSource->add(_("FAN ART"), "fanart", imageSourceName == "fanart");
+
+			imageSource->add(_("NONE"), "", imageSourceName.empty());
+
+			if (!imageSource->hasSelection())
+				imageSource->selectFirstItem();
+
+			s->addWithLabel(_("IMAGE SOURCE"), imageSource);
+			s->addSaveFunc([imageSource] { Settings::getInstance()->setString("ScrapperImageSrc", imageSource->getSelected()); });
+		}
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
+		{
+			// Box source : <thumbnail> tag
+			std::string thumbSourceName = Settings::getInstance()->getString("ScrapperThumbSrc");
+			auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
+			thumbSource->add(_("NONE"), "", thumbSourceName.empty());
+
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
+				thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
+
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))//if (scraper == "HfsDB")
+				thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
+
+			if (!thumbSource->hasSelection())
+				thumbSource->selectFirstItem();
+
+			s->addWithLabel(_("BOX SOURCE"), thumbSource);
+			s->addSaveFunc([thumbSource] { Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected()); });
 		
-		// SCRAPE FANART
-		auto scrape_fanart = std::make_shared<SwitchComponent>(mWindow);
-		scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
-		s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
-		s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
+			imageSource->setSelectedChangedCallback([this, scrap, thumbSource](std::string value)
+			{
+				if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
+				{
+					if (value == "box-2D")
+						thumbSource->remove(_("BOX 2D"));
+					else
+						thumbSource->add(_("BOX 2D"), "box-2D", false);
+				}
 
-		// SCRAPE BOX BACKSIDE
-		auto scrape_boxBack = std::make_shared<SwitchComponent>(mWindow);
-		scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
-		s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
-		s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
+				if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
+				{
+					if (value == "box-3D")
+						thumbSource->remove(_("BOX 3D"));
+					else
+						thumbSource->add(_("BOX 3D"), "box-3D", false);
+				}
+			});
+		}
 
-		// SCRAPE MAP		
-		auto scrape_map = std::make_shared<SwitchComponent>(mWindow);
-		scrape_map->setState(Settings::getInstance()->getBool("ScrapeMap"));
-		s->addWithLabel(_("SCRAPE MAP"), scrape_map);
-		s->addSaveFunc([scrape_map] { Settings::getInstance()->setBool("ScrapeMap", scrape_map->getState()); });
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
+		{
+			// Logo source : <marquee> tag
+			std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
 
-		// SCRAPE TITLESHOT
+			auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
+			logoSource->add(_("NONE"), "", logoSourceName.empty());
+
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
+				logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
+
+			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee)) // if (scraper == "HfsDB")
+				logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
+
+			if (!logoSource->hasSelection())
+				logoSource->selectFirstItem();
+
+			s->addWithLabel(_("LOGO SOURCE"), logoSource);
+			s->addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
+		}
+
+		auto addSwitchComponent = [this, s](const std::string& label, const std::string& settingName)
+		{
+			auto item = std::make_shared<SwitchComponent>(mWindow);
+			item->setState(Settings::getInstance()->getBool(settingName));
+			s->addWithLabel(label, item); // batocera
+			s->addSaveFunc([item, settingName] { Settings::getInstance()->setBool(settingName, item->getState()); });
+		};
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Ratings))
+			addSwitchComponent(_("SCRAPE RATINGS"), "ScrapeRatings");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Video))
+			addSwitchComponent(_("SCRAPE VIDEOS"), "ScrapeVideos");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
+			addSwitchComponent(_("SCRAPE FANART"), "ScrapeFanart");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::BoxBack))
+			addSwitchComponent(_("SCRAPE BOX BACKSIDE"), "ScrapeBoxBack");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Map))
+			addSwitchComponent(_("SCRAPE MAP"), "ScrapeMap");
+
 		/*
-		auto scrape_titleshot = std::make_shared<SwitchComponent>(mWindow);
-		scrape_titleshot->setState(Settings::getInstance()->getBool("ScrapeTitleShot"));
-		s->addWithLabel(_("SCRAPE TITLESHOT"), scrape_titleshot);
-		s->addSaveFunc([scrape_titleshot] { Settings::getInstance()->setBool("ScrapeTitleShot", scrape_titleshot->getState()); });
-		
-		
-		// SCRAPE CARTRIDGE
-		auto scrape_cartridge = std::make_shared<SwitchComponent>(mWindow);
-		scrape_cartridge->setState(Settings::getInstance()->getBool("ScrapeCartridge"));
-		s->addWithLabel(_("SCRAPE CARTRIDGE"), scrape_cartridge);
-		s->addSaveFunc([scrape_cartridge] { Settings::getInstance()->setBool("ScrapeCartridge", scrape_cartridge->getState()); });
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
+			addSwitch(_("SCRAPE TITLESHOT"), "ScrapeTitleShot");
+
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Cartridge))
+			addSwitch(_("SCRAPE CARTRIDGE"), "ScrapeCartridge");
 		*/
-		// SCRAPE MANUAL
-		auto scrape_manual = std::make_shared<SwitchComponent>(mWindow);
-		scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
-		s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
-		s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
 
-		// SCRAPE PAD TO KEYBOARD
-		auto scrapePadToKey = std::make_shared<SwitchComponent>(mWindow);
-		scrapePadToKey->setState(Settings::getInstance()->getBool("ScrapePadToKey"));
-		s->addWithLabel(_("SCRAPE PADTOKEY SETTINGS"), scrapePadToKey);
-		s->addSaveFunc([scrapePadToKey] { Settings::getInstance()->setBool("ScrapePadToKey", scrapePadToKey->getState()); });
-		
-		// Account		
-		s->addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
-		s->addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
-	}
-	else
-	{
-		std::string imageSourceName = Settings::getInstance()->getString("ScrapperImageSrc");
-		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("IMAGE SOURCE"), false);
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Manual))
+			addSwitchComponent(_("SCRAPE MANUAL"), "ScrapeManual");
 
-		// Image source : <image> tag
-			
-		imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
-		imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
-		imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
-		imageSource->add(_("FAN ART"), "fanart", imageSourceName == "fanart");
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::PadToKey))
+			addSwitchComponent(_("SCRAPE PADTOKEY SETTINGS"), "ScrapePadToKey");
 
-		if (!imageSource->hasSelection())
-			imageSource->selectFirstItem();
-
-		s->addWithLabel(_("IMAGE SOURCE"), imageSource);
-		s->addSaveFunc([imageSource] { Settings::getInstance()->setString("ScrapperImageSrc", imageSource->getSelected()); });
-
-		// Box source : <thumbnail> tag
-		std::string thumbSourceName = Settings::getInstance()->getString("ScrapperThumbSrc");
-		auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
-		thumbSource->add(_("NONE"), "", thumbSourceName.empty());
-		thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
-		
-		if (scraper == "HfsDB")
-			thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
-
-		if (!thumbSource->hasSelection())
-			thumbSource->selectFirstItem();
-
-		s->addWithLabel(_("BOX SOURCE"), thumbSource);
-		s->addSaveFunc([thumbSource] { Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected()); });
-
-		imageSource->setSelectedChangedCallback([this, thumbSource](std::string value)
-		{
-			if (value == "box-2D")
-				thumbSource->remove(_("BOX 2D"));
-			else
-				thumbSource->add(_("BOX 2D"), "box-2D", false);
-		});
-
-		// Logo source : <marquee> tag
-		std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
-		auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
-		logoSource->add(_("NONE"), "", logoSourceName.empty());
-		logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
-		
-		if (scraper == "HfsDB")
-			logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
-
-		if (!logoSource->hasSelection())
-			logoSource->selectFirstItem();
-
-		s->addWithLabel(_("LOGO SOURCE"), logoSource);
-		s->addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
-
-		if (scraper == "TheGamesDB")
-		{
-			// SCRAPE FANART
-			auto scrape_fanart = std::make_shared<SwitchComponent>(mWindow);
-			scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
-			s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
-			s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
-
-			// SCRAPE BOX BACKSIDE
-			auto scrape_boxBack = std::make_shared<SwitchComponent>(mWindow);
-			scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
-			s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
-			s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
-		}
-		else if (scraper == "HfsDB")
-		{
-			// SCRAPE FANART
-			auto scrape_fanart = std::make_shared<SwitchComponent>(mWindow);
-			scrape_fanart->setState(Settings::getInstance()->getBool("ScrapeFanart"));
-			s->addWithLabel(_("SCRAPE FANART"), scrape_fanart);
-			s->addSaveFunc([scrape_fanart] { Settings::getInstance()->setBool("ScrapeFanart", scrape_fanart->getState()); });
-
-			// scrape video
-			auto scrape_video = std::make_shared<SwitchComponent>(mWindow);
-			scrape_video->setState(Settings::getInstance()->getBool("ScrapeVideos"));
-			s->addWithLabel(_("SCRAPE VIDEOS"), scrape_video);
-			s->addSaveFunc([scrape_video] { Settings::getInstance()->setBool("ScrapeVideos", scrape_video->getState()); });
-
-			// SCRAPE BOX BACKSIDE
-			auto scrape_boxBack = std::make_shared<SwitchComponent>(mWindow);
-			scrape_boxBack->setState(Settings::getInstance()->getBool("ScrapeBoxBack"));
-			s->addWithLabel(_("SCRAPE BOX BACKSIDE"), scrape_boxBack);
-			s->addSaveFunc([scrape_boxBack] { Settings::getInstance()->setBool("ScrapeBoxBack", scrape_boxBack->getState()); });
-
-			// SCRAPE MANUAL
-			auto scrape_manual = std::make_shared<SwitchComponent>(mWindow);
-			scrape_manual->setState(Settings::getInstance()->getBool("ScrapeManual"));
-			s->addWithLabel(_("SCRAPE MANUAL"), scrape_manual);
-			s->addSaveFunc([scrape_manual] { Settings::getInstance()->setBool("ScrapeManual", scrape_manual->getState()); });
-		}
-		else
-		{		// scrape video
-			auto scrape_video = std::make_shared<SwitchComponent>(mWindow);
-			scrape_video->setState(Settings::getInstance()->getBool("ScrapeVideos"));
-			s->addWithLabel(_("SCRAPE VIDEOS"), scrape_video);
-			s->addSaveFunc([scrape_video] { Settings::getInstance()->setBool("ScrapeVideos", scrape_video->getState()); });
+		// ScreenScraper Account		
+		if (scraper == "ScreenScraper")
+		{			
+			s->addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
+			s->addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
 		}
 	}
 		
@@ -1991,15 +1917,15 @@ void GuiMenu::openRetroachievementsSettings()
 }
 
 template <typename StructType, typename FieldSelectorUnaryFn>
-static auto groupBy(const std::vector<StructType>& instances, const FieldSelectorUnaryFn& fieldChooser) // -> std::map<decltype(forward<FieldSelectorUnaryFn>(fieldChooser)), std::vector<StructType>>
+static auto groupBy(const std::vector<StructType>& instances, const FieldSelectorUnaryFn& fieldChooser)
+   -> std::map<decltype(fieldChooser(StructType())), std::vector<StructType>> // For C++ 11
 {
 	StructType _;
 	using FieldType = decltype(fieldChooser(_));
 	std::map<FieldType, std::vector<StructType>> instancesByField;
 	for (auto& instance : instances)
-	{
 		instancesByField[fieldChooser(instance)].push_back(instance);
-	}
+
 	return instancesByField;
 }
 
@@ -2328,7 +2254,7 @@ void GuiMenu::openGamesSettings_batocera()
 
 		mWindow->pushGui(ai_service);
 	});
-		
+
 	auto groups = groupBy(SystemData::mGlobalFeatures, [](const CustomFeature& item) { return item.submenu; });
 	for (auto group : groups)
 	{
