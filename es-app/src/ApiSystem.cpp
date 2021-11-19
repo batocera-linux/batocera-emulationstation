@@ -967,7 +967,7 @@ const char* BACKLIGHT_BRIGHTNESS_NAME = "/sys/class/backlight/backlight/brightne
 const char* BACKLIGHT_BRIGHTNESS_MAX_NAME = "/sys/class/backlight/backlight/max_brightness";
 #define BACKLIGHT_BUFFER_SIZE 127
 
-bool ApiSystem::getBrighness(int& value)
+bool ApiSystem::getBrightness(int& value)
 {
 #if WIN32
 	return false;
@@ -1011,7 +1011,7 @@ bool ApiSystem::getBrighness(int& value)
 #endif
 }
 
-void ApiSystem::setBrighness(int value)
+void ApiSystem::setBrightness(int value)
 {
 #if !WIN32	
 	if (value < 5)
@@ -1049,7 +1049,7 @@ void ApiSystem::setBrighness(int value)
 
 	count = write(fd, buffer, strlen(buffer));
 	if (count < 0)
-		LOG(LogError) << "ApiSystem::setBrighness failed";
+		LOG(LogError) << "ApiSystem::setBrightness failed";
 
 	close(fd);
 #endif

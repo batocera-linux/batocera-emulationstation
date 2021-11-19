@@ -1397,15 +1397,15 @@ void GuiMenu::openSystemSettings_batocera()
 #if !defined(WIN32) || defined(_DEBUG)
 	s->addGroup(_("HARDWARE"));
 
-	// brighness
-	int brighness;
-	if (ApiSystem::getInstance()->getBrighness(brighness))
+	// brightness
+	int brightness;
+	if (ApiSystem::getInstance()->getBrightness(brightness))
 	{
 		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
-		brightnessComponent->setValue(brighness);
+		brightnessComponent->setValue(brightness);
 		brightnessComponent->setOnValueChanged([](const float &newVal)
 		{
-			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal));
+			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
 		});
 
 		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
