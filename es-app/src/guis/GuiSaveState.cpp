@@ -126,7 +126,7 @@ void GuiSaveState::loadGrid()
 	for (auto item : states)
 	{
 		if (item->slot == -1)
-			mGrid->add(item->creationDate.toLocalTimeString() + std::string("\r\n") + _("AUTO SAVE"), item->getScreenShot(), "", "", false, false, false, false, *item);
+			mGrid->add(_("AUTO SAVE") + std::string("\r\n") + item->creationDate.toLocalTimeString(), item->getScreenShot(), "", "", false, false, false, false, *item);
 		else if (incrementalSaveStates)
 			mGrid->add(item->creationDate.toLocalTimeString(), item->getScreenShot(), "", "", false, false, false, false, *item);
 		else 
