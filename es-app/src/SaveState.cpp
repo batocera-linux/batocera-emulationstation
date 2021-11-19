@@ -36,7 +36,7 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 
 	if (!isSlotValid())
 	{
-		if (nextSlot > 0)
+		if (incrementalSaveStates && nextSlot > 0)
 		{
 			// We start a game normally but there are saved games : Start game on next free slot to avoid loosing a saved game
 			return command + " -state_slot " + std::to_string(nextSlot);
