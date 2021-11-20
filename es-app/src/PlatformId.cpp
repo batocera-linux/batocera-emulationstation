@@ -149,6 +149,7 @@ namespace PlatformIds
 		{ "cpet",					COMMODORE_PET },
 		{ "atom",					ACORN_ATOM },
 		{ "bbcmicro",				ACORN_BBC_MICRO },
+		{ "bbc",					ACORN_BBC_MICRO },
 		{ "electron",				ACORN_ELECTRON },
 		{ "ngage",					NOKIA_NGAGE },
 		{ "astrocade",				ASTROCADE },
@@ -157,7 +158,16 @@ namespace PlatformIds
 
 		{ "fmtowns",				FMTOWNS },
 		{ "cdi",					PHILIPS_CDI },			
-
+		{ "fm7",					FUJITSU_FM7 },
+		{ "pv1000",					CASIO_PV1000 },
+		{ "gamecom",				TIGER_GAMECOM },
+		{ "advision",				ENTEX_ADVENTURE_VISION },			
+		{ "arcadia",				EMERSON_ARCADIA_2001 },
+		{ "lcdgames",				LCD_GAMES },
+		{ "crvision",				VTECH_CREATIVISION },			
+		{ "creativision",			VTECH_CREATIVISION },			
+		{ "vsmile",					VTECH_VSMILE },
+						
 		{ "snes-msu1",				SUPER_NINTENDO_MSU1 },
 
 		{ "ignore",					PLATFORM_IGNORE },

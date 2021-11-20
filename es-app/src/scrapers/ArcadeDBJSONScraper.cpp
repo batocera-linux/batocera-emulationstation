@@ -45,24 +45,17 @@ bool ArcadeDBScraper::isSupportedPlatform(SystemData* system)
 	return system && system->hasPlatformId(PlatformIds::ARCADE) || system->hasPlatformId(PlatformIds::NEOGEO);
 }
 
-bool ArcadeDBScraper::hasMissingMedia(FileData* file)
+const std::set<Scraper::ScraperMediaSource>& ArcadeDBScraper::getSupportedMedias()
 {
-	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
-		return true;
+	static std::set<ScraperMediaSource> mdds = {
+		ScraperMediaSource::Screenshot,
+		ScraperMediaSource::Box2d,
+		ScraperMediaSource::Marquee,
+		ScraperMediaSource::TitleShot,
+		ScraperMediaSource::Video
+	};
 
-	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeTitleShot") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeVideos") && !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video)))
-		return true;
-
-	return false;
+	return mdds;
 }
 
 namespace

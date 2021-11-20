@@ -17,6 +17,9 @@
 #include <cstring>
 #include <thread>
 
+// bezel-16-9 
+// bezel-4-3
+
 using namespace PlatformIds;
 
 #if defined(SCREENSCRAPER_DEV_LOGIN)
@@ -157,8 +160,41 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ACORN_ELECTRON, 85 },
 	{ ADAM, 89 },
 	{ PHILIPS_CDI, 133 },
-	{ SUPER_NINTENDO_MSU1, 210 }
+	{ SUPER_NINTENDO_MSU1, 210 },
+	{ FUJITSU_FM7, 97 },
+	{ CASIO_PV1000, 74 },
+	{ TIGER_GAMECOM, 121 },
+	{ ENTEX_ADVENTURE_VISION, 78 },
+	{ EMERSON_ARCADIA_2001, 94 },
+	{ VTECH_CREATIVISION, 241 },
+	{ VTECH_VSMILE, 120 }
+		
 };
+
+const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()
+{
+	static std::set<ScraperMediaSource> mdds =
+	{
+		ScraperMediaSource::Screenshot,
+		ScraperMediaSource::Box2d,
+		ScraperMediaSource::Box3d,
+		ScraperMediaSource::Marquee,
+		ScraperMediaSource::TitleShot,
+		ScraperMediaSource::Video,
+		ScraperMediaSource::FanArt,
+		ScraperMediaSource::Map,
+		ScraperMediaSource::BoxBack,
+		ScraperMediaSource::TitleShot,
+		ScraperMediaSource::Wheel,
+		ScraperMediaSource::Marquee,
+		ScraperMediaSource::Mix,
+		ScraperMediaSource::Manual,
+		ScraperMediaSource::Ratings,
+		ScraperMediaSource::PadToKey
+	};
+
+	return mdds;
+}
 
 // Help XML parsing method, finding an direct child XML node starting from the parent and filtering by an attribute value list.
 static pugi::xml_node find_child_by_attribute_list(const pugi::xml_node& node_parent, const std::string& node_name, const std::string& attribute_name, const std::vector<std::string> attribute_values)
@@ -179,42 +215,6 @@ bool ScreenScraperScraper::isSupportedPlatform(SystemData* system)
 	for (auto platform : platforms)
 		if (screenscraper_platformid_map.find(platform) != screenscraper_platformid_map.cend())
 			return true;
-
-	return false;
-}
-
-bool ScreenScraperScraper::hasMissingMedia(FileData* file)
-{
-
-	if (Settings::getInstance()->getBool("ScrapeManual") && (file->getMetadata(MetaDataId::Manual).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual))))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeMap") && (file->getMetadata(MetaDataId::Map).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map))))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeFanart") && (file->getMetadata(MetaDataId::FanArt).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt))))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeVideos") && (file->getMetadata(MetaDataId::Video).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video))))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperLogoSrc").empty() && (file->getMetadata(MetaDataId::Marquee).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee))))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && (file->getMetadata(MetaDataId::Image).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image))))
-		return true;
-
-	if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && (file->getMetadata(MetaDataId::Thumbnail).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail))))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeBoxBack") && (file->getMetadata(MetaDataId::BoxBack).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::BoxBack))))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeTitleShot") && (file->getMetadata(MetaDataId::TitleShot).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot))))
-		return true;
-
-	if (Settings::getInstance()->getBool("ScrapeCartridge") && (file->getMetadata(MetaDataId::Cartridge).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Cartridge))))
-		return true;
 
 	return false;
 }
@@ -776,7 +776,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					else
 						LOG(LogDebug) << "Failed to find media XML node for video";
 				}
-			}
+			}		
 		}
 
 		out_results.push_back(result);

@@ -9,6 +9,7 @@
 #include <memory>
 #include <queue>
 #include <utility>
+#include <set>
 #include <assert.h>
 #include "FileData.h"
 
@@ -200,6 +201,26 @@ private:
 class Scraper
 {
 public:
+	enum ScraperMediaSource
+	{
+		Screenshot = 1,
+		Video = 2,
+		Marquee = 3,
+		Box2d = 4,
+		Box3d = 5,
+		FanArt = 6,
+		TitleShot = 7,
+		Cartridge = 8,
+		Map = 9,
+		Manual = 10,
+		Wheel = 11,
+		Mix = 12,
+		BoxBack = 13,
+		Magazine = 14,
+		PadToKey = 15,
+		Ratings = 16
+	};
+
 	static std::vector<std::pair<std::string, Scraper*>> scrapers;
 	
 	static Scraper* getScraper(const std::string name = "");
@@ -211,6 +232,7 @@ public:
 	static std::string getSaveAsPath(FileData* game, const MetaDataId metadataId, const std::string& url);
 
 	virtual	bool isSupportedPlatform(SystemData* system) = 0;
+	virtual const std::set<ScraperMediaSource>& getSupportedMedias() = 0;
 
 	virtual	bool hasMissingMedia(FileData* file);
 
@@ -219,6 +241,8 @@ public:
 	virtual	int getThreadCount(std::string &result) {
 		return 1;
 	}
+
+	bool isMediaSupported(const ScraperMediaSource& md);
 
 protected:
 	virtual void generateRequests(const ScraperSearchParams& params,
