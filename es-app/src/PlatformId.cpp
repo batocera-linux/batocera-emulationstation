@@ -166,6 +166,7 @@ namespace PlatformIds
 		{ "lcdgames",				LCD_GAMES },
 		{ "crvision",				VTECH_CREATIVISION },			
 		{ "creativision",			VTECH_CREATIVISION },			
+		{ "vsmile",					VTECH_VSMILE },
 						
 		{ "snes-msu1",				SUPER_NINTENDO_MSU1 },
 

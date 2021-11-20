@@ -131,7 +131,8 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ TIGER_GAMECOM, "4940" },
 	{ ENTEX_ADVENTURE_VISION, "4974" },
 	{ EMERSON_ARCADIA_2001, "4963" },
-	{ VTECH_CREATIVISION, "5005" }
+	{ VTECH_CREATIVISION, "5005" },
+	{ VTECH_VSMILE, "4988" }
 		
 	/* Non existing systems
 	{ AMIGACDTV, "129" },

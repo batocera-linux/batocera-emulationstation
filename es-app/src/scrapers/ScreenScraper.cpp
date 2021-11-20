@@ -166,7 +166,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ TIGER_GAMECOM, 121 },
 	{ ENTEX_ADVENTURE_VISION, 78 },
 	{ EMERSON_ARCADIA_2001, 94 },
-	{ VTECH_CREATIVISION, 241 }
+	{ VTECH_CREATIVISION, 241 },
+	{ VTECH_VSMILE, 120 }
 		
 };
 

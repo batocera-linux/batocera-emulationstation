@@ -147,6 +147,7 @@ namespace PlatformIds
 		EMERSON_ARCADIA_2001,			
 		LCD_GAMES,
 		VTECH_CREATIVISION,
+		VTECH_VSMILE,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT
