@@ -124,7 +124,15 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ DAPHNE, "23" },
 
 	{ SUPER_NINTENDO_MSU1, "6" },
+	{ LCD_GAMES, "4951" },
 
+	{ FUJITSU_FM7, "4978" },
+	{ CASIO_PV1000, "4964" },
+	{ TIGER_GAMECOM, "4940" },
+	{ ENTEX_ADVENTURE_VISION, "4974" },
+	{ EMERSON_ARCADIA_2001, "4963" },
+	{ VTECH_CREATIVISION, "5005" }
+		
 	/* Non existing systems
 	{ AMIGACDTV, "129" },
 	{ CAVESTORY, "135" },

@@ -125,6 +125,11 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ XBOX, "144719" },
 	{ ZX81, "190538" },
 	{ ZX_SPECTRUM, "100295" },
+	{ FUJITSU_FM7, "240860" },
+	{ CASIO_PV1000, "190512" },
+	{ ENTEX_ADVENTURE_VISION, "35850" },
+	{ EMERSON_ARCADIA_2001, "129592" },
+	{ VTECH_CREATIVISION, "190291" }
 };
 
 const std::set<Scraper::ScraperMediaSource>& HfsDBScraper::getSupportedMedias()
