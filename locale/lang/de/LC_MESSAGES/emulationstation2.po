@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -995,10 +995,10 @@ msgid "SCRAPE"
 msgstr "SCRAPEN"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "PADTOKEY-PROFIL BEARBEITEN"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "PADTOKEY-PROFIL ERSTELLEN"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ERWEITERTE SPIELE-OPTIONEN"
@@ -1120,7 +1120,7 @@ msgid "Battery"
 msgstr "Batterie"
 
 msgid "Model"
-msgstr ""
+msgstr "Modell"
 
 msgid "Cpu model"
 msgstr "CPU Modell"
@@ -1358,10 +1358,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "EINE SUPPORT-DATEI ERSTELLEN?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "SUPPORT-DATEI IM SAVES-ORDNER ERSTELLT"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "SUPPORT-DATEI-ERSTELLUNG FEHLGESCHLAGEN"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATIERE EINEN DATENTRÄGER"
@@ -1457,14 +1457,17 @@ msgstr "NETZWERK-INDIKATOR ANZEIGEN"
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMIERUNGEN"
 
-msgid "PRELOAD UI"
-msgstr "UI VORLADEN"
+msgid "PRELOAD UI ELEMENTS"
+msgstr "UI-ELEMENTE VORLADEN"
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "MEDIEN-DATEISYSTEM VORLADEN"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr "Gesamte Menüverzögerung auf Kosten des Speicherplatzes reduzieren"
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "UI-VERZÖGERUNGEN BEI STARTZEIT REDUZIEREN"
+msgid "PRELOAD METADATA MEDIA"
+msgstr "METADATEN-MEDIEN VORLADEN"
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr "Verzögerung der Spieleliste auf Kosten des Speicherplatzes reduzieren"
 
 msgid "THREADED LOADING"
 msgstr "THREADED LOADING"
@@ -1524,7 +1527,7 @@ msgid "DEFAULT"
 msgstr "KEIN SPLASH"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "SOFORTIG"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "BILDSCHIRM-LESER (TEXT ZU SPRACHE)"
@@ -1737,6 +1740,9 @@ msgstr "PORT"
 msgid "USE RELAY SERVER"
 msgstr "NUTZE RELAY-SERVER"
 
+msgid "DECORATION SET"
+msgstr "DEKORATIONS-SET"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "GLOBALE STANDARDEINSTELLUNGEN"
 
@@ -1764,14 +1770,14 @@ msgstr "SPEICHERSTÄNDE ANZEIGEN"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "SPEICHERSTÄNDE ANZEIGEN, WENN NICHT LEER"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INKREMENTELLE SPEICHERSTÄNDE"
+
 msgid "SHADER SET"
 msgstr "SHADER"
 
 msgid "DECORATIONS"
 msgstr "DEKORATIONEN"
-
-msgid "DECORATION SET"
-msgstr "DEKORATIONS-SET"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "STRECKE BEZELS (4K & ULTRAWIDE)"
@@ -2651,6 +2657,15 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "UI VORLADEN"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "MEDIEN-DATEISYSTEM VORLADEN"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "UI-VERZÖGERUNGEN BEI STARTZEIT REDUZIEREN"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "PAD TO KEYBOARD KONFIGURATION BEARBEITEN"

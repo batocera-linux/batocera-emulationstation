@@ -17,7 +17,8 @@ public:
 		std::vector<ScraperSearchResult>& results) override;
 
 	bool isSupportedPlatform(SystemData* system) override;
-	bool hasMissingMedia(FileData* file) override;
+
+	const std::set<ScraperMediaSource>& getSupportedMedias() override;
 };
 
 class ArcadeDBJSONRequest : public ScraperHttpRequest

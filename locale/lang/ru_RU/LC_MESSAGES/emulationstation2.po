@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1458,14 +1458,17 @@ msgstr "ПОКАЗАТЬ ИНДИКАТОР СЕТИ"
 msgid "OPTIMIZATIONS"
 msgstr "ОПТИМИЗАЦИЯ"
 
-msgid "PRELOAD UI"
-msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
+msgid "PRELOAD UI ELEMENTS"
+msgstr ""
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "ПРЕДЗАГРУЗКА МЕДИА ФАЙЛОВ"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "УМЕНЬШИТЬ ЗАДЕРЖКИ ИНТЕРФЕЙСА ПРИ ЗАПУСКЕ"
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "МНОГОПОТОЧНАЯ ЗАГРУЗКА"
@@ -1738,6 +1741,9 @@ msgstr "ПОРТ"
 msgid "USE RELAY SERVER"
 msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
+msgid "DECORATION SET"
+msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "СТАНДАРТНЫЕ ГЛОБАЛЬНЫЕ НАСТРОЙКИ"
 
@@ -1765,14 +1771,14 @@ msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ ЕСЛИ ОНИ ИМЕЮТСЯ"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
 
 msgid "DECORATIONS"
 msgstr "РАМКИ (ОВЕРЛЕИ)"
-
-msgid "DECORATION SET"
-msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "РАСТЯНУТЬ РАМКИ (4K и ULTRAWIDE)"
@@ -2659,6 +2665,15 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"
+
+#~ msgid "PRELOAD MEDIAS FILESYSTEM"
+#~ msgstr "ПРЕДЗАГРУЗКА МЕДИА ФАЙЛОВ"
+
+#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
+#~ msgstr "УМЕНЬШИТЬ ЗАДЕРЖКИ ИНТЕРФЕЙСА ПРИ ЗАПУСКЕ"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "РЕДАКТИРОВАТЬ НАСТРОЙКИ PADTOKEY"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1453,13 +1453,16 @@ msgstr "AĞ GÖSTERGESİNİ GÖRÜNTÜLE"
 msgid "OPTIMIZATIONS"
 msgstr "OPTİMİZASYONLAR"
 
-msgid "PRELOAD UI"
-msgstr "ARAYÜZ ÖNYÜKLEME"
-
-msgid "PRELOAD MEDIAS FILESYSTEM"
+msgid "PRELOAD UI ELEMENTS"
 msgstr ""
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr ""
+
+msgid "PRELOAD METADATA MEDIA"
+msgstr ""
+
+msgid "Reduce gamelist lag at the cost of storage space"
 msgstr ""
 
 msgid "THREADED LOADING"
@@ -1729,6 +1732,9 @@ msgstr "PORT"
 msgid "USE RELAY SERVER"
 msgstr "ARA SUNUCU KULLAN"
 
+msgid "DECORATION SET"
+msgstr ""
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
@@ -1756,14 +1762,14 @@ msgstr ""
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr ""
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
 msgid "SHADER SET"
 msgstr "SHADER AYARLA"
 
 msgid "DECORATIONS"
 msgstr "DEKARASYONLAR"
-
-msgid "DECORATION SET"
-msgstr ""
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "KENARLARI UZAT (4K & ULTRAWIDE)"
@@ -2627,6 +2633,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "PRELOAD UI"
+#~ msgstr "ARAYÜZ ÖNYÜKLEME"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "KLAVYE AYARLARINDAKİ TUŞLARI DÜZENLE"

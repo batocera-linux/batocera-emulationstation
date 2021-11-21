@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 20:58+0100\n"
+"POT-Creation-Date: 2021-11-16 07:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,7 +44,7 @@ msgid "Image"
 msgstr "Imagem"
 
 msgid "enter path to image"
-msgstr "digite o caminho da imagem"
+msgstr "digite o caminho para a captura de ecrã"
 
 msgid "Video"
 msgstr "Vídeo"
@@ -53,10 +53,10 @@ msgid "enter path to video"
 msgstr "digite o caminho para o vídeo"
 
 msgid "Logo"
-msgstr "Logo"
+msgstr "Logotipo"
 
 msgid "enter path to logo"
-msgstr "digite o caminho para o logo"
+msgstr "digite o caminho para o logotipo"
 
 msgid "Box"
 msgstr "caixa"
@@ -71,10 +71,10 @@ msgid "enter path to fanart"
 msgstr "digite o caminho para a arte do fã"
 
 msgid "Title shot"
-msgstr "Captura de ecrã"
+msgstr "Imagem de ecrã inicial"
 
 msgid "enter path to title shot"
-msgstr "digite o caminho para a captura de ecrã"
+msgstr "digite o caminho para a imagem de ecrã inicial"
 
 msgid "Manual"
 msgstr "Manual"
@@ -113,16 +113,16 @@ msgid "enter path to box background"
 msgstr "digite o caminho da parte de trás da caixa"
 
 msgid "Wheel"
-msgstr "Logotipo"
+msgstr "Logotipo para carrosel"
 
 msgid "enter path to wheel"
-msgstr "digite o caminho do logotipo"
+msgstr "digite o caminho do logotipo para o carrosel"
 
 msgid "Mix"
-msgstr "Mix"
+msgstr "Imagem combinada"
 
 msgid "enter path to mix"
-msgstr "digite o caminho para o mix"
+msgstr "digite o caminho para a imagem combinada"
 
 msgid "Rating"
 msgstr "Avaliação"
@@ -173,7 +173,7 @@ msgid "this game's arcade system"
 msgstr "o sistema arcade deste jogo"
 
 msgid "Players"
-msgstr "Jogador"
+msgstr "Nº de jogadores"
 
 msgid "this game's number of players"
 msgstr "o número de jogadores deste jogo"
@@ -559,8 +559,8 @@ msgstr "FILTRAR JOGOS POR TEXTO"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr ""
-"ESTA FUNCIONALIDADE ESTÁ DESATIVADA ENQUANTO A PROCURA POR MÍDIAS DE "
-"JOGOESTIVER EM EXECUÇÃO"
+"ESTA FUNCIONALIDADE ESTÁ DESATIVADA ENQUANTO A PROCURA POR MEDIAS DE "
+"JOGO ESTIVER EM EXECUÇÃO"
 
 msgid "CLOSE"
 msgstr "FECHAR"
@@ -997,10 +997,10 @@ msgid "SCRAPE"
 msgstr "OBTER CAPAS"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "EDITAR PERFIL DE COMANDO E TECLAS"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "CRIAR PERFIL DE COMANDO E TECLAS"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
@@ -1146,10 +1146,10 @@ msgid "ENHANCED"
 msgstr "MELHORADO"
 
 msgid "CURVATURE"
-msgstr "CURVATURA"
+msgstr "CURVADO"
 
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr "TUBO"
 
 msgid "FLATTEN-GLOW"
 msgstr "BRLIHO ACHATADO"
@@ -1360,10 +1360,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "ARQUIVO DE SUPORTE CRIADO NA PASTA SAVES"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "A CRIAÇÃO DO FICHEIRO DE SUPORTE FALHOU"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATAR UM DISCO"
@@ -1429,7 +1429,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "MENU DO DRIVER RETROARCH"
+msgstr "INTERFACE DE MENU UTILIZADA PELO RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
@@ -1459,14 +1459,17 @@ msgstr "MOSTRAR INDICADOR DE REDE"
 msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
 
-msgid "PRELOAD UI"
-msgstr "PRÉ-CARREGAMENTO DA INTERFACE"
+msgid "PRELOAD UI ELEMENTS"
+msgstr "PRÉ-CARREGAR ELEMENTOS DO MODO DE INTERFACE"
 
-msgid "PRELOAD MEDIAS FILESYSTEM"
-msgstr "PRÉ-CARREGAR SISTEMA DE ARQUIVOS DE MEDIA"
+msgid "Reduce overall menu lag at the cost of storage space"
+msgstr "Reduza o lag geral do menu ao custo de espaço de armazenamento"
 
-msgid "REDUCE UI LAGS OVER STARTUP TIME"
-msgstr "REDUZIR OS ATRASOS DA INTERFACE SOBRE O TEMPO DE INICIALIZAÇÃO"
+msgid "PRELOAD METADATA MEDIA"
+msgstr "PRÉ-CARREGAR AS INFORMAÇÕES DO MEDIA "
+
+msgid "Reduce gamelist lag at the cost of storage space"
+msgstr "Reduza o lag da lista de jogos ao custo de espaço de armazenamento"
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
@@ -1587,19 +1590,19 @@ msgid "270 DEGREES"
 msgstr "270 GRAUS"
 
 msgid "BOOT SPLASH"
-msgstr "ECRÃ DE INICIALIZAÇÃO"
+msgstr "ECRÃ DE ABERTURA"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "VÍDEO PADRÃO DO ECRÃ DE INÍCIO"
+msgstr "VÍDEO(S) PADRÃO(ÕES) DO ECRÃ DE ABERTURA"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "SILENCIAR VIDEO DO ECRÃ DE INÍCIO"
+msgstr "SILENCIAR VÍDEO(S) DO ECRÃ DE ABERTURA"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "IMAGEM NO ECRÃ DE INÍCIO DO BATOCERA"
+msgstr "IMAGEM NO ECRÃ DE ABERTURA DO BATOCERA"
 
 msgid "SPLASH SETTING"
-msgstr "DEFINIÇÕES DO ECRÃ DE INÍCIO (SPLASH)"
+msgstr "DEFINIÇÕES DO ECRÃ DE ABERTURA"
 
 msgid "RETROACHIEVEMENT SETTINGS"
 msgstr "DEFINIÇÕES RETROACHIEVEMENT"
@@ -1710,7 +1713,7 @@ msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
 
 msgid "UNLOCK SOUND"
-msgstr "SOM DE DESBLOQUEIO"
+msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENTS"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRAR RETROACHIEVEMENTS NO MENU PRINCIPAL"
@@ -1739,6 +1742,9 @@ msgstr "PORTA"
 msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
 
+msgid "DECORATION SET"
+msgstr "CONJUNTO DE MOLDURAS"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DEFINIÇÕES GLOBAIS PADRÃO"
 
@@ -1766,14 +1772,14 @@ msgstr "MOSTRAR JOGOS GUARDADOS"
 msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "MOSTRAR JOGOS GUARDADOS SE DISPONÍVEL"
 
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INCREMENTAL SAVESTATES"
+
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
 msgid "DECORATIONS"
 msgstr "MOLDURAS"
-
-msgid "DECORATION SET"
-msgstr "CONJUNTO DE MOLDURAS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
@@ -2249,7 +2255,7 @@ msgid "Kid"
 msgstr "Infantil"
 
 msgid "Released"
-msgstr "LANÇADO"
+msgstr "Lançamento"
 
 msgid "Times played"
 msgstr "Número de partidas"
@@ -2413,7 +2419,7 @@ msgid "FAMILY"
 msgstr "FAMÍLIA"
 
 msgid "PLAYERS"
-msgstr "JOGADORES"
+msgstr "Nº DE JOGADORES"
 
 msgid "PUBLISHER/DEVELOPER"
 msgstr "EDITORA/PRODUTORA"
@@ -2650,14 +2656,3 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
-#~ msgstr "EDITAR CONFIGURAÇÃO DO COMANDO E TECLADO"
-
-#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-#~ msgstr "CRIAR UMA CONFIGURAÇÃO DO COMANDO E TECLADO"
-
-#~ msgid "SUPPORT FILE GENERATED SUCCESSFULLY"
-#~ msgstr "ARQUIVO DE SUPORTE CRIADO COM SUCESSO"
-
-#~ msgid "SUPPORT FILE GENERATION FAILED"
-#~ msgstr "FALHA NA CRIAÇÃO DO ARQUIVO DE SUPORTE"
