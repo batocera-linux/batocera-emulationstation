@@ -994,10 +994,10 @@ msgid "SCRAPE"
 msgstr "資料搜刮"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "編輯手把轉鍵盤設定檔"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "建立手把轉鍵盤設定檔"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "進階遊戲選項"
@@ -1118,7 +1118,7 @@ msgid "Battery"
 msgstr "電池"
 
 msgid "Model"
-msgstr ""
+msgstr "機型"
 
 msgid "Cpu model"
 msgstr "CPU 型號"
@@ -1356,10 +1356,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "確定要建立支援檔案？"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "已在存檔資料夾建立支援檔案"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "支援檔案建立失敗"
 
 msgid "FORMAT A DISK"
 msgstr "格式化磁碟"
@@ -1454,16 +1454,16 @@ msgid "OPTIMIZATIONS"
 msgstr "最佳化"
 
 msgid "PRELOAD UI ELEMENTS"
-msgstr ""
+msgstr "預先載入 UI 元素"
 
 msgid "Reduce overall menu lag at the cost of storage space"
-msgstr ""
+msgstr "減少整體選單卡頓，但會多消耗儲存空間"
 
 msgid "PRELOAD METADATA MEDIA"
-msgstr ""
+msgstr "預先載入中繼媒體"
 
 msgid "Reduce gamelist lag at the cost of storage space"
-msgstr ""
+msgstr "減少遊戲清單卡頓，但會多消耗儲存空間"
 
 msgid "THREADED LOADING"
 msgstr "多執行緒載入"
@@ -1517,13 +1517,13 @@ msgid "POWER SAVER MODES"
 msgstr "省電模式"
 
 msgid "DISABLED"
-msgstr ""
+msgstr "停用"
 
 msgid "DEFAULT"
 msgstr "預設"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "立即"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "螢幕閱讀器（文字轉語音）"
@@ -1715,10 +1715,10 @@ msgid "GAME INDEXES"
 msgstr "遊戲索引"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
+msgstr "於啟動期間索引新遊戲"
 
 msgid "INDEX GAMES"
-msgstr ""
+msgstr "索引遊戲"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "無法啟用 RETROACHIEVEMENTS："
@@ -1736,7 +1736,7 @@ msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
 
 msgid "DECORATION SET"
-msgstr ""
+msgstr "裝飾框集"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "預設全域設定"
@@ -1766,7 +1766,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "即時存檔不為空時顯示"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "遞增即時存檔"
 
 msgid "SHADER SET"
 msgstr "濾鏡著色器設定"
@@ -2154,7 +2154,7 @@ msgid "ZOOM"
 msgstr "縮放"
 
 msgid "GAMES TO INDEX"
-msgstr ""
+msgstr "遊戲至索引"
 
 msgid "SYSTEM INFO"
 msgstr "系統資訊"
