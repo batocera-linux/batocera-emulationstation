@@ -84,34 +84,67 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	// get collections
 	addSystemsToMenu();
 
-	auto groupNames = SystemData::getAllGroupNames();
+	// GROUPED SYSTEMS
+	std::vector<std::string> groupNames;
+	for (auto systemName : SystemData::getAllGroupNames())
+		groupNames.push_back(systemName);
+
 	if (groupNames.size() > 0)
 	{
+		std::sort(groupNames.begin(), groupNames.end());
+
 		auto ungroupedSystems = std::make_shared<OptionListComponent<std::string>>(mWindow, _("GROUPED SYSTEMS"), true);
 		for (auto groupName : groupNames)
-		{
+		{			
+			SystemData* pSystem = SystemData::getSystem(groupName);
+			if (pSystem != nullptr)
+				ungroupedSystems->addGroup(Utils::String::toUpper(pSystem->getFullName()));
+			else
+				ungroupedSystems->addGroup(Utils::String::toUpper(groupName));
+
 			std::string description;
-			for (auto zz : SystemData::getGroupChildSystemNames(groupName))
+
+			std::vector<std::string> systemNames;
+			for (auto systemName : SystemData::getGroupChildSystemNames(groupName))
+				systemNames.push_back(systemName);
+				
+			std::sort(systemNames.begin(), systemNames.end());
+
+			for (auto systemName : systemNames)
 			{
-				if (!description.empty())
-					description += ", ";
+				if (systemName == groupName)
+					continue;
 
-				description += zz;
+				bool isChecked = !Settings::getInstance()->getBool(groupName + ".ungroup") && !Settings::getInstance()->getBool(systemName + ".ungroup");
+				
+				SystemData* pSystem = SystemData::getSystem(systemName);
+				if (pSystem != nullptr)
+					ungroupedSystems->add(pSystem->getFullName(), systemName, isChecked);
+				else
+					ungroupedSystems->add(systemName, systemName, isChecked);
 			}
-
-			ungroupedSystems->addEx(groupName, description, groupName, !Settings::getInstance()->getBool(groupName + ".ungroup"));
 		}
 
 		addWithLabel(_("GROUPED SYSTEMS"), ungroupedSystems);
-
+		
 		addSaveFunc([this, ungroupedSystems, groupNames]
 		{
 			std::vector<std::string> checkedItems = ungroupedSystems->getSelectedObjects();
+
 			for (auto groupName : groupNames)
 			{
-				bool isGroupActive = std::find(checkedItems.cbegin(), checkedItems.cend(), groupName) != checkedItems.cend();
-				if (Settings::getInstance()->setBool(groupName + ".ungroup", !isGroupActive))
-					setVariable("reloadSystems", true);
+				if (std::find(checkedItems.cbegin(), checkedItems.cend(), groupName) == checkedItems.cend())
+					Settings::getInstance()->setBool(groupName + ".ungroup", false);
+
+				for (auto systemName : SystemData::getGroupChildSystemNames(groupName))
+				{
+					if (systemName == groupName)
+						continue;
+
+					bool isGroupActive = std::find(checkedItems.cbegin(), checkedItems.cend(), systemName) != checkedItems.cend();
+					if (Settings::getInstance()->setBool(systemName + ".ungroup", !isGroupActive))
+						setVariable("reloadSystems", true);
+				}
 			}
 		});
 	}

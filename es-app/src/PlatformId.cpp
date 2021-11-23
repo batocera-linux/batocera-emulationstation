@@ -152,6 +152,7 @@ namespace PlatformIds
 		{ "bbc",					ACORN_BBC_MICRO },
 		{ "electron",				ACORN_ELECTRON },
 		{ "ngage",					NOKIA_NGAGE },
+		{ "astrocde",				ASTROCADE },
 		{ "astrocade",				ASTROCADE },
 		{ "archimedes",				ARCHIMEDES },			
 		{ "adam",					ADAM },
@@ -169,6 +170,15 @@ namespace PlatformIds
 		{ "vsmile",					VTECH_VSMILE },
 						
 		{ "snes-msu1",				SUPER_NINTENDO_MSU1 },
+
+		{ "gamate",					GAMATE },
+		{ "gmaster",				HARTUNG_GAME_MASTER },
+		{ "megaduck",				CREATONIC_MEGA_DUCK },
+		{ "supracan",				FUNTECH_SUPER_A_CAN },
+		{ "tutor",					TOMY_TUTOR },
+		{ "apfm1000",				APF_MP_1000 },
+		{ "camplynx",				CAMPUTER_LYNX },
+		{ "gamepock",				EPOCH_GAMEPOCKET },	
 
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }

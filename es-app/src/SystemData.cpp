@@ -356,7 +356,7 @@ void SystemData::createGroupedSystems()
 		if (sys->isCollection() || sys->getSystemEnvData()->mGroup.empty())
 			continue;
 		
-		if (Settings::getInstance()->getBool(sys->getSystemEnvData()->mGroup + ".ungroup"))
+		if (Settings::getInstance()->getBool(sys->getSystemEnvData()->mGroup + ".ungroup") || Settings::getInstance()->getBool(sys->getName() + ".ungroup"))
 			continue;
 
 		if (sys->getName() == sys->getSystemEnvData()->mGroup)
@@ -1905,7 +1905,8 @@ bool SystemData::isNetplayActivated()
 bool SystemData::isGroupChildSystem() 
 { 
 	if (mEnvData != nullptr && !mEnvData->mGroup.empty())
-		return !Settings::getInstance()->getBool(mEnvData->mGroup + ".ungroup");
+		return !Settings::getInstance()->getBool(mEnvData->mGroup + ".ungroup") && 
+			   !Settings::getInstance()->getBool(getName() + ".ungroup");
 
 	return false;
 }
@@ -1931,7 +1932,7 @@ std::unordered_set<std::string> SystemData::getGroupChildSystemNames(const std::
 
 	for (auto sys : SystemData::sSystemVector)
 		if (sys->mEnvData != nullptr && sys->mEnvData->mGroup == groupName)
-			names.insert(sys->getFullName());
+			names.insert(sys->getName());
 		
 	return names;
 }
