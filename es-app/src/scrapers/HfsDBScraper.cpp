@@ -129,7 +129,14 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ CASIO_PV1000, "190512" },
 	{ ENTEX_ADVENTURE_VISION, "35850" },
 	{ EMERSON_ARCADIA_2001, "129592" },
-	{ VTECH_CREATIVISION, "190291" }
+	{ VTECH_CREATIVISION, "190291" },
+	{ HARTUNG_GAME_MASTER, "240872" },
+	{ CREATONIC_MEGA_DUCK, "239486" },
+	{ FUNTECH_SUPER_A_CAN, "240863" },
+	{ TOMY_TUTOR, "240926" },
+	{ APF_MP_1000, "139722" },
+	{ CAMPUTER_LYNX, "240842" },
+	{ EPOCH_GAMEPOCKET, "190501" }
 };
 
 const std::set<Scraper::ScraperMediaSource>& HfsDBScraper::getSupportedMedias()

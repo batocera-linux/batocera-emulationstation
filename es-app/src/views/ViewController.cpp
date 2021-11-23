@@ -425,6 +425,18 @@ void ViewController::onFileChanged(FileData* file, FileChangeType change)
 	auto it = mGameListViews.find(sourceSystem);
 	if (it != mGameListViews.cend())
 		it->second->onFileChanged(file, change);
+	else
+	{
+		// System is in a group ?
+		for (auto gameListView : mGameListViews)
+		{
+			if (gameListView.first->isGroupSystem() && gameListView.first->getRootFolder()->FindByPath(key))
+			{
+				gameListView.second->onFileChanged(file, change);
+				break;
+			}
+		}
+	}
 
 	for (auto collection : CollectionSystemManager::get()->getAutoCollectionSystems())
 	{		
