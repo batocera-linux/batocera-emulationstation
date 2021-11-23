@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 07:49+0100\n"
+"POT-Creation-Date: 2021-11-23 08:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1453,17 +1453,20 @@ msgstr "顯示網路指示器圖示"
 msgid "OPTIMIZATIONS"
 msgstr "最佳化"
 
-msgid "PRELOAD UI ELEMENTS"
-msgstr "預先載入 UI 元素"
+msgid "PRELOAD UI ELEMENTS ON BOOT"
+msgstr ""
 
-msgid "Reduce overall menu lag at the cost of storage space"
-msgstr "減少整體選單卡頓，但會多消耗儲存空間"
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
+msgstr ""
 
-msgid "PRELOAD METADATA MEDIA"
-msgstr "預先載入中繼媒體"
+msgid "PRELOAD METADATA MEDIA ON BOOT"
+msgstr ""
 
-msgid "Reduce gamelist lag at the cost of storage space"
-msgstr "減少遊戲清單卡頓，但會多消耗儲存空間"
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "多執行緒載入"
@@ -2631,6 +2634,18 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "PRELOAD UI ELEMENTS"
+#~ msgstr "預先載入 UI 元素"
+
+#~ msgid "Reduce overall menu lag at the cost of storage space"
+#~ msgstr "減少整體選單卡頓，但會多消耗儲存空間"
+
+#~ msgid "PRELOAD METADATA MEDIA"
+#~ msgstr "預先載入中繼媒體"
+
+#~ msgid "Reduce gamelist lag at the cost of storage space"
+#~ msgstr "減少遊戲清單卡頓，但會多消耗儲存空間"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "預先載入 UI"
