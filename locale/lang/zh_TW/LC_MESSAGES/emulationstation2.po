@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-11-23 08:08+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -212,13 +212,13 @@ msgid "Crc32"
 msgstr "CRC32"
 
 msgid "Crc32 checksum"
-msgstr "CRC32 檢查"
+msgstr "CRC32 校驗值"
 
 msgid "Md5"
 msgstr "MD5"
 
 msgid "Md5 checksum"
-msgstr "MD5 檢查"
+msgstr "MD5 校驗值"
 
 msgid "Game time"
 msgstr "遊戲時間"
@@ -292,7 +292,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "已將「%s」從「%s」移除"
 
 msgid "This collection is empty."
-msgstr "此合輯空空的。"
+msgstr "此合輯空蕩蕩的。"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -316,13 +316,13 @@ msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "搜尋藍牙裝置已經在進行了。"
 
 msgid "FORMATTING DEVICE"
-msgstr "正在格式化裝置"
+msgstr "格式化裝置"
 
 msgid "Formatting"
 msgstr "正在格式化"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "需要重新啟動系統才能完成這個操作"
+msgstr "需要重新開機才能完成這個操作"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "磁碟已經被格式化。"
@@ -617,10 +617,10 @@ msgid "INPUT MANUALLY"
 msgstr "手動輸入"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "沒有找到 WIFI"
+msgstr "沒有找到 WI-FI 網路"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "搜尋 WIFI"
+msgstr "搜尋 WI-FI 網路"
 
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "忘記藍牙裝置"
@@ -1118,7 +1118,7 @@ msgid "Battery"
 msgstr "電池"
 
 msgid "Model"
-msgstr "機型"
+msgstr "型號"
 
 msgid "Cpu model"
 msgstr "CPU 型號"
@@ -1454,19 +1454,19 @@ msgid "OPTIMIZATIONS"
 msgstr "最佳化"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "於啟動期間預先載入 UI 元素"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr ""
+msgstr "減少從遊戲平台選單進入遊戲清單時的卡頓，會增加啟動時間"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "於啟動期間預先載入中繼媒體"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
-msgstr ""
+msgstr "藉由完全擷取遊戲清單來減少捲動時的卡頓，會增加啟動時間"
 
 msgid "THREADED LOADING"
 msgstr "多執行緒載入"
@@ -1772,7 +1772,7 @@ msgid "INCREMENTAL SAVESTATES"
 msgstr "遞增即時存檔"
 
 msgid "SHADER SET"
-msgstr "濾鏡著色器設定"
+msgstr "著色器設定集"
 
 msgid "DECORATIONS"
 msgstr "裝飾框"
@@ -2615,7 +2615,7 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d 幾秒前"
 
 msgid "WORKING..."
-msgstr "處理中..."
+msgstr "作業中..."
 
 #, c-format
 msgid "%d h"
