@@ -300,6 +300,7 @@ public:
 
 	bool shouldExtractHashesFromArchives();
 
+	static std::vector<CustomFeature> mSharedFeatures;
 	static std::vector<CustomFeature> mGlobalFeatures;
 
 	bool getShowFilenames();
