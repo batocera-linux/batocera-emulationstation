@@ -530,9 +530,17 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 		{
 			std::string featureName = featureNode.attribute("name").value();
 
-			auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.value == featureName; });
+			auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
 			if (it != mSharedFeatures.cend())
 				ret.push_back(*it);
+			else if (featureNode.attribute("value"))
+			{
+				std::string featureValue = featureNode.attribute("value").value();
+
+				it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
+				if (it != mSharedFeatures.cend())
+					ret.push_back(*it);
+			}
 
 			continue;
 		}		
