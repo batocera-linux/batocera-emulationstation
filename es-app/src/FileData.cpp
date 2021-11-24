@@ -477,6 +477,8 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
 	command = Utils::String::replace(command, "%CORE%", core);
 	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
+	command = Utils::String::replace(command, "%GAMENAME%", gameToUpdate->getName());
+	command = Utils::String::replace(command, "%SYSTEMNAME%", system->getFullName());
 
 	if (includeControllers)
 		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
