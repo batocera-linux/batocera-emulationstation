@@ -1456,19 +1456,23 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMISATIONS"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "PRÉCHARGEMENT DE L’INTERFACE"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Réduit les saccades en entrant dans les listes de jeu, augmente le temps de "
+"démarrage"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "PRÉCHARGEMENT DES MÉDIAS"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Réduit les saccades en naviguant dans les listes de jeux scrapés, augmente "
+"le temps de démarrage"
 
 msgid "THREADED LOADING"
 msgstr "CHARGEMENT EN PARALLÈLE"
@@ -1772,7 +1776,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "AFFICHER LES SAUV. INSTANTANÉES SI NON VIDE"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "SAUVEGARDES INSTANTANÉES INCRÉMENTALES"
 
 msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
@@ -2651,17 +2655,3 @@ msgstr "%d m"
 msgid "%d s"
 msgstr "%d s"
 
-msgid "SCREEN READER ENABLED"
-msgstr "SYNTHÈSE VOCALE ACTIVÉE"
-
-msgid "SCREEN READER DISABLED"
-msgstr "SYNTHÈSE VOCALE DESACTIVÉE"
-
-#~ msgid "PRELOAD UI"
-#~ msgstr "PRÉCHARGEMENT DE L'INTERFACE"
-
-#~ msgid "PRELOAD MEDIAS FILESYSTEM"
-#~ msgstr "PRÉCHARGEMENT DU SYSTÈME DE FICHIERS DES MÉDIAS"
-
-#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
-#~ msgstr "Réduit les saccades dans l'interface mais démarre plus lentement"
