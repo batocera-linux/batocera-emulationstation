@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 07:49+0100\n"
+"POT-Creation-Date: 2021-11-23 08:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -997,10 +997,10 @@ msgid "SCRAPE"
 msgstr "PROCURAR POR MÍDIAS DESTE JOGO"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "EDITAR PERFIL PADTOKEY"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "CRIAR PERFIL PADTOKEY"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPÇÕES AVANÇADAS DO JOGO"
@@ -1122,7 +1122,7 @@ msgid "Battery"
 msgstr "Bateria"
 
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 msgid "Cpu model"
 msgstr "Modelo da cpu"
@@ -1360,10 +1360,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE ?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "ARQUIVO DE SUPORTE CRIADO NA PASTA DE ESTADOS DE SALVAMENTO"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "FALHA NA CRIAÇÂO DO ARQUIVO DE SUPORTE"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATAR O DISCO"
@@ -1459,16 +1459,19 @@ msgstr "EXIBIR INDICADOR DE REDE"
 msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
 
-msgid "PRELOAD UI ELEMENTS"
+msgid "PRELOAD UI ELEMENTS ON BOOT"
 msgstr ""
 
-msgid "Reduce overall menu lag at the cost of storage space"
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
 
-msgid "PRELOAD METADATA MEDIA"
+msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr ""
 
-msgid "Reduce gamelist lag at the cost of storage space"
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
 msgstr ""
 
 msgid "THREADED LOADING"
@@ -1526,10 +1529,10 @@ msgid "DISABLED"
 msgstr "DESABILITADO"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "PADRÃO"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "INSTANTÂNEO"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE TELA (TEXTO PARA VOZ)"
@@ -1722,10 +1725,10 @@ msgid "GAME INDEXES"
 msgstr "ÍNDICES DO JOGO"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
+msgstr "INDEXAR NOVOS JOGOS NA INICIALIZAÇÃO"
 
 msgid "INDEX GAMES"
-msgstr ""
+msgstr "INDEXAR JOGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "INCAPAZ DE ATIVAR CONQUISTAS:"
@@ -1773,7 +1776,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "EXIBIR ESTADOS DE SALVAMENTO SE DISPONÍVEIS"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
 
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
@@ -2166,7 +2169,7 @@ msgid "ZOOM"
 msgstr "AMPLIAR"
 
 msgid "GAMES TO INDEX"
-msgstr ""
+msgstr "JOGOS PARA INDEXAR"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAÇÕES DO SISTEMA"
@@ -2660,6 +2663,21 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "PRELOAD UI ELEMENTS"
+#~ msgstr "PRÉ-CARREGAR ELEMENTOS DE INTERFACE"
+
+#~ msgid "Reduce overall menu lag at the cost of storage space"
+#~ msgstr ""
+#~ "Reduza o atraso de navegação do menu ao custo de espaço de armazenamento"
+
+#~ msgid "PRELOAD METADATA MEDIA"
+#~ msgstr "PRÉ-CARREGAR INFORMAÇÕES DE MÍDIA"
+
+#~ msgid "Reduce gamelist lag at the cost of storage space"
+#~ msgstr ""
+#~ "Reduza o atraso de navegação da lista de jogos ao custo de espaço de "
+#~ "armazenamento"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "PRÉ-CARREGAMENTO DA INTERFACE"

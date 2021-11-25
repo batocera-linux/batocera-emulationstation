@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 07:49+0100\n"
+"POT-Creation-Date: 2021-11-23 08:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1459,17 +1459,20 @@ msgstr "MOSTRAR INDICADOR DE REDE"
 msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
 
-msgid "PRELOAD UI ELEMENTS"
-msgstr "PRÉ-CARREGAR ELEMENTOS DO MODO DE INTERFACE"
+msgid "PRELOAD UI ELEMENTS ON BOOT"
+msgstr ""
 
-msgid "Reduce overall menu lag at the cost of storage space"
-msgstr "Reduza o lag geral do menu ao custo de espaço de armazenamento"
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
+msgstr ""
 
-msgid "PRELOAD METADATA MEDIA"
-msgstr "PRÉ-CARREGAR AS INFORMAÇÕES DO MEDIA"
+msgid "PRELOAD METADATA MEDIA ON BOOT"
+msgstr ""
 
-msgid "Reduce gamelist lag at the cost of storage space"
-msgstr "Reduza o lag da lista de jogos ao custo de espaço de armazenamento"
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
+msgstr ""
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
@@ -2655,3 +2658,15 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "PRELOAD UI ELEMENTS"
+#~ msgstr "PRÉ-CARREGAR ELEMENTOS DO MODO DE INTERFACE"
+
+#~ msgid "Reduce overall menu lag at the cost of storage space"
+#~ msgstr "Reduza o lag geral do menu ao custo de espaço de armazenamento"
+
+#~ msgid "PRELOAD METADATA MEDIA"
+#~ msgstr "PRÉ-CARREGAR AS INFORMAÇÕES DO MEDIA"
+
+#~ msgid "Reduce gamelist lag at the cost of storage space"
+#~ msgstr "Reduza o lag da lista de jogos ao custo de espaço de armazenamento"

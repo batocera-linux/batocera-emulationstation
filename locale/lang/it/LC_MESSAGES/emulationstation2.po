@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-16 07:49+0100\n"
+"POT-Creation-Date: 2021-11-23 08:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -995,10 +995,10 @@ msgid "SCRAPE"
 msgstr "SCARICA INFO (SCRAPER)"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "MODIFICA PROFILO PADTOKEY"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "CREA PROFILO PADTOKEY"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "OPZIONI AVANZATE GIOCO"
@@ -1358,10 +1358,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "CREARE UN FILE DI SUPPORTO?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "FILE DI SUPPORTO CREATO NELLA CARTELLA SAVES"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "CREAZIONE FILE DI SUPPORTO FALLITA"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATTA DISCO"
@@ -1457,16 +1457,19 @@ msgstr "MOSTRA INDICATORE DI RETE"
 msgid "OPTIMIZATIONS"
 msgstr "OTTIMIZZAZIONI"
 
-msgid "PRELOAD UI ELEMENTS"
+msgid "PRELOAD UI ELEMENTS ON BOOT"
 msgstr ""
 
-msgid "Reduce overall menu lag at the cost of storage space"
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
 
-msgid "PRELOAD METADATA MEDIA"
+msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr ""
 
-msgid "Reduce gamelist lag at the cost of storage space"
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
 msgstr ""
 
 msgid "THREADED LOADING"
@@ -1771,7 +1774,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "MOSTRA SALVATAGGI SE PRESENTI"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "INCREMENTA SALVATAGGIO INSTANT."
 
 msgid "SHADER SET"
 msgstr "EFFETTO SHADER"
@@ -2654,6 +2657,22 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "PRELOAD UI ELEMENTS"
+#~ msgstr "PRECARICA ELEMENTI UI"
+
+#~ msgid "Reduce overall menu lag at the cost of storage space"
+#~ msgstr ""
+#~ "Precarica gli elementi dei menù per prevenire rallentamenti (Richiede un "
+#~ "maggior spazio su disco)"
+
+#~ msgid "PRELOAD METADATA MEDIA"
+#~ msgstr "PRECARICA MEDIA DEI METADATA"
+
+#~ msgid "Reduce gamelist lag at the cost of storage space"
+#~ msgstr ""
+#~ "Precarica le liste giochi e i loro media per prevenire rallentamenti "
+#~ "(Richiede un maggior spazio su disco)"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "UI PRECARICATA"

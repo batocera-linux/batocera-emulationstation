@@ -168,8 +168,12 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ENTEX_ADVENTURE_VISION, 78 },
 	{ EMERSON_ARCADIA_2001, 94 },
 	{ VTECH_CREATIVISION, 241 },
-	{ VTECH_VSMILE, 120 }
-		
+	{ VTECH_VSMILE, 120 },
+	{ HARTUNG_GAME_MASTER, 103 },
+	{ CREATONIC_MEGA_DUCK, 90 },
+	{ FUNTECH_SUPER_A_CAN, 100 },
+	{ CAMPUTER_LYNX, 88 },
+	{ EPOCH_GAMEPOCKET, 95 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()

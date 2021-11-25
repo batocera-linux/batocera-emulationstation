@@ -31,6 +31,7 @@ using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
 std::vector<CustomFeature> SystemData::mGlobalFeatures;
+std::vector<CustomFeature> SystemData::mSharedFeatures;
 
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
@@ -356,7 +357,7 @@ void SystemData::createGroupedSystems()
 		if (sys->isCollection() || sys->getSystemEnvData()->mGroup.empty())
 			continue;
 		
-		if (Settings::getInstance()->getBool(sys->getSystemEnvData()->mGroup + ".ungroup"))
+		if (Settings::getInstance()->getBool(sys->getSystemEnvData()->mGroup + ".ungroup") || Settings::getInstance()->getBool(sys->getName() + ".ungroup"))
 			continue;
 
 		if (sys->getName() == sys->getSystemEnvData()->mGroup)
@@ -522,9 +523,32 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 	if (customFeatures == nullptr)
 		customFeatures = node;
 
-	for (pugi::xml_node featureNode = customFeatures.child("feature"); featureNode; featureNode = featureNode.next_sibling("feature"))
+	//	for (pugi::xml_node featureNode = customFeatures.child("feature"); featureNode; featureNode = featureNode.next_sibling("feature"))
+	for (pugi::xml_node featureNode = customFeatures.first_child(); featureNode; featureNode = featureNode.next_sibling())
 	{
 		if (!featureNode.attribute("name"))
+			continue;
+
+		std::string name = featureNode.name();		
+		if (name == "sharedFeature")
+		{
+			std::string featureName = featureNode.attribute("name").value();
+
+			auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
+			if (it != mSharedFeatures.cend())
+				ret.push_back(*it);
+			else if (featureNode.attribute("value"))
+			{
+				std::string featureValue = featureNode.attribute("value").value();
+
+				it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
+				if (it != mSharedFeatures.cend())
+					ret.push_back(*it);
+			}
+
+			continue;
+		}		
+		else if (name != "feature")
 			continue;
 
 		CustomFeature feat;
@@ -569,6 +593,7 @@ bool SystemData::loadEsFeaturesFile()
 	es_features.clear();
 	es_features_loaded = false;
 	mGlobalFeatures.clear();
+	mSharedFeatures.clear();
 
 	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_features.cfg";
 	if (!Utils::FileSystem::exists(path))
@@ -594,7 +619,11 @@ bool SystemData::loadEsFeaturesFile()
 		LOG(LogError) << "es_features.cfg is missing the <features> tag!";
 		return false;
 	}
-	
+
+	pugi::xml_node sharedFeatures = systemList.child("sharedFeatures");
+	if (sharedFeatures)
+		mSharedFeatures = loadCustomFeatures(sharedFeatures);
+
 	pugi::xml_node globalFeatures = systemList.child("globalFeatures");
 	if (globalFeatures)
 		mGlobalFeatures = loadCustomFeatures(globalFeatures);
@@ -1914,7 +1943,8 @@ bool SystemData::isNetplayActivated()
 bool SystemData::isGroupChildSystem() 
 { 
 	if (mEnvData != nullptr && !mEnvData->mGroup.empty())
-		return !Settings::getInstance()->getBool(mEnvData->mGroup + ".ungroup");
+		return !Settings::getInstance()->getBool(mEnvData->mGroup + ".ungroup") && 
+			   !Settings::getInstance()->getBool(getName() + ".ungroup");
 
 	return false;
 }
@@ -1940,7 +1970,7 @@ std::unordered_set<std::string> SystemData::getGroupChildSystemNames(const std::
 
 	for (auto sys : SystemData::sSystemVector)
 		if (sys->mEnvData != nullptr && sys->mEnvData->mGroup == groupName)
-			names.insert(sys->getFullName());
+			names.insert(sys->getName());
 		
 	return names;
 }
