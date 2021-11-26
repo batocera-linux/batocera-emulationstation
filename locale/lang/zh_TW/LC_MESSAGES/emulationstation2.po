@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:08+0100\n"
+"POT-Creation-Date: 2021-11-26 18:52+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1692,6 +1692,15 @@ msgstr "使用預先執行畫格"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "使用第二個實例預先執行畫格"
+
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgstr ""
 
 msgid "HARDCORE MODE"
 msgstr "硬派模式"

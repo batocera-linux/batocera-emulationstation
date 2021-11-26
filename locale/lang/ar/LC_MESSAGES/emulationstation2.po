@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-11-26 18:52+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -1694,6 +1694,15 @@ msgstr "استخدم ميزة RUN-AHEAD لمعالجة الإطارات"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "استخدم RUN-AHEAD بديلاً ثانوي"
+
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgstr ""
 
 msgid "HARDCORE MODE"
 msgstr "وضع HARDCORE"

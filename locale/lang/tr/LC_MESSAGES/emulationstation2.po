@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-11-26 18:52+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1689,6 +1689,15 @@ msgstr "RUN-AHEAD KARELERİ KULLAN"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "İKİNCİ AŞAMADA RUN-AHEAD KULLAN"
+
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgstr ""
 
 msgid "HARDCORE MODE"
 msgstr "DONANIM MODU"

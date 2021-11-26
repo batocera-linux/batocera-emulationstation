@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/11/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-11-26 18:52+0100\n"
 "PO-Revision-Date: 2021-11-14 13:17+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1696,6 +1696,15 @@ msgstr "先行フレームの使用"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "先行実行の2番目のインスタンス"
+
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgstr ""
 
 msgid "HARDCORE MODE"
 msgstr "ハードコアモード"
