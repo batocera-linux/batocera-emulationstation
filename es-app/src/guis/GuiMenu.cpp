@@ -3797,7 +3797,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 			auto sname = AudioManager::getInstance()->getSongName();
 			if (!sname.empty())
 			{
-				s->addWithDescription(_("SKIP TO THE NEXT SONG"), _("LISTENING NOW") + ": " + sname, nullptr, [s, window]
+				s->addWithDescription(_("SKIP TO THE NEXT SONG"), _("NOW PLAYING") + ": " + sname, nullptr, [s, window]
 				{
 					Window* w = window;
 					AudioManager::getInstance()->playRandomMusic(false);
