@@ -54,7 +54,7 @@ namespace Utils
 			bool hidden;
 			bool directory;
 #if WIN32
-			time_t creationTime;
+			time_t lastWriteTime;
 #endif
 		};
 
