@@ -477,8 +477,7 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 	const std::string rom_raw = Utils::FileSystem::getPreferredPath(getPath());
-
-
+	
 	command = Utils::String::replace(command, "%SYSTEM%", systemName); // batocera
 	command = Utils::String::replace(command, "%ROM%", rom);
 	command = Utils::String::replace(command, "%BASENAME%", basename);
@@ -490,7 +489,12 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	command = Utils::String::replace(command, "%SYSTEMNAME%", formatCommandLineArgument(system->getFullName()));
 
 	// Export Game info XML is requested
+#ifdef WIN32
 	std::string fileInfo = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), "gameinfo.xml");
+#else
+	std::string fileInfo = "/tmp/gameinfo.xml";
+#endif
+
 	if (command.find("%GAMEINFOXML%") != std::string::npos && saveToXml(gameToUpdate, fileInfo))
 		command = Utils::String::replace(command, "%GAMEINFOXML%", Utils::FileSystem::getEscapedPath(fileInfo));
 	else
