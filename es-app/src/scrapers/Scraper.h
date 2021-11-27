@@ -218,7 +218,8 @@ public:
 		BoxBack = 13,
 		Magazine = 14,
 		PadToKey = 15,
-		Ratings = 16
+		Ratings = 16,
+		Bezel_16_9 = 17
 	};
 
 	static std::vector<std::pair<std::string, Scraper*>> scrapers;

@@ -45,6 +45,7 @@ void MetaDataList::initMetadata()
 		{ Manual,			"manual",	   MD_PATH,                "",                 false,      _("Manual"),               _("enter path to manual"),     true },
 		{ Magazine,			"magazine",	   MD_PATH,                "",                 false,      _("Magazine"),             _("enter path to magazine"),     true },
 		{ Map,			    "map",	       MD_PATH,                "",                 false,      _("Map"),                  _("enter path to map"),		 true },
+		{ Bezel,            "bezel",       MD_PATH,                "",                 false,      _("Bezel (16:9)"),         _("enter path to bezel (16:9)"),	 true },
 
 		// Non scrappable /editable medias
 		{ Cartridge,        "cartridge",   MD_PATH,                "",                 true,       _("Cartridge"),            _("enter path to cartridge"),  true },
@@ -244,7 +245,7 @@ void MetaDataList::migrate(FileData* file, pugi::xml_node& node)
 	}
 }
 
-void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const
+void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo, bool fullPaths) const
 {
 	const std::vector<MetaDataDecl>& mdd = getMDD();
 
@@ -271,9 +272,13 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 			// try and make paths relative if we can
 			std::string value = mapIter->second;
 			if (mddIter->type == MD_PATH)
-				value = Utils::FileSystem::createRelativePath(value, relativeTo, true);
-
-			
+			{
+				if (fullPaths && mRelativeTo != nullptr)
+					value = Utils::FileSystem::resolveRelativePath(value, mRelativeTo->getStartPath(), true);
+				else
+					value = Utils::FileSystem::createRelativePath(value, relativeTo, true);
+			}
+						
 			if (mddIter->isAttribute)
 				parent.append_attribute(mddIter->key.c_str()).set_value(value.c_str());
 			else

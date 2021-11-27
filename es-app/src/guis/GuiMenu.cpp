@@ -376,6 +376,9 @@ void GuiMenu::openScraperSettings()
 		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
 			addSwitchComponent(_("SCRAPE FANART"), "ScrapeFanart");
 
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Bezel_16_9))
+			addSwitchComponent(_("SCRAPE BEZEL (16:9)"), "ScrapeBezel");
+
 		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::BoxBack))
 			addSwitchComponent(_("SCRAPE BOX BACKSIDE"), "ScrapeBoxBack");
 
