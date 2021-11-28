@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:41+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "introduce la ruta del mapa"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Bisel (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "introduce la ruta del bisel (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartucho <cartridge>"
@@ -1276,7 +1276,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTENER FANART"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "ESCRAPEAR BISEL (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTENER TRASERA DE LA CAJA"
@@ -1467,19 +1467,23 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMIZACIONES"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "PRECARGAR ELEMENTOS DE LA INTERFAZ AL ARRANCAR"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Reduce el lag al introducir listas de juegos desde el menú del sistema, "
+"aumenta el tiempo de arranque"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "PRECARGAR LOS MEDIOS DE LOS METADATOS AL ARRANCAR"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Reduce el lag al desplazarse por una lista de juegos completamente "
+"escrapeada, aumenta el tiempo de arranque"
 
 msgid "THREADED LOADING"
 msgstr "ACELERAR CARGA DEL SISTEMA"
@@ -1708,15 +1712,18 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "ANTICIPAR USO DE SEGUNDA INSTANCIA"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "RETRASO AUTOMÁTICO DE FRAMES"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "RETRASO AUTOMÁTICO DE FRAMES"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Reducir automáticamente el retraso de frames temporalmente para prevenir la "
+"caída de frames. Desactiva esta opción si causa cortes en el audio y/o el "
+"vídeo."
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -2073,10 +2080,10 @@ msgid "QUICK ACCESS"
 msgstr "ACCESO RÁPIDO"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "REPRODUCIENDO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
@@ -2098,6 +2105,15 @@ msgstr "APAGAR SISTEMA"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "¿SEGURO QUE QUIERES APAGAR?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "APAGAR RÁPIDAMENTE"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "SALIR DE EMULATIONSTATION"
@@ -2677,12 +2693,6 @@ msgstr "TEXTO A VOZ DESACTIVADO"
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "SONANDO AHORA"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "APAGAR RÁPIDAMENTE"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "PRECARGAR ELEMENTOS DE LA INTERFAZ"

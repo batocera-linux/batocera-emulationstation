@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -2091,6 +2091,15 @@ msgstr "系統關機"
 msgid "REALLY SHUTDOWN?"
 msgstr "確定要關機嗎?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "快速關機"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "確定不儲存中繼資料就直接關機嗎?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "退出 EMULATIONSTATION"
 
@@ -2654,12 +2663,6 @@ msgstr "螢幕閱讀器已停用"
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "正在聆聽"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "快速關機"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "確定不儲存中繼資料就直接關機嗎?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "預先載入 UI 元素"

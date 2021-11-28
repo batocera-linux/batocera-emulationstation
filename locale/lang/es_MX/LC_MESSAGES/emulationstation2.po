@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -2084,6 +2084,15 @@ msgstr "APAGAR SISTEMA"
 msgid "REALLY SHUTDOWN?"
 msgstr "¿SEGURO QUE QUIERES APAGAR?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "APAGAR RÁPIDAMENTE"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "SALIR DE EMULATIONSTATION"
 
@@ -2655,12 +2664,6 @@ msgstr ""
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "SONANDO AHORA"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "APAGAR RÁPIDAMENTE"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "PRECARGAR LA INTERFAZ"

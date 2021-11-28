@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2085,6 +2085,15 @@ msgstr "KAPAT"
 msgid "REALLY SHUTDOWN?"
 msgstr "KAPATILSIN MI?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "HIZLI KAPATMA"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "VERİLER KAYDEDİLMEDEN KAPATILSIN MI?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "EMULASTONDAN ÇIK"
 
@@ -2656,12 +2665,6 @@ msgstr ""
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "ŞİMDİ DİNLENİYOR"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "HIZLI KAPATMA"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "VERİLER KAYDEDİLMEDEN KAPATILSIN MI?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "ARAYÜZ ÖNYÜKLEME"

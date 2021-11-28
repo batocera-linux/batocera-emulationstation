@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
-"PO-Revision-Date: 2021-11-27 18:25+0100\n"
+"POT-Creation-Date: 2021-11-28 22:42+0100\n"
+"PO-Revision-Date: 2021-11-28 18:24+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "ange sökväg till karta"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Ram (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "ange sökväg till ram (16:9)"
 
 msgid "Cartridge"
 msgstr "Kassett"
@@ -1066,7 +1066,7 @@ msgid "ALL"
 msgstr "ALLA"
 
 msgid "ONLY MISSING"
-msgstr "ENDAST SAKNAD"
+msgstr "ENDAST SAKNADE"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "INKLUDERADE SYSTEM"
@@ -1102,7 +1102,7 @@ msgid "slide"
 msgstr "glid"
 
 msgid "instant"
-msgstr "omedelbar"
+msgstr "direkt"
 
 msgid "fade & slide"
 msgstr "tona & glid"
@@ -1276,7 +1276,7 @@ msgid "SCRAPE FANART"
 msgstr "SKRAPA ENTHUSIASTKONST"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "SKRAPA RAM (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SKRAPA BOXBAKSIDA"
@@ -1467,19 +1467,23 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMERINGAR"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "FÖRLADDA ANVÄNDARGRÄNSSNITT VID UPPSTART"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Minskar fördröjning när du går in i spellistor från systemmenyn, ökar "
+"uppstartstiden"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "FÖRLADDA METADATA-MEDIA VID UPPSTART"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Minskar fördröjning när du bläddrar genom en helt skrapad spellista, ökar "
+"uppstartstiden"
 
 msgid "THREADED LOADING"
 msgstr "TRÅDAD LADDNING"
@@ -1539,7 +1543,7 @@ msgid "DEFAULT"
 msgstr "STANDARD"
 
 msgid "INSTANT"
-msgstr "OMEDELBART"
+msgstr "DIREKT"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SKÄRMLÄSARE (TEXT TILL TAL)"
@@ -1616,7 +1620,7 @@ msgid "SPLASH SETTING"
 msgstr "INSTÄLLNINGAR FÖR UPPSTARTSBILD"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
+msgstr "INSTÄLLNINGAR FÖR RETROPRESTATIONER"
 
 msgid "NETPLAY SETTINGS"
 msgstr "INSTÄLLNINGAR FÖR NETPLAY"
@@ -1709,15 +1713,17 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "RUN-AHEAD ANVÄND ANDRA INSTANS"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "AUTOMATISK BILDFÖRDRÖJNING"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "AUTOMATISK BILDFÖRDRÖJNING"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Minska automatiskt bildfördröjningen tillfälligt för att förhindra tappade "
+"bildrutor (frame drops). Stäng av om detta förvärrar ljud/video."
 
 msgid "HARDCORE MODE"
 msgstr "HARDCORE-LÄGE"
@@ -1813,7 +1819,7 @@ msgid "SYSTEM CONTROLLERS"
 msgstr "SYSTEMKONTROLLER"
 
 msgid "CUSTOM .PNG IMAGE"
-msgstr "ANPASSAD .PNG BILD"
+msgstr "ANPASSAD .PNG-BILD"
 
 msgid "OVERLAY CORNER"
 msgstr "HÖRN-OVERLAY"
@@ -1822,7 +1828,7 @@ msgid "NORTH WEST"
 msgstr "NORDVÄST"
 
 msgid "NORTH EAST"
-msgstr "NORDÖST"
+msgstr "NORDOST"
 
 msgid "SOUTH EAST"
 msgstr "SYDOST"
@@ -1831,7 +1837,7 @@ msgid "SOUTH WEST"
 msgstr "SYDVÄST"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "SÖKVÄG TILL ANPASSAD .PNG BILD"
+msgstr "SÖKVÄG TILL ANPASSAD .PNG-BILD"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPELÖVERSÄTTNING"
@@ -1867,6 +1873,11 @@ msgid ""
 "BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
+"DU KOMMER ATT MAPPA EN KONTROLLER. MAPPNING BASERAD PÅ KNAPPENS POSITION I "
+"RELATION TILL DESS LIKVÄRDIGHET PÅ EN SNES-KONTROLLER, INTE DESS FYSISKA "
+"ETIKETT. OM DU INTE HAR EN SPECIFIK KNAPP FÖR HOTKEY, VÄLJ SELECT-KNAPPEN. "
+"HOPPA ÖVER ALLA KNAPPAR/JOYSTICKAR DU INTE HAR GENOM ATT HÅLLA NÅGON KNAPP "
+"NEDTRYCKT. TRYCK PÅ DEN SÖDRA KNAPPEN FÖR ATT BEKRÄFTA NÄR DU ÄR KLAR."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "PARA EN BLUETOOTH-ENHET"
@@ -2068,10 +2079,10 @@ msgid "QUICK ACCESS"
 msgstr "SNABBÅTKOMST"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "HOPPA TILL NÄSTA LÅT"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "SPELAS NU"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
@@ -2093,6 +2104,15 @@ msgstr "STÄNG AV SYSTEMET"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "VILL DU VERKLIGEN STÄNGA AV?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "STÄNG AV SYSTEMET SNABBT"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr ""
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "AVSLUTA EMULATIONSTATION"
@@ -2667,20 +2687,11 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
 
-#~ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-#~ msgstr "ÄR DU SÄKER PÅ ATT DU VILL RADERA DETTA OBJEKT?"
-
-#~ msgid "MISSING BIOS"
-#~ msgstr "BIOS SOM SAKNAS"
-
-#~ msgid "VIEW GAME ACHIEVEMENTS"
-#~ msgstr "VISA SPELPRESTATIONER"
-
-#~ msgid "REQUIRED CORE"
-#~ msgstr "KÄRNA SOM KRÄVS"
+#~ msgid "GRAPHICS API"
+#~ msgstr "GRAFIK-API"
 
 #~ msgid "PRELOAD UI ELEMENTS"
-#~ msgstr "FÖRLADDA UI-ELEMENT"
+#~ msgstr "FÖRLADDA ANVÄNDARGRÄNSSNITTSELEMENT"
 
 #~ msgid "Reduce overall menu lag at the cost of storage space"
 #~ msgstr "Minska den totala menyfördröjningen på bekostnad av lagringsutrymme"
@@ -2691,290 +2702,8 @@ msgstr "SKÄRMLÄSARE INAKTIVERAD"
 #~ msgid "Reduce gamelist lag at the cost of storage space"
 #~ msgstr "Minska spellistans fördröjning på bekostnad av lagringsutrymme"
 
-#~ msgid "NO SPLASH"
-#~ msgstr "INGEN UPPSTARTSBILD"
-
-#~ msgid "SILENT SPLASH"
-#~ msgstr "TYST UPPSTARTSBILD"
-
-#~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "INSTÄLLNINGAR FÖR RETROPRESTATIONER"
-
-#~ msgid "CHECK BIOSES BEFORE RUNNING A GAME"
-#~ msgstr "KONTROLLERA BIOS INNAN ETT SPEL KÖRS"
-
-#~ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT ?"
-#~ msgstr "SPELHASHNING PÅGÅR. VILL DU STOPPA DET?"
-
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "HOPPA TILL NÄSTA LÅT"
 
 #~ msgid "LISTENING NOW"
-#~ msgstr "LYSSNAR PÅ NU"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "STÄNG AV SYSTEMET SNABBT"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "VILL DU VERKLIGEN STÄNGA AV UTAN ATT SPARA METADATA?"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
-#~ msgstr "VILL DU VERKLIGEN STÄNGA AV UTAN ATT SPARA METADATA?"
-
-#~ msgid "UPDATE GAMES LISTS TO APPLY CHANGES."
-#~ msgstr "UPPDATERA SPELLISTOR FÖR ATT VERKSTÄLLA ÄNDRINGAR."
-
-#~ msgid "SAVE SNAPSHOTS"
-#~ msgstr "SAVE STATES"
-
-#~ msgid "JUMP TO LETTER"
-#~ msgstr "HOPPA TILL BOKSTAV"
-
-#~ msgid "VIEW CUSTOMISATION"
-#~ msgstr "VISA ANPASSNING"
-
-#~ msgid "PUBLISHER / DEVELOPER"
-#~ msgstr "UTGIVARE/UTVECKLARE"
-
-#~ msgid "SHOW LANGUAGE FLAG IN LISTS"
-#~ msgstr "VISA FLAGGA FÖR SPRÅK I LISTOR"
-
-#~ msgid "SHOW SAVESTATES FLAG IN LISTS"
-#~ msgstr "VISA FLAGGA FÖR SAVE STATE I LISTOR"
-
-#~ msgid "SHOW MANUAL ICON IN LISTS"
-#~ msgstr "VISA IKON FÖR MANUAL I LISTOR"
-
-#~ msgid "SHOW FILENAMES IN LISTS"
-#~ msgstr "VISA FILNAMN I LISTOR"
-
-#~ msgid "GAME RATIO"
-#~ msgstr "SPELFÖRHÅLLANDE"
-
-#~ msgid "SMOOTH GAMES"
-#~ msgstr "UTJÄMNING I SPEL"
-
-#~ msgid "AUTO SAVE/LOAD"
-#~ msgstr "LADDA/SPARA AUTOMATISKT"
-
-#~ msgid "SHADERS SET"
-#~ msgstr "SHADERS-UPPSÄTTNING"
-
-#~ msgid "INTEGER SCALE (PIXEL PERFECT)"
-#~ msgstr "HELHETSSKALNING (PIXEL PERFECT)"
-
-#~ msgid "DECORATION"
-#~ msgstr "DEKORATION"
-
-#~ msgid "CREATE PAD TO KEYBOARD CONFIGURATION"
-#~ msgstr "SKAPA 'PAD TO KEYBOARD'-KONFIGURATION"
-
-#~ msgid "GRAPHICS BACKEND"
-#~ msgstr "GRAFIK-API"
-
-#~ msgid "Choose your graphics rendering"
-#~ msgstr "Välj din grafikrendering"
-
-#~ msgid "AUDIO LATENCY"
-#~ msgstr "LJUDFÖRDRÖJNING"
-
-#~ msgid "Audio latency in milliseconds, turn it up if you hear crackles"
-#~ msgstr "Ljudfördröjning i millisekunder, höj den om du hör sprakningar"
-
-#~ msgid "CPU COMPATIBILITY"
-#~ msgstr "CPU-KOMPATIBILITET"
-
-#~ msgid "Help games which are too quick or that have bugs"
-#~ msgstr "Hjälp spel som är för snabba eller som har buggar"
-
-#~ msgid "GAME MEDIAS"
-#~ msgstr "SPELMEDIA"
-
-#~ msgid "INFORMATIONS"
-#~ msgstr "INFORMATION"
-
-#~ msgid "GRAPHICS API"
-#~ msgstr "GRAFIK-API"
-
-#~ msgid "SELECT YOUR TIMEZONE"
-#~ msgstr "VÄLJ DIN TIDSZON"
-
-#~ msgid "TIMEZONE"
-#~ msgstr "TIDSZON"
-
-#~ msgid "TEXT TO SPEECH"
-#~ msgstr "TEXT TILL TAL"
-
-#~ msgid "LEFT ROTATION"
-#~ msgstr "VÄNSTERROTATION"
-
-#~ msgid "RIGHT ROTATION"
-#~ msgstr "HÖGERROTATION"
-
-#~ msgid "INVERTED ROTATION"
-#~ msgstr "OMVÄND ROTATION"
-
-#~ msgid "ARE YOU SURE ?"
-#~ msgstr "ÄR DU SÄKER?"
-
-#~ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-#~ msgstr "RENSA SPELLISTOR & TA BORT OANVÄND MEDIA"
-
-#~ msgid "CREATE A SUPPORT FILE ?"
-#~ msgstr "SKAPA EN SUPPORTFIL?"
-
-#~ msgid "REDETECT GAMES LANG/REGION"
-#~ msgstr "ÅTERUPPTÄCK SPELS SPRÅK/REGION"
-
-#~ msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-#~ msgstr "IGNORERA DISKINNEHÅLL MED FLERA FILER (CUE/GDI/CCD/M3U)"
-
-#~ msgid "ON SCREEN KEYBOARD"
-#~ msgstr "SKÄRMTANGENTBORD"
-
-#~ msgid "HIDE WHEN RUNNING A GAME"
-#~ msgstr "DÖLJ NÄR ETT SPEL KÖRS"
-
-#~ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "VÄXLA A/B-KNAPPAR I EMULATIONSTATION"
-
-#~ msgid "Inverts north button (savestates) & long press south (game options)"
-#~ msgstr ""
-#~ "Växlar norra knappen (save states) & långtryck på södra (spelalternativ)"
-
-#~ msgid "CONTROL EMULATIONSTATION ONLY WITH FIRST JOYSTICK"
-#~ msgstr "KONTROLLERA EMULATIONSTATION ENDAST MED FÖRSTA JOYSTICK"
-
-#~ msgid "PRELOAD UI"
-#~ msgstr "FÖRLADDA ANVÄNDARGRÄNSSNITT"
-
-#~ msgid "ASYNC IMAGES LOADING"
-#~ msgstr "ASYNC-BILDLADDNING"
-
-#~ msgid "OPTIMIZE VIDEO VRAM USE"
-#~ msgstr "OPTIMERA VIDEORS VRAM-ANVÄNDNING"
-
-#~ msgid "SELECT CONTENT TO INSTALL / REMOVE"
-#~ msgstr "VÄLJ INNEHÅLL ATT INSTALLERA/TA BORT"
-
-#~ msgid "SELECT THEMES TO INSTALL / REMOVE"
-#~ msgstr "VÄLJ TEMAN ATT INSTALLERA/TA BORT"
-
-#~ msgid "SELECT BEZELS TO INSTALL / REMOVE"
-#~ msgstr "VÄLJ RAMAR ATT INSTALLERA/TA BORT"
-
-#~ msgid "GAMES SETTINGS"
-#~ msgstr "SPELINSTÄLLNINGAR"
-
-#~ msgid "CONTROLLERS & BLUETOOTH SETTINGS"
-#~ msgstr "KONTROLLER & BLUETOOTH-INSTÄLLNINGAR"
-
-#~ msgid "UPDATE GAMES LISTS"
-#~ msgstr "UPPDATERA SPELLISTOR"
-
-#~ msgid "DEFAULT SETTINGS"
-#~ msgstr "STANDARDINSTÄLLNINGAR"
-
-#~ msgid "REALLY UPDATE GAMES LISTS ?"
-#~ msgstr "VILL DU VERKLIGEN UPPDATERA SPELLISTOR?"
-
-#~ msgid "ENABLE AI SERVICE"
-#~ msgstr "AKTIVERA AI-TJÄNSTEN"
-
-#~ msgid "SERVICE URL"
-#~ msgstr "TJÄNSTEWEBBADRESS"
-
-#~ msgid "SHOW IN MAIN MENU"
-#~ msgstr "VISA I HUVUDMENYN"
-
-#~ msgid "FIND ALL GAMES"
-#~ msgstr "HITTA ALLA SPEL"
-
-#~ msgid "FIND NEW GAMES"
-#~ msgstr "HITTA NYA SPEL"
-
-#~ msgid "CHECK MISSING INDEXES AT STARTUP"
-#~ msgstr "KONTROLLERA SAKNADE INDEX VID UPPSTART"
-
-#~ msgid "CONFIGURE A CONTROLLER"
-#~ msgstr "KONFIGURERA EN KONTROLLER"
-
-#~ msgid "Searching controllers..."
-#~ msgstr "Söker efter kontroller..."
-
-#~ msgid ""
-#~ "YOU ARE GOING TO CONFIGURE A CONTROLLER. IF YOU HAVE ONLY ONE JOYSTICK, "
-#~ "CONFIGURE THE DIRECTIONS KEYS AND SKIP JOYSTICK CONFIG BY HOLDING A "
-#~ "BUTTON. IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, CHOOSE THE SELECT "
-#~ "BUTTON. SKIP ALL BUTTONS YOU DO NOT HAVE BY HOLDING A KEY. BUTTONS NAMES "
-#~ "ARE BASED ON THE SNES CONTROLLER."
-#~ msgstr ""
-#~ "DU KOMMER ATT KONFIGURERA EN KONTROLLER. OM DU ENDAST HAR EN JOYSTICK, "
-#~ "KONFIGURERA RIKTNINGSKNAPPARNA OCH HOPPA ÖVER ÖVRIG "
-#~ "JOYSTICKSKONFIGURATION GENOM ATT HÅLLA NÅGON KNAPP NEDTRYCKT. OM DU INTE "
-#~ "HAR EN SPECIFIK KNAPP FÖR HOTKEY, VÄLJ SELECT-KNAPPEN. HOPPA ÖVER ALLA "
-#~ "KNAPPAR DU INTE HAR GENOM ATT HÅLLA NÅGON KNAPP NEDTRYCKT. KNAPPARNAS "
-#~ "NAMN BASERAS PÅ SNES-KONTROLLEN."
-
-#~ msgid "APPEARENCE"
-#~ msgstr "UTSEENDE"
-
-#~ msgid "TRANSITION STYLE"
-#~ msgstr "ÖVERGÅNGSSTIL"
-
-#~ msgid "GAMECAROUSEL"
-#~ msgstr "SPELKARUSELL"
-
-#~ msgid "RESET CUSTOMISATIONS"
-#~ msgstr "ÅTERSTÄLL ANPASSNINGAR"
-
-#~ msgid "SCREENSAVER AFTER"
-#~ msgstr "SKÄRMSLÄCKARE EFTER"
-
-#~ msgid "SCREENSAVER BEHAVIOR"
-#~ msgstr "SKÄRMSLÄCKARBETEENDE"
-
-#~ msgid "SWAP VIDEO AFTER (SECS)"
-#~ msgstr "BYT VIDEO EFTER (SEKUNDER)"
-
-#~ msgid "SWAP IMAGE AFTER (SECS)"
-#~ msgstr "BYT BILD EFTER (SEKUNDER)"
-
-#~ msgid "SHOW GAME INFO ON SCREENSAVER"
-#~ msgstr "VISA SPELINFORMATION PÅ SKÄRMSLÄCKARE"
-
-#~ msgid "STRETCH VIDEO ON SCREENSAVER"
-#~ msgstr "STRÄCK UT VIDEO PÅ SKÄRMSLÄCKARE"
-
-#~ msgid "HOW MANY SECONDS FOR SONG TITLES"
-#~ msgstr "HUR MÅNGA SEKUNDER FÖR LÅTTITLAR"
-
-#~ msgid "PLAY THEME MUSICS"
-#~ msgstr "SPELA TEMAMUSIK"
-
-#~ msgid "ENABLE VIDEO AUDIO"
-#~ msgstr "AKTIVERA VIDEOLJUD"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "SKRAPA FRÅN"
-
-#~ msgid "SCRAPE NOW"
-#~ msgstr "SKRAPA NU"
-
-#~ msgid "ALL GAMES"
-#~ msgstr "ALLA SPEL"
-
-#~ msgid "ONLY MISSING MEDIAS"
-#~ msgstr "ENDAST SAKNAD MEDIA"
-
-#~ msgid "KODI AT START"
-#~ msgstr "KODI VID UPPSTART"
-
-#~ msgid "SHOW SAVE SNAPSHOTS"
-#~ msgstr "VISA SAVE STATES-SKÄRMDUMPAR"
-
-#~ msgid "SHOW SNAPSHOTS IF NOT EMPTY"
-#~ msgstr "VISA SKÄRMDUMPAR OM EJ TOMT"
-
-#~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING"
-#~ msgstr "BLUETOOTH-SKANNING KÖRS REDAN"
+#~ msgstr "SPELAS NU"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -2082,6 +2082,15 @@ msgstr "APAGA EL SISTEMA"
 msgid "REALLY SHUTDOWN?"
 msgstr "ESTEU SEGUR QUE VOLEU APAGAR?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "APAGA EL SISTEMA RÀPIDAMENT"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "ESTEU SEGUR QUE VOLEU APAGAR SENSE DESAR LES METADADES?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr ""
 
@@ -2642,12 +2651,6 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "APAGA EL SISTEMA RÀPIDAMENT"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "ESTEU SEGUR QUE VOLEU APAGAR SENSE DESAR LES METADADES?"
 
 #~ msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 #~ msgstr "CONFIGURACIÓ DE COMANDAMENT A TECLAT"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:42+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "inserisci percorso della mappa"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Cornice (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "inserisci percorso della cornice (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartuccia"
@@ -1276,7 +1276,7 @@ msgid "SCRAPE FANART"
 msgstr "SCARICA FANART"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "SCARICA CORNICE (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCARICA BOX (RETRO)"
@@ -1467,19 +1467,21 @@ msgid "OPTIMIZATIONS"
 msgstr "OTTIMIZZAZIONI"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "PRECARICA ELEMENTI UI ALL'AVVIO"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Precarica tutti gli elementi dell'interfaccia e i giochi nei vari sistemi, "
+"riducendo i tempi di caricamento"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "PRECARICA MEDIA GIOCHI ALL'AVVIO"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
-msgstr ""
+msgstr "Precarica tutti i media dei giochi, riducendo i tempi di caricamento"
 
 msgid "THREADED LOADING"
 msgstr "CARICAMENTO ACCODATO"
@@ -1708,15 +1710,18 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "USA SECONDA INSTANZA DEL CORE"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "RITARDO FRAME AUTOMATICO"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "RITARDO FRAME AUTOMATICO"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Rimuove i frame di troppo che provocano un ritardo video, riducendo la "
+"latenza del controller. Può provocare problemi audio e video su alcuni "
+"sistemi."
 
 msgid "HARDCORE MODE"
 msgstr "MODALITÀ HARDCORE"
@@ -2072,10 +2077,10 @@ msgid "QUICK ACCESS"
 msgstr "ACCESSO RAPIDO"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "PASSA ALLA TRACCIA SUCCESSIVA"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "IN ASCOLTO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
@@ -2097,6 +2102,15 @@ msgstr "ARRESTA IL SISTEMA"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "ARRESTARE?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "SPEGNIMENTO RAPIDO DEL SISTEMA"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE LE INFORMAZIONI?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "ESCI DA EMULATIONSTATION"
@@ -2677,12 +2691,6 @@ msgstr "SINTESI VOCALE DISATTIVATA"
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "IN ASCOLTO"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "SPEGNIMENTO RAPIDO DEL SISTEMA"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE LE INFORMAZIONI?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "PRECARICA ELEMENTI UI"

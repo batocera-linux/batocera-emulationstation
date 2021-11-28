@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2102,6 +2102,15 @@ msgstr "DESLIGAR SISTEMA"
 msgid "REALLY SHUTDOWN?"
 msgstr "DESEJA DESLIGAR ?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "DESEJA DESLIGAR SEM SALVAR AS INFORMAÇÕES ?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "SAIR DO EMULATIONSTATION"
 
@@ -2683,12 +2692,6 @@ msgstr "LEITOR DE TELA DESATIVADO"
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "TOCANDO AGORA"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "DESEJA DESLIGAR SEM SALVAR AS INFORMAÇÕES ?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "PRÉ-CARREGAR ELEMENTOS DE INTERFACE"

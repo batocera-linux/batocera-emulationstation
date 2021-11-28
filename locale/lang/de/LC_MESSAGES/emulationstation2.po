@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2103,6 +2103,15 @@ msgstr "SYSTEM ABSCHALTEN"
 msgid "REALLY SHUTDOWN?"
 msgstr "WIRKLICH ABSCHALTEN?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "SYSTEM SCHNELL ABSCHALTEN"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "WIRKLICH ABSCHALTEN OHNE METADATEN ZU SPEICHERN?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "EMULATIONSTATION BEENDEN"
 
@@ -2684,12 +2693,6 @@ msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "JETZT HÖRST DU"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "SYSTEM SCHNELL ABSCHALTEN"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "WIRKLICH ABSCHALTEN OHNE METADATEN ZU SPEICHERN?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "UI-ELEMENTE VORLADEN"

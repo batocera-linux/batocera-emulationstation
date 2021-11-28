@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2078,6 +2078,15 @@ msgstr "关机"
 msgid "REALLY SHUTDOWN?"
 msgstr "是否关机?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "快速关机"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "是否不保存元数据并直接关机?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "退出EmulationStation"
 
@@ -2633,12 +2642,6 @@ msgstr ""
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "开始聆听"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "快速关机"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "是否不保存元数据并直接关机?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "预加载UI"

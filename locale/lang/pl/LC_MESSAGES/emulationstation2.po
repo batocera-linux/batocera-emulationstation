@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2105,6 +2105,15 @@ msgstr "WYŁĄCZENIE SYSTEMU"
 msgid "REALLY SHUTDOWN?"
 msgstr "WYŁĄCZYĆ SYSTEM?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "SZYBKIE ZAMKNIĘCIE SYSTEMU"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "WYŁĄCZYĆ SYSTEM BEZ ZAPISU METADANYCH?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "WYJDŹ Z EMULATIONSTATION"
 
@@ -2697,9 +2706,3 @@ msgstr "CZYTNIK EKRANU WYŁĄCZONY"
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "TERAZ SŁUCHA"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "SZYBKIE ZAMKNIĘCIE SYSTEMU"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "WYŁĄCZYĆ SYSTEM BEZ ZAPISU METADANYCH?"

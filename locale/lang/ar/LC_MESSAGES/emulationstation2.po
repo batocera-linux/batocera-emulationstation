@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -2090,6 +2090,15 @@ msgstr "إيقاف تشغيل النظام"
 msgid "REALLY SHUTDOWN?"
 msgstr "هل فعلا تريد إيقاف التشغيل؟ "
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "إيقاف تشغيل سريع"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "هل فعلا تريد إيقاف التشغيل بدون حفظ البيانات؟"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "خروج من المحاكي"
 
@@ -2697,12 +2706,6 @@ msgstr ""
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "انتقل إلى الأغنية التالية"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "إيقاف تشغيل سريع"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "هل فعلا تريد إيقاف التشغيل بدون حفظ البيانات؟"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "تحميل واجهة المستخدم"

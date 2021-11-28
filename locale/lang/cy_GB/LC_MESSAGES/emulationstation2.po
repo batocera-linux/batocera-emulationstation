@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2087,6 +2087,15 @@ msgstr "CAU LAWR SYSTEM"
 msgid "REALLY SHUTDOWN?"
 msgstr "CAU LAWR SYSTEM GO IAWN?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "CAU LAWR SYSTEM GYFLYM"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "YN WIR CAU LAWR SYSTEM HEB ARBED METADATA?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "GADAEL EMULATIONSTATION"
 
@@ -2698,12 +2707,6 @@ msgstr ""
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "GWRANDO NAWR"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "CAU LAWR SYSTEM GYFLYM"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "YN WIR CAU LAWR SYSTEM HEB ARBED METADATA?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "CYN LLWYTHO UI"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2077,6 +2077,15 @@ msgstr "SLÅ AV"
 msgid "REALLY SHUTDOWN?"
 msgstr "VIL DU VIRKELIG SLÅ AV?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "RASK AVSLUTTING"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "VIL DU VIRKELIG SLÅ AV UTEN Å LAGRE METADATA?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr ""
 
@@ -2637,12 +2646,6 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "RASK AVSLUTTING"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "VIL DU VIRKELIG SLÅ AV UTEN Å LAGRE METADATA?"
 
 #~ msgid "All Games"
 #~ msgstr "Alle spill"

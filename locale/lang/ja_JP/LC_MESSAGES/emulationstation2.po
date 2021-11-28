@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2021/11/13)\n"
+"Project-Id-Version: batocera-es v33beta(2021/11/29)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
-"PO-Revision-Date: 2021-11-14 13:17+0900\n"
+"POT-Creation-Date: 2021-11-28 22:42+0100\n"
+"PO-Revision-Date: 2021-11-29 02:03+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "マップのパスを入力"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "ベゼル(16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "ベゼル(16:9)のパスを入力"
 
 msgid "Cartridge"
 msgstr "カートリッジ画"
@@ -1276,7 +1276,7 @@ msgid "SCRAPE FANART"
 msgstr "ファンアートをスクレイプ"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "ベゼル(16:9)をスクレイプ"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "ボックス背景をスクレイプ"
@@ -1467,19 +1467,20 @@ msgid "OPTIMIZATIONS"
 msgstr "最適化"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "起動時にUI部を先読みする"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr ""
+msgstr "メニューからゲームリストに入るラグを減少(起動時間が長くなります)"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "起動時にメタ情報メディアを先読みする"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"スクレイプ済みゲームリストのスクロール時のラグを減少(起動時間が長くなります)"
 
 msgid "THREADED LOADING"
 msgstr "スレッド読み込み"
@@ -1707,10 +1708,10 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "先行実行の2番目のインスタンス"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "自動フレーム遅延"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "自動フレーム遅延"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
@@ -1784,7 +1785,7 @@ msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "ステートセーブ読込(起動時)"
+msgstr "自動ステートセーブ読込"
 
 msgid "SHOW SAVE STATES"
 msgstr "ステートセーブ表示"
@@ -1793,7 +1794,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "セーブがあれば表示"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "ステートセーブ変更・追加"
 
 msgid "SHADER SET"
 msgstr "シェーダー設定"
@@ -2072,10 +2073,10 @@ msgid "QUICK ACCESS"
 msgstr "クイック アクセス"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "次の曲にスキップ"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "現在再生中の曲名"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
@@ -2097,6 +2098,15 @@ msgstr "システムをシャットダウン"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "シャットダウンしますか？"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "システムを高速にシャットダウン"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "メタ情報を保存せずに シャットダウンしますか？"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "EMULATIONSTATION を終了"
@@ -2660,26 +2670,9 @@ msgstr "スクリーンリーダー有効"
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
 
-#~ msgid "SKIP TO NEXT SONG"
-#~ msgstr "次の曲にスキップ"
-
-#~ msgid "LISTENING NOW"
-#~ msgstr "現在再生中の曲名"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "システムを高速にシャットダウン"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "メタ情報を保存せずに シャットダウンしますか？"
-
-#~ msgid "PRELOAD UI"
-#~ msgstr "プリロード(先行読込) UI"
-
-#~ msgid "PRELOAD MEDIAS FILESYSTEM"
-#~ msgstr "メディアファイルシステムの先行読込"
-
-#~ msgid "REDUCE UI LAGS OVER STARTUP TIME"
-#~ msgstr "起動時のUIラグを減らす"
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops"
+#~ msgstr "フレームドロップを防ぐために、フレーム遅延を自動的に減らします"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

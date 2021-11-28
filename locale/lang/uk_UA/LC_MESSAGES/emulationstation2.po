@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 16:02+0100\n"
+"POT-Creation-Date: 2021-11-28 22:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -2084,6 +2084,15 @@ msgstr "ВИМКНУТИ СИСТЕМУ"
 msgid "REALLY SHUTDOWN?"
 msgstr "ВИМКНУТИ СИСТЕМУ ЗАРАЗ?"
 
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "ШВИДКО ВИМКНУТИ СИСТЕМУ"
+
+msgid "Shutdown without saving metadata."
+msgstr ""
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "ВИМКНУТИ БЕЗ ЗБЕРІГАННЯ МЕТАДАНИХ?"
+
 msgid "QUIT EMULATIONSTATION"
 msgstr "ВИЙТИ З EMULATIONSTATION"
 
@@ -2661,12 +2670,6 @@ msgstr ""
 
 #~ msgid "LISTENING NOW"
 #~ msgstr "ГРАЄ ЗАРАЗ"
-
-#~ msgid "FAST SHUTDOWN SYSTEM"
-#~ msgstr "ШВИДКО ВИМКНУТИ СИСТЕМУ"
-
-#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-#~ msgstr "ВИМКНУТИ БЕЗ ЗБЕРІГАННЯ МЕТАДАНИХ?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "ПРЕДЗАВАНТАЖЕННЯ ІНТЕРФЕЙСУ"
