@@ -22,6 +22,7 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "TextToSpeech.h"
+#include "HttpReq.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -559,6 +560,11 @@ bool SystemView::input(InputConfig* config, Input input)
 			config->isMappedLike("l2", input) ||
 			config->isMappedLike("r2", input))
 			listInput(0);
+		std::string system = this->IList::getSelected()->getName();
+        //if (system != NULL) {
+			HttpReq req("http://127.0.0.1:8080/console/stream/" + HttpReq::urlEncode(system));
+			if(req.status() != 200 ){}
+		//}
 		/*
 #ifdef WIN32
 		// batocera

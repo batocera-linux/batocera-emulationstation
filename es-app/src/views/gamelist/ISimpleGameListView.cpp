@@ -23,6 +23,7 @@
 #include "guis/GuiGamelistOptions.h"
 #include "BasicGameListView.h"
 #include "utils/Randomizer.h"
+#include "HttpReq.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
@@ -310,6 +311,21 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 		return true;
 	}
+
+	FileData* cursor = getCursor();
+    SystemData* system = this->mRoot->getSystem();
+    if (system != NULL) { 
+		  HttpReq req("http://127.0.0.1:8080/arcade/stream/" + HttpReq::urlEncode(system->getName()) + "/" + HttpReq::urlEncode(cursor->getFileName()) + "?t=" + HttpReq::urlEncode( cursor->getName()));
+		  if(req.status() != 200){}
+	}
+	 //std::cout << "http://127.0.0.1:8080/arcade/stream/" << system->getName() << "/" << cursor->getFileName() << "callfailed.";
+	 //}
+	/*httplib::Client cli("localhost", 8080);
+                          std::string url = "/arcade/stream/" + system->getName() + "/" + cursor->getFileName();
+                          auto res = cli.Get( &url[0]);
+                          if (res && res->status == 200) {
+                             std::cout << res->body << std::endl;
+                           }*/ 
 
 	return IGameListView::input(config, input);
 }

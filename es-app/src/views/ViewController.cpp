@@ -28,6 +28,7 @@
 #include "utils/ThreadPool.h"
 #include <SDL_timer.h>
 #include "TextToSpeech.h"
+#include "HttpReq.h"
 
 ViewController* ViewController::sInstance = nullptr;
 
@@ -102,6 +103,16 @@ void ViewController::goToStart(bool forceImmediate)
 
 	if("" != requestedSystem && "retropie" != requestedSystem)
 	{
+		for(auto it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); it++){
+			if ((*it)->getName() == requestedSystem)
+			{       
+			  goToGameList(*it);
+			  //if (requestedSystem != NULL) {
+				  HttpReq req("http://127.0.0.1:8080/console/stream/" + HttpReq::urlEncode(requestedSystem) + "?t=" + HttpReq::urlEncode(requestedSystem));
+				  if(req.status() != 200){}
+			  //}
+			}
+		}
 		auto system = SystemData::getSystem(requestedSystem);
 		if (system != nullptr && !system->isGroupChildSystem())
 		{
@@ -262,6 +273,18 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 		sysList->setPosition(view->getPosition().x(), sysList->getPosition().y());
 		offX = sysList->getPosition().x() - offX;
 		mCamera.translation().x() -= offX;
+        if (system != NULL) {
+			HttpReq req("http://127..0.1:8080/console/stream/" + HttpReq::urlEncode(system->getName()));
+			if(req.status() != 200){}
+		}
+		//std::cout <<  "http://127.0.0.1:8080/arcade/stream/" << HttpReq::urlEncode(system->getName()) << "failed.";
+				
+		/*httplib::Client cli("localhost", 8080);
+                          std::string url = "/arcade/stream/" + system->getName();
+                          auto res = cli.Get( &url[0]);
+                          if (res && res->status == 200) {
+                             std::cout << res->body << std::endl;
+                           }*/
 	}	
 	else if (mState.viewing == GAME_LIST && mState.system != nullptr)
 	{

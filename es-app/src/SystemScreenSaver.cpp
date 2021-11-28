@@ -22,6 +22,7 @@
 #include "SystemConf.h"
 #include "ImageIO.h"
 #include "utils/Randomizer.h"
+#include "HttpReq.h"
 
 #define FADE_TIME 			500
 
@@ -124,6 +125,13 @@ void SystemScreenSaver::startScreenSaver()
 
 			PowerSaver::runningScreenSaver(true);
 			mTimer = 0;
+
+			if (mCurrentGame != NULL) {
+				HttpReq req("http://127.0.0.1:8080/arcade/stream/" + HttpReq::urlEncode(mCurrentGame->getSystem()->getName()) + "/" + HttpReq::urlEncode(mCurrentGame->getFileName()) + "?t=" + HttpReq::urlEncode(mCurrentGame->getName()));
+				if(req.status() != 200){
+         			//std::cout "http://127.0.0.1:8080/arcade/stream/" << mCurrentGame->getSystem()->getName() << "/" << mCurrentGame->getFileName() << "failed.";
+           		}
+			}
 			return;
 		}
 	}
@@ -154,6 +162,19 @@ void SystemScreenSaver::startScreenSaver()
 		}
 		else
 			path = pickRandomGameListImage();
+
+		if (mCurrentGame != NULL) {
+			HttpReq req("http://127.0.0.1:8080/arcade/stream/" + HttpReq::urlEncode(mCurrentGame->getSystem()->getName()) + "/" + HttpReq::urlEncode(mCurrentGame->getFileName()) + "?t=" + HttpReq::urlEncode(mCurrentGame->getName()));
+			if(req.status() != 200){
+				//std::cout "http://127.0.0.1:8080/arcade/stream/" << mCurrentGame->getSystem()->getName() << "/" << mCurrentGame->getFileName() << "failed.";
+			}
+		}
+
+		// No videos. Just use a standard random screensaver.
+		HttpReq req("http://127.0.0.1:8080/animations?r");
+		if(req.status() != 200) {
+			//std::cout "http://127.0.0.1:8080/arcade/stream/" << mCurrentGame->getSystem()->getName() << "/" << mCurrentGame->getFileName() << "failed.";
+		}
 
 		if (!path.empty() && Utils::FileSystem::exists(path))
 		{
