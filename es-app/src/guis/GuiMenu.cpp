@@ -1547,7 +1547,7 @@ void GuiMenu::openSystemSettings_batocera()
 
 	std::shared_ptr<OptionListComponent<std::string>> overclock_choice;
 
-#if ODROIDGOA || GAMEFORCE
+#if ODROIDGOA || GAMEFORCE || RK3326
 	// multimedia keys
 	auto multimediakeys_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("MULTIMEDIA KEYS"));
 	multimediakeys_enabled->add(_("AUTO"), "auto", SystemConf::getInstance()->get("system.multimediakeys.enabled") != "0" && SystemConf::getInstance()->get("system.multimediakeys.enabled") != "1");
@@ -1563,7 +1563,7 @@ void GuiMenu::openSystemSettings_batocera()
 	});
 #endif
 
-#ifdef GAMEFORCE
+#if GAMEFORCE || RK3326
 	auto buttonColor_GameForce = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BUTTON LED COLOR"));
 	buttonColor_GameForce->add(_("off"), "off", SystemConf::getInstance()->get("color_rgb") == "off" || SystemConf::getInstance()->get("color_rgb") == "");
 	buttonColor_GameForce->add(_("red"), "red", SystemConf::getInstance()->get("color_rgb") == "red");
