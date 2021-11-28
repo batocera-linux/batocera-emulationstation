@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: 2021-10-02 17:16+0000\n"
 "Last-Translator: Weblate Admin <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://fabrica.mejans.fr/projects/autres/batocera/"
@@ -100,6 +100,12 @@ msgstr "Mapa"
 
 msgid "enter path to map"
 msgstr "dintrar lo camin d’accès a la mapa"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartocha"
@@ -1269,6 +1275,9 @@ msgstr ""
 msgid "SCRAPE FANART"
 msgstr ""
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
@@ -1698,7 +1707,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2049,10 +2060,10 @@ msgstr "ERROR DE CONFIGURACION WIFI"
 msgid "QUICK ACCESS"
 msgstr ""
 
-msgid "SKIP TO NEXT SONG"
+msgid "SKIP TO THE NEXT SONG"
 msgstr ""
 
-msgid "LISTENING NOW"
+msgid "NOW PLAYING"
 msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
@@ -2075,12 +2086,6 @@ msgstr "ATUDAR LO SISTÈMA"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "ATUDAR PER DE BON ?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "ATUDA RAPIDA DEL SISTÈMA"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "VOLÈTZ ATUDAR PER DE BON SENS ENREGISTRAR LAS METADONADAS ?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "QUITAR EMULATIONSTATION"
@@ -2642,6 +2647,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "ATUDA RAPIDA DEL SISTÈMA"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "VOLÈTZ ATUDAR PER DE BON SENS ENREGISTRAR LAS METADONADAS ?"
 
 #~ msgid "All Games"
 #~ msgstr "Totes los jòcs"

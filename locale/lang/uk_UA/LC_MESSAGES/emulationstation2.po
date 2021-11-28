@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -94,6 +94,12 @@ msgstr "Карта"
 
 msgid "enter path to map"
 msgstr "введіть шлях для карти"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Картридж"
@@ -1266,6 +1272,9 @@ msgstr "ЗАВАНТАЖЕННЯ ВІДЕО"
 msgid "SCRAPE FANART"
 msgstr "ЗАВАНТАЖИТИ ФАН АРТ"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
@@ -1695,7 +1704,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2046,11 +2057,11 @@ msgstr "ПОМИЛКА КОНФІГУРАЦІЇ WI-FI"
 msgid "QUICK ACCESS"
 msgstr "ШВИДКИЙ ДОСТУП"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "НАСТУПНА ПІСНЯ"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "ГРАЄ ЗАРАЗ"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
@@ -2072,12 +2083,6 @@ msgstr "ВИМКНУТИ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "ВИМКНУТИ СИСТЕМУ ЗАРАЗ?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "ШВИДКО ВИМКНУТИ СИСТЕМУ"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "ВИМКНУТИ БЕЗ ЗБЕРІГАННЯ МЕТАДАНИХ?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "ВИЙТИ З EMULATIONSTATION"
@@ -2650,6 +2655,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "НАСТУПНА ПІСНЯ"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "ГРАЄ ЗАРАЗ"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "ШВИДКО ВИМКНУТИ СИСТЕМУ"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "ВИМКНУТИ БЕЗ ЗБЕРІГАННЯ МЕТАДАНИХ?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "ПРЕДЗАВАНТАЖЕННЯ ІНТЕРФЕЙСУ"

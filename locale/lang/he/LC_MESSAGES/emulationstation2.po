@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -94,6 +94,12 @@ msgstr "מפה"
 
 msgid "enter path to map"
 msgstr "הזן נתיב קובץ למפה"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "מחסנית"
@@ -1265,6 +1271,9 @@ msgstr "SCRAPE סרטונים"
 msgid "SCRAPE FANART"
 msgstr "SCRAPE  אמנות מעריצים"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCARPE  עטיפות פנים"
 
@@ -1694,7 +1703,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2045,11 +2056,11 @@ msgstr "שגיאה בתצורת WIFI"
 msgid "QUICK ACCESS"
 msgstr "גישה מהירה "
 
-msgid "SKIP TO NEXT SONG"
-msgstr "דילוג לשיר הבא"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "בהאזנה כעת"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
@@ -2071,12 +2082,6 @@ msgstr "כיבוי "
 
 msgid "REALLY SHUTDOWN?"
 msgstr "בטוח?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "כיבוי מהיר"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr ""
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "יציאה מהאימולטור"
@@ -2660,6 +2665,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "דילוג לשיר הבא"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "בהאזנה כעת"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "כיבוי מהיר"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "טעינה מראש של ממשק משתמש"

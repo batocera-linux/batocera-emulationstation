@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/11/13)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: 2021-11-14 13:17+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -93,6 +93,12 @@ msgstr "マップ"
 
 msgid "enter path to map"
 msgstr "マップのパスを入力"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "カートリッジ画"
@@ -1269,6 +1275,9 @@ msgstr "動画をスクレイプ"
 msgid "SCRAPE FANART"
 msgstr "ファンアートをスクレイプ"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "ボックス背景をスクレイプ"
 
@@ -1703,7 +1712,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2060,11 +2071,11 @@ msgstr "WIFI 設定エラー"
 msgid "QUICK ACCESS"
 msgstr "クイック アクセス"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "次の曲にスキップ"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "現在再生中の曲名"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
@@ -2086,12 +2097,6 @@ msgstr "システムをシャットダウン"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "シャットダウンしますか？"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "システムを高速にシャットダウン"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "メタ情報を保存せずに シャットダウンしますか？"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "EMULATIONSTATION を終了"
@@ -2654,6 +2659,18 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "次の曲にスキップ"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "現在再生中の曲名"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "システムを高速にシャットダウン"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "メタ情報を保存せずに シャットダウンしますか？"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "プリロード(先行読込) UI"

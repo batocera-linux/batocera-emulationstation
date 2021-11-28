@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -93,6 +93,12 @@ msgstr "Карта"
 
 msgid "enter path to map"
 msgstr "введите путь к карте"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Картридж"
@@ -996,10 +1002,10 @@ msgid "SCRAPE"
 msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "ИЗМЕНИТЬ ПРОФИЛЬ PADTOKEY"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "СОЗДАТЬ ПРОФИЛЬ PADTOKEY"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ ИГРЫ"
@@ -1055,7 +1061,7 @@ msgid "SCRAPE CRITERIA"
 msgstr "КРИТЕРИИ ЗАГРУЗКИ"
 
 msgid "MEDIA TO SCRAPE FOR"
-msgstr "ЗАГРУЖАТЬ МЕДИА ДЛЯ"
+msgstr "ЗАГРУЖАТЬ МЕДИА"
 
 msgid "ALL"
 msgstr "ВСЕ"
@@ -1121,7 +1127,7 @@ msgid "Battery"
 msgstr "Батарея"
 
 msgid "Model"
-msgstr ""
+msgstr "Модель"
 
 msgid "Cpu model"
 msgstr "Модель CPU"
@@ -1181,7 +1187,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "МЕДИАЦЕНТР KODI"
 
 msgid "GAME SETTINGS"
-msgstr "НАСТРОЙКИ ИГРЫ"
+msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
 msgid "UI SETTINGS"
 msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
@@ -1220,7 +1226,7 @@ msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
 
 msgid "NEXT"
-msgstr "СЛЕДУЮЩИЙ"
+msgstr "ДАЛЕЕ"
 
 msgid "SCRAPING DATABASE"
 msgstr "ИСТОЧНИК ЗАГРУЗКИ"
@@ -1269,6 +1275,9 @@ msgstr "ЗАГРУЗКА ВИДЕО"
 
 msgid "SCRAPE FANART"
 msgstr "ЗАГРУЗКА ФАН-АРТА"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "ЗАГРУЗКА ЗАДНИКА ОБЛОЖКИ"
@@ -1359,10 +1368,10 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "ФАЙЛ ПОДДЕРЖКИ СОЗДАН В ПАПКЕ SAVES"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "ОШИБКА СОЗДАНИЯ ФАЙЛА ПОДДЕРЖКИ"
 
 msgid "FORMAT A DISK"
 msgstr "ФОРМАТИРОВАТЬ"
@@ -1459,19 +1468,20 @@ msgid "OPTIMIZATIONS"
 msgstr "ОПТИМИЗАЦИЯ"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "ПРЕДЗАГРУЗКА ЭЛЕМЕНТОВ ИНТЕРФЕЙСА"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr ""
+msgstr "Уменьшает лаги в списке игр, увеличивает время загрузки"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "ПРЕДЗАГРУЗКА МЕДИА ФАЙЛОВ"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Уменьшает лаги во время просмотра списка игр, увеличивает время загрузки"
 
 msgid "THREADED LOADING"
 msgstr "МНОГОПОТОЧНАЯ ЗАГРУЗКА"
@@ -1504,7 +1514,7 @@ msgid "APPLY UPDATE"
 msgstr "ПРИМЕНИТЬ ОБНОВЛЕНИЕ"
 
 msgid "START UPDATE"
-msgstr "НАЧАТЬ ОБНОВЛЕНИЕ"
+msgstr "ЗАПУСТИТЬ ОБНОВЛЕНИЕ"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУЩЕНО"
@@ -1531,7 +1541,7 @@ msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
 
 msgid "INSTANT"
-msgstr ""
+msgstr "МГНОВЕННЫЙ"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "ЭКРАННЫЙ ДИКТОР (ТЕКСТ В РЕЧЬ)"
@@ -1705,7 +1715,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -1784,7 +1796,7 @@ msgid "SHOW SAVE STATES IF NOT EMPTY"
 msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ ЕСЛИ ОНИ ИМЕЮТСЯ"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
 
 msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
@@ -1868,7 +1880,7 @@ msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "P%i'S КОНТРОЛЛЕР"
+msgstr "P%i КОНТРОЛЛЕР"
 
 msgid "default"
 msgstr "по умолчанию"
@@ -2062,11 +2074,11 @@ msgstr "ОШИБКА WI-FI КОНФИГУРАЦИИ"
 msgid "QUICK ACCESS"
 msgstr "БЫСТРЫЙ ДОСТУП"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "ПРОПУСТИТЬ ПЕСНЮ"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "СЕЙЧАС ИГРАЕТ"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
@@ -2088,12 +2100,6 @@ msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "БЫСТРОЕ ВЫКЛЮЧЕНИЕ СИСТЕМЫ"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "ВЫЙТИ ИЗ EMULATIONSTATION"
@@ -2677,6 +2683,18 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "ПРОПУСТИТЬ ПЕСНЮ"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "СЕЙЧАС ИГРАЕТ"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "БЫСТРОЕ ВЫКЛЮЧЕНИЕ СИСТЕМЫ"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "ПРЕДЗАГРУЗКА ИНТЕРФЕЙСА"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Térkép"
 
 msgid "enter path to map"
 msgstr "térkép elérési útja"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartridge"
@@ -1264,6 +1270,9 @@ msgstr "VIDEÓK LEKÉRÉSE"
 msgid "SCRAPE FANART"
 msgstr "RAJONGÓI KÉP LEKÉRÉSE"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "BOBOZ HÁTOLDAL LEKÉRÉSE"
 
@@ -1695,7 +1704,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2046,11 +2057,11 @@ msgstr "WIFI BEÁLLÍTÁSI HIBA"
 msgid "QUICK ACCESS"
 msgstr "GYORS ELÉRÉS"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "KÖVETKEZŐ DAL"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "MOST MEGY"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "KÉPERNYŐVÉDŐ INDÍTÁSA"
@@ -2072,12 +2083,6 @@ msgstr "LEÁLLÍTÁS"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "BIZTOS, HOGY LEÁLLÍTOD?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "GYORS LEÁLLÍTÁS"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "BIZTOS LEÁLLÍTOD A METAADATOK MENTÉSE NÉLKÜL?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "KILÉPÉS AZ EMULATIONSTATION-BÓL"
@@ -2643,6 +2648,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "KÖVETKEZŐ DAL"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "MOST MEGY"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "GYORS LEÁLLÍTÁS"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "BIZTOS LEÁLLÍTOD A METAADATOK MENTÉSE NÉLKÜL?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "UI ELŐTÖLTÉSE"

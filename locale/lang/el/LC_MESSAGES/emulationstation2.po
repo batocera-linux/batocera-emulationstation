@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,6 +90,12 @@ msgstr "Χάρτης"
 
 msgid "enter path to map"
 msgstr "προσθήκη διαδρομής χάρτη"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Κασέτα"
@@ -1261,6 +1267,9 @@ msgstr "SCRAPE ΒΙΝΤΕΟ"
 msgid "SCRAPE FANART"
 msgstr ""
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCRAPE ΠΙΣΩ ΜΕΡΟΣ BOX"
 
@@ -1693,7 +1702,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2044,11 +2055,11 @@ msgstr "ΣΦΑΛΜΑ ΔΙΜΟΡΦΩΣΗΣ ΑΣΥΡΜΑΤΗΣ ΣΥΝΔΕΣΗΣ"
 msgid "QUICK ACCESS"
 msgstr "ΓΡΗΓΟΡΗ ΠΡΟΣΒΑΣΗ"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "ΑΚΟΥΤΕ ΤΩΡΑ"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
@@ -2070,12 +2081,6 @@ msgstr "ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ ΣΥΣΤΗΜΑΤΟΣ"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "ΘΕΛΕΤΕ ΝΑ ΚΑΝΕΤΕ ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ;"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "ΓΡΗΓΟΡΗ ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ ΣΥΣΤΗΜΑΤΟΣ"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "ΘΕΛΕΤΕ ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ ΧΩΡΙΣ ΤΗΝ ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ;"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ EMULATIONSTATION"
@@ -2642,6 +2647,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "ΑΚΟΥΤΕ ΤΩΡΑ"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "ΓΡΗΓΟΡΗ ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ ΣΥΣΤΗΜΑΤΟΣ"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "ΘΕΛΕΤΕ ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ ΧΩΡΙΣ ΤΗΝ ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ;"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "ΠΡΟΦΟΡΤΩΣΗ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"

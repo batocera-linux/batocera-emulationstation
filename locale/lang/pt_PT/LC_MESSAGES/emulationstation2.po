@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Mapa"
 
 msgid "enter path to map"
 msgstr "digite o caminho para o mapa"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartucho"
@@ -1271,6 +1277,9 @@ msgstr "OBTER VÍDEOS"
 msgid "SCRAPE FANART"
 msgstr "OBTER MEDIAS DE ARTE DO FÃ"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
 
@@ -1706,7 +1715,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2063,11 +2074,11 @@ msgstr "ERRO NA CONFIGURAÇÃO WIFI"
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "A OUVIR AGORA"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE ECRÃ"
@@ -2089,12 +2100,6 @@ msgstr "DESLIGAR O SISTEMA"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "DESEJA DESLIGAR?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "DESLIGAR O SISTEMA RAPIDAMENTE"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "SAIR DO EMULATIONSTATION"
@@ -2667,6 +2672,18 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "A OUVIR AGORA"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "DESLIGAR O SISTEMA RAPIDAMENTE"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "PRÉ-CARREGAR ELEMENTOS DO MODO DE INTERFACE"

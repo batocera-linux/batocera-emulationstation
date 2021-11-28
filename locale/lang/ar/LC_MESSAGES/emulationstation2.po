@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -97,6 +97,12 @@ msgstr "خريطة"
 
 msgid "enter path to map"
 msgstr "ادخل المسار للخريطة"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "كاتردج"
@@ -1272,6 +1278,9 @@ msgstr "كشط عن فيديو"
 msgid "SCRAPE FANART"
 msgstr "كشط غلاف الجماهير"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
@@ -1701,7 +1710,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2052,10 +2063,10 @@ msgstr "تكوين الـ WIFI خاطىء"
 msgid "QUICK ACCESS"
 msgstr "الوصول السريع"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "انتقل إلى الأغنية التالية"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
+msgid "NOW PLAYING"
 msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
@@ -2078,12 +2089,6 @@ msgstr "إيقاف تشغيل النظام"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "هل فعلا تريد إيقاف التشغيل؟ "
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "إيقاف تشغيل سريع"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "هل فعلا تريد إيقاف التشغيل بدون حفظ البيانات؟"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "خروج من المحاكي"
@@ -2689,6 +2694,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "انتقل إلى الأغنية التالية"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "إيقاف تشغيل سريع"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "هل فعلا تريد إيقاف التشغيل بدون حفظ البيانات؟"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "تحميل واجهة المستخدم"

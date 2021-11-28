@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Karte"
 
 msgid "enter path to map"
 msgstr "Pfad zur Karte eingeben"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartridge"
@@ -1269,6 +1275,9 @@ msgstr "VIDEOS SCRAPEN"
 msgid "SCRAPE FANART"
 msgstr "FANART SCRAPEN"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "BOX-RÜCKSEITE SCRAPEN"
 
@@ -1458,19 +1467,23 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMIERUNGEN"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "BEIM BOOTEN UI-ELEMENTE VORLADEN"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Reduziert Verzögerungerungen bei der Eingabe von Spielelisten aus dem System-"
+"Menü, verlängert Boot-Zeit"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "MEDIEN-METADATEN BEIM BOOTEN VORLADEN"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Reduziert Verzögerungen beim Scrollen durch eine vollständig gescrapte "
+"Spieleliste, verlängert Boot-Zeit"
 
 msgid "THREADED LOADING"
 msgstr "THREADED LOADING"
@@ -1704,7 +1717,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2061,11 +2076,11 @@ msgstr "WLAN-EINSTELLUNGSFEHLER"
 msgid "QUICK ACCESS"
 msgstr "SCHNELLZUGRIFF"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "JETZT HÖRST DU"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "BILDSCHIRMSCHONER STARTEN"
@@ -2087,12 +2102,6 @@ msgstr "SYSTEM ABSCHALTEN"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "WIRKLICH ABSCHALTEN?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "SYSTEM SCHNELL ABSCHALTEN"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "WIRKLICH ABSCHALTEN OHNE METADATEN ZU SPEICHERN?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "EMULATIONSTATION BEENDEN"
@@ -2669,6 +2678,18 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "JETZT HÖRST DU"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "SYSTEM SCHNELL ABSCHALTEN"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "WIRKLICH ABSCHALTEN OHNE METADATEN ZU SPEICHERN?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "UI-ELEMENTE VORLADEN"

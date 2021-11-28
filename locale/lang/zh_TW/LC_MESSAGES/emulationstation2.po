@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "地圖"
 
 msgid "enter path to map"
 msgstr "輸入地圖路徑"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "卡匣"
@@ -1267,6 +1273,9 @@ msgstr "搜刮影片"
 msgid "SCRAPE FANART"
 msgstr "搜刮粉絲繪圖"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "搜刮包裝盒背面"
 
@@ -1699,7 +1708,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2053,11 +2064,11 @@ msgstr "WIFI 無線網路設定錯誤"
 msgid "QUICK ACCESS"
 msgstr "快速存取"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "跳到下一首歌"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "正在聆聽"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
@@ -2079,12 +2090,6 @@ msgstr "系統關機"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "確定要關機嗎?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "快速關機"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "確定不儲存中繼資料就直接關機嗎?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "退出 EMULATIONSTATION"
@@ -2643,6 +2648,18 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "跳到下一首歌"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "正在聆聽"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "快速關機"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "確定不儲存中繼資料就直接關機嗎?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "預先載入 UI 元素"

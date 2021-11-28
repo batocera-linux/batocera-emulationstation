@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -94,6 +94,12 @@ msgstr "Map"
 
 msgid "enter path to map"
 msgstr "gosod llwybr i'r map"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cetrisen"
@@ -1269,6 +1275,9 @@ msgstr "CRAFU FIDEOS"
 msgid "SCRAPE FANART"
 msgstr "CRAFU CELF FFAN"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
@@ -1698,7 +1707,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2049,11 +2060,11 @@ msgstr "GWALL TRAWSWEDDU WIFI"
 msgid "QUICK ACCESS"
 msgstr "MYNEDIAD CYFLYM"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "SGIPIO I'R GÂN NESAF"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "GWRANDO NAWR"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSIO ARBEDYDD SGRIN"
@@ -2075,12 +2086,6 @@ msgstr "CAU LAWR SYSTEM"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "CAU LAWR SYSTEM GO IAWN?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "CAU LAWR SYSTEM GYFLYM"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "YN WIR CAU LAWR SYSTEM HEB ARBED METADATA?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "GADAEL EMULATIONSTATION"
@@ -2687,6 +2692,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "SGIPIO I'R GÂN NESAF"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "GWRANDO NAWR"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "CAU LAWR SYSTEM GYFLYM"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "YN WIR CAU LAWR SYSTEM HEB ARBED METADATA?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "CYN LLWYTHO UI"

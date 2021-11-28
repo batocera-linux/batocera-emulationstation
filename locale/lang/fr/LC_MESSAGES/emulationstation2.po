@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: Batocera official\n"
@@ -93,6 +93,12 @@ msgstr "Carte"
 
 msgid "enter path to map"
 msgstr "entrer le chemin vers la carte"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartouche"
@@ -1267,6 +1273,9 @@ msgstr "SCRAPER LES VIDÉOS"
 msgid "SCRAPE FANART"
 msgstr "SCRAPER LES FANARTS"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCRAPER LE DOS DES BOITES"
 
@@ -1706,7 +1715,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2063,11 +2074,11 @@ msgstr "IMPOSSIBLE DE CONFIGURER LE WIFI"
 msgid "QUICK ACCESS"
 msgstr "ACCÈS RAPIDE"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "PASSER A LA MUSIQUE SUIVANTE"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "A L’ÉCOUTE"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCRAN DE VEILLE"
@@ -2089,12 +2100,6 @@ msgstr "ÉTEINDRE"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE ?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "EXTINCTION RAPIDE"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES MÉTADONNÉES ?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "QUITTER EMULATIONSTATION"
@@ -2669,3 +2674,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "PASSER A LA MUSIQUE SUIVANTE"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "A L’ÉCOUTE"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "EXTINCTION RAPIDE"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES MÉTADONNÉES ?"

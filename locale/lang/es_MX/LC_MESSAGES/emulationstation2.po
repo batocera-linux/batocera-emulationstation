@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Mapa"
 
 msgid "enter path to map"
 msgstr "introduce la ruta del mapa"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartucho"
@@ -1264,6 +1270,9 @@ msgstr "OBTENER VÍDEOS"
 msgid "SCRAPE FANART"
 msgstr "OBTENER FANART"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTENER TRASERA DE LA CAJA"
 
@@ -1695,7 +1704,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2046,11 +2057,11 @@ msgstr "ERROR EN LA CONFIGURACIÓN WIFI"
 msgid "QUICK ACCESS"
 msgstr "ACCESO RÁPIDO"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "PASAR A LA SIGUIENTE CANCIÓN"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "SONANDO AHORA"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
@@ -2072,12 +2083,6 @@ msgstr "APAGAR SISTEMA"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "¿SEGURO QUE QUIERES APAGAR?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "APAGAR RÁPIDAMENTE"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "SALIR DE EMULATIONSTATION"
@@ -2644,6 +2649,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "PASAR A LA SIGUIENTE CANCIÓN"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "SONANDO AHORA"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "APAGAR RÁPIDAMENTE"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "PRECARGAR LA INTERFAZ"

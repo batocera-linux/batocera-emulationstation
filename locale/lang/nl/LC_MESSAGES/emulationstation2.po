@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Map"
 
 msgid "enter path to map"
 msgstr "voer locatie naar map in"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cardtridge"
@@ -1264,6 +1270,9 @@ msgstr "SCRAAP VIDEO'S"
 msgid "SCRAPE FANART"
 msgstr "SCHRAAP FANART"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCHRAAP ACHTERZIJDE DOOS"
 
@@ -1696,7 +1705,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2047,11 +2058,11 @@ msgstr "WIFI CONFIGURATIE FOUT"
 msgid "QUICK ACCESS"
 msgstr "SNELLE TOEGANG"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "VOLGENDE NUMMER"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "WORDT NU AFGESPEELD"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "START SCREENSAVER"
@@ -2073,12 +2084,6 @@ msgstr "SYSTEEM UITSCHAKELEN"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "SYSTEEM UITSCHAKELEN?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "SYSTEEM SNEL UITSCHAKELEN"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "UITSCHAKELEN ZONDER METADATA OP TE SLAAN?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "STOP EMULATIONSTATION"
@@ -2644,6 +2649,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "VOLGENDE NUMMER"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "WORDT NU AFGESPEELD"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "SYSTEEM SNEL UITSCHAKELEN"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "UITSCHAKELEN ZONDER METADATA OP TE SLAAN?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "PRELOAD UI"

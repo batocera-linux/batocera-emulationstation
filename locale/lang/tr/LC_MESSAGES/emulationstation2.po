@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Harita"
 
 msgid "enter path to map"
 msgstr "haritanın yolunu girin"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Kartuş"
@@ -1264,6 +1270,9 @@ msgstr "VİDEOLARI ÇEK(SCRAPE)"
 msgid "SCRAPE FANART"
 msgstr "FAN SANATLARINI ÇEK(SCRAPE)"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "KUTU ARKA KAPAK ÇEK(SCRAPE)"
 
@@ -1696,7 +1705,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2047,11 +2058,11 @@ msgstr "WIFI YAPILANDIRMA HATASI"
 msgid "QUICK ACCESS"
 msgstr "HIZLI ERİŞİM"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "SONRAKİ MÜZİĞE GEÇ"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "ŞİMDİ DİNLENİYOR"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"
@@ -2073,12 +2084,6 @@ msgstr "KAPAT"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "KAPATILSIN MI?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "HIZLI KAPATMA"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "VERİLER KAYDEDİLMEDEN KAPATILSIN MI?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "EMULASTONDAN ÇIK"
@@ -2645,6 +2650,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "SONRAKİ MÜZİĞE GEÇ"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "ŞİMDİ DİNLENİYOR"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "HIZLI KAPATMA"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "VERİLER KAYDEDİLMEDEN KAPATILSIN MI?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "ARAYÜZ ÖNYÜKLEME"

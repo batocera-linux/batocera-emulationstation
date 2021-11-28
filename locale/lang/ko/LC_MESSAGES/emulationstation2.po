@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "맵"
 
 msgid "enter path to map"
 msgstr "맵 경로 입력"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "카트리지"
@@ -1263,6 +1269,9 @@ msgstr "비디오 스크랩"
 msgid "SCRAPE FANART"
 msgstr "팬아트 스크랩"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "박스 후면 스크랩"
 
@@ -1692,7 +1701,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2043,11 +2054,11 @@ msgstr "WIFI 구성 오류"
 msgid "QUICK ACCESS"
 msgstr "빠른 연결"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "다음 노래로 건너뜀"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "지금 재생 중"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면보호기 실행"
@@ -2069,12 +2080,6 @@ msgstr "시스템 종료"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "정말로 시스템을 종료하시겠습니까?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "빠른 시스템 종료"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "에뮬레이션스테이션 나가기"
@@ -2628,6 +2633,18 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "다음 노래로 건너뜀"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "지금 재생 중"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "빠른 시스템 종료"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "UI 사전 불러오기"

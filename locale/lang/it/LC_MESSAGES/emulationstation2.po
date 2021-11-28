@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-26 18:52+0100\n"
+"POT-Creation-Date: 2021-11-28 16:02+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Mappa"
 
 msgid "enter path to map"
 msgstr "inserisci percorso della mappa"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartuccia"
@@ -1269,6 +1275,9 @@ msgstr "SCARICA VIDEO ANTEPRIMA"
 msgid "SCRAPE FANART"
 msgstr "SCARICA FANART"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCARICA BOX (RETRO)"
 
@@ -1704,7 +1713,9 @@ msgstr ""
 msgid "AUTO FRAME DELAY"
 msgstr ""
 
-msgid "Automatically decrease frame delay temporarily to prevent frame drops"
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
 msgstr ""
 
 msgid "HARDCORE MODE"
@@ -2060,11 +2071,11 @@ msgstr "ERRORE DI CONFIGURAZIONE WIFI"
 msgid "QUICK ACCESS"
 msgstr "ACCESSO RAPIDO"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "SALTA AL BRANO SUCCESSIVO"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "IN ASCOLTO"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
@@ -2086,12 +2097,6 @@ msgstr "ARRESTA IL SISTEMA"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "ARRESTARE?"
-
-msgid "FAST SHUTDOWN SYSTEM"
-msgstr "SPEGNIMENTO RAPIDO DEL SISTEMA"
-
-msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE LE INFORMAZIONI?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "ESCI DA EMULATIONSTATION"
@@ -2666,6 +2671,18 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "SALTA AL BRANO SUCCESSIVO"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "IN ASCOLTO"
+
+#~ msgid "FAST SHUTDOWN SYSTEM"
+#~ msgstr "SPEGNIMENTO RAPIDO DEL SISTEMA"
+
+#~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+#~ msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE LE INFORMAZIONI?"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "PRECARICA ELEMENTI UI"
