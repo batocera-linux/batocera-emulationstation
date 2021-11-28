@@ -350,6 +350,8 @@ std::vector<std::string> readList(const std::string& str, const char* delims = "
 
 void SystemData::createGroupedSystems()
 {
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+
 	std::map<std::string, std::vector<SystemData*>> map;
 
 	for (auto sys : sSystemVector)
@@ -364,8 +366,10 @@ void SystemData::createGroupedSystems()
 		{
 			sys->getSystemEnvData()->mGroup = "";
 			continue;
-		}
-
+		}		
+		else if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), sys->getName()) != hiddenSystems.cend())
+			continue;
+		
 		map[sys->getSystemEnvData()->mGroup].push_back(sys);		
 	}
 
@@ -421,10 +425,24 @@ void SystemData::createGroupedSystems()
 			system->mIsGameSystem = false;
 		}
 
+		if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
+		{
+			system->mHidden = true;
+
+			if (!existingSystem)
+				sSystemVector.push_back(system);
+						
+			for (auto childSystem : item.second)
+				childSystem->getSystemEnvData()->mGroup = "";
+
+			continue;
+		}
+
 		FolderData* root = system->getRootFolder();
-		
+
 		for (auto childSystem : item.second)
-		{			
+		{
+
 			auto children = childSystem->getRootFolder()->getChildren();
 			if (children.size() > 0)
 			{
@@ -1942,14 +1960,20 @@ bool SystemData::isGroupChildSystem()
 
 std::unordered_set<std::string> SystemData::getAllGroupNames()
 {
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+
 	std::unordered_set<std::string> names;
 	
 	for (auto sys : SystemData::sSystemVector)
 	{
+		std::string name;
 		if (sys->isGroupSystem())
-			names.insert(sys->getName());
+			name = sys->getName();
 		else if (sys->mEnvData != nullptr && !sys->mEnvData->mGroup.empty())
-			names.insert(sys->mEnvData->mGroup);
+			name = sys->mEnvData->mGroup;
+
+		if (!name.empty() && std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), name) == hiddenSystems.cend())
+			names.insert(name);
 	}
 
 	return names;

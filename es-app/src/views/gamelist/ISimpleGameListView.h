@@ -57,6 +57,7 @@ public:
 
 protected:	
 	void	  updateFolderPath();
+	void      updateHeaderLogoAndText();
 
 	virtual std::string getQuickSystemSelectRightButton() = 0;
 	virtual std::string getQuickSystemSelectLeftButton() = 0;
