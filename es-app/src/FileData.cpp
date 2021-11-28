@@ -490,12 +490,12 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 
 	// Export Game info XML is requested
 #ifdef WIN32
-	std::string fileInfo = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), "gameinfo.xml");
+	std::string fileInfo = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), "game.xml");
 #else
-	std::string fileInfo = "/tmp/gameinfo.xml";
+	std::string fileInfo = "/tmp/game.xml";
 #endif
 
-	if (command.find("%GAMEINFOXML%") != std::string::npos && saveToXml(gameToUpdate, fileInfo))
+	if (command.find("%GAMEINFOXML%") != std::string::npos && saveToXml(gameToUpdate, fileInfo, true))
 		command = Utils::String::replace(command, "%GAMEINFOXML%", Utils::FileSystem::getEscapedPath(fileInfo));
 	else
 	{

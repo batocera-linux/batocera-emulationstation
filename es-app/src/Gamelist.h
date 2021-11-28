@@ -19,7 +19,7 @@ void cleanupGamelist(SystemData* system);
 bool saveToGamelistRecovery(FileData* file);
 bool removeFromGamelistRecovery(FileData* file);
 
-bool saveToXml(FileData* file, const std::string& fileName);
+bool saveToXml(FileData* file, const std::string& fileName, bool fullPaths = false);
 
 bool hasDirtyFile(SystemData* system);
 

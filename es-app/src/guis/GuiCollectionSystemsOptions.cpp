@@ -34,7 +34,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 		std::string man;
 		for (auto system : SystemData::sSystemVector)
 		{
-			if (system->isCollection() || system->isGroupChildSystem())
+			if (system->isCollection()/* || system->isGroupChildSystem()*/)
 				continue;
 
 			if (man != system->getSystemMetadata().manufacturer)
@@ -49,7 +49,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	else
 	{
 		for (auto system : SystemData::sSystemVector)
-			if (!system->isCollection() && !system->isGroupChildSystem())
+			if (!system->isCollection()/* && !system->isGroupChildSystem()*/)
 				displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());
 	}
 
@@ -62,7 +62,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 		for (auto system : SystemData::sSystemVector)
 		{
-			if (system->isCollection() || system->isGroupChildSystem())
+			if (system->isCollection()/* || system->isGroupChildSystem()*/)
 				continue;
 
 			if (std::find(sys.cbegin(), sys.cend(), system) == sys.cend())
@@ -133,7 +133,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 			for (auto groupName : groupNames)
 			{
-				if (std::find(checkedItems.cbegin(), checkedItems.cend(), groupName) == checkedItems.cend())
+				if (std::find(checkedItems.cbegin(), checkedItems.cend(), groupName) == checkedItems.cend() && Settings::getInstance()->getBool(groupName + ".ungroup"))
 					Settings::getInstance()->setBool(groupName + ".ungroup", false);
 
 				for (auto systemName : SystemData::getGroupChildSystemNames(groupName))
@@ -141,9 +141,13 @@ void GuiCollectionSystemsOptions::initializeMenu()
 					if (systemName == groupName)
 						continue;
 
-					bool isGroupActive = std::find(checkedItems.cbegin(), checkedItems.cend(), systemName) != checkedItems.cend();
-					if (Settings::getInstance()->setBool(systemName + ".ungroup", !isGroupActive))
-						setVariable("reloadSystems", true);
+					bool unGrouped = std::find(checkedItems.cbegin(), checkedItems.cend(), systemName) == checkedItems.cend();
+
+					if (Settings::getInstance()->getBool(systemName + ".ungroup") == unGrouped)
+						continue;
+
+					Settings::getInstance()->setBool(systemName + ".ungroup", unGrouped);
+					setVariable("reloadSystems", true);
 				}
 			}
 		});

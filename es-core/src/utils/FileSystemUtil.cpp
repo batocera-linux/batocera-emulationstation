@@ -393,7 +393,7 @@ namespace Utils
 						fi.path = path + "/" + name;
 						fi.hidden = (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN;
 						fi.directory = (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY;
-						fi.creationTime = to_time_t(findData.ftCreationTime);
+						fi.lastWriteTime = to_time_t(findData.ftLastWriteTime);
 
 						contentList.push_back(fi);
 

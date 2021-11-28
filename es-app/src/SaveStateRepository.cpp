@@ -84,7 +84,7 @@ void SaveStateRepository::refresh()
 		state->fileName = file.path;
 
 #if WIN32
-		state->creationDate.setTime(file.creationTime);
+		state->creationDate.setTime(file.lastWriteTime);
 #else
 		state->creationDate = Utils::FileSystem::getFileModificationDate(state->fileName);
 #endif

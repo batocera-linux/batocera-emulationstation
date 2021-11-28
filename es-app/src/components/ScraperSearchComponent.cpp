@@ -15,6 +15,7 @@
 #include "Log.h"
 #include "Window.h"
 #include "LocaleES.h"
+#include "components/MultiLineMenuEntry.h"
 
 ScraperSearchComponent::ScraperSearchComponent(Window* window, SearchType type) : GuiComponent(window),
 	mGrid(window, Vector2i(5, 5)), mBusyAnim(window),
@@ -341,9 +342,16 @@ void ScraperSearchComponent::onSearchDone()
 				if (result.urls.find(MetaDataId::Manual) != result.urls.cend())
 					icons += _U(" \uF02D");
 
+				if (result.urls.find(MetaDataId::Map) != result.urls.cend())
+					icons += _U(" \uF0AC");
+
+				if (result.urls.find(MetaDataId::Bezel) != result.urls.cend())
+					icons += _U(" \uF07E");
+
 				row.elements.clear();
-				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(result.mdl.get(MetaDataId::Name)) + " " + icons, font, color), true);
+				row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(result.mdl.get(MetaDataId::Name)) + " " + icons, font, color), true);					
 				row.makeAcceptInputHandler([this, result] { returnResult(result); });
+
 				mResultList->addRow(row, false, true, std::to_string(i));
 
 				i++;
