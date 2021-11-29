@@ -540,29 +540,36 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 	//	for (pugi::xml_node featureNode = customFeatures.child("feature"); featureNode; featureNode = featureNode.next_sibling("feature"))
 	for (pugi::xml_node featureNode = customFeatures.first_child(); featureNode; featureNode = featureNode.next_sibling())
 	{
-		if (!featureNode.attribute("name"))
-			continue;
-
-		std::string name = featureNode.name();		
+		std::string name = featureNode.name();
 		if (name == "sharedFeature")
 		{
-			std::string featureName = featureNode.attribute("name").value();
+			if (featureNode.attribute("name"))
+			{
+				std::string featureName = featureNode.attribute("name").value();
 
-			auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
-			if (it != mSharedFeatures.cend())
-				ret.push_back(*it);
-			else if (featureNode.attribute("value"))
+				auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
+				if (it != mSharedFeatures.cend())
+				{
+					ret.push_back(*it);
+					continue;
+				}
+			}
+
+			if (featureNode.attribute("value"))
 			{
 				std::string featureValue = featureNode.attribute("value").value();
 
-				it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
+				auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
 				if (it != mSharedFeatures.cend())
 					ret.push_back(*it);
 			}
 
 			continue;
-		}		
+		}
 		else if (name != "feature")
+			continue;
+
+		if (!featureNode.attribute("name"))
 			continue;
 
 		CustomFeature feat;
