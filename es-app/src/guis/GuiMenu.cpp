@@ -2156,14 +2156,14 @@ void GuiMenu::openGamesSettings_batocera()
 						});
 
 				// tattoo and controller overlays
-				auto bezel_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW CONTROLLER OVERLAYS"));
+				auto bezel_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW TATTOO OVER BEZEL"));
 				bezel_tattoo->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.tattoo") != "0"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo") != "system"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo") != "custom");
 				bezel_tattoo->add(_("NO"), "0", SystemConf::getInstance()->get("global.bezel.tattoo") == "0");
 				bezel_tattoo->add(_("SYSTEM CONTROLLERS"), "system", SystemConf::getInstance()->get("global.bezel.tattoo") == "system");
-				bezel_tattoo->add(_("CUSTOM .PNG IMAGE"), "custom", SystemConf::getInstance()->get("global.bezel.tattoo") == "custom");
-				decorations_window->addWithLabel(_("SHOW CONTROLLER OVERLAYS"), bezel_tattoo);
+				bezel_tattoo->add(_("CUSTOM IMAGE"), "custom", SystemConf::getInstance()->get("global.bezel.tattoo") == "custom");
+				decorations_window->addWithDescription(_("SHOW TATTOO OVER BEZEL"), _("Show an image overlaid on top of the bezel."), bezel_tattoo);
 				decorations_window->addSaveFunc([bezel_tattoo] {
 						if (bezel_tattoo->changed()) {
 						SystemConf::getInstance()->set("global.bezel.tattoo", bezel_tattoo->getSelected());
@@ -2171,7 +2171,7 @@ void GuiMenu::openGamesSettings_batocera()
 						}
 						});
 
-				auto bezel_tattoo_corner = std::make_shared<OptionListComponent<std::string>>(mWindow, _("OVERLAY CORNER"));
+				auto bezel_tattoo_corner = std::make_shared<OptionListComponent<std::string>>(mWindow, _("TATTOO CORNER"));
 				bezel_tattoo_corner->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "NW"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "NE"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "SE"
@@ -2180,7 +2180,7 @@ void GuiMenu::openGamesSettings_batocera()
 				bezel_tattoo_corner->add(_("NORTH EAST"), "NE", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "NE");
 				bezel_tattoo_corner->add(_("SOUTH EAST"), "SE", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "SE");
 				bezel_tattoo_corner->add(_("SOUTH WEST"), "SW", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "SW");
-				decorations_window->addWithLabel(_("OVERLAY CORNER"), bezel_tattoo_corner);
+				decorations_window->addWithLabel(_("TATTOO CORNER"), bezel_tattoo_corner);
 				decorations_window->addSaveFunc([bezel_tattoo_corner] {
 						if (bezel_tattoo_corner->changed()) {
 						SystemConf::getInstance()->set("global.bezel.tattoo_corner", bezel_tattoo_corner->getSelected());
@@ -2188,6 +2188,21 @@ void GuiMenu::openGamesSettings_batocera()
 						}
 						});
 				decorations_window->addInputTextRow(_("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
+
+				auto bezel_resize_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RESIZE TATTOO WIDTH"));
+				bezel_resize_tattoo->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.resize_tattoo") != "225/1920"
+						&& SystemConf::getInstance()->get("global.bezel.resize_tattoo") != "240/1920"
+						&& SystemConf::getInstance()->get("global.bezel.resize_tattoo") != "original");
+				bezel_resize_tattoo->add(_("225/1920"), "225/1920", SystemConf::getInstance()->get("global.bezel.resize_tattoo") == "225/1920");
+				bezel_resize_tattoo->add(_("240/1920"), "240/1920", SystemConf::getInstance()->get("global.bezel.resize_tattoo") == "240/1920");
+				bezel_resize_tattoo->add(_("ORIGINAL"), "original", SystemConf::getInstance()->get("global.bezel.resize_tattoo") == "original");
+				decorations_window->addWithDescription(_("RESIZE OVERLAY WIDTH"), _("Relative to a 1920 px bezel."), bezel_resize_tattoo);
+				decorations_window->addSaveFunc([bezel_resize_tattoo] {
+						if (bezel_resize_tattoo->changed()) {
+						SystemConf::getInstance()->set("global.bezel.resize_tattoo", bezel_resize_tattoo->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
 
 				mWindow->pushGui(decorations_window);
 			});			
