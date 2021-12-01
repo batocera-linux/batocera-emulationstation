@@ -41,6 +41,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ AMSTRAD_CPC, 65 },
 	{ APPLE_II, 86 },
 	{ ARCADE, 75 },
+	{ LCD_GAMES, 75 },
 	{ ATARI_800, 43 },
 	{ ATARI_2600, 26 },
 	{ ATARI_5200, 40 },
