@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/11/29)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 22:42+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: 2021-11-29 02:03+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1805,17 +1805,20 @@ msgstr "ベゼル装飾(ゲーム画面外表示)"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "画面に合わせる(4K＆ウルトラワイド)"
 
-msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "コントローラーオーバーレイを表示"
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "機種コントローラー"
 
-msgid "CUSTOM .PNG IMAGE"
-msgstr "カスタムPNG画像"
+msgid "CUSTOM IMAGE"
+msgstr ""
 
-msgid "OVERLAY CORNER"
-msgstr "オーバーレイの表示位置"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
+msgstr ""
 
 msgid "NORTH WEST"
 msgstr "左上"
@@ -1831,6 +1834,24 @@ msgstr "左下"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "カスタムPNG画像のパス"
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AIゲーム翻訳"
@@ -2113,6 +2134,15 @@ msgstr "EMULATIONSTATION を終了"
 
 msgid "REALLY QUIT?"
 msgstr "本当に終了しますか？"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "コントローラーオーバーレイを表示"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "カスタムPNG画像"
+
+msgid "OVERLAY CORNER"
+msgstr "オーバーレイの表示位置"
 
 msgid "COLORIZATION"
 msgstr "表示色"

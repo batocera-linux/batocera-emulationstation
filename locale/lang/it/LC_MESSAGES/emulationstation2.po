@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 22:42+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1810,17 +1810,20 @@ msgstr "CORNICI"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTENDI CORNICI (4K & ULTRAWIDE)"
 
-msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "MOSTRA MAPPA DEL CONTROLLER"
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLLER DI SISTEMA"
 
-msgid "CUSTOM .PNG IMAGE"
-msgstr "IMMAGINE .PNG PERSONALIZZATA"
+msgid "CUSTOM IMAGE"
+msgstr ""
 
-msgid "OVERLAY CORNER"
-msgstr "ANGOLO DELLA MAPPA"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
+msgstr ""
 
 msgid "NORTH WEST"
 msgstr "NORD OVEST"
@@ -1836,6 +1839,24 @@ msgstr "SUD OVEST"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PERCORSO IMMAGINE PERSONALIZZATA"
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUZIONE GIOCO IA"
@@ -2117,6 +2138,15 @@ msgstr "ESCI DA EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "VUOI USCIRE?"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "MOSTRA MAPPA DEL CONTROLLER"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "IMMAGINE .PNG PERSONALIZZATA"
+
+msgid "OVERLAY CORNER"
+msgstr "ANGOLO DELLA MAPPA"
 
 msgid "COLORIZATION"
 msgstr "COLORAZIONE"
