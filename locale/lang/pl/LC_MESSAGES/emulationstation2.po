@@ -96,10 +96,10 @@ msgid "enter path to map"
 msgstr "wprowadź ścieżkę do mapy"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Ramka (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "wprowadź ścieżkę do ramki (16:9)"
 
 msgid "Cartridge"
 msgstr "Kaseta"
@@ -1278,7 +1278,7 @@ msgid "SCRAPE FANART"
 msgstr "SCRAPE'UJ FAN ART"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "RAMKA SCRAPE'A (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCRAPE'UJ TYŁ PUDEŁKA"
@@ -1724,6 +1724,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Automatycznie zmniejsz tymczasowo opóźnienie klatek, aby zapobiec spadkowi "
+"liczby klatek. Wyłącz, jeśli pogorszy to zacinanie się dźwięku/wideo."
 
 msgid "HARDCORE MODE"
 msgstr "TRYB HARDCORE"
@@ -2079,10 +2081,10 @@ msgid "QUICK ACCESS"
 msgstr "SZYBKI DOSTĘP"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "PRZEJDŹ DO NASTĘPNEGO UTWORU"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "ODTWARZANE OBECNIE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "URUCHOM WYGASZACZ EKRANU"
@@ -2109,7 +2111,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "SZYBKIE ZAMKNIĘCIE SYSTEMU"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Wyłączenie bez zapisywania metadanych."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "WYŁĄCZYĆ SYSTEM BEZ ZAPISU METADANYCH?"

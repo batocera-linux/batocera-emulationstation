@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "insira o caminho do diretório para o mapa"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Moldura (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "insira o caminho do diretório para a moldura (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartucho"
@@ -1278,7 +1278,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTER MÍDIAS DE ARTE DO FÃ"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "OBTER MÍDIAS DA MOLDURA (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTER MÍDIAS DA PARTE DE TRÁS DA CAIXA"
@@ -1469,19 +1469,23 @@ msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "PRÉ-CARREGAR ELEMENTO DA INTERFACE NA INICIALIZAÇÃO"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Reduz o tempo de acesso às listas de jogos à partir do sistema, aumenta o "
+"tempo de inicialização"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "PRÉ-CARREGAR INFORMAÇÕES DE MÍDIA NA INICIALIZAÇÃO"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Reduz o tempo de acesso ao navegar pela lista de jogos, aumenta o tempo de "
+"inicialização"
 
 msgid "THREADED LOADING"
 msgstr "CARREGANDO EM PARALELO"
@@ -1710,15 +1714,18 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Decrementa automaticamente o atraso da taxa de quadros temporariamente para "
+"prevenir a queda da taxa de quadros. Desligue se isso piorar o engasgue de "
+"áudio / vídeo."
 
 msgid "HARDCORE MODE"
 msgstr "MODO EXTREMO"
@@ -2076,10 +2083,10 @@ msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "PULE PARA A PRÓXIMA MÚSICA"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "REPRODUZINDO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE TELA"
@@ -2106,7 +2113,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Desligar sem salvar as informações alteradas."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "DESEJA DESLIGAR SEM SALVAR AS INFORMAÇÕES ?"
