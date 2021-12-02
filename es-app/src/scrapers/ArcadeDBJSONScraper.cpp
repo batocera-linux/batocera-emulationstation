@@ -42,7 +42,7 @@ void ArcadeDBScraper::generateRequests(const ScraperSearchParams& params,
 
 bool ArcadeDBScraper::isSupportedPlatform(SystemData* system)
 {
-	return system && system->hasPlatformId(PlatformIds::ARCADE) || system->hasPlatformId(PlatformIds::NEOGEO);
+	return system && system->hasPlatformId(PlatformIds::ARCADE) || system->hasPlatformId(PlatformIds::NEOGEO) || system->hasPlatformId(PlatformIds::LCD_GAMES);
 }
 
 const std::set<Scraper::ScraperMediaSource>& ArcadeDBScraper::getSupportedMedias()

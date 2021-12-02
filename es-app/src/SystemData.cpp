@@ -252,6 +252,10 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 		{
 			std::string fn = Utils::String::toLower(Utils::FileSystem::getFileName(filePath));
 
+			// Never look in "artwork", reserved for mame roms artwork
+			if (fn == "artwork")
+				continue;
+
 			if (preloadMedias && (!mHidden || Settings::HiddenSystemsShowGames()))
 			{
 				// Recurse list files in medias folder, just to let OS build filesystem cache 
