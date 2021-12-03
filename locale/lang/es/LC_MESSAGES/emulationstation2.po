@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Mapa"
 
 msgid "enter path to map"
 msgstr "introduce la ruta del mapa"
+
+msgid "Bezel (16:9)"
+msgstr "Bisel (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "introduce la ruta del bisel (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartucho <cartridge>"
@@ -1269,6 +1275,9 @@ msgstr "OBTENER VÍDEO"
 msgid "SCRAPE FANART"
 msgstr "OBTENER FANART"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "ESCRAPEAR BISEL (16:9)"
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTENER TRASERA DE LA CAJA"
 
@@ -1458,19 +1467,23 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMIZACIONES"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "PRECARGAR ELEMENTOS DE LA INTERFAZ AL ARRANCAR"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Reduce el lag al introducir listas de juegos desde el menú del sistema, "
+"aumenta el tiempo de arranque"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "PRECARGAR LOS MEDIOS DE LOS METADATOS AL ARRANCAR"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Reduce el lag al desplazarse por una lista de juegos completamente "
+"escrapeada, aumenta el tiempo de arranque"
 
 msgid "THREADED LOADING"
 msgstr "ACELERAR CARGA DEL SISTEMA"
@@ -1698,6 +1711,20 @@ msgstr "USAR FRAMES ANTICIPADOS"
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "ANTICIPAR USO DE SEGUNDA INSTANCIA"
 
+msgid "AUTOMATIC FRAME DELAY"
+msgstr "RETRASO AUTOMÁTICO DE FRAMES"
+
+msgid "AUTO FRAME DELAY"
+msgstr "RETRASO AUTOMÁTICO DE FRAMES"
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
+msgstr ""
+"Reducir automáticamente el retraso de frames temporalmente para prevenir la "
+"caída de frames. Desactiva esta opción si causa cortes en el audio y/o el "
+"vídeo."
+
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
@@ -1785,17 +1812,20 @@ msgstr "DECORACIONES"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "AJUSTAR BISELES (4K & ULTRAWIDE)"
 
-msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "MOSTRAR SUPERPOSICIONES DEL MANDO"
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "MANDOS DEL SISTEMA"
 
-msgid "CUSTOM .PNG IMAGE"
-msgstr "IMAGEN .PNG PERSONALIZADA"
+msgid "CUSTOM IMAGE"
+msgstr ""
 
-msgid "OVERLAY CORNER"
-msgstr "ESQUINAS DE LA SUPERPOSICIÓN"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
+msgstr ""
 
 msgid "NORTH WEST"
 msgstr "NORTE OESTE"
@@ -1811,6 +1841,24 @@ msgstr "SUR OESTE"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RUTA DE LA IMAGEN .PNG PERSONALIZADA"
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓN DE JUEGO POR IA"
@@ -2052,11 +2100,11 @@ msgstr "ERROR EN LA CONFIGURACIÓN WIFI"
 msgid "QUICK ACCESS"
 msgstr "ACCESO RÁPIDO"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "PASAR A LA SIGUIENTE CANCIÓN"
+msgid "SKIP TO THE NEXT SONG"
+msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 
-msgid "LISTENING NOW"
-msgstr "SONANDO AHORA"
+msgid "NOW PLAYING"
+msgstr "REPRODUCIENDO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
@@ -2082,6 +2130,9 @@ msgstr "¿SEGURO QUE QUIERES APAGAR?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "APAGAR RÁPIDAMENTE"
 
+msgid "Shutdown without saving metadata."
+msgstr ""
+
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
 
@@ -2090,6 +2141,15 @@ msgstr "SALIR DE EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "¿SALIR DE EMULATIONSTATION?"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "MOSTRAR SUPERPOSICIONES DEL MANDO"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "IMAGEN .PNG PERSONALIZADA"
+
+msgid "OVERLAY CORNER"
+msgstr "ESQUINAS DE LA SUPERPOSICIÓN"
 
 msgid "COLORIZATION"
 msgstr "COLORIZACIÓN"
@@ -2657,6 +2717,12 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "PASAR A LA SIGUIENTE CANCIÓN"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "SONANDO AHORA"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "PRECARGAR ELEMENTOS DE LA INTERFAZ"

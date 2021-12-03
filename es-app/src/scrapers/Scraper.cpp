@@ -95,6 +95,11 @@ bool Scraper::hasMissingMedia(FileData* file)
 		if (Settings::getInstance()->getBool("ScrapeCartridge") && (file->getMetadata(MetaDataId::Cartridge).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Cartridge))))
 			return true;
 
+	if (isMediaSupported(ScraperMediaSource::Bezel_16_9))
+		if (Settings::getInstance()->getBool("ScrapeBezel") && (file->getMetadata(MetaDataId::Bezel).empty() || !Utils::FileSystem::exists(file->getMetadata(MetaDataId::Bezel))))
+			return true;
+	
+
 	return false;
 }
 
@@ -294,6 +299,7 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 		case MetaDataId::Magazine: suffix = "magazine"; resize = false;  break;
 		case MetaDataId::Map: suffix = "map"; resize = false; break;
 		case MetaDataId::Cartridge: suffix = "cartridge"; break;
+		case MetaDataId::Bezel: suffix = "bezel"; resize = false; break;
 		}
 
 		auto ext = url.second.format;
@@ -519,7 +525,7 @@ void ImageDownloadHandle::update()
 		}
 
 		// It's an image ?
-		if (mSavePath.find("-fanart") == std::string::npos && mSavePath.find("-map") == std::string::npos && (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif"))
+		if (mSavePath.find("-fanart") == std::string::npos && mSavePath.find("-bezel") == std::string::npos && mSavePath.find("-map") == std::string::npos && (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".bmp" || ext == ".gif"))
 		{
 			try { resizeImage(mSavePath, mMaxWidth, mMaxHeight); }
 			catch(...) { }
@@ -622,6 +628,7 @@ std::string Scraper::getSaveAsPath(FileData* game, const MetaDataId metadataId, 
 	case MetaDataId::Magazine: suffix = "magazine"; folder = "magazines"; break;
 	case MetaDataId::Map: suffix = "map"; break;
 	case MetaDataId::Cartridge: suffix = "cartridge"; break;
+	case MetaDataId::Bezel: suffix = "bezel"; break;
 	}
 
 	auto system = game->getSourceFileData()->getSystem();

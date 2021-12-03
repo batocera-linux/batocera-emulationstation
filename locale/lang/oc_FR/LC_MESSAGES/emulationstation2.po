@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: 2021-10-02 17:16+0000\n"
 "Last-Translator: Weblate Admin <quentinantonin@free.fr>\n"
 "Language-Team: Occitan <https://fabrica.mejans.fr/projects/autres/batocera/"
@@ -100,6 +100,12 @@ msgstr "Mapa"
 
 msgid "enter path to map"
 msgstr "dintrar lo camin d’accès a la mapa"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartocha"
@@ -1269,6 +1275,9 @@ msgstr ""
 msgid "SCRAPE FANART"
 msgstr ""
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr ""
 
@@ -1692,6 +1701,17 @@ msgstr ""
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr ""
 
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
+msgstr ""
+
 msgid "HARDCORE MODE"
 msgstr "MÒDE DIFICIL DIFICIL"
 
@@ -1779,16 +1799,19 @@ msgstr "DECORACIONS"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr ""
 
-msgid "SHOW CONTROLLER OVERLAYS"
+msgid "SHOW TATTOO OVER BEZEL"
 msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr ""
 
-msgid "CUSTOM .PNG IMAGE"
+msgid "CUSTOM IMAGE"
 msgstr ""
 
-msgid "OVERLAY CORNER"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
 msgstr ""
 
 msgid "NORTH WEST"
@@ -1804,6 +1827,24 @@ msgid "SOUTH WEST"
 msgstr ""
 
 msgid "CUSTOM .PNG IMAGE PATH"
+msgstr ""
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -2040,10 +2081,10 @@ msgstr "ERROR DE CONFIGURACION WIFI"
 msgid "QUICK ACCESS"
 msgstr ""
 
-msgid "SKIP TO NEXT SONG"
+msgid "SKIP TO THE NEXT SONG"
 msgstr ""
 
-msgid "LISTENING NOW"
+msgid "NOW PLAYING"
 msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
@@ -2070,6 +2111,9 @@ msgstr "ATUDAR PER DE BON ?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "ATUDA RAPIDA DEL SISTÈMA"
 
+msgid "Shutdown without saving metadata."
+msgstr ""
+
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "VOLÈTZ ATUDAR PER DE BON SENS ENREGISTRAR LAS METADONADAS ?"
 
@@ -2078,6 +2122,15 @@ msgstr "QUITAR EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "QUITAR PER DE BON ?"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr ""
+
+msgid "OVERLAY CORNER"
+msgstr ""
 
 msgid "COLORIZATION"
 msgstr "COLORIZACION"

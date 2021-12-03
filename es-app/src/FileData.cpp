@@ -426,6 +426,14 @@ FileData* FileData::getSourceFileData()
 	return this;
 }
 
+static std::string formatCommandLineArgument(const std::string& name)
+{
+	if (name.find(" ") != std::string::npos)
+		return "\"" + Utils::String::replace(name, "\"", "\\\"") + "\"";
+
+	return Utils::String::replace(name, "\"", "\\\"");
+};
+
 std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeControllers)
 {
 	FileData* gameToUpdate = getSourceFileData();
@@ -499,14 +507,6 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 	const std::string rom_raw = Utils::FileSystem::getPreferredPath(getPath());
-
-	auto formatName = [](const std::string& name)
-			  {
-			    if (name.find(" ") != std::string::npos)
-			      return "\"" + Utils::String::replace(name, "\"", "\\\"") + "\"";
-			    
-			    return Utils::String::replace(name, "\"", "\\\"");
-			  };
 	
 	command = Utils::String::replace(command, "%SYSTEM%", systemName); // batocera
 	command = Utils::String::replace(command, "%ROM%", rom);
@@ -515,9 +515,24 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
 	command = Utils::String::replace(command, "%CORE%", core);
 	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
-	command = Utils::String::replace(command, "%GAMENAME%", formatName(gameToUpdate->getName()));
-	command = Utils::String::replace(command, "%SYSTEMNAME%", formatName(system->getFullName()));
+	command = Utils::String::replace(command, "%GAMENAME%", formatCommandLineArgument(gameToUpdate->getName()));
+	command = Utils::String::replace(command, "%SYSTEMNAME%", formatCommandLineArgument(system->getFullName()));
 
+	// Export Game info XML is requested
+#ifdef WIN32
+	std::string fileInfo = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), "game.xml");
+#else
+	std::string fileInfo = "/tmp/game.xml";
+#endif
+
+	if (command.find("%GAMEINFOXML%") != std::string::npos && saveToXml(gameToUpdate, fileInfo, true))
+		command = Utils::String::replace(command, "%GAMEINFOXML%", Utils::FileSystem::getEscapedPath(fileInfo));
+	else
+	{
+		command = Utils::String::replace(command, "%GAMEINFOXML%", "");
+		Utils::FileSystem::removeFile(fileInfo);
+	}
+	
 	if (includeControllers)
 		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
 

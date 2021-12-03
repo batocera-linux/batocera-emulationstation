@@ -54,6 +54,7 @@ ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool 
 
 }
 
+
 ISimpleGameListView::~ISimpleGameListView()
 {
 	for (auto extra : mThemeExtras)
@@ -464,6 +465,21 @@ std::vector<std::string> ISimpleGameListView::getEntriesLetters()
 
 	std::sort(letters.begin(), letters.end());
 	return letters;
+}
+
+void ISimpleGameListView::updateHeaderLogoAndText()
+{
+	SystemData* system = mCursorStack.size() && (!mRoot->getSystem()->isGameSystem() || mRoot->getSystem()->isGroupSystem()) ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+
+	auto groupTheme = system->getTheme();
+	if (groupTheme && mHeaderImage.hasImage())
+	{
+		const ThemeData::ThemeElement* logoElem = groupTheme->getElement(getName(), "logo", "image");
+		if (logoElem && logoElem->has("path") && Utils::FileSystem::exists(logoElem->get<std::string>("path")))
+			mHeaderImage.setImage(logoElem->get<std::string>("path"), false, mHeaderImage.getMaxSizeInfo());
+	}
+
+	mHeaderText.setText(system->getFullName());
 }
 
 void ISimpleGameListView::updateFolderPath()

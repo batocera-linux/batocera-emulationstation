@@ -41,6 +41,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ AMSTRAD_CPC, 65 },
 	{ APPLE_II, 86 },
 	{ ARCADE, 75 },
+	{ LCD_GAMES, 75 },
 	{ ATARI_800, 43 },
 	{ ATARI_2600, 26 },
 	{ ATARI_5200, 40 },
@@ -195,7 +196,8 @@ const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedM
 		ScraperMediaSource::Mix,
 		ScraperMediaSource::Manual,
 		ScraperMediaSource::Ratings,
-		ScraperMediaSource::PadToKey
+		ScraperMediaSource::PadToKey,
+		ScraperMediaSource::Bezel_16_9
 	};
 
 	return mdds;
@@ -700,7 +702,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					if (art)
 						result.urls[MetaDataId::Marquee] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
-						LOG(LogDebug) << "Failed to find media XML node for video";
+						LOG(LogDebug) << "Failed to find media XML node for logo";
 				}
 			}
 
@@ -726,7 +728,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					if (art)
 						result.urls[MetaDataId::FanArt] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
-						LOG(LogDebug) << "Failed to find media XML node for video";
+						LOG(LogDebug) << "Failed to find media XML node for fanart";
 				}
 			}
 			
@@ -739,7 +741,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					if (art)
 						result.urls[MetaDataId::BoxBack] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
-						LOG(LogDebug) << "Failed to find media XML node for video";
+						LOG(LogDebug) << "Failed to find media XML node for box back";
 				}
 			}
 
@@ -753,7 +755,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					if (art)
 						result.urls[MetaDataId::Manual] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
-						LOG(LogDebug) << "Failed to find media XML node for video";
+						LOG(LogDebug) << "Failed to find media XML node for manual";
 				}
 			}
 
@@ -766,7 +768,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					if (art)
 						result.urls[MetaDataId::Map] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
-						LOG(LogDebug) << "Failed to find media XML node for video";
+						LOG(LogDebug) << "Failed to find media XML node for map";
 				}
 			}
 
@@ -779,9 +781,22 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					if (art)
 						result.urls[MetaDataId::TitleShot] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
 					else
-						LOG(LogDebug) << "Failed to find media XML node for video";
+						LOG(LogDebug) << "Failed to find media XML node for titleshot";
 				}
 			}		
+			
+			if (Settings::getInstance()->getBool("ScrapeBezel"))
+			{
+				ripList = getRipList("bezel-16-9");
+				if (!ripList.empty())
+				{
+					pugi::xml_node art = findMedia(media_list, ripList, romlang, region);
+					if (art)
+						result.urls[MetaDataId::Bezel] = ScraperSearchItem(ensureUrl(art.text().get()), art.attribute("format") ? "." + std::string(art.attribute("format").value()) : "");
+					else
+						LOG(LogDebug) << "Failed to find media XML node for bezel";
+				}
+			}
 		}
 
 		out_results.push_back(result);

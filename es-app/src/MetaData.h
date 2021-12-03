@@ -71,7 +71,8 @@ enum MetaDataId
 	BoxBack = 37,
 	Magazine = 38,
 	GenreIds = 39,
-	Family = 40
+	Family = 40,
+	Bezel = 41
 };
 
 namespace MetaDataImportType
@@ -131,7 +132,7 @@ public:
 	static void initMetadata();
 
 	static MetaDataList createFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system);
-	void appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo) const;
+	void appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo, bool fullPaths = false) const;
 
 	void migrate(FileData* file, pugi::xml_node& node);
 

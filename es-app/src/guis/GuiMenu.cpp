@@ -788,6 +788,9 @@ void GuiMenu::openScraperSettings()
 		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
 			addSwitchComponent(_("SCRAPE FANART"), "ScrapeFanart");
 
+		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Bezel_16_9))
+			addSwitchComponent(_("SCRAPE BEZEL (16:9)"), "ScrapeBezel");
+
 		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::BoxBack))
 			addSwitchComponent(_("SCRAPE BOX BACKSIDE"), "ScrapeBoxBack");
 
@@ -2017,7 +2020,7 @@ void GuiMenu::openSystemSettings_batocera()
 	});
 #endif
 
-#ifdef GAMEFORCE
+#if GAMEFORCE || RK3326
 	auto buttonColor_GameForce = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BUTTON LED COLOR"));
 	buttonColor_GameForce->add(_("off"), "off", SystemConf::getInstance()->get("color_rgb") == "off" || SystemConf::getInstance()->get("color_rgb") == "");
 	buttonColor_GameForce->add(_("red"), "red", SystemConf::getInstance()->get("color_rgb") == "red");
@@ -2274,7 +2277,7 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 	// auto frame delay
 	auto video_frame_delay_auto = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTOMATIC FRAME DELAY"));
 	video_frame_delay_auto->addRange({ { _("AUTO"), "" }, { _("ON"), "1" }, { _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".video_frame_delay_auto"));
-	guiLatency->addWithDescription(_("AUTO FRAME DELAY"), _("Automatically decrease frame delay temporarily to prevent frame drops"), video_frame_delay_auto);
+	guiLatency->addWithDescription(_("AUTO FRAME DELAY"), _("Automatically decrease frame delay temporarily to prevent frame drops. Turn off if this worsens audio/video stuttering."), video_frame_delay_auto);
 	guiLatency->addSaveFunc([configName, video_frame_delay_auto] { SystemConf::getInstance()->set(configName + ".video_frame_delay_auto", video_frame_delay_auto->getSelected()); });
 
 	mWindow->pushGui(guiLatency);
@@ -2319,6 +2322,13 @@ void GuiMenu::openRetroachievementsSettings()
 	retroachievements_screenshot_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.screenshot"));
 	retroachievements->addWithLabel(_("AUTOMATIC SCREENSHOT"), retroachievements_screenshot_enabled);
 	retroachievements->addSaveFunc([retroachievements_screenshot_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.screenshot", retroachievements_screenshot_enabled->getState()); });
+
+	// retroachievements_challenge_indicator
+	auto retroachievements_challenge_indicators = std::make_shared<SwitchComponent>(mWindow);
+	retroachievements_challenge_indicators->setState(SystemConf::getInstance()->getBool("global.retroachievements.challenge_indicators"));
+	retroachievements->addWithDescription(_("CHALLENGE INDICATORS"), _("Shows icons in the bottom right corner when eligible achievements can be earned."), retroachievements_challenge_indicators);
+	retroachievements->addSaveFunc([retroachievements_challenge_indicators] { SystemConf::getInstance()->setBool("global.retroachievements.challenge_indicators", retroachievements_challenge_indicators->getState()); });
+
 	// Unlock sound
 	auto installedRSounds = ApiSystem::getInstance()->getRetroachievementsSoundsList();
 	if (installedRSounds.size() > 0)
@@ -2667,14 +2677,14 @@ void GuiMenu::openGamesSettings_batocera()
 						});
 
 				// tattoo and controller overlays
-				auto bezel_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW CONTROLLER OVERLAYS"));
+				auto bezel_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW TATTOO OVER BEZEL"));
 				bezel_tattoo->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.tattoo") != "0"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo") != "system"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo") != "custom");
 				bezel_tattoo->add(_("NO"), "0", SystemConf::getInstance()->get("global.bezel.tattoo") == "0");
 				bezel_tattoo->add(_("SYSTEM CONTROLLERS"), "system", SystemConf::getInstance()->get("global.bezel.tattoo") == "system");
-				bezel_tattoo->add(_("CUSTOM .PNG IMAGE"), "custom", SystemConf::getInstance()->get("global.bezel.tattoo") == "custom");
-				decorations_window->addWithLabel(_("SHOW CONTROLLER OVERLAYS"), bezel_tattoo);
+				bezel_tattoo->add(_("CUSTOM IMAGE"), "custom", SystemConf::getInstance()->get("global.bezel.tattoo") == "custom");
+				decorations_window->addWithDescription(_("SHOW TATTOO OVER BEZEL"), _("Show an image overlaid on top of the bezel."), bezel_tattoo);
 				decorations_window->addSaveFunc([bezel_tattoo] {
 						if (bezel_tattoo->changed()) {
 						SystemConf::getInstance()->set("global.bezel.tattoo", bezel_tattoo->getSelected());
@@ -2682,7 +2692,7 @@ void GuiMenu::openGamesSettings_batocera()
 						}
 						});
 
-				auto bezel_tattoo_corner = std::make_shared<OptionListComponent<std::string>>(mWindow, _("OVERLAY CORNER"));
+				auto bezel_tattoo_corner = std::make_shared<OptionListComponent<std::string>>(mWindow, _("TATTOO CORNER"));
 				bezel_tattoo_corner->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "NW"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "NE"
 						&& SystemConf::getInstance()->get("global.bezel.tattoo_corner") != "SE"
@@ -2691,7 +2701,7 @@ void GuiMenu::openGamesSettings_batocera()
 				bezel_tattoo_corner->add(_("NORTH EAST"), "NE", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "NE");
 				bezel_tattoo_corner->add(_("SOUTH EAST"), "SE", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "SE");
 				bezel_tattoo_corner->add(_("SOUTH WEST"), "SW", SystemConf::getInstance()->get("global.bezel.tattoo_corner") == "SW");
-				decorations_window->addWithLabel(_("OVERLAY CORNER"), bezel_tattoo_corner);
+				decorations_window->addWithLabel(_("TATTOO CORNER"), bezel_tattoo_corner);
 				decorations_window->addSaveFunc([bezel_tattoo_corner] {
 						if (bezel_tattoo_corner->changed()) {
 						SystemConf::getInstance()->set("global.bezel.tattoo_corner", bezel_tattoo_corner->getSelected());
@@ -2699,6 +2709,21 @@ void GuiMenu::openGamesSettings_batocera()
 						}
 						});
 				decorations_window->addInputTextRow(_("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
+
+				auto bezel_resize_tattoo = std::make_shared<OptionListComponent<std::string>>(mWindow, _("RESIZE TATTOO WIDTH"));
+				bezel_resize_tattoo->add(_("AUTO"), "auto", SystemConf::getInstance()->get("global.bezel.resize_tattoo") != "225/1920"
+						&& SystemConf::getInstance()->get("global.bezel.resize_tattoo") != "240/1920"
+						&& SystemConf::getInstance()->get("global.bezel.resize_tattoo") != "original");
+				bezel_resize_tattoo->add(_("225/1920"), "225/1920", SystemConf::getInstance()->get("global.bezel.resize_tattoo") == "225/1920");
+				bezel_resize_tattoo->add(_("240/1920"), "240/1920", SystemConf::getInstance()->get("global.bezel.resize_tattoo") == "240/1920");
+				bezel_resize_tattoo->add(_("ORIGINAL"), "original", SystemConf::getInstance()->get("global.bezel.resize_tattoo") == "original");
+				decorations_window->addWithDescription(_("RESIZE OVERLAY WIDTH"), _("Relative to a 1920 px bezel."), bezel_resize_tattoo);
+				decorations_window->addSaveFunc([bezel_resize_tattoo] {
+						if (bezel_resize_tattoo->changed()) {
+						SystemConf::getInstance()->set("global.bezel.resize_tattoo", bezel_resize_tattoo->getSelected());
+						SystemConf::getInstance()->saveSystemConf();
+						}
+						});
 
 				mWindow->pushGui(decorations_window);
 			});			
@@ -4322,7 +4347,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 			auto sname = AudioManager::getInstance()->getSongName();
 			if (!sname.empty())
 			{
-				s->addWithDescription(_("SKIP TO NEXT SONG"), _("LISTENING NOW") + " : " + sname, nullptr, [s, window]
+				s->addWithDescription(_("SKIP TO THE NEXT SONG"), _("NOW PLAYING") + ": " + sname, nullptr, [s, window]
 				{
 					Window* w = window;
 					AudioManager::getInstance()->playRandomMusic(false);
@@ -4415,7 +4440,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 	}, "iconShutdown");
 
 #ifndef _ENABLEEMUELEC
-	s->addEntry(_("FAST SHUTDOWN SYSTEM"), false, [window] {
+	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"), _("Shutdown without saving metadata."), nullptr, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATA?"), 
 			_("YES"), [] { quitES(QuitMode::FAST_SHUTDOWN); },
 			_("NO"), nullptr));

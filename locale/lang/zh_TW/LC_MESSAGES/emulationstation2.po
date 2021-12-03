@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:08+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "地圖"
 
 msgid "enter path to map"
 msgstr "輸入地圖路徑"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "卡匣"
@@ -1267,6 +1273,9 @@ msgstr "搜刮影片"
 msgid "SCRAPE FANART"
 msgstr "搜刮粉絲繪圖"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "搜刮包裝盒背面"
 
@@ -1693,6 +1702,17 @@ msgstr "使用預先執行畫格"
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "使用第二個實例預先執行畫格"
 
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
+msgstr ""
+
 msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
@@ -1780,17 +1800,20 @@ msgstr "裝飾框"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "延展框體 (4K & ULTRAWIDE)"
 
-msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "顯示遊戲控制器覆層"
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "遊戲平台控制器"
 
-msgid "CUSTOM .PNG IMAGE"
-msgstr "自訂 .PNG 圖片"
+msgid "CUSTOM IMAGE"
+msgstr ""
 
-msgid "OVERLAY CORNER"
-msgstr "覆層邊角"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
+msgstr ""
 
 msgid "NORTH WEST"
 msgstr "西北"
@@ -1806,6 +1829,24 @@ msgstr "西南"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "自訂 .PNG 圖片路徑"
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI 遊戲翻譯"
@@ -2044,11 +2085,11 @@ msgstr "WIFI 無線網路設定錯誤"
 msgid "QUICK ACCESS"
 msgstr "快速存取"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "跳到下一首歌"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "正在聆聽"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
@@ -2074,6 +2115,9 @@ msgstr "確定要關機嗎?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "快速關機"
 
+msgid "Shutdown without saving metadata."
+msgstr ""
+
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "確定不儲存中繼資料就直接關機嗎?"
 
@@ -2082,6 +2126,15 @@ msgstr "退出 EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "確定要退出？"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "顯示遊戲控制器覆層"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "自訂 .PNG 圖片"
+
+msgid "OVERLAY CORNER"
+msgstr "覆層邊角"
 
 msgid "COLORIZATION"
 msgstr "著色"
@@ -2634,6 +2687,12 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "跳到下一首歌"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "正在聆聽"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "預先載入 UI 元素"

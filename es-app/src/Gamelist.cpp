@@ -215,13 +215,13 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 		system->setGamelistHash(size);	
 }
 
-bool addFileDataNode(pugi::xml_node& parent, FileData* file, const char* tag, SystemData* system)
+bool addFileDataNode(pugi::xml_node& parent, FileData* file, const char* tag, SystemData* system, bool fullPaths = false)
 {
 	//create game and add to parent node
 	pugi::xml_node newNode = parent.append_child(tag);
 
 	//write metadata
-	file->getMetadata().appendToXML(newNode, true, system->getStartPath());
+	file->getMetadata().appendToXML(newNode, true, system->getStartPath(), fullPaths);
 
 	if(newNode.children().begin() == newNode.child("name") //first element is name
 		&& ++newNode.children().begin() == newNode.children().end() //theres only one element
@@ -233,49 +233,44 @@ bool addFileDataNode(pugi::xml_node& parent, FileData* file, const char* tag, Sy
 		return false;
 	}
 
-	// there's something useful in there so we'll keep the node, add the path
-	// try and make the path relative if we can so things still work if we change the rom folder location in the future
-	std::string path = Utils::FileSystem::createRelativePath(file->getPath(), system->getStartPath(), false).c_str();
-	if (path.empty() && file->getType() == FOLDER)
-		path = ".";
+	if (fullPaths)
+		newNode.prepend_child("path").text().set(file->getPath().c_str());
+	else
+	{
+		// there's something useful in there so we'll keep the node, add the path
+		// try and make the path relative if we can so things still work if we change the rom folder location in the future
+		std::string path = Utils::FileSystem::createRelativePath(file->getPath(), system->getStartPath(), false).c_str();
+		if (path.empty() && file->getType() == FOLDER)
+			path = ".";
 
-	newNode.prepend_child("path").text().set(path.c_str());
+		newNode.prepend_child("path").text().set(path.c_str());
+	}
 	return true;	
 }
 
-bool saveToGamelistRecovery(FileData* file)
+bool saveToXml(FileData* file, const std::string& fileName, bool fullPaths)
 {
-	if (!Settings::getInstance()->getBool("SaveGamelistsOnExit"))
-		return false;
+	SystemData* system = file->getSourceFileData()->getSystem();
+	if (system == nullptr)
+		return false;	
 
 	pugi::xml_document doc;
 	pugi::xml_node root = doc.append_child("gameList");
 
 	const char* tag = file->getType() == GAME ? "game" : "folder";
 
-	SystemData* system = file->getSourceFileData()->getSystem();
-	if (!Settings::HiddenSystemsShowGames() && !system->isVisible())
-		return false;
-
 	root.append_attribute("parentHash").set_value(system->getGamelistHash());
 
-	if (addFileDataNode(root, file, tag, system))
+	if (addFileDataNode(root, file, tag, system, fullPaths))
 	{
-		std::string fp = file->getFullPath();
-		fp = Utils::FileSystem::createRelativePath(file->getFullPath(), system->getRootFolder()->getFullPath(), true);
-		fp = Utils::FileSystem::getParent(fp) + "/" + Utils::FileSystem::getStem(fp) + ".xml";
-
-		std::string path = Utils::FileSystem::getAbsolutePath(fp, getGamelistRecoveryPath(system));
-		path = Utils::FileSystem::getCanonicalPath(path);
-
-		std::string folder = Utils::FileSystem::getParent(path);
-
+		std::string folder = Utils::FileSystem::getParent(fileName);
 		if (!Utils::FileSystem::exists(folder))
 			Utils::FileSystem::createDirectory(folder);
 
-		if (!doc.save_file(path.c_str()))
+		Utils::FileSystem::removeFile(fileName);
+		if (!doc.save_file(fileName.c_str()))
 		{
-			LOG(LogError) << "Error saving gamelist.xml to \"" << path << "\" (for system " << system->getName() << ")!";
+			LOG(LogError) << "Error saving metadata to \"" << fileName << "\" (for system " << system->getName() << ")!";
 			return false;
 		}
 
@@ -283,6 +278,25 @@ bool saveToGamelistRecovery(FileData* file)
 	}
 
 	return false;
+}
+
+bool saveToGamelistRecovery(FileData* file)
+{
+	if (!Settings::getInstance()->getBool("SaveGamelistsOnExit"))
+		return false;
+
+	SystemData* system = file->getSourceFileData()->getSystem();
+	if (!Settings::HiddenSystemsShowGames() && !system->isVisible())
+		return false;
+
+	std::string fp = file->getFullPath();
+	fp = Utils::FileSystem::createRelativePath(file->getFullPath(), system->getRootFolder()->getFullPath(), true);
+	fp = Utils::FileSystem::getParent(fp) + "/" + Utils::FileSystem::getStem(fp) + ".xml";
+
+	std::string path = Utils::FileSystem::getAbsolutePath(fp, getGamelistRecoveryPath(system));
+	path = Utils::FileSystem::getCanonicalPath(path);
+
+	return saveToXml(file, path);
 }
 
 bool removeFromGamelistRecovery(FileData* file)

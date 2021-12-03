@@ -252,6 +252,10 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 		{
 			std::string fn = Utils::String::toLower(Utils::FileSystem::getFileName(filePath));
 
+			// Never look in "artwork", reserved for mame roms artwork
+			if (fn == "artwork")
+				continue;
+
 			if (preloadMedias && (!mHidden || Settings::HiddenSystemsShowGames()))
 			{
 				// Recurse list files in medias folder, just to let OS build filesystem cache 
@@ -350,6 +354,8 @@ std::vector<std::string> readList(const std::string& str, const char* delims = "
 
 void SystemData::createGroupedSystems()
 {
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+
 	std::map<std::string, std::vector<SystemData*>> map;
 
 	for (auto sys : sSystemVector)
@@ -364,8 +370,10 @@ void SystemData::createGroupedSystems()
 		{
 			sys->getSystemEnvData()->mGroup = "";
 			continue;
-		}
-
+		}		
+		else if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), sys->getName()) != hiddenSystems.cend())
+			continue;
+		
 		map[sys->getSystemEnvData()->mGroup].push_back(sys);		
 	}
 
@@ -421,10 +429,24 @@ void SystemData::createGroupedSystems()
 			system->mIsGameSystem = false;
 		}
 
+		if (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
+		{
+			system->mHidden = true;
+
+			if (!existingSystem)
+				sSystemVector.push_back(system);
+						
+			for (auto childSystem : item.second)
+				childSystem->getSystemEnvData()->mGroup = "";
+
+			continue;
+		}
+
 		FolderData* root = system->getRootFolder();
-		
+
 		for (auto childSystem : item.second)
-		{			
+		{
+
 			auto children = childSystem->getRootFolder()->getChildren();
 			if (children.size() > 0)
 			{
@@ -526,29 +548,36 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 	//	for (pugi::xml_node featureNode = customFeatures.child("feature"); featureNode; featureNode = featureNode.next_sibling("feature"))
 	for (pugi::xml_node featureNode = customFeatures.first_child(); featureNode; featureNode = featureNode.next_sibling())
 	{
-		if (!featureNode.attribute("name"))
-			continue;
-
-		std::string name = featureNode.name();		
+		std::string name = featureNode.name();
 		if (name == "sharedFeature")
 		{
-			std::string featureName = featureNode.attribute("name").value();
+			if (featureNode.attribute("name"))
+			{
+				std::string featureName = featureNode.attribute("name").value();
 
-			auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
-			if (it != mSharedFeatures.cend())
-				ret.push_back(*it);
-			else if (featureNode.attribute("value"))
+				auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
+				if (it != mSharedFeatures.cend())
+				{
+					ret.push_back(*it);
+					continue;
+				}
+			}
+
+			if (featureNode.attribute("value"))
 			{
 				std::string featureValue = featureNode.attribute("value").value();
 
-				it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
+				auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
 				if (it != mSharedFeatures.cend())
 					ret.push_back(*it);
 			}
 
 			continue;
-		}		
+		}
 		else if (name != "feature")
+			continue;
+
+		if (!featureNode.attribute("name"))
 			continue;
 
 		CustomFeature feat;
@@ -1951,14 +1980,20 @@ bool SystemData::isGroupChildSystem()
 
 std::unordered_set<std::string> SystemData::getAllGroupNames()
 {
+	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
+
 	std::unordered_set<std::string> names;
 	
 	for (auto sys : SystemData::sSystemVector)
 	{
+		std::string name;
 		if (sys->isGroupSystem())
-			names.insert(sys->getName());
+			name = sys->getName();
 		else if (sys->mEnvData != nullptr && !sys->mEnvData->mGroup.empty())
-			names.insert(sys->mEnvData->mGroup);
+			name = sys->mEnvData->mGroup;
+
+		if (!name.empty() && std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), name) == hiddenSystems.cend())
+			names.insert(name);
 	}
 
 	return names;

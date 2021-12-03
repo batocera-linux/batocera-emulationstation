@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "맵"
 
 msgid "enter path to map"
 msgstr "맵 경로 입력"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "카트리지"
@@ -1263,6 +1269,9 @@ msgstr "비디오 스크랩"
 msgid "SCRAPE FANART"
 msgstr "팬아트 스크랩"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "박스 후면 스크랩"
 
@@ -1686,6 +1695,17 @@ msgstr "프레임 미리 실행 사용"
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "미리 실행 초 단위 사용"
 
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
+msgstr ""
+
 msgid "HARDCORE MODE"
 msgstr "하드코어 모드"
 
@@ -1773,16 +1793,19 @@ msgstr "꾸미기"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "베젤 늘리기 (4K & 울트라 와이드)"
 
-msgid "SHOW CONTROLLER OVERLAYS"
+msgid "SHOW TATTOO OVER BEZEL"
 msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr ""
 
-msgid "CUSTOM .PNG IMAGE"
+msgid "CUSTOM IMAGE"
 msgstr ""
 
-msgid "OVERLAY CORNER"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
 msgstr ""
 
 msgid "NORTH WEST"
@@ -1798,6 +1821,24 @@ msgid "SOUTH WEST"
 msgstr ""
 
 msgid "CUSTOM .PNG IMAGE PATH"
+msgstr ""
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -2034,11 +2075,11 @@ msgstr "WIFI 구성 오류"
 msgid "QUICK ACCESS"
 msgstr "빠른 연결"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "다음 노래로 건너뜀"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "지금 재생 중"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면보호기 실행"
@@ -2064,6 +2105,9 @@ msgstr "정말로 시스템을 종료하시겠습니까?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "빠른 시스템 종료"
 
+msgid "Shutdown without saving metadata."
+msgstr ""
+
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "게임 정보를 저장하지 않고 시스템을 종료하시겠습니까?"
 
@@ -2072,6 +2116,15 @@ msgstr "에뮬레이션스테이션 나가기"
 
 msgid "REALLY QUIT?"
 msgstr "정말로 나가시겠습니까?"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr ""
+
+msgid "OVERLAY CORNER"
+msgstr ""
 
 msgid "COLORIZATION"
 msgstr "색상변경"
@@ -2619,6 +2672,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "다음 노래로 건너뜀"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "지금 재생 중"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "UI 사전 불러오기"

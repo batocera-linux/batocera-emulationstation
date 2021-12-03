@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Seis\n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Mapa"
 
 msgid "enter path to map"
 msgstr "introduce la ruta del mapa"
+
+msgid "Bezel (16:9)"
+msgstr ""
+
+msgid "enter path to bezel (16:9)"
+msgstr ""
 
 msgid "Cartridge"
 msgstr "Cartucho"
@@ -1264,6 +1270,9 @@ msgstr "OBTENER VÍDEOS"
 msgid "SCRAPE FANART"
 msgstr "OBTENER FANART"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTENER TRASERA DE LA CAJA"
 
@@ -1689,6 +1698,17 @@ msgstr "USAR FRAMES ANTICIPADOS"
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "ANTICIPAR USO DE SEGUNDA INSTANCIA"
 
+msgid "AUTOMATIC FRAME DELAY"
+msgstr ""
+
+msgid "AUTO FRAME DELAY"
+msgstr ""
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
+msgstr ""
+
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
@@ -1776,16 +1796,19 @@ msgstr "DECORACIONES"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "AJUSTAR BISELES (4K & ULTRAWIDE)"
 
-msgid "SHOW CONTROLLER OVERLAYS"
+msgid "SHOW TATTOO OVER BEZEL"
 msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr ""
 
-msgid "CUSTOM .PNG IMAGE"
+msgid "CUSTOM IMAGE"
 msgstr ""
 
-msgid "OVERLAY CORNER"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
 msgstr ""
 
 msgid "NORTH WEST"
@@ -1801,6 +1824,24 @@ msgid "SOUTH WEST"
 msgstr ""
 
 msgid "CUSTOM .PNG IMAGE PATH"
+msgstr ""
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -2037,11 +2078,11 @@ msgstr "ERROR EN LA CONFIGURACIÓN WIFI"
 msgid "QUICK ACCESS"
 msgstr "ACCESO RÁPIDO"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "PASAR A LA SIGUIENTE CANCIÓN"
+msgid "SKIP TO THE NEXT SONG"
+msgstr ""
 
-msgid "LISTENING NOW"
-msgstr "SONANDO AHORA"
+msgid "NOW PLAYING"
+msgstr ""
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
@@ -2067,6 +2108,9 @@ msgstr "¿SEGURO QUE QUIERES APAGAR?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "APAGAR RÁPIDAMENTE"
 
+msgid "Shutdown without saving metadata."
+msgstr ""
+
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
 
@@ -2075,6 +2119,15 @@ msgstr "SALIR DE EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "¿SALIR DE EMULATIONSTATION?"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr ""
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr ""
+
+msgid "OVERLAY CORNER"
+msgstr ""
 
 msgid "COLORIZATION"
 msgstr "COLORIZACIÓN"
@@ -2635,6 +2688,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "PASAR A LA SIGUIENTE CANCIÓN"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "SONANDO AHORA"
 
 #~ msgid "PRELOAD UI"
 #~ msgstr "PRECARGAR LA INTERFAZ"

@@ -65,17 +65,7 @@ void CarouselGameListView::onFileChanged(FileData* file, FileChangeType change)
 
 void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 {
-	SystemData* system = mCursorStack.size() && !mRoot->getSystem()->isGameSystem() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
-
-	auto groupTheme = system->getTheme();
-	if (groupTheme && mHeaderImage.hasImage())
-	{
-		const ThemeData::ThemeElement* logoElem = groupTheme->getElement(getName(), "logo", "image");
-		if (logoElem && logoElem->has("path") && Utils::FileSystem::exists(logoElem->get<std::string>("path")))
-			mHeaderImage.setImage(logoElem->get<std::string>("path"), false, mHeaderImage.getMaxSizeInfo());
-	}
-
-	mHeaderText.setText(system->getFullName());
+	updateHeaderLogoAndText();
 
 	mList.clear();
 

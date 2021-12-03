@@ -19,6 +19,8 @@ void cleanupGamelist(SystemData* system);
 bool saveToGamelistRecovery(FileData* file);
 bool removeFromGamelistRecovery(FileData* file);
 
+bool saveToXml(FileData* file, const std::string& fileName, bool fullPaths = false);
+
 bool hasDirtyFile(SystemData* system);
 
 std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* system, std::unordered_map<std::string, FileData*>& fileMap, size_t checkSize = SIZE_MAX, bool fromFile = true);

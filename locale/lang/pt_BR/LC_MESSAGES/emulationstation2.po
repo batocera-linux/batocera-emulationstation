@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 08:05+0100\n"
+"POT-Creation-Date: 2021-12-02 08:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -93,6 +93,12 @@ msgstr "Mapa"
 
 msgid "enter path to map"
 msgstr "insira o caminho do diretório para o mapa"
+
+msgid "Bezel (16:9)"
+msgstr "Moldura (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "insira o caminho do diretório para a moldura (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartucho"
@@ -1271,6 +1277,9 @@ msgstr "OBTER MÍDIAS DOS VÍDEOS"
 msgid "SCRAPE FANART"
 msgstr "OBTER MÍDIAS DE ARTE DO FÃ"
 
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "OBTER MÍDIAS DA MOLDURA (16:9)"
+
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTER MÍDIAS DA PARTE DE TRÁS DA CAIXA"
 
@@ -1460,19 +1469,23 @@ msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "PRÉ-CARREGAR ELEMENTO DA INTERFACE NA INICIALIZAÇÃO"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
+"Reduz o tempo de acesso às listas de jogos à partir do sistema, aumenta o "
+"tempo de inicialização"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "PRÉ-CARREGAR INFORMAÇÕES DE MÍDIA NA INICIALIZAÇÃO"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
+"Reduz o tempo de acesso ao navegar pela lista de jogos, aumenta o tempo de "
+"inicialização"
 
 msgid "THREADED LOADING"
 msgstr "CARREGANDO EM PARALELO"
@@ -1700,6 +1713,20 @@ msgstr "USAR SALTO DE QUADROS"
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
 
+msgid "AUTOMATIC FRAME DELAY"
+msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
+
+msgid "AUTO FRAME DELAY"
+msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
+"off if this worsens audio/video stuttering."
+msgstr ""
+"Decrementa automaticamente o atraso da taxa de quadros temporariamente para "
+"prevenir a queda da taxa de quadros. Desligue se isso piorar o engasgue de "
+"áudio / vídeo."
+
 msgid "HARDCORE MODE"
 msgstr "MODO EXTREMO"
 
@@ -1787,17 +1814,20 @@ msgstr "MOLDURAS"
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
-msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "MOSTRAR INDICADORES DO CONTROLE"
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr ""
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLES DO SISTEMA"
 
-msgid "CUSTOM .PNG IMAGE"
-msgstr "IMAGEM PERSONALIZADA .PNG PARA A MOLDURA"
+msgid "CUSTOM IMAGE"
+msgstr ""
 
-msgid "OVERLAY CORNER"
-msgstr "POSIÇÃO DO CANTO DOS INDICADORES DO CONTROLE"
+msgid "Show an image overlaid on top of the bezel."
+msgstr ""
+
+msgid "TATTOO CORNER"
+msgstr ""
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1813,6 +1843,24 @@ msgstr "SUDOESTE"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "CAMINHO DE IMAGEM PERSONALIZADA .PNG PARA A MOLDURA"
+
+msgid "RESIZE TATTOO WIDTH"
+msgstr ""
+
+msgid "225/1920"
+msgstr ""
+
+msgid "240/1920"
+msgstr ""
+
+msgid "ORIGINAL"
+msgstr ""
+
+msgid "RESIZE OVERLAY WIDTH"
+msgstr ""
+
+msgid "Relative to a 1920 px bezel."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
@@ -2055,11 +2103,11 @@ msgstr "ERRO NA CONFIGURAÇÃO DO WIFI"
 msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
 
-msgid "SKIP TO NEXT SONG"
-msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
+msgid "SKIP TO THE NEXT SONG"
+msgstr "PULE PARA A PRÓXIMA MÚSICA"
 
-msgid "LISTENING NOW"
-msgstr "TOCANDO AGORA"
+msgid "NOW PLAYING"
+msgstr "REPRODUZINDO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE TELA"
@@ -2085,6 +2133,9 @@ msgstr "DESEJA DESLIGAR ?"
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR SISTEMA RAPIDAMENTE"
 
+msgid "Shutdown without saving metadata."
+msgstr "Desligar sem salvar as informações alteradas."
+
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "DESEJA DESLIGAR SEM SALVAR AS INFORMAÇÕES ?"
 
@@ -2093,6 +2144,15 @@ msgstr "SAIR DO EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR ?"
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "MOSTRAR INDICADORES DO CONTROLE"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "IMAGEM PERSONALIZADA .PNG PARA A MOLDURA"
+
+msgid "OVERLAY CORNER"
+msgstr "POSIÇÃO DO CANTO DOS INDICADORES DO CONTROLE"
 
 msgid "COLORIZATION"
 msgstr "COLORIZAÇÃO"
@@ -2663,6 +2723,12 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "SKIP TO NEXT SONG"
+#~ msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
+
+#~ msgid "LISTENING NOW"
+#~ msgstr "TOCANDO AGORA"
 
 #~ msgid "PRELOAD UI ELEMENTS"
 #~ msgstr "PRÉ-CARREGAR ELEMENTOS DE INTERFACE"
