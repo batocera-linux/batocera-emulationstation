@@ -399,10 +399,6 @@ std::string getArchString()
 	return "rpi4";
 #endif
 
-#if ODROIDGOA
-	return "odroidgoa";
-#endif
-
 #if GAMEFORCE
 	return "gameforce";
 #endif
