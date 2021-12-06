@@ -1856,7 +1856,7 @@ void GuiMenu::openRetroachievementsSettings()
 	// retroachievements_challenge_indicator
 	auto retroachievements_challenge_indicators = std::make_shared<SwitchComponent>(mWindow);
 	retroachievements_challenge_indicators->setState(SystemConf::getInstance()->getBool("global.retroachievements.challenge_indicators"));
-	retroachievements->addWithDescription(_("CHALLENGE INDICATORS"), _("Shows icons in the bottom right corner when eligible achievements can be earned."), retroarchievements_challenge_indicators);
+	retroachievements->addWithDescription(_("CHALLENGE INDICATORS"), _("Shows icons in the bottom right corner when eligible achievements can be earned."), retroachievements_challenge_indicators);
 	retroachievements->addSaveFunc([retroachievements_challenge_indicators] { SystemConf::getInstance()->setBool("global.retroachievements.challenge_indicators", retroachievements_challenge_indicators->getState()); });
 
 	// Unlock sound
