@@ -1811,19 +1811,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTENDI CORNICI (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "MOSTRA IMMAGINE SULLA CORNICE"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLLER DI SISTEMA"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "IMMAGINE PERSONALIZZATA"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Mostra un'immagine sulla cornice di gioco"
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "ANGOLO DELL'IMMAGINE"
 
 msgid "NORTH WEST"
 msgstr "NORD OVEST"
@@ -1841,22 +1841,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PERCORSO IMMAGINE PERSONALIZZATA"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "RIDIMENSIONA LARGHEZZA IMMAGINE"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "STANDARD"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "RIDIMENSIONA LARGHEZZA OVERLAY"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "In riferimento ad una cornice 1920p"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUZIONE GIOCO IA"
@@ -2128,7 +2128,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "SPEGNIMENTO RAPIDO DEL SISTEMA"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "SPEGNI SENZA SALVARE LE INFORMAZIONI"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE LE INFORMAZIONI?"

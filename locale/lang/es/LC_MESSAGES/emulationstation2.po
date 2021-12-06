@@ -1813,52 +1813,52 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "AJUSTAR BISELES (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "MOSTRAR CALCO SOBRE EL BISEL"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "MANDOS DEL SISTEMA"
+msgstr "CONTROLES DEL SISTEMA"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "IMAGEN PERSONALIZADA"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Muestra una imagen superpuesta sobre el bisel."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "ESQUINA DEL CALCO"
 
 msgid "NORTH WEST"
-msgstr "NORTE OESTE"
+msgstr "NOROESTE"
 
 msgid "NORTH EAST"
-msgstr "NORTE ESTE"
+msgstr "NORESTE"
 
 msgid "SOUTH EAST"
-msgstr "SUR ESTE"
+msgstr "SURESTE"
 
 msgid "SOUTH WEST"
-msgstr "SUR OESTE"
+msgstr "SUROESTE"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RUTA DE LA IMAGEN .PNG PERSONALIZADA"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "MODIFICAR EL TAMAÑO DEL CALCO"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORIGINAL"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "MODIFICAR EL TAMAÑO DE LA SUPERPOSICIÓN"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "Relativo a un bisel de 1920px."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓN DE JUEGO POR IA"
@@ -1867,7 +1867,7 @@ msgid "ENABLE AI TRANSLATION SERVICE"
 msgstr "HABILITAR SERVICIO DE TRADUCCIÓN POR IA"
 
 msgid "TARGET LANGUAGE"
-msgstr "IDIOMA DE DESTINO"
+msgstr "IDIOMA A TRADUCIR"
 
 msgid "AI TRANSLATION SERVICE URL"
 msgstr "URL DEL SERVICIO DE TRADUCCIÓN POR IA"
@@ -2131,7 +2131,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "APAGAR RÁPIDAMENTE"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Apagar sin guardar metadatos."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"

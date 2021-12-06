@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-02 08:03+0100\n"
-"PO-Revision-Date: 2021-11-28 18:24+0100\n"
+"PO-Revision-Date: 2021-12-03 21:40+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -1813,19 +1813,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "STRÄCK UT RAMAR (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "VISA TATUERING ÖVER RAM"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "SYSTEMKONTROLLER"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "ANPASSAD BILD"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Visa en bild ovanpå ramen."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "TATUERINGSHÖRN"
 
 msgid "NORTH WEST"
 msgstr "NORDVÄST"
@@ -1843,22 +1843,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "SÖKVÄG TILL ANPASSAD .PNG-BILD"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "STORLEKSÄNDRA TATUERINGSBREDD"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORIGINAL"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "STORLEKSÄNDRA OVERLAY-BREDD"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "Relativt till en ram på 1920 px."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPELÖVERSÄTTNING"
@@ -2130,10 +2130,10 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "STÄNG AV SYSTEMET SNABBT"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Stäng av utan att spara metadata."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr ""
+msgstr "VILL DU VERKLIGEN STÄNGA AV UTAN ATT SPARA METADATA?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "AVSLUTA EMULATIONSTATION"
@@ -2716,24 +2716,3 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
-
-#~ msgid "GRAPHICS API"
-#~ msgstr "GRAFIK-API"
-
-#~ msgid "PRELOAD UI ELEMENTS"
-#~ msgstr "FÖRLADDA ANVÄNDARGRÄNSSNITTSELEMENT"
-
-#~ msgid "Reduce overall menu lag at the cost of storage space"
-#~ msgstr "Minska den totala menyfördröjningen på bekostnad av lagringsutrymme"
-
-#~ msgid "PRELOAD METADATA MEDIA"
-#~ msgstr "FÖRLADDA METADATA-MEDIA"
-
-#~ msgid "Reduce gamelist lag at the cost of storage space"
-#~ msgstr "Minska spellistans fördröjning på bekostnad av lagringsutrymme"
-
-#~ msgid "SKIP TO NEXT SONG"
-#~ msgstr "HOPPA TILL NÄSTA LÅT"
-
-#~ msgid "LISTENING NOW"
-#~ msgstr "SPELAS NU"

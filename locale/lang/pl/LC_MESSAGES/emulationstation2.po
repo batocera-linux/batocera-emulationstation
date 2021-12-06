@@ -1815,19 +1815,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ROZCIĄGNIJ RAMKI (4K + ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "POKAŻ TATUAŻ NA RAMCE"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "KONTROLERY SYSTEMU"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "OBRAZ NIESTANDARDOWY"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Pokaż obraz nałożony na ramkę."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "KĄCIK TATUAŻU"
 
 msgid "NORTH WEST"
 msgstr "LEWY GÓRNY"
@@ -1845,22 +1845,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ŚCIEŻKA NIESTANDARDOWEGO OBRAZU .PNG"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "ZMIEŃ SZEROKOŚ TATUAŻU"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORYGINALNY"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "ZMIEŃ SZEROKOŚ NAKŁADKI"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "W stosunku do ramki 1920 pikseli."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TŁUMACZENIE GRY Z AI"
