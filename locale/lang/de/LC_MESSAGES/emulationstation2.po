@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "Pfad zur Karte eingeben"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Bezel (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "Pfad zum Bezel (16:9) eingeben"
 
 msgid "Cartridge"
 msgstr "Cartridge"
@@ -1276,7 +1276,7 @@ msgid "SCRAPE FANART"
 msgstr "FANART SCRAPEN"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "BEZEL (16:9) SCRAPEN"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "BOX-RÜCKSEITE SCRAPEN"
@@ -1712,15 +1712,17 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "RUN-AHEAD USE SECOND INSTANCE"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "AUTOMATISCHE FRAME-VERZÖGERUNG"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "AUTO FRAME-VERZÖGERUNG"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Frame-Verzögerung vorrübergehend automatisch verringern, um Frame-Drops zu "
+"vermeiden. Ausschalten, falls dies Audio-/Video-Stottern verschlimmert."
 
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
@@ -1735,12 +1737,14 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHER SCREENSHOT"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "HERAUSFORDERUNGSINDIKATOREN"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
+"Zeigt Symbole in der unteren rechten Ecke an, wenn berechtigte Erfolge "
+"verdient werden können"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVMENT FREISCHALT-TON"
@@ -1818,19 +1822,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "STRECKE BEZELS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "TATTOO ÜBER BEZEL ANZEIGEN"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "SYSTEM CONTROLLER"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "BENUTZERDEF. BILD"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Ein Bild überlagernd oben auf dem Bezel anzeigen"
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "TATTOO ECKE"
 
 msgid "NORTH WEST"
 msgstr "NORD WEST"
@@ -1848,22 +1852,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PFAD ZUM BENUTZERDEF. .PNG-BILD"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "TATTOO-BREITE GRÖSSE ÄNDERN"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORIGINAL"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "OVERLAY-BREITE GRÖSSE ÄNDERN"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "Relativ zu einem 1920 px bezel."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPIELEÜBERSETZUNG"
@@ -1917,7 +1921,7 @@ msgid "default"
 msgstr "standard"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ZEIGE CONTROLLER-AKTIVITÄT"
+msgstr "CONTROLLER-AKTIVITÄT ANZEIGEN"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "CONTROLLER AKKU-LEVEL ANZEIGEN"
@@ -1965,7 +1969,7 @@ msgid "having multiple games"
 msgstr "es gibt mehrere Spiele"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "ZEIGE  '..' ÜBERGEORDNETEN ORDNER"
+msgstr "ZEIGE '..' ÜBERGEORDNETEN ORDNER AN"
 
 msgid "BEFORE NAME"
 msgstr "VOR NAME"
@@ -2106,10 +2110,10 @@ msgid "QUICK ACCESS"
 msgstr "SCHNELLZUGRIFF"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "JETZT LÄUFT"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "BILDSCHIRMSCHONER STARTEN"
@@ -2136,7 +2140,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "SYSTEM SCHNELL ABSCHALTEN"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Abschalten ohne Metadaten zu speichern."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "WIRKLICH ABSCHALTEN OHNE METADATEN ZU SPEICHERN?"
@@ -2992,7 +2996,7 @@ msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
 #~ msgstr "RETROACHIEVMENTS FREISCHALTE-TON"
 
 #~ msgid "SHOW IN MAIN MENU"
-#~ msgstr "IM HAUPTMENÜ ZEIGEN"
+#~ msgstr "IM HAUPTMENÜ ANZEIGEN"
 
 #~ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS :"
 #~ msgstr "RETROACHIEVEMENTS KÖNNEN NICHT AKTIVIERT WERDEN :"

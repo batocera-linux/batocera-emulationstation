@@ -1740,12 +1740,14 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "INDICADORES DE DESAFIOS DE CONQUISTAS RETRÔ"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
+"Mostra os ícones no canto inferior direito quando as conquistas elegíveis "
+"podem ser obtidas."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR NOVAS CONQUISTAS"

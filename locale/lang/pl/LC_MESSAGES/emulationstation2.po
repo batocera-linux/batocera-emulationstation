@@ -931,7 +931,7 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "KOMPATYBILNY CORE"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "ZOBACZ OSIĄGNIĘCIA GRY"
+msgstr "ZOBACZ OSIĄGNIĘCIA W GRZE"
 
 msgid "GAME"
 msgstr "GRA"
@@ -1740,12 +1740,13 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "WSKAŹNIKI WYZWAŃ"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr ""
+msgstr "Pokaż ikony w prawym dolnym rogu, kiedy można zdobyć osiągnięcia w "
+"grze."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "DŹWIĘK ODBLOKOWANIA RETROACHIEVEMENT"
@@ -2512,7 +2513,7 @@ msgid "ALREADY PLAYED"
 msgstr "JUŻ GRANE"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "MA OSIĄGNIĘCIA"
+msgstr "MA ZADANIA DO OSIĄGNIĘCIA"
 
 msgid "VERTICAL"
 msgstr "PIONOWA"
