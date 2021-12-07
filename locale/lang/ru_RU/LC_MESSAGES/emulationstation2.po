@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "введите путь к карте"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Рамки (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "введите путь к рамкам (16:9)"
 
 msgid "Cartridge"
 msgstr "Картридж"
@@ -1277,7 +1277,7 @@ msgid "SCRAPE FANART"
 msgstr "ЗАГРУЗКА ФАН-АРТА"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "ЗАГРУЗКА РАМКИ (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "ЗАГРУЗКА ЗАДНИКА ОБЛОЖКИ"
@@ -1455,8 +1455,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Поменять нажатие северной кнопки (сохранения) и удержание южной (параметры "
-"игры)"
+"Поменять нажатие северной кнопки (сохранения) и удержание южной "
+"(параметры игры)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
@@ -1710,15 +1710,17 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "АВТОМАТИЧЕСКАЯ ЗАДЕРЖКА КАДРА"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "АВТО ЗАДЕРЖКА КАДРА"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. Отключите, "
+"если это вызывает заикание аудио/видео."
 
 msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
@@ -1733,12 +1735,14 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "ИНДИКАТОР ДОСТИЖЕНИЙ"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
+"Отображает значки в правом нижнем углу, когда можно получить "
+"достижения."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
@@ -1816,19 +1820,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "РАСТЯНУТЬ РАМКИ (4K и ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "ПОКАЗАТЬ ТАТУ ПОВЕРХ РАМКИ"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "СИСТЕМНЫЕ КОНТРОЛЛЕРЫ"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "ПОЛЬЗ. ИЗОБРАЖЕНИЕ"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Накладывает изображение поверх рамки."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "РАСПОЛОЖЕНИЕ ТАТУ"
 
 msgid "NORTH WEST"
 msgstr "СВЕРХУ СЛЕВА"
@@ -1846,22 +1850,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ПУТЬ К ПОЛЬЗ. ИЗОБРАЖЕНИЮ .PNG"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "ИЗМЕНИТЬ ШИРИНУ ТАТУ"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ПО УМОЛЧАНИЮ"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "ИЗМЕНИТЬ ШИРИНУ ОВЕРЕЛЯ"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "Относительно рамки на 1920 пикселей."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI ПЕРЕВОД ИГРЫ"
@@ -2104,10 +2108,10 @@ msgid "QUICK ACCESS"
 msgstr "БЫСТРЫЙ ДОСТУП"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "СЕЙЧАС ИГРАЕТ"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
@@ -2134,7 +2138,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "БЫСТРОЕ ВЫКЛЮЧЕНИЕ СИСТЕМЫ"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Выключение без сохранения метаданных."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "ВЫКЛЮЧИТЬ БЕЗ СОХРАНЕНИЯ МЕТАДАННЫХ?"
