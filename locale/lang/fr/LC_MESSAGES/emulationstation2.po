@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "entrer le chemin vers la carte"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Décoration (16/9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "entrez le chemin pour la décoration (16/9)"
 
 msgid "Cartridge"
 msgstr "Cartouche"
@@ -1274,7 +1274,7 @@ msgid "SCRAPE FANART"
 msgstr "SCRAPER LES FANARTS"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "SCRAPER LES DÉCORATION (16/9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "SCRAPER LE DOS DES BOITES"
@@ -1665,7 +1665,7 @@ msgid "POWER LED COLOR"
 msgstr "COULEUR LED D’ALIMENTATION"
 
 msgid "heartbeat"
-msgstr "BATTEMENT DE COEUR"
+msgstr "battements de coeur"
 
 msgid "on"
 msgstr "allumé"
@@ -1710,15 +1710,17 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "2ND INSTANCE POUR L'EXÉCUTION EN AVANCE"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "IMAGES EN RETARD AUTOMATIQUE"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "RETARD AUTOMATIQUE"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"Réduit automatiquement le retard d’image pour éviter les ralentissements. "
+"Désactivez le si cela aggrave les saccades audio/vidéo"
 
 msgid "HARDCORE MODE"
 msgstr "MODE DIFFICILE"
@@ -1733,12 +1735,14 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "INDICATEURS DE CHALLENGE"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
+"Afficher les icônes dans le coin inférieur droit lorsque des succès rétro "
+"peuvent être obtenus"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SON DE DÉVERROUILLAGE DES SUCCÈS RÉTRO"
@@ -1816,19 +1820,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ETIRER LES DÉCORATIONS (4K ET ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "AFFICHER LE TATOUAGE"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "MANETTE DU SYSTÈME"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "IMAGE PERSONNALISÉE"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Affiche une image superposée au-dessus de la décoration"
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "POSITION DU TATOUAGE"
 
 msgid "NORTH WEST"
 msgstr "NORD OUEST"
@@ -1846,22 +1850,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RÉPERTOIRE D’IMAGES .PNG PERSONNALISÉES"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "LARGEUR DU TATOUAGE"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORIGINAL"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "LARGEUR DE LA DÉCORATION"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "Par rapport à une décoration de 1920 pixels"
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION"
@@ -2104,10 +2108,10 @@ msgid "QUICK ACCESS"
 msgstr "ACCÈS RAPIDE"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "PASSER A LA MUSIQUE SUIVANTE"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "A L’ÉCOUTE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCRAN DE VEILLE"
@@ -2134,7 +2138,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "EXTINCTION RAPIDE"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "éteindre sans sauvegarder les métadonnées"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES MÉTADONNÉES ?"
@@ -2717,13 +2721,7 @@ msgid "%d s"
 msgstr "%d s"
 
 msgid "SCREEN READER ENABLED"
-msgstr ""
+msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
-msgstr ""
-
-#~ msgid "SKIP TO NEXT SONG"
-#~ msgstr "PASSER A LA MUSIQUE SUIVANTE"
-
-#~ msgid "LISTENING NOW"
-#~ msgstr "A L’ÉCOUTE"
+msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
