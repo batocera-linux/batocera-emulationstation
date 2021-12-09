@@ -29,6 +29,8 @@
 #include "SaveStateRepository.h"
 #include "Genres.h"
 #include "TextToSpeech.h"
+#include "LocaleES.h"
+#include "guis/GuiMsgBox.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -546,6 +548,43 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	return command;
 }
 
+std::string FileData::getMessageFromExitCode(int exitCode)
+{
+	switch (exitCode)
+	{
+	case 200:
+		return _("THE EMULATOR EXITED UNEXPECTEDLY");
+	case 201:
+		return _("BAD COMMAND LINE ARGUMENTS");
+	case 202:
+		return _("INVALID CONFIGURATION");
+	case 203:
+		return _("UNKNOWN EMULATOR");
+	case 204:
+		return _("EMULATOR IS MISSING");
+	case 205:
+		return _("CORE IS MISSING");
+	case 299:
+		{
+	#if WIN32
+			std::string messageFile = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), "launch_error.log");
+	#else
+			std::string messageFile = "/tmp/launch_error.log";
+	#endif
+			if (Utils::FileSystem::exists(messageFile))
+			{
+				auto message = Utils::FileSystem::readAllText(messageFile);
+				Utils::FileSystem::removeFile(messageFile);
+
+				if (!message.empty())
+					return message;
+			}
+		}
+	}
+
+	return _("UKNOWN ERROR") + " : " + std::to_string(exitCode);
+}
+
 bool FileData::launchGame(Window* window, LaunchGameOptions options)
 {
 	LOG(LogInfo) << "Attempting to launch game...";
@@ -635,6 +674,9 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		AudioManager::getInstance()->changePlaylist(system->getTheme(), true);
 	else
 		AudioManager::getInstance()->playRandomMusic();
+
+	if (exitCode >= 200 && exitCode <= 300)
+		window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURED") + ":\r\n" + getMessageFromExitCode(exitCode), _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
 
 	return exitCode == 0;
 }

@@ -29,12 +29,16 @@ std::vector<std::string> ResourceManager::getResourcePaths() const
 	std::vector<std::string> paths;
 
 	// check if theme overrides default resources
+#ifdef WIN32
 	std::string themePath = Utils::FileSystem::getEsConfigPath() + "/themes/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
 	if (Utils::FileSystem::isDirectory(themePath))
 		paths.push_back(themePath);
 
-	// check if default readonly theme overrides default resources
-#ifndef WIN32
+#else
+	std::string themePath = "/userdata/themes/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
+	if (Utils::FileSystem::isDirectory(themePath))
+		paths.push_back(themePath);
+
 	std::string roThemePath = Utils::FileSystem::getSharedConfigPath() + "/themes/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
 	if (Utils::FileSystem::isDirectory(roThemePath))
 		paths.push_back(roThemePath);

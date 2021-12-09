@@ -156,6 +156,7 @@ public:
 
 private:
 	std::string getKeyboardMappingFilePath();
+	std::string getMessageFromExitCode(int exitCode);
 	MetaDataList mMetadata;
 
 protected:	
