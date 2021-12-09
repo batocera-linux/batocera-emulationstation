@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 08:04+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -736,19 +736,19 @@ msgid "random"
 msgstr "aleatório"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr "CONFIGURAÇÕES DA PROTEÇÃO DE TELA"
+msgstr "CONFIGURAÇÕES DE PROTEÇÃO DE TELA"
 
 msgid "SETTINGS"
 msgstr "CONFIGURAÇÕES"
 
 msgid "START SCREENSAVER AFTER"
-msgstr "ATIVAR PROTEÇÃO DE TELA APÓS"
+msgstr "ATIVAR PROTEÇÃO DE TELA APÓS (MIN)"
 
 msgid "SCREENSAVER TYPE"
-msgstr "TIPO DA PROTEÇÃO DE TELA"
+msgstr "TIPO DE PROTEÇÃO DE TELA"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "PARAR MÚSICA DA PROTEÇÃO DE TELA"
+msgstr "INTERROMPER MÚSICA DURANTE A PROTEÇÃO DE TELA"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "CONFIGURAÇÕES DE VÍDEO ALEATÓRIO NA PROTEÇÃO DE TELA"
@@ -790,7 +790,7 @@ msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr "EXTENSÕES DE ARQUIVOS DE VÍDEO PERSONALIZADOS"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "PROTEÇÃO DE TELA EM ESLAIDES"
+msgstr "CONFIGURAÇÕES DE PROTEÇÃO DE TELA EM ESLAIDES"
 
 msgid "IMAGE DURATION (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -1134,7 +1134,7 @@ msgid "Cpu model"
 msgstr "Modelo da cpu"
 
 msgid "Cpu number"
-msgstr "Número de cpus"
+msgstr "Número de núcleos da cpu"
 
 msgid "Cpu max frequency"
 msgstr "Frequência máxima da cpu"
@@ -1405,7 +1405,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GERENCIAMENTO DE DADOS"
 
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "IGNORAR CONTEÚDO DE MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
+msgstr "IGNORAR MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1609,16 +1609,16 @@ msgid "BOOT SPLASH"
 msgstr "TELA DE ABERTURA"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "VÍDEO(S) PADRÃO(ÕES) DA TELA DE ABERTURA"
+msgstr "VÍDEO(S) PADRÃO(ÕES)"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "SILENCIAR VÍDEO(S) DA TELA DE ABERTURA"
+msgstr "VÍDEO(S) SILENCIADO(S)"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "IMAGEM DA TELA DE ABERTURA DO BATOCERA"
+msgstr "IMAGEM"
 
 msgid "SPLASH SETTING"
-msgstr "CONFIGURAÇÃO DA TELA DE ABERTURA"
+msgstr "AJUSTES DA TELA DE ABERTURA"
 
 msgid "RETROACHIEVEMENT SETTINGS"
 msgstr "CONFIGURAÇÔES DAS CONQUISTAS"
@@ -1825,16 +1825,16 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "IMAGEM SOBREPOSTA SOBRE A MOLDURA"
+msgstr "IMAGEM SOBREPOSTA À MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLES DO SISTEMA"
 
 msgid "CUSTOM IMAGE"
-msgstr "IMAGEM SOBREPOSTA PERSONALIZADA"
+msgstr ".PNG PERSONALIZADO"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "Mostra uma imagem sobreposta sobre a moldura. "
+msgstr "Mostra uma imagem sobreposta sobre a moldura."
 
 msgid "TATTOO CORNER"
 msgstr "CANTO DA IMAGEM SOBREPOSTA"
@@ -1852,7 +1852,7 @@ msgid "SOUTH WEST"
 msgstr "SUDOESTE"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "CAMINHO DE IMAGEM PERSONALIZADA .PNG"
+msgstr "ARQUIVO .PNG PERSONALIZADO"
 
 msgid "RESIZE TATTOO WIDTH"
 msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
@@ -1867,7 +1867,7 @@ msgid "ORIGINAL"
 msgstr "ORIGINAL"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr "REDIMENSIONAR A LARGURA DA IMAGEM SOBREPOSTA"
+msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
 
 msgid "Relative to a 1920 px bezel."
 msgstr "Em relação a uma moldura de 1920 px."
@@ -1970,10 +1970,10 @@ msgid "SHOW FOLDERS"
 msgstr "EXIBIR PASTAS"
 
 msgid "having multiple games"
-msgstr "tendo vários jogos"
+msgstr "se houverem jogos"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "EXIBIR '..' PASTA PRINCIPAL"
+msgstr "EXIBIR '..' PARA A PASTA ASCENDENTE"
 
 msgid "BEFORE NAME"
 msgstr "ANTES DO NOME"
@@ -2015,10 +2015,10 @@ msgid "DISPLAY OPTIONS"
 msgstr "OPÇÕES DE EXIBIÇÃO"
 
 msgid "LIST TRANSITION STYLE"
-msgstr "ESTILO DE TRANSIÇÃO"
+msgstr "ESTILO DE TRANSIÇÃO DA LISTA DE JOGOS"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr "TRANSIÇÃO DO CARREGAMENTO DO JOGO"
+msgstr "ESTILO DE TRANSIÇÃO AO CARREGAR JOGO"
 
 msgid "SHOW CLOCK"
 msgstr "EXIBIR RELÓGIO"
@@ -2036,7 +2036,7 @@ msgid "ICON AND TEXT"
 msgstr "ÍCONE E TEXTO"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "IGNORE OS ARTIGOS PRINCIPAIS AO ORDENAR"
+msgstr "IGNORAR ARTIGOS DEFINIDOS E INDEFINIDOS AO ORDENAR"
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2374,6 +2374,9 @@ msgstr "IGNORAR"
 msgid "Downloading"
 msgstr "Baixando"
 
+msgid "SEARCH FOR"
+msgstr ""
+
 msgid "ACCEPT RESULT"
 msgstr "ACEITAR RESULTADOS"
 
@@ -2488,6 +2491,27 @@ msgstr "INDEXAÇÃO CONCLUÍDA"
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS MODIFICAÇÕES."
 
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
+
 msgid "GENRE"
 msgstr "GÊNERO"
 
@@ -2590,7 +2614,7 @@ msgid "HOTKEY"
 msgstr "TECLA DE ATALHO (HOTKEY)"
 
 msgid "CONFIGURING"
-msgstr "CONFIGURAÇÃO"
+msgstr "CONFIGURANDO"
 
 msgid "KEYBOARD"
 msgstr "TECLADO"
@@ -2647,8 +2671,7 @@ msgid "NO GAMEPADS DETECTED"
 msgstr "NENHUM CONTROLE DETECTADO"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr ""
-"PRESSIONE E SEGURE UM BOTÃO QUALQUER DO CONTROLE PARA INICIAR A CONFIGURAÇÃO."
+msgstr "PRESSIONE E SEGURE UM BOTÃO QUALQUER DO CONTROLE PARA CONFIGURÁ-LO."
 
 msgid "DISCARD CHANGES"
 msgstr "DESCARTAR MODIFICAÇÕES"

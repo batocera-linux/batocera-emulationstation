@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 08:04+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2326,6 +2326,9 @@ msgstr "跳过"
 msgid "Downloading"
 msgstr "下载中"
 
+msgid "SEARCH FOR"
+msgstr "搜索方式按"
+
 msgid "ACCEPT RESULT"
 msgstr "接受结果"
 
@@ -2438,6 +2441,27 @@ msgid "INDEXING COMPLETED"
 msgstr ""
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
 msgstr ""
 
 msgid "GENRE"
@@ -3345,9 +3369,6 @@ msgstr ""
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "游玩人数"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "搜索方式按"
 
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "摇杆 1 上"

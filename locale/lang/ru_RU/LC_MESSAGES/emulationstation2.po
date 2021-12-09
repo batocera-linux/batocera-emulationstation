@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 08:04+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1455,8 +1455,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Поменять нажатие северной кнопки (сохранения) и удержание южной "
-"(параметры игры)"
+"Поменять нажатие северной кнопки (сохранения) и удержание южной (параметры "
+"игры)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
@@ -1719,8 +1719,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-"Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. Отключите, "
-"если это вызывает заикание аудио/видео."
+"Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. "
+"Отключите, если это вызывает заикание аудио/видео."
 
 msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
@@ -1741,8 +1741,7 @@ msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
-"Отображает значки в правом нижнем углу, когда можно получить "
-"достижения."
+"Отображает значки в правом нижнем углу, когда можно получить достижения."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
@@ -2370,6 +2369,9 @@ msgstr "ПРОПУСТИТЬ"
 msgid "Downloading"
 msgstr "Загрузка"
 
+msgid "SEARCH FOR"
+msgstr ""
+
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
 
@@ -2483,6 +2485,27 @@ msgstr "ИНДЕКСАЦИЯ ЗАВЕРШЕНА"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
 
 msgid "GENRE"
 msgstr "ЖАНР"

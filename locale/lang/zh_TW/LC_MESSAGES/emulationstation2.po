@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 08:04+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -2345,6 +2345,9 @@ msgstr "略過"
 msgid "Downloading"
 msgstr "下載中"
 
+msgid "SEARCH FOR"
+msgstr "要搜尋什麼"
+
 msgid "ACCEPT RESULT"
 msgstr "確認結果"
 
@@ -2458,6 +2461,27 @@ msgstr "已完成索引"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "更新遊戲清單來套用變更。"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
 
 msgid "GENRE"
 msgstr "類型"
@@ -3369,9 +3393,6 @@ msgstr "螢幕閱讀器已停用"
 
 #~ msgid "SCROLL"
 #~ msgstr "滾動"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "要搜尋什麼"
 
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "搖桿 1 上"

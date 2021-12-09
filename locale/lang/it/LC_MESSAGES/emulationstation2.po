@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 08:04+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2365,6 +2365,9 @@ msgstr "SALTA"
 msgid "Downloading"
 msgstr "Scaricamento"
 
+msgid "SEARCH FOR"
+msgstr "CERCA PER"
+
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
 
@@ -2478,6 +2481,27 @@ msgstr "INDICIZZAZIONE COMPLETATA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "AGGIORNA LISTE DEI GIOCHI PER APPLICARE I CAMBIAMENTI"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
 
 msgid "GENRE"
 msgstr "GENERE"
@@ -3575,9 +3599,6 @@ msgstr "SINTESI VOCALE DISATTIVATA"
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "NUMERO DI GIOCATORI"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "CERCA PER"
 
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "JOYSTICK 1 SU"
