@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "digite o caminho para o mapa"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Moldura (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "insira o caminho do diretório para a moldura (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartucho"
@@ -449,7 +449,7 @@ msgid "START ON GAMELIST"
 msgstr "INICIAR NA LISTA DE JOGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPO DE COLEÇÕES PERSONALIZADAS"
+msgstr "AGRUPAR COLEÇÕES PERSONALIZADAS"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
@@ -1278,7 +1278,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTER MEDIAS DE ARTE DO FÃ"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "OBTER MEDIAS DE MOLDURA (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
@@ -1369,7 +1369,7 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr "ARQUIVO DE SUPORTE CRIADO NA PASTA \"SAVES\""
+msgstr "ARQUIVO DE SUPORTE CRIADO NA PASTA \SAVES\"
 
 msgid "SUPPORT FILE CREATION FAILED"
 msgstr "A CRIAÇÃO DO FICHEIRO DE SUPORTE FALHOU"
@@ -1405,7 +1405,7 @@ msgid "DATA MANAGEMENT"
 msgstr "GESTÃO DE DADOS"
 
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "IGNORE O CONTEÚDO DE MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
+msgstr "IGNORAR O CONTEÚDO DE MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE FILTERS"
 msgstr "ATIVAR FILTROS"
@@ -1438,7 +1438,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "INTERFACE DE MENU UTILIZADA PELO RETROARCH"
+msgstr "INTERFACE DE MENU DO RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTOMÁTICO"
@@ -1460,7 +1460,7 @@ msgstr ""
 "jogo)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "CONTROLAR EMULATIONSTATION APENAS COM O PRIMEIRO ANALÓGICO"
+msgstr "EMULATIONSTATION APENAS COM O PRIMEIRO COMANDO"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "MOSTRAR INDICADOR DE REDE"
@@ -1469,19 +1469,21 @@ msgid "OPTIMIZATIONS"
 msgstr "OTIMIZAÇÕES"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr ""
+msgstr "PRÉ-CARREGAR ELEMENTO DA INTERFACE NA INICIALIZAÇÃO"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr ""
+msgstr "Reduz o tempo de acesso às listas de jogos a partir do sistema, aumenta o "
+"tempo de inicialização"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr ""
+msgstr "PRÉ-CARREGAR INFORMAÇÕES DE MEDIA NA INICIALIZAÇÃO"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
-msgstr ""
+msgstr "Reduz o tempo de acesso ao navegar pela lista de jogos, aumenta o tempo de "
+"inicialização"
 
 msgid "THREADED LOADING"
 msgstr "CARREGAMENTO PARALELO"
@@ -1710,15 +1712,17 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "USAR SALTO EM SEGUNDO CASO"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "ATRASO DE FRAME AUTOMÁTICO"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "ATRASO DE FRAME AUTOMÁTICO"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
-msgstr ""
+msgstr "Reduz automáticamente o atraso dos frames temporariamente para "
+"evitar perda de desempenho. "
+"Desative caso piore e engasgue o áudio / vídeo."
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -1733,12 +1737,13 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "INDICADORES DE DESAFIO"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr ""
+msgstr "Mostrar os ícones no canto inferior direito quando as conquistas elegíveis "
+"podem ser obtidas."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
@@ -1795,7 +1800,7 @@ msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SAVE AUTOMÁTICO/LOADING"
+msgstr "SAVES/LOADING AO INICIAR JOGO"
 
 msgid "SHOW SAVE STATES"
 msgstr "MOSTRAR JOGOS GUARDADOS"
@@ -1816,19 +1821,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "IMAGEM SOBREPOSTA SOBRE A MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLOS DO SISTEMA"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "IMAGEM SOBREPOSTA PERSONALIZADA"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Mostrar uma imagem sobreposta sobre a moldura."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "CANTO DA IMAGEM SOBREPOSTA"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1846,22 +1851,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "CAMINHO DE IMAGEM PERSONALIZADA .PNG"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORIGINAL"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "REDIMENSIONAR A LARGURA DA IMAGEM SOBREPOSTA"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "Em relação a uma moldura de 1920 px."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DE TEXTO DO JOGO POR IA"
@@ -1873,7 +1878,7 @@ msgid "TARGET LANGUAGE"
 msgstr "IDIOMA ALVO"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr "URL DE SERVIÇO DE TRADUÇÃO POR IA"
+msgstr "URL DO SERVIÇO DE TRADUÇÃO POR IA"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA NO ECRÃ TRADUZIDO"
@@ -1972,13 +1977,13 @@ msgid "AFTER NAME"
 msgstr "DEPOIS DO NOME"
 
 msgid "SHOW REGION FLAG"
-msgstr "MOSTRAR BANDEIRA DO IDIOMA EM LISTAS"
+msgstr "MOSTRAR ÍCONE DA BANDEIRA DO IDIOMA"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "MOSTRAR BANDEIRA DOS SAVESTATES EM LISTAS"
+msgstr "MOSTRAR ÍCONE DA BANDEIRA DOS SAVESTATES"
 
 msgid "SHOW MANUAL ICON"
-msgstr "MOSTRAR ÍCONE MANUAL EM LISTAS"
+msgstr "MOSTRAR ÍCONE MANUAL"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOMES DOS ARQUIVOS"
@@ -2104,10 +2109,10 @@ msgid "QUICK ACCESS"
 msgstr "ACESSO RÁPIDO"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "A REPRODUZIR"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE ECRÃ"
@@ -2134,7 +2139,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA RAPIDAMENTE"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Desligar sem guardar as informações alteradas."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "DESEJA DESLIGAR SEM GUARDAR AS INFORMAÇÕES?"
@@ -2152,7 +2157,7 @@ msgid "CUSTOM .PNG IMAGE"
 msgstr "IMAGEM PERSONALIZADA .PNG"
 
 msgid "OVERLAY CORNER"
-msgstr "POSIÇÃO DO CANTO DOS INDICADORES"
+msgstr "CANTO DOS INDICADORES DO COMANDO"
 
 msgid "COLORIZATION"
 msgstr "COLORIZAÇÃO"
@@ -2363,7 +2368,7 @@ msgid "Downloading"
 msgstr "A transferir"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "PROCURAR POR"
 
 msgid "ACCEPT RESULT"
 msgstr "ACEITAR RESULTADOS"
@@ -2480,25 +2485,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS MODIFICAÇÕES."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "O EMULADOR SAIU INESPERADAMENTE"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "MÁS LINHAS DE COMANDO ARGUMENTADOS"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAÇÃO INVÁLIDA"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "EMULADOR DESCONHECIDO"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "O EMULADOR ESTÁ EM FALTA"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "O CORE ESTÁ EM FALTA"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "ERRO DESCONHECIDO"
 
 msgid "GENRE"
 msgstr "GÉNERO"
@@ -2744,20 +2749,3 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "SKIP TO NEXT SONG"
-#~ msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
-
-#~ msgid "LISTENING NOW"
-#~ msgstr "A OUVIR AGORA"
-
-#~ msgid "PRELOAD UI ELEMENTS"
-#~ msgstr "PRÉ-CARREGAR ELEMENTOS DO MODO DE INTERFACE"
-
-#~ msgid "Reduce overall menu lag at the cost of storage space"
-#~ msgstr "Reduza o lag geral do menu ao custo de espaço de armazenamento"
-
-#~ msgid "PRELOAD METADATA MEDIA"
-#~ msgstr "PRÉ-CARREGAR AS INFORMAÇÕES DO MEDIA"
-
-#~ msgid "Reduce gamelist lag at the cost of storage space"
-#~ msgstr "Reduza o lag da lista de jogos ao custo de espaço de armazenamento"
