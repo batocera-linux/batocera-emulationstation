@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "輸入地圖路徑"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "框體 (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "輸入框體的路徑 (16:9)"
 
 msgid "Cartridge"
 msgstr "卡匣"
@@ -1274,7 +1274,7 @@ msgid "SCRAPE FANART"
 msgstr "搜刮粉絲繪圖"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
+msgstr "搜刮框體 (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "搜刮包裝盒背面"
@@ -1703,15 +1703,17 @@ msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "使用第二個實例預先執行畫格"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "自動化畫格延遲"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "自動畫格延遲"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"自動減少畫格延遲來避免畫格遺失。如果此選項造成音訊/視訊斷續的情況更加糟糕的話"
+"請關閉。"
 
 msgid "HARDCORE MODE"
 msgstr "硬派模式"
@@ -1726,12 +1728,12 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動化螢幕截圖"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "挑戰指示器"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr ""
+msgstr "當能夠獲得符合條件的成就時在右下角顯示圖示。"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENT 解鎖音效"
@@ -1788,7 +1790,7 @@ msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整數縮放 (完美像素)"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "自動儲存/讀取"
+msgstr "遊戲啟動時自動儲存/讀取"
 
 msgid "SHOW SAVE STATES"
 msgstr "顯示即時存檔"
@@ -1809,19 +1811,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "延展框體 (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "在框體上方顯示紋身"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "遊戲平台控制器"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "自訂影像"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "在框體頂部覆蓋影像。"
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "紋身邊角"
 
 msgid "NORTH WEST"
 msgstr "西北"
@@ -1839,22 +1841,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "自訂 .PNG 圖片路徑"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "調整紋身寬度"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "原始"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "調整覆層寬度"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "相對於 1920 像素的框體。"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI 遊戲翻譯"
@@ -2094,10 +2096,10 @@ msgid "QUICK ACCESS"
 msgstr "快速存取"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "跳至下一首歌"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "正在播放"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
@@ -2124,7 +2126,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "快速關機"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "關機並且不儲存中繼資料。"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "確定不儲存中繼資料就直接關機嗎?"
@@ -2463,25 +2465,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "更新遊戲清單來套用變更。"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "模擬器未預期的退出了"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "無效的命令列參數"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "無效的設定"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "未知的模擬器"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "模擬器遺失"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "核心遺失"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "未知的錯誤"
 
 msgid "GENRE"
 msgstr "類型"
