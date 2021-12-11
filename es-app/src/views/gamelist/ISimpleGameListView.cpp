@@ -312,6 +312,14 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		return true;
 	}
 
+	// Pixelcade
+	FileData* cursor = getCursor();
+	SystemData* system = getSystem();
+	if (system != NULL)
+	{
+		Scripting::fireEvent("cursorhover", system->getName(), cursor->getFileName(), cursor->getName() )
+	}
+
 	return IGameListView::input(config, input);
 }
 
