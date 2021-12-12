@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-02 08:03+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1722,6 +1722,14 @@ msgstr "VERBOSE MODUS"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHE SCHERMAFDRUK"
 
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
@@ -2333,6 +2341,9 @@ msgstr "OVERSLAAN"
 msgid "Downloading"
 msgstr "Bezig met downloaden"
 
+msgid "SEARCH FOR"
+msgstr "ZOEKEN NAAR"
+
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTEER RESULTAAT"
 
@@ -2445,6 +2456,27 @@ msgid "INDEXING COMPLETED"
 msgstr "INDEXERING VOLTOOID"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
 msgstr ""
 
 msgid "GENRE"
@@ -3319,9 +3351,6 @@ msgstr ""
 
 #~ msgid "SCROLL"
 #~ msgstr "SCROLL"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "ZOEKEN NAAR"
 
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "JOYSTICK 1 OMHOOG"

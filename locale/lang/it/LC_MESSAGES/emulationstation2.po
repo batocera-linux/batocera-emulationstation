@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-02 08:03+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1735,6 +1735,14 @@ msgstr "MODALITÀ VERBOSE"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO TROFEO"
 
@@ -1811,19 +1819,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTENDI CORNICI (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "MOSTRA IMMAGINE SULLA CORNICE"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLLER DI SISTEMA"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "IMMAGINE PERSONALIZZATA"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Mostra un'immagine sulla cornice di gioco"
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "ANGOLO DELL'IMMAGINE"
 
 msgid "NORTH WEST"
 msgstr "NORD OVEST"
@@ -1841,22 +1849,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PERCORSO IMMAGINE PERSONALIZZATA"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "RIDIMENSIONA LARGHEZZA IMMAGINE"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "STANDARD"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "RIDIMENSIONA LARGHEZZA OVERLAY"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "In riferimento ad una cornice 1920p"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUZIONE GIOCO IA"
@@ -2128,7 +2136,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "SPEGNIMENTO RAPIDO DEL SISTEMA"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "SPEGNI SENZA SALVARE LE INFORMAZIONI"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "VUOI VERAMENTE SPEGNERE SENZA SALVARE LE INFORMAZIONI?"
@@ -2357,6 +2365,9 @@ msgstr "SALTA"
 msgid "Downloading"
 msgstr "Scaricamento"
 
+msgid "SEARCH FOR"
+msgstr "CERCA PER"
+
 msgid "ACCEPT RESULT"
 msgstr "ACCETTA RISULTATO"
 
@@ -2470,6 +2481,27 @@ msgstr "INDICIZZAZIONE COMPLETATA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "AGGIORNA LISTE DEI GIOCHI PER APPLICARE I CAMBIAMENTI"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
 
 msgid "GENRE"
 msgstr "GENERE"
@@ -3567,9 +3599,6 @@ msgstr "SINTESI VOCALE DISATTIVATA"
 
 #~ msgid "NUMBER OF PLAYERS"
 #~ msgstr "NUMERO DI GIOCATORI"
-
-#~ msgid "SEARCH FOR"
-#~ msgstr "CERCA PER"
 
 #~ msgid "JOYSTICK 1 UP"
 #~ msgstr "JOYSTICK 1 SU"

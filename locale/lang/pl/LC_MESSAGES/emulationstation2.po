@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-02 08:03+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -931,7 +931,7 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "KOMPATYBILNY CORE"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "ZOBACZ OSIĄGNIĘCIA GRY"
+msgstr "ZOBACZ OSIĄGNIĘCIA W GRZE"
 
 msgid "GAME"
 msgstr "GRA"
@@ -1739,6 +1739,15 @@ msgstr "TRYB INFORMACJI PEŁNEJ"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
+msgid "CHALLENGE INDICATORS"
+msgstr "WSKAŹNIKI WYZWAŃ"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Pokaż ikony w prawym dolnym rogu, kiedy można zdobyć osiągnięcia w grze."
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "DŹWIĘK ODBLOKOWANIA RETROACHIEVEMENT"
 
@@ -1815,19 +1824,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ROZCIĄGNIJ RAMKI (4K + ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "POKAŻ TATUAŻ NA RAMCE"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "KONTROLERY SYSTEMU"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "OBRAZ NIESTANDARDOWY"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Pokaż obraz nałożony na ramkę."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "KĄCIK TATUAŻU"
 
 msgid "NORTH WEST"
 msgstr "LEWY GÓRNY"
@@ -1845,22 +1854,22 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ŚCIEŻKA NIESTANDARDOWEGO OBRAZU .PNG"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "ZMIEŃ SZEROKOŚ TATUAŻU"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORYGINALNY"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "ZMIEŃ SZEROKOŚ NAKŁADKI"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "W stosunku do ramki 1920 pikseli."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TŁUMACZENIE GRY Z AI"
@@ -2362,6 +2371,9 @@ msgstr "POMIŃ"
 msgid "Downloading"
 msgstr "Pobieranie"
 
+msgid "SEARCH FOR"
+msgstr ""
+
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
 
@@ -2476,6 +2488,27 @@ msgstr "ZAKOŃCZONO INDEKSOWANIE"
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ZAKTUALIZUJ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY"
 
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
+
 msgid "GENRE"
 msgstr "GATUNEK"
 
@@ -2504,7 +2537,7 @@ msgid "ALREADY PLAYED"
 msgstr "JUŻ GRANE"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "MA OSIĄGNIĘCIA"
+msgstr "MA ZADANIA DO OSIĄGNIĘCIA"
 
 msgid "VERTICAL"
 msgstr "PIONOWA"

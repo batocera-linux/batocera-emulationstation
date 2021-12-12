@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2021/11/29)\n"
+"Project-Id-Version: batocera-es v33beta(2021/12/06)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-02 08:03+0100\n"
-"PO-Revision-Date: 2021-11-29 02:03+0900\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"PO-Revision-Date: 2021-12-06 16:50+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1717,6 +1717,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
+"フレーム遅延を自動的に減らしフレームドロップを防ぎます。オーディオ/ビデオで不"
+"具合がでた場合は、オフにします。"
 
 msgid "HARDCORE MODE"
 msgstr "ハードコアモード"
@@ -1729,6 +1731,14 @@ msgstr "詳細な処理モード"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "チャレンジインジケーター"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr "対象となる実績を獲得できる場合、右下隅にアイコンを表示します。"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTサウンドのロック解除"
@@ -1764,7 +1774,7 @@ msgid "USE RELAY SERVER"
 msgstr "リレーサーバーを使用"
 
 msgid "DECORATION SET"
-msgstr "ベゼル選択"
+msgstr "ベゼルを選択"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "既定のグローバル設定"
@@ -1806,19 +1816,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "画面に合わせる(4K＆ウルトラワイド)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "ベゼル上にイメージを表示"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "機種コントローラー"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "カスタム画像"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "ベゼル上にイメージ画像を表示します。"
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "イメージ表示位置"
 
 msgid "NORTH WEST"
 msgstr "左上"
@@ -1833,25 +1843,25 @@ msgid "SOUTH WEST"
 msgstr "左下"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "カスタムPNG画像のパス"
+msgstr "カスタムイメージ(png)のパス"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "イメージ幅を変更"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "元サイズ"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "オーバーレイの幅を変更"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "幅1920ピクセルのベゼルが基準です。"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AIゲーム翻訳"
@@ -2124,7 +2134,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "システムを高速にシャットダウン"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "メタデータを保存せずにシャットダウンします"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "メタ情報を保存せずに シャットダウンしますか？"
@@ -2136,13 +2146,13 @@ msgid "REALLY QUIT?"
 msgstr "本当に終了しますか？"
 
 msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "コントローラーオーバーレイを表示"
+msgstr "コントローラーイメージを表示"
 
 msgid "CUSTOM .PNG IMAGE"
-msgstr "カスタムPNG画像"
+msgstr "カスタム.PNG 画像"
 
 msgid "OVERLAY CORNER"
-msgstr "オーバーレイの表示位置"
+msgstr "イメージの表示位置"
 
 msgid "COLORIZATION"
 msgstr "表示色"
@@ -2348,6 +2358,9 @@ msgstr "スキップ"
 msgid "Downloading"
 msgstr "ダウンロード中"
 
+msgid "SEARCH FOR"
+msgstr ""
+
 msgid "ACCEPT RESULT"
 msgstr "了解"
 
@@ -2461,6 +2474,27 @@ msgstr "インデックス作成が完了しました"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "「ゲームリストを更新」で変更を適用します。"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
 
 msgid "GENRE"
 msgstr "ジャンル"
@@ -2699,10 +2733,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid ""
-#~ "Automatically decrease frame delay temporarily to prevent frame drops"
-#~ msgstr "フレームドロップを防ぐために、フレーム遅延を自動的に減らします"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-02 08:03+0100\n"
+"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1032,7 +1032,7 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JUEGO AÚN NO DISPONE DE TROFEOS"
 
 msgid "Achievements won"
-msgstr "Logros conseguidos"
+msgstr "Trofeos conseguidos"
 
 #, c-format
 msgid "%d%% complete"
@@ -1737,6 +1737,16 @@ msgstr "MODO DETALLADO"
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICA"
 
+msgid "CHALLENGE INDICATORS"
+msgstr "INDICADORES DE DESAFÍO"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Mostrar iconos en la esquina inferior derecha cuando se puedan ganar trofeos "
+"elegibles."
+
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO DE TROFEO"
 
@@ -1750,7 +1760,7 @@ msgid "GAME INDEXES"
 msgstr "ÍNDICES DE JUEGOS"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXAR NUEVOS JUEGOS AL ARRANCAR"
+msgstr "INDEXAR JUEGOS NUEVOS AL ARRANCAR"
 
 msgid "INDEX GAMES"
 msgstr "INDEXAR JUEGOS"
@@ -1813,52 +1823,52 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "AJUSTAR BISELES (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "MOSTRAR CALCO SOBRE EL BISEL"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "MANDOS DEL SISTEMA"
+msgstr "CONTROLES DEL SISTEMA"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "IMAGEN PERSONALIZADA"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Muestra una imagen superpuesta sobre el bisel."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "ESQUINA DEL CALCO"
 
 msgid "NORTH WEST"
-msgstr "NORTE OESTE"
+msgstr "SUPERIOR IZQUIERDA"
 
 msgid "NORTH EAST"
-msgstr "NORTE ESTE"
+msgstr "SUPERIOR DERECHA"
 
 msgid "SOUTH EAST"
-msgstr "SUR ESTE"
+msgstr "INFERIOR DERECHA"
 
 msgid "SOUTH WEST"
-msgstr "SUR OESTE"
+msgstr "INFERIOR IZQUIERDA"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RUTA DE LA IMAGEN .PNG PERSONALIZADA"
 
 msgid "RESIZE TATTOO WIDTH"
-msgstr ""
+msgstr "MODIFICAR EL TAMAÑO DEL CALCO"
 
 msgid "225/1920"
-msgstr ""
+msgstr "225/1920"
 
 msgid "240/1920"
-msgstr ""
+msgstr "240/1920"
 
 msgid "ORIGINAL"
-msgstr ""
+msgstr "ORIGINAL"
 
 msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
+msgstr "MODIFICAR EL TAMAÑO DE LA SUPERPOSICIÓN"
 
 msgid "Relative to a 1920 px bezel."
-msgstr ""
+msgstr "Relativo a un bisel de 1920px."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓN DE JUEGO POR IA"
@@ -1894,12 +1904,13 @@ msgid ""
 "BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
-"VAS A CONFIGURAR UN MANDO \n"
+"VAS A CONFIGURAR UN MANDO, TEN EN CUENTA LOS SIGUIENTES PUNTOS \n"
 "- SI NO TIENES UN BOTÓN ESPECIAL PARA USARLO COMO (HOTKEY) PUEDES UTILIZAR "
 "SELECT EN SU LUGAR. \n"
 "- PUEDES IGNORAR LOS BOTONES QUE NO EXISTAN EN TU MANDO MANTENIENDO PULSADO "
 "CUALQUIER BOTÓN. \n"
-"- LAS ETIQUETAS DE LOS BOTONES SE BASAN EN EL MANDO DE SUPER NINTENDO."
+"- LOS NOMBRES O ETIQUETAS DE LOS BOTONES EN PANTALLA SE BASAN EN EL MANDO DE "
+"SUPER NINTENDO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "EMPAREJAR UN DISPOSITIVO BLUETOOTH"
@@ -2047,13 +2058,13 @@ msgid "DISPLAY SONG TITLES"
 msgstr "MOSTRAR TÍTULOS DE CANCIONES"
 
 msgid "SONG TITLE DISPLAY DURATION"
-msgstr "TIEMPO EN PANTALLA DEL TÍTULO DE CANCIONES"
+msgstr "TIEMPO EN PANTALLA DEL TÍTULO DE LA CANCIÓN"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
 msgstr "SOLO REPRODUCIR LA MÚSICA ESPECÍFICA DE CADA SISTEMA"
 
 msgid "PLAY SYSTEM-SPECIFIC MUSIC"
-msgstr "REPRODUCIR MÚSICA DEL TEMA"
+msgstr "REPRODUCIR MÚSICA ESPECÍFICA DEL SISTEMA"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "ATENUAR MÚSICA AL REPRODUCIR VIDEOS"
@@ -2104,7 +2115,7 @@ msgid "SKIP TO THE NEXT SONG"
 msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 
 msgid "NOW PLAYING"
-msgstr "REPRODUCIENDO"
+msgstr "SONANDO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
@@ -2131,7 +2142,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "APAGAR RÁPIDAMENTE"
 
 msgid "Shutdown without saving metadata."
-msgstr ""
+msgstr "Apagar sin guardar metadatos."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
@@ -2289,7 +2300,7 @@ msgid ""
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PRECAUCIÓN: NO SE ENCUENTRA BIOS PARA ESTE JUEGO Y ES POSIBLE QUE NO "
+"PRECAUCIÓN: NO SE ENCUENTRAN BIOS PARA ESTE JUEGO Y ES POSIBLE QUE NO "
 "FUNCIONE CORRECTAMENTE \n"
 "¿DESEAS EJECUTARLO DE TODAS FORMAS?"
 
@@ -2349,7 +2360,7 @@ msgid "Searching"
 msgstr "Buscando"
 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "NO SE ENCONTRARON JUEGOS - SALTAR"
+msgstr "NO SE HAN ENCONTRADO JUEGOS - SALTAR"
 
 msgid "RETRY"
 msgstr "REINTENTAR"
@@ -2359,6 +2370,9 @@ msgstr "OMITIR"
 
 msgid "Downloading"
 msgstr "Descargando"
+
+msgid "SEARCH FOR"
+msgstr ""
 
 msgid "ACCEPT RESULT"
 msgstr "ACEPTAR RESULTADO"
@@ -2379,10 +2393,10 @@ msgid "FILENAME, DESCENDING"
 msgstr "NOMBRE DE ARCHIVO, DESCENDENTE"
 
 msgid "RATING, ASCENDING"
-msgstr "CLASIFICACIÓN, ASCENDENTE"
+msgstr "CALIFICACIÓN, ASCENDENTE"
 
 msgid "RATING, DESCENDING"
-msgstr "CLASIFICACIÓN, DESCENDENTE"
+msgstr "CALIFICACIÓN, DESCENDENTE"
 
 msgid "TIMES PLAYED, ASCENDING"
 msgstr "VECES JUGADO, ASCENDENTE"
@@ -2474,6 +2488,27 @@ msgstr "INDEXADO COMPLETO"
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ACTUALIZAR LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS."
 
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
+
 msgid "GENRE"
 msgstr "GÉNERO"
 
@@ -2502,7 +2537,7 @@ msgid "ALREADY PLAYED"
 msgstr "YA JUGADO"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "TIENE LOGROS"
+msgstr "TIENE TROFEOS"
 
 msgid "VERTICAL"
 msgstr "VERTICAL"

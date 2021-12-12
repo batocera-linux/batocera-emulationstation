@@ -117,6 +117,13 @@ int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Windo
 			}
 		}
 
+		DWORD dwExitCode;
+		if (GetExitCodeProcess(lpExecInfo.hProcess, &dwExitCode))
+		{
+			CloseHandle(lpExecInfo.hProcess);
+			return dwExitCode;
+		}
+
 		CloseHandle(lpExecInfo.hProcess);
 		return 0;
 	}
