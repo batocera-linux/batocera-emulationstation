@@ -501,8 +501,13 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 		command = Utils::String::replace(command, "%GAMEINFOXML%", Utils::FileSystem::getEscapedPath(fileInfo));
 	else
 	{
+#ifdef WIN32
 		command = Utils::String::replace(command, "%GAMEINFOXML%", "");
 		Utils::FileSystem::removeFile(fileInfo);
+#else
+		// Linux emulatorlauncher.py (Batocera) always requires a /tmp/game.xml (even if non existent file)
+		command = Utils::String::replace(command, "%GAMEINFOXML%", Utils::FileSystem::getEscapedPath(fileInfo));
+#endif
 	}
 	
 	if (includeControllers)
