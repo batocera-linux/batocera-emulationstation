@@ -5,6 +5,7 @@
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
 #include "Log.h"
+#include "Scripting.h"
 #include "Settings.h"
 #include "SystemData.h"
 #include "Window.h"
@@ -832,7 +833,10 @@ void SystemView::onCursorChanged(const CursorState& state)
 
 	// tts
 	if(state == CURSOR_STOPPED)
+	{
 	  TextToSpeech::getInstance()->say(getSelected()->getFullName());
+	  Scripting::fireEvent("system-selected", getSelected()->getName());
+	}
 
 	if (!mCarousel.scrollSound.empty())
 		Sound::get(mCarousel.scrollSound)->play();

@@ -14,6 +14,7 @@
 #include "views/UIModeController.h"
 #include "FileFilterIndex.h"
 #include "Log.h"
+#include "Scripting.h"
 #include "Settings.h"
 #include "SystemData.h"
 #include "Window.h"
@@ -190,6 +191,8 @@ void ViewController::goToSystemView(SystemData* system, bool forceImmediate)
 
 	mState.viewing = SYSTEM_SELECT;
 	mState.system = dest;
+
+	Scripting::fireEvent("system-selected", dest->getName());
 
 	systemList->goToSystem(dest, false);
 

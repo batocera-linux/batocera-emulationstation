@@ -5,9 +5,9 @@
 
 namespace Scripting
 {
-	void fireEvent(const std::string& eventName, const std::string& arg1, const std::string& arg2)
+	void fireEvent(const std::string& eventName, const std::string& arg1, const std::string& arg2, const std::string& arg3)
 	{
-		LOG(LogDebug) << "fireEvent: " << eventName << " " << arg1 << " " << arg2;
+		LOG(LogDebug) << "fireEvent: " << eventName << " " << arg1 << " " << arg2 << " " << arg3;
 
         std::list<std::string> scriptDirList;
         std::string test;
@@ -25,8 +25,15 @@ namespace Scripting
         for(std::list<std::string>::const_iterator dirIt = scriptDirList.cbegin(); dirIt != scriptDirList.cend(); ++dirIt) {
             std::list<std::string> scripts = Utils::FileSystem::getDirContent(*dirIt);
             for (std::list<std::string>::const_iterator it = scripts.cbegin(); it != scripts.cend(); ++it) {
-                // append folder to path
-                std::string script = *it + " \"" + arg1 + "\" \"" + arg2 + "\"";
+                std::string script = *it;
+
+                for (auto arg : { arg1, arg2, arg3 })
+                {
+                    if (arg.empty())
+                        break;
+
+                    script += " \"" + arg + "\"";
+                }
                 LOG(LogDebug) << "  executing: " << script;
                 runSystemCommand(script, "", nullptr);
             }

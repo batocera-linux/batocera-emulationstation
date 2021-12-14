@@ -23,7 +23,7 @@ BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 		{
 		  FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
 		  if (file != nullptr)
-		    file->speak();
+		    file->setSelectedGame();
 		  
 			if (mRoot->getSystem()->isCollection())
 				updateHelpPrompts();
