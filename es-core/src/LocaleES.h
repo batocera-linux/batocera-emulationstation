@@ -8,13 +8,15 @@
 
 #ifdef HAVE_INTL
 
-#include <libintl.h>
+#define ENABLE_NLS 1
+#include "gettext.h"
 #define _(A) std::string(gettext(A))
 
 #else
 
 #define _(A) std::string(A)
 char* ngettext(char* msgid, char* msgid_plural, unsigned long int n);
+char* pgettext(char* context, char* msgid);
 
 #endif
 
@@ -72,6 +74,7 @@ private:
 
 #define _(x) EsLocale::getText(x)
 #define ngettext(A, B, C) EsLocale::nGetText(A, B, C).c_str()
+#define pgettext(A, B) B
 
 #endif // WIN32
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 22:33+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: Batocera official\n"
@@ -2556,42 +2556,63 @@ msgstr "MAJ"
 msgid "SPACE"
 msgstr "ESPACE"
 
+msgctxt "joystick"
 msgid "UP"
 msgstr "D-PAD HAUT"
 
+msgctxt "joystick"
 msgid "DOWN"
 msgstr "D-PAD BAS"
 
+msgctxt "joystick"
 msgid "LEFT"
 msgstr "D-PAD GAUCHE"
 
+msgctxt "joystick"
 msgid "RIGHT"
 msgstr "D-PAD DROITE"
 
+msgctxt "joystick"
+msgid "START"
+msgstr "START"
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr "SELECT"
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
 msgstr "JOYSTICK GAUCHE / HAUT"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr "JOYSTICK GAUCHE / BAS"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
 msgstr "JOYSTICK GAUCHE / GAUCHE"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr "JOYSTICK GAUCHE / DROITE"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
 msgstr "JOYSTICK DROITE / HAUT"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr "JOYSTICK DROITE / BAS"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
 msgstr "JOYSTICK DROITE / GAUCHE"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "JOYSTICK DROITE / DROITE"
 
+msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "HOTKEY"
 

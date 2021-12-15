@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:54+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -2557,44 +2557,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "ПРОБЕЛ"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "ВВЕРХ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "ВНИЗ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "ВЛЕВО"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "ВПРАВО"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ЛЕВЫЙ СТИК ВВЕРХ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ЛЕВЫЙ СТИК ВНИЗ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ЛЕВЫЙ СТИК ВЛЕВО"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ЛЕВЫЙ СТИК ВПРАВО"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ПРАВЫЙ СТИК ВВЕРХ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ПРАВЫЙ СТИК ВНИЗ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ПРАВЫЙ СТИК ВЛЕВО"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ПРАВЫЙ СТИК ВПРАВО"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "ГОРЯЧАЯ КНОПКА"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "НАСТРОЙКА"
@@ -2745,6 +2766,45 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "UP"
+#~ msgstr "ВВЕРХ"
+
+#~ msgid "DOWN"
+#~ msgstr "ВНИЗ"
+
+#~ msgid "LEFT"
+#~ msgstr "ВЛЕВО"
+
+#~ msgid "RIGHT"
+#~ msgstr "ВПРАВО"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ЛЕВЫЙ СТИК ВВЕРХ"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ЛЕВЫЙ СТИК ВНИЗ"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ЛЕВЫЙ СТИК ВЛЕВО"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ЛЕВЫЙ СТИК ВПРАВО"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ПРАВЫЙ СТИК ВВЕРХ"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ПРАВЫЙ СТИК ВНИЗ"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ПРАВЫЙ СТИК ВЛЕВО"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ПРАВЫЙ СТИК ВПРАВО"
+
+#~ msgid "HOTKEY"
+#~ msgstr "ГОРЯЧАЯ КНОПКА"
 
 #~ msgid "RESIZE TATTOO WIDTH"
 #~ msgstr "ИЗМЕНИТЬ ШИРИНУ ТАТУ"

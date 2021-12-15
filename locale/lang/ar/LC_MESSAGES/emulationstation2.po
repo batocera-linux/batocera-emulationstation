@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: 2020-05-21 03:34+0300\n"
 "Last-Translator: sultan AlShaheen\n"
 "Language-Team: Arabic (Saudi Arabia)\n"
@@ -2546,44 +2546,65 @@ msgstr "تبديل"
 msgid "SPACE"
 msgstr "مسافة"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "أعلى"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "أسفل"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "يسار"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "يمين"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "العجلة اليسرى للأعلى"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "العجلة اليسرى لليسار"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "العجلة اليمنى للأعلى"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "العجلة اليمنى لليسار"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "المفتاح الأساسي"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "تكوين"
@@ -2753,6 +2774,33 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "أعلى"
+
+#~ msgid "DOWN"
+#~ msgstr "أسفل"
+
+#~ msgid "LEFT"
+#~ msgstr "يسار"
+
+#~ msgid "RIGHT"
+#~ msgstr "يمين"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "العجلة اليسرى للأعلى"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "العجلة اليسرى لليسار"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "العجلة اليمنى للأعلى"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "العجلة اليمنى لليسار"
+
+#~ msgid "HOTKEY"
+#~ msgstr "المفتاح الأساسي"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "انتقل إلى الأغنية التالية"

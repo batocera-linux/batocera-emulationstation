@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2517,44 +2517,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "Mellomrom"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "OPP"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "NED"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "VENSTRE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "HØYRE"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HURTIGTAST"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "KONFIGUERER"
@@ -2696,6 +2717,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "OPP"
+
+#~ msgid "DOWN"
+#~ msgstr "NED"
+
+#~ msgid "LEFT"
+#~ msgstr "VENSTRE"
+
+#~ msgid "RIGHT"
+#~ msgstr "HØYRE"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HURTIGTAST"
 
 #~ msgid "All Games"
 #~ msgstr "Alle spill"

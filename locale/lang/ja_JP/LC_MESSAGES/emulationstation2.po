@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/12/06)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: 2021-12-06 16:50+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -2546,44 +2546,65 @@ msgstr "SHIFT(文字種変更)"
 msgid "SPACE"
 msgstr "空白"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "下"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "右"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "左アナログST 上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "左アナログST 下"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "左アナログST 左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "左アナログST 右"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "右アナログST 上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "右アナログST 下"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "右アナログST 左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "右アナログST 右"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "ホットキー"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "設定中"
@@ -2721,6 +2742,45 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "UP"
+#~ msgstr "上"
+
+#~ msgid "DOWN"
+#~ msgstr "下"
+
+#~ msgid "LEFT"
+#~ msgstr "左"
+
+#~ msgid "RIGHT"
+#~ msgstr "右"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "左アナログST 上"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "左アナログST 下"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "左アナログST 左"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "左アナログST 右"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "右アナログST 上"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "右アナログST 下"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "右アナログST 左"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "右アナログST 右"
+
+#~ msgid "HOTKEY"
+#~ msgstr "ホットキー"
 
 #~ msgid "RESIZE TATTOO WIDTH"
 #~ msgstr "イメージ幅を変更"

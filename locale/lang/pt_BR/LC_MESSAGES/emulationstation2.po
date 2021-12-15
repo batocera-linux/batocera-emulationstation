@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2562,44 +2562,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "ESPAÇO"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "CIMA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "BAIXO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "ESQUERDA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "DIREITA"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ANALÓGICO ESQUERDO - CIMA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ANALÓGICO ESQUERDO - BAIXO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALÓGICO ESQUERDO - ESQUERDA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANALÓGICO ESQUERDO - DIREITA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ANALÓGICO DIREITO - CIMA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ANALÓGICO DIREITO - BAIXO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ANALÓGICO DIREITO - ESQUERDA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ANALÓGICO DIREITO - DIREITA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "TECLA DE ATALHO (HOTKEY)"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "CONFIGURANDO"
@@ -2744,6 +2765,45 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "UP"
+#~ msgstr "CIMA"
+
+#~ msgid "DOWN"
+#~ msgstr "BAIXO"
+
+#~ msgid "LEFT"
+#~ msgstr "ESQUERDA"
+
+#~ msgid "RIGHT"
+#~ msgstr "DIREITA"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ANALÓGICO ESQUERDO - CIMA"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ANALÓGICO ESQUERDO - BAIXO"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ANALÓGICO ESQUERDO - ESQUERDA"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ANALÓGICO ESQUERDO - DIREITA"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ANALÓGICO DIREITO - CIMA"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ANALÓGICO DIREITO - BAIXO"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ANALÓGICO DIREITO - ESQUERDA"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ANALÓGICO DIREITO - DIREITA"
+
+#~ msgid "HOTKEY"
+#~ msgstr "TECLA DE ATALHO (HOTKEY)"
 
 #~ msgid "RESIZE TATTOO WIDTH"
 #~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
