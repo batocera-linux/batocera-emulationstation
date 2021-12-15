@@ -167,6 +167,15 @@ bool parseArgs(int argc, char* argv[])
 		}else if(strcmp(argv[i], "--no-splash") == 0)
 		{
 			Settings::getInstance()->setBool("SplashScreen", false);
+		}else if(strcmp(argv[i], "--splash-image") == 0)
+		{
+		        if (i >= argc - 1)
+			{
+				std::cerr << "Invalid splash image supplied.";
+				return false;
+			}
+			Settings::getInstance()->setString("AlternateSplashScreen", argv[i+1]);
+			++i; // skip the argument value
 		}else if(strcmp(argv[i], "--debug") == 0)
 		{
 			Settings::getInstance()->setBool("Debug", true);

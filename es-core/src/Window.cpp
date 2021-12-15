@@ -608,13 +608,20 @@ void Window::setAllowSleep(bool sleep)
 	mAllowSleep = sleep;
 }
 
+std::string Window::getCustomSplashScreenImage() {
+  std::string alternateSplashScreen = Settings::getInstance()->getString("AlternateSplashScreen");
+  if(alternateSplashScreen != "" && Utils::FileSystem::exists(alternateSplashScreen))
+    return alternateSplashScreen;
+  return DEFAULT_SPLASH_IMAGE;
+}
+
 void Window::setCustomSplashScreen(std::string imagePath, std::string customText)
 {
 	if (Settings::getInstance()->getBool("HideWindow"))
 		return;
-		
+
 	if (!Utils::FileSystem::exists(imagePath))
-		mSplash = std::make_shared<Splash>(this, DEFAULT_SPLASH_IMAGE, false);
+		mSplash = std::make_shared<Splash>(this, getCustomSplashScreenImage(), false);
 	else
 		mSplash = std::make_shared<Splash>(this, imagePath, false);
 
@@ -624,7 +631,7 @@ void Window::setCustomSplashScreen(std::string imagePath, std::string customText
 void Window::renderSplashScreen(std::string text, float percent, float opacity)
 {
 	if (mSplash == NULL)
-		mSplash = std::make_shared<Splash>(this);
+		mSplash = std::make_shared<Splash>(this, getCustomSplashScreenImage());
 
 	mSplash->update(text, percent);
 	mSplash->render(opacity);	
