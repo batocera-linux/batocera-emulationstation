@@ -27,6 +27,7 @@ std::vector<const char*> settings_dont_save {
 	{ "HideConsole" },
 	{ "ShowExit" },
 	{ "ExitOnRebootRequired" },
+	{ "AlternateSplashScreen" },
 	{ "SplashScreen" },
 	{ "SplashScreenProgress" },
 	// { "VSync" },
@@ -72,6 +73,7 @@ void Settings::setDefaults()
 	mBoolMap["ExitOnRebootRequired"] = false;
 	mBoolMap["Windowed"] = false;
 	mBoolMap["SplashScreen"] = true;
+	mStringMap["AlternateSplashScreen"] = "";
 	mBoolMap["SplashScreenProgress"] = true;
 	mBoolMap["StartupOnGameList"] = false;
 	mStringMap["StartupSystem"] = "lastsystem";

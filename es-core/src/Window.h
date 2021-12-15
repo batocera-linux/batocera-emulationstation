@@ -69,6 +69,7 @@ public:
 	void setAllowSleep(bool sleep);
 	
 	// Splash screen
+	std::string getCustomSplashScreenImage();
 	void setCustomSplashScreen(std::string imagePath, std::string customText);
 	void renderSplashScreen(std::string text, float percent = -1, float opacity = 1);
 	void renderSplashScreen(float opacity = 1, bool swapBuffers = true);
