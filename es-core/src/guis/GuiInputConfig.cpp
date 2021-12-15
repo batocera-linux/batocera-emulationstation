@@ -8,21 +8,21 @@
 #include "Log.h"
 #include "Window.h"
 
-#define fake_gettext_up _("UP")
-#define fake_gettext_down _("DOWN")
-#define fake_gettext_left _("LEFT")
-#define fake_gettext_right _("RIGHT")
-#define fake_gettext_start _("START")
-#define fake_gettext_select _("SELECT")
-#define fake_gettext_left_a_up _("LEFT ANALOG UP")
-#define fake_gettext_left_a_down _("LEFT ANALOG DOWN")
-#define fake_gettext_left_a_left _("LEFT ANALOG LEFT")
-#define fake_gettext_left_a_right _("LEFT ANALOG RIGHT")
-#define fake_gettext_right_a_up _("RIGHT ANALOG UP")
-#define fake_gettext_right_a_down _("RIGHT ANALOG DOWN")
-#define fake_gettext_right_a_left _("RIGHT ANALOG LEFT")
-#define fake_gettext_right_a_right _("RIGHT ANALOG RIGHT")
-#define fake_gettext_hotkey _("HOTKEY")
+#define fake_gettext_up pgettext("joystick", "UP")
+#define fake_gettext_down pgettext("joystick", "DOWN")
+#define fake_gettext_left pgettext("joystick", "LEFT")
+#define fake_gettext_right pgettext("joystick", "RIGHT")
+#define fake_gettext_start pgettext("joystick", "START")
+#define fake_gettext_select pgettext("joystick", "SELECT")
+#define fake_gettext_left_a_up pgettext("joystick", "LEFT ANALOG UP")
+#define fake_gettext_left_a_down pgettext("joystick", "LEFT ANALOG DOWN")
+#define fake_gettext_left_a_left pgettext("joystick", "LEFT ANALOG LEFT")
+#define fake_gettext_left_a_right pgettext("joystick", "LEFT ANALOG RIGHT")
+#define fake_gettext_right_a_up pgettext("joystick", "RIGHT ANALOG UP")
+#define fake_gettext_right_a_down pgettext("joystick", "RIGHT ANALOG DOWN")
+#define fake_gettext_right_a_left pgettext("joystick", "RIGHT ANALOG LEFT")
+#define fake_gettext_right_a_right pgettext("joystick", "RIGHT ANALOG RIGHT")
+#define fake_gettext_hotkey pgettext("joystick", "HOTKEY")
 
 //MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
 //If you want, you can manually add them to es_input.cfg.
@@ -124,7 +124,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		spacer->setSize(16, 0);
 		row.addElement(spacer, false);
 
-		auto text = std::make_shared<TextComponent>(mWindow, _(Utils::String::toUpper(GUI_INPUT_CONFIG_LIST[i].dispName).c_str()), theme->Text.font, theme->Text.color);
+		auto text = std::make_shared<TextComponent>(mWindow, pgettext("joystick", Utils::String::toUpper(GUI_INPUT_CONFIG_LIST[i].dispName).c_str()), theme->Text.font, theme->Text.color);
 		row.addElement(text, true);
 
 		auto mapping = std::make_shared<TextComponent>(mWindow, _("-NOT DEFINED-"), theme->Text.font, theme->TextSmall.color, ALIGN_RIGHT); // batocera

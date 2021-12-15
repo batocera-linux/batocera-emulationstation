@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2558,44 +2558,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "LEERTASTE"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "HOCH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "RECHTS"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "LINKER ANALOG HOCH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "LINKER ANALOG RUNTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "LINKER ANALOG LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "LINKER ANALOG RECHTS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "RECHTER ANALOG HOCH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "RECHTER ANALOG RUNTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "RECHTER ANALOG LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "RECHTER ANALOG RECHTS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "KONFIGURIEREN"
@@ -2741,6 +2762,45 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "UP"
+#~ msgstr "HOCH"
+
+#~ msgid "DOWN"
+#~ msgstr "RUNTER"
+
+#~ msgid "LEFT"
+#~ msgstr "LINKS"
+
+#~ msgid "RIGHT"
+#~ msgstr "RECHTS"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "LINKER ANALOG HOCH"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "LINKER ANALOG RUNTER"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "LINKER ANALOG LINKS"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "LINKER ANALOG RECHTS"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "RECHTER ANALOG HOCH"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "RECHTER ANALOG RUNTER"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "RECHTER ANALOG LINKS"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "RECHTER ANALOG RECHTS"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
 
 #~ msgid "RESIZE TATTOO WIDTH"
 #~ msgstr "TATTOO-BREITE GRÖSSE ÄNDERN"

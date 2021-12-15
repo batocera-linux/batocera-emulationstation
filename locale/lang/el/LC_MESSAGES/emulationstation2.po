@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2527,44 +2527,65 @@ msgstr ""
 msgid "SPACE"
 msgstr "ΚΕΝΟ / ΔΙΑΣΤΗΜΑ"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "ΠΑΝΩ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "ΚΑΤΩ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "ΑΡΙΣΤΕΡΑ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "ΔΕΞΙΑ"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ΠΑΝΩ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ΚΑΤΩ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ΑΡΙΣΤΕΡΟ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ΔΕΞΙ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ΠΑΝΩ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ΚΑΤΩ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ΑΡΙΣΤΕΡΟ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ΔΕΞΙ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "ΠΛΗΚΤΡΟ ΚΛΕΙΔΙ"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "ΤΡΟΠΟΠΟΙΗΣΗ"
@@ -2706,6 +2727,45 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "ΠΑΝΩ"
+
+#~ msgid "DOWN"
+#~ msgstr "ΚΑΤΩ"
+
+#~ msgid "LEFT"
+#~ msgstr "ΑΡΙΣΤΕΡΑ"
+
+#~ msgid "RIGHT"
+#~ msgstr "ΔΕΞΙΑ"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ΠΑΝΩ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ΚΑΤΩ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ΑΡΙΣΤΕΡΟ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ΔΕΞΙ ΑΡΙΣΤΕΡΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ΠΑΝΩ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ΚΑΤΩ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ΑΡΙΣΤΕΡΟ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ΔΕΞΙ ΔΕΞΙΟΥ ΑΝΑΛΟΓΙΚΟΥ"
+
+#~ msgid "HOTKEY"
+#~ msgstr "ΠΛΗΚΤΡΟ ΚΛΕΙΔΙ"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"

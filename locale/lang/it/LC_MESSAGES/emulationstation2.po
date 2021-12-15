@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2553,44 +2553,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "SPAZIO"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "SU"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "GIU"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "SINISTRA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "DESTRA"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ANALOGICO SX - SU"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ANALOGICO SX - GIÙ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALOGICO SX - SINISTRA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANALOGICO SX - DESTRA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ANALOGICO DX - SU"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ANALOGICO DX - GIÙ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ANALOGICO DX - SINISTRA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ANALOGICO DX- DESTRA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "CONFIGURAZIONE"
@@ -2735,6 +2756,45 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "UP"
+#~ msgstr "SU"
+
+#~ msgid "DOWN"
+#~ msgstr "GIU"
+
+#~ msgid "LEFT"
+#~ msgstr "SINISTRA"
+
+#~ msgid "RIGHT"
+#~ msgstr "DESTRA"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ANALOGICO SX - SU"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ANALOGICO SX - GIÙ"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ANALOGICO SX - SINISTRA"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ANALOGICO SX - DESTRA"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ANALOGICO DX - SU"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ANALOGICO DX - GIÙ"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ANALOGICO DX - SINISTRA"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ANALOGICO DX- DESTRA"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
 
 #~ msgid "RESIZE TATTOO WIDTH"
 #~ msgstr "RIDIMENSIONA LARGHEZZA IMMAGINE"

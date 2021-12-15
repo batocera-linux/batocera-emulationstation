@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:54+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2530,44 +2530,65 @@ msgstr "DEĞİŞTİR"
 msgid "SPACE"
 msgstr "BOŞLUK"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "YUKARI"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "AŞAĞI"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "SOL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "SAĞ"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "SOL ANALOG YUKARI"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "SOL ANALOG AŞAĞI"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "SOL ANALOG SOL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "SOL ANALOG SAĞ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "SAĞ ANALOG YUKARI"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "SAĞ ANALOG AŞAĞI"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "SAĞ ANALOG SOL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "SAĞ ANALOG SAĞ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "YAPILANDIRILIYOR"
@@ -2709,6 +2730,45 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "YUKARI"
+
+#~ msgid "DOWN"
+#~ msgstr "AŞAĞI"
+
+#~ msgid "LEFT"
+#~ msgstr "SOL"
+
+#~ msgid "RIGHT"
+#~ msgstr "SAĞ"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "SOL ANALOG YUKARI"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "SOL ANALOG AŞAĞI"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "SOL ANALOG SOL"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "SOL ANALOG SAĞ"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "SAĞ ANALOG YUKARI"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "SAĞ ANALOG AŞAĞI"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "SAĞ ANALOG SOL"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "SAĞ ANALOG SAĞ"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "SONRAKİ MÜZİĞE GEÇ"

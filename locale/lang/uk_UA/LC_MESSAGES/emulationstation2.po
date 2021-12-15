@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:54+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Bennington111, viroot\n"
 "Language-Team: Ukrainian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -2528,44 +2528,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "ПРОБІЛ"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "ВВЕРХ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "ВНИЗ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "ЛІВОРУЧ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "ПРАВОРУЧ"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ЛІВИЙ АНАЛОГ ВГОРУ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ЛІВИЙ АНАЛОГ ВНИЗ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ЛІВИЙ АНАЛОГ ЛІВОРУЧ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ЛІВИЙ АНАЛОГ ПРАВОРУЧ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ПРАВИЙ АНАЛОГ ВГОРУ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ПРАВИЙ АНАЛОГ ВНИЗ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ПРАВИЙ АНАЛОГ ЛІВОРУЧ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ПРАВИЙ АНАЛОГ ПРАВОРУЧ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "ГАРЯЧА КНОПКА"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "НАЛАШТУВАННЯ"
@@ -2714,6 +2735,45 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "ВВЕРХ"
+
+#~ msgid "DOWN"
+#~ msgstr "ВНИЗ"
+
+#~ msgid "LEFT"
+#~ msgstr "ЛІВОРУЧ"
+
+#~ msgid "RIGHT"
+#~ msgstr "ПРАВОРУЧ"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ЛІВИЙ АНАЛОГ ВГОРУ"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ЛІВИЙ АНАЛОГ ВНИЗ"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ЛІВИЙ АНАЛОГ ЛІВОРУЧ"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ЛІВИЙ АНАЛОГ ПРАВОРУЧ"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ПРАВИЙ АНАЛОГ ВГОРУ"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ПРАВИЙ АНАЛОГ ВНИЗ"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ПРАВИЙ АНАЛОГ ЛІВОРУЧ"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ПРАВИЙ АНАЛОГ ПРАВОРУЧ"
+
+#~ msgid "HOTKEY"
+#~ msgstr "ГАРЯЧА КНОПКА"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "НАСТУПНА ПІСНЯ"

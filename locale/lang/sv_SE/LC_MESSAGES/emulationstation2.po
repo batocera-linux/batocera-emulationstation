@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:54+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: 2021-12-03 21:40+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
@@ -2555,44 +2555,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "BLANKSTEG"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "UPP"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "NER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "VÄNSTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "HÖGER"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "VÄNSTER ANALOG UPP"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "VÄNSTER ANALOG NER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "VÄNSTER ANALOG VÄNSTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "VÄNSTER ANALOG HÖGER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "HÖGER ANALOG UPP"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "HÖGER ANALOG NER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "HÖGER ANALOG VÄNSTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "HÖGER ANALOG HÖGER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "KONFIGURERAR"
@@ -2736,6 +2757,45 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "UP"
+#~ msgstr "UPP"
+
+#~ msgid "DOWN"
+#~ msgstr "NER"
+
+#~ msgid "LEFT"
+#~ msgstr "VÄNSTER"
+
+#~ msgid "RIGHT"
+#~ msgstr "HÖGER"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "VÄNSTER ANALOG UPP"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "VÄNSTER ANALOG NER"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "VÄNSTER ANALOG VÄNSTER"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "VÄNSTER ANALOG HÖGER"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "HÖGER ANALOG UPP"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "HÖGER ANALOG NER"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "HÖGER ANALOG VÄNSTER"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "HÖGER ANALOG HÖGER"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
 
 #~ msgid "RESIZE TATTOO WIDTH"
 #~ msgstr "STORLEKSÄNDRA TATUERINGSBREDD"

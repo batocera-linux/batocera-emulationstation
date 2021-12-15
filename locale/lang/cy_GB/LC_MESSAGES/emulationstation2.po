@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: 2021-01-26 19:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2544,44 +2544,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "GOFOD"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "LAN"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "LAWR"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "CHWITH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "DDE"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "FFON ANALOG LAN"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ANALOG CHWITH I LAWR"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALOG CHWITH CHWITH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANALOG CHWITH DDE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ANALOG DDE LAN"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ANALOG DDE I LAWR"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ANALOG DDE CHWITH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ANALOG DDE DDE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "BYSELL FRYS"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "YN FFURFWEDDU"
@@ -2751,6 +2772,45 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "LAN"
+
+#~ msgid "DOWN"
+#~ msgstr "LAWR"
+
+#~ msgid "LEFT"
+#~ msgstr "CHWITH"
+
+#~ msgid "RIGHT"
+#~ msgstr "DDE"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "FFON ANALOG LAN"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ANALOG CHWITH I LAWR"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ANALOG CHWITH CHWITH"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ANALOG CHWITH DDE"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ANALOG DDE LAN"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ANALOG DDE I LAWR"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ANALOG DDE CHWITH"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ANALOG DDE DDE"
+
+#~ msgid "HOTKEY"
+#~ msgstr "BYSELL FRYS"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "SGIPIO I'R GÂN NESAF"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 07:52+0100\n"
+"POT-Creation-Date: 2021-12-15 21:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2528,44 +2528,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "SZÓKÖZ"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "FEL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "LE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "BAL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "JOBB"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "BAL OLDALI ANALÓG FEL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "BAL OLDALI ANALÓG LE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "BAL OLDALI ANALÓG BAL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "BAL OLDALI ANALÓG JOBB"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "JOBB OLDALI ANALÓG FEL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "JOBB OLDALI ANALÓG LE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "JOBB OLDALI ANALÓG BAL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "JOBB OLDALI ANALÓG JOBB"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "GYORSBILLENTYŰ"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "BEÁLLÍTÁS"
@@ -2707,6 +2728,45 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "FEL"
+
+#~ msgid "DOWN"
+#~ msgstr "LE"
+
+#~ msgid "LEFT"
+#~ msgstr "BAL"
+
+#~ msgid "RIGHT"
+#~ msgstr "JOBB"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "BAL OLDALI ANALÓG FEL"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "BAL OLDALI ANALÓG LE"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "BAL OLDALI ANALÓG BAL"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "BAL OLDALI ANALÓG JOBB"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "JOBB OLDALI ANALÓG FEL"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "JOBB OLDALI ANALÓG LE"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "JOBB OLDALI ANALÓG BAL"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "JOBB OLDALI ANALÓG JOBB"
+
+#~ msgid "HOTKEY"
+#~ msgstr "GYORSBILLENTYŰ"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "KÖVETKEZŐ DAL"
