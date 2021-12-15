@@ -1736,12 +1736,12 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "INDICATORI SFIDE"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr ""
+msgstr "Mostra le icone delle sfide per i trofei in basso a destra"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SUONO DI SBLOCCO TROFEO"
@@ -2483,25 +2483,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "AGGIORNA LISTE DEI GIOCHI PER APPLICARE I CAMBIAMENTI"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "CHIUSURA INASPETTATA DELL'EMULATORE"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "ARGOMENTI ERRATI DELLA RIGA DI COMANDO "
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURAZIONE NON VALIDA"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "EMULATORE SCONOSCIUTO"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "EMULATORE MANCANTE"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "CORE MANCANTE"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "ERRORE SCONOSCIUTO"
 
 msgid "GENRE"
 msgstr "GENERE"
