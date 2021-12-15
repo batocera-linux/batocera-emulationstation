@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1041,8 +1041,8 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr "새 게임 시작"
 
-msgid "START AUTO SAVE"
-msgstr "자동 저장 시작"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "자동 저장"
@@ -1780,18 +1780,6 @@ msgstr "되감기"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "자동 저장/불러오기"
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr "셰이더 설정"
 
@@ -1851,6 +1839,36 @@ msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "번역화면 일시정지"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
@@ -2112,6 +2130,9 @@ msgstr "에뮬레이션스테이션 나가기"
 
 msgid "REALLY QUIT?"
 msgstr "정말로 나가시겠습니까?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "자동 저장/불러오기"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -8490,6 +8511,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "자동 저장 시작"
 
 #~ msgid "UP"
 #~ msgstr "위"

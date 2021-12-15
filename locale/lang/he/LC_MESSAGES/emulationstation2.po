@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1043,8 +1043,8 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr "התחלת משחק חדש"
 
-msgid "START AUTO SAVE"
-msgstr "התחלת שמירה אוטומטית"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "שמירה אוטומטית"
@@ -1782,18 +1782,6 @@ msgstr "החזרה לאחור"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr ""
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr ""
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr ""
 
@@ -1853,6 +1841,36 @@ msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "השהה במסך מתורגם"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr "שמירה/טעינה אוטומטית"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "הגדרות מתקדמות לפי מערכת"
@@ -2114,6 +2132,9 @@ msgstr "יציאה מהאימולטור"
 
 msgid "REALLY QUIT?"
 msgstr "לצאת, בטוח?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -8523,6 +8544,9 @@ msgstr ""
 msgid "SCREEN READER DISABLED"
 msgstr ""
 
+#~ msgid "START AUTO SAVE"
+#~ msgstr "התחלת שמירה אוטומטית"
+
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "דילוג לשיר הבא"
 
@@ -8887,9 +8911,6 @@ msgstr ""
 
 #~ msgid "INTEGER SCALE (PIXEL PERFECT)"
 #~ msgstr "קנה מידה לפיקסל (PIXEL PERFECT)"
-
-#~ msgid "AUTO SAVE/LOAD"
-#~ msgstr "שמירה/טעינה אוטומטית"
 
 #~ msgid "SHADERS SET"
 #~ msgstr "ערכת SHADERS"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1046,8 +1046,8 @@ msgstr "MENEDŻER ZAPISU STANÓW"
 msgid "START NEW GAME"
 msgstr "ROZPOCZNIJ NOWĄ GRĘ"
 
-msgid "START AUTO SAVE"
-msgstr "ROZPOCZNIJ AUTO ZAPIS"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTO ZAPIS"
@@ -1802,18 +1802,6 @@ msgstr "PRZEWIJANIE"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
-
-msgid "SHOW SAVE STATES"
-msgstr "POKAŻ STANY ZAPISÓW"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "POKAŻ STANY ZAPISÓW JEŚLI NIE SĄ PUSTE"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "PRZYROSTOWY ZAPIS STANU"
-
 msgid "SHADER SET"
 msgstr "ZESTAW SHADERÓW"
 
@@ -1873,6 +1861,36 @@ msgstr "URL USŁUGI TŁUMACZENIA AI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "PRZYROSTOWY ZAPIS STANU"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2139,6 +2157,9 @@ msgstr "WYJDŹ Z EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "NAPRAWDĘ WYJŚĆ?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "POKAŻ NAKŁADKI KONTROLERA"
@@ -8545,6 +8566,15 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "ROZPOCZNIJ AUTO ZAPIS"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "POKAŻ STANY ZAPISÓW"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "POKAŻ STANY ZAPISÓW JEŚLI NIE SĄ PUSTE"
 
 #~ msgid "UP"
 #~ msgstr "GÓRA"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1045,8 +1045,8 @@ msgstr "МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
 msgid "START NEW GAME"
 msgstr "НАЧАТЬ НОВУЮ ИГРУ"
 
-msgid "START AUTO SAVE"
-msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "АВТО СОХРАНЕНИЕ"
@@ -1797,18 +1797,6 @@ msgstr "ПЕРЕМОТКА"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
-
-msgid "SHOW SAVE STATES"
-msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ ЕСЛИ ОНИ ИМЕЮТСЯ"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
-
 msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
 
@@ -1868,6 +1856,36 @@ msgstr "URL СЕРВИСА ПЕРЕВОДА AI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -2135,6 +2153,9 @@ msgstr "ВЫЙТИ ИЗ EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "ВЫЙТИ?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ КОНТРОЛЛЕРА"
@@ -8543,6 +8564,15 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ ЕСЛИ ОНИ ИМЕЮТСЯ"
 
 #~ msgid "UP"
 #~ msgstr "ВВЕРХ"

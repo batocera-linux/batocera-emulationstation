@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1046,8 +1046,8 @@ msgstr "GERENCIADOR DE JOGOS GUARDADOS"
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
 
-msgid "START AUTO SAVE"
-msgstr "INICIAR SAVE AUTOMÁTICO"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "SAVE AUTOMÁTICO"
@@ -1802,18 +1802,6 @@ msgstr "VOLTAR NO TEMPO"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SAVES/LOADING AO INICIAR JOGO"
-
-msgid "SHOW SAVE STATES"
-msgstr "MOSTRAR JOGOS GUARDADOS"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "MOSTRAR JOGOS GUARDADOS SE DISPONÍVEL"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "INCREMENTAL SAVESTATES"
-
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
@@ -1873,6 +1861,36 @@ msgstr "URL DO SERVIÇO DE TRADUÇÃO POR IA"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA NO ECRÃ TRADUZIDO"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INCREMENTAL SAVESTATES"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
@@ -2140,6 +2158,9 @@ msgstr "SAIR DO EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "SAVES/LOADING AO INICIAR JOGO"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO COMANDO"
@@ -8537,6 +8558,15 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "INICIAR SAVE AUTOMÁTICO"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "MOSTRAR JOGOS GUARDADOS"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "MOSTRAR JOGOS GUARDADOS SE DISPONÍVEL"
 
 #~ msgid "UP"
 #~ msgstr "CIMA"

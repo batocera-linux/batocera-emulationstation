@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:50+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: 2021-12-15 21:31+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
@@ -1044,8 +1044,8 @@ msgstr "HANTERARE FÖR 'SAVE STATE'"
 msgid "START NEW GAME"
 msgstr "STARTA NYTT SPEL"
 
-msgid "START AUTO SAVE"
-msgstr "STARTA AUTOSPARA"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTOSPARA"
@@ -1801,18 +1801,6 @@ msgstr "TILLBAKASPOLNING"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "HELHETSSKALNING (PIXEL PERFECT)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
-
-msgid "SHOW SAVE STATES"
-msgstr "VISA SAVE STATES"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "VISA SAVE STATES OM EJ TOM"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "INKREMENTELLA SAVE STATES"
-
 msgid "SHADER SET"
 msgstr "SHADERS-UPPSÄTTNING"
 
@@ -1872,6 +1860,36 @@ msgstr "AI-ÖVERSÄTTNINGSTJÄNSTENS WEBBADRESS"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA PÅ ÖVERSATT SKÄRM"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INKREMENTELLA SAVE STATES"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "AVANCERAD KONFIGURATION PER SYSTEM"
@@ -2138,6 +2156,9 @@ msgstr "AVSLUTA EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "VILL DU VERKLIGEN AVSLUTA?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA KONTROLLER-OVERLAYS"
@@ -8536,6 +8557,15 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "STARTA AUTOSPARA"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "VISA SAVE STATES"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "VISA SAVE STATES OM EJ TOM"
 
 #~ msgid "UP"
 #~ msgstr "UPP"

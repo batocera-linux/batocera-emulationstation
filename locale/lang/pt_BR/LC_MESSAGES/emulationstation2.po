@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1046,8 +1046,8 @@ msgstr "GERENCIADOR DE ESTADOS DE SALVAMENTO"
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
 
-msgid "START AUTO SAVE"
-msgstr "INICIAR SALVAMENTO AUTOMÁTICO"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "SALVAMENTO AUTOMÁTICO"
@@ -1803,18 +1803,6 @@ msgstr "REBOBINAR"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA INTEIRA (PIXEL PERFEITO)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
-
-msgid "SHOW SAVE STATES"
-msgstr "EXIBIR SEMPRE"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "EXIBIR SE DISPONÍVEIS"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
-
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
@@ -1874,6 +1862,36 @@ msgstr "URL DO SERVIÇO DE TRADUÇÃO POR IA"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA NA TELA TRADUZIDA"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -2142,6 +2160,9 @@ msgstr "SAIR DO EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR ?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO CONTROLE"
@@ -8542,6 +8563,15 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "INICIAR SALVAMENTO AUTOMÁTICO"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "EXIBIR SEMPRE"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "EXIBIR SE DISPONÍVEIS"
 
 #~ msgid "UP"
 #~ msgstr "CIMA"

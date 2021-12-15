@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1043,8 +1043,8 @@ msgstr "即時存檔管理員"
 msgid "START NEW GAME"
 msgstr "新遊戲"
 
-msgid "START AUTO SAVE"
-msgstr "從自動存檔開始"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "自動存檔"
@@ -1789,18 +1789,6 @@ msgstr "倒帶功能"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整數縮放 (完美像素)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "遊戲啟動時自動儲存/讀取"
-
-msgid "SHOW SAVE STATES"
-msgstr "顯示即時存檔"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "即時存檔不為空時顯示"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "遞增即時存檔"
-
 msgid "SHADER SET"
 msgstr "著色器設定集"
 
@@ -1860,6 +1848,36 @@ msgstr "AI 翻譯服務網址"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "在已翻譯的畫面上暫停"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "遞增即時存檔"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
@@ -2124,6 +2142,9 @@ msgstr "退出 EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "確定要退出？"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "遊戲啟動時自動儲存/讀取"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "顯示遊戲控制器覆層"
@@ -8507,6 +8528,15 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "從自動存檔開始"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "顯示即時存檔"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "即時存檔不為空時顯示"
 
 #~ msgid "UP"
 #~ msgstr "上"

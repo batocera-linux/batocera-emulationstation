@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/12/06)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: 2021-12-06 16:50+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1044,8 +1044,8 @@ msgstr "ステートセーブマネージャ"
 msgid "START NEW GAME"
 msgstr "最初から開始"
 
-msgid "START AUTO SAVE"
-msgstr "オートセーブで開始"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "セーブ場所から開始"
@@ -1794,18 +1794,6 @@ msgstr "巻き戻し"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "自動ステートセーブ読込"
-
-msgid "SHOW SAVE STATES"
-msgstr "ステートセーブ表示"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "セーブがあれば表示"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ステートセーブ変更・追加"
-
 msgid "SHADER SET"
 msgstr "シェーダー設定"
 
@@ -1865,6 +1853,36 @@ msgstr "AIゲーム翻訳サービス URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻訳画面で一時停止"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ステートセーブ変更・追加"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
@@ -2132,6 +2150,9 @@ msgstr "EMULATIONSTATION を終了"
 
 msgid "REALLY QUIT?"
 msgstr "本当に終了しますか？"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "自動ステートセーブ読込"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "コントローラーイメージを表示"
@@ -8519,6 +8540,15 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "オートセーブで開始"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "ステートセーブ表示"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "セーブがあれば表示"
 
 #~ msgid "UP"
 #~ msgstr "上"

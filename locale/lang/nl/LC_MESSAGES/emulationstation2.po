@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
+"POT-Creation-Date: 2021-12-15 22:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1042,8 +1042,8 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr "START NIEUW SPEL"
 
-msgid "START AUTO SAVE"
-msgstr "AUTOMATISCH OPSLAAN STARTEN"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTOMATISCH OPSLAAN"
@@ -1784,18 +1784,6 @@ msgstr "TERUGSPOELEN"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "INTEGER SCHAAL (PIXEL PERFECT)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTOMATISCH OPSLAAN/LADEN"
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr "SHADER SET"
 
@@ -1855,6 +1843,36 @@ msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZEER BIJ VERTAALD SCHERM"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "GEAVANCEERDE CONFIGURATIE PER SYSTEEM"
@@ -2116,6 +2134,9 @@ msgstr "STOP EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "ECHT STOPPEN?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "AUTOMATISCH OPSLAAN/LADEN"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -8506,6 +8527,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "AUTOMATISCH OPSLAAN STARTEN"
 
 #~ msgid "UP"
 #~ msgstr "OMHOOG"
