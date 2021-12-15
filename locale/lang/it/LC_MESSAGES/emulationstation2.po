@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 07:52+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1848,23 +1848,11 @@ msgstr "SUD OVEST"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PERCORSO IMMAGINE PERSONALIZZATA"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "RIDIMENSIONA LARGHEZZA IMMAGINE"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "STANDARD"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "RIDIMENSIONA LARGHEZZA OVERLAY"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "In riferimento ad una cornice 1920p"
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUZIONE GIOCO IA"
@@ -2747,6 +2735,24 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "RIDIMENSIONA LARGHEZZA IMMAGINE"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "STANDARD"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "RIDIMENSIONA LARGHEZZA OVERLAY"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "In riferimento ad una cornice 1920p"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "SALTA AL BRANO SUCCESSIVO"

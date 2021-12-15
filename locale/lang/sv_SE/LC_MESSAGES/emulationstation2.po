@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 07:54+0100\n"
 "PO-Revision-Date: 2021-12-03 21:40+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
@@ -1850,23 +1850,11 @@ msgstr "SYDVÄST"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "SÖKVÄG TILL ANPASSAD .PNG-BILD"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "STORLEKSÄNDRA TATUERINGSBREDD"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "STORLEKSÄNDRA OVERLAY-BREDD"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Relativt till en ram på 1920 px."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPELÖVERSÄTTNING"
@@ -2748,3 +2736,21 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "STORLEKSÄNDRA TATUERINGSBREDD"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "STORLEKSÄNDRA OVERLAY-BREDD"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Relativt till en ram på 1920 px."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 07:52+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: Batocera official\n"
@@ -1849,23 +1849,11 @@ msgstr "SUD OUEST"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RÉPERTOIRE D’IMAGES .PNG PERSONNALISÉES"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "LARGEUR DU TATOUAGE"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "LARGEUR DE LA DÉCORATION"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Par rapport à une décoration de 1920 pixels"
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION"
@@ -2749,3 +2737,21 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "LARGEUR DU TATOUAGE"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "LARGEUR DE LA DÉCORATION"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Par rapport à une décoration de 1920 pixels"

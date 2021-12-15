@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-es v33beta(2021/12/06)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 07:52+0100\n"
 "PO-Revision-Date: 2021-12-06 16:50+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
@@ -1845,23 +1845,11 @@ msgstr "左下"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "カスタムイメージ(png)のパス"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "イメージ幅を変更"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "元サイズ"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "オーバーレイの幅を変更"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "幅1920ピクセルのベゼルが基準です。"
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AIゲーム翻訳"
@@ -2733,6 +2721,24 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "イメージ幅を変更"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "元サイズ"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "オーバーレイの幅を変更"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "幅1920ピクセルのベゼルが基準です。"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 07:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1848,23 +1848,11 @@ msgstr "СНИЗУ СЛЕВА"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ПУТЬ К ПОЛЬЗ. ИЗОБРАЖЕНИЮ .PNG"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "ИЗМЕНИТЬ ШИРИНУ ТАТУ"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ПО УМОЛЧАНИЮ"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "ИЗМЕНИТЬ ШИРИНУ ОВЕРЕЛЯ"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Относительно рамки на 1920 пикселей."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI ПЕРЕВОД ИГРЫ"
@@ -2757,6 +2745,24 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "ИЗМЕНИТЬ ШИРИНУ ТАТУ"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ПО УМОЛЧАНИЮ"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "ИЗМЕНИТЬ ШИРИНУ ОВЕРЕЛЯ"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Относительно рамки на 1920 пикселей."
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "ПРОПУСТИТЬ ПЕСНЮ"

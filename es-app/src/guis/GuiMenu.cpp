@@ -2196,7 +2196,7 @@ void GuiMenu::openGamesSettings_batocera()
 						});
 				decorations_window->addInputTextRow(_("CUSTOM .PNG IMAGE PATH"), "global.bezel.tattoo_file", false);
 
-				auto bezel_resize_tattoo = std::makeshared<SwitchComponent>(mWindow);
+				auto bezel_resize_tattoo = std::make_shared<SwitchComponent>(mWindow);
 				bezel_resize_tattoo->setState(!SystemConf::getInstance()->getBool("global.bezel.resize_tattoo"));
 				decorations_window->addWithDescription(_("RESIZE TATTOO"), _("Shrink/expand tattoo to fit within the bezel's border."), bezel_resize_tattoo);
 				decorations_window->addSaveFunc([bezel_resize_tattoo]

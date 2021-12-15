@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 07:52+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1852,23 +1852,11 @@ msgstr "INFERIOR IZQUIERDA"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RUTA DE LA IMAGEN .PNG PERSONALIZADA"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "MODIFICAR EL TAMAÑO DE LA IMAGEN"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "MODIFICAR EL TAMAÑO DE LA SUPERPOSICIÓN"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Relativo a un bisel de 1920px."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓN DE JUEGO POR IA"
@@ -2752,6 +2740,24 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "MODIFICAR EL TAMAÑO DE LA IMAGEN"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "MODIFICAR EL TAMAÑO DE LA SUPERPOSICIÓN"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Relativo a un bisel de 1920px."
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "PASAR A LA SIGUIENTE CANCIÓN"

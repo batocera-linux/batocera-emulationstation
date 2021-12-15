@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 07:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1840,23 +1840,11 @@ msgstr "西南"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "自訂 .PNG 圖片路徑"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "調整紋身寬度"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "原始"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "調整覆層寬度"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "相對於 1920 像素的框體。"
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI 遊戲翻譯"
@@ -2721,6 +2709,24 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "調整紋身寬度"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "原始"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "調整覆層寬度"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "相對於 1920 像素的框體。"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "跳到下一首歌"

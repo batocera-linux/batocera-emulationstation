@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 10:00-0300\n"
+"POT-Creation-Date: 2021-12-15 07:52+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1456,8 +1456,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Inverte o botão norte (savestates) e pressionar longamente o botão sul"
-"(opções de jogo)"
+"Inverte o botão norte (savestates) e pressionar longamente o botão "
+"sul(opções de jogo)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION APENAS COM O PRIMEIRO CONTROLE"
@@ -1854,23 +1854,11 @@ msgstr "SUDOESTE"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ARQUIVO .PNG PERSONALIZADO"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Em relação a uma moldura de 1920 px."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
@@ -2756,3 +2744,21 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Em relação a uma moldura de 1920 px."
