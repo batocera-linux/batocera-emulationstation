@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 22:45+0100\n"
-"PO-Revision-Date: 2021-12-03 21:40+0100\n"
+"POT-Creation-Date: 2021-12-15 22:50+0100\n"
+"PO-Revision-Date: 2021-12-15 21:31+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -1738,12 +1738,14 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISK SKÄRMDUMP"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "UTMANINGSINDIKATORER"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
+"Visar ikoner i det nedre högra hörnet när kvalificerade prestationer kan "
+"tjänas in."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "UPPLÅSNINGSLJUD FÖR RETROPRESTATION"
@@ -1851,10 +1853,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "SÖKVÄG TILL ANPASSAD .PNG-BILD"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "STORLEKSÄNDRA TATUERING"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Krymp/expandera tatuering för att passa inom ramens kant."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPELÖVERSÄTTNING"
@@ -8133,7 +8135,7 @@ msgid "Downloading"
 msgstr "Laddar ned"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "SÖK EFTER"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTERA RESULTAT"
@@ -8250,25 +8252,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPPDATERA SPELLISTOR FÖR ATT VERKSTÄLLA ÄNDRINGAR."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "EMULATORN AVSLUTADES OVÄNTAT"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "DÅLIGT KOMMANDORADSARGUMENT"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "OGILTIG KONFIGURATION"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "OKÄND EMULATOR"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "EMULATOR SAKNAS"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "KÄRNA SAKNAS"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "OKÄNT FEL"
 
 msgid "GENRE"
 msgstr "GENRE"
