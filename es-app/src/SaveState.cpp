@@ -7,8 +7,6 @@
 #include "SaveStateRepository.h"
 #include "SystemConf.h"
 
-#define incrementalSaveStates (SystemConf::getInstance()->get("global.incrementalsavestates") != "0")
-
 std::string SaveState::makeStateFilename(int slot, bool fullPath) const
 {
 	std::string ret = this->rom + ".state" + (slot < 0 ? ".auto" : (slot == 0 ? "" : std::to_string(slot)));
@@ -36,7 +34,7 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 
 	if (!isSlotValid())
 	{
-		if (nextSlot > 0)
+		if (nextSlot > 0 && !SystemConf::getIncrementalSaveStatesUseCurrentSlot())
 		{
 			// We start a game normally but there are saved games : Start game on next free slot to avoid loosing a saved game
 			return command + " -state_slot " + std::to_string(nextSlot);
@@ -44,6 +42,8 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 
 		return command;
 	}
+
+	bool incrementalSaveStates = SystemConf::getIncrementalSaveStates();
 	
 	std::string path = Utils::FileSystem::getParent(fileName);
 
@@ -135,7 +135,7 @@ void SaveState::onGameEnded(FileData* game)
 		Utils::FileSystem::renameFile(mAutoImageBackup + ".bak", mAutoImageBackup);
 	}
 
-	if (incrementalSaveStates)
+	if (SystemConf::getIncrementalSaveStates())
 		SaveStateRepository::renumberSlots(game);
 }
 

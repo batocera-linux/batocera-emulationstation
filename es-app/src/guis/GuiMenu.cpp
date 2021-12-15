@@ -2038,6 +2038,7 @@ void GuiMenu::addDecorationSetOptionListComponent(Window* window, GuiSettings* p
 
 void GuiMenu::openGamesSettings_batocera() 
 {
+
 	Window* window = mWindow;
 
 	auto s = new GuiSettings(mWindow, _("GAME SETTINGS").c_str());
@@ -2098,18 +2099,6 @@ void GuiMenu::openGamesSettings_batocera()
 	integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
 	s->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
-
-	// autosave/load
-	auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD ON GAME LAUNCH"));
-	autosave_enabled->addRange({ { _("OFF"), "auto" },{ _("ON") , "1" },{ _("SHOW SAVE STATES") , "2" },{ _("SHOW SAVE STATES IF NOT EMPTY") , "3" } }, SystemConf::getInstance()->get("global.autosave"));
-	s->addWithLabel(_("AUTO SAVE/LOAD ON GAME LAUNCH"), autosave_enabled);
-	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getSelected()); });
-	
-	// Incremental savestates
-	auto incrementalSaveStates = std::make_shared<SwitchComponent>(mWindow);
-	incrementalSaveStates->setState(SystemConf::getInstance()->get("global.incrementalsavestates") != "0");
-	s->addWithLabel(_("INCREMENTAL SAVESTATES"), incrementalSaveStates);
-	s->addSaveFunc([incrementalSaveStates] { SystemConf::getInstance()->set("global.incrementalsavestates", incrementalSaveStates->getState() ? "" : "0"); });
 
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS))
@@ -2339,6 +2328,32 @@ void GuiMenu::openGamesSettings_batocera()
 			}
 		}
 	}
+	// Custom config for systems
+	s->addGroup(_("SAVESTATES"));
+
+	// AUTO SAVE/LOAD
+	auto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);
+	autosave_enabled->setState(SystemConf::getInstance()->get("global.autosave") == "1");
+	s->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
+	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getState() ? "1" : ""); });
+
+	// INCREMENTAL SAVESTATES
+	auto incrementalSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INCREMENTAL SAVESTATES"));
+	incrementalSaveStates->addRange({ 
+		{ _("YES"), "", "" }, // Don't use 1 -> 1 is YES, auto too
+		{ _("NO") , _("NEW GAME CREATES NEW SLOT"), "0" },
+		{ _("DISABLED"), _("NEW GAME OVERWRITES CURRENT SLOT"), "2" } },
+		SystemConf::getInstance()->get("global.incrementalsavestates"));
+
+	s->addWithLabel(_("INCREMENTAL SAVESTATES"), incrementalSaveStates);
+	s->addSaveFunc([incrementalSaveStates] { SystemConf::getInstance()->set("global.incrementalsavestates", incrementalSaveStates->getSelected()); });
+	
+	// SHOW SAVE STATES
+	auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("DISPLAY SAVE STATE MANAGER"));
+	showSaveStates->addRange({ { _("NO"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get("global.savestates"));
+	s->addWithDescription(_("SHOW SAVE STATE MANAGER"), _("DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"), showSaveStates);
+	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
+
 
 	// Custom config for systems
 	s->addGroup(_("SETTINGS"));
@@ -4051,15 +4066,24 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addSaveFunc([configName, rewind_enabled] { SystemConf::getInstance()->set(configName + ".rewind", rewind_enabled->getSelected()); });
 	}
 
-	// autosave
+	// AUTO SAVE/LOAD
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave))
 	{
-		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD ON GAME LAUNCH"));
-		autosave_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" }, { _("SHOW SAVE STATES") , "2" }, { _("SHOW SAVE STATES IF NOT EMPTY") , "3" } }, SystemConf::getInstance()->get(configName + ".autosave"));
+		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+		autosave_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".autosave"));
 		systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD ON GAME LAUNCH"), autosave_enabled);
 		systemConfiguration->addSaveFunc([configName, autosave_enabled] { SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected()); });
 	}
-
+	/*
+	// SHOW SAVE STATES
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave))
+	{
+		auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVE STATE MANAGER"));
+		showSaveStates->addRange({ { _("OFF"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get(configName + ".savestates"));
+		systemConfiguration->addWithLabel(_("SHOW SAVE STATE MANAGER"), showSaveStates);
+		systemConfiguration->addSaveFunc([configName, showSaveStates] { SystemConf::getInstance()->set(configName + ".savestates", showSaveStates->getSelected()); });
+	}
+	*/
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
 		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))

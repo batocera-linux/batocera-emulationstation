@@ -100,7 +100,7 @@ GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<v
 
 void GuiSaveState::loadGrid()
 {
-	bool incrementalSaveStates = (SystemConf::getInstance()->get("global.incrementalsavestates") != "0");
+	bool incrementalSaveStates = SystemConf::getIncrementalSaveStates();
 
 	mGrid->clear();
 	mGrid->onSizeChanged(); // To Rebuild tiles
@@ -114,19 +114,17 @@ void GuiSaveState::loadGrid()
 
 	mGrid->add(_("START NEW GAME"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-2));
 
-	std::string autoSaveMode = mGame->getCurrentGameSetting("autosave");
-	if (autoSaveMode.empty() || autoSaveMode == "auto" || autoSaveMode == "2")
+	if (mGame->getCurrentGameSetting("autosave") == "1")
 	{
 		auto autoSave = std::find_if(states.cbegin(), states.cend(), [](SaveState* x) { return x->slot == -1; });
 		if (autoSave == states.cend())
-			mGrid->add(_("START AUTO SAVE"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-1));
+			mGrid->add(_("START NEW AUTO SAVE"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-1));
 	}
-
 
 	for (auto item : states)
 	{
 		if (item->slot == -1)
-			mGrid->add(item->creationDate.toLocalTimeString() + std::string("\r\n") + _("AUTO SAVE"), item->getScreenShot(), "", "", false, false, false, false, *item);
+			mGrid->add(_("AUTO SAVE") + std::string("\r\n") + item->creationDate.toLocalTimeString(), item->getScreenShot(), "", "", false, false, false, false, *item);
 		else if (incrementalSaveStates)
 			mGrid->add(item->creationDate.toLocalTimeString(), item->getScreenShot(), "", "", false, false, false, false, *item);
 		else 
