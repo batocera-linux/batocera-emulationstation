@@ -267,3 +267,14 @@ bool SystemConf::setBool(const std::string &name, bool value)
 
 	return set(name, value  ? "1" : "0");
 }
+
+bool SystemConf::getIncrementalSaveStates()
+{
+	auto valGSS = SystemConf::getInstance()->get("global.incrementalsavestates");
+	return valGSS != "0" && valGSS != "2";
+}
+
+bool SystemConf::getIncrementalSaveStatesUseCurrentSlot()
+{
+	return SystemConf::getInstance()->get("global.incrementalsavestates") == "2";
+}
