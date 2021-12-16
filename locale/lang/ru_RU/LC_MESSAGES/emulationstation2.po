@@ -1046,7 +1046,7 @@ msgid "START NEW GAME"
 msgstr "НАЧАТЬ НОВУЮ ИГРУ"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"
 
 msgid "AUTO SAVE"
 msgstr "АВТО СОХРАНЕНИЕ"
@@ -1837,10 +1837,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ПУТЬ К ПОЛЬЗ. ИЗОБРАЖЕНИЮ .PNG"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "РАЗМЕР ТАТУ"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Изменить размер тату, чтобы уместить в границах рамки."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI ПЕРЕВОД ИГРЫ"
@@ -1858,34 +1858,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "НОВАЯ ИГРА СОЗДАЁТ НОВЫЙ СЛОТ"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "НОВАЯ ИГРА ПЕРЕЗАПИСЫВАЕТ ТЕКУЩИЙ СЛОТ"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "ВСЕГДА"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "ЕСЛИ ИМЕЕТСЯ"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "ПОКАЗЫВАЕТ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ ПЕРЕД ЗАПУСКОМ ИГРЫ"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -1908,7 +1908,7 @@ msgid ""
 msgstr ""
 "ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ СВЕТА, "
 "ОТНОСИТЕЛЬНО КНОПОК НА SNES ГЕЙМПАДЕ, СЕВЕР - ВВЕРХУ, ЮГ - ВНИЗУ, ЗАПАД - "
-"СЛЕВА, ВОСТОК - СПРАВА.ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНАЯ ГОРЯЧАЯ КЛАВИША, ТО "
+"СЛЕВА, ВОСТОК - СПРАВА.ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНАЯ ГОРЯЧАЯ КНОПКА, ТО "
 "ИСПОЛЬЗУЙТЕ КНОПКУ SELECT.ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС НЕТ, "
 "НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ.КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
 "ПОДТВЕРЖДЕНИЯ."
@@ -2379,7 +2379,7 @@ msgid "Downloading"
 msgstr "Загрузка"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "ПОИСК ДЛЯ"
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
@@ -2496,25 +2496,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "ЭМУЛЯТОР НЕОЖИДАННО ПРЕКРАТИЛ РАБОТУ"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "НЕВЕРНЫЕ АРГУМЕНТЫ КОМАНДНОЙ СТРОКИ"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "НЕВЕРНАЯ КОНФИГУРАЦИЯ"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "НЕИЗВЕСТНЫЙ ЭМУЛЯТОР"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "ЭМУЛЯТОР ОТСУТСТВУЕТ"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "ЯДРО ОТСУТСТВУЕТ"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "GENRE"
 msgstr "ЖАНР"
@@ -2580,63 +2580,63 @@ msgstr "ПРОБЕЛ"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "ВВЕРХ"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "ВНИЗ"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "ВЛЕВО"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "ВПРАВО"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "ЛЕВЫЙ АНАЛОГ ВВЕРХ"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "ЛЕВЫЙ АНАЛОГ ВНИЗ"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "ЛЕВЫЙ АНАЛОГ ВЛЕВО"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "ЛЕВЫЙ АНАЛОГ ВПРАВО"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "ПРАВЫЙ АНАЛОГ ВВЕРХ"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "ПРАВЫЙ АНАЛОГ ВНИЗ"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "ПРАВЫЙ АНАЛОГ ВЛЕВО"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "ПРАВЫЙ АНАЛОГ ВПРАВО"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "ГОРЯЧАЯ КНОПКА"
 
 msgid "CONFIGURING"
 msgstr "НАСТРОЙКА"
@@ -2661,14 +2661,14 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"ГОРЯЧУЮ КЛАВИША НЕ НАЗНАЧЕНА. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
-"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT КАК ГОРЯЧУЮ КЛАВИШУ?"
+"ГОРЯЧАЯ КНОПКА НЕ НАЗНАЧЕНА. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
+"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT КАК ГОРЯЧУЮ КНОПКУ?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "УСТАНОВИТЬ SELECT КАК ГОРЯЧУЮ КЛАВИШУ"
+msgstr "УСТАНОВИТЬ SELECT КАК ГОРЯЧУЮ КНОПКУ"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КЛАВИШУ"
+msgstr "НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КНОПКУ"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
