@@ -52,7 +52,8 @@ struct PluralRule
 class EsLocale
 {
 public:
-	static const std::string getText(const std::string text);
+	static const std::string getText(const std::string& text);
+	static const std::string getTextWithContext(const std::string& context, const std::string& text);
 	static const std::string nGetText(const std::string msgid, const std::string msgid_plural, int n);
 
 	static const std::string getLanguage() { return mCurrentLanguage; }
@@ -74,7 +75,7 @@ private:
 
 #define _(x) EsLocale::getText(x)
 #define ngettext(A, B, C) EsLocale::nGetText(A, B, C).c_str()
-#define pgettext(A, B) B
+#define pgettext(A, B) EsLocale::getTextWithContext(A, B)
 
 #endif // WIN32
 
