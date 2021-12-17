@@ -2276,26 +2276,26 @@ void GuiMenu::openGamesSettings_batocera()
 		{				
 			s->addEntry(group.first, true, [this, group]
 			{
-				GuiSettings* groupSettings = new GuiSettings(mWindow, _(group.first.c_str()));
+				GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
 
 				for (auto feat : group.second)
 				{
 					std::string storageName = "global." + feat.value;
 					std::string storedValue = SystemConf::getInstance()->get(storageName);
 
-					auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+					auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
 					cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
 
 					for (auto fval : feat.choices)
-						cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+						cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
 
 					if (!cf->hasSelection())
 						cf->selectFirstItem();
 
 					if (!feat.description.empty())
-						groupSettings->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+						groupSettings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
 					else
-						groupSettings->addWithLabel(_(feat.name.c_str()), cf);
+						groupSettings->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
 
 					groupSettings->addSaveFunc([cf, storageName] { SystemConf::getInstance()->set(storageName, cf->getSelected()); });
 				}
@@ -2311,19 +2311,19 @@ void GuiMenu::openGamesSettings_batocera()
 				std::string storageName = "global." + feat.value;
 				std::string storedValue = SystemConf::getInstance()->get(storageName);
 
-				auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+				auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
 				cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
 
 				for (auto fval : feat.choices)
-					cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+					cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
 
 				if (!cf->hasSelection())
 					cf->selectFirstItem();
 
 				if (!feat.description.empty())
-					s->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+					s->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
 				else
-					s->addWithLabel(_(feat.name.c_str()), cf);
+					s->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
 
 				s->addSaveFunc([cf, storageName] { SystemConf::getInstance()->set(storageName, cf->getSelected()); });
 			}
@@ -4413,26 +4413,26 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		{
 			systemConfiguration->addEntry(group.first, true, [configName, mWindow, group]
 			{
-				GuiSettings* groupSettings = new GuiSettings(mWindow, _(group.first.c_str()));
+				GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
 
 				for (auto feat : group.second)
 				{
 					std::string storageName = configName + "." + feat.value;
 					std::string storedValue = SystemConf::getInstance()->get(storageName);
 
-					auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+					auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
 					cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
 
 					for (auto fval : feat.choices)
-						cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+						cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
 
 					if (!cf->hasSelection())
 						cf->selectFirstItem();
 
 					if (!feat.description.empty())
-						groupSettings->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+						groupSettings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
 					else
-						groupSettings->addWithLabel(_(feat.name.c_str()), cf);
+						groupSettings->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
 
 					groupSettings->addSaveFunc([cf, storageName]
 					{
@@ -4450,19 +4450,19 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				std::string storageName = configName + "." + feat.value;
 				std::string storedValue = SystemConf::getInstance()->get(storageName);
 
-				auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, _(feat.name.c_str()));
+				auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
 				cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
 
 				for (auto fval : feat.choices)
-					cf->add(_(fval.name.c_str()), fval.value, storedValue == fval.value);
+					cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
 
 				if (!cf->hasSelection())
 					cf->selectFirstItem();
 
 				if (!feat.description.empty())
-					systemConfiguration->addWithDescription(_(feat.name.c_str()), _(feat.description.c_str()), cf);
+					systemConfiguration->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
 				else
-					systemConfiguration->addWithLabel(_(feat.name.c_str()), cf);
+					systemConfiguration->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
 
 				systemConfiguration->addSaveFunc([cf, storageName]
 				{
