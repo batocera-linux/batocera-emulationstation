@@ -515,7 +515,6 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "game_translation") ret = ret | EmulatorFeatures::Features::game_translation;
 		if (trim == "autosave") ret = ret | EmulatorFeatures::Features::autosave;
 		if (trim == "netplay") ret = ret | EmulatorFeatures::Features::netplay;
-		if (trim == "internal_resolution") ret = ret | EmulatorFeatures::Features::internal_resolution;
 		if (trim == "videomode") ret = ret | EmulatorFeatures::Features::videomode;
 		if (trim == "padtokeyboard") ret = ret | EmulatorFeatures::Features::padTokeyboard;		
 		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;

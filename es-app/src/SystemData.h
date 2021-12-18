@@ -65,7 +65,6 @@ public:
 		game_translation = 128,
 		autosave = 256,
 		netplay = 512,
-		internal_resolution = 8192,
 		videomode = 16384,
 		padTokeyboard = 65536,
 		cheevos = 131072,
