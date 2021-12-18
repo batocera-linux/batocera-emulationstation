@@ -67,7 +67,6 @@ public:
 		netplay = 512,
 		internal_resolution = 8192,
 		videomode = 16384,
-		colorization = 32768,
 		padTokeyboard = 65536,
 		cheevos = 131072,
 		autocontrollers = 262144,
