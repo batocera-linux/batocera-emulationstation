@@ -59,7 +59,6 @@ public:
 		rewind = 2,
 		smooth = 4,
 		shaders = 8,
-		pixel_perfect = 16,
 		decoration = 32,
 		latency_reduction = 64,
 		game_translation = 128,
