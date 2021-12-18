@@ -516,7 +516,6 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "autosave") ret = ret | EmulatorFeatures::Features::autosave;
 		if (trim == "netplay") ret = ret | EmulatorFeatures::Features::netplay;
 		if (trim == "fullboot") ret = ret | EmulatorFeatures::Features::fullboot;
-		if (trim == "emulated_wiimotes") ret = ret | EmulatorFeatures::Features::emulated_wiimotes;
 		if (trim == "screen_layout") ret = ret | EmulatorFeatures::Features::screen_layout;
 		if (trim == "internal_resolution") ret = ret | EmulatorFeatures::Features::internal_resolution;
 		if (trim == "videomode") ret = ret | EmulatorFeatures::Features::videomode;
