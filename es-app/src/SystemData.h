@@ -65,7 +65,6 @@ public:
 		game_translation = 128,
 		autosave = 256,
 		netplay = 512,
-		fullboot = 1024,
 		screen_layout = 4096,
 		internal_resolution = 8192,
 		videomode = 16384,

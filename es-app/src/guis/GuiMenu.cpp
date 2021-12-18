@@ -4341,18 +4341,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		}		
 	}
 
-	// ps2 full boot
-	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::fullboot))
-	{
-		if (SystemData::es_features_loaded || (!SystemData::es_features_loaded && systemData->getName() == "ps2")) // only for ps2			
-		{
-			auto fullboot_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("FULL BOOT"));
-			fullboot_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".fullboot"));
-			systemConfiguration->addWithLabel(_("FULL BOOT"), fullboot_enabled);
-			systemConfiguration->addSaveFunc([fullboot_enabled, configName] { SystemConf::getInstance()->set(configName + ".fullboot", fullboot_enabled->getSelected()); });
-		}
-	}
-
 	// citra change screen layout
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::screen_layout))
 	{
