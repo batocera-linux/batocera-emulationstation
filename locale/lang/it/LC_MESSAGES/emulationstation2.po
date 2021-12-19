@@ -1045,7 +1045,7 @@ msgid "START NEW GAME"
 msgstr "AVVIA NUOVO GIOCO"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "AVVIA UN NUOVO AUTOSALVATAGGIO"
 
 msgid "AUTO SAVE"
 msgstr "AUTOSALVATAGGIO"
@@ -1837,10 +1837,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PERCORSO IMMAGINE PERSONALIZZATA"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "RIDIMENSIONA IMMAGINE"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Ridimensiona l'immagine per adattarlo al bordo della cornice"
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUZIONE GIOCO IA"
@@ -1858,34 +1858,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA SULLA SCHERMATA TRADOTTA"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "SALVATAGGI ISTANTANEI"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "AUTOSALVATAGGIO/CARICAMENTO"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INCREMENTA SALVATAGGIO INSTANT."
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "NUOVA PARTITA CREA NUOVO SLOT"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "NUOVA PARTITA SOVRASCRIVE LO SLOT CORRENTE"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "DISPONIBILITÀ GESTORE SALVATAGGI"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "SEMPRE"
 
 msgid "IF NOT EMPTY"
 msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "MOSTRA GESTORE SALVATAGGI"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "MOSTRA GESTORE SALVATAGGI PRIMA DELL'AVVIO DEL GIOCO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAZIONE AVANZATA PER SISTEMA"
@@ -2576,63 +2576,63 @@ msgstr "SPAZIO"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "SU"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "GIÙ"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "SINISTRA"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "DESTRA"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "ANALOGICO SX - SU"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "ANALOGICO SX - GIÙ"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "ANALOGICO SX - SINISTRA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "ANALOGICO SX - DESTRA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "ANALOGICO DX - SU"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "ANALOGICO DX - GIÙ"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "ANALOGICO DX - SINISTRA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "ANALOGICO DX - DESTRA"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "TASTO HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "CONFIGURAZIONE"

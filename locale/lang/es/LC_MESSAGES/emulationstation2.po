@@ -197,10 +197,10 @@ msgid "enter hidden"
 msgstr "marcar como oculto"
 
 msgid "Kidgame"
-msgstr "Para niños"
+msgstr "Juego infantil"
 
 msgid "enter kidgame"
-msgstr "marcar como juego para niños"
+msgstr "marcar como juego infantil"
 
 msgid "Play count"
 msgstr "Nº de veces jugado"
@@ -236,13 +236,13 @@ msgid "Languages"
 msgstr "Idiomas"
 
 msgid "this game's languages"
-msgstr "idiomas"
+msgstr "introduce los idiomas"
 
 msgid "Region"
 msgstr "Región"
 
 msgid "this game's region"
-msgstr "región"
+msgstr "introduce la región"
 
 msgid "Cheevos Hash"
 msgstr "Cheevos Hash"
@@ -320,7 +320,7 @@ msgid "Searching for devices..."
 msgstr "Buscando mandos..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "EL ESCANEO BLUETOOTH SE ESTÁ EJECUTANDO."
+msgstr "EL ESCANEO BLUETOOTH ESTÁ EN CURSO."
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATEANDO DISPOSITIVO"
@@ -446,7 +446,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "DONDE LO DEJASTE"
 
 msgid "START ON GAMELIST"
-msgstr "INICIAR EN LA LISTA DE JUEGOS"
+msgstr "INICIAR EN UNA LISTA DE JUEGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COLECCIONES PERSONALIZADAS SIN TEMA"
@@ -507,7 +507,7 @@ msgid "VIEW DETAILS"
 msgstr "VER DETALLES"
 
 msgid "LAUNCH"
-msgstr "INICIAR"
+msgstr "INICIAR JUEGO"
 
 msgid "FINISHED"
 msgstr "TERMINADO"
@@ -564,7 +564,7 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "FILTRAR JUEGOS POR TEXTO"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "ESTA FUNCIÓN ESTÁ DESHABILITADA CUANDO EL ESCRAPEO ESTÁ EJECUTANDOSE"
+msgstr "ESTA FUNCIÓN ESTÁ DESHABILITADA CUANDO EL ESCRAPEO ESTÁ EN CURSO"
 
 msgid "CLOSE"
 msgstr "CERRAR"
@@ -698,7 +698,7 @@ msgid "NO MISSING BIOS FILES"
 msgstr "NO FALTAN ARCHIVOS BIOS"
 
 msgid "MISSING BIOS CHECK"
-msgstr "BIOS FALTANTES"
+msgstr "COMPROBACIÓN DE BIOS FALTANTES"
 
 msgid "NO MISSING BIOS"
 msgstr "NO FALTAN BIOS"
@@ -743,7 +743,7 @@ msgid "START SCREENSAVER AFTER"
 msgstr "INICIAR SALVAPANTALLAS TRAS"
 
 msgid "SCREENSAVER TYPE"
-msgstr "COMPORTAMIENTO DEL SALVAPANTALLAS"
+msgstr "TIPO DE SALVAPANTALLAS"
 
 msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "DETENER MÚSICA EN EL SALVAPANTALLAS"
@@ -770,7 +770,7 @@ msgid "STRETCH VIDEOS"
 msgstr "AJUSTAR VIDEOS"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr "DESACTIVAR EL SONIDO DE LOS VÍDEOS"
+msgstr "SILENCIAR EL AUDIO DE LOS VÍDEOS"
 
 msgid "SCREENSAVER CONTROLS"
 msgstr "CONTROLES DEL SALVAPANTALLAS"
@@ -950,7 +950,7 @@ msgid "START GAME"
 msgstr "INICIAR JUEGO"
 
 msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "INICIAR HOSTING EN UNA SESIÓN NETPLAY"
+msgstr "INICIAR COMO HOST EN UNA SESIÓN NETPLAY"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NO ESTÁS CONECTADO A UNA RED"
@@ -1045,10 +1045,10 @@ msgid "START NEW GAME"
 msgstr "NUEVA PARTIDA"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "COMENZAR NUEVO AUTOGUARDADO"
 
 msgid "AUTO SAVE"
-msgstr "AUTO GUARDADO"
+msgstr "AUTOGUARDADO"
 
 msgid "SLOT"
 msgstr "RANURA"
@@ -1057,7 +1057,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR A UNA RANURA LIBRE"
 
 msgid "SCRAPE CRITERIA"
-msgstr "CRITERIOS DEL ESCRAPEADO"
+msgstr "CRITERIOS DEL ESCRAPEO"
 
 msgid "MEDIA TO SCRAPE FOR"
 msgstr "CONTENIDO A ESCRAPEAR PARA"
@@ -1084,7 +1084,7 @@ msgstr ""
 "¿CONTINUAR DE TODAS FORMAS?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "OBTENCIÓN DE INFORMACIÓN EJECUTANDOSE, ¿DESEAS DETENERLA?"
+msgstr "OBTENCIÓN DE INFORMACIÓN EN CURSO, ¿DESEAS DETENERLA?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NINGÚN JUEGO SE AJUSTA AL CRITERIO."
@@ -1222,7 +1222,7 @@ msgid "QUIT"
 msgstr "SALIR"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "ESCRAPEADO EN MARCHA. ¿DESEAS DETENERLO?"
+msgstr "ESCRAPEO EN CURSO. ¿DESEAS DETENERLO?"
 
 msgid "NEXT"
 msgstr "SIGUIENTE"
@@ -1276,7 +1276,7 @@ msgid "SCRAPE FANART"
 msgstr "OBTENER FANART"
 
 msgid "SCRAPE BEZEL (16:9)"
-msgstr "ESCRAPEAR BISEL (16:9)"
+msgstr "OBTENER BISEL (16:9)"
 
 msgid "SCRAPE BOX BACKSIDE"
 msgstr "OBTENER TRASERA DE LA CAJA"
@@ -1841,10 +1841,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RUTA DE LA IMAGEN .PNG PERSONALIZADA"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "MODIFICAR EL TAMAÑO DEL CALCO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Reducir/expandir el calco para que quepa dentro del borde del bisel."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓN DE JUEGO POR IA"
@@ -1862,40 +1862,40 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA EN LA PANTALLA TRADUCIDA"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "PARTIDAS GUARDADAS"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "AUTO GUARDAR/CARGAR"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "NUEVA PARTIDA CREA UNA NUEVA RANURA"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "NUEVA PARTIDA SOBRESCRIBE LA RANURA ACTUAL"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "SIEMPRE"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "SI HAY PARTIDAS GUARDADAS"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS ANTES DE INICIAR UN JUEGO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "LA VALIDACIÓN DE JUEGOS ESTÁ EJECUTANDOSE, ¿DESEAS DETENERLA?"
+msgstr "LA VALIDACIÓN DE JUEGOS ESTÁ EN PROCESO, ¿DESEAS DETENERLA?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "¿DESEAS ACTUALIZAR LA LISTA DE JUEGOS?"
@@ -2582,63 +2582,63 @@ msgstr "ESPACIO"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "ARRIBA"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "ABAJO"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "IZQUIEDA"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "DERECHA"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "ANALÓGICO IZQUIERDO: ARRIBA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "ANALÓGICO IZQUIERDO: ABAJO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "ANALÓGICO IZQUIERDO: IZQUIERDA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "ANALÓGICO IZQUIERDO: DERECHA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "ANALÓGICO DERECHO: ARRIBA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "ANALÓGICO DERECHO: ABAJO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "ANALÓGICO DERECHO: IZQUIERDA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "ANALÓGICO DERECHO: DERECHA"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "CONFIGURANDO"
