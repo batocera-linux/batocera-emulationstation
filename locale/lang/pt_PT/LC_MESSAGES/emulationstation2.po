@@ -41,7 +41,7 @@ msgid "core"
 msgstr "core"
 
 msgid "Image"
-msgstr "Imagem"
+msgstr "Captura de ecrã"
 
 msgid "enter path to image"
 msgstr "digite o caminho para a captura de ecrã"
@@ -59,10 +59,10 @@ msgid "enter path to logo"
 msgstr "digite o caminho para o logotipo"
 
 msgid "Box"
-msgstr "Caixa"
+msgstr "Caixa do jogo"
 
 msgid "enter path to box"
-msgstr "digite o caminho para a caixa"
+msgstr "digite o caminho para a caixa do jogo"
 
 msgid "Fan art"
 msgstr "Arte do fã"
@@ -107,10 +107,10 @@ msgid "enter path to cartridge"
 msgstr "digite o caminho para o cartucho"
 
 msgid "Alt BoxArt"
-msgstr "Caixa Alternativa"
+msgstr "Arte Alternativa da Caixa"
 
 msgid "enter path to alt boxart"
-msgstr "digite o caminho da caixa alternativa"
+msgstr "digite o caminho da arte alternativa da caixa"
 
 msgid "Box backside"
 msgstr "Parte de trás da caixa"
@@ -119,10 +119,10 @@ msgid "enter path to box background"
 msgstr "digite o caminho da parte de trás da caixa"
 
 msgid "Wheel"
-msgstr "Logotipo para carrosel"
+msgstr "Logotipo para carrossel"
 
 msgid "enter path to wheel"
-msgstr "digite o caminho do logotipo para o carrosel"
+msgstr "digite o caminho do logotipo para o carrossel"
 
 msgid "Mix"
 msgstr "Imagem combinada"
@@ -146,7 +146,7 @@ msgid "Developer"
 msgstr "Produtora"
 
 msgid "this game's developer"
-msgstr "a desenvolvedora deste jogo"
+msgstr "a produtora deste jogo"
 
 msgid "Publisher"
 msgstr "Editora"
@@ -251,7 +251,7 @@ msgid "Cheevos checksum"
 msgstr "Verificação da Conquista"
 
 msgid "Cheevos Game ID"
-msgstr "ID do Jogo da Conquista"
+msgstr "ID da Conquista"
 
 msgid "Screenscraper Game ID"
 msgstr "ID da Media do Jogo"
@@ -395,7 +395,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "SISTEMAS EXIBIDOS"
 
 msgid "GROUPED SYSTEMS"
-msgstr "SISTEMAS EM GRUPO"
+msgstr "SISTEMAS AGRUPADOS"
 
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "CRIAR COLEÇÃO PERSONALIZADA"
@@ -501,7 +501,7 @@ msgid "Points"
 msgstr "Pontos"
 
 msgid "Rank"
-msgstr "Classificação"
+msgstr "Placar"
 
 msgid "VIEW DETAILS"
 msgstr "VER DETALHES"
@@ -766,7 +766,7 @@ msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COM INFORMAÇÃO DO JOGO"
 
 msgid "DECORATION SET USED"
-msgstr "CONJUNTO DE DECORAÇÃO ULITIZADO"
+msgstr "CONJUNTO DE MOLDURA UTILIZADO"
 
 msgid "STRETCH VIDEOS"
 msgstr "ESTICAR VÍDEOS"
@@ -943,7 +943,7 @@ msgid "OPEN"
 msgstr "ABRIR"
 
 msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "DEFINIÇÕES/HOSPEDAGEM DE JOGOS EM REDE"
+msgstr "JOGOS EM REDE/DEFINIÇÕES"
 
 msgid "NETPLAY"
 msgstr "JOGOS EM REDE"
@@ -961,13 +961,13 @@ msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
 
 msgid "SET PLAYER PASSWORD"
-msgstr "DEFINIR PASSWORD DO JOGADOR"
+msgstr "PASSWORD DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
-msgstr "DEFINIR PASSWORD DO ESPECTADOR"
+msgstr "PASSWORD DO ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "PROCURAR JOGOS SEMELHANTES..."
+msgstr "JOGOS SEMELHANTES..."
 
 msgid "DELETE ITEM"
 msgstr "APAGAR ITEM"
@@ -1041,13 +1041,13 @@ msgid "%d%% complete"
 msgstr "%d%% completo"
 
 msgid "SAVE STATE MANAGER"
-msgstr "GERENCIADOR DE JOGOS GUARDADOS"
+msgstr "GERIR JOGOS GUARDADOS"
 
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "INICIAR NOVO AUTO SAVE"
 
 msgid "AUTO SAVE"
 msgstr "SAVE AUTOMÁTICO"
@@ -1191,7 +1191,7 @@ msgid "GAME SETTINGS"
 msgstr "DEFINIÇÕES DO JOGO"
 
 msgid "UI SETTINGS"
-msgstr "DEFINIÇÕES DA INTERFACE"
+msgstr "DEFINIÇÕES DE INTERFACE"
 
 msgid "SOUND SETTINGS"
 msgstr "DEFINIÇÕES DE ÁUDIO"
@@ -1323,7 +1323,7 @@ msgid "VIDEO DRIVER"
 msgstr "DRIVER DE VÍDEO"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDOR"
+msgstr "PRODUTORA"
 
 msgid "VIDEO OPTIONS"
 msgstr "DEFINIÇÕES DE VÍDEO"
@@ -1384,13 +1384,13 @@ msgid "Cleaning"
 msgstr "Limpeza"
 
 msgid "CLEAR CACHES"
-msgstr "LIMPAR CACHES"
+msgstr "LIMPAR MEMÓRIA CACHE"
 
 msgid "BUILD IMAGE CACHE"
-msgstr "CONSTRUIR CACHE DE IMAGENS"
+msgstr "CONSTRUIR MEMÓRIA CACHE DE IMAGENS"
 
 msgid "Building image cache"
-msgstr "A criar cache de imagens"
+msgstr "A criar memória cache de imagens"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REPOR EXTENSÕES DO ARQUIVO"
@@ -1423,10 +1423,10 @@ msgid "UI"
 msgstr "INTERFACE DO UTILIZADOR"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr "TRANSIÇÃO CARROSSEL"
+msgstr "ANIMAÇÃO DE TRANSIÇÃO CARROSSEL"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "SELEÇÃO RÁPIDA DO SISTEMA"
+msgstr "MENU DE SELEÇÃO RÁPIDA DO SISTEMA"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLADO NO ECRÃ"
@@ -1456,8 +1456,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Inverter o botão norte (savestates) e pressionar longamente o sul (opções de "
-"jogo)"
+"Inverter o botão norte (savestates) e pressionar longamente o sul "
+"(opções de jogo)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION APENAS COM O PRIMEIRO COMANDO"
@@ -1723,14 +1723,15 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-"Reduz automáticamente o atraso dos frames temporariamente para evitar perda "
-"de desempenho. Desative caso piore e engasgue o áudio / vídeo."
+"Reduz automáticamente o atraso dos frames temporariamente para "
+"evitar perda de desempenho. Desative caso piore e engasgue "
+"o áudio / vídeo."
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "LEADERBOARDS"
-msgstr "CLASSIFICAÇÃO"
+msgstr "PLACAR"
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
@@ -1739,7 +1740,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "CHALLENGE INDICATORS"
-msgstr "INDICADORES DE DESAFIO"
+msgstr "INDICADORES DE DESAFIOS"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
@@ -1788,7 +1789,7 @@ msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DEFINIÇÕES GLOBAIS PADRÃO"
 
 msgid "GAME ASPECT RATIO"
-msgstr "PROPORÇÃO DO ECRÃ DO JOGO"
+msgstr "PROPORÇÃO DO ECRÃ"
 
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
@@ -1842,10 +1843,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "CAMINHO DE IMAGEM PERSONALIZADA .PNG"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DE TEXTO DO JOGO POR IA"
@@ -1863,34 +1864,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA NO ECRÃ TRADUZIDO"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "SAVESTATES"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INCREMENTAL SAVESTATES"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "NOVO JOGO CRIA NOVO ESPAÇO"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "NOVO JOGO SOBRESCREVE NOVO ESPAÇO"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "MOSTRAR JOGOS GUARDADOS"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "SEMPRE"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "SE DISPONÍVEL"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "MOSTRAR MENU DE SAVESTATES"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "MOSTRAR MENU DE SAVES ANTES DE INICIAR O JOGO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
@@ -2205,7 +2206,7 @@ msgid "DEVICE TO FORMAT"
 msgstr "DISPOSITIVO A FORMATAR"
 
 msgid "FILE SYSTEM"
-msgstr "ARQUIVO DO SISTEMA"
+msgstr "SISTEMA DE ARQUIVOS"
 
 msgid "FORMAT NOW"
 msgstr "FORMATAR AGORA"
@@ -2581,63 +2582,63 @@ msgstr "ESPAÇO"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "CIMA"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "BAIXO"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "ESQUERDA"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "DIREITA"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "INICIAR"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "ANALÓGICO ESQUERDO - CIMA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "ANALÓGICO ESQUERDO - BAIXO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "ANALÓGICO ESQUERDO - ESQUERDA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "ANALÓGICO ESQUERDO - DIREITA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "ANALÓGICO DIREITO - CIMA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "ANALÓGICO DIREITO - BAIXO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "ANALÓGICO DIREITO - ESQUERDA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "ANALÓGICO DIREITO - DIREITA"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "CONFIGURAÇÃO"
@@ -2782,68 +2783,3 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "START AUTO SAVE"
-#~ msgstr "INICIAR SAVE AUTOMÁTICO"
-
-#~ msgid "SHOW SAVE STATES"
-#~ msgstr "MOSTRAR JOGOS GUARDADOS"
-
-#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
-#~ msgstr "MOSTRAR JOGOS GUARDADOS SE DISPONÍVEL"
-
-#~ msgid "UP"
-#~ msgstr "CIMA"
-
-#~ msgid "DOWN"
-#~ msgstr "BAIXO"
-
-#~ msgid "LEFT"
-#~ msgstr "ESQUERDA"
-
-#~ msgid "RIGHT"
-#~ msgstr "DIREITA"
-
-#~ msgid "LEFT ANALOG UP"
-#~ msgstr "ANALÓGICO ESQUERDA - CIMA"
-
-#~ msgid "LEFT ANALOG DOWN"
-#~ msgstr "ANALÓGICO ESQUERDA - BAIXO"
-
-#~ msgid "LEFT ANALOG LEFT"
-#~ msgstr "ANALÓGICO ESQUERDA - ESQUERDA"
-
-#~ msgid "LEFT ANALOG RIGHT"
-#~ msgstr "ANALÓGICO ESQUERDA - DIREITA"
-
-#~ msgid "RIGHT ANALOG UP"
-#~ msgstr "ANALÓGICO DIREITA - CIMA"
-
-#~ msgid "RIGHT ANALOG DOWN"
-#~ msgstr "ANALÓGICO DIREITA - BAIXO"
-
-#~ msgid "RIGHT ANALOG LEFT"
-#~ msgstr "ANALÓGICO DIREITA - ESQUERDA"
-
-#~ msgid "RIGHT ANALOG RIGHT"
-#~ msgstr "ANALÓGICO DIREITA - DIREITA"
-
-#~ msgid "HOTKEY"
-#~ msgstr "TECLA DE ATALHO(HOTKEY)"
-
-#~ msgid "RESIZE TATTOO WIDTH"
-#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
-
-#~ msgid "225/1920"
-#~ msgstr "225/1920"
-
-#~ msgid "240/1920"
-#~ msgstr "240/1920"
-
-#~ msgid "ORIGINAL"
-#~ msgstr "ORIGINAL"
-
-#~ msgid "RESIZE OVERLAY WIDTH"
-#~ msgstr "REDIMENSIONAR A LARGURA DA IMAGEM SOBREPOSTA"
-
-#~ msgid "Relative to a 1920 px bezel."
-#~ msgstr "Em relação a uma moldura de 1920 px."
