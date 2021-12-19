@@ -1468,16 +1468,24 @@ namespace Utils
 #endif
 			if (file)
 			{
-				#define CRCBUFFERSIZE 64 * 1024
-				char* buffer = new char[CRCBUFFERSIZE];
+				// Retroarch CRC calculations are limited in size. See encoding_crc32.c
+				#define CRC32_BUFFER_SIZE 1048576
+				#define CRC32_MAX_MB 64
+
+				char* buffer = new char[CRC32_BUFFER_SIZE];
 				if (buffer)
 				{
 					size_t size;
-
 					unsigned int file_crc32 = 0;
 
-					while (size = fread(buffer, 1, CRCBUFFERSIZE, file))
+					for (int i = 0; i < CRC32_MAX_MB; i++)
+					{
+						size = fread(buffer, 1, CRC32_BUFFER_SIZE, file);
+						if (size == 0)
+							break;
+
 						file_crc32 = Utils::Zip::ZipFile::computeCRC(file_crc32, buffer, size);
+					}
 
 					hex = Utils::String::toHexString(file_crc32);
 

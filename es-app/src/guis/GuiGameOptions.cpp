@@ -167,13 +167,13 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 		if (game->isNetplaySupported())
 		{
-			mMenu.addEntry(_("NETPLAY HOSTING/OPTIONS"), false, [window, game, this]
+			mMenu.addEntry(_("START A NETPLAY GAME"), false, [window, game, this]
 			{
 				GuiSettings* msgBox = new GuiSettings(mWindow, _("NETPLAY"));
 				msgBox->setSubTitle(game->getName());
 				msgBox->addGroup(_("START GAME"));
 
-				msgBox->addEntry(_U("\uF144 ") + _("BEGIN HOSTING A NETPLAY SESSION"), false, [window, msgBox, game]
+				msgBox->addEntry(_U("\uF144 ") + _("HOST A NETPLAY GAME"), false, [window, msgBox, game]
 				{
 					if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
 					{
@@ -196,8 +196,8 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 				msgBox->addSaveFunc([public_announce] { SystemConf::getInstance()->setBool("global.netplay_public_announce", public_announce->getState()); });
 						
 				// passwords
-				msgBox->addInputTextRow(_("SET PLAYER PASSWORD"), "global.netplay.password", false);
-				msgBox->addInputTextRow(_("SET VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
+				msgBox->addInputTextRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
+				msgBox->addInputTextRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
 
 				mWindow->pushGui(msgBox);
 				close();
