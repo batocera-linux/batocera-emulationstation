@@ -157,11 +157,15 @@ void GuiSettings::addInputTextRow(std::string title, const char *settingsID, boo
 
 	std::string value = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
 
-	std::shared_ptr<TextComponent> ed = std::make_shared<TextComponent>(window, ((password && value != "") ? "*********" : value), font, color, ALIGN_RIGHT);
+	std::string text = ((password && value != "") ? "*********" : value);
+	std::shared_ptr<TextComponent> ed = std::make_shared<TextComponent>(window, text, font, color, ALIGN_RIGHT);
 	if (EsLocale::isRTL())
 		ed->setHorizontalAlignment(Alignment::ALIGN_LEFT);
-
-	row.addElement(ed, true);
+		
+	// ed->setRenderBackground(true); ed->setBackgroundColor(0xFFFF00FF); // Debug only
+	
+	ed->setSize(font->sizeText(text+"  ").x(), 0);
+	row.addElement(ed, false);
 
 	auto spacer = std::make_shared<GuiComponent>(mWindow);
 	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
@@ -179,12 +183,21 @@ void GuiSettings::addInputTextRow(std::string title, const char *settingsID, boo
 	// it needs a local copy for the lambdas
 	std::string localSettingsID = settingsID;
 
-	auto updateVal = [ed, localSettingsID, password, storeInSettings](const std::string &newVal)
+	auto updateVal = [this, font, ed, localSettingsID, password, storeInSettings](const std::string &newVal)
 	{
 		if (!password)
+		{
 			ed->setValue(newVal);
+			ed->setSize(font->sizeText(newVal + "  ").x(), 0);
+
+			mMenu.updateSize();
+		}
 		else
+		{
 			ed->setValue("*********");
+			ed->setSize(font->sizeText("*********  ").x(), 0);
+			mMenu.updateSize();
+		}
 
 		if (storeInSettings)
 			Settings::getInstance()->setString(localSettingsID, newVal);
