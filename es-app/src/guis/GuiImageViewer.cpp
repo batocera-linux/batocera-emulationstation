@@ -120,13 +120,21 @@ public:
 				return true;
 			}
 
+#ifdef _ENABLEEMUELEC
+            if (config->isMappedLike("righttrigger", input))
+#else
 			if (config->isMappedLike("pageup", input))
+#endif
 			{				
 				mZooming = -1;
 				return true;
 			}
 			
+#ifdef _ENABLEEMUELEC
+            if (config->isMappedLike("lefttrigger", input))
+#else
 			if (config->isMappedLike("pagedown", input))
+#endif
 			{
 				mZooming = 1;
 				return true;
@@ -175,8 +183,11 @@ public:
 				mMoving.y() = 0;
 				return true;
 			}
-			
-			if (config->isMappedLike("pagedown", input) || config->isMappedLike("pageup", input))
+#ifdef _ENABLEEMUELEC
+			if (config->isMappedLike("lefttrigger", input) || config->isMappedLike("righttrigger", input))
+#else
+            if (config->isMappedLike("pagedown", input) || config->isMappedLike("pageup", input))
+#endif
 			{
 				mZooming = 0;
 				return true;
