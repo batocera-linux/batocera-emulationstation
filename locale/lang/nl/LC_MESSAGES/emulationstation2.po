@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1042,8 +1042,8 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr "START NIEUW SPEL"
 
-msgid "START AUTO SAVE"
-msgstr "AUTOMATISCH OPSLAAN STARTEN"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTOMATISCH OPSLAAN"
@@ -1784,18 +1784,6 @@ msgstr "TERUGSPOELEN"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "INTEGER SCHAAL (PIXEL PERFECT)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTOMATISCH OPSLAAN/LADEN"
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr "SHADER SET"
 
@@ -1835,22 +1823,10 @@ msgstr ""
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr ""
 
-msgid "RESIZE TATTOO WIDTH"
+msgid "RESIZE TATTOO"
 msgstr ""
 
-msgid "225/1920"
-msgstr ""
-
-msgid "240/1920"
-msgstr ""
-
-msgid "ORIGINAL"
-msgstr ""
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
-
-msgid "Relative to a 1920 px bezel."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -1867,6 +1843,36 @@ msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZEER BIJ VERTAALD SCHERM"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "GEAVANCEERDE CONFIGURATIE PER SYSTEEM"
@@ -2128,6 +2134,9 @@ msgstr "STOP EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "ECHT STOPPEN?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "AUTOMATISCH OPSLAAN/LADEN"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -2541,44 +2550,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "SPATIE"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "OMHOOG"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "OMLAAG"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "RECHTS"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "LINKER ANALOGE STICK OMHOOG"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "LINKER ANALOGE STICK OMLAAG"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "LINKER ANALOGE STICK LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "LINKER ANALOGE STICK RECHTS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "RECHTER ANALOGE STICK OMHOOG"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "RECHTER ANALOGE STICK OMLAAG"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "RECHTER ANALOGE STICK LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "RECHTER ANALOGE STICK RECHTS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "CONFIGUREREN"
@@ -2720,6 +2750,48 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "AUTOMATISCH OPSLAAN STARTEN"
+
+#~ msgid "UP"
+#~ msgstr "OMHOOG"
+
+#~ msgid "DOWN"
+#~ msgstr "OMLAAG"
+
+#~ msgid "LEFT"
+#~ msgstr "LINKS"
+
+#~ msgid "RIGHT"
+#~ msgstr "RECHTS"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "LINKER ANALOGE STICK OMHOOG"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "LINKER ANALOGE STICK OMLAAG"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "LINKER ANALOGE STICK LINKS"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "LINKER ANALOGE STICK RECHTS"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "RECHTER ANALOGE STICK OMHOOG"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "RECHTER ANALOGE STICK OMLAAG"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "RECHTER ANALOGE STICK LINKS"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "RECHTER ANALOGE STICK RECHTS"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "VOLGENDE NUMMER"

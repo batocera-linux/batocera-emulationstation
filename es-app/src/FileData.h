@@ -156,7 +156,7 @@ public:
 	bool hasContentFiles();
 	std::set<std::string> getContentFiles();
 
-	void speak();
+	void setSelectedGame();
 
 private:
 	std::string getKeyboardMappingFilePath();

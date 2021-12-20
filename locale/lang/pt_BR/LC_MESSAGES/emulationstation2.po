@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 10:00-0300\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,8 +10,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -41,7 +41,7 @@ msgid "core"
 msgstr "núcleo"
 
 msgid "Image"
-msgstr "Imagem"
+msgstr "Captura de Tela"
 
 msgid "enter path to image"
 msgstr "digite o caminho do diretório para a captura de tela"
@@ -59,10 +59,10 @@ msgid "enter path to logo"
 msgstr "insira o caminho do diretório para o logotipo"
 
 msgid "Box"
-msgstr "Caixa"
+msgstr "Caixa do jogo"
 
 msgid "enter path to box"
-msgstr "insira o caminho do diretório para a caixa"
+msgstr "insira o caminho do diretório para a caixa do jogo"
 
 msgid "Fan art"
 msgstr "Arte do fã"
@@ -107,10 +107,10 @@ msgid "enter path to cartridge"
 msgstr "insira o caminho do diretório para o cartucho"
 
 msgid "Alt BoxArt"
-msgstr "Caixa Alternativa"
+msgstr "Arte Alternativa da Caixa"
 
 msgid "enter path to alt boxart"
-msgstr "insira o caminho do diretório da caixa alternativa"
+msgstr "insira o caminho do diretório da arte alternativa da caixa"
 
 msgid "Box backside"
 msgstr "Parte de trás da caixa"
@@ -143,13 +143,13 @@ msgid "enter release date"
 msgstr "digite a data de lançamento"
 
 msgid "Developer"
-msgstr "Desenvolvedor"
+msgstr "Desenvolvedora"
 
 msgid "this game's developer"
 msgstr "o desenvolvedor deste jogo"
 
 msgid "Publisher"
-msgstr "Publicador"
+msgstr "Publicadora"
 
 msgid "this game's publisher"
 msgstr "o publicador deste jogo"
@@ -251,7 +251,7 @@ msgid "Cheevos checksum"
 msgstr "Verificação da Conquista"
 
 msgid "Cheevos Game ID"
-msgstr "ID do Jogo da Conquista"
+msgstr "ID da Conquista"
 
 msgid "Screenscraper Game ID"
 msgstr "ID da Mídia do Jogo"
@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "nunca jogado"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "conquistas"
 
 msgid "arcade"
 msgstr "arcade"
@@ -386,7 +386,7 @@ msgid "SYSTEMS"
 msgstr "SISTEMAS"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "OPÇÃO DE COLEÇÃO DE JOGOS"
+msgstr "AJUSTES DA COLEÇÃO DE JOGOS"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "COLEÇÕES A EXIBIR"
@@ -395,7 +395,7 @@ msgid "SYSTEMS DISPLAYED"
 msgstr "SISTEMAS EXIBIDOS"
 
 msgid "GROUPED SYSTEMS"
-msgstr "SISTEMAS EM GRUPO"
+msgstr "SISTEMAS AGRUPADOS"
 
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "CRIAR COLEÇÃO PERSONALIZADA"
@@ -404,7 +404,7 @@ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA DO TEMA"
 
 msgid "SELECT THEME FOLDER"
-msgstr "SELECIONAR PASTA TEMA"
+msgstr "SELECIONAR PASTA DO TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CRIAR NOVA COLEÇÃO EDITÁVEL"
@@ -495,13 +495,13 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "CONQUISTAS RETRÔ"
 
 msgid "Points"
 msgstr "Pontos"
 
 msgid "Rank"
-msgstr "Classificação"
+msgstr "Placar"
 
 msgid "VIEW DETAILS"
 msgstr "VISUALIZAR DETALHES"
@@ -565,7 +565,7 @@ msgstr "FILTRAR JOGOS POR TEXTO"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr ""
-"ESTA FUNCIONALIDA ESTÁ DESABILITADA ENQUANTO A PROCURA POR MÍDIAS DE JOGO "
+"ESTA FUNCIONALIDADE ESTÁ DESABILITADA ENQUANTO A PROCURA POR MÍDIAS DE JOGO "
 "ESTIVER EM EXECUÇÃO"
 
 msgid "CLOSE"
@@ -650,7 +650,7 @@ msgid "RESET"
 msgstr "REINICIAR"
 
 msgid "PARENT FOLDER"
-msgstr "PASTA PRINCIPAL"
+msgstr "PASTA ASCENDENTE"
 
 msgid "SCREENSHOTS FOLDER"
 msgstr "PASTA DE CAPTURAS DE TELA"
@@ -703,7 +703,7 @@ msgid "MISSING BIOS CHECK"
 msgstr "BIOS FALTANDO"
 
 msgid "NO MISSING BIOS"
-msgstr "SEM BIOS FALTANDO"
+msgstr "NENHUMA BIOS FALTANDO"
 
 msgid "dim"
 msgstr "difuso"
@@ -736,22 +736,22 @@ msgid "random"
 msgstr "aleatório"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr "CONFIGURAÇÕES DE PROTEÇÃO DE TELA"
+msgstr "AJUSTES DE PROTEÇÃO DE TELA"
 
 msgid "SETTINGS"
-msgstr "CONFIGURAÇÕES"
+msgstr "AJUSTES"
 
 msgid "START SCREENSAVER AFTER"
-msgstr "ATIVAR PROTEÇÃO DE TELA APÓS (MIN)"
+msgstr "ATIVAR APÓS (MIN)"
 
 msgid "SCREENSAVER TYPE"
-msgstr "TIPO DE PROTEÇÃO DE TELA"
+msgstr "TIPO"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "INTERROMPER MÚSICA DURANTE A PROTEÇÃO DE TELA"
+msgstr "INTERROMPER MÚSICA"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "CONFIGURAÇÕES DE VÍDEO ALEATÓRIO NA PROTEÇÃO DE TELA"
+msgstr "AJUSTES DE VÍDEO ALEATÓRIO NA PROTEÇÃO DE TELA"
 
 msgid "VIDEO DURATION (SECS)"
 msgstr "TROCAR VÍDEO APÓS (SEG)"
@@ -766,7 +766,7 @@ msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
 
 msgid "DECORATION SET USED"
-msgstr "CONJUNTO DE DECORAÇÃO ULITIZADO"
+msgstr "CONJUNTO DE MOLDURA ULITIZADA"
 
 msgid "STRETCH VIDEOS"
 msgstr "ESTICAR VÍDEOS"
@@ -790,7 +790,7 @@ msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr "EXTENSÕES DE ARQUIVOS DE VÍDEO PERSONALIZADOS"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "CONFIGURAÇÕES DE PROTEÇÃO DE TELA EM ESLAIDES"
+msgstr "AJUSTES DE PROTEÇÃO DE TELA EM ESLAIDES"
 
 msgid "IMAGE DURATION (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -866,7 +866,7 @@ msgid "UPDATING %s"
 msgstr "ATUALIZANDO %s"
 
 msgid "UPDATING BATOCERA"
-msgstr "ATUALIZANDO O SISTEMA BATOCERA"
+msgstr "ATUALIZANDO O BATOCERA"
 
 msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
@@ -943,7 +943,7 @@ msgid "OPEN"
 msgstr "ABRIR"
 
 msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "CONFIGURAÇÕES/HOSPEDAGEM DE JOGOS EM REDE"
+msgstr "JOGOS EM REDE/OPÇÕES"
 
 msgid "NETPLAY"
 msgstr "JOGOS EM REDE"
@@ -961,13 +961,13 @@ msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
 
 msgid "SET PLAYER PASSWORD"
-msgstr "DEFINIR SENHA DO JOGADOR"
+msgstr "SENHA DO JOGADOR"
 
 msgid "SET VIEWER PASSWORD"
-msgstr "DEFINIR SENHA DE ESPECTADOR"
+msgstr "SENHA DE ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "PROCURAR JOGOS SEMELHANTES..."
+msgstr "JOGOS SEMELHANTES"
 
 msgid "DELETE ITEM"
 msgstr "APAGAR ITEM"
@@ -1046,8 +1046,8 @@ msgstr "GERENCIADOR DE ESTADOS DE SALVAMENTO"
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
 
-msgid "START AUTO SAVE"
-msgstr "INICIAR SALVAMENTO AUTOMÁTICO"
+msgid "START NEW AUTO SAVE"
+msgstr "INICIAR NOVO SALVAMENTO AUTOMÁTICO"
 
 msgid "AUTO SAVE"
 msgstr "SALVAMENTO AUTOMÁTICO"
@@ -1131,16 +1131,16 @@ msgid "Model"
 msgstr "Modelo"
 
 msgid "Cpu model"
-msgstr "Modelo da cpu"
+msgstr "Processador"
 
 msgid "Cpu number"
-msgstr "Número de núcleos da cpu"
+msgstr "Número de núcleos do processador"
 
 msgid "Cpu max frequency"
-msgstr "Frequência máxima da cpu"
+msgstr "Frequência máxima do processador"
 
 msgid "Cpu feature"
-msgstr "Recurso da cpu"
+msgstr "Recurso do processador"
 
 msgid "SCANLINES"
 msgstr "LINHAS DE VARREDURA"
@@ -1176,10 +1176,10 @@ msgid "SHADERS"
 msgstr "FILTROS"
 
 msgid "CONTROLLER SETTINGS"
-msgstr "OPÇÕES DE CONTROLE"
+msgstr "AJUSTES DE CONTROLE"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "OPÇÕES DE CONTROLES & BLUETOOTH"
+msgstr "AJUSTES DE CONTROLES & BLUETOOTH"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1188,22 +1188,22 @@ msgid "KODI MEDIA CENTER"
 msgstr "CENTRAL DE MÍDIA KODI"
 
 msgid "GAME SETTINGS"
-msgstr "OPÇÕES DE JOGO"
+msgstr "AJUSTES DE JOGO"
 
 msgid "UI SETTINGS"
-msgstr "OPÇÕES DA INTERFACE"
+msgstr "AJUSTES DE INTERFACE"
 
 msgid "SOUND SETTINGS"
-msgstr "OPÇÕES DE ÁUDIO"
+msgstr "AJUSTES DE ÁUDIO"
 
 msgid "NETWORK SETTINGS"
-msgstr "OPÇÕES DE REDE"
+msgstr "AJUSTES DE REDE"
 
 msgid "CONFIGURE INPUT"
-msgstr "CONFIGURAÇÃO DOS CONTROLES"
+msgstr "AJUSTES DOS CONTROLES"
 
 msgid "EMULATOR SETTINGS"
-msgstr "CONFIGURAÇÕES DO EMULADOR"
+msgstr "AJUSTES DO EMULADOR"
 
 msgid "SCRAPER"
 msgstr "PROCURAR MÍDIAS DE JOGO"
@@ -1212,7 +1212,7 @@ msgid "UPDATES & DOWNLOADS"
 msgstr "ATUALIZAÇÕES & TRANSFERÊNCIAS"
 
 msgid "SYSTEM SETTINGS"
-msgstr "OPÇÕES DE SISTEMA"
+msgstr "AJUSTES DE SISTEMA"
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -1290,7 +1290,7 @@ msgid "SCRAPE MANUAL"
 msgstr "OBTER ARQUIVOS DO MANUAL"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "OBTER CONFIGURAÇÕES DE CONTROLE PARA TECLADO"
+msgstr "OBTER DEFINIÇÕES DE CONTROLE PARA TECLADO"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -1323,22 +1323,22 @@ msgid "VIDEO DRIVER"
 msgstr "DRIVER DE VÍDEO"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDORA"
+msgstr "DESENVOLVEDOR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPÇÕES DE VÍDEO"
 
 msgid "VRAM LIMIT"
-msgstr "LIMITE DE VRAM"
+msgstr "LIMITE DE VRAM (MEMÓRIA DE VÍDEO)"
 
 msgid "SHOW FRAMERATE"
 msgstr "EXIBIR TAXA DE QUADROS"
 
 msgid "VSYNC"
-msgstr "VSYNC"
+msgstr "VSYNC (SINCRONIZAR TAXA DE QUADROS)"
 
 msgid "OVERSCAN"
-msgstr "OVERSCAN"
+msgstr "OVERSCAN (ULTRAPASSAR BORDAS DA TELA)"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR O LEITOR OMX (ACELERAÇÃO DE HARDWARE)"
@@ -1384,13 +1384,13 @@ msgid "Cleaning"
 msgstr "Apagando"
 
 msgid "CLEAR CACHES"
-msgstr "LIMPAR CACHES"
+msgstr "LIMPAR MEMÓRIA CACHE"
 
 msgid "BUILD IMAGE CACHE"
-msgstr "CONSTRUIR CACHE DE IMAGENS"
+msgstr "CONSTRUIR MEMÓRIA CACHE DE IMAGENS"
 
 msgid "Building image cache"
-msgstr "Contruindo cache de imagens"
+msgstr "Construindo memória cache de imagens"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSÕES DE ARQUIVO"
@@ -1417,16 +1417,16 @@ msgid "PARSE GAMESLISTS ONLY"
 msgstr "ANALISAR APENAS A LISTA DE JOGOS"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr "PESQUISA DE ARTE LOCAL"
+msgstr "PESQUISAR ARTE LOCAL"
 
 msgid "UI"
 msgstr "INTERFACE DO USUÁRIO (UI)"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr "TRANSIÇÃO CARROSSEL"
+msgstr "ANIMAÇÃO DE TRANSIÇÃO CARROSSEL"
 
 msgid "QUICK SYSTEM SELECT"
-msgstr "SELEÇÃO RÁPIDA DO SISTEMA"
+msgstr "MENU DE SELEÇÃO RÁPIDA DE SISTEMAS"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLADO NA TELA"
@@ -1456,7 +1456,7 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Inverte o botão norte (savestates) e pressionar longamente o botão sul"
+"Inverte o botão norte (savestates) e pressionar longamente o botão sul "
 "(opções de jogo)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1567,7 +1567,7 @@ msgid "Do you want to proceed?"
 msgstr "Você quer prosseguir?"
 
 msgid "KODI SETTINGS"
-msgstr "OPÇÕES DO KODI"
+msgstr "AJUSTES DO KODI"
 
 msgid "ENABLE KODI"
 msgstr "ATIVAR KODI"
@@ -1588,7 +1588,7 @@ msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr "PERFIL DE AÚDIO"
+msgstr "PERFIL DE ÁUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DE TELA"
@@ -1621,10 +1621,10 @@ msgid "SPLASH SETTING"
 msgstr "AJUSTES DA TELA DE ABERTURA"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "CONFIGURAÇÔES DAS CONQUISTAS"
+msgstr "AJUSTES DAS CONQUISTAS"
 
 msgid "NETPLAY SETTINGS"
-msgstr "CONFIGURAÇÕES DE JOGOS EM REDE"
+msgstr "AJUSTES DE JOGO EM REDE"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "VERIFICAR ARQUIVOS DE BIOS ANTES DE INICIAR O JOGO"
@@ -1675,7 +1675,7 @@ msgid "on"
 msgstr "ligado"
 
 msgid "OVERCLOCK"
-msgstr "AUMETAR CAPACIDADE DE CLOCK DA CPU"
+msgstr "FORÇAR FREQUÊNCIA DO PROCESSADOR"
 
 msgid "STORAGE"
 msgstr "ARMAZENAMENTO"
@@ -1723,15 +1723,15 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-"Diminui automaticamente o atraso da taxa de quadros temporariamente para "
+"Decrementa automaticamente o atraso da taxa de quadros temporariamente para "
 "prevenir a queda da taxa de quadros. Desligue se isso piorar o engasgue de "
 "áudio / vídeo."
 
 msgid "HARDCORE MODE"
-msgstr "MODO HARDCORE"
+msgstr "MODO EXTREMO"
 
 msgid "LEADERBOARDS"
-msgstr "CLASSIFICAÇÃO"
+msgstr "PLACAR"
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
@@ -1740,7 +1740,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "CHALLENGE INDICATORS"
-msgstr "INDICADORES DE DESAFIO"
+msgstr "INDICADORES DE DESAFIOS"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
@@ -1786,10 +1786,10 @@ msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
 
 msgid "DEFAULT GLOBAL SETTINGS"
-msgstr "DEFINIÇÕES GLOBAIS PADRÃO"
+msgstr "PADRÃO DE AJUSTES GLOBAIS"
 
 msgid "GAME ASPECT RATIO"
-msgstr "PROPORÇÃO DA TELA DO JOGO"
+msgstr "PROPORÇÃO DA TELA"
 
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
@@ -1802,18 +1802,6 @@ msgstr "REBOBINAR"
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA INTEIRA (PIXEL PERFEITO)"
-
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
-
-msgid "SHOW SAVE STATES"
-msgstr "EXIBIR SEMPRE"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "EXIBIR SE DISPONÍVEIS"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
 
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
@@ -1854,23 +1842,11 @@ msgstr "SUDOESTE"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ARQUIVO .PNG PERSONALIZADO"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+msgid "RESIZE TATTOO"
+msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Em relação a uma moldura de 1920 px."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
@@ -1882,10 +1858,40 @@ msgid "TARGET LANGUAGE"
 msgstr "IDIOMA ALVO"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr "URL DO SERVIÇO DE TRADUÇÃO POR IA"
+msgstr "URL DO SERVIÇO"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA NA TELA TRADUZIDA"
+
+msgid "SAVESTATES"
+msgstr "ESTADOS DE SALVAMENTO"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "CARREGAR/SALVAR AUTOMATICAMENTE"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr "NOVO JOGO CRIA NOVO ESPAÇO"
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr "NOVO JOGO SOBRESCREVE NOVO ESPAÇO"
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr "EXIBIR GERENCIADOR"
+
+msgid "ALWAYS"
+msgstr "SEMPRE"
+
+msgid "IF NOT EMPTY"
+msgstr "SE DISPONÍVEL"
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr "EXIBIR GENRENCIADOR DE ESTADOS DE SALVAMENTO"
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr "EXIBIR GERENCIADO DE ESTADOS DE SALVAMENTO ANTES DE INICIAR O JOGO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -2155,6 +2161,9 @@ msgstr "SAIR DO EMULATIONSTATION"
 msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR ?"
 
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
+
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO CONTROLE"
 
@@ -2198,7 +2207,7 @@ msgid "DEVICE TO FORMAT"
 msgstr "DISPOSITIVO PARA FORMATAR"
 
 msgid "FILE SYSTEM"
-msgstr "ARQUIVO DE SISTEMA"
+msgstr "SISTEMA DE ARQUIVOS"
 
 msgid "FORMAT NOW"
 msgstr "FORMATAR AGORA"
@@ -2546,13 +2555,13 @@ msgid "VERTICAL"
 msgstr "VERTICAL"
 
 msgid "SCRAPING"
-msgstr "PROCURANDO MÍDIAS DOS JOGOS"
+msgstr "PROCURANDO MÍDIAS"
 
 msgid "SCRAPE FAILED"
-msgstr "A PROCURA POR MÍDIAS DO JOGOS FALHOU"
+msgstr "A PROCURA POR MÍDIAS FALHOU"
 
 msgid "SCRAPING FINISHED"
-msgstr "PROCURA POR MÍDIAS DO JOGOS FOI CONCLUÍDA"
+msgstr "PROCURA POR MÍDIAS CONCLUÍDA"
 
 #, c-format
 msgid "%s connected"
@@ -2574,42 +2583,63 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "ESPAÇO"
 
+msgctxt "joystick"
 msgid "UP"
 msgstr "CIMA"
 
+msgctxt "joystick"
 msgid "DOWN"
 msgstr "BAIXO"
 
+msgctxt "joystick"
 msgid "LEFT"
 msgstr "ESQUERDA"
 
+msgctxt "joystick"
 msgid "RIGHT"
 msgstr "DIREITA"
 
+msgctxt "joystick"
+msgid "START"
+msgstr "INICIAR"
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr "SELEÇÃO"
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
 msgstr "ANALÓGICO ESQUERDO - CIMA"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr "ANALÓGICO ESQUERDO - BAIXO"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
 msgstr "ANALÓGICO ESQUERDO - ESQUERDA"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr "ANALÓGICO ESQUERDO - DIREITA"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
 msgstr "ANALÓGICO DIREITO - CIMA"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr "ANALÓGICO DIREITO - BAIXO"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
 msgstr "ANALÓGICO DIREITO - ESQUERDA"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "ANALÓGICO DIREITO - DIREITA"
 
+msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "TECLA DE ATALHO (HOTKEY)"
 
@@ -2756,3 +2786,69 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "INICIAR SALVAMENTO AUTOMÁTICO"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "EXIBIR SEMPRE"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "EXIBIR SE DISPONÍVEIS"
+
+#~ msgid "UP"
+#~ msgstr "CIMA"
+
+#~ msgid "DOWN"
+#~ msgstr "BAIXO"
+
+#~ msgid "LEFT"
+#~ msgstr "ESQUERDA"
+
+#~ msgid "RIGHT"
+#~ msgstr "DIREITA"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ANALÓGICO ESQUERDO - CIMA"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ANALÓGICO ESQUERDO - BAIXO"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ANALÓGICO ESQUERDO - ESQUERDA"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ANALÓGICO ESQUERDO - DIREITA"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ANALÓGICO DIREITO - CIMA"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ANALÓGICO DIREITO - BAIXO"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ANALÓGICO DIREITO - ESQUERDA"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ANALÓGICO DIREITO - DIREITA"
+
+#~ msgid "HOTKEY"
+#~ msgstr "TECLA DE ATALHO (HOTKEY)"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Em relação a uma moldura de 1920 px."

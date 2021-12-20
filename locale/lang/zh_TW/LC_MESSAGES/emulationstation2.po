@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -1043,8 +1043,8 @@ msgstr "即時存檔管理員"
 msgid "START NEW GAME"
 msgstr "新遊戲"
 
-msgid "START AUTO SAVE"
-msgstr "從自動存檔開始"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "自動存檔"
@@ -1789,18 +1789,6 @@ msgstr "倒帶功能"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整數縮放 (完美像素)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "遊戲啟動時自動儲存/讀取"
-
-msgid "SHOW SAVE STATES"
-msgstr "顯示即時存檔"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "即時存檔不為空時顯示"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "遞增即時存檔"
-
 msgid "SHADER SET"
 msgstr "著色器設定集"
 
@@ -1840,23 +1828,11 @@ msgstr "西南"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "自訂 .PNG 圖片路徑"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "調整紋身寬度"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "原始"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "調整覆層寬度"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "相對於 1920 像素的框體。"
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI 遊戲翻譯"
@@ -1872,6 +1848,36 @@ msgstr "AI 翻譯服務網址"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "在已翻譯的畫面上暫停"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "遞增即時存檔"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
@@ -2136,6 +2142,9 @@ msgstr "退出 EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "確定要退出？"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "遊戲啟動時自動儲存/讀取"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "顯示遊戲控制器覆層"
@@ -2547,44 +2556,65 @@ msgstr "SHIFT 鍵"
 msgid "SPACE"
 msgstr "空白鍵"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "下"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "右"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "左類比搖桿 上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "左類比搖桿 下"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "左類比搖桿 左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "左類比搖桿 右"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "右類比搖桿 上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "右類比搖桿 下"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "右類比搖桿 左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "右類比搖桿 右"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "熱鍵"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "設定中"
@@ -2721,6 +2751,72 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "從自動存檔開始"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "顯示即時存檔"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "即時存檔不為空時顯示"
+
+#~ msgid "UP"
+#~ msgstr "上"
+
+#~ msgid "DOWN"
+#~ msgstr "下"
+
+#~ msgid "LEFT"
+#~ msgstr "左"
+
+#~ msgid "RIGHT"
+#~ msgstr "右"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "左類比搖桿 上"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "左類比搖桿 下"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "左類比搖桿 左"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "左類比搖桿 右"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "右類比搖桿 上"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "右類比搖桿 下"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "右類比搖桿 左"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "右類比搖桿 右"
+
+#~ msgid "HOTKEY"
+#~ msgstr "熱鍵"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "調整紋身寬度"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "原始"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "調整覆層寬度"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "相對於 1920 像素的框體。"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "跳到下一首歌"

@@ -72,9 +72,13 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 	}
 
 #if WIN32
-	if (Utils::String::startsWith(path, ":/locale/"))
+	if (Utils::String::startsWith(path, ":/locale/") || Utils::String::startsWith(path, ":/es_features.locale/"))
 	{
 		std::string test = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getExePath() + "/" + &path[2]);
+		if (Utils::FileSystem::exists(test))
+			return test;
+
+		test = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getEsConfigPath() + "/" + &path[2]);
 		if (Utils::FileSystem::exists(test))
 			return test;
 	}

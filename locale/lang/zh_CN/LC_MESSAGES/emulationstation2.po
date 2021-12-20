@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1061,7 +1061,7 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr ""
 
-msgid "START AUTO SAVE"
+msgid "START NEW AUTO SAVE"
 msgstr ""
 
 msgid "AUTO SAVE"
@@ -1800,18 +1800,6 @@ msgstr "倒带功能"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "自动保存/加载"
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr "着色器设置"
 
@@ -1851,22 +1839,10 @@ msgstr ""
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr ""
 
-msgid "RESIZE TATTOO WIDTH"
+msgid "RESIZE TATTOO"
 msgstr ""
 
-msgid "225/1920"
-msgstr ""
-
-msgid "240/1920"
-msgstr ""
-
-msgid "ORIGINAL"
-msgstr ""
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
-
-msgid "Relative to a 1920 px bezel."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -1883,6 +1859,36 @@ msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻译时暂停"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "按系统配置"
@@ -2144,6 +2150,9 @@ msgstr "退出EmulationStation"
 
 msgid "REALLY QUIT?"
 msgstr "确定退出?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "自动保存/加载"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -2546,44 +2555,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "空格"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "下"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "右"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "左侧类比摇杆 上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "左侧类比摇杆 左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "右侧类比摇杆 上"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "右侧类比摇杆 左"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "热键"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "配置"
@@ -2718,6 +2748,33 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UP"
+#~ msgstr "上"
+
+#~ msgid "DOWN"
+#~ msgstr "下"
+
+#~ msgid "LEFT"
+#~ msgstr "左"
+
+#~ msgid "RIGHT"
+#~ msgstr "右"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "左侧类比摇杆 上"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "左侧类比摇杆 左"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "右侧类比摇杆 上"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "右侧类比摇杆 左"
+
+#~ msgid "HOTKEY"
+#~ msgstr "热键"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "切换到下一首"

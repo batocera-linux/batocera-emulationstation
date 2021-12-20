@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
-"PO-Revision-Date: 2021-12-03 21:40+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
+"PO-Revision-Date: 2021-12-15 21:31+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -1044,8 +1044,8 @@ msgstr "HANTERARE FÖR 'SAVE STATE'"
 msgid "START NEW GAME"
 msgstr "STARTA NYTT SPEL"
 
-msgid "START AUTO SAVE"
-msgstr "STARTA AUTOSPARA"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTOSPARA"
@@ -1738,12 +1738,14 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISK SKÄRMDUMP"
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "UTMANINGSINDIKATORER"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
+"Visar ikoner i det nedre högra hörnet när kvalificerade prestationer kan "
+"tjänas in."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "UPPLÅSNINGSLJUD FÖR RETROPRESTATION"
@@ -1799,18 +1801,6 @@ msgstr "TILLBAKASPOLNING"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "HELHETSSKALNING (PIXEL PERFECT)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
-
-msgid "SHOW SAVE STATES"
-msgstr "VISA SAVE STATES"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "VISA SAVE STATES OM EJ TOM"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "INKREMENTELLA SAVE STATES"
-
 msgid "SHADER SET"
 msgstr "SHADERS-UPPSÄTTNING"
 
@@ -1850,23 +1840,11 @@ msgstr "SYDVÄST"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "SÖKVÄG TILL ANPASSAD .PNG-BILD"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "STORLEKSÄNDRA TATUERINGSBREDD"
+msgid "RESIZE TATTOO"
+msgstr "STORLEKSÄNDRA TATUERING"
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "STORLEKSÄNDRA OVERLAY-BREDD"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Relativt till en ram på 1920 px."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr "Krymp/expandera tatuering för att passa inom ramens kant."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPELÖVERSÄTTNING"
@@ -1882,6 +1860,36 @@ msgstr "AI-ÖVERSÄTTNINGSTJÄNSTENS WEBBADRESS"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA PÅ ÖVERSATT SKÄRM"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INKREMENTELLA SAVE STATES"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "AVANCERAD KONFIGURATION PER SYSTEM"
@@ -2149,6 +2157,9 @@ msgstr "AVSLUTA EMULATIONSTATION"
 msgid "REALLY QUIT?"
 msgstr "VILL DU VERKLIGEN AVSLUTA?"
 
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
+
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA KONTROLLER-OVERLAYS"
 
@@ -2368,7 +2379,7 @@ msgid "Downloading"
 msgstr "Laddar ned"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "SÖK EFTER"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTERA RESULTAT"
@@ -2485,25 +2496,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPPDATERA SPELLISTOR FÖR ATT VERKSTÄLLA ÄNDRINGAR."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "EMULATORN AVSLUTADES OVÄNTAT"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "DÅLIGT KOMMANDORADSARGUMENT"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "OGILTIG KONFIGURATION"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "OKÄND EMULATOR"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "EMULATOR SAKNAS"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "KÄRNA SAKNAS"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "OKÄNT FEL"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2567,44 +2578,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "BLANKSTEG"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "UPP"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "NER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "VÄNSTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "HÖGER"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "VÄNSTER ANALOG UPP"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "VÄNSTER ANALOG NER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "VÄNSTER ANALOG VÄNSTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "VÄNSTER ANALOG HÖGER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "HÖGER ANALOG UPP"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "HÖGER ANALOG NER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "HÖGER ANALOG VÄNSTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "HÖGER ANALOG HÖGER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "KONFIGURERAR"
@@ -2748,3 +2780,69 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "STARTA AUTOSPARA"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "VISA SAVE STATES"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "VISA SAVE STATES OM EJ TOM"
+
+#~ msgid "UP"
+#~ msgstr "UPP"
+
+#~ msgid "DOWN"
+#~ msgstr "NER"
+
+#~ msgid "LEFT"
+#~ msgstr "VÄNSTER"
+
+#~ msgid "RIGHT"
+#~ msgstr "HÖGER"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "VÄNSTER ANALOG UPP"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "VÄNSTER ANALOG NER"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "VÄNSTER ANALOG VÄNSTER"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "VÄNSTER ANALOG HÖGER"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "HÖGER ANALOG UPP"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "HÖGER ANALOG NER"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "HÖGER ANALOG VÄNSTER"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "HÖGER ANALOG HÖGER"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "STORLEKSÄNDRA TATUERINGSBREDD"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "STORLEKSÄNDRA OVERLAY-BREDD"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Relativt till en ram på 1920 px."

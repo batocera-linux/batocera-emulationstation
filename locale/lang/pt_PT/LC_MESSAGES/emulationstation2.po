@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1046,8 +1046,8 @@ msgstr "GERENCIADOR DE JOGOS GUARDADOS"
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
 
-msgid "START AUTO SAVE"
-msgstr "INICIAR SAVE AUTOMÁTICO"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "SAVE AUTOMÁTICO"
@@ -1369,7 +1369,7 @@ msgid "CREATE A SUPPORT FILE?"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr "ARQUIVO DE SUPORTE CRIADO NA PASTA \SAVES\"
+msgstr "ARQUIVO DE SUPORTE CRIADO NA PASTA SAVES"
 
 msgid "SUPPORT FILE CREATION FAILED"
 msgstr "A CRIAÇÃO DO FICHEIRO DE SUPORTE FALHOU"
@@ -1473,7 +1473,8 @@ msgstr "PRÉ-CARREGAR ELEMENTO DA INTERFACE NA INICIALIZAÇÃO"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr "Reduz o tempo de acesso às listas de jogos a partir do sistema, aumenta o "
+msgstr ""
+"Reduz o tempo de acesso às listas de jogos a partir do sistema, aumenta o "
 "tempo de inicialização"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
@@ -1482,7 +1483,8 @@ msgstr "PRÉ-CARREGAR INFORMAÇÕES DE MEDIA NA INICIALIZAÇÃO"
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
-msgstr "Reduz o tempo de acesso ao navegar pela lista de jogos, aumenta o tempo de "
+msgstr ""
+"Reduz o tempo de acesso ao navegar pela lista de jogos, aumenta o tempo de "
 "inicialização"
 
 msgid "THREADED LOADING"
@@ -1720,9 +1722,9 @@ msgstr "ATRASO DE FRAME AUTOMÁTICO"
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
-msgstr "Reduz automáticamente o atraso dos frames temporariamente para "
-"evitar perda de desempenho. "
-"Desative caso piore e engasgue o áudio / vídeo."
+msgstr ""
+"Reduz automáticamente o atraso dos frames temporariamente para evitar perda "
+"de desempenho. Desative caso piore e engasgue o áudio / vídeo."
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -1742,7 +1744,8 @@ msgstr "INDICADORES DE DESAFIO"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "Mostrar os ícones no canto inferior direito quando as conquistas elegíveis "
+msgstr ""
+"Mostrar os ícones no canto inferior direito quando as conquistas elegíveis "
 "podem ser obtidas."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
@@ -1799,18 +1802,6 @@ msgstr "VOLTAR NO TEMPO"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SAVES/LOADING AO INICIAR JOGO"
-
-msgid "SHOW SAVE STATES"
-msgstr "MOSTRAR JOGOS GUARDADOS"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "MOSTRAR JOGOS GUARDADOS SE DISPONÍVEL"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "INCREMENTAL SAVESTATES"
-
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
@@ -1850,23 +1841,11 @@ msgstr "SUDOESTE"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "CAMINHO DE IMAGEM PERSONALIZADA .PNG"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "REDIMENSIONAR A LARGURA DA IMAGEM SOBREPOSTA"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Em relação a uma moldura de 1920 px."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DE TEXTO DO JOGO POR IA"
@@ -1882,6 +1861,36 @@ msgstr "URL DO SERVIÇO DE TRADUÇÃO POR IA"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA NO ECRÃ TRADUZIDO"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INCREMENTAL SAVESTATES"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
@@ -2149,6 +2158,9 @@ msgstr "SAIR DO EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "SAVES/LOADING AO INICIAR JOGO"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO COMANDO"
@@ -2567,44 +2579,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "ESPAÇO"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "CIMA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "BAIXO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "ESQUERDA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "DIREITA"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ANALÓGICO ESQUERDA - CIMA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ANALÓGICO ESQUERDA - BAIXO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALÓGICO ESQUERDA - ESQUERDA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANALÓGICO ESQUERDA - DIREITA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ANALÓGICO DIREITA - CIMA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ANALÓGICO DIREITA - BAIXO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ANALÓGICO DIREITA - ESQUERDA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ANALÓGICO DIREITA - DIREITA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "TECLA DE ATALHO(HOTKEY)"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "CONFIGURAÇÃO"
@@ -2749,3 +2782,68 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
+#~ msgid "START AUTO SAVE"
+#~ msgstr "INICIAR SAVE AUTOMÁTICO"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "MOSTRAR JOGOS GUARDADOS"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "MOSTRAR JOGOS GUARDADOS SE DISPONÍVEL"
+
+#~ msgid "UP"
+#~ msgstr "CIMA"
+
+#~ msgid "DOWN"
+#~ msgstr "BAIXO"
+
+#~ msgid "LEFT"
+#~ msgstr "ESQUERDA"
+
+#~ msgid "RIGHT"
+#~ msgstr "DIREITA"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ANALÓGICO ESQUERDA - CIMA"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ANALÓGICO ESQUERDA - BAIXO"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ANALÓGICO ESQUERDA - ESQUERDA"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ANALÓGICO ESQUERDA - DIREITA"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ANALÓGICO DIREITA - CIMA"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ANALÓGICO DIREITA - BAIXO"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ANALÓGICO DIREITA - ESQUERDA"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ANALÓGICO DIREITA - DIREITA"
+
+#~ msgid "HOTKEY"
+#~ msgstr "TECLA DE ATALHO(HOTKEY)"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "REDIMENSIONAR A LARGURA DA IMAGEM SOBREPOSTA"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Em relação a uma moldura de 1920 px."

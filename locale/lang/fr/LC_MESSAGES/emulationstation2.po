@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: evoflash <evoflash@me.com>\n"
 "Language-Team: Batocera official\n"
@@ -1042,8 +1042,8 @@ msgstr "GESTIONNAIRE DE SAUVEGARDES"
 msgid "START NEW GAME"
 msgstr "NOUVELLE PARTIE"
 
-msgid "START AUTO SAVE"
-msgstr "LANCER SAUV. AUTO"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "SAUVEGARDE AUTO"
@@ -1798,18 +1798,6 @@ msgstr "REMBOBINAGE"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SAUV./CHARG. AUTO AU LANCEMENT"
-
-msgid "SHOW SAVE STATES"
-msgstr "AFFICHER LES SAUV. INSTANTANÉES"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "AFFICHER LES SAUV. INSTANTANÉES SI NON VIDE"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "SAUVEGARDES INSTANTANÉES INCRÉMENTALES"
-
 msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
 
@@ -1849,23 +1837,11 @@ msgstr "SUD OUEST"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RÉPERTOIRE D’IMAGES .PNG PERSONNALISÉES"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "LARGEUR DU TATOUAGE"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "LARGEUR DE LA DÉCORATION"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Par rapport à une décoration de 1920 pixels"
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION"
@@ -1881,6 +1857,36 @@ msgstr "URL DU SERVICE IA"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSE SUR L'ÉCRAN DE TRADUCTION"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "SAUVEGARDES INSTANTANÉES INCRÉMENTALES"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURATION AVANCÉE PAR SYSTÈME"
@@ -2148,6 +2154,9 @@ msgstr "QUITTER EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "VOULEZ-VOUS VRAIMENT QUITTER ?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "SAUV./CHARG. AUTO AU LANCEMENT"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "AFFICHER LA MANETTE EN SURIMPRESSION"
@@ -2568,42 +2577,63 @@ msgstr "MAJ"
 msgid "SPACE"
 msgstr "ESPACE"
 
+msgctxt "joystick"
 msgid "UP"
 msgstr "D-PAD HAUT"
 
+msgctxt "joystick"
 msgid "DOWN"
 msgstr "D-PAD BAS"
 
+msgctxt "joystick"
 msgid "LEFT"
 msgstr "D-PAD GAUCHE"
 
+msgctxt "joystick"
 msgid "RIGHT"
 msgstr "D-PAD DROITE"
 
+msgctxt "joystick"
+msgid "START"
+msgstr "START"
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr "SELECT"
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
 msgstr "JOYSTICK GAUCHE / HAUT"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr "JOYSTICK GAUCHE / BAS"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
 msgstr "JOYSTICK GAUCHE / GAUCHE"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr "JOYSTICK GAUCHE / DROITE"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
 msgstr "JOYSTICK DROITE / HAUT"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr "JOYSTICK DROITE / BAS"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
 msgstr "JOYSTICK DROITE / GAUCHE"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "JOYSTICK DROITE / DROITE"
 
+msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "HOTKEY"
 
@@ -2749,3 +2779,30 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "LANCER SAUV. AUTO"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "AFFICHER LES SAUV. INSTANTANÉES"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "AFFICHER LES SAUV. INSTANTANÉES SI NON VIDE"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "LARGEUR DU TATOUAGE"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "LARGEUR DE LA DÉCORATION"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Par rapport à une décoration de 1920 pixels"

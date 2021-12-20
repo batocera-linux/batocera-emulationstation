@@ -242,9 +242,9 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 			{
 				size_t pxe = proxyServer.find(";", pxs);
 				if (pxe == std::string::npos)
-					pxe = proxyServer.size() - 1;
-
-				proxyServer = proxyServer.substr(pxs + protocol.size(), pxe - pxs - protocol.size());
+					proxyServer = proxyServer.substr(pxs + protocol.size());
+				else 
+					proxyServer = proxyServer.substr(pxs + protocol.size(), pxe - pxs - protocol.size());
 			}
 
 			if (!proxyServer.empty())

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: \n"
@@ -1051,8 +1051,8 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr "COMENÇAR NOVA PARTIDA"
 
-msgid "START AUTO SAVE"
-msgstr "NOU AUTOGUARDAT"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTOGUARDAT"
@@ -1805,18 +1805,6 @@ msgstr "REBOBINA"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr ""
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "DESA / CARREGA AUTOMÀTICAMENT"
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr "SHADERS ESTABLERTS"
 
@@ -1856,22 +1844,10 @@ msgstr ""
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr ""
 
-msgid "RESIZE TATTOO WIDTH"
+msgid "RESIZE TATTOO"
 msgstr ""
 
-msgid "225/1920"
-msgstr ""
-
-msgid "240/1920"
-msgstr ""
-
-msgid "ORIGINAL"
-msgstr ""
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
-
-msgid "Relative to a 1920 px bezel."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -1888,6 +1864,24 @@ msgstr "URL DE SERVEI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PARAR A LES PANTALLES TRADUÏDES"
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓ AVANÇADA PER SISTEMA"
@@ -2152,6 +2146,9 @@ msgstr "TREURE EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
 msgstr "DE VERITAT VOL SORTIT?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "DESA / CARREGA AUTOMÀTICAMENT"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -2572,44 +2569,65 @@ msgstr "MAJÚSCULES"
 msgid "SPACE"
 msgstr "ESPAI"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "AMUNT"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "AVALL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "ESQUERRA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "DRETA"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
 msgstr "ANALÒGIC ESQUERRE, AMUNT"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr "ANALÒGIC ESQUERRE, AVALL"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
 msgstr "ANALÒGIC ESQUERRE, ESQUERRA"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr "ANALÒGIC ESQUERRE, DRETA"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
 msgstr "ANALÒGIC DRET, AMUNT"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr "ANALÒGIC DRET, AVALL"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
 msgstr "ANALÒGIC DRET, ESQUERRA"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "ANALÒGIC DRET, DRETA"
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "DRECERA DE TECLAT"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "S'ESTÀ CONFIGURANT"
@@ -2754,6 +2772,24 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "NOU AUTOGUARDAT"
+
+#~ msgid "UP"
+#~ msgstr "AMUNT"
+
+#~ msgid "DOWN"
+#~ msgstr "AVALL"
+
+#~ msgid "LEFT"
+#~ msgstr "ESQUERRA"
+
+#~ msgid "RIGHT"
+#~ msgstr "DRETA"
+
+#~ msgid "HOTKEY"
+#~ msgstr "DRECERA DE TECLAT"
 
 #~ msgid "All Games"
 #~ msgstr "Tots els jocs"

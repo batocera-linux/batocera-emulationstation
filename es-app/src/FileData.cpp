@@ -1691,11 +1691,15 @@ std::string FileData::getCurrentGameSetting(const std::string& settingName)
 	return SystemConf::getInstance()->get("global." + settingName);
 }
 
-void FileData::speak()
+void FileData::setSelectedGame()
 {
 	TextToSpeech::getInstance()->say(getName(), false);
+
+	Scripting::fireEvent("game-selected", getSourceFileData()->getSystem()->getName(), getPath(), getName());
 
 	std::string desc = getMetadata(MetaDataId::Desc);
 	if (!desc.empty())
 		TextToSpeech::getInstance()->say(desc, true);
+
+	
 }

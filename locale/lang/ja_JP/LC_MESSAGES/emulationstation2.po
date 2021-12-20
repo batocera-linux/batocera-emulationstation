@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2021/12/06)\n"
+"Project-Id-Version: batocera-es v33beta(2021/12/16)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
-"PO-Revision-Date: 2021-12-06 16:50+0900\n"
+"POT-Creation-Date: 2021-10-23 13:22+0200\n"
+"PO-Revision-Date: 2021-12-17 21:23+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -654,7 +654,7 @@ msgid "SCREENSHOTS FOLDER"
 msgstr "スクリーンショットフォルダ"
 
 msgid "SELECT"
-msgstr "セレクト(決定)"
+msgstr "決定"
 
 msgid "ADD COMBINATION KEY"
 msgstr "同時押しキーを追加"
@@ -710,7 +710,7 @@ msgid "black"
 msgstr "暗転"
 
 msgid "random video"
-msgstr "ランダム再生(ゲーム動画)"
+msgstr "動画再生(ゲーム動画)"
 
 msgid "slideshow"
 msgstr "スライドショー(ゲーム画像)"
@@ -749,7 +749,7 @@ msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "スクリーンセーバー実行時音楽を停止"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "ランダム動画スクリーンセーバー設定"
+msgstr "映像スクリーンセーバー設定"
 
 msgid "VIDEO DURATION (SECS)"
 msgstr "動画変更時間(秒)"
@@ -764,7 +764,7 @@ msgid "USE MARQUEE AS GAME INFO"
 msgstr "ゲーム情報としてマーキーを使用"
 
 msgid "DECORATION SET USED"
-msgstr "使用する装飾"
+msgstr "使用するベゼル"
 
 msgid "STRETCH VIDEOS"
 msgstr "動画を拡大"
@@ -929,7 +929,7 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "互換性のあるコア"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "このゲームの実績を表示"
+msgstr "このゲームのACHIEVEMENTSを表示"
 
 msgid "GAME"
 msgstr "ゲーム"
@@ -1029,10 +1029,10 @@ msgid "Unlocked on"
 msgstr "ロック解除"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "このゲームにはまだ実績がありません"
+msgstr "このゲームにはまだACHIEVEMENTSがありません"
 
 msgid "Achievements won"
-msgstr "達成実績"
+msgstr "ACHIEVEMENTS達成"
 
 #, c-format
 msgid "%d%% complete"
@@ -1044,8 +1044,8 @@ msgstr "ステートセーブマネージャ"
 msgid "START NEW GAME"
 msgstr "最初から開始"
 
-msgid "START AUTO SAVE"
-msgstr "オートセーブで開始"
+msgid "START NEW AUTO SAVE"
+msgstr "新しくオートセーブで開始"
 
 msgid "AUTO SAVE"
 msgstr "セーブ場所から開始"
@@ -1399,7 +1399,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "すべてのゲームの言語/地域を再検出"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "ネットプレイ/実績 ですべてのゲームを検索"
+msgstr "ネットプレイ/ACHIEVEMENTS ですべてのゲームを検索"
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
@@ -1738,7 +1738,7 @@ msgstr "チャレンジインジケーター"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "対象となる実績を獲得できる場合、右下隅にアイコンを表示します。"
+msgstr "対象となるACHIEVEMENTSを獲得できる場合、右下隅にアイコンを表示します。"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTサウンドのロック解除"
@@ -1794,23 +1794,11 @@ msgstr "巻き戻し"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "自動ステートセーブ読込"
-
-msgid "SHOW SAVE STATES"
-msgstr "ステートセーブ表示"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "セーブがあれば表示"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ステートセーブ変更・追加"
-
 msgid "SHADER SET"
 msgstr "シェーダー設定"
 
 msgid "DECORATIONS"
-msgstr "ベゼル装飾(ゲーム画面外表示)"
+msgstr "ベゼル(ゲーム画面外装飾表示)"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "画面に合わせる(4K＆ウルトラワイド)"
@@ -1845,23 +1833,11 @@ msgstr "左下"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "カスタムイメージ(png)のパス"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "イメージ幅を変更"
+msgid "RESIZE TATTOO"
+msgstr "イメージサイズを変更"
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "元サイズ"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "オーバーレイの幅を変更"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "幅1920ピクセルのベゼルが基準です。"
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr "ベゼル内に収まるようにイメージを縮小/拡大します。"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AIゲーム翻訳"
@@ -1877,6 +1853,36 @@ msgstr "AIゲーム翻訳サービス URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻訳画面で一時停止"
+
+msgid "SAVESTATES"
+msgstr "ステートセーブ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "自動ステートセーブ読込"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "新たにステートセーブ保存"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr "新ゲームは新しいスロットを作成"
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr "新ゲームは現スロットを上書き"
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr "ステートセーブマネージャの表示"
+
+msgid "ALWAYS"
+msgstr "常に"
+
+msgid "IF NOT EMPTY"
+msgstr "セーブがある場合"
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr "ステートセーブマネージャを表示"
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr "ゲーム起動時にステートセーブマネージャを表示"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
@@ -2145,6 +2151,9 @@ msgstr "EMULATIONSTATION を終了"
 msgid "REALLY QUIT?"
 msgstr "本当に終了しますか？"
 
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "自動ステートセーブ読込"
+
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "コントローラーイメージを表示"
 
@@ -2359,7 +2368,7 @@ msgid "Downloading"
 msgstr "ダウンロード中"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "検索"
 
 msgid "ACCEPT RESULT"
 msgstr "了解"
@@ -2476,25 +2485,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "「ゲームリストを更新」で変更を適用します。"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "エミュレータが予期せず興奮しました"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "コマンドライン引数が違います"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "無効な構成です"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "不明なエミュレーター"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "エミュレーターがありません"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "コアがありません"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "不明なエラー"
 
 msgid "GENRE"
 msgstr "ジャンル"
@@ -2524,7 +2533,7 @@ msgid "ALREADY PLAYED"
 msgstr "プレイ済み"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "ゲームの実績がある"
+msgstr "ACHIEVEMENTSがある"
 
 msgid "VERTICAL"
 msgstr "縦表示"
@@ -2558,42 +2567,63 @@ msgstr "SHIFT(文字種変更)"
 msgid "SPACE"
 msgstr "空白"
 
+msgctxt "joystick"
 msgid "UP"
 msgstr "上"
 
+msgctxt "joystick"
 msgid "DOWN"
 msgstr "下"
 
+msgctxt "joystick"
 msgid "LEFT"
 msgstr "左"
 
+msgctxt "joystick"
 msgid "RIGHT"
 msgstr "右"
 
+msgctxt "joystick"
+msgid "START"
+msgstr "スタート"
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr "セレクト"
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
 msgstr "左アナログST 上"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr "左アナログST 下"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
 msgstr "左アナログST 左"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr "左アナログST 右"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
 msgstr "右アナログST 上"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr "右アナログST 下"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
 msgstr "右アナログST 左"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "右アナログST 右"
 
+msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "ホットキー"
 

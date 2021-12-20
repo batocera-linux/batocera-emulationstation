@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1041,8 +1041,8 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr "새 게임 시작"
 
-msgid "START AUTO SAVE"
-msgstr "자동 저장 시작"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "자동 저장"
@@ -1780,18 +1780,6 @@ msgstr "되감기"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "자동 저장/불러오기"
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr "셰이더 설정"
 
@@ -1831,22 +1819,10 @@ msgstr ""
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr ""
 
-msgid "RESIZE TATTOO WIDTH"
+msgid "RESIZE TATTOO"
 msgstr ""
 
-msgid "225/1920"
-msgstr ""
-
-msgid "240/1920"
-msgstr ""
-
-msgid "ORIGINAL"
-msgstr ""
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
-
-msgid "Relative to a 1920 px bezel."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -1863,6 +1839,36 @@ msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "번역화면 일시정지"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
@@ -2124,6 +2130,9 @@ msgstr "에뮬레이션스테이션 나가기"
 
 msgid "REALLY QUIT?"
 msgstr "정말로 나가시겠습니까?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "자동 저장/불러오기"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -2532,44 +2541,65 @@ msgstr "시프트"
 msgid "SPACE"
 msgstr "스페이스"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "위"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "아래"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "좌"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "우"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "왼쪽 아날로그 위"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "왼쪽 아날로그 아래"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "왼쪽 아날로그 좌"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "왼쪽 아날로그 우"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "오른쪽 아날로그 위"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "오른쪽 아날로그 아래"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "오른쪽 아날로그 좌"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "오른쪽 아날로그 우"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "핫키"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "설정 중"
@@ -2704,6 +2734,48 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "자동 저장 시작"
+
+#~ msgid "UP"
+#~ msgstr "위"
+
+#~ msgid "DOWN"
+#~ msgstr "아래"
+
+#~ msgid "LEFT"
+#~ msgstr "좌"
+
+#~ msgid "RIGHT"
+#~ msgstr "우"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "왼쪽 아날로그 위"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "왼쪽 아날로그 아래"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "왼쪽 아날로그 좌"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "왼쪽 아날로그 우"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "오른쪽 아날로그 위"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "오른쪽 아날로그 아래"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "오른쪽 아날로그 좌"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "오른쪽 아날로그 우"
+
+#~ msgid "HOTKEY"
+#~ msgstr "핫키"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "다음 노래로 건너뜀"

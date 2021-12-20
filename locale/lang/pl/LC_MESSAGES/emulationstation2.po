@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -605,7 +605,7 @@ msgid "SAME ROM"
 msgstr "TEN SAM ROM"
 
 msgid "UNAVAILABLE CORE"
-msgstr "NIEDOSTĘPNY CORE"
+msgstr "NIEDOSTĘPNE JĄDRO EMULATORA"
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -925,10 +925,10 @@ msgid "VIEW GAME MEDIA"
 msgstr "ZOBACZ MEDIA GRY"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "AKTUALNY CORE NIE JEST KOMPATYBILNY"
+msgstr "AKTUALNE JĄDRO EMULATORA NIE JEST KOMPATYBILNE"
 
 msgid "COMPATIBLE CORE(S)"
-msgstr "KOMPATYBILNY CORE"
+msgstr "KOMPATYBILNE JĄDRA EMULATORA"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr "ZOBACZ OSIĄGNIĘCIA W GRZE"
@@ -1046,8 +1046,8 @@ msgstr "MENEDŻER ZAPISU STANÓW"
 msgid "START NEW GAME"
 msgstr "ROZPOCZNIJ NOWĄ GRĘ"
 
-msgid "START AUTO SAVE"
-msgstr "ROZPOCZNIJ AUTO ZAPIS"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTO ZAPIS"
@@ -1802,18 +1802,6 @@ msgstr "PRZEWIJANIE"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
-
-msgid "SHOW SAVE STATES"
-msgstr "POKAŻ STANY ZAPISÓW"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "POKAŻ STANY ZAPISÓW JEŚLI NIE SĄ PUSTE"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "PRZYROSTOWY ZAPIS STANU"
-
 msgid "SHADER SET"
 msgstr "ZESTAW SHADERÓW"
 
@@ -1853,23 +1841,11 @@ msgstr "LEWY DOLNY"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ŚCIEŻKA NIESTANDARDOWEGO OBRAZU .PNG"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "ZMIEŃ SZEROKOŚ TATUAŻU"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORYGINALNY"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "ZMIEŃ SZEROKOŚ NAKŁADKI"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "W stosunku do ramki 1920 pikseli."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "TŁUMACZENIE GRY Z AI"
@@ -1885,6 +1861,36 @@ msgstr "URL USŁUGI TŁUMACZENIA AI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "PRZYROSTOWY ZAPIS STANU"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2152,6 +2158,9 @@ msgstr "WYJDŹ Z EMULATIONSTATION"
 msgid "REALLY QUIT?"
 msgstr "NAPRAWDĘ WYJŚĆ?"
 
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
+
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "POKAŻ NAKŁADKI KONTROLERA"
 
@@ -2293,7 +2302,7 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"OSTRZEŻENIE: BIEŻĄCY EMULATOR/CORE NIE OBSŁUGUJE FORMATU TEJ GRY.\n"
+"OSTRZEŻENIE: BIEŻĄCY EMULATOR/JĄDRO NIE OBSŁUGUJE FORMATU TEJ GRY.\n"
 "CZY CHCESZ POMIMO TEGO URUCHOMIĆ GRĘ?"
 
 msgid ""
@@ -2372,7 +2381,7 @@ msgid "Downloading"
 msgstr "Pobieranie"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "SZUKAJ"
 
 msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
@@ -2489,25 +2498,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ZAKTUALIZUJ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "EMULATOR NIEOCZEKIWANIE ZAKOŃCZYŁ DZIAŁANIE"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "NIEPRAWIDŁOWE ARGUMENTY WIERSZA POLECEŃ"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "NIEPRAWIDŁOWA KONFIGURACJA"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "NIEZNANY EMULATOR"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "BRAK EMULATORA"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "BRAK JĄDRA EMULATORA"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "NIEZNANY BŁĄD"
 
 msgid "GENRE"
 msgstr "GATUNEK"
@@ -2571,44 +2580,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "SPACJA"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "GÓRA"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "DÓŁ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "LEWO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "PRAWO"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "LEWY ANALOG W GÓRĘ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "LEWY ANALOG W DÓŁ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "LEWY ANALOG W LEWO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "LEWY ANALOG W PRAWO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "PRAWY ANALOG W GÓRĘ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "PRAWY ANALOG W DÓŁ"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "PRAWY ANALOG W LEWO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "PRAWY ANALOG W PRAWO"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "KONFIGUROWANIE"
@@ -2759,6 +2789,72 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "ROZPOCZNIJ AUTO ZAPIS"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "POKAŻ STANY ZAPISÓW"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "POKAŻ STANY ZAPISÓW JEŚLI NIE SĄ PUSTE"
+
+#~ msgid "UP"
+#~ msgstr "GÓRA"
+
+#~ msgid "DOWN"
+#~ msgstr "DÓŁ"
+
+#~ msgid "LEFT"
+#~ msgstr "LEWO"
+
+#~ msgid "RIGHT"
+#~ msgstr "PRAWO"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "LEWY ANALOG W GÓRĘ"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "LEWY ANALOG W DÓŁ"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "LEWY ANALOG W LEWO"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "LEWY ANALOG W PRAWO"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "PRAWY ANALOG W GÓRĘ"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "PRAWY ANALOG W DÓŁ"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "PRAWY ANALOG W LEWO"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "PRAWY ANALOG W PRAWO"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "ZMIEŃ SZEROKOŚ TATUAŻU"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORYGINALNY"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "ZMIEŃ SZEROKOŚ NAKŁADKI"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "W stosunku do ramki 1920 pikseli."
 
 #~ msgid ""
 #~ "Automatically decrease frame delay temporarily to prevent frame drops"

@@ -1140,7 +1140,7 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 	if (!mContainer->anyComponentHasStoryBoard() || file == nullptr || isClearing || moveBy == 0)
 	{
 		if (file != nullptr && !isClearing)
-			file->speak();
+			file->setSelectedGame();
 
 		mContainer->updateControls(file, isClearing, moveBy);
 		return;
@@ -1156,7 +1156,7 @@ void DetailedContainerHost::updateControls(FileData* file, bool isClearing, int 
 	}
 
 	mActiveFile = file;
-	mActiveFile->speak();
+	mActiveFile->setSelectedGame();
 	bool clear = isClearing;
 	int by = moveBy;
 

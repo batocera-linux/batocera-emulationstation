@@ -98,7 +98,7 @@ set(ES_HEADERS
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.h # batocera
     ${CMAKE_CURRENT_SOURCE_DIR}/src/LibretroRatio.h # batocera
-	${CMAKE_CURRENT_SOURCE_DIR}/src/Win32ApiSystem.h # batocera
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Win32ApiSystem.h # batocera
 )
 
 set(ES_SOURCES

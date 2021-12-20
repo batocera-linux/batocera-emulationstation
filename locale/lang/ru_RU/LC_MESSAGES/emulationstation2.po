@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: batocera-emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
 "Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
@@ -1045,7 +1045,7 @@ msgstr "МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
 msgid "START NEW GAME"
 msgstr "НАЧАТЬ НОВУЮ ИГРУ"
 
-msgid "START AUTO SAVE"
+msgid "START NEW AUTO SAVE"
 msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"
 
 msgid "AUTO SAVE"
@@ -1797,18 +1797,6 @@ msgstr "ПЕРЕМОТКА"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
-
-msgid "SHOW SAVE STATES"
-msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ ЕСЛИ ОНИ ИМЕЮТСЯ"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
-
 msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
 
@@ -1848,23 +1836,11 @@ msgstr "СНИЗУ СЛЕВА"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ПУТЬ К ПОЛЬЗ. ИЗОБРАЖЕНИЮ .PNG"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "ИЗМЕНИТЬ ШИРИНУ ТАТУ"
+msgid "RESIZE TATTOO"
+msgstr "РАЗМЕР ТАТУ"
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ПО УМОЛЧАНИЮ"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "ИЗМЕНИТЬ ШИРИНУ ОВЕРЕЛЯ"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Относительно рамки на 1920 пикселей."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr "Изменить размер тату, чтобы уместить в границах рамки."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI ПЕРЕВОД ИГРЫ"
@@ -1880,6 +1856,36 @@ msgstr "URL СЕРВИСА ПЕРЕВОДА AI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
+
+msgid "SAVESTATES"
+msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr "НОВАЯ ИГРА СОЗДАЁТ НОВЫЙ СЛОТ"
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr "НОВАЯ ИГРА ПЕРЕЗАПИСЫВАЕТ ТЕКУЩИЙ СЛОТ"
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+
+msgid "ALWAYS"
+msgstr "ВСЕГДА"
+
+msgid "IF NOT EMPTY"
+msgstr "ЕСЛИ ИМЕЕТСЯ"
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr "ПОКАЗЫВАЕТ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ ПЕРЕД ЗАПУСКОМ ИГРЫ"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -1902,7 +1908,7 @@ msgid ""
 msgstr ""
 "ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ СВЕТА, "
 "ОТНОСИТЕЛЬНО КНОПОК НА SNES ГЕЙМПАДЕ, СЕВЕР - ВВЕРХУ, ЮГ - ВНИЗУ, ЗАПАД - "
-"СЛЕВА, ВОСТОК - СПРАВА.ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНАЯ ГОРЯЧАЯ КЛАВИША, ТО "
+"СЛЕВА, ВОСТОК - СПРАВА.ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНАЯ ГОРЯЧАЯ КНОПКА, ТО "
 "ИСПОЛЬЗУЙТЕ КНОПКУ SELECT.ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС НЕТ, "
 "НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ.КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
 "ПОДТВЕРЖДЕНИЯ."
@@ -2148,6 +2154,9 @@ msgstr "ВЫЙТИ ИЗ EMULATIONSTATION"
 msgid "REALLY QUIT?"
 msgstr "ВЫЙТИ?"
 
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
+
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ КОНТРОЛЛЕРА"
 
@@ -2370,7 +2379,7 @@ msgid "Downloading"
 msgstr "Загрузка"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "ПОИСК ДЛЯ"
 
 msgid "ACCEPT RESULT"
 msgstr "ПРИНЯТЬ РЕЗУЛЬТАТ"
@@ -2487,25 +2496,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "ЭМУЛЯТОР НЕОЖИДАННО ПРЕКРАТИЛ РАБОТУ"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "НЕВЕРНЫЕ АРГУМЕНТЫ КОМАНДНОЙ СТРОКИ"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "НЕВЕРНАЯ КОНФИГУРАЦИЯ"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "НЕИЗВЕСТНЫЙ ЭМУЛЯТОР"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "ЭМУЛЯТОР ОТСУТСТВУЕТ"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "ЯДРО ОТСУТСТВУЕТ"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "GENRE"
 msgstr "ЖАНР"
@@ -2569,42 +2578,63 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "ПРОБЕЛ"
 
+msgctxt "joystick"
 msgid "UP"
 msgstr "ВВЕРХ"
 
+msgctxt "joystick"
 msgid "DOWN"
 msgstr "ВНИЗ"
 
+msgctxt "joystick"
 msgid "LEFT"
 msgstr "ВЛЕВО"
 
+msgctxt "joystick"
 msgid "RIGHT"
 msgstr "ВПРАВО"
 
+msgctxt "joystick"
+msgid "START"
+msgstr "START"
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr "SELECT"
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ЛЕВЫЙ СТИК ВВЕРХ"
+msgstr "ЛЕВЫЙ АНАЛОГ ВВЕРХ"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ЛЕВЫЙ СТИК ВНИЗ"
+msgstr "ЛЕВЫЙ АНАЛОГ ВНИЗ"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ЛЕВЫЙ СТИК ВЛЕВО"
+msgstr "ЛЕВЫЙ АНАЛОГ ВЛЕВО"
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ЛЕВЫЙ СТИК ВПРАВО"
+msgstr "ЛЕВЫЙ АНАЛОГ ВПРАВО"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ПРАВЫЙ СТИК ВВЕРХ"
+msgstr "ПРАВЫЙ АНАЛОГ ВВЕРХ"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ПРАВЫЙ СТИК ВНИЗ"
+msgstr "ПРАВЫЙ АНАЛОГ ВНИЗ"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ПРАВЫЙ СТИК ВЛЕВО"
+msgstr "ПРАВЫЙ АНАЛОГ ВЛЕВО"
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ПРАВЫЙ СТИК ВПРАВО"
+msgstr "ПРАВЫЙ АНАЛОГ ВПРАВО"
 
+msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "ГОРЯЧАЯ КНОПКА"
 
@@ -2631,14 +2661,14 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"ГОРЯЧУЮ КЛАВИША НЕ НАЗНАЧЕНА. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
-"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT КАК ГОРЯЧУЮ КЛАВИШУ?"
+"ГОРЯЧАЯ КНОПКА НЕ НАЗНАЧЕНА. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
+"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT КАК ГОРЯЧУЮ КНОПКУ?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "УСТАНОВИТЬ SELECT КАК ГОРЯЧУЮ КЛАВИШУ"
+msgstr "УСТАНОВИТЬ SELECT КАК ГОРЯЧУЮ КНОПКУ"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КЛАВИШУ"
+msgstr "НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КНОПКУ"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2757,6 +2787,72 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "ПОКАЗАТЬ БЫСТРЫЕ СОХРАНЕНИЯ ЕСЛИ ОНИ ИМЕЮТСЯ"
+
+#~ msgid "UP"
+#~ msgstr "ВВЕРХ"
+
+#~ msgid "DOWN"
+#~ msgstr "ВНИЗ"
+
+#~ msgid "LEFT"
+#~ msgstr "ВЛЕВО"
+
+#~ msgid "RIGHT"
+#~ msgstr "ВПРАВО"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "ЛЕВЫЙ СТИК ВВЕРХ"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "ЛЕВЫЙ СТИК ВНИЗ"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "ЛЕВЫЙ СТИК ВЛЕВО"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "ЛЕВЫЙ СТИК ВПРАВО"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "ПРАВЫЙ СТИК ВВЕРХ"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "ПРАВЫЙ СТИК ВНИЗ"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "ПРАВЫЙ СТИК ВЛЕВО"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "ПРАВЫЙ СТИК ВПРАВО"
+
+#~ msgid "HOTKEY"
+#~ msgstr "ГОРЯЧАЯ КНОПКА"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "ИЗМЕНИТЬ ШИРИНУ ТАТУ"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ПО УМОЛЧАНИЮ"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "ИЗМЕНИТЬ ШИРИНУ ОВЕРЕЛЯ"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Относительно рамки на 1920 пикселей."
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "ПРОПУСТИТЬ ПЕСНЮ"

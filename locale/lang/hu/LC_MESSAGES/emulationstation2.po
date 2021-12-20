@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1042,8 +1042,8 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr "ÚJ JÁTÉK INDÍTÁSA"
 
-msgid "START AUTO SAVE"
-msgstr "AUTOMATIKUS MENTÉS INDÍTÁSA"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTOMATIKUS MENTÉS"
@@ -1783,18 +1783,6 @@ msgstr "VISSZATEKER"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PONTOS)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTO MENTÉS/TÖLTÉS"
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr "SHADER VÁLASZTÁS"
 
@@ -1834,22 +1822,10 @@ msgstr ""
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr ""
 
-msgid "RESIZE TATTOO WIDTH"
+msgid "RESIZE TATTOO"
 msgstr ""
 
-msgid "225/1920"
-msgstr ""
-
-msgid "240/1920"
-msgstr ""
-
-msgid "ORIGINAL"
-msgstr ""
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
-
-msgid "Relative to a 1920 px bezel."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -1866,6 +1842,36 @@ msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PILLANAT ÁLJ A LEFORDÍTOTT KÉPERNYŐN "
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "RENDSZERENKÉNTI HALADÓ KONFIGURÁCIÓ"
@@ -2127,6 +2133,9 @@ msgstr "KILÉPÉS AZ EMULATIONSTATION-BÓL"
 
 msgid "REALLY QUIT?"
 msgstr "BIZTOS KILÉPSZ?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "AUTO MENTÉS/TÖLTÉS"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
@@ -2540,44 +2549,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "SZÓKÖZ"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "FEL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "LE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "BAL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "JOBB"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "BAL OLDALI ANALÓG FEL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "BAL OLDALI ANALÓG LE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "BAL OLDALI ANALÓG BAL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "BAL OLDALI ANALÓG JOBB"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "JOBB OLDALI ANALÓG FEL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "JOBB OLDALI ANALÓG LE"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "JOBB OLDALI ANALÓG BAL"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "JOBB OLDALI ANALÓG JOBB"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "GYORSBILLENTYŰ"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "BEÁLLÍTÁS"
@@ -2719,6 +2749,48 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "AUTOMATIKUS MENTÉS INDÍTÁSA"
+
+#~ msgid "UP"
+#~ msgstr "FEL"
+
+#~ msgid "DOWN"
+#~ msgstr "LE"
+
+#~ msgid "LEFT"
+#~ msgstr "BAL"
+
+#~ msgid "RIGHT"
+#~ msgstr "JOBB"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "BAL OLDALI ANALÓG FEL"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "BAL OLDALI ANALÓG LE"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "BAL OLDALI ANALÓG BAL"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "BAL OLDALI ANALÓG JOBB"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "JOBB OLDALI ANALÓG FEL"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "JOBB OLDALI ANALÓG LE"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "JOBB OLDALI ANALÓG BAL"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "JOBB OLDALI ANALÓG JOBB"
+
+#~ msgid "HOTKEY"
+#~ msgstr "GYORSBILLENTYŰ"
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "KÖVETKEZŐ DAL"

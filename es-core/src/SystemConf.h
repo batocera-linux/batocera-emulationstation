@@ -10,6 +10,9 @@ class SystemConf
 public:
 	static SystemConf* getInstance();
 	
+	static bool getIncrementalSaveStates();
+	static bool getIncrementalSaveStatesUseCurrentSlot();
+
     bool loadSystemConf();
     bool saveSystemConf();
 

@@ -8,7 +8,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1045,7 +1044,7 @@ msgstr ""
 msgid "START NEW GAME"
 msgstr ""
 
-msgid "START AUTO SAVE"
+msgid "START NEW AUTO SAVE"
 msgstr ""
 
 msgid "AUTO SAVE"
@@ -1784,18 +1783,6 @@ msgstr ""
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr ""
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr ""
-
-msgid "SHOW SAVE STATES"
-msgstr ""
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
 msgid "SHADER SET"
 msgstr ""
 
@@ -1835,22 +1822,10 @@ msgstr ""
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr ""
 
-msgid "RESIZE TATTOO WIDTH"
+msgid "RESIZE TATTOO"
 msgstr ""
 
-msgid "225/1920"
-msgstr ""
-
-msgid "240/1920"
-msgstr ""
-
-msgid "ORIGINAL"
-msgstr ""
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr ""
-
-msgid "Relative to a 1920 px bezel."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
@@ -1866,6 +1841,36 @@ msgid "AI TRANSLATION SERVICE URL"
 msgstr ""
 
 msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2127,6 +2132,9 @@ msgid "QUIT EMULATIONSTATION"
 msgstr ""
 
 msgid "REALLY QUIT?"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
@@ -2537,42 +2545,63 @@ msgstr ""
 msgid "SPACE"
 msgstr ""
 
+msgctxt "joystick"
 msgid "UP"
 msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
 msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
 msgstr ""
 

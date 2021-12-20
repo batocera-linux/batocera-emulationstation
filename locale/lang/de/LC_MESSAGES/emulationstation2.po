@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 13:22+0100\n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1044,8 +1044,8 @@ msgstr "SPEICHERSTAND-VERWALTUNG"
 msgid "START NEW GAME"
 msgstr "STARTE NEUES SPIEL"
 
-msgid "START AUTO SAVE"
-msgstr "STARTE AUTOMATISCHE SPEICHERUNG"
+msgid "START NEW AUTO SAVE"
+msgstr ""
 
 msgid "AUTO SAVE"
 msgstr "AUTOMATISCHE SPEICHERUNG"
@@ -1800,18 +1800,6 @@ msgstr "ZURÜCKSPULEN"
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "INTEGER SCALING (PIXEL PERFECT)"
 
-msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTOM. SPEICHERN/LADEN BEIM SPIELSTART"
-
-msgid "SHOW SAVE STATES"
-msgstr "SPEICHERSTÄNDE ANZEIGEN"
-
-msgid "SHOW SAVE STATES IF NOT EMPTY"
-msgstr "SPEICHERSTÄNDE ANZEIGEN, WENN NICHT LEER"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "INKREMENTELLE SPEICHERSTÄNDE"
-
 msgid "SHADER SET"
 msgstr "SHADER"
 
@@ -1851,23 +1839,11 @@ msgstr "SÜD WEST"
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PFAD ZUM BENUTZERDEF. .PNG-BILD"
 
-msgid "RESIZE TATTOO WIDTH"
-msgstr "TATTOO-BREITE GRÖSSE ÄNDERN"
+msgid "RESIZE TATTOO"
+msgstr ""
 
-msgid "225/1920"
-msgstr "225/1920"
-
-msgid "240/1920"
-msgstr "240/1920"
-
-msgid "ORIGINAL"
-msgstr "ORIGINAL"
-
-msgid "RESIZE OVERLAY WIDTH"
-msgstr "OVERLAY-BREITE GRÖSSE ÄNDERN"
-
-msgid "Relative to a 1920 px bezel."
-msgstr "Relativ zu einem 1920 px bezel."
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr ""
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPIELEÜBERSETZUNG"
@@ -1883,6 +1859,36 @@ msgstr "AI-ÜBERSETZUNGS-SERVICE URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSE BEI ÜBERSETZTEM BILDSCHIRM"
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INKREMENTELLE SPEICHERSTÄNDE"
+
+msgid "NEW GAME CREATES NEW SLOT"
+msgstr ""
+
+msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "SHOW SAVE STATE MANAGER"
+msgstr ""
+
+msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "PER SYSTEM ERWEITERTE KONFIGURATION"
@@ -2150,6 +2156,9 @@ msgstr "EMULATIONSTATION BEENDEN"
 
 msgid "REALLY QUIT?"
 msgstr "WIRKLICH BEENDEN?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "AUTOM. SPEICHERN/LADEN BEIM SPIELSTART"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "CONTROLLER-OVERLAYS ANZEIGEN"
@@ -2570,44 +2579,65 @@ msgstr "SHIFT"
 msgid "SPACE"
 msgstr "LEERTASTE"
 
+msgctxt "joystick"
 msgid "UP"
-msgstr "HOCH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT"
-msgstr "LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT"
-msgstr "RECHTS"
+msgstr ""
 
+msgctxt "joystick"
+msgid "START"
+msgstr ""
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "LINKER ANALOG HOCH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "LINKER ANALOG RUNTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "LINKER ANALOG LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "LINKER ANALOG RECHTS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "RECHTER ANALOG HOCH"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "RECHTER ANALOG RUNTER"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "RECHTER ANALOG LINKS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "RECHTER ANALOG RECHTS"
+msgstr ""
 
+msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "HOTKEY"
+msgstr ""
 
 msgid "CONFIGURING"
 msgstr "KONFIGURIEREN"
@@ -2753,6 +2783,72 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "START AUTO SAVE"
+#~ msgstr "STARTE AUTOMATISCHE SPEICHERUNG"
+
+#~ msgid "SHOW SAVE STATES"
+#~ msgstr "SPEICHERSTÄNDE ANZEIGEN"
+
+#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
+#~ msgstr "SPEICHERSTÄNDE ANZEIGEN, WENN NICHT LEER"
+
+#~ msgid "UP"
+#~ msgstr "HOCH"
+
+#~ msgid "DOWN"
+#~ msgstr "RUNTER"
+
+#~ msgid "LEFT"
+#~ msgstr "LINKS"
+
+#~ msgid "RIGHT"
+#~ msgstr "RECHTS"
+
+#~ msgid "LEFT ANALOG UP"
+#~ msgstr "LINKER ANALOG HOCH"
+
+#~ msgid "LEFT ANALOG DOWN"
+#~ msgstr "LINKER ANALOG RUNTER"
+
+#~ msgid "LEFT ANALOG LEFT"
+#~ msgstr "LINKER ANALOG LINKS"
+
+#~ msgid "LEFT ANALOG RIGHT"
+#~ msgstr "LINKER ANALOG RECHTS"
+
+#~ msgid "RIGHT ANALOG UP"
+#~ msgstr "RECHTER ANALOG HOCH"
+
+#~ msgid "RIGHT ANALOG DOWN"
+#~ msgstr "RECHTER ANALOG RUNTER"
+
+#~ msgid "RIGHT ANALOG LEFT"
+#~ msgstr "RECHTER ANALOG LINKS"
+
+#~ msgid "RIGHT ANALOG RIGHT"
+#~ msgstr "RECHTER ANALOG RECHTS"
+
+#~ msgid "HOTKEY"
+#~ msgstr "HOTKEY"
+
+#~ msgid "RESIZE TATTOO WIDTH"
+#~ msgstr "TATTOO-BREITE GRÖSSE ÄNDERN"
+
+#~ msgid "225/1920"
+#~ msgstr "225/1920"
+
+#~ msgid "240/1920"
+#~ msgstr "240/1920"
+
+#~ msgid "ORIGINAL"
+#~ msgstr "ORIGINAL"
+
+#~ msgid "RESIZE OVERLAY WIDTH"
+#~ msgstr "OVERLAY-BREITE GRÖSSE ÄNDERN"
+
+#~ msgid "Relative to a 1920 px bezel."
+#~ msgstr "Relativ zu einem 1920 px bezel."
 
 #~ msgid "SKIP TO NEXT SONG"
 #~ msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
