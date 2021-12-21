@@ -68,6 +68,8 @@ static std::map<std::string, std::string> coreList =
 	{ "Beetle PC-FX", "mednafen_pcfx" },
 	{ "Beetle SuperGrafx", "mednafen_supergrafx" },
 	{ "Beetle VB", "mednafen_vb" },
+	{ "Beetle PSX", "mednafen_psx" },
+	{ "Beetle PSX HW", "mednafen_psx_hw" },	
 	{ "Beetle WonderSwan", "mednafen_wswan" },
 	{ "Mesen-S", "mesen-s" },
 	{ "mGBA", "mgba" },
@@ -371,7 +373,7 @@ public:
 		else
 			mImage->setImage(entry.fileData->getImagePath());		
 
-		mImage->setRoundCorners(0.27);
+		//mImage->setRoundCorners(0.27);
 
 		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata(MetaDataId::Name) + " [" + entry.fileData->getSystemName() + "]";
 
@@ -601,17 +603,22 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 	std::sort(entries.begin(), entries.end(), sortByValidCrc);
 	
+	bool netPlayShowMissingGames = Settings::getInstance()->getBool("NetPlayShowMissingGames");
+
 	for (auto game : entries)
 	{
 		if (game.fileData == nullptr)
 			continue;
 
-		if (!groupAvailable)
+		if (!netPlayShowMissingGames && !game.coreExists)
+			continue;
+
+		if (netPlayShowMissingGames && !groupAvailable)
 		{			
 			mList->addGroup(_("AVAILABLE GAMES"), true);
 			groupAvailable = true;
 		}
-
+		
 		ComponentListRow row;
 		row.addElement(std::make_shared<NetPlayLobbyListEntry>(mWindow, game), true);
 
@@ -621,22 +628,25 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		mList->addRow(row);
 	}
 
-	bool groupUnavailable = false;
-
-	for (auto game : entries)
+	if (netPlayShowMissingGames)
 	{
-		if (game.fileData != nullptr)
-			continue;
+		bool groupUnavailable = false;
 
-		if (!groupUnavailable)
+		for (auto game : entries)
 		{
-			mList->addGroup(_("UNAVAILABLE GAMES"), true);
-			groupUnavailable = true;
-		}
+			if (game.fileData != nullptr)
+				continue;
 
-		ComponentListRow row;
-		row.addElement(std::make_shared<NetPlayLobbyListEntry>(mWindow, game), true);
-		mList->addRow(row);
+			if (!groupUnavailable)
+			{
+				mList->addGroup(_("UNAVAILABLE GAMES"), true);
+				groupUnavailable = true;
+			}
+
+			ComponentListRow row;
+			row.addElement(std::make_shared<NetPlayLobbyListEntry>(mWindow, game), true);
+			mList->addRow(row);
+		}
 	}
 
 	if (mList->size() == 0)

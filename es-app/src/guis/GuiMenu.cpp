@@ -2448,6 +2448,11 @@ void GuiMenu::openNetplaySettings()
 		mitms->selectFirstItem();
 
 	settings->addWithLabel(_("USE RELAY SERVER"), mitms);
+	
+	auto showMissingGames = std::make_shared<SwitchComponent>(mWindow);
+	showMissingGames->setState(Settings::getInstance()->getBool("NetPlayShowMissingGames"));
+	settings->addWithLabel(_("SHOW UNAVAILABLE GAMES"), showMissingGames);
+	settings->addSaveFunc([showMissingGames] { Settings::getInstance()->setBool("NetPlayShowMissingGames", showMissingGames->getState()); });
 
 	settings->addGroup(_("GAME INDEXES"));
 

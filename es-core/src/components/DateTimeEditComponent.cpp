@@ -268,7 +268,7 @@ void DateTimeEditComponent::updateTextCache()
 	{
 		mSize = mTextCache->metrics.size;
 
-		mAutoSize = false;
+		// mAutoSize = false;
 		if(getParent())
 			getParent()->onSizeChanged();
 	}
