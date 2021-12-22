@@ -505,6 +505,16 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 	{
 		std::string trim = Utils::String::trim(name);
 
+		if (trim == "autosave") ret = ret | EmulatorFeatures::Features::autosave;
+		if (trim == "netplay") ret = ret | EmulatorFeatures::Features::netplay;
+		if (trim == "cheevos") ret = ret | EmulatorFeatures::Features::cheevos;
+		if (trim == "padtokeyboard" || trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
+
+		// The next features can be overriden with sharedFeatures
+		auto it = std::find_if(SystemData::mSharedFeatures.cbegin(), SystemData::mSharedFeatures.cend(), [trim](const CustomFeature& x) { return x.value == trim; });
+		if (it != SystemData::mSharedFeatures.cend())
+			continue;
+
 		if (trim == "ratio") ret = ret | EmulatorFeatures::Features::ratio;
 		if (trim == "rewind") ret = ret | EmulatorFeatures::Features::rewind;
 		if (trim == "smooth") ret = ret | EmulatorFeatures::Features::smooth;
@@ -513,17 +523,12 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "decoration") ret = ret | EmulatorFeatures::Features::decoration;
 		if (trim == "latency_reduction") ret = ret | EmulatorFeatures::Features::latency_reduction;
 		if (trim == "game_translation") ret = ret | EmulatorFeatures::Features::game_translation;
-		if (trim == "autosave") ret = ret | EmulatorFeatures::Features::autosave;
-		if (trim == "netplay") ret = ret | EmulatorFeatures::Features::netplay;
 		if (trim == "fullboot") ret = ret | EmulatorFeatures::Features::fullboot;
 		if (trim == "emulated_wiimotes") ret = ret | EmulatorFeatures::Features::emulated_wiimotes;
 		if (trim == "screen_layout") ret = ret | EmulatorFeatures::Features::screen_layout;
 		if (trim == "internal_resolution") ret = ret | EmulatorFeatures::Features::internal_resolution;
 		if (trim == "videomode") ret = ret | EmulatorFeatures::Features::videomode;
 		if (trim == "colorization") ret = ret | EmulatorFeatures::Features::colorization;		
-		if (trim == "padtokeyboard") ret = ret | EmulatorFeatures::Features::padTokeyboard;		
-		if (trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
-		if (trim == "cheevos") ret = ret | EmulatorFeatures::Features::cheevos;
 		if (trim == "autocontrollers") ret = ret | EmulatorFeatures::Features::autocontrollers;
 	}
 
@@ -537,6 +542,19 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 {
 	std::vector<CustomFeature> ret;
 
+	if (node.attribute("features"))
+	{
+		auto features = node.attribute("features").value();
+		for (auto name : Utils::String::split(features, ','))
+		{
+			std::string featureValue = Utils::String::trim(name);
+			auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
+
+			if (it != mSharedFeatures.cend())
+				ret.push_back(*it);			
+		}
+	}
+
 	pugi::xml_node customFeatures = node.child("features");
 	if (customFeatures == nullptr)
 		customFeatures = node;
@@ -547,25 +565,31 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 		std::string name = featureNode.name();
 		if (name == "sharedFeature")
 		{
+			auto it = mSharedFeatures.cend();
+
 			if (featureNode.attribute("name"))
 			{
 				std::string featureName = featureNode.attribute("name").value();
-
-				auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
-				if (it != mSharedFeatures.cend())
-				{
-					ret.push_back(*it);
-					continue;
-				}
+				it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureName](const CustomFeature& x) { return x.name == featureName; });
 			}
 
-			if (featureNode.attribute("value"))
+			if (it == mSharedFeatures.cend() && featureNode.attribute("value"))
 			{
 				std::string featureValue = featureNode.attribute("value").value();
+				it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
+			}
 
-				auto it = std::find_if(mSharedFeatures.cbegin(), mSharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
-				if (it != mSharedFeatures.cend())
-					ret.push_back(*it);
+			if (it != mSharedFeatures.cend())
+			{
+				CustomFeature cs = *it;
+
+				if (featureNode.attribute("submenu"))
+					cs.submenu = featureNode.attribute("submenu").value();
+
+				if (featureNode.attribute("preset"))
+					cs.preset = featureNode.attribute("preset").value();
+
+				ret.push_back(cs);
 			}
 
 			continue;

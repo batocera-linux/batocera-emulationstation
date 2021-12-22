@@ -2044,6 +2044,9 @@ void GuiMenu::addDecorationSetOptionListComponent(Window* window, GuiSettings* p
 
 void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName)
 {	
+	if (feat.preset == "hidden")
+		return;
+
 	std::string storageName = configName + "." + feat.value;
 	
 	if (configName == "global" && Utils::String::startsWith(feat.value, configName + "."))
@@ -2176,9 +2179,15 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	settings->addSaveFunc([item, storageName] { SystemConf::getInstance()->set(storageName, item->getSelected()); });
 }
 
+static bool hasFeature(const std::vector<CustomFeature>& features, const std::string& name)
+{
+	return std::find_if(features.cbegin(), features.cend(),
+		[name](const CustomFeature& x) { return x.value == name; }) != features.cend();
+}
+
 static bool hasGlobalFeature(const std::string& name)
 {
-	return std::find_if(SystemData::mGlobalFeatures.cbegin(), SystemData::mGlobalFeatures.cend(), 
+	return std::find_if(SystemData::mGlobalFeatures.cbegin(), SystemData::mGlobalFeatures.cend(),
 		[name](const CustomFeature& x) { return x.value == name || x.value == "global." + name; }) != SystemData::mGlobalFeatures.cend();
 }
 
@@ -2431,15 +2440,23 @@ void GuiMenu::openGamesSettings_batocera()
 	{
 		if (!group.first.empty())
 		{				
-			s->addEntry(group.first, true, [this, group]
+			int cnt = 0;
+			for (auto feat : group.second)
+				if (feat.preset != "hidden")
+					cnt++;
+			
+			if (cnt > 0)
 			{
-				GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
+				s->addEntry(group.first, true, [this, group]
+				{
+					GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
 
-				for (auto feat : group.second)
-					addFeatureItem(mWindow, groupSettings, feat, "global");
+					for (auto feat : group.second)
+						addFeatureItem(mWindow, groupSettings, feat, "global");
 
-				mWindow->pushGui(groupSettings);
-			});
+					mWindow->pushGui(groupSettings);
+				});
+			}
 		}
 		else
 		{
@@ -4161,6 +4178,8 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addWithLabel(_("Emulator"), emulChoice);
 	}
 
+	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
+
 	// Screen ratio choice
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::ratio))
 	{
@@ -4186,7 +4205,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addSaveFunc([configName, smoothing_enabled] { SystemConf::getInstance()->set(configName + ".smooth", smoothing_enabled->getSelected()); });
 	}
 
-	// rewind
+	// Rewind
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::rewind))
 	{
 		auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
@@ -4196,23 +4215,14 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 
 	// AUTO SAVE/LOAD
-	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave))
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave) && !hasFeature(customFeatures, "autosave"))
 	{
 		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
 		autosave_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".autosave"));
 		systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD ON GAME LAUNCH"), autosave_enabled);
 		systemConfiguration->addSaveFunc([configName, autosave_enabled] { SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected()); });
 	}
-	/*
-	// SHOW SAVE STATES
-	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave))
-	{
-		auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVE STATE MANAGER"));
-		showSaveStates->addRange({ { _("OFF"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get(configName + ".savestates"));
-		systemConfiguration->addWithLabel(_("SHOW SAVE STATE MANAGER"), showSaveStates);
-		systemConfiguration->addSaveFunc([configName, showSaveStates] { SystemConf::getInstance()->set(configName + ".savestates", showSaveStates->getSelected()); });
-	}
-	*/
+	
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
 		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))
@@ -4532,8 +4542,6 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 
 	// Load per-game / per-emulator / per-system custom features
-	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
-
 	auto groups = groupBy(customFeatures, [](const CustomFeature& item) { return item.submenu; });
 	for (auto group : groups)
 	{
