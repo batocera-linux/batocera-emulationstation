@@ -585,6 +585,9 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 		if (featureNode.attribute("submenu"))
 			feat.submenu = featureNode.attribute("submenu").value();
 
+		if (featureNode.attribute("preset"))
+			feat.preset = featureNode.attribute("preset").value();
+		
 		if (featureNode.attribute("value"))
 			feat.value = featureNode.attribute("value").value();
 		else 
@@ -606,7 +609,7 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 			feat.choices.push_back(cv);
 		}
 
-		if (feat.choices.size() > 0)
+		if (feat.choices.size() > 0 || !feat.preset.empty())
 			ret.push_back(feat);
 	}
 

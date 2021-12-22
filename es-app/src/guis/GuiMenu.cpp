@@ -2040,11 +2040,127 @@ void GuiMenu::addDecorationSetOptionListComponent(Window* window, GuiSettings* p
 	{
 		SystemConf::getInstance()->set(configName + ".bezel", decorations->getSelected() == _("NONE") ? "none" : decorations->getSelected() == _("AUTO") ? "" : decorations->getSelected());
 	});
-};
+}
+
+void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName)
+{
+	std::string storageName = configName + "." + feat.value;
+
+	if (feat.preset == "input")
+	{
+		settings->addInputTextRow(pgettext("game_options", feat.name.c_str()), storageName, false);
+		return;
+	}
+	
+	if (feat.preset == "password")
+	{
+		settings->addInputTextRow(pgettext("game_options", feat.name.c_str()), storageName, true);
+		return;
+	}
+	
+	if (feat.preset == "switch")
+	{
+		auto switchComponent = std::make_shared<SwitchComponent>(window);
+		switchComponent->setState(SystemConf::getInstance()->get(storageName) == "1");
+
+		if (!feat.description.empty())
+			settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), switchComponent);
+		else
+			settings->addWithLabel(pgettext("game_options", feat.name.c_str()), switchComponent);
+
+		settings->addSaveFunc([storageName, switchComponent] { SystemConf::getInstance()->set(storageName, switchComponent->getState() ? "1" : ""); });
+		return;
+	}
+
+	if (feat.preset == "switchoff")
+	{
+		auto switchComponent = std::make_shared<SwitchComponent>(window);
+		switchComponent->setState(SystemConf::getInstance()->get(storageName) != "1");
+
+		if (!feat.description.empty())
+			settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), switchComponent);
+		else
+			settings->addWithLabel(pgettext("game_options", feat.name.c_str()), switchComponent);
+
+		settings->addSaveFunc([storageName, switchComponent] { SystemConf::getInstance()->set(storageName, switchComponent->getState() ? "" : "1"); });
+		return;
+	}
+
+	std::string storedValue = SystemConf::getInstance()->get(storageName);
+
+	auto item = std::make_shared<OptionListComponent<std::string>>(window, pgettext("game_options", feat.name.c_str()));
+
+	if (feat.preset == "shaders" || feat.preset == "shaderset")
+	{
+		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
+
+		auto shaders = ApiSystem::getInstance()->getShaderList();
+		if (shaders.size() > 0)
+		{
+			item->add(_("NONE"), "none", storedValue == "none");
+
+			for (auto shader : shaders)
+				item->add(_(Utils::String::toUpper(shader).c_str()), shader, storedValue == shader);
+		}
+	}
+	else if (feat.preset == "decorations" || feat.preset == "bezel")
+	{
+		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
+
+		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
+		if (sets.size() > 0)
+		{
+			item->setRowTemplate([window, sets](std::string data, ComponentListRow& row) { createDecorationItemTemplate(window, sets, data, row); });
+			item->add(_("NONE"), "none", storedValue == "none");
+
+			for (auto set : sets)
+				item->add(set.name, set.name, storedValue == set.name);
+		}
+	}
+	else if (feat.preset == "videomodes" || feat.preset == "videomode")
+	{
+		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
+
+		auto modes = ApiSystem::getInstance()->getVideoModes();
+		for (auto videoMode : modes)
+		{
+			std::vector<std::string> tokens = Utils::String::split(videoMode, ':');
+			if (tokens.size() == 0)
+				continue;
+
+			std::string vname;
+			for (unsigned int i = 1; i < tokens.size(); i++)
+			{
+				if (i > 1)
+					vname += ":";
+
+				vname += tokens.at(i);
+			}
+
+			item->add(vname, tokens.at(0), storedValue == tokens.at(0));
+		}
+	}
+	else
+	{
+		item->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
+
+		for (auto fval : feat.choices)
+			item->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
+	}
+
+	if (!item->hasSelection())
+		item->selectFirstItem();
+
+	if (!feat.description.empty())
+		settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), item);
+	else
+		settings->addWithLabel(pgettext("game_options", feat.name.c_str()), item);
+
+	settings->addSaveFunc([item, storageName] { SystemConf::getInstance()->set(storageName, item->getSelected()); });
+}
 
 void GuiMenu::openGamesSettings_batocera() 
 {
-
 	Window* window = mWindow;
 
 	auto s = new GuiSettings(mWindow, _("GAME SETTINGS").c_str());
@@ -2284,26 +2400,7 @@ void GuiMenu::openGamesSettings_batocera()
 				GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
 
 				for (auto feat : group.second)
-				{
-					std::string storageName = "global." + feat.value;
-					std::string storedValue = SystemConf::getInstance()->get(storageName);
-
-					auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
-					cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
-
-					for (auto fval : feat.choices)
-						cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
-
-					if (!cf->hasSelection())
-						cf->selectFirstItem();
-
-					if (!feat.description.empty())
-						groupSettings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
-					else
-						groupSettings->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
-
-					groupSettings->addSaveFunc([cf, storageName] { SystemConf::getInstance()->set(storageName, cf->getSelected()); });
-				}
+					addFeatureItem(mWindow, groupSettings, feat, "global");
 
 				mWindow->pushGui(groupSettings);
 			});
@@ -2312,26 +2409,7 @@ void GuiMenu::openGamesSettings_batocera()
 		{
 			// Load global custom features
 			for (auto feat : group.second)
-			{
-				std::string storageName = "global." + feat.value;
-				std::string storedValue = SystemConf::getInstance()->get(storageName);
-
-				auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
-				cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
-
-				for (auto fval : feat.choices)
-					cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
-
-				if (!cf->hasSelection())
-					cf->selectFirstItem();
-
-				if (!feat.description.empty())
-					s->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
-				else
-					s->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
-
-				s->addSaveFunc([cf, storageName] { SystemConf::getInstance()->set(storageName, cf->getSelected()); });
-			}
+				addFeatureItem(mWindow, s, feat, "global");
 		}
 	}
 	// Custom config for systems
@@ -3933,7 +4011,16 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 	auto spacer = std::make_shared<GuiComponent>(window);
 	spacer->setSize(IMGPADDING, 0);
 	row.addElement(spacer, false);
-	row.addElement(std::make_shared<TextComponent>(window, Utils::String::toUpper(Utils::String::replace(data, "_", " ")), font, color, ALIGN_LEFT), true, true);
+
+	std::string label = data;
+	if (data.empty())
+		label = _("AUTO");
+	else if (data == "none")
+		label = _("NONE");
+	else
+		label = Utils::String::toUpper(Utils::String::replace(data, "_", " "));
+		
+	row.addElement(std::make_shared<TextComponent>(window, label, font, color, ALIGN_LEFT), true, true);
 
 	std::string imageUrl;
 
@@ -4421,29 +4508,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
 
 				for (auto feat : group.second)
-				{
-					std::string storageName = configName + "." + feat.value;
-					std::string storedValue = SystemConf::getInstance()->get(storageName);
-
-					auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
-					cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
-
-					for (auto fval : feat.choices)
-						cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
-
-					if (!cf->hasSelection())
-						cf->selectFirstItem();
-
-					if (!feat.description.empty())
-						groupSettings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
-					else
-						groupSettings->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
-
-					groupSettings->addSaveFunc([cf, storageName]
-					{
-						SystemConf::getInstance()->set(storageName, cf->getSelected());
-					});
-				}
+					addFeatureItem(mWindow, groupSettings, feat, configName);
 
 				mWindow->pushGui(groupSettings);
 			});
@@ -4451,29 +4516,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		else
 		{
 			for (auto feat : group.second)
-			{
-				std::string storageName = configName + "." + feat.value;
-				std::string storedValue = SystemConf::getInstance()->get(storageName);
-
-				auto cf = std::make_shared<OptionListComponent<std::string>>(mWindow, pgettext("game_options", feat.name.c_str()));
-				cf->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");
-
-				for (auto fval : feat.choices)
-					cf->add(pgettext("game_options", fval.name.c_str()), fval.value, storedValue == fval.value);
-
-				if (!cf->hasSelection())
-					cf->selectFirstItem();
-
-				if (!feat.description.empty())
-					systemConfiguration->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), cf);
-				else
-					systemConfiguration->addWithLabel(pgettext("game_options", feat.name.c_str()), cf);
-
-				systemConfiguration->addSaveFunc([cf, storageName]
-				{
-					SystemConf::getInstance()->set(storageName, cf->getSelected());
-				});
-			}
+				addFeatureItem(mWindow, systemConfiguration, feat, configName);
 		}
 	}
 

@@ -34,6 +34,7 @@ struct CustomFeature
 	std::string value;
 	std::string description;
 	std::string submenu;
+	std::string preset;
 	std::vector<CustomFeatureChoice> choices;
 };
 
