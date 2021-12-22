@@ -30,11 +30,20 @@ struct CustomFeatureChoice
 
 struct CustomFeature
 {
+	CustomFeature()
+	{
+		order = 0;
+	}
+
 	std::string name;
 	std::string value;
 	std::string description;
 	std::string submenu;
 	std::string preset;
+
+	std::string group;
+	int order;
+
 	std::vector<CustomFeatureChoice> choices;
 };
 
@@ -320,6 +329,7 @@ public:
 private:
 	std::string getKeyboardMappingFilePath();
 	static void createGroupedSystems();
+	static bool sortCustomFeatures(CustomFeature& feat1, CustomFeature& feat2);
 
 	size_t mGameListHash;
 

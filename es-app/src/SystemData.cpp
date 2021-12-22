@@ -538,6 +538,11 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 bool SystemData::es_features_loaded = false;
 std::map<std::string, EmulatorData> SystemData::es_features;
 
+bool SystemData::sortCustomFeatures(CustomFeature& feat1, CustomFeature& feat2)
+{
+	return feat1.order < feat2.order;
+}
+
 std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 {
 	std::vector<CustomFeature> ret;
@@ -589,6 +594,12 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 				if (featureNode.attribute("preset"))
 					cs.preset = featureNode.attribute("preset").value();
 
+				if (featureNode.attribute("group"))
+					cs.group = featureNode.attribute("group").value();
+
+				if (featureNode.attribute("order"))
+					cs.order = Utils::String::toInteger(featureNode.attribute("order").value());
+
 				ret.push_back(cs);
 			}
 
@@ -611,7 +622,13 @@ std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
 
 		if (featureNode.attribute("preset"))
 			feat.preset = featureNode.attribute("preset").value();
-		
+
+		if (featureNode.attribute("group"))
+			feat.group = featureNode.attribute("group").value();
+
+		if (featureNode.attribute("order"))
+			feat.order = Utils::String::toInteger(featureNode.attribute("order").value());
+
 		if (featureNode.attribute("value"))
 			feat.value = featureNode.attribute("value").value();
 		else 
@@ -866,6 +883,8 @@ bool SystemData::loadEsFeaturesFile()
 		}
 	}
 
+	std::sort(SystemData::mGlobalFeatures.begin(), SystemData::mGlobalFeatures.end(), SystemData::sortCustomFeatures);
+
 	return true;
 }
 
@@ -998,6 +1017,7 @@ std::vector<CustomFeature> SystemData::getCustomFeatures(std::string emulatorNam
 		}
 	}
 
+	std::sort(ret.begin(), ret.end(), SystemData::sortCustomFeatures);
 	return ret;
 }
 

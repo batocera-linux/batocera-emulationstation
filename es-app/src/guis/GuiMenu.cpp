@@ -51,6 +51,7 @@
 #include "guis/GuiKeyMappingEditor.h"
 #include "Gamelist.h"
 #include "TextToSpeech.h"
+#include "utils/VectorHelper.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -1933,19 +1934,6 @@ void GuiMenu::openRetroachievementsSettings()
 	mWindow->pushGui(retroachievements);
 }
 
-template <typename StructType, typename FieldSelectorUnaryFn>
-static auto groupBy(const std::vector<StructType>& instances, const FieldSelectorUnaryFn& fieldChooser)
-   -> std::map<decltype(fieldChooser(StructType())), std::vector<StructType>> // For C++ 11
-{
-	StructType _;
-	using FieldType = decltype(fieldChooser(_));
-	std::map<FieldType, std::vector<StructType>> instancesByField;
-	for (auto& instance : instances)
-		instancesByField[fieldChooser(instance)].push_back(instance);
-
-	return instancesByField;
-}
-
 void GuiMenu::openNetplaySettings()
 {
 	GuiSettings* settings = new GuiSettings(mWindow, _("NETPLAY SETTINGS").c_str());
@@ -2191,6 +2179,58 @@ static bool hasGlobalFeature(const std::string& name)
 		[name](const CustomFeature& x) { return x.value == name || x.value == "global." + name; }) != SystemData::mGlobalFeatures.cend();
 }
 
+void GuiMenu::addFeatures(const std::vector<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
+{
+	bool firstGroup = true;
+
+	auto groups = VectorHelper::groupBy(features, [](const CustomFeature& item) { return item.group; });
+	for (auto group : groups)
+	{
+		settings->removeLastRowIfGroup();
+
+		if (!group.first.empty())
+			settings->addGroup(pgettext("game_options", group.first.c_str()));
+		else if (!defaultGroupName.empty())
+		{
+			if (!addDefaultGroupOnlyIfNotFirst || !firstGroup)
+				settings->addGroup(defaultGroupName); // _("DEFAULT GLOBAL SETTINGS")
+		}
+
+		firstGroup = false;
+
+		std::set<std::string> processed;
+
+		for (auto feat : group.second)
+		{
+			if (feat.submenu.empty())
+			{
+				addFeatureItem(window, settings, feat, configName);
+				continue;
+			}
+
+			if (processed.find(feat.submenu) != processed.cend())
+				continue;
+
+
+			processed.insert(feat.submenu);
+
+			auto items = VectorHelper::where<CustomFeature>(features, [feat](const CustomFeature& item) { return item.preset != "hidden" && item.submenu == feat.submenu; });
+			if (items.size() > 0)
+			{
+				settings->addEntry(pgettext("game_options", feat.submenu.c_str()), true, [window, configName, feat, items]
+				{
+					GuiSettings* groupSettings = new GuiSettings(window, pgettext("game_options", feat.submenu.c_str()));
+
+					for (auto feat : items)
+						addFeatureItem(window, groupSettings, feat, configName);
+
+					window->pushGui(groupSettings);
+				});
+			}
+		}
+	}
+}
+
 void GuiMenu::openGamesSettings_batocera() 
 {
 	Window* window = mWindow;
@@ -2434,37 +2474,10 @@ void GuiMenu::openGamesSettings_batocera()
 			mWindow->pushGui(ai_service);
 		});
 	}
-
-	auto groups = groupBy(SystemData::mGlobalFeatures, [](const CustomFeature& item) { return item.submenu; });
-	for (auto group : groups)
-	{
-		if (!group.first.empty())
-		{				
-			int cnt = 0;
-			for (auto feat : group.second)
-				if (feat.preset != "hidden")
-					cnt++;
-			
-			if (cnt > 0)
-			{
-				s->addEntry(group.first, true, [this, group]
-				{
-					GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
-
-					for (auto feat : group.second)
-						addFeatureItem(mWindow, groupSettings, feat, "global");
-
-					mWindow->pushGui(groupSettings);
-				});
-			}
-		}
-		else
-		{
-			// Load global custom features
-			for (auto feat : group.second)
-				addFeatureItem(mWindow, s, feat, "global");
-		}
-	}
+	
+	// Load global custom features
+	addFeatures(SystemData::mGlobalFeatures, window, s, "global", _("DEFAULT GLOBAL SETTINGS"));
+	
 	// Custom config for systems
 	s->addGroup(_("SAVESTATES"));
 
@@ -4542,27 +4555,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 
 	// Load per-game / per-emulator / per-system custom features
-	auto groups = groupBy(customFeatures, [](const CustomFeature& item) { return item.submenu; });
-	for (auto group : groups)
-	{
-		if (!group.first.empty())
-		{
-			systemConfiguration->addEntry(group.first, true, [configName, mWindow, group]
-			{
-				GuiSettings* groupSettings = new GuiSettings(mWindow, pgettext("game_options", group.first.c_str()));
-
-				for (auto feat : group.second)
-					addFeatureItem(mWindow, groupSettings, feat, configName);
-
-				mWindow->pushGui(groupSettings);
-			});
-		}
-		else
-		{
-			for (auto feat : group.second)
-				addFeatureItem(mWindow, systemConfiguration, feat, configName);
-		}
-	}
+	addFeatures(customFeatures, mWindow, systemConfiguration, configName, _("SETTINGS"), true);
 
 	// automatic controller configuration
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autocontrollers))

@@ -106,6 +106,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Delegate.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Randomizer.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/VectorHelper.h
 )
 
 set(CORE_SOURCES
