@@ -2176,6 +2176,12 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	settings->addSaveFunc([item, storageName] { SystemConf::getInstance()->set(storageName, item->getSelected()); });
 }
 
+static bool hasGlobalFeature(const std::string& name)
+{
+	return std::find_if(SystemData::mGlobalFeatures.cbegin(), SystemData::mGlobalFeatures.cend(), 
+		[name](const CustomFeature& x) { return x.value == name || x.value == "global." + name; }) != SystemData::mGlobalFeatures.cend();
+}
+
 void GuiMenu::openGamesSettings_batocera() 
 {
 	Window* window = mWindow;
@@ -2206,7 +2212,7 @@ void GuiMenu::openGamesSettings_batocera()
 	s->addGroup(_("DEFAULT GLOBAL SETTINGS"));
 
 	// Screen ratio choice
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop") 
+	if (SystemConf::getInstance()->get("system.es.menu") != "bartop" && !hasGlobalFeature("ratio"))
 	{
 		auto ratio_choice = createRatioOptionList(mWindow, "global");
 		s->addWithLabel(_("GAME ASPECT RATIO"), ratio_choice);
@@ -2214,33 +2220,42 @@ void GuiMenu::openGamesSettings_batocera()
 	}
 
 	// video resolution mode
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION) && !hasGlobalFeature("videomode"))
 	{
 		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
 		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
 		s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()); });
 	}
 
-	// smoothing
-	auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES (BILINEAR FILTERING)"));
-	smoothing_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.smooth"));
-	s->addWithLabel(_("SMOOTH GAMES (BILINEAR FILTERING)"), smoothing_enabled);
-	s->addSaveFunc([smoothing_enabled] { SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected()); });
+	// smoothing	
+	if (!hasGlobalFeature("smooth"))
+	{
+		auto smoothing_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SMOOTH GAMES (BILINEAR FILTERING)"));
+		smoothing_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.smooth"));
+		s->addWithLabel(_("SMOOTH GAMES (BILINEAR FILTERING)"), smoothing_enabled);
+		s->addSaveFunc([smoothing_enabled] { SystemConf::getInstance()->set("global.smooth", smoothing_enabled->getSelected()); });
+	}
 
 	// rewind
-	auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
-	rewind_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.rewind"));
-	s->addWithLabel(_("REWIND"), rewind_enabled);
-	s->addSaveFunc([rewind_enabled] { SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected()); });
+	if (!hasGlobalFeature("rewind"))
+	{
+		auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
+		rewind_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.rewind"));
+		s->addWithLabel(_("REWIND"), rewind_enabled);
+		s->addSaveFunc([rewind_enabled] { SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected()); });
+	}
 	
 	// Integer scale
-	auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (PIXEL PERFECT)"));
-	integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
-	s->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
-	s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
+	if (!hasGlobalFeature("integerscale"))
+	{
+		auto integerscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (PIXEL PERFECT)"));
+		integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscale"));
+		s->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
+		s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
+	}
 
 	// Shaders preset
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS))
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) && !hasGlobalFeature("shaderset"))
 	{
 		auto installedShaders = ApiSystem::getInstance()->getShaderList();
 		if (installedShaders.size() > 0)
@@ -2263,7 +2278,7 @@ void GuiMenu::openGamesSettings_batocera()
 	}
 
 	// decorations
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS))
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS) && !hasGlobalFeature("bezel"))
 	{		
 		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
 		if (sets.size() > 0)
@@ -2339,73 +2354,77 @@ void GuiMenu::openGamesSettings_batocera()
 	}
 	
 	// latency reduction
-	s->addEntry(_("LATENCY REDUCTION"), true, [this] { openLatencyReductionConfiguration(mWindow, "global"); });
+	if (!hasGlobalFeature("runahead"))
+		s->addEntry(_("LATENCY REDUCTION"), true, [this] { openLatencyReductionConfiguration(mWindow, "global"); });
 
 	//AI-enabled translations
-	s->addEntry(_("AI GAME TRANSLATION"), true, [this]
+	if (!hasGlobalFeature("ai_service_enabled"))
 	{
-		GuiSettings *ai_service = new GuiSettings(mWindow, _("AI GAME TRANSLATION").c_str());
+		s->addEntry(_("AI GAME TRANSLATION"), true, [this]
+		{
+			GuiSettings *ai_service = new GuiSettings(mWindow, _("AI GAME TRANSLATION").c_str());
 
-		// AI service enabled?
-		auto ai_service_enabled = std::make_shared<SwitchComponent>(mWindow);
-		ai_service_enabled->setState(
-			SystemConf::getInstance()->get("global.ai_service_enabled") == "1");
-		ai_service->addWithLabel(_("ENABLE AI TRANSLATION SERVICE"), ai_service_enabled);
+			// AI service enabled?
+			auto ai_service_enabled = std::make_shared<SwitchComponent>(mWindow);
+			ai_service_enabled->setState(
+				SystemConf::getInstance()->get("global.ai_service_enabled") == "1");
+			ai_service->addWithLabel(_("ENABLE AI TRANSLATION SERVICE"), ai_service_enabled);
 
-		// Target language - order is: popular languages in the Batocera community first
-		// then alphabetical order of the 2-char lang code (because the strings are localized)
-		auto lang_choices = std::make_shared<OptionListComponent<std::string> >(mWindow,
-			_("TARGET LANGUAGE"), false);
-		std::string currentLang = SystemConf::getInstance()->get("global.ai_target_lang");
-		if (currentLang.empty())
-			currentLang = std::string("En");
-		lang_choices->add("ENGLISH", "En", currentLang == "En");
-		lang_choices->add("FRANÇAIS", "Fr", currentLang == "Fr");
-		lang_choices->add("PORTUGUES", "Pt", currentLang == "Pt");
-		lang_choices->add("DEUTSCH", "De", currentLang == "De");
-		lang_choices->add("GREEK", "El", currentLang == "El");
-		lang_choices->add("ESPAÑOL", "Es", currentLang == "Es");
-		lang_choices->add("CZECH", "Cs", currentLang == "Cs");
-		lang_choices->add("DANISH", "Da", currentLang == "Da");
-		lang_choices->add("CROATIAN", "Hr", currentLang == "Hr");
-		lang_choices->add("HUNGARIAN", "Hu", currentLang == "Hu");
-		lang_choices->add("ITALIANO", "It", currentLang == "It");
-		lang_choices->add("JAPANESE", "Ja", currentLang == "Ja");
-		lang_choices->add("KOREAN", "Ko", currentLang == "Ko");
-		lang_choices->add("DUTCH", "Nl", currentLang == "Nl");
-		lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
-		lang_choices->add("POLISH", "Po", currentLang == "Po");
-		lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
-		lang_choices->add("РУССКИЙ", "Ru", currentLang == "Ru");
-		lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
-		lang_choices->add("TÜRKÇE", "Tr", currentLang == "Tr");
-		lang_choices->add("简体中文", "Zh", currentLang == "Zh");
-		ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
+			// Target language - order is: popular languages in the Batocera community first
+			// then alphabetical order of the 2-char lang code (because the strings are localized)
+			auto lang_choices = std::make_shared<OptionListComponent<std::string> >(mWindow,
+				_("TARGET LANGUAGE"), false);
+			std::string currentLang = SystemConf::getInstance()->get("global.ai_target_lang");
+			if (currentLang.empty())
+				currentLang = std::string("En");
+			lang_choices->add("ENGLISH", "En", currentLang == "En");
+			lang_choices->add("FRANÇAIS", "Fr", currentLang == "Fr");
+			lang_choices->add("PORTUGUES", "Pt", currentLang == "Pt");
+			lang_choices->add("DEUTSCH", "De", currentLang == "De");
+			lang_choices->add("GREEK", "El", currentLang == "El");
+			lang_choices->add("ESPAÑOL", "Es", currentLang == "Es");
+			lang_choices->add("CZECH", "Cs", currentLang == "Cs");
+			lang_choices->add("DANISH", "Da", currentLang == "Da");
+			lang_choices->add("CROATIAN", "Hr", currentLang == "Hr");
+			lang_choices->add("HUNGARIAN", "Hu", currentLang == "Hu");
+			lang_choices->add("ITALIANO", "It", currentLang == "It");
+			lang_choices->add("JAPANESE", "Ja", currentLang == "Ja");
+			lang_choices->add("KOREAN", "Ko", currentLang == "Ko");
+			lang_choices->add("DUTCH", "Nl", currentLang == "Nl");
+			lang_choices->add("NORWEGIAN", "Nn", currentLang == "Nn");
+			lang_choices->add("POLISH", "Po", currentLang == "Po");
+			lang_choices->add("ROMANIAN", "Ro", currentLang == "Ro");
+			lang_choices->add("РУССКИЙ", "Ru", currentLang == "Ru");
+			lang_choices->add("SVENSKA", "Sv", currentLang == "Sv");
+			lang_choices->add("TÜRKÇE", "Tr", currentLang == "Tr");
+			lang_choices->add("简体中文", "Zh", currentLang == "Zh");
+			ai_service->addWithLabel(_("TARGET LANGUAGE"), lang_choices);
 
-		// Service  URL
-		ai_service->addInputTextRow(_("AI TRANSLATION SERVICE URL"), "global.ai_service_url", false);
+			// Service  URL
+			ai_service->addInputTextRow(_("AI TRANSLATION SERVICE URL"), "global.ai_service_url", false);
 
-		// Pause game for translation?
-		auto ai_service_pause = std::make_shared<SwitchComponent>(mWindow);
-		ai_service_pause->setState(
-			SystemConf::getInstance()->get("global.ai_service_pause") == "1");
-		ai_service->addWithLabel(_("PAUSE ON TRANSLATED SCREEN"), ai_service_pause);
+			// Pause game for translation?
+			auto ai_service_pause = std::make_shared<SwitchComponent>(mWindow);
+			ai_service_pause->setState(
+				SystemConf::getInstance()->get("global.ai_service_pause") == "1");
+			ai_service->addWithLabel(_("PAUSE ON TRANSLATED SCREEN"), ai_service_pause);
 
-		ai_service->addSaveFunc([ai_service_enabled, lang_choices, ai_service_pause] {
-			if (ai_service_enabled->changed())
-				SystemConf::getInstance()->set("global.ai_service_enabled",
-					ai_service_enabled->getState() ? "1" : "0");
-			if (lang_choices->changed())
-				SystemConf::getInstance()->set("global.ai_target_lang",
-					lang_choices->getSelected());
-			if (ai_service_pause->changed())
-				SystemConf::getInstance()->set("global.ai_service_pause",
-					ai_service_pause->getState() ? "1" : "0");
-			SystemConf::getInstance()->saveSystemConf();
+			ai_service->addSaveFunc([ai_service_enabled, lang_choices, ai_service_pause] {
+				if (ai_service_enabled->changed())
+					SystemConf::getInstance()->set("global.ai_service_enabled",
+						ai_service_enabled->getState() ? "1" : "0");
+				if (lang_choices->changed())
+					SystemConf::getInstance()->set("global.ai_target_lang",
+						lang_choices->getSelected());
+				if (ai_service_pause->changed())
+					SystemConf::getInstance()->set("global.ai_service_pause",
+						ai_service_pause->getState() ? "1" : "0");
+				SystemConf::getInstance()->saveSystemConf();
+			});
+
+			mWindow->pushGui(ai_service);
 		});
-
-		mWindow->pushGui(ai_service);
-	});
+	}
 
 	auto groups = groupBy(SystemData::mGlobalFeatures, [](const CustomFeature& item) { return item.submenu; });
 	for (auto group : groups)
