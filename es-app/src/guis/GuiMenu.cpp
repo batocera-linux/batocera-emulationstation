@@ -51,7 +51,7 @@
 #include "guis/GuiKeyMappingEditor.h"
 #include "Gamelist.h"
 #include "TextToSpeech.h"
-#include "utils/VectorHelper.h"
+
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -2167,23 +2167,16 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	settings->addSaveFunc([item, storageName] { SystemConf::getInstance()->set(storageName, item->getSelected()); });
 }
 
-static bool hasFeature(const std::vector<CustomFeature>& features, const std::string& name)
-{
-	return std::find_if(features.cbegin(), features.cend(),
-		[name](const CustomFeature& x) { return x.value == name; }) != features.cend();
-}
-
 static bool hasGlobalFeature(const std::string& name)
 {
-	return std::find_if(SystemData::mGlobalFeatures.cbegin(), SystemData::mGlobalFeatures.cend(),
-		[name](const CustomFeature& x) { return x.value == name || x.value == "global." + name; }) != SystemData::mGlobalFeatures.cend();
+	return SystemData::mGlobalFeatures.hasGlobalFeature(name);
 }
 
-void GuiMenu::addFeatures(const std::vector<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
+void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
 {
 	bool firstGroup = true;
-
-	auto groups = VectorHelper::groupBy(features, [](const CustomFeature& item) { return item.group; });
+	
+	auto groups = features.groupBy([](auto x) { return x.group; });
 	for (auto group : groups)
 	{
 		settings->removeLastRowIfGroup();
@@ -2211,10 +2204,9 @@ void GuiMenu::addFeatures(const std::vector<CustomFeature>& features, Window* wi
 			if (processed.find(feat.submenu) != processed.cend())
 				continue;
 
-
 			processed.insert(feat.submenu);
 
-			auto items = VectorHelper::where<CustomFeature>(features, [feat](const CustomFeature& item) { return item.preset != "hidden" && item.submenu == feat.submenu; });
+			auto items = features.where([feat](auto x) { return x.preset != "hidden" && x.submenu == feat.submenu; });
 			if (items.size() > 0)
 			{
 				settings->addEntry(pgettext("game_options", feat.submenu.c_str()), true, [window, configName, feat, items]
@@ -4191,7 +4183,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addWithLabel(_("Emulator"), emulChoice);
 	}
 
-	std::vector<CustomFeature> customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
+	auto customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
 
 	// Screen ratio choice
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::ratio))
@@ -4228,7 +4220,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 
 	// AUTO SAVE/LOAD
-	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave) && !hasFeature(customFeatures, "autosave"))
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave) && !customFeatures.hasFeature("autosave"))
 	{
 		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
 		autosave_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".autosave"));

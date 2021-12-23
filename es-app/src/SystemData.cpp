@@ -30,8 +30,8 @@
 using namespace Utils;
 
 std::vector<SystemData*> SystemData::sSystemVector;
-std::vector<CustomFeature> SystemData::mGlobalFeatures;
-std::vector<CustomFeature> SystemData::mSharedFeatures;
+CustomFeatures SystemData::mGlobalFeatures;
+CustomFeatures SystemData::mSharedFeatures;
 
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
@@ -543,9 +543,9 @@ bool SystemData::sortCustomFeatures(CustomFeature& feat1, CustomFeature& feat2)
 	return feat1.order < feat2.order;
 }
 
-std::vector<CustomFeature>  SystemData::loadCustomFeatures(pugi::xml_node node)
+CustomFeatures SystemData::loadCustomFeatures(pugi::xml_node node)
 {
-	std::vector<CustomFeature> ret;
+	CustomFeatures ret;
 
 	if (node.attribute("features"))
 	{
@@ -883,8 +883,7 @@ bool SystemData::loadEsFeaturesFile()
 		}
 	}
 
-	std::sort(SystemData::mGlobalFeatures.begin(), SystemData::mGlobalFeatures.end(), SystemData::sortCustomFeatures);
-
+	SystemData::mGlobalFeatures.sort();
 	return true;
 }
 
@@ -991,9 +990,9 @@ bool SystemData::hasFeatures()
 	return !es_features_loaded;
 }
 
-std::vector<CustomFeature> SystemData::getCustomFeatures(std::string emulatorName, std::string coreName)
+CustomFeatures SystemData::getCustomFeatures(std::string emulatorName, std::string coreName)
 {
-	std::vector<CustomFeature> ret;
+	CustomFeatures ret;
 
 	if (emulatorName.empty() || emulatorName == "auto")
 		emulatorName = getEmulator();
@@ -1017,7 +1016,7 @@ std::vector<CustomFeature> SystemData::getCustomFeatures(std::string emulatorNam
 		}
 	}
 
-	std::sort(ret.begin(), ret.end(), SystemData::sortCustomFeatures);
+	ret.sort();
 	return ret;
 }
 
@@ -2358,7 +2357,6 @@ bool SystemData::getShowCheevosIcon()
 	return false;
 }
 
-
 int SystemData::getShowFlags()
 {
 	if (!getShowFavoritesIcon())
@@ -2373,3 +2371,17 @@ int SystemData::getShowFlags()
 	return Utils::String::toInteger(spf);
 }
 
+void CustomFeatures::sort()
+{
+	std::sort(begin(), end(), [](CustomFeature& feat1, CustomFeature& feat2) { return feat1.order < feat2.order; });
+}
+
+bool CustomFeatures::hasFeature(const std::string& name) const
+{
+	return any([name](auto x) { return x.value == name; });
+}
+
+bool CustomFeatures::hasGlobalFeature(const std::string& name) const
+{
+	return any([name](auto x) { return x.value == name || x.value == "global." + name; });
+}

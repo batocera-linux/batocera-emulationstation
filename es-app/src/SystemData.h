@@ -15,6 +15,7 @@
 #include "FileFilterIndex.h"
 #include "KeyboardMapping.h"
 #include "math/Vector2f.h"
+#include "utils/VectorEx.h"
 
 class FileData;
 class FolderData;
@@ -45,6 +46,15 @@ struct CustomFeature
 	int order;
 
 	std::vector<CustomFeatureChoice> choices;
+};
+
+class CustomFeatures : public VectorEx<CustomFeature>
+{
+public:
+	void sort();
+
+	bool hasFeature(const std::string& name) const;
+	bool hasGlobalFeature(const std::string& name) const;
 };
 
 struct GameCountInfo
@@ -100,7 +110,7 @@ struct SystemFeature
 
 	std::string name;
 	EmulatorFeatures::Features features;
-	std::vector<CustomFeature> customFeatures;
+	CustomFeatures customFeatures;
 };
 
 struct CoreData
@@ -117,7 +127,7 @@ struct CoreData
 	bool isDefault;
 	
 	std::string customCommandLine;
-	std::vector<CustomFeature> customFeatures;
+	CustomFeatures customFeatures;
 	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
@@ -136,7 +146,7 @@ struct EmulatorData
 	std::vector<CoreData> cores;
 
 	std::string customCommandLine;
-	std::vector<CustomFeature> customFeatures;
+	CustomFeatures customFeatures;
 	std::vector<std::string> incompatibleExtensions;
 
 	EmulatorFeatures::Features features;
@@ -213,7 +223,7 @@ public:
 	
 	bool loadFeatures();
 
-	static std::vector<CustomFeature> loadCustomFeatures(pugi::xml_node node);
+	static CustomFeatures loadCustomFeatures(pugi::xml_node node);
 
 	static std::vector<SystemData*> sSystemVector;
 
@@ -294,7 +304,7 @@ public:
 
 	bool isCurrentFeatureSupported(EmulatorFeatures::Features feature);
 	bool isFeatureSupported(std::string emulatorName, std::string coreName, EmulatorFeatures::Features feature);
-	std::vector<CustomFeature> getCustomFeatures(std::string emulatorName, std::string coreName);
+	CustomFeatures getCustomFeatures(std::string emulatorName, std::string coreName);
 	std::string		getCompatibleCoreNames(EmulatorFeatures::Features feature);
 
 	bool hasFeatures();
@@ -310,8 +320,8 @@ public:
 
 	bool shouldExtractHashesFromArchives();
 
-	static std::vector<CustomFeature> mSharedFeatures;
-	static std::vector<CustomFeature> mGlobalFeatures;
+	static CustomFeatures mSharedFeatures;
+	static CustomFeatures mGlobalFeatures;
 
 	bool getShowFilenames();
 	bool getShowParentFolder();
