@@ -1351,7 +1351,7 @@ bool FileData::isNetplaySupported()
 	std::string emulName = getEmulator();
 	std::string coreName = getCore();
 
-	if (!SystemData::es_features_loaded)
+	if (!CustomFeatures::FeaturesLoaded)
 	{
 		std::string command = system->getLaunchCommand(emulName, coreName);
 		if (command.find("%NETPLAY%") != std::string::npos)
