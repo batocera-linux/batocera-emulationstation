@@ -1380,36 +1380,33 @@ void GuiMenu::openSystemSettings_batocera()
 	if (selectedAudio.empty())
 		selectedAudio = "auto";
 
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	bool vfound = false;
+	for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
 	{
-		bool vfound = false;
-		for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
+		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+		if (selectedAudio == tokens.at(0))
+			vfound = true;
+
+		if (tokens.size() >= 2)
 		{
-			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
-
-			if (selectedAudio == tokens.at(0))
-				vfound = true;
-
-			if (tokens.size() >= 2)
+			// concatenat the ending words
+			std::string vname = "";
+			for (unsigned int i = 1; i < tokens.size(); i++)
 			{
-				// concatenat the ending words
-				std::string vname = "";
-				for (unsigned int i = 1; i < tokens.size(); i++)
-				{
-					if (i > 2) vname += " ";
-					vname += tokens.at(i);
-				}
-				optionsAudio->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
+				if (i > 2) vname += " ";
+				vname += tokens.at(i);
 			}
-			else
-				optionsAudio->add((*it), (*it), selectedAudio == tokens.at(0));
+			optionsAudio->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
 		}
-
-		if (vfound == false)
-			optionsAudio->add(selectedAudio, selectedAudio, true);
-
-		s->addWithLabel(_("AUDIO OUTPUT"), optionsAudio);
+		else
+			optionsAudio->add((*it), (*it), selectedAudio == tokens.at(0));
 	}
+
+	if (vfound == false)
+		optionsAudio->add(selectedAudio, selectedAudio, true);
+
+	s->addWithLabel(_("AUDIO OUTPUT"), optionsAudio);	
 
 	s->addSaveFunc([this, optionsAudio, selectedAudio] 
 	{
@@ -1428,36 +1425,33 @@ void GuiMenu::openSystemSettings_batocera()
 	if (selectedAudioProfile.empty())
 		selectedAudioProfile = "auto";
 
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	bool vfound = false;
+	for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
 	{
-		bool vfound = false;
-		for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
+		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+		if (selectedAudioProfile == tokens.at(0))
+			vfound = true;
+
+		if (tokens.size() >= 2)
 		{
-			std::vector<std::string> tokens = Utils::String::split(*it, ' ');
-
-			if (selectedAudioProfile == tokens.at(0))
-				vfound = true;
-
-			if (tokens.size() >= 2)
+			// concatenat the ending words
+			std::string vname = "";
+			for (unsigned int i = 1; i < tokens.size(); i++)
 			{
-				// concatenat the ending words
-				std::string vname = "";
-				for (unsigned int i = 1; i < tokens.size(); i++)
-				{
-					if (i > 2) vname += " ";
-					vname += tokens.at(i);
-				}
-				optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
+				if (i > 2) vname += " ";
+				vname += tokens.at(i);
 			}
-			else
-				optionsAudioProfile->add((*it), (*it), selectedAudioProfile == tokens.at(0));
+			optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
 		}
-
-		if (vfound == false)
-			optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
-
-		s->addWithLabel(_("AUDIO PROFILE"), optionsAudioProfile);
+		else
+			optionsAudioProfile->add((*it), (*it), selectedAudioProfile == tokens.at(0));
 	}
+
+	if (vfound == false)
+		optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
+
+	s->addWithLabel(_("AUDIO PROFILE"), optionsAudioProfile);
 
 	s->addSaveFunc([this, optionsAudioProfile, selectedAudioProfile] 
 	{
@@ -1894,9 +1888,9 @@ void GuiMenu::openRetroachievementsSettings()
 
 	// CheckOnStart
 	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
-	checkOnStart->setState(Settings::getInstance()->getBool("CheevosCheckIndexesAtStart"));
+	checkOnStart->setState(Settings::CheevosCheckIndexesAtStart());
 	retroachievements->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
-	retroachievements->addSaveFunc([checkOnStart] { Settings::getInstance()->setBool("CheevosCheckIndexesAtStart", checkOnStart->getState()); });
+	retroachievements->addSaveFunc([checkOnStart] { Settings::setCheevosCheckIndexesAtStart(checkOnStart->getState()); });
 
 	// Index games
 	retroachievements->addEntry(_("INDEX GAMES"), true, [this] 
@@ -1968,21 +1962,21 @@ void GuiMenu::openNetplaySettings()
 	settings->addWithLabel(_("USE RELAY SERVER"), mitms);
 	
 	auto showMissingGames = std::make_shared<SwitchComponent>(mWindow);
-	showMissingGames->setState(Settings::getInstance()->getBool("NetPlayShowMissingGames"));
+	showMissingGames->setState(Settings::NetPlayShowMissingGames());
 	settings->addWithLabel(_("SHOW UNAVAILABLE GAMES"), showMissingGames);
-	settings->addSaveFunc([showMissingGames] { Settings::getInstance()->setBool("NetPlayShowMissingGames", showMissingGames->getState()); });
+	settings->addSaveFunc([showMissingGames] { Settings::setNetPlayShowMissingGames(showMissingGames->getState()); });
 
 	settings->addGroup(_("GAME INDEXES"));
 
 	// CheckOnStart
 	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
-	checkOnStart->setState(Settings::getInstance()->getBool("NetPlayCheckIndexesAtStart"));
+	checkOnStart->setState(Settings::NetPlayCheckIndexesAtStart());
 	settings->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
 	
 	Window* window = mWindow;
 	settings->addSaveFunc([enableNetplay, checkOnStart, mitms, window]
 	{
-		Settings::getInstance()->setBool("NetPlayCheckIndexesAtStart", checkOnStart->getState());
+		Settings::setNetPlayCheckIndexesAtStart(checkOnStart->getState());
 		SystemConf::getInstance()->set("global.netplay.relay", mitms->getSelected());
 
 		if (SystemConf::getInstance()->setBool("global.netplay", enableNetplay->getState()))
@@ -2229,31 +2223,27 @@ void GuiMenu::openGamesSettings_batocera()
 
 	auto s = new GuiSettings(mWindow, _("GAME SETTINGS").c_str());
 
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	s->addGroup(_("TOOLS"));
+
+	// Game List Update
+	s->addEntry(_("UPDATE GAMELISTS"), false, [this, window] { updateGameLists(window); });
+
+	if (SystemConf::getInstance()->getBool("global.retroachievements") && !Settings::getInstance()->getBool("RetroachievementsMenuitem") && SystemConf::getInstance()->get("global.retroachievements.username") != "")
 	{
-		s->addGroup(_("TOOLS"));
+		s->addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] 
+		{ 
+			if (!checkNetwork())
+				return;
 
-		// Game List Update
-		s->addEntry(_("UPDATE GAMELISTS"), false, [this, window] { updateGameLists(window); });
-
-		if (SystemConf::getInstance()->getBool("global.retroachievements") &&
-			!Settings::getInstance()->getBool("RetroachievementsMenuitem") &&
-			SystemConf::getInstance()->get("global.retroachievements.username") != "")
-		{
-			s->addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] 
-			{ 
-				if (!checkNetwork())
-					return;
-
-				GuiRetroAchievements::show(mWindow); 
-			}/*, "iconRetroachievements"*/);
-		}
+			GuiRetroAchievements::show(mWindow); 
+		});
 	}
+	
 
 	s->addGroup(_("DEFAULT GLOBAL SETTINGS"));
 
 	// Screen ratio choice
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop" && !hasGlobalFeature("ratio"))
+	if (!hasGlobalFeature("ratio"))
 	{
 		auto ratio_choice = createRatioOptionList(mWindow, "global");
 		s->addWithLabel(_("GAME ASPECT RATIO"), ratio_choice);
@@ -2497,9 +2487,9 @@ void GuiMenu::openGamesSettings_batocera()
 	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
 
 
-	// Custom config for systems
-	s->addGroup(_("SETTINGS"));
+	s->addGroup(_("SYSTEM SETTINGS"));
 
+	// Custom config for systems
 	s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
 	{
 		s->save();
@@ -2526,39 +2516,23 @@ void GuiMenu::openGamesSettings_batocera()
 		window->pushGui(configuration);
 	});
 
-	if (SystemConf::getInstance()->get("system.es.menu") != "bartop")
+	// Retroachievements
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS))
+		s->addEntry(_("RETROACHIEVEMENT SETTINGS"), true, [this] { openRetroachievementsSettings(); });
+
+	// Netplay
+	if (SystemData::isNetplayActivated() && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::NETPLAY))
+		s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
+
+	// Missing Bios
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
 	{
-		s->addGroup(_("SYSTEM SETTINGS"));
+		s->addEntry(_("MISSING BIOS CHECK"), true, [this, s] { openMissingBiosSettings(); });
 
-		// Retroachievements
-		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS))
-		{
-			/*
-			if (SystemConf::getInstance()->getBool("global.retroachievements") &&
-				!Settings::getInstance()->getBool("RetroachievementsMenuitem") &&
-				SystemConf::getInstance()->get("global.retroachievements.username") != "")
-				s->addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
-				*/
-			s->addEntry(_("RETROACHIEVEMENT SETTINGS"), true, [this] { openRetroachievementsSettings(); });
-		}
-
-		// Netplay
-		if (SystemData::isNetplayActivated() && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::NETPLAY))
-			s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
-
-		// Missing Bios
-		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
-		{
-			s->addEntry(_("MISSING BIOS CHECK"), true, [this, s] { openMissingBiosSettings(); });
-
-			auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
-			checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
-			s->addWithLabel(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
-			s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
-		}
-
-		// Game List Update
-		// s->addEntry(_("UPDATE GAME LISTS"), false, [this, window] { updateGameLists(window); });
+		auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
+		checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
+		s->addWithLabel(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
+		s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
 	}
 
 	mWindow->pushGui(s);

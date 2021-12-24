@@ -911,9 +911,8 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 
 	std::vector<std::string> hiddenExts;
 	if (mSystem->isGameSystem() && !mSystem->isCollection())
-		for (auto ext : Utils::String::split(Settings::getInstance()->getString(mSystem->getName() + ".HiddenExt"), ';'))	
-			hiddenExts.push_back("." + Utils::String::toLower(ext));
-	
+		hiddenExts = Utils::String::split(Utils::String::toLower(Settings::getInstance()->getString(mSystem->getName() + ".HiddenExt")), ';');
+
 	FileFilterIndex* idx = sys->getIndex(false);
 	if (idx != nullptr && !idx->isFiltered())
 		idx = nullptr;
@@ -941,7 +940,7 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 
 		if (hiddenExts.size() > 0 && (*it)->getType() == GAME)
 		{
-			std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension((*it)->getFileName()));
+			std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension((*it)->getFileName(), false));
 			if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
 				continue;
 		}
@@ -1111,11 +1110,10 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 	else if (shv == "0") showHiddenFiles = false;
 
 	SystemData* pSystem = (system != nullptr ? system : mSystem);
-
+	
 	std::vector<std::string> hiddenExts;
 	if (pSystem->isGameSystem() && !pSystem->isCollection())
-		for (auto ext : Utils::String::split(Settings::getInstance()->getString(pSystem->getName() + ".HiddenExt"), ';'))
-			hiddenExts.push_back("." + Utils::String::toLower(ext));
+		hiddenExts = Utils::String::split(Utils::String::toLower(Settings::getInstance()->getString(pSystem->getName() + ".HiddenExt")), ';');
 
 	bool filterKidGame = UIModeController::getInstance()->isUIModeKid();
 
@@ -1135,9 +1133,9 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 					if (filterKidGame && it->getKidGame())
 						continue;
 
-					if (hiddenExts.size() > 0 && it->getType() == GAME)
+					if (typeMask == GAME && hiddenExts.size() > 0)
 					{
-						std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension(it->getFileName()));
+						std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension(it->getFileName(), false));
 						if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
 							continue;
 					}

@@ -766,15 +766,21 @@ namespace Utils
 			return _path.substr(lastPathSplit, extPos - lastPathSplit);
 		}
 
-		std::string getExtension(const std::string& _path)
+		std::string getExtension(const std::string& _path, bool withPoint)
 		{
-			const char *str = _path.c_str();
+			const char* path = _path.c_str();
+			const char* ptr = path + _path.length();
 
-			const char *ext;
-			if (str && *str != '\0' && ((ext = strrchr(str, '.'))) && strpbrk(ext, "/\\") == nullptr)
-				return ext;
+			do
+			{
+				if (ptr[-1] == '.')
+					return withPoint ? ptr -1 : ptr;
 
-			return std::string();
+				--ptr;
+			} 
+			while (ptr > path);
+
+			return "";
 		}
 
 		std::string changeExtension(const std::string& _path, const std::string& extension)

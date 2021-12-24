@@ -10,6 +10,53 @@ CustomFeatures CustomFeatures::GlobalFeatures;
 CustomFeatures CustomFeatures::SharedFeatures;
 std::map<std::string, EmulatorData> CustomFeatures::EmulatorFeatures;
 
+EmulatorFeatures::Features operator|(EmulatorFeatures::Features a, EmulatorFeatures::Features b)
+{
+	return static_cast<EmulatorFeatures::Features>(static_cast<int>(a) | static_cast<int>(b));
+}
+
+EmulatorFeatures::Features operator&(EmulatorFeatures::Features a, EmulatorFeatures::Features b)
+{
+	return static_cast<EmulatorFeatures::Features>(static_cast<int>(a) & static_cast<int>(b));
+}
+
+EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string features)
+{
+	EmulatorFeatures::Features ret = EmulatorFeatures::Features::none;
+
+	for (auto name : Utils::String::split(features, ','))
+	{
+		std::string trim = Utils::String::trim(name);
+
+		if (trim == "autosave") ret = ret | EmulatorFeatures::Features::autosave;
+		if (trim == "netplay") ret = ret | EmulatorFeatures::Features::netplay;
+		if (trim == "cheevos") ret = ret | EmulatorFeatures::Features::cheevos;
+		if (trim == "padtokeyboard" || trim == "joystick2pad") ret = ret | EmulatorFeatures::Features::padTokeyboard;
+
+		// The next features can be overriden with sharedFeatures
+		if (CustomFeatures::SharedFeatures.any([trim](auto x) { return x.value == trim; }))
+			continue;
+
+		if (trim == "ratio") ret = ret | EmulatorFeatures::Features::ratio;
+		if (trim == "rewind") ret = ret | EmulatorFeatures::Features::rewind;
+		if (trim == "smooth") ret = ret | EmulatorFeatures::Features::smooth;
+		if (trim == "shaders") ret = ret | EmulatorFeatures::Features::shaders;
+		if (trim == "pixel_perfect") ret = ret | EmulatorFeatures::Features::pixel_perfect;
+		if (trim == "decoration") ret = ret | EmulatorFeatures::Features::decoration;
+		if (trim == "latency_reduction") ret = ret | EmulatorFeatures::Features::latency_reduction;
+		if (trim == "game_translation") ret = ret | EmulatorFeatures::Features::game_translation;
+		if (trim == "fullboot") ret = ret | EmulatorFeatures::Features::fullboot;
+		if (trim == "emulated_wiimotes") ret = ret | EmulatorFeatures::Features::emulated_wiimotes;
+		if (trim == "screen_layout") ret = ret | EmulatorFeatures::Features::screen_layout;
+		if (trim == "internal_resolution") ret = ret | EmulatorFeatures::Features::internal_resolution;
+		if (trim == "videomode") ret = ret | EmulatorFeatures::Features::videomode;
+		if (trim == "colorization") ret = ret | EmulatorFeatures::Features::colorization;
+		if (trim == "autocontrollers") ret = ret | EmulatorFeatures::Features::autocontrollers;
+	}
+
+	return ret;
+}
+
 bool CustomFeatures::loadEsFeaturesFile()
 {
 	EmulatorFeatures.clear();
@@ -48,7 +95,10 @@ bool CustomFeatures::loadEsFeaturesFile()
 
 	pugi::xml_node globalFeatures = systemList.child("globalFeatures");
 	if (globalFeatures)
+	{
 		GlobalFeatures = loadCustomFeatures(globalFeatures);
+		GlobalFeatures.sort();
+	}
 
 	FeaturesLoaded = true;
 
@@ -84,7 +134,7 @@ bool CustomFeatures::loadEsFeaturesFile()
 					if (emul.name != emulatorName)
 						continue;
 
-					emul.features = (EmulatorFeatures::Features) (emul.features | emulatorFeatures);
+					emul.features = emul.features | emulatorFeatures;
 					for (auto feat : customEmulatorFeatures)
 						emul.customFeatures.push_back(feat);
 				}
@@ -120,7 +170,7 @@ bool CustomFeatures::loadEsFeaturesFile()
 							if (core.name == coreName)
 							{
 								coreFound = true;
-								core.features = (EmulatorFeatures::Features) (core.features | coreFeatures);
+								core.features = core.features | coreFeatures;
 
 								for (auto feat : customCoreFeatures)
 									core.customFeatures.push_back(feat);
@@ -170,7 +220,7 @@ bool CustomFeatures::loadEsFeaturesFile()
 										if (systemFeature.name == systemName)
 										{
 											systemFound = true;
-											systemFeature.features = (EmulatorFeatures::Features) (systemFeature.features | systemFeatures);
+											systemFeature.features = systemFeature.features | systemFeatures;
 
 											for (auto feat : customSystemFeatures)
 												systemFeature.customFeatures.push_back(feat);
@@ -216,7 +266,7 @@ bool CustomFeatures::loadEsFeaturesFile()
 						if (systemFeature.name == systemName)
 						{
 							systemFound = true;
-							systemFeature.features = (EmulatorFeatures::Features) (systemFeature.features | systemFeatures);
+							systemFeature.features = systemFeature.features | systemFeatures;
 
 							for (auto feat : customSystemFeatures)
 								systemFeature.customFeatures.push_back(feat);
@@ -235,11 +285,9 @@ bool CustomFeatures::loadEsFeaturesFile()
 			}
 		}
 	}
-
-	GlobalFeatures.sort();
+	
 	return true;
 }
-
 
 CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 {
@@ -251,8 +299,8 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 		for (auto name : Utils::String::split(features, ','))
 		{
 			std::string featureValue = Utils::String::trim(name);
-			auto it = std::find_if(SharedFeatures.cbegin(), SharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
 
+			auto it = std::find_if(SharedFeatures.cbegin(), SharedFeatures.cend(), [featureValue](const CustomFeature& x) { return x.value == featureValue; });
 			if (it != SharedFeatures.cend())
 				ret.push_back(*it);
 		}
@@ -302,10 +350,8 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 
 			continue;
 		}
-		else if (name != "feature")
-			continue;
-
-		if (!featureNode.attribute("name"))
+		
+		if (name != "feature" || !featureNode.attribute("name"))
 			continue;
 
 		CustomFeature feat;

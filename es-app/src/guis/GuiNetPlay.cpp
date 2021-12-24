@@ -603,7 +603,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 	std::sort(entries.begin(), entries.end(), sortByValidCrc);
 	
-	bool netPlayShowMissingGames = Settings::getInstance()->getBool("NetPlayShowMissingGames");
+	bool netPlayShowMissingGames = Settings::NetPlayShowMissingGames();
 
 	for (auto game : entries)
 	{

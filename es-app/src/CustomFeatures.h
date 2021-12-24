@@ -8,9 +8,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <set>
-#include <unordered_map>
-#include <unordered_set>
 #include <pugixml/src/pugixml.hpp>
 
 #include "utils/VectorEx.h"
@@ -95,6 +92,9 @@ public:
 
 	static Features parseFeatures(const std::string features);
 };
+
+EmulatorFeatures::Features operator|(EmulatorFeatures::Features a, EmulatorFeatures::Features b);
+EmulatorFeatures::Features operator&(EmulatorFeatures::Features a, EmulatorFeatures::Features b);
 
 struct SystemFeature
 {
