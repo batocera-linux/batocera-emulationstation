@@ -8,6 +8,7 @@
 #include "components/OptionListComponent.h"
 #include <SystemData.h>
 #include "KeyboardMapping.h"
+#include "utils/VectorEx.h"
 
 class StrInputConfig
 {
@@ -98,6 +99,9 @@ private:
 
 	static void addDecorationSetOptionListComponent(Window* window, GuiSettings* parentWindow, const std::vector<DecorationSetInfo>& sets, const std::string& configName = "global");
 	static void createDecorationItemTemplate(Window* window, std::vector<DecorationSetInfo> sets, std::string data, ComponentListRow& row);
+
+	static void addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName);
+	static void addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& defaultGroupName = "", bool addDefaultGroupOnlyIfNotFirst = false);
 
 	bool checkNetwork();
 

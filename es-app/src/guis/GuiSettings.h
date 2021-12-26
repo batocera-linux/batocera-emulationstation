@@ -28,8 +28,9 @@ public:
 	inline void addEntry(const std::string name, bool add_arrow = false, const std::function<void()>& func = nullptr, const std::string iconName = "", bool onButtonRelease = false, bool setCursorHere = false) { mMenu.addEntry(name, add_arrow, func, iconName, setCursorHere, true, onButtonRelease); };
 
 	inline void addGroup(const std::string& label) { mMenu.addGroup(label); };
-
-	void addInputTextRow(std::string title, const char* settingsID, bool password, bool storeInSettings = false, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor = nullptr);
+	inline void removeLastRowIfGroup() { mMenu.removeLastRowIfGroup(); };
+	
+	void addInputTextRow(const std::string& title, const std::string& settingsID, bool password, bool storeInSettings = false, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor = nullptr);
 
 	void addSubMenu(const std::string& label, const std::function<void()>& func);
 

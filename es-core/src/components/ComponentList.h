@@ -74,6 +74,7 @@ public:
 
 	void addRow(const ComponentListRow& row, bool setCursorHere = false, bool updateSize = true, const std::string userData = "");
 	void addGroup(const std::string& label, bool forceVisible = false);
+	void removeLastRowIfGroup();
 
 	void textInput(const char* text) override;
 	bool input(InputConfig* config, Input input) override;

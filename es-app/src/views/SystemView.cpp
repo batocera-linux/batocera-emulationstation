@@ -330,7 +330,7 @@ int SystemView::moveCursorFast(bool forward)
 {
 	int cursor = mCursor;
 
-	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer" && mCursor >= 0 && mCursor < mEntries.size())
+	if (SystemData::IsManufacturerSupported && Settings::getInstance()->getString("SortSystems") == "manufacturer" && mCursor >= 0 && mCursor < mEntries.size())
 	{
 		std::string man = mEntries[mCursor].object->getSystemMetadata().manufacturer;
 
@@ -351,7 +351,7 @@ int SystemView::moveCursorFast(bool forward)
 			_moveCursorInRange(cursor, 1, mEntries.size());
 		}
 	}
-	else if(SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "hardware" && mCursor >= 0 && mCursor < mEntries.size())
+	else if(SystemData::IsManufacturerSupported && Settings::getInstance()->getString("SortSystems") == "hardware" && mCursor >= 0 && mCursor < mEntries.size())
 	{
 		std::string hwt = mEntries[mCursor].object->getSystemMetadata().hardwareType;
 
@@ -510,7 +510,7 @@ bool SystemView::input(InputConfig* config, Input input)
 			return true;
 		}
 
-		if (config->isMappedTo(BUTTON_BACK, input) && SystemData::isManufacturerSupported())
+		if (config->isMappedTo(BUTTON_BACK, input) && SystemData::IsManufacturerSupported)
 		{
 			auto sortMode = Settings::getInstance()->getString("SortSystems");
 			if (sortMode == "alpha")

@@ -342,9 +342,9 @@ void CollectionSystemManager::loadEnabledListFromSettings()
 void CollectionSystemManager::updateSystemsList()
 {
 	auto sortMode = Settings::getInstance()->getString("SortSystems");
-	bool sortByManufacturer = SystemData::isManufacturerSupported() && sortMode == "manufacturer";
-	bool sortByHardware = SystemData::isManufacturerSupported() && sortMode == "hardware";
-	bool sortByReleaseDate = SystemData::isManufacturerSupported() && sortMode == "releaseDate";
+	bool sortByManufacturer = SystemData::IsManufacturerSupported && sortMode == "manufacturer";
+	bool sortByHardware = SystemData::IsManufacturerSupported && sortMode == "hardware";
+	bool sortByReleaseDate = SystemData::IsManufacturerSupported && sortMode == "releaseDate";
 
 	// remove all Collection Systems
 	removeCollectionsFromDisplayedSystems();

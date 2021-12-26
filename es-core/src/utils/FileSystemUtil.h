@@ -26,7 +26,7 @@ namespace Utils
 		std::string getParent          (const std::string& _path);
 		std::string getFileName        (const std::string& _path);
 		std::string getStem            (const std::string& _path);
-		std::string getExtension       (const std::string& _path);
+		std::string getExtension       (const std::string& _path, bool withPoint = true);
 		std::string resolveRelativePath(const std::string& _path, const std::string& _relativeTo, const bool _allowHome);
 		std::string createRelativePath (const std::string& _path, const std::string& _relativeTo, const bool _allowHome);
 		std::string removeCommonPath   (const std::string& _path, const std::string& _common, bool& _contains);
