@@ -252,20 +252,6 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-	static unsigned int convertColor(const unsigned int _color)
-	{
-		// convert from rgba to abgr
-		const unsigned char r = ((_color & 0xff000000) >> 24) & 255;
-		const unsigned char g = ((_color & 0x00ff0000) >> 16) & 255;
-		const unsigned char b = ((_color & 0x0000ff00) >>  8) & 255;
-		const unsigned char a = ((_color & 0x000000ff)      ) & 255;
-
-		return ((a << 24) | (b << 16) | (g << 8) | (r));
-
-	} // convertColor
-
-//////////////////////////////////////////////////////////////////////////
-
 	static int getAvailableVideoMemory()
 	{
 		float total = 0;

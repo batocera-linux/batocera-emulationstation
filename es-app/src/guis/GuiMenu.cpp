@@ -1380,7 +1380,7 @@ void GuiMenu::openSystemSettings_batocera()
 	if (selectedAudio.empty())
 		selectedAudio = "auto";
 
-	bool vfound = false;
+	vfound = false;
 	for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
 	{
 		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
@@ -1425,7 +1425,7 @@ void GuiMenu::openSystemSettings_batocera()
 	if (selectedAudioProfile.empty())
 		selectedAudioProfile = "auto";
 
-	bool vfound = false;
+	vfound = false;
 	for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
 	{
 		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
