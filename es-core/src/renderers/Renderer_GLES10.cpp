@@ -50,18 +50,6 @@ namespace Renderer
 
 	} // convertTextureType
 
-	unsigned int convertColor(const unsigned int _color)
-	{
-		// convert from rgba to abgr
-		unsigned char r = ((_color & 0xff000000) >> 24) & 255;
-		unsigned char g = ((_color & 0x00ff0000) >> 16) & 255;
-		unsigned char b = ((_color & 0x0000ff00) >>  8) & 255;
-		unsigned char a = ((_color & 0x000000ff)      ) & 255;
-
-		return ((a << 24) | (b << 16) | (g << 8) | (r));
-
-	} // convertColor
-
 	unsigned int GLES10Renderer::getWindowFlags()
 	{
 		return SDL_WINDOW_OPENGL;
