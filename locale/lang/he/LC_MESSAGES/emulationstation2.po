@@ -941,7 +941,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "פתיחה"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -950,7 +950,7 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "התחל משחק"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -959,11 +959,11 @@ msgstr "המערכת אינה מחוברת לרשת"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "הכרז ציבורית על משחק"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "קביעת סיסמה לשחקן"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "קביעת סיסמה לצופה"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "מציאת משחקים דומים..."
@@ -1759,6 +1759,9 @@ msgid "PORT"
 msgstr ""
 
 msgid "USE RELAY SERVER"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
 msgid "DECORATION SET"
@@ -2766,6 +2769,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "קביעת סיסמה לשחקן"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "קביעת סיסמה לצופה"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "התחלת שמירה אוטומטית"

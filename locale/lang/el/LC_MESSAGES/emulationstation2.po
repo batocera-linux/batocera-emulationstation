@@ -935,7 +935,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "ΑΝΟΙΓΜΑ"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -944,7 +944,7 @@ msgstr ""
 msgid "START GAME"
 msgstr "ΕΚΚΙΝΗΣΗ ΠΑΙΧΝΙΔΙΟΥ"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -953,11 +953,11 @@ msgstr "ΔΕΝ ΕΙΣΤΕ ΣΥΝΔΕΔΕΜΕΝΟΣ ΣΕ ΔΙΚΤΥΟ"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ΔΗΜΟΣΙΑ ΑΝΑΚΟΙΝΩΣΗ ΠΑΙΧΝΙΔΙΟΥ "
 
-msgid "SET PLAYER PASSWORD"
-msgstr "ΟΡΙΣΜΟΣ ΚΩΔΙΚΟΥ ΠΑΙΧΝΙΔΙΟΥ"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "ΟΡΙΣΜΟΣ ΚΩΔΙΚΟΥ ΘΕΑΤΗ"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "ΒΡΕΙΤΕ ΠΑΡΟΜΟΙΑ ΠΑΙΧΝΙΔΙΑ"
@@ -1759,6 +1759,9 @@ msgstr "ΘΥΡΑ"
 
 msgid "USE RELAY SERVER"
 msgstr "ΧΡΗΣΗ RELAY ΣΕΡΒΕΡ"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr ""
@@ -2748,6 +2751,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "ΟΡΙΣΜΟΣ ΚΩΔΙΚΟΥ ΠΑΙΧΝΙΔΙΟΥ"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "ΟΡΙΣΜΟΣ ΚΩΔΙΚΟΥ ΘΕΑΤΗ"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "ΕΚΚΙΝΗΣΗ ΑΥΤΟΜΑΤΗΣ ΑΠΟΘΗΚΕΥΣΗΣ"

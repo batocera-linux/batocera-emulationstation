@@ -939,8 +939,8 @@ msgstr "即時存檔"
 msgid "OPEN"
 msgstr "開啟"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "連線遊戲主持/選項"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "多人遊戲"
@@ -948,8 +948,8 @@ msgstr "多人遊戲"
 msgid "START GAME"
 msgstr "開始遊戲"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "開始主持連線遊戲階段"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "您沒有連線到網際網路"
@@ -957,11 +957,11 @@ msgstr "您沒有連線到網際網路"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "公開的遊戲"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "設定玩家密碼"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "設定觀眾密碼"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
@@ -1767,6 +1767,9 @@ msgstr "連接埠"
 
 msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "裝飾框集"
@@ -2751,6 +2754,18 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "連線遊戲主持/選項"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "開始主持連線遊戲階段"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "設定玩家密碼"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "設定觀眾密碼"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "從自動存檔開始"

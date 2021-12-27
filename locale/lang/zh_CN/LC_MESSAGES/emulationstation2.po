@@ -934,7 +934,7 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -943,7 +943,7 @@ msgstr "联网游戏"
 msgid "START GAME"
 msgstr ""
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -952,10 +952,10 @@ msgstr "你没联网"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr ""
 
-msgid "SET PLAYER PASSWORD"
+msgid "PLAYER PASSWORD"
 msgstr ""
 
-msgid "SET VIEWER PASSWORD"
+msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
@@ -1755,6 +1755,9 @@ msgstr "端口"
 
 msgid "USE RELAY SERVER"
 msgstr "使用中继服务"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr ""

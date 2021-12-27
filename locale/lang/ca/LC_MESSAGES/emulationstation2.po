@@ -938,7 +938,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "OBRIR"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -947,7 +947,7 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "INICIAR JOC"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -956,11 +956,11 @@ msgstr "NO ESTÀS CONNECTAT A CAP XARXA"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "MOSTRAR COM PARTIDA PÚBLICA"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "CONTRASENYA PER JUGADORS"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "CONTRASENYA PER ESPECTADORS"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCAR JOCS SIMILARS…"
@@ -1758,6 +1758,9 @@ msgid "PORT"
 msgstr ""
 
 msgid "USE RELAY SERVER"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
 msgid "DECORATION SET"
@@ -2743,6 +2746,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "CONTRASENYA PER JUGADORS"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "CONTRASENYA PER ESPECTADORS"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "NOU AUTOGUARDAT"

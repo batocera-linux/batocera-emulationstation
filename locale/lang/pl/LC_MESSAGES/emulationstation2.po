@@ -937,13 +937,13 @@ msgid "GAME"
 msgstr "GRA"
 
 msgid "SAVE STATES"
-msgstr "ZAPISZ STAN"
+msgstr "ZAPISANE STANY GRY"
 
 msgid "OPEN"
 msgstr "OTWÓRZ"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "NETPLAY HOSTING/OPCJE"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -951,8 +951,8 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "ROZPOCZNIJ GRĘ"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "ROZPOCZNIJ HOSTING SESJI NETPLAY"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NIE MASZ POŁĄCZENIA Z SIECIĄ"
@@ -960,11 +960,11 @@ msgstr "NIE MASZ POŁĄCZENIA Z SIECIĄ"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "OGŁOŚ GRĘ PUBLICZNIE"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "USTAW HASŁO GRACZA"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "USTAW HASŁO WIDZA"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY..."
@@ -1047,7 +1047,7 @@ msgid "START NEW GAME"
 msgstr "ROZPOCZNIJ NOWĄ GRĘ"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "ROZPOCZNIJ AUTOMATYCZNE ZAPISYWANIE"
 
 msgid "AUTO SAVE"
 msgstr "AUTO ZAPIS"
@@ -1781,6 +1781,9 @@ msgstr "PORT"
 msgid "USE RELAY SERVER"
 msgstr "UŻYJ SERWERA PRZEKAZUJĄCEGO"
 
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "DECORATION SET"
 msgstr "ZESTAW DEKORACJI"
 
@@ -1842,10 +1845,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ŚCIEŻKA NIESTANDARDOWEGO OBRAZU .PNG"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "ZMIEŃ ROZMIAR TATUAŻU"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Zmniejsz / powiększ tatuaż, aby zmieścić się w ramce."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TŁUMACZENIE GRY Z AI"
@@ -1863,34 +1866,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "ZAPISANE STANY GRY"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "AUTOMATYCZNE ZAPISYWANIE/WCZYTYWANIE"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PRZYROSTOWY ZAPIS STANU"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "NOWA GRA TWORZY NOWY SLOT"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "NOWA GRA ZASTĘPUJE OBECNY SLOT"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "ZAWSZE"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "JEŚLI NIE PUSTY"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "POKAŻ MENEDŻERA ZAPISU STANÓW"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW PRZED URUCHOMIENIEM GRY"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2582,63 +2585,63 @@ msgstr "SPACJA"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "GÓRA"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "DÓŁ"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "LEWO"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "PRAWO"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "LEWY ANALOG W GÓRĘ"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "LEWY ANALOG W DÓŁ"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "LEWY ANALOG W LEWO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "LEWY ANALOG W PRAWO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "PRAWY ANALOG W GÓRĘ"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "PRAWY ANALOG W DÓŁ"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "PRAWY ANALOG W LEWO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "PRAWY ANALOG W PRAWO"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "KONFIGUROWANIE"
@@ -2789,6 +2792,18 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "NETPLAY HOSTING/OPCJE"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "ROZPOCZNIJ HOSTING SESJI NETPLAY"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "USTAW HASŁO GRACZA"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "USTAW HASŁO WIDZA"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "ROZPOCZNIJ AUTO ZAPIS"

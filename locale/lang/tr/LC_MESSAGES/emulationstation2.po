@@ -938,7 +938,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "AÇ"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -947,7 +947,7 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "OYUNU BAŞLAT"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -956,11 +956,11 @@ msgstr "AĞA BAĞLI DEĞİLSİNİZ"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "AÇIK YAYINLANMIŞ OYUN"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "OYUNCU ŞİFRESİ OLUŞTUR"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "İZLEYİCİ ŞİFRESİ OLUŞTUR"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "BENZER OYUNLARI BUL..."
@@ -1762,6 +1762,9 @@ msgstr "PORT"
 
 msgid "USE RELAY SERVER"
 msgstr "ARA SUNUCU KULLAN"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr ""
@@ -2751,6 +2754,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "OYUNCU ŞİFRESİ OLUŞTUR"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "İZLEYİCİ ŞİFRESİ OLUŞTUR"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "OTOMATİK KAYDETİ BAŞLAT"

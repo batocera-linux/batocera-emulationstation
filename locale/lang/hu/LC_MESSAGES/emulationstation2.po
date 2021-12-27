@@ -938,7 +938,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "MEGNYITÁS"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -947,7 +947,7 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "JÁTÉK INDÍTÁS"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -956,11 +956,11 @@ msgstr "NEM VAGY CSATLAKOZVA HÁLÓZATHOZ"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "JÁTÉK PUBLIKUS INDÍTÁSA"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "JÁTÉKOS JELSZÓ BEÁLLÍTÁSA"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "NÉZŐ JELSZÓ BEÁLLÍTÁSA"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "HASONLÓ JÁTÉKOK KERESÉSE..."
@@ -1761,6 +1761,9 @@ msgstr "PORT"
 
 msgid "USE RELAY SERVER"
 msgstr "RELAY SZERVER HASZNÁLATA"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr ""
@@ -2749,6 +2752,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "JÁTÉKOS JELSZÓ BEÁLLÍTÁSA"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "NÉZŐ JELSZÓ BEÁLLÍTÁSA"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "AUTOMATIKUS MENTÉS INDÍTÁSA"

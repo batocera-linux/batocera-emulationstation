@@ -940,8 +940,8 @@ msgstr "セーブマネージャ"
 msgid "OPEN"
 msgstr "開く"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "ネットプレイ(ホスト/設定)"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "ネットプレイ"
@@ -949,8 +949,8 @@ msgstr "ネットプレイ"
 msgid "START GAME"
 msgstr "ゲームを開始"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "ネットプレイ(ホスト)を開始"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ネットワークに接続されていません"
@@ -958,11 +958,11 @@ msgstr "ネットワークに接続されていません"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "プレイ状況を公開する"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "プレーヤーパスワードの設定"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "ビューアパスワードの設定"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
@@ -1772,6 +1772,9 @@ msgstr "ポート"
 
 msgid "USE RELAY SERVER"
 msgstr "リレーサーバーを使用"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "ベゼルを選択"
@@ -2763,6 +2766,18 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "ネットプレイ(ホスト/設定)"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "ネットプレイ(ホスト)を開始"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "プレーヤーパスワードの設定"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "ビューアパスワードの設定"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

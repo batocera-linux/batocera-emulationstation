@@ -943,7 +943,7 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -952,7 +952,7 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "DECHRAU GAME"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -961,11 +961,11 @@ msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr ""
 
-msgid "SET PLAYER PASSWORD"
-msgstr "GOSOD CYFRINAIR CHWARAEWR"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "GOSOD CYFRINAIR GWYLIWR"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "DOD O HYD I GEMAU TEBYG ..."
@@ -1764,6 +1764,9 @@ msgstr "PORTH"
 
 msgid "USE RELAY SERVER"
 msgstr "DEFNYDDIO GWEINYDD RELAY"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr ""
@@ -2793,6 +2796,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "GOSOD CYFRINAIR CHWARAEWR"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "GOSOD CYFRINAIR GWYLIWR"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "DECHRAU ARBED AWTO"

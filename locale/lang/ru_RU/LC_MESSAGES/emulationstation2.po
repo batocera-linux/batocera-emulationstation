@@ -318,7 +318,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНИРОВАНИЕ"
 
 msgid "Searching for devices..."
-msgstr "Поиск контроллеров..."
+msgstr "Поиск устройств..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "BLUETOOTH СКАНИРОВАНИЕ УЖЕ ЗАПУЩЕНО"
@@ -637,7 +637,7 @@ msgid "REMOVE ALL"
 msgstr "УДАЛИТЬ ВСЕ"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
+msgstr "BLUETOOTH УСТРОЙСТВА НЕ НАЙДЕНЫ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
@@ -941,8 +941,8 @@ msgstr "БЫСТРОЕ СОХРАНЕНИЕ"
 msgid "OPEN"
 msgstr "ОТКРЫТЬ"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "NETPLAY ХОСТ/НАСТРОЙКИ"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -950,8 +950,8 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "НАЧАТЬ ИГРУ"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "НАЧАТЬ СЕССИЮ NETPLAY КАК ХОСТ"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
@@ -959,11 +959,11 @@ msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
@@ -1340,7 +1340,7 @@ msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr "ИСП. OMX ПЛЕЕР (HARDWARE ACCELERATED)"
+msgstr "ИСП. OMX ПЛЕЕР (АППАРАТНОЕ УСКОРЕНИЕ)"
 
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
@@ -1459,7 +1459,7 @@ msgstr ""
 "игры)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
+msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ КОНТРОЛЛЕРОМ"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ПОКАЗАТЬ ИНДИКАТОР СЕТИ"
@@ -1776,6 +1776,9 @@ msgstr "ПОРТ"
 msgid "USE RELAY SERVER"
 msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "DECORATION SET"
 msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
 
@@ -1908,9 +1911,9 @@ msgid ""
 msgstr ""
 "ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ СВЕТА, "
 "ОТНОСИТЕЛЬНО КНОПОК НА SNES ГЕЙМПАДЕ, СЕВЕР - ВВЕРХУ, ЮГ - ВНИЗУ, ЗАПАД - "
-"СЛЕВА, ВОСТОК - СПРАВА.ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНАЯ ГОРЯЧАЯ КНОПКА, ТО "
-"ИСПОЛЬЗУЙТЕ КНОПКУ SELECT.ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС НЕТ, "
-"НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ.КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
+"СЛЕВА, ВОСТОК - СПРАВА. ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНЫЙ ХОТКЕЙ, ТО "
+"ИСПОЛЬЗУЙТЕ КНОПКУ SELECT. ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС НЕТ, "
+"НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ. КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
 "ПОДТВЕРЖДЕНИЯ."
 
 msgid "PAIR A BLUETOOTH DEVICE"
@@ -2119,7 +2122,7 @@ msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr "ЗАСТАВКА"
+msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 
 msgid "VIEW USER'S MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
@@ -2223,7 +2226,7 @@ msgid ""
 msgstr ""
 "НЕКОТОРЫЕ ФАЙЛЫ, НА КОТОРЫЕ ВЫ ССЫЛАЕТЕСЬ, РАСПОЛОЖЕНЫ ВНЕ ПАПКИ СО СПИСКОМ "
 "ИГР.\n"
-"ВЫ ХОТИТЕ СОЗДАТЬ КОПИЮ ЭТИХ ФАЙЛОВ В ПАПКУ СО СПИСКОМ ИГР ?"
+"ВЫ ХОТИТЕ СОЗДАТЬ КОПИЮ ЭТИХ ФАЙЛОВ В ПАПКУ СО СПИСКОМ ИГР?"
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -2636,7 +2639,7 @@ msgstr "ПРАВЫЙ АНАЛОГ ВПРАВО"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "ГОРЯЧАЯ КНОПКА"
+msgstr "ХОТКЕЙ"
 
 msgid "CONFIGURING"
 msgstr "НАСТРОЙКА"
@@ -2661,14 +2664,14 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"ГОРЯЧАЯ КНОПКА НЕ НАЗНАЧЕНА. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
-"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT КАК ГОРЯЧУЮ КНОПКУ?"
+"ХОТКЕЙ НЕ НАЗНАЧЕН. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ КОНТРОЛЛЕРА. "
+"ВЫ ХОТИТЕ УСТАНОВИТЬ ХОТКЕЙ НА КНОПКУ SELECT?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "УСТАНОВИТЬ SELECT КАК ГОРЯЧУЮ КНОПКУ"
+msgstr "УСТАНОВИТЬ ХОТКЕЙ НА SELECT"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КНОПКУ"
+msgstr "НЕ УСТАНАВЛИВАТЬ ХОТКЕЙ"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2787,6 +2790,18 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "NETPLAY ХОСТ/НАСТРОЙКИ"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "НАЧАТЬ СЕССИЮ NETPLAY КАК ХОСТ"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"

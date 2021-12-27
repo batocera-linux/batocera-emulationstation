@@ -937,7 +937,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "열기"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -946,7 +946,7 @@ msgstr "넷플레이"
 msgid "START GAME"
 msgstr "게임 실행"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
@@ -955,11 +955,11 @@ msgstr "네트워크에 접속중이 아닙니다"
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "공개 게임"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "플레이어 비밀번호 설정"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "관전자 비밀번호 설정"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "비슷한 게임 검색..."
@@ -1758,6 +1758,9 @@ msgstr "포트"
 
 msgid "USE RELAY SERVER"
 msgstr "릴레이 서버 사용"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr ""
@@ -2734,6 +2737,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "플레이어 비밀번호 설정"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "관전자 비밀번호 설정"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "자동 저장 시작"
