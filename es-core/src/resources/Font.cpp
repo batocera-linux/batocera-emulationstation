@@ -684,6 +684,9 @@ std::string Font::wrapText(std::string text, float maxWidth)
 		else // need to cut at last whitespace or lacking that, the previous cursor.
 		{
 			size_t cut = (lastWhiteSpace != 0) ? lastWhiteSpace : lastCursor;
+			if (cut == 0)
+				break;
+
 			out += text.substr(0, cut) + "\n";
 			text.erase(0, cut);
 			lineWidth = 0.0f;

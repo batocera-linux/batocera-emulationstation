@@ -41,7 +41,15 @@ public:
 	DEFINE_BOOL_SETTING(ShowHiddenFiles)
 	DEFINE_BOOL_SETTING(HiddenSystemsShowGames)
 	DEFINE_BOOL_SETTING(AllImagesAsync)
-		
+	DEFINE_BOOL_SETTING(IgnoreGamelist)
+	DEFINE_BOOL_SETTING(SaveGamelistsOnExit)
+	DEFINE_BOOL_SETTING(RemoveMultiDiskContent)	
+	DEFINE_BOOL_SETTING(ParseGamelistOnly)
+	DEFINE_BOOL_SETTING(ThreadedLoading)
+	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
+	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
+	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)		
+
 	DEFINE_STRING_SETTING(HiddenSystems)
 	DEFINE_STRING_SETTING(TransitionStyle)
 	DEFINE_STRING_SETTING(GameTransitionStyle)		

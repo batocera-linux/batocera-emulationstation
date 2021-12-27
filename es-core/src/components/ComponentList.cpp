@@ -50,6 +50,17 @@ void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool
 	}
 }
 
+void ComponentList::removeLastRowIfGroup()
+{
+	if (mEntries.size() == 0)
+		return;
+
+	int index = mEntries.size() - 1;
+
+	if (!mEntries.at(index).data.selectable)
+		mEntries.erase(mEntries.begin() + index);
+}
+
 void ComponentList::addGroup(const std::string& label, bool forceVisible)
 {	
 	auto theme = ThemeData::getMenuTheme();

@@ -29,7 +29,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	auto hiddenSystems = Utils::String::split(Settings::getInstance()->getString("HiddenSystems"), ';');
 	auto displayedSystems = std::make_shared<OptionListComponent<SystemData*>>(mWindow, _("SYSTEMS DISPLAYED"), true);
 
-	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
+	if (SystemData::IsManufacturerSupported && Settings::getInstance()->getString("SortSystems") == "manufacturer")
 	{
 		std::string man;
 		for (auto system : SystemData::sSystemVector)
@@ -218,7 +218,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	sortType->add(_("NO"), "", sortMode.empty());
 	sortType->add(_("ALPHABETICALLY"), "alpha", sortMode == "alpha");
 
-	if (SystemData::isManufacturerSupported())
+	if (SystemData::IsManufacturerSupported)
 	{
 		sortType->add(_("BY MANUFACTURER"), "manufacturer", sortMode == "manufacturer");
 		sortType->add(_("BY HARDWARE TYPE"), "hardware", sortMode == "hardware");
@@ -242,7 +242,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	systemfocus_list->add(_("NONE"), "", startupSystem == "");
 	systemfocus_list->add(_("RESTORE LAST SELECTED"), "lastsystem", startupSystem == "lastsystem");
 
-	if (SystemData::isManufacturerSupported() && Settings::getInstance()->getString("SortSystems") == "manufacturer")
+	if (SystemData::IsManufacturerSupported && Settings::getInstance()->getString("SortSystems") == "manufacturer")
 	{
 		std::string man;
 		for (auto system : SystemData::sSystemVector)

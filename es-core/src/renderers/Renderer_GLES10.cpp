@@ -1,11 +1,18 @@
-#if defined(USE_OPENGLES_10)
+#include "Renderer_GLES10.h"
+
+#ifdef RENDERER_OPENGLES_10
 
 #include "renderers/Renderer.h"
 #include "math/Transform4x4f.h"
 #include "Log.h"
 #include "Settings.h"
 
+#if WIN32
+#include "GlExtensions.h" // TEMPORAIRE
+#else
 #include <GLES/gl.h>
+#endif
+
 #include <SDL.h>
 #include <vector>
 
@@ -43,25 +50,13 @@ namespace Renderer
 
 	} // convertTextureType
 
-	unsigned int convertColor(const unsigned int _color)
-	{
-		// convert from rgba to abgr
-		unsigned char r = ((_color & 0xff000000) >> 24) & 255;
-		unsigned char g = ((_color & 0x00ff0000) >> 16) & 255;
-		unsigned char b = ((_color & 0x0000ff00) >>  8) & 255;
-		unsigned char a = ((_color & 0x000000ff)      ) & 255;
-
-		return ((a << 24) | (b << 16) | (g << 8) | (r));
-
-	} // convertColor
-
-	unsigned int getWindowFlags()
+	unsigned int GLES10Renderer::getWindowFlags()
 	{
 		return SDL_WINDOW_OPENGL;
 
 	} // getWindowFlags
 
-	void setupWindow()
+	void GLES10Renderer::setupWindow()
 	{
 		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 1);
 
@@ -76,7 +71,12 @@ namespace Renderer
 
 	} // setupWindow
 
-	std::vector<std::pair<std::string, std::string>> getDriverInformation()
+	std::string GLES10Renderer::getDriverName()
+	{
+		return "OPENGL ES 1.0";
+	}
+
+	std::vector<std::pair<std::string, std::string>> GLES10Renderer::getDriverInformation()
 	{
 		std::vector<std::pair<std::string, std::string>> info;
 
@@ -97,7 +97,7 @@ namespace Renderer
 		return info;
 	}
 
-	void createContext()
+	void GLES10Renderer::createContext()
 	{
 		sdlContext = SDL_GL_CreateContext(getSDLWindow());
 		SDL_GL_MakeCurrent(getSDLWindow(), sdlContext);
@@ -110,14 +110,14 @@ namespace Renderer
 
 	} // createContext
 
-	void destroyContext()
+	void GLES10Renderer::destroyContext()
 	{
 		SDL_GL_DeleteContext(sdlContext);
 		sdlContext = nullptr;
 
 	} // destroyContext
 
-	unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
+	unsigned int GLES10Renderer::createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
 	{
 		const GLenum type = convertTextureType(_type);
 		unsigned int texture;
@@ -148,13 +148,13 @@ namespace Renderer
 
 	} // createTexture
 
-	void destroyTexture(const unsigned int _texture)
+	void GLES10Renderer::destroyTexture(const unsigned int _texture)
 	{
 		glDeleteTextures(1, &_texture);
 
 	} // destroyTexture
 
-	void updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
+	void GLES10Renderer::updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
 	{
 		bindTexture(_texture);
 
@@ -170,7 +170,7 @@ namespace Renderer
 
 	} // updateTexture
 
-	void bindTexture(const unsigned int _texture)
+	void GLES10Renderer::bindTexture(const unsigned int _texture)
 	{
 		glBindTexture(GL_TEXTURE_2D, _texture);
 
@@ -179,7 +179,7 @@ namespace Renderer
 
 	} // bindTexture
 
-	void drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void GLES10Renderer::drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
@@ -202,7 +202,7 @@ namespace Renderer
 
 	} // drawLines
 
-	void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void GLES10Renderer::drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
@@ -225,14 +225,14 @@ namespace Renderer
 
 	} // drawTriangleStrips
 
-	void setProjection(const Transform4x4f& _projection)
+	void GLES10Renderer::setProjection(const Transform4x4f& _projection)
 	{
 		glMatrixMode(GL_PROJECTION);
 		glLoadMatrixf((GLfloat*)&_projection);
 
 	} // setProjection
 
-	void setMatrix(const Transform4x4f& _matrix)
+	void GLES10Renderer::setMatrix(const Transform4x4f& _matrix)
 	{
 		Transform4x4f matrix = _matrix;
 		matrix.round();
@@ -241,14 +241,14 @@ namespace Renderer
 
 	} // setMatrix
 
-	void setViewport(const Rect& _viewport)
+	void GLES10Renderer::setViewport(const Rect& _viewport)
 	{
 		// glViewport starts at the bottom left of the window
 		glViewport( _viewport.x, getWindowHeight() - _viewport.y - _viewport.h, _viewport.w, _viewport.h);
 
 	} // setViewport
 
-	void setScissor(const Rect& _scissor)
+	void GLES10Renderer::setScissor(const Rect& _scissor)
 	{
 		if((_scissor.x == 0) && (_scissor.y == 0) && (_scissor.w == 0) && (_scissor.h == 0))
 		{
@@ -263,7 +263,7 @@ namespace Renderer
 
 	} // setScissor
 
-	void setSwapInterval()
+	void GLES10Renderer::setSwapInterval()
 	{
 		// vsync
 		if(Settings::getInstance()->getBool("VSync"))
@@ -282,14 +282,14 @@ namespace Renderer
 
 	} // setSwapInterval
 
-	void swapBuffers()
+	void GLES10Renderer::swapBuffers()
 	{
 		SDL_GL_SwapWindow(getSDLWindow());
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	} // swapBuffers
 
-	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void GLES10Renderer::drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
@@ -310,7 +310,7 @@ namespace Renderer
 		glDisable(GL_BLEND);
 	}
 
-	void setStencil(const Vertex* _vertices, const unsigned int _numVertices)
+	void GLES10Renderer::setStencil(const Vertex* _vertices, const unsigned int _numVertices)
 	{
 		bool tx = glIsEnabled(GL_TEXTURE_2D);
 		glDisable(GL_TEXTURE_2D);
@@ -337,7 +337,7 @@ namespace Renderer
 			glEnable(GL_TEXTURE_2D);
 	}
 
-	void disableStencil()
+	void GLES10Renderer::disableStencil()
 	{
 		glDisable(GL_STENCIL_TEST);
 	}

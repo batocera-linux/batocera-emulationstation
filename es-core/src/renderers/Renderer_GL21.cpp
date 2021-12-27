@@ -1,4 +1,6 @@
-#if defined(USE_OPENGL_21_OLD)
+#include "Renderer_GL21.h"
+
+#ifdef RENDERER_OPENGL_21
 
 #include "renderers/Renderer.h"
 #include "math/Transform4x4f.h"
@@ -12,6 +14,7 @@
 namespace Renderer
 {
 	static SDL_GLContext sdlContext = nullptr;
+	static unsigned int boundTexture = 0;
 
 	static GLenum convertBlendFactor(const Blend::Factor _blendFactor)
 	{
@@ -43,25 +46,13 @@ namespace Renderer
 
 	} // convertTextureType
 
-	unsigned int convertColor(const unsigned int _color)
-	{
-		// convert from rgba to abgr
-		unsigned char r = ((_color & 0xff000000) >> 24) & 255;
-		unsigned char g = ((_color & 0x00ff0000) >> 16) & 255;
-		unsigned char b = ((_color & 0x0000ff00) >>  8) & 255;
-		unsigned char a = ((_color & 0x000000ff)      ) & 255;
-
-		return ((a << 24) | (b << 16) | (g << 8) | (r));
-
-	} // convertColor
-
-	unsigned int getWindowFlags()
+	unsigned int OpenGL21Renderer::getWindowFlags()
 	{
 		return SDL_WINDOW_OPENGL;
 
 	} // getWindowFlags
 
-	void setupWindow()
+	void OpenGL21Renderer::setupWindow()
 	{
 		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 1);
 
@@ -80,11 +71,16 @@ namespace Renderer
 
 	} // setupWindow
 
-	std::vector<std::pair<std::string, std::string>> getDriverInformation()
+	std::string OpenGL21Renderer::getDriverName()
+	{
+		return "OPENGL 2.1";
+	}
+
+	std::vector<std::pair<std::string, std::string>> OpenGL21Renderer::getDriverInformation()
 	{
 		std::vector<std::pair<std::string, std::string>> info;
 
-		info.push_back(std::pair<std::string, std::string>("GRAPHICS API", "DESKTOP OPENGL 2.1"));
+		info.push_back(std::pair<std::string, std::string>("GRAPHICS API", getDriverName()));
 
 		const std::string vendor = glGetString(GL_VENDOR) ? (const char*)glGetString(GL_VENDOR) : "";
 		if (!vendor.empty())
@@ -101,7 +97,7 @@ namespace Renderer
 		return info;
 	}
 
-	void createContext()
+	void OpenGL21Renderer::createContext()
 	{
 		sdlContext = SDL_GL_CreateContext(getSDLWindow());
 		SDL_GL_MakeCurrent(getSDLWindow(), sdlContext);
@@ -114,14 +110,14 @@ namespace Renderer
 
 	} // createContext
 
-	void destroyContext()
+	void OpenGL21Renderer::destroyContext()
 	{
 		SDL_GL_DeleteContext(sdlContext);
 		sdlContext = nullptr;
 
 	} // destroyContext
 
-	unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
+	unsigned int OpenGL21Renderer::createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
 	{
 		const GLenum type = convertTextureType(_type);
 		unsigned int texture;
@@ -153,13 +149,13 @@ namespace Renderer
 
 	} // createTexture
 	
-	void destroyTexture(const unsigned int _texture)
+	void OpenGL21Renderer::destroyTexture(const unsigned int _texture)
 	{
 		glDeleteTextures(1, &_texture);
 
 	} // destroyTexture
 
-	void updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
+	void OpenGL21Renderer::updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data)
 	{
 		glBindTexture(GL_TEXTURE_2D, _texture);
 
@@ -175,9 +171,7 @@ namespace Renderer
 
 	} // updateTexture
 
-	static unsigned int boundTexture = 0;
-
-	void bindTexture(const unsigned int _texture)
+	void OpenGL21Renderer::bindTexture(const unsigned int _texture)
 	{
 		if (boundTexture == _texture)
 			return;
@@ -191,7 +185,7 @@ namespace Renderer
 
 	} // bindTexture
 
-	void drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void OpenGL21Renderer::drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
@@ -214,7 +208,7 @@ namespace Renderer
 
 	} // drawLines
 
-	void setGrayscale()
+	static void setGrayscale()
 	{
 		glMatrixMode(GL_COLOR);
 
@@ -265,7 +259,7 @@ namespace Renderer
 		v4.tex *= isnan(d3) || d3 == 0.0f ? 1.0f : (d4 + d3) / d3;
 	}
 
-	void drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void OpenGL21Renderer::drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		glEnable(GL_BLEND);
 		glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor));
@@ -314,14 +308,14 @@ namespace Renderer
 
 	} // drawTriangleStrips
 
-	void setProjection(const Transform4x4f& _projection)
+	void OpenGL21Renderer::setProjection(const Transform4x4f& _projection)
 	{
 		glMatrixMode(GL_PROJECTION);
 		glLoadMatrixf((GLfloat*)&_projection);
 
 	} // setProjection
 
-	void setMatrix(const Transform4x4f& _matrix)
+	void OpenGL21Renderer::setMatrix(const Transform4x4f& _matrix)
 	{
 		Transform4x4f matrix = _matrix;
 		matrix.round();
@@ -330,14 +324,14 @@ namespace Renderer
 
 	} // setMatrix
 
-	void setViewport(const Rect& _viewport)
+	void OpenGL21Renderer::setViewport(const Rect& _viewport)
 	{
 		// glViewport starts at the bottom left of the window
 		glViewport( _viewport.x, getWindowHeight() - _viewport.y - _viewport.h, _viewport.w, _viewport.h);
 
 	} // setViewport
 
-	void setScissor(const Rect& _scissor)
+	void OpenGL21Renderer::setScissor(const Rect& _scissor)
 	{
 		if((_scissor.x == 0) && (_scissor.y == 0) && (_scissor.w == 0) && (_scissor.h == 0))
 		{
@@ -352,7 +346,7 @@ namespace Renderer
 
 	} // setScissor
 
-	void setSwapInterval()
+	void OpenGL21Renderer::setSwapInterval()
 	{
 		// vsync
 		if(Settings::getInstance()->getBool("VSync"))
@@ -371,7 +365,7 @@ namespace Renderer
 
 	} // setSwapInterval
 
-	void swapBuffers()
+	void OpenGL21Renderer::swapBuffers()
 	{		
 #ifdef WIN32		
 		glFlush();
@@ -389,7 +383,7 @@ namespace Renderer
 	} // swapBuffers
 
 
-	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void OpenGL21Renderer::drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		glEnable(GL_MULTISAMPLE);
 
@@ -414,7 +408,7 @@ namespace Renderer
 		glDisable(GL_MULTISAMPLE);
 	}
 
-	void setStencil(const Vertex* _vertices, const unsigned int _numVertices)
+	void OpenGL21Renderer::setStencil(const Vertex* _vertices, const unsigned int _numVertices)
 	{
 		bool tx = glIsEnabled(GL_TEXTURE_2D);
 		glDisable(GL_TEXTURE_2D);
@@ -441,7 +435,7 @@ namespace Renderer
 			glEnable(GL_TEXTURE_2D);
 	}
 
-	void disableStencil()
+	void OpenGL21Renderer::disableStencil()
 	{
 		glDisable(GL_STENCIL_TEST);
 	}

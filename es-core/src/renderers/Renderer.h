@@ -63,6 +63,42 @@ namespace Renderer
 
 	}; // Vertex
 
+	class IRenderer
+	{
+	public:
+		virtual std::string getDriverName() = 0;
+
+		virtual std::vector<std::pair<std::string, std::string>> getDriverInformation() = 0;
+
+		virtual unsigned int getWindowFlags() = 0;
+		virtual void         setupWindow() = 0;
+
+		virtual void         createContext() = 0;
+		virtual void         destroyContext() = 0;
+
+		virtual unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data) = 0;
+		virtual void         destroyTexture(const unsigned int _texture) = 0;
+		virtual void         updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data) = 0;
+		virtual void         bindTexture(const unsigned int _texture) = 0;
+
+		virtual void         drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA) = 0;
+		virtual void         drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA) = 0;
+		virtual void		 drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA) = 0;
+
+		virtual void         setProjection(const Transform4x4f& _projection) = 0;
+		virtual void         setMatrix(const Transform4x4f& _matrix) = 0;
+		virtual void         setViewport(const Rect& _viewport) = 0;
+		virtual void         setScissor(const Rect& _scissor) = 0;
+
+		virtual void         setStencil(const Vertex* _vertices, const unsigned int _numVertices) = 0;
+		virtual void		 disableStencil() = 0;
+
+		virtual void         setSwapInterval() = 0;
+		virtual void         swapBuffers() = 0;
+	};
+	
+	std::vector<std::string> getRendererNames();
+
  	bool        init            ();
  	void        deinit          ();
 	void        pushClipRect    (const Vector2i& _pos, const Vector2i& _size);
@@ -81,7 +117,18 @@ namespace Renderer
 	float		getScreenProportion();
 
 	// API specific
-	unsigned int convertColor      (const unsigned int _color);
+	static unsigned int convertColor (const unsigned int _color)
+	{
+		// convert from rgba to abgr
+		const unsigned char r = ((_color & 0xff000000) >> 24) & 255;
+		const unsigned char g = ((_color & 0x00ff0000) >> 16) & 255;
+		const unsigned char b = ((_color & 0x0000ff00) >>  8) & 255;
+		const unsigned char a = ((_color & 0x000000ff)      ) & 255;
+
+		return ((a << 24) | (b << 16) | (g << 8) | (r));
+
+	} // convertColor
+
 	unsigned int getWindowFlags    ();
 	void         setupWindow       ();
 	void         createContext     ();
@@ -98,6 +145,8 @@ namespace Renderer
 	void         setScissor        (const Rect& _scissor);
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
+
+	std::string  getDriverName();
 	std::vector<std::pair<std::string, std::string>> getDriverInformation();
 
 	// batocera methods
