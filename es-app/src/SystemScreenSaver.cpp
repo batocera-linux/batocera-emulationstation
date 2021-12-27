@@ -123,7 +123,9 @@ void SystemScreenSaver::startScreenSaver()
 			mVideoScreensaver->setGame(mCurrentGame);
 			mVideoScreensaver->setVideo(path);
 
-			Scripting::fireEvent("game-selected", mCurrentGame->getSystem()->getName(), mCurrentGame->getPath(), mCurrentGame->getName());
+			if (mCurrentGame)
+				Scripting::fireEvent("game-selected", mCurrentGame->getSystem()->getName(), mCurrentGame->getPath(), mCurrentGame->getName());
+
 			PowerSaver::runningScreenSaver(true);
 			mTimer = 0;
 			return;
@@ -165,7 +167,9 @@ void SystemScreenSaver::startScreenSaver()
 			mImageScreensaver->setGame(mCurrentGame);
 			mImageScreensaver->setImage(path);
 
-			Scripting::fireEvent("game-selected", mCurrentGame->getSystem()->getName(), mCurrentGame->getPath(), mCurrentGame->getName());
+			if (mCurrentGame)
+				Scripting::fireEvent("game-selected", mCurrentGame->getSystem()->getName(), mCurrentGame->getPath(), mCurrentGame->getName());
+
 			PowerSaver::runningScreenSaver(true);
 			mTimer = 0;
 			return;
