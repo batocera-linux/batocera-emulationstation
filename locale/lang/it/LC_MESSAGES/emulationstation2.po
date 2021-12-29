@@ -941,7 +941,7 @@ msgid "OPEN"
 msgstr "APRI"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "INIZIA UNA PARTITA NETPLAY"
 
 msgid "NETPLAY"
 msgstr "NEPLAY"
@@ -950,7 +950,7 @@ msgid "START GAME"
 msgstr "INIZIA LA PARTITA"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "OSPITA UNA PARTITA NETPLAY"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NON SEI CONNESSO A UNA RETE"
@@ -959,10 +959,10 @@ msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ANNUNCIA PUBBLICAMENTE LA PARTITA"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "PASSWORD GIOCATORE"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "PASSWORD SPETTATORE"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCA GIOCHI SIMILI..."
@@ -1777,7 +1777,7 @@ msgid "USE RELAY SERVER"
 msgstr "USA RELAY SERVER"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "MOSTRA GIOCHI NON DISPONIBILI"
 
 msgid "DECORATION SET"
 msgstr "SET CORNICI"
@@ -1882,7 +1882,7 @@ msgid "ALWAYS"
 msgstr "SEMPRE"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "SE NON VUOTO"
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "MOSTRA GESTORE SALVATAGGI"
