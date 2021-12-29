@@ -402,7 +402,23 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 
 void CustomFeatures::sort()
 {
-	std::sort(begin(), end(), [](CustomFeature& feat1, CustomFeature& feat2) { return feat1.order < feat2.order; });
+  // sorting not keeping the order in case values equals
+  //std::sort(begin(), end(), [](CustomFeature& feat1, CustomFeature& feat2) { return feat1.order < feat2.order; });
+  auto pass = size();
+  bool swapped = true;
+  while (pass > 0 && swapped)
+    {
+      swapped = false;
+      for (auto i = 0; i < size() - 1; i++)
+        {
+	  if (at(i).order > at(i + 1).order)
+            {
+	      std::swap(at(i), at(i + 1));
+	      swapped = true;
+            }
+	}
+      pass--;
+    }
 }
 
 bool CustomFeatures::hasFeature(const std::string& name) const
