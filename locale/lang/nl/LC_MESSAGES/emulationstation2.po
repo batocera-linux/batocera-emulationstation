@@ -358,6 +358,68 @@ msgstr "PAKKET SUCCESVOL GEÏNSTALLEERD"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAKKET SUCCESVOL VERWIJDERD"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "INSTELLINGEN"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETRO-PRESTATIES"
+
+msgid "HARDCORE MODE"
+msgstr "HARDCORE MODUS"
+
+msgid "LEADERBOARDS"
+msgstr "SCOREBORD"
+
+msgid "VERBOSE MODE"
+msgstr "VERBOSE MODUS"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "AUTOMATISCHE SCHERMAFDRUK"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "geen"
+
+msgid "UNLOCK SOUND"
+msgstr "ONTGRENDEL GELUID"
+
+msgid "USERNAME"
+msgstr "GEBRUIKERSNAAM"
+
+msgid "PASSWORD"
+msgstr "WACHTWOORD"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "SPELINDEXEN"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "OK"
+
 msgid "FILTER GAMELIST BY"
 msgstr "FILTER SPELLIJST OP"
 
@@ -494,9 +556,6 @@ msgstr "EEN MOMENT GEDULD"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETRO-PRESTATIES"
-
 msgid "Points"
 msgstr "Punten"
 
@@ -509,11 +568,38 @@ msgstr "BEKIJK DETAILS"
 msgid "LAUNCH"
 msgstr "STARTEN"
 
+msgid "NETPLAY SETTINGS"
+msgstr "NETPLAY INSTELLINGEN"
+
+msgid "ENABLE NETPLAY"
+msgstr "SCHAKEL NETPLAY IN"
+
+msgid "NICKNAME"
+msgstr "BIJNAAM"
+
+msgid "PORT"
+msgstr "POORT"
+
+msgid "USE RELAY SERVER"
+msgstr "GEBRUIK RELAY SERVER"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "KLAAR"
-
-msgid "OK"
-msgstr "OK"
 
 msgid "VIEW OPTIONS"
 msgstr "WEERGAVEOPTIES"
@@ -629,6 +715,9 @@ msgstr "GEEN WIFI-NETWERKEN GEVONDEN"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "ZOEKEN NAAR WIFI-NETWERKEN"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "JE BENT NIET VERBONDEN MET EEN NETWERK"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
@@ -724,9 +813,6 @@ msgstr "start & einde"
 msgid "never"
 msgstr "nooit"
 
-msgid "none"
-msgstr "geen"
-
 msgid "systems"
 msgstr "systemen"
 
@@ -735,9 +821,6 @@ msgstr "willekeurig"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "SCREENSAVERINSTELLINGEN"
-
-msgid "SETTINGS"
-msgstr "INSTELLINGEN"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "SCHERMBEVEILIGING NA"
@@ -950,9 +1033,6 @@ msgstr "START SPEL"
 msgid "HOST A NETPLAY GAME"
 msgstr ""
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "JE BENT NIET VERBONDEN MET EEN NETWERK"
-
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "OPENBAAR AANKONDIGEN SPEL"
 
@@ -1054,20 +1134,116 @@ msgstr "SLEUF"
 msgid "COPY TO FREE SLOT"
 msgstr "KOPIËREN NAAR VRIJE SLEUF"
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr "BRON VAN AFBEELDING"
+
+msgid "SCREENSHOT"
+msgstr "SCHERMAFBEELDING"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITELSCHERM SCHERMAFBEELDING"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "DOOSJE 2D"
+
+msgid "BOX 3D"
+msgstr "DOOSJE 3D"
+
+msgid "FAN ART"
+msgstr "FANART"
+
+msgid "BOX SOURCE"
+msgstr "BRON VAN DOOSJE"
+
+msgid "LOGO SOURCE"
+msgstr "BRON VAN LOGO"
+
+msgid "WHEEL"
+msgstr "WIEL"
+
+msgid "MARQUEE"
+msgstr "BANNIER"
+
+msgid "SCRAPE RATINGS"
+msgstr "SCRAAP BEOORDELINGEN"
+
+msgid "SCRAPE VIDEOS"
+msgstr "SCRAAP VIDEO'S"
+
+msgid "SCRAPE FANART"
+msgstr "SCHRAAP FANART"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "SCHRAAP ACHTERZIJDE DOOS"
+
+msgid "SCRAPE MAP"
+msgstr "SCHRAAP MAP"
+
+msgid "SCRAPE MANUAL"
+msgstr "SCHRAAP HANDLEIDING"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "SCHRAAP PADTOKEY INSTELLINGEN"
+
+msgid "SCRAPER"
+msgstr "Schraper"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "SCRAAP VANAF"
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
 msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "NU SCHRAPEN"
 
 msgid "START"
 msgstr "STARTEN"
@@ -1083,6 +1259,24 @@ msgstr "HET SCHRAPEN IS BEZIG. WIL JE ANNULEREN ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "GEEN SPELLEN GEVONDEN MET DIE CRITERIA."
+
+msgid "INFORMATION"
+msgstr "INFORMATIE"
+
+msgid "VERSION"
+msgstr "VERSIE"
+
+msgid "USER DISK USAGE"
+msgstr "GEBRUIKER SCHIJFGEBRUIK"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "SYSTEEM SCHIJFGEBRUIK"
+
+msgid "SYSTEM"
+msgstr "SYSTEEM"
+
+msgid "VIDEO DRIVER"
+msgstr "VIDEO STUURPROGRAMMA"
 
 msgid "THE BEZEL PROJECT"
 msgstr "THE BEZEL PROJECT"
@@ -1162,9 +1356,6 @@ msgstr "VERKOPER"
 msgid "RENDERER"
 msgstr "RENDERER"
 
-msgid "VERSION"
-msgstr "VERSIE"
-
 msgid "SHADERS"
 msgstr "SHADERS"
 
@@ -1198,98 +1389,17 @@ msgstr "CONFIGUREER INVOER"
 msgid "EMULATOR SETTINGS"
 msgstr "EMULATORINSTELLINGEN"
 
-msgid "SCRAPER"
-msgstr "Schraper"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "UPDATES & DOWNLOADS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEEMINSTELLINGEN"
 
-msgid "INFORMATION"
-msgstr "INFORMATIE"
-
 msgid "UNLOCK UI MODE"
 msgstr "ONTGRENDEL INTERFACE MODE"
 
 msgid "QUIT"
 msgstr "STOPPEN"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "BRON VAN AFBEELDING"
-
-msgid "SCREENSHOT"
-msgstr "SCHERMAFBEELDING"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITELSCHERM SCHERMAFBEELDING"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "DOOSJE 2D"
-
-msgid "BOX 3D"
-msgstr "DOOSJE 3D"
-
-msgid "FAN ART"
-msgstr "FANART"
-
-msgid "BOX SOURCE"
-msgstr "BRON VAN DOOSJE"
-
-msgid "LOGO SOURCE"
-msgstr "BRON VAN LOGO"
-
-msgid "WHEEL"
-msgstr "WIEL"
-
-msgid "MARQUEE"
-msgstr "BANNIER"
-
-msgid "SCRAPE RATINGS"
-msgstr "SCRAAP BEOORDELINGEN"
-
-msgid "SCRAPE VIDEOS"
-msgstr "SCRAAP VIDEO'S"
-
-msgid "SCRAPE FANART"
-msgstr "SCHRAAP FANART"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "SCHRAAP ACHTERZIJDE DOOS"
-
-msgid "SCRAPE MAP"
-msgstr "SCHRAAP MAP"
-
-msgid "SCRAPE MANUAL"
-msgstr "SCHRAAP HANDLEIDING"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SCHRAAP PADTOKEY INSTELLINGEN"
-
-msgid "USERNAME"
-msgstr "GEBRUIKERSNAAM"
-
-msgid "PASSWORD"
-msgstr "WACHTWOORD"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
@@ -1302,18 +1412,6 @@ msgstr ""
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr ""
-
-msgid "USER DISK USAGE"
-msgstr "GEBRUIKER SCHIJFGEBRUIK"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "SYSTEEM SCHIJFGEBRUIK"
-
-msgid "SYSTEM"
-msgstr "SYSTEEM"
-
-msgid "VIDEO DRIVER"
-msgstr "VIDEO STUURPROGRAMMA"
 
 msgid "DEVELOPER"
 msgstr "ONTWIKKELAAR"
@@ -1606,12 +1704,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "NETPLAY INSTELLINGEN"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "CONTROLEER BIOS'EN VOORDAT EEN SPEL GESTART WORDT"
 
@@ -1708,62 +1800,6 @@ msgstr ""
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
-msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "HARDCORE MODUS"
-
-msgid "LEADERBOARDS"
-msgstr "SCOREBORD"
-
-msgid "VERBOSE MODE"
-msgstr "VERBOSE MODUS"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "AUTOMATISCHE SCHERMAFDRUK"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr "ONTGRENDEL GELUID"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "SPELINDEXEN"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "ENABLE NETPLAY"
-msgstr "SCHAKEL NETPLAY IN"
-
-msgid "NICKNAME"
-msgstr "BIJNAAM"
-
-msgid "PORT"
-msgstr "POORT"
-
-msgid "USE RELAY SERVER"
-msgstr "GEBRUIK RELAY SERVER"
-
-msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
 msgid "DECORATION SET"
@@ -1879,6 +1915,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "GEAVANCEERDE CONFIGURATIE PER SYSTEEM"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "SPEL HASHEN IS BEZIG. WIL JE HET STOPPEN?"
@@ -1999,6 +2038,9 @@ msgstr "WEERGAVEOPTIES"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "TRANSITIE STIJL"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "SPEL LANCERING OVERGANG"
@@ -2224,6 +2266,9 @@ msgid "ZOOM"
 msgstr "ZOOMEN"
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2930,9 +2975,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "SELECTEER THEMA OM TE INSTALLEREN / VERWIJDEREN"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "NU SCHRAPEN"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "SCHRAAP DEZE SPELLEN"
 
@@ -2962,9 +3004,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "ALGEMENE INFORMATIE"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "SCRAAP VANAF"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "WEET JE ZEKER DAT JE DE INVOER WILT CONFIGUREREN?"

@@ -357,6 +357,68 @@ msgstr "패키지가 성공적으로 설치됨"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "패키지가 성공적으로 제거됨"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "설정"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "레트로 도전과제"
+
+msgid "HARDCORE MODE"
+msgstr "하드코어 모드"
+
+msgid "LEADERBOARDS"
+msgstr "순위표"
+
+msgid "VERBOSE MODE"
+msgstr "상세 모드"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "자동 스크린샷"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "없음"
+
+msgid "UNLOCK SOUND"
+msgstr "해제 사운드"
+
+msgid "USERNAME"
+msgstr "사용자명"
+
+msgid "PASSWORD"
+msgstr "비밀번호"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "게임 색인"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "확인"
+
 msgid "FILTER GAMELIST BY"
 msgstr "게임 목록 필터 :"
 
@@ -493,9 +555,6 @@ msgstr "잠시만 기다려주세요"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "레트로 도전과제"
-
 msgid "Points"
 msgstr "포인트"
 
@@ -508,11 +567,38 @@ msgstr "세부정보 보기"
 msgid "LAUNCH"
 msgstr "실행"
 
+msgid "NETPLAY SETTINGS"
+msgstr "넷플레이 설정"
+
+msgid "ENABLE NETPLAY"
+msgstr "넷플레이 허용"
+
+msgid "NICKNAME"
+msgstr "닉네임"
+
+msgid "PORT"
+msgstr "포트"
+
+msgid "USE RELAY SERVER"
+msgstr "릴레이 서버 사용"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "완료되었습니다"
-
-msgid "OK"
-msgstr "확인"
 
 msgid "VIEW OPTIONS"
 msgstr "보기 옵션"
@@ -628,6 +714,9 @@ msgstr "와이파이를 찾지 못했습니다"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "와이파이를 검색 중입니다"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "네트워크에 접속중이 아닙니다"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "블루투스 장치 제거"
 
@@ -723,9 +812,6 @@ msgstr "시작 및 종료"
 msgid "never"
 msgstr "사용안함"
 
-msgid "none"
-msgstr "없음"
-
 msgid "systems"
 msgstr "시스템"
 
@@ -734,9 +820,6 @@ msgstr "무작위"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "화면보호기 설정"
-
-msgid "SETTINGS"
-msgstr "설정"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "화면 보호기 작동"
@@ -949,9 +1032,6 @@ msgstr "게임 실행"
 msgid "HOST A NETPLAY GAME"
 msgstr ""
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "네트워크에 접속중이 아닙니다"
-
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "공개 게임"
 
@@ -1053,20 +1133,116 @@ msgstr "슬롯"
 msgid "COPY TO FREE SLOT"
 msgstr "비어있는 슬롯에 복사"
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr "이미지 소스"
+
+msgid "SCREENSHOT"
+msgstr "스크린샷"
+
+msgid "TITLE SCREENSHOT"
+msgstr "타이틀 스크린샷"
+
+msgid "MIX V1"
+msgstr "혼합 V1"
+
+msgid "MIX V2"
+msgstr "혼합 V2"
+
+msgid "BOX 2D"
+msgstr "박스 2D"
+
+msgid "BOX 3D"
+msgstr "박스 3D"
+
+msgid "FAN ART"
+msgstr "팬 아트"
+
+msgid "BOX SOURCE"
+msgstr "박스 출처"
+
+msgid "LOGO SOURCE"
+msgstr "로고 출처"
+
+msgid "WHEEL"
+msgstr "휠"
+
+msgid "MARQUEE"
+msgstr "마키"
+
+msgid "SCRAPE RATINGS"
+msgstr "평점 스크랩"
+
+msgid "SCRAPE VIDEOS"
+msgstr "비디오 스크랩"
+
+msgid "SCRAPE FANART"
+msgstr "팬아트 스크랩"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "박스 후면 스크랩"
+
+msgid "SCRAPE MAP"
+msgstr "지도 스크랩"
+
+msgid "SCRAPE MANUAL"
+msgstr "매뉴얼 스크랩"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "패드 키 설정 스크랩"
+
+msgid "SCRAPER"
+msgstr "스크랩"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "스크랩 출처"
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
 msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "스크랩 시작"
 
 msgid "START"
 msgstr "시작"
@@ -1082,6 +1258,24 @@ msgstr "스크랩이 진행중입니다. 중지하시겠습니까?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "조건에 맞는 게임이 없습니다."
+
+msgid "INFORMATION"
+msgstr "정보"
+
+msgid "VERSION"
+msgstr "버전"
+
+msgid "USER DISK USAGE"
+msgstr "사용자 디스크 사용량"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "시스템 디스크 사용량"
+
+msgid "SYSTEM"
+msgstr "시스템"
+
+msgid "VIDEO DRIVER"
+msgstr "비디오 드라이버"
 
 msgid "THE BEZEL PROJECT"
 msgstr "베젤 프로젝트"
@@ -1161,9 +1355,6 @@ msgstr "벤더"
 msgid "RENDERER"
 msgstr "렌더러"
 
-msgid "VERSION"
-msgstr "버전"
-
 msgid "SHADERS"
 msgstr "셰이더"
 
@@ -1197,98 +1388,17 @@ msgstr "입력 설정"
 msgid "EMULATOR SETTINGS"
 msgstr "에뮬레이터 설정"
 
-msgid "SCRAPER"
-msgstr "스크랩"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "업데이트 & 다운로드"
 
 msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
 
-msgid "INFORMATION"
-msgstr "정보"
-
 msgid "UNLOCK UI MODE"
 msgstr "UI 모드 해제"
 
 msgid "QUIT"
 msgstr "종료"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "이미지 소스"
-
-msgid "SCREENSHOT"
-msgstr "스크린샷"
-
-msgid "TITLE SCREENSHOT"
-msgstr "타이틀 스크린샷"
-
-msgid "MIX V1"
-msgstr "혼합 V1"
-
-msgid "MIX V2"
-msgstr "혼합 V2"
-
-msgid "BOX 2D"
-msgstr "박스 2D"
-
-msgid "BOX 3D"
-msgstr "박스 3D"
-
-msgid "FAN ART"
-msgstr "팬 아트"
-
-msgid "BOX SOURCE"
-msgstr "박스 출처"
-
-msgid "LOGO SOURCE"
-msgstr "로고 출처"
-
-msgid "WHEEL"
-msgstr "휠"
-
-msgid "MARQUEE"
-msgstr "마키"
-
-msgid "SCRAPE RATINGS"
-msgstr "평점 스크랩"
-
-msgid "SCRAPE VIDEOS"
-msgstr "비디오 스크랩"
-
-msgid "SCRAPE FANART"
-msgstr "팬아트 스크랩"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "박스 후면 스크랩"
-
-msgid "SCRAPE MAP"
-msgstr "지도 스크랩"
-
-msgid "SCRAPE MANUAL"
-msgstr "매뉴얼 스크랩"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "패드 키 설정 스크랩"
-
-msgid "USERNAME"
-msgstr "사용자명"
-
-msgid "PASSWORD"
-msgstr "비밀번호"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
@@ -1301,18 +1411,6 @@ msgstr ""
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr ""
-
-msgid "USER DISK USAGE"
-msgstr "사용자 디스크 사용량"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "시스템 디스크 사용량"
-
-msgid "SYSTEM"
-msgstr "시스템"
-
-msgid "VIDEO DRIVER"
-msgstr "비디오 드라이버"
 
 msgid "DEVELOPER"
 msgstr "개발자"
@@ -1602,12 +1700,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "넷플레이 설정"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "게임 실행전 바이오스 확인"
 
@@ -1704,62 +1796,6 @@ msgstr ""
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
-msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "하드코어 모드"
-
-msgid "LEADERBOARDS"
-msgstr "순위표"
-
-msgid "VERBOSE MODE"
-msgstr "상세 모드"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "자동 스크린샷"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr "해제 사운드"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "게임 색인"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "ENABLE NETPLAY"
-msgstr "넷플레이 허용"
-
-msgid "NICKNAME"
-msgstr "닉네임"
-
-msgid "PORT"
-msgstr "포트"
-
-msgid "USE RELAY SERVER"
-msgstr "릴레이 서버 사용"
-
-msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
 msgid "DECORATION SET"
@@ -1875,6 +1911,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "게임 해시 구성이 실행 중입니다. 중지 하시겠습니까?"
@@ -1995,6 +2034,10 @@ msgstr "표시 옵션"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "화면 전환 형식"
+
+# missing string
+msgid "auto"
+msgstr "자동"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "게임 실행 전환"
@@ -2220,6 +2263,9 @@ msgid "ZOOM"
 msgstr "확대"
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2913,9 +2959,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "설치/삭제 할 테마를 선택하세요"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "스크랩 시작"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "다음 게임을 스크랩"
 
@@ -2945,9 +2988,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "정보"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "스크랩 출처"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "입력 설정을 진행하시겠습니까?"
@@ -3120,10 +3160,6 @@ msgstr ""
 #~ "시 필요한 설정입니다. 셀렉트 버튼을 기본 핫키로 사용하시겠습니까? 예를 선"
 #~ "택하면 셀렉트 버튼으로 설정되고 아니오를 선택하면 핫키를 설정하지 않습니"
 #~ "다."
-
-# missing string
-#~ msgid "auto"
-#~ msgstr "자동"
 
 # missing string
 #~ msgid "PAIR A BLUETOOTH CONTROLLER"

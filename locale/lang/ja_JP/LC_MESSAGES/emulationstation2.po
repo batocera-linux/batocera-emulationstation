@@ -357,6 +357,68 @@ msgstr "パッケージは正常にインストールされました"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "パッケージは正常に削除されました"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "RETROACHIEVEMENT 設定"
+
+msgid "SETTINGS"
+msgstr "設定"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RetroAchievements 使用"
+
+msgid "HARDCORE MODE"
+msgstr "ハードコアモード"
+
+msgid "LEADERBOARDS"
+msgstr "リーダーボード"
+
+msgid "VERBOSE MODE"
+msgstr "詳細な処理モード"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "自動スクリーンショット"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "チャレンジインジケーター"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr "対象となるACHIEVEMENTSを獲得できる場合、右下隅にアイコンを表示します。"
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "RETROACHIEVEMENTサウンドのロック解除"
+
+msgid "none"
+msgstr "なし"
+
+msgid "UNLOCK SOUND"
+msgstr "サウンドのロック解除"
+
+msgid "USERNAME"
+msgstr "ユーザー名"
+
+msgid "PASSWORD"
+msgstr "パスワード"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
+
+msgid "GAME INDEXES"
+msgstr "ゲームインデックス"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "起動時に新規ゲームにインデックスを付ける"
+
+msgid "INDEX GAMES"
+msgstr "ゲームにインデックスを付ける"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "RETROACHIEVEMENTSをアクティブ化できません:"
+
+msgid "OK"
+msgstr "OK"
+
 msgid "FILTER GAMELIST BY"
 msgstr "ゲームリスト別のフィルタ"
 
@@ -494,9 +556,6 @@ msgstr "お待ちください"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中の %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RetroAchievements 使用"
-
 msgid "Points"
 msgstr "ポイント"
 
@@ -509,11 +568,38 @@ msgstr "詳細を表示"
 msgid "LAUNCH"
 msgstr "開始"
 
+msgid "NETPLAY SETTINGS"
+msgstr "ネットプレイ設定"
+
+msgid "ENABLE NETPLAY"
+msgstr "ネットプレイを有効"
+
+msgid "NICKNAME"
+msgstr "ニックネーム"
+
+msgid "PORT"
+msgstr "ポート"
+
+msgid "USE RELAY SERVER"
+msgstr "リレーサーバーを使用"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "完了"
-
-msgid "OK"
-msgstr "OK"
 
 msgid "VIEW OPTIONS"
 msgstr "表示設定"
@@ -629,6 +715,9 @@ msgstr "WI-FI ネットワークが見つかりません"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "ネットワークに接続されていません"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "BLUETOOTH デバイスを削除"
 
@@ -724,9 +813,6 @@ msgstr "開始＆終了"
 msgid "never"
 msgstr "しない"
 
-msgid "none"
-msgstr "なし"
-
 msgid "systems"
 msgstr "システム"
 
@@ -735,9 +821,6 @@ msgstr "ランダム"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "スクリーンセーバー設定"
-
-msgid "SETTINGS"
-msgstr "設定"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "スクリーンセーバー開始時間"
@@ -952,9 +1035,6 @@ msgstr "ゲームを開始"
 msgid "HOST A NETPLAY GAME"
 msgstr ""
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "ネットワークに接続されていません"
-
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "プレイ状況を公開する"
 
@@ -1056,20 +1136,116 @@ msgstr "スロット"
 msgid "COPY TO FREE SLOT"
 msgstr "空スロットにコピー"
 
-msgid "SCRAPE CRITERIA"
-msgstr "スクレイプ 方法"
+msgid "SCRAPER SETTINGS"
+msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
-msgstr "スクレイプするメディア"
+msgid "IMAGE SOURCE"
+msgstr "イメージ ソース元"
+
+msgid "SCREENSHOT"
+msgstr "スクリーンショット"
+
+msgid "TITLE SCREENSHOT"
+msgstr "タイトルスクリーンショット"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "2D ボックス"
+
+msgid "BOX 3D"
+msgstr "3D ボックス"
+
+msgid "FAN ART"
+msgstr "ファンアート"
+
+msgid "BOX SOURCE"
+msgstr "ボックス ソース元"
+
+msgid "LOGO SOURCE"
+msgstr "ロゴ ソース元"
+
+msgid "WHEEL"
+msgstr "ホイール"
+
+msgid "MARQUEE"
+msgstr "マーキー"
+
+msgid "SCRAPE RATINGS"
+msgstr "評価をスクレイプ"
+
+msgid "SCRAPE VIDEOS"
+msgstr "動画をスクレイプ"
+
+msgid "SCRAPE FANART"
+msgstr "ファンアートをスクレイプ"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "ベゼル(16:9)をスクレイプ"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "ボックス背景をスクレイプ"
+
+msgid "SCRAPE MAP"
+msgstr "マップをスクレイプ"
+
+msgid "SCRAPE MANUAL"
+msgstr "マニュアルをスクレイプ"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "パッドキー設定をスクレイプ"
+
+msgid "SCRAPER"
+msgstr "スクレイプ"
+
+msgid "SCRAPING DATABASE"
+msgstr "スクレイプデータベース"
+
+msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
 
 msgid "ALL"
 msgstr "全て"
 
-msgid "ONLY MISSING"
-msgstr "不足している部分のみ"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr "含むシステムを選択"
+
+msgid "SCRAPE NOW"
+msgstr ""
 
 msgid "START"
 msgstr "実行"
@@ -1088,6 +1264,24 @@ msgstr "スクレイプが実行されています。中止しますか?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "適合する ゲームが 見つかりませんでした。"
+
+msgid "INFORMATION"
+msgstr "情報"
+
+msgid "VERSION"
+msgstr "バージョン"
+
+msgid "USER DISK USAGE"
+msgstr "データ使用量/容量"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "システムデータ使用量/容量"
+
+msgid "SYSTEM"
+msgstr "システム"
+
+msgid "VIDEO DRIVER"
+msgstr "ビデオドライバ"
 
 msgid "THE BEZEL PROJECT"
 msgstr "ベゼルプロジェクト"
@@ -1167,9 +1361,6 @@ msgstr "ベンダー"
 msgid "RENDERER"
 msgstr "レンダラー"
 
-msgid "VERSION"
-msgstr "バージョン"
-
 msgid "SHADERS"
 msgstr "シェーダー"
 
@@ -1203,98 +1394,17 @@ msgstr "ボタン設定"
 msgid "EMULATOR SETTINGS"
 msgstr "エミュレーター設定"
 
-msgid "SCRAPER"
-msgstr "スクレイプ"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "更新とダウンロード"
 
 msgid "SYSTEM SETTINGS"
 msgstr "BATOCRA 設定"
 
-msgid "INFORMATION"
-msgstr "情報"
-
 msgid "UNLOCK UI MODE"
 msgstr "UIモードのロックを解除"
 
 msgid "QUIT"
 msgstr "終了"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "スクレイプが実行されています。中止しますか?"
-
-msgid "NEXT"
-msgstr "次へ"
-
-msgid "SCRAPING DATABASE"
-msgstr "スクレイプデータベース"
-
-msgid "IMAGE SOURCE"
-msgstr "イメージ ソース元"
-
-msgid "SCREENSHOT"
-msgstr "スクリーンショット"
-
-msgid "TITLE SCREENSHOT"
-msgstr "タイトルスクリーンショット"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "2D ボックス"
-
-msgid "BOX 3D"
-msgstr "3D ボックス"
-
-msgid "FAN ART"
-msgstr "ファンアート"
-
-msgid "BOX SOURCE"
-msgstr "ボックス ソース元"
-
-msgid "LOGO SOURCE"
-msgstr "ロゴ ソース元"
-
-msgid "WHEEL"
-msgstr "ホイール"
-
-msgid "MARQUEE"
-msgstr "マーキー"
-
-msgid "SCRAPE RATINGS"
-msgstr "評価をスクレイプ"
-
-msgid "SCRAPE VIDEOS"
-msgstr "動画をスクレイプ"
-
-msgid "SCRAPE FANART"
-msgstr "ファンアートをスクレイプ"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "ベゼル(16:9)をスクレイプ"
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "ボックス背景をスクレイプ"
-
-msgid "SCRAPE MAP"
-msgstr "マップをスクレイプ"
-
-msgid "SCRAPE MANUAL"
-msgstr "マニュアルをスクレイプ"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "パッドキー設定をスクレイプ"
-
-msgid "USERNAME"
-msgstr "ユーザー名"
-
-msgid "PASSWORD"
-msgstr "パスワード"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "ボタン設定してもよろしいですか？"
@@ -1307,18 +1417,6 @@ msgstr "UIモードのロックを解除しました"
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "コードを入力して、現在のUIモードのロックを解除します"
-
-msgid "USER DISK USAGE"
-msgstr "データ使用量/容量"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "システムデータ使用量/容量"
-
-msgid "SYSTEM"
-msgstr "システム"
-
-msgid "VIDEO DRIVER"
-msgstr "ビデオドライバ"
 
 msgid "DEVELOPER"
 msgstr "その他の設定"
@@ -1614,12 +1712,6 @@ msgstr "BATOCERA スプラッシュ画像"
 msgid "SPLASH SETTING"
 msgstr "スプラッシュ設定"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT 設定"
-
-msgid "NETPLAY SETTINGS"
-msgstr "ネットプレイ設定"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "ゲーム実行前にBIOSを確認"
 
@@ -1719,62 +1811,6 @@ msgid ""
 msgstr ""
 "フレーム遅延を自動的に減らしフレームドロップを防ぎます。オーディオ/ビデオで不"
 "具合がでた場合は、オフにします。"
-
-msgid "HARDCORE MODE"
-msgstr "ハードコアモード"
-
-msgid "LEADERBOARDS"
-msgstr "リーダーボード"
-
-msgid "VERBOSE MODE"
-msgstr "詳細な処理モード"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "自動スクリーンショット"
-
-msgid "CHALLENGE INDICATORS"
-msgstr "チャレンジインジケーター"
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr "対象となるACHIEVEMENTSを獲得できる場合、右下隅にアイコンを表示します。"
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENTサウンドのロック解除"
-
-msgid "UNLOCK SOUND"
-msgstr "サウンドのロック解除"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
-
-msgid "GAME INDEXES"
-msgstr "ゲームインデックス"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "起動時に新規ゲームにインデックスを付ける"
-
-msgid "INDEX GAMES"
-msgstr "ゲームにインデックスを付ける"
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "RETROACHIEVEMENTSをアクティブ化できません:"
-
-msgid "ENABLE NETPLAY"
-msgstr "ネットプレイを有効"
-
-msgid "NICKNAME"
-msgstr "ニックネーム"
-
-msgid "PORT"
-msgstr "ポート"
-
-msgid "USE RELAY SERVER"
-msgstr "リレーサーバーを使用"
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
 
 msgid "DECORATION SET"
 msgstr "ベゼルを選択"
@@ -1889,6 +1925,9 @@ msgstr "ゲーム起動時にステートセーブマネージャを表示"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "スクレイプが実行されています。中止しますか?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "ゲームのハッシュ化が実行されています。 中止しますか？"
@@ -2015,6 +2054,9 @@ msgstr "表示設定"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "画面遷移スタイル"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ゲーム開始の画面遷移"
@@ -2241,6 +2283,9 @@ msgstr "ズーム"
 
 msgid "GAMES TO INDEX"
 msgstr "インデックスを付けるゲーム"
+
+msgid "ONLY MISSING"
+msgstr "不足している部分のみ"
 
 msgid "SYSTEM INFO"
 msgstr "システム情報"
@@ -2766,6 +2811,15 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "SCRAPE CRITERIA"
+#~ msgstr "スクレイプ 方法"
+
+#~ msgid "MEDIA TO SCRAPE FOR"
+#~ msgstr "スクレイプするメディア"
+
+#~ msgid "NEXT"
+#~ msgstr "次へ"
 
 #~ msgid "NETPLAY HOSTING/OPTIONS"
 #~ msgstr "ネットプレイ(ホスト/設定)"

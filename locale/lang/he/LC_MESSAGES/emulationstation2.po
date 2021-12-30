@@ -361,6 +361,68 @@ msgstr "חבילה הותקנה בהצלחה"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "חבילה הוסרה בהצלחה"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "הגדרות"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS הישגי"
+
+msgid "HARDCORE MODE"
+msgstr "מצב קשה-מאוד"
+
+msgid "LEADERBOARDS"
+msgstr "לוחות מובילים"
+
+msgid "VERBOSE MODE"
+msgstr "מצב מילולי"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "צילום מסך אוטומטי"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "ללא"
+
+msgid "UNLOCK SOUND"
+msgstr "ביטול נעילת שמע"
+
+msgid "USERNAME"
+msgstr "שם משתמש"
+
+msgid "PASSWORD"
+msgstr "סיסמה"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "אינדקס משחקים"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "אישור"
+
 msgid "FILTER GAMELIST BY"
 msgstr "סנן רשימת משחקים לפי"
 
@@ -497,9 +559,6 @@ msgstr "נא להמתין"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d מתוך %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS הישגי"
-
 msgid "Points"
 msgstr "נקודות"
 
@@ -512,11 +571,38 @@ msgstr "צפייה בפרטים"
 msgid "LAUNCH"
 msgstr "הפעל"
 
+msgid "NETPLAY SETTINGS"
+msgstr "הגדרות NETPLAY"
+
+msgid "ENABLE NETPLAY"
+msgstr "הפוך NETPLAY לזמין"
+
+msgid "NICKNAME"
+msgstr "כינוי"
+
+msgid "PORT"
+msgstr ""
+
+msgid "USE RELAY SERVER"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "הסתיים"
-
-msgid "OK"
-msgstr "אישור"
 
 msgid "VIEW OPTIONS"
 msgstr "צפייה באפשרויות"
@@ -632,6 +718,9 @@ msgstr ""
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr ""
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "המערכת אינה מחוברת לרשת"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "שכח התקן בלו-טות'"
 
@@ -727,9 +816,6 @@ msgstr "התחלה וסיום"
 msgid "never"
 msgstr "אף פעם"
 
-msgid "none"
-msgstr "ללא"
-
 msgid "systems"
 msgstr "מערכות"
 
@@ -738,9 +824,6 @@ msgstr "אקראי"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "הגדרות שומר מסך"
-
-msgid "SETTINGS"
-msgstr "הגדרות"
 
 msgid "START SCREENSAVER AFTER"
 msgstr ""
@@ -953,9 +1036,6 @@ msgstr "התחל משחק"
 msgid "HOST A NETPLAY GAME"
 msgstr ""
 
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "המערכת אינה מחוברת לרשת"
-
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "הכרז ציבורית על משחק"
 
@@ -1055,20 +1135,116 @@ msgstr "חריץ"
 msgid "COPY TO FREE SLOT"
 msgstr "העתק לחריץ פנוי"
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr "מקור תמונה"
+
+msgid "SCREENSHOT"
+msgstr "צילום מסך"
+
+msgid "TITLE SCREENSHOT"
+msgstr "צילום מסך מנצח"
+
+msgid "MIX V1"
+msgstr "עירבול 1"
+
+msgid "MIX V2"
+msgstr "עירבול 2"
+
+msgid "BOX 2D"
+msgstr "קופסה דו מימדית"
+
+msgid "BOX 3D"
+msgstr "קופסה תלת מימדית"
+
+msgid "FAN ART"
+msgstr "אומנות מעריצים"
+
+msgid "BOX SOURCE"
+msgstr "מקור קופסה"
+
+msgid "LOGO SOURCE"
+msgstr "מקור סמל"
+
+msgid "WHEEL"
+msgstr "גלגל"
+
+msgid "MARQUEE"
+msgstr "דגל"
+
+msgid "SCRAPE RATINGS"
+msgstr "SCRAPE דירוגים"
+
+msgid "SCRAPE VIDEOS"
+msgstr "SCRAPE סרטונים"
+
+msgid "SCRAPE FANART"
+msgstr "SCRAPE  אמנות מעריצים"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "SCARPE  עטיפות פנים"
+
+msgid "SCRAPE MAP"
+msgstr "SCRAPE מפה"
+
+msgid "SCRAPE MANUAL"
+msgstr "SCRAPE מדריך"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "SCRAPE  הגדרות משטח ללחצן"
+
+msgid "SCRAPER"
+msgstr "SCRAPER"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "SCARPE מתוך יעד"
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
 msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "הפעל SCRAPE"
 
 msgid "START"
 msgstr "התחלה"
@@ -1084,6 +1260,24 @@ msgstr ""
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "אין משחק שמתאים לקריטריון."
+
+msgid "INFORMATION"
+msgstr "מידע"
+
+msgid "VERSION"
+msgstr "גרסה"
+
+msgid "USER DISK USAGE"
+msgstr "שימוש משתמש ב'דיסק'"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "שימוש מערכת ב'דיסק'"
+
+msgid "SYSTEM"
+msgstr "מערכת"
+
+msgid "VIDEO DRIVER"
+msgstr "מנהל התקן וידאו"
 
 msgid "THE BEZEL PROJECT"
 msgstr "פרויקט BEZEL"
@@ -1163,9 +1357,6 @@ msgstr "ספק"
 msgid "RENDERER"
 msgstr "'מרנדר'"
 
-msgid "VERSION"
-msgstr "גרסה"
-
 msgid "SHADERS"
 msgstr "מצלילים"
 
@@ -1199,98 +1390,17 @@ msgstr "הגדר קלט"
 msgid "EMULATOR SETTINGS"
 msgstr "הגדרות אמולטור (חַקַּאי)"
 
-msgid "SCRAPER"
-msgstr "SCRAPER"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "עדכונים והורדות"
 
 msgid "SYSTEM SETTINGS"
 msgstr "הגדרות מערכת"
 
-msgid "INFORMATION"
-msgstr "מידע"
-
 msgid "UNLOCK UI MODE"
 msgstr "ביטול נעילת מצב ממשק משתמש"
 
 msgid "QUIT"
 msgstr "יציאה"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "מקור תמונה"
-
-msgid "SCREENSHOT"
-msgstr "צילום מסך"
-
-msgid "TITLE SCREENSHOT"
-msgstr "צילום מסך מנצח"
-
-msgid "MIX V1"
-msgstr "עירבול 1"
-
-msgid "MIX V2"
-msgstr "עירבול 2"
-
-msgid "BOX 2D"
-msgstr "קופסה דו מימדית"
-
-msgid "BOX 3D"
-msgstr "קופסה תלת מימדית"
-
-msgid "FAN ART"
-msgstr "אומנות מעריצים"
-
-msgid "BOX SOURCE"
-msgstr "מקור קופסה"
-
-msgid "LOGO SOURCE"
-msgstr "מקור סמל"
-
-msgid "WHEEL"
-msgstr "גלגל"
-
-msgid "MARQUEE"
-msgstr "דגל"
-
-msgid "SCRAPE RATINGS"
-msgstr "SCRAPE דירוגים"
-
-msgid "SCRAPE VIDEOS"
-msgstr "SCRAPE סרטונים"
-
-msgid "SCRAPE FANART"
-msgstr "SCRAPE  אמנות מעריצים"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "SCARPE  עטיפות פנים"
-
-msgid "SCRAPE MAP"
-msgstr "SCRAPE מפה"
-
-msgid "SCRAPE MANUAL"
-msgstr "SCRAPE מדריך"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SCRAPE  הגדרות משטח ללחצן"
-
-msgid "USERNAME"
-msgstr "שם משתמש"
-
-msgid "PASSWORD"
-msgstr "סיסמה"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
@@ -1303,18 +1413,6 @@ msgstr ""
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr ""
-
-msgid "USER DISK USAGE"
-msgstr "שימוש משתמש ב'דיסק'"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "שימוש מערכת ב'דיסק'"
-
-msgid "SYSTEM"
-msgstr "מערכת"
-
-msgid "VIDEO DRIVER"
-msgstr "מנהל התקן וידאו"
 
 msgid "DEVELOPER"
 msgstr "מפתח"
@@ -1604,12 +1702,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "הגדרות NETPLAY"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr ""
 
@@ -1706,62 +1798,6 @@ msgstr ""
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
-msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "מצב קשה-מאוד"
-
-msgid "LEADERBOARDS"
-msgstr "לוחות מובילים"
-
-msgid "VERBOSE MODE"
-msgstr "מצב מילולי"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "צילום מסך אוטומטי"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr "ביטול נעילת שמע"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "אינדקס משחקים"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "ENABLE NETPLAY"
-msgstr "הפוך NETPLAY לזמין"
-
-msgid "NICKNAME"
-msgstr "כינוי"
-
-msgid "PORT"
-msgstr ""
-
-msgid "USE RELAY SERVER"
-msgstr ""
-
-msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
 msgid "DECORATION SET"
@@ -1877,6 +1913,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "הגדרות מתקדמות לפי מערכת"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
@@ -1996,6 +2035,9 @@ msgid "DISPLAY OPTIONS"
 msgstr "הצגת אפשרויות"
 
 msgid "LIST TRANSITION STYLE"
+msgstr ""
+
+msgid "auto"
 msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
@@ -2220,6 +2262,9 @@ msgid "ZOOM"
 msgstr ""
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2894,9 +2939,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "בחר ערכות נושא להתקנה/הסרה"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "הפעל SCRAPE"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "הפעלת SCRAPE על משחקים אלו"
 
@@ -2926,9 +2968,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "מידע"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "SCARPE מתוך יעד"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "ברצונך להגדיר קלט?"
