@@ -322,6 +322,9 @@ const std::string FileData::getImagePath()
 	// no image, try to use local image
 	if(image.empty())
 	{		
+		if (Utils::String::toLower(Utils::FileSystem::getExtension(getPath())) == ".png")
+			return getPath();
+
 		if (Settings::getInstance()->getBool("LocalArt"))
 		{
 			const char* extList[2] = { ".png", ".jpg" };

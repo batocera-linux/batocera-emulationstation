@@ -3,6 +3,9 @@
 #define ES_APP_GUIS_GUI_SETTINGS_H
 
 #include "components/MenuComponent.h"
+#include "guis/GuiFileBrowser.h"
+
+class SwitchComponent;
 
 // This is just a really simple template for a GUI that calls some save functions when closed.
 class GuiSettings : public GuiComponent
@@ -31,6 +34,13 @@ public:
 	inline void removeLastRowIfGroup() { mMenu.removeLastRowIfGroup(); };
 	
 	void addInputTextRow(const std::string& title, const std::string& settingsID, bool password, bool storeInSettings = false, const std::function<void(Window*, std::string/*title*/, std::string /*value*/, const std::function<void(std::string)>& onsave)>& customEditor = nullptr);
+	void addFileBrowser(const std::string& title, const std::string& settingsID, GuiFileBrowser::FileTypes type, bool storeInSettings = false);
+	
+	std::shared_ptr<SwitchComponent> addSwitch(const std::string& title, const std::string& settingsID, bool storeInSettings, const std::function<void()>& onChanged = nullptr) { return addSwitch(title, "", settingsID, storeInSettings, onChanged); }
+	std::shared_ptr<SwitchComponent> addSwitch(const std::string& title, const std::string& description, const std::string& settingsID, bool storeInSettings, const std::function<void()>& onChanged);
+
+	std::shared_ptr<OptionListComponent<std::string>> addOptionList(const std::string& title, const std::vector<std::pair<std::string, std::string>>& values, const std::string& settingsID, bool storeInSettings, const std::function<void()>& onChanged = nullptr) { return addOptionList(title, "", values, settingsID, storeInSettings, onChanged); }
+	std::shared_ptr<OptionListComponent<std::string>> addOptionList(const std::string& title, const std::string& description, const std::vector<std::pair<std::string, std::string>>& values, const std::string& settingsID, bool storeInSettings, const std::function<void()>& onChanged);
 
 	void addSubMenu(const std::string& label, const std::function<void()>& func);
 
@@ -58,6 +68,8 @@ public:
 	void setTitle(const std::string title) { mMenu.setTitle(title); }
 	void setSubTitle(const std::string text) { mMenu.setSubTitle(text); }
 	void setTitleImage(std::shared_ptr<ImageComponent> titleImage) { mMenu.setTitleImage(titleImage); }
+
+	bool checkNetwork();
 
 protected:
 	MenuComponent mMenu;

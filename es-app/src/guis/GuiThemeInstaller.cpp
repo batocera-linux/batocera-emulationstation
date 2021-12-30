@@ -85,7 +85,7 @@ void GuiThemeInstaller::loadThemesAsync()
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<BatoceraTheme>>(mWindow, _("PLEASE WAIT"),
-		[this, window]
+		[this, window](auto gui)
 	{
 		return ApiSystem::getInstance()->getBatoceraThemesList();		
 	},

@@ -336,15 +336,15 @@ bool hasDirtyFile(SystemData* system)
 
 void updateGamelist(SystemData* system)
 {
-	//We do this by reading the XML again, adding changes and then writing it back,
-	//because there might be information missing in our systemdata which would then miss in the new XML.
-	//We have the complete information for every game though, so we can simply remove a game
-	//we already have in the system from the XML, and then add it back from its GameData information...
+	// We do this by reading the XML again, adding changes and then writing it back,
+	// because there might be information missing in our systemdata which would then miss in the new XML.
+	// We have the complete information for every game though, so we can simply remove a game
+	// we already have in the system from the XML, and then add it back from its GameData information...
 
-	if(system == nullptr || Settings::getInstance()->getBool("IgnoreGamelist"))
+	if (system == nullptr || Settings::IgnoreGamelist())
 		return;
 
-	if (!system->isGameSystem() || (!Settings::HiddenSystemsShowGames() && !system->isVisible())) // || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
+	if (!system->isGameSystem() || system->isCollection() || (!Settings::HiddenSystemsShowGames() && system->isHidden()))
 		return;
 
 	FolderData* rootFolder = system->getRootFolder();
@@ -355,7 +355,8 @@ void updateGamelist(SystemData* system)
 	}
 
 	std::vector<FileData*> dirtyFiles;
-	std::vector<FileData*> files = rootFolder->getFilesRecursive(GAME | FOLDER, false, nullptr, false);
+	
+	auto files = rootFolder->getFilesRecursive(GAME | FOLDER, false, nullptr, false);
 	for (auto file : files)
 		if (file->getSystem() == system && file->getMetadata().wasChanged())
 			dirtyFiles.push_back(file);

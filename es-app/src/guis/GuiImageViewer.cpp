@@ -307,7 +307,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 	}
 	
 	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
-		[window, imagePath]
+		[window, imagePath](auto gui)
 		{		
 			return ApiSystem::getInstance()->extractPdfImages(imagePath, 1, INITIALPAGES);
 		},
@@ -446,34 +446,35 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 	}
 
 	window->pushGui(new GuiLoading<std::vector<std::string>>(window, _("Loading..."),
-		[window, imagePath, files]
-	{
-		std::vector<std::string> ret;
-
-		for (int i = 0; i < INITIALPAGES && i < files.size(); i++)
+		[window, imagePath, files](auto gui)
 		{
-			auto fileToExtract = files[i];
+			std::vector<std::string> ret;
 
-			auto localFile = _extractZipFile(imagePath, fileToExtract);
-			if (!localFile.empty())
-				ret.push_back(localFile);
-		}
+			for (int i = 0; i < INITIALPAGES && i < files.size(); i++)
+			{
+				auto fileToExtract = files[i];
 
-		return ret;
-	},
+				auto localFile = _extractZipFile(imagePath, fileToExtract);
+				if (!localFile.empty())
+					ret.push_back(localFile);
+			}
+
+			return ret;
+		},
 		[this, window, imagePath, pages](std::vector<std::string> fileList)
-	{
-		if (fileList.size() == 0)
-			return;
-
-		for (int i = 0; i < fileList.size(); i++)
 		{
-			ImageIO::removeImageCache(fileList[i]);
-			mGrid.setImage(fileList[i], std::to_string(i + 1));
-		}
+			if (fileList.size() == 0)
+				return;
 
-		window->pushGui(this);
-	}));
+			for (int i = 0; i < fileList.size(); i++)
+			{
+				ImageIO::removeImageCache(fileList[i]);
+				mGrid.setImage(fileList[i], std::to_string(i + 1));
+			}
+
+			window->pushGui(this);
+		}
+	));
 }
 
 
@@ -512,18 +513,19 @@ bool GuiImageViewer::input(InputConfig* config, Input input)
 
 					Window* window = mWindow;
 					window->pushGui(new GuiLoading<std::string>(window, _("Loading..."),
-						[this, window, path, page]
-					{
-						auto files = ApiSystem::getInstance()->extractPdfImages(mPdf, page, 1, true);
-						if (files.size() == 1)
-							return files[0];
+						[this, window, path, page](auto gui)
+						{
+							auto files = ApiSystem::getInstance()->extractPdfImages(mPdf, page, 1, true);
+							if (files.size() == 1)
+								return files[0];
 
-						return path;
-					},
+							return path;
+						},
 						[window](std::string file)
-					{
-						window->pushGui(new ZoomableImageComponent(window, file));
-					}));
+						{
+							window->pushGui(new ZoomableImageComponent(window, file));
+						})
+					);
 				}
 			}
 			else

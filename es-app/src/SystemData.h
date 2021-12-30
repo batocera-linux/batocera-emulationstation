@@ -16,6 +16,7 @@
 #include "KeyboardMapping.h"
 #include "math/Vector2f.h"
 #include "CustomFeatures.h"
+#include "utils/VectorEx.h"
 
 class FileData;
 class FolderData;
@@ -98,7 +99,7 @@ public:
 	
 	bool loadFeatures();
 
-	static std::vector<SystemData*> sSystemVector;
+	static VectorEx<SystemData*> sSystemVector;
 
 	inline std::vector<SystemData*>::const_iterator getIterator() const { return std::find(sSystemVector.cbegin(), sSystemVector.cend(), this); };
 	inline std::vector<SystemData*>::const_reverse_iterator getRevIterator() const { return std::find(sSystemVector.crbegin(), sSystemVector.crend(), this); };
@@ -109,7 +110,8 @@ public:
 	bool isGroupChildSystem();
 
 	bool isVisible();
-	
+	bool isHidden() { return mHidden; } // This flag is different from !isVisible because it only returns the user setting
+
 	SystemData* getNext() const;
 	SystemData* getPrev() const;
 	static SystemData* getRandomSystem();
