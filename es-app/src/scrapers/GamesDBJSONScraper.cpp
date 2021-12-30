@@ -406,7 +406,7 @@ namespace
 		std::string baseImageUrlThumb = getStringOrThrow(boxart["base_url"], "thumb");
 		std::string baseImageUrlLarge = getStringOrThrow(boxart["base_url"], "large");
 
-		ScraperSearchResult result;
+		ScraperSearchResult result("TheGamesDB");
 
 		result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "game_title"));
 

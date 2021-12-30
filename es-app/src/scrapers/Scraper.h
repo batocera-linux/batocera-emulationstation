@@ -48,11 +48,14 @@ struct ScraperSearchItem
 
 struct ScraperSearchResult
 {
-	ScraperSearchResult() : mdl(GAME_METADATA) {};
+	ScraperSearchResult() : mdl(GAME_METADATA) { };
+	ScraperSearchResult(std::string scraperName) : mdl(GAME_METADATA) { scraper = scraperName; };
 
-	MetaDataList mdl;
+	MetaDataList	mdl;
+	std::string		p2k;
+	std::string		scraper;
+
 	std::map<MetaDataId, ScraperSearchItem> urls;
-	std::string p2k;
 
 	bool hasMedia()
 	{
@@ -225,6 +228,11 @@ public:
 	static std::vector<std::pair<std::string, Scraper*>> scrapers;
 	
 	static Scraper* getScraper(const std::string name = "");
+	static std::string getScraperName(Scraper* scraper);
+	
+	static int getScraperIndex(const std::string& name);
+	static std::string getScraperNameFromIndex(int index);
+
 	static std::vector<std::string> getScraperList();
 	static bool isValidConfiguredScraper();
 
@@ -236,6 +244,7 @@ public:
 	virtual const std::set<ScraperMediaSource>& getSupportedMedias() = 0;
 
 	virtual	bool hasMissingMedia(FileData* file);
+	virtual	bool hasAnyMedia(FileData* file);
 
 	std::unique_ptr<ScraperSearchHandle> search(const ScraperSearchParams& params);
 

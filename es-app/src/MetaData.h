@@ -7,8 +7,11 @@
 #include <functional>
 #include <string>
 
+#include "utils/TimeUtil.h"
+
 class SystemData;
 class FileData;
+class Scraper;
 
 namespace pugi { class xml_node; }
 
@@ -168,7 +171,12 @@ public:
 
 	std::string getRelativeRootPath();
 
+	void setScrapeDate(const std::string& scraper);
+	Utils::Time::DateTime* getScrapeDate(const std::string& scraper);
+
 private:
+	std::map<int, Utils::Time::DateTime> mScrapeDates;
+
 	std::string		mName;
 	MetaDataListType mType;
 	std::map<MetaDataId, std::string> mMap;

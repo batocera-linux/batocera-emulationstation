@@ -15,11 +15,17 @@
 #include "Settings.h"
 #include "animations/LambdaAnimation.h"
 
-template<typename T>
-class GuiLoading : public GuiComponent
+class IGuiLoadingHandler
 {
 public:
-	GuiLoading(Window *window, const std::string title, const std::function<T()> &func, const std::function<void(T)> &func2 = nullptr) 
+	virtual void setText(const std::string& text) = 0;
+};
+
+template<typename T>
+class GuiLoading : public GuiComponent, public IGuiLoadingHandler
+{
+public:
+	GuiLoading(Window *window, const std::string title, const std::function<T(IGuiLoadingHandler*)> &func, const std::function<void(T)> &func2 = nullptr)
 		: GuiComponent(window), mBusyAnim(window), mFunc(func), mFunc2(func2)
 	{
 		setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
@@ -39,6 +45,12 @@ public:
 	{
 		mRunning = false;
 		mHandle->join();
+	}
+
+	void setText(const std::string& text) override
+	{
+		mBusyAnim.setText(text);
+		mBusyAnim.setSize(mSize);
 	}
 
 	void render(const Transform4x4f &parentTrans) override
@@ -83,14 +95,14 @@ public:
 private:
 	void threadLoading()
 	{
-		result = mFunc();
+		result = mFunc(this);
 		mRunning = false;
 	}
 
     BusyComponent mBusyAnim;
     std::thread *mHandle;
     bool mRunning;
-    const std::function<T()> mFunc;
+    const std::function<T(IGuiLoadingHandler*)> mFunc;
     const std::function<void(T)> mFunc2;
     T result;
 };

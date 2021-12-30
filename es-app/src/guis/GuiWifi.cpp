@@ -104,7 +104,7 @@ void GuiWifi::onRefresh()
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<std::string>>(mWindow, _("SEARCHING WI-FI NETWORKS"), 
-		[this, window]
+		[this, window](auto gui)
 		{
 			mWaitingLoad = true;
 			return ApiSystem::getInstance()->getWifiNetworks(true);

@@ -232,7 +232,11 @@ void ThreadedScraper::acceptResult(ScraperThread& thread)
 
 	ScraperSearchResult& result = thread.getResult();
 	if (result.mdl.getName().empty())
+	{		
+		auto scraperName = Scraper::getScraperName(Scraper::getScraper());
+		thread.getSearchParams().game->getMetadata().setScrapeDate(scraperName);
 		return;
+	}
 
 	ScraperSearchParams& search = thread.getSearchParams();
 	auto game = search.game;
@@ -243,6 +247,7 @@ void ThreadedScraper::acceptResult(ScraperThread& thread)
 		game->importP2k(result.p2k);
 		game->getMetadata().importScrappedMetadata(result.mdl);
 		game->detectLanguageAndRegion(true);
+		game->getMetadata().setScrapeDate(result.scraper);
 
 		LOG(LogDebug) << "ThreadedScraper::saveToGamelistRecovery";
 		saveToGamelistRecovery(game);

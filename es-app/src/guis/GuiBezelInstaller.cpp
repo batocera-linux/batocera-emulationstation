@@ -101,15 +101,15 @@ void GuiBezelInstaller::loadBezelsAsync()
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<BatoceraBezel>>(mWindow, _("PLEASE WAIT"),
-		[this]
-	{
-		return ApiSystem::getInstance()->getBatoceraBezelsList();
-	},
+		[this](auto gui)
+		{
+			return ApiSystem::getInstance()->getBatoceraBezelsList();
+		},
 		[this](std::vector<BatoceraBezel> bezels)
-	{
-		mBezels = bezels;
-		loadList();
-	}
+		{
+			mBezels = bezels;
+			loadList();
+		}
 	));
 }
 

@@ -85,7 +85,7 @@ void GuiBluetooth::onRemoveAll()
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLEASE WAIT"),
-		[this, window]
+		[this, window](auto gui)
 		{
 			mWaitingLoad = true;
 #if WIN32 && _DEBUG
@@ -114,7 +114,7 @@ void GuiBluetooth::onRemoveDevice(const std::string& value)
 		macAddress = macAddress.substr(0, idx);
 
 	mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLEASE WAIT"),
-		[this, window, macAddress]
+		[this, window, macAddress](auto gui)
 		{
 			mWaitingLoad = true;
 

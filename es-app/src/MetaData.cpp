@@ -17,6 +17,14 @@ static std::string* mDefaultGameMap = nullptr;
 static MetaDataType* mGameTypeMap = nullptr;
 static std::map<std::string, MetaDataId> mGameIdMap;
 
+static std::map<std::string, int> KnowScrapersIds =
+{
+	{ "ScreenScraper", 0 },
+	{ "TheGamesDB", 1 },
+	{ "HfsDB", 2 },
+	{ "ArcadeDB", 3 }
+};
+
 void MetaDataList::initMetadata()
 {
 	MetaDataDecl gameDecls[] = 
@@ -149,6 +157,25 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 	for (pugi::xml_node xelement : node.children())
 	{
 		std::string name = xelement.name();
+
+		if (name == "scrap")
+		{
+			if (xelement.attribute("name") && xelement.attribute("date"))
+			{
+				auto scraperId = KnowScrapersIds.find(xelement.attribute("name").value());
+				if (scraperId == KnowScrapersIds.cend())
+					continue;
+				
+				Utils::Time::DateTime dateTime(xelement.attribute("date").value());
+				if (!dateTime.isValid())
+					continue;
+								
+				mdl.mScrapeDates[scraperId->second] = dateTime;
+			}		
+								
+			continue;
+		}
+
 		auto it = mGameIdMap.find(name);
 		if (it == mGameIdMap.cend())
 		{
@@ -293,6 +320,30 @@ void MetaDataList::appendToXML(pugi::xml_node& parent, bool ignoreDefaults, cons
 			parent.append_child(std::get<0>(element).c_str()).text().set(std::get<1>(element).c_str());
 		else 
 			parent.append_attribute(std::get<0>(element).c_str()).set_value(std::get<1>(element).c_str());
+	}
+
+	if (mScrapeDates.size() > 0)
+	{
+		for (auto scrapeDate : mScrapeDates)
+		{
+			std::string name;
+
+			for (auto sids : KnowScrapersIds)
+			{
+				if (sids.second == scrapeDate.first)
+				{
+					name = sids.first;
+					break;
+				}
+			}
+
+			if (!name.empty())
+			{
+				auto scraper = parent.append_child("scrap");
+				scraper.append_attribute("name").set_value(name.c_str());
+				scraper.append_attribute("date").set_value(scrapeDate.second.getIsoString().c_str());
+			}
+		}
 	}
 }
 
@@ -486,4 +537,27 @@ std::string MetaDataList::getRelativeRootPath()
 		return mRelativeTo->getStartPath();
 
 	return "";
+}
+
+void MetaDataList::setScrapeDate(const std::string& scraper)
+{
+	auto it = KnowScrapersIds.find(scraper);
+	if (it == KnowScrapersIds.cend())
+		return;
+
+	mScrapeDates[it->second] = Utils::Time::DateTime::now();
+	mWasChanged = true;
+}
+
+Utils::Time::DateTime* MetaDataList::getScrapeDate(const std::string& scraper)
+{
+	auto it = KnowScrapersIds.find(scraper);
+	if (it != KnowScrapersIds.cend())
+	{
+		auto itd = mScrapeDates.find(it->second);
+		if (itd != mScrapeDates.cend())
+			return &itd->second;
+	}
+
+	return nullptr;
 }

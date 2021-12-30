@@ -8,6 +8,9 @@
 #include "SystemConf.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "guis/GuiMsgBox.h"
+#include "components/SwitchComponent.h"
+#include "components/OptionListComponent.h"
 
 GuiSettings::GuiSettings(Window* window, 
 	const std::string title,
@@ -219,4 +222,121 @@ void GuiSettings::addInputTextRow(const std::string& title, const std::string& s
 	});
 
 	addRow(row);
+}
+
+void GuiSettings::addFileBrowser(const std::string& title, const std::string& settingsID, GuiFileBrowser::FileTypes type, bool storeInSettings)
+{
+	Window* window = mWindow;
+
+	std::string value = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
+
+	auto theme = ThemeData::getMenuTheme();
+
+	ComponentListRow row;
+
+	auto lbl = std::make_shared<TextComponent>(window, Utils::String::toUpper(title), theme->Text.font, theme->Text.color);
+	lbl->setSize(theme->Text.font->sizeText(Utils::String::toUpper(title) + "  ").x(), 0);
+	row.addElement(lbl, false); // label
+
+	std::shared_ptr<TextComponent> ed = std::make_shared<TextComponent>(window, "", theme->Text.font, theme->Text.color, ALIGN_RIGHT);
+	row.addElement(ed, true);
+
+	auto spacer = std::make_shared<GuiComponent>(window);
+	spacer->setSize(Renderer::getScreenWidth() * 0.005f, 0);
+	row.addElement(spacer, false);
+
+	auto bracket = std::make_shared<ImageComponent>(window);
+	bracket->setImage(ThemeData::getMenuTheme()->Icons.arrow);
+	bracket->setResize(Vector2f(0, lbl->getFont()->getLetterHeight()));
+	row.addElement(bracket, false);
+
+	std::string localSettingsID = settingsID;
+	bool localStoreInSettings = storeInSettings;
+
+	auto updateVal = [this, ed, localSettingsID, localStoreInSettings](const std::string &newVal)
+	{
+		ed->setValue(newVal);			
+		mMenu.updateSize();
+
+		if (localStoreInSettings)
+			Settings::getInstance()->setString(localSettingsID, newVal);
+		else
+			SystemConf::getInstance()->set(localSettingsID, newVal);
+	};
+
+	row.makeAcceptInputHandler([window, title, type, ed, updateVal]
+	{
+		auto parent = Utils::FileSystem::getParent(ed->getValue());
+		window->pushGui(new GuiFileBrowser(window, parent, ed->getValue(), type, updateVal, title));
+	});
+
+	ed->setValue(value);
+
+
+	addRow(row);
+}
+
+std::shared_ptr<SwitchComponent> GuiSettings::addSwitch(const std::string& title, const std::string& description, const std::string& settingsID, bool storeInSettings, const std::function<void()>& onChanged)
+{
+	Window* window = mWindow;
+
+	bool value = storeInSettings ? Settings::getInstance()->getBool(settingsID) : SystemConf::getInstance()->getBool(settingsID);
+
+	auto comp = std::make_shared<SwitchComponent>(mWindow);
+	comp->setState(value);
+
+	if (!description.empty())
+		addWithDescription(title, description, comp);
+	else 
+		addWithLabel(title, comp);
+
+	std::string localSettingsID = settingsID;
+	bool localStoreInSettings = storeInSettings;
+
+	addSaveFunc([comp, localStoreInSettings, localSettingsID, onChanged]
+	{
+		bool changed = localStoreInSettings ? Settings::getInstance()->setBool(localSettingsID, comp->getState()) : SystemConf::getInstance()->setBool(localSettingsID, comp->getState());
+		if (changed && onChanged != nullptr)
+			onChanged();
+	});
+
+	return comp;
+}
+
+std::shared_ptr<OptionListComponent<std::string>> GuiSettings::addOptionList(const std::string& title, const std::string& description, const std::vector<std::pair<std::string, std::string>>& values, const std::string& settingsID, bool storeInSettings, const std::function<void()>& onChanged)
+{
+	Window* window = mWindow;
+
+	std::string value = storeInSettings ? Settings::getInstance()->getString(settingsID) : SystemConf::getInstance()->get(settingsID);
+
+	auto comp = std::make_shared<OptionListComponent<std::string>>(mWindow, title, false);
+	comp->addRange(values, value);
+
+	if (!description.empty())
+		addWithDescription(title, description, comp);
+	else 
+		addWithLabel(title, comp);
+
+	std::string localSettingsID = settingsID;
+	bool localStoreInSettings = storeInSettings;
+
+	addSaveFunc([comp, localStoreInSettings, localSettingsID, onChanged]
+	{
+		bool changed = localStoreInSettings ? Settings::getInstance()->setString(localSettingsID, comp->getSelected()) : SystemConf::getInstance()->set(localSettingsID, comp->getSelected());
+		if (changed && onChanged != nullptr)
+			onChanged();
+	});
+
+	return comp;
+}
+
+bool GuiSettings::checkNetwork()
+{
+	if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+	{
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
+		return false;
+	}
+
+	return true;
 }

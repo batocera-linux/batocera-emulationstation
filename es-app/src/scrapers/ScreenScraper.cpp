@@ -432,7 +432,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 	for (pugi::xml_node game = data.child("jeu"); game; game = game.next_sibling("jeu"))
 	{
-		ScraperSearchResult result;
+		ScraperSearchResult result("ScreenScraper");
 		ScreenScraperRequest::ScreenScraperConfig ssConfig;
 
 		std::string region = Utils::String::toLower(ssConfig.region);

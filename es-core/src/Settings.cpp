@@ -133,6 +133,8 @@ void Settings::setDefaults()
 
 	mBoolMap["GameOptionsAtNorth"] = false;
 
+	mIntMap["RecentlyScrappedFilter"] = 3;
+	
 	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
 	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;

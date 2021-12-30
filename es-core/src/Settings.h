@@ -55,6 +55,8 @@ public:
 	DEFINE_STRING_SETTING(GameTransitionStyle)		
 	DEFINE_STRING_SETTING(PowerSaverMode)		
 
+	DEFINE_INT_SETTING(RecentlyScrappedFilter)
+
 private:
 	static Settings* sInstance;
 
