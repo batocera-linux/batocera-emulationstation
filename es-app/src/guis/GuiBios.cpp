@@ -18,7 +18,7 @@
 void GuiBios::show(Window* window)
 {
 	window->pushGui(new GuiLoading<std::vector<BiosSystem>>(window, _("PLEASE WAIT"),
-		[] { return ApiSystem::getInstance()->getBiosInformations(); },
+		[](auto gui) { return ApiSystem::getInstance()->getBiosInformations(); },
 		[window](std::vector<BiosSystem> ra) 
 	{ 
 		if (ra.size() == 0)
@@ -44,7 +44,7 @@ GuiBios::GuiBios(Window* window, const std::vector<BiosSystem> bioses)
 void GuiBios::refresh()
 {
 	mWindow->pushGui(new GuiLoading<std::vector<BiosSystem>>(mWindow, _("PLEASE WAIT"),
-		[] { return ApiSystem::getInstance()->getBiosInformations(); },
+		[](auto gui) { return ApiSystem::getInstance()->getBiosInformations(); },
 		[this](std::vector<BiosSystem> ra) { mBios = ra; loadList(); }));
 }
 

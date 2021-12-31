@@ -363,6 +363,68 @@ msgstr "PAQUET INSTAL·LAT SATISFACTÒRIAMENT"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAQUET ELIMINAT SATISFACTÒRIAMENT"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "CONFIGURACIÓ"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS (TROFEUS)"
+
+msgid "HARDCORE MODE"
+msgstr "MODE HARDCORE"
+
+msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr ""
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "cap"
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "USUARI"
+
+msgid "PASSWORD"
+msgstr "CONTRASENYA"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "ACCEPTA"
+
 msgid "FILTER GAMELIST BY"
 msgstr "FILTRAR LLISTA DE JOCS PER"
 
@@ -502,9 +564,6 @@ msgstr "SI US PLAU, ESPERI"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS (TROFEUS)"
-
 msgid "Points"
 msgstr "Punts"
 
@@ -517,11 +576,38 @@ msgstr "VEURE DETALLS"
 msgid "LAUNCH"
 msgstr "EXECUTA"
 
+msgid "NETPLAY SETTINGS"
+msgstr ""
+
+msgid "ENABLE NETPLAY"
+msgstr ""
+
+msgid "NICKNAME"
+msgstr ""
+
+msgid "PORT"
+msgstr ""
+
+msgid "USE RELAY SERVER"
+msgstr ""
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "FINALITZAT"
-
-msgid "OK"
-msgstr "ACCEPTA"
 
 msgid "go back"
 msgstr "tornar enrere"
@@ -667,6 +753,9 @@ msgstr "NO S’HA TROBAR CAP XARXA WIFI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "BUSCANT XARXES WIFI"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NO ESTÀS CONNECTAT A CAP XARXA"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "OBLIDAR UN COMANDAMENT BLUETOOTH"
 
@@ -762,9 +851,6 @@ msgstr "començar i acabar"
 msgid "never"
 msgstr "mai"
 
-msgid "none"
-msgstr "cap"
-
 msgid "systems"
 msgstr "sistemes"
 
@@ -773,9 +859,6 @@ msgstr "aleatori"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "CONFIGURACIÓ D'ESTALVI DE PANTALLA"
-
-msgid "SETTINGS"
-msgstr "CONFIGURACIÓ"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "ESTALVI DE PANTALLA DESPRÉS DE"
@@ -966,7 +1049,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "OBRIR"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -975,20 +1058,17 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "INICIAR JOC"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "NO ESTÀS CONNECTAT A CAP XARXA"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "MOSTRAR COM PARTIDA PÚBLICA"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "CONTRASENYA PER JUGADORS"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "CONTRASENYA PER ESPECTADORS"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "DELETE ITEM"
 msgstr "ESBORRAR ELEMENT"
@@ -1063,20 +1143,116 @@ msgstr "RANURA"
 msgid "COPY TO FREE SLOT"
 msgstr "COPIAR A UNA RANURA LLIURE"
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr ""
+
+msgid "SCREENSHOT"
+msgstr ""
+
+msgid "TITLE SCREENSHOT"
+msgstr ""
+
+msgid "MIX V1"
+msgstr ""
+
+msgid "MIX V2"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr ""
+
+msgid "BOX 3D"
+msgstr ""
+
+msgid "FAN ART"
+msgstr ""
+
+msgid "BOX SOURCE"
+msgstr ""
+
+msgid "LOGO SOURCE"
+msgstr ""
+
+msgid "WHEEL"
+msgstr ""
+
+msgid "MARQUEE"
+msgstr ""
+
+msgid "SCRAPE RATINGS"
+msgstr "OBTENIR DADES DE VALORACIÓ"
+
+msgid "SCRAPE VIDEOS"
+msgstr ""
+
+msgid "SCRAPE FANART"
+msgstr ""
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
+
+msgid "SCRAPE MAP"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr ""
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCRAPER"
+msgstr "SCRAPER"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "OBTENIR DADES DE"
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
-msgstr "Només audiovisuals que falten"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "INICIAR L’OBTENCIÓ DE DADES"
 
 msgid "START"
 msgstr "COMENÇA"
@@ -1092,6 +1268,24 @@ msgstr "OBTENCIÓ D’INFORMACIÓ EXECUTANT-SE. VOLS PARAR-LO?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NO HI HA CAP JOC QUE COMPLEIXI AQUESTS CRITERIS."
+
+msgid "INFORMATION"
+msgstr ""
+
+msgid "VERSION"
+msgstr "VERSIÓ"
+
+msgid "USER DISK USAGE"
+msgstr ""
+
+msgid "SYSTEM DISK USAGE"
+msgstr ""
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "THE BEZEL PROJECT"
 msgstr "THE BEZEL PROJECT"
@@ -1171,9 +1365,6 @@ msgstr ""
 msgid "RENDERER"
 msgstr ""
 
-msgid "VERSION"
-msgstr "VERSIÓ"
-
 msgid "SHADERS"
 msgstr ""
 
@@ -1207,9 +1398,6 @@ msgstr "CONFIGUREU L'ENTRADA"
 msgid "EMULATOR SETTINGS"
 msgstr "CONFIGURACIÓ D'EMULADOR"
 
-msgid "SCRAPER"
-msgstr "SCRAPER"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "ACTUALITZACIONS I DESCÀRREGUES"
 
@@ -1222,81 +1410,6 @@ msgstr "DESBLOQUEDAR MODE D'IU"
 msgid "QUIT"
 msgstr "SURT"
 
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "ORIGEN D'IMATGE"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURA"
-
-msgid "TITLE SCREENSHOT"
-msgstr "CAPTURA DE TÍTOL"
-
-msgid "MIX V1"
-msgstr ""
-
-msgid "MIX V2"
-msgstr ""
-
-msgid "BOX 2D"
-msgstr ""
-
-msgid "BOX 3D"
-msgstr ""
-
-msgid "FAN ART"
-msgstr ""
-
-msgid "BOX SOURCE"
-msgstr "ORIGEN DE LA CAIXA"
-
-msgid "LOGO SOURCE"
-msgstr "ORIGEN DEL LOGOTIP"
-
-msgid "WHEEL"
-msgstr "RODA"
-
-msgid "MARQUEE"
-msgstr "MARQUESINA"
-
-msgid "SCRAPE RATINGS"
-msgstr "OBTENIR DADES DE VALORACIÓ"
-
-msgid "SCRAPE VIDEOS"
-msgstr ""
-
-msgid "SCRAPE FANART"
-msgstr ""
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
-
-msgid "SCRAPE MAP"
-msgstr ""
-
-msgid "SCRAPE MANUAL"
-msgstr ""
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "USERNAME"
-msgstr "USUARI"
-
-msgid "PASSWORD"
-msgstr "CONTRASENYA"
-
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "ESTÀ SEGUR DE VOLER CONFIGURAR L'ENTRADA?"
 
@@ -1308,21 +1421,6 @@ msgstr "EL MODE D'UI ESTÀ DESBLOQUEJAT"
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "SI US PLAU ENTRI EL CODI PER DESBLOQUEJAR EL MODE D'UI ACTUAL"
-
-msgid "INFORMATION"
-msgstr "INFORMACIÓ"
-
-msgid "USER DISK USAGE"
-msgstr "ESPAI DE DISC USAT PER L'USUARI"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "ESPAI DE DISC USAT PEL SISTEMA"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "VIDEO DRIVER"
-msgstr ""
 
 msgid "DEVELOPER"
 msgstr "DESENVOLUPADOR"
@@ -1624,12 +1722,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "CONFIGURACIÓ DE NETPLAY"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr ""
 
@@ -1727,62 +1819,6 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "MODE HARDCORE"
-
-msgid "LEADERBOARDS"
-msgstr "TAULES DE LIDERATGE"
-
-msgid "VERBOSE MODE"
-msgstr "MODE VERBÓS"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "CAPTURA AUTOMÀTICA"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr ""
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "MOSTRAR AL MENÚ PRINCIPAL"
-
-msgid "ENABLE NETPLAY"
-msgstr "ENCENDRE NETPLAY"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "NICKNAME"
-msgstr "SOBRENOM"
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "USE RELAY SERVER"
-msgstr "USAR SERVIDOR DE RETRANSMISSIÓ"
-
-msgid "GAME INDEXES"
-msgstr "ÍNDEXS DE JOC"
-
-msgid "CHECK MISSING INDEXES AT STARTUP"
-msgstr "VERIFICAR ÍNDEXS INEXISTENS L'ARRENCAR"
-
-msgid "REINDEX ALL GAMES"
-msgstr "RE-INDEXAR TOTS ELS JOCS"
 
 msgid "DECORATION SET"
 msgstr ""
@@ -1885,6 +1921,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓ AVANÇADA PER SISTEMA"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
@@ -2005,6 +2044,9 @@ msgstr "OPCIONS DE VISUALITZACIÓ"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "ESTIL DE LES TRANSICIONS"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSICIÓ D'EXECUCIÓ DE JOC"
@@ -2238,6 +2280,9 @@ msgid "ZOOM"
 msgstr ""
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2773,6 +2818,12 @@ msgstr ""
 msgid "SCREEN READER DISABLED"
 msgstr ""
 
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "CONTRASENYA PER JUGADORS"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "CONTRASENYA PER ESPECTADORS"
+
 #~ msgid "START AUTO SAVE"
 #~ msgstr "NOU AUTOGUARDAT"
 
@@ -2890,9 +2941,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "SELECCIONAR TEMES PER INSTAL·LAR, DESINSTAL·LAR O ACTUALITZAR"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "INICIAR L’OBTENCIÓ DE DADES"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "OBTENIR DADES D'AQUESTS JOCS"
 
@@ -2922,9 +2970,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "INFORMACIÓ"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "OBTENIR DADES DE"
 
 #~ msgid "TIMEZONE"
 #~ msgstr "ZONA HORÀRIA"

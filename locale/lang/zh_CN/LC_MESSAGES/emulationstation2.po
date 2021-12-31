@@ -359,6 +359,68 @@ msgstr "包安装成功"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "包卸载成功"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "设置"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RetroArch成就"
+
+msgid "HARDCORE MODE"
+msgstr "专家模式"
+
+msgid "LEADERBOARDS"
+msgstr "排行榜"
+
+msgid "VERBOSE MODE"
+msgstr "详细模式"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "自动截图"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "无"
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "用户名"
+
+msgid "PASSWORD"
+msgstr "密码"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "游戏索引"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "确定"
+
 msgid "FILTER GAMELIST BY"
 msgstr "游戏列表筛选方式:"
 
@@ -498,9 +560,6 @@ msgstr "请稍后"
 msgid "%d%% (%d of %d)"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RetroArch成就"
-
 msgid "Points"
 msgstr ""
 
@@ -513,11 +572,41 @@ msgstr ""
 msgid "LAUNCH"
 msgstr "启动"
 
+msgid "NETPLAY SETTINGS"
+msgstr "联网游戏设置"
+
+msgid "ENABLE NETPLAY"
+msgstr "启用联网游戏"
+
+msgid "NICKNAME"
+msgstr "昵称"
+
+msgid "PORT"
+msgstr "端口"
+
+msgid "USE RELAY SERVER"
+msgstr "使用中继服务"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "完成"
 
-msgid "OK"
-msgstr "确定"
+msgid "VIEW OPTIONS"
+msgstr "视图选项"
 
 msgid "go back"
 msgstr "返回"
@@ -566,9 +655,6 @@ msgstr "游戏列表样式"
 
 msgid "automatic"
 msgstr "自动"
-
-msgid "VIEW OPTIONS"
-msgstr "视图选项"
 
 msgid "VIEW CUSTOMIZATION"
 msgstr "视图自定义"
@@ -675,6 +761,9 @@ msgstr "未发现可用的WIFI网络"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "正在查询WIFI网络"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "你没联网"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
@@ -770,9 +859,6 @@ msgstr "开始和结束"
 msgid "never"
 msgstr "从未"
 
-msgid "none"
-msgstr "无"
-
 msgid "systems"
 msgstr "系统"
 
@@ -781,9 +867,6 @@ msgstr "随机"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "屏保设置"
-
-msgid "SETTINGS"
-msgstr "设置"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "屏保等待时间"
@@ -969,7 +1052,7 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -978,19 +1061,16 @@ msgstr "联网游戏"
 msgid "START GAME"
 msgstr ""
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "你没联网"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr ""
 
-msgid "SET PLAYER PASSWORD"
+msgid "PLAYER PASSWORD"
 msgstr ""
 
-msgid "SET VIEWER PASSWORD"
+msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "DELETE ITEM"
@@ -1073,20 +1153,116 @@ msgstr ""
 msgid "COPY TO FREE SLOT"
 msgstr ""
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr "图片数据"
+
+msgid "SCREENSHOT"
+msgstr "截图"
+
+msgid "TITLE SCREENSHOT"
+msgstr "标题截图"
+
+msgid "MIX V1"
+msgstr "V1 滤镜"
+
+msgid "MIX V2"
+msgstr "V2 滤镜"
+
+msgid "BOX 2D"
+msgstr "2D 盒子"
+
+msgid "BOX 3D"
+msgstr "3D 盒子"
+
+msgid "FAN ART"
+msgstr "同人作品"
+
+msgid "BOX SOURCE"
+msgstr "封面数据"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO数据"
+
+msgid "WHEEL"
+msgstr "旋转"
+
+msgid "MARQUEE"
+msgstr "蒙版"
+
+msgid "SCRAPE RATINGS"
+msgstr "抓取游戏评分"
+
+msgid "SCRAPE VIDEOS"
+msgstr "抓取视频"
+
+msgid "SCRAPE FANART"
+msgstr "抓取同人作品"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
+
+msgid "SCRAPE MAP"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr "抓取手册"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "抓取pad按键设置"
+
+msgid "SCRAPER"
+msgstr "抓取元数据"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "游戏数据来源"
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
 msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "开始抓取"
 
 msgid "START"
 msgstr "开始"
@@ -1102,6 +1278,24 @@ msgstr "抓取进行中"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有匹配的游戏。"
+
+msgid "INFORMATION"
+msgstr "系统信息"
+
+msgid "VERSION"
+msgstr "版本"
+
+msgid "USER DISK USAGE"
+msgstr "用户磁盘使用"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "系统磁盘使用"
+
+msgid "SYSTEM"
+msgstr "系统"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "THE BEZEL PROJECT"
 msgstr "框架项目"
@@ -1181,9 +1375,6 @@ msgstr ""
 msgid "RENDERER"
 msgstr ""
 
-msgid "VERSION"
-msgstr "版本"
-
 msgid "SHADERS"
 msgstr ""
 
@@ -1217,98 +1408,17 @@ msgstr "配置控制器"
 msgid "EMULATOR SETTINGS"
 msgstr "模拟器设置"
 
-msgid "SCRAPER"
-msgstr "抓取元数据"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "更新文件和下载文件"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
 
-msgid "INFORMATION"
-msgstr "系统信息"
-
 msgid "UNLOCK UI MODE"
 msgstr "界面不锁定"
 
 msgid "QUIT"
 msgstr "退出"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "图片数据"
-
-msgid "SCREENSHOT"
-msgstr "截图"
-
-msgid "TITLE SCREENSHOT"
-msgstr "标题截图"
-
-msgid "MIX V1"
-msgstr "V1 滤镜"
-
-msgid "MIX V2"
-msgstr "V2 滤镜"
-
-msgid "BOX 2D"
-msgstr "2D 盒子"
-
-msgid "BOX 3D"
-msgstr "3D 盒子"
-
-msgid "FAN ART"
-msgstr "同人作品"
-
-msgid "BOX SOURCE"
-msgstr "封面数据"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO数据"
-
-msgid "WHEEL"
-msgstr "旋转"
-
-msgid "MARQUEE"
-msgstr "蒙版"
-
-msgid "SCRAPE RATINGS"
-msgstr "抓取游戏评分"
-
-msgid "SCRAPE VIDEOS"
-msgstr "抓取视频"
-
-msgid "SCRAPE FANART"
-msgstr "抓取同人作品"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
-
-msgid "SCRAPE MAP"
-msgstr ""
-
-msgid "SCRAPE MANUAL"
-msgstr "抓取手册"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "抓取pad按键设置"
-
-msgid "USERNAME"
-msgstr "用户名"
-
-msgid "PASSWORD"
-msgstr "密码"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
@@ -1320,18 +1430,6 @@ msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr ""
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
-
-msgid "USER DISK USAGE"
-msgstr "用户磁盘使用"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "系统磁盘使用"
-
-msgid "SYSTEM"
-msgstr "系统"
-
-msgid "VIDEO DRIVER"
 msgstr ""
 
 msgid "DEVELOPER"
@@ -1622,12 +1720,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "联网游戏设置"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "在启动游戏前检查BIOS"
 
@@ -1725,59 +1817,6 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "专家模式"
-
-msgid "LEADERBOARDS"
-msgstr "排行榜"
-
-msgid "VERBOSE MODE"
-msgstr "详细模式"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "自动截图"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr ""
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "游戏索引"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "ENABLE NETPLAY"
-msgstr "启用联网游戏"
-
-msgid "NICKNAME"
-msgstr "昵称"
-
-msgid "PORT"
-msgstr "端口"
-
-msgid "USE RELAY SERVER"
-msgstr "使用中继服务"
 
 msgid "DECORATION SET"
 msgstr ""
@@ -1892,6 +1931,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "按系统配置"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "正在效验游戏.你想停止吗?"
@@ -2012,6 +2054,9 @@ msgstr "视图画面选项"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "画面转场样式"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "游戏启动过程"
@@ -2235,6 +2280,9 @@ msgid "ZOOM"
 msgstr ""
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2870,9 +2918,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "选择主题安装 / 卸载"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "开始抓取"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "抓取游戏元数据"
 
@@ -2902,9 +2947,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "信息"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "游戏数据来源"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "你确定需要设置控制器吗"

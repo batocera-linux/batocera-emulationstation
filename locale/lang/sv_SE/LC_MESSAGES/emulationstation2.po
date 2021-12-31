@@ -358,6 +358,70 @@ msgstr "PAKET INSTALLERAT"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAKET BORTTAGET"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR RETROPRESTATIONER"
+
+msgid "SETTINGS"
+msgstr "INSTÄLLNINGAR"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROPRESTATIONER"
+
+msgid "HARDCORE MODE"
+msgstr "HARDCORE-LÄGE"
+
+msgid "LEADERBOARDS"
+msgstr "TOPPLISTOR"
+
+msgid "VERBOSE MODE"
+msgstr "MÅNGSIDIGT LÄGE"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "AUTOMATISK SKÄRMDUMP"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "UTMANINGSINDIKATORER"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Visar ikoner i det nedre högra hörnet när kvalificerade prestationer kan "
+"tjänas in."
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "UPPLÅSNINGSLJUD FÖR RETROPRESTATION"
+
+msgid "none"
+msgstr "inga"
+
+msgid "UNLOCK SOUND"
+msgstr "UPPLÅSNINGSLJUD"
+
+msgid "USERNAME"
+msgstr "ANVÄNDARNAMN"
+
+msgid "PASSWORD"
+msgstr "LÖSENORD"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "VISA RETROPRESTATIONSPOSTER I HUVUDMENYN"
+
+msgid "GAME INDEXES"
+msgstr "SPELINDEX"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXERA NYA SPEL VID UPPSTART"
+
+msgid "INDEX GAMES"
+msgstr "INDEXERA SPEL"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "KUNDE INTE AKTIVERA RETROPRESTATIONER:"
+
+msgid "OK"
+msgstr "OK"
+
 msgid "FILTER GAMELIST BY"
 msgstr "FILTRERA SPELLISTAN EFTER"
 
@@ -494,9 +558,6 @@ msgstr "VÄNLIGEN VÄNTA"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d av %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROPRESTATIONER"
-
 msgid "Points"
 msgstr "Poäng"
 
@@ -509,11 +570,38 @@ msgstr "VISA DETALJER"
 msgid "LAUNCH"
 msgstr "STARTA"
 
+msgid "NETPLAY SETTINGS"
+msgstr "INSTÄLLNINGAR FÖR NETPLAY"
+
+msgid "ENABLE NETPLAY"
+msgstr "AKTIVERA NETPLAY"
+
+msgid "NICKNAME"
+msgstr "SMEKNAMN"
+
+msgid "PORT"
+msgstr "PORT"
+
+msgid "USE RELAY SERVER"
+msgstr "ANVÄND RELÄSERVER"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "SLUTFÖRD"
-
-msgid "OK"
-msgstr "OK"
 
 msgid "VIEW OPTIONS"
 msgstr "VISNINGSALTERNATIV"
@@ -629,6 +717,9 @@ msgstr "INGA TRÅDLÖSA NÄTVERK HITTADES"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SÖKER EFTER TRÅDLÖSA NÄTVERK"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "DU ÄR INTE ANSLUTEN TILL ETT NÄTVERK"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "GLÖM EN BLUETOOTH-ENHET"
 
@@ -724,9 +815,6 @@ msgstr "början & slut"
 msgid "never"
 msgstr "aldrig"
 
-msgid "none"
-msgstr "inga"
-
 msgid "systems"
 msgstr "system"
 
@@ -735,9 +823,6 @@ msgstr "slumpmässig"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "SKÄRMSLÄCKARINSTÄLLNINGAR"
-
-msgid "SETTINGS"
-msgstr "INSTÄLLNINGAR"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "STARTA SKÄRMSLÄCKAREN EFTER"
@@ -940,8 +1025,8 @@ msgstr "SAVE STATES"
 msgid "OPEN"
 msgstr "ÖPPNA"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "NETPLAY VÄRD/ALTERNATIV"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -949,20 +1034,17 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "STARTA SPEL"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "BÖRJA VARA VÄRD FÖR EN NETPLAY-SESSION"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "DU ÄR INTE ANSLUTEN TILL ETT NÄTVERK"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ANNONSERA SPELET OFFENTLIGT"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "STÄLL IN SPELARLÖSENORD"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "STÄLL IN ÅSKÅDARLÖSENORD"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "HITTA LIKNANDE SPEL..."
@@ -1056,20 +1138,116 @@ msgstr "PLATS"
 msgid "COPY TO FREE SLOT"
 msgstr "KOPIERA TILL LEDIG PLATS"
 
-msgid "SCRAPE CRITERIA"
-msgstr "SKRAPNINGSKRITERIER"
+msgid "SCRAPER SETTINGS"
+msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
-msgstr "MEDIA ATT SKRAPA FÖR"
+msgid "IMAGE SOURCE"
+msgstr "BILDKÄLLA"
+
+msgid "SCREENSHOT"
+msgstr "SKÄRMDUMP"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITELSKÄRMDUMP"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "2D-BOX"
+
+msgid "BOX 3D"
+msgstr "3D-BOX"
+
+msgid "FAN ART"
+msgstr "ENTHUSIASTKONST"
+
+msgid "BOX SOURCE"
+msgstr "BOXKÄLLA"
+
+msgid "LOGO SOURCE"
+msgstr "LOGOTYPKÄLLA"
+
+msgid "WHEEL"
+msgstr "HJUL"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "SCRAPE RATINGS"
+msgstr "SKRAPA BETYG"
+
+msgid "SCRAPE VIDEOS"
+msgstr "SKRAPA VIDEOR"
+
+msgid "SCRAPE FANART"
+msgstr "SKRAPA ENTHUSIASTKONST"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "SKRAPA RAM (16:9)"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "SKRAPA BOXBAKSIDA"
+
+msgid "SCRAPE MAP"
+msgstr "SKRAPA KARTA"
+
+msgid "SCRAPE MANUAL"
+msgstr "SKRAPA MANUAL"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "SKRAPA 'PADTOKEY'-INSTÄLLNINGAR"
+
+msgid "SCRAPER"
+msgstr "SKRAPNING"
+
+msgid "SCRAPING DATABASE"
+msgstr "SKRAPNINGSDATABAS"
+
+msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
 
 msgid "ALL"
 msgstr "ALLA"
 
-msgid "ONLY MISSING"
-msgstr "ENDAST SAKNADE"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr "INKLUDERADE SYSTEM"
+
+msgid "SCRAPE NOW"
+msgstr ""
 
 msgid "START"
 msgstr "START"
@@ -1088,6 +1266,24 @@ msgstr "SKRAPNING PÅGÅR. VILL DU STOPPA DEN?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "INGA SPEL MATCHAR DESSA KRITERIER."
+
+msgid "INFORMATION"
+msgstr "INFORMATION"
+
+msgid "VERSION"
+msgstr "VERSION"
+
+msgid "USER DISK USAGE"
+msgstr "DISKANVÄNDNING (ANVÄNDARE)"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "DISKANVÄNDNING (SYSTEM)"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "VIDEO DRIVER"
+msgstr "GRAFIKDRIVRUTIN"
 
 msgid "THE BEZEL PROJECT"
 msgstr "RAMPROJEKTET"
@@ -1167,9 +1363,6 @@ msgstr "LEVERANTÖR"
 msgid "RENDERER"
 msgstr "RENDERARE"
 
-msgid "VERSION"
-msgstr "VERSION"
-
 msgid "SHADERS"
 msgstr "SHADERS"
 
@@ -1203,98 +1396,17 @@ msgstr "KONFIGURERA INPUT"
 msgid "EMULATOR SETTINGS"
 msgstr "EMULATORINSTÄLLNINGAR"
 
-msgid "SCRAPER"
-msgstr "SKRAPNING"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "UPPDATERINGAR & NEDLADDNINGAR"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
 
-msgid "INFORMATION"
-msgstr "INFORMATION"
-
 msgid "UNLOCK UI MODE"
 msgstr "LÅS UPP UI-LÄGE"
 
 msgid "QUIT"
 msgstr "AVSLUTA"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "SKRAPNING PÅGÅR. VILL DU STOPPA DEN?"
-
-msgid "NEXT"
-msgstr "NÄSTA"
-
-msgid "SCRAPING DATABASE"
-msgstr "SKRAPNINGSDATABAS"
-
-msgid "IMAGE SOURCE"
-msgstr "BILDKÄLLA"
-
-msgid "SCREENSHOT"
-msgstr "SKÄRMDUMP"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITELSKÄRMDUMP"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "2D-BOX"
-
-msgid "BOX 3D"
-msgstr "3D-BOX"
-
-msgid "FAN ART"
-msgstr "ENTHUSIASTKONST"
-
-msgid "BOX SOURCE"
-msgstr "BOXKÄLLA"
-
-msgid "LOGO SOURCE"
-msgstr "LOGOTYPKÄLLA"
-
-msgid "WHEEL"
-msgstr "HJUL"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "SCRAPE RATINGS"
-msgstr "SKRAPA BETYG"
-
-msgid "SCRAPE VIDEOS"
-msgstr "SKRAPA VIDEOR"
-
-msgid "SCRAPE FANART"
-msgstr "SKRAPA ENTHUSIASTKONST"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "SKRAPA RAM (16:9)"
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "SKRAPA BOXBAKSIDA"
-
-msgid "SCRAPE MAP"
-msgstr "SKRAPA KARTA"
-
-msgid "SCRAPE MANUAL"
-msgstr "SKRAPA MANUAL"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SKRAPA 'PADTOKEY'-INSTÄLLNINGAR"
-
-msgid "USERNAME"
-msgstr "ANVÄNDARNAMN"
-
-msgid "PASSWORD"
-msgstr "LÖSENORD"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "ÄR DU SÄKER PÅ ATT DU VILL KONFIGURERA INPUT?"
@@ -1307,18 +1419,6 @@ msgstr "UI-LÄGET ÄR NU OLÅST"
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "ANGE KODEN FÖR ATT LÅSA UPP DET AKTUELLA UI-LÄGET"
-
-msgid "USER DISK USAGE"
-msgstr "DISKANVÄNDNING (ANVÄNDARE)"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "DISKANVÄNDNING (SYSTEM)"
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
-
-msgid "VIDEO DRIVER"
-msgstr "GRAFIKDRIVRUTIN"
 
 msgid "DEVELOPER"
 msgstr "UTVECKLARE"
@@ -1619,12 +1719,6 @@ msgstr "BATOCERA UPPSTARTSBILD"
 msgid "SPLASH SETTING"
 msgstr "INSTÄLLNINGAR FÖR UPPSTARTSBILD"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR RETROPRESTATIONER"
-
-msgid "NETPLAY SETTINGS"
-msgstr "INSTÄLLNINGAR FÖR NETPLAY"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "KONTROLLERA BIOS-FILER INNAN ETT SPEL KÖRS"
 
@@ -1724,61 +1818,6 @@ msgid ""
 msgstr ""
 "Minska automatiskt bildfördröjningen tillfälligt för att förhindra tappade "
 "bildrutor (frame drops). Stäng av om detta förvärrar ljud/video."
-
-msgid "HARDCORE MODE"
-msgstr "HARDCORE-LÄGE"
-
-msgid "LEADERBOARDS"
-msgstr "TOPPLISTOR"
-
-msgid "VERBOSE MODE"
-msgstr "MÅNGSIDIGT LÄGE"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "AUTOMATISK SKÄRMDUMP"
-
-msgid "CHALLENGE INDICATORS"
-msgstr "UTMANINGSINDIKATORER"
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-"Visar ikoner i det nedre högra hörnet när kvalificerade prestationer kan "
-"tjänas in."
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "UPPLÅSNINGSLJUD FÖR RETROPRESTATION"
-
-msgid "UNLOCK SOUND"
-msgstr "UPPLÅSNINGSLJUD"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "VISA RETROPRESTATIONSPOSTER I HUVUDMENYN"
-
-msgid "GAME INDEXES"
-msgstr "SPELINDEX"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXERA NYA SPEL VID UPPSTART"
-
-msgid "INDEX GAMES"
-msgstr "INDEXERA SPEL"
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "KUNDE INTE AKTIVERA RETROPRESTATIONER:"
-
-msgid "ENABLE NETPLAY"
-msgstr "AKTIVERA NETPLAY"
-
-msgid "NICKNAME"
-msgstr "SMEKNAMN"
-
-msgid "PORT"
-msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "ANVÄND RELÄSERVER"
 
 msgid "DECORATION SET"
 msgstr "DEKORATIONSUPPSÄTTNING"
@@ -1893,6 +1932,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "AVANCERAD KONFIGURATION PER SYSTEM"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "SKRAPNING PÅGÅR. VILL DU STOPPA DEN?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "SPELHASHNING PÅGÅR. VILL DU STOPPA DET?"
@@ -2018,6 +2060,9 @@ msgstr "VISNINGSALTERNATIV"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "ÖVERGÅNGSSTIL I LISTA"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ÖVERGÅNG VID SPELSTART"
@@ -2244,6 +2289,9 @@ msgstr "ZOOM"
 
 msgid "GAMES TO INDEX"
 msgstr "SPEL ATT INDEXERA"
+
+msgid "ONLY MISSING"
+msgstr "ENDAST SAKNADE"
 
 msgid "SYSTEM INFO"
 msgstr "SYSTEMINFORMATION"
@@ -2780,6 +2828,27 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "SCRAPE CRITERIA"
+#~ msgstr "SKRAPNINGSKRITERIER"
+
+#~ msgid "MEDIA TO SCRAPE FOR"
+#~ msgstr "MEDIA ATT SKRAPA FÖR"
+
+#~ msgid "NEXT"
+#~ msgstr "NÄSTA"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "NETPLAY VÄRD/ALTERNATIV"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "BÖRJA VARA VÄRD FÖR EN NETPLAY-SESSION"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "STÄLL IN SPELARLÖSENORD"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "STÄLL IN ÅSKÅDARLÖSENORD"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "STARTA AUTOSPARA"

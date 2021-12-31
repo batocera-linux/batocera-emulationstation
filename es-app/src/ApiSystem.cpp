@@ -84,7 +84,7 @@ unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 
 std::string ApiSystem::getFreeSpaceUserInfo() {
 #ifdef _ENABLEEMUELEC
-  return getFreeSpaceInfo("/storage/.update");
+  return getFreeSpaceInfo("/storage/roms");
 #else
   return getFreeSpaceInfo("/userdata");
 #endif
@@ -92,7 +92,7 @@ std::string ApiSystem::getFreeSpaceUserInfo() {
 
 std::string ApiSystem::getFreeSpaceSystemInfo() {
 #ifdef _ENABLEEMUELEC
-  return getFreeSpaceInfo("/");
+  return getFreeSpaceInfo("/emuelec");
 #else
   return getFreeSpaceInfo("/boot");
 #endif

@@ -363,6 +363,68 @@ msgstr "PECYNNAU WEDI'I OSOD YN LLWYDDIANNUS"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PECYNNAU WEDI'I DADOSOD YN LLWYDDIANNUS"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "GOSODIADAU"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "CYFLAWNIADAU-RETRO"
+
+msgid "HARDCORE MODE"
+msgstr "MODD CRAIDD CALED"
+
+msgid "LEADERBOARDS"
+msgstr "BYRDDAU ARWAIN"
+
+msgid "VERBOSE MODE"
+msgstr "MODD VERBOSE"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "SGRINLUN AWTOMATIG"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "dim"
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "ENW DEFNYDDIWR"
+
+msgid "PASSWORD"
+msgstr "CYFINAIR"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "MYNEGAI GÊM"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "IAWN"
+
 msgid "FILTER GAMELIST BY"
 msgstr "FFILTRO RHESTR GEMAU GAN"
 
@@ -499,9 +561,6 @@ msgstr "ARHOSWCH OS GWELWCH YN DDA"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "CYFLAWNIADAU-RETRO"
-
 msgid "Points"
 msgstr "Pwyntiau"
 
@@ -514,11 +573,38 @@ msgstr "GWELD MANYLION"
 msgid "LAUNCH"
 msgstr "Lansio"
 
+msgid "NETPLAY SETTINGS"
+msgstr "GOSODIADAU NETPLAY"
+
+msgid "ENABLE NETPLAY"
+msgstr "GALLUOGI NETPLAY"
+
+msgid "NICKNAME"
+msgstr "LLYSENW"
+
+msgid "PORT"
+msgstr "PORTH"
+
+msgid "USE RELAY SERVER"
+msgstr "DEFNYDDIO GWEINYDD RELAY"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "GORFFENEDIG"
-
-msgid "OK"
-msgstr "IAWN"
 
 msgid "VIEW OPTIONS"
 msgstr "GWELD OPSIYNAU"
@@ -634,6 +720,9 @@ msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "CHWILIO RHWYDWEITHIAU WIFI"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
@@ -729,9 +818,6 @@ msgstr "dechrau & diwedd"
 msgid "never"
 msgstr "byth"
 
-msgid "none"
-msgstr "dim"
-
 msgid "systems"
 msgstr "systemau"
 
@@ -740,9 +826,6 @@ msgstr "ar hap"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "GOSODIADAU ARBEDYDD SGRIN"
-
-msgid "SETTINGS"
-msgstr "GOSODIADAU"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "ARBEDYDD SGRIN AR ÔL"
@@ -943,7 +1026,7 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -952,20 +1035,17 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "DECHRAU GAME"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr ""
 
-msgid "SET PLAYER PASSWORD"
-msgstr "GOSOD CYFRINAIR CHWARAEWR"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "GOSOD CYFRINAIR GWYLIWR"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "DOD O HYD I GEMAU TEBYG ..."
@@ -1059,20 +1139,116 @@ msgstr "SLOT"
 msgid "COPY TO FREE SLOT"
 msgstr "COPI I SLOT RHYDD"
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr "FFYNHONNELL DELWEDD"
+
+msgid "SCREENSHOT"
+msgstr "SGRINLUN"
+
+msgid "TITLE SCREENSHOT"
+msgstr "SGRINLUN TEITL"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOCS 2D"
+
+msgid "BOX 3D"
+msgstr "BOCS 3D"
+
+msgid "FAN ART"
+msgstr "CELF FFAN"
+
+msgid "BOX SOURCE"
+msgstr "FFYNHONNELL BOCS"
+
+msgid "LOGO SOURCE"
+msgstr "FFYNHONNELL LOGO"
+
+msgid "WHEEL"
+msgstr "OLWYN"
+
+msgid "MARQUEE"
+msgstr "MARQUEE"
+
+msgid "SCRAPE RATINGS"
+msgstr "CRAFU GRADDIAU"
+
+msgid "SCRAPE VIDEOS"
+msgstr "CRAFU FIDEOS"
+
+msgid "SCRAPE FANART"
+msgstr "CRAFU CELF FFAN"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
+
+msgid "SCRAPE MAP"
+msgstr "CRAFU MAP"
+
+msgid "SCRAPE MANUAL"
+msgstr "CRAFU LAWLYFR"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "CRAFU GOSODIADAU PAD I ALLWEDD"
+
+msgid "SCRAPER"
+msgstr "CRAFWR"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "CRAFU O"
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
 msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "CRAFU NAWR"
 
 msgid "START"
 msgstr "DECHRAU"
@@ -1088,6 +1264,24 @@ msgstr "MAE CRAFU YN RHEDEG. A YDYCH AM STOPIO?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "DIM GEMAU SY'N FFITIO'R MEINI PRAWF YNA."
+
+msgid "INFORMATION"
+msgstr "GWYBODAETH"
+
+msgid "VERSION"
+msgstr "FERSIWN"
+
+msgid "USER DISK USAGE"
+msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "SYSTEM DISG A DEFNYDDIWYD"
+
+msgid "SYSTEM"
+msgstr "SYSTEM"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "THE BEZEL PROJECT"
 msgstr "Y PROSIECT GWEFL"
@@ -1167,9 +1361,6 @@ msgstr ""
 msgid "RENDERER"
 msgstr ""
 
-msgid "VERSION"
-msgstr "FERSIWN"
-
 msgid "SHADERS"
 msgstr ""
 
@@ -1203,98 +1394,17 @@ msgstr "FFURFWEDDU MEWNBWN"
 msgid "EMULATOR SETTINGS"
 msgstr "GOSODIADAU EFELYCHWR"
 
-msgid "SCRAPER"
-msgstr "CRAFWR"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "DIWEDDARIADAU A LAWRLWYTHO"
 
 msgid "SYSTEM SETTINGS"
 msgstr "GOSODIADAU SYSTEM"
 
-msgid "INFORMATION"
-msgstr "GWYBODAETH"
-
 msgid "UNLOCK UI MODE"
 msgstr "DATGLOI MODD UI"
 
 msgid "QUIT"
 msgstr "GADAEL"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "FFYNHONNELL DELWEDD"
-
-msgid "SCREENSHOT"
-msgstr "SGRINLUN"
-
-msgid "TITLE SCREENSHOT"
-msgstr "SGRINLUN TEITL"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "BOCS 2D"
-
-msgid "BOX 3D"
-msgstr "BOCS 3D"
-
-msgid "FAN ART"
-msgstr "CELF FFAN"
-
-msgid "BOX SOURCE"
-msgstr "FFYNHONNELL BOCS"
-
-msgid "LOGO SOURCE"
-msgstr "FFYNHONNELL LOGO"
-
-msgid "WHEEL"
-msgstr "OLWYN"
-
-msgid "MARQUEE"
-msgstr "MARQUEE"
-
-msgid "SCRAPE RATINGS"
-msgstr "CRAFU GRADDIAU"
-
-msgid "SCRAPE VIDEOS"
-msgstr "CRAFU FIDEOS"
-
-msgid "SCRAPE FANART"
-msgstr "CRAFU CELF FFAN"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
-
-msgid "SCRAPE MAP"
-msgstr "CRAFU MAP"
-
-msgid "SCRAPE MANUAL"
-msgstr "CRAFU LAWLYFR"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "CRAFU GOSODIADAU PAD I ALLWEDD"
-
-msgid "USERNAME"
-msgstr "ENW DEFNYDDIWR"
-
-msgid "PASSWORD"
-msgstr "CYFINAIR"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
@@ -1306,18 +1416,6 @@ msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr ""
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
-
-msgid "USER DISK USAGE"
-msgstr "DISG DEFNYDDWR A DEFNYDDIWYD"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "SYSTEM DISG A DEFNYDDIWYD"
-
-msgid "SYSTEM"
-msgstr "SYSTEM"
-
-msgid "VIDEO DRIVER"
 msgstr ""
 
 msgid "DEVELOPER"
@@ -1608,12 +1706,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "GOSODIADAU NETPLAY"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "GWIRIO BIOS CYN RHEDEG GÊM"
 
@@ -1711,59 +1803,6 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "MODD CRAIDD CALED"
-
-msgid "LEADERBOARDS"
-msgstr "BYRDDAU ARWAIN"
-
-msgid "VERBOSE MODE"
-msgstr "MODD VERBOSE"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "SGRINLUN AWTOMATIG"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr ""
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "MYNEGAI GÊM"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "ENABLE NETPLAY"
-msgstr "GALLUOGI NETPLAY"
-
-msgid "NICKNAME"
-msgstr "LLYSENW"
-
-msgid "PORT"
-msgstr "PORTH"
-
-msgid "USE RELAY SERVER"
-msgstr "DEFNYDDIO GWEINYDD RELAY"
 
 msgid "DECORATION SET"
 msgstr ""
@@ -1878,6 +1917,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "FFURFWEDDU UWCH I BOB SYSTEM"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "HASHIO GÊM YN RHEDEG. A YDYCH AM EI STOPIO?"
@@ -1998,6 +2040,9 @@ msgstr "ARDDANGOS OPSIYNAU"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "ARDDULL TRAWSNEWID"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRAWSNEWIDIAD LANSIO GÊM"
@@ -2221,6 +2266,9 @@ msgid "ZOOM"
 msgstr "CHWYDDO"
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2794,6 +2842,12 @@ msgstr ""
 msgid "SCREEN READER DISABLED"
 msgstr ""
 
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "GOSOD CYFRINAIR CHWARAEWR"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "GOSOD CYFRINAIR GWYLIWR"
+
 #~ msgid "START AUTO SAVE"
 #~ msgstr "DECHRAU ARBED AWTO"
 
@@ -2965,9 +3019,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "DETHOL THEMAU I OSOD / DILEU"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "CRAFU NAWR"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "CRAFU'R GEMAU HYN"
 
@@ -2997,9 +3048,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "GWYBODAETH"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "CRAFU O"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "A YDYCH CHI'N SIWR CHI EISIAU FFURFWEDDU MEWNBWN?"

@@ -358,6 +358,70 @@ msgstr "PACOTE INSTALADO COM SUCESSO"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PACOTE REMOVIDO COM SUCESSO"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "DEFINIÇÕES RETROACHIEVEMENT"
+
+msgid "SETTINGS"
+msgstr "DEFINIÇÕES"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS"
+
+msgid "HARDCORE MODE"
+msgstr "MODO HARDCORE"
+
+msgid "LEADERBOARDS"
+msgstr "PLACAR"
+
+msgid "VERBOSE MODE"
+msgstr "MODO DETALHADO"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "INDICADORES DE DESAFIOS"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Mostrar os ícones no canto inferior direito quando as conquistas elegíveis "
+"podem ser obtidas."
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
+
+msgid "none"
+msgstr "nenhum"
+
+msgid "UNLOCK SOUND"
+msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENTS"
+
+msgid "USERNAME"
+msgstr "NOME DE UTILIZADOR"
+
+msgid "PASSWORD"
+msgstr "PASSWORD"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "MOSTRAR RETROACHIEVEMENTS NO MENU PRINCIPAL"
+
+msgid "GAME INDEXES"
+msgstr "ÍNDICE DO JOGO"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXAR NOVOS JOGOS NA INICIALIZAÇÃO"
+
+msgid "INDEX GAMES"
+msgstr "INDEXAR JOGOS"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "INCAPAZ DE ATIVAR RETROACHIEVEMENTS:"
+
+msgid "OK"
+msgstr "OK"
+
 msgid "FILTER GAMELIST BY"
 msgstr "FILTRAR LISTA DE JOGOS POR"
 
@@ -494,9 +558,6 @@ msgstr "POR FAVOR, AGUARDE"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
-
 msgid "Points"
 msgstr "Pontos"
 
@@ -509,11 +570,38 @@ msgstr "VER DETALHES"
 msgid "LAUNCH"
 msgstr "EXECUTAR"
 
+msgid "NETPLAY SETTINGS"
+msgstr "DEFINIÇÕES DE JOGOS EM REDE"
+
+msgid "ENABLE NETPLAY"
+msgstr "LIGAR JOGOS EM REDE"
+
+msgid "NICKNAME"
+msgstr "ALCUNHA"
+
+msgid "PORT"
+msgstr "PORTA"
+
+msgid "USE RELAY SERVER"
+msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
-
-msgid "OK"
-msgstr "OK"
 
 msgid "VIEW OPTIONS"
 msgstr "VER OPÇÕES"
@@ -631,6 +719,9 @@ msgstr "NENHUMA REDE WIFI ENCONTRADA"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "A PROCURA DE REDES WIFI"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "DESEMPARELHAR DISPOSITIVO BLUETOOTH"
 
@@ -726,9 +817,6 @@ msgstr "início & fim"
 msgid "never"
 msgstr "nunca"
 
-msgid "none"
-msgstr "nenhum"
-
 msgid "systems"
 msgstr "sistemas"
 
@@ -737,9 +825,6 @@ msgstr "aleatório"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "DEFINIÇÕES DO PROTETOR DE ECRÃ"
-
-msgid "SETTINGS"
-msgstr "DEFINIÇÕES"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "ATIVAR PROTEÇÃO DE ECRÃ APÓS"
@@ -942,8 +1027,8 @@ msgstr "JOGOS GUARDADOS"
 msgid "OPEN"
 msgstr "ABRIR"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "JOGOS EM REDE/DEFINIÇÕES"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "JOGOS EM REDE"
@@ -951,20 +1036,17 @@ msgstr "JOGOS EM REDE"
 msgid "START GAME"
 msgstr "INICIAR JOGO"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "INICIAR HOSPEDAGEM DE UMA SESSÃO DE JOGO EM REDE"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "PASSWORD DO JOGADOR"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "PASSWORD DO ESPECTADOR"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "JOGOS SEMELHANTES..."
@@ -1058,20 +1140,116 @@ msgstr "SLOT"
 msgid "COPY TO FREE SLOT"
 msgstr "COPIAR PARA UM SLOT LIVRE"
 
-msgid "SCRAPE CRITERIA"
-msgstr "CRITÉRIO DE PROCURA POR MEDIAS DE JOGO"
+msgid "SCRAPER SETTINGS"
+msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
-msgstr "MEDIA A REALIZAR A PROCURA"
+msgid "IMAGE SOURCE"
+msgstr "FONTE DA MEDIA DE IMAGEM"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURA DE ECRÃ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TÍTULO CAPTURA DE ECRÃ"
+
+msgid "MIX V1"
+msgstr "COMBINAÇÃO 1"
+
+msgid "MIX V2"
+msgstr "COMBINAÇÃO 2"
+
+msgid "BOX 2D"
+msgstr "CAIXA 2D"
+
+msgid "BOX 3D"
+msgstr "CAIXA 3D"
+
+msgid "FAN ART"
+msgstr "ARTE DO FÃ"
+
+msgid "BOX SOURCE"
+msgstr "FONTE DA MEDIA DA CAIXA"
+
+msgid "LOGO SOURCE"
+msgstr "FONTE DA MEDIA DO LOGOTIPO"
+
+msgid "WHEEL"
+msgstr "LOGOTIPO"
+
+msgid "MARQUEE"
+msgstr "LETREIRO"
+
+msgid "SCRAPE RATINGS"
+msgstr "OBTER CLASSIFICAÇÕES"
+
+msgid "SCRAPE VIDEOS"
+msgstr "OBTER VÍDEOS"
+
+msgid "SCRAPE FANART"
+msgstr "OBTER MEDIAS DE ARTE DO FÃ"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "OBTER MEDIAS DE MOLDURA (16:9)"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
+
+msgid "SCRAPE MAP"
+msgstr "OBTER MAPA"
+
+msgid "SCRAPE MANUAL"
+msgstr "PROCURA MANUAL"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "OBTER CONFIGURAÇÃO DO COMANDO PARA TECLADO"
+
+msgid "SCRAPER"
+msgstr "OBTER CAPAS"
+
+msgid "SCRAPING DATABASE"
+msgstr "BASE DE DADOS DAS MEDIA DO JOGO"
+
+msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
 
 msgid "ALL"
 msgstr "TODOS"
 
-msgid "ONLY MISSING"
-msgstr "APENAS EM FALTA"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr "SISTEMAS INCLUÍDOS"
+
+msgid "SCRAPE NOW"
+msgstr ""
 
 msgid "START"
 msgstr "INICIAR PROCURA"
@@ -1090,6 +1268,24 @@ msgstr "A PROCURA ESTÁ EM CURSO. DESEJA INTERROMPER ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "NÃO SEGUE OS CRITÉRIOS DO JOGO."
+
+msgid "INFORMATION"
+msgstr "INFORMAÇÃO"
+
+msgid "VERSION"
+msgstr "VERSÃO"
+
+msgid "USER DISK USAGE"
+msgstr "DISCO DO UTILIZADOR"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "DISCO DO SISTEMA"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "VIDEO DRIVER"
+msgstr "DRIVER DE VÍDEO"
 
 msgid "THE BEZEL PROJECT"
 msgstr "PROJETO BEZEL (MOLDURAS)"
@@ -1169,9 +1365,6 @@ msgstr "FABRICANTE"
 msgid "RENDERER"
 msgstr "RENDERIZADOR"
 
-msgid "VERSION"
-msgstr "VERSÃO"
-
 msgid "SHADERS"
 msgstr "FILTROS"
 
@@ -1205,98 +1398,17 @@ msgstr "CONFIGURAÇÃO DOS COMANDOS"
 msgid "EMULATOR SETTINGS"
 msgstr "DEFINIÇÕES DO EMULADOR"
 
-msgid "SCRAPER"
-msgstr "OBTER CAPAS"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "ATUALIZAÇÕES & TRANSFERÊNCIAS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "DEFINIÇÕES DO SISTEMA"
 
-msgid "INFORMATION"
-msgstr "INFORMAÇÃO"
-
 msgid "UNLOCK UI MODE"
 msgstr "DESBLOQUEAR MODO DE INTERFACE"
 
 msgid "QUIT"
 msgstr "SAIR"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "PROCURA EM EXECUÇÃO. DESEJA INTERROMPÊ-LA?"
-
-msgid "NEXT"
-msgstr "PRÓXIMO"
-
-msgid "SCRAPING DATABASE"
-msgstr "BASE DE DADOS DAS MEDIA DO JOGO"
-
-msgid "IMAGE SOURCE"
-msgstr "FONTE DA MEDIA DE IMAGEM"
-
-msgid "SCREENSHOT"
-msgstr "CAPTURA DE ECRÃ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TÍTULO CAPTURA DE ECRÃ"
-
-msgid "MIX V1"
-msgstr "COMBINAÇÃO 1"
-
-msgid "MIX V2"
-msgstr "COMBINAÇÃO 2"
-
-msgid "BOX 2D"
-msgstr "CAIXA 2D"
-
-msgid "BOX 3D"
-msgstr "CAIXA 3D"
-
-msgid "FAN ART"
-msgstr "ARTE DO FÃ"
-
-msgid "BOX SOURCE"
-msgstr "FONTE DA MEDIA DA CAIXA"
-
-msgid "LOGO SOURCE"
-msgstr "FONTE DA MEDIA DO LOGOTIPO"
-
-msgid "WHEEL"
-msgstr "LOGOTIPO"
-
-msgid "MARQUEE"
-msgstr "LETREIRO"
-
-msgid "SCRAPE RATINGS"
-msgstr "OBTER CLASSIFICAÇÕES"
-
-msgid "SCRAPE VIDEOS"
-msgstr "OBTER VÍDEOS"
-
-msgid "SCRAPE FANART"
-msgstr "OBTER MEDIAS DE ARTE DO FÃ"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "OBTER MEDIAS DE MOLDURA (16:9)"
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
-
-msgid "SCRAPE MAP"
-msgstr "OBTER MAPA"
-
-msgid "SCRAPE MANUAL"
-msgstr "PROCURA MANUAL"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "OBTER CONFIGURAÇÃO DO COMANDO PARA TECLADO"
-
-msgid "USERNAME"
-msgstr "NOME DE UTILIZADOR"
-
-msgid "PASSWORD"
-msgstr "PASSWORD"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "TEM A CERTEZA QUE DESEJA CONFIGURAR A ENTRADA?"
@@ -1309,18 +1421,6 @@ msgstr "O MODO INTERFACE ESTÁ DESBLOQUEADO AGORA"
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
-
-msgid "USER DISK USAGE"
-msgstr "DISCO DO UTILIZADOR"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "DISCO DO SISTEMA"
-
-msgid "SYSTEM"
-msgstr "SISTEMA"
-
-msgid "VIDEO DRIVER"
-msgstr "DRIVER DE VÍDEO"
 
 msgid "DEVELOPER"
 msgstr "PRODUTORA"
@@ -1456,8 +1556,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Inverter o botão norte (savestates) e pressionar longamente o sul "
-"(opções de jogo)"
+"Inverter o botão norte (savestates) e pressionar longamente o sul (opções de "
+"jogo)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION APENAS COM O PRIMEIRO COMANDO"
@@ -1620,12 +1720,6 @@ msgstr "IMAGEM NO ECRÃ DE ABERTURA DO BATOCERA"
 msgid "SPLASH SETTING"
 msgstr "DEFINIÇÕES DO ECRÃ DE ABERTURA"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "DEFINIÇÕES RETROACHIEVEMENT"
-
-msgid "NETPLAY SETTINGS"
-msgstr "DEFINIÇÕES DE JOGOS EM REDE"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "VERIFICAR AS BIOS ANTES DE INICIAR O JOGO"
 
@@ -1723,64 +1817,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-"Reduz automáticamente o atraso dos frames temporariamente para "
-"evitar perda de desempenho. Desative caso piore e engasgue "
-"o áudio / vídeo."
-
-msgid "HARDCORE MODE"
-msgstr "MODO HARDCORE"
-
-msgid "LEADERBOARDS"
-msgstr "PLACAR"
-
-msgid "VERBOSE MODE"
-msgstr "MODO DETALHADO"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
-
-msgid "CHALLENGE INDICATORS"
-msgstr "INDICADORES DE DESAFIOS"
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-"Mostrar os ícones no canto inferior direito quando as conquistas elegíveis "
-"podem ser obtidas."
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
-
-msgid "UNLOCK SOUND"
-msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENTS"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "MOSTRAR RETROACHIEVEMENTS NO MENU PRINCIPAL"
-
-msgid "GAME INDEXES"
-msgstr "ÍNDICE DO JOGO"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXAR NOVOS JOGOS NA INICIALIZAÇÃO"
-
-msgid "INDEX GAMES"
-msgstr "INDEXAR JOGOS"
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "INCAPAZ DE ATIVAR RETROACHIEVEMENTS:"
-
-msgid "ENABLE NETPLAY"
-msgstr "LIGAR JOGOS EM REDE"
-
-msgid "NICKNAME"
-msgstr "ALCUNHA"
-
-msgid "PORT"
-msgstr "PORTA"
-
-msgid "USE RELAY SERVER"
-msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
+"Reduz automáticamente o atraso dos frames temporariamente para evitar perda "
+"de desempenho. Desative caso piore e engasgue o áudio / vídeo."
 
 msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
@@ -1895,6 +1933,9 @@ msgstr "MOSTRAR MENU DE SAVES ANTES DE INICIAR O JOGO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "PROCURA EM EXECUÇÃO. DESEJA INTERROMPÊ-LA?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "A VALIDAÇÃO DOS JOGOS ESTÁ EM EXECUÇÃO. DESEJA INTERROMPER ?"
@@ -2021,6 +2062,9 @@ msgstr "OPÇÕES DE EXIBIÇÃO"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSIÇÃO DE CARREGAMENTO DO JOGO"
@@ -2248,6 +2292,9 @@ msgstr "AMPLIAR"
 
 msgid "GAMES TO INDEX"
 msgstr "JOGOS POR INDEXAR"
+
+msgid "ONLY MISSING"
+msgstr "APENAS EM FALTA"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMAÇÃO DO SISTEMA"
@@ -2783,3 +2830,23 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
+#~ msgid "SCRAPE CRITERIA"
+#~ msgstr "CRITÉRIO DE PROCURA POR MEDIAS DE JOGO"
+
+#~ msgid "MEDIA TO SCRAPE FOR"
+#~ msgstr "MEDIA A REALIZAR A PROCURA"
+
+#~ msgid "NEXT"
+#~ msgstr "PRÓXIMO"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "JOGOS EM REDE/DEFINIÇÕES"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "INICIAR HOSPEDAGEM DE UMA SESSÃO DE JOGO EM REDE"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "PASSWORD DO JOGADOR"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "PASSWORD DO ESPECTADOR"

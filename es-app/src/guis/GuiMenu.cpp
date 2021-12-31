@@ -9,13 +9,17 @@
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiScraperStart.h"
 #include "guis/GuiHashStart.h"
-#include "guis/GuiThemeInstaller.h" //batocera
-#include "guis/GuiBezelInstaller.h" //batocera
-#include "guis/GuiBatoceraStore.h" //batocera
+#include "guis/GuiThemeInstaller.h"
+#include "guis/GuiBezelInstaller.h"
+#include "guis/GuiBatoceraStore.h"
 #include "guis/GuiSettings.h"
-#include "guis/GuiRetroAchievements.h" //batocera
+#include "guis/GuiRetroAchievements.h"
 #include "guis/GuiGamelistOptions.h"
 #include "guis/GuiImageViewer.h"
+#include "guis/GuiNetPlaySettings.h"
+#include "guis/GuiRetroAchievementsSettings.h"
+#include "guis/GuiSystemInformation.h"
+#include "guis/GuiScraperSettings.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
@@ -51,7 +55,6 @@
 #include "guis/GuiKeyMappingEditor.h"
 #include "Gamelist.h"
 #include "TextToSpeech.h"
-
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -183,7 +186,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	}
 	else
 	{
-		addEntry(_("INFORMATION").c_str(), true, [this] { openSystemInformations_batocera(); }, "iconSystem");
+		addEntry(_("INFORMATION").c_str(), true, [this] { openSystemInformations(); }, "iconSystem");
 		addEntry(_("UNLOCK UI MODE").c_str(), true, [this] { exitKidMode(); }, "iconAdvanced");
 	}
 
@@ -619,218 +622,8 @@ mWindow->pushGui(dangerZone);
 #endif
 
 void GuiMenu::openScraperSettings()
-{	
-	// scrape now
-	ComponentListRow row;
-	auto openScrapeNow = [this]
-	{
-		if (!checkNetwork())
-			return;
-
-		if (ThreadedScraper::isRunning())
-		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"), _("YES"), [this]
-			{
-				ThreadedScraper::stop();
-			}, _("NO"), nullptr));
-
-			return;
-		}
-
-		mWindow->pushGui(new GuiScraperStart(mWindow));
-	};
-
-	auto s = new GuiSettings(mWindow, 
-		_("SCRAPER"), 
-		_("NEXT"), [openScrapeNow](GuiSettings* settings)
-	{
-		settings->save();
-		openScrapeNow();
-	});
-
-	std::string scraper = Settings::getInstance()->getString("Scraper");
-
-	// scrape from
-	auto scraper_list = std::make_shared< OptionListComponent< std::string > >(mWindow, _("SCRAPING DATABASE"), false);
-	std::vector<std::string> scrapers = Scraper::getScraperList();
-	
-	// Select either the first entry of the one read from the settings, just in case the scraper from settings has vanished.
-	for(auto it = scrapers.cbegin(); it != scrapers.cend(); it++)
-		scraper_list->add(*it, *it, *it == scraper);
-
-	s->addWithLabel(_("SCRAPING DATABASE"), scraper_list); // batocera
-	s->addSaveFunc([scraper_list] { Settings::getInstance()->setString("Scraper", scraper_list->getSelected()); });
-
-	if (!scraper_list->hasSelection())
-	{
-		scraper_list->selectFirstItem();
-		scraper = scraper_list->getSelected();
-	}
-
-	auto scrap = Scraper::getScraper(scraper);
-	if (scrap != nullptr)
-	{
-		std::string imageSourceName = Settings::getInstance()->getString("ScrapperImageSrc");
-		auto imageSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("IMAGE SOURCE"), false);
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Screenshot) ||
-			scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d) ||
-			scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d) ||
-			scrap->isMediaSupported(Scraper::ScraperMediaSource::Mix) ||
-			scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt) ||
-			scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))		
-		{
-			// Image source : <image> tag
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Screenshot))
-				imageSource->add(_("SCREENSHOT"), "ss", imageSourceName == "ss");
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
-				imageSource->add(_("TITLE SCREENSHOT"), "sstitle", imageSourceName == "sstitle");
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Mix))
-			{
-				imageSource->add(_("MIX V1"), "mixrbv1", imageSourceName == "mixrbv1");
-				imageSource->add(_("MIX V2"), "mixrbv2", imageSourceName == "mixrbv2");
-			}
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
-				imageSource->add(_("BOX 2D"), "box-2D", imageSourceName == "box-2D");
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
-				imageSource->add(_("BOX 3D"), "box-3D", imageSourceName == "box-3D");
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
-				imageSource->add(_("FAN ART"), "fanart", imageSourceName == "fanart");
-
-			imageSource->add(_("NONE"), "", imageSourceName.empty());
-
-			if (!imageSource->hasSelection())
-				imageSource->selectFirstItem();
-
-			s->addWithLabel(_("IMAGE SOURCE"), imageSource);
-			s->addSaveFunc([imageSource] { Settings::getInstance()->setString("ScrapperImageSrc", imageSource->getSelected()); });
-		}
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
-		{
-			// Box source : <thumbnail> tag
-			std::string thumbSourceName = Settings::getInstance()->getString("ScrapperThumbSrc");
-			auto thumbSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("BOX SOURCE"), false);
-			thumbSource->add(_("NONE"), "", thumbSourceName.empty());
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
-				thumbSource->add(_("BOX 2D"), "box-2D", thumbSourceName == "box-2D");
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))//if (scraper == "HfsDB")
-				thumbSource->add(_("BOX 3D"), "box-3D", thumbSourceName == "box-3D");
-
-			if (!thumbSource->hasSelection())
-				thumbSource->selectFirstItem();
-
-			s->addWithLabel(_("BOX SOURCE"), thumbSource);
-			s->addSaveFunc([thumbSource] { Settings::getInstance()->setString("ScrapperThumbSrc", thumbSource->getSelected()); });
-		
-			imageSource->setSelectedChangedCallback([this, scrap, thumbSource](std::string value)
-			{
-				if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box2d))
-				{
-					if (value == "box-2D")
-						thumbSource->remove(_("BOX 2D"));
-					else
-						thumbSource->add(_("BOX 2D"), "box-2D", false);
-				}
-
-				if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Box3d))
-				{
-					if (value == "box-3D")
-						thumbSource->remove(_("BOX 3D"));
-					else
-						thumbSource->add(_("BOX 3D"), "box-3D", false);
-				}
-			});
-		}
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee) || scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
-		{
-			// Logo source : <marquee> tag
-			std::string logoSourceName = Settings::getInstance()->getString("ScrapperLogoSrc");
-
-			auto logoSource = std::make_shared< OptionListComponent<std::string> >(mWindow, _("LOGO SOURCE"), false);
-			logoSource->add(_("NONE"), "", logoSourceName.empty());
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Wheel))
-				logoSource->add(_("WHEEL"), "wheel", logoSourceName == "wheel");
-
-			if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Marquee)) // if (scraper == "HfsDB")
-				logoSource->add(_("MARQUEE"), "marquee", logoSourceName == "marquee");
-
-			if (!logoSource->hasSelection())
-				logoSource->selectFirstItem();
-
-			s->addWithLabel(_("LOGO SOURCE"), logoSource);
-			s->addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
-		}
-
-		auto addSwitchComponent = [this, s](const std::string& label, const std::string& settingName)
-		{
-			auto item = std::make_shared<SwitchComponent>(mWindow);
-			item->setState(Settings::getInstance()->getBool(settingName));
-			s->addWithLabel(label, item); // batocera
-			s->addSaveFunc([item, settingName] { Settings::getInstance()->setBool(settingName, item->getState()); });
-		};
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Ratings))
-			addSwitchComponent(_("SCRAPE RATINGS"), "ScrapeRatings");
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Video))
-			addSwitchComponent(_("SCRAPE VIDEOS"), "ScrapeVideos");
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
-			addSwitchComponent(_("SCRAPE FANART"), "ScrapeFanart");
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Bezel_16_9))
-			addSwitchComponent(_("SCRAPE BEZEL (16:9)"), "ScrapeBezel");
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::BoxBack))
-			addSwitchComponent(_("SCRAPE BOX BACKSIDE"), "ScrapeBoxBack");
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Map))
-			addSwitchComponent(_("SCRAPE MAP"), "ScrapeMap");
-
-		/*
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
-			addSwitch(_("SCRAPE TITLESHOT"), "ScrapeTitleShot");
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Cartridge))
-			addSwitch(_("SCRAPE CARTRIDGE"), "ScrapeCartridge");
-		*/
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Manual))
-			addSwitchComponent(_("SCRAPE MANUAL"), "ScrapeManual");
-
-		if (scrap->isMediaSupported(Scraper::ScraperMediaSource::PadToKey))
-			addSwitchComponent(_("SCRAPE PADTOKEY SETTINGS"), "ScrapePadToKey");
-
-		// ScreenScraper Account		
-		if (scraper == "ScreenScraper")
-		{			
-			s->addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
-			s->addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
-		}
-	}
-		
-	scraper_list->setSelectedChangedCallback([this, s, scraper, scraper_list](std::string value)
-	{		
-		if (value != scraper)
-		{
-			Settings::getInstance()->setString("Scraper", value);
-			delete s;
-			openScraperSettings();
-		}
-	});
-
-	mWindow->pushGui(s);
+{		
+	mWindow->pushGui(new GuiScraperStart(mWindow));
 }
 
 void GuiMenu::openConfigInput()
@@ -995,67 +788,9 @@ void GuiMenu::exitKidMode()
 	mWindow->pushGui(new ExitKidModeMsgBox(mWindow, _("UNLOCK UI MODE"), _("ENTER THE CODE TO UNLOCK THE CURRENT UI MODE")));
 }
 
-void GuiMenu::openSystemInformations_batocera()
+void GuiMenu::openSystemInformations()
 {
-	auto theme = ThemeData::getMenuTheme();
-	std::shared_ptr<Font> font = theme->Text.font;
-	unsigned int color = theme->Text.color;
-
-	Window *window = mWindow;
-	bool isFullUI = UIModeController::getInstance()->isUIModeFull();
-	GuiSettings *informationsGui = new GuiSettings(window, _("INFORMATION").c_str());
-
-	informationsGui->addGroup(_("INFORMATION"));
-
-	auto version = std::make_shared<TextComponent>(window, ApiSystem::getInstance()->getVersion(), font, color);
-	informationsGui->addWithLabel(_("VERSION"), version);
-
-	bool warning = ApiSystem::getInstance()->isFreeSpaceLimit();
-	auto userspace = std::make_shared<TextComponent>(window,
-		ApiSystem::getInstance()->getFreeSpaceUserInfo(),
-		font,
-		warning ? 0xFF0000FF : color);
-	informationsGui->addWithLabel(_("USER DISK USAGE"), userspace);
-
-#ifndef _ENABLEEMUELEC
-	auto systemspace = std::make_shared<TextComponent>(window,
-		ApiSystem::getInstance()->getFreeSpaceSystemInfo(),
-		font,
-		color);
-	informationsGui->addWithLabel(_("SYSTEM DISK USAGE"), systemspace);
-#endif
-	
-	informationsGui->addGroup(_("SYSTEM"));
-
-	// various informations
-	std::vector<std::string> infos = ApiSystem::getInstance()->getSystemInformations();
-	for (auto it = infos.begin(); it != infos.end(); it++) {
-		std::vector<std::string> tokens = Utils::String::split(*it, ':');
-
-		if (tokens.size() >= 2) {
-			// concatenat the ending words
-			std::string vname = "";
-			for (unsigned int i = 1; i < tokens.size(); i++) {
-				if (i > 1) vname += " ";
-                                vname += tokens.at(i);
-			}
-
-			auto space = std::make_shared<TextComponent>(window,
-                               vname,
-				font,
-				color);
-			informationsGui->addWithLabel(_(tokens.at(0).c_str()), space);
-		}
-	}
-	
-	informationsGui->addGroup(_("VIDEO DRIVER"));
-	for (auto info : Renderer::getDriverInformation())
-	{
-		auto glversion = std::make_shared<TextComponent>(window, info.second, font, color);
-		informationsGui->addWithLabel(_(info.first.c_str()), glversion);
-	}
-
-	window->pushGui(informationsGui);
+	mWindow->pushGui(new GuiSystemInformation(mWindow));
 }
 
 void GuiMenu::openDeveloperSettings()
@@ -1072,17 +807,8 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("VRAM LIMIT"), max_vram);
 	s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
 	
-	// framerate
-	auto framerate = std::make_shared<SwitchComponent>(mWindow);
-	framerate->setState(Settings::getInstance()->getBool("DrawFramerate"));
-	s->addWithLabel(_("SHOW FRAMERATE"), framerate);
-	s->addSaveFunc([framerate] { Settings::getInstance()->setBool("DrawFramerate", framerate->getState()); });
-	
-	// vsync
-	auto vsync = std::make_shared<SwitchComponent>(mWindow);
-	vsync->setState(Settings::getInstance()->getBool("VSync"));
-	s->addWithLabel(_("VSYNC"), vsync);
-	s->addSaveFunc([vsync] { if (Settings::getInstance()->setBool("VSync", vsync->getState())) Renderer::setSwapInterval(); });
+	s->addSwitch(_("SHOW FRAMERATE"), "DrawFramerate", true);
+	s->addSwitch(_("VSYNC"), "VSync", true);
 
 #if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
 	// overscan
@@ -1281,7 +1007,7 @@ void GuiMenu::openDeveloperSettings()
 	s->addEntry(_("REDETECT ALL GAMES' LANG/REGION"), false, [this]
 	{
 		Window* window = mWindow;
-		window->pushGui(new GuiLoading<int>(window, _("PLEASE WAIT"), []
+		window->pushGui(new GuiLoading<int>(window, _("PLEASE WAIT"), [](auto gui)
 		{
 			for (auto system : SystemData::sSystemVector)
 			{
@@ -1523,14 +1249,8 @@ void GuiMenu::openUpdatesSettings()
 	updateGui->addGroup(_("SOFTWARE UPDATES"));
 
 	// Enable updates
-	auto updates_enabled = std::make_shared<SwitchComponent>(mWindow);
-	updates_enabled->setState(SystemConf::getInstance()->getBool("updates.enabled"));
-	
-	updateGui->addWithLabel(_("CHECK FOR UPDATES"), updates_enabled);
-	updateGui->addSaveFunc([updates_enabled]
-	{
-		SystemConf::getInstance()->setBool("updates.enabled", updates_enabled->getState());
-	});
+	updateGui->addSwitch(_("CHECK FOR UPDATES"), "updates.enabled", false);
+
 	auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
 	
 	std::string updatesType = SystemConf::getInstance()->get("updates.type");
@@ -1592,7 +1312,7 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addGroup(_("SYSTEM"));
 
 	// System informations
-	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations_batocera(); });
+	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations(); });
 
 #ifdef _ENABLEEMUELEC
 	auto emuelec_timezones = std::make_shared<OptionListComponent<std::string> >(mWindow, _("TIMEZONE"), false);
@@ -1682,10 +1402,8 @@ void GuiMenu::openSystemSettings_batocera()
 #endif
 #endif
 	// Clock time format (14:42 or 2:42 pm)
-	auto tmFormat = std::make_shared<SwitchComponent>(mWindow);
-	tmFormat->setState(Settings::getInstance()->getBool("ClockMode12"));
-	s->addWithLabel(_("SHOW CLOCK IN 12-HOUR FORMAT"), tmFormat);
-	s->addSaveFunc([tmFormat] { Settings::getInstance()->setBool("ClockMode12", tmFormat->getState()); });
+
+	s->addSwitch(_("SHOW CLOCK IN 12-HOUR FORMAT"), "ClockMode12", true);
 
 	// power saver
 	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
@@ -1746,21 +1464,8 @@ void GuiMenu::openSystemSettings_batocera()
 		s->addEntry(_("KODI SETTINGS"), true, [this] 
 		{
 			GuiSettings* kodiGui = new GuiSettings(mWindow, _("KODI SETTINGS").c_str());
-
-			auto kodiEnabled = std::make_shared<SwitchComponent>(mWindow);
-			kodiEnabled->setState(SystemConf::getInstance()->getBool("kodi.enabled", true));
-			kodiGui->addWithLabel(_("ENABLE KODI"), kodiEnabled);
-
-			auto kodiAtStart = std::make_shared<SwitchComponent>(mWindow);
-			kodiAtStart->setState(SystemConf::getInstance()->getBool("kodi.atstartup"));
-			kodiGui->addWithLabel(_("LAUNCH KODI AT BOOT"), kodiAtStart);
-
-			kodiGui->addSaveFunc([kodiEnabled, kodiAtStart]
-			{
-				SystemConf::getInstance()->setBool("kodi.enabled", kodiEnabled->getState());
-				SystemConf::getInstance()->setBool("kodi.atstartup", kodiAtStart->getState());		
-			});
-
+			kodiGui->addSwitch(_("ENABLE KODI"), "kodi.enabled", false);
+			kodiGui->addSwitch(_("LAUNCH KODI AT BOOT"), "kodi.atstartup", false);
 			mWindow->pushGui(kodiGui);
 		});
 	}
@@ -1989,10 +1694,7 @@ void GuiMenu::openSystemSettings_batocera()
 		{
 			s->addEntry(_("MISSING BIOS CHECK"), true, [this, s] { openMissingBiosSettings(); });
 #ifndef _ENABLEEMUELEC
-			auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
-			checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
-			s->addWithLabel(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
-			s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
+			s->addSwitch(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), "CheckBiosesAtLaunch", true);
 #endif
 		}
 
@@ -2281,193 +1983,12 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 
 void GuiMenu::openRetroachievementsSettings()
 {
-	Window* window = mWindow;
-	GuiSettings* retroachievements = new GuiSettings(mWindow, _("RETROACHIEVEMENT SETTINGS").c_str());
-
-	retroachievements->addGroup(_("SETTINGS"));
-
-	bool retroachievementsEnabled = SystemConf::getInstance()->getBool("global.retroachievements");
-	std::string username = SystemConf::getInstance()->get("global.retroachievements.username");
-	std::string password = SystemConf::getInstance()->get("global.retroachievements.password");
-
-	// retroachievements_enable
-	auto retroachievements_enabled = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_enabled->setState(retroachievementsEnabled);
-	retroachievements->addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
-
-	// retroachievements_hardcore_mode
-	auto retroachievements_hardcore_enabled = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_hardcore_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.hardcore"));
-	retroachievements->addWithLabel(_("HARDCORE MODE"), retroachievements_hardcore_enabled);
-	retroachievements->addSaveFunc([retroachievements_hardcore_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.hardcore", retroachievements_hardcore_enabled->getState()); });
-
-	// retroachievements_leaderboards
-	auto retroachievements_leaderboards_enabled = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_leaderboards_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.leaderboards"));
-	retroachievements->addWithLabel(_("LEADERBOARDS"), retroachievements_leaderboards_enabled);
-	retroachievements->addSaveFunc([retroachievements_leaderboards_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.leaderboards", retroachievements_leaderboards_enabled->getState()); });
-
-	// retroachievements_verbose_mode
-	auto retroachievements_verbose_enabled = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_verbose_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.verbose"));
-	retroachievements->addWithLabel(_("VERBOSE MODE"), retroachievements_verbose_enabled);
-	retroachievements->addSaveFunc([retroachievements_verbose_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.verbose", retroachievements_verbose_enabled->getState()); });
-
-	// retroachievements_automatic_screenshot
-	auto retroachievements_screenshot_enabled = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_screenshot_enabled->setState(SystemConf::getInstance()->getBool("global.retroachievements.screenshot"));
-	retroachievements->addWithLabel(_("AUTOMATIC SCREENSHOT"), retroachievements_screenshot_enabled);
-	retroachievements->addSaveFunc([retroachievements_screenshot_enabled] { SystemConf::getInstance()->setBool("global.retroachievements.screenshot", retroachievements_screenshot_enabled->getState()); });
-
-	// retroachievements_challenge_indicator
-	auto retroachievements_challenge_indicators = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_challenge_indicators->setState(SystemConf::getInstance()->getBool("global.retroachievements.challenge_indicators"));
-	retroachievements->addWithDescription(_("CHALLENGE INDICATORS"), _("Shows icons in the bottom right corner when eligible achievements can be earned."), retroachievements_challenge_indicators);
-	retroachievements->addSaveFunc([retroachievements_challenge_indicators] { SystemConf::getInstance()->setBool("global.retroachievements.challenge_indicators", retroachievements_challenge_indicators->getState()); });
-
-	// Unlock sound
-	auto installedRSounds = ApiSystem::getInstance()->getRetroachievementsSoundsList();
-	if (installedRSounds.size() > 0)
-	{
-		std::string currentSound = SystemConf::getInstance()->get("global.retroachievements.sound");
-
-		auto rsounds_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RETROACHIEVEMENT UNLOCK SOUND"), false);
-		rsounds_choices->add(_("none"), "none", currentSound.empty() || currentSound == "none");
-
-		for (auto snd : installedRSounds)
-			rsounds_choices->add(_(Utils::String::toUpper(snd).c_str()), snd, currentSound == snd);
-
-		if (!rsounds_choices->hasSelection())
-			rsounds_choices->selectFirstItem();
-
-		retroachievements->addWithLabel(_("UNLOCK SOUND"), rsounds_choices);
-		retroachievements->addSaveFunc([rsounds_choices] { SystemConf::getInstance()->set("global.retroachievements.sound", rsounds_choices->getSelected()); });
-	}
-
-	// retroachievements, username, password
-	retroachievements->addInputTextRow(_("USERNAME"), "global.retroachievements.username", false);
-	retroachievements->addInputTextRow(_("PASSWORD"), "global.retroachievements.password", true);
-
-	// retroachievements_hardcore_mode
-	auto retroachievements_menuitem = std::make_shared<SwitchComponent>(mWindow);
-	retroachievements_menuitem->setState(Settings::getInstance()->getBool("RetroachievementsMenuitem"));
-	retroachievements->addWithLabel(_("SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"), retroachievements_menuitem);
-	retroachievements->addSaveFunc([retroachievements_menuitem] { Settings::getInstance()->setBool("RetroachievementsMenuitem", retroachievements_menuitem->getState()); });
-
-	retroachievements->addGroup(_("GAME INDEXES"));
-
-	// CheckOnStart
-	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
-	checkOnStart->setState(Settings::CheevosCheckIndexesAtStart());
-	retroachievements->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
-	retroachievements->addSaveFunc([checkOnStart] { Settings::setCheevosCheckIndexesAtStart(checkOnStart->getState()); });
-
-	// Index games
-	retroachievements->addEntry(_("INDEX GAMES"), true, [this] 
-	{ 
-		if (ThreadedHasher::checkCloseIfRunning(mWindow))
-			mWindow->pushGui(new GuiHashStart(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5));
-	});
-
-
-	//retroachievements->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5, true); });
-	//retroachievements->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_CHEEVOS_MD5); });
-
-	retroachievements->addSaveFunc([retroachievementsEnabled, retroachievements_enabled, username, password, window]
-	{
-		bool newState = retroachievements_enabled->getState();
-		std::string newUsername = SystemConf::getInstance()->get("global.retroachievements.username");
-		std::string newPassword = SystemConf::getInstance()->get("global.retroachievements.password");
-
-		if (newState && (!retroachievementsEnabled || username != newUsername || password != newPassword))
-		{
-			std::string error;
-			if (!RetroAchievements::testAccount(newUsername, newPassword, error))
-			{
-				window->pushGui(new GuiMsgBox(window, _("UNABLE TO ACTIVATE RETROACHIEVEMENTS:") + "\n" + error, _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
-				retroachievements_enabled->setState(false);
-				newState = false;
-			}
-		}
-
-		if (SystemConf::getInstance()->setBool("global.retroachievements", newState))
-			if (!ThreadedHasher::isRunning() && newState)
-				ThreadedHasher::start(window, ThreadedHasher::HASH_CHEEVOS_MD5, false, true);
-	});
-
-	mWindow->pushGui(retroachievements);
+	mWindow->pushGui(new GuiRetroAchievementsSettings(mWindow));
 }
 
 void GuiMenu::openNetplaySettings()
 {
-	GuiSettings* settings = new GuiSettings(mWindow, _("NETPLAY SETTINGS").c_str());
-
-	settings->addGroup(_("SETTINGS"));
-
-	// Enable
-	auto enableNetplay = std::make_shared<SwitchComponent>(mWindow);
-	enableNetplay->setState(SystemConf::getInstance()->getBool("global.netplay"));
-	settings->addWithLabel(_("ENABLE NETPLAY"), enableNetplay);
-
-	std::string port = SystemConf::getInstance()->get("global.netplay.port");
-	if (port.empty())
-		SystemConf::getInstance()->set("global.netplay.port", "55435");
-			
-	settings->addInputTextRow(_("NICKNAME"), "global.netplay.nickname", false);
-	settings->addInputTextRow(_("PORT"), "global.netplay.port", false);
-
-	// RELAY SERVER
-	std::string mitm = SystemConf::getInstance()->get("global.netplay.relay");
-
-	auto mitms = std::make_shared<OptionListComponent<std::string> >(mWindow, _("USE RELAY SERVER"), false);
-	mitms->add(_("NONE"), "", mitm.empty() || mitm == "none");
-	mitms->add("NEW YORK", "nyc", mitm == "nyc");
-	mitms->add("MADRID", "madrid", mitm == "madrid");
-	mitms->add("MONTREAL", "montreal", mitm == "montreal");
-	mitms->add("SAO PAULO", "saopaulo", mitm == "saopaulo");
-
-	if (!mitms->hasSelection())
-		mitms->selectFirstItem();
-
-	settings->addWithLabel(_("USE RELAY SERVER"), mitms);
-	
-	auto showMissingGames = std::make_shared<SwitchComponent>(mWindow);
-	showMissingGames->setState(Settings::NetPlayShowMissingGames());
-	settings->addWithLabel(_("SHOW UNAVAILABLE GAMES"), showMissingGames);
-	settings->addSaveFunc([showMissingGames] { Settings::setNetPlayShowMissingGames(showMissingGames->getState()); });
-
-	settings->addGroup(_("GAME INDEXES"));
-
-	// CheckOnStart
-	auto checkOnStart = std::make_shared<SwitchComponent>(mWindow);
-	checkOnStart->setState(Settings::NetPlayCheckIndexesAtStart());
-	settings->addWithLabel(_("INDEX NEW GAMES AT STARTUP"), checkOnStart);
-	
-	Window* window = mWindow;
-	settings->addSaveFunc([enableNetplay, checkOnStart, mitms, window]
-	{
-		Settings::setNetPlayCheckIndexesAtStart(checkOnStart->getState());
-		SystemConf::getInstance()->set("global.netplay.relay", mitms->getSelected());
-
-		if (SystemConf::getInstance()->setBool("global.netplay", enableNetplay->getState()))
-		{
-			if (!ThreadedHasher::isRunning() && enableNetplay->getState())
-			{
-				ThreadedHasher::start(window, ThreadedHasher::HASH_NETPLAY_CRC, false, true);
-			}
-		}
-	});
-	
-	settings->addEntry(_("INDEX GAMES"), true, [this]
-	{
-		if (ThreadedHasher::checkCloseIfRunning(mWindow))
-			mWindow->pushGui(new GuiHashStart(mWindow, ThreadedHasher::HASH_NETPLAY_CRC));
-	});
-
-	//settings->addEntry(_("FIND ALL GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC, true); });
-	//settings->addEntry(_("FIND NEW GAMES"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_NETPLAY_CRC); });
-	
-	mWindow->pushGui(settings);
+	mWindow->pushGui(new GuiNetPlaySettings(mWindow));	
 }
 
 void GuiMenu::addDecorationSetOptionListComponent(Window* window, GuiSettings* parentWindow, const std::vector<DecorationSetInfo>& sets, const std::string& configName)
@@ -2494,6 +2015,8 @@ void GuiMenu::addDecorationSetOptionListComponent(Window* window, GuiSettings* p
 	});
 }
 
+
+
 void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName)
 {	
 	if (feat.preset == "hidden")
@@ -2504,8 +2027,6 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	if (configName == "global" && Utils::String::startsWith(feat.value, configName + "."))
 		storageName = feat.value;
 			
-	std::string storedValue = SystemConf::getInstance()->get(storageName);
-
 	if (feat.preset == "input")
 	{
 		settings->addInputTextRow(pgettext("game_options", feat.name.c_str()), storageName, false);
@@ -2518,6 +2039,32 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		return;
 	}
 	
+	if (feat.preset == "image")
+	{
+		settings->addFileBrowser(pgettext("game_options", feat.name.c_str()), storageName, GuiFileBrowser::IMAGES);
+		return;
+	}
+
+	if (feat.preset == "video")
+	{
+		settings->addFileBrowser(pgettext("game_options", feat.name.c_str()), storageName, GuiFileBrowser::VIDEO);
+		return;
+	}
+
+	if (feat.preset == "folder")
+	{
+		settings->addFileBrowser(pgettext("game_options", feat.name.c_str()), storageName, GuiFileBrowser::DIRECTORY);
+		return;
+	}
+
+	if (feat.preset == "document")
+	{
+		settings->addFileBrowser(pgettext("game_options", feat.name.c_str()), storageName, GuiFileBrowser::MANUALS);
+		return;
+	}
+
+	std::string storedValue = SystemConf::getInstance()->get(storageName);
+
 	if (feat.preset == "switch")
 	{
 		auto switchComponent = std::make_shared<SwitchComponent>(window);
@@ -3197,8 +2744,8 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 {
 	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
 
-	Window *window = mWindow;
-
+	Window* window = mWindow;
+	
 	// CONTROLLER CONFIGURATION
 	s->addEntry(_("CONTROLLER MAPPING"), false, [window, this, s]
 	{
@@ -3207,14 +2754,10 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 				"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
 				"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
 				"ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE "
-				"SOUTH BUTTON TO CONFIRM WHEN DONE."), _("OK"),
-			[window, this, s] {
-			window->pushGui(new GuiDetectDevice(window, false, [this, s] {
-				s->setSave(false);
-				delete s;
-				this->openControllersSettings_batocera();
-			}));
-		}));
+				"SOUTH BUTTON TO CONFIRM WHEN DONE."), 
+			_("OK"), [window, this, s] { window->pushGui(new GuiDetectDevice(window, false, [this, s] { s->setSave(false); delete s; this->openControllersSettings_batocera(); })); },
+			_("CANCEL"), nullptr,
+			GuiMsgBoxIcon::ICON_INFORMATION));
 	});
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
@@ -3353,13 +2896,7 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 	});
 	
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
-	{
-		// CONTROLLER BATTERY
-		auto battery = std::make_shared<SwitchComponent>(mWindow);
-		battery->setState(Settings::getInstance()->getBool("ShowControllerBattery"));
-		s->addWithLabel(_("SHOW CONTROLLER BATTERY LEVEL"), battery);
-		s->addSaveFunc([battery] { Settings::getInstance()->setBool("ShowControllerBattery", battery->getState()); });
-	}
+		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
 	window->pushGui(s);
 }
@@ -4055,158 +3592,33 @@ void GuiMenu::openUISettings()
 	}
 
 	s->addGroup(_("DISPLAY OPTIONS"));
-
 	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
+	s->addOptionList(_("LIST TRANSITION STYLE"), { { _("auto"), "auto" },{ _("fade") , "fade" },{ _("slide"), "slide" },{ _("fade & slide"), "fade & slide" },{ _("instant"), "instant" } }, "TransitionStyle", true);
+	s->addOptionList(_("GAME LAUNCH TRANSITION"), { { _("auto"), "auto" },{ _("fade") , "fade" },{ _("slide"), "slide" },{ _("instant"), "instant" } }, "GameTransitionStyle", true);
+	s->addSwitch(_("SHOW CLOCK"), "DrawClock", true);
+	s->addSwitch(_("ON-SCREEN HELP"), "ShowHelpPrompts", true, [s] { s->setVariable("reloadAll", true); });
 
-	// transition style
-	auto transition_style = std::make_shared<OptionListComponent<std::string> >(mWindow, _("LIST TRANSITION STYLE"), false);
-	transition_style->addRange({ "auto", "fade", "slide", "fade & slide", "instant" }, Settings::TransitionStyle());
-	s->addWithLabel(_("LIST TRANSITION STYLE"), transition_style);
-	s->addSaveFunc([transition_style] { Settings::setTransitionStyle(transition_style->getSelected()); });
-		
-	// game transition style
-	auto transitionOfGames_style = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GAME LAUNCH TRANSITION"), false);
-	transitionOfGames_style->addRange({ "auto", "fade", "slide", "instant" }, Settings::GameTransitionStyle());
-	s->addWithLabel(_("GAME LAUNCH TRANSITION"), transitionOfGames_style);
-	s->addSaveFunc([transitionOfGames_style] { Settings::setGameTransitionStyle(transitionOfGames_style->getSelected()); });
-
-// quick system select (left/right in game list view)
-	auto quick_sys_select = std::make_shared<SwitchComponent>(mWindow);
-    quick_sys_select->setState(Settings::getInstance()->getBool("QuickSystemSelect"));
-	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
-	s->addSaveFunc([quick_sys_select] {
-		Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState());
-	});
-
-	// clock
-	auto clock = std::make_shared<SwitchComponent>(mWindow);
-	clock->setState(Settings::getInstance()->getBool("DrawClock"));
-	s->addWithLabel(_("SHOW CLOCK"), clock);
-	s->addSaveFunc(
-		[clock] { Settings::getInstance()->setBool("DrawClock", clock->getState()); });
-
-	// show help
-	auto show_help = std::make_shared<SwitchComponent>(mWindow);
-	show_help->setState(Settings::getInstance()->getBool("ShowHelpPrompts"));
-	s->addWithLabel(_("ON-SCREEN HELP"), show_help);
-	s->addSaveFunc([s, show_help] 
-	{
-		if (Settings::getInstance()->setBool("ShowHelpPrompts", show_help->getState()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// Battery indicator
 	if (queryBatteryInformation().hasBattery)
-	{
-		auto batteryStatus = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SHOW BATTERY STATUS"), false);
-		batteryStatus->addRange({ { _("NO"), "" },{ _("ICON"), "icon" },{ _("ICON AND TEXT"), "text" } }, Settings::getInstance()->getString("ShowBattery"));		
-		s->addWithLabel(_("SHOW BATTERY STATUS"), batteryStatus);
-		s->addSaveFunc([batteryStatus] { Settings::getInstance()->setString("ShowBattery", batteryStatus->getSelected()); });
-	}
+		s->addOptionList(_("SHOW BATTERY STATUS"), { { _("NO"), "" },{ _("ICON"), "icon" },{ _("ICON AND TEXT"), "text" } }, "ShowBattery", true);
 
 	s->addGroup(_("GAMELIST OPTIONS"));
-
-	// Show favorites first in gamelists
-	auto favoritesFirstSwitch = std::make_shared<SwitchComponent>(mWindow);
-	favoritesFirstSwitch->setState(Settings::getInstance()->getBool("FavoritesFirst"));
-	s->addWithLabel(_("SHOW FAVORITES ON TOP"), favoritesFirstSwitch);
-	s->addSaveFunc([s, favoritesFirstSwitch]
-	{
-		if (Settings::getInstance()->setBool("FavoritesFirst", favoritesFirstSwitch->getState()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// hidden files
-	auto hidden_files = std::make_shared<SwitchComponent>(mWindow);
-	hidden_files->setState(Settings::ShowHiddenFiles());
-	s->addWithLabel(_("SHOW HIDDEN FILES"), hidden_files);
-	s->addSaveFunc([s, hidden_files]
-	{
-		if (Settings::setShowHiddenFiles(hidden_files->getState()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// Folder View Mode
-	auto foldersBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SHOW FOLDERS"), false);
-
-	foldersBehavior->add(_("always"), "always", Settings::getInstance()->getString("FolderViewMode") == "always");
-	foldersBehavior->add(_("never"), "never", Settings::getInstance()->getString("FolderViewMode") == "never");
-	foldersBehavior->add(_("having multiple games"), "having multiple games", Settings::getInstance()->getString("FolderViewMode") == "having multiple games");
-
-	s->addWithLabel(_("SHOW FOLDERS"), foldersBehavior);
-	s->addSaveFunc([s, foldersBehavior]
-	{
-		if (Settings::getInstance()->setString("FolderViewMode", foldersBehavior->getSelected()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// Show parent folder
-	auto parentFolder = std::make_shared<SwitchComponent>(mWindow);
-	parentFolder->setState(Settings::getInstance()->getBool("ShowParentFolder"));
-	s->addWithLabel(_("SHOW '..' PARENT FOLDER"), parentFolder);
-	s->addSaveFunc([s, parentFolder]
-	{
-		if (Settings::getInstance()->setBool("ShowParentFolder", parentFolder->getState()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// Show flags
-	auto showRegionFlags = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW REGION FLAG"), false);
-	showRegionFlags->addRange({ { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, Settings::getInstance()->getString("ShowFlags"));
-	s->addWithLabel(_("SHOW REGION FLAG"), showRegionFlags);
-	s->addSaveFunc([s, showRegionFlags]
-	{
-		if (Settings::getInstance()->setString("ShowFlags", showRegionFlags->getSelected()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// Show SaveStates
-	auto showSaveStates = std::make_shared<SwitchComponent>(mWindow);
-	showSaveStates->setState(Settings::getInstance()->getBool("ShowSaveStates"));
-	s->addWithLabel(_("SHOW SAVESTATE ICON"), showSaveStates);
-	s->addSaveFunc([s, showSaveStates]
-	{
-		if (Settings::getInstance()->setBool("ShowSaveStates", showSaveStates->getState()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// Show Manual 
-	auto showManual = std::make_shared<SwitchComponent>(mWindow);
-	showManual->setState(Settings::getInstance()->getBool("ShowManualIcon"));
-	s->addWithLabel(_("SHOW MANUAL ICON"), showManual);
-	s->addSaveFunc([s, showManual]
-	{
-		if (Settings::getInstance()->setBool("ShowManualIcon", showManual->getState()))
-			s->setVariable("reloadAll", true);
-	});
-
-	// filenames
-	auto showFilesnames = std::make_shared<SwitchComponent>(mWindow);
-	showFilesnames->setState(Settings::getInstance()->getBool("ShowFilenames"));
-	s->addWithLabel(_("SHOW FILENAMES INSTEAD"), showFilesnames);
-	s->addSaveFunc([showFilesnames, s]
-	{ 
-		if (Settings::getInstance()->setBool("ShowFilenames", showFilesnames->getState()))
+	s->addSwitch(_("SHOW FAVORITES ON TOP"), "FavoritesFirst", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW HIDDEN FILES"), "ShowHiddenFiles", true, [s] { s->setVariable("reloadAll", true); });
+	s->addOptionList(_("SHOW FOLDERS"), { { _("always"), "always" },{ _("never") , "never" },{ _("having multiple games"), "having multiple games" } }, "FolderViewMode", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW '..' PARENT FOLDER"), "ShowParentFolder", true, [s] { s->setVariable("reloadAll", true); });
+	s->addOptionList(_("SHOW REGION FLAG"), { { _("NO"), "auto" },{ _("BEFORE NAME") , "1" },{ _("AFTER NAME"), "2" } }, "ShowFlags", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW SAVESTATE ICON"), "ShowSaveStates", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW MANUAL ICON"), "ShowManualIcon", true, [s] { s->setVariable("reloadAll", true); });	
+	s->addSwitch(_("SHOW FILENAMES INSTEAD"), "ShowFilenames", true, [s] 
 		{
 			SystemData::resetSettings();
 			FileData::resetSettings();
 
 			s->setVariable("reloadCollections", true);
-			s->setVariable("reloadAll", true);
-		}
-	});
+			s->setVariable("reloadAll", true); 
+		});
+	s->addSwitch(_("IGNORE LEADING ARTICLES WHEN SORTING"), "IgnoreLeadingArticles", true, [s] { s->setVariable("reloadAll", true); });
 	
-	auto ignoreArticles = std::make_shared<SwitchComponent>(mWindow);
-	ignoreArticles->setState(Settings::getInstance()->getBool("IgnoreLeadingArticles"));
-	s->addWithLabel(_("IGNORE LEADING ARTICLES WHEN SORTING"), ignoreArticles);
-	s->addSaveFunc([s, ignoreArticles]
-	{
-		if (Settings::getInstance()->setBool("IgnoreLeadingArticles", ignoreArticles->getState()))
-		{
-			s->setVariable("reloadAll", true);
-		}
-	});
-
 	s->onFinalize([s, pthis, window]
 	{
 		if (s->getVariable("reloadCollections"))
@@ -4228,7 +3640,7 @@ void GuiMenu::openUISettings()
 	mWindow->pushGui(s);
 }
 
-void GuiMenu::openSoundSettings() 
+void GuiMenu::openSoundSettings()
 {
 	auto s = new GuiSettings(mWindow, _("SOUND SETTINGS").c_str());
 
@@ -4249,44 +3661,27 @@ void GuiMenu::openSoundSettings()
 #endif
 		});
 
-		
+
 		// Music Volume
 		auto musicVolume = std::make_shared<SliderComponent>(mWindow, 0.f, 100.f, 1.f, "%");
-		musicVolume->setValue(Settings::getInstance()->getInt("MusicVolume"));		
+		musicVolume->setValue(Settings::getInstance()->getInt("MusicVolume"));
 		musicVolume->setOnValueChanged([](const float &newVal) { Settings::getInstance()->setInt("MusicVolume", (int)round(newVal)); });
 		s->addWithLabel(_("MUSIC VOLUME"), musicVolume);
-		//s->addSaveFunc([this, musicVolume] { Settings::getInstance()->setInt("MusicVolume", (int)round(musicVolume->getValue())); });
-		
-		auto volumePopup = std::make_shared<SwitchComponent>(mWindow);
-		volumePopup->setState(Settings::getInstance()->getBool("VolumePopup"));
-		s->addWithLabel(_("SHOW OVERLAY WHEN VOLUME CHANGES"), volumePopup);
-		s->addSaveFunc([volumePopup] { Settings::getInstance()->setBool("VolumePopup", volumePopup->getState()); });
+
+		s->addSwitch(_("SHOW OVERLAY WHEN VOLUME CHANGES"), "VolumePopup", true);
 	}
 
 	s->addGroup(_("MUSIC"));
 
-	// disable sounds
-	auto music_enabled = std::make_shared<SwitchComponent>(mWindow);
-	music_enabled->setState(Settings::getInstance()->getBool("audio.bgmusic"));
-	s->addWithLabel(_("FRONTEND MUSIC"), music_enabled);
-	s->addSaveFunc([music_enabled] 
+	s->addSwitch(_("FRONTEND MUSIC"), "audio.bgmusic", true, []
 	{
-		if (Settings::getInstance()->setBool("audio.bgmusic", music_enabled->getState()))
-		{
-			if (music_enabled->getState())
-				AudioManager::getInstance()->playRandomMusic();
-			else
-				AudioManager::getInstance()->stopMusic();
-		}
+		if (Settings::getInstance()->getBool("audio.bgmusic"))
+			AudioManager::getInstance()->playRandomMusic();
+		else
+			AudioManager::getInstance()->stopMusic();
 	});
-
-	// batocera - display music titles
-	auto display_titles = std::make_shared<SwitchComponent>(mWindow);
-	display_titles->setState(Settings::getInstance()->getBool("audio.display_titles"));
-	s->addWithLabel(_("DISPLAY SONG TITLES"), display_titles);
-	s->addSaveFunc([display_titles] {
-		Settings::getInstance()->setBool("audio.display_titles", display_titles->getState());
-	});
+	
+	s->addSwitch(_("DISPLAY SONG TITLES"), "audio.display_titles", true);
 
 	// batocera - how long to display the song titles?
 	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 120.f, 2.f, "s");
@@ -4296,52 +3691,23 @@ void GuiMenu::openSoundSettings()
 		Settings::getInstance()->setInt("audio.display_titles_time", (int)Math::round(titles_time->getValue()));
 	});
 
-	// batocera - music per system
-	auto music_per_system = std::make_shared<SwitchComponent>(mWindow);
-	music_per_system->setState(Settings::getInstance()->getBool("audio.persystem"));
-	s->addWithLabel(_("ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"), music_per_system);
-	s->addSaveFunc([music_per_system] {
-		if (Settings::getInstance()->setBool("audio.persystem", music_per_system->getState()))
-			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
-	});
-
-	// batocera - music per system
-	auto enableThemeMusics = std::make_shared<SwitchComponent>(mWindow);
-	enableThemeMusics->setState(Settings::getInstance()->getBool("audio.thememusics"));
-	s->addWithLabel(_("PLAY SYSTEM-SPECIFIC MUSIC"), enableThemeMusics);
-	s->addSaveFunc([enableThemeMusics] {
-		if (Settings::getInstance()->setBool("audio.thememusics", enableThemeMusics->getState()))
-			AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true);
-	});
-
-	auto videolowermusic = std::make_shared<SwitchComponent>(mWindow);
-	videolowermusic->setState(Settings::getInstance()->getBool("VideoLowersMusic"));
-	s->addWithLabel(_("LOWER MUSIC WHEN PLAYING VIDEO"), videolowermusic);
-	s->addSaveFunc([videolowermusic] { Settings::getInstance()->setBool("VideoLowersMusic", videolowermusic->getState()); });
+	s->addSwitch(_("ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"), "audio.persystem", true, [] { AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true); } );
+	s->addSwitch(_("PLAY SYSTEM-SPECIFIC MUSIC"), "audio.thememusics", true, [] { AudioManager::getInstance()->changePlaylist(ViewController::get()->getState().getSystem()->getTheme(), true); });	
+	s->addSwitch(_("LOWER MUSIC WHEN PLAYING VIDEO"), "VideoLowersMusic", true);
 
 	s->addGroup(_("SOUNDS"));
 
-	// disable sounds
-	auto sounds_enabled = std::make_shared<SwitchComponent>(mWindow);
-	sounds_enabled->setState(Settings::getInstance()->getBool("EnableSounds"));
-	s->addWithLabel(_("ENABLE NAVIGATION SOUNDS"), sounds_enabled);
-	s->addSaveFunc([sounds_enabled] 
+	s->addSwitch(_("ENABLE NAVIGATION SOUNDS"), "EnableSounds", true, []
 	{
-	    if (sounds_enabled->getState() && !Settings::getInstance()->getBool("EnableSounds") && PowerSaver::getMode() == PowerSaver::INSTANT)
+		if (Settings::getInstance()->getBool("EnableSounds") && PowerSaver::getMode() == PowerSaver::INSTANT)
 		{
 			Settings::getInstance()->setPowerSaverMode("default");
 			PowerSaver::init();
 		}
-	    Settings::getInstance()->setBool("EnableSounds", sounds_enabled->getState());
-	  });
+	});
 
-	auto video_audio = std::make_shared<SwitchComponent>(mWindow);
-	video_audio->setState(Settings::getInstance()->getBool("VideoAudio"));
-	s->addWithLabel(_("ENABLE VIDEO PREVIEW AUDIO"), video_audio);
-	s->addSaveFunc([video_audio] { Settings::getInstance()->setBool("VideoAudio", video_audio->getState()); });
-
-
-
+	s->addSwitch(_("ENABLE VIDEO PREVIEW AUDIO"), "VideoAudio", true);
+	
 	mWindow->pushGui(s);
 }
 

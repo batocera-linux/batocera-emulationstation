@@ -281,7 +281,7 @@ void GuiBatoceraStore::loadPackagesAsync(bool updatePackageList, bool refreshOnl
 	Window* window = mWindow;
 
 	mWindow->pushGui(new GuiLoading<std::vector<PacmanPackage>>(mWindow, _("PLEASE WAIT"),
-		[this,  updatePackageList, refreshOnly]
+		[this,  updatePackageList, refreshOnly](auto gui)
 		{	
 			if (updatePackageList)
 				if (refreshOnly)

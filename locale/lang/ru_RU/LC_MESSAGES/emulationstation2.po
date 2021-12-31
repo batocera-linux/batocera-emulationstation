@@ -318,7 +318,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНИРОВАНИЕ"
 
 msgid "Searching for devices..."
-msgstr "Поиск контроллеров..."
+msgstr "Поиск устройств..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "BLUETOOTH СКАНИРОВАНИЕ УЖЕ ЗАПУЩЕНО"
@@ -358,6 +358,69 @@ msgstr "ПАКЕТ УСПЕШНО УСТАНОВЛЕН"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "ПАКЕТ УСПЕШНО УДАЛЁН"
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
+
+msgid "SETTINGS"
+msgstr "НАСТРОЙКИ"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "РЕТРОДОСТИЖЕНИЯ"
+
+msgid "HARDCORE MODE"
+msgstr "РЕЖИМ ХАРДКОРА"
+
+msgid "LEADERBOARDS"
+msgstr "ДОСКА ЛИДЕРОВ"
+
+msgid "VERBOSE MODE"
+msgstr "ПОДРОБНЫЙ РЕЖИМ"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "ИНДИКАТОР ДОСТИЖЕНИЙ"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Отображает значки в правом нижнем углу, когда можно получить достижения."
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
+
+msgid "none"
+msgstr "нет"
+
+msgid "UNLOCK SOUND"
+msgstr "ЗВУК ПОЛУЧЕНИЯ"
+
+msgid "USERNAME"
+msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
+
+msgid "PASSWORD"
+msgstr "ПАРОЛЬ"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "ПОКАЗЫВАТЬ РЕТРОДОСТИЖЕНИЯ В ГЛАВНОМ МЕНЮ"
+
+msgid "GAME INDEXES"
+msgstr "ИНДЕКСЫ ИГРЫ"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "ИНДЕКСИРОВАТЬ НОВЫЕ ИГРЫ ПРИ ЗАПУСКЕ"
+
+msgid "INDEX GAMES"
+msgstr "ИНДЕКСАЦИЯ ИГР"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "НЕВОЗМОЖНО АКТИВИРОВАТЬ РЕТРОДОСТИЖЕНИЯ:"
+
+msgid "OK"
+msgstr "ОК"
 
 msgid "FILTER GAMELIST BY"
 msgstr "ФИЛЬТР СПИСКА ИГР ПО"
@@ -495,9 +558,6 @@ msgstr "ПОДОЖДИТЕ"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d из %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "РЕТРОДОСТИЖЕНИЯ"
-
 msgid "Points"
 msgstr "Очки"
 
@@ -510,11 +570,38 @@ msgstr "ПОДРОБНЕЕ"
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
+msgid "NETPLAY SETTINGS"
+msgstr "НАСТРОЙКИ NETPLAY"
+
+msgid "ENABLE NETPLAY"
+msgstr "ВКЛЮЧИТЬ NETPLAY"
+
+msgid "NICKNAME"
+msgstr "НИКНЕЙМ"
+
+msgid "PORT"
+msgstr "ПОРТ"
+
+msgid "USE RELAY SERVER"
+msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
-
-msgid "OK"
-msgstr "ОК"
 
 msgid "VIEW OPTIONS"
 msgstr "НАСТРОЙКИ"
@@ -630,6 +717,9 @@ msgstr "СЕТЬ WIFI НЕ НАЙДЕНА"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "ПОИСК WIFI СЕТИ"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
@@ -637,7 +727,7 @@ msgid "REMOVE ALL"
 msgstr "УДАЛИТЬ ВСЕ"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH КОНТРОЛЛЕРЫ НЕ НАЙДЕНЫ"
+msgstr "BLUETOOTH УСТРОЙСТВА НЕ НАЙДЕНЫ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
@@ -725,9 +815,6 @@ msgstr "начало и конец"
 msgid "never"
 msgstr "никогда"
 
-msgid "none"
-msgstr "нет"
-
 msgid "systems"
 msgstr "системы"
 
@@ -736,9 +823,6 @@ msgstr "случайно"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "НАСТРОЙКА ЗАСТАВКИ"
-
-msgid "SETTINGS"
-msgstr "НАСТРОЙКИ"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "ЗАСТАВКА ЧЕРЕЗ"
@@ -941,8 +1025,8 @@ msgstr "БЫСТРОЕ СОХРАНЕНИЕ"
 msgid "OPEN"
 msgstr "ОТКРЫТЬ"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "NETPLAY ХОСТ/НАСТРОЙКИ"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -950,20 +1034,17 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "НАЧАТЬ ИГРУ"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "НАЧАТЬ СЕССИЮ NETPLAY КАК ХОСТ"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
@@ -1057,20 +1138,116 @@ msgstr "СЛОТ"
 msgid "COPY TO FREE SLOT"
 msgstr "КОПИРОВАТЬ В СВОБОДНЫЙ СЛОТ"
 
-msgid "SCRAPE CRITERIA"
-msgstr "КРИТЕРИИ ЗАГРУЗКИ"
+msgid "SCRAPER SETTINGS"
+msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
-msgstr "ЗАГРУЖАТЬ МЕДИА"
+msgid "IMAGE SOURCE"
+msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
+
+msgid "SCREENSHOT"
+msgstr "СКРИНШОТ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "СКРИНШОТ ГЛАВНОГО МЕНЮ"
+
+msgid "MIX V1"
+msgstr "МИКС V1"
+
+msgid "MIX V2"
+msgstr "МИКС V2"
+
+msgid "BOX 2D"
+msgstr "ОБЛОЖКИ 2D"
+
+msgid "BOX 3D"
+msgstr "ОБЛОЖКИ 3D"
+
+msgid "FAN ART"
+msgstr "ФАН-АРТ"
+
+msgid "BOX SOURCE"
+msgstr "СТИЛЬ ОБЛОЖКИ"
+
+msgid "LOGO SOURCE"
+msgstr "СТИЛЬ ЛОГОТИПА"
+
+msgid "WHEEL"
+msgstr "КОЛЕСО"
+
+msgid "MARQUEE"
+msgstr "БАНЕР"
+
+msgid "SCRAPE RATINGS"
+msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
+
+msgid "SCRAPE VIDEOS"
+msgstr "ЗАГРУЗКА ВИДЕО"
+
+msgid "SCRAPE FANART"
+msgstr "ЗАГРУЗКА ФАН-АРТА"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "ЗАГРУЗКА РАМКИ (16:9)"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "ЗАГРУЗКА ЗАДНИКА ОБЛОЖКИ"
+
+msgid "SCRAPE MAP"
+msgstr "ЗАГРУЗКА КАРТЫ"
+
+msgid "SCRAPE MANUAL"
+msgstr "ЗАГРУЗКА РУКОВОДСТВА"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "ЗАГРУЗКА НАСТРОЕК PADTOKEY"
+
+msgid "SCRAPER"
+msgstr "СКРАПЕР"
+
+msgid "SCRAPING DATABASE"
+msgstr "ИСТОЧНИК ЗАГРУЗКИ"
+
+msgid "SCRAPE FROM"
+msgstr "ЗАГРУЗКА ИЗ"
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
 
 msgid "ALL"
 msgstr "ВСЕ"
 
-msgid "ONLY MISSING"
-msgstr "ТОЛЬКО ОТСУТСТВУЮЩИЕ"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr "ВЫБРАННЫЕ СИСТЕМЫ"
+
+msgid "SCRAPE NOW"
+msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
 
 msgid "START"
 msgstr "НАЧАТЬ"
@@ -1089,6 +1266,24 @@ msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "НЕТ ПОДХОДЯЩИХ ИГР."
+
+msgid "INFORMATION"
+msgstr "ХАРАКТЕРИСТИКИ"
+
+msgid "VERSION"
+msgstr "ВЕРСИЯ"
+
+msgid "USER DISK USAGE"
+msgstr "ЗАНЯТО НА ДИСКЕ ПОЛЬЗОВАТЕЛЯ"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "ЗАНЯТО НА СИСТЕМНОМ ДИСКЕ"
+
+msgid "SYSTEM"
+msgstr "СИСТЕМА"
+
+msgid "VIDEO DRIVER"
+msgstr "ВИДЕО ДРАЙВЕР"
 
 msgid "THE BEZEL PROJECT"
 msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
@@ -1168,9 +1363,6 @@ msgstr "ПРОИЗВОДИТЕЛЬ"
 msgid "RENDERER"
 msgstr "РЕНДЕР"
 
-msgid "VERSION"
-msgstr "ВЕРСИЯ"
-
 msgid "SHADERS"
 msgstr "ШЕЙДЕРЫ"
 
@@ -1204,98 +1396,17 @@ msgstr "НАСТРОЙКИ УПРАВЛЕНИЯ"
 msgid "EMULATOR SETTINGS"
 msgstr "НАСТРОЙКИ ЭМУЛЯТОРА"
 
-msgid "SCRAPER"
-msgstr "СКРАПЕР"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "ОБНОВЛЕНИЯ И ЗАГРУЗКИ"
 
 msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
-msgid "INFORMATION"
-msgstr "ХАРАКТЕРИСТИКИ"
-
 msgid "UNLOCK UI MODE"
 msgstr "РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
 
 msgid "QUIT"
 msgstr "ВЫХОД"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
-
-msgid "NEXT"
-msgstr "ДАЛЕЕ"
-
-msgid "SCRAPING DATABASE"
-msgstr "ИСТОЧНИК ЗАГРУЗКИ"
-
-msgid "IMAGE SOURCE"
-msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
-
-msgid "SCREENSHOT"
-msgstr "СКРИНШОТ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "СКРИНШОТ ГЛАВНОГО МЕНЮ"
-
-msgid "MIX V1"
-msgstr "МИКС V1"
-
-msgid "MIX V2"
-msgstr "МИКС V2"
-
-msgid "BOX 2D"
-msgstr "ОБЛОЖКИ 2D"
-
-msgid "BOX 3D"
-msgstr "ОБЛОЖКИ 3D"
-
-msgid "FAN ART"
-msgstr "ФАН-АРТ"
-
-msgid "BOX SOURCE"
-msgstr "СТИЛЬ ОБЛОЖКИ"
-
-msgid "LOGO SOURCE"
-msgstr "СТИЛЬ ЛОГОТИПА"
-
-msgid "WHEEL"
-msgstr "КОЛЕСО"
-
-msgid "MARQUEE"
-msgstr "БАНЕР"
-
-msgid "SCRAPE RATINGS"
-msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
-
-msgid "SCRAPE VIDEOS"
-msgstr "ЗАГРУЗКА ВИДЕО"
-
-msgid "SCRAPE FANART"
-msgstr "ЗАГРУЗКА ФАН-АРТА"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "ЗАГРУЗКА РАМКИ (16:9)"
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "ЗАГРУЗКА ЗАДНИКА ОБЛОЖКИ"
-
-msgid "SCRAPE MAP"
-msgstr "ЗАГРУЗКА КАРТЫ"
-
-msgid "SCRAPE MANUAL"
-msgstr "ЗАГРУЗКА РУКОВОДСТВА"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "ЗАГРУЗКА НАСТРОЕК PADTOKEY"
-
-msgid "USERNAME"
-msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
-
-msgid "PASSWORD"
-msgstr "ПАРОЛЬ"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ НАСТРОИТЬ УПРАВЛЕНИЕ?"
@@ -1308,18 +1419,6 @@ msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "ВВЕДИТЕ КОД, ЧТОБЫ РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
-
-msgid "USER DISK USAGE"
-msgstr "ЗАНЯТО НА ДИСКЕ ПОЛЬЗОВАТЕЛЯ"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "ЗАНЯТО НА СИСТЕМНОМ ДИСКЕ"
-
-msgid "SYSTEM"
-msgstr "СИСТЕМА"
-
-msgid "VIDEO DRIVER"
-msgstr "ВИДЕО ДРАЙВЕР"
 
 msgid "DEVELOPER"
 msgstr "РАЗРАБОТЧИК"
@@ -1340,7 +1439,7 @@ msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr "ИСП. OMX ПЛЕЕР (HARDWARE ACCELERATED)"
+msgstr "ИСП. OMX ПЛЕЕР (АППАРАТНОЕ УСКОРЕНИЕ)"
 
 msgid "TOOLS"
 msgstr "ИНСТРУМЕНТЫ"
@@ -1459,7 +1558,7 @@ msgstr ""
 "игры)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ ДЖОЙСТИКОМ"
+msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ КОНТРОЛЛЕРОМ"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ПОКАЗАТЬ ИНДИКАТОР СЕТИ"
@@ -1616,12 +1715,6 @@ msgstr "BATOCERA ИНТРО ИЗОБРАЖЕНИЕ"
 msgid "SPLASH SETTING"
 msgstr "НАСТРОЙКИ ИНТРО"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "НАСТРОЙКИ РЕТРОДОСТИЖЕНИЙ"
-
-msgid "NETPLAY SETTINGS"
-msgstr "НАСТРОЙКИ NETPLAY"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "ПРОВЕРИТЬ БИОСЫ ПЕРЕД ЗАПУСКОМ ИГРЫ"
 
@@ -1721,60 +1814,6 @@ msgid ""
 msgstr ""
 "Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. "
 "Отключите, если это вызывает заикание аудио/видео."
-
-msgid "HARDCORE MODE"
-msgstr "РЕЖИМ ХАРДКОРА"
-
-msgid "LEADERBOARDS"
-msgstr "ДОСКА ЛИДЕРОВ"
-
-msgid "VERBOSE MODE"
-msgstr "ПОДРОБНЫЙ РЕЖИМ"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
-
-msgid "CHALLENGE INDICATORS"
-msgstr "ИНДИКАТОР ДОСТИЖЕНИЙ"
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-"Отображает значки в правом нижнем углу, когда можно получить достижения."
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
-
-msgid "UNLOCK SOUND"
-msgstr "ЗВУК ПОЛУЧЕНИЯ"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "ПОКАЗЫВАТЬ РЕТРОДОСТИЖЕНИЯ В ГЛАВНОМ МЕНЮ"
-
-msgid "GAME INDEXES"
-msgstr "ИНДЕКСЫ ИГРЫ"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "ИНДЕКСИРОВАТЬ НОВЫЕ ИГРЫ ПРИ ЗАПУСКЕ"
-
-msgid "INDEX GAMES"
-msgstr "ИНДЕКСАЦИЯ ИГР"
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "НЕВОЗМОЖНО АКТИВИРОВАТЬ РЕТРОДОСТИЖЕНИЯ:"
-
-msgid "ENABLE NETPLAY"
-msgstr "ВКЛЮЧИТЬ NETPLAY"
-
-msgid "NICKNAME"
-msgstr "НИКНЕЙМ"
-
-msgid "PORT"
-msgstr "ПОРТ"
-
-msgid "USE RELAY SERVER"
-msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
 msgid "DECORATION SET"
 msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
@@ -1890,6 +1929,9 @@ msgstr "ПОКАЗЫВАЕТ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИ�
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
 
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "ДАННЫЕ ЗАГРУЖАЮТСЯ. ОСТАНОВИТЬ?"
+
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "ЗАПУЩЕНО ХЕШИРОВАНИЕ ИГР. ОСТАНОВИТЬ?"
 
@@ -1908,9 +1950,9 @@ msgid ""
 msgstr ""
 "ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ СВЕТА, "
 "ОТНОСИТЕЛЬНО КНОПОК НА SNES ГЕЙМПАДЕ, СЕВЕР - ВВЕРХУ, ЮГ - ВНИЗУ, ЗАПАД - "
-"СЛЕВА, ВОСТОК - СПРАВА.ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНАЯ ГОРЯЧАЯ КНОПКА, ТО "
-"ИСПОЛЬЗУЙТЕ КНОПКУ SELECT.ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС НЕТ, "
-"НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ.КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
+"СЛЕВА, ВОСТОК - СПРАВА. ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНЫЙ ХОТКЕЙ, ТО "
+"ИСПОЛЬЗУЙТЕ КНОПКУ SELECT. ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС НЕТ, "
+"НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ. КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
 "ПОДТВЕРЖДЕНИЯ."
 
 msgid "PAIR A BLUETOOTH DEVICE"
@@ -2016,6 +2058,9 @@ msgstr "НАСТРОЙКИ ЭКРАНА"
 msgid "LIST TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
+msgid "auto"
+msgstr ""
+
 msgid "GAME LAUNCH TRANSITION"
 msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"
 
@@ -2119,7 +2164,7 @@ msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr "ЗАСТАВКА"
+msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 
 msgid "VIEW USER'S MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
@@ -2223,7 +2268,7 @@ msgid ""
 msgstr ""
 "НЕКОТОРЫЕ ФАЙЛЫ, НА КОТОРЫЕ ВЫ ССЫЛАЕТЕСЬ, РАСПОЛОЖЕНЫ ВНЕ ПАПКИ СО СПИСКОМ "
 "ИГР.\n"
-"ВЫ ХОТИТЕ СОЗДАТЬ КОПИЮ ЭТИХ ФАЙЛОВ В ПАПКУ СО СПИСКОМ ИГР ?"
+"ВЫ ХОТИТЕ СОЗДАТЬ КОПИЮ ЭТИХ ФАЙЛОВ В ПАПКУ СО СПИСКОМ ИГР?"
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -2242,6 +2287,9 @@ msgstr "МАСШТАБ"
 
 msgid "GAMES TO INDEX"
 msgstr "ИГРЫ ПО ИНДЕКСУ"
+
+msgid "ONLY MISSING"
+msgstr "ТОЛЬКО ОТСУТСТВУЮЩИЕ"
 
 msgid "SYSTEM INFO"
 msgstr "СИСТЕМНАЯ ИНФОРМАЦИЯ"
@@ -2636,7 +2684,7 @@ msgstr "ПРАВЫЙ АНАЛОГ ВПРАВО"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr "ГОРЯЧАЯ КНОПКА"
+msgstr "ХОТКЕЙ"
 
 msgid "CONFIGURING"
 msgstr "НАСТРОЙКА"
@@ -2661,14 +2709,14 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"ГОРЯЧАЯ КНОПКА НЕ НАЗНАЧЕНА. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ "
-"КОНТРОЛЛЕРА. ВЫ ХОТИТЕ ИСПОЛЬЗОВАТЬ КНОПКУ SELECT КАК ГОРЯЧУЮ КНОПКУ?"
+"ХОТКЕЙ НЕ НАЗНАЧЕН. ЭТО НЕОБХОДИМО ДЛЯ ВЫХОДА ИЗ ИГР С ПОМОЩЬЮ КОНТРОЛЛЕРА. "
+"ВЫ ХОТИТЕ УСТАНОВИТЬ ХОТКЕЙ НА КНОПКУ SELECT?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "УСТАНОВИТЬ SELECT КАК ГОРЯЧУЮ КНОПКУ"
+msgstr "УСТАНОВИТЬ ХОТКЕЙ НА SELECT"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "НЕ УСТАНАВЛИВАТЬ ГОРЯЧУЮ КНОПКУ"
+msgstr "НЕ УСТАНАВЛИВАТЬ ХОТКЕЙ"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2787,6 +2835,27 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "SCRAPE CRITERIA"
+#~ msgstr "КРИТЕРИИ ЗАГРУЗКИ"
+
+#~ msgid "MEDIA TO SCRAPE FOR"
+#~ msgstr "ЗАГРУЖАТЬ МЕДИА"
+
+#~ msgid "NEXT"
+#~ msgstr "ДАЛЕЕ"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "NETPLAY ХОСТ/НАСТРОЙКИ"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "НАЧАТЬ СЕССИЮ NETPLAY КАК ХОСТ"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ИГРОКА"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "УСТАНОВИТЬ ПАРОЛЬ ДЛЯ ЗРИТЕЛЯ"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "НАЧАТЬ С АВТО СОХРАНЕНИЕМ"
@@ -2995,9 +3064,6 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "КАКУЮ ТЕМУ УСТАНОВИТЬ / УДАЛИТЬ"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "ЗАГРУЗИТЬ ДАННЫЕ"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "ЗАГРУЗИТЬ ДАННЫЕ ИГР"
 
@@ -3027,9 +3093,6 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "ДАННЫЕ"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "ЗАГРУЗКА ИЗ"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ НАСТРОИТЬ УПРАВЛЕНИЕ?"

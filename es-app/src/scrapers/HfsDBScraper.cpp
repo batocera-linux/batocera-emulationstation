@@ -369,7 +369,7 @@ static void processGame(const Value& game, std::vector<ScraperSearchResult>& res
 			language = Utils::String::toLower(language.substr(0, shortNameDivider));
 	}
 
-	ScraperSearchResult result;
+	ScraperSearchResult result("HfsDB");
 
 	std::vector<std::string> langs = { language, "en" };
 	for (auto lang : langs)

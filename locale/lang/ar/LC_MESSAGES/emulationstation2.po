@@ -366,6 +366,68 @@ msgstr "تم تثبيت الحزمة بنجاح"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "تم حذف الحزمة بنجاح"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "إعدادات"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "امتيازات"
+
+msgid "HARDCORE MODE"
+msgstr "وضع HARDCORE"
+
+msgid "LEADERBOARDS"
+msgstr "LEADERBOARDS"
+
+msgid "VERBOSE MODE"
+msgstr "وضع مفصل"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "لقطة شاشة تلقائية"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "اسم المستخدم"
+
+msgid "PASSWORD"
+msgstr "كلمة المرور"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "فهرسة الألعاب"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "موافق"
+
 msgid "FILTER GAMELIST BY"
 msgstr "فرز قائمة الألعاب حسب"
 
@@ -502,9 +564,6 @@ msgstr "الرجاء الإنتظار"
 msgid "%d%% (%d of %d)"
 msgstr ""
 
-msgid "RETROACHIEVEMENTS"
-msgstr "امتيازات"
-
 msgid "Points"
 msgstr ""
 
@@ -517,11 +576,38 @@ msgstr ""
 msgid "LAUNCH"
 msgstr "بدء"
 
+msgid "NETPLAY SETTINGS"
+msgstr "إعدادات  NETPLAY"
+
+msgid "ENABLE NETPLAY"
+msgstr "تفعيل NETPLAY"
+
+msgid "NICKNAME"
+msgstr "المعرّف"
+
+msgid "PORT"
+msgstr "المنفذ"
+
+msgid "USE RELAY SERVER"
+msgstr "استخدم خادم حقيقي"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "تم الانتهاء"
-
-msgid "OK"
-msgstr "موافق"
 
 msgid "VIEW OPTIONS"
 msgstr "عرض الخيارات"
@@ -637,6 +723,9 @@ msgstr "لم يتم العثور على شبكة WIFI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "جارِ البحث عن شبكة WIFI"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr ""
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
@@ -732,9 +821,6 @@ msgstr ""
 msgid "never"
 msgstr "أبدا"
 
-msgid "none"
-msgstr ""
-
 msgid "systems"
 msgstr ""
 
@@ -743,9 +829,6 @@ msgstr ""
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "إعدادات شاشة التوقف"
-
-msgid "SETTINGS"
-msgstr "إعدادات"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "شاشة التوقف بعد"
@@ -946,7 +1029,7 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -955,19 +1038,16 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr ""
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr ""
 
-msgid "SET PLAYER PASSWORD"
+msgid "PLAYER PASSWORD"
 msgstr ""
 
-msgid "SET VIEWER PASSWORD"
+msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
@@ -1062,20 +1142,116 @@ msgstr ""
 msgid "COPY TO FREE SLOT"
 msgstr ""
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr "مصدر الصورة"
+
+msgid "SCREENSHOT"
+msgstr "لقطة شاشة"
+
+msgid "TITLE SCREENSHOT"
+msgstr "عنوان لقطة شاشة"
+
+msgid "MIX V1"
+msgstr "مكس 1"
+
+msgid "MIX V2"
+msgstr "مكس 2"
+
+msgid "BOX 2D"
+msgstr "صندوق ثنائي البعد"
+
+msgid "BOX 3D"
+msgstr "صندوق ثلاثي البعد"
+
+msgid "FAN ART"
+msgstr "غلاف الجماهير"
+
+msgid "BOX SOURCE"
+msgstr "مصدر الصندوق"
+
+msgid "LOGO SOURCE"
+msgstr "مصدر الشعار"
+
+msgid "WHEEL"
+msgstr "عجلة"
+
+msgid "MARQUEE"
+msgstr "شاشة أسمية"
+
+msgid "SCRAPE RATINGS"
+msgstr "كشط عن التقييم"
+
+msgid "SCRAPE VIDEOS"
+msgstr "كشط عن فيديو"
+
+msgid "SCRAPE FANART"
+msgstr "كشط غلاف الجماهير"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
+
+msgid "SCRAPE MAP"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr "الكشط اليدوي"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCRAPER"
+msgstr "الكاشط"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "كشط من "
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
 msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "اكشط الآن"
 
 msgid "START"
 msgstr "ابدأ"
@@ -1091,6 +1267,24 @@ msgstr "الكشط يعمل حاليا. هل تريد إيقافه ؟"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "لا توجد ألعاب تناسب هذه المعايير."
+
+msgid "INFORMATION"
+msgstr "المعلومات"
+
+msgid "VERSION"
+msgstr "الإصدار"
+
+msgid "USER DISK USAGE"
+msgstr "استخدام تخزين المستخدم"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "استخدام تخزين النظام"
+
+msgid "SYSTEM"
+msgstr "النظام"
+
+msgid "VIDEO DRIVER"
+msgstr ""
 
 msgid "THE BEZEL PROJECT"
 msgstr "مشروع إطارات الشاشة"
@@ -1170,9 +1364,6 @@ msgstr ""
 msgid "RENDERER"
 msgstr ""
 
-msgid "VERSION"
-msgstr "الإصدار"
-
 msgid "SHADERS"
 msgstr ""
 
@@ -1206,98 +1397,17 @@ msgstr "تكوين الإدخال"
 msgid "EMULATOR SETTINGS"
 msgstr "إعدادات المحاكي"
 
-msgid "SCRAPER"
-msgstr "الكاشط"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "تحديثات و تنزيلات"
 
 msgid "SYSTEM SETTINGS"
 msgstr "إعدادات النظام"
 
-msgid "INFORMATION"
-msgstr "المعلومات"
-
 msgid "UNLOCK UI MODE"
 msgstr ""
 
 msgid "QUIT"
 msgstr "خروج"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "مصدر الصورة"
-
-msgid "SCREENSHOT"
-msgstr "لقطة شاشة"
-
-msgid "TITLE SCREENSHOT"
-msgstr "عنوان لقطة شاشة"
-
-msgid "MIX V1"
-msgstr "مكس 1"
-
-msgid "MIX V2"
-msgstr "مكس 2"
-
-msgid "BOX 2D"
-msgstr "صندوق ثنائي البعد"
-
-msgid "BOX 3D"
-msgstr "صندوق ثلاثي البعد"
-
-msgid "FAN ART"
-msgstr "غلاف الجماهير"
-
-msgid "BOX SOURCE"
-msgstr "مصدر الصندوق"
-
-msgid "LOGO SOURCE"
-msgstr "مصدر الشعار"
-
-msgid "WHEEL"
-msgstr "عجلة"
-
-msgid "MARQUEE"
-msgstr "شاشة أسمية"
-
-msgid "SCRAPE RATINGS"
-msgstr "كشط عن التقييم"
-
-msgid "SCRAPE VIDEOS"
-msgstr "كشط عن فيديو"
-
-msgid "SCRAPE FANART"
-msgstr "كشط غلاف الجماهير"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
-
-msgid "SCRAPE MAP"
-msgstr ""
-
-msgid "SCRAPE MANUAL"
-msgstr "الكشط اليدوي"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "USERNAME"
-msgstr "اسم المستخدم"
-
-msgid "PASSWORD"
-msgstr "كلمة المرور"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
@@ -1309,18 +1419,6 @@ msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr ""
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr ""
-
-msgid "USER DISK USAGE"
-msgstr "استخدام تخزين المستخدم"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "استخدام تخزين النظام"
-
-msgid "SYSTEM"
-msgstr "النظام"
-
-msgid "VIDEO DRIVER"
 msgstr ""
 
 msgid "DEVELOPER"
@@ -1611,12 +1709,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "إعدادات  NETPLAY"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr ""
 
@@ -1714,59 +1806,6 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "وضع HARDCORE"
-
-msgid "LEADERBOARDS"
-msgstr "LEADERBOARDS"
-
-msgid "VERBOSE MODE"
-msgstr "وضع مفصل"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "لقطة شاشة تلقائية"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr ""
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "فهرسة الألعاب"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "ENABLE NETPLAY"
-msgstr "تفعيل NETPLAY"
-
-msgid "NICKNAME"
-msgstr "المعرّف"
-
-msgid "PORT"
-msgstr "المنفذ"
-
-msgid "USE RELAY SERVER"
-msgstr "استخدم خادم حقيقي"
 
 msgid "DECORATION SET"
 msgstr ""
@@ -1881,6 +1920,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "تكوين متقدم لكل نظام"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "تجزئة اللعبة تعمل حالياً. هل تريد ايقافها ؟"
@@ -2001,6 +2043,9 @@ msgstr "خيارات العرض"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "نمط التنقل"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr ""
@@ -2224,6 +2269,9 @@ msgid "ZOOM"
 msgstr ""
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2922,9 +2970,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "اختر السمات التي تريد تثبيتها / حذفها"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "اكشط الآن"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "اكشط هذه الألعاب"
 
@@ -2951,9 +2996,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "المعلومات"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "كشط من "
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "هل أنت متأكد من انك تريد تكوين الإدخال ؟"

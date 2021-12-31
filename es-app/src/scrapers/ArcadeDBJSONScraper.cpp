@@ -117,7 +117,7 @@ std::string findMedia(const Value& v, std::string scrapeSource)
 
 void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 {
-	ScraperSearchResult result;
+	ScraperSearchResult result("ArcadeDB");
 
 	if (game.HasMember("short_title") && game["short_title"].IsString())
 		result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "short_title"));

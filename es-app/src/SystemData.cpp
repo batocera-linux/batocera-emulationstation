@@ -29,7 +29,7 @@
 
 using namespace Utils;
 
-std::vector<SystemData*> SystemData::sSystemVector;
+VectorEx<SystemData*> SystemData::sSystemVector;
 bool SystemData::IsManufacturerSupported = false;
 
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
@@ -1169,13 +1169,16 @@ bool SystemData::isVisible()
 
 SystemData* SystemData::getNext() const
 {
-	std::vector<SystemData*>::const_iterator it = getIterator();
+	auto it = getIterator();
 
-	do {
+	do 
+	{
 		it++;
 		if (it == sSystemVector.cend())
 			it = sSystemVector.cbegin();
-	} while (!(*it)->isVisible());
+	} 
+	while (!(*it)->isVisible());
+	
 	// as we are starting in a valid gamelistview, this will always succeed, even if we have to come full circle.
 
 	return *it;
@@ -1183,13 +1186,15 @@ SystemData* SystemData::getNext() const
 
 SystemData* SystemData::getPrev() const
 {
-	std::vector<SystemData*>::const_reverse_iterator it = getRevIterator();
+	auto it = getRevIterator();
 
-	do {
+	do 
+	{
 		it++;
 		if (it == sSystemVector.crend())
 			it = sSystemVector.crbegin();
-	} while (!(*it)->isVisible());
+	} 
+	while (!(*it)->isVisible());
 	// as we are starting in a valid gamelistview, this will always succeed, even if we have to come full circle.
 
 	return *it;
@@ -1253,10 +1258,7 @@ unsigned int SystemData::getGameCount() const
 SystemData* SystemData::getRandomSystem()
 {
 	//  this is a bit brute force. It might be more efficient to just to a while (!gameSystem) do random again...
-	unsigned int total = 0;
-	for(auto it = sSystemVector.cbegin(); it != sSystemVector.cend(); it++)
-		if ((*it)->isGameSystem())
-			total++;
+	unsigned int total = sSystemVector.count([](auto sys) { return sys->isGameSystem(); });
 
 	// get random number in range
 	int target = Randomizer::random(total);
@@ -1529,11 +1531,7 @@ bool SystemData::isCheevosSupported()
 
 bool SystemData::isNetplayActivated()
 {
-	for (auto sys : SystemData::sSystemVector)
-		if (sys->isNetplaySupported())
-			return true;
-
-	return false;	
+	return sSystemVector.any([](auto sys) { return sys->isNetplaySupported(); });
 }
 
 bool SystemData::isGroupChildSystem() 

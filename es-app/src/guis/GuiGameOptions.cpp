@@ -350,6 +350,8 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			{
 				game->importP2k(result.p2k);
 				game->getMetadata().importScrappedMetadata(result.mdl);	
+				game->getMetadata().setScrapeDate(result.scraper);
+
 				ViewController::get()->onFileChanged(game, FILE_METADATA_CHANGED);
 			});
 

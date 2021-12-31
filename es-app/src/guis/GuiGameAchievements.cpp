@@ -21,7 +21,7 @@
 void GuiGameAchievements::show(Window* window, int gameId)
 {
 	window->pushGui(new GuiLoading<GameInfoAndUserProgress>(window, _("PLEASE WAIT"),
-		[window, gameId]
+		[window, gameId](auto gui)
 	{
 		return RetroAchievements::getGameInfoAndUserProgress(gameId);
 	},

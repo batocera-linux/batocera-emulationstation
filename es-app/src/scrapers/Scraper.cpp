@@ -35,6 +35,32 @@ std::vector<std::pair<std::string, Scraper*>> Scraper::scrapers
 	{ "ArcadeDB", new ArcadeDBScraper() }
 };
 
+std::string Scraper::getScraperName(Scraper* scraper)
+{
+	for (auto engine : scrapers)
+		if (scraper == engine.second)
+			return engine.first;
+
+	return std::string();
+}
+
+int Scraper::getScraperIndex(const std::string& name)
+{
+	for (int i = 0 ; i < scrapers.size() ; i++)
+		if (name == scrapers[i].first)
+			return i;
+
+	return -1;
+}
+
+std::string Scraper::getScraperNameFromIndex(int index)
+{
+	if (index >= 0 && index < scrapers.size())
+		return scrapers[index].first;
+
+	return std::string();
+}
+
 Scraper* Scraper::getScraper(const std::string name)
 {	
 	auto scraper = name;
@@ -51,6 +77,55 @@ Scraper* Scraper::getScraper(const std::string name)
 bool Scraper::isValidConfiguredScraper()
 {
 	return getScraper() != nullptr;
+}
+
+bool Scraper::hasAnyMedia(FileData* file)
+{
+	if (isMediaSupported(ScraperMediaSource::Screenshot) || isMediaSupported(ScraperMediaSource::Box2d) || isMediaSupported(ScraperMediaSource::Box3d) || isMediaSupported(ScraperMediaSource::Mix) || isMediaSupported(ScraperMediaSource::TitleShot) || isMediaSupported(ScraperMediaSource::FanArt))
+		if (!Settings::getInstance()->getString("ScrapperImageSrc").empty() && !file->getMetadata(MetaDataId::Image).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Image)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::Box2d) || isMediaSupported(ScraperMediaSource::Box3d))
+		if (!Settings::getInstance()->getString("ScrapperThumbSrc").empty() && !file->getMetadata(MetaDataId::Thumbnail).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Thumbnail)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::Wheel) || isMediaSupported(ScraperMediaSource::Marquee))
+		if (Settings::getInstance()->getString("ScrapperLogoSrc").empty() && !file->getMetadata(MetaDataId::Marquee).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Marquee)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::Manual))
+		if (Settings::getInstance()->getBool("ScrapeManual") && !file->getMetadata(MetaDataId::Manual).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::Map))
+		if (Settings::getInstance()->getBool("ScrapeMap") && !file->getMetadata(MetaDataId::Map).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::FanArt))
+		if (Settings::getInstance()->getBool("ScrapeFanart") && !file->getMetadata(MetaDataId::FanArt).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::Video))
+		if (Settings::getInstance()->getBool("ScrapeVideos") && !file->getMetadata(MetaDataId::Video).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Video)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::BoxBack))
+		if (Settings::getInstance()->getBool("ScrapeBoxBack") && !file->getMetadata(MetaDataId::BoxBack).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::BoxBack)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::TitleShot))
+		if (Settings::getInstance()->getBool("ScrapeTitleShot") && !file->getMetadata(MetaDataId::TitleShot).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::TitleShot)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::Cartridge))
+		if (Settings::getInstance()->getBool("ScrapeCartridge") && !file->getMetadata(MetaDataId::Cartridge).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Cartridge)))
+			return true;
+
+	if (isMediaSupported(ScraperMediaSource::Bezel_16_9))
+		if (Settings::getInstance()->getBool("ScrapeBezel") && !file->getMetadata(MetaDataId::Bezel).empty() && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Bezel)))
+			return true;
+	
+	return false;
 }
 
 bool Scraper::hasMissingMedia(FileData* file)

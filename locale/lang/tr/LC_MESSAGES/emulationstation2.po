@@ -358,6 +358,68 @@ msgstr "PAKET BAŞARIYLA YÜKLENDİ"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAKET BAŞARIYLA KALDIRILDI"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr "AYARLAR"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETRO BAŞARILARI"
+
+msgid "HARDCORE MODE"
+msgstr "DONANIM MODU"
+
+msgid "LEADERBOARDS"
+msgstr "SKORLAR"
+
+msgid "VERBOSE MODE"
+msgstr "VERBOSE MODU"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "OTOMATİK EKRAN GÖRÜNTÜSÜ"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "yok"
+
+msgid "UNLOCK SOUND"
+msgstr "SESLERİN KİLİDİNİ KALDIR"
+
+msgid "USERNAME"
+msgstr "KULLANICI ADI"
+
+msgid "PASSWORD"
+msgstr "PAROLA"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "OYUN ENDEKSLERİ"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "TAMAM"
+
 msgid "FILTER GAMELIST BY"
 msgstr "OYUN LİSTESİNİ FİLTRELE"
 
@@ -494,9 +556,6 @@ msgstr "LÜTFEN BEKLEYİN"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d da %d)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETRO BAŞARILARI"
-
 msgid "Points"
 msgstr "Puanlar"
 
@@ -509,11 +568,38 @@ msgstr "DETAYLARI GÖR"
 msgid "LAUNCH"
 msgstr "BAŞLAT"
 
+msgid "NETPLAY SETTINGS"
+msgstr "NETPLAY AYARLARI"
+
+msgid "ENABLE NETPLAY"
+msgstr "NETPLAY AKTİF ET"
+
+msgid "NICKNAME"
+msgstr "TAKMA AD"
+
+msgid "PORT"
+msgstr "PORT"
+
+msgid "USE RELAY SERVER"
+msgstr "ARA SUNUCU KULLAN"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "BİTTİ"
-
-msgid "OK"
-msgstr "TAMAM"
 
 msgid "VIEW OPTIONS"
 msgstr "SEÇENEKLERİ GÖSTER"
@@ -629,6 +715,9 @@ msgstr "WIFI AĞI BULUNAMADI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFI AĞLARI TARANIYOR"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "AĞA BAĞLI DEĞİLSİNİZ"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr ""
 
@@ -724,9 +813,6 @@ msgstr "başat & bitir"
 msgid "never"
 msgstr "hiç"
 
-msgid "none"
-msgstr "yok"
-
 msgid "systems"
 msgstr "sistemler"
 
@@ -735,9 +821,6 @@ msgstr "rasgele"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "EKRAN KORUYUCU AYARLARI"
-
-msgid "SETTINGS"
-msgstr "AYARLAR"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "EKRAN KORUYUCU"
@@ -938,7 +1021,7 @@ msgstr ""
 msgid "OPEN"
 msgstr "AÇ"
 
-msgid "NETPLAY HOSTING/OPTIONS"
+msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
@@ -947,20 +1030,17 @@ msgstr "NETPLAY"
 msgid "START GAME"
 msgstr "OYUNU BAŞLAT"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
+msgid "HOST A NETPLAY GAME"
 msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "AĞA BAĞLI DEĞİLSİNİZ"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "AÇIK YAYINLANMIŞ OYUN"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "OYUNCU ŞİFRESİ OLUŞTUR"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "İZLEYİCİ ŞİFRESİ OLUŞTUR"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "BENZER OYUNLARI BUL..."
@@ -1054,20 +1134,116 @@ msgstr "YUVA"
 msgid "COPY TO FREE SLOT"
 msgstr "BOŞ YUVAYA KOPYALA"
 
-msgid "SCRAPE CRITERIA"
+msgid "SCRAPER SETTINGS"
 msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
+msgid "IMAGE SOURCE"
+msgstr "RESİM KAYNAĞI"
+
+msgid "SCREENSHOT"
+msgstr "EKRAN GÖRÜNTÜSÜ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "BAŞLIK EKRAN GÖRÜNTÜSÜ"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "2D KUTU"
+
+msgid "BOX 3D"
+msgstr "3D KUTU"
+
+msgid "FAN ART"
+msgstr "FAN SANATI"
+
+msgid "BOX SOURCE"
+msgstr "KUTU KAYNAĞI"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO KAYNAĞI"
+
+msgid "WHEEL"
+msgstr "WHEEL"
+
+msgid "MARQUEE"
+msgstr "KAYAN YAZI"
+
+msgid "SCRAPE RATINGS"
+msgstr "PUANLARI ÇEK(SCRAPE)"
+
+msgid "SCRAPE VIDEOS"
+msgstr "VİDEOLARI ÇEK(SCRAPE)"
+
+msgid "SCRAPE FANART"
+msgstr "FAN SANATLARINI ÇEK(SCRAPE)"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "KUTU ARKA KAPAK ÇEK(SCRAPE)"
+
+msgid "SCRAPE MAP"
+msgstr "HARİTA ÇEK(SCRAPE)"
+
+msgid "SCRAPE MANUAL"
+msgstr "KLAVUZ ÇEK(SCRAPE)"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "PADTOKEY AYARLARINI ÇEK(SCRAPE)"
+
+msgid "SCRAPER"
+msgstr "SCRAPER"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "ŞURADAN ÇEK(SCRAPPER)"
+
+msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
 msgstr ""
 
-msgid "ONLY MISSING"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
 msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "SCRAPE ÇEK"
 
 msgid "START"
 msgstr "BAŞLAT"
@@ -1083,6 +1259,24 @@ msgstr "ÇEKME İŞLEMİ DEVAM EDİYOR. İPTAL ETMEK İSTERMİSİN ? (SCRAPE)"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "BU KRİTERE UYAN OYUN BULUNAMADI."
+
+msgid "INFORMATION"
+msgstr "BİLGİ"
+
+msgid "VERSION"
+msgstr "SÜRÜM"
+
+msgid "USER DISK USAGE"
+msgstr "KULLANICI DİSK KULLANIMI"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "SİSTEM DİSK KULLANIMI"
+
+msgid "SYSTEM"
+msgstr "SİSTEM"
+
+msgid "VIDEO DRIVER"
+msgstr "VİDEO SÜRÜCÜSÜ"
 
 msgid "THE BEZEL PROJECT"
 msgstr "KENAR PROJESİ"
@@ -1162,9 +1356,6 @@ msgstr "YAPIMCI"
 msgid "RENDERER"
 msgstr "İŞLEYİCİ"
 
-msgid "VERSION"
-msgstr "SÜRÜM"
-
 msgid "SHADERS"
 msgstr "GÖLGELENDİRMELER"
 
@@ -1198,98 +1389,17 @@ msgstr "GİRDİ YAPILANDIR"
 msgid "EMULATOR SETTINGS"
 msgstr "EMULASYON AYARLARI"
 
-msgid "SCRAPER"
-msgstr "SCRAPER"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "GÜNCELLEMELER & İNDİRMELER"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SİSTEM AYARLARI"
 
-msgid "INFORMATION"
-msgstr "BİLGİ"
-
 msgid "UNLOCK UI MODE"
 msgstr "ARABİRİM MODU KİLİT KALDIR"
 
 msgid "QUIT"
 msgstr "ÇIKIŞ"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-
-msgid "NEXT"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "RESİM KAYNAĞI"
-
-msgid "SCREENSHOT"
-msgstr "EKRAN GÖRÜNTÜSÜ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "BAŞLIK EKRAN GÖRÜNTÜSÜ"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "2D KUTU"
-
-msgid "BOX 3D"
-msgstr "3D KUTU"
-
-msgid "FAN ART"
-msgstr "FAN SANATI"
-
-msgid "BOX SOURCE"
-msgstr "KUTU KAYNAĞI"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO KAYNAĞI"
-
-msgid "WHEEL"
-msgstr "WHEEL"
-
-msgid "MARQUEE"
-msgstr "KAYAN YAZI"
-
-msgid "SCRAPE RATINGS"
-msgstr "PUANLARI ÇEK(SCRAPE)"
-
-msgid "SCRAPE VIDEOS"
-msgstr "VİDEOLARI ÇEK(SCRAPE)"
-
-msgid "SCRAPE FANART"
-msgstr "FAN SANATLARINI ÇEK(SCRAPE)"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "KUTU ARKA KAPAK ÇEK(SCRAPE)"
-
-msgid "SCRAPE MAP"
-msgstr "HARİTA ÇEK(SCRAPE)"
-
-msgid "SCRAPE MANUAL"
-msgstr "KLAVUZ ÇEK(SCRAPE)"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "PADTOKEY AYARLARINI ÇEK(SCRAPE)"
-
-msgid "USERNAME"
-msgstr "KULLANICI ADI"
-
-msgid "PASSWORD"
-msgstr "PAROLA"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
@@ -1302,18 +1412,6 @@ msgstr ""
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr ""
-
-msgid "USER DISK USAGE"
-msgstr "KULLANICI DİSK KULLANIMI"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "SİSTEM DİSK KULLANIMI"
-
-msgid "SYSTEM"
-msgstr "SİSTEM"
-
-msgid "VIDEO DRIVER"
-msgstr "VİDEO SÜRÜCÜSÜ"
 
 msgid "DEVELOPER"
 msgstr "GELİŞTİRİCİ"
@@ -1606,12 +1704,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "NETPLAY AYARLARI"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "OYUNA GİRMEDEN ÖNCE BİOS KONTROLÜ YAP"
 
@@ -1709,59 +1801,6 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Turn "
 "off if this worsens audio/video stuttering."
 msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "DONANIM MODU"
-
-msgid "LEADERBOARDS"
-msgstr "SKORLAR"
-
-msgid "VERBOSE MODE"
-msgstr "VERBOSE MODU"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "OTOMATİK EKRAN GÖRÜNTÜSÜ"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr "SESLERİN KİLİDİNİ KALDIR"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "OYUN ENDEKSLERİ"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "ENABLE NETPLAY"
-msgstr "NETPLAY AKTİF ET"
-
-msgid "NICKNAME"
-msgstr "TAKMA AD"
-
-msgid "PORT"
-msgstr "PORT"
-
-msgid "USE RELAY SERVER"
-msgstr "ARA SUNUCU KULLAN"
 
 msgid "DECORATION SET"
 msgstr ""
@@ -1876,6 +1915,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "HER SİSTEM İÇİN GELİŞMİŞ AYARLAR"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr ""
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "OYUNLARI HASH DEVAM EDİYOR. DURDURMAK İSTERMİSİNİZ?"
@@ -1996,6 +2038,9 @@ msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "GEÇİŞ STİLİ"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "OYUN BAŞLATMA GEÇİŞİ"
@@ -2222,6 +2267,9 @@ msgid "ZOOM"
 msgstr "YAKINLAŞTIR"
 
 msgid "GAMES TO INDEX"
+msgstr ""
+
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2752,6 +2800,12 @@ msgstr ""
 msgid "SCREEN READER DISABLED"
 msgstr ""
 
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "OYUNCU ŞİFRESİ OLUŞTUR"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "İZLEYİCİ ŞİFRESİ OLUŞTUR"
+
 #~ msgid "START AUTO SAVE"
 #~ msgstr "OTOMATİK KAYDETİ BAŞLAT"
 
@@ -2922,9 +2976,6 @@ msgstr ""
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "KURULACAK / KALDIRILACAK TEMALARI SEÇİNİZ"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "SCRAPE ÇEK"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "ŞU OYUNLARI ÇEK (SCRAPE)"
 
@@ -2954,9 +3005,6 @@ msgstr ""
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "BİLGİLER"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "ŞURADAN ÇEK(SCRAPPER)"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "GİRDİ Yİ AYARLAMAK İSTEDİĞİNE EMİN MİSİN?"

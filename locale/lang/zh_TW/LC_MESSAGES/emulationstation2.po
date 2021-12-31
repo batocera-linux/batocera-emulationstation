@@ -357,6 +357,68 @@ msgstr "套件安裝成功"
 msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "套件移除成功"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "RETROACHIEVEMENT 設定"
+
+msgid "SETTINGS"
+msgstr "設定"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS 成就"
+
+msgid "HARDCORE MODE"
+msgstr "硬派模式"
+
+msgid "LEADERBOARDS"
+msgstr "排行榜"
+
+msgid "VERBOSE MODE"
+msgstr "詳細模式"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "自動化螢幕截圖"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "挑戰指示器"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr "當能夠獲得符合條件的成就時在右下角顯示圖示。"
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "RETROACHIEVEMENT 解鎖音效"
+
+msgid "none"
+msgstr "沒有"
+
+msgid "UNLOCK SOUND"
+msgstr "解鎖音效"
+
+msgid "USERNAME"
+msgstr "使用者名稱"
+
+msgid "PASSWORD"
+msgstr "使用者密碼"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
+
+msgid "GAME INDEXES"
+msgstr "遊戲索引"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "於啟動期間索引新遊戲"
+
+msgid "INDEX GAMES"
+msgstr "索引遊戲"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "無法啟用 RETROACHIEVEMENTS："
+
+msgid "OK"
+msgstr "確定"
+
 msgid "FILTER GAMELIST BY"
 msgstr "篩選遊戲清單依"
 
@@ -493,9 +555,6 @@ msgstr "請耐心等待"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (第 %d 個，共 %d 個)"
 
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS 成就"
-
 msgid "Points"
 msgstr "點數"
 
@@ -508,11 +567,38 @@ msgstr "檢視詳細資訊"
 msgid "LAUNCH"
 msgstr "啟動"
 
+msgid "NETPLAY SETTINGS"
+msgstr "多人遊戲設定"
+
+msgid "ENABLE NETPLAY"
+msgstr "啟用多人遊戲"
+
+msgid "NICKNAME"
+msgstr "暱稱"
+
+msgid "PORT"
+msgstr "連接埠"
+
+msgid "USE RELAY SERVER"
+msgstr "使用中繼伺服器"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
 msgid "FINISHED"
 msgstr "完成"
-
-msgid "OK"
-msgstr "確定"
 
 msgid "VIEW OPTIONS"
 msgstr "檢視選項"
@@ -628,6 +714,9 @@ msgstr "沒有找到 WI-FI 網路"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "搜尋 WI-FI 網路"
 
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "您沒有連線到網際網路"
+
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "忘記藍牙裝置"
 
@@ -723,9 +812,6 @@ msgstr "開始 & 結束"
 msgid "never"
 msgstr "從未"
 
-msgid "none"
-msgstr "沒有"
-
 msgid "systems"
 msgstr "遊戲平台"
 
@@ -734,9 +820,6 @@ msgstr "隨機"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "螢幕保護程式設定"
-
-msgid "SETTINGS"
-msgstr "設定"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "螢幕保護程式啟動隔間"
@@ -939,8 +1022,8 @@ msgstr "即時存檔"
 msgid "OPEN"
 msgstr "開啟"
 
-msgid "NETPLAY HOSTING/OPTIONS"
-msgstr "連線遊戲主持/選項"
+msgid "START A NETPLAY GAME"
+msgstr ""
 
 msgid "NETPLAY"
 msgstr "多人遊戲"
@@ -948,20 +1031,17 @@ msgstr "多人遊戲"
 msgid "START GAME"
 msgstr "開始遊戲"
 
-msgid "BEGIN HOSTING A NETPLAY SESSION"
-msgstr "開始主持連線遊戲階段"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "您沒有連線到網際網路"
+msgid "HOST A NETPLAY GAME"
+msgstr ""
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "公開的遊戲"
 
-msgid "SET PLAYER PASSWORD"
-msgstr "設定玩家密碼"
+msgid "PLAYER PASSWORD"
+msgstr ""
 
-msgid "SET VIEWER PASSWORD"
-msgstr "設定觀眾密碼"
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
@@ -1055,20 +1135,116 @@ msgstr "檔案槽"
 msgid "COPY TO FREE SLOT"
 msgstr "複製到空檔案槽"
 
-msgid "SCRAPE CRITERIA"
-msgstr "搜刮標準"
+msgid "SCRAPER SETTINGS"
+msgstr ""
 
-msgid "MEDIA TO SCRAPE FOR"
-msgstr "欲搜刮的媒體"
+msgid "IMAGE SOURCE"
+msgstr "圖片來源"
+
+msgid "SCREENSHOT"
+msgstr "螢幕截圖"
+
+msgid "TITLE SCREENSHOT"
+msgstr "標題畫面截圖"
+
+msgid "MIX V1"
+msgstr "混合版 V1"
+
+msgid "MIX V2"
+msgstr "混合版 V2"
+
+msgid "BOX 2D"
+msgstr "2D 包裝盒"
+
+msgid "BOX 3D"
+msgstr "3D 包裝盒"
+
+msgid "FAN ART"
+msgstr "粉絲繪圖"
+
+msgid "BOX SOURCE"
+msgstr "包裝盒來源"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO 來源"
+
+msgid "WHEEL"
+msgstr "商標"
+
+msgid "MARQUEE"
+msgstr "跑馬燈"
+
+msgid "SCRAPE RATINGS"
+msgstr "搜刮遊戲評分"
+
+msgid "SCRAPE VIDEOS"
+msgstr "搜刮影片"
+
+msgid "SCRAPE FANART"
+msgstr "搜刮粉絲繪圖"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "搜刮框體 (16:9)"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "搜刮包裝盒背面"
+
+msgid "SCRAPE MAP"
+msgstr "搜刮地圖"
+
+msgid "SCRAPE MANUAL"
+msgstr "搜刮使用者手冊"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "搜刮手把轉鍵盤設定檔"
+
+msgid "SCRAPER"
+msgstr "資料搜刮器"
+
+msgid "SCRAPING DATABASE"
+msgstr "搜刮資料庫"
+
+msgid "SCRAPE FROM"
+msgstr "搜刮資料來源"
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
 
 msgid "ALL"
 msgstr "全部"
 
-msgid "ONLY MISSING"
-msgstr "僅限缺少的"
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
 
 msgid "SYSTEMS INCLUDED"
 msgstr "已包含的遊戲平台"
+
+msgid "SCRAPE NOW"
+msgstr "開始搜刮"
 
 msgid "START"
 msgstr "開始"
@@ -1086,6 +1262,24 @@ msgstr "搜刮器已在執行中。您要停止它嗎？"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "沒有符合該標準的遊戲。"
+
+msgid "INFORMATION"
+msgstr "系統資訊"
+
+msgid "VERSION"
+msgstr "版本"
+
+msgid "USER DISK USAGE"
+msgstr "使用者磁碟用量"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "系統磁碟用量"
+
+msgid "SYSTEM"
+msgstr "遊戲平台"
+
+msgid "VIDEO DRIVER"
+msgstr "影像驅動程式"
 
 msgid "THE BEZEL PROJECT"
 msgstr "框體專案"
@@ -1165,9 +1359,6 @@ msgstr "提供者"
 msgid "RENDERER"
 msgstr "渲染器"
 
-msgid "VERSION"
-msgstr "版本"
-
 msgid "SHADERS"
 msgstr "著色器"
 
@@ -1201,98 +1392,17 @@ msgstr "輸入設定"
 msgid "EMULATOR SETTINGS"
 msgstr "模擬器設定"
 
-msgid "SCRAPER"
-msgstr "資料搜刮器"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "更新＆下載"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系統設定"
 
-msgid "INFORMATION"
-msgstr "系統資訊"
-
 msgid "UNLOCK UI MODE"
 msgstr "解鎖 UI 模式"
 
 msgid "QUIT"
 msgstr "離開"
-
-msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "搜刮器正在執行中。您要終止它嗎？"
-
-msgid "NEXT"
-msgstr "下一步"
-
-msgid "SCRAPING DATABASE"
-msgstr "搜刮資料庫"
-
-msgid "IMAGE SOURCE"
-msgstr "圖片來源"
-
-msgid "SCREENSHOT"
-msgstr "螢幕截圖"
-
-msgid "TITLE SCREENSHOT"
-msgstr "標題畫面截圖"
-
-msgid "MIX V1"
-msgstr "混合版 V1"
-
-msgid "MIX V2"
-msgstr "混合版 V2"
-
-msgid "BOX 2D"
-msgstr "2D 包裝盒"
-
-msgid "BOX 3D"
-msgstr "3D 包裝盒"
-
-msgid "FAN ART"
-msgstr "粉絲繪圖"
-
-msgid "BOX SOURCE"
-msgstr "包裝盒來源"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO 來源"
-
-msgid "WHEEL"
-msgstr "商標"
-
-msgid "MARQUEE"
-msgstr "跑馬燈"
-
-msgid "SCRAPE RATINGS"
-msgstr "搜刮遊戲評分"
-
-msgid "SCRAPE VIDEOS"
-msgstr "搜刮影片"
-
-msgid "SCRAPE FANART"
-msgstr "搜刮粉絲繪圖"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "搜刮框體 (16:9)"
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "搜刮包裝盒背面"
-
-msgid "SCRAPE MAP"
-msgstr "搜刮地圖"
-
-msgid "SCRAPE MANUAL"
-msgstr "搜刮使用者手冊"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "搜刮手把轉鍵盤設定檔"
-
-msgid "USERNAME"
-msgstr "使用者名稱"
-
-msgid "PASSWORD"
-msgstr "使用者密碼"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "您確定要對輸入做設定嗎？"
@@ -1305,18 +1415,6 @@ msgstr "UI 模式已解鎖"
 
 msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "請輸入代碼來解鎖目前的 UI 模式"
-
-msgid "USER DISK USAGE"
-msgstr "使用者磁碟用量"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "系統磁碟用量"
-
-msgid "SYSTEM"
-msgstr "遊戲平台"
-
-msgid "VIDEO DRIVER"
-msgstr "影像驅動程式"
 
 msgid "DEVELOPER"
 msgstr "開發者選項"
@@ -1609,12 +1707,6 @@ msgstr "BATOCERA 開機畫面圖片"
 msgid "SPLASH SETTING"
 msgstr "開機畫面設定"
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT 設定"
-
-msgid "NETPLAY SETTINGS"
-msgstr "多人遊戲設定"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "在遊戲執行前檢查 BIOS 檔案"
 
@@ -1714,59 +1806,6 @@ msgid ""
 msgstr ""
 "自動減少畫格延遲來避免畫格遺失。如果此選項造成音訊/視訊斷續的情況更加糟糕的話"
 "請關閉。"
-
-msgid "HARDCORE MODE"
-msgstr "硬派模式"
-
-msgid "LEADERBOARDS"
-msgstr "排行榜"
-
-msgid "VERBOSE MODE"
-msgstr "詳細模式"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "自動化螢幕截圖"
-
-msgid "CHALLENGE INDICATORS"
-msgstr "挑戰指示器"
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr "當能夠獲得符合條件的成就時在右下角顯示圖示。"
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT 解鎖音效"
-
-msgid "UNLOCK SOUND"
-msgstr "解鎖音效"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
-
-msgid "GAME INDEXES"
-msgstr "遊戲索引"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "於啟動期間索引新遊戲"
-
-msgid "INDEX GAMES"
-msgstr "索引遊戲"
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "無法啟用 RETROACHIEVEMENTS："
-
-msgid "ENABLE NETPLAY"
-msgstr "啟用多人遊戲"
-
-msgid "NICKNAME"
-msgstr "暱稱"
-
-msgid "PORT"
-msgstr "連接埠"
-
-msgid "USE RELAY SERVER"
-msgstr "使用中繼伺服器"
 
 msgid "DECORATION SET"
 msgstr "裝飾框集"
@@ -1881,6 +1920,9 @@ msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "搜刮器正在執行中。您要終止它嗎？"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "遊戲校驗正在進行中。您想要終止嗎？"
@@ -2004,6 +2046,9 @@ msgstr "顯示設定"
 
 msgid "LIST TRANSITION STYLE"
 msgstr "過場效果"
+
+msgid "auto"
+msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "遊戲啟動過場"
@@ -2230,6 +2275,9 @@ msgstr "縮放"
 
 msgid "GAMES TO INDEX"
 msgstr "遊戲至索引"
+
+msgid "ONLY MISSING"
+msgstr "僅限缺少的"
 
 msgid "SYSTEM INFO"
 msgstr "系統資訊"
@@ -2752,6 +2800,27 @@ msgstr "螢幕閱讀器已啟用"
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
 
+#~ msgid "SCRAPE CRITERIA"
+#~ msgstr "搜刮標準"
+
+#~ msgid "MEDIA TO SCRAPE FOR"
+#~ msgstr "欲搜刮的媒體"
+
+#~ msgid "NEXT"
+#~ msgstr "下一步"
+
+#~ msgid "NETPLAY HOSTING/OPTIONS"
+#~ msgstr "連線遊戲主持/選項"
+
+#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
+#~ msgstr "開始主持連線遊戲階段"
+
+#~ msgid "SET PLAYER PASSWORD"
+#~ msgstr "設定玩家密碼"
+
+#~ msgid "SET VIEWER PASSWORD"
+#~ msgstr "設定觀眾密碼"
+
 #~ msgid "START AUTO SAVE"
 #~ msgstr "從自動存檔開始"
 
@@ -2957,9 +3026,6 @@ msgstr "螢幕閱讀器已停用"
 #~ msgid "SELECT THEMES TO INSTALL / REMOVE"
 #~ msgstr "選擇安裝或移除佈景主題"
 
-#~ msgid "SCRAPE NOW"
-#~ msgstr "開始搜刮"
-
 #~ msgid "SCRAPE THESE GAMES"
 #~ msgstr "搜刮這些遊戲"
 
@@ -2988,9 +3054,6 @@ msgstr "螢幕閱讀器已停用"
 
 #~ msgid "INFORMATIONS"
 #~ msgstr "資訊"
-
-#~ msgid "SCRAPE FROM"
-#~ msgstr "搜刮資料來源"
 
 #~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
 #~ msgstr "您確定要對輸入做設定嗎？"
