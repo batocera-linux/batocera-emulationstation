@@ -53,7 +53,7 @@ public:
 	TextCache* buildTextCache(const std::string& text, float offsetX, float offsetY, unsigned int color);
 	TextCache* buildTextCache(const std::string& text, Vector2f offset, unsigned int color, float xLen, Alignment alignment = ALIGN_LEFT, float lineSpacing = 1.5f);
 	
-	void renderTextCache(TextCache* cache);
+	void renderTextCache(TextCache* cache, bool verticesChanged = true);
 	void renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz = false);
 	
 	std::string wrapText(std::string text, float xLen); // Inserts newlines into text to make it wrap properly.
