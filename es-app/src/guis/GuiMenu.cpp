@@ -393,7 +393,7 @@ void GuiMenu::openDeveloperSettings()
 	s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
 	
 	s->addSwitch(_("SHOW FRAMERATE"), "DrawFramerate", true);
-	s->addSwitch(_("VSYNC"), "VSync", true);
+	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
 
 #if !defined(WIN32) || defined(_DEBUG)
 	// overscan
