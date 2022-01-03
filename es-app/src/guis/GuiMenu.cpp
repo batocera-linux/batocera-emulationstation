@@ -133,7 +133,10 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 		SystemConf::getInstance()->getBool("global.retroachievements") &&
 		Settings::getInstance()->getBool("RetroachievementsMenuitem") && 
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
-		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
+		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] {
+				if (!checkNetwork())
+					return;
+				GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
 	
 	if (isFullUI)
 	{
