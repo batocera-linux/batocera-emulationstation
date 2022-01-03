@@ -1207,8 +1207,14 @@ msgstr "ESCRAPEAR"
 msgid "SCRAPING DATABASE"
 msgstr "OBTENER LA INFORMACIÓN DE"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "OBTENER LA INFORMACIÓN DE"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""

@@ -1204,8 +1204,14 @@ msgstr "資料搜刮器"
 msgid "SCRAPING DATABASE"
 msgstr "搜刮資料庫"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "搜刮資料來源"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""

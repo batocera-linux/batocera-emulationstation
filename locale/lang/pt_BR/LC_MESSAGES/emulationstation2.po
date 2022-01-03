@@ -1209,7 +1209,13 @@ msgstr "PROCURAR MÍDIAS DE JOGO"
 msgid "SCRAPING DATABASE"
 msgstr "BASE DE DADOS DAS MÍDIAS DE JOGO"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "FILTERS"
 msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"

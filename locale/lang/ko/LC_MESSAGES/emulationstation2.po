@@ -1202,8 +1202,14 @@ msgstr "스크랩"
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "스크랩 출처"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""

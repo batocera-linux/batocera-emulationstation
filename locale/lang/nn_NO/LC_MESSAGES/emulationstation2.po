@@ -1198,8 +1198,14 @@ msgstr "INFODATABASE"
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "SØK I"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""

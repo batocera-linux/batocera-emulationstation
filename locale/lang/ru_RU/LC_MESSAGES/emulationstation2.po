@@ -1207,8 +1207,14 @@ msgstr "СКРАПЕР"
 msgid "SCRAPING DATABASE"
 msgstr "ИСТОЧНИК ЗАГРУЗКИ"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""

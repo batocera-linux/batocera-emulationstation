@@ -1198,8 +1198,14 @@ msgstr "DATU LORTZAILEA"
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "LORTU DATUAK HEMENDIK:"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""

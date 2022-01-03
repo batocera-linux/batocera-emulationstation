@@ -1206,7 +1206,13 @@ msgstr ""
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "FILTERS"
 msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"

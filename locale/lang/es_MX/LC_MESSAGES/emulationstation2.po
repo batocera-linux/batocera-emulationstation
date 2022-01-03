@@ -1203,8 +1203,14 @@ msgstr "OBTENCIÓN DE INFORMACIÓN"
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "OBTENER LA INFORMACIÓN DE"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""
