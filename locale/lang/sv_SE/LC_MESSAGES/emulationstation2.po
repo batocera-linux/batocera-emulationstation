@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2021-12-15 21:31+0100\n"
+"PO-Revision-Date: 2021-12-25 19:51+0100\n"
 "Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -1002,7 +1002,7 @@ msgid "VIEW GAME MAP"
 msgstr "VISA SPELKARTA"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr "VISA FULLSKÄRMSVIDEO"
+msgstr "VISA HELSKÄRMSVIDEO"
 
 msgid "VIEW GAME MEDIA"
 msgstr "VISA SPELMEDIA"
@@ -1127,7 +1127,7 @@ msgid "START NEW GAME"
 msgstr "STARTA NYTT SPEL"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "STARTA NY AUTO-SPARA"
 
 msgid "AUTO SAVE"
 msgstr "AUTOSPARA"
@@ -1907,34 +1907,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA PÅ ÖVERSATT SKÄRM"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "SAVESTATES"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "SPARA/LADDA AUTOMATISKT"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLA SAVE STATES"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "NYTT SPEL SKAPAR NY PLATS"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "NYTT SPEL SKRIVER ÖVER NUVARANDE PLATS"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "VISA SAVE STATE-HANTERARE"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "ALLTID"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "OM EJ TOM"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "VISA SAVE STATE-HANTERARE"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "VISA SAVE STATE-HANTERARE INNAN START AV SPEL"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "AVANCERAD KONFIGURATION PER SYSTEM"
@@ -2291,7 +2291,7 @@ msgid "MOVE"
 msgstr "FLYTTA"
 
 msgid "ZOOM"
-msgstr "ZOOM"
+msgstr "ZOOMA"
 
 msgid "GAMES TO INDEX"
 msgstr "SPEL ATT INDEXERA"
@@ -2634,63 +2634,63 @@ msgstr "BLANKSTEG"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "UPP"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "NER"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "VÄNSTER"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "HÖGER"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "VÄNSTER ANALOG UPP"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "VÄNSTER ANALOG NER"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "VÄNSTER ANALOG VÄNSTER"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "VÄNSTER ANALOG HÖGER"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "HÖGER ANALOG UPP"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "HÖGER ANALOG NER"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "HÖGER ANALOG VÄNSTER"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "HÖGER ANALOG HÖGER"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "KONFIGURERAR"
@@ -2835,15 +2835,6 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
 
-#~ msgid "SCRAPE CRITERIA"
-#~ msgstr "SKRAPNINGSKRITERIER"
-
-#~ msgid "MEDIA TO SCRAPE FOR"
-#~ msgstr "MEDIA ATT SKRAPA FÖR"
-
-#~ msgid "NEXT"
-#~ msgstr "NÄSTA"
-
 #~ msgid "NETPLAY HOSTING/OPTIONS"
 #~ msgstr "NETPLAY VÄRD/ALTERNATIV"
 
@@ -2855,6 +2846,15 @@ msgstr "SKÄRMLÄSARE INAKTIVERAD"
 
 #~ msgid "SET VIEWER PASSWORD"
 #~ msgstr "STÄLL IN ÅSKÅDARLÖSENORD"
+
+#~ msgid "SCRAPE CRITERIA"
+#~ msgstr "SKRAPNINGSKRITERIER"
+
+#~ msgid "MEDIA TO SCRAPE FOR"
+#~ msgstr "MEDIA ATT SKRAPA FÖR"
+
+#~ msgid "NEXT"
+#~ msgstr "NÄSTA"
 
 #~ msgid "START AUTO SAVE"
 #~ msgstr "STARTA AUTOSPARA"

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2021/12/16)\n"
+"Project-Id-Version: batocera-es v33beta(2022/01/04)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2021-12-17 21:23+0900\n"
+"PO-Revision-Date: 2022-01-04 07:26+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -584,19 +584,19 @@ msgid "USE RELAY SERVER"
 msgstr "リレーサーバーを使用"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "ニューヨーク"
 
 msgid "MADRID"
-msgstr ""
+msgstr "マドリッド"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "モントリオール"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "サンパウロ"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "利用不可ゲームを表示"
 
 msgid "FINISHED"
 msgstr "完了"
@@ -647,7 +647,7 @@ msgid "RESET FILTERS"
 msgstr "フィルターのリセット"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr "文字別でのゲームフィルタ"
+msgstr "文字別ゲームフィルタ"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "この機能は、スクレイプの実行中は無効になります"
@@ -1024,7 +1024,7 @@ msgid "OPEN"
 msgstr "開く"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "ネットプレイを開始"
 
 msgid "NETPLAY"
 msgstr "ネットプレイ"
@@ -1033,16 +1033,16 @@ msgid "START GAME"
 msgstr "ゲームを開始"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "ネットプレイ(ホストで)を開始"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "プレイ状況を公開する"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "プレーヤーパスワード"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "ウォッチパスワード"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
@@ -1137,7 +1137,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "空スロットにコピー"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "スクレイプ 設定"
 
 msgid "IMAGE SOURCE"
 msgstr "イメージ ソース元"
@@ -1203,55 +1203,55 @@ msgid "SCRAPER"
 msgstr "スクレイプ"
 
 msgid "SCRAPING DATABASE"
-msgstr "スクレイプデータベース"
+msgstr "スクレイプ データベース選択"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "ソース元"
 
 msgid "SCRAPE FROM"
-msgstr ""
+msgstr "スクレイプ元"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "フィルター"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "スクレイプするゲーム"
 
 msgid "ALL"
 msgstr "全て"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "メディアが不足しているゲーム"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "メディアが無いゲーム"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "過去にスクレイプしたゲームを無視"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "昨日"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "先週"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "15日間"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "先月"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "3か月"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "去年"
 
 msgid "SYSTEMS INCLUDED"
-msgstr "含むシステムを選択"
+msgstr "スクレイプするシステムを選択"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "取得開始"
 
 msgid "START"
 msgstr "実行"
@@ -1822,7 +1822,7 @@ msgid "DECORATION SET"
 msgstr "ベゼルを選択"
 
 msgid "DEFAULT GLOBAL SETTINGS"
-msgstr "既定のグローバル設定"
+msgstr "グローバル基本設定"
 
 msgid "GAME ASPECT RATIO"
 msgstr "ゲーム画面比率"
@@ -2062,7 +2062,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "画面遷移スタイル"
 
 msgid "auto"
-msgstr ""
+msgstr "自動"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ゲーム開始の画面遷移"
@@ -2817,27 +2817,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "SCRAPE CRITERIA"
-#~ msgstr "スクレイプ 方法"
-
-#~ msgid "MEDIA TO SCRAPE FOR"
-#~ msgstr "スクレイプするメディア"
-
-#~ msgid "NEXT"
-#~ msgstr "次へ"
-
-#~ msgid "NETPLAY HOSTING/OPTIONS"
-#~ msgstr "ネットプレイ(ホスト/設定)"
-
-#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
-#~ msgstr "ネットプレイ(ホスト)を開始"
-
-#~ msgid "SET PLAYER PASSWORD"
-#~ msgstr "プレーヤーパスワードの設定"
-
-#~ msgid "SET VIEWER PASSWORD"
-#~ msgstr "ビューアパスワードの設定"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

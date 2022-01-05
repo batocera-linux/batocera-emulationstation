@@ -586,16 +586,16 @@ msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISIÓN"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NUEVA YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
@@ -1139,7 +1139,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR A UNA RANURA LIBRE"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE ESCRAPEO"
 
 msgid "IMAGE SOURCE"
 msgstr "IMAGEN PRINCIPAL"
@@ -1208,52 +1208,52 @@ msgid "SCRAPING DATABASE"
 msgstr "OBTENER LA INFORMACIÓN DE"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "ORIGEN"
 
 msgid "SCRAPE FROM"
 msgstr "OBTENER LA INFORMACIÓN DE"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTROS"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "JUEGOS A ESCRAPEAR"
 
 msgid "ALL"
 msgstr "TODOS LOS JUEGOS"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "JUEGOS CON CONTENIDO FALTANTE"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "JUEGOS SIN NINGÚN CONTENIDO"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORAR JUEGOS ESCRAPEADOS RECIENTEMENTE"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "EN EL ÚLTIMO DIA"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "EN LA ÚLTIMA SEMANA"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "EN LOS ÚLTIMOS 15 DÍAS"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "EN EL ÚLTIMO MES"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "EN LOS ÚLTIMOS 3 MESES"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "EN EL ÚLTIMO AÑO"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "SISTEMAS INCLUIDOS"
 
 msgid "SCRAPE NOW"
-msgstr "INICIAR"
+msgstr "INICIAR ESCRAPEO"
 
 msgid "START"
 msgstr "INICIAR"
@@ -2070,7 +2070,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "ESTILO DE TRANSICIÓN"
 
 msgid "auto"
-msgstr ""
+msgstr "auto"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSICIÓN AL INICIAR JUEGO"
