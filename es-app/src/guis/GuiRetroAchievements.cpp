@@ -46,6 +46,8 @@ RetroAchievementProgress::RetroAchievementProgress(Window* window, int value, in
 
 void RetroAchievementProgress::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	float padding = mSize.x() * 0.1f;
 		
 	float y = (mSize.y() + PROGRESSHEIGHT) / 2.0f;
@@ -117,11 +119,12 @@ public:
 
 		setEntry(mProgress, Vector2i(3, 0), false, true, Vector2i(1, 2));
 
-		setColWidthPerc(0, IMAGESIZE / WINDOW_WIDTH);
+		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+
+		setColWidthPerc(0, (height - IMAGESPACER) / WINDOW_WIDTH);
 		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
 		setColWidthPerc(3, 0.25f);
-
-		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+	
 		mImage->setMaxSize(height - IMAGESPACER, height - IMAGESPACER);
 		mImage->setImage(ra.badge.empty() ? ":/cartridge.svg" : ra.badge);
 

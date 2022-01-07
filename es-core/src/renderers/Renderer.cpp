@@ -282,7 +282,12 @@ namespace Renderer
 
 	void pushClipRect(const Vector2i& _pos, const Vector2i& _size)
 	{
-		Rect box(_pos.x(), _pos.y(), _size.x(), _size.y());
+		pushClipRect(_pos.x(), _pos.y(), _size.x(), _size.y());
+	}
+
+	void pushClipRect(int x, int y, int w, int h)	
+	{
+		Rect box(x, y, w, h);
 
 		if(box.w == 0) box.w = screenWidth  - box.x;
 		if(box.h == 0) box.h = screenHeight - box.y;
@@ -319,7 +324,7 @@ namespace Renderer
 		if(box.h < 0) box.h = 0;
 
 		clipStack.push(box);
-		nativeClipStack.push(Rect(_pos.x(), _pos.y(), _size.x(), _size.y()));
+		nativeClipStack.push(Rect(x, y, w, h));
 
 		setScissor(box);
 
@@ -336,8 +341,13 @@ namespace Renderer
 		clipStack.pop();
 		nativeClipStack.pop();
 
-		if(clipStack.empty()) setScissor(Rect(0, 0, 0, 0));
-		else                  setScissor(clipStack.top());
+		if (clipStack.empty())
+		{
+			static 	Rect EmptyRect = Rect(0, 0, 0, 0);
+			setScissor(EmptyRect);
+		}
+		else                  
+			setScissor(clipStack.top());
 
 	} // popClipRect
 
@@ -390,7 +400,7 @@ namespace Renderer
 
 	bool isClippingEnabled() { return !clipStack.empty(); }
 
-	bool valueInRange(int value, int min, int max)
+	inline bool valueInRange(int value, int min, int max)
 	{
 		return (value >= min) && (value <= max);
 	}
@@ -408,8 +418,7 @@ namespace Renderer
 
 	bool isVisibleOnScreen(float x, float y, float w, float h)
 	{
-		Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
-		Rect box = Rect(x, y, w, h);
+		static Rect screen = Rect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 
 		if (w > 0 && x + w <= 0)
 			return false;
@@ -419,7 +428,9 @@ namespace Renderer
 		
 		if (x == screen.w || y == screen.h)
 			return false;
-			
+
+		Rect box = Rect(x, y, w, h);
+
 		if (!rectOverlap(box, screen))
 			return false;
 			
@@ -432,8 +443,7 @@ namespace Renderer
 			return true;
 		}
 
-		screen = nativeClipStack.top();
-		return rectOverlap(screen, box);
+		return rectOverlap(nativeClipStack.top(), box);
 	}
 
 	unsigned int mixColors(unsigned int first, unsigned int second, float percent)
@@ -576,28 +586,29 @@ namespace Renderer
 		return nullptr;
 	}
 
+	static IRenderer* createRenderer()
+	{
+		IRenderer* instance = getRendererFromName(Settings::getInstance()->getString("Renderer"));
+		if (instance == nullptr)
+		{
+#ifdef RENDERER_GLES_20
+			instance = new GLES20Renderer();
+#elif RENDERER_OPENGL_21
+			instance = new OpenGL21Renderer();
+#elif RENDERER_OPENGLES_10
+			instance = new GLES10Renderer();
+#endif
+		}
+
+		return instance;
+	}
+
 	static IRenderer* _instance = nullptr;
 
-	static IRenderer* Instance()
+	static inline IRenderer* Instance()
 	{
 		if (_instance == nullptr)
-		{
-			// Windows Renderers :
-			// <string name="Renderer" value="OPENGL 2.1" />
-			// <string name="Renderer" value="OPENGL 2.1 / GLSL" />
-
-			_instance = getRendererFromName(Settings::getInstance()->getString("Renderer"));
-			if (_instance == nullptr)
-			{
-#ifdef RENDERER_GLES_20
-				_instance = new GLES20Renderer();
-#elif RENDERER_OPENGL_21
-				_instance = new OpenGL21Renderer();
-#elif RENDERER_OPENGLES_10
-				_instance = new GLES10Renderer();
-#endif
-			}
-		}
+			_instance = createRenderer();
 
 		return _instance;
 	}

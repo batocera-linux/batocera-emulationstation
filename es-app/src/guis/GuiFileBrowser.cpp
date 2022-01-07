@@ -99,7 +99,7 @@ void GuiFileBrowser::navigateTo(const std::string path)
 		mMenu.addEntry(icon + Utils::FileSystem::getFileName(file.path), false, [this, file]()
 		{
 			navigateTo(Utils::FileSystem::combine(mCurrentPath, Utils::FileSystem::getFileName(file.path)));
-		}, "", isSelected, true, false, file.path, false);
+		}, "", isSelected, false, file.path, false);
 	}
 
 	if (mTypes != FileTypes::DIRECTORY)
@@ -136,7 +136,7 @@ void GuiFileBrowser::navigateTo(const std::string path)
 					mOkCallback(file.path);
 
 				delete this;
-			}, "", isSelected, true, false, file.path, false);
+			}, "", isSelected, false, file.path, false);
 		}
 	}
 

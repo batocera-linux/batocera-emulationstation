@@ -102,6 +102,7 @@ namespace Renderer
  	bool        init            ();
  	void        deinit          ();
 	void        pushClipRect    (const Vector2i& _pos, const Vector2i& _size);
+	void		pushClipRect	(int x, int y, int w, int h);
 	void        popClipRect     ();
 	void        drawRect        (const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 	void        drawRect        (const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient = false, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
@@ -117,17 +118,8 @@ namespace Renderer
 	float		getScreenProportion();
 
 	// API specific
-	static unsigned int convertColor (const unsigned int _color)
-	{
-		// convert from rgba to abgr
-		const unsigned char r = ((_color & 0xff000000) >> 24) & 255;
-		const unsigned char g = ((_color & 0x00ff0000) >> 16) & 255;
-		const unsigned char b = ((_color & 0x0000ff00) >>  8) & 255;
-		const unsigned char a = ((_color & 0x000000ff)      ) & 255;
-
-		return ((a << 24) | (b << 16) | (g << 8) | (r));
-
-	} // convertColor
+	inline static unsigned int convertColor (const unsigned int _color) { return ((_color & 0xFF000000) >> 24) | ((_color & 0x00FF0000) >> 8) | ((_color & 0x0000FF00) << 8) | ((_color & 0x000000FF) << 24); } 
+	// convertColor
 
 	unsigned int getWindowFlags    ();
 	void         setupWindow       ();

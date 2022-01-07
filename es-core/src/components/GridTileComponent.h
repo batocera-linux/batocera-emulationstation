@@ -225,7 +225,7 @@ public:
 	void forceSize(Vector2f size, float selectedZoom = 1.0);
 
 	void renderBackground(const Transform4x4f& parentTrans);
-	void renderContent(const Transform4x4f& parentTrans);
+	void renderContent(const Transform4x4f& parentTrans, bool renderBackground = false);
 
 	bool shouldSplitRendering() { return isAnimationPlaying(3); };
 
@@ -261,7 +261,7 @@ private:
 
 	static void applyThemeToProperties(const ThemeData::ThemeElement* elem, GridTileProperties& properties);
 
-	GridTileProperties getCurrentProperties(bool mixValues = true);
+	GridTileProperties& getCurrentProperties(bool mixValues = true);
 
 	TextComponent mLabel;
 
@@ -272,6 +272,7 @@ private:
 
 	GridTileProperties mDefaultProperties;
 	GridTileProperties mSelectedProperties;
+	GridTileProperties mMixedProperties;
 	GridTileProperties mVideoPlayingProperties;
 
 	std::string mCurrentMarquee;

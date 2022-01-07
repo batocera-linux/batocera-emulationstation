@@ -167,6 +167,8 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 
 void GuiKeyMappingEditor::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mGrid.setSize(mSize);
@@ -373,7 +375,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 				{ _("LEFT ANALOG STICK") , "joystick1" },
 				{ _("RIGHT ANALOG STICK") , "joystick2" } }, mouseMapping);
 
-			mouseRow.addElement(imageSource, false, true);
+			mouseRow.addElement(imageSource, false);
 
 			mList->addRow(mouseRow, idx > 0 && last);
 
@@ -390,7 +392,7 @@ void GuiKeyMappingEditor::loadList(bool restoreIndex)
 		{
 			auto info = std::make_shared<TextComponent>(mWindow, mouseMapping == "joystick1" ? _("LEFT ANALOG STICK") : _("RIGHT ANALOG STICK"), theme->Text.font, theme->Text.color);
 			info->setPadding(Vector4f(0, 0, Renderer::getScreenWidth() * 0.01f, 0));
-			mouseRow.addElement(info, false, true);
+			mouseRow.addElement(info, false);
 			mList->addRow(mouseRow, idx > 0 && last);
 		}
 

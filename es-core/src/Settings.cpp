@@ -423,12 +423,11 @@ void Settings::loadFile()
 //Print a warning message if the setting we're trying to get doesn't already exist in the map, then return the value in the map.
 #define SETTINGS_GETSET(type, mapName, getMethodName, setMethodName, defaultValue) type Settings::getMethodName(const std::string& name) \
 { \
-	if(mapName.find(name) == mapName.cend()) \
-	{ \
-		/* LOG(LogError) << "Tried to use unset setting " << name << "!"; */ \
+	auto it = mapName.find(name); \
+	if (it == mapName.cend()) \
 		return defaultValue; \
-	} \
-	return mapName[name]; \
+\
+	return it->second; \
 } \
 bool Settings::setMethodName(const std::string& name, type value) \
 { \
@@ -446,14 +445,14 @@ bool Settings::setMethodName(const std::string& name, type value) \
 SETTINGS_GETSET(bool, mBoolMap, getBool, setBool, false);
 SETTINGS_GETSET(int, mIntMap, getInt, setInt, 0);
 SETTINGS_GETSET(float, mFloatMap, getFloat, setFloat, 0.0f);
-//SETTINGS_GETSET(const std::string&, mStringMap, getString, setString, mEmptyString);
 
 std::string Settings::getString(const std::string& name)
 {
-	if (mStringMap.find(name) == mStringMap.cend())
+	auto it = mStringMap.find(name);
+	if (it == mStringMap.cend())
 		return mEmptyString;
 
-	return mStringMap[name];
+	return it->second;
 }
 
 bool Settings::setString(const std::string& name, const std::string& value)

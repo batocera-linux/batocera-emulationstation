@@ -59,23 +59,24 @@ public:
 	Vector3f getPosition() const;
 	inline void setPosition(const Vector3f& offset) { setPosition(offset.x(), offset.y(), offset.z()); }
 	void setPosition(float x, float y, float z = 0.0f);
-	virtual void onPositionChanged() {};
+	virtual void onPositionChanged();
 
 	//Sets the origin as a percentage of this image (e.g. (0, 0) is top left, (0.5, 0.5) is the center)
 	Vector2f getOrigin() const;
 	void setOrigin(float originX, float originY);
 	inline void setOrigin(Vector2f origin) { setOrigin(origin.x(), origin.y()); }
-	virtual void onOriginChanged() {};
+	virtual void onOriginChanged();
 
 	//Sets the rotation origin as a percentage of this image (e.g. (0, 0) is top left, (0.5, 0.5) is the center)
 	Vector2f getRotationOrigin() const;
 	void setRotationOrigin(float originX, float originY);
 	inline void setRotationOrigin(Vector2f origin) { setRotationOrigin(origin.x(), origin.y()); }
+	virtual void onRotationOriginChanged();
 
 	virtual Vector2f getSize() const;
     inline void setSize(const Vector2f& size) { setSize(size.x(), size.y()); }
     void setSize(float w, float h);
-    virtual void onSizeChanged() {};
+    virtual void onSizeChanged();
 
 	virtual void setColor(unsigned int color) {};
 
@@ -83,13 +84,21 @@ public:
 
 	float getRotation() const;
 	void setRotation(float rotation);
+	virtual void onRotationChanged();
+
 	inline void setRotationDegrees(float rotation) { setRotation((float)ES_DEG_TO_RAD(rotation)); }
 
 	float getScale() const;
 	virtual void setScale(float scale);
+	virtual void onScaleChanged();
 
 	Vector2f getScaleOrigin() const;
 	void setScaleOrigin(const Vector2f& scaleOrigin);
+	virtual void onScaleOriginChanged();
+
+	Vector2f getScreenOffset() const;
+	void setScreenOffset(const Vector2f& screenOffset);
+	virtual void onScreenOffsetChanged();
 
     float getZIndex() const;
     void setZIndex(float zIndex);
@@ -222,6 +231,8 @@ protected:
 	bool mVisible;
 	bool mShowing;
 	bool mStaticExtra;
+
+	bool mTransformDirty;
 
 public:
 	const static unsigned char MAX_ANIMATIONS = 4;

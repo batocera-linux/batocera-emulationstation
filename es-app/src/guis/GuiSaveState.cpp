@@ -135,6 +135,8 @@ void GuiSaveState::loadGrid()
 
 void GuiSaveState::onSizeChanged()
 {	
+	GuiComponent::onSizeChanged();
+
 	float helpSize = 0.02;
 
 	if (Settings::getInstance()->getBool("ShowHelpPrompts"))

@@ -98,13 +98,19 @@ VideoComponent::~VideoComponent()
 
 void VideoComponent::onOriginChanged()
 {
-	// Update the embeded static image
+	GuiComponent::onOriginChanged();
 	mStaticImage.setOrigin(mOrigin);
+}
+
+void VideoComponent::onPositionChanged()
+{
+	GuiComponent::onPositionChanged();
+	mStaticImage.setPosition(mPosition);
 }
 
 void VideoComponent::onSizeChanged()
 {
-	// Update the embeded static image
+	GuiComponent::onSizeChanged();
 	mStaticImage.onSizeChanged();
 }
 
@@ -230,11 +236,6 @@ void VideoComponent::renderSnapshot(const Transform4x4f& parentTrans)
 
 		mStaticImage.render(parentTrans);
 	}
-}
-
-void VideoComponent::onPositionChanged()
-{
-	mStaticImage.setPosition(mPosition);
 }
 
 void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)

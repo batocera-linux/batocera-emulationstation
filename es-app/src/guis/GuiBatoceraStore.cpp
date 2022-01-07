@@ -117,6 +117,8 @@ void GuiBatoceraStore::update(int deltaTime)
 
 void GuiBatoceraStore::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mGrid.setSize(mSize);
@@ -234,7 +236,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 		ComponentListRow row;
 		row.selectable = false;
 		auto text = std::make_shared<TextComponent>(mWindow, _("No items"), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
-		row.addElement(text, true, false);
+		row.addElement(text, true);
 		mList->addRow(row, false, false);
 	}
 

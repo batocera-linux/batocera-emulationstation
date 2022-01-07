@@ -91,6 +91,8 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 
 void GuiGameScraper::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBox.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mGrid.setRowHeightPerc(0, 0.04f, false);

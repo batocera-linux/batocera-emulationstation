@@ -33,28 +33,32 @@ void GuiInputConfig::initInputConfigStructure()
 {
 	GUI_INPUT_CONFIG_LIST =
 	{
-		{ "up",               false, "UP",           ":/help/dpad_up.svg" },
-		{ "down",             false, "DOWN",         ":/help/dpad_down.svg" },
-		{ "left",             false, "LEFT",         ":/help/dpad_left.svg" },
-		{ "right",            false, "RIGHT",        ":/help/dpad_right.svg" },
-		{ "start",            true,  "START",              ":/help/button_start.svg" },
-		{ "select",           true,  "SELECT",             ":/help/button_select.svg" },
-
 		{ "a",                false, InputConfig::buttonLabel("a"),    InputConfig::buttonImage("a") },
 		{ "b",                true,  InputConfig::buttonLabel("b"),    InputConfig::buttonImage("b") },
 		{ "x",                true,  "X",    ":/help/buttons_north.svg" },
 		{ "y",                true,  "Y",    ":/help/buttons_west.svg" },
 
+		{ "start",            true,  "START",              ":/help/button_start.svg" },
+		{ "select",           true,  "SELECT",             ":/help/button_select.svg" },
+
+		{ "up",               false, "UP",           ":/help/dpad_up.svg" },
+		{ "down",             false, "DOWN",         ":/help/dpad_down.svg" },
+		{ "left",             false, "LEFT",         ":/help/dpad_left.svg" },
+		{ "right",            false, "RIGHT",        ":/help/dpad_right.svg" },
+
+		{ "pageup",          true,  "L1",      ":/help/button_l.svg" },
+		{ "pagedown",        true,  "R1",     ":/help/button_r.svg" },
+
 		{ "joystick1up",     true,  "LEFT ANALOG UP",     ":/help/analog_up.svg" },
 		{ "joystick1left",   true,  "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
 		{ "joystick2up",     true,  "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
 		{ "joystick2left",   true,  "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
-		{ "pageup",          true,  "L1",      ":/help/button_l.svg" },
-		{ "pagedown",        true,  "R1",     ":/help/button_r.svg" },
+
 		{ "l2",              true,  "L2",       ":/help/button_lt.svg" },
 		{ "r2",              true,  "R2",      ":/help/button_rt.svg" },
 		{ "l3",              true,  "L3",       ":/help/analog_thumb.svg" },
 		{ "r3",              true,  "R3",      ":/help/analog_thumb.svg" },
+
 		{ "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" } // batocera
 	};
 }
@@ -244,6 +248,8 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 
 void GuiInputConfig::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	// update grid
