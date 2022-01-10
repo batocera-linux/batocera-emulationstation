@@ -49,6 +49,9 @@ public:
 	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)		
+	
+	DEFINE_BOOL_SETTING(ShowControllerActivity)
+	DEFINE_BOOL_SETTING(ShowControllerBattery)
 
 	DEFINE_STRING_SETTING(HiddenSystems)
 	DEFINE_STRING_SETTING(TransitionStyle)
@@ -75,7 +78,7 @@ private:
 	std::map<std::string, bool> mDefaultBoolMap;
 	std::map<std::string, int> mDefaultIntMap;
 	std::map<std::string, float> mDefaultFloatMap;
-	std::map<std::string, std::string> mDefaultStringMap;
+	std::map<std::string, std::string> mDefaultStringMap;	
 };
 
 #endif // ES_CORE_SETTINGS_H

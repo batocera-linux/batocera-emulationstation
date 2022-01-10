@@ -217,6 +217,8 @@ GuiNetPlay::GuiNetPlay(Window* window)
 
 void GuiNetPlay::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mGrid.setSize(mSize);

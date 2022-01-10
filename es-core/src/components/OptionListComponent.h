@@ -265,6 +265,8 @@ public:
 	// handles positioning/resizing of text and arrows
 	void onSizeChanged() override
 	{
+		GuiComponent::onSizeChanged();
+
 		mLeftArrow.setResize(0, mText.getFont()->getLetterHeight());
 		mRightArrow.setResize(0, mText.getFont()->getLetterHeight());
 
@@ -578,6 +580,7 @@ private:
 			mText.setText(name);
 			mText.setSize(0, mText.getSize().y());
 			setSize(mText.getSize().x() + mLeftArrow.getSize().x() + mRightArrow.getSize().x() + 24, mText.getSize().y());
+			onSizeChanged();
 			if (mParent) // hack since theres no "on child size changed" callback atm...
 				mParent->onSizeChanged();
 		}
@@ -591,6 +594,8 @@ private:
 
 			mText.setSize(0, mText.getSize().y());
 			setSize(mText.getSize().x() + mRightArrow.getSize().x() + 24, mText.getSize().y());
+			onSizeChanged();
+
 			if(mParent) // hack since theres no "on child size changed" callback atm...
 				mParent->onSizeChanged();
 		}
@@ -604,6 +609,7 @@ private:
 					mText.setText(Utils::String::toUpper(it->name));
 					mText.setSize(0, mText.getSize().y());
 					setSize(mText.getSize().x() + mLeftArrow.getSize().x() + mRightArrow.getSize().x() + 24, mText.getSize().y());
+					onSizeChanged();
 					if(mParent) // hack since theres no "on child size changed" callback atm...
 						mParent->onSizeChanged();
 					break;

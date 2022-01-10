@@ -122,6 +122,8 @@ float SliderComponent::getValue()
 
 void SliderComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	if(!mSuffix.empty())
 		mFont = Font::get((int)(mSize.y()), FONT_PATH_LIGHT);
 	

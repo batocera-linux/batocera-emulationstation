@@ -1347,7 +1347,7 @@ msgid "RETRO"
 msgstr "GROS PIXELS"
 
 msgid "ENHANCED"
-msgstr "LISSAGE AMÉLIORÉ"
+msgstr "AMÉLIORÉ"
 
 msgid "CURVATURE"
 msgstr "BALAYAGE COURBÉ"
@@ -1644,7 +1644,7 @@ msgid "DISABLED"
 msgstr "DÉSACTIVÉ"
 
 msgid "DEFAULT"
-msgstr "AUCUNE"
+msgstr "PAR DÉFAUT"
 
 msgid "INSTANT"
 msgstr "INSTANTANÉ"

@@ -9,6 +9,7 @@
 #include "Settings.h"
 
 #include <vector>
+#include <set>
 
 #include "GlExtensions.h"
 #include "Shader.h"
@@ -32,7 +33,12 @@ namespace Renderer
 	static Shader  	fragmentShaderColorNoTexture;
 	static ShaderProgram    shaderProgramColorNoTexture;
 
+	static Shader  	fragmentShaderAlpha;
+	static ShaderProgram    shaderProgramAlpha;
+
 	static GLuint        vertexBuffer     = 0;
+
+	static std::set<unsigned int> _alphaTextures;
 
 	static unsigned int boundTexture = 0;
 
@@ -48,6 +54,8 @@ namespace Renderer
 				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 			else  if (currentProgram == &shaderProgramColorNoTexture)
 				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+			else  if (currentProgram == &shaderProgramAlpha)
+				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramAlpha.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 
 			return;
 		}
@@ -65,6 +73,13 @@ namespace Renderer
 			{
 				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
 				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+			}
+
+			if (currentProgram == &shaderProgramAlpha)
+			{
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramAlpha.posAttrib));
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramAlpha.colAttrib));
+				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramAlpha.texAttrib));
 			}
 		}
 
@@ -96,6 +111,21 @@ namespace Renderer
 
 			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
 			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
+		}
+
+		if (currentProgram == &shaderProgramAlpha)
+		{
+			GL_CHECK_ERROR(glUseProgram(shaderProgramAlpha.id));
+			GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramAlpha.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramAlpha.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramAlpha.posAttrib));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramAlpha.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramAlpha.colAttrib));
+
+			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramAlpha.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, tex)));
+			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramAlpha.texAttrib));
 		}
 	}
 
@@ -135,7 +165,7 @@ namespace Renderer
 		// fragment shader (no texture)
 		std::string fragmentSourceNoTexture =
 			SHADER_VERSION_STRING +
-			"precision highp float;     \n"
+			"precision mediump float;     \n"
 			"varying   vec4  v_col;     \n"
 			"void main(void)            \n"
 			"{                          \n"
@@ -175,7 +205,7 @@ namespace Renderer
 		// fragment shader (texture)
 		std::string fragmentSourceTexture =
 			SHADER_VERSION_STRING +
-			"precision highp float;       \n"
+			"precision mediump float;       \n"
 #if defined(USE_OPENGLES_20)
 			"precision mediump sampler2D; \n"
 #endif
@@ -202,6 +232,37 @@ namespace Renderer
 		shaderProgramColorTexture.texAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_tex");
 		shaderProgramColorTexture.mvpUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_mvp");
 		GLint texUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_tex");
+		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
+
+
+		// fragment shader (alpha texture)
+		std::string fragmentSourceAlpha =
+			SHADER_VERSION_STRING +
+			"precision mediump float;       \n"
+#if defined(USE_OPENGLES_20)
+			"precision mediump sampler2D; \n"
+#endif
+			"varying   vec4      v_col; \n"
+			"varying   vec2      v_tex; \n"
+			"uniform   sampler2D u_tex; \n"
+			"void main(void)                                              \n"
+			"{                                                            \n"
+			"    vec4 a = vec4(1.0, 1.0, 1.0, texture2D(u_tex, v_tex).a); \n"
+			"    gl_FragColor = a * v_col;      					      \n"
+			"}\n";
+
+
+		const GLuint fragmentShaderAlphaId = glCreateShader(GL_FRAGMENT_SHADER);
+		result = fragmentShaderAlpha.compile(fragmentShaderAlphaId, fragmentSourceAlpha.c_str());
+		result = shaderProgramAlpha.linkShaderProgram(vertexShaderTexture, fragmentShaderAlpha);
+
+		// Set shader active, retrieve attributes and uniforms locations
+		GL_CHECK_ERROR(glUseProgram(shaderProgramAlpha.id));
+		shaderProgramAlpha.posAttrib = glGetAttribLocation(shaderProgramAlpha.id, "a_pos");
+		shaderProgramAlpha.colAttrib = glGetAttribLocation(shaderProgramAlpha.id, "a_col");
+		shaderProgramAlpha.texAttrib = glGetAttribLocation(shaderProgramAlpha.id, "a_tex");
+		shaderProgramAlpha.mvpUniform = glGetUniformLocation(shaderProgramAlpha.id, "u_mvp");
+		texUniform = glGetUniformLocation(shaderProgramAlpha.id, "u_tex");
 		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
 
 		useProgram(nullptr);
@@ -244,7 +305,11 @@ namespace Renderer
 		switch(_type)
 		{
 			case Texture::RGBA:  { return GL_RGBA;            } break;
+#if defined(USE_OPENGLES_20)
+			case Texture::ALPHA: { return GL_ALPHA; } break;
+#else
 			case Texture::ALPHA: { return GL_LUMINANCE_ALPHA; } break;
+#endif
 			default:             { return GL_ZERO;            }
 		}
 
@@ -459,6 +524,9 @@ namespace Renderer
 			}
 		}
 
+		if (type == GL_ALPHA && texture != 0 && _alphaTextures.find(texture) == _alphaTextures.cend())
+			_alphaTextures.insert(texture);
+
 		return texture;
 
 	} // createTexture
@@ -467,6 +535,10 @@ namespace Renderer
 
 	void GLES20Renderer::destroyTexture(const unsigned int _texture)
 	{
+		auto it = _alphaTextures.find(_texture);
+		if (it != _alphaTextures.cend())
+			_alphaTextures.erase(it);
+
 		GL_CHECK_ERROR(glDeleteTextures(1, &_texture));
 
 	} // destroyTexture
@@ -481,7 +553,7 @@ namespace Renderer
 
 		// Regular GL_ALPHA textures are black + alpha in shaders
 		// Create a GL_LUMINANCE_ALPHA texture instead so its white + alpha
-		if(type == GL_LUMINANCE_ALPHA)
+		if (type == GL_LUMINANCE_ALPHA)
 		{
 			uint8_t* a_data  = (uint8_t*)_data;
 			uint8_t* la_data = new uint8_t[_width * _height * 2];
@@ -534,33 +606,52 @@ namespace Renderer
 		useProgram(&shaderProgramColorNoTexture);
 
 		// Do rendering
-		GL_CHECK_ERROR(glEnable(GL_BLEND));
-		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
-		GL_CHECK_ERROR(glDrawArrays(GL_LINES, 0, _numVertices));
-		GL_CHECK_ERROR(glDisable(GL_BLEND));
+		if (_srcBlendFactor != Blend::ONE && _dstBlendFactor != Blend::ONE)
+		{
+			GL_CHECK_ERROR(glEnable(GL_BLEND));
+			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+			GL_CHECK_ERROR(glDrawArrays(GL_LINES, 0, _numVertices));
+			GL_CHECK_ERROR(glDisable(GL_BLEND));
+		}
+		else
+		{
+			GL_CHECK_ERROR(glDisable(GL_BLEND));
+			GL_CHECK_ERROR(glDrawArrays(GL_LINES, 0, _numVertices));
+		}
 
 	} // drawLines
 
 //////////////////////////////////////////////////////////////////////////
 
-
-	void GLES20Renderer::drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
+	void GLES20Renderer::drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor, bool verticesChanged)
 	{
-		// Pass buffer data
-		GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));		
+		if (verticesChanged)
+			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW));
 
 		// Setup shader
 		if (boundTexture != 0)
-			useProgram(&shaderProgramColorTexture);
+		{
+			if (_alphaTextures.find(boundTexture) != _alphaTextures.cend())
+				useProgram(&shaderProgramAlpha);
+			else
+				useProgram(&shaderProgramColorTexture);
+		}
 		else
 			useProgram(&shaderProgramColorNoTexture);
 
 		// Do rendering
-		GL_CHECK_ERROR(glEnable(GL_BLEND));
-		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
-		GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
-		GL_CHECK_ERROR(glDisable(GL_BLEND));
-
+		if (_srcBlendFactor != Blend::ONE && _dstBlendFactor != Blend::ONE)
+		{
+			GL_CHECK_ERROR(glEnable(GL_BLEND));
+			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
+			GL_CHECK_ERROR(glDisable(GL_BLEND));
+		}
+		else
+		{
+			GL_CHECK_ERROR(glDisable(GL_BLEND));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
+		}
 	} // drawTriangleStrips
 
 //////////////////////////////////////////////////////////////////////////
@@ -645,15 +736,28 @@ namespace Renderer
 
 		// Setup shader
 		if (boundTexture != 0)
-			useProgram(&shaderProgramColorTexture);
+		{
+			if (_alphaTextures.find(boundTexture) != _alphaTextures.cend())
+				useProgram(&shaderProgramAlpha);
+			else
+				useProgram(&shaderProgramColorTexture);
+		}
 		else
 			useProgram(&shaderProgramColorNoTexture);
 
 		// Do rendering
-		GL_CHECK_ERROR(glEnable(GL_BLEND));
-		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
-		GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices));
-		GL_CHECK_ERROR(glDisable(GL_BLEND));
+		if (_srcBlendFactor != Blend::ONE && _dstBlendFactor != Blend::ONE)
+		{
+			GL_CHECK_ERROR(glEnable(GL_BLEND));
+			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(_srcBlendFactor), convertBlendFactor(_dstBlendFactor)));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices));
+			GL_CHECK_ERROR(glDisable(GL_BLEND));
+		}
+		else
+		{
+			GL_CHECK_ERROR(glDisable(GL_BLEND));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices));			
+		}
 	}
 
 	void GLES20Renderer::setStencil(const Vertex* _vertices, const unsigned int _numVertices)

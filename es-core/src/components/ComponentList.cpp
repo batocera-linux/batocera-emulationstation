@@ -52,12 +52,11 @@ void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool
 
 void ComponentList::removeLastRowIfGroup()
 {
-	if (mEntries.size() == 0)
+	int index = mEntries.size() - 1;
+	if (index < 0)
 		return;
 
-	int index = mEntries.size() - 1;
-
-	if (!mEntries.at(index).data.selectable)
+	if (mEntries.at(index).data.group)
 		mEntries.erase(mEntries.begin() + index);
 }
 
@@ -83,13 +82,16 @@ void ComponentList::addGroup(const std::string& label, bool forceVisible)
 	group->setLineSpacing(theme->Group.lineSpacing);
 	group->setPadding(Vector4f(TOTAL_HORIZONTAL_PADDING_PX / 2, 0, TOTAL_HORIZONTAL_PADDING_PX / 2, 0));
 
-	row.addElement(group, true, false);
+	row.addElement(group, true);
 	row.selectable = false;
+	row.group = true;
 	addRow(row);
 }
 
 void ComponentList::onSizeChanged()
 {
+	IList::onSizeChanged();
+
 	float yOffset = 0;
 	for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
 	{
@@ -285,7 +287,7 @@ void ComponentList::updateCameraOffset()
 
 void ComponentList::render(const Transform4x4f& parentTrans)
 {
-	if(!size())
+	if (!size())
 		return;
 
 	float opacity = mOpacity / 255.0;
@@ -303,99 +305,98 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	// clip everything to be inside our bounds
 	Vector3f dim(mSize.x(), mSize.y(), 0);
 	dim = trans * dim - trans.translation();
-	Renderer::pushClipRect(Vector2i((int)trans.translation().x(), (int)trans.translation().y()),
-		Vector2i((int)Math::round(dim.x()), (int)Math::round(dim.y() + 1)));
+
+	Renderer::pushClipRect(trans.translation().x(), trans.translation().y(), Math::round(dim.x()), Math::round(dim.y() + 1));
 
 	// scroll the camera
 	trans.translate(Vector3f(0, -Math::round(mCameraOffset), 0));
 
-	// draw our entries
+	float y = 0;
+
+	std::map<unsigned int, float> rowHeights;
 	std::vector<GuiComponent*> drawAfterCursor;
-	bool drawAll;
-	for(unsigned int i = 0; i < mEntries.size(); i++)
+
+	for (unsigned int i = 0; i < mEntries.size(); i++)
 	{
 		auto& entry = mEntries.at(i);
-		
-		drawAll = !mFocused || i != (unsigned int)mCursor;
-		for(auto it = entry.data.elements.cbegin(); it != entry.data.elements.cend(); it++)
+
+		float rowHeight = getRowHeight(entry.data);
+		rowHeights[i] = rowHeight;
+
+		if (y - mCameraOffset + rowHeight >= 0)
 		{
-			if(drawAll || it->invert_when_selected)
+			if (mFocused && entry.data.selectable && i == mCursor)
 			{
-				if (entry.data.selectable)
-					it->component->setColor(textColor);				
-				else 
-					it->component->setColor(menuTheme->Group.color);
+				Renderer::setMatrix(trans);
 
-				it->component->render(trans);
-			}
-			else
-				drawAfterCursor.push_back(it->component.get());			
-		}
-	}
-
-	// custom rendering
-	Renderer::setMatrix(trans);
-
-	// draw selector bar
-	if(mFocused)
-	{
-		// inversion: src * (1 - dst) + dst * 0 = where src = 1
-		// need a function that goes roughly 0x777777 -> 0xFFFFFF
-		// and 0xFFFFFF -> 0x777777
-		// (1 - dst) + 0x77
-
-		const float selectedRowHeight = getRowHeight(mEntries.at(mCursor).data);
-
-		auto& entry = mEntries.at(mCursor);
-		
-		if (entry.data.selectable)
-		{
-			if ((selectorColor != bgColor) && ((selectorColor & 0xFF) != 0x00)) 
-			{
-				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 
-					bgColor & 0xFFFFFF00 | (unsigned char)((bgColor & 0xFF) * opacity), 
-					Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
-
-				Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), selectedRowHeight, 
-					selectorColor & 0xFFFFFF00 | (unsigned char)((selectorColor & 0xFF) * opacity),
-					selectorGradientColor & 0xFFFFFF00 | (unsigned char)((selectorGradientColor & 0xFF) * opacity),					
-					selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
+				if (selectorColor != bgColor && (selectorColor & 0xFF) != 0)
+				{
+					Renderer::setMatrix(trans);
+					Renderer::drawRect(0.0f, mSelectorBarOffset, mSize.x(), rowHeight,
+						selectorColor & 0xFFFFFF00 | (unsigned char)((selectorColor & 0xFF) * opacity),
+						selectorGradientColor & 0xFFFFFF00 | (unsigned char)((selectorGradientColor & 0xFF) * opacity),
+						selectorGradientHorz);
+				}
 			}
 
 			for (auto& element : entry.data.elements)
-			{
-				element.component->setColor(selectedColor);
-				drawAfterCursor.push_back(element.component.get());
+			{				
+				if (entry.data.group)
+					element.component->setColor(menuTheme->Group.color);
+				else
+				{
+					if (entry.data.selectable && mFocused && i == mCursor)
+						element.component->setColor(selectedColor);
+					else
+						element.component->setColor(textColor);
+				}
+					
+				if (element.component->isKindOf<TextComponent>())
+					drawAfterCursor.push_back(element.component.get());
+				else
+					element.component->render(trans);
 			}
-		}		
-
-		for(auto it = drawAfterCursor.cbegin(); it != drawAfterCursor.cend(); it++)
-			(*it)->render(trans);
-
-		// reset matrix if one of these components changed it
-		if(drawAfterCursor.size())
-			Renderer::setMatrix(trans);
+		}
+		
+		y += rowHeight;
+		if (y - mCameraOffset > mSize.y())
+			break;
 	}
+
+	for (auto it : drawAfterCursor)
+		it->render(trans);
 
 	// draw separators
+	if (separatorColor != 0)
+	{		
+		Renderer::setMatrix(trans);
 
-	bool prevIsGroup = false;
+		bool prevIsGroup = false;
 
-	float y = 0;
-	for(unsigned int i = 0; i < mEntries.size(); i++)
-	{
-		
-		if (prevIsGroup && menuTheme->Group.separatorColor != separatorColor)
-			Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor & 0xFFFFFF00 | (unsigned char)((menuTheme->Group.separatorColor & 0xFF) * opacity));
-		else
-			Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
+		y = 0;
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+		{
+			auto it = rowHeights.find(i);
+			if (it != rowHeights.cend())
+			{
+				if (y - mCameraOffset + it->second >= 0)
+				{
+					if (prevIsGroup && menuTheme->Group.separatorColor != separatorColor)
+						Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor & 0xFFFFFF00 | (unsigned char)((menuTheme->Group.separatorColor & 0xFF) * opacity));
+					else
+						Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
+				}
 
-		y += getRowHeight(mEntries.at(i).data);
+				y += it->second; // getRowHeight(mEntries.at(i).data);
+				if (y - mCameraOffset > mSize.y())
+					break;
+			}
 
-		prevIsGroup = !mEntries.at(i).data.selectable;
+			prevIsGroup = mEntries[i].data.group;
+		}
+
+		Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
 	}
-
-	Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
 
 	Renderer::popClipRect();
 

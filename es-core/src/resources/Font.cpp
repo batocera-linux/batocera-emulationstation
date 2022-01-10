@@ -382,7 +382,8 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	pGlyph->glyphSize = glyphSize;
 
 	// upload glyph bitmap to texture
-	Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
+	if (glyphSize.x() > 0 && glyphSize.y() > 0)
+		Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
 
 	// update max glyph height
 	if(glyphSize.y() > mMaxGlyphHeight)
@@ -423,7 +424,7 @@ void Font::rebuildTextures()
 	}
 }
 
-void Font::renderTextCache(TextCache* cache)
+void Font::renderTextCache(TextCache* cache, bool verticesChanged)
 {
 	if(cache == NULL)
 	{
@@ -445,10 +446,10 @@ void Font::renderTextCache(TextCache* cache)
 		}
 
 		if (tex != 0)
-			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
+			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size(), Renderer::Blend::SRC_ALPHA, Renderer::Blend::ONE_MINUS_SRC_ALPHA, cache->vertexLists.size() > 1 || verticesChanged);
 	}
 
-	if (cache->renderingGlow)
+	if (cache->renderingGlow || !verticesChanged)
 		return;
 
 	for (auto sub : cache->imageSubstitutes)

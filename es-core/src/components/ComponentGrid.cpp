@@ -200,6 +200,8 @@ void ComponentGrid::updateSeparators()
 
 void ComponentGrid::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	for(auto it = mCells.cbegin(); it != mCells.cend(); it++)
 		updateCellComponent(*it);
 

@@ -48,6 +48,8 @@ void ComponentTab::addTab(const ComponentTabItem& row, const std::string value, 
 
 void ComponentTab::onSizeChanged()
 {
+	IList::onSizeChanged();
+
 	for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
 	{
 		updateElementSize(it->data);

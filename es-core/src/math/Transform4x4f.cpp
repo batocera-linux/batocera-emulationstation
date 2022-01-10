@@ -304,6 +304,18 @@ Transform4x4f& Transform4x4f::translate(const Vector3f& _translation)
 
 } // translate
 
+Transform4x4f& Transform4x4f::translate(const float x, const float y)
+{
+	float*       tm = (float*)this;
+
+	tm[12] += tm[0] * x + tm[4] * y;
+	tm[13] += tm[1] * x + tm[5] * y;
+	tm[14] += tm[2] * x + tm[6] * y;
+
+	return *this;
+
+} // translate
+
 Transform4x4f& Transform4x4f::round()
 {
 	float* tm = (float*)this;

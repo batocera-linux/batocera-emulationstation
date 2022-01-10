@@ -105,7 +105,7 @@ void StoryboardAnimator::addNewAnimations()
 		for (auto story : _currentStories)
 			if (story->animation == anim) { exists = true; break; }
 
-		if (!exists)
+		if (!exists && _finishedStories.size())
 		{
 			for (auto story : _finishedStories)
 				if (story->animation == anim) { exists = true; break; }
