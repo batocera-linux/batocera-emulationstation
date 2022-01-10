@@ -1342,26 +1342,33 @@ msgstr "CPU-maxfrekvens"
 msgid "Cpu feature"
 msgstr "CPU-teknologi"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "FÖRBÄTTRAD"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "KRÖKNING"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA-SKALNING"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "LEVERANTÖR"
@@ -1647,6 +1654,9 @@ msgstr "INAKTIVERAD"
 
 msgid "DEFAULT"
 msgstr "STANDARD"
+
+msgid "ENHANCED"
+msgstr "FÖRBÄTTRAD"
 
 msgid "INSTANT"
 msgstr "DIREKT"
@@ -2834,6 +2844,24 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "KRÖKNING"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA-SKALNING"
 
 #~ msgid "NETPLAY HOSTING/OPTIONS"
 #~ msgstr "NETPLAY VÄRD/ALTERNATIV"

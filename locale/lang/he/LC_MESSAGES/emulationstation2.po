@@ -1336,26 +1336,33 @@ msgstr "תדר שיא למעבד"
 msgid "Cpu feature"
 msgstr "מאפיין מעבד"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "שורות סריקה"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "'רטרו'"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "משופר"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "קשת"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "שיטוח בוהק"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA SCALING"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "ספק"
@@ -1635,6 +1642,9 @@ msgstr ""
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "משופר"
 
 msgid "INSTANT"
 msgstr ""
@@ -2820,6 +2830,24 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCANLINES"
+#~ msgstr "שורות סריקה"
+
+#~ msgid "RETRO"
+#~ msgstr "'רטרו'"
+
+#~ msgid "CURVATURE"
+#~ msgstr "קשת"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "שיטוח בוהק"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA SCALING"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "קביעת סיסמה לשחקן"

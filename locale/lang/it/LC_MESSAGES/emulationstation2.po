@@ -1340,26 +1340,33 @@ msgstr "Frequenza max CPU"
 msgid "Cpu feature"
 msgstr "Caratteristiche CPU"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "MIGLIORATO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "CURVATURA SCHERMO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST CRT"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "ABBAGLIANTE"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "SCALING RGA"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "VENDOR"
@@ -1643,6 +1650,9 @@ msgstr "DISATTIVATO"
 
 msgid "DEFAULT"
 msgstr "DEFAULT"
+
+msgid "ENHANCED"
+msgstr "MIGLIORATO"
 
 msgid "INSTANT"
 msgstr "IMMEDIATO"
@@ -2831,6 +2841,24 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "CURVATURA SCHERMO"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST CRT"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "ABBAGLIANTE"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "SCALING RGA"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "CRITERI DI RICERCA MEDIA"

@@ -1340,26 +1340,33 @@ msgstr "Cpu 最大周波数"
 msgid "Cpu feature"
 msgstr "CPU 機能"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "スキャンライン"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "レトロ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "拡張"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "曲率"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGAスケーリング"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "ベンダー"
@@ -1642,6 +1649,9 @@ msgstr "無効"
 
 msgid "DEFAULT"
 msgstr "標準"
+
+msgid "ENHANCED"
+msgstr "拡張"
 
 msgid "INSTANT"
 msgstr "瞬時"
@@ -2817,6 +2827,24 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "SCANLINES"
+#~ msgstr "スキャンライン"
+
+#~ msgid "RETRO"
+#~ msgstr "レトロ"
+
+#~ msgid "CURVATURE"
+#~ msgstr "曲率"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGAスケーリング"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

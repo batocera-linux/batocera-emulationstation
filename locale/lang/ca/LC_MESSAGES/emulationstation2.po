@@ -1335,26 +1335,33 @@ msgstr "Freqüència màxima del processador"
 msgid "Cpu feature"
 msgstr "Característica del processador"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "MILLORAT"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "CURVATURA"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "PLANA-BRILLANT"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "ESCALAT RGA"
+msgstr ""
 
 msgid "VENDOR"
 msgstr ""
@@ -1634,6 +1641,9 @@ msgstr ""
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "MILLORAT"
 
 msgid "INSTANT"
 msgstr ""
@@ -2797,6 +2807,24 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "CURVATURA"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "PLANA-BRILLANT"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "ESCALAT RGA"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "CONTRASENYA PER JUGADORS"

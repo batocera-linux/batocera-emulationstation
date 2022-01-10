@@ -1330,24 +1330,31 @@ msgstr ""
 msgid "Cpu feature"
 msgstr ""
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "LINJESKAN"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
 msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
 msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
 msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
 msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
 msgstr ""
 
@@ -1628,6 +1635,9 @@ msgid "DISABLED"
 msgstr ""
 
 msgid "DEFAULT"
+msgstr ""
+
+msgid "ENHANCED"
 msgstr ""
 
 msgid "INSTANT"
@@ -2792,6 +2802,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCANLINES"
+#~ msgstr "LINJESKAN"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
 
 #~ msgid "UP"
 #~ msgstr "OPP"

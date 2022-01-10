@@ -1340,26 +1340,33 @@ msgstr "Fréquence max processeur"
 msgid "Cpu feature"
 msgstr "Caractéristiques processeur"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "BALAYAGE"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "GROS PIXELS"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "AMÉLIORÉ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "BALAYAGE COURBÉ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "NID D'ABEILLE"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "APPLATI ET BRILLANT"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA SCALING"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "FABRICANT"
@@ -1645,6 +1652,9 @@ msgstr "DÉSACTIVÉ"
 
 msgid "DEFAULT"
 msgstr "PAR DÉFAUT"
+
+msgid "ENHANCED"
+msgstr "AMÉLIORÉ"
 
 msgid "INSTANT"
 msgstr "INSTANTANÉ"
@@ -2833,6 +2843,24 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "SCANLINES"
+#~ msgstr "BALAYAGE"
+
+#~ msgid "RETRO"
+#~ msgstr "GROS PIXELS"
+
+#~ msgid "CURVATURE"
+#~ msgstr "BALAYAGE COURBÉ"
+
+#~ msgid "ZFAST"
+#~ msgstr "NID D'ABEILLE"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "APPLATI ET BRILLANT"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA SCALING"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "CRITÈRES DE SCRAPE"

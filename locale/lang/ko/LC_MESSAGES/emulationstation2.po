@@ -1334,26 +1334,33 @@ msgstr "CPU 최대 주파수"
 msgid "Cpu feature"
 msgstr "CPU 사양"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "스캔라인"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "레트로"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "향상됨"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "곡률"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "평면빛"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA 크기조절"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "벤더"
@@ -1633,6 +1640,9 @@ msgstr "사용안함"
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "향상됨"
 
 msgid "INSTANT"
 msgstr ""
@@ -2789,6 +2799,24 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCANLINES"
+#~ msgstr "스캔라인"
+
+#~ msgid "RETRO"
+#~ msgstr "레트로"
+
+#~ msgid "CURVATURE"
+#~ msgstr "곡률"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "평면빛"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA 크기조절"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "플레이어 비밀번호 설정"

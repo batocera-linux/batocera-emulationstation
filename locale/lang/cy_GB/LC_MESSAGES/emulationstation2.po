@@ -1340,26 +1340,33 @@ msgstr "Cpu amledd macsimiwm"
 msgid "Cpu feature"
 msgstr "Nodwedd Cpu"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "LLINELLAU SGAN"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "GWELL"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "CRYMEDD"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "TYWYN-FFLATIO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "GRADDIO RGA"
+msgstr ""
 
 msgid "VENDOR"
 msgstr ""
@@ -1639,6 +1646,9 @@ msgstr ""
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "GWELL"
 
 msgid "INSTANT"
 msgstr ""
@@ -2847,6 +2857,24 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCANLINES"
+#~ msgstr "LLINELLAU SGAN"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "CRYMEDD"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "TYWYN-FFLATIO"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "GRADDIO RGA"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "GOSOD CYFRINAIR CHWARAEWR"

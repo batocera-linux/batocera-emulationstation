@@ -1335,26 +1335,33 @@ msgstr "Cpu üst frekansı"
 msgid "Cpu feature"
 msgstr "Cpu özellikleri"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "GELİŞTİRİLMİŞ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "CURVATURE"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA ÖLÇEKLENDİRME"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "YAPIMCI"
@@ -1637,6 +1644,9 @@ msgstr ""
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "GELİŞTİRİLMİŞ"
 
 msgid "INSTANT"
 msgstr ""
@@ -2805,6 +2815,24 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "CURVATURE"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA ÖLÇEKLENDİRME"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "OYUNCU ŞİFRESİ OLUŞTUR"
