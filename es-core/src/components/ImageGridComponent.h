@@ -751,7 +751,7 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 template<typename T>
 void ImageGridComponent<T>::onSizeChanged()
 {
-	IList::onSizeChanged();
+	IList<ImageGridData, T>::onSizeChanged();
 
 	if (mTheme == nullptr)
 		return;
