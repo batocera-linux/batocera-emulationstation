@@ -59,6 +59,8 @@ void ControllerActivityComponent::setColorShift(unsigned int color)
 
 void ControllerActivityComponent::onPositionChanged()
 {
+	GuiComponent::onPositionChanged();
+
 	mBatteryText = nullptr;
 	mBatteryFont = nullptr;
 
@@ -68,6 +70,8 @@ void ControllerActivityComponent::onPositionChanged()
 
 void ControllerActivityComponent::onSizeChanged()
 {	
+	GuiComponent::onSizeChanged();
+
 	mBatteryText = nullptr;
 	mBatteryFont = nullptr;
 
@@ -166,31 +170,31 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	int itemsWidth = 0;
 	float batteryTextOffset = 0;
 
-	bool showControllerActivity = Settings::getInstance()->getBool("ShowControllerActivity");
-	bool showControllerBattery = showControllerActivity && Settings::getInstance()->getBool("ShowControllerBattery");
+	bool showControllerActivity = Settings::ShowControllerActivity();
+	bool showControllerBattery = showControllerActivity && Settings::ShowControllerBattery();
 
 	if ((mView & CONTROLLERS) && showControllerActivity)
 	{	
-		auto playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
+		auto& playerJoysticks = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
 
 		int padCount = 0;
 
 		for (int player = 0; player < MAX_PLAYERS; player++)
-			mPads[player].index = -1;
-
-		for (int player = 0; player < MAX_PLAYERS; player++)
 		{
+			PlayerPad& pad = mPads[player];
+			pad.index = -1;
+
 			auto it = playerJoysticks.find(player);
 			if (it == playerJoysticks.cend() || it->second.index < 0 || it->second.index >= MAX_PLAYERS)
 				continue;
 
-			mPads[player].index = it->second.index;
-			mPads[player].batteryLevel = it->second.batteryLevel;
+			pad.index = it->second.index;
+			pad.batteryLevel = it->second.batteryLevel;
 		}
 
 		for (int idx = 0; idx < MAX_PLAYERS; idx++)
 		{
-			auto pad = mPads[idx];
+			PlayerPad& pad = mPads[idx];
 			if (pad.index < 0)
 				continue;
 
@@ -205,11 +209,11 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 
 				auto sz = mBatteryFont->sizeText(batteryTextValue, 1.0);
 
-				if (mPads[idx].batteryTextValue != batteryTextValue)
-					mPads[idx].batteryText = nullptr;
+				if (pad.batteryTextValue != batteryTextValue)
+					pad.batteryText = nullptr;
 
-				mPads[idx].batteryTextValue = batteryTextValue;
-				mPads[idx].batteryTextSize = sz.x();
+				pad.batteryTextValue = batteryTextValue;
+				pad.batteryTextSize = sz.x();
 
 				itemsWidth += sz.x() + mSpacing;
 				batteryTextOffset = mSize.y() / 2.0f - sz.y() / 2.0f;

@@ -118,9 +118,9 @@ std::shared_ptr<TextureResource> GridTileComponent::getTexture(bool marquee)
 
 void GridTileComponent::resize()
 {
-	auto currentProperties = getCurrentProperties();
+	auto& currentProperties = getCurrentProperties();
 
-	Vector2f size = currentProperties.Size;
+	Vector2f& size = currentProperties.Size;
 	if (mSize != size)
 		setSize(size);
 
@@ -309,7 +309,7 @@ void GridTileComponent::update(int deltaTime)
 
 void GridTileComponent::renderBackground(const Transform4x4f& parentTrans)
 {
-	if (!isVisible())
+	if (!mVisible)
 		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
@@ -323,51 +323,55 @@ bool GridTileComponent::hasMarquee()
 
 bool GridTileComponent::isMinSizeTile()
 {
-	auto currentProperties = getCurrentProperties(false);
+	auto& currentProperties = getCurrentProperties(false);
 	return (currentProperties.Image.sizeMode == "minSize");
 }
 
-void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
+void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool renderBackground)
 {
-	if (!isVisible())
+	if (!mVisible)
 		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
 
-	Vector2f clipPos(trans.translation().x(), trans.translation().y());
-	if (!Renderer::isVisibleOnScreen(clipPos.x(), clipPos.y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
+	if (renderBackground)
+		mBackground.render(trans);
+
+	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	auto currentProperties = getCurrentProperties(false);
+	auto& currentProperties = getCurrentProperties(false);
 
-	float padding = currentProperties.Padding.x();
-	float topPadding = currentProperties.Padding.y();
-	float bottomPadding = topPadding;
-
-	if (currentProperties.Label.Visible && !mLabelMerged)
-		bottomPadding = std::max((int)topPadding, (int)(mSize.y() * currentProperties.Label.size.y()));
-
-	Vector2i pos((int)Math::round(trans.translation()[0] + padding), (int)Math::round(trans.translation()[1] + topPadding));
-	Vector2i size((int)Math::round(mSize.x()* trans.r0().x() - 2 * padding), (int)Math::round(mSize.y()* trans.r1().y() - topPadding - bottomPadding));
-	
-	bool isDefaultImage = mIsDefaultImage;
-	bool isMinSize = !isDefaultImage && currentProperties.Image.sizeMode == "minSize";
-
+	bool isMinSize = !mIsDefaultImage && currentProperties.Image.sizeMode == "minSize";
 	if (isMinSize)
-		Renderer::pushClipRect(pos, size);
-		
+	{
+		float padding = currentProperties.Padding.x();
+		float topPadding = currentProperties.Padding.y();
+		float bottomPadding = topPadding;
+
+		if (currentProperties.Label.Visible && !mLabelMerged)
+			bottomPadding = std::max((int)topPadding, (int)(mSize.y() * currentProperties.Label.size.y()));
+
+		int x = (int)Math::round(trans.translation()[0] + padding);
+		int y = (int)Math::round(trans.translation()[1] + topPadding);
+		int w = (int)Math::round(mSize.x()* trans.r0().x() - 2 * padding);
+		int h = (int)Math::round(mSize.y()* trans.r1().y() - topPadding - bottomPadding);
+
+		Renderer::pushClipRect(x, y, w, h);
+	}
+
 	if (mImage != NULL)
-	{		
+	{
 		if (!isMinSize || !mSelected || mVideo == nullptr || !(mVideo->isPlaying() && !mVideo->isFading()))
 			mImage->render(trans);
 	}
 
 	if (mSelected && !mVideoPath.empty() && mVideo != nullptr)
 		mVideo->render(trans);
-	
+
 	if (!mLabelMerged && isMinSize)
 		Renderer::popClipRect();
-	
+
 	std::vector<GuiComponent*> zOrdered;
 
 	if (mMarquee != nullptr && mMarquee->hasImage())
@@ -384,22 +388,22 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans)
 	if (mImageOverlay != nullptr && mImageOverlay->hasImage() && mImageOverlay->isVisible())
 		zOrdered.push_back(mImageOverlay);
 
-	std::stable_sort(zOrdered.begin(), zOrdered.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
-	
+	if (zOrdered.size() > 1)
+		std::stable_sort(zOrdered.begin(), zOrdered.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
+
 	for (auto comp : zOrdered)
 		comp->render(trans);
-		
+
 	if (mLabelMerged && isMinSize)
 		Renderer::popClipRect();
 }
 
 void GridTileComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!isVisible())
+	if (!mVisible)
 		return;
 
-	renderBackground(parentTrans);
-	renderContent(parentTrans);
+	renderContent(parentTrans, true);
 }
 
 void GridTileComponent::createMarquee()
@@ -1200,9 +1204,9 @@ void GridTextProperties::mixProperties(GridTextProperties& def, GridTextProperti
 	padding = mixVectors(def.padding, sel.padding, percent);
 }
 
-GridTileProperties GridTileComponent::getCurrentProperties(bool mixValues)
+GridTileProperties& GridTileComponent::getCurrentProperties(bool mixValues)
 {
-	GridTileProperties prop = mSelected ? mSelectedProperties : mDefaultProperties;
+	GridTileProperties& prop = mSelected ? mSelectedProperties : mDefaultProperties;
 
 	if (mSelectedZoomPercent == 0.0f || mSelectedZoomPercent == 1.0f)
 		if (!mSelected || (mVideo != nullptr && !mVideo->isPlaying()))
@@ -1210,6 +1214,8 @@ GridTileProperties GridTileComponent::getCurrentProperties(bool mixValues)
 
 	if (mixValues)
 	{
+		mMixedProperties = prop;
+
 		GridTileProperties* from = &mDefaultProperties;
 		GridTileProperties* to = &mSelectedProperties;
 		float pc = mSelectedZoomPercent;
@@ -1226,16 +1232,18 @@ GridTileProperties GridTileComponent::getCurrentProperties(bool mixValues)
 			pc = Math::lerp(0, 1, t*t*t + 1);
 		}
 
-		prop.Size = mixVectors(from->Size, to->Size, pc);
-		prop.Padding = mixVectors(from->Padding, to->Padding, pc);
+		mMixedProperties.Size = mixVectors(from->Size, to->Size, pc);
+		mMixedProperties.Padding = mixVectors(from->Padding, to->Padding, pc);
 
-		prop.Label.mixProperties(from->Label, to->Label, pc);
-		prop.Image.mixProperties(from->Image, to->Image, pc);
-		prop.Marquee.mixProperties(from->Marquee, to->Marquee, pc);
+		mMixedProperties.Label.mixProperties(from->Label, to->Label, pc);
+		mMixedProperties.Image.mixProperties(from->Image, to->Image, pc);
+		mMixedProperties.Marquee.mixProperties(from->Marquee, to->Marquee, pc);
 				
-		prop.Favorite.mixProperties(from->Favorite, to->Favorite, pc);
-		prop.Cheevos.mixProperties(from->Cheevos, to->Cheevos, pc);
-		prop.ImageOverlay.mixProperties(from->ImageOverlay, to->ImageOverlay, pc);
+		mMixedProperties.Favorite.mixProperties(from->Favorite, to->Favorite, pc);
+		mMixedProperties.Cheevos.mixProperties(from->Cheevos, to->Cheevos, pc);
+		mMixedProperties.ImageOverlay.mixProperties(from->ImageOverlay, to->ImageOverlay, pc);
+		
+		return mMixedProperties;
 	}
 	else if (mSelected && mVideo != nullptr && mVideo->isPlaying() && !mVideo->isFading())
 		return mVideoPlayingProperties;

@@ -44,10 +44,10 @@ void AnimatedImageComponent::reset()
 
 void AnimatedImageComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	for(auto it = mFrames.cbegin(); it != mFrames.cend(); it++)
-	{
 		it->first->setResize(mSize.x(), mSize.y());
-	}
 }
 
 void AnimatedImageComponent::update(int deltaTime)

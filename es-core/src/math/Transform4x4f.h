@@ -33,6 +33,7 @@ public:
 	Transform4x4f& rotateY        (const float _angle);
 	Transform4x4f& rotateZ        (const float _angle);
 	Transform4x4f& translate      (const Vector3f& _translation);
+	Transform4x4f& translate	  (const float x, const float y);
 	Transform4x4f& round          ();
 
 	inline       Vector3f& translation()       { return mR3.v3(); }

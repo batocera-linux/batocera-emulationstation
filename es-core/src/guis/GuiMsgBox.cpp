@@ -183,6 +183,8 @@ bool GuiMsgBox::input(InputConfig* config, Input input)
 
 void GuiMsgBox::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mGrid.setSize(mSize);
 
 	if (mImage != nullptr)

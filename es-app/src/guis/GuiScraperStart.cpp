@@ -25,7 +25,7 @@ GuiScraperStart::GuiScraperStart(Window* window)
 	for (auto engine : Scraper::getScraperList())
 		scraper_list->add(engine, engine, engine == scraperName);
 
-	addGroup("SOURCE");
+	addGroup(_("SOURCE"));
 	addWithLabel(_("SCRAPE FROM"), scraper_list);
 
 	if (!scraper_list->hasSelection())
@@ -36,7 +36,7 @@ GuiScraperStart::GuiScraperStart(Window* window)
 
 	addEntry(_("SCRAPER SETTINGS"), true, std::bind(&GuiScraperStart::onShowScraperSettings, this));
 
-	addGroup("FILTERS");
+	addGroup(_("FILTERS"));
 
 	auto scraper = Scraper::getScraper(scraperName);
 

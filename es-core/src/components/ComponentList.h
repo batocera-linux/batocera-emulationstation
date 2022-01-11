@@ -18,12 +18,11 @@ namespace ComponentListFlags
 
 struct ComponentListElement
 {
-	ComponentListElement(const std::shared_ptr<GuiComponent>& cmp = nullptr, bool resize_w = true, bool inv = true)
-		: component(cmp), resize_width(resize_w), invert_when_selected(inv) { };
+	ComponentListElement(const std::shared_ptr<GuiComponent>& cmp = nullptr, bool resize_w = true)
+		: component(cmp), resize_width(resize_w) { };
 
 	std::shared_ptr<GuiComponent> component;
-	bool resize_width;
-	bool invert_when_selected;
+	bool resize_width;	
 };
 
 struct ComponentListRow
@@ -31,8 +30,10 @@ struct ComponentListRow
 	ComponentListRow() 
 	{
 		selectable = true;
+		group = false;
 	};
 
+	bool group;
 	bool selectable;
 	std::vector<ComponentListElement> elements;
 
@@ -42,12 +43,12 @@ struct ComponentListRow
 	// the rightmost element in the currently selected row.
 	std::function<bool(InputConfig*, Input)> input_handler;
 	
-	inline void addElement(const std::shared_ptr<GuiComponent>& component, bool resize_width, bool invert_when_selected = true)
+	inline void addElement(const std::shared_ptr<GuiComponent>& component, bool resize_width)
 	{
 		if (EsLocale::isRTL())
-			elements.insert(elements.begin(), ComponentListElement(component, resize_width, invert_when_selected));
+			elements.insert(elements.begin(), ComponentListElement(component, resize_width));
 		else
-			elements.push_back(ComponentListElement(component, resize_width, invert_when_selected));
+			elements.push_back(ComponentListElement(component, resize_width));
 	}
 
 	// Utility method for making an input handler for "when the users presses A on this, do func."

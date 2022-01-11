@@ -204,7 +204,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 		case MD_BOOL:
 			{
 				ed = std::make_shared<SwitchComponent>(window);
-				row.addElement(ed, false, true);
+				row.addElement(ed, false);
 				break;
 			}
 		case MD_RATING:
@@ -212,7 +212,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				ed = std::make_shared<RatingComponent>(window);
 				const float height = lbl->getSize().y() * 0.71f;
 				ed->setSize(0, height);
-				row.addElement(ed, false, true);
+				row.addElement(ed, false);
 
 				auto spacer = std::make_shared<GuiComponent>(mWindow);
 				spacer->setSize(Renderer::getScreenWidth() * 0.0025f, 0);
@@ -378,6 +378,8 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 void GuiMetaDataEd::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mGrid.setSize(mSize);

@@ -48,7 +48,7 @@ ImageComponent::~ImageComponent()
 
 void ImageComponent::resize()
 {
-	if(!mTexture)
+	if (!mTexture)
 		return;
 
 	const Vector2f textureSize = mTexture->getSourceImageSize();
@@ -146,6 +146,7 @@ void ImageComponent::resize()
 
 void ImageComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
 	updateVertices();
 }
 
@@ -268,7 +269,11 @@ Vector2f ImageComponent::getRotationSize() const
 
 void ImageComponent::setRotateByTargetSize(bool rotate)
 {
+	if (mRotateByTargetSize == rotate)
+		return;
+
 	mRotateByTargetSize = rotate;
+	onRotationChanged();
 }
 
 void ImageComponent::cropLeft(float percent)
@@ -442,7 +447,7 @@ void ImageComponent::updateRoundCorners()
 
 void ImageComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!isVisible())
+	if (!mVisible)
 		return;
 
 	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
@@ -466,10 +471,11 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	Renderer::setMatrix(trans);
-
 	if (Settings::DebugImage)
+	{
+		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
+	}
 
 	if(mTexture && mOpacity > 0)
 	{
@@ -491,29 +497,28 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		beginCustomClipRect();
 
 		// Align left
-		//trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
-		
 		if (mVerticalAlignment == ALIGN_TOP)
-			trans.translate(Vector3f(0, targetSizePos.y(), 0.0f));
+			trans.translate(0, targetSizePos.y());
 		else if (mVerticalAlignment == ALIGN_BOTTOM)
-			trans.translate(Vector3f(targetSizePos.x(), targetSizePos.y() + mTargetSize.y() - mSize.y(), 0.0f));
+			trans.translate(targetSizePos.x(), targetSizePos.y() + mTargetSize.y() - mSize.y());
 
 		if (mHorizontalAlignment == ALIGN_LEFT)
-			trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
+			trans.translate(targetSizePos.x(), 0);
 		else if (mHorizontalAlignment == ALIGN_RIGHT)
-			trans.translate(Vector3f(targetSizePos.x() + mTargetSize.x() - mSize.x(), targetSizePos.y(), 0.0f));
+			trans.translate(targetSizePos.x() + mTargetSize.x() - mSize.x(), targetSizePos.y());
 
 		Renderer::setMatrix(trans);
 
 		fadeIn(true);
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
+		{
 			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
-
-		Renderer::drawTriangleStrips(&mVertices[0], 4);
-
-		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
+			Renderer::drawTriangleStrips(&mVertices[0], 4);
 			Renderer::disableStencil();
+		}
+		else
+			Renderer::drawTriangleStrips(&mVertices[0], 4);
 
 		if (mReflection.x() != 0 || mReflection.y() != 0)
 		{
@@ -563,8 +568,6 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	}
 	else
 		GuiComponent::renderChildren(trans);
-
-
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)

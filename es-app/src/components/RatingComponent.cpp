@@ -62,6 +62,8 @@ void RatingComponent::setUnfilledColor(unsigned int color)
 
 void RatingComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	if (mSize.y() == 0)
 		mSize[1] = mSize.x() / NUM_RATING_STARS;
 	else if (mSize.x() == 0)

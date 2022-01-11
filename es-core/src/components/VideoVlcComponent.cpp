@@ -750,7 +750,10 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 void VideoVlcComponent::update(int deltaTime)
 {
 	mElapsed += deltaTime;
-	mStaticImage.update(deltaTime);
+
+	if (mConfig.showSnapshotNoVideo || mConfig.showSnapshotDelay)
+		mStaticImage.update(deltaTime);
+
 	VideoComponent::update(deltaTime);	
 }
 

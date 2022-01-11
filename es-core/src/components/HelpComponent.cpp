@@ -159,14 +159,29 @@ void HelpComponent::setOpacity(unsigned char opacity)
 {
 	GuiComponent::setOpacity(opacity);
 
-	for (unsigned int i = 0; i < mGrid->getChildCount(); i++)
+	for (auto i = 0; i < mGrid->getChildCount(); i++)
 		mGrid->getChild(i)->setOpacity(opacity);
 }
 
 void HelpComponent::render(const Transform4x4f& parentTrans)
 {
-	Transform4x4f trans = parentTrans * getTransform();
-
 	if (mGrid)
-		mGrid->render(trans);
+	{		
+		// Optimize Help rendering by splitting texts & images rendering ( TextComponents use the same shaders programs ) // mGrid->render(trans);
+		Transform4x4f trans = parentTrans * getTransform() * mGrid->getTransform();
+		
+		std::vector<GuiComponent*> textComponents;
+
+		for (auto i = 0; i < mGrid->getChildCount(); i++)
+		{
+			auto child = mGrid->getChild(i);
+			if (!child->isKindOf<TextComponent>())
+				child->render(trans);
+			else
+				textComponents.push_back(child);
+		}
+
+		for (auto child : textComponents)
+			child->render(trans);
+	}
 }

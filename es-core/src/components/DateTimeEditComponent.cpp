@@ -315,6 +315,8 @@ void DateTimeEditComponent::setFont(std::shared_ptr<Font> font)
 
 void DateTimeEditComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mAutoSize = false;
 	updateTextCache();
 }

@@ -78,13 +78,13 @@
 #define fake_gettext_cpu_frequency _("Cpu max frequency")
 #define fake_gettext_cpu_feature  _("Cpu feature")
 
-#define fake_gettext_scanlines		_("SCANLINES")
-#define fake_gettext_retro			_("RETRO")
-#define fake_gettext_enhanced		_("ENHANCED")
-#define fake_gettext_curvature		_("CURVATURE")
-#define fake_gettext_zfast			_("ZFAST")
-#define fake_gettext_flatten_glow	_("FLATTEN-GLOW")
-#define fake_gettext_rgascaling		_("RGA SCALING")
+#define fake_gettext_scanlines		pgettext("game_options", "SCANLINES")
+#define fake_gettext_retro			pgettext("game_options", "RETRO")
+#define fake_gettext_enhanced		pgettext("game_options", "ENHANCED")
+#define fake_gettext_curvature		pgettext("game_options", "CURVATURE")
+#define fake_gettext_zfast			pgettext("game_options", "ZFAST")
+#define fake_gettext_flatten_glow	pgettext("game_options", "FLATTEN-GLOW")
+#define fake_gettext_rgascaling		pgettext("game_options", "RGA SCALING")
 
 #define fake_gettext_glvendor		_("VENDOR")
 #define fake_gettext_glvrenderer	_("RENDERER")
@@ -140,7 +140,10 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 		SystemConf::getInstance()->getBool("global.retroachievements") &&
 		Settings::getInstance()->getBool("RetroachievementsMenuitem") && 
 		SystemConf::getInstance()->get("global.retroachievements.username") != "")
-		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] { GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
+		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] {
+				if (!checkNetwork())
+					return;
+				GuiRetroAchievements::show(mWindow); }, "iconRetroachievements");
 	
 	if (isFullUI)
 	{
@@ -682,6 +685,8 @@ void GuiMenu::openCollectionSystemSettings()
 
 void GuiMenu::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	float h = mMenu.getButtonGridHeight();
 
 	mVersion.setSize(mSize.x(), h);
@@ -808,7 +813,7 @@ void GuiMenu::openDeveloperSettings()
 	s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
 	
 	s->addSwitch(_("SHOW FRAMERATE"), "DrawFramerate", true);
-	s->addSwitch(_("VSYNC"), "VSync", true);
+	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
 
 #if !defined(WIN32) && !defined _ENABLEEMUELEC || defined(_DEBUG)
 	// overscan
@@ -3017,10 +3022,10 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 
 	std::map<std::string, ThemeConfigOption> options;
 
-	Utils::String::stringVector subsetNames = theme->getSubSetNames(viewName);
-
+	auto subsetNames = theme->getSubSetNames(viewName);
+	
 	// push appliesTo at end of list
-	std::sort(subsetNames.begin(), subsetNames.end(), [themeSubSets](const std::string& a, const std::string& b) -> bool
+	std::stable_sort(subsetNames.begin(), subsetNames.end(), [themeSubSets](const std::string& a, const std::string& b) -> bool
 	{ 
 		auto sa = ThemeData::getSubSet(themeSubSets, a);
 		auto sb = ThemeData::getSubSet(themeSubSets, b);
@@ -3979,7 +3984,7 @@ void GuiMenu::createDecorationItemTemplate(Window* window, std::vector<Decoratio
 	else
 		label = Utils::String::toUpper(Utils::String::replace(data, "_", " "));
 		
-	row.addElement(std::make_shared<TextComponent>(window, label, font, color, ALIGN_LEFT), true, true);
+	row.addElement(std::make_shared<TextComponent>(window, label, font, color, ALIGN_LEFT), true);
 
 	std::string imageUrl;
 

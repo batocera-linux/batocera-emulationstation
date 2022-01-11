@@ -50,6 +50,8 @@ GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, con
 
 void GuiTextEditPopup::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	mText->setSize(mSize.x() - 40, mText->getSize().y());

@@ -1200,8 +1200,14 @@ msgstr ""
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "SCRAPE ΑΠΟ"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""
@@ -1326,24 +1332,31 @@ msgstr "ΜΕΓΙΣΤΗ ΣΥΧΝΟΤΗΤΑ ΕΠΕΞΕΡΓΑΣΤΗ"
 msgid "Cpu feature"
 msgstr "ΧΑΡΑΚΤΗΡΙΣΤΙΚΟ ΕΠΕΞΕΡΓΑΣΤΗ"
 
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "ΡΕΤΡΟ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "ΕΝΙΣΧΥΜΕΝΟ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "ΚΑΜΠΥΛΟΤΗΤΑ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
 msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "ΕΠΙΠΕΔΩΣΗ-ΛΑΜΨΗ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
 msgstr ""
 
@@ -1628,6 +1641,9 @@ msgstr "ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΟ"
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "ΕΝΙΣΧΥΜΕΝΟ"
 
 msgid "INSTANT"
 msgstr ""
@@ -2796,6 +2812,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "RETRO"
+#~ msgstr "ΡΕΤΡΟ"
+
+#~ msgid "CURVATURE"
+#~ msgstr "ΚΑΜΠΥΛΟΤΗΤΑ"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "ΕΠΙΠΕΔΩΣΗ-ΛΑΜΨΗ"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "ΟΡΙΣΜΟΣ ΚΩΔΙΚΟΥ ΠΑΙΧΝΙΔΙΟΥ"

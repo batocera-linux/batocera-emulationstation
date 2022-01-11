@@ -1204,8 +1204,14 @@ msgstr "資料搜刮器"
 msgid "SCRAPING DATABASE"
 msgstr "搜刮資料庫"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "搜刮資料來源"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""
@@ -1332,26 +1338,33 @@ msgstr "CPU 最高頻率"
 msgid "Cpu feature"
 msgstr "CPU 功能"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "掃描線"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "復古"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "增強"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "曲面"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA 縮放"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "提供者"
@@ -1631,6 +1644,9 @@ msgstr "停用"
 
 msgid "DEFAULT"
 msgstr "預設"
+
+msgid "ENHANCED"
+msgstr "增強"
 
 msgid "INSTANT"
 msgstr "立即"
@@ -2799,6 +2815,24 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "SCANLINES"
+#~ msgstr "掃描線"
+
+#~ msgid "RETRO"
+#~ msgstr "復古"
+
+#~ msgid "CURVATURE"
+#~ msgstr "曲面"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA 縮放"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "搜刮標準"

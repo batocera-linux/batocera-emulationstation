@@ -1207,8 +1207,14 @@ msgstr "SCRAPER"
 msgid "SCRAPING DATABASE"
 msgstr "SCRAPING DATENBANK"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "SCRAPEN VON"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""
@@ -1336,26 +1342,33 @@ msgstr "CPU max Frequenz"
 msgid "Cpu feature"
 msgstr "CPU Eigenschaft"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "VERBESSERT"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "WÖLBUNG"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA SKALIERUNG"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "HERSTELLER"
@@ -1641,6 +1654,9 @@ msgstr "DEAKTIVIERT"
 
 msgid "DEFAULT"
 msgstr "KEIN SPLASH"
+
+msgid "ENHANCED"
+msgstr "VERBESSERT"
 
 msgid "INSTANT"
 msgstr "SOFORTIG"
@@ -2831,6 +2847,24 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "WÖLBUNG"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA SKALIERUNG"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "SCRAPE-KRITERIEN"

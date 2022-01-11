@@ -1207,8 +1207,14 @@ msgstr "СКРАПЕР"
 msgid "SCRAPING DATABASE"
 msgstr "ИСТОЧНИК ЗАГРУЗКИ"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""
@@ -1336,26 +1342,33 @@ msgstr "Макс. частота CPU"
 msgid "Cpu feature"
 msgstr "Функции CPU"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "ЧЕРЕССТРОЧНОСТЬ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "РЕТРО"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "РАСШИРЕННЫЙ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "КРИВИЗНА"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA СКАЛИРОВАНИЕ"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "ПРОИЗВОДИТЕЛЬ"
@@ -1638,6 +1651,9 @@ msgstr "ОТКЛЮЧЕНО"
 
 msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
+
+msgid "ENHANCED"
+msgstr "РАСШИРЕННЫЙ"
 
 msgid "INSTANT"
 msgstr "МГНОВЕННЫЙ"
@@ -2835,6 +2851,24 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "SCANLINES"
+#~ msgstr "ЧЕРЕССТРОЧНОСТЬ"
+
+#~ msgid "RETRO"
+#~ msgstr "РЕТРО"
+
+#~ msgid "CURVATURE"
+#~ msgstr "КРИВИЗНА"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA СКАЛИРОВАНИЕ"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "КРИТЕРИИ ЗАГРУЗКИ"

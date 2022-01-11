@@ -1222,8 +1222,14 @@ msgstr "抓取元数据"
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
 msgstr "游戏数据来源"
+
+msgid "FILTERS"
+msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""
@@ -1348,24 +1354,31 @@ msgstr "CPU最大频率"
 msgid "Cpu feature"
 msgstr "CPU 特征"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "扫描线"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "复古"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "增强"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "弯曲"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST(贼快) 开发框架"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW 着色器集"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
 msgstr ""
 
@@ -1647,6 +1660,9 @@ msgstr ""
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "增强"
 
 msgid "INSTANT"
 msgstr ""
@@ -2796,6 +2812,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCANLINES"
+#~ msgstr "扫描线"
+
+#~ msgid "RETRO"
+#~ msgstr "复古"
+
+#~ msgid "CURVATURE"
+#~ msgstr "弯曲"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST(贼快) 开发框架"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW 着色器集"
 
 #~ msgid "UP"
 #~ msgstr "上"

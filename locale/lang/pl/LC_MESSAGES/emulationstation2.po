@@ -587,19 +587,19 @@ msgid "USE RELAY SERVER"
 msgstr "UŻYJ SERWERA PRZEKAZUJĄCEGO"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NOWY JORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRYT"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAN PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "POKAŻ NIEDOSTĘPNE GRY"
 
 msgid "FINISHED"
 msgstr "ZAKOŃCZONO"
@@ -1027,7 +1027,7 @@ msgid "OPEN"
 msgstr "OTWÓRZ"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "ROZPOCZNIJ GRĘ NETPLAY"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1036,16 +1036,16 @@ msgid "START GAME"
 msgstr "ROZPOCZNIJ GRĘ"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "HOSTUJ GRĘ NETPLAY"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "OGŁOŚ GRĘ PUBLICZNIE"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "HASŁO GRACZA"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "HASŁO WIDZA"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY..."
@@ -1140,7 +1140,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "KOPIUJ W DOSTĘPNE MIEJSCE"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA SCRAPE'A"
 
 msgid "IMAGE SOURCE"
 msgstr "ŹRÓDŁO OBRAZU"
@@ -1208,47 +1208,53 @@ msgstr "SCRAPER"
 msgid "SCRAPING DATABASE"
 msgstr "BAZA DANYCH SCRAPE'A"
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
+msgstr "SCRAPE'UJ Z"
+
+msgid "FILTERS"
 msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "GRY DO SCRAPE'OWANIA"
 
 msgid "ALL"
 msgstr "WSZYSTKO"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "GRY Z BRAKUJĄCYMI MEDIAMI"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "GRY BEZ MEDIÓW"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORUJ OSTATNIO SCRAPE'OWANE GRY"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "OSTATNI DZIEŃ"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "OSTATNI TYDZIEŃ"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "OSTATNIE 15 DNI"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "OSTATNI MIESIĄC"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "OSTATNIE 3 MIESIĄCE"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "OSTATNI ROK"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "UWZGLĘDNIONE SYSTEMY"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "SCRAPE'UJ"
 
 msgid "START"
 msgstr "URUCHOM"
@@ -1337,26 +1343,33 @@ msgstr "Maks. częstotliwość procesora"
 msgid "Cpu feature"
 msgstr "Funkcje procesora"
 
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "ROZSZERZONY"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "KRZYWIZNA"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "SKALOWANIE RGA"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "DOSTAWCA"
@@ -1644,6 +1657,9 @@ msgstr "WYŁĄCZONE"
 msgid "DEFAULT"
 msgstr "DOMYŚLNY"
 
+msgid "ENHANCED"
+msgstr "ROZSZERZONY"
+
 msgid "INSTANT"
 msgstr "NATYCHMIASTOWY"
 
@@ -1688,7 +1704,7 @@ msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr "PROFIL AUDIO "
+msgstr "PROFIL AUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "OBRÓT EKRANU"
@@ -1802,7 +1818,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "KLATKI Z WYPRZEDZENIEM"
 
 msgid "USE RUN-AHEAD FRAMES"
-msgstr "UŻYJ KLATKI Z WYPRZEDZENIEM"
+msgstr "UŻYJ KLATEK Z WYPRZEDZENIEM"
 
 msgid "RUN-AHEAD USE SECOND INSTANCE"
 msgstr "Z WYPRZEDZENIEM ZA POMOCĄ DRUGIEJ INSTANCJI"
@@ -2063,7 +2079,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "RODZAJ PRZEJŚCIA LISTY"
 
 msgid "auto"
-msgstr ""
+msgstr "auto"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "PRZEJŚCIE ROZRUCHU GRY"
@@ -2837,6 +2853,24 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "KRZYWIZNA"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "SKALOWANIE RGA"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "KRYTERIA SCRAPE'A"

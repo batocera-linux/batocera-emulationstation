@@ -26,6 +26,7 @@ void SwitchComponent::setColor(unsigned int color)
 
 void SwitchComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
 	mImage.setSize(mSize);
 }
 

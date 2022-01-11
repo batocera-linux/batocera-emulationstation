@@ -29,6 +29,8 @@ ButtonComponent::ButtonComponent(Window* window, const std::string& text, const 
 
 void ButtonComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	auto sz = mBox.getCornerSize();
 
 	mBox.fitTo(

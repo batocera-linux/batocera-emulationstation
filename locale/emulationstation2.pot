@@ -1205,7 +1205,13 @@ msgstr ""
 msgid "SCRAPING DATABASE"
 msgstr ""
 
+msgid "SOURCE"
+msgstr ""
+
 msgid "SCRAPE FROM"
+msgstr ""
+
+msgid "FILTERS"
 msgstr ""
 
 msgid "GAMES TO SCRAPE FOR"
@@ -1331,24 +1337,31 @@ msgstr ""
 msgid "Cpu feature"
 msgstr ""
 
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
 msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
 msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
 msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
 msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
 msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
 msgstr ""
 
@@ -1629,6 +1642,9 @@ msgid "DISABLED"
 msgstr ""
 
 msgid "DEFAULT"
+msgstr ""
+
+msgid "ENHANCED"
 msgstr ""
 
 msgid "INSTANT"

@@ -124,7 +124,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 				{
 					GuiGameAchievements::show(window, Utils::String::toInteger(game->getMetadata(MetaDataId::CheevosId)));
 					close();
-				}, "", false, true, true);
+				}, "", false, true);
 			}
 			else
 			{

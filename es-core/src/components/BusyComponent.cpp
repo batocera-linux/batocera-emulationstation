@@ -90,6 +90,8 @@ void BusyComponent::render(const Transform4x4f& parentTrans)
 
 void BusyComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mGrid.setSize(mSize);
 
 	if(mSize.x() == 0 || mSize.y() == 0)

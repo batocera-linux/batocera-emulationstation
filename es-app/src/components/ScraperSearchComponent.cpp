@@ -94,6 +94,8 @@ ScraperSearchComponent::~ScraperSearchComponent()
 
 void ScraperSearchComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mGrid.setSize(mSize);
 
 	if (mSize.x() == 0 || mSize.y() == 0)
