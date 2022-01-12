@@ -586,19 +586,19 @@ msgid "USE RELAY SERVER"
 msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "НЬЮ-ЙОРК"
 
 msgid "MADRID"
-msgstr ""
+msgstr "МАДРИД"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "МОНРЕАЛЬ"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "САН-ПАУЛУ"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -1026,7 +1026,7 @@ msgid "OPEN"
 msgstr "ОТКРЫТЬ"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "НАЧАТЬ NETPLAY ИГРУ"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1035,16 +1035,16 @@ msgid "START GAME"
 msgstr "НАЧАТЬ ИГРУ"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "ХОСТ NETPLAY ИГРЫ"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "ПАРОЛЬ ИГРОКА"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
@@ -1139,7 +1139,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "КОПИРОВАТЬ В СВОБОДНЫЙ СЛОТ"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ СКРАПЕРА"
 
 msgid "IMAGE SOURCE"
 msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
@@ -1208,46 +1208,46 @@ msgid "SCRAPING DATABASE"
 msgstr "ИСТОЧНИК ЗАГРУЗКИ"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "ИСТОЧНИК"
 
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "ФИЛЬТРЫ"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "ЗАГРУЗКА ДЛЯ"
 
 msgid "ALL"
 msgstr "ВСЕ"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "ИГРЫ С НЕДОСТАЮЩИМ МЕДИА"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "ИГРЫ БЕЗ МЕДИА"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "ИГНОРИРОВАТЬ НЕДАВНО ЗАСКРАПЛЕНЫЕ ИГРЫ"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "ПОСЛЕДНИЙ ДЕНЬ"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "ПРОШЛУЮ НЕДЕЛЮ"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "ПРОШЛЫЕ 15 ДНЕЙ"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "ПРОШЛЫЙ МЕСЯЦ"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "ПРОШЛЫЕ 3 МЕСЯЦА"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "ПРОШЛЫЙ ГОД"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "ВЫБРАННЫЕ СИСТЕМЫ"
@@ -1344,31 +1344,31 @@ msgstr "Функции CPU"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "РЕТРО"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "УЛУЧШЕННЫЙ"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "КРИВИЗНА"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA МАСШТАБИРОВАНИЕ"
 
 msgid "VENDOR"
 msgstr "ПРОИЗВОДИТЕЛЬ"
@@ -2075,7 +2075,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
 msgid "auto"
-msgstr ""
+msgstr "авто"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"

@@ -584,16 +584,16 @@ msgid "USE RELAY SERVER"
 msgstr "USA RELAY SERVER"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRA GIOCHI NON DISPONIBILI"
@@ -1137,7 +1137,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIA SU SLOT LIBERO"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "OPZIONI SCRAPER"
 
 msgid "IMAGE SOURCE"
 msgstr "SORGENTE IMMAGINE"
@@ -1206,46 +1206,46 @@ msgid "SCRAPING DATABASE"
 msgstr "DATABASE DI RICERCA"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "SORGENTE"
 
 msgid "SCRAPE FROM"
 msgstr "SCARICA INFO DA"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTRI"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SCARICA INFO PER"
 
 msgid "ALL"
 msgstr "TUTTI"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "GIOCHI CON MEDIA MANCANTI"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "GIOCHI SENZA ALCUN MEDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORA GIOCHI CON INFO SCARICATE DI RECENTE"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "ULTIMO GIORNO"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "ULTIMA SETTIMANA"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "ULTIMI 15 GIORNI"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "ULTIMO MESE"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "ULTIMI 3 MESI"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "ULTIMO ANNO"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "INCLUSI I SISTEMI"
@@ -2074,7 +2074,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
 
 msgid "auto"
-msgstr ""
+msgstr "automatico"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSIZIONE AVVIO DEL GIOCO"
