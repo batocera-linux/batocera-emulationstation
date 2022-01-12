@@ -709,7 +709,7 @@ int main(int argc, char* argv[])
 		if (processDuration < timeLimit)
 		{
 			int timeToWait = timeLimit - processDuration;
-			if (timeToWait > 0 && timeToWait < 25 && Settings::getInstance()->getBool("VSync"))
+			if (timeToWait > 0 && timeToWait < 25 && Settings::VSync())
 				Sleep(timeToWait);
 		}
 #endif

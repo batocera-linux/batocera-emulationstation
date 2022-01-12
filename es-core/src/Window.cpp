@@ -239,17 +239,17 @@ void Window::input(InputConfig* config, Input input)
 	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_g && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle debug grid with Ctrl-G
-		Settings::DebugGrid = !Settings::DebugGrid;
+		Settings::setDebugGrid(!Settings::DebugGrid());
 	}
 	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_t && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-T
-		Settings::DebugText = !Settings::DebugText;
+		Settings::setDebugText(!Settings::DebugText());
 	}
 	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_i && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
 	{
 		// toggle TextComponent debug view with Ctrl-I
-		Settings::DebugImage = !Settings::DebugImage;
+		Settings::setDebugImage(!Settings::DebugImage());
 	}
 	else
 	{
@@ -424,7 +424,7 @@ void Window::update(int deltaTime)
 	{
 		mAverageDeltaTime = mFrameTimeElapsed / mFrameCountElapsed;
 
-		if (Settings::getInstance()->getBool("DrawFramerate"))
+		if (Settings::DrawFramerate())
 		{
 			std::stringstream ss;
 
@@ -447,7 +447,7 @@ void Window::update(int deltaTime)
 	}
 
 	/* draw the clock */ // batocera
-	if (Settings::getInstance()->getBool("DrawClock") && mClock) 
+	if (Settings::DrawClock() && mClock) 
 	{
 		mClockElapsed -= deltaTime;
 		if (mClockElapsed <= 0)
@@ -461,7 +461,7 @@ void Window::update(int deltaTime)
 				// Visit http://en.cppreference.com/w/cpp/chrono/c/strftime for more information about date/time format
 
 				std::string clockBuf;
-				if (Settings::getInstance()->getBool("ClockMode12"))
+				if (Settings::ClockMode12())
 					clockBuf = Utils::Time::timeToString(clockNow, "%I:%M %p");
 				else
 					clockBuf = Utils::Time::timeToString(clockNow, "%H:%M");
@@ -539,17 +539,17 @@ void Window::render()
 		if(!mRenderedHelpPrompts)
 			mHelp->render(transform);
 
-	if(Settings::getInstance()->getBool("DrawFramerate") && mFrameDataText)
+	if(Settings::DrawFramerate() && mFrameDataText)
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
     // clock // batocera
-	if (Settings::getInstance()->getBool("DrawClock") && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
+	if (Settings::DrawClock() && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mClock->render(transform);
 	
-	if (Settings::getInstance()->getBool("ShowControllerActivity") && mControllerActivity != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
+	if (Settings::ShowControllerActivity() && mControllerActivity != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mControllerActivity->render(transform);
 
 	if (mBatteryIndicator != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
@@ -557,7 +557,7 @@ void Window::render()
 
 	Renderer::setMatrix(Transform4x4f::Identity());
 
-	unsigned int screensaverTime = (unsigned int)Settings::getInstance()->getInt("ScreenSaverTime");
+	unsigned int screensaverTime = (unsigned int)Settings::ScreenSaverTime();
 	if (mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 		startScreenSaver();
 
@@ -577,7 +577,7 @@ void Window::render()
 	for (auto extra : mScreenExtras)
 		extra->render(transform);
 
-	if (mVolumeInfo && Settings::getInstance()->getBool("VolumePopup"))
+	if (mVolumeInfo && Settings::VolumePopup())
 		mVolumeInfo->render(transform);
 
 	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)

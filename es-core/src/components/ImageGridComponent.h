@@ -425,7 +425,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	if (Settings::DebugGrid)
+	if (Settings::DebugGrid())
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033);
@@ -447,7 +447,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	Vector2i pos((int)Math::round(trans.translation()[0]), (int)Math::round(trans.translation()[1]));
 	Vector2i size((int)Math::round(mSize.x() * trans.r0().x()), (int)Math::round(mSize.y() * trans.r1().y()));
 
-	if (Settings::DebugGrid)
+	if (Settings::DebugGrid())
 	{
 		for (auto it = mTiles.begin(); it != mTiles.end(); it++)
 		{

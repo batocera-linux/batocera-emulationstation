@@ -384,13 +384,15 @@ namespace Utils
 					// loop over all files in the directory
 					do
 					{
-						std::string name = Utils::String::convertFromWideString(findData.cFileName);
+						if (findData.cFileName == nullptr)
+							continue;
 
-						if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY && (name == "." || name == ".."))
+						if ((findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY &&
+							(findData.cFileName[0] == '.' && (findData.cFileName[1] == '.' || findData.cFileName[1] == 0)))
 							continue;
 
 						FileInfo fi;
-						fi.path = path + "/" + name;
+						fi.path = path + "/" + Utils::String::convertFromWideString(findData.cFileName);
 						fi.hidden = (findData.dwFileAttributes & FILE_ATTRIBUTE_HIDDEN) == FILE_ATTRIBUTE_HIDDEN;
 						fi.directory = (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY;
 						fi.lastWriteTime = to_time_t(findData.ftLastWriteTime);

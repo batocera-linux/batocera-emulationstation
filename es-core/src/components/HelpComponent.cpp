@@ -70,7 +70,7 @@ void HelpComponent::updateGrid()
 	std::vector< std::shared_ptr<TextComponent> > labels;
 
 	int maxWidth = Renderer::getScreenWidth() - ENTRY_SPACING;
-	if (Settings::getInstance()->getBool("DrawClock"))
+	if (Settings::DrawClock())
 	{
 		TextComponent fakeClock(mWindow, "___00_00___", font, mStyle.textColor);
 		maxWidth = Renderer::getScreenWidth() - fakeClock.getSize().x();

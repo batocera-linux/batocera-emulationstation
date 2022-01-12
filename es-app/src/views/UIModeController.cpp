@@ -20,14 +20,29 @@ UIModeController * UIModeController::getInstance()
 }
 
 UIModeController::UIModeController()
-	:mPassKeyCounter(0)
+	: mPassKeyCounter(0), mUIModeChanged(false)
 {
 	mPassKeySequence = Settings::getInstance()->getString("UIMode_passkey");
 	mCurrentUIMode = Settings::getInstance()->getString("UIMode");
+
+	Settings::settingChanged += this;
+}
+
+void UIModeController::onSettingChanged(const std::string& name)
+{
+	if (name == "UIMode")
+	{
+		mUIModeChanged = true;
+		monitorUIMode();
+	}
 }
 
 void UIModeController::monitorUIMode()
 {
+	if (!mUIModeChanged)
+		return;
+
+	mUIModeChanged = false;
 	std::string uimode = Settings::getInstance()->getString("UIMode");
 	if (uimode != mCurrentUIMode) // UIMODE HAS CHANGED
 	{

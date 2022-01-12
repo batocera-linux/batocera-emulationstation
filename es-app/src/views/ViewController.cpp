@@ -923,10 +923,6 @@ void ViewController::render(const Transform4x4f& parentTrans)
 	Vector3f viewStart = transInverse.translation();
 	Vector3f viewEnd = transInverse * Vector3f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight(), 0);
 
-	// Keep track of UI mode changes.
-	UIModeController::getInstance()->monitorUIMode();
-
-
 	if (!isAnimationPlaying(0) && mCurrentView != nullptr)
 	{
 		mCurrentView->render(trans);

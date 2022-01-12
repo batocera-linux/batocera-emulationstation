@@ -209,7 +209,7 @@ bool AudioManager::songWasPlayedRecently(const std::string& song)
 // batocera
 void AudioManager::playRandomMusic(bool continueIfPlaying) 
 {
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 		
 	std::vector<std::string> musics;
@@ -258,7 +258,7 @@ void AudioManager::playMusic(std::string path)
 	// free the previous music
 	stopMusic(false);
 
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 
 	// load a new music
@@ -486,7 +486,7 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 	mSystemName = theme->getSystemThemeFolder();
 	mCurrentThemeMusicDirectory = "";
 
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 
 	const ThemeData::ThemeElement* elem = theme->getElement("system", "directory", "sound");
@@ -521,7 +521,7 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 
 void AudioManager::setVideoPlaying(bool state)
 {
-	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::BackgroundMusic())
 		return;
 	
 	if (state && !Settings::getInstance()->getBool("VideoLowersMusic"))
@@ -544,7 +544,7 @@ int AudioManager::getMaxMusicVolume()
 
 void AudioManager::update(int deltaTime)
 {
-	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::BackgroundMusic())
 		return;
 
 	float deltaVol = deltaTime / 8.0f;

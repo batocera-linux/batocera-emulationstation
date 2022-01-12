@@ -916,7 +916,7 @@ void VideoScreenSaver::render(const Transform4x4f& transform)
 		mDecoration->render(transform);		
 	}
 
-	if (Settings::DebugImage)
+	if (Settings::DebugImage())
 		Renderer::drawRect(mViewport.x, mViewport.y, mViewport.w, mViewport.h, 0xFFFF0090, 0xFFFF0090);
 }
 

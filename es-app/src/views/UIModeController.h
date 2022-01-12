@@ -5,13 +5,16 @@
 #include <vector>
 #include <string>
 
+#include "Settings.h"
+
 class FileData;
 class InputConfig;
 class ViewController;
 
 struct Input;
 
-class UIModeController {
+class UIModeController : public ISettingsChangedEvent
+{
 public:
 	static UIModeController* getInstance();
 
@@ -28,6 +31,9 @@ public:
 	bool isUIModeKid();
 	bool isUIModeKiosk();
 	inline std::vector<std::string> getUIModes() { return mUIModes; };
+
+	void onSettingChanged(const std::string& name) override;
+
 private:
 	UIModeController();
 	bool inputIsMatch(InputConfig * config, Input input);
@@ -44,7 +50,9 @@ private:
 	std::string mPassKeySequence;
 	int mPassKeyCounter;
 	const std::vector<std::string> mInputVals = { "up", "down", "left", "right", "a", "b", "x", "y" };
+	
 	std::string mCurrentUIMode;
+	bool mUIModeChanged;
 };
 
 #endif // ES_APP_VIEWS_UI_MODE_CONTROLLER_H
