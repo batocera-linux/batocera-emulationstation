@@ -25,8 +25,8 @@ public:
 
 	virtual FileData* getCursor() = 0;
 	virtual void setCursor(FileData*) = 0;
-	virtual int getCursorIndex() =0; // batocera
-	virtual void setCursorIndex(int index) =0; // batocera
+	virtual int getCursorIndex() =0; 
+	virtual void setCursorIndex(int index) =0; 
 
 	virtual void resetLastCursor() = 0;
 

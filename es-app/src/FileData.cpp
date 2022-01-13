@@ -31,6 +31,7 @@
 #include "TextToSpeech.h"
 #include "LocaleES.h"
 #include "guis/GuiMsgBox.h"
+#include "Paths.h"
 
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
@@ -419,7 +420,7 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	if (system == nullptr)
 		return "";
 
-	// batocera / must really;-) be done before window->deinit while it closes joysticks
+	// must really;-) be done before window->deinit while it closes joysticks
 	const std::string controllersConfig = InputManager::getInstance()->configureEmulators();
 
 	std::string systemName = system->getName();
@@ -483,13 +484,13 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 	const std::string rom_raw = Utils::FileSystem::getPreferredPath(getPath());
 	
-	command = Utils::String::replace(command, "%SYSTEM%", systemName); // batocera
+	command = Utils::String::replace(command, "%SYSTEM%", systemName);
 	command = Utils::String::replace(command, "%ROM%", rom);
 	command = Utils::String::replace(command, "%BASENAME%", basename);
 	command = Utils::String::replace(command, "%ROM_RAW%", rom_raw);
 	command = Utils::String::replace(command, "%EMULATOR%", emulator);
 	command = Utils::String::replace(command, "%CORE%", core);
-	command = Utils::String::replace(command, "%HOME%", Utils::FileSystem::getHomePath());
+	command = Utils::String::replace(command, "%HOME%", Paths::getHomePath());
 	command = Utils::String::replace(command, "%GAMENAME%", formatCommandLineArgument(gameToUpdate->getName()));
 	command = Utils::String::replace(command, "%SYSTEMNAME%", formatCommandLineArgument(system->getFullName()));
 
@@ -509,7 +510,7 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	}
 	
 	if (includeControllers)
-		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig); // batocera
+		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig);
 
 	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
@@ -604,7 +605,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (command.empty())
 		return false;
 
-	AudioManager::getInstance()->deinit(); // batocera
+	AudioManager::getInstance()->deinit();
 	VolumeControl::getInstance()->deinit();
 
 	bool hideWindow = Settings::getInstance()->getBool("HideWindow");
@@ -657,7 +658,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		int timesPlayed = gameToUpdate->getMetadata().getInt(MetaDataId::PlayCount) + 1;
 		gameToUpdate->setMetadata(MetaDataId::PlayCount, std::to_string(static_cast<long long>(timesPlayed)));
 
-		// Batocera 5.25: how long have you played that game? (more than 10 seconds, otherwise
+		// How long have you played that game? (more than 10 seconds, otherwise
 		// you might have experienced a loading problem)
 		time_t tend = time(NULL);
 		long elapsedSeconds = difftime(tend, tstart);

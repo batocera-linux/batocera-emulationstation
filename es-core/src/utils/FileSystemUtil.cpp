@@ -32,34 +32,12 @@
 #include <fstream>
 #include <sstream>
 
+#include "Paths.h"
+
 namespace Utils
 {
 	namespace FileSystem
-	{
-		std::string getEsConfigPath()
-		{
-#ifdef WIN32
-			static std::string cfg;
-			if (cfg.empty())
-				cfg = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getHomePath() + "/.emulationstation");
-
-			return cfg;
-#else
-			return "/userdata/system/configs/emulationstation"; // batocera
-#endif
-		}
-
-		std::string getSharedConfigPath()
-		{
-#ifdef WIN32
-			return Utils::FileSystem::getExePath();
-#else
-			return "/usr/share/emulationstation"; // batocera
-#endif
-		}
-
-	// FileCache
-
+	{		
 		struct FileCache
 		{
 			FileCache() {}
@@ -480,80 +458,11 @@ namespace Utils
 
 		} // getPathList
 
-		std::string homePath;
-
-		void setHomePath(const std::string& _path)
-		{
-			homePath = Utils::FileSystem::getGenericPath(_path);
-		}
-
-		std::string& getHomePath()
-		{
-			if (homePath.length())
-				return homePath;
-
-#ifdef WIN32
-			// Is it a portable installation ? Check if ".emulationstation/es_systems.cfg" exists in the exe's path
-			if (!homePath.length())
-			{
-				std::string portableCfg = getExePath() + "/.emulationstation/es_systems.cfg";
-				if (Utils::FileSystem::exists(portableCfg))
-					homePath = getExePath();
-			}
-#endif
-
-			// HOME has different usages in Linux & Windows
-			// On Windows,  "HOME" is not a system variable but a user's environment variable that can be defined by users in batch files. 
-			// If defined : The environment variable has priority over all
-			char* envHome = getenv("HOME");
-			if (envHome)
-				homePath = getGenericPath(envHome);		
-
-#ifdef WIN32
-			// On Windows, getenv("HOME") is not the system's user path but a user environment variable.
-			// Instead we get the home user's path using %HOMEDRIVE%/%HOMEPATH% which are system variables.
-			if (!homePath.length())
-			{
-				char* envHomeDrive = getenv("HOMEDRIVE");
-				char* envHomePath = getenv("HOMEPATH");
-				if (envHomeDrive && envHomePath)
-					homePath = getGenericPath(std::string(envHomeDrive) + "/" + envHomePath);
-			}
-#endif // _WIN32
-
-			// no homepath found, fall back to current working directory
-			if (!homePath.length())
-				homePath = getCWDPath();
-
-			homePath = getGenericPath(homePath);
-				
-			// return constructed homepath
-			return homePath;
-
-		} // getHomePath
-
-		
 		std::string getCWDPath()
 		{
 			// return current working directory path
 			char temp[2048];
 			return (getcwd(temp, 2048) ? getGenericPath(temp) : "");
-		}
-
-		std::string exePath;
-
-		void setExePath(const std::string& _path)
-		{
-			std::string path = getCanonicalPath(_path);
-			if (isRegularFile(path))
-				path = getParent(path);
-
-			exePath = Utils::FileSystem::getGenericPath(path);
-		}
-
-		std::string getExePath()
-		{
-			return exePath;
 		}
 
 		std::string getPreferredPath(const std::string& _path)
@@ -836,7 +745,7 @@ namespace Utils
 
 			// replace '~' with homePath
 			if(_allowHome && (_path[0] == '~') && (_path[1] == '/' || _path[1] == '\\'))
-				return getCanonicalPath(getHomePath() + &(_path[1]));
+				return getCanonicalPath(Paths::getHomePath() + &(_path[1]));
 
 			// nothing to resolve
 			return getGenericPath(_path);
@@ -866,7 +775,7 @@ namespace Utils
 			if(_allowHome)
 			{
 #if WIN32
-				auto from_dirs = getPathList(getHomePath());
+				auto from_dirs = getPathList(Paths::getHomePath());
 				auto to_dirs = getPathList(_path);
 
 				if (from_dirs.size() == 0 || to_dirs.size() == 0 || from_dirs[0] != to_dirs[0])
@@ -1432,7 +1341,7 @@ namespace Utils
 					path = Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/emulationstation.tmp";
 				else
 #endif
-					path = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
+					path = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + "/tmp");
 			}
 
 			if (!Utils::FileSystem::isDirectory(path))
@@ -1456,7 +1365,7 @@ namespace Utils
 					pdfpath = Utils::FileSystem::getGenericPath(Utils::String::convertFromWideString(lpTempPathBuffer)) + "/pdftmp";
 				else
 #endif						
-					pdfpath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/pdftmp");
+					pdfpath = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + "/pdftmp");
 			}
 
 			if (!Utils::FileSystem::isDirectory(pdfpath))

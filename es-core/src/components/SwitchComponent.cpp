@@ -73,7 +73,7 @@ bool SwitchComponent::getState() const
 void SwitchComponent::setState(bool state)
 {
 	mState = state;
-	mInitialState = mState; // batocera
+	mInitialState = mState;
 	onStateChanged();
 }
 
@@ -110,7 +110,7 @@ std::vector<HelpPrompt> SwitchComponent::getHelpPrompts()
 	return prompts;
 }
 
-// batocera
-bool SwitchComponent::changed() {
+bool SwitchComponent::changed() 
+{
 	return mInitialState != mState;
 }

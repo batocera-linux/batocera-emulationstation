@@ -44,7 +44,7 @@ public:
 
 	void addSubMenu(const std::string& label, const std::function<void()>& func);
 
-    inline void setSave(bool sav) { mDoSave = sav; }; // batocera
+    inline void setSave(bool sav) { mDoSave = sav; };
 
 	bool input(InputConfig* config, Input input) override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
@@ -75,7 +75,7 @@ protected:
 	MenuComponent mMenu;
 
 private:
-	bool mDoSave = true; // batocera
+	bool mDoSave = true;
 
 	std::vector< std::function<void()> > mSaveFuncs;
 	std::function<void()> mOnFinalizeFunc;

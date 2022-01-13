@@ -59,7 +59,7 @@ void GuiInputConfig::initInputConfigStructure()
 		{ "l3",              true,  "L3",       ":/help/analog_thumb.svg" },
 		{ "r3",              true,  "R3",      ":/help/analog_thumb.svg" },
 
-		{ "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" } // batocera
+		{ "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" }
 	};
 }
 
@@ -91,21 +91,21 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 	// 0 is a spacer row
 	mGrid.setEntry(std::make_shared<GuiComponent>(mWindow), Vector2i(0, 0), false);
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("CONFIGURING"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
+	mTitle = std::make_shared<TextComponent>(mWindow, _("CONFIGURING"), theme->Title.font, theme->Title.color, ALIGN_CENTER); 
 	mGrid.setEntry(mTitle, Vector2i(0, 1), false, true);
 
 	char strbuf[256];
 	if(target->getDeviceId() == DEVICE_KEYBOARD)
-	  strncpy(strbuf, _("KEYBOARD").c_str(), 256); // batocera
+	  strncpy(strbuf, _("KEYBOARD").c_str(), 256); 
 	else if(target->getDeviceId() == DEVICE_CEC)
-	  strncpy(strbuf, _("CEC").c_str(), 256); // batocera
+	  strncpy(strbuf, _("CEC").c_str(), 256); 
 	else {
-	  snprintf(strbuf, 256, _("GAMEPAD %i").c_str(), target->getDeviceId() + 1); // batocera
+	  snprintf(strbuf, 256, _("GAMEPAD %i").c_str(), target->getDeviceId() + 1); 
 	}
-	mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(strbuf), theme->Text.font, theme->Title.color, ALIGN_CENTER); // batocera
+	mSubtitle1 = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(strbuf), theme->Text.font, theme->Title.color, ALIGN_CENTER); 
 	mGrid.setEntry(mSubtitle1, Vector2i(0, 2), false, true);
 
-	mSubtitle2 = std::make_shared<TextComponent>(mWindow, _("HOLD ANY BUTTON TO SKIP"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER); // batocera
+	mSubtitle2 = std::make_shared<TextComponent>(mWindow, _("HOLD ANY BUTTON TO SKIP"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER); 
 	mGrid.setEntry(mSubtitle2, Vector2i(0, 3), false, true);
 
 	// 4 is a spacer row
@@ -131,7 +131,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		auto text = std::make_shared<TextComponent>(mWindow, pgettext("joystick", Utils::String::toUpper(GUI_INPUT_CONFIG_LIST[i].dispName).c_str()), theme->Text.font, theme->Text.color);
 		row.addElement(text, true);
 
-		auto mapping = std::make_shared<TextComponent>(mWindow, _("-NOT DEFINED-"), theme->Text.font, theme->TextSmall.color, ALIGN_RIGHT); // batocera
+		auto mapping = std::make_shared<TextComponent>(mWindow, _("-NOT DEFINED-"), theme->Text.font, theme->TextSmall.color, ALIGN_RIGHT); 
 		setNotDefined(mapping); // overrides text and color set above
 		row.addElement(mapping, true);
 		mMappings.push_back(mapping);
@@ -212,22 +212,22 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 			okCallback();
 		delete this; 
 	};
-	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("OK"), "ok", [this, okFunction] { // batocera
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("OK"), "ok", [this, okFunction] { 
 		// check if the hotkey enable button is set. if not prompt the user to use select or nothing.
 		Input input;
-		if (!mTargetConfig->getInputByName("hotkey", &input)) { // batocera
+		if (!mTargetConfig->getInputByName("hotkey", &input)) { 
 			mWindow->pushGui(new GuiMsgBox(mWindow,
-				_("NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"),  // batocera
-				_("SET SELECT AS HOTKEY"), [this, okFunction] { // batocera
+				_("NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"),  
+				_("SET SELECT AS HOTKEY"), [this, okFunction] { 
 					Input input;
 					mTargetConfig->getInputByName("Select", &input);
-					mTargetConfig->mapInput("hotkey", input); // batocera
+					mTargetConfig->mapInput("hotkey", input); 
 					okFunction();
 					},
-				_("DO NOT ASSIGN HOTKEY"), [this, okFunction] { // batocera
+				_("DO NOT ASSIGN HOTKEY"), [this, okFunction] { 
 					// for a disabled hotkey enable button, set to a key with id 0,
 					// so the input configuration script can be backwards compatible.
-					mTargetConfig->mapInput("hotkey", Input(DEVICE_KEYBOARD, TYPE_KEY, 0, 1, true)); // batocera
+					mTargetConfig->mapInput("hotkey", Input(DEVICE_KEYBOARD, TYPE_KEY, 0, 1, true)); 
 					okFunction();
 				}
 			));
@@ -293,7 +293,7 @@ void GuiInputConfig::update(int deltaTime)
 				// crossed the second boundary, update text
 				const auto& text = mMappings.at(mHeldInputId);
 				char strbuf[256];
-				snprintf(strbuf, 256, ngettext("HOLD FOR %iS TO SKIP", "HOLD FOR %iS TO SKIP", HOLD_TO_SKIP_MS/1000 - curSec), HOLD_TO_SKIP_MS/1000 - curSec); // batocera
+				snprintf(strbuf, 256, ngettext("HOLD FOR %iS TO SKIP", "HOLD FOR %iS TO SKIP", HOLD_TO_SKIP_MS/1000 - curSec), HOLD_TO_SKIP_MS/1000 - curSec); 
 				text->setText(strbuf);
 				text->setColor(ThemeData::getMenuTheme()->Text.color);
 			}
@@ -325,13 +325,13 @@ void GuiInputConfig::rowDone()
 
 void GuiInputConfig::setPress(const std::shared_ptr<TextComponent>& text)
 {
-  text->setText(_("PRESS ANYTHING")); // batocera
+  text->setText(_("PRESS ANYTHING")); 
 	text->setColor(0x656565FF);
 }
 
 void GuiInputConfig::setNotDefined(const std::shared_ptr<TextComponent>& text)
 {
-  text->setText(_("-NOT DEFINED-")); // batocera
+  text->setText(_("-NOT DEFINED-")); 
 	text->setColor(0x999999FF);
 }
 
@@ -343,7 +343,7 @@ void GuiInputConfig::setAssignedTo(const std::shared_ptr<TextComponent>& text, I
 
 void GuiInputConfig::error(const std::shared_ptr<TextComponent>& text, const std::string& /*msg*/)
 {
-  text->setText(_("ALREADY TAKEN")); // batocera
+  text->setText(_("ALREADY TAKEN")); 
 	text->setColor(0x656565FF);
 }
 
@@ -355,7 +355,7 @@ bool GuiInputConfig::assign(Input input, int inputId)
 	// (if it's the same as what it was before, allow it)
 	if (mTargetConfig->getMappedTo(input).size() > 0 && 
 		!mTargetConfig->isMappedTo(GUI_INPUT_CONFIG_LIST[inputId].name, input) && 
-		GUI_INPUT_CONFIG_LIST[inputId].name != "hotkey") // batocera
+		GUI_INPUT_CONFIG_LIST[inputId].name != "hotkey") 
 	{
 		error(mMappings.at(inputId), "Already mapped!");
 		return false;

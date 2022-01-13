@@ -209,13 +209,13 @@ void BasicGameListView::remove(FileData *game)
 	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
 }
 
-// batocera
-void BasicGameListView::setCursorIndex(int cursor){
+void BasicGameListView::setCursorIndex(int cursor)
+{
 	mList.setCursorIndex(cursor);
 }
 
-// batocera
-int BasicGameListView::getCursorIndex(){
+int BasicGameListView::getCursorIndex()
+{
 	return mList.getCursorIndex();
 }
 

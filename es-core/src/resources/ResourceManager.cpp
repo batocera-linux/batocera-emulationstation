@@ -6,6 +6,7 @@
 #include <algorithm>
 #include "Log.h"
 #include "Settings.h"
+#include "Paths.h"
 
 auto array_deleter = [](unsigned char* p) { delete[] p; };
 auto nop_deleter = [](unsigned char* /*p*/) { };
@@ -29,26 +30,25 @@ std::vector<std::string> ResourceManager::getResourcePaths() const
 	std::vector<std::string> paths;
 
 	// check if theme overrides default resources
-#ifdef WIN32
-	std::string themePath = Utils::FileSystem::getEsConfigPath() + "/themes/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
-	if (Utils::FileSystem::isDirectory(themePath))
-		paths.push_back(themePath);
+	if (!Paths::getUserThemesPath().empty())
+	{
+		std::string themePath = Paths::getUserThemesPath() + "/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
+		if (Utils::FileSystem::isDirectory(themePath))
+			paths.push_back(themePath);
+	}
 
-#else
-	std::string themePath = "/userdata/themes/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
-	if (Utils::FileSystem::isDirectory(themePath))
-		paths.push_back(themePath);
-
-	std::string roThemePath = Utils::FileSystem::getSharedConfigPath() + "/themes/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
-	if (Utils::FileSystem::isDirectory(roThemePath))
-		paths.push_back(roThemePath);
-#endif
+	if (!Paths::getThemesPath().empty())
+	{
+		std::string roThemePath = Paths::getThemesPath() + "/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
+		if (Utils::FileSystem::isDirectory(roThemePath))
+			paths.push_back(roThemePath);
+	}
 
 	// check in homepath
-	paths.push_back(Utils::FileSystem::getEsConfigPath() + "/resources"); 
+	paths.push_back(Paths::getUserEmulationStationPath() + "/resources");
 	
 	// check in exepath
-	paths.push_back(Utils::FileSystem::getSharedConfigPath() + "/resources"); 
+	paths.push_back(Paths::getEmulationStationPath() + "/resources");
 		
 	// check in cwd
 	auto cwd = Utils::FileSystem::getCWDPath() + "/resources";	
@@ -74,11 +74,11 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 #if WIN32
 	if (Utils::String::startsWith(path, ":/locale/") || Utils::String::startsWith(path, ":/es_features.locale/"))
 	{
-		std::string test = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getExePath() + "/" + &path[2]);
+		std::string test = Utils::FileSystem::getCanonicalPath(Paths::getEmulationStationPath() + "/" + &path[2]);
 		if (Utils::FileSystem::exists(test))
 			return test;
 
-		test = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getEsConfigPath() + "/" + &path[2]);
+		test = Utils::FileSystem::getCanonicalPath(Paths::getUserEmulationStationPath() + "/" + &path[2]);
 		if (Utils::FileSystem::exists(test))
 			return test;
 	}

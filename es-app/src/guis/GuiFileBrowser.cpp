@@ -12,10 +12,7 @@
 #include "guis/GuiMsgBox.h"
 #include <cstring>
 #include "SystemConf.h"
-
-#if WIN32
-#include "Win32ApiSystem.h"
-#endif
+#include "Paths.h"
 
 #define WINDOW_WIDTH (float)Math::max((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.65f))
 
@@ -48,13 +45,7 @@ GuiFileBrowser::GuiFileBrowser(Window* window, const std::string startPath, cons
     mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
 	if (startPath.empty() || !Utils::FileSystem::exists(startPath))
-	{
-#if WIN32
-		navigateTo(Win32ApiSystem::getEmulatorLauncherPath("screenshots"));
-#else
-		navigateTo("/userdata/screenshots");
-#endif
-	}
+		navigateTo(Paths::getScreenShotPath());
 	else
 		navigateTo(startPath);
 }
@@ -209,12 +200,7 @@ bool GuiFileBrowser::input(InputConfig* config, Input input)
 	
 	if (config->isMappedTo("select", input))
 	{
-
-#if WIN32
-		navigateTo(Win32ApiSystem::getEmulatorLauncherPath("screenshots"));
-#else
-		navigateTo("/userdata/screenshots");
-#endif
+		navigateTo(Paths::getScreenShotPath());
 		return true;
 	}
 

@@ -45,8 +45,7 @@ class ImageIO
 public:
 	static unsigned char*  loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize = nullptr, Vector2i* baseSize = nullptr, Vector2i* packedSize = nullptr);
 	static void flipPixelsVert(unsigned char* imagePx, const size_t& width, const size_t& height);
-
-	// batocera
+	
 	static Vector2f getPictureMinSize(Vector2f imageSize, Vector2f maxSize);
 	static Vector2i adjustPictureSize(Vector2i imageSize, Vector2i maxSize, bool externSize = false);
 	static bool		loadImageSize(const char *fn, unsigned int *x, unsigned int *y);

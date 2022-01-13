@@ -23,6 +23,7 @@
 #include "SystemConf.h"
 #include "ImageIO.h"
 #include "utils/Randomizer.h"
+#include "Paths.h"
 
 #define FADE_TIME 			500
 
@@ -402,7 +403,10 @@ std::string SystemScreenSaver::pickRandomCustomImage(bool video)
 	std::string path;
 
 	std::string imageDir = Settings::getInstance()->getString(video ? "SlideshowScreenSaverVideoDir" : "SlideshowScreenSaverImageDir");
-	if ((imageDir != "") && (Utils::FileSystem::exists(imageDir)))
+	if (imageDir.empty())
+		imageDir = Paths::getScreenShotPath();
+
+	if (Utils::FileSystem::isDirectory(imageDir))
 	{
 		std::string                   imageFilter = Settings::getInstance()->getString(video ? "SlideshowScreenSaverVideoFilter" : "SlideshowScreenSaverImageFilter");
 		std::vector<std::string>      matchingFiles;

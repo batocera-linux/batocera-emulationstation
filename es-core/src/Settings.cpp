@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <vector>
 #include "utils/StringUtil.h"
+#include "Paths.h"
 
 Settings* Settings::sInstance = NULL;
 static std::string mEmptyString = "";
@@ -205,16 +206,14 @@ void Settings::setDefaults()
 	mBoolMap["ScreenSaverControls"] = true;
 	mStringMap["ScreenSaverGameInfo"] = "never";
 	mBoolMap["StretchVideoOnScreenSaver"] = false;
-	mStringMap["PowerSaverMode"] = "default"; // batocera
+	mStringMap["PowerSaverMode"] = "default"; 
 
 	mBoolMap["StopMusicOnScreenSaver"] = true;
 
 	mBoolMap["RetroachievementsMenuitem"] = true;
 	mIntMap["ScreenSaverSwapImageTimeout"] = 10000;
 	mBoolMap["SlideshowScreenSaverStretch"] = false;
-	// mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = "/userdata/music/slideshow_bg.wav"; // batocera
 	mBoolMap["SlideshowScreenSaverCustomImageSource"] = false;
-	mStringMap["SlideshowScreenSaverImageDir"] = "/userdata/screenshots"; // batocera
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 	mBoolMap["SlideshowScreenSaverGameName"] = true;
@@ -222,7 +221,6 @@ void Settings::setDefaults()
 
 
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
-	mStringMap["SlideshowScreenSaverVideoDir"] = "/userdata/screenshots"; // batocera
 	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";
 	mBoolMap["SlideshowScreenSaverVideoRecurse"] = false;
 
@@ -248,9 +246,9 @@ void Settings::setDefaults()
 
 	// Audio out device for Video playback using OMX player.
 	mStringMap["OMXAudioDev"] = "both";
-	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // batocera 2players,4players,favorites,recent
+	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // 2players,4players,favorites,recent
 	mStringMap["CollectionSystemsCustom"] = "";
-	mBoolMap["SortAllSystems"] = true; // batocera
+	mBoolMap["SortAllSystems"] = true; 
 	mStringMap["SortSystems"] = "manufacturer";
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 
@@ -270,7 +268,7 @@ void Settings::setDefaults()
 
 	mStringMap["AudioCard"] = "default";
 	mStringMap["UIMode"] = "Full";
-	mStringMap["UIMode_passkey"] = "aaaba"; // batocera
+	mStringMap["UIMode_passkey"] = "aaaba"; 
 	mBoolMap["ForceKiosk"] = false;
 	mBoolMap["ForceKid"] = false;
 	mBoolMap["ForceDisableFilters"] = false;
@@ -350,7 +348,6 @@ void Settings::setDefaults()
 	mDefaultStringMap = mStringMap;
 }
 
-// batocera
 template <typename K, typename V>
 void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type, std::map<K, V>& defaultMap, V defaultValue)
 {
@@ -373,7 +370,6 @@ void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type, std::m
 	}
 }
 
-// batocera
 bool Settings::saveFile()
 {
 	if (!mWasChanged)
@@ -383,11 +379,11 @@ bool Settings::saveFile()
 
 	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
 
-	const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_settings.cfg";
+	const std::string path = Paths::getUserEmulationStationPath() + "/es_settings.cfg";
 
 	pugi::xml_document doc;
 
-	pugi::xml_node config = doc.append_child("config"); // batocera, root element
+	pugi::xml_node config = doc.append_child("config"); // root element
 
 	saveMap<std::string, bool>(config, mBoolMap, "bool", mDefaultBoolMap, false);
 	saveMap<std::string, int>(config, mIntMap, "int", mDefaultIntMap, 0);
@@ -424,7 +420,7 @@ bool Settings::saveFile()
 
 void Settings::loadFile()
 {
-	const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_settings.cfg";
+	const std::string path = Paths::getUserEmulationStationPath() + "/es_settings.cfg";
 	if(!Utils::FileSystem::exists(path))
 		return;
 
@@ -438,7 +434,6 @@ void Settings::loadFile()
 
 	pugi::xml_node root = doc;
 
-	// Batocera use a <config> root element
 	pugi::xml_node config = doc.child("config");
 	if (config)
 		root = config;

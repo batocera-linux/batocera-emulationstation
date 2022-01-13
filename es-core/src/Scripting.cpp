@@ -2,6 +2,7 @@
 #include "Log.h"
 #include "platform.h"
 #include "utils/FileSystemUtil.h"
+#include "Paths.h"
 
 namespace Scripting
 {
@@ -13,12 +14,12 @@ namespace Scripting
         std::string test;
 
         // check in homepath
-		test = Utils::FileSystem::getEsConfigPath() + "/scripts/" + eventName;
+		test = Paths::getUserEmulationStationPath() + "/scripts/" + eventName;
         if(Utils::FileSystem::exists(test))
             scriptDirList.push_back(test);
 
 		// check in getSharedConfigPath ( or exe path )
-		test = Utils::FileSystem::getSharedConfigPath() + "/scripts/" + eventName;
+		test = Paths::getEmulationStationPath() + "/scripts/" + eventName;
 		if (Utils::FileSystem::exists(test))
 			scriptDirList.push_back(test);
 

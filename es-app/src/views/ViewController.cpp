@@ -866,17 +866,16 @@ bool ViewController::input(InputConfig* config, Input input)
 	  }
 
 	// open menu
-	if(config->isMappedTo("start", input) && input.value != 0) // batocera
+	if(config->isMappedTo("start", input) && input.value != 0)
 	{
 		// open menu
 		mWindow->pushGui(new GuiMenu(mWindow));
 		return true;
 	}
 
-	// Batocera next song
-	if (((mState.viewing != GAME_LIST && config->isMappedTo("l3", input)) || config->isMappedTo("r3", input)) && input.value != 0) // batocera
-	{
-		// next song
+	// Next song
+	if (((mState.viewing != GAME_LIST && config->isMappedTo("l3", input)) || config->isMappedTo("r3", input)) && input.value != 0)
+	{		
 		AudioManager::getInstance()->playRandomMusic(false);
 		return true;
 	}
@@ -1234,7 +1233,7 @@ std::vector<HelpPrompt> ViewController::getHelpPrompts()
 
 	prompts = mCurrentView->getHelpPrompts();
 	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("start", _("MENU"))); // batocera
+	  prompts.push_back(HelpPrompt("start", _("MENU")));
 
 	return prompts;
 }

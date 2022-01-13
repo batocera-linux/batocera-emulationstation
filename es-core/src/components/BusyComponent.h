@@ -5,7 +5,7 @@
 #include "components/ComponentGrid.h"
 #include "components/NinePatchComponent.h"
 #include "GuiComponent.h"
-#include <SDL_mutex.h> // batocera
+#include <SDL_mutex.h>
 
 class AnimatedImageComponent;
 class TextComponent;
@@ -14,10 +14,10 @@ class BusyComponent : public GuiComponent
 {
 public:
 	BusyComponent(Window* window, const std::string& text = "__default__");
-	~BusyComponent(); // batocera
+	~BusyComponent();
   
 	void onSizeChanged() override;
-	void setText(std::string txt); // batocera
+	void setText(std::string txt); 
 
 	void reset(); // reset to frame 0
 	
@@ -32,8 +32,7 @@ private:
 
 	std::shared_ptr<AnimatedImageComponent> mAnimation;
 	std::shared_ptr<TextComponent> mText;
-
-        // batocera
+        
 	SDL_mutex *mutex;
 	bool threadMessagechanged;
 	std::string threadMessage;

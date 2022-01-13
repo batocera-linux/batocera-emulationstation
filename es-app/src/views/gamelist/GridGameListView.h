@@ -20,8 +20,8 @@ public:
 
 	virtual FileData* getCursor() override;
 	virtual void setCursor(FileData*) override;
-	virtual int getCursorIndex() override; // batocera
-	virtual void setCursorIndex(int index) override; // batocera
+	virtual int getCursorIndex() override; 
+	virtual void setCursorIndex(int index) override; 
 	virtual void resetLastCursor() override;
 	virtual void moveToRandomGame() override;
 

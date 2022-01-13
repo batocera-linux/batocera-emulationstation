@@ -26,13 +26,13 @@
 #include "PowerSaver.h"
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) // batocera
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) 
 {		
 	mTransitionOffset = 0;
 
 	mHelp = new HelpComponent(this);
 	mBackgroundOverlay = new ImageComponent(this);
-	mBackgroundOverlay->setImage(":/scroll_gradient.png"); // batocera
+	mBackgroundOverlay->setImage(":/scroll_gradient.png"); 
 
 	mSplash = nullptr;
 }
@@ -261,7 +261,7 @@ void Window::input(InputConfig* config, Input input)
 	}
 }
 
-// batocera Notification messages
+// Notification messages
 static std::mutex mNotificationMessagesLock;
 
 void Window::displayNotificationMessage(std::string message, int duration)
@@ -446,7 +446,7 @@ void Window::update(int deltaTime)
 		mFrameCountElapsed = 0;
 	}
 
-	/* draw the clock */ // batocera
+	/* draw the clock */ 
 	if (Settings::DrawClock() && mClock) 
 	{
 		mClockElapsed -= deltaTime;
@@ -482,7 +482,7 @@ void Window::update(int deltaTime)
 	if (mScreenSaver)
 		mScreenSaver->update(deltaTime);
 
-	// update pads // batocera
+	// update pads 
 	if (mControllerActivity)
 		mControllerActivity->update(deltaTime);
 
@@ -545,7 +545,7 @@ void Window::render()
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
-    // clock // batocera
+    // clock 
 	if (Settings::DrawClock() && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mClock->render(transform);
 	

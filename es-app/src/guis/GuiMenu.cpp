@@ -55,6 +55,7 @@
 #include "guis/GuiKeyMappingEditor.h"
 #include "Gamelist.h"
 #include "TextToSpeech.h"
+#include "Paths.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -65,7 +66,6 @@
 #define fake_gettext_instant _("instant")
 #define fake_gettext_fadeslide _("fade & slide")
 
-// batocera-info
 #define fake_gettext_system       _("System")
 #define fake_gettext_architecture _("Architecture")
 #define fake_gettext_diskformat   _("Disk format")
@@ -105,7 +105,7 @@
 GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(window, _("MAIN MENU").c_str()), mVersion(window)
 {
 	// MAIN MENU
-	bool isFullUI = UIModeController::getInstance()->isUIModeFull();
+	bool isFullUI = !UIModeController::getInstance()->isUIModeKid() && !UIModeController::getInstance()->isUIModeKiosk();
 
 	// KODI >
 	// GAMES SETTINGS >
@@ -142,22 +142,22 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	if (isFullUI)
 	{
 #if !defined(WIN32) || defined(_DEBUG)
-		addEntry(_("GAME SETTINGS").c_str(), true, [this] { openGamesSettings_batocera(); }, "iconGames");
-		addEntry(controllers_settings_label.c_str(), true, [this] { openControllersSettings_batocera(); }, "iconControllers");
+		addEntry(_("GAME SETTINGS").c_str(), true, [this] { openGamesSettings(); }, "iconGames");
+		addEntry(controllers_settings_label.c_str(), true, [this] { openControllersSettings(); }, "iconControllers");
 		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
 		addEntry(_("GAME COLLECTION SETTINGS").c_str(), true, [this] { openCollectionSystemSettings(); }, "iconAdvanced");
 		addEntry(_("SOUND SETTINGS").c_str(), true, [this] { openSoundSettings(); }, "iconSound");
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::WIFI))
-			addEntry(_("NETWORK SETTINGS").c_str(), true, [this] { openNetworkSettings_batocera(); }, "iconNetwork");
+			addEntry(_("NETWORK SETTINGS").c_str(), true, [this] { openNetworkSettings(); }, "iconNetwork");
 #else
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
-			addEntry(_("GAME SETTINGS").c_str(), true, [this] { openGamesSettings_batocera(); }, "iconGames");
+			addEntry(_("GAME SETTINGS").c_str(), true, [this] { openGamesSettings(); }, "iconGames");
 
 		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))		
-			addEntry(controllers_settings_label.c_str(), true, [this] { openControllersSettings_batocera(); }, "iconControllers");
+			addEntry(controllers_settings_label.c_str(), true, [this] { openControllersSettings(); }, "iconControllers");
 		else
 			addEntry(_("CONFIGURE INPUT"), true, [this] { openConfigInput(); }, "iconControllers");
 
@@ -179,7 +179,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 
 		addEntry(_("SCRAPER").c_str(), true, [this] { openScraperSettings(); }, "iconScraper");		
 		addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
-		addEntry(_("SYSTEM SETTINGS").c_str(), true, [this] { openSystemSettings_batocera(); }, "iconSystem");
+		addEntry(_("SYSTEM SETTINGS").c_str(), true, [this] { openSystemSettings(); }, "iconSystem");
 	}
 	else
 	{
@@ -188,13 +188,13 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	}
 
 #ifdef WIN32
-	addEntry(_("QUIT").c_str(), !Settings::getInstance()->getBool("ShowOnlyExit"), [this] {openQuitMenu_batocera(); }, "iconQuit");
+	addEntry(_("QUIT").c_str(), !Settings::getInstance()->getBool("ShowOnlyExit"), [this] {openQuitMenu(); }, "iconQuit");
 #else
-	addEntry(_("QUIT").c_str(), true, [this] { openQuitMenu_batocera(); }, "iconQuit");
+	addEntry(_("QUIT").c_str(), true, [this] { openQuitMenu(); }, "iconQuit");
 #endif
 	
 	addChild(&mMenu);
-	addVersionInfo(); // batocera
+	addVersionInfo();
 	setSize(mMenu.getSize());
 
 	if (animate)
@@ -240,13 +240,13 @@ void GuiMenu::addVersionInfo()
 
 	if (!ApiSystem::getInstance()->getVersion().empty())
 	{
-#if WIN32
-		std::string aboutInfo = ApiSystem::getInstance()->getApplicationName()+ " V"+ ApiSystem::getInstance()->getVersion();
-		if (!aboutInfo.empty())
-			mVersion.setText(aboutInfo + buildDate);
+		if (ApiSystem::getInstance()->getApplicationName() == "BATOCERA")
+			mVersion.setText("BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate);
 		else
-#endif
-		mVersion.setText("BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate);
+		{
+			std::string aboutInfo = ApiSystem::getInstance()->getApplicationName() + " V" + ApiSystem::getInstance()->getVersion();
+			mVersion.setText(aboutInfo + buildDate);
+		}		
 	}
 
 	mVersion.setHorizontalAlignment(ALIGN_CENTER);
@@ -258,6 +258,7 @@ void GuiMenu::openScreensaverOptions()
 {
 	mWindow->pushGui(new GuiGeneralScreensaverOptions(mWindow));
 }
+
 void GuiMenu::openCollectionSystemSettings() 
 {
 	if (ThreadedScraper::isRunning() || ThreadedHasher::isRunning())
@@ -276,7 +277,7 @@ void GuiMenu::onSizeChanged()
 	float h = mMenu.getButtonGridHeight();
 
 	mVersion.setSize(mSize.x(), h);
-	mVersion.setPosition(0, mSize.y() - h); //  mVersion.getSize().y()
+	mVersion.setPosition(0, mSize.y() - h);
 }
 
 void GuiMenu::addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName)
@@ -285,7 +286,6 @@ void GuiMenu::addEntry(std::string name, bool add_arrow, const std::function<voi
 	std::shared_ptr<Font> font = theme->Text.font;
 	unsigned int color = theme->Text.color;
 
-	// populate the list
 	ComponentListRow row;
 
 	if (!iconName.empty())
@@ -344,9 +344,9 @@ bool GuiMenu::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT"))); // batocera
-	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
+	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); 
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT"))); 
+	prompts.push_back(HelpPrompt("start", _("CLOSE"))); 
 	return prompts;
 }
 
@@ -376,7 +376,16 @@ class ExitKidModeMsgBox : public GuiSettings
 
 void GuiMenu::exitKidMode()
 {
-	mWindow->pushGui(new ExitKidModeMsgBox(mWindow, _("UNLOCK UI MODE"), _("ENTER THE CODE TO UNLOCK THE CURRENT UI MODE")));
+	if (Settings::getInstance()->getString("UIMode") == "Basic")
+	{
+		Settings::getInstance()->setString("UIMode", "Full");
+
+		Window* window = mWindow;
+		while (window->peekGui() && window->peekGui() != ViewController::get())
+			delete window->peekGui();
+	}
+	else
+		mWindow->pushGui(new ExitKidModeMsgBox(mWindow, _("UNLOCK UI MODE"), _("ENTER THE CODE TO UNLOCK THE CURRENT UI MODE")));
 }
 
 void GuiMenu::openSystemInformations()
@@ -459,13 +468,12 @@ void GuiMenu::openDeveloperSettings()
 	auto webAccess = std::make_shared<SwitchComponent>(mWindow);
 	webAccess->setState(Settings::getInstance()->getBool("PublicWebAccess"));
 	s->addWithDescription(_("ENABLE PUBLIC WEB ACCESS"), Utils::String::format(_("Allow public web access API using %s").c_str(), std::string("http://" + hostName + ":1234").c_str()), webAccess);
-	s->addSaveFunc([webAccess, window]
+	s->addSaveFunc([webAccess, window, s]
 	{ 
-	  if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState())) {
-	    window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
-	    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
-	      quitES(QuitMode::QUIT);
-	    }
+	  if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState())) 
+	  {
+		  s->setVariable("reboot", true);
+		  s->setVariable("exitreboot", true);
 	  }
 	});
 
@@ -533,7 +541,7 @@ void GuiMenu::openDeveloperSettings()
 	{
 		ImageIO::clearImageCache();
 
-		auto rootPath = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath());
+		auto rootPath = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath());
 
 		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
 		Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getTempPath());
@@ -796,7 +804,6 @@ void GuiMenu::openUpdatesSettings()
 
 	updateGui->addGroup(_("DOWNLOADS"));
 
-	// Batocera integration with Batocera Store
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERASTORE))
 	{
 		updateGui->addEntry(_("CONTENT DOWNLOADER"), true, [this]
@@ -808,7 +815,7 @@ void GuiMenu::openUpdatesSettings()
 		});
 	}
 
-	// Batocera themes installer/browser
+	// Themes installer/browser
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEMESDOWNLOADER))
 	{
 		updateGui->addEntry(_("THEMES"), true, [this]
@@ -820,7 +827,7 @@ void GuiMenu::openUpdatesSettings()
 		});
 	}
 
-	// Batocera integration with theBezelProject
+	// integration with theBezelProject
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEBEZELPROJECT))
 	{
 		updateGui->addEntry(_("THE BEZEL PROJECT"), true, [this]
@@ -889,7 +896,7 @@ bool GuiMenu::checkNetwork()
 	return true;
 }
 
-void GuiMenu::openSystemSettings_batocera() 
+void GuiMenu::openSystemSettings() 
 {
 	Window *window = mWindow;
 
@@ -937,38 +944,47 @@ void GuiMenu::openSystemSettings_batocera()
 	language_choice->add("Українська",           "uk_UA", language == "uk_UA");
 	language_choice->add("简体中文", 	     "zh_CN", language == "zh_CN");
 	language_choice->add("正體中文", 	     "zh_TW", language == "zh_TW");
+
 	s->addWithLabel(_("LANGUAGE"), language_choice);
+	s->addSaveFunc([window, language_choice, language, s]
+	{
+		if (language_choice->changed() && SystemConf::getInstance()->set("system.language", language_choice->getSelected()))
+		{
+			FileSorts::reset();
+			MetaDataList::initMetadata();
+
+#ifdef HAVE_INTL
+			s->setVariable("exitreboot", true);
+#endif
+			s->setVariable("reloadGuiMenu", true);
+		}		
+	});
 
 	// Timezone
-#if !defined(WIN32) || defined(_DEBUG)
-	auto availableTimezones = ApiSystem::getInstance()->getTimezones();
-	if (availableTimezones.size() > 0)
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::TIMEZONES))
 	{
-		std::string currentTZ = ApiSystem::getInstance()->getCurrentTimezone();
+		VectorEx<std::string> availableTimezones = ApiSystem::getInstance()->getTimezones();
+		if (availableTimezones.size() > 0)
+		{
+			std::string currentTZ = ApiSystem::getInstance()->getCurrentTimezone();
+			if (currentTZ.empty() || !availableTimezones.any([currentTZ](const std::string& tz) { return tz == currentTZ; }))
+				currentTZ = "Europe/Paris";
 
-		bool valid_tz = false;
-		for (auto list_tz : availableTimezones){
-			if (currentTZ == list_tz) {
-				valid_tz = true;
-			}
+			auto tzChoices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SELECT YOUR TIME ZONE"), false);
+
+			for (auto tz : availableTimezones)
+				tzChoices->add(_(Utils::String::toUpper(tz).c_str()), tz, currentTZ == tz);
+
+			s->addWithLabel(_("TIME ZONE"), tzChoices);
+			s->addSaveFunc([tzChoices] 
+			{
+				if (SystemConf::getInstance()->set("system.timezone", tzChoices->getSelected()))
+					ApiSystem::getInstance()->setTimezone(tzChoices->getSelected());
+			});
 		}
-		if (!valid_tz)
-			currentTZ = "Europe/Paris";
-
-		auto tzChoices= std::make_shared<OptionListComponent<std::string> >(mWindow, _("SELECT YOUR TIME ZONE"), false);
-
-		for (auto tz : availableTimezones)
-			tzChoices->add(_(Utils::String::toUpper(tz).c_str()), tz, currentTZ == tz);
-
-		s->addWithLabel(_("TIME ZONE"), tzChoices);
-		s->addSaveFunc([tzChoices] {
-				SystemConf::getInstance()->set("system.timezone", tzChoices->getSelected());
-				ApiSystem::getInstance()->setTimezone(tzChoices->getSelected());
-				});
 	}
-#endif
-	// Clock time format (14:42 or 2:42 pm)
 
+	// Clock time format (14:42 or 2:42 pm)
 	s->addSwitch(_("SHOW CLOCK IN 12-HOUR FORMAT"), "ClockMode12", true);
 
 	// power saver
@@ -1008,18 +1024,23 @@ void GuiMenu::openSystemSettings_batocera()
 	s->addWithLabel(_("UI MODE"), UImodeSelection);
 	s->addSaveFunc([UImodeSelection, window]
 	{
-		std::string selectedMode = UImodeSelection->getSelected();
-		if (selectedMode != "Full")
+		if (UImodeSelection->changed())
 		{
-			std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
-			msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
-			msg += _("Do you want to proceed?");
-			window->pushGui(new GuiMsgBox(window, msg,
-				_("YES"), [selectedMode] {
-				LOG(LogDebug) << "Setting UI mode to " << selectedMode;
+			std::string selectedMode = UImodeSelection->getSelected();
+			if (selectedMode == "Basic" || selectedMode == "Full")
 				Settings::getInstance()->setString("UIMode", selectedMode);
-				Settings::getInstance()->saveFile();
-			}, _("NO"), nullptr));
+			else
+			{
+				std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
+				msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
+				msg += _("Do you want to proceed?");
+				window->pushGui(new GuiMsgBox(window, msg,
+					_("YES"), [selectedMode] {
+					LOG(LogDebug) << "Setting UI mode to " << selectedMode;
+					Settings::getInstance()->setString("UIMode", selectedMode);
+					Settings::getInstance()->saveFile();
+				}, _("NO"), nullptr));
+			}
 		}
 	});
 
@@ -1039,6 +1060,7 @@ void GuiMenu::openSystemSettings_batocera()
 
 #if !defined(WIN32) || defined(_DEBUG)
 	s->addGroup(_("HARDWARE"));
+#endif
 
 	// brighness
 	int brighness;
@@ -1055,125 +1077,137 @@ void GuiMenu::openSystemSettings_batocera()
 	}
 
 	// video device
-	auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
-	std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
-	if (currentDevice.empty()) currentDevice = "auto";
-
 	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
-
-	bool vfound = false;
-	for (auto it = availableVideo.begin(); it != availableVideo.end(); it++) 
+	if (availableVideo.size())
 	{
-		optionsVideo->add((*it), (*it), currentDevice == (*it));
-		if (currentDevice == (*it))
-			vfound = true;
-	}
+		auto optionsVideo = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
+		std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
+		if (currentDevice.empty()) currentDevice = "auto";
 
-	if (!vfound)
-		optionsVideo->add(currentDevice, currentDevice, true);
-
-	s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
-	s->addSaveFunc([this, optionsVideo, currentDevice] {
-		if (optionsVideo->changed()) {
-			SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
-			SystemConf::getInstance()->saveSystemConf();
-			mWindow->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
-			if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
-			  quitES(QuitMode::QUIT);
-			}
-		}
-	});
-
-	// audio device
-	auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
-
-	std::vector<std::string> availableAudio = ApiSystem::getInstance()->getAvailableAudioOutputDevices();
-	std::string selectedAudio = ApiSystem::getInstance()->getCurrentAudioOutputDevice();
-	if (selectedAudio.empty())
-		selectedAudio = "auto";
-
-	vfound = false;
-	for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
-	{
-		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
-
-		if (selectedAudio == tokens.at(0))
-			vfound = true;
-
-		if (tokens.size() >= 2)
+		bool vfound = false;
+		for (auto it = availableVideo.begin(); it != availableVideo.end(); it++)
 		{
-			// concatenat the ending words
-			std::string vname = "";
-			for (unsigned int i = 1; i < tokens.size(); i++)
-			{
-				if (i > 2) vname += " ";
-				vname += tokens.at(i);
-			}
-			optionsAudio->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
+			optionsVideo->add((*it), (*it), currentDevice == (*it));
+			if (currentDevice == (*it))
+				vfound = true;
 		}
-		else
-			optionsAudio->add((*it), (*it), selectedAudio == tokens.at(0));
-	}
 
-	if (vfound == false)
-		optionsAudio->add(selectedAudio, selectedAudio, true);
+		if (!vfound)
+			optionsVideo->add(currentDevice, currentDevice, true);
 
-	s->addWithLabel(_("AUDIO OUTPUT"), optionsAudio);	
-
-	s->addSaveFunc([this, optionsAudio, selectedAudio] 
-	{
-		if (optionsAudio->changed()) {
-			SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
-			ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
-		}
-		SystemConf::getInstance()->saveSystemConf();
-	});
-
-	// audio profile
-	auto optionsAudioProfile = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO PROFILE"), false);
-
-	std::vector<std::string> availableAudioProfiles = ApiSystem::getInstance()->getAvailableAudioOutputProfiles();
-	std::string selectedAudioProfile = ApiSystem::getInstance()->getCurrentAudioOutputProfile();
-	if (selectedAudioProfile.empty())
-		selectedAudioProfile = "auto";
-
-	vfound = false;
-	for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
-	{
-		std::vector<std::string> tokens = Utils::String::split(*it, ' ');
-
-		if (selectedAudioProfile == tokens.at(0))
-			vfound = true;
-
-		if (tokens.size() >= 2)
+		s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo);
+		s->addSaveFunc([this, optionsVideo, currentDevice, s] 
 		{
-			// concatenat the ending words
-			std::string vname = "";
-			for (unsigned int i = 1; i < tokens.size(); i++)
+			if (optionsVideo->changed()) 
 			{
-				if (i > 2) vname += " ";
-				vname += tokens.at(i);
+				SystemConf::getInstance()->set("global.videooutput", optionsVideo->getSelected());
+				SystemConf::getInstance()->saveSystemConf();				
+				s->setVariable("exitreboot", true);
 			}
-			optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
-		}
-		else
-			optionsAudioProfile->add((*it), (*it), selectedAudioProfile == tokens.at(0));
+		});
 	}
 
-	if (vfound == false)
-		optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
-
-	s->addWithLabel(_("AUDIO PROFILE"), optionsAudioProfile);
-
-	s->addSaveFunc([this, optionsAudioProfile, selectedAudioProfile] 
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::AUDIODEVICE))
 	{
-		if (optionsAudioProfile->changed()) {
-			SystemConf::getInstance()->set("audio.profile", optionsAudioProfile->getSelected());
-			ApiSystem::getInstance()->setAudioOutputProfile(optionsAudioProfile->getSelected());
-		}
-		SystemConf::getInstance()->saveSystemConf();
-	});
+		std::vector<std::string> availableAudio = ApiSystem::getInstance()->getAvailableAudioOutputDevices();
+		if (availableAudio.size())
+		{
+			// audio device
+			auto optionsAudio = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO OUTPUT"), false);
 
+			std::string selectedAudio = ApiSystem::getInstance()->getCurrentAudioOutputDevice();
+			if (selectedAudio.empty())
+				selectedAudio = "auto";
+
+			bool afound = false;
+			for (auto it = availableAudio.begin(); it != availableAudio.end(); it++)
+			{
+				std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+				if (selectedAudio == tokens.at(0))
+					afound = true;
+
+				if (tokens.size() >= 2)
+				{
+					// concatenat the ending words
+					std::string vname = "";
+					for (unsigned int i = 1; i < tokens.size(); i++)
+					{
+						if (i > 2) vname += " ";
+						vname += tokens.at(i);
+					}
+					optionsAudio->add(vname, tokens.at(0), selectedAudio == tokens.at(0));
+				}
+				else
+					optionsAudio->add((*it), (*it), selectedAudio == tokens.at(0));
+			}
+
+			if (!afound)
+				optionsAudio->add(selectedAudio, selectedAudio, true);
+
+			s->addWithLabel(_("AUDIO OUTPUT"), optionsAudio);
+
+			s->addSaveFunc([this, optionsAudio, selectedAudio]
+			{
+				if (optionsAudio->changed())
+				{
+					SystemConf::getInstance()->set("audio.device", optionsAudio->getSelected());
+					ApiSystem::getInstance()->setAudioOutputDevice(optionsAudio->getSelected());
+				}
+				SystemConf::getInstance()->saveSystemConf();
+			});
+		}
+
+		// audio profile
+		std::vector<std::string> availableAudioProfiles = ApiSystem::getInstance()->getAvailableAudioOutputProfiles();
+		if (availableAudioProfiles.size())
+		{
+			auto optionsAudioProfile = std::make_shared<OptionListComponent<std::string> >(mWindow, _("AUDIO PROFILE"), false);
+
+			std::string selectedAudioProfile = ApiSystem::getInstance()->getCurrentAudioOutputProfile();
+			if (selectedAudioProfile.empty())
+				selectedAudioProfile = "auto";
+
+			bool afound = false;
+			for (auto it = availableAudioProfiles.begin(); it != availableAudioProfiles.end(); it++)
+			{
+				std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+
+				if (selectedAudioProfile == tokens.at(0))
+					afound = true;
+
+				if (tokens.size() >= 2)
+				{
+					// concatenat the ending words
+					std::string vname = "";
+					for (unsigned int i = 1; i < tokens.size(); i++)
+					{
+						if (i > 2) vname += " ";
+						vname += tokens.at(i);
+					}
+					optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
+				}
+				else
+					optionsAudioProfile->add((*it), (*it), selectedAudioProfile == tokens.at(0));
+			}
+
+			if (afound == false)
+				optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
+
+			s->addWithLabel(_("AUDIO PROFILE"), optionsAudioProfile);
+
+			s->addSaveFunc([this, optionsAudioProfile, selectedAudioProfile]
+			{
+				if (optionsAudioProfile->changed()) {
+					SystemConf::getInstance()->set("audio.profile", optionsAudioProfile->getSelected());
+					ApiSystem::getInstance()->setAudioOutputProfile(optionsAudioProfile->getSelected());
+				}
+				SystemConf::getInstance()->saveSystemConf();
+			});
+		}
+	}
+
+#if !defined(WIN32) || defined(_DEBUG)
 	// video rotation
 	auto optionsRotation = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SCREEN ROTATION"), false);
 
@@ -1188,16 +1222,13 @@ void GuiMenu::openSystemSettings_batocera()
 
 	s->addWithLabel(_("SCREEN ROTATION"), optionsRotation);
 
-	s->addSaveFunc([this, optionsRotation, selectedRotation]
+	s->addSaveFunc([this, optionsRotation, selectedRotation, s]
 	{
-	  if (optionsRotation->changed()) {
+	  if (optionsRotation->changed()) 
+{
 	    SystemConf::getInstance()->set("display.rotate", optionsRotation->getSelected());
 	    SystemConf::getInstance()->saveSystemConf();
-
-	    mWindow->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
-	    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
-	      quitES(QuitMode::QUIT);
-	    }
+		s->setVariable("exitreboot", true);
 	  }
 	});
 
@@ -1232,8 +1263,7 @@ void GuiMenu::openSystemSettings_batocera()
 	    }
 	    SystemConf::getInstance()->saveSystemConf();
 	  }
-	});
-
+	});	
 #else
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 	{
@@ -1252,8 +1282,6 @@ void GuiMenu::openSystemSettings_batocera()
 	}
 #endif
 
-	std::shared_ptr<OptionListComponent<std::string>> overclock_choice;
-
 #if ODROIDGOA || GAMEFORCE || RK3326
 	// multimedia keys
 	auto multimediakeys_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("MULTIMEDIA KEYS"));
@@ -1261,12 +1289,13 @@ void GuiMenu::openSystemSettings_batocera()
 	multimediakeys_enabled->add(_("ON"), "1", SystemConf::getInstance()->get("system.multimediakeys.enabled") == "1");
 	multimediakeys_enabled->add(_("OFF"), "0", SystemConf::getInstance()->get("system.multimediakeys.enabled") == "0");
 	s->addWithLabel(_("MULTIMEDIA KEYS"), multimediakeys_enabled);
-	s->addSaveFunc([this, multimediakeys_enabled]
+	s->addSaveFunc([this, multimediakeys_enabled, s]
 	{
-	  if (multimediakeys_enabled->changed()) {
-	    SystemConf::getInstance()->set("system.multimediakeys.enabled", multimediakeys_enabled->getSelected());
-	    this->mWindow->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
-	  }
+		if (multimediakeys_enabled->changed())
+		{
+			SystemConf::getInstance()->set("system.multimediakeys.enabled", multimediakeys_enabled->getSelected());
+			s->setVariable("reboot", true);
+		}
 	});
 #endif
 
@@ -1306,7 +1335,7 @@ void GuiMenu::openSystemSettings_batocera()
 	// Overclock choice
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::OVERCLOCK))
 	{
-		overclock_choice = std::make_shared<OptionListComponent<std::string> >(window, _("OVERCLOCK"), false);
+		auto overclock_choice = std::make_shared<OptionListComponent<std::string>>(window, _("OVERCLOCK"), false);
 
 		std::string currentOverclock = Settings::getInstance()->getString("Overclock");
 		if (currentOverclock == "")
@@ -1349,6 +1378,15 @@ void GuiMenu::openSystemSettings_batocera()
 
 		// overclocking
 		s->addWithLabel(_("OVERCLOCK"), overclock_choice);
+
+		s->addSaveFunc([overclock_choice, window, s]
+		{
+			if (overclock_choice->changed() && Settings::getInstance()->setString("Overclock", overclock_choice->getSelected()))
+			{
+				ApiSystem::getInstance()->setOverclock(overclock_choice->getSelected());
+				s->setVariable("reboot", true);
+			}
+		});
 	}
 
 #if !defined(WIN32) || defined(_DEBUG)
@@ -1357,72 +1395,75 @@ void GuiMenu::openSystemSettings_batocera()
 
 	// Storage device
 	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableStorageDevices();
-	std::string selectedStorage = ApiSystem::getInstance()->getCurrentStorage();
+	if (availableStorage.size())
+	{		
+		std::string selectedStorage = ApiSystem::getInstance()->getCurrentStorage();
 
-	auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("STORAGE DEVICE"), false);
-	for (auto it = availableStorage.begin(); it != availableStorage.end(); it++)
-	{
-		if ((*it) != "RAM")
+		auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("STORAGE DEVICE"), false);
+		for (auto it = availableStorage.begin(); it != availableStorage.end(); it++)
 		{
-			if (Utils::String::startsWith(*it, "DEV"))
+			if ((*it) != "RAM")
 			{
-				std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+				if (Utils::String::startsWith(*it, "DEV"))
+				{
+					std::vector<std::string> tokens = Utils::String::split(*it, ' ');
 
-				if (tokens.size() >= 3) {
-					// concatenat the ending words
-					std::string vname = "";
-					for (unsigned int i = 2; i < tokens.size(); i++) {
-						if (i > 2) vname += " ";
-						vname += tokens.at(i);
+					if (tokens.size() >= 3) {
+						// concatenat the ending words
+						std::string vname = "";
+						for (unsigned int i = 2; i < tokens.size(); i++) {
+							if (i > 2) vname += " ";
+							vname += tokens.at(i);
+						}
+						optionsStorage->add(vname, (*it), selectedStorage == std::string("DEV " + tokens.at(1)));
 					}
-					optionsStorage->add(vname, (*it), selectedStorage == std::string("DEV " + tokens.at(1)));
 				}
-			}
-			else {
-				optionsStorage->add((*it), (*it), selectedStorage == (*it));
+				else
+					optionsStorage->add((*it), (*it), selectedStorage == (*it));			
 			}
 		}
+
+		s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
+		s->addSaveFunc([optionsStorage, selectedStorage, s]
+		{
+			if (optionsStorage->changed())
+			{
+				ApiSystem::getInstance()->setStorage(optionsStorage->getSelected());
+				s->setVariable("reboot", true);
+			}
+		});
 	}
-#if !defined(WIN32) || defined(_DEBUG)
-	s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
-#endif
 
-#if !defined(WIN32) || defined(_DEBUG)
 	// backup
-	s->addEntry(_("BACKUP USER DATA"), true, [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); });
-#endif
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BACKUP))
+		s->addEntry(_("BACKUP USER DATA"), true, [this] { mWindow->pushGui(new GuiBackupStart(mWindow)); });
+
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::INSTALL))
+		s->addEntry(_("INSTALL ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
 
 #if !defined(WIN32) || defined(_DEBUG)
-	// Install
-	s->addEntry(_("INSTALL BATOCERA ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
-
 	s->addGroup(_("ADVANCED"));
 
 	// Security
-	s->addEntry(_("SECURITY"), true, [this] {
+	s->addEntry(_("SECURITY"), true, [this] 
+	{
 		GuiSettings *securityGui = new GuiSettings(mWindow, _("SECURITY").c_str());
 		auto securityEnabled = std::make_shared<SwitchComponent>(mWindow);
 		securityEnabled->setState(SystemConf::getInstance()->get("system.security.enabled") == "1");
 		securityGui->addWithLabel(_("ENFORCE SECURITY"), securityEnabled);
 
-		auto rootpassword = std::make_shared<TextComponent>(mWindow,
-			ApiSystem::getInstance()->getRootPassword(),
-			ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
+		auto rootpassword = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getRootPassword(), ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
 		securityGui->addWithLabel(_("ROOT PASSWORD"), rootpassword);
 
-		securityGui->addSaveFunc([this, securityEnabled] {
+		securityGui->addSaveFunc([this, securityEnabled, s] 
+		{
 			Window* window = this->mWindow;
-			bool reboot = false;
 
-			if (securityEnabled->changed()) {
-				SystemConf::getInstance()->set("system.security.enabled",
-					securityEnabled->getState() ? "1" : "0");
+			if (securityEnabled->changed()) 
+			{
+				SystemConf::getInstance()->set("system.security.enabled", securityEnabled->getState() ? "1" : "0");
 				SystemConf::getInstance()->saveSystemConf();
-				reboot = true;
-			}
-
-			if (reboot) {
-			  window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
+				s->setVariable("reboot", true);				
 			}
 		});
 		mWindow->pushGui(securityGui);
@@ -1431,50 +1472,7 @@ void GuiMenu::openSystemSettings_batocera()
 	if (isFullUI)
 		s->addGroup(_("ADVANCED"));
 #endif
-
-	s->addSaveFunc([overclock_choice, window, language_choice, language, optionsStorage, selectedStorage, s] 
-	{
-		bool reboot = false;
-		bool rebootForLanguage = false;
-		if (optionsStorage->changed()) 
-		{
-			ApiSystem::getInstance()->setStorage(optionsStorage->getSelected());
-			reboot = true;
-		}
-
-		if (overclock_choice && overclock_choice->changed() && Settings::getInstance()->setString("Overclock", overclock_choice->getSelected()))
-		{
-			ApiSystem::getInstance()->setOverclock(overclock_choice->getSelected());
-			reboot = true;
-		}
-
-		if (language_choice->changed()) 
-		{	
-			if (SystemConf::getInstance()->set("system.language", language_choice->getSelected()))
-			{
-				FileSorts::reset();
-				MetaDataList::initMetadata();
-
-				s->setVariable("reloadGuiMenu", true);
-#ifdef HAVE_INTL
-				reboot = true;
-				rebootForLanguage = true;
-#endif
-			}			
-		}
-
-		if (reboot) {
-		  window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
-
-		  if(rebootForLanguage) {
-		    if (Settings::getInstance()->getBool("ExitOnRebootRequired")) {
-		      quitES(QuitMode::QUIT);
-		    }
-		  }
-		}
-
-	});
-
+	
 	// Developer options
 	if (isFullUI)
 		s->addEntry(_("DEVELOPER"), true, [this] { openDeveloperSettings(); });
@@ -1482,6 +1480,15 @@ void GuiMenu::openSystemSettings_batocera()
 	auto pthis = this;
 	s->onFinalize([s, pthis, window]
 	{
+		if (s->getVariable("exitreboot") && Settings::getInstance()->getBool("ExitOnRebootRequired"))
+		{
+			quitES(QuitMode::QUIT);
+			return;
+		}
+		
+		if (s->getVariable("reboot") || s->getVariable("exitreboot"))
+			window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
+
 		if (s->getVariable("reloadGuiMenu"))
 		{
 			delete pthis;
@@ -1776,7 +1783,7 @@ void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* windo
 	}
 }
 
-void GuiMenu::openGamesSettings_batocera() 
+void GuiMenu::openGamesSettings() 
 {
 	Window* window = mWindow;
 
@@ -2240,7 +2247,7 @@ void GuiMenu::openEmulatorSettings()
 	window->pushGui(configuration);
 }
 
-void GuiMenu::openControllersSettings_batocera(int autoSel)
+void GuiMenu::openControllersSettings(int autoSel)
 {
 	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
 
@@ -2255,7 +2262,7 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 				"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
 				"ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE "
 				"SOUTH BUTTON TO CONFIRM WHEN DONE."), 
-			_("OK"), [window, this, s] { window->pushGui(new GuiDetectDevice(window, false, [this, s] { s->setSave(false); delete s; this->openControllersSettings_batocera(); })); },
+			_("OK"), [window, this, s] { window->pushGui(new GuiDetectDevice(window, false, [this, s] { s->setSave(false); delete s; this->openControllersSettings(); })); },
 			_("CANCEL"), nullptr,
 			GuiMsgBoxIcon::ICON_INFORMATION));
 	});
@@ -2390,7 +2397,7 @@ void GuiMenu::openControllersSettings_batocera(int autoSel)
 		if (Settings::getInstance()->setBool("ShowControllerActivity", activity->getState()))
 		{
 			delete s;
-			openControllersSettings_batocera(1);
+			openControllersSettings(1);
 		}
 	});
 	
@@ -2944,7 +2951,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 			}
 
 			Settings::getInstance()->saveFile();
-			std::string path = Utils::FileSystem::getEsConfigPath() + "/themesettings/" + Settings::getInstance()->getString("ThemeSet") + ".cfg";
+			std::string path = Paths::getUserEmulationStationPath() + "/themesettings/" + Settings::getInstance()->getString("ThemeSet") + ".cfg";
 			if (Utils::FileSystem::exists(path))
 				Utils::FileSystem::removeFile(path);
 		}
@@ -3182,7 +3189,7 @@ void GuiMenu::openSoundSettings()
 	
 	s->addSwitch(_("DISPLAY SONG TITLES"), "audio.display_titles", true);
 
-	// batocera - how long to display the song titles?
+	// how long to display the song titles?
 	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 120.f, 2.f, "s");
 	titles_time->setValue(Settings::getInstance()->getInt("audio.display_titles_time"));
 	s->addWithLabel(_("SONG TITLE DISPLAY DURATION"), titles_time);
@@ -3215,7 +3222,7 @@ void GuiMenu::openWifiSettings(Window* win, std::string title, std::string data,
 	win->pushGui(new GuiWifi(win, title, data, onsave));
 }
 
-void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
+void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 {
 	bool baseWifiEnabled = SystemConf::getInstance()->getBool("wifi.enabled");
 
@@ -3299,19 +3306,19 @@ void GuiMenu::openNetworkSettings_batocera(bool selectWifiEnable)
 				ApiSystem::getInstance()->disableWifi();
 
 			delete s;
-			openNetworkSettings_batocera(true);
+			openNetworkSettings(true);
 		}
 	});
 
 	mWindow->pushGui(s);
 }
 
-void GuiMenu::openQuitMenu_batocera()
+void GuiMenu::openQuitMenu()
 {
-  GuiMenu::openQuitMenu_batocera_static(mWindow);
+  GuiMenu::openQuitMenu_static(mWindow);
 }
 
-void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu, bool animate)
+void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool animate)
 {
 #ifdef WIN32
 	if (!quickAccessMenu && Settings::getInstance()->getBool("ShowOnlyExit"))
@@ -3339,7 +3346,7 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 					Window* w = window;
 					AudioManager::getInstance()->playRandomMusic(false);
 					delete s;
-					openQuitMenu_batocera_static(w, true, false);
+					openQuitMenu_static(w, true, false);
 				}, "iconSound");
 			}
 		}
@@ -3356,21 +3363,11 @@ void GuiMenu::openQuitMenu_batocera_static(Window *window, bool quickAccessMenu,
 
 		}, "iconScraper", true);
 		
-#if WIN32	
-#define BATOCERA_MANUAL_FILE Utils::FileSystem::getEsConfigPath() + "/notice.pdf"
-#else
-#define BATOCERA_MANUAL_FILE "/usr/share/batocera/doc/notice.pdf"
-#endif
-
-		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(BATOCERA_MANUAL_FILE))
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(Paths::getUserManualPath()))
 		{
-#if defined(WIN32)
 			s->addEntry(_("VIEW USER'S MANUAL"), false, [s, window]
-#else
-			s->addEntry(_("VIEW BATOCERA MANUAL"), false, [s, window]
-#endif
 			{
-				GuiImageViewer::showPdf(window, BATOCERA_MANUAL_FILE);
+				GuiImageViewer::showPdf(window, Paths::getUserManualPath());
 				delete s;
 			}, "iconManual");
 		}
@@ -4018,29 +4015,15 @@ std::vector<DecorationSetInfo> GuiMenu::getDecorationsSets(SystemData* system)
 
 	static const size_t pathCount = 3;
 
-	
-#if WIN32
 	std::vector<std::string> paths = 
 	{
-		Utils::FileSystem::getEsConfigPath() + "/decorations" // for win32 testings
-	};
-
-	std::string win32path = Win32ApiSystem::getEmulatorLauncherPath("system.decorations");
-	if (!win32path.empty())
-		paths[0] = win32path; 
-	
-	win32path = Win32ApiSystem::getEmulatorLauncherPath("decorations");
-	if (!win32path.empty())
-		paths.push_back(win32path);
-
-
-#else
-	std::vector<std::string> paths = {
-		"/usr/share/batocera/datainit/decorations",
-		"/userdata/decorations"
-	};
+#if WIN32
+		Paths::getUserEmulationStationPath() + "/decorations", // for win32 testings
 #endif
-
+		Paths::getUserDecorationsPath(),
+		Paths::getDecorationsPath()
+	};
+	
 	Utils::FileSystem::stringList dirContent;
 	std::string folder;
 
@@ -4214,7 +4197,7 @@ void GuiMenu::saveSubsetSettings()
 			fileData += system->getName() + ".gridSize=" + gridSizeOverride + "\r";
 	}
 
-	std::string path = Utils::FileSystem::getEsConfigPath() + "/themesettings";
+	std::string path = Paths::getUserEmulationStationPath() + "/themesettings";
 	if (!Utils::FileSystem::exists(path))
 		Utils::FileSystem::createDirectory(path);
 
@@ -4233,7 +4216,7 @@ void GuiMenu::saveSubsetSettings()
 
 void GuiMenu::loadSubsetSettings(const std::string themeName)
 {
-	std::string path = Utils::FileSystem::getEsConfigPath() + "/themesettings";
+	std::string path = Paths::getUserEmulationStationPath() + "/themesettings";
 	if (!Utils::FileSystem::exists(path))
 		Utils::FileSystem::createDirectory(path);
 

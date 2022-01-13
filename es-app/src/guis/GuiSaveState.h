@@ -34,7 +34,7 @@ protected:
 	NinePatchComponent				mBackground;
 	ComponentGrid					mLayout;
 	
-	std::function<void(const SaveState& state)>			mRunCallback; // batocera
+	std::function<void(const SaveState& state)>			mRunCallback;
 
 	FileData* mGame;
 	SaveStateRepository* mRepository;

@@ -15,6 +15,7 @@
 #include "AudioManager.h"
 #include "VolumeControl.h"
 #include "InputManager.h"
+#include "EmulationStation.h"
 #include <SystemConf.h>
 
 #include <stdio.h>
@@ -50,6 +51,7 @@
 #include "platform.h"
 #include "RetroAchievements.h"
 #include "utils/ZipFile.h"
+#include "Paths.h"
 
 ApiSystem::ApiSystem() { }
 
@@ -82,12 +84,14 @@ unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 	return free;
 }
 
-std::string ApiSystem::getFreeSpaceUserInfo() {
-  return getFreeSpaceInfo("/userdata");
+std::string ApiSystem::getFreeSpaceUserInfo()
+{
+	return getFreeSpaceInfo(Paths::getRootPath());
 }
 
-std::string ApiSystem::getFreeSpaceSystemInfo() {
-  return getFreeSpaceInfo("/boot");
+std::string ApiSystem::getFreeSpaceSystemInfo()
+{
+	return getFreeSpaceInfo("/boot");
 }
 
 std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
@@ -120,27 +124,64 @@ std::string ApiSystem::getFreeSpaceInfo(const std::string mountpoint)
 
 bool ApiSystem::isFreeSpaceLimit() 
 {
-	return getFreeSpaceGB("/userdata/") < 2;
+	return getFreeSpaceGB(Paths::getRootPath()) < 2;
 }
 
 std::string ApiSystem::getVersion() 
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";
 
-	std::ifstream ifs("/usr/share/batocera/batocera.version");
-	if (ifs.good()) 
-	{
-		std::string contents;
-		std::getline(ifs, contents);
-		return contents;
-	}
+	std::string localVersionFile = Paths::getVersionInfoPath();	
+	if (!Utils::FileSystem::exists(localVersionFile))
+		localVersionFile = Paths::getEmulationStationPath() + "/version.info";
+	if (!Utils::FileSystem::exists(localVersionFile))
+		localVersionFile = Paths::getUserEmulationStationPath() + "/version.info";
+	if (!Utils::FileSystem::exists(localVersionFile))
+		localVersionFile = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/version.info";
 
-	return "";
+	if (Utils::FileSystem::exists(localVersionFile))
+	{
+		std::string localVersion = Utils::FileSystem::readAllText(localVersionFile);
+		localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
+		return localVersion;
+	}
+	
+	return PROGRAM_VERSION_STRING;
 }
 
 std::string ApiSystem::getApplicationName()
 {
+	std::string localVersionFile = Paths::getEmulationStationPath() + "/about.info";
+	if (!Utils::FileSystem::exists(localVersionFile))
+		localVersionFile = Paths::getUserEmulationStationPath() + "/about.info";
+	if (!Utils::FileSystem::exists(localVersionFile))
+		localVersionFile = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/about.info";
+
+	if (Utils::FileSystem::exists(localVersionFile))
+	{
+		std::string aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
+		aboutInfo = Utils::String::replace(Utils::String::replace(aboutInfo, "\r", ""), "\n", "");
+
+		auto ver = ApiSystem::getInstance()->getVersion();
+		auto cut = aboutInfo.find(" V" + ver);
+
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(" " + ver);
+
+		if (cut == std::string::npos)
+			cut = aboutInfo.find(ver);
+
+		if (cut != std::string::npos)
+			aboutInfo = aboutInfo.substr(0, cut);
+
+		return aboutInfo;
+	}
+
+#if WIN32
+	return "EMULATIONSTATION";
+#else
 	return "BATOCERA";
+#endif
 }
 
 bool ApiSystem::setOverscan(bool enable) 
@@ -166,9 +207,9 @@ std::pair<std::string, int> ApiSystem::updateSystem(const std::function<void(con
 	FILE *pipe = popen(updatecommand.c_str(), "r");
 	if (pipe == nullptr)
 		return std::pair<std::string, int>(std::string("Cannot call update command"), -1);
-
+	
 	char line[1024] = "";
-	FILE *flog = fopen("/userdata/system/logs/batocera-upgrade.log", "w");
+	FILE *flog = fopen(Utils::FileSystem::combine(Paths::getLogPath(), "batocera-upgrade.log").c_str(), "w");
 	while (fgets(line, 1024, pipe)) 
 	{
 		strtok(line, "\n");
@@ -201,7 +242,7 @@ std::pair<std::string, int> ApiSystem::backupSystem(BusyComponent* ui, std::stri
 
 	char line[1024] = "";
 
-	FILE* flog = fopen("/userdata/system/logs/batocera-sync.log", "w");
+	FILE* flog = fopen(Utils::FileSystem::combine(Paths::getLogPath(), "batocera-sync.log").c_str(), "w");
 	while (fgets(line, 1024, pipe)) 
 	{
 		strtok(line, "\n");
@@ -230,7 +271,7 @@ std::pair<std::string, int> ApiSystem::installSystem(BusyComponent* ui, std::str
 
 	char line[1024] = "";
 
-	FILE *flog = fopen("/userdata/system/logs/batocera-install.log", "w");
+	FILE *flog = fopen(Utils::FileSystem::combine(Paths::getLogPath(), "batocera-install.log").c_str(), "w");
 	while (fgets(line, 1024, pipe)) 
 	{
 		strtok(line, "\n");
@@ -259,7 +300,7 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 
 	char line[1024] = "";
 
-	FILE* flog = fopen("/userdata/system/logs/batocera-scraper.log", "w");
+	FILE* flog = fopen(Utils::FileSystem::combine(Paths::getLogPath(), "batocera-scraper.log").c_str(), "w");
 	while (fgets(line, 1024, pipe)) 
 	{
 		strtok(line, "\n");
@@ -631,7 +672,7 @@ bool ApiSystem::setAudioOutputDevice(std::string selected)
 	oss << "batocera-audio set" << " '" << selected << "'";
 	int exitcode = system(oss.str().c_str());
 
-	Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
+	Sound::get(":/checksound.ogg")->play();
 
 	return exitcode == 0;
 }
@@ -681,8 +722,8 @@ bool ApiSystem::setAudioOutputProfile(std::string selected)
 
 	oss << "batocera-audio set-profile" << " '" << selected << "'";
 	int exitcode = system(oss.str().c_str());
-
-	Sound::get("/usr/share/emulationstation/resources/checksound.ogg")->play();
+	
+	Sound::get(":/checksound.ogg")->play();
 
 	return exitcode == 0;
 }
@@ -1180,6 +1221,18 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::BATOCERAPREGAMELISTSHOOK:
 		executables.push_back("batocera-preupdate-gamelists-hook");
 		break;
+	case ApiSystem::TIMEZONES:
+		executables.push_back("batocera-timezone");
+		break;
+	case ApiSystem::AUDIODEVICE:
+		executables.push_back("batocera-audio");
+		break;		
+	case ApiSystem::BACKUP:
+		executables.push_back("batocera-sync");
+		break;
+	case ApiSystem::INSTALL:
+		executables.push_back("batocera-install");
+		break;		
 	}
 
 	if (executables.size() == 0)
@@ -1465,7 +1518,12 @@ std::vector<std::string> ApiSystem::getShaderList(const std::string systemName)
 
 	std::vector<std::string> ret;
 
-	std::vector<std::string> folderList = { "/usr/share/batocera/shaders/configs", "/userdata/shaders/configs" };
+	std::vector<std::string> folderList = 
+	{ 
+		Paths::getUserShadersPath(),
+		Paths::getShadersPath()
+	};
+
 	for (auto folder : folderList)
 	{
 		for (auto file : Utils::FileSystem::getDirContent(folder, true))
@@ -1495,8 +1553,7 @@ std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 
 	LOG(LogDebug) << "ApiSystem::getRetroAchievementsSoundsList";
 
-	std::vector<std::string> folderList = { "/usr/share/libretro/assets/sounds", "/userdata/sounds/retroachievements" };
-	for (auto folder : folderList)
+	for (auto folder : { Paths::getUserRetroachivementSounds(), Paths::getRetroachivementSounds() })
 	{
 		for (auto file : Utils::FileSystem::getDirContent(folder, false))
 		{
@@ -1519,8 +1576,8 @@ std::vector<std::string> ApiSystem::getTimezones()
 
 	LOG(LogDebug) << "ApiSystem::getTimezones";
 
-	std::vector<std::string> folderList = { "/usr/share/zoneinfo/" };
-	for (auto folder : folderList)
+	auto folder = Paths::getTimeZonesPath();
+	if (Utils::FileSystem::isDirectory(folder))
 	{
 		for (auto continent : Utils::FileSystem::getDirContent(folder, false))
 		{
@@ -1540,6 +1597,7 @@ std::vector<std::string> ApiSystem::getTimezones()
 			}
 		}
 	}
+
 	std::sort(ret.begin(), ret.end());
 	return ret;
 }

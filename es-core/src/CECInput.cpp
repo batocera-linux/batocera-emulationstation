@@ -109,7 +109,7 @@ CECInput::CECInput() : mlibCEC(nullptr)
 	callbacks.keyPress        = &onKeyPress;
 	callbacks.logMessage      = &onLogMessage;
 
-	sprintf(config.strDeviceName, "Batocera");
+	sprintf(config.strDeviceName, "Batocera"); // batocera
 	config.clientVersion   = CEC::LIBCEC_VERSION_CURRENT;
 	config.bActivateSource = 0;
 	config.callbacks       = &callbacks;

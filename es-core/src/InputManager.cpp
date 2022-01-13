@@ -15,6 +15,7 @@
 #include <mutex>
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
+#include "Paths.h"
 
 #define KEYBOARD_GUID_STRING "-1"
 #define CEC_GUID_STRING      "-2"
@@ -63,13 +64,13 @@ void InputManager::init()
 
 	rebuildAllJoysticks(false);
 
-	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0, 0, 0); // batocera
+	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0, 0, 0); 
 	loadInputConfig(mKeyboardInputConfig);
 
 	SDL_USER_CECBUTTONDOWN = SDL_RegisterEvents(2);
 	SDL_USER_CECBUTTONUP   = SDL_USER_CECBUTTONDOWN + 1;
 	CECInput::init();
-	mCECInputConfig = new InputConfig(DEVICE_CEC, -1, "CEC", CEC_GUID_STRING, 0, 0, 0); // batocera
+	mCECInputConfig = new InputConfig(DEVICE_CEC, -1, "CEC", CEC_GUID_STRING, 0, 0, 0); 
 	loadInputConfig(mCECInputConfig);
 
 	// Mouse input, hardcoded not configurable with es_input.cfg
@@ -195,7 +196,7 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 			mInputConfigs.erase(joyId);
 		}
 
-		mInputConfigs[joyId] = new InputConfig(joyId, idx, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy)); // batocera
+		mInputConfigs[joyId] = new InputConfig(joyId, idx, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy)); 
 
 		if (!loadInputConfig(mInputConfigs[joyId]))
 			LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ").";
@@ -225,8 +226,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	switch (ev.type)
 	{
 	case SDL_JOYAXISMOTION:
-	{
-		// batocera
+	{		
 	// some axes are "full" : from -32000 to +32000
 	// in this case, their unpressed state is not 0
 	// SDL provides a function to get this value
@@ -257,13 +257,13 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		if (mPrevAxisValues.find(ev.jaxis.which) != mPrevAxisValues.cend())
 		{			
 			//if it switched boundaries
-			if ((abs(ev.jaxis.value - initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE)) // batocera
+			if ((abs(ev.jaxis.value - initialValue) > DEADZONE) != (abs(mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis]) > DEADZONE))
 			{
 				int normValue;
-				if (abs(ev.jaxis.value - initialValue) <= DEADZONE) // batocera
+				if (abs(ev.jaxis.value - initialValue) <= DEADZONE) 
 					normValue = 0;
 				else
-					if (ev.jaxis.value - initialValue > 0) // batocera
+					if (ev.jaxis.value - initialValue > 0) 
 						normValue = 1;
 					else
 						normValue = -1;
@@ -272,7 +272,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 				causedEvent = true;
 			}
 
-			mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis] = ev.jaxis.value - initialValue; // batocera
+			mPrevAxisValues[ev.jaxis.which][ev.jaxis.axis] = ev.jaxis.value - initialValue; 
 		}
 
 		return causedEvent;
@@ -363,10 +363,8 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 	pugi::xml_node root = doc.child("inputList");
 	if (!root)
 		return false;
-
-	// batocera
+	
 	// looking for a device having the same guid and name, or if not, one with the same guid or in last chance, one with the same name
-
 
 	bool found_guid = false;
 	bool found_exact = false;
@@ -401,8 +399,7 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 
 	if (!configNode)
 		return false;
-
-	// batocera
+	
 	if (found_exact == false)
 	{
 		LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
@@ -429,7 +426,7 @@ bool InputManager::loadInputConfig(InputConfig* config)
 		return true;
 
 	// Find system exact device
-	std::string sharedPath = Utils::FileSystem::getSharedConfigPath() + "/es_input.cfg";
+	std::string sharedPath = Paths::getEmulationStationPath() + "/es_input.cfg";
 	if (tryLoadInputConfig(sharedPath, config, false))
 		return true;
 
@@ -487,8 +484,7 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 			// successfully loaded, delete the old entry if it exists
 			pugi::xml_node root = doc.child("inputList");
 			if (root)
-			{
-				// batocera
+			{				
 				pugi::xml_node oldEntry(NULL);
 				for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig")) 
 				{
@@ -514,8 +510,7 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 
 	config->writeToXML(root);
 	doc.save_file(path.c_str());
-
-        // batocera
+        
 	/* create a es_last_input.cfg so that people can easily share their config */
 	pugi::xml_document lastdoc;
 	pugi::xml_node lastroot = lastdoc.append_child("inputList");
@@ -577,12 +572,12 @@ void InputManager::doOnFinish()
 
 std::string InputManager::getConfigPath()
 {
-	return Utils::FileSystem::getEsConfigPath() + "/es_input.cfg";
+	return Paths::getUserEmulationStationPath() + "/es_input.cfg";
 }
 
 std::string InputManager::getTemporaryConfigPath()
 {
-	return Utils::FileSystem::getEsConfigPath() + "/es_last_input.cfg";
+	return Paths::getUserEmulationStationPath() + "/es_last_input.cfg";
 }
 
 bool InputManager::initialized() const

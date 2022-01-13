@@ -120,8 +120,7 @@ public:
 		if (isScrolling())
 			stopScrolling();
 	}
-
-	// batocera
+	
 	void setCursorIndex(int index, bool force = false)
 	{
 		if (mCursor == index && !force)
@@ -135,13 +134,11 @@ public:
 			onCursorChanged(CURSOR_STOPPED);
 		}
 	}
-
-	// batocera
+	
 	int getCursorIndex()
 	{
 		return mCursor;
 	}
-
 
 	void clear()
 	{

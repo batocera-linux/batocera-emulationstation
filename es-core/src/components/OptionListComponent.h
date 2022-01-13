@@ -155,7 +155,7 @@ private:
 				mMenu.addRow(row, (!mParent->mMultiSelect && it->selected), false);
 			}
 
-			mMenu.addButton(_("BACK"), _("accept"), [this] { delete this; }); // batocera
+			mMenu.addButton(_("BACK"), _("accept"), [this] { delete this; }); 
 
 			if (mParent->mMultiSelect)
 			{
@@ -190,7 +190,7 @@ private:
 
 		bool input(InputConfig* config, Input input) override
 		{
-			if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0) // batocera
+			if(config->isMappedTo(BUTTON_BACK, input) && input.value != 0) 
 			{
 				delete this;
 				return true;
@@ -468,9 +468,9 @@ public:
 			}
 		}
 	}
-
-        // batocera
-	inline void setSelectedChangedCallback(const std::function<void(const T&)>& callback) {
+        
+	inline void setSelectedChangedCallback(const std::function<void(const T&)>& callback) 
+	{
 		mSelectedChangedCallback = callback;
 	}
 
@@ -491,9 +491,9 @@ public:
 		}
 		onSelectedChanged();
 	}
-
-        // batocera
-	bool changed(){
+        
+	bool changed()
+	{
 	  auto selected = getSelectedObjects();
 	  if(selected.size() != 1) return false;
 	  return firstSelected != getSelected();
@@ -616,8 +616,7 @@ private:
 				}
 			}
 		}
-
-        // batocera
+        
 		if (mSelectedChangedCallback)
 			mSelectedChangedCallback(mEntries.at(getSelectedId()).object);		
 	}
@@ -626,7 +625,7 @@ private:
 	{
 		std::vector<HelpPrompt> prompts;
 		if(!mMultiSelect)
-			prompts.push_back(HelpPrompt("left/right", _("CHANGE"))); // batocera
+			prompts.push_back(HelpPrompt("left/right", _("CHANGE")));
 
 		prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
 		return prompts;
@@ -638,13 +637,13 @@ private:
 	std::string mName;
 	std::string mGroup;
 
-	T firstSelected; // batocera
+	T firstSelected;
 	TextComponent mText;
 	ImageComponent mLeftArrow;
 	ImageComponent mRightArrow;
 
 	std::vector<OptionListData> mEntries;
-	std::function<void(const T&)> mSelectedChangedCallback; // batocera
+	std::function<void(const T&)> mSelectedChangedCallback;
 };
 
 #endif // ES_CORE_COMPONENTS_OPTION_LIST_COMPONENT_H

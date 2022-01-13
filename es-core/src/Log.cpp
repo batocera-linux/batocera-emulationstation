@@ -7,6 +7,7 @@
 #include "Settings.h"
 #include <iomanip> 
 #include <SDL_timer.h>
+#include "Paths.h"
 
 #if WIN32
 #include <Windows.h>
@@ -25,7 +26,7 @@ LogLevel Log::getReportingLevel()
 
 std::string Log::getLogPath()
 {
-	return Utils::FileSystem::getEsConfigPath() + "/es_log.txt";
+	return Paths::getUserEmulationStationPath() + "/es_log.txt";
 }
 
 void Log::setReportingLevel(LogLevel level)
