@@ -2246,7 +2246,7 @@ msgid "SIDE BY SIDE"
 msgstr "БОК О БОК"
 
 msgid "INTERNAL RESOLUTION"
-msgstr "СОБСТВЕННОЕ РАЗРЕШЕНИЕ"
+msgstr "ВНУТРЕННЕЕ РАЗРЕШЕНИЕ"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"

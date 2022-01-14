@@ -1342,31 +1342,31 @@ msgstr "Caratteristiche CPU"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "OTTIMIZZATO"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "CURVATURA SCHERMO"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "PIATTO E LUMINOSO"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "SCALATURA RGA"
 
 msgid "VENDOR"
 msgstr "VENDOR"
