@@ -529,11 +529,70 @@ void GuiMenu::openEmuELECSettings()
 
 if (UIModeController::getInstance()->isUIModeFull())
 	{
+        //External Mount Options
+        s->addEntry(_("EXTERNAL MOUNT OPTIONS"), true, [this] { openExternalMounts(mWindow, "global"); });
+
         //Danger zone options
         s->addEntry(_("DANGER ZONE"), true, [this] { openDangerZone(mWindow, "global"); });
     }
 
     mWindow->pushGui(s);
+}
+
+void GuiMenu::openExternalMounts(Window* mWindow, std::string configName)
+{
+
+	GuiSettings* externalMounts = new GuiSettings(mWindow, _("EXTERNAL MOUNT OPTIONS").c_str());
+    std::string a;
+    
+		auto emuelec_external_device_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "EXTERNAL DEVICE", false);
+		std::vector<std::string> extdevoptions;
+		extdevoptions.push_back("auto");
+		  for(std::stringstream ss(getShOutput(R"(find /var/media/ -type d -maxdepth 1 -mindepth 1 -name EEROMS -prune -o -exec basename {} \; | sed "s/$/,/g")")); getline(ss, a, ','); ) {
+            extdevoptions.push_back(a);
+	    }
+		// use script to get entries
+        
+		auto extdevoptionsS = SystemConf::getInstance()->get("global.externalmount");
+		if (extdevoptionsS.empty())
+		extdevoptionsS = "auto";
+		
+		for (auto it = extdevoptions.cbegin(); it != extdevoptions.cend(); it++)
+		emuelec_external_device_def->add(*it, *it, extdevoptionsS == *it);
+		
+        externalMounts->addWithDescription(_("EXTERNAL DEVICE"), _("Select the mounted drive to be used for ROMS."), emuelec_external_device_def);
+    
+        emuelec_external_device_def->setSelectedChangedCallback([emuelec_external_device_def](std::string name) {
+       		if (SystemConf::getInstance()->set("global.externalmount", name)) {
+			   if (emuelec_external_device_def->getSelected() != "auto") {
+                    std::string path = ("/var/media/" + emuelec_external_device_def->getSelected() + "/roms/emuelecroms").c_str();
+                        if (!Utils::FileSystem::exists(path)) {
+                            system((std::string("mkdir -p \"/var/media/") + emuelec_external_device_def->getSelected() + std::string("/roms\"")).c_str()); 
+                            system((std::string("touch \"/var/media/") + emuelec_external_device_def->getSelected() + std::string("/roms/emuelecroms\"")).c_str()); 
+                        }
+                }
+            SystemConf::getInstance()->saveSystemConf();
+        }
+        });
+       
+		auto emuelec_external_device_retry = std::make_shared< OptionListComponent<std::string> >(mWindow, _("RETRY TIMES"), false);
+		emuelec_external_device_retry->addRange({ { _("AUTO"), "" },{ "1", "1" },{ "2", "2" },{ "3", "3" },{ "4", "4" },{ "5", "5" } }, SystemConf::getInstance()->get("ee_mount.retry"));
+        externalMounts->addWithDescription(_("RETRY TIMES"), _("How many times to retry the mount on boot."), emuelec_external_device_retry);
+		emuelec_external_device_retry->setSelectedChangedCallback([emuelec_external_device_retry](std::string name) { 
+            if (SystemConf::getInstance()->set("ee_mount.retry", name)) 
+                SystemConf::getInstance()->saveSystemConf();
+            });
+
+        externalMounts->addEntry(_("FORCE MOUNT NOW"), true, [mWindow] { 
+            std::string selectedExternalDrive = SystemConf::getInstance()->get("global.externalmount");
+            mWindow->pushGui(new GuiMsgBox(mWindow, (_("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nSystem will try to mount the external drive selected ") + "\""+ selectedExternalDrive + "\"" + _(". Make sure you have all the settings saved before running this.\n\nTRY TO MOUNT EXTERNAL AND RESTART?")).c_str(), _("YES"),
+				[selectedExternalDrive] {
+				SystemConf::getInstance()->saveSystemConf();
+                    runSystemCommand("mount_romfs.sh yes " + selectedExternalDrive, "", nullptr);
+				}, _("NO"), nullptr));
+		});
+
+mWindow->pushGui(externalMounts);
 }
 
 void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
@@ -577,7 +636,7 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
 #endif
 
     dangerZone->addEntry(_("BACKUP EMUELEC CONFIGS"), true, [mWindow] { 
-    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nAFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/roms/backup/ee_backup_config.tar.gz TO SOME PLACE SAFE OR IT WILL BE DELETED ON NEXT REBOOT!\n\nBACKUP CURRENT CONFIG AND RESTART?"), _("YES"),
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nAFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/roms/backup/ee_backup_config.tar.gz TO SOME PLACE!\n\nBACKUP CURRENT CONFIG AND RESTART?"), _("YES"),
 				[] { 
 				runSystemCommand("systemd-run /usr/bin/emuelec-utils ee_backup backup", "", nullptr);
 				}, _("NO"), nullptr));

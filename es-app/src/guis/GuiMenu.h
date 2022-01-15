@@ -68,6 +68,7 @@ private:
 #ifdef _ENABLEEMUELEC
 	void openEmuELECSettings(); /* < emuelec */
     static void openDangerZone(Window* mWindow, std::string configName);
+    static void openExternalMounts(Window* mWindow, std::string configName);
 #endif
 	// batocera	
 	void openSystemSettings_batocera();
