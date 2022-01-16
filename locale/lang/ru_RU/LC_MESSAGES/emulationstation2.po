@@ -1343,6 +1343,10 @@ msgid "Cpu feature"
 msgstr "Функции CPU"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr ""
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
@@ -1812,11 +1816,14 @@ msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
 msgid "RUN-AHEAD FRAMES"
 msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "ИСП. КАДРЫ ОБГОНА (RUN-AHEAD)"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "АВТОМАТИЧЕСКАЯ ЗАДЕРЖКА КАДРА"
@@ -1825,11 +1832,19 @@ msgid "AUTO FRAME DELAY"
 msgstr "АВТО ЗАДЕРЖКА КАДРА"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. "
-"Отключите, если это вызывает заикание аудио/видео."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
@@ -2851,6 +2866,19 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "ИСП. КАДРЫ ОБГОНА (RUN-AHEAD)"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск "
+#~ "кадров. Отключите, если это вызывает заикание аудио/видео."
 
 #~ msgid "SCANLINES"
 #~ msgstr "ЧЕРЕССТРОЧНОСТЬ"

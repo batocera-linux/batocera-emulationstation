@@ -1345,6 +1345,10 @@ msgid "Cpu feature"
 msgstr "Recurso do processador"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr ""
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
@@ -1817,11 +1821,14 @@ msgstr "REDUÇÃO DE LATÊNCIA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR QUADROS"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USAR SALTO DE QUADROS"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
@@ -1830,12 +1837,19 @@ msgid "AUTO FRAME DELAY"
 msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Decrementa automaticamente o atraso da taxa de quadros temporariamente para "
-"prevenir a queda da taxa de quadros. Desligue se isso piorar o engasgue de "
-"áudio / vídeo."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
@@ -2850,3 +2864,17 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USAR SALTO DE QUADROS"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Decrementa automaticamente o atraso da taxa de quadros temporariamente "
+#~ "para prevenir a queda da taxa de quadros. Desligue se isso piorar o "
+#~ "engasgue de áudio / vídeo."

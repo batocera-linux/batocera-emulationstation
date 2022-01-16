@@ -1345,6 +1345,10 @@ msgid "Cpu feature"
 msgstr "Características do Cpu"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr ""
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr ""
 
@@ -1817,11 +1821,14 @@ msgstr "REDUÇÃO DE LATÊNCIA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR FRAMES"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USAR SALTO DE FRAMES"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "USAR SALTO EM SEGUNDO CASO"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "ATRASO DE FRAME AUTOMÁTICO"
@@ -1830,11 +1837,19 @@ msgid "AUTO FRAME DELAY"
 msgstr "ATRASO DE FRAME AUTOMÁTICO"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Reduz automáticamente o atraso dos frames temporariamente para evitar perda "
-"de desempenho. Desative caso piore e engasgue o áudio / vídeo."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
@@ -2845,6 +2860,19 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USAR SALTO DE FRAMES"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "USAR SALTO EM SEGUNDO CASO"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Reduz automáticamente o atraso dos frames temporariamente para evitar "
+#~ "perda de desempenho. Desative caso piore e engasgue o áudio / vídeo."
 
 #~ msgid "SCANLINES"
 #~ msgstr "SCANLINES"
