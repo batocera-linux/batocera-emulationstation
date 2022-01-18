@@ -810,7 +810,7 @@ namespace Utils
 
 				return output;
 #else				
-				path = removeCommonPath(_path, getHomePath(), contains);
+				path = removeCommonPath(_path, Paths::getHomePath(), contains);
 				if(contains)
 				{
 					// success

@@ -4,6 +4,7 @@
 #include "Log.h"
 #include "utils/StringUtil.h"
 #include "utils/FileSystemUtil.h"
+#include "Settings.h"
 #include "Paths.h"
 
 #include <set>
@@ -12,17 +13,13 @@
 #include <iostream>
 #include <SDL_timer.h>
 
-#if WIN32 & !_DEBUG
-	#include "Settings.h"
+static std::string mapSettingsName(const std::string& name)
+{
+	if (name == "system.language")
+		return "Language";
 
-	std::string mapSettingsName(const std::string name)
-	{
-		if (name == "system.language")
-			return "Language";
-
-		return name;
-	}
-#endif
+	return name;
+}
 
 SystemConf *SystemConf::sInstance = NULL;
 

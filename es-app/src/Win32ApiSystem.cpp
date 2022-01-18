@@ -67,28 +67,17 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		return !getSevenZipCommand().empty();
 
 	if (script == ApiSystem::KODI)
-		return (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe") || Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe") || Utils::FileSystem::exists(Utils::FileSystem::combine(getEmulatorLauncherPath("kodi"), "kodi.exe")));
+		return Utils::FileSystem::exists(Paths::getKodiPath());
 
 	if (script == ApiSystem::THEMESDOWNLOADER)
 		return true;
 
 	if (script == ApiSystem::DECORATIONS || script == ApiSystem::THEBEZELPROJECT)
-	{
-		if (Utils::FileSystem::exists(getEmulatorLauncherPath("decorations")))
-			return true;
+		return Utils::FileSystem::exists(Paths::getUserDecorationsPath()) || Utils::FileSystem::exists(Paths::getDecorationsPath()) || Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "/decorations");
 
-		if (Utils::FileSystem::exists(getEmulatorLauncherPath("system.decorations")))
-			return true;
+	if (script == ApiSystem::SHADERS)
+		return Utils::FileSystem::exists(Paths::getShadersPath()) || Utils::FileSystem::exists(Paths::getUserShadersPath());
 
-		if (Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "/decorations"))
-			return true;
-
-		return false;
-	}
-
-	if (script == ApiSystem::SHADERS && !Utils::FileSystem::exists(getEmulatorLauncherPath("shaders")))
-		return false;
-	
 	std::vector<std::string> executables;
 
 	switch (script)
@@ -138,12 +127,8 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 
 	for (auto executable : executables)	
 	{
-		std::string path = Paths::getEmulationStationPath() + "/" + executable + ".exe";
-		if (!Utils::FileSystem::exists(path))
-			path = Paths::getUserEmulationStationPath() + "/" + executable + ".exe";
-		if (!Utils::FileSystem::exists(path))
-			path = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/" + executable + ".exe";
-		if (!Utils::FileSystem::exists(path))
+		std::string path = Paths::findEmulationStationFile(executable + ".exe");
+		if (path.empty() || !Utils::FileSystem::exists(path))
 			return false;
 	}
 
@@ -341,13 +326,8 @@ std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string comm
 	std::string parameters;
 	Utils::FileSystem::splitCommand(command, &executable, &parameters);
 
-	std::string path = Paths::getEmulationStationPath() + "/" + executable + ".exe";
-	if (!Utils::FileSystem::exists(path))
-		path = Paths::getUserEmulationStationPath() + "/" + executable + ".exe";
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/" + executable + ".exe";
-
-	if (Utils::FileSystem::exists(path))
+	std::string path = Paths::findEmulationStationFile(executable + ".exe");
+	if (!path.empty() && Utils::FileSystem::exists(path))
 	{
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
 
@@ -374,13 +354,7 @@ std::vector<std::string> Win32ApiSystem::executeEnumerationScript(const std::str
 	if (executable.find(":") != std::string::npos && Utils::FileSystem::exists(executable))
 		path = Utils::FileSystem::getPreferredPath(executable);
 	else
-	{
-		path = Paths::getEmulationStationPath() + "/" + executable + ".exe";
-		if (!Utils::FileSystem::exists(path))
-			path = Paths::getUserEmulationStationPath() + "/" + executable + ".exe";
-		if (!Utils::FileSystem::exists(path))
-			path = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/" + executable + ".exe";
-	}
+		path = Paths::findEmulationStationFile(executable + ".exe");
 
 	if (Utils::FileSystem::exists(path))
 	{
@@ -609,9 +583,9 @@ std::vector<BatoceraBezel> Win32ApiSystem::getBatoceraBezelsList()
 			bz.url = parts[1];
 			bz.folderPath = parts.size() < 3 ? "" : parts[2];
 
-			std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + parts[0];
+			std::string theBezelProject = Paths::getUserDecorationsPath() + "/thebezelproject/games/" + parts[0];
 			bz.isInstalled = Utils::FileSystem::exists(theBezelProject);
-
+			
 			if (bz.name != "?")
 				res.push_back(bz);
 		}
@@ -632,14 +606,14 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 			std::string subFolder = bezel.folderPath;
 
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
-			std::string zipFile = Utils::FileSystem::getCanonicalPath(getEmulatorLauncherPath("decorations") + "/" + themeFileName + ".zip");
+			std::string zipFile = Utils::FileSystem::getCanonicalPath(Paths::getUserDecorationsPath() + "/" + themeFileName + ".zip");
 
 			if (downloadGitRepository(themeUrl, zipFile, bezelsystem, func))
 			{
-				std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/"+ bezelsystem;
+				std::string theBezelProject = Paths::getUserDecorationsPath() + "/thebezelproject/games/"+ bezelsystem;
 				Utils::FileSystem::createDirectory(theBezelProject);
 
-				std::string tmp = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + bezelsystem + "/tmp";
+				std::string tmp = Paths::getUserDecorationsPath() + "/thebezelproject/games/" + bezelsystem + "/tmp";
 				Utils::FileSystem::createDirectory(tmp);
 
 				if (func != nullptr)
@@ -688,7 +662,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 
 std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func)
 {
-	std::string theBezelProject = getEmulatorLauncherPath("decorations") + "/thebezelproject/games/" + bezelsystem;
+	std::string theBezelProject = Paths::getUserDecorationsPath() + "/thebezelproject/games/" + bezelsystem;
 	Utils::FileSystem::deleteDirectoryFiles(theBezelProject, true);
 
 	return std::pair<std::string, int>("OK", 0);
@@ -956,13 +930,8 @@ void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::
 		return;
 
 	// Check emulatorLauncher exists
-	std::string emulatorLauncherPath = Paths::getEmulationStationPath() + "/emulatorLauncher.exe";
-	if (!Utils::FileSystem::exists(emulatorLauncherPath))
-		emulatorLauncherPath = Paths::getUserEmulationStationPath() + "/emulatorLauncher.exe";
-	if (!Utils::FileSystem::exists(emulatorLauncherPath))
-		emulatorLauncherPath = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/emulatorLauncher.exe";
-	
-	if (!Utils::FileSystem::exists(emulatorLauncherPath))
+	std::string emulatorLauncherPath = Paths::findEmulationStationFile("emulatorLauncher.exe");
+	if (emulatorLauncherPath.empty() || !Utils::FileSystem::exists(emulatorLauncherPath))
 		return;
 
 	emulatorLauncherPath = Utils::FileSystem::getParent(emulatorLauncherPath);
@@ -1070,18 +1039,13 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 bool Win32ApiSystem::launchKodi(Window *window)
 {
 	std::string args;
-	std::string command = Utils::FileSystem::combine(getEmulatorLauncherPath("kodi"), "kodi.exe");
-	if (Utils::FileSystem::exists(command))
-		args = "-p";
-	else 
-		command = "C:\\Program Files\\Kodi\\kodi.exe";
-
+	
+	std::string command = Paths::getKodiPath();
 	if (!Utils::FileSystem::exists(command))
-	{
-		command = "C:\\Program Files (x86)\\Kodi\\kodi.exe";
-		if (!Utils::FileSystem::exists(command))
-			return false;
-	}
+		return false;
+
+	if (!Utils::String::startsWith(command, "C:\\Program Files"))
+		args = "-p";
 
 	ApiSystem::launchExternalWindow_before(window);
 
@@ -1111,75 +1075,6 @@ bool Win32ApiSystem::launchKodi(Window *window)
 	ApiSystem::launchExternalWindow_after(window);
 
 	return ret;
-}
-
-static std::map<std::string, std::string> g_emulatorLauncherPathCache;
-
-std::string Win32ApiSystem::getEmulatorLauncherPath(const std::string variable)
-{
-	auto it = g_emulatorLauncherPathCache.find(variable);
-	if (it != g_emulatorLauncherPathCache.cend())
-		return it->second;
-
-	std::string path = Paths::getEmulationStationPath() + "/emulatorLauncher.cfg";
-	if (!Utils::FileSystem::exists(path))
-		path = Paths::getUserEmulationStationPath() + "/emulatorLauncher.cfg";
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/emulatorLauncher.cfg";
-
-	if (!Utils::FileSystem::exists(path))
-	{
-		g_emulatorLauncherPathCache[variable] = "";
-		return "";
-	}
-
-	std::string line;
-	std::ifstream systemConf(path);
-	if (systemConf && systemConf.is_open())
-	{
-		while (std::getline(systemConf, line))
-		{
-			int idx = line.find("=");
-			if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
-				continue;
-
-			std::string key = line.substr(0, idx);
-			if (key == variable)
-			{
-				systemConf.close();
-
-				std::string relativeTo = Utils::FileSystem::getParent(path);
-				auto ret = Utils::FileSystem::getAbsolutePath(line.substr(idx + 1), relativeTo);
-				g_emulatorLauncherPathCache[variable] = ret;
-				return ret;
-			}
-		}
-		systemConf.close();
-	}
-
-	if (Utils::String::startsWith(variable, "system."))
-	{
-		auto name = Utils::FileSystem::getGenericPath(variable.substr(7));
-
-		auto dir = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(path) + "/../system/" + name);
-		if (Utils::FileSystem::isDirectory(dir))
-		{
-			g_emulatorLauncherPathCache[variable] = dir;
-			return dir;
-		}
-	}
-	else
-	{
-		auto dir = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(path) + "/../" + variable);
-		if (Utils::FileSystem::isDirectory(dir))
-		{
-			g_emulatorLauncherPathCache[variable] = dir;
-			return dir;
-		}
-	}
-
-	g_emulatorLauncherPathCache[variable] = "";
-	return "";
 }
 
 void Win32ApiSystem::setReadyFlag(bool ready)
@@ -1256,13 +1151,7 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemN
 
 	std::vector<std::string> folderList;
 
-	if (Utils::FileSystem::exists(getEmulatorLauncherPath("shaders")))
-		folderList.push_back(getEmulatorLauncherPath("shaders") + "/configs");
-
-	if (Utils::FileSystem::exists(getEmulatorLauncherPath("system.shaders")))
-		folderList.push_back(getEmulatorLauncherPath("system.shaders") + "/configs");
-
-	for (auto folder : folderList)
+	for (auto folder : { Paths::getUserShadersPath(), Paths::getShadersPath() })
 	{
 		for (auto file : Utils::FileSystem::getDirContent(folder, true))
 		{
@@ -1300,14 +1189,9 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemN
 
 std::string Win32ApiSystem::getSevenZipCommand()
 {	
-	if (Utils::FileSystem::exists(Paths::getEmulationStationPath() + "\\7za.exe"))
-		return "\"" + Paths::getEmulationStationPath() + "\\7za.exe\"";
-
-	if (Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "\\7za.exe"))
-		return "\"" + Paths::getUserEmulationStationPath() + "\\7za.exe\"";
-
-	if (Utils::FileSystem::exists(Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "\\7za.exe"))
-		return "\"" + Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "\\7za.exe\"";
+	auto file = Paths::findEmulationStationFile("7za.exe");
+	if (!file.empty() && Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "\\7za.exe"))
+		return file;
 
 	if (Utils::FileSystem::exists("C:\\Program Files (x86)\\7-Zip\\7za.exe"))
 		return "\"C:\\Program Files (x86)\\7-Zip\\7za.exe\"";

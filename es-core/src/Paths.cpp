@@ -9,7 +9,7 @@
 
 Paths* Paths::_instance = nullptr;
 
-#if WIN32
+#ifdef WIN32
 #define SETTINGS_FILENAME "emulatorLauncher.cfg"
 #else
 #define SETTINGS_FILENAME "emulationstation.ini"
@@ -17,7 +17,25 @@ Paths* Paths::_instance = nullptr;
 
 Paths::Paths()
 {	
-#if !WIN32
+	mEmulationStationPath = getExePath();
+	mUserEmulationStationPath = Utils::FileSystem::getCanonicalPath(getHomePath() + "/.emulationstation");
+	mRootPath = Utils::FileSystem::getParent(getHomePath());
+
+	mLogPath = mUserEmulationStationPath;
+	mThemesPath = mUserEmulationStationPath + "/themes";
+	mMusicPath = mUserEmulationStationPath + "/music";
+	mKeyboardMappingsPath = mUserEmulationStationPath + "/padtokey";
+	mUserManualPath = mUserEmulationStationPath + "/notice.pdf";
+
+#if defined(WIN32) && defined(_DEBUG)
+	mSystemConfFilePath = mUserEmulationStationPath + "/batocera.conf";
+#endif
+
+	loadCustomConfiguration(false); // Try to detect alternate paths ( Decorations, Shaders... ) without loading overrides
+
+	// Here, BATOCERA & Forks can define their own paths
+
+#if BATOCERA
 	mRootPath = "/userdata";
 	mEmulationStationPath = "/usr/share/emulationstation";
 	mUserEmulationStationPath = "/userdata/system/configs/emulationstation";
@@ -39,27 +57,13 @@ Paths::Paths()
 	mTimeZonesPath = "/usr/share/zoneinfo/";
 	mRetroachivementSounds = "/usr/share/libretro/assets/sounds";
 	mUserRetroachivementSounds = "/userdata/sounds/retroachievements"
+	
 	mSystemConfFilePath = "/userdata/system/batocera.conf";
 	mUserManualPath = "/usr/share/batocera/doc/notice.pdf";
 	mVersionInfoPath = "/usr/share/batocera/batocera.version";
-#else 
-	mEmulationStationPath = getExePath();
-	mUserEmulationStationPath = Utils::FileSystem::getCanonicalPath(getHomePath() + "/.emulationstation");
-	mRootPath = Utils::FileSystem::getParent(getHomePath());
-
-	mLogPath = mUserEmulationStationPath;
-	mThemesPath = mUserEmulationStationPath + "/themes";
-	mMusicPath = mUserEmulationStationPath + "/music";
-	mKeyboardMappingsPath = mUserEmulationStationPath + "/padtokey";
-	mUserManualPath = mUserEmulationStationPath + "/notice.pdf";
-
-#if _DEBUG
-	mSystemConfFilePath = mUserEmulationStationPath + "/batocera.conf";
 #endif
 
-#endif
-
-/* Try on EmuElec locations
+/* EmuElec sample locations.
 #ifdef _ENABLEEMUELEC
 	mRootPath = "/storage/roms"; // ?
 	mEmulationStationPath = Utils::FileSystem::getExePath();
@@ -75,10 +79,10 @@ Paths::Paths()
 	mSystemConfFilePath = "/storage/.config/emuelec/configs/emuelec.conf";
 #endif
 */
-	loadCustomConfiguration();
+	loadCustomConfiguration(true); // Load paths overrides from emulationstation.ini file
 }
 
-void Paths::loadCustomConfiguration()
+void Paths::loadCustomConfiguration(bool overridesOnly)
 {
 	// Files
 	std::map<std::string, std::string*> files =
@@ -86,6 +90,7 @@ void Paths::loadCustomConfiguration()
 		{ "config", &mSystemConfFilePath },
 		{ "manual", &mUserManualPath },
 		{ "versioninfo", &mVersionInfoPath },
+		{ "kodi", &mKodiPath }
 	};
 
 	std::map<std::string, std::string*> folders = 
@@ -113,89 +118,99 @@ void Paths::loadCustomConfiguration()
 	std::map<std::string, std::string> ret;
 
 	std::string path = mEmulationStationPath + std::string("/") + SETTINGS_FILENAME;
-
-#if WIN32
 	if (!Utils::FileSystem::exists(path))
 		path = mUserEmulationStationPath + std::string("/") + SETTINGS_FILENAME;
 	if (!Utils::FileSystem::exists(path))
 		path = Utils::FileSystem::getParent(mUserEmulationStationPath) + std::string("/") + SETTINGS_FILENAME;
-#endif
 
 	if (!Utils::FileSystem::exists(path))
 		return;
 		
 	std::string relativeTo = Utils::FileSystem::getParent(path);
 
-#if WIN32
-	for (auto var : folders)
+	if (!overridesOnly)
 	{
-		std::string variable = var.first;
-
-		if (variable == "root")
+		for (auto var : folders)
 		{
-			ret[variable] = Utils::FileSystem::getParent(relativeTo);
-			continue;
-		}
+			std::string variable = var.first;
 
-		if (variable == "log")
-		{
-			ret[variable] = mUserEmulationStationPath;
-			continue;
-		}
+			if (variable == "root")
+			{
+				ret[variable] = Utils::FileSystem::getParent(relativeTo);
+				continue;
+			}
 
-		if (Utils::String::startsWith(variable, "system."))
-		{
-			auto name = Utils::FileSystem::getGenericPath(variable.substr(7));
-			
-			auto dir = Utils::FileSystem::getCanonicalPath(mUserEmulationStationPath + "/" + name);
-			if (Utils::FileSystem::isDirectory(dir))
-				ret[variable] = dir;
+			if (variable == "log")
+			{
+				ret[variable] = mUserEmulationStationPath;
+				continue;
+			}
+
+			if (variable == "kodi")
+			{
+				if (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe"))
+					ret[variable] = "C:\\Program Files\\Kodi\\kodi.exe";
+				else if (Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"))
+					ret[variable] = "C:\\Program Files (x86)\\Kodi\\kodi.exe";
+
+				continue;
+			}
+
+			if (Utils::String::startsWith(variable, "system."))
+			{
+				auto name = Utils::FileSystem::getGenericPath(variable.substr(7));
+
+				auto dir = Utils::FileSystem::getCanonicalPath(mUserEmulationStationPath + "/" + name);
+				if (Utils::FileSystem::isDirectory(dir))
+					ret[variable] = dir;
+				else
+				{
+					auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../system/" + name);
+					if (Utils::FileSystem::isDirectory(dir))
+						ret[variable] = dir;
+				}
+			}
 			else
 			{
-				auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../system/" + name);
+				auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../" + variable);
 				if (Utils::FileSystem::isDirectory(dir))
 					ret[variable] = dir;
 			}
 		}
-		else
+
+		for (auto var : files)
 		{
-			auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../" + variable);
-			if (Utils::FileSystem::isDirectory(dir))
-				ret[variable] = dir;
+			auto file = Utils::FileSystem::resolveRelativePath(var.first, relativeTo, true);
+			if (Utils::FileSystem::exists(file) && !Utils::FileSystem::isDirectory(file))
+				ret[var.first] = file;
 		}
 	}
-
-	for (auto var : files)
+	else
 	{
-		auto file = Utils::FileSystem::resolveRelativePath(var.first, relativeTo, true);
-		if (Utils::FileSystem::exists(file) && !Utils::FileSystem::isDirectory(file))
-			ret[var.first] = file;
-	}
-#endif
-
-	std::string line;
-	std::ifstream systemConf(path);
-	if (systemConf && systemConf.is_open())
-	{
-		while (std::getline(systemConf, line))
+		std::string line;
+		std::ifstream systemConf(path);
+		if (systemConf && systemConf.is_open())
 		{
-			int idx = line.find("=");
-			if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
-				continue;
-
-			std::string key = line.substr(0, idx);
-			std::string value = Utils::String::replace(line.substr(idx + 1), "\\", "/");
-			if (!key.empty() && !value.empty())
+			while (std::getline(systemConf, line))
 			{
-				auto dir = Utils::FileSystem::resolveRelativePath(value, relativeTo, true);
-				if (Utils::FileSystem::isDirectory(dir))
-					ret[key] = dir;
-			}
-		}
+				int idx = line.find("=");
+				if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
+					continue;
 
-		systemConf.close();
-	}	
-	
+				std::string key = line.substr(0, idx);
+				std::string value = Utils::String::replace(line.substr(idx + 1), "\\", "/");
+				if (!key.empty() && !value.empty())
+				{
+					auto dir = Utils::FileSystem::resolveRelativePath(value, relativeTo, true);
+					if (Utils::FileSystem::isDirectory(dir))
+						ret[key] = dir;
+				}
+			}
+
+			systemConf.close();
+		}
+	}
+
 	for (auto vv : folders)
 	{
 		auto it = ret.find(vv.first);
@@ -284,3 +299,19 @@ void Paths::setExePath(const std::string& _path)
 	exePath = Utils::FileSystem::getGenericPath(path);
 }
 
+std::string Paths::findEmulationStationFile(const std::string& fileName)
+{
+	std::string localVersionFile = Paths::getEmulationStationPath() + "/" + fileName;
+	if (Utils::FileSystem::exists(localVersionFile))
+		return localVersionFile;
+
+	localVersionFile = Paths::getUserEmulationStationPath() + "/" + fileName;
+	if (Utils::FileSystem::exists(localVersionFile))
+		return localVersionFile;
+
+	localVersionFile = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/" + fileName;
+	if (Utils::FileSystem::exists(localVersionFile))
+		return localVersionFile;
+
+	return std::string();
+}

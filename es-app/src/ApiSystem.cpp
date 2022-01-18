@@ -1,42 +1,34 @@
 #include "ApiSystem.h"
-#include <stdlib.h>
-#if !defined(WIN32)
-#include <sys/statvfs.h>
-#endif
-#include <sstream>
 #include "Settings.h"
-#include <iostream>
-#include <fstream>
 #include "Log.h"
 #include "HttpReq.h"
-#include <chrono>
-#include <thread>
-
 #include "AudioManager.h"
 #include "VolumeControl.h"
 #include "InputManager.h"
 #include "EmulationStation.h"
-#include <SystemConf.h>
+#include "SystemConf.h"
+#include "platform.h"
+#include "Sound.h"
+#include "utils/FileSystemUtil.h"
+#include "utils/StringUtil.h"
+#include "utils/ThreadPool.h"
+#include "RetroAchievements.h"
+#include "utils/ZipFile.h"
+#include "Paths.h"
 
+#include <stdlib.h>
+#include <sstream>
+#include <iostream>
+#include <fstream>
+#include <chrono>
+#include <thread>
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
 #include <algorithm>
-
-#if !defined(WIN32)
-#include <ifaddrs.h>
-#include <netinet/in.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <arpa/inet.h>
-#endif
-
-#include "utils/FileSystemUtil.h"
-#include "utils/StringUtil.h"
 #include <fstream>
 #include <SDL.h>
-#include <Sound.h>
-#include "utils/ThreadPool.h"
+#include <pugixml/src/pugixml.hpp>
 
 #if WIN32
 #include <Windows.h>
@@ -45,13 +37,41 @@
 #define WIFEXITED(x) x
 #define WEXITSTATUS(x) x
 #include "Win32ApiSystem.h"
+#else
+#include <sys/statvfs.h>
+#include <ifaddrs.h>
+#include <netinet/in.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <arpa/inet.h>
 #endif
 
-#include <pugixml/src/pugixml.hpp>
-#include "platform.h"
-#include "RetroAchievements.h"
-#include "utils/ZipFile.h"
-#include "Paths.h"
+/*
+#define script_config "batocera-config"; // canupdate, overscan enable, overscan disable, storage 'X', storage current, storage list, forgetBT, getRootPassword, lsoutputs
+#define script_overclock "batocera-overclock"; // list, set X
+#define script_upgrade "batocera-upgrade";
+#define script_sync "batocera-sync"; // sync
+#define script_install "batocera-install"; // listDisks, listArchs, install X Y
+#define script_scraper "batocera-scraper";
+#define script_kodi "batocera-kodi";
+#define script_wifi "batocera-wifi"; // scanlist, list, enable X Y, disable
+#define script_bluetooth "batocera-bluetooth"; // trust, list, remove 
+#define script_resolution "batocera-resolution"; // listModes
+#define script_sync "batocera-sync";   // list
+#define script_info "batocera-info"; // --full
+#define script_systems "batocera-systems"; // --filter
+#define script_suport "batocera-support";
+#define script_gameforce "batocera-gameforce"; // buttonColorLed X, powerLed X
+#define script_audio "batocera-audio"; // list, list-profiles, get-profile, set-profile 'X', get, set 'X'
+#define script_themes "batocera-es-theme"; // list, install X, remove X
+#define script_bezelproject "batocera-es-thebezelproject"; // list, install X, remove X
+#define script_format "batocera-format"; // listDisks, listFstypes
+#define script_store "batocera-store"; // list, update, refresh, clean-all, install "X", remove "X"
+#define script_preupdategamelists "batocera-preupdate-gamelists-hook";
+#define script_timezones "batocera-timezone"; // get, detect, set "X"
+#define script_padsinfos "batocera-padsinfo";
+#define script_swissknife "batocera-es-swissknife"; // --emukill"
+*/
 
 ApiSystem::ApiSystem() { }
 
@@ -133,11 +153,7 @@ std::string ApiSystem::getVersion()
 
 	std::string localVersionFile = Paths::getVersionInfoPath();	
 	if (!Utils::FileSystem::exists(localVersionFile))
-		localVersionFile = Paths::getEmulationStationPath() + "/version.info";
-	if (!Utils::FileSystem::exists(localVersionFile))
-		localVersionFile = Paths::getUserEmulationStationPath() + "/version.info";
-	if (!Utils::FileSystem::exists(localVersionFile))
-		localVersionFile = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/version.info";
+		localVersionFile = Paths::findEmulationStationFile("version.info");
 
 	if (Utils::FileSystem::exists(localVersionFile))
 	{
@@ -151,12 +167,7 @@ std::string ApiSystem::getVersion()
 
 std::string ApiSystem::getApplicationName()
 {
-	std::string localVersionFile = Paths::getEmulationStationPath() + "/about.info";
-	if (!Utils::FileSystem::exists(localVersionFile))
-		localVersionFile = Paths::getUserEmulationStationPath() + "/about.info";
-	if (!Utils::FileSystem::exists(localVersionFile))
-		localVersionFile = Utils::FileSystem::getParent(Paths::getUserEmulationStationPath()) + "/about.info";
-
+	std::string localVersionFile = Paths::findEmulationStationFile("about.info");
 	if (Utils::FileSystem::exists(localVersionFile))
 	{
 		std::string aboutInfo = Utils::FileSystem::readAllText(localVersionFile);
@@ -177,10 +188,10 @@ std::string ApiSystem::getApplicationName()
 		return aboutInfo;
 	}
 
-#if WIN32
-	return "EMULATIONSTATION";
-#else
+#if BATOCERA
 	return "BATOCERA";
+#else
+	return "EMULATIONSTATION";
 #endif
 }
 
@@ -1232,7 +1243,10 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::INSTALL:
 		executables.push_back("batocera-install");
-		break;		
+		break;	
+	case ApiSystem::SUPPORTFILE:
+		executables.push_back("batocera-support");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1518,13 +1532,7 @@ std::vector<std::string> ApiSystem::getShaderList(const std::string systemName)
 
 	std::vector<std::string> ret;
 
-	std::vector<std::string> folderList = 
-	{ 
-		Paths::getUserShadersPath(),
-		Paths::getShadersPath()
-	};
-
-	for (auto folder : folderList)
+	for (auto folder : { Paths::getUserShadersPath(), Paths::getShadersPath() })
 	{
 		for (auto file : Utils::FileSystem::getDirContent(folder, true))
 		{
@@ -1700,3 +1708,4 @@ bool ApiSystem::emuKill()
 
 	return executeScript("batocera-es-swissknife --emukill");
 }
+

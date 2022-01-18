@@ -141,7 +141,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	
 	if (isFullUI)
 	{
-#if !defined(WIN32) || defined(_DEBUG)
+#if BATOCERA
 		addEntry(_("GAME SETTINGS").c_str(), true, [this] { openGamesSettings(); }, "iconGames");
 		addEntry(controllers_settings_label.c_str(), true, [this] { openControllersSettings(); }, "iconControllers");
 		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
@@ -410,13 +410,15 @@ void GuiMenu::openDeveloperSettings()
 	s->addSwitch(_("SHOW FRAMERATE"), "DrawFramerate", true);
 	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
 
-#if !defined(WIN32) || defined(_DEBUG)
+#ifdef BATOCERA
 	// overscan
 	auto overscan_enabled = std::make_shared<SwitchComponent>(mWindow);
 	overscan_enabled->setState(Settings::getInstance()->getBool("Overscan"));
 	s->addWithLabel(_("OVERSCAN"), overscan_enabled);
-	s->addSaveFunc([overscan_enabled] {
-		if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) {
+	s->addSaveFunc([overscan_enabled] 
+	{
+		if (Settings::getInstance()->getBool("Overscan") != overscan_enabled->getState()) 
+		{
 			Settings::getInstance()->setBool("Overscan", overscan_enabled->getState());
 			ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
 		}
@@ -447,6 +449,7 @@ void GuiMenu::openDeveloperSettings()
 
 	s->addGroup(_("TOOLS"));	
 
+#ifndef WIN32
 	// GAME AT STARTUP
 	if (!SystemConf::getInstance()->get("global.bootgame.path").empty())
 	{		
@@ -461,6 +464,7 @@ void GuiMenu::openDeveloperSettings()
 			s->close();
 		});
 	}
+#endif
 
 	// WEB ACCESS
 	auto hostName = Utils::String::toLower(ApiSystem::getInstance()->getHostsName());
@@ -503,20 +507,22 @@ void GuiMenu::openDeveloperSettings()
 		}
 	});
 
-#if !defined(WIN32) || defined(_DEBUG)
-	// support
-	s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] {
-		window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE?"), _("YES"),
-			[window] {
-			if (ApiSystem::getInstance()->generateSupportFile()) {
-				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATED IN SAVES FOLDER"), _("OK")));
-			}
-			else {
-				window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATION FAILED"), _("OK")));
-			}
-		}, _("NO"), nullptr));
-	});
-#endif
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SUPPORTFILE))
+	{
+		// support
+		s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] 
+		{
+			window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE?"), _("YES"),
+				[window] 
+				{
+					if (ApiSystem::getInstance()->generateSupportFile())
+						window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATED IN SAVES FOLDER"), _("OK")));
+					else
+						window->pushGui(new GuiMsgBox(window, _("SUPPORT FILE CREATION FAILED"), _("OK")));				
+				}, 
+				_("NO"), nullptr));
+		});
+	}
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
 		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
@@ -695,23 +701,6 @@ void GuiMenu::openDeveloperSettings()
 		retroarchRgui->addRange({ { _("AUTO"), "" },{ "rgui", "rgui" },{ "xmb", "xmb" },{ "ozone", "ozone" },{ "glui", "glui" } }, SystemConf::getInstance()->get("global.retroarch.menu_driver"));
 		s->addWithLabel(_("RETROARCH MENU DRIVER"), retroarchRgui);
 		s->addSaveFunc([retroarchRgui] { SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getSelected()); });
-
-		/*
-		auto retroarchRgui = std::make_shared<SwitchComponent>(mWindow);
-		retroarchRgui->setState(SystemConf::getInstance()->get("global.retroarch.menu_driver") == "rgui");
-		s->addWithLabel(_("USE RETROARCH RGUI MENU"), retroarchRgui);
-		s->addSaveFunc([retroarchRgui]
-		{
-			SystemConf::getInstance()->set("global.retroarch.menu_driver", retroarchRgui->getState() ? "rgui" : "");
-		});
-		*/
-
-#if defined(WIN32)
-		auto autoControllers = std::make_shared<SwitchComponent>(mWindow);
-		autoControllers->setState(SystemConf::getInstance()->get("global.disableautocontrollers") != "1");
-		s->addWithLabel(_("AUTOCONFIGURE EMULATORS CONTROLLERS"), autoControllers);
-		s->addSaveFunc([autoControllers] { SystemConf::getInstance()->set("global.disableautocontrollers", autoControllers->getState() ? "" : "1"); });
-#endif
 	}
 
 	auto invertJoy = std::make_shared<SwitchComponent>(mWindow);
@@ -1058,7 +1047,7 @@ void GuiMenu::openSystemSettings()
 	}
 #endif
 
-#if !defined(WIN32) || defined(_DEBUG)
+#ifdef BATOCERA
 	s->addGroup(_("HARDWARE"));
 #endif
 
@@ -1076,6 +1065,7 @@ void GuiMenu::openSystemSettings()
 		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
 	}
 
+#ifdef BATOCERA
 	// video device
 	std::vector<std::string> availableVideo = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
 	if (availableVideo.size())
@@ -1106,6 +1096,7 @@ void GuiMenu::openSystemSettings()
 			}
 		});
 	}
+#endif
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::AUDIODEVICE))
 	{
@@ -1207,7 +1198,7 @@ void GuiMenu::openSystemSettings()
 		}
 	}
 
-#if !defined(WIN32) || defined(_DEBUG)
+#ifdef BATOCERA
 	// video rotation
 	auto optionsRotation = std::make_shared<OptionListComponent<std::string> >(mWindow, _("SCREEN ROTATION"), false);
 
@@ -1389,9 +1380,8 @@ void GuiMenu::openSystemSettings()
 		});
 	}
 
-#if !defined(WIN32) || defined(_DEBUG)
+#ifdef BATOCERA
 	s->addGroup(_("STORAGE"));
-#endif
 
 	// Storage device
 	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableStorageDevices();
@@ -1440,8 +1430,7 @@ void GuiMenu::openSystemSettings()
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::INSTALL))
 		s->addEntry(_("INSTALL ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
-
-#if !defined(WIN32) || defined(_DEBUG)
+	
 	s->addGroup(_("ADVANCED"));
 
 	// Security
@@ -1880,9 +1869,7 @@ void GuiMenu::openGamesSettings()
 		auto sets = GuiMenu::getDecorationsSets(ViewController::get()->getState().getSystem());
 		if (sets.size() > 0)
 		{
-#if defined(WIN32) || defined(_DEBUG)
-			addDecorationSetOptionListComponent(mWindow, s, sets);
-#else
+#ifdef BATOCERA
 			s->addEntry(_("DECORATIONS"), true, [this, sets]
 			{
 				GuiSettings *decorations_window = new GuiSettings(mWindow, _("DECORATIONS").c_str());
@@ -1948,6 +1935,8 @@ void GuiMenu::openGamesSettings()
 
 				mWindow->pushGui(decorations_window);
 			});			
+#else
+			addDecorationSetOptionListComponent(mWindow, s, sets);
 #endif
 		}
 	}
@@ -2028,6 +2017,14 @@ void GuiMenu::openGamesSettings()
 	// Load global custom features
 	addFeatures(CustomFeatures::GlobalFeatures, window, s, "global", _("DEFAULT GLOBAL SETTINGS"));
 	
+	if (!hasGlobalFeature("disableautocontrollers") && SystemData::sSystemVector.any([](auto sys) { return !sys->getCompatibleCoreNames(EmulatorFeatures::autocontrollers).empty(); }))
+	{
+		auto autoControllers = std::make_shared<SwitchComponent>(mWindow);
+		autoControllers->setState(SystemConf::getInstance()->get("global.disableautocontrollers") != "1");
+		s->addWithLabel(_("AUTOCONFIGURE CONTROLLERS"), autoControllers);
+		s->addSaveFunc([autoControllers] { SystemConf::getInstance()->set("global.disableautocontrollers", autoControllers->getState() ? "" : "1"); });
+	}
+
 	// Custom config for systems
 	s->addGroup(_("SAVESTATES"));
 
@@ -3626,9 +3623,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		auto sets = GuiMenu::getDecorationsSets(systemData);
 		if (sets.size() > 0)
 		{
-#if defined(WIN32) || defined(_DEBUG)
-			addDecorationSetOptionListComponent(mWindow, systemConfiguration, sets, configName);
-#else
+#ifdef BATOCERA
 			systemConfiguration->addEntry(_("DECORATIONS"), true, [mWindow, configName, systemData, sets]
 			{
 				GuiSettings* decorations_window = new GuiSettings(mWindow, _("DECORATIONS").c_str());
@@ -3687,6 +3682,8 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 				mWindow->pushGui(decorations_window);
 			});
+#else
+			addDecorationSetOptionListComponent(mWindow, systemConfiguration, sets, configName);
 #endif		
 		}
 	}	
@@ -3925,6 +3922,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			systemConfiguration->addEntry(_("CREATE PADTOKEY PROFILE"), true, [mWindow, systemData] { editKeyboardMappings(mWindow, systemData, true); });
 	}
 	
+#ifndef WIN32
 	// Set as boot game 
 	if (fileData != nullptr)
 	{
@@ -3942,6 +3940,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			}
 		});
 	}
+#endif
 
 	mWindow->pushGui(systemConfiguration);
 }

@@ -54,13 +54,16 @@ public:
 		
 	static std::string& getVersionInfoPath() { return getInstance()->mVersionInfoPath; }
 	static std::string& getUserManualPath() { return getInstance()->mUserManualPath; }
-	
 
+	static std::string& getKodiPath() { return getInstance()->mKodiPath; }
+	
 	static std::string& getHomePath();
 	static void setHomePath(const std::string& _path);
 
 	static std::string& getExePath();
 	static void setExePath(const std::string& _path);
+
+	static std::string findEmulationStationFile(const std::string& fileName);
 
 private:
 	static Paths* getInstance() 
@@ -73,7 +76,7 @@ private:
 
 	static Paths* _instance;
 
-	void loadCustomConfiguration();
+	void loadCustomConfiguration(bool overridesOnly);
 
 	std::string mRootPath;
 	std::string mSystemConfFilePath;
@@ -99,5 +102,5 @@ private:
 
 	std::string mUserManualPath;
 	std::string mVersionInfoPath;
-
+	std::string mKodiPath;	
 };

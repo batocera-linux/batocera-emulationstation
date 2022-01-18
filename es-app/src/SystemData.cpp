@@ -1463,13 +1463,13 @@ std::string SystemData::getCompatibleCoreNames(EmulatorFeatures::Features featur
 
 	for (auto emul : mEmulators)
 	{
-		if ((emul.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+		if ((emul.features & feature) == feature)
 			ret += ret.empty() ? emul.name : ", " + emul.name;
 		else
 		{
 			for (auto core : emul.cores)
 			{
-				if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+				if ((core.features & feature) == feature)
 				{
 					std::string name = emul.name == core.name ? core.name : emul.name + "/" + core.name;
 					ret += ret.empty() ? name : ", " + name;

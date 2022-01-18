@@ -47,9 +47,13 @@ std::vector<std::string> ResourceManager::getResourcePaths() const
 	// check in homepath
 	paths.push_back(Paths::getUserEmulationStationPath() + "/resources");
 	
-	// check in exepath
+	// check in emulationStation path
 	paths.push_back(Paths::getEmulationStationPath() + "/resources");
 		
+	// check in Exe path
+	if (Paths::getEmulationStationPath() != Paths::getExePath())
+		paths.push_back(Paths::getExePath() + "/resources");
+
 	// check in cwd
 	auto cwd = Utils::FileSystem::getCWDPath() + "/resources";	
 	if (std::find(paths.cbegin(), paths.cend(), cwd) == paths.cend())

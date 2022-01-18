@@ -536,11 +536,6 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-#if WIN32
-	// Run boot game, after Window Create for Windows, or wnd won't be activated when returning back
-	launchStartupGame();
-#endif
-
 	bool splashScreen = Settings::getInstance()->getBool("SplashScreen");
 	bool splashScreenProgress = Settings::getInstance()->getBool("SplashScreenProgress");
 
