@@ -990,7 +990,7 @@ msgid "INVALID PARAMETERS"
 msgstr "VALORES NO VÁLIDOS"
 
 msgid "GAME MEDIA"
-msgstr "MEDIOS GRÁFICOS DEL JUEGO"
+msgstr "MEDIOS Y COMPLEMENTOS DEL JUEGO"
 
 msgid "VIEW GAME MANUAL"
 msgstr "VER MANUAL DEL JUEGO"
@@ -1127,7 +1127,7 @@ msgid "START NEW GAME"
 msgstr "NUEVA PARTIDA"
 
 msgid "START NEW AUTO SAVE"
-msgstr "COMENZAR NUEVO AUTOGUARDADO"
+msgstr "NUEVO AUTOGUARDADO"
 
 msgid "AUTO SAVE"
 msgstr "AUTOGUARDADO"
@@ -1344,7 +1344,7 @@ msgstr "Característica del procesador"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "NÍTIDO-BILINEAL-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -1820,13 +1820,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "FRAMES ANTICIPADOS"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "Unos números altos pueden dar lugar a temblores visibles."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "USAR SEGUNDA INSTANCIA PARA ANTICIPAR"
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "Puede prevenir los cortes de audio al presionar botones."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "RETRASO AUTOMÁTICO DE FRAMES"
@@ -1838,16 +1838,20 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
+"Disminuir el retraso de frames temporalmente para evitar caídas de frames. "
+"Se pueden sufrir tirones."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "FRECUENCIA DE ACTUALIZACIÓN VARIABLE (G-SYNC, FREESYNC)"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "FRECUENCIA DE ACTUALIZACIÓN VARIABLE"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
+"No desviarse de la frecuencia solicitada por el núcleo. G-Sync, FreeSync, "
+"HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "SET DE DECORACIONES"
@@ -2223,7 +2227,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "APAGAR RÁPIDAMENTE"
 
 msgid "Shutdown without saving metadata."
-msgstr "Apagar sin guardar metadatos."
+msgstr "Apaga el sistema sin guardar metadatos."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
@@ -2653,7 +2657,7 @@ msgid "ALT GR"
 msgstr "ALT GR"
 
 msgid "SHIFT"
-msgstr "SHIFT"
+msgstr "MAYÚSCULAS"
 
 msgid "SPACE"
 msgstr "ESPACIO"

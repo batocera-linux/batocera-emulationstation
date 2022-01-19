@@ -1345,7 +1345,7 @@ msgstr "Funkcje procesora"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -1822,13 +1822,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "KLATKI Z WYPRZEDZENIEM"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "Duże liczby mogą powodować widoczne drgania."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "UŻYJ DRUGIEJ INSTANCJI DLA KLATEK Z WYPRZEDZENIEM"
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "Może zapobiegać przeskakiwaniu dźwięku po naciśnięciu przycisku."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
@@ -1839,17 +1839,19 @@ msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
-msgstr ""
+msgstr "Automatycznie zmniejsza tymczasowe opóźnienie klatek, aby zapobiec "
+"spadkowi liczby klatek. Może wprowadzać przycinanie się dźwięku/wideo."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA (G-SYNC, FREESYNC)"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
+"Nie odbiegaj od żądanego czasu. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "ZESTAW DEKORACJI"
