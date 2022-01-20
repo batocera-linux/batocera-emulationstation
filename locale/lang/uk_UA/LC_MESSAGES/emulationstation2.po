@@ -14,237 +14,8 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 2.3\n"
 
-msgid "all games"
-msgstr "всі ігри"
-
-msgid "last played"
-msgstr "недавно грали"
-
-msgid "favorites"
-msgstr "вибране"
-
-msgid "2 players"
-msgstr "2 гравці"
-
-msgid "4 players"
-msgstr "4 гравці"
-
-msgid "never played"
-msgstr "не запускалась"
-
-msgid "retroachievements"
-msgstr ""
-
-msgid "arcade"
-msgstr "аркада"
-
-msgid "vertical arcade"
-msgstr ""
-
-msgid "lightgun games"
-msgstr ""
-
-msgid "collections"
-msgstr "колекції"
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "'%s' додано в '%s'"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "'%s' видалено з '%s'"
-
-msgid "This collection is empty."
-msgstr "Колекція порожня"
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "Ні"
-
-msgid "Various"
-msgstr "Різні"
-
-#, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-msgid "DOWNLOADING"
-msgstr "ЗАВАНТАЖЕННЯ"
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "ТЕМУ УСПІШНО ВСТАНОВЛЕНО"
-
-msgid "AN ERROR OCCURED"
-msgstr "ВІДБУЛАСЬ ПОМИЛКА"
-
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "ТЕМУ ВИДАЛЕНО"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "РАМКИ УСПІШНО ВСТАНОВЛЕНІ"
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "ОБГОРТКИ ВИДАЛЕНО"
-
-msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "ПАКЕТИ ВСТАНОВЛЕНО"
-
-msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "ПАКЕТИ ВИДАЛЕНО"
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
-
-msgid "INVALID CONFIGURATION"
-msgstr ""
-
-msgid "UNKNOWN EMULATOR"
-msgstr ""
-
-msgid "EMULATOR IS MISSING"
-msgstr ""
-
-msgid "CORE IS MISSING"
-msgstr ""
-
-msgid "UKNOWN ERROR"
-msgstr ""
-
-msgid "OK"
-msgstr "ОК"
-
-msgid "FAVORITES"
-msgstr "ВИБРАНЕ"
-
-msgid "GENRE"
-msgstr "ЖАНР"
-
-msgid "FAMILY"
-msgstr ""
-
-msgid "PLAYERS"
-msgstr "ГРАВЦІ"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr ""
-
-msgid "RATING"
-msgstr "РЕЙТИНГ"
-
-msgid "YEAR"
-msgstr "РІК"
-
-msgid "LANGUAGE"
-msgstr "МОВА"
-
-msgid "REGION"
-msgstr "РЕГІОН"
-
-msgid "KIDGAME"
-msgstr ""
-
-msgid "ALREADY PLAYED"
-msgstr ""
-
-msgid "HAS ACHIEVEMENTS"
-msgstr ""
-
-msgid "VERTICAL"
-msgstr ""
-
-msgid "FILENAME, ASCENDING"
-msgstr "НАЗВА ФАЙЛУ, ЗА ЗРОСТАННЯМ"
-
-msgid "FILENAME, DESCENDING"
-msgstr "НАЗВА ФАЙЛУ, ЗА СПАДАННЯМ"
-
-msgid "RATING, ASCENDING"
-msgstr "РЕЙТИНГ, ЗА ЗРОСТАННЯМ"
-
-msgid "RATING, DESCENDING"
-msgstr "РЕЙТИНГ, ЗА СПАДАННЯМ"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "ЗІГРАНО РАЗ, ЗА ЗРОСТАННЯМ"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "ЗІГРАНО РАЗ, ЗА СПАДАННЯМ"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "НЕДАВНО ГРАЛИ, ЗА ЗРОСТАННЯМ"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "НЕДАВНО ГРАЛИ, ЗА СПАДАННЯМ"
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "КІЛЬКІСТЬ ГРАВЦІВ, ЗА ЗРОСТАННЯМ"
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "КІЛЬКІСТЬ ГРАВЦІВ, ЗА СПАДАННЯМ"
-
-msgid "RELEASE DATE, ASCENDING"
-msgstr "ДАТА ВИХОДУ, ЗА ЗРОСТАННЯМ"
-
-msgid "RELEASE DATE, DESCENDING"
-msgstr "ДАТА ВИХОДУ, ЗА СПАДАННЯМ"
-
-msgid "GENRE, ASCENDING"
-msgstr "ЖАНР, ЗА ЗРОСТАННЯМ"
-
-msgid "GENRE, DESCENDING"
-msgstr "ЖАНР, ЗА СПАДАННЯМ"
-
-msgid "DEVELOPER, ASCENDING"
-msgstr "РОЗРОБНИК, ЗА ЗРОСТАННЯМ"
-
-msgid "DEVELOPER, DESCENDING"
-msgstr "ВИХОДУ, ЗА СПАДАННЯМ"
-
-msgid "PUBLISHER, ASCENDING"
-msgstr "ВИДАВЕЦЬ, ЗА ЗРОСТАННЯМ"
-
-msgid "PUBLISHER, DESCENDING"
-msgstr "ВИДАЛЕЦЬ, ЗА СПАДАННЯМ"
-
-msgid "SYSTEM, ASCENDING"
-msgstr "СИСТЕМИ, ЗА ЗРОСТАННЯМ"
-
-msgid "SYSTEM, DESCENDING"
-msgstr "СИСТЕМИ, ЗА СПАДАННЯМ"
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr "ДАТА СТВОРЕННЯ ФАЙЛУ, ЗА ЗРОСТАННЯМ"
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr "ДАТА СТВОРЕННЯ ФАЙЛУ, ЗА СПАДАННЯМ"
-
-msgid "GAME TIME, ASCENDING"
-msgstr ""
-
-msgid "GAME TIME, DESCENDING"
-msgstr ""
-
-msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
-
-msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
-
-msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
-
-msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
-
-msgid "A,AN,THE"
-msgstr ""
+msgid "UPDATE AVAILABLE"
+msgstr "ДОСТУПНЕ ОНОВЛЕННЯ"
 
 msgid "Name"
 msgstr "Назва"
@@ -486,19 +257,63 @@ msgstr ""
 msgid "Screenscraper Game ID"
 msgstr ""
 
-msgid "UPDATE AVAILABLE"
-msgstr "ДОСТУПНЕ ОНОВЛЕННЯ"
+msgid "all games"
+msgstr "всі ігри"
 
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+msgid "last played"
+msgstr "недавно грали"
+
+msgid "favorites"
+msgstr "вибране"
+
+msgid "2 players"
+msgstr "2 гравці"
+
+msgid "4 players"
+msgstr "4 гравці"
+
+msgid "never played"
+msgstr "не запускалась"
+
+msgid "retroachievements"
 msgstr ""
 
-msgid "Collections"
+msgid "arcade"
+msgstr "аркада"
+
+msgid "vertical arcade"
 msgstr ""
 
-msgid "Unknown"
-msgstr "Невідомо"
+msgid "lightgun games"
+msgstr ""
+
+msgid "collections"
+msgstr "колекції"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "'%s' додано в '%s'"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "'%s' видалено з '%s'"
+
+msgid "This collection is empty."
+msgstr "Колекція порожня"
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Ні"
+
+msgid "Various"
+msgstr "Різні"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНУВАННЯ"
@@ -521,20 +336,109 @@ msgstr "ПОТРІБНО ПЕРЕЗАВАНТАЖИТИ СИСТЕМУ ДЛЯ З
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr ""
 
-msgid "SEARCHING RETROACHIEVEMENTS"
+msgid "DOWNLOADING"
+msgstr "ЗАВАНТАЖЕННЯ"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "ТЕМУ УСПІШНО ВСТАНОВЛЕНО"
+
+msgid "AN ERROR OCCURED"
+msgstr "ВІДБУЛАСЬ ПОМИЛКА"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "ТЕМУ ВИДАЛЕНО"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "РАМКИ УСПІШНО ВСТАНОВЛЕНІ"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "ОБГОРТКИ ВИДАЛЕНО"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "ПАКЕТИ ВСТАНОВЛЕНО"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "ПАКЕТИ ВИДАЛЕНО"
+
+msgid "RETROACHIEVEMENT SETTINGS"
 msgstr ""
 
-msgid "SEARCHING NETPLAY GAMES"
+msgid "SETTINGS"
+msgstr "НАЛАШТУВАННЯ"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "РЕТРОДОСЯГНЕННЯ"
+
+msgid "HARDCORE MODE"
+msgstr "ХАРДКОР РЕЖИМ"
+
+msgid "LEADERBOARDS"
+msgstr "ДОШКА ЛІДЕРІВ"
+
+msgid "VERBOSE MODE"
+msgstr "ДОКЛАДНИЙ РЕЖИМ"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
+
+msgid "CHALLENGE INDICATORS"
 msgstr ""
 
-msgid "INDEXING COMPLETED"
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
 msgstr ""
 
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "ХЕШУВАННЯ ЗАПУЩЕНО. ХОЧЕТЕ ЗУПИНИТИ?"
+msgid "none"
+msgstr "нічого"
+
+msgid "UNLOCK SOUND"
+msgstr ""
+
+msgid "USERNAME"
+msgstr "ІМ'Я КОРИСТУВАЧА"
+
+msgid "PASSWORD"
+msgstr "ПАРОЛЬ"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr ""
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "FILTER GAMELIST BY"
+msgstr "ФІЛЬТР СПИСКУ ІГР ПО"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "ЗМІНИТИ ФІЛЬТРИ ДИНАМ. КОЛЕКЦІЇ"
+
+msgid "RESET ALL FILTERS"
+msgstr "СКИНУТИ ВСІ ФІЛЬТРИ"
+
+msgid "BACK"
+msgstr "НАЗАД"
+
+msgid "FIND GAMES"
+msgstr "ЗНАЙТИ ІГРИ"
+
+msgid "Unknown"
+msgstr "Невідомо"
 
 msgid "YES"
 msgstr "ТАК"
@@ -542,133 +446,8 @@ msgstr "ТАК"
 msgid "NO"
 msgstr "НІ"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "НЕМАЄ ПІДХОДЯЩИХ ІГР."
-
-msgid "Extracting"
-msgstr ""
-
-msgid "CANCEL"
-msgstr "ВІДМІНА"
-
-msgid "CHOOSE"
-msgstr "ВИБЕРІТЬ"
-
-msgid "Searching"
-msgstr "Пошук"
-
-msgid "Released"
-msgstr "Вихід"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "ІГРИ НЕ ЗНАЙДЕНО — ПРОПУСТИТИ"
-
-msgid "RETRY"
-msgstr "ПОВТОРИТИ"
-
-msgid "SKIP"
-msgstr "ПРОПУСТИТИ"
-
-msgid "Downloading"
-msgstr ""
-
-msgid "SEARCH FOR"
-msgstr ""
-
-msgid "ACCEPT RESULT"
-msgstr "ПРИЙНЯТИ РЕЗУЛЬТАТ"
-
-msgid "FINISHED"
-msgstr "ЗАВЕРШЕНО"
-
-msgid "BACKUP USER DATA"
-msgstr "РЕЗЕРВНА КОПІЯ"
-
-msgid "TARGET DEVICE"
-msgstr "ЦІЛЬОВИЙ ПРИСТРІЙ"
-
-msgid "NO DEVICE FOUND"
-msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"
-
-msgid "START"
-msgstr "ПОЧАТИ"
-
-msgid "BACK"
-msgstr "НАЗАД"
-
-msgid "CLOSE"
-msgstr "ЗАКРИТИ"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "ЗАВАНТАЖЕННЯ КОНТЕНТУ"
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "SEARCH"
-msgstr "ПОШУК"
-
-msgid "REFRESH"
-msgstr "ОНОВИТИ"
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "ОНОВИТИ ВСТАНОВЛЕНИЙ КОНТЕНТ"
-
-msgid "No items"
-msgstr "Тут немає елементів"
-
-msgid "MISC"
-msgstr "РІЗНЕ"
-
-msgid "PLEASE WAIT"
-msgstr "ЗАЧЕКАЙТЕ"
-
-msgid "UPDATE"
-msgstr "ОНОВИТИ"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' ДОДАНО В ЧЕРГУ ЗАВАНТАЖЕННЯ"
-
-msgid "REMOVE"
-msgstr "ВИДАЛИТИ"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr "ВСТАНОВИТИ"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "В ЧЕРЗІ ЗАВАНТАЖЕННЯ"
-
-msgid "THE BEZEL PROJECT"
-msgstr "НАБІР РАМОК (ОВЕРЛЕЇВ)"
-
-msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "NO MISSING BIOS FILES"
-msgstr ""
-
-msgid "MISSING BIOS CHECK"
-msgstr "ВІДСУТНІ БІОСИ"
-
-msgid "NO MISSING BIOS"
-msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
-
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
-
-msgid "REMOVE ALL"
-msgstr "ВИДАЛИТИ ВСЕ"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "НЕ ЗНАЙДЕНО BLUETOOTH КОНТРОЛЛЕРІВ"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgid "SYSTEMS"
+msgstr "СИСТЕМИ"
 
 msgid "GAME COLLECTION SETTINGS"
 msgstr "НАЛАШТУВАННЯ КОЛЕКЦІЇ ІГОР"
@@ -772,183 +551,63 @@ msgstr "ДИНАМІЧНІ КОЛЕКЦІЇ"
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "КОЛЕКЦІЇ ІГР"
 
-msgid "FILE BROWSER"
+msgid "PLEASE WAIT"
+msgstr "ЗАЧЕКАЙТЕ"
+
+#, c-format
+msgid "%d%% (%d of %d)"
 msgstr ""
-
-msgid "RESET"
-msgstr "СКИДАННЯ"
-
-msgid "PARENT FOLDER"
-msgstr ""
-
-msgid "SCREENSHOTS FOLDER"
-msgstr ""
-
-msgid "SELECT"
-msgstr "ВИБІР"
 
 msgid "Points"
 msgstr ""
 
-msgid "Unlocked on"
+msgid "Rank"
+msgstr ""
+
+msgid "VIEW DETAILS"
 msgstr ""
 
 msgid "LAUNCH"
 msgstr "ЗАПУСК"
 
-msgid "go back"
-msgstr "назад"
+msgid "NETPLAY SETTINGS"
+msgstr "НАЛАШТУВАННЯ NETPLAY"
 
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgid "ENABLE NETPLAY"
+msgstr "УВІМКНУТИ NETPLAY"
+
+msgid "NICKNAME"
+msgstr "НІК"
+
+msgid "PORT"
+msgstr "ПОРТ"
+
+msgid "USE RELAY SERVER"
 msgstr ""
 
-msgid "Achievements won"
+msgid "NEW YORK"
 msgstr ""
 
-#, c-format
-msgid "%d%% complete"
+msgid "MADRID"
 msgstr ""
 
-msgid "GAME MEDIA"
+msgid "MONTREAL"
 msgstr ""
 
-msgid "VIEW GAME MANUAL"
-msgstr "ПЕРЕГЛЯД МАНУАЛУ ГРИ"
-
-msgid "VIEW GAME MAGAZINE"
+msgid "SAO PAULO"
 msgstr ""
 
-msgid "VIEW GAME MAP"
-msgstr "ПЕРЕГЛЯД КАРТИ ГРИ"
-
-msgid "VIEW FULLSCREEN VIDEO"
+msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
-msgid "VIEW GAME MEDIA"
-msgstr ""
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
-
-msgid "COMPATIBLE CORE(S)"
-msgstr ""
-
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr ""
-
-msgid "GAME"
-msgstr ""
-
-msgid "SAVE STATES"
-msgstr ""
-
-msgid "OPEN"
-msgstr ""
-
-msgid "START A NETPLAY GAME"
-msgstr ""
-
-msgid "NETPLAY"
-msgstr ""
-
-msgid "START GAME"
-msgstr ""
-
-msgid "HOST A NETPLAY GAME"
-msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "ВИ НЕ ПІДЄДНАННІ ДО ІНТЕРНЕТУ"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "ЗНАЙТИ СХОЖІ ІГРИ..."
-
-msgid "DELETE ITEM"
-msgstr ""
-
-msgid "DELETE GAME"
-msgstr ""
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"ВИДАЛЕННЯ ФАЙЛІВ ГРИ!\n"
-"ВИ ВПЕВНЕНІ?"
-
-msgid "COLLECTIONS"
-msgstr "КОЛЕКЦІЇ"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr ""
-
-#, c-format
-msgid "ADD TO %s"
-msgstr ""
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr ""
-
-msgid "DELETE COLLECTION"
-msgstr "ВИДАЛИТИ КОЛЕКЦІЮ"
-
-msgid "SCRAPE"
-msgstr "ЗАВАНТАЖИТИ ДАННІ"
-
-msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ ГРИ"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "РЕДАГУВАТИ МЕТАДАННІ ПАПКИ"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "РЕДАГУВАТИ МЕТАДАННІ"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "ПЕРЕГЛЯНУТИ ІНФОРМАЦІЮ ПРО КЕРУВАННЯ"
-
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr ""
-
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "ВИ ВПЕВНЕНІ ЩО ХОЧЕТЕ ЦЕ ВИДАЛИТИ?"
-
-msgid "INPUT"
-msgstr "ВВІД"
-
-msgid "FILTER GAMELIST BY"
-msgstr "ФІЛЬТР СПИСКУ ІГР ПО"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "ЗМІНИТИ ФІЛЬТРИ ДИНАМ. КОЛЕКЦІЇ"
-
-msgid "RESET ALL FILTERS"
-msgstr "СКИНУТИ ВСІ ФІЛЬТРИ"
-
-msgid "FIND GAMES"
-msgstr "ЗНАЙТИ ІГРИ"
-
-msgid "SYSTEMS"
-msgstr "СИСТЕМИ"
+msgid "FINISHED"
+msgstr "ЗАВЕРШЕНО"
 
 msgid "VIEW OPTIONS"
 msgstr "ОПЦІЇ ПЕРЕГЛЯДУ"
+
+msgid "go back"
+msgstr "назад"
 
 msgid "NAVIGATION"
 msgstr "НАВІГАЦІЯ"
@@ -968,6 +627,9 @@ msgstr "ІНШІ ФІЛЬТРИ"
 msgid "COLLECTION"
 msgstr "КОЛЕКЦІЯ"
 
+msgid "DELETE COLLECTION"
+msgstr "ВИДАЛИТИ КОЛЕКЦІЮ"
+
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ІГР"
 
@@ -977,8 +639,8 @@ msgstr "автоматично"
 msgid "VIEW CUSTOMIZATION"
 msgstr ""
 
-msgid "VIEW CONTROLLER MAP"
-msgstr ""
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "ПЕРЕГЛЯНУТИ ІНФОРМАЦІЮ ПРО КЕРУВАННЯ"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
@@ -988,6 +650,149 @@ msgstr "СКИНУТИ ФІЛЬТРИ"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "ПОШУК"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr ""
+
+msgid "CLOSE"
+msgstr "ЗАКРИТИ"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "ВИ ВПЕВНЕНІ ЩО ХОЧЕТЕ ЦЕ ВИДАЛИТИ?"
+
+msgid "INPUT"
+msgstr "ВВІД"
+
+msgid "SEARCH"
+msgstr "ПОШУК"
+
+msgid "CANCEL"
+msgstr "ВІДМІНА"
+
+msgid "CONNECT TO NETPLAY"
+msgstr "ПІД'ЄДНАТИСЬ ДО NETPLAY"
+
+msgid "Select a game lobby to join"
+msgstr ""
+
+msgid "REFRESH"
+msgstr "ОНОВИТИ"
+
+msgid "FAILED"
+msgstr "ПОМИЛКА"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "НЕВІДОМА ВЕРСІЯ ГРИ"
+
+msgid "DIFFERENT ROM"
+msgstr "ІНША ВЕРСІЯ ГРИ"
+
+msgid "SAME ROM"
+msgstr "ТА Ж САМА ГРА"
+
+msgid "UNAVAILABLE CORE"
+msgstr "НЕДОСТУПНЕ ЯДРО"
+
+msgid "AVAILABLE GAMES"
+msgstr "ДОСТУПНІ ІГРИ"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "НЕДОСТУПНІ ІГРИ"
+
+msgid "NO GAMES FOUND"
+msgstr ""
+
+msgid "JOIN GAME"
+msgstr "ПРИЄДНАТИСЬ ДО ГРИ"
+
+msgid "WATCH GAME"
+msgstr "ПОДИВИТИСЬ ГРУ"
+
+msgid "INPUT MANUALLY"
+msgstr ""
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "МЕРЕЖА WIFI НЕ ЗНАЙДЕНА"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "ПОШУК МЕРЕЖІ WIFI"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "ВИ НЕ ПІДЄДНАННІ ДО ІНТЕРНЕТУ"
+
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "ВИДАЛИТИ ВСЕ"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "НЕ ЗНАЙДЕНО BLUETOOTH КОНТРОЛЛЕРІВ"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+msgid "FILE BROWSER"
+msgstr ""
+
+msgid "RESET"
+msgstr "СКИДАННЯ"
+
+msgid "PARENT FOLDER"
+msgstr ""
+
+msgid "SCREENSHOTS FOLDER"
+msgstr ""
+
+msgid "SELECT"
+msgstr "ВИБІР"
+
+msgid "ADD COMBINATION KEY"
+msgstr "ДОДАТИ КОМБІНАЦІЇ КНОПОК"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "ЗАВАНТАЖЕННЯ КОНТЕНТУ"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr ""
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "ОНОВИТИ ВСТАНОВЛЕНИЙ КОНТЕНТ"
+
+msgid "No items"
+msgstr "Тут немає елементів"
+
+msgid "MISC"
+msgstr "РІЗНЕ"
+
+msgid "UPDATE"
+msgstr "ОНОВИТИ"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' ДОДАНО В ЧЕРГУ ЗАВАНТАЖЕННЯ"
+
+msgid "REMOVE"
+msgstr "ВИДАЛИТИ"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr "ВСТАНОВИТИ"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "В ЧЕРЗІ ЗАВАНТАЖЕННЯ"
+
+msgid "NO MISSING BIOS FILES"
+msgstr ""
+
+msgid "MISSING BIOS CHECK"
+msgstr "ВІДСУТНІ БІОСИ"
+
+msgid "NO MISSING BIOS"
+msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
 
 msgid "dim"
 msgstr ""
@@ -1010,9 +815,6 @@ msgstr "початок та кінець"
 msgid "never"
 msgstr "ніколи"
 
-msgid "none"
-msgstr "нічого"
-
 msgid "systems"
 msgstr "системи"
 
@@ -1021,9 +823,6 @@ msgstr "випадково"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "НАЛАШТУВАННЯ ЗАСТАВКИ"
-
-msgid "SETTINGS"
-msgstr "НАЛАШТУВАННЯ"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "ЗАСТАВКА ЧЕРЕЗ"
@@ -1094,48 +893,6 @@ msgstr ""
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr ""
 
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "GAMES TO INDEX"
-msgstr ""
-
-msgid "ALL"
-msgstr ""
-
-msgid "ONLY MISSING"
-msgstr ""
-
-msgid "SYSTEMS INCLUDED"
-msgstr ""
-
-msgid "ZOOM OUT"
-msgstr ""
-
-msgid "ZOOM IN"
-msgstr ""
-
-msgid "MOVE"
-msgstr ""
-
-msgid "ZOOM"
-msgstr ""
-
-msgid "INSTALL BATOCERA"
-msgstr "ВСТАНОВИТИ BATOCERA"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "ЦІЛЬОВА АРХІТЕКТУРА"
-
-msgid "ARE YOU SURE?"
-msgstr "ВИ ВПЕВНЕНІ?"
-
-msgid "NETWORK REQUIRED"
-msgstr "ПОТРІБНА МЕРЕЖА"
-
-msgid "INVALID PARAMETERS"
-msgstr "НЕ ВІРНІ ПАРАМЕТРИ"
-
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr ""
 
@@ -1184,8 +941,356 @@ msgstr "ВИДАЛИТИ ПРИЗНАЧЕНІ КНОПКИ"
 msgid "SAVE CHANGES?"
 msgstr "ЗБЕРЕГТИ ЗМІНИ?"
 
-msgid "ADD COMBINATION KEY"
-msgstr "ДОДАТИ КОМБІНАЦІЇ КНОПОК"
+msgid "ARE YOU SURE?"
+msgstr "ВИ ВПЕВНЕНІ?"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr ""
+
+msgid "UPDATING BATOCERA"
+msgstr "ОНОВЛЕННЯ BATOCERA"
+
+msgid "UPDATE IS READY"
+msgstr "ОНОВЛЕННЯ ГОТОВЕ"
+
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgstr "ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМИ ДЛЯ ЗАСТОСУВАННЯ"
+
+msgid "REALLY UPDATE?"
+msgstr "ДІЙСНО ОНОВИТИ?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "НЕОБХІДНО МЕРЕЖЕВЕ З'ЄДНАННЯ"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "НЕМАЄ ОНОВЛЕНЬ"
+
+msgid "INSTALL BATOCERA"
+msgstr "ВСТАНОВИТИ BATOCERA"
+
+msgid "TARGET DEVICE"
+msgstr "ЦІЛЬОВИЙ ПРИСТРІЙ"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "ЦІЛЬОВА АРХІТЕКТУРА"
+
+msgid "NETWORK REQUIRED"
+msgstr "ПОТРІБНА МЕРЕЖА"
+
+msgid "INVALID PARAMETERS"
+msgstr "НЕ ВІРНІ ПАРАМЕТРИ"
+
+msgid "GAME MEDIA"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr "ПЕРЕГЛЯД МАНУАЛУ ГРИ"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr ""
+
+msgid "VIEW GAME MAP"
+msgstr "ПЕРЕГЛЯД КАРТИ ГРИ"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIA"
+msgstr ""
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr ""
+
+msgid "COMPATIBLE CORE(S)"
+msgstr ""
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr ""
+
+msgid "SAVE STATES"
+msgstr ""
+
+msgid "OPEN"
+msgstr ""
+
+msgid "START A NETPLAY GAME"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr ""
+
+msgid "START GAME"
+msgstr ""
+
+msgid "HOST A NETPLAY GAME"
+msgstr ""
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "ЗНАЙТИ СХОЖІ ІГРИ..."
+
+msgid "DELETE ITEM"
+msgstr ""
+
+msgid "DELETE GAME"
+msgstr ""
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ВИДАЛЕННЯ ФАЙЛІВ ГРИ!\n"
+"ВИ ВПЕВНЕНІ?"
+
+msgid "COLLECTIONS"
+msgstr "КОЛЕКЦІЇ"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr ""
+
+#, c-format
+msgid "ADD TO %s"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr "ВИБРАНЕ"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr ""
+
+msgid "SCRAPE"
+msgstr "ЗАВАНТАЖИТИ ДАННІ"
+
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ ГРИ"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "РЕДАГУВАТИ МЕТАДАННІ ПАПКИ"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "РЕДАГУВАТИ МЕТАДАННІ"
+
+msgid "THEMES DOWNLOADER"
+msgstr "ЗАВАНТАЖУВАЧ ТЕМ"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr "ПОТОЧНА ТЕМА"
+
+msgid "Unlocked on"
+msgstr ""
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr ""
+
+msgid "Achievements won"
+msgstr ""
+
+#, c-format
+msgid "%d%% complete"
+msgstr ""
+
+msgid "SAVE STATE MANAGER"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr ""
+
+msgid "START NEW AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr ""
+
+msgid "SLOT"
+msgstr ""
+
+msgid "COPY TO FREE SLOT"
+msgstr ""
+
+msgid "SCRAPER SETTINGS"
+msgstr ""
+
+msgid "IMAGE SOURCE"
+msgstr "СТИЛЬ ЗОБРАЖЕННЯ"
+
+msgid "SCREENSHOT"
+msgstr "СКРІНШОТ"
+
+msgid "TITLE SCREENSHOT"
+msgstr "СКРІНШОТ ГОЛОВНОГО МЕНЮ"
+
+msgid "MIX V1"
+msgstr ""
+
+msgid "MIX V2"
+msgstr ""
+
+msgid "BOX 2D"
+msgstr "ОБЛОЖКИ 2D"
+
+msgid "BOX 3D"
+msgstr "ОБЛОЖКИ 3D"
+
+msgid "FAN ART"
+msgstr "ФАН АРТ"
+
+msgid "BOX SOURCE"
+msgstr "СТИЛЬ ОБЛОЖКИ"
+
+msgid "LOGO SOURCE"
+msgstr "СТИЛЬ ЛОГО"
+
+msgid "WHEEL"
+msgstr "КОЛЕСО"
+
+msgid "MARQUEE"
+msgstr "БАНЕР"
+
+msgid "SCRAPE RATINGS"
+msgstr "ЗАВАНТАЖЕННЯ РЕЙТИНГІВ"
+
+msgid "SCRAPE VIDEOS"
+msgstr "ЗАВАНТАЖЕННЯ ВІДЕО"
+
+msgid "SCRAPE FANART"
+msgstr "ЗАВАНТАЖИТИ ФАН АРТ"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr ""
+
+msgid "SCRAPE MAP"
+msgstr ""
+
+msgid "SCRAPE MANUAL"
+msgstr "ЗАВАНТАЖИТИ МАНУАЛ"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "SCRAPER"
+msgstr "СКРАПЕР"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SOURCE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "ЗАВАНТАЖЕННЯ З"
+
+msgid "FILTERS"
+msgstr ""
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
+
+msgid "ALL"
+msgstr ""
+
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "ЗАВАНТАЖИТИ ДАНІ"
+
+msgid "START"
+msgstr "ПОЧАТИ"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "ДАНІ ЗАВАНТАЖУЮТСЯ. ЗУПИНИТИ?"
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "НЕМАЄ ПІДХОДЯЩИХ ІГР."
+
+msgid "INFORMATION"
+msgstr "ІНФОРМАЦІЯ"
+
+msgid "VERSION"
+msgstr "ВЕРСІЯ"
+
+msgid "USER DISK USAGE"
+msgstr "ЗЯЙНЯТИЙ ПРОСТІР КОРИСТУВАЧА"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "ЗАЙНЯТИЙ ПРОСТІР ДИСКУ"
+
+msgid "SYSTEM"
+msgstr "СИСТЕМА"
+
+msgid "VIDEO DRIVER"
+msgstr ""
+
+msgid "THE BEZEL PROJECT"
+msgstr "НАБІР РАМОК (ОВЕРЛЕЇВ)"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "затухання"
@@ -1270,9 +1375,6 @@ msgstr ""
 msgid "RENDERER"
 msgstr ""
 
-msgid "VERSION"
-msgstr "ВЕРСІЯ"
-
 msgid "SHADERS"
 msgstr ""
 
@@ -1287,9 +1389,6 @@ msgstr "ГОЛОВНЕ МЕНЮ"
 
 msgid "KODI MEDIA CENTER"
 msgstr "МЕДІАЦЕНТР KODI"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "РЕТРОДОСЯГНЕННЯ"
 
 msgid "GAME SETTINGS"
 msgstr ""
@@ -1309,17 +1408,11 @@ msgstr "НАЛАШТУВАННЯ ВВОДУ"
 msgid "EMULATOR SETTINGS"
 msgstr "НАЛАШТУВАННЯ ЕМУЛЯТОРА"
 
-msgid "SCRAPER"
-msgstr "СКРАПЕР"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "ОНОВЛЕННЯ & ЗАВАНТАЖЕННЯ"
 
 msgid "SYSTEM SETTINGS"
 msgstr "НАЛАШТУВАННЯ СИСТЕМИ"
-
-msgid "INFORMATION"
-msgstr "ІНФОРМАЦІЯ"
 
 msgid "UNLOCK UI MODE"
 msgstr ""
@@ -1329,6 +1422,9 @@ msgstr "ВИХІД"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
+
+msgid "CHOOSE"
+msgstr "ВИБЕРІТЬ"
 
 msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr ""
@@ -1531,8 +1627,8 @@ msgstr "ПОЧАТИ ОНОВЛЕННЯ"
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr ""
 
-msgid "SYSTEM"
-msgstr "СИСТЕМА"
+msgid "LANGUAGE"
+msgstr "МОВА"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
@@ -1627,12 +1723,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "НАЛАШТУВАННЯ NETPLAY"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr ""
 
@@ -1689,6 +1779,9 @@ msgstr "МІСЦЕ ЗБЕРЕЖЕННЯ"
 
 msgid "STORAGE DEVICE"
 msgstr "ПРИСТРІЙ ЗБЕРІГАННЯ"
+
+msgid "BACKUP USER DATA"
+msgstr "РЕЗЕРВНА КОПІЯ"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "ВСТАНОВЛЕННЯ BATOCERA НА НОВИЙ ДИСК"
@@ -1857,6 +1950,9 @@ msgstr "ДОДАТКОВІ НАЛАШТУВАННЯ СИСТЕМИ"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "ХЕШУВАННЯ ЗАПУЩЕНО. ХОЧЕТЕ ЗУПИНИТИ?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
@@ -2184,327 +2280,25 @@ msgid ""
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 
-msgid "CONNECT TO NETPLAY"
-msgstr "ПІД'ЄДНАТИСЬ ДО NETPLAY"
+msgid "NO DEVICE FOUND"
+msgstr "ПРИСТРІЙ НЕ ЗНАЙДЕНО"
 
-msgid "Select a game lobby to join"
+msgid "ZOOM OUT"
 msgstr ""
 
-msgid "FAILED"
-msgstr "ПОМИЛКА"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "НЕВІДОМА ВЕРСІЯ ГРИ"
-
-msgid "DIFFERENT ROM"
-msgstr "ІНША ВЕРСІЯ ГРИ"
-
-msgid "SAME ROM"
-msgstr "ТА Ж САМА ГРА"
-
-msgid "UNAVAILABLE CORE"
-msgstr "НЕДОСТУПНЕ ЯДРО"
-
-msgid "AVAILABLE GAMES"
-msgstr "ДОСТУПНІ ІГРИ"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "НЕДОСТУПНІ ІГРИ"
-
-msgid "NO GAMES FOUND"
+msgid "ZOOM IN"
 msgstr ""
 
-msgid "JOIN GAME"
-msgstr "ПРИЄДНАТИСЬ ДО ГРИ"
-
-msgid "WATCH GAME"
-msgstr "ПОДИВИТИСЬ ГРУ"
-
-msgid "ENABLE NETPLAY"
-msgstr "УВІМКНУТИ NETPLAY"
-
-msgid "NICKNAME"
-msgstr "НІК"
-
-msgid "PORT"
-msgstr "ПОРТ"
-
-msgid "USE RELAY SERVER"
+msgid "MOVE"
 msgstr ""
 
-msgid "NEW YORK"
+msgid "ZOOM"
 msgstr ""
 
-msgid "MADRID"
+msgid "GAMES TO INDEX"
 msgstr ""
 
-msgid "MONTREAL"
-msgstr ""
-
-msgid "SAO PAULO"
-msgstr ""
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr ""
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr ""
-
-msgid "Rank"
-msgstr ""
-
-msgid "VIEW DETAILS"
-msgstr ""
-
-msgid "HARDCORE MODE"
-msgstr "ХАРДКОР РЕЖИМ"
-
-msgid "LEADERBOARDS"
-msgstr "ДОШКА ЛІДЕРІВ"
-
-msgid "VERBOSE MODE"
-msgstr "ДОКЛАДНИЙ РЕЖИМ"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr ""
-
-msgid "USERNAME"
-msgstr "ІМ'Я КОРИСТУВАЧА"
-
-msgid "PASSWORD"
-msgstr "ПАРОЛЬ"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "SAVE STATE MANAGER"
-msgstr ""
-
-msgid "START NEW GAME"
-msgstr ""
-
-msgid "START NEW AUTO SAVE"
-msgstr ""
-
-msgid "AUTO SAVE"
-msgstr ""
-
-msgid "SLOT"
-msgstr ""
-
-msgid "COPY TO FREE SLOT"
-msgstr ""
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "СТИЛЬ ЗОБРАЖЕННЯ"
-
-msgid "SCREENSHOT"
-msgstr "СКРІНШОТ"
-
-msgid "TITLE SCREENSHOT"
-msgstr "СКРІНШОТ ГОЛОВНОГО МЕНЮ"
-
-msgid "MIX V1"
-msgstr ""
-
-msgid "MIX V2"
-msgstr ""
-
-msgid "BOX 2D"
-msgstr "ОБЛОЖКИ 2D"
-
-msgid "BOX 3D"
-msgstr "ОБЛОЖКИ 3D"
-
-msgid "FAN ART"
-msgstr "ФАН АРТ"
-
-msgid "BOX SOURCE"
-msgstr "СТИЛЬ ОБЛОЖКИ"
-
-msgid "LOGO SOURCE"
-msgstr "СТИЛЬ ЛОГО"
-
-msgid "WHEEL"
-msgstr "КОЛЕСО"
-
-msgid "MARQUEE"
-msgstr "БАНЕР"
-
-msgid "SCRAPE RATINGS"
-msgstr "ЗАВАНТАЖЕННЯ РЕЙТИНГІВ"
-
-msgid "SCRAPE VIDEOS"
-msgstr "ЗАВАНТАЖЕННЯ ВІДЕО"
-
-msgid "SCRAPE FANART"
-msgstr "ЗАВАНТАЖИТИ ФАН АРТ"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr ""
-
-msgid "SCRAPE MAP"
-msgstr ""
-
-msgid "SCRAPE MANUAL"
-msgstr "ЗАВАНТАЖИТИ МАНУАЛ"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr ""
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "SOURCE"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "ЗАВАНТАЖЕННЯ З"
-
-msgid "FILTERS"
-msgstr ""
-
-msgid "GAMES TO SCRAPE FOR"
-msgstr ""
-
-msgid "GAMES MISSING MEDIAS"
-msgstr ""
-
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
-
-msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
-
-msgid "LAST DAY"
-msgstr ""
-
-msgid "LAST WEEK"
-msgstr ""
-
-msgid "LAST 15 DAYS"
-msgstr ""
-
-msgid "LAST MONTH"
-msgstr ""
-
-msgid "LAST 3 MONTHS"
-msgstr ""
-
-msgid "LAST YEAR"
-msgstr ""
-
-msgid "SCRAPE NOW"
-msgstr "ЗАВАНТАЖИТИ ДАНІ"
-
-msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE FOR DIFFERENT SYSTEMS!\n"
-"CONTINUE ANYWAY?"
-msgstr ""
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "ДАНІ ЗАВАНТАЖУЮТСЯ. ЗУПИНИТИ?"
-
-msgid "USER DISK USAGE"
-msgstr "ЗЯЙНЯТИЙ ПРОСТІР КОРИСТУВАЧА"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "ЗАЙНЯТИЙ ПРОСТІР ДИСКУ"
-
-msgid "VIDEO DRIVER"
-msgstr ""
-
-msgid "THEMES DOWNLOADER"
-msgstr "ЗАВАНТАЖУВАЧ ТЕМ"
-
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "ПОТОЧНА ТЕМА"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr ""
-
-msgid "UPDATING BATOCERA"
-msgstr "ОНОВЛЕННЯ BATOCERA"
-
-msgid "UPDATE IS READY"
-msgstr "ОНОВЛЕННЯ ГОТОВЕ"
-
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМИ ДЛЯ ЗАСТОСУВАННЯ"
-
-msgid "REALLY UPDATE?"
-msgstr "ДІЙСНО ОНОВИТИ?"
-
-#, c-format
-msgid ""
-"YOU ARE CURRENTLY USING VERSION %s\n"
-"DO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr ""
-
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "НЕОБХІДНО МЕРЕЖЕВЕ З'ЄДНАННЯ"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "НЕМАЄ ОНОВЛЕНЬ"
-
-msgid "INPUT MANUALLY"
-msgstr ""
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "МЕРЕЖА WIFI НЕ ЗНАЙДЕНА"
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "ПОШУК МЕРЕЖІ WIFI"
-
-msgid "Loading system config..."
-msgstr "Завантаження системних налаштувань..."
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
-
-msgid "SCRAPING"
-msgstr "SCRAPING"
-
-msgid "SCRAPE FAILED"
-msgstr ""
-
-msgid "SCRAPING FINISHED"
+msgid "ONLY MISSING"
 msgstr ""
 
 msgid "SYSTEM INFO"
@@ -2558,15 +2352,6 @@ msgstr "ВИПАДКОВО"
 msgid "FILES"
 msgstr "ФАЙЛИ"
 
-msgid "Full"
-msgstr ""
-
-msgid "Kiosk"
-msgstr ""
-
-msgid "Kid"
-msgstr ""
-
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
 "FORMAT.\n"
@@ -2591,8 +2376,17 @@ msgstr ""
 msgid "MENU"
 msgstr "МЕНЮ"
 
-msgid "No Entries Found"
-msgstr "Записів не знайдено"
+msgid "Full"
+msgstr ""
+
+msgid "Kiosk"
+msgstr ""
+
+msgid "Kid"
+msgstr ""
+
+msgid "Released"
+msgstr "Вихід"
 
 msgid "Times played"
 msgstr "Зіграно раз"
@@ -2604,6 +2398,9 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
+msgid "No Entries Found"
+msgstr "Записів не знайдено"
+
 msgid "Games similar to"
 msgstr ""
 
@@ -2611,6 +2408,206 @@ msgid "GAME OPTIONS"
 msgstr "ОПЦІЇ ГРИ"
 
 msgid "FAVORITE"
+msgstr ""
+
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+
+msgid "Searching"
+msgstr "Пошук"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "ІГРИ НЕ ЗНАЙДЕНО — ПРОПУСТИТИ"
+
+msgid "RETRY"
+msgstr "ПОВТОРИТИ"
+
+msgid "SKIP"
+msgstr "ПРОПУСТИТИ"
+
+msgid "Downloading"
+msgstr ""
+
+msgid "SEARCH FOR"
+msgstr ""
+
+msgid "ACCEPT RESULT"
+msgstr "ПРИЙНЯТИ РЕЗУЛЬТАТ"
+
+msgid "Loading system config..."
+msgstr "Завантаження системних налаштувань..."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
+
+msgid "Collections"
+msgstr ""
+
+msgid "FILENAME, ASCENDING"
+msgstr "НАЗВА ФАЙЛУ, ЗА ЗРОСТАННЯМ"
+
+msgid "FILENAME, DESCENDING"
+msgstr "НАЗВА ФАЙЛУ, ЗА СПАДАННЯМ"
+
+msgid "RATING, ASCENDING"
+msgstr "РЕЙТИНГ, ЗА ЗРОСТАННЯМ"
+
+msgid "RATING, DESCENDING"
+msgstr "РЕЙТИНГ, ЗА СПАДАННЯМ"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "ЗІГРАНО РАЗ, ЗА ЗРОСТАННЯМ"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "ЗІГРАНО РАЗ, ЗА СПАДАННЯМ"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "НЕДАВНО ГРАЛИ, ЗА ЗРОСТАННЯМ"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "НЕДАВНО ГРАЛИ, ЗА СПАДАННЯМ"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "КІЛЬКІСТЬ ГРАВЦІВ, ЗА ЗРОСТАННЯМ"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "КІЛЬКІСТЬ ГРАВЦІВ, ЗА СПАДАННЯМ"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "ДАТА ВИХОДУ, ЗА ЗРОСТАННЯМ"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "ДАТА ВИХОДУ, ЗА СПАДАННЯМ"
+
+msgid "GENRE, ASCENDING"
+msgstr "ЖАНР, ЗА ЗРОСТАННЯМ"
+
+msgid "GENRE, DESCENDING"
+msgstr "ЖАНР, ЗА СПАДАННЯМ"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "РОЗРОБНИК, ЗА ЗРОСТАННЯМ"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "ВИХОДУ, ЗА СПАДАННЯМ"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "ВИДАВЕЦЬ, ЗА ЗРОСТАННЯМ"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "ВИДАЛЕЦЬ, ЗА СПАДАННЯМ"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "СИСТЕМИ, ЗА ЗРОСТАННЯМ"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "СИСТЕМИ, ЗА СПАДАННЯМ"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "ДАТА СТВОРЕННЯ ФАЙЛУ, ЗА ЗРОСТАННЯМ"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "ДАТА СТВОРЕННЯ ФАЙЛУ, ЗА СПАДАННЯМ"
+
+msgid "GAME TIME, ASCENDING"
+msgstr ""
+
+msgid "GAME TIME, DESCENDING"
+msgstr ""
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr ""
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr ""
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr ""
+
+msgid "A,AN,THE"
+msgstr ""
+
+msgid "Extracting"
+msgstr ""
+
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr ""
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr ""
+
+msgid "INDEXING COMPLETED"
+msgstr ""
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
+
+msgid "GENRE"
+msgstr "ЖАНР"
+
+msgid "FAMILY"
+msgstr ""
+
+msgid "PLAYERS"
+msgstr "ГРАВЦІ"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr "РЕЙТИНГ"
+
+msgid "YEAR"
+msgstr "РІК"
+
+msgid "REGION"
+msgstr "РЕГІОН"
+
+msgid "KIDGAME"
+msgstr ""
+
+msgid "ALREADY PLAYED"
+msgstr ""
+
+msgid "HAS ACHIEVEMENTS"
+msgstr ""
+
+msgid "VERTICAL"
+msgstr ""
+
+msgid "SCRAPING"
+msgstr "SCRAPING"
+
+msgid "SCRAPE FAILED"
+msgstr ""
+
+msgid "SCRAPING FINISHED"
 msgstr ""
 
 #, c-format
@@ -2621,95 +2618,17 @@ msgstr ""
 msgid "%s disconnected"
 msgstr ""
 
-msgid "SCREEN READER ENABLED"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT ДЛЯ РЕЄСТРУ ТА СИМВОЛІВ"
+
+msgid "ALT GR"
 msgstr ""
 
-msgid "SCREEN READER DISABLED"
-msgstr ""
+msgid "SHIFT"
+msgstr "SHIFT"
 
-msgid "WORKING..."
-msgstr "ОБРОБКА..."
-
-msgid "ENABLED"
-msgstr ""
-
-msgid "up/down"
-msgstr "вгору/вниз"
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-msgid "accept"
-msgstr "прийняти"
-
-msgid "SELECT ALL"
-msgstr "ВИБРАТИ ВСЕ"
-
-msgid "select all"
-msgstr "вибрати все"
-
-msgid "SELECT NONE"
-msgstr "ЗНЯТИ ВИБІР"
-
-msgid "select none"
-msgstr "зняти вибір"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i ОБРАНА"
-msgstr[1] "%i ОБРАНО"
-msgstr[2] "%i ОБРАНО"
-
-msgid "CHANGE"
-msgstr "ЗМІНИТИ"
-
-msgid "MOVE CURSOR"
-msgstr "ПЕРЕСУНУТИ КУРСОР"
-
-msgid "EDIT"
-msgstr "РЕДАГУВАТИ"
-
-msgid "WELCOME"
-msgstr "ЛАСКАВО ПРОСИМО"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "ВИЗНАЧЕНО %i КОНТРОЛЕР"
-msgstr[1] "ВИЗНАЧЕНО %i КОНТРОЛЕРА"
-msgstr[2] "ВИЗНАЧЕНО %i КОНТРОЛЕРІВ"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "КОНТРОЛЕРИ НЕ ЗНАЙДЕНІ"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "УТРИМУЙТЕ КНОПКУ НА ПРИСТРОЇ ДЛЯ НАЛАШТУВАННЯ."
+msgid "SPACE"
+msgstr "ПРОБІЛ"
 
 msgctxt "joystick"
 msgid "UP"
@@ -2814,20 +2733,92 @@ msgstr "НАТИСНІТЬ БУДЬ-ЯКУ КНОПКУ"
 msgid "ALREADY TAKEN"
 msgstr "ВЖЕ ЗАЙНЯТО"
 
+msgid "WELCOME"
+msgstr "ЛАСКАВО ПРОСИМО"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "ВИЗНАЧЕНО %i КОНТРОЛЕР"
+msgstr[1] "ВИЗНАЧЕНО %i КОНТРОЛЕРА"
+msgstr[2] "ВИЗНАЧЕНО %i КОНТРОЛЕРІВ"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "КОНТРОЛЕРИ НЕ ЗНАЙДЕНІ"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "УТРИМУЙТЕ КНОПКУ НА ПРИСТРОЇ ДЛЯ НАЛАШТУВАННЯ."
+
 msgid "DISCARD CHANGES"
 msgstr "ВІДМІНІТЬ ЗНІНИ"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT ДЛЯ РЕЄСТРУ ТА СИМВОЛІВ"
+msgid "up/down"
+msgstr "вгору/вниз"
 
-msgid "ALT GR"
+msgid "accept"
+msgstr "прийняти"
+
+msgid "SELECT ALL"
+msgstr "ВИБРАТИ ВСЕ"
+
+msgid "select all"
+msgstr "вибрати все"
+
+msgid "SELECT NONE"
+msgstr "ЗНЯТИ ВИБІР"
+
+msgid "select none"
+msgstr "зняти вибір"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i ОБРАНА"
+msgstr[1] "%i ОБРАНО"
+msgstr[2] "%i ОБРАНО"
+
+msgid "CHANGE"
+msgstr "ЗМІНИТИ"
+
+msgid "MOVE CURSOR"
+msgstr "ПЕРЕСУНУТИ КУРСОР"
+
+msgid "EDIT"
+msgstr "РЕДАГУВАТИ"
+
+msgid "ENABLED"
 msgstr ""
 
-msgid "SHIFT"
-msgstr "SHIFT"
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "SPACE"
-msgstr "ПРОБІЛ"
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "WORKING..."
+msgstr "ОБРОБКА..."
 
 #, c-format
 msgid "%d h"
@@ -2839,6 +2830,12 @@ msgstr ""
 
 #, c-format
 msgid "%d s"
+msgstr ""
+
+msgid "SCREEN READER ENABLED"
+msgstr ""
+
+msgid "SCREEN READER DISABLED"
 msgstr ""
 
 #~ msgid "USE RUN-AHEAD FRAMES"

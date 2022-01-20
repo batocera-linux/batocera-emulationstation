@@ -13,235 +13,8 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "all games"
-msgstr "모든 게임"
-
-msgid "last played"
-msgstr "최근 실행"
-
-msgid "favorites"
-msgstr "즐겨찾기"
-
-msgid "2 players"
-msgstr "2인 플레이"
-
-msgid "4 players"
-msgstr "4인 플레이"
-
-msgid "never played"
-msgstr "미실행 게임"
-
-msgid "retroachievements"
-msgstr "레트로 도전과제"
-
-msgid "arcade"
-msgstr "아케이드"
-
-msgid "vertical arcade"
-msgstr "세로 아케이드"
-
-msgid "lightgun games"
-msgstr "라이트건 게임"
-
-msgid "collections"
-msgstr "컬렉션"
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "'%s'를 '%s'에 추가함"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "'%s'에서 '%s'를 제거함"
-
-msgid "This collection is empty."
-msgstr "현재 컬렉션은 비어 있습니다."
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "없음"
-
-msgid "Various"
-msgstr "다수"
-
-#, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] ""
-
-msgid "DOWNLOADING"
-msgstr "다운로드 중"
-
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "테마가 성공적으로 설치됨"
-
-msgid "AN ERROR OCCURED"
-msgstr "오류가 발생되었습니다"
-
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "테마가 성공적으로 제거됨"
-
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "베젤이 성공적으로 설치됨"
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "베젤이 성공적으로 제거됨"
-
-msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "패키지가 성공적으로 설치됨"
-
-msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "패키지가 성공적으로 제거됨"
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
-
-msgid "INVALID CONFIGURATION"
-msgstr ""
-
-msgid "UNKNOWN EMULATOR"
-msgstr ""
-
-msgid "EMULATOR IS MISSING"
-msgstr ""
-
-msgid "CORE IS MISSING"
-msgstr ""
-
-msgid "UKNOWN ERROR"
-msgstr ""
-
-msgid "OK"
-msgstr "확인"
-
-msgid "FAVORITES"
-msgstr "즐겨찾기"
-
-msgid "GENRE"
-msgstr "장르"
-
-msgid "FAMILY"
-msgstr "패밀리"
-
-msgid "PLAYERS"
-msgstr "플레이어수"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr ""
-
-msgid "RATING"
-msgstr "평점"
-
-msgid "YEAR"
-msgstr "년도"
-
-msgid "LANGUAGE"
-msgstr "언어"
-
-msgid "REGION"
-msgstr "지역"
-
-msgid "KIDGAME"
-msgstr "아동용게임"
-
-msgid "ALREADY PLAYED"
-msgstr "이미 실행함"
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "도전과제 있음"
-
-msgid "VERTICAL"
-msgstr "세로"
-
-msgid "FILENAME, ASCENDING"
-msgstr "파일명, 오름차순"
-
-msgid "FILENAME, DESCENDING"
-msgstr "파일명, 내림차순"
-
-msgid "RATING, ASCENDING"
-msgstr "평점, 높은순"
-
-msgid "RATING, DESCENDING"
-msgstr "평점, 낮은순"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "플레이 시간, 높은순"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "플레이 시간, 낮은순"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "최근 플레이, 높은순"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "최근 플레이, 낮은순"
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "플레이어 수, 높은순"
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "플레이어 수, 낮은순"
-
-msgid "RELEASE DATE, ASCENDING"
-msgstr "발매일, 오름차순"
-
-msgid "RELEASE DATE, DESCENDING"
-msgstr "발매일, 내림차순"
-
-msgid "GENRE, ASCENDING"
-msgstr "장르, 오름차순"
-
-msgid "GENRE, DESCENDING"
-msgstr "장르, 내림차순"
-
-msgid "DEVELOPER, ASCENDING"
-msgstr "개발사, 오름차순"
-
-msgid "DEVELOPER, DESCENDING"
-msgstr "개발사, 내림차순"
-
-msgid "PUBLISHER, ASCENDING"
-msgstr "퍼블리셔, 오름차순"
-
-msgid "PUBLISHER, DESCENDING"
-msgstr "퍼블리셔, 내림차순"
-
-msgid "SYSTEM, ASCENDING"
-msgstr "시스템, 오름차순"
-
-msgid "SYSTEM, DESCENDING"
-msgstr "시스템, 내림차순"
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr "파일 생성일, 오름차순"
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr "파일 생성일, 내림차순"
-
-msgid "GAME TIME, ASCENDING"
-msgstr "게임 시간, 오름차순"
-
-msgid "GAME TIME, DESCENDING"
-msgstr "게임 시간, 내림차순"
-
-msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr "시스템, 출시일, 오름차순"
-
-msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr "시스템, 출시일, 내림차순"
-
-msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr "출시일, 시스템, 오름차순"
-
-msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr "출시일, 시스템, 내림차순"
-
-msgid "A,AN,THE"
-msgstr ""
+msgid "UPDATE AVAILABLE"
+msgstr "업데이트 이용가능"
 
 msgid "Name"
 msgstr "이름"
@@ -483,20 +256,61 @@ msgstr "Cheevos 게임 아이디"
 msgid "Screenscraper Game ID"
 msgstr "스크린스크래퍼 게임 아이디"
 
-msgid "UPDATE AVAILABLE"
-msgstr "업데이트 이용가능"
+msgid "all games"
+msgstr "모든 게임"
 
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
-msgstr ""
-"유효한 계정이 필요합니다. https://retroachievements.org에서 계정을 등록하세요"
+msgid "last played"
+msgstr "최근 실행"
 
-msgid "Collections"
+msgid "favorites"
+msgstr "즐겨찾기"
+
+msgid "2 players"
+msgstr "2인 플레이"
+
+msgid "4 players"
+msgstr "4인 플레이"
+
+msgid "never played"
+msgstr "미실행 게임"
+
+msgid "retroachievements"
+msgstr "레트로 도전과제"
+
+msgid "arcade"
+msgstr "아케이드"
+
+msgid "vertical arcade"
+msgstr "세로 아케이드"
+
+msgid "lightgun games"
+msgstr "라이트건 게임"
+
+msgid "collections"
 msgstr "컬렉션"
 
-msgid "Unknown"
-msgstr "알 수 없음"
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "'%s'를 '%s'에 추가함"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "'%s'에서 '%s'를 제거함"
+
+msgid "This collection is empty."
+msgstr "현재 컬렉션은 비어 있습니다."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "없음"
+
+msgid "Various"
+msgstr "다수"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] ""
 
 msgid "SCANNING BLUETOOTH"
 msgstr "블루투스 검색"
@@ -519,20 +333,109 @@ msgstr "작업을 완료하려면 시스템 재시작이 필요합니다"
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr ""
 
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "레트로 도전과제 검색 중"
+msgid "DOWNLOADING"
+msgstr "다운로드 중"
 
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "넷플레이 검색 중"
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "테마가 성공적으로 설치됨"
 
-msgid "INDEXING COMPLETED"
-msgstr "인덱싱 완료"
+msgid "AN ERROR OCCURED"
+msgstr "오류가 발생되었습니다"
 
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "테마가 성공적으로 제거됨"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "베젤이 성공적으로 설치됨"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "베젤이 성공적으로 제거됨"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "패키지가 성공적으로 설치됨"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "패키지가 성공적으로 제거됨"
+
+msgid "RETROACHIEVEMENT SETTINGS"
 msgstr ""
 
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "게임 해시 구성이 실행 중입니다. 중지 하시겠습니까?"
+msgid "SETTINGS"
+msgstr "설정"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "레트로 도전과제"
+
+msgid "HARDCORE MODE"
+msgstr "하드코어 모드"
+
+msgid "LEADERBOARDS"
+msgstr "순위표"
+
+msgid "VERBOSE MODE"
+msgstr "상세 모드"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "자동 스크린샷"
+
+msgid "CHALLENGE INDICATORS"
+msgstr ""
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr ""
+
+msgid "none"
+msgstr "없음"
+
+msgid "UNLOCK SOUND"
+msgstr "해제 사운드"
+
+msgid "USERNAME"
+msgstr "사용자명"
+
+msgid "PASSWORD"
+msgstr "비밀번호"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "게임 색인"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr ""
+
+msgid "INDEX GAMES"
+msgstr ""
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "OK"
+msgstr "확인"
+
+msgid "FILTER GAMELIST BY"
+msgstr "게임 목록 필터 :"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "다이나믹 컬렉션 필터 편집"
+
+msgid "RESET ALL FILTERS"
+msgstr "모든 필터 초기화"
+
+msgid "BACK"
+msgstr "뒤로"
+
+msgid "FIND GAMES"
+msgstr "게임 찾기"
+
+msgid "Unknown"
+msgstr "알 수 없음"
 
 msgid "YES"
 msgstr "예"
@@ -540,133 +443,8 @@ msgstr "예"
 msgid "NO"
 msgstr "아니요"
 
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "조건에 맞는 게임이 없습니다."
-
-msgid "Extracting"
-msgstr "추출 중"
-
-msgid "CANCEL"
-msgstr "취소"
-
-msgid "CHOOSE"
-msgstr "이동"
-
-msgid "Searching"
-msgstr "검색 중"
-
-msgid "Released"
-msgstr "발매일"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "발견된 게임 없음 - 건너뛰기"
-
-msgid "RETRY"
-msgstr "재시도"
-
-msgid "SKIP"
-msgstr "건너뛰기"
-
-msgid "Downloading"
-msgstr "다운로드 중"
-
-msgid "SEARCH FOR"
-msgstr ""
-
-msgid "ACCEPT RESULT"
-msgstr "결과 동의"
-
-msgid "FINISHED"
-msgstr "완료되었습니다"
-
-msgid "BACKUP USER DATA"
-msgstr "사용자 데이터 백업"
-
-msgid "TARGET DEVICE"
-msgstr "대상 장치"
-
-msgid "NO DEVICE FOUND"
-msgstr "발견된 장치 없음"
-
-msgid "START"
-msgstr "시작"
-
-msgid "BACK"
-msgstr "뒤로"
-
-msgid "CLOSE"
-msgstr "닫기"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "컨텐츠 다운로더"
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "SEARCH"
-msgstr "검색"
-
-msgid "REFRESH"
-msgstr "새로고침"
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "설치된 컨텐츠 업데이트"
-
-msgid "No items"
-msgstr "현재 보기에 항목이 없습니다"
-
-msgid "MISC"
-msgstr "기타"
-
-msgid "PLEASE WAIT"
-msgstr "잠시만 기다려주세요"
-
-msgid "UPDATE"
-msgstr "업데이트"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "다운로드 대기열에 '%s'가 추가됨"
-
-msgid "REMOVE"
-msgstr "제거"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr ""
-
-msgid "INSTALL"
-msgstr "설치"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "현재 다운로드 대기열"
-
-msgid "THE BEZEL PROJECT"
-msgstr "베젤 프로젝트"
-
-msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "NO MISSING BIOS FILES"
-msgstr ""
-
-msgid "MISSING BIOS CHECK"
-msgstr "누락 바이오스"
-
-msgid "NO MISSING BIOS"
-msgstr "바이오스가 모두 구성됨"
-
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "블루투스 장치 제거"
-
-msgid "REMOVE ALL"
-msgstr "모두 제거"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "발견된 블루투스 장치가 없습니다"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "블루투스 장치가 삭제되었습니다."
+msgid "SYSTEMS"
+msgstr "시스템"
 
 msgid "GAME COLLECTION SETTINGS"
 msgstr "게임 컬렉션 설정"
@@ -770,183 +548,63 @@ msgstr "다이나믹 컬렉션"
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "커스텀 게임 컬렉션"
 
-msgid "FILE BROWSER"
-msgstr "파일 탐색기"
+msgid "PLEASE WAIT"
+msgstr "잠시만 기다려주세요"
 
-msgid "RESET"
-msgstr "초기화"
-
-msgid "PARENT FOLDER"
-msgstr "부모 폴더"
-
-msgid "SCREENSHOTS FOLDER"
-msgstr "스크린샷 폴더"
-
-msgid "SELECT"
-msgstr "선택"
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d of %d)"
 
 msgid "Points"
 msgstr "포인트"
 
-msgid "Unlocked on"
-msgstr "잠금 해제"
+msgid "Rank"
+msgstr "랭크"
+
+msgid "VIEW DETAILS"
+msgstr "세부정보 보기"
 
 msgid "LAUNCH"
 msgstr "실행"
 
-msgid "go back"
-msgstr "돌아가기"
+msgid "NETPLAY SETTINGS"
+msgstr "넷플레이 설정"
 
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "현재 게임은 도전과제가 아직 없습니다"
+msgid "ENABLE NETPLAY"
+msgstr "넷플레이 허용"
 
-msgid "Achievements won"
-msgstr "획득한 도전과제"
+msgid "NICKNAME"
+msgstr "닉네임"
 
-#, c-format
-msgid "%d%% complete"
-msgstr "%d%% 완료"
+msgid "PORT"
+msgstr "포트"
 
-msgid "GAME MEDIA"
+msgid "USE RELAY SERVER"
+msgstr "릴레이 서버 사용"
+
+msgid "NEW YORK"
 msgstr ""
 
-msgid "VIEW GAME MANUAL"
-msgstr "게임 매뉴얼 보기"
-
-msgid "VIEW GAME MAGAZINE"
-msgstr "게임 매거진 보기"
-
-msgid "VIEW GAME MAP"
-msgstr "게임 맵 보기"
-
-msgid "VIEW FULLSCREEN VIDEO"
+msgid "MADRID"
 msgstr ""
 
-msgid "VIEW GAME MEDIA"
+msgid "MONTREAL"
 msgstr ""
 
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "현재 코어가 호환 안됨"
-
-msgid "COMPATIBLE CORE(S)"
+msgid "SAO PAULO"
 msgstr ""
 
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
-msgid "GAME"
-msgstr "게임"
-
-msgid "SAVE STATES"
-msgstr ""
-
-msgid "OPEN"
-msgstr "열기"
-
-msgid "START A NETPLAY GAME"
-msgstr ""
-
-msgid "NETPLAY"
-msgstr "넷플레이"
-
-msgid "START GAME"
-msgstr "게임 실행"
-
-msgid "HOST A NETPLAY GAME"
-msgstr ""
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "네트워크에 접속중이 아닙니다"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "공개 게임"
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "비슷한 게임 검색..."
-
-msgid "DELETE ITEM"
-msgstr "아이템 삭제"
-
-msgid "DELETE GAME"
-msgstr "게임 삭제"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"실제 게임 파일이 삭제됩니다!\n"
-"확실합니까?"
-
-msgid "COLLECTIONS"
-msgstr "컬렉션"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr "다음에서 제거됨 %s"
-
-#, c-format
-msgid "ADD TO %s"
-msgstr "다음에 추가 %s"
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "사용자 컬렉션에 추가..."
-
-msgid "DELETE COLLECTION"
-msgstr "컬렉션 삭제"
-
-msgid "SCRAPE"
-msgstr "스크랩"
-
-msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "고급 게임 옵션"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "폴더 메타데이터 편집"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "게임 메타데이터 편집"
-
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "패드 키보드 변환 정보 보기"
-
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr ""
-
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "정말로 현재 아이템을 삭제하시겠습니까?"
-
-msgid "INPUT"
-msgstr "입력"
-
-msgid "FILTER GAMELIST BY"
-msgstr "게임 목록 필터 :"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "다이나믹 컬렉션 필터 편집"
-
-msgid "RESET ALL FILTERS"
-msgstr "모든 필터 초기화"
-
-msgid "FIND GAMES"
-msgstr "게임 찾기"
-
-msgid "SYSTEMS"
-msgstr "시스템"
+msgid "FINISHED"
+msgstr "완료되었습니다"
 
 msgid "VIEW OPTIONS"
 msgstr "보기 옵션"
+
+msgid "go back"
+msgstr "돌아가기"
 
 msgid "NAVIGATION"
 msgstr "네비게이션"
@@ -966,6 +624,9 @@ msgstr "다른 필터"
 msgid "COLLECTION"
 msgstr "컬렉션"
 
+msgid "DELETE COLLECTION"
+msgstr "컬렉션 삭제"
+
 msgid "GAMELIST VIEW STYLE"
 msgstr "게임 목록 정렬 방법"
 
@@ -975,8 +636,8 @@ msgstr "자동"
 msgid "VIEW CUSTOMIZATION"
 msgstr ""
 
-msgid "VIEW CONTROLLER MAP"
-msgstr ""
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "패드 키보드 변환 정보 보기"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "고급 시스템 옵션"
@@ -986,6 +647,149 @@ msgstr "필터 초기화"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "텍스트로 게임 필터"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr ""
+
+msgid "CLOSE"
+msgstr "닫기"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "정말로 현재 아이템을 삭제하시겠습니까?"
+
+msgid "INPUT"
+msgstr "입력"
+
+msgid "SEARCH"
+msgstr "검색"
+
+msgid "CANCEL"
+msgstr "취소"
+
+msgid "CONNECT TO NETPLAY"
+msgstr "넷플레이에 연결"
+
+msgid "Select a game lobby to join"
+msgstr ""
+
+msgid "REFRESH"
+msgstr "새로고침"
+
+msgid "FAILED"
+msgstr "실패"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "알 수 없는 롬 버전"
+
+msgid "DIFFERENT ROM"
+msgstr "다른 롬"
+
+msgid "SAME ROM"
+msgstr "동일 롬"
+
+msgid "UNAVAILABLE CORE"
+msgstr "사용할 수 없는 코어"
+
+msgid "AVAILABLE GAMES"
+msgstr "실행 가능한 게임"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "실행할 수 없는 게임"
+
+msgid "NO GAMES FOUND"
+msgstr ""
+
+msgid "JOIN GAME"
+msgstr "게임 참가"
+
+msgid "WATCH GAME"
+msgstr "게임 관전"
+
+msgid "INPUT MANUALLY"
+msgstr ""
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "와이파이를 찾지 못했습니다"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "와이파이를 검색 중입니다"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "네트워크에 접속중이 아닙니다"
+
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "블루투스 장치 제거"
+
+msgid "REMOVE ALL"
+msgstr "모두 제거"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "발견된 블루투스 장치가 없습니다"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "블루투스 장치가 삭제되었습니다."
+
+msgid "FILE BROWSER"
+msgstr "파일 탐색기"
+
+msgid "RESET"
+msgstr "초기화"
+
+msgid "PARENT FOLDER"
+msgstr "부모 폴더"
+
+msgid "SCREENSHOTS FOLDER"
+msgstr "스크린샷 폴더"
+
+msgid "SELECT"
+msgstr "선택"
+
+msgid "ADD COMBINATION KEY"
+msgstr "콤보 키 추가"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "컨텐츠 다운로더"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr ""
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "설치된 컨텐츠 업데이트"
+
+msgid "No items"
+msgstr "현재 보기에 항목이 없습니다"
+
+msgid "MISC"
+msgstr "기타"
+
+msgid "UPDATE"
+msgstr "업데이트"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "다운로드 대기열에 '%s'가 추가됨"
+
+msgid "REMOVE"
+msgstr "제거"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr ""
+
+msgid "INSTALL"
+msgstr "설치"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "현재 다운로드 대기열"
+
+msgid "NO MISSING BIOS FILES"
+msgstr ""
+
+msgid "MISSING BIOS CHECK"
+msgstr "누락 바이오스"
+
+msgid "NO MISSING BIOS"
+msgstr "바이오스가 모두 구성됨"
 
 msgid "dim"
 msgstr "어둡게"
@@ -1008,9 +812,6 @@ msgstr "시작 및 종료"
 msgid "never"
 msgstr "사용안함"
 
-msgid "none"
-msgstr "없음"
-
 msgid "systems"
 msgstr "시스템"
 
@@ -1019,9 +820,6 @@ msgstr "무작위"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "화면보호기 설정"
-
-msgid "SETTINGS"
-msgstr "설정"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "화면 보호기 작동"
@@ -1092,48 +890,6 @@ msgstr ""
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr ""
 
-msgid "INDEX GAMES"
-msgstr ""
-
-msgid "GAMES TO INDEX"
-msgstr ""
-
-msgid "ALL"
-msgstr ""
-
-msgid "ONLY MISSING"
-msgstr ""
-
-msgid "SYSTEMS INCLUDED"
-msgstr ""
-
-msgid "ZOOM OUT"
-msgstr ""
-
-msgid "ZOOM IN"
-msgstr ""
-
-msgid "MOVE"
-msgstr "이동"
-
-msgid "ZOOM"
-msgstr "확대"
-
-msgid "INSTALL BATOCERA"
-msgstr "바토세라 설치"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "설치 아카텍처"
-
-msgid "ARE YOU SURE?"
-msgstr "확실합니까?"
-
-msgid "NETWORK REQUIRED"
-msgstr "네트워크가 필요합니다"
-
-msgid "INVALID PARAMETERS"
-msgstr "매개변수가 잘못되었습니다"
-
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "패드 키보드 변환 설정"
 
@@ -1182,8 +938,356 @@ msgstr "맵핑 삭제"
 msgid "SAVE CHANGES?"
 msgstr "변경 사항을 저장 하시겠습니까?"
 
-msgid "ADD COMBINATION KEY"
-msgstr "콤보 키 추가"
+msgid "ARE YOU SURE?"
+msgstr "확실합니까?"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "업데이트 %s"
+
+msgid "UPDATING BATOCERA"
+msgstr "바토세라 업데이트 중"
+
+msgid "UPDATE IS READY"
+msgstr "업데이트가 준비되었습니다"
+
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgstr "적용하려면 시스템 재시작"
+
+msgid "REALLY UPDATE?"
+msgstr "정말로 업데이트 하시겠습니까?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "인터넷 연결이 필요합니다"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "사용 가능한 업데이트가 없습니다"
+
+msgid "INSTALL BATOCERA"
+msgstr "바토세라 설치"
+
+msgid "TARGET DEVICE"
+msgstr "대상 장치"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "설치 아카텍처"
+
+msgid "NETWORK REQUIRED"
+msgstr "네트워크가 필요합니다"
+
+msgid "INVALID PARAMETERS"
+msgstr "매개변수가 잘못되었습니다"
+
+msgid "GAME MEDIA"
+msgstr ""
+
+msgid "VIEW GAME MANUAL"
+msgstr "게임 매뉴얼 보기"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr "게임 매거진 보기"
+
+msgid "VIEW GAME MAP"
+msgstr "게임 맵 보기"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr ""
+
+msgid "VIEW GAME MEDIA"
+msgstr ""
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "현재 코어가 호환 안됨"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr ""
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr ""
+
+msgid "GAME"
+msgstr "게임"
+
+msgid "SAVE STATES"
+msgstr ""
+
+msgid "OPEN"
+msgstr "열기"
+
+msgid "START A NETPLAY GAME"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "넷플레이"
+
+msgid "START GAME"
+msgstr "게임 실행"
+
+msgid "HOST A NETPLAY GAME"
+msgstr ""
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "공개 게임"
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "비슷한 게임 검색..."
+
+msgid "DELETE ITEM"
+msgstr "아이템 삭제"
+
+msgid "DELETE GAME"
+msgstr "게임 삭제"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"실제 게임 파일이 삭제됩니다!\n"
+"확실합니까?"
+
+msgid "COLLECTIONS"
+msgstr "컬렉션"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "다음에서 제거됨 %s"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "다음에 추가 %s"
+
+msgid "FAVORITES"
+msgstr "즐겨찾기"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "사용자 컬렉션에 추가..."
+
+msgid "SCRAPE"
+msgstr "스크랩"
+
+msgid "EDIT PADTOKEY PROFILE"
+msgstr ""
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr ""
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "고급 게임 옵션"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "폴더 메타데이터 편집"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "게임 메타데이터 편집"
+
+msgid "THEMES DOWNLOADER"
+msgstr "테마 다운로더"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr ""
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr "현재 테마"
+
+msgid "Unlocked on"
+msgstr "잠금 해제"
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "현재 게임은 도전과제가 아직 없습니다"
+
+msgid "Achievements won"
+msgstr "획득한 도전과제"
+
+#, c-format
+msgid "%d%% complete"
+msgstr "%d%% 완료"
+
+msgid "SAVE STATE MANAGER"
+msgstr ""
+
+msgid "START NEW GAME"
+msgstr "새 게임 시작"
+
+msgid "START NEW AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr "자동 저장"
+
+msgid "SLOT"
+msgstr "슬롯"
+
+msgid "COPY TO FREE SLOT"
+msgstr "비어있는 슬롯에 복사"
+
+msgid "SCRAPER SETTINGS"
+msgstr ""
+
+msgid "IMAGE SOURCE"
+msgstr "이미지 소스"
+
+msgid "SCREENSHOT"
+msgstr "스크린샷"
+
+msgid "TITLE SCREENSHOT"
+msgstr "타이틀 스크린샷"
+
+msgid "MIX V1"
+msgstr "혼합 V1"
+
+msgid "MIX V2"
+msgstr "혼합 V2"
+
+msgid "BOX 2D"
+msgstr "박스 2D"
+
+msgid "BOX 3D"
+msgstr "박스 3D"
+
+msgid "FAN ART"
+msgstr "팬 아트"
+
+msgid "BOX SOURCE"
+msgstr "박스 출처"
+
+msgid "LOGO SOURCE"
+msgstr "로고 출처"
+
+msgid "WHEEL"
+msgstr "휠"
+
+msgid "MARQUEE"
+msgstr "마키"
+
+msgid "SCRAPE RATINGS"
+msgstr "평점 스크랩"
+
+msgid "SCRAPE VIDEOS"
+msgstr "비디오 스크랩"
+
+msgid "SCRAPE FANART"
+msgstr "팬아트 스크랩"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr ""
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "박스 후면 스크랩"
+
+msgid "SCRAPE MAP"
+msgstr "지도 스크랩"
+
+msgid "SCRAPE MANUAL"
+msgstr "매뉴얼 스크랩"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "패드 키 설정 스크랩"
+
+msgid "SCRAPER"
+msgstr "스크랩"
+
+msgid "SCRAPING DATABASE"
+msgstr ""
+
+msgid "SOURCE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "스크랩 출처"
+
+msgid "FILTERS"
+msgstr ""
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
+
+msgid "ALL"
+msgstr ""
+
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
+
+msgid "SYSTEMS INCLUDED"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "스크랩 시작"
+
+msgid "START"
+msgstr "시작"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "스크랩이 진행중입니다. 중지하시겠습니까?"
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "조건에 맞는 게임이 없습니다."
+
+msgid "INFORMATION"
+msgstr "정보"
+
+msgid "VERSION"
+msgstr "버전"
+
+msgid "USER DISK USAGE"
+msgstr "사용자 디스크 사용량"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "시스템 디스크 사용량"
+
+msgid "SYSTEM"
+msgstr "시스템"
+
+msgid "VIDEO DRIVER"
+msgstr "비디오 드라이버"
+
+msgid "THE BEZEL PROJECT"
+msgstr "베젤 프로젝트"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr ""
 
 msgid "fade"
 msgstr "흐림"
@@ -1268,9 +1372,6 @@ msgstr "벤더"
 msgid "RENDERER"
 msgstr "렌더러"
 
-msgid "VERSION"
-msgstr "버전"
-
 msgid "SHADERS"
 msgstr "셰이더"
 
@@ -1285,9 +1386,6 @@ msgstr "메인 메뉴"
 
 msgid "KODI MEDIA CENTER"
 msgstr "KODI 미디어 센터"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "레트로 도전과제"
 
 msgid "GAME SETTINGS"
 msgstr ""
@@ -1307,17 +1405,11 @@ msgstr "입력 설정"
 msgid "EMULATOR SETTINGS"
 msgstr "에뮬레이터 설정"
 
-msgid "SCRAPER"
-msgstr "스크랩"
-
 msgid "UPDATES & DOWNLOADS"
 msgstr "업데이트 & 다운로드"
 
 msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
-
-msgid "INFORMATION"
-msgstr "정보"
 
 msgid "UNLOCK UI MODE"
 msgstr "UI 모드 해제"
@@ -1327,6 +1419,9 @@ msgstr "종료"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr ""
+
+msgid "CHOOSE"
+msgstr "이동"
 
 msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr ""
@@ -1529,8 +1624,8 @@ msgstr "업데이트 시작"
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr ""
 
-msgid "SYSTEM"
-msgstr "시스템"
+msgid "LANGUAGE"
+msgstr "언어"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
@@ -1625,12 +1720,6 @@ msgstr ""
 msgid "SPLASH SETTING"
 msgstr ""
 
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
-
-msgid "NETPLAY SETTINGS"
-msgstr "넷플레이 설정"
-
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "게임 실행전 바이오스 확인"
 
@@ -1687,6 +1776,9 @@ msgstr "저장소"
 
 msgid "STORAGE DEVICE"
 msgstr "저장 장치"
+
+msgid "BACKUP USER DATA"
+msgstr "사용자 데이터 백업"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "새로운 디스크에 바토세라 설치"
@@ -1855,6 +1947,9 @@ msgstr "시스템 고급 환경설정"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "게임 해시 구성이 실행 중입니다. 중지 하시겠습니까?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
@@ -2185,328 +2280,26 @@ msgstr ""
 "링크한 일부 파일은 게임 목록 경로 밖에 있습니다.\n"
 "게임 목록과 관련하여 이 파일의 사본을 사용하시겠습니까?"
 
-msgid "CONNECT TO NETPLAY"
-msgstr "넷플레이에 연결"
+msgid "NO DEVICE FOUND"
+msgstr "발견된 장치 없음"
 
-msgid "Select a game lobby to join"
+msgid "ZOOM OUT"
 msgstr ""
 
-msgid "FAILED"
-msgstr "실패"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "알 수 없는 롬 버전"
-
-msgid "DIFFERENT ROM"
-msgstr "다른 롬"
-
-msgid "SAME ROM"
-msgstr "동일 롬"
-
-msgid "UNAVAILABLE CORE"
-msgstr "사용할 수 없는 코어"
-
-msgid "AVAILABLE GAMES"
-msgstr "실행 가능한 게임"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "실행할 수 없는 게임"
-
-msgid "NO GAMES FOUND"
+msgid "ZOOM IN"
 msgstr ""
 
-msgid "JOIN GAME"
-msgstr "게임 참가"
+msgid "MOVE"
+msgstr "이동"
 
-msgid "WATCH GAME"
-msgstr "게임 관전"
+msgid "ZOOM"
+msgstr "확대"
 
-msgid "ENABLE NETPLAY"
-msgstr "넷플레이 허용"
-
-msgid "NICKNAME"
-msgstr "닉네임"
-
-msgid "PORT"
-msgstr "포트"
-
-msgid "USE RELAY SERVER"
-msgstr "릴레이 서버 사용"
-
-msgid "NEW YORK"
+msgid "GAMES TO INDEX"
 msgstr ""
 
-msgid "MADRID"
+msgid "ONLY MISSING"
 msgstr ""
-
-msgid "MONTREAL"
-msgstr ""
-
-msgid "SAO PAULO"
-msgstr ""
-
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
-
-msgid "GAME INDEXES"
-msgstr "게임 색인"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
-
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d of %d)"
-
-msgid "Rank"
-msgstr "랭크"
-
-msgid "VIEW DETAILS"
-msgstr "세부정보 보기"
-
-msgid "HARDCORE MODE"
-msgstr "하드코어 모드"
-
-msgid "LEADERBOARDS"
-msgstr "순위표"
-
-msgid "VERBOSE MODE"
-msgstr "상세 모드"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "자동 스크린샷"
-
-msgid "CHALLENGE INDICATORS"
-msgstr ""
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
-
-msgid "UNLOCK SOUND"
-msgstr "해제 사운드"
-
-msgid "USERNAME"
-msgstr "사용자명"
-
-msgid "PASSWORD"
-msgstr "비밀번호"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
-
-msgid "SAVE STATE MANAGER"
-msgstr ""
-
-msgid "START NEW GAME"
-msgstr "새 게임 시작"
-
-msgid "START NEW AUTO SAVE"
-msgstr ""
-
-msgid "AUTO SAVE"
-msgstr "자동 저장"
-
-msgid "SLOT"
-msgstr "슬롯"
-
-msgid "COPY TO FREE SLOT"
-msgstr "비어있는 슬롯에 복사"
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "이미지 소스"
-
-msgid "SCREENSHOT"
-msgstr "스크린샷"
-
-msgid "TITLE SCREENSHOT"
-msgstr "타이틀 스크린샷"
-
-msgid "MIX V1"
-msgstr "혼합 V1"
-
-msgid "MIX V2"
-msgstr "혼합 V2"
-
-msgid "BOX 2D"
-msgstr "박스 2D"
-
-msgid "BOX 3D"
-msgstr "박스 3D"
-
-msgid "FAN ART"
-msgstr "팬 아트"
-
-msgid "BOX SOURCE"
-msgstr "박스 출처"
-
-msgid "LOGO SOURCE"
-msgstr "로고 출처"
-
-msgid "WHEEL"
-msgstr "휠"
-
-msgid "MARQUEE"
-msgstr "마키"
-
-msgid "SCRAPE RATINGS"
-msgstr "평점 스크랩"
-
-msgid "SCRAPE VIDEOS"
-msgstr "비디오 스크랩"
-
-msgid "SCRAPE FANART"
-msgstr "팬아트 스크랩"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr ""
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "박스 후면 스크랩"
-
-msgid "SCRAPE MAP"
-msgstr "지도 스크랩"
-
-msgid "SCRAPE MANUAL"
-msgstr "매뉴얼 스크랩"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "패드 키 설정 스크랩"
-
-msgid "SCRAPING DATABASE"
-msgstr ""
-
-msgid "SOURCE"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "스크랩 출처"
-
-msgid "FILTERS"
-msgstr ""
-
-msgid "GAMES TO SCRAPE FOR"
-msgstr ""
-
-msgid "GAMES MISSING MEDIAS"
-msgstr ""
-
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
-
-msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
-
-msgid "LAST DAY"
-msgstr ""
-
-msgid "LAST WEEK"
-msgstr ""
-
-msgid "LAST 15 DAYS"
-msgstr ""
-
-msgid "LAST MONTH"
-msgstr ""
-
-msgid "LAST 3 MONTHS"
-msgstr ""
-
-msgid "LAST YEAR"
-msgstr ""
-
-msgid "SCRAPE NOW"
-msgstr "스크랩 시작"
-
-msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE FOR DIFFERENT SYSTEMS!\n"
-"CONTINUE ANYWAY?"
-msgstr ""
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "스크랩이 진행중입니다. 중지하시겠습니까?"
-
-msgid "USER DISK USAGE"
-msgstr "사용자 디스크 사용량"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "시스템 디스크 사용량"
-
-msgid "VIDEO DRIVER"
-msgstr "비디오 드라이버"
-
-msgid "THEMES DOWNLOADER"
-msgstr "테마 다운로더"
-
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "현재 테마"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "업데이트 %s"
-
-msgid "UPDATING BATOCERA"
-msgstr "바토세라 업데이트 중"
-
-msgid "UPDATE IS READY"
-msgstr "업데이트가 준비되었습니다"
-
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "적용하려면 시스템 재시작"
-
-msgid "REALLY UPDATE?"
-msgstr "정말로 업데이트 하시겠습니까?"
-
-#, c-format
-msgid ""
-"YOU ARE CURRENTLY USING VERSION %s\n"
-"DO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr ""
-
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "인터넷 연결이 필요합니다"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "사용 가능한 업데이트가 없습니다"
-
-msgid "INPUT MANUALLY"
-msgstr ""
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "와이파이를 찾지 못했습니다"
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "와이파이를 검색 중입니다"
-
-msgid "Loading system config..."
-msgstr "시스템 설정 불러오는 중..."
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."
-
-msgid "SCRAPING"
-msgstr "스크랩 중"
-
-msgid "SCRAPE FAILED"
-msgstr "스크랩 실패"
-
-msgid "SCRAPING FINISHED"
-msgstr "스크랩 완료"
 
 msgid "SYSTEM INFO"
 msgstr "시스템 정보"
@@ -2553,15 +2346,6 @@ msgstr "무작위"
 msgid "FILES"
 msgstr "파일"
 
-msgid "Full"
-msgstr "전체"
-
-msgid "Kiosk"
-msgstr "키오스크"
-
-msgid "Kid"
-msgstr "아동용"
-
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
 "FORMAT.\n"
@@ -2586,8 +2370,17 @@ msgstr "게임목록 불러오는 중"
 msgid "MENU"
 msgstr "메뉴"
 
-msgid "No Entries Found"
-msgstr "항목을 찾지 못했습니다"
+msgid "Full"
+msgstr "전체"
+
+msgid "Kiosk"
+msgstr "키오스크"
+
+msgid "Kid"
+msgstr "아동용"
+
+msgid "Released"
+msgstr "발매일"
 
 msgid "Times played"
 msgstr "실행 횟수"
@@ -2596,6 +2389,9 @@ msgstr "실행 횟수"
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "현재 폴더에 %i개의 개임이 있습니다, 다음 게임 포함:%s"
+
+msgid "No Entries Found"
+msgstr "항목을 찾지 못했습니다"
 
 msgid "Games similar to"
 msgstr "다음과 비슷한 게임"
@@ -2606,6 +2402,207 @@ msgstr "게임 옵션"
 msgid "FAVORITE"
 msgstr "즐겨찾기"
 
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"유효한 계정이 필요합니다. https://retroachievements.org에서 계정을 등록하세요"
+
+msgid "Searching"
+msgstr "검색 중"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "발견된 게임 없음 - 건너뛰기"
+
+msgid "RETRY"
+msgstr "재시도"
+
+msgid "SKIP"
+msgstr "건너뛰기"
+
+msgid "Downloading"
+msgstr "다운로드 중"
+
+msgid "SEARCH FOR"
+msgstr ""
+
+msgid "ACCEPT RESULT"
+msgstr "결과 동의"
+
+msgid "Loading system config..."
+msgstr "시스템 설정 불러오는 중..."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."
+
+msgid "Collections"
+msgstr "컬렉션"
+
+msgid "FILENAME, ASCENDING"
+msgstr "파일명, 오름차순"
+
+msgid "FILENAME, DESCENDING"
+msgstr "파일명, 내림차순"
+
+msgid "RATING, ASCENDING"
+msgstr "평점, 높은순"
+
+msgid "RATING, DESCENDING"
+msgstr "평점, 낮은순"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "플레이 시간, 높은순"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "플레이 시간, 낮은순"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "최근 플레이, 높은순"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "최근 플레이, 낮은순"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "플레이어 수, 높은순"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "플레이어 수, 낮은순"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "발매일, 오름차순"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "발매일, 내림차순"
+
+msgid "GENRE, ASCENDING"
+msgstr "장르, 오름차순"
+
+msgid "GENRE, DESCENDING"
+msgstr "장르, 내림차순"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "개발사, 오름차순"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "개발사, 내림차순"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "퍼블리셔, 오름차순"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "퍼블리셔, 내림차순"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "시스템, 오름차순"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "시스템, 내림차순"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "파일 생성일, 오름차순"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "파일 생성일, 내림차순"
+
+msgid "GAME TIME, ASCENDING"
+msgstr "게임 시간, 오름차순"
+
+msgid "GAME TIME, DESCENDING"
+msgstr "게임 시간, 내림차순"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "시스템, 출시일, 오름차순"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "시스템, 출시일, 내림차순"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "출시일, 시스템, 오름차순"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "출시일, 시스템, 내림차순"
+
+msgid "A,AN,THE"
+msgstr ""
+
+msgid "Extracting"
+msgstr "추출 중"
+
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "레트로 도전과제 검색 중"
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "넷플레이 검색 중"
+
+msgid "INDEXING COMPLETED"
+msgstr "인덱싱 완료"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr ""
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr ""
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr ""
+
+msgid "INVALID CONFIGURATION"
+msgstr ""
+
+msgid "UNKNOWN EMULATOR"
+msgstr ""
+
+msgid "EMULATOR IS MISSING"
+msgstr ""
+
+msgid "CORE IS MISSING"
+msgstr ""
+
+msgid "UKNOWN ERROR"
+msgstr ""
+
+msgid "GENRE"
+msgstr "장르"
+
+msgid "FAMILY"
+msgstr "패밀리"
+
+msgid "PLAYERS"
+msgstr "플레이어수"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr ""
+
+msgid "RATING"
+msgstr "평점"
+
+msgid "YEAR"
+msgstr "년도"
+
+msgid "REGION"
+msgstr "지역"
+
+msgid "KIDGAME"
+msgstr "아동용게임"
+
+msgid "ALREADY PLAYED"
+msgstr "이미 실행함"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "도전과제 있음"
+
+msgid "VERTICAL"
+msgstr "세로"
+
+msgid "SCRAPING"
+msgstr "스크랩 중"
+
+msgid "SCRAPE FAILED"
+msgstr "스크랩 실패"
+
+msgid "SCRAPING FINISHED"
+msgstr "스크랩 완료"
+
 #, c-format
 msgid "%s connected"
 msgstr "%s 연결됨"
@@ -2614,83 +2611,17 @@ msgstr "%s 연결됨"
 msgid "%s disconnected"
 msgstr "%s 연결해제"
 
-msgid "SCREEN READER ENABLED"
-msgstr ""
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "대문자, 소문자, 특수문자를 위한 시프트"
 
-msgid "SCREEN READER DISABLED"
-msgstr ""
+msgid "ALT GR"
+msgstr "ALT GR키"
 
-msgid "WORKING..."
-msgstr "작업 중..."
+msgid "SHIFT"
+msgstr "시프트"
 
-msgid "ENABLED"
-msgstr "사용"
-
-msgid "up/down"
-msgstr "위/아래"
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d 일 전"
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "%d 시간 전"
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "%d 분 전"
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "%d 초 전"
-
-msgid "accept"
-msgstr "동의"
-
-msgid "SELECT ALL"
-msgstr "모두 선택"
-
-msgid "select all"
-msgstr "모두 선택"
-
-msgid "SELECT NONE"
-msgstr "선택 해제"
-
-msgid "select none"
-msgstr "선택 해제"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i개 선택됨"
-
-msgid "CHANGE"
-msgstr "변경"
-
-msgid "MOVE CURSOR"
-msgstr "커서 이동"
-
-msgid "EDIT"
-msgstr "편집"
-
-msgid "WELCOME"
-msgstr "환영합니다"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i개의 게임 패드 발견됨"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "검색된 게임패드 없음"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "설정 하려면 장치의 버튼을 길게 누르세요."
+msgid "SPACE"
+msgstr "스페이스"
 
 msgctxt "joystick"
 msgid "UP"
@@ -2793,20 +2724,80 @@ msgstr "아무 버튼이나 누르세요"
 msgid "ALREADY TAKEN"
 msgstr "이미 사용중입니다"
 
+msgid "WELCOME"
+msgstr "환영합니다"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i개의 게임 패드 발견됨"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "검색된 게임패드 없음"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "설정 하려면 장치의 버튼을 길게 누르세요."
+
 msgid "DISCARD CHANGES"
 msgstr "변경 취소"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "대문자, 소문자, 특수문자를 위한 시프트"
+msgid "up/down"
+msgstr "위/아래"
 
-msgid "ALT GR"
-msgstr "ALT GR키"
+msgid "accept"
+msgstr "동의"
 
-msgid "SHIFT"
-msgstr "시프트"
+msgid "SELECT ALL"
+msgstr "모두 선택"
 
-msgid "SPACE"
-msgstr "스페이스"
+msgid "select all"
+msgstr "모두 선택"
+
+msgid "SELECT NONE"
+msgstr "선택 해제"
+
+msgid "select none"
+msgstr "선택 해제"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i개 선택됨"
+
+msgid "CHANGE"
+msgstr "변경"
+
+msgid "MOVE CURSOR"
+msgstr "커서 이동"
+
+msgid "EDIT"
+msgstr "편집"
+
+msgid "ENABLED"
+msgstr "사용"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d 일 전"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d 시간 전"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d 분 전"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d 초 전"
+
+msgid "WORKING..."
+msgstr "작업 중..."
 
 #, c-format
 msgid "%d h"
@@ -2819,6 +2810,12 @@ msgstr "%d 분"
 #, c-format
 msgid "%d s"
 msgstr "%d 초"
+
+msgid "SCREEN READER ENABLED"
+msgstr ""
+
+msgid "SCREEN READER DISABLED"
+msgstr ""
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "프레임 미리 실행 사용"

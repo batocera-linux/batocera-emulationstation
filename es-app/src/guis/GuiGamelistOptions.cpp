@@ -303,15 +303,6 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			{
 				mMenu.addGroup(_("OPTIONS"));
 
-				std::string controllerOverlayPath = "/usr/share/batocera/controller-overlays/" + mSystem->getName() + ".png";
-				if (Utils::FileSystem::exists(controllerOverlayPath))
-				{
-					mMenu.addEntry(_("VIEW CONTROLLER MAP"), false, [window, controllerOverlayPath]
-					{
-						GuiImageViewer::showImage(window, controllerOverlayPath, false);
-					});
-				}
-
 				if (file && file->hasKeyboardMapping())
 				{
 					mMenu.addEntry(_("VIEW PAD TO KEYBOARD INFORMATION"), true, [this, file]
