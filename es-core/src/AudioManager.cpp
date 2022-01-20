@@ -393,7 +393,8 @@ void AudioManager::playSong(const std::string& song)
 		else if (fread(&info, sizeof(info), 1, file) != 1)
 			LOG(LogError) << "Error AudioManager reading " << song;
 		else if (strncmp(info.tag, "TAG", 3) == 0) {
-			setSongName(info.title);
+			std::string songTitle(info.title, 30);
+			setSongName(songTitle);
 			fclose(file);
 			return;
 		}
