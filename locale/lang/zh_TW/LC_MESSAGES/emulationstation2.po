@@ -13,8 +13,235 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "UPDATE AVAILABLE"
-msgstr "有可用的更新"
+msgid "all games"
+msgstr "所有遊戲"
+
+msgid "last played"
+msgstr "最後遊玩"
+
+msgid "favorites"
+msgstr "我的最愛"
+
+msgid "2 players"
+msgstr "雙人遊戲"
+
+msgid "4 players"
+msgstr "四人遊戲"
+
+msgid "never played"
+msgstr "從未玩過"
+
+msgid "retroachievements"
+msgstr "retroachievements"
+
+msgid "arcade"
+msgstr "街機"
+
+msgid "vertical arcade"
+msgstr "直立式街機"
+
+msgid "lightgun games"
+msgstr "光線槍遊戲"
+
+msgid "collections"
+msgstr "合輯"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "已新增「%s」至「%s」"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "已將「%s」從「%s」移除"
+
+msgid "This collection is empty."
+msgstr "此合輯空蕩蕩的。"
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "無"
+
+msgid "Various"
+msgstr "各式各樣"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] "這個合輯包含 %i 個遊戲：%s"
+
+msgid "DOWNLOADING"
+msgstr "下載中"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "佈景主題安裝成功"
+
+msgid "AN ERROR OCCURED"
+msgstr "發生錯誤"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "佈景主題解除安裝成功"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "框體安裝成功"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "框體解除安裝成功"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "套件安裝成功"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "套件移除成功"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "模擬器未預期的退出了"
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "無效的命令列參數"
+
+msgid "INVALID CONFIGURATION"
+msgstr "無效的設定"
+
+msgid "UNKNOWN EMULATOR"
+msgstr "未知的模擬器"
+
+msgid "EMULATOR IS MISSING"
+msgstr "模擬器遺失"
+
+msgid "CORE IS MISSING"
+msgstr "核心遺失"
+
+msgid "UKNOWN ERROR"
+msgstr "未知的錯誤"
+
+msgid "OK"
+msgstr "確定"
+
+msgid "FAVORITES"
+msgstr "我的最愛"
+
+msgid "GENRE"
+msgstr "類型"
+
+msgid "FAMILY"
+msgstr "家族"
+
+msgid "PLAYERS"
+msgstr "遊戲人數"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr "發行商/開發商"
+
+msgid "RATING"
+msgstr "評分"
+
+msgid "YEAR"
+msgstr "年份"
+
+msgid "LANGUAGE"
+msgstr "語言"
+
+msgid "REGION"
+msgstr "地區"
+
+msgid "KIDGAME"
+msgstr "兒童遊戲"
+
+msgid "ALREADY PLAYED"
+msgstr "已經玩過的"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "提供成就"
+
+msgid "VERTICAL"
+msgstr "直立式"
+
+msgid "FILENAME, ASCENDING"
+msgstr "遊戲名稱（升序）"
+
+msgid "FILENAME, DESCENDING"
+msgstr "遊戲名稱（降序）"
+
+msgid "RATING, ASCENDING"
+msgstr "評分（升序）"
+
+msgid "RATING, DESCENDING"
+msgstr "評分（降序）"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "遊戲執行次數（升序）"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "遊戲執行次數（降序）"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "最近執行（升序）"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "最近執行（降序）"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "玩家數量（升序）"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "玩家數量（降序）"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "發佈日期（升序）"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "發佈日期（降序）"
+
+msgid "GENRE, ASCENDING"
+msgstr "遊戲類型（升序）"
+
+msgid "GENRE, DESCENDING"
+msgstr "遊戲類型（降序）"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "遊戲開發公司 (升序)"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "遊戲開發公司 (降序)"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "遊戲發行公司 (升序)"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "遊戲發行公司 (降序)"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "系統 (升序)"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "系統 (降序)"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "遊戲建立日期 (升序)"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "遊戲建立日期 (降序)"
+
+msgid "GAME TIME, ASCENDING"
+msgstr "遊戲時間升序"
+
+msgid "GAME TIME, DESCENDING"
+msgstr "遊戲時間將序"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "遊戲平台，發行年份（升序）"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "遊戲平台，發行年份（降序）"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "發行年份，遊戲平台（升序）"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "發行年份，遊戲平台（降序）"
+
+msgid "A,AN,THE"
+msgstr "A,AN,THE"
 
 msgid "Name"
 msgstr "名稱"
@@ -256,61 +483,19 @@ msgstr "Cheevos 遊戲 ID"
 msgid "Screenscraper Game ID"
 msgstr "Screenscraper 遊戲 ID"
 
-msgid "all games"
-msgstr "所有遊戲"
+msgid "UPDATE AVAILABLE"
+msgstr "有可用的更新"
 
-msgid "last played"
-msgstr "最後遊玩"
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr "需要提供一個有效的帳號。請在 https://retroachievements.org 註冊帳號"
 
-msgid "favorites"
-msgstr "我的最愛"
-
-msgid "2 players"
-msgstr "雙人遊戲"
-
-msgid "4 players"
-msgstr "四人遊戲"
-
-msgid "never played"
-msgstr "從未玩過"
-
-msgid "retroachievements"
-msgstr "retroachievements"
-
-msgid "arcade"
-msgstr "街機"
-
-msgid "vertical arcade"
-msgstr "直立式街機"
-
-msgid "lightgun games"
-msgstr "光線槍遊戲"
-
-msgid "collections"
+msgid "Collections"
 msgstr "合輯"
 
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "已新增「%s」至「%s」"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "已將「%s」從「%s」移除"
-
-msgid "This collection is empty."
-msgstr "此合輯空蕩蕩的。"
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "無"
-
-msgid "Various"
-msgstr "各式各樣"
-
-#, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "這個合輯包含 %i 個遊戲：%s"
+msgid "Unknown"
+msgstr "未知"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "搜尋藍牙裝置"
@@ -333,109 +518,20 @@ msgstr "需要重新開機才能完成這個操作"
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "磁碟已經被格式化。"
 
-msgid "DOWNLOADING"
-msgstr "下載中"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "正在搜尋 RETROACHIEVEMENTS"
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "佈景主題安裝成功"
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "正在搜尋多人遊戲"
 
-msgid "AN ERROR OCCURED"
-msgstr "發生錯誤"
+msgid "INDEXING COMPLETED"
+msgstr "已完成索引"
 
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "佈景主題解除安裝成功"
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "更新遊戲清單來套用變更。"
 
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "框體安裝成功"
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "框體解除安裝成功"
-
-msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "套件安裝成功"
-
-msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "套件移除成功"
-
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT 設定"
-
-msgid "SETTINGS"
-msgstr "設定"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS 成就"
-
-msgid "HARDCORE MODE"
-msgstr "硬派模式"
-
-msgid "LEADERBOARDS"
-msgstr "排行榜"
-
-msgid "VERBOSE MODE"
-msgstr "詳細模式"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "自動化螢幕截圖"
-
-msgid "CHALLENGE INDICATORS"
-msgstr "挑戰指示器"
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr "當能夠獲得符合條件的成就時在右下角顯示圖示。"
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT 解鎖音效"
-
-msgid "none"
-msgstr "沒有"
-
-msgid "UNLOCK SOUND"
-msgstr "解鎖音效"
-
-msgid "USERNAME"
-msgstr "使用者名稱"
-
-msgid "PASSWORD"
-msgstr "使用者密碼"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
-
-msgid "GAME INDEXES"
-msgstr "遊戲索引"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "於啟動期間索引新遊戲"
-
-msgid "INDEX GAMES"
-msgstr "索引遊戲"
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "無法啟用 RETROACHIEVEMENTS："
-
-msgid "OK"
-msgstr "確定"
-
-msgid "FILTER GAMELIST BY"
-msgstr "篩選遊戲清單依"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "編輯動態合輯篩選器"
-
-msgid "RESET ALL FILTERS"
-msgstr "重設所有篩選器"
-
-msgid "BACK"
-msgstr "返回"
-
-msgid "FIND GAMES"
-msgstr "尋找遊戲"
-
-msgid "Unknown"
-msgstr "未知"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "遊戲校驗正在進行中。您想要終止嗎？"
 
 msgid "YES"
 msgstr "是"
@@ -443,8 +539,133 @@ msgstr "是"
 msgid "NO"
 msgstr "否"
 
-msgid "SYSTEMS"
-msgstr "遊戲平台"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "沒有符合該標準的遊戲。"
+
+msgid "Extracting"
+msgstr "提取中"
+
+msgid "CANCEL"
+msgstr "取消"
+
+msgid "CHOOSE"
+msgstr "瀏覽"
+
+msgid "Searching"
+msgstr "搜尋中"
+
+msgid "Released"
+msgstr "發行日期"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "沒有找到遊戲 - 略過"
+
+msgid "RETRY"
+msgstr "重試"
+
+msgid "SKIP"
+msgstr "略過"
+
+msgid "Downloading"
+msgstr "下載中"
+
+msgid "SEARCH FOR"
+msgstr "要搜尋什麼"
+
+msgid "ACCEPT RESULT"
+msgstr "確認結果"
+
+msgid "FINISHED"
+msgstr "完成"
+
+msgid "BACKUP USER DATA"
+msgstr "備份使用者資料"
+
+msgid "TARGET DEVICE"
+msgstr "目標裝置"
+
+msgid "NO DEVICE FOUND"
+msgstr "沒有找到裝置"
+
+msgid "START"
+msgstr "開始"
+
+msgid "BACK"
+msgstr "返回"
+
+msgid "CLOSE"
+msgstr "關閉"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "內容下載器"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "選擇要安裝或移除的內容"
+
+msgid "SEARCH"
+msgstr "搜尋"
+
+msgid "REFRESH"
+msgstr "重新整理"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "更新已安裝的內容"
+
+msgid "No items"
+msgstr "在這個畫面中沒有項目"
+
+msgid "MISC"
+msgstr "雜項"
+
+msgid "PLEASE WAIT"
+msgstr "請耐心等待"
+
+msgid "UPDATE"
+msgstr "更新"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "已將「%s」加入到下載隊列中"
+
+msgid "REMOVE"
+msgstr "刪除"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "已將移除請求加入至隊列"
+
+msgid "INSTALL"
+msgstr "安裝"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "目前已在下載隊列中"
+
+msgid "THE BEZEL PROJECT"
+msgstr "框體專案"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr "選擇要安裝或移除的框體"
+
+msgid "NO MISSING BIOS FILES"
+msgstr "沒有缺少的 BIOS 檔案"
+
+msgid "MISSING BIOS CHECK"
+msgstr "缺少的 BIOS"
+
+msgid "NO MISSING BIOS"
+msgstr "沒有缺少 BIOS"
+
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "忘記藍牙裝置"
+
+msgid "REMOVE ALL"
+msgstr "移除全部"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "沒有發現藍牙裝置"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "藍牙裝置已被刪除。"
 
 msgid "GAME COLLECTION SETTINGS"
 msgstr "遊戲合輯設定"
@@ -548,63 +769,183 @@ msgstr "動態合輯"
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "自定義遊戲合輯"
 
-msgid "PLEASE WAIT"
-msgstr "請耐心等待"
+msgid "FILE BROWSER"
+msgstr "檔案瀏覽器"
 
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (第 %d 個，共 %d 個)"
+msgid "RESET"
+msgstr "重置"
+
+msgid "PARENT FOLDER"
+msgstr "上層資料夾"
+
+msgid "SCREENSHOTS FOLDER"
+msgstr "螢幕截圖資料夾"
+
+msgid "SELECT"
+msgstr "選擇"
 
 msgid "Points"
 msgstr "點數"
 
-msgid "Rank"
-msgstr "階級"
-
-msgid "VIEW DETAILS"
-msgstr "檢視詳細資訊"
+msgid "Unlocked on"
+msgstr "已解鎖於"
 
 msgid "LAUNCH"
 msgstr "啟動"
 
-msgid "NETPLAY SETTINGS"
-msgstr "多人遊戲設定"
+msgid "go back"
+msgstr "返回"
 
-msgid "ENABLE NETPLAY"
-msgstr "啟用多人遊戲"
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "這個遊戲還沒有成就"
 
-msgid "NICKNAME"
-msgstr "暱稱"
+msgid "Achievements won"
+msgstr "贏得成就"
 
-msgid "PORT"
-msgstr "連接埠"
+#, c-format
+msgid "%d%% complete"
+msgstr "已完成 %d%%"
 
-msgid "USE RELAY SERVER"
-msgstr "使用中繼伺服器"
+msgid "GAME MEDIA"
+msgstr "遊戲媒體"
 
-msgid "NEW YORK"
+msgid "VIEW GAME MANUAL"
+msgstr "檢視遊戲使用手冊"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr "檢視遊戲雜誌"
+
+msgid "VIEW GAME MAP"
+msgstr "檢視遊戲地圖"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr "檢視全螢幕影片"
+
+msgid "VIEW GAME MEDIA"
+msgstr "檢視遊戲媒體"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "目前的核心並不相容"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr "相容的核心"
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr "檢視這個遊戲的成就"
+
+msgid "GAME"
+msgstr "遊戲"
+
+msgid "SAVE STATES"
+msgstr "即時存檔"
+
+msgid "OPEN"
+msgstr "開啟"
+
+msgid "START A NETPLAY GAME"
 msgstr ""
 
-msgid "MADRID"
+msgid "NETPLAY"
+msgstr "多人遊戲"
+
+msgid "START GAME"
+msgstr "開始遊戲"
+
+msgid "HOST A NETPLAY GAME"
 msgstr ""
 
-msgid "MONTREAL"
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "您沒有連線到網際網路"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "公開的遊戲"
+
+msgid "PLAYER PASSWORD"
 msgstr ""
 
-msgid "SAO PAULO"
+msgid "VIEWER PASSWORD"
 msgstr ""
 
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgid "FIND SIMILAR GAMES..."
+msgstr "尋找相似的遊戲..."
 
-msgid "FINISHED"
-msgstr "完成"
+msgid "DELETE ITEM"
+msgstr "刪除項目"
+
+msgid "DELETE GAME"
+msgstr "刪除遊戲"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"這將會刪除實際的遊戲檔案！\n"
+"您確定要刪除嗎？"
+
+msgid "COLLECTIONS"
+msgstr "合輯"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "從 %s 移除"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "新增至 %s"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "新增至自定義合輯..."
+
+msgid "DELETE COLLECTION"
+msgstr "刪除合輯"
+
+msgid "SCRAPE"
+msgstr "資料搜刮"
+
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "編輯手把轉鍵盤設定檔"
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "建立手把轉鍵盤設定檔"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "進階遊戲選項"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "編輯資料夾中繼資料"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "編輯此遊戲的中繼資料"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "檢視手把轉鍵盤資訊"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "這項功能在搜刮器執行時是停用的"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "您確定要刪除這個項目嗎？"
+
+msgid "INPUT"
+msgstr "輸入"
+
+msgid "FILTER GAMELIST BY"
+msgstr "篩選遊戲清單依"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "編輯動態合輯篩選器"
+
+msgid "RESET ALL FILTERS"
+msgstr "重設所有篩選器"
+
+msgid "FIND GAMES"
+msgstr "尋找遊戲"
+
+msgid "SYSTEMS"
+msgstr "遊戲平台"
 
 msgid "VIEW OPTIONS"
 msgstr "檢視選項"
-
-msgid "go back"
-msgstr "返回"
 
 msgid "NAVIGATION"
 msgstr "導覽"
@@ -624,9 +965,6 @@ msgstr "其他篩選器"
 msgid "COLLECTION"
 msgstr "合輯"
 
-msgid "DELETE COLLECTION"
-msgstr "刪除合輯"
-
 msgid "GAMELIST VIEW STYLE"
 msgstr "遊戲清單模式"
 
@@ -636,8 +974,8 @@ msgstr "自動"
 msgid "VIEW CUSTOMIZATION"
 msgstr "檢視自定義選項"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "檢視手把轉鍵盤資訊"
+msgid "VIEW CONTROLLER MAP"
+msgstr ""
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "進階遊戲平台選項"
@@ -647,149 +985,6 @@ msgstr "重置篩選器"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "依文字篩選遊戲"
-
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "這項功能在搜刮器執行時是停用的"
-
-msgid "CLOSE"
-msgstr "關閉"
-
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "您確定要刪除這個項目嗎？"
-
-msgid "INPUT"
-msgstr "輸入"
-
-msgid "SEARCH"
-msgstr "搜尋"
-
-msgid "CANCEL"
-msgstr "取消"
-
-msgid "CONNECT TO NETPLAY"
-msgstr "連線到多人遊戲"
-
-msgid "Select a game lobby to join"
-msgstr "選擇您要加入的遊戲大廳"
-
-msgid "REFRESH"
-msgstr "重新整理"
-
-msgid "FAILED"
-msgstr "失敗"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "未知的 ROM 版本"
-
-msgid "DIFFERENT ROM"
-msgstr "不同的 ROM"
-
-msgid "SAME ROM"
-msgstr "相同的 ROM"
-
-msgid "UNAVAILABLE CORE"
-msgstr "無法使用的核心"
-
-msgid "AVAILABLE GAMES"
-msgstr "可以執行的遊戲"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "無法執行的遊戲"
-
-msgid "NO GAMES FOUND"
-msgstr "沒有找到遊戲"
-
-msgid "JOIN GAME"
-msgstr "加入遊戲"
-
-msgid "WATCH GAME"
-msgstr "參觀遊戲"
-
-msgid "INPUT MANUALLY"
-msgstr "手動輸入"
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "沒有找到 WI-FI 網路"
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "搜尋 WI-FI 網路"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "您沒有連線到網際網路"
-
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "忘記藍牙裝置"
-
-msgid "REMOVE ALL"
-msgstr "移除全部"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "沒有發現藍牙裝置"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "藍牙裝置已被刪除。"
-
-msgid "FILE BROWSER"
-msgstr "檔案瀏覽器"
-
-msgid "RESET"
-msgstr "重置"
-
-msgid "PARENT FOLDER"
-msgstr "上層資料夾"
-
-msgid "SCREENSHOTS FOLDER"
-msgstr "螢幕截圖資料夾"
-
-msgid "SELECT"
-msgstr "選擇"
-
-msgid "ADD COMBINATION KEY"
-msgstr "新增組合按鍵"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "內容下載器"
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "選擇要安裝或移除的內容"
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "更新已安裝的內容"
-
-msgid "No items"
-msgstr "在這個畫面中沒有項目"
-
-msgid "MISC"
-msgstr "雜項"
-
-msgid "UPDATE"
-msgstr "更新"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "已將「%s」加入到下載隊列中"
-
-msgid "REMOVE"
-msgstr "刪除"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "已將移除請求加入至隊列"
-
-msgid "INSTALL"
-msgstr "安裝"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "目前已在下載隊列中"
-
-msgid "NO MISSING BIOS FILES"
-msgstr "沒有缺少的 BIOS 檔案"
-
-msgid "MISSING BIOS CHECK"
-msgstr "缺少的 BIOS"
-
-msgid "NO MISSING BIOS"
-msgstr "沒有缺少 BIOS"
 
 msgid "dim"
 msgstr "黯淡"
@@ -812,6 +1007,9 @@ msgstr "開始 & 結束"
 msgid "never"
 msgstr "從未"
 
+msgid "none"
+msgstr "沒有"
+
 msgid "systems"
 msgstr "遊戲平台"
 
@@ -820,6 +1018,9 @@ msgstr "隨機"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "螢幕保護程式設定"
+
+msgid "SETTINGS"
+msgstr "設定"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "螢幕保護程式啟動隔間"
@@ -890,6 +1091,48 @@ msgstr "使用自訂資料夾中子資料夾裡的圖片"
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "自訂圖片副檔名"
 
+msgid "INDEX GAMES"
+msgstr "索引遊戲"
+
+msgid "GAMES TO INDEX"
+msgstr "遊戲至索引"
+
+msgid "ALL"
+msgstr "全部"
+
+msgid "ONLY MISSING"
+msgstr "僅限缺少的"
+
+msgid "SYSTEMS INCLUDED"
+msgstr "已包含的遊戲平台"
+
+msgid "ZOOM OUT"
+msgstr "縮小"
+
+msgid "ZOOM IN"
+msgstr "放大"
+
+msgid "MOVE"
+msgstr "移動"
+
+msgid "ZOOM"
+msgstr "縮放"
+
+msgid "INSTALL BATOCERA"
+msgstr "安裝 BATOCERA"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "目標架構"
+
+msgid "ARE YOU SURE?"
+msgstr "您確定嗎？"
+
+msgid "NETWORK REQUIRED"
+msgstr "需要網路連線"
+
+msgid "INVALID PARAMETERS"
+msgstr "無效的參數"
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "手把轉鍵盤設定"
 
@@ -938,360 +1181,8 @@ msgstr "刪除映射"
 msgid "SAVE CHANGES?"
 msgstr "要儲存修改嗎？"
 
-msgid "ARE YOU SURE?"
-msgstr "您確定嗎？"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "正在更新 %s"
-
-msgid "UPDATING BATOCERA"
-msgstr "正在更新 BATOCERA"
-
-msgid "UPDATE IS READY"
-msgstr "已準備好可以更新"
-
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "系統重新啟動來套用"
-
-msgid "REALLY UPDATE?"
-msgstr "確定要更新嗎？"
-
-#, c-format
-msgid ""
-"YOU ARE CURRENTLY USING VERSION %s\n"
-"DO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr ""
-"您正在使用版本 %s\n"
-"您想要升級至版本 %s 嗎？"
-
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "需要連線到網際網路"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "沒有可用的更新"
-
-msgid "INSTALL BATOCERA"
-msgstr "安裝 BATOCERA"
-
-msgid "TARGET DEVICE"
-msgstr "目標裝置"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "目標架構"
-
-msgid "NETWORK REQUIRED"
-msgstr "需要網路連線"
-
-msgid "INVALID PARAMETERS"
-msgstr "無效的參數"
-
-msgid "GAME MEDIA"
-msgstr "遊戲媒體"
-
-msgid "VIEW GAME MANUAL"
-msgstr "檢視遊戲使用手冊"
-
-msgid "VIEW GAME MAGAZINE"
-msgstr "檢視遊戲雜誌"
-
-msgid "VIEW GAME MAP"
-msgstr "檢視遊戲地圖"
-
-msgid "VIEW FULLSCREEN VIDEO"
-msgstr "檢視全螢幕影片"
-
-msgid "VIEW GAME MEDIA"
-msgstr "檢視遊戲媒體"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "目前的核心並不相容"
-
-msgid "COMPATIBLE CORE(S)"
-msgstr "相容的核心"
-
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "檢視這個遊戲的成就"
-
-msgid "GAME"
-msgstr "遊戲"
-
-msgid "SAVE STATES"
-msgstr "即時存檔"
-
-msgid "OPEN"
-msgstr "開啟"
-
-msgid "START A NETPLAY GAME"
-msgstr ""
-
-msgid "NETPLAY"
-msgstr "多人遊戲"
-
-msgid "START GAME"
-msgstr "開始遊戲"
-
-msgid "HOST A NETPLAY GAME"
-msgstr ""
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公開的遊戲"
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "尋找相似的遊戲..."
-
-msgid "DELETE ITEM"
-msgstr "刪除項目"
-
-msgid "DELETE GAME"
-msgstr "刪除遊戲"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr ""
-"這將會刪除實際的遊戲檔案！\n"
-"您確定要刪除嗎？"
-
-msgid "COLLECTIONS"
-msgstr "合輯"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr "從 %s 移除"
-
-#, c-format
-msgid "ADD TO %s"
-msgstr "新增至 %s"
-
-msgid "FAVORITES"
-msgstr "我的最愛"
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "新增至自定義合輯..."
-
-msgid "SCRAPE"
-msgstr "資料搜刮"
-
-msgid "EDIT PADTOKEY PROFILE"
-msgstr "編輯手把轉鍵盤設定檔"
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr "建立手把轉鍵盤設定檔"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "進階遊戲選項"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "編輯資料夾中繼資料"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "編輯此遊戲的中繼資料"
-
-msgid "THEMES DOWNLOADER"
-msgstr "佈景主題下載器"
-
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "選擇要安裝或移除的佈景主題"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "目前的佈景主題"
-
-msgid "Unlocked on"
-msgstr "已解鎖於"
-
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "這個遊戲還沒有成就"
-
-msgid "Achievements won"
-msgstr "贏得成就"
-
-#, c-format
-msgid "%d%% complete"
-msgstr "已完成 %d%%"
-
-msgid "SAVE STATE MANAGER"
-msgstr "即時存檔管理員"
-
-msgid "START NEW GAME"
-msgstr "新遊戲"
-
-msgid "START NEW AUTO SAVE"
-msgstr ""
-
-msgid "AUTO SAVE"
-msgstr "自動存檔"
-
-msgid "SLOT"
-msgstr "檔案槽"
-
-msgid "COPY TO FREE SLOT"
-msgstr "複製到空檔案槽"
-
-msgid "SCRAPER SETTINGS"
-msgstr ""
-
-msgid "IMAGE SOURCE"
-msgstr "圖片來源"
-
-msgid "SCREENSHOT"
-msgstr "螢幕截圖"
-
-msgid "TITLE SCREENSHOT"
-msgstr "標題畫面截圖"
-
-msgid "MIX V1"
-msgstr "混合版 V1"
-
-msgid "MIX V2"
-msgstr "混合版 V2"
-
-msgid "BOX 2D"
-msgstr "2D 包裝盒"
-
-msgid "BOX 3D"
-msgstr "3D 包裝盒"
-
-msgid "FAN ART"
-msgstr "粉絲繪圖"
-
-msgid "BOX SOURCE"
-msgstr "包裝盒來源"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO 來源"
-
-msgid "WHEEL"
-msgstr "商標"
-
-msgid "MARQUEE"
-msgstr "跑馬燈"
-
-msgid "SCRAPE RATINGS"
-msgstr "搜刮遊戲評分"
-
-msgid "SCRAPE VIDEOS"
-msgstr "搜刮影片"
-
-msgid "SCRAPE FANART"
-msgstr "搜刮粉絲繪圖"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "搜刮框體 (16:9)"
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "搜刮包裝盒背面"
-
-msgid "SCRAPE MAP"
-msgstr "搜刮地圖"
-
-msgid "SCRAPE MANUAL"
-msgstr "搜刮使用者手冊"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "搜刮手把轉鍵盤設定檔"
-
-msgid "SCRAPER"
-msgstr "資料搜刮器"
-
-msgid "SCRAPING DATABASE"
-msgstr "搜刮資料庫"
-
-msgid "SOURCE"
-msgstr ""
-
-msgid "SCRAPE FROM"
-msgstr "搜刮資料來源"
-
-msgid "FILTERS"
-msgstr ""
-
-msgid "GAMES TO SCRAPE FOR"
-msgstr ""
-
-msgid "ALL"
-msgstr "全部"
-
-msgid "GAMES MISSING MEDIAS"
-msgstr ""
-
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
-
-msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
-
-msgid "LAST DAY"
-msgstr ""
-
-msgid "LAST WEEK"
-msgstr ""
-
-msgid "LAST 15 DAYS"
-msgstr ""
-
-msgid "LAST MONTH"
-msgstr ""
-
-msgid "LAST 3 MONTHS"
-msgstr ""
-
-msgid "LAST YEAR"
-msgstr ""
-
-msgid "SYSTEMS INCLUDED"
-msgstr "已包含的遊戲平台"
-
-msgid "SCRAPE NOW"
-msgstr "開始搜刮"
-
-msgid "START"
-msgstr "開始"
-
-msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE FOR DIFFERENT SYSTEMS!\n"
-"CONTINUE ANYWAY?"
-msgstr ""
-"警告：你選擇的部分遊戲平台並沒有平台集合。 結果可能會比原來更加不準確！\n"
-"仍然要繼續嗎？"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "搜刮器已在執行中。您要停止它嗎？"
-
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "沒有符合該標準的遊戲。"
-
-msgid "INFORMATION"
-msgstr "系統資訊"
-
-msgid "VERSION"
-msgstr "版本"
-
-msgid "USER DISK USAGE"
-msgstr "使用者磁碟用量"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "系統磁碟用量"
-
-msgid "SYSTEM"
-msgstr "遊戲平台"
-
-msgid "VIDEO DRIVER"
-msgstr "影像驅動程式"
-
-msgid "THE BEZEL PROJECT"
-msgstr "框體專案"
-
-msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "選擇要安裝或移除的框體"
+msgid "ADD COMBINATION KEY"
+msgstr "新增組合按鍵"
 
 msgid "fade"
 msgstr "淡化"
@@ -1376,6 +1267,9 @@ msgstr "提供者"
 msgid "RENDERER"
 msgstr "渲染器"
 
+msgid "VERSION"
+msgstr "版本"
+
 msgid "SHADERS"
 msgstr "著色器"
 
@@ -1390,6 +1284,9 @@ msgstr "主選單"
 
 msgid "KODI MEDIA CENTER"
 msgstr "KODI 多媒體中心"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROACHIEVEMENTS 成就"
 
 msgid "GAME SETTINGS"
 msgstr "遊戲設定"
@@ -1409,11 +1306,17 @@ msgstr "輸入設定"
 msgid "EMULATOR SETTINGS"
 msgstr "模擬器設定"
 
+msgid "SCRAPER"
+msgstr "資料搜刮器"
+
 msgid "UPDATES & DOWNLOADS"
 msgstr "更新＆下載"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系統設定"
+
+msgid "INFORMATION"
+msgstr "系統資訊"
 
 msgid "UNLOCK UI MODE"
 msgstr "解鎖 UI 模式"
@@ -1423,9 +1326,6 @@ msgstr "離開"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "您確定要對輸入做設定嗎？"
-
-msgid "CHOOSE"
-msgstr "瀏覽"
 
 msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr "UI 模式已解鎖"
@@ -1628,8 +1528,8 @@ msgstr "開始更新"
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "更新已經在進行了"
 
-msgid "LANGUAGE"
-msgstr "語言"
+msgid "SYSTEM"
+msgstr "遊戲平台"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "選擇您所在的時區"
@@ -1727,6 +1627,12 @@ msgstr "BATOCERA 開機畫面圖片"
 msgid "SPLASH SETTING"
 msgstr "開機畫面設定"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "RETROACHIEVEMENT 設定"
+
+msgid "NETPLAY SETTINGS"
+msgstr "多人遊戲設定"
+
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "在遊戲執行前檢查 BIOS 檔案"
 
@@ -1783,9 +1689,6 @@ msgstr "儲存"
 
 msgid "STORAGE DEVICE"
 msgstr "儲存裝置"
-
-msgid "BACKUP USER DATA"
-msgstr "備份使用者資料"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "安裝 BATOCERA 到新的磁碟"
@@ -1954,9 +1857,6 @@ msgstr "遊戲平台個別進階設定"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "搜刮器正在執行中。您要終止它嗎？"
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "遊戲校驗正在進行中。您想要終止嗎？"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "確定要更新遊戲清單嗎？"
@@ -2289,26 +2189,332 @@ msgstr ""
 "您連結的部分檔案是放在遊戲清單路徑以外的地方。\n"
 "您是否想要使用與遊戲清單相關的這些檔案的副本？"
 
-msgid "NO DEVICE FOUND"
-msgstr "沒有找到裝置"
+msgid "CONNECT TO NETPLAY"
+msgstr "連線到多人遊戲"
 
-msgid "ZOOM OUT"
-msgstr "縮小"
+msgid "Select a game lobby to join"
+msgstr "選擇您要加入的遊戲大廳"
 
-msgid "ZOOM IN"
-msgstr "放大"
+msgid "FAILED"
+msgstr "失敗"
 
-msgid "MOVE"
-msgstr "移動"
+msgid "UNKNOWN ROM VERSION"
+msgstr "未知的 ROM 版本"
 
-msgid "ZOOM"
-msgstr "縮放"
+msgid "DIFFERENT ROM"
+msgstr "不同的 ROM"
 
-msgid "GAMES TO INDEX"
-msgstr "遊戲至索引"
+msgid "SAME ROM"
+msgstr "相同的 ROM"
 
-msgid "ONLY MISSING"
-msgstr "僅限缺少的"
+msgid "UNAVAILABLE CORE"
+msgstr "無法使用的核心"
+
+msgid "AVAILABLE GAMES"
+msgstr "可以執行的遊戲"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "無法執行的遊戲"
+
+msgid "NO GAMES FOUND"
+msgstr "沒有找到遊戲"
+
+msgid "JOIN GAME"
+msgstr "加入遊戲"
+
+msgid "WATCH GAME"
+msgstr "參觀遊戲"
+
+msgid "ENABLE NETPLAY"
+msgstr "啟用多人遊戲"
+
+msgid "NICKNAME"
+msgstr "暱稱"
+
+msgid "PORT"
+msgstr "連接埠"
+
+msgid "USE RELAY SERVER"
+msgstr "使用中繼伺服器"
+
+msgid "NEW YORK"
+msgstr ""
+
+msgid "MADRID"
+msgstr ""
+
+msgid "MONTREAL"
+msgstr ""
+
+msgid "SAO PAULO"
+msgstr ""
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "GAME INDEXES"
+msgstr "遊戲索引"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "於啟動期間索引新遊戲"
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (第 %d 個，共 %d 個)"
+
+msgid "Rank"
+msgstr "階級"
+
+msgid "VIEW DETAILS"
+msgstr "檢視詳細資訊"
+
+msgid "HARDCORE MODE"
+msgstr "硬派模式"
+
+msgid "LEADERBOARDS"
+msgstr "排行榜"
+
+msgid "VERBOSE MODE"
+msgstr "詳細模式"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "自動化螢幕截圖"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "挑戰指示器"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr "當能夠獲得符合條件的成就時在右下角顯示圖示。"
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "RETROACHIEVEMENT 解鎖音效"
+
+msgid "UNLOCK SOUND"
+msgstr "解鎖音效"
+
+msgid "USERNAME"
+msgstr "使用者名稱"
+
+msgid "PASSWORD"
+msgstr "使用者密碼"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "無法啟用 RETROACHIEVEMENTS："
+
+msgid "SAVE STATE MANAGER"
+msgstr "即時存檔管理員"
+
+msgid "START NEW GAME"
+msgstr "新遊戲"
+
+msgid "START NEW AUTO SAVE"
+msgstr ""
+
+msgid "AUTO SAVE"
+msgstr "自動存檔"
+
+msgid "SLOT"
+msgstr "檔案槽"
+
+msgid "COPY TO FREE SLOT"
+msgstr "複製到空檔案槽"
+
+msgid "SCRAPER SETTINGS"
+msgstr ""
+
+msgid "IMAGE SOURCE"
+msgstr "圖片來源"
+
+msgid "SCREENSHOT"
+msgstr "螢幕截圖"
+
+msgid "TITLE SCREENSHOT"
+msgstr "標題畫面截圖"
+
+msgid "MIX V1"
+msgstr "混合版 V1"
+
+msgid "MIX V2"
+msgstr "混合版 V2"
+
+msgid "BOX 2D"
+msgstr "2D 包裝盒"
+
+msgid "BOX 3D"
+msgstr "3D 包裝盒"
+
+msgid "FAN ART"
+msgstr "粉絲繪圖"
+
+msgid "BOX SOURCE"
+msgstr "包裝盒來源"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO 來源"
+
+msgid "WHEEL"
+msgstr "商標"
+
+msgid "MARQUEE"
+msgstr "跑馬燈"
+
+msgid "SCRAPE RATINGS"
+msgstr "搜刮遊戲評分"
+
+msgid "SCRAPE VIDEOS"
+msgstr "搜刮影片"
+
+msgid "SCRAPE FANART"
+msgstr "搜刮粉絲繪圖"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "搜刮框體 (16:9)"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "搜刮包裝盒背面"
+
+msgid "SCRAPE MAP"
+msgstr "搜刮地圖"
+
+msgid "SCRAPE MANUAL"
+msgstr "搜刮使用者手冊"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "搜刮手把轉鍵盤設定檔"
+
+msgid "SCRAPING DATABASE"
+msgstr "搜刮資料庫"
+
+msgid "SOURCE"
+msgstr ""
+
+msgid "SCRAPE FROM"
+msgstr "搜刮資料來源"
+
+msgid "FILTERS"
+msgstr ""
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr ""
+
+msgid "GAMES MISSING MEDIAS"
+msgstr ""
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr ""
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr ""
+
+msgid "LAST DAY"
+msgstr ""
+
+msgid "LAST WEEK"
+msgstr ""
+
+msgid "LAST 15 DAYS"
+msgstr ""
+
+msgid "LAST MONTH"
+msgstr ""
+
+msgid "LAST 3 MONTHS"
+msgstr ""
+
+msgid "LAST YEAR"
+msgstr ""
+
+msgid "SCRAPE NOW"
+msgstr "開始搜刮"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+"警告：你選擇的部分遊戲平台並沒有平台集合。 結果可能會比原來更加不準確！\n"
+"仍然要繼續嗎？"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "搜刮器已在執行中。您要停止它嗎？"
+
+msgid "USER DISK USAGE"
+msgstr "使用者磁碟用量"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "系統磁碟用量"
+
+msgid "VIDEO DRIVER"
+msgstr "影像驅動程式"
+
+msgid "THEMES DOWNLOADER"
+msgstr "佈景主題下載器"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "選擇要安裝或移除的佈景主題"
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr "目前的佈景主題"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "正在更新 %s"
+
+msgid "UPDATING BATOCERA"
+msgstr "正在更新 BATOCERA"
+
+msgid "UPDATE IS READY"
+msgstr "已準備好可以更新"
+
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgstr "系統重新啟動來套用"
+
+msgid "REALLY UPDATE?"
+msgstr "確定要更新嗎？"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"您正在使用版本 %s\n"
+"您想要升級至版本 %s 嗎？"
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "需要連線到網際網路"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "沒有可用的更新"
+
+msgid "INPUT MANUALLY"
+msgstr "手動輸入"
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "沒有找到 WI-FI 網路"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "搜尋 WI-FI 網路"
+
+msgid "Loading system config..."
+msgstr "正在載入系統設定..."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "正在儲存中繼資料。請稍後..."
+
+msgid "SCRAPING"
+msgstr "搜刮中"
+
+msgid "SCRAPE FAILED"
+msgstr "搜刮失敗"
+
+msgid "SCRAPING FINISHED"
+msgstr "已完成搜刮"
 
 msgid "SYSTEM INFO"
 msgstr "系統資訊"
@@ -2355,6 +2561,15 @@ msgstr "隨機選擇"
 msgid "FILES"
 msgstr "檔案"
 
+msgid "Full"
+msgstr "全部"
+
+msgid "Kiosk"
+msgstr "遊戲大廳"
+
+msgid "Kid"
+msgstr "兒童"
+
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
 "FORMAT.\n"
@@ -2383,17 +2598,8 @@ msgstr "正在載入遊戲清單"
 msgid "MENU"
 msgstr "主選單"
 
-msgid "Full"
-msgstr "全部"
-
-msgid "Kiosk"
-msgstr "遊戲大廳"
-
-msgid "Kid"
-msgstr "兒童"
-
-msgid "Released"
-msgstr "發行日期"
+msgid "No Entries Found"
+msgstr "沒有找到項目"
 
 msgid "Times played"
 msgstr "遊戲執行次數"
@@ -2402,9 +2608,6 @@ msgstr "遊戲執行次數"
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "這個資料夾包含 %i 個遊戲，包括：%s"
-
-msgid "No Entries Found"
-msgstr "沒有找到項目"
 
 msgid "Games similar to"
 msgstr "遊戲相似於"
@@ -2415,206 +2618,6 @@ msgstr "遊戲設定"
 msgid "FAVORITE"
 msgstr "我的最愛"
 
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
-msgstr "需要提供一個有效的帳號。請在 https://retroachievements.org 註冊帳號"
-
-msgid "Searching"
-msgstr "搜尋中"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "沒有找到遊戲 - 略過"
-
-msgid "RETRY"
-msgstr "重試"
-
-msgid "SKIP"
-msgstr "略過"
-
-msgid "Downloading"
-msgstr "下載中"
-
-msgid "SEARCH FOR"
-msgstr "要搜尋什麼"
-
-msgid "ACCEPT RESULT"
-msgstr "確認結果"
-
-msgid "Loading system config..."
-msgstr "正在載入系統設定..."
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "正在儲存中繼資料。請稍後..."
-
-msgid "Collections"
-msgstr "合輯"
-
-msgid "FILENAME, ASCENDING"
-msgstr "遊戲名稱（升序）"
-
-msgid "FILENAME, DESCENDING"
-msgstr "遊戲名稱（降序）"
-
-msgid "RATING, ASCENDING"
-msgstr "評分（升序）"
-
-msgid "RATING, DESCENDING"
-msgstr "評分（降序）"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "遊戲執行次數（升序）"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "遊戲執行次數（降序）"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "最近執行（升序）"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "最近執行（降序）"
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "玩家數量（升序）"
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "玩家數量（降序）"
-
-msgid "RELEASE DATE, ASCENDING"
-msgstr "發佈日期（升序）"
-
-msgid "RELEASE DATE, DESCENDING"
-msgstr "發佈日期（降序）"
-
-msgid "GENRE, ASCENDING"
-msgstr "遊戲類型（升序）"
-
-msgid "GENRE, DESCENDING"
-msgstr "遊戲類型（降序）"
-
-msgid "DEVELOPER, ASCENDING"
-msgstr "遊戲開發公司 (升序)"
-
-msgid "DEVELOPER, DESCENDING"
-msgstr "遊戲開發公司 (降序)"
-
-msgid "PUBLISHER, ASCENDING"
-msgstr "遊戲發行公司 (升序)"
-
-msgid "PUBLISHER, DESCENDING"
-msgstr "遊戲發行公司 (降序)"
-
-msgid "SYSTEM, ASCENDING"
-msgstr "系統 (升序)"
-
-msgid "SYSTEM, DESCENDING"
-msgstr "系統 (降序)"
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr "遊戲建立日期 (升序)"
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr "遊戲建立日期 (降序)"
-
-msgid "GAME TIME, ASCENDING"
-msgstr "遊戲時間升序"
-
-msgid "GAME TIME, DESCENDING"
-msgstr "遊戲時間將序"
-
-msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr "遊戲平台，發行年份（升序）"
-
-msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr "遊戲平台，發行年份（降序）"
-
-msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr "發行年份，遊戲平台（升序）"
-
-msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr "發行年份，遊戲平台（降序）"
-
-msgid "A,AN,THE"
-msgstr "A,AN,THE"
-
-msgid "Extracting"
-msgstr "提取中"
-
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "正在搜尋 RETROACHIEVEMENTS"
-
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "正在搜尋多人遊戲"
-
-msgid "INDEXING COMPLETED"
-msgstr "已完成索引"
-
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "更新遊戲清單來套用變更。"
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "模擬器未預期的退出了"
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr "無效的命令列參數"
-
-msgid "INVALID CONFIGURATION"
-msgstr "無效的設定"
-
-msgid "UNKNOWN EMULATOR"
-msgstr "未知的模擬器"
-
-msgid "EMULATOR IS MISSING"
-msgstr "模擬器遺失"
-
-msgid "CORE IS MISSING"
-msgstr "核心遺失"
-
-msgid "UKNOWN ERROR"
-msgstr "未知的錯誤"
-
-msgid "GENRE"
-msgstr "類型"
-
-msgid "FAMILY"
-msgstr "家族"
-
-msgid "PLAYERS"
-msgstr "遊戲人數"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr "發行商/開發商"
-
-msgid "RATING"
-msgstr "評分"
-
-msgid "YEAR"
-msgstr "年份"
-
-msgid "REGION"
-msgstr "地區"
-
-msgid "KIDGAME"
-msgstr "兒童遊戲"
-
-msgid "ALREADY PLAYED"
-msgstr "已經玩過的"
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "提供成就"
-
-msgid "VERTICAL"
-msgstr "直立式"
-
-msgid "SCRAPING"
-msgstr "搜刮中"
-
-msgid "SCRAPE FAILED"
-msgstr "搜刮失敗"
-
-msgid "SCRAPING FINISHED"
-msgstr "已完成搜刮"
-
 #, c-format
 msgid "%s connected"
 msgstr "%s 位已連線"
@@ -2623,17 +2626,83 @@ msgstr "%s 位已連線"
 msgid "%s disconnected"
 msgstr "%s 位已斷線"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFT 鍵可用於切換大小寫或特殊符號"
+msgid "SCREEN READER ENABLED"
+msgstr "螢幕閱讀器已啟用"
 
-msgid "ALT GR"
-msgstr "修飾鍵"
+msgid "SCREEN READER DISABLED"
+msgstr "螢幕閱讀器已停用"
 
-msgid "SHIFT"
-msgstr "SHIFT 鍵"
+msgid "WORKING..."
+msgstr "作業中..."
 
-msgid "SPACE"
-msgstr "空白鍵"
+msgid "ENABLED"
+msgstr "啟用"
+
+msgid "up/down"
+msgstr "上/下"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d 天前"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d 小時前"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d 分鐘前"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d 幾秒前"
+
+msgid "accept"
+msgstr "確定"
+
+msgid "SELECT ALL"
+msgstr "全部選擇"
+
+msgid "select all"
+msgstr "全部選擇"
+
+msgid "SELECT NONE"
+msgstr "取消選擇"
+
+msgid "select none"
+msgstr "取消選擇"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i 個已選擇"
+
+msgid "CHANGE"
+msgstr "變更"
+
+msgid "MOVE CURSOR"
+msgstr "移動游標"
+
+msgid "EDIT"
+msgstr "編輯"
+
+msgid "WELCOME"
+msgstr "歡迎"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "偵測到 %i 支手把"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "沒有偵測到遊戲手把"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "長按您要設定的控制器上的任一按鈕。"
 
 msgctxt "joystick"
 msgid "UP"
@@ -2738,80 +2807,20 @@ msgstr "按下對應的按鈕"
 msgid "ALREADY TAKEN"
 msgstr "已經被指派了"
 
-msgid "WELCOME"
-msgstr "歡迎"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "偵測到 %i 支手把"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "沒有偵測到遊戲手把"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "長按您要設定的控制器上的任一按鈕。"
-
 msgid "DISCARD CHANGES"
 msgstr "放棄修改"
 
-msgid "up/down"
-msgstr "上/下"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT 鍵可用於切換大小寫或特殊符號"
 
-msgid "accept"
-msgstr "確定"
+msgid "ALT GR"
+msgstr "修飾鍵"
 
-msgid "SELECT ALL"
-msgstr "全部選擇"
+msgid "SHIFT"
+msgstr "SHIFT 鍵"
 
-msgid "select all"
-msgstr "全部選擇"
-
-msgid "SELECT NONE"
-msgstr "取消選擇"
-
-msgid "select none"
-msgstr "取消選擇"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i 個已選擇"
-
-msgid "CHANGE"
-msgstr "變更"
-
-msgid "MOVE CURSOR"
-msgstr "移動游標"
-
-msgid "EDIT"
-msgstr "編輯"
-
-msgid "ENABLED"
-msgstr "啟用"
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d 天前"
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "%d 小時前"
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "%d 分鐘前"
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "%d 幾秒前"
-
-msgid "WORKING..."
-msgstr "作業中..."
+msgid "SPACE"
+msgstr "空白鍵"
 
 #, c-format
 msgid "%d h"
@@ -2824,12 +2833,6 @@ msgstr "%d 分"
 #, c-format
 msgid "%d s"
 msgstr "%d 秒"
-
-msgid "SCREEN READER ENABLED"
-msgstr "螢幕閱讀器已啟用"
-
-msgid "SCREEN READER DISABLED"
-msgstr "螢幕閱讀器已停用"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "使用預先執行畫格"

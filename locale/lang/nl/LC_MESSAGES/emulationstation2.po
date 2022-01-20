@@ -13,8 +13,236 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-msgid "UPDATE AVAILABLE"
-msgstr "UPDATE BESCHIKBAAR"
+msgid "all games"
+msgstr "alle spellen"
+
+msgid "last played"
+msgstr "laatst gespeeld"
+
+msgid "favorites"
+msgstr "favorieten"
+
+msgid "2 players"
+msgstr "2 spelers"
+
+msgid "4 players"
+msgstr "4 spelers"
+
+msgid "never played"
+msgstr "nooit gespeeld"
+
+msgid "retroachievements"
+msgstr "retroprestaties"
+
+msgid "arcade"
+msgstr "arcade"
+
+msgid "vertical arcade"
+msgstr "verticale arcade"
+
+msgid "lightgun games"
+msgstr "lightgun spellen"
+
+msgid "collections"
+msgstr "collecties"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "'%s' tot '%s' Toegevoegd"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "'%s' van '%s' Verwijderd"
+
+msgid "This collection is empty."
+msgstr "Deze collectie is leeg."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Geen"
+
+msgid "Various"
+msgstr "Diversen"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] "Deze collectie heeft %i spel:%s"
+msgstr[1] "Deze collectie heeft %i games, inclusief:%s"
+
+msgid "DOWNLOADING"
+msgstr "DOWNLOADEN"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "THEMA SUCCESVOL GEINSTALLEERD"
+
+msgid "AN ERROR OCCURED"
+msgstr "ER IS EEN FOUT OPGETREDEN"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "THEMA SUCCESVOL GEDEINSTALLEERD"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "OMLIJSTINGEN SUCCESVOL GEINSTALLEERD"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "OMLIJSTINGEN SUCCESVOL GEDEINSTALLEERD"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "PAKKET SUCCESVOL GEINSTALLEERD"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "PAKKET SUCCESVOL GEDEINSTALLEERD"
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "DE EMULATOR IS ONVERWACHT AFGESLOTEN"
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "FOUTE COMMAND LINE ARGUMENTEN"
+
+msgid "INVALID CONFIGURATION"
+msgstr "ONGELDIGE CONFIGURATIE"
+
+msgid "UNKNOWN EMULATOR"
+msgstr "ONBEKENDE EMULATOR"
+
+msgid "EMULATOR IS MISSING"
+msgstr "EMULATOR ONTBREEKT"
+
+msgid "CORE IS MISSING"
+msgstr "CORE ONTBREEKT"
+
+msgid "UKNOWN ERROR"
+msgstr "ONBEKENDE FOUT"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "FAVORITES"
+msgstr "FAVORIETEN"
+
+msgid "GENRE"
+msgstr "GENRE"
+
+msgid "FAMILY"
+msgstr "FAMILIE"
+
+msgid "PLAYERS"
+msgstr "SPELERS"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr "UITGEVER/ONTWIKKELAAR"
+
+msgid "RATING"
+msgstr "BEOORDELING"
+
+msgid "YEAR"
+msgstr "JAAR"
+
+msgid "LANGUAGE"
+msgstr "TAAL"
+
+msgid "REGION"
+msgstr "REGIO"
+
+msgid "KIDGAME"
+msgstr "SPEL VOOR KINDEREN"
+
+msgid "ALREADY PLAYED"
+msgstr "AL GESPEELD"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "HEEFT PRESTATIES"
+
+msgid "VERTICAL"
+msgstr "VERTICAAL"
+
+msgid "FILENAME, ASCENDING"
+msgstr "BESTANDSNAAM, OPLOPEND"
+
+msgid "FILENAME, DESCENDING"
+msgstr "BESTANDSNAAM, AFLOPEND"
+
+msgid "RATING, ASCENDING"
+msgstr "BEOORDELING, OPLOPEND"
+
+msgid "RATING, DESCENDING"
+msgstr "BEOORDELING, AFLOPEND"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "AANTAL KEER GESPEELD, OPLOPEND"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "AANTAL KEER GESPEELD, AFLOPEND"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "LAATST GESPEELD, OPLOPEND"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "LAATST GESPEELD, AFLOPEND"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "AANTAL SPELERS, OPLOPEND"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "AANTAL SPELERS, AFLOPEND"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "UITGAVE DATUM, OPLOPEND"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "UITGAVE DATUM, AFLOPEND"
+
+msgid "GENRE, ASCENDING"
+msgstr "GENRE, OPLOPEND"
+
+msgid "GENRE, DESCENDING"
+msgstr "GENRE, AFLOPEND"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "ONTWIKKELAAR, OPLOPEND"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "ONTWIKKELAAR, AFLOPEND"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "UITGEVER, OPLOPEND"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "UITGEVER, AFLOPEND"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "SYSTEEM, OPLOPEND"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "SYSTEEM, AFLOPEND"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "BESTAND CREATIE DATUM, OPLOPEND"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "BESTAND CREATIE DATUM, AFLOPEND"
+
+msgid "GAME TIME, ASCENDING"
+msgstr "SPEELTIJD, OPLOPEND"
+
+msgid "GAME TIME, DESCENDING"
+msgstr "SPEELTIJD, AFLOPEND"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "SYSTEEM, UITGAVE JAAR, OPLOPEND"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "SYSTEEM, UITGAVE JAAR, AFLOPEND"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "UITAVE JAAR, SYSTEEM, OPLOPEND"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "UITGAVE JAAR, SYSTEEM, AFLOPEND"
+
+msgid "A,AN,THE"
+msgstr "EEN,HET,DE"
 
 msgid "Name"
 msgstr "Naam"
@@ -256,62 +484,21 @@ msgstr "Cheevos Game ID"
 msgid "Screenscraper Game ID"
 msgstr "Screenscraper Game ID"
 
-msgid "all games"
-msgstr "alle spellen"
+msgid "UPDATE AVAILABLE"
+msgstr "UPDATE BESCHIKBAAR"
 
-msgid "last played"
-msgstr "laatst gespeeld"
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"Een geldig account is vereist. Gelieve een account te registreren op https://"
+"retroachievements.org"
 
-msgid "favorites"
-msgstr "favorieten"
+msgid "Collections"
+msgstr "Collecties"
 
-msgid "2 players"
-msgstr "2 spelers"
-
-msgid "4 players"
-msgstr "4 spelers"
-
-msgid "never played"
-msgstr "nooit gespeeld"
-
-msgid "retroachievements"
-msgstr "retroprestaties"
-
-msgid "arcade"
-msgstr "arcade"
-
-msgid "vertical arcade"
-msgstr "verticale arcade"
-
-msgid "lightgun games"
-msgstr "lightgun spellen"
-
-msgid "collections"
-msgstr "collecties"
-
-#, c-format
-msgid "Added '%s' to '%s'"
-msgstr "'%s' tot '%s' Toegevoegd"
-
-#, c-format
-msgid "Removed '%s' from '%s'"
-msgstr "'%s' van '%s' Verwijderd"
-
-msgid "This collection is empty."
-msgstr "Deze collectie is leeg."
-
-#. TRANSLATION: number of developpers / various developpers
-msgid "None"
-msgstr "Geen"
-
-msgid "Various"
-msgstr "Diversen"
-
-#, c-format
-msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Deze collectie heeft %i spel:%s"
-msgstr[1] "Deze collectie heeft %i games, inclusief:%s"
+msgid "Unknown"
+msgstr "Onbekend"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH SCANNEN"
@@ -334,111 +521,20 @@ msgstr "EEN REBOOT IS BENODIGD OM DE OPERATIE TE VOLTOOIEN"
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "ER WORD AL EEN SCHIJF GEFORMATTEERD."
 
-msgid "DOWNLOADING"
-msgstr "DOWNLOADEN"
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "ZOEKEN RETROPRESTATIES"
 
-msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "THEMA SUCCESVOL GEINSTALLEERD"
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "ZOEKEN NETPLAY SPELLEN"
 
-msgid "AN ERROR OCCURED"
-msgstr "ER IS EEN FOUT OPGETREDEN"
+msgid "INDEXING COMPLETED"
+msgstr "INDEXERING COMPLEET"
 
-msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "THEMA SUCCESVOL GEDEINSTALLEERD"
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "UPDATE SPELLIJSTEN OM VERANDERINGEN TOE TE PASSEN."
 
-msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "OMLIJSTINGEN SUCCESVOL GEINSTALLEERD"
-
-msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "OMLIJSTINGEN SUCCESVOL GEDEINSTALLEERD"
-
-msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "PAKKET SUCCESVOL GEINSTALLEERD"
-
-msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "PAKKET SUCCESVOL GEDEINSTALLEERD"
-
-msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "INSTELLNGEN RETROPRESTATIES"
-
-msgid "SETTINGS"
-msgstr "INSTELLINGEN"
-
-msgid "RETROACHIEVEMENTS"
-msgstr "RETROPRESTATIES"
-
-msgid "HARDCORE MODE"
-msgstr "HARDCORE MODUS"
-
-msgid "LEADERBOARDS"
-msgstr "SCORE BORD"
-
-msgid "VERBOSE MODE"
-msgstr "VERBOSE MODUS"
-
-msgid "AUTOMATIC SCREENSHOT"
-msgstr "AUTOMATISCHE SCREENSHOT"
-
-msgid "CHALLENGE INDICATORS"
-msgstr "CHALLENGE INDICATORS"
-
-msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be "
-"earned."
-msgstr ""
-"Laat icoontjes zien rechts-onder wanneer beschikbare prestaties verdiend "
-"kunnen worden."
-
-msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROPRESTATIE GELUID ONTGRENDELEN"
-
-msgid "none"
-msgstr "geen"
-
-msgid "UNLOCK SOUND"
-msgstr "GELUID ONTGRENDELEN"
-
-msgid "USERNAME"
-msgstr "GEBRUIKERSNAAM"
-
-msgid "PASSWORD"
-msgstr "WACHTWOORD"
-
-msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "TOON RETROPRESTATIES IN HOOFDMENU"
-
-msgid "GAME INDEXES"
-msgstr "SPEL INDEXEN"
-
-msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXEER NIEUWE SPELLEN BIJ HET OPSTARTEN"
-
-msgid "INDEX GAMES"
-msgstr "INDEXEER SPELLEN"
-
-msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "KAN RETROPRESTATIES NIET ACTIVEREN:"
-
-msgid "OK"
-msgstr "OK"
-
-msgid "FILTER GAMELIST BY"
-msgstr "FILTER SPELLIJST OP"
-
-msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "BEWERK DYNAMISCHE COLLECTIE FILTERS"
-
-msgid "RESET ALL FILTERS"
-msgstr "HERSTEL ALLE FILTERS"
-
-msgid "BACK"
-msgstr "TERUG"
-
-msgid "FIND GAMES"
-msgstr "VIND SPELLEN"
-
-msgid "Unknown"
-msgstr "Onbekend"
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "SPEL HASHING IS BEZIG. WILT U HET STOPPEN?"
 
 msgid "YES"
 msgstr "JA"
@@ -446,8 +542,133 @@ msgstr "JA"
 msgid "NO"
 msgstr "NEE"
 
-msgid "SYSTEMS"
-msgstr "SYSTEMEN"
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "GEEN SPELLEN DIE AAN DIE CRITERIA VOLDOEN."
+
+msgid "Extracting"
+msgstr "Uitpakken"
+
+msgid "CANCEL"
+msgstr "ANNULEREN"
+
+msgid "CHOOSE"
+msgstr "KIEZEN"
+
+msgid "Searching"
+msgstr "Zoeken"
+
+msgid "Released"
+msgstr "Uitgegeven"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "GEEN SPELLEN GEVONDEN - OVERSLAAN"
+
+msgid "RETRY"
+msgstr "OPNIEUW PROBEREN"
+
+msgid "SKIP"
+msgstr "OVERSLAAN"
+
+msgid "Downloading"
+msgstr "Downloaden"
+
+msgid "SEARCH FOR"
+msgstr "ZOEK NAAR"
+
+msgid "ACCEPT RESULT"
+msgstr "ACCEPTEER RESULTAAT"
+
+msgid "FINISHED"
+msgstr "KLAAR"
+
+msgid "BACKUP USER DATA"
+msgstr "BACKUP GEBRUIKER DATA"
+
+msgid "TARGET DEVICE"
+msgstr "DOEL APPARAAT"
+
+msgid "NO DEVICE FOUND"
+msgstr "GEEN APPARAAT GEVONDEN"
+
+msgid "START"
+msgstr "START"
+
+msgid "BACK"
+msgstr "TERUG"
+
+msgid "CLOSE"
+msgstr "SLUITEN"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "CONTENT DOWNLOADER"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "SELECTEER CONTENT OM TE INSTALLEREN/VERWIJDEREN"
+
+msgid "SEARCH"
+msgstr "ZOEKEN"
+
+msgid "REFRESH"
+msgstr "VERVERSEN"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "UPDATE GEINSTALLEERDE CONTENT"
+
+msgid "No items"
+msgstr "Geen items"
+
+msgid "MISC"
+msgstr "MISC"
+
+msgid "PLEASE WAIT"
+msgstr "WACHTEN ALSTUBLIEFT"
+
+msgid "UPDATE"
+msgstr "UPDATE"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' TOEGEVOEGD AAN DOWNLOAD WACHTRIJ"
+
+msgid "REMOVE"
+msgstr "VERWIJDEREN"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "DEINSTALLATIE AAN WACHTRIJ TOEGEVOEGD"
+
+msgid "INSTALL"
+msgstr "INSTALLEREN"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "AANWEZIG IN DOWNLOAD WACHTRIJ"
+
+msgid "THE BEZEL PROJECT"
+msgstr "HET OMLIJSTING PROJECT"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr "SELECTEER OMLIJSTINGEN OM TE INSTALLEREN/VERWIJDEREN"
+
+msgid "NO MISSING BIOS FILES"
+msgstr "GEEN MISSENDE BIOS BESTANDEN"
+
+msgid "MISSING BIOS CHECK"
+msgstr "MISSENDE BIOS CHECK"
+
+msgid "NO MISSING BIOS"
+msgstr "GEEN MISSENDE BIOS"
+
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "VERGEET EEN BLUETOOTH APPARAAT"
+
+msgid "REMOVE ALL"
+msgstr "ALLES VERWIJDEREN"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "GEEN BLUETOOTH APPARATEN GEVONDEN"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH APPARATEN ZIJN VERWIJDERD."
 
 msgid "GAME COLLECTION SETTINGS"
 msgstr "SPEL COLLECTIE INSTELLINGEN"
@@ -551,63 +772,181 @@ msgstr "DYNAMISCHE COLLECTIES"
 msgid "CUSTOM GAME COLLECTIONS"
 msgstr "AANGEPASTE SPEL COLLECTIES"
 
-msgid "PLEASE WAIT"
-msgstr "WACHTEN ALSTUBLIEFT"
+msgid "FILE BROWSER"
+msgstr "BESTANDBEHEER"
 
-#, c-format
-msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d van %d)"
+msgid "RESET"
+msgstr "HERSTEL"
+
+msgid "PARENT FOLDER"
+msgstr "BOVENLIGGENDE MAP"
+
+msgid "SCREENSHOTS FOLDER"
+msgstr "SCREENSHOTS MAP"
+
+msgid "SELECT"
+msgstr "SELECTEER"
 
 msgid "Points"
 msgstr "Punten"
 
-msgid "Rank"
-msgstr "Rang"
-
-msgid "VIEW DETAILS"
-msgstr "DETAILS WEERGEVEN"
+msgid "Unlocked on"
+msgstr "Ontgrendeld op"
 
 msgid "LAUNCH"
 msgstr "START"
 
-msgid "NETPLAY SETTINGS"
-msgstr "NETPLAY INSTELLINGEN"
+msgid "go back"
+msgstr "ga terug"
 
-msgid "ENABLE NETPLAY"
-msgstr "NETPLAY INSCHAKELEN"
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "DIT SPEL HEEFT NOG GEEN PRESTATIES"
 
-msgid "NICKNAME"
-msgstr "BIJNAAM"
+msgid "Achievements won"
+msgstr "Verdiende prestaties"
 
-msgid "PORT"
-msgstr "POORT"
+#, c-format
+msgid "%d%% complete"
+msgstr "%d%% voltooid"
 
-msgid "USE RELAY SERVER"
-msgstr "RELAY SERVER GEBRUIKEN"
+msgid "GAME MEDIA"
+msgstr "SPEL MEDIA"
 
-msgid "NEW YORK"
-msgstr "NEW YORK"
+msgid "VIEW GAME MANUAL"
+msgstr "TOON SPEL HANDLEIDING"
 
-msgid "MADRID"
-msgstr "MADRID"
+msgid "VIEW GAME MAGAZINE"
+msgstr "TOON SPEL HOES"
 
-msgid "MONTREAL"
-msgstr "MONTREAL"
+msgid "VIEW GAME MAP"
+msgstr "TOON SPEL MAP"
 
-msgid "SAO PAULO"
-msgstr "SAO PAULO"
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr "TOON VIDEO OP VOLLEDIG SCHERM"
 
-msgid "SHOW UNAVAILABLE GAMES"
-msgstr "TOON ONBESCHIKBARE SPELLEN"
+msgid "VIEW GAME MEDIA"
+msgstr "TOON GAME MEDIA"
 
-msgid "FINISHED"
-msgstr "KLAAR"
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "HUIDIGE CORE IS NIET COMPATIBEL"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr "COMPATIBELE CORES"
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr "LAAT PRESTATIES VAN DIT SPEL ZIEN"
+
+msgid "GAME"
+msgstr "SPEL"
+
+msgid "SAVE STATES"
+msgstr "SAVE STATES"
+
+msgid "OPEN"
+msgstr "OPEN"
+
+msgid "START A NETPLAY GAME"
+msgstr "START EEN NETPLAY SPEL"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "START SPEL"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HOST EEN NETPLAY SPEL"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "U BENT NIET VERBONDEN MET EEN NETWERK"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "EEN SPEL PUBLIEK AANKONDIGEN"
+
+msgid "PLAYER PASSWORD"
+msgstr "SPELER WACHTWOORD"
+
+msgid "VIEWER PASSWORD"
+msgstr "TOESCHOUWER WACHTWOORD"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "ZELFDE SOORT SPELLEN ZOEKEN..."
+
+msgid "DELETE ITEM"
+msgstr "VERWIJDER ITEM"
+
+msgid "DELETE GAME"
+msgstr "VERWIJDER SPEL"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr "DIT ZAL DE SPEL BESTANDEN ECHT VERWIJDEREN! WEET U HET ZEKER?"
+
+msgid "COLLECTIONS"
+msgstr "COLLECTIES"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "VERWIJDER UIT %s"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "VOEG TOE AAN %s"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
+
+msgid "DELETE COLLECTION"
+msgstr "COLLECTIE VERWIJDEREN"
+
+msgid "SCRAPE"
+msgstr "SCRAPEN"
+
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "BEWERK CONTROLLER NAAR KEYBOARD PROFIEL"
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "CREEER CONTROLLER NAAR KEYBOARD PROFIEL"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "GEAVANCEERDE SPEL OPTIES"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "BEWERK MAP METADATA"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "BEWERK DE METADATA VAN DIT SPEL"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "CONTROLLER NAAR KEYBOARD WEERGEVEN"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "DEZE FUNCTIE IS UITGESCHAKELD ALS DE SCRAPER BEZIG IS"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "WEET U ZEKER DAT U DIT ITEM WIL VERWIJDEREN?"
+
+msgid "INPUT"
+msgstr "INVOER"
+
+msgid "FILTER GAMELIST BY"
+msgstr "FILTER SPELLIJST OP"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "BEWERK DYNAMISCHE COLLECTIE FILTERS"
+
+msgid "RESET ALL FILTERS"
+msgstr "HERSTEL ALLE FILTERS"
+
+msgid "FIND GAMES"
+msgstr "VIND SPELLEN"
+
+msgid "SYSTEMS"
+msgstr "SYSTEMEN"
 
 msgid "VIEW OPTIONS"
 msgstr "OPTIES WEERGEVEN"
-
-msgid "go back"
-msgstr "ga terug"
 
 msgid "NAVIGATION"
 msgstr "NAVIGATIE"
@@ -627,9 +966,6 @@ msgstr "ANDERE FILTERS"
 msgid "COLLECTION"
 msgstr "COLLECTIE"
 
-msgid "DELETE COLLECTION"
-msgstr "COLLECTIE VERWIJDEREN"
-
 msgid "GAMELIST VIEW STYLE"
 msgstr "STIJL SPELLIJST WEERGAVE"
 
@@ -639,8 +975,8 @@ msgstr "automatisch"
 msgid "VIEW CUSTOMIZATION"
 msgstr "AANPASSING WEERGEVEN"
 
-msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "CONTROLLER NAAR KEYBOARD WEERGEVEN"
+msgid "VIEW CONTROLLER MAP"
+msgstr ""
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "GEAVANCEERDE SYSTEEM OPTIES"
@@ -650,149 +986,6 @@ msgstr "HERSTEL FILTERS"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "FILTREER SPELLEN OP TEXT"
-
-msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "DEZE FUNCTIE IS UITGESCHAKELD ALS DE SCRAPER BEZIG IS"
-
-msgid "CLOSE"
-msgstr "SLUITEN"
-
-msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "WEET U ZEKER DAT U DIT ITEM WIL VERWIJDEREN?"
-
-msgid "INPUT"
-msgstr "INVOER"
-
-msgid "SEARCH"
-msgstr "ZOEKEN"
-
-msgid "CANCEL"
-msgstr "ANNULEREN"
-
-msgid "CONNECT TO NETPLAY"
-msgstr "VERBINDEN MET NETPLAY"
-
-msgid "Select a game lobby to join"
-msgstr "Selecteer een spel lobby voor deelname"
-
-msgid "REFRESH"
-msgstr "VERVERSEN"
-
-msgid "FAILED"
-msgstr "MISLUKT"
-
-msgid "UNKNOWN ROM VERSION"
-msgstr "ONBEKENDE ROM VERSIE"
-
-msgid "DIFFERENT ROM"
-msgstr "ANDERE ROM"
-
-msgid "SAME ROM"
-msgstr "DEZELFDE ROM"
-
-msgid "UNAVAILABLE CORE"
-msgstr "ONBESCHIKBARE CORE"
-
-msgid "AVAILABLE GAMES"
-msgstr "BESCHIKBARE SPELLEN"
-
-msgid "UNAVAILABLE GAMES"
-msgstr "ONBESCHIKBARE SPELLEN"
-
-msgid "NO GAMES FOUND"
-msgstr "GEEN SPELLEN GEVONDEN"
-
-msgid "JOIN GAME"
-msgstr "DEELNEMEN AAN SPEL"
-
-msgid "WATCH GAME"
-msgstr "SPEL BEKIJKEN"
-
-msgid "INPUT MANUALLY"
-msgstr "HANDMATIGE INVOER"
-
-msgid "NO WI-FI NETWORKS FOUND"
-msgstr "GEEN WI-FI NETWERKEN GEVONDEN"
-
-msgid "SEARCHING WI-FI NETWORKS"
-msgstr "WI-FI NETWERKEN ZOEKEN"
-
-msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "U BENT NIET VERBONDEN MET EEN NETWERK"
-
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "VERGEET EEN BLUETOOTH APPARAAT"
-
-msgid "REMOVE ALL"
-msgstr "ALLES VERWIJDEREN"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "GEEN BLUETOOTH APPARATEN GEVONDEN"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH APPARATEN ZIJN VERWIJDERD."
-
-msgid "FILE BROWSER"
-msgstr "BESTANDBEHEER"
-
-msgid "RESET"
-msgstr "HERSTEL"
-
-msgid "PARENT FOLDER"
-msgstr "BOVENLIGGENDE MAP"
-
-msgid "SCREENSHOTS FOLDER"
-msgstr "SCREENSHOTS MAP"
-
-msgid "SELECT"
-msgstr "SELECTEER"
-
-msgid "ADD COMBINATION KEY"
-msgstr "KNOP COMBINATIE TOEVOEGEN"
-
-msgid "CONTENT DOWNLOADER"
-msgstr "CONTENT DOWNLOADER"
-
-msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "SELECTEER CONTENT OM TE INSTALLEREN/VERWIJDEREN"
-
-msgid "UPDATE INSTALLED CONTENT"
-msgstr "UPDATE GEINSTALLEERDE CONTENT"
-
-msgid "No items"
-msgstr "Geen items"
-
-msgid "MISC"
-msgstr "MISC"
-
-msgid "UPDATE"
-msgstr "UPDATE"
-
-#, c-format
-msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' TOEGEVOEGD AAN DOWNLOAD WACHTRIJ"
-
-msgid "REMOVE"
-msgstr "VERWIJDEREN"
-
-msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "DEINSTALLATIE AAN WACHTRIJ TOEGEVOEGD"
-
-msgid "INSTALL"
-msgstr "INSTALLEREN"
-
-#, c-format
-msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "AANWEZIG IN DOWNLOAD WACHTRIJ"
-
-msgid "NO MISSING BIOS FILES"
-msgstr "GEEN MISSENDE BIOS BESTANDEN"
-
-msgid "MISSING BIOS CHECK"
-msgstr "MISSENDE BIOS CHECK"
-
-msgid "NO MISSING BIOS"
-msgstr "GEEN MISSENDE BIOS"
 
 msgid "dim"
 msgstr "dim"
@@ -815,6 +1008,9 @@ msgstr "start & einde"
 msgid "never"
 msgstr "nooit"
 
+msgid "none"
+msgstr "geen"
+
 msgid "systems"
 msgstr "systemen"
 
@@ -823,6 +1019,9 @@ msgstr "willekeurig"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "SCHERMBEVEILIGING INSTELLINGEN"
+
+msgid "SETTINGS"
+msgstr "INSTELLINGEN"
 
 msgid "START SCREENSAVER AFTER"
 msgstr "START SCHERMBEVEILIGING NA"
@@ -893,6 +1092,48 @@ msgstr "GEBRUIK AFBEELDINGEN IN SUBMAPPEN VAN AANGEPASTE MAP"
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "AANGEPASTE AFBEELDING BESTAND EXTENSIES"
 
+msgid "INDEX GAMES"
+msgstr "INDEXEER SPELLEN"
+
+msgid "GAMES TO INDEX"
+msgstr "TE INDEXEREN SPELLEN"
+
+msgid "ALL"
+msgstr "ALLES"
+
+msgid "ONLY MISSING"
+msgstr "ALLEEN MISSENDE"
+
+msgid "SYSTEMS INCLUDED"
+msgstr "INBEGREPEN SYSTEMEN"
+
+msgid "ZOOM OUT"
+msgstr "ZOOM UIT"
+
+msgid "ZOOM IN"
+msgstr "ZOOM IN"
+
+msgid "MOVE"
+msgstr "VERPLAATS"
+
+msgid "ZOOM"
+msgstr "ZOOM"
+
+msgid "INSTALL BATOCERA"
+msgstr "INSTALLEER BATOCERA"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "DOEL ARCHITECTUUR"
+
+msgid "ARE YOU SURE?"
+msgstr "WEET U HET ZEKER?"
+
+msgid "NETWORK REQUIRED"
+msgstr "NETWERK VEREIST"
+
+msgid "INVALID PARAMETERS"
+msgstr "ONGELDIGE PARAMETERS"
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONTROLLER NAAR KEYBOARD CONFIGURATIE"
 
@@ -941,359 +1182,8 @@ msgstr "MAPPING DELETEN"
 msgid "SAVE CHANGES?"
 msgstr "VERANDERINGEN OPSLAAN?"
 
-msgid "ARE YOU SURE?"
-msgstr "WEET U HET ZEKER?"
-
-#, c-format
-msgid "UPDATING %s"
-msgstr "UPDATEN %s"
-
-msgid "UPDATING BATOCERA"
-msgstr "BATOCERA UPDATEN"
-
-msgid "UPDATE IS READY"
-msgstr "UPDATE IS KLAAR"
-
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "SYSTEEM HERSTARTEN OM UPDATE TOE TE PASSEN"
-
-msgid "REALLY UPDATE?"
-msgstr "ECHT UPDATEN?"
-
-#, c-format
-msgid ""
-"YOU ARE CURRENTLY USING VERSION %s\n"
-"DO YOU WANT TO UPDATE TO VERSION %s?"
-msgstr ""
-"HUIDIGE VERSIE %s\n"
-"WILT U UPDATEN NAAR VERSIE %s?"
-
-msgid "NETWORK CONNECTION NEEDED"
-msgstr "NETWERK VERBINDING BENODIGD"
-
-msgid "NO UPDATE AVAILABLE"
-msgstr "GEEN UPDATE BESCHIKBAAR"
-
-msgid "INSTALL BATOCERA"
-msgstr "INSTALLEER BATOCERA"
-
-msgid "TARGET DEVICE"
-msgstr "DOEL APPARAAT"
-
-msgid "TARGET ARCHITECTURE"
-msgstr "DOEL ARCHITECTUUR"
-
-msgid "NETWORK REQUIRED"
-msgstr "NETWERK VEREIST"
-
-msgid "INVALID PARAMETERS"
-msgstr "ONGELDIGE PARAMETERS"
-
-msgid "GAME MEDIA"
-msgstr "SPEL MEDIA"
-
-msgid "VIEW GAME MANUAL"
-msgstr "TOON SPEL HANDLEIDING"
-
-msgid "VIEW GAME MAGAZINE"
-msgstr "TOON SPEL HOES"
-
-msgid "VIEW GAME MAP"
-msgstr "TOON SPEL MAP"
-
-msgid "VIEW FULLSCREEN VIDEO"
-msgstr "TOON VIDEO OP VOLLEDIG SCHERM"
-
-msgid "VIEW GAME MEDIA"
-msgstr "TOON GAME MEDIA"
-
-msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "HUIDIGE CORE IS NIET COMPATIBEL"
-
-msgid "COMPATIBLE CORE(S)"
-msgstr "COMPATIBELE CORES"
-
-msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "LAAT PRESTATIES VAN DIT SPEL ZIEN"
-
-msgid "GAME"
-msgstr "SPEL"
-
-msgid "SAVE STATES"
-msgstr "SAVE STATES"
-
-msgid "OPEN"
-msgstr "OPEN"
-
-msgid "START A NETPLAY GAME"
-msgstr "START EEN NETPLAY SPEL"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "START SPEL"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "HOST EEN NETPLAY SPEL"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "EEN SPEL PUBLIEK AANKONDIGEN"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPELER WACHTWOORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "TOESCHOUWER WACHTWOORD"
-
-msgid "FIND SIMILAR GAMES..."
-msgstr "ZELFDE SOORT SPELLEN ZOEKEN..."
-
-msgid "DELETE ITEM"
-msgstr "VERWIJDER ITEM"
-
-msgid "DELETE GAME"
-msgstr "VERWIJDER SPEL"
-
-msgid ""
-"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
-"ARE YOU SURE?"
-msgstr "DIT ZAL DE SPEL BESTANDEN ECHT VERWIJDEREN! WEET U HET ZEKER?"
-
-msgid "COLLECTIONS"
-msgstr "COLLECTIES"
-
-#, c-format
-msgid "REMOVE FROM %s"
-msgstr "VERWIJDER UIT %s"
-
-#, c-format
-msgid "ADD TO %s"
-msgstr "VOEG TOE AAN %s"
-
-msgid "FAVORITES"
-msgstr "FAVORIETEN"
-
-msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AAN AANGEPASTE COLLECTIE TOEVOEGEN..."
-
-msgid "SCRAPE"
-msgstr "SCRAPEN"
-
-msgid "EDIT PADTOKEY PROFILE"
-msgstr "BEWERK CONTROLLER NAAR KEYBOARD PROFIEL"
-
-msgid "CREATE PADTOKEY PROFILE"
-msgstr "CREEER CONTROLLER NAAR KEYBOARD PROFIEL"
-
-msgid "ADVANCED GAME OPTIONS"
-msgstr "GEAVANCEERDE SPEL OPTIES"
-
-msgid "EDIT FOLDER METADATA"
-msgstr "BEWERK MAP METADATA"
-
-msgid "EDIT THIS GAME'S METADATA"
-msgstr "BEWERK DE METADATA VAN DIT SPEL"
-
-msgid "THEMES DOWNLOADER"
-msgstr "THEMA DOWNLOADER"
-
-msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "SELECTEER THEMAS OM TE INSTALLEREN/VERWIJDEREN"
-
-#, c-format
-msgid "CURRENT THEME"
-msgstr "HUIDIG THEMA"
-
-msgid "Unlocked on"
-msgstr "Ontgrendeld op"
-
-msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "DIT SPEL HEEFT NOG GEEN PRESTATIES"
-
-msgid "Achievements won"
-msgstr "Verdiende prestaties"
-
-#, c-format
-msgid "%d%% complete"
-msgstr "%d%% voltooid"
-
-msgid "SAVE STATE MANAGER"
-msgstr "SAVE STATE MANAGER"
-
-msgid "START NEW GAME"
-msgstr "START EEN NIEUW SPEL"
-
-msgid "START NEW AUTO SAVE"
-msgstr "START NIEUWE AUTO SAVE"
-
-msgid "AUTO SAVE"
-msgstr "AUTO SAVE"
-
-msgid "SLOT"
-msgstr "SLOT"
-
-msgid "COPY TO FREE SLOT"
-msgstr "KOPIEER NAAR VRIJ SLOT"
-
-msgid "SCRAPER SETTINGS"
-msgstr "SCRAPER INSTELLINGEN"
-
-msgid "IMAGE SOURCE"
-msgstr "AFBEELDING BRON"
-
-msgid "SCREENSHOT"
-msgstr "SCREENSHOT"
-
-msgid "TITLE SCREENSHOT"
-msgstr "TITEL SCREENSHOT"
-
-msgid "MIX V1"
-msgstr "MIX V1"
-
-msgid "MIX V2"
-msgstr "MIX V2"
-
-msgid "BOX 2D"
-msgstr "DOOS 2D"
-
-msgid "BOX 3D"
-msgstr "DOOS 3D"
-
-msgid "FAN ART"
-msgstr "FANART"
-
-msgid "BOX SOURCE"
-msgstr "DOOS BRON"
-
-msgid "LOGO SOURCE"
-msgstr "LOGO BRON"
-
-msgid "WHEEL"
-msgstr "WIEL"
-
-msgid "MARQUEE"
-msgstr "BANNIER"
-
-msgid "SCRAPE RATINGS"
-msgstr "SCRAPE INSTELLINGEN"
-
-msgid "SCRAPE VIDEOS"
-msgstr "VIDEOS SCRAPEN"
-
-msgid "SCRAPE FANART"
-msgstr "FANART SCRAPEN"
-
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "OMLIJSTING (16:9) SCRAPEN"
-
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "ACHTERKANT DOOS SCRAPEN"
-
-msgid "SCRAPE MAP"
-msgstr "MAP SCRAPEN"
-
-msgid "SCRAPE MANUAL"
-msgstr "HANDLEIDING SCRAPEN"
-
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SCRAPE CONTROLLER NAAR KEYBOARD INSTELLINGEN"
-
-msgid "SCRAPER"
-msgstr "SCRAPER"
-
-msgid "SCRAPING DATABASE"
-msgstr "SCRAPE DATABASE"
-
-msgid "SOURCE"
-msgstr "BRON"
-
-msgid "SCRAPE FROM"
-msgstr "SCRAPE VAN"
-
-msgid "FILTERS"
-msgstr "FILTERS"
-
-msgid "GAMES TO SCRAPE FOR"
-msgstr "SPELLEN OM TE SCRAPEN"
-
-msgid "ALL"
-msgstr "ALLES"
-
-msgid "GAMES MISSING MEDIAS"
-msgstr "SPELLEN DIE MEDIA MISSEN"
-
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr "SPELLEN ZONDER MEDIA"
-
-msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "RECENT GESCRAPETE SPELLEN NEGEREN"
-
-msgid "LAST DAY"
-msgstr "VORIGE DAG"
-
-msgid "LAST WEEK"
-msgstr "VORIGE WEEK"
-
-msgid "LAST 15 DAYS"
-msgstr "LAATSTE 15 DAGEN"
-
-msgid "LAST MONTH"
-msgstr "VORIGE MAAND"
-
-msgid "LAST 3 MONTHS"
-msgstr "LAATSTE 3 MAANDEN"
-
-msgid "LAST YEAR"
-msgstr "VORIG JAAR"
-
-msgid "SYSTEMS INCLUDED"
-msgstr "INBEGREPEN SYSTEMEN"
-
-msgid "SCRAPE NOW"
-msgstr "NU SCRAPEN"
-
-msgid "START"
-msgstr "START"
-
-msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
-"MAY BE FOR DIFFERENT SYSTEMS!\n"
-"CONTINUE ANYWAY?"
-msgstr ""
-"WAARSCHUWING: SOMMIGE GESELECTEERDE SYSTEMEN HEBBEN GEEN PLATFORM SET. "
-"RESULTATEN ZIJN MOGELIJK VOOR ANDERE SYSTEMEN!\n"
-"TOCH DOORGAAN?"
-
-msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "SCRAPEN IS BEZIG. WILT U HET STOPPEN?"
-
-msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "GEEN SPELLEN DIE AAN DIE CRITERIA VOLDOEN."
-
-msgid "INFORMATION"
-msgstr "INFORMATIE"
-
-msgid "VERSION"
-msgstr "VERSIE"
-
-msgid "USER DISK USAGE"
-msgstr "GEBRUIKER SCHIJFRUIMTE VERBRUIK"
-
-msgid "SYSTEM DISK USAGE"
-msgstr "SYSTEEM SCHIJFRUIMTE GEBRUIK"
-
-msgid "SYSTEM"
-msgstr "SYSTEEM"
-
-msgid "VIDEO DRIVER"
-msgstr "VIDEO DRIVER"
-
-msgid "THE BEZEL PROJECT"
-msgstr "HET OMLIJSTING PROJECT"
-
-msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "SELECTEER OMLIJSTINGEN OM TE INSTALLEREN/VERWIJDEREN"
+msgid "ADD COMBINATION KEY"
+msgstr "KNOP COMBINATIE TOEVOEGEN"
 
 msgid "fade"
 msgstr "vervagen"
@@ -1378,6 +1268,9 @@ msgstr "AANBIEDER"
 msgid "RENDERER"
 msgstr "RENDERER"
 
+msgid "VERSION"
+msgstr "VERSIE"
+
 msgid "SHADERS"
 msgstr "SHADERS"
 
@@ -1392,6 +1285,9 @@ msgstr "HOOFDMENU"
 
 msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROPRESTATIES"
 
 msgid "GAME SETTINGS"
 msgstr "SPEL INSTELLINGEN"
@@ -1411,11 +1307,17 @@ msgstr "INVOER CONFIGUREREN"
 msgid "EMULATOR SETTINGS"
 msgstr "EMULATOR INSTELLINGEN"
 
+msgid "SCRAPER"
+msgstr "SCRAPER"
+
 msgid "UPDATES & DOWNLOADS"
 msgstr "UPDATES & DOWNLOADS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEEM INSTELLINGEN"
+
+msgid "INFORMATION"
+msgstr "INFORMATIE"
 
 msgid "UNLOCK UI MODE"
 msgstr "INTERFACE MODUS ONTGRENDELEN"
@@ -1425,9 +1327,6 @@ msgstr "AFSLUITEN"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "WEET U ZEKER DAT U DE INVOER WIL CONFIGUREREN?"
-
-msgid "CHOOSE"
-msgstr "KIEZEN"
 
 msgid "THE UI MODE IS NOW UNLOCKED"
 msgstr "DE INTERFACE MODUS IS NU ONTGRENDELD"
@@ -1636,8 +1535,8 @@ msgstr "UPDATE STARTEN"
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "UPDATE IS AL BEZIG"
 
-msgid "LANGUAGE"
-msgstr "TAAL"
+msgid "SYSTEM"
+msgstr "SYSTEEM"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECTEER TIJD ZONE"
@@ -1737,6 +1636,12 @@ msgstr "BATOCERA SPLASH AFBEELDING"
 msgid "SPLASH SETTING"
 msgstr "SPLASH INSTELLING"
 
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "INSTELLNGEN RETROPRESTATIES"
+
+msgid "NETPLAY SETTINGS"
+msgstr "NETPLAY INSTELLINGEN"
+
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "CHECK BIOS VOOR HET STARTEN VAN EEN SPEL"
 
@@ -1793,9 +1698,6 @@ msgstr "OPSLAG"
 
 msgid "STORAGE DEVICE"
 msgstr "OPSLAG MEDIUM"
-
-msgid "BACKUP USER DATA"
-msgstr "BACKUP GEBRUIKER DATA"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "INSTALLEER BATOCERA OP EEN NIEUWE SCHIJF"
@@ -1964,9 +1866,6 @@ msgstr "PER SYSTEEM GEAVANCEERDE CONFIGURATIE"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "SCRAPER IS BEZIG. WILT U DEZE STOPPEN?"
-
-msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "SPEL HASHING IS BEZIG. WILT U HET STOPPEN?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "ECHT SPELLIJSTEN UPDATEN?"
@@ -2302,26 +2201,335 @@ msgstr ""
 "SOMMIGE GELINKTE BESTANDEN BEVINDEN ZICH BUITEN HET PAD VAN DE SPELLIJST.\n"
 "WILT U EEN KOPIE GEBRUIKEN VAN DEZE BESTANDEN REALITIEF AAN DE SPEELLIJST?"
 
-msgid "NO DEVICE FOUND"
-msgstr "GEEN APPARAAT GEVONDEN"
+msgid "CONNECT TO NETPLAY"
+msgstr "VERBINDEN MET NETPLAY"
 
-msgid "ZOOM OUT"
-msgstr "ZOOM UIT"
+msgid "Select a game lobby to join"
+msgstr "Selecteer een spel lobby voor deelname"
 
-msgid "ZOOM IN"
-msgstr "ZOOM IN"
+msgid "FAILED"
+msgstr "MISLUKT"
 
-msgid "MOVE"
-msgstr "VERPLAATS"
+msgid "UNKNOWN ROM VERSION"
+msgstr "ONBEKENDE ROM VERSIE"
 
-msgid "ZOOM"
-msgstr "ZOOM"
+msgid "DIFFERENT ROM"
+msgstr "ANDERE ROM"
 
-msgid "GAMES TO INDEX"
-msgstr "TE INDEXEREN SPELLEN"
+msgid "SAME ROM"
+msgstr "DEZELFDE ROM"
 
-msgid "ONLY MISSING"
-msgstr "ALLEEN MISSENDE"
+msgid "UNAVAILABLE CORE"
+msgstr "ONBESCHIKBARE CORE"
+
+msgid "AVAILABLE GAMES"
+msgstr "BESCHIKBARE SPELLEN"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "ONBESCHIKBARE SPELLEN"
+
+msgid "NO GAMES FOUND"
+msgstr "GEEN SPELLEN GEVONDEN"
+
+msgid "JOIN GAME"
+msgstr "DEELNEMEN AAN SPEL"
+
+msgid "WATCH GAME"
+msgstr "SPEL BEKIJKEN"
+
+msgid "ENABLE NETPLAY"
+msgstr "NETPLAY INSCHAKELEN"
+
+msgid "NICKNAME"
+msgstr "BIJNAAM"
+
+msgid "PORT"
+msgstr "POORT"
+
+msgid "USE RELAY SERVER"
+msgstr "RELAY SERVER GEBRUIKEN"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "TOON ONBESCHIKBARE SPELLEN"
+
+msgid "GAME INDEXES"
+msgstr "SPEL INDEXEN"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXEER NIEUWE SPELLEN BIJ HET OPSTARTEN"
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d van %d)"
+
+msgid "Rank"
+msgstr "Rang"
+
+msgid "VIEW DETAILS"
+msgstr "DETAILS WEERGEVEN"
+
+msgid "HARDCORE MODE"
+msgstr "HARDCORE MODUS"
+
+msgid "LEADERBOARDS"
+msgstr "SCORE BORD"
+
+msgid "VERBOSE MODE"
+msgstr "VERBOSE MODUS"
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "AUTOMATISCHE SCREENSHOT"
+
+msgid "CHALLENGE INDICATORS"
+msgstr "CHALLENGE INDICATORS"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Laat icoontjes zien rechts-onder wanneer beschikbare prestaties verdiend "
+"kunnen worden."
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "RETROPRESTATIE GELUID ONTGRENDELEN"
+
+msgid "UNLOCK SOUND"
+msgstr "GELUID ONTGRENDELEN"
+
+msgid "USERNAME"
+msgstr "GEBRUIKERSNAAM"
+
+msgid "PASSWORD"
+msgstr "WACHTWOORD"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "TOON RETROPRESTATIES IN HOOFDMENU"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "KAN RETROPRESTATIES NIET ACTIVEREN:"
+
+msgid "SAVE STATE MANAGER"
+msgstr "SAVE STATE MANAGER"
+
+msgid "START NEW GAME"
+msgstr "START EEN NIEUW SPEL"
+
+msgid "START NEW AUTO SAVE"
+msgstr "START NIEUWE AUTO SAVE"
+
+msgid "AUTO SAVE"
+msgstr "AUTO SAVE"
+
+msgid "SLOT"
+msgstr "SLOT"
+
+msgid "COPY TO FREE SLOT"
+msgstr "KOPIEER NAAR VRIJ SLOT"
+
+msgid "SCRAPER SETTINGS"
+msgstr "SCRAPER INSTELLINGEN"
+
+msgid "IMAGE SOURCE"
+msgstr "AFBEELDING BRON"
+
+msgid "SCREENSHOT"
+msgstr "SCREENSHOT"
+
+msgid "TITLE SCREENSHOT"
+msgstr "TITEL SCREENSHOT"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "DOOS 2D"
+
+msgid "BOX 3D"
+msgstr "DOOS 3D"
+
+msgid "FAN ART"
+msgstr "FANART"
+
+msgid "BOX SOURCE"
+msgstr "DOOS BRON"
+
+msgid "LOGO SOURCE"
+msgstr "LOGO BRON"
+
+msgid "WHEEL"
+msgstr "WIEL"
+
+msgid "MARQUEE"
+msgstr "BANNIER"
+
+msgid "SCRAPE RATINGS"
+msgstr "SCRAPE INSTELLINGEN"
+
+msgid "SCRAPE VIDEOS"
+msgstr "VIDEOS SCRAPEN"
+
+msgid "SCRAPE FANART"
+msgstr "FANART SCRAPEN"
+
+msgid "SCRAPE BEZEL (16:9)"
+msgstr "OMLIJSTING (16:9) SCRAPEN"
+
+msgid "SCRAPE BOX BACKSIDE"
+msgstr "ACHTERKANT DOOS SCRAPEN"
+
+msgid "SCRAPE MAP"
+msgstr "MAP SCRAPEN"
+
+msgid "SCRAPE MANUAL"
+msgstr "HANDLEIDING SCRAPEN"
+
+msgid "SCRAPE PADTOKEY SETTINGS"
+msgstr "SCRAPE CONTROLLER NAAR KEYBOARD INSTELLINGEN"
+
+msgid "SCRAPING DATABASE"
+msgstr "SCRAPE DATABASE"
+
+msgid "SOURCE"
+msgstr "BRON"
+
+msgid "SCRAPE FROM"
+msgstr "SCRAPE VAN"
+
+msgid "FILTERS"
+msgstr "FILTERS"
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr "SPELLEN OM TE SCRAPEN"
+
+msgid "GAMES MISSING MEDIAS"
+msgstr "SPELLEN DIE MEDIA MISSEN"
+
+msgid "GAMES WITHOUT ANY MEDIA"
+msgstr "SPELLEN ZONDER MEDIA"
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr "RECENT GESCRAPETE SPELLEN NEGEREN"
+
+msgid "LAST DAY"
+msgstr "VORIGE DAG"
+
+msgid "LAST WEEK"
+msgstr "VORIGE WEEK"
+
+msgid "LAST 15 DAYS"
+msgstr "LAATSTE 15 DAGEN"
+
+msgid "LAST MONTH"
+msgstr "VORIGE MAAND"
+
+msgid "LAST 3 MONTHS"
+msgstr "LAATSTE 3 MAANDEN"
+
+msgid "LAST YEAR"
+msgstr "VORIG JAAR"
+
+msgid "SCRAPE NOW"
+msgstr "NU SCRAPEN"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+"WAARSCHUWING: SOMMIGE GESELECTEERDE SYSTEMEN HEBBEN GEEN PLATFORM SET. "
+"RESULTATEN ZIJN MOGELIJK VOOR ANDERE SYSTEMEN!\n"
+"TOCH DOORGAAN?"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "SCRAPEN IS BEZIG. WILT U HET STOPPEN?"
+
+msgid "USER DISK USAGE"
+msgstr "GEBRUIKER SCHIJFRUIMTE VERBRUIK"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "SYSTEEM SCHIJFRUIMTE GEBRUIK"
+
+msgid "VIDEO DRIVER"
+msgstr "VIDEO DRIVER"
+
+msgid "THEMES DOWNLOADER"
+msgstr "THEMA DOWNLOADER"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "SELECTEER THEMAS OM TE INSTALLEREN/VERWIJDEREN"
+
+#, c-format
+msgid "CURRENT THEME"
+msgstr "HUIDIG THEMA"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "UPDATEN %s"
+
+msgid "UPDATING BATOCERA"
+msgstr "BATOCERA UPDATEN"
+
+msgid "UPDATE IS READY"
+msgstr "UPDATE IS KLAAR"
+
+msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgstr "SYSTEEM HERSTARTEN OM UPDATE TOE TE PASSEN"
+
+msgid "REALLY UPDATE?"
+msgstr "ECHT UPDATEN?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"HUIDIGE VERSIE %s\n"
+"WILT U UPDATEN NAAR VERSIE %s?"
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "NETWERK VERBINDING BENODIGD"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "GEEN UPDATE BESCHIKBAAR"
+
+msgid "INPUT MANUALLY"
+msgstr "HANDMATIGE INVOER"
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "GEEN WI-FI NETWERKEN GEVONDEN"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "WI-FI NETWERKEN ZOEKEN"
+
+msgid "Loading system config..."
+msgstr "Systeem config laden..."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "METADATAS OPSLAAN. WACHTEN ALSTUBLIEFT..."
+
+msgid "SCRAPING"
+msgstr "SCRAPEN"
+
+msgid "SCRAPE FAILED"
+msgstr "SCRAPE MISLUKT"
+
+msgid "SCRAPING FINISHED"
+msgstr "KLAAR MET SCRAPEN"
 
 msgid "SYSTEM INFO"
 msgstr "SYSTEEM INFO"
@@ -2371,6 +2579,15 @@ msgstr "WILLEKEURIG"
 msgid "FILES"
 msgstr "BESTANDEN"
 
+msgid "Full"
+msgstr "Volledig"
+
+msgid "Kiosk"
+msgstr "Kiosk"
+
+msgid "Kid"
+msgstr "Kind"
+
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
 "FORMAT.\n"
@@ -2401,17 +2618,8 @@ msgstr "Spellijsten laden"
 msgid "MENU"
 msgstr "MENU"
 
-msgid "Full"
-msgstr "Volledig"
-
-msgid "Kiosk"
-msgstr "Kiosk"
-
-msgid "Kid"
-msgstr "Kind"
-
-msgid "Released"
-msgstr "Uitgegeven"
+msgid "No Entries Found"
+msgstr "Geen Entries gevonden"
 
 msgid "Times played"
 msgstr "Aantal keer gespeeld"
@@ -2422,9 +2630,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Deze map bevat %i spel, inclusief :%s"
 msgstr[1] "Deze map bevat %i spellen, inclusief :%s"
 
-msgid "No Entries Found"
-msgstr "Geen Entries gevonden"
-
 msgid "Games similar to"
 msgstr "Soortgelijke spellen"
 
@@ -2434,208 +2639,6 @@ msgstr "SPEL OPTIES"
 msgid "FAVORITE"
 msgstr "FAVORIET"
 
-msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
-msgstr ""
-"Een geldig account is vereist. Gelieve een account te registreren op https://"
-"retroachievements.org"
-
-msgid "Searching"
-msgstr "Zoeken"
-
-msgid "NO GAMES FOUND - SKIP"
-msgstr "GEEN SPELLEN GEVONDEN - OVERSLAAN"
-
-msgid "RETRY"
-msgstr "OPNIEUW PROBEREN"
-
-msgid "SKIP"
-msgstr "OVERSLAAN"
-
-msgid "Downloading"
-msgstr "Downloaden"
-
-msgid "SEARCH FOR"
-msgstr "ZOEK NAAR"
-
-msgid "ACCEPT RESULT"
-msgstr "ACCEPTEER RESULTAAT"
-
-msgid "Loading system config..."
-msgstr "Systeem config laden..."
-
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "METADATAS OPSLAAN. WACHTEN ALSTUBLIEFT..."
-
-msgid "Collections"
-msgstr "Collecties"
-
-msgid "FILENAME, ASCENDING"
-msgstr "BESTANDSNAAM, OPLOPEND"
-
-msgid "FILENAME, DESCENDING"
-msgstr "BESTANDSNAAM, AFLOPEND"
-
-msgid "RATING, ASCENDING"
-msgstr "BEOORDELING, OPLOPEND"
-
-msgid "RATING, DESCENDING"
-msgstr "BEOORDELING, AFLOPEND"
-
-msgid "TIMES PLAYED, ASCENDING"
-msgstr "AANTAL KEER GESPEELD, OPLOPEND"
-
-msgid "TIMES PLAYED, DESCENDING"
-msgstr "AANTAL KEER GESPEELD, AFLOPEND"
-
-msgid "LAST PLAYED, ASCENDING"
-msgstr "LAATST GESPEELD, OPLOPEND"
-
-msgid "LAST PLAYED, DESCENDING"
-msgstr "LAATST GESPEELD, AFLOPEND"
-
-msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "AANTAL SPELERS, OPLOPEND"
-
-msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "AANTAL SPELERS, AFLOPEND"
-
-msgid "RELEASE DATE, ASCENDING"
-msgstr "UITGAVE DATUM, OPLOPEND"
-
-msgid "RELEASE DATE, DESCENDING"
-msgstr "UITGAVE DATUM, AFLOPEND"
-
-msgid "GENRE, ASCENDING"
-msgstr "GENRE, OPLOPEND"
-
-msgid "GENRE, DESCENDING"
-msgstr "GENRE, AFLOPEND"
-
-msgid "DEVELOPER, ASCENDING"
-msgstr "ONTWIKKELAAR, OPLOPEND"
-
-msgid "DEVELOPER, DESCENDING"
-msgstr "ONTWIKKELAAR, AFLOPEND"
-
-msgid "PUBLISHER, ASCENDING"
-msgstr "UITGEVER, OPLOPEND"
-
-msgid "PUBLISHER, DESCENDING"
-msgstr "UITGEVER, AFLOPEND"
-
-msgid "SYSTEM, ASCENDING"
-msgstr "SYSTEEM, OPLOPEND"
-
-msgid "SYSTEM, DESCENDING"
-msgstr "SYSTEEM, AFLOPEND"
-
-msgid "FILE CREATION DATE, ASCENDING"
-msgstr "BESTAND CREATIE DATUM, OPLOPEND"
-
-msgid "FILE CREATION DATE, DESCENDING"
-msgstr "BESTAND CREATIE DATUM, AFLOPEND"
-
-msgid "GAME TIME, ASCENDING"
-msgstr "SPEELTIJD, OPLOPEND"
-
-msgid "GAME TIME, DESCENDING"
-msgstr "SPEELTIJD, AFLOPEND"
-
-msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr "SYSTEEM, UITGAVE JAAR, OPLOPEND"
-
-msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr "SYSTEEM, UITGAVE JAAR, AFLOPEND"
-
-msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr "UITAVE JAAR, SYSTEEM, OPLOPEND"
-
-msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr "UITGAVE JAAR, SYSTEEM, AFLOPEND"
-
-msgid "A,AN,THE"
-msgstr "EEN,HET,DE"
-
-msgid "Extracting"
-msgstr "Uitpakken"
-
-msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "ZOEKEN RETROPRESTATIES"
-
-msgid "SEARCHING NETPLAY GAMES"
-msgstr "ZOEKEN NETPLAY SPELLEN"
-
-msgid "INDEXING COMPLETED"
-msgstr "INDEXERING COMPLEET"
-
-msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "UPDATE SPELLIJSTEN OM VERANDERINGEN TOE TE PASSEN."
-
-msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "DE EMULATOR IS ONVERWACHT AFGESLOTEN"
-
-msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr "FOUTE COMMAND LINE ARGUMENTEN"
-
-msgid "INVALID CONFIGURATION"
-msgstr "ONGELDIGE CONFIGURATIE"
-
-msgid "UNKNOWN EMULATOR"
-msgstr "ONBEKENDE EMULATOR"
-
-msgid "EMULATOR IS MISSING"
-msgstr "EMULATOR ONTBREEKT"
-
-msgid "CORE IS MISSING"
-msgstr "CORE ONTBREEKT"
-
-msgid "UKNOWN ERROR"
-msgstr "ONBEKENDE FOUT"
-
-msgid "GENRE"
-msgstr "GENRE"
-
-msgid "FAMILY"
-msgstr "FAMILIE"
-
-msgid "PLAYERS"
-msgstr "SPELERS"
-
-msgid "PUBLISHER/DEVELOPER"
-msgstr "UITGEVER/ONTWIKKELAAR"
-
-msgid "RATING"
-msgstr "BEOORDELING"
-
-msgid "YEAR"
-msgstr "JAAR"
-
-msgid "REGION"
-msgstr "REGIO"
-
-msgid "KIDGAME"
-msgstr "SPEL VOOR KINDEREN"
-
-msgid "ALREADY PLAYED"
-msgstr "AL GESPEELD"
-
-msgid "HAS ACHIEVEMENTS"
-msgstr "HEEFT PRESTATIES"
-
-msgid "VERTICAL"
-msgstr "VERTICAAL"
-
-msgid "SCRAPING"
-msgstr "SCRAPEN"
-
-msgid "SCRAPE FAILED"
-msgstr "SCRAPE MISLUKT"
-
-msgid "SCRAPING FINISHED"
-msgstr "KLAAR MET SCRAPEN"
-
 #, c-format
 msgid "%s connected"
 msgstr "%s verbonden"
@@ -2644,17 +2647,89 @@ msgstr "%s verbonden"
 msgid "%s disconnected"
 msgstr "%s niet verbonden"
 
-msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "SHIFTS VOOR UPPER,LOWER, EN SPECIAAL"
+msgid "SCREEN READER ENABLED"
+msgstr "SCHERM LEZER INGESCHAKELD"
 
-msgid "ALT GR"
-msgstr "ALT GR"
+msgid "SCREEN READER DISABLED"
+msgstr "SCHERM LEZER UITGESCHAKELD"
 
-msgid "SHIFT"
-msgstr "SHIFT"
+msgid "WORKING..."
+msgstr "UITVOEREN..."
 
-msgid "SPACE"
-msgstr "SPATIE"
+msgid "ENABLED"
+msgstr "INGESCHAKELD"
+
+msgid "up/down"
+msgstr "omhoog/omlaag"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d dag geleden"
+msgstr[1] "%d dagen geleden"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d uur geleden"
+msgstr[1] "%d uren geleden"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d minuut geleden"
+msgstr[1] "%d minuten geleden"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d seconde geleden"
+msgstr[1] "%d secondes geleden"
+
+msgid "accept"
+msgstr "accepteer"
+
+msgid "SELECT ALL"
+msgstr "SELECTEER ALLES"
+
+msgid "select all"
+msgstr "selecteer alles"
+
+msgid "SELECT NONE"
+msgstr "SELECTEER GEEN"
+
+msgid "select none"
+msgstr "selecteer geen"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i GESELECTEERD"
+msgstr[1] "%i GESELECTEERD"
+
+msgid "CHANGE"
+msgstr "VERANDEREN"
+
+msgid "MOVE CURSOR"
+msgstr "BEWEEG CURSOR"
+
+msgid "EDIT"
+msgstr "BEWERKEN"
+
+msgid "WELCOME"
+msgstr "WELKOM"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i CONTROLLER GEVONDEN"
+msgstr[1] "%i CONTROLLERS GEVONDEN"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "GEEN CONTROLLERS GEVONDEN"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "HOU EEN KNOP INGEDRUKT OP UW CONTROLLER OM HET TE CONFIGUREREN."
 
 msgctxt "joystick"
 msgid "UP"
@@ -2760,86 +2835,20 @@ msgstr "DRUK OM EEN WILLEKEURIGE KNOP/TOETS"
 msgid "ALREADY TAKEN"
 msgstr "AL GEBRUIKT"
 
-msgid "WELCOME"
-msgstr "WELKOM"
-
-#, c-format
-msgid "%i GAMEPAD DETECTED"
-msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i CONTROLLER GEVONDEN"
-msgstr[1] "%i CONTROLLERS GEVONDEN"
-
-msgid "NO GAMEPADS DETECTED"
-msgstr "GEEN CONTROLLERS GEVONDEN"
-
-msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "HOU EEN KNOP INGEDRUKT OP UW CONTROLLER OM HET TE CONFIGUREREN."
-
 msgid "DISCARD CHANGES"
 msgstr "VERANDERINGEN ANNULEREN"
 
-msgid "up/down"
-msgstr "omhoog/omlaag"
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFTS VOOR UPPER,LOWER, EN SPECIAAL"
 
-msgid "accept"
-msgstr "accepteer"
+msgid "ALT GR"
+msgstr "ALT GR"
 
-msgid "SELECT ALL"
-msgstr "SELECTEER ALLES"
+msgid "SHIFT"
+msgstr "SHIFT"
 
-msgid "select all"
-msgstr "selecteer alles"
-
-msgid "SELECT NONE"
-msgstr "SELECTEER GEEN"
-
-msgid "select none"
-msgstr "selecteer geen"
-
-#, c-format
-msgid "%i SELECTED"
-msgid_plural "%i SELECTED"
-msgstr[0] "%i GESELECTEERD"
-msgstr[1] "%i GESELECTEERD"
-
-msgid "CHANGE"
-msgstr "VERANDEREN"
-
-msgid "MOVE CURSOR"
-msgstr "BEWEEG CURSOR"
-
-msgid "EDIT"
-msgstr "BEWERKEN"
-
-msgid "ENABLED"
-msgstr "INGESCHAKELD"
-
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d dag geleden"
-msgstr[1] "%d dagen geleden"
-
-#, c-format
-msgid "%d hour ago"
-msgid_plural "%d hours ago"
-msgstr[0] "%d uur geleden"
-msgstr[1] "%d uren geleden"
-
-#, c-format
-msgid "%d minute ago"
-msgid_plural "%d minutes ago"
-msgstr[0] "%d minuut geleden"
-msgstr[1] "%d minuten geleden"
-
-#, c-format
-msgid "%d second ago"
-msgid_plural "%d seconds ago"
-msgstr[0] "%d seconde geleden"
-msgstr[1] "%d secondes geleden"
-
-msgid "WORKING..."
-msgstr "UITVOEREN..."
+msgid "SPACE"
+msgstr "SPATIE"
 
 #, c-format
 msgid "%d h"
@@ -2852,12 +2861,6 @@ msgstr "%d m"
 #, c-format
 msgid "%d s"
 msgstr "%d s"
-
-msgid "SCREEN READER ENABLED"
-msgstr "SCHERM LEZER INGESCHAKELD"
-
-msgid "SCREEN READER DISABLED"
-msgstr "SCHERM LEZER UITGESCHAKELD"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "GEBRUIK RUN-AHEAD FRAMES"
