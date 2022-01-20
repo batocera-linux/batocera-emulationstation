@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2022/01/04)\n"
+"Project-Id-Version: batocera-es v33beta(2022/01/17)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-01-04 07:26+0900\n"
+"PO-Revision-Date: 2022-01-17 09:29+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1346,31 +1346,31 @@ msgstr ""
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "スキャンライン"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "レトロ"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "拡張"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "曲率"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGAスケーリング"
 
 msgid "VENDOR"
 msgstr "ベンダー"
@@ -1814,13 +1814,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "先行フレーム"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "数値が大きいと、目に見えるジッターが発生する可能性があります"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "先読みには2番目のインスタンスを使用します"
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "ボタンを押したときの音声スキップを防ぎます"
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "自動フレーム遅延"
@@ -1834,14 +1834,15 @@ msgid ""
 msgstr ""
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "可変リフレッシュレート（G-SYNC、FREESYNC）"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "可変リフレッシュレート"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
+"コア要求のタイミングから逸脱しないでください。 G-Sync、FreeSync、HDMI2.1VRR"
 
 msgid "DECORATION SET"
 msgstr "ベゼルを選択"
@@ -2108,7 +2109,7 @@ msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "ソート時に主要項目を無視"
+msgstr "ソート時に「The,a,an」を無視"
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2843,36 +2844,12 @@ msgstr "スクリーンリーダー有効"
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
 
-#~ msgid "USE RUN-AHEAD FRAMES"
-#~ msgstr "先行フレームの使用"
-
-#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
-#~ msgstr "先行実行の2番目のインスタンス"
-
 #~ msgid ""
 #~ "Automatically decrease frame delay temporarily to prevent frame drops. "
 #~ "Turn off if this worsens audio/video stuttering."
 #~ msgstr ""
 #~ "フレーム遅延を自動的に減らしフレームドロップを防ぎます。オーディオ/ビデオ"
 #~ "で不具合がでた場合は、オフにします。"
-
-#~ msgid "SCANLINES"
-#~ msgstr "スキャンライン"
-
-#~ msgid "RETRO"
-#~ msgstr "レトロ"
-
-#~ msgid "CURVATURE"
-#~ msgstr "曲率"
-
-#~ msgid "ZFAST"
-#~ msgstr "ZFAST"
-
-#~ msgid "FLATTEN-GLOW"
-#~ msgstr "FLATTEN-GLOW"
-
-#~ msgid "RGA SCALING"
-#~ msgstr "RGAスケーリング"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

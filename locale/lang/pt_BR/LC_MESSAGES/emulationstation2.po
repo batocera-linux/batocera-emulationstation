@@ -1822,13 +1822,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR QUADROS"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "Números altos podem resultar em ter jitter visível"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "EXECUTE EM SEGUNDA INSTÂNCIA"
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "Pode evitar saltos de áudio ao pressionar o botão."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
@@ -1840,16 +1840,20 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
+"Diminua automaticamente o atraso de frame temporariamente para evitar quedas "
+"de frame. Pode acontecer engasgos."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL (G-SYNC, FREESYNC)"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
+"Não saia da sincronização principal solicitada pelo núcleo. G-Sync, FreeSync, "
+"HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
@@ -2609,7 +2613,7 @@ msgid "PLAYERS"
 msgstr "Nº DE JOGADORES"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr "PUBLICADORA / DESENVOLVEDORA"
+msgstr "PUBLICADOR / DESENVOLVEDOR"
 
 msgid "RATING"
 msgstr "CLASSIFICAÇÃO"
@@ -2864,17 +2868,3 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
-
-#~ msgid "USE RUN-AHEAD FRAMES"
-#~ msgstr "USAR SALTO DE QUADROS"
-
-#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
-#~ msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
-
-#~ msgid ""
-#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
-#~ "Turn off if this worsens audio/video stuttering."
-#~ msgstr ""
-#~ "Decrementa automaticamente o atraso da taxa de quadros temporariamente "
-#~ "para prevenir a queda da taxa de quadros. Desligue se isso piorar o "
-#~ "engasgue de áudio / vídeo."

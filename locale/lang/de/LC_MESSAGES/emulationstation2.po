@@ -1344,7 +1344,7 @@ msgstr "CPU Eigenschaft"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -1820,13 +1820,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD FRAMES"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "Hohe Zahlen können zu sichtbarem Jitter führen."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "ZWEITE INSTANZ FÜR RUN-AHEAD VERWENDEN"
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "Kann Audioaussetzer beim Drücken von Tasten verhindern."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATISCHE FRAME-VERZÖGERUNG"
@@ -1838,16 +1838,19 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
+"Bildverzögerung automatisch vorübergehend verringern, um frame drops zu "
+"vermeiden. Kann Stottern verursachen."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "VARIABLE BILDWIEDERHOL-RATE (G-SYNC, FREESYNC)"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "VARIABLE BILDWIEDERHOL-RATE"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
+"Nicht vom Core geforderten Timing abweichen. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DEKORATIONS-SET"

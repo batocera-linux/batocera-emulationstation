@@ -510,7 +510,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "ЗАПОМНИТЬ ПОСЛЕДНЮЮ"
 
 msgid "START ON GAMELIST"
-msgstr "НАЧАТЬ СО СПИСКА ИГР"
+msgstr "НАЧИНАТЬ СО СПИСКА ИГР"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
@@ -1344,11 +1344,11 @@ msgstr "Функции CPU"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "РЕЗКИЙ-БИЛИНЕЙНЫЙ-ПРОСТОЙ"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr "СКАНЛАЙНЫ"
 
 msgctxt "game_options"
 msgid "RETRO"
@@ -1817,13 +1817,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "Высокие значения могут привести к видимому дрожанию."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "Может предотвратить пропуск звука при нажатии кнопок."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "АВТОМАТИЧЕСКАЯ ЗАДЕРЖКА КАДРА"
@@ -1835,12 +1835,14 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
+"Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск "
+"кадров. Отключите, если это вызывает заикание."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ (G-SYNC, FREESYNC)"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
