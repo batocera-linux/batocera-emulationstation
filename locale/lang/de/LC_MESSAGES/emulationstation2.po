@@ -574,7 +574,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY-EINSTELLUNGEN"
 
 msgid "ENABLE NETPLAY"
-msgstr "AKTIVERE NETZWERKSPIEL"
+msgstr "AKTIVERE NETPLAY"
 
 msgid "NICKNAME"
 msgstr "NICKNAME"
@@ -586,19 +586,19 @@ msgid "USE RELAY SERVER"
 msgstr "NUTZE RELAY-SERVER"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "ZEIGE NICHTVERFÜGBARE SPIELE"
 
 msgid "FINISHED"
 msgstr "FERTIG"
@@ -670,7 +670,7 @@ msgid "CANCEL"
 msgstr "ABBRECHEN"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "VERBINDE MIT NETZWERKSPIEL"
+msgstr "VERBINDE MIT NETPLAY"
 
 msgid "Select a game lobby to join"
 msgstr "Wähle eine Spiel-Lobby zum Beitreten"
@@ -1026,7 +1026,7 @@ msgid "OPEN"
 msgstr "OFFEN"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "STARTE EIN NETPLAY-SPIEL"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1035,16 +1035,16 @@ msgid "START GAME"
 msgstr "STARTE SPIEL"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "HOSTE EIN NEUES NETPLAY-SPIEL"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "SPIEL ÖFFENTLICH ANKÜNDIGEN"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "SPIELER-PASSWORT"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "ZUSCHAUER-PASSWORT"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "FINDE ÄHNLICHE SPIELE..."
@@ -1127,7 +1127,7 @@ msgid "START NEW GAME"
 msgstr "STARTE NEUES SPIEL"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "STARTE NEUE AUTO-SPEICHERUNG"
 
 msgid "AUTO SAVE"
 msgstr "AUTOMATISCHE SPEICHERUNG"
@@ -1139,7 +1139,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "KOPIERE ZU FREIEN SLOT"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "SCRAPER-EINSTELLUNGEN"
 
 msgid "IMAGE SOURCE"
 msgstr "BILDQUELLE"
@@ -1208,46 +1208,46 @@ msgid "SCRAPING DATABASE"
 msgstr "SCRAPING DATENBANK"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "QUELLE"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPEN VON"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTER"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SPIELE DIE ZU SCRAPEN SIND"
 
 msgid "ALL"
 msgstr "ALLE"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "SPIELE MIT FEHLENDEN MEDIEN"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "SPIELE OHNE MEDIEN"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORIERE KÜRZLICH GESCRAPTE SPIELE"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "LETZTER TAG"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "LETZTE WOCHE"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "LETZTE 15 TAGE"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "LETZTER MONAT"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "LETZTE 3 MONATE"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "LETZTES JAHR"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "SYSTEME INKLUSIVE"
@@ -1343,32 +1343,36 @@ msgid "Cpu feature"
 msgstr "CPU Eigenschaft"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEAR-SIMPLE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "ERWEITERT"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "KRÜMMUNG"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA SCALING"
 
 msgid "VENDOR"
 msgstr "HERSTELLER"
@@ -1510,7 +1514,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "SPIELE-SPRACHE/REGION ERNEUT ERKENNEN"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "FINDE ALLE SPIELE MIT NETZWERK/ERRUNGENSCHAFTEN"
+msgstr "FINDE ALLE SPIELE MIT NETPLAY/ERRUNGENSCHAFTEN"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATEI-MANAGEMENT"
@@ -1815,11 +1819,14 @@ msgstr "LATENZREDUZIERUNG"
 msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD FRAMES"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USE RUN-AHEAD FRAMES"
+msgid "High numbers can result in visible jitter."
+msgstr "Hohe Zahlen können zu sichtbarem Jitter führen."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "RUN-AHEAD USE SECOND INSTANCE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "ZWEITE INSTANZ FÜR RUN-AHEAD VERWENDEN"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Kann Audioaussetzer beim Drücken von Tasten verhindern."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATISCHE FRAME-VERZÖGERUNG"
@@ -1828,11 +1835,22 @@ msgid "AUTO FRAME DELAY"
 msgstr "AUTO FRAME-VERZÖGERUNG"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Frame-Verzögerung vorrübergehend automatisch verringern, um Frame-Drops zu "
-"vermeiden. Ausschalten, falls dies Audio-/Video-Stottern verschlimmert."
+"Bildverzögerung automatisch vorübergehend verringern, um frame drops zu "
+"vermeiden. Kann Stottern verursachen."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "VARIABLE BILDWIEDERHOL-RATE (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "VARIABLE BILDWIEDERHOL-RATE"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Nicht vom Core geforderten Timing abweichen. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DEKORATIONS-SET"
@@ -1895,10 +1913,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PFAD ZUM BENUTZERDEF. .PNG-BILD"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "TATTOO-GRÖSSE ÄNDERN"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Tattoo verkleinern/erweitern, damit es in den Rahmen des Bezels passt."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPIELEÜBERSETZUNG"
@@ -1916,34 +1934,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSE BEI ÜBERSETZTEM BILDSCHIRM"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "SPEICHERSTÄNDE"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "AUTO SPEICHERN/LADEN"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLE SPEICHERSTÄNDE"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "NEUES SPIEL ERSTELLT NEUEN SLOT"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "NEUES SPIEL ÜBERSCHREIBT DERZEITIGEN SLOT"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "SPEICHERSTAND-MANAGER ANZEIGEN"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "IMMER"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "WENN NICHT LEER"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "ZEIGE SPEICHERSTAND-MANAGER"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "SPEICHERSTAND-MANAGER VOR STARTEN EINES SPIELS ANZEIGEN"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "PER SYSTEM ERWEITERTE KONFIGURATION"
@@ -2078,7 +2096,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
 
 msgid "auto"
-msgstr ""
+msgstr "auto"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "SPIEL-STARTÜBERGANG"
@@ -2444,7 +2462,7 @@ msgid "Downloading"
 msgstr "Downloading"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "SUCHE NACH"
 
 msgid "ACCEPT RESULT"
 msgstr "ERGEBNIS AKZEPTIEREN"
@@ -2552,7 +2570,7 @@ msgid "SEARCHING RETROACHIEVEMENTS"
 msgstr "SUCHE RETROACHIEVEMENTS"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr "SUCHE NETZWERKSPIELE"
+msgstr "SUCHE NETPLAY-SPIELE"
 
 msgid "INDEXING COMPLETED"
 msgstr "INDIZIERUNG ABGESCHLOSSEN"
@@ -2561,25 +2579,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "SPIELELISTEN UPDATEN, UM ÄNDERUNGEN ZU ÜBERNEHMEN."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "DER EMULATOR BEENDETE UNERWARTET"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "SCHLECHTE BEFEHLSZEILEN-ARGUMENTE"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "UNGÜLTIGE KONFIGURATION"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "UNBEKANNTER EMULATOR"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "EMULATOR FEHLT"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "CORE FEHLT"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "UNBEKANNTER FEHLER"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2645,63 +2663,63 @@ msgstr "LEERTASTE"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "OBEN"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "UNTEN"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "LINKS"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "RECHTS"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "LINKER ANALOG OBEN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "LINKER ANALOG UNTEN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "LINKER ANALOG LINKS"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "LINKER ANALOG RECHTS"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "RECHTER ANALOG OBEN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "RECHTER ANALOG UNTEN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "RECHTER ANALOG LINKS"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "RECHTER ANALOG RECHTS"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "KONFIGURIEREN"
@@ -2847,6 +2865,19 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USE RUN-AHEAD FRAMES"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "RUN-AHEAD USE SECOND INSTANCE"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Frame-Verzögerung vorrübergehend automatisch verringern, um Frame-Drops "
+#~ "zu vermeiden. Ausschalten, falls dies Audio-/Video-Stottern verschlimmert."
 
 #~ msgid "SCANLINES"
 #~ msgstr "SCANLINES"

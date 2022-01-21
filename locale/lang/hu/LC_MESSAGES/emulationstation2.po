@@ -1336,6 +1336,10 @@ msgid "Cpu feature"
 msgstr "Cpu jellemző"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr ""
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr ""
 
@@ -1800,11 +1804,14 @@ msgstr "KÉSLELTETÉS CSÖKKENTÉSE"
 msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD FRAME-EK"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "RUN-AHEAD FRAME-EK HASZNÁLATA"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "RUN-AHEAD HASZNÁLATA MÁSODIK LEHETŐSÉGNEK"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr ""
@@ -1813,8 +1820,18 @@ msgid "AUTO FRAME DELAY"
 msgstr ""
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
 
 msgid "DECORATION SET"
@@ -2813,6 +2830,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "RUN-AHEAD FRAME-EK HASZNÁLATA"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "RUN-AHEAD HASZNÁLATA MÁSODIK LEHETŐSÉGNEK"
 
 #~ msgid "SCANLINES"
 #~ msgstr "SCANLINES"

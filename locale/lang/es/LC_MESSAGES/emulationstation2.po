@@ -568,7 +568,7 @@ msgid "VIEW DETAILS"
 msgstr "VER DETALLES"
 
 msgid "LAUNCH"
-msgstr "INICIAR JUEGO"
+msgstr "INICIAR"
 
 msgid "NETPLAY SETTINGS"
 msgstr "CONFIGURACIÓN DE NETPLAY"
@@ -577,7 +577,7 @@ msgid "ENABLE NETPLAY"
 msgstr "HABILITAR NETPLAY"
 
 msgid "NICKNAME"
-msgstr "APODO"
+msgstr "APODO (NICKNAME)"
 
 msgid "PORT"
 msgstr "PUERTO"
@@ -990,7 +990,7 @@ msgid "INVALID PARAMETERS"
 msgstr "VALORES NO VÁLIDOS"
 
 msgid "GAME MEDIA"
-msgstr "COMPLEMENTOS DEL JUEGO"
+msgstr "MEDIOS Y COMPLEMENTOS DEL JUEGO"
 
 msgid "VIEW GAME MANUAL"
 msgstr "VER MANUAL DEL JUEGO"
@@ -1005,7 +1005,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "VER VIDEO A PANTALLA COMPLETA"
 
 msgid "VIEW GAME MEDIA"
-msgstr "VER LOS MEDIOS DEL JUEGO"
+msgstr "VISUALIZAR LOS MEDIOS DEL JUEGO"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "EL NÚCLEO ACTUAL NO ES COMPATIBLE"
@@ -1053,7 +1053,7 @@ msgid "DELETE ITEM"
 msgstr "BORRAR ELEMENTO"
 
 msgid "DELETE GAME"
-msgstr "BORRAR JUEGO"
+msgstr "ELIMINAR JUEGO"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
@@ -1080,7 +1080,7 @@ msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "AÑADIR A COLECCIÓN PERSONALIZADA…"
 
 msgid "SCRAPE"
-msgstr "ESCRAPEAR"
+msgstr "ESCRAPEAR JUEGO"
 
 msgid "EDIT PADTOKEY PROFILE"
 msgstr "EDITAR PERFIL DE MANDO A TECLAS"
@@ -1127,7 +1127,7 @@ msgid "START NEW GAME"
 msgstr "NUEVA PARTIDA"
 
 msgid "START NEW AUTO SAVE"
-msgstr "COMENZAR NUEVO AUTOGUARDADO"
+msgstr "NUEVO AUTOGUARDADO"
 
 msgid "AUTO SAVE"
 msgstr "AUTOGUARDADO"
@@ -1202,7 +1202,7 @@ msgid "SCRAPE PADTOKEY SETTINGS"
 msgstr "OBTENER CONFIGURACIÓN DE MANDO A TECLADO"
 
 msgid "SCRAPER"
-msgstr "ESCRAPEAR"
+msgstr "ESCRAPEAR (OBTENER INFO DE JUEGOS)"
 
 msgid "SCRAPING DATABASE"
 msgstr "OBTENER LA INFORMACIÓN DE"
@@ -1343,32 +1343,36 @@ msgid "Cpu feature"
 msgstr "Característica del procesador"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "NÍTIDO-BILINEAL-SIMPLE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "LÍNEAS DE ESCANEO"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "MEJORADO"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "CURVATURA"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "PLANA-BRILLO"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "ESCALADO RGA"
 
 msgid "VENDOR"
 msgstr "VENDOR"
@@ -1392,7 +1396,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "CENTRO MULTIMEDIA KODI"
 
 msgid "GAME SETTINGS"
-msgstr "AJUSTES DEL JUEGO"
+msgstr "AJUSTES DE JUEGOS"
 
 msgid "UI SETTINGS"
 msgstr "CONFIGURACIÓN DE LA INTERFAZ"
@@ -1585,8 +1589,8 @@ msgstr "PRECARGAR ELEMENTOS DE LA INTERFAZ AL ARRANCAR"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduce el lag al introducir listas de juegos desde el menú del sistema, "
-"aumenta el tiempo de arranque"
+"Reduce el lag al entrar y salir de las listas de juegos. Aumenta el tiempo "
+"de arranque del sistema"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "PRECARGAR LOS MEDIOS DE LOS METADATOS AL ARRANCAR"
@@ -1595,8 +1599,8 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-"Reduce el lag al desplazarse por una lista de juegos completamente "
-"escrapeada, aumenta el tiempo de arranque"
+"Reduce el lag al desplazarse por las listas de juegos. Aumenta el tiempo de "
+"arranque del sistema"
 
 msgid "THREADED LOADING"
 msgstr "ACELERAR CARGA DEL SISTEMA"
@@ -1644,7 +1648,7 @@ msgid "TIME ZONE"
 msgstr "ZONA HORARIA"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "MOSTRAR RELOJ EN FORMATO 12 HORAS"
+msgstr "MOSTRAR EL RELOJ EN FORMATO DE 12 HORAS"
 
 msgid "POWER SAVER MODES"
 msgstr "MODO AHORRO DE ENERGÍA"
@@ -1705,7 +1709,7 @@ msgid "AUDIO PROFILE"
 msgstr "PERFIL DE AUDIO"
 
 msgid "SCREEN ROTATION"
-msgstr "ROTACIÓN DE PANTALLA"
+msgstr "ROTACIÓN DE LA PANTALLA"
 
 msgid "0 DEGREES (AUTO)"
 msgstr "0 GRADOS (AUTO)"
@@ -1792,7 +1796,7 @@ msgid "STORAGE DEVICE"
 msgstr "DISPOSITIVO DE ALMACENAMIENTO"
 
 msgid "BACKUP USER DATA"
-msgstr "CREAR BACKUP DEL ESPACIO DE USUARIO"
+msgstr "CREAR BACKUP DEL ESPACIO DE USUARIO (DISCO SHARE)"
 
 msgid "INSTALL BATOCERA ON A NEW DISK"
 msgstr "INSTALAR BATOCERA EN UN DISCO NUEVO"
@@ -1815,11 +1819,14 @@ msgstr "REDUCCIÓN DE LATENCIA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "FRAMES ANTICIPADOS"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USAR FRAMES ANTICIPADOS"
+msgid "High numbers can result in visible jitter."
+msgstr "Unos números altos pueden dar lugar a temblores visibles."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "ANTICIPAR USO DE SEGUNDA INSTANCIA"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "USAR SEGUNDA INSTANCIA PARA ANTICIPAR"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Puede prevenir los cortes de audio al presionar botones."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "RETRASO AUTOMÁTICO DE FRAMES"
@@ -1828,12 +1835,23 @@ msgid "AUTO FRAME DELAY"
 msgstr "RETRASO AUTOMÁTICO DE FRAMES"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Reducir automáticamente el retraso de frames temporalmente para prevenir la "
-"caída de frames. Desactiva esta opción si causa cortes en el audio y/o el "
-"vídeo."
+"Disminuir el retraso de frames temporalmente para evitar caídas de frames. "
+"Se pueden sufrir tirones."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "FRECUENCIA DE ACTUALIZACIÓN VARIABLE (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "FRECUENCIA DE ACTUALIZACIÓN VARIABLE"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"No desviarse de la frecuencia solicitada por el núcleo. G-Sync, FreeSync, "
+"HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "SET DE DECORACIONES"
@@ -1848,10 +1866,10 @@ msgid "VIDEO MODE"
 msgstr "MODO DE VÍDEO"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "SUAVIZAR JUEGOS (FILTRO BILINEAR)"
+msgstr "SUAVIZAR JUEGOS (FILTRO BILINEAL)"
 
 msgid "REWIND"
-msgstr "REBOBINAR"
+msgstr "REBOBINAR PARTIDA"
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA INTEGRAL (PÍXELES PERFECTOS)"
@@ -1944,7 +1962,7 @@ msgid "SHOW SAVE STATE MANAGER"
 msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS ANTES DE INICIAR UN JUEGO"
+msgstr "MUESTRA EL GESTOR DE PARTIDAS GUARDADAS ANTES DE INICIAR UN JUEGO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
@@ -2209,7 +2227,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "APAGAR RÁPIDAMENTE"
 
 msgid "Shutdown without saving metadata."
-msgstr "Apagar sin guardar metadatos."
+msgstr "Apaga el sistema sin guardar metadatos."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
@@ -2639,7 +2657,7 @@ msgid "ALT GR"
 msgstr "ALT GR"
 
 msgid "SHIFT"
-msgstr "SHIFT"
+msgstr "MAYÚSCULAS"
 
 msgid "SPACE"
 msgstr "ESPACIO"
@@ -2846,6 +2864,20 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USAR FRAMES ANTICIPADOS"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "ANTICIPAR USO DE SEGUNDA INSTANCIA"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Reducir automáticamente el retraso de frames temporalmente para prevenir "
+#~ "la caída de frames. Desactiva esta opción si causa cortes en el audio y/o "
+#~ "el vídeo."
 
 #~ msgid "SCANLINES"
 #~ msgstr "LÍNEAS DE ESCANEO"

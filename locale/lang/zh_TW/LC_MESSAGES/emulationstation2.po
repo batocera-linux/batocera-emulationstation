@@ -1339,6 +1339,10 @@ msgid "Cpu feature"
 msgstr "CPU 功能"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr ""
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr ""
 
@@ -1804,11 +1808,14 @@ msgstr "降低延遲"
 msgid "RUN-AHEAD FRAMES"
 msgstr "預先執行畫格"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "使用預先執行畫格"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "使用第二個實例預先執行畫格"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "自動化畫格延遲"
@@ -1817,11 +1824,19 @@ msgid "AUTO FRAME DELAY"
 msgstr "自動畫格延遲"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"自動減少畫格延遲來避免畫格遺失。如果此選項造成音訊/視訊斷續的情況更加糟糕的話"
-"請關閉。"
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "裝飾框集"
@@ -2815,6 +2830,19 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "使用預先執行畫格"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "使用第二個實例預先執行畫格"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "自動減少畫格延遲來避免畫格遺失。如果此選項造成音訊/視訊斷續的情況更加糟糕"
+#~ "的話請關閉。"
 
 #~ msgid "SCANLINES"
 #~ msgstr "掃描線"

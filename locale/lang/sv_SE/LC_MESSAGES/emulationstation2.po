@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2021-12-25 19:51+0100\n"
-"Last-Translator: Jonas Bohdén <jonas@bohden.se>\n"
+"PO-Revision-Date: 2022-01-16 20:38+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -586,19 +586,19 @@ msgid "USE RELAY SERVER"
 msgstr "ANVÄND RELÄSERVER"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "VISA OTILLGÄNGLIGA SPEL"
 
 msgid "FINISHED"
 msgstr "SLUTFÖRD"
@@ -1026,7 +1026,7 @@ msgid "OPEN"
 msgstr "ÖPPNA"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "STARTA ETT NETPLAY-SPEL"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1035,16 +1035,16 @@ msgid "START GAME"
 msgstr "STARTA SPEL"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "ARRANGERA ETT NETPLAY-SPEL"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ANNONSERA SPELET OFFENTLIGT"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "LÖSENORD FÖR SPELARE"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "LÖSENORD FÖR ÅSKÅDARE"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "HITTA LIKNANDE SPEL..."
@@ -1139,7 +1139,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "KOPIERA TILL LEDIG PLATS"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "SKRAPNINGSINSTÄLLNINGAR"
 
 msgid "IMAGE SOURCE"
 msgstr "BILDKÄLLA"
@@ -1208,52 +1208,52 @@ msgid "SCRAPING DATABASE"
 msgstr "SKRAPNINGSDATABAS"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "KÄLLA"
 
 msgid "SCRAPE FROM"
-msgstr ""
+msgstr "SKRAPA FRÅN"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTER"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SPEL ATT SKRAPA FÖR"
 
 msgid "ALL"
 msgstr "ALLA"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "SPEL SOM SAKNAR MEDIA"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "SPEL UTAN NÅGON MEDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORERA NYLIGEN SKRAPADE SPEL"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "SENASTE DYGNET"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "SENASTE VECKAN"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "SENASTE 15 DAGARNA"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "SENASTE MÅNADEN"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "SENASTE 3 MÅNADERNA"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "SENASTE ÅRET"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "INKLUDERADE SYSTEM"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "SKRAPA NU"
 
 msgid "START"
 msgstr "START"
@@ -1343,32 +1343,36 @@ msgid "Cpu feature"
 msgstr "CPU-teknologi"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEAR-SIMPLE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "FÖRBÄTTRAD"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "KRÖKNING"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA-SKALNING"
 
 msgid "VENDOR"
 msgstr "LEVERANTÖR"
@@ -1816,11 +1820,14 @@ msgstr "LATENSREDUKTION"
 msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD FRAMES"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "ANVÄND RUN-AHEAD FRAMES"
+msgid "High numbers can result in visible jitter."
+msgstr "Höga nummer kan resultera i synligt jitter."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "RUN-AHEAD ANVÄND ANDRA INSTANS"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "ANVÄND ANDRA INSTANS FÖR RUN-AHEAD"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Kan förhindra ljudhopp vid knapptryckningar."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATISK BILDFÖRDRÖJNING"
@@ -1829,11 +1836,22 @@ msgid "AUTO FRAME DELAY"
 msgstr "AUTOMATISK BILDFÖRDRÖJNING"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Minska automatiskt bildfördröjningen tillfälligt för att förhindra tappade "
-"bildrutor (frame drops). Stäng av om detta förvärrar ljud/video."
+"Minska automatiskt bildrutefördröjningen tillfälligt för att förhindra att "
+"bildrutor tappas. Kan innebära stuttering."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "VARIABEL UPPDATERINGSFREKVENS (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "VARIABEL UPPDATERINGSFREKVENS"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Avvik inte från kärnans begärda timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DEKORATIONSUPPSÄTTNING"
@@ -2078,7 +2096,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "ÖVERGÅNGSSTIL I LISTA"
 
 msgid "auto"
-msgstr ""
+msgstr "auto"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ÖVERGÅNG VID SPELSTART"
@@ -2844,6 +2862,19 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "ANVÄND RUN-AHEAD FRAMES"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "RUN-AHEAD ANVÄND ANDRA INSTANS"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Minska automatiskt bildfördröjningen tillfälligt för att förhindra "
+#~ "tappade bildrutor (frame drops). Stäng av om detta förvärrar ljud/video."
 
 #~ msgid "SCANLINES"
 #~ msgstr "SCANLINES"

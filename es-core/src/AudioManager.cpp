@@ -21,6 +21,10 @@
 #include <unistd.h>
 #endif
 
+// batocera
+// Size of last played music history as a percentage of file total
+#define LAST_PLAYED_SIZE 0.4
+
 AudioManager* AudioManager::sInstance = NULL;
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
 
@@ -59,6 +63,7 @@ void AudioManager::init()
 	mSongNameChanged = false;
 	mMusicVolume = 0;
 	mPlayingSystemThemeSong = "none";
+	std::deque<std::string> mLastPlayed;
 
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
@@ -178,6 +183,39 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 }
 
 // batocera
+// Add the current song to the last played history, truncating as needed
+void AudioManager::addLastPlayed(const std::string& newSong, int totalMusic)
+{
+	int historySize = std::floor(totalMusic * LAST_PLAYED_SIZE);
+	if (historySize < 1)
+	{
+		// Number of songs is too small to bother with
+		return;
+	}
+	
+	while (mLastPlayed.size() > historySize) {
+		mLastPlayed.pop_back();
+	}
+	mLastPlayed.push_front(newSong);
+	
+	LOG(LogDebug) << "Adding " << newSong << " to last played, " << mLastPlayed.size() << " in history";
+}
+
+// batocera
+// Check if current song exists in last played history
+bool AudioManager::songWasPlayedRecently(const std::string& song)
+{
+	for (std::string i : mLastPlayed)
+	{
+		if (song == i)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+// batocera
 void AudioManager::playRandomMusic(bool continueIfPlaying) 
 {
 	if (!Settings::getInstance()->getBool("audio.bgmusic"))
@@ -213,6 +251,11 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 		return;
 
 	int randomIndex = Randomizer::random(musics.size());
+	while (songWasPlayedRecently(musics.at(randomIndex)))
+	{
+		LOG(LogDebug) << "Music \"" << musics.at(randomIndex) << "\" was played recently, trying again";
+		randomIndex = Randomizer::random(musics.size());
+	}
 
 	// continue playing ?
 	if (mCurrentMusic != nullptr && continueIfPlaying)
@@ -220,6 +263,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 
 	playMusic(musics.at(randomIndex));
 	playSong(musics.at(randomIndex));
+	addLastPlayed(musics.at(randomIndex), musics.size());
 	mPlayingSystemThemeSong = "";
 }
 

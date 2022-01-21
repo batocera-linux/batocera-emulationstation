@@ -8,6 +8,8 @@
 #include "SDL_mixer.h"
 #include <string> // batocera
 #include <iostream> // batocera
+#include <deque> // batocera
+#include <math.h> // batocera
 
 class Sound;
 class ThemeData;
@@ -29,6 +31,7 @@ private:
 	std::string mCurrentSong;			// batocera (pop-up for SongName.cpp)
 	std::string mCurrentThemeMusicDirectory;
 	std::string mCurrentMusicPath;
+	std::deque<std::string> mLastPlayed;    // batocera
 
 	bool		mInitialized;
 	std::string	mPlayingSystemThemeSong;
@@ -72,6 +75,8 @@ public:
 private:
 	void playSong(const std::string& song);
 	void setSongName(const std::string& song);
+	void addLastPlayed(const std::string& newSong, int totalMusic);
+	bool songWasPlayedRecently(const std::string& song);
 
 	bool mSongNameChanged;
 };

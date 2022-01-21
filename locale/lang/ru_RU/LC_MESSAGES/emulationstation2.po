@@ -510,7 +510,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "ЗАПОМНИТЬ ПОСЛЕДНЮЮ"
 
 msgid "START ON GAMELIST"
-msgstr "НАЧАТЬ СО СПИСКА ИГР"
+msgstr "НАЧИНАТЬ СО СПИСКА ИГР"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
@@ -586,19 +586,19 @@ msgid "USE RELAY SERVER"
 msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "НЬЮ-ЙОРК"
 
 msgid "MADRID"
-msgstr ""
+msgstr "МАДРИД"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "МОНРЕАЛЬ"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "САН-ПАУЛУ"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -1026,7 +1026,7 @@ msgid "OPEN"
 msgstr "ОТКРЫТЬ"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "НАЧАТЬ NETPLAY ИГРУ"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1035,16 +1035,16 @@ msgid "START GAME"
 msgstr "НАЧАТЬ ИГРУ"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "ХОСТ NETPLAY ИГРЫ"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "ПАРОЛЬ ИГРОКА"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
@@ -1139,7 +1139,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "КОПИРОВАТЬ В СВОБОДНЫЙ СЛОТ"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ СКРАПЕРА"
 
 msgid "IMAGE SOURCE"
 msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
@@ -1208,46 +1208,46 @@ msgid "SCRAPING DATABASE"
 msgstr "ИСТОЧНИК ЗАГРУЗКИ"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "ИСТОЧНИК"
 
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "ФИЛЬТРЫ"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "ЗАГРУЗКА ДЛЯ"
 
 msgid "ALL"
 msgstr "ВСЕ"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "ИГРЫ С НЕДОСТАЮЩИМ МЕДИА"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "ИГРЫ БЕЗ МЕДИА"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "ИГНОРИРОВАТЬ НЕДАВНО ЗАСКРАПЛЕНЫЕ ИГРЫ"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "ПОСЛЕДНИЙ ДЕНЬ"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "ПРОШЛУЮ НЕДЕЛЮ"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "ПРОШЛЫЕ 15 ДНЕЙ"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "ПРОШЛЫЙ МЕСЯЦ"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "ПРОШЛЫЕ 3 МЕСЯЦА"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "ПРОШЛЫЙ ГОД"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "ВЫБРАННЫЕ СИСТЕМЫ"
@@ -1343,32 +1343,36 @@ msgid "Cpu feature"
 msgstr "Функции CPU"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "РЕЗКИЙ-БИЛИНЕЙНЫЙ-ПРОСТОЙ"
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "СКАНЛАЙНЫ"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "РЕТРО"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "УЛУЧШЕННЫЙ"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "КРИВИЗНА"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA МАСШТАБИРОВАНИЕ"
 
 msgid "VENDOR"
 msgstr "ПРОИЗВОДИТЕЛЬ"
@@ -1812,11 +1816,14 @@ msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
 msgid "RUN-AHEAD FRAMES"
 msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "ИСП. КАДРЫ ОБГОНА (RUN-AHEAD)"
+msgid "High numbers can result in visible jitter."
+msgstr "Высокие значения могут привести к видимому дрожанию."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Может предотвратить пропуск звука при нажатии кнопок."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "АВТОМАТИЧЕСКАЯ ЗАДЕРЖКА КАДРА"
@@ -1825,11 +1832,21 @@ msgid "AUTO FRAME DELAY"
 msgstr "АВТО ЗАДЕРЖКА КАДРА"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. "
-"Отключите, если это вызывает заикание аудио/видео."
+"Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск "
+"кадров. Отключите, если это вызывает заикание."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
@@ -2075,7 +2092,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
 msgid "auto"
-msgstr ""
+msgstr "авто"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"
@@ -2246,7 +2263,7 @@ msgid "SIDE BY SIDE"
 msgstr "БОК О БОК"
 
 msgid "INTERNAL RESOLUTION"
-msgstr "СОБСТВЕННОЕ РАЗРЕШЕНИЕ"
+msgstr "ВНУТРЕННЕЕ РАЗРЕШЕНИЕ"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"
@@ -2851,6 +2868,19 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "ИСП. КАДРЫ ОБГОНА (RUN-AHEAD)"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск "
+#~ "кадров. Отключите, если это вызывает заикание аудио/видео."
 
 #~ msgid "SCANLINES"
 #~ msgstr "ЧЕРЕССТРОЧНОСТЬ"

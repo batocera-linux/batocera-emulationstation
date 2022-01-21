@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -586,19 +586,19 @@ msgid "USE RELAY SERVER"
 msgstr "UTILISER UN SERVEUR RELAIS"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTRÉAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "AFFICHER LES JEUX NON DISPONIBLES"
 
 msgid "FINISHED"
 msgstr "TERMINÉ"
@@ -1026,7 +1026,7 @@ msgid "OPEN"
 msgstr "OUVRIR"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "DÉMARRER UNE PARTIE EN RÉSEAU"
 
 msgid "NETPLAY"
 msgstr "PARTIES EN RÉSEAU"
@@ -1035,16 +1035,16 @@ msgid "START GAME"
 msgstr "DÉMARRER LE JEU"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "HÉBERGER UNE PARTIE EN RÉSEAU"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ANNONCER PUBLIQUEMENT LA PARTIE"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "MOT DE PASSE JOUEUR"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "MOT DE PASSE SPECTATEUR"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "TROUVER LES JEUX SIMILAIRES…"
@@ -1125,7 +1125,7 @@ msgid "START NEW GAME"
 msgstr "NOUVELLE PARTIE"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "LANCER SAUV. AUTO"
 
 msgid "AUTO SAVE"
 msgstr "SAUVEGARDE AUTO"
@@ -1137,7 +1137,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIER VERS EMPLACEMENT LIBRE"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES DU SCRAPEUR"
 
 msgid "IMAGE SOURCE"
 msgstr "IMAGE SOURCE"
@@ -1206,52 +1206,52 @@ msgid "SCRAPING DATABASE"
 msgstr "BASE DE DONNÉES DE SCRAPE"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "SOURCE"
 
 msgid "SCRAPE FROM"
-msgstr ""
+msgstr "SCRAPER DEPUIS"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTRES"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SCRAPER LES JEUX POUR"
 
 msgid "ALL"
 msgstr "TOUS"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "JEUX AVEC MÉDIAS MANQUANTS"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "JEUX SANS AUCUN MÉDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORER LES JEUX SCRAPÉS RÉCEMMENT"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "LE JOUR DERNIER"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "LA SEMAINE DERNIÈRE"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "LES 15 DERNIERS JOURS"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "LE MOIS DERNIER"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "LES 3 DERNIERS MOIS"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "L’ANNÉE DERNIÈRE"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "SYSTÈMES INCLUS"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "SCRAPER MAINTENANT"
 
 msgid "START"
 msgstr "DÉMARRER"
@@ -1341,32 +1341,36 @@ msgid "Cpu feature"
 msgstr "Caractéristiques processeur"
 
 msgctxt "game_options"
-msgid "SCANLINES"
+msgid "SHARP-BILINEAR-SIMPLE"
 msgstr ""
+
+msgctxt "game_options"
+msgid "SCANLINES"
+msgstr "BALAYAGE"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "GROS PIXELS"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "AMÉLIORÉ"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "BALAYAGE COURBÉ"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "NID D’ABEILLE"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "APPLATI ET BRILLANT"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "ECHELLE RGA"
 
 msgid "VENDOR"
 msgstr "FABRICANT"
@@ -1813,11 +1817,14 @@ msgstr "RÉDUCTION DE LA LATENCE"
 msgid "RUN-AHEAD FRAMES"
 msgstr "NOMBRE D'IMAGES EN AVANCE"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "UTILISER DES IMAGES A EXÉCUTER EN AVANCE"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "2ND INSTANCE POUR L'EXÉCUTION EN AVANCE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "IMAGES EN RETARD AUTOMATIQUE"
@@ -1826,11 +1833,19 @@ msgid "AUTO FRAME DELAY"
 msgstr "RETARD AUTOMATIQUE"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Réduit automatiquement le retard d’image pour éviter les ralentissements. "
-"Désactivez le si cela aggrave les saccades audio/vidéo"
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "PACK DE DÉCORATIONS"
@@ -1893,10 +1908,11 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RÉPERTOIRE D’IMAGES .PNG PERSONNALISÉES"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "REDIMENSIONNER LE TATOUAGE"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
+"Rétrécir/agrandir le tatouage pour s’adapter à la bordure de la décoration"
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION"
@@ -1914,34 +1930,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSE SUR L'ÉCRAN DE TRADUCTION"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "SAUVEGARDES INSTANTANÉES"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "SAUV./CHARG. AUTO"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SAUVEGARDES INSTANTANÉES INCRÉMENTALES"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "Nouveau jeu crée un nouveau slot"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "Nouveau jeu écrase le slot actuel"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "MONTRER LE GESTIONNAIRE DE SAUVEGARDES"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "TOUJOURS"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "SI NON VIDE"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "AFFICHER LE GESTIONNAIRE DE SAUVEGARDES"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "Afficher le gestionnaire de sauvegardes avant de lancer le jeu"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURATION AVANCÉE PAR SYSTÈME"
@@ -2076,7 +2092,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "TRANSITION DE L’INTERFACE"
 
 msgid "auto"
-msgstr ""
+msgstr "auto"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSITION AU LANCEMENT D’UN JEU"
@@ -2205,7 +2221,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "EXTINCTION RAPIDE"
 
 msgid "Shutdown without saving metadata."
-msgstr "éteindre sans sauvegarder les métadonnées"
+msgstr "Eteindre sans sauvegarder les métadonnées"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES MÉTADONNÉES ?"
@@ -2442,7 +2458,7 @@ msgid "Downloading"
 msgstr "Téléchargement"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "CHERCHER POUR"
 
 msgid "ACCEPT RESULT"
 msgstr "ACCEPTER LE RESULTAT"
@@ -2559,25 +2575,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "L’ÉMULATEUR A QUITTÉ DE MANIÈRE INATTENDUE"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "MAUVAIS ARGUMENTS DE LA LIGNE DE COMMANDE"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "CONFIGURATION INVALIDE"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "ÉMULATEUR INCONNU"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "L’ÉMULATEUR EST MANQUANT"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "LE COEUR EST MANQUANT"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "ERREUR INCONNUE"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2844,68 +2860,15 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
 
-#~ msgid "SCANLINES"
-#~ msgstr "BALAYAGE"
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "UTILISER DES IMAGES A EXÉCUTER EN AVANCE"
 
-#~ msgid "RETRO"
-#~ msgstr "GROS PIXELS"
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "2ND INSTANCE POUR L'EXÉCUTION EN AVANCE"
 
-#~ msgid "CURVATURE"
-#~ msgstr "BALAYAGE COURBÉ"
-
-#~ msgid "ZFAST"
-#~ msgstr "NID D'ABEILLE"
-
-#~ msgid "FLATTEN-GLOW"
-#~ msgstr "APPLATI ET BRILLANT"
-
-#~ msgid "RGA SCALING"
-#~ msgstr "RGA SCALING"
-
-#~ msgid "SCRAPE CRITERIA"
-#~ msgstr "CRITÈRES DE SCRAPE"
-
-#~ msgid "MEDIA TO SCRAPE FOR"
-#~ msgstr "MEDIAS A SCRAPER"
-
-#~ msgid "NEXT"
-#~ msgstr "SUIVANT"
-
-#~ msgid "NETPLAY HOSTING/OPTIONS"
-#~ msgstr "PARTIES EN RÉSEAU / OPTIONS"
-
-#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
-#~ msgstr "DÉMARRER L’HÔTE PARTIES EN RÉSEAU"
-
-#~ msgid "SET PLAYER PASSWORD"
-#~ msgstr "DÉFINIR MOT DE PASSE JOUEUR"
-
-#~ msgid "SET VIEWER PASSWORD"
-#~ msgstr "DÉFINIR MOT DE PASSE SPECTATEUR"
-
-#~ msgid "START AUTO SAVE"
-#~ msgstr "LANCER SAUV. AUTO"
-
-#~ msgid "SHOW SAVE STATES"
-#~ msgstr "AFFICHER LES SAUV. INSTANTANÉES"
-
-#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
-#~ msgstr "AFFICHER LES SAUV. INSTANTANÉES SI NON VIDE"
-
-#~ msgid "RESIZE TATTOO WIDTH"
-#~ msgstr "LARGEUR DU TATOUAGE"
-
-#~ msgid "225/1920"
-#~ msgstr "225/1920"
-
-#~ msgid "240/1920"
-#~ msgstr "240/1920"
-
-#~ msgid "ORIGINAL"
-#~ msgstr "ORIGINAL"
-
-#~ msgid "RESIZE OVERLAY WIDTH"
-#~ msgstr "LARGEUR DE LA DÉCORATION"
-
-#~ msgid "Relative to a 1920 px bezel."
-#~ msgstr "Par rapport à une décoration de 1920 pixels"
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Réduit automatiquement le retard d’image pour éviter les ralentissements. "
+#~ "Désactivez le si cela aggrave les saccades audio/vidéo"

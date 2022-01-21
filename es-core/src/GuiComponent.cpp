@@ -161,8 +161,8 @@ Vector2f GuiComponent::getSize() const
 void GuiComponent::setSize(float w, float h)
 {
 	auto size = Vector2f(w, h);
-	if (size == mSize)
-		return;
+	//if (size == mSize)
+	//	return;
 
 	mSize = size;
     onSizeChanged();

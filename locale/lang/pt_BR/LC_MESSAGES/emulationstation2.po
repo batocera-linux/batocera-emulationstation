@@ -65,7 +65,7 @@ msgid "enter path to box"
 msgstr "insira o caminho do diretório para a caixa do jogo"
 
 msgid "Fan art"
-msgstr "Arte do fã"
+msgstr "Arte de fã"
 
 msgid "enter path to fanart"
 msgstr "insira o caminho do diretório para a arte do fã"
@@ -149,7 +149,7 @@ msgid "this game's developer"
 msgstr "o desenvolvedor deste jogo"
 
 msgid "Publisher"
-msgstr "Publicadora"
+msgstr "Publicador"
 
 msgid "this game's publisher"
 msgstr "o publicador deste jogo"
@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "nunca jogado"
 
 msgid "retroachievements"
-msgstr "conquistas"
+msgstr "retroachievements"
 
 msgid "arcade"
 msgstr "arcade"
@@ -305,7 +305,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Various"
-msgstr "Várias"
+msgstr "Vários"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -359,16 +359,16 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PACOTE REMOVIDO COM SUCESSO"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "AJUSTES DAS CONQUISTAS"
+msgstr "AJUSTES DO RETROACHIEVEMENT"
 
 msgid "SETTINGS"
 msgstr "AJUSTES"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "CONQUISTAS RETRÔ"
+msgstr "RETROACHIEVEMENTS"
 
 msgid "HARDCORE MODE"
-msgstr "MODO EXTREMO"
+msgstr "MODO HARDCORE"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -417,7 +417,7 @@ msgid "INDEX GAMES"
 msgstr "INDEXAR JOGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "INCAPAZ DE ATIVAR CONQUISTAS:"
+msgstr "INCAPAZ DE ATIVAR RETROACHIEVEMENTS:"
 
 msgid "OK"
 msgstr "OK"
@@ -586,19 +586,19 @@ msgid "USE RELAY SERVER"
 msgstr "USAR SERVIDOR DE RETRANSMISSÃO"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NOVA IORQUE"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SÃO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr "EXIIR JOGOS INDISPONÍVEIS"
+msgstr "EXIBIR JOGOS INDISPONÍVEIS"
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -741,7 +741,7 @@ msgid "RESET"
 msgstr "REINICIAR"
 
 msgid "PARENT FOLDER"
-msgstr "PASTA ASCENDENTE"
+msgstr "PASTA PRINCIPAL"
 
 msgid "SCREENSHOTS FOLDER"
 msgstr "PASTA DE CAPTURAS DE TELA"
@@ -806,7 +806,7 @@ msgid "random video"
 msgstr "vídeo aleatório"
 
 msgid "slideshow"
-msgstr "apresentação de eslaides"
+msgstr "apresentação de slides"
 
 msgid "always"
 msgstr "sempre"
@@ -896,7 +896,7 @@ msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "EXTENSÕES DE ARQUIVOS DE IMAGEM PERSONALIZADAS"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "CONFIGURAÇÃO DO CONTROLE E TECLADO"
+msgstr "AJUSTE DO CONTROLE E TECLADO"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr "SELECIONE AÇÕES PARA ALTERAR"
@@ -957,7 +957,7 @@ msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
 
 msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REINICIE O SISTEMA PARA APLICAR A ALTUALIZAÇÃO"
+msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
@@ -1141,7 +1141,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR PARA UM ESPAÇO LIVRE"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE SCRAPER"
 
 msgid "IMAGE SOURCE"
 msgstr "FONTE DA MÍDIA DE IMAGEM"
@@ -1165,7 +1165,7 @@ msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
 msgid "FAN ART"
-msgstr "ARTE DO FÃ"
+msgstr "ARTE DE FÃ"
 
 msgid "BOX SOURCE"
 msgstr "FONTE DA MÍDIA DA CAIXA"
@@ -1186,7 +1186,7 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTER MÍDIAS DOS VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr "OBTER MÍDIAS DE ARTE DO FÃ"
+msgstr "OBTER MÍDIAS ARTE DE FÃ"
 
 msgid "SCRAPE BEZEL (16:9)"
 msgstr "OBTER MÍDIAS DE MOLDURA (16:9)"
@@ -1201,7 +1201,7 @@ msgid "SCRAPE MANUAL"
 msgstr "OBTER ARQUIVOS DO MANUAL"
 
 msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "OBTER DEFINIÇÕES DE CONTROLE PARA TECLADO"
+msgstr "OBTER AJUSTES DE CONTROLE PARA TECLADO"
 
 msgid "SCRAPER"
 msgstr "PROCURAR MÍDIAS DE JOGO"
@@ -1210,13 +1210,13 @@ msgid "SCRAPING DATABASE"
 msgstr "BASE DE DADOS DAS MÍDIAS DE JOGO"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "FONTE"
 
 msgid "SCRAPE FROM"
-msgstr ""
+msgstr "OBTER MÍDIA DE"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTROS"
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr ""
@@ -1225,37 +1225,37 @@ msgid "ALL"
 msgstr "TODOS"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "JOGOS COM MÍDIAS FALTANDO"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "JOGOS SEM QUALQUER MÍDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORAR JOGOS COM MÍDIAS RECENTES"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "ÚLTIMO DIA"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "ÚLTIMA SEMANA"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "ÚLTIMOS 15 DIAS"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "ÚLTIMO MÊS"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "ÚLTIMOS 3 MESES"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "ÚLTIMO ANO"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "SISTEMAS INCLUÍDOS"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "BAIXAR AGORA"
 
 msgid "START"
 msgstr "INICIAR"
@@ -1345,32 +1345,36 @@ msgid "Cpu feature"
 msgstr "Recurso do processador"
 
 msgctxt "game_options"
-msgid "SCANLINES"
+msgid "SHARP-BILINEAR-SIMPLE"
 msgstr ""
+
+msgctxt "game_options"
+msgid "SCANLINES"
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "MELHORADO"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "CURVADO"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "TUBO"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "BRILHO ACHATADO"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "ESCALA RGA"
 
 msgid "VENDOR"
 msgstr "FABRICANTE"
@@ -1817,11 +1821,14 @@ msgstr "REDUÇÃO DE LATÊNCIA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR QUADROS"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USAR SALTO DE QUADROS"
+msgid "High numbers can result in visible jitter."
+msgstr "Números altos podem resultar em ter jitter visível"
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "USAR SALTO EM SEGUNDA INSTÂNCIA"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "EXECUTE EM SEGUNDA INSTÂNCIA"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Pode evitar saltos de áudio ao pressionar o botão."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
@@ -1830,12 +1837,23 @@ msgid "AUTO FRAME DELAY"
 msgstr "ATRASO DA TAXA DE QUADROS AUTOMÁTICO"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Decrementa automaticamente o atraso da taxa de quadros temporariamente para "
-"prevenir a queda da taxa de quadros. Desligue se isso piorar o engasgue de "
-"áudio / vídeo."
+"Diminua automaticamente o atraso de frame temporariamente para evitar quedas "
+"de frame. Pode acontecer engasgos."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Não saia da sincronização principal solicitada pelo núcleo. G-Sync, FreeSync, "
+"HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
@@ -2082,7 +2100,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "ESTILO DE TRANSIÇÃO DA LISTA DE JOGOS"
 
 msgid "auto"
-msgstr ""
+msgstr "automático"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ESTILO DE TRANSIÇÃO AO CARREGAR JOGO"
@@ -2220,7 +2238,7 @@ msgid "QUIT EMULATIONSTATION"
 msgstr "SAIR DO EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr "DESEJA SAIR ?"
+msgstr "DESEJA SAIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
@@ -2505,16 +2523,16 @@ msgid "GENRE, DESCENDING"
 msgstr "GÊNERO, DECRESCENTE"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr "DESENVOLVEDORA, ASCENDENTE"
+msgstr "DESENVOLVEDOR, ASCENDENTE"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr "DESENVOLVEDORA, DECRESCENTE"
+msgstr "DESENVOLVEDOR, DECRESCENTE"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr "PUBLICADORA, ASCENDENTE"
+msgstr "PUBLICADOR, ASCENDENTE"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr "PUBLICADORA, DECRESCENTE"
+msgstr "PUBLICADOR, DECRESCENTE"
 
 msgid "SYSTEM, ASCENDING"
 msgstr "SISTEMA, ASCENDENTE"
@@ -2595,7 +2613,7 @@ msgid "PLAYERS"
 msgstr "Nº DE JOGADORES"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr "PUBLICADORA / DESENVOLVEDORA"
+msgstr "PUBLICADOR / DESENVOLVEDOR"
 
 msgid "RATING"
 msgstr "CLASSIFICAÇÃO"
@@ -2850,108 +2868,3 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
-
-#~ msgid "SCANLINES"
-#~ msgstr "LINHAS DE VARREDURA"
-
-#~ msgid "RETRO"
-#~ msgstr "RETRÔ"
-
-#~ msgid "CURVATURE"
-#~ msgstr "CURVADO"
-
-#~ msgid "ZFAST"
-#~ msgstr "TUBO"
-
-#~ msgid "FLATTEN-GLOW"
-#~ msgstr "BRLIHO ACHATADO"
-
-#~ msgid "RGA SCALING"
-#~ msgstr "ESCALA RGA"
-
-#~ msgid "SCRAPE CRITERIA"
-#~ msgstr "CRITÉRIO DE PROCURA POR MÍDIAS DE JOGO"
-
-#~ msgid "MEDIA TO SCRAPE FOR"
-#~ msgstr "MÍDIA À REALIZAR A PROCURA"
-
-#~ msgid "NEXT"
-#~ msgstr "PRÓXIMO"
-
-#~ msgid "NETPLAY HOSTING/OPTIONS"
-#~ msgstr "JOGOS EM REDE/OPÇÕES"
-
-#~ msgid "BEGIN HOSTING A NETPLAY SESSION"
-#~ msgstr "INICIALIZAR HOSPEDAGEM DE UMA SESSÃO DE JOGO EM REDE"
-
-#~ msgid "SET PLAYER PASSWORD"
-#~ msgstr "SENHA DO JOGADOR"
-
-#~ msgid "SET VIEWER PASSWORD"
-#~ msgstr "SENHA DE ESPECTADOR"
-
-#~ msgid "START AUTO SAVE"
-#~ msgstr "INICIAR SALVAMENTO AUTOMÁTICO"
-
-#~ msgid "SHOW SAVE STATES"
-#~ msgstr "EXIBIR SEMPRE"
-
-#~ msgid "SHOW SAVE STATES IF NOT EMPTY"
-#~ msgstr "EXIBIR SE DISPONÍVEIS"
-
-#~ msgid "UP"
-#~ msgstr "CIMA"
-
-#~ msgid "DOWN"
-#~ msgstr "BAIXO"
-
-#~ msgid "LEFT"
-#~ msgstr "ESQUERDA"
-
-#~ msgid "RIGHT"
-#~ msgstr "DIREITA"
-
-#~ msgid "LEFT ANALOG UP"
-#~ msgstr "ANALÓGICO ESQUERDO - CIMA"
-
-#~ msgid "LEFT ANALOG DOWN"
-#~ msgstr "ANALÓGICO ESQUERDO - BAIXO"
-
-#~ msgid "LEFT ANALOG LEFT"
-#~ msgstr "ANALÓGICO ESQUERDO - ESQUERDA"
-
-#~ msgid "LEFT ANALOG RIGHT"
-#~ msgstr "ANALÓGICO ESQUERDO - DIREITA"
-
-#~ msgid "RIGHT ANALOG UP"
-#~ msgstr "ANALÓGICO DIREITO - CIMA"
-
-#~ msgid "RIGHT ANALOG DOWN"
-#~ msgstr "ANALÓGICO DIREITO - BAIXO"
-
-#~ msgid "RIGHT ANALOG LEFT"
-#~ msgstr "ANALÓGICO DIREITO - ESQUERDA"
-
-#~ msgid "RIGHT ANALOG RIGHT"
-#~ msgstr "ANALÓGICO DIREITO - DIREITA"
-
-#~ msgid "HOTKEY"
-#~ msgstr "TECLA DE ATALHO (HOTKEY)"
-
-#~ msgid "RESIZE TATTOO WIDTH"
-#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
-
-#~ msgid "225/1920"
-#~ msgstr "225/1920"
-
-#~ msgid "240/1920"
-#~ msgstr "240/1920"
-
-#~ msgid "ORIGINAL"
-#~ msgstr "ORIGINAL"
-
-#~ msgid "RESIZE OVERLAY WIDTH"
-#~ msgstr "REDIMENSIONAR LARGURA DA SOBREPOSIÇÃO"
-
-#~ msgid "Relative to a 1920 px bezel."
-#~ msgstr "Em relação a uma moldura de 1920 px."

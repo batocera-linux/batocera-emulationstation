@@ -352,7 +352,7 @@ void TextEditComponent::render(const Transform4x4f& parentTrans)
 			cursorPos[1] = 0;
 		}
 
-		if (!mEditing || mBlinkTime < BLINKTIME / 2)
+		if (!mEditing || mBlinkTime < BLINKTIME / 2 || mCursorRepeatDir != 0)
 		{
 			float cursorHeight = mFont->getHeight() * 0.8f;
 

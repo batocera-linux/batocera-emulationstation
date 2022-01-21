@@ -1209,13 +1209,13 @@ msgid "SCRAPING DATABASE"
 msgstr "BAZA DANYCH SCRAPE'A"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "ŹRÓDŁO"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPE'UJ Z"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTRY"
 
 msgid "GAMES TO SCRAPE FOR"
 msgstr "GRY DO SCRAPE'OWANIA"
@@ -1344,32 +1344,36 @@ msgid "Cpu feature"
 msgstr "Funkcje procesora"
 
 msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEAR-SIMPLE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "UDOSKONALONY"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "ZAKRZYWIONY"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "SKALOWANIE RGA"
 
 msgid "VENDOR"
 msgstr "DOSTAWCA"
@@ -1817,11 +1821,14 @@ msgstr "REDUKCJA OPÓŹNIEŃ"
 msgid "RUN-AHEAD FRAMES"
 msgstr "KLATKI Z WYPRZEDZENIEM"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "UŻYJ KLATEK Z WYPRZEDZENIEM"
+msgid "High numbers can result in visible jitter."
+msgstr "Duże liczby mogą powodować widoczne drgania."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "Z WYPRZEDZENIEM ZA POMOCĄ DRUGIEJ INSTANCJI"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "UŻYJ DRUGIEJ INSTANCJI DLA KLATEK Z WYPRZEDZENIEM"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Może zapobiegać przeskakiwaniu dźwięku po naciśnięciu przycisku."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
@@ -1830,11 +1837,21 @@ msgid "AUTO FRAME DELAY"
 msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr "Automatycznie zmniejsza tymczasowe opóźnienie klatek, aby zapobiec "
+"spadkowi liczby klatek. Może wprowadzać przycinanie się dźwięku/wideo."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Automatycznie zmniejsz tymczasowo opóźnienie klatek, aby zapobiec spadkowi "
-"liczby klatek. Wyłącz, jeśli pogorszy to zacinanie się dźwięku/wideo."
+"Nie odbiegaj od żądanego czasu. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "ZESTAW DEKORACJI"
@@ -2853,6 +2870,20 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "UŻYJ KLATEK Z WYPRZEDZENIEM"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "Z WYPRZEDZENIEM ZA POMOCĄ DRUGIEJ INSTANCJI"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Automatycznie zmniejsz tymczasowo opóźnienie klatek, aby zapobiec "
+#~ "spadkowi liczby klatek. Wyłącz, jeśli pogorszy to zacinanie się dźwięku/"
+#~ "wideo."
 
 #~ msgid "SCANLINES"
 #~ msgstr "SCANLINES"

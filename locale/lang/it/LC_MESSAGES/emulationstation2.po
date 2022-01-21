@@ -584,16 +584,16 @@ msgid "USE RELAY SERVER"
 msgstr "USA RELAY SERVER"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRA GIOCHI NON DISPONIBILI"
@@ -1137,7 +1137,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIA SU SLOT LIBERO"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "OPZIONI SCRAPER"
 
 msgid "IMAGE SOURCE"
 msgstr "SORGENTE IMMAGINE"
@@ -1206,46 +1206,46 @@ msgid "SCRAPING DATABASE"
 msgstr "DATABASE DI RICERCA"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "SORGENTE"
 
 msgid "SCRAPE FROM"
 msgstr "SCARICA INFO DA"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTRI"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SCARICA INFO PER"
 
 msgid "ALL"
 msgstr "TUTTI"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "GIOCHI CON MEDIA MANCANTI"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "GIOCHI SENZA ALCUN MEDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORA GIOCHI CON INFO SCARICATE DI RECENTE"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "ULTIMO GIORNO"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "ULTIMA SETTIMANA"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "ULTIMI 15 GIORNI"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "ULTIMO MESE"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "ULTIMI 3 MESI"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "ULTIMO ANNO"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "INCLUSI I SISTEMI"
@@ -1341,32 +1341,36 @@ msgid "Cpu feature"
 msgstr "Caratteristiche CPU"
 
 msgctxt "game_options"
-msgid "SCANLINES"
+msgid "SHARP-BILINEAR-SIMPLE"
 msgstr ""
+
+msgctxt "game_options"
+msgid "SCANLINES"
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "OTTIMIZZATO"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "CURVATURA SCHERMO"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "PIATTO E LUMINOSO"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "SCALATURA RGA"
 
 msgid "VENDOR"
 msgstr "VENDOR"
@@ -1811,11 +1815,14 @@ msgstr "RIDUZIONE LATENZA"
 msgid "RUN-AHEAD FRAMES"
 msgstr "NUMERO FRAME ANTICIPATI"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USA ANTICIPAZIONE FRAME"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "USA SECONDA INSTANZA DEL CORE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "RITARDO FRAME AUTOMATICO"
@@ -1824,12 +1831,19 @@ msgid "AUTO FRAME DELAY"
 msgstr "RITARDO FRAME AUTOMATICO"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Rimuove i frame di troppo che provocano un ritardo video, riducendo la "
-"latenza del controller. Può provocare problemi audio e video su alcuni "
-"sistemi."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
 
 msgid "DECORATION SET"
 msgstr "SET CORNICI"
@@ -2074,7 +2088,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
 
 msgid "auto"
-msgstr ""
+msgstr "automatico"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSIZIONE AVVIO DEL GIOCO"
@@ -2841,6 +2855,20 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USA ANTICIPAZIONE FRAME"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "USA SECONDA INSTANZA DEL CORE"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Rimuove i frame di troppo che provocano un ritardo video, riducendo la "
+#~ "latenza del controller. Può provocare problemi audio e video su alcuni "
+#~ "sistemi."
 
 #~ msgid "SCANLINES"
 #~ msgstr "SCANLINES"
