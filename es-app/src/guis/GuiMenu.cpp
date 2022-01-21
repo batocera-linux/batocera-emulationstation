@@ -4164,6 +4164,11 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			SystemConf::getInstance()->saveSystemConf();
 		});
 	}
+
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::hlebios))
+	{
+		systemConfiguration->addSwitch(_("Use HLE BIOS"), configName + ".hlebios", false);
+	}
 #endif 
 
 	// Screen ratio choice
