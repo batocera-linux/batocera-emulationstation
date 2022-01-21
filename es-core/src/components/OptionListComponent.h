@@ -525,6 +525,24 @@ public:
 		onSelectedChanged();
 	}
 
+#ifdef _ENABLEEMUELEC
+	void removeIndex(const int i)
+	{
+		if (i <= 0 || i >= mEntries.size())
+			return;
+
+		auto sysIt = mEntries.cbegin() + i;
+		mEntries.erase(sysIt);
+	}
+
+	void selectIndex(unsigned int i)
+	{
+		selectNone();
+		mEntries.at(i).selected = true;
+		onSelectedChanged();
+	}
+#endif
+
 	void clear() {
 		mEntries.clear();
 	}
