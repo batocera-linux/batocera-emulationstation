@@ -82,7 +82,7 @@ private:
 					{
 						row.makeAcceptInputHandler([this, &e]
 						{
-							e.selected = !e.selected;														
+							e.selected = !e.selected;
 							mParent->onSelectedChanged();
 						});
 					}
