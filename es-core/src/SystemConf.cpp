@@ -41,6 +41,8 @@ static std::map<std::string, std::string> defaults =
 	{ "wifi.enabled", "0" },
 #ifdef _ENABLEEMUELEC
 	{ "system.hostname", "EMUELEC" },
+	{ "advmame_joy_remap", "1" },
+    { "global.retroachievements.encore", "0" },
 #else
 	{ "system.hostname", "BATOCERA" },
 #endif

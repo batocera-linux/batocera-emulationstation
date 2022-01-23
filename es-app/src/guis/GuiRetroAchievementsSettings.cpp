@@ -23,6 +23,9 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
 
 	addSwitch(_("HARDCORE MODE"), "global.retroachievements.hardcore", false);
+#ifdef _ENABLEEMUELEC
+	addSwitch(_("ENCORE MODE"), "global.retroachievements.encore", false);
+#endif
 	addSwitch(_("LEADERBOARDS"), "global.retroachievements.leaderboards", false);
 	addSwitch(_("VERBOSE MODE"), "global.retroachievements.verbose", false);
 	addSwitch(_("AUTOMATIC SCREENSHOT"), "global.retroachievements.screenshot", false);
