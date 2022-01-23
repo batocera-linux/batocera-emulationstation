@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "nunca jugado"
 
 msgid "retroachievements"
-msgstr "retroachievements (logros)"
+msgstr "retroachievements (trofeos)"
 
 msgid "arcade"
 msgstr "arcade"
@@ -365,7 +365,7 @@ msgid "SETTINGS"
 msgstr "AJUSTES"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS (LOGROS)"
+msgstr "RETROACHIEVEMENTS (TROFEOS)"
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -386,8 +386,8 @@ msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
-"Mostrar iconos en la esquina inferior derecha cuando se puedan ganar trofeos "
-"elegibles."
+"Mostrar iconos en la esquina inferior derecha cuando se puedan conseguir "
+"trofeos."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO DE TROFEO"
@@ -417,7 +417,7 @@ msgid "INDEX GAMES"
 msgstr "INDEXAR JUEGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "NO ES POSIBLE ACTIVAR LOS LOGROS:"
+msgstr "NO ES POSIBLE ACTIVAR RETROACHIEVEMENTS:"
 
 msgid "OK"
 msgstr "OK"
@@ -1453,7 +1453,7 @@ msgid "VSYNC"
 msgstr "SINCRONIZACIÓN VERTICAL (VSYNC)"
 
 msgid "OVERSCAN"
-msgstr "SOBREESCANEO"
+msgstr "SOBREESCALADO (OVERSCAN)"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
@@ -1514,7 +1514,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "REDETECTAR IDIOMA/REGIÓN DE LOS JUEGOS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "BUSCAR TODOS LOS JUEGOS CON NETPLAY/LOGROS"
+msgstr "BUSCAR TODOS LOS JUEGOS CON NETPLAY/TROFEOS"
 
 msgid "DATA MANAGEMENT"
 msgstr "MANEJO DE DATOS"
@@ -1872,7 +1872,7 @@ msgid "REWIND"
 msgstr "REBOBINAR PARTIDA"
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "ESCALA INTEGRAL (PÍXELES PERFECTOS)"
+msgstr "ESCALA ÍNTEGRA (PIXEL PERFECT)"
 
 msgid "SHADER SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
@@ -2176,7 +2176,7 @@ msgid "INTERNET STATUS"
 msgstr "ESTADO DE LA RED"
 
 msgid "HOSTNAME"
-msgstr "NOMBRE DE EQUIPO"
+msgstr "NOMBRE DEL EQUIPO (HOSTNAME)"
 
 msgid "ENABLE WIFI"
 msgstr "ACTIVAR WIFI"
@@ -2420,7 +2420,7 @@ msgid "Released"
 msgstr "Lanzamiento"
 
 msgid "Times played"
-msgstr "Veces jugado"
+msgstr "Partidas jugadas"
 
 #, c-format
 msgid "This folder contains %i game, including :%s"
@@ -2568,7 +2568,7 @@ msgid "Extracting"
 msgstr "Extrayendo"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "BUSCANDO LOGROS"
+msgstr "BUSCANDO TROFEOS"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "BUSCANDO JUEGOS EN NETPLAY"
