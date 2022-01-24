@@ -78,6 +78,7 @@ public:
 	DECLARE_STATIC_BOOL_SETTING(ClockMode12)
 	DECLARE_STATIC_BOOL_SETTING(VSync)
 	DECLARE_STATIC_BOOL_SETTING(PreloadMedias)
+	DECLARE_STATIC_BOOL_SETTING(IgnoreLeadingArticles)
 	DECLARE_STATIC_INT_SETTING(ScreenSaverTime);
 
 	// Non-cached settings with only shortcut methods
