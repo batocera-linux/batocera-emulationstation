@@ -1809,7 +1809,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "預先執行畫格"
 
 msgid "High numbers can result in visible jitter."
-msgstr "較大的數字可能造成可見的畫面抖動。"
+msgstr "較大的數字會造成可見的畫面抖動。"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "使用第二個實例處理預先執行"
