@@ -613,7 +613,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	const std::string rom = Utils::FileSystem::getEscapedPath(getPath());
 	const std::string basename = Utils::FileSystem::getStem(getPath());
 
-	Scripting::fireEvent("game-start", rom, basename);
+	Scripting::fireEvent("game-start", rom, basename, getName());
 
 	time_t tstart = time(NULL);
 
