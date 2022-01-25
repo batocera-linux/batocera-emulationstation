@@ -583,19 +583,19 @@ msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "紐約"
 
 msgid "MADRID"
-msgstr ""
+msgstr "馬德里"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "蒙特婁"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "聖保羅"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "顯示無法使用的遊戲"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -1023,7 +1023,7 @@ msgid "OPEN"
 msgstr "開啟"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "開始一場連線遊戲"
 
 msgid "NETPLAY"
 msgstr "多人遊戲"
@@ -1032,16 +1032,16 @@ msgid "START GAME"
 msgstr "開始遊戲"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "主持一場連線遊戲"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "公開的遊戲"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "玩家密碼"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "觀眾密碼"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
@@ -1124,7 +1124,7 @@ msgid "START NEW GAME"
 msgstr "新遊戲"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "開始新的自動存檔"
 
 msgid "AUTO SAVE"
 msgstr "自動存檔"
@@ -1136,7 +1136,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "複製到空檔案槽"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "搜刮器設定"
 
 msgid "IMAGE SOURCE"
 msgstr "圖片來源"
@@ -1205,46 +1205,46 @@ msgid "SCRAPING DATABASE"
 msgstr "搜刮資料庫"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "來源"
 
 msgid "SCRAPE FROM"
 msgstr "搜刮資料來源"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "過濾器"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "欲搜刮給哪些遊戲"
 
 msgid "ALL"
 msgstr "全部"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgstr "缺少部份媒體的遊戲"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgstr "不含任何媒體的遊戲"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "忽略最近搜刮過的遊戲"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "昨天"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "上週"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "最近 15 天"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "上個月"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "最近三個月"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "去年"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "已包含的遊戲平台"
@@ -1340,35 +1340,35 @@ msgstr "CPU 功能"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "ENHANCED"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "CURVATURE"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA SCALING"
 
 msgid "VENDOR"
 msgstr "提供者"
@@ -1809,13 +1809,13 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "預先執行畫格"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "較大的數字會造成可見的畫面抖動。"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "使用第二個實例處理預先執行"
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "可避免在按下按鈕時造成音訊斷斷續續。"
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "自動化畫格延遲"
@@ -1826,17 +1826,17 @@ msgstr "自動畫格延遲"
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
-msgstr ""
+msgstr "自動地暫時性減少畫格延遲以防止畫面跳格。可能會使遊戲斷斷續續。"
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "可變動更新率 (G-SYNC, FREESYNC)"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "可變動更新率"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr ""
+msgstr "不要偏離核心所要求的時間點。G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "裝飾框集"
@@ -1869,7 +1869,7 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "延展框體 (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "在框體上方顯示紋身"
+msgstr "在框體上方顯示彩繪"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "遊戲平台控制器"
@@ -1881,7 +1881,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "在框體頂部覆蓋影像。"
 
 msgid "TATTOO CORNER"
-msgstr "紋身邊角"
+msgstr "彩繪邊角"
 
 msgid "NORTH WEST"
 msgstr "西北"
@@ -1899,10 +1899,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "自訂 .PNG 圖片路徑"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "調整彩繪大小"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "縮小/擴大彩繪以適應框體的邊框。"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI 遊戲翻譯"
@@ -1920,34 +1920,34 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "在已翻譯的畫面上暫停"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "即時存檔"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "自動儲存/載入"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "遞增即時存檔"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "開新遊戲時建立新檔案槽"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
+msgstr "開新遊戲時覆寫目前的檔案槽"
 
 msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
+msgstr "顯示即時存檔管理員"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "總是"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "若不為空時"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "顯示即時存檔管理員"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgstr "在啟動遊戲前顯示即時存檔管理員"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
@@ -2079,7 +2079,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "過場效果"
 
 msgid "auto"
-msgstr ""
+msgstr "自動"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "遊戲啟動過場"
@@ -2305,7 +2305,7 @@ msgid "ZOOM"
 msgstr "縮放"
 
 msgid "GAMES TO INDEX"
-msgstr "遊戲至索引"
+msgstr "要索引哪些遊戲"
 
 msgid "ONLY MISSING"
 msgstr "僅限缺少的"
@@ -2637,63 +2637,63 @@ msgstr "空白鍵"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "上"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "下"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "左"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "右"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "開始"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "選擇"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "左類比 上"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "左類比 下"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "左類比 左"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "左類比 右"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "右類比 上"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "右類比 下"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "右類比 左"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "右類比 右"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "熱鍵"
 
 msgid "CONFIGURING"
 msgstr "設定中"
