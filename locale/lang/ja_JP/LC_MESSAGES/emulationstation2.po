@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v33beta(2022/01/17)\n"
+"Project-Id-Version: batocera-es v33beta(2022/01/20)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-01-17 09:29+0900\n"
+"PO-Revision-Date: 2022-01-21 19:28+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -302,7 +302,7 @@ msgstr "このコレクションは空です。"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr "使用しない"
+msgstr "無し"
 
 msgid "Various"
 msgstr "いろいろ"
@@ -390,7 +390,7 @@ msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTサウンドのロック解除"
 
 msgid "none"
-msgstr "なし"
+msgstr "無し"
 
 msgid "UNLOCK SOUND"
 msgstr "サウンドのロック解除"
@@ -423,7 +423,7 @@ msgid "FILTER GAMELIST BY"
 msgstr "ゲームリスト別のフィルタ"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "システム・項目別コレクションの詳細編集"
+msgstr "システム・項目別コレクション詳細編集"
 
 msgid "RESET ALL FILTERS"
 msgstr "全フィルタをリセット"
@@ -450,7 +450,7 @@ msgid "GAME COLLECTION SETTINGS"
 msgstr "ゲームコレクション設定"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr "表示するコレクション"
+msgstr "システム・コレクション"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "表示するシステム"
@@ -462,7 +462,7 @@ msgid "CREATE CUSTOM COLLECTION"
 msgstr "コレクション作成"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "テーマファイルからマイコレクションを作成"
+msgstr "テーマファイルからコレクションを作成"
 
 msgid "SELECT THEME FOLDER"
 msgstr "追加するコレクションを選択"
@@ -481,7 +481,7 @@ msgid "OPTIONS"
 msgstr "設定"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
-msgstr "マイコレクションとシステムの並べ替え"
+msgstr "コレクションとシステムの並べ替え"
 
 msgid "ALPHABETICALLY"
 msgstr "アルファベット順"
@@ -496,7 +496,7 @@ msgid "BY RELEASE YEAR"
 msgstr "リリース年別"
 
 msgid "SORT SYSTEMS"
-msgstr "各システムをソート"
+msgstr "各システムの並び替え"
 
 msgid "START ON SYSTEM"
 msgstr "最初に表示するシステム"
@@ -529,25 +529,25 @@ msgid "SELECT COLLECTIONS"
 msgstr "コレクションを選択"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr "自動コレクション"
+msgstr "個別表示コレクション"
 
 msgid "PER GENRE"
-msgstr "ジャンルごと"
+msgstr "個別ジャンル(グループ化可能)"
 
 msgid "ARCADE SYSTEMS"
 msgstr "アーケードシステム"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "自動ゲームコレクション"
+msgstr "基本ゲームコレクション"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr "編集可能なコレクション"
+msgstr "マイコレクション"
 
 msgid "DYNAMIC COLLECTIONS"
 msgstr "システム・項目別コレクション"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr "マイゲームコレクション"
+msgstr "マイコレクション"
 
 msgid "PLEASE WAIT"
 msgstr "お待ちください"
@@ -617,10 +617,10 @@ msgid "SELECT RANDOM GAME"
 msgstr "ランダムにゲーム選択"
 
 msgid "SORT GAMES BY"
-msgstr "ゲーム別のソート"
+msgstr "ゲームの並び替え"
 
 msgid "OTHER FILTERS"
-msgstr "その他のフィルタ"
+msgstr "その他フィルタ"
 
 msgid "COLLECTION"
 msgstr "コレクション"
@@ -1342,7 +1342,7 @@ msgstr "CPU 機能"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -1646,7 +1646,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "時計を12時間形式で表示"
 
 msgid "POWER SAVER MODES"
-msgstr "省電力モード(rpi用)"
+msgstr "省電力モード(ハンドヘルドi)"
 
 msgid "DISABLED"
 msgstr "無効"
@@ -1721,10 +1721,10 @@ msgid "BOOT SPLASH"
 msgstr "ブートスプラッシュ映像"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "既定映像スプラッシュ"
+msgstr "イメージ動画スプラッシュ"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "音声無し映像スプラッシュ"
+msgstr "音声無し動画スプラッシュ"
 
 msgid "BATOCERA SPLASH IMAGE"
 msgstr "BATOCERA スプラッシュ画像"
@@ -1832,6 +1832,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
+"フレームドロップを防ぐために、フレーム遅延を自動的に減らします。不具合がでる"
+"場合があります"
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "可変リフレッシュレート（G-SYNC、FREESYNC）"
@@ -2843,13 +2845,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid ""
-#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
-#~ "Turn off if this worsens audio/video stuttering."
-#~ msgstr ""
-#~ "フレーム遅延を自動的に減らしフレームドロップを防ぎます。オーディオ/ビデオ"
-#~ "で不具合がでた場合は、オフにします。"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

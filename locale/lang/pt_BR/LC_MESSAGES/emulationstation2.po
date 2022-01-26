@@ -65,7 +65,7 @@ msgid "enter path to box"
 msgstr "insira o caminho do diretório para a caixa do jogo"
 
 msgid "Fan art"
-msgstr "Arte de fã"
+msgstr "Fã-arte"
 
 msgid "enter path to fanart"
 msgstr "insira o caminho do diretório para a arte do fã"
@@ -149,7 +149,7 @@ msgid "this game's developer"
 msgstr "o desenvolvedor deste jogo"
 
 msgid "Publisher"
-msgstr "Publicador"
+msgstr "Publicadora"
 
 msgid "this game's publisher"
 msgstr "o publicador deste jogo"
@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "nunca jogado"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "conquistas"
 
 msgid "arcade"
 msgstr "arcade"
@@ -365,7 +365,7 @@ msgid "SETTINGS"
 msgstr "AJUSTES"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "CONQUISTAS RETRÔ"
 
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
@@ -396,7 +396,7 @@ msgid "none"
 msgstr "nenhum"
 
 msgid "UNLOCK SOUND"
-msgstr "SOM AO DESBLOQEAR CONQUISTAS"
+msgstr "SOM AO DESBLOQUEAR CONQUISTAS"
 
 msgid "USERNAME"
 msgstr "USUÁRIO"
@@ -417,7 +417,7 @@ msgid "INDEX GAMES"
 msgstr "INDEXAR JOGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "INCAPAZ DE ATIVAR RETROACHIEVEMENTS:"
+msgstr "INCAPAZ DE ATIVAR CONQUISTAS:"
 
 msgid "OK"
 msgstr "OK"
@@ -741,7 +741,7 @@ msgid "RESET"
 msgstr "REINICIAR"
 
 msgid "PARENT FOLDER"
-msgstr "PASTA PRINCIPAL"
+msgstr "PASTA ASCENDENTE"
 
 msgid "SCREENSHOTS FOLDER"
 msgstr "PASTA DE CAPTURAS DE TELA"
@@ -806,7 +806,7 @@ msgid "random video"
 msgstr "vídeo aleatório"
 
 msgid "slideshow"
-msgstr "apresentação de slides"
+msgstr "apresentação de eslaides"
 
 msgid "always"
 msgstr "sempre"
@@ -1049,7 +1049,7 @@ msgid "VIEWER PASSWORD"
 msgstr "SENHA DE ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "JOGOS SEMELHANTES"
+msgstr "JOGOS SEMELHANTES..."
 
 msgid "DELETE ITEM"
 msgstr "APAGAR ITEM"
@@ -1219,7 +1219,7 @@ msgid "FILTERS"
 msgstr "FILTROS"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "JOGOS À PROCURAR POR MÍDIAS"
 
 msgid "ALL"
 msgstr "TODOS"
@@ -1346,15 +1346,15 @@ msgstr "Recurso do processador"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "PIXELADO"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr "LINHAS DE VARREDURA"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr "RETRÔ"
 
 msgctxt "game_options"
 msgid "ENHANCED"
@@ -1440,7 +1440,7 @@ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDOR"
+msgstr "DESENVOLVEDORA"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPÇÕES DE VÍDEO"
@@ -1822,7 +1822,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR QUADROS"
 
 msgid "High numbers can result in visible jitter."
-msgstr "Números altos podem resultar em ter jitter visível"
+msgstr "Números altos podem resultar em instabilidade visível."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "EXECUTE EM SEGUNDA INSTÂNCIA"
@@ -1973,8 +1973,7 @@ msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "PROCURA POR MÍDIAS DE JOGO EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-"IDENTIFICAÇÃO NUMÉRICA DO JOGO ESTÁ EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
+msgstr "IDENTIFICAÇÃO NUMÉRICA DO JOGO ESTÁ EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "DESEJA ATUALIZAR A LISTA DE JOGOS ?"
@@ -1989,12 +1988,12 @@ msgid ""
 "BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
 "CONFIRM WHEN DONE."
 msgstr ""
-"VOCÊ ESTÁ PRESTES A MAPEAR UM CONTROLE. O MAPEAMENTO É BASEADO NA POSIÇÃO "
-"DOS BOTÕES EM RELAÇÃO AO SEU EQUIVALENTE EM UM CONTROLE DE VIDEOGAME "
-"CLÁSSICO, NÃO EM SEU RÓTULO FÍSICO. SE VOCÊ NÃO TEM UMA TECLA ESPECIAL PARA "
-"A TECLA DE ATALHO (HOTKEY), USE O BOTÃO DE SELEÇÃO. PARA IGNORAR TODOS OS "
-"BOTÕES / ANALÒGICOS / MANCHES QUE VOCÊ NÃO POSSUI PRESSIONE E SEGURE "
-"QUALQUER TECLA. PRESSIONE O BOTÃO SUL PARA CONFIRMAR QUANDO CONCLUÍDO."
+"VOCÊ ESTÁ PRESTES A MAPEAR UM CONTROLE. O MAPEAMENTO É BASEADO NA POSIÇÃO DOS "
+"BOTÕES EM RELAÇÃO AO SEU EQUIVALENTE EM UM CONTROLE DE VIDEOGAME CLÁSSICO, "
+"NÃO EM SEU RÓTULO FÍSICO. SE VOCÊ NÃO TEM UMA TECLA ESPECIAL PARA A TECLA DE "
+"ATALHO (HOTKEY), USE O BOTÃO DE SELEÇÃO. PARA IGNORAR TODOS OS BOTÕES / "
+"ANALÒGICOS / MANCHES QUE VOCÊ NÃO POSSUI PRESSIONE E SEGURE QUALQUER TECLA. "
+"PRESSIONE O BOTÃO SUL PARA CONFIRMAR QUANDO CONCLUÍDO."
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "PAREAR DISPOSITIVO BLUETOOTH"
@@ -2523,16 +2522,16 @@ msgid "GENRE, DESCENDING"
 msgstr "GÊNERO, DECRESCENTE"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr "DESENVOLVEDOR, ASCENDENTE"
+msgstr "DESENVOLVEDORA, ASCENDENTE"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr "DESENVOLVEDOR, DECRESCENTE"
+msgstr "DESENVOLVEDORA, DECRESCENTE"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr "PUBLICADOR, ASCENDENTE"
+msgstr "PUBLICADORA, ASCENDENTE"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr "PUBLICADOR, DECRESCENTE"
+msgstr "PUBLICADORA, DECRESCENTE"
 
 msgid "SYSTEM, ASCENDING"
 msgstr "SISTEMA, ASCENDENTE"
@@ -2613,7 +2612,7 @@ msgid "PLAYERS"
 msgstr "Nº DE JOGADORES"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr "PUBLICADOR / DESENVOLVEDOR"
+msgstr "PUBLICADORA / DESENVOLVEDORA"
 
 msgid "RATING"
 msgstr "CLASSIFICAÇÃO"
@@ -2745,8 +2744,8 @@ msgid "-NOT DEFINED-"
 msgstr "-NÃO DEFINIDO-"
 
 msgid ""
-"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
-"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A "
+"CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "NENHUM BOTÃO DE TECLA DE ATALHO FOI ATRIBUÍDO. ISTO É NECESSÁRIO PARA SAIR "
 "DOS JOGOS COM UM CONTROLE. DESEJA USAR O BOTÃO DE SELEÇÃO COMO TECLA DE "
