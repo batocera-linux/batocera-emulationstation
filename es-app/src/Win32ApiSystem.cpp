@@ -1153,7 +1153,7 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemN
 
 	for (auto folder : { Paths::getUserShadersPath(), Paths::getShadersPath() })
 	{
-		for (auto file : Utils::FileSystem::getDirContent(folder, true))
+		for (auto file : Utils::FileSystem::getDirContent(folder + "/configs", true))
 		{
 			if (Utils::FileSystem::getFileName(file) == "rendering-defaults.yml")
 			{
