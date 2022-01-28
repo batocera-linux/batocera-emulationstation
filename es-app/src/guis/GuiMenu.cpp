@@ -377,14 +377,14 @@ void GuiMenu::openEmuELECSettings()
 		for (auto it = Audiodevices.cbegin(); it != Audiodevices.cend(); it++)
 		emuelec_audiodev_def->add(*it, *it, AudiodevicesS == *it);
 		
-		s->addWithLabel(_("AUDIO DEVICE"), emuelec_audiodev_def);
-		s->addSaveFunc([emuelec_audiodev_def] {
-			if (emuelec_audiodev_def->changed()) {
-				std::string selectedaudiodev = emuelec_audiodev_def->getSelected();
-				SystemConf::getInstance()->set("ee_audio_device", selectedaudiodev);
-				SystemConf::getInstance()->saveSystemConf();
-			}
-		});
+		s->addWithDescription(_("AUDIO DEVICE"), _("Changes will need an EmulationStation restart."), emuelec_audiodev_def);
+        
+        emuelec_audiodev_def->setSelectedChangedCallback([emuelec_audiodev_def](std::string name) { 
+            if (SystemConf::getInstance()->set("ee_audio_device", name)) 
+                SystemConf::getInstance()->saveSystemConf();
+                std::string selectedaudio = emuelec_audiodev_def->getSelected();
+                runSystemCommand("/usr/bin/emuelec-utils setauddev " +selectedaudio, "", nullptr);
+            });
 #endif
         auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool btbaseEnabled = SystemConf::getInstance()->get("ee_bluetooth.enabled") == "1";
