@@ -96,18 +96,17 @@ private:
 	static std::shared_ptr<OptionListComponent<std::string>> createRatioOptionList(Window *window, std::string configname);
 #ifdef _ENABLEEMUELEC
   static std::shared_ptr<OptionListComponent<std::string>> createNativeVideoResolutionModeOptionList(Window *window, std::string configname);
-  static std::shared_ptr<OptionListComponent<std::string>> createJoyBtnCfgOptionList(Window *window, std::string configname, std::string prefixName);
+
+  static std::shared_ptr<OptionListComponent<std::string>> createJoyBtnOptionList(Window *window, std::string prefixName, std::string title, int selectId = -1);
+  static std::shared_ptr<OptionListComponent<std::string>> createJoyBtnRemapOptionList(Window *window, std::string prefixName, int btnIndex = -1);
+
+  static void createBtnJoyCfgName(Window *window, GuiSettings *systemConfiguration, std::string prefixName);
+  static void createBtnJoyCfgRemap(Window *window, GuiSettings *systemConfiguration, std::string prefixName, std::string remapName, int btnIndex = -1, int editIndex = 0);
   
-  static std::shared_ptr<OptionListComponent<std::string>> createJoyBtnRemapOptionList(Window *window, std::string prefixName, int btnIndex);
-  static void createBtnJoyCfgName(Window *mWindow, GuiSettings *systemConfiguration,
-    std::shared_ptr<OptionListComponent<std::string>> btn_choice, std::shared_ptr<OptionListComponent<std::string>> del_choice,
-    std::string prefixName);
-  static void createBtnJoyCfgRemap(Window *mWindow, GuiSettings *systemConfiguration,
-    std::shared_ptr<OptionListComponent<std::string>> btn_choice, std::shared_ptr<OptionListComponent<std::string>> del_choice,
-    std::string prefixName, std::string remapName);
-  static void deleteBtnJoyCfg(Window *mWindow, GuiSettings *systemConfiguration,
-    std::shared_ptr<OptionListComponent<std::string>> btn_choice, std::shared_ptr<OptionListComponent<std::string>> del_choice,
-    std::string prefixName);
+  static void deleteBtnJoyCfg(Window *window, GuiSettings *systemConfiguration, std::string prefixName);
+  static void editJoyBtnRemapOptionList(Window *window, GuiSettings *systemConfiguration, std::string prefixName);
+  static void removeJoyBtnEntry(int index);
+  static void addJoyBtnEntry(std::string name, std::string val);
 #endif
 	static std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname);
 	static void popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, bool selectCoreLine = false);
@@ -130,6 +129,12 @@ private:
 
 public:
 	static std::vector<DecorationSetInfo> getDecorationsSets(SystemData* system = nullptr);
+
+#ifdef _ENABLEEMUELEC
+  static std::shared_ptr<OptionListComponent<std::string>> btn_choice;
+  static std::shared_ptr<OptionListComponent<std::string>> del_choice;
+  static std::shared_ptr<OptionListComponent<std::string>> edit_choice;
+#endif
 };
 
 #endif // ES_APP_GUIS_GUI_MENU_H

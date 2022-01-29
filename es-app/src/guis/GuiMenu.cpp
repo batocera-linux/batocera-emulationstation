@@ -4090,6 +4090,11 @@ void GuiMenu::popGameConfigurationGui(Window* mWindow, FileData* fileData)
 // TODO 
 
 #ifdef _ENABLEEMUELEC
+
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::btn_choice = nullptr;
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::del_choice = nullptr;
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::edit_choice = nullptr;
+
 static std::vector<std::string> explode(std::string sData, char delimeter=',')
 {
 	std::vector<std::string> arr;	
@@ -4114,7 +4119,6 @@ static std::vector<int> int_explode(std::string sData, char delimeter=',')
 	return arr;
 }
 
-
 static std::string toupper(std::string s)
 {
 	std::for_each(s.begin(), s.end(), [](char & c){
@@ -4125,28 +4129,61 @@ static std::string toupper(std::string s)
 
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createJoyBtnRemapOptionList(Window *window, std::string prefixName, int btnIndex)
 {
-	auto joy_btn_cfg = std::make_shared< OptionListComponent<std::string> >(window, "JOY BUTTON CFG", false);
+	auto btn_choice = std::make_shared< OptionListComponent<std::string> >(window, _("BUTTON REMAP CONFIG"), false);
 
 	std::string joy_btns = SystemConf::getInstance()->get(prefixName + ".joy_btns");
 	
 	if (joy_btns.empty()) {
-		joy_btn_cfg->add("NONE", "-1", true);
-		return joy_btn_cfg;
+		btn_choice->add("NONE", "-1", true);
+		return btn_choice;
 	}
 
 	std::vector<std::string> arr_joy_btn(explode(joy_btns));
 
 	int index = 0;
+	btn_choice->add("NONE", "-1", false);
 	for (auto it = arr_joy_btn.cbegin(); it != arr_joy_btn.cend(); it++) {
-		joy_btn_cfg->add(*it, std::to_string(index), btnIndex == index);
+		btn_choice->add(*it, std::to_string(index), btnIndex == index);
 		index++;
 	}
-	return joy_btn_cfg;
+	return btn_choice;
 }
 
-void GuiMenu::createBtnJoyCfgRemap(Window *mWindow, GuiSettings *systemConfiguration,
-	std::shared_ptr<OptionListComponent<std::string>> btn_choice, std::shared_ptr<OptionListComponent<std::string>> del_choice,
-	std::string prefixName, std::string remapName)
+void GuiMenu::editJoyBtnRemapOptionList(Window *window, GuiSettings *systemConfiguration, std::string prefixName)
+{
+	const std::function<void()> editFunc([window, systemConfiguration, del_choice, edit_choice, prefixName] {
+		int editIndex = edit_choice->getSelectedIndex();
+		if (editIndex <= 0)
+			return;
+
+		std::string btnIndexes = SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes");
+		int btnIndex = int_explode(btnIndexes)[editIndex-1];
+
+		GuiSettings* systemConfiguration = new GuiSettings(window, _("EDIT REMAP"));
+		GuiMenu::createBtnJoyCfgRemap(window, systemConfiguration, prefixName, edit_choice->getSelectedName(), btnIndex, editIndex);
+
+		edit_choice->selectFirstItem();
+		del_choice->selectFirstItem();
+
+		window->pushGui(systemConfiguration);
+	});
+
+	edit_choice->setSelectedChangedCallback([window, systemConfiguration, editFunc, edit_choice, del_choice, prefixName](std::string s) {
+		long unsigned int m1 = (long unsigned int) &(*window->peekGui());
+		long unsigned int m2 = (long unsigned int) &(*systemConfiguration);
+		if (m1 == m2)
+			return;
+
+		editFunc();
+	});
+
+	systemConfiguration->addSaveFunc([window, systemConfiguration, editFunc, edit_choice, del_choice, prefixName] {
+		editFunc();
+	});
+}
+
+void GuiMenu::createBtnJoyCfgRemap(Window *window, GuiSettings *systemConfiguration,
+	std::string prefixName, std::string remapName, int btnIndex, int editIndex)
 {
 	std::vector<std::shared_ptr<OptionListComponent<std::string>>> remap_choice;
 
@@ -4156,33 +4193,77 @@ void GuiMenu::createBtnJoyCfgRemap(Window *mWindow, GuiSettings *systemConfigura
 	std::string remapNames = SystemConf::getInstance()->get(prefixName + ".joy_btn_names");
 	int remapCount = static_cast<int>(std::count(remapNames.begin(), remapNames.end(), ',')+1);
 	
-	for (int index=0; index < btnCount; ++index)
-	{		
-		auto remap = createJoyBtnRemapOptionList(mWindow, prefixName, index);
-		remap_choice.push_back(remap);
-		systemConfiguration->addWithLabel(_("JOY BUTTON ")+std::to_string(index), remap_choice[index]);
+	std::vector<int> iOrders;
+	if (btnIndex > -1)
+	{
+		std::string sOrder = SystemConf::getInstance()->get(prefixName + ".joy_btn_order" + std::to_string(btnIndex));
+		iOrders = int_explode(sOrder, ' ');
 	}
 
-	systemConfiguration->addSaveFunc([mWindow, remap_choice, del_choice, btn_choice, remapCount, prefixName, remapName, remapNames, btnCount] {
+	for (int index=0; index < btnCount; ++index)
+	{		
+		auto remap = createJoyBtnRemapOptionList(window, prefixName, (btnIndex > -1) ? iOrders[index] : index);
+		remap_choice.push_back(remap);
+		systemConfiguration->addWithLabel(_("JOY BUTTON ")+std::to_string(index), remap);
+	}
+
+	// Loops through remaps assigns Event to make sure no remap duplicates exist.
+	for(auto it = remap_choice.cbegin(); it != remap_choice.cend(); ++it) {
+		auto self = (*it);
+		self->setSelectedChangedCallback([self, window, systemConfiguration, remap_choice] (std::string choice) {
+			long unsigned int m1 = (long unsigned int) &(*window->peekGui());
+			long unsigned int m2 = (long unsigned int) &(*systemConfiguration);
+			if (m1 == m2)
+				return;
+			
+			std::string choice2;
+			if (choice == "-1")
+				return;
+			for(auto it = remap_choice.cbegin(); it != remap_choice.cend(); ++it) {
+				auto remap = *it;
+				choice2 = remap->getSelected();
+				if (choice2 == "-1")
+					continue;
+				if (self != remap && choice == choice2) {
+					remap->selectFirstItem();
+					continue;
+				}
+			}
+		});
+	}
+
+
+	systemConfiguration->addSaveFunc([window, systemConfiguration, remap_choice, del_choice, btn_choice, remapCount, prefixName, remapName, remapNames, btnCount, btnIndex, editIndex] {
+		// Hack to avoid over-writing defaults.
+		if (btnIndex != -1 && editIndex > 0 && editIndex <= 2)
+		{
+			window->pushGui(new GuiMsgBox(window,  _("CANNOT SAVE DEFAULT BUTTON MAPS."),
+				_("OK")));
+			edit_choice->selectFirstItem();
+			return;
+		}
+
 		int err = 0;
 		if (btnCount == 0)
 			err = 1;
 
-		int j=0;
+		// Loops through remap values and makes sure no conflicts or empty fields.
 		[&] {
-			for(int i=0; i < btnCount; ++i) {
-				int choice = atoi(remap_choice[i]->getSelected().c_str());
-				if (choice == -1) {
+			for(auto it = remap_choice.cbegin(); it != remap_choice.cend(); ++it) {
+				auto remap = *it;
+				std::string choice = remap->getSelected();
+				if (choice == "-1") {
 					err=1;
 					break;
 				}
-				for(j=0; j < btnCount; ++j) {
-					int choice2 = atoi(remap_choice[j]->getSelected().c_str());
-					if (choice2 == -1) {
+				for(auto it2 = remap_choice.cbegin(); it2 != remap_choice.cend(); ++it2) {
+					auto remap2 = *it2;
+					std::string choice2 = remap2->getSelected();
+					if (choice2 == "-1") {
 						err=1;
 						return;
 					}
-					if (i != j && choice == choice2) {
+					if (remap != remap2 && choice == choice2) {
 						err=1;
 						return;
 					}
@@ -4192,40 +4273,56 @@ void GuiMenu::createBtnJoyCfgRemap(Window *mWindow, GuiSettings *systemConfigura
 
 		if (err > 0)
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("ERROR - Remap is not configured properly, aborting. All buttons must be assigned and no duplicates."), "OK", nullptr));
+			window->pushGui(new GuiMsgBox(window, _("ERROR - Remap is not configured properly, All buttons must be assigned and no duplicates."),
+			_("OK")));
 			return;
 		}
 		
-		mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO CREATE THE REMAP?"),
-			_("YES"), [mWindow, remap_choice, del_choice, btn_choice, remapCount, prefixName, remapName, remapNames, btnCount]
-		{
-			int newIndex = remapCount+1;
-
-			std::string names = remapNames+","+remapName;
-			SystemConf::getInstance()->set(prefixName + ".joy_btn_names", names);
-
+		const std::function<void()> addRemaps([remap_choice, btnIndex, prefixName] {
 			std::string sRemap = "";
-			for(int i=0; i < btnCount; ++i) {
-				if (i > 0)
+			for(auto it = remap_choice.cbegin(); it != remap_choice.cend(); ++it) {
+				if (it != remap_choice.cbegin())
 					sRemap += " ";
-				sRemap += remap_choice[i]->getSelected();
+				sRemap += (*it)->getSelected();
 			}
-			std::string sNewIndex = std::to_string(newIndex);
-			SystemConf::getInstance()->set(prefixName + ".joy_btn_order" + sNewIndex, sRemap);
-
-			std::string indexes = SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes");
-			SystemConf::getInstance()->set(prefixName + ".joy_btn_indexes", indexes+","+sNewIndex);
-
+			SystemConf::getInstance()->set(prefixName + ".joy_btn_order" + std::to_string(btnIndex), sRemap);
 			SystemConf::getInstance()->saveSystemConf();
+		});
 
-			del_choice->add(remapName, sNewIndex, false);
-			btn_choice->add(remapName, sNewIndex, false);
-		}, _("NO"), nullptr));
+		if (btnIndex == -1)
+		{
+			window->pushGui(new GuiMsgBox(window, _("ARE YOU SURE YOU WANT TO CREATE THE REMAP?"),
+				_("YES"), [addRemaps, remap_choice, del_choice, btn_choice, remapCount, prefixName, remapName, remapNames, btnCount]
+			{
+				int btnIndex = remapCount+1;
+
+				std::string names = remapNames+","+remapName;
+				SystemConf::getInstance()->set(prefixName + ".joy_btn_names", names);
+
+				std::string sRemap = "";
+				for(int i=0; i < btnCount; ++i) {
+					if (i > 0)
+						sRemap += " ";
+					sRemap += remap_choice[i]->getSelected();
+				}
+				std::string sNewIndex = std::to_string(btnIndex);
+				SystemConf::getInstance()->set(prefixName + ".joy_btn_order" + sNewIndex, sRemap);
+
+				std::string indexes = SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes");
+				SystemConf::getInstance()->set(prefixName + ".joy_btn_indexes", indexes+","+sNewIndex);
+
+				addRemaps();
+
+				GuiMenu::addJoyBtnEntry(remapName, sNewIndex);
+			}, _("NO"), nullptr));
+		}
+		else {
+			addRemaps();
+		}
 	});
 }
 
-void GuiMenu::createBtnJoyCfgName(Window *mWindow, GuiSettings *systemConfiguration,
-	std::shared_ptr<OptionListComponent<std::string>> btn_choice, std::shared_ptr<OptionListComponent<std::string>> del_choice,
+void GuiMenu::createBtnJoyCfgName(Window *window, GuiSettings *systemConfiguration,
 	std::string prefixName)
 {
 	InputConfig* inputCfg = nullptr;
@@ -4241,14 +4338,14 @@ void GuiMenu::createBtnJoyCfgName(Window *mWindow, GuiSettings *systemConfigurat
 
 	ComponentListRow row;
 
-	auto createText = std::make_shared<TextComponent>(mWindow, _("CREATE BUTTON REMAP"), theme->Text.font, theme->Text.color);
+	auto createText = std::make_shared<TextComponent>(window, _("CREATE BUTTON REMAP"), theme->Text.font, theme->Text.color);
 	row.addElement(createText, true);
 	
-	auto updateVal = [mWindow, prefixName, btn_choice, del_choice](const std::string& newVal)
+	auto updateVal = [window, prefixName](const std::string& newVal)
 	{
 		if (newVal.empty()) return;
 		if(newVal.find(',') != std::string::npos) {
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU CANNOT HAVE COMMAS IN REMAP NAME"), _("OK"), nullptr));
+			window->pushGui(new GuiMsgBox(window, _("YOU CANNOT HAVE COMMAS IN REMAP NAME"), _("OK"), nullptr));
 		  return;
 		}
 		
@@ -4258,104 +4355,105 @@ void GuiMenu::createBtnJoyCfgName(Window *mWindow, GuiSettings *systemConfigurat
 		for (int i=0; i < arr_btn_names.size(); ++i) {
 			std::string tName = toupper(arr_btn_names[i]);
 			if (newName == tName) {
-				mWindow->pushGui(new GuiMsgBox(mWindow, _("REMAP NAME MUST BE UNIQUE"), _("OK"), nullptr));
+				window->pushGui(new GuiMsgBox(window, _("REMAP NAME MUST BE UNIQUE"), _("OK"), nullptr));
 				return;
 			}
 		}
 
-		GuiSettings* systemConfiguration = new GuiSettings(mWindow, "CREATE REMAP");
-		GuiMenu::createBtnJoyCfgRemap(mWindow, systemConfiguration, btn_choice, del_choice, prefixName, newVal);
-		mWindow->pushGui(systemConfiguration);
+		GuiSettings* systemConfiguration = new GuiSettings(window, "CREATE REMAP");
+		window->pushGui(new GuiMsgBox(window, _("All buttons must be assigned and no duplicates."), _("OK"),
+		[window, systemConfiguration, prefixName, newVal] {
+			GuiMenu::createBtnJoyCfgRemap(window, systemConfiguration, prefixName, newVal);
+			window->pushGui(systemConfiguration);
+		}));
 	};
 
-	row.makeAcceptInputHandler([mWindow, createText, updateVal]
+	row.makeAcceptInputHandler([window, createText, updateVal]
 	{
 		if (Settings::getInstance()->getBool("UseOSK"))
-			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("REMAP NAME"), "", updateVal, false));
+			window->pushGui(new GuiTextEditPopupKeyboard(window, _("REMAP NAME"), "", updateVal, false));
 		else
-			mWindow->pushGui(new GuiTextEditPopup(mWindow, _("REMAP NAME"), "", updateVal, false));
+			window->pushGui(new GuiTextEditPopup(window, _("REMAP NAME"), "", updateVal, false));
 	});
 	
 	systemConfiguration->addRow(row);
 }
 
-void GuiMenu::deleteBtnJoyCfg(Window *mWindow, GuiSettings *systemConfiguration,
-	 std::shared_ptr<OptionListComponent<std::string>> btn_choice,
-	 std::shared_ptr<OptionListComponent<std::string>> del_choice,
+void GuiMenu::removeJoyBtnEntry(int index) {
+	del_choice->removeIndex(index);
+	edit_choice->removeIndex(index);
+	btn_choice->removeIndex(index);
+}
+
+void GuiMenu::addJoyBtnEntry(std::string name, std::string val) {
+	del_choice->add(name, val, false);
+	edit_choice->add(name, val, false);
+	btn_choice->add(name, val, false);
+}
+
+void GuiMenu::deleteBtnJoyCfg(Window *window, GuiSettings *systemConfiguration,
 	 std::string prefixName)
 {
-
-	std::string remapNames = SystemConf::getInstance()->get(prefixName + ".joy_btn_names");
-	std::vector<std::string> remap_names(explode(remapNames));
-
-	del_choice->add("NONE", "0", true);
-	int i = 1;
-	for (auto it = remap_names.cbegin(); it != remap_names.cend(); it++) {
-		del_choice->add(*it, std::to_string(i), false);
-		i++;
-	}
-
-	const std::function<void()> saveFunc([mWindow, btn_choice, del_choice, prefixName] {
+	const std::function<void()> saveFunc([window, btn_choice, del_choice, edit_choice, prefixName] {
 		int delIndex = del_choice->getSelectedIndex();
+		int remapIndex = delIndex-1;
 
 		// Protect default maps (mk and sf).
 		if (delIndex <= 2)
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow,  _("CANNT DELETE DEFAULT BUTTON MAPS."),
+			window->pushGui(new GuiMsgBox(window,  _("CANNOT DELETE DEFAULT BUTTON MAPS."),
 				_("OK"), nullptr));
+			del_choice->selectFirstItem();
 			return;
 		}
 
+		// Delete does not remove the existing button maps so any game/emulator references will still work.
 		std::string remapNames = SystemConf::getInstance()->get(prefixName + ".joy_btn_names");
 		std::vector<std::string> remap_names(explode(remapNames));
 
 		std::string indexes = SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes");
 		std::vector<int> iIndexes(int_explode(indexes));
 
-		int delCfgIndex = (delIndex-1);
-
 		std::string sRemapNames = "";
 		int i;
 		for(i=0; i < remap_names.size(); ++i)
 		{
-			if (i == delCfgIndex)
+			if (i == remapIndex)
 				continue;					
 			if (i > 0)
 				sRemapNames += ",";
 			sRemapNames += remap_names[i];
 		}
 		SystemConf::getInstance()->set(prefixName + ".joy_btn_names", sRemapNames);
-		//SystemConf::getInstance()->set(prefixName + ".joy_btn_order"+std::to_string(remapIndex), "");
 
 		std::string sIndexes = "";
 		for(i=0; i < iIndexes.size(); ++i)
 		{
-			if (i == delCfgIndex)
+			if (i == remapIndex)
 				continue;
 			if (i > 0)
 				sIndexes += ",";
 			sIndexes += std::to_string(iIndexes[i]);
 		}
 		SystemConf::getInstance()->set(prefixName + ".joy_btn_indexes", sIndexes);
-
 		SystemConf::getInstance()->saveSystemConf();
 
-		int old_del_choice_val = delIndex;
-		del_choice->selectNone();
-		del_choice->removeIndex(delIndex);
-		del_choice->selectFirstItem();
-
 		int btnIndex = btn_choice->getSelectedIndex();
-		if (btnIndex == old_del_choice_val || btnIndex >= del_choice->size())
-			btnIndex = 0;
+		GuiMenu::removeJoyBtnEntry(delIndex);
 
-		btn_choice->selectNone();
-		btn_choice->removeIndex(delIndex);
+		if (btnIndex == delIndex)
+			btnIndex = 0;
+		if (btnIndex >= del_choice->size() && del_choice->size() > 0)
+			btnIndex--;
+
+		del_choice->selectFirstItem();
+		edit_choice->selectFirstItem();
 		btn_choice->selectIndex(btnIndex);
 	});
 
-	del_choice->setSelectedChangedCallback([mWindow, systemConfiguration, saveFunc, btn_choice, del_choice, prefixName](std::string s) {	
-		long unsigned int m1 = (long unsigned int) &(*mWindow->peekGui());
+	del_choice->setSelectedChangedCallback(
+		[window, systemConfiguration, saveFunc, btn_choice, del_choice, edit_choice, prefixName] (std::string s) {
+		long unsigned int m1 = (long unsigned int) &(*window->peekGui());
 		long unsigned int m2 = (long unsigned int) &(*systemConfiguration);
 		if (m1 == m2)
 			return;
@@ -4364,21 +4462,43 @@ void GuiMenu::deleteBtnJoyCfg(Window *mWindow, GuiSettings *systemConfiguration,
 		if (delIndex <= 0)
 			return;
 
-		mWindow->pushGui(new GuiMsgBox(mWindow,  _("ARE YOU SURE YOU WANT TO DELETE THE REMAP?"),
+		window->pushGui(new GuiMsgBox(window,  _("ARE YOU SURE YOU WANT TO DELETE THE REMAP?"),
 			_("YES"), saveFunc, _("NO"), nullptr));
 	});
 
-	systemConfiguration->addSaveFunc([mWindow, saveFunc, btn_choice, del_choice, prefixName] {					
+	systemConfiguration->addSaveFunc([window, saveFunc, btn_choice, del_choice, edit_choice, prefixName] {
 		int delIndex = del_choice->getSelectedIndex();
 		if (delIndex <= 0)
 			return;
 
-		mWindow->pushGui(new GuiMsgBox(mWindow,  _("ARE YOU SURE YOU WANT TO DELETE THE REMAP?"),
+		window->pushGui(new GuiMsgBox(window,  _("ARE YOU SURE YOU WANT TO DELETE THE REMAP?"),
 			_("YES"), saveFunc, _("NO"), nullptr));
 	});
+}
 
-	systemConfiguration->addWithLabel(_("DELETE REMAP"), del_choice);	
-	
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createJoyBtnOptionList(Window *window, std::string prefixName,
+	std::string title, int selectId)
+{
+	auto btn_cfg = std::make_shared< OptionListComponent<std::string> >(window, title, false);
+
+	std::string btnNames = SystemConf::getInstance()->get(prefixName + ".joy_btn_names");
+	std::vector<std::string> btn_names(explode(btnNames));
+
+	if (prefixName == "auto" || prefixName.empty() || btn_names.size() == 0) {
+		btn_cfg->add(_("NONE"), "-1", true);
+		return btn_cfg;
+	}
+
+	if (selectId >= btn_names.size())
+		selectId = -1;
+
+	int i = 0;
+	btn_cfg->add(_("NONE"), "-1", selectId == -1);
+	for (auto it = btn_names.cbegin(); it != btn_names.cend(); it++) {
+		btn_cfg->add(*it, std::to_string(i), selectId == i);
+		i++;
+	}
+	return btn_cfg;
 }
 
 #endif
@@ -4470,24 +4590,40 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (!tEmulator.empty() && systemData->isFeatureSupported(tEmulator, currentCore, EmulatorFeatures::joybtnremap))
 	{
 		[&] {
-			if (SystemConf::getInstance()->get(tEmulator + ".joy_btns").empty() ||
-					SystemConf::getInstance()->get(tEmulator + ".joy_btn_names").empty() ||
-					SystemConf::getInstance()->get(tEmulator + ".joy_btn_indexes").empty())
+			std::string prefixName = tEmulator;
+			if (SystemConf::getInstance()->get(prefixName + ".joy_btns").empty() ||
+					SystemConf::getInstance()->get(prefixName + ".joy_btn_names").empty() ||
+					SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes").empty())
 			{
-				SystemConf::getInstance()->set(tEmulator + ".joy_btns", "input a button,input b button,input x button,input y button,input r button,input l button,input r2 button,input l2 button");
-				SystemConf::getInstance()->set(tEmulator + ".joy_btn_indexes", "1,2" );
-        SystemConf::getInstance()->set(tEmulator + ".joy_btn_names", "mk,sf" );
-        SystemConf::getInstance()->set(tEmulator + ".joy_btn_order0", "0 1 2 3 4 5 6 7" );
-        SystemConf::getInstance()->set(tEmulator + ".joy_btn_order1", "3 4 2 1 0 5 6 7" );
-        SystemConf::getInstance()->set(tEmulator + ".joy_btn_order2", "3 2 5 1 0 4 6 7" );
+				SystemConf::getInstance()->set(prefixName + ".joy_btns", "input a button,input b button,input x button,input y button,input r button,input l button,input r2 button,input l2 button");
+				SystemConf::getInstance()->set(prefixName + ".joy_btn_indexes", "1,2" );
+        SystemConf::getInstance()->set(prefixName + ".joy_btn_names", "mk,sf" );
+        SystemConf::getInstance()->set(prefixName + ".joy_btn_order0", "0 1 2 3 4 5 6 7" );
+        SystemConf::getInstance()->set(prefixName + ".joy_btn_order1", "3 4 2 1 0 5 6 7" );
+        SystemConf::getInstance()->set(prefixName + ".joy_btn_order2", "3 2 5 1 0 4 6 7" );
 				SystemConf::getInstance()->saveSystemConf();
 			}
 
-			auto btn_choice = createJoyBtnCfgOptionList(mWindow, configName, tEmulator);
-			auto del_choice = std::make_shared<OptionListComponent<std::string>>(mWindow, _("DELETE REMAP"), false);
+			int btnCfgIndex = atoi(SystemConf::getInstance()->get(configName + ".joy_btn_cfg").c_str());
+			std::vector<int> remapIndexes = int_explode( SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes"));
+			int btnId = -1;
+			for (int i = 0; i < remapIndexes.size(); ++i) {
+				if (btnCfgIndex == remapIndexes[i])
+				{
+					btnId = i;
+					break;
+				}
+			}
+
+			btn_choice = createJoyBtnOptionList(mWindow, prefixName, _("BUTTON REMAP"), btnId);
+			edit_choice = createJoyBtnOptionList(mWindow, prefixName, _("EDIT REMAP"));
+			del_choice = createJoyBtnOptionList(mWindow, prefixName, _("DELETE REMAP"));
+
 			systemConfiguration->addWithLabel(_("BUTTON REMAP"), btn_choice);
-			std::string prefixName = tEmulator;
-			systemConfiguration->addSaveFunc([configName, btn_choice, prefixName] {
+			systemConfiguration->addWithLabel(_("EDIT REMAP"), edit_choice);
+			systemConfiguration->addWithLabel(_("DELETE REMAP"), del_choice);
+
+			systemConfiguration->addSaveFunc([btn_choice, configName, prefixName] {
 				int index = btn_choice->getSelectedIndex();
 				if (index == 0)
 				{
@@ -4498,15 +4634,15 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				if (index > 0)
 				{
 					std::string btnIndexes = SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes");
-					std::vector<int> btn_indexes(int_explode(btnIndexes));
-					
-					int index = btn_choice->getSelectedIndex()-1;
-					SystemConf::getInstance()->set(configName + ".joy_btn_cfg", std::to_string(btn_indexes[index]));
+					int remapIndex = int_explode(btnIndexes)[btn_choice->getSelectedIndex()-1];
+
+					SystemConf::getInstance()->set(configName + ".joy_btn_cfg", std::to_string(remapIndex));
 					SystemConf::getInstance()->saveSystemConf();
 				}
 			});
-			GuiMenu::createBtnJoyCfgName(mWindow, systemConfiguration, btn_choice, del_choice, tEmulator);
-			GuiMenu::deleteBtnJoyCfg(mWindow, systemConfiguration, btn_choice, del_choice, tEmulator);
+			GuiMenu::editJoyBtnRemapOptionList(mWindow, systemConfiguration, prefixName);
+			GuiMenu::createBtnJoyCfgName(mWindow, systemConfiguration, prefixName);
+			GuiMenu::deleteBtnJoyCfg(mWindow, systemConfiguration, prefixName);
 		}();
 	}
 
@@ -5089,31 +5225,6 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createNativeVideoReso
 	}
 
 	return emuelec_video_mode;
-}
-
-std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createJoyBtnCfgOptionList(Window *window, std::string configname, std::string prefixName)
-{
-	auto btn_cfg = std::make_shared< OptionListComponent<std::string> >(window, "JOY BUTTON CFG", false);
-
-	std::string btnNames = SystemConf::getInstance()->get(prefixName + ".joy_btn_names");
-	std::vector<std::string> btn_names(explode(btnNames));
-
-	if (prefixName == "auto" || prefixName.empty() || btn_names.size() == 0) {
-		btn_cfg->add("auto", "0", true);
-		return btn_cfg;
-	}
-
-	int cfgIndex = atoi(SystemConf::getInstance()->get(configname + ".joy_btn_cfg").c_str());
-	if (cfgIndex > btn_names.size())
-		cfgIndex = 0;
-
-	int i = 1;
-	btn_cfg->add("auto", "0", cfgIndex == 0);
-	for (auto it = btn_names.cbegin(); it != btn_names.cend(); it++) {
-		btn_cfg->add(*it, std::to_string(i), cfgIndex == i);
-		i++;
-	}
-	return btn_cfg;
 }
 
 #endif 
