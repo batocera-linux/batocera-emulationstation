@@ -298,6 +298,16 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		if (ev.key.repeat)
 			return false;
 
+#if !WIN32
+		if (ev.key.keysym.sym == SDLK_F4)
+		{
+			SDL_Event* quit = new SDL_Event();
+			quit->type = SDL_QUIT;
+			SDL_PushEvent(quit);
+			return false;
+		}
+#endif
+
 		window->input(getInputConfigByDevice(DEVICE_KEYBOARD), Input(DEVICE_KEYBOARD, TYPE_KEY, ev.key.keysym.sym, 1, false));
 		return true;
 
