@@ -419,6 +419,15 @@ public:
 		onSelectedChanged();
 	}
 
+	std::string getItemDisplayName(const T& obj)
+	{
+		for (auto e : mEntries)
+			if (e.object == obj)
+				return e.name;
+
+		return "";
+	}
+
 	void addRange(const std::vector<std::string> values, const std::string selectedValue = "")
 	{
 		for (auto value : values)
