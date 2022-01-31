@@ -178,7 +178,12 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 #endif
 
 		addEntry(_("SCRAPER").c_str(), true, [this] { openScraperSettings(); }, "iconScraper");		
-		addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERASTORE) || ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEMESDOWNLOADER) ||
+			(ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEBEZELPROJECT) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS)) ||
+			ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
+			addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
+
 		addEntry(_("SYSTEM SETTINGS").c_str(), true, [this] { openSystemSettings(); }, "iconSystem");
 	}
 	else
@@ -828,48 +833,51 @@ void GuiMenu::openUpdatesSettings()
 		});
 	}
 
-	updateGui->addGroup(_("SOFTWARE UPDATES"));
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
+	{
+		updateGui->addGroup(_("SOFTWARE UPDATES"));
 
-	// Enable updates
-	updateGui->addSwitch(_("CHECK FOR UPDATES"), "updates.enabled", false);
+		// Enable updates
+		updateGui->addSwitch(_("CHECK FOR UPDATES"), "updates.enabled", false);
 
-	auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
-	
-	std::string updatesType = SystemConf::getInstance()->get("updates.type");
+		auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
+
+		std::string updatesType = SystemConf::getInstance()->get("updates.type");
 
 #if WIN32
-	if (updatesType == "unstable")
-		updatesTypeList->add("unstable", "unstable", updatesType == "unstable");
-	else 
-#endif
-	if (updatesType.empty() || updatesType != "beta")
-		updatesType = "stable";
-	
-	updatesTypeList->add("stable", "stable", updatesType == "stable");
-	updatesTypeList->add("beta", "beta", updatesType == "beta");
-	
-	updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
-	updatesTypeList->setSelectedChangedCallback([](std::string name)
-	{
-		if (SystemConf::getInstance()->set("updates.type", name))
-			SystemConf::getInstance()->saveSystemConf();
-	});	
-
-	// Start update
-	updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
-	{
-		if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
-			quitES(QuitMode::RESTART);
-		else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATER IS ALREADY RUNNING")));
+		if (updatesType == "unstable")
+			updatesTypeList->add("unstable", "unstable", updatesType == "unstable");
 		else
-		{
-			if (!checkNetwork())
-				return;
+#endif
+			if (updatesType.empty() || updatesType != "beta")
+				updatesType = "stable";
 
-			mWindow->pushGui(new GuiUpdate(mWindow));
-		}
-	});
+		updatesTypeList->add("stable", "stable", updatesType == "stable");
+		updatesTypeList->add("beta", "beta", updatesType == "beta");
+
+		updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
+		updatesTypeList->setSelectedChangedCallback([](std::string name)
+		{
+			if (SystemConf::getInstance()->set("updates.type", name))
+				SystemConf::getInstance()->saveSystemConf();
+		});
+
+		// Start update
+		updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
+		{
+			if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
+				quitES(QuitMode::RESTART);
+			else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATER IS ALREADY RUNNING")));
+			else
+			{
+				if (!checkNetwork())
+					return;
+
+				mWindow->pushGui(new GuiUpdate(mWindow));
+			}
+		});
+	}
 
 	mWindow->pushGui(updateGui);
 }
@@ -1602,6 +1610,44 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	}
 
 	std::string storedValue = SystemConf::getInstance()->get(storageName);
+	
+	std::string inheritedValue;
+	if (!Utils::String::startsWith(storageName, "global."))
+	{
+		std::string systemSetting = storageName;
+
+		bool querySystemSetting = false;
+
+		// Look if we are using a "per-game" setting, then compute the system setting name
+		auto gameInfoStart = storageName.find("[\"");
+		if (gameInfoStart != std::string::npos)
+		{
+			auto gameInfoEnd = storageName.find("\"]");
+			if (gameInfoEnd != std::string::npos)
+			{
+				systemSetting = storageName.substr(0, gameInfoStart) + storageName.substr(gameInfoEnd + 2);
+				querySystemSetting = true;
+			}
+		}
+	
+		// First find the global option
+		auto dotPos = systemSetting.find(".");
+		if (dotPos != std::string::npos)
+		{
+			std::string globalSetting = "global." + systemSetting.substr(dotPos + 1);
+			std::string globalStoredValue = SystemConf::getInstance()->get(globalSetting);
+			if (!globalStoredValue.empty() && globalStoredValue != "auto" && globalStoredValue != storedValue)
+				inheritedValue = globalStoredValue;
+		}
+
+		// Then take the system option
+		if (querySystemSetting)
+		{
+			std::string systemStoredValue = SystemConf::getInstance()->get(systemSetting);
+			if (!systemStoredValue.empty() && systemStoredValue != "auto" && systemStoredValue != storedValue)
+				inheritedValue = systemStoredValue;
+		}
+	}
 
 	if (feat.preset == "switch")
 	{
@@ -1708,8 +1754,22 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	if (!item->hasSelection())
 		item->selectFirstItem();
 
-	if (!feat.description.empty())
-		settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), item);
+	std::string desc = pgettext("game_options", feat.description.c_str());
+
+	if (!inheritedValue.empty())
+	{
+		auto displayName = item->getItemDisplayName(inheritedValue);
+		if (!displayName.empty())
+		{
+			if (desc.empty())
+				desc = _("Current setting") + " : " + displayName;
+			else
+				desc = desc + "\r\n" + _("Current setting") + " : " + displayName;
+		}
+	}
+
+	if (!desc.empty())
+		settings->addWithDescription(pgettext("game_options", feat.name.c_str()), desc, item);
 	else
 		settings->addWithLabel(pgettext("game_options", feat.name.c_str()), item);
 

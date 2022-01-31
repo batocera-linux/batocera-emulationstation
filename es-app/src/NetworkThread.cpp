@@ -10,6 +10,9 @@
 
 NetworkThread::NetworkThread(Window* window) : mWindow(window)
 {
+	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE) && !ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PADSINFO))
+		return;
+
 	LOG(LogDebug) << "NetworkThread : Starting";
 
 	// creer le thread
@@ -28,6 +31,9 @@ void NetworkThread::onJoystickChanged()
 
 NetworkThread::~NetworkThread()
 {
+	if (mThread == nullptr)
+		return;
+	
 	LOG(LogDebug) << "NetworkThread : Exit";
 
 	mEvent.notify_all();
@@ -35,6 +41,7 @@ NetworkThread::~NetworkThread()
 	mRunning = false;
 	mThread->join();
 	delete mThread;
+	mThread = nullptr;	
 }
 
 void NetworkThread::checkPadsBatteryLevel()
@@ -73,7 +80,7 @@ void NetworkThread::run()
 		
 		checkPadsBatteryLevel();
 
-		if (mCheckUpdateTimer >= CHECKUPDATE_MINUTES && SystemConf::getInstance()->getBool("updates.enabled"))
+		if (mCheckUpdateTimer >= CHECKUPDATE_MINUTES && SystemConf::getInstance()->getBool("updates.enabled") && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
 		{
 			mCheckUpdateTimer = 0;
 

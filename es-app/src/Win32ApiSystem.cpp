@@ -120,6 +120,8 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::PADSINFO:
 		executables.push_back("batocera-padsinfo");
 		break;
+	case ApiSystem::UPGRADE:
+		return true;
 	}
 
 	if (executables.size() == 0)

@@ -1247,6 +1247,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::SUPPORTFILE:
 		executables.push_back("batocera-support");
 		break;
+	case ApiSystem::UPGRADE:
+		executables.push_back("batocera-upgrade");
+		break;
 	}
 
 	if (executables.size() == 0)

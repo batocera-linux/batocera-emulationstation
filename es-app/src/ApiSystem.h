@@ -101,7 +101,8 @@ public:
 		AUDIODEVICE = 20,
 		BACKUP = 21,
 		INSTALL = 22,
-		SUPPORTFILE = 23
+		SUPPORTFILE = 23,
+		UPGRADE = 24
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
