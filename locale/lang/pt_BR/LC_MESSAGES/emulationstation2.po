@@ -143,7 +143,7 @@ msgid "enter release date"
 msgstr "digite a data de lançamento"
 
 msgid "Developer"
-msgstr "Desenvolvedora"
+msgstr "Desenvolvedor"
 
 msgid "this game's developer"
 msgstr "o desenvolvedor deste jogo"
