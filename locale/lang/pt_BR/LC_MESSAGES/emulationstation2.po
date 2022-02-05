@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "nunca jogado"
 
 msgid "retroachievements"
-msgstr "conquistas"
+msgstr "conquistas retrô"
 
 msgid "arcade"
 msgstr "arcade"
@@ -359,7 +359,7 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PACOTE REMOVIDO COM SUCESSO"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "AJUSTES DO RETROACHIEVEMENT"
+msgstr "AJUSTES DAS CONQUISTAS RETRÔ"
 
 msgid "SETTINGS"
 msgstr "AJUSTES"
@@ -1840,8 +1840,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Diminua automaticamente o atraso de frame temporariamente para evitar quedas "
-"de frame. Pode acontecer engasgos."
+"Diminua automaticamente o atraso de quadros temporariamente para evitar "
+"quedas na taxa de quadros. Pode acontecer engasgos."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL (G-SYNC, FREESYNC)"
@@ -1961,7 +1961,7 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr "EXIBIR GENRENCIADOR DE ESTADOS DE SALVAMENTO"
+msgstr "EXIBIR GERENCIADOR"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
 msgstr "EXIBIR GERENCIADO DE ESTADOS DE SALVAMENTO ANTES DE INICIAR O JOGO"

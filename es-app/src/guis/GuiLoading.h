@@ -12,6 +12,7 @@
 #include "guis/GuiMsgBox.h"
 #include <string>
 #include <thread>
+#include <mutex>
 #include "Settings.h"
 #include "animations/LambdaAnimation.h"
 
@@ -31,6 +32,9 @@ public:
 		setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 		setTag("GuiLoading");
 	
+		mText = title;
+		mTextChanged = false;
+
 		mRunning = true;
 		mHandle = new std::thread(&GuiLoading::threadLoading, this);
 		mBusyAnim.setText(title);
@@ -48,9 +52,16 @@ public:
 	}
 
 	void setText(const std::string& text) override
-	{
-		mBusyAnim.setText(text);
-		mBusyAnim.setSize(mSize);
+	{		
+		mTextMutex.lock();
+
+		if (mText != text)
+		{
+			mText = text;
+			mTextChanged = true;
+		}
+
+		mTextMutex.unlock();
 	}
 
 	void render(const Transform4x4f &parentTrans) override
@@ -69,10 +80,13 @@ public:
 	{
 		return false;	
 	}
-
+	
 	void update(int deltaTime) override
 	{
 		GuiComponent::update(deltaTime);
+
+		updateText();
+
 		mBusyAnim.update(deltaTime);
 
 		if (!mRunning)
@@ -99,9 +113,28 @@ private:
 		mRunning = false;
 	}
 
-    BusyComponent mBusyAnim;
-    std::thread *mHandle;
-    bool mRunning;
+	void updateText()
+	{
+		mTextMutex.lock();
+
+		if (mTextChanged)
+		{
+			mBusyAnim.setText(mText);
+			mBusyAnim.setSize(mSize);
+			mTextChanged = false;
+		}
+
+		mTextMutex.unlock();
+	}
+
+    BusyComponent	mBusyAnim;
+    std::thread*	mHandle;
+    bool			mRunning;
+
+	std::mutex		mTextMutex;
+	std::string		mText;
+	bool			mTextChanged;
+
     const std::function<T(IGuiLoadingHandler*)> mFunc;
     const std::function<void(T)> mFunc2;
     T result;
