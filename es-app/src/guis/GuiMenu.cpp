@@ -2106,9 +2106,9 @@ void GuiMenu::openGamesSettings()
 	s->addSaveFunc([incrementalSaveStates] { SystemConf::getInstance()->set("global.incrementalsavestates", incrementalSaveStates->getSelected()); });
 	
 	// SHOW SAVE STATES
-	auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("DISPLAY SAVE STATE MANAGER"));
+	auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVE STATE MANAGER"));
 	showSaveStates->addRange({ { _("NO"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get("global.savestates"));
-	s->addWithDescription(_("SHOW SAVE STATE MANAGER"), _("DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"), showSaveStates);
+	s->addWithDescription(_("SHOW SAVE STATE MANAGER"), _("Display save state manager before launching a game."), showSaveStates);
 	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
 
 
