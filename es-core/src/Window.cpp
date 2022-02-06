@@ -903,6 +903,7 @@ void Window::postToUiThread(const std::function<void()>& func, void* data)
 	if (mSleeping || !PowerSaver::getState())
 	{
 		mSleeping = false;
+		mTimeSinceLastInput = 0;
 		PowerSaver::pushRefreshEvent();
 	}
 }
