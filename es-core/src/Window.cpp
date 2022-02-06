@@ -899,7 +899,12 @@ void Window::postToUiThread(const std::function<void()>& func, void* data)
 	PostedFunction pf;
 	pf.func = func;
 	pf.container = data;
-	mFunctions.push_back(pf);	
+	mFunctions.push_back(pf);
+	if (mSleeping || !PowerSaver::getState())
+	{
+		mSleeping = false;
+		PowerSaver::pushRefreshEvent();
+	}
 }
 
 void Window::processPostedFunctions()
