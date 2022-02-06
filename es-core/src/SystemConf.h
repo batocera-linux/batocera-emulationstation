@@ -28,6 +28,10 @@ private:
 
 	std::map<std::string, std::string> confMap;
 	bool mWasChanged;
+
+
+	std::string mSystemConfFile;
+	std::string mSystemConfFileTmp;
 };
 
 

@@ -22,6 +22,7 @@
 #include <unordered_set>
 #include <algorithm>
 #include "SaveStateRepository.h"
+#include "Paths.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -32,7 +33,7 @@ using namespace Utils;
 VectorEx<SystemData*> SystemData::sSystemVector;
 bool SystemData::IsManufacturerSupported = false;
 
-SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) : // batocera
+SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) :
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
 	mSaveRepository = nullptr;
@@ -46,7 +47,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 	mFilterIndex = nullptr;
 
 	if (pEmulators != nullptr)
-		mEmulators = *pEmulators; // batocera
+		mEmulators = *pEmulators;
 
 	auto hiddenSystems = Utils::String::split(Settings::HiddenSystems(), ';');
 	mHidden = (mIsCollectionSystem ? withTheme : (std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), getName()) != hiddenSystems.cend()));
@@ -626,10 +627,10 @@ bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreNa
 	return !CustomFeatures::FeaturesLoaded;
 }
 
-// Load custom additionnal config from : /userdata/system/configs/emulationstation/es_systems_*.cfg
+// Load custom additionnal config from es_systems_*.cfg files
 void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
 {
-	for (auto customPath : Utils::FileSystem::getDirContent(Utils::FileSystem::getEsConfigPath(), false, false))
+	for (auto customPath : Utils::FileSystem::getDirContent(Paths::getUserEmulationStationPath(), false, false))
 	{
 		if (Utils::FileSystem::getExtension(customPath) != ".cfg")
 			continue;
@@ -702,7 +703,7 @@ bool SystemData::loadConfig(Window* window)
 	deleteSystems();
 	ThemeData::setDefaultTheme(nullptr);
 
-	std::string path = getConfigPath(false);
+	std::string path = getConfigPath();
 
 	LOG(LogInfo) << "Loading system config file " << path << "...";
 
@@ -873,7 +874,7 @@ bool SystemData::loadConfig(Window* window)
 
 SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 {
-	std::string path = getConfigPath(false);
+	std::string path = getConfigPath();
 	if (!Utils::FileSystem::exists(path))
 		return nullptr;
 
@@ -903,7 +904,7 @@ std::map<std::string, std::string> SystemData::getKnownSystemNames()
 {
 	std::map<std::string, std::string> ret;
 
-	std::string path = getConfigPath(false);
+	std::string path = getConfigPath();
 	if (!Utils::FileSystem::exists(path))
 		return ret;
 
@@ -998,7 +999,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	if (path[0] == '~')
 	{
 		path.erase(0, 1);
-		path.insert(0, Utils::FileSystem::getHomePath());
+		path.insert(0, Paths::getHomePath());
 		path = Utils::FileSystem::getCanonicalPath(path);
 	}
 
@@ -1071,7 +1072,7 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 		}
 	}
 
-	SystemData* newSys = new SystemData(md, envData, &systemEmulators, false, false, fullMode, true); // batocera
+	SystemData* newSys = new SystemData(md, envData, &systemEmulators, false, false, fullMode, true);
 
 	if (!fullMode)
 		return newSys;
@@ -1127,25 +1128,21 @@ void SystemData::deleteSystems()
 	IsManufacturerSupported = false;
 }
 
-std::string SystemData::getConfigPath(bool forWrite)
+std::string SystemData::getConfigPath()
 {
-#if WIN32
-	std::string customPath = Utils::FileSystem::getSharedConfigPath() + "/es_systems_custom.cfg"; // /usr/share/emulationstation/es_systems.cfg
+	std::string customPath = Paths::getUserEmulationStationPath() + "/es_systems_custom.cfg";
 	if (Utils::FileSystem::exists(customPath))
 		return customPath;
-#endif
 
-	std::string userdataPath = Utils::FileSystem::getEsConfigPath() + "/es_systems.cfg"; // /userdata/system/configs/emulationstation/es_systems.cfg
-	if(forWrite || Utils::FileSystem::exists(userdataPath))
+	std::string userdataPath = Paths::getUserEmulationStationPath() + "/es_systems.cfg";
+	if(Utils::FileSystem::exists(userdataPath))
 		return userdataPath;
 
-#if !WIN32
-	std::string customPath = Utils::FileSystem::getSharedConfigPath() + "/es_systems.cfg"; // /usr/share/emulationstation/es_systems.cfg
-	if (Utils::FileSystem::exists(customPath))
-		return customPath;
-#endif
+	userdataPath = Paths::getEmulationStationPath() + "/es_systems.cfg";
+	if (Utils::FileSystem::exists(userdataPath))
+		return userdataPath;
 
-	return "/etc/emulationstation/es_systems.cfg";
+	return "/etc/emulationstation/es_systems.cfg"; // Backward compatibility with Retropie
 }
 
 bool SystemData::isVisible()
@@ -1208,7 +1205,7 @@ std::string SystemData::getGamelistPath(bool forWrite) const
 	if(Utils::FileSystem::exists(filePath))
 		return filePath;
 
-	std::string localPath = Utils::FileSystem::getEsConfigPath() + "/gamelists/" + mMetadata.name + "/gamelist.xml";
+	std::string localPath = Paths::getUserEmulationStationPath() + "/gamelists/" + mMetadata.name + "/gamelist.xml";
 	if (Utils::FileSystem::exists(localPath))
 		return localPath;
 
@@ -1466,13 +1463,13 @@ std::string SystemData::getCompatibleCoreNames(EmulatorFeatures::Features featur
 
 	for (auto emul : mEmulators)
 	{
-		if ((emul.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+		if ((emul.features & feature) == feature)
 			ret += ret.empty() ? emul.name : ", " + emul.name;
 		else
 		{
 			for (auto core : emul.cores)
 			{
-				if ((core.features & EmulatorFeatures::cheevos) == EmulatorFeatures::cheevos)
+				if ((core.features & feature) == feature)
 				{
 					std::string name = emul.name == core.name ? core.name : emul.name + "/" + core.name;
 					ret += ret.empty() ? name : ", " + name;
@@ -1736,21 +1733,9 @@ SystemData* SystemData::getFirstVisibleSystem()
 	return nullptr;
 }
 
-/*# ${rom}.keys
-    # /userdata/system/configs/evmapy/${system}.${emulator}.${core}.keys
-    # /userdata/system/configs/evmapy/${system}.${emulator}.keys
-    # /userdata/system/configs/evmapy/${system}.keys
-    # /usr/share/evmapy/${system}.${emulator}.${core}.keys
-    # /usr/share/evmapy/${system}.${emulator}.keys
-    # /usr/share/evmapy/${system}.keys*/
-
 std::string SystemData::getKeyboardMappingFilePath()
 {		
-#if WIN32
-	return Utils::FileSystem::getEsConfigPath() + "/padtokey/" + getName() + ".keys";
-#else	
-	return "/userdata/system/configs/evmapy/" + getName() + ".keys";
-#endif
+	return Paths::getUserKeyboardMappingsPath() + "/" + getName() + ".keys";
 }
 
 bool SystemData::hasKeyboardMapping()
@@ -1767,18 +1752,12 @@ KeyMappingFile SystemData::getKeyboardMapping()
 
 	if (Utils::FileSystem::exists(getKeyboardMappingFilePath()))
 		ret = KeyMappingFile::load(getKeyboardMappingFilePath());
-#if WIN32
 	else
 	{
-		std::string win32path = Win32ApiSystem::getEmulatorLauncherPath("system.padtokey");
-		if (!win32path.empty())
-			ret = KeyMappingFile::load(win32path + "/" + getName() + ".keys");
+		std::string path = Paths::getKeyboardMappingsPath();
+		if (!path.empty())
+			ret = KeyMappingFile::load(path + "/" + getName() + ".keys");
 	}
-#else
-	else if (Utils::FileSystem::exists("/usr/share/evmapy/" + getName() + ".keys")) // Load existing predefined settings
-		ret = KeyMappingFile::load("/usr/share/evmapy/" + getName() + ".keys");
-#endif
-
 
 	ret.path = getKeyboardMappingFilePath();
 	return ret;

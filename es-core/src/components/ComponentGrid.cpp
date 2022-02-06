@@ -154,7 +154,7 @@ void ComponentGrid::updateSeparators()
 	mLines.clear();
 
 	const unsigned int color = Renderer::convertColor(mSeparatorColor);
-	bool drawAll = Settings::DebugGrid;
+	bool drawAll = Settings::DebugGrid();
 
 	Vector2f pos;
 	Vector2f size;
@@ -439,11 +439,11 @@ std::vector<HelpPrompt> ComponentGrid::getHelpPrompts()
 	}
 
 	if(canScrollHoriz && canScrollVert)
-	  prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); // batocera
+	  prompts.push_back(HelpPrompt("up/down/left/right", _("CHOOSE"))); 
 	else if(canScrollHoriz)
-	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); // batocera
+	  prompts.push_back(HelpPrompt("left/right", _("CHOOSE"))); 
 	else if(canScrollVert)
-	  prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
+	  prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); 
 
 	return prompts;
 }

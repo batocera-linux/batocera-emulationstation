@@ -49,7 +49,7 @@ public:
 	~Window();
 
 	void pushGui(GuiComponent* gui);
-	void displayNotificationMessage(std::string message, int duration = -1); // batocera
+	void displayNotificationMessage(std::string message, int duration = -1); 
 	void removeGui(GuiComponent* gui);
 	GuiComponent* peekGui();
 	inline int getGuiStackSize() { return (int)mGuiStack.size(); }
@@ -133,7 +133,7 @@ private:
 	std::vector<GuiComponent*> mGuiStack;
 
 	typedef std::pair<std::string, int> NotificationMessage;
-	std::vector<NotificationMessage> mNotificationMessages; // batocera
+	std::vector<NotificationMessage> mNotificationMessages; 
 
 	std::vector< std::shared_ptr<Font> > mDefaultFonts;
 	std::shared_ptr<Splash> mSplash;

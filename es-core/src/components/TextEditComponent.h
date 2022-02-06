@@ -34,8 +34,9 @@ public:
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
-	void startEditing(); // batocera
-	void stopEditing(); // batocera
+	void startEditing(); 
+	void stopEditing(); 
+
 private:
 	bool hasAnyKeyPressed();
 

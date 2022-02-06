@@ -95,7 +95,7 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 	// Title
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("PAD TO KEYBOARD CONFIGURATION"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
+	mTitle = std::make_shared<TextComponent>(mWindow, _("PAD TO KEYBOARD CONFIGURATION"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mSubtitle = std::make_shared<TextComponent>(mWindow, _("SELECT ACTIONS TO CHANGE"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 
 	if (!mEditable)

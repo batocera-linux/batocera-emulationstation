@@ -96,7 +96,13 @@ public:
 		THEMESDOWNLOADER = 15,
 		THEBEZELPROJECT = 16,
 		PADSINFO = 17,
-		BATOCERAPREGAMELISTSHOOK = 18
+		BATOCERAPREGAMELISTSHOOK = 18,
+		TIMEZONES = 19,
+		AUDIODEVICE = 20,
+		BACKUP = 21,
+		INSTALL = 22,
+		SUPPORTFILE = 23,
+		UPGRADE = 24
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -228,7 +234,7 @@ public:
 	virtual std::vector<PadInfo> getPadsInfo();
 	virtual std::string getHostsName();
 	virtual bool emuKill();
-
+	
 protected:
 	ApiSystem();
 

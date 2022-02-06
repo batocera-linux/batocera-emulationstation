@@ -166,7 +166,7 @@ GuiNetPlay::GuiNetPlay(Window* window)
 
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("CONNECT TO NETPLAY"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
+	mTitle = std::make_shared<TextComponent>(mWindow, _("CONNECT TO NETPLAY"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mSubtitle = std::make_shared<TextComponent>(mWindow, _("Select a game lobby to join"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);

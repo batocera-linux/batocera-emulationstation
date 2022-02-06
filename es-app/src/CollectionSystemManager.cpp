@@ -20,12 +20,8 @@
 #include "views/gamelist/ISimpleGameListView.h"
 #include "PlatformId.h"
 #include "utils/ThreadPool.h"
-
-#if WIN32
-#include "Win32ApiSystem.h"
-#endif
-
 #include "Genres.h"
+#include "Paths.h"
 
 std::string myCollectionsName = "collections";
 
@@ -42,15 +38,15 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ AUTO_ALL_GAMES,       "all",          _("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false,       true },
 		{ AUTO_LAST_PLAYED,     "recent",       _("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false,       true },
 		{ AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false,       true },
-		{ AUTO_AT2PLAYERS,      "2players",	    _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, // batocera
-		{ AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, // batocera
-		{ AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, // batocera
-		{ AUTO_RETROACHIEVEMENTS,"retroachievements",  _("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, // batocera
+		{ AUTO_AT2PLAYERS,      "2players",	    _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, 
+		{ AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, 
+		{ AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, 
+		{ AUTO_RETROACHIEVEMENTS,"retroachievements",  _("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
 
 		// Arcade meta 
-		{ AUTO_ARCADE,           "arcade",       _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, // batocera
-		{ AUTO_VERTICALARCADE,   "vertical",     _("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, // batocera
-		{ AUTO_LIGHTGUN,		 "lightgun",     _("lightgun games"),    FileSorts::FILENAME_ASCENDING,    "auto-lightgun",           false,       true }, // batocera
+		{ AUTO_ARCADE,           "arcade",       _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, 
+		{ AUTO_VERTICALARCADE,   "vertical",     _("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, 
+		{ AUTO_LIGHTGUN,		 "lightgun",     _("lightgun games"),    FileSorts::FILENAME_ASCENDING,    "auto-lightgun",           false,       true }, 
 
 		// Custom collection
 		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
@@ -259,21 +255,6 @@ void CollectionSystemManager::deinit()
 	}
 }
 
-static std::string getAbsolutePathRoot()
-{
-	std::string relativeTo = "-portnawak-";
-
-#if WIN32
-	std::string romPath = Win32ApiSystem::getEmulatorLauncherPath("roms");
-	if (!romPath.empty())
-		return Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getParent(romPath));
-#else
-	relativeTo = "/userdata";
-#endif
-
-	return relativeTo;
-}
-
 void CollectionSystemManager::saveCustomCollection(SystemData* sys)
 {
 	std::string name = sys->getName();
@@ -284,7 +265,7 @@ void CollectionSystemManager::saveCustomCollection(SystemData* sys)
 		CollectionSystemData sysData = mCustomCollectionSystemsData.at(name);
 		if (sysData.needsSave)
 		{
-			std::string relativeTo = getAbsolutePathRoot();
+			std::string relativeTo = Paths::getRootPath();
 
 			std::ofstream configFile;
 			configFile.open(getCustomCollectionConfigPath(name));
@@ -729,9 +710,9 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::
 	std::string trstring;
 
 	if (adding)
-		trstring = Utils::String::format(_("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); // batocera
+		trstring = Utils::String::format(_("Added '%s' to '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); 
 	else
-		trstring = Utils::String::format(_("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); // batocera		  
+		trstring = Utils::String::format(_("Removed '%s' from '%s'").c_str(), Utils::String::removeParenthesis(name).c_str(), Utils::String::toUpper(collectionName).c_str()); 		  
 
 	mWindow->displayNotificationMessage(trstring, 4000);
 	return true;
@@ -833,7 +814,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 		desc = trstring;
 
 		FileData* randomGame = sys->getRandomGame();
-		if (randomGame != nullptr) { // batocera
+		if (randomGame != nullptr) { 
 			video = randomGame->getVideoPath();
 			thumbnail = randomGame->getThumbnailPath();
 			image = randomGame->getImagePath();
@@ -904,7 +885,7 @@ SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, 
 	std::vector<std::string> selected = Utils::String::split(Settings::getInstance()->getString(sysDecl.isCustom ? "CollectionSystemsCustom" : "CollectionSystemsAuto"), ',', true);
 	bool loadThemeIfEnabled = (name == myCollectionsName || (std::find(selected.cbegin(), selected.cend(), name) != selected.cend()));
 
-	SystemData* newSys = new SystemData(md, mCollectionEnvData, NULL, true, false, loadThemeIfEnabled); // batocera
+	SystemData* newSys = new SystemData(md, mCollectionEnvData, NULL, true, false, loadThemeIfEnabled); 
 
 	CollectionSystemData newCollectionData;
 	newCollectionData.system = newSys;
@@ -1004,7 +985,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			case AUTO_ARCADE:
 				include = isArcade;
 				break;
-			case AUTO_AT2PLAYERS: // batocera
+			case AUTO_AT2PLAYERS: 
 			case AUTO_AT4PLAYERS:
 			{
 				std::string players = game->getMetadata(MetaDataId::Players);
@@ -1130,7 +1111,7 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 		pMap = &map;
 	}
 
-	std::string relativeTo = getAbsolutePathRoot();
+	std::string relativeTo = Paths::getRootPath();
 
 	// iterate list of files in config file
 	for(std::string gameKey; getline(input, gameKey); )
@@ -1247,7 +1228,7 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 		}
 
 		// check if it has its own view
-		if (!groupableCollection || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) // batocera
+		if (!groupableCollection || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) 
 		{
 			if (it->second.decl.displayIfEmpty || it->second.system->getRootFolder()->getChildren().size() > 0)
 			{
@@ -1273,7 +1254,7 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 std::vector<std::string> CollectionSystemManager::getSystemsFromConfig()
 {
 	std::vector<std::string> systems;
-	std::string path = SystemData::getConfigPath(false);
+	std::string path = SystemData::getConfigPath();
 
 	if(!Utils::FileSystem::exists(path))
 	{
@@ -1474,7 +1455,7 @@ std::string getCustomCollectionConfigPath(std::string collectionName)
 
 std::string getCollectionsFolder()
 {
-	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/collections");
+	return Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + "/collections");
 }
 
 bool CollectionSystemManager::isCustomCollection(const std::string collectionName)

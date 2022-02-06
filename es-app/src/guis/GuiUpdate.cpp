@@ -19,12 +19,10 @@ public:
 		GuiUpdate::state = GuiUpdateState::State::UPDATER_RUNNING;
 
 		mWndNotification = mWindow->createAsyncNotificationComponent();
-#if WIN32
+
 		auto label = Utils::String::format(_("UPDATING %s").c_str(), ApiSystem::getInstance()->getApplicationName().c_str());
 		mWndNotification->updateTitle(_U("\uF019 ") + label);
-#else
-		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING BATOCERA"));
-#endif
+
 		mHandle = new std::thread(&ThreadedUpdater::threadUpdate, this);
 	}
 

@@ -141,7 +141,6 @@ namespace Renderer
 	std::string  getDriverName();
 	std::vector<std::pair<std::string, std::string>> getDriverInformation();
 
-	// batocera methods
 	bool         isClippingEnabled  ();
 	bool         isVisibleOnScreen  (float x, float y, float w, float h);
 	bool         isSmallScreen      ();

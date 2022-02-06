@@ -52,7 +52,7 @@ std::string toLower(std::string str)
 }
 //end util functions
 
-InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes) : mDeviceId(deviceId), mDeviceIndex(deviceIndex), mDeviceName(deviceName), mDeviceGUID(deviceGUID), mDeviceNbButtons(deviceNbButtons), mDeviceNbHats(deviceNbHats), mDeviceNbAxes(deviceNbAxes)  // batocera
+InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes) : mDeviceId(deviceId), mDeviceIndex(deviceIndex), mDeviceName(deviceName), mDeviceGUID(deviceGUID), mDeviceNbButtons(deviceNbButtons), mDeviceNbHats(deviceNbHats), mDeviceNbAxes(deviceNbAxes)  
 {
 	mBatteryLevel = -1;
 }
@@ -91,44 +91,43 @@ bool InputConfig::getInputByName(const std::string& name, Input* result)
 	return false;
 }
 
-bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversedAxis) // batocera
+bool InputConfig::isMappedTo(const std::string& name, Input input, bool reversedAxis)
 {
 	Input comp;
 	if (!getInputByName(name, &comp))
 		return false;
 
-	if(reversedAxis) { // batocera
-	  comp.value *= -1;
-	}
-	if(comp.configured && comp.type == input.type && comp.id == input.id)
-	{
-		if(comp.type == TYPE_HAT)
-		{
-			return (input.value == 0 || input.value & comp.value);
-		}
+	if (reversedAxis)
+		comp.value *= -1;
 
-		if(comp.type == TYPE_AXIS)
-		{
+	if (comp.configured && comp.type == input.type && comp.id == input.id)
+	{
+		if (comp.type == TYPE_HAT)
+			return (input.value == 0 || input.value & comp.value);
+
+		if (comp.type == TYPE_AXIS)
 			return input.value == 0 || comp.value == input.value;
-		}else{
-			return true;
-		}
+
+		return true;		
 	}
+
 	return false;
 }
 
-bool InputConfig::isMappedLike(const std::string& name, Input input) // batocera
+bool InputConfig::isMappedLike(const std::string& name, Input input)
 {
-	if(name == "left")
-	{
-	  return isMappedTo("left", input) || isMappedTo("joystick1left", input); // batocera
-	}else if(name == "right"){
-	  return isMappedTo("right", input) || isMappedTo("joystick1left", input, true); // batocera
-	}else if(name == "up"){
-	  return isMappedTo("up", input) || isMappedTo("joystick1up", input); // batocera
-	}else if(name == "down"){
-	  return isMappedTo("down", input) || isMappedTo("joystick1up", input, true); // batocera
-	}
+	if (name == "left")
+		return isMappedTo("left", input) || isMappedTo("joystick1left", input);
+
+	if (name == "right")
+		return isMappedTo("right", input) || isMappedTo("joystick1left", input, true);
+
+	if (name == "up")
+		return isMappedTo("up", input) || isMappedTo("joystick1up", input);
+
+	if (name == "down")
+		return isMappedTo("down", input) || isMappedTo("joystick1up", input, true);
+
 	return isMappedTo(name, input);
 }
 
@@ -137,31 +136,30 @@ std::vector<std::string> InputConfig::getMappedTo(Input input)
 	std::vector<std::string> maps;
 
 	typedef std::map<std::string, Input>::const_iterator it_type;
-	for(it_type iterator = mNameMap.cbegin(); iterator != mNameMap.cend(); iterator++)
+	for (it_type iterator = mNameMap.cbegin(); iterator != mNameMap.cend(); iterator++)
 	{
 		Input chk = iterator->second;
 
-		if(!chk.configured)
+		if (!chk.configured)
 			continue;
 
-		if(chk.device == input.device && chk.type == input.type && chk.id == input.id)
+		if (chk.device == input.device && chk.type == input.type && chk.id == input.id)
 		{
-			if(chk.type == TYPE_HAT)
+			if (chk.type == TYPE_HAT)
 			{
-				if(input.value == 0 || input.value & chk.value)
-				{
+				if (input.value == 0 || input.value & chk.value)
 					maps.push_back(iterator->first);
-				}
+
 				continue;
 			}
 
-			if(input.type == TYPE_AXIS)
+			if (input.type == TYPE_AXIS)
 			{
-				if(input.value == 0 || chk.value == input.value)
+				if (input.value == 0 || chk.value == input.value)
 					maps.push_back(iterator->first);
-			}else{
-				maps.push_back(iterator->first);
 			}
+			else
+				maps.push_back(iterator->first);
 		}
 	}
 

@@ -471,7 +471,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	if (Settings::DebugImage)
+	if (Settings::DebugImage())
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
@@ -481,7 +481,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	{
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
 
-		if(Settings::DebugImage)
+		if(Settings::DebugImage())
 			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
 
 		// actually draw the image

@@ -11,8 +11,6 @@ public:
 	virtual void deinit();
 
 	bool isScriptingSupported(ScriptId script) override;
-	std::string getVersion() override;
-	std::string getApplicationName() override;
 
 	std::vector<std::string> getSystemInformations() override;
 	std::vector<std::string> getAvailableStorageDevices() override;
@@ -43,8 +41,6 @@ public:
 	bool ping() override;
 
 	bool launchKodi(Window *window) override;	
-
-	static std::string getEmulatorLauncherPath(const std::string variable);
 
 	std::vector<std::string> getShaderList(const std::string systemName = "") override;
 

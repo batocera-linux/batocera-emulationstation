@@ -10,6 +10,7 @@
 #include <map>
 #include <mutex>
 #include "renderers/Renderer.h"
+#include "Paths.h"
 
 unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
 {
@@ -217,7 +218,7 @@ static bool sizeCacheDirty = false;
 
 std::string getImageCacheFilename()
 {
-	return Utils::FileSystem::getEsConfigPath() + "/imagecache.db";
+	return Paths::getUserEmulationStationPath() + "/imagecache.db";
 }
 
 void ImageIO::clearImageCache()
@@ -237,11 +238,7 @@ void ImageIO::loadImageCache()
 
 	sizeCache.clear();
 
-#if WIN32
-	std::string relativeTo = Utils::FileSystem::getParent(Utils::FileSystem::getHomePath());
-#else
-	std::string relativeTo = "/userdata";	
-#endif
+	std::string relativeTo = Paths::getRootPath();
 
 	std::vector<std::string> splits;
 
@@ -299,11 +296,7 @@ void ImageIO::saveImageCache()
 	if (f.fail())
 		return;
 
-#if WIN32
-	std::string relativeTo = Utils::FileSystem::getParent(Utils::FileSystem::getHomePath());
-#else
-	std::string relativeTo = "/userdata";
-#endif
+	std::string relativeTo = Paths::getRootPath();
 
 	for (auto it : sizeCache)
 	{

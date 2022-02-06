@@ -137,7 +137,7 @@ void GuiBezelInstaller::processBezel(BatoceraBezel bezel)
 		msgBox->addEntry(_U("\uF019 ") + _("UPDATE"), false, [this, msgBox, bezel]
 		{
 			char trstring[1024];
-			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), bezel.name.c_str()); // batocera
+			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), bezel.name.c_str());
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);
@@ -167,7 +167,7 @@ void GuiBezelInstaller::processBezel(BatoceraBezel bezel)
 		msgBox->addEntry(_U("\uF019 ") + _("INSTALL"), false, [this, msgBox, bezel]
 		{			
 			char trstring[1024];
-			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), bezel.name.c_str()); // batocera
+			snprintf(trstring, 1024, _("'%s' ADDED TO DOWNLOAD QUEUE").c_str(), bezel.name.c_str());
 			mWindow->displayNotificationMessage(_U("\uF019 ") + std::string(trstring));
 
 			ContentInstaller::Enqueue(mWindow, ContentInstaller::CONTENT_BEZEL_INSTALL, bezel.name);

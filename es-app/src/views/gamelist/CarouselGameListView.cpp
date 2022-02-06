@@ -194,13 +194,13 @@ void CarouselGameListView::remove(FileData *game)
 	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
 }
 
-// batocera
-void CarouselGameListView::setCursorIndex(int cursor){
+void CarouselGameListView::setCursorIndex(int cursor)
+{
 	mList.setCursorIndex(cursor);
 }
 
-// batocera
-int CarouselGameListView::getCursorIndex(){
+int CarouselGameListView::getCursorIndex()
+{
 	return mList.getCursorIndex();
 }
 

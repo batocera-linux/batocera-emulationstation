@@ -44,7 +44,7 @@ public:
 	bool input(InputConfig* config, Input input) override;
 	void onSizeChanged() override;
 	std::vector<HelpPrompt> getHelpPrompts() override;	
-	static void openQuitMenu_batocera_static(Window *window, bool quickAccessMenu = false, bool animate = true); // batocera
+	static void openQuitMenu_static(Window *window, bool quickAccessMenu = false, bool animate = true);
 
 	static void popSystemConfigurationGui(Window* mWindow, SystemData *systemData);
 	static void popGameConfigurationGui(Window* mWindow, FileData* fileData);
@@ -64,13 +64,12 @@ private:
 	void openSoundSettings();
 	void openUISettings();
 	void openUpdatesSettings();
-
-	// batocera	
-	void openSystemSettings_batocera();
-	void openGamesSettings_batocera();
-	void openControllersSettings_batocera(int autoSel = 0);
-	void openNetworkSettings_batocera(bool selectWifiEnable = false);	
-	void openQuitMenu_batocera();
+	
+	void openSystemSettings();
+	void openGamesSettings();
+	void openControllersSettings(int autoSel = 0);
+	void openNetworkSettings(bool selectWifiEnable = false);	
+	void openQuitMenu();
 	void openSystemInformations();
 	void openDeveloperSettings();
 	void openNetplaySettings(); 

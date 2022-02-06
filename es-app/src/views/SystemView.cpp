@@ -434,8 +434,7 @@ bool SystemView::input(InputConfig* config, Input input)
 			ViewController::get()->reloadAll();
 			return true;
 		}
-
-		// batocera
+		
 #ifdef _ENABLE_FILEMANAGER_
 		if(UIModeController::getInstance()->isUIModeFull()) {
 		  if(config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F1)
@@ -542,11 +541,10 @@ bool SystemView::input(InputConfig* config, Input input)
 			setCursor(SystemData::getRandomSystem());
 			return true;
 		}
-		
-		// batocera
+				
 		if(config->isMappedTo("select", input))
 		{
-			GuiMenu::openQuitMenu_batocera_static(mWindow, true);        
+			GuiMenu::openQuitMenu_static(mWindow, true);        
 			return true;
 		}
 
@@ -561,8 +559,7 @@ bool SystemView::input(InputConfig* config, Input input)
 			config->isMappedLike("r2", input))
 			listInput(0);
 		/*
-#ifdef WIN32
-		// batocera
+#ifdef WIN32		
 		if(!UIModeController::getInstance()->isUIModeKid() && config->isMappedTo("select", input) && Settings::getInstance()->getBool("ScreenSaverControls"))
 		{
 			mWindow->startScreenSaver();
@@ -1023,15 +1020,12 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 		if (SystemData::getSystem("all") != nullptr)
 			prompts.push_back(HelpPrompt("y", _("SEARCH"))); // QUICK 
 	}
-
-	// batocera
+	
 #ifdef _ENABLE_FILEMANAGER_
 	if (UIModeController::getInstance()->isUIModeFull()) {
 		prompts.push_back(HelpPrompt("F1", _("FILES")));
 	}
 #endif
-
-	// prompts.push_back(HelpPrompt("F3", _("SCREEN READER"))); -> Not interesting since most devices don't have Keyboard
 
 	return prompts;
 }

@@ -10,7 +10,7 @@
 #include "components/SwitchComponent.h"
 
 GuiInstallStart::GuiInstallStart(Window* window) : GuiComponent(window),
-mMenu(window, _("INSTALL BATOCERA").c_str())
+mMenu(window, _("INSTALL ON A NEW DISK").c_str())
 {
 	addChild(&mMenu);
 
