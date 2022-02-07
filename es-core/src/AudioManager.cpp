@@ -10,6 +10,7 @@
 #include "SystemConf.h"
 #include "id3v2lib/include/id3v2lib.h"
 #include "ThemeData.h"
+#include "Paths.h"
 
 #ifdef _ENABLEEMUELEC
 #include "platform.h"
@@ -151,7 +152,6 @@ void AudioManager::stop()
 			sSoundVector[i]->stop();
 }
 
-// batocera
 void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files)
 {
 	if (!Utils::FileSystem::isDirectory(path))
@@ -215,10 +215,9 @@ bool AudioManager::songWasPlayedRecently(const std::string& song)
 	return false;
 }
 
-// batocera
 void AudioManager::playRandomMusic(bool continueIfPlaying) 
 {
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 		
 	std::vector<std::string> musics;
@@ -229,23 +228,15 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 
 	// check in User music directory
 	if (musics.empty())
-#ifdef _ENABLEEMUELEC
-		getMusicIn("/storage/roms/BGM", musics);
-#else
-		getMusicIn("/userdata/music", musics);
-#endif
+		getMusicIn(Paths::getUserMusicPath(), musics);
 
 	// check in system sound directory
 	if (musics.empty())
-#ifdef _ENABLEEMUELEC
-		getMusicIn("/storage/.config/emuelec/BGM", musics);
-#else
-		getMusicIn("/usr/share/batocera/music", musics);
-#endif
+		getMusicIn(Paths::getMusicPath(), musics);
 
 	// check in .emulationstation/music directory
 	if (musics.empty())
-		getMusicIn(Utils::FileSystem::getHomePath() + "/.emulationstation/music", musics);
+		getMusicIn(Paths::getUserEmulationStationPath() + "/music", musics);
 
 	if (musics.empty())
 		return;
@@ -275,7 +266,7 @@ void AudioManager::playMusic(std::string path)
 	// free the previous music
 	stopMusic(false);
 
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 
 	// load a new music
@@ -296,7 +287,6 @@ void AudioManager::playMusic(std::string path)
 	Mix_HookMusicFinished(AudioManager::musicEnd_callback);
 }
 
-// batocera
 void AudioManager::musicEnd_callback()
 {
 	if (!AudioManager::getInstance()->mPlayingSystemThemeSong.empty())
@@ -308,7 +298,6 @@ void AudioManager::musicEnd_callback()
 	AudioManager::getInstance()->playRandomMusic(false);
 }
 
-// batocera
 void AudioManager::stopMusic(bool fadeOut)
 {
 	if (mCurrentMusic == NULL)
@@ -318,7 +307,7 @@ void AudioManager::stopMusic(bool fadeOut)
 
 	if (fadeOut)
 	{
-		// Fade-out is nicer on Batocera!
+		// Fade-out is nicer !
 		while (!Mix_FadeOutMusic(500) && Mix_PlayingMusic())
 			SDL_Delay(100);
 	}
@@ -345,7 +334,6 @@ void AudioManager::setSongName(const std::string& song)
 	mSongNameChanged = true;
 }
 
-// batocera
 void AudioManager::playSong(const std::string& song)
 {
 	if (song == mCurrentSong)
@@ -503,7 +491,7 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 	mSystemName = theme->getSystemThemeFolder();
 	mCurrentThemeMusicDirectory = "";
 
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 
 	const ThemeData::ThemeElement* elem = theme->getElement("system", "directory", "sound");
@@ -538,7 +526,7 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 
 void AudioManager::setVideoPlaying(bool state)
 {
-	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::BackgroundMusic())
 		return;
 	
 	if (state && !Settings::getInstance()->getBool("VideoLowersMusic"))
@@ -561,7 +549,7 @@ int AudioManager::getMaxMusicVolume()
 
 void AudioManager::update(int deltaTime)
 {
-	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::BackgroundMusic())
 		return;
 
 	float deltaVol = deltaTime / 8.0f;

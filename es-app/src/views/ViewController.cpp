@@ -882,7 +882,7 @@ bool ViewController::input(InputConfig* config, Input input)
 	  }
 
 	// open menu
-	if(config->isMappedTo("start", input) && input.value != 0) // batocera
+	if(config->isMappedTo("start", input) && input.value != 0)
 	{
 		// open menu
 		mWindow->pushGui(new GuiMenu(mWindow));
@@ -891,25 +891,15 @@ bool ViewController::input(InputConfig* config, Input input)
 
 #ifdef _ENABLEEMUELEC
 	// Emuelec next song
-	if(config->isMappedTo("leftthumb", input) && input.value != 0) // emuelec
-	{
-		// next song
-		AudioManager::getInstance()->playRandomMusic(false);
-		return true;
-	}
+	if (((mState.viewing != GAME_LIST && config->isMappedTo("leftthumb", input)) || config->isMappedTo("rightthumb", input)) && input.value != 0)
 #else
-	// Batocera next song
-#ifdef _ENABLEEMUELEC
-	if ((mState.viewing != GAME_LIST && config->isMappedTo("LeftThumb", input)) && input.value != 0) // emuelec
-#else
-	if (((mState.viewing != GAME_LIST && config->isMappedTo("l3", input)) || config->isMappedTo("r3", input)) && input.value != 0) // batocera
+	// Next song
+    if (((mState.viewing != GAME_LIST && config->isMappedTo("l3", input)) || config->isMappedTo("r3", input)) && input.value != 0)
 #endif    
-	{
-		// next song
+	{		
 		AudioManager::getInstance()->playRandomMusic(false);
 		return true;
 	}
-#endif
 
 //	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
 //		return true;
@@ -952,10 +942,6 @@ void ViewController::render(const Transform4x4f& parentTrans)
 	// camera position, position + size
 	Vector3f viewStart = transInverse.translation();
 	Vector3f viewEnd = transInverse * Vector3f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight(), 0);
-
-	// Keep track of UI mode changes.
-	UIModeController::getInstance()->monitorUIMode();
-
 
 	if (!isAnimationPlaying(0) && mCurrentView != nullptr)
 	{
@@ -1268,7 +1254,7 @@ std::vector<HelpPrompt> ViewController::getHelpPrompts()
 
 	prompts = mCurrentView->getHelpPrompts();
 	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("start", _("MENU"))); // batocera
+	  prompts.push_back(HelpPrompt("start", _("MENU")));
 
 	return prompts;
 }

@@ -26,8 +26,6 @@ private:
 	bool mIsPending;
 };
 
-
-// Batocera
 class GuiBezelInstaller : public GuiComponent, IContentInstalledNotify
 {
 public:

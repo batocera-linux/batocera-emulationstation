@@ -23,8 +23,8 @@ class TextureResource;
 #define FONT_PATH_LIGHT ":/opensans_hebrew_condensed_light.ttf"
 #define FONT_PATH_REGULAR ":/opensans_hebrew_condensed_regular.ttf"
 #else
-#define FONT_PATH_LIGHT ":/ubuntu_condensed.ttf" // batocera
-#define FONT_PATH_REGULAR ":/ubuntu_condensed.ttf" // batocera
+#define FONT_PATH_LIGHT ":/ubuntu_condensed.ttf" 
+#define FONT_PATH_REGULAR ":/ubuntu_condensed.ttf" 
 #endif
 
 enum Alignment

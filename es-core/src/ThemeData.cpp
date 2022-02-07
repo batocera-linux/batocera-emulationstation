@@ -13,6 +13,7 @@
 #include <algorithm>
 #include "LocaleES.h"
 #include "anim/ThemeStoryboard.h"
+#include "Paths.h"
 
 std::vector<std::string> ThemeData::sSupportedViews{ { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "gamecarousel" }, { "menu" }, { "screen" }, { "splash" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "gamecarousel" }, { "z-index" }, { "visible" },{ "manufacturer" } };
@@ -1534,15 +1535,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 			if (path[0] == '/')
 			{
-#if WIN32
 				path = Utils::String::replace(path,
 					"/recalbox/share_init/system/.emulationstation/themes",
-					Utils::FileSystem::getEsConfigPath() + "/themes");
-#else
-				path = Utils::String::replace(path,
-					"/recalbox/share_init/system/.emulationstation/themes",
-					"/userdata/themes");
-#endif
+					Paths::getUserThemesPath());
 			}
 
 			if (path == "none")
@@ -1677,7 +1672,7 @@ const std::shared_ptr<ThemeData>& ThemeData::getDefault()
 	{
 		theme = std::shared_ptr<ThemeData>(new ThemeData());
 
-		const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_theme_default.xml";
+		const std::string path = Paths::getUserEmulationStationPath() + "/es_theme_default.xml";
 		if(Utils::FileSystem::exists(path))
 		{
 			try
@@ -1750,26 +1745,25 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 
 std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 {
-	std::map<std::string, ThemeSet> sets;
-
-	static const size_t pathCount = 3;
-	std::string paths[pathCount] =
+	std::vector<std::string> paths =
 	{ 
-		"/etc/emulationstation/themes",
-		Utils::FileSystem::getEsConfigPath() + "/themes",
+		Paths::getUserThemesPath(),
+		Paths::getThemesPath(),
+		Paths::getUserEmulationStationPath() + "/themes",
 #ifdef _ENABLEEMUELEC
-        "/emuelec/themes" // emuelec
-#else
-		"/userdata/themes" // batocera
+        "/emuelec/themes", // emuelec
 #endif
+		"/etc/emulationstation/themes" // Backward compatibility with Retropie
 	};
 
-	for(size_t i = 0; i < pathCount; i++)
+	std::map<std::string, ThemeSet> sets;
+
+	for(auto path : paths)
 	{
-		if(!Utils::FileSystem::isDirectory(paths[i]))
+		if (!Utils::FileSystem::isDirectory(path))
 			continue;
 
-		Utils::FileSystem::stringList dirContent = Utils::FileSystem::getDirContent(paths[i]);
+		Utils::FileSystem::stringList dirContent = Utils::FileSystem::getDirContent(path);
 
 		for(Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it)
 		{

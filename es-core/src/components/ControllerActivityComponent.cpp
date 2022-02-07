@@ -160,7 +160,7 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
-	if (Settings::DebugImage)
+	if (Settings::DebugImage())
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFFFF0090, 0xFFFF0090);
 
 	float x = 0;
@@ -396,7 +396,7 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 
 void ControllerActivityComponent::updateNetworkInfo()
 {
-	mNetworkConnected = Settings::getInstance()->getBool("ShowNetworkIndicator") && !queryIPAdress().empty();
+	mNetworkConnected = Settings::ShowNetworkIndicator() && !queryIPAdress().empty();
 }
 
 void ControllerActivityComponent::updateBatteryInfo()

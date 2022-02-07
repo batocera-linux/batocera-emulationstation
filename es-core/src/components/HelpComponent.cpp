@@ -28,7 +28,7 @@ static const std::map<std::string, const char*> ICON_PATH_MAP{
 	{ "lr", ":/help/button_lr.svg" },
 	{ "start", ":/help/button_start.svg" },
 	{ "select", ":/help/button_select.svg" },
-	{ "F1", ":/help/F1.svg" } // batocera
+	{ "F1", ":/help/F1.svg" }
 };
 
 HelpComponent::HelpComponent(Window* window) : GuiComponent(window)
@@ -70,7 +70,7 @@ void HelpComponent::updateGrid()
 	std::vector< std::shared_ptr<TextComponent> > labels;
 
 	int maxWidth = Renderer::getScreenWidth() - ENTRY_SPACING;
-	if (Settings::getInstance()->getBool("DrawClock"))
+	if (Settings::DrawClock())
 	{
 		TextComponent fakeClock(mWindow, "___00_00___", font, mStyle.textColor);
 		maxWidth = Renderer::getScreenWidth() - fakeClock.getSize().x();
