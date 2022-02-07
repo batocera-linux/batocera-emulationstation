@@ -63,22 +63,37 @@ Paths::Paths()
 	mVersionInfoPath = "/usr/share/batocera/batocera.version";
 #endif
 
-/* EmuElec sample locations.
+// EmuElec paths
 #ifdef _ENABLEEMUELEC
-	mRootPath = "/storage/roms"; // ?
-	mEmulationStationPath = Utils::FileSystem::getExePath();
-	mUserEmulationStationPath = Utils::FileSystem::getCanonicalPath(Utils::FileSystem::getHomePath() + "/.emulationstation");
-	mLogPath = "/storage/.config/emuelec/logs";
+	mRootPath = "/storage";
+	mEmulationStationPath = getExePath();
+	mUserEmulationStationPath = Utils::FileSystem::getCanonicalPath(getHomePath() + "/.emulationstation");
+	mLogPath = "/emuelec/logs";
 	mThemesPath = mEmulationStationPath + "/themes";
 	mUserThemesPath = "/emuelec/themes";
 	mMusicPath = "/storage/roms/BGM";
-	mUserMusicPath = "/storage/.config/emuelec/BGM";
+	mUserMusicPath = "/emuelec/BGM";
 	mDecorationsPath = "/storage/roms/bezels";
 	mUserDecorationsPath = "/tmp/overlays/bezels";
 	mVersionInfoPath = "/usr/config/EE_VERSION";
-	mSystemConfFilePath = "/storage/.config/emuelec/configs/emuelec.conf";
-#endif
+	mSystemConfFilePath = "/emuelec/configs/emuelec.conf";
+	mScreenShotsPath = "/storage/roms/screenshots";
+	mSaveStatesPath = "/storage/roms/savestates";
+    mTimeZonesPath = "/usr/share/zoneinfo/";
+
+/*
+	mConfigPath = "/userdata/system/";
+	mKeyboardMappingsPath = "/usr/share/evmapy";
+	mUserKeyboardMappingsPath = "/userdata/system/configs/evmapy";
+	mShadersPath = "/usr/share/batocera/shaders/configs";
+    mUserShadersPath = "/userdata/shaders/configs";
+	mRetroachivementSounds = "/usr/share/libretro/assets/sounds";
+	mUserRetroachivementSounds = "/userdata/sounds/retroachievements"
+	mUserManualPath = "/usr/share/batocera/doc/notice.pdf";
 */
+   
+#endif
+
 	loadCustomConfiguration(true); // Load paths overrides from emulationstation.ini file
 }
 

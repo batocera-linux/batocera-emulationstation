@@ -106,7 +106,11 @@ unsigned long ApiSystem::getFreeSpaceGB(std::string mountpoint)
 
 std::string ApiSystem::getFreeSpaceUserInfo()
 {
+#ifdef _ENABLEEMUELEC
+	return getFreeSpaceInfo("/storage/roms");
+#else
 	return getFreeSpaceInfo(Paths::getRootPath());
+#endif
 }
 
 std::string ApiSystem::getFreeSpaceSystemInfo()
@@ -1313,7 +1317,11 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("batocera-support");
 		break;
 	case ApiSystem::UPGRADE:
-		executables.push_back("batocera-upgrade");
+#ifdef _ENABLEEMUELEC
+        executables.push_back("emuelec-upgrade");
+#else
+        executables.push_back("batocera-upgrade");
+#endif
 		break;
 	}
 

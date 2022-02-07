@@ -900,7 +900,6 @@ bool ViewController::input(InputConfig* config, Input input)
 		AudioManager::getInstance()->playRandomMusic(false);
 		return true;
 	}
-#endif
 
 //	if(UIModeController::getInstance()->listen(config, input))  // check if UI mode has changed due to passphrase completion
 //		return true;
