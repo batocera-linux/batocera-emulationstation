@@ -9,6 +9,7 @@
 #include "SystemData.h"
 #include <pugixml/src/pugixml.hpp>
 #include "Genres.h"
+#include "Paths.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -19,7 +20,7 @@
 
 std::string getGamelistRecoveryPath(SystemData* system)
 {
-	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/recovery/" + system->getName());
+	return Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + "/recovery/" + system->getName());
 }
 
 FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType type, std::unordered_map<std::string, FileData*>& fileMap)

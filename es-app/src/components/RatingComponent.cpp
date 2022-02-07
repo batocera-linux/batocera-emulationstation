@@ -154,7 +154,7 @@ void RatingComponent::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
-	if (Settings::DebugImage)
+	if (Settings::DebugImage())
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFFFF0033, 0xFFFF0033);
 
 	if (mUnfilledTexture->bind())

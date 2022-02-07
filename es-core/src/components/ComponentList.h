@@ -57,8 +57,9 @@ struct ComponentListRow
 		if (func == nullptr)
 			return;
 
-		input_handler = [func, onButtonRelease](InputConfig* config, Input input) -> bool {
-			if(config->isMappedTo(BUTTON_OK, input) && (onButtonRelease ? input.value == 0 : input.value != 0)) // batocera
+		input_handler = [func, onButtonRelease](InputConfig* config, Input input) -> bool 
+		{
+			if(config->isMappedTo(BUTTON_OK, input) && (onButtonRelease ? input.value == 0 : input.value != 0)) 
 			{
 				func();
 				return true;

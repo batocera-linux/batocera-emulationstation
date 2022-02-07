@@ -27,8 +27,7 @@ public:
 	void onSizeChanged() override;
 	void onFocusGained() override;
 	void onFocusLost() override;
-
-        // batocera
+        
 	void setColorShift(unsigned int color) { mModdedColor = color; mNewColor = true; updateImage(); }
 	void removeColorShift() { mNewColor = false; updateImage(); }
 
@@ -47,8 +46,8 @@ private:
 
 	bool mFocused;
 	bool mEnabled;
-	bool mNewColor = false; // batocera
-	unsigned int mModdedColor; // batocera
+	bool mNewColor = false; 
+	unsigned int mModdedColor; 
 	unsigned int mTextColorFocused;
 	unsigned int mTextColorUnfocused;
 	

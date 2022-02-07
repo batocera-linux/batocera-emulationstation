@@ -7,7 +7,9 @@ option(RPI "Set to ON to enable the Raspberry PI video player (omxplayer)" ${RPI
 option(CEC "CEC" ON)
 option(BCM "BCM host" OFF)
 
-# batocera
+option(BATOCERA "Set to ON to enable BATOCERA specific code" OFF)
+option(RETROBAT "Set to ON to enable RETROBAT specific code" OFF)
+
 option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem" OFF)
 option(DISABLE_KODI "Set to ON to disable kodi in menu" OFF)
 option(ENABLE_PULSE "Set to ON to enable pulse audio (versus alsa)" OFF)
@@ -27,7 +29,6 @@ LIST(APPEND CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/CMake/Packages
 )
 
-
 # emuelec
 if("${ENABLE_EMUELEC}" STREQUAL "1")
   add_definitions(-D_ENABLEEMUELEC)
@@ -41,8 +42,17 @@ if("${ODROIDGOA}" STREQUAL "1")
   add_definitions(-DODROIDGOA)
 endif()
 
-# batocera / kodi menu
-# disable kodi
+if(BATOCERA)
+  MESSAGE("Batocera build")
+  add_definitions(-DBATOCERA)
+endif()
+
+if(RETROBAT)
+  MESSAGE("Retrobat build")
+  add_definitions(-DRETROBAT)
+endif()
+
+# disable kodi menu
 if(DISABLE_KODI)
   MESSAGE("kodi disabled")
 else()

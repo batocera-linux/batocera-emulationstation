@@ -11,7 +11,7 @@
 #include "GuiLoading.h"
 
 GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : GuiComponent(window),
-  mMenu(window, _("INDEX GAMES").c_str()) // batocera
+  mMenu(window, _("INDEX GAMES").c_str())
 {
 	mOverwriteMedias = true;
 	mType = type;
@@ -25,14 +25,14 @@ GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : Gu
 	mFilters->add(_("ALL"), true, false);
 	mFilters->add(_("ONLY MISSING"), false, true);
 
-	mMenu.addWithLabel(_("GAMES TO INDEX"), mFilters); // batocera
+	mMenu.addWithLabel(_("GAMES TO INDEX"), mFilters);
 	
 	std::string currentSystem;
 
 	if (ViewController::get()->getState().viewing == ViewController::GAME_LIST)
 		currentSystem = ViewController::get()->getState().getSystem()->getName();
 
-	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SYSTEMS INCLUDED"), true); // batocera
+	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SYSTEMS INCLUDED"), true);
 	for (auto sys : SystemData::sSystemVector)
 	{
 		if (!sys->isGameSystem() || !sys->isVisible())
@@ -46,7 +46,7 @@ GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : Gu
 		mSystems->add(sys->getFullName(), sys, currentSystem.empty() ? !sys->getPlatformIds().empty() : sys->getName() == currentSystem && !sys->getPlatformIds().empty());
 	}
 
-	mMenu.addWithLabel(_("SYSTEMS INCLUDED"), mSystems); // batocera
+	mMenu.addWithLabel(_("SYSTEMS INCLUDED"), mSystems);
 
 	mMenu.addButton(_("START"), _("START"), std::bind(&GuiHashStart::start, this));
 	mMenu.addButton(_("BACK"), _("BACK"), [&] { delete this; });
@@ -99,6 +99,6 @@ std::vector<HelpPrompt> GuiHashStart::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
+	prompts.push_back(HelpPrompt("start", _("CLOSE")));
 	return prompts;
 }

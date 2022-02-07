@@ -36,6 +36,7 @@
 #include "InputConfig.h"
 #include "RetroAchievements.h"
 #include "TextToSpeech.h"
+#include "Paths.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -49,7 +50,7 @@ static bool enable_startup_game = true;
 
 bool parseArgs(int argc, char* argv[])
 {
-	Utils::FileSystem::setExePath(argv[0]);
+	Paths::setExePath(argv[0]);
 
 	// We need to process --home before any call to Settings::getInstance(), because settings are loaded from homepath
 	for (int i = 1; i < argc; i++)
@@ -63,7 +64,7 @@ bool parseArgs(int argc, char* argv[])
 			if (arg.find("-") == 0)
 				continue;
 
-			Utils::FileSystem::setHomePath(argv[i + 1]);
+			Paths::setHomePath(argv[i + 1]);
 			break;
 		}
 	}
@@ -267,7 +268,7 @@ bool parseArgs(int argc, char* argv[])
 bool verifyHomeFolderExists()
 {
 	//make sure the config directory exists	
-	std::string configDir = Utils::FileSystem::getEsConfigPath();
+	std::string configDir = Paths::getUserEmulationStationPath();
 	if(!Utils::FileSystem::exists(configDir))
 	{
 		std::cout << "Creating config directory \"" << configDir << "\"\n";
@@ -545,11 +546,6 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-#if WIN32
-	// Run boot game, after Window Create for Windows, or wnd won't be activated when returning back
-	launchStartupGame();
-#endif
-
 	bool splashScreen = Settings::getInstance()->getBool("SplashScreen");
 	bool splashScreenProgress = Settings::getInstance()->getBool("SplashScreenProgress");
 
@@ -719,7 +715,7 @@ int main(int argc, char* argv[])
 		if (processDuration < timeLimit)
 		{
 			int timeToWait = timeLimit - processDuration;
-			if (timeToWait > 0 && timeToWait < 25 && Settings::getInstance()->getBool("VSync"))
+			if (timeToWait > 0 && timeToWait < 25 && Settings::VSync())
 				Sleep(timeToWait);
 		}
 #endif

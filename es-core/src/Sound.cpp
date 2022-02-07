@@ -4,21 +4,24 @@
 #include "Log.h"
 #include "Settings.h"
 #include "ThemeData.h"
+#include "resources/ResourceManager.h"
 
 std::map< std::string, std::shared_ptr<Sound> > Sound::sMap;
 
 std::shared_ptr<Sound> Sound::get(const std::string& path)
 {
-	auto it = sMap.find(path);
+	std::string file = ResourceManager::getInstance()->getResourcePath(path);
+
+	auto it = sMap.find(file);
 	if (it != sMap.cend())
 		return it->second;
 
-	std::shared_ptr<Sound> sound = std::shared_ptr<Sound>(new Sound(path));
+	std::shared_ptr<Sound> sound = std::shared_ptr<Sound>(new Sound(file));
 
 	if (AudioManager::isInitialized())
 	{
 		AudioManager::getInstance()->registerSound(sound);
-		sMap[path] = sound;
+		sMap[file] = sound;
 	}
 
 	return sound;

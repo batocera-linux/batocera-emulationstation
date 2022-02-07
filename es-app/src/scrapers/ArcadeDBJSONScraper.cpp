@@ -52,7 +52,8 @@ const std::set<Scraper::ScraperMediaSource>& ArcadeDBScraper::getSupportedMedias
 		ScraperMediaSource::Box2d,
 		ScraperMediaSource::Marquee,
 		ScraperMediaSource::TitleShot,
-		ScraperMediaSource::Video
+		ScraperMediaSource::Video,
+		ScraperMediaSource::ShortTitle
 	};
 
 	return mdds;
@@ -118,8 +119,8 @@ std::string findMedia(const Value& v, std::string scrapeSource)
 void processGame(const Value& game, std::vector<ScraperSearchResult>& results)
 {
 	ScraperSearchResult result("ArcadeDB");
-
-	if (game.HasMember("short_title") && game["short_title"].IsString())
+	
+	if (Settings::getInstance()->getBool("ScrapeShortTitle") && game.HasMember("short_title") && game["short_title"].IsString())
 		result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "short_title"));
 	else
 		result.mdl.set(MetaDataId::Name, getStringOrThrow(game, "title"));

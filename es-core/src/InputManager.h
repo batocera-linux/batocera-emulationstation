@@ -47,7 +47,7 @@ public:
 
 	std::string configureEmulators();
 
-	// information about last association players/pads // batocera
+	// information about last association players/pads 
 	std::map<int, PlayerDeviceInfo>& lastKnownPlayersDeviceIndexes() { return m_lastKnownPlayersDeviceIndexes; }
 	void computeLastKnownPlayersDeviceIndexes();
 

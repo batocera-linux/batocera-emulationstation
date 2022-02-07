@@ -29,7 +29,7 @@ enum MetaDataType
 	MD_RATING,
 	MD_DATE,
 	MD_TIME, //used for lastplayed
-        MD_LIST // batocera
+    MD_LIST 
 };
 
 enum MetaDataId

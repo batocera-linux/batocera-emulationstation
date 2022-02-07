@@ -38,7 +38,6 @@ private:
 	KeyMappingFile::KeyMapping mTarget;
 };
 
-// Batocera
 class GuiKeyMappingEditor : public GuiComponent
 {
 public:

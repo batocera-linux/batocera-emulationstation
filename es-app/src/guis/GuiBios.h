@@ -7,7 +7,6 @@
 template<typename T>
 class OptionListComponent;
 
-// Batocera
 class GuiBios : public GuiComponent
 {
 public:

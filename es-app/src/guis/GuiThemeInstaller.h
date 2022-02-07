@@ -34,8 +34,6 @@ private:
 	bool mIsPending;
 };
 
-
-// Batocera
 class GuiThemeInstaller : public GuiComponent, IContentInstalledNotify
 {
 public:

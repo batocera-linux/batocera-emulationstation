@@ -879,7 +879,7 @@ namespace Utils
 		const std::string convertFromWideString(const std::wstring wstring)
 		{
 			int numBytes = WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), nullptr, 0, nullptr, nullptr);
-
+			
 			std::string string(numBytes, 0);			
 			WideCharToMultiByte(CP_UTF8, 0, wstring.c_str(), (int)wstring.length(), (char*)string.c_str(), numBytes, nullptr, nullptr);
 

@@ -8,14 +8,54 @@
 #include <algorithm>
 #include <vector>
 #include "utils/StringUtil.h"
-
-bool Settings::DebugText = false;
-bool Settings::DebugImage = false;
-bool Settings::DebugGrid = false;
+#include "Paths.h"
 
 Settings* Settings::sInstance = NULL;
 static std::string mEmptyString = "";
+Delegate<ISettingsChangedEvent> Settings::settingChanged;
 
+IMPLEMENT_STATIC_BOOL_SETTING(DebugText, false)
+IMPLEMENT_STATIC_BOOL_SETTING(DebugImage, false)
+IMPLEMENT_STATIC_BOOL_SETTING(DebugGrid, false)
+IMPLEMENT_STATIC_BOOL_SETTING(ShowControllerActivity, true)
+IMPLEMENT_STATIC_BOOL_SETTING(ShowControllerBattery, true)
+IMPLEMENT_STATIC_BOOL_SETTING(DrawClock, true)
+IMPLEMENT_STATIC_BOOL_SETTING(ClockMode12, false)
+IMPLEMENT_STATIC_BOOL_SETTING(DrawFramerate, false)
+IMPLEMENT_STATIC_BOOL_SETTING(VolumePopup, true)
+IMPLEMENT_STATIC_BOOL_SETTING(BackgroundMusic, true)
+IMPLEMENT_STATIC_BOOL_SETTING(VSync, true)
+IMPLEMENT_STATIC_BOOL_SETTING(PreloadMedias, false)
+IMPLEMENT_STATIC_BOOL_SETTING(IgnoreLeadingArticles, false)
+IMPLEMENT_STATIC_INT_SETTING(ScreenSaverTime, 5 * 60 * 1000)
+
+#if WIN32
+IMPLEMENT_STATIC_BOOL_SETTING(ShowNetworkIndicator, false)
+#else
+IMPLEMENT_STATIC_BOOL_SETTING(ShowNetworkIndicator, true)
+#endif
+
+void Settings::updateCachedSetting(const std::string& name)
+{
+	UPDATE_STATIC_BOOL_SETTING_EX("audio.bgmusic", BackgroundMusic)
+	UPDATE_STATIC_BOOL_SETTING(DebugText)
+	UPDATE_STATIC_BOOL_SETTING(DebugImage)
+	UPDATE_STATIC_BOOL_SETTING(DebugGrid)
+	UPDATE_STATIC_BOOL_SETTING(ShowControllerActivity)
+	UPDATE_STATIC_BOOL_SETTING(ShowControllerBattery)
+	UPDATE_STATIC_BOOL_SETTING(ShowNetworkIndicator)
+	UPDATE_STATIC_BOOL_SETTING(DrawClock)
+	UPDATE_STATIC_BOOL_SETTING(ClockMode12)
+	UPDATE_STATIC_BOOL_SETTING(DrawFramerate)
+	UPDATE_STATIC_BOOL_SETTING(VolumePopup)
+	UPDATE_STATIC_BOOL_SETTING(VSync)
+	UPDATE_STATIC_BOOL_SETTING(PreloadMedias)
+	UPDATE_STATIC_BOOL_SETTING(IgnoreLeadingArticles)		
+	UPDATE_STATIC_INT_SETTING(ScreenSaverTime)
+
+	if (mLoaded)
+		settingChanged.invoke([name](ISettingsChangedEvent* c) { c->onSettingChanged(name); });
+}
 
 // these values are NOT saved to es_settings.xml
 // since they're set through command-line arguments, and not the in-program settings menu
@@ -46,10 +86,11 @@ std::vector<const char*> settings_dont_save {
 #endif
 };
 
-Settings::Settings()
+Settings::Settings() : mLoaded(false)
 {
 	setDefaults();
 	loadFile();
+	mLoaded = true;
 }
 
 Settings* Settings::getInstance()
@@ -69,7 +110,7 @@ void Settings::setDefaults()
 	mBoolMap["ParseGamelistOnly"] = false;
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["ShowParentFolder"] = true;
-	mBoolMap["IgnoreLeadingArticles"] = false;
+	mBoolMap["IgnoreLeadingArticles"] = Settings::_IgnoreLeadingArticles;
 	mBoolMap["DrawFramerate"] = false;
 	mBoolMap["ShowExit"] = true;
 	mBoolMap["ExitOnRebootRequired"] = false;
@@ -92,9 +133,10 @@ void Settings::setDefaults()
 	mIntMap["MonitorID"] = -1;
 
     mBoolMap["UseOSK"] = true; // on screen keyboard
-    mBoolMap["DrawClock"] = true;
-	mBoolMap["ShowControllerActivity"] = true;
-	mBoolMap["ShowControllerBattery"] = true;
+    mBoolMap["DrawClock"] = Settings::_DrawClock;
+	mBoolMap["ClockMode12"] = Settings::_ClockMode12;	
+	mBoolMap["ShowControllerActivity"] = Settings::_ShowControllerActivity;
+	mBoolMap["ShowControllerBattery"] = Settings::_ShowControllerBattery;
     mIntMap["SystemVolume"] = 95;
     mBoolMap["Overscan"] = false;
     mStringMap["Language"] = "en_US";
@@ -105,7 +147,7 @@ void Settings::setDefaults()
     mStringMap["INPUT P5"] = "DEFAULT";
     mStringMap["Overclock"] = "none";
 
-	mBoolMap["VSync"] = true;
+	mBoolMap["VSync"] = Settings::_VSync;
 	mStringMap["FolderViewMode"] = "never";
 	mStringMap["HiddenSystems"] = "";
 
@@ -127,11 +169,7 @@ void Settings::setDefaults()
 	mBoolMap["CheckBiosesAtLaunch"] = true;
 	mBoolMap["RemoveMultiDiskContent"] = true;
 
-#if WIN32
-	mBoolMap["ShowNetworkIndicator"] = false;
-#else
-	mBoolMap["ShowNetworkIndicator"] = true;
-#endif
+	mBoolMap["ShowNetworkIndicator"] = Settings::_ShowNetworkIndicator;
 
 	mBoolMap["Debug"] = false;
 
@@ -141,7 +179,7 @@ void Settings::setDefaults()
 
 	mIntMap["RecentlyScrappedFilter"] = 3;
 	
-	mIntMap["ScreenSaverTime"] = 5*60*1000; // 5 minutes
+	mIntMap["ScreenSaverTime"] = Settings::_ScreenSaverTime;
 	mIntMap["ScraperResizeWidth"] = 640;
 	mIntMap["ScraperResizeHeight"] = 0;
 
@@ -174,24 +212,22 @@ void Settings::setDefaults()
 	mStringMap["ScrapperThumbSrc"] = "box-2D";
 	mStringMap["ScrapperLogoSrc"] = "wheel";
 	mBoolMap["ScrapeVideos"] = false;
-
+	mBoolMap["ScrapeShortTitle"] = false;
+	
 	mBoolMap["ScreenSaverMarquee"] = true;
 	mBoolMap["ScreenSaverControls"] = true;
 	mStringMap["ScreenSaverGameInfo"] = "never";
 	mBoolMap["StretchVideoOnScreenSaver"] = false;
-	mStringMap["PowerSaverMode"] = "default"; // batocera
+	mStringMap["PowerSaverMode"] = "default"; 
 
 	mBoolMap["StopMusicOnScreenSaver"] = true;
 
 	mBoolMap["RetroachievementsMenuitem"] = true;
 	mIntMap["ScreenSaverSwapImageTimeout"] = 10000;
 	mBoolMap["SlideshowScreenSaverStretch"] = false;
-	// mStringMap["SlideshowScreenSaverBackgroundAudioFile"] = "/userdata/music/slideshow_bg.wav"; // batocera
 	mBoolMap["SlideshowScreenSaverCustomImageSource"] = false;
 #ifdef _ENABLEEMUELEC
 	mStringMap["SlideshowScreenSaverImageDir"] = "/storage/screenshots"; // emuelec
-#else
-	mStringMap["SlideshowScreenSaverImageDir"] = "/userdata/screenshots"; // batocera
 #endif
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
@@ -204,11 +240,10 @@ void Settings::setDefaults()
 	mStringMap["SlideshowScreenSaverVideoDir"] = "/storage/roms/mplayer"; // emuelec
     mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi,.mkv,.flv,.mpg,.mov";
 	mBoolMap["SlideshowScreenSaverVideoRecurse"] = true;
-#else
-	mStringMap["SlideshowScreenSaverVideoDir"] = "/userdata/screenshots"; // batocera
+#endif
 	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";
 	mBoolMap["SlideshowScreenSaverVideoRecurse"] = false;
-#endif
+
 
 	// This setting only applies to raspberry pi but set it for all platforms so
 	// we don't get a warning if we encounter it on a different platform
@@ -226,15 +261,15 @@ void Settings::setDefaults()
 	mBoolMap["VideoAudio"] = true;
 	mBoolMap["ScreenSaverVideoMute"] = false;
 	mBoolMap["VideoLowersMusic"] = true;
-	mBoolMap["VolumePopup"] = true;
+	mBoolMap["VolumePopup"] = Settings::_VolumePopup;
 
 	mIntMap["MusicVolume"] = 128;
 
 	// Audio out device for Video playback using OMX player.
 	mStringMap["OMXAudioDev"] = "both";
-	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // batocera 2players,4players,favorites,recent
+	mStringMap["CollectionSystemsAuto"] = "all,favorites"; // 2players,4players,favorites,recent
 	mStringMap["CollectionSystemsCustom"] = "";
-	mBoolMap["SortAllSystems"] = true; // batocera
+	mBoolMap["SortAllSystems"] = true; 
 	mStringMap["SortSystems"] = "manufacturer";
 	mBoolMap["UseCustomCollectionsSystem"] = true;
 
@@ -254,7 +289,7 @@ void Settings::setDefaults()
 
 	mStringMap["AudioCard"] = "default";
 	mStringMap["UIMode"] = "Full";
-	mStringMap["UIMode_passkey"] = "aaaba"; // batocera
+	mStringMap["UIMode_passkey"] = "aaaba"; 
 	mBoolMap["ForceKiosk"] = false;
 	mBoolMap["ForceKid"] = false;
 	mBoolMap["ForceDisableFilters"] = false;
@@ -270,7 +305,7 @@ void Settings::setDefaults()
 	mBoolMap["ThreadedLoading"] = true;
 	mBoolMap["AsyncImages"] = true;
 	mBoolMap["PreloadUI"] = false;
-	mBoolMap["PreloadMedias"] = false;	
+	mBoolMap["PreloadMedias"] = Settings::_PreloadMedias;
 	mBoolMap["OptimizeVRAM"] = true;
 	mBoolMap["OptimizeVideo"] = true;
 
@@ -302,7 +337,7 @@ void Settings::setDefaults()
 #endif
 
 	// Audio settings
-	mBoolMap["audio.bgmusic"] = true;
+	mBoolMap["audio.bgmusic"] = Settings::_BackgroundMusic;
 	mBoolMap["audio.persystem"] = false;
 	mBoolMap["audio.display_titles"] = true;
 	mBoolMap["audio.thememusics"] = true;
@@ -337,7 +372,6 @@ void Settings::setDefaults()
 	mDefaultStringMap = mStringMap;
 }
 
-// batocera
 template <typename K, typename V>
 void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type, std::map<K, V>& defaultMap, V defaultValue)
 {
@@ -360,7 +394,6 @@ void saveMap(pugi::xml_node &node, std::map<K, V>& map, const char* type, std::m
 	}
 }
 
-// batocera
 bool Settings::saveFile()
 {
 	if (!mWasChanged)
@@ -370,11 +403,11 @@ bool Settings::saveFile()
 
 	LOG(LogDebug) << "Settings::saveFile() : Saving Settings to file.";
 
-	const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_settings.cfg";
+	const std::string path = Paths::getUserEmulationStationPath() + "/es_settings.cfg";
 
 	pugi::xml_document doc;
 
-	pugi::xml_node config = doc.append_child("config"); // batocera, root element
+	pugi::xml_node config = doc.append_child("config"); // root element
 
 	saveMap<std::string, bool>(config, mBoolMap, "bool", mDefaultBoolMap, false);
 	saveMap<std::string, int>(config, mIntMap, "int", mDefaultIntMap, 0);
@@ -411,7 +444,7 @@ bool Settings::saveFile()
 
 void Settings::loadFile()
 {
-	const std::string path = Utils::FileSystem::getEsConfigPath() + "/es_settings.cfg";
+	const std::string path = Paths::getUserEmulationStationPath() + "/es_settings.cfg";
 	if(!Utils::FileSystem::exists(path))
 		return;
 
@@ -425,7 +458,6 @@ void Settings::loadFile()
 
 	pugi::xml_node root = doc;
 
-	// Batocera use a <config> root element
 	pugi::xml_node config = doc.child("config");
 	if (config)
 		root = config;
@@ -455,10 +487,9 @@ bool Settings::setMethodName(const std::string& name, type value) \
 { \
 	if (mapName.count(name) == 0 || mapName[name] != value) { \
 		mapName[name] = value; \
-\
 		if (std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), name) == settings_dont_save.cend()) \
 			mWasChanged = true; \
-\
+		updateCachedSetting(name); \
 		return true; \
 	} \
 	return false; \
@@ -489,6 +520,7 @@ bool Settings::setString(const std::string& name, const std::string& value)
 		if (std::find(settings_dont_save.cbegin(), settings_dont_save.cend(), name) == settings_dont_save.cend())
 			mWasChanged = true;
 
+		updateCachedSetting(name);
 		return true;
 	}
 

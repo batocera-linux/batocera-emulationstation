@@ -544,9 +544,9 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	if (Renderer::getScreenProportion() > 1.4)
 	{
 		if (mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect") && getQuickSystemSelectLeftButton() == "left")
-			prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
+			prompts.push_back(HelpPrompt("left/right", _("SYSTEM")));
 
-		prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
+		prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
 	}
 
 	bool invertNorthButton = Settings::getInstance()->getBool("GameOptionsAtNorth");
@@ -558,7 +558,7 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string("/") + longPressOK));
 
 	if (!UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
+		prompts.push_back(HelpPrompt("select", _("OPTIONS")));
 
 	if (cursorHasSaveStatesEnabled())
 	{
