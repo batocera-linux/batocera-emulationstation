@@ -39,14 +39,28 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 {
 	std::vector<MdImage> mdl = 
 	{ 
+		// Metadata that can be substituted if not found
 		{ "md_marquee", { MetaDataId::Marquee, MetaDataId::Wheel } },
 		{ "md_fanart", { MetaDataId::FanArt, MetaDataId::TitleShot, MetaDataId::Image } },
 		{ "md_titleshot", { MetaDataId::TitleShot, MetaDataId::Image } },
-		{ "md_boxart", { MetaDataId::BoxArt, MetaDataId::Thumbnail } },
+		{ "md_boxart", { MetaDataId::BoxArt, MetaDataId::Thumbnail } },		
 		{ "md_wheel",{ MetaDataId::Wheel, MetaDataId::Marquee } },
 		{ "md_cartridge",{ MetaDataId::Cartridge } },
 		{ "md_boxback",{ MetaDataId::BoxBack } },		
-		{ "md_mix",{ MetaDataId::Mix, MetaDataId::Image, MetaDataId::Thumbnail } }
+		{ "md_mix",{ MetaDataId::Mix, MetaDataId::Image, MetaDataId::Thumbnail } },
+
+		// Medias  that can't be substituted even if not found
+		{ "md_image_only", { MetaDataId::Image } },
+		{ "md_thumbnail_only", { MetaDataId::Thumbnail } },
+		{ "md_marquee_only", { MetaDataId::Marquee } },
+		{ "md_wheel_only", { MetaDataId::Wheel } },
+		{ "md_fanart_only", { MetaDataId::FanArt } },
+		{ "md_titleshot_only", { MetaDataId::TitleShot } },
+		{ "md_boxart_only", { MetaDataId::BoxArt } },
+		{ "md_boxback_only", { MetaDataId::BoxBack } },		
+		{ "md_cartridge_only",{ MetaDataId::Cartridge } },
+		{ "md_boxback_only",{ MetaDataId::BoxBack } },
+		{ "md_mix_only", { MetaDataId::Mix } }
 	};
 
 	for (auto md : mdl)
@@ -310,29 +324,29 @@ void DetailedContainer::initMDValues()
 {
 	auto mSize = mParent->getSize();
 
-	auto components = getMetaComponents();
-
 	std::shared_ptr<Font> defaultFont = Font::get(FONT_SIZE_SMALL);
 	mRating.setSize(defaultFont->getHeight() * 5.0f, (float)defaultFont->getHeight());
 
 	float bottom = 0.0f;
 
 	const float colSize = (mSize.x() * 0.48f) / 2;
-	for (unsigned int i = 0; i < components.size(); i++)
+
+	auto components = getMetaComponents();
+	for (auto mdc : components)
 	{
-		TextComponent* text = dynamic_cast<TextComponent*>(components[i].component);
+		TextComponent* text = dynamic_cast<TextComponent*>(mdc.component);
 		if (text != nullptr)
 			text->setFont(defaultFont);
 		
-		if (components[i].labelid.empty() || components[i].label == nullptr)
+		if (mdc.labelid.empty() || mdc.label == nullptr)
 			continue;
 
-		const float heightDiff = (components[i].label->getSize().y() - components[i].label->getSize().y()) / 2;
-		components[i].component->setPosition(components[i].label->getPosition() + Vector3f(components[i].label->getSize().x(), heightDiff, 0));
-		components[i].component->setSize(colSize - components[i].label->getSize().x(), components[i].component->getSize().y());
-		components[i].component->setDefaultZIndex(40);
+		const float heightDiff = (mdc.label->getSize().y() - mdc.label->getSize().y()) / 2;
+		mdc.component->setPosition(mdc.label->getPosition() + Vector3f(mdc.label->getSize().x(), heightDiff, 0));
+		mdc.component->setSize(colSize - mdc.label->getSize().x(), mdc.component->getSize().y());
+		mdc.component->setDefaultZIndex(40);
 
-		float testBot = components[i].component->getPosition().y() + components[i].component->getSize().y();
+		float testBot = mdc.component->getPosition().y() + mdc.component->getSize().y();
 		if (testBot > bottom)
 			bottom = testBot;
 	}
@@ -346,10 +360,11 @@ void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_
 	using namespace ThemeFlags;
 
 	auto elem = theme->getElement(getName(), element, "image");
-	if (forceLoad || (elem && elem->properties.size() > 0))
+
+	if (forceLoad || (elem && elem->properties.size() > 0 && (!elem->has("visible") || elem->get<bool>("visible"))))
 	{
-		createImageComponent(pImage, element == "md_fanart", element == "md_fanart" && Settings::AllImagesAsync());
-		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));
+		createImageComponent(pImage, element == "md_fanart", element == "md_fanart" && Settings::AllImagesAsync());			
+		(*pImage)->applyTheme(theme, getName(), element, loadPath ? ALL : ALL ^ (PATH));	
 	}
 	else if ((*pImage) != nullptr)
 	{
@@ -362,13 +377,30 @@ void DetailedContainer::loadIfThemed(ImageComponent** pImage, const std::shared_
 void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 {
 	using namespace ThemeFlags;
+	
+	std::string viewName = getName();
 
-	mName.applyTheme(theme, getName(), "md_name", ALL);	
+	if (theme != mCustomTheme)
+	{
+		mTheme = theme;
 
-	if (theme->getElement(getName(), "md_video", "video"))
+		const ThemeData::ThemeElement* elem = theme->getElement(viewName, "gameextras", "gameextras");
+		if (elem && elem->has("path"))
+			mPerGameExtrasPath = elem->get<std::string>("path");
+		else
+			mPerGameExtrasPath = "";
+
+		initMDLabels();
+		initMDValues();
+	}
+	
+	mName.applyTheme(theme, viewName, "md_name", ALL);
+
+	auto velem = theme->getElement(viewName, "md_video", "video");
+	if (velem && (!velem->has("visible") || velem->get<bool>("visible")))
 	{
 		createVideo();
-		mVideo->applyTheme(theme, getName(), "md_video", ALL ^ (PATH));
+		mVideo->applyTheme(theme, viewName, "md_video", ALL ^ (PATH));
 	}
 	else if (mVideo != nullptr)
 	{
@@ -399,23 +431,20 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	loadIfThemed(&mMap, theme, "md_map", false, true);
 	loadIfThemed(&mNoMap, theme, "md_nomap", false, true);
 	loadIfThemed(&mSaveState, theme, "md_savestate", false, true);
-	loadIfThemed(&mNoSaveState, theme, "md_nosavestate", false, true);	
-
-	initMDLabels();
+	loadIfThemed(&mNoSaveState, theme, "md_nosavestate", false, true);		
 
 	for (auto ctrl : getMetaComponents())
-		if (ctrl.label != nullptr && theme->getElement(getName(), ctrl.labelid, "text"))
-			ctrl.label->applyTheme(theme, getName(), ctrl.labelid, ALL);
-
-	initMDValues();
-
-	for (auto ctrl : getMetaComponents())
-		if (ctrl.component != nullptr && theme->getElement(getName(), ctrl.id, ctrl.expectedType))
-			ctrl.component->applyTheme(theme, getName(), ctrl.id, ALL);
-
-	if (theme->getElement(getName(), "md_description", "text"))
 	{
-		mDescription.applyTheme(theme, getName(), "md_description", ALL);
+		if (ctrl.label != nullptr && theme->getElement(viewName, ctrl.labelid, "text"))
+			ctrl.label->applyTheme(theme, viewName, ctrl.labelid, ALL);
+
+		if (ctrl.component != nullptr && theme->getElement(viewName, ctrl.id, ctrl.expectedType))
+			ctrl.component->applyTheme(theme, viewName, ctrl.id, ALL);
+	}
+
+	if (theme->getElement(viewName, "md_description", "text"))
+	{
+		mDescription.applyTheme(theme, viewName, "md_description", ALL);
 		mDescription.setAutoScroll(TextComponent::AutoScrollType::VERTICAL);
 
 		if (!isChild(&mDescription))
@@ -424,10 +453,12 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	else if (mViewType == DetailedContainerType::GridView)
 		removeChild(&mDescription);
 
-	mThemeExtras.clear();
-
 	// Add new theme extras
-	mThemeExtras = ThemeData::makeExtras(theme, getName(), mWindow, false, ThemeData::ExtraImportType::WITH_ACTIVATESTORYBOARD);
+	for (auto extra : mThemeExtras)
+		removeChild(extra);
+
+	mThemeExtras.clear();
+	mThemeExtras = ThemeData::makeExtras(theme, viewName, mWindow, false, (ThemeData::ExtraImportType) (ThemeData::ExtraImportType::WITH_ACTIVATESTORYBOARD | ThemeData::ExtraImportType::PERGAMEEXTRAS));
 	for (auto extra : mThemeExtras)
 		addChild(extra);
 
@@ -619,11 +650,62 @@ void DetailedContainer::updateDetailsForFolder(FolderData* folder)
 	mGameTime.setValue("");
 }
 
+void DetailedContainer::resetThemedExtras()
+{
+	if (mCustomTheme != nullptr)
+	{
+		mCustomTheme = nullptr;
+
+		if (mTheme != nullptr)
+			onThemeChanged(mTheme);
+	}
+}
+
+void DetailedContainer::loadThemedExtras(FileData* file)
+{
+	if (mPerGameExtrasPath.empty())
+	{
+		resetThemedExtras();			
+		return;
+	}
+
+	auto path = Utils::FileSystem::combine(mPerGameExtrasPath, Utils::FileSystem::getStem(file->getPath()) + ".xml");
+	
+	if (!Utils::FileSystem::exists(path) && !file->getMetadata(MetaDataId::Crc32).empty())
+		path = Utils::FileSystem::combine(mPerGameExtrasPath, file->getMetadata(MetaDataId::Crc32) + ".xml");
+
+	if (!Utils::FileSystem::exists(path))
+		path = Utils::FileSystem::combine(mPerGameExtrasPath, Utils::FileSystem::getStem(file->getPath()) + "/theme.xml");
+
+	if (!Utils::FileSystem::exists(path) && !file->getMetadata(MetaDataId::Crc32).empty())
+		path = Utils::FileSystem::combine(mPerGameExtrasPath, file->getMetadata(MetaDataId::Crc32) + "/theme.xml");
+
+	if (!Utils::FileSystem::exists(path))
+	{
+		resetThemedExtras();
+		return;
+	}
+
+	auto customTheme = mTheme->clone(getName());
+	if (customTheme->appendFile(path, true))
+	{
+		auto currentTheme = mTheme;
+		mCustomTheme = customTheme;
+		onThemeChanged(mCustomTheme);
+		mTheme = currentTheme;
+	}
+	else
+		resetThemedExtras();
+}
+
 void DetailedContainer::updateControls(FileData* file, bool isClearing, int moveBy, bool isDeactivating)
 {
 	bool state = (file != NULL);
 	if (state)
 	{	
+		if (!isClearing && !isDeactivating)
+			loadThemedExtras(file);
+
 		if (mFolderView)
 		{
 			delete mFolderView;
@@ -885,6 +967,8 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 	// We're clearing / populating : don't setup fade animations
 	if (file == nullptr && isClearing)
 	{
+		resetThemedExtras();
+
 		for (auto comp : comps)
 		{
 			comp->cancelAnimation(0);

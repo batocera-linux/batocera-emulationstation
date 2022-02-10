@@ -315,18 +315,27 @@ void ImageComponent::uncrop()
 
 void ImageComponent::setFlipX(bool flip)
 {
+	if (mFlipX == flip)
+		return;
+
 	mFlipX = flip;
 	updateVertices();
 }
 
 void ImageComponent::setFlipY(bool flip)
 {
+	if (mFlipY == flip)
+		return;
+
 	mFlipY = flip;
 	updateVertices();
 }
 
 void ImageComponent::setColorShift(unsigned int color)
 {
+	if (mColorShift == color && mColorShiftEnd == color)
+		return;
+
 	mColorShift = color;
 	mColorShiftEnd = color;
 	updateColors();
@@ -334,18 +343,27 @@ void ImageComponent::setColorShift(unsigned int color)
 
 void ImageComponent::setColorShiftEnd(unsigned int color)
 {
+	if (mColorShiftEnd == color)
+		return;
+
 	mColorShiftEnd = color;
 	updateColors();
 }
 
 void ImageComponent::setColorGradientHorizontal(bool horizontal)
 {
+	if (mColorGradientHorizontal == horizontal)
+		return;
+
 	mColorGradientHorizontal = horizontal;
 	updateColors();
 }
 
 void ImageComponent::setOpacity(unsigned char opacity)
 {
+	if (mOpacity == opacity)
+		return;
+
 	mOpacity = opacity;	
 	updateColors();
 }

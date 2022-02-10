@@ -312,11 +312,12 @@ public:
 	const ThemeElement* getElement(const std::string& view, const std::string& element, const std::string& expectedType) const;
 	const std::vector<std::string> getElementNames(const std::string& view, const std::string& expectedType) const;
 
-	enum ExtraImportType
+	enum ExtraImportType : unsigned int
 	{
 		WITH_ACTIVATESTORYBOARD = 1,
 		WITHOUT_ACTIVATESTORYBOARD = 2,
-		ALL_EXTRAS = 1 + 2
+		PERGAMEEXTRAS = 4,
+		ALL_EXTRAS = 1 + 2 + 4
 	};
 
 	static std::vector<GuiComponent*> makeExtras(const std::shared_ptr<ThemeData>& theme, const std::string& view, Window* window, bool forceLoad = false, ExtraImportType type = ExtraImportType::ALL_EXTRAS);
@@ -357,6 +358,9 @@ public:
 
 	std::string getViewDisplayName(const std::string& view);
 
+	std::shared_ptr<ThemeData> clone(const std::string& viewName);
+	bool appendFile(const std::string& path, bool perGameOverride = false);
+
 private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
 	static std::vector<std::string> sSupportedFeatures;
@@ -378,7 +382,7 @@ private:
 	void parseCustomView(const pugi::xml_node& node, const pugi::xml_node& root);	
 	void parseViewElement(const pugi::xml_node& node);
 	void parseView(const pugi::xml_node& viewNode, ThemeView& view, bool overwriteElements = true);
-	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, bool overwrite = true);
+	void parseElement(const pugi::xml_node& elementNode, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, ThemeView& view, bool overwrite = true);
 	bool parseRegion(const pugi::xml_node& node);
 	bool parseSubset(const pugi::xml_node& node);
 	bool isFirstSubset(const pugi::xml_node& node);
@@ -447,6 +451,8 @@ private:
 
 	static std::shared_ptr<ThemeData::ThemeMenu> mMenuTheme;
 	static ThemeData* mDefaultTheme;	
+
+	bool mPerGameOverrideTmp;
 };
 
 #endif // ES_CORE_THEME_DATA_H
