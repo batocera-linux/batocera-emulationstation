@@ -265,7 +265,7 @@ void ThreadedScraper::start(Window* window, const std::queue<ScraperSearchParams
 	int threadCount = Scraper::getScraper()->getThreadCount(error);
 	if (threadCount < 0)
 	{
-		window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURED") + std::string(" :\r\n") + error)); // batocera
+		window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURED") + std::string(" :\r\n") + error));
 		return;
 	}
 

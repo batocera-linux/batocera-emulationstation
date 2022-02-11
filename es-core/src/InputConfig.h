@@ -19,7 +19,6 @@ namespace pugi { class xml_node; }
 #define DEVICE_CEC      -2
 #define DEVICE_MOUSE	-3
 
-// batocera
 #define MAX_PLAYERS 8
 
 extern char* BUTTON_OK;
@@ -107,7 +106,7 @@ public:
 class InputConfig
 {
 public:
-	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes); // batocera
+	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes); 
 
 	void clear();
 	void mapInput(const std::string& name, Input input);
@@ -115,16 +114,16 @@ public:
 
 	inline int getDeviceId() const { return mDeviceId; };
         
-	inline int getDeviceIndex() const { return mDeviceIndex; }; // batocera
+	inline int getDeviceIndex() const { return mDeviceIndex; }; 
 	inline const std::string& getDeviceName() { return mDeviceName; }
 	inline const std::string& getDeviceGUIDString() { return mDeviceGUID; }
-	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; // batocera
-	inline int getDeviceNbHats() const { return mDeviceNbHats; }; // batocera
-	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; // batocera
-	inline int getBatteryLevel() const { return mBatteryLevel; }; // batocera
+	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; 
+	inline int getDeviceNbHats() const { return mDeviceNbHats; }; 
+	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; 
+	inline int getBatteryLevel() const { return mBatteryLevel; }; 
 
 	//Returns true if Input is mapped to this name, false otherwise.
-	bool isMappedTo(const std::string& name, Input input, bool reversedAxis = false); // batocera
+	bool isMappedTo(const std::string& name, Input input, bool reversedAxis = false); 
 	bool isMappedLike(const std::string& name, Input input);
 
 	//Returns a list of names this input is mapped to.
@@ -142,17 +141,17 @@ public:
 	static std::string buttonLabel(const std::string& button);
 	static std::string buttonImage(const std::string& button);
 
-	void updateBatteryLevel(int level) { mBatteryLevel = level; }; // batocera
+	void updateBatteryLevel(int level) { mBatteryLevel = level; }; 
 
 private:
 	std::map<std::string, Input> mNameMap;
 	const int mDeviceId;
-	const int mDeviceIndex; // batocera
+	const int mDeviceIndex; 
 	const std::string mDeviceName;
 	const std::string mDeviceGUID;
-	const int mDeviceNbButtons; // number of buttons of the device // batocera
-	const int mDeviceNbHats;    // number of hats    of the device // batocera
-	const int mDeviceNbAxes;    // number of axes    of the device // batocera
+	const int mDeviceNbButtons; // number of buttons of the device 
+	const int mDeviceNbHats;    // number of hats    of the device 
+	const int mDeviceNbAxes;    // number of axes    of the device 
 
 	int mBatteryLevel;
 

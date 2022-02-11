@@ -26,11 +26,11 @@ BusyComponent::BusyComponent(Window* window, const std::string& text) : GuiCompo
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
     
-	mutex = SDL_CreateMutex(); // batocera
+	mutex = SDL_CreateMutex();
 	mAnimation = std::make_shared<AnimatedImageComponent>(mWindow);
 	mAnimation->load(&BUSY_ANIMATION_DEF);
 	
-	mText = std::make_shared<TextComponent>(mWindow, text == "__default__" ? _("WORKING...") : text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color); // batocera
+	mText = std::make_shared<TextComponent>(mWindow, text == "__default__" ? _("WORKING...") : text, ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color); 
 
 	// col 0 = animation, col 1 = spacer, col 2 = text
 	mGrid.setEntry(mAnimation, Vector2i(1, 1), false, true);

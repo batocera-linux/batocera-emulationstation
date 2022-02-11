@@ -456,7 +456,7 @@ void Font::renderTextCache(TextCache* cache, bool verticesChanged)
 	{
 		if (sub.texture && sub.texture->bind())
 		{
-			if (Settings::DebugImage)
+			if (Settings::DebugImage())
 				Renderer::drawRect(
 					sub.vertex[0].pos.x(), 
 					sub.vertex[0].pos.y(), 

@@ -8,6 +8,7 @@
 #define fake_gettext_full _("Full")
 #define fake_gettext_kiosk _("Kiosk")
 #define fake_gettext_kid _("Kid")
+#define fake_gettext_basic _("Basic")
 
 UIModeController *  UIModeController::sInstance = NULL;
 
@@ -20,14 +21,29 @@ UIModeController * UIModeController::getInstance()
 }
 
 UIModeController::UIModeController()
-	:mPassKeyCounter(0)
+	: mPassKeyCounter(0), mUIModeChanged(false)
 {
 	mPassKeySequence = Settings::getInstance()->getString("UIMode_passkey");
 	mCurrentUIMode = Settings::getInstance()->getString("UIMode");
+
+	Settings::settingChanged += this;
+}
+
+void UIModeController::onSettingChanged(const std::string& name)
+{
+	if (name == "UIMode")
+	{
+		mUIModeChanged = true;
+		monitorUIMode();
+	}
 }
 
 void UIModeController::monitorUIMode()
 {
+	if (!mUIModeChanged)
+		return;
+
+	mUIModeChanged = false;
 	std::string uimode = Settings::getInstance()->getString("UIMode");
 	if (uimode != mCurrentUIMode) // UIMODE HAS CHANGED
 	{
@@ -82,6 +98,7 @@ bool UIModeController::inputIsMatch(InputConfig * config, Input input)
 void UIModeController::unlockUIMode()
 {
 	LOG(LogDebug) << " UIModeController::listen(): Passkey sequence completed, switching UIMode to full";
+
 	Settings::getInstance()->setString("UIMode", "Full");
 	Settings::getInstance()->saveFile();
 	mPassKeyCounter = 0;
@@ -89,19 +106,22 @@ void UIModeController::unlockUIMode()
 
 bool UIModeController::isUIModeFull()
 {
-	return ((mCurrentUIMode == "Full") && !Settings::getInstance()->getBool("ForceKiosk"));
+	return (mCurrentUIMode == "Full" && !Settings::getInstance()->getBool("ForceKiosk") && !Settings::getInstance()->getBool("ForceKid"));
+}
+
+bool UIModeController::isUIModeBasic()
+{
+	return (mCurrentUIMode == "Basic" && !Settings::getInstance()->getBool("ForceKiosk") && !Settings::getInstance()->getBool("ForceKid"));
 }
 
 bool UIModeController::isUIModeKid()
 {
-	return (Settings::getInstance()->getBool("ForceKid") ||
-		((mCurrentUIMode == "Kid") && !Settings::getInstance()->getBool("ForceKiosk")));
+	return (Settings::getInstance()->getBool("ForceKid") || (mCurrentUIMode == "Kid" && !Settings::getInstance()->getBool("ForceKiosk")));
 }
 
 bool UIModeController::isUIModeKiosk()
 {
-	return (Settings::getInstance()->getBool("ForceKiosk") ||
-		((mCurrentUIMode == "Kiosk") && !Settings::getInstance()->getBool("ForceKid")));
+	return (Settings::getInstance()->getBool("ForceKiosk") || (mCurrentUIMode == "Kiosk" && !Settings::getInstance()->getBool("ForceKid")));
 }
 
 std::string UIModeController::getFormattedPassKeyStr()

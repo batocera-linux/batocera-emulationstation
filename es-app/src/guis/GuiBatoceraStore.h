@@ -30,7 +30,6 @@ private:
 	bool mIsPending;
 };
 
-// Batocera
 class GuiBatoceraStore : public GuiComponent, IContentInstalledNotify
 {
 public:

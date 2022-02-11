@@ -4,6 +4,7 @@
 #include "utils/StringUtil.h"
 
 #include <time.h>
+#include "Paths.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -31,15 +32,7 @@ void SaveStateRepository::clear()
 
 std::string SaveStateRepository::getSavesPath()
 {
-#if WIN32
-	std::string path = Win32ApiSystem::getEmulatorLauncherPath("saves");
-	if (path.empty())
-		return "";
-
-	return Utils::FileSystem::combine(path, mSystem->getName());
-#endif
-
-	return Utils::FileSystem::combine("/userdata/saves/", mSystem->getName());
+	return Utils::FileSystem::combine(Paths::getSavesPath(), mSystem->getName());
 }
 	
 void SaveStateRepository::refresh()

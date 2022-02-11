@@ -116,6 +116,10 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 		addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
 	}
 
+
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::ShortTitle))
+		addSwitch(_("SCRAPE SHORT NAME"), "ScrapeShortTitle", true);
+
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Ratings))
 		addSwitch(_("SCRAPE RATINGS"), "ScrapeRatings", true);
 

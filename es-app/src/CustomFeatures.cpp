@@ -1,8 +1,8 @@
 #include "CustomFeatures.h"
-
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include "Log.h"
+#include "Paths.h"
 
 bool CustomFeatures::FeaturesLoaded = false;
 
@@ -65,9 +65,9 @@ bool CustomFeatures::loadEsFeaturesFile()
 	GlobalFeatures.clear();
 	SharedFeatures.clear();
 
-	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_features.cfg";
+	std::string path = Paths::getUserEmulationStationPath() + "/es_features.cfg";
 	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getSharedConfigPath() + "/es_features.cfg";
+		path = Paths::getEmulationStationPath() + "/es_features.cfg";
 
 	if (!Utils::FileSystem::exists(path))
 		return false;

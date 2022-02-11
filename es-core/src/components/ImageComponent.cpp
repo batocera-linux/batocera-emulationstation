@@ -315,18 +315,27 @@ void ImageComponent::uncrop()
 
 void ImageComponent::setFlipX(bool flip)
 {
+	if (mFlipX == flip)
+		return;
+
 	mFlipX = flip;
 	updateVertices();
 }
 
 void ImageComponent::setFlipY(bool flip)
 {
+	if (mFlipY == flip)
+		return;
+
 	mFlipY = flip;
 	updateVertices();
 }
 
 void ImageComponent::setColorShift(unsigned int color)
 {
+	if (mColorShift == color && mColorShiftEnd == color)
+		return;
+
 	mColorShift = color;
 	mColorShiftEnd = color;
 	updateColors();
@@ -334,18 +343,27 @@ void ImageComponent::setColorShift(unsigned int color)
 
 void ImageComponent::setColorShiftEnd(unsigned int color)
 {
+	if (mColorShiftEnd == color)
+		return;
+
 	mColorShiftEnd = color;
 	updateColors();
 }
 
 void ImageComponent::setColorGradientHorizontal(bool horizontal)
 {
+	if (mColorGradientHorizontal == horizontal)
+		return;
+
 	mColorGradientHorizontal = horizontal;
 	updateColors();
 }
 
 void ImageComponent::setOpacity(unsigned char opacity)
 {
+	if (mOpacity == opacity)
+		return;
+
 	mOpacity = opacity;	
 	updateColors();
 }
@@ -471,7 +489,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	if (Settings::DebugImage)
+	if (Settings::DebugImage())
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
@@ -481,7 +499,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	{
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
 
-		if(Settings::DebugImage)
+		if(Settings::DebugImage())
 			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
 
 		// actually draw the image

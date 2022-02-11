@@ -81,13 +81,14 @@ namespace FileSorts
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order
 		auto name1 = ((FileData *) file1)->getName();
 		auto name2 = ((FileData *) file2)->getName();
-		const bool ignoreArticles = Settings::getInstance()->getBool("IgnoreLeadingArticles");
-		if (ignoreArticles)
+
+		if (Settings::IgnoreLeadingArticles())
 		{
-			const auto articles = Utils::String::commaStringToVector(_("A,AN,THE"));
+			static auto articles = Utils::String::commaStringToVector(_("A,AN,THE"));
 			name1 = stripLeadingArticle(name1, articles);
 			name2 = stripLeadingArticle(name2, articles);
 		}
+
 		return Utils::String::compareIgnoreCase(name1, name2) < 0;
 	}
 

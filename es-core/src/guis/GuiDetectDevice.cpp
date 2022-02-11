@@ -28,7 +28,7 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	addChild(&mGrid);
 	
 	// title
-	mTitle = std::make_shared<TextComponent>(mWindow, firstRun ? _("WELCOME") : _("CONFIGURE INPUT"), // batocera
+	mTitle = std::make_shared<TextComponent>(mWindow, firstRun ? _("WELCOME") : _("CONFIGURE INPUT"),
 		theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mGrid.setEntry(mTitle, Vector2i(0, 0), false, true, Vector2i(1, 1), GridFlags::BORDER_BOTTOM);
 
@@ -36,26 +36,27 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	std::stringstream deviceInfo;
 	int numDevices = InputManager::getInstance()->getNumJoysticks();
 	
-	if(numDevices > 0) {
+	if(numDevices > 0) 
+	{
 	  char strbuf[256];
-	  snprintf(strbuf, 256, ngettext("%i GAMEPAD DETECTED", "%i GAMEPADS DETECTED", numDevices), numDevices); // batocera
+	  snprintf(strbuf, 256, ngettext("%i GAMEPAD DETECTED", "%i GAMEPADS DETECTED", numDevices), numDevices); 
 	  deviceInfo << strbuf;
 	}
 	else
-		deviceInfo << _("NO GAMEPADS DETECTED"); // batocera
+		deviceInfo << _("NO GAMEPADS DETECTED"); 
+
 	mDeviceInfo = std::make_shared<TextComponent>(mWindow, deviceInfo.str(), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 	mGrid.setEntry(mDeviceInfo, Vector2i(0, 1), false, true);
 
 	// message
-	mMsg1 = std::make_shared<TextComponent>(mWindow, _("HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER); // batocera
+	mMsg1 = std::make_shared<TextComponent>(mWindow, _("HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER); 
 	mGrid.setEntry(mMsg1, Vector2i(0, 2), false, true);
-
-	// batocera
-	if(firstRun) {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_CENTER); // batocera
-	} else {
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_CENTER); // batocera
-	}
+	
+	if(firstRun)
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_CENTER); 
+	else
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
+	
 	mGrid.setEntry(mMsg2, Vector2i(0, 3), false, true);
 
 	// currently held device
@@ -93,7 +94,7 @@ bool GuiDetectDevice::input(InputConfig* config, Input input)
 		return true;
 
 	if(!mFirstRun && (input.device == DEVICE_KEYBOARD && input.type == TYPE_KEY && input.value && input.id == SDLK_ESCAPE) ||
-	                 (input.device != DEVICE_KEYBOARD && config->isMappedTo("hotkey", input))) // batocera
+	                 (input.device != DEVICE_KEYBOARD && config->isMappedTo("hotkey", input))) 
 	{
 		// cancel configuring
 		PowerSaver::resume();

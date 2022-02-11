@@ -51,7 +51,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
-	mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), theme->Title.font, theme->Title.color, ALIGN_CENTER); // batocera
+	mTitle = std::make_shared<TextComponent>(mWindow, _("EDIT METADATA"), theme->Title.font, theme->Title.color, ALIGN_CENTER); 
 	
 	auto subTitle = Utils::FileSystem::createRelativePath(scraperParams.game->getPath(), scraperParams.game->getSourceFileData()->getSystem()->getRootFolder()->getPath(), true);
 	if (Utils::String::startsWith(subTitle, "./"))
@@ -308,8 +308,7 @@ GuiMetaDataEd::GuiMetaDataEd(Window* window, MetaDataList* md, const std::vector
 				const std::string title = iter->displayPrompt;
 				auto updateVal = [ed](const std::string& newVal) { ed->setValue(newVal); }; // ok callback (apply new value to ed)
 				row.makeAcceptInputHandler([this, title, ed, updateVal, multiLine] 
-				{
-				    // batocera
+				{				    
 					if (!multiLine && Settings::getInstance()->getBool("UseOSK"))
 						mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, title, ed->getValue(), updateVal, multiLine));
 				    else
@@ -596,9 +595,9 @@ void GuiMetaDataEd::close(bool closeAllWindows)
 	{
 		// changes were made, ask if the user wants to save them
 		mWindow->pushGui(new GuiMsgBox(mWindow,
-			_("SAVE CHANGES?"), // batocera
-			_("YES"), [this, closeFunc] { if (save()) closeFunc(); }, // batocera
-			_("NO"), closeFunc // batocera
+			_("SAVE CHANGES?"), 
+			_("YES"), [this, closeFunc] { if (save()) closeFunc(); }, 
+			_("NO"), closeFunc 
 		));
 	}else{
 		closeFunc();
@@ -624,6 +623,6 @@ std::vector<HelpPrompt> GuiMetaDataEd::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mGrid.getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt("start", _("CLOSE"))); // batocera
+	prompts.push_back(HelpPrompt("start", _("CLOSE"))); 
 	return prompts;
 }
