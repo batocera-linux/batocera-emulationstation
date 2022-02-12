@@ -143,7 +143,7 @@ msgid "enter release date"
 msgstr "digite a data de lançamento"
 
 msgid "Developer"
-msgstr "Desenvolvedora"
+msgstr "Desenvolvedor"
 
 msgid "this game's developer"
 msgstr "o desenvolvedor deste jogo"
@@ -1440,7 +1440,7 @@ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDORA"
+msgstr "DESENVOLVEDOR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPÇÕES DE VÍDEO"
