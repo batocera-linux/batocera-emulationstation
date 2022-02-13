@@ -4529,6 +4529,9 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createJoyBtnOptionLis
 	std::string btnNames = SystemConf::getInstance()->get(prefixName + ".joy_btn_names");
 	std::vector<std::string> btn_names(explode(btnNames));
 
+	std::string strIndexes = SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes");
+	std::vector<int> indexes(int_explode(strIndexes));
+
 	if (prefixName == "auto" || prefixName.empty() || btn_names.size() == 0) {
 		btn_cfg->add(_("NONE"), "-1", true);
 		return btn_cfg;
@@ -4540,7 +4543,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createJoyBtnOptionLis
 	int i = 0;
 	btn_cfg->add(_("NONE"), "-1", selectId == -1);
 	for (auto it = btn_names.cbegin(); it != btn_names.cend(); it++) {
-		btn_cfg->add(*it, std::to_string(i), selectId == i);
+		btn_cfg->add(*it, std::to_string(indexes[i]), selectId == i);
 		i++;
 	}
 	return btn_cfg;
@@ -4669,8 +4672,8 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			systemConfiguration->addWithLabel(_("DELETE REMAP"), del_choice);
 
 			systemConfiguration->addSaveFunc([btn_choice, configName, prefixName] {
-				int index = btn_choice->getSelectedIndex();
-				if (index == 0)
+				int index = atoi(btn_choice->getSelected().c_str());
+				if (index == -1)
 				{
 					SystemConf::getInstance()->set(configName + ".joy_btn_cfg", "");
 					SystemConf::getInstance()->saveSystemConf();
@@ -4679,9 +4682,8 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				if (index > 0)
 				{
 					std::string btnIndexes = SystemConf::getInstance()->get(prefixName + ".joy_btn_indexes");
-					int remapIndex = int_explode(btnIndexes)[btn_choice->getSelectedIndex()-1];
 
-					SystemConf::getInstance()->set(configName + ".joy_btn_cfg", std::to_string(remapIndex));
+					SystemConf::getInstance()->set(configName + ".joy_btn_cfg", std::to_string(index));
 					SystemConf::getInstance()->saveSystemConf();
 				}
 			});
