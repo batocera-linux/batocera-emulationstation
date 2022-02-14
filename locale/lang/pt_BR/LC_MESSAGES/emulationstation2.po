@@ -65,7 +65,7 @@ msgid "enter path to box"
 msgstr "insira o caminho do diretório para a caixa do jogo"
 
 msgid "Fan art"
-msgstr "Fã-arte"
+msgstr "Arte do Fã"
 
 msgid "enter path to fanart"
 msgstr "insira o caminho do diretório para a arte do fã"
@@ -152,7 +152,7 @@ msgid "Publisher"
 msgstr "Publicadora"
 
 msgid "this game's publisher"
-msgstr "o publicador deste jogo"
+msgstr "a publicadora deste jogo"
 
 msgid "Genre"
 msgstr "Gênero"
@@ -206,7 +206,7 @@ msgid "Play count"
 msgstr "Número de partidas"
 
 msgid "enter number of times played"
-msgstr "digite o número de vezes jogado"
+msgstr "digite o número de partidas jogadas"
 
 msgid "Last played"
 msgstr "Última vez jogado"
@@ -756,7 +756,7 @@ msgid "CONTENT DOWNLOADER"
 msgstr "GERENCIADOR DE CONTEÚDO"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "SELCIONE O CONTEÚJO A SER INSTALADO/REMOVIDO"
+msgstr "SELECIONE O CONTEÚDO A SER INSTALADO/REMOVIDO"
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "ATUALIZAR CONTEÚDO INSTALADO"
@@ -2582,7 +2582,7 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS MODIFICAÇÕES."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "O EMULADOR SAIU INESPERADAMENTE"
+msgstr "O EMULADOR FECHOU INESPERADAMENTE"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
 msgstr "ARGUMENTOS RUINS DE LINHA DE COMANDO"
@@ -2630,7 +2630,7 @@ msgid "ALREADY PLAYED"
 msgstr "JÁ JOGADO"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "POSSUI CONQUITAS"
+msgstr "POSSUI CONQUISTAS"
 
 msgid "VERTICAL"
 msgstr "VERTICAL"
