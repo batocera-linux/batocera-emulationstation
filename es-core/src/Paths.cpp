@@ -40,7 +40,6 @@ Paths::Paths()
 	mEmulationStationPath = "/usr/share/emulationstation";
 	mUserEmulationStationPath = "/userdata/system/configs/emulationstation";
 
-	mConfigPath = "/userdata/system/";
 	mLogPath = "/userdata/system/logs";
 	mScreenShotsPath = "/userdata/screenshots";
 	mSaveStatesPath = "/userdata/saves";
