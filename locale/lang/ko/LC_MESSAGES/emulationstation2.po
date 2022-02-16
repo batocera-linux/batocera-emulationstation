@@ -945,9 +945,6 @@ msgstr "확실합니까?"
 msgid "UPDATING %s"
 msgstr "업데이트 %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "바토세라 업데이트 중"
-
 msgid "UPDATE IS READY"
 msgstr "업데이트가 준비되었습니다"
 
@@ -969,8 +966,8 @@ msgstr "인터넷 연결이 필요합니다"
 msgid "NO UPDATE AVAILABLE"
 msgstr "사용 가능한 업데이트가 없습니다"
 
-msgid "INSTALL BATOCERA"
-msgstr "바토세라 설치"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "대상 장치"
@@ -1172,6 +1169,9 @@ msgstr "휠"
 msgid "MARQUEE"
 msgstr "마키"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "평점 스크랩"
 
@@ -1217,10 +1217,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1463,9 +1463,6 @@ msgstr "공용 인터넷 접속 허용"
 msgid "Allow public web access API using %s"
 msgstr "다음을 이용한 공용 인터넷 접속을 허용 : %s"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재시작이 필요합니다"
-
 msgid "LOG LEVEL"
 msgstr "로그 레벨"
 
@@ -1549,9 +1546,6 @@ msgstr "레트로아크 메뉴 드라이버"
 
 msgid "AUTO"
 msgstr "자동"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "에뮬레이터 컨트롤러 자동 설정"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "에뮬레이션스테이션에서 A/B 버튼 교체"
@@ -1780,9 +1774,6 @@ msgstr "저장 장치"
 msgid "BACKUP USER DATA"
 msgstr "사용자 데이터 백업"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "새로운 디스크에 바토세라 설치"
-
 msgid "ADVANCED"
 msgstr "고급"
 
@@ -1794,6 +1785,9 @@ msgstr "보안 강화"
 
 msgid "ROOT PASSWORD"
 msgstr "관리자 비밀번호"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재시작이 필요합니다"
 
 msgid "LATENCY REDUCTION"
 msgstr "입력지연 줄이기"
@@ -1832,6 +1826,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1912,6 +1909,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "번역화면 일시정지"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "컨트롤러 자동설정"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1927,7 +1927,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1936,10 +1936,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2180,9 +2177,6 @@ msgstr "화면보호기 실행"
 msgid "VIEW USER'S MANUAL"
 msgstr "사용자 매뉴얼 보기"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "바토세라 매뉴얼 보기"
-
 msgid "RESTART SYSTEM"
 msgstr "시스템 다시 시작"
 
@@ -2242,9 +2236,6 @@ msgstr "나란히"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "내부 해상도"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "컨트롤러 자동설정"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2378,6 +2369,9 @@ msgstr "키오스크"
 
 msgid "Kid"
 msgstr "아동용"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "발매일"
@@ -2816,6 +2810,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "바토세라 업데이트 중"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "바토세라 설치"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "에뮬레이터 컨트롤러 자동 설정"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "새로운 디스크에 바토세라 설치"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "바토세라 매뉴얼 보기"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "프레임 미리 실행 사용"

@@ -946,9 +946,6 @@ msgstr "BIZTOS VAGY BENNE?"
 msgid "UPDATING %s"
 msgstr ""
 
-msgid "UPDATING BATOCERA"
-msgstr "BATOCERA FRISSÍTÉSE"
-
 msgid "UPDATE IS READY"
 msgstr "FRISSÍTÉS KÉSZ"
 
@@ -970,8 +967,8 @@ msgstr "HÁLÓZATI CSATLAKOZÁS SZÜKSÉGES"
 msgid "NO UPDATE AVAILABLE"
 msgstr "NINCS FRISSÍTÉS"
 
-msgid "INSTALL BATOCERA"
-msgstr "BATOCERA TELEPÍTÉSE"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "CÉL ESZKÖZ"
@@ -1173,6 +1170,9 @@ msgstr "KERÉK"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "ÉRTÉKELÉSEK LEKÉRÉSE"
 
@@ -1218,10 +1218,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1464,9 +1464,6 @@ msgstr "PUBLIKUS WEB HOZZÁFÉRÉS ENGEDÉLYEZÉSE"
 msgid "Allow public web access API using %s"
 msgstr "Publikus web hozzáférési API engedélyezve %s hansználatával"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "AZ ÚJ KONFIGURÁCIÓ ÉRVÉNYESÍTÉSÉHEZ ÚJRAINDÍTÁS SZÜKSÉGES"
-
 msgid "LOG LEVEL"
 msgstr "NAPLÓZÁSI SZINT"
 
@@ -1550,9 +1547,6 @@ msgstr "RETROARCH MENÜ VEZÉRLŐ"
 
 msgid "AUTO"
 msgstr "AUTO"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "EMULÁTOR KONTROLLEREK AUTOMATIKUS KONFIGURÁCIÓJA"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "A/B GOMBOK FELCSERÉLÉSE AZ EMUATIONSTATION FELÜLETEN"
@@ -1783,9 +1777,6 @@ msgstr "TÁROLÓ"
 msgid "BACKUP USER DATA"
 msgstr "FELHASZNÁLÓI ADAT MENTÉSE"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "BATOCERA ÚJ DISZKRE TÖRTÉNŐ TELEPÍTÉSE"
-
 msgid "ADVANCED"
 msgstr "HALADÓ"
 
@@ -1797,6 +1788,9 @@ msgstr "BIZTONSÁG ÉRVÉNYESÍTÉSE"
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT JELSZÓ"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "AZ ÚJ KONFIGURÁCIÓ ÉRVÉNYESÍTÉSÉHEZ ÚJRAINDÍTÁS SZÜKSÉGES"
 
 msgid "LATENCY REDUCTION"
 msgstr "KÉSLELTETÉS CSÖKKENTÉSE"
@@ -1835,6 +1829,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1915,6 +1912,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PILLANAT ÁLJ A LEFORDÍTOTT KÉPERNYŐN "
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "KONTROLLEREK AUTOMATIKUS BEÁLLÍTÁSA"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1930,7 +1930,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1939,10 +1939,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2182,9 +2179,6 @@ msgstr "KÉPERNYŐVÉDŐ INDÍTÁSA"
 msgid "VIEW USER'S MANUAL"
 msgstr "FELHASZNÁLÓI KÉZIKÖNYV"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "BATOCERA  KÉZIKÖNYV"
-
 msgid "RESTART SYSTEM"
 msgstr "ÚJRAINDÍTÁS"
 
@@ -2244,9 +2238,6 @@ msgstr "EGYMÁS MELLETT"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "BELSŐ FELBONTÁS"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "KONTROLLEREK AUTOMATIKUS BEÁLLÍTÁSA"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2383,6 +2374,9 @@ msgstr "Kiosk"
 
 msgid "Kid"
 msgstr "Gyerek"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "Kiadva"
@@ -2830,6 +2824,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "BATOCERA FRISSÍTÉSE"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "BATOCERA TELEPÍTÉSE"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "EMULÁTOR KONTROLLEREK AUTOMATIKUS KONFIGURÁCIÓJA"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "BATOCERA ÚJ DISZKRE TÖRTÉNŐ TELEPÍTÉSE"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "BATOCERA  KÉZIKÖNYV"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "RUN-AHEAD FRAME-EK HASZNÁLATA"

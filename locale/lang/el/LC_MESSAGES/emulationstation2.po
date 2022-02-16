@@ -943,9 +943,6 @@ msgstr "ΕΙΣΤΕ ΣΙΓΟΥΡΟΣ ;"
 msgid "UPDATING %s"
 msgstr "ΑΝΑΒΑΘΜΙΣΗ %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "ΑΝΑΒΑΘΜΙΣΗ BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "Η ΑΝΑΒΑΘΜΙΣΗ ΕΙΝΑΙ ΕΤΟΙΜΗ"
 
@@ -967,8 +964,8 @@ msgstr "ΑΠΑΙΤΕΙΤΑΙ ΣΥΝΔΕΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ"
 msgid "NO UPDATE AVAILABLE"
 msgstr "ΔΕΝ ΥΠΑΡΧΕΙ ΔΙΑΘΕΣΙΜΗ ΑΝΑΒΑΘΜΙΣΗ"
 
-msgid "INSTALL BATOCERA"
-msgstr "ΕΓΚΑΤΑΣΤΑΣΗ BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "ΕΝΔΕΙΚΤΙΚΗ ΣΥΣΚΕΥΗ"
@@ -1170,6 +1167,9 @@ msgstr ""
 msgid "MARQUEE"
 msgstr "ΛΟΓΟΤΥΠΟ"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "ΑΞΙΟΛΟΓΗΣΕΙΣ SCRAPE"
 
@@ -1215,10 +1215,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1461,10 +1461,6 @@ msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΔΗΜΟΣΙΑΣ ΠΡΟΣΒΑΣΗΣ ΙΣΤΟΥ"
 msgid "Allow public web access API using %s"
 msgstr "Επιτρέψτε δημόσια προσβαση ιστού στο API χρησιμοποιώντας %s"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"ΑΠΑΙΤΕΙΤΑΙ Η ΕΠΑΝΕΚΚΙΝΗΣΗ ΤΟΥ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΕΦΑΡΜΟΓΗ ΤΗΣ ΝΕΑΣ ΡΥΘΜΙΣΗΣ"
-
 msgid "LOG LEVEL"
 msgstr "ΕΠΙΠΕΔΟ LOG"
 
@@ -1548,9 +1544,6 @@ msgstr "ΟΔΗΓΟΣ RETROARCH ΜΕΝΟΥ"
 
 msgid "AUTO"
 msgstr "ΑΥΤΟΜΑΤΟ"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "ΑΥΤΟΜΑΤΗ ΕΠΙΛΟΓΗ ΠΛΗΚΤΡΩΝ ΕΞΟΜΟΙΩΤΩΝ"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ΑΛΛΑΓΗ A/B ΚΟΥΜΠΙΩΝ ΣΤΟ EMULATIONSTATION"
@@ -1781,9 +1774,6 @@ msgstr "ΣΥΣΚΕΥΗ ΑΠΟΘΗΚΕΥΣΗΣ"
 msgid "BACKUP USER DATA"
 msgstr "ΑΝΤΙΓΡΑΦΟ ΔΕΔΟΜΕΝΩΝ ΧΡΗΣΤΗ"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "ΕΓΚΑΤΑΣΤΑΣΗ BATOCERA ΣΕ ΕΝΑΝ ΝΕΟ ΔΙΣΚΟ"
-
 msgid "ADVANCED"
 msgstr "ΠΡΟΧΩΡΗΜΕΝΟΣ"
 
@@ -1795,6 +1785,10 @@ msgstr "ΕΦΑΡΜΟΓΗ ΑΣΦΑΛΕΙΑΣ"
 
 msgid "ROOT PASSWORD"
 msgstr "ΚΩΔΙΚΟΣ ΔΙΑΧΕΙΡΙΣΤΗ"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"ΑΠΑΙΤΕΙΤΑΙ Η ΕΠΑΝΕΚΚΙΝΗΣΗ ΤΟΥ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΕΦΑΡΜΟΓΗ ΤΗΣ ΝΕΑΣ ΡΥΘΜΙΣΗΣ"
 
 msgid "LATENCY REDUCTION"
 msgstr "ΜΕΙΩΣΗ LATENCY"
@@ -1833,6 +1827,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1913,6 +1910,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ΠΑΥΣΗ ΣΤΗΝ ΜΕΤΑΦΡΑΣΜΕΝΗ ΟΘΟΝΗ"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "ΑΥΤΟΜΑΤΗ ΡΥΘΜΙΣΗ ΧΕΙΡΙΣΤΗΡΙΩΝ"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1928,7 +1928,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1937,10 +1937,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2180,9 +2177,6 @@ msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
 msgid "VIEW USER'S MANUAL"
 msgstr "ΠΡΟΒΟΛΗ ΕΓΧΕΙΡΙΔΙΟΥ ΧΡΗΣΤΗ"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "ΠΡΟΒΟΛΗ ΕΓΧΕΙΡΙΔΙΟΥ BATOCERA"
-
 msgid "RESTART SYSTEM"
 msgstr "ΕΠΑΝΕΚΚΙΝΗΣΗ ΣΥΣΤΗΜΑΤΟΣ"
 
@@ -2242,9 +2236,6 @@ msgstr "ΔΊΠΛΑ-ΔΊΠΛΑ"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "ΕΣΩΤΕΡΙΚΗ ΑΝΑΛΥΣΗ"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "ΑΥΤΟΜΑΤΗ ΡΥΘΜΙΣΗ ΧΕΙΡΙΣΤΗΡΙΩΝ"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2382,6 +2373,9 @@ msgstr "Περιορισμένο"
 
 msgid "Kid"
 msgstr "Παιδικό"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "Κυκλοφόρησε"
@@ -2829,6 +2823,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "ΑΝΑΒΑΘΜΙΣΗ BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "ΕΓΚΑΤΑΣΤΑΣΗ BATOCERA"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "ΑΥΤΟΜΑΤΗ ΕΠΙΛΟΓΗ ΠΛΗΚΤΡΩΝ ΕΞΟΜΟΙΩΤΩΝ"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "ΕΓΚΑΤΑΣΤΑΣΗ BATOCERA ΣΕ ΕΝΑΝ ΝΕΟ ΔΙΣΚΟ"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "ΠΡΟΒΟΛΗ ΕΓΧΕΙΡΙΔΙΟΥ BATOCERA"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "ΧΡΗΣΗ RUN-AHEAD ΚΑΡΕ"

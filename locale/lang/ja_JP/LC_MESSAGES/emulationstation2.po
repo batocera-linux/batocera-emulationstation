@@ -946,9 +946,6 @@ msgstr "よろしいですか？"
 msgid "UPDATING %s"
 msgstr "%s を更新しています"
 
-msgid "UPDATING BATOCERA"
-msgstr "BATOCERA更新中"
-
 msgid "UPDATE IS READY"
 msgstr "更新準備完了"
 
@@ -972,8 +969,8 @@ msgstr "ネットワーク接続が必要です"
 msgid "NO UPDATE AVAILABLE"
 msgstr "更新はありません"
 
-msgid "INSTALL BATOCERA"
-msgstr "BATOCERAをインストール"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "対象デバイス"
@@ -1175,6 +1172,9 @@ msgstr "ホイール"
 msgid "MARQUEE"
 msgstr "マーキー"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "評価をスクレイプ"
 
@@ -1220,11 +1220,11 @@ msgstr "スクレイプするゲーム"
 msgid "ALL"
 msgstr "全て"
 
-msgid "GAMES MISSING MEDIAS"
-msgstr "メディアが不足しているゲーム"
+msgid "GAMES MISSING ANY MEDIA"
+msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr "メディアが無いゲーム"
+msgid "GAMES MISSING ALL MEDIA"
+msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "過去にスクレイプしたゲームを無視"
@@ -1469,9 +1469,6 @@ msgstr "パブリックWebアクセスを有効"
 msgid "Allow public web access API using %s"
 msgstr "%s を使用しパブリックWebアクセスAPIを許可"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "新しい構成を適用するには、再起動が必要です"
-
 msgid "LOG LEVEL"
 msgstr "ログレベル"
 
@@ -1557,9 +1554,6 @@ msgstr "RETROARCH メニュードライバー"
 
 msgid "AUTO"
 msgstr "自動"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "エミュレーターのコントローラー自動設定"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューでの AとB ボタンの入れ替え"
@@ -1792,9 +1786,6 @@ msgstr "ストレージデバイス"
 msgid "BACKUP USER DATA"
 msgstr "データバックアップ"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "BATOCERAをストレージにインストール"
-
 msgid "ADVANCED"
 msgstr "詳細項目"
 
@@ -1806,6 +1797,9 @@ msgstr "セキュリティ保護"
 
 msgid "ROOT PASSWORD"
 msgstr "ルートパスワード"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "新しい構成を適用するには、再起動が必要です"
 
 msgid "LATENCY REDUCTION"
 msgstr "ちらつき軽減"
@@ -1848,6 +1842,9 @@ msgstr ""
 
 msgid "DECORATION SET"
 msgstr "ベゼルを選択"
+
+msgid "Current setting"
+msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "グローバル基本設定"
@@ -1927,6 +1924,9 @@ msgstr "AIゲーム翻訳サービス URL"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻訳画面で一時停止"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "自動コントローラー設定"
+
 msgid "SAVESTATES"
 msgstr "ステートセーブ"
 
@@ -1942,8 +1942,8 @@ msgstr "新ゲームは新しいスロットを作成"
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr "新ゲームは現スロットを上書き"
 
-msgid "DISPLAY SAVE STATE MANAGER"
-msgstr "ステートセーブマネージャの表示"
+msgid "SHOW SAVE STATE MANAGER"
+msgstr "ステートセーブマネージャを表示"
 
 msgid "ALWAYS"
 msgstr "常に"
@@ -1951,11 +1951,8 @@ msgstr "常に"
 msgid "IF NOT EMPTY"
 msgstr "セーブがある場合"
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "ステートセーブマネージャを表示"
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "ゲーム起動時にステートセーブマネージャを表示"
+msgid "Display save state manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
@@ -2200,9 +2197,6 @@ msgstr "スクリーンセーバーを起動"
 msgid "VIEW USER'S MANUAL"
 msgstr "ユーザーズマニュアルを表示"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "バトセラマニュアルを表示"
-
 msgid "RESTART SYSTEM"
 msgstr "システムを再起動"
 
@@ -2262,9 +2256,6 @@ msgstr "横に並べる"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "解像度"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "自動コントローラー設定"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "起動時にこのゲームを開始する"
@@ -2403,6 +2394,9 @@ msgstr "簡易モード"
 
 msgid "Kid"
 msgstr "子供用モード"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "発売日"
@@ -2845,6 +2839,33 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "BATOCERA更新中"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "BATOCERAをインストール"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "メディアが不足しているゲーム"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "メディアが無いゲーム"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "エミュレーターのコントローラー自動設定"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "BATOCERAをストレージにインストール"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "ステートセーブマネージャの表示"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "ゲーム起動時にステートセーブマネージャを表示"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "バトセラマニュアルを表示"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

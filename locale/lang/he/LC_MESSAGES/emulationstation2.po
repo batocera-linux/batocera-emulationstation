@@ -949,9 +949,6 @@ msgstr ""
 msgid "UPDATING %s"
 msgstr "מעדכן %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "מעדכן את מערכת ההפעלה"
-
 msgid "UPDATE IS READY"
 msgstr "עדכון מוכן להתקנה"
 
@@ -973,8 +970,8 @@ msgstr "נדרש חיבור לרשת"
 msgid "NO UPDATE AVAILABLE"
 msgstr "אין עדכון זמין"
 
-msgid "INSTALL BATOCERA"
-msgstr "התקנת מערכת הפעלה BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "התקן יעד"
@@ -1174,6 +1171,9 @@ msgstr "גלגל"
 msgid "MARQUEE"
 msgstr "דגל"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE דירוגים"
 
@@ -1219,10 +1219,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1465,9 +1465,6 @@ msgstr "אפשר גישה פומבית מהרשת"
 msgid "Allow public web access API using %s"
 msgstr "Allow public web access API using %s"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-
 msgid "LOG LEVEL"
 msgstr "רמת חיבור"
 
@@ -1551,9 +1548,6 @@ msgstr "תפריט מנהל התקן RETROARCH"
 
 msgid "AUTO"
 msgstr "אוטומטי"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "הגדר אוטומטית בקרי אמולטור (חַקַּאי)"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr ""
@@ -1782,9 +1776,6 @@ msgstr "התקן איחסון"
 msgid "BACKUP USER DATA"
 msgstr "גיבוי מידע משתמש"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "התקנת BATOCERA על דיסק חדש"
-
 msgid "ADVANCED"
 msgstr "מתקדם"
 
@@ -1796,6 +1787,9 @@ msgstr "אכיפת אבטחה"
 
 msgid "ROOT PASSWORD"
 msgstr "סיסמת שורש ROOT PASSWORD"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "LATENCY REDUCTION"
 msgstr "הפחתת השהייה"
@@ -1834,6 +1828,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1914,6 +1911,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "השהה במסך מתורגם"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "תצורת בקרים אוטומטית"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1929,7 +1929,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1938,10 +1938,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2181,9 +2178,6 @@ msgstr "הפעלת שומר מסך"
 msgid "VIEW USER'S MANUAL"
 msgstr "צפייה במדריך למשתמש"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "צפייה במדריך 'בטוסרה' (BATOCERA)"
-
 msgid "RESTART SYSTEM"
 msgstr "הפעלה מחדש"
 
@@ -2243,9 +2237,6 @@ msgstr "צד לצד"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "רזולוציה פנימית"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "תצורת בקרים אוטומטית"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2385,6 +2376,9 @@ msgid "Kiosk"
 msgstr ""
 
 msgid "Kid"
+msgstr ""
+
+msgid "Basic"
 msgstr ""
 
 msgid "Released"
@@ -2847,6 +2841,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "מעדכן את מערכת ההפעלה"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "התקנת מערכת הפעלה BATOCERA"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "הגדר אוטומטית בקרי אמולטור (חַקַּאי)"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "התקנת BATOCERA על דיסק חדש"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "צפייה במדריך 'בטוסרה' (BATOCERA)"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "USE RUN-AHEAD FRAMES"
