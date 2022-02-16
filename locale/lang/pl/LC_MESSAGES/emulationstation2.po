@@ -949,9 +949,6 @@ msgstr "CZY NA PEWNO?"
 msgid "UPDATING %s"
 msgstr "AKTUALIZUJĘ %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "AKTUALIZUJĘ SYSTEM"
-
 msgid "UPDATE IS READY"
 msgstr "AKTUALIZACJA JEST GOTOWA"
 
@@ -975,8 +972,8 @@ msgstr "WYMAGA POŁĄCZENIA Z INTERNETEM"
 msgid "NO UPDATE AVAILABLE"
 msgstr "BRAK NOWYCH AKTUALIZACJI"
 
-msgid "INSTALL BATOCERA"
-msgstr "ZAINSTALUJ BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "URZĄDZENIE CELOWE"
@@ -1178,6 +1175,9 @@ msgstr "KOŁO"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE'UJ OCENY"
 
@@ -1223,11 +1223,11 @@ msgstr "GRY DO SCRAPE'OWANIA"
 msgid "ALL"
 msgstr "WSZYSTKO"
 
-msgid "GAMES MISSING MEDIAS"
-msgstr "GRY Z BRAKUJĄCYMI MEDIAMI"
+msgid "GAMES MISSING ANY MEDIA"
+msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr "GRY BEZ MEDIÓW"
+msgid "GAMES MISSING ALL MEDIA"
+msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORUJ OSTATNIO SCRAPE'OWANE GRY"
@@ -1472,10 +1472,6 @@ msgstr "WŁĄCZ DOSTĘP PUBLICZNY Z SIECI"
 msgid "Allow public web access API using %s"
 msgstr "Zezwól na dostęp publiczny do API przy użyciu %s"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
-
 msgid "LOG LEVEL"
 msgstr "POZIOM LOGOWANIA"
 
@@ -1559,9 +1555,6 @@ msgstr "STEROWNIK MENU RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTO"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOKONFIGURUJ KONTROLERY EMULATORÓW"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "PRZEŁĄCZ PRZYCISKI A/B W EMULATIONSTATION"
@@ -1800,9 +1793,6 @@ msgstr "NOŚNIK DANYCH"
 msgid "BACKUP USER DATA"
 msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "ZAINSTALUJ BATOCERA NA NOWYM DYSKU"
-
 msgid "ADVANCED"
 msgstr "ZAAWANSOWANE"
 
@@ -1814,6 +1804,10 @@ msgstr "ZWIĘKSZ BEZPIECZEŃSTWO"
 
 msgid "ROOT PASSWORD"
 msgstr "HASŁO ADMINISTRATORA"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUKCJA OPÓŹNIEŃ"
@@ -1839,8 +1833,9 @@ msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
-msgstr "Automatycznie zmniejsza tymczasowe opóźnienie klatek, aby zapobiec "
-"spadkowi liczby klatek. Może wprowadzać przycinanie się dźwięku/wideo."
+msgstr ""
+"Automatycznie zmniejsza tymczasowe opóźnienie klatek, aby zapobiec spadkowi "
+"liczby klatek. Może wprowadzać przycinanie się dźwięku/wideo."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA (G-SYNC, FREESYNC)"
@@ -1850,11 +1845,13 @@ msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr ""
-"Nie odbiegaj od żądanego czasu. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr "Nie odbiegaj od żądanego czasu. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "ZESTAW DEKORACJI"
+
+msgid "Current setting"
+msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DOMYŚLNE USTAWIENIA GLOBALNE"
@@ -1934,6 +1931,9 @@ msgstr "URL USŁUGI TŁUMACZENIA AI"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "AUTOKONFIGURUJ KONTROLERY"
+
 msgid "SAVESTATES"
 msgstr "ZAPISANE STANY GRY"
 
@@ -1949,8 +1949,8 @@ msgstr "NOWA GRA TWORZY NOWY SLOT"
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr "NOWA GRA ZASTĘPUJE OBECNY SLOT"
 
-msgid "DISPLAY SAVE STATE MANAGER"
-msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW"
+msgid "SHOW SAVE STATE MANAGER"
+msgstr "POKAŻ MENEDŻERA ZAPISU STANÓW"
 
 msgid "ALWAYS"
 msgstr "ZAWSZE"
@@ -1958,11 +1958,8 @@ msgstr "ZAWSZE"
 msgid "IF NOT EMPTY"
 msgstr "JEŚLI NIE PUSTY"
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "POKAŻ MENEDŻERA ZAPISU STANÓW"
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW PRZED URUCHOMIENIEM GRY"
+msgid "Display save state manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2206,9 +2203,6 @@ msgstr "URUCHOM WYGASZACZ EKRANU"
 msgid "VIEW USER'S MANUAL"
 msgstr "ZOBACZ INSTRUKCJĘ OBSŁUGI"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "ZOBACZ INSTRUKCJĘ BATOCERA"
-
 msgid "RESTART SYSTEM"
 msgstr "PONOWNE URUCHAMIANIE SYSTEMU"
 
@@ -2268,9 +2262,6 @@ msgstr "OBOK SIEBIE"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "WEWNĘTRZNA ROZDZIELCZOŚĆ"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "AUTOKONFIGURUJ KONTROLERY"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "ROZPOCZNIJ TĘ GRĘ PODCZAS URUCHAMIANIA"
@@ -2414,6 +2405,9 @@ msgstr "Kiosk"
 
 msgid "Kid"
 msgstr "Dziecka"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "Opublikowana"
@@ -2870,6 +2864,33 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "AKTUALIZUJĘ SYSTEM"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "ZAINSTALUJ BATOCERA"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "GRY Z BRAKUJĄCYMI MEDIAMI"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "GRY BEZ MEDIÓW"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "AUTOKONFIGURUJ KONTROLERY EMULATORÓW"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "ZAINSTALUJ BATOCERA NA NOWYM DYSKU"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW PRZED URUCHOMIENIEM GRY"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "ZOBACZ INSTRUKCJĘ BATOCERA"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "UŻYJ KLATEK Z WYPRZEDZENIEM"

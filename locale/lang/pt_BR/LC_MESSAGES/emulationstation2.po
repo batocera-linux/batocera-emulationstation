@@ -65,7 +65,7 @@ msgid "enter path to box"
 msgstr "insira o caminho do diretório para a caixa do jogo"
 
 msgid "Fan art"
-msgstr "Arte do Fã"
+msgstr "Fã-arte"
 
 msgid "enter path to fanart"
 msgstr "insira o caminho do diretório para a arte do fã"
@@ -152,7 +152,7 @@ msgid "Publisher"
 msgstr "Publicadora"
 
 msgid "this game's publisher"
-msgstr "a publicadora deste jogo"
+msgstr "o publicador deste jogo"
 
 msgid "Genre"
 msgstr "Gênero"
@@ -206,7 +206,7 @@ msgid "Play count"
 msgstr "Número de partidas"
 
 msgid "enter number of times played"
-msgstr "digite o número de partidas jogadas"
+msgstr "digite o número de vezes jogado"
 
 msgid "Last played"
 msgstr "Última vez jogado"
@@ -368,7 +368,7 @@ msgid "RETROACHIEVEMENTS"
 msgstr "CONQUISTAS RETRÔ"
 
 msgid "HARDCORE MODE"
-msgstr "MODO HARDCORE"
+msgstr "MODO RESTRITO"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -756,7 +756,7 @@ msgid "CONTENT DOWNLOADER"
 msgstr "GERENCIADOR DE CONTEÚDO"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "SELECIONE O CONTEÚDO A SER INSTALADO/REMOVIDO"
+msgstr "SELCIONE O CONTEÚJO A SER INSTALADO/REMOVIDO"
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "ATUALIZAR CONTEÚDO INSTALADO"
@@ -1164,6 +1164,7 @@ msgstr "CAIXA 2D"
 msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
+#, fuzzy
 msgid "FAN ART"
 msgstr "ARTE DO FÃ"
 
@@ -1225,10 +1226,10 @@ msgid "ALL"
 msgstr "TODOS"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr "JOGOS COM MÍDIAS FALTANDO"
+msgstr "COM MÍDIAS FALTANDO"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr "JOGOS SEM QUALQUER MÍDIA"
+msgstr "SEM QUALQUER MÍDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JOGOS COM MÍDIAS RECENTES"
@@ -1440,7 +1441,7 @@ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDOR"
+msgstr "DESENVOLVEDORA"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPÇÕES DE VÍDEO"
@@ -1868,7 +1869,7 @@ msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
+msgstr "JOGOS SUAVES (FILTRO BILINEAR)"
 
 msgid "REWIND"
 msgstr "REBOBINAR"
@@ -2582,7 +2583,7 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS MODIFICAÇÕES."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "O EMULADOR FECHOU INESPERADAMENTE"
+msgstr "O EMULADOR SAIU INESPERADAMENTE"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
 msgstr "ARGUMENTOS RUINS DE LINHA DE COMANDO"
@@ -2630,7 +2631,7 @@ msgid "ALREADY PLAYED"
 msgstr "JÁ JOGADO"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "POSSUI CONQUISTAS"
+msgstr "POSSUI CONQUITAS"
 
 msgid "VERTICAL"
 msgstr "VERTICAL"

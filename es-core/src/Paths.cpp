@@ -40,7 +40,6 @@ Paths::Paths()
 	mEmulationStationPath = "/usr/share/emulationstation";
 	mUserEmulationStationPath = "/userdata/system/configs/emulationstation";
 
-	mConfigPath = "/userdata/system/";
 	mLogPath = "/userdata/system/logs";
 	mScreenShotsPath = "/userdata/screenshots";
 	mSaveStatesPath = "/userdata/saves";
@@ -56,7 +55,7 @@ Paths::Paths()
 	mUserShadersPath = "/userdata/shaders/configs";
 	mTimeZonesPath = "/usr/share/zoneinfo/";
 	mRetroachivementSounds = "/usr/share/libretro/assets/sounds";
-	mUserRetroachivementSounds = "/userdata/sounds/retroachievements"
+	mUserRetroachivementSounds = "/userdata/sounds/retroachievements";
 	
 	mSystemConfFilePath = "/userdata/system/batocera.conf";
 	mUserManualPath = "/usr/share/batocera/doc/notice.pdf";

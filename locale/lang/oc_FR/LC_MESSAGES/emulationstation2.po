@@ -953,9 +953,6 @@ msgstr "PER DE BON ?"
 msgid "UPDATING %s"
 msgstr ""
 
-msgid "UPDATING BATOCERA"
-msgstr "ACTUALIZACION DE BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "MESA A JORN PRÈSTA"
 
@@ -977,7 +974,7 @@ msgstr "CONNEXION RET REQUERIDA"
 msgid "NO UPDATE AVAILABLE"
 msgstr "CAP DE MESA A JORN PAS DISPONIBLA"
 
-msgid "INSTALL BATOCERA"
+msgid "INSTALL ON A NEW DISK"
 msgstr ""
 
 msgid "TARGET DEVICE"
@@ -1178,6 +1175,9 @@ msgstr ""
 msgid "MARQUEE"
 msgstr ""
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr ""
 
@@ -1223,10 +1223,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1469,9 +1469,6 @@ msgstr ""
 msgid "Allow public web access API using %s"
 msgstr ""
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-
 msgid "LOG LEVEL"
 msgstr ""
 
@@ -1555,9 +1552,6 @@ msgstr ""
 
 msgid "AUTO"
 msgstr "AUTO"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr ""
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr ""
@@ -1786,9 +1780,6 @@ msgstr "PERIFERIC D’ESTOCATGE"
 msgid "BACKUP USER DATA"
 msgstr "SALVAGARDAR DONADAS UTILIZAIRE"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr ""
-
 msgid "ADVANCED"
 msgstr "AVANÇAT"
 
@@ -1800,6 +1791,9 @@ msgstr "ENFORTIR LA SEGURETAT"
 
 msgid "ROOT PASSWORD"
 msgstr "SENHAL ROOT"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "LATENCY REDUCTION"
 msgstr ""
@@ -1838,6 +1832,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1918,6 +1915,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr ""
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1933,7 +1933,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1942,10 +1942,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2185,9 +2182,6 @@ msgstr "AVIAR L'ESTALVIADOR D'ECRAN"
 msgid "VIEW USER'S MANUAL"
 msgstr ""
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr ""
-
 msgid "RESTART SYSTEM"
 msgstr "REAVIAR LO SISTÈMA"
 
@@ -2246,9 +2240,6 @@ msgid "SIDE BY SIDE"
 msgstr ""
 
 msgid "INTERNAL RESOLUTION"
-msgstr ""
-
-msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
 
 msgid "LAUNCH THIS GAME AT STARTUP"
@@ -2383,6 +2374,9 @@ msgid "Kiosk"
 msgstr ""
 
 msgid "Kid"
+msgstr ""
+
+msgid "Basic"
 msgstr ""
 
 msgid "Released"
@@ -2829,6 +2823,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "ACTUALIZACION DE BATOCERA"
 
 #~ msgid "RETRO"
 #~ msgstr "RETRO"
