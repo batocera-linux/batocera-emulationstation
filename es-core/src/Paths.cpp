@@ -174,6 +174,12 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 				auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../" + variable);
 				if (Utils::FileSystem::isDirectory(dir))
 					ret[variable] = dir;
+				else
+				{
+					auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../system/" + variable);
+					if (Utils::FileSystem::isDirectory(dir))
+						ret[variable] = dir;
+				}
 			}
 		}
 
