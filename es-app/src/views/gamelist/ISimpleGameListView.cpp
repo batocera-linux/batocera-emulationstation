@@ -552,7 +552,7 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	bool invertNorthButton = Settings::getInstance()->getBool("GameOptionsAtNorth");
 
 	std::string shortPressX = invertNorthButton ? _("GAME OPTIONS") : _("SAVE STATES");
-	std::string longPressOK = invertNorthButton ? _("SAVE STATES") : _("GAME OPTIONS"); 
+	std::string longPressOK = invertNorthButton ? _("SAVE STATES (HOLD)") : _("GAME OPTIONS (HOLD)"); 
 
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string("/") + longPressOK));
@@ -570,7 +570,7 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	else if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("x", _("FAVORITE")));
 
-	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM")));
+	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM (HOLD)")));
 
 	return prompts;
 }
