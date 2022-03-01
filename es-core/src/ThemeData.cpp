@@ -300,6 +300,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "zIndex", FLOAT } } },
 	{ "sound", {
 		{ "path", PATH } } },
+	{ "gameextras", {
+		{ "path", PATH } } },
 	{ "controllerActivity", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -543,6 +545,7 @@ std::string ThemeData::resolvePlaceholders(const char* in)
 
 ThemeData::ThemeData()
 {	
+	mPerGameOverrideTmp = false;
 	mColorset = Settings::getInstance()->getString("ThemeColorSet");
 	mIconset = Settings::getInstance()->getString("ThemeIconSet");
 	mMenu = Settings::getInstance()->getString("ThemeMenu");
@@ -857,6 +860,8 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 		}
 	}
 
+	appendFile(path);
+	/*
 	mPaths.push_back(path);
 
 	pugi::xml_document includeDoc;
@@ -876,8 +881,9 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 
 	parseVariables(theme);
 	parseTheme(theme);
-	
+
 	mPaths.pop_back();
+	*/	
 }
 
 void ThemeData::parseFeature(const pugi::xml_node& node)
@@ -1310,7 +1316,7 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool over
 			off = nameAttr.find_first_of(delim, prevOff);
 
 			parseElement(node, elemTypeIt->second,
-				view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second, overwriteElements);
+				view.elements.insert(std::pair<std::string, ThemeElement>(elemKey, ThemeElement())).first->second, view, overwriteElements);
 
 			if (std::find(view.orderedKeys.cbegin(), view.orderedKeys.cend(), elemKey) == view.orderedKeys.cend())
 				view.orderedKeys.push_back(elemKey);
@@ -1401,7 +1407,7 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 	return false;
 }
 
-void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, bool overwrite)
+void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, ThemeView& view, bool overwrite)
 {
 	// ThemeException error;
 	// error.setFiles(mPaths);
@@ -1417,7 +1423,30 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			element.extra = 1;
 		else if (extra == "static")
 			element.extra = 2;
+
+		if (element.extra && mPerGameOverrideTmp)
+			element.extra = 3; // Set as "Per-game" Extra
 	}	
+
+	// Import properties from another control
+	if (root.attribute("importProperties"))
+	{
+		std::string imports = Utils::String::toLower(root.attribute("importProperties").as_string());
+
+		auto importIt = view.elements.find(imports);
+		if (importIt != view.elements.cend())
+		{
+			for (auto prop : importIt->second.properties)
+			{
+				auto typeIt = typeMap.find(prop.first);
+				if (typeIt != typeMap.cend())
+					element.properties[prop.first] = prop.second;
+			}
+
+			for (auto sb : importIt->second.mStoryBoards)
+				element.mStoryBoards[sb.first] = new ThemeStoryboard(*sb.second);
+		}
+	}
 
 	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
@@ -1705,15 +1734,23 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 		{			
 			if (type != ExtraImportType::ALL_EXTRAS)
 			{
+				bool take = false;
+
 				bool hasActivationStoryBoard = elem.mStoryBoards.size() > 0 && (
 					elem.mStoryBoards.find("activate") != elem.mStoryBoards.cend() ||
 					elem.mStoryBoards.find("activateNext") != elem.mStoryBoards.cend() ||
 					elem.mStoryBoards.find("activatePrev") != elem.mStoryBoards.cend());
 
-				if ((type & ExtraImportType::WITH_ACTIVATESTORYBOARD) == ExtraImportType::WITH_ACTIVATESTORYBOARD && !hasActivationStoryBoard)
-					continue;
+				if ((type & ExtraImportType::WITH_ACTIVATESTORYBOARD) == ExtraImportType::WITH_ACTIVATESTORYBOARD && hasActivationStoryBoard)
+					take = true;
 
-				if ((type & ExtraImportType::WITHOUT_ACTIVATESTORYBOARD) == ExtraImportType::WITHOUT_ACTIVATESTORYBOARD && hasActivationStoryBoard)
+				if ((type & ExtraImportType::WITHOUT_ACTIVATESTORYBOARD) == ExtraImportType::WITHOUT_ACTIVATESTORYBOARD && !hasActivationStoryBoard)
+					take = true;
+
+				if ((type & ExtraImportType::PERGAMEEXTRAS) == ExtraImportType::PERGAMEEXTRAS && elem.extra == 3)
+					take = true;
+
+				if (!take)
 					continue;
 			}
 
@@ -2089,4 +2126,66 @@ ThemeData::ThemeElement::~ThemeElement()
 		delete sb.second;
 
 	mStoryBoards.clear();
+}
+
+std::shared_ptr<ThemeData> ThemeData::clone(const std::string& viewName)
+{
+	auto theme = std::make_shared<ThemeData>();
+	theme->mVersion = mVersion;
+	theme->mDefaultView = mDefaultView;
+	theme->mDefaultTransition = mDefaultTransition;
+	theme->mVariables = mVariables;	
+	theme->mSubsets = mSubsets;
+	theme->mColorset = mColorset;
+	theme->mIconset = mIconset;
+	theme->mMenu = mMenu;
+	theme->mSystemview = mSystemview;
+	theme->mGamelistview = mGamelistview;
+	theme->mSystemThemeFolder = mSystemThemeFolder;
+	theme->mLanguage = mLanguage;
+	theme->mRegion = mRegion;
+
+	if (!viewName.empty())
+	{
+		auto view = mViews.find(viewName);
+		if (view != mViews.cend())
+			theme->mViews.insert(std::pair<std::string, ThemeView>(viewName, view->second));
+	}
+	else
+		theme->mViews = mViews;
+	
+	return theme;
+}
+
+bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
+{
+	mPaths.push_back(path);
+
+	pugi::xml_document includeDoc;
+	pugi::xml_parse_result result = includeDoc.load_file(path.c_str());
+	if (!result)
+	{
+		mPaths.pop_back();
+		LOG(LogWarning) << "Error parsing file: \n    " << result.description() << "    from included file \"" << path << "\":\n    ";
+		return false;
+	}
+
+	pugi::xml_node theme = includeDoc.child("theme");
+	if (!theme)
+	{
+		mPaths.pop_back();
+		LOG(LogWarning) << "Missing <theme> tag!" << "    from included file \"" << path << "\":\n    ";
+		return false;
+	}
+
+	mPerGameOverrideTmp = perGameOverride;
+
+	parseVariables(theme);
+	parseTheme(theme);
+
+	mPerGameOverrideTmp = false;
+
+	mPaths.pop_back();
+
+	return true;
 }

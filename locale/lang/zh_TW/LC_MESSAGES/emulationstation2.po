@@ -945,9 +945,6 @@ msgstr "您確定嗎？"
 msgid "UPDATING %s"
 msgstr "正在更新 %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "正在更新 BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "已準備好可以更新"
 
@@ -971,8 +968,8 @@ msgstr "需要連線到網際網路"
 msgid "NO UPDATE AVAILABLE"
 msgstr "沒有可用的更新"
 
-msgid "INSTALL BATOCERA"
-msgstr "安裝 BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "目標裝置"
@@ -1174,6 +1171,9 @@ msgstr "商標"
 msgid "MARQUEE"
 msgstr "跑馬燈"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "搜刮遊戲評分"
 
@@ -1219,11 +1219,11 @@ msgstr "欲搜刮給哪些遊戲"
 msgid "ALL"
 msgstr "全部"
 
-msgid "GAMES MISSING MEDIAS"
-msgstr "缺少部份媒體的遊戲"
+msgid "GAMES MISSING ANY MEDIA"
+msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr "不含任何媒體的遊戲"
+msgid "GAMES MISSING ALL MEDIA"
+msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "忽略最近搜刮過的遊戲"
@@ -1467,9 +1467,6 @@ msgstr "啟用公開網站存取"
 msgid "Allow public web access API using %s"
 msgstr "允許公開網站透過 %s 存取 API"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要重新啟動系統才可以套用新的設定"
-
 msgid "LOG LEVEL"
 msgstr "日誌等級"
 
@@ -1553,9 +1550,6 @@ msgstr "RETROARCH 選單驅動程式"
 
 msgid "AUTO"
 msgstr "自動"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "自動為模擬器設定控制器"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "在 EMULATIONSTATION 中調換 A/B 鍵功能"
@@ -1787,9 +1781,6 @@ msgstr "儲存裝置"
 msgid "BACKUP USER DATA"
 msgstr "備份使用者資料"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "安裝 BATOCERA 到新的磁碟"
-
 msgid "ADVANCED"
 msgstr "進階設定"
 
@@ -1801,6 +1792,9 @@ msgstr "啟用安全防護"
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT 密碼"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "需要重新啟動系統才可以套用新的設定"
 
 msgid "LATENCY REDUCTION"
 msgstr "降低延遲"
@@ -1840,6 +1834,9 @@ msgstr "不要偏離核心所要求的時間點。G-Sync, FreeSync, HDMI 2.1 VRR
 
 msgid "DECORATION SET"
 msgstr "裝飾框集"
+
+msgid "Current setting"
+msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "預設全域設定"
@@ -1919,6 +1916,9 @@ msgstr "AI 翻譯服務網址"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "在已翻譯的畫面上暫停"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "自動設定遊戲控制器"
+
 msgid "SAVESTATES"
 msgstr "即時存檔"
 
@@ -1934,7 +1934,7 @@ msgstr "開新遊戲時建立新檔案槽"
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr "開新遊戲時覆寫目前的檔案槽"
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr "顯示即時存檔管理員"
 
 msgid "ALWAYS"
@@ -1943,11 +1943,8 @@ msgstr "總是"
 msgid "IF NOT EMPTY"
 msgstr "若不為空時"
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "顯示即時存檔管理員"
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "在啟動遊戲前顯示即時存檔管理員"
+msgid "Display save state manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
@@ -2189,9 +2186,6 @@ msgstr "啟動螢幕保護程式"
 msgid "VIEW USER'S MANUAL"
 msgstr "檢視使用者手冊"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "觀看 BATOCERA 使用者手冊"
-
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
 
@@ -2251,9 +2245,6 @@ msgstr "並排"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "內部解析度"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "自動設定遊戲控制器"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "在啟動期間執行這個遊戲"
@@ -2391,6 +2382,9 @@ msgstr "遊戲大廳"
 
 msgid "Kid"
 msgstr "兒童"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "發行日期"
@@ -2830,6 +2824,33 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "正在更新 BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "安裝 BATOCERA"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "缺少部份媒體的遊戲"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "不含任何媒體的遊戲"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "自動為模擬器設定控制器"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "安裝 BATOCERA 到新的磁碟"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "顯示即時存檔管理員"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "在啟動遊戲前顯示即時存檔管理員"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "觀看 BATOCERA 使用者手冊"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "使用預先執行畫格"

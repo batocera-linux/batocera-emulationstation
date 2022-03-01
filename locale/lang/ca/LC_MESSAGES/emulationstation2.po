@@ -980,9 +980,6 @@ msgstr "ESTÀS SEGUR?"
 msgid "UPDATING EMULATIONSTATION"
 msgstr "ACTUALITZANT EMULATIONSTATION"
 
-msgid "UPDATING BATOCERA"
-msgstr "ACTUALITZANT BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "L'ACTUALITZACIÓ ESTÀ LLESTA"
 
@@ -1004,8 +1001,8 @@ msgstr "ES REQUEREIX CONNEXIÓ A LA XARXA"
 msgid "NO UPDATE AVAILABLE"
 msgstr "NO S'HA TROBAT CAP ACTUALITZACIÓ"
 
-msgid "INSTALL BATOCERA"
-msgstr "INSTAL·LAR BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIU "
@@ -1182,6 +1179,9 @@ msgstr ""
 msgid "MARQUEE"
 msgstr ""
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "OBTENIR DADES DE VALORACIÓ"
 
@@ -1227,10 +1227,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1471,9 +1471,6 @@ msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
 msgid "LOG LEVEL"
@@ -1817,6 +1814,9 @@ msgstr "FES COMPLIR LA SEGURETAT"
 msgid "ROOT PASSWORD"
 msgstr "CONTRASENYA DE ROOT"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+
 msgid "LATENCY REDUCTION"
 msgstr "REDUCCIÓ DE LATÈNCIA"
 
@@ -1854,6 +1854,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1937,7 +1940,7 @@ msgstr "PARAR A LES PANTALLES TRADUÏDES"
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1946,10 +1949,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2255,9 +2255,6 @@ msgstr "COSTAT A COSTAT"
 msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUCIÓ INTERNA"
 
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
-
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
 
@@ -2402,6 +2399,9 @@ msgstr "Quiosc"
 
 msgid "Kid"
 msgstr "Canalla"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "Publicat"
@@ -2850,6 +2850,12 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "ACTUALITZANT BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "INSTAL·LAR BATOCERA"
 
 #~ msgid "SCANLINES"
 #~ msgstr "SCANLINES"

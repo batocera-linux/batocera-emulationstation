@@ -146,7 +146,7 @@ msgid "Developer"
 msgstr "Desenvolvedora"
 
 msgid "this game's developer"
-msgstr "o desenvolvedor deste jogo"
+msgstr "a desenvolvedora deste jogo"
 
 msgid "Publisher"
 msgstr "Publicadora"
@@ -368,7 +368,7 @@ msgid "RETROACHIEVEMENTS"
 msgstr "CONQUISTAS RETRÔ"
 
 msgid "HARDCORE MODE"
-msgstr "MODO HARDCORE"
+msgstr "MODO RESTRITO"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -1113,7 +1113,7 @@ msgid "Unlocked on"
 msgstr "Desbloqueado em"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "ESTE JOGO NÃO POSSUI CONQUITAS"
+msgstr "ESTE JOGO NÃO POSSUI CONQUISTAS"
 
 msgid "Achievements won"
 msgstr "Conquistas realizadas"
@@ -1164,8 +1164,9 @@ msgstr "CAIXA 2D"
 msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
+#, fuzzy
 msgid "FAN ART"
-msgstr "ARTE DE FÃ"
+msgstr "ARTE DO FÃ"
 
 msgid "BOX SOURCE"
 msgstr "FONTE DA MÍDIA DA CAIXA"
@@ -1186,7 +1187,7 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTER MÍDIAS DOS VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr "OBTER MÍDIAS ARTE DE FÃ"
+msgstr "OBTER MÍDIAS ARTE DO FÃ"
 
 msgid "SCRAPE BEZEL (16:9)"
 msgstr "OBTER MÍDIAS DE MOLDURA (16:9)"
@@ -1219,16 +1220,16 @@ msgid "FILTERS"
 msgstr "FILTROS"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "JOGOS À PROCURAR POR MÍDIAS"
+msgstr "PROCURAR MÍDIAS DOS JOGOS PARA"
 
 msgid "ALL"
 msgstr "TODOS"
 
 msgid "GAMES MISSING MEDIAS"
-msgstr "JOGOS COM MÍDIAS FALTANDO"
+msgstr "COM MÍDIAS FALTANDO"
 
 msgid "GAMES WITHOUT ANY MEDIA"
-msgstr "JOGOS SEM QUALQUER MÍDIA"
+msgstr "SEM QUALQUER MÍDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JOGOS COM MÍDIAS RECENTES"
@@ -1868,7 +1869,7 @@ msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
+msgstr "JOGOS SUAVES (FILTRO BILINEAR)"
 
 msgid "REWIND"
 msgstr "REBOBINAR"
@@ -1886,7 +1887,7 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "IMAGEM SOBREPOSTA À MOLDURA"
+msgstr "MOSTRAR MAPEAMENTO DE BOTÕES NA MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLES DO SISTEMA"
@@ -1964,7 +1965,7 @@ msgid "SHOW SAVE STATE MANAGER"
 msgstr "EXIBIR GERENCIADOR"
 
 msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "EXIBIR GERENCIADO DE ESTADOS DE SALVAMENTO ANTES DE INICIAR O JOGO"
+msgstr "EXIBIR GERENCIADOR DE ESTADOS DE SALVAMENTO ANTES DE INICIAR O JOGO"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -2018,7 +2019,7 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
 
 msgid "GAMELIST STYLE"
-msgstr "ESTILO NA LISTA DE JOGOS"
+msgstr "ESTILO DA LISTA DE JOGOS"
 
 msgid "basic"
 msgstr "básico"

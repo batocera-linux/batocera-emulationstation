@@ -88,6 +88,10 @@ protected:
 	void createVideo();
 	void createImageComponent(ImageComponent** pImage, bool forceLoad = false, bool allowFading = false);
 	void loadIfThemed(ImageComponent** pImage, const std::shared_ptr<ThemeData>& theme, const std::string& element, bool forceLoad = false, bool loadPath = false);
+	void loadThemedExtras(FileData* file);
+	void resetThemedExtras();
+
+	std::string     mPerGameExtrasPath;
 
 	ImageComponent* mImage;
 	ImageComponent* mThumbnail;
@@ -128,6 +132,9 @@ protected:
 
 	void createFolderGrid(Vector2f targetSize, std::vector<std::string> thumbs);
 	ComponentGrid* mFolderView;
+
+	std::shared_ptr<ThemeData> mTheme;
+	std::shared_ptr<ThemeData> mCustomTheme;
 
 	bool		mState;
 };

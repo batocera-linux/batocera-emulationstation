@@ -946,9 +946,6 @@ msgstr "EMİN MİSİN ?"
 msgid "UPDATING %s"
 msgstr "GÜNCELLENİYOR %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "BATOCERA GÜNCELLENİYOR"
-
 msgid "UPDATE IS READY"
 msgstr "GÜNCELLEME HAZIR"
 
@@ -970,8 +967,8 @@ msgstr "AĞ BAĞLANTISI GEREKİYOR"
 msgid "NO UPDATE AVAILABLE"
 msgstr "YENİ GÜNCELLEME YOK"
 
-msgid "INSTALL BATOCERA"
-msgstr "BATOCERA KUR"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "HEDEF CİHAZ"
@@ -1173,6 +1170,9 @@ msgstr "WHEEL"
 msgid "MARQUEE"
 msgstr "KAYAN YAZI"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "PUANLARI ÇEK(SCRAPE)"
 
@@ -1218,10 +1218,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1464,10 +1464,6 @@ msgstr "WEB ERİŞİMİNE AÇ"
 msgid "Allow public web access API using %s"
 msgstr "Açık web erişimine %s API kullanarak izin ver"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAŞLATILMASI GEREKİR"
-
 msgid "LOG LEVEL"
 msgstr "LOG SEVİYESİ"
 
@@ -1551,9 +1547,6 @@ msgstr "RETROARCH MENÜ SÜRÜCÜSÜ"
 
 msgid "AUTO"
 msgstr "OTOMATİK"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "EMULATÖR KONTROLLERİNİ OTOMATİK YAPILANDIR"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "EMULATIONSTATION DA A/B BUTONLARIN YERİNİ DEĞİŞTİR"
@@ -1784,9 +1777,6 @@ msgstr "DEPO CİHAZI"
 msgid "BACKUP USER DATA"
 msgstr "KULLANICI VERİLERİNİ YEDEKLE"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "YENİ BİR DİSKTE BATOCERA KURULUMU"
-
 msgid "ADVANCED"
 msgstr "GELİŞMİŞ"
 
@@ -1798,6 +1788,10 @@ msgstr "GÜVENLİĞİ GELİŞTİR"
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT PAROLASI"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAŞLATILMASI GEREKİR"
 
 msgid "LATENCY REDUCTION"
 msgstr "GECİKME AZALTMA"
@@ -1836,6 +1830,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1916,6 +1913,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ÇEVİRİLEN EKRANDA BEKLET"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "KONTROLLERİ OTOMATİK YAPILANDIR"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1931,7 +1931,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1940,10 +1940,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2183,9 +2180,6 @@ msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"
 msgid "VIEW USER'S MANUAL"
 msgstr "KULLANICI KLAVUZUNU GÖRÜNTÜLE"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "BATOCERA KLAVUZUNU GÖRÜNTÜLE"
-
 msgid "RESTART SYSTEM"
 msgstr "YENİDEN BAŞLAT"
 
@@ -2245,9 +2239,6 @@ msgstr "YAN YANA"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "İÇ ÇÖZÜNÜRLÜK"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "KONTROLLERİ OTOMATİK YAPILANDIR"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2385,6 +2376,9 @@ msgstr "Kiosk"
 
 msgid "Kid"
 msgstr "Çocuk"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "Yayın"
@@ -2832,6 +2826,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "BATOCERA GÜNCELLENİYOR"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "BATOCERA KUR"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "EMULATÖR KONTROLLERİNİ OTOMATİK YAPILANDIR"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "YENİ BİR DİSKTE BATOCERA KURULUMU"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "BATOCERA KLAVUZUNU GÖRÜNTÜLE"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "RUN-AHEAD KARELERİ KULLAN"

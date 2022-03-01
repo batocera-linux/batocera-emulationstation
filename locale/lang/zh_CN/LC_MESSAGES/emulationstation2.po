@@ -986,9 +986,6 @@ msgstr "确定吗？"
 msgid "UPDATING %s"
 msgstr ""
 
-msgid "UPDATING BATOCERA"
-msgstr "更新 BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "更新已准备就绪"
 
@@ -1010,8 +1007,8 @@ msgstr "需要连接到互联网"
 msgid "NO UPDATE AVAILABLE"
 msgstr "暂无可用更新"
 
-msgid "INSTALL BATOCERA"
-msgstr "安装 BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "目标设备"
@@ -1192,6 +1189,9 @@ msgstr "旋转"
 msgid "MARQUEE"
 msgstr "蒙版"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "抓取游戏评分"
 
@@ -1237,10 +1237,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1483,9 +1483,6 @@ msgstr ""
 msgid "Allow public web access API using %s"
 msgstr ""
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要重新启动系统才能应用新配置"
-
 msgid "LOG LEVEL"
 msgstr "日志级别"
 
@@ -1569,9 +1566,6 @@ msgstr ""
 
 msgid "AUTO"
 msgstr "自动"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "自动配置模拟的控制设备"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "在EMULATIONSTATION中切换 A/B 按键"
@@ -1800,9 +1794,6 @@ msgstr "存储设备"
 msgid "BACKUP USER DATA"
 msgstr "备份用户数据"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "安装 BATOCERA 到 新磁盘"
-
 msgid "ADVANCED"
 msgstr "高级设置"
 
@@ -1814,6 +1805,9 @@ msgstr "强制安全性保护"
 
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "需要重新启动系统才能应用新配置"
 
 msgid "LATENCY REDUCTION"
 msgstr "减少延迟"
@@ -1852,6 +1846,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1932,6 +1929,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻译时暂停"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1947,7 +1947,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1956,10 +1956,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2199,9 +2196,6 @@ msgstr "启动屏保"
 msgid "VIEW USER'S MANUAL"
 msgstr ""
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "查看BATOCERA手册"
-
 msgid "RESTART SYSTEM"
 msgstr "重启"
 
@@ -2261,9 +2255,6 @@ msgstr "并排"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "内部分辨率"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr ""
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2395,6 +2386,9 @@ msgstr "大厅"
 
 msgid "Kid"
 msgstr "儿童"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "发行日期"
@@ -2829,6 +2823,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "更新 BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "安装 BATOCERA"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "自动配置模拟的控制设备"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "安装 BATOCERA 到 新磁盘"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "查看BATOCERA手册"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "使用 RUN-AHEAD 框架"

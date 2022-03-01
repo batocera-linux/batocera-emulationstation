@@ -1961,7 +1961,7 @@ void GuiMenu::openSystemSettings()
 	s->addGroup(_("ADVANCED"));
 
 	// Security
-	s->addEntry(_("SECURITY"), true, [this] 
+	s->addEntry(_("SECURITY"), true, [this, s] 
 	{
 		GuiSettings *securityGui = new GuiSettings(mWindow, _("SECURITY").c_str());
 		auto securityEnabled = std::make_shared<SwitchComponent>(mWindow);

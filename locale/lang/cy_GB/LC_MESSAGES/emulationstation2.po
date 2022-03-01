@@ -951,9 +951,6 @@ msgstr "WYT TI'N SIWR ?"
 msgid "UPDATING %s"
 msgstr ""
 
-msgid "UPDATING BATOCERA"
-msgstr "DIWEDDARU BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "MAE'R DIWEDDARIAD YN BAROD"
 
@@ -975,8 +972,8 @@ msgstr "ANGEN CYSWLLT RHWYDWAITH"
 msgid "NO UPDATE AVAILABLE"
 msgstr "DIM DIWEDDARIAD AR GAEL"
 
-msgid "INSTALL BATOCERA"
-msgstr "GOSOD BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "DYFAIS TARGED"
@@ -1178,6 +1175,9 @@ msgstr "OLWYN"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "CRAFU GRADDIAU"
 
@@ -1223,10 +1223,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1469,9 +1469,6 @@ msgstr ""
 msgid "Allow public web access API using %s"
 msgstr ""
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "GOFYNNIR I AILGYCHWYN Y SYSTEM I GADARNHAU'R FFURFWEDD NEWYDD"
-
 msgid "LOG LEVEL"
 msgstr "LEFEL LOG"
 
@@ -1555,9 +1552,6 @@ msgstr ""
 
 msgid "AUTO"
 msgstr "AWTO"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "TRAWSWEDDU AWTOMATIG RHEOLYDDION EFELYCHWYR"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "CYFNEWID BOTYMAU A/B YN EMULATIONSTATION"
@@ -1786,9 +1780,6 @@ msgstr "DYFAIS STORIO"
 msgid "BACKUP USER DATA"
 msgstr "DATA DEFNYDDIWR WRTH GEFN"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "GOSOD BATOCERA AR DDISG NEWYDD"
-
 msgid "ADVANCED"
 msgstr "UWCH"
 
@@ -1800,6 +1791,9 @@ msgstr "GORFODI DIOGELWCH"
 
 msgid "ROOT PASSWORD"
 msgstr "CYFINAIR GWREIDDIO"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "GOFYNNIR I AILGYCHWYN Y SYSTEM I GADARNHAU'R FFURFWEDD NEWYDD"
 
 msgid "LATENCY REDUCTION"
 msgstr "LLEIHAU HWYRNI"
@@ -1838,6 +1832,9 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1918,6 +1915,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "SAIB AR SGRIN CYFIEITHU"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "AWTO-TRAWSWEDDU RHEOLYDDION"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1933,7 +1933,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1942,10 +1942,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2185,9 +2182,6 @@ msgstr "LANSIO ARBEDYDD SGRIN"
 msgid "VIEW USER'S MANUAL"
 msgstr "GWELD LLAWLYFR Y DEFNYDDIWR"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "GWELD LLAWLYFR BATOCERA"
-
 msgid "RESTART SYSTEM"
 msgstr "AILGYCHWYN SYSTEM"
 
@@ -2247,9 +2241,6 @@ msgstr "OCHR WRTH OCHR"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "CYDRANIAD MEWNOL"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "AWTO-TRAWSWEDDU RHEOLYDDION"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2396,6 +2387,9 @@ msgstr "Ciosg"
 
 msgid "Kid"
 msgstr "Plant"
+
+msgid "Basic"
+msgstr ""
 
 msgid "Released"
 msgstr "Rhyddhawyd"
@@ -2874,6 +2868,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "DIWEDDARU BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "GOSOD BATOCERA"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "TRAWSWEDDU AWTOMATIG RHEOLYDDION EFELYCHWYR"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "GOSOD BATOCERA AR DDISG NEWYDD"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "GWELD LLAWLYFR BATOCERA"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "DEFNYDDIO FFRAMAU RHEDEG-YMLAEN"
