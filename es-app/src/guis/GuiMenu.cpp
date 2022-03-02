@@ -647,7 +647,21 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
          });
 #endif
 
-    dangerZone->addEntry(_("BACKUP EMUELEC CONFIGS"), true, [mWindow] { 
+    dangerZone->addEntry(_("CLOUD BACKUP SETTINGS AND GAME SAVES"), true, [mWindow] { 
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nThis will backup your game saves, savestates and emuelec configs to the cloud service configured on rclone.conf\n\nBACKUP TO CLOUD AND RESTART?"), _("YES"),
+				[] { 
+				runSystemCommand("systemd-run /usr/bin/emuelec-utils ee_cloud_backup backup", "", nullptr);
+				}, _("NO"), nullptr));
+     });
+
+    dangerZone->addEntry(_("CLOUD RESTORE SETTINGS AND GAME SAVES"), true, [mWindow] { 
+    mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nThis will restore your game saves, savestates and emuelec configs from the cloud service configured on rclone.conf, it will overwrite any existing file!!\n\nRESTORE FROM CLOUD AND RESTART?"), _("YES"),
+				[] { 
+				runSystemCommand("systemd-run /usr/bin/emuelec-utils ee_cloud_backup restore", "", nullptr);
+				}, _("NO"), nullptr));
+     });
+
+    dangerZone->addEntry(_("LOCAL BACKUP EMUELEC CONFIGS"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nAFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/roms/backup/ee_backup_config.tar.gz TO SOME PLACE!\n\nBACKUP CURRENT CONFIG AND RESTART?"), _("YES"),
 				[] { 
 				runSystemCommand("systemd-run /usr/bin/emuelec-utils ee_backup backup", "", nullptr);
