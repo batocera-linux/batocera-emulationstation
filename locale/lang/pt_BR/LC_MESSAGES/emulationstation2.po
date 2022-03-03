@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -574,7 +574,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "AJUSTES DE JOGO EM REDE"
 
 msgid "ENABLE NETPLAY"
-msgstr "HABILITAR JOGOS EM REDE"
+msgstr "ATIVAR JOGOS EM REDE"
 
 msgid "NICKNAME"
 msgstr "APELIDO"
@@ -653,7 +653,7 @@ msgstr "FILTRAR JOGOS POR TEXTO"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr ""
-"ESTA FUNCIONALIDADE ESTÁ DESABILITADA ENQUANTO A PROCURA POR MÍDIAS DE JOGO "
+"ESTA FUNCIONALIDADE ESTÁ DESATIVADA ENQUANTO A PROCURA POR MÍDIAS DE JOGO "
 "ESTIVER EM EXECUÇÃO"
 
 msgid "CLOSE"
@@ -1164,7 +1164,6 @@ msgstr "CAIXA 2D"
 msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
-#, fuzzy
 msgid "FAN ART"
 msgstr "ARTE DO FÃ"
 
@@ -1657,7 +1656,7 @@ msgid "POWER SAVER MODES"
 msgstr "MODO DE ECONOMIA DE ENERGIA"
 
 msgid "DISABLED"
-msgstr "DESABILITADO"
+msgstr "DESATIVADO"
 
 msgid "DEFAULT"
 msgstr "PADRÃO"
@@ -1863,7 +1862,7 @@ msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "PADRÃO DE AJUSTES GLOBAIS"
 
 msgid "GAME ASPECT RATIO"
-msgstr "PROPORÇÃO DA TELA"
+msgstr "PROPORÇÃO DE ASPECTO DO JOGO"
 
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
@@ -1941,7 +1940,7 @@ msgid "SAVESTATES"
 msgstr "ESTADOS DE SALVAMENTO"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "CARREGAR/SALVAR AUTOMATICAMENTE"
+msgstr "SALVAR/CARREGAR AUTOMÁTICO"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
@@ -2822,7 +2821,7 @@ msgid "EDIT"
 msgstr "EDITAR"
 
 msgid "ENABLED"
-msgstr "HABILITADO"
+msgstr "ATIVADO"
 
 #, c-format
 msgid "%d day ago"
