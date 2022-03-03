@@ -2406,8 +2406,17 @@ msgstr "遊戲相似於"
 msgid "GAME OPTIONS"
 msgstr "遊戲設定"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "我的最愛"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"

@@ -2425,8 +2425,17 @@ msgstr "Soortgelijke spellen"
 msgid "GAME OPTIONS"
 msgstr "SPEL OPTIES"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "FAVORIET"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"

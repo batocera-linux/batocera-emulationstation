@@ -2398,8 +2398,17 @@ msgstr ""
 msgid "GAME OPTIONS"
 msgstr ""
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "FAVOURITE"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"

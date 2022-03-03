@@ -2399,8 +2399,17 @@ msgstr "Játék ami hasonló"
 msgid "GAME OPTIONS"
 msgstr "JÁTÉK BEÁLLÍTÁSOK"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "KEDVENC"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"

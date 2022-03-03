@@ -2393,8 +2393,17 @@ msgstr "다음과 비슷한 게임"
 msgid "GAME OPTIONS"
 msgstr "게임 옵션"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "즐겨찾기"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"

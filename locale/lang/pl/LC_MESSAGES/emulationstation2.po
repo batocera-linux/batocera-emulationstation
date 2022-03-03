@@ -2431,8 +2431,17 @@ msgstr "Gry podobne do"
 msgid "GAME OPTIONS"
 msgstr "OPCJE GRY"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "ULUBIONE"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"

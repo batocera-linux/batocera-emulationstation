@@ -2387,7 +2387,16 @@ msgstr ""
 msgid "GAME OPTIONS"
 msgstr "游戏设置"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
+msgstr ""
+
+msgid "RANDOM (HOLD)"
 msgstr ""
 
 msgid ""
