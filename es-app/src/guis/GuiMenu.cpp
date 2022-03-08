@@ -4018,28 +4018,31 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		}, _("NO"), nullptr));
 	}, "iconRestart");
 
-	s->addEntry(_("START RETROARCH"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY START RETROARCH?"), _("YES"),
-			[] {
-			remove("/var/lock/start.games");
-            runSystemCommand("touch /var/lock/start.retro", "", nullptr);
-			runSystemCommand("systemctl start retroarch.service", "", nullptr);
-			Scripting::fireEvent("quit", "retroarch");
-			quitES(QuitMode::QUIT);
-		}, _("NO"), nullptr));
-	}, "iconControllers");
-	
-	s->addEntry(_("REBOOT FROM NAND"), false, [window] {
-		window->pushGui(new GuiMsgBox(window, _("REALLY REBOOT FROM NAND?"), _("YES"),
-			[] {
-			Scripting::fireEvent("quit", "nand");
-			runSystemCommand("rebootfromnand", "", nullptr);
-			runSystemCommand("sync", "", nullptr);
-			runSystemCommand("systemctl reboot", "", nullptr);
-			quitES(QuitMode::QUIT);
-		}, _("NO"), nullptr));
-	}, "iconAdvanced");
-
+	bool isFullUI = UIModeController::getInstance()->isUIModeFull();
+	if (isFullUI)
+	{
+		s->addEntry(_("START RETROARCH"), false, [window] {
+			window->pushGui(new GuiMsgBox(window, _("REALLY START RETROARCH?"), _("YES"),
+				[] {
+				remove("/var/lock/start.games");
+				runSystemCommand("touch /var/lock/start.retro", "", nullptr);
+				runSystemCommand("systemctl start retroarch.service", "", nullptr);
+				Scripting::fireEvent("quit", "retroarch");
+				quitES(QuitMode::QUIT);
+			}, _("NO"), nullptr));
+		}, "iconControllers");
+		
+		s->addEntry(_("REBOOT FROM NAND"), false, [window] {
+			window->pushGui(new GuiMsgBox(window, _("REALLY REBOOT FROM NAND?"), _("YES"),
+				[] {
+				Scripting::fireEvent("quit", "nand");
+				runSystemCommand("rebootfromnand", "", nullptr);
+				runSystemCommand("sync", "", nullptr);
+				runSystemCommand("systemctl reboot", "", nullptr);
+				quitES(QuitMode::QUIT);
+			}, _("NO"), nullptr));
+		}, "iconAdvanced");
+	}
 #endif
 
 	if (quickAccessMenu)
