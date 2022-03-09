@@ -2429,8 +2429,17 @@ msgstr "Spel som liknar"
 msgid "GAME OPTIONS"
 msgstr "SPELALTERNATIV"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "FAVORIT"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"

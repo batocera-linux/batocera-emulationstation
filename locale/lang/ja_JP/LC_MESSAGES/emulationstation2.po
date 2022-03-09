@@ -2418,8 +2418,17 @@ msgstr "類似ゲーム→"
 msgid "GAME OPTIONS"
 msgstr "ゲーム設定"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "気に入り"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
