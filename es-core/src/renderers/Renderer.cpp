@@ -593,9 +593,9 @@ namespace Renderer
 		{
 #ifdef RENDERER_GLES_20
 			instance = new GLES20Renderer();
-#elif RENDERER_OPENGL_21
+#elif defined(RENDERER_OPENGL_21)
 			instance = new OpenGL21Renderer();
-#elif RENDERER_OPENGLES_10
+#elif defined(RENDERER_OPENGLES_10)
 			instance = new GLES10Renderer();
 #endif
 		}
