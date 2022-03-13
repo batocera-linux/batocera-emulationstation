@@ -1389,6 +1389,18 @@ msgstr "AJUSTES DEL MANDO"
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONFIGURACIÓN DE MANDOS Y DISPOSITIVOS BLUETOOTH"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
 
@@ -2432,16 +2444,16 @@ msgid "GAME OPTIONS"
 msgstr "OPCIONES DEL JUEGO"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "PARTIDAS GUARDADAS (MANTENER)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "OPCIONES DE JUEGO (MANTENER)"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
 
 msgid "RANDOM (HOLD)"
-msgstr ""
+msgstr "ALEATORIO (MANTENER)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"

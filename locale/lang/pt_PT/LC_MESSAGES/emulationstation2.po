@@ -1391,6 +1391,18 @@ msgstr "DEFINIÇÕES DO COMANDO"
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "DEFINIÇÕES COMANDOS & BLUETOOTH"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
