@@ -98,6 +98,9 @@
 #define fake_gettext_disk_internal _("INTERNAL")
 #define fake_gettext_disk_external _("ANY EXTERNAL")
 
+#define fake_gettext_resolution_max_1K  _("maximum 1920x1080")
+#define fake_gettext_resolution_max_640 _("maximum 640x480")
+
 // Windows build does not have bluetooth support, so affect the label for Windows
 #if WIN32
 #define controllers_settings_label		gettext_controllers_settings
@@ -1751,7 +1754,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 				vname += tokens.at(i);
 			}
 
-			item->add(vname, tokens.at(0), storedValue == tokens.at(0));
+			item->add(_(vname.c_str()), tokens.at(0), storedValue == tokens.at(0));
 		}
 	}
 	else
@@ -4057,7 +4060,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolution
 			vname += tokens.at(i);
 		}
 
-		videoResolutionMode_choice->add(vname, tokens.at(0), currentVideoMode == tokens.at(0));
+		videoResolutionMode_choice->add(_(vname.c_str()), tokens.at(0), currentVideoMode == tokens.at(0));
 	}
 
 	if (!videoResolutionMode_choice->hasSelection())
