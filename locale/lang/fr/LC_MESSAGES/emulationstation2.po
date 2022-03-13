@@ -2472,6 +2472,9 @@ msgstr "Chargement de la configuration système..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Collections"
 

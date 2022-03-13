@@ -2450,6 +2450,9 @@ msgstr "正在載入系統設定..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在儲存中繼資料。請稍後..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "合輯"
 

@@ -2445,6 +2445,9 @@ msgstr "Rendszer konfiguráció betöltése..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METAADAT MENTÉSE. VÁRJ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Gyűjtemények"
 

@@ -2445,6 +2445,9 @@ msgstr "Завантаження системних налаштувань..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr ""
 

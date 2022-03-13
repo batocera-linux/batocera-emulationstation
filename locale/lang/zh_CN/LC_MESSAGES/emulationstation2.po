@@ -2431,6 +2431,9 @@ msgstr "正在载入系统配置..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在保存游戏数据。请稍候..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "所有游戏"
 

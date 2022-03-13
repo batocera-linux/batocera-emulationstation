@@ -2447,6 +2447,9 @@ msgstr "Sistem yapılandırması yükleniyor..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Koleksiyonlar"
 

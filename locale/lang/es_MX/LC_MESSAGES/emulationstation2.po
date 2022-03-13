@@ -2446,6 +2446,9 @@ msgstr "Cargando la configuración del sistema..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "GUARDANDO METADATOS. POR FAVOR ESPERE..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Colecciones"
 

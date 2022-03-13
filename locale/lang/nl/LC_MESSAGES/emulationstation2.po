@@ -2471,6 +2471,9 @@ msgstr "Systeem config laden..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATAS OPSLAAN. WACHTEN ALSTUBLIEFT..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Collecties"
 

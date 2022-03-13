@@ -2461,6 +2461,9 @@ msgstr "Llwytho system ffurfweddu..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Casgliadau"
 

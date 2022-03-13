@@ -2476,6 +2476,9 @@ msgstr "Lade System Konfiguration."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SICHERE METADATEN. BITTE WARTEN..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Sammlungen"
 

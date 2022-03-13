@@ -2444,6 +2444,9 @@ msgstr "Cargament conf. sistma..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Colleccions"
 

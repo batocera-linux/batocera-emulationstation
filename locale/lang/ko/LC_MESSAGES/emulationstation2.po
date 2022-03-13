@@ -2438,6 +2438,9 @@ msgstr "시스템 설정 불러오는 중..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "컬렉션"
 

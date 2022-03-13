@@ -2464,6 +2464,9 @@ msgstr "システム設定を読み込んでいます..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "メタ情報の保存中です。 お待ちください..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "コレクション"
 

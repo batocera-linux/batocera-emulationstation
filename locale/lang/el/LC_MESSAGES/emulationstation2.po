@@ -2444,6 +2444,9 @@ msgstr "Φόρτωση τροποποίησης συστήματος..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Συλλογές"
 

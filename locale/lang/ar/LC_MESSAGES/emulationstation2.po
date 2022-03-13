@@ -2463,6 +2463,9 @@ msgstr "جار تحميل تكوين النظام..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "جار حفظ البيانات الوصفية, الرجاء الإنتظار..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "مجموعة"
 

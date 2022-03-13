@@ -1703,7 +1703,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 			item->add(_("NONE"), "none", storedValue == "none");
 
 			for (auto shader : shaders)
-				item->add(_(Utils::String::toUpper(shader).c_str()), shader, storedValue == shader);
+			  item->add(pgettext("game_options", Utils::String::toUpper(shader).c_str()), shader, storedValue == shader);
 		}
 	}
 	else if (feat.preset == "decorations" || feat.preset == "bezel")

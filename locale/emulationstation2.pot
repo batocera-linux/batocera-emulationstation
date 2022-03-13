@@ -2441,6 +2441,9 @@ msgstr ""
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr ""
 
