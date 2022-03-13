@@ -95,6 +95,9 @@
 #define gettext_controllers_settings				_("CONTROLLER SETTINGS")
 #define gettext_controllers_and_bluetooth_settings  _("CONTROLLER & BLUETOOTH SETTINGS")
 
+#define fake_gettext_disk_internal _("INTERNAL")
+#define fake_gettext_disk_external _("ANY EXTERNAL")
+
 // Windows build does not have bluetooth support, so affect the label for Windows
 #if WIN32
 #define controllers_settings_label		gettext_controllers_settings
@@ -1400,8 +1403,6 @@ void GuiMenu::openSystemSettings()
 		auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("STORAGE DEVICE"), false);
 		for (auto it = availableStorage.begin(); it != availableStorage.end(); it++)
 		{
-			if ((*it) != "RAM")
-			{
 				if (Utils::String::startsWith(*it, "DEV"))
 				{
 					std::vector<std::string> tokens = Utils::String::split(*it, ' ');
@@ -1415,10 +1416,20 @@ void GuiMenu::openSystemSettings()
 						}
 						optionsStorage->add(vname, (*it), selectedStorage == std::string("DEV " + tokens.at(1)));
 					}
+				} else {
+				  std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+				  if (tokens.size() == 1) {
+					optionsStorage->add((*it), (*it), selectedStorage == (*it));
+				  } else {
+				    // concatenat the ending words
+				    std::string vname = "";
+				    for (unsigned int i = 1; i < tokens.size(); i++) {
+				      if (i > 1) vname += " ";
+				      vname += tokens.at(i);
+				    }
+				    optionsStorage->add(_(vname.c_str()), tokens.at(0), selectedStorage == tokens.at(0));
+				  }
 				}
-				else
-					optionsStorage->add((*it), (*it), selectedStorage == (*it));			
-			}
 		}
 
 		s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
