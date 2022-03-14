@@ -68,7 +68,7 @@ msgid "Fan art"
 msgstr "Fã-arte"
 
 msgid "enter path to fanart"
-msgstr "insira o caminho do diretório para a arte do fã"
+msgstr "insira o caminho do diretório para a arte do fã-arte"
 
 msgid "Title shot"
 msgstr "Imagem da tela inicial"
@@ -1162,7 +1162,7 @@ msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
 msgid "FAN ART"
-msgstr "ARTE DO FÃ"
+msgstr "FÃ-ARTE"
 
 msgid "BOX SOURCE"
 msgstr "FONTE DA MÍDIA DA CAIXA"
@@ -1186,7 +1186,7 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTER MÍDIAS DOS VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr "OBTER MÍDIAS ARTE DO FÃ"
+msgstr "OBTER MÍDIAS DE FÃ-ARTE"
 
 msgid "SCRAPE BEZEL (16:9)"
 msgstr "OBTER MÍDIAS DE MOLDURA (16:9)"
@@ -1225,10 +1225,10 @@ msgid "ALL"
 msgstr "TODOS"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr "JOGOS FALTANDO QUALQUER MÍDIA"
+msgstr "FALTANDO QUALQUER MÍDIA"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr "JOGOS FALTANDO TODAS AS MÍDIA"
+msgstr "FALTANDO TODAS AS MÍDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JOGOS COM MÍDIAS RECENTES"
@@ -1392,16 +1392,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTES DE CONTROLES & BLUETOOTH"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "INTERNO"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "QUALQUER EXTERNO"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "máximo 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "máximo 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -2493,7 +2493,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SALVANDO INFORMAÇÕES. POR FAVOR, AGUARDE..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "VOCÊ QUER TROCAR DE TELA?"
 
 msgid "Collections"
 msgstr "Coleções"
