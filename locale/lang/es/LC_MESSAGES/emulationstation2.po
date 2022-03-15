@@ -1390,16 +1390,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONFIGURACIÓN DE MANDOS Y DISPOSITIVOS BLUETOOTH"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "INTERNO"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "CUALQUIER EXTERNO"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "máximo 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "máximo 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -2236,7 +2236,7 @@ msgid "Shutdown without saving metadata."
 msgstr "Apaga el sistema sin guardar metadatos."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
+msgstr "¿QUIERES APAGAR SIN GUARDAR METADATOS?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "SALIR DE EMULATIONSTATION"
@@ -2490,7 +2490,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "GUARDANDO METADATOS. POR FAVOR ESPERE..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "¿QUIERES CAMBIAR LA PANTALLA?"
 
 msgid "Collections"
 msgstr "Colecciones"
