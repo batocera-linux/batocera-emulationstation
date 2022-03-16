@@ -36,8 +36,17 @@ static std::map<std::string, std::string> defaults =
 	{ "wifi.enabled", "0" },
 #ifdef _ENABLEEMUELEC
 	{ "system.hostname", "EMUELEC" },
+
 	{ "advmame_joy_remap", "1" },
-    { "global.retroachievements.encore", "0" },
+	{ "dolphin_joy_remap", "1" },
+	{ "flycast_joy_remap", "1" },
+	{ "mupen64plus_joy_remap", "1" },
+	{ "advmame_joy_cache", "1" },
+	{ "dolphin_joy_cache", "1" },
+	{ "flycast_joy_cache", "1" },
+	{ "mupen64plus_joy_cache", "1" },
+
+	{ "global.retroachievements.encore", "0" },
 #else
 	{ "system.hostname", "BATOCERA" }, // batocera
 #endif

@@ -505,16 +505,19 @@ void GuiMenu::openEmuELECSettings()
 
 	s->addInputTextRow(_("DEFAULT YOUTUBE SEARCH WORD"), "youtube.searchword", false);
 
-	auto enable_advmamegp = std::make_shared<SwitchComponent>(mWindow);
-	bool advgpEnabled = SystemConf::getInstance()->get("advmame_auto_gamepad") == "1";
-	enable_advmamegp->setState(advgpEnabled);
-	s->addWithLabel(_("AUTO CONFIG ADVANCEMAME GAMEPAD"), enable_advmamegp);
-	
-	s->addSaveFunc([enable_advmamegp, window] {
-		bool advmamegpenabled = enable_advmamegp->getState();
-		SystemConf::getInstance()->set("advmame_auto_gamepad", advmamegpenabled ? "1" : "0");
-		SystemConf::getInstance()->saveSystemConf();
+#ifdef _ENABLEEMUELEC
+	auto theme = ThemeData::getMenuTheme();
+
+	ComponentListRow row;
+
+	auto createText = std::make_shared<TextComponent>(window, _("GAMEPAD CONFIG"), theme->Text.font, theme->Text.color);
+	row.addElement(createText, true);
+	row.makeAcceptInputHandler([window, s, createText]
+	{
+		GuiMenu::createGamepadConfig(window, s);
 	});
+	s->addRow(row);
+#endif
 
 		auto emuelec_retroarch_menu_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "RETROARCH MENU", false);
 		std::vector<std::string> ramenuoptions;
@@ -550,6 +553,109 @@ if (UIModeController::getInstance()->isUIModeFull())
 
     mWindow->pushGui(s);
 }
+
+#ifdef _ENABLEEMUELEC
+
+void GuiMenu::createGamepadConfig(Window* window, GuiSettings* systemConfiguration)
+{
+	GuiSettings* gamepadConfiguration = new GuiSettings(window, _("GAMEPAD CONFIG"));
+
+	// Advmame Gamepad
+	auto enable_advmamegp = std::make_shared<SwitchComponent>(window);
+	bool advgpEnabled = SystemConf::getInstance()->get("advmame_auto_gamepad") == "1";
+	enable_advmamegp->setState(advgpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG ADVANCEMAME GAMEPAD"), enable_advmamegp);
+
+	gamepadConfiguration->addSaveFunc([enable_advmamegp, window] {
+		bool advmamegpenabled = enable_advmamegp->getState();
+		SystemConf::getInstance()->set("advmame_auto_gamepad", advmamegpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	auto enable_advmamecachegp = std::make_shared<SwitchComponent>(window);
+	bool advmamecachegpEnabled = SystemConf::getInstance()->get("advmame_joy_cache") == "1";
+	enable_advmamecachegp->setState(advmamecachegpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG ADVANCEMAME GAMEPAD CACHE"), enable_advmamecachegp);
+
+	gamepadConfiguration->addSaveFunc([enable_advmamecachegp, window] {
+		bool advmamecachegpenabled = enable_advmamecachegp->getState();
+		SystemConf::getInstance()->set("advmame_joy_cache", advmamecachegpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	// Flycast Gamepad
+	auto enable_flycastgp = std::make_shared<SwitchComponent>(window);
+	bool flycastgpEnabled = SystemConf::getInstance()->get("flycast_auto_gamepad") == "1";
+	enable_flycastgp->setState(flycastgpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG FLYCAST GAMEPAD"), enable_flycastgp);
+
+	gamepadConfiguration->addSaveFunc([enable_flycastgp, window] {
+		bool flycastgpenabled = enable_flycastgp->getState();
+		SystemConf::getInstance()->set("flycast_auto_gamepad", flycastgpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	auto enable_flycastcachegp = std::make_shared<SwitchComponent>(window);
+	bool flycastcachegpEnabled = SystemConf::getInstance()->get("flycast_joy_cache") == "1";
+	enable_flycastcachegp->setState(flycastcachegpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG FLYCAST GAMEPAD CACHE"), enable_flycastcachegp);
+
+	gamepadConfiguration->addSaveFunc([enable_flycastcachegp, window] {
+		bool flycastcachegpenabled = enable_flycastcachegp->getState();
+		SystemConf::getInstance()->set("flycast_joy_cache", flycastcachegpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	// Dolphin Gamepad
+	auto enable_dolphingp = std::make_shared<SwitchComponent>(window);
+	bool dolphingpEnabled = SystemConf::getInstance()->get("dolphin_auto_gamepad") == "1";
+	enable_dolphingp->setState(dolphingpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG DOLPHIN GAMEPAD"), enable_dolphingp);
+
+	gamepadConfiguration->addSaveFunc([enable_dolphingp, window] {
+		bool dolphingpenabled = enable_dolphingp->getState();
+		SystemConf::getInstance()->set("dolphin_auto_gamepad", dolphingpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	auto enable_dolphincachegp = std::make_shared<SwitchComponent>(window);
+	bool dolphincachegpEnabled = SystemConf::getInstance()->get("dolphin_joy_cache") == "1";
+	enable_dolphincachegp->setState(dolphincachegpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG DOLPHIN GAMEPAD CACHE"), enable_dolphincachegp);
+
+	gamepadConfiguration->addSaveFunc([enable_dolphincachegp, window] {
+		bool dolphincachegpenabled = enable_dolphincachegp->getState();
+		SystemConf::getInstance()->set("dolphin_joy_cache", dolphincachegpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	// Mupen64Plus Gamepad
+	auto enable_mupen64plusgp = std::make_shared<SwitchComponent>(window);
+	bool mupen64plusgpEnabled = SystemConf::getInstance()->get("mupen64plus_auto_gamepad") == "1";
+	enable_mupen64plusgp->setState(mupen64plusgpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG MUPEN64PLUS GAMEPAD"), enable_mupen64plusgp);
+
+	gamepadConfiguration->addSaveFunc([enable_mupen64plusgp, window] {
+		bool mupen64plusgpenabled = enable_mupen64plusgp->getState();
+		SystemConf::getInstance()->set("mupen64plus_auto_gamepad", mupen64plusgpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	auto enable_mupen64pluscachegp = std::make_shared<SwitchComponent>(window);
+	bool mupen64pluscachegpEnabled = SystemConf::getInstance()->get("mupen64plus_joy_cache") == "1";
+	enable_mupen64pluscachegp->setState(mupen64pluscachegpEnabled);
+	gamepadConfiguration->addWithLabel(_("AUTO CONFIG MUPEN64PLUS GAMEPAD CACHE"), enable_mupen64pluscachegp);
+
+	gamepadConfiguration->addSaveFunc([enable_mupen64pluscachegp, window] {
+		bool mupen64pluscachegpenabled = enable_mupen64pluscachegp->getState();
+		SystemConf::getInstance()->set("mupen64plus_joy_cache", mupen64pluscachegpenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
+	window->pushGui(gamepadConfiguration);
+}
+
+#endif
 
 void GuiMenu::openExternalMounts(Window* mWindow, std::string configName)
 {
