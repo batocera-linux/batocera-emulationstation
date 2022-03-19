@@ -1390,6 +1390,18 @@ msgstr "USTAWIENIA KONTROLERÓW"
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLERY I USTAWIENIA BLUETOOTH"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
 
@@ -2431,8 +2443,17 @@ msgstr "Gry podobne do"
 msgid "GAME OPTIONS"
 msgstr "OPCJE GRY"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "ULUBIONE"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2466,6 +2487,9 @@ msgstr "Ładuję konfigurację systemową..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Kolekcje"

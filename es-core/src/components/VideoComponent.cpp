@@ -519,10 +519,14 @@ void VideoComponent::manageState()
 	{
 		// If we are not on display then stop the video from playing
 		if (!show)
-		{
+		{			
 			mIsWaitingForVideoToStart = false;
 			mStartDelayed = false;
-			stopVideo();
+
+			if (mDisable && isShowing() && !mScreensaverActive && mIsPlaying && mVisible)
+				pauseVideo();
+			else
+				stopVideo();
 		}
 		else
 		{
@@ -542,7 +546,10 @@ void VideoComponent::manageState()
 		// If we are on display then see if we should start the video
 		if (show && !mVideoPath.empty())
 		{
-			startVideoWithDelay();
+			if (isPaused())
+				resumeVideo();
+			else
+				startVideoWithDelay();
 		}
 	}
 }

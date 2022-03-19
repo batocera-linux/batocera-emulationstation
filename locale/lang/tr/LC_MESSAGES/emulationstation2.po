@@ -1382,6 +1382,18 @@ msgstr ""
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KUMANDA AYARLARI"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
 
@@ -2401,8 +2413,17 @@ msgstr "Oyunlar benzeşiyor"
 msgid "GAME OPTIONS"
 msgstr "OYUN AYARLARI"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "FAVORİ"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2437,6 +2458,9 @@ msgstr "Sistem yapılandırması yükleniyor..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Koleksiyonlar"

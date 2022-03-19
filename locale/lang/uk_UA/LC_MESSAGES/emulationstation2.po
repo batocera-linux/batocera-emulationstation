@@ -1384,6 +1384,18 @@ msgstr ""
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "НАЛАШТУВАННЯ КОНТРОЛЕРІВ"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "ГОЛОВНЕ МЕНЮ"
 
@@ -2401,7 +2413,16 @@ msgstr ""
 msgid "GAME OPTIONS"
 msgstr "ОПЦІЇ ГРИ"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
+msgstr ""
+
+msgid "RANDOM (HOLD)"
 msgstr ""
 
 msgid ""
@@ -2435,6 +2456,9 @@ msgstr "Завантаження системних налаштувань..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr ""

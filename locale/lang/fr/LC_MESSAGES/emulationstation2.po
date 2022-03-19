@@ -1387,6 +1387,18 @@ msgstr "PARAMÈTRES DES MANETTES"
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "PARAMÈTRES DES MANETTES ET BLUETOOTH"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
@@ -2426,8 +2438,17 @@ msgstr "Jeux similaires à"
 msgid "GAME OPTIONS"
 msgstr "OPTIONS DU JEU"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "FAVORIS"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2462,6 +2483,9 @@ msgstr "Chargement de la configuration système..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Collections"

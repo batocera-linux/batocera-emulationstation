@@ -1389,6 +1389,18 @@ msgstr "KONTROLLERINSTÄLLNINGAR"
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLLER- & BLUETOOTH-INSTÄLLNINGAR"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
 
@@ -2429,8 +2441,17 @@ msgstr "Spel som liknar"
 msgid "GAME OPTIONS"
 msgstr "SPELALTERNATIV"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "FAVORIT"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2465,6 +2486,9 @@ msgstr "Laddar systemkonfiguration..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SPARAR METADATA. VÄNTA..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Samlingar"

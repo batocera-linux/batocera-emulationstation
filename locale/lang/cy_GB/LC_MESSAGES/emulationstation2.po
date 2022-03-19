@@ -1387,6 +1387,18 @@ msgstr ""
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "GOSODIADAU RHEOLYDDION"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "PRIF DDEWISLEN"
 
@@ -2416,7 +2428,16 @@ msgstr "Gemau tebyg i"
 msgid "GAME OPTIONS"
 msgstr "OPSIYNAU GÊM"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
+msgstr ""
+
+msgid "RANDOM (HOLD)"
 msgstr ""
 
 msgid ""
@@ -2451,6 +2472,9 @@ msgstr "Llwytho system ffurfweddu..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Casgliadau"

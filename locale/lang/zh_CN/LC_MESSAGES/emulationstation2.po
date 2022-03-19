@@ -1378,6 +1378,18 @@ msgstr ""
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "控制器设置"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "主菜单"
 
@@ -2387,7 +2399,16 @@ msgstr ""
 msgid "GAME OPTIONS"
 msgstr "游戏设置"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
+msgstr ""
+
+msgid "RANDOM (HOLD)"
 msgstr ""
 
 msgid ""
@@ -2421,6 +2442,9 @@ msgstr "正在载入系统配置..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在保存游戏数据。请稍候..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "所有游戏"

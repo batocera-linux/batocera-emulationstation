@@ -1377,6 +1377,18 @@ msgstr ""
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLL INSTILLINGER"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "HOVED MENY"
 
@@ -2390,7 +2402,16 @@ msgstr ""
 msgid "GAME OPTIONS"
 msgstr ""
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
+msgstr ""
+
+msgid "RANDOM (HOLD)"
 msgstr ""
 
 msgid ""
@@ -2423,6 +2444,9 @@ msgid "Loading system config..."
 msgstr ""
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr ""
 
 msgid "Collections"

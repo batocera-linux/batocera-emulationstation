@@ -1385,6 +1385,18 @@ msgstr "控制器設定"
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "控制器與藍牙設定"
 
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
+
 msgid "MAIN MENU"
 msgstr "主選單"
 
@@ -2406,8 +2418,17 @@ msgstr "遊戲相似於"
 msgid "GAME OPTIONS"
 msgstr "遊戲設定"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "我的最愛"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2440,6 +2461,9 @@ msgstr "正在載入系統設定..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在儲存中繼資料。請稍後..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "合輯"

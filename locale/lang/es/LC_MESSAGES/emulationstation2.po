@@ -972,7 +972,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "NO HAY ACTUALIZACIONES DISPONIBLES"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "INSTALAR EN UN NUEVO DISCO"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO DE DESTINO"
@@ -1175,7 +1175,7 @@ msgid "MARQUEE"
 msgstr "MARQUESINA"
 
 msgid "SCRAPE SHORT NAME"
-msgstr ""
+msgstr "OBTENER NOMBRE CORTO"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTENER CALIFICACIONES"
@@ -1223,10 +1223,10 @@ msgid "ALL"
 msgstr "TODOS LOS JUEGOS"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "JUEGOS CON ALGÚN MEDIO FALTANTE"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "JUEGOS SIN NINGÚN MEDIO"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JUEGOS ESCRAPEADOS RECIENTEMENTE"
@@ -1388,6 +1388,18 @@ msgstr "AJUSTES DEL MANDO"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONFIGURACIÓN DE MANDOS Y DISPOSITIVOS BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr "INTERNO"
+
+msgid "ANY EXTERNAL"
+msgstr "CUALQUIER EXTERNO"
+
+msgid "maximum 1920x1080"
+msgstr "máximo 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "máximo 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -1556,7 +1568,7 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "INVERTIR LOS BOTONES A/B EN EMULATIONSTATION"
+msgstr "INVERTIR LOS BOTONES A/B EN EMULATIONSTATION (CONF. ASIÁTICA)"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACCEDER A LAS OPCIONES DEL JUEGO CON EL BOTÓN NORTE"
@@ -1851,7 +1863,7 @@ msgid "DECORATION SET"
 msgstr "SET DE DECORACIONES"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Configuración actual"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "AJUSTES GLOBALES POR DEFECTO"
@@ -1929,7 +1941,7 @@ msgid "AI TRANSLATION SERVICE URL"
 msgstr "URL DEL SERVICIO DE TRADUCCIÓN POR IA"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr "PAUSA EN LA PANTALLA TRADUCIDA"
+msgstr "PAUSAR EN LA PANTALLA TRADUCIDA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURAR MANDOS"
@@ -1959,7 +1971,7 @@ msgid "IF NOT EMPTY"
 msgstr "SI HAY PARTIDAS GUARDADAS"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "Enseñar el gestor de partidas guardadas antes de iniciar un juego."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
@@ -2224,7 +2236,7 @@ msgid "Shutdown without saving metadata."
 msgstr "Apaga el sistema sin guardar metadatos."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "¿DESEAS APAGAR SIN GUARDAR METADATOS?"
+msgstr "¿QUIERES APAGAR SIN GUARDAR METADATOS?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "SALIR DE EMULATIONSTATION"
@@ -2242,7 +2254,7 @@ msgid "CUSTOM .PNG IMAGE"
 msgstr "IMAGEN .PNG PERSONALIZADA"
 
 msgid "OVERLAY CORNER"
-msgstr "ESQUINAS DE LA SUPERPOSICIÓN"
+msgstr "ESQUINA DE LA SUPERPOSICIÓN"
 
 msgid "COLORIZATION"
 msgstr "COLORIZACIÓN"
@@ -2408,7 +2420,7 @@ msgid "Kid"
 msgstr "Para niños"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 msgid "Released"
 msgstr "Lanzamiento"
@@ -2431,8 +2443,17 @@ msgstr "Juegos similares a"
 msgid "GAME OPTIONS"
 msgstr "OPCIONES DEL JUEGO"
 
+msgid "SAVE STATES (HOLD)"
+msgstr "PARTIDAS GUARDADAS (MANTENER)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "OPCIONES DE JUEGO (MANTENER)"
+
 msgid "FAVORITE"
 msgstr "FAVORITO"
+
+msgid "RANDOM (HOLD)"
+msgstr "ALEATORIO (MANTENER)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2467,6 +2488,9 @@ msgstr "Cargando la configuración del sistema..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "GUARDANDO METADATOS. POR FAVOR ESPERE..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "¿QUIERES CAMBIAR LA PANTALLA?"
 
 msgid "Collections"
 msgstr "Colecciones"

@@ -95,6 +95,12 @@
 #define gettext_controllers_settings				_("CONTROLLER SETTINGS")
 #define gettext_controllers_and_bluetooth_settings  _("CONTROLLER & BLUETOOTH SETTINGS")
 
+#define fake_gettext_disk_internal _("INTERNAL")
+#define fake_gettext_disk_external _("ANY EXTERNAL")
+
+#define fake_gettext_resolution_max_1K  _("maximum 1920x1080")
+#define fake_gettext_resolution_max_640 _("maximum 640x480")
+
 // Windows build does not have bluetooth support, so affect the label for Windows
 #if WIN32
 #define controllers_settings_label		gettext_controllers_settings
@@ -1400,8 +1406,6 @@ void GuiMenu::openSystemSettings()
 		auto optionsStorage = std::make_shared<OptionListComponent<std::string> >(window, _("STORAGE DEVICE"), false);
 		for (auto it = availableStorage.begin(); it != availableStorage.end(); it++)
 		{
-			if ((*it) != "RAM")
-			{
 				if (Utils::String::startsWith(*it, "DEV"))
 				{
 					std::vector<std::string> tokens = Utils::String::split(*it, ' ');
@@ -1415,10 +1419,20 @@ void GuiMenu::openSystemSettings()
 						}
 						optionsStorage->add(vname, (*it), selectedStorage == std::string("DEV " + tokens.at(1)));
 					}
+				} else {
+				  std::vector<std::string> tokens = Utils::String::split(*it, ' ');
+				  if (tokens.size() == 1) {
+					optionsStorage->add((*it), (*it), selectedStorage == (*it));
+				  } else {
+				    // concatenat the ending words
+				    std::string vname = "";
+				    for (unsigned int i = 1; i < tokens.size(); i++) {
+				      if (i > 1) vname += " ";
+				      vname += tokens.at(i);
+				    }
+				    optionsStorage->add(_(vname.c_str()), tokens.at(0), selectedStorage == tokens.at(0));
+				  }
 				}
-				else
-					optionsStorage->add((*it), (*it), selectedStorage == (*it));			
-			}
 		}
 
 		s->addWithLabel(_("STORAGE DEVICE"), optionsStorage);
@@ -1703,7 +1717,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 			item->add(_("NONE"), "none", storedValue == "none");
 
 			for (auto shader : shaders)
-				item->add(_(Utils::String::toUpper(shader).c_str()), shader, storedValue == shader);
+			  item->add(pgettext("game_options", Utils::String::toUpper(shader).c_str()), shader, storedValue == shader);
 		}
 	}
 	else if (feat.preset == "decorations" || feat.preset == "bezel")
@@ -1740,7 +1754,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 				vname += tokens.at(i);
 			}
 
-			item->add(vname, tokens.at(0), storedValue == tokens.at(0));
+			item->add(_(vname.c_str()), tokens.at(0), storedValue == tokens.at(0));
 		}
 	}
 	else
@@ -4046,7 +4060,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolution
 			vname += tokens.at(i);
 		}
 
-		videoResolutionMode_choice->add(vname, tokens.at(0), currentVideoMode == tokens.at(0));
+		videoResolutionMode_choice->add(_(vname.c_str()), tokens.at(0), currentVideoMode == tokens.at(0));
 	}
 
 	if (!videoResolutionMode_choice->hasSelection())
