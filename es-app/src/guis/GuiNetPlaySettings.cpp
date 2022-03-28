@@ -14,11 +14,11 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window) : GuiSettings(window, _("
 
 	auto enableNetplay = std::make_shared<SwitchComponent>(mWindow);
 	enableNetplay->setState(SystemConf::getInstance()->getBool("global.netplay"));
-	addWithLabel(_("ENABLE NETPLAY"), enableNetplay);
+	addWithDescription(_("ENABLE NETPLAY"), _("Changes North button on system list to Netplay."), enableNetplay);
 	addInputTextRow(_("NICKNAME"), "global.netplay.nickname", false);
 	addInputTextRow(_("PORT"), "global.netplay.port", false);
 	addOptionList(_("USE RELAY SERVER"), { { _("NONE"), "" },{ _("NEW YORK") , "nyc" },{ _("MADRID") , "madrid" },{ _("MONTREAL") , "montreal" },{ _("SAO PAULO") , "saopaulo" } }, "global.netplay.relay", false);
-	addSwitch(_("SHOW UNAVAILABLE GAMES"), "NetPlayShowMissingGames", true);
+	addSwitch(_("SHOW UNAVAILABLE GAMES"), _("Show lobbies for games not present on this machine."), "NetPlayShowMissingGames", true, nullptr);
 
 	addGroup(_("GAME INDEXES"));
 
