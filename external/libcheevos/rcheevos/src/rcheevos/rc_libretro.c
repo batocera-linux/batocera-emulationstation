@@ -31,8 +31,18 @@ static const rc_disallowed_setting_t _rc_disallowed_bsnes_settings[] = {
   { NULL, NULL }
 };
 
+static const rc_disallowed_setting_t _rc_disallowed_cap32_settings[] = {
+  { "cap32_autorun", "disabled" },
+  { NULL, NULL }
+};
+
 static const rc_disallowed_setting_t _rc_disallowed_dolphin_settings[] = {
   { "dolphin_cheats_enabled", "enabled" },
+  { NULL, NULL }
+};
+
+static const rc_disallowed_setting_t _rc_disallowed_duckstation_settings[] = {
+  { "duckstation_CDROM.LoadImagePatches", "true" },
   { NULL, NULL }
 };
 
@@ -44,6 +54,8 @@ static const rc_disallowed_setting_t _rc_disallowed_ecwolf_settings[] = {
 static const rc_disallowed_setting_t _rc_disallowed_fbneo_settings[] = {
   { "fbneo-allow-patched-romsets", "enabled" },
   { "fbneo-cheat-*", "!,Disabled,0 - Disabled" },
+  { "fbneo-dipswitch-*", "Universe BIOS*" },
+  { "fbneo-neogeo-mode", "UNIBIOS" },
   { NULL, NULL }
 };
 
@@ -95,6 +107,9 @@ static const rc_disallowed_setting_t _rc_disallowed_smsplus_settings[] = {
 };
 
 static const rc_disallowed_setting_t _rc_disallowed_snes9x_settings[] = {
+  { "snes9x_gfx_clip", "disabled" },
+  { "snes9x_gfx_transp", "disabled" },
+  { "snes9x_layer_*", "disabled" },
   { "snes9x_region", "pal" },
   { NULL, NULL }
 };
@@ -106,7 +121,9 @@ static const rc_disallowed_setting_t _rc_disallowed_virtual_jaguar_settings[] = 
 
 static const rc_disallowed_core_settings_t rc_disallowed_core_settings[] = {
   { "bsnes-mercury", _rc_disallowed_bsnes_settings },
+  { "cap32", _rc_disallowed_cap32_settings },
   { "dolphin-emu", _rc_disallowed_dolphin_settings },
+  { "DuckStation", _rc_disallowed_duckstation_settings },
   { "ecwolf", _rc_disallowed_ecwolf_settings },
   { "FCEUmm", _rc_disallowed_fceumm_settings },
   { "FinalBurn Neo", _rc_disallowed_fbneo_settings },
@@ -123,10 +140,11 @@ static const rc_disallowed_core_settings_t rc_disallowed_core_settings[] = {
   { NULL, NULL }
 };
 
-static int rc_libretro_string_equal_nocase(const char* test, const char* value) {
-  while (*test) {
-    if (tolower(*test++) != tolower(*value++))
-      return 0;
+static int rc_libretro_string_equal_nocase_wildcard(const char* test, const char* value) {
+  char c1, c2;
+  while ((c1 = *test++)) {
+    if (tolower(c1) != tolower(c2 = *value++))
+      return (c2 == '*');
   }
 
   return (*value == '\0');
@@ -151,7 +169,7 @@ static int rc_libretro_match_value(const char* val, const char* match) {
           char buffer[128];
           memcpy(buffer, ptr, size);
           buffer[size] = '\0';
-          if (rc_libretro_string_equal_nocase(buffer, val))
+          if (rc_libretro_string_equal_nocase_wildcard(buffer, val))
             return 1;
         }
       }
@@ -165,7 +183,7 @@ static int rc_libretro_match_value(const char* val, const char* match) {
     return !rc_libretro_match_value(val, &match[1]);
 
   /* just a single value, attempt to match it */
-  return rc_libretro_string_equal_nocase(val, match);
+  return rc_libretro_string_equal_nocase_wildcard(val, match);
 }
 
 int rc_libretro_is_setting_allowed(const rc_disallowed_setting_t* disallowed_settings, const char* setting, const char* value) {
@@ -325,11 +343,24 @@ static const struct retro_memory_descriptor* rc_libretro_memory_get_descriptor(c
       /* otherwise, attempt to match the address by matching the select bits */
       /* address is in the block if (addr & select) == (start & select) */
       if (((desc->start ^ real_address) & desc->select) == 0) {
-        /* calculate the offset within the descriptor, removing any disconnected bits */
-        *offset = (real_address & ~desc->disconnect) - desc->start;
+        /* get the relative offset of the address from the start of the memory block */
+        unsigned reduced_address = real_address - (unsigned)desc->start;
+
+        /* remove any bits from the reduced_address that correspond to the bits in the disconnect
+         * mask and collapse the remaining bits. this code was copied from the mmap_reduce function
+         * in RetroArch. i'm not exactly sure how it works, but it does. */
+        unsigned disconnect_mask = (unsigned)desc->disconnect;
+        while (disconnect_mask) {
+          const unsigned tmp = (disconnect_mask - 1) & ~disconnect_mask;
+          reduced_address = (reduced_address & tmp) | ((reduced_address >> 1) & ~tmp);
+          disconnect_mask = (disconnect_mask & (disconnect_mask - 1)) >> 1;
+        }
+
+        /* calculate the offset within the descriptor */
+        *offset = reduced_address;
 
         /* sanity check - make sure the descriptor is large enough to hold the target address */
-        if (*offset < desc->len)
+        if (reduced_address < desc->len)
           return desc;
       }
     }
@@ -352,6 +383,7 @@ static void rc_libretro_memory_init_from_memory_map(rc_libretro_memory_regions_t
     const rc_memory_region_t* console_region = &console_regions->region[i];
     size_t console_region_size = console_region->end_address - console_region->start_address + 1;
     unsigned real_address = console_region->real_address;
+    unsigned disconnect_size = 0;
 
     while (console_region_size > 0) {
       const struct retro_memory_descriptor* desc = rc_libretro_memory_get_descriptor(mmap, real_address, &offset);
@@ -360,6 +392,14 @@ static void rc_libretro_memory_init_from_memory_map(rc_libretro_memory_regions_t
           snprintf(description, sizeof(description), "Could not map region starting at $%06X",
                    real_address - console_region->real_address + console_region->start_address);
           rc_libretro_verbose(description);
+        }
+
+        if (disconnect_size && console_region_size > disconnect_size) {
+          rc_libretro_memory_register_region(regions, console_region->type, NULL, disconnect_size, "null filler");
+          console_region_size -= disconnect_size;
+          real_address += disconnect_size;
+          disconnect_size = 0;
+          continue;
         }
 
         rc_libretro_memory_register_region(regions, console_region->type, NULL, console_region_size, "null filler");
@@ -378,6 +418,13 @@ static void rc_libretro_memory_init_from_memory_map(rc_libretro_memory_regions_t
       }
 
       desc_size = desc->len - offset;
+      if (desc->disconnect && desc_size > desc->disconnect) {
+        /* if we need to extract a disconnect bit, the largest block we can read is up to
+         * the next time that bit flips */
+        /* https://stackoverflow.com/questions/12247186/find-the-lowest-set-bit */
+        disconnect_size = (desc->disconnect & -((int)desc->disconnect));
+        desc_size = disconnect_size - (real_address & (disconnect_size - 1));
+      }
 
       if (console_region_size > desc_size) {
         if (desc_size == 0) {

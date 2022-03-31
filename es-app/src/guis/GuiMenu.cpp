@@ -939,8 +939,8 @@ void GuiMenu::openSystemSettings()
 	language_choice->add("NORWEGIAN",            "nn_NO", language == "nn_NO");
 	language_choice->add("OCCITAN",              "oc_FR", language == "oc_FR");
 	language_choice->add("POLISH",               "pl_PL", language == "pl_PL");
-	language_choice->add("PORTUGUES BRASILEIRO", "pt_BR", language == "pt_BR");
-	language_choice->add("PORTUGUES PORTUGAL",   "pt_PT", language == "pt_PT");
+	language_choice->add("PORTUGUÊS BRASILEIRO", "pt_BR", language == "pt_BR");
+	language_choice->add("PORTUGUÊS PORTUGAL",   "pt_PT", language == "pt_PT");
 	language_choice->add("РУССКИЙ",              "ru_RU", language == "ru_RU");
 	language_choice->add("SVENSKA", 	     "sv_SE", language == "sv_SE");
 	language_choice->add("TÜRKÇE",  	     "tr_TR", language == "tr_TR");
@@ -2041,7 +2041,7 @@ void GuiMenu::openGamesSettings()
 				currentLang = std::string("En");
 			lang_choices->add("ENGLISH", "En", currentLang == "En");
 			lang_choices->add("FRANÇAIS", "Fr", currentLang == "Fr");
-			lang_choices->add("PORTUGUES", "Pt", currentLang == "Pt");
+			lang_choices->add("PORTUGUÊS", "Pt", currentLang == "Pt");
 			lang_choices->add("DEUTSCH", "De", currentLang == "De");
 			lang_choices->add("GREEK", "El", currentLang == "El");
 			lang_choices->add("ESPAÑOL", "Es", currentLang == "Es");
