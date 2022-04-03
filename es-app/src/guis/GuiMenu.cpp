@@ -4749,9 +4749,46 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	{
 		auto videoNativeResolutionMode_choice = createNativeVideoResolutionModeOptionList(mWindow, configName);
 		systemConfiguration->addWithLabel(_("NATIVE VIDEO"), videoNativeResolutionMode_choice);
-		systemConfiguration->addSaveFunc([configName, videoNativeResolutionMode_choice] {
+
+		const std::function<void()> video_changed([mWindow, configName, videoNativeResolutionMode_choice] {
+
+			std::string def_video;
+			std::string video_choice = videoNativeResolutionMode_choice->getSelected();
+			bool safe_video = false;
+
+			if (video_choice == "auto")
+				safe_video = true;
+			else {
+				for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, def_video, ','); ) {
+					if (video_choice == def_video) {
+						safe_video = true;
+						break;
+					}
+				}
+			}
+
+			const std::function<void()> saveFunc([configName, videoNativeResolutionMode_choice] {
 				SystemConf::getInstance()->set(configName + ".nativevideo", videoNativeResolutionMode_choice->getSelected());
+				SystemConf::getInstance()->saveSystemConf();				
+			});
+
+			const std::function<void()> abortFunc([configName, videoNativeResolutionMode_choice] {
+				videoNativeResolutionMode_choice->selectFirstItem();
+				SystemConf::getInstance()->set(configName + ".nativevideo", "");
 				SystemConf::getInstance()->saveSystemConf();
+			});
+
+			if (!safe_video) {
+				mWindow->pushGui(new GuiMsgBox(mWindow,  video_choice + _(" UNSAFE RESOLUTION DETECTED, CONTINUE?"),
+					_("YES"), saveFunc, _("NO"), abortFunc));
+			}
+			else {
+				saveFunc();
+			}
+		});
+
+		systemConfiguration->addSaveFunc([mWindow, video_changed] {
+			video_changed();
 		});
 	}
 
