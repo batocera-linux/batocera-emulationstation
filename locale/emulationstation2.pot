@@ -953,7 +953,7 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr ""
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgid "REBOOT TO APPLY"
 msgstr ""
 
 msgid "REALLY UPDATE?"

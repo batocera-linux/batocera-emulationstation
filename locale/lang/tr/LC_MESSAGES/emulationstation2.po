@@ -949,8 +949,8 @@ msgstr "GÜNCELLENİYOR %s"
 msgid "UPDATE IS READY"
 msgstr "GÜNCELLEME HAZIR"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "UYGULAMAK İÇİN SİSTEMİ YENİDEN BAŞLATIN"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
@@ -2850,6 +2850,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "UYGULAMAK İÇİN SİSTEMİ YENİDEN BAŞLATIN"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "BATOCERA GÜNCELLENİYOR"

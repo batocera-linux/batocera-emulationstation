@@ -945,8 +945,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "更新已准备就绪"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "重启系统并应用"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "是否进行更新?"
@@ -2827,6 +2827,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "重启系统并应用"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "更新 BATOCERA"

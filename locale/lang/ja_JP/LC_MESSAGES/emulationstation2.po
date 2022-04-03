@@ -948,8 +948,8 @@ msgstr "%s を更新しています"
 msgid "UPDATE IS READY"
 msgstr "更新準備完了"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "再起動で更新が適用されます"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "更新しますか？"
@@ -2862,6 +2862,9 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "再起動で更新が適用されます"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

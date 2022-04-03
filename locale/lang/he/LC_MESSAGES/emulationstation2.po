@@ -952,7 +952,7 @@ msgstr "מעדכן %s"
 msgid "UPDATE IS READY"
 msgstr "עדכון מוכן להתקנה"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgid "REBOOT TO APPLY"
 msgstr ""
 
 msgid "REALLY UPDATE?"
