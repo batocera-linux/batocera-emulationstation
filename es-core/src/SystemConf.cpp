@@ -37,14 +37,15 @@ static std::map<std::string, std::string> defaults =
 #ifdef _ENABLEEMUELEC
 	{ "system.hostname", "EMUELEC" },
 
-	{ "advmame_joy_remap", "1" },
-	{ "dolphin_joy_remap", "1" },
-	{ "flycast_joy_remap", "1" },
-	{ "mupen64plus_joy_remap", "1" },
-	{ "advmame_joy_cache", "1" },
-	{ "dolphin_joy_cache", "1" },
-	{ "flycast_joy_cache", "1" },
-	{ "mupen64plus_joy_cache", "1" },
+	{ "advmame_auto_gamepad", "1" },
+	{ "dolphin_auto_gamepad", "1" },
+	{ "flycast_auto_gamepad", "1" },
+	{ "mupen64plus_auto_gamepad", "1" },
+
+	{ "advmame_joy_cache", "0" },
+	{ "dolphin_joy_cache", "0" },
+	{ "flycast_joy_cache", "0" },
+	{ "mupen64plus_joy_cache", "0" },
 
 	{ "global.retroachievements.encore", "0" },
 #else
@@ -61,17 +62,17 @@ static std::map<std::string, std::string> defaults =
 	{ "global.ai_service_enabled", "0" },
 };
 
-SystemConf::SystemConf() 
+SystemConf::SystemConf()
 {
 	mSystemConfFile = Paths::getSystemConfFilePath();
 	if (mSystemConfFile.empty())
 		return;
-	
+
 	mSystemConfFileTmp = mSystemConfFile + ".tmp";
-	loadSystemConf();	
+	loadSystemConf();
 }
 
-SystemConf *SystemConf::getInstance() 
+SystemConf *SystemConf::getInstance()
 {
     if (sInstance == NULL)
         sInstance = new SystemConf();
@@ -88,9 +89,9 @@ bool SystemConf::loadSystemConf()
 
 	std::string line;
 	std::ifstream systemConf(mSystemConfFile);
-	if (systemConf && systemConf.is_open()) 
+	if (systemConf && systemConf.is_open())
 	{
-		while (std::getline(systemConf, line)) 
+		while (std::getline(systemConf, line))
 		{
 
 			int idx = line.find("=");
@@ -117,7 +118,7 @@ bool SystemConf::loadSystemConf()
 bool SystemConf::saveSystemConf()
 {
 	if (mSystemConfFile.empty())
-		return Settings::getInstance()->saveFile();	
+		return Settings::getInstance()->saveFile();
 
 	if (!mWasChanged)
 		return false;
@@ -151,7 +152,7 @@ bool SystemConf::saveSystemConf()
 	/* Save new value if exists */
 	for (auto& it : confMap)
 	{
-		std::string key = it.first + "=";		
+		std::string key = it.first + "=";
 		char key0 = key[0];
 
 		bool lineFound = false;
@@ -180,7 +181,7 @@ bool SystemConf::saveSystemConf()
 					else
 						currentLine = key + val;
 				}
-				else 
+				else
 					currentLine = removeID;
 
 				lineFound = true;
@@ -205,14 +206,14 @@ bool SystemConf::saveSystemConf()
 		LOG(LogError) << "Unable to open for saving :  " << mSystemConfFileTmp << "\n";
 		return false;
 	}
-	for (int i = 0; i < fileLines.size(); i++) 
+	for (int i = 0; i < fileLines.size(); i++)
 	{
 		if (fileLines[i] != removeID)
 			fileout << fileLines[i] << "\n";
 	}
 
 	fileout.close();
-	
+
 	std::ifstream  src(mSystemConfFileTmp, std::ios::binary);
 	std::ofstream  dst(mSystemConfFile, std::ios::binary);
 	dst << src.rdbuf();
@@ -223,11 +224,11 @@ bool SystemConf::saveSystemConf()
 	return true;
 }
 
-std::string SystemConf::get(const std::string &name) 
+std::string SystemConf::get(const std::string &name)
 {
 	if (mSystemConfFile.empty())
 		return Settings::getInstance()->getString(mapSettingsName(name));
-	
+
 	auto it = confMap.find(name);
 	if (it != confMap.cend())
 		return it->second;
@@ -239,7 +240,7 @@ std::string SystemConf::get(const std::string &name)
     return "";
 }
 
-bool SystemConf::set(const std::string &name, const std::string &value) 
+bool SystemConf::set(const std::string &name, const std::string &value)
 {
 	if (mSystemConfFile.empty())
 		return Settings::getInstance()->setString(mapSettingsName(name), value == "auto" ? "" : value);
