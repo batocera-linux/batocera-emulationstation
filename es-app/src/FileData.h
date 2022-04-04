@@ -62,6 +62,8 @@ public:
 	FileData(FileType type, const std::string& path, SystemData* system);
 	virtual ~FileData();
 
+	static FileData* GetRunningGame() { return mRunningGame; }
+
 	virtual const std::string& getName();
 
 	inline FileType getType() const { return mType; }
@@ -160,6 +162,8 @@ private:
 	MetaDataList mMetadata;
 
 protected:	
+	static FileData* mRunningGame;
+
 	FolderData* mParent;
 	std::string mPath;
 	FileType mType;

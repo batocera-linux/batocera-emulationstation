@@ -13,6 +13,9 @@
 	<span>EmulationStation Web services</span>
 </div>
 
+<!-- See REST Api list on https://github.com/batocera-linux/batocera-emulationstation/blob/master/es-app/src/services/HttpServerThread.cpp#L25
+ -->
+ 
 <script type='text/javascript'>
 
 function quitES() {
@@ -43,9 +46,9 @@ function showGames(arr) {
     var out = "<table width=100% border=0 cellpadding=4 cellspacing=0>";
     var i;
     for(i = 0; i < arr.length; i++) {
-		out += '<tr class="system">';
+		out += '<tr class="game">';
 		if(arr[i].image)
-			out += '<td width="72px" align="center"><img height=48 style="max-width:100px" src="' + arr[i].image + '"></td>';
+			out += '<td width="72px" align="center"><img loading="lazy" height=48 style="max-width:100pt" src="' + arr[i].image + '"></td>';
 		else
 			out += '<td width="72px" align="center"></td>';
 		out += '<td>';
@@ -111,7 +114,7 @@ function showSystems(arr) {
 		if (arr[i].visible == "true") {
 			out += '<tr class="system">';
 			if (arr[i].logo) {
-				out += '<td align="center"><a onclick="javascript:loadGames(\''+ arr[i].name +'\')" href="#"><img height=25 style="max-width:100px" src="' + arr[i].logo + '"></a></td>';
+				out += '<td align="center"><a onclick="javascript:loadGames(\''+ arr[i].name +'\')" href="#"><img height=32pt style="max-width:100pt" src="' + arr[i].logo + '"></a></td>';
 			} else {
 				out += '<td align="center"><a onclick="javascript:loadGames(\'' + arr[i].name +'\')" href="#">' + arr[i].fullname + '</a></td>';
 			}
@@ -137,13 +140,11 @@ function showSystems(arr) {
 
 <table height='100%' width='100%' cellpadding=0 cellspacing=0 border=0>
 <tr>
- <td valign="top" width='120px'>
- 
-
-   <div id="systemList" style="color:white;background-color:#202020; overflow-y:scroll"></div>
+ <td valign="top" width='120pt'>
+    <div id="systemList" class="systemlist"></div>
  </td>
  <td valign="top">
-   <div id="gameList" style="height:300px;color:white;background-color:#202020; overflow-y:scroll"></div>
+   <div id="gameList" class="gamelist" style="height:300px"></div>
  </td>
 </tr> 
 </table>
