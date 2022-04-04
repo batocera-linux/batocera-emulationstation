@@ -953,8 +953,8 @@ msgstr "A ATUALIZAR %s"
 msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO PRONTA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA?"
@@ -1390,6 +1390,18 @@ msgstr "DEFINIÇÕES DO COMANDO"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "DEFINIÇÕES COMANDOS & BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -2477,6 +2489,9 @@ msgstr "A Carregar a configuração do sistema..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "A GUARDAR AS INFORMAÇÕES. POR FAVOR, AGUARDE..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Coleções"
 
@@ -2867,6 +2882,9 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "A ATUALIZAR O BATOCERA"

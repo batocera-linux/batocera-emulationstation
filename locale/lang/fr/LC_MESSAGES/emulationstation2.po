@@ -951,8 +951,8 @@ msgstr "MISE À JOUR DE %s"
 msgid "UPDATE IS READY"
 msgstr "LA MISE À JOUR EST PRÊTE"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REDÉMARREZ LE SYSTÈME POUR APPLIQUER LA MISE À JOUR"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR ?"
@@ -972,7 +972,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "PAS DE MISE À JOUR DISPONIBLE"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "INSTALLATION SUR UN NOUVEAU DISQUE"
 
 msgid "TARGET DEVICE"
 msgstr "PÉRIPHÉRIQUE CIBLE"
@@ -1173,7 +1173,7 @@ msgid "MARQUEE"
 msgstr "BANNIÈRE"
 
 msgid "SCRAPE SHORT NAME"
-msgstr ""
+msgstr "SCRAPER LES NOMS COURTS"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPER LES NOTATIONS"
@@ -1221,10 +1221,10 @@ msgid "ALL"
 msgstr "TOUS"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "JEUX AYANT UN MÉDIA MANQUANT"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "JEUX AYANT TOUS LES MÉDIAS MANQUANTS"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORER LES JEUX SCRAPÉS RÉCEMMENT"
@@ -1386,6 +1386,18 @@ msgstr "PARAMÈTRES DES MANETTES"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "PARAMÈTRES DES MANETTES ET BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr "INTERNE"
+
+msgid "ANY EXTERNAL"
+msgstr "PREMIER DISQUE EXTERNE"
+
+msgid "maximum 1920x1080"
+msgstr "maximum 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "maximum 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1818,7 +1830,7 @@ msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr ""
 
 msgid "Can prevent audio skips on button presses."
-msgstr ""
+msgstr "Peut prévenir des sauts audios sur pression des boutons"
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "IMAGES EN RETARD AUTOMATIQUE"
@@ -1832,10 +1844,10 @@ msgid ""
 msgstr ""
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr ""
+msgstr "TAUX DE RAFFRAÎCHISSEMENT VARIABLE (G-SYNC, FREESYNC)"
 
 msgid "VARIABLE REFRESH RATE"
-msgstr ""
+msgstr "TAUX DE RAFFRAÎCHISSEMENT VARIABLE"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
@@ -1845,7 +1857,7 @@ msgid "DECORATION SET"
 msgstr "PACK DE DÉCORATIONS"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Paramètre actuel"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "PARAMÈTRES GLOBAUX PAR DÉFAUT"
@@ -1954,7 +1966,7 @@ msgid "IF NOT EMPTY"
 msgstr "SI NON VIDE"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "Afficher le gestionnaire de sauvegarde au lancement d'un jeu"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURATION AVANCÉE PAR SYSTÈME"
@@ -2427,16 +2439,16 @@ msgid "GAME OPTIONS"
 msgstr "OPTIONS DU JEU"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "SAUVEGARDES INSTANTANÉES (MAINTENU)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "OPTIONS DU JEU (MAINTENU)"
 
 msgid "FAVORITE"
 msgstr "FAVORIS"
 
 msgid "RANDOM (HOLD)"
-msgstr ""
+msgstr "ALÉATOIRE (MAINTENU)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2471,6 +2483,9 @@ msgstr "Chargement de la configuration système..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Collections"
@@ -2862,6 +2877,9 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "REDÉMARREZ LE SYSTÈME POUR APPLIQUER LA MISE À JOUR"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "MISE À JOUR DE BATOCERA"

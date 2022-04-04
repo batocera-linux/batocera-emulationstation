@@ -951,8 +951,8 @@ msgstr "UPPDATERAR %s"
 msgid "UPDATE IS READY"
 msgstr "UPPDATERING ÄR KLAR"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "STARTA OM SYSTEMET FÖR ATT VERKSTÄLLA UPPDATERINGEN"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "VILL DU VERKLIGEN UPPDATERA?"
@@ -1388,6 +1388,18 @@ msgstr "KONTROLLERINSTÄLLNINGAR"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLLER- & BLUETOOTH-INSTÄLLNINGAR"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
@@ -2475,6 +2487,9 @@ msgstr "Laddar systemkonfiguration..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SPARAR METADATA. VÄNTA..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Samlingar"
 
@@ -2865,6 +2880,9 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "STARTA OM SYSTEMET FÖR ATT VERKSTÄLLA UPPDATERINGEN"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "UPPDATERAR BATOCERA"

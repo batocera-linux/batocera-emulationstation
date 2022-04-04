@@ -37,7 +37,7 @@ struct CustomFeature
 	std::vector<CustomFeatureChoice> choices;
 };
 
-class EmulatorData;
+struct EmulatorData;
 
 class CustomFeatures : public VectorEx<CustomFeature>
 {

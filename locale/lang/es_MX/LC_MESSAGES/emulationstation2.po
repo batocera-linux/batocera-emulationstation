@@ -949,8 +949,8 @@ msgstr "ACTUALIZANDO %s"
 msgid "UPDATE IS READY"
 msgstr "LA ACTUALIZACIÓN ESTÁ LISTA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REINICIAR BATOCERA PARA APLICAR"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "¿ESTÁS SEGURO DE ACTUALIZAR?"
@@ -1381,6 +1381,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTES DE CONTROLES Y BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -2446,6 +2458,9 @@ msgstr "Cargando la configuración del sistema..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "GUARDANDO METADATOS. POR FAVOR ESPERE..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Colecciones"
 
@@ -2834,6 +2849,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "REINICIAR BATOCERA PARA APLICAR"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ACTUALIZANDO BATOCERA"

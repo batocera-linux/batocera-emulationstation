@@ -24,6 +24,11 @@ sudo dnf install SDL2-devel freeimage-devel freetype-devel curl-devel \
   alsa-lib-devel mesa-libGL-devel cmake \
   vlc-devel rapidjson-devel 
 ```
+**On Arch/Manjaro:**
+All of this can be easily installed with `pacman`:
+```bash
+sudo pacman -S base-devel cmake freeimage sdl2_mixer sdl2 rapidjson boost
+```
 **On Solus:**
 All of this can be easily installed with `eopkg`:
 ```bash

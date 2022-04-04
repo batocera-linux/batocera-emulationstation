@@ -949,8 +949,8 @@ msgstr "GÜNCELLENİYOR %s"
 msgid "UPDATE IS READY"
 msgstr "GÜNCELLEME HAZIR"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "UYGULAMAK İÇİN SİSTEMİ YENİDEN BAŞLATIN"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
@@ -1381,6 +1381,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KUMANDA AYARLARI"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
@@ -2447,6 +2459,9 @@ msgstr "Sistem yapılandırması yükleniyor..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Koleksiyonlar"
 
@@ -2835,6 +2850,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "UYGULAMAK İÇİN SİSTEMİ YENİDEN BAŞLATIN"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "BATOCERA GÜNCELLENİYOR"

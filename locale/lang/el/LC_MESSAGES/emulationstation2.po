@@ -946,8 +946,8 @@ msgstr "ΑΝΑΒΑΘΜΙΣΗ %s"
 msgid "UPDATE IS READY"
 msgstr "Η ΑΝΑΒΑΘΜΙΣΗ ΕΙΝΑΙ ΕΤΟΙΜΗ"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "ΕΠΑΝΕΚΚΙΝΗΣΗ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΑΠΟΔΟΧΗ"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "ΘΕΛΕΤΕ ΝΑ ΚΑΝΕΤΕ ΑΝΑΒΑΘΜΙΣΗ;"
@@ -1378,6 +1378,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "ΡΥΘΜΙΣΕΙΣ ΧΕΙΡΙΣΤΗΡΙΩΝ & BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ΚΥΡΙΟ ΜΕΝΟΥ"
@@ -2444,6 +2456,9 @@ msgstr "Φόρτωση τροποποίησης συστήματος..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Συλλογές"
 
@@ -2832,6 +2847,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "ΕΠΑΝΕΚΚΙΝΗΣΗ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΑΠΟΔΟΧΗ"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ΑΝΑΒΑΘΜΙΣΗ BATOCERA"

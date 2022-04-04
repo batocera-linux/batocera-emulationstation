@@ -949,8 +949,8 @@ msgstr "IN AGGIORNAMENTO %s"
 msgid "UPDATE IS READY"
 msgstr "AGGIORNAMENTO PRONTO"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "RIAVVIA IL SISTEMA PER APPLICARE"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "VUOI AGGIORNARE?"
@@ -1386,6 +1386,18 @@ msgstr "IMPOSTAZIONI CONTROLLER"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "OPZIONI CONTROLLER E BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -2470,6 +2482,9 @@ msgstr "Caricamento configurazione di sistema..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Collezioni"
 
@@ -2861,6 +2876,9 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "RIAVVIA IL SISTEMA PER APPLICARE"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "AGGIORNAMENTO BATOCERA"

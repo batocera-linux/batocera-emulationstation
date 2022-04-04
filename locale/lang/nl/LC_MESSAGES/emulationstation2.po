@@ -951,8 +951,8 @@ msgstr "UPDATEN %s"
 msgid "UPDATE IS READY"
 msgstr "UPDATE IS KLAAR"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "SYSTEEM HERSTARTEN OM UPDATE TOE TE PASSEN"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "ECHT UPDATEN?"
@@ -1386,6 +1386,18 @@ msgstr "CONTROLLER INSTELLINGEN"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONTROLLER & BLUETOOTH INSTELLINGEN"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "HOOFDMENU"
@@ -2471,6 +2483,9 @@ msgstr "Systeem config laden..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATAS OPSLAAN. WACHTEN ALSTUBLIEFT..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Collecties"
 
@@ -2861,6 +2876,9 @@ msgstr "SCHERM LEZER INGESCHAKELD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SCHERM LEZER UITGESCHAKELD"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "SYSTEEM HERSTARTEN OM UPDATE TOE TE PASSEN"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "BATOCERA UPDATEN"

@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -68,7 +68,7 @@ msgid "Fan art"
 msgstr "Fã-arte"
 
 msgid "enter path to fanart"
-msgstr "insira o caminho do diretório para a arte do fã"
+msgstr "insira o caminho do diretório para a arte do fã-arte"
 
 msgid "Title shot"
 msgstr "Imagem da tela inicial"
@@ -953,8 +953,8 @@ msgstr "ATUALIZANDO %s"
 msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
@@ -974,7 +974,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "INSTALAR EM UM NOVO DISCO"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO ALVO"
@@ -1162,7 +1162,7 @@ msgid "BOX 3D"
 msgstr "CAIXA 3D"
 
 msgid "FAN ART"
-msgstr "ARTE DO FÃ"
+msgstr "FÃ-ARTE"
 
 msgid "BOX SOURCE"
 msgstr "FONTE DA MÍDIA DA CAIXA"
@@ -1177,7 +1177,7 @@ msgid "MARQUEE"
 msgstr "LETREIRO"
 
 msgid "SCRAPE SHORT NAME"
-msgstr ""
+msgstr "OBTER DADOS DO NOME ABREVIADO"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTER DADOS DAS AVALIAÇÕES"
@@ -1186,7 +1186,7 @@ msgid "SCRAPE VIDEOS"
 msgstr "OBTER MÍDIAS DOS VÍDEOS"
 
 msgid "SCRAPE FANART"
-msgstr "OBTER MÍDIAS ARTE DO FÃ"
+msgstr "OBTER MÍDIAS DE FÃ-ARTE"
 
 msgid "SCRAPE BEZEL (16:9)"
 msgstr "OBTER MÍDIAS DE MOLDURA (16:9)"
@@ -1225,10 +1225,10 @@ msgid "ALL"
 msgstr "TODOS"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "FALTANDO QUALQUER MÍDIA"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "FALTANDO TODAS AS MÍDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JOGOS COM MÍDIAS RECENTES"
@@ -1390,6 +1390,18 @@ msgstr "AJUSTES DE CONTROLE"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTES DE CONTROLES & BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr "INTERNO"
+
+msgid "ANY EXTERNAL"
+msgstr "QUALQUER EXTERNO"
+
+msgid "maximum 1920x1080"
+msgstr "máximo 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "máximo 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1853,7 +1865,7 @@ msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Ajuste atual"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "PADRÃO DE AJUSTES GLOBAIS"
@@ -1961,7 +1973,7 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "Exiba o gerenciador de estado de salvamento antes de iniciar um jogo."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -2411,7 +2423,7 @@ msgid "Kid"
 msgstr "Infantil"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 msgid "Released"
 msgstr "Lançamento"
@@ -2435,16 +2447,16 @@ msgid "GAME OPTIONS"
 msgstr "OPÇÕES DE JOGO"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "ESTADO DE SALVAMENTO (SEGURE)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "OPÇÕES DE JOGO (SEGURE)"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
 
 msgid "RANDOM (HOLD)"
-msgstr ""
+msgstr "RANDÔMICO (SEGURE)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2479,6 +2491,9 @@ msgstr "Carregando a configuração do sistema..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SALVANDO INFORMAÇÕES. POR FAVOR, AGUARDE..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "VOCÊ QUER TROCAR DE TELA?"
 
 msgid "Collections"
 msgstr "Coleções"

@@ -949,8 +949,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "FRISSÍTÉS KÉSZ"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "INDÍTSD ÚJRA AZ ÉRVÉNYRE JUTTATÁSHOZ"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "BIZTOS FRISSÍTESZ?"
@@ -1381,6 +1381,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLLER BEÁLLÍTÁSOK"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "FŐMENÜ"
@@ -2445,6 +2457,9 @@ msgstr "Rendszer konfiguráció betöltése..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METAADAT MENTÉSE. VÁRJ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Gyűjtemények"
 
@@ -2833,6 +2848,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "INDÍTSD ÚJRA AZ ÉRVÉNYRE JUTTATÁSHOZ"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "BATOCERA FRISSÍTÉSE"

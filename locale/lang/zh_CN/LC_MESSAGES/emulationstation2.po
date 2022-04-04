@@ -989,8 +989,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "更新已准备就绪"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "重启系统并应用"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "是否进行更新?"
@@ -1400,6 +1400,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "控制器设置"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "主菜单"
@@ -2451,6 +2463,9 @@ msgstr "正在载入系统配置..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在保存游戏数据。请稍候..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "所有游戏"
 
@@ -2832,6 +2847,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "重启系统并应用"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "更新 BATOCERA"

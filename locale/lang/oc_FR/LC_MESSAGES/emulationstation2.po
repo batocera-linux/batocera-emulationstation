@@ -956,8 +956,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "MESA A JORN PRÈSTA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REAVIAR PER APLICACION"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "METRE A JORN PER DE BON ?"
@@ -1386,6 +1386,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "PARAMÈTRES DE MANETAS"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENÚ PRINCIPAL"
@@ -2444,6 +2456,9 @@ msgstr "Cargament conf. sistma..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Colleccions"
 
@@ -2832,6 +2847,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "REAVIAR PER APLICACION"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ACTUALIZACION DE BATOCERA"

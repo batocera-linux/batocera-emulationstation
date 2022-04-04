@@ -954,7 +954,7 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr ""
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgid "REBOOT TO APPLY"
 msgstr ""
 
 msgid "REALLY UPDATE?"
@@ -1383,6 +1383,18 @@ msgid "CONTROLLER SETTINGS"
 msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr ""
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
 msgstr ""
 
 msgid "MAIN MENU"
@@ -2440,6 +2452,9 @@ msgid "Loading system config..."
 msgstr ""
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr ""
 
 msgid "Collections"

@@ -951,8 +951,8 @@ msgstr "ОБНОВЛЕНИЕ %s"
 msgid "UPDATE IS READY"
 msgstr "ОБНОВЛЕНИЕ ГОТОВО"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ?"
@@ -1388,6 +1388,18 @@ msgstr "НАСТРОЙКИ КОНТРОЛЛЕРА"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -2474,6 +2486,9 @@ msgstr "Загрузка системных настроек..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr "Коллекции"
 
@@ -2871,6 +2886,9 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ОБНОВЛЕНИЕ BATOCERA"

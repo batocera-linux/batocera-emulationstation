@@ -951,8 +951,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "ОНОВЛЕННЯ ГОТОВЕ"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМИ ДЛЯ ЗАСТОСУВАННЯ"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "ДІЙСНО ОНОВИТИ?"
@@ -1383,6 +1383,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "НАЛАШТУВАННЯ КОНТРОЛЕРІВ"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ГОЛОВНЕ МЕНЮ"
@@ -2445,6 +2457,9 @@ msgstr "Завантаження системних налаштувань..."
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
 
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
+
 msgid "Collections"
 msgstr ""
 
@@ -2840,6 +2855,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМИ ДЛЯ ЗАСТОСУВАННЯ"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ОНОВЛЕННЯ BATOCERA"

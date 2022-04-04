@@ -142,7 +142,12 @@ bool CustomFeatures::loadEsFeaturesFile()
 
 					emul.features = emul.features | emulatorFeatures;
 					for (auto feat : customEmulatorFeatures)
+					{
+						if (feat.name == "autosave") // Watch if autosave is provided as shared
+							emul.features = emul.features | EmulatorFeatures::Features::autosave;
+
 						emul.customFeatures.push_back(feat);
+					}
 				}
 			}
 
@@ -179,7 +184,12 @@ bool CustomFeatures::loadEsFeaturesFile()
 								core.features = core.features | coreFeatures;
 
 								for (auto feat : customCoreFeatures)
+								{
+									if (feat.name == "autosave") // Watch if autosave is provided as shared
+										core.features = core.features | EmulatorFeatures::Features::autosave;
+
 									core.customFeatures.push_back(feat);
+								}
 							}
 						}
 
@@ -229,7 +239,12 @@ bool CustomFeatures::loadEsFeaturesFile()
 											systemFeature.features = systemFeature.features | systemFeatures;
 
 											for (auto feat : customSystemFeatures)
+											{
+												if (feat.name == "autosave") // Watch if autosave is provided as shared
+													systemFeature.features = systemFeature.features | EmulatorFeatures::Features::autosave;
+
 												systemFeature.customFeatures.push_back(feat);
+											}
 										}
 									}
 
