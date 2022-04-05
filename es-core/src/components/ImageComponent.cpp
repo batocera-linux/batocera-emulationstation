@@ -8,6 +8,7 @@
 #include "utils/FileSystemUtil.h"
 #include "playlists/AnimatedGifPlaylist.h"
 #include "playlists/M3uPlaylist.h"
+#include "utils/StringUtil.h"
 
 Vector2i ImageComponent::getTextureSize() const
 {

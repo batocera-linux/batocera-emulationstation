@@ -540,7 +540,7 @@ bool ImageIO::getMultiBitmapInformation(const std::string& path, int& totalFrame
 #if WIN32
 	fileFormat = FreeImage_GetFileTypeU(Utils::String::convertToWideString(path).c_str());
 #else
-	fileFormat = FreeImage_GetFileType(mPath.c_str());
+	fileFormat = FreeImage_GetFileType(path.c_str());
 #endif
 
 	if (fileFormat != FIF_GIF && fileFormat != FIF_PNG)
