@@ -173,6 +173,8 @@ void ImageComponent::setImage(const std::string&  path, bool tile, MaxSizeInfo m
 			if (ImageIO::getMultiBitmapInformation(canonicalPath, totalFrames, frameTime) && totalFrames > 0)
 			{
 				mPath = "";
+				mForceLoad = true; // Disable async for animated gifs
+
 				setAllowFading(false);
 				setPlaylist(std::make_shared<AnimatedGifPlaylist>(canonicalPath, totalFrames, frameTime));
 				if (!mPath.empty())

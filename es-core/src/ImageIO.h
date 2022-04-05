@@ -48,10 +48,10 @@ public:
 	
 	static Vector2f getPictureMinSize(Vector2f imageSize, Vector2f maxSize);
 	static Vector2i adjustPictureSize(Vector2i imageSize, Vector2i maxSize, bool externSize = false);
-	static bool		loadImageSize(const char *fn, unsigned int *x, unsigned int *y);
+	static bool		loadImageSize(const std::string& fn, unsigned int *x, unsigned int *y);
 
-	static void		removeImageCache(const std::string fn);
-	static void		updateImageCache(const std::string fn, int sz, int x, int y);
+	static void		removeImageCache(const std::string& fn);
+	static void		updateImageCache(const std::string& fn, int sz, int x, int y);
 	static void		loadImageCache();
 	static void		saveImageCache();
 	static void		clearImageCache();

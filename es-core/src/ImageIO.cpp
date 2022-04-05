@@ -365,7 +365,7 @@ void ImageIO::saveImageCache()
 
 static std::mutex sizeCacheLock;
 
-void ImageIO::removeImageCache(const std::string fn)
+void ImageIO::removeImageCache(const std::string& fn)
 {
 	std::unique_lock<std::mutex> lock(sizeCacheLock);
 
@@ -374,7 +374,7 @@ void ImageIO::removeImageCache(const std::string fn)
 		sizeCache.erase(fn);
 }
 
-void ImageIO::updateImageCache(const std::string fn, int sz, int x, int y)
+void ImageIO::updateImageCache(const std::string& fn, int sz, int x, int y)
 {
 	std::unique_lock<std::mutex> lock(sizeCacheLock);
 
@@ -403,7 +403,7 @@ void ImageIO::updateImageCache(const std::string fn, int sz, int x, int y)
 }
 
 
-bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
+bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int *y)
 {
 	{
 		std::unique_lock<std::mutex> lock(sizeCacheLock);
@@ -432,9 +432,9 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 	auto size = Utils::FileSystem::getFileSize(fn);
 
 #if WIN32
-	FILE *f = _fsopen(fn, "rb", _SH_DENYNO);
+	FILE* f = _wfopen(Utils::String::convertToWideString(fn).c_str(), L"rb");
 #else
-	FILE *f = fopen(fn, "rb");
+	FILE *f = fopen(fn.c_str(), "rb");
 #endif
 
 	if (f == 0)
