@@ -15,6 +15,8 @@ public:
 	static std::string getSystemList();
 	static std::string getSystemGames(SystemData* system);
 
+	static std::string getRunnningGameInfo();
+
 	static std::string ToJson(SystemData* system);
 	static std::string ToJson(FileData* file);
 

@@ -87,7 +87,7 @@ WebImageComponent::~WebImageComponent()
 	}
 }
 
-void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
+void WebImageComponent::setImage(const std::string& path, bool tile, MaxSizeInfo maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
 {
 	if (mRequest != nullptr)
 	{
@@ -103,7 +103,7 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 			ImageComponent::setImage(nullptr, 0);
 		else
 		{
-			ImageComponent::setImage(path, tile, maxSize, checkFileExists);
+			ImageComponent::setImage(path, tile, maxSize, checkFileExists, allowMultiImagePlaylist);
 			resize();
 		}
 		return;
@@ -147,7 +147,7 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 
 		if (keepLoadingLocal)
 		{
-			ImageComponent::setImage(localFile, tile, maxSize);
+			ImageComponent::setImage(localFile, tile, maxSize, checkFileExists, allowMultiImagePlaylist);
 			resize();
 			return;
 		}
@@ -176,7 +176,7 @@ void WebImageComponent::update(int deltaTime)
 
 	if (status == HttpReq::REQ_SUCCESS && Utils::FileSystem::exists(mLocalFile))
 	{
-		ImageComponent::setImage(mLocalFile, false, mMaxSize);
+		ImageComponent::setImage(mLocalFile, false, mMaxSize, false);
 		resize();
 	}
 }

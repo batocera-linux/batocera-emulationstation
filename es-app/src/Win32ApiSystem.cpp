@@ -96,7 +96,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 #endif
 		break;
 	case ApiSystem::RESOLUTION:
+#if _DEBUG
 		executables.push_back("batocera-resolution");
+#endif
 		break;
 	case ApiSystem::BIOSINFORMATION:
 		executables.push_back("batocera-systems");
