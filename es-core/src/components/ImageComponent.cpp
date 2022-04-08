@@ -6,6 +6,9 @@
 #include "ThemeData.h"
 #include "LocaleES.h"
 #include "utils/FileSystemUtil.h"
+#include "playlists/AnimatedGifPlaylist.h"
+#include "playlists/M3uPlaylist.h"
+#include "utils/StringUtil.h"
 
 Vector2i ImageComponent::getTextureSize() const
 {
@@ -155,12 +158,39 @@ void ImageComponent::setDefaultImage(std::string path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
+void ImageComponent::setImage(const std::string&  path, bool tile, MaxSizeInfo maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
 {
 	std::string canonicalPath = (path[0] == '{' ? "" : Utils::FileSystem::getCanonicalPath(path));
 	if (!mPath.empty() && mPath == canonicalPath)
 		return;
 	
+	if (allowMultiImagePlaylist && !canonicalPath.empty())
+	{
+		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(canonicalPath));
+		if (ext == ".gif" || ext == ".apng")
+		{
+			int totalFrames, frameTime;
+			if (ImageIO::getMultiBitmapInformation(canonicalPath, totalFrames, frameTime) && totalFrames > 0)
+			{
+				mPath = "";
+				mForceLoad = true; // Disable async for animated gifs
+
+				setAllowFading(false);
+				setPlaylist(std::make_shared<AnimatedGifPlaylist>(canonicalPath, totalFrames, frameTime));
+				if (!mPath.empty())
+					return;
+			}
+		}
+		else if (ext == ".m3u")
+		{
+			mPath = "";
+			setAllowFading(false);
+			setPlaylist(std::make_shared<M3uPlaylist>(canonicalPath));
+			if (!mPath.empty())
+				return;
+		}
+	}
+
 	mPath = canonicalPath;
 
 	if (mTexture != nullptr)
@@ -181,12 +211,20 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, 
 	} 
 	else
 	{
-		std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
-
-		if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
-			mLoadingTexture = texture;
+		if (mPlaylist != nullptr && mPlaylistCache.find(mPath) != mPlaylistCache.cend())
+			mTexture = mPlaylistCache[mPath];
 		else
-			mTexture = texture;
+		{
+			std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+
+			if (mPlaylist != nullptr)
+				mPlaylistCache[mPath] = texture;
+
+			if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
+				mLoadingTexture = texture;
+			else
+				mTexture = texture;
+		}
 	}
 
 	if (isShowing() && mTexture != nullptr)
@@ -635,6 +673,7 @@ bool ImageComponent::hasImage()
 	return (bool)mTexture;
 }
 
+
 void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
 	using namespace ThemeFlags;
@@ -790,16 +829,20 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		{
 			mPath = "";
 
-			bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-			if(tile)
-				setImage(path, true, MaxSizeInfo(), false);
-			else
+			
+			if (mPlaylist == nullptr)
 			{
-				auto sz = getMaxSizeInfo();
-				if (!mLinear && sz.x() > 32 && sz.y() > 32)
-					setImage(path, tile, sz, false);
+				bool tile = (elem->has("tile") && elem->get<bool>("tile"));
+				if (tile)
+					setImage(path, true, MaxSizeInfo(), false);
 				else
-					setImage(path, false, MaxSizeInfo(), false);
+				{
+					auto sz = getMaxSizeInfo();
+					if (!mLinear && sz.x() > 32 && sz.y() > 32)
+						setImage(path, tile, sz, false);
+					else
+						setImage(path, false, MaxSizeInfo(), false);
+				}
 			}
 		}
 	}
@@ -816,13 +859,14 @@ std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
 
 void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 {
+	mPlaylistCache.clear();
 	mPlaylist = playList;
 	if (mPlaylist == nullptr)
 		return;
 
 	auto image = mPlaylist->getNextItem();
 	if (!image.empty())
-		setImage(image);
+		setImage(image, false, getMaxSizeInfo(), true, false);
 }
 
 void ImageComponent::onShow()
@@ -833,7 +877,7 @@ void ImageComponent::onShow()
 	{
 		auto item = mPlaylist->getNextItem();
 		if (!item.empty())
-			setImage(item, false, getMaxSizeInfo());
+			setImage(item, false, getMaxSizeInfo(), true, false);
 	}
 
 	GuiComponent::onShow();	
@@ -862,7 +906,10 @@ void ImageComponent::update(int deltaTime)
 		{
 			auto item = mPlaylist->getNextItem();
 			if (!item.empty())
-				setImage(item, false, getMaxSizeInfo());
+			{
+				// LOG(LogDebug) << "getNextItem: " << item;
+				setImage(item, false, getMaxSizeInfo(), true, false);
+			}
 
 			mPlaylistTimer = 0.0;
 		}

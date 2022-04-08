@@ -17,7 +17,8 @@
 #include "components/VideoComponent.h"
 #include "components/VideoVlcComponent.h"
 #include "guis/GuiNetPlay.h"
-#include "Playlists.h"
+#include "SystemRandomPlaylist.h"
+#include "playlists/M3uPlaylist.h"
 #include "CollectionSystemManager.h"
 #include "resources/TextureDataManager.h"
 #include "guis/GuiTextEditPopup.h"
@@ -134,11 +135,11 @@ void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData
 
 				((ImageComponent*)extra)->setPlaylist(std::make_shared<SystemRandomPlaylist>(system, type));
 			}
-			else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
+		/*	else if (elem != nullptr && elem->has("path") && Utils::String::toLower(Utils::FileSystem::getExtension(elem->get<std::string>("path"))) == ".m3u")
 			{
 				((ImageComponent*)extra)->setAllowFading(false);
 				((ImageComponent*)extra)->setPlaylist(std::make_shared<M3uPlaylist>(elem->get<std::string>("path")));
-			}
+			}*/
 		}
 	}
 
@@ -169,7 +170,7 @@ void SystemView::ensureLogo(IList<SystemViewData, SystemData*>::Entry& entry)
 		if (!path.empty())
 		{
 			// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
-			auto logo = std::make_shared<ImageComponent>(mWindow, false, false); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
+			auto logo = std::make_shared<ImageComponent>(mWindow, false, true); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
 			logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
 			logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
 																														// Process here to be enable to set max picture size

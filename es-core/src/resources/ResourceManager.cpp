@@ -137,6 +137,14 @@ ResourceData ResourceManager::loadFile(const std::string& path, size_t size) con
 
 bool ResourceManager::fileExists(const std::string& path) const
 {
+	// Animated Gifs : Check if the extension contains a ',' -> If it's the case, we have the multi-image index as argument
+	if (Utils::FileSystem::getExtension(path).find(',') != std::string::npos)
+	{
+		auto idx = path.rfind(',');
+		if (idx != std::string::npos)
+			return fileExists(path.substr(0, idx));
+	}
+
 	if (path[0] != ':' && path[0] != '~' && path[0] != '/')
 		return Utils::FileSystem::exists(path);
 

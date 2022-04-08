@@ -952,7 +952,7 @@ msgid "UPDATE IS READY"
 msgstr "LA MISE À JOUR EST PRÊTE"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "REDÉMARRER POUR APPLIQUER"
 
 msgid "REALLY UPDATE?"
 msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR ?"
@@ -2415,7 +2415,7 @@ msgid "Kid"
 msgstr "Enfant"
 
 msgid "Basic"
-msgstr ""
+msgstr "Basique"
 
 msgid "Released"
 msgstr "Date de sortie"
@@ -2485,7 +2485,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
 
 msgid "Collections"
 msgstr "Collections"

@@ -33,6 +33,8 @@
 #include "guis/GuiMsgBox.h"
 #include "Paths.h"
 
+FileData* FileData::mRunningGame = nullptr;
+
 FileData::FileData(FileType type, const std::string& path, SystemData* system)
 	: mPath(path), mType(type), mSystem(system), mParent(nullptr), mDisplayName(nullptr), mMetadata(type == GAME ? GAME_METADATA : FOLDER_METADATA) // metadata is REALLY set in the constructor!
 {
@@ -663,9 +665,13 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	auto p2kConv = convertP2kFile();
 
+	mRunningGame = gameToUpdate;
+
 	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
+
+	mRunningGame = nullptr;
 
 	if (SaveStateRepository::isEnabled(this))
 	{

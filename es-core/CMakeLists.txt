@@ -32,6 +32,10 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/animations/AnimationController.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/animations/LambdaAnimation.h
 
+	# Playlists
+	${CMAKE_CURRENT_SOURCE_DIR}/src/playlists/AnimatedGifPlaylist.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/playlists/M3uPlaylist.h
+
 	# Theme animations
 	${CMAKE_CURRENT_SOURCE_DIR}/src/anim/ThemeAnimation.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/anim/ThemeStoryboard.h	
@@ -145,6 +149,10 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/anim/ThemeStoryboard.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/anim/StoryboardAnimator.cpp
 	
+	# Playlists
+	${CMAKE_CURRENT_SOURCE_DIR}/src/playlists/AnimatedGifPlaylist.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/playlists/M3uPlaylist.cpp
+
 	# GuiComponents
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/AnimatedImageComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncNotificationComponent.cpp
