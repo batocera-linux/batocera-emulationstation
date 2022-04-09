@@ -30,17 +30,17 @@
 #include <boolean.h>
 #include <retro_inline.h>
 
-#if defined(_WIN32) && !defined(_XBOX)
+#if defined(_WIN32)
+
+#if defined(_XBOX)
+#include <Xtl.h>
+#else
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
 #include <windows.h>
-#elif defined(_WIN32) && defined(_XBOX)
-#include <Xtl.h>
 #endif
 
-#if defined(__CELLOS_LV2__) && !defined(__PSL1GHT__)
-#include <sys/fs_external.h>
 #endif
 
 #include <limits.h>
@@ -75,13 +75,15 @@ static INLINE bool bits_any_set(uint32_t* ptr, uint32_t count)
 }
 
 #ifndef PATH_MAX_LENGTH
-#if defined(__CELLOS_LV2__) && !defined(__PSL1GHT__)
-#define PATH_MAX_LENGTH CELL_FS_MAX_FS_PATH_LENGTH
-#elif defined(_XBOX1) || defined(_3DS) || defined(PSP) || defined(PS2) || defined(GEKKO)|| defined(WIIU) || defined(ORBIS)
+#if defined(_XBOX1) || defined(_3DS) || defined(PSP) || defined(PS2) || defined(GEKKO)|| defined(WIIU) || defined(ORBIS) || defined(__PSL1GHT__) || defined(__PS3__)
 #define PATH_MAX_LENGTH 512
 #else
 #define PATH_MAX_LENGTH 4096
 #endif
+#endif
+
+#ifndef NAME_MAX_LENGTH
+#define NAME_MAX_LENGTH 256
 #endif
 
 #ifndef MAX
@@ -136,6 +138,16 @@ static INLINE bool bits_any_set(uint32_t* ptr, uint32_t count)
 #define BIT256_GET_PTR(a, bit)   BIT256_GET(*a, bit)
 #define BIT256_CLEAR_ALL_PTR(a)  BIT256_CLEAR_ALL(*a)
 
+#define BIT512_SET(a, bit)       BIT256_SET(a, bit)
+#define BIT512_CLEAR(a, bit)     BIT256_CLEAR(a, bit)
+#define BIT512_GET(a, bit)       BIT256_GET(a, bit)
+#define BIT512_CLEAR_ALL(a)      BIT256_CLEAR_ALL(a)
+
+#define BIT512_SET_PTR(a, bit)   BIT512_SET(*a, bit)
+#define BIT512_CLEAR_PTR(a, bit) BIT512_CLEAR(*a, bit)
+#define BIT512_GET_PTR(a, bit)   BIT512_GET(*a, bit)
+#define BIT512_CLEAR_ALL_PTR(a)  BIT512_CLEAR_ALL(*a)
+
 #define BITS_COPY16_PTR(a,bits) \
 { \
    BIT128_CLEAR_ALL_PTR(a); \
@@ -148,12 +160,25 @@ static INLINE bool bits_any_set(uint32_t* ptr, uint32_t count)
    BITS_GET_ELEM_PTR(a, 0) = (bits); \
 }
 
+#define BITS_COPY64_PTR(a,bits) \
+{ \
+   BIT128_CLEAR_ALL_PTR(a); \
+   BITS_GET_ELEM_PTR(a, 0) = (bits); \
+   BITS_GET_ELEM_PTR(a, 1) = (bits >> 32); \
+}
+
 /* Helper macros and struct to keep track of many booleans. */
 /* This struct has 256 bits. */
 typedef struct
 {
    uint32_t data[8];
 } retro_bits_t;
+
+/* This struct has 512 bits. */
+typedef struct
+{
+   uint32_t data[16];
+} retro_bits_512_t;
 
 #ifdef _WIN32
 #  ifdef _WIN64
@@ -165,7 +190,7 @@ typedef struct
 #      define PRI_SIZET "u"
 #    endif
 #  endif
-#elif PS2
+#elif defined(PS2)
 #  define PRI_SIZET "u"
 #else
 #  if (SIZE_MAX == 0xFFFF)
