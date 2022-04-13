@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v34beta(2022/03/13)\n"
+"Project-Id-Version: batocera-es v34beta(2022/04/03)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-03-13 20:06+0900\n"
+"PO-Revision-Date: 2022-04-03 23:30+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -595,7 +595,7 @@ msgid "SAO PAULO"
 msgstr "サンパウロ"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr "利用不可ゲームを表示"
+msgstr "参加不可ゲームを表示"
 
 msgid "FINISHED"
 msgstr "完了"
@@ -637,7 +637,7 @@ msgid "VIEW CUSTOMIZATION"
 msgstr "表示のカスタマイズ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドからキーボード情報を表示"
+msgstr "パッドTOキーボード設定情報を表示"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
@@ -658,7 +658,7 @@ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "この項目を削除してもよろしいですか？"
 
 msgid "INPUT"
-msgstr "入力"
+msgstr "検索入力"
 
 msgid "SEARCH"
 msgstr "検索"
@@ -667,10 +667,10 @@ msgid "CANCEL"
 msgstr "キャンセル"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "ネットプレイの接続"
+msgstr "ネットプレイ接続"
 
 msgid "Select a game lobby to join"
-msgstr "参加したいゲームロビーを選択"
+msgstr "参加したいゲームを選択してください"
 
 msgid "REFRESH"
 msgstr "再読込"
@@ -691,19 +691,19 @@ msgid "UNAVAILABLE CORE"
 msgstr "利用できないコア"
 
 msgid "AVAILABLE GAMES"
-msgstr "起動可能なゲーム"
+msgstr "ネットプレイ/観戦可能なゲーム"
 
 msgid "UNAVAILABLE GAMES"
-msgstr "起動できないゲーム"
+msgstr "参加できないゲーム"
 
 msgid "NO GAMES FOUND"
 msgstr "ゲームが見つかりません"
 
 msgid "JOIN GAME"
-msgstr "ゲームに参加"
+msgstr "ゲームに参加する"
 
 msgid "WATCH GAME"
-msgstr "ゲームを見る"
+msgstr "ゲームを観戦する"
 
 msgid "INPUT MANUALLY"
 msgstr "手動 入力"
@@ -891,7 +891,7 @@ msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "カスタム画像ファイル拡張子"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "パッドをキーボードに割当てる設定"
+msgstr "パッドTOキーボード割当設定"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr "変更する動作を選択"
@@ -949,7 +949,7 @@ msgid "UPDATE IS READY"
 msgstr "更新準備完了"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "再起動で適用されます"
 
 msgid "REALLY UPDATE?"
 msgstr "更新しますか？"
@@ -1035,10 +1035,10 @@ msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "プレイ状況を公開する"
 
 msgid "PLAYER PASSWORD"
-msgstr "プレーヤーパスワード"
+msgstr "プレイパスワード"
 
 msgid "VIEWER PASSWORD"
-msgstr "ウォッチパスワード"
+msgstr "観戦パスワード"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
@@ -1172,13 +1172,13 @@ msgid "MARQUEE"
 msgstr "マーキー"
 
 msgid "SCRAPE SHORT NAME"
-msgstr "短いゲーム名をスクレイプ"
+msgstr "短いゲーム名でスクレイプ"
 
 msgid "SCRAPE RATINGS"
 msgstr "評価をスクレイプ"
 
 msgid "SCRAPE VIDEOS"
-msgstr "動画をスクレイプ"
+msgstr "イメージ動画をスクレイプ"
 
 msgid "SCRAPE FANART"
 msgstr "ファンアートをスクレイプ"
@@ -1387,16 +1387,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "コントローラー＆BLUETOOTH 設定"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "BATOCERA内ストレージ(通常)"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "外付けストレージ(userdata分離)"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "最大解像度 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "最小解像度 640x480"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -1789,10 +1789,10 @@ msgid "OVERCLOCK"
 msgstr "オーバークロック"
 
 msgid "STORAGE"
-msgstr "ストレージ"
+msgstr "ストレージ(SSD、HDDなどの記憶装置)"
 
 msgid "STORAGE DEVICE"
-msgstr "ストレージデバイス"
+msgstr "ストレージ(データ保存)設定"
 
 msgid "BACKUP USER DATA"
 msgstr "データバックアップ"
@@ -2863,8 +2863,5 @@ msgstr "スクリーンリーダー有効"
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
 
-#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-#~ msgstr "再起動で更新が適用されます"
-
-#~ msgid "GRAPHICS API"
-#~ msgstr "グラフィック API"
+msgid "GRAPHICS API"
+msgstr "グラフィック API"
