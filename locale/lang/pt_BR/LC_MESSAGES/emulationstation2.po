@@ -1898,7 +1898,7 @@ msgid "SHOW TATTOO OVER BEZEL"
 msgstr "MAPEAMENTO DE BOTÕES NA MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "CONTROLES DO SISTEMA"
+msgstr "MOSTRAR BOTÕES"
 
 msgid "CUSTOM IMAGE"
 msgstr ".PNG PERSONALIZADO"
@@ -1907,7 +1907,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "Mostra uma imagem sobreposta sobre a moldura."
 
 msgid "TATTOO CORNER"
-msgstr "CANTO DA IMAGEM SOBREPOSTA"
+msgstr "POSIÇÃO DO MAPEAMENTO"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
