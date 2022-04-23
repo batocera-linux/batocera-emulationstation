@@ -1904,7 +1904,7 @@ msgid "CUSTOM IMAGE"
 msgstr ".PNG PERSONALIZADO"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "Mostra uma imagem sobreposta sobre a moldura."
+msgstr "Mostra uma imagem dos botões do controle sobre a moldura."
 
 msgid "TATTOO CORNER"
 msgstr "POSIÇÃO DO MAPEAMENTO"
@@ -1928,7 +1928,7 @@ msgid "RESIZE TATTOO"
 msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
+msgstr "Reduz/expande o mapeamento para caber na borda da moldura."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
