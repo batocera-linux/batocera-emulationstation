@@ -1898,16 +1898,16 @@ msgid "SHOW TATTOO OVER BEZEL"
 msgstr "MAPEAMENTO DE BOTÕES NA MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "CONTROLES DO SISTEMA"
+msgstr "MOSTRAR BOTÕES"
 
 msgid "CUSTOM IMAGE"
 msgstr ".PNG PERSONALIZADO"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "Mostra uma imagem sobreposta sobre a moldura."
+msgstr "Mostra uma imagem dos botões do controle sobre a moldura."
 
 msgid "TATTOO CORNER"
-msgstr "CANTO DA IMAGEM SOBREPOSTA"
+msgstr "POSIÇÃO DO MAPEAMENTO"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1925,10 +1925,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ARQUIVO .PNG PERSONALIZADO"
 
 msgid "RESIZE TATTOO"
-msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
+msgstr "REDIMENSIONAR MAPEAMENTO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
+msgstr "Reduz/expande o mapeamento para caber na borda da moldura."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
