@@ -953,7 +953,7 @@ msgid "UPDATE IS READY"
 msgstr "AKTUALIZACJA JEST GOTOWA"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "ZRESTARTUJ ABY ZASTOSOWAĆ"
 
 msgid "REALLY UPDATE?"
 msgstr "ZAKTUALIZOWAĆ?"

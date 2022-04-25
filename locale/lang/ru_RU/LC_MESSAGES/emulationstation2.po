@@ -952,7 +952,7 @@ msgid "UPDATE IS READY"
 msgstr "ОБНОВЛЕНИЕ ГОТОВО"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "ПЕРЕЗАГРУЗИТЕ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "REALLY UPDATE?"
 msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ?"
@@ -972,7 +972,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "ОБНОВЛЕНИЙ НЕТ"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "УСТАНОВИТЬ НА НОВЫЙ ДИСК"
 
 msgid "TARGET DEVICE"
 msgstr "ЦЕЛЕВОЕ УСТРОЙСТВО"
@@ -1175,7 +1175,7 @@ msgid "MARQUEE"
 msgstr "БАНЕР"
 
 msgid "SCRAPE SHORT NAME"
-msgstr ""
+msgstr "ЗАГРУЗКА КОРОТКОГО ИМЕНИ"
 
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
@@ -1223,10 +1223,10 @@ msgid "ALL"
 msgstr "ВСЕ"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "ИГРЫ С НЕДОСТАЮЩИМ МЕДИА"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "ИГРЫ С ОТСУТВУЮЩИМ МЕДИА"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "ИГНОРИРОВАТЬ НЕДАВНО ЗАСКРАПЛЕНЫЕ ИГРЫ"
@@ -1390,16 +1390,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "ВНУТРЕННИЙ"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "ЛЮБОЙ ВНЕШНИЙ"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "максимум 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "максимум 640x480"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -1823,7 +1823,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
 msgid "High numbers can result in visible jitter."
-msgstr "Высокие значения могут привести к видимому дрожанию."
+msgstr "Высокие значения могут привести к дрожанию."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
@@ -1842,7 +1842,7 @@ msgid ""
 "introduce stuttering."
 msgstr ""
 "Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. "
-"Отключите, если это вызывает заикание."
+"Может вызывать заикание."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ (G-SYNC, FREESYNC)"
@@ -1852,13 +1852,13 @@ msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr ""
+msgstr "Не превышает синхронизацию ядра. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Текущая настройка"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "СТАНДАРТНЫЕ ГЛОБАЛЬНЫЕ НАСТРОЙКИ"
@@ -1966,7 +1966,7 @@ msgid "IF NOT EMPTY"
 msgstr "ЕСЛИ ИМЕЕТСЯ"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -2416,7 +2416,7 @@ msgid "Kid"
 msgstr "Детский"
 
 msgid "Basic"
-msgstr ""
+msgstr "Базовый"
 
 msgid "Released"
 msgstr "Релиз"
@@ -2441,16 +2441,16 @@ msgid "GAME OPTIONS"
 msgstr "ПАРАМЕТРЫ"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "БЫСТРЫЕ СОХРАНЕНИЯ (УДЕРЖИВАТЬ)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "ПАРАМЕТРЫ (УДЕРЖИВАТЬ)"
 
 msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
 
 msgid "RANDOM (HOLD)"
-msgstr ""
+msgstr "СЛУЧАЙНО (УДЕРЖИВАТЬ)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2487,7 +2487,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "ВЫ ХОТИТЕ ПЕРЕКЛЮЧИТЬ ЭКРАН?"
 
 msgid "Collections"
 msgstr "Коллекции"
@@ -2772,9 +2772,9 @@ msgstr "НЕ УСТАНАВЛИВАТЬ ХОТКЕЙ"
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
-msgstr[1] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
-msgstr[2] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[0] "УДЕРЖИВАЙТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[1] "УДЕРЖИВАЙТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[2] "УДЕРЖИВАЙТЕ %iS ДЛЯ ПРОПУСКА"
 
 msgid "PRESS ANYTHING"
 msgstr "НАЖМИТЕ ЛЮБУЮ КНОПКУ"

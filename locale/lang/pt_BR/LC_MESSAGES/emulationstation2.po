@@ -954,7 +954,7 @@ msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "REINICIALIZAR PARA APLICAR"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
@@ -1452,7 +1452,7 @@ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDORA"
+msgstr "DESENVOLVEDOR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPÇÕES DE VÍDEO"
@@ -1895,19 +1895,19 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "MOSTRAR MAPEAMENTO DE BOTÕES NA MOLDURA"
+msgstr "MAPEAMENTO DE BOTÕES NA MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "CONTROLES DO SISTEMA"
+msgstr "MOSTRAR BOTÕES"
 
 msgid "CUSTOM IMAGE"
 msgstr ".PNG PERSONALIZADO"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "Mostra uma imagem sobreposta sobre a moldura."
+msgstr "Mostra uma imagem dos botões do controle sobre a moldura."
 
 msgid "TATTOO CORNER"
-msgstr "CANTO DA IMAGEM SOBREPOSTA"
+msgstr "POSIÇÃO DO MAPEAMENTO"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1925,10 +1925,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ARQUIVO .PNG PERSONALIZADO"
 
 msgid "RESIZE TATTOO"
-msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
+msgstr "REDIMENSIONAR MAPEAMENTO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
+msgstr "Reduz/expande o mapeamento para caber na borda da moldura."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
@@ -2456,7 +2456,7 @@ msgid "FAVORITE"
 msgstr "FAVORITO"
 
 msgid "RANDOM (HOLD)"
-msgstr "RANDÔMICO (SEGURE)"
+msgstr "ALEATÓRIO (SEGURE)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
