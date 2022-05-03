@@ -1452,7 +1452,7 @@ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDOR"
+msgstr "DESENVOLVEDORA"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPÇÕES DE VÍDEO"
@@ -1895,16 +1895,16 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "MAPEAMENTO DE BOTÕES NA MOLDURA"
+msgstr "MOSTRAR IMAGEM SOBREPOSTA À MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "MOSTRAR BOTÕES"
+msgstr "CONTROLES DO SISTEMA"
 
 msgid "CUSTOM IMAGE"
 msgstr ".PNG PERSONALIZADO"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "Mostra uma imagem dos botões do controle sobre a moldura."
+msgstr "Mostra uma imagem sobreposta sobre a moldura."
 
 msgid "TATTOO CORNER"
 msgstr "POSIÇÃO DO MAPEAMENTO"
@@ -1928,7 +1928,7 @@ msgid "RESIZE TATTOO"
 msgstr "REDIMENSIONAR MAPEAMENTO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Reduz/expande o mapeamento para caber na borda da moldura."
+msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
