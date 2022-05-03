@@ -2863,5 +2863,5 @@ msgstr "スクリーンリーダー有効"
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
 
-msgid "GRAPHICS API"
-msgstr "グラフィック API"
+#~ msgid "GRAPHICS API"
+#~ msgstr "グラフィック API"
