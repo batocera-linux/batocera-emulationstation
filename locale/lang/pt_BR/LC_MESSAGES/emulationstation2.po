@@ -376,6 +376,9 @@ msgstr "PLACAR"
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 

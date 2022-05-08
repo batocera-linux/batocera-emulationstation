@@ -379,6 +379,9 @@ msgstr "לוחות מובילים"
 msgid "VERBOSE MODE"
 msgstr "מצב מילולי"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "צילום מסך אוטומטי"
 

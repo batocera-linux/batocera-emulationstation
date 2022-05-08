@@ -378,6 +378,9 @@ msgstr "RANKINGI"
 msgid "VERBOSE MODE"
 msgstr "TRYB INFORMACJI PEŁNEJ"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 

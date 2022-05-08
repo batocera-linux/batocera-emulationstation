@@ -372,6 +372,9 @@ msgstr "排行榜"
 msgid "VERBOSE MODE"
 msgstr "详细模式"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 

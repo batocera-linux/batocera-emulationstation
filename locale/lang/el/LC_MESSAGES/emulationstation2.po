@@ -373,6 +373,9 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr "ΛΕΙΤΟΥΡΓΙΑ VERBOSE"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AYTOMATO ΣΤΙΓΜΙΟΤΥΠΟ"
 

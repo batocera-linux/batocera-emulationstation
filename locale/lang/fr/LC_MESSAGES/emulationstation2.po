@@ -376,6 +376,9 @@ msgstr "TABLEAU DES SCORES"
 msgid "VERBOSE MODE"
 msgstr "MODE VERBEUX"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 

@@ -381,6 +381,9 @@ msgstr "BYRDDAU ARWAIN"
 msgid "VERBOSE MODE"
 msgstr "MODD VERBOSE"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SGRINLUN AWTOMATIG"
 
