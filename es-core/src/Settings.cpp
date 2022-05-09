@@ -338,6 +338,7 @@ void Settings::setDefaults()
 	mBoolMap["global.retroachievements.verbose"] = false;
 	mBoolMap["global.retroachievements.screenshot"] = false;
 	mBoolMap["global.retroachievements.encore"] = false;
+	mBoolMap["global.retroachievements.richpresence"] = false;
 
 	mBoolMap["global.netplay_public_announce"] = true;
 	mBoolMap["global.netplay"] = false;
