@@ -118,6 +118,10 @@ private:
 	static const unsigned int COLOR_ID_COUNT = 2;
 	unsigned int mColors[COLOR_ID_COUNT];
 
+	unsigned int mGlowColor;
+	unsigned int mGlowSize;
+	Vector2f	 mGlowOffset;
+
 	ImageComponent mSelectorImage;
 	
 	ScrollbarComponent mScrollbar;
@@ -149,6 +153,10 @@ TextListComponent<T>::TextListComponent(Window* window) :
 	mSelectedColor = 0;
 	mColors[0] = 0x0000FFFF;
 	mColors[1] = 0x00FF00FF;
+
+	mGlowColor = 0;
+	mGlowSize = 2;
+	mGlowOffset = Vector2f::Zero();
 }
 
 template <typename T>
@@ -257,10 +265,10 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		else
 			drawTrans.translate(offset);
 
-		Renderer::setMatrix(drawTrans);
-
 		if (Settings::DebugText())
 		{
+			Renderer::setMatrix(drawTrans);
+
 			auto sz = mFont->sizeText(mUppercase ? Utils::String::toUpper(entry.name) : entry.name);
 
 			Renderer::popClipRect();
@@ -269,7 +277,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 				Vector2i((int)(dim.x() - mHorizontalMargin * 2), (int)dim.y()));
 		}
 
-		font->renderTextCache(entry.data.textCache.get());
+		font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, GuiComponent::mOpacity);
 
 		// render currently selected item text again if
 		// marquee is scrolled far enough for it to repeat
@@ -277,8 +285,8 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		{
 			drawTrans = trans;
 			drawTrans.translate(offset - Vector3f((float)mMarqueeOffset2, 0, 0));
-			Renderer::setMatrix(drawTrans);
-			font->renderTextCache(entry.data.textCache.get());
+			
+			font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, GuiComponent::mOpacity);
 		}
 
 		y += entrySize;
@@ -462,6 +470,17 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 			setColor(0, elem->get<unsigned int>("primaryColor"));
 		if(elem->has("secondaryColor"))
 			setColor(1, elem->get<unsigned int>("secondaryColor"));
+
+		if (elem->has("glowColor"))
+			mGlowColor = elem->get<unsigned int>("glowColor");
+		else
+			mGlowColor = 0;
+
+		if (elem->has("glowSize"))
+			mGlowSize = (int)elem->get<float>("glowSize");
+
+		if (elem->has("glowOffset"))
+			mGlowOffset = elem->get<Vector2f>("glowOffset");
 	}
 
 	setFont(Font::getFromTheme(elem, properties, mFont));
