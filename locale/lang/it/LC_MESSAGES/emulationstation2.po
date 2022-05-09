@@ -376,6 +376,9 @@ msgstr "CLASSIFICHE"
 msgid "VERBOSE MODE"
 msgstr "MODALITÀ VERBOSE"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 

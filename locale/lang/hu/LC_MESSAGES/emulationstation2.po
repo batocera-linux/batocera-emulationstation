@@ -376,6 +376,9 @@ msgstr "RANGSOR"
 msgid "VERBOSE MODE"
 msgstr "KÖVETŐ (VERBOSE) MÓD"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATIKUS KÉPERNYŐKÉP"
 

@@ -375,6 +375,9 @@ msgstr "순위표"
 msgid "VERBOSE MODE"
 msgstr "상세 모드"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "자동 스크린샷"
 

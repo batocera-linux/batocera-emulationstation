@@ -25,6 +25,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	addSwitch(_("HARDCORE MODE"), "global.retroachievements.hardcore", false);
 	addSwitch(_("LEADERBOARDS"), "global.retroachievements.leaderboards", false);
 	addSwitch(_("VERBOSE MODE"), "global.retroachievements.verbose", false);
+	addSwitch(_("ENCORE MODE"), "global.retroachievements.encore", false);
 	addSwitch(_("AUTOMATIC SCREENSHOT"), "global.retroachievements.screenshot", false);
 	addSwitch(_("CHALLENGE INDICATORS"), _("Shows icons in the bottom right corner when eligible achievements can be earned."), "global.retroachievements.challenge_indicators", false, nullptr);
 

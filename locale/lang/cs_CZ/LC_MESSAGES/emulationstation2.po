@@ -377,6 +377,9 @@ msgstr "VÝSLEDKOVÁ TABULE"
 msgid "VERBOSE MODE"
 msgstr "ÚPLNÝ INFORMAČNÍ REŽIM"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATICKÉ SNÍMKY OBRAZOVKY"
 

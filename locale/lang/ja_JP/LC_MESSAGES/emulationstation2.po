@@ -375,6 +375,9 @@ msgstr "リーダーボード"
 msgid "VERBOSE MODE"
 msgstr "詳細な処理モード"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
 

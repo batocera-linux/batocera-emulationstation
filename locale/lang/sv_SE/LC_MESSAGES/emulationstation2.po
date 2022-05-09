@@ -376,6 +376,9 @@ msgstr "TOPPLISTOR"
 msgid "VERBOSE MODE"
 msgstr "MÅNGSIDIGT LÄGE"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISK SKÄRMDUMP"
 

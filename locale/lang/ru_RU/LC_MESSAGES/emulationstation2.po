@@ -377,6 +377,9 @@ msgstr "ДОСКА ЛИДЕРОВ"
 msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 

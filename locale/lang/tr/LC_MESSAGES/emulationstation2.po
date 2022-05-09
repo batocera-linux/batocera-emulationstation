@@ -376,6 +376,9 @@ msgstr "SKORLAR"
 msgid "VERBOSE MODE"
 msgstr "VERBOSE MODU"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "OTOMATİK EKRAN GÖRÜNTÜSÜ"
 

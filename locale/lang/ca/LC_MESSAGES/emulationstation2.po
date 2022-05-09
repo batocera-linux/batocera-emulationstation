@@ -376,6 +376,9 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 

@@ -384,6 +384,9 @@ msgstr "LEADERBOARDS"
 msgid "VERBOSE MODE"
 msgstr "وضع مفصل"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "لقطة شاشة تلقائية"
 

@@ -376,6 +376,9 @@ msgstr "SCORE BORD"
 msgid "VERBOSE MODE"
 msgstr "VERBOSE MODUS"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHE SCREENSHOT"
 

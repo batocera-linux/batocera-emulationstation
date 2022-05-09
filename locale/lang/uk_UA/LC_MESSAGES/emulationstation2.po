@@ -378,6 +378,9 @@ msgstr "ДОШКА ЛІДЕРІВ"
 msgid "VERBOSE MODE"
 msgstr "ДОКЛАДНИЙ РЕЖИМ"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧНИЙ СКРІНШОТ"
 
