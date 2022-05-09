@@ -54,6 +54,8 @@ public:
 	TextCache* buildTextCache(const std::string& text, Vector2f offset, unsigned int color, float xLen, Alignment alignment = ALIGN_LEFT, float lineSpacing = 1.5f);
 	
 	void renderTextCache(TextCache* cache, bool verticesChanged = true);
+	void renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans, unsigned int mGlowSize, unsigned int mGlowColor, Vector2f& mGlowOffset, unsigned char mOpacity = 255);
+
 	void renderGradientTextCache(TextCache* cache, unsigned int colorTop, unsigned int colorBottom, bool horz = false);
 	
 	std::string wrapText(std::string text, float xLen); // Inserts newlines into text to make it wrap properly.
@@ -77,6 +79,8 @@ public:
 	static size_t getTotalMemUsage(); // returns an approximation of total VRAM used by font textures (in bytes)
 
 private:
+	void renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, float x, float y, bool verticesChanged = true);
+
 	static FT_Library sLibrary;
 	static std::map< std::pair<std::string, int>, std::weak_ptr<Font> > sFontMap;
 
