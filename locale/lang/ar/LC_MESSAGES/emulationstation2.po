@@ -396,9 +396,6 @@ msgstr ""
 msgid "Reset achievements to be able to earn them again."
 msgstr ""
 
-msgid "RICH PRESENCE"
-msgstr ""
-
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "لقطة شاشة تلقائية"
 
