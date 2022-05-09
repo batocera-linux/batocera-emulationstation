@@ -392,6 +392,9 @@ msgstr ""
 msgid "RICH PRESENCE"
 msgstr ""
 
+msgid "RICH PRESENCE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATICKÉ SNÍMKY OBRAZOVKY"
 
