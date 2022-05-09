@@ -277,7 +277,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 				Vector2i((int)(dim.x() - mHorizontalMargin * 2), (int)dim.y()));
 		}
 
-		font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, mOpacity);
+		font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, GuiComponent::mOpacity);
 
 		// render currently selected item text again if
 		// marquee is scrolled far enough for it to repeat
@@ -286,7 +286,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 			drawTrans = trans;
 			drawTrans.translate(offset - Vector3f((float)mMarqueeOffset2, 0, 0));
 			
-			font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, mOpacity);
+			font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, GuiComponent::mOpacity);
 		}
 
 		y += entrySize;
