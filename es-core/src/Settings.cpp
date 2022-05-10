@@ -170,7 +170,8 @@ void Settings::setDefaults()
 	mBoolMap["InvertButtons"] = false;
 
 	mBoolMap["GameOptionsAtNorth"] = false;
-
+	mBoolMap["LoadEmptySystems"] = false;
+	
 	mIntMap["RecentlyScrappedFilter"] = 3;
 	
 	mIntMap["ScreenSaverTime"] = Settings::_ScreenSaverTime;

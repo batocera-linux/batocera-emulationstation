@@ -18,6 +18,8 @@ class UIModeController : public ISettingsChangedEvent
 public:
 	static UIModeController* getInstance();
 
+	static bool LoadEmptySystems();
+
 	// Monitor input for UI mode change, returns true (consumes input) when UI mode change is triggered.
 	bool listen(InputConfig* config, Input input);
 	
@@ -31,6 +33,7 @@ public:
 	bool isUIModeKid();
 	bool isUIModeKiosk();
 	bool isUIModeBasic();
+
 
 	inline std::vector<std::string> getUIModes() { return mUIModes; };
 

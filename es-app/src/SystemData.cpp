@@ -66,11 +66,15 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 		if (!Settings::ParseGamelistOnly())
 		{
 			populateFolder(mRootFolder, fileMap);
-			if (mRootFolder->getChildren().size() == 0)
-				return;
 
-			if (mHidden && !Settings::HiddenSystemsShowGames())
-				return;
+			if (!UIModeController::LoadEmptySystems())
+			{
+				if (mRootFolder->getChildren().size() == 0)
+					return;
+
+				if (mHidden && !Settings::HiddenSystemsShowGames())
+					return;
+			}
 		}
 
 		if (!Settings::IgnoreGamelist())
@@ -88,7 +92,7 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 	mRootFolder->getMetadata().resetChangedFlag();
 
-	if (withTheme && (!loadThemeOnlyIfElements || mRootFolder->mChildren.size() > 0))
+	if (withTheme && (!loadThemeOnlyIfElements || UIModeController::LoadEmptySystems() || mRootFolder->mChildren.size() > 0))
 	{
 		loadTheme();
 
@@ -1004,9 +1008,15 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	}
 
 	//validate
-	if (fullMode && (md.name.empty() || path.empty() || extensions.empty() || cmd.empty() || !Utils::FileSystem::exists(path)))
+	if (fullMode && (md.name.empty() || path.empty() || extensions.empty() || cmd.empty()))
 	{
-		LOG(LogError) << "System \"" << md.name << "\" is missing name, path, extension, or command!";
+		LOG(LogError) << "System \"" << md.name << "\" is missing name, extension, or command!";
+		return nullptr;
+	}
+
+	if (fullMode && !UIModeController::LoadEmptySystems() && !Utils::FileSystem::exists(path))
+	{
+		LOG(LogError) << "System \"" << md.name << "\" path does not exist !";
 		return nullptr;
 	}
 
@@ -1076,8 +1086,8 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 
 	if (!fullMode)
 		return newSys;
-	
-	if (newSys->getRootFolder()->getChildren().size() == 0)
+
+	if (!UIModeController::LoadEmptySystems() && newSys->getRootFolder()->getChildren().size() == 0)
 	{
 		LOG(LogWarning) << "System \"" << md.name << "\" has no games! Ignoring it.";
 		delete newSys;
@@ -1111,7 +1121,7 @@ bool SystemData::hasDirtySystems()
 
 void SystemData::deleteSystems()
 {
-	bool saveOnExit = !Settings::IgnoreGamelist() && Settings::SaveGamelistsOnExit;
+	bool saveOnExit = !Settings::IgnoreGamelist() && Settings::SaveGamelistsOnExit();
 
 	for (unsigned int i = 0; i < sSystemVector.size(); i++)
 	{
@@ -1158,7 +1168,7 @@ bool SystemData::isVisible()
 	if (isGroupChildSystem())
 		return false;
 
-	if (!mHidden && !mIsCollectionSystem && getGameCountInfo()->totalGames > 0)
+	if (!mHidden && !mIsCollectionSystem && (UIModeController::LoadEmptySystems() || getGameCountInfo()->totalGames > 0))
 		return true;
 
 	return false;
