@@ -377,7 +377,7 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "MODO DE REPETIÇÃO"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"

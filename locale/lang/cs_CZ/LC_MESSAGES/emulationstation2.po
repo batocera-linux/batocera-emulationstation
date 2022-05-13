@@ -950,7 +950,7 @@ msgid "UPDATE IS READY"
 msgstr "AKTUALIZACE HOTOVÁ"
 
 msgid "REBOOT TO APPLY"
-msgstr "RESTARTOVÁNÍ APLIKACE"
+msgstr "NUTNÝ RESTART"
 
 msgid "REALLY UPDATE?"
 msgstr "OPRAVDU AKTUALIZOVAT?"
@@ -2207,25 +2207,25 @@ msgid "VIEW USER'S MANUAL"
 msgstr "ZOBRAZIT NÁVOD K POUŽITÍ"
 
 msgid "RESTART SYSTEM"
-msgstr "RESTART SYSTÉMU"
+msgstr "RESTARTOVAT"
 
 msgid "REALLY RESTART?"
 msgstr "OPRAVDU RESTARTOVAT?"
 
 msgid "SHUTDOWN SYSTEM"
-msgstr "VYPNUTÍ SYSTÉMU"
+msgstr "VYPNOUT"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "OPRAVDU VYPNOUT?"
 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr "RYCHLÉ VYPNUTÍ SYSTÉMU"
+msgstr "RYCHLÉ VYPNUTÍ"
 
 msgid "Shutdown without saving metadata."
-msgstr "Vypnutí bez uložení metadat."
+msgstr "Vypnutí bez uložení dat."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "SKUTEČNĚ VYPNOUT BEZ ULOŽENÍ METADAT?"
+msgstr "SKUTEČNĚ VYPNOUT BEZ ULOŽENÍ DAT?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "UKONČIT EMULÁTOR"
