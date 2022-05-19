@@ -29,7 +29,7 @@ enum MetaDataType
 	MD_RATING,
 	MD_DATE,
 	MD_TIME, //used for lastplayed
-        MD_LIST // batocera
+    MD_LIST 
 };
 
 enum MetaDataId
@@ -134,7 +134,7 @@ class MetaDataList
 public:
 	static void initMetadata();
 
-	static MetaDataList createFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system);
+	void loadFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system);
 	void appendToXML(pugi::xml_node& parent, bool ignoreDefaults, const std::string& relativeTo, bool fullPaths = false) const;
 
 	void migrate(FileData* file, pugi::xml_node& node);

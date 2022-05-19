@@ -12,6 +12,7 @@
 #include "Settings.h"
 #include "ImageIO.h"
 #include <algorithm>
+#include "math/Transform4x4f.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -382,7 +383,8 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	pGlyph->glyphSize = glyphSize;
 
 	// upload glyph bitmap to texture
-	Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
+	if (glyphSize.x() > 0 && glyphSize.y() > 0)
+		Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
 
 	// update max glyph height
 	if(glyphSize.y() > mMaxGlyphHeight)
@@ -423,7 +425,67 @@ void Font::rebuildTextures()
 	}
 }
 
-void Font::renderTextCache(TextCache* cache)
+void Font::renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, float x, float y, bool verticesChanged)
+{
+	Transform4x4f trans = parentTrans;
+	trans.translate(x, y);
+	Renderer::setMatrix(trans);
+	renderTextCache(cache, verticesChanged);
+}
+
+void Font::renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans, unsigned int mGlowSize, unsigned int mGlowColor, Vector2f& mGlowOffset, unsigned char mOpacity)
+{
+	if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
+	{
+		Transform4x4f glowTrans = parentTrans;
+		glowTrans.translate(mGlowOffset.x(), mGlowOffset.y());
+		Renderer::setMatrix(glowTrans);
+
+		auto copy = cache->vertexLists;
+
+		cache->setRenderingGlow(true);
+
+		if (mGlowSize == 1 && mGlowOffset == Vector2f::Zero())
+		{
+			int a = Math::min(0xFF, (mGlowColor & 0xFF) * 2);
+			cache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)(a * (mOpacity / 255.0)));
+
+			renderSingleGlow(cache, glowTrans, 1, 0);
+			renderSingleGlow(cache, glowTrans, 0, 1, false);
+			renderSingleGlow(cache, glowTrans, -1, 0, false);
+			renderSingleGlow(cache, glowTrans, 0, -1, false);
+		}
+		else
+		{
+			cache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
+
+			int x = -mGlowSize;
+			int y = -mGlowSize;
+
+			renderSingleGlow(cache, glowTrans, x, y);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, ++x, y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, x, ++y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, --x, y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, x, --y, false);
+		}
+
+		cache->setRenderingGlow(false);
+		cache->vertexLists = copy;
+	}
+
+	Renderer::setMatrix(parentTrans);
+	renderTextCache(cache);
+}
+
+void Font::renderTextCache(TextCache* cache, bool verticesChanged)
 {
 	if(cache == NULL)
 	{
@@ -445,17 +507,17 @@ void Font::renderTextCache(TextCache* cache)
 		}
 
 		if (tex != 0)
-			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size());
+			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size(), Renderer::Blend::SRC_ALPHA, Renderer::Blend::ONE_MINUS_SRC_ALPHA, cache->vertexLists.size() > 1 || verticesChanged);
 	}
 
-	if (cache->renderingGlow)
+	if (cache->renderingGlow || !verticesChanged)
 		return;
 
 	for (auto sub : cache->imageSubstitutes)
 	{
 		if (sub.texture && sub.texture->bind())
 		{
-			if (Settings::DebugImage)
+			if (Settings::DebugImage())
 				Renderer::drawRect(
 					sub.vertex[0].pos.x(), 
 					sub.vertex[0].pos.y(), 

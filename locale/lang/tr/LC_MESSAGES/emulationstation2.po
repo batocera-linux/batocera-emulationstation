@@ -376,6 +376,9 @@ msgstr "SKORLAR"
 msgid "VERBOSE MODE"
 msgstr "VERBOSE MODU"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "OTOMATİK EKRAN GÖRÜNTÜSÜ"
 
@@ -946,14 +949,11 @@ msgstr "EMİN MİSİN ?"
 msgid "UPDATING %s"
 msgstr "GÜNCELLENİYOR %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "BATOCERA GÜNCELLENİYOR"
-
 msgid "UPDATE IS READY"
 msgstr "GÜNCELLEME HAZIR"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "UYGULAMAK İÇİN SİSTEMİ YENİDEN BAŞLATIN"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
@@ -970,8 +970,8 @@ msgstr "AĞ BAĞLANTISI GEREKİYOR"
 msgid "NO UPDATE AVAILABLE"
 msgstr "YENİ GÜNCELLEME YOK"
 
-msgid "INSTALL BATOCERA"
-msgstr "BATOCERA KUR"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "HEDEF CİHAZ"
@@ -1173,6 +1173,9 @@ msgstr "WHEEL"
 msgid "MARQUEE"
 msgstr "KAYAN YAZI"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "PUANLARI ÇEK(SCRAPE)"
 
@@ -1218,10 +1221,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1335,26 +1338,37 @@ msgstr "Cpu üst frekansı"
 msgid "Cpu feature"
 msgstr "Cpu özellikleri"
 
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr ""
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "RETRO"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "GELİŞTİRİLMİŞ"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "CURVATURE"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA ÖLÇEKLENDİRME"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "YAPIMCI"
@@ -1370,6 +1384,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KUMANDA AYARLARI"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
@@ -1452,10 +1478,6 @@ msgstr "WEB ERİŞİMİNE AÇ"
 #, c-format
 msgid "Allow public web access API using %s"
 msgstr "Açık web erişimine %s API kullanarak izin ver"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAŞLATILMASI GEREKİR"
 
 msgid "LOG LEVEL"
 msgstr "LOG SEVİYESİ"
@@ -1540,9 +1562,6 @@ msgstr "RETROARCH MENÜ SÜRÜCÜSÜ"
 
 msgid "AUTO"
 msgstr "OTOMATİK"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "EMULATÖR KONTROLLERİNİ OTOMATİK YAPILANDIR"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "EMULATIONSTATION DA A/B BUTONLARIN YERİNİ DEĞİŞTİR"
@@ -1637,6 +1656,9 @@ msgstr ""
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "GELİŞTİRİLMİŞ"
 
 msgid "INSTANT"
 msgstr ""
@@ -1770,9 +1792,6 @@ msgstr "DEPO CİHAZI"
 msgid "BACKUP USER DATA"
 msgstr "KULLANICI VERİLERİNİ YEDEKLE"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "YENİ BİR DİSKTE BATOCERA KURULUMU"
-
 msgid "ADVANCED"
 msgstr "GELİŞMİŞ"
 
@@ -1785,17 +1804,24 @@ msgstr "GÜVENLİĞİ GELİŞTİR"
 msgid "ROOT PASSWORD"
 msgstr "ROOT PAROLASI"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAŞLATILMASI GEREKİR"
+
 msgid "LATENCY REDUCTION"
 msgstr "GECİKME AZALTMA"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD KARELERİ"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "RUN-AHEAD KARELERİ KULLAN"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "İKİNCİ AŞAMADA RUN-AHEAD KULLAN"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr ""
@@ -1804,11 +1830,24 @@ msgid "AUTO FRAME DELAY"
 msgstr ""
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1889,6 +1928,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ÇEVİRİLEN EKRANDA BEKLET"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "KONTROLLERİ OTOMATİK YAPILANDIR"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1904,7 +1946,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1913,10 +1955,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2156,9 +2195,6 @@ msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"
 msgid "VIEW USER'S MANUAL"
 msgstr "KULLANICI KLAVUZUNU GÖRÜNTÜLE"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "BATOCERA KLAVUZUNU GÖRÜNTÜLE"
-
 msgid "RESTART SYSTEM"
 msgstr "YENİDEN BAŞLAT"
 
@@ -2218,9 +2254,6 @@ msgstr "YAN YANA"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "İÇ ÇÖZÜNÜRLÜK"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "KONTROLLERİ OTOMATİK YAPILANDIR"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2359,6 +2392,9 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Çocuk"
 
+msgid "Basic"
+msgstr ""
+
 msgid "Released"
 msgstr "Yayın"
 
@@ -2380,8 +2416,17 @@ msgstr "Oyunlar benzeşiyor"
 msgid "GAME OPTIONS"
 msgstr "OYUN AYARLARI"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "FAVORİ"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2416,6 +2461,9 @@ msgstr "Sistem yapılandırması yükleniyor..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Koleksiyonlar"
@@ -2805,6 +2853,48 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "UYGULAMAK İÇİN SİSTEMİ YENİDEN BAŞLATIN"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "BATOCERA GÜNCELLENİYOR"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "BATOCERA KUR"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "EMULATÖR KONTROLLERİNİ OTOMATİK YAPILANDIR"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "YENİ BİR DİSKTE BATOCERA KURULUMU"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "BATOCERA KLAVUZUNU GÖRÜNTÜLE"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "RUN-AHEAD KARELERİ KULLAN"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "İKİNCİ AŞAMADA RUN-AHEAD KULLAN"
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "CURVATURE"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA ÖLÇEKLENDİRME"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "OYUNCU ŞİFRESİ OLUŞTUR"

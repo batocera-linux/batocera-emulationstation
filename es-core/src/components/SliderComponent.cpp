@@ -122,6 +122,8 @@ float SliderComponent::getValue()
 
 void SliderComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	if(!mSuffix.empty())
 		mFont = Font::get((int)(mSize.y()), FONT_PATH_LIGHT);
 	
@@ -163,6 +165,6 @@ void SliderComponent::onValueChanged()
 std::vector<HelpPrompt> SliderComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt("left/right", _("CHANGE"))); // batocera
+	prompts.push_back(HelpPrompt("left/right", _("CHANGE")));
 	return prompts;
 }

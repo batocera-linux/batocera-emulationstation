@@ -379,6 +379,9 @@ msgstr "לוחות מובילים"
 msgid "VERBOSE MODE"
 msgstr "מצב מילולי"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "צילום מסך אוטומטי"
 
@@ -949,13 +952,10 @@ msgstr ""
 msgid "UPDATING %s"
 msgstr "מעדכן %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "מעדכן את מערכת ההפעלה"
-
 msgid "UPDATE IS READY"
 msgstr "עדכון מוכן להתקנה"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgid "REBOOT TO APPLY"
 msgstr ""
 
 msgid "REALLY UPDATE?"
@@ -973,8 +973,8 @@ msgstr "נדרש חיבור לרשת"
 msgid "NO UPDATE AVAILABLE"
 msgstr "אין עדכון זמין"
 
-msgid "INSTALL BATOCERA"
-msgstr "התקנת מערכת הפעלה BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "התקן יעד"
@@ -1174,6 +1174,9 @@ msgstr "גלגל"
 msgid "MARQUEE"
 msgstr "דגל"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE דירוגים"
 
@@ -1219,10 +1222,10 @@ msgstr ""
 msgid "ALL"
 msgstr ""
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
@@ -1336,26 +1339,37 @@ msgstr "תדר שיא למעבד"
 msgid "Cpu feature"
 msgstr "מאפיין מעבד"
 
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr ""
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "שורות סריקה"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "'רטרו'"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "משופר"
+msgstr ""
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "קשת"
+msgstr ""
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST"
+msgstr ""
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "שיטוח בוהק"
+msgstr ""
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA SCALING"
+msgstr ""
 
 msgid "VENDOR"
 msgstr "ספק"
@@ -1371,6 +1385,18 @@ msgstr ""
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "הגדרות בקרים ובלו-טות'"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "תפריט ראשי"
@@ -1453,9 +1479,6 @@ msgstr "אפשר גישה פומבית מהרשת"
 #, c-format
 msgid "Allow public web access API using %s"
 msgstr "Allow public web access API using %s"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
 
 msgid "LOG LEVEL"
 msgstr "רמת חיבור"
@@ -1540,9 +1563,6 @@ msgstr "תפריט מנהל התקן RETROARCH"
 
 msgid "AUTO"
 msgstr "אוטומטי"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "הגדר אוטומטית בקרי אמולטור (חַקַּאי)"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr ""
@@ -1635,6 +1655,9 @@ msgstr ""
 
 msgid "DEFAULT"
 msgstr ""
+
+msgid "ENHANCED"
+msgstr "משופר"
 
 msgid "INSTANT"
 msgstr ""
@@ -1768,9 +1791,6 @@ msgstr "התקן איחסון"
 msgid "BACKUP USER DATA"
 msgstr "גיבוי מידע משתמש"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "התקנת BATOCERA על דיסק חדש"
-
 msgid "ADVANCED"
 msgstr "מתקדם"
 
@@ -1783,17 +1803,23 @@ msgstr "אכיפת אבטחה"
 msgid "ROOT PASSWORD"
 msgstr "סיסמת שורש ROOT PASSWORD"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+
 msgid "LATENCY REDUCTION"
 msgstr "הפחתת השהייה"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD FRAMES"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USE RUN-AHEAD FRAMES"
+msgid "High numbers can result in visible jitter."
+msgstr ""
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "RUN-AHEAD USE SECOND INSTANCE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr ""
+
+msgid "Can prevent audio skips on button presses."
+msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr ""
@@ -1802,11 +1828,24 @@ msgid "AUTO FRAME DELAY"
 msgstr ""
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr ""
+
+msgid "VARIABLE REFRESH RATE"
+msgstr ""
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
 
 msgid "DECORATION SET"
+msgstr ""
+
+msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
@@ -1887,6 +1926,9 @@ msgstr ""
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "השהה במסך מתורגם"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "תצורת בקרים אוטומטית"
+
 msgid "SAVESTATES"
 msgstr ""
 
@@ -1902,7 +1944,7 @@ msgstr ""
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr ""
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -1911,10 +1953,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2154,9 +2193,6 @@ msgstr "הפעלת שומר מסך"
 msgid "VIEW USER'S MANUAL"
 msgstr "צפייה במדריך למשתמש"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "צפייה במדריך 'בטוסרה' (BATOCERA)"
-
 msgid "RESTART SYSTEM"
 msgstr "הפעלה מחדש"
 
@@ -2216,9 +2252,6 @@ msgstr "צד לצד"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "רזולוציה פנימית"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "תצורת בקרים אוטומטית"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr ""
@@ -2360,6 +2393,9 @@ msgstr ""
 msgid "Kid"
 msgstr ""
 
+msgid "Basic"
+msgstr ""
+
 msgid "Released"
 msgstr ""
 
@@ -2383,7 +2419,16 @@ msgstr ""
 msgid "GAME OPTIONS"
 msgstr ""
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
+msgstr ""
+
+msgid "RANDOM (HOLD)"
 msgstr ""
 
 msgid ""
@@ -2416,6 +2461,9 @@ msgid "Loading system config..."
 msgstr ""
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr ""
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr ""
 
 msgid "Collections"
@@ -2820,6 +2868,45 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "מעדכן את מערכת ההפעלה"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "התקנת מערכת הפעלה BATOCERA"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "הגדר אוטומטית בקרי אמולטור (חַקַּאי)"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "התקנת BATOCERA על דיסק חדש"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "צפייה במדריך 'בטוסרה' (BATOCERA)"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USE RUN-AHEAD FRAMES"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "RUN-AHEAD USE SECOND INSTANCE"
+
+#~ msgid "SCANLINES"
+#~ msgstr "שורות סריקה"
+
+#~ msgid "RETRO"
+#~ msgstr "'רטרו'"
+
+#~ msgid "CURVATURE"
+#~ msgstr "קשת"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "שיטוח בוהק"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA SCALING"
 
 #~ msgid "SET PLAYER PASSWORD"
 #~ msgstr "קביעת סיסמה לשחקן"

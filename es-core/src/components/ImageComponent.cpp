@@ -6,6 +6,9 @@
 #include "ThemeData.h"
 #include "LocaleES.h"
 #include "utils/FileSystemUtil.h"
+#include "playlists/AnimatedGifPlaylist.h"
+#include "playlists/M3uPlaylist.h"
+#include "utils/StringUtil.h"
 
 Vector2i ImageComponent::getTextureSize() const
 {
@@ -48,7 +51,7 @@ ImageComponent::~ImageComponent()
 
 void ImageComponent::resize()
 {
-	if(!mTexture)
+	if (!mTexture)
 		return;
 
 	const Vector2f textureSize = mTexture->getSourceImageSize();
@@ -146,6 +149,7 @@ void ImageComponent::resize()
 
 void ImageComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
 	updateVertices();
 }
 
@@ -154,12 +158,39 @@ void ImageComponent::setDefaultImage(std::string path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
+void ImageComponent::setImage(const std::string&  path, bool tile, MaxSizeInfo maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
 {
 	std::string canonicalPath = (path[0] == '{' ? "" : Utils::FileSystem::getCanonicalPath(path));
 	if (!mPath.empty() && mPath == canonicalPath)
 		return;
 	
+	if (allowMultiImagePlaylist && !canonicalPath.empty())
+	{
+		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(canonicalPath));
+		if (ext == ".gif" || ext == ".apng")
+		{
+			int totalFrames, frameTime;
+			if (ImageIO::getMultiBitmapInformation(canonicalPath, totalFrames, frameTime) && totalFrames > 0)
+			{
+				mPath = "";
+				mForceLoad = true; // Disable async for animated gifs
+
+				setAllowFading(false);
+				setPlaylist(std::make_shared<AnimatedGifPlaylist>(canonicalPath, totalFrames, frameTime));
+				if (!mPath.empty())
+					return;
+			}
+		}
+		else if (ext == ".m3u")
+		{
+			mPath = "";
+			setAllowFading(false);
+			setPlaylist(std::make_shared<M3uPlaylist>(canonicalPath));
+			if (!mPath.empty())
+				return;
+		}
+	}
+
 	mPath = canonicalPath;
 
 	if (mTexture != nullptr)
@@ -180,12 +211,20 @@ void ImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, 
 	} 
 	else
 	{
-		std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
-
-		if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
-			mLoadingTexture = texture;
+		if (mPlaylist != nullptr && mPlaylistCache.find(mPath) != mPlaylistCache.cend())
+			mTexture = mPlaylistCache[mPath];
 		else
-			mTexture = texture;
+		{
+			std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+
+			if (mPlaylist != nullptr)
+				mPlaylistCache[mPath] = texture;
+
+			if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
+				mLoadingTexture = texture;
+			else
+				mTexture = texture;
+		}
 	}
 
 	if (isShowing() && mTexture != nullptr)
@@ -268,7 +307,11 @@ Vector2f ImageComponent::getRotationSize() const
 
 void ImageComponent::setRotateByTargetSize(bool rotate)
 {
+	if (mRotateByTargetSize == rotate)
+		return;
+
 	mRotateByTargetSize = rotate;
+	onRotationChanged();
 }
 
 void ImageComponent::cropLeft(float percent)
@@ -310,18 +353,27 @@ void ImageComponent::uncrop()
 
 void ImageComponent::setFlipX(bool flip)
 {
+	if (mFlipX == flip)
+		return;
+
 	mFlipX = flip;
 	updateVertices();
 }
 
 void ImageComponent::setFlipY(bool flip)
 {
+	if (mFlipY == flip)
+		return;
+
 	mFlipY = flip;
 	updateVertices();
 }
 
 void ImageComponent::setColorShift(unsigned int color)
 {
+	if (mColorShift == color && mColorShiftEnd == color)
+		return;
+
 	mColorShift = color;
 	mColorShiftEnd = color;
 	updateColors();
@@ -329,18 +381,27 @@ void ImageComponent::setColorShift(unsigned int color)
 
 void ImageComponent::setColorShiftEnd(unsigned int color)
 {
+	if (mColorShiftEnd == color)
+		return;
+
 	mColorShiftEnd = color;
 	updateColors();
 }
 
 void ImageComponent::setColorGradientHorizontal(bool horizontal)
 {
+	if (mColorGradientHorizontal == horizontal)
+		return;
+
 	mColorGradientHorizontal = horizontal;
 	updateColors();
 }
 
 void ImageComponent::setOpacity(unsigned char opacity)
 {
+	if (mOpacity == opacity)
+		return;
+
 	mOpacity = opacity;	
 	updateColors();
 }
@@ -442,7 +503,7 @@ void ImageComponent::updateRoundCorners()
 
 void ImageComponent::render(const Transform4x4f& parentTrans)
 {
-	if (!isVisible())
+	if (!mVisible)
 		return;
 
 	if (mLoadingTexture != nullptr && mLoadingTexture->isLoaded())
@@ -466,16 +527,17 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	Renderer::setMatrix(trans);
-
-	if (Settings::DebugImage)
+	if (Settings::DebugImage())
+	{
+		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);
+	}
 
 	if(mTexture && mOpacity > 0)
 	{
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
 
-		if(Settings::DebugImage)
+		if(Settings::DebugImage())
 			Renderer::drawRect(targetSizePos.x(), targetSizePos.y(), mTargetSize.x(), mTargetSize.y(), 0xFF000033, 0xFF000033);
 
 		// actually draw the image
@@ -491,29 +553,28 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		beginCustomClipRect();
 
 		// Align left
-		//trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
-		
 		if (mVerticalAlignment == ALIGN_TOP)
-			trans.translate(Vector3f(0, targetSizePos.y(), 0.0f));
+			trans.translate(0, targetSizePos.y());
 		else if (mVerticalAlignment == ALIGN_BOTTOM)
-			trans.translate(Vector3f(targetSizePos.x(), targetSizePos.y() + mTargetSize.y() - mSize.y(), 0.0f));
+			trans.translate(targetSizePos.x(), targetSizePos.y() + mTargetSize.y() - mSize.y());
 
 		if (mHorizontalAlignment == ALIGN_LEFT)
-			trans.translate(Vector3f(targetSizePos.x(), 0, 0.0f));
+			trans.translate(targetSizePos.x(), 0);
 		else if (mHorizontalAlignment == ALIGN_RIGHT)
-			trans.translate(Vector3f(targetSizePos.x() + mTargetSize.x() - mSize.x(), targetSizePos.y(), 0.0f));
+			trans.translate(targetSizePos.x() + mTargetSize.x() - mSize.x(), targetSizePos.y());
 
 		Renderer::setMatrix(trans);
 
 		fadeIn(true);
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
+		{
 			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
-
-		Renderer::drawTriangleStrips(&mVertices[0], 4);
-
-		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
+			Renderer::drawTriangleStrips(&mVertices[0], 4);
 			Renderer::disableStencil();
+		}
+		else
+			Renderer::drawTriangleStrips(&mVertices[0], 4);
 
 		if (mReflection.x() != 0 || mReflection.y() != 0)
 		{
@@ -563,8 +624,6 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	}
 	else
 		GuiComponent::renderChildren(trans);
-
-
 }
 
 void ImageComponent::fadeIn(bool textureLoaded)
@@ -613,6 +672,7 @@ bool ImageComponent::hasImage()
 {
 	return (bool)mTexture;
 }
+
 
 void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
@@ -769,16 +829,20 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		{
 			mPath = "";
 
-			bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-			if(tile)
-				setImage(path, true, MaxSizeInfo(), false);
-			else
+			
+			if (mPlaylist == nullptr)
 			{
-				auto sz = getMaxSizeInfo();
-				if (!mLinear && sz.x() > 32 && sz.y() > 32)
-					setImage(path, tile, sz, false);
+				bool tile = (elem->has("tile") && elem->get<bool>("tile"));
+				if (tile)
+					setImage(path, true, MaxSizeInfo(), false);
 				else
-					setImage(path, false, MaxSizeInfo(), false);
+				{
+					auto sz = getMaxSizeInfo();
+					if (!mLinear && sz.x() > 32 && sz.y() > 32)
+						setImage(path, tile, sz, false);
+					else
+						setImage(path, false, MaxSizeInfo(), false);
+				}
 			}
 		}
 	}
@@ -795,13 +859,14 @@ std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
 
 void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 {
+	mPlaylistCache.clear();
 	mPlaylist = playList;
 	if (mPlaylist == nullptr)
 		return;
 
 	auto image = mPlaylist->getNextItem();
 	if (!image.empty())
-		setImage(image);
+		setImage(image, false, getMaxSizeInfo(), true, false);
 }
 
 void ImageComponent::onShow()
@@ -812,7 +877,7 @@ void ImageComponent::onShow()
 	{
 		auto item = mPlaylist->getNextItem();
 		if (!item.empty())
-			setImage(item, false, getMaxSizeInfo());
+			setImage(item, false, getMaxSizeInfo(), true, false);
 	}
 
 	GuiComponent::onShow();	
@@ -841,7 +906,10 @@ void ImageComponent::update(int deltaTime)
 		{
 			auto item = mPlaylist->getNextItem();
 			if (!item.empty())
-				setImage(item, false, getMaxSizeInfo());
+			{
+				// LOG(LogDebug) << "getNextItem: " << item;
+				setImage(item, false, getMaxSizeInfo(), true, false);
+			}
 
 			mPlaylistTimer = 0.0;
 		}

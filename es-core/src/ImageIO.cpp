@@ -10,8 +10,9 @@
 #include <map>
 #include <mutex>
 #include "renderers/Renderer.h"
+#include "Paths.h"
 
-unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize)
+unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize, int subImageIndex)
 {
 	LOG(LogDebug) << "ImageIO::loadFromMemoryRGBA32";
 
@@ -30,9 +31,26 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 		//detect the filetype from data
 		FREE_IMAGE_FORMAT format = FreeImage_GetFileTypeFromMemory(fiMemory);
 		if (format != FIF_UNKNOWN && FreeImage_FIFSupportsReading(format))
-		{
-			//file type is supported. load image
-			FIBITMAP * fiBitmap = FreeImage_LoadFromMemory(format, fiMemory);
+		{			
+			// file type is supported. load image
+			FIMULTIBITMAP* fiMultiBitmap = nullptr;
+			FIBITMAP* fiBitmap = nullptr;
+
+			if (subImageIndex < 0)
+				fiBitmap = FreeImage_LoadFromMemory(format, fiMemory);
+			else 
+			{
+				fiMultiBitmap = FreeImage_LoadMultiBitmapFromMemory(format, fiMemory, GIF_PLAYBACK);
+				if (fiMultiBitmap == nullptr)
+					fiBitmap = FreeImage_LoadFromMemory(format, fiMemory);
+				else
+				{
+					fiBitmap = FreeImage_LockPage(fiMultiBitmap, subImageIndex);
+					if (fiBitmap == nullptr)
+						FreeImage_CloseMultiBitmap(fiMultiBitmap);				
+				}
+			}
+			
 			if (fiBitmap != nullptr)
 			{
 				//loaded. convert to 32bit if necessary
@@ -42,10 +60,19 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 					if (fiConverted != nullptr)
 					{
 						//free original bitmap data
-						FreeImage_Unload(fiBitmap);
+						if (fiMultiBitmap != nullptr)
+						{
+							FreeImage_UnlockPage(fiMultiBitmap, fiBitmap, false);
+							FreeImage_CloseMultiBitmap(fiMultiBitmap);
+							fiMultiBitmap = nullptr;
+						}
+						else
+							FreeImage_Unload(fiBitmap);
+
 						fiBitmap = fiConverted;
 					}
 				}
+
 				if (fiBitmap != nullptr)
 				{
 					width = FreeImage_GetWidth(fiBitmap);
@@ -66,7 +93,16 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 							LOG(LogDebug) << "ImageIO : rescaling image from " << std::string(std::to_string(width) + "x" + std::to_string(height)).c_str() << " to " << std::string(std::to_string(sz.x()) + "x" + std::to_string(sz.y())).c_str();
 
 							FIBITMAP* imageRescaled = FreeImage_Rescale(fiBitmap, sz.x(), sz.y(), FILTER_BOX);
-							FreeImage_Unload(fiBitmap);
+
+							if (fiMultiBitmap != nullptr)
+							{
+								FreeImage_UnlockPage(fiMultiBitmap, fiBitmap, false);
+								FreeImage_CloseMultiBitmap(fiMultiBitmap);
+								fiMultiBitmap = nullptr;
+							}
+							else
+								FreeImage_Unload(fiBitmap);
+
 							fiBitmap = imageRescaled;
 
 							width = FreeImage_GetWidth(fiBitmap);
@@ -92,7 +128,14 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 						}
 					}
 
-					FreeImage_Unload(fiBitmap);
+					if (fiMultiBitmap)
+					{
+						FreeImage_UnlockPage(fiMultiBitmap, fiBitmap, false);
+						FreeImage_CloseMultiBitmap(fiMultiBitmap);
+					}
+					else
+						FreeImage_Unload(fiBitmap);
+
 					FreeImage_CloseMemory(fiMemory);
 
 					return tempData;
@@ -217,7 +260,7 @@ static bool sizeCacheDirty = false;
 
 std::string getImageCacheFilename()
 {
-	return Utils::FileSystem::getEsConfigPath() + "/imagecache.db";
+	return Paths::getUserEmulationStationPath() + "/imagecache.db";
 }
 
 void ImageIO::clearImageCache()
@@ -237,11 +280,7 @@ void ImageIO::loadImageCache()
 
 	sizeCache.clear();
 
-#if WIN32
-	std::string relativeTo = Utils::FileSystem::getParent(Utils::FileSystem::getHomePath());
-#else
-	std::string relativeTo = "/userdata";	
-#endif
+	std::string relativeTo = Paths::getRootPath();
 
 	std::vector<std::string> splits;
 
@@ -299,11 +338,7 @@ void ImageIO::saveImageCache()
 	if (f.fail())
 		return;
 
-#if WIN32
-	std::string relativeTo = Utils::FileSystem::getParent(Utils::FileSystem::getHomePath());
-#else
-	std::string relativeTo = "/userdata";
-#endif
+	std::string relativeTo = Paths::getRootPath();
 
 	for (auto it : sizeCache)
 	{
@@ -330,7 +365,7 @@ void ImageIO::saveImageCache()
 
 static std::mutex sizeCacheLock;
 
-void ImageIO::removeImageCache(const std::string fn)
+void ImageIO::removeImageCache(const std::string& fn)
 {
 	std::unique_lock<std::mutex> lock(sizeCacheLock);
 
@@ -339,7 +374,7 @@ void ImageIO::removeImageCache(const std::string fn)
 		sizeCache.erase(fn);
 }
 
-void ImageIO::updateImageCache(const std::string fn, int sz, int x, int y)
+void ImageIO::updateImageCache(const std::string& fn, int sz, int x, int y)
 {
 	std::unique_lock<std::mutex> lock(sizeCacheLock);
 
@@ -368,7 +403,7 @@ void ImageIO::updateImageCache(const std::string fn, int sz, int x, int y)
 }
 
 
-bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
+bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int *y)
 {
 	{
 		std::unique_lock<std::mutex> lock(sizeCacheLock);
@@ -397,9 +432,9 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 	auto size = Utils::FileSystem::getFileSize(fn);
 
 #if WIN32
-	FILE *f = _fsopen(fn, "rb", _SH_DENYNO);
+	FILE* f = _wfopen(Utils::String::convertToWideString(fn).c_str(), L"rb");
 #else
-	FILE *f = fopen(fn, "rb");
+	FILE *f = fopen(fn.c_str(), "rb");
 #endif
 
 	if (f == 0)
@@ -493,4 +528,79 @@ bool ImageIO::loadImageSize(const char *fn, unsigned int *x, unsigned int *y)
 	updateImageCache(fn, -1, -1, -1);
 	LOG(LogWarning) << "ImageIO::loadImageSize\tUnable to extract size";
 	return false;
+}
+
+bool ImageIO::getMultiBitmapInformation(const std::string& path, int& totalFrames, int& frameTime)
+{	
+	totalFrames = 1;
+	frameTime = 0;
+
+	FREE_IMAGE_FORMAT fileFormat;
+
+#if WIN32
+	fileFormat = FreeImage_GetFileTypeU(Utils::String::convertToWideString(path).c_str());
+#else
+	fileFormat = FreeImage_GetFileType(path.c_str());
+#endif
+
+	if (fileFormat != FIF_GIF && fileFormat != FIF_PNG)
+		return false;
+
+	if (!FreeImage_FIFSupportsReading(fileFormat))
+		return false;
+
+	auto size = Utils::FileSystem::getFileSize(path);
+	if (size < 4)
+		return false;
+
+	unsigned char* data = new unsigned char[size]();
+	if (data == nullptr)
+		return false;
+
+#if WIN32
+	std::ifstream stream(Utils::String::convertToWideString(path), std::ios::binary);
+#else
+	std::ifstream stream(path, std::ios::binary);
+#endif
+
+	stream.read((char*)data, size);
+	stream.close();
+
+	bool result = false;
+
+	FIMEMORY* fiMemory = FreeImage_OpenMemory((BYTE *)data, (DWORD)size);
+	if (fiMemory != nullptr)
+	{
+		auto fiMultiBitmap = FreeImage_LoadMultiBitmapFromMemory(fileFormat, fiMemory);
+		if (fiMultiBitmap != nullptr)
+		{
+			auto fiBitmap = FreeImage_LockPage(fiMultiBitmap, 0);
+			if (fiBitmap != nullptr)
+			{
+				totalFrames = FreeImage_GetPageCount(fiMultiBitmap);
+				if (totalFrames > 1)
+				{
+					FITAG* tagFrameTime = nullptr;
+					FreeImage_GetMetadata(FIMD_ANIMATION, fiBitmap, "FrameTime", &tagFrameTime);
+					if (tagFrameTime != nullptr && FreeImage_GetTagCount(tagFrameTime))
+						frameTime = *static_cast<const uint32_t*>(FreeImage_GetTagValue(tagFrameTime));
+
+					if (frameTime == 0)
+						frameTime = 100;
+
+					result = true;
+				}
+
+				FreeImage_UnlockPage(fiMultiBitmap, fiBitmap, false);
+			}
+
+			FreeImage_CloseMultiBitmap(fiMultiBitmap, 0);
+		}
+
+		FreeImage_CloseMemory(fiMemory);
+	}
+
+	delete[] data;
+
+	return result;
 }

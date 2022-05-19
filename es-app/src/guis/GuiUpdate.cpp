@@ -19,12 +19,10 @@ public:
 		GuiUpdate::state = GuiUpdateState::State::UPDATER_RUNNING;
 
 		mWndNotification = mWindow->createAsyncNotificationComponent();
-#if WIN32
+
 		auto label = Utils::String::format(_("UPDATING %s").c_str(), ApiSystem::getInstance()->getApplicationName().c_str());
 		mWndNotification->updateTitle(_U("\uF019 ") + label);
-#else
-		mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATING BATOCERA"));
-#endif
+
 		mHandle = new std::thread(&ThreadedUpdater::threadUpdate, this);
 	}
 
@@ -66,7 +64,7 @@ public:
 			GuiUpdate::state = GuiUpdateState::State::UPDATE_READY;
 
 			mWndNotification->updateTitle(_U("\uF019 ") + _("UPDATE IS READY"));
-			mWndNotification->updateText(_("REBOOT SYSTEM TO APPLY THE UPDATE"));
+			mWndNotification->updateText(_("REBOOT TO APPLY"));
 
 			std::this_thread::yield();
 			std::this_thread::sleep_for(std::chrono::hours(12));

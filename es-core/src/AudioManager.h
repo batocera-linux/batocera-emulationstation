@@ -6,8 +6,10 @@
 #include <memory>
 #include <vector>
 #include "SDL_mixer.h"
-#include <string> // batocera
-#include <iostream> // batocera
+#include <string> 
+#include <iostream> 
+#include <deque>
+#include <math.h>
 
 class Sound;
 class ThemeData;
@@ -20,15 +22,16 @@ private:
 	static std::vector<std::shared_ptr<Sound>> sSoundVector;
 	static AudioManager* sInstance;
 	
-	Mix_Music* mCurrentMusic; // batocera
-	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); // batocera
+	Mix_Music* mCurrentMusic; 
+	void getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files); 
 	void playMusic(std::string path);
-	static void musicEnd_callback();	// batocera
+	static void musicEnd_callback();	
 
-	std::string mSystemName;				// batocera (per system music folder)
-	std::string mCurrentSong;			// batocera (pop-up for SongName.cpp)
+	std::string mSystemName;			// per system music folder
+	std::string mCurrentSong;			// pop-up for SongName.cpp
 	std::string mCurrentThemeMusicDirectory;
 	std::string mCurrentMusicPath;
+	std::deque<std::string> mLastPlayed;    // batocera
 
 	bool		mInitialized;
 	std::string	mPlayingSystemThemeSong;
@@ -46,7 +49,6 @@ public:
 	void play();
 	void stop();
 
-	// batocera
 	void playRandomMusic(bool continueIfPlaying = true);
 	void stopMusic(bool fadeOut=true);
 	
@@ -72,6 +74,8 @@ public:
 private:
 	void playSong(const std::string& song);
 	void setSongName(const std::string& song);
+	void addLastPlayed(const std::string& newSong, int totalMusic);
+	bool songWasPlayedRecently(const std::string& song);
 
 	bool mSongNameChanged;
 };

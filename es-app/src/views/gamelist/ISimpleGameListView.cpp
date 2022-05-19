@@ -544,21 +544,21 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	if (Renderer::getScreenProportion() > 1.4)
 	{
 		if (mPopupSelfReference == nullptr && Settings::getInstance()->getBool("QuickSystemSelect") && getQuickSystemSelectLeftButton() == "left")
-			prompts.push_back(HelpPrompt("left/right", _("SYSTEM"))); // batocera
+			prompts.push_back(HelpPrompt("left/right", _("SYSTEM")));
 
-		prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); // batocera
+		prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
 	}
 
 	bool invertNorthButton = Settings::getInstance()->getBool("GameOptionsAtNorth");
 
 	std::string shortPressX = invertNorthButton ? _("GAME OPTIONS") : _("SAVE STATES");
-	std::string longPressOK = invertNorthButton ? _("SAVE STATES") : _("GAME OPTIONS"); 
+	std::string longPressOK = invertNorthButton ? _("SAVE STATES (HOLD)") : _("GAME OPTIONS (HOLD)"); 
 
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string("/") + longPressOK));
 
 	if (!UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("select", _("OPTIONS"))); // batocera
+		prompts.push_back(HelpPrompt("select", _("OPTIONS")));
 
 	if (cursorHasSaveStatesEnabled())
 	{
@@ -570,7 +570,7 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	else if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("x", _("FAVORITE")));
 
-	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM")));
+	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM (HOLD)")));
 
 	return prompts;
 }

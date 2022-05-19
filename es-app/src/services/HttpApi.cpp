@@ -136,6 +136,8 @@ void HttpApi::getFileDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& 
 	writer.Key("path"); writer.String(game->getPath().c_str());
 	writer.Key("name"); writer.String(game->getName().c_str());
 
+	writer.Key("systemName"); writer.String(game->getSystemName().c_str());
+
 	auto meta = game->getMetadata();
 	for (auto mdd : MetaDataList::getMDD())
 	{
@@ -306,5 +308,12 @@ std::string HttpApi::getSystemGames(SystemData* system)
 	return s.GetString();
 }
 
+std::string HttpApi::getRunnningGameInfo()
+{
+	auto file = FileData::GetRunningGame();
+	if (file == nullptr)
+		return "";
 
+	return ToJson(file);
+}
 

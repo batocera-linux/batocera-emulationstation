@@ -10,12 +10,17 @@
 #include "SystemConf.h"
 #include "id3v2lib/include/id3v2lib.h"
 #include "ThemeData.h"
+#include "Paths.h"
 
 #ifdef WIN32
 #include <time.h>
 #else
 #include <unistd.h>
 #endif
+
+// batocera
+// Size of last played music history as a percentage of file total
+#define LAST_PLAYED_SIZE 0.4
 
 AudioManager* AudioManager::sInstance = NULL;
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
@@ -55,6 +60,7 @@ void AudioManager::init()
 	mSongNameChanged = false;
 	mMusicVolume = 0;
 	mPlayingSystemThemeSong = "none";
+	std::deque<std::string> mLastPlayed;
 
 	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0)
 	{
@@ -137,7 +143,6 @@ void AudioManager::stop()
 			sSoundVector[i]->stop();
 }
 
-// batocera
 void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>& all_matching_files)
 {
 	if (!Utils::FileSystem::isDirectory(path))
@@ -169,9 +174,41 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 }
 
 // batocera
+// Add the current song to the last played history, truncating as needed
+void AudioManager::addLastPlayed(const std::string& newSong, int totalMusic)
+{
+	int historySize = std::floor(totalMusic * LAST_PLAYED_SIZE);
+	if (historySize < 1)
+	{
+		// Number of songs is too small to bother with
+		return;
+	}
+	
+	while (mLastPlayed.size() > historySize) {
+		mLastPlayed.pop_back();
+	}
+	mLastPlayed.push_front(newSong);
+	
+	LOG(LogDebug) << "Adding " << newSong << " to last played, " << mLastPlayed.size() << " in history";
+}
+
+// batocera
+// Check if current song exists in last played history
+bool AudioManager::songWasPlayedRecently(const std::string& song)
+{
+	for (std::string i : mLastPlayed)
+	{
+		if (song == i)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 void AudioManager::playRandomMusic(bool continueIfPlaying) 
 {
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 		
 	std::vector<std::string> musics;
@@ -182,20 +219,25 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 
 	// check in User music directory
 	if (musics.empty())
-		getMusicIn("/userdata/music", musics);
+		getMusicIn(Paths::getUserMusicPath(), musics);
 
 	// check in system sound directory
 	if (musics.empty())
-		getMusicIn("/usr/share/batocera/music", musics);
+		getMusicIn(Paths::getMusicPath(), musics);
 
 	// check in .emulationstation/music directory
 	if (musics.empty())
-		getMusicIn(Utils::FileSystem::getHomePath() + "/.emulationstation/music", musics);
+		getMusicIn(Paths::getUserEmulationStationPath() + "/music", musics);
 
 	if (musics.empty())
 		return;
 
 	int randomIndex = Randomizer::random(musics.size());
+	while (songWasPlayedRecently(musics.at(randomIndex)))
+	{
+		LOG(LogDebug) << "Music \"" << musics.at(randomIndex) << "\" was played recently, trying again";
+		randomIndex = Randomizer::random(musics.size());
+	}
 
 	// continue playing ?
 	if (mCurrentMusic != nullptr && continueIfPlaying)
@@ -203,6 +245,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 
 	playMusic(musics.at(randomIndex));
 	playSong(musics.at(randomIndex));
+	addLastPlayed(musics.at(randomIndex), musics.size());
 	mPlayingSystemThemeSong = "";
 }
 
@@ -214,7 +257,7 @@ void AudioManager::playMusic(std::string path)
 	// free the previous music
 	stopMusic(false);
 
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 
 	// load a new music
@@ -235,7 +278,6 @@ void AudioManager::playMusic(std::string path)
 	Mix_HookMusicFinished(AudioManager::musicEnd_callback);
 }
 
-// batocera
 void AudioManager::musicEnd_callback()
 {
 	if (!AudioManager::getInstance()->mPlayingSystemThemeSong.empty())
@@ -247,7 +289,6 @@ void AudioManager::musicEnd_callback()
 	AudioManager::getInstance()->playRandomMusic(false);
 }
 
-// batocera
 void AudioManager::stopMusic(bool fadeOut)
 {
 	if (mCurrentMusic == NULL)
@@ -257,7 +298,7 @@ void AudioManager::stopMusic(bool fadeOut)
 
 	if (fadeOut)
 	{
-		// Fade-out is nicer on Batocera!
+		// Fade-out is nicer !
 		while (!Mix_FadeOutMusic(500) && Mix_PlayingMusic())
 			SDL_Delay(100);
 	}
@@ -284,7 +325,6 @@ void AudioManager::setSongName(const std::string& song)
 	mSongNameChanged = true;
 }
 
-// batocera
 void AudioManager::playSong(const std::string& song)
 {
 	if (song == mCurrentSong)
@@ -393,7 +433,8 @@ void AudioManager::playSong(const std::string& song)
 		else if (fread(&info, sizeof(info), 1, file) != 1)
 			LOG(LogError) << "Error AudioManager reading " << song;
 		else if (strncmp(info.tag, "TAG", 3) == 0) {
-			setSongName(info.title);
+			std::string songTitle(info.title, 30);
+			setSongName(songTitle);
 			fclose(file);
 			return;
 		}
@@ -441,7 +482,7 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 	mSystemName = theme->getSystemThemeFolder();
 	mCurrentThemeMusicDirectory = "";
 
-	if (!Settings::getInstance()->getBool("audio.bgmusic"))
+	if (!Settings::BackgroundMusic())
 		return;
 
 	const ThemeData::ThemeElement* elem = theme->getElement("system", "directory", "sound");
@@ -476,7 +517,7 @@ void AudioManager::changePlaylist(const std::shared_ptr<ThemeData>& theme, bool 
 
 void AudioManager::setVideoPlaying(bool state)
 {
-	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::BackgroundMusic())
 		return;
 	
 	if (state && !Settings::getInstance()->getBool("VideoLowersMusic"))
@@ -499,7 +540,7 @@ int AudioManager::getMaxMusicVolume()
 
 void AudioManager::update(int deltaTime)
 {
-	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::getInstance()->getBool("audio.bgmusic"))
+	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::BackgroundMusic())
 		return;
 
 	float deltaVol = deltaTime / 8.0f;

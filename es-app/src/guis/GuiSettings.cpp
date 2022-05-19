@@ -113,7 +113,7 @@ std::vector<HelpPrompt> GuiSettings::getHelpPrompts()
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt(mCloseButton, _("CLOSE"))); // batocera
+	prompts.push_back(HelpPrompt(mCloseButton, _("CLOSE")));
 
 	return prompts;
 }

@@ -81,9 +81,6 @@ protected:
 	std::string mSourceText;
 
 private:	
-	void renderSingleGlow(const Transform4x4f& parentTrans, float yOff, float x, float y);
-	void renderGlow(const Transform4x4f& parentTrans, float yOff, float xOff);
-
 	void onColorChanged();
 
 	unsigned int mColor;

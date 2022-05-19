@@ -49,6 +49,7 @@ void TextEditComponent::onFocusLost()
 
 void TextEditComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
 	mBox.fitTo(mSize, Vector3f::Zero(), Vector2f(-34, -32 - TEXT_PADDING_VERT));
 	onTextChanged(); // wrap point probably changed
 }
@@ -351,7 +352,7 @@ void TextEditComponent::render(const Transform4x4f& parentTrans)
 			cursorPos[1] = 0;
 		}
 
-		if (!mEditing || mBlinkTime < BLINKTIME / 2)
+		if (!mEditing || mBlinkTime < BLINKTIME / 2 || mCursorRepeatDir != 0)
 		{
 			float cursorHeight = mFont->getHeight() * 0.8f;
 
@@ -382,12 +383,11 @@ Vector2f TextEditComponent::getTextAreaSize() const
 std::vector<HelpPrompt> TextEditComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
+	
 	if(mEditing)
-	{
-		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE CURSOR"))); // batocera
-		//prompts.push_back(HelpPrompt(BUTTON_BACK, _("STOP EDITING")));
-	}else{
+		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE CURSOR")));
+	else
 		prompts.push_back(HelpPrompt(BUTTON_OK, _("EDIT")));
-	}
+	
 	return prompts;
 }

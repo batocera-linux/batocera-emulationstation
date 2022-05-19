@@ -81,7 +81,7 @@ MenuComponent::MenuComponent(Window* window,
 	mGrid.resetCursor();
 }
 
-void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected)
+void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere)
 {
 	auto theme = ThemeData::getMenuTheme();
 
@@ -112,7 +112,7 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 	if (EsLocale::isRTL())
 		text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
 
-	row.addElement(comp, false, invert_when_selected);
+	row.addElement(comp, false);
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
@@ -120,7 +120,7 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 	addRow(row, setCursorHere);
 }
 
-void MenuComponent::addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected, bool multiLine)
+void MenuComponent::addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool multiLine)
 {
 	auto theme = ThemeData::getMenuTheme();
 
@@ -151,7 +151,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 		row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
 
 	if (comp != nullptr)
-		row.addElement(comp, false, invert_when_selected);
+		row.addElement(comp, false);
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
@@ -159,7 +159,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 	addRow(row, setCursorHere);
 }
 
-void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool invert_when_selected, bool onButtonRelease, const std::string userData, bool doUpdateSize)
+void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool onButtonRelease, const std::string userData, bool doUpdateSize)
 {
 	auto theme = ThemeData::getMenuTheme();
 	std::shared_ptr<Font> font = theme->Text.font;
@@ -188,7 +188,7 @@ void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::
 	}
 
 	auto text = std::make_shared<TextComponent>(mWindow, name, font, color);
-	row.addElement(text, true, invert_when_selected);
+	row.addElement(text, true);
 
 	if (EsLocale::isRTL())
 		text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
@@ -355,6 +355,8 @@ void MenuComponent::updateSize()
 
 void MenuComponent::onSizeChanged()
 {
+	GuiComponent::onSizeChanged();
+
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	// update grid row/col sizes

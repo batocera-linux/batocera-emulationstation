@@ -376,6 +376,9 @@ msgstr "CLASSIFICHE"
 msgid "VERBOSE MODE"
 msgstr "MODALITÀ VERBOSE"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "SCREENSHOT AUTOMATICO"
 
@@ -584,16 +587,16 @@ msgid "USE RELAY SERVER"
 msgstr "USA RELAY SERVER"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRA GIOCHI NON DISPONIBILI"
@@ -946,14 +949,11 @@ msgstr "SEI SICURO?"
 msgid "UPDATING %s"
 msgstr "IN AGGIORNAMENTO %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "AGGIORNAMENTO BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "AGGIORNAMENTO PRONTO"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "RIAVVIA IL SISTEMA PER APPLICARE"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "VUOI AGGIORNARE?"
@@ -972,8 +972,8 @@ msgstr "È NECESSARIA UNA CONNESSIONE DI RETE"
 msgid "NO UPDATE AVAILABLE"
 msgstr "NESSUN AGGIORNAMENTO DISPONIBILE"
 
-msgid "INSTALL BATOCERA"
-msgstr "INSTALLA BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO"
@@ -1137,7 +1137,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIA SU SLOT LIBERO"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "OPZIONI SCRAPER"
 
 msgid "IMAGE SOURCE"
 msgstr "SORGENTE IMMAGINE"
@@ -1175,6 +1175,9 @@ msgstr "TARGHETTA"
 msgid "MARQUEE"
 msgstr "BANNER"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "SCARICA VALUTAZIONE GIOCHI"
 
@@ -1206,46 +1209,46 @@ msgid "SCRAPING DATABASE"
 msgstr "DATABASE DI RICERCA"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "SORGENTE"
 
 msgid "SCRAPE FROM"
 msgstr "SCARICA INFO DA"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTRI"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SCARICA INFO PER"
 
 msgid "ALL"
 msgstr "TUTTI"
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORA GIOCHI CON INFO SCARICATE DI RECENTE"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "ULTIMO GIORNO"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "ULTIMA SETTIMANA"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "ULTIMI 15 GIORNI"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "ULTIMO MESE"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "ULTIMI 3 MESI"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "ULTIMO ANNO"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "INCLUSI I SISTEMI"
@@ -1340,26 +1343,37 @@ msgstr "Frequenza max CPU"
 msgid "Cpu feature"
 msgstr "Caratteristiche CPU"
 
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEARE-SEMPLICE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
+msgctxt "game_options"
 msgid "RETRO"
 msgstr "RETRO"
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "MIGLIORATO"
+msgstr "OTTIMIZZATO"
 
+msgctxt "game_options"
 msgid "CURVATURE"
 msgstr "CURVATURA SCHERMO"
 
+msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST CRT"
+msgstr "ZFAST"
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "ABBAGLIANTE"
+msgstr "PIATTO E LUMINOSO"
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "SCALING RGA"
+msgstr "SCALATURA RGA"
 
 msgid "VENDOR"
 msgstr "VENDOR"
@@ -1375,6 +1389,18 @@ msgstr "IMPOSTAZIONI CONTROLLER"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "OPZIONI CONTROLLER E BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPALE"
@@ -1457,9 +1483,6 @@ msgstr "ATTIVA ACCESSO FILE SUL WEB"
 #, c-format
 msgid "Allow public web access API using %s"
 msgstr "Consente l'accesso tramite API - %s"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
 
 msgid "LOG LEVEL"
 msgstr "LIVELLO DI LOG"
@@ -1544,9 +1567,6 @@ msgstr "DRIVER MENU RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTO"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOCONFIGURAZIONE CONTROLLER EMULATORI"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "SCAMBIA I TASTI A/B IN EMULATIONSTATION"
@@ -1643,6 +1663,9 @@ msgstr "DISATTIVATO"
 
 msgid "DEFAULT"
 msgstr "DEFAULT"
+
+msgid "ENHANCED"
+msgstr "MIGLIORATO"
 
 msgid "INSTANT"
 msgstr "IMMEDIATO"
@@ -1780,9 +1803,6 @@ msgstr "UNITÀ DI ARCHIVIAZIONE"
 msgid "BACKUP USER DATA"
 msgstr "EFFETTUA IL BACKUP DEI DATI UTENTE"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "INSTALLA BATOCERA SU UN NUOVO DISCO"
-
 msgid "ADVANCED"
 msgstr "AVANZATE"
 
@@ -1795,17 +1815,24 @@ msgstr "AUMENTA LA SICUREZZA"
 msgid "ROOT PASSWORD"
 msgstr "PASSWORD DI ROOT"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
+
 msgid "LATENCY REDUCTION"
 msgstr "RIDUZIONE LATENZA"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "NUMERO FRAME ANTICIPATI"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USA ANTICIPAZIONE FRAME"
+msgid "High numbers can result in visible jitter."
+msgstr ""
+"Valori troppo alti possono alterare lo scorrimento corretto dell'immagine."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "USA SECONDA INSTANZA DEL CORE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "USA UNA SECONDA ISTANZA"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Può prevenire salti audio nella pressione dei pulsanti."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "RITARDO FRAME AUTOMATICO"
@@ -1814,15 +1841,27 @@ msgid "AUTO FRAME DELAY"
 msgstr "RITARDO FRAME AUTOMATICO"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Rimuove i frame di troppo che provocano un ritardo video, riducendo la "
-"latenza del controller. Può provocare problemi audio e video su alcuni "
-"sistemi."
+"Riduce automaticamente alcuni frame per evitare perdite di frame importanti."
+"Può provocare scatti improvvisi dello scorrimento dell'immagine."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "REFRESH RATE VARIABILE (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "REFRESH RATE VARIABILE"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr "Supporto per G-Sync, FreeSync e HDMI 2.1 VRR"
 
 msgid "DECORATION SET"
 msgstr "SET CORNICI"
+
+msgid "Current setting"
+msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "IMPOSTAZIONI GLOBALI DI DEFAULT"
@@ -1902,6 +1941,9 @@ msgstr "URL DEL SERVIZIO"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSA SULLA SCHERMATA TRADOTTA"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "CONFIGURA AUTOMATICAMENTE I CONTROLLER"
+
 msgid "SAVESTATES"
 msgstr "SALVATAGGI ISTANTANEI"
 
@@ -1917,8 +1959,8 @@ msgstr "NUOVA PARTITA CREA NUOVO SLOT"
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr "NUOVA PARTITA SOVRASCRIVE LO SLOT CORRENTE"
 
-msgid "DISPLAY SAVE STATE MANAGER"
-msgstr "DISPONIBILITÀ GESTORE SALVATAGGI"
+msgid "SHOW SAVE STATE MANAGER"
+msgstr "MOSTRA GESTORE SALVATAGGI"
 
 msgid "ALWAYS"
 msgstr "SEMPRE"
@@ -1926,11 +1968,8 @@ msgstr "SEMPRE"
 msgid "IF NOT EMPTY"
 msgstr "SE NON VUOTO"
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "MOSTRA GESTORE SALVATAGGI"
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "MOSTRA GESTORE SALVATAGGI PRIMA DELL'AVVIO DEL GIOCO"
+msgid "Display save state manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAZIONE AVANZATA PER SISTEMA"
@@ -2064,7 +2103,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "STILE TRANSIZIONE"
 
 msgid "auto"
-msgstr ""
+msgstr "automatico"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSIZIONE AVVIO DEL GIOCO"
@@ -2174,9 +2213,6 @@ msgstr "AVVIA SALVASCHERMO"
 msgid "VIEW USER'S MANUAL"
 msgstr "CONSULTA IL MANUALE UTENTE"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "CONSULTA IL MANUALE DI BATOCERA"
-
 msgid "RESTART SYSTEM"
 msgstr "RIAVVIA IL SISTEMA"
 
@@ -2236,9 +2272,6 @@ msgstr "AFFIANCATI"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "RISOLUZIONE INTERNA"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "CONFIGURA AUTOMATICAMENTE I CONTROLLER"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "LANCIA QUESTO GIOCO ALL'AVVIO"
@@ -2382,6 +2415,9 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Kid"
 
+msgid "Basic"
+msgstr ""
+
 msgid "Released"
 msgstr "Pubblicato"
 
@@ -2403,8 +2439,17 @@ msgstr "Giochi simili a"
 msgid "GAME OPTIONS"
 msgstr "OPZIONI GIOCO"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "PREFERITO"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2439,6 +2484,9 @@ msgstr "Caricamento configurazione di sistema..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Collezioni"
@@ -2831,6 +2879,68 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "RIAVVIA IL SISTEMA PER APPLICARE"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "AGGIORNAMENTO BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "INSTALLA BATOCERA"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "GIOCHI CON MEDIA MANCANTI"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "GIOCHI SENZA ALCUN MEDIA"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "AUTOCONFIGURAZIONE CONTROLLER EMULATORI"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "INSTALLA BATOCERA SU UN NUOVO DISCO"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "DISPONIBILITÀ GESTORE SALVATAGGI"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "MOSTRA GESTORE SALVATAGGI PRIMA DELL'AVVIO DEL GIOCO"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "CONSULTA IL MANUALE DI BATOCERA"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USA ANTICIPAZIONE FRAME"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "USA SECONDA INSTANZA DEL CORE"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Rimuove i frame di troppo che provocano un ritardo video, riducendo la "
+#~ "latenza del controller. Può provocare problemi audio e video su alcuni "
+#~ "sistemi."
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "CURVATURA SCHERMO"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST CRT"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "ABBAGLIANTE"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "SCALING RGA"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "CRITERI DI RICERCA MEDIA"

@@ -9,6 +9,7 @@
 #include "SystemData.h"
 #include <pugixml/src/pugixml.hpp>
 #include "Genres.h"
+#include "Paths.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -19,7 +20,7 @@
 
 std::string getGamelistRecoveryPath(SystemData* system)
 {
-	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/recovery/" + system->getName());
+	return Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + "/recovery/" + system->getName());
 }
 
 FileData* findOrCreateFile(SystemData* system, const std::string& path, FileType type, std::unordered_map<std::string, FileData*>& fileMap)
@@ -109,8 +110,6 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 {	
 	std::vector<FileData*> ret;
 
-	bool trustGamelist = Settings::getInstance()->getBool("ParseGamelistOnly");
-
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
 
 	pugi::xml_document doc;
@@ -140,6 +139,7 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 	}
 
 	std::string relativeTo = system->getStartPath();
+	bool trustGamelist = Settings::ParseGamelistOnly();
 
 	for (pugi::xml_node fileNode : root.children())
 	{
@@ -153,38 +153,48 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 			continue;
 
 		const std::string path = Utils::FileSystem::resolveRelativePath(fileNode.child("path").text().get(), relativeTo, false);
-				
-		if (!trustGamelist && !Utils::FileSystem::exists(path))
+		
+		FileData* file = nullptr;
+
+		if (trustGamelist)
+			file = findOrCreateFile(system, path, type, fileMap);
+		else 
 		{
-			LOG(LogWarning) << "File \"" << path << "\" does not exist! Ignoring.";
-			continue;
+			auto pGame = fileMap.find(path);
+			if (pGame != fileMap.end())
+				file = pGame->second;
+			else
+			{
+				LOG(LogWarning) << "File \"" << path << "\" does not exist or is arcade asset ! Ignoring.";
+				continue;
+			}
 		}
 
-		FileData* file = findOrCreateFile(system, path, type, fileMap);
-		if (!file)
-		{
+		if (file == nullptr)
+		{			
 			LOG(LogError) << "Error finding/creating FileData for \"" << path << "\", skipping.";
 			continue;
 		}
-		else if (!file->isArcadeAsset())
+		
+		if (!trustGamelist || !file->isArcadeAsset()) // arcade assets already filtered when !trustGamelist
 		{
-			std::string defaultName = file->getMetadata(MetaDataId::Name);
-			file->setMetadata(MetaDataList::createFromXML(type == FOLDER ? FOLDER_METADATA : GAME_METADATA, fileNode, system));
-			file->getMetadata().migrate(file, fileNode);
+			MetaDataList& mdl = file->getMetadata();
+			mdl.loadFromXML(type == FOLDER ? FOLDER_METADATA : GAME_METADATA, fileNode, system);
+			mdl.migrate(file, fileNode);
 
-			//make sure name gets set if one didn't exist
-			if (file->getMetadata(MetaDataId::Name).empty())
-				file->setMetadata(MetaDataId::Name, defaultName);
+			// Make sure name gets set if one didn't exist
+			if (mdl.getName().empty())
+				mdl.set(MetaDataId::Name, file->getDisplayName());
 
 			if (!trustGamelist && !file->getHidden() && Utils::FileSystem::isHidden(path))
-				file->getMetadata().set(MetaDataId::Hidden, "true");
+				mdl.set(MetaDataId::Hidden, "true");
 
-			Genres::convertGenreToGenreIds(&file->getMetadata());
+			Genres::convertGenreToGenreIds(&mdl);
 
 			if (checkSize != SIZE_MAX)
-				file->getMetadata().setDirty();
+				mdl.setDirty();
 			else
-				file->getMetadata().resetChangedFlag();
+				mdl.resetChangedFlag();
 
 			ret.push_back(file);
 		}

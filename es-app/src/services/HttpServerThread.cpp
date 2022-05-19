@@ -31,6 +31,7 @@ GET  /reloadgames
 POST /messagebox												-> body must contain the message text as text/plain
 POST /notify													-> body must contain the message text as text/plain
 POST /launch													-> body must contain the exact file path as text/plain
+GET  /runningGame
 
 System/Games APIS
 -----------------
@@ -202,10 +203,20 @@ void HttpServerThread::run()
 			"</body>\r\n</html>", "text/html");
 	});
 
-	mHttpServer->Get("/quit", [](const httplib::Request& req, httplib::Response& res)
+	mHttpServer->Get("/quit", [this](const httplib::Request& req, httplib::Response& res)
 	{
 		if (!isAllowed(req, res))
 			return;
+
+#if BATOCERA
+		// http://127.0.0.1/quit?confirm=switchscreen
+		if (req.has_param("confirm") && req.get_param_value("confirm") == "switchscreen") 
+		{
+			Window* win = mWindow;
+			mWindow->postToUiThread([win]() { win->pushGui(new GuiMsgBox(win, _("DO YOU WANT TO SWITCH THE SCREEN ?"), _("YES"), [] { quitES(); }, _("NO"), nullptr)); });			
+			return;
+		}
+#endif
 
 		quitES();		
 	});
@@ -233,6 +244,22 @@ void HttpServerThread::run()
 
 		res.set_content(HttpApi::getSystemList(), "application/json");
 	});
+
+	mHttpServer->Get("/runningGame", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		std::string ret = HttpApi::getRunnningGameInfo();
+		if (ret.empty())
+		{
+			res.set_content("201 NO GAME RUNNING", "text/html");
+			res.status = 201;
+		}
+		else
+			res.set_content(ret, "application/json");
+	});
+
 
 	mHttpServer->Get(R"(/systems/(/?.*)/logo)", [](const httplib::Request& req, httplib::Response& res)
 	{		

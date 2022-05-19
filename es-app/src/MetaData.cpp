@@ -145,14 +145,20 @@ MetaDataList::MetaDataList(MetaDataListType type) : mType(type), mWasChanged(fal
 
 }
 
-MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system)
+void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, SystemData* system)
 {
-	MetaDataList mdl(type);
-	mdl.mRelativeTo = system;
+	mType = type;
+	mRelativeTo = system;	
+
+	mUnKnownElements.clear();
+	mScrapeDates.clear();
+
 	std::string value;
-	std::string relativeTo = mdl.mRelativeTo->getStartPath();
+	std::string relativeTo = mRelativeTo->getStartPath();
 
 	bool preloadMedias = Settings::PreloadMedias();
+	if (preloadMedias && Settings::ParseGamelistOnly())
+		preloadMedias = false;
 
 	for (pugi::xml_node xelement : node.children())
 	{
@@ -170,7 +176,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 				if (!dateTime.isValid())
 					continue;
 								
-				mdl.mScrapeDates[scraperId->second] = dateTime;
+				mScrapeDates[scraperId->second] = dateTime;
 			}		
 								
 			continue;
@@ -184,7 +190,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 
 			value = xelement.text().get();
 			if (!value.empty())
-				mdl.mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, true));
+				mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, true));
 
 			continue;
 		}
@@ -197,7 +203,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 
 		if (mdd.id == MetaDataId::Name)
 		{
-			mdl.mName = value;
+			mName = value;
 			continue;
 		}
 
@@ -218,7 +224,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
 			value = Utils::String::replace(value, "1-", "");
 
-		mdl.set(mdd.id, value);
+		set(mdd.id, value);
 	}
 
 	for (pugi::xml_attribute xattr : node.attributes())
@@ -229,7 +235,7 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 		{
 			value = xattr.value();
 			if (!value.empty())
-				mdl.mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, false));
+				mUnKnownElements.push_back(std::tuple<std::string, std::string, bool>(name, value, false));
 
 			continue;
 		}
@@ -251,19 +257,15 @@ MetaDataList MetaDataList::createFromXML(MetaDataListType type, pugi::xml_node& 
 			value = Utils::String::replace(value, "1-", "");
 
 		if (mdd.id == MetaDataId::Name)
-			mdl.mName = value;
+			mName = value;
 		else
-			mdl.set(mdd.id, value);
+			set(mdd.id, value);
 	}
-
-	return mdl;
 }
 
 // Add migration for alternative formats & old tags
 void MetaDataList::migrate(FileData* file, pugi::xml_node& node)
 {
-	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(file->getPath()));
-
 	if (get(MetaDataId::Crc32).empty())
 	{
 		pugi::xml_node xelement = node.child("hash");

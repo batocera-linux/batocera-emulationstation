@@ -7,7 +7,7 @@
 #include <rapidjson/document.h>
 #include <rapidjson/error/en.h>
 #include "Log.h"
-
+#include "Paths.h"
 
 #ifdef GAMESDB_APIKEY
 using namespace rapidjson;
@@ -43,7 +43,7 @@ void ensureScrapersResourcesDir()
 
 std::string getScrapersResouceDir()
 {
-	return Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + std::string("/") + SCRAPER_RESOURCES_DIR); // batocera
+	return Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + std::string("/") + SCRAPER_RESOURCES_DIR);
 }
 
 std::string TheGamesDBJSONRequestResources::getApiKey() const { return GAMESDB_APIKEY; }

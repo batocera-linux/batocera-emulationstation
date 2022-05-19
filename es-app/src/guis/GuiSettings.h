@@ -26,9 +26,9 @@ public:
 	inline void addRow(const ComponentListRow& row) { mMenu.addRow(row); };
 	inline void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false) { mMenu.addWithLabel(label, comp, nullptr, "", setCursorHere); };
 	inline void addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, bool setCursorHere = false) { mMenu.addWithDescription(label, description, comp, nullptr, "", setCursorHere); };
-	inline void addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName = "", bool setCursorHere = false, bool invert_when_selected = true, bool multiLine = false) { mMenu.addWithDescription(label, description, comp, func, iconName, setCursorHere, invert_when_selected, multiLine); };
+	inline void addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName = "", bool setCursorHere = false, /*bool invert_when_selected = true,*/ bool multiLine = false) { mMenu.addWithDescription(label, description, comp, func, iconName, setCursorHere, multiLine); };
 	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };
-	inline void addEntry(const std::string name, bool add_arrow = false, const std::function<void()>& func = nullptr, const std::string iconName = "", bool onButtonRelease = false, bool setCursorHere = false) { mMenu.addEntry(name, add_arrow, func, iconName, setCursorHere, true, onButtonRelease); };
+	inline void addEntry(const std::string name, bool add_arrow = false, const std::function<void()>& func = nullptr, const std::string iconName = "", bool onButtonRelease = false, bool setCursorHere = false) { mMenu.addEntry(name, add_arrow, func, iconName, setCursorHere, onButtonRelease); };
 
 	inline void addGroup(const std::string& label) { mMenu.addGroup(label); };
 	inline void removeLastRowIfGroup() { mMenu.removeLastRowIfGroup(); };
@@ -44,7 +44,7 @@ public:
 
 	void addSubMenu(const std::string& label, const std::function<void()>& func);
 
-    inline void setSave(bool sav) { mDoSave = sav; }; // batocera
+    inline void setSave(bool sav) { mDoSave = sav; };
 
 	bool input(InputConfig* config, Input input) override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
@@ -75,7 +75,7 @@ protected:
 	MenuComponent mMenu;
 
 private:
-	bool mDoSave = true; // batocera
+	bool mDoSave = true;
 
 	std::vector< std::function<void()> > mSaveFuncs;
 	std::function<void()> mOnFinalizeFunc;

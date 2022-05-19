@@ -37,7 +37,8 @@ int rc_api_process_login_response(rc_api_login_response_t* response, const char*
     {"User"},
     {"Token"},
     {"Score"},
-    {"Messages"}
+    {"Messages"},
+    {"DisplayName"}
   };
 
   memset(response, 0, sizeof(*response));
@@ -54,6 +55,8 @@ int rc_api_process_login_response(rc_api_login_response_t* response, const char*
 
   rc_json_get_optional_unum(&response->score, &fields[4], "Score", 0);
   rc_json_get_optional_unum(&response->num_unread_messages, &fields[5], "Messages", 0);
+
+  rc_json_get_optional_string(&response->display_name, &response->response, &fields[6], "DisplayName", response->username);
 
   return RC_OK;
 }
@@ -138,7 +141,7 @@ int rc_api_process_fetch_user_unlocks_response(rc_api_fetch_user_unlocks_respons
   rc_buf_init(&response->response.buffer);
 
   result = rc_json_parse_response(&response->response, server_response, fields, sizeof(fields) / sizeof(fields[0]));
-  if (result != RC_OK)
+  if (result != RC_OK || !response->response.succeeded)
     return result;
 
   result = rc_json_get_required_unum_array(&response->achievement_ids, &response->num_achievement_ids, &response->response, &fields[2], "UserUnlocks");

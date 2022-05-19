@@ -1418,3 +1418,18 @@ This element is designed to set a list of properties to transform, given a timin
     		EaseInOut
     		Bump
 
+
+Resource overrides
+==================
+
+EmulationStation uses a few elements from its [resources](https://github.com/batocera-linux/batocera-emulationstation/tree/master/resources) folder (by default, `/etc/emulationstation/resources`) in order to draw on-screen elements. These include the little trophy/region/save file icons that appear next to a game's title and the "no boxart available" cartridge. If you would like to override these elements in your theme, simply include a `resources` folder in the root of your theme, and any files in there will take priority over files with the same filename in EmulationStation's resources folder.
+
+Example:
+```
+...
+      theme_set/
+         resources/            
+            cartridge.svg
+```
+
+This would replace the default cartridge image in the theme.

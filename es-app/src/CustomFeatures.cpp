@@ -1,8 +1,8 @@
 #include "CustomFeatures.h"
-
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include "Log.h"
+#include "Paths.h"
 
 bool CustomFeatures::FeaturesLoaded = false;
 
@@ -65,9 +65,9 @@ bool CustomFeatures::loadEsFeaturesFile()
 	GlobalFeatures.clear();
 	SharedFeatures.clear();
 
-	std::string path = Utils::FileSystem::getEsConfigPath() + "/es_features.cfg";
+	std::string path = Paths::getUserEmulationStationPath() + "/es_features.cfg";
 	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getSharedConfigPath() + "/es_features.cfg";
+		path = Paths::getEmulationStationPath() + "/es_features.cfg";
 
 	if (!Utils::FileSystem::exists(path))
 		return false;
@@ -119,8 +119,10 @@ bool CustomFeatures::loadEsFeaturesFile()
 			}
 
 			EmulatorFeatures::Features emulatorFeatures = EmulatorFeatures::Features::none;
-
 			auto customEmulatorFeatures = loadCustomFeatures(emulator);
+
+			if (customEmulatorFeatures.any([](auto x) { return x.value == "autosave"; })) // Watch if autosave is provided as shared
+				emulatorFeatures = emulatorFeatures | EmulatorFeatures::Features::autosave;
 
 			if (emulator.attribute("features") || customEmulatorFeatures.size() > 0)
 			{
@@ -154,9 +156,12 @@ bool CustomFeatures::loadEsFeaturesFile()
 				{
 					std::string coreName = Utils::String::trim(tmpCoreName);
 
-					EmulatorFeatures::Features coreFeatures = coreNode.attribute("features") ? EmulatorFeatures::parseFeatures(coreNode.attribute("features").value()) : EmulatorFeatures::Features::none;
+					EmulatorFeatures::Features coreFeatures = coreNode.attribute("features") ? EmulatorFeatures::parseFeatures(coreNode.attribute("features").value()) : EmulatorFeatures::Features::none;					
 					auto customCoreFeatures = loadCustomFeatures(coreNode);
 
+					if (customCoreFeatures.any([](auto x) { return x.value == "autosave"; })) // Watch if autosave is provided as shared
+						coreFeatures = coreFeatures | EmulatorFeatures::Features::autosave;
+						
 					bool coreFound = false;
 
 					for (auto it = EmulatorFeatures.begin(); it != EmulatorFeatures.end(); it++)
@@ -200,6 +205,10 @@ bool CustomFeatures::loadEsFeaturesFile()
 
 						EmulatorFeatures::Features systemFeatures = systemNode.attribute("features") ? EmulatorFeatures::parseFeatures(systemNode.attribute("features").value()) : EmulatorFeatures::Features::none;
 						auto customSystemFeatures = loadCustomFeatures(systemNode);
+
+						if (customSystemFeatures.any([](auto x) { return x.value == "autosave"; })) // Watch if autosave is provided as shared
+							systemFeatures = systemFeatures | EmulatorFeatures::Features::autosave;
+
 						if (systemFeatures == EmulatorFeatures::Features::none && customSystemFeatures.size() == 0)
 							continue;
 
@@ -402,23 +411,8 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 
 void CustomFeatures::sort()
 {
-  // sorting not keeping the order in case values equals
-  //std::sort(begin(), end(), [](CustomFeature& feat1, CustomFeature& feat2) { return feat1.order < feat2.order; });
-  auto pass = size();
-  bool swapped = true;
-  while (pass > 0 && swapped)
-    {
-      swapped = false;
-      for (auto i = 0; i < size() - 1; i++)
-        {
-	  if (at(i).order > at(i + 1).order)
-            {
-	      std::swap(at(i), at(i + 1));
-	      swapped = true;
-            }
-	}
-      pass--;
-    }
+	// std::sort is not always keeping the original sequence, when elements equals. Use stable_sort
+	std::stable_sort(begin(), end(), [](auto feat1, auto feat2) { return feat1.order < feat2.order; });
 }
 
 bool CustomFeatures::hasFeature(const std::string& name) const

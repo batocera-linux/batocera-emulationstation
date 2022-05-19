@@ -7,6 +7,10 @@
 #include <cstdlib>
 #include <memory>
 
+#ifdef HAVE_CHD
+#include "libretro-common/include/streams/chd_stream.h"
+#endif
+
 #define CHEEVOS_FREE(p) do { void* q = (void*)p; if (q) std::free(q); } while (0)
 
 void* rc_hash_handle_file_open(const char* path)
@@ -39,10 +43,23 @@ static void* rc_hash_handle_cd_open_track(const char* path, uint32_t track)
 {
 	cdfs_track_t* cdfs_track;
 
-	if (track == 0)
+	switch (track)
+	{
+	case RC_HASH_CDTRACK_FIRST_DATA:
 		cdfs_track = cdfs_open_data_track(path);
-	else
+		break;
+#ifdef HAVE_CHD
+	case RC_HASH_CDTRACK_LAST:
+		cdfs_track = cdfs_open_track(path, CHDSTREAM_TRACK_LAST);
+		break;
+	case RC_HASH_CDTRACK_LARGEST:
+		cdfs_track = cdfs_open_track(path, CHDSTREAM_TRACK_PRIMARY);
+		break;
+#endif
+	default:
 		cdfs_track = cdfs_open_track(path, track);
+		break;
+	}
 
 	if (cdfs_track)
 	{
@@ -61,6 +78,12 @@ static size_t rc_hash_handle_cd_read_sector(void* track_handle, uint32_t sector,
 {
 	cdfs_file_t* file = (cdfs_file_t*)track_handle;
 
+	uint32_t track_sectors = cdfs_get_num_sectors(file);
+
+	sector -= cdfs_get_first_sector(file);
+	if (sector >= track_sectors)
+		return 0;
+
 	cdfs_seek_sector(file, sector);
 	return cdfs_read_file(file, buffer, requested_bytes);
 }
@@ -74,6 +97,12 @@ static void rc_hash_handle_cd_close_track(void* track_handle)
 		cdfs_close_file(file); /* ASSERT: this does not free() file */
 		CHEEVOS_FREE(file);
 	}
+}
+
+static uint32_t rc_hash_handle_cd_first_track_sector(void* track_handle)
+{
+	cdfs_file_t* file = (cdfs_file_t*)track_handle;
+	return cdfs_get_first_sector(file);
 }
 
 static rc_hash_filereader filereader;
@@ -97,6 +126,7 @@ bool generateHashFromFile(char hash[33], int console_id, const char* path)
 			cdreader.open_track = rc_hash_handle_cd_open_track;
 			cdreader.read_sector = rc_hash_handle_cd_read_sector;
 			cdreader.close_track = rc_hash_handle_cd_close_track;
+			cdreader.first_track_sector = rc_hash_handle_cd_first_track_sector;
 //			cdreader.absolute_sector_to_track_sector = nullptr;
 			rc_hash_init_custom_cdreader(&cdreader);
 

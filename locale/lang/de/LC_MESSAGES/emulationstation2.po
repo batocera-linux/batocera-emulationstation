@@ -376,6 +376,9 @@ msgstr "LEADERBOARDS"
 msgid "VERBOSE MODE"
 msgstr "AUSFÜHRLICHER MODUS"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHER SCREENSHOT"
 
@@ -574,7 +577,7 @@ msgid "NETPLAY SETTINGS"
 msgstr "NETPLAY-EINSTELLUNGEN"
 
 msgid "ENABLE NETPLAY"
-msgstr "AKTIVERE NETZWERKSPIEL"
+msgstr "AKTIVERE NETPLAY"
 
 msgid "NICKNAME"
 msgstr "NICKNAME"
@@ -586,19 +589,19 @@ msgid "USE RELAY SERVER"
 msgstr "NUTZE RELAY-SERVER"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "ZEIGE NICHTVERFÜGBARE SPIELE"
 
 msgid "FINISHED"
 msgstr "FERTIG"
@@ -670,7 +673,7 @@ msgid "CANCEL"
 msgstr "ABBRECHEN"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "VERBINDE MIT NETZWERKSPIEL"
+msgstr "VERBINDE MIT NETPLAY"
 
 msgid "Select a game lobby to join"
 msgstr "Wähle eine Spiel-Lobby zum Beitreten"
@@ -948,14 +951,11 @@ msgstr "BIST DU SICHER?"
 msgid "UPDATING %s"
 msgstr "UPDATE %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "UPDATE BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "UPDATE IST BEREIT"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "SYSTEM NEU STARTEN UM UPDATE ANZUWENDEN"
+msgid "REBOOT TO APPLY"
+msgstr "NEUSTART ZUR ÜBERNAHME"
 
 msgid "REALLY UPDATE?"
 msgstr "WIRKLICH UPDATEN?"
@@ -974,8 +974,8 @@ msgstr "NETZWERKVERBINDUNG BENÖTIGT"
 msgid "NO UPDATE AVAILABLE"
 msgstr "KEIN UPDATE VERFÜGBAR"
 
-msgid "INSTALL BATOCERA"
-msgstr "INSTALLIERE BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr "AUF EINEN NEUEN DATENTRÄGER INSTALLIEREN"
 
 msgid "TARGET DEVICE"
 msgstr "ZIELGERÄT"
@@ -1026,7 +1026,7 @@ msgid "OPEN"
 msgstr "OFFEN"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "STARTE EIN NETPLAY-SPIEL"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1035,16 +1035,16 @@ msgid "START GAME"
 msgstr "STARTE SPIEL"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "HOSTE EIN NEUES NETPLAY-SPIEL"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "SPIEL ÖFFENTLICH ANKÜNDIGEN"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "SPIELER-PASSWORT"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "ZUSCHAUER-PASSWORT"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "FINDE ÄHNLICHE SPIELE..."
@@ -1127,7 +1127,7 @@ msgid "START NEW GAME"
 msgstr "STARTE NEUES SPIEL"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "STARTE NEUE AUTO-SPEICHERUNG"
 
 msgid "AUTO SAVE"
 msgstr "AUTOMATISCHE SPEICHERUNG"
@@ -1139,7 +1139,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "KOPIERE ZU FREIEN SLOT"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "SCRAPER-EINSTELLUNGEN"
 
 msgid "IMAGE SOURCE"
 msgstr "BILDQUELLE"
@@ -1177,6 +1177,9 @@ msgstr "WHEEL"
 msgid "MARQUEE"
 msgstr "BANNER"
 
+msgid "SCRAPE SHORT NAME"
+msgstr "SCRAPE KURZ NAME"
+
 msgid "SCRAPE RATINGS"
 msgstr "BEWERTUNGEN SCRAPEN"
 
@@ -1208,46 +1211,46 @@ msgid "SCRAPING DATABASE"
 msgstr "SCRAPING DATENBANK"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "QUELLE"
 
 msgid "SCRAPE FROM"
 msgstr "SCRAPEN VON"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTER"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SPIELE DIE ZU SCRAPEN SIND"
 
 msgid "ALL"
 msgstr "ALLE"
 
-msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgid "GAMES MISSING ANY MEDIA"
+msgstr "SPIELE MIT FEHLENDEN MEDIEN"
 
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgid "GAMES MISSING ALL MEDIA"
+msgstr "SPIELE OHNE MEDIEN"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORIERE KÜRZLICH GESCRAPTE SPIELE"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "LETZTER TAG"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "LETZTE WOCHE"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "LETZTE 15 TAGE"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "LETZTER MONAT"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "LETZTE 3 MONATE"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "LETZTES JAHR"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "SYSTEME INKLUSIVE"
@@ -1342,26 +1345,37 @@ msgstr "CPU max Frequenz"
 msgid "Cpu feature"
 msgstr "CPU Eigenschaft"
 
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEAR-SIMPLE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
+msgctxt "game_options"
 msgid "RETRO"
 msgstr "RETRO"
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "VERBESSERT"
+msgstr "ERWEITERT"
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "WÖLBUNG"
+msgstr "KRÜMMUNG"
 
+msgctxt "game_options"
 msgid "ZFAST"
 msgstr "ZFAST"
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA SKALIERUNG"
+msgstr "RGA SCALING"
 
 msgid "VENDOR"
 msgstr "HERSTELLER"
@@ -1377,6 +1391,18 @@ msgstr "CONTROLLER EINSTELLUNGEN"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONTROLLER & BLUETOOTH EINSTELLUNGEN"
+
+msgid "INTERNAL"
+msgstr "INTERN"
+
+msgid "ANY EXTERNAL"
+msgstr "BELIEBIGE EXTERNE"
+
+msgid "maximum 1920x1080"
+msgstr "maximum 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "maximum 640x480"
 
 msgid "MAIN MENU"
 msgstr "HAUPTMENÜ"
@@ -1460,9 +1486,6 @@ msgstr "ÖFFENTLICHEN WEBZUGRIFF AKTIVIEREN"
 msgid "Allow public web access API using %s"
 msgstr "Verwendung der öffentlichen Webzugriffs-API %s erlauben"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "NEUSTART ERFORDERLICH, UM DIE NEUE KONFIGURATION ANZUWENDEN"
-
 msgid "LOG LEVEL"
 msgstr "LOG LEVEL"
 
@@ -1503,7 +1526,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "SPIELE-SPRACHE/REGION ERNEUT ERKENNEN"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "FINDE ALLE SPIELE MIT NETZWERK/ERRUNGENSCHAFTEN"
+msgstr "FINDE ALLE SPIELE MIT NETPLAY/ERRUNGENSCHAFTEN"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATEI-MANAGEMENT"
@@ -1546,9 +1569,6 @@ msgstr "RETROARCH-MENÜ-TREIBER"
 
 msgid "AUTO"
 msgstr "AUTO"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOKONFIGURIERE EMULATOREN CONTROLLER"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "A/B TASTEN IN EMULATIONSTATION WECHSELN"
@@ -1647,6 +1667,9 @@ msgstr "DEAKTIVIERT"
 
 msgid "DEFAULT"
 msgstr "KEIN SPLASH"
+
+msgid "ENHANCED"
+msgstr "VERBESSERT"
 
 msgid "INSTANT"
 msgstr "SOFORTIG"
@@ -1784,9 +1807,6 @@ msgstr "SPEICHER-GERÄT"
 msgid "BACKUP USER DATA"
 msgstr "BENUTZERDATEN SICHERN"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "INSTALLIERE BATOCERA AUF EINEM NEUEN DATENTRÄGER"
-
 msgid "ADVANCED"
 msgstr "ERWEITERT"
 
@@ -1799,17 +1819,23 @@ msgstr "ERZWINGE SICHERHEIT"
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASSWORT"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "NEUSTART ERFORDERLICH, UM DIE NEUE KONFIGURATION ANZUWENDEN"
+
 msgid "LATENCY REDUCTION"
 msgstr "LATENZREDUZIERUNG"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD FRAMES"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "USE RUN-AHEAD FRAMES"
+msgid "High numbers can result in visible jitter."
+msgstr "Hohe Zahlen können zu sichtbarem Jitter führen."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "RUN-AHEAD USE SECOND INSTANCE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "ZWEITE INSTANZ FÜR RUN-AHEAD VERWENDEN"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Kann Audioaussetzer beim Drücken von Tasten verhindern."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATISCHE FRAME-VERZÖGERUNG"
@@ -1818,14 +1844,28 @@ msgid "AUTO FRAME DELAY"
 msgstr "AUTO FRAME-VERZÖGERUNG"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Frame-Verzögerung vorrübergehend automatisch verringern, um Frame-Drops zu "
-"vermeiden. Ausschalten, falls dies Audio-/Video-Stottern verschlimmert."
+"Bildverzögerung automatisch vorübergehend verringern, um frame drops zu "
+"vermeiden. Kann Stottern verursachen."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "VARIABLE BILDWIEDERHOL-RATE (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "VARIABLE BILDWIEDERHOL-RATE"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Nicht vom Core geforderten Timing abweichen. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DEKORATIONS-SET"
+
+msgid "Current setting"
+msgstr "Aktuelle Einstellung"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "GLOBALE STANDARDEINSTELLUNGEN"
@@ -1885,10 +1925,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "PFAD ZUM BENUTZERDEF. .PNG-BILD"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "TATTOO-GRÖSSE ÄNDERN"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Tattoo verkleinern/erweitern, damit es in den Rahmen des Bezels passt."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI-SPIELEÜBERSETZUNG"
@@ -1905,35 +1945,35 @@ msgstr "AI-ÜBERSETZUNGS-SERVICE URL"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUSE BEI ÜBERSETZTEM BILDSCHIRM"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "AUTOKONFIGURIERE CONTROLLER"
+
 msgid "SAVESTATES"
-msgstr ""
+msgstr "SPEICHERSTÄNDE"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "AUTO SPEICHERN/LADEN"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLE SPEICHERSTÄNDE"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "NEUES SPIEL ERSTELLT NEUEN SLOT"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr ""
-
-msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "NEUES SPIEL ÜBERSCHREIBT DERZEITIGEN SLOT"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "ZEIGE SPEICHERSTAND-MANAGER"
 
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr ""
+msgid "ALWAYS"
+msgstr "IMMER"
+
+msgid "IF NOT EMPTY"
+msgstr "WENN NICHT LEER"
+
+msgid "Display save state manager before launching a game."
+msgstr "Zeige den Speicherstand-Manager vor dem Starten eines Spiels."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "PER SYSTEM ERWEITERTE KONFIGURATION"
@@ -2068,7 +2108,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "ÜBERGANGSSTIL"
 
 msgid "auto"
-msgstr ""
+msgstr "auto"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "SPIEL-STARTÜBERGANG"
@@ -2178,9 +2218,6 @@ msgstr "BILDSCHIRMSCHONER STARTEN"
 msgid "VIEW USER'S MANUAL"
 msgstr "BENUZERHANDBUCH ANZEIGEN"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "BATOCERA-HANDBUCH ANZEIGEN"
-
 msgid "RESTART SYSTEM"
 msgstr "SYSTEM NEUSTARTEN"
 
@@ -2240,9 +2277,6 @@ msgstr "SEITE AN SEITE"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "INTERNE AUFLÖSUNG"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "AUTOKONFIGURIERE CONTROLLER"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "DIESES SPIEL BEIM START STARTEN"
@@ -2387,6 +2421,9 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Kind"
 
+msgid "Basic"
+msgstr "Basic"
+
 msgid "Released"
 msgstr "Veröffentlicht"
 
@@ -2408,8 +2445,17 @@ msgstr "Spiele ähnlich zu"
 msgid "GAME OPTIONS"
 msgstr "SPIEL-OPTIONEN"
 
+msgid "SAVE STATES (HOLD)"
+msgstr "SPEICHERSTÄNDE (HALTEN)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "SPIELOPTIONEN (HALTEN)"
+
 msgid "FAVORITE"
 msgstr "FAVORIT"
+
+msgid "RANDOM (HOLD)"
+msgstr "ZUFÄLLIG (HALTEN)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2434,7 +2480,7 @@ msgid "Downloading"
 msgstr "Downloading"
 
 msgid "SEARCH FOR"
-msgstr ""
+msgstr "SUCHE NACH"
 
 msgid "ACCEPT RESULT"
 msgstr "ERGEBNIS AKZEPTIEREN"
@@ -2444,6 +2490,9 @@ msgstr "Lade System Konfiguration."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SICHERE METADATEN. BITTE WARTEN..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "MÖCHTEST DU DIE ANZEIGE WECHSELN ?"
 
 msgid "Collections"
 msgstr "Sammlungen"
@@ -2542,7 +2591,7 @@ msgid "SEARCHING RETROACHIEVEMENTS"
 msgstr "SUCHE RETROACHIEVEMENTS"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr "SUCHE NETZWERKSPIELE"
+msgstr "SUCHE NETPLAY-SPIELE"
 
 msgid "INDEXING COMPLETED"
 msgstr "INDIZIERUNG ABGESCHLOSSEN"
@@ -2551,25 +2600,25 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "SPIELELISTEN UPDATEN, UM ÄNDERUNGEN ZU ÜBERNEHMEN."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "DER EMULATOR BEENDETE UNERWARTET"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "SCHLECHTE BEFEHLSZEILEN-ARGUMENTE"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "UNGÜLTIGE KONFIGURATION"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "UNBEKANNTER EMULATOR"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "EMULATOR FEHLT"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "CORE FEHLT"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "UNBEKANNTER FEHLER"
 
 msgid "GENRE"
 msgstr "GENRE"
@@ -2635,63 +2684,63 @@ msgstr "LEERTASTE"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "OBEN"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "UNTEN"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "LINKS"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "RECHTS"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "LINKER ANALOG OBEN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "LINKER ANALOG UNTEN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "LINKER ANALOG LINKS"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "LINKER ANALOG RECHTS"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "RECHTER ANALOG OBEN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "RECHTER ANALOG UNTEN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "RECHTER ANALOG LINKS"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "RECHTER ANALOG RECHTS"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "KONFIGURIEREN"
@@ -2837,6 +2886,67 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "SYSTEM NEU STARTEN UM UPDATE ANZUWENDEN"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "UPDATE BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "INSTALLIERE BATOCERA"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "SPIELE MIT FEHLENDEN MEDIEN"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "SPIELE OHNE MEDIEN"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "AUTOKONFIGURIERE EMULATOREN CONTROLLER"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "INSTALLIERE BATOCERA AUF EINEM NEUEN DATENTRÄGER"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "SPEICHERSTAND-MANAGER ANZEIGEN"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "SPEICHERSTAND-MANAGER VOR STARTEN EINES SPIELS ANZEIGEN"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "BATOCERA-HANDBUCH ANZEIGEN"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "USE RUN-AHEAD FRAMES"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "RUN-AHEAD USE SECOND INSTANCE"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Frame-Verzögerung vorrübergehend automatisch verringern, um Frame-Drops "
+#~ "zu vermeiden. Ausschalten, falls dies Audio-/Video-Stottern verschlimmert."
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "WÖLBUNG"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA SKALIERUNG"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "SCRAPE-KRITERIEN"

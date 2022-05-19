@@ -60,10 +60,11 @@ public:
 		setEntry(mText, Vector2i(2, 0), false, true);
 		setEntry(mSubstring, Vector2i(2, 1), false, true);
 
-		setColWidthPerc(0, IMAGESIZE / WINDOW_WIDTH);
-		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
-
 		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+
+		setColWidthPerc(0, (height - IMAGESPACER) / WINDOW_WIDTH);
+		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
+	
 		mImage->setMaxSize(height - IMAGESPACER, height - IMAGESPACER);
 		mImage->setImage(mGameInfo.getBadgeUrl());
 

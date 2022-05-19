@@ -162,23 +162,28 @@ protected:
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::function<bool()> mVideoEnded;
 
-private:
 	// Start the video Immediately
 	virtual void startVideo() = 0;
 	// Stop the video
 	virtual void stopVideo() { };
-	// Handle looping the video. Must be called periodically
-	virtual void handleLooping();
+
+	// Pause/Resume
+	virtual void pauseVideo() { stopVideo(); };
+	virtual void resumeVideo() { startVideoWithDelay(); };
+	virtual bool isPaused() { return false; }
 
 	// Start the video after any configured delay
 	void startVideoWithDelay();
 
+private:
+	// Handle looping the video. Must be called periodically
+	virtual void handleLooping();
+	
 	// Handle any delay to the start of playing the video clip. Must be called periodically
 	void handleStartDelay();
 
 	// Manage the playing state of the component
 	void manageState();
-
 
 protected:
 	unsigned						mVideoWidth;

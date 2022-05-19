@@ -3,6 +3,7 @@
 #define ES_CORE_UTILS_STRING_UTIL_H
 
 #include <string>
+#include <cstring>
 #include <vector>
 
 namespace Utils

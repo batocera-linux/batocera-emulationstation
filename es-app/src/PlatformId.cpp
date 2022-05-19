@@ -168,6 +168,7 @@ namespace PlatformIds
 		{ "crvision",				VTECH_CREATIVISION },			
 		{ "creativision",			VTECH_CREATIVISION },			
 		{ "vsmile",					VTECH_VSMILE },
+		{ "arduboy",				ARDUBOY },
 						
 		{ "snes-msu1",				SUPER_NINTENDO_MSU1 },
 

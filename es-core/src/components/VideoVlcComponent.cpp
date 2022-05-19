@@ -750,7 +750,10 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 void VideoVlcComponent::update(int deltaTime)
 {
 	mElapsed += deltaTime;
-	mStaticImage.update(deltaTime);
+
+	if (mConfig.showSnapshotNoVideo || mConfig.showSnapshotDelay)
+		mStaticImage.update(deltaTime);
+
 	VideoComponent::update(deltaTime);	
 }
 
@@ -794,4 +797,47 @@ void VideoVlcComponent::setProperty(const std::string name, const ThemeData::The
 		setRoundCorners(value.f);
 	else
 		VideoComponent::setProperty(name, value);
+}
+
+
+void VideoVlcComponent::pauseVideo()
+{
+	if (!mIsPlaying && !mIsWaitingForVideoToStart && !mStartDelayed)
+		return;
+
+	mIsPlaying = false;
+	mIsWaitingForVideoToStart = false;
+	mStartDelayed = false;
+
+	if (mMediaPlayer == NULL)
+		stopVideo();
+	else
+	{
+		libvlc_media_player_pause(mMediaPlayer);
+		
+		PowerSaver::resume();
+		AudioManager::setVideoPlaying(false);
+	}
+}
+
+void VideoVlcComponent::resumeVideo()
+{
+	if (mIsPlaying)
+		return;
+
+	if (mMediaPlayer == NULL)
+	{
+		startVideoWithDelay();
+		return;
+	}
+
+	mIsPlaying = true;
+	libvlc_media_player_play(mMediaPlayer);
+	PowerSaver::pause();
+	AudioManager::setVideoPlaying(true);
+}
+
+bool VideoVlcComponent::isPaused()
+{
+	return !mIsPlaying && !mIsWaitingForVideoToStart && !mStartDelayed && mMediaPlayer != NULL;
 }

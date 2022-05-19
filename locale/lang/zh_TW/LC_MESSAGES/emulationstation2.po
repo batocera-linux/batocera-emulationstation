@@ -375,6 +375,9 @@ msgstr "排行榜"
 msgid "VERBOSE MODE"
 msgstr "詳細模式"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動化螢幕截圖"
 
@@ -583,19 +586,19 @@ msgid "USE RELAY SERVER"
 msgstr "使用中繼伺服器"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "紐約"
 
 msgid "MADRID"
-msgstr ""
+msgstr "馬德里"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "蒙特婁"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "聖保羅"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "顯示無法使用的遊戲"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -945,14 +948,11 @@ msgstr "您確定嗎？"
 msgid "UPDATING %s"
 msgstr "正在更新 %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "正在更新 BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "已準備好可以更新"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "系統重新啟動來套用"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "確定要更新嗎？"
@@ -971,8 +971,8 @@ msgstr "需要連線到網際網路"
 msgid "NO UPDATE AVAILABLE"
 msgstr "沒有可用的更新"
 
-msgid "INSTALL BATOCERA"
-msgstr "安裝 BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr ""
 
 msgid "TARGET DEVICE"
 msgstr "目標裝置"
@@ -1023,7 +1023,7 @@ msgid "OPEN"
 msgstr "開啟"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "開始一場連線遊戲"
 
 msgid "NETPLAY"
 msgstr "多人遊戲"
@@ -1032,16 +1032,16 @@ msgid "START GAME"
 msgstr "開始遊戲"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "主持一場連線遊戲"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "公開的遊戲"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "玩家密碼"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "觀眾密碼"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
@@ -1124,7 +1124,7 @@ msgid "START NEW GAME"
 msgstr "新遊戲"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "開始新的自動存檔"
 
 msgid "AUTO SAVE"
 msgstr "自動存檔"
@@ -1136,7 +1136,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "複製到空檔案槽"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "搜刮器設定"
 
 msgid "IMAGE SOURCE"
 msgstr "圖片來源"
@@ -1174,6 +1174,9 @@ msgstr "商標"
 msgid "MARQUEE"
 msgstr "跑馬燈"
 
+msgid "SCRAPE SHORT NAME"
+msgstr ""
+
 msgid "SCRAPE RATINGS"
 msgstr "搜刮遊戲評分"
 
@@ -1205,46 +1208,46 @@ msgid "SCRAPING DATABASE"
 msgstr "搜刮資料庫"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "來源"
 
 msgid "SCRAPE FROM"
 msgstr "搜刮資料來源"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "過濾器"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "欲搜刮給哪些遊戲"
 
 msgid "ALL"
 msgstr "全部"
 
-msgid "GAMES MISSING MEDIAS"
+msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
 
-msgid "GAMES WITHOUT ANY MEDIA"
+msgid "GAMES MISSING ALL MEDIA"
 msgstr ""
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "忽略最近搜刮過的遊戲"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "昨天"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "上週"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "最近 15 天"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "上個月"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "最近三個月"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "去年"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "已包含的遊戲平台"
@@ -1338,26 +1341,37 @@ msgstr "CPU 最高頻率"
 msgid "Cpu feature"
 msgstr "CPU 功能"
 
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEAR-SIMPLE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "掃描線"
+msgstr "SCANLINES"
 
+msgctxt "game_options"
 msgid "RETRO"
-msgstr "復古"
+msgstr "RETRO"
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "增強"
+msgstr "ENHANCED"
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "曲面"
+msgstr "CURVATURE"
 
+msgctxt "game_options"
 msgid "ZFAST"
 msgstr "ZFAST"
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA 縮放"
+msgstr "RGA SCALING"
 
 msgid "VENDOR"
 msgstr "提供者"
@@ -1373,6 +1387,18 @@ msgstr "控制器設定"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "控制器與藍牙設定"
+
+msgid "INTERNAL"
+msgstr ""
+
+msgid "ANY EXTERNAL"
+msgstr ""
+
+msgid "maximum 1920x1080"
+msgstr ""
+
+msgid "maximum 640x480"
+msgstr ""
 
 msgid "MAIN MENU"
 msgstr "主選單"
@@ -1455,9 +1481,6 @@ msgstr "啟用公開網站存取"
 #, c-format
 msgid "Allow public web access API using %s"
 msgstr "允許公開網站透過 %s 存取 API"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要重新啟動系統才可以套用新的設定"
 
 msgid "LOG LEVEL"
 msgstr "日誌等級"
@@ -1542,9 +1565,6 @@ msgstr "RETROARCH 選單驅動程式"
 
 msgid "AUTO"
 msgstr "自動"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "自動為模擬器設定控制器"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "在 EMULATIONSTATION 中調換 A/B 鍵功能"
@@ -1637,6 +1657,9 @@ msgstr "停用"
 
 msgid "DEFAULT"
 msgstr "預設"
+
+msgid "ENHANCED"
+msgstr "增強"
 
 msgid "INSTANT"
 msgstr "立即"
@@ -1773,9 +1796,6 @@ msgstr "儲存裝置"
 msgid "BACKUP USER DATA"
 msgstr "備份使用者資料"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "安裝 BATOCERA 到新的磁碟"
-
 msgid "ADVANCED"
 msgstr "進階設定"
 
@@ -1788,17 +1808,23 @@ msgstr "啟用安全防護"
 msgid "ROOT PASSWORD"
 msgstr "ROOT 密碼"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "需要重新啟動系統才可以套用新的設定"
+
 msgid "LATENCY REDUCTION"
 msgstr "降低延遲"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "預先執行畫格"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "使用預先執行畫格"
+msgid "High numbers can result in visible jitter."
+msgstr "較大的數字會造成可見的畫面抖動。"
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "使用第二個實例預先執行畫格"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "使用第二個實例處理預先執行"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "可避免在按下按鈕時造成音訊斷斷續續。"
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "自動化畫格延遲"
@@ -1807,14 +1833,25 @@ msgid "AUTO FRAME DELAY"
 msgstr "自動畫格延遲"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
-msgstr ""
-"自動減少畫格延遲來避免畫格遺失。如果此選項造成音訊/視訊斷續的情況更加糟糕的話"
-"請關閉。"
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr "自動地暫時性減少畫格延遲以防止畫面跳格。可能會使遊戲斷斷續續。"
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "可變動更新率 (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "可變動更新率"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr "不要偏離核心所要求的時間點。G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "裝飾框集"
+
+msgid "Current setting"
+msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "預設全域設定"
@@ -1844,7 +1881,7 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "延展框體 (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "在框體上方顯示紋身"
+msgstr "在框體上方顯示彩繪"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "遊戲平台控制器"
@@ -1856,7 +1893,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "在框體頂部覆蓋影像。"
 
 msgid "TATTOO CORNER"
-msgstr "紋身邊角"
+msgstr "彩繪邊角"
 
 msgid "NORTH WEST"
 msgstr "西北"
@@ -1874,10 +1911,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "自訂 .PNG 圖片路徑"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "調整彩繪大小"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "縮小/擴大彩繪以適應框體的邊框。"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI 遊戲翻譯"
@@ -1894,34 +1931,34 @@ msgstr "AI 翻譯服務網址"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "在已翻譯的畫面上暫停"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "自動設定遊戲控制器"
+
 msgid "SAVESTATES"
-msgstr ""
+msgstr "即時存檔"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "自動儲存/載入"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "遞增即時存檔"
 
 msgid "NEW GAME CREATES NEW SLOT"
-msgstr ""
+msgstr "開新遊戲時建立新檔案槽"
 
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr ""
-
-msgid "DISPLAY SAVE STATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr ""
-
-msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "開新遊戲時覆寫目前的檔案槽"
 
 msgid "SHOW SAVE STATE MANAGER"
-msgstr ""
+msgstr "顯示即時存檔管理員"
 
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+msgid "ALWAYS"
+msgstr "總是"
+
+msgid "IF NOT EMPTY"
+msgstr "若不為空時"
+
+msgid "Display save state manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2054,7 +2091,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "過場效果"
 
 msgid "auto"
-msgstr ""
+msgstr "自動"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "遊戲啟動過場"
@@ -2164,9 +2201,6 @@ msgstr "啟動螢幕保護程式"
 msgid "VIEW USER'S MANUAL"
 msgstr "檢視使用者手冊"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "觀看 BATOCERA 使用者手冊"
-
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
 
@@ -2227,9 +2261,6 @@ msgstr "並排"
 msgid "INTERNAL RESOLUTION"
 msgstr "內部解析度"
 
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "自動設定遊戲控制器"
-
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "在啟動期間執行這個遊戲"
 
@@ -2280,7 +2311,7 @@ msgid "ZOOM"
 msgstr "縮放"
 
 msgid "GAMES TO INDEX"
-msgstr "遊戲至索引"
+msgstr "要索引哪些遊戲"
 
 msgid "ONLY MISSING"
 msgstr "僅限缺少的"
@@ -2367,6 +2398,9 @@ msgstr "遊戲大廳"
 msgid "Kid"
 msgstr "兒童"
 
+msgid "Basic"
+msgstr ""
+
 msgid "Released"
 msgstr "發行日期"
 
@@ -2387,8 +2421,17 @@ msgstr "遊戲相似於"
 msgid "GAME OPTIONS"
 msgstr "遊戲設定"
 
+msgid "SAVE STATES (HOLD)"
+msgstr ""
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr ""
+
 msgid "FAVORITE"
 msgstr "我的最愛"
+
+msgid "RANDOM (HOLD)"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2421,6 +2464,9 @@ msgstr "正在載入系統設定..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在儲存中繼資料。請稍後..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "合輯"
@@ -2612,63 +2658,63 @@ msgstr "空白鍵"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "上"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "下"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "左"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "右"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "開始"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "選擇"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "左類比 上"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "左類比 下"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "左類比 左"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "左類比 右"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "右類比 上"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "右類比 下"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "右類比 左"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "右類比 右"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "熱鍵"
 
 msgid "CONFIGURING"
 msgstr "設定中"
@@ -2805,6 +2851,67 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "系統重新啟動來套用"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "正在更新 BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "安裝 BATOCERA"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "缺少部份媒體的遊戲"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "不含任何媒體的遊戲"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "自動為模擬器設定控制器"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "安裝 BATOCERA 到新的磁碟"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "顯示即時存檔管理員"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "在啟動遊戲前顯示即時存檔管理員"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "觀看 BATOCERA 使用者手冊"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "使用預先執行畫格"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "使用第二個實例預先執行畫格"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "自動減少畫格延遲來避免畫格遺失。如果此選項造成音訊/視訊斷續的情況更加糟糕"
+#~ "的話請關閉。"
+
+#~ msgid "SCANLINES"
+#~ msgstr "掃描線"
+
+#~ msgid "RETRO"
+#~ msgstr "復古"
+
+#~ msgid "CURVATURE"
+#~ msgstr "曲面"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA 縮放"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "搜刮標準"

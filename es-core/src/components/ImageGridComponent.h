@@ -121,7 +121,7 @@ private:
 	void updateTileAtPos(int tilePos, int imgPos, bool allowAnimation = true, bool updateSelectedState = true);
 	void calcGridDimension();
 	
-	bool isVertical() { return mScrollDirection == SCROLL_VERTICALLY; };
+	inline bool isVertical() { return mScrollDirection == SCROLL_VERTICALLY; };
 
 	bool mEntriesDirty;
 	
@@ -425,7 +425,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	if (Settings::DebugGrid)
+	if (Settings::DebugGrid())
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033);
@@ -435,7 +435,7 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	float offsetX = isVertical() ? 0 : mCamera * mCameraDirection * (mTileSize.x() + mMargin.x());
 	float offsetY = isVertical() ? mCamera * mCameraDirection * (mTileSize.y() + mMargin.y()) : 0;
 	
-	tileTrans.translate(Vector3f(offsetX, offsetY, 0.0));
+	tileTrans.translate(offsetX, offsetY);
 
 	if (mEntriesDirty && !(((GuiComponent*)this)->isAnimationPlaying(2)))
 	{
@@ -444,13 +444,10 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	}
 
 	// Create a clipRect to hide tiles used to buffer texture loading
-	float scaleX = trans.r0().x();
-	float scaleY = trans.r1().y();
-
 	Vector2i pos((int)Math::round(trans.translation()[0]), (int)Math::round(trans.translation()[1]));
-	Vector2i size((int)Math::round(mSize.x() * scaleX), (int)Math::round(mSize.y() * scaleY));
+	Vector2i size((int)Math::round(mSize.x() * trans.r0().x()), (int)Math::round(mSize.y() * trans.r1().y()));
 
-	if (Settings::DebugGrid)
+	if (Settings::DebugGrid())
 	{
 		for (auto it = mTiles.begin(); it != mTiles.end(); it++)
 		{
@@ -473,9 +470,8 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 
 	// Render the selected image background on bottom of the others if needed
 	std::shared_ptr<GridTileComponent> selectedTile = NULL;
-	for(auto it = mTiles.begin(); it != mTiles.end(); it++)
+	for (auto tile : mTiles)
 	{
-		std::shared_ptr<GridTileComponent> tile = (*it);
 		if (tile->isSelected())
 		{
 			selectedTile = tile;
@@ -487,12 +483,9 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 		}
 	}
 	
-	for (auto it = mTiles.begin(); it != mTiles.end(); it++)
-	{
-		std::shared_ptr<GridTileComponent> tile = (*it);
-		if (!tile->isSelected())
+	for (auto tile : mTiles)
+		if (tile != selectedTile)
 			tile->render(tileTrans);
-	}
 
 	// Render the selected image content on top of the others
 	if (selectedTile != NULL)
@@ -758,6 +751,8 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 template<typename T>
 void ImageGridComponent<T>::onSizeChanged()
 {
+	IList<ImageGridData, T>::onSizeChanged();
+
 	if (mTheme == nullptr)
 		return;
 

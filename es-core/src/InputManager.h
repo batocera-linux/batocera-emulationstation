@@ -47,8 +47,8 @@ public:
 
 	std::string configureEmulators();
 
-	// information about last association players/pads // batocera
-	std::map<int, PlayerDeviceInfo> lastKnownPlayersDeviceIndexes() { return m_lastKnownPlayersDeviceIndexes; }
+	// information about last association players/pads 
+	std::map<int, PlayerDeviceInfo>& lastKnownPlayersDeviceIndexes() { return m_lastKnownPlayersDeviceIndexes; }
 	void computeLastKnownPlayersDeviceIndexes();
 
 	void updateBatteryLevel(int id, std::string device, int level);

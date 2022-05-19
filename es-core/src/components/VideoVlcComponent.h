@@ -98,6 +98,11 @@ private:
 	virtual void startVideo();
 	// Stop the video
 	virtual void stopVideo();
+
+	virtual void pauseVideo();
+	virtual void resumeVideo();
+	virtual bool isPaused();
+
 	// Handle looping the video. Must be called periodically
 	virtual void handleLooping();
 

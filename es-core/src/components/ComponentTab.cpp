@@ -48,6 +48,8 @@ void ComponentTab::addTab(const ComponentTabItem& row, const std::string value, 
 
 void ComponentTab::onSizeChanged()
 {
+	IList::onSizeChanged();
+
 	for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
 	{
 		updateElementSize(it->data);
@@ -316,7 +318,7 @@ std::vector<HelpPrompt> ComponentTab::getHelpPrompts()
 		}
 
 		if(addMovePrompt)
-			prompts.push_back(HelpPrompt(_("up/down"), _("CHOOSE"))); // batocera
+			prompts.push_back(HelpPrompt(_("up/down"), _("CHOOSE")));
 	}
 
 	return prompts;

@@ -378,6 +378,9 @@ msgstr "RANKINGI"
 msgid "VERBOSE MODE"
 msgstr "TRYB INFORMACJI PEŁNEJ"
 
+msgid "ENCORE MODE"
+msgstr "TRYB ENCORE"
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
@@ -587,19 +590,19 @@ msgid "USE RELAY SERVER"
 msgstr "UŻYJ SERWERA PRZEKAZUJĄCEGO"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NOWY JORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRYT"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAN PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "POKAŻ NIEDOSTĘPNE GRY"
 
 msgid "FINISHED"
 msgstr "ZAKOŃCZONO"
@@ -949,14 +952,11 @@ msgstr "CZY NA PEWNO?"
 msgid "UPDATING %s"
 msgstr "AKTUALIZUJĘ %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "AKTUALIZUJĘ SYSTEM"
-
 msgid "UPDATE IS READY"
 msgstr "AKTUALIZACJA JEST GOTOWA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
+msgid "REBOOT TO APPLY"
+msgstr "ZRESTARTUJ ABY ZASTOSOWAĆ"
 
 msgid "REALLY UPDATE?"
 msgstr "ZAKTUALIZOWAĆ?"
@@ -975,8 +975,8 @@ msgstr "WYMAGA POŁĄCZENIA Z INTERNETEM"
 msgid "NO UPDATE AVAILABLE"
 msgstr "BRAK NOWYCH AKTUALIZACJI"
 
-msgid "INSTALL BATOCERA"
-msgstr "ZAINSTALUJ BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr "ZAINSTALUJ NA NOWYM DYSKU"
 
 msgid "TARGET DEVICE"
 msgstr "URZĄDZENIE CELOWE"
@@ -1027,7 +1027,7 @@ msgid "OPEN"
 msgstr "OTWÓRZ"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "ROZPOCZNIJ GRĘ NETPLAY"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1036,16 +1036,16 @@ msgid "START GAME"
 msgstr "ROZPOCZNIJ GRĘ"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "HOSTUJ GRĘ NETPLAY"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "OGŁOŚ GRĘ PUBLICZNIE"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "HASŁO GRACZA"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "HASŁO WIDZA"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY..."
@@ -1140,7 +1140,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "KOPIUJ W DOSTĘPNE MIEJSCE"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA SCRAPE'A"
 
 msgid "IMAGE SOURCE"
 msgstr "ŹRÓDŁO OBRAZU"
@@ -1178,6 +1178,9 @@ msgstr "KOŁO"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "SCRAPE SHORT NAME"
+msgstr "SCRAPE'UJ NAZWĘ SKRÓCONĄ"
+
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE'UJ OCENY"
 
@@ -1209,52 +1212,52 @@ msgid "SCRAPING DATABASE"
 msgstr "BAZA DANYCH SCRAPE'A"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "ŹRÓDŁO"
 
 msgid "SCRAPE FROM"
-msgstr ""
+msgstr "SCRAPE'UJ Z"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FILTRY"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "GRY DO SCRAPE'OWANIA"
 
 msgid "ALL"
 msgstr "WSZYSTKO"
 
-msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgid "GAMES MISSING ANY MEDIA"
+msgstr "GRY Z BRAKUJĄCYMI MEDIAMI"
 
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgid "GAMES MISSING ALL MEDIA"
+msgstr "GRY BEZ MEDIÓW"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "IGNORUJ OSTATNIO SCRAPE'OWANE GRY"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "OSTATNI DZIEŃ"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "OSTATNI TYDZIEŃ"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "OSTATNIE 15 DNI"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "OSTATNI MIESIĄC"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "OSTATNIE 3 MIESIĄCE"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "OSTATNI ROK"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "UWZGLĘDNIONE SYSTEMY"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "SCRAPE'UJ"
 
 msgid "START"
 msgstr "URUCHOM"
@@ -1343,24 +1346,35 @@ msgstr "Maks. częstotliwość procesora"
 msgid "Cpu feature"
 msgstr "Funkcje procesora"
 
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEAR-SIMPLE"
+
+msgctxt "game_options"
 msgid "SCANLINES"
 msgstr "SCANLINES"
 
+msgctxt "game_options"
 msgid "RETRO"
 msgstr "RETRO"
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "ROZSZERZONY"
+msgstr "UDOSKONALONY"
 
+msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "KRZYWIZNA"
+msgstr "ZAKRZYWIONY"
 
+msgctxt "game_options"
 msgid "ZFAST"
 msgstr "ZFAST"
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
+msgctxt "game_options"
 msgid "RGA SCALING"
 msgstr "SKALOWANIE RGA"
 
@@ -1378,6 +1392,18 @@ msgstr "USTAWIENIA KONTROLERÓW"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLERY I USTAWIENIA BLUETOOTH"
+
+msgid "INTERNAL"
+msgstr "WEWNĘTRZNY"
+
+msgid "ANY EXTERNAL"
+msgstr "DOWOLNY ZEWNĘTRZNY"
+
+msgid "maximum 1920x1080"
+msgstr "maksymalnie 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "maksymalnie 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
@@ -1460,10 +1486,6 @@ msgstr "WŁĄCZ DOSTĘP PUBLICZNY Z SIECI"
 #, c-format
 msgid "Allow public web access API using %s"
 msgstr "Zezwól na dostęp publiczny do API przy użyciu %s"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "LOG LEVEL"
 msgstr "POZIOM LOGOWANIA"
@@ -1548,9 +1570,6 @@ msgstr "STEROWNIK MENU RETROARCH"
 
 msgid "AUTO"
 msgstr "AUTO"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "AUTOKONFIGURUJ KONTROLERY EMULATORÓW"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "PRZEŁĄCZ PRZYCISKI A/B W EMULATIONSTATION"
@@ -1650,6 +1669,9 @@ msgstr "WYŁĄCZONE"
 msgid "DEFAULT"
 msgstr "DOMYŚLNY"
 
+msgid "ENHANCED"
+msgstr "ROZSZERZONY"
+
 msgid "INSTANT"
 msgstr "NATYCHMIASTOWY"
 
@@ -1694,7 +1716,7 @@ msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
 
 msgid "AUDIO PROFILE"
-msgstr "PROFIL AUDIO "
+msgstr "PROFIL AUDIO"
 
 msgid "SCREEN ROTATION"
 msgstr "OBRÓT EKRANU"
@@ -1786,9 +1808,6 @@ msgstr "NOŚNIK DANYCH"
 msgid "BACKUP USER DATA"
 msgstr "STWÓRZ KOPIĘ ZAPASOWĄ DANYCH UŻYTKOWNIKA"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "ZAINSTALUJ BATOCERA NA NOWYM DYSKU"
-
 msgid "ADVANCED"
 msgstr "ZAAWANSOWANE"
 
@@ -1801,17 +1820,24 @@ msgstr "ZWIĘKSZ BEZPIECZEŃSTWO"
 msgid "ROOT PASSWORD"
 msgstr "HASŁO ADMINISTRATORA"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
+
 msgid "LATENCY REDUCTION"
 msgstr "REDUKCJA OPÓŹNIEŃ"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "KLATKI Z WYPRZEDZENIEM"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "UŻYJ KLATKI Z WYPRZEDZENIEM"
+msgid "High numbers can result in visible jitter."
+msgstr "Duże liczby mogą powodować widoczne drgania."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
-msgstr "Z WYPRZEDZENIEM ZA POMOCĄ DRUGIEJ INSTANCJI"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "UŻYJ DRUGIEJ INSTANCJI DLA KLATEK Z WYPRZEDZENIEM"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Może zapobiegać przeskakiwaniu dźwięku przy naciśnięciu przycisku."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
@@ -1820,14 +1846,27 @@ msgid "AUTO FRAME DELAY"
 msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
-"Automatycznie zmniejsz tymczasowo opóźnienie klatek, aby zapobiec spadkowi "
-"liczby klatek. Wyłącz, jeśli pogorszy to zacinanie się dźwięku/wideo."
+"Automatycznie zmniejsza tymczasowe opóźnienie klatek, aby zapobiec spadkowi "
+"liczby klatek. Może wprowadzać przycinanie się dźwięku/wideo."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "ZMIENNA CZĘSTOTLIWOŚĆ ODŚWIEŻANIA"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr "Nie odbiegaj od żądanego czasu. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "ZESTAW DEKORACJI"
+
+msgid "Current setting"
+msgstr "Aktualne ustawienie"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DOMYŚLNE USTAWIENIA GLOBALNE"
@@ -1839,7 +1878,7 @@ msgid "VIDEO MODE"
 msgstr "TRYB WIDEO"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "PŁYNNE GRY (FILTROWANIE DWULINIOWE)"
+msgstr "WYGŁADZANIE GIER (FILTROWANIE DWULINIOWE)"
 
 msgid "REWIND"
 msgstr "PRZEWIJANIE"
@@ -1893,19 +1932,22 @@ msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr "Zmniejsz / powiększ tatuaż, aby zmieścić się w ramce."
 
 msgid "AI GAME TRANSLATION"
-msgstr "TŁUMACZENIE GRY Z AI"
+msgstr "TŁUMACZENIE GRY Z SI"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr "WŁĄCZ USŁUGĘ TŁUMACZENIA AI"
+msgstr "WŁĄCZ USŁUGĘ TŁUMACZENIA SI"
 
 msgid "TARGET LANGUAGE"
 msgstr "JĘZYK DOCELOWY"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr "URL USŁUGI TŁUMACZENIA AI"
+msgstr "URL USŁUGI TŁUMACZENIA SI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
+
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "AUTOKONFIGURUJ KONTROLERY"
 
 msgid "SAVESTATES"
 msgstr "ZAPISANE STANY GRY"
@@ -1922,8 +1964,8 @@ msgstr "NOWA GRA TWORZY NOWY SLOT"
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr "NOWA GRA ZASTĘPUJE OBECNY SLOT"
 
-msgid "DISPLAY SAVE STATE MANAGER"
-msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW"
+msgid "SHOW SAVE STATE MANAGER"
+msgstr "POKAŻ MENEDŻERA ZAPISU STANÓW"
 
 msgid "ALWAYS"
 msgstr "ZAWSZE"
@@ -1931,11 +1973,8 @@ msgstr "ZAWSZE"
 msgid "IF NOT EMPTY"
 msgstr "JEŚLI NIE PUSTY"
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "POKAŻ MENEDŻERA ZAPISU STANÓW"
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW PRZED URUCHOMIENIEM GRY"
+msgid "Display save state manager before launching a game."
+msgstr "Wyświetl menedżera zapisu stanów przed uruchomieniem gry"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2069,7 +2108,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "RODZAJ PRZEJŚCIA LISTY"
 
 msgid "auto"
-msgstr ""
+msgstr "auto"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "PRZEJŚCIE ROZRUCHU GRY"
@@ -2179,9 +2218,6 @@ msgstr "URUCHOM WYGASZACZ EKRANU"
 msgid "VIEW USER'S MANUAL"
 msgstr "ZOBACZ INSTRUKCJĘ OBSŁUGI"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "ZOBACZ INSTRUKCJĘ BATOCERA"
-
 msgid "RESTART SYSTEM"
 msgstr "PONOWNE URUCHAMIANIE SYSTEMU"
 
@@ -2241,9 +2277,6 @@ msgstr "OBOK SIEBIE"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "WEWNĘTRZNA ROZDZIELCZOŚĆ"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "AUTOKONFIGURUJ KONTROLERY"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "ROZPOCZNIJ TĘ GRĘ PODCZAS URUCHAMIANIA"
@@ -2388,6 +2421,9 @@ msgstr "Kiosk"
 msgid "Kid"
 msgstr "Dziecka"
 
+msgid "Basic"
+msgstr "Podstawowy"
+
 msgid "Released"
 msgstr "Opublikowana"
 
@@ -2410,8 +2446,17 @@ msgstr "Gry podobne do"
 msgid "GAME OPTIONS"
 msgstr "OPCJE GRY"
 
+msgid "SAVE STATES (HOLD)"
+msgstr "ZAPISANE STANY GRY (PRZYTRZYMAJ)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "OPCJE GRY (PRZYTRZYMAJ)"
+
 msgid "FAVORITE"
 msgstr "ULUBIONE"
+
+msgid "RANDOM (HOLD)"
+msgstr "LOSOWO (PRZYTRZYMAJ)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2445,6 +2490,9 @@ msgstr "Ładuję konfigurację systemową..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "CHCESZ PRZEŁĄCZYĆ EKRAN?"
 
 msgid "Collections"
 msgstr "Kolekcje"
@@ -2843,6 +2891,68 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "AKTUALIZUJĘ SYSTEM"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "ZAINSTALUJ BATOCERA"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "GRY Z BRAKUJĄCYMI MEDIAMI"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "GRY BEZ MEDIÓW"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "AUTOKONFIGURUJ KONTROLERY EMULATORÓW"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "ZAINSTALUJ BATOCERA NA NOWYM DYSKU"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW PRZED URUCHOMIENIEM GRY"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "ZOBACZ INSTRUKCJĘ BATOCERA"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "UŻYJ KLATEK Z WYPRZEDZENIEM"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "Z WYPRZEDZENIEM ZA POMOCĄ DRUGIEJ INSTANCJI"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Automatycznie zmniejsz tymczasowo opóźnienie klatek, aby zapobiec "
+#~ "spadkowi liczby klatek. Wyłącz, jeśli pogorszy to zacinanie się dźwięku/"
+#~ "wideo."
+
+#~ msgid "SCANLINES"
+#~ msgstr "SCANLINES"
+
+#~ msgid "RETRO"
+#~ msgstr "RETRO"
+
+#~ msgid "CURVATURE"
+#~ msgstr "KRZYWIZNA"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "SKALOWANIE RGA"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "KRYTERIA SCRAPE'A"

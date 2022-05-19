@@ -377,6 +377,9 @@ msgstr "ДОСКА ЛИДЕРОВ"
 msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
@@ -510,7 +513,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "ЗАПОМНИТЬ ПОСЛЕДНЮЮ"
 
 msgid "START ON GAMELIST"
-msgstr "НАЧАТЬ СО СПИСКА ИГР"
+msgstr "НАЧИНАТЬ СО СПИСКА ИГР"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
@@ -586,19 +589,19 @@ msgid "USE RELAY SERVER"
 msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "НЬЮ-ЙОРК"
 
 msgid "MADRID"
-msgstr ""
+msgstr "МАДРИД"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "МОНРЕАЛЬ"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "САН-ПАУЛУ"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -948,14 +951,11 @@ msgstr "ВЫ УВЕРЕНЫ?"
 msgid "UPDATING %s"
 msgstr "ОБНОВЛЕНИЕ %s"
 
-msgid "UPDATING BATOCERA"
-msgstr "ОБНОВЛЕНИЕ BATOCERA"
-
 msgid "UPDATE IS READY"
 msgstr "ОБНОВЛЕНИЕ ГОТОВО"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
+msgid "REBOOT TO APPLY"
+msgstr "ПЕРЕЗАГРУЗИТЕ ДЛЯ ПРИМЕНЕНИЯ"
 
 msgid "REALLY UPDATE?"
 msgstr "ЖЕЛАЕТЕ ОБНОВИТЬ?"
@@ -974,8 +974,8 @@ msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
 msgid "NO UPDATE AVAILABLE"
 msgstr "ОБНОВЛЕНИЙ НЕТ"
 
-msgid "INSTALL BATOCERA"
-msgstr "УСТАНОВИТЬ BATOCERA"
+msgid "INSTALL ON A NEW DISK"
+msgstr "УСТАНОВИТЬ НА НОВЫЙ ДИСК"
 
 msgid "TARGET DEVICE"
 msgstr "ЦЕЛЕВОЕ УСТРОЙСТВО"
@@ -1026,7 +1026,7 @@ msgid "OPEN"
 msgstr "ОТКРЫТЬ"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "НАЧАТЬ NETPLAY ИГРУ"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1035,16 +1035,16 @@ msgid "START GAME"
 msgstr "НАЧАТЬ ИГРУ"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "ХОСТ NETPLAY ИГРЫ"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "ПАРОЛЬ ИГРОКА"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
@@ -1139,7 +1139,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "КОПИРОВАТЬ В СВОБОДНЫЙ СЛОТ"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ СКРАПЕРА"
 
 msgid "IMAGE SOURCE"
 msgstr "СТИЛЬ ИЗОБРАЖЕНИЯ"
@@ -1177,6 +1177,9 @@ msgstr "КОЛЕСО"
 msgid "MARQUEE"
 msgstr "БАНЕР"
 
+msgid "SCRAPE SHORT NAME"
+msgstr "ЗАГРУЗКА КОРОТКОГО ИМЕНИ"
+
 msgid "SCRAPE RATINGS"
 msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
 
@@ -1208,46 +1211,46 @@ msgid "SCRAPING DATABASE"
 msgstr "ИСТОЧНИК ЗАГРУЗКИ"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "ИСТОЧНИК"
 
 msgid "SCRAPE FROM"
 msgstr "ЗАГРУЗКА ИЗ"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "ФИЛЬТРЫ"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "ЗАГРУЗКА ДЛЯ"
 
 msgid "ALL"
 msgstr "ВСЕ"
 
-msgid "GAMES MISSING MEDIAS"
-msgstr ""
+msgid "GAMES MISSING ANY MEDIA"
+msgstr "ИГРЫ С НЕДОСТАЮЩИМ МЕДИА"
 
-msgid "GAMES WITHOUT ANY MEDIA"
-msgstr ""
+msgid "GAMES MISSING ALL MEDIA"
+msgstr "ИГРЫ С ОТСУТВУЮЩИМ МЕДИА"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "ИГНОРИРОВАТЬ НЕДАВНО ЗАСКРАПЛЕНЫЕ ИГРЫ"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "ПОСЛЕДНИЙ ДЕНЬ"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "ПРОШЛУЮ НЕДЕЛЮ"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "ПРОШЛЫЕ 15 ДНЕЙ"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "ПРОШЛЫЙ МЕСЯЦ"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "ПРОШЛЫЕ 3 МЕСЯЦА"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "ПРОШЛЫЙ ГОД"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "ВЫБРАННЫЕ СИСТЕМЫ"
@@ -1342,26 +1345,37 @@ msgstr "Макс. частота CPU"
 msgid "Cpu feature"
 msgstr "Функции CPU"
 
-msgid "SCANLINES"
-msgstr "ЧЕРЕССТРОЧНОСТЬ"
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "РЕЗКИЙ-БИЛИНЕЙНЫЙ-ПРОСТОЙ"
 
+msgctxt "game_options"
+msgid "SCANLINES"
+msgstr "СКАНЛАЙНЫ"
+
+msgctxt "game_options"
 msgid "RETRO"
 msgstr "РЕТРО"
 
+msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "РАСШИРЕННЫЙ"
+msgstr "УЛУЧШЕННЫЙ"
 
+msgctxt "game_options"
 msgid "CURVATURE"
 msgstr "КРИВИЗНА"
 
+msgctxt "game_options"
 msgid "ZFAST"
 msgstr "ZFAST"
 
+msgctxt "game_options"
 msgid "FLATTEN-GLOW"
 msgstr "FLATTEN-GLOW"
 
+msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "RGA СКАЛИРОВАНИЕ"
+msgstr "RGA МАСШТАБИРОВАНИЕ"
 
 msgid "VENDOR"
 msgstr "ПРОИЗВОДИТЕЛЬ"
@@ -1377,6 +1391,18 @@ msgstr "НАСТРОЙКИ КОНТРОЛЛЕРА"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
+
+msgid "INTERNAL"
+msgstr "ВНУТРЕННИЙ"
+
+msgid "ANY EXTERNAL"
+msgstr "ЛЮБОЙ ВНЕШНИЙ"
+
+msgid "maximum 1920x1080"
+msgstr "максимум 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "максимум 640x480"
 
 msgid "MAIN MENU"
 msgstr "ГЛАВНОЕ МЕНЮ"
@@ -1459,9 +1485,6 @@ msgstr "РАЗРЕШИТЬ ПУБЛИЧНЫЙ ДОСТУП"
 #, c-format
 msgid "Allow public web access API using %s"
 msgstr "Разрешить публичный доступ API, %s"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
@@ -1546,9 +1569,6 @@ msgstr "МЕНЮ RETROARCH"
 
 msgid "AUTO"
 msgstr "АВТО"
-
-msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
@@ -1644,6 +1664,9 @@ msgstr "ОТКЛЮЧЕНО"
 
 msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
+
+msgid "ENHANCED"
+msgstr "РАСШИРЕННЫЙ"
 
 msgid "INSTANT"
 msgstr "МГНОВЕННЫЙ"
@@ -1781,9 +1804,6 @@ msgstr "УСТРОЙСТВО ХРАНЕНИЯ"
 msgid "BACKUP USER DATA"
 msgstr "РЕЗЕРВНАЯ КОПИЯ"
 
-msgid "INSTALL BATOCERA ON A NEW DISK"
-msgstr "УСТАНОВКА BATOCERA НА НОВЫЙ ДИСК"
-
 msgid "ADVANCED"
 msgstr "ДОПОЛНИТЕЛЬНО"
 
@@ -1796,17 +1816,23 @@ msgstr "УСИЛЕННАЯ БЕЗОПАСНОСТЬ"
 msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
+
 msgid "LATENCY REDUCTION"
 msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"
 
 msgid "RUN-AHEAD FRAMES"
 msgstr "КАДРОВ ОБГОНА (RUN-AHEAD)"
 
-msgid "USE RUN-AHEAD FRAMES"
-msgstr "ИСП. КАДРЫ ОБГОНА (RUN-AHEAD)"
+msgid "High numbers can result in visible jitter."
+msgstr "Высокие значения могут привести к дрожанию."
 
-msgid "RUN-AHEAD USE SECOND INSTANCE"
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Может предотвратить пропуск звука при нажатии кнопок."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "АВТОМАТИЧЕСКАЯ ЗАДЕРЖКА КАДРА"
@@ -1815,14 +1841,27 @@ msgid "AUTO FRAME DELAY"
 msgstr "АВТО ЗАДЕРЖКА КАДРА"
 
 msgid ""
-"Automatically decrease frame delay temporarily to prevent frame drops. Turn "
-"off if this worsens audio/video stuttering."
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
 msgstr ""
 "Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск кадров. "
-"Отключите, если это вызывает заикание аудио/видео."
+"Может вызывать заикание."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "ПЕРЕМЕННАЯ ЧАСТОТА ОБНОВЛЕНИЯ"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr "Не превышает синхронизацию ядра. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
+
+msgid "Current setting"
+msgstr "Текущая настройка"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "СТАНДАРТНЫЕ ГЛОБАЛЬНЫЕ НАСТРОЙКИ"
@@ -1902,6 +1941,9 @@ msgstr "URL СЕРВИСА ПЕРЕВОДА AI"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
 
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"
+
 msgid "SAVESTATES"
 msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
 
@@ -1917,7 +1959,7 @@ msgstr "НОВАЯ ИГРА СОЗДАЁТ НОВЫЙ СЛОТ"
 msgid "NEW GAME OVERWRITES CURRENT SLOT"
 msgstr "НОВАЯ ИГРА ПЕРЕЗАПИСЫВАЕТ ТЕКУЩИЙ СЛОТ"
 
-msgid "DISPLAY SAVE STATE MANAGER"
+msgid "SHOW SAVE STATE MANAGER"
 msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
 
 msgid "ALWAYS"
@@ -1926,11 +1968,8 @@ msgstr "ВСЕГДА"
 msgid "IF NOT EMPTY"
 msgstr "ЕСЛИ ИМЕЕТСЯ"
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
-
-msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-msgstr "ПОКАЗЫВАЕТ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ ПЕРЕД ЗАПУСКОМ ИГРЫ"
+msgid "Display save state manager before launching a game."
+msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -2065,7 +2104,7 @@ msgid "LIST TRANSITION STYLE"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
 msgid "auto"
-msgstr ""
+msgstr "авто"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"
@@ -2175,9 +2214,6 @@ msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 msgid "VIEW USER'S MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
-msgid "VIEW BATOCERA MANUAL"
-msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ BATOCERA"
-
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
@@ -2236,10 +2272,7 @@ msgid "SIDE BY SIDE"
 msgstr "БОК О БОК"
 
 msgid "INTERNAL RESOLUTION"
-msgstr "СОБСТВЕННОЕ РАЗРЕШЕНИЕ"
-
-msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"
+msgstr "ВНУТРЕННЕЕ РАЗРЕШЕНИЕ"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "ЗАГРУЖАТЬ ЭТУ ИГРУ ПРИ ЗАПУСКЕ"
@@ -2385,6 +2418,9 @@ msgstr "Киоск"
 msgid "Kid"
 msgstr "Детский"
 
+msgid "Basic"
+msgstr "Базовый"
+
 msgid "Released"
 msgstr "Релиз"
 
@@ -2407,8 +2443,17 @@ msgstr "Игры похожие на"
 msgid "GAME OPTIONS"
 msgstr "ПАРАМЕТРЫ"
 
+msgid "SAVE STATES (HOLD)"
+msgstr "БЫСТРЫЕ СОХРАНЕНИЯ (УДЕРЖИВАТЬ)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "ПАРАМЕТРЫ (УДЕРЖИВАТЬ)"
+
 msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
+
+msgid "RANDOM (HOLD)"
+msgstr "СЛУЧАЙНО (УДЕРЖИВАТЬ)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2443,6 +2488,9 @@ msgstr "Загрузка системных настроек..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "ВЫ ХОТИТЕ ПЕРЕКЛЮЧИТЬ ЭКРАН?"
 
 msgid "Collections"
 msgstr "Коллекции"
@@ -2727,9 +2775,9 @@ msgstr "НЕ УСТАНАВЛИВАТЬ ХОТКЕЙ"
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
-msgstr[1] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
-msgstr[2] "ЗАЖМИТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[0] "УДЕРЖИВАЙТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[1] "УДЕРЖИВАЙТЕ %iS ДЛЯ ПРОПУСКА"
+msgstr[2] "УДЕРЖИВАЙТЕ %iS ДЛЯ ПРОПУСКА"
 
 msgid "PRESS ANYTHING"
 msgstr "НАЖМИТЕ ЛЮБУЮ КНОПКУ"
@@ -2841,6 +2889,67 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"
+
+#~ msgid "UPDATING BATOCERA"
+#~ msgstr "ОБНОВЛЕНИЕ BATOCERA"
+
+#~ msgid "INSTALL BATOCERA"
+#~ msgstr "УСТАНОВИТЬ BATOCERA"
+
+#~ msgid "GAMES MISSING MEDIAS"
+#~ msgstr "ИГРЫ С НЕДОСТАЮЩИМ МЕДИА"
+
+#~ msgid "GAMES WITHOUT ANY MEDIA"
+#~ msgstr "ИГРЫ БЕЗ МЕДИА"
+
+#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
+#~ msgstr "АВТОНАСТРОЙКА КОНТРОЛЛЕРОВ"
+
+#~ msgid "INSTALL BATOCERA ON A NEW DISK"
+#~ msgstr "УСТАНОВКА BATOCERA НА НОВЫЙ ДИСК"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER"
+#~ msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+
+#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
+#~ msgstr "ПОКАЗЫВАЕТ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ ПЕРЕД ЗАПУСКОМ ИГРЫ"
+
+#~ msgid "VIEW BATOCERA MANUAL"
+#~ msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ BATOCERA"
+
+#~ msgid "USE RUN-AHEAD FRAMES"
+#~ msgstr "ИСП. КАДРЫ ОБГОНА (RUN-AHEAD)"
+
+#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
+#~ msgstr "ИСП. ВТОРУЮ ИНСТАНЦИЮ ДЛЯ ОБГОНА"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Turn off if this worsens audio/video stuttering."
+#~ msgstr ""
+#~ "Автоматически уменьшает задержку кадров, чтобы предотвратить пропуск "
+#~ "кадров. Отключите, если это вызывает заикание аудио/видео."
+
+#~ msgid "SCANLINES"
+#~ msgstr "ЧЕРЕССТРОЧНОСТЬ"
+
+#~ msgid "RETRO"
+#~ msgstr "РЕТРО"
+
+#~ msgid "CURVATURE"
+#~ msgstr "КРИВИЗНА"
+
+#~ msgid "ZFAST"
+#~ msgstr "ZFAST"
+
+#~ msgid "FLATTEN-GLOW"
+#~ msgstr "FLATTEN-GLOW"
+
+#~ msgid "RGA SCALING"
+#~ msgstr "RGA СКАЛИРОВАНИЕ"
 
 #~ msgid "SCRAPE CRITERIA"
 #~ msgstr "КРИТЕРИИ ЗАГРУЗКИ"

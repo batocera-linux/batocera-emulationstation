@@ -28,7 +28,7 @@ static const std::map<std::string, const char*> ICON_PATH_MAP{
 	{ "lr", ":/help/button_lr.svg" },
 	{ "start", ":/help/button_start.svg" },
 	{ "select", ":/help/button_select.svg" },
-	{ "F1", ":/help/F1.svg" } // batocera
+	{ "F1", ":/help/F1.svg" }
 };
 
 HelpComponent::HelpComponent(Window* window) : GuiComponent(window)
@@ -70,7 +70,7 @@ void HelpComponent::updateGrid()
 	std::vector< std::shared_ptr<TextComponent> > labels;
 
 	int maxWidth = Renderer::getScreenWidth() - ENTRY_SPACING;
-	if (Settings::getInstance()->getBool("DrawClock"))
+	if (Settings::DrawClock())
 	{
 		TextComponent fakeClock(mWindow, "___00_00___", font, mStyle.textColor);
 		maxWidth = Renderer::getScreenWidth() - fakeClock.getSize().x();
@@ -159,14 +159,29 @@ void HelpComponent::setOpacity(unsigned char opacity)
 {
 	GuiComponent::setOpacity(opacity);
 
-	for (unsigned int i = 0; i < mGrid->getChildCount(); i++)
+	for (auto i = 0; i < mGrid->getChildCount(); i++)
 		mGrid->getChild(i)->setOpacity(opacity);
 }
 
 void HelpComponent::render(const Transform4x4f& parentTrans)
 {
-	Transform4x4f trans = parentTrans * getTransform();
-
 	if (mGrid)
-		mGrid->render(trans);
+	{		
+		// Optimize Help rendering by splitting texts & images rendering ( TextComponents use the same shaders programs ) // mGrid->render(trans);
+		Transform4x4f trans = parentTrans * getTransform() * mGrid->getTransform();
+		
+		std::vector<GuiComponent*> textComponents;
+
+		for (auto i = 0; i < mGrid->getChildCount(); i++)
+		{
+			auto child = mGrid->getChild(i);
+			if (!child->isKindOf<TextComponent>())
+				child->render(trans);
+			else
+				textComponents.push_back(child);
+		}
+
+		for (auto child : textComponents)
+			child->render(trans);
+	}
 }

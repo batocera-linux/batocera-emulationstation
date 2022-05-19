@@ -3,6 +3,7 @@
 #include "HttpReq.h"
 #include "utils/ZipFile.h"
 #include "resources/TextureResource.h"
+#include "Paths.h"
 
 #include <algorithm>
 #include <cctype>
@@ -75,7 +76,7 @@ WebImageComponent::~WebImageComponent()
 	{
 		Utils::FileSystem::removeFile(mLocalFile);
 
-		auto root = Utils::FileSystem::getGenericPath(Utils::FileSystem::getEsConfigPath() + "/tmp");
+		auto root = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + "/tmp");
 		auto file = Utils::FileSystem::getParent(Utils::FileSystem::getGenericPath(mLocalFile));
 
 		while (!file.empty() && file != root && file != mLocalFile)
@@ -86,7 +87,7 @@ WebImageComponent::~WebImageComponent()
 	}
 }
 
-void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize, bool checkFileExists)
+void WebImageComponent::setImage(const std::string& path, bool tile, MaxSizeInfo maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
 {
 	if (mRequest != nullptr)
 	{
@@ -102,7 +103,7 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 			ImageComponent::setImage(nullptr, 0);
 		else
 		{
-			ImageComponent::setImage(path, tile, maxSize, checkFileExists);
+			ImageComponent::setImage(path, tile, maxSize, checkFileExists, allowMultiImagePlaylist);
 			resize();
 		}
 		return;
@@ -123,7 +124,7 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 		queryCrc = "-" + Utils::String::toHexString(file_crc32);
 	}
 
-	std::string localFile = Utils::FileSystem::getEsConfigPath() + "/tmp/" + uri.host + "/" + uri.path + queryCrc;
+	std::string localFile = Paths::getUserEmulationStationPath() + "/tmp/" + uri.host + "/" + uri.path + queryCrc;
 	if (Utils::FileSystem::exists(localFile))
 	{
 		bool keepLoadingLocal = true;
@@ -146,7 +147,7 @@ void WebImageComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSiz
 
 		if (keepLoadingLocal)
 		{
-			ImageComponent::setImage(localFile, tile, maxSize);
+			ImageComponent::setImage(localFile, tile, maxSize, checkFileExists, allowMultiImagePlaylist);
 			resize();
 			return;
 		}
@@ -175,7 +176,7 @@ void WebImageComponent::update(int deltaTime)
 
 	if (status == HttpReq::REQ_SUCCESS && Utils::FileSystem::exists(mLocalFile))
 	{
-		ImageComponent::setImage(mLocalFile, false, mMaxSize);
+		ImageComponent::setImage(mLocalFile, false, mMaxSize, false);
 		resize();
 	}
 }

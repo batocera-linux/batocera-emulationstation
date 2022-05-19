@@ -12,6 +12,7 @@
 #include "utils/StringUtil.h"
 #include "Log.h"
 #include "Scripting.h"
+#include "Paths.h"
 
 #if !defined(WIN32)
 #include <ifaddrs.h>
@@ -124,7 +125,8 @@ int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Windo
 
 	return 1;
 #else
-	return system((cmd_utf8 + " 2> /userdata/system/logs/es_launch_stderr.log | head -300 > /userdata/system/logs/es_launch_stdout.log").c_str()); // batocera
+	std::string cmdOutput = " 2> " + Utils::FileSystem::combine(Paths::getLogPath(), "es_launch_stderr.log") + " | head -300 > " + Utils::FileSystem::combine(Paths::getLogPath(), "es_launch_stdout.log");
+	return system((cmd_utf8 + cmdOutput).c_str());
 #endif
 }
 
