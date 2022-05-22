@@ -27,6 +27,10 @@ public:
 private:
 	static void deleteGame(FileData* file);
 
+#ifdef _ENABLEEMUELEC
+	static void createMultidisc(FileData* file);
+#endif
+
 	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };		
 	void openMetaDataEd();
 
