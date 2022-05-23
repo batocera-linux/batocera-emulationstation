@@ -39,7 +39,11 @@ public:
 	void deinit();
 
 	int getNumJoysticks();
+	int getAxisCountByDevice(int deviceId);
+	int getButtonCountByDevice(int deviceId);
 	int getNumConfiguredDevices();
+
+	std::string getDeviceGUIDString(int deviceId);
 
 	std::vector<InputConfig*> getInputConfigs();
 

@@ -116,6 +116,25 @@ int InputManager::getNumJoysticks()
 	return (int)mJoysticks.size(); 
 }
 
+int InputManager::getAxisCountByDevice(SDL_JoystickID id)
+{
+	return SDL_JoystickNumAxes(mJoysticks[id]);
+}
+
+int InputManager::getButtonCountByDevice(SDL_JoystickID id)
+{
+	if(id == DEVICE_KEYBOARD)
+		return 120; //it's a lot, okay.
+	else if(id == DEVICE_CEC)
+#ifdef HAVE_CECLIB
+		return CEC::CEC_USER_CONTROL_CODE_MAX;
+#else // HAVE_LIBCEF
+		return 0;
+#endif // HAVE_CECLIB
+	else
+		return SDL_JoystickNumButtons(mJoysticks[id]);
+}
+
 InputConfig* InputManager::getInputConfigByDevice(int device)
 {
 	if(device == DEVICE_KEYBOARD)
@@ -782,4 +801,24 @@ std::vector<InputConfig*> InputManager::getInputConfigs()
 	}
 
 	return ret;
+}
+
+std::string InputManager::getDeviceGUIDString(int deviceId)
+{
+	if(deviceId == DEVICE_KEYBOARD)
+		return KEYBOARD_GUID_STRING;
+
+	if(deviceId == DEVICE_CEC)
+		return CEC_GUID_STRING;
+
+	auto it = mJoysticks.find(deviceId);
+	if(it == mJoysticks.cend())
+	{
+		LOG(LogError) << "getDeviceGUIDString - deviceId " << deviceId << " not found!";
+		return "something went horribly wrong";
+	}
+
+	char guid[65];
+	SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(it->second), guid, 65);
+	return std::string(guid);
 }

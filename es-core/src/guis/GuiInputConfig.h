@@ -36,7 +36,7 @@ private:
 
 	bool assign(Input input, int inputId);
 	void clearAssignment(int inputId);
-	bool filterTrigger(Input input, InputConfig* config);
+	bool filterTrigger(Input input, InputConfig* config, int inputId);
 
 	void rowDone();
 
@@ -58,6 +58,7 @@ private:
 	Input mHeldInput;
 	int mHeldTime;
 	int mHeldInputId;
+	bool mSkipAxis;
 
 	BusyComponent mBusyAnim;	
 
