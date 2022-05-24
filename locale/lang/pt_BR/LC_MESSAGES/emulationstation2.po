@@ -376,6 +376,9 @@ msgstr "PLACAR"
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
+msgid "ENCORE MODE"
+msgstr "MODO DE REPETIÇÃO"
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
@@ -953,8 +956,8 @@ msgstr "ATUALIZANDO %s"
 msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO ESTÁ PRONTA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
+msgid "REBOOT TO APPLY"
+msgstr "REINICIALIZAR PARA APLICAR"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA BATOCERA?"
@@ -1452,7 +1455,7 @@ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
 msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
 
 msgid "DEVELOPER"
-msgstr "DESENVOLVEDORA"
+msgstr "DESENVOLVEDOR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPÇÕES DE VÍDEO"
@@ -1895,7 +1898,7 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "ESTICAR MOLDURAS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "MOSTRAR MAPEAMENTO DE BOTÕES NA MOLDURA"
+msgstr "MOSTRAR IMAGEM SOBREPOSTA À MOLDURA"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLES DO SISTEMA"
@@ -1907,7 +1910,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "Mostra uma imagem sobreposta sobre a moldura."
 
 msgid "TATTOO CORNER"
-msgstr "CANTO DA IMAGEM SOBREPOSTA"
+msgstr "POSIÇÃO DO MAPEAMENTO"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1925,7 +1928,7 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ARQUIVO .PNG PERSONALIZADO"
 
 msgid "RESIZE TATTOO"
-msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
+msgstr "REDIMENSIONAR MAPEAMENTO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
@@ -2456,7 +2459,7 @@ msgid "FAVORITE"
 msgstr "FAVORITO"
 
 msgid "RANDOM (HOLD)"
-msgstr "RANDÔMICO (SEGURE)"
+msgstr "ALEATÓRIO (SEGURE)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2886,6 +2889,9 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ATUALIZANDO O BATOCERA"

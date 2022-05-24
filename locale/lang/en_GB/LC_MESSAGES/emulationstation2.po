@@ -381,6 +381,9 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr ""
 
@@ -954,7 +957,7 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr ""
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+msgid "REBOOT TO APPLY"
 msgstr ""
 
 msgid "REALLY UPDATE?"

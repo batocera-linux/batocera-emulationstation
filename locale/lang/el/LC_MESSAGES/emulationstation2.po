@@ -373,6 +373,9 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr "ΛΕΙΤΟΥΡΓΙΑ VERBOSE"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AYTOMATO ΣΤΙΓΜΙΟΤΥΠΟ"
 
@@ -946,8 +949,8 @@ msgstr "ΑΝΑΒΑΘΜΙΣΗ %s"
 msgid "UPDATE IS READY"
 msgstr "Η ΑΝΑΒΑΘΜΙΣΗ ΕΙΝΑΙ ΕΤΟΙΜΗ"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "ΕΠΑΝΕΚΚΙΝΗΣΗ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΑΠΟΔΟΧΗ"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "ΘΕΛΕΤΕ ΝΑ ΚΑΝΕΤΕ ΑΝΑΒΑΘΜΙΣΗ;"
@@ -2847,6 +2850,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "ΕΠΑΝΕΚΚΙΝΗΣΗ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΑΠΟΔΟΧΗ"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ΑΝΑΒΑΘΜΙΣΗ BATOCERA"

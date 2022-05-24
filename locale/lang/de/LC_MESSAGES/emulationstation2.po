@@ -376,6 +376,9 @@ msgstr "LEADERBOARDS"
 msgid "VERBOSE MODE"
 msgstr "AUSFÜHRLICHER MODUS"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHER SCREENSHOT"
 
@@ -951,8 +954,8 @@ msgstr "UPDATE %s"
 msgid "UPDATE IS READY"
 msgstr "UPDATE IST BEREIT"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "SYSTEM NEU STARTEN UM UPDATE ANZUWENDEN"
+msgid "REBOOT TO APPLY"
+msgstr "NEUSTART ZUR ÜBERNAHME"
 
 msgid "REALLY UPDATE?"
 msgstr "WIRKLICH UPDATEN?"
@@ -972,7 +975,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "KEIN UPDATE VERFÜGBAR"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "AUF EINEN NEUEN DATENTRÄGER INSTALLIEREN"
 
 msgid "TARGET DEVICE"
 msgstr "ZIELGERÄT"
@@ -1175,7 +1178,7 @@ msgid "MARQUEE"
 msgstr "BANNER"
 
 msgid "SCRAPE SHORT NAME"
-msgstr ""
+msgstr "SCRAPE KURZ NAME"
 
 msgid "SCRAPE RATINGS"
 msgstr "BEWERTUNGEN SCRAPEN"
@@ -1223,10 +1226,10 @@ msgid "ALL"
 msgstr "ALLE"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "SPIELE MIT FEHLENDEN MEDIEN"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "SPIELE OHNE MEDIEN"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORIERE KÜRZLICH GESCRAPTE SPIELE"
@@ -1390,16 +1393,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONTROLLER & BLUETOOTH EINSTELLUNGEN"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "INTERN"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "BELIEBIGE EXTERNE"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "maximum 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "maximum 640x480"
 
 msgid "MAIN MENU"
 msgstr "HAUPTMENÜ"
@@ -1862,7 +1865,7 @@ msgid "DECORATION SET"
 msgstr "DEKORATIONS-SET"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Aktuelle Einstellung"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "GLOBALE STANDARDEINSTELLUNGEN"
@@ -1970,7 +1973,7 @@ msgid "IF NOT EMPTY"
 msgstr "WENN NICHT LEER"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "Zeige den Speicherstand-Manager vor dem Starten eines Spiels."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "PER SYSTEM ERWEITERTE KONFIGURATION"
@@ -2419,7 +2422,7 @@ msgid "Kid"
 msgstr "Kind"
 
 msgid "Basic"
-msgstr ""
+msgstr "Basic"
 
 msgid "Released"
 msgstr "Veröffentlicht"
@@ -2443,16 +2446,16 @@ msgid "GAME OPTIONS"
 msgstr "SPIEL-OPTIONEN"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "SPEICHERSTÄNDE (HALTEN)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "SPIELOPTIONEN (HALTEN)"
 
 msgid "FAVORITE"
 msgstr "FAVORIT"
 
 msgid "RANDOM (HOLD)"
-msgstr ""
+msgstr "ZUFÄLLIG (HALTEN)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2489,7 +2492,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SICHERE METADATEN. BITTE WARTEN..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "MÖCHTEST DU DIE ANZEIGE WECHSELN ?"
 
 msgid "Collections"
 msgstr "Sammlungen"
@@ -2883,6 +2886,9 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "SYSTEM NEU STARTEN UM UPDATE ANZUWENDEN"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "UPDATE BATOCERA"

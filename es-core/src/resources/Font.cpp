@@ -12,6 +12,7 @@
 #include "Settings.h"
 #include "ImageIO.h"
 #include <algorithm>
+#include "math/Transform4x4f.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -422,6 +423,66 @@ void Font::rebuildTextures()
 			glyph->glyphSize.x(), glyph->glyphSize.y(),
 			glyphSlot->bitmap.buffer);
 	}
+}
+
+void Font::renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, float x, float y, bool verticesChanged)
+{
+	Transform4x4f trans = parentTrans;
+	trans.translate(x, y);
+	Renderer::setMatrix(trans);
+	renderTextCache(cache, verticesChanged);
+}
+
+void Font::renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans, unsigned int mGlowSize, unsigned int mGlowColor, Vector2f& mGlowOffset, unsigned char mOpacity)
+{
+	if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
+	{
+		Transform4x4f glowTrans = parentTrans;
+		glowTrans.translate(mGlowOffset.x(), mGlowOffset.y());
+		Renderer::setMatrix(glowTrans);
+
+		auto copy = cache->vertexLists;
+
+		cache->setRenderingGlow(true);
+
+		if (mGlowSize == 1 && mGlowOffset == Vector2f::Zero())
+		{
+			int a = Math::min(0xFF, (mGlowColor & 0xFF) * 2);
+			cache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)(a * (mOpacity / 255.0)));
+
+			renderSingleGlow(cache, glowTrans, 1, 0);
+			renderSingleGlow(cache, glowTrans, 0, 1, false);
+			renderSingleGlow(cache, glowTrans, -1, 0, false);
+			renderSingleGlow(cache, glowTrans, 0, -1, false);
+		}
+		else
+		{
+			cache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
+
+			int x = -mGlowSize;
+			int y = -mGlowSize;
+
+			renderSingleGlow(cache, glowTrans, x, y);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, ++x, y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, x, ++y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, --x, y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, x, --y, false);
+		}
+
+		cache->setRenderingGlow(false);
+		cache->vertexLists = copy;
+	}
+
+	Renderer::setMatrix(parentTrans);
+	renderTextCache(cache);
 }
 
 void Font::renderTextCache(TextCache* cache, bool verticesChanged)

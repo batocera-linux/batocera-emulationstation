@@ -376,6 +376,9 @@ msgstr "RANGSOR"
 msgid "VERBOSE MODE"
 msgstr "KÖVETŐ (VERBOSE) MÓD"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATIKUS KÉPERNYŐKÉP"
 
@@ -949,8 +952,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "FRISSÍTÉS KÉSZ"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "INDÍTSD ÚJRA AZ ÉRVÉNYRE JUTTATÁSHOZ"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "BIZTOS FRISSÍTESZ?"
@@ -2848,6 +2851,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "INDÍTSD ÚJRA AZ ÉRVÉNYRE JUTTATÁSHOZ"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "BATOCERA FRISSÍTÉSE"

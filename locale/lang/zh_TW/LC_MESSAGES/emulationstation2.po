@@ -375,6 +375,9 @@ msgstr "排行榜"
 msgid "VERBOSE MODE"
 msgstr "詳細模式"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動化螢幕截圖"
 
@@ -948,8 +951,8 @@ msgstr "正在更新 %s"
 msgid "UPDATE IS READY"
 msgstr "已準備好可以更新"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "系統重新啟動來套用"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "確定要更新嗎？"
@@ -2848,6 +2851,9 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "系統重新啟動來套用"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "正在更新 BATOCERA"

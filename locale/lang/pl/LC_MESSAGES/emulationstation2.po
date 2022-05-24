@@ -378,6 +378,9 @@ msgstr "RANKINGI"
 msgid "VERBOSE MODE"
 msgstr "TRYB INFORMACJI PEŁNEJ"
 
+msgid "ENCORE MODE"
+msgstr "TRYB ENCORE"
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
@@ -952,8 +955,8 @@ msgstr "AKTUALIZUJĘ %s"
 msgid "UPDATE IS READY"
 msgstr "AKTUALIZACJA JEST GOTOWA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
+msgid "REBOOT TO APPLY"
+msgstr "ZRESTARTUJ ABY ZASTOSOWAĆ"
 
 msgid "REALLY UPDATE?"
 msgstr "ZAKTUALIZOWAĆ?"
@@ -973,7 +976,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "BRAK NOWYCH AKTUALIZACJI"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "ZAINSTALUJ NA NOWYM DYSKU"
 
 msgid "TARGET DEVICE"
 msgstr "URZĄDZENIE CELOWE"
@@ -1176,7 +1179,7 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "SCRAPE SHORT NAME"
-msgstr ""
+msgstr "SCRAPE'UJ NAZWĘ SKRÓCONĄ"
 
 msgid "SCRAPE RATINGS"
 msgstr "SCRAPE'UJ OCENY"
@@ -1224,10 +1227,10 @@ msgid "ALL"
 msgstr "WSZYSTKO"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "GRY Z BRAKUJĄCYMI MEDIAMI"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "GRY BEZ MEDIÓW"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORUJ OSTATNIO SCRAPE'OWANE GRY"
@@ -1391,16 +1394,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLERY I USTAWIENIA BLUETOOTH"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "WEWNĘTRZNY"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "DOWOLNY ZEWNĘTRZNY"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "maksymalnie 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "maksymalnie 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENU GŁÓWNE"
@@ -1834,7 +1837,7 @@ msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "UŻYJ DRUGIEJ INSTANCJI DLA KLATEK Z WYPRZEDZENIEM"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "Może zapobiegać przeskakiwaniu dźwięku po naciśnięciu przycisku."
+msgstr "Może zapobiegać przeskakiwaniu dźwięku przy naciśnięciu przycisku."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "AUTOMATYCZNE OPÓŹNIENIE KLATKI"
@@ -1863,7 +1866,7 @@ msgid "DECORATION SET"
 msgstr "ZESTAW DEKORACJI"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Aktualne ustawienie"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DOMYŚLNE USTAWIENIA GLOBALNE"
@@ -1875,7 +1878,7 @@ msgid "VIDEO MODE"
 msgstr "TRYB WIDEO"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "PŁYNNE GRY (FILTROWANIE DWULINIOWE)"
+msgstr "WYGŁADZANIE GIER (FILTROWANIE DWULINIOWE)"
 
 msgid "REWIND"
 msgstr "PRZEWIJANIE"
@@ -1929,16 +1932,16 @@ msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr "Zmniejsz / powiększ tatuaż, aby zmieścić się w ramce."
 
 msgid "AI GAME TRANSLATION"
-msgstr "TŁUMACZENIE GRY Z AI"
+msgstr "TŁUMACZENIE GRY Z SI"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr "WŁĄCZ USŁUGĘ TŁUMACZENIA AI"
+msgstr "WŁĄCZ USŁUGĘ TŁUMACZENIA SI"
 
 msgid "TARGET LANGUAGE"
 msgstr "JĘZYK DOCELOWY"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr "URL USŁUGI TŁUMACZENIA AI"
+msgstr "URL USŁUGI TŁUMACZENIA SI"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
@@ -1971,7 +1974,7 @@ msgid "IF NOT EMPTY"
 msgstr "JEŚLI NIE PUSTY"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "Wyświetl menedżera zapisu stanów przed uruchomieniem gry"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2419,7 +2422,7 @@ msgid "Kid"
 msgstr "Dziecka"
 
 msgid "Basic"
-msgstr ""
+msgstr "Podstawowy"
 
 msgid "Released"
 msgstr "Opublikowana"
@@ -2444,16 +2447,16 @@ msgid "GAME OPTIONS"
 msgstr "OPCJE GRY"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "ZAPISANE STANY GRY (PRZYTRZYMAJ)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "OPCJE GRY (PRZYTRZYMAJ)"
 
 msgid "FAVORITE"
 msgstr "ULUBIONE"
 
 msgid "RANDOM (HOLD)"
-msgstr ""
+msgstr "LOSOWO (PRZYTRZYMAJ)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2489,7 +2492,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "CHCESZ PRZEŁĄCZYĆ EKRAN?"
 
 msgid "Collections"
 msgstr "Kolekcje"
@@ -2888,6 +2891,9 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "AKTUALIZUJĘ SYSTEM"

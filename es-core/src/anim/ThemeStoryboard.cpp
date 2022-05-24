@@ -35,7 +35,7 @@ ThemeStoryboard::~ThemeStoryboard()
 
 bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap)
 {
-	if (std::string(root.name()) != "storyboard")
+	if (strcmp(root.name(), "storyboard") != 0)
 		return false;
 
 	this->repeat = 1;
@@ -123,34 +123,30 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 		{
 			anim->propertyName = prop;
 
-			if (node.attribute("begin")) anim->begin = Utils::String::toInteger(node.attribute("begin").as_string());
-			if (node.attribute("duration")) anim->duration = Utils::String::toInteger(node.attribute("duration").as_string());
-
-			if (node.attribute("repeat"))
-			{
-				std::string arepeat = node.attribute("repeat").as_string();
-				if (arepeat == "forever") anim->repeat = 0; else if (!arepeat.empty() && arepeat != "none") anim->repeat = Utils::String::toInteger(arepeat);
-			}
-
-			if (node.attribute("autoreverse"))
-			{
-				std::string areverse = node.attribute("autoreverse").as_string();
-				anim->autoReverse = (areverse == "true" || areverse == "1");
-			}
-			else if (node.attribute("autoReverse"))
-			{
-				std::string areverse = node.attribute("autoReverse").as_string();
-				anim->autoReverse = (areverse == "true" || areverse == "1");
-			}
-
 			std::string mode = "linear";
 
-			if (node.attribute("mode"))
-				mode = node.attribute("mode").as_string();
-			else if (node.attribute("easingMode"))
-				mode = node.attribute("easingMode").as_string();
-			
-			mode = Utils::String::toLower(mode);
+			for (pugi::xml_attribute xattr : node.attributes())
+			{
+				if (strcmp(xattr.name(), "begin") == 0)
+					anim->begin = Utils::String::toInteger(xattr.as_string());
+				else if (strcmp(xattr.name(), "duration") == 0)
+					anim->duration = Utils::String::toInteger(xattr.as_string());
+				else if (strcmp(xattr.name(), "repeat") == 0)
+				{
+					std::string arepeat = xattr.as_string();
+					if (arepeat == "forever") 
+						anim->repeat = 0; 
+					else if (!arepeat.empty() && arepeat != "none") 						
+						anim->repeat = Utils::String::toInteger(arepeat);
+				}								
+				else if (strcmp(xattr.name(), "autoreverse") == 0 || strcmp(xattr.name(), "autoReverse") == 0)
+				{
+					std::string areverse = xattr.as_string();
+					anim->autoReverse = (areverse == "true" || areverse == "1");
+				}
+				else if (strcmp(xattr.name(), "mode") == 0 || strcmp(xattr.name(), "easingMode") == 0)
+					mode = Utils::String::toLower(xattr.as_string());
+			}
 
 			if (mode == "easein")
 				anim->easingMode = ThemeAnimation::EasingMode::EaseIn;

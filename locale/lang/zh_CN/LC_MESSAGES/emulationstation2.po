@@ -372,6 +372,9 @@ msgstr "排行榜"
 msgid "VERBOSE MODE"
 msgstr "详细模式"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
@@ -945,8 +948,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "更新已准备就绪"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "重启系统并应用"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "是否进行更新?"
@@ -2827,6 +2830,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "重启系统并应用"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "更新 BATOCERA"

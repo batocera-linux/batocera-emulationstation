@@ -149,7 +149,7 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 	return true;
 }
 
-bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t length)
+bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t length, int subImageIndex)
 {
 	size_t width, height;
 
@@ -163,8 +163,14 @@ bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t leng
 	MaxSizeInfo maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight(), false);
 	if (!mMaxSize.empty())
 		maxSize = mMaxSize;
+	
+	unsigned char* imageRGBA = nullptr;
+	
+	if (subImageIndex >= 0)
+		imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize, subImageIndex);
+	else
+		imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize);
 
-	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize);
 	if (imageRGBA == nullptr)
 	{
 		LOG(LogError) << "Could not initialize texture from memory, invalid data!  (file path: " << mPath << ", data ptr: " << (size_t)fileData << ", reported size: " << length << ")";
@@ -291,8 +297,18 @@ bool TextureData::load(bool updateCache)
 		if (mPath.substr(mPath.size() - 4, std::string::npos) == ".cbz")
 			return loadFromCbz();
 		
+		std::string path = mPath;
+		int subImageIndex = -1;
+
+		if (Utils::FileSystem::getExtension(mPath).find(",") != std::string::npos)
+		{
+			auto idx = path.rfind(',');
+			subImageIndex = Utils::String::toInteger(mPath.substr(idx+1));
+			path = mPath.substr(0, idx);			
+		}
+
 		std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
-		const ResourceData& data = rm->getFileData(mPath);
+		const ResourceData& data = rm->getFileData(path);
 		// is it an SVG?
 		if (mPath.substr(mPath.size() - 4, std::string::npos) == ".svg")
 		{
@@ -300,7 +316,7 @@ bool TextureData::load(bool updateCache)
 			retval = initSVGFromMemory((const unsigned char*)data.ptr.get(), data.length);
 		}
 		else
-			retval = initImageFromMemory((const unsigned char*)data.ptr.get(), data.length);
+			retval = initImageFromMemory((const unsigned char*)data.ptr.get(), data.length, subImageIndex);
 
 		if (updateCache && retval)
 			ImageIO::updateImageCache(mPath, data.length, mBaseSize.x(), mBaseSize.y());

@@ -376,6 +376,9 @@ msgstr "TABLEAU DES SCORES"
 msgid "VERBOSE MODE"
 msgstr "MODE VERBEUX"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 
@@ -951,8 +954,8 @@ msgstr "MISE À JOUR DE %s"
 msgid "UPDATE IS READY"
 msgstr "LA MISE À JOUR EST PRÊTE"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REDÉMARREZ LE SYSTÈME POUR APPLIQUER LA MISE À JOUR"
+msgid "REBOOT TO APPLY"
+msgstr "REDÉMARRER POUR APPLIQUER"
 
 msgid "REALLY UPDATE?"
 msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR ?"
@@ -2415,7 +2418,7 @@ msgid "Kid"
 msgstr "Enfant"
 
 msgid "Basic"
-msgstr ""
+msgstr "Basique"
 
 msgid "Released"
 msgstr "Date de sortie"
@@ -2485,7 +2488,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
 
 msgid "Collections"
 msgstr "Collections"
@@ -2877,6 +2880,9 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "REDÉMARREZ LE SYSTÈME POUR APPLIQUER LA MISE À JOUR"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "MISE À JOUR DE BATOCERA"

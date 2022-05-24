@@ -384,6 +384,9 @@ msgstr "LEADERBOARDS"
 msgid "VERBOSE MODE"
 msgstr "وضع مفصل"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "لقطة شاشة تلقائية"
 
@@ -957,8 +960,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "التحديث جاهز"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "أعد تشغيل النظام لتطبيقه"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "هل فعلا تريد التحديث ؟"
@@ -2894,6 +2897,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "أعد تشغيل النظام لتطبيقه"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "تحديث باتوسيرا"

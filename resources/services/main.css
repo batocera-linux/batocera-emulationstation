@@ -2,7 +2,7 @@ html, body {
 	margin:0px; 
 	padding:0px; 
 	font-family: Open Sans, sans-serif; 
-	font-size:12px;
+	font-size:12pt;
 	height:100%;
 	overflow:hidden;
 }
@@ -11,19 +11,7 @@ html, body {
 	background-color:#F0F0F0; 	
 	padding:4px 8px;
 	text-align: left;
-	font-size:16px;
-}
-
-.desc { 
-	color:#A0A0A0; 	
-	font-size:8px;
-	text-overflow: ellipsis;
-  overflow: hidden;
-  height:22px
-}
-
-.system:hover {
-	background-color:#303030;
+	font-size:16pt;
 }
 
 .toolbar {
@@ -34,7 +22,7 @@ html, body {
 	color:white;
 	background-color:#304070FF;
 	border:none;
-	font-size:12px;
+	font-size:12pt;
 	padding:6px 8px;
 	cursor: pointer;
 }
@@ -44,8 +32,48 @@ html, body {
 	background-color:#405080FF;
 }
 
+.systemlist {
+	color:white;
+	background-color:#202020; 
+	overflow-y:scroll;
+}
+
+.system:hover {
+	background-color:#303030;
+}
+
+.gamelist {	
+	color:white;
+	background-color:#202020; 
+	overflow-y:scroll;
+}
+
+.game:hover {
+	background-color:#303030;
+}
+
+.desc { 
+	color:#A0A0A0; 	
+	font-size:8pt;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height:22pt
+}
+
 .playitBtn {
-	background-color: #777777;
+	background-color: #808080;
 	cursor: pointer;
 	font-size: 0.9em;
+	
+	border: solid 1px #303030;
+	padding: 3px 8px;
+	border-radius: 4px;
+}
+
+.playitBtn:hover {
+	background-color: #909090;
+}
+
+.playitBtn:active {
+	background-color: #606060;
 }

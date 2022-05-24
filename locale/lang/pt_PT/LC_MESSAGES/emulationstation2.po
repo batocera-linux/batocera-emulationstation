@@ -376,6 +376,9 @@ msgstr "PLACAR"
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
@@ -953,8 +956,8 @@ msgstr "A ATUALIZAR %s"
 msgid "UPDATE IS READY"
 msgstr "ATUALIZAÇÃO PRONTA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REINICIE O SISTEMA PARA APLICAR A ATUALIZAÇÃO"
+msgid "REBOOT TO APPLY"
+msgstr "REINICIE PARA APLICAR A ATUALIZAÇÃO"
 
 msgid "REALLY UPDATE?"
 msgstr "DESEJA ATUALIZAR O SISTEMA?"
@@ -974,7 +977,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "NENHUMA ATUALIZAÇÃO DISPONÍVEL"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "INSTALAR EM UM NOVO DISCO"
 
 msgid "TARGET DEVICE"
 msgstr "DISPOSITIVO ALVO"
@@ -1177,7 +1180,7 @@ msgid "MARQUEE"
 msgstr "LETREIRO"
 
 msgid "SCRAPE SHORT NAME"
-msgstr ""
+msgstr "OBTER NOME ABREVIADO"
 
 msgid "SCRAPE RATINGS"
 msgstr "OBTER CLASSIFICAÇÕES"
@@ -1225,10 +1228,10 @@ msgid "ALL"
 msgstr "TODOS"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "JOGOS COM MEDIA EM FALTA"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "JOGOS COM TODAS AS MEDIAS EM FALTA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JOGOS COM MEDIAS RECENTES"
@@ -1392,16 +1395,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "DEFINIÇÕES COMANDOS & BLUETOOTH"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "INTERNO"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "QUALQUER EXTERNO"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "máximo 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "máximo 640x480"
 
 msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
@@ -1865,7 +1868,7 @@ msgid "DECORATION SET"
 msgstr "CONJUNTO DE MOLDURAS"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Definição atual"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DEFINIÇÕES GLOBAIS PADRÃO"
@@ -1973,7 +1976,7 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "Mostrar save state antes de iniciar um jogo"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
@@ -2422,7 +2425,7 @@ msgid "Kid"
 msgstr "Infantil"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 msgid "Released"
 msgstr "Lançamento"
@@ -2446,16 +2449,16 @@ msgid "GAME OPTIONS"
 msgstr "OPÇÕES DE JOGO"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "ESTADO DO SAVE STATE (SEGURE)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "OPÇÕES DE JOGO (SEGURE)"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
 
 msgid "RANDOM (HOLD)"
-msgstr ""
+msgstr "ALEATÓRIO (SEGURE)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2490,7 +2493,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "A GUARDAR AS INFORMAÇÕES. POR FAVOR, AGUARDE..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "DESEJA TROCAR DE ECRÃ ?"
 
 msgid "Collections"
 msgstr "Coleções"
@@ -2883,29 +2886,3 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "UPDATING BATOCERA"
-#~ msgstr "A ATUALIZAR O BATOCERA"
-
-#~ msgid "INSTALL BATOCERA"
-#~ msgstr "INSTALAR BATOCERA"
-
-#~ msgid "GAMES MISSING MEDIAS"
-#~ msgstr "JOGOS COM MEDIAS EM FALTA"
-
-#~ msgid "GAMES WITHOUT ANY MEDIA"
-#~ msgstr "JOGOS SEM QUALQUER MEDIA"
-
-#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-#~ msgstr "AUTOCONFIGURAR COMANDOS NOS EMULADORES"
-
-#~ msgid "INSTALL BATOCERA ON A NEW DISK"
-#~ msgstr "INSTALAR BATOCERA EM UM NOVO DISCO"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER"
-#~ msgstr "MOSTRAR JOGOS GUARDADOS"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-#~ msgstr "MOSTRAR MENU DE SAVES ANTES DE INICIAR O JOGO"
-
-#~ msgid "VIEW BATOCERA MANUAL"
-#~ msgstr "VER MANUAL DO BATOCERA"

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v34beta(2022/03/13)\n"
+"Project-Id-Version: batocera-es v34beta(2022/05/04)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-03-13 20:06+0900\n"
+"PO-Revision-Date: 2022-05-04 19:19+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -374,6 +374,9 @@ msgstr "リーダーボード"
 
 msgid "VERBOSE MODE"
 msgstr "詳細な処理モード"
+
+msgid "ENCORE MODE"
+msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
@@ -948,8 +951,8 @@ msgstr "%s を更新しています"
 msgid "UPDATE IS READY"
 msgstr "更新準備完了"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "再起動で更新が適用されます"
+msgid "REBOOT TO APPLY"
+msgstr "再起動すると適用されます"
 
 msgid "REALLY UPDATE?"
 msgstr "更新しますか？"
@@ -1387,16 +1390,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "コントローラー＆BLUETOOTH 設定"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "BATOCERA内ストレージ(通常)"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "外付けストレージ(userdata分離)"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "最大解像度 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "最小解像度 640x480"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"

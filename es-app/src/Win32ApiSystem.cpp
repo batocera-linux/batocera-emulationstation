@@ -96,7 +96,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 #endif
 		break;
 	case ApiSystem::RESOLUTION:
+#if _DEBUG
 		executables.push_back("batocera-resolution");
+#endif
 		break;
 	case ApiSystem::BIOSINFORMATION:
 		executables.push_back("batocera-systems");
@@ -1192,7 +1194,11 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemN
 std::string Win32ApiSystem::getSevenZipCommand()
 {	
 	auto file = Paths::findEmulationStationFile("7za.exe");
-	if (!file.empty() && Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "\\7za.exe"))
+	if (Utils::FileSystem::exists(file))
+		return file;
+
+	file = Paths::findEmulationStationFile("7z.exe");
+	if (Utils::FileSystem::exists(file))
 		return file;
 
 	if (Utils::FileSystem::exists("C:\\Program Files (x86)\\7-Zip\\7za.exe"))

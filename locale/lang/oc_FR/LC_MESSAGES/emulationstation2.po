@@ -383,6 +383,9 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr ""
 
+msgid "ENCORE MODE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA D'ECRAN AUTOMATICA"
 
@@ -956,8 +959,8 @@ msgstr ""
 msgid "UPDATE IS READY"
 msgstr "MESA A JORN PRÈSTA"
 
-msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-msgstr "REAVIAR PER APLICACION"
+msgid "REBOOT TO APPLY"
+msgstr ""
 
 msgid "REALLY UPDATE?"
 msgstr "METRE A JORN PER DE BON ?"
@@ -2847,6 +2850,9 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
+#~ msgstr "REAVIAR PER APLICACION"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "ACTUALIZACION DE BATOCERA"

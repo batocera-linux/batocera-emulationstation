@@ -212,6 +212,10 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarCorner", FLOAT },
 		{ "scrollbarAlignment", STRING },		
 
+		{ "glowColor", COLOR },
+		{ "glowSize", FLOAT },
+		{ "glowOffset", NORMALIZED_PAIR },
+
 		{ "zIndex", FLOAT } } },
 	{ "container", {
 		{ "pos", NORMALIZED_PAIR },
