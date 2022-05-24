@@ -159,7 +159,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 
 
 			// filter for input quirks specific to Sony DualShock 3
-			if(filterTrigger(input, config))
+			if(filterTrigger(input, config, i))
 				return false;
 
 			// we are configuring, the button is unpressed or the axis is relaxed
@@ -376,7 +376,52 @@ void GuiInputConfig::clearAssignment(int inputId)
 	mTargetConfig->unmapInput(GUI_INPUT_CONFIG_LIST[inputId].name);
 }
 
-bool GuiInputConfig::filterTrigger(Input input, InputConfig* config)
+bool GuiInputConfig::filterTrigger(Input input, InputConfig* config, int inputId)
 {
+#if defined(__linux__)
+	// on Linux, some gamepads return both an analog axis and a digital button for the trigger;
+	// we want the analog axis only, so this function removes the button press event
+
+	if(config->getDeviceNbAxes() >= 6)
+	{
+		// digital triggers are unwanted
+		if(input.type == TYPE_BUTTON
+		&& (GUI_INPUT_CONFIG_LIST[inputId].name == "l2"
+		|| GUI_INPUT_CONFIG_LIST[inputId].name == "r2"))
+		{
+			if(mHoldingInput && mHeldTime < 1000)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+	}
+
+	// ignore negative pole for axes 2/5 only when triggers are being configured
+	if(input.type == TYPE_AXIS)
+	{
+		if(GUI_INPUT_CONFIG_LIST[inputId].name == "l2"
+		|| GUI_INPUT_CONFIG_LIST[inputId].name == "r2")
+		{
+			if(input.value == 1)
+				mSkipAxis = true;
+			else if(input.value == -1)
+				return true;
+		}
+		else if(mSkipAxis)
+		{
+			mSkipAxis = false;
+			return true;
+		}
+	}
+#else
+	(void)input;
+	(void)config;
+	(void)inputId;
+#endif
+
 	return false;
 }
