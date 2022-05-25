@@ -668,7 +668,7 @@ int main(int argc, char* argv[])
 			while(SDL_PollEvent(&event));
 
 			// check guns
-			InputManager::getInstance()->parseGuns(&window);
+			InputManager::getInstance()->updateGuns(&window);
 
 			// triggered if exiting from SDL_WaitEvent due to event
 			if (ps_standby)
@@ -685,17 +685,11 @@ int main(int argc, char* argv[])
 		//	ps_time = SDL_GetTicks();
 
 		  // check guns
-		  InputManager::getInstance()->parseGuns(&window);
+		  InputManager::getInstance()->updateGuns(&window);
 		}
 
-		// just to test
-		float perx, pery;
-		for (auto iter = InputManager::getInstance()->getGuns().begin(); iter != InputManager::getInstance()->getGuns().end(); iter++) {
-		  InputManager::getInstance()->getGunPosition(iter->second, perx, pery);
-		  printf("gun %i : %.2f %.2f\n", iter->first, perx, pery);
-		}
 
-		if(window.isSleeping())
+		if (window.isSleeping())
 		{
 			lastTime = SDL_GetTicks();
 			SDL_Delay(1); // this doesn't need to be accurate, we're just giving up our CPU time until something wakes us up

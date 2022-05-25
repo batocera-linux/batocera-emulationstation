@@ -159,6 +159,8 @@ private:
 	bool mRenderedHelpPrompts;
 
 	int mTransitionOffset;
+
+	std::shared_ptr<TextureResource> mGunAimTexture;
 };
 
 #endif // ES_CORE_WINDOW_H

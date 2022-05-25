@@ -502,13 +502,13 @@ void Window::render()
 	mRenderedHelpPrompts = false;
 
 	// draw only bottom and top of GuiStack (if they are different)
-	if(mGuiStack.size())
+	if (mGuiStack.size())
 	{
 		auto& bottom = mGuiStack.front();
 		auto& top = mGuiStack.back();
 
 		bottom->render(transform);
-		if(bottom != top)
+		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
 			{
@@ -534,21 +534,21 @@ void Window::render()
 			}
 		}
 	}
-	
+
 	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
-		if(!mRenderedHelpPrompts)
+		if (!mRenderedHelpPrompts)
 			mHelp->render(transform);
 
-	if(Settings::DrawFramerate() && mFrameDataText)
+	if (Settings::DrawFramerate() && mFrameDataText)
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
-    // clock 
+	// clock 
 	if (Settings::DrawClock() && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mClock->render(transform);
-	
+
 	if (Settings::ShowControllerActivity() && mControllerActivity != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mControllerActivity->render(transform);
 
@@ -569,7 +569,7 @@ void Window::render()
 
 		renderAsyncNotifications(transform);
 	}
-	
+
 	// Always call the screensaver render function regardless of whether the screensaver is active
 	// or not because it may perform a fade on transition
 	renderScreenSaver();
@@ -580,7 +580,7 @@ void Window::render()
 	if (mVolumeInfo && Settings::VolumePopup())
 		mVolumeInfo->render(transform);
 
-	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
+	if (mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 	{
 		if (!isProcessing() && mAllowSleep && (!mScreenSaver || mScreenSaver->allowSleep()))
 		{
@@ -591,6 +591,33 @@ void Window::render()
 			}
 		}
 	}
+
+	// just to test
+	for (auto gun : InputManager::getInstance()->getGuns())
+	{
+		if (mGunAimTexture == nullptr)
+			mGunAimTexture = TextureResource::get(":/gun.png", false, false, true, false);
+
+		if (mGunAimTexture->bind())
+		{
+			int pointerSize = 24;
+
+			const Vector2f     topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
+			const Vector2f     bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
+
+			Renderer::Vertex vertices[4];
+			vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, 0xFFFFFFFF };
+			vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, 0xFFFFFFFF };
+			vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+			vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+
+			Renderer::drawTriangleStrips(&vertices[0], 4);
+
+		
+		}
+	}
+//		auto output = Utils::String::format("gun %i : %.2f %.2f\n", gun->index(), gun->x(), gun->y());
+	
 }
 
 void Window::normalizeNextUpdate()

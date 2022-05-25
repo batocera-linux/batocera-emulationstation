@@ -7,12 +7,12 @@
 #include <pugixml/src/pugixml.hpp>
 #include <utils/Delegate.h>
 
-#ifdef HAVE_UDEV
-#include <libudev.h>
-#endif
+#include "GunManager.h"
 
 class InputConfig;
 class Window;
+class GunManager;
+
 union SDL_Event;
 
 struct PlayerDeviceInfo
@@ -25,15 +25,6 @@ class IJoystickChangedEvent
 {
 public:
 	virtual void onJoystickChanged() = 0;
-};
-
-struct Gun {
-  std::string name;
-#ifdef HAVE_UDEV
-  std::string devpath;
-  udev_device* dev;
-  int fd;
-#endif
 };
 
 //you should only ever instantiate one of these, by the way
@@ -58,9 +49,8 @@ public:
 
 	bool parseEvent(const SDL_Event& ev, Window* window);
 
-	void parseGuns(Window* window);
-	bool getGunPosition(Gun* gun, float& perx, float& pery);
-	std::map<int, Gun*>& getGuns() { return mGuns; }
+	void updateGuns(Window* window);
+	std::vector<Gun*>& getGuns() { return mGunManager->getGuns(); }
 
 	std::string configureEmulators();
 
@@ -72,8 +62,12 @@ public:
 
 	static Delegate<IJoystickChangedEvent> joystickChanged;
 
+	GunManager* getGunManager() { return mGunManager; }
+
 private:
 	InputManager();
+
+	GunManager* mGunManager;
 
 	static InputManager* mInstance;
 	static const int DEADZONE = 23000;
@@ -84,8 +78,6 @@ private:
 	std::map<std::string, int> mJoysticksInitialValues;
 	std::map<SDL_JoystickID, SDL_Joystick*> mJoysticks;
 	std::map<SDL_JoystickID, InputConfig*> mInputConfigs;
-
-	std::map<int, Gun*> mGuns;
 
 	InputConfig* mMouseButtonsInputConfig;
 	InputConfig* mKeyboardInputConfig;
@@ -104,16 +96,6 @@ private:
 
 	void clearJoysticks();
 	void rebuildAllJoysticks(bool deinit = true);
-
-#ifdef HAVE_UDEV
-  struct udev *udev;
-  struct udev_monitor *udev_monitor;
-
-  static bool udev_input_poll_hotplug_available(struct udev_monitor *dev);
-  void udev_initial_gunsList();
-  bool udev_addGun(struct udev_device *dev, Window* window);
-  bool udev_removeGun(struct udev_device *dev, Window* window);
-#endif
 };
 
 #endif // ES_CORE_INPUT_MANAGER_H

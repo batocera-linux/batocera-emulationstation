@@ -304,7 +304,6 @@ set(COMMON_LIBRARIES
     ${FREETYPE_LIBRARIES}
     ${FreeImage_LIBRARIES}
     ${SDL2_LIBRARY}
-    ${UDEV_LIBRARY}
     # batocera / background musics
     ${SDLMIXER_LIBRARY}
     # batocera / customisations    
@@ -315,6 +314,12 @@ set(COMMON_LIBRARIES
     id3v2
 	libcheevos	
 )
+
+if(UDEV_FOUND)
+ LIST(APPEND COMMON_LIBRARIES
+    ${UDEV_LIBRARY}
+      )
+endif()
 
 if(ENABLE_PULSE)
  LIST(APPEND COMMON_LIBRARIES
