@@ -7,6 +7,10 @@
 #include <pugixml/src/pugixml.hpp>
 #include <utils/Delegate.h>
 
+#ifdef HAVE_UDEV
+#include <libudev.h>
+#endif
+
 class InputConfig;
 class Window;
 union SDL_Event;
@@ -21,6 +25,15 @@ class IJoystickChangedEvent
 {
 public:
 	virtual void onJoystickChanged() = 0;
+};
+
+struct Gun {
+  std::string name;
+#ifdef HAVE_UDEV
+  std::string devpath;
+  udev_device* dev;
+  int fd;
+#endif
 };
 
 //you should only ever instantiate one of these, by the way
@@ -45,6 +58,10 @@ public:
 
 	bool parseEvent(const SDL_Event& ev, Window* window);
 
+	void parseGuns(Window* window);
+	bool getGunPosition(Gun* gun, float& perx, float& pery);
+	std::map<int, Gun*>& getGuns() { return mGuns; }
+
 	std::string configureEmulators();
 
 	// information about last association players/pads 
@@ -68,6 +85,8 @@ private:
 	std::map<SDL_JoystickID, SDL_Joystick*> mJoysticks;
 	std::map<SDL_JoystickID, InputConfig*> mInputConfigs;
 
+	std::map<int, Gun*> mGuns;
+
 	InputConfig* mMouseButtonsInputConfig;
 	InputConfig* mKeyboardInputConfig;
 	InputConfig* mCECInputConfig;
@@ -85,6 +104,16 @@ private:
 
 	void clearJoysticks();
 	void rebuildAllJoysticks(bool deinit = true);
+
+#ifdef HAVE_UDEV
+  struct udev *udev;
+  struct udev_monitor *udev_monitor;
+
+  static bool udev_input_poll_hotplug_available(struct udev_monitor *dev);
+  void udev_initial_gunsList();
+  bool udev_addGun(struct udev_device *dev, Window* window);
+  bool udev_removeGun(struct udev_device *dev, Window* window);
+#endif
 };
 
 #endif // ES_CORE_INPUT_MANAGER_H

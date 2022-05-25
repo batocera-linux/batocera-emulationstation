@@ -667,6 +667,9 @@ int main(int argc, char* argv[])
 			} 
 			while(SDL_PollEvent(&event));
 
+			// check guns
+			InputManager::getInstance()->parseGuns(&window);
+
 			// triggered if exiting from SDL_WaitEvent due to event
 			if (ps_standby)
 				// show as if continuing from last event
@@ -680,6 +683,16 @@ int main(int argc, char* argv[])
 			// If exitting SDL_WaitEventTimeout due to timeout. Trail considering
 			// timeout as an event
 		//	ps_time = SDL_GetTicks();
+
+		  // check guns
+		  InputManager::getInstance()->parseGuns(&window);
+		}
+
+		// just to test
+		float perx, pery;
+		for (auto iter = InputManager::getInstance()->getGuns().begin(); iter != InputManager::getInstance()->getGuns().end(); iter++) {
+		  InputManager::getInstance()->getGunPosition(iter->second, perx, pery);
+		  printf("gun %i : %.2f %.2f\n", iter->first, perx, pery);
 		}
 
 		if(window.isSleeping())

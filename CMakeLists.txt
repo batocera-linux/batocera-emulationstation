@@ -121,6 +121,14 @@ else()
   MESSAGE("pulse audio disabled")
 endif()
 
+find_package(udev)
+if(UDEV_FOUND)
+  MESSAGE("udev found. guns enabled")
+  add_definitions(-DHAVE_UDEV)
+else()
+  MESSAGE("udev not found. guns will be disabled")
+endif()
+
 if(ENABLE_TTS)
   MESSAGE("tts enabled")
   find_library(LIBESPEAK_LIBRARIES NAMES espeak REQUIRED)
@@ -296,6 +304,7 @@ set(COMMON_LIBRARIES
     ${FREETYPE_LIBRARIES}
     ${FreeImage_LIBRARIES}
     ${SDL2_LIBRARY}
+    ${UDEV_LIBRARY}
     # batocera / background musics
     ${SDLMIXER_LIBRARY}
     # batocera / customisations    
