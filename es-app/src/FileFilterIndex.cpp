@@ -691,13 +691,15 @@ int FileFilterIndex::showFile(FileData* game)
 		
 		hasFilter = true;
 
+		bool filterValid = false;
+
 		if (filterData.type == GENRE_FILTER)
 		{
 			for (auto val : Genres::getGenreFiltersNames(&game->getMetadata()))
 			{
 				if (isKeyBeingFilteredBy(val, filterData.type))
 				{
-					keepGoing = true;
+					filterValid = true;
 					break;
 				}
 			}
@@ -706,30 +708,33 @@ int FileFilterIndex::showFile(FileData* game)
 		{
 			// try to find a match
 			std::string key = getIndexableKey(game, filterData.type, false);
+
 			if (filterData.type == LANG_FILTER || filterData.type == REGION_FILTER)
 			{
 				for (auto val : Utils::String::split(key, ','))
 					if (isKeyBeingFilteredBy(val, filterData.type))
-						keepGoing = true;
+						filterValid = true;
 			}
 			else
-				keepGoing = isKeyBeingFilteredBy(key, filterData.type);
+				filterValid = isKeyBeingFilteredBy(key, filterData.type);
 
 			// if we didn't find a match, try for secondary keys - i.e. publisher and dev, or first genre
-			if (!keepGoing)
+			if (!filterValid)
 			{
 				if (!filterData.hasSecondaryKey)
 					return 0;
 
 				std::string secKey = getIndexableKey(game, filterData.type, true);
 				if (secKey != UNKNOWN_LABEL)
-					keepGoing = isKeyBeingFilteredBy(secKey, filterData.type);
+					filterValid = isKeyBeingFilteredBy(secKey, filterData.type);
 			}
 		}
 
 		// if still nothing, then it's not a match
-		if (!keepGoing)
+		if (!filterValid)
 			return 0;		
+
+		keepGoing = true;
 	}
 
 	if (keepGoing && !mTextFilter.empty())
