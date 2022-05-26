@@ -678,16 +678,15 @@ int main(int argc, char* argv[])
 			// reset counter
 			ps_time = SDL_GetTicks();
 		}
-		else if (ps_standby)
+		else if (ps_standby == false)
 		{
-			// If exitting SDL_WaitEventTimeout due to timeout. Trail considering
-			// timeout as an event
-		//	ps_time = SDL_GetTicks();
-
 		  // check guns
 		  InputManager::getInstance()->updateGuns(&window);
-		}
 
+		  // If exitting SDL_WaitEventTimeout due to timeout. Trail considering
+		  // timeout as an event
+		  //	ps_time = SDL_GetTicks();
+		}
 
 		if (window.isSleeping())
 		{
