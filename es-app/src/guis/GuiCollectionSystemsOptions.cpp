@@ -329,6 +329,8 @@ void GuiCollectionSystemsOptions::initializeMenu()
 			setVariable("reloadSystems", true);
 		}
 	});
+
+	addSwitch(_("SHOW EMPTY SYSTEMS"), "LoadEmptySystems", true, [&] { setVariable("reloadSystems", true); });
 	
 #if defined(WIN32) && !defined(_DEBUG)		
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
