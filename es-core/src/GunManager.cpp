@@ -47,8 +47,8 @@ GunManager::~GunManager()
 		// close guns
 		for (auto gun : mGuns) 
 		{
-			udev_removeGun(gun->dev, NULL);
-			delete gun;
+		  udev_closeGun(gun);
+		  delete gun;
 		}
 
 		mGuns.clear();
@@ -220,15 +220,21 @@ bool GunManager::udev_addGun(struct udev_device *dev, Window* window)
 
 	mGuns.push_back(newgun);
 
-	return false;
+	return true;
+}
+
+void GunManager::udev_closeGun(Gun* gun) {
+  close(gun->fd);
+  udev_device_unref(gun->dev);
 }
 
 bool GunManager::udev_removeGun(struct udev_device *dev, Window* window)
 {
 	const char* devnode;
-	LOG(LogInfo) << "Gun removed at " << devnode;
 
 	devnode = udev_device_get_devnode(dev);
+	LOG(LogInfo) << "Gun removed at " << devnode;
+
 	if (devnode == NULL) return false;
 
 	for (auto iter = mGuns.begin(); iter != mGuns.end(); iter++)
@@ -239,8 +245,7 @@ bool GunManager::udev_removeGun(struct udev_device *dev, Window* window)
 			if (window != NULL)
 				window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim((*iter)->mName).c_str()));
 
-			close((*iter)->fd);
-			udev_device_unref((*iter)->dev);
+			udev_closeGun(*iter);
 			delete *iter;
 			mGuns.erase(iter);
 			return true;

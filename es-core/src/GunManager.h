@@ -70,6 +70,7 @@ private:
   void udev_initial_gunsList();
   bool udev_addGun(struct udev_device *dev, Window* window);
   bool udev_removeGun(struct udev_device *dev, Window* window);
+  void udev_closeGun(Gun* gun);
 #endif
 };
 
