@@ -604,7 +604,8 @@ void Window::render()
 
 		if (mGunAimTexture->bind())
 		{
-			int pointerSize = 24;
+			int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
+
 			Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
 			Vector2f bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
 			
@@ -619,8 +620,6 @@ void Window::render()
 			Renderer::drawTriangleStrips(&vertices[0], 4);
 		}
 	}
-//		auto output = Utils::String::format("gun %i : %.2f %.2f\n", gun->index(), gun->x(), gun->y());
-	
 }
 
 void Window::normalizeNextUpdate()
