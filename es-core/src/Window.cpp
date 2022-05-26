@@ -601,9 +601,16 @@ void Window::render()
 		if (mGunAimTexture->bind())
 		{
 			int pointerSize = 24;
+			Vector2f topLeft;
+			Vector2f bottomRight;
 
-			const Vector2f     topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
-			const Vector2f     bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
+			if(InputManager::getInstance()->getGunManager()->relativeXYPositions()) {
+			  topLeft = { gun->x()*Renderer::getScreenWidth() - pointerSize, gun->y()*Renderer::getScreenHeight() - pointerSize };
+			  bottomRight = { gun->x()*Renderer::getScreenWidth() + pointerSize, gun->y()*Renderer::getScreenHeight() + pointerSize };
+			} else {
+			  topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
+			  bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
+			}
 
 			Renderer::Vertex vertices[4];
 			vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, 0xFFFFFFFF };

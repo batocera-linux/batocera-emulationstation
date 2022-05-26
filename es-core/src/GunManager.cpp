@@ -61,6 +61,13 @@ GunManager::~GunManager()
 #endif
 }
 
+bool GunManager::relativeXYPositions() {
+#ifdef HAVE_UDEV
+  return true;
+#endif
+  return false;
+}
+
 void GunManager::updateGuns(Window* window)
 {
 #ifdef HAVE_UDEV

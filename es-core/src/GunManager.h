@@ -55,7 +55,8 @@ public:
 
 	std::vector<Gun*>& getGuns() { return mGuns; }
 	void updateGuns(Window* window);
-	
+	bool relativeXYPositions();
+
 private:
 	bool updateGunPosition(Gun* gun);
 
