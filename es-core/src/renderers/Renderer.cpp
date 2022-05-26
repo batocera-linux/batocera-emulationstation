@@ -384,6 +384,7 @@ namespace Renderer
 	int         getScreenOffsetX() { return screenOffsetX; }
 	int         getScreenOffsetY() { return screenOffsetY; }
 	int         getScreenRotate()  { return screenRotate; }
+	bool		isVerticalScreen() { return screenHeight > screenWidth; }
 
 	float		getScreenProportion() 
 	{ 

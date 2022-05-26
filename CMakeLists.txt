@@ -121,6 +121,14 @@ else()
   MESSAGE("pulse audio disabled")
 endif()
 
+find_package(udev)
+if(UDEV_FOUND)
+  MESSAGE("udev found. guns enabled")
+  add_definitions(-DHAVE_UDEV)
+else()
+  MESSAGE("udev not found. guns will be disabled")
+endif()
+
 if(ENABLE_TTS)
   MESSAGE("tts enabled")
   find_library(LIBESPEAK_LIBRARIES NAMES espeak REQUIRED)
@@ -306,6 +314,12 @@ set(COMMON_LIBRARIES
     id3v2
 	libcheevos	
 )
+
+if(UDEV_FOUND)
+ LIST(APPEND COMMON_LIBRARIES
+    ${UDEV_LIBRARY}
+      )
+endif()
 
 if(ENABLE_PULSE)
  LIST(APPEND COMMON_LIBRARIES

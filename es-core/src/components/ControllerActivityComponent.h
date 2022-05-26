@@ -61,6 +61,7 @@ protected:
 protected:
 	// Pads
 	std::shared_ptr<TextureResource> mPadTexture;	
+	std::shared_ptr<TextureResource> mGunTexture;
 
 	class PlayerPad
 	{

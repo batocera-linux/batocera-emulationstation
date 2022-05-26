@@ -316,6 +316,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		// Controllers
 		{ "imagePath", PATH },		
+		{ "gunPath", PATH },
 		{ "color", COLOR },
 		{ "activityColor", COLOR },
 		{ "hotkeyColor", COLOR },

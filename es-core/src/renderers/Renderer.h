@@ -116,6 +116,7 @@ namespace Renderer
 	int         getScreenOffsetY();
 	int         getScreenRotate ();
 	float		getScreenProportion();
+	bool		isVerticalScreen();
 
 	// API specific
 	inline static unsigned int convertColor (const unsigned int _color) { return ((_color & 0xFF000000) >> 24) | ((_color & 0x00FF0000) >> 8) | ((_color & 0x0000FF00) << 8) | ((_color & 0x000000FF) << 24); } 

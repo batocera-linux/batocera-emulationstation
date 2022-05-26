@@ -667,6 +667,9 @@ int main(int argc, char* argv[])
 			} 
 			while(SDL_PollEvent(&event));
 
+			// check guns
+			InputManager::getInstance()->updateGuns(&window);
+
 			// triggered if exiting from SDL_WaitEvent due to event
 			if (ps_standby)
 				// show as if continuing from last event
@@ -675,14 +678,17 @@ int main(int argc, char* argv[])
 			// reset counter
 			ps_time = SDL_GetTicks();
 		}
-		else if (ps_standby)
+		else if (ps_standby == false)
 		{
-			// If exitting SDL_WaitEventTimeout due to timeout. Trail considering
-			// timeout as an event
-		//	ps_time = SDL_GetTicks();
+		  // check guns
+		  InputManager::getInstance()->updateGuns(&window);
+
+		  // If exitting SDL_WaitEventTimeout due to timeout. Trail considering
+		  // timeout as an event
+		  //	ps_time = SDL_GetTicks();
 		}
 
-		if(window.isSleeping())
+		if (window.isSleeping())
 		{
 			lastTime = SDL_GetTicks();
 			SDL_Delay(1); // this doesn't need to be accurate, we're just giving up our CPU time until something wakes us up

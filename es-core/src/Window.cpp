@@ -495,6 +495,8 @@ void Window::update(int deltaTime)
 	AudioManager::update(deltaTime);
 }
 
+static std::vector<unsigned int> _gunAimColors = { 0xFFFFFF00, 0xFFFF00FF, 0xFF00FFFF, 0xFF0000FF, 0xFFFF0000, 0xFF00FF00 };
+
 void Window::render()
 {
 	Transform4x4f transform = Transform4x4f::Identity();
@@ -502,13 +504,13 @@ void Window::render()
 	mRenderedHelpPrompts = false;
 
 	// draw only bottom and top of GuiStack (if they are different)
-	if(mGuiStack.size())
+	if (mGuiStack.size())
 	{
 		auto& bottom = mGuiStack.front();
 		auto& top = mGuiStack.back();
 
 		bottom->render(transform);
-		if(bottom != top)
+		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
 			{
@@ -534,21 +536,21 @@ void Window::render()
 			}
 		}
 	}
-	
+
 	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
-		if(!mRenderedHelpPrompts)
+		if (!mRenderedHelpPrompts)
 			mHelp->render(transform);
 
-	if(Settings::DrawFramerate() && mFrameDataText)
+	if (Settings::DrawFramerate() && mFrameDataText)
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
-    // clock 
+	// clock 
 	if (Settings::DrawClock() && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mClock->render(transform);
-	
+
 	if (Settings::ShowControllerActivity() && mControllerActivity != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mControllerActivity->render(transform);
 
@@ -569,7 +571,7 @@ void Window::render()
 
 		renderAsyncNotifications(transform);
 	}
-	
+
 	// Always call the screensaver render function regardless of whether the screensaver is active
 	// or not because it may perform a fade on transition
 	renderScreenSaver();
@@ -580,7 +582,7 @@ void Window::render()
 	if (mVolumeInfo && Settings::VolumePopup())
 		mVolumeInfo->render(transform);
 
-	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
+	if (mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 	{
 		if (!isProcessing() && mAllowSleep && (!mScreenSaver || mScreenSaver->allowSleep()))
 		{
@@ -589,6 +591,33 @@ void Window::render()
 				mSleeping = true;
 				onSleep();
 			}
+		}
+	}
+
+
+	// just to test
+	auto guns = InputManager::getInstance()->getGuns();
+	for (auto gun : guns)
+	{
+		if (mGunAimTexture == nullptr)
+			mGunAimTexture = TextureResource::get(":/gun.png", false, false, true, false);
+
+		if (mGunAimTexture->bind())
+		{
+			int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
+
+			Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
+			Vector2f bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
+			
+			auto aimColor = guns.size() == 1 ? 0xFFFFFFFF : _gunAimColors[gun->index() % _gunAimColors.size()];
+
+			Renderer::Vertex vertices[4];
+			vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, aimColor };
+			vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, aimColor };
+			vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 0.0f }, aimColor };
+			vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 1.0f }, aimColor };
+
+			Renderer::drawTriangleStrips(&vertices[0], 4);
 		}
 	}
 }

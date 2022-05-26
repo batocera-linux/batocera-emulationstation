@@ -16,6 +16,7 @@
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
 #include "Paths.h"
+#include "GunManager.h"
 
 #define KEYBOARD_GUID_STRING "-1"
 #define CEC_GUID_STRING      "-2"
@@ -51,7 +52,7 @@ InputManager::~InputManager()
 
 InputManager* InputManager::getInstance()
 {
-	if(!mInstance)
+	if (!mInstance)
 		mInstance = new InputManager();
 
 	return mInstance;
@@ -77,6 +78,8 @@ void InputManager::init()
 	mMouseButtonsInputConfig = new InputConfig(DEVICE_MOUSE, -1, "Mouse", CEC_GUID_STRING, 0, 0, 0);
 	mMouseButtonsInputConfig->mapInput(BUTTON_OK, Input(DEVICE_MOUSE, TYPE_BUTTON, 1, 1, true));
 	mMouseButtonsInputConfig->mapInput(BUTTON_BACK, Input(DEVICE_MOUSE, TYPE_BUTTON, 3, 1, true));
+
+	mGunManager = new GunManager();
 }
 
 void InputManager::deinit()
@@ -108,6 +111,12 @@ void InputManager::deinit()
 
 	SDL_JoystickEventState(SDL_DISABLE);
 	SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
+
+	if (mGunManager != nullptr)
+	{
+		delete mGunManager;
+		mGunManager = nullptr;
+	}
 }
 
 int InputManager::getNumJoysticks() 
@@ -284,7 +293,9 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	
 	case SDL_MOUSEBUTTONDOWN:        
 	case SDL_MOUSEBUTTONUP:
-		window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
+		if (mGunManager == nullptr || mGunManager->getGuns().size() == 0)
+			window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
+
 		return true;
 
 	case SDL_JOYHATMOTION:
@@ -782,4 +793,10 @@ std::vector<InputConfig*> InputManager::getInputConfigs()
 	}
 
 	return ret;
+}
+
+void InputManager::updateGuns(Window* window)
+{
+	if (mGunManager)
+		mGunManager->updateGuns(window);
 }
