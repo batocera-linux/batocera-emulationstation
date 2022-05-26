@@ -28,8 +28,8 @@ public:
 	int index() { return mIndex; }
 	std::string& name() { return mName; }
 
-	float x() { return mX; }
-	float y() { return mY; }
+	float x();
+	float y();
 
 private:
 	std::string mName;
@@ -55,7 +55,6 @@ public:
 
 	std::vector<Gun*>& getGuns() { return mGuns; }
 	void updateGuns(Window* window);
-	bool relativeXYPositions();
 
 private:
 	bool updateGunPosition(Gun* gun);

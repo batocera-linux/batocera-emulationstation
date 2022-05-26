@@ -293,7 +293,9 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	
 	case SDL_MOUSEBUTTONDOWN:        
 	case SDL_MOUSEBUTTONUP:
-		window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
+		if (mGunManager == nullptr || mGunManager->getGuns().size() == 0)
+			window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
+
 		return true;
 
 	case SDL_JOYHATMOTION:

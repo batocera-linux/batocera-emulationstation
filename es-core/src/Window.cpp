@@ -495,6 +495,8 @@ void Window::update(int deltaTime)
 	AudioManager::update(deltaTime);
 }
 
+static std::vector<unsigned int> _gunAimColors = { 0xFFFFFF00, 0xFFFF00FF, 0xFF00FFFF, 0xFF0000FF, 0xFFFF0000, 0xFF00FF00 };
+
 void Window::render()
 {
 	Transform4x4f transform = Transform4x4f::Identity();
@@ -592,8 +594,10 @@ void Window::render()
 		}
 	}
 
+
 	// just to test
-	for (auto gun : InputManager::getInstance()->getGuns())
+	auto guns = InputManager::getInstance()->getGuns();
+	for (auto gun : guns)
 	{
 		if (mGunAimTexture == nullptr)
 			mGunAimTexture = TextureResource::get(":/gun.png", false, false, true, false);
@@ -601,26 +605,18 @@ void Window::render()
 		if (mGunAimTexture->bind())
 		{
 			int pointerSize = 24;
-			Vector2f topLeft;
-			Vector2f bottomRight;
-
-			if(InputManager::getInstance()->getGunManager()->relativeXYPositions()) {
-			  topLeft = { gun->x()*Renderer::getScreenWidth() - pointerSize, gun->y()*Renderer::getScreenHeight() - pointerSize };
-			  bottomRight = { gun->x()*Renderer::getScreenWidth() + pointerSize, gun->y()*Renderer::getScreenHeight() + pointerSize };
-			} else {
-			  topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
-			  bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
-			}
+			Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
+			Vector2f bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
+			
+			auto aimColor = guns.size() == 1 ? 0xFFFFFFFF : _gunAimColors[gun->index() % _gunAimColors.size()];
 
 			Renderer::Vertex vertices[4];
-			vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, 0xFFFFFFFF };
-			vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, 0xFFFFFFFF };
-			vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 0.0f }, 0xFFFFFFFF };
-			vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, aimColor };
+			vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, aimColor };
+			vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 0.0f }, aimColor };
+			vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 1.0f }, aimColor };
 
 			Renderer::drawTriangleStrips(&vertices[0], 4);
-
-		
 		}
 	}
 //		auto output = Utils::String::format("gun %i : %.2f %.2f\n", gun->index(), gun->x(), gun->y());

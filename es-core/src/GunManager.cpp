@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
+#include "renderers/Renderer.h"
 
 #ifdef HAVE_UDEV
 #include <poll.h>
@@ -16,10 +17,9 @@
 #include <linux/input.h>
 #include <unistd.h>
 #define test_bit(array, bit)    (array[bit/8] & (1<<(bit%8)))
-#endif
-
-#if WIN32
-#include <Windows.h>
+#else
+// Uncomment for testing purpose to fake guns using the mouse
+// #define FAKE_GUNS 1
 #endif
 
 GunManager::GunManager()
@@ -61,13 +61,6 @@ GunManager::~GunManager()
 #endif
 }
 
-bool GunManager::relativeXYPositions() {
-#ifdef HAVE_UDEV
-  return true;
-#endif
-  return false;
-}
-
 void GunManager::updateGuns(Window* window)
 {
 #ifdef HAVE_UDEV
@@ -102,7 +95,7 @@ void GunManager::updateGuns(Window* window)
 				udev_device_unref(dev); // not handled, clean it
 		}
 	}
-#elif WIN32
+#elif FAKE_GUNS
 	if (mGuns.size() == 0)
 	{
 		Gun* newgun = new Gun();
@@ -132,7 +125,7 @@ bool GunManager::updateGunPosition(Gun* gun)
 	gun->mY = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
 
 	return true;
-#elif WIN32
+#elif FAKE_GUNS
 	int x, y;
 	SDL_GetMouseState(&x, &y);	
 	gun->mX = x;
@@ -248,9 +241,19 @@ bool GunManager::udev_removeGun(struct udev_device *dev, Window* window)
 			udev_closeGun(*iter);
 			delete *iter;
 			mGuns.erase(iter);
+
+			// Renumber guns
+			int idx = 0;
+			for (Gun* gun : mGuns) gun->mIndex = idx++;
+
 			return true;
 		}
 	}
 	return false;
 }
+float Gun::x() { return mX * Renderer::getScreenWidth(); }
+float Gun::y() { return mY * Renderer::getScreenHeight(); }
+#else 
+float Gun::x() { return mX; }
+float Gun::y() { return mY; }
 #endif
