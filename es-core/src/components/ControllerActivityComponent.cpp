@@ -36,6 +36,7 @@ void ControllerActivityComponent::init()
 	mHotkeyColor = 0x0000FF66;
 
 	mPadTexture = nullptr;
+	mGunTexture = nullptr;
 	mHorizontalAlignment = ALIGN_LEFT;
 	mSpacing = (int)(Renderer::getScreenHeight() / 200.0f);
 
@@ -83,6 +84,12 @@ void ControllerActivityComponent::onSizeChanged()
 		size_t heightPx = (size_t)Math::round(mSize.y());
 		mPadTexture->rasterizeAt(heightPx, heightPx);
 	}	
+
+	if (mSize.y() > 0 && mGunTexture)
+	{
+		size_t heightPx = (size_t)Math::round(mSize.y());
+		mGunTexture->rasterizeAt(heightPx, heightPx);
+	}
 }
 
 bool ControllerActivityComponent::input(InputConfig* config, Input input)
@@ -219,6 +226,10 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 				batteryTextOffset = mSize.y() / 2.0f - sz.y() / 2.0f;
 			}
 		}
+
+		auto guns = InputManager::getInstance()->getGuns();
+		for (int idx = 0; idx < guns.size(); idx++)
+			itemsWidth += szW + mSpacing;
 	}
 
 	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
@@ -281,6 +292,20 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 			else
 				mPads[idx].batteryText = nullptr;
 		}
+
+		auto guns = InputManager::getInstance()->getGuns();
+		for (int idx = 0; idx < guns.size(); idx++)
+		{
+			Gun* gun = guns[idx];
+
+			if (mGunTexture && mGunTexture->bind())
+				x += renderTexture(x, szW, mGunTexture, mColorShift);
+			else
+			{
+				Renderer::drawRect(x, 0.0f, szW, szH, mColorShift);
+				x += szW + mSpacing;
+			}
+		}
 	}
 	
 	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
@@ -322,6 +347,9 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 		// Controllers
 		if (elem->has("imagePath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("imagePath")))
 			mPadTexture = TextureResource::get(elem->get<std::string>("imagePath"), false, true);
+
+		if (elem->has("gunPath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("gunPath")))
+			mGunTexture = TextureResource::get(elem->get<std::string>("gunPath"), false, true);		
 
 		// Wifi
 		if (elem->has("networkIcon"))
