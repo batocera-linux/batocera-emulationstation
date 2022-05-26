@@ -226,14 +226,14 @@ bool GunManager::udev_removeGun(struct udev_device *dev, Window* window)
 
 	for (auto iter = mGuns.begin(); iter != mGuns.end(); iter++)
 	{
-		if (iter->devpath == devnode)
+		if ((*iter)->devpath == devnode)
 		{
 			LOG(LogInfo) << "Gun removed found at " << devnode;
 			if (window != NULL)
-				window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(iter->mName).c_str()));
+				window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim((*iter)->mName).c_str()));
 
-			close(iter->fd);
-			udev_device_unref(iter->dev);
+			close((*iter)->fd);
+			udev_device_unref((*iter)->dev);
 			delete *iter;
 			mGuns.erase(iter);
 			return true;
