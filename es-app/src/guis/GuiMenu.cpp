@@ -116,7 +116,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	// KODI >
 	// GAMES SETTINGS >
 	// CONTROLLER & BLUETOOTH >
-	// UI SETTINGS >
+	// USER INTERFACE SETTINGS >
 	// SOUND SETTINGS >
 	// NETWORK >
 	// SCRAPER >
@@ -150,7 +150,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 #if BATOCERA
 		addEntry(_("GAME SETTINGS").c_str(), true, [this] { openGamesSettings(); }, "iconGames");
 		addEntry(controllers_settings_label.c_str(), true, [this] { openControllersSettings(); }, "iconControllers");
-		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
+		addEntry(_("USER INTERFACE SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
 		addEntry(_("GAME COLLECTION SETTINGS").c_str(), true, [this] { openCollectionSystemSettings(); }, "iconAdvanced");
 		addEntry(_("SOUND SETTINGS").c_str(), true, [this] { openSoundSettings(); }, "iconSound");
 
@@ -160,7 +160,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 			addEntry(_("GAME SETTINGS").c_str(), true, [this] { openGamesSettings(); }, "iconGames");
 
-		addEntry(_("UI SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
+		addEntry(_("USER INTERFACE SETTINGS").c_str(), true, [this] { openUISettings(); }, "iconUI");
 
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))		
 			addEntry(controllers_settings_label.c_str(), true, [this] { openControllersSettings(); }, "iconControllers");
@@ -195,7 +195,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	else
 	{
 		addEntry(_("INFORMATION").c_str(), true, [this] { openSystemInformations(); }, "iconSystem");
-		addEntry(_("UNLOCK UI MODE").c_str(), true, [this] { exitKidMode(); }, "iconAdvanced");
+		addEntry(_("UNLOCK USER INTERFACE MODE").c_str(), true, [this] { exitKidMode(); }, "iconAdvanced");
 	}
 
 #ifdef WIN32
@@ -369,7 +369,7 @@ class ExitKidModeMsgBox : public GuiSettings
 	{
 		if (UIModeController::getInstance()->listen(config, input))
 		{
-			mWindow->pushGui(new GuiMsgBox(mWindow, _("THE UI MODE IS NOW UNLOCKED"),
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("THE USER INTERFACE MODE IS NOW UNLOCKED"),
 				_("OK"), [this] 
 				{
 					Window* window = mWindow;
@@ -396,7 +396,7 @@ void GuiMenu::exitKidMode()
 			delete window->peekGui();
 	}
 	else
-		mWindow->pushGui(new ExitKidModeMsgBox(mWindow, _("UNLOCK UI MODE"), _("ENTER THE CODE TO UNLOCK THE CURRENT UI MODE")));
+		mWindow->pushGui(new ExitKidModeMsgBox(mWindow, _("UNLOCK USER INTERFACE MODE"), _("ENTER THE CODE NOW TO UNLOCK")));
 }
 
 void GuiMenu::openSystemInformations()
@@ -415,10 +415,10 @@ void GuiMenu::openDeveloperSettings()
 	// maximum vram
 	auto max_vram = std::make_shared<SliderComponent>(mWindow, 40.f, 1000.f, 10.f, "Mb");
 	max_vram->setValue((float)(Settings::getInstance()->getInt("MaxVRAM")));
-	s->addWithLabel(_("VRAM LIMIT"), max_vram);
+	s->addWithDescription(_("ES VRAM LIMIT"), _("Dev setting. Do not touch unless you know what you are doing."), max_vram);
 	s->addSaveFunc([max_vram] { Settings::getInstance()->setInt("MaxVRAM", (int)round(max_vram->getValue())); });
 	
-	s->addSwitch(_("SHOW FRAMERATE"), "DrawFramerate", true);
+	s->addSwitch(_("SHOW FRAMERATE"), _("Also turns on the emulator's native FPS counter, if available."), "DrawFramerate", true, nullptr);
 	s->addSwitch(_("VSYNC"), "VSync", true, [] { Renderer::setSwapInterval(); });
 
 #ifdef BATOCERA
@@ -482,7 +482,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto webAccess = std::make_shared<SwitchComponent>(mWindow);
 	webAccess->setState(Settings::getInstance()->getBool("PublicWebAccess"));
-	s->addWithDescription(_("ENABLE PUBLIC WEB ACCESS"), Utils::String::format(_("Allow public web access API using %s").c_str(), std::string("http://" + hostName + ":1234").c_str()), webAccess);
+	s->addWithDescription(_("ENABLE EXTERNAL REST API ACCESS"), Utils::String::format(_("Also enables Batocera's Web UI. URL: %s").c_str(), std::string("http://" + hostName + ":1234").c_str()), webAccess);
 	s->addSaveFunc([webAccess, window, s]
 	{ 
 	  if (Settings::getInstance()->setBool("PublicWebAccess", webAccess->getState())) 
@@ -523,7 +523,7 @@ void GuiMenu::openDeveloperSettings()
 		// support
 		s->addEntry(_("CREATE A SUPPORT FILE"), true, [window] 
 		{
-			window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE?"), _("YES"),
+			window->pushGui(new GuiMsgBox(window, _("CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."), _("YES"),
 				[window] 
 				{
 					if (ApiSystem::getInstance()->generateSupportFile())
@@ -646,7 +646,7 @@ void GuiMenu::openDeveloperSettings()
 	// enable filters (ForceDisableFilters)
 	auto enable_filter = std::make_shared<SwitchComponent>(mWindow);
 	enable_filter->setState(!Settings::getInstance()->getBool("ForceDisableFilters"));
-	s->addWithLabel(_("ENABLE FILTERS"), enable_filter);
+	s->addWithDescription(_("ENABLE GAME FILTERING"), _("Whether to show or hide game filtering related settings in the view options."), enable_filter);
 	s->addSaveFunc([this, enable_filter]
 	{
 		Settings::getInstance()->setBool("ForceDisableFilters", !enable_filter->getState());
@@ -661,16 +661,16 @@ void GuiMenu::openDeveloperSettings()
 	// gamelist
 	auto parse_gamelists = std::make_shared<SwitchComponent>(mWindow);
 	parse_gamelists->setState(Settings::getInstance()->getBool("ParseGamelistOnly"));
-	s->addWithLabel(_("PARSE GAMESLISTS ONLY"), parse_gamelists);
+	s->addWithDescription(_("PARSE GAMELISTS ONLY"), _("Debug tool: Don't check if the ROMs actually exist. Can cause problems!"), parse_gamelists);
 	s->addSaveFunc([parse_gamelists] { Settings::getInstance()->setBool("ParseGamelistOnly", parse_gamelists->getState()); });
 
 	// Local Art
 	auto local_art = std::make_shared<SwitchComponent>(mWindow);
 	local_art->setState(Settings::getInstance()->getBool("LocalArt"));
-	s->addWithLabel(_("SEARCH FOR LOCAL ART"), local_art);
+	s->addWithDescription(_("SEARCH FOR LOCAL ART"), _("If no image is specified in the gamelist, try to find media with the ROM's filename to use."), local_art);
 	s->addSaveFunc([local_art] { Settings::getInstance()->setBool("LocalArt", local_art->getState()); });
 
-	s->addGroup(_("UI"));
+	s->addGroup(_("USER INTERFACE"));
 
 	// carousel transition option
 	auto move_carousel = std::make_shared<SwitchComponent>(mWindow);
@@ -765,7 +765,7 @@ void GuiMenu::openDeveloperSettings()
 	// threaded loading
 	auto threadedLoading = std::make_shared<SwitchComponent>(mWindow);
 	threadedLoading->setState(Settings::getInstance()->getBool("ThreadedLoading"));
-	s->addWithLabel(_("THREADED LOADING"), threadedLoading);
+	s->addWithLabel(_("ES THREADED LOADING"), threadedLoading);
 	s->addSaveFunc([threadedLoading] { Settings::getInstance()->setBool("ThreadedLoading", threadedLoading->getState()); });
 
 	// threaded loading
@@ -912,7 +912,7 @@ void GuiMenu::openSystemSettings()
 	s->addEntry(_("INFORMATION"), true, [this] { openSystemInformations(); });
 
 	// language choice
-	auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE"), false);
+	auto language_choice = std::make_shared<OptionListComponent<std::string> >(window, _("LANGUAGE (REGION)"), false);
 
 	std::string language = SystemConf::getInstance()->get("system.language");
 	if (language.empty()) 
@@ -949,7 +949,7 @@ void GuiMenu::openSystemSettings()
 	language_choice->add("简体中文", 	     "zh_CN", language == "zh_CN");
 	language_choice->add("正體中文", 	     "zh_TW", language == "zh_TW");
 
-	s->addWithLabel(_("LANGUAGE"), language_choice);
+	s->addWithLabel(_("LANGUAGE (REGION)"), language_choice);
 	s->addSaveFunc([window, language_choice, language, s]
 	{
 		if (language_choice->changed() && SystemConf::getInstance()->set("system.language", language_choice->getSelected()))
@@ -992,9 +992,9 @@ void GuiMenu::openSystemSettings()
 	s->addSwitch(_("SHOW CLOCK IN 12-HOUR FORMAT"), "ClockMode12", true);
 
 	// power saver
-	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVER MODES"), false);
+	auto power_saver = std::make_shared< OptionListComponent<std::string> >(mWindow, _("POWER SAVING MODE"), false);
 	power_saver->addRange({ { _("DISABLED"), "disabled" }, { _("DEFAULT"), "default" }, { _("ENHANCED"), "enhanced" }, { _("INSTANT"), "instant" }, }, Settings::PowerSaverMode());
-	s->addWithLabel(_("POWER SAVER MODES"), power_saver);
+	s->addWithDescription(_("POWER SAVING MODE"), _("Reduces power consumption when idle (useful for handhelds)."), power_saver);
 	s->addSaveFunc([this, power_saver] 
 	{
 		if (Settings::PowerSaverMode() != "instant" && power_saver->getSelected() == "instant")
@@ -1020,12 +1020,12 @@ void GuiMenu::openSystemSettings()
 #endif
 
 	// UI RESTRICTIONS
-	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("UI MODE"), false);
+	auto UImodeSelection = std::make_shared< OptionListComponent<std::string> >(mWindow, _("USER INTERFACE MODE"), false);
 	std::vector<std::string> UImodes = UIModeController::getInstance()->getUIModes();
 	for (auto it = UImodes.cbegin(); it != UImodes.cend(); it++)
 		UImodeSelection->add(_(it->c_str()), *it, Settings::getInstance()->getString("UIMode") == *it);
 
-	s->addWithLabel(_("UI MODE"), UImodeSelection);
+	s->addWithDescription(_("USER INTERFACE MODE"), _("Lock down certain config menus for use with guest users/kids."), UImodeSelection);
 	s->addSaveFunc([UImodeSelection, window]
 	{
 		if (UImodeSelection->changed())
@@ -1035,12 +1035,12 @@ void GuiMenu::openSystemSettings()
 				Settings::getInstance()->setString("UIMode", selectedMode);
 			else
 			{
-				std::string msg = _("You are changing the UI to a restricted mode:\nThis will hide most menu options to prevent changes to the system.\nTo unlock and return to the full UI, enter this code:") + "\n";
+				std::string msg = _("You are changing the user interface to a restricted mode:\nThis will hide most menu options to prevent changes to the system.\nTo unlock and return to the full user interface, enter this code:") + "\n";
 				msg += "\"" + UIModeController::getInstance()->getFormattedPassKeyStr() + "\"\n\n";
 				msg += _("Do you want to proceed?");
 				window->pushGui(new GuiMsgBox(window, msg,
 					_("YES"), [selectedMode] {
-					LOG(LogDebug) << "Setting UI mode to " << selectedMode;
+					LOG(LogDebug) << "Setting user interface mode to " << selectedMode;
 					Settings::getInstance()->setString("UIMode", selectedMode);
 					Settings::getInstance()->saveFile();
 				}, _("NO"), nullptr));
@@ -1200,7 +1200,7 @@ void GuiMenu::openSystemSettings()
 			if (afound == false)
 				optionsAudioProfile->add(selectedAudioProfile, selectedAudioProfile, true);
 
-			s->addWithLabel(_("AUDIO PROFILE"), optionsAudioProfile);
+			s->addWithDescription(_("AUDIO PROFILE"), _("Changes depending on audio output."), optionsAudioProfile);
 
 			s->addSaveFunc([this, optionsAudioProfile, selectedAudioProfile]
 			{
@@ -1462,7 +1462,7 @@ void GuiMenu::openSystemSettings()
 		GuiSettings *securityGui = new GuiSettings(mWindow, _("SECURITY").c_str());
 		auto securityEnabled = std::make_shared<SwitchComponent>(mWindow);
 		securityEnabled->setState(SystemConf::getInstance()->get("system.security.enabled") == "1");
-		securityGui->addWithLabel(_("ENFORCE SECURITY"), securityEnabled);
+		securityGui->addWithDescription(_("ENFORCE SECURITY"), _("Require a password for accessing the network share."), securityEnabled);
 
 		auto rootpassword = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getRootPassword(), ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
 		securityGui->addWithLabel(_("ROOT PASSWORD"), rootpassword);
@@ -1876,7 +1876,7 @@ void GuiMenu::openGamesSettings()
 	if (!hasGlobalFeature("ratio"))
 	{
 		auto ratio_choice = createRatioOptionList(mWindow, "global");
-		s->addWithLabel(_("GAME ASPECT RATIO"), ratio_choice);
+		s->addWithDescription(_("GAME ASPECT RATIO"), _("Force the game to render in this aspect ratio."), ratio_choice);
 		s->addSaveFunc([ratio_choice] { SystemConf::getInstance()->set("global.ratio", ratio_choice->getSelected()); });
 	}
 
@@ -1884,7 +1884,7 @@ void GuiMenu::openGamesSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION) && !hasGlobalFeature("videomode"))
 	{
 		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
-		s->addWithLabel(_("VIDEO MODE"), videoModeOptionList);
+		s->addWithDescription(_("VIDEO MODE"), _("Force the emulator to run at this resolution."), videoModeOptionList);
 		s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()); });
 	}
 
@@ -1902,7 +1902,7 @@ void GuiMenu::openGamesSettings()
 	{
 		auto rewind_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("REWIND"));
 		rewind_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.rewind"));
-		s->addWithLabel(_("REWIND"), rewind_enabled);
+		s->addWithDescription(_("REWIND"), _("Store past states to rewind to in realtime, if the core supports it."), rewind_enabled);
 		s->addSaveFunc([rewind_enabled] { SystemConf::getInstance()->set("global.rewind", rewind_enabled->getSelected()); });
 	}
 	
@@ -2031,7 +2031,7 @@ void GuiMenu::openGamesSettings()
 			auto ai_service_enabled = std::make_shared<SwitchComponent>(mWindow);
 			ai_service_enabled->setState(
 				SystemConf::getInstance()->get("global.ai_service_enabled") == "1");
-			ai_service->addWithLabel(_("ENABLE AI TRANSLATION SERVICE"), ai_service_enabled);
+			ai_service->addWithDescription(_("ENABLE AI TRANSLATION SERVICE"), _("During gameplay, press Hotkey + R1 to translate on-screen text."), ai_service_enabled);
 
 			// Target language - order is: popular languages in the Batocera community first
 			// then alphabetical order of the 2-char lang code (because the strings are localized)
@@ -2106,15 +2106,15 @@ void GuiMenu::openGamesSettings()
 	// AUTO SAVE/LOAD
 	auto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);
 	autosave_enabled->setState(SystemConf::getInstance()->get("global.autosave") == "1");
-	s->addWithLabel(_("AUTO SAVE/LOAD"), autosave_enabled);
+	s->addWithDescription(_("AUTO SAVE/LOAD"), _("Load latest save state on game launch and save state when exiting game."), autosave_enabled);
 	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getState() ? "1" : ""); });
 
 	// INCREMENTAL SAVESTATES
 	auto incrementalSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INCREMENTAL SAVESTATES"));
 	incrementalSaveStates->addRange({ 
-		{ _("YES"), "", "" }, // Don't use 1 -> 1 is YES, auto too
-		{ _("NO") , _("NEW GAME CREATES NEW SLOT"), "0" },
-		{ _("DISABLED"), _("NEW GAME OVERWRITES CURRENT SLOT"), "2" } },
+		{ _("INCREMENT PER SAVE"), _("Never overwrite old savestates, always make new ones."), "" }, // Don't use 1 -> 1 is YES, auto too
+		{ _("INCREMENT SLOT"), _("Increment slot on a new game."), "0" },
+		{ _("DO NOT INCREMENT"), _("Use current slot on a new game."), "2" } },
 		SystemConf::getInstance()->get("global.incrementalsavestates"));
 
 	s->addWithLabel(_("INCREMENTAL SAVESTATES"), incrementalSaveStates);
@@ -2342,7 +2342,7 @@ void GuiMenu::openControllersSettings(int autoSel)
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
 	{
 		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
-		s->addEntry(_("PAIR A BLUETOOTH DEVICE"), false, [window] { ThreadedBluetooth::start(window); });
+		s->addEntry(_("ENTER BLUETOOTH PAIRING MODE"), false, [window] { ThreadedBluetooth::start(window); });
 
 		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
 		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s]
@@ -2350,6 +2350,22 @@ void GuiMenu::openControllersSettings(int autoSel)
 			window->pushGui(new GuiBluetooth(window));
 		});
 	}
+
+	// CONTROLLER ACTIVITY
+	auto activity = std::make_shared<SwitchComponent>(mWindow);
+	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));	
+	s->addWithLabel(_("SHOW CONTROLLER ACTIVITY"), activity, autoSel == 1);
+	activity->setOnChangedCallback([this, s, activity]
+	{ 
+		if (Settings::getInstance()->setBool("ShowControllerActivity", activity->getState()))
+		{
+			delete s;
+			openControllersSettings(1);
+		}
+	});
+	
+	if (Settings::getInstance()->getBool("ShowControllerActivity"))
+		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
 	ComponentListRow row;
 
@@ -2459,22 +2475,6 @@ void GuiMenu::openControllersSettings(int autoSel)
 		// this is dependant of this configuration, thus update it
 		InputManager::getInstance()->computeLastKnownPlayersDeviceIndexes();
 	});
-
-	// CONTROLLER ACTIVITY
-	auto activity = std::make_shared<SwitchComponent>(mWindow);
-	activity->setState(Settings::getInstance()->getBool("ShowControllerActivity"));	
-	s->addWithLabel(_("SHOW CONTROLLER ACTIVITY"), activity, autoSel == 1);
-	activity->setOnChangedCallback([this, s, activity]
-	{ 
-		if (Settings::getInstance()->setBool("ShowControllerActivity", activity->getState()))
-		{
-			delete s;
-			openControllersSettings(1);
-		}
-	});
-	
-	if (Settings::getInstance()->getBool("ShowControllerActivity"))
-		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
 	window->pushGui(s);
 }
@@ -3059,7 +3059,7 @@ void GuiMenu::openUISettings()
 	auto pthis = this;
 	Window* window = mWindow;
 
-	auto s = new GuiSettings(mWindow, _("UI SETTINGS").c_str());
+	auto s = new GuiSettings(mWindow, _("USER INTERFACE SETTINGS").c_str());
 
 	// theme set
 	auto theme = ThemeData::getMenuTheme();
@@ -3171,7 +3171,7 @@ void GuiMenu::openUISettings()
 
 	s->addGroup(_("DISPLAY OPTIONS"));
 	s->addEntry(_("SCREENSAVER SETTINGS"), true, std::bind(&GuiMenu::openScreensaverOptions, this));
-	s->addOptionList(_("LIST TRANSITION STYLE"), { { _("auto"), "auto" },{ _("fade") , "fade" },{ _("slide"), "slide" },{ _("fade & slide"), "fade & slide" },{ _("instant"), "instant" } }, "TransitionStyle", true);
+	s->addOptionList(_("GAME LIST TRANSITION"), { { _("auto"), "auto" },{ _("fade") , "fade" },{ _("slide"), "slide" },{ _("fade & slide"), "fade & slide" },{ _("instant"), "instant" } }, "TransitionStyle", true);
 	s->addOptionList(_("GAME LAUNCH TRANSITION"), { { _("auto"), "auto" },{ _("fade") , "fade" },{ _("slide"), "slide" },{ _("instant"), "instant" } }, "GameTransitionStyle", true);
 	s->addSwitch(_("SHOW CLOCK"), "DrawClock", true);
 	s->addSwitch(_("ON-SCREEN HELP"), "ShowHelpPrompts", true, [s] { s->setVariable("reloadAll", true); });
@@ -3195,7 +3195,7 @@ void GuiMenu::openUISettings()
 			s->setVariable("reloadCollections", true);
 			s->setVariable("reloadAll", true); 
 		});
-	s->addSwitch(_("IGNORE LEADING ARTICLES WHEN SORTING"), "IgnoreLeadingArticles", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("IGNORE LEADING ARTICLES WHEN SORTING"), _("Ignore 'The' and 'A' if at the start."), "IgnoreLeadingArticles", true, [s] { s->setVariable("reloadAll", true); });
 	
 	s->onFinalize([s, pthis, window]
 	{
@@ -3437,7 +3437,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(Paths::getUserManualPath()))
 		{
-			s->addEntry(_("VIEW USER'S MANUAL"), false, [s, window]
+			s->addEntry(_("VIEW USER MANUAL"), false, [s, window]
 			{
 				GuiImageViewer::showPdf(window, Paths::getUserManualPath());
 				delete s;
@@ -3620,7 +3620,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::ratio))
 	{
 		auto ratio_choice = createRatioOptionList(mWindow, configName);
-		systemConfiguration->addWithLabel(_("GAME ASPECT RATIO"), ratio_choice);
+		systemConfiguration->addWithDescription(_("GAME ASPECT RATIO"), _("Force the game to render in this aspect ratio."), ratio_choice);
 		systemConfiguration->addSaveFunc([configName, ratio_choice] { SystemConf::getInstance()->set(configName + ".ratio", ratio_choice->getSelected()); });
 	}
 
@@ -3628,7 +3628,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::videomode))
 	{
 		auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
-		systemConfiguration->addWithLabel(_("VIDEO MODE"), videoResolutionMode_choice);
+		systemConfiguration->addWithDescription(_("VIDEO MODE"), _("Force the emulator to run at this resolution."), videoResolutionMode_choice);
 		systemConfiguration->addSaveFunc([configName, videoResolutionMode_choice] { SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected()); });
 	}
 
@@ -3653,9 +3653,9 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	// AUTO SAVE/LOAD
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autosave) && !customFeatures.hasFeature("autosave"))
 	{
-		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD"));
+		auto autosave_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTO SAVE/LOAD ON GAME LAUNCH"));
 		autosave_enabled->addRange({ { _("AUTO"), "auto" }, { _("ON") , "1" }, { _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".autosave"));
-		systemConfiguration->addWithLabel(_("AUTO SAVE/LOAD ON GAME LAUNCH"), autosave_enabled);
+		systemConfiguration->addWithDescription(_("AUTO SAVE/LOAD ON GAME LAUNCH"), _("Load latest save state on game launch and save state when exiting game."), autosave_enabled);
 		systemConfiguration->addSaveFunc([configName, autosave_enabled] { SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected()); });
 	}
 	
