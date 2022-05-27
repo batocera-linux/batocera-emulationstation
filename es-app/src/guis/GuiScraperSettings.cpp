@@ -116,27 +116,28 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 		addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
 	}
 
+	addGroup(_("SCRAPE FOR"));
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::ShortTitle))
-		addSwitch(_("SCRAPE SHORT NAME"), "ScrapeShortTitle", true);
+		addSwitch(_("SHORT NAME"), "ScrapeShortTitle", true);
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Ratings))
-		addSwitch(_("SCRAPE RATINGS"), "ScrapeRatings", true);
+		addSwitch(_("COMMUNITY RATING"), "ScrapeRatings", true);
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Video))
-		addSwitch(_("SCRAPE VIDEOS"), "ScrapeVideos", true);
+		addSwitch(_("VIDEO"), "ScrapeVideos", true);
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::FanArt))
-		addSwitch(_("SCRAPE FANART"), "ScrapeFanart", true);
+		addSwitch(_("FANART"), "ScrapeFanart", true);
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Bezel_16_9))
-		addSwitch(_("SCRAPE BEZEL (16:9)"), "ScrapeBezel", true);
+		addSwitch(_("BEZEL (16:9)"), "ScrapeBezel", true);
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::BoxBack))
-		addSwitch(_("SCRAPE BOX BACKSIDE"), "ScrapeBoxBack", true);
+		addSwitch(_("BOX BACKSIDE"), "ScrapeBoxBack", true);
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Map))
-		addSwitch(_("SCRAPE MAP"), "ScrapeMap", true);
+		addSwitch(_("MAP"), "ScrapeMap", true);
 
 	/*
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
@@ -147,10 +148,10 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 	*/
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Manual))
-		addSwitch(_("SCRAPE MANUAL"), "ScrapeManual", true);
+		addSwitch(_("MANUAL"), "ScrapeManual", true);
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::PadToKey))
-		addSwitch(_("SCRAPE PADTOKEY SETTINGS"), "ScrapePadToKey", true);
+		addSwitch(_("PADTOKEY SETTINGS"), "ScrapePadToKey", true);
 
 	// ScreenScraper Account		
 	if (scraper == "ScreenScraper")
