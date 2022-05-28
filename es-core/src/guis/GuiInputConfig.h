@@ -6,6 +6,7 @@
 #include "components/ComponentGrid.h"
 #include "components/NinePatchComponent.h"
 #include "GuiComponent.h"
+#include "utils/VectorEx.h"
 
 class ComponentList;
 class TextComponent;
@@ -36,7 +37,7 @@ private:
 
 	bool assign(Input input, int inputId);
 	void clearAssignment(int inputId);
-	bool filterTrigger(Input input, InputConfig* config, int inputId);
+	bool filterTrigger(Input input, InputConfig* config);
 
 	void rowDone();
 
@@ -56,9 +57,11 @@ private:
 
 	bool mHoldingInput;
 	Input mHeldInput;
+
+	VectorEx<Input> mAllInputs;
+
 	int mHeldTime;
 	int mHeldInputId;
-	bool mSkipAxis;
 
 	BusyComponent mBusyAnim;	
 
