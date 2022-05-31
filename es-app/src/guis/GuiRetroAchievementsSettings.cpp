@@ -22,11 +22,11 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	retroachievements_enabled->setState(retroachievementsEnabled);
 	addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
 
-	addSwitch(_("HARDCORE MODE"), "global.retroachievements.hardcore", false);
-	addSwitch(_("LEADERBOARDS"), "global.retroachievements.leaderboards", false);
+	addSwitch(_("HARDCORE MODE"), _("Disable loading states (as well as auto-load) for more points."), "global.retroachievements.hardcore", false, nullptr);
+	addSwitch(_("LEADERBOARDS"), _("Compete in high-score and best time leaderboards (requires hardcore)."), "global.retroachievements.leaderboards", false, nullptr);
 	addSwitch(_("VERBOSE MODE"), "global.retroachievements.verbose", false);
-	addSwitch(_("ENCORE MODE"), "global.retroachievements.encore", false);
-	addSwitch(_("AUTOMATIC SCREENSHOT"), "global.retroachievements.screenshot", false);
+	addSwitch(_("ENCORE MODE"), _("Reset achievements to be able to earn them again."), "global.retroachievements.encore", false, nullptr);
+	addSwitch(_("AUTOMATIC SCREENSHOT"), _("Automatically take a screenshot when an achievement is earned."), "global.retroachievements.screenshot", false, nullptr);
 	addSwitch(_("CHALLENGE INDICATORS"), _("Shows icons in the bottom right corner when eligible achievements can be earned."), "global.retroachievements.challenge_indicators", false, nullptr);
 
 	// Unlock sound
@@ -53,7 +53,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	addInputTextRow(_("PASSWORD"), "global.retroachievements.password", true);
 
 	// retroachievements_hardcore_mode
-	addSwitch(_("SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"), "RetroachievementsMenuitem", true);
+	addSwitch(_("SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"), _("View your RetroAchievement stats right from the main menu!"), "RetroachievementsMenuitem", true, nullptr);
 
 	addGroup(_("GAME INDEXES"));
 	addSwitch(_("INDEX NEW GAMES AT STARTUP"), "CheevosCheckIndexesAtStart", true);
