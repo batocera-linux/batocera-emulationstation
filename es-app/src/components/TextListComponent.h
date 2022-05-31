@@ -80,6 +80,8 @@ public:
 	inline void setSelectedColor(unsigned int color) { mSelectedColor = color; }
 	inline void setColor(unsigned int id, unsigned int color) { mColors[id] = color; }
 	inline void setLineSpacing(float lineSpacing) { mLineSpacing = lineSpacing; }
+	inline void setBonusTextColor(unsigned int color) { mBonusColor = color; mHasBonusColor = true; }
+	inline void setBonusSelectedTextColor(unsigned int color) { mBonusSelectedColor = color; mHasBonusSelectedColor = true; }
 
 	virtual void onShow() override;
 
@@ -114,6 +116,12 @@ private:
 	unsigned int mSelectorColorEnd;
 	bool mSelectorColorGradientHorizontal = true;
 	unsigned int mSelectedColor;
+
+	unsigned int mBonusColor;
+	bool mHasBonusColor = false;
+	unsigned int mBonusSelectedColor;
+	bool mHasBonusSelectedColor = false;
+	
 	std::string mScrollSound;
 	static const unsigned int COLOR_ID_COUNT = 2;
 	unsigned int mColors[COLOR_ID_COUNT];
@@ -231,7 +239,12 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		if(!entry.data.textCache)
 			entry.data.textCache = std::unique_ptr<TextCache>(font->buildTextCache(mUppercase ? Utils::String::toUpper(entry.name) : entry.name, 0, 0, 0x000000FF));
 
-		entry.data.textCache->setColor(color);
+		if (mCursor == i && mHasBonusSelectedColor)
+			entry.data.textCache->setColors(color, mBonusSelectedColor);
+		else if (mHasBonusColor)
+			entry.data.textCache->setColors(color, mBonusColor);
+		else
+			entry.data.textCache->setColor(color);
 
 		Vector3f offset(0, y, 0);
 
@@ -470,6 +483,10 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 			setColor(0, elem->get<unsigned int>("primaryColor"));
 		if(elem->has("secondaryColor"))
 			setColor(1, elem->get<unsigned int>("secondaryColor"));
+		if (elem->has("extraTextColor"))
+			setBonusTextColor(elem->get<unsigned int>("extraTextColor"));
+		if (elem->has("extraTextSelectedColor"))
+			setBonusSelectedTextColor(elem->get<unsigned int>("extraTextSelectedColor"));
 
 		if (elem->has("glowColor"))
 			mGlowColor = elem->get<unsigned int>("glowColor");

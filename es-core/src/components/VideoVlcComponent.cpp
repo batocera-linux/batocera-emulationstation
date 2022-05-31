@@ -64,6 +64,7 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 	mMediaPlayer(nullptr), 
 	mMedia(nullptr)
 {
+	mSaturation = 1.0f;
 	mElapsed = 0;
 	mColorShift = 0xFFFFFFFF;
 	mLinearSmooth = false;
@@ -375,6 +376,9 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		}
 
 		// Render it
+		vertices->saturation = mSaturation;
+		vertices->customShader = mCustomShader.empty() ? nullptr : (char*)mCustomShader.c_str();
+
 		Renderer::drawTriangleStrips(&vertices[0], 4);
 
 		if (mRoundCorners > 0)
@@ -733,6 +737,15 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		
 		if (elem->has("opacity"))
 			setOpacity((unsigned char)(elem->get<float>("opacity") * 255.0));
+
+		if (elem->has("saturation"))
+			setSaturation(Math::clamp(elem->get<float>("saturation"), 0.0f, 1.0f));
+
+		if (elem->has("shader"))
+		{
+			mCustomShader = elem->get<std::string>("shader");
+			mStaticImage.setCustomShader(mCustomShader);
+		}
 	}
 
 	if (elem && elem->has("loops"))
@@ -779,6 +792,9 @@ ThemeData::ThemeElement::Property VideoVlcComponent::getProperty(const std::stri
 	if (name == "roundCorners")
 		return mRoundCorners;
 
+	if (name == "saturation")
+		return mSaturation;
+
 	return VideoComponent::getProperty(name);
 }
 
@@ -795,6 +811,8 @@ void VideoVlcComponent::setProperty(const std::string name, const ThemeData::The
 		setColorShift(value.i);
 	else if (name == "roundCorners" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
 		setRoundCorners(value.f);
+	else if (name == "saturation" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setSaturation(value.f);
 	else
 		VideoComponent::setProperty(name, value);
 }
@@ -840,4 +858,9 @@ void VideoVlcComponent::resumeVideo()
 bool VideoVlcComponent::isPaused()
 {
 	return !mIsPlaying && !mIsWaitingForVideoToStart && !mStartDelayed && mMediaPlayer != NULL;
+}
+
+void VideoVlcComponent::setSaturation(float saturation)
+{
+	mSaturation = saturation;
 }

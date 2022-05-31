@@ -640,6 +640,11 @@ namespace Renderer
 		Instance()->createContext();
 	}
 
+	void resetCache()
+	{
+		Instance()->resetCache();
+	}
+	
 	void destroyContext()
 	{
 		Instance()->destroyContext();

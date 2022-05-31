@@ -15,7 +15,7 @@ char* ngettext(char* msgid, char* msgid_plural, unsigned long int n)
 
 	return msgid;
 }
-char* pgettext(char* context, char* msgid); {
+char* pgettext(char* context, char* msgid) {
   return msgid;
 }
 #endif

@@ -22,6 +22,8 @@ namespace Renderer
 		void         createContext() override;
 		void         destroyContext() override;
 
+		void		 resetCache() override;
+
 		unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data) override;
 		void         destroyTexture(const unsigned int _texture) override;
 		void         updateTexture(const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data) override;

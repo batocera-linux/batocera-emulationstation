@@ -193,6 +193,8 @@ public:
 	} metrics;
 
 	void setColor(unsigned int color);
+	void setColors(unsigned int color, unsigned int extraColor);
+
 	void setRenderingGlow(bool glow) { renderingGlow = glow; }
 
 	friend Font;

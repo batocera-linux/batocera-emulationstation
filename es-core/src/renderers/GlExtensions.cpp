@@ -28,7 +28,11 @@ namespace glext
 	PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv = nullptr;
 	PFNGLCREATESHADERPROC glCreateShader = nullptr;
 	PFNGLACTIVETEXTUREPROC glActiveTexture_ = nullptr;
-
+	PFNGLUNIFORM1FPROC glUniform1f = nullptr;
+	PFNGLUNIFORM2FPROC glUniform2f = nullptr;
+	PFNGLDELETEPROGRAMPROC glDeleteProgram = nullptr;
+	PFNGLDELETESHADERPROC glDeleteShader = nullptr;
+	
 	void* _glProcAddress(const char *proc)
 	{
 		void* ret = SDL_GL_GetProcAddress(proc);
@@ -87,6 +91,12 @@ namespace glext
 		glDisableVertexAttribArray = (PFNGLDISABLEVERTEXATTRIBARRAYPROC)_glProcAddress("glDisableVertexAttribArray");
 		glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC)_glProcAddress("glUniformMatrix4fv");
 		glActiveTexture_ = (PFNGLACTIVETEXTUREPROC)_glProcAddress("glActiveTexture");
+		glUniform1f = (PFNGLUNIFORM1FPROC)_glProcAddress("glUniform1f");
+		glUniform2f = (PFNGLUNIFORM2FPROC)_glProcAddress("glUniform2f");		
+		glDeleteProgram = (PFNGLDELETEPROGRAMPROC)_glProcAddress("glDeleteProgram");
+		glDeleteShader = (PFNGLDELETESHADERPROC)_glProcAddress("glDeleteShader");
+
+		typedef void (APIENTRYP PFNGLDELETESHADERPROC) (GLuint shader);
 
 		return 
 			glCreateShader != nullptr && glCompileShader != nullptr && glCreateProgram != nullptr && glGenBuffers != nullptr && 
@@ -94,7 +104,7 @@ namespace glext
 			glLinkProgram != nullptr && glGetProgramiv != nullptr && glGetProgramInfoLog != nullptr && glUseProgram != nullptr &&
 			glUniform1i != nullptr && glGetUniformLocation != nullptr && glGetAttribLocation != nullptr && glBufferData != nullptr &&
 			glVertexAttribPointer != nullptr && glBufferData != nullptr && glBufferSubData != nullptr && glVertexAttribPointer != nullptr && glEnableVertexAttribArray != nullptr &&
-			glDisableVertexAttribArray != nullptr && glUniformMatrix4fv != nullptr && glActiveTexture_ != nullptr;
+			glDisableVertexAttribArray != nullptr && glUniformMatrix4fv != nullptr && glActiveTexture_ != nullptr && glUniform1f != nullptr && glUniform2f != nullptr && glDeleteShader != nullptr && glDeleteProgram != nullptr;
 	}
 }
 #endif
