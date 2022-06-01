@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<systems>
+  <system name="3do">
+    <game>corpsekiller</game>
+    <game>creatureshock</game>
+    <game>crimepatrol</game>
+    <game>cyberdillo</game>
+    <game>demolitionman</game>
+    <game>drugwars</game>
+    <game>killingtime</game>
+    <game>lastbountyhunter</game>
+    <game>lostgold</game>
+    <game>maddogii</game>
+    <game>maddogmccree</game>
+    <game>sewershark</game>
+    <game>shootoutatoldtucson</game>
+    <game>spacepirates</game>
+    <game>starblade</game>
+    <game>whoshotjohnnyrock</game>
+  </system>
+  <system name="atari2600">
+    <game>bobbyneedsfood</game>
+    <game>sentinel</game>
+  </system>
+  <system name="atari7800">
+    <game>alienbrigade</game>
+    <game>barnyardblaster</game>
+    <game>crossbow</game>
+    <game>meltdown</game>
+    <game>sentinel</game>
+  </system>
+  <system name="atari800,atari5200">
+    <game>barnyardblaster</game>
+    <game>bughunt</game>
+    <game>cementerio</game>
+    <game>crimebuster</game>
+    <game>crossbow</game>
+    <game>gangsterville</game>
+    <game>operationblood</game>
+  </system>
+  <system name="dreamcast">
+    <game>confidentialmission</game>
+    <game>deathcrimson2</game>
+    <game>deathcrimsonox</game>
+    <game>houseofthedead2</game>
+    <game>virtuacop2</game>
+  </system>
+  <system name="mastersystem">
+    <game>assaultcity</game>
+    <game>bankpanic</game>
+    <game>deadangle</game>
+    <game>gangstertown</game>
+    <game>laserghost</game>
+    <game>marksmanshooting</game>
+    <game>missiledefense3d</game>
+    <game>operationwolf</game>
+    <game>ramboiii</game>
+    <game>rescuemission</game>
+    <game>safarihunt</game>
+    <game>shootinggallery</game>
+    <game>spacegun</game>
+    <game>trapshooting</game>
+    <game>wanted</game>
+  </system>
+  <system name="megadrive">
+    <game>bodycount</game>
+    <game>corpsekiller</game>
+    <game>crimepatrol</game>
+    <game>lethalenforcers</game>
+    <game>lethalenforcersii</game>
+    <game>maddogii</game>
+    <game>maddogmccree</game>
+    <game>menacer6gamecartridge</game>
+    <game>t2thearcadegame</game>
+    <game>whoshotjohnnyrock</game>
+  </system>
+  <system name="nes">
+    <game>3in1supergun</game>
+    <game>adventuresofbayoubilly</game>
+    <game>babyboomer</game>
+    <game>barkerbillstrickshooting</game>
+    <game>chiller</game>
+    <game>crimebusters</game>
+    <game>daydreamindavey</game>
+    <game>duckhunt</game>
+    <game>freedomforce</game>
+    <game>gotcha</game>
+    <game>gumshoe</game>
+    <game>hogansalley</game>
+    <game>laserinvasion</game>
+    <game>loneranger</game>
+    <game>mechanizedattack</game>
+    <game>operationwolf</game>
+    <game>shootingrange</game>
+    <game>spaceshadow</game>
+    <game>totheearth</game>
+    <game>trackfieldii</game>
+    <game>wildgunman</game>
+  </system>
+  <system name="psx">
+    <game>area51</game>
+    <game>cryptkiller</game>
+    <game>diehardtrilogy</game>
+    <game>diehardtrilogy2</game>
+    <game>elementalgearbolt</game>
+    <game>extremeghostbuster</game>
+    <game>ghoulpanic</game>
+    <game>gunbare</game>
+    <game>gunfighter</game>
+    <game>judgedredd</game>
+    <game>lethalenforcers</game>
+    <game>maximumforce</game>
+    <game>mightyhitsspecial</game>
+    <game>moorhen3chickenchase</game>
+    <game>moorhuhn</game>
+    <game>pointblank</game>
+    <game>pointblank2</game>
+    <game>pointblank3</game>
+    <game>projecthornedowl</game>
+    <game>rescueshot</game>
+    <game>residentevilsurvivor</game>
+    <game>silenthill</game>
+    <game>timecrisis</game>
+    <game>timecrisisprojecttitan</game>
+  </system>
+  <system name="saturn">
+    <game>area51</game>
+    <game>chaoscontrol</game>
+    <game>corpsekiller</game>
+    <game>cryptkiller</game>
+    <game>deathcrimson</game>
+    <game>diehardtrilogy</game>
+    <game>houseofthedead</game>
+    <game>maximumforce</game>
+    <game>mechanicalviolatorhakaider</game>
+    <game>policenauts</game>
+    <game>scudthedisposableassassin</game>
+    <game>virtuacop</game>
+    <game>virtuacop2</game>
+  </system>
+  <system name="snes">
+    <game>battleclash</game>
+    <game>bazookablitzkrieg</game>
+    <game>lamborghiniamericanchallenge</game>
+    <game>lethalenforcers</game>
+    <game>metalcombatfalconsrevenge</game>
+    <game>nintendoscope6</game>
+    <game>operationthunderbolt</game>
+    <game>superscope6</game>
+    <game>t2thearcadegame</game>
+    <game>tinstar</game>
+    <game>xzone</game>
+    <game>yoshissafari</game>
+  </system>
+</systems>
