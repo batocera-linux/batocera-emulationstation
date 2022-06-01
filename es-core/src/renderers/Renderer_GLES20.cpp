@@ -19,28 +19,29 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
-	static SDL_GLContext sdlContext       = nullptr;
+	struct TextureInfo
+	{
+		GLenum type;
+		Vector2f size;
+	};
+
+	static SDL_GLContext	sdlContext       = nullptr;
 	
-	static Transform4x4f projectionMatrix = Transform4x4f::Identity();
-	static Transform4x4f worldViewMatrix  = Transform4x4f::Identity();
-	static Transform4x4f mvpMatrix		  = Transform4x4f::Identity();
+	static Transform4x4f	projectionMatrix = Transform4x4f::Identity();
+	static Transform4x4f	worldViewMatrix  = Transform4x4f::Identity();
+	static Transform4x4f	mvpMatrix		 = Transform4x4f::Identity();
 
-	static Shader  	vertexShaderTexture;
-	static Shader  	fragmentShaderColorTexture;
 	static ShaderProgram    shaderProgramColorTexture;
-
-	static Shader  	vertexShaderNoTexture;
-	static Shader  	fragmentShaderColorNoTexture;
 	static ShaderProgram    shaderProgramColorNoTexture;
-
-	static Shader  	fragmentShaderAlpha;
 	static ShaderProgram    shaderProgramAlpha;
 
-	static GLuint        vertexBuffer     = 0;
+	static GLuint			vertexBuffer     = 0;
 
-	static std::set<unsigned int> _alphaTextures;
+	static std::map<unsigned int, TextureInfo*> _textures;
 
-	static unsigned int boundTexture = 0;
+	static unsigned int		boundTexture = 0;
+
+	extern std::string SHADER_VERSION_STRING;
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -50,223 +51,171 @@ namespace Renderer
 	{
 		if (program == currentProgram)
 		{
-			if (currentProgram == &shaderProgramColorTexture)
-				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-			else  if (currentProgram == &shaderProgramColorNoTexture)
-				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-			else  if (currentProgram == &shaderProgramAlpha)
-				GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramAlpha.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
+			if (currentProgram != nullptr)
+				currentProgram->setMatrix(mvpMatrix);
 
 			return;
 		}
-
+		
 		if (program == nullptr && currentProgram != nullptr)
-		{
-			if (currentProgram == &shaderProgramColorTexture)
-			{
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.posAttrib));
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.colAttrib));
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorTexture.texAttrib));
-			}
-
-			if (currentProgram == &shaderProgramColorNoTexture)
-			{
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-			}
-
-			if (currentProgram == &shaderProgramAlpha)
-			{
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramAlpha.posAttrib));
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramAlpha.colAttrib));
-				GL_CHECK_ERROR(glDisableVertexAttribArray(shaderProgramAlpha.texAttrib));
-			}
-		}
+			currentProgram->unSelect();
 
 		currentProgram = program;
-
-		if (currentProgram == &shaderProgramColorTexture)
+		
+		if (currentProgram != nullptr)
 		{
-			GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
-			GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.posAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.colAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorTexture.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, tex)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorTexture.texAttrib));
-		}
-
-		if (currentProgram == &shaderProgramColorNoTexture)
-		{
-			// Setup shader (always NOT textured)
-			GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
-			GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramColorNoTexture.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.posAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramColorNoTexture.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramColorNoTexture.colAttrib));
-		}
-
-		if (currentProgram == &shaderProgramAlpha)
-		{
-			GL_CHECK_ERROR(glUseProgram(shaderProgramAlpha.id));
-			GL_CHECK_ERROR(glUniformMatrix4fv(shaderProgramAlpha.mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramAlpha.posAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, pos)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramAlpha.posAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramAlpha.colAttrib, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const void*)offsetof(Vertex, col)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramAlpha.colAttrib));
-
-			GL_CHECK_ERROR(glVertexAttribPointer(shaderProgramAlpha.texAttrib, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, tex)));
-			GL_CHECK_ERROR(glEnableVertexAttribArray(shaderProgramAlpha.texAttrib));
+			currentProgram->select();
+			currentProgram->setMatrix(mvpMatrix);
 		}
 	}
 
-	static void setupShaders()
-	{
-		bool result = false;
+	static std::map<std::string, ShaderProgram*> customShaders;
 
-		std::string SHADER_VERSION_STRING = "#version 100\n";
+	static ShaderProgram* getShaderProgram(char* shaderFile)
+	{
+		if (shaderFile == nullptr)
+			return nullptr;
+
+		auto it = customShaders.find(shaderFile);
+		if (it != customShaders.cend())
+			return it->second;
+
+		ShaderProgram* customShader = new ShaderProgram();
+		if (!customShader->loadFromFile(shaderFile))
+		{
+			delete customShader;
+			customShader = nullptr;
+		}
+
+		customShaders[shaderFile] = customShader;
+
+		return customShader;	
+	}
+
+	static void setupDefaultShaders()
+	{
+#if defined(USE_OPENGLES_20)
+		SHADER_VERSION_STRING = "#version 100\n";
+#else 
+		SHADER_VERSION_STRING = "#version 120\n";
 
 		const std::string shaders = glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "";
-		
-#if WIN32
-		if (shaders.find("NVIDIA") != std::string::npos && shaders[0] >= '3' && shaders[0] <= '9')
-			SHADER_VERSION_STRING = "#version 120\n";
-		else if (shaders.find("Intel") != std::string::npos)
-		{
-			if (shaders.find("1.2") != std::string::npos)
-				SHADER_VERSION_STRING = "#version 120\n";
-			else if (shaders.find("1.1") != std::string::npos)
-				SHADER_VERSION_STRING = "#version 110\n";
-		}			
+
+		if (shaders.find("1.0") != std::string::npos)
+			SHADER_VERSION_STRING = "#version 100\n";
+		else if (shaders.find("1.1") != std::string::npos)
+			SHADER_VERSION_STRING = "#version 110\n";
 #endif
+
+		LOG(LogInfo) << "GLSL version preprocessor :     " << SHADER_VERSION_STRING;
 
 		// vertex shader (no texture)
 		std::string vertexSourceNoTexture =
-				SHADER_VERSION_STRING +
-				"uniform   mat4 u_mvp; \n"
-				"attribute vec2 a_pos; \n"
-				"attribute vec4 a_col; \n"
-				"varying   vec4 v_col; \n"
-				"void main(void)                                     \n"
-				"{                                                   \n"
-				"    gl_Position = u_mvp * vec4(a_pos.xy, 0.0, 1.0); \n"
-				"    v_col       = a_col;                            \n"
-				"}                                                   \n";
+			SHADER_VERSION_STRING +
+			R"=====(
+			uniform   mat4 MVPMatrix;
+			attribute vec2 VertexCoord;
+			attribute vec4 COLOR;
+			varying   vec4 v_col;
+			void main(void)
+			{
+			    gl_Position = MVPMatrix * vec4(VertexCoord.xy, 0.0, 1.0);
+			    v_col       = COLOR;
+			}
+			)=====";
 
 		// fragment shader (no texture)
 		std::string fragmentSourceNoTexture =
 			SHADER_VERSION_STRING +
-			"precision mediump float;     \n"
-			"varying   vec4  v_col;     \n"
-			"void main(void)            \n"
-			"{                          \n"
-			"    gl_FragColor = v_col;  \n"
-			"}                          \n";
+			R"=====(
+			precision mediump float;
+			varying   vec4  v_col;   
+			void main(void)          
+			{                        
+			    gl_FragColor = v_col;
+			}                        
+			)=====";
 
 		// Compile each shader, link them to make a full program
-		const GLuint vertexShaderColorTextureId = glCreateShader(GL_VERTEX_SHADER);
-		result = vertexShaderNoTexture.compile(vertexShaderColorTextureId, vertexSourceNoTexture.c_str());
-		const GLuint fragmentShaderNoTextureId = glCreateShader(GL_FRAGMENT_SHADER);
-		result = fragmentShaderColorNoTexture.compile(fragmentShaderNoTextureId, fragmentSourceNoTexture.c_str());
-		result = shaderProgramColorNoTexture.linkShaderProgram(vertexShaderNoTexture, fragmentShaderColorNoTexture);
-		
-		// Set shader active, retrieve attributes and uniforms locations
-		GL_CHECK_ERROR(glUseProgram(shaderProgramColorNoTexture.id));
-		shaderProgramColorNoTexture.posAttrib = glGetAttribLocation(shaderProgramColorNoTexture.id, "a_pos");
-		shaderProgramColorNoTexture.colAttrib = glGetAttribLocation(shaderProgramColorNoTexture.id, "a_col");
-		shaderProgramColorNoTexture.mvpUniform = glGetUniformLocation(shaderProgramColorNoTexture.id, "u_mvp");
-		shaderProgramColorNoTexture.texAttrib = -1;
+		auto vertexShaderNoTexture = Shader::createShader(GL_VERTEX_SHADER, vertexSourceNoTexture);
+		auto fragmentShaderColorNoTexture = Shader::createShader(GL_FRAGMENT_SHADER, fragmentSourceNoTexture);
 
+		shaderProgramColorNoTexture.createShaderProgram(vertexShaderNoTexture, fragmentShaderColorNoTexture);
+		
 		// vertex shader (texture)
 		std::string vertexSourceTexture =
 			SHADER_VERSION_STRING +
-			"uniform   mat4 u_mvp; \n"
-			"attribute vec2 a_pos; \n"
-			"attribute vec2 a_tex; \n"
-			"attribute vec4 a_col; \n"
-			"varying   vec2 v_tex; \n"
-			"varying   vec4 v_col; \n"
-			"void main(void)                                     \n"
-			"{                                                   \n"
-			"    gl_Position = u_mvp * vec4(a_pos.xy, 0.0, 1.0); \n"
-			"    v_tex       = a_tex;                            \n"
-			"    v_col       = a_col;                            \n"
-			"}                                                   \n";
+			R"=====(
+			uniform   mat4 MVPMatrix;
+			attribute vec2 VertexCoord;
+			attribute vec2 TexCoord;
+			attribute vec4 COLOR;
+			varying   vec2 v_tex;
+			varying   vec4 v_col;
+			void main(void)                                    
+			{                                                  
+			    gl_Position = MVPMatrix * vec4(VertexCoord.xy, 0.0, 1.0);
+			    v_tex       = TexCoord;                           
+			    v_col       = COLOR;                           
+			}
+			)=====";
 
 		// fragment shader (texture)
 		std::string fragmentSourceTexture =
 			SHADER_VERSION_STRING +
-			"precision mediump float;       \n"
 #if defined(USE_OPENGLES_20)
-			"precision mediump sampler2D; \n"
+			"precision mediump sampler2D; \n"+
 #endif
-			"varying   vec4      v_col; \n"
-			"varying   vec2      v_tex; \n"
-			"uniform   sampler2D u_tex; \n"
-			"void main(void)                                     \n"
-			"{                                                   \n"
-			"    gl_FragColor = texture2D(u_tex, v_tex) * v_col; \n"
-			"}                                                   \n";
+			R"=====(
+			varying   vec4      v_col;
+			varying   vec2      v_tex;
+			uniform   sampler2D u_tex;
+			uniform   float saturation;
+			void main(void)                                    
+			{                                                  
+			    vec4 clr = texture2D(u_tex, v_tex) * v_col;
 		
+			    if (saturation != 1.0) {
+			    	vec3 gray = vec3(dot(clr.rgb, vec3(0.34, 0.55, 0.11)));
+			    	vec3 blend = mix(gray, clr.rgb, saturation);
+			    	clr = vec4(blend, clr.a);
+			    }
+			
+			    gl_FragColor = clr;
+			}
+			)=====";
+
 		// Compile each shader, link them to make a full program
-		const GLuint vertexShaderColorNoTextureId = glCreateShader(GL_VERTEX_SHADER);
-		result = vertexShaderTexture.compile(vertexShaderColorNoTextureId, vertexSourceTexture.c_str());
-
-		const GLuint fragmentShaderTextureId = glCreateShader(GL_FRAGMENT_SHADER);
-		result = fragmentShaderColorTexture.compile(fragmentShaderTextureId, fragmentSourceTexture.c_str());
-		result = shaderProgramColorTexture.linkShaderProgram(vertexShaderTexture, fragmentShaderColorTexture);
+		auto vertexShaderTexture = Shader::createShader(GL_VERTEX_SHADER, vertexSourceTexture);
+		auto fragmentShaderColorTexture = Shader::createShader(GL_FRAGMENT_SHADER, fragmentSourceTexture);
+		shaderProgramColorTexture.createShaderProgram(vertexShaderTexture, fragmentShaderColorTexture);
 		
-		// Set shader active, retrieve attributes and uniforms locations
-		GL_CHECK_ERROR(glUseProgram(shaderProgramColorTexture.id));
-		shaderProgramColorTexture.posAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_pos");
-		shaderProgramColorTexture.colAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_col");
-		shaderProgramColorTexture.texAttrib = glGetAttribLocation(shaderProgramColorTexture.id, "a_tex");
-		shaderProgramColorTexture.mvpUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_mvp");
-		GLint texUniform = glGetUniformLocation(shaderProgramColorTexture.id, "u_tex");
-		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
-
-
 		// fragment shader (alpha texture)
 		std::string fragmentSourceAlpha =
 			SHADER_VERSION_STRING +
-			"precision mediump float;       \n"
 #if defined(USE_OPENGLES_20)
-			"precision mediump sampler2D; \n"
+			"precision mediump sampler2D; \n" +
 #endif
-			"varying   vec4      v_col; \n"
-			"varying   vec2      v_tex; \n"
-			"uniform   sampler2D u_tex; \n"
-			"void main(void)                                              \n"
-			"{                                                            \n"
-			"    vec4 a = vec4(1.0, 1.0, 1.0, texture2D(u_tex, v_tex).a); \n"
-			"    gl_FragColor = a * v_col;      					      \n"
-			"}\n";
+			R"=====(
+			precision mediump float;  
+			varying   vec4      v_col;
+			varying   vec2      v_tex;
+			uniform   sampler2D u_tex;
+			void main(void)           
+			{                         
+			    vec4 a = vec4(1.0, 1.0, 1.0, texture2D(u_tex, v_tex).a);
+			    gl_FragColor = a * v_col; 
+			}
+			)=====";
 
 
-		const GLuint fragmentShaderAlphaId = glCreateShader(GL_FRAGMENT_SHADER);
-		result = fragmentShaderAlpha.compile(fragmentShaderAlphaId, fragmentSourceAlpha.c_str());
-		result = shaderProgramAlpha.linkShaderProgram(vertexShaderTexture, fragmentShaderAlpha);
+		auto vertexShaderAlpha = Shader::createShader(GL_VERTEX_SHADER, vertexSourceTexture);
+		auto fragmentShaderAlpha = Shader::createShader(GL_FRAGMENT_SHADER, fragmentSourceAlpha);
 
-		// Set shader active, retrieve attributes and uniforms locations
-		GL_CHECK_ERROR(glUseProgram(shaderProgramAlpha.id));
-		shaderProgramAlpha.posAttrib = glGetAttribLocation(shaderProgramAlpha.id, "a_pos");
-		shaderProgramAlpha.colAttrib = glGetAttribLocation(shaderProgramAlpha.id, "a_col");
-		shaderProgramAlpha.texAttrib = glGetAttribLocation(shaderProgramAlpha.id, "a_tex");
-		shaderProgramAlpha.mvpUniform = glGetUniformLocation(shaderProgramAlpha.id, "u_mvp");
-		texUniform = glGetUniformLocation(shaderProgramAlpha.id, "u_tex");
-		GL_CHECK_ERROR(glUniform1i(texUniform, 0));
-
+		shaderProgramAlpha.createShaderProgram(vertexShaderAlpha, fragmentShaderAlpha);
+		
 		useProgram(nullptr);
-	} // setupShaders
+	} // setupDefaultShaders
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -368,10 +317,13 @@ namespace Renderer
 
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 #else
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
 #endif
 
 		SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE,       1);
@@ -442,7 +394,7 @@ namespace Renderer
 		initializeGlExtensions();
 #endif
 
-		setupShaders();
+		setupDefaultShaders();
 		setupVertexBuffer();
 
 		GL_CHECK_ERROR(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
@@ -460,8 +412,19 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
+	void GLES20Renderer::resetCache()
+	{
+		for (auto customShader : customShaders)
+			if (customShader.second != nullptr)
+				customShader.second->deleteProgram();
+
+		customShaders.clear();
+	}
+
 	void GLES20Renderer::destroyContext()
 	{
+		resetCache();
+
 		SDL_GL_DeleteContext(sdlContext);
 		sdlContext = nullptr;
 
@@ -524,8 +487,22 @@ namespace Renderer
 			}
 		}
 
-		if (type == GL_ALPHA && texture != 0 && _alphaTextures.find(texture) == _alphaTextures.cend())
-			_alphaTextures.insert(texture);
+		if (texture != 0)
+		{
+			auto it = _textures.find(texture);
+			if (it != _textures.cend())
+			{
+				it->second->type = type;
+				it->second->size = Vector2f(_width, _height);
+			}
+			else
+			{
+				auto info = new TextureInfo();
+				info->type = type;
+				info->size = Vector2f(_width, _height);
+				_textures[texture] = info;
+			}
+		}
 
 		return texture;
 
@@ -535,10 +512,18 @@ namespace Renderer
 
 	void GLES20Renderer::destroyTexture(const unsigned int _texture)
 	{
-		auto it = _alphaTextures.find(_texture);
-		if (it != _alphaTextures.cend())
-			_alphaTextures.erase(it);
-
+		auto it = _textures.find(_texture);
+		if (it != _textures.cend())
+		{
+			if (it->second != nullptr)
+			{
+				delete it->second;
+				it->second = nullptr;
+			}
+				
+			_textures.erase(it);
+		}
+		
 		GL_CHECK_ERROR(glDeleteTextures(1, &_texture));
 
 	} // destroyTexture
@@ -569,6 +554,23 @@ namespace Renderer
 		}
 		else
 			GL_CHECK_ERROR(glTexSubImage2D(GL_TEXTURE_2D, 0, _x, _y, _width, _height, type, GL_UNSIGNED_BYTE, _data));
+
+		if (_texture != 0)
+		{
+			auto it = _textures.find(_texture);
+			if (it != _textures.cend())
+			{
+				it->second->type = type;
+				it->second->size = Vector2f(_width, _height);
+			}
+			else
+			{
+				auto info = new TextureInfo();
+				info->type = type;
+				info->size = Vector2f(_width, _height);
+				_textures[_texture] = info;
+			}
+		}
 
 		bindTexture(0);
 
@@ -631,10 +633,32 @@ namespace Renderer
 		// Setup shader
 		if (boundTexture != 0)
 		{
-			if (_alphaTextures.find(boundTexture) != _alphaTextures.cend())
+			auto it = _textures.find(boundTexture);
+			if (it != _textures.cend() && it->second != nullptr && it->second->type == GL_ALPHA)
 				useProgram(&shaderProgramAlpha);
 			else
-				useProgram(&shaderProgramColorTexture);
+			{
+				ShaderProgram* shader = &shaderProgramColorTexture;
+
+				if (_vertices->customShader != nullptr)
+				{
+					ShaderProgram* customShader = getShaderProgram(_vertices->customShader);
+					if (customShader != nullptr)
+						shader = customShader;
+				}
+
+				useProgram(shader);
+
+				// Update Shader Uniforms
+
+				shader->setSaturation(_vertices->saturation);
+				
+				if (shader->supportsTextureSize() && it != _textures.cend() && it->second != nullptr)
+					shader->setTextureSize(it->second->size);
+				
+				if (_numVertices > 0)
+					shader->setOutputSize(_vertices[_numVertices-1].pos);
+			}
 		}
 		else
 			useProgram(&shaderProgramColorNoTexture);
@@ -737,10 +761,14 @@ namespace Renderer
 		// Setup shader
 		if (boundTexture != 0)
 		{
-			if (_alphaTextures.find(boundTexture) != _alphaTextures.cend())
+			auto it = _textures.find(boundTexture);
+			if (it != _textures.cend() && it->second != nullptr && it->second->type == GL_ALPHA)
 				useProgram(&shaderProgramAlpha);
 			else
+			{
 				useProgram(&shaderProgramColorTexture);
+				shaderProgramColorTexture.setSaturation(_vertices->saturation);
+			}
 		}
 		else
 			useProgram(&shaderProgramColorNoTexture);

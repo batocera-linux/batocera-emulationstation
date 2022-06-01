@@ -54,12 +54,28 @@ namespace Renderer
 
 	struct Vertex
 	{
-		Vertex()                                                                                                      { }
-		Vertex(const Vector2f& _pos, const Vector2f& _tex, const unsigned int _col) : pos(_pos), tex(_tex), col(_col) { }
+		Vertex() 
+			: saturation(1.0f), customShader(nullptr)
+		{ 
+
+		}
+
+		Vertex(const Vector2f& _pos, const Vector2f& _tex, const unsigned int _col) 
+			: pos(_pos)
+			, tex(_tex)
+			, col(_col) 
+			, saturation(1.0f)
+			, customShader(nullptr)
+		{ 
+
+		}
 
 		Vector2f     pos;
 		Vector2f     tex;
 		unsigned int col;
+
+		float saturation;
+		char* customShader;
 
 	}; // Vertex
 
@@ -75,6 +91,8 @@ namespace Renderer
 
 		virtual void         createContext() = 0;
 		virtual void         destroyContext() = 0;
+
+		virtual void         resetCache() = 0;
 
 		virtual unsigned int createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data) = 0;
 		virtual void         destroyTexture(const unsigned int _texture) = 0;
@@ -126,6 +144,7 @@ namespace Renderer
 	void         setupWindow       ();
 	void         createContext     ();
 	void         destroyContext    ();
+	void         resetCache        ();
 	unsigned int createTexture     (const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data);
 	void         destroyTexture    (const unsigned int _texture);
 	void         updateTexture     (const unsigned int _texture, const Texture::Type _type, const unsigned int _x, const unsigned _y, const unsigned int _width, const unsigned int _height, void* _data);

@@ -129,6 +129,9 @@ public:
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 	void setTargetIsMax() { mTargetIsMax = true; }
 
+	void setSaturation(float saturation);
+	void setCustomShader(const std::string& customShader) { mCustomShader = customShader; }
+
 protected:
 	std::shared_ptr<TextureResource> mTexture;
 	std::shared_ptr<TextureResource> mLoadingTexture;
@@ -177,8 +180,11 @@ private:
 	Alignment mHorizontalAlignment;
 	Alignment mVerticalAlignment;
 
-	float			mRoundCorners;
-	
+	float mRoundCorners;
+	float mSaturation;
+
+	std::string mCustomShader;
+
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::map<std::string, std::shared_ptr<TextureResource>> mPlaylistCache;
 

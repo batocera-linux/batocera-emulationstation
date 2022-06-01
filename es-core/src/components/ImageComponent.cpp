@@ -29,6 +29,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
 	mReflection(0.0f, 0.0f), mPadding(Vector4f(0, 0, 0, 0))
 {
+	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
 	mCheckClipping = true;
 
@@ -567,6 +568,9 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 
 		fadeIn(true);
 
+		mVertices->saturation = mSaturation;
+		mVertices->customShader = mCustomShader.empty() ? nullptr : (char*)mCustomShader.c_str();
+
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 		{
 			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
@@ -764,6 +768,12 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 		if (elem->has("opacity"))
 			setOpacity((unsigned char) (elem->get<float>("opacity") * 255.0));		
+
+		if (elem->has("saturation"))
+			mSaturation = Math::clamp(elem->get<float>("saturation"), 0.0f, 1.0f);
+
+		if (elem->has("shader"))
+			mCustomShader = elem->get<std::string>("shader");		
 	}	
 
 	if(properties & ThemeFlags::ROTATION) 
@@ -939,6 +949,8 @@ ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string 
 		return mPath;
 	else if (name == "padding")
 		return mPadding;
+	else if (name == "saturation")
+		return mSaturation;
 
 	return GuiComponent::getProperty(name);
 }
@@ -976,6 +988,8 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 		mDynamic = false;
 		setImage(value.s, false);
 	}
+	else if (name == "saturation" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+		setSaturation(value.f);
 	else
 		GuiComponent::setProperty(name, value);
 }
@@ -987,4 +1001,9 @@ void ImageComponent::setRoundCorners(float value)
 		
 	mRoundCorners = value; 
 	updateRoundCorners();
+}
+
+void ImageComponent::setSaturation(float saturation)
+{
+	mSaturation = saturation;
 }
