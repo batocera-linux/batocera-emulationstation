@@ -421,8 +421,11 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 		return "";
 
 	// must really;-) be done before window->deinit while it closes joysticks
-	const std::string controllersConfig = InputManager::getInstance()->configureEmulators();
+	std::string controllersConfig = InputManager::getInstance()->configureEmulators();
 
+	if (InputManager::getInstance()->getGuns().size() && gameToUpdate->isLightGunGame())
+		controllersConfig = controllersConfig + "-lightgun ";
+	
 	std::string systemName = system->getName();
 	std::string emulator = getEmulator();
 	std::string core = getCore();
