@@ -393,10 +393,8 @@ const bool FileData::isVerticalArcadeGame()
 
 const bool FileData::isLightGunGame()
 {
-	if (mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE))
-		return MameNames::getInstance()->isLightgun(Utils::FileSystem::getStem(getPath()));
-
-	return Genres::genreExists(&getMetadata(), GENRE_LIGHTGUN);
+	return MameNames::getInstance()->isLightgun(Utils::FileSystem::getStem(getPath()), mSystem->getName(), mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE));
+	//return Genres::genreExists(&getMetadata(), GENRE_LIGHTGUN);
 }
 
 FileData* FileData::getSourceFileData()
