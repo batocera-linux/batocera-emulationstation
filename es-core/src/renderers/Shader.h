@@ -28,7 +28,7 @@ namespace Renderer
 	private:
 		// Compile a shader
 		// id should be a valid shader id created by glCreateShader with GL_VERTEX_SHADER or GL_FRAGMENT_SHADER type
-		bool compile(GLuint id, const char* source);
+		bool compile(GLuint id, const char* source, GLenum type);
 	};
 
 	class ShaderProgram

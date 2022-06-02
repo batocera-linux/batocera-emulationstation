@@ -12,7 +12,7 @@ namespace Renderer
 		const GLuint shaderId = glCreateShader(type);
 
 		Shader ret;
-		ret.compile(shaderId, source.c_str());
+		ret.compile(shaderId, source.c_str(), type);
 		return ret;
 	}
 
@@ -26,7 +26,7 @@ namespace Renderer
 		}
 	}
 
-	bool Shader::compile(GLuint id, const char* source)
+	bool Shader::compile(GLuint id, const char* source, GLenum type)
 	{
 		// Try to compile GLSL source code
 		GL_CHECK_ERROR(glShaderSource(id, 1, &source, nullptr));
@@ -45,18 +45,21 @@ namespace Renderer
 
 			GL_CHECK_ERROR(glGetShaderInfoLog(id, maxLength, &maxLength, infoLog));
 
+			std::string shaderType = (type == GL_FRAGMENT_SHADER) ? "Vertex" : "Fragment";
+
 			if (isCompiled == GL_FALSE)
 			{
-				LOG(LogError) << "GLSL Vertex Compile Error\n" << infoLog;
+				LOG(LogError) << "GLSL " << shaderType << " Compile Error\n" << infoLog;
 				delete[] infoLog;
 				return false;
 			}
 			else
 			{
 				if (strstr(infoLog, "WARNING") || strstr(infoLog, "warning") || strstr(infoLog, "Warning"))
-					LOG(LogWarning) << "GLSL Vertex Compile Warning\n" << infoLog;
+					LOG(LogWarning) << "GLSL " << shaderType << " Compile Warning\n" << infoLog;
 				else
-					LOG(LogInfo) << "GLSL Vertex Compile Message\n" << infoLog;
+					LOG(LogInfo) << "GLSL " << shaderType << " Compile Message\n" << infoLog;
+
 				delete[] infoLog;
 			}
 		}

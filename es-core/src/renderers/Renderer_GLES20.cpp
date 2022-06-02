@@ -167,6 +167,7 @@ namespace Renderer
 			"precision mediump sampler2D; \n"+
 #endif
 			R"=====(
+			precision mediump float;
 			varying   vec4      v_col;
 			varying   vec2      v_tex;
 			uniform   sampler2D u_tex;
