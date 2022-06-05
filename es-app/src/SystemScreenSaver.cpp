@@ -176,7 +176,14 @@ void SystemScreenSaver::startScreenSaver()
 			return;
 		}	
 	}
+	else if (screensaver_behavior == "autobrowsing")
+	{
+		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapBrowsingTimeout");
 
+		// Auto browsing randomly in games lists
+
+	}
+	
 	// No videos. Just use a standard screensaver
 	mState = STATE_SCREENSAVER_ACTIVE;
 	mCurrentGame = NULL;
