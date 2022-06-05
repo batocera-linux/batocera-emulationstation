@@ -14,6 +14,7 @@ public:
 private:
 	void addVideoScreensaverOptions(int selectItem);
 	void addSlideShowScreensaverOptions(int selectItem);	
+	void addAutoBrowsingScreensaverOptions(int selectItem);
 
 	std::shared_ptr<TextComponent> addEditableTextComponent(const std::string label, std::string value);
 	std::shared_ptr<TextComponent> addBrowsablePath(const std::string label, std::string value);
