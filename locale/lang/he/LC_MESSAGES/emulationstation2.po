@@ -373,8 +373,14 @@ msgstr "RETROACHIEVEMENTS הישגי"
 msgid "HARDCORE MODE"
 msgstr "מצב קשה-מאוד"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "לוחות מובילים"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "מצב מילולי"
@@ -382,8 +388,14 @@ msgstr "מצב מילולי"
 msgid "ENCORE MODE"
 msgstr ""
 
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "צילום מסך אוטומטי"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr ""
@@ -409,6 +421,9 @@ msgid "PASSWORD"
 msgstr "סיסמה"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -525,6 +540,9 @@ msgstr "הצג שם מערכת באוסף"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "הצג משחקים של מערכות נסתרות באוספי משחקים"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
@@ -602,6 +620,9 @@ msgid "SAO PAULO"
 msgstr ""
 
 msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "Show rooms for games not present on this machine."
 msgstr ""
 
 msgid "FINISHED"
@@ -1174,32 +1195,35 @@ msgstr "גלגל"
 msgid "MARQUEE"
 msgstr "דגל"
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "SCRAPE דירוגים"
-
-msgid "SCRAPE VIDEOS"
-msgstr "SCRAPE סרטונים"
-
-msgid "SCRAPE FANART"
-msgstr "SCRAPE  אמנות מעריצים"
-
-msgid "SCRAPE BEZEL (16:9)"
+msgid "SHORT NAME"
 msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "SCARPE  עטיפות פנים"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "SCRAPE מפה"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "SCRAPE מדריך"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SCRAPE  הגדרות משטח ללחצן"
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1407,8 +1431,8 @@ msgstr "מרכז מדיה של KODI"
 msgid "GAME SETTINGS"
 msgstr ""
 
-msgid "UI SETTINGS"
-msgstr "הגדרות ממשק משתמש"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "הגדרות צליל ושמע"
@@ -1428,8 +1452,8 @@ msgstr "עדכונים והורדות"
 msgid "SYSTEM SETTINGS"
 msgstr "הגדרות מערכת"
 
-msgid "UNLOCK UI MODE"
-msgstr "ביטול נעילת מצב ממשק משתמש"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "יציאה"
@@ -1440,14 +1464,14 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "בחירה"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
-msgid "DEVELOPER"
-msgstr "מפתח"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "אפשרויות וידאו"
@@ -1457,6 +1481,9 @@ msgstr "מגבלת VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "הצג קצב רענון פריימים"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1473,8 +1500,8 @@ msgstr "כלים"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr ""
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "אפשר גישה פומבית מהרשת"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1486,7 +1513,7 @@ msgstr "רמת חיבור"
 msgid "CREATE A SUPPORT FILE"
 msgstr "יצירת קובץ תמיכה"
 
-msgid "CREATE A SUPPORT FILE?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
@@ -1528,20 +1555,32 @@ msgstr "ניהול DATA"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
-msgid "ENABLE FILTERS"
-msgstr "אפשר מסננים"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "שמרית METADATA ביציאה"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "ניתוח רשימות משחקים בלבד"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "סרוק לאמנות במערכת מקומית"
 
-msgid "UI"
-msgstr "ממשק משתמש"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "מעברי קרוסלה"
@@ -1638,6 +1677,9 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr "שפה"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1647,8 +1689,8 @@ msgstr ""
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "הצג שעות בתצורת 12 שעות"
 
-msgid "POWER SAVER MODES"
-msgstr "מצבי חיסכון באנרגיה"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr ""
@@ -1662,16 +1704,22 @@ msgstr "משופר"
 msgid "INSTANT"
 msgstr ""
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
-msgid "UI MODE"
-msgstr "מצב ממשק משתמש"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
 
 msgid "Do you want to proceed?"
@@ -1700,6 +1748,9 @@ msgstr "פלט שמע"
 
 msgid "AUDIO PROFILE"
 msgstr "פרופיל שמע"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "סיבוב מסך"
@@ -1800,6 +1851,9 @@ msgstr "אבטחה"
 msgid "ENFORCE SECURITY"
 msgstr "אכיפת אבטחה"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "סיסמת שורש ROOT PASSWORD"
 
@@ -1854,14 +1908,23 @@ msgstr ""
 msgid "GAME ASPECT RATIO"
 msgstr ""
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "מצד וידאו"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
 msgid "REWIND"
 msgstr "החזרה לאחור"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr ""
@@ -1935,13 +1998,28 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr "שמירה/טעינה אוטומטית"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr ""
 
-msgid "NEW GAME CREATES NEW SLOT"
+msgid "INCREMENT PER SAVE"
 msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
 msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
@@ -1982,18 +2060,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "הצמדת בתקן בלו-טות'"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "הצגת פעילות בקר"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "הצגת רמת סוללה לבקר"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
 msgstr "ברירת מחדל"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "הצגת פעילות בקר"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "הצגת רמת סוללה לבקר"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2079,7 +2157,7 @@ msgstr "רשת"
 msgid "DISPLAY OPTIONS"
 msgstr "הצגת אפשרויות"
 
-msgid "LIST TRANSITION STYLE"
+msgid "LIST TRANSITION"
 msgstr ""
 
 msgid "auto"
@@ -2104,6 +2182,9 @@ msgid "ICON AND TEXT"
 msgstr "סמל וטקסט"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
+msgid "Ignore 'The' and 'A' if at the start."
 msgstr ""
 
 msgid "VOLUME"
@@ -2190,8 +2271,8 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "צפייה במדריך למשתמש"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "הפעלה מחדש"
@@ -2868,6 +2949,57 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "SCRAPE דירוגים"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "SCRAPE סרטונים"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "SCRAPE  אמנות מעריצים"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "SCARPE  עטיפות פנים"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "SCRAPE מפה"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "SCRAPE מדריך"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "SCRAPE  הגדרות משטח ללחצן"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "הגדרות ממשק משתמש"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "ביטול נעילת מצב ממשק משתמש"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "מפתח"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "אפשר גישה פומבית מהרשת"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "אפשר מסננים"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "ניתוח רשימות משחקים בלבד"
+
+#~ msgid "UI"
+#~ msgstr "ממשק משתמש"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "מצבי חיסכון באנרגיה"
+
+#~ msgid "UI MODE"
+#~ msgstr "מצב ממשק משתמש"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "צפייה במדריך למשתמש"
 
 #~ msgid "UPDATING BATOCERA"
 #~ msgstr "מעדכן את מערכת ההפעלה"

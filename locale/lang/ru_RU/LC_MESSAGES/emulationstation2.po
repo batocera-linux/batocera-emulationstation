@@ -371,8 +371,14 @@ msgstr "РЕТРОДОСТИЖЕНИЯ"
 msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "ДОСКА ЛИДЕРОВ"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
@@ -380,8 +386,14 @@ msgstr "ПОДРОБНЫЙ РЕЖИМ"
 msgid "ENCORE MODE"
 msgstr ""
 
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr "ИНДИКАТОР ДОСТИЖЕНИЙ"
@@ -409,6 +421,9 @@ msgstr "ПАРОЛЬ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ПОКАЗЫВАТЬ РЕТРОДОСТИЖЕНИЯ В ГЛАВНОМ МЕНЮ"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "ИНДЕКСЫ ИГРЫ"
@@ -524,6 +539,9 @@ msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "ПОКАЗАТЬ ИГРЫ ИЗ СПРЯТАННЫХ СИСТЕМ В КОЛЛЕКЦИИ"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr "ОБНОВИТЬ СПИСОК ИГР"
 
@@ -602,6 +620,9 @@ msgstr "САН-ПАУЛУ"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -1177,32 +1198,35 @@ msgstr "КОЛЕСО"
 msgid "MARQUEE"
 msgstr "БАНЕР"
 
-msgid "SCRAPE SHORT NAME"
-msgstr "ЗАГРУЗКА КОРОТКОГО ИМЕНИ"
+msgid "SCRAPE FOR"
+msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
+msgid "SHORT NAME"
+msgstr ""
 
-msgid "SCRAPE VIDEOS"
-msgstr "ЗАГРУЗКА ВИДЕО"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE FANART"
-msgstr "ЗАГРУЗКА ФАН-АРТА"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "ЗАГРУЗКА РАМКИ (16:9)"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "ЗАГРУЗКА ЗАДНИКА ОБЛОЖКИ"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "ЗАГРУЗКА КАРТЫ"
+msgid "BOX BACKSIDE"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "ЗАГРУЗКА РУКОВОДСТВА"
+msgid "MAP"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "ЗАГРУЗКА НАСТРОЕК PADTOKEY"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "СКРАПЕР"
@@ -1413,8 +1437,8 @@ msgstr "МЕДИАЦЕНТР KODI"
 msgid "GAME SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
-msgid "UI SETTINGS"
-msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "НАСТРОЙКИ ЗВУКА"
@@ -1434,8 +1458,8 @@ msgstr "ОБНОВЛЕНИЯ И ЗАГРУЗКИ"
 msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
-msgid "UNLOCK UI MODE"
-msgstr "РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ВЫХОД"
@@ -1446,14 +1470,14 @@ msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ НАСТРОИТЬ УПРАВЛ
 msgid "CHOOSE"
 msgstr "ВЫБРАТЬ"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "ВВЕДИТЕ КОД, ЧТОБЫ РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr ""
 
-msgid "DEVELOPER"
-msgstr "РАЗРАБОТЧИК"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "НАСТРОЙКИ ВИДЕО"
@@ -1463,6 +1487,9 @@ msgstr "ЛИМИТ VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "ПОКАЗАТЬ ЧАСТОТУ КАДРОВ"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1479,8 +1506,8 @@ msgstr "ИНСТРУМЕНТЫ"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "ПРЕКРАТИТЬ ЗАГРУЗКУ ЭТОЙ ИГРЫ ПРИ ЗАПУСКЕ"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "РАЗРЕШИТЬ ПУБЛИЧНЫЙ ДОСТУП"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1492,8 +1519,8 @@ msgstr "УРОВЕНЬ ЖУРНАЛА"
 msgid "CREATE A SUPPORT FILE"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "ФАЙЛ ПОДДЕРЖКИ СОЗДАН В ПАПКЕ SAVES"
@@ -1534,20 +1561,32 @@ msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "ИГНОР. СОДЕРЖИМОЕ МНОГОДИСКОВЫХ ФАЙЛОВ (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "СОХРАНИТЬ МЕТАДАННЫЕ ПРИ ВЫХОДЕ"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "СЧИТЫВАТЬ ТОЛЬКО GAMESLIST.XML (УСК. ЗАГРУЗКУ)"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
 
-msgid "UI"
-msgstr "ИНТЕРФЕЙС"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
@@ -1647,6 +1686,9 @@ msgstr "ОБНОВЛЕНИЕ УЖЕ ЗАПУЩЕНО"
 msgid "LANGUAGE"
 msgstr "ЯЗЫК"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "ВЫБЕРИТЕ СВОЙ ЧАСОВОЙ ПОЯС"
 
@@ -1656,8 +1698,8 @@ msgstr "ЧАСОВОЙ ПОЯС"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "ПОКАЗАТЬ ЧАСЫ В 12-ЧАСОВОМ ФОРМАТЕ "
 
-msgid "POWER SAVER MODES"
-msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "ОТКЛЮЧЕНО"
@@ -1671,21 +1713,23 @@ msgstr "РАСШИРЕННЫЙ"
 msgid "INSTANT"
 msgstr "МГНОВЕННЫЙ"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "ЭКРАННЫЙ ДИКТОР (ТЕКСТ В РЕЧЬ)"
 
-msgid "UI MODE"
-msgstr "РЕЖИМ ИНТЕРФЕЙСА"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"Вы переводите интерфейс в ограниченный режим:\n"
-"Это скроет большинство пунктов меню, для предотвращения изменения в "
-"системе.\n"
-"Чтобы разблокировать и вернуться к полному интерфейсу, введите этот код:"
 
 msgid "Do you want to proceed?"
 msgstr "Вы хотите продолжить?"
@@ -1713,6 +1757,9 @@ msgstr "АУДИО ВЫХОД"
 
 msgid "AUDIO PROFILE"
 msgstr "АУДИО ПРОФИЛЬ"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
@@ -1813,6 +1860,9 @@ msgstr "БЕЗОПАСНОСТЬ"
 msgid "ENFORCE SECURITY"
 msgstr "УСИЛЕННАЯ БЕЗОПАСНОСТЬ"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
 
@@ -1869,14 +1919,23 @@ msgstr "СТАНДАРТНЫЕ ГЛОБАЛЬНЫЕ НАСТРОЙКИ"
 msgid "GAME ASPECT RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "РАЗРЕШЕНИЕ"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "СГЛАЖИВАНИЕ ИГР (БИЛИНЕЙНАЯ ФИЛЬТРАЦИЯ)"
 
 msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
@@ -1950,14 +2009,29 @@ msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
 msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "НОВАЯ ИГРА СОЗДАЁТ НОВЫЙ СЛОТ"
+msgid "INCREMENT PER SAVE"
+msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "НОВАЯ ИГРА ПЕРЕЗАПИСЫВАЕТ ТЕКУЩИЙ СЛОТ"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
@@ -2003,18 +2077,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i КОНТРОЛЛЕР"
 
 msgid "default"
 msgstr "по умолчанию"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
@@ -2100,8 +2174,8 @@ msgstr "сетка"
 msgid "DISPLAY OPTIONS"
 msgstr "НАСТРОЙКИ ЭКРАНА"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "СТИЛЬ ПЕРЕХОДОВ"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr "авто"
@@ -2126,6 +2200,9 @@ msgstr "ИКОНКА И ТЕКСТ"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКИ"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -2211,8 +2288,8 @@ msgstr "СЕЙЧАС ИГРАЕТ"
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -2889,6 +2966,91 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "SCRAPE SHORT NAME"
+#~ msgstr "ЗАГРУЗКА КОРОТКОГО ИМЕНИ"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "ЗАГРУЗКА РЕЙТИНГОВ"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "ЗАГРУЗКА ВИДЕО"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "ЗАГРУЗКА ФАН-АРТА"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "ЗАГРУЗКА РАМКИ (16:9)"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "ЗАГРУЗКА ЗАДНИКА ОБЛОЖКИ"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "ЗАГРУЗКА КАРТЫ"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "ЗАГРУЗКА РУКОВОДСТВА"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "ЗАГРУЗКА НАСТРОЕК PADTOKEY"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "ВВЕДИТЕ КОД, ЧТОБЫ РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "РАЗРАБОТЧИК"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "РАЗРЕШИТЬ ПУБЛИЧНЫЙ ДОСТУП"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "ВКЛЮЧИТЬ ФИЛЬТРЫ"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "СЧИТЫВАТЬ ТОЛЬКО GAMESLIST.XML (УСК. ЗАГРУЗКУ)"
+
+#~ msgid "UI"
+#~ msgstr "ИНТЕРФЕЙС"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
+
+#~ msgid "UI MODE"
+#~ msgstr "РЕЖИМ ИНТЕРФЕЙСА"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "Вы переводите интерфейс в ограниченный режим:\n"
+#~ "Это скроет большинство пунктов меню, для предотвращения изменения в "
+#~ "системе.\n"
+#~ "Чтобы разблокировать и вернуться к полному интерфейсу, введите этот код:"
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "НОВАЯ ИГРА СОЗДАЁТ НОВЫЙ СЛОТ"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "НОВАЯ ИГРА ПЕРЕЗАПИСЫВАЕТ ТЕКУЩИЙ СЛОТ"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "СТИЛЬ ПЕРЕХОДОВ"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "ПЕРЕЗАГРУЗИТЕ СИСТЕМУ ДЛЯ ПРИМЕНЕНИЯ"

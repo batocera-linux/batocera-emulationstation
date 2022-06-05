@@ -370,8 +370,14 @@ msgstr "RETROACHIEVEMENTS"
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
@@ -379,8 +385,14 @@ msgstr "MODO DETALHADO"
 msgid "ENCORE MODE"
 msgstr ""
 
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFIOS"
@@ -409,6 +421,9 @@ msgstr "PASSWORD"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "MOSTRAR RETROACHIEVEMENTS NO MENU PRINCIPAL"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "ÍNDICE DO JOGO"
@@ -524,6 +539,9 @@ msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "MOSTRAR JOGOS DE SISTEMAS OCULTOS NAS COLEÇÕES"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr "ATUALIZAR LISTA DE JOGOS"
 
@@ -602,6 +620,9 @@ msgstr "SÃO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOGOS INDISPONÍVEIS"
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -1179,32 +1200,35 @@ msgstr "LOGOTIPO"
 msgid "MARQUEE"
 msgstr "LETREIRO"
 
-msgid "SCRAPE SHORT NAME"
-msgstr "OBTER NOME ABREVIADO"
+msgid "SCRAPE FOR"
+msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "OBTER CLASSIFICAÇÕES"
+msgid "SHORT NAME"
+msgstr ""
 
-msgid "SCRAPE VIDEOS"
-msgstr "OBTER VÍDEOS"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE FANART"
-msgstr "OBTER MEDIAS ARTE DO FÃ"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "OBTER MEDIAS DE MOLDURA (16:9)"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "OBTER MAPA"
+msgid "BOX BACKSIDE"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "PROCURA MANUAL"
+msgid "MAP"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "OBTER AJUSTES DO COMANDO PARA TECLADO"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "OBTER CAPAS"
@@ -1415,8 +1439,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAME SETTINGS"
 msgstr "DEFINIÇÕES DO JOGO"
 
-msgid "UI SETTINGS"
-msgstr "DEFINIÇÕES DE INTERFACE"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "DEFINIÇÕES DE ÁUDIO"
@@ -1436,8 +1460,8 @@ msgstr "ATUALIZAÇÕES & TRANSFERÊNCIAS"
 msgid "SYSTEM SETTINGS"
 msgstr "DEFINIÇÕES DO SISTEMA"
 
-msgid "UNLOCK UI MODE"
-msgstr "DESBLOQUEAR MODO DE INTERFACE"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "SAIR"
@@ -1448,14 +1472,14 @@ msgstr "TEM A CERTEZA QUE DESEJA CONFIGURAR A ENTRADA?"
 msgid "CHOOSE"
 msgstr "ESCOLHER"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "O MODO INTERFACE ESTÁ DESBLOQUEADO AGORA"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr ""
 
-msgid "DEVELOPER"
-msgstr "PRODUTORA"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "DEFINIÇÕES DE VÍDEO"
@@ -1465,6 +1489,9 @@ msgstr "LIMITE DA VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRAR FRAMERATE"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1481,8 +1508,8 @@ msgstr "FERRAMENTAS"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "PARAR DE INICIALIZAR ESTE JOGO NA INICIALIZAÇÃO"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "ATIVAR O ACESSO PÚBLICO À WEB"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1494,8 +1521,8 @@ msgstr "NÍVEL DO LOG"
 msgid "CREATE A SUPPORT FILE"
 msgstr "CRIAR UM ARQUIVO DE SUPORTE"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "ARQUIVO DE SUPORTE CRIADO NA PASTA SAVES"
@@ -1536,20 +1563,32 @@ msgstr "GESTÃO DE DADOS"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNORAR O CONTEÚDO DE MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "ATIVAR FILTROS"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "GUARDAR INFORMAÇÕES NA SAÍDA"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "ANALIZAR APENAS A LISTA DE JOGOS"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "PROCURAR POR IMAGENS NO DISCO"
 
-msgid "UI"
-msgstr "INTERFACE DO UTILIZADOR"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "ANIMAÇÃO DE TRANSIÇÃO CARROSSEL"
@@ -1652,6 +1691,9 @@ msgstr "A ATUALIZAÇÃO JÁ ESTÁ EM CURSO"
 msgid "LANGUAGE"
 msgstr "IDIOMA"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECIONE SEU FUSO HORÁRIO"
 
@@ -1661,8 +1703,8 @@ msgstr "FUSO HORÁRIO"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "MOSTRAR O RELÓGIO NO FORMATO 12 HORAS"
 
-msgid "POWER SAVER MODES"
-msgstr "MODO POUPANÇA DE ENERGIA"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "DESATIVADO"
@@ -1676,21 +1718,23 @@ msgstr "MELHORADO"
 msgid "INSTANT"
 msgstr "INSTANTÂNEO"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE ECRÃ (TEXTO PARA VOZ)"
 
-msgid "UI MODE"
-msgstr "MODO DA INTERFACE"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"Está a alterar a interface para um modo restrito:\n"
-"Isso ocultará a maioria das definições do menu para evitar alterações no "
-"sistema.\n"
-"Para desbloquear e retomar á interface completa, digite este código:"
 
 msgid "Do you want to proceed?"
 msgstr "DESEJA CONTINUAR?"
@@ -1718,6 +1762,9 @@ msgstr "SAÍDA DE ÁUDIO"
 
 msgid "AUDIO PROFILE"
 msgstr "PERFIL DE ÁUDIO"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DO ECRÃ"
@@ -1818,6 +1865,9 @@ msgstr "SEGURANÇA"
 msgid "ENFORCE SECURITY"
 msgstr "REFORÇAR A SEGURANÇA"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "PASSWORD ROOT"
 
@@ -1876,14 +1926,23 @@ msgstr "DEFINIÇÕES GLOBAIS PADRÃO"
 msgid "GAME ASPECT RATIO"
 msgstr "PROPORÇÃO DO ECRÃ"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
 
 msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
@@ -1957,14 +2016,29 @@ msgstr "SAVESTATES"
 msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INCREMENTAL SAVESTATES"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "NOVO JOGO CRIA NOVO ESPAÇO"
+msgid "INCREMENT PER SAVE"
+msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "NOVO JOGO SOBRESCREVE NOVO ESPAÇO"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "MOSTRAR MENU DE SAVESTATES"
@@ -2010,18 +2084,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "EMPARELHAR DISPOSITIVO BLUETOOTH"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "MOSTRAR ATIVIDADE DO COMANDO"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "COMANDO DO JOGADOR %i"
 
 msgid "default"
 msgstr "PADRÃO"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "MOSTRAR ATIVIDADE DO COMANDO"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"
@@ -2107,8 +2181,8 @@ msgstr "grade"
 msgid "DISPLAY OPTIONS"
 msgstr "OPÇÕES DE EXIBIÇÃO"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "ESTILO DE TRANSIÇÃO"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr "automático"
@@ -2133,6 +2207,9 @@ msgstr "ÍCONE E TEXTO"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORE OS ARTIGOS PRINCIPAIS AO ORDENAR"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2218,8 +2295,8 @@ msgstr "A REPRODUZIR"
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE ECRÃ"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "VER MANUAL DO UTILIZADOR"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR O SISTEMA"
@@ -2886,3 +2963,87 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
+#~ msgid "SCRAPE SHORT NAME"
+#~ msgstr "OBTER NOME ABREVIADO"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "OBTER CLASSIFICAÇÕES"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "OBTER VÍDEOS"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "OBTER MEDIAS ARTE DO FÃ"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "OBTER MEDIAS DE MOLDURA (16:9)"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "OBTER MAPA"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "PROCURA MANUAL"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "OBTER AJUSTES DO COMANDO PARA TECLADO"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "DEFINIÇÕES DE INTERFACE"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "DESBLOQUEAR MODO DE INTERFACE"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "O MODO INTERFACE ESTÁ DESBLOQUEADO AGORA"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "PRODUTORA"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "ATIVAR O ACESSO PÚBLICO À WEB"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "ATIVAR FILTROS"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "ANALIZAR APENAS A LISTA DE JOGOS"
+
+#~ msgid "UI"
+#~ msgstr "INTERFACE DO UTILIZADOR"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "MODO POUPANÇA DE ENERGIA"
+
+#~ msgid "UI MODE"
+#~ msgstr "MODO DA INTERFACE"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "Está a alterar a interface para um modo restrito:\n"
+#~ "Isso ocultará a maioria das definições do menu para evitar alterações no "
+#~ "sistema.\n"
+#~ "Para desbloquear e retomar á interface completa, digite este código:"
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "NOVO JOGO CRIA NOVO ESPAÇO"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "NOVO JOGO SOBRESCREVE NOVO ESPAÇO"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "ESTILO DE TRANSIÇÃO"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "VER MANUAL DO UTILIZADOR"

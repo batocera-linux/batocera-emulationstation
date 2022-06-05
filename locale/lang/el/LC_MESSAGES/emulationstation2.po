@@ -367,7 +367,13 @@ msgstr ""
 msgid "HARDCORE MODE"
 msgstr "ΛΕΙΤΟΥΡΓΙΑ HARDCORE"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
 
 msgid "VERBOSE MODE"
@@ -376,8 +382,14 @@ msgstr "ΛΕΙΤΟΥΡΓΙΑ VERBOSE"
 msgid "ENCORE MODE"
 msgstr ""
 
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AYTOMATO ΣΤΙΓΜΙΟΤΥΠΟ"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr ""
@@ -403,6 +415,9 @@ msgid "PASSWORD"
 msgstr "ΚΩΔΙΚΟΣ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -519,6 +534,9 @@ msgstr "ΕΜΦΑΝΙΣΗ ΟΝΟΜΑΤΩΝ ΣΥΣΤΗΜΑΤΟΣ ΣΤΙΣ ΣΥΛΛ
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "ΕΜΦΑΝΙΣΗ ΠΑΙΧΝΙΔΩΝ ΚΡΥΜΜΕΝΩΝ ΣΥΣΤΗΜΑΤΩΝ ΣΤΙΣ ΣΥΛΛΟΓΕΣ"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
@@ -596,6 +614,9 @@ msgid "SAO PAULO"
 msgstr ""
 
 msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "Show rooms for games not present on this machine."
 msgstr ""
 
 msgid "FINISHED"
@@ -1170,31 +1191,34 @@ msgstr ""
 msgid "MARQUEE"
 msgstr "ΛΟΓΟΤΥΠΟ"
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "ΑΞΙΟΛΟΓΗΣΕΙΣ SCRAPE"
-
-msgid "SCRAPE VIDEOS"
-msgstr "SCRAPE ΒΙΝΤΕΟ"
-
-msgid "SCRAPE FANART"
+msgid "SHORT NAME"
 msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
+msgid "COMMUNITY RATING"
 msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "SCRAPE ΠΙΣΩ ΜΕΡΟΣ BOX"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "SCRAPE XAΡΤΗ"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "SCRAPE ΕΓΧΕΙΡΙΔΙΟ"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1403,8 +1427,8 @@ msgstr ""
 msgid "GAME SETTINGS"
 msgstr ""
 
-msgid "UI SETTINGS"
-msgstr "ΡΥΘΜΙΣΕΙΣ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "ΡΥΘΜΙΣΕΙΣ ΗΧΟΥ"
@@ -1424,8 +1448,8 @@ msgstr "ΑΝΑΒΑΘΜΙΣΕΙΣ & ΛΗΨΕΙΣ"
 msgid "SYSTEM SETTINGS"
 msgstr "ΡΥΘΜΙΣΕΙΣ ΣΥΣΤΗΜΑΤΟΣ"
 
-msgid "UNLOCK UI MODE"
-msgstr "ΞΕΚΛΕΙΔΩΜΑ ΛΕΙΤΟΥΡΓΙΑΣ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ"
@@ -1436,14 +1460,14 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "ΕΠΙΛΟΓΗ"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
-msgid "DEVELOPER"
-msgstr "ΠΡΟΓΡΑΜΜΑΤΙΣΤΗΣ"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "ΕΠΙΛΟΓΕΣ ΒΙΝΤΕΟ"
@@ -1453,6 +1477,9 @@ msgstr "ΟΡΙΟ VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "ΕΜΦΑΝΙΣΗ ΡΥΘΜΟΥ ΚΑΡΕ "
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr ""
@@ -1469,8 +1496,8 @@ msgstr "ΕΡΓΑΛΕΙΑ"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr ""
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΔΗΜΟΣΙΑΣ ΠΡΟΣΒΑΣΗΣ ΙΣΤΟΥ"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1482,8 +1509,8 @@ msgstr "ΕΠΙΠΕΔΟ LOG"
 msgid "CREATE A SUPPORT FILE"
 msgstr "ΔΗΜΙΟΥΡΓΙΑ ΥΠΟΣΤΗΡΙΚΤΙΚΟΥ ΑΡΧΕΙΟΥ"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "ΝΑ ΔΗΜΙΟΥΡΓΗΘΕΙ ΥΠΟΣΤΗΡΙΚΤΙΚΟ ΑΡΧΕΙΟ ;"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
@@ -1524,20 +1551,32 @@ msgstr "ΔΙΑΧΕΙΡΙΣΗ ΔΕΔΟΜΕΝΩΝ"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "ΑΓΝΟΗΣΗ ΠΕΡΙΕΧΟΜΕΝΟΥ ΠΟΛΥΑΡΧΕΙΩΝ ΔΙΣΚΟΥ (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΦΙΛΤΡΩΝ"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ ΚΑΤΑ ΤΗΝ ΕΞΟΔΟ"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "ΑΝΑΛΥΣΗ ΛΙΣΤΩΝ ΠΑΙΧΝΙΔΙΩΝ ΜΟΝΟ"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ΑΝΑΖΗΤΗΣΗ ΓΙΑ LOCAL ART"
 
-msgid "UI"
-msgstr "ΠΕΡΙΒΑΛΛΟΝ ΧΡΗΣΤΗ"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "ΚΑΡΟΥΖΕΛ ΤΥΠΟΣ ΜΕΤΑΒΑΣΕΩΝ"
@@ -1636,6 +1675,9 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr "ΓΛΩΣΣΑ"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1645,8 +1687,8 @@ msgstr ""
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "ΕΜΦΑΝΙΣΗ ΔΩΔΕΚΑΩΡΗΣ ΜΟΡΦΗΣ ΡΟΛΟΓΙΟΥ"
 
-msgid "POWER SAVER MODES"
-msgstr "ΛΕΙΤΟΥΡΓΙΕΣ ΕΞΟΙΚΟΝΟΜΙΣΗΣ ΕΝΕΡΓΕΙΑΣ"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΟ"
@@ -1660,16 +1702,22 @@ msgstr "ΕΝΙΣΧΥΜΕΝΟ"
 msgid "INSTANT"
 msgstr ""
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
-msgid "UI MODE"
-msgstr "ΛΕΙΤΟΥΡΓΙΑ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
 
 msgid "Do you want to proceed?"
@@ -1698,6 +1746,9 @@ msgstr "ΕΞΟΔΟΣ ΗΧΟΥ"
 
 msgid "AUDIO PROFILE"
 msgstr "ΠΡΟΦΙΛ ΗΧΟΥ"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "ΠΕΡΙΣΤΡΟΦΗ ΟΘΟΝΗΣ"
@@ -1798,6 +1849,9 @@ msgstr "ΑΣΦΑΛΕΙΑ"
 msgid "ENFORCE SECURITY"
 msgstr "ΕΦΑΡΜΟΓΗ ΑΣΦΑΛΕΙΑΣ"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "ΚΩΔΙΚΟΣ ΔΙΑΧΕΙΡΙΣΤΗ"
 
@@ -1853,14 +1907,23 @@ msgstr ""
 msgid "GAME ASPECT RATIO"
 msgstr ""
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "ΛΕΙΤΟΥΡΓΙΑ ΒΙΝΤΕΟ"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
 msgid "REWIND"
 msgstr "ΑΝΑΔΙΠΛΩΣΗ"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ΚΛΙΜΑΚΑ INTEGER (ΤΕΛΕΙΟΤΗΤΑ PIXEL)"
@@ -1934,13 +1997,28 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr ""
 
-msgid "NEW GAME CREATES NEW SLOT"
+msgid "INCREMENT PER SAVE"
 msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
 msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
@@ -1981,18 +2059,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "ΖΕΥΞΗ ΣΥΣΚΕΥΗΣ BLUETOOTH"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ΕΜΦΑΝΙΣΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ΕΜΦΑΝΙΣΗ ΕΠΙΠΕΔΟΥ ΜΠΑΤΑΡΙΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
 msgstr "Προεπιλεγμένο"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ΕΜΦΑΝΙΣΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ΕΜΦΑΝΙΣΗ ΕΠΙΠΕΔΟΥ ΜΠΑΤΑΡΙΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2078,8 +2156,8 @@ msgstr "πλέγμα"
 msgid "DISPLAY OPTIONS"
 msgstr "ΕΠΙΛΟΓΕΣ ΕΜΦΑΝΙΣΗΣ"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "ΣΤΥΛ ΜΕΤΑΒΑΣΗΣ"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr ""
@@ -2104,6 +2182,9 @@ msgstr "ΕΙΚΟΝΙΔΙΟ ΚΑΙ ΚΕΙΜΕΝΟ"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ΑΓΝΟΗΣΗ ΚΥΡΙΩΝ ΑΡΘΡΩΝ ΚΑΤΑ ΤΗΝ ΤΑΞΙΝΟΜΗΣΗ"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "ΕΝΤΑΣΗ"
@@ -2189,8 +2270,8 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "ΠΡΟΒΟΛΗ ΕΓΧΕΙΡΙΔΙΟΥ ΧΡΗΣΤΗ"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "ΕΠΑΝΕΚΚΙΝΗΣΗ ΣΥΣΤΗΜΑΤΟΣ"
@@ -2850,6 +2931,57 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "ΑΞΙΟΛΟΓΗΣΕΙΣ SCRAPE"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "SCRAPE ΒΙΝΤΕΟ"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "SCRAPE ΠΙΣΩ ΜΕΡΟΣ BOX"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "SCRAPE XAΡΤΗ"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "SCRAPE ΕΓΧΕΙΡΙΔΙΟ"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "ΡΥΘΜΙΣΕΙΣ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "ΞΕΚΛΕΙΔΩΜΑ ΛΕΙΤΟΥΡΓΙΑΣ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "ΠΡΟΓΡΑΜΜΑΤΙΣΤΗΣ"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΔΗΜΟΣΙΑΣ ΠΡΟΣΒΑΣΗΣ ΙΣΤΟΥ"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "ΝΑ ΔΗΜΙΟΥΡΓΗΘΕΙ ΥΠΟΣΤΗΡΙΚΤΙΚΟ ΑΡΧΕΙΟ ;"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "ΕΝΕΡΓΟΠΟΙΗΣΗ ΦΙΛΤΡΩΝ"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "ΑΝΑΛΥΣΗ ΛΙΣΤΩΝ ΠΑΙΧΝΙΔΙΩΝ ΜΟΝΟ"
+
+#~ msgid "UI"
+#~ msgstr "ΠΕΡΙΒΑΛΛΟΝ ΧΡΗΣΤΗ"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "ΛΕΙΤΟΥΡΓΙΕΣ ΕΞΟΙΚΟΝΟΜΙΣΗΣ ΕΝΕΡΓΕΙΑΣ"
+
+#~ msgid "UI MODE"
+#~ msgstr "ΛΕΙΤΟΥΡΓΙΑ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΧΡΗΣΤΗ"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "ΣΤΥΛ ΜΕΤΑΒΑΣΗΣ"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "ΠΡΟΒΟΛΗ ΕΓΧΕΙΡΙΔΙΟΥ ΧΡΗΣΤΗ"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "ΕΠΑΝΕΚΚΙΝΗΣΗ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΑΠΟΔΟΧΗ"

@@ -371,17 +371,29 @@ msgstr "RETROÚSPĚCHY"
 msgid "HARDCORE MODE"
 msgstr "REŽIM HARDCORE"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "VÝSLEDKOVÁ TABULE"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "ÚPLNÝ INFORMAČNÍ REŽIM"
 
 msgid "ENCORE MODE"
+msgstr "REŽIM ENCORE"
+
+msgid "Reset achievements to be able to earn them again."
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATICKÉ SNÍMKY OBRAZOVKY"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr "UKAZATELE VÝZVY"
@@ -408,6 +420,9 @@ msgstr "HESLO"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ZOBRAZIT POLOŽKU RETROÚSPĚCHY V HLAVNÍ NABÍDCE"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "INDEXY HRY"
@@ -523,6 +538,9 @@ msgstr "ZOBRAZIT NÁZEV SYSTÉMU VE SBÍRKÁCH"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "ZOBRAZIT HRY SKRYTÝCH SYSTÉMŮ VE SBÍRKÁCH"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr "AKTUALIZOVAT SEZNAMY HER"
 
@@ -601,6 +619,9 @@ msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ZOBRAZIT NEDOSTUPNÉ HRY"
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
 
 msgid "FINISHED"
 msgstr "DOKONČENO"
@@ -1176,32 +1197,35 @@ msgstr "KOLO"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
-msgid "SCRAPE SHORT NAME"
-msgstr "VYHLEDÁNÍ KRÁTKÉHO NÁZVU"
+msgid "SCRAPE FOR"
+msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "VYHLEDEJ HODNOCENÍ"
+msgid "SHORT NAME"
+msgstr ""
 
-msgid "SCRAPE VIDEOS"
-msgstr "VYHLEDEJ VIDEA"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE FANART"
-msgstr "VYHLEDEJ OBRÁZKY FANOUŠKŮ"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "RÁMEC VYHLEDAVAČE (16:9)"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "VYHLEDEJ Z.STRANU OBALU"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "VYHLEDEJ MAPU"
+msgid "BOX BACKSIDE"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "VYHLEDEJ MANUÁL"
+msgid "MAP"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "VYHLEDEJ NASTAVENÍ HER. OVLADAČE"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
@@ -1412,8 +1436,8 @@ msgstr "MEDIALNÍ CENTRUM KODI"
 msgid "GAME SETTINGS"
 msgstr "NASTAVENÍ HRY"
 
-msgid "UI SETTINGS"
-msgstr "NASTAVENÍ UI"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "NASTAVENÍ ZVUKU"
@@ -1433,8 +1457,8 @@ msgstr "AKTUALIZACE A STAHOVÁNÍ"
 msgid "SYSTEM SETTINGS"
 msgstr "NASTAVENÍ SYSTÉMU"
 
-msgid "UNLOCK UI MODE"
-msgstr "REŽIM ODEMČENÍ UI"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "UKONČIT"
@@ -1445,14 +1469,14 @@ msgstr "JSTE SI JISTI, ŽE CHCETE KONFIGUROVAT VSTUP?"
 msgid "CHOOSE"
 msgstr "POHYB"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "REŽIM UI JE NYNÍ ODEMČEN"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "ZADEJTE KÓD PRO ODEMČENÍ AKTUÁLNÍHO UI"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr ""
 
-msgid "DEVELOPER"
-msgstr "VÝVOJÁŘ"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "NASTAVENÍ VIDEA"
@@ -1462,6 +1486,9 @@ msgstr "LIMIT VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "ZOBRAZIT FPS"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1478,8 +1505,8 @@ msgstr "NÁSTROJE"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "PŘESTAT SPOUŠTĚT TUTO HRU PŘI STARTU"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "UMOŽNIT VEŘEJNÝ PŘÍSTUP NA WEB"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1491,8 +1518,8 @@ msgstr "ÚROVEŇ PŘIHLÁŠENÍ"
 msgid "CREATE A SUPPORT FILE"
 msgstr "VYTVOŘIT SOUBOR PODPORY"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "VYTVOŘIT SOUBOR PODPORY?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "SOUBOR PODPORY VYTVOŘENÝ VE SLOŽCE ULOŽENÍ"
@@ -1533,20 +1560,32 @@ msgstr "SPRÁVA DAT"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNOR. OBSAH VÍCE SOUBOR. DISKU (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "POVOLIT FILTRY"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "ULOŽIT METADATA A UKONČIT"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "ANALYZOVAT POUZE SEZNAMY HER"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "VYHLEDAT MÍSTNÍ OBRÁZEK"
 
-msgid "UI"
-msgstr "UI"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "CAROUSEL TRANZITY"
@@ -1647,6 +1686,9 @@ msgstr "AKTUALIZÁTOR JE JIŽ SPUŠTĚN"
 msgid "LANGUAGE"
 msgstr "JAZYK"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VYBERTE SVÉ ČASOVÉ PÁSMO"
 
@@ -1656,8 +1698,8 @@ msgstr "ČASOVÉ PÁSMO"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "ZOBRAZIT HODINY VE 12 HODINOVÉM FORMÁTU"
 
-msgid "POWER SAVER MODES"
-msgstr "REŽIMY ÚSPORY ENERGIE"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "VYPNUTO"
@@ -1671,20 +1713,23 @@ msgstr "VYLEPŠENÝ"
 msgid "INSTANT"
 msgstr "OKAMŽITÝ"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "ČTEČKA OBRAZOVKY (PŘEVOD TEXTU NA ŘEČ)"
 
-msgid "UI MODE"
-msgstr "REŽIM UI"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"Měníte uživatelské rozhraní na omezený režim:\n"
-"Tím se skryje většina možností menu, aby se zabránilo změnám v systému.\n"
-"Pro odemknutí a návrat do plného uživatelského rozhraní zadejte tento kód:"
 
 msgid "Do you want to proceed?"
 msgstr "Chcete pokračovat?"
@@ -1712,6 +1757,9 @@ msgstr "AUDIO VÝSTUP"
 
 msgid "AUDIO PROFILE"
 msgstr "AUDIO PROFIL"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "OTOČENÍ OBRAZOVKY"
@@ -1812,6 +1860,9 @@ msgstr "BEZPEČNOST"
 msgid "ENFORCE SECURITY"
 msgstr "ZVÝŠENÁ BEZPEČNOST"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "HESLO ADMINISTRÁTORA"
 
@@ -1870,14 +1921,23 @@ msgstr "VÝCHOZÍ CELKOVÉ NASTAVENÍ"
 msgid "GAME ASPECT RATIO"
 msgstr "POMĚR STRAN VE HŘE"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "REŽIM VIDEA"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "PLYNULOST HRY (BILINEAR FILTERING)"
 
 msgid "REWIND"
 msgstr "PŘETOČENÍ"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "CELOČÍSELNÉ ŠKÁLOVÁNÍ (PERFEKTNÍ PIXEL)"
@@ -1951,14 +2011,29 @@ msgstr "ULOŽENÉ POZICE"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "NOVÁ HRA VYTVÁŘÍ NOVÝ SLOT"
+msgid "INCREMENT PER SAVE"
+msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "NOVÁ HRA PŘEPÍŠE AKTUÁLNÍ SLOT"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "ZOBRAZIT SPRÁVCE ULOŽENÝCH POZIC"
@@ -2003,18 +2078,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S HER.OVLADAČ"
 
 msgid "default"
 msgstr "výchozí"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "PŘED ÚPRAVOU KONFIGURACE JE NUTNÉ POUŽÍT MOTIV"
@@ -2100,8 +2175,8 @@ msgstr "mřížka"
 msgid "DISPLAY OPTIONS"
 msgstr "MOŽNOSTI DISPLEJE"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "SEZNAM DRUHU PŘECHODU"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr "automaticky"
@@ -2126,6 +2201,9 @@ msgstr "IKONA A TEXT"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "PŘI ŘAZENÍ IGNOROVAT ÚVODNÍ ČLÁNKY"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "HLASITOST"
@@ -2211,8 +2289,8 @@ msgstr "PRÁVĚ SE PŘEHRÁVÁ"
 msgid "LAUNCH SCREENSAVER"
 msgstr "SPUSTIT SPOŘIČ OBRAZOVKY"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "ZOBRAZIT NÁVOD K POUŽITÍ"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "RESTARTOVAT"
@@ -2890,6 +2968,90 @@ msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "SCRAPE SHORT NAME"
+#~ msgstr "VYHLEDÁNÍ KRÁTKÉHO NÁZVU"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "VYHLEDEJ HODNOCENÍ"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "VYHLEDEJ VIDEA"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "VYHLEDEJ OBRÁZKY FANOUŠKŮ"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "RÁMEC VYHLEDAVAČE (16:9)"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "VYHLEDEJ Z.STRANU OBALU"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "VYHLEDEJ MAPU"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "VYHLEDEJ MANUÁL"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "VYHLEDEJ NASTAVENÍ HER. OVLADAČE"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "NASTAVENÍ UI"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "REŽIM ODEMČENÍ UI"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "REŽIM UI JE NYNÍ ODEMČEN"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "ZADEJTE KÓD PRO ODEMČENÍ AKTUÁLNÍHO UI"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "VÝVOJÁŘ"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "UMOŽNIT VEŘEJNÝ PŘÍSTUP NA WEB"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "VYTVOŘIT SOUBOR PODPORY?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "POVOLIT FILTRY"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "ANALYZOVAT POUZE SEZNAMY HER"
+
+#~ msgid "UI"
+#~ msgstr "UI"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "REŽIMY ÚSPORY ENERGIE"
+
+#~ msgid "UI MODE"
+#~ msgstr "REŽIM UI"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "Měníte uživatelské rozhraní na omezený režim:\n"
+#~ "Tím se skryje většina možností menu, aby se zabránilo změnám v systému.\n"
+#~ "Pro odemknutí a návrat do plného uživatelského rozhraní zadejte tento kód:"
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "NOVÁ HRA VYTVÁŘÍ NOVÝ SLOT"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "NOVÁ HRA PŘEPÍŠE AKTUÁLNÍ SLOT"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "SEZNAM DRUHU PŘECHODU"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "ZOBRAZIT NÁVOD K POUŽITÍ"
 
 #~ msgid "This collection contains %i game, including :%s"
 #~ msgid_plural "This collection contains %i games, including :%s"

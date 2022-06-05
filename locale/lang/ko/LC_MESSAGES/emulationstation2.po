@@ -369,8 +369,14 @@ msgstr "레트로 도전과제"
 msgid "HARDCORE MODE"
 msgstr "하드코어 모드"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "순위표"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "상세 모드"
@@ -378,8 +384,14 @@ msgstr "상세 모드"
 msgid "ENCORE MODE"
 msgstr ""
 
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "자동 스크린샷"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr "챌린지 인디케이터"
@@ -406,6 +418,9 @@ msgstr "비밀번호"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "메인 메뉴에 레트로 도전과제 엔트리 표시"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "게임 색인"
@@ -521,6 +536,9 @@ msgstr "컬렉션에서 시스템 이름 표시"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "컬렉션의 숨겨진 시스템 게임 표시"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr "게임리스트 업데이트"
 
@@ -599,6 +617,9 @@ msgstr "상파울루"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "실행할 수 없는 게임 표시"
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
 
 msgid "FINISHED"
 msgstr "완료되었습니다"
@@ -1174,32 +1195,35 @@ msgstr "휠"
 msgid "MARQUEE"
 msgstr "마키"
 
-msgid "SCRAPE SHORT NAME"
-msgstr "약칭 스크랩"
+msgid "SCRAPE FOR"
+msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "평점 스크랩"
+msgid "SHORT NAME"
+msgstr ""
 
-msgid "SCRAPE VIDEOS"
-msgstr "비디오 스크랩"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE FANART"
-msgstr "팬아트 스크랩"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "스크랩 베젤 (16:9)"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "박스 후면 스크랩"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "지도 스크랩"
+msgid "BOX BACKSIDE"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "매뉴얼 스크랩"
+msgid "MAP"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "패드 키 설정 스크랩"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "스크랩"
@@ -1410,8 +1434,8 @@ msgstr "KODI 미디어 센터"
 msgid "GAME SETTINGS"
 msgstr "게임 설정"
 
-msgid "UI SETTINGS"
-msgstr "UI 설정"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "사운드 설정"
@@ -1431,8 +1455,8 @@ msgstr "업데이트 & 다운로드"
 msgid "SYSTEM SETTINGS"
 msgstr "시스템 설정"
 
-msgid "UNLOCK UI MODE"
-msgstr "UI 모드 해제"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "종료"
@@ -1443,14 +1467,14 @@ msgstr "입력 설정을 진행하시겠습니까"
 msgid "CHOOSE"
 msgstr "이동"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "UI모드가 해제되었습니다"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "현재 UI모드를 해제하려면 코드를 입력하십시오"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr ""
 
-msgid "DEVELOPER"
-msgstr "개발자"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "비디오 옵션"
@@ -1460,6 +1484,9 @@ msgstr "VRAM 제한"
 
 msgid "SHOW FRAMERATE"
 msgstr "프레임 속도 표시"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "수직 동기화"
@@ -1476,8 +1503,8 @@ msgstr "도구"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "시작 시, 이 게임 실행 중지"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "공용 인터넷 접속 허용"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1489,8 +1516,8 @@ msgstr "로그 레벨"
 msgid "CREATE A SUPPORT FILE"
 msgstr "지원용 파일 생성"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "지원용 파일을 만드시겠습니까?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "세이브 폴더에 지원용 파일이 만들어졌습니다"
@@ -1531,20 +1558,32 @@ msgstr "데이터 관리"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "다중 디스크 컨텐츠 무시 (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "필터 활성화"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "종료시 메타데이터 저장"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "게임 목록 항목만 표시"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "내부 이미지 검색"
 
-msgid "UI"
-msgstr "UI"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "회전 메뉴 화면전환"
@@ -1642,6 +1681,9 @@ msgstr "업데이트 이미 진행 중"
 msgid "LANGUAGE"
 msgstr "언어"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "타임 존 선택"
 
@@ -1651,8 +1693,8 @@ msgstr "타임 존"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "시간을 12시간 형식으로 표시"
 
-msgid "POWER SAVER MODES"
-msgstr "절전 모드"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "사용안함"
@@ -1666,20 +1708,23 @@ msgstr "향상됨"
 msgid "INSTANT"
 msgstr "즉시"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "스크린 리더 (텍스트 음성 변환)"
 
-msgid "UI MODE"
-msgstr "UI 모드"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"UI를 제한된 모드로 변경하게 됩니다:\n"
-"시스템 변경을 막기해 메뉴 옵션의 대부분을 숨기게 됩니다.\n"
-"해제하고 전체 UI로 돌아가려면 다음 코드를 입력하십시오:"
 
 msgid "Do you want to proceed?"
 msgstr "계속 진행하시겠습니까?"
@@ -1707,6 +1752,9 @@ msgstr "오디오 출력"
 
 msgid "AUDIO PROFILE"
 msgstr "오디오 프로필"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "화면 회전"
@@ -1807,6 +1855,9 @@ msgstr "보안"
 msgid "ENFORCE SECURITY"
 msgstr "보안 강화"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "관리자 비밀번호"
 
@@ -1863,14 +1914,23 @@ msgstr "기본 글로벌 설정"
 msgid "GAME ASPECT RATIO"
 msgstr "게임 애스펙트 레이쇼"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "비디오 모드"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "원활한 게임 (바이너리 필터링)"
 
 msgid "REWIND"
 msgstr "되감기"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "원본 게임 해상도(픽셀 일치)"
@@ -1944,14 +2004,29 @@ msgstr "상태저장"
 msgid "AUTO SAVE/LOAD"
 msgstr "자동 세이브/로드"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "증가하는 상태저장"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "새 게임은 새 슬롯을 만든다"
+msgid "INCREMENT PER SAVE"
+msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "새 게임은 현재 슬롯에 겹쳐 쓴다"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "상태 매니저 저장 보이기"
@@ -1995,18 +2070,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "블루투스 장치 페어링"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "활성 컨트롤러 보이기"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "컨트롤러 배터리 상태 보이기"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i 컨트롤러"
 
 msgid "default"
 msgstr "기본"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "활성 컨트롤러 보이기"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "컨트롤러 배터리 상태 보이기"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "테마 설정을 편집하기 전에 테마를 적용해야합니다"
@@ -2092,8 +2167,8 @@ msgstr "그리드"
 msgid "DISPLAY OPTIONS"
 msgstr "표시 옵션"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "화면 전환 형식"
+msgid "LIST TRANSITION"
+msgstr ""
 
 # missing string
 msgid "auto"
@@ -2119,6 +2194,9 @@ msgstr "아이콘 및 텍스트"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "정렬할 때 선행 조항 무시"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "볼륨"
@@ -2204,8 +2282,8 @@ msgstr "지금 재생 중"
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면보호기 실행"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "사용자 매뉴얼 보기"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "시스템 다시 시작"
@@ -2858,6 +2936,90 @@ msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#~ msgid "SCRAPE SHORT NAME"
+#~ msgstr "약칭 스크랩"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "평점 스크랩"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "비디오 스크랩"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "팬아트 스크랩"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "스크랩 베젤 (16:9)"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "박스 후면 스크랩"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "지도 스크랩"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "매뉴얼 스크랩"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "패드 키 설정 스크랩"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "UI 설정"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "UI 모드 해제"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "UI모드가 해제되었습니다"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "현재 UI모드를 해제하려면 코드를 입력하십시오"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "개발자"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "공용 인터넷 접속 허용"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "지원용 파일을 만드시겠습니까?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "필터 활성화"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "게임 목록 항목만 표시"
+
+#~ msgid "UI"
+#~ msgstr "UI"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "절전 모드"
+
+#~ msgid "UI MODE"
+#~ msgstr "UI 모드"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "UI를 제한된 모드로 변경하게 됩니다:\n"
+#~ "시스템 변경을 막기해 메뉴 옵션의 대부분을 숨기게 됩니다.\n"
+#~ "해제하고 전체 UI로 돌아가려면 다음 코드를 입력하십시오:"
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "새 게임은 새 슬롯을 만든다"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "새 게임은 현재 슬롯에 겹쳐 쓴다"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "화면 전환 형식"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "사용자 매뉴얼 보기"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "적용하려면 시스템 재시작"

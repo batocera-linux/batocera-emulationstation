@@ -370,8 +370,14 @@ msgstr "RETROACHIEVEMENTS"
 msgid "HARDCORE MODE"
 msgstr "HALADÓ MÓD"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "RANGSOR"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "KÖVETŐ (VERBOSE) MÓD"
@@ -379,8 +385,14 @@ msgstr "KÖVETŐ (VERBOSE) MÓD"
 msgid "ENCORE MODE"
 msgstr ""
 
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATIKUS KÉPERNYŐKÉP"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr ""
@@ -406,6 +418,9 @@ msgid "PASSWORD"
 msgstr "JELSZÓ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -522,6 +537,9 @@ msgstr "RENDSZER MEGNEVEZÉSÉNEK MUTATÁSA A GYŰJTEMÉNYEKBEN"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "ELREJTETT JÁTÉKOK MEGJELENÍTÉSE A GYŰJTEMÉNYEKBEN"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
@@ -599,6 +617,9 @@ msgid "SAO PAULO"
 msgstr ""
 
 msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "Show rooms for games not present on this machine."
 msgstr ""
 
 msgid "FINISHED"
@@ -1173,32 +1194,35 @@ msgstr "KERÉK"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "ÉRTÉKELÉSEK LEKÉRÉSE"
-
-msgid "SCRAPE VIDEOS"
-msgstr "VIDEÓK LEKÉRÉSE"
-
-msgid "SCRAPE FANART"
-msgstr "RAJONGÓI KÉP LEKÉRÉSE"
-
-msgid "SCRAPE BEZEL (16:9)"
+msgid "SHORT NAME"
 msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "BOBOZ HÁTOLDAL LEKÉRÉSE"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "TÉRKÉP LEKÉRÉSE"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "KÉZIKÖNYV LEKÉRÉSE"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "PADTOKEY BEÁLLÍTÁSOK LEKÉRÉSE"
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1406,8 +1430,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAME SETTINGS"
 msgstr ""
 
-msgid "UI SETTINGS"
-msgstr "KINÉZET BEÁLLÍTÁSOK"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "HANGBEÁLLÍTÁSOK"
@@ -1427,8 +1451,8 @@ msgstr "FRISSÍTÉSEK ÉS LETÖLTÉSEK"
 msgid "SYSTEM SETTINGS"
 msgstr "RENDSZERBEÁLLÍTÁSOK"
 
-msgid "UNLOCK UI MODE"
-msgstr "UI MÓD KINYITÁSA"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "KILÉPÉS"
@@ -1439,14 +1463,14 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "VÁLASZT"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
-msgid "DEVELOPER"
-msgstr "FEJLESZTŐ"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "VIDEÓ BEÁLLÍTÁSOK"
@@ -1456,6 +1480,9 @@ msgstr "VRAM LIMIT"
 
 msgid "SHOW FRAMERATE"
 msgstr "FPS MUTATÁSA"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1472,8 +1499,8 @@ msgstr "ESZKÖZÖK"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr ""
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "PUBLIKUS WEB HOZZÁFÉRÉS ENGEDÉLYEZÉSE"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1485,8 +1512,8 @@ msgstr "NAPLÓZÁSI SZINT"
 msgid "CREATE A SUPPORT FILE"
 msgstr "TÁMOGATÁSI FILE LÉTREHOZÁSA"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "LÉTREHOZ TÁMOGATÁSI FÁJLT?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
@@ -1527,20 +1554,32 @@ msgstr "ADAT MENEDZSMENT"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "TÖBBLEMEZES TARTALOM FIGYELMEN KÍVÜL HAGYÁSA (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "SZŰRŐK ENGEDÉLYEZÉSE"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "METAADAT MENTÉSE KILÉPÉSKOR"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "CSAK A JÁTÉKLISTA ELEMZÉSE"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "HELYI KÉP KERESÉSE"
 
-msgid "UI"
-msgstr "FELHASZNÁLÓI FELÜLET"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "CAROUSEL VÁLTÁSOK"
@@ -1639,6 +1678,9 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr "NYELV"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1648,8 +1690,8 @@ msgstr ""
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "12 ÓRÁS ÓRA FORMÁTUM BEÁLLÍTÁSA"
 
-msgid "POWER SAVER MODES"
-msgstr "ENERGIA TAKARÉKOS MÓDOK"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr ""
@@ -1663,16 +1705,22 @@ msgstr "ENHANCED"
 msgid "INSTANT"
 msgstr ""
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
-msgid "UI MODE"
-msgstr "UI MÓD"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
 
 msgid "Do you want to proceed?"
@@ -1700,6 +1748,9 @@ msgid "AUDIO OUTPUT"
 msgstr "HANG KIMENET"
 
 msgid "AUDIO PROFILE"
+msgstr ""
+
+msgid "Available options can change depending on current audio output."
 msgstr ""
 
 msgid "SCREEN ROTATION"
@@ -1801,6 +1852,9 @@ msgstr "BIZTONSÁG"
 msgid "ENFORCE SECURITY"
 msgstr "BIZTONSÁG ÉRVÉNYESÍTÉSE"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "ROOT JELSZÓ"
 
@@ -1855,14 +1909,23 @@ msgstr ""
 msgid "GAME ASPECT RATIO"
 msgstr ""
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "VIDEO MÓD"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
 msgid "REWIND"
 msgstr "VISSZATEKER"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "INTEGER SCALE (PIXEL PONTOS)"
@@ -1936,13 +1999,28 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr ""
 
-msgid "NEW GAME CREATES NEW SLOT"
+msgid "INCREMENT PER SAVE"
 msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
 msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
@@ -1983,18 +2061,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
 msgstr "alap"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2080,8 +2158,8 @@ msgstr "rács"
 msgid "DISPLAY OPTIONS"
 msgstr "BEÁLLÍTÁSOK MEGJELENÍTÉSE"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "ÁTMENET STÍLUSA"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr ""
@@ -2105,6 +2183,9 @@ msgid "ICON AND TEXT"
 msgstr "IKON ÉS SZÖVEG"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
+msgid "Ignore 'The' and 'A' if at the start."
 msgstr ""
 
 msgid "VOLUME"
@@ -2191,8 +2272,8 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr "KÉPERNYŐVÉDŐ INDÍTÁSA"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "FELHASZNÁLÓI KÉZIKÖNYV"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "ÚJRAINDÍTÁS"
@@ -2851,6 +2932,63 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "ÉRTÉKELÉSEK LEKÉRÉSE"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "VIDEÓK LEKÉRÉSE"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "RAJONGÓI KÉP LEKÉRÉSE"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "BOBOZ HÁTOLDAL LEKÉRÉSE"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "TÉRKÉP LEKÉRÉSE"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "KÉZIKÖNYV LEKÉRÉSE"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "PADTOKEY BEÁLLÍTÁSOK LEKÉRÉSE"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "KINÉZET BEÁLLÍTÁSOK"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "UI MÓD KINYITÁSA"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "FEJLESZTŐ"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "PUBLIKUS WEB HOZZÁFÉRÉS ENGEDÉLYEZÉSE"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "LÉTREHOZ TÁMOGATÁSI FÁJLT?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "SZŰRŐK ENGEDÉLYEZÉSE"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "CSAK A JÁTÉKLISTA ELEMZÉSE"
+
+#~ msgid "UI"
+#~ msgstr "FELHASZNÁLÓI FELÜLET"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "ENERGIA TAKARÉKOS MÓDOK"
+
+#~ msgid "UI MODE"
+#~ msgstr "UI MÓD"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "ÁTMENET STÍLUSA"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "FELHASZNÁLÓI KÉZIKÖNYV"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "INDÍTSD ÚJRA AZ ÉRVÉNYRE JUTTATÁSHOZ"

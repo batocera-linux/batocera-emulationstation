@@ -370,8 +370,14 @@ msgstr "RETROPRESTATIONER"
 msgid "HARDCORE MODE"
 msgstr "HARDCORE-LÄGE"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "TOPPLISTOR"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MÅNGSIDIGT LÄGE"
@@ -379,8 +385,14 @@ msgstr "MÅNGSIDIGT LÄGE"
 msgid "ENCORE MODE"
 msgstr ""
 
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISK SKÄRMDUMP"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr "UTMANINGSINDIKATORER"
@@ -409,6 +421,9 @@ msgstr "LÖSENORD"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "VISA RETROPRESTATIONSPOSTER I HUVUDMENYN"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "SPELINDEX"
@@ -524,6 +539,9 @@ msgstr "VISA SYSTEMNAMN I SAMLINGAR"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "VISA SPEL FRÅN DOLDA SYSTEM I SAMLINGAR"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr "UPPDATERA SPELLISTAN"
 
@@ -602,6 +620,9 @@ msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VISA OTILLGÄNGLIGA SPEL"
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
 
 msgid "FINISHED"
 msgstr "SLUTFÖRD"
@@ -1177,32 +1198,35 @@ msgstr "HJUL"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "SKRAPA BETYG"
+msgid "SHORT NAME"
+msgstr ""
 
-msgid "SCRAPE VIDEOS"
-msgstr "SKRAPA VIDEOR"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE FANART"
-msgstr "SKRAPA ENTHUSIASTKONST"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "SKRAPA RAM (16:9)"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "SKRAPA BOXBAKSIDA"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "SKRAPA KARTA"
+msgid "BOX BACKSIDE"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "SKRAPA MANUAL"
+msgid "MAP"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SKRAPA 'PADTOKEY'-INSTÄLLNINGAR"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SKRAPNING"
@@ -1413,8 +1437,8 @@ msgstr "KODI MEDIACENTER"
 msgid "GAME SETTINGS"
 msgstr "SPELINSTÄLLNINGAR"
 
-msgid "UI SETTINGS"
-msgstr "ANVÄNDARGRÄNSSNITTSINSTÄLLNINGAR"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "LJUDINSTÄLLNINGAR"
@@ -1434,8 +1458,8 @@ msgstr "UPPDATERINGAR & NEDLADDNINGAR"
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
 
-msgid "UNLOCK UI MODE"
-msgstr "LÅS UPP UI-LÄGE"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "AVSLUTA"
@@ -1446,14 +1470,14 @@ msgstr "ÄR DU SÄKER PÅ ATT DU VILL KONFIGURERA INPUT?"
 msgid "CHOOSE"
 msgstr "NAVIGERA"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "UI-LÄGET ÄR NU OLÅST"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "ANGE KODEN FÖR ATT LÅSA UPP DET AKTUELLA UI-LÄGET"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr ""
 
-msgid "DEVELOPER"
-msgstr "UTVECKLARE"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "VIDEOALTERNATIV"
@@ -1463,6 +1487,9 @@ msgstr "VRAM-BEGRÄNSNING"
 
 msgid "SHOW FRAMERATE"
 msgstr "VISA FPS"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1479,8 +1506,8 @@ msgstr "VERKTYG"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "SLUTA ATT STARTA DETTA SPEL VID UPPSTART"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "AKTIVERA OFFENTLIG WEBBÅTKOMST"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1492,8 +1519,8 @@ msgstr "LOGGNINGSNIVÅ"
 msgid "CREATE A SUPPORT FILE"
 msgstr "SKAPA EN SUPPORTFIL"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "SKAPA EN SUPPORTFIL?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "SUPPORTFIL SKAPAD I MAPPEN SAVES"
@@ -1534,20 +1561,32 @@ msgstr "DATAHANTERING"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNORERA DISKINNEHÅLL MED FLERA FILER (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "AKTIVERA FILTER"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "SPARA METADATA VID AVSLUT"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "ANALYSERA ENDAST SPELLISTOR"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SÖK EFTER LOKAL KONST"
 
-msgid "UI"
-msgstr "ANVÄNDARGRÄNSSNITT"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "KARUSELLÖVERGÅNGAR"
@@ -1650,6 +1689,9 @@ msgstr "UPPDATERAREN KÖRS REDAN"
 msgid "LANGUAGE"
 msgstr "SPRÅK"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VÄLJ DIN TIDSZON"
 
@@ -1659,8 +1701,8 @@ msgstr "TIDSZON"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "VISA KLOCKAN I 12-TIMMARSFORMAT"
 
-msgid "POWER SAVER MODES"
-msgstr "STRÖMSPARLÄGEN"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "INAKTIVERAD"
@@ -1674,22 +1716,23 @@ msgstr "FÖRBÄTTRAD"
 msgid "INSTANT"
 msgstr "DIREKT"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SKÄRMLÄSARE (TEXT TILL TAL)"
 
-msgid "UI MODE"
-msgstr "LÄGE FÖR ANVÄNDARGRÄNSSNITT"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"Du ändrar användargränssnittet till ett begränsat läge:\n"
-"Detta kommer att dölja de flesta menyalternativ för att förhindra ändringar "
-"i systemet.\n"
-"För att låsa upp och återgå till det fullständiga användargränssnittet, ange "
-"denna kod:"
 
 msgid "Do you want to proceed?"
 msgstr "Vill du fortsätta?"
@@ -1717,6 +1760,9 @@ msgstr "LJUDUTGÅNG"
 
 msgid "AUDIO PROFILE"
 msgstr "LJUDPROFIL"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "SKÄRMROTATION"
@@ -1817,6 +1863,9 @@ msgstr "SÄKERHET"
 msgid "ENFORCE SECURITY"
 msgstr "UPPRÄTTHÅLL SÄKERHETEN"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "ROTLÖSENORD"
 
@@ -1874,14 +1923,23 @@ msgstr "GLOBALA STANDARDINSTÄLLNINGAR"
 msgid "GAME ASPECT RATIO"
 msgstr "SPELBILDFÖRHÅLLANDEN"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "VIDEOLÄGE"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "UTJÄMNING I SPEL (BILINJÄR FILTRERING)"
 
 msgid "REWIND"
 msgstr "TILLBAKASPOLNING"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "HELHETSSKALNING (PIXEL PERFECT)"
@@ -1955,14 +2013,29 @@ msgstr "SAVESTATES"
 msgid "AUTO SAVE/LOAD"
 msgstr "SPARA/LADDA AUTOMATISKT"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLA SAVE STATES"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "NYTT SPEL SKAPAR NY PLATS"
+msgid "INCREMENT PER SAVE"
+msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "NYTT SPEL SKRIVER ÖVER NUVARANDE PLATS"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "VISA SAVE STATE-HANTERARE"
@@ -2007,18 +2080,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "PARA EN BLUETOOTH-ENHET"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "VISA KONTROLLERAKTIVITET"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "VISA BATTERINIVÅ FÖR KONTROLLER"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S KONTROLLER"
 
 msgid "default"
 msgstr "standard"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "VISA KONTROLLERAKTIVITET"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "VISA BATTERINIVÅ FÖR KONTROLLER"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DU MÅSTE VERKSTÄLLA TEMAT INNAN DU ÄNDRAR DESS KONFIGURATION"
@@ -2104,8 +2177,8 @@ msgstr "rutnät"
 msgid "DISPLAY OPTIONS"
 msgstr "VISNINGSALTERNATIV"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "ÖVERGÅNGSSTIL I LISTA"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr "auto"
@@ -2130,6 +2203,9 @@ msgstr "IKON OCH TEXT"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORERA LEDANDE ARTIKLAR VID SORTERING"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLYM"
@@ -2215,8 +2291,8 @@ msgstr "SPELAS NU"
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "VISA ANVÄNDARMANUAL"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "STARTA OM SYSTEMET"
@@ -2883,6 +2959,89 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "SKRAPA BETYG"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "SKRAPA VIDEOR"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "SKRAPA ENTHUSIASTKONST"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "SKRAPA RAM (16:9)"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "SKRAPA BOXBAKSIDA"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "SKRAPA KARTA"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "SKRAPA MANUAL"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "SKRAPA 'PADTOKEY'-INSTÄLLNINGAR"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "ANVÄNDARGRÄNSSNITTSINSTÄLLNINGAR"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "LÅS UPP UI-LÄGE"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "UI-LÄGET ÄR NU OLÅST"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "ANGE KODEN FÖR ATT LÅSA UPP DET AKTUELLA UI-LÄGET"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "UTVECKLARE"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "AKTIVERA OFFENTLIG WEBBÅTKOMST"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "SKAPA EN SUPPORTFIL?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "AKTIVERA FILTER"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "ANALYSERA ENDAST SPELLISTOR"
+
+#~ msgid "UI"
+#~ msgstr "ANVÄNDARGRÄNSSNITT"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "STRÖMSPARLÄGEN"
+
+#~ msgid "UI MODE"
+#~ msgstr "LÄGE FÖR ANVÄNDARGRÄNSSNITT"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "Du ändrar användargränssnittet till ett begränsat läge:\n"
+#~ "Detta kommer att dölja de flesta menyalternativ för att förhindra "
+#~ "ändringar i systemet.\n"
+#~ "För att låsa upp och återgå till det fullständiga användargränssnittet, "
+#~ "ange denna kod:"
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "NYTT SPEL SKAPAR NY PLATS"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "NYTT SPEL SKRIVER ÖVER NUVARANDE PLATS"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "ÖVERGÅNGSSTIL I LISTA"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "VISA ANVÄNDARMANUAL"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "STARTA OM SYSTEMET FÖR ATT VERKSTÄLLA UPPDATERINGEN"
