@@ -240,6 +240,7 @@ void Settings::setDefaults()
 	#endif
 
 	mIntMap["ScreenSaverSwapVideoTimeout"] = 30000;
+	mIntMap["ScreenSaverSwapBrowsingTimeout"] = 30000;
 
 	mBoolMap["VideoAudio"] = true;
 	mBoolMap["ScreenSaverVideoMute"] = false;
