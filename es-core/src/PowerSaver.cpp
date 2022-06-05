@@ -56,6 +56,8 @@ void PowerSaver::loadWakeupTime()
 		mWakeupTimeout = Settings::getInstance()->getInt("ScreenSaverSwapVideoTimeout") - getMode();
 	else if (behaviour == "slideshow")
 		mWakeupTimeout = Settings::getInstance()->getInt("ScreenSaverSwapImageTimeout") - getMode();
+	else if (behaviour == "autobrowsing")
+		mWakeupTimeout = Settings::getInstance()->getInt("ScreenSaverSwapBrowsingTimeout") - getMode();
 	else // Dim and Blank
 		mWakeupTimeout = -1;
 }
