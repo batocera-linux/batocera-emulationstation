@@ -180,7 +180,7 @@ void SystemScreenSaver::startScreenSaver()
 	{
 		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapBrowsingTimeout");
 
-		// Auto browsing randomly in games lists
+		// Auto browsing randomly in lists of games
 
 	}
 	
