@@ -27,7 +27,7 @@
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) 
-{		
+{			
 	mTransitionOffset = 0;
 
 	mHelp = new HelpComponent(this);
@@ -35,6 +35,8 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); 
 
 	mSplash = nullptr;
+
+	
 }
 
 Window::~Window()
@@ -594,6 +596,11 @@ void Window::render()
 		}
 	}
 
+	if (mCalibrationText)
+	{
+		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000A0);
+		mCalibrationText->render(transform);
+	}
 
 	// just to test
 	auto guns = InputManager::getInstance()->getGuns();
@@ -994,4 +1001,26 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		mBatteryIndicator->applyTheme(theme, "screen", "batteryIndicator", ThemeFlags::ALL);
 	
 	mVolumeInfo = std::make_shared<VolumeInfoComponent>(this);
+}
+
+void Window::setGunCalibrationState(bool isCalibrating)
+{
+	if (isCalibrating)
+	{
+		if (mCalibrationText == nullptr)
+		{
+			mCalibrationText = std::make_shared<TextComponent>(this);
+			mCalibrationText->setText(_("CALIBRATING GUN\r\nFire on targets to calibrate"));
+			mCalibrationText->setFont(Font::get(FONT_SIZE_MEDIUM));
+			mCalibrationText->setHorizontalAlignment(ALIGN_CENTER);
+			mCalibrationText->setVerticalAlignment(ALIGN_CENTER);
+			mCalibrationText->setPosition(0.0f, 0.0f);
+			mCalibrationText->setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight() / 2.1f);
+			mCalibrationText->setColor(0xFFFFFFFF);
+			mCalibrationText->setGlowSize(1);
+			mCalibrationText->setGlowColor(0x00000040);			
+		}
+	}
+	else
+		mCalibrationText = nullptr;	
 }
