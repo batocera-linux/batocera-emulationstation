@@ -96,6 +96,9 @@ public:
 
 	AsyncNotificationComponent* createAsyncNotificationComponent(bool actionLine = false);
 
+	bool isCalibratingGun() { return mCalibrationText != nullptr; }
+	void setGunCalibrationState(bool isCalibrating);
+
 private:
 	void processPostedFunctions();
 
@@ -157,6 +160,8 @@ private:
 	unsigned int mTimeSinceLastInput;
 
 	bool mRenderedHelpPrompts;
+
+	std::shared_ptr<TextComponent>	mCalibrationText;
 
 	int mTransitionOffset;
 

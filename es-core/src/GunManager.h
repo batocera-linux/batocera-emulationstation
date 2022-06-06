@@ -58,6 +58,7 @@ public:
 
 private:
 	bool updateGunPosition(Gun* gun);
+	int readGunEvents(Gun* gun);
 
 	std::vector<Gun*> mGuns;
 
