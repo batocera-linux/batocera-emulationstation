@@ -390,6 +390,9 @@ msgstr "TRYB ENCORE"
 msgid "Reset achievements to be able to earn them again."
 msgstr ""
 
+msgid "RICH PRESENCE"
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
