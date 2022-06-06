@@ -128,7 +128,10 @@ namespace Renderer
 		std::string fragmentSourceNoTexture =
 			SHADER_VERSION_STRING +
 			R"=====(
+			#ifdef GL_ES
 			precision mediump float;
+			#endif
+
 			varying   vec4  v_col;   
 			void main(void)          
 			{                        
@@ -163,11 +166,12 @@ namespace Renderer
 		// fragment shader (texture)
 		std::string fragmentSourceTexture =
 			SHADER_VERSION_STRING +
-#if defined(USE_OPENGLES_20)
-			"precision mediump sampler2D; \n"+
-#endif
 			R"=====(
+			#ifdef GL_ES
 			precision mediump float;
+			precision mediump sampler2D;
+			#endif		
+
 			varying   vec4      v_col;
 			varying   vec2      v_tex;
 			uniform   sampler2D u_tex;
@@ -194,11 +198,12 @@ namespace Renderer
 		// fragment shader (alpha texture)
 		std::string fragmentSourceAlpha =
 			SHADER_VERSION_STRING +
-#if defined(USE_OPENGLES_20)
-			"precision mediump sampler2D; \n" +
-#endif
 			R"=====(
-			precision mediump float;  
+			#ifdef GL_ES
+			precision mediump float;
+			precision mediump sampler2D;
+			#endif		
+
 			varying   vec4      v_col;
 			varying   vec2      v_tex;
 			uniform   sampler2D u_tex;
