@@ -2731,6 +2731,9 @@ msgstr "HAR PRESTATIONER"
 msgid "VERTICAL"
 msgstr "VERTIKALA"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SKRAPAR"
 
@@ -2739,6 +2742,11 @@ msgstr "SKRAPNING MISSLYCKADES"
 
 msgid "SCRAPING FINISHED"
 msgstr "SKRAPNING SLUTFÖRD"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

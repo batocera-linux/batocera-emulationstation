@@ -2705,6 +2705,9 @@ msgstr "ΕΧΕΙ «ΚΑΤΟΡΘΩΜΑΤΑ»"
 msgid "VERTICAL"
 msgstr "ΚΑΘΕΤΟ"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr ""
 
@@ -2713,6 +2716,11 @@ msgstr "TO SCRAPE ΑΠΕΤΥΧΕ"
 
 msgid "SCRAPING FINISHED"
 msgstr "ΤΟ SCRAPING ΤΕΛΕΙΩΣΕ"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

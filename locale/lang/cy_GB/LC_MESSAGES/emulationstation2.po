@@ -2722,6 +2722,9 @@ msgstr "GYDA CYFLAWNIADAU"
 msgid "VERTICAL"
 msgstr ""
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "YN CRAFU"
 
@@ -2730,6 +2733,11 @@ msgstr "WEDI METHU CRAFU"
 
 msgid "SCRAPING FINISHED"
 msgstr "WEDI GORFFEN CRAFU"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

@@ -2721,6 +2721,9 @@ msgstr "ACHIEVEMENTSがある"
 msgid "VERTICAL"
 msgstr "縦表示"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "情報を取得中"
 
@@ -2729,6 +2732,11 @@ msgstr "スクレイプ失敗"
 
 msgid "SCRAPING FINISHED"
 msgstr "スクレイプが終了しました"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

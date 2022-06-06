@@ -2706,6 +2706,9 @@ msgstr "ACHIEVEMENT ELÉRHETŐ"
 msgid "VERTICAL"
 msgstr "VERTIKÁLIS"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "LEKÉRDEZÉS"
 
@@ -2714,6 +2717,11 @@ msgstr "LEKÉRDEZÉSI HIBA"
 
 msgid "SCRAPING FINISHED"
 msgstr "LEKÉRDEZÉS BEFEJEZVE"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

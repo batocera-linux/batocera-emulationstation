@@ -2707,6 +2707,9 @@ msgstr "TIENE LOGROS"
 msgid "VERTICAL"
 msgstr "VERTICAL"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPEANDO"
 
@@ -2715,6 +2718,11 @@ msgstr "FALLÓ EL SCRAPEO"
 
 msgid "SCRAPING FINISHED"
 msgstr "SCRAPEO TERMINADO"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

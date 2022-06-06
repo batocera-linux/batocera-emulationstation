@@ -2733,6 +2733,9 @@ msgstr "HAT ERRUNGENSCHAFTEN"
 msgid "VERTICAL"
 msgstr "VERTIKAL"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPE"
 
@@ -2741,6 +2744,11 @@ msgstr "SCRAPE FEHLGESCHLAGEN"
 
 msgid "SCRAPING FINISHED"
 msgstr "SCRAPEN ABGESCHLOSSEN"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

@@ -2692,6 +2692,9 @@ msgstr ""
 msgid "VERTICAL"
 msgstr ""
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "抓取"
 
@@ -2699,6 +2702,11 @@ msgid "SCRAPE FAILED"
 msgstr "抓取失败"
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
 msgstr ""
 
 #, c-format

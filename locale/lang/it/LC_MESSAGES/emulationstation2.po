@@ -2727,6 +2727,9 @@ msgstr "SUPPORTO TROFEI"
 msgid "VERTICAL"
 msgstr "VERTICALE"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPING"
 
@@ -2735,6 +2738,11 @@ msgstr "SCRAPE FALLITO"
 
 msgid "SCRAPING FINISHED"
 msgstr "SCRAPING COMPLETATO"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

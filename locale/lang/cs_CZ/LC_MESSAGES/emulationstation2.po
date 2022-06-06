@@ -2733,6 +2733,9 @@ msgstr "MÉ ÚSPĚCHY"
 msgid "VERTICAL"
 msgstr "VERTIKÁLNĚ"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "VYHLEDÁVÁNÍ"
 
@@ -2741,6 +2744,11 @@ msgstr "VYHLEDÁVÁNÍ SE NEPOVEDLO"
 
 msgid "SCRAPING FINISHED"
 msgstr "VYHLEDÁVÁNÍ DOKONČENO"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

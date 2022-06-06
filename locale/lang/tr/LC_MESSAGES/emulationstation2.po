@@ -2708,6 +2708,9 @@ msgstr "BAŞARI MEVCUT"
 msgid "VERTICAL"
 msgstr "DİKEY"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPE LENİYOR"
 
@@ -2716,6 +2719,11 @@ msgstr "SCRAPE BAŞARISIZ"
 
 msgid "SCRAPING FINISHED"
 msgstr "SCRAPE TAMAMLANDI"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

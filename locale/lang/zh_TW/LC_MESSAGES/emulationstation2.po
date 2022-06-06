@@ -2708,6 +2708,9 @@ msgstr "提供成就"
 msgid "VERTICAL"
 msgstr "直立式"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "搜刮中"
 
@@ -2716,6 +2719,11 @@ msgstr "搜刮失敗"
 
 msgid "SCRAPING FINISHED"
 msgstr "已完成搜刮"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"

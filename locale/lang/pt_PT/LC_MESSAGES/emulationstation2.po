@@ -2734,6 +2734,9 @@ msgstr "TEM CONQUISTAS"
 msgid "VERTICAL"
 msgstr "VERTICAL"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "A PROCURAR"
 
@@ -2742,6 +2745,11 @@ msgstr "FALHA NA PROCURA"
 
 msgid "SCRAPING FINISHED"
 msgstr "PROCURA CONCLUÍDA"
+
+msgid ""
+"CALIBRATING GUN\r\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"
