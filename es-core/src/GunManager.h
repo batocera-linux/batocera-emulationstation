@@ -23,6 +23,8 @@ public:
 		mIndex = 0;
 		mX = -1; 
 		mY = -1;
+		mLButtonDown = false;
+		mRButtonDown = false;
 	}
 
 	int index() { return mIndex; }
@@ -31,11 +33,17 @@ public:
 	float x();
 	float y();
 
+	bool isLButtonDown() { return mLButtonDown; }
+	bool isRButtonDown() { return mRButtonDown; }
+
 private:
 	std::string mName;
 
 	float mX;
 	float mY;
+
+	bool mLButtonDown;
+	bool mRButtonDown;
 
 	int mIndex;
 

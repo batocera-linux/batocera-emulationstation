@@ -83,8 +83,10 @@ int GunManager::readGunEvents(Gun* gun)
 					}
 					break;
 				case BTN_LEFT:
+					mLButtonDown = (input_events[i].value != 0);
 					break;
 				case BTN_RIGHT:
+					mRButtonDown = (input_events[i].value != 0);
 					break;
 				}
 			}
@@ -171,12 +173,13 @@ bool GunManager::updateGunPosition(Gun* gun)
 	return true;
 #elif FAKE_GUNS
 	int x, y;
-	SDL_GetMouseState(&x, &y);	
+	auto buttons = SDL_GetMouseState(&x, &y);
 	gun->mX = x;
 	gun->mY = y;
+	gun->mLButtonDown = (buttons & SDL_BUTTON_LMASK) != 0;
+	gun->mRButtonDown = (buttons & SDL_BUTTON_RMASK) != 0;
 	return true;	
-#endif
-
+#endif	
 	return false;
 }
 
