@@ -215,7 +215,7 @@ void Window::input(InputConfig* config, Input input)
 			}
 			else if (config->isMappedTo("start", input) && input.value != 0 && mScreenSaver->getCurrentGame() != nullptr)
 			{
-				// launch game!
+				// launch game!				
 				cancelScreenSaver();
 				mScreenSaver->launchGame();
 				// to force handling the wake up process
@@ -224,17 +224,6 @@ void Window::input(InputConfig* config, Input input)
 		}
 	}
 
-	if (mSleeping)
-	{
-		// wake up
-		mTimeSinceLastInput = 0;
-		cancelScreenSaver();
-		mSleeping = false;
-		onWake();
-		return;
-	}
-
-	mTimeSinceLastInput = 0;
 	if (cancelScreenSaver())
 		return;
 
@@ -618,6 +607,14 @@ void Window::render()
 			
 			auto aimColor = guns.size() == 1 ? 0xFFFFFFFF : _gunAimColors[gun->index() % _gunAimColors.size()];
 
+			if (gun->isLButtonDown() || gun->isRButtonDown())
+			{
+				auto mixIndex = (gun->index() + 3) % _gunAimColors.size();
+				auto invertColor = _gunAimColors[mixIndex];
+
+				aimColor = Renderer::mixColors(aimColor, invertColor, 0.5);
+			}
+
 			Renderer::Vertex vertices[4];
 			vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, aimColor };
 			vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, aimColor };
@@ -799,6 +796,10 @@ void Window::startScreenSaver()
 
 bool Window::cancelScreenSaver()
 {
+	bool ret = false;
+
+	mTimeSinceLastInput = 0;
+
 	if (mScreenSaver && mRenderScreenSaver)
 	{		
 		mScreenSaver->stopScreenSaver();
@@ -812,10 +813,18 @@ bool Window::cancelScreenSaver()
 		for (auto extra : mScreenExtras)
 			extra->onScreenSaverDeactivate();
 
-		return true;
+		ret = true;
 	}
 
-	return false;
+	if (mSleeping)
+	{
+		mSleeping = false;
+		onWake();
+
+		ret = true;
+	}
+
+	return ret;
 }
 
 void Window::renderScreenSaver()

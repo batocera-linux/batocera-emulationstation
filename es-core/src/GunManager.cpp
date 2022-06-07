@@ -19,7 +19,7 @@
 #define test_bit(array, bit)    (array[bit/8] & (1<<(bit%8)))
 #else
 // Uncomment for testing purpose to fake guns using the mouse
-// #define FAKE_GUNS 1
+#define FAKE_GUNS 1
 #endif
 
 GunManager::GunManager()
@@ -83,8 +83,10 @@ int GunManager::readGunEvents(Gun* gun)
 					}
 					break;
 				case BTN_LEFT:
+					mLButtonDown = (input_events[i].value != 0);
 					break;
 				case BTN_RIGHT:
+					mRButtonDown = (input_events[i].value != 0);
 					break;
 				}
 			}
