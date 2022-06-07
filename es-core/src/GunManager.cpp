@@ -68,7 +68,7 @@ int GunManager::readGunEvents(Gun* gun)
 	struct input_event input_events[64];
 
 	while ((len = read(gun->fd, input_events, sizeof(input_events))) > 0) {
-		for (unsigned i = 0; i<len; i++) {
+	  for (unsigned i = 0; i<len/sizeof(input_event); i++) {
 			if (input_events[i].type == EV_KEY) {
 				//printf("key, code=%i, value=%i\n", input_events[i].code, input_events[i].value);
 				switch (input_events[i].code) {
