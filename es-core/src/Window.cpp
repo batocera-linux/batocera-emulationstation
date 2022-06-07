@@ -600,9 +600,9 @@ void Window::render()
 	{
 		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000A0);
 		mCalibrationText->render(transform);
+		Renderer::setMatrix(Transform4x4f::Identity());
 	}
 
-	// just to test
 	auto guns = InputManager::getInstance()->getGuns();
 	for (auto gun : guns)
 	{
