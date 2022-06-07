@@ -83,10 +83,10 @@ int GunManager::readGunEvents(Gun* gun)
 					}
 					break;
 				case BTN_LEFT:
-					mLButtonDown = (input_events[i].value != 0);
+					gun->mLButtonDown = (input_events[i].value != 0);
 					break;
 				case BTN_RIGHT:
-					mRButtonDown = (input_events[i].value != 0);
+					gun->mRButtonDown = (input_events[i].value != 0);
 					break;
 				}
 			}
