@@ -1010,7 +1010,7 @@ void Window::setGunCalibrationState(bool isCalibrating)
 		if (mCalibrationText == nullptr)
 		{
 			mCalibrationText = std::make_shared<TextComponent>(this);
-			mCalibrationText->setText(_("CALIBRATING GUN\r\nFire on targets to calibrate"));
+			mCalibrationText->setText(_("CALIBRATING GUN\nFire on targets to calibrate"));
 			mCalibrationText->setFont(Font::get(FONT_SIZE_MEDIUM));
 			mCalibrationText->setHorizontalAlignment(ALIGN_CENTER);
 			mCalibrationText->setVerticalAlignment(ALIGN_CENTER);
