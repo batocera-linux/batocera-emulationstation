@@ -383,13 +383,13 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr "ÚPLNÝ INFORMAČNÍ REŽIM"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
 msgid "ENCORE MODE"
 msgstr "REŽIM ENCORE"
 
 msgid "Reset achievements to be able to earn them again."
-msgstr ""
-
-msgid "RICH PRESENCE"
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
@@ -2746,7 +2746,7 @@ msgid "SCRAPING FINISHED"
 msgstr "VYHLEDÁVÁNÍ DOKONČENO"
 
 msgid ""
-"CALIBRATING GUN\r\n"
+"CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
 

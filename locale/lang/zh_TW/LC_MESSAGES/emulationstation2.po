@@ -381,13 +381,13 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr "詳細模式"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
 msgid "ENCORE MODE"
 msgstr ""
 
 msgid "Reset achievements to be able to earn them again."
-msgstr ""
-
-msgid "RICH PRESENCE"
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
@@ -2721,7 +2721,7 @@ msgid "SCRAPING FINISHED"
 msgstr "已完成搜刮"
 
 msgid ""
-"CALIBRATING GUN\r\n"
+"CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
 

@@ -390,6 +390,9 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr "وضع مفصل"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
 msgid "ENCORE MODE"
 msgstr ""
 
@@ -2734,7 +2737,7 @@ msgid "SCRAPING FINISHED"
 msgstr ""
 
 msgid ""
-"CALIBRATING GUN\r\n"
+"CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
 

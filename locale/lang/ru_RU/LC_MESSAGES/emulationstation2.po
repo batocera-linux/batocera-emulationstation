@@ -383,13 +383,13 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
 msgid "ENCORE MODE"
 msgstr ""
 
 msgid "Reset achievements to be able to earn them again."
-msgstr ""
-
-msgid "RICH PRESENCE"
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
@@ -2744,7 +2744,7 @@ msgid "SCRAPING FINISHED"
 msgstr "ЗАГРУЗКА ЗАВЕРШЕНА"
 
 msgid ""
-"CALIBRATING GUN\r\n"
+"CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
 

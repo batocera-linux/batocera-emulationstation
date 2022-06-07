@@ -382,13 +382,13 @@ msgstr ""
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
 msgid "ENCORE MODE"
 msgstr "MODO DE REPETIÇÃO"
 
 msgid "Reset achievements to be able to earn them again."
-msgstr ""
-
-msgid "RICH PRESENCE"
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
@@ -2750,7 +2750,7 @@ msgid "SCRAPING FINISHED"
 msgstr "PROCURA POR MÍDIAS CONCLUÍDA"
 
 msgid ""
-"CALIBRATING GUN\r\n"
+"CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
 
