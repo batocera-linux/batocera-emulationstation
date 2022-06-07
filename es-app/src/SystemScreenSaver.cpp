@@ -180,8 +180,30 @@ void SystemScreenSaver::startScreenSaver()
 	{
 		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapBrowsingTimeout");
 
-		// Auto browsing randomly in lists of games
+		// Auto browsing randomly in list of games
+		auto list = getFileDataEntries();
 
+		unsigned int total = (int)list.size();
+		if (total == 0)
+		return;
+
+		int target = Randomizer::random(total);
+		int gamePos = getCursorIndex();
+		
+		if (target > gamePos && target < total) {
+			while (gamePos <= target) {
+				resetLastCursor();
+				gamePos += 1;
+				setCursor(list.at(gamePos));
+				
+			}
+		}
+		else if (gamePos > target && target > 0) {
+			while (gamePos >= target) {
+				resetLastCursor();
+				gamePos -= 1;
+				setCursor(list.at(gamePos));
+			}
 	}
 	
 	// No videos. Just use a standard screensaver
