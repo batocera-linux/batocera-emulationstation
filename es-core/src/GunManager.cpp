@@ -19,7 +19,7 @@
 #define test_bit(array, bit)    (array[bit/8] & (1<<(bit%8)))
 #else
 // Uncomment for testing purpose to fake guns using the mouse
-#define FAKE_GUNS 1
+// #define FAKE_GUNS 1
 #endif
 
 GunManager::GunManager()
