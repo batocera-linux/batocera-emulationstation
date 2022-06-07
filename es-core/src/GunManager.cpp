@@ -149,7 +149,7 @@ void GunManager::updateGuns(Window* window)
 		updateGunPosition(gun);
 	}
 
-	if (gunEvent == 1)
+	if (gunEvent == 1 || gunEvent == 2)
 		window->setGunCalibrationState(gunEvent == 1);
 }
 
