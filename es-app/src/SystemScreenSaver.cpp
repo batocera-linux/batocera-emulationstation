@@ -182,22 +182,15 @@ void SystemScreenSaver::startScreenSaver()
 		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapBrowsingTimeout");
 		isBrowsingScreensaver = true; 
 		
-		// Auto browsing randomly in list of games
+		// System change randomly -> to be improved : move step by step from current system to target system
+		setCursor(SystemData::getRandomSystem());
+		
+		// Game change randomly
 		auto list = getFileDataEntries();
-
 		unsigned int total = (int)list.size();
 		if (total == 0)
 		return;
-	
-		// Game List change 10% backward, 70% no change, 20% forward) : to be improved
-		int ChangeGameList = Randomizer::random(100);
-		if (ChangeGameList >= 80)
-			ViewController::goToNextGameList();
-		if (ChangeGameList <= 10)
-			ViewController::goToPrevGameList();
-		
-		// Game change
-		int target = Randomizer::random(total);
+		int gameTarget = Randomizer::random(total);
 		int gamePos = getCursorIndex();
 		if (target > gamePos && target < total) {
 			// Moving forward step by step to target game
