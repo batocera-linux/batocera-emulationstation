@@ -298,11 +298,13 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 		{
 			Gun* gun = guns[idx];
 
+			unsigned int gunColor = gun->isLButtonDown() || gun->isRButtonDown() ? mActivityColor : mColorShift;
+
 			if (mGunTexture && mGunTexture->bind())
-				x += renderTexture(x, szW, mGunTexture, mColorShift);
+				x += renderTexture(x, szW, mGunTexture, gunColor);
 			else
 			{
-				Renderer::drawRect(x, 0.0f, szW, szH, mColorShift);
+				Renderer::drawRect(x, 0.0f, szW, szH, gunColor);
 				x += szW + mSpacing;
 			}
 		}

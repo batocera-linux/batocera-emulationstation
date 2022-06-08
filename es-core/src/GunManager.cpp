@@ -139,6 +139,30 @@ void GunManager::updateGuns(Window* window)
 		newgun->mName = "Mouse";
 		mGuns.push_back(newgun);
 	}
+#elif WIN32
+	bool hasGun = false;
+
+	HWND hWndWiimoteGun = FindWindow("WiimoteGun", NULL);
+	if (hWndWiimoteGun)
+	{
+		int mode = (int) GetProp(hWndWiimoteGun, "mode");
+		hasGun = (mode == 1);
+	}
+
+	if (hasGun && mGuns.size() == 0)
+	{
+		Gun* newgun = new Gun();
+		newgun->mIndex = mGuns.size();
+		newgun->mName = "Wiimote Gun";
+		mGuns.push_back(newgun);
+	}
+	else if (!hasGun && mGuns.size())
+	{
+		for (auto gun : mGuns)
+			delete gun;
+
+		mGuns.clear();
+	}
 #endif
 
 	int gunEvent = 0;
@@ -171,7 +195,7 @@ bool GunManager::updateGunPosition(Gun* gun)
 	gun->mY = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
 
 	return true;
-#elif FAKE_GUNS
+#else
 	int x, y;
 	auto buttons = SDL_GetMouseState(&x, &y);
 	gun->mX = x;
