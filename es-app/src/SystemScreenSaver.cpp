@@ -30,6 +30,7 @@
 SystemScreenSaver::SystemScreenSaver(Window* window) :
 	mVideoScreensaver(NULL),
 	mImageScreensaver(NULL),
+	isBrowsingScreensaver(false);
 	mWindow(window),
 	mVideosCounted(false),
 	mVideoCount(0),
@@ -61,7 +62,7 @@ SystemScreenSaver::~SystemScreenSaver()
 
 bool SystemScreenSaver::allowSleep()
 {
-	return (mVideoScreensaver == nullptr && mImageScreensaver == nullptr);
+	return (mVideoScreensaver == nullptr && mImageScreensaver == nullptr && isBrowsingScreensaver == false);
 }
 
 bool SystemScreenSaver::isScreenSaverActive()
@@ -179,31 +180,43 @@ void SystemScreenSaver::startScreenSaver()
 	else if (screensaver_behavior == "autobrowsing")
 	{
 		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapBrowsingTimeout");
-
+		isBrowsingScreensaver = true; 
+		
 		// Auto browsing randomly in list of games
 		auto list = getFileDataEntries();
 
 		unsigned int total = (int)list.size();
 		if (total == 0)
 		return;
-
+	
+		// Game List change (20% backward, 60% no change, 20% forward)  
+		int ChangeGameList = Randomizer::random(100);
+		if (ChangeGameList >= 80)
+			ViewController::goToNextGameList();
+		if (ChangeGameList <= 20)
+			ViewController::goToPrevGameList();
+		
+		// Game change
 		int target = Randomizer::random(total);
 		int gamePos = getCursorIndex();
-		
 		if (target > gamePos && target < total) {
+			// Moving forward step by step to target game
 			while (gamePos <= target) {
 				resetLastCursor();
 				gamePos += 1;
 				setCursor(list.at(gamePos));
-				
 			}
 		}
 		else if (gamePos > target && target > 0) {
+			// Moving backward step by step to target game
 			while (gamePos >= target) {
 				resetLastCursor();
 				gamePos -= 1;
 				setCursor(list.at(gamePos));
 			}
+		PowerSaver::runningScreenSaver(true);
+		mTimer = 0;
+		return;
 	}
 	
 	// No videos. Just use a standard screensaver
@@ -226,6 +239,7 @@ void SystemScreenSaver::stopScreenSaver()
 
 	mVideoScreensaver = nullptr;
 	mImageScreensaver = nullptr;
+	isBrowsingScreensaver = false;
 
 	// we need this to loop through different videos
 	mState = STATE_INACTIVE;
@@ -514,6 +528,10 @@ void SystemScreenSaver::update(int deltaTime)
 
 	if (mImageScreensaver)
 		mImageScreensaver->update(deltaTime);
+	
+	// If autobrowsing, then update it
+	if (mBrowsingScreensaver)
+		update(deltaTime);
 }
 
 void SystemScreenSaver::nextVideo() 
