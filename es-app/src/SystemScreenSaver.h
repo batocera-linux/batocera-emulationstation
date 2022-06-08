@@ -112,7 +112,7 @@ private:
 
 	std::shared_ptr<ImageScreenSaver>		mFadingImageScreensaver;
 	std::shared_ptr<ImageScreenSaver>		mImageScreensaver;
-
+	bool			isBrowsingScreensaver;
 	Window*			mWindow;
 	STATE			mState;
 	float			mOpacity;
