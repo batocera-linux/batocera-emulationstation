@@ -189,11 +189,11 @@ void SystemScreenSaver::startScreenSaver()
 		if (total == 0)
 		return;
 	
-		// Game List change (20% backward, 60% no change, 20% forward)  
+		// Game List change 10% backward, 70% no change, 20% forward) : to be improved
 		int ChangeGameList = Randomizer::random(100);
 		if (ChangeGameList >= 80)
 			ViewController::goToNextGameList();
-		if (ChangeGameList <= 20)
+		if (ChangeGameList <= 10)
 			ViewController::goToPrevGameList();
 		
 		// Game change
