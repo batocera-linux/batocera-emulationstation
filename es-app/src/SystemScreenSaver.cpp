@@ -190,7 +190,7 @@ void SystemScreenSaver::startScreenSaver()
 		unsigned int total = (int)list.size();
 		if (total == 0)
 		return;
-		int gameTarget = Randomizer::random(total);
+		int target = Randomizer::random(total);
 		int gamePos = getCursorIndex();
 		if (target > gamePos && target < total) {
 			// Moving forward step by step to target game
