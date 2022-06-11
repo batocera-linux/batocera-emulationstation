@@ -585,43 +585,50 @@ void Window::render()
 		}
 	}
 
+	// Render calibration dark background & text
 	if (mCalibrationText)
 	{
+		Renderer::setMatrix(Transform4x4f::Identity());
 		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000A0);
 		mCalibrationText->render(transform);
-		Renderer::setMatrix(Transform4x4f::Identity());
 	}
 
+	// Render guns aims
 	auto guns = InputManager::getInstance()->getGuns();
-	for (auto gun : guns)
+	if (guns.size())
 	{
+		Renderer::setMatrix(Transform4x4f::Identity());
+
 		if (mGunAimTexture == nullptr)
 			mGunAimTexture = TextureResource::get(":/gun.png", false, false, true, false);
 
 		if (mGunAimTexture->bind())
 		{
-			int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
-
-			Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
-			Vector2f bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
-			
-			auto aimColor = guns.size() == 1 ? 0xFFFFFFFF : _gunAimColors[gun->index() % _gunAimColors.size()];
-
-			if (gun->isLButtonDown() || gun->isRButtonDown())
+			for (auto gun : guns)
 			{
-				auto mixIndex = (gun->index() + 3) % _gunAimColors.size();
-				auto invertColor = _gunAimColors[mixIndex];
+				int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
 
-				aimColor = Renderer::mixColors(aimColor, invertColor, 0.5);
+				Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
+				Vector2f bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
+
+				auto aimColor = guns.size() == 1 ? 0xFFFFFFFF : _gunAimColors[gun->index() % _gunAimColors.size()];
+
+				if (gun->isLButtonDown() || gun->isRButtonDown())
+				{
+					auto mixIndex = (gun->index() + 3) % _gunAimColors.size();
+					auto invertColor = _gunAimColors[mixIndex];
+
+					aimColor = Renderer::mixColors(aimColor, invertColor, 0.5);
+				}
+
+				Renderer::Vertex vertices[4];
+				vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, aimColor };
+				vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, aimColor };
+				vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 0.0f }, aimColor };
+				vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 1.0f }, aimColor };
+
+				Renderer::drawTriangleStrips(&vertices[0], 4);
 			}
-
-			Renderer::Vertex vertices[4];
-			vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, aimColor };
-			vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, aimColor };
-			vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 0.0f }, aimColor };
-			vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 1.0f }, aimColor };
-
-			Renderer::drawTriangleStrips(&vertices[0], 4);
 		}
 	}
 }
