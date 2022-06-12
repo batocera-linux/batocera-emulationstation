@@ -371,13 +371,15 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "Disable loading states (as well as auto-load) for more points."
-msgstr ""
+msgstr "Desactiva los guardados de partidas para ganar más puntos."
 
 msgid "LEADERBOARDS"
 msgstr "CLASIFICACIONES"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
+"Compite por las mejores puntuaciones y tiempos en los rankings (requiere "
+"modo hardcore)"
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALLADO"
@@ -389,13 +391,14 @@ msgid "ENCORE MODE"
 msgstr "MODO BIS"
 
 msgid "Reset achievements to be able to earn them again."
-msgstr ""
+msgstr "Restablece los logros para poder volver a conseguirlos."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICA"
 
 msgid "Automatically take a screenshot when an achievement is earned."
 msgstr ""
+"Toma una captura de pantalla automáticamente cuando se obtiene un logro."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFÍO"
@@ -427,6 +430,7 @@ msgstr "ACTIVAR EN EL MENÚ PRINCIPAL"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
+"Ver tus estadísticas de RetroAchievement directamente desde el menú principal"
 
 msgid "GAME INDEXES"
 msgstr "ÍNDICES DE JUEGOS"
@@ -462,7 +466,7 @@ msgid "Unknown"
 msgstr "Desconocido"
 
 msgid "YES"
-msgstr "SI"
+msgstr "SÍ"
 
 msgid "NO"
 msgstr "NO"
@@ -543,7 +547,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "MOSTRAR JUEGOS OCULTOS EN COLECCIONES"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "MOSTRAR SISTEMAS VACIOS (SIN JUEGOS)"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ACTUALIZAR LISTAS DE JUEGOS"
@@ -625,7 +629,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "Mostrar salas con juegos no instalados en esta máquina."
 
 msgid "FINISHED"
 msgstr "TERMINADO"
@@ -1205,31 +1209,31 @@ msgid "SCRAPE FOR"
 msgstr ""
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "NOMBRE CORTO"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "VALORACIÓN DE LA COMUNIDAD"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "VIDEO"
 
 msgid "FANART"
-msgstr ""
+msgstr "FANART"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "BISEL (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "TRASERA DE LA CAJA"
 
 msgid "MAP"
-msgstr ""
+msgstr "MAPA"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "MANUAL DE INSTRUCCIONES"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE PADTOKEY (MANDO A TECLAS)"
 
 msgid "SCRAPER"
 msgstr "ESCRAPEAR (OBTENER INFO DE JUEGOS)"
@@ -1417,7 +1421,7 @@ msgid "CONTROLLER SETTINGS"
 msgstr "AJUSTES DEL MANDO"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "CONFIGURACIÓN DE MANDOS Y DISPOSITIVOS BLUETOOTH"
+msgstr "AJUSTES DE MANDOS Y DISPOSITIVOS BLUETOOTH"
 
 msgid "INTERNAL"
 msgstr "INTERNO"
@@ -1441,7 +1445,7 @@ msgid "GAME SETTINGS"
 msgstr "AJUSTES DE JUEGOS"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE LA INTERFAZ DE USUARIO"
 
 msgid "SOUND SETTINGS"
 msgstr "CONFIGURACIÓN DE AUDIO"
@@ -1462,7 +1466,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "CONFIGURACIÓN DEL SISTEMA"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "DESBLOQUEAR MODO DE INTERFAZ DE USUARIO"
 
 msgid "QUIT"
 msgstr "SALIR"
@@ -1474,13 +1478,13 @@ msgid "CHOOSE"
 msgstr "ELEGIR"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "LA INTERFAZ DE USUARIO HA SIDO DESBLOQUEADA"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "INTRODUCE EL CÓDIGO DE DESBLOQUEO"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "OPCIONES DE DESARROLLADOR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPCIONES DE VÍDEO"
@@ -1493,6 +1497,7 @@ msgstr "MOSTRAR TASA DE REFRESCO"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr ""
+"También activa el contador de frames nativo del emulador, si está disponible."
 
 msgid "VSYNC"
 msgstr "SINCRONIZACIÓN VERTICAL (VSYNC)"
@@ -1510,7 +1515,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "DEJAR DE EJECUTAR ESTE JUEGO AL ARRANCAR EL SISTEMA"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "ACTIVAR EL ACCESO POR WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1524,6 +1529,8 @@ msgstr "CREAR UN ARCHIVO DE SOPORTE"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
+"¿CREAR UN ARCHIVO DE SOPORTE? ESTO INCLUYE TODOS LOS DATOS EN TU CARPETA DEL "
+"SISTEMA."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "ARCHIVO DE SOPORTE CREADO EN LA CARPETA “SAVES”"
@@ -1565,20 +1572,24 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNORAR CONTENIDO DE DISCO MULTIPLE (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "ACTIVAR LOS FILTROS DE JUEGOS"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
+"Mostrar u ocultar la configuración relacionada con el filtrado de juegos en "
+"las opciones de lista."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "GUARDAR METADATOS AL SALIR"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr ""
+msgstr "ANALIZAR SOLO LISTAS DE JUEGOS"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
+"Herramienta de depuración: No activar si las ROMs existen actualmente. Puede "
+"causar problemas!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "BUSCAR ARTE LOCAL"
@@ -1587,9 +1598,11 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
+"Si no se especifica ninguna imagen, intenta encontrar medios con el mismo "
+"nombre del archivo."
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "INTERFAZ DE USUARIO"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSICIONES DE CARRUSEL"
@@ -1693,7 +1706,7 @@ msgid "LANGUAGE"
 msgstr "IDIOMA"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "IDIOMA (REGIÓN)"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECCIONA TU ZONA HORARIA"
@@ -1705,7 +1718,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "MOSTRAR EL RELOJ EN FORMATO DE 12 HORAS"
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "MODO AHORRO DE ENERGÍA"
 
 msgid "DISABLED"
 msgstr "DESACTIVADO"
@@ -1720,22 +1733,26 @@ msgid "INSTANT"
 msgstr "INSTANTÁNEO"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
+msgstr "Reduce el consumo de energía (útil para dispositivos portátiles)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LECTOR DE PANTALLA (TEXTO A VOZ)"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "MODO DE INTERFAZ DE USUARIO"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
+msgstr "Oculta ciertos ajustes del menú para usuarios invitados o niños."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"Estás cambiando la interfaz a modo restringido\n"
+"Esto ocultará muchas opciones en el menú para evitar cambios en el sistema\n"
+"Para desbloquear y regresar a la interfaz completa, introduce el siguiente "
+"código:"
 
 msgid "Do you want to proceed?"
 msgstr "¿Deseas continuar?"
@@ -1766,6 +1783,7 @@ msgstr "PERFIL DE AUDIO"
 
 msgid "Available options can change depending on current audio output."
 msgstr ""
+"Las opciones disponibles pueden cambiar según la salida de audio actual."
 
 msgid "SCREEN ROTATION"
 msgstr "ROTACIÓN DE LA PANTALLA"
@@ -1867,7 +1885,7 @@ msgid "ENFORCE SECURITY"
 msgstr "REFORZAR SEGURIDAD"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
+msgstr "Requerir una contraseña para acceder al recurso compartido de red."
 
 msgid "ROOT PASSWORD"
 msgstr "CONTRASEÑA ROOT"
@@ -1928,13 +1946,13 @@ msgid "GAME ASPECT RATIO"
 msgstr "RELACIÓN DE ASPECTO"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "Obliga al juego a renderizar en esta relación de aspecto."
 
 msgid "VIDEO MODE"
 msgstr "MODO DE VÍDEO"
 
 msgid "Force the emulator to run at this resolution."
-msgstr ""
+msgstr "Obliga al emulador a ejecutar con esta resolución."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SUAVIZAR JUEGOS (FILTRO BILINEAL)"
@@ -1944,6 +1962,8 @@ msgstr "REBOBINAR PARTIDA"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
+"Almacena guardados pasados para rebobinar en tiempo real, si el núcleo lo "
+"soporta."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALADO ÍNTEGRO (PIXEL PERFECT)"
@@ -2019,27 +2039,28 @@ msgstr "AUTO GUARDAR/CARGAR"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
+"Carga la última partida guardada al iniciar un juego y la guarda al salir."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "INCREMENTAR POR GUARDADO"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "Nunca sobrescribir partidas guardadas, crear siempre nuevos guardados."
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "INCREMENTAR RANURA"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "Incrementar ranura en una nueva partida."
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "NO INCREMENTAR"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "Usa la ranura actual en una nueva partida."
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS"
@@ -2184,7 +2205,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "OPCIONES DE PANTALLA"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "TRANSICIÓN EN LAS LISTAS"
 
 msgid "auto"
 msgstr "auto"
@@ -2212,6 +2233,7 @@ msgstr "IGNORAR LOS PRONOMBRES EN LOS TÍTULOS AL ORDENAR"
 
 msgid "Ignore 'The' and 'A' if at the start."
 msgstr ""
+"Ignora los “El, la, los etc” y “Un, uno, una etc” del comienzo del título."
 
 msgid "VOLUME"
 msgstr "VOLUMEN"
@@ -2298,7 +2320,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "EJECUTAR SALVAPANTALLAS"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "VER EL MANUAL DE USUARIO DE BATOCERA"
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR SISTEMA"
@@ -2735,7 +2757,7 @@ msgid "VERTICAL"
 msgstr "VERTICAL"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "PISTOLA (LIGHTGUN)"
 
 msgid "SCRAPING"
 msgstr "ESCRAPEANDO"
@@ -2750,6 +2772,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"CALIBRANDO PISTOLA\n"
+"Dispara a los objetivos para calibrar"
 
 #, c-format
 msgid "%s connected"

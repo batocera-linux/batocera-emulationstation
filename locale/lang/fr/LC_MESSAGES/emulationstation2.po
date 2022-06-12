@@ -543,7 +543,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "AFFICHER LES JEUX DES SYSTÈMES CACHÉS DANS LES COLLECTIONS"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "AFFICHER LES SYSTÈMES SANS JEU"
 
 msgid "UPDATE GAMELISTS"
 msgstr "METTRE À JOUR LES LISTES DE JEUX"
@@ -1203,13 +1203,13 @@ msgid "SCRAPE FOR"
 msgstr ""
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "NOM COURT"
 
 msgid "COMMUNITY RATING"
 msgstr ""
 
 msgid "VIDEO"
-msgstr ""
+msgstr "VIDÉO"
 
 msgid "FANART"
 msgstr ""
@@ -1221,10 +1221,10 @@ msgid "BOX BACKSIDE"
 msgstr ""
 
 msgid "MAP"
-msgstr ""
+msgstr "CARTE"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "MANUEL"
 
 msgid "PADTOKEY SETTINGS"
 msgstr ""
@@ -1439,7 +1439,7 @@ msgid "GAME SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES D'AFFICHAGE"
 
 msgid "SOUND SETTINGS"
 msgstr "PARAMÈTRES AUDIO"
@@ -2292,7 +2292,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCRAN DE VEILLE"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "VOIR LE MANUEL UTILISATEUR"
 
 msgid "RESTART SYSTEM"
 msgstr "REDÉMARRER"
@@ -2730,7 +2730,7 @@ msgid "VERTICAL"
 msgstr "VERTICAL"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "PISTOLET"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -2744,7 +2744,7 @@ msgstr "SCRAPE TERMINÉ"
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
-msgstr ""
+msgstr "CALIBRATION DU PISTOLET\nTirer sur les cibles pour calibrer"
 
 #, c-format
 msgid "%s connected"
