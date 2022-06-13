@@ -26,7 +26,8 @@ enum FilterIndexType
 	REGION_FILTER = 11,
 	FAVORITES_FILTER = 12,
 	CHEEVOS_FILTER = 13,
-	VERTICAL_FILTER = 14
+	VERTICAL_FILTER = 14,
+	LIGHTGUN_FILTER = 15
 };
 
 struct FilterDataDecl
@@ -62,7 +63,7 @@ public:
 	
 	virtual int showFile(FileData* game);
 	virtual bool isFiltered() { return (!mTextFilter.empty() || filterByGenre || filterByPlayers || filterByPubDev || filterByFamily
-		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear || filterByCheevos || filterByVertical); };
+		|| filterByRatings || filterByFavorites || filterByKidGame || filterByPlayed || filterByLang || filterByRegion || filterByYear || filterByCheevos || filterByVertical || filterByLightGun); };
 
 	bool isKeyBeingFilteredBy(std::string key, FilterIndexType type);
 	std::vector<FilterDataDecl> getFilterDataDecls();
@@ -109,6 +110,7 @@ protected:
 	bool filterByRegion;
 	bool filterByCheevos;
 	bool filterByVertical;
+	bool filterByLightGun;
 
 	std::map<std::string, int> genreIndexAllKeys;
 	std::map<std::string, int> familyIndexAllKeys;
@@ -122,8 +124,8 @@ protected:
 	std::map<std::string, int> langIndexAllKeys;
 	std::map<std::string, int> regionIndexAllKeys;
 	std::map<std::string, int> cheevosIndexAllKeys;
-
 	std::map<std::string, int> verticalIndexAllKeys;
+	std::map<std::string, int> lightGunIndexAllKeys;
 
 	std::unordered_set<std::string> genreIndexFilteredKeys;
 	std::unordered_set<std::string> familyIndexFilteredKeys;
@@ -138,6 +140,7 @@ protected:
 	std::unordered_set<std::string> regionIndexFilteredKeys;
 	std::unordered_set<std::string> cheevosIndexFilteredKeys;
 	std::unordered_set<std::string> verticalIndexFilteredKeys;
+	std::unordered_set<std::string> lightGunIndexFilteredKeys;
 
 	std::string mTextFilter;
 	bool		mUseRelevency;

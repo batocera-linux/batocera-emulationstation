@@ -7,8 +7,12 @@
 #include <pugixml/src/pugixml.hpp>
 #include <utils/Delegate.h>
 
+#include "GunManager.h"
+
 class InputConfig;
 class Window;
+class GunManager;
+
 union SDL_Event;
 
 struct PlayerDeviceInfo
@@ -45,6 +49,9 @@ public:
 
 	bool parseEvent(const SDL_Event& ev, Window* window);
 
+	void updateGuns(Window* window);
+	std::vector<Gun*>& getGuns() { return mGunManager->getGuns(); }
+
 	std::string configureEmulators();
 
 	// information about last association players/pads 
@@ -55,8 +62,12 @@ public:
 
 	static Delegate<IJoystickChangedEvent> joystickChanged;
 
+	GunManager* getGunManager() { return mGunManager; }
+
 private:
 	InputManager();
+
+	GunManager* mGunManager;
 
 	static InputManager* mInstance;
 	static const int DEADZONE = 23000;

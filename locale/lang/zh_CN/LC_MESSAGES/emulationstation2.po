@@ -371,14 +371,32 @@ msgstr "RetroArch成就"
 msgid "HARDCORE MODE"
 msgstr "专家模式"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "排行榜"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "详细模式"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
+msgid "ENCORE MODE"
+msgstr ""
+
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr ""
@@ -404,6 +422,9 @@ msgid "PASSWORD"
 msgstr "密码"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -520,6 +541,9 @@ msgstr "在合辑中显示系统名称"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr ""
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
@@ -600,6 +624,9 @@ msgid "SAO PAULO"
 msgstr ""
 
 msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "Show rooms for games not present on this machine."
 msgstr ""
 
 msgid "FINISHED"
@@ -1189,32 +1216,35 @@ msgstr "旋转"
 msgid "MARQUEE"
 msgstr "蒙版"
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "抓取游戏评分"
-
-msgid "SCRAPE VIDEOS"
-msgstr "抓取视频"
-
-msgid "SCRAPE FANART"
-msgstr "抓取同人作品"
-
-msgid "SCRAPE BEZEL (16:9)"
+msgid "SHORT NAME"
 msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
+msgid "COMMUNITY RATING"
 msgstr ""
 
-msgid "SCRAPE MAP"
+msgid "VIDEO"
 msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "抓取手册"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "抓取pad按键设置"
+msgid "BEZEL (16:9)"
+msgstr ""
+
+msgid "BOX BACKSIDE"
+msgstr ""
+
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "抓取元数据"
@@ -1422,8 +1452,8 @@ msgstr "KODI 媒体中心"
 msgid "GAME SETTINGS"
 msgstr ""
 
-msgid "UI SETTINGS"
-msgstr "UI 设置"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "声音设置"
@@ -1443,8 +1473,8 @@ msgstr "更新文件和下载文件"
 msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
 
-msgid "UNLOCK UI MODE"
-msgstr "界面不锁定"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "退出"
@@ -1455,14 +1485,14 @@ msgstr ""
 msgid "CHOOSE"
 msgstr "浏览"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
-msgid "DEVELOPER"
-msgstr "开发者选项"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "视频选项"
@@ -1472,6 +1502,9 @@ msgstr "限制 VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "显示帧率"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "垂直同步"
@@ -1488,7 +1521,7 @@ msgstr "工具"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr ""
 
-msgid "ENABLE PUBLIC WEB ACCESS"
+msgid "ENABLE PUBLIC WEB API ACCESS"
 msgstr ""
 
 #, c-format
@@ -1501,8 +1534,8 @@ msgstr "日志级别"
 msgid "CREATE A SUPPORT FILE"
 msgstr "创建支持文件"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "是否创建支持文件?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
@@ -1543,20 +1576,32 @@ msgstr "数据管理"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
-msgid "ENABLE FILTERS"
-msgstr "启用筛选器"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "退出时保存元数据"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "仅分析游戏列表"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在磁盘上查找图形"
 
-msgid "UI"
-msgstr "用户界面"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
@@ -1653,6 +1698,9 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr "语言"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1662,8 +1710,8 @@ msgstr ""
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr ""
 
-msgid "POWER SAVER MODES"
-msgstr "省电模式"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr ""
@@ -1677,16 +1725,22 @@ msgstr "增强"
 msgid "INSTANT"
 msgstr ""
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
-msgid "UI MODE"
-msgstr "UI模式"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
 
 msgid "Do you want to proceed?"
@@ -1714,6 +1768,9 @@ msgid "AUDIO OUTPUT"
 msgstr "音频输出"
 
 msgid "AUDIO PROFILE"
+msgstr ""
+
+msgid "Available options can change depending on current audio output."
 msgstr ""
 
 msgid "SCREEN ROTATION"
@@ -1815,6 +1872,9 @@ msgstr "安全性保护"
 msgid "ENFORCE SECURITY"
 msgstr "强制安全性保护"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
 
@@ -1869,14 +1929,23 @@ msgstr ""
 msgid "GAME ASPECT RATIO"
 msgstr ""
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "视频模式"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
 msgid "REWIND"
 msgstr "倒带功能"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
@@ -1950,13 +2019,28 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr ""
 
-msgid "NEW GAME CREATES NEW SLOT"
+msgid "INCREMENT PER SAVE"
 msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
 msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
@@ -1997,18 +2081,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "显示控制器活动"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
 msgstr "默认"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "显示控制器活动"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2094,8 +2178,8 @@ msgstr "网格列表"
 msgid "DISPLAY OPTIONS"
 msgstr "视图画面选项"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "画面转场样式"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr ""
@@ -2119,6 +2203,9 @@ msgid "ICON AND TEXT"
 msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
+msgid "Ignore 'The' and 'A' if at the start."
 msgstr ""
 
 msgid "VOLUME"
@@ -2205,7 +2292,7 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
 
-msgid "VIEW USER'S MANUAL"
+msgid "VIEW USER MANUAL"
 msgstr ""
 
 msgid "RESTART SYSTEM"
@@ -2625,6 +2712,9 @@ msgstr ""
 msgid "VERTICAL"
 msgstr ""
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "抓取"
 
@@ -2632,6 +2722,11 @@ msgid "SCRAPE FAILED"
 msgstr "抓取失败"
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
 msgstr ""
 
 #, c-format
@@ -2847,6 +2942,51 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "抓取游戏评分"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "抓取视频"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "抓取同人作品"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "抓取手册"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "抓取pad按键设置"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "UI 设置"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "界面不锁定"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "开发者选项"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "是否创建支持文件?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "启用筛选器"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "仅分析游戏列表"
+
+#~ msgid "UI"
+#~ msgstr "界面"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "省电模式"
+
+#~ msgid "UI MODE"
+#~ msgstr "UI模式"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "画面转场样式"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "重启系统并应用"

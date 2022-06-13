@@ -375,13 +375,31 @@ msgstr "RETROACHIEVEMENTS (TROFEUS)"
 msgid "HARDCORE MODE"
 msgstr "MODE HARDCORE"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr ""
 
+msgid "RICH PRESENCE"
+msgstr ""
+
+msgid "ENCORE MODE"
+msgstr ""
+
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
+msgstr ""
+
+msgid "Automatically take a screenshot when an achievement is earned."
 msgstr ""
 
 msgid "CHALLENGE INDICATORS"
@@ -408,6 +426,9 @@ msgid "PASSWORD"
 msgstr "CONTRASENYA"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -524,6 +545,9 @@ msgstr "MOSTRAR NOM DE SISTEMA A LES COL·LECCIONS"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "MOSTRAR JOCS OCULTS A COL·LECCIONS"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
@@ -604,6 +628,9 @@ msgid "SAO PAULO"
 msgstr ""
 
 msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "Show rooms for games not present on this machine."
 msgstr ""
 
 msgid "FINISHED"
@@ -1179,31 +1206,34 @@ msgstr ""
 msgid "MARQUEE"
 msgstr ""
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "OBTENIR DADES DE VALORACIÓ"
-
-msgid "SCRAPE VIDEOS"
+msgid "SHORT NAME"
 msgstr ""
 
-msgid "SCRAPE FANART"
+msgid "COMMUNITY RATING"
 msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
+msgid "VIDEO"
 msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
+msgid "FANART"
 msgstr ""
 
-msgid "SCRAPE MAP"
+msgid "BEZEL (16:9)"
 msgstr ""
 
-msgid "SCRAPE MANUAL"
+msgid "BOX BACKSIDE"
 msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
+msgid "MAP"
+msgstr ""
+
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1412,8 +1442,8 @@ msgstr "CENTRE MULTIMÈDIA DEL KODI"
 msgid "GAME SETTINGS"
 msgstr ""
 
-msgid "UI SETTINGS"
-msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "PARÀMETRES DEL SO"
@@ -1433,7 +1463,7 @@ msgstr "ACTUALITZACIONS I DESCÀRREGUES"
 msgid "SYSTEM SETTINGS"
 msgstr "PARÀMETRES DEL SISTEMA"
 
-msgid "UNLOCK UI MODE"
+msgid "UNLOCK USER INTERFACE MODE"
 msgstr "DESBLOQUEDAR MODE D'IU"
 
 msgid "QUIT"
@@ -1445,14 +1475,14 @@ msgstr "ESTÀ SEGUR DE VOLER CONFIGURAR L'ENTRADA?"
 msgid "CHOOSE"
 msgstr "TRIA"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr "EL MODE D'UI ESTÀ DESBLOQUEJAT"
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "SI US PLAU ENTRI EL CODI PER DESBLOQUEJAR EL MODE D'UI ACTUAL"
 
-msgid "DEVELOPER"
-msgstr "DESENVOLUPADOR"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "OPCIONS DE VIDEO"
@@ -1462,6 +1492,9 @@ msgstr "LÍMIT DE VRAM"
 
 msgid "SHOW FRAMERATE"
 msgstr "MOSTRA ELS FOTOGRAMES PER SEGON"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "SINCRONITZACIÓ VERTICAL"
@@ -1478,7 +1511,7 @@ msgstr "EINES"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr ""
 
-msgid "ENABLE PUBLIC WEB ACCESS"
+msgid "ENABLE PUBLIC WEB API ACCESS"
 msgstr ""
 
 #, c-format
@@ -1491,7 +1524,7 @@ msgstr "NIVELL DE TRAÇA"
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
-msgid "CREATE A SUPPORT FILE?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
@@ -1533,20 +1566,32 @@ msgstr "GESTIÓ DE DADES"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
-msgid "ENABLE FILTERS"
+msgid "ENABLE GAME FILTERING"
 msgstr "HABILITAR FILTRES"
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "DESAR METADADES AL SORTIR"
 
-msgid "PARSE GAMESLISTS ONLY"
+msgid "PARSE GAMELISTS ONLY"
 msgstr "INTERPRETAR NOMÉS LLISTATS DE JOCS"
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "CERCAR PER ART LOCAL"
 
-msgid "UI"
-msgstr "IU"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSICIONS DE CARRUSEL"
@@ -1652,6 +1697,9 @@ msgstr "LA ACTUALIZACIÓ JA S'ESTÀ FENT"
 msgid "LANGUAGE"
 msgstr "IDIOMA"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1661,7 +1709,7 @@ msgstr ""
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr ""
 
-msgid "POWER SAVER MODES"
+msgid "POWER SAVING MODE"
 msgstr "MODES D'ESTALVI D'ENERGIA"
 
 msgid "DISABLED"
@@ -1676,16 +1724,22 @@ msgstr "MILLORAT"
 msgid "INSTANT"
 msgstr ""
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
-msgid "UI MODE"
+msgid "USER INTERFACE MODE"
 msgstr "MODE D'IU"
 
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
+
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
 "Està canviant la IU a un mode restringit:\n"
 "Això amagarà moltes opcions de menú per a prevenir canvis al sistema.\n"
@@ -1719,6 +1773,9 @@ msgid "AUDIO OUTPUT"
 msgstr "SORTIA D'ÀUDIO"
 
 msgid "AUDIO PROFILE"
+msgstr ""
+
+msgid "Available options can change depending on current audio output."
 msgstr ""
 
 msgid "SCREEN ROTATION"
@@ -1823,6 +1880,9 @@ msgstr "SEGURETAT"
 msgid "ENFORCE SECURITY"
 msgstr "FES COMPLIR LA SEGURETAT"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "CONTRASENYA DE ROOT"
 
@@ -1877,14 +1937,23 @@ msgstr "CONFIGURACIÓ PER DEFECTE"
 msgid "GAME ASPECT RATIO"
 msgstr ""
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "MODE DE VIDEO"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
 msgid "REWIND"
 msgstr "REBOBINA"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr ""
@@ -1949,7 +2018,37 @@ msgstr "URL DE SERVEI"
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "PARAR A LES PANTALLES TRADUÏDES"
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "INCREMENT PER SAVE"
+msgstr ""
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
 msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
@@ -1990,17 +2089,17 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr ""
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
-msgstr "per defecte"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "MOSTRAR ACTIVITAT DEL COMANDAMENT"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -2087,8 +2186,8 @@ msgstr "graella"
 msgid "DISPLAY OPTIONS"
 msgstr "OPCIONS DE VISUALITZACIÓ"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "ESTIL DE LES TRANSICIONS"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr ""
@@ -2115,6 +2214,9 @@ msgid "SHOW FILENAMES IN LISTS"
 msgstr "MOSTRAR NOM D'ARXIU ALS LLISTATS"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
+msgid "Ignore 'The' and 'A' if at the start."
 msgstr ""
 
 msgid "VOLUME"
@@ -2201,7 +2303,7 @@ msgstr "ESCOLTANT ARA"
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR ESTALVI DE PANTALLA"
 
-msgid "VIEW USER'S MANUAL"
+msgid "VIEW USER MANUAL"
 msgstr "VEURE MANUAL D'USUARI"
 
 msgid "VIEW BATOCERA MANUAL"
@@ -2642,6 +2744,9 @@ msgstr ""
 msgid "VERTICAL"
 msgstr ""
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr ""
 
@@ -2650,6 +2755,11 @@ msgstr "L'SCRAPING HA FALLAT"
 
 msgid "SCRAPING FINISHED. REFRESH UPDATE GAMES LISTS TO APPLY CHANGES."
 msgstr "SCRAPING FINALITZAT. ACTUALITZI LES LLISTES DELS JOCS PER A APLICAR ELS CANVIS"
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"
@@ -2874,6 +2984,21 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "OBTENIR DADES DE VALORACIÓ"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "PARÀMETRES DE LA INTERFÍCIE D'USUARI"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "DESBLOQUEJAR INTERFÍCIE DEL SISTEMA"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "DESENVOLUPADOR"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "ESTIL DE LES TRANSICIONS"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "REINICIAR BATOCERA PER APLICAR"

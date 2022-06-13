@@ -81,6 +81,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "verticalAlignment", STRING },
 		{ "roundCorners", FLOAT },
 		{ "opacity", FLOAT },
+		{ "saturation", FLOAT },
+		{ "shader", PATH },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
@@ -212,6 +214,14 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarCorner", FLOAT },
 		{ "scrollbarAlignment", STRING },		
 
+		{ "glowColor", COLOR },
+		{ "glowSize", FLOAT },
+		{ "glowOffset", NORMALIZED_PAIR },
+
+		// extraText color is for texts located between [] or ()
+		{ "extraTextColor", COLOR },
+		{ "extraTextSelectedColor", COLOR },
+
 		{ "zIndex", FLOAT } } },
 	{ "container", {
 		{ "pos", NORMALIZED_PAIR },
@@ -312,6 +322,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		// Controllers
 		{ "imagePath", PATH },		
+		{ "gunPath", PATH },
 		{ "color", COLOR },
 		{ "activityColor", COLOR },
 		{ "hotkeyColor", COLOR },
@@ -410,6 +421,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "loops", FLOAT }, // Number of loops to do -1 (default) is infinite 
 		{ "audio", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
+		{ "saturation", FLOAT },
+		{ "shader", PATH },
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
 	{ "carousel", {

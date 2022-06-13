@@ -63,10 +63,10 @@ int runSystemCommand(const std::string& cmd_utf8, const std::string& name, Windo
 
 #define BUFFER_SIZE 8192
 
-	TCHAR szEnvPath[BUFFER_SIZE];
-	DWORD dwLen = ExpandEnvironmentStringsA(command.c_str(), szEnvPath, BUFFER_SIZE);
+	WCHAR szEnvPath[BUFFER_SIZE];
+	DWORD dwLen = ExpandEnvironmentStringsW(Utils::String::convertToWideString(command).c_str(), szEnvPath, BUFFER_SIZE);
 	if (dwLen > 0 && dwLen < BUFFER_SIZE)
-		command = std::string(szEnvPath);
+		command = Utils::String::convertFromWideString(szEnvPath);
 
 	std::string exe;
 	std::string args;

@@ -339,11 +339,12 @@ void CollectionSystemManager::updateSystemsList()
 	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware && !sortByReleaseDate)
 		std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByAlphaSort);
 
-	if (mCustomCollectionsBundle->getRootFolder()->getChildren().size() > 0)
-		SystemData::sSystemVector.push_back(mCustomCollectionsBundle);
-
 	// add auto enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mAutoCollectionSystemsData, &map);
+
+	// Add custom collections bundle to the system list, if there are items
+	if (mCustomCollectionsBundle->getRootFolder()->getChildren().size() > 0)
+		SystemData::sSystemVector.push_back(mCustomCollectionsBundle);
 
 	if (!sortMode.empty())
 	{

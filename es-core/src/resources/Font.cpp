@@ -12,6 +12,7 @@
 #include "Settings.h"
 #include "ImageIO.h"
 #include <algorithm>
+#include "math/Transform4x4f.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -424,6 +425,66 @@ void Font::rebuildTextures()
 	}
 }
 
+void Font::renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, float x, float y, bool verticesChanged)
+{
+	Transform4x4f trans = parentTrans;
+	trans.translate(x, y);
+	Renderer::setMatrix(trans);
+	renderTextCache(cache, verticesChanged);
+}
+
+void Font::renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans, unsigned int mGlowSize, unsigned int mGlowColor, Vector2f& mGlowOffset, unsigned char mOpacity)
+{
+	if ((mGlowColor & 0x000000FF) != 0 && mGlowSize > 0)
+	{
+		Transform4x4f glowTrans = parentTrans;
+		glowTrans.translate(mGlowOffset.x(), mGlowOffset.y());
+		Renderer::setMatrix(glowTrans);
+
+		auto copy = cache->vertexLists;
+
+		cache->setRenderingGlow(true);
+
+		if (mGlowSize == 1 && mGlowOffset == Vector2f::Zero())
+		{
+			int a = Math::min(0xFF, (mGlowColor & 0xFF) * 2);
+			cache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)(a * (mOpacity / 255.0)));
+
+			renderSingleGlow(cache, glowTrans, 1, 0);
+			renderSingleGlow(cache, glowTrans, 0, 1, false);
+			renderSingleGlow(cache, glowTrans, -1, 0, false);
+			renderSingleGlow(cache, glowTrans, 0, -1, false);
+		}
+		else
+		{
+			cache->setColor((mGlowColor & 0xFFFFFF00) | (unsigned char)((mGlowColor & 0xFF) * (mOpacity / 255.0)));
+
+			int x = -mGlowSize;
+			int y = -mGlowSize;
+
+			renderSingleGlow(cache, glowTrans, x, y);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, ++x, y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, x, ++y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, --x, y, false);
+
+			for (int i = 0; i < 2 * mGlowSize; i++)
+				renderSingleGlow(cache, glowTrans, x, --y, false);
+		}
+
+		cache->setRenderingGlow(false);
+		cache->vertexLists = copy;
+	}
+
+	Renderer::setMatrix(parentTrans);
+	renderTextCache(cache);
+}
+
 void Font::renderTextCache(TextCache* cache, bool verticesChanged)
 {
 	if(cache == NULL)
@@ -832,6 +893,9 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 
 	std::vector<TextImageSubstitute> imageSubstitutes;
 
+	bool inParenthesis = false;
+	bool inBlock = false;
+
 	tabIndex = 0;
 	size_t cursor = 0;
 	while(cursor < text.length())
@@ -907,6 +971,16 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 			tabIndex++;
 		}
 
+		if (character == '(')
+			inParenthesis = true;
+		else if (character == ')')
+			inParenthesis = false;
+
+		if (character == '[')
+			inBlock = true;
+		else if (character == ']')
+			inBlock = false;
+
 		glyph = getGlyph(character);
 		if(glyph == NULL)
 			continue;
@@ -925,8 +999,15 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		vertices[4] = { { glyphStartX + glyph->glyphSize.x()                , y - glyph->bearing.y() + (glyph->glyphSize.y())                 }, { glyph->texPos.x() + glyph->texSize.x(), glyph->texPos.y() + glyph->texSize.y() }, convertedColor };
 
 		// round vertices
-		for(int i = 1; i < 5; ++i)
+		for (int i = 1; i < 5; ++i)
+		{
 			vertices[i].pos.round();
+
+			if (inParenthesis || inBlock || character == ']' || character == ')')
+				vertices[i].saturation = 0.0f;
+			else
+				vertices[i].saturation = 1.0f;
+		}
 
 		// make duplicates of first and last vertex so this can be rendered as a triangle strip
 		vertices[0] = vertices[1];
@@ -963,13 +1044,30 @@ TextCache* Font::buildTextCache(const std::string& text, float offsetX, float of
 	return buildTextCache(text, Vector2f(offsetX, offsetY), color, 0.0f);
 }
 
+void TextCache::setColors(unsigned int color, unsigned int extraColor)
+{
+	const unsigned int convertedColor = Renderer::convertColor(color);
+	const unsigned int convertedExtraColor = Renderer::convertColor(extraColor);
+
+	for (auto it = vertexLists.begin(); it != vertexLists.end(); it++)
+	{
+		for (auto it2 = it->verts.begin(); it2 != it->verts.end(); it2++)
+		{
+			if (!renderingGlow && it2->saturation == 0)
+				it2->col = convertedExtraColor;
+			else
+				it2->col = convertedColor;
+		}
+	}
+}
+
 void TextCache::setColor(unsigned int color)
 {
 	const unsigned int convertedColor = Renderer::convertColor(color);
 
-	for(auto it = vertexLists.begin(); it != vertexLists.end(); it++)
-		for(auto it2 = it->verts.begin(); it2 != it->verts.end(); it2++)
-			it2->col = convertedColor;
+	for (auto it = vertexLists.begin(); it != vertexLists.end(); it++)
+		for (auto it2 = it->verts.begin(); it2 != it->verts.end(); it2++)
+				it2->col = convertedColor;
 }
 
 std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig)

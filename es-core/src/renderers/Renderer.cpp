@@ -384,6 +384,7 @@ namespace Renderer
 	int         getScreenOffsetX() { return screenOffsetX; }
 	int         getScreenOffsetY() { return screenOffsetY; }
 	int         getScreenRotate()  { return screenRotate; }
+	bool		isVerticalScreen() { return screenHeight > screenWidth; }
 
 	float		getScreenProportion() 
 	{ 
@@ -639,6 +640,11 @@ namespace Renderer
 		Instance()->createContext();
 	}
 
+	void resetCache()
+	{
+		Instance()->resetCache();
+	}
+	
 	void destroyContext()
 	{
 		Instance()->destroyContext();

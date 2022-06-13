@@ -30,7 +30,7 @@
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) 
-{		
+{			
 	mTransitionOffset = 0;
 
 	mHelp = new HelpComponent(this);
@@ -38,6 +38,8 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); 
 
 	mSplash = nullptr;
+
+	
 }
 
 Window::~Window()
@@ -225,7 +227,7 @@ void Window::input(InputConfig* config, Input input)
 			}
 			else if (config->isMappedTo("start", input) && input.value != 0 && mScreenSaver->getCurrentGame() != nullptr)
 			{
-				// launch game!
+				// launch game!				
 				cancelScreenSaver();
 				mScreenSaver->launchGame();
 				// to force handling the wake up process
@@ -234,17 +236,6 @@ void Window::input(InputConfig* config, Input input)
 		}
 	}
 
-	if (mSleeping)
-	{
-		// wake up
-		mTimeSinceLastInput = 0;
-		cancelScreenSaver();
-		mSleeping = false;
-		onWake();
-		return;
-	}
-
-	mTimeSinceLastInput = 0;
 	if (cancelScreenSaver())
 		return;
 
@@ -507,6 +498,8 @@ void Window::update(int deltaTime)
 	AudioManager::update(deltaTime);
 }
 
+static std::vector<unsigned int> _gunAimColors = { 0xFFFFFF00, 0xFFFF00FF, 0xFF00FFFF, 0xFF0000FF, 0xFFFF0000, 0xFF00FF00 };
+
 void Window::render()
 {
 	Transform4x4f transform = Transform4x4f::Identity();
@@ -514,13 +507,13 @@ void Window::render()
 	mRenderedHelpPrompts = false;
 
 	// draw only bottom and top of GuiStack (if they are different)
-	if(mGuiStack.size())
+	if (mGuiStack.size())
 	{
 		auto& bottom = mGuiStack.front();
 		auto& top = mGuiStack.back();
 
 		bottom->render(transform);
-		if(bottom != top)
+		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
 			{
@@ -546,21 +539,21 @@ void Window::render()
 			}
 		}
 	}
-	
+
 	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
-		if(!mRenderedHelpPrompts)
+		if (!mRenderedHelpPrompts)
 			mHelp->render(transform);
 
-	if(Settings::DrawFramerate() && mFrameDataText)
+	if (Settings::DrawFramerate() && mFrameDataText)
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
-    // clock 
+	// clock 
 	if (Settings::DrawClock() && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mClock->render(transform);
-	
+
 	if (Settings::ShowControllerActivity() && mControllerActivity != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mControllerActivity->render(transform);
 
@@ -581,7 +574,7 @@ void Window::render()
 
 		renderAsyncNotifications(transform);
 	}
-	
+
 	// Always call the screensaver render function regardless of whether the screensaver is active
 	// or not because it may perform a fade on transition
 	renderScreenSaver();
@@ -592,7 +585,7 @@ void Window::render()
 	if (mVolumeInfo && Settings::VolumePopup())
 		mVolumeInfo->render(transform);
 
-	if(mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
+	if (mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
 	{
 		if (!isProcessing() && mAllowSleep && (!mScreenSaver || mScreenSaver->allowSleep()))
 		{
@@ -600,6 +593,53 @@ void Window::render()
 			if (mSleeping == false) {
 				mSleeping = true;
 				onSleep();
+			}
+		}
+	}
+
+	// Render calibration dark background & text
+	if (mCalibrationText)
+	{
+		Renderer::setMatrix(Transform4x4f::Identity());
+		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000A0);
+		mCalibrationText->render(transform);
+	}
+
+	// Render guns aims
+	auto guns = InputManager::getInstance()->getGuns();
+	if (guns.size())
+	{
+		Renderer::setMatrix(Transform4x4f::Identity());
+
+		if (mGunAimTexture == nullptr)
+			mGunAimTexture = TextureResource::get(":/gun.png", false, false, true, false);
+
+		if (mGunAimTexture->bind())
+		{
+			for (auto gun : guns)
+			{
+				int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
+
+				Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
+				Vector2f bottomRight = { gun->x() + pointerSize, gun->y() + pointerSize };
+
+				auto aimColor = guns.size() == 1 ? 0xFFFFFFFF : _gunAimColors[gun->index() % _gunAimColors.size()];
+
+				if (gun->isLButtonDown() || gun->isRButtonDown())
+				{
+					auto mixIndex = (gun->index() + 3) % _gunAimColors.size();
+					auto invertColor = _gunAimColors[mixIndex];
+
+					aimColor = Renderer::mixColors(aimColor, invertColor, 0.5);
+				}
+
+				Renderer::Vertex vertices[4];
+				vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          0.0f }, aimColor };
+				vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          1.0f }, aimColor };
+				vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 0.0f }, aimColor };
+				vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 1.0f }, aimColor };
+
+				Renderer::drawTriangleStrips(&vertices[0], 4);
 			}
 		}
 	}
@@ -775,6 +815,10 @@ void Window::startScreenSaver()
 
 bool Window::cancelScreenSaver()
 {
+	bool ret = false;
+
+	mTimeSinceLastInput = 0;
+
 	if (mScreenSaver && mRenderScreenSaver)
 	{		
 		mScreenSaver->stopScreenSaver();
@@ -788,10 +832,18 @@ bool Window::cancelScreenSaver()
 		for (auto extra : mScreenExtras)
 			extra->onScreenSaverDeactivate();
 
-		return true;
+		ret = true;
 	}
 
-	return false;
+	if (mSleeping)
+	{
+		mSleeping = false;
+		onWake();
+
+		ret = true;
+	}
+
+	return ret;
 }
 
 void Window::renderScreenSaver()
@@ -977,4 +1029,26 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 		mBatteryIndicator->applyTheme(theme, "screen", "batteryIndicator", ThemeFlags::ALL);
 	
 	mVolumeInfo = std::make_shared<VolumeInfoComponent>(this);
+}
+
+void Window::setGunCalibrationState(bool isCalibrating)
+{
+	if (isCalibrating)
+	{
+		if (mCalibrationText == nullptr)
+		{
+			mCalibrationText = std::make_shared<TextComponent>(this);
+			mCalibrationText->setText(_("CALIBRATING GUN\nFire on targets to calibrate"));
+			mCalibrationText->setFont(Font::get(FONT_SIZE_MEDIUM));
+			mCalibrationText->setHorizontalAlignment(ALIGN_CENTER);
+			mCalibrationText->setVerticalAlignment(ALIGN_CENTER);
+			mCalibrationText->setPosition(0.0f, 0.0f);
+			mCalibrationText->setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight() / 2.1f);
+			mCalibrationText->setColor(0xFFFFFFFF);
+			mCalibrationText->setGlowSize(1);
+			mCalibrationText->setGlowColor(0x00000040);			
+		}
+	}
+	else
+		mCalibrationText = nullptr;	
 }

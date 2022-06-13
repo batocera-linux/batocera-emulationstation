@@ -90,6 +90,8 @@ public:
 	bool getLinearSmooth() { return mLinearSmooth; }
 	void setLinearSmooth(bool value = true) { mLinearSmooth = value; }
 
+	void setSaturation(float saturation);
+
 private:
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
 	// Used internally whenever the resizing parameters or texture change.
@@ -120,6 +122,7 @@ private:
 
 	std::string					    mSubtitlePath;
 	std::string					    mSubtitleTmpFile;
+	std::string						mCustomShader;
 
 	VideoVlcFlags::VideoVlcEffect	mEffect;
 
@@ -130,6 +133,7 @@ private:
 	int								mLoops;
 
 	bool							mLinearSmooth;
+	float							mSaturation;
 };
 
 #endif // ES_CORE_COMPONENTS_VIDEO_VLC_COMPONENT_H

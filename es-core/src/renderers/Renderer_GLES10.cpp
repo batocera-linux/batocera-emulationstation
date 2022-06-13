@@ -110,6 +110,11 @@ namespace Renderer
 
 	} // createContext
 
+	void GLES10Renderer::resetCache()
+	{
+
+	}
+
 	void GLES10Renderer::destroyContext()
 	{
 		SDL_GL_DeleteContext(sdlContext);

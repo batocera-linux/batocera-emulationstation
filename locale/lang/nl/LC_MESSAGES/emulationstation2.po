@@ -370,14 +370,32 @@ msgstr "RETROPRESTATIES"
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "SCORE BORD"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "VERBOSE MODUS"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
+msgid "ENCORE MODE"
+msgstr ""
+
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHE SCREENSHOT"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr "CHALLENGE INDICATORS"
@@ -406,6 +424,9 @@ msgstr "WACHTWOORD"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "TOON RETROPRESTATIES IN HOOFDMENU"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "SPEL INDEXEN"
@@ -521,6 +542,9 @@ msgstr "TOON SYSTEEM NAAM IN COLLECTIES"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "TOON SPELLEN VAN VERBORGEN COLLECTIES"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr "UPDATE SPELLIJST"
 
@@ -599,6 +623,9 @@ msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "TOON ONBESCHIKBARE SPELLEN"
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
 
 msgid "FINISHED"
 msgstr "KLAAR"
@@ -1172,32 +1199,35 @@ msgstr "WIEL"
 msgid "MARQUEE"
 msgstr "BANNIER"
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "SCRAPE INSTELLINGEN"
+msgid "SHORT NAME"
+msgstr ""
 
-msgid "SCRAPE VIDEOS"
-msgstr "VIDEOS SCRAPEN"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE FANART"
-msgstr "FANART SCRAPEN"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "OMLIJSTING (16:9) SCRAPEN"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "ACHTERKANT DOOS SCRAPEN"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "MAP SCRAPEN"
+msgid "BOX BACKSIDE"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "HANDLEIDING SCRAPEN"
+msgid "MAP"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "SCRAPE CONTROLLER NAAR KEYBOARD INSTELLINGEN"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1408,8 +1438,8 @@ msgstr "KODI MEDIA CENTER"
 msgid "GAME SETTINGS"
 msgstr "SPEL INSTELLINGEN"
 
-msgid "UI SETTINGS"
-msgstr "INTERFACE INSTELLINGEN"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "GELUIDSINSTELLINGEN"
@@ -1429,8 +1459,8 @@ msgstr "UPDATES & DOWNLOADS"
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEEM INSTELLINGEN"
 
-msgid "UNLOCK UI MODE"
-msgstr "INTERFACE MODUS ONTGRENDELEN"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "AFSLUITEN"
@@ -1441,14 +1471,14 @@ msgstr "WEET U ZEKER DAT U DE INVOER WIL CONFIGUREREN?"
 msgid "CHOOSE"
 msgstr "KIEZEN"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "DE INTERFACE MODUS IS NU ONTGRENDELD"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "VOER DE CODE IN OM DE HUIDIGE INTERFACE MODUS TE ONTGRENDELEN"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr ""
 
-msgid "DEVELOPER"
-msgstr "ONTWIKKELAAR"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "VIDEO OPTIES"
@@ -1458,6 +1488,9 @@ msgstr "VRAM LIMIET"
 
 msgid "SHOW FRAMERATE"
 msgstr "TOON FRAMERATE"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1474,8 +1507,8 @@ msgstr "HULPMIDDELEN"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "STOP STARTEN VAN DIT SPEL BIJ HET OPSTARTEN"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "PUBLIEKE WEB TOEGANG INSCHAKELEN"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1487,8 +1520,8 @@ msgstr "LOG NIVEAU"
 msgid "CREATE A SUPPORT FILE"
 msgstr "CREER EEN SUPPORT FILE"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "CREER EEN SUPPORT FILE?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "SUPPORT FILE GECREERD IN SAVES MAP"
@@ -1529,20 +1562,32 @@ msgstr "DATA BEHEER"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "NEGEER MULTI-BESTAND SCHIJF CONTENT (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "FILTERS INSCHAKELEN"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "METADATA OPSLAAN BIJ AFSLUITEN"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "ANALYSEER ALLEEN SPELLIJSTEN"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ZOEK NAAR LOKALE ART"
 
-msgid "UI"
-msgstr "INTERFACE"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "CAROUSEL OVERGANGEN"
@@ -1645,6 +1690,9 @@ msgstr "UPDATE IS AL BEZIG"
 msgid "LANGUAGE"
 msgstr "TAAL"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECTEER TIJD ZONE"
 
@@ -1654,8 +1702,8 @@ msgstr "TIJD ZONE"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "TOON KLOK IN 12-UUR INDELING"
 
-msgid "POWER SAVER MODES"
-msgstr "ENERGIE BESPARING MODES"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "UITGESCHAKELD"
@@ -1669,22 +1717,23 @@ msgstr "UITGEBREID"
 msgid "INSTANT"
 msgstr "DIRECT"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SCHERM LEZER (TEXT TO SPEECH)"
 
-msgid "UI MODE"
-msgstr "INTERFACE MODUS"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"U verandert de interface naar een begrensde modus:\n"
-"Dit zal de meeste menu opties verbergen om veranderingen aan het systeem te "
-"voorkomen.\n"
-"Om te ontgrendelen en naar de volledige interface terug te keren, voer deze "
-"code in:"
 
 msgid "Do you want to proceed?"
 msgstr "Wilt u doorgaan?"
@@ -1712,6 +1761,9 @@ msgstr "AUDIO OUTPUT"
 
 msgid "AUDIO PROFILE"
 msgstr "AUDIO PROFIEL"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "SCHERM ROTATIE"
@@ -1812,6 +1864,9 @@ msgstr "BEVEILIGING"
 msgid "ENFORCE SECURITY"
 msgstr "BEVEILIGING ENFORCEN"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "ROOT WACHTWOORD"
 
@@ -1866,14 +1921,23 @@ msgstr "STANDAARD GLOBALE INSTELLINGEN"
 msgid "GAME ASPECT RATIO"
 msgstr "SPEL BEELDVERHOUDING"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "VIDEO MODUS"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SPELLEN GLADMAKEN (BILINEAR FILTERING)"
 
 msgid "REWIND"
 msgstr "TERUGSPOELEN"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "INTEGER SCALING (PIXEL PERFECT)"
@@ -1947,14 +2011,29 @@ msgstr "SAVESTATES"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO OPSLAAN/LADEN"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "TOEGEVOEGDE SAVESTATES"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "NIEUW SPEL CREËERT NIEUW SLOT"
+msgid "INCREMENT PER SAVE"
+msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "NIEUW SPEL OVERSCHRIJFT HUIDIG SLOT"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "TOON SAVE STATE MANAGER"
@@ -1999,18 +2078,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "EEN BLUETOOTH APPARAAT PAIREN"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "TOON CONTROLLER ACTIVITEIT"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "TOON CONTROLLER BATTERIJ NIVEAU"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S CONTROLLER"
 
 msgid "default"
 msgstr "standaard"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "TOON CONTROLLER ACTIVITEIT"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "TOON CONTROLLER BATTERIJ NIVEAU"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2097,8 +2176,8 @@ msgstr "raster"
 msgid "DISPLAY OPTIONS"
 msgstr "WEERGAVE OPTIES"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "LIJST TRANSITIE STIJL"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr "auto"
@@ -2123,6 +2202,9 @@ msgstr "ICOON EN TEKST"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "NEGEER LEADING ARTICLES BIJ SORTEREN"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2208,8 +2290,8 @@ msgstr "SPEELT NU"
 msgid "LAUNCH SCREENSAVER"
 msgstr "START SCHERMBEVEILIGING"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "TOON GEBRUIKERSHANDLEIDING"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "SYSTEEM HERSTARTEN"
@@ -2645,6 +2727,9 @@ msgstr "HEEFT PRESTATIES"
 msgid "VERTICAL"
 msgstr "VERTICAAL"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPEN"
 
@@ -2653,6 +2738,11 @@ msgstr "SCRAPE MISLUKT"
 
 msgid "SCRAPING FINISHED"
 msgstr "KLAAR MET SCRAPEN"
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"
@@ -2876,6 +2966,89 @@ msgstr "SCHERM LEZER INGESCHAKELD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SCHERM LEZER UITGESCHAKELD"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "SCRAPE INSTELLINGEN"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "VIDEOS SCRAPEN"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "FANART SCRAPEN"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "OMLIJSTING (16:9) SCRAPEN"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "ACHTERKANT DOOS SCRAPEN"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "MAP SCRAPEN"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "HANDLEIDING SCRAPEN"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "SCRAPE CONTROLLER NAAR KEYBOARD INSTELLINGEN"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "INTERFACE INSTELLINGEN"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "INTERFACE MODUS ONTGRENDELEN"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "DE INTERFACE MODUS IS NU ONTGRENDELD"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "VOER DE CODE IN OM DE HUIDIGE INTERFACE MODUS TE ONTGRENDELEN"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "ONTWIKKELAAR"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "PUBLIEKE WEB TOEGANG INSCHAKELEN"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "CREER EEN SUPPORT FILE?"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "FILTERS INSCHAKELEN"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "ANALYSEER ALLEEN SPELLIJSTEN"
+
+#~ msgid "UI"
+#~ msgstr "INTERFACE"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "ENERGIE BESPARING MODES"
+
+#~ msgid "UI MODE"
+#~ msgstr "INTERFACE MODUS"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "U verandert de interface naar een begrensde modus:\n"
+#~ "Dit zal de meeste menu opties verbergen om veranderingen aan het systeem "
+#~ "te voorkomen.\n"
+#~ "Om te ontgrendelen en naar de volledige interface terug te keren, voer "
+#~ "deze code in:"
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "NIEUW SPEL CREËERT NIEUW SLOT"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "NIEUW SPEL OVERSCHRIJFT HUIDIG SLOT"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "LIJST TRANSITIE STIJL"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "TOON GEBRUIKERSHANDLEIDING"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "SYSTEEM HERSTARTEN OM UPDATE TOE TE PASSEN"

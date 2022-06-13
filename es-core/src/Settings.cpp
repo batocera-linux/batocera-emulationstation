@@ -176,7 +176,8 @@ void Settings::setDefaults()
 	mBoolMap["InvertButtons"] = false;
 
 	mBoolMap["GameOptionsAtNorth"] = false;
-
+	mBoolMap["LoadEmptySystems"] = false;
+	
 	mIntMap["RecentlyScrappedFilter"] = 3;
 	
 	mIntMap["ScreenSaverTime"] = Settings::_ScreenSaverTime;
@@ -357,6 +358,8 @@ void Settings::setDefaults()
 	mBoolMap["global.retroachievements.leaderboards"] = false;
 	mBoolMap["global.retroachievements.verbose"] = false;
 	mBoolMap["global.retroachievements.screenshot"] = false;
+	mBoolMap["global.retroachievements.encore"] = false;
+	mBoolMap["global.retroachievements.richpresence"] = false;
 
 	mBoolMap["global.netplay_public_announce"] = true;
 	mBoolMap["global.netplay"] = false;

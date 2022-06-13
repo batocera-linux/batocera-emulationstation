@@ -110,6 +110,11 @@ namespace Renderer
 
 	} // createContext
 
+	void OpenGL21Renderer::resetCache()
+	{
+		
+	}
+
 	void OpenGL21Renderer::destroyContext()
 	{
 		SDL_GL_DeleteContext(sdlContext);

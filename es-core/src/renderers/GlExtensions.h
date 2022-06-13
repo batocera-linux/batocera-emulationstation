@@ -35,6 +35,10 @@ namespace glext
 	extern PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv;
 	extern PFNGLCREATESHADERPROC glCreateShader;
 	extern PFNGLACTIVETEXTUREPROC glActiveTexture_;
+	extern PFNGLUNIFORM1FPROC glUniform1f;
+	extern PFNGLUNIFORM2FPROC glUniform2f;
+	extern PFNGLDELETEPROGRAMPROC glDeleteProgram;
+	extern PFNGLDELETESHADERPROC glDeleteShader;
 };
 
 using namespace glext;

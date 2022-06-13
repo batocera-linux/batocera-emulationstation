@@ -126,7 +126,7 @@ namespace Utils
 				return ret;
 			}
 
-			static void add(const std::string& key, FileCache cache)
+			static void add(const std::string& key, const FileCache& cache)
 			{
 				if (!mEnabled)
 					return;
@@ -164,8 +164,8 @@ namespace Utils
 				mFileCacheMutex.unlock();
 			}
 
-			static void setEnabled(bool value) { mEnabled = value; }
-			static bool isEnabled() { return mEnabled; }
+			static inline void setEnabled(bool value) { mEnabled = value; }
+			static inline bool isEnabled() { return mEnabled; }
 
 		private:
 			static std::map<std::string, FileCache> mFileCache;

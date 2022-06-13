@@ -104,6 +104,11 @@ void UIModeController::unlockUIMode()
 	mPassKeyCounter = 0;
 }
 
+bool UIModeController::LoadEmptySystems()
+{
+	return getInstance()->isUIModeFull() && Settings::LoadEmptySystems();
+}
+
 bool UIModeController::isUIModeFull()
 {
 	return (mCurrentUIMode == "Full" && !Settings::getInstance()->getBool("ForceKiosk") && !Settings::getInstance()->getBool("ForceKid"));

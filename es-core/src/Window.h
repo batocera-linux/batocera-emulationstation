@@ -96,6 +96,9 @@ public:
 
 	AsyncNotificationComponent* createAsyncNotificationComponent(bool actionLine = false);
 
+	bool isCalibratingGun() { return mCalibrationText != nullptr; }
+	void setGunCalibrationState(bool isCalibrating);
+
 private:
 	void processPostedFunctions();
 
@@ -158,7 +161,11 @@ private:
 
 	bool mRenderedHelpPrompts;
 
+	std::shared_ptr<TextComponent>	mCalibrationText;
+
 	int mTransitionOffset;
+
+	std::shared_ptr<TextureResource> mGunAimTexture;
 };
 
 #endif // ES_CORE_WINDOW_H

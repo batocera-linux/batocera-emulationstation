@@ -188,6 +188,8 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 				return false;
 			}
 
+			if (mHoldingInput)
+				mAllInputs.push_back(input);
 
 			// filter for input quirks specific to Sony DualShock 3
 			if(filterTrigger(input, config))
@@ -206,6 +208,9 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 				mHeldTime = 0;
 				mHeldInputId = i;
 
+				mAllInputs.clear();
+				mAllInputs.push_back(input);
+
 				return true;
 			}else{
 				// input up
@@ -215,9 +220,21 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 
 				mHoldingInput = false;
 
+				if (mHeldInput.type == InputType::TYPE_BUTTON)
+				{
+					auto altAxis = mAllInputs.where([&](auto x) { return x.device == mHeldInput.device && x.type == InputType::TYPE_AXIS; });
+					if (altAxis.size() >= 2)
+					{
+						auto groups = altAxis.groupBy([](auto x) { return x.id; });
+						if (groups.size() == 1)
+							mHeldInput = altAxis[0];
+					}
+				}
+
 				if(assign(mHeldInput, i))
 					rowDone(); // if successful, move cursor/stop configuring - if not, we'll just try again
 
+				mAllInputs.clear();
 				return true;
 			}
 		};

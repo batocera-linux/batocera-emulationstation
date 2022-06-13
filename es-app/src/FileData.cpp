@@ -423,10 +423,8 @@ const bool FileData::isVerticalArcadeGame()
 
 const bool FileData::isLightGunGame()
 {
-	if (mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE))
-		return MameNames::getInstance()->isLightgun(Utils::FileSystem::getStem(getPath()));
-
-	return Genres::genreExists(&getMetadata(), GENRE_LIGHTGUN);
+	return MameNames::getInstance()->isLightgun(Utils::FileSystem::getStem(getPath()), mSystem->getName(), mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE));
+	//return Genres::genreExists(&getMetadata(), GENRE_LIGHTGUN);
 }
 
 FileData* FileData::getSourceFileData()
@@ -453,8 +451,15 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 		return "";
 
 	// must really;-) be done before window->deinit while it closes joysticks
-	const std::string controllersConfig = InputManager::getInstance()->configureEmulators();
+	std::string controllersConfig = InputManager::getInstance()->configureEmulators();
 
+#if WIN32
+	if (gameToUpdate->isLightGunGame())
+#else
+	if (InputManager::getInstance()->getGuns().size() && gameToUpdate->isLightGunGame())
+#endif
+		controllersConfig = controllersConfig + "-lightgun ";
+	
 	std::string systemName = system->getName();
 	std::string emulator = getEmulator();
 	std::string core = getCore();

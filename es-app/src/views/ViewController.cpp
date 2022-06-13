@@ -862,7 +862,7 @@ bool ViewController::input(InputConfig* config, Input input)
 	if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_F5)
 	{
 		mWindow->render();
-
+		
 		FileSorts::reset();
 		ResourceManager::getInstance()->unloadAll();
 		ResourceManager::getInstance()->reloadAll();
@@ -1105,6 +1105,9 @@ ViewController::ViewMode ViewController::getViewMode()
 
 void ViewController::reloadAll(Window* window, bool reloadTheme)
 {
+	if (reloadTheme)
+		Renderer::resetCache();
+
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
 	if (mCurrentView != nullptr)

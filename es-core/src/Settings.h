@@ -93,6 +93,7 @@ public:
 	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)			
+	DEFINE_BOOL_SETTING(LoadEmptySystems)		
 	DEFINE_STRING_SETTING(HiddenSystems)
 	DEFINE_STRING_SETTING(TransitionStyle)
 	DEFINE_STRING_SETTING(GameTransitionStyle)		

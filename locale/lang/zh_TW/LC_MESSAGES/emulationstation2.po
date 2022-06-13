@@ -369,14 +369,32 @@ msgstr "RETROACHIEVEMENTS 成就"
 msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
 msgstr "排行榜"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "詳細模式"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
+msgid "ENCORE MODE"
+msgstr ""
+
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動化螢幕截圖"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
 msgstr "挑戰指示器"
@@ -403,6 +421,9 @@ msgstr "使用者密碼"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "遊戲索引"
@@ -518,6 +539,9 @@ msgstr "在合輯中顯示遊戲平台名稱"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "在合輯中顯示已隱藏的遊戲平台的遊戲"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr "更新遊戲清單"
 
@@ -596,6 +620,9 @@ msgstr "聖保羅"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "顯示無法使用的遊戲"
+
+msgid "Show rooms for games not present on this machine."
+msgstr ""
 
 msgid "FINISHED"
 msgstr "完成"
@@ -1171,32 +1198,35 @@ msgstr "商標"
 msgid "MARQUEE"
 msgstr "跑馬燈"
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
-msgstr "搜刮遊戲評分"
+msgid "SHORT NAME"
+msgstr ""
 
-msgid "SCRAPE VIDEOS"
-msgstr "搜刮影片"
+msgid "COMMUNITY RATING"
+msgstr ""
 
-msgid "SCRAPE FANART"
-msgstr "搜刮粉絲繪圖"
+msgid "VIDEO"
+msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "搜刮框體 (16:9)"
+msgid "FANART"
+msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "搜刮包裝盒背面"
+msgid "BEZEL (16:9)"
+msgstr ""
 
-msgid "SCRAPE MAP"
-msgstr "搜刮地圖"
+msgid "BOX BACKSIDE"
+msgstr ""
 
-msgid "SCRAPE MANUAL"
-msgstr "搜刮使用者手冊"
+msgid "MAP"
+msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "搜刮手把轉鍵盤設定檔"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "資料搜刮器"
@@ -1406,8 +1436,8 @@ msgstr "KODI 多媒體中心"
 msgid "GAME SETTINGS"
 msgstr "遊戲設定"
 
-msgid "UI SETTINGS"
-msgstr "UI 設定"
+msgid "USER INTERFACE SETTINGS"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "聲音設定"
@@ -1427,8 +1457,8 @@ msgstr "更新＆下載"
 msgid "SYSTEM SETTINGS"
 msgstr "系統設定"
 
-msgid "UNLOCK UI MODE"
-msgstr "解鎖 UI 模式"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr ""
 
 msgid "QUIT"
 msgstr "離開"
@@ -1439,14 +1469,14 @@ msgstr "您確定要對輸入做設定嗎？"
 msgid "CHOOSE"
 msgstr "瀏覽"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "UI 模式已解鎖"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "請輸入代碼來解鎖目前的 UI 模式"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr ""
 
-msgid "DEVELOPER"
-msgstr "開發者選項"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "影像選項"
@@ -1456,6 +1486,9 @@ msgstr "VRAM 限制"
 
 msgid "SHOW FRAMERATE"
 msgstr "顯示影格速率"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
 
 msgid "VSYNC"
 msgstr "垂直同步"
@@ -1472,8 +1505,8 @@ msgstr "工具"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "不要在啟動期間執行這個遊戲"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "啟用公開網站存取"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1485,8 +1518,8 @@ msgstr "日誌等級"
 msgid "CREATE A SUPPORT FILE"
 msgstr "建立支援檔案"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "確定要建立支援檔案？"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "已在存檔資料夾建立支援檔案"
@@ -1527,20 +1560,32 @@ msgstr "資料管理"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "忽略多個檔案的磁碟內容 (CUE/GDI/CCD/M3U)"
 
-msgid "ENABLE FILTERS"
-msgstr "啟動篩選器"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "退出時儲存中繼資料"
 
-msgid "PARSE GAMESLISTS ONLY"
-msgstr "僅解析遊戲清單"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在本地搜尋遊戲圖片"
 
-msgid "UI"
-msgstr "UI"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循環轉場效果"
@@ -1637,6 +1682,9 @@ msgstr "更新已經在進行了"
 msgid "LANGUAGE"
 msgstr "語言"
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "選擇您所在的時區"
 
@@ -1646,8 +1694,8 @@ msgstr "時區"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "將時鐘顯示為 12 小時制"
 
-msgid "POWER SAVER MODES"
-msgstr "省電模式"
+msgid "POWER SAVING MODE"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "停用"
@@ -1661,20 +1709,23 @@ msgstr "增強"
 msgid "INSTANT"
 msgstr "立即"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "螢幕閱讀器（文字轉語音）"
 
-msgid "UI MODE"
-msgstr "UI 模式"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"您即將變更 UI 為受限模式：\n"
-"此模式為防止系統被修改， 將隱藏大部分的選項和功能表。\n"
-"若想要返回完整模式， 請依照順序鍵入以下按鍵："
 
 msgid "Do you want to proceed?"
 msgstr "是否繼續？"
@@ -1702,6 +1753,9 @@ msgstr "聲音輸出"
 
 msgid "AUDIO PROFILE"
 msgstr "音訊設定檔"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "螢幕旋轉"
@@ -1802,6 +1856,9 @@ msgstr "安全防護"
 msgid "ENFORCE SECURITY"
 msgstr "啟用安全防護"
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr "ROOT 密碼"
 
@@ -1856,14 +1913,23 @@ msgstr "預設全域設定"
 msgid "GAME ASPECT RATIO"
 msgstr "遊戲畫面比例"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
 msgstr "影像模式"
+
+msgid "Force the emulator to run at this resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑遊戲畫面（雙線性過濾）"
 
 msgid "REWIND"
 msgstr "倒帶功能"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整數縮放 (完美像素)"
@@ -1937,14 +2003,29 @@ msgstr "即時存檔"
 msgid "AUTO SAVE/LOAD"
 msgstr "自動儲存/載入"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "遞增即時存檔"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "開新遊戲時建立新檔案槽"
+msgid "INCREMENT PER SAVE"
+msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "開新遊戲時覆寫目前的檔案槽"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "顯示即時存檔管理員"
@@ -1987,18 +2068,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "配對藍牙裝置"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "顯示控制器活動狀態"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "顯示遊戲控制器的電池電量"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "玩家 %i 的控制器"
 
 msgid "default"
 msgstr "預設值"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "顯示控制器活動狀態"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "顯示遊戲控制器的電池電量"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "在編輯主題設定之前必須先套用該佈景主題"
@@ -2084,8 +2165,8 @@ msgstr "網格"
 msgid "DISPLAY OPTIONS"
 msgstr "顯示設定"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "過場效果"
+msgid "LIST TRANSITION"
+msgstr ""
 
 msgid "auto"
 msgstr "自動"
@@ -2110,6 +2191,9 @@ msgstr "圖示與文字"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "排序時忽略冠詞"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2195,8 +2279,8 @@ msgstr "正在播放"
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
 
-msgid "VIEW USER'S MANUAL"
-msgstr "檢視使用者手冊"
+msgid "VIEW USER MANUAL"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
@@ -2624,6 +2708,9 @@ msgstr "提供成就"
 msgid "VERTICAL"
 msgstr "直立式"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "搜刮中"
 
@@ -2632,6 +2719,11 @@ msgstr "搜刮失敗"
 
 msgid "SCRAPING FINISHED"
 msgstr "已完成搜刮"
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"
@@ -2848,6 +2940,87 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "搜刮遊戲評分"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "搜刮影片"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "搜刮粉絲繪圖"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "搜刮框體 (16:9)"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "搜刮包裝盒背面"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "搜刮地圖"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "搜刮使用者手冊"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "搜刮手把轉鍵盤設定檔"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "UI 設定"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "解鎖 UI 模式"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "UI 模式已解鎖"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "請輸入代碼來解鎖目前的 UI 模式"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "開發者選項"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "啟用公開網站存取"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "確定要建立支援檔案？"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "啟動篩選器"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "僅解析遊戲清單"
+
+#~ msgid "UI"
+#~ msgstr "UI"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "省電模式"
+
+#~ msgid "UI MODE"
+#~ msgstr "UI 模式"
+
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "您即將變更 UI 為受限模式：\n"
+#~ "此模式為防止系統被修改， 將隱藏大部分的選項和功能表。\n"
+#~ "若想要返回完整模式， 請依照順序鍵入以下按鍵："
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "開新遊戲時建立新檔案槽"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "開新遊戲時覆寫目前的檔案槽"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "過場效果"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "檢視使用者手冊"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "系統重新啟動來套用"

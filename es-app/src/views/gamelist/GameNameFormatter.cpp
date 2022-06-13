@@ -17,6 +17,8 @@
 #define SAVESTATE	_U("\uF0C7")
 #define MANUAL		_U("\uF02D")
 
+#define GUN			_U("\uF05B")
+
 #define RATINGSTAR _U("\uF005")
 #define SEPARATOR_BEFORE "["
 #define SEPARATOR_AFTER "] "
@@ -64,6 +66,8 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 
 	mShowManualIcon = system->getBoolSetting("ShowManualIcon");
 	mShowSaveStates = system->getBoolSetting("ShowSaveStates");
+
+	mShowGunIcon = system->getName() != "lightgun";
 
 	mShowFlags = system->getShowFlags();
 
@@ -170,6 +174,9 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 		lang = getLangFlag(LangInfo::getFlag(fd->getMetadata(MetaDataId::Language), fd->getMetadata(MetaDataId::Region))) + " ";
 
 	std::vector<std::string> after;
+
+	if (mShowGunIcon && fd->getSourceFileData()->isLightGunGame())
+		after.push_back(GUN);
 
 	if (mShowCheevosIcon && fd->hasCheevos())
 		after.push_back(CHEEVOSICON);

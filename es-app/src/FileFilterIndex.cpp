@@ -19,6 +19,7 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
+	, filterByLightGun(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -36,7 +37,8 @@ FileFilterIndex::FileFilterIndex()
 		{ KIDGAME_FILTER, 	&kidGameIndexAllKeys, 	&filterByKidGame,	&kidGameIndexFilteredKeys, 	"kidgame",		false,				"",				_("KIDGAME") },
 		{ PLAYED_FILTER, 	&playedIndexAllKeys,    &filterByPlayed,	&playedIndexFilteredKeys, 	"played",		false,				"",				_("ALREADY PLAYED") },
 		{ CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") },
-		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") }
+		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") },
+		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") }
 	};
 
 	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
@@ -107,8 +109,8 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &kidGameIndexAllKeys, &(indexToImport->kidGameIndexAllKeys) },
 		{ &cheevosIndexAllKeys, &(indexToImport->cheevosIndexAllKeys) },
 		{ &verticalIndexAllKeys, &(indexToImport->verticalIndexAllKeys) },
-		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) }
-
+		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) },
+		{ &lightGunIndexAllKeys, &(indexToImport->lightGunIndexAllKeys) }
 	};
 
 	std::vector<IndexImportStructure> indexImportDecl = std::vector<IndexImportStructure>(indexStructDecls, indexStructDecls + sizeof(indexStructDecls) / sizeof(indexStructDecls[0]));
@@ -150,6 +152,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(regionIndexAllKeys);
 	clearIndex(cheevosIndexAllKeys);
 	clearIndex(verticalIndexAllKeys);
+	clearIndex(lightGunIndexAllKeys);
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
@@ -165,6 +168,9 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&verticalIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&verticalIndexAllKeys, "TRUE", false);
+
+	manageIndexEntry(&lightGunIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&lightGunIndexAllKeys, "TRUE", false);
 
 	manageIndexEntry(&ratingsIndexAllKeys, "1 STAR", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "2 STARS", false);
@@ -295,6 +301,17 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->hasCheevos() ? "TRUE" : "FALSE";		
+	}
+
+	case LIGHTGUN_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		return game->isLightGunGame() ? "TRUE" : "FALSE";
 	}
 
 	case VERTICAL_FILTER:
@@ -691,13 +708,15 @@ int FileFilterIndex::showFile(FileData* game)
 		
 		hasFilter = true;
 
+		bool filterValid = false;
+
 		if (filterData.type == GENRE_FILTER)
 		{
 			for (auto val : Genres::getGenreFiltersNames(&game->getMetadata()))
 			{
 				if (isKeyBeingFilteredBy(val, filterData.type))
 				{
-					keepGoing = true;
+					filterValid = true;
 					break;
 				}
 			}
@@ -706,30 +725,33 @@ int FileFilterIndex::showFile(FileData* game)
 		{
 			// try to find a match
 			std::string key = getIndexableKey(game, filterData.type, false);
+
 			if (filterData.type == LANG_FILTER || filterData.type == REGION_FILTER)
 			{
 				for (auto val : Utils::String::split(key, ','))
 					if (isKeyBeingFilteredBy(val, filterData.type))
-						keepGoing = true;
+						filterValid = true;
 			}
 			else
-				keepGoing = isKeyBeingFilteredBy(key, filterData.type);
+				filterValid = isKeyBeingFilteredBy(key, filterData.type);
 
 			// if we didn't find a match, try for secondary keys - i.e. publisher and dev, or first genre
-			if (!keepGoing)
+			if (!filterValid)
 			{
 				if (!filterData.hasSecondaryKey)
 					return 0;
 
 				std::string secKey = getIndexableKey(game, filterData.type, true);
 				if (secKey != UNKNOWN_LABEL)
-					keepGoing = isKeyBeingFilteredBy(secKey, filterData.type);
+					filterValid = isKeyBeingFilteredBy(secKey, filterData.type);
 			}
 		}
 
 		// if still nothing, then it's not a match
-		if (!keepGoing)
+		if (!filterValid)
 			return 0;		
+
+		keepGoing = true;
 	}
 
 	if (keepGoing && !mTextFilter.empty())
@@ -1002,6 +1024,8 @@ bool CollectionFilter::load(const std::string file)
 			cheevosIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "vertical")
 			verticalIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "lightgun")
+			lightGunIndexFilteredKeys.insert(node.text().as_string());
 	}
 
 	for (auto& it : mFilterDecl)
@@ -1068,6 +1092,9 @@ bool CollectionFilter::save()
 	for (auto key : verticalIndexFilteredKeys)
 		root.append_child("vertical").text().set(key.c_str());
 
+	for (auto key : lightGunIndexFilteredKeys)
+		root.append_child("lightgun").text().set(key.c_str());
+	
 	if (!doc.save_file(mPath.c_str()))
 	{
 		LOG(LogError) << "Error saving CollectionFilter to \"" << mPath << "\" !";

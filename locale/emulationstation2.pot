@@ -374,13 +374,31 @@ msgstr ""
 msgid "HARDCORE MODE"
 msgstr ""
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr ""
+
 msgid "LEADERBOARDS"
+msgstr ""
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr ""
 
+msgid "RICH PRESENCE"
+msgstr ""
+
+msgid "ENCORE MODE"
+msgstr ""
+
+msgid "Reset achievements to be able to earn them again."
+msgstr ""
+
 msgid "AUTOMATIC SCREENSHOT"
+msgstr ""
+
+msgid "Automatically take a screenshot when an achievement is earned."
 msgstr ""
 
 msgid "CHALLENGE INDICATORS"
@@ -407,6 +425,9 @@ msgid "PASSWORD"
 msgstr ""
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr ""
+
+msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
 msgid "GAME INDEXES"
@@ -523,6 +544,9 @@ msgstr ""
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr ""
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr ""
+
 msgid "UPDATE GAMELISTS"
 msgstr ""
 
@@ -600,6 +624,9 @@ msgid "SAO PAULO"
 msgstr ""
 
 msgid "SHOW UNAVAILABLE GAMES"
+msgstr ""
+
+msgid "Show rooms for games not present on this machine."
 msgstr ""
 
 msgid "FINISHED"
@@ -1172,31 +1199,34 @@ msgstr ""
 msgid "MARQUEE"
 msgstr ""
 
-msgid "SCRAPE SHORT NAME"
+msgid "SCRAPE FOR"
 msgstr ""
 
-msgid "SCRAPE RATINGS"
+msgid "SHORT NAME"
 msgstr ""
 
-msgid "SCRAPE VIDEOS"
+msgid "COMMUNITY RATING"
 msgstr ""
 
-msgid "SCRAPE FANART"
+msgid "VIDEO"
 msgstr ""
 
-msgid "SCRAPE BEZEL (16:9)"
+msgid "FANART"
 msgstr ""
 
-msgid "SCRAPE BOX BACKSIDE"
+msgid "BEZEL (16:9)"
 msgstr ""
 
-msgid "SCRAPE MAP"
+msgid "BOX BACKSIDE"
 msgstr ""
 
-msgid "SCRAPE MANUAL"
+msgid "MAP"
 msgstr ""
 
-msgid "SCRAPE PADTOKEY SETTINGS"
+msgid "MANUAL"
+msgstr ""
+
+msgid "PADTOKEY SETTINGS"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1405,7 +1435,7 @@ msgstr ""
 msgid "GAME SETTINGS"
 msgstr ""
 
-msgid "UI SETTINGS"
+msgid "USER INTERFACE SETTINGS"
 msgstr ""
 
 msgid "SOUND SETTINGS"
@@ -1426,7 +1456,7 @@ msgstr ""
 msgid "SYSTEM SETTINGS"
 msgstr ""
 
-msgid "UNLOCK UI MODE"
+msgid "UNLOCK USER INTERFACE MODE"
 msgstr ""
 
 msgid "QUIT"
@@ -1438,13 +1468,13 @@ msgstr ""
 msgid "CHOOSE"
 msgstr ""
 
-msgid "THE UI MODE IS NOW UNLOCKED"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr ""
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
-msgid "DEVELOPER"
+msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr ""
 
 msgid "VIDEO OPTIONS"
@@ -1454,6 +1484,9 @@ msgid "VRAM LIMIT"
 msgstr ""
 
 msgid "SHOW FRAMERATE"
+msgstr ""
+
+msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr ""
 
 msgid "VSYNC"
@@ -1471,7 +1504,7 @@ msgstr ""
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr ""
 
-msgid "ENABLE PUBLIC WEB ACCESS"
+msgid "ENABLE PUBLIC WEB API ACCESS"
 msgstr ""
 
 #, c-format
@@ -1484,7 +1517,7 @@ msgstr ""
 msgid "CREATE A SUPPORT FILE"
 msgstr ""
 
-msgid "CREATE A SUPPORT FILE?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
@@ -1526,19 +1559,31 @@ msgstr ""
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
-msgid "ENABLE FILTERS"
+msgid "ENABLE GAME FILTERING"
+msgstr ""
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
 msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr ""
 
-msgid "PARSE GAMESLISTS ONLY"
+msgid "PARSE GAMELISTS ONLY"
+msgstr ""
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr ""
 
-msgid "UI"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+
+msgid "USER INTERFACE"
 msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
@@ -1636,6 +1681,9 @@ msgstr ""
 msgid "LANGUAGE"
 msgstr ""
 
+msgid "LANGUAGE (REGION)"
+msgstr ""
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr ""
 
@@ -1645,7 +1693,7 @@ msgstr ""
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr ""
 
-msgid "POWER SAVER MODES"
+msgid "POWER SAVING MODE"
 msgstr ""
 
 msgid "DISABLED"
@@ -1660,16 +1708,22 @@ msgstr ""
 msgid "INSTANT"
 msgstr ""
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr ""
 
-msgid "UI MODE"
+msgid "USER INTERFACE MODE"
+msgstr ""
+
+msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
 
 msgid "Do you want to proceed?"
@@ -1697,6 +1751,9 @@ msgid "AUDIO OUTPUT"
 msgstr ""
 
 msgid "AUDIO PROFILE"
+msgstr ""
+
+msgid "Available options can change depending on current audio output."
 msgstr ""
 
 msgid "SCREEN ROTATION"
@@ -1798,6 +1855,9 @@ msgstr ""
 msgid "ENFORCE SECURITY"
 msgstr ""
 
+msgid "Require a password for accessing the network share."
+msgstr ""
+
 msgid "ROOT PASSWORD"
 msgstr ""
 
@@ -1852,13 +1912,22 @@ msgstr ""
 msgid "GAME ASPECT RATIO"
 msgstr ""
 
+msgid "Force the game to render in this aspect ratio."
+msgstr ""
+
 msgid "VIDEO MODE"
+msgstr ""
+
+msgid "Force the emulator to run at this resolution."
 msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
 msgid "REWIND"
+msgstr ""
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
@@ -1933,13 +2002,28 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr ""
 
-msgid "NEW GAME CREATES NEW SLOT"
+msgid "INCREMENT PER SAVE"
 msgstr ""
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
 msgstr ""
 
 msgid "SHOW SAVE STATE MANAGER"
@@ -1980,17 +2064,17 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr ""
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
-msgstr ""
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -2077,7 +2161,7 @@ msgstr ""
 msgid "DISPLAY OPTIONS"
 msgstr ""
 
-msgid "LIST TRANSITION STYLE"
+msgid "LIST TRANSITION"
 msgstr ""
 
 msgid "auto"
@@ -2102,6 +2186,9 @@ msgid "ICON AND TEXT"
 msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr ""
+
+msgid "Ignore 'The' and 'A' if at the start."
 msgstr ""
 
 msgid "VOLUME"
@@ -2188,7 +2275,7 @@ msgstr ""
 msgid "LAUNCH SCREENSAVER"
 msgstr ""
 
-msgid "VIEW USER'S MANUAL"
+msgid "VIEW USER MANUAL"
 msgstr ""
 
 msgid "RESTART SYSTEM"
@@ -2615,6 +2702,9 @@ msgstr ""
 msgid "VERTICAL"
 msgstr ""
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr ""
 
@@ -2622,6 +2712,11 @@ msgid "SCRAPE FAILED"
 msgstr ""
 
 msgid "SCRAPING FINISHED"
+msgstr ""
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
 msgstr ""
 
 #, c-format

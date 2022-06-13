@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v34beta(2022/04/03)\n"
+"Project-Id-Version: batocera-es v35beta(2022/06/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-04-03 23:30+0900\n"
+"PO-Revision-Date: 2022-06-06 12:40+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -369,14 +369,32 @@ msgstr "RetroAchievements 使用"
 msgid "HARDCORE MODE"
 msgstr "ハードコアモード"
 
+msgid "Disable loading states (as well as auto-load) for more points."
+msgstr "より多くのポイントの読込み状態（および自動読込み）を無効にします"
+
 msgid "LEADERBOARDS"
 msgstr "リーダーボード"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr "ハイスコ​​アとベストタイムをリーダーボードで競います（ハードコアが必要）"
 
 msgid "VERBOSE MODE"
 msgstr "詳細な処理モード"
 
+msgid "RICH PRESENCE"
+msgstr ""
+
+msgid "ENCORE MODE"
+msgstr "アンコール モード"
+
+msgid "Reset achievements to be able to earn them again."
+msgstr "achievementをリセットして、再び獲得できるようにします"
+
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr "achievementを獲得すると、自動的にスクリーンショットを撮ります"
 
 msgid "CHALLENGE INDICATORS"
 msgstr "チャレンジインジケーター"
@@ -404,6 +422,9 @@ msgstr "パスワード"
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
 
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr "メインメニューにRetroAchievementの統計を表示します!"
+
 msgid "GAME INDEXES"
 msgstr "ゲームインデックス"
 
@@ -414,7 +435,7 @@ msgid "INDEX GAMES"
 msgstr "ゲームにインデックスを付ける"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "RETROACHIEVEMENTSをアクティブ化できません:"
+msgstr "RETROACHIEVEMENTSを有効にできません:"
 
 msgid "OK"
 msgstr "OK"
@@ -518,6 +539,9 @@ msgstr "コレクションにシステム名を表示"
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "非表示システムにあるゲームをコレクションに表示"
 
+msgid "SHOW EMPTY SYSTEMS"
+msgstr "ゲームが無いシステムを表示"
+
 msgid "UPDATE GAMELISTS"
 msgstr "ゲームリストを更新"
 
@@ -595,7 +619,10 @@ msgid "SAO PAULO"
 msgstr "サンパウロ"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr "参加不可ゲームを表示"
+msgstr "利用不可ゲームを表示"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "参加できないゲームルームも表示します"
 
 msgid "FINISHED"
 msgstr "完了"
@@ -637,7 +664,7 @@ msgid "VIEW CUSTOMIZATION"
 msgstr "表示のカスタマイズ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドTOキーボード設定情報を表示"
+msgstr "パッドからキーボード情報を表示"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
@@ -658,7 +685,7 @@ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "この項目を削除してもよろしいですか？"
 
 msgid "INPUT"
-msgstr "検索入力"
+msgstr "入力"
 
 msgid "SEARCH"
 msgstr "検索"
@@ -667,10 +694,10 @@ msgid "CANCEL"
 msgstr "キャンセル"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "ネットプレイ接続"
+msgstr "ネットプレイの接続"
 
 msgid "Select a game lobby to join"
-msgstr "参加したいゲームを選択してください"
+msgstr "参加したいゲームロビーを選択"
 
 msgid "REFRESH"
 msgstr "再読込"
@@ -691,19 +718,19 @@ msgid "UNAVAILABLE CORE"
 msgstr "利用できないコア"
 
 msgid "AVAILABLE GAMES"
-msgstr "ネットプレイ/観戦可能なゲーム"
+msgstr "プレイ可能なゲーム"
 
 msgid "UNAVAILABLE GAMES"
-msgstr "参加できないゲーム"
+msgstr "プレイできないゲーム"
 
 msgid "NO GAMES FOUND"
 msgstr "ゲームが見つかりません"
 
 msgid "JOIN GAME"
-msgstr "ゲームに参加する"
+msgstr "ゲームに参加"
 
 msgid "WATCH GAME"
-msgstr "ゲームを観戦する"
+msgstr "ゲームを見る"
 
 msgid "INPUT MANUALLY"
 msgstr "手動 入力"
@@ -891,7 +918,7 @@ msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "カスタム画像ファイル拡張子"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "パッドTOキーボード割当設定"
+msgstr "パッドをキーボードに割当てる設定"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr "変更する動作を選択"
@@ -949,7 +976,7 @@ msgid "UPDATE IS READY"
 msgstr "更新準備完了"
 
 msgid "REBOOT TO APPLY"
-msgstr "再起動で適用されます"
+msgstr "再起動すると適用されます"
 
 msgid "REALLY UPDATE?"
 msgstr "更新しますか？"
@@ -1035,10 +1062,10 @@ msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "プレイ状況を公開する"
 
 msgid "PLAYER PASSWORD"
-msgstr "プレイパスワード"
+msgstr "プレーヤーパスワード"
 
 msgid "VIEWER PASSWORD"
-msgstr "観戦パスワード"
+msgstr "ウォッチパスワード"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
@@ -1171,32 +1198,35 @@ msgstr "ホイール"
 msgid "MARQUEE"
 msgstr "マーキー"
 
-msgid "SCRAPE SHORT NAME"
-msgstr "短いゲーム名でスクレイプ"
+msgid "SCRAPE FOR"
+msgstr "スクレイプ"
 
-msgid "SCRAPE RATINGS"
-msgstr "評価をスクレイプ"
+msgid "SHORT NAME"
+msgstr "短名"
 
-msgid "SCRAPE VIDEOS"
-msgstr "イメージ動画をスクレイプ"
+msgid "COMMUNITY RATING"
+msgstr "コミュニティの評価"
 
-msgid "SCRAPE FANART"
-msgstr "ファンアートをスクレイプ"
+msgid "VIDEO"
+msgstr "動画"
 
-msgid "SCRAPE BEZEL (16:9)"
-msgstr "ベゼル(16:9)をスクレイプ"
+msgid "FANART"
+msgstr "ファンアート画像"
 
-msgid "SCRAPE BOX BACKSIDE"
-msgstr "ボックス背景をスクレイプ"
+msgid "BEZEL (16:9)"
+msgstr "ベゼル(16:9)"
 
-msgid "SCRAPE MAP"
-msgstr "マップをスクレイプ"
+msgid "BOX BACKSIDE"
+msgstr "ボックス背景"
 
-msgid "SCRAPE MANUAL"
-msgstr "マニュアルをスクレイプ"
+msgid "MAP"
+msgstr "マップ"
 
-msgid "SCRAPE PADTOKEY SETTINGS"
-msgstr "パッドキー設定をスクレイプ"
+msgid "MANUAL"
+msgstr "手動設定"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "パッドキー設定"
 
 msgid "SCRAPER"
 msgstr "スクレイプ"
@@ -1407,8 +1437,8 @@ msgstr "KODI メディアセンター"
 msgid "GAME SETTINGS"
 msgstr "システム(エミュレータ)設定"
 
-msgid "UI SETTINGS"
-msgstr "UI 設定"
+msgid "USER INTERFACE SETTINGS"
+msgstr "ユーザーインターフェイス 設定"
 
 msgid "SOUND SETTINGS"
 msgstr "音声設定"
@@ -1428,8 +1458,8 @@ msgstr "更新とダウンロード"
 msgid "SYSTEM SETTINGS"
 msgstr "BATOCRA 設定"
 
-msgid "UNLOCK UI MODE"
-msgstr "UIモードのロックを解除"
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr "ユーザーインターフェイスモードのロック解除"
 
 msgid "QUIT"
 msgstr "終了"
@@ -1440,14 +1470,14 @@ msgstr "ボタン設定してもよろしいですか？"
 msgid "CHOOSE"
 msgstr "移動選択"
 
-msgid "THE UI MODE IS NOW UNLOCKED"
-msgstr "UIモードのロックを解除しました"
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr "ユーザーインターフェイスモードのロックを解除しました"
 
-msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-msgstr "コードを入力して、現在のUIモードのロックを解除します"
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr "コードを入力して、ロックを解除します"
 
-msgid "DEVELOPER"
-msgstr "その他の設定"
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr "開発者オプション"
 
 msgid "VIDEO OPTIONS"
 msgstr "映像設定"
@@ -1457,6 +1487,9 @@ msgstr "VRAM上限"
 
 msgid "SHOW FRAMERATE"
 msgstr "フレームレート表示"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr "可能な場合は、エミュレータ内のFPSカウンターも表示します"
 
 msgid "VSYNC"
 msgstr "VSYNC(垂直同期)有効"
@@ -1473,8 +1506,8 @@ msgstr "ツール"
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "起動時のゲーム開始を解除"
 
-msgid "ENABLE PUBLIC WEB ACCESS"
-msgstr "パブリックWebアクセスを有効"
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr "パブリック WEB API アクセスを有効"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1486,8 +1519,10 @@ msgstr "ログレベル"
 msgid "CREATE A SUPPORT FILE"
 msgstr "サポートファイルを作成"
 
-msgid "CREATE A SUPPORT FILE?"
-msgstr "サポートファイルを作成しますか?"
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
+"サポートファイルを作成しますか？　これには、システムフォルダ内の　すべての"
+"データが含まれます"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
@@ -1530,20 +1565,36 @@ msgstr "データ管理"
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "(CUE/GDI/CCD/M3U)に記載のファイルを表示しない"
 
-msgid "ENABLE FILTERS"
-msgstr "フィルターを有効"
+msgid "ENABLE GAME FILTERING"
+msgstr "ゲームフィルタリングを有効"
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr "表示オプションでゲームフィルタリング関連の設定の表示の有無"
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "終了時にメタ情報を保存"
 
-msgid "PARSE GAMESLISTS ONLY"
+msgid "PARSE GAMELISTS ONLY"
 msgstr "ゲームリストを更新しない"
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
+"デバッグツール：ROMがある場合はチェックしないでください。問題が出る場合があり"
+"ます！"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ローカルアートの検索"
 
-msgid "UI"
-msgstr "UI モード"
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+"ゲームリストに画像が指定されてない場合は、同じファイル名のメディアを検索しま"
+"す"
+
+msgid "USER INTERFACE"
+msgstr "ユーザーインターフェイス"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "メニュー回転(カルーセル)効果"
@@ -1641,6 +1692,9 @@ msgstr "更新は既に実行中です"
 msgid "LANGUAGE"
 msgstr "言語"
 
+msgid "LANGUAGE (REGION)"
+msgstr "言語（地域）"
+
 msgid "SELECT YOUR TIME ZONE"
 msgstr "タイムゾーンを選択"
 
@@ -1650,8 +1704,8 @@ msgstr "タイムゾーン"
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "時計を12時間形式で表示"
 
-msgid "POWER SAVER MODES"
-msgstr "省電力モード(ハンドヘルドi)"
+msgid "POWER SAVING MODE"
+msgstr "省電力モード(小型マシン用)"
 
 msgid "DISABLED"
 msgstr "無効"
@@ -1665,20 +1719,27 @@ msgstr "拡張"
 msgid "INSTANT"
 msgstr "瞬時"
 
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr "待機時の消費電力を削減（携帯機に便利）"
+
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "スクリーンリーダー（音声合成）"
 
-msgid "UI MODE"
-msgstr "UI モード"
+msgid "USER INTERFACE MODE"
+msgstr "ユーザーインターフェイス モード"
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr "ゲストユーザー/子供で使用するために特定の設定メニューをロックします"
 
 msgid ""
-"You are changing the UI to a restricted mode:\n"
+"You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
-"To unlock and return to the full UI, enter this code:"
+"To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"UIを制限モードに変更します：\n"
+"ユーザーインターフェイスを制限付きモードに変更します：\n"
 "ほとんどの設定メニューが 非表示になり、システム変更を 防止します。\n"
-"ロック解除しフルモードに戻すには、 次のボタン順で入力します:"
+"ロック解除し完全な ユーザーインターフェイスに戻すには、 次のボタン順で入力し"
+"ます:"
 
 msgid "Do you want to proceed?"
 msgstr "続行しますか？"
@@ -1706,6 +1767,9 @@ msgstr "音声出力"
 
 msgid "AUDIO PROFILE"
 msgstr "音声プロファイル"
+
+msgid "Available options can change depending on current audio output."
+msgstr "使用可能な設定は、現在の音声出力に応じて変わる可能性があります"
 
 msgid "SCREEN ROTATION"
 msgstr "画面の回転"
@@ -1789,10 +1853,10 @@ msgid "OVERCLOCK"
 msgstr "オーバークロック"
 
 msgid "STORAGE"
-msgstr "ストレージ(SSD、HDDなどの記憶装置)"
+msgstr "ストレージ"
 
 msgid "STORAGE DEVICE"
-msgstr "ストレージ(データ保存)設定"
+msgstr "ストレージデバイス"
 
 msgid "BACKUP USER DATA"
 msgstr "データバックアップ"
@@ -1805,6 +1869,9 @@ msgstr "セキュリティ"
 
 msgid "ENFORCE SECURITY"
 msgstr "セキュリティ保護"
+
+msgid "Require a password for accessing the network share."
+msgstr "ネットワーク共有にアクセスするにはパスワードが必要です"
 
 msgid "ROOT PASSWORD"
 msgstr "ルートパスワード"
@@ -1863,14 +1930,24 @@ msgstr "グローバル基本設定"
 msgid "GAME ASPECT RATIO"
 msgstr "ゲーム画面比率"
 
+msgid "Force the game to render in this aspect ratio."
+msgstr "ゲームを指定アスペクト比でレンダリングします"
+
 msgid "VIDEO MODE"
 msgstr "ゲーム画面解像度"
+
+msgid "Force the emulator to run at this resolution."
+msgstr "エミュレータを指定解像度で実行します"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "バイリニアフィルタリング"
 
 msgid "REWIND"
 msgstr "巻き戻し"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
+"コアがサポートしている場合は、過去の状態を保存してリアルタイムで巻き戻します"
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
@@ -1944,14 +2021,29 @@ msgstr "ステートセーブ"
 msgid "AUTO SAVE/LOAD"
 msgstr "自動ステートセーブ読込"
 
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr "ゲーム起動時にセーブを読込み、ゲームの終了時にステートセーブします"
+
 msgid "INCREMENTAL SAVESTATES"
 msgstr "新たにステートセーブ保存"
 
-msgid "NEW GAME CREATES NEW SLOT"
-msgstr "新規で開始するゲームは新しいスロットを作成"
+msgid "INCREMENT PER SAVE"
+msgstr "常に別セーブで保存"
 
-msgid "NEW GAME OVERWRITES CURRENT SLOT"
-msgstr "新規で開始するゲームでも現スロットを上書き"
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "古いセーブを上書きせず、常に新しくセーブを保存"
+
+msgid "INCREMENT SLOT"
+msgstr "別のゲーム時に別セーブで保存"
+
+msgid "Increment slot on a new game."
+msgstr "別のゲームの場合に、別にセーブを保存"
+
+msgid "DO NOT INCREMENT"
+msgstr "セーブスロットを別に作成しない"
+
+msgid "Use current slot on a new game."
+msgstr "選択スロットにセーブを上書き保存"
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "ステートセーブマネージャの表示"
@@ -1996,18 +2088,18 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "BLUETOOTH デバイスのペアリング"
 
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "コントローラーアクティビティを表示"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "コントローラーバッテリーレベルを表示"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "プレイヤー%iのコントローラー"
 
 msgid "default"
 msgstr "標準"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "コントローラーアクティビティを表示"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "コントローラーバッテリーレベルを表示"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -2094,8 +2186,8 @@ msgstr "グリッド"
 msgid "DISPLAY OPTIONS"
 msgstr "表示設定"
 
-msgid "LIST TRANSITION STYLE"
-msgstr "画面遷移スタイル"
+msgid "LIST TRANSITION"
+msgstr "リスト画面遷移"
 
 msgid "auto"
 msgstr "自動"
@@ -2120,6 +2212,9 @@ msgstr "アイコンと文字"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ソート時に「The,a,an」を無視"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr "「The」と「A」を無視してソートします"
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2205,7 +2300,7 @@ msgstr "現在再生中の曲名"
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
 
-msgid "VIEW USER'S MANUAL"
+msgid "VIEW USER MANUAL"
 msgstr "ユーザーズマニュアルを表示"
 
 msgid "RESTART SYSTEM"
@@ -2272,7 +2367,7 @@ msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "起動時にこのゲームを開始する"
 
 msgid "FORMAT DEVICE"
-msgstr "フォーマット"
+msgstr "デバイスのフォーマット"
 
 msgid "DEVICE TO FORMAT"
 msgstr "対象ディスク"
@@ -2637,6 +2732,9 @@ msgstr "ACHIEVEMENTSがある"
 msgid "VERTICAL"
 msgstr "縦表示"
 
+msgid "LIGHTGUN"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "情報を取得中"
 
@@ -2645,6 +2743,11 @@ msgstr "スクレイプ失敗"
 
 msgid "SCRAPING FINISHED"
 msgstr "スクレイプが終了しました"
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
 
 #, c-format
 msgid "%s connected"
@@ -2863,5 +2966,5 @@ msgstr "スクリーンリーダー有効"
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
 
-msgid "GRAPHICS API"
-msgstr "グラフィック API"
+#~ msgid "GRAPHICS API"
+#~ msgstr "グラフィック API"

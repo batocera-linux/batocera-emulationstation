@@ -6,6 +6,7 @@
 #include "components/ComponentGrid.h"
 #include "components/NinePatchComponent.h"
 #include "GuiComponent.h"
+#include "utils/VectorEx.h"
 
 class ComponentList;
 class TextComponent;
@@ -56,6 +57,9 @@ private:
 
 	bool mHoldingInput;
 	Input mHeldInput;
+
+	VectorEx<Input> mAllInputs;
+
 	int mHeldTime;
 	int mHeldInputId;
 
