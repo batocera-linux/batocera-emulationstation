@@ -19,7 +19,7 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
-	, filterByLightGun(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false)
+	, filterByLightGun(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -38,7 +38,8 @@ FileFilterIndex::FileFilterIndex()
 		{ PLAYED_FILTER, 	&playedIndexAllKeys,    &filterByPlayed,	&playedIndexFilteredKeys, 	"played",		false,				"",				_("ALREADY PLAYED") },
 		{ CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") },
 		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") },
-		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") }
+		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") },
+		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAS MEDIAS") }
 	};
 
 	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
@@ -110,7 +111,8 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &cheevosIndexAllKeys, &(indexToImport->cheevosIndexAllKeys) },
 		{ &verticalIndexAllKeys, &(indexToImport->verticalIndexAllKeys) },
 		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) },
-		{ &lightGunIndexAllKeys, &(indexToImport->lightGunIndexAllKeys) }
+		{ &lightGunIndexAllKeys, &(indexToImport->lightGunIndexAllKeys) },
+		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) }
 	};
 
 	std::vector<IndexImportStructure> indexImportDecl = std::vector<IndexImportStructure>(indexStructDecls, indexStructDecls + sizeof(indexStructDecls) / sizeof(indexStructDecls[0]));
@@ -153,6 +155,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(cheevosIndexAllKeys);
 	clearIndex(verticalIndexAllKeys);
 	clearIndex(lightGunIndexAllKeys);
+	clearIndex(hasMediasIndexAllKeys);
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
@@ -172,6 +175,9 @@ void FileFilterIndex::resetIndex()
 	manageIndexEntry(&lightGunIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&lightGunIndexAllKeys, "TRUE", false);
 
+	manageIndexEntry(&hasMediasIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "TRUE", false);
+	
 	manageIndexEntry(&ratingsIndexAllKeys, "1 STAR", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "2 STARS", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "3 STARS", false);
@@ -301,6 +307,17 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->hasCheevos() ? "TRUE" : "FALSE";		
+	}
+
+	case HASMEDIA_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		return game->hasAnyMedia() ? "TRUE" : "FALSE";
 	}
 
 	case LIGHTGUN_FILTER:
@@ -1026,6 +1043,8 @@ bool CollectionFilter::load(const std::string file)
 			verticalIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "lightgun")
 			lightGunIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "hasMedia")
+			hasMediaIndexFilteredKeys.insert(node.text().as_string());
 	}
 
 	for (auto& it : mFilterDecl)
@@ -1094,7 +1113,10 @@ bool CollectionFilter::save()
 
 	for (auto key : lightGunIndexFilteredKeys)
 		root.append_child("lightgun").text().set(key.c_str());
-	
+
+	for (auto key : hasMediaIndexFilteredKeys)
+		root.append_child("hasMedia").text().set(key.c_str());
+		
 	if (!doc.save_file(mPath.c_str()))
 	{
 		LOG(LogError) << "Error saving CollectionFilter to \"" << mPath << "\" !";

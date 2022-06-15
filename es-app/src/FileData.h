@@ -96,6 +96,7 @@ public:
 	virtual const bool getKidGame();
 	virtual const bool hasCheevos();
 
+	bool hasAnyMedia();
 	std::vector<std::string> getFileMedias();
 
 	const std::string getConfigurationName();
