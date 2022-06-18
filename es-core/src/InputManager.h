@@ -64,6 +64,8 @@ public:
 
 	GunManager* getGunManager() { return mGunManager; }
 
+	void sendMouseClick(Window* window, int button);
+
 private:
 	InputManager();
 

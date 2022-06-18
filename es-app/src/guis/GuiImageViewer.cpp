@@ -69,7 +69,7 @@ public:
 	std::vector<HelpPrompt> getHelpPrompts()
 	{
 		std::vector<HelpPrompt> prompts;
-		prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
+		prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE"), [&] { delete this; }));
 		prompts.push_back(HelpPrompt("l", _("ZOOM OUT")));
 		prompts.push_back(HelpPrompt("r", _("ZOOM IN")));		
 		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE")));
@@ -547,7 +547,7 @@ bool GuiImageViewer::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiImageViewer::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE"), [&] { delete this; }));
 	
 	if (!mPdf.empty())
 		prompts.push_back(HelpPrompt(BUTTON_OK, _("ZOOM")));

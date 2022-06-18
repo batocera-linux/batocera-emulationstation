@@ -3,6 +3,8 @@
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
 #include "TextToSpeech.h"
+#include "Settings.h"
+#include "Window.h"
 
 #define TEXT_PADDING Math::max(12, Renderer::getScreenWidth() * 0.014)
 
@@ -10,6 +12,7 @@ ButtonComponent::ButtonComponent(Window* window, const std::string& text, const 
 	mBox(window, ThemeData::getMenuTheme()->Button.path),	
 	mFocused(false), 
 	mEnabled(true),
+	mMousePressed(false),
 	mPadding(Vector4f(0, 0, 0, 0))
 {
 	auto menuTheme = ThemeData::getMenuTheme();
@@ -132,6 +135,22 @@ void ButtonComponent::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(mPadding.x(), mPadding.y(), mSize.x() - mPadding.x() - mPadding.z(), mSize.y() - mPadding.y() - mPadding.w(), 0x60606025);
 	}
 
+	if (mMousePressed && mIsMouseOver)
+	{
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000010, 0x00000010);
+	}
+	else if (mIsMouseOver)
+	{
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFFFFFF10, 0xFFFFFF10);
+	}
+	else if (Settings::DebugMouse() && mIsMouseOver)
+	{
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
+	}
+
 	if(mTextCache)
 	{
 		Vector3f centerOffset((mSize.x() - mTextCache->metrics.size.x()) / 2, (mSize.y() - mTextCache->metrics.size.y()) / 2, 0);
@@ -171,3 +190,32 @@ void ButtonComponent::setPadding(const Vector4f padding)
 	mPadding = padding;
 	onSizeChanged();
 }
+
+bool ButtonComponent::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (button == 1)
+	{
+		if (pressed)
+		{
+			mMousePressed = true;
+			mWindow->setMouseCapture(this);
+		}
+		else if (mMousePressed)
+		{
+			mWindow->releaseMouseCapture();
+
+			mMousePressed = false;
+
+			if (mIsMouseOver)
+			{
+				if (mPressedFunc && mEnabled)
+					mPressedFunc();
+			}
+		}
+
+		return true;
+	}	
+
+	return false;
+}
+

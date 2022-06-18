@@ -247,7 +247,7 @@ bool GuiSaveState::input(InputConfig* config, Input input)
 std::vector<HelpPrompt> GuiSaveState::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));	
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK"), [&] { delete this; }));
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
 
 	if (mGrid->size() && !mGrid->getSelected().fileName.empty())
@@ -257,4 +257,22 @@ std::vector<HelpPrompt> GuiSaveState::getHelpPrompts()
 	}
 
 	return prompts;
+}
+
+bool GuiSaveState::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	if (pResult) pResult->push_back(this); // Always return this as it's a fake fullscreen, so we always have click events
+	GuiComponent::hitTest(x, y, parentTransform, pResult);
+	return true;
+}
+
+bool GuiSaveState::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (pressed && button == 1 && !mBackground.isMouseOver())
+	{
+		delete this;
+		return true;
+	}
+
+	return (button == 1);
 }

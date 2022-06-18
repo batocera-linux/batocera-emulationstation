@@ -249,15 +249,30 @@ void GuiMenu::addVersionInfo()
 
 	mVersion.setLineSpacing(0);
 
+	std::string label;
+
 	if (!ApiSystem::getInstance()->getVersion().empty())
 	{
 		if (ApiSystem::getInstance()->getApplicationName() == "BATOCERA")
-			mVersion.setText("BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate);
+			label = "BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate;
 		else
 		{
 			std::string aboutInfo = ApiSystem::getInstance()->getApplicationName() + " V" + ApiSystem::getInstance()->getVersion();
-			mVersion.setText(aboutInfo + buildDate);
+			label = aboutInfo + buildDate;
 		}		
+	}
+		
+	if (!label.empty())
+	{
+		if (Renderer::isSmallScreen())
+		{
+			mMenu.setSubTitle(label);
+			mMenu.addButton(_("BACK"), _("go back"), [&] { delete this; });
+		}
+		else
+		{
+			mVersion.setText(label);
+		}
 	}
 
 	mVersion.setHorizontalAlignment(ALIGN_CENTER);
@@ -357,7 +372,7 @@ std::vector<HelpPrompt> GuiMenu::getHelpPrompts()
 	std::vector<HelpPrompt> prompts;
 	prompts.push_back(HelpPrompt("up/down", _("CHOOSE"))); 
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT"))); 
-	prompts.push_back(HelpPrompt("start", _("CLOSE"))); 
+	prompts.push_back(HelpPrompt("start", _("CLOSE"), [&] { delete this; }));
 	return prompts;
 }
 
@@ -4352,4 +4367,22 @@ void GuiMenu::loadSubsetSettings(const std::string themeName)
 void GuiMenu::editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping, bool editable)
 {
 	window->pushGui(new GuiKeyMappingEditor(window, mapping, editable));
+}
+
+bool GuiMenu::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	if (pResult) pResult->push_back(this); // Always return this as it's a fake fullscreen, so we always have click events
+	GuiComponent::hitTest(x, y, parentTransform, pResult);
+	return true;
+}
+
+bool GuiMenu::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (pressed && button == 1 && !mMenu.isMouseOver())
+	{
+		delete this;
+		return true;
+	}
+
+	return (button == 1);
 }

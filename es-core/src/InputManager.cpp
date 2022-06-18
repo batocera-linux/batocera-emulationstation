@@ -17,6 +17,7 @@
 #include "LocaleES.h"
 #include "Paths.h"
 #include "GunManager.h"
+#include "renderers/Renderer.h"
 
 #define KEYBOARD_GUID_STRING "-1"
 #define CEC_GUID_STRING      "-2"
@@ -43,6 +44,7 @@ Delegate<IJoystickChangedEvent> InputManager::joystickChanged;
 
 InputManager::InputManager() : mKeyboardInputConfig(NULL), mMouseButtonsInputConfig(NULL), mCECInputConfig(NULL)
 {
+
 }
 
 InputManager::~InputManager()
@@ -68,11 +70,15 @@ void InputManager::init()
 	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0, 0, 0); 
 	loadInputConfig(mKeyboardInputConfig);
 
+#ifdef HAVE_LIBCEC
 	SDL_USER_CECBUTTONDOWN = SDL_RegisterEvents(2);
 	SDL_USER_CECBUTTONUP   = SDL_USER_CECBUTTONDOWN + 1;
 	CECInput::init();
 	mCECInputConfig = new InputConfig(DEVICE_CEC, -1, "CEC", CEC_GUID_STRING, 0, 0, 0); 
 	loadInputConfig(mCECInputConfig);
+#else
+	mCECInputConfig = nullptr;
+#endif
 
 	// Mouse input, hardcoded not configurable with es_input.cfg
 	mMouseButtonsInputConfig = new InputConfig(DEVICE_MOUSE, -1, "Mouse", CEC_GUID_STRING, 0, 0, 0);
@@ -107,7 +113,9 @@ void InputManager::deinit()
 		mMouseButtonsInputConfig = NULL;
 	}
 
+#ifdef HAVE_LIBCEC
 	CECInput::deinit();
+#endif
 
 	SDL_JoystickEventState(SDL_DISABLE);
 	SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
@@ -293,14 +301,31 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	
 	case SDL_MOUSEBUTTONDOWN:        
 	case SDL_MOUSEBUTTONUP:
-#if WIN32
-		window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
-#else
-		if (mGunManager == nullptr || mGunManager->getGuns().size() == 0)
-			window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
-		else
+#ifndef WIN32
+		if (mGunManager != nullptr && mGunManager->getGuns().size())
 			window->cancelScreenSaver();
+		else
 #endif
+		if (!window->processMouseButton(ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, ev.button.x, ev.button.y))
+			window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
+
+		return true;
+		/*
+	case SDL_FINGERMOTION:
+		window->processMouseMove(ev.tfinger.x * Renderer::getScreenWidth(), ev.tfinger.y * Renderer::getScreenHeight());
+
+		LOG(LogDebug) << "Touch motion: " << ev.tfinger.x * Renderer::getScreenWidth() << ", " << ev.tfinger.y* Renderer::getScreenHeight();
+
+		return true;
+		*/
+	case SDL_MOUSEMOTION:
+		window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
+		return true;
+
+	case SDL_MOUSEWHEEL:
+		if (ev.wheel.which != SDL_TOUCH_MOUSEID)
+			window->processMouseWheel(ev.wheel.y);
+
 		return true;
 
 	case SDL_JOYHATMOTION:
@@ -361,7 +386,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		return false;
 	}
 
-	if((ev.type == (unsigned int)SDL_USER_CECBUTTONDOWN) || (ev.type == (unsigned int)SDL_USER_CECBUTTONUP))
+	if (mCECInputConfig && (ev.type == (unsigned int)SDL_USER_CECBUTTONDOWN || ev.type == (unsigned int)SDL_USER_CECBUTTONUP))
 	{
 		window->input(getInputConfigByDevice(DEVICE_CEC), Input(DEVICE_CEC, TYPE_CEC_BUTTON, ev.user.code, ev.type == (unsigned int)SDL_USER_CECBUTTONDOWN, false));
 		return true;
@@ -804,4 +829,10 @@ void InputManager::updateGuns(Window* window)
 {
 	if (mGunManager)
 		mGunManager->updateGuns(window);
+}
+
+void InputManager::sendMouseClick(Window* window, int button)
+{
+	window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, button, true, false));
+	window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, button, false, false));
 }

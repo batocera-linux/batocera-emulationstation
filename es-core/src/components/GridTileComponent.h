@@ -220,7 +220,7 @@ public:
 	void setCheevos(bool favorite);
 	bool hasFavoriteMedia() { return mFavorite != nullptr; }
 
-	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force = false);	
+	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force = false, bool startsVideo = true);
 
 	void forceSize(Vector2f size, float selectedZoom = 1.0);
 
@@ -247,6 +247,8 @@ public:
 
 	Vector3f getLaunchTarget();
 
+	void	startVideo();
+
 private:
 	void	resetProperties();
 	void	createVideo();
@@ -254,7 +256,6 @@ private:
 	void	createFavorite();
 	void	createCheevos();
 	void	createImageOverlay();
-	void	startVideo();
 	void	stopVideo();
 
 	void resize();

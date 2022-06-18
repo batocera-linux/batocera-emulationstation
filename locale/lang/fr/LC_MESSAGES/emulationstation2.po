@@ -771,6 +771,9 @@ msgstr "DOSSIER PARENT"
 msgid "SCREENSHOTS FOLDER"
 msgstr "DOSSIER DES CAPTURES D’ÉCRAN"
 
+msgid "NAVIGATION BAR"
+msgstr "VOLET NAVIGATION"
+
 msgid "SELECT"
 msgstr "SÉLECTIONNER"
 
@@ -1044,7 +1047,7 @@ msgid "GAME"
 msgstr "JEU"
 
 msgid "SAVE STATES"
-msgstr "SAUVEGARDES INSTANTANÉES"
+msgstr "SAUVEGARDES"
 
 msgid "OPEN"
 msgstr "OUVRIR"
@@ -2007,7 +2010,7 @@ msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURER LES MANETTES"
 
 msgid "SAVESTATES"
-msgstr "SAUVEGARDES INSTANTANÉES"
+msgstr "SAUVEGARDES"
 
 msgid "AUTO SAVE/LOAD"
 msgstr "SAUV./CHARG. AUTO"
@@ -2016,7 +2019,7 @@ msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "SAUVEGARDES INSTANTANÉES INCRÉMENTALES"
+msgstr "SAUVEGARDES INCRÉMENTALES"
 
 msgid "INCREMENT PER SAVE"
 msgstr ""
@@ -2522,7 +2525,7 @@ msgid "GAME OPTIONS"
 msgstr "OPTIONS DU JEU"
 
 msgid "SAVE STATES (HOLD)"
-msgstr "SAUVEGARDES INSTANTANÉES (MAINTENU)"
+msgstr "SAUVEGARDES (MAINTENU)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "OPTIONS DU JEU (MAINTENU)"
@@ -2788,7 +2791,7 @@ msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "SÉLECTIONNER"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"

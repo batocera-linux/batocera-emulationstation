@@ -6,15 +6,21 @@
 #include "components/SwitchComponent.h"
 #include "components/SliderComponent.h"
 #include "components/OptionListComponent.h"
+#include "InputManager.h"
 
 #define TOTAL_HORIZONTAL_PADDING_PX 20
 
 ComponentList::ComponentList(Window* window) : IList<ComponentListRow, std::string>(window, LIST_SCROLL_STYLE_SLOW, LIST_NEVER_LOOP), mScrollbar(window)
 {
+	mHotRow = -1;
+	mPressedRow = -1;
+	mPressedPoint = Vector2i(-1, -1);
+	mIsDragging = false;
+
 	mSelectorBarOffset = 0;
 	mCameraOffset = 0;
 	mFocused = false;
-	mOldCursor = -1;
+	mOldCursor = -1; 
 
 	mScrollbar.loadFromMenuTheme();	
 }
@@ -189,74 +195,76 @@ void ComponentList::onCursorChanged(const CursorState& state)
 	// update the selector bar position
 	// in the future this might be animated
 	mSelectorBarOffset = 0;
-	for(int i = 0; i < mCursor; i++)
-	{
+	for (int i = 0; i < mCursor; i++)
 		mSelectorBarOffset += getRowHeight(mEntries.at(i).data);
-	}
 
 	updateCameraOffset();
 
 	// this is terribly inefficient but we don't know what we came from so...
-	if(size())
+	if (size())
 	{
-		for(auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
+		for (auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
 			it->data.elements.back().component->onFocusLost();
 
 		mEntries.at(mCursor).data.elements.back().component->onFocusGained();
 	}
 
-	if(mCursorChangedCallback)
+	if (mCursorChangedCallback)
 		mCursorChangedCallback(state);
 
 	updateHelpPrompts();
 
 	// tts
-	if(state == CURSOR_STOPPED)
-	  if(mOldCursor != mCursor) {
-	    saySelectedLine();
-	  }
+	if (state == CURSOR_STOPPED && mOldCursor != mCursor)
+		saySelectedLine();
 }
 
-void ComponentList::saySelectedLine() {
-  int n = 0;
+void ComponentList::saySelectedLine()
+{
+	int n = 0;
 
-  if (!(mCursor >= 0 && mCursor < mEntries.size())) return;
+	if (!(mCursor >= 0 && mCursor < mEntries.size())) 
+		return;
 
-  mOldCursor = mCursor;
-  for (auto& element : mEntries.at(mCursor).data.elements)
-    {
-      if(element.component->isKindOf<TextComponent>()) {
-	TextToSpeech::getInstance()->say(element.component->getValue(), n > 0);
-	n++;
-      }
-      if(element.component->isKindOf<SliderComponent>()) {
-	SliderComponent* slider = dynamic_cast<SliderComponent*>(element.component.get());
-	if (slider == nullptr)
-	  continue;
+	mOldCursor = mCursor;
+	for (auto& element : mEntries.at(mCursor).data.elements)
+	{
+		if (element.component->isKindOf<TextComponent>())
+		{
+			TextToSpeech::getInstance()->say(element.component->getValue(), n > 0);
+			n++;
+		}
+		if (element.component->isKindOf<SliderComponent>())
+		{
+			SliderComponent* slider = dynamic_cast<SliderComponent*>(element.component.get());
+			if (slider == nullptr)
+				continue;
 
-	float v = slider->getValue();
-	char strval[32];
-	snprintf(strval, 32, "%.0f", v);
-	TextToSpeech::getInstance()->say(std::string(strval) + _(slider->getSuffix().c_str()), n > 0);
-	n++;
-      }
-      if(element.component->isKindOf<SwitchComponent>()) {
-	TextToSpeech::getInstance()->say(((SwitchComponent*)element.component.get())->getState()?_("ENABLED"):_("DISABLED"), n > 0);
-	n++;
-      }
-      if(element.component->isKindOf<OptionListComponent<std::string>>()) {
-	OptionListComponent<std::string>* optionList = dynamic_cast<OptionListComponent<std::string>*>(element.component.get());
-	if (optionList == nullptr)
-	  continue;
+			float v = slider->getValue();
+			char strval[32];
+			snprintf(strval, 32, "%.0f", v);
+			TextToSpeech::getInstance()->say(std::string(strval) + _(slider->getSuffix().c_str()), n > 0);
+			n++;
+		}
+		if (element.component->isKindOf<SwitchComponent>())
+		{
+			TextToSpeech::getInstance()->say(((SwitchComponent*)element.component.get())->getState() ? _("ENABLED") : _("DISABLED"), n > 0);
+			n++;
+		}
+		if (element.component->isKindOf<OptionListComponent<std::string>>())
+		{
+			OptionListComponent<std::string>* optionList = dynamic_cast<OptionListComponent<std::string>*>(element.component.get());
+			if (optionList == nullptr)
+				continue;
 
-	if (optionList->IsMultiSelect()) {
-	  TextToSpeech::getInstance()->say(Utils::String::join(optionList->getSelectedObjects(), ", "));
-	} else {
-	  TextToSpeech::getInstance()->say(optionList->getSelectedName(), n > 0);
+			if (optionList->IsMultiSelect())
+				TextToSpeech::getInstance()->say(Utils::String::join(optionList->getSelectedObjects(), ", "));
+			else
+				TextToSpeech::getInstance()->say(optionList->getSelectedName(), n > 0);
+
+			n++;
+		}
 	}
-	n++;
-      }
-    }
 }
 
 void ComponentList::updateCameraOffset()
@@ -339,8 +347,17 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 				}
 			}
 
+			if (i == mHotRow)
+			{
+				Renderer::setMatrix(trans);
+				Renderer::drawRect(0.0f, y, mSize.x(), rowHeight, 0x00000010, 0x00000010);
+			}
+
 			for (auto& element : entry.data.elements)
 			{				
+				if (Settings::DebugMouse() && i == mHotRow)
+					element.component->setColor(0xFFFF00FF);
+				else 
 				if (entry.data.group)
 					element.component->setColor(menuTheme->Group.color);
 				else
@@ -531,3 +548,138 @@ std::string ComponentList::getSelectedUserData()
 
 	return "";
 }
+
+bool ComponentList::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	Transform4x4f trans = parentTransform * getTransform();
+
+	bool ret = false;
+
+	mHotRow = -1;
+		
+	Renderer::Rect rect(trans.translation().x(), trans.translation().y(), getSize().x() * trans.r0().x(), getSize().y() * trans.r1().y());
+	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+	{
+		ret = true;
+
+		float ry = 0;
+
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+		{
+			auto& entry = mEntries.at(i);
+			float rowHeight = getRowHeight(entry.data);
+
+			if (entry.data.selectable && ry - mCameraOffset + rowHeight >= 0)
+			{
+				rect.y = ry + trans.translation().y() - mCameraOffset; // +Math::round(mCameraOffset);
+				rect.h = rowHeight;
+
+				if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+				{
+					mHotRow = i;
+					break;
+				}
+			}
+
+			ry += rowHeight;
+			if (ry - mCameraOffset > mSize.y())
+				break;
+		}
+
+		if (pResult != nullptr)
+			pResult->push_back(this);
+	}
+
+	for (int i = 0; i < getChildCount(); i++)
+		ret |= getChild(i)->hitTest(x, y, trans, pResult);
+
+	return ret;
+}
+
+bool ComponentList::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (button == 1)
+	{
+		if (pressed)
+		{
+			if (mHotRow >= 0)
+			{
+				float camOffset = mCameraOffset;
+				mCursor = mHotRow;
+				onCursorChanged(CURSOR_STOPPED);
+				mCameraOffset = camOffset;
+				mPressedRow = mHotRow;
+			}
+
+			mIsDragging = false;
+			mPressedPoint = Vector2i(x, y);
+			mWindow->setMouseCapture(this);
+		}
+		else if (mWindow->hasMouseCapture(this))
+		{
+			mWindow->releaseMouseCapture();
+
+			auto row = mPressedRow;
+			mPressedRow = -1;
+			mPressedPoint = Vector2i(-1, -1);
+
+			auto dragging = mIsDragging;
+			mIsDragging = false;
+
+			if (!dragging && row == mHotRow && mCursor == row)
+				InputManager::getInstance()->sendMouseClick(mWindow, 1);				
+		}
+
+		return true;
+	}
+
+	return false;
+}
+
+void ComponentList::onMouseMove(int x, int y)
+{
+	if (mPressedPoint.x() != -1 && mPressedPoint.y() != -1 && mWindow->hasMouseCapture(this))
+	{
+		mIsDragging = true;
+		mHotRow = -1;
+
+		float yOffset = 0;
+		for (auto entry : mEntries)
+			yOffset += getRowHeight(entry.data);
+
+		yOffset -= getSize().y();
+		if (yOffset <= 0)
+			return;
+
+		mCameraOffset += mPressedPoint.y() - y;
+
+		if (mCameraOffset < 0 )
+			mCameraOffset = 0;
+
+		if (mCameraOffset > yOffset)
+			mCameraOffset = yOffset;
+
+		mPressedPoint = Vector2i(x, y);
+	}
+}
+
+void ComponentList::onMouseWheel(int delta)
+{
+	int newCursor = mCursor - delta;
+	
+	if (newCursor < 0)
+		newCursor = 0;
+
+	if (newCursor >= mEntries.size())
+		newCursor = mEntries.size() - 1;
+
+	while (newCursor >= 0 && newCursor < mEntries.size() && !mEntries[newCursor].data.selectable)
+		newCursor += delta > 0 ? -1 : 1;
+
+	if (newCursor >= 0 && newCursor < mEntries.size() && newCursor != mCursor)
+	{
+		mCursor = newCursor;
+		onCursorChanged(CURSOR_STOPPED);
+	}
+}
+

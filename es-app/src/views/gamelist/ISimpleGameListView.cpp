@@ -205,6 +205,44 @@ void ISimpleGameListView::update(const int deltaTime)
 	}
 }
 
+void ISimpleGameListView::goBack()
+{
+	if (mCursorStack.size())
+	{
+		auto top = mCursorStack.top();
+		mCursorStack.pop();
+
+		FolderData* folder = top->getParent();
+		if (folder == nullptr && getCursor()->getSystem()->getParentGroupSystem() != nullptr)
+			folder = getCursor()->getSystem()->getParentGroupSystem()->getRootFolder();
+
+		if (folder != nullptr)
+		{
+			populateList(folder->getChildrenListToDisplay());
+			setCursor(top);
+			Sound::getFromTheme(getTheme(), getName(), "back")->play();
+		}
+	}
+	else if (mPopupSelfReference)
+	{
+		ViewController::get()->setActiveView(mPopupParentView);
+		mPopupParentView->updateHelpPrompts();
+		closePopupContext();	
+	}
+	else
+	{
+		onFocusLost();
+		SystemData* systemToView = getCursor()->getSystem();
+
+		if (systemToView->isGroupChildSystem())
+			systemToView = systemToView->getParentGroupSystem();
+		else if (systemToView->isCollection())
+			systemToView = CollectionSystemManager::get()->getSystemToView(systemToView);
+
+		ViewController::get()->goToSystemView(systemToView);
+	}	
+}
+
 bool ISimpleGameListView::input(InputConfig* config, Input input)
 {
 	if (mOKButton.isShortPressed(config, input))
@@ -231,12 +269,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 	if (!UIModeController::getInstance()->isUIModeKid() && mSelectButton.isShortPressed(config, input))
 	{
-		auto idx = mRoot->getSystem()->getIndex(false);
-		if (idx != nullptr && idx->hasRelevency())
-			return true;
-
-		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
-		mWindow->pushGui(new GuiGamelistOptions(mWindow, this, this->mRoot->getSystem()));
+		showGamelistOptions();
 		return true;
 	}
 
@@ -254,41 +287,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		
 	if (config->isMappedTo(BUTTON_BACK, input))
 	{
-		if (mCursorStack.size())
-		{
-			auto top = mCursorStack.top();
-			mCursorStack.pop();
-
-			FolderData* folder = top->getParent();
-			if (folder == nullptr && getCursor()->getSystem()->getParentGroupSystem() != nullptr)
-				folder = getCursor()->getSystem()->getParentGroupSystem()->getRootFolder();
-
-			if (folder == nullptr)
-				return true;
-
-			populateList(folder->getChildrenListToDisplay());
-			setCursor(top);
-			Sound::getFromTheme(getTheme(), getName(), "back")->play();
-		}
-		else if (mPopupSelfReference)
-		{
-			ViewController::get()->setActiveView(mPopupParentView);
-			closePopupContext();
-			return true;
-		}
-		else
-		{
-			onFocusLost();
-			SystemData* systemToView = getCursor()->getSystem();
-
-			if (systemToView->isGroupChildSystem())
-				systemToView = systemToView->getParentGroupSystem();
-			else if (systemToView->isCollection())
-				systemToView = CollectionSystemManager::get()->getSystemToView(systemToView);
-
-			ViewController::get()->goToSystemView(systemToView);
-		}
-
+		goBack();
 		return true;
 	}
 	else if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectRightButton(), input)) || config->isMappedLike("r2", input))
@@ -314,6 +313,21 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 	return IGameListView::input(config, input);
 }
+
+void ISimpleGameListView::showGamelistOptions()
+{
+	FileData* cursor = getCursor();
+	if (cursor == nullptr)
+		return;
+
+	auto idx = mRoot->getSystem()->getIndex(false);
+	if (idx != nullptr && idx->hasRelevency())
+		return;
+
+	Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
+	mWindow->pushGui(new GuiGamelistOptions(mWindow, this, this->mRoot->getSystem()));	
+}
+
 
 void ISimpleGameListView::showSelectedGameOptions()
 {
@@ -551,26 +565,37 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 
 	bool invertNorthButton = Settings::getInstance()->getBool("GameOptionsAtNorth");
 
-	std::string shortPressX = invertNorthButton ? _("GAME OPTIONS") : _("SAVE STATES");
-	std::string longPressOK = invertNorthButton ? _("SAVE STATES (HOLD)") : _("GAME OPTIONS (HOLD)"); 
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK"), [&] { goBack(); }));
 
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH") + std::string("/") + longPressOK));
+	if (invertNorthButton)
+		prompts.push_back(HelpPrompt(BUTTON_OK, _("SAVE STATES (HOLD)"), [&] { showSelectedGameSaveSnapshots(); }));
+	else 
+		prompts.push_back(HelpPrompt(BUTTON_OK, _("GAME OPTIONS (HOLD)"), [&] { showSelectedGameOptions(); }));
 
 	if (!UIModeController::getInstance()->isUIModeKid())
-		prompts.push_back(HelpPrompt("select", _("OPTIONS")));
+		prompts.push_back(HelpPrompt("select", _("OPTIONS"), [&] { showGamelistOptions(); }));
 
 	if (cursorHasSaveStatesEnabled())
 	{
-		if (UIModeController::getInstance()->isUIModeKid())
-			prompts.push_back(HelpPrompt("x", shortPressX));
+		if (invertNorthButton)
+		{
+			if (UIModeController::getInstance()->isUIModeKid())
+				prompts.push_back(HelpPrompt("x", _("GAME OPTIONS"), [&] { showSelectedGameOptions(); }));
+			else
+				prompts.push_back(HelpPrompt("x", _("GAME OPTIONS") + std::string("/") + _("FAVORITE"), [&] { showSelectedGameOptions(); }));
+		}
 		else
-			prompts.push_back(HelpPrompt("x", shortPressX + std::string("/") + _("FAVORITE")));
+		{
+			if (UIModeController::getInstance()->isUIModeKid())
+				prompts.push_back(HelpPrompt("x", _("SAVE STATES"), [&] { showSelectedGameSaveSnapshots(); }));
+			else
+				prompts.push_back(HelpPrompt("x", _("SAVE STATES") + std::string("/") + _("FAVORITE"), [&] { showSelectedGameSaveSnapshots(); }));
+		}
 	}
 	else if (!UIModeController::getInstance()->isUIModeKid())
 		prompts.push_back(HelpPrompt("x", _("FAVORITE")));
 
-	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM (HOLD)")));
+	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM"), [&] { showQuickSearch(); }));
 
 	return prompts;
 }
