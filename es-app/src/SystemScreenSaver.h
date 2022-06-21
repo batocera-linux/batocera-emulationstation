@@ -82,18 +82,16 @@ public:
 
 	virtual FileData* getCurrentGame();
 	virtual void launchGame();
-	inline virtual void resetCounts() { mVideosCounted = false; mImagesCounted = false; };
+	inline virtual void resetCounts() { mGamesWithVideosLoaded = false; mGamesWithImagesLoaded = false; mGamesWithImages.clear(); mGamesWithVideos.clear(); };
 
 private:
-	unsigned long countGameListNodes(const char *nodeName);
-	void countVideos();
-	void countImages();
+	unsigned long countGameListNodes(bool video = false);
 
-	std::string pickGameListNode(unsigned long index, const char *nodeName);
-	std::string pickRandomVideo();
-	std::string pickRandomGameListImage();
+	std::string pickRandomGameMedia(bool video = false);
 	std::string pickRandomCustomImage(bool video = false);
-
+	
+	std::string	selectGameMedia(FileData* game, bool video = false);
+	
 	enum STATE {
 		STATE_INACTIVE,
 		STATE_FADE_OUT_WINDOW,
@@ -102,17 +100,15 @@ private:
 	};
 
 private:
-	bool			mVideosCounted;
-	unsigned long		mVideoCount;	
-	bool			mImagesCounted;
-	unsigned long		mImageCount;
-
-	//VideoComponent*		mVideoScreensaver;
 	std::shared_ptr<VideoScreenSaver>		mVideoScreensaver;
-
 	std::shared_ptr<ImageScreenSaver>		mFadingImageScreensaver;
 	std::shared_ptr<ImageScreenSaver>		mImageScreensaver;
 
+	std::vector<FileData*> mGamesWithImages;
+	std::vector<FileData*> mGamesWithVideos;
+
+	bool			mGamesWithVideosLoaded;
+	bool			mGamesWithImagesLoaded;
 	Window*			mWindow;
 	STATE			mState;
 	float			mOpacity;
@@ -121,8 +117,6 @@ private:
 	std::string		mGameName;
 	std::string		mSystemName;
 	int 			mVideoChangeTime;
-	
-	//std::shared_ptr<Sound>	mBackgroundAudio;
 	bool			mLoadingNext;
 
 };
