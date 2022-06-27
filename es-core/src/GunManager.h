@@ -36,6 +36,8 @@ public:
 	bool isLButtonDown() { return mLButtonDown; }
 	bool isRButtonDown() { return mRButtonDown; }
 
+	bool needBorders() { return mNeedBorders; }
+
 private:
 	std::string mName;
 
@@ -52,6 +54,8 @@ private:
 	udev_device* dev;
 	int fd;
 #endif
+
+	bool mNeedBorders;
 };
 
 //you should only ever instantiate one of these, by the way
@@ -76,7 +80,7 @@ private:
 
   static bool udev_input_poll_hotplug_available(struct udev_monitor *dev);
   void udev_initial_gunsList();
-  bool udev_addGun(struct udev_device *dev, Window* window);
+  bool udev_addGun(struct udev_device *dev, Window* window, bool needGunBorder);
   bool udev_removeGun(struct udev_device *dev, Window* window);
   void udev_closeGun(Gun* gun);
 #endif
