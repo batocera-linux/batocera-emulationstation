@@ -528,6 +528,35 @@ void Window::render()
 		}
 	}
 
+	// sinden borders
+	auto guns = InputManager::getInstance()->getGuns();
+	if (guns.size())
+	  {
+	    bool drawGunBorders = false;
+
+	    for (auto gun : guns)
+	      {
+		if(gun->needBorders()) drawGunBorders = true;
+	      }
+	    if(drawGunBorders) {
+	      Renderer::setMatrix(Transform4x4f::Identity());
+	      int outerBorderWidth = Renderer::getScreenHeight() * 3 / 100;
+	      int innerBorderWidth = Renderer::getScreenHeight() * 2 / 100;
+	      const unsigned int outerBorderColor = 0x000000FF;
+	      const unsigned int innerBorderColor = 0xFFFFFFFF;
+	      // outer border
+	      Renderer::drawRect(0, 0, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
+	      Renderer::drawRect(Renderer::getScreenWidth()-outerBorderWidth, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
+	      Renderer::drawRect(0, Renderer::getScreenHeight()-outerBorderWidth, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
+	      Renderer::drawRect(0, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
+	      // inner border
+	      Renderer::drawRect(outerBorderWidth, outerBorderWidth, Renderer::getScreenWidth()-outerBorderWidth*2, innerBorderWidth, innerBorderColor);
+	      Renderer::drawRect(Renderer::getScreenWidth()-outerBorderWidth-innerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight()-outerBorderWidth*2, innerBorderColor);
+	      Renderer::drawRect(outerBorderWidth, Renderer::getScreenHeight()-outerBorderWidth-innerBorderWidth, Renderer::getScreenWidth()-outerBorderWidth*2, innerBorderWidth, innerBorderColor);
+	      Renderer::drawRect(outerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight()-outerBorderWidth*2, innerBorderColor);
+	    }
+	  }
+
 	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
 		if (!mRenderedHelpPrompts)
 			mHelp->render(transform);
@@ -594,7 +623,6 @@ void Window::render()
 	}
 
 	// Render guns aims
-	auto guns = InputManager::getInstance()->getGuns();
 	if (guns.size())
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());

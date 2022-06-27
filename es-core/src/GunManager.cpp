@@ -101,6 +101,8 @@ void GunManager::updateGuns(Window* window)
 {
 #ifdef HAVE_UDEV
 	const char* val_gun;
+	const char* val_gunborder;
+	bool bGunborder;
 	const char* action;
 
 	while (udev_monitor && udev_input_poll_hotplug_available(udev_monitor)) 
@@ -111,16 +113,22 @@ void GunManager::updateGuns(Window* window)
 		if (dev != NULL) 
 		{
 			val_gun = udev_device_get_property_value(dev, "ID_INPUT_GUN"); // ID_INPUT_GUN and ID_INPUT_MOUSE for some tests
+			val_gunborder = udev_device_get_property_value(dev, "ID_INPUT_GUN_NEED_BORDERS");
+			bGunborder = false;
+
+			if (val_gunborder != NULL && strncmp(val_gunborder, "1", 1) == 0)
+			  bGunborder = true;
+
 			action = udev_device_get_action(dev);
 
-			if (val_gun != NULL && strncmp(val_gun, "1", 1) == 0) 
+			if (val_gun != NULL && strncmp(val_gun, "1", 1) == 0)
 			{
-				if (strncmp(action, "add", 3) == 0) 
+				if (strncmp(action, "add", 3) == 0)
 				{
-					if (udev_addGun(dev, window)) 
+				  if (udev_addGun(dev, window, bGunborder))
 						dev_handled = true;
 				}
-				else if (strncmp(action, "remove", 6) == 0) 
+				else if (strncmp(action, "remove", 6) == 0)
 				{
 					if (udev_removeGun(dev, window)) 
 						dev_handled = true;
@@ -137,6 +145,7 @@ void GunManager::updateGuns(Window* window)
 		Gun* newgun = new Gun();
 		newgun->mIndex = mGuns.size();
 		newgun->mName = "Mouse";
+		newgun->mNeedBorders = false;
 		mGuns.push_back(newgun);
 	}
 #elif WIN32
@@ -225,6 +234,8 @@ void GunManager::udev_initial_gunsList()
 {
 	struct udev_list_entry *devs = NULL;
 	struct udev_list_entry *item = NULL;
+	const char* val_gunborder;
+	bool bGunborder;
 
 	struct udev_enumerate *enumerate = udev_enumerate_new(udev);
 	udev_enumerate_add_match_property(enumerate, "ID_INPUT_GUN", "1");
@@ -237,11 +248,17 @@ void GunManager::udev_initial_gunsList()
 		const char         *name = udev_list_entry_get_name(item);
 		struct udev_device *dev = udev_device_new_from_syspath(udev, name);
 
-		if (udev_addGun(dev, NULL) == false) udev_device_unref(dev); // unhandled device
+		val_gunborder = udev_device_get_property_value(dev, "ID_INPUT_GUN_NEED_BORDERS"); // ID_INPUT_GUN and ID_INPUT_MOUSE for some tests
+		bGunborder = false;
+
+		if (val_gunborder != NULL && strncmp(val_gunborder, "1", 1) == 0)
+		  bGunborder = true;
+
+		if (udev_addGun(dev, NULL, bGunborder) == false) udev_device_unref(dev); // unhandled device
 	}
 }
 
-bool GunManager::udev_addGun(struct udev_device *dev, Window* window)
+bool GunManager::udev_addGun(struct udev_device *dev, Window* window, bool needGunBorder)
 {
 	char ident[256];
 	const char* devnode;
@@ -278,6 +295,7 @@ bool GunManager::udev_addGun(struct udev_device *dev, Window* window)
 	newgun->devpath = devnode;
 	newgun->dev = dev;
 	newgun->fd = fd;
+	newgun->mNeedBorders = needGunBorder;
 
 	if (!newgun->mName.empty() && window != NULL)
 		window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
