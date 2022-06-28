@@ -22,6 +22,8 @@ public:
 
 	static std::vector<std::string> gridSizes;
 
+	virtual bool onMouseClick(int button, bool pressed, int x, int y);
+
 private:
 	inline void addSaveFunc(const std::function<void()>& func) { mSaveFuncs.push_back(func); };
 	
@@ -34,6 +36,7 @@ private:
 	void createCollection(std::string inName);
 	void deleteCollection();
 
+	
 	std::string getCustomCollectionName();
 
 	MenuComponent mMenu;

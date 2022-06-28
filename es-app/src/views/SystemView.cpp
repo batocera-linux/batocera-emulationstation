@@ -41,7 +41,12 @@ SystemView::SystemView(Window* window) : IList<SystemViewData, SystemData*>(wind
 	mDisable = false;		
 	mLastCursor = 0;
 	mExtrasFadeOldCursor = -1;
-	
+
+	mLockCamOffsetChanges = false;
+	mLockExtraChanges = false;
+	mPressedCursor = -1;
+	mPressedPoint = Vector2i(-1, -1);
+
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	populate();
 }
@@ -402,6 +407,14 @@ void SystemView::showQuickSearch()
 	}
 }
 
+void SystemView::showNetplay()
+{
+	if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
+	else
+		mWindow->pushGui(new GuiNetPlay(mWindow));
+}
+
 bool SystemView::input(InputConfig* config, Input input)
 {
 	if (mYButton.isShortPressed(config, input))
@@ -415,11 +428,7 @@ bool SystemView::input(InputConfig* config, Input input)
 		bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
 		if (netPlay && config->isMappedTo("x", input))
 		{
-			if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
-				mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
-			else 
-				mWindow->pushGui(new GuiNetPlay(mWindow));
-
+			showNetplay();
 			return true;
 		}
 		/*
@@ -510,29 +519,10 @@ bool SystemView::input(InputConfig* config, Input input)
 			return true;
 		}
 
-		if (config->isMappedTo(BUTTON_BACK, input) && SystemData::IsManufacturerSupported)
+		if (config->isMappedTo(BUTTON_BACK, input))
 		{
-			auto sortMode = Settings::getInstance()->getString("SortSystems");
-			if (sortMode == "alpha")
-			{
-				showNavigationBar(_("GO TO LETTER"), [](SystemData* meta) { if (meta->isCollection()) return _("COLLECTIONS"); return Utils::String::toUpper(meta->getSystemMetadata().fullName.substr(0, 1)); });
+			if (showNavigationBar())
 				return true;
-			}
-			else if (sortMode == "manufacturer")
-			{
-				showNavigationBar(_("GO TO MANUFACTURER"), [](SystemData* meta) { return meta->getSystemMetadata().manufacturer; });
-				return true;
-			}
-			else if (sortMode == "hardware")
-			{
-				showNavigationBar(_("GO TO HARDWARE"), [](SystemData* meta) { return meta->getSystemMetadata().hardwareType; });
-				return true;
-			}
-			else if (sortMode == "releaseDate")
-			{
-				showNavigationBar(_("GO TO DECADE"), [](SystemData* meta) { if (meta->getSystemMetadata().releaseYear == 0) return _("Unknown"); return std::to_string((meta->getSystemMetadata().releaseYear / 10) * 10) + "'s"; });
-				return true;
-			}
 		}
 		
 		if (config->isMappedTo("x", input))
@@ -571,6 +561,36 @@ bool SystemView::input(InputConfig* config, Input input)
 	}
 
 	return GuiComponent::input(config, input);
+}
+
+bool SystemView::showNavigationBar()
+{
+	if (!SystemData::IsManufacturerSupported)
+		return false;
+
+	auto sortMode = Settings::getInstance()->getString("SortSystems");
+	if (sortMode == "alpha")
+	{
+		showNavigationBar(_("GO TO LETTER"), [](SystemData* meta) { if (meta->isCollection()) return _("COLLECTIONS"); return Utils::String::toUpper(meta->getSystemMetadata().fullName.substr(0, 1)); });
+		return true;
+	}
+	else if (sortMode == "manufacturer")
+	{
+		showNavigationBar(_("GO TO MANUFACTURER"), [](SystemData* meta) { return meta->getSystemMetadata().manufacturer; });
+		return true;
+	}
+	else if (sortMode == "hardware")
+	{
+		showNavigationBar(_("GO TO HARDWARE"), [](SystemData* meta) { return meta->getSystemMetadata().hardwareType; });
+		return true;
+	}
+	else if (sortMode == "releaseDate")
+	{
+		showNavigationBar(_("GO TO DECADE"), [](SystemData* meta) { if (meta->getSystemMetadata().releaseYear == 0) return _("Unknown"); return std::to_string((meta->getSystemMetadata().releaseYear / 10) * 10) + "'s"; });
+		return true;
+	}
+
+	return false;
 }
 
 void SystemView::showNavigationBar(const std::string& title, const std::function<std::string(SystemData* system)>& selector)
@@ -732,6 +752,7 @@ void SystemView::onCursorChanged(const CursorState& state)
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
 
+
 	ensureLogo(mEntries.at(mCursor));
 
 	// update help style
@@ -782,33 +803,36 @@ void SystemView::onCursorChanged(const CursorState& state)
 	updateExtraTextBinding();
 
 	// also change the text after we've fully faded out
-	setAnimation(infoFadeOut, 0, [this, gameCount] 
+	if (!mLockExtraChanges)
 	{
-		if (!getSelected()->isGameSystem() && !getSelected()->isGroupSystem())
-			mSystemInfo.setText(_("CONFIGURATION"));
-		else if (mCarousel.systemInfoCountOnly)
-			mSystemInfo.setText(std::to_string(gameCount));
-		else
+		setAnimation(infoFadeOut, 0, [this, gameCount]
 		{
-			std::stringstream ss;
-			char strbuf[256];
-			
-			if (getSelected() == CollectionSystemManager::get()->getCustomCollectionsBundle())
-			{
-				int collectionCount = getSelected()->getRootFolder()->getChildren().size();
-				snprintf(strbuf, 256, ngettext("%i COLLECTION", "%i COLLECTIONS", collectionCount), collectionCount);
-			}
-			else if (getSelected()->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !getSelected()->isCollection())
-				snprintf(strbuf, 256, ngettext("%i ITEM", "%i ITEMS", gameCount), gameCount);
+			if (!getSelected()->isGameSystem() && !getSelected()->isGroupSystem())
+				mSystemInfo.setText(_("CONFIGURATION"));
+			else if (mCarousel.systemInfoCountOnly)
+				mSystemInfo.setText(std::to_string(gameCount));
 			else
-				snprintf(strbuf, 256, ngettext("%i GAME", "%i GAMES", gameCount), gameCount);
+			{
+				std::stringstream ss;
+				char strbuf[256];
 
-			ss << strbuf;
-			mSystemInfo.setText(ss.str());
-		}			
-		
-		mSystemInfo.onShow();
-	}, false, 1);
+				if (getSelected() == CollectionSystemManager::get()->getCustomCollectionsBundle())
+				{
+					int collectionCount = getSelected()->getRootFolder()->getChildren().size();
+					snprintf(strbuf, 256, ngettext("%i COLLECTION", "%i COLLECTIONS", collectionCount), collectionCount);
+				}
+				else if (getSelected()->hasPlatformId(PlatformIds::PLATFORM_IGNORE) && !getSelected()->isCollection())
+					snprintf(strbuf, 256, ngettext("%i ITEM", "%i ITEMS", gameCount), gameCount);
+				else
+					snprintf(strbuf, 256, ngettext("%i GAME", "%i GAMES", gameCount), gameCount);
+
+				ss << strbuf;
+				mSystemInfo.setText(ss.str());
+			}
+
+			mSystemInfo.onShow();
+		}, false, 1);
+	}
 
 	if (!mSystemInfo.hasStoryBoard())
 	{
@@ -891,9 +915,11 @@ void SystemView::onCursorChanged(const CursorState& state)
 	if (Settings::PowerSaverMode() == "instant")
 		move_carousel = false;
 
+	bool lockExtraChanges = mLockExtraChanges;
+	
 	if (transition_style == "fade" || transition_style == "fade & slide")
 	{
-		anim = new LambdaAnimation([this, startPos, endPos, posMax, move_carousel, oldCursor, transition_style](float t)
+		anim = new LambdaAnimation([this, lockExtraChanges, startPos, endPos, posMax, move_carousel, oldCursor, transition_style](float t)
 		{
 			mExtrasFadeOldCursor = oldCursor;
 
@@ -902,60 +928,75 @@ void SystemView::onCursorChanged(const CursorState& state)
 			if (f < 0) f += posMax;
 			if (f >= posMax) f -= posMax;
 
-			this->mCamOffset = move_carousel ? f : endPos;
+			if (!mLockCamOffsetChanges)
+				this->mCamOffset = move_carousel ? f : endPos;
 
-			this->mExtrasFadeOpacity = Math::lerp(1, 0, Math::easeOutQuint(t));
+			if (!lockExtraChanges)
+			{
+				this->mExtrasFadeOpacity = Math::lerp(1, 0, Math::easeOutQuint(t));
 
-			if (transition_style == "fade & slide")
-				this->mExtrasFadeMove = Math::lerp(1, 0, Math::easeOutCubic(t));
+				if (transition_style == "fade & slide")
+					this->mExtrasFadeMove = Math::lerp(1, 0, Math::easeOutCubic(t));
 
-			this->mExtrasCamOffset = endPos;
+				this->mExtrasCamOffset = endPos;
+			}
 
 		}, mCarousel.transitionSpeed);
 	} 
 	else if (transition_style == "slide") 
 	{
-		anim = new LambdaAnimation([this, startPos, endPos, posMax, move_carousel](float t)
+		anim = new LambdaAnimation([this, lockExtraChanges, startPos, endPos, posMax, move_carousel](float t)
 		{			
 			float f = Math::lerp(startPos, endPos, Math::easeOutQuint(t));
 			if (f < 0) f += posMax;
 			if (f >= posMax) f -= posMax;
 
-			this->mCamOffset = move_carousel ? f : endPos;
-			this->mExtrasCamOffset = f;
+			if (!mLockCamOffsetChanges)
+				this->mCamOffset = move_carousel ? f : endPos;
+
+			if (!lockExtraChanges)
+				this->mExtrasCamOffset = f;
 
 		}, mCarousel.transitionSpeed);
 	} 
 	else // instant
 	{		
-		anim = new LambdaAnimation([this, startPos, endPos, posMax, move_carousel ](float t)
+		anim = new LambdaAnimation([this, lockExtraChanges,  startPos, endPos, posMax, move_carousel ](float t)
 		{
 			float f = Math::lerp(startPos, endPos, Math::easeOutQuint(t));
 			if (f < 0) f += posMax; 
 			if (f >= posMax) f -= posMax;
 
-			this->mCamOffset = move_carousel ? f : endPos;
-			this->mExtrasCamOffset = endPos;
+			if (!mLockCamOffsetChanges)
+				this->mCamOffset = move_carousel ? f : endPos;
+
+			if (!lockExtraChanges)
+				this->mExtrasCamOffset = endPos;
 
 		}, move_carousel ? mCarousel.transitionSpeed : 1);
 	}
 
-	for (int i = 0; i < mEntries.size(); i++)
-		if (i != oldCursor && i != mCursor)
-			activateExtras(i, false);
-
-	activateExtras(mCursor);
-
-	setAnimation(anim, 0, [this]
+	if (!mLockExtraChanges)
 	{
-		mExtrasFadeOpacity = 0.0f;
-		mExtrasFadeMove = 0.0f;
-		mExtrasFadeOldCursor = -1;
-
 		for (int i = 0; i < mEntries.size(); i++)
-			if (i != mCursor)
+			if (i != oldCursor && i != mCursor)
 				activateExtras(i, false);
 
+		activateExtras(mCursor);
+	}
+	
+	setAnimation(anim, 0, [this, lockExtraChanges]
+	{
+		if (!lockExtraChanges)
+		{
+			mExtrasFadeOpacity = 0.0f;
+			mExtrasFadeMove = 0.0f;
+			mExtrasFadeOldCursor = -1;
+
+			for (int i = 0; i < mEntries.size(); i++)
+				if (i != mCursor)
+					activateExtras(i, false);
+		}
 	}, false, 0);
 }
 
@@ -1005,22 +1046,25 @@ std::vector<HelpPrompt> SystemView::getHelpPrompts()
 		prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
 	else
 		prompts.push_back(HelpPrompt("left/right", _("CHOOSE")));
-
-	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT")));
+	
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("SELECT"), [&] {ViewController::get()->goToGameList(getSelected()); }));
 
 	bool netPlay = SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay");
 
 	if (netPlay)
 	{
-		prompts.push_back(HelpPrompt("x", _("NETPLAY")));
-		prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM"))); // QUICK 
+		prompts.push_back(HelpPrompt("x", _("NETPLAY"), [&] { showNetplay(); }));
+		prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM"), [&] { showQuickSearch(); })); // QUICK 
 	}
 	else
 	{
 		prompts.push_back(HelpPrompt("x", _("RANDOM")));	
 		if (SystemData::getSystem("all") != nullptr)
-			prompts.push_back(HelpPrompt("y", _("SEARCH"))); // QUICK 
+			prompts.push_back(HelpPrompt("y", _("SEARCH"), [&] { showQuickSearch(); })); // QUICK 
 	}
+
+	if (SystemData::IsManufacturerSupported)
+		prompts.push_back(HelpPrompt("b", _("NAVIGATION BAR"), [&] { showNavigationBar(); }));
 	
 #ifdef _ENABLE_FILEMANAGER_
 	if (UIModeController::getInstance()->isUIModeFull()) {
@@ -1798,3 +1842,135 @@ SystemData* SystemView::getActiveSystem()
 
 	return mEntries[mCursor].object;
 }
+
+
+bool SystemView::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	bool ret = GuiComponent::hitTest(x, y, parentTransform, pResult);
+
+	if (mCursor < 0 || mCursor >= mEntries.size())
+		return ret;
+
+	Transform4x4f trans = getTransform() * parentTransform;
+
+	for (auto extra : mEntries[mCursor].data.backgroundExtras)
+		ret |= extra->hitTest(x, y, trans, pResult);
+
+	return ret;
+}
+
+
+bool SystemView::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (button == 1 && pressed)
+	{
+		mLockCamOffsetChanges = false;
+		mPressedPoint = Vector2i(x, y);
+		mPressedCursor = mCursor;
+		mWindow->setMouseCapture(this);		
+	}
+	else if (button == 1 && !pressed)
+	{		
+		if (mWindow->hasMouseCapture(this))
+		{
+			mLockCamOffsetChanges = false;
+
+			mWindow->releaseMouseCapture();
+
+			mPressedPoint = Vector2i(-1, -1);
+
+			if (mCamOffset != mCursor)
+			{
+				mLastCursor = -1;
+				mLockExtraChanges = true;
+				onCursorChanged(CursorState::CURSOR_STOPPED);
+				mLockExtraChanges = false;
+			}
+
+			stopScrolling();
+
+			if (mPressedCursor == mCursor)
+				ViewController::get()->goToGameList(getSelected());
+		}
+	}
+	else if (button == 2 && pressed)
+	{
+		showQuickSearch();
+	}
+	else if (button == 3 && pressed)
+	{
+		showNavigationBar();	
+	}
+
+	return true;
+}
+
+#define CAROUSEL_MOUSE_SPEED 100.0f
+
+void SystemView::onMouseMove(int x, int y)
+{
+	if (mPressedPoint.x() != -1 && mPressedPoint.y() != -1 && mWindow->hasMouseCapture(this))
+	{
+		mPressedCursor = -1;
+
+		if (isHorizontalCarousel())
+		{
+			float speed = CAROUSEL_MOUSE_SPEED;
+			if (mCarousel.maxLogoCount >= 1)
+				speed = mSize.x() / mCarousel.maxLogoCount;
+
+			if (mCarousel.type == HORIZONTAL_WHEEL)
+				speed *= 2;
+
+			mCamOffset += (mPressedPoint.x() - x) / speed;
+		}
+		else
+		{
+			float speed = CAROUSEL_MOUSE_SPEED;
+			if (mCarousel.maxLogoCount >= 1)
+				speed = mSize.y() / mCarousel.maxLogoCount;
+
+			if (mCarousel.type == VERTICAL_WHEEL)
+				speed *= 2;
+
+			mCamOffset += (mPressedPoint.y() - y) / speed;
+		}
+
+		int itemCount = mEntries.size();
+
+		if (mCamOffset < 0)
+			mCamOffset += itemCount;
+		else if (mCamOffset >= itemCount)
+			mCamOffset = mCamOffset - (float)itemCount;
+
+		int offset = (int)Math::round(mCamOffset);
+		if (offset < 0)
+			offset += (int)itemCount;
+		else if (offset >= (int)itemCount)
+			offset -= (int)itemCount;
+
+		if (mCursor != offset)
+		{
+			float camOffset = mCamOffset;
+
+			mLockCamOffsetChanges = true;
+			mLastCursor = -1;
+			mCursor = offset;
+
+			onCursorChanged(CursorState::CURSOR_STOPPED);
+
+			mCursor = offset;
+			mCamOffset = camOffset;
+		}
+
+		mPressedPoint = Vector2i(x, y);
+	}
+
+}
+
+void SystemView::onMouseWheel(int delta)
+{
+	listInput(-delta);
+	mScrollVelocity = 0;
+}
+

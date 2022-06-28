@@ -50,7 +50,7 @@ void ViewController::init(Window* window)
 	if (sInstance != nullptr)
 		delete sInstance;
 
-	sInstance = new ViewController(window);
+	sInstance = new ViewController(window);	
 }
 
 void ViewController::saveState()
@@ -891,6 +891,8 @@ bool ViewController::input(InputConfig* config, Input input)
 
 void ViewController::update(int deltaTime)
 {
+	mSize = Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+
 	if (mCurrentView)
 		mCurrentView->update(deltaTime);
 
@@ -1062,7 +1064,10 @@ void ViewController::reloadGameListView(IGameListView* view)
 	
 	// Redisplay the current view
 	if (mCurrentView)
+	{
 		mCurrentView->onShow();
+		updateHelpPrompts();
+	}
 }
 
 SystemData* ViewController::getSelectedSystem()
@@ -1235,8 +1240,9 @@ std::vector<HelpPrompt> ViewController::getHelpPrompts()
 		return prompts;
 
 	prompts = mCurrentView->getHelpPrompts();
-	if(!UIModeController::getInstance()->isUIModeKid())
-	  prompts.push_back(HelpPrompt("start", _("MENU")));
+
+	if (!UIModeController::getInstance()->isUIModeKid())
+		prompts.push_back(HelpPrompt("start", _("MENU"), [&] { mWindow->pushGui(new GuiMenu(mWindow)); }));
 
 	return prompts;
 }
@@ -1337,4 +1343,22 @@ void ViewController::setActiveView(std::shared_ptr<GuiComponent> view)
 	mCurrentView = view;
 	mCurrentView->onShow();
 	mCurrentView->topWindow(true);
+}
+
+
+bool ViewController::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	bool ret = false;
+
+	Transform4x4f trans = mCamera * parentTransform;
+
+//  Skip ViewController
+//	Renderer::Rect rect(trans.translation().x(), trans.translation().y(), getSize().x() * trans.r0().x(), getSize().y() * trans.r1().y());
+//	if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+//		ret.push_back(this);
+
+	for (int i = 0; i < getChildCount(); i++)
+		ret |= getChild(i)->hitTest(x, y, trans, pResult);
+
+	return ret;
 }

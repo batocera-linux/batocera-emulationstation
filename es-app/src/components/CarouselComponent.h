@@ -43,6 +43,10 @@ public:
 	int getLastCursor() { return mLastCursor; }
 	void resetLastCursor() { mLastCursor = -1; }
 
+	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
+	virtual void onMouseMove(int x, int y) override;
+	virtual void onMouseWheel(int delta) override;
+
 protected:
 	void onCursorChanged(const CursorState& state) override;
 
@@ -110,6 +114,10 @@ private:
 
 	bool			mAnyLogoHasScaleStoryboard;
 	bool			mAnyLogoHasOpacityStoryboard;
+
+	// Mouse support
+	int				mPressedCursor;
+	Vector2i		mPressedPoint;	
 
 public:
 	bool isHorizontalCarousel() { return mType == HORIZONTAL || mType == HORIZONTAL_WHEEL; }

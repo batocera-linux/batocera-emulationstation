@@ -5,6 +5,8 @@
 #include "animations/LambdaAnimation.h"
 #include "Sound.h"
 #include "LocaleES.h"
+#include "InputManager.h"
+#include "Window.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -18,6 +20,9 @@ CarouselComponent::CarouselComponent(Window* window) :
 	mDisable = false;		
 	mLastCursor = 0;
 		
+	mPressedPoint = Vector2i(-1, -1);
+	mPressedCursor = -1;
+	
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
 	mType = VERTICAL;
@@ -721,3 +726,102 @@ void CarouselComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	if (carouselElem)
 		getCarouselFromTheme(carouselElem);
 }
+
+bool CarouselComponent::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (button != 1)
+		return false;
+	
+	if (pressed)
+	{
+		mPressedPoint = Vector2i(x, y);
+		mPressedCursor = mCursor;
+		mWindow->setMouseCapture(this);
+	}
+	else if (mWindow->hasMouseCapture(this))
+	{
+		mWindow->releaseMouseCapture();
+
+		mPressedPoint = Vector2i(-1, -1);
+
+		if (mCamOffset != mCursor)
+		{
+			mLastCursor = -1;
+			onCursorChanged(CursorState::CURSOR_STOPPED);
+		}
+
+		if (mPressedCursor == mCursor)
+			InputManager::getInstance()->sendMouseClick(mWindow, 1);
+	}
+
+	return true;
+}
+
+#define CAROUSEL_MOUSE_SPEED 100.0f
+
+void CarouselComponent::onMouseMove(int x, int y)
+{
+	if (mPressedPoint.x() != -1 && mPressedPoint.y() != -1 && mWindow->hasMouseCapture(this))
+	{
+		mPressedCursor = -1;
+
+		if (isHorizontalCarousel())
+		{
+			float speed = CAROUSEL_MOUSE_SPEED;
+			if (mMaxLogoCount > 1)
+				speed = mSize.x() / mMaxLogoCount;
+
+			if (mType == HORIZONTAL_WHEEL)
+				speed *= 2;
+
+			mCamOffset += (mPressedPoint.x() - x) / speed;
+		}
+		else
+		{
+			float speed = CAROUSEL_MOUSE_SPEED;
+			if (mMaxLogoCount > 1)
+				speed = mSize.y() / mMaxLogoCount;
+
+			if (mType == VERTICAL_WHEEL)
+				speed *= 2;
+
+			mCamOffset += (mPressedPoint.y() - y) / speed;
+		}
+
+		int itemCount = mEntries.size();
+
+		if (mCamOffset < 0)
+			mCamOffset += itemCount;
+		else if (mCamOffset >= itemCount)
+			mCamOffset = mCamOffset - (float) itemCount;
+
+		int offset = (int) Math::round(mCamOffset);
+		if (offset < 0)
+			offset += (int)itemCount;
+		else if (offset >= (int)itemCount)
+			offset -= (int)itemCount;
+
+		if (mCursor != offset)
+		{
+			float camOffset = mCamOffset;
+
+			mLastCursor = -1;
+			mCursor = offset;
+
+			onCursorChanged(CursorState::CURSOR_STOPPED);
+			stopAllAnimations();
+
+			mCursor = offset;
+			mCamOffset = camOffset;
+		}
+
+		mPressedPoint = Vector2i(x, y);
+	}
+}
+
+void CarouselComponent::onMouseWheel(int delta)
+{
+	listInput(-delta);
+	mScrollVelocity = 0;
+}
+

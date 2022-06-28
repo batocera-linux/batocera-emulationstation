@@ -26,7 +26,7 @@
 #include "PowerSaver.h"
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0) 
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr)
 {			
 	mTransitionOffset = 0;
 
@@ -35,8 +35,7 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); 
 
 	mSplash = nullptr;
-
-	
+	mLastShowCursor = -1;	
 }
 
 Window::~Window()
@@ -61,6 +60,8 @@ void Window::pushGui(GuiComponent* gui)
 		top->topWindow(false);		
 	}
 
+	hitTest(-1, -1);
+
 	gui->onShow();
 	mGuiStack.push_back(gui);
 	gui->updateHelpPrompts();
@@ -68,6 +69,9 @@ void Window::pushGui(GuiComponent* gui)
 
 void Window::removeGui(GuiComponent* gui)
 {
+	if (mMouseCapture == gui)
+		mMouseCapture = nullptr;
+
 	for(auto i = mGuiStack.cbegin(); i != mGuiStack.cend(); i++)
 	{
 		if(*i == gui)
@@ -242,6 +246,11 @@ void Window::input(InputConfig* config, Input input)
 		// toggle TextComponent debug view with Ctrl-I
 		Settings::setDebugImage(!Settings::DebugImage());
 	}
+	else if (config->getDeviceId() == DEVICE_KEYBOARD && input.value && input.id == SDLK_m && SDL_GetModState() & KMOD_LCTRL) // && Settings::getInstance()->getBool("Debug"))
+	{
+		// toggle TextComponent debug view with Ctrl-I
+		Settings::setDebugMouse(!Settings::DebugMouse());
+	}
 	else
 	{
 		if (mControllerActivity != nullptr)
@@ -395,6 +404,16 @@ void Window::processSongTitleNotifications()
 
 void Window::update(int deltaTime)
 {
+	if (mLastShowCursor >= 0)
+	{
+		mLastShowCursor += deltaTime;
+		if (mLastShowCursor > 5000)
+		{
+			SDL_ShowCursor(0);
+			mLastShowCursor = -1;
+		}
+	}
+
 	processPostedFunctions();
 	processSongTitleNotifications();
 	processNotificationMessages();
@@ -774,7 +793,7 @@ void Window::setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpSt
 			"up/down/left/right",
 			"up/down",
 			"left/right",
-			BUTTON_BACK, BUTTON_OK, "x", "y", "l", "r",
+			BUTTON_OK, "x", "y", "l", "r", BUTTON_BACK,
 			"start", "select",
 			NULL
 		};
@@ -990,14 +1009,19 @@ void Window::postToUiThread(const std::function<void()>& func, void* data)
 
 void Window::processPostedFunctions()
 {
-	std::unique_lock<std::mutex> lock(mNotificationMessagesLock);
+	std::vector<PostedFunction> functions;
+
+	mNotificationMessagesLock.lock();
 
 	for (auto func : mFunctions)
-	{
-		TRYCATCH("processPostedFunction", func.func())
-	}
+		functions.push_back(func);
 
 	mFunctions.clear();
+
+	mNotificationMessagesLock.unlock();
+
+	for (auto func : functions)
+		TRYCATCH("processPostedFunction", func.func())
 }
 
 void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
@@ -1067,4 +1091,98 @@ void Window::setGunCalibrationState(bool isCalibrating)
 	}
 	else
 		mCalibrationText = nullptr;	
+}
+
+std::vector<GuiComponent*> Window::hitTest(int x, int y)
+{
+	GuiComponent* gui = peekGui();
+	if (!gui)
+		return std::vector<GuiComponent*>();
+
+	auto trans = Transform4x4f::Identity();
+
+	std::vector<GuiComponent*> ret;
+
+	gui->hitTest(x, y, trans, &ret);
+
+	if (mClock && mClock->isVisible())
+		mClock->hitTest(x, y, trans, &ret);
+
+	if (mHelp && mHelp->isVisible())
+		mHelp->hitTest(x, y, trans, &ret);
+
+	return ret;
+}
+
+void Window::processMouseWheel(int delta)
+{
+	GuiComponent* gui = peekGui();
+	if (!gui)
+		return;
+
+	auto hits = hitTest(mLastMousePoint.x(), mLastMousePoint.y());
+
+	if (mMouseCapture != nullptr)
+	{
+		mMouseCapture->onMouseWheel(delta);
+		return;
+	}
+	else
+	{
+		std::reverse(hits.begin(), hits.end());
+
+		for (auto hit : hits)
+			hit->onMouseWheel(delta);
+	}
+}
+
+void Window::processMouseMove(int x, int y, bool touchScreen)
+{
+	if (!touchScreen)
+	{
+		SDL_ShowCursor(1);
+		mLastShowCursor = 0;
+	}
+
+	mLastMousePoint.x() = x; mLastMousePoint.y() = y;
+
+	GuiComponent* gui = peekGui();
+	if (!gui)
+		return;
+
+	auto hits = hitTest(x, y);
+
+	if (mMouseCapture != nullptr)
+	{
+		mMouseCapture->onMouseMove(x, y);
+		return;
+	}
+	else
+	{
+		std::reverse(hits.begin(), hits.end());
+
+		for(auto hit : hits)
+			hit->onMouseMove(x, y);
+	}
+}
+
+bool Window::processMouseButton(int button, bool down, int x, int y)
+{
+	mLastMousePoint.x() = x; mLastMousePoint.y() = y;
+
+	if (mMouseCapture != nullptr)
+	{
+	//	auto hits = hitTest(x, y);
+		mMouseCapture->onMouseClick(button, down, x, y);
+		return true;
+	}
+
+	auto ctrls = hitTest(x, y);
+	std::reverse(ctrls.begin(), ctrls.end());
+
+	for (auto ctrl : ctrls)		
+		if (ctrl->onMouseClick(button, down, x, y))
+			return true;
+
+	return false;
 }

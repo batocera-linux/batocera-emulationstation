@@ -626,3 +626,22 @@ std::vector<HelpPrompt> GuiMetaDataEd::getHelpPrompts()
 	prompts.push_back(HelpPrompt("start", _("CLOSE"))); 
 	return prompts;
 }
+
+bool GuiMetaDataEd::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	if (pResult) pResult->push_back(this); // Always return this as it's a fake fullscreen, so we always have click events
+	GuiComponent::hitTest(x, y, parentTransform, pResult);
+	return true;
+}
+
+
+bool GuiMetaDataEd::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (pressed && button == 1 && !mBackground.isMouseOver())
+	{
+		delete this;
+		return true;
+	}
+
+	return (button == 1);
+}

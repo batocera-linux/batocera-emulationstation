@@ -173,7 +173,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 
 	Vector3f off(mPadding.x(), mPadding.y() + yOff, 0);
 
-	if (Settings::DebugText())
+	if (Settings::DebugText() || (Settings::DebugMouse() && mIsMouseOver))
 	{
 		// draw the "textbox" area, what we are aligned within
 		Renderer::setMatrix(trans);

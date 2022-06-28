@@ -45,7 +45,7 @@ GuiSettings::GuiSettings(Window* window,
 			mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 		else
 			mMenu.setPosition((mSize.x() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
-	}
+	}	
 }
 
 GuiSettings::~GuiSettings()
@@ -112,8 +112,14 @@ std::vector<HelpPrompt> GuiSettings::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
-	prompts.push_back(HelpPrompt(mCloseButton, _("CLOSE")));
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK"), [&] { close(); }));
+	prompts.push_back(HelpPrompt(mCloseButton, _("CLOSE"), [&] 
+	{ 
+		// close everything
+		Window* window = mWindow;
+		while (window->peekGui() && window->peekGui() != ViewController::get())
+			delete window->peekGui(); 
+	}));
 
 	return prompts;
 }
@@ -339,4 +345,15 @@ bool GuiSettings::checkNetwork()
 	}
 
 	return true;
+}
+
+bool GuiSettings::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (pressed && button == 1 && !mMenu.isMouseOver())
+	{
+		delete this;
+		return true;
+	}
+
+	return (button == 1);
 }

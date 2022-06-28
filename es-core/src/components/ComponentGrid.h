@@ -74,6 +74,8 @@ public:
 	void setSeparatorColor(unsigned int separatorColor) { mSeparatorColor = separatorColor; updateSeparators(); }
 	inline void setUnhandledInputCallback(const std::function<bool(InputConfig* config, Input input)>& func) { mUnhandledInputCallback = func; }
 
+	Vector2i getGridSize() { return mGridSize; }
+
 private:
 	class GridEntry
 	{

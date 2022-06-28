@@ -5,6 +5,7 @@
 #include "IList.h"
 #include "LocaleES.h"
 #include "components/ScrollbarComponent.h"
+#include "math/Vector2i.h"
 
 namespace ComponentListFlags
 {
@@ -103,6 +104,11 @@ public:
 
 	void saySelectedLine();
 
+	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
+	virtual void onMouseMove(int x, int y) override;
+	virtual void onMouseWheel(int delta) override;
+	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
+
 protected:
 	void onCursorChanged(const CursorState& state) override;
 
@@ -137,6 +143,10 @@ private:
 	std::function<void(CursorState state)> mCursorChangedCallback;
 
 	ScrollbarComponent mScrollbar;
+	int		  mHotRow;
+	int		  mPressedRow;
+	Vector2i  mPressedPoint;
+	bool	  mIsDragging;
 };
 
 #endif // ES_CORE_COMPONENTS_COMPONENT_LIST_H

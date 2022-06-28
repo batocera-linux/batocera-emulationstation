@@ -628,7 +628,7 @@ HelpStyle GuiGamelistOptions::getHelpStyle()
 std::vector<HelpPrompt> GuiGamelistOptions::getHelpPrompts()
 {
 	auto prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE"), [&] { delete this; }));
 	return prompts;
 }
 
@@ -730,4 +730,15 @@ void GuiGamelistOptions::deleteCollection()
 				delete this;
 			}
 		}, _("NO"), nullptr));
+}
+
+bool GuiGamelistOptions::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (pressed && button == 1 && !mMenu.isMouseOver())
+	{
+		delete this;
+		return true;
+	}
+
+	return (button == 1);
 }
