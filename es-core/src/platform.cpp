@@ -392,6 +392,10 @@ std::string getArchString()
 	return "x86_64";
 #endif
 
+#if RPIZERO2
+	return "rpizero2";
+#endif
+
 #if RPI1
 	return "rpi1";
 #endif
