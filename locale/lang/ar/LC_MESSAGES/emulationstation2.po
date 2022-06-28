@@ -2454,6 +2454,9 @@ msgstr[5] "%i لعبة"
 msgid "RANDOM"
 msgstr "عشوائي"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "ملفات"
 
@@ -2515,19 +2518,16 @@ msgstr "لم يتم العثور على مدخلات"
 msgid "Games similar to"
 msgstr ""
 
-msgid "GAME OPTIONS"
-msgstr "خيارات الألعاب"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
-msgid "FAVORITE"
-msgstr ""
+msgid "GAME OPTIONS"
+msgstr "خيارات الألعاب"
 
-msgid "RANDOM (HOLD)"
+msgid "FAVORITE"
 msgstr ""
 
 msgid ""
@@ -2725,6 +2725,9 @@ msgid "VERTICAL"
 msgstr ""
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3456,8 +3459,8 @@ msgstr ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "تعرض شاشة \"فيديو عشوائي\" مقطع فيديو من قائمة الألعاب الخاصة بك.\n"
 #~ "إذا لم يكن لديك مقاطع فيديو ، أو إذا كان لا يمكن تشغيل أي منها بعد "

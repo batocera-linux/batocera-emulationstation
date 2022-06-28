@@ -2461,6 +2461,9 @@ msgstr[2] "%i GIER"
 msgid "RANDOM"
 msgstr "LOSOWO"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "PLIKI"
 
@@ -2523,20 +2526,17 @@ msgstr "Nie znaleziono wpisów"
 msgid "Games similar to"
 msgstr "Gry podobne do"
 
-msgid "GAME OPTIONS"
-msgstr "OPCJE GRY"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "ZAPISANE STANY GRY (PRZYTRZYMAJ)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "OPCJE GRY (PRZYTRZYMAJ)"
 
+msgid "GAME OPTIONS"
+msgstr "OPCJE GRY"
+
 msgid "FAVORITE"
 msgstr "ULUBIONE"
-
-msgid "RANDOM (HOLD)"
-msgstr "LOSOWO (PRZYTRZYMAJ)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2734,6 +2734,9 @@ msgid "VERTICAL"
 msgstr "PIONOWA"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2979,6 +2982,9 @@ msgstr "CZYTNIK EKRANU WŁĄCZONY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "LOSOWO (PRZYTRZYMAJ)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "SCRAPE'UJ NAZWĘ SKRÓCONĄ"

@@ -2439,6 +2439,9 @@ msgstr[1] "%i JÒcs"
 msgid "RANDOM"
 msgstr "ALEATÒRI"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "FICHIÈRS"
 
@@ -2496,19 +2499,16 @@ msgstr ""
 msgid "Games similar to"
 msgstr ""
 
-msgid "GAME OPTIONS"
-msgstr "OPCIONS DE JÒCS"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
-msgid "FAVORITE"
-msgstr ""
+msgid "GAME OPTIONS"
+msgstr "OPCIONS DE JÒCS"
 
-msgid "RANDOM (HOLD)"
+msgid "FAVORITE"
 msgstr ""
 
 msgid ""
@@ -2706,6 +2706,9 @@ msgid "VERTICAL"
 msgstr ""
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"

@@ -2439,6 +2439,9 @@ msgstr[1] "%i JUEGOS"
 msgid "RANDOM"
 msgstr "ALEATORIO"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "ARCHIVOS"
 
@@ -2496,20 +2499,17 @@ msgstr "No se han encontrado entradas"
 msgid "Games similar to"
 msgstr "Juegos similares a"
 
-msgid "GAME OPTIONS"
-msgstr "OPCIONES DEL JUEGO"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
+msgid "GAME OPTIONS"
+msgstr "OPCIONES DEL JUEGO"
+
 msgid "FAVORITE"
 msgstr "FAVORITO"
-
-msgid "RANDOM (HOLD)"
-msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2708,6 +2708,9 @@ msgid "VERTICAL"
 msgstr "VERTICAL"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"

@@ -2453,6 +2453,9 @@ msgstr[1] "%i SPELLEN"
 msgid "RANDOM"
 msgstr "WILLEKEURIG"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "BESTANDEN"
 
@@ -2516,20 +2519,17 @@ msgstr "Geen Entries gevonden"
 msgid "Games similar to"
 msgstr "Soortgelijke spellen"
 
-msgid "GAME OPTIONS"
-msgstr "SPEL OPTIES"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
+msgid "GAME OPTIONS"
+msgstr "SPEL OPTIES"
+
 msgid "FAVORITE"
 msgstr "FAVORIET"
-
-msgid "RANDOM (HOLD)"
-msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2728,6 +2728,9 @@ msgid "VERTICAL"
 msgstr "VERTICAAL"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3595,8 +3598,8 @@ msgstr "SCHERM LEZER UITGESCHAKELD"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "DE \"WILLEKEURIGE VIDEO\" SCREENSAVER TOONT VIDEO'S VAN UW SPELLIJST.\n"
 #~ "ALS U GEEN VIDEO'S HEBT, OF ALS GEEN VAN DE VIDEO'S NA EEN PAAR POGINGEN "

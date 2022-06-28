@@ -2459,6 +2459,9 @@ msgstr[2] "%i HER"
 msgid "RANDOM"
 msgstr "NÁHODNÝ"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "SOUBORY"
 
@@ -2522,20 +2525,17 @@ msgstr "Nebyly nalezeny žádné záznamy"
 msgid "Games similar to"
 msgstr "Podobné hry jako"
 
-msgid "GAME OPTIONS"
-msgstr "HERNÍ MOŽNOSTI"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "ULOŽENÉ"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "MOŽNOSTI"
 
+msgid "GAME OPTIONS"
+msgstr "HERNÍ MOŽNOSTI"
+
 msgid "FAVORITE"
 msgstr "OBLÍBENÉ"
-
-msgid "RANDOM (HOLD)"
-msgstr "NÁHODNÝ"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2734,6 +2734,9 @@ msgid "VERTICAL"
 msgstr "VERTIKÁLNĚ"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2979,6 +2982,9 @@ msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "NÁHODNÝ"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "VYHLEDÁNÍ KRÁTKÉHO NÁZVU"

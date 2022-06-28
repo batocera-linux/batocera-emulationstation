@@ -2462,6 +2462,9 @@ msgstr[1] "%i JOGOS"
 msgid "RANDOM"
 msgstr "ALEATÓRIO"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "FICHEIROS"
 
@@ -2525,20 +2528,17 @@ msgstr "Nenhuma Entrada Encontrada"
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"
 
-msgid "GAME OPTIONS"
-msgstr "OPÇÕES DE JOGO"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "ESTADO DO SAVE STATE (SEGURE)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "OPÇÕES DE JOGO (SEGURE)"
 
+msgid "GAME OPTIONS"
+msgstr "OPÇÕES DE JOGO"
+
 msgid "FAVORITE"
 msgstr "FAVORITO"
-
-msgid "RANDOM (HOLD)"
-msgstr "ALEATÓRIO (SEGURE)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2735,6 +2735,9 @@ msgid "VERTICAL"
 msgstr "VERTICAL"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2973,6 +2976,9 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "ALEATÓRIO (SEGURE)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "OBTER NOME ABREVIADO"

@@ -771,9 +771,6 @@ msgstr "DOSSIER PARENT"
 msgid "SCREENSHOTS FOLDER"
 msgstr "DOSSIER DES CAPTURES D’ÉCRAN"
 
-msgid "NAVIGATION BAR"
-msgstr "VOLET NAVIGATION"
-
 msgid "SELECT"
 msgstr "SÉLECTIONNER"
 
@@ -2458,6 +2455,9 @@ msgstr[1] "%i JEUX"
 msgid "RANDOM"
 msgstr "ALÉATOIRE"
 
+msgid "NAVIGATION BAR"
+msgstr "VOLET NAVIGATION"
+
 msgid "FILES"
 msgstr "FICHIERS"
 
@@ -2521,20 +2521,17 @@ msgstr "Aucune Entrée Trouvée"
 msgid "Games similar to"
 msgstr "Jeux similaires à"
 
-msgid "GAME OPTIONS"
-msgstr "OPTIONS DU JEU"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "SAUVEGARDES (MAINTENU)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "OPTIONS DU JEU (MAINTENU)"
 
+msgid "GAME OPTIONS"
+msgstr "OPTIONS DU JEU"
+
 msgid "FAVORITE"
 msgstr "FAVORIS"
-
-msgid "RANDOM (HOLD)"
-msgstr "ALÉATOIRE (MAINTENU)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2735,6 +2732,9 @@ msgstr "VERTICAL"
 msgid "LIGHTGUN"
 msgstr "PISTOLET"
 
+msgid "HAS MEDIAS"
+msgstr ""
+
 msgid "SCRAPING"
 msgstr "SCRAPE"
 
@@ -2747,7 +2747,9 @@ msgstr "SCRAPE TERMINÉ"
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
-msgstr "CALIBRATION DU PISTOLET\nTirer sur les cibles pour calibrer"
+msgstr ""
+"CALIBRATION DU PISTOLET\n"
+"Tirer sur les cibles pour calibrer"
 
 #, c-format
 msgid "%s connected"
@@ -2971,6 +2973,9 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "ALÉATOIRE (MAINTENU)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "SCRAPER LES NOMS COURTS"

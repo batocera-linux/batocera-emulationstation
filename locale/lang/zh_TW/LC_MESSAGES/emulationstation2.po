@@ -2439,6 +2439,9 @@ msgstr[0] "%i 個遊戲"
 msgid "RANDOM"
 msgstr "隨機選擇"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "檔案"
 
@@ -2499,20 +2502,17 @@ msgstr "沒有找到項目"
 msgid "Games similar to"
 msgstr "遊戲相似於"
 
-msgid "GAME OPTIONS"
-msgstr "遊戲設定"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
+msgid "GAME OPTIONS"
+msgstr "遊戲設定"
+
 msgid "FAVORITE"
 msgstr "我的最愛"
-
-msgid "RANDOM (HOLD)"
-msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2709,6 +2709,9 @@ msgid "VERTICAL"
 msgstr "直立式"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3636,8 +3639,8 @@ msgstr "螢幕閱讀器已停用"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "螢幕保護 \\\"隨機影片\\\" 將顯示遊戲列表中的影片。\n"
 #~ "如果遊戲列表中沒有影片，或者在嘗試播放失敗幾次後，顯示為\\\"黑屏\"。\n"

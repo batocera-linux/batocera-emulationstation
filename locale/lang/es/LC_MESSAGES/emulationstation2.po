@@ -2483,6 +2483,9 @@ msgstr[1] "%i JUEGOS"
 msgid "RANDOM"
 msgstr "ALEATORIO"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "ARCHIVOS"
 
@@ -2545,20 +2548,17 @@ msgstr "No se han encontrado entradas"
 msgid "Games similar to"
 msgstr "Juegos similares a"
 
-msgid "GAME OPTIONS"
-msgstr "OPCIONES DEL JUEGO"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "PARTIDAS GUARDADAS (MANTENER)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "OPCIONES DE JUEGO (MANTENER)"
 
+msgid "GAME OPTIONS"
+msgstr "OPCIONES DEL JUEGO"
+
 msgid "FAVORITE"
 msgstr "FAVORITO"
-
-msgid "RANDOM (HOLD)"
-msgstr "ALEATORIO (MANTENER)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2758,6 +2758,9 @@ msgstr "VERTICAL"
 
 msgid "LIGHTGUN"
 msgstr "PISTOLA (LIGHTGUN)"
+
+msgid "HAS MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "ESCRAPEANDO"
@@ -2997,6 +3000,9 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "ALEATORIO (MANTENER)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "OBTENER NOMBRE CORTO"
@@ -3779,8 +3785,8 @@ msgstr "TEXTO A VOZ DESACTIVADO"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "EL PROTECTOR DE PANTALLA \"VIDEO ALEATORIO\" MUESTRA VIDEOS DE TUS LISTAS "
 #~ "DE JUEGOS.\n"

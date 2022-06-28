@@ -2451,6 +2451,9 @@ msgstr[5] "%i GEMAU"
 msgid "RANDOM"
 msgstr "AR HAP"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "FFEILIAU"
 
@@ -2512,19 +2515,16 @@ msgstr "Ni ddarganfuwyd unrhyw gofnodion"
 msgid "Games similar to"
 msgstr "Gemau tebyg i"
 
-msgid "GAME OPTIONS"
-msgstr "OPSIYNAU GÊM"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
-msgid "FAVORITE"
-msgstr ""
+msgid "GAME OPTIONS"
+msgstr "OPSIYNAU GÊM"
 
-msgid "RANDOM (HOLD)"
+msgid "FAVORITE"
 msgstr ""
 
 msgid ""
@@ -2723,6 +2723,9 @@ msgid "VERTICAL"
 msgstr ""
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
