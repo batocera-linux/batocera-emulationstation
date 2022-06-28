@@ -181,7 +181,7 @@ void Settings::setDefaults()
 #if defined(_WIN32) || defined(TINKERBOARD) || defined(X86) || defined(X86_64) || defined(ODROIDN2) || defined(ODROIDC2) || defined(ODROIDXU4) || defined(RPI4)
 	// Boards > 1Gb RAM
 	mIntMap["MaxVRAM"] = 256;
-#elif defined(ODROIDGOA) || defined(GAMEFORCE) || defined(RK3326) || defined(RPI2) || defined(RPI3) || defined(ROCKPRO64)
+#elif defined(ODROIDGOA) || defined(GAMEFORCE) || defined(RK3326) || defined(RPIZERO2) || defined(RPI2) || defined(RPI3) || defined(ROCKPRO64)
 	// Boards with 1Gb RAM
 	mIntMap["MaxVRAM"] = 128;
 #elif defined(_RPI_)
@@ -232,7 +232,7 @@ void Settings::setDefaults()
 	// we don't get a warning if we encounter it on a different platform
 	mBoolMap["VideoOmxPlayer"] = false;
 
-	#if defined(_RPI_) && !defined(RPI3) && !defined(RPI4)
+	#if defined(_RPI_)
 		// we're defaulting to OMX Player for full screen video on the Pi
 		mBoolMap["ScreenSaverOmxPlayer"] = true;
 	#else
