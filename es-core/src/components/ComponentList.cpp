@@ -557,7 +557,7 @@ bool ComponentList::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 
 	mHotRow = -1;
 		
-	Renderer::Rect rect(trans.translation().x(), trans.translation().y(), getSize().x() * trans.r0().x(), getSize().y() * trans.r1().y());
+	auto rect = GetComponentScreenRect(trans, getSize());	
 	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 	{
 		ret = true;

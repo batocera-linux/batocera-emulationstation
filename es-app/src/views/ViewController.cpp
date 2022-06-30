@@ -947,7 +947,7 @@ void ViewController::render(const Transform4x4f& parentTrans)
 	}
 
 	if(mWindow->peekGui() == this)
-		mWindow->renderHelpPromptsEarly();
+		mWindow->renderHelpPromptsEarly(parentTrans);
 
 	// fade out
 	if (mFadeOpacity)
@@ -1352,10 +1352,7 @@ bool ViewController::hitTest(int x, int y, Transform4x4f& parentTransform, std::
 
 	Transform4x4f trans = mCamera * parentTransform;
 
-//  Skip ViewController
-//	Renderer::Rect rect(trans.translation().x(), trans.translation().y(), getSize().x() * trans.r0().x(), getSize().y() * trans.r1().y());
-//	if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
-//		ret.push_back(this);
+//  Skip ViewController rect
 
 	for (int i = 0; i < getChildCount(); i++)
 		ret |= getChild(i)->hitTest(x, y, trans, pResult);

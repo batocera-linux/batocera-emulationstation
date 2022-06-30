@@ -121,6 +121,13 @@ void HelpComponent::updateGrid()
 		if (width >= maxWidth)
 			break;
 
+		if (mStyle.glowSize)
+		{
+			lbl->setGlowSize(mStyle.glowSize);
+			lbl->setGlowColor(mStyle.glowColor);
+			lbl->setGlowOffset(mStyle.glowOffset.x(), mStyle.glowOffset.y());
+		}
+
 		icons.push_back(icon);
 		labels.push_back(lbl);
 	}
@@ -186,7 +193,8 @@ void HelpComponent::render(const Transform4x4f& parentTrans)
 
 		if (Settings::DebugMouse() && mHotItem >= 0)
 		{
-			Renderer::Rect rect(trans.translation().x(), trans.translation().y(), mGrid->getSize().x() * trans.r0().x(), mGrid->getSize().y() * trans.r1().y());
+			auto rect = GetComponentScreenRect(trans, mGrid->getSize());
+
 			Renderer::setMatrix(trans);
 
 			int gx = 0;
@@ -232,8 +240,8 @@ bool HelpComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 	{
 		Transform4x4f trans = parentTransform * getTransform() * mGrid->getTransform();
 
-		// Skip SystemView
-		Renderer::Rect rect(trans.translation().x(), trans.translation().y(), mGrid->getSize().x() * trans.r0().x(), mGrid->getSize().y() * trans.r1().y());
+		auto rect = GetComponentScreenRect(trans, mGrid->getSize());
+
 		if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 		{
 			mIsMouseOver = true;
