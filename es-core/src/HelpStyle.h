@@ -16,6 +16,11 @@ struct HelpStyle
 	Vector2f origin;
 	unsigned int iconColor;
 	unsigned int textColor;
+
+	unsigned int glowColor;
+	unsigned int glowSize;
+	Vector2f	 glowOffset;
+	
 	std::shared_ptr<Font> font;
 	std::map<std::string, std::string> iconMap;
 	

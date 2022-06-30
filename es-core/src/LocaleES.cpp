@@ -357,7 +357,10 @@ void EsLocale::checkLocalisationLoaded()
 						std::string	msgstr = line.substr(start + 1, end - start - 1);
 						if (!msgid.empty() && !msgstr.empty())
 							if (idx.empty() || idx == "0")
-								mItems[msgid] = msgstr;
+							{
+								if (mItems.find(msgid) == mItems.cend() || msgctxt.empty())
+									mItems[msgid] = msgstr;
+							}
 
 						if (!msgctxt.empty() && !msgstr.empty())
 							mItems[msgctxt + "|" + msgid] = msgstr;

@@ -2793,7 +2793,7 @@ msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr "SÉLECTIONNER"
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"

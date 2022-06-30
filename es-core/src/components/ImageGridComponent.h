@@ -1261,16 +1261,7 @@ bool ImageGridComponent<T>::hitTest(int x, int y, Transform4x4f& parentTransform
 	auto ret = GuiComponent::hitTest(x, y, parentTransform, pResult);
 
 	Transform4x4f trans = parentTransform * getTransform();
-	/*
-	Renderer::Rect rect(trans.translation().x(), trans.translation().y(), getSize().x() * trans.r0().x(), getSize().y() * trans.r1().y());
-	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
-	{
-	if (pResult != nullptr)
-	pResult->push_back(this);
-
-	ret = true;
-	}
-	*/
+	
 	trans.translate(isVertical() ? 0 : -mCameraOffset, isVertical() ? -mCameraOffset : 0);
 
 	for (auto entry : mEntries)

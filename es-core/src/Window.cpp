@@ -735,9 +735,9 @@ void Window::closeSplashScreen()
 	mSplash = nullptr;
 }
 
-void Window::renderHelpPromptsEarly()
+void Window::renderHelpPromptsEarly(const Transform4x4f& transform)
 {
-	mHelp->render(Transform4x4f::Identity());
+	mHelp->render(transform);
 	mRenderedHelpPrompts = true;
 }
 

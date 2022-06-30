@@ -30,6 +30,8 @@ namespace AnimateFlags
 	};
 }
 
+#define GetComponentScreenRect(tx, sz) Renderer::Rect(tx.translation().x() * trans.r0().x(), tx.translation().y() * tx.r1().y(), sz.x() * trans.r0().x(), sz.y() * tx.r1().y());
+
 class GuiComponent
 {
 public:
