@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <systems>
+  <system name="c64">
+    <game>cosmicstorm</game>
+    <game>goosebusters</game>
+    <game>spaceharrier</game>
+  </system>
   <system name="3do">
     <game>corpsekiller</game>
     <game>creatureshock</game>
