@@ -514,14 +514,28 @@ void Window::renderSindenBorders()
 	for (auto gun : InputManager::getInstance()->getGuns())
 		if (gun->needBorders()) 
 			drawGunBorders = true;		
-
-	// DEBUG ONLY drawGunBorders = true;
+	
+	if (!drawGunBorders && SystemConf::getInstance()->getBool("sinden.forceborders")) // SETTING FOR DEBUGGING BORDERS
+		drawGunBorders = true; 
 
 	if (drawGunBorders)
 	{
-		int outerBorderWidth = Renderer::getScreenHeight() * 3 / 100;
-		int innerBorderWidth = Renderer::getScreenHeight() * 2 / 100;
-		
+		int outerBorderWidth = Renderer::getScreenHeight() * 0.03f;
+		int innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
+
+		// sinden.bordersize=thin/big/medium
+		auto bordersize = SystemConf::getInstance()->get("sinden.bordersize");
+		if (bordersize == "thin")
+		{
+			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+		}
+		else if (bordersize == "medium")
+		{
+			outerBorderWidth = Renderer::getScreenHeight() * 0.015f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.015f;
+		}
+
 		Renderer::setScreenMargin(0, 0);
 		Renderer::setMatrix(Transform4x4f::Identity());
 
@@ -1147,6 +1161,8 @@ void Window::processMouseWheel(int delta)
 
 		for (auto hit : hits)
 			hit->onMouseWheel(delta);
+
+		hitTest(mLastMousePoint.x(), mLastMousePoint.y());
 	}
 }
 

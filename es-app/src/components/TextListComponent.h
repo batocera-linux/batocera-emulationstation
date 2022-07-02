@@ -781,6 +781,8 @@ void TextListComponent<T>::onMouseWheel(int delta)
 {
 	listInput(-delta);
 	mScrollVelocity = 0;
+	mTimeHoldingButton = -1;
+	mHotRow = -1;
 }
 
 #endif // ES_APP_COMPONENTS_TEXT_LIST_COMPONENT_H
