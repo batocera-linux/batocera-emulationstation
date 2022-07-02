@@ -1115,7 +1115,7 @@ bool GuiComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::ve
 
 	Transform4x4f trans = getTransform() * parentTransform;
 
-	Renderer::Rect rect = GetComponentScreenRect(trans, getSize());
+	Renderer::Rect rect = Renderer::getScreenRect(trans, getSize(), true);
 
 	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 	{

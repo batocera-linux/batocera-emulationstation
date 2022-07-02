@@ -112,6 +112,7 @@ private:
 	std::vector<GuiComponent*> hitTest(int x, int y);
 
 	void processPostedFunctions();
+	void renderSindenBorders();
 
 	std::vector<AsyncNotificationComponent*> mAsyncNotificationComponent;
 	void updateAsyncNotifications(int deltaTime);

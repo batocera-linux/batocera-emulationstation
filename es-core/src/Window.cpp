@@ -507,6 +507,46 @@ void Window::update(int deltaTime)
 
 static std::vector<unsigned int> _gunAimColors = { 0xFFFFFF00, 0xFFFF00FF, 0xFF00FFFF, 0xFF0000FF, 0xFFFF0000, 0xFF00FF00 };
 
+void Window::renderSindenBorders()
+{
+	bool drawGunBorders = false;
+
+	for (auto gun : InputManager::getInstance()->getGuns())
+		if (gun->needBorders()) 
+			drawGunBorders = true;		
+
+	// DEBUG ONLY drawGunBorders = true;
+
+	if (drawGunBorders)
+	{
+		int outerBorderWidth = Renderer::getScreenHeight() * 3 / 100;
+		int innerBorderWidth = Renderer::getScreenHeight() * 2 / 100;
+		
+		Renderer::setScreenMargin(0, 0);
+		Renderer::setMatrix(Transform4x4f::Identity());
+
+		const unsigned int outerBorderColor = 0x000000FF;
+		const unsigned int innerBorderColor = 0xFFFFFFFF;
+
+		// outer border
+		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
+		Renderer::drawRect(Renderer::getScreenWidth() - outerBorderWidth, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
+		Renderer::drawRect(0, Renderer::getScreenHeight() - outerBorderWidth, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
+		Renderer::drawRect(0, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
+
+		// inner border
+		Renderer::drawRect(outerBorderWidth, outerBorderWidth, Renderer::getScreenWidth() - outerBorderWidth * 2, innerBorderWidth, innerBorderColor);
+		Renderer::drawRect(Renderer::getScreenWidth() - outerBorderWidth - innerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth * 2, innerBorderColor);
+		Renderer::drawRect(outerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth - innerBorderWidth, Renderer::getScreenWidth() - outerBorderWidth * 2, innerBorderWidth, innerBorderColor);
+		Renderer::drawRect(outerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth * 2, innerBorderColor);
+
+		Renderer::setScreenMargin(outerBorderWidth + innerBorderWidth, outerBorderWidth + innerBorderWidth);
+		Renderer::setMatrix(Transform4x4f::Identity());
+	}
+	else
+		Renderer::setScreenMargin(0, 0);
+}
+
 void Window::render()
 {
 	Transform4x4f transform = Transform4x4f::Identity();
@@ -547,34 +587,7 @@ void Window::render()
 		}
 	}
 
-	// sinden borders
-	auto guns = InputManager::getInstance()->getGuns();
-	if (guns.size())
-	  {
-	    bool drawGunBorders = false;
-
-	    for (auto gun : guns)
-	      {
-		if(gun->needBorders()) drawGunBorders = true;
-	      }
-	    if(drawGunBorders) {
-	      Renderer::setMatrix(Transform4x4f::Identity());
-	      int outerBorderWidth = Renderer::getScreenHeight() * 3 / 100;
-	      int innerBorderWidth = Renderer::getScreenHeight() * 2 / 100;
-	      const unsigned int outerBorderColor = 0x000000FF;
-	      const unsigned int innerBorderColor = 0xFFFFFFFF;
-	      // outer border
-	      Renderer::drawRect(0, 0, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
-	      Renderer::drawRect(Renderer::getScreenWidth()-outerBorderWidth, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
-	      Renderer::drawRect(0, Renderer::getScreenHeight()-outerBorderWidth, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
-	      Renderer::drawRect(0, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
-	      // inner border
-	      Renderer::drawRect(outerBorderWidth, outerBorderWidth, Renderer::getScreenWidth()-outerBorderWidth*2, innerBorderWidth, innerBorderColor);
-	      Renderer::drawRect(Renderer::getScreenWidth()-outerBorderWidth-innerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight()-outerBorderWidth*2, innerBorderColor);
-	      Renderer::drawRect(outerBorderWidth, Renderer::getScreenHeight()-outerBorderWidth-innerBorderWidth, Renderer::getScreenWidth()-outerBorderWidth*2, innerBorderWidth, innerBorderColor);
-	      Renderer::drawRect(outerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight()-outerBorderWidth*2, innerBorderColor);
-	    }
-	  }
+	renderSindenBorders();
 
 	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
 		if (!mRenderedHelpPrompts)
@@ -582,7 +595,7 @@ void Window::render()
 
 	if (Settings::DrawFramerate() && mFrameDataText)
 	{
-		Renderer::setMatrix(Transform4x4f::Identity());
+		Renderer::setMatrix(transform);
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 
@@ -596,7 +609,7 @@ void Window::render()
 	if (mBatteryIndicator != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mBatteryIndicator->render(transform);
 
-	Renderer::setMatrix(Transform4x4f::Identity());
+	Renderer::setMatrix(transform);
 
 	unsigned int screensaverTime = (unsigned int)Settings::ScreenSaverTime();
 	if (mTimeSinceLastInput >= screensaverTime && screensaverTime != 0)
@@ -636,12 +649,13 @@ void Window::render()
 	// Render calibration dark background & text
 	if (mCalibrationText)
 	{
-		Renderer::setMatrix(Transform4x4f::Identity());
+		Renderer::setMatrix(transform);
 		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), 0x000000A0);
 		mCalibrationText->render(transform);
 	}
 
 	// Render guns aims
+	auto guns = InputManager::getInstance()->getGuns();
 	if (guns.size())
 	{
 		Renderer::setMatrix(Transform4x4f::Identity());

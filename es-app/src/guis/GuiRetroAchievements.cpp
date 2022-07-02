@@ -31,7 +31,10 @@ void GuiRetroAchievements::show(Window* window)
 		}, 
 		[window](RetroAchievementInfo ra)
 		{
-			window->pushGui(new GuiRetroAchievements(window, ra));
+			if (ra.username.empty())
+				window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURED"), _("OK")));
+			else
+				window->pushGui(new GuiRetroAchievements(window, ra));
 		}));
 }
 

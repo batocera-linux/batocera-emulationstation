@@ -465,7 +465,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 					region = "mx";
 				else if (language == "pt" && region == "br")
 					region = "br";
-				else if (language == "fr" || language == "es" || language == "ca" || language == "el" || language == "hu" || language == "it" || language == "sv" || language == "uk" || language == "gr" || language == "no" || language == "sw" || language == "nl" || language == "de")
+				else if (language == "fr" || language == "es" || language == "ca" || language == "el" || language == "hu" || language == "it" || language == "sv" || language == "uk" || language == "gr" || language == "no" || language == "sw" || language == "nl" || language == "de" || language == "pl")
 					region = "eu";
 			}
 		}

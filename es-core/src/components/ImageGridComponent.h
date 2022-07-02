@@ -14,9 +14,11 @@
 #include "components/ScrollbarComponent.h"
 #include <set>
 #include "InputManager.h"
+#include "utils/Delegate.h"
 
 #define EXTRAITEMS 2
 #define ALLOWANIMATIONS (Settings::TransitionStyle() != "instant")
+#define HOLD_TIME 1000
 
 enum ScrollDirection
 {
@@ -120,6 +122,8 @@ public:
 	virtual void onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
+	Delegate<ILongMouseClickEvent> longMouseClick;
+
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;
 	virtual void onScroll(int /*amt*/) { if (!mScrollSound.empty()) Sound::get(mScrollSound)->play(); }
@@ -182,7 +186,7 @@ private:
 	int		  mPressedCursor;
 	Vector2i  mPressedPoint;
 	bool	  mIsDragging;
-
+	int		  mTimeHoldingButton;
 
 	float mTotalHeight;
 	float mCameraOffset;
@@ -190,13 +194,13 @@ private:
 	std::map<int, std::shared_ptr<GridTileComponent>> mScrollLoopTiles;
 };
 
+
+
 template<typename T>
 Vector2i ImageGridComponent<T>::getVisibleRange()
 {
 	int dimExt = isVertical() ? mGridDimension.y() : mGridDimension.x();
-	int dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-	if (dimOpposite == 0)
-		dimOpposite = 1;
+	int dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
 	Vector2f tileDistance = mTileSize + mMargin;
 
@@ -239,9 +243,7 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 	if (mEntries.size() == 0 || mGridDimension.y() == 0 || mGridDimension.x() == 0)
 		return;
 
-	int dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-	if (dimOpposite == 0)
-		dimOpposite = 1;
+	int dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
 	Vector2f tileDistance = mTileSize + mMargin;
 
@@ -255,8 +257,8 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 	if (endIndex > mEntries.size() - 1)
 		endIndex = mEntries.size() - 1;
 
-	int totalCols = ((Math::max(0, mEntries.size() - 1)) / dimOpposite);
-	mTotalHeight = (isVertical() ? tileDistance.y() : tileDistance.x()) * (totalCols - 1);
+	int totalCols = Math::max(0, mEntries.size() - 1) / dimOpposite;
+	mTotalHeight = Math::max(0.0f, (float) (isVertical() ? tileDistance.y() : tileDistance.x()) * (totalCols - 1));
 
 	Vector2f startPosition = mTileSize / 2;
 	startPosition += Vector2f(mPadding.x(), mPadding.y());
@@ -273,8 +275,6 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 
 		if (mScrollLoop)
 		{
-			int dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-
 			int min = dimOpposite == 1 ? 0 : (mEntries.size() % dimOpposite) - dimOpposite;
 			int max = mEntries.size() - min;
 
@@ -346,6 +346,7 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 	mPressedCursor = -1;
 	mPressedPoint = Vector2i(-1, -1);
 	mIsDragging = false;
+	mTimeHoldingButton = -1;
 
 	mGridSizeOverride = Vector2f::Zero();
 	mAutoLayout = Vector2f::Zero();
@@ -480,6 +481,20 @@ template<typename T>
 void ImageGridComponent<T>::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+
+	if (mTimeHoldingButton >= 0)
+	{
+		mTimeHoldingButton += deltaTime;
+
+		if (mTimeHoldingButton >= HOLD_TIME)
+		{
+			mTimeHoldingButton = -1;
+			mPressedCursor = -1;
+			mPressedPoint = Vector2i(-1, -1);
+
+			longMouseClick.invoke([&](ILongMouseClickEvent* c) { c->onLongMouseClick(this); });
+		}
+	}
 
 	mScrollbar.update(deltaTime);
 
@@ -623,10 +638,8 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	Renderer::pushClipRect(pos, size);
 
 	float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
-	float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-	if (dimOpposite == 0)
-		dimOpposite = 1;
-
+	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
+	
 	tileTrans.translate(isVertical() ? 0 : -mCameraOffset, isVertical() ? -mCameraOffset : 0);
 
 	std::shared_ptr<GridTileComponent> selectedTile;
@@ -953,10 +966,8 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 	int oldStart = mStartPosition;
 
 	float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
-	float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-	if (dimOpposite == 0)
-		dimOpposite = 1;
-
+	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
+	
 	int centralCol = (int)(dimScrollable - 0.5) / 2;
 	int maxCentralCol = (int)(dimScrollable) / 2;
 
@@ -1209,9 +1220,7 @@ void ImageGridComponent<T>::resetGrid()
 		mStartPosition -= (int)Math::floorf(dimScrollable / 2.0f);
 	}
 
-	float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-	if (dimOpposite == 0)
-		dimOpposite = 1;
+	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
 	auto tileDistance = mTileSize + mMargin;
 	mCameraOffset = (isVertical() ? tileDistance.y() : tileDistance.x()) * (mStartPosition / dimOpposite);
@@ -1274,19 +1283,35 @@ bool ImageGridComponent<T>::hitTest(int x, int y, Transform4x4f& parentTransform
 template<typename T>
 void ImageGridComponent<T>::onMouseWheel(int delta)
 {
-	float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-	if (dimOpposite == 0)
-		dimOpposite = 1;
+	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
-	int moveBy = (-delta) * dimOpposite;
+	auto newCursor = mCursor - delta * dimOpposite;
 
-	mCursor += moveBy;
-	if (mCursor < 0)
-		mCursor += mEntries.size() - 1;
-	else if (mCursor >= mEntries.size())
-		mCursor -= mEntries.size() - 1;
-
-	onCursorChanged(CURSOR_STOPPED);
+	if (newCursor < 0)
+		newCursor += mEntries.size() - 1;
+	else if (newCursor >= mEntries.size())
+		newCursor -= mEntries.size() - 1;
+	/*
+	if (mScrollLoop)
+	{
+		if (newCursor < 0)
+			newCursor += mEntries.size() - 1;
+		else if (newCursor >= mEntries.size())
+			newCursor -= mEntries.size() - 1;
+	}
+	else
+	{
+		if (newCursor < 0)
+			newCursor = 0;
+		else if (newCursor >= mEntries.size())
+			newCursor = mEntries.size() - 1;
+	}
+	*/
+	if (newCursor != mCursor && newCursor >= 0 && newCursor < mEntries.size())
+	{
+		mCursor = newCursor;
+		onCursorChanged(CURSOR_STOPPED);
+	}
 }
 
 
@@ -1295,6 +1320,8 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 {
 	if (button == 1)
 	{
+		mTimeHoldingButton = -1;
+
 		if (pressed)
 		{
 			mPressedCursor = -1;
@@ -1334,6 +1361,8 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 				}
 				else
 					mPressedCursor = mCursor;
+
+				mTimeHoldingButton = 0;
 			}
 
 			mIsDragging = false;
@@ -1351,9 +1380,7 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 			if (mCenterSelection != CenterSelection::NEVER)
 			{
 				float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
-				float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-				if (dimOpposite == 0)
-					dimOpposite = 1;
+				float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
 				float tileDist = isVertical() ? (mTileSize + mMargin).y() : (mTileSize + mMargin).x();
 				int newCursor = ((mCameraOffset + tileDist * dimScrollable / 2.0f)  * dimOpposite) / tileDist;
@@ -1390,6 +1417,7 @@ void ImageGridComponent<T>::onMouseMove(int x, int y)
 	if (mPressedPoint.x() != -1 && mPressedPoint.y() != -1 && mWindow->hasMouseCapture(this))
 	{
 		mIsDragging = true;
+		mTimeHoldingButton = -1;
 
 		if (isVertical())
 			mCameraOffset += mPressedPoint.y() - y;
@@ -1408,10 +1436,7 @@ void ImageGridComponent<T>::onMouseMove(int x, int y)
 		{
 
 			float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
-			float dimOpposite = isVertical() ? mGridDimension.x() : mGridDimension.y();
-			if (dimOpposite == 0)
-				dimOpposite = 1;
-
+			float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 			float tileDist = isVertical() ? (mTileSize + mMargin).y() : (mTileSize + mMargin).x();
 
 			float min = tileDist * (float)(int)(dimScrollable / 2);
