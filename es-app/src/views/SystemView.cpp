@@ -1954,7 +1954,10 @@ void SystemView::onMouseMove(int x, int y)
 			float camOffset = mCamOffset;
 
 			mLockCamOffsetChanges = true;
-			mLastCursor = -1;
+
+			if (mLastCursor == offset)
+				mLastCursor = -1;
+
 			mCursor = offset;
 
 			onCursorChanged(CursorState::CURSOR_STOPPED);
