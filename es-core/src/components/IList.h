@@ -49,6 +49,12 @@ const ScrollTier SLOW_SCROLL_TIERS[] = {
 };
 const ScrollTierList LIST_SCROLL_STYLE_SLOW = { 2, SLOW_SCROLL_TIERS };
 
+class ILongMouseClickEvent
+{
+public:
+	virtual void onLongMouseClick(GuiComponent* component) = 0;
+};
+
 template <typename EntryData, typename UserData>
 class IList : public GuiComponent
 {

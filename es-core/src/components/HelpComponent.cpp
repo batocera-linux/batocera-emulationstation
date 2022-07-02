@@ -240,7 +240,16 @@ bool HelpComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 	{
 		Transform4x4f trans = parentTransform * getTransform() * mGrid->getTransform();
 
-		auto rect = GetComponentScreenRect(trans, mGrid->getSize());
+		auto rect = Renderer::getScreenRect(trans, mGrid->getSize(), true);
+
+		if (mStyle.font->getHeight(1.5f) > Renderer::getScreenHeight() - mGrid->getPosition().y())
+			rect.h = Renderer::getScreenHeight() - rect.y;
+
+		if (rect.x < 20)
+		{
+			rect.w += rect.x;
+			rect.x = 0;
+		}
 
 		if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 		{

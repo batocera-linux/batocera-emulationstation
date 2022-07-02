@@ -12,6 +12,9 @@
 #include "Settings.h"
 #include "Window.h"
 #include "InputManager.h"
+#include "utils/Delegate.h"
+
+#define HOLD_TIME 1000
 
 class TextCache;
 
@@ -103,6 +106,8 @@ public:
 	virtual void onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
+	Delegate<ILongMouseClickEvent> longMouseClick;
+
 protected:
 	virtual void onScroll(int /*amt*/) { if (!mScrollSound.empty()) Sound::get(mScrollSound)->play(); }
 	virtual void onCursorChanged(const CursorState& state);
@@ -153,12 +158,11 @@ private:
 
 	ScrollbarComponent mScrollbar;
 	float mCameraOffset;
-	float mSelectorBarOffset;
 
 	int		  mHotRow;
 	int		  mPressedRow;
 	Vector2i  mPressedPoint;
-	int		  mPressedTime;
+	int		  mTimeHoldingButton;
 };
 
 template <typename T>
@@ -166,7 +170,6 @@ TextListComponent<T>::TextListComponent(Window* window) :
 	IList<TextListData, T>(window), mSelectorImage(window), mScrollbar(window)
 {
 	mCameraOffset = 0;
-	mSelectorBarOffset = 0;
 	mLineCount = -1;
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
@@ -193,7 +196,7 @@ TextListComponent<T>::TextListComponent(Window* window) :
 	mGlowSize = 2;
 	mGlowOffset = Vector2f::Zero();
 
-	mPressedTime = -1;
+	mTimeHoldingButton = -1;
 	mHotRow = -1;
 	mPressedRow = -1;
 	mPressedPoint = Vector2i(-1, -1);
@@ -220,55 +223,20 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 
 	float entrySize = getRowHeight();
 
-	int startEntry = 0;
-
-	//number of entries that can fit on the screen simultaniously
+	int startEntry = mCameraOffset / entrySize;
 	int screenCount = mLineCount > 0 ? mLineCount : (int)(mSize.y() / entrySize);
-
-	if (size() >= screenCount)
-	{
-		startEntry = mCursor - screenCount / 2;
-		if (startEntry < 0)
-			startEntry = 0;
-		if (startEntry >= size() - screenCount)
-			startEntry = size() - screenCount;
-	}
-
-	startEntry = mCameraOffset / entrySize;
-
+	
 	int listCutoff = startEntry + screenCount;
 	if (listCutoff > size())
 		listCutoff = size();
 
-	// draw selector bar
-	/*
-	if(startEntry < listCutoff)
-	{
-	float selectorY = (mCursor - startEntry)*entrySize + mSelectorOffsetY;
-
-	selectorY = mSelectorBarOffset - mCameraOffset;
-
-	if (mSelectorImage.hasImage())
-	{
-	mSelectorImage.setPosition(0.f, selectorY, 0.f);
-	mSelectorImage.render(trans);
-	}
-	else
-	{
-	Renderer::setMatrix(trans);
-	Renderer::drawRect(0.0f, selectorY, mSize.x(), mSelectorHeight, mSelectorColor, mSelectorColorEnd, mSelectorColorGradientHorizontal);
-	}
-	}
-	*/
 	// clip to inside margins
 	Vector3f dim(mSize.x(), mSize.y(), 0);
 	dim = trans * dim - trans.translation();
 
-	//Renderer::pushClipRect(trans.translation().x() + mHorizontalMargin, trans.translation().y(), Math::round(dim.x() - mHorizontalMargin * 2), Math::round(dim.y()));
 	Renderer::pushClipRect(trans.translation().x(), trans.translation().y(), Math::round(dim.x()), Math::round(dim.y()));
 
-	float y = startEntry * entrySize;
-	trans.translate(Vector3f(0, -Math::round(mCameraOffset), 0));
+	float y = startEntry * entrySize - mCameraOffset;
 
 	for (int i = startEntry; i < mEntries.size(); i++)
 	{
@@ -325,13 +293,8 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		if (Settings::DebugText())
 		{
 			Renderer::setMatrix(drawTrans);
-
 			auto sz = mFont->sizeText(mUppercase ? Utils::String::toUpper(entry.name) : entry.name);
-
-			Renderer::popClipRect();
 			Renderer::drawRect(0.0f, 0.0f, sz.x(), sz.y(), 0xFF000033, 0xFF000033);
-			Renderer::pushClipRect(Vector2i((int)(trans.translation().x() + mHorizontalMargin), (int)trans.translation().y()),
-				Vector2i((int)(dim.x() - mHorizontalMargin * 2), (int)dim.y()));
 		}
 
 		if (mCursor == i)
@@ -357,7 +320,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 
 		// render currently selected item text again if
 		// marquee is scrolled far enough for it to repeat
-		if ((mCursor == i) && (mMarqueeOffset2 < 0))
+		if (mCursor == i && mMarqueeOffset2 < 0)
 		{
 			drawTrans = trans;
 			drawTrans.translate(offset - Vector3f((float)mMarqueeOffset2, 0, 0));
@@ -366,7 +329,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		}
 
 		y += entrySize;
-		if (y - mCameraOffset > mSize.y())
+		if (y > mSize.y())
 			break;
 	}
 
@@ -430,8 +393,19 @@ bool TextListComponent<T>::input(InputConfig* config, Input input)
 template <typename T>
 void TextListComponent<T>::update(int deltaTime)
 {
-	if (mPressedTime >= 0)
-		mPressedTime += deltaTime;
+	if (mTimeHoldingButton >= 0)
+	{
+		mTimeHoldingButton += deltaTime;
+
+		if (mTimeHoldingButton >= HOLD_TIME)
+		{
+			mTimeHoldingButton = -1;
+			mHotRow = -1;
+			mPressedPoint = Vector2i(-1, -1);
+
+			longMouseClick.invoke([&](ILongMouseClickEvent* c) { c->onLongMouseClick(this); });
+		}
+	}
 
 	mScrollbar.update(deltaTime);
 
@@ -503,12 +477,10 @@ void TextListComponent<T>::updateCameraOffset()
 	auto rowHeight = getRowHeight();
 	auto totalHeight = rowHeight * mEntries.size();
 
-	mSelectorBarOffset = rowHeight * mCursor;
-
 	// move the camera to scroll
 	if (totalHeight > mSize.y() && mCursor < mEntries.size())
 	{
-		mCameraOffset = mSelectorBarOffset + (rowHeight / 2.0f) - (mSize.y() / 2.0f);
+		mCameraOffset = (rowHeight * mCursor) + ((rowHeight - mSize.y()) / 2.0f);
 
 		if (mCameraOffset < 0)
 			mCameraOffset = 0;
@@ -545,8 +517,6 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 	mScrollbar.onCursorChanged();
 
 	updateCameraOffset();
-
-	LOG(LogDebug) << "mCursor \"" << mCursor << "\" state  \"" << state << "\"";
 
 	if (mLastCursor != mCursor || mLastCursorState != state)
 	{
@@ -694,7 +664,7 @@ bool TextListComponent<T>::hitTest(int x, int y, Transform4x4f& parentTransform,
 
 	mHotRow = -1;
 
-	Renderer::Rect rect = GetComponentScreenRect(trans, getSize());
+	Renderer::Rect rect = Renderer::getScreenRect(trans, getSize(), true);
 
 	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 	{
@@ -740,33 +710,38 @@ bool TextListComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 {
 	if (button == 1)
 	{
+		mTimeHoldingButton = -1;
+
 		if (pressed)
 		{
+			if (mHotRow == mCursor)
+				mPressedRow = mHotRow;
+			else
+				mPressedRow = -1;
+
 			if (mHotRow >= 0)
 			{
 				float camOffset = mCameraOffset;
 				mCursor = mHotRow;
 				onCursorChanged(CURSOR_STOPPED);
-				mCameraOffset = camOffset;
-				mPressedRow = mHotRow;
+				mCameraOffset = camOffset;			
+
+				mTimeHoldingButton = 0;
 			}
 
 			mPressedPoint = Vector2i(x, y);
-			mPressedTime = 0;
 			mWindow->setMouseCapture(this);
 		}
 		else if (mWindow->hasMouseCapture(this))
 		{
 			mWindow->releaseMouseCapture();
 
-			bool shouldClick = mPressedTime >= 0 && mPressedTime <= 200;
-
 			auto row = mPressedRow;
 			mPressedRow = -1;
 			mPressedPoint = Vector2i(-1, -1);
-			mPressedTime = -1;
+			mTimeHoldingButton = -1;
 
-			if (shouldClick && row == mHotRow && mCursor == row)
+			if (row == mHotRow && mCursor == row)
 				InputManager::getInstance()->sendMouseClick(mWindow, 1);
 		}
 
@@ -781,6 +756,7 @@ void TextListComponent<T>::onMouseMove(int x, int y)
 {
 	if (mPressedPoint.x() != -1 && mPressedPoint.y() != -1 && mWindow->hasMouseCapture(this))
 	{
+		mTimeHoldingButton = -1;
 		mHotRow = -1;
 
 		float yOffset = getRowHeight() * mEntries.size();

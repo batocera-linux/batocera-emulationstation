@@ -25,6 +25,8 @@ GridGameListView::GridGameListView(Window* window, FolderData* root, const std::
 
 	const float padding = 0.01f;
 
+	mGrid.longMouseClick += this;
+
 	mGrid.setGridSizeOverride(gridSize);
 	mGrid.setPosition(mSize.x() * 0.1f, mSize.y() * 0.1f);
 	mGrid.setDefaultZIndex(20);
@@ -349,4 +351,15 @@ void GridGameListView::moveToRandomGame()
 		if (isShowing())
 			onShow();
 	}
+}
+
+void GridGameListView::onLongMouseClick(GuiComponent* component)
+{
+	if (component != &mGrid)
+		return;
+
+	if (Settings::getInstance()->getBool("GameOptionsAtNorth"))
+		showSelectedGameSaveSnapshots();
+	else
+		showSelectedGameOptions();
 }

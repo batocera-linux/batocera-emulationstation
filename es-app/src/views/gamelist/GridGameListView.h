@@ -11,7 +11,7 @@
 
 class VideoComponent;
 
-class GridGameListView : public ISimpleGameListView
+class GridGameListView : public ISimpleGameListView, public ILongMouseClickEvent
 {
 public:
 	GridGameListView(Window* window, FolderData* root, const std::shared_ptr<ThemeData>& theme, std::string customThemeName = "", Vector2f gridSize = Vector2f(0,0));
@@ -42,6 +42,8 @@ public:
 	virtual void onShow();
 	virtual std::vector<FileData*> getFileDataEntries() override;
 	virtual void update(int deltaTime) override;
+
+	virtual void onLongMouseClick(GuiComponent* component) override;
 
 protected:
 	virtual std::string getQuickSystemSelectRightButton() override;

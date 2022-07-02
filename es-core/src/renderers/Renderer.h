@@ -4,6 +4,7 @@
 
 #include <vector>
 #include "math/Vector2f.h"
+#include "math/Vector3f.h"
 
 class  Transform4x4f;
 class  Vector2i;
@@ -43,6 +44,7 @@ namespace Renderer
 
 	struct Rect
 	{
+		Rect() : x(0), y(0), w(0), h(0) { }
 		Rect(const int _x, const int _y, const int _w, const int _h) : x(_x), y(_y), w(_w), h(_h) { }
 
 		int x;
@@ -121,6 +123,7 @@ namespace Renderer
  	void        deinit          ();
 	void        pushClipRect    (const Vector2i& _pos, const Vector2i& _size);
 	void		pushClipRect	(int x, int y, int w, int h);
+	void		pushClipRect	(Rect rect);
 	void        popClipRect     ();
 	void        drawRect        (const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 	void        drawRect        (const float _x, const float _y, const float _w, const float _h, const unsigned int _color, const unsigned int _colorEnd, bool horizontalGradient = false, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
@@ -154,6 +157,7 @@ namespace Renderer
 	void         setProjection     (const Transform4x4f& _projection);
 	void         setMatrix         (const Transform4x4f& _matrix);
 	void         setViewport       (const Rect& _viewport);
+	Rect&        getViewport	   ();
 	void         setScissor        (const Rect& _scissor);
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
@@ -176,7 +180,12 @@ namespace Renderer
 
 	std::vector<Vertex> createRoundRect(float x, float y, float width, float height, float radius, unsigned int color = 0xFFFFFFFF);
 
+	Rect		getScreenRect(const Transform4x4f& transform, const Vector3f& size, bool viewPort = false);
+	Rect		getScreenRect(const Transform4x4f& transform, const Vector2f& size, bool viewPort = false);
+	
 	void		activateWindow();
+
+	void		setScreenMargin(int marginX, int marginY);
 
 } // Renderer::
 
