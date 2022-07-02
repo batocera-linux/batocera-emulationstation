@@ -373,30 +373,32 @@ msgstr "REŽIM HARDCORE"
 
 msgid "Disable loading states (as well as auto-load) for more points."
 msgstr ""
+"Zakázat načítání pozic (stejně jako automatické načítání) pro více bodů."
 
 msgid "LEADERBOARDS"
 msgstr "VÝSLEDKOVÁ TABULE"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
+"Soutěžte v žebříčcích s vysokým skóre a nejlepším časem (vyžaduje hardcore)."
 
 msgid "VERBOSE MODE"
 msgstr "ÚPLNÝ INFORMAČNÍ REŽIM"
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "BOHATÁ PREZENTACE"
 
 msgid "ENCORE MODE"
 msgstr "REŽIM ENCORE"
 
 msgid "Reset achievements to be able to earn them again."
-msgstr ""
+msgstr "Resetujte úspěchy, abyste je mohli získat znovu."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATICKÉ SNÍMKY OBRAZOVKY"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "Automatické pořízení snímku obrazovky po získání úspěchu."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "UKAZATELE VÝZVY"
@@ -425,7 +427,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ZOBRAZIT POLOŽKU RETROÚSPĚCHY V HLAVNÍ NABÍDCE"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr ""
+msgstr "Prohlédněte si své statistiky RetroÚspechu přímo z hlavního menu!"
 
 msgid "GAME INDEXES"
 msgstr "INDEXY HRY"
@@ -542,7 +544,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "ZOBRAZIT HRY SKRYTÝCH SYSTÉMŮ VE SBÍRKÁCH"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "ZOBRAZIT PRÁZDNÉ SYSTÉMY"
 
 msgid "UPDATE GAMELISTS"
 msgstr "AKTUALIZOVAT SEZNAMY HER"
@@ -624,7 +626,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ZOBRAZIT NEDOSTUPNÉ HRY"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "Zobrazení místností pro hry, které se v tomto počítači nenacházejí."
 
 msgid "FINISHED"
 msgstr "DOKONČENO"
@@ -1201,34 +1203,34 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "VYHLEDAT PRO"
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "KRÁTKÝ NÁZEV"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "HODNOCENÍ SPOLKU"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "VIDEO"
 
 msgid "FANART"
-msgstr ""
+msgstr "UMĚNÍ FANOUŠKŮ"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "RÁMEČEK (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "BOX ZADNÍ STRANA"
 
 msgid "MAP"
-msgstr ""
+msgstr "MAPA"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "MANUÁL"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "NASTAVENÍ KLÁVES OVLADAČE"
 
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
@@ -1440,7 +1442,7 @@ msgid "GAME SETTINGS"
 msgstr "NASTAVENÍ HRY"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "NASTAVENÍ UŽIVATELSKÉHO ROZHRANÍ"
 
 msgid "SOUND SETTINGS"
 msgstr "NASTAVENÍ ZVUKU"
@@ -1461,7 +1463,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "NASTAVENÍ SYSTÉMU"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "REŽIM ODEMKNUTÍ UŽIVATELSKÉHO ROZHRANÍ"
 
 msgid "QUIT"
 msgstr "UKONČIT"
@@ -1473,13 +1475,13 @@ msgid "CHOOSE"
 msgstr "POHYB"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "REŽIM UŽIVATELSKÉHO ROZHRANÍ JE NYNÍ ODEMČENÝ"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "ZADEJTE KÓD A ODEMKNĚTE"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "MOŽNOSTI FRONTENDOVÉHO VÝVOJÁŘE"
 
 msgid "VIDEO OPTIONS"
 msgstr "NASTAVENÍ VIDEA"
@@ -1491,7 +1493,7 @@ msgid "SHOW FRAMERATE"
 msgstr "ZOBRAZIT FPS"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
+msgstr "Zapne také nativní čítač FPS emulátoru, pokud je k dispozici."
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1509,7 +1511,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "PŘESTAT SPOUŠTĚT TUTO HRU PŘI STARTU"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "POVOLIT VEŘEJNÝ PŘÍSTUP K WEBOVÉMU ROZHRANÍ API"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1522,7 +1524,7 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "VYTVOŘIT SOUBOR PODPORY"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr ""
+msgstr "VYTVOŘIT PODPŮRNÝ SOUBOR? ZAHRNUJE VŠECHNA DATA V SYSTÉMOVÉ SLOŽCE."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "SOUBOR PODPORY VYTVOŘENÝ VE SLOŽCE ULOŽENÍ"
@@ -1564,20 +1566,24 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNOR. OBSAH VÍCE SOUBOR. DISKU (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "POVOLIT FILTROVÁNÍ HER"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
+"Zobrazení nebo skrytí nastavení souvisejících s filtrováním her v možnostech "
+"zobrazení."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "ULOŽIT METADATA A UKONČIT"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr ""
+msgstr "ANALYZOVAT POUZE SEZNAMY HER"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
+"Nástroj pro ladění: Neověřuje, zda ROMY skutečně existují. Může způsobit "
+"problémy!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "VYHLEDAT MÍSTNÍ OBRÁZEK"
@@ -1586,9 +1592,11 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
+"Pokud není v seznamu her zadán žádný obrázek, pokusí se najít médium se "
+"stejným názvem souboru, které lze použít."
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "UŽIVATELSKÉ ROZHRANÍ"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "CAROUSEL TRANZITY"
@@ -1690,7 +1698,7 @@ msgid "LANGUAGE"
 msgstr "JAZYK"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "JAZYK (REGION)"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VYBERTE SVÉ ČASOVÉ PÁSMO"
@@ -1702,7 +1710,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "ZOBRAZIT HODINY VE 12 HODINOVÉM FORMÁTU"
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "ÚSPORNÝ REŽIM"
 
 msgid "DISABLED"
 msgstr "VYPNUTO"
@@ -1718,21 +1726,28 @@ msgstr "OKAMŽITÝ"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
 msgstr ""
+"Snižuje spotřebu energie při nečinnosti (užitečné pro kapesní počítače)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "ČTEČKA OBRAZOVKY (PŘEVOD TEXTU NA ŘEČ)"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "REŽIM UŽIVATELSKÉHO ROZHRANÍ"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
+"Uzamčení některých konfiguračních nabídek pro použití s hostujícími "
+"uživateli/dětmi."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"Měníte uživatelské rozhraní na omezený režim:\n"
+"Tím se skryje většina možností menu, aby se zabránilo změnám v systému.\n"
+"Chcete-li odemknout a vrátit se do plného uživatelského rozhraní, zadejte "
+"kód:"
 
 msgid "Do you want to proceed?"
 msgstr "Chcete pokračovat?"
@@ -1763,6 +1778,7 @@ msgstr "AUDIO PROFIL"
 
 msgid "Available options can change depending on current audio output."
 msgstr ""
+"Dostupné možnosti se mohou měnit v závislosti na aktuálním zvukovém výstupu."
 
 msgid "SCREEN ROTATION"
 msgstr "OTOČENÍ OBRAZOVKY"
@@ -1864,7 +1880,7 @@ msgid "ENFORCE SECURITY"
 msgstr "ZVÝŠENÁ BEZPEČNOST"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
+msgstr "Vyžadovat heslo pro přístup ke sdílené síťové složce."
 
 msgid "ROOT PASSWORD"
 msgstr "HESLO ADMINISTRÁTORA"
@@ -1925,13 +1941,13 @@ msgid "GAME ASPECT RATIO"
 msgstr "POMĚR STRAN VE HŘE"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "Vynutí vykreslování hry v tomto poměru stran."
 
 msgid "VIDEO MODE"
 msgstr "REŽIM VIDEA"
 
 msgid "Force the emulator to run at this resolution."
-msgstr ""
+msgstr "Vynutí spuštění emulátoru v tomto rozlišení."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "PLYNULOST HRY (BILINEAR FILTERING)"
@@ -1941,6 +1957,8 @@ msgstr "PŘETOČENÍ"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
+"Uložení minulých pozic pro přetáčení v reálném čase, pokud to jádro "
+"podporuje."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "CELOČÍSELNÉ ŠKÁLOVÁNÍ (PERFEKTNÍ PIXEL)"
@@ -2016,27 +2034,29 @@ msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
+"Načtení poslední pozice uložení při spuštění hry a uložení pozice při "
+"ukončení hry."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "PŘÍRŮSTEK NA ULOŽENÍ"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "Nikdy nepřepisovat staré uložené pozice, vždy vytvářet nové."
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "ZVYŠENÍ SLOTU"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "Zvýšení počtu slotů v nové hře."
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "NEZVYŠOVAT"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "Používat aktuální slot na novou hru."
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "ZOBRAZIT SPRÁVCE ULOŽENÝCH POZIC"
@@ -2179,7 +2199,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "MOŽNOSTI DISPLEJE"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "PŘECHOD NA SEZNAM"
 
 msgid "auto"
 msgstr "automaticky"
@@ -2206,7 +2226,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "PŘI ŘAZENÍ IGNOROVAT ÚVODNÍ ČLÁNKY"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr ""
+msgstr "Ignorovat slova \"The\" a \"A\", pokud jsou na začátku."
 
 msgid "VOLUME"
 msgstr "HLASITOST"
@@ -2293,7 +2313,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "SPUSTIT SPOŘIČ OBRAZOVKY"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "ZOBRAZIT UŽIVATELSKÝ MANUÁL"
 
 msgid "RESTART SYSTEM"
 msgstr "RESTARTOVAT"
@@ -2734,7 +2754,7 @@ msgid "VERTICAL"
 msgstr "VERTIKÁLNĚ"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "SVĚTELNÁ ZBRAŇ"
 
 msgid "HAS MEDIAS"
 msgstr ""
@@ -2752,6 +2772,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"KALIBRACE ZBRANĚ\n"
+"Střelba na cíle pro kalibraci"
 
 #, c-format
 msgid "%s connected"
