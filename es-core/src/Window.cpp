@@ -520,8 +520,8 @@ void Window::renderSindenBorders()
 
 	if (drawGunBorders)
 	{
-		int outerBorderWidth = Renderer::getScreenHeight() * 0.025f;
-		int innerBorderWidth = Renderer::getScreenHeight() * 0.025f;
+		int outerBorderWidth = Renderer::getScreenHeight() * 0.03f;
+		int innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 
 		// sinden.bordersize=thin/big/medium
 		auto bordersize = SystemConf::getInstance()->get("sinden.bordersize");
@@ -1161,6 +1161,8 @@ void Window::processMouseWheel(int delta)
 
 		for (auto hit : hits)
 			hit->onMouseWheel(delta);
+
+		hitTest(mLastMousePoint.x(), mLastMousePoint.y());
 	}
 }
 
