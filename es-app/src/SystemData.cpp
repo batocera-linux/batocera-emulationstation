@@ -1874,6 +1874,9 @@ int SystemData::getShowFlags()
 	if (!getShowFavoritesIcon())
 		return false;
 
+	if (hasPlatformId(PlatformIds::IMAGEVIEWER) || hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+		return false;
+
 	int show = Utils::String::toInteger(Settings::getInstance()->getString("ShowFlags"));
 
 	auto spf = Settings::getInstance()->getString(getName() + ".ShowFlags");
