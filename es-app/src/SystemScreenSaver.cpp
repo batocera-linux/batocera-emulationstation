@@ -326,7 +326,7 @@ std::string  SystemScreenSaver::selectGameMedia(FileData* game, bool video)
 #ifdef _RPI_
 	if (Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
 	{
-		if (Settings::getInstance()->getString("ScreenSaverGameInfo") != "never" && nodeName == "video")
+		if (Settings::getInstance()->getString("ScreenSaverGameInfo") != "never" && video)
 		{
 			std::string path = getTitleFolder();
 			if (!Utils::FileSystem::exists(path))
