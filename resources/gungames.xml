@@ -79,6 +79,9 @@
     <game>t2thearcadegame</game>
     <game>whoshotjohnnyrock</game>
   </system>
+  <system name="segacd">
+    <game>crimepatrol</game>
+  </system>
   <system name="nes">
     <game>3in1supergun</game>
     <game>adventuresofbayoubilly</game>
