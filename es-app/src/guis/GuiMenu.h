@@ -129,7 +129,8 @@ private:
 
 public:
 	static std::vector<DecorationSetInfo> getDecorationsSets(SystemData* system = nullptr);
-
+	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
+	virtual bool onMouseClick(int button, bool pressed, int x, int y);
 #ifdef _ENABLEEMUELEC
   static std::shared_ptr<OptionListComponent<std::string>> btn_choice;
   static std::shared_ptr<OptionListComponent<std::string>> del_choice;

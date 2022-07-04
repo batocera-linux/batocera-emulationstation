@@ -60,6 +60,7 @@ Paths::Paths()
 	mSystemConfFilePath = "/userdata/system/batocera.conf";
 	mUserManualPath = "/usr/share/batocera/doc/notice.pdf";
 	mVersionInfoPath = "/usr/share/batocera/batocera.version";
+	mKodiPath = "/usr/bin/kodi";
 #endif
 
 // EmuElec paths
@@ -127,6 +128,9 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 		{ "system.retroachievementsounds", &mRetroachivementSounds },
 		{ "retroachievementsounds", &mUserRetroachivementSounds },
 		{ "timezones", &mTimeZonesPath },
+#if WIN32
+		{ "kodi", &mKodiPath }
+#endif
 	};
 
 	std::map<std::string, std::string> ret;
@@ -160,15 +164,19 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 				continue;
 			}
 
+#if WIN32
 			if (variable == "kodi")
 			{
 				if (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe"))
 					ret[variable] = "C:\\Program Files\\Kodi\\kodi.exe";
 				else if (Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"))
 					ret[variable] = "C:\\Program Files (x86)\\Kodi\\kodi.exe";
+				else if (Utils::FileSystem::exists(Utils::FileSystem::combine(Utils::FileSystem::getParent(relativeTo), "kodi\\kodi.exe")))
+					ret[variable] = Utils::FileSystem::combine(Utils::FileSystem::getParent(relativeTo), "kodi\\kodi.exe");
 
 				continue;
 			}
+#endif
 
 			if (Utils::String::startsWith(variable, "system."))
 			{

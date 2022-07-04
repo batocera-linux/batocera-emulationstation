@@ -1433,3 +1433,8 @@ Example:
 ```
 
 This would replace the default cartridge image in the theme.
+
+Show Empty Systems
+==================
+
+If you are creating per-system logos and would like to see what all systems look like in your theme on a live install without having to actually have ROMs in each system's folder, simply go to Main Menu → Game Collection Settings → Show Empty Systems

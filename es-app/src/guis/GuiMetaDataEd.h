@@ -21,6 +21,9 @@ public:
 	void onSizeChanged() override;
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
+	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
+	virtual bool onMouseClick(int button, bool pressed, int x, int y);
+
 private:
 	bool isStatistic(const std::string name);
 

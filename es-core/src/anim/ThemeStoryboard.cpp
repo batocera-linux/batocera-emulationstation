@@ -1,6 +1,7 @@
 #include "ThemeStoryboard.h"
 #include "Log.h"
 #include "utils/StringUtil.h"
+#include "utils/HtmlColor.h"
 
 ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
 {
@@ -92,8 +93,8 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 
 		case ThemeData::ElementPropertyType::COLOR:			
 			anim = new ThemeColorAnimation();
-			if (node.attribute("from")) anim->from = ThemeData::parseColor(node.attribute("from").as_string());
-			if (node.attribute("to")) anim->to = ThemeData::parseColor(node.attribute("to").as_string());
+			if (node.attribute("from")) anim->from = Utils::HtmlColor::parse(node.attribute("from").as_string());
+			if (node.attribute("to")) anim->to = Utils::HtmlColor::parse(node.attribute("to").as_string());
 			break;
 
 		case ThemeData::ElementPropertyType::FLOAT:

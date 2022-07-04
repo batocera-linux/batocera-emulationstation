@@ -10,8 +10,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
@@ -372,31 +372,31 @@ msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
 
 msgid "Disable loading states (as well as auto-load) for more points."
-msgstr ""
+msgstr "Отключить загрузку состояния (а также автозагрузку), чтобы получить больше очков."
 
 msgid "LEADERBOARDS"
 msgstr "ДОСКА ЛИДЕРОВ"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr ""
+msgstr "Соревноваться в таблицах лидеров по количеству очков и лучшему времени (требуется хардкор)."
 
 msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "БОГАТОЕ ПРИСУТСТВИЕ"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "РЕЖИМ ЭНКОРА"
 
 msgid "Reset achievements to be able to earn them again."
-msgstr ""
+msgstr "Сбросить достижения, чтобы заработать их снова."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "Автоматическое снятие скриншота при получении достижения."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "ИНДИКАТОР ДОСТИЖЕНИЙ"
@@ -404,8 +404,7 @@ msgstr "ИНДИКАТОР ДОСТИЖЕНИЙ"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr ""
-"Отображает значки в правом нижнем углу, когда можно получить достижения."
+msgstr "Отображает значки в правом нижнем углу, когда можно получить достижения."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
@@ -426,7 +425,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ПОКАЗЫВАТЬ РЕТРОДОСТИЖЕНИЯ В ГЛАВНОМ МЕНЮ"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr ""
+msgstr "Показать свою статистику RetroAchievement прямо из главного меню!"
 
 msgid "GAME INDEXES"
 msgstr "ИНДЕКСЫ ИГРЫ"
@@ -543,7 +542,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "ПОКАЗАТЬ ИГРЫ ИЗ СПРЯТАННЫХ СИСТЕМ В КОЛЛЕКЦИИ"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "ОТОБРАЖАТЬ ПУСТЫЕ СИСТЕМЫ"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ОБНОВИТЬ СПИСОК ИГР"
@@ -625,7 +624,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "Показать комнаты для игр, отсутствующие на данном устройстве."
 
 msgid "FINISHED"
 msgstr "ЗАВЕРШЕНО"
@@ -1202,34 +1201,34 @@ msgid "MARQUEE"
 msgstr "БАНЕР"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "ЗАГРУЗКА ДЛЯ"
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "КОРОТКОЕ НАЗВАНИЕ"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "РЕЙТИНГ СООБЩЕСТВА"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "ВИДЕО"
 
 msgid "FANART"
-msgstr ""
+msgstr "ФАН-АРТ"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "РАМКИ (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "ЗАДНИК ОБЛОЖКИ"
 
 msgid "MAP"
-msgstr ""
+msgstr "КАРТА"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "РУКОВОДСТВО"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ PADTOKEY"
 
 msgid "SCRAPER"
 msgstr "СКРАПЕР"
@@ -1441,7 +1440,7 @@ msgid "GAME SETTINGS"
 msgstr "ИГРОВЫЕ НАСТРОЙКИ"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ ИНТЕРФЕЙСА"
 
 msgid "SOUND SETTINGS"
 msgstr "НАСТРОЙКИ ЗВУКА"
@@ -1462,7 +1461,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "НАСТРОЙКИ СИСТЕМЫ"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "РАЗБЛОКИРОВАТЬ ИНТЕРФЕЙС"
 
 msgid "QUIT"
 msgstr "ВЫХОД"
@@ -1474,13 +1473,13 @@ msgid "CHOOSE"
 msgstr "ВЫБРАТЬ"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "ВВЕДИТЕ КОД ДЛЯ РАЗБЛОКИРОВКИ"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "НАСТРОЙКИ РАЗРАБОТЧИКА"
 
 msgid "VIDEO OPTIONS"
 msgstr "НАСТРОЙКИ ВИДЕО"
@@ -1492,7 +1491,7 @@ msgid "SHOW FRAMERATE"
 msgstr "ПОКАЗАТЬ ЧАСТОТУ КАДРОВ"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
+msgstr "Также включает встроенный счетчик FPS эмулятора, если он доступен."
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1510,11 +1509,11 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "ПРЕКРАТИТЬ ЗАГРУЗКУ ЭТОЙ ИГРЫ ПРИ ЗАПУСКЕ"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ ПУБЛИЧНЫЙ ДОСТУП К WEB API"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Разрешить публичный доступ API, %s"
+msgstr "Разрешить публичный доступ web API, %s"
 
 msgid "LOG LEVEL"
 msgstr "УРОВЕНЬ ЖУРНАЛА"
@@ -1523,7 +1522,7 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr ""
+msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ? ОН ВКЛЮЧАЕТ ВСЕ ДАННЫЕ В ВАШЕЙ СИСТЕМНОЙ ПАПКЕ."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "ФАЙЛ ПОДДЕРЖКИ СОЗДАН В ПАПКЕ SAVES"
@@ -1565,20 +1564,20 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "ИГНОР. СОДЕРЖИМОЕ МНОГОДИСКОВЫХ ФАЙЛОВ (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ ФИЛЬТРАЦИЮ ИГР"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr ""
+msgstr "Показывать или скрывать настройки, связанные с фильтрацией игр, в опциях просмотра."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "СОХРАНИТЬ МЕТАДАННЫЕ ПРИ ВЫХОДЕ"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr ""
+msgstr "СЧИТЫВАТЬ ТОЛЬКО GAMESLIST.XML (УСК. ЗАГРУЗКУ)"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr ""
+msgstr "Инструмент отладки: Не проверяйте, если ROM на самом деле существует. Это может привести к проблемам!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
@@ -1587,9 +1586,11 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
+"Если в геймлисте нет изображения, попытатся найти медиа с таким же "
+"именем файла для использования."
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "ИНТЕРФЕЙС"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "АНИМАЦИЯ КАРУСЕЛИ"
@@ -1647,8 +1648,7 @@ msgstr "ПРЕДЗАГРУЗКА МЕДИА ФАЙЛОВ"
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
-msgstr ""
-"Уменьшает лаги во время просмотра списка игр, увеличивает время загрузки"
+msgstr "Уменьшает лаги во время просмотра списка игр, увеличивает время загрузки"
 
 msgid "THREADED LOADING"
 msgstr "МНОГОПОТОЧНАЯ ЗАГРУЗКА"
@@ -1690,7 +1690,7 @@ msgid "LANGUAGE"
 msgstr "ЯЗЫК"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "ЯЗЫК (РЕГИОН)"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "ВЫБЕРИТЕ СВОЙ ЧАСОВОЙ ПОЯС"
@@ -1702,7 +1702,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "ПОКАЗАТЬ ЧАСЫ В 12-ЧАСОВОМ ФОРМАТЕ "
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
 
 msgid "DISABLED"
 msgstr "ОТКЛЮЧЕНО"
@@ -1717,22 +1717,25 @@ msgid "INSTANT"
 msgstr "МГНОВЕННЫЙ"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
+msgstr "Снижает энергопотребление в режиме ожидания (полезно для портативных уст-в)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "ЭКРАННЫЙ ДИКТОР (ТЕКСТ В РЕЧЬ)"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "РЕЖИМ ИНТЕРФЕЙСА"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
+msgstr "Заблокировать определенные меню для использования гостями или детьми."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"Вы переводите интерфейс в ограниченный режим:\n"
+"Это скроет большинство пунктов меню, для предотвращения изменений.\n"
+"Чтобы разблокировать и вернуться к полному интерфейсу, введите этот код:"
 
 msgid "Do you want to proceed?"
 msgstr "Вы хотите продолжить?"
@@ -1762,7 +1765,7 @@ msgid "AUDIO PROFILE"
 msgstr "АУДИО ПРОФИЛЬ"
 
 msgid "Available options can change depending on current audio output."
-msgstr ""
+msgstr "Доступные опции могут меняться в зависимости от текущего аудио выхода."
 
 msgid "SCREEN ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
@@ -1864,7 +1867,7 @@ msgid "ENFORCE SECURITY"
 msgstr "УСИЛЕННАЯ БЕЗОПАСНОСТЬ"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
+msgstr "Требовать пароль для доступа к сетевой папке."
 
 msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
@@ -1923,13 +1926,13 @@ msgid "GAME ASPECT RATIO"
 msgstr "СООТНОШЕНИЕ СТОРОН"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "Принудительно рендерить игру в данном соотношении сторон."
 
 msgid "VIDEO MODE"
 msgstr "РАЗРЕШЕНИЕ"
 
 msgid "Force the emulator to run at this resolution."
-msgstr ""
+msgstr "Принудительно запускать эмулятор с этим разрешением."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "СГЛАЖИВАНИЕ ИГР (БИЛИНЕЙНАЯ ФИЛЬТРАЦИЯ)"
@@ -1938,7 +1941,7 @@ msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
+msgstr "Сохраняет прошлые состояния для перемотки в реальном времени, если ядро поддерживает это."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
@@ -2013,28 +2016,28 @@ msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr ""
+msgstr "Загружает последнее сохранение при запуске игры и сохраняет при выходе из игры."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "УВЕЛИЧЕНИЕ СОХРАНЕНИЙ"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "Никогда не перезаписывает старые сохранения, всегда создаёт новые."
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "УВЕЛИЧЕНИЕ СЛОТА"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "Увеличение слота в новой игре."
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "НЕ УВЕЛИЧИВАТЬ"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "Использовать текущий слот в новой игре."
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
@@ -2178,7 +2181,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "НАСТРОЙКИ ЭКРАНА"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "СТИЛЬ ПЕРЕХОДОВ"
 
 msgid "auto"
 msgstr "авто"
@@ -2205,7 +2208,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКИ"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr ""
+msgstr "Игнорует 'The' и 'A', если они находятся в начале."
 
 msgid "VOLUME"
 msgstr "ГРОМКОСТЬ"
@@ -2292,7 +2295,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -2322,7 +2325,7 @@ msgid "REALLY QUIT?"
 msgstr "ВЫЙТИ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА ПРИ ЗАПУСКЕ"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ КОНТРОЛЛЕРА"
@@ -2385,8 +2388,7 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"НЕКОТОРЫЕ ФАЙЛЫ, НА КОТОРЫЕ ВЫ ССЫЛАЕТЕСЬ, РАСПОЛОЖЕНЫ ВНЕ ПАПКИ СО СПИСКОМ "
-"ИГР.\n"
+"НЕКОТОРЫЕ ФАЙЛЫ, РАСПОЛОЖЕНЫ ВНЕ ПАПКИ СО СПИСКОМ ИГР.\n"
 "ВЫ ХОТИТЕ СОЗДАТЬ КОПИЮ ЭТИХ ФАЙЛОВ В ПАПКУ СО СПИСКОМ ИГР?"
 
 msgid "NO DEVICE FOUND"
@@ -2458,6 +2460,9 @@ msgstr[2] "%i ИГР"
 msgid "RANDOM"
 msgstr "СЛУЧАЙНО"
 
+msgid "NAVIGATION BAR"
+msgstr "ПАНЕЛЬ НАВИГАЦИИ"
+
 msgid "FILES"
 msgstr "ФАЙЛЫ"
 
@@ -2520,20 +2525,17 @@ msgstr "Игр не найдено"
 msgid "Games similar to"
 msgstr "Игры похожие на"
 
-msgid "GAME OPTIONS"
-msgstr "ПАРАМЕТРЫ"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "БЫСТРЫЕ СОХРАНЕНИЯ (УДЕРЖИВАТЬ)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "ПАРАМЕТРЫ (УДЕРЖИВАТЬ)"
 
+msgid "GAME OPTIONS"
+msgstr "ПАРАМЕТРЫ"
+
 msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
-
-msgid "RANDOM (HOLD)"
-msgstr "СЛУЧАЙНО (УДЕРЖИВАТЬ)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2732,7 +2734,10 @@ msgid "VERTICAL"
 msgstr "ВЕРТИКАЛЬНО"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "СВЕТОВОЙ ПИСТОЛЕТ"
+
+msgid "HAS MEDIAS"
+msgstr "С МЕДИА"
 
 msgid "SCRAPING"
 msgstr "ЗАГРУЗКА"
@@ -2747,6 +2752,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"КАЛИБРОВКА ПИСТОЛЕТА\n"
+"Стреляйте по мишеням для калибровки"
 
 #, c-format
 msgid "%s connected"
@@ -2977,6 +2984,9 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "СЛУЧАЙНО (УДЕРЖИВАТЬ)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "ЗАГРУЗКА КОРОТКОГО ИМЕНИ"
@@ -3700,13 +3710,13 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "\"СЛУЧАЙНОЕ ВИДЕО\" ЗАСТАВКА ВОСПРОИЗВОДИТ ВИДЕО ИЗ ВАШЕГО СПИСКА ИГР.\n"
 #~ "ЕСЛИ У ВАС НЕТ ВИДЕО, ИЛИ НИ ОДНО ИЗ НИХ НЕ МОЖЕТ БЫТЬ ВОСПРОИЗВЕДЕНО "
-#~ "ПОСЛЕ НЕСКОЛЬКИХ ПОПЫТОК, ПО УМОЛЧАНИЮ БУДЕТ ИСПОЛЬЗОВАНО ЗНАЧЕНИЕ \"BLACK"
-#~ "\".\n"
+#~ "ПОСЛЕ НЕСКОЛЬКИХ ПОПЫТОК, ПО УМОЛЧАНИЮ БУДЕТ ИСПОЛЬЗОВАНО ЗНАЧЕНИЕ "
+#~ "\"BLACK\".\n"
 #~ "БОЛЬШЕ ОПЦИЙ В \"НАСТРОЙКА ИНТЕРФЕЙСА\"-> \"НАСТРОЙКИ ВИДЕО ЗАСТАВКИ\" "
 #~ "МЕНЮ."
 

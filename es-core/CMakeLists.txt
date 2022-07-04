@@ -116,6 +116,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Delegate.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Randomizer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/VectorEx.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/HtmlColor.h
 )
 
 set(CORE_SOURCES
@@ -225,6 +226,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ZipFile.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Randomizer.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/HtmlColor.cpp
 )
 
 # Keep Directory structure in Visual Studio

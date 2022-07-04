@@ -234,6 +234,39 @@ const bool FileData::hasCheevos()
 	return false;
 }
 
+bool FileData::hasAnyMedia()
+{
+	if (Utils::FileSystem::exists(getImagePath()) || Utils::FileSystem::exists(getThumbnailPath()) || Utils::FileSystem::exists(getVideoPath()))
+		return true;
+
+	for (auto mdd : mMetadata.getMDD())
+	{
+		if (mdd.type != MetaDataType::MD_PATH)
+			continue;
+
+		std::string path = mMetadata.get(mdd.key);
+		if (path.empty())
+			continue;
+
+		if (mdd.id == MetaDataId::Manual || mdd.id == MetaDataId::Magazine)
+		{
+			if (Utils::FileSystem::exists(path))
+				return true;
+		}
+		else if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
+		{
+			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(path));
+			if (ext != ".jpg" && ext != ".png" && ext != ".jpeg" && ext != ".gif")
+				continue;
+
+			if (Utils::FileSystem::exists(path))
+				return true;
+		}
+	}
+
+	return false;
+}
+
 std::vector<std::string> FileData::getFileMedias()
 {
 	std::vector<std::string> ret;

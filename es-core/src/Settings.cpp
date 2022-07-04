@@ -17,6 +17,7 @@ Delegate<ISettingsChangedEvent> Settings::settingChanged;
 IMPLEMENT_STATIC_BOOL_SETTING(DebugText, false)
 IMPLEMENT_STATIC_BOOL_SETTING(DebugImage, false)
 IMPLEMENT_STATIC_BOOL_SETTING(DebugGrid, false)
+IMPLEMENT_STATIC_BOOL_SETTING(DebugMouse, false)
 IMPLEMENT_STATIC_BOOL_SETTING(ShowControllerActivity, true)
 IMPLEMENT_STATIC_BOOL_SETTING(ShowControllerBattery, true)
 IMPLEMENT_STATIC_BOOL_SETTING(DrawClock, true)
@@ -41,6 +42,7 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(DebugText)
 	UPDATE_STATIC_BOOL_SETTING(DebugImage)
 	UPDATE_STATIC_BOOL_SETTING(DebugGrid)
+	UPDATE_STATIC_BOOL_SETTING(DebugMouse)
 	UPDATE_STATIC_BOOL_SETTING(ShowControllerActivity)
 	UPDATE_STATIC_BOOL_SETTING(ShowControllerBattery)
 	UPDATE_STATIC_BOOL_SETTING(ShowNetworkIndicator)
@@ -61,6 +63,10 @@ void Settings::updateCachedSetting(const std::string& name)
 // since they're set through command-line arguments, and not the in-program settings menu
 std::vector<const char*> settings_dont_save {
 	{ "Debug" },
+	{ "DebugText" },
+	{ "DebugImage" },
+	{ "DebugGrid" },
+	{ "DebugMouse" },
 	{ "ForceKid" },
 	{ "ForceKiosk" },
 	{ "IgnoreGamelist" },
@@ -187,7 +193,7 @@ void Settings::setDefaults()
 #if defined(_WIN32) || defined(TINKERBOARD) || defined(X86) || defined(X86_64) || defined(ODROIDN2) || defined(ODROIDC2) || defined(ODROIDXU4) || defined(RPI4)
 	// Boards > 1Gb RAM
 	mIntMap["MaxVRAM"] = 256;
-#elif defined(ODROIDGOA) || defined(GAMEFORCE) || defined(RK3326) || defined(RPI2) || defined(RPI3) || defined(ROCKPRO64)
+#elif defined(ODROIDGOA) || defined(GAMEFORCE) || defined(RK3326) || defined(RPIZERO2) || defined(RPI2) || defined(RPI3) || defined(ROCKPRO64)
 	// Boards with 1Gb RAM
 	mIntMap["MaxVRAM"] = 128;
 #elif defined(_RPI_)
@@ -250,7 +256,7 @@ void Settings::setDefaults()
 	// we don't get a warning if we encounter it on a different platform
 	mBoolMap["VideoOmxPlayer"] = false;
 
-	#if defined(_RPI_) && !defined(RPI3) && !defined(RPI4)
+	#if defined(_RPI_)
 		// we're defaulting to OMX Player for full screen video on the Pi
 		mBoolMap["ScreenSaverOmxPlayer"] = true;
 	#else

@@ -2460,6 +2460,9 @@ msgstr[0] "%i 個 のゲーム"
 msgid "RANDOM"
 msgstr "ランダム"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "ファイル"
 
@@ -2521,20 +2524,17 @@ msgstr "エントリが見つかりません"
 msgid "Games similar to"
 msgstr "類似ゲーム→"
 
-msgid "GAME OPTIONS"
-msgstr "ゲーム設定"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "セーブメニュー (長押し)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "ゲーム設定 (長押し)"
 
+msgid "GAME OPTIONS"
+msgstr "ゲーム設定"
+
 msgid "FAVORITE"
 msgstr "気に入り"
-
-msgid "RANDOM (HOLD)"
-msgstr "ランダム (長押し)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2733,6 +2733,9 @@ msgid "VERTICAL"
 msgstr "縦表示"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2965,6 +2968,9 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "ランダム (長押し)"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

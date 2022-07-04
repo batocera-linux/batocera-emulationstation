@@ -2445,6 +2445,9 @@ msgstr[0] "%i 게임"
 msgid "RANDOM"
 msgstr "무작위"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "파일"
 
@@ -2505,20 +2508,17 @@ msgstr "항목을 찾지 못했습니다"
 msgid "Games similar to"
 msgstr "다음과 비슷한 게임"
 
-msgid "GAME OPTIONS"
-msgstr "게임 옵션"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "상태 저장 (HOLD)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "게임 옵션 (HOLD)"
 
+msgid "GAME OPTIONS"
+msgstr "게임 옵션"
+
 msgid "FAVORITE"
 msgstr "즐겨찾기"
-
-msgid "RANDOM (HOLD)"
-msgstr "렌덤 (HOLD)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2716,6 +2716,9 @@ msgid "VERTICAL"
 msgstr "세로"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2947,6 +2950,9 @@ msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "렌덤 (HOLD)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "약칭 스크랩"

@@ -613,10 +613,16 @@ HelpStyle GuiGameOptions::getHelpStyle()
 std::vector<HelpPrompt> GuiGameOptions::getHelpPrompts()
 {
 	auto prompts = mMenu.getHelpPrompts();
-	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE")));
+	prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE"), [&] { close(); }));
 
 	if (mHasAdvancedGameOptions)
-		prompts.push_back(HelpPrompt("x", _("ADVANCED GAME OPTIONS")));
+	{
+		prompts.push_back(HelpPrompt("x", _("ADVANCED GAME OPTIONS"), [&] 
+		{
+			GuiMenu::popGameConfigurationGui(mWindow, mGame);
+			close();
+		}));
+	}
 
 	return prompts;
 }
@@ -663,4 +669,24 @@ void GuiGameOptions::deleteCollection()
 void GuiGameOptions::close()
 {
 	delete this;
+}
+
+bool GuiGameOptions::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	if (pResult)
+		pResult->push_back(this);
+
+	GuiComponent::hitTest(x, y, parentTransform, pResult);
+	return true;
+}
+
+bool GuiGameOptions::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (pressed && button == 1 && !mMenu.isMouseOver())
+	{
+		close();
+		return true;
+	}
+
+	return (button == 1);
 }

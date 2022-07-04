@@ -5,7 +5,7 @@
 #include "components/TextListComponent.h"
 #include "views/gamelist/ISimpleGameListView.h"
 
-class BasicGameListView : public ISimpleGameListView
+class BasicGameListView : public ISimpleGameListView, public ILongMouseClickEvent
 {
 public:
 	BasicGameListView(Window* window, FolderData* root);
@@ -31,6 +31,8 @@ public:
 
 	virtual void launch(FileData* game) override;
 	virtual std::vector<FileData*> getFileDataEntries() override;
+
+	virtual void onLongMouseClick(GuiComponent* component) override;
 
 protected:
 	virtual std::string getQuickSystemSelectRightButton() override;

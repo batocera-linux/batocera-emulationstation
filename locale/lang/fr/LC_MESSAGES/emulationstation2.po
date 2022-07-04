@@ -395,7 +395,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "Prendre une capture d'écran automatique à chaque succès obtenu"
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICATEURS DE CHALLENGE"
@@ -423,7 +423,7 @@ msgid "PASSWORD"
 msgstr "MOT DE PASSE"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "AFFICHER UN ACCÈS DANS LE MENU PRINCIPAL"
+msgstr "AFFICHER DANS LE MENU PRINCIPAL"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
@@ -432,7 +432,7 @@ msgid "GAME INDEXES"
 msgstr "INDEXATION DES JEUX"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXER LES JEUX AU DÉMARRAGE"
+msgstr "INDEXER AUTOMATIQUEMENT AU DÉMARRAGE"
 
 msgid "INDEX GAMES"
 msgstr "INDEXER LES JEUX"
@@ -471,7 +471,7 @@ msgid "SYSTEMS"
 msgstr "SYSTÈMES"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "PARAMÈTRES DES COLLECTIONS DE JEUX"
+msgstr "PARAMÈTRES DES COLLECTIONS"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "COLLECTIONS A AFFICHER"
@@ -625,7 +625,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFFICHER LES JEUX NON DISPONIBLES"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "Afficher les parties des jeux non disponibles sur cette machine"
 
 msgid "FINISHED"
 msgstr "TERMINÉ"
@@ -640,13 +640,13 @@ msgid "NAVIGATION"
 msgstr "NAVIGATION"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "ALLER AU JEU COMMENÇANT PAR LA LETTRE"
+msgstr "ALLER A LA LETTRE"
 
 msgid "SELECT RANDOM GAME"
-msgstr "SÉLECTIONNER UN JEU ALÉATOIRE"
+msgstr "SÉLECTIONNER UN JEU ALÉATOIREMENT"
 
 msgid "SORT GAMES BY"
-msgstr "TRIER LES JEUX PAR"
+msgstr "TRIER PAR"
 
 msgid "OTHER FILTERS"
 msgstr "AUTRES FILTRES"
@@ -658,13 +658,13 @@ msgid "DELETE COLLECTION"
 msgstr "SUPPRIMER LA COLLECTION"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr "STYLE DE VUE DES LISTES DE JEUX"
+msgstr "TYPE DE VUE"
 
 msgid "automatic"
 msgstr "automatique"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr "VOIR LES PERSONNALISATIONS"
+msgstr "PERSONNALISER LA VUE"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "VOIR LE PROFIL PADTOKEY"
@@ -849,13 +849,13 @@ msgid "random"
 msgstr "aléatoire"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr "PARAMÈTRES DE L'ÉCRAN DE VEILLE"
+msgstr "ÉCONOMISEUR D'ÉCRAN"
 
 msgid "START SCREENSAVER AFTER"
-msgstr "ÉCRAN DE VEILLE APRÈS"
+msgstr "METTRE EN VEILLE APRÈS"
 
 msgid "SCREENSAVER TYPE"
-msgstr "COMPORTEMENT DE L'ÉCRAN DE VEILLE"
+msgstr "TYPE D'ÉCRAN DE VEILLE"
 
 msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "STOPPER LA MUSIQUE D’AMBIANCE"
@@ -1044,7 +1044,7 @@ msgid "GAME"
 msgstr "JEU"
 
 msgid "SAVE STATES"
-msgstr "SAUVEGARDES INSTANTANÉES"
+msgstr "SAUVEGARDES"
 
 msgid "OPEN"
 msgstr "OUVRIR"
@@ -1161,7 +1161,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIER VERS EMPLACEMENT LIBRE"
 
 msgid "SCRAPER SETTINGS"
-msgstr "PARAMÈTRES DU SCRAPEUR"
+msgstr "OPTIONS DU SCRAPEUR"
 
 msgid "IMAGE SOURCE"
 msgstr "IMAGE SOURCE"
@@ -1200,13 +1200,13 @@ msgid "MARQUEE"
 msgstr "BANNIÈRE"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "SCRAPER"
 
 msgid "SHORT NAME"
 msgstr "NOM COURT"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "NOTES"
 
 msgid "VIDEO"
 msgstr "VIDÉO"
@@ -1218,7 +1218,7 @@ msgid "BEZEL (16:9)"
 msgstr ""
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "ARRIÈRE DES BOITES"
 
 msgid "MAP"
 msgstr "CARTE"
@@ -1227,7 +1227,7 @@ msgid "MANUAL"
 msgstr "MANUEL"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "PARAMÈTRES PADTOKEY"
 
 msgid "SCRAPER"
 msgstr "SCRAPEUR"
@@ -1245,7 +1245,7 @@ msgid "FILTERS"
 msgstr "FILTRES"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "SCRAPER LES JEUX POUR"
+msgstr "SCRAPER LES JEUX"
 
 msgid "ALL"
 msgstr "TOUS"
@@ -1254,7 +1254,7 @@ msgid "GAMES MISSING ANY MEDIA"
 msgstr "JEUX AYANT UN MÉDIA MANQUANT"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr "JEUX AYANT TOUS LES MÉDIAS MANQUANTS"
+msgstr "JEUX DONT TOUS LES MÉDIAS SONT MANQUANTS"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORER LES JEUX SCRAPÉS RÉCEMMENT"
@@ -1278,7 +1278,7 @@ msgid "LAST YEAR"
 msgstr "L’ANNÉE DERNIÈRE"
 
 msgid "SYSTEMS INCLUDED"
-msgstr "SYSTÈMES INCLUS"
+msgstr "SYSTÈMES"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPER MAINTENANT"
@@ -1460,7 +1460,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "PARAMÈTRES SYSTÈME"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "DÉVERROUILLER L'INTERFACE"
 
 msgid "QUIT"
 msgstr "QUITTER"
@@ -1472,13 +1472,13 @@ msgid "CHOOSE"
 msgstr "CHOISIR"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "L'INTERFACE A ETE DEVERROUILLÉE"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "SAISISSEZ LE CODE DE DÉVERROUILLAGE"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "OPTION DEVELOPPEUR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPTIONS VIDÉO"
@@ -1490,7 +1490,7 @@ msgid "SHOW FRAMERATE"
 msgstr "AFFICHER LE NOMBRE D'IMAGES/SEC"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
+msgstr "Active également le compteur en jeu si disponible"
 
 msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
@@ -1508,7 +1508,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "ARRÊTER DE LANCER CE JEU AU DÉMARRAGE"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "API WEB PUBLIQUE"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1521,7 +1521,7 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "CRÉER UN FICHIER DE SUPPORT"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr ""
+msgstr "VOULEZ-VOUS CRÉER UN FICHIER DE SUPPORT ?"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "FICHIER DE SUPPORT CRÉE DANS LE DOSSIER SAVES"
@@ -1563,7 +1563,7 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNORER LE CONTENU MULTI-FICHIERS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "ACTIVER LES FILTRES DE JEUX"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
@@ -1587,7 +1587,7 @@ msgid ""
 msgstr ""
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "INTERFACE UTILISATEUR"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "TRANSITION DU CARROUSEL"
@@ -1691,7 +1691,7 @@ msgid "LANGUAGE"
 msgstr "LANGUE"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "LANGUE"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SÉLECTIONNEZ VOTRE FUSEAU HORAIRE"
@@ -1700,10 +1700,10 @@ msgid "TIME ZONE"
 msgstr "FUSEAU HORAIRE"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "AFFICHER L’HORLOGE AU FORMAT 12 HEURES"
+msgstr "HORLOGE AU FORMAT 12 HEURES"
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
 
 msgid "DISABLED"
 msgstr "DÉSACTIVÉ"
@@ -1718,16 +1718,16 @@ msgid "INSTANT"
 msgstr "INSTANTANÉ"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
+msgstr "Réduit la consommation d'enegie si inactif"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LECTURE À L’ÉCRAN"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "RESTRICTIONS DE L'INTERFACE"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
+msgstr "Vérouille les menus des bornes d'arcade et pour les enfants"
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -2007,34 +2007,34 @@ msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURER LES MANETTES"
 
 msgid "SAVESTATES"
-msgstr "SAUVEGARDES INSTANTANÉES"
+msgstr "SAUVEGARDES"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "SAUV./CHARG. AUTO"
+msgstr "SAUVEGARDE / CHARGEMENT AUTO"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr ""
+msgstr "Charge la dernière sauvegarde automatiquement et sauve en quittant le jeu"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "SAUVEGARDES INSTANTANÉES INCRÉMENTALES"
+msgstr "SAUVEGARDES INCRÉMENTALES"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "A CHAQUE SAUVEGARDE"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "Crée un nouvel emplacement de sauvegarde à chaque sauvegarde"
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "NOUVEL EMPLACEMENT"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "Crée un nouvel emplacement de sauvegarde au lancement d'une partie"
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "EMPLACEMENT ACTUEL"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "Utilise le premier emplacement de sauvegarde au lancement d'une partie"
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "AFFICHER LE GESTIONNAIRE DE SAUVEGARDES"
@@ -2178,7 +2178,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "OPTIONS D'AFFICHAGE"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "TYPE DE TRANSITION"
 
 msgid "auto"
 msgstr "auto"
@@ -2205,7 +2205,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LES ARTICLES LORS DU TRI"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr ""
+msgstr "Ignore les articles 'Le, La, De...'"
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2289,7 +2289,7 @@ msgid "NOW PLAYING"
 msgstr "A L’ÉCOUTE"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr "LANCER L'ÉCRAN DE VEILLE"
+msgstr "LANCER L'ÉCONOMISEUR D'ÉCRAN"
 
 msgid "VIEW USER MANUAL"
 msgstr "VOIR LE MANUEL UTILISATEUR"
@@ -2455,6 +2455,9 @@ msgstr[1] "%i JEUX"
 msgid "RANDOM"
 msgstr "ALÉATOIRE"
 
+msgid "NAVIGATION BAR"
+msgstr "VOLET NAVIGATION"
+
 msgid "FILES"
 msgstr "FICHIERS"
 
@@ -2518,20 +2521,17 @@ msgstr "Aucune Entrée Trouvée"
 msgid "Games similar to"
 msgstr "Jeux similaires à"
 
-msgid "GAME OPTIONS"
-msgstr "OPTIONS DU JEU"
-
 msgid "SAVE STATES (HOLD)"
-msgstr "SAUVEGARDES INSTANTANÉES (MAINTENU)"
+msgstr "SAUVEGARDES (MAINTENU)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "OPTIONS DU JEU (MAINTENU)"
 
+msgid "GAME OPTIONS"
+msgstr "OPTIONS DU JEU"
+
 msgid "FAVORITE"
 msgstr "FAVORIS"
-
-msgid "RANDOM (HOLD)"
-msgstr "ALÉATOIRE (MAINTENU)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2732,6 +2732,9 @@ msgstr "VERTICAL"
 msgid "LIGHTGUN"
 msgstr "PISTOLET"
 
+msgid "HAS MEDIAS"
+msgstr "AVEC DES MÉDIAS"
+
 msgid "SCRAPING"
 msgstr "SCRAPE"
 
@@ -2744,7 +2747,9 @@ msgstr "SCRAPE TERMINÉ"
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
-msgstr "CALIBRATION DU PISTOLET\nTirer sur les cibles pour calibrer"
+msgstr ""
+"CALIBRATION DU PISTOLET\n"
+"Tirer sur les cibles pour calibrer"
 
 #, c-format
 msgid "%s connected"
@@ -2968,6 +2973,9 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "ALÉATOIRE (MAINTENU)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "SCRAPER LES NOMS COURTS"

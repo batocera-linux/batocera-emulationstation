@@ -2437,6 +2437,9 @@ msgstr[1] "%i ΠΑΙΧΝΙΔΙΑ"
 msgid "RANDOM"
 msgstr "ΤΥΧΑΙΟ"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "ΑΡΧΕΙΑ"
 
@@ -2494,20 +2497,17 @@ msgstr "Δεν Βρέθηκαν Καταχωρήσεις"
 msgid "Games similar to"
 msgstr "Παιχνίδια παρόμοια με"
 
-msgid "GAME OPTIONS"
-msgstr "ΕΠΙΛΟΓΕΣ ΠΑΙΧΝΙΔΙΟΥ"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
+msgid "GAME OPTIONS"
+msgstr "ΕΠΙΛΟΓΕΣ ΠΑΙΧΝΙΔΙΟΥ"
+
 msgid "FAVORITE"
 msgstr "ΑΓΑΠΗΜΕΝΟ"
-
-msgid "RANDOM (HOLD)"
-msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2706,6 +2706,9 @@ msgid "VERTICAL"
 msgstr "ΚΑΘΕΤΟ"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"

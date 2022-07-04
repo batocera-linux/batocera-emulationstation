@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <systems>
+  <system name="c64">
+    <game>cosmicstorm</game>
+    <game>goosebusters</game>
+    <game>spaceharrier</game>
+  </system>
   <system name="3do">
     <game>corpsekiller</game>
     <game>creatureshock</game>
@@ -66,13 +71,16 @@
     <game>bodycount</game>
     <game>corpsekiller</game>
     <game>crimepatrol</game>
-    <game>lethalenforcers</game>
-    <game>lethalenforcersii</game>
+    <game gun="justifier">lethalenforcers</game>
+    <game gun="justifier">lethalenforcersii</game>
     <game>maddogii</game>
     <game>maddogmccree</game>
     <game>menacer6gamecartridge</game>
     <game>t2thearcadegame</game>
     <game>whoshotjohnnyrock</game>
+  </system>
+  <system name="segacd">
+    <game>crimepatrol</game>
   </system>
   <system name="nes">
     <game>3in1supergun</game>

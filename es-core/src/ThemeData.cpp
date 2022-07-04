@@ -14,6 +14,7 @@
 #include "LocaleES.h"
 #include "anim/ThemeStoryboard.h"
 #include "Paths.h"
+#include "utils/HtmlColor.h"
 
 std::vector<std::string> ThemeData::sSupportedViews{ { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "gamecarousel" }, { "menu" }, { "screen" }, { "splash" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "gamecarousel" }, { "z-index" }, { "visible" },{ "manufacturer" } };
@@ -372,6 +373,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "origin", NORMALIZED_PAIR },
 		{ "textColor", COLOR },
 		{ "iconColor", COLOR },
+		{ "glowColor", COLOR },
+		{ "glowSize", FLOAT },
+		{ "glowOffset", NORMALIZED_PAIR },
 		{ "fontPath", PATH },
 		{ "fontSize", FLOAT },
 		{ "iconUpDown", PATH },
@@ -1362,28 +1366,6 @@ bool ThemeData::parseLanguage(const pugi::xml_node& node)
 	return false;
 }
 
-unsigned int ThemeData::parseColor(const std::string& str)
-{
-	if (str.empty())
-	{
-		LOG(LogWarning) << "Empty color";
-		return 0;
-	}
-
-	size_t len = str.length();
-	if (len != 6 && len != 8)
-	{
-		LOG(LogWarning) << "Invalid color (bad length, \"" << str << "\" - must be 6 or 8)";
-		return 0;
-	}
-
-	unsigned int val = Utils::String::fromHexString(str);
-	if (len == 6)
-		val = (val << 8) | 0xFF;
-
-	return val;
-}
-
 bool ThemeData::parseRegion(const pugi::xml_node& node)
 {
 	if (!node.attribute("region"))
@@ -1420,6 +1402,106 @@ bool ThemeData::parseRegion(const pugi::xml_node& node)
 	return false;
 }
 
+void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element, const std::string& name, const std::string& value, ElementPropertyType type)
+{
+	std::string str = resolvePlaceholders(value.c_str());
+	if (str.find("$") != std::string::npos)
+		str = resolveSystemVariable(mSystemThemeFolder, str);
+
+	switch (type)
+	{
+	case STRING:
+		element.properties[name] = str;
+		break;
+
+	case FLOAT:
+		element.properties[name] = Utils::String::toFloat(str);
+		break;
+
+	case NORMALIZED_RECT:
+		element.properties[name] = Vector4f::parseString(str);
+		break;
+
+	case NORMALIZED_PAIR:
+		element.properties[name] = Vector2f::parseString(str);
+		break;
+
+	case COLOR:
+		element.properties[name] = Utils::HtmlColor::parse(str);
+		break;
+
+	case BOOLEAN:
+		element.properties[name] = Utils::String::toBoolean(str);
+		break;
+
+	case PATH:
+	{
+		if (str.empty())
+			break;
+
+		std::string path = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.back()), true);
+
+		if (Utils::String::startsWith(path, "{random"))
+		{
+			pugi::xml_node parent = root.parent();
+
+			if (!element.extra)
+				LOG(LogWarning) << "random is only supported in extras";
+			else if (element.type != "image" && element.type != "video")
+				LOG(LogWarning) << "random is only supported in video or image elements";
+			else if (std::string(parent.name()) != "view" || std::string(parent.attribute("name").as_string()) != "system")
+				LOG(LogWarning) << "random is only supported in systemview";
+			else if (element.type == "video" && path != "{random}")
+				LOG(LogWarning) << "video element only supports {random} element";
+			else if (element.type == "image" && path != "{random}" && path != "{random:thumbnail}" && path != "{random:marquee}" && path != "{random:image}" && path != "{random:fanart}" && path != "{random:titleshot}")
+				LOG(LogWarning) << "unknow random element " << path;
+			else
+				element.properties[name] = path;
+
+			break;
+		}
+
+		if (path[0] == '/')
+		{
+			path = Utils::String::replace(path,
+				"/recalbox/share_init/system/.emulationstation/themes",
+				Paths::getUserThemesPath());
+		}
+
+		if (path == "none")
+		{
+			if (element.properties.find(name) != element.properties.cend())
+				element.properties.erase(name);
+		}
+		else
+		{
+			if (ResourceManager::getInstance()->fileExists(path))
+			{
+				element.properties[name] = path;
+				break;
+			}
+			else if ((str[0] == '.' || str[0] == '~') && mPaths.size() > 1)
+			{
+				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
+				if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
+				{
+					element.properties[name] = rootPath;
+					break;
+				}
+			}
+
+			LOG(LogDebug) << "Warning : could not find file \"" << value << "\" " << "(which resolved to \"" << path << "\") ";
+		}
+
+		break;
+	}
+
+	default:
+		LOG(LogWarning) << "Unknown ElementPropertyType for \"" << root.attribute("name").as_string() << "\", property " << name;
+		break;
+	}
+}
+
 void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, ThemeView& view, bool overwrite)
 {
 	// ThemeException error;
@@ -1431,7 +1513,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	if (root.attribute("extra"))
 	{
 		std::string extra = Utils::String::toLower(root.attribute("extra").as_string());
-		
+
 		if (extra == "true")
 			element.extra = 1;
 		else if (extra == "static")
@@ -1439,7 +1521,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 		if (element.extra && mPerGameOverrideTmp)
 			element.extra = 3; // Set as "Per-game" Extra
-	}	
+	}
 
 	// Import properties from another control
 	if (root.attribute("importProperties"))
@@ -1461,7 +1543,27 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		}
 	}
 
-	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
+	for (pugi::xml_attribute attribute : root.attributes())
+	{
+		std::string name = attribute.name();
+		if (name == "extra" || name == "name" || name == "ifSubset" || name == "lang" || name == "region" || name == "verticalScreen" || name == "tinyScreen" || name == "ifHelpPrompts" || name == "ifCheevos")
+			continue;
+
+		ElementPropertyType type = STRING;
+		auto typeIt = typeMap.find(name);
+
+		if (typeIt != typeMap.cend())
+			type = typeIt->second;
+		else
+			continue;
+
+		if (!overwrite && element.properties.find(name) != element.properties.cend())
+			continue;
+
+		processElement(root, element, name, attribute.as_string(), type);
+	}
+
+	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
 		if (!parseFilterAttributes(node))
 			continue;
@@ -1471,7 +1573,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		ElementPropertyType type = STRING;
 
 		auto typeIt = typeMap.find(name);
-		if(typeIt == typeMap.cend())
+		if (typeIt == typeMap.cend())
 		{
 			if (name == "storyboard")
 			{
@@ -1527,111 +1629,11 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		}
 		else
 			type = typeIt->second;
-		
+
 		if (!overwrite && element.properties.find(name) != element.properties.cend())
 			continue;
 
-		std::string str = resolveSystemVariable(mSystemThemeFolder, resolvePlaceholders(node.text().as_string()));
-
-		switch(type)
-		{
-		case NORMALIZED_RECT:
-		{
-			element.properties[name] = Vector4f::parseString(str);
-			break;
-		}
-		case NORMALIZED_PAIR:
-		{
-			element.properties[name] = Vector2f::parseString(str);
-			break;
-		}
-		case STRING:
-			element.properties[name] = str;
-			break;
-		case PATH:
-		{
-			if (str.empty())
-				break;
-
-			std::string path = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.back()), true);
-			
-			if (Utils::String::startsWith(path, "{random"))
-			{
-				pugi::xml_node parent = root.parent();
-
-				if (!element.extra)
-					LOG(LogWarning) << "random is only supported in extras";
-				else if (element.type != "image" && element.type != "video")
-					LOG(LogWarning) << "random is only supported in video or image elements";
-				else if (std::string(parent.name()) != "view" || std::string(parent.attribute("name").as_string()) != "system")
-					LOG(LogWarning) << "random is only supported in systemview";
-				else if (element.type == "video" && path != "{random}")
-					LOG(LogWarning) << "video element only supports {random} element";
-				else if (element.type == "image" && path != "{random}" && path != "{random:thumbnail}" && path != "{random:marquee}" && path != "{random:image}" && path != "{random:fanart}" && path != "{random:titleshot}")
-					LOG(LogWarning) << "unknow random element " << path;
-				else
-					element.properties[name] = path;
-
-				break;
-			}
-
-			if (path[0] == '/')
-			{
-				path = Utils::String::replace(path,
-					"/recalbox/share_init/system/.emulationstation/themes",
-					Paths::getUserThemesPath());
-			}
-
-			if (path == "none")
-			{
-				if (element.properties.find(name) != element.properties.cend())
-					element.properties.erase(name);
-			}
-			else
-			{
-				if (ResourceManager::getInstance()->fileExists(path))
-				{
-					element.properties[name] = path;
-					break;
-				}
-				else if ((str[0] == '.' || str[0] == '~') && mPaths.size() > 1)
-				{
-					std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
-					if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
-					{
-						element.properties[name] = rootPath;
-						break;
-					}
-				}				
-
-				LOG(LogDebug) << "Warning : could not find file \"" << node.text().get() << "\" " << "(which resolved to \"" << path << "\") ";
-			}
-
-			break;
-		}
-		case COLOR:
-			element.properties[name] = parseColor(str);
-			break;
-		case FLOAT:
-		{
-			element.properties[name] = Utils::String::toFloat(str);
-			break;
-		}
-
-		case BOOLEAN:
-		{
-			// only look at first char
-			char first = str[0];
-			// 1*, t* (true), T* (True), y* (yes), Y* (YES)
-			bool boolVal = (first == '1' || first == 't' || first == 'T' || first == 'y' || first == 'Y');
-
-			element.properties[name] = boolVal;
-			break;
-		}
-		default:
-			LOG(LogWarning) << "Unknown ElementPropertyType for \"" << root.attribute("name").as_string() << "\", property " << name;
-			break;
-		}
+		processElement(root, element, name, node.text().as_string(), type);
 	}
 }
 
@@ -1732,6 +1734,24 @@ const std::shared_ptr<ThemeData>& ThemeData::getDefault()
 	return theme;
 }
 
+GuiComponent* ThemeData::createExtraComponent(Window* window, const ThemeElement& elem, bool forceLoad)
+{
+	GuiComponent* comp = nullptr;
+
+	if (elem.type == "container" || elem.type == "control")
+		comp = new GuiComponent(window);
+	else if (elem.type == "image")
+		comp = new ImageComponent(window, forceLoad);
+	else if (elem.type == "text")
+		comp = new TextComponent(window);
+	else if (elem.type == "ninepatch")
+		comp = new NinePatchComponent(window);
+	else if (elem.type == "video")
+		comp = new VideoVlcComponent(window);
+
+	return comp;
+}
+
 std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData>& theme, const std::string& view, Window* window, bool forceLoad, ExtraImportType type)
 {
 	std::vector<GuiComponent*> comps;
@@ -1767,26 +1787,14 @@ std::vector<GuiComponent*> ThemeData::makeExtras(const std::shared_ptr<ThemeData
 					continue;
 			}
 
-			GuiComponent* comp = nullptr;
-
-			const std::string& t = elem.type;
-			if(t == "image")
-				comp = new ImageComponent(window, forceLoad);
-			else if(t == "text")
-				comp = new TextComponent(window);
-			else if (t == "ninepatch")
-				comp = new NinePatchComponent(window);
-			else if (t == "video")
-				comp = new VideoVlcComponent(window);
-
-			if (comp == nullptr)
-				continue;
-
-			comp->setIsStaticExtra(elem.extra == 2);
-			comp->setTag((*it).c_str());
-			comp->setDefaultZIndex(10);
-			comp->applyTheme(theme, view, *it, ThemeFlags::ALL);
-			comps.push_back(comp);
+			GuiComponent* comp = createExtraComponent(window, elem, forceLoad);
+			if (comp != nullptr)
+			{
+				comp->setTag((*it).c_str());
+				comp->setDefaultZIndex(10);
+				comp->applyTheme(theme, view, *it, ThemeFlags::ALL);
+				comps.push_back(comp);
+			}
 		}
 	}
 

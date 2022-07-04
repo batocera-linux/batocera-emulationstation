@@ -17,7 +17,7 @@ bool GuiComponent::isLaunchTransitionRunning = false;
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
 	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5), mScaleOrigin(0.5f, 0.5f),
 	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mIsProcessing(false), mVisible(true), mShowing(false),
-	mStaticExtra(false), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true)
+	mStaticExtra(false), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true), mIsMouseOver(false)
 {
 	mClipRect = Vector4f();
 }
@@ -746,10 +746,11 @@ void GuiComponent::updateHelpPrompts()
 		return;
 	}
 
-	std::vector<HelpPrompt> prompts = getHelpPrompts();
-
-	if(mWindow->peekGui() == this && getTag() != "GuiLoading")
+	if (mWindow->peekGui() == this && getTag() != "GuiLoading")
+	{
+		std::vector<HelpPrompt> prompts = getHelpPrompts();
 		mWindow->setHelpPrompts(prompts, getHelpStyle());
+	}
 }
 
 HelpStyle GuiComponent::getHelpStyle()
@@ -1097,3 +1098,66 @@ void GuiComponent::onScreenOffsetChanged()
 	mTransformDirty = true;
 }
 
+bool GuiComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{
+	if (!isVisible())
+	{
+		if (mIsMouseOver)
+		{
+			onMouseLeave();
+			mIsMouseOver = false;
+		}
+
+		return false;
+	}
+
+	bool ret = false;
+
+	Transform4x4f trans = getTransform() * parentTransform;
+
+	Renderer::Rect rect = Renderer::getScreenRect(trans, getSize(), true);
+
+	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+	{
+		if (pResult)
+			pResult->push_back(this);
+
+		if (!mIsMouseOver)
+		{
+			mIsMouseOver = true;
+			onMouseEnter();
+		}
+
+		onMouseMove(x, y);		
+		ret = true;
+	}
+	else if (mIsMouseOver)
+	{
+		onMouseLeave();
+		mIsMouseOver = false;
+	}
+
+	for (int i = 0; i < getChildCount(); i++)
+		ret |= getChild(i)->hitTest(x, y, trans, pResult);
+
+	return ret;
+}
+
+
+void GuiComponent::onMouseLeave() 
+{
+}
+
+void GuiComponent::onMouseEnter() 
+{
+}
+
+void GuiComponent::onMouseMove(int x, int y) 
+{
+
+}
+
+void GuiComponent::onMouseWheel(int delta)
+{
+
+}

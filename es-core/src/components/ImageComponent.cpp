@@ -528,7 +528,12 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
 		return;
 
-	if (Settings::DebugImage())
+	if (Settings::DebugMouse() && mIsMouseOver)
+	{
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
+	}
+	else if (Settings::DebugImage() || (Settings::DebugMouse() && mIsMouseOver))
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x00000033, 0x00000033);

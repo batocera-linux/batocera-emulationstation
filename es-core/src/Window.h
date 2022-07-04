@@ -6,6 +6,7 @@
 #include "InputConfig.h"
 #include "Settings.h"
 #include "math/Vector2f.h"
+#include "math/Vector2i.h"
 #include <memory>
 #include <functional>
 
@@ -75,7 +76,7 @@ public:
 	void renderSplashScreen(float opacity = 1, bool swapBuffers = true);
 	void closeSplashScreen();
 
-	void renderHelpPromptsEarly(); // used to render HelpPrompts before a fade
+	void renderHelpPromptsEarly(const Transform4x4f& transform); // used to render HelpPrompts before a fade
 	void setHelpPrompts(const std::vector<HelpPrompt>& prompts, const HelpStyle& style);
 
 	void setScreenSaver(ScreenSaver* screenSaver) { mScreenSaver = screenSaver; }
@@ -99,8 +100,19 @@ public:
 	bool isCalibratingGun() { return mCalibrationText != nullptr; }
 	void setGunCalibrationState(bool isCalibrating);
 
+	// Mouse management
+	void processMouseMove(int x, int y, bool touchScreen);
+	void processMouseWheel(int delta);	
+	bool processMouseButton(int button, bool down, int x, int y);
+	void releaseMouseCapture() { mMouseCapture = nullptr; }
+	void setMouseCapture(GuiComponent* mouseCapture) { mMouseCapture = mouseCapture; }
+	bool hasMouseCapture(GuiComponent* mouseCapture) { return mMouseCapture == mouseCapture; }
+
 private:
+	std::vector<GuiComponent*> hitTest(int x, int y);
+
 	void processPostedFunctions();
+	void renderSindenBorders();
 
 	std::vector<AsyncNotificationComponent*> mAsyncNotificationComponent;
 	void updateAsyncNotifications(int deltaTime);
@@ -166,6 +178,10 @@ private:
 	int mTransitionOffset;
 
 	std::shared_ptr<TextureResource> mGunAimTexture;
+
+	GuiComponent* mMouseCapture;
+	Vector2i	  mLastMousePoint;
+	int			  mLastShowCursor;
 };
 
 #endif // ES_CORE_WINDOW_H

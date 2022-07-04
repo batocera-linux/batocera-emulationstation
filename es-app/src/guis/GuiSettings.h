@@ -71,6 +71,8 @@ public:
 
 	bool checkNetwork();
 
+	virtual bool onMouseClick(int button, bool pressed, int x, int y);
+
 protected:
 	MenuComponent mMenu;
 

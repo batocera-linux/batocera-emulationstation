@@ -2429,6 +2429,9 @@ msgstr[1] ""
 msgid "RANDOM"
 msgstr ""
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr ""
 
@@ -2486,19 +2489,16 @@ msgstr ""
 msgid "Games similar to"
 msgstr ""
 
-msgid "GAME OPTIONS"
-msgstr ""
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
-msgid "FAVORITE"
+msgid "GAME OPTIONS"
 msgstr ""
 
-msgid "RANDOM (HOLD)"
+msgid "FAVORITE"
 msgstr ""
 
 msgid ""
@@ -2696,6 +2696,9 @@ msgid "VERTICAL"
 msgstr ""
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"

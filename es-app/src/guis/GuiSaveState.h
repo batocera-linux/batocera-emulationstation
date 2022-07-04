@@ -23,6 +23,10 @@ public:
 	void onSizeChanged() override;
 	std::vector<HelpPrompt> getHelpPrompts() override;
 
+	bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
+	bool onMouseClick(int button, bool pressed, int x, int y);
+
+
 protected:
 	void centerWindow();
 	void loadGrid();

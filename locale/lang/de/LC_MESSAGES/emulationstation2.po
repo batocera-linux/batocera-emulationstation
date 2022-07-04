@@ -2459,6 +2459,9 @@ msgstr[1] "%i SPIELE"
 msgid "RANDOM"
 msgstr "ZUFALL"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "DATEIEN"
 
@@ -2522,20 +2525,17 @@ msgstr "Keine Einträge gefunden"
 msgid "Games similar to"
 msgstr "Spiele ähnlich zu"
 
-msgid "GAME OPTIONS"
-msgstr "SPIEL-OPTIONEN"
-
 msgid "SAVE STATES (HOLD)"
 msgstr "SPEICHERSTÄNDE (HALTEN)"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "SPIELOPTIONEN (HALTEN)"
 
+msgid "GAME OPTIONS"
+msgstr "SPIEL-OPTIONEN"
+
 msgid "FAVORITE"
 msgstr "FAVORIT"
-
-msgid "RANDOM (HOLD)"
-msgstr "ZUFÄLLIG (HALTEN)"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2734,6 +2734,9 @@ msgid "VERTICAL"
 msgstr "VERTIKAL"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2974,6 +2977,9 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "ZUFÄLLIG (HALTEN)"
 
 #~ msgid "SCRAPE SHORT NAME"
 #~ msgstr "SCRAPE KURZ NAME"
@@ -3728,8 +3734,8 @@ msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "DER \"ZUFALLSVIDEO\" BILDSCHIRMSCHONER ZEIGT VIDEOS AUS DEINER "
 #~ "SPIELELISTE.\n"

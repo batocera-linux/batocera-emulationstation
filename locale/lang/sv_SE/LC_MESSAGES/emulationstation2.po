@@ -2457,6 +2457,9 @@ msgstr[1] "%i SPEL"
 msgid "RANDOM"
 msgstr "SLUMPMÄSSIG"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "FILER"
 
@@ -2520,20 +2523,17 @@ msgstr "Inga poster hittades"
 msgid "Games similar to"
 msgstr "Spel som liknar"
 
-msgid "GAME OPTIONS"
-msgstr "SPELALTERNATIV"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
+msgid "GAME OPTIONS"
+msgstr "SPELALTERNATIV"
+
 msgid "FAVORITE"
 msgstr "FAVORIT"
-
-msgid "RANDOM (HOLD)"
-msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2732,6 +2732,9 @@ msgid "VERTICAL"
 msgstr "VERTIKALA"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"

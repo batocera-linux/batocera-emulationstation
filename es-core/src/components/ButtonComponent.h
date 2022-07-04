@@ -40,6 +40,8 @@ public:
 
 	bool hasFocus() { return mFocused; }
 
+	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
+
 private:
 	std::shared_ptr<Font> mFont;
 	std::function<void()> mPressedFunc;
@@ -66,6 +68,8 @@ private:
 
 	bool mRenderNonFocusedBackground;
 	Vector4f	mPadding;
+
+	bool mMousePressed;
 };
 
 #endif // ES_CORE_COMPONENTS_BUTTON_COMPONENT_H

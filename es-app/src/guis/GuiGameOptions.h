@@ -24,6 +24,9 @@ public:
 
 	void close();
 
+	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
+	virtual bool onMouseClick(int button, bool pressed, int x, int y);
+
 private:
 	static void deleteGame(FileData* file);
 

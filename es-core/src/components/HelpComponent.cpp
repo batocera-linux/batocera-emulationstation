@@ -33,6 +33,7 @@ static const std::map<std::string, const char*> ICON_PATH_MAP{
 
 HelpComponent::HelpComponent(Window* window) : GuiComponent(window)
 {
+	mHotItem = -1;
 }
 
 void HelpComponent::clearPrompts()
@@ -63,7 +64,6 @@ void HelpComponent::updateGrid()
 
 	std::shared_ptr<Font>& font = mStyle.font;
 
-	mGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i((int)mPrompts.size() * 4, 1));
 	// [icon] [spacer1] [text] [spacer2]
 
 	std::vector< std::shared_ptr<ImageComponent> > icons;
@@ -72,7 +72,13 @@ void HelpComponent::updateGrid()
 	int maxWidth = Renderer::getScreenWidth() - ENTRY_SPACING;
 	if (Settings::DrawClock())
 	{
-		TextComponent fakeClock(mWindow, "___00_00___", font, mStyle.textColor);
+		std::string clockBuf;
+		if (Settings::ClockMode12())
+			clockBuf = "__00:00_AM_";
+		else
+			clockBuf = "__00:00_";
+
+		TextComponent fakeClock(mWindow, clockBuf, font, mStyle.textColor);
 		maxWidth = Renderer::getScreenWidth() - fakeClock.getSize().x();
 	}
 
@@ -100,7 +106,11 @@ void HelpComponent::updateGrid()
 		if (is43screen)
 		{
 			// Remove splitted help for 4:3 screens
-			auto split = text.find(" /");
+			auto split = text.find("/");
+			if (split != std::string::npos)
+				text = text.substr(0, split);
+
+			split = text.find("(");
 			if (split != std::string::npos)
 				text = text.substr(0, split);
 		}
@@ -111,10 +121,18 @@ void HelpComponent::updateGrid()
 		if (width >= maxWidth)
 			break;
 
+		if (mStyle.glowSize)
+		{
+			lbl->setGlowSize(mStyle.glowSize);
+			lbl->setGlowColor(mStyle.glowColor);
+			lbl->setGlowOffset(mStyle.glowOffset.x(), mStyle.glowOffset.y());
+		}
+
 		icons.push_back(icon);
 		labels.push_back(lbl);
 	}
 
+	mGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(icons.size() * 4, 1));
 	mGrid->setSize(width, height);
 	for (unsigned int i = 0; i < icons.size(); i++)
 	{
@@ -122,6 +140,7 @@ void HelpComponent::updateGrid()
 		mGrid->setColWidthPerc(col, icons.at(i)->getSize().x() / width);
 		mGrid->setColWidthPerc(col + 1, ICON_TEXT_SPACING / width);
 		mGrid->setColWidthPerc(col + 2, labels.at(i)->getSize().x() / width);
+		mGrid->setColWidthPerc(col + 3, ENTRY_SPACING / width);
 
 		mGrid->setEntry(icons.at(i), Vector2i(col, 0), false, false);
 		mGrid->setEntry(labels.at(i), Vector2i(col + 2, 0), false, false);
@@ -172,9 +191,36 @@ void HelpComponent::render(const Transform4x4f& parentTrans)
 		
 		std::vector<GuiComponent*> textComponents;
 
+		if (Settings::DebugMouse() && mHotItem >= 0)
+		{
+			auto rect = GetComponentScreenRect(trans, mGrid->getSize());
+
+			Renderer::setMatrix(trans);
+
+			int gx = 0;
+
+			for (int i = 0; i < mGrid->getGridSize().x(); i += 4)
+			{
+				int width = mGrid->getColWidth(i) + mGrid->getColWidth(i + 1) + mGrid->getColWidth(i + 2);
+				int spacing = mGrid->getColWidth(i + 3);
+
+				rect.x = gx - spacing / 2.0f;
+				rect.w = width + spacing / 2.0f;
+
+				if (mHotItem == i / 4)
+				{
+					Renderer::drawRect(rect.x, 0.0f, rect.w, rect.h, 0xFFFFFF10, 0xFFFFFF10);
+					break;
+				}
+
+				gx += width + spacing;
+			}
+		}
+
 		for (auto i = 0; i < mGrid->getChildCount(); i++)
 		{
 			auto child = mGrid->getChild(i);
+
 			if (!child->isKindOf<TextComponent>())
 				child->render(trans);
 			else
@@ -184,4 +230,76 @@ void HelpComponent::render(const Transform4x4f& parentTrans)
 		for (auto child : textComponents)
 			child->render(trans);
 	}
+}
+
+bool HelpComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+{	
+	bool ret = false;
+
+	if (mGrid)
+	{
+		Transform4x4f trans = parentTransform * getTransform() * mGrid->getTransform();
+
+		auto rect = Renderer::getScreenRect(trans, mGrid->getSize(), true);
+
+		if (mStyle.font->getHeight(1.5f) > Renderer::getScreenHeight() - mGrid->getPosition().y())
+			rect.h = Renderer::getScreenHeight() - rect.y;
+
+		if (rect.x < 20)
+		{
+			rect.w += rect.x;
+			rect.x = 0;
+		}
+
+		if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+		{
+			mIsMouseOver = true;
+
+			ret = true;
+
+			if (pResult != nullptr)
+				pResult->push_back(this);
+		}
+		else 
+			mIsMouseOver = false;
+
+		mHotItem = -1;
+
+		int gx = trans.translation().x();
+
+		for (int i = 0; i < mGrid->getGridSize().x(); i += 4)
+		{			
+			int width = mGrid->getColWidth(i) + mGrid->getColWidth(i + 1) + mGrid->getColWidth(i + 2);
+			int spacing = mGrid->getColWidth(i + 3);
+
+			rect.x = gx - spacing / 2.0f;
+			rect.w = width + spacing / 2.0f;
+
+			if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+			{
+				mHotItem = i / 4;
+				break;
+			}
+
+			gx += width + spacing;
+		}
+	}
+	else
+		mIsMouseOver = false;
+
+	return ret;
+}
+
+bool HelpComponent::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (button == 1 && pressed && mHotItem >= 0 && mHotItem < mPrompts.size())
+	{
+		auto action = mPrompts[mHotItem].action;
+		if (action != nullptr)
+			action();
+
+		return true;
+	}
+
+	return button == 1 && mIsMouseOver;
 }

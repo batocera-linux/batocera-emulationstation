@@ -30,6 +30,8 @@ namespace AnimateFlags
 	};
 }
 
+#define GetComponentScreenRect(tx, sz) Renderer::getScreenRect(tx, sz)
+
 class GuiComponent
 {
 public:
@@ -74,9 +76,9 @@ public:
 	virtual void onRotationOriginChanged();
 
 	virtual Vector2f getSize() const;
-    inline void setSize(const Vector2f& size) { setSize(size.x(), size.y()); }
-    void setSize(float w, float h);
-    virtual void onSizeChanged();
+	inline void setSize(const Vector2f& size) { setSize(size.x(), size.y()); }
+	void setSize(float w, float h);
+	virtual void onSizeChanged();
 
 	virtual void setColor(unsigned int color) {};
 
@@ -100,14 +102,14 @@ public:
 	void setScreenOffset(const Vector2f& screenOffset);
 	virtual void onScreenOffsetChanged();
 
-    float getZIndex() const;
-    void setZIndex(float zIndex);
+	float getZIndex() const;
+	void setZIndex(float zIndex);
 
-    float getDefaultZIndex() const;
-    void setDefaultZIndex(float zIndex);
+	float getDefaultZIndex() const;
+	void setDefaultZIndex(float zIndex);
 
-    bool isVisible() const;
-    void setVisible(bool visible);
+	bool isVisible() const;
+	void setVisible(bool visible);
 
 	// Returns the center point of the image (takes origin into account).
 	Vector2f getCenter() const;
@@ -137,7 +139,7 @@ public:
 	virtual unsigned char getOpacity() const;
 	virtual void setOpacity(unsigned char opacity);
 
-	const Transform4x4f& getTransform();
+	virtual const Transform4x4f& getTransform();
 
 	virtual std::string getValue() const;
 	virtual void setValue(const std::string& value);
@@ -166,7 +168,7 @@ public:
 
 	// Returns true if the component is busy doing background processing (e.g. HTTP downloads)
 	bool isProcessing() const;
-	
+
 	void animateTo(Vector2f from, Vector2f to, unsigned int flags = 0xFFFFFFFF, int delay = 350);
 	void animateTo(Vector2f from, unsigned int flags = AnimateFlags::OPACITY | AnimateFlags::SCALE, int delay = 350) { animateTo(from, from, flags, delay); }
 
@@ -174,7 +176,7 @@ public:
 
 	std::string getTag() const { return mTag; };
 	void setTag(const std::string& value) { mTag = value; };
-	
+
 	bool isStaticExtra() const { return mStaticExtra; }
 	void setIsStaticExtra(bool value) { mStaticExtra = value; }
 
@@ -199,6 +201,17 @@ public:
 
 	Vector4f& getClipRect() { return mClipRect; }
 	virtual void setClipRect(const Vector4f& vec);
+
+	// Mouse
+	bool isMouseOver() { return mIsMouseOver; }
+
+	virtual void onMouseLeave();
+	virtual void onMouseEnter();
+	virtual void onMouseMove(int x, int y);
+	virtual void onMouseWheel(int delta);
+	virtual bool onMouseClick(int button, bool pressed, int x, int y) { return false; }
+
+	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr);
 
 protected:
 	void beginCustomClipRect();
@@ -233,6 +246,8 @@ protected:
 	bool mStaticExtra;
 
 	bool mTransformDirty;
+
+	bool mIsMouseOver;
 
 public:
 	const static unsigned char MAX_ANIMATIONS = 4;

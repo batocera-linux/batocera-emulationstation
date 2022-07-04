@@ -112,6 +112,8 @@ public:
 	static void reloadAllGames(Window* window, bool deleteCurrentGui = false, bool doCallExternalTriggers = false);
 
 	void setActiveView(std::shared_ptr<GuiComponent> view);
+	
+	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
 private:
 	ViewController(Window* window);

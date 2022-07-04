@@ -2450,6 +2450,9 @@ msgstr[0] "%i 游戏"
 msgid "RANDOM"
 msgstr "随机"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "文件"
 
@@ -2512,10 +2515,10 @@ msgstr ""
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
-msgid "FAVORITE"
-msgstr ""
+msgid "GAME OPTIONS"
+msgstr "游戏设置"
 
-msgid "RANDOM (HOLD)"
+msgid "FAVORITE"
 msgstr ""
 
 msgid ""
@@ -2713,6 +2716,9 @@ msgid "VERTICAL"
 msgstr ""
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3448,8 +3454,8 @@ msgstr "重启到 NAND"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "屏保 \"随机视频\" 将显示游戏列表中的视频。\n"
 #~ "如果游戏列表中没有视频，或在尝试播放失败几次后，显示为\"黑屏\"。\n"

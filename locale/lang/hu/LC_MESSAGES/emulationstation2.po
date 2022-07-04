@@ -2438,6 +2438,9 @@ msgstr[1] "%i JÁTÉKOK"
 msgid "RANDOM"
 msgstr "VÉLETLENSZERŰ"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "FÁJLOK"
 
@@ -2495,20 +2498,17 @@ msgstr "Nem található elem."
 msgid "Games similar to"
 msgstr "Játék ami hasonló"
 
-msgid "GAME OPTIONS"
-msgstr "JÁTÉK BEÁLLÍTÁSOK"
-
 msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
+msgid "GAME OPTIONS"
+msgstr "JÁTÉK BEÁLLÍTÁSOK"
+
 msgid "FAVORITE"
 msgstr "KEDVENC"
-
-msgid "RANDOM (HOLD)"
-msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2707,6 +2707,9 @@ msgid "VERTICAL"
 msgstr "VERTIKÁLIS"
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"

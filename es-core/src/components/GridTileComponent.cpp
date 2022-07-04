@@ -314,6 +314,12 @@ void GridTileComponent::renderBackground(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = parentTrans * getTransform();
 	mBackground.render(trans);
+
+	if (Settings::DebugMouse() && mIsMouseOver)
+	{
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
+	}
 }
 
 bool GridTileComponent::hasMarquee()
@@ -402,6 +408,13 @@ void GridTileComponent::render(const Transform4x4f& parentTrans)
 {
 	if (!mVisible)
 		return;
+
+	if (Settings::DebugMouse() && mIsMouseOver)
+	{
+		Transform4x4f trans = parentTrans * getTransform();
+		Renderer::setMatrix(trans);
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
+	}
 
 	renderContent(parentTrans, true);
 }
@@ -1022,14 +1035,14 @@ void GridTileComponent::stopVideo()
 		mVideo->setVideo("");
 }
 
-void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f* pPosition, bool force)
+void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f* pPosition, bool force, bool startsVideo)
 {
 	if (!isShowing() || !ALLOWANIMATIONS)
 		allowAnimation = false;
 
 	if (mSelected == selected && !force)
 	{
-		if (mSelected)
+		if (mSelected && startsVideo)
 			startVideo();
 
 		return;
@@ -1051,7 +1064,9 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 
 			this->setSelectedZoom(1);
 			mAnimPosition = Vector3f(0, 0, 0);
-			startVideo();
+
+			if (startsVideo)
+				startVideo();
 
 			resize();
 		}
@@ -1071,10 +1086,11 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 			};
 
 			cancelAnimation(3);
-			setAnimation(new LambdaAnimation(func, 250), 0, [this] {
+			setAnimation(new LambdaAnimation(func, 250), 0, [this, startsVideo] {
 				this->setSelectedZoom(1);
 				mAnimPosition = Vector3f(0, 0, 0);
-				startVideo();
+				if (startsVideo)
+					startVideo();
 			}, false, 3);
 		}
 	}

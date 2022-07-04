@@ -31,10 +31,8 @@ SystemScreenSaver::SystemScreenSaver(Window* window) :
 	mVideoScreensaver(NULL),
 	mImageScreensaver(NULL),
 	mWindow(window),
-	mVideosCounted(false),
-	mVideoCount(0),
-	mImagesCounted(false),
-	mImageCount(0),
+	mGamesWithVideosLoaded(false),
+	mGamesWithImagesLoaded(false),
 	mState(STATE_INACTIVE),
 	mOpacity(0.0f),
 	mTimer(0),
@@ -106,13 +104,13 @@ void SystemScreenSaver::startScreenSaver()
 		else
 		{
 			// Load a random video
-			path = pickRandomVideo();
+			path = pickRandomGameMedia(true);
 
 			int retry = 10;
 			while (retry > 0 && !Utils::FileSystem::exists(path))
 			{
 				retry--;
-				path = pickRandomVideo();
+				path = pickRandomGameMedia(true);
 			}
 		}
 
@@ -158,7 +156,7 @@ void SystemScreenSaver::startScreenSaver()
 			mCurrentGame = NULL;
 		}
 		else
-			path = pickRandomGameListImage();
+			path = pickRandomGameMedia();
 
 		if (!path.empty() && Utils::FileSystem::exists(path))
 		{
@@ -269,133 +267,116 @@ void SystemScreenSaver::renderScreenSaver()
 	}
 }
 
-unsigned long SystemScreenSaver::countGameListNodes(const char *nodeName)
+unsigned long SystemScreenSaver::countGameListNodes(bool video)
 {
+	if (video && mGamesWithVideosLoaded)
+		return mGamesWithVideos.size();
+
+	if (!video && mGamesWithImagesLoaded)
+		return mGamesWithImages.size();
+
 	unsigned long nodeCount = 0;
-	std::vector<SystemData*>::const_iterator it;
-	for (it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); ++it)
+
+	if (video)
+	{
+		mGamesWithVideosLoaded = true;
+		mGamesWithVideos.clear();
+	}
+	else
+	{
+		mGamesWithImagesLoaded = true;
+		mGamesWithImages.clear();
+	}
+
+	for (auto system : SystemData::sSystemVector)
 	{
 		// We only want nodes from game systems that are not collections
-		if (!(*it)->isGameSystem() || (*it)->isCollection())
+		if (!system->isGameSystem() || system->isCollection() || system->hasPlatformId(PlatformIds::IMAGEVIEWER) || system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
 			continue;
 
-		FolderData* rootFileData = (*it)->getRootFolder();
-
-		std::vector<FileData*> allFiles = rootFileData->getFilesRecursive(GAME, true);
-		std::vector<FileData*>::const_iterator itf;  // declare an iterator to a vector of strings
-
-		for (itf=allFiles.cbegin() ; itf < allFiles.cend(); itf++) 
+		auto games = system->getRootFolder()->getFilesRecursive(GAME, true);
+		for (auto game : games)
 		{
-			if ((strcmp(nodeName, "video") == 0 && (*itf)->getVideoPath() != "") ||
-				(strcmp(nodeName, "image") == 0 && (*itf)->getImagePath() != ""))
+			if (video && !game->getVideoPath().empty())
 			{
+				mGamesWithVideos.push_back(game);
+				nodeCount++;
+			}
+			else if (!video && !game->getImagePath().empty())
+			{
+				mGamesWithImages.push_back(game);
 				nodeCount++;
 			}
 		}
 	}
+
 	return nodeCount;
 }
 
-void SystemScreenSaver::countVideos()
+std::string  SystemScreenSaver::selectGameMedia(FileData* game, bool video)
 {
-	if (!mVideosCounted)
-	{
-		mVideoCount = countGameListNodes("video");
-		mVideosCounted = true;
-	}
-}
+	std::string path = video ? game->getVideoPath() : game->getImagePath();
+	if (!Utils::FileSystem::exists(path))
+		return "";
 
-void SystemScreenSaver::countImages()
-{
-	if (!mImagesCounted)
-	{
-		mImageCount = countGameListNodes("image");
-		mImagesCounted = true;
-	}
-}
-
-std::string SystemScreenSaver::pickGameListNode(unsigned long index, const char *nodeName)
-{
-	std::string path;
-
-	std::vector<SystemData*>::const_iterator it;
-	for (it = SystemData::sSystemVector.cbegin(); it != SystemData::sSystemVector.cend(); ++it)
-	{
-		// We only want nodes from game systems that are not collections
-		if (!(*it)->isGameSystem() || (*it)->isCollection())
-			continue;
-
-		FolderData* rootFileData = (*it)->getRootFolder();
-
-		FileType type = GAME;
-		std::vector<FileData*> allFiles = rootFileData->getFilesRecursive(type, true);
-		std::vector<FileData*>::const_iterator itf;  // declare an iterator to a vector of strings
-
-		for(itf=allFiles.cbegin() ; itf < allFiles.cend(); itf++) 
-		{
-			if ((strcmp(nodeName, "video") == 0 && (*itf)->getVideoPath() != "") ||
-				(strcmp(nodeName, "image") == 0 && (*itf)->getImagePath() != ""))
-			{
-				if (index-- <= 0)
-				{
-					// We have it
-					if (strcmp(nodeName, "video") == 0)
-						path = (*itf)->getVideoPath();
-					else if (strcmp(nodeName, "image") == 0)
-						path = (*itf)->getImagePath();
-
-					if (!Utils::FileSystem::exists(path))
-						continue;
-
-					mSystemName = (*it)->getFullName();
-					mGameName = (*itf)->getName();
-					mCurrentGame = (*itf);
-
+	mSystemName = game->getSourceFileData()->getSystem()->getFullName();
+	mGameName = game->getSourceFileData()->getSystem()->getName();
+	mCurrentGame = game;
 
 #ifdef _RPI_
-					if (Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
-					{
-						if (Settings::getInstance()->getString("ScreenSaverGameInfo") != "never" && strcmp(nodeName, "video") == 0)
-						{
-							std::string path = getTitleFolder();
-							if (!Utils::FileSystem::exists(path))
-								Utils::FileSystem::createDirectory(path);
+	if (Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
+	{
+		if (Settings::getInstance()->getString("ScreenSaverGameInfo") != "never" && video)
+		{
+			std::string path = getTitleFolder();
+			if (!Utils::FileSystem::exists(path))
+				Utils::FileSystem::createDirectory(path);
 
-							writeSubtitle(mGameName.c_str(), mSystemName.c_str(), (Settings::getInstance()->getString("ScreenSaverGameInfo") == "always"));
-						}
-				}
+			writeSubtitle(mGameName.c_str(), mSystemName.c_str(), (Settings::getInstance()->getString("ScreenSaverGameInfo") == "always"));
+		}
+	}
 #endif
 
-					return path;
-				}
-			}
-		}
+	return path;
+}
+
+std::string SystemScreenSaver::pickRandomGameMedia(bool video)
+{
+	mCurrentGame = NULL;
+
+	int count = countGameListNodes(video);
+	if (count == 0)
+		return "";
+
+	std::vector<FileData*>* games = &mGamesWithImages;
+	if (video)
+		games = &mGamesWithVideos;	
+
+	int randomValue = Randomizer::random(count) % count;
+	int index = randomValue;
+
+	while (true)
+	{
+		auto path = selectGameMedia(games->at(index), video);
+		if (!path.empty())
+			return path;
+		
+		games->erase(std::next(games->begin(), index));
+		
+		count = games->size();
+		if (count == 0)
+			break;
+
+		index--;
+
+		if (index < 0)
+			index = count - 1;
+
+		if (index == randomValue)
+			break;
 	}
 
 	return "";
-}
-
-std::string SystemScreenSaver::pickRandomVideo()
-{
-	countVideos();
-	mCurrentGame = NULL;
-	if (mVideoCount == 0)
-		return "";
-		
-	int video = Randomizer::random(mVideoCount); // (int)(((float)rand() / float(RAND_MAX)) * (float)mVideoCount);
-	return pickGameListNode(video, "video");
-}
-
-std::string SystemScreenSaver::pickRandomGameListImage()
-{
-	countImages();
-	mCurrentGame = NULL;
-	if (mImageCount == 0)
-		return "";
-	
-	//rand();
-	int image = Randomizer::random(mImageCount); // (int)(((float)rand() / float(RAND_MAX)) * (float)mImageCount);
-	return pickGameListNode(image, "image");
 }
 
 std::string SystemScreenSaver::pickRandomCustomImage(bool video)

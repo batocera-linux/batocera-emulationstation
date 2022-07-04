@@ -2474,6 +2474,9 @@ msgstr[1] "%i JOCS"
 msgid "RANDOM"
 msgstr "ALEATORI"
 
+msgid "NAVIGATION BAR"
+msgstr ""
+
 msgid "FILES"
 msgstr "ARXIUS"
 
@@ -2544,7 +2547,10 @@ msgstr ""
 msgid "GAME OPTIONS (HOLD)"
 msgstr ""
 
-msgid "RANDOM (HOLD)"
+msgid "GAME OPTIONS"
+msgstr ""
+
+msgid "FAVORITE"
 msgstr ""
 
 msgid ""
@@ -2745,6 +2751,9 @@ msgid "VERTICAL"
 msgstr ""
 
 msgid "LIGHTGUN"
+msgstr ""
+
+msgid "HAS MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"

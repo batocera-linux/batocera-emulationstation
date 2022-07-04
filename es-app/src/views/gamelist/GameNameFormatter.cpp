@@ -45,7 +45,8 @@ std::map<std::string, std::string> langFlag =
 	{ "sw", _U("\uF311") },
 	{ "uk", _U("\uF312") },
 	{ "us", _U("\uF313") },
-	{ "wr", _U("\uF314") }
+	{ "wr", _U("\uF314") },
+	{ "pl", _U("\uF315") }
 };
 
 std::string getLangFlag(const std::string lang)

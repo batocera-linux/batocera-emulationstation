@@ -28,8 +28,45 @@ namespace Renderer
 	static int              screenOffsetY      = 0;
 	static int              screenRotate       = 0;
 	static bool             initialCursorState = 1;
+	static Vector2i         screenMargin;
+	static Rect				viewPort;
 
 	static Vector2i			sdlWindowPosition = Vector2i(SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED);
+
+	static Rect screenToviewport(const Rect& rect)
+	{
+		Rect rc = rect;
+
+		float dx = (screenWidth - 2 * screenMargin.x()) / (float)screenWidth;
+		float dy = (screenHeight - 2 * screenMargin.y()) / (float)screenHeight;
+
+		rc.x = screenMargin.x() + rc.x * dx;
+		rc.y = screenMargin.y() + rc.y * dy;
+		rc.w = (float) rc.w * dx;
+		rc.h = (float) rc.h * dy;
+
+		return rc;
+	}
+
+	Rect		getScreenRect(const Transform4x4f& transform, const Vector3f& size, bool viewPort)
+	{
+		return getScreenRect(transform, Vector2f(size.x(), size.y()), viewPort);
+	}
+
+
+	Rect		getScreenRect(const Transform4x4f& transform, const Vector2f& size, bool viewPort)
+	{
+		auto rc = Rect(
+			transform.translation().x() * transform.r0().x(),
+			transform.translation().y() * transform.r1().y(),
+			size.x() * transform.r0().x(),
+			size.y() * transform.r1().y());
+
+		if (viewPort && screenMargin.x() != 0 && screenMargin.y() != 0)
+			return screenToviewport(rc);
+
+		return rc;
+	}
 
 	static void setIcon()
 	{
@@ -93,6 +130,7 @@ namespace Renderer
 		screenOffsetY = Settings::getInstance()->getInt("ScreenOffsetY") ? Settings::getInstance()->getInt("ScreenOffsetY") : 0;
 		screenRotate  = Settings::getInstance()->getInt("ScreenRotate")  ? Settings::getInstance()->getInt("ScreenRotate")  : 0;
 		
+
 		/*
 		if ((screenRotate == 1 || screenRotate == 3) && !Settings::getInstance()->getBool("Windowed"))
 		{
@@ -106,7 +144,7 @@ namespace Renderer
 			screenWidth = screenHeight;
 			screenHeight = tmp;
 		}
-		
+
 		int monitorId = Settings::getInstance()->getInt("MonitorID");
 		if (monitorId >= 0 && sdlWindowPosition == Vector2i(SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED))
 		{
@@ -205,22 +243,20 @@ namespace Renderer
 		SDL_SetWindowInputFocus(sdlWindow);		
 	}
 
-	bool init()
-	{
-		if(!createWindow())
-			return false;
 
+	void updateProjection()
+	{
 		Transform4x4f projection = Transform4x4f::Identity();
-		Rect          viewport   = Rect(0, 0, 0, 0);
+		Rect          viewport;
 
 		switch(screenRotate)
 		{
 			case 0:
 			{
-				viewport.x = screenOffsetX;
-				viewport.y = screenOffsetY;
-				viewport.w = screenWidth;
-				viewport.h = screenHeight;
+				viewport.x = screenOffsetX + screenMargin.x();
+				viewport.y = screenOffsetY + screenMargin.y();
+				viewport.w = screenWidth - 2 * screenMargin.x();
+				viewport.h = screenHeight - 2 * screenMargin.y();
 
 				projection.orthoProjection(0, screenWidth, screenHeight, 0, -1.0, 1.0);
 			}
@@ -268,11 +304,35 @@ namespace Renderer
 
 		setViewport(viewport);
 		setProjection(projection);
+	}
+
+	void		setScreenMargin(int marginX, int marginY)
+	{
+		if (screenMargin.x() == marginX && screenMargin.y() == marginY)
+			return;
+
+		screenMargin = Vector2i(marginX, marginY);
+
+		Rect          viewport;
+		viewport.x = screenOffsetX + screenMargin.x();
+		viewport.y = screenOffsetY + screenMargin.y();
+		viewport.w = screenWidth - 2 * screenMargin.x();
+		viewport.h = screenHeight - 2 * screenMargin.y();
+
+		setViewport(viewport);
+		// updateProjection();
+	}
+
+
+	bool init()
+	{
+		if (!createWindow())
+			return false;
+
+		updateProjection();
 		swapBuffers();
-
 		return true;
-
-	} // init
+	}
 
 	void deinit()
 	{
@@ -283,6 +343,11 @@ namespace Renderer
 	void pushClipRect(const Vector2i& _pos, const Vector2i& _size)
 	{
 		pushClipRect(_pos.x(), _pos.y(), _size.x(), _size.y());
+	}
+
+	void pushClipRect(Rect rect)
+	{
+		pushClipRect(rect.x, rect.y, rect.w, rect.h);
 	}
 
 	void pushClipRect(int x, int y, int w, int h)	
@@ -326,6 +391,9 @@ namespace Renderer
 		clipStack.push(box);
 		nativeClipStack.push(Rect(x, y, w, h));
 
+		if (screenMargin.x() != 0 && screenMargin.y() != 0)
+			box = screenToviewport(box);
+
 		setScissor(box);
 
 	} // pushClipRect
@@ -346,8 +414,15 @@ namespace Renderer
 			static 	Rect EmptyRect = Rect(0, 0, 0, 0);
 			setScissor(EmptyRect);
 		}
-		else                  
-			setScissor(clipStack.top());
+		else
+		{
+			Rect box = clipStack.top();
+
+			if (screenMargin.x() != 0 && screenMargin.y() != 0)
+				box = screenToviewport(box);
+
+			setScissor(box);
+		}
 
 	} // popClipRect
 
@@ -695,9 +770,15 @@ namespace Renderer
 		Instance()->setMatrix(_matrix);
 	}
 
+	Rect& getViewport()
+	{
+		return viewPort;
+	}
+
 	void setViewport(const Rect& _viewport)
 	{
-		return Instance()->setViewport(_viewport);
+		viewPort = _viewport;
+		Instance()->setViewport(_viewport);
 	}
 
 	void setScissor(const Rect& _scissor)

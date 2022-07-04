@@ -800,6 +800,15 @@ namespace Utils
 			return neg ? -value : value;
 		}
 
+		bool toBoolean(const std::string& string)
+		{
+			// only look at first char
+			char first = string[0];
+
+			// 1*, t* (true), T* (True), y* (yes), Y* (YES)
+			return (first == '1' || first == 't' || first == 'T' || first == 'y' || first == 'Y');
+		}
+
 		float toFloat(const std::string& string)
 		{
 			if (string.empty())
