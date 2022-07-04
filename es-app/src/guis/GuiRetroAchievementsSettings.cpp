@@ -24,9 +24,6 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 
 	addSwitch(_("HARDCORE MODE"), _("Disable loading states (as well as auto-load) for more points."), "global.retroachievements.hardcore", false, nullptr);
 	addSwitch(_("LEADERBOARDS"), _("Compete in high-score and best time leaderboards (requires hardcore)."), "global.retroachievements.leaderboards", false, nullptr);
-#ifdef _ENABLEEMUELEC
-	addSwitch(_("ENCORE MODE"), "global.retroachievements.encore", false);
-#endif
 	addSwitch(_("VERBOSE MODE"), "global.retroachievements.verbose", false);
 	addSwitch(_("RICH PRESENCE"), "global.retroachievements.richpresence", false);
 	addSwitch(_("ENCORE MODE"), _("Reset achievements to be able to earn them again."), "global.retroachievements.encore", false, nullptr);
