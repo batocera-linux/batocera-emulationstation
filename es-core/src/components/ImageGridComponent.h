@@ -1357,6 +1357,9 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 						mEntries[mCursor].data.tile->setSelected(true, true, mAnimateSelection ? nullptr : &oldPos, true);
 					}
 
+					if (mCursorChangedCallback)
+						mCursorChangedCallback(CURSOR_STOPPED);
+
 					mLastCursor = mCursor;
 				}
 				else
