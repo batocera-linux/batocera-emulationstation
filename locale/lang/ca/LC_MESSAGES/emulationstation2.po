@@ -2535,9 +2535,6 @@ msgstr[1] ""
 msgid "No Entries Found"
 msgstr "No s'han trobat entrades"
 
-msgid "FAVORITE"
-msgstr ""
-
 msgid "Games similar to"
 msgstr "Jocs similars a"
 
@@ -2545,12 +2542,6 @@ msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
-
-msgid "GAME OPTIONS"
-msgstr ""
-
-msgid "FAVORITE"
 msgstr ""
 
 msgid ""
