@@ -71,8 +71,8 @@
     <game>bodycount</game>
     <game>corpsekiller</game>
     <game>crimepatrol</game>
-    <game>lethalenforcers</game>
-    <game>lethalenforcersii</game>
+    <game gun="justifier">lethalenforcers</game>
+    <game gun="justifier">lethalenforcersii</game>
     <game>maddogii</game>
     <game>maddogmccree</game>
     <game>menacer6gamecartridge</game>
