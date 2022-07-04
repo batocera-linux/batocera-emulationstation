@@ -42,6 +42,7 @@ namespace Utils
 
 		int			toInteger(const std::string& string);
 		float		toFloat(const std::string& string);
+		bool		toBoolean(const std::string& string);
 
 		std::string decodeXmlString(const std::string& string);
 		std::string toHexString(unsigned int color);

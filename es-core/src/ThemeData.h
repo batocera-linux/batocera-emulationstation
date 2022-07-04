@@ -329,7 +329,6 @@ public:
 	
 	bool hasSubsets() { return mSubsets.size() > 0; }
 	static const std::shared_ptr<ThemeData::ThemeMenu>& getMenuTheme();
-	static unsigned int parseColor(const std::string& str);
 
 	std::vector<Subset>		    getSubSets() { return mSubsets; }
 	std::vector<std::string>	getSubSetNames(const std::string ofView = "");
@@ -390,7 +389,11 @@ private:
 	bool parseFilterAttributes(const pugi::xml_node& node);
 	void parseSubsetElement(const pugi::xml_node& root);
 
+	void processElement(const pugi::xml_node& root, ThemeElement& element, const std::string& name, const std::string& value, ElementPropertyType type);
+
 	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
+
+	static GuiComponent* createExtraComponent(Window* window, const ThemeElement& elem, bool forceLoad = false);
 
 	std::string resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path);
 	std::string resolvePlaceholders(const char* in);
