@@ -8,16 +8,21 @@
 #include <nanosvg/nanosvg.h>
 #include <nanosvg/nanosvgrast.h>
 #include <string.h>
-#include "Settings.h"
-
 #include <algorithm>
+#include <vlc/vlc.h>
+
+#include "Settings.h"
 #include "utils/ZipFile.h"
 #include "utils/StringUtil.h"
 #include "utils/FileSystemUtil.h"
+#include "utils/StringListLock.h"
+#include "Paths.h"
 
 #define DPI 96
 
 #define OPTIMIZEVRAM Settings::getInstance()->getBool("OptimizeVRAM")
+
+IPdfHandler* TextureData::PdfHandler = nullptr;
 
 TextureData::TextureData(bool tile, bool linear) : mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false),
 									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f),
@@ -231,13 +236,140 @@ bool TextureData::updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, 
 	return true;
 }
 
-static std::mutex mCbzMutex;
+// Avoid multiple extraction in the same file at the same time
+static Utils::StringListLockType mImageExtractorLock;
+
+bool TextureData::loadFromVideo()
+{
+	Utils::StringListLock lock(mImageExtractorLock, mPath);
+
+	auto val = Utils::FileSystem::createRelativePath(Utils::FileSystem::changeExtension(mPath, ".jpg"), Paths::getHomePath(), true);
+	val = Utils::String::replace(val, "~/../", "./");
+
+	std::string localFile = Utils::FileSystem::resolveRelativePath(val, Paths::getUserEmulationStationPath() + "/tmp/videothumbs/", true);
+
+	if (Utils::FileSystem::exists(localFile))
+	{
+		auto date = Utils::FileSystem::getFileCreationDate(localFile);
+		auto duration = Utils::Time::DateTime::now().elapsedSecondsSince(date);
+		if (duration > 62 * 86400) // 2 months
+			Utils::FileSystem::removeFile(localFile);
+	}
+
+	if (!Utils::FileSystem::exists(localFile))
+	{
+		Utils::FileSystem::createDirectory(Utils::FileSystem::getParent(localFile));
+
+		libvlc_instance_t *vlcInstance = nullptr;
+		libvlc_media_t *vlcMedia = nullptr;
+		libvlc_media_player_t *vlcMediaPlayer = nullptr;
+
+		std::vector<std::string> cmdline;
+		cmdline.push_back("--quiet");
+		cmdline.push_back("--rate=1");
+		cmdline.push_back("--video-filter=scene");
+		cmdline.push_back("--intf=dummy");
+		cmdline.push_back("--vout=dummy");
+		cmdline.push_back("--scene-format=jpeg");
+		cmdline.push_back("--scene-ratio=1");
+		cmdline.push_back("--no-video-title-show");
+
+		const char** vlcArgs = new const char*[cmdline.size()];
+
+		for (int i = 0; i < cmdline.size(); i++)
+			vlcArgs[i] = cmdline[i].c_str();
+
+		vlcInstance = libvlc_new(cmdline.size(), vlcArgs);
+		if (vlcInstance == nullptr)
+			return false;
+
+		vlcMedia = libvlc_media_new_path(vlcInstance, Utils::FileSystem::getPreferredPath(mPath).c_str());
+		if (vlcMedia == nullptr)
+		{
+			libvlc_release(vlcInstance);
+			return false;
+		}
+
+		libvlc_media_add_option(vlcMedia, ":no-audio");
+		libvlc_media_add_option(vlcMedia, ":start-time=1.5");
+
+		vlcMediaPlayer = libvlc_media_player_new_from_media(vlcMedia);
+		if (vlcMediaPlayer == nullptr)
+		{
+			libvlc_media_release(vlcMedia);
+			libvlc_release(vlcInstance);
+			return false;
+		}
+
+		int ms = 1500;
+
+		libvlc_media_player_set_rate(vlcMediaPlayer, 1);
+		libvlc_audio_set_mute(vlcMediaPlayer, 1);
+		libvlc_media_player_play(vlcMediaPlayer);
+		libvlc_media_player_set_time(vlcMediaPlayer, ms);
+
+		auto time = libvlc_media_player_get_time(vlcMediaPlayer);
+		while (time <= ms)
+			time = libvlc_media_player_get_time(vlcMediaPlayer);
+
+		int result = libvlc_video_take_snapshot(vlcMediaPlayer, 0, localFile.c_str(), 0, 0);
+
+		libvlc_media_player_stop(vlcMediaPlayer);
+		libvlc_media_player_release(vlcMediaPlayer);
+		libvlc_media_release(vlcMedia);
+		libvlc_release(vlcInstance);
+	}
+
+	if (Utils::FileSystem::exists(localFile))
+	{
+		std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
+		const ResourceData& data = rm->getFileData(localFile);
+
+		if (initImageFromMemory((const unsigned char*)data.ptr.get(), data.length))
+		{
+			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool TextureData::loadFromPdf()
+{
+	if (PdfHandler == nullptr)
+		return false;
+	
+	bool retval = false;
+
+	Utils::StringListLock lock(mImageExtractorLock, mPath);
+	
+	int dpi = 48;
+
+	if (!mMaxSize.empty())
+		dpi = (int) Math::clamp(mMaxSize.y() / 6, 32, 300);
+
+	auto files = PdfHandler->extractPdfImages(mPath, 1, 1, dpi);
+	if (files.size() > 0)
+	{
+		std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
+		const ResourceData& data = rm->getFileData(files[0]);
+		Utils::FileSystem::removeFile(files[0]);
+
+		retval = initImageFromMemory((const unsigned char*)data.ptr.get(), data.length);
+
+		if (retval)
+			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
+	}
+
+	return retval;
+}
 
 bool TextureData::loadFromCbz()
 {
-	std::unique_lock<std::mutex> lock(mCbzMutex);
-
 	bool retval = false;
+
+	Utils::StringListLock lock(mImageExtractorLock, mPath);
 
 	std::vector<Utils::Zip::ZipInfo> files;
 
@@ -275,7 +407,7 @@ bool TextureData::loadFromCbz()
 		};
 
 		zipFile.readBuffered(files[0].filename, func, buffer);
-
+		
 		retval = initImageFromMemory(buffer, size);
 
 		if (retval)
@@ -294,8 +426,16 @@ bool TextureData::load(bool updateCache)
 	{
 		LOG(LogDebug) << "TextureData::load " << mPath;
 
-		if (mPath.substr(mPath.size() - 4, std::string::npos) == ".cbz")
+		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mPath));
+
+		if (ext == ".cbz")
 			return loadFromCbz();
+
+		if (PdfHandler != nullptr && ext == ".pdf")
+			return loadFromPdf();
+
+		if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm")
+			return loadFromVideo();
 		
 		std::string path = mPath;
 		int subImageIndex = -1;

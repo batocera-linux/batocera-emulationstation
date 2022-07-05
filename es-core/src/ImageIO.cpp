@@ -322,10 +322,10 @@ static bool _isCachablePath(const std::string& path)
 {
 	return 
 		path.find("/themes/") == std::string::npos && 
-		path.find("/tmp/") != std::string::npos &&
-		path.find("/emulationstation.tmp/") != std::string::npos &&
+		path.find("/tmp/") == std::string::npos &&
+		path.find("/emulationstation.tmp/") == std::string::npos &&
 		path.find("/pdftmp/") == std::string::npos && 
-		path.find("/saves/") != std::string::npos;
+		path.find("/saves/") == std::string::npos;
 }
 
 void ImageIO::saveImageCache()

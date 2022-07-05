@@ -1327,7 +1327,7 @@ int ApiSystem::formatDisk(const std::string disk, const std::string format, cons
 	return executeScript("batocera-format format " + disk + " " + format, func).second;
 }
 
-int ApiSystem::getPdfPageCount(const std::string fileName)
+int ApiSystem::getPdfPageCount(const std::string& fileName)
 {
 	auto lines = executeEnumerationScript("pdfinfo \"" + fileName + "\"");
 	for (auto line : lines)
@@ -1340,7 +1340,7 @@ int ApiSystem::getPdfPageCount(const std::string fileName)
 	return 0;
 }
 
-std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName, int pageIndex, int pageCount, bool bestQuality)
+std::vector<std::string> ApiSystem::extractPdfImages(const std::string& fileName, int pageIndex, int pageCount, int quality)
 {
 	auto pdfFolder = Utils::FileSystem::getPdfTempPath();
 
@@ -1392,24 +1392,28 @@ std::vector<std::string> ApiSystem::extractPdfImages(const std::string fileName,
 
 	std::string page;
 
-	std::string quality = Renderer::isSmallScreen() ? "96" : "125";
-	if (bestQuality)
-		quality = "300";
+	std::string squality = Renderer::isSmallScreen() ? "96" : "125";
+	if (quality > 0)
+		squality = std::to_string(quality); // "300";
 
 	std::string prefix = "extract";
 	if (pageIndex >= 0)
 	{
 		char buffer[12];
 		sprintf(buffer, "%08d", (uint32_t)pageIndex);
-		prefix = "page-" + quality + "-" + std::string(buffer) + "-pdf";
+		
+		if (pageIndex < 0)
+			prefix = "page-" + squality + "-" + std::string(buffer) + "-pdf"; // page
+		else
+			prefix = Utils::FileSystem::getFileName(fileName) + "-" + squality + "-" + std::string(buffer) + "-pdf"; // page
 
 		page = " -f " + std::to_string(pageIndex) + " -l " + std::to_string(pageIndex + pageCount - 1);
 	}
 
 #if WIN32
-	executeEnumerationScript("pdftoppm -r "+ quality + page +" \"" + fileName + "\" \""+ pdfFolder +"/" + prefix +"\"");
+	executeEnumerationScript("pdftoppm -r "+ squality + page +" \"" + fileName + "\" \""+ pdfFolder +"/" + prefix +"\"");
 #else
-	executeEnumerationScript("pdftoppm -jpeg -r "+ quality +" -cropbox" + page + " \"" + fileName + "\" \"" + pdfFolder + "/" + prefix + "\"");
+	executeEnumerationScript("pdftoppm -jpeg -r "+ squality +" -cropbox" + page + " \"" + fileName + "\" \"" + pdfFolder + "/" + prefix + "\"");
 #endif
 
 	int time = SDL_GetTicks() - lastTime;

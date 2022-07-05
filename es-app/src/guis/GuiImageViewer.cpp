@@ -13,6 +13,7 @@
 #endif
 
 #include "utils/ZipFile.h"
+#include "components/HelpComponent.h"
 
 class ZoomableImageComponent : public ImageComponent
 {
@@ -69,9 +70,9 @@ public:
 	std::vector<HelpPrompt> getHelpPrompts()
 	{
 		std::vector<HelpPrompt> prompts;
-		prompts.push_back(HelpPrompt(BUTTON_BACK, _("CLOSE"), [&] { delete this; }));
-		prompts.push_back(HelpPrompt("l", _("ZOOM OUT")));
-		prompts.push_back(HelpPrompt("r", _("ZOOM IN")));		
+		prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK"), [&] { delete this; }));
+		prompts.push_back(HelpPrompt("l", _("ZOOM OUT"), [&] { onMouseWheel(-1); }));
+		prompts.push_back(HelpPrompt("r", _("ZOOM IN"), [&] { onMouseWheel(1); }));
 		prompts.push_back(HelpPrompt("up/down/left/right", _("MOVE")));
 
 		return prompts;
@@ -191,7 +192,75 @@ public:
 		mLocked = state;
 	}
 
+	bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
+	{
+		if (pResult != nullptr)
+		{
+			for (auto cp : *pResult)
+				if (cp->isKindOf<HelpComponent>())
+					return false;
+
+			pResult->push_back(this);
+		}
+
+		return true;
+	}
+
+	void onMouseWheel(int delta)
+	{
+		auto scale = getScale();
+		float zoomSpeed = 0.1f;
+
+		scale = scale + delta * zoomSpeed;
+		if (scale < 0.01)
+			scale = 0.01;
+
+		setScale(scale);
+	}
+
+	void onMouseMove(int x, int y)
+	{
+		if (mPressedPoint.x() != -1 && mPressedPoint.y() != -1 && mWindow->hasMouseCapture(this))
+		{
+			auto org = getOrigin();
+
+			auto scale = getScale();
+			auto size = getSize();
+
+			if (size.x() != 0 && size.y() != 0)
+			{
+				float dx = (mPressedPoint.x() - x) / (float)(size.x() * scale);
+				float dy = (mPressedPoint.y() - y) / (float)(size.y() * scale);
+
+				org.x() = org.x() + dx;
+				org.y() = org.y() + dy;
+				setOrigin(org);
+			}
+
+			mPressedPoint = Vector2i(x, y);
+		}
+	}
+
+	bool onMouseClick(int button, bool pressed, int x, int y)
+	{
+		if (button == 1)
+		{
+			if (pressed)
+			{
+				mPressedPoint = Vector2i(x, y);
+				mWindow->setMouseCapture(this);
+			}
+			else if (mWindow->hasMouseCapture(this))
+				mWindow->releaseMouseCapture();
+
+			return true;
+		}
+
+		return false;
+	}
+
 private:
+	Vector2i mPressedPoint;
 	Vector2f mMoving;
 	float	 mZooming;
 	bool	 mFirstShow;
@@ -515,7 +584,7 @@ bool GuiImageViewer::input(InputConfig* config, Input input)
 					window->pushGui(new GuiLoading<std::string>(window, _("Loading..."),
 						[this, window, path, page](auto gui)
 						{
-							auto files = ApiSystem::getInstance()->extractPdfImages(mPdf, page, 1, true);
+							auto files = ApiSystem::getInstance()->extractPdfImages(mPdf, page, 1, 300);
 							if (files.size() == 1)
 								return files[0];
 
