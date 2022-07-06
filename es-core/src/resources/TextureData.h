@@ -4,13 +4,23 @@
 
 #include <mutex>
 #include <string>
+#include <vector>
 #include "ImageIO.h"
 
 class TextureResource;
 
+class IPdfHandler
+{
+public:
+	virtual int getPdfPageCount(const std::string& fileName) = 0;
+	virtual std::vector<std::string> extractPdfImages(const std::string& fileName, int pageIndex = -1, int pageCount = 1, int quality = 0) = 0;
+};
+
 class TextureData
 {
 public:
+	static IPdfHandler* PdfHandler;
+
 	TextureData(bool tile, bool linear);
 	~TextureData();
 
@@ -25,6 +35,8 @@ public:
 	// Read the data into memory if necessary
 	bool load(bool updateCache = false);
 	bool loadFromCbz();
+	bool loadFromPdf();
+	bool loadFromVideo();
 
 	bool isLoaded();
 

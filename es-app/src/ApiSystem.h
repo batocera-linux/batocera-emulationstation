@@ -5,6 +5,7 @@
 #include <map>
 #include "Window.h"
 #include "components/BusyComponent.h"
+#include "resources/TextureData.h"
 
 struct BiosFile 
 {
@@ -73,7 +74,7 @@ struct PadInfo
 	int battery;
 };
 
-class ApiSystem 
+class ApiSystem : public IPdfHandler
 {
 public:
 	enum ScriptId : unsigned int
@@ -197,8 +198,8 @@ public:
 
 	virtual bool unzipFile(const std::string fileName, const std::string destFolder = "", const std::function<bool(const std::string)>& shouldExtract = nullptr);
 
-	virtual int getPdfPageCount(const std::string fileName);
-	virtual std::vector<std::string> extractPdfImages(const std::string fileName, int pageIndex = -1, int pageCount = 1, bool bestQuality = false);
+	virtual int getPdfPageCount(const std::string& fileName);
+	virtual std::vector<std::string> extractPdfImages(const std::string& fileName, int pageIndex = -1, int pageCount = 1, int quality = 0);
 
 	virtual std::string getRunningArchitecture();
 

@@ -32,6 +32,7 @@
 #include "LocaleES.h"
 #include "guis/GuiMsgBox.h"
 #include "Paths.h"
+#include "resources/TextureData.h"
 
 FileData* FileData::mRunningGame = nullptr;
 
@@ -189,10 +190,10 @@ const std::string FileData::getThumbnailPath()
 				thumbnail = getPath();
 
 				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(thumbnail));
-				if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+				if (TextureData::PdfHandler == nullptr && ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 					return ":/pdf.jpg";
-				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
-					return ":/vid.jpg";
+			/*	else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+					return ":/vid.jpg";*/
 			}
 		}
 
@@ -390,10 +391,10 @@ const std::string FileData::getImagePath()
 				image = getPath();
 
 				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
-				if (ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
+				if (TextureData::PdfHandler == nullptr && ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 					return ":/pdf.jpg";
-				else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
-					return ":/vid.jpg";
+				/* else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
+					return ":/vid.jpg"; */
 			}
 		}
 	}
