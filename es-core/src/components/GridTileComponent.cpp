@@ -474,7 +474,7 @@ void GridTileComponent::createVideo()
 	if (mVideo != nullptr)
 		return;
 
-	mVideo = new VideoVlcComponent(mWindow, "");
+	mVideo = new VideoVlcComponent(mWindow);
 
 	// video
 	mVideo->setOrigin(0.5f, 0.5f);

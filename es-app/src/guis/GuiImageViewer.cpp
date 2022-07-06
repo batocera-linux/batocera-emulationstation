@@ -725,7 +725,7 @@ GuiVideoViewer::GuiVideoViewer(Window* window, const std::string& path) : GuiCom
 	else
 #endif
 	{
-		mVideo = new VideoVlcComponent(mWindow, "");
+		mVideo = new VideoVlcComponent(mWindow);
 
 		((VideoVlcComponent*)mVideo)->setLinearSmooth();
 		((VideoVlcComponent*)mVideo)->setEffect(VideoVlcFlags::NONE);
