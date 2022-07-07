@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v35beta(2022/06/06)\n"
+"Project-Id-Version: batocera-es v35beta(2022/07/05)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-06-06 12:40+0900\n"
+"PO-Revision-Date: 2022-07-05 23:44+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -382,7 +382,7 @@ msgid "VERBOSE MODE"
 msgstr "詳細な処理モード"
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "リッチプレゼンス(フレンド参加)"
 
 msgid "ENCORE MODE"
 msgstr "アンコール モード"
@@ -1474,7 +1474,7 @@ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr "ユーザーインターフェイスモードのロックを解除しました"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr "コードを入力して、ロックを解除します"
+msgstr "ロック解除(ボタンを順に押す)"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "開発者オプション"
@@ -1947,7 +1947,7 @@ msgstr "巻き戻し"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
-"コアがサポートしている場合は、過去の状態を保存してリアルタイムで巻き戻します"
+"コアが対応している場合は、過去の状態を保存してリアルタイムで巻き戻します"
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数スケール (ピクセルを正方形表示)"
@@ -2019,28 +2019,28 @@ msgid "SAVESTATES"
 msgstr "ステートセーブ"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "自動ステートセーブ読込"
+msgstr "自動ステート読込"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr "ゲーム起動時にセーブを読込み、ゲームの終了時にステートセーブします"
+msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "新たにステートセーブ保存"
+msgstr "ステートセーブ保存方法"
 
 msgid "INCREMENT PER SAVE"
-msgstr "常に別セーブで保存"
+msgstr "常に別スロットにセーブ"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "古いセーブを上書きせず、常に新しくセーブを保存"
+msgstr "古いセーブに上書きせず、常に新しくセーブを保存"
 
 msgid "INCREMENT SLOT"
-msgstr "別のゲーム時に別セーブで保存"
+msgstr "ゲームごとに別にセーブ"
 
 msgid "Increment slot on a new game."
-msgstr "別のゲームの場合に、別にセーブを保存"
+msgstr "別の違うゲームの場合は、新しくセーブを保存"
 
 msgid "DO NOT INCREMENT"
-msgstr "セーブスロットを別に作成しない"
+msgstr "同一スロットにセーブ"
 
 msgid "Use current slot on a new game."
 msgstr "選択スロットにセーブを上書き保存"
@@ -2331,7 +2331,7 @@ msgid "REALLY QUIT?"
 msgstr "本当に終了しますか？"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "自動ステートセーブ読込"
+msgstr "自動ステート読込でゲームを開始"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "コントローラーイメージを表示"
@@ -2461,7 +2461,7 @@ msgid "RANDOM"
 msgstr "ランダム"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "ナビケーションバー"
 
 msgid "FILES"
 msgstr "ファイル"
@@ -2471,8 +2471,8 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"警告：このゲームのファイル形式は、 現在のエミュレータ/コアではサポートされて"
-"いません。\n"
+"警告：このゲームのファイル形式は、 現在のエミュレータ/コアでは対応していませ"
+"ん。\n"
 "実行しますか?"
 
 msgid ""
@@ -2733,10 +2733,10 @@ msgid "VERTICAL"
 msgstr "縦表示"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "ライトガン"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "メディア有り"
 
 msgid "SCRAPING"
 msgstr "情報を取得中"
@@ -2751,6 +2751,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"銃キャリブレーション\n"
+"ターゲットに発射して較正"
 
 #, c-format
 msgid "%s connected"
@@ -2969,8 +2971,5 @@ msgstr "スクリーンリーダー有効"
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
 
-#~ msgid "RANDOM (HOLD)"
-#~ msgstr "ランダム (長押し)"
-
-#~ msgid "GRAPHICS API"
-#~ msgstr "グラフィック API"
+msgid "GRAPHICS API"
+msgstr "グラフィック API"
