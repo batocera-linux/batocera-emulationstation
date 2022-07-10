@@ -23,6 +23,7 @@
 #include "guis/GuiGamelistOptions.h"
 #include "BasicGameListView.h"
 #include "utils/Randomizer.h"
+#include "views/Binding.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
@@ -598,4 +599,22 @@ std::vector<HelpPrompt> ISimpleGameListView::getHelpPrompts()
 	prompts.push_back(HelpPrompt("y", _("SEARCH") + std::string("/") + _("RANDOM"), [&] { showQuickSearch(); }));
 
 	return prompts;
+}
+
+void ISimpleGameListView::updateThemeExtrasBindings()
+{
+	FileData* file = getCursor();
+	if (file == nullptr)
+		return;
+
+	auto system = file->getSystem();
+
+	for (auto extra : mThemeExtras)
+	{
+		TextComponent* text = dynamic_cast<TextComponent*>(extra);
+		if (text != nullptr)
+			Binding::updateBindings(text, system);
+
+		Binding::updateBindings(extra, file);
+	}
 }

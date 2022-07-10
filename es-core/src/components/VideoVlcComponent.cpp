@@ -59,7 +59,7 @@ static void display(void* data, void* id)
 		c->component->onVideoStarted();
 }
 
-VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
+VideoVlcComponent::VideoVlcComponent(Window* window) :
 	VideoComponent(window),
 	mMediaPlayer(nullptr), 
 	mMedia(nullptr)
@@ -77,7 +77,7 @@ VideoVlcComponent::VideoVlcComponent(Window* window, std::string subtitles) :
 	mEffect = VideoVlcFlags::VideoVlcEffect::BUMP;
 
 	// Make sure VLC has been initialised
-	setupVLC(subtitles);
+	init();
 }
 
 VideoVlcComponent::~VideoVlcComponent()
@@ -429,7 +429,7 @@ void VideoVlcComponent::freeContext()
 	mContext.valid = false;			
 }
 
-void VideoVlcComponent::setupVLC(std::string subtitles)
+void VideoVlcComponent::init()
 {
 	if (mVLC != nullptr)
 		return;
@@ -437,12 +437,6 @@ void VideoVlcComponent::setupVLC(std::string subtitles)
 	std::vector<std::string> cmdline;
 	cmdline.push_back("--quiet");
 	cmdline.push_back("--no-video-title-show");
-	
-	if (!subtitles.empty())
-	{
-		cmdline.push_back("--sub-file");
-		cmdline.push_back(subtitles);
-	}
 
 	std::string commandLine = SystemConf::getInstance()->get("vlc.commandline");
 	if (!commandLine.empty())
@@ -452,28 +446,11 @@ void VideoVlcComponent::setupVLC(std::string subtitles)
 			cmdline.push_back(token);
 	}
 
-	const char* *theArgs = new const char*[10];
+	const char* *theArgs = new const char*[cmdline.size()];
 
 	for (int i = 0 ; i < cmdline.size() ; i++)
 		theArgs[i] = cmdline[i].c_str();
 
-	/*
-	// If VLC hasn't been initialised yet then do it now
-	const char** args;
-	const char* newargs[] = { "--quiet", "--sub-file", subtitles.c_str() };
-	const char* singleargs[] = { "--quiet" };
-	int argslen = 0;
-
-	if (!subtitles.empty())
-	{
-		argslen = sizeof(newargs) / sizeof(newargs[0]);
-		args = newargs;
-	}
-	else
-	{
-		argslen = sizeof(singleargs) / sizeof(singleargs[0]);
-		args = singleargs;
-	}*/
 	mVLC = libvlc_new(cmdline.size(), theArgs);
 
 	delete[] theArgs;
@@ -646,36 +623,6 @@ void VideoVlcComponent::startVideo()
 				libvlc_media_player_play(mMediaPlayer);
 				libvlc_video_set_callbacks(mMediaPlayer, lock, unlock, display, (void*)&mContext);
 				libvlc_video_set_format(mMediaPlayer, "RGBA", (int)mVideoWidth, (int)mVideoHeight, (int)mVideoWidth * 4);
-				/*
-				if (true) // test wait video stream
-				{
-					int ps_time = SDL_GetTicks();
-
-					int frame = mContext.surfaceId;
-
-					int cnt = 0;
-					while (cnt < 5)
-					{
-						int id = mContext.surfaceId;
-
-						if (frame != id)
-						{
-							cnt++;
-							frame = id;
-						}
-						::_sleep(2);
-
-						if (SDL_GetTicks() - ps_time > 300)
-							break;
-					}
-
-					mFadeIn = 1.0f;
-					mElapsed = 1000;
-				}*/
-
-				// Update the playing state -> Useless now set by display() & onVideoStarted
-				//mIsPlaying = true;
-				//mFadeIn = 0.0f;
 			}
 		}
 	}

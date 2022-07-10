@@ -23,6 +23,7 @@ BasicGameListView::BasicGameListView(Window* window, FolderData* root)
 
 	mList.setCursorChangedCallback([&](const CursorState& /*state*/) 
 		{
+		updateThemeExtrasBindings();
 		  FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
 		  if (file != nullptr)
 		    file->setSelectedGame();

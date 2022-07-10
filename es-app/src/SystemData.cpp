@@ -1325,7 +1325,8 @@ GameCountInfo* SystemData::getGameCountInfo()
 	mGameCountInfo->hiddenCount = 0;
 	mGameCountInfo->playCount = 0;
 	mGameCountInfo->gamesPlayed = 0;
-
+	mGameCountInfo->playTime = 0;
+	
 	int mostPlayCount = 0;
 
 	for (auto game : games)
@@ -1348,6 +1349,10 @@ GameCountInfo* SystemData::getGameCountInfo()
 				mostPlayCount = playCount;
 			}
 		}
+
+		long seconds = atol(game->getMetadata(MetaDataId::GameTime).c_str());
+		if (seconds > 0)
+			mGameCountInfo->playTime += seconds;
 
 		auto lastPlayed = game->getMetadata(MetaDataId::LastPlayed);
 		if (!lastPlayed.empty() && lastPlayed > mGameCountInfo->lastPlayedDate)
@@ -1884,4 +1889,99 @@ int SystemData::getShowFlags()
 		return show;
 	
 	return Utils::String::toInteger(spf);
+}
+
+
+std::string SystemData::getProperty(const std::string& name)
+{
+	if (name == "name")
+		return getName();
+
+	if (name == "fullName")
+		return getFullName();
+
+	if (name == "manufacturer")
+		return  getSystemMetadata().manufacturer;
+
+	if (name == "releaseYear")
+		return std::to_string(getSystemMetadata().releaseYear);
+
+	if (name == "hardwareType")
+		return getSystemMetadata().hardwareType;
+
+	if (name == "command" && getSystemEnvData() != nullptr)
+		return getSystemEnvData()->mLaunchCommand;
+
+	if (name == "group" && getSystemEnvData() != nullptr)
+		return getSystemEnvData()->mGroup;
+
+	GameCountInfo* info = getGameCountInfo();
+	if (info == nullptr)
+		return "";
+
+	if (name == "subSystems")
+	{
+		if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+			return std::to_string(getRootFolder()->getChildren().size());
+
+		return std::to_string(Math::max(1, getGroupChildSystemNames(getName()).size()));
+	}
+
+	if (name == "total")
+	{
+		if (info->totalGames != info->visibleGames)
+			return std::to_string(info->visibleGames) + " / " + std::to_string(info->totalGames);
+
+		return std::to_string(info->totalGames);
+	}
+
+	if (name == "played")
+		return std::to_string(info->playCount);
+
+	if (name == "favorites")
+		return std::to_string(info->favoriteCount);
+
+	if (name == "hidden")
+		return std::to_string(info->hiddenCount);
+
+	if (name == "gamesPlayed")
+		return std::to_string(info->gamesPlayed);
+
+	if (name == "mostPlayed")
+		return info->mostPlayed;
+
+	if (name == "gameTime" && info->playTime != 0)
+	{
+		auto seconds = info->playTime;
+
+		int h = 0, m = 0, s = 0;
+		h = (seconds / 3600) % 24;
+		m = (seconds / 60) % 60;
+		s = seconds % 60;
+
+		std::string timeText;
+		if (h > 0)
+			timeText = Utils::String::format("%02d:%02d:%02d", h, m, s);
+		else
+			timeText = Utils::String::format("%02d:%02d", m, s);
+
+		return timeText;
+	}
+
+	if (name == "lastPlayedDate")
+	{
+		Utils::Time::DateTime dt = info->lastPlayedDate;
+		if (dt.getTime() != 0)
+		{
+			time_t     clockNow = dt.getTime();
+			struct tm  clockTstruct = *localtime(&clockNow);
+
+			char       clockBuf[256];
+			strftime(clockBuf, sizeof(clockBuf), "%Ex", &clockTstruct);
+
+			return clockBuf;
+		}
+	}
+
+	return "";
 }

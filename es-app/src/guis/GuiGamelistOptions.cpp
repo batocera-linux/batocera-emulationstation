@@ -58,13 +58,16 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 
 	auto theme = ThemeData::getMenuTheme();
 
+	bool showFilters = !Settings::getInstance()->getBool("ForceDisableFilters");
+	if (mSystem != CollectionSystemManager::get()->getCustomCollectionsBundle() && customCollection == customCollections.cend())
+		showFilters = false;
+
 	if (!isInRelevancyMode)
 	{
 		mMenu.addGroup(_("NAVIGATION"));
 
-		if (!Settings::getInstance()->getBool("ForceDisableFilters"))
-			if (customCollection == customCollections.cend() || customCollection->second.filteredIndex == nullptr)
-				addTextFilterToMenu();
+		if (showFilters)				
+			addTextFilterToMenu();
 
 		ComponentListRow row;
 
@@ -130,96 +133,10 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort);	
 
 		// Show filtered menu
-		if (!Settings::getInstance()->getBool("ForceDisableFilters"))
-		{
-			if (customCollection == customCollections.cend() || customCollection->second.filteredIndex == nullptr)
-				mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
-		}
-		/*
-		SystemData* all = SystemData::getSystem("all");
-		if (all != nullptr && file != nullptr && file->getType() != FOLDER)
-		{
-			mMenu.addEntry(_("FIND SIMILAR GAMES..."), true, [this, file, all]
-			{
-				auto index = all->getIndex(true);
-
-				FileFilterIndex* copyOfIndex = new FileFilterIndex();
-				copyOfIndex->copyFrom(index);
-
-				index->resetFilters();
-				index->setTextFilter(file->getName(), true);
-
-				// Create As Popup And Set Exit Function
-				// We need to restore index when we are finished as we are using all games collection
-				ViewController::get()->getGameListView(all, true, [index, copyOfIndex]()
-				{ 
-					index->copyFrom((FileFilterIndex*) copyOfIndex);
-					delete copyOfIndex;
-				});
-
-				delete this;
-			});
-		}*/
+		if (showFilters)
+			mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 	}
 
-
-	/*
-	// Game medias
-	bool hasManual = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual));
-	bool hasMap = Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map));
-	bool hasCheevos = file->hasCheevos();
-
-	if (hasManual || hasMap || hasCheevos)
-	{
-		mMenu.addGroup(_("GAME MEDIAS"));
-
-		if (hasManual)
-		{
-			mMenu.addEntry(_("VIEW GAME MANUAL"), false, [window, file, this]
-			{
-				GuiImageViewer::showPdf(window, file->getMetadata(MetaDataId::Manual));
-				delete this;
-			});
-		}
-
-		if (hasMap)
-		{
-			mMenu.addEntry(_("VIEW GAME MAP"), false, [window, file, this]
-			{
-				auto imagePath = file->getMetadata(MetaDataId::Map);				
-				GuiImageViewer::showImage(window, imagePath, Utils::String::toLower(Utils::FileSystem::getExtension(imagePath)) != ".pdf");
-				delete this;
-			});
-		}
-
-		if (hasCheevos)
-		{
-			if (!file->isFeatureSupported(EmulatorFeatures::cheevos))
-			{				
-				std::string coreList = file->getSourceFileData()->getSystem()->getCompatibleCoreNames(EmulatorFeatures::cheevos);
-				std::string msg = _U("\uF06A  ");
-				msg += _("CURRENT CORE IS NOT COMPATIBLE") + " : " + Utils::String::toUpper(file->getCore(true));
-				if (!coreList.empty())
-				{
-					msg += _U("\r\n\uF05A  ");
-					msg += _("REQUIRED CORE") + " : " + Utils::String::toUpper(coreList);
-				}
-
-				mMenu.addWithDescription(_("VIEW GAME ACHIEVEMENTS"), msg, nullptr, [window, file, this]
-				{
-					GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
-				});
-			}
-			else
-			{
-				mMenu.addEntry(_("VIEW GAME ACHIEVEMENTS"), false, [window, file, this]
-				{
-					GuiGameAchievements::show(window, Utils::String::toInteger(file->getMetadata(MetaDataId::CheevosId)));
-				});
-			}
-		}
-	}
-	*/
 	if (!isInRelevancyMode)
 	{
 		if (customCollection != customCollections.cend())
@@ -317,23 +234,14 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 						GuiMenu::editKeyboardMappings(mWindow, srcSystem, false);
 					});
 				}
-
-				/* FCA : Tried to show one item by group child system -> I personnally don't like it at all
-				if (mSystem->isGroupSystem())
-				{
-					for (auto child : SystemData::sSystemVector)
-					{
-						if (child->getParentGroupSystem() == mSystem)
-							mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS") + " : " + child->getFullName(), true, [this, child] { GuiMenu::popSystemConfigurationGui(mWindow, child); });
-					}
-				}
-				else*/
-					mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
+					
+				mMenu.addEntry(_("ADVANCED SYSTEM OPTIONS"), true, [this, sysOptions] { GuiMenu::popSystemConfigurationGui(mWindow, sysOptions); });
 			}
 		}
 	}
 
 	mMenu.setMaxHeight(Renderer::getScreenHeight() * 0.85f);
+
 	// center the menu
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	mMenu.animateTo(Vector2f((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2));
@@ -418,8 +326,10 @@ GuiGamelistOptions::~GuiGamelistOptions()
 	for (auto it = mSaveFuncs.cbegin(); it != mSaveFuncs.cend(); it++)
 		(*it)();
 
+	bool saveSort = !fromPlaceholder || mSystem == CollectionSystemManager::get()->getCustomCollectionsBundle();
+
 	// apply sort
-	if (mListSort && !fromPlaceholder && mListSort->getSelected() != mSystem->getSortId())
+	if (mListSort && saveSort && mListSort->getSelected() != mSystem->getSortId())
 	{
 		mSystem->setSortId(mListSort->getSelected());
 		
@@ -479,7 +389,7 @@ GuiGamelistOptions::~GuiGamelistOptions()
 			ViewController::get()->reloadSystemListViewTheme(mSystem);
 		}
 
-		if (!viewModeChanged && mSystem->isCollection())
+		if (!viewModeChanged && mSystem->isCollection() && mSystem != CollectionSystemManager::get()->getCustomCollectionsBundle())
 			CollectionSystemManager::get()->reloadCollection(getCustomCollectionName());
 		else
 			ViewController::get()->reloadGameListView(mSystem);

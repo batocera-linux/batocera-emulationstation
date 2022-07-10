@@ -520,8 +520,11 @@ void AudioManager::setVideoPlaying(bool state)
 	if (sInstance == nullptr || !sInstance->mInitialized || !Settings::BackgroundMusic())
 		return;
 	
-	if (state && !Settings::getInstance()->getBool("VideoLowersMusic"))
+	if (state && (!Settings::getInstance()->getBool("VideoLowersMusic") || !Settings::getInstance()->getBool("VideoAudio")))
+	{
+		sInstance->mVideoPlaying = false;
 		return;
+	}
 
 	sInstance->mVideoPlaying = state;
 }

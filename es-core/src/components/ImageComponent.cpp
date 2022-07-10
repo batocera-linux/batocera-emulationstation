@@ -840,10 +840,12 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	if (properties & PATH && elem->has("path"))
 	{
 		auto path = elem->get<std::string>("path");
-		if (!path.empty())
-		{
-			mPath = "";
 
+		mSourceThemePath = path;
+
+		if (!path.empty())
+		{			
+			mPath = "";
 			
 			if (mPlaylist == nullptr)
 			{
