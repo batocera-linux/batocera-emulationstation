@@ -1746,7 +1746,45 @@ void FileData::setSelectedGame()
 
 	std::string desc = getMetadata(MetaDataId::Desc);
 	if (!desc.empty())
-		TextToSpeech::getInstance()->say(desc, true);
+		TextToSpeech::getInstance()->say(desc, true);	
+}
 
+std::string FileData::getProperty(const std::string& name)
+{
+	if (name == "name")
+		return getName();
+
+	if (name == "rom")
+		return Utils::FileSystem::getFileName(getPath());
+
+	if (name == "path")
+		return getPath();
 	
+	if (name == "favorite")
+		return getFavorite() ? _("YES") : _("NO");
+
+	if (name == "hidden")
+		return getHidden() ? _("YES") : _("NO");
+
+	if (name == "kidGame")
+		return getKidGame() ? _("YES") : _("NO");
+
+	if (name == "gameTime")
+	{
+		int seconds = atol(getMetadata(MetaDataId::GameTime).c_str());
+		if (seconds == 0)
+			return "";
+		
+		int h = 0, m = 0, s = 0;
+		h = (seconds / 3600) % 24;
+		m = (seconds / 60) % 60;
+		s = seconds % 60;
+
+		if (h > 0)
+			return Utils::String::format("%02d:%02d:%02d", h, m, s);
+
+		return Utils::String::format("%02d:%02d", m, s);		
+	}
+
+	return getMetadata().get(name);	
 }

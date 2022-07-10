@@ -158,7 +158,11 @@ public:
 
 	bool showSnapshots();
 
+	std::string getOriginalThemePath() { return mSourceThemePath; }
+
 protected:
+	std::string mSourceThemePath;
+
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::function<bool()> mVideoEnded;
 

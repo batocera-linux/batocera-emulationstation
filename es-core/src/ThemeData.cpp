@@ -1490,6 +1490,13 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 				}
 			}
 
+			// Allow variables in the form "{game:image}"
+			if (path[0] == '{' && path.find(":") != std::string::npos && Utils::String::endsWith(path, "}"))
+			{
+				element.properties[name] = path;
+				break;
+			}
+
 			LOG(LogDebug) << "Warning : could not find file \"" << value << "\" " << "(which resolved to \"" << path << "\") ";
 		}
 

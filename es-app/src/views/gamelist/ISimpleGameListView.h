@@ -57,6 +57,8 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
 protected:	
+	void	  updateThemeExtrasBindings();
+
 	void	  updateFolderPath();
 	void      updateHeaderLogoAndText();
 	void	  goBack();

@@ -32,6 +32,7 @@ struct GameCountInfo
 	int favoriteCount;
 	int hiddenCount;
 	int gamesPlayed;
+	long playTime;
 	std::string mostPlayed;
 	std::string lastPlayedDate;
 };
@@ -207,6 +208,8 @@ public:
 	static void resetSettings();
 
 	SaveStateRepository* getSaveStateRepository();
+
+	std::string getProperty(const std::string& name);
 
 private:
 	std::string getKeyboardMappingFilePath();

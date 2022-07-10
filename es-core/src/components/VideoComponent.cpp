@@ -351,8 +351,10 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	if (elem->has("path"))
 	{
-		if (Utils::FileSystem::exists(elem->get<std::string>("path")))
-			mVideoPath = elem->get<std::string>("path");
+		mSourceThemePath = elem->get<std::string>("path");
+
+		if (Utils::FileSystem::exists(mSourceThemePath))
+			mVideoPath = mSourceThemePath;
 		else
 			mVideoPath = mConfig.defaultVideoPath;
 	}

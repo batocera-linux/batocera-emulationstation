@@ -441,15 +441,16 @@ namespace Renderer
 	unsigned int GLES20Renderer::createTexture(const Texture::Type _type, const bool _linear, const bool _repeat, const unsigned int _width, const unsigned int _height, void* _data)
 	{
 		const GLenum type = convertTextureType(_type);
-		unsigned int texture;
 
+		unsigned int texture = -1;
 		glGenTextures(1, &texture);
-		if (glGetError() != GL_NO_ERROR)
+
+		if (texture == -1)
 		{
-			LOG(LogError) << "CreateTexture error: glGenTextures failed";
+			LOG(LogError) << "CreateTexture error: glGenTextures failed ";
 			return 0;
 		}
-
+		
 		bindTexture(texture);
 
 		GL_CHECK_ERROR(glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _repeat ? GL_REPEAT : GL_CLAMP_TO_EDGE));

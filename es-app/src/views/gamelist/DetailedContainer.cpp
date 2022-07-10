@@ -11,6 +11,7 @@
 #include "Window.h"
 #include "components/ComponentGrid.h"
 #include <set>
+#include "views/Binding.h"
 
 #ifdef _RPI_
 #include "Settings.h"
@@ -269,7 +270,7 @@ void DetailedContainer::createVideo()
 		mVideo = new VideoPlayerComponent(mWindow, "");
 	else
 #endif
-		mVideo = new VideoVlcComponent(mWindow, "");
+		mVideo = new VideoVlcComponent(mWindow);
 
 	// Default is IMAGE in Recalbox themes -> video view does not exist
 	mVideo->setSnapshotSource(IMAGE);
@@ -906,6 +907,15 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		}
 		else if (file->getType() == FOLDER)
 			updateDetailsForFolder((FolderData*)file);
+	}
+
+	for (auto extra : mThemeExtras)
+	{
+		TextComponent* text = dynamic_cast<TextComponent*>(extra);
+		if (text != nullptr)
+			Binding::updateBindings(text, file->getSystem());
+
+		Binding::updateBindings(extra, file);		
 	}
 
 	std::vector<GuiComponent*> comps = getComponents();
