@@ -275,7 +275,7 @@ namespace Renderer
 		if (mColorAttribute != -1)
 			GL_CHECK_ERROR(glDisableVertexAttribArray(mColorAttribute));
 
-		if (mTexCoordAttribute != -1);
+		if (mTexCoordAttribute != -1)
 			GL_CHECK_ERROR(glDisableVertexAttribArray(mTexCoordAttribute));
 	}
 }
