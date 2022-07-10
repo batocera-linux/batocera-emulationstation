@@ -372,13 +372,17 @@ msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
 
 msgid "Disable loading states (as well as auto-load) for more points."
-msgstr "Отключить загрузку состояния (а также автозагрузку), чтобы получить больше очков."
+msgstr ""
+"Отключить загрузку состояния (а также автозагрузку), чтобы получить больше "
+"очков."
 
 msgid "LEADERBOARDS"
 msgstr "ДОСКА ЛИДЕРОВ"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr "Соревноваться в таблицах лидеров по количеству очков и лучшему времени (требуется хардкор)."
+msgstr ""
+"Соревноваться в таблицах лидеров по количеству очков и лучшему времени "
+"(требуется хардкор)."
 
 msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
@@ -389,8 +393,8 @@ msgstr "БОГАТОЕ ПРИСУТСТВИЕ"
 msgid "ENCORE MODE"
 msgstr "РЕЖИМ ЭНКОРА"
 
-msgid "Reset achievements to be able to earn them again."
-msgstr "Сбросить достижения, чтобы заработать их снова."
+msgid "Unlocked achievements can be earned again."
+msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
@@ -404,7 +408,8 @@ msgstr "ИНДИКАТОР ДОСТИЖЕНИЙ"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "Отображает значки в правом нижнем углу, когда можно получить достижения."
+msgstr ""
+"Отображает значки в правом нижнем углу, когда можно получить достижения."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ РЕТРОДОСТИЖЕНИЙ"
@@ -1522,7 +1527,8 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr "СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ? ОН ВКЛЮЧАЕТ ВСЕ ДАННЫЕ В ВАШЕЙ СИСТЕМНОЙ ПАПКЕ."
+msgstr ""
+"СОЗДАТЬ ФАЙЛ ПОДДЕРЖКИ? ОН ВКЛЮЧАЕТ ВСЕ ДАННЫЕ В ВАШЕЙ СИСТЕМНОЙ ПАПКЕ."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "ФАЙЛ ПОДДЕРЖКИ СОЗДАН В ПАПКЕ SAVES"
@@ -1568,7 +1574,9 @@ msgstr "ВКЛЮЧИТЬ ФИЛЬТРАЦИЮ ИГР"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr "Показывать или скрывать настройки, связанные с фильтрацией игр, в опциях просмотра."
+msgstr ""
+"Показывать или скрывать настройки, связанные с фильтрацией игр, в опциях "
+"просмотра."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "СОХРАНИТЬ МЕТАДАННЫЕ ПРИ ВЫХОДЕ"
@@ -1577,7 +1585,9 @@ msgid "PARSE GAMELISTS ONLY"
 msgstr "СЧИТЫВАТЬ ТОЛЬКО GAMESLIST.XML (УСК. ЗАГРУЗКУ)"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr "Инструмент отладки: Не проверяйте, если ROM на самом деле существует. Это может привести к проблемам!"
+msgstr ""
+"Инструмент отладки: Не проверяйте, если ROM на самом деле существует. Это "
+"может привести к проблемам!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "ПОИСК ЛОКАЛЬНЫХ ИЗОБРАЖЕНИЙ"
@@ -1586,8 +1596,8 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Если в геймлисте нет изображения, попытатся найти медиа с таким же "
-"именем файла для использования."
+"Если в геймлисте нет изображения, попытатся найти медиа с таким же именем "
+"файла для использования."
 
 msgid "USER INTERFACE"
 msgstr "ИНТЕРФЕЙС"
@@ -1648,7 +1658,8 @@ msgstr "ПРЕДЗАГРУЗКА МЕДИА ФАЙЛОВ"
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
-msgstr "Уменьшает лаги во время просмотра списка игр, увеличивает время загрузки"
+msgstr ""
+"Уменьшает лаги во время просмотра списка игр, увеличивает время загрузки"
 
 msgid "THREADED LOADING"
 msgstr "МНОГОПОТОЧНАЯ ЗАГРУЗКА"
@@ -1717,7 +1728,8 @@ msgid "INSTANT"
 msgstr "МГНОВЕННЫЙ"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "Снижает энергопотребление в режиме ожидания (полезно для портативных уст-в)."
+msgstr ""
+"Снижает энергопотребление в режиме ожидания (полезно для портативных уст-в)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "ЭКРАННЫЙ ДИКТОР (ТЕКСТ В РЕЧЬ)"
@@ -1941,7 +1953,9 @@ msgid "REWIND"
 msgstr "ПЕРЕМОТКА"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "Сохраняет прошлые состояния для перемотки в реальном времени, если ядро поддерживает это."
+msgstr ""
+"Сохраняет прошлые состояния для перемотки в реальном времени, если ядро "
+"поддерживает это."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
@@ -2016,7 +2030,9 @@ msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr "Загружает последнее сохранение при запуске игры и сохраняет при выходе из игры."
+msgstr ""
+"Загружает последнее сохранение при запуске игры и сохраняет при выходе из "
+"игры."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
@@ -2972,18 +2988,29 @@ msgid "%d h"
 msgstr "%d ч"
 
 #, c-format
-msgid "%d m"
-msgstr "%d м"
+msgid "%d mn"
+msgstr ""
 
 #, c-format
-msgid "%d s"
-msgstr "%d с"
+msgid "%d sec"
+msgstr ""
 
 msgid "SCREEN READER ENABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "Reset achievements to be able to earn them again."
+#~ msgstr "Сбросить достижения, чтобы заработать их снова."
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d м"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d с"
 
 #~ msgid "RANDOM (HOLD)"
 #~ msgstr "СЛУЧАЙНО (УДЕРЖИВАТЬ)"

@@ -387,8 +387,8 @@ msgstr "リッチプレゼンス(フレンド参加)"
 msgid "ENCORE MODE"
 msgstr "アンコール モード"
 
-msgid "Reset achievements to be able to earn them again."
-msgstr "achievementをリセットして、再び獲得できるようにします"
+msgid "Unlocked achievements can be earned again."
+msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
@@ -2958,12 +2958,12 @@ msgid "%d h"
 msgstr "%d 時"
 
 #, c-format
-msgid "%d m"
-msgstr "%d 分"
+msgid "%d mn"
+msgstr ""
 
 #, c-format
-msgid "%d s"
-msgstr "%d 秒"
+msgid "%d sec"
+msgstr ""
 
 msgid "SCREEN READER ENABLED"
 msgstr "スクリーンリーダー有効"
@@ -2971,5 +2971,16 @@ msgstr "スクリーンリーダー有効"
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
 
-msgid "GRAPHICS API"
-msgstr "グラフィック API"
+#~ msgid "Reset achievements to be able to earn them again."
+#~ msgstr "achievementをリセットして、再び獲得できるようにします"
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d 分"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d 秒"
+
+#~ msgid "GRAPHICS API"
+#~ msgstr "グラフィック API"

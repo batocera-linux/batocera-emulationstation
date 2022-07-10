@@ -388,7 +388,7 @@ msgstr ""
 msgid "ENCORE MODE"
 msgstr ""
 
-msgid "Reset achievements to be able to earn them again."
+msgid "Unlocked achievements can be earned again."
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
@@ -2013,7 +2013,8 @@ msgid "AUTO SAVE/LOAD"
 msgstr "SAUVEGARDE / CHARGEMENT AUTO"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr "Charge la dernière sauvegarde automatiquement et sauve en quittant le jeu"
+msgstr ""
+"Charge la dernière sauvegarde automatiquement et sauve en quittant le jeu"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SAUVEGARDES INCRÉMENTALES"
@@ -2961,18 +2962,26 @@ msgid "%d h"
 msgstr "%d h"
 
 #, c-format
-msgid "%d m"
-msgstr "%d m"
+msgid "%d mn"
+msgstr ""
 
 #, c-format
-msgid "%d s"
-msgstr "%d s"
+msgid "%d sec"
+msgstr ""
 
 msgid "SCREEN READER ENABLED"
 msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d m"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d s"
 
 #~ msgid "RANDOM (HOLD)"
 #~ msgstr "ALÉATOIRE (MAINTENU)"
