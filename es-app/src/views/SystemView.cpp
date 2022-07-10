@@ -24,6 +24,7 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "TextToSpeech.h"
+#include "Binding.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -686,64 +687,15 @@ void SystemView::updateExtraTextBinding()
 	if (mCursor < 0 || mCursor >= mEntries.size())
 		return;
 
-	GameCountInfo* info = getSelected()->getGameCountInfo();
+	auto system = getSelected();
+	if (system == nullptr)
+		return;
 
 	for (auto extra : mEntries[mCursor].data.backgroundExtras)
 	{
 		TextComponent* text = dynamic_cast<TextComponent*>(extra);
-		if (text == nullptr)
-			continue;
-
-		auto src = text->getOriginalThemeText();
-		if (src.find("{binding:") == std::string::npos)
-			continue;
-
-		if (info->totalGames != info->visibleGames)
-			src = Utils::String::replace(src, "{binding:total}", std::to_string(info->visibleGames) + " / " + std::to_string(info->totalGames));
-		else
-			src = Utils::String::replace(src, "{binding:total}", std::to_string(info->totalGames));
-
-		if (info->playCount == 0)
-			src = Utils::String::replace(src, "{binding:played}", _("None"));
-		else
-			src = Utils::String::replace(src, "{binding:played}", std::to_string(info->playCount));
-
-		if (info->favoriteCount == 0)
-			src = Utils::String::replace(src, "{binding:favorites}", _("None"));
-		else
-			src = Utils::String::replace(src, "{binding:favorites}", std::to_string(info->favoriteCount));
-
-		if (info->hiddenCount == 0)
-			src = Utils::String::replace(src, "{binding:hidden}", _("None"));
-		else
-			src = Utils::String::replace(src, "{binding:hidden}", std::to_string(info->hiddenCount));
-		
-		if (info->gamesPlayed == 0)
-			src = Utils::String::replace(src, "{binding:gamesPlayed}", _("None"));
-		else
-			src = Utils::String::replace(src, "{binding:gamesPlayed}", std::to_string(info->gamesPlayed));
-
-		if (info->mostPlayed.empty())
-			src = Utils::String::replace(src, "{binding:mostPlayed}", _("Unknown"));
-		else
-			src = Utils::String::replace(src, "{binding:mostPlayed}", info->mostPlayed);
-
-		Utils::Time::DateTime dt = info->lastPlayedDate;
-
-		if (dt.getTime() == 0)
-			src = Utils::String::replace(src, "{binding:lastPlayedDate}", _("Unknown"));
-		else
-		{
-			time_t     clockNow = dt.getTime();
-			struct tm  clockTstruct = *localtime(&clockNow);
-
-			char       clockBuf[256];
-			strftime(clockBuf, sizeof(clockBuf), "%Ex", &clockTstruct);
-
-			src = Utils::String::replace(src, "{binding:lastPlayedDate}", clockBuf);
-		}
-		
-		text->setText(src);
+		if (text != nullptr)
+			Binding::updateBindings(text, system, true);
 	}
 }
 
@@ -751,8 +703,7 @@ void SystemView::onCursorChanged(const CursorState& state)
 {
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
-
-
+	
 	ensureLogo(mEntries.at(mCursor));
 
 	// update help style

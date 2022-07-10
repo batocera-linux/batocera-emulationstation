@@ -157,6 +157,9 @@ public:
 
 	void setSelectedGame();
 
+
+	std::string getProperty(const std::string& name);
+
 private:
 	std::string getKeyboardMappingFilePath();
 	std::string getMessageFromExitCode(int exitCode);

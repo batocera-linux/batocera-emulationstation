@@ -22,6 +22,7 @@ private:
 	bool mShowYear;
 	bool mShowSystemFirst;
 	bool mShowSystemAfterYear;
+	bool mShowGameTime;
 
 	bool mShowManualIcon;		
 	bool mShowSaveStates;

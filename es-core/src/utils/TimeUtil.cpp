@@ -330,14 +330,14 @@ namespace Utils
 				if (m > 0)
 				{
 					std::string hours(buf);
-					snprintf(buf, 256, _("%d m").c_str(), m);
+					snprintf(buf, 256, _("%d mn").c_str(), m);
 					return hours + " " + std::string(buf);
 				}
 			}
 			else if (m > 0)
-				snprintf(buf, 256, _("%d m").c_str(), m);
+				snprintf(buf, 256, _("%d mn").c_str(), m);
 			else 
-				snprintf(buf, 256, _("%d s").c_str(), s);
+				snprintf(buf, 256, _("%d sec").c_str(), s);
 
 			return std::string(buf);	
 		}

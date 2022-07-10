@@ -132,6 +132,8 @@ public:
 	void setSaturation(float saturation);
 	void setCustomShader(const std::string& customShader) { mCustomShader = customShader; }
 
+	std::string getOriginalThemePath() { return mSourceThemePath; }
+
 protected:
 	std::shared_ptr<TextureResource> mTexture;
 	std::shared_ptr<TextureResource> mLoadingTexture;
@@ -139,6 +141,7 @@ protected:
 	Vector2f mTargetSize;
 
 private:
+	std::string mSourceThemePath;
 
 	bool mFlipX, mFlipY, mTargetIsMax, mTargetIsMin;
 

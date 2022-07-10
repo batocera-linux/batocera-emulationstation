@@ -11,6 +11,7 @@
 #include "Window.h"
 #include "components/ComponentGrid.h"
 #include <set>
+#include "views/Binding.h"
 
 #ifdef _RPI_
 #include "Settings.h"
@@ -906,6 +907,15 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		}
 		else if (file->getType() == FOLDER)
 			updateDetailsForFolder((FolderData*)file);
+	}
+
+	for (auto extra : mThemeExtras)
+	{
+		TextComponent* text = dynamic_cast<TextComponent*>(extra);
+		if (text != nullptr)
+			Binding::updateBindings(text, file->getSystem());
+
+		Binding::updateBindings(extra, file);		
 	}
 
 	std::vector<GuiComponent*> comps = getComponents();
