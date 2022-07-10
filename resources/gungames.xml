@@ -53,7 +53,6 @@
   <system name="mastersystem">
     <game>assaultcity</game>
     <game>bankpanic</game>
-    <game>deadangle</game>
     <game>gangstertown</game>
     <game>laserghost</game>
     <game>marksmanshooting</game>
@@ -69,18 +68,19 @@
   </system>
   <system name="megadrive">
     <game>bodycount</game>
+    <game gun="justifier">lethalenforcers</game>
+    <game gun="justifier">lethalenforcersii</game>
+    <game>menacer6gamecartridge</game>
+    <game>t2thearcadegame</game>
+  </system>
+  <system name="segacd">
     <game>corpsekiller</game>
     <game>crimepatrol</game>
     <game gun="justifier">lethalenforcers</game>
     <game gun="justifier">lethalenforcersii</game>
-    <game>maddogii</game>
     <game>maddogmccree</game>
-    <game>menacer6gamecartridge</game>
-    <game>t2thearcadegame</game>
+    <game>maddogii</game>
     <game>whoshotjohnnyrock</game>
-  </system>
-  <system name="segacd">
-    <game>crimepatrol</game>
   </system>
   <system name="nes">
     <game>3in1supergun</game>
@@ -94,13 +94,19 @@
     <game>freedomforce</game>
     <game>gotcha</game>
     <game>gumshoe</game>
+    <game>gunsight</game>
+    <game>hitmarmot</game>
     <game>hogansalley</game>
     <game>laserinvasion</game>
+    <game>lightgungame2in1</game>
     <game>loneranger</game>
+    <game>madcity</game>
+    <game>mastershooter</game>
     <game>mechanizedattack</game>
     <game>operationwolf</game>
     <game>shootingrange</game>
     <game>spaceshadow</game>
+    <game>strikewolf</game>
     <game>totheearth</game>
     <game>trackfieldii</game>
     <game>wildgunman</game>
@@ -150,10 +156,11 @@
     <game>battleclash</game>
     <game>bazookablitzkrieg</game>
     <game>lamborghiniamericanchallenge</game>
-    <game>lethalenforcers</game>
+    <game gun="justifier">lethalenforcers</game>
     <game>metalcombatfalconsrevenge</game>
     <game>nintendoscope6</game>
     <game>operationthunderbolt</game>
+    <game>spacebazooka</game>
     <game>superscope6</game>
     <game>t2thearcadegame</game>
     <game>tinstar</game>

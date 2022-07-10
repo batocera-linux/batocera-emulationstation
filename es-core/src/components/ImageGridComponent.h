@@ -318,6 +318,9 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 			{
 				loadTile(entry.data.tile, entry);
 				entry.data.tile->setVisible(true);
+
+				if (mShowing)
+					entry.data.tile->onShow();
 			}
 
 			if (mScrollLoop && i < startIndex || i > endIndex)
@@ -329,8 +332,15 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 		}
 		else if (entry.data.tile != nullptr)
 		{
-			entry.data.tile->resetImages();
 			entry.data.tile->setVisible(false);
+
+			if (!mShowing)
+			{
+				entry.data.tile->resetImages();
+				entry.data.tile = nullptr;
+			}
+			else
+				entry.data.tile->onHide();
 		}
 	}
 }
@@ -415,9 +425,11 @@ void ImageGridComponent<T>::setImage(const std::string& imagePath, const T& obj)
 {
 	IList<ImageGridData, T>* list = static_cast<IList< ImageGridData, T >*>(this);
 	auto entry = list->findEntry(obj);
-	if (entry != list->end())
+	if (entry != list->end() && (*entry).data.texturePath != imagePath)
 	{
 		(*entry).data.texturePath = imagePath;
+		(*entry).data.tile = nullptr;
+
 		mEntriesDirty = true;
 	}
 }
@@ -558,6 +570,8 @@ void ImageGridComponent<T>::onHide()
 	for (auto entry : mEntries)
 		if (entry.data.tile != nullptr)
 			entry.data.tile->onHide();
+
+	ensureVisibleTileExist();
 }
 
 template<typename T>
@@ -1301,12 +1315,12 @@ void ImageGridComponent<T>::onMouseWheel(int delta)
 	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
 	auto newCursor = mCursor - delta * dimOpposite;
-
+	/*
 	if (newCursor < 0)
 		newCursor += mEntries.size() - 1;
 	else if (newCursor >= mEntries.size())
 		newCursor -= mEntries.size() - 1;
-	/*
+	*/
 	if (mScrollLoop)
 	{
 		if (newCursor < 0)
@@ -1321,7 +1335,7 @@ void ImageGridComponent<T>::onMouseWheel(int delta)
 		else if (newCursor >= mEntries.size())
 			newCursor = mEntries.size() - 1;
 	}
-	*/
+	
 	if (newCursor != mCursor && newCursor >= 0 && newCursor < mEntries.size())
 	{
 		mCursor = newCursor;
@@ -1371,6 +1385,9 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 						Vector3f oldPos = Vector3f::Zero();
 						mEntries[mCursor].data.tile->setSelected(true, true, mAnimateSelection ? nullptr : &oldPos, true);
 					}
+
+					if (mCursorChangedCallback)
+						mCursorChangedCallback(CURSOR_STOPPED);
 
 					mLastCursor = mCursor;
 				}
