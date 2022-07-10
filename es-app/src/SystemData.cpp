@@ -1919,6 +1919,14 @@ std::string SystemData::getProperty(const std::string& name)
 	if (info == nullptr)
 		return "";
 
+	if (name == "subSystems")
+	{
+		if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+			return std::to_string(getRootFolder()->getChildren().size());
+
+		return std::to_string(Math::max(1, getGroupChildSystemNames(getName()).size()));
+	}
+
 	if (name == "total")
 	{
 		if (info->totalGames != info->visibleGames)
