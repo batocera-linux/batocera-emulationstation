@@ -175,6 +175,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "singleLineScroll", BOOLEAN },
 		{ "autoScroll", STRING },
 		{ "padding", NORMALIZED_RECT },
+		{ "onclick", STRING },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "textlist", {
