@@ -734,6 +734,11 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 	else
 		setClipRect(Vector4f());
 
+	if (elem->has("onclick"))
+		setClickAction(elem->get<std::string>("onclick"));
+	else
+		setClickAction("");
+
 	applyStoryboard(elem);
 	mTransformDirty = true;
 }
@@ -1099,7 +1104,7 @@ void GuiComponent::onScreenOffsetChanged()
 }
 
 bool GuiComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult)
-{
+{	
 	if (!isVisible())
 	{
 		if (mIsMouseOver)
@@ -1146,10 +1151,12 @@ bool GuiComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::ve
 
 void GuiComponent::onMouseLeave() 
 {
+
 }
 
 void GuiComponent::onMouseEnter() 
 {
+
 }
 
 void GuiComponent::onMouseMove(int x, int y) 
@@ -1161,3 +1168,39 @@ void GuiComponent::onMouseWheel(int delta)
 {
 
 }
+
+bool GuiComponent::onAction(const std::string& action)
+{
+	if (action == "none")
+		return true;
+
+	if (getParent() != nullptr)
+		return getParent()->onAction(action);
+
+	return false;
+}
+
+bool GuiComponent::onMouseClick(int button, bool pressed, int x, int y)
+{
+	if (button == 1 && !mClickAction.empty())
+	{
+		if (pressed)
+		{
+			mMousePressed = true;	
+			mWindow->setMouseCapture(this);
+		}
+		else if (mMousePressed)
+		{
+			mWindow->releaseMouseCapture();
+			mMousePressed = false;
+
+			if (mIsMouseOver)
+				onAction(mClickAction);			
+		}
+
+		return true;
+	}
+
+	return false;
+}
+

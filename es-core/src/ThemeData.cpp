@@ -86,6 +86,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "shader", PATH },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
+		{ "onclick", STRING },
 		{ "linearSmooth", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "imagegrid", {

@@ -864,6 +864,11 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		}
 	}
 
+	if (elem->has("onclick"))
+		setClickAction(elem->get<std::string>("onclick"));
+	else
+		setClickAction("");
+
 	applyStoryboard(elem);
 }
 
