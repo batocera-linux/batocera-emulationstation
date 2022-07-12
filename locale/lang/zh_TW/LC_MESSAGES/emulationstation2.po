@@ -370,7 +370,7 @@ msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
 msgid "Disable loading states (as well as auto-load) for more points."
-msgstr "停用狀態載入（以及自動載入）以獲得更多點數。"
+msgstr "停用即時存檔載入（以及自動即時存檔載入）以獲得更多點數。"
 
 msgid "LEADERBOARDS"
 msgstr "排行榜"
@@ -388,7 +388,7 @@ msgid "ENCORE MODE"
 msgstr "安可模式"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "可以重新再取得以解鎖的成就。"
+msgstr "可以重新再取得已解鎖的成就。"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動化螢幕截圖"
