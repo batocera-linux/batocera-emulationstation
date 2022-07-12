@@ -59,8 +59,6 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 	auto theme = ThemeData::getMenuTheme();
 
 	bool showFilters = !Settings::getInstance()->getBool("ForceDisableFilters");
-	if (mSystem != CollectionSystemManager::get()->getCustomCollectionsBundle() && customCollection == customCollections.cend())
-		showFilters = false;
 
 	if (!isInRelevancyMode)
 	{
