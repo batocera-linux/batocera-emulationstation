@@ -1170,7 +1170,12 @@ void Window::processMouseMove(int x, int y, bool touchScreen)
 {
 	if (!touchScreen)
 	{
+#if WIN32
+		auto guns = InputManager::getInstance()->getGuns();
+		if (guns.size() == 0 || std::find_if(guns.cbegin(), guns.cend(), [](Gun* x) { return x->name() == "Wiimote Gun"; }) == guns.cend())
+#endif
 		SDL_ShowCursor(1);
+
 		mLastShowCursor = 0;
 	}
 
