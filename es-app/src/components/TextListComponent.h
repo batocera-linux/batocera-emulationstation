@@ -221,6 +221,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
 	}
 
+	float opacity = mOpacity / 255.0;
 	float entrySize = getRowHeight();
 
 	int startEntry = mCameraOffset / entrySize;
@@ -307,13 +308,21 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 			else
 			{
 				Renderer::setMatrix(trans);
-				Renderer::drawRect(0.0f, y, mSize.x(), mSelectorHeight, mSelectorColor, mSelectorColorEnd, mSelectorColorGradientHorizontal);
+				Renderer::drawRect(0.0f, y, mSize.x(), mSelectorHeight,
+					mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity),
+					mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity),
+					mSelectorColorGradientHorizontal);
 			}
 		}
 		else if (i == mHotRow)
 		{
 			Renderer::setMatrix(trans);
-			Renderer::drawRect(0.0f, y, mSize.x(), entrySize, 0x00000010, 0x00000010);
+
+			float hotOpacity = 0.1f;
+			Renderer::drawRect(0.0f, y, mSize.x(), entrySize,
+				mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity * hotOpacity),
+				mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity * hotOpacity),
+				mSelectorColorGradientHorizontal);
 		}
 
 		font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, GuiComponent::mOpacity);
@@ -679,8 +688,8 @@ bool TextListComponent<T>::hitTest(int x, int y, Transform4x4f& parentTransform,
 
 			if (ry - mCameraOffset + rowHeight >= 0)
 			{
-				rect.y = ry + trans.translation().y() - mCameraOffset; // +Math::round(mCameraOffset);
-				rect.h = rowHeight;
+				rect.y = (ry - mCameraOffset) * trans.r1().y() + trans.translation().y();
+				rect.h = rowHeight * trans.r1().y();
 
 				if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 				{
