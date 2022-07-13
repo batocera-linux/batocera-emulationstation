@@ -835,6 +835,9 @@ msgstr "vídeo aleatório"
 msgid "slideshow"
 msgstr "apresentação de slides"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "sempre"
 

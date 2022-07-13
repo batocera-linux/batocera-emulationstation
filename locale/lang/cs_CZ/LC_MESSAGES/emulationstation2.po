@@ -834,6 +834,9 @@ msgstr "náhodné video"
 msgid "slideshow"
 msgstr "prezentace"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "vždy"
 

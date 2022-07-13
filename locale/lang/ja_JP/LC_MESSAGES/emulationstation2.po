@@ -830,6 +830,9 @@ msgstr "動画再生(ゲーム動画)"
 msgid "slideshow"
 msgstr "スライドショー(ゲーム画像)"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "全て"
 

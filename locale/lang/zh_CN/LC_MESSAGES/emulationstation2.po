@@ -827,6 +827,9 @@ msgstr "随机视频"
 msgid "slideshow"
 msgstr "片段展示"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "总是"
 

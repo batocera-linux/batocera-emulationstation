@@ -830,6 +830,9 @@ msgstr "隨機影片"
 msgid "slideshow"
 msgstr "幻燈片"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "總是"
 

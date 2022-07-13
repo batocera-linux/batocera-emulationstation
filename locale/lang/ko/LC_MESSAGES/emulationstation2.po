@@ -830,6 +830,9 @@ msgstr "무작위 동영상"
 msgid "slideshow"
 msgstr "슬라이드쇼"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "항상"
 

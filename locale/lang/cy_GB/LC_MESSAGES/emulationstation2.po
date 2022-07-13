@@ -836,6 +836,9 @@ msgstr "fideo ar hap"
 msgid "slideshow"
 msgstr "sioe sleid"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "bob tro"
 

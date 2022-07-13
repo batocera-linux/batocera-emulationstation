@@ -828,6 +828,9 @@ msgstr "τυχαίο βίντεο"
 msgid "slideshow"
 msgstr "παρουσίαση διαφανειών"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "πάντα"
 

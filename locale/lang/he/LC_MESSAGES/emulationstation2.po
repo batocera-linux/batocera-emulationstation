@@ -834,6 +834,9 @@ msgstr "סרטון אקראי"
 msgid "slideshow"
 msgstr "מצגת"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "תמיד"
 

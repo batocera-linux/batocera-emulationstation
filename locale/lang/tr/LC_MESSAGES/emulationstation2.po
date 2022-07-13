@@ -831,6 +831,9 @@ msgstr "rasgele video"
 msgid "slideshow"
 msgstr "slayt şov"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "herzaman"
 

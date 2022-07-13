@@ -831,6 +831,9 @@ msgstr "véletlenszerű videó"
 msgid "slideshow"
 msgstr "diavetítés"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "mindíg"
 

@@ -833,6 +833,9 @@ msgstr "випадкове відео"
 msgid "slideshow"
 msgstr "слайдшоу"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "завжди"
 

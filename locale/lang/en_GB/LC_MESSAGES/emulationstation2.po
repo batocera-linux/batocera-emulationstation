@@ -836,6 +836,9 @@ msgstr ""
 msgid "slideshow"
 msgstr ""
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr ""
 
