@@ -391,7 +391,7 @@ msgid "ENCORE MODE"
 msgstr "MODO BIS"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Puedes hacer de nuevo los logros que ya hayas desbloqueado."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICA"
@@ -2487,7 +2487,7 @@ msgid "RANDOM"
 msgstr "ALEATORIO"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "BARRA DE NAVEGACIÓN"
 
 msgid "FILES"
 msgstr "ARCHIVOS"
@@ -2763,7 +2763,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLA (LIGHTGUN)"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "TIENE MEDIOS"
 
 msgid "SCRAPING"
 msgstr "ESCRAPEANDO"
@@ -2992,11 +2992,11 @@ msgstr "%d h"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d min"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d ser"
 
 msgid "SCREEN READER ENABLED"
 msgstr "TEXTO A VOZ ACTIVADO"
