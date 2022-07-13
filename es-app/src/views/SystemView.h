@@ -91,6 +91,8 @@ public:
 	virtual void onMouseWheel(int delta) override;
 	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
 
+	virtual bool onAction(const std::string& action) override;
+
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;
 

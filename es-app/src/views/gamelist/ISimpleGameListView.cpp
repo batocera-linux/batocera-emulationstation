@@ -618,3 +618,57 @@ void ISimpleGameListView::updateThemeExtrasBindings()
 		Binding::updateBindings(extra, file);
 	}
 }
+
+bool ISimpleGameListView::onAction(const std::string& action)
+{
+	if (action == "back")
+	{
+		goBack();
+		return true;
+	}
+
+	if (action == "options")
+	{
+		showGamelistOptions();
+		return true;
+	}
+
+	if (action == "gameoptions")
+	{
+		showSelectedGameOptions();
+		return true;
+	}
+
+	if (action == "launch")
+	{
+		launchSelectedGame();
+		return true;
+	}
+
+	if (action == "search")
+	{
+		showQuickSearch();
+		return true;
+	}
+
+	if (action == "savestates")
+	{
+		showSelectedGameSaveSnapshots();
+		return true;
+	}
+
+	if (action == "favorite")
+	{
+		toggleFavoritesFilter();
+		return true;
+	}
+	
+	if (action == "random")
+	{
+		moveToRandomGame();
+		return true;
+	}
+	
+
+	return false;
+}
