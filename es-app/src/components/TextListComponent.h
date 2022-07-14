@@ -221,7 +221,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
 	}
 
-	float opacity = mOpacity / 255.0;
+	float opacity = GuiComponent::mOpacity / 255.0;
 	float entrySize = getRowHeight();
 
 	int startEntry = mCameraOffset / entrySize;
