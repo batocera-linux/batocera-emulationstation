@@ -57,8 +57,8 @@ namespace Renderer
 	Rect		getScreenRect(const Transform4x4f& transform, const Vector2f& size, bool viewPort)
 	{
 		auto rc = Rect(
-			transform.translation().x() * transform.r0().x(),
-			transform.translation().y() * transform.r1().y(),
+			transform.translation().x(),
+			transform.translation().y(),
 			size.x() * transform.r0().x(),
 			size.y() * transform.r1().y());
 
@@ -198,6 +198,17 @@ namespace Renderer
 		createContext();
 		setIcon();
 		setSwapInterval();
+		swapBuffers();
+
+#if WIN32
+		if (windowFlags & SDL_WINDOW_BORDERLESS)
+		{			
+			// If we don't do that, with some machines, the screen stays black... (Ambernic Win600)
+			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_TRUE);
+			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_FALSE);
+			SDL_SetWindowPosition(sdlWindow, 0, 0);
+		}
+#endif
 
 		return true;
 
