@@ -142,7 +142,7 @@ Log::~Log()
 #if WIN32
 		OutputDebugStringA(mStream.str().c_str());
 #else
-		fprintf(stderr, "%s", os.str().c_str());
+		fprintf(stderr, "%s", mStream.str().c_str());
 #endif
 	}
 
