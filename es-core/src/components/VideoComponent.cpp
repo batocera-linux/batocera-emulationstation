@@ -385,6 +385,11 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	else
 		setClipRect(Vector4f());
 
+	if (elem->has("onclick"))
+		setClickAction(elem->get<std::string>("onclick"));
+	else
+		setClickAction("");
+
 	if (elem->has("defaultSnapshot"))
 		mStaticImage.setDefaultImage(elem->get<std::string>("defaultSnapshot"));
 }
