@@ -1067,7 +1067,9 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 	if (node.attribute("ifCheevos"))
 	{
 		const std::string hasCheevosAttr = node.attribute("ifCheevos").as_string();
-		bool hasCheevos = mVariables.find("system.cheevos") != mVariables.cend();
+
+		auto cheevos = mVariables.find("system.cheevos");
+		bool hasCheevos = cheevos != mVariables.cend() && cheevos->second == "true";
 
 		if (!hasCheevos && hasCheevosAttr == "true")
 			return false;
