@@ -86,6 +86,7 @@ public:
 	ImageGridComponent(Window* window);
 
 	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool cheevos, bool folder, bool virtualFolder, const T& obj);
+	virtual void clear();
 
 	void setImage(const std::string& imagePath, const T& obj);
 	std::string getImage(const T& obj);
@@ -407,6 +408,13 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 	static_cast<IList< ImageGridData, T >*>(this)->add(entry);
 
 	mEntriesDirty = true;
+}
+
+template<typename T>
+void ImageGridComponent<T>::clear()
+{
+	mCameraOffset = 0;
+	IList<ImageGridData, T>::clear();
 }
 
 template<typename T>
