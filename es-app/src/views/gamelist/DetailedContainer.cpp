@@ -907,15 +907,15 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		}
 		else if (file->getType() == FOLDER)
 			updateDetailsForFolder((FolderData*)file);
-	}
 
-	for (auto extra : mThemeExtras)
-	{
-		TextComponent* text = dynamic_cast<TextComponent*>(extra);
-		if (text != nullptr)
-			Binding::updateBindings(text, file->getSystem());
+		for (auto extra : mThemeExtras)
+		{
+			TextComponent* text = dynamic_cast<TextComponent*>(extra);
+			if (text != nullptr)
+				Binding::updateBindings(text, file->getSystem());
 
-		Binding::updateBindings(extra, file);		
+			Binding::updateBindings(extra, file);
+		}
 	}
 
 	std::vector<GuiComponent*> comps = getComponents();
