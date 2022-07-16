@@ -1134,7 +1134,6 @@ void GuiMenu::openDeveloperSettings()
 	{
 		if (Settings::getInstance()->setString("LogLevel", logLevel->getSelected() == "default" ? "" : logLevel->getSelected()))
 		{
-			Log::setupReportingLevel();
 			Log::init();
 		}
 	});

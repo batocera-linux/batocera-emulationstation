@@ -388,7 +388,7 @@ msgstr ""
 msgid "ENCORE MODE"
 msgstr ""
 
-msgid "Reset achievements to be able to earn them again."
+msgid "Unlocked achievements can be earned again."
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
@@ -830,6 +830,9 @@ msgstr "vídeo aleatorio"
 
 msgid "slideshow"
 msgstr "pase de imágenes"
+
+msgid "suspend"
+msgstr ""
 
 msgid "always"
 msgstr "siempre"
@@ -2935,18 +2938,26 @@ msgid "%d h"
 msgstr "%d h"
 
 #, c-format
-msgid "%d m"
-msgstr "%d m"
+msgid "%d mn"
+msgstr ""
 
 #, c-format
-msgid "%d s"
-msgstr "%d s"
+msgid "%d sec"
+msgstr ""
 
 msgid "SCREEN READER ENABLED"
 msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d m"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d s"
 
 #~ msgid "SCRAPE RATINGS"
 #~ msgstr "OBTENER CALIFICACIONES"

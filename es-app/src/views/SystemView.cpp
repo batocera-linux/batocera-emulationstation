@@ -410,6 +410,9 @@ void SystemView::showQuickSearch()
 
 void SystemView::showNetplay()
 {
+	if (!SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay"))
+		return;
+
 	if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
 	else
@@ -1950,3 +1953,52 @@ void SystemView::onMouseWheel(int delta)
 	mScrollVelocity = 0;
 }
 
+
+
+bool SystemView::onAction(const std::string& action)
+{
+	if (action == "netplay")
+	{
+		showNetplay();
+		return true;
+	}
+
+	if (action == "navigationbar" || action == "back")
+	{
+		showNavigationBar();
+		return true;
+	}
+
+	if (action == "search")
+	{
+		showQuickSearch();
+		return true;
+	}
+
+	if (action == "launch" || action == "open")
+	{
+		stopScrolling();
+		ViewController::get()->goToGameList(getSelected());
+		return true;
+	}
+
+	if (action == "random")
+	{
+		setCursor(SystemData::getRandomSystem());
+		return true;
+	}
+
+	if (action == "prev")
+	{
+		listInput(-1);
+		return true;
+	}
+
+	if (action == "next")
+	{
+		listInput(1);
+		return true;
+	}	
+
+	return false;
+}

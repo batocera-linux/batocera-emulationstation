@@ -390,8 +390,8 @@ msgstr "MOSTRAR INFO AVANZADA"
 msgid "ENCORE MODE"
 msgstr "MODO BIS"
 
-msgid "Reset achievements to be able to earn them again."
-msgstr "Restablece los logros para poder volver a conseguirlos."
+msgid "Unlocked achievements can be earned again."
+msgstr "Puedes hacer de nuevo los logros que ya hayas desbloqueado."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICA"
@@ -836,6 +836,9 @@ msgstr "vídeo aleatorio"
 
 msgid "slideshow"
 msgstr "pase de imágenes"
+
+msgid "suspend"
+msgstr ""
 
 msgid "always"
 msgstr "siempre"
@@ -2484,7 +2487,7 @@ msgid "RANDOM"
 msgstr "ALEATORIO"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "BARRA DE NAVEGACIÓN"
 
 msgid "FILES"
 msgstr "ARCHIVOS"
@@ -2760,7 +2763,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLA (LIGHTGUN)"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "TIENE MEDIOS"
 
 msgid "SCRAPING"
 msgstr "ESCRAPEANDO"
@@ -2988,18 +2991,29 @@ msgid "%d h"
 msgstr "%d h"
 
 #, c-format
-msgid "%d m"
-msgstr "%d m"
+msgid "%d mn"
+msgstr "%d min"
 
 #, c-format
-msgid "%d s"
-msgstr "%d s"
+msgid "%d sec"
+msgstr "%d ser"
 
 msgid "SCREEN READER ENABLED"
 msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "Reset achievements to be able to earn them again."
+#~ msgstr "Restablece los logros para poder volver a conseguirlos."
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d m"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d s"
 
 #~ msgid "RANDOM (HOLD)"
 #~ msgstr "ALEATORIO (MANTENER)"

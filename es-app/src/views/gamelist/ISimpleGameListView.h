@@ -55,6 +55,7 @@ public:
 	void toggleFavoritesFilter();
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+	virtual bool onAction(const std::string& action) override;
 
 protected:	
 	void	  updateThemeExtrasBindings();

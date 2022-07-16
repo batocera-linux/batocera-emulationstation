@@ -358,7 +358,14 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 			if (i == mHotRow)
 			{
 				Renderer::setMatrix(trans);
-				Renderer::drawRect(0.0f, y, mSize.x(), rowHeight, 0x00000010, 0x00000010);
+
+				float hotOpacity = 0.1f;
+				Renderer::drawRect(0.0f, y, mSize.x(), rowHeight,
+					selectorColor & 0xFFFFFF00 | (unsigned char)((selectorColor & 0xFF) * opacity * hotOpacity),
+					selectorGradientColor & 0xFFFFFF00 | (unsigned char)((selectorGradientColor & 0xFF) * opacity * hotOpacity),
+					selectorGradientHorz);
+
+			//	Renderer::drawRect(0.0f, y, mSize.x(), rowHeight, 0x00000010, 0x00000010);
 			}
 
 			for (auto& element : entry.data.elements)
@@ -579,8 +586,8 @@ bool ComponentList::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 
 			if (entry.data.selectable && ry - mCameraOffset + rowHeight >= 0)
 			{
-				rect.y = ry + trans.translation().y() - mCameraOffset; // +Math::round(mCameraOffset);
-				rect.h = rowHeight;
+				rect.y = (ry - mCameraOffset) * trans.r1().y() + trans.translation().y();
+				rect.h = rowHeight * trans.r1().y();
 
 				if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 				{

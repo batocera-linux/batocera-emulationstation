@@ -12,6 +12,7 @@
 #include <sstream>
 #include <vector>
 #include <pugixml/src/pugixml.hpp>
+#include "utils/MathExpr.h"
 
 namespace pugi { class xml_node; }
 
@@ -456,6 +457,9 @@ private:
 	static ThemeData* mDefaultTheme;	
 
 	bool mPerGameOverrideTmp;
+	
+	Utils::MathExpr mEvaluator;
+	Utils::MathExpr::ValueMap mEvaluatorVariables;
 };
 
 #endif // ES_CORE_THEME_DATA_H

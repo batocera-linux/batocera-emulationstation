@@ -10,8 +10,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "有可用的更新"
@@ -334,7 +334,7 @@ msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "磁碟已經被格式化。"
 
 msgid "DOWNLOADING"
-msgstr "下載中"
+msgstr "正在下載"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "佈景主題安裝成功"
@@ -370,31 +370,31 @@ msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
 msgid "Disable loading states (as well as auto-load) for more points."
-msgstr ""
+msgstr "停用即時存檔載入（以及自動即時存檔載入）以獲得更多點數。"
 
 msgid "LEADERBOARDS"
 msgstr "排行榜"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr ""
+msgstr "在高分和最佳時間排行榜中競爭（需要硬派模式）。"
 
 msgid "VERBOSE MODE"
 msgstr "詳細模式"
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "RICH PRESENCE"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "安可模式"
 
-msgid "Reset achievements to be able to earn them again."
-msgstr ""
+msgid "Unlocked achievements can be earned again."
+msgstr "可以重新再取得已解鎖的成就。"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動化螢幕截圖"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "當達到成就時自動進行螢幕截圖。"
 
 msgid "CHALLENGE INDICATORS"
 msgstr "挑戰指示器"
@@ -423,7 +423,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr ""
+msgstr "從主選單直接檢視您的 RetroAchievement 狀態！"
 
 msgid "GAME INDEXES"
 msgstr "遊戲索引"
@@ -540,7 +540,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "在合輯中顯示已隱藏的遊戲平台的遊戲"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "顯示空的遊戲平台"
 
 msgid "UPDATE GAMELISTS"
 msgstr "更新遊戲清單"
@@ -622,7 +622,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "顯示無法使用的遊戲"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "顯示這部機器未提供的遊戲的對戰房。"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -830,6 +830,9 @@ msgstr "隨機影片"
 msgid "slideshow"
 msgstr "幻燈片"
 
+msgid "suspend"
+msgstr ""
+
 msgid "always"
 msgstr "總是"
 
@@ -976,7 +979,7 @@ msgid "UPDATE IS READY"
 msgstr "已準備好可以更新"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "重開機套用更新"
 
 msgid "REALLY UPDATE?"
 msgstr "確定要更新嗎？"
@@ -996,7 +999,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "沒有可用的更新"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "安裝至新的磁碟"
 
 msgid "TARGET DEVICE"
 msgstr "目標裝置"
@@ -1199,34 +1202,34 @@ msgid "MARQUEE"
 msgstr "跑馬燈"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "搜刮給"
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "簡短名稱"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "社群評分"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "影片"
 
 msgid "FANART"
-msgstr ""
+msgstr "粉絲繪圖"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "框體 (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "盒子背面"
 
 msgid "MAP"
-msgstr ""
+msgstr "地圖"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "使用手冊"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "手把轉鍵盤設定"
 
 msgid "SCRAPER"
 msgstr "資料搜刮器"
@@ -1250,10 +1253,10 @@ msgid "ALL"
 msgstr "全部"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "缺少任何媒體的遊戲"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "缺少全部媒體的遊戲"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "忽略最近搜刮過的遊戲"
@@ -1290,7 +1293,7 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"警告：你選擇的部分遊戲平台並沒有平台集合。 結果可能會比原來更加不準確！\n"
+"警告：您選擇的部分遊戲平台並沒有平台集合。 結果可能會比原來更加不準確！\n"
 "仍然要繼續嗎？"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -1312,7 +1315,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "系統磁碟用量"
 
 msgid "SYSTEM"
-msgstr "遊戲平台"
+msgstr "系統"
 
 msgid "VIDEO DRIVER"
 msgstr "影像驅動程式"
@@ -1416,16 +1419,16 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "控制器與藍牙設定"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "內部的"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "任何外部的"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "最大 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "最大 640x480"
 
 msgid "MAIN MENU"
 msgstr "主選單"
@@ -1437,7 +1440,7 @@ msgid "GAME SETTINGS"
 msgstr "遊戲設定"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "使用者介面設定"
 
 msgid "SOUND SETTINGS"
 msgstr "聲音設定"
@@ -1458,7 +1461,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "系統設定"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "解鎖使用者介面模式"
 
 msgid "QUIT"
 msgstr "離開"
@@ -1470,13 +1473,13 @@ msgid "CHOOSE"
 msgstr "瀏覽"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "使用者介面模式已經解鎖"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "現在輸入代碼來解鎖"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "前端開發人員選項"
 
 msgid "VIDEO OPTIONS"
 msgstr "影像選項"
@@ -1488,7 +1491,7 @@ msgid "SHOW FRAMERATE"
 msgstr "顯示影格速率"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
+msgstr "如果可用的話，也打開模擬器原生的 FPS 計數器。"
 
 msgid "VSYNC"
 msgstr "垂直同步"
@@ -1506,7 +1509,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "不要在啟動期間執行這個遊戲"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "啟用公開的網站 API 存取"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1519,7 +1522,7 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "建立支援檔案"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr ""
+msgstr "要建立支援檔案嗎？這會包含您的系統資料夾中的所有資料。"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "已在存檔資料夾建立支援檔案"
@@ -1561,20 +1564,20 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "忽略多個檔案的磁碟內容 (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "啟用遊戲過濾"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr ""
+msgstr "是否要在檢視選項中顯示或隱藏與過濾相關的設定。"
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "退出時儲存中繼資料"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr ""
+msgstr "僅解析遊戲清單"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr ""
+msgstr "除錯工具：如果 ROM 檔案實際存在時請勿核選。會造成問題！"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "在本地搜尋遊戲圖片"
@@ -1582,10 +1585,10 @@ msgstr "在本地搜尋遊戲圖片"
 msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
-msgstr ""
+msgstr "如果遊戲清單中沒有指定影像，嘗試以相同的檔名尋找媒體。"
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "使用者介面"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循環轉場效果"
@@ -1683,7 +1686,7 @@ msgid "LANGUAGE"
 msgstr "語言"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "語言（地區）"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "選擇您所在的時區"
@@ -1695,7 +1698,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "將時鐘顯示為 12 小時制"
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "省電模式"
 
 msgid "DISABLED"
 msgstr "停用"
@@ -1710,22 +1713,25 @@ msgid "INSTANT"
 msgstr "立即"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
+msgstr "在閒置時減少電力消耗（對掌機很有用）。"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "螢幕閱讀器（文字轉語音）"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "使用者介面模式"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
+msgstr "鎖住特定的設定選單好讓客人或小孩使用。"
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"您正要將使用者介面模式變更為受限模式：\n"
+"這會隱藏大部分主選單中的選項，以避免系統被更改。\n"
+"欲解鎖並返回完整的使用者介面，輸入這個代碼："
 
 msgid "Do you want to proceed?"
 msgstr "是否繼續？"
@@ -1755,7 +1761,7 @@ msgid "AUDIO PROFILE"
 msgstr "音訊設定檔"
 
 msgid "Available options can change depending on current audio output."
-msgstr ""
+msgstr "可用的選項會依目前的音訊輸出而改變。"
 
 msgid "SCREEN ROTATION"
 msgstr "螢幕旋轉"
@@ -1857,7 +1863,7 @@ msgid "ENFORCE SECURITY"
 msgstr "啟用安全防護"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
+msgstr "需要一組密碼來存取網路共享。"
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT 密碼"
@@ -1905,7 +1911,7 @@ msgid "DECORATION SET"
 msgstr "裝飾框集"
 
 msgid "Current setting"
-msgstr ""
+msgstr "目前設定"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "預設全域設定"
@@ -1914,13 +1920,13 @@ msgid "GAME ASPECT RATIO"
 msgstr "遊戲畫面比例"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "強制讓遊戲以這個畫面比例渲染。"
 
 msgid "VIDEO MODE"
 msgstr "影像模式"
 
 msgid "Force the emulator to run at this resolution."
-msgstr ""
+msgstr "強制讓模擬器以這個畫面解析度執行。"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑遊戲畫面（雙線性過濾）"
@@ -1929,7 +1935,7 @@ msgid "REWIND"
 msgstr "倒帶功能"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
+msgstr "如果模擬器核心支援的話，儲存過去的狀態用以即時倒帶。"
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整數縮放 (完美像素)"
@@ -2004,28 +2010,28 @@ msgid "AUTO SAVE/LOAD"
 msgstr "自動儲存/載入"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr ""
+msgstr "在遊戲啟動時載入最近的即時存檔，並在離開遊戲時儲存即時存檔。"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "遞增即時存檔"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "依存檔遞增"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "永遠不要覆寫舊的即時存檔，總是儲存為新的。"
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "增加存檔槽"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "開始新遊戲時才增加存檔槽。"
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "不要增加"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "將目前的存檔槽用於新遊戲。"
 
 msgid "SHOW SAVE STATE MANAGER"
 msgstr "顯示即時存檔管理員"
@@ -2037,7 +2043,7 @@ msgid "IF NOT EMPTY"
 msgstr "若不為空時"
 
 msgid "Display save state manager before launching a game."
-msgstr ""
+msgstr "啟動遊戲前顯示即時存檔管理員。"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
@@ -2166,7 +2172,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "顯示設定"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "列表轉場"
 
 msgid "auto"
 msgstr "自動"
@@ -2193,7 +2199,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "排序時忽略冠詞"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr ""
+msgstr "如果 'The' 和 'A' 在最前面則忽略它們。"
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2280,7 +2286,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "檢視使用者手冊"
 
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
@@ -2440,7 +2446,7 @@ msgid "RANDOM"
 msgstr "隨機選擇"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "導航列"
 
 msgid "FILES"
 msgstr "檔案"
@@ -2483,7 +2489,7 @@ msgid "Kid"
 msgstr "兒童"
 
 msgid "Basic"
-msgstr ""
+msgstr "基本"
 
 msgid "Released"
 msgstr "發行日期"
@@ -2503,10 +2509,10 @@ msgid "Games similar to"
 msgstr "遊戲相似於"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "即時存檔（按住）"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "遊戲選項（按住）"
 
 msgid "GAME OPTIONS"
 msgstr "遊戲設定"
@@ -2532,7 +2538,7 @@ msgid "SKIP"
 msgstr "略過"
 
 msgid "Downloading"
-msgstr "下載中"
+msgstr "正在下載"
 
 msgid "SEARCH FOR"
 msgstr "要搜尋什麼"
@@ -2547,7 +2553,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "正在儲存中繼資料。請稍後..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "您想要切換畫面嗎？"
 
 msgid "Collections"
 msgstr "合輯"
@@ -2709,10 +2715,10 @@ msgid "VERTICAL"
 msgstr "直立式"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "光線槍"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "含有媒體"
 
 msgid "SCRAPING"
 msgstr "搜刮中"
@@ -2727,6 +2733,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"校準光線槍\n"
+"對準目標開火來校準"
 
 #, c-format
 msgid "%s connected"
@@ -2831,7 +2839,7 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"您沒有指派任何按鈕為「熱鍵」。 這是使用控制器退出遊戲所必須的按鈕。 你是否要"
+"您沒有指派任何按鈕為「熱鍵」。 這是使用控制器退出遊戲所必須的按鈕。 您是否要"
 "將「選擇鍵」指派為「熱鍵」？"
 
 msgid "SET SELECT AS HOTKEY"
@@ -2931,11 +2939,11 @@ msgid "%d h"
 msgstr "%d 時"
 
 #, c-format
-msgid "%d m"
+msgid "%d mn"
 msgstr "%d 分"
 
 #, c-format
-msgid "%d s"
+msgid "%d sec"
 msgstr "%d 秒"
 
 msgid "SCREEN READER ENABLED"
@@ -2943,6 +2951,14 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d 分"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d 秒"
 
 #~ msgid "SCRAPE RATINGS"
 #~ msgstr "搜刮遊戲評分"
@@ -3639,8 +3655,8 @@ msgstr "螢幕閱讀器已停用"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
-#~ "SETTINGS\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
 #~ msgstr ""
 #~ "螢幕保護 \\\"隨機影片\\\" 將顯示遊戲列表中的影片。\n"
 #~ "如果遊戲列表中沒有影片，或者在嘗試播放失敗幾次後，顯示為\\\"黑屏\"。\n"

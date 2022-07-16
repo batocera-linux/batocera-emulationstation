@@ -374,8 +374,8 @@ bool ComponentTab::hitTest(int x, int y, Transform4x4f& parentTransform, std::ve
 
 			if (rx - mCameraOffset + tabWidth >= 0)
 			{
-				rect.x = rx + trans.translation().x() - mCameraOffset; // +Math::round(mCameraOffset);
-				rect.w = tabWidth;
+				rect.x = (rx - mCameraOffset) * trans.r0().x() + trans.translation().x(); // +Math::round(mCameraOffset);
+				rect.w = tabWidth * trans.r0().x();
 
 				if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
 				{

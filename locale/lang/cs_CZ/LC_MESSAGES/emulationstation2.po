@@ -391,8 +391,8 @@ msgstr "BOHATÁ PREZENTACE"
 msgid "ENCORE MODE"
 msgstr "REŽIM ENCORE"
 
-msgid "Reset achievements to be able to earn them again."
-msgstr "Resetujte úspěchy, abyste je mohli získat znovu."
+msgid "Unlocked achievements can be earned again."
+msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATICKÉ SNÍMKY OBRAZOVKY"
@@ -833,6 +833,9 @@ msgstr "náhodné video"
 
 msgid "slideshow"
 msgstr "prezentace"
+
+msgid "suspend"
+msgstr ""
 
 msgid "always"
 msgstr "vždy"
@@ -2992,18 +2995,29 @@ msgid "%d h"
 msgstr "%d h"
 
 #, c-format
-msgid "%d m"
-msgstr "%d m"
+msgid "%d mn"
+msgstr ""
 
 #, c-format
-msgid "%d s"
-msgstr "%d s"
+msgid "%d sec"
+msgstr ""
 
 msgid "SCREEN READER ENABLED"
 msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "Reset achievements to be able to earn them again."
+#~ msgstr "Resetujte úspěchy, abyste je mohli získat znovu."
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d m"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d s"
 
 #~ msgid "RANDOM (HOLD)"
 #~ msgstr "NÁHODNÝ"

@@ -86,6 +86,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "shader", PATH },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
+		{ "onclick", STRING },
 		{ "linearSmooth", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "imagegrid", {
@@ -174,6 +175,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "singleLineScroll", BOOLEAN },
 		{ "autoScroll", STRING },
 		{ "padding", NORMALIZED_RECT },
+		{ "onclick", STRING },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "textlist", {
@@ -606,6 +608,14 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	mVariables.insert(sysDataMap.cbegin(), sysDataMap.cend());
 	mVariables["lang"] = mLanguage;
 
+	for (auto var : mVariables)
+	{
+		if (var.second == "true" || var.second == "false")
+			mEvaluatorVariables[var.first] = var.second == "true" ? 1 : 0;
+		else
+			mEvaluatorVariables[var.first] = var.second;
+	}
+
 	pugi::xml_document doc;
 	pugi::xml_parse_result res = fromFile ? doc.load_file(path.c_str()) : doc.load_string(path.c_str());
 	if(!res)
@@ -1002,6 +1012,25 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 	if (!parseLanguage(node))
 		return false;
 	
+	if (node.attribute("if"))
+	{
+		std::string ifAttribute = node.attribute("if").as_string();
+		if (!ifAttribute.empty())
+		{
+			try
+			{
+				float evaluationResult = mEvaluator.eval(ifAttribute.c_str(), &mEvaluatorVariables).toNumber();
+				if (evaluationResult == 0)
+					return false;
+			}
+			catch (std::domain_error& e)
+			{
+				LOG(LogError) << "if \"" << ifAttribute << "\" expression is invalid : " << e.what();
+				return false;
+			}
+		}
+	}
+
 	if (node.attribute("tinyScreen"))
 	{
 		const std::string tinyScreenAttr = node.attribute("tinyScreen").as_string();
@@ -1038,7 +1067,9 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 	if (node.attribute("ifCheevos"))
 	{
 		const std::string hasCheevosAttr = node.attribute("ifCheevos").as_string();
-		bool hasCheevos = mVariables.find("system.cheevos") != mVariables.cend();
+
+		auto cheevos = mVariables.find("system.cheevos");
+		bool hasCheevos = cheevos != mVariables.cend() && cheevos->second == "true";
 
 		if (!hasCheevos && hasCheevosAttr == "true")
 			return false;
@@ -1553,7 +1584,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 	for (pugi::xml_attribute attribute : root.attributes())
 	{
 		std::string name = attribute.name();
-		if (name == "extra" || name == "name" || name == "ifSubset" || name == "lang" || name == "region" || name == "verticalScreen" || name == "tinyScreen" || name == "ifHelpPrompts" || name == "ifCheevos")
+		if (name == "extra" || name == "name" || name == "ifSubset" || name == "lang" || name == "region" || name == "verticalScreen" || name == "tinyScreen" || name == "ifHelpPrompts" || name == "ifCheevos" || name == "if")
 			continue;
 
 		ElementPropertyType type = STRING;

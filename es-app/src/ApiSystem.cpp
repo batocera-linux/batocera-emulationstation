@@ -1323,6 +1323,8 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
         executables.push_back("batocera-upgrade");
 #endif
 		break;
+	case ApiSystem::SUSPEND:
+		return Utils::FileSystem::exists("/usr/sbin/pm-suspend");
 	}
 
 	if (executables.size() == 0)
@@ -1792,5 +1794,11 @@ bool ApiSystem::emuKill()
 	LOG(LogDebug) << "ApiSystem::emuKill";
 
 	return executeScript("batocera-es-swissknife --emukill");
+}
+
+void ApiSystem::suspend()
+{
+	LOG(LogDebug) << "ApiSystem::suspend";
+	executeScript("/usr/sbin/pm-suspend");
 }
 

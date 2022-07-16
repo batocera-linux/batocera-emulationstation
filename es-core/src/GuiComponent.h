@@ -209,9 +209,13 @@ public:
 	virtual void onMouseEnter();
 	virtual void onMouseMove(int x, int y);
 	virtual void onMouseWheel(int delta);
-	virtual bool onMouseClick(int button, bool pressed, int x, int y) { return false; }
+	virtual bool onMouseClick(int button, bool pressed, int x, int y);
 
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr);
+
+	virtual bool onAction(const std::string& action);
+	
+	void setClickAction(const std::string& action) { mClickAction = action; }
 
 protected:
 	void beginCustomClipRect();
@@ -254,6 +258,9 @@ public:
 	static bool isLaunchTransitionRunning;
 
 private:
+	std::string		mClickAction;
+	bool			mMousePressed;
+
 	Transform4x4f mTransform; //Don't access this directly! Use getTransform()!
 	Vector4f mClipRect;
 

@@ -103,7 +103,8 @@ public:
 		BACKUP = 21,
 		INSTALL = 22,
 		SUPPORTFILE = 23,
-		UPGRADE = 24
+		UPGRADE = 24,
+		SUSPEND = 25
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -236,6 +237,7 @@ public:
 	virtual std::vector<PadInfo> getPadsInfo();
 	virtual std::string getHostsName();
 	virtual bool emuKill();
+	virtual void suspend();
 	
 protected:
 	ApiSystem();

@@ -387,7 +387,7 @@ msgstr ""
 msgid "ENCORE MODE"
 msgstr ""
 
-msgid "Reset achievements to be able to earn them again."
+msgid "Unlocked achievements can be earned again."
 msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
@@ -829,6 +829,9 @@ msgstr "무작위 동영상"
 
 msgid "slideshow"
 msgstr "슬라이드쇼"
+
+msgid "suspend"
+msgstr ""
 
 msgid "always"
 msgstr "항상"
@@ -2938,18 +2941,26 @@ msgid "%d h"
 msgstr "%d 시간"
 
 #, c-format
-msgid "%d m"
-msgstr "%d 분"
+msgid "%d mn"
+msgstr ""
 
 #, c-format
-msgid "%d s"
-msgstr "%d 초"
+msgid "%d sec"
+msgstr ""
 
 msgid "SCREEN READER ENABLED"
 msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#, c-format
+#~ msgid "%d m"
+#~ msgstr "%d 분"
+
+#, c-format
+#~ msgid "%d s"
+#~ msgstr "%d 초"
 
 #~ msgid "RANDOM (HOLD)"
 #~ msgstr "렌덤 (HOLD)"

@@ -182,7 +182,6 @@ bool parseArgs(int argc, char* argv[])
 		{
 			Settings::getInstance()->setBool("Debug", true);
 			Settings::getInstance()->setBool("HideConsole", false);
-			// Log::setReportingLevel(LogDebug);
 		}
 		else if (strcmp(argv[i], "--fullscreen-borderless") == 0)
 		{
@@ -448,8 +447,6 @@ void launchStartupGame()
 
 int main(int argc, char* argv[])
 {	
-	StopWatch* stopWatch = new StopWatch("main :", LogDebug);
-
 	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);
 	signal(SIGILL, signalHandler);
@@ -513,8 +510,8 @@ int main(int argc, char* argv[])
 	}
 
 	//start the logger
-	Log::setupReportingLevel();
 	Log::init();	
+
 	LOG(LogInfo) << "EmulationStation - v" << PROGRAM_VERSION_STRING << ", built " << PROGRAM_BUILT_STRING;
 
 	//always close the log on exit
@@ -653,8 +650,6 @@ int main(int argc, char* argv[])
 
 	int lastTime = SDL_GetTicks();
 	int ps_time = SDL_GetTicks();
-
-	delete stopWatch;
 
 	bool running = true;
 

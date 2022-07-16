@@ -24,6 +24,7 @@
 #include "ImageIO.h"
 #include "utils/Randomizer.h"
 #include "Paths.h"
+#include "ApiSystem.h"
 
 #define FADE_TIME 			500
 
@@ -73,10 +74,26 @@ void SystemScreenSaver::startScreenSaver()
 
 	stopScreenSaver();
 
+	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
+
+	if (screensaver_behavior == "suspend")
+	{
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SUSPEND))
+		{
+			ApiSystem::getInstance()->suspend();
+
+			mLoadingNext = false;
+			mWindow->cancelScreenSaver();
+			return;
+		}
+		else
+			screensaver_behavior = "black";
+	}
+
 	if (!loadingNext && Settings::getInstance()->getBool("StopMusicOnScreenSaver")) //(Settings::getInstance()->getBool("VideoAudio") && !Settings::getInstance()->getBool("ScreenSaverVideoMute")))
 		AudioManager::getInstance()->deinit();
 
-	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
+
 	if (screensaver_behavior == "random video")
 	{
 		mVideoChangeTime = Settings::getInstance()->getInt("ScreenSaverSwapVideoTimeout");

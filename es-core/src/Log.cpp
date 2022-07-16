@@ -15,121 +15,16 @@
 
 static std::mutex mLogLock;
 
-LogLevel Log::reportingLevel = LogInfo;
-bool Log::dirty = false;
-FILE* Log::file = NULL;
-
-LogLevel Log::getReportingLevel()
-{
-	return reportingLevel;
-}
-
-std::string Log::getLogPath()
-{
-	return Paths::getUserEmulationStationPath() + "/es_log.txt";
-}
-
-void Log::setReportingLevel(LogLevel level)
-{
-	reportingLevel = level;
-}
+LogLevel Log::mReportingLevel = (LogLevel) -1;
+bool     Log::mDirty          = false;
+FILE*    Log::mFile           = NULL;
 
 void Log::init()
-{
-	std::unique_lock<std::mutex> lock(mLogLock);
+{		
+	mReportingLevel = (LogLevel)-1;
 
-	if (file != NULL)
-		close();
+	close();
 
-	if (Settings::getInstance()->getString("LogLevel") == "disabled")
-	{
-		remove(getLogPath().c_str());
-		return;
-	}
-
-	remove((getLogPath() + ".bak").c_str());
-
-	// rename previous log file
-	Utils::FileSystem::renameFile(getLogPath(), getLogPath() + ".bak");
-
-	file = fopen(getLogPath().c_str(), "w");
-	dirty = false;
-}
-
-std::ostringstream& Log::get(LogLevel level)
-{
-	time_t t = time(nullptr);
-	os << std::put_time(localtime(&t), "%F %T\t");
-
-	switch (level)
-	{
-	case LogError:
-		os << "ERROR\t";
-		break;
-	case LogWarning:
-		os << "WARNING\t";
-		break;
-	case LogDebug:
-		os << "DEBUG\t";
-		break;
-	default:
-		os << "INFO\t";
-		break;
-	}
-
-	messageLevel = level;
-
-	return os;
-}
-
-void Log::flush()
-{
-	if (!dirty)
-		return;
-
-	if (file != nullptr)
-		fflush(file);
-
-	dirty = false;
-}
-
-void Log::close()
-{
-	if (file != NULL)
-	{
-		fflush(file);
-		fclose(file);
-	}
-
-	dirty = false;
-	file = NULL;
-}
-
-Log::~Log()
-{
-	std::unique_lock<std::mutex> lock(mLogLock);
-
-	if (file != NULL)
-	{
-		os << std::endl;
-		fprintf(file, "%s", os.str().c_str());
-		dirty = true;
-	}
-
-	// If it's an error, also print to console
-	// print all messages if using --debug
-	if (messageLevel == LogError || reportingLevel >= LogDebug)
-	{
-#if WIN32
-		OutputDebugStringA(os.str().c_str());
-#else
-		fprintf(stderr, "%s", os.str().c_str());
-#endif
-	}
-}
-
-void Log::setupReportingLevel()
-{
 	LogLevel lvl = LogInfo;
 
 	if (Settings::getInstance()->getBool("Debug"))
@@ -145,9 +40,114 @@ void Log::setupReportingLevel()
 			lvl = LogWarning;
 		else if (level == "error")
 			lvl = LogError;
+		else
+			lvl = (LogLevel) -1; // Disabled
 	}
 
-	setReportingLevel(lvl);
+	auto logPath = Paths::getUserEmulationStationPath() + "/es_log.txt";
+	auto bakPath = logPath + ".bak";
+
+	if ((int)lvl < 0) 
+	{		
+		Utils::FileSystem::removeFile(logPath);
+		return;
+	}
+	
+	Utils::FileSystem::removeFile(bakPath);
+	Utils::FileSystem::renameFile(logPath, bakPath);
+
+	bool locked = mLogLock.try_lock();
+
+	mFile = fopen(logPath.c_str(), "w");
+	mDirty = false;
+	mReportingLevel = lvl;
+
+	if (locked)
+		mLogLock.unlock();
+}
+
+std::ostringstream& Log::get(LogLevel level)
+{
+	time_t t = time(nullptr);
+	mStream << std::put_time(localtime(&t), "%F %T\t");
+
+	switch (level)
+	{
+	case LogError:
+		mStream << "ERROR\t";
+		break;
+	case LogWarning:
+		mStream << "WARNING\t";
+		break;
+	case LogDebug:
+		mStream << "DEBUG\t";
+		break;
+	default:
+		mStream << "INFO\t";
+		break;
+	}
+
+	mMessageLevel = level;
+
+	return mStream;
+}
+
+void Log::flush()
+{
+	if (!mDirty)
+		return;
+
+	if (mLogLock.try_lock())
+	{
+		if (mFile != nullptr)
+			fflush(mFile);
+
+		mDirty = false;
+		mLogLock.unlock();
+	}
+}
+
+void Log::close()
+{
+	bool locked = mLogLock.try_lock();
+
+	if (mFile != NULL)
+	{
+		fflush(mFile);
+		fclose(mFile);
+		mFile = NULL;
+	}
+
+	mDirty = false;
+	
+	if (locked)
+		mLogLock.unlock();
+}
+
+Log::~Log()
+{
+	bool locked = mLogLock.try_lock();
+
+	if (mFile != NULL)
+	{
+		mStream << std::endl;
+		fprintf(mFile, "%s", mStream.str().c_str());
+		mDirty = true;
+	}
+	
+	// If it's an error, also print to console
+	// print all messages if using --debug
+	if (mMessageLevel == LogError || mReportingLevel >= LogDebug)
+	{
+#if WIN32
+		OutputDebugStringA(mStream.str().c_str());
+#else
+		fprintf(stderr, "%s", mStream.str().c_str());
+#endif
+	}
+
+	if (locked)
+		mLogLock.unlock();
 }
 
 StopWatch::StopWatch(const std::string& elapsedMillisecondsMessage, LogLevel level)
