@@ -24,6 +24,8 @@
 #include "BasicGameListView.h"
 #include "utils/Randomizer.h"
 #include "views/Binding.h"
+#include "guis/GuiImageViewer.h"
+#include "guis/GuiGameAchievements.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
 	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
@@ -669,6 +671,68 @@ bool ISimpleGameListView::onAction(const std::string& action)
 		return true;
 	}
 	
+	if (action == "video")
+	{
+		FileData* game = getCursor();
+		if (game != nullptr)
+		{
+			auto path = game->getMetadata(MetaDataId::Video);
+			if (!path.empty())
+				GuiVideoViewer::playVideo(mWindow, path);
+		}
+		return true;
+	}
 
+	if (action == "manual")
+	{
+		FileData* game = getCursor();
+		if (game != nullptr)
+		{
+			auto path = game->getMetadata(MetaDataId::Manual);
+			if (!path.empty())
+				GuiImageViewer::showPdf(mWindow, path);
+		}
+		return true;
+	}
+
+	if (action == "map")
+	{
+		FileData* game = getCursor();
+		if (game != nullptr)
+		{
+			auto path = game->getMetadata(MetaDataId::Map);
+			if (!path.empty())
+				GuiImageViewer::showImage(mWindow, path, Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".pdf");
+		}
+		return true;
+	}
+
+	if (action == "medias")
+	{
+		FileData* game = getCursor();
+		if (game != nullptr)
+		{
+			auto imageList = game->getSourceFileData()->getFileMedias();
+			if (imageList.size())
+				GuiImageViewer::showImages(mWindow, imageList);
+		}
+
+		return true;
+	}
+
+	if (action == "cheevos")
+	{
+		FileData* game = getCursor();
+		if (game != nullptr)
+		{
+			auto path = Utils::String::toInteger(game->getMetadata(MetaDataId::CheevosId));
+			if (path != 0)
+				GuiGameAchievements::show(mWindow, path);
+		}
+
+		return true;
+	}
+
+	
 	return false;
 }

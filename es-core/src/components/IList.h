@@ -146,7 +146,7 @@ public:
 		return mCursor;
 	}
 
-	void clear()
+	virtual void clear()
 	{
 		mEntries.clear();
 		mCursor = 0;

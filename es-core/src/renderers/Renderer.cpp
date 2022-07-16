@@ -480,6 +480,50 @@ namespace Renderer
 		return (float) screenWidth / (float) screenHeight;
 	}
 
+	std::map<std::string, float> ratios =
+	{
+		{ "4/3",		   4.0f / 3.0f },
+		{ "16/9",          16.0f / 9.0f },
+		{ "16/10",         16.0f / 10.0f },
+		{ "16/15",         16.0f / 15.0f },
+		{ "21/9",          21.0f / 9.0f },
+		{ "1/1",           1 / 1 },
+		{ "2/1",           2.0f / 1.0f },
+		{ "3/2",           3.0f / 2.0f },
+		{ "3/4",           3.0f / 4.0f },
+		{ "4/1",           4.0f / 1.0f },
+		{ "9/16",          9.0f / 16.0f },
+		{ "5/4",           5.0f / 4.0f },
+		{ "6/5",           6.0f / 5.0f },
+		{ "7/9",           7.0f / 9.0f },
+		{ "8/3",           8.0f / 3.0f },
+		{ "8/7",           8.0f / 7.0f },
+		{ "19/12",         19.0f / 12.0f },
+		{ "19/14",         19.0f / 14.0f },
+		{ "30/17",         30.0f / 17.0f },
+		{ "32/9",          32.0f / 9.0f }
+	};
+
+	std::string  getAspectRatio()
+	{
+		float nearDist = 9999999;
+		std::string nearName = "";
+
+		float prop = Renderer::getScreenProportion();
+
+		for (auto ratio : ratios)
+		{
+			float dist = abs(prop - ratio.second);
+			if (dist < nearDist)
+			{
+				nearDist = dist;
+				nearName = ratio.first;
+			}
+		}
+
+		return nearName;
+	}
+
 	bool        isSmallScreen()    
 	{ 		
 		return screenWidth <= 480 || screenHeight <= 480; 

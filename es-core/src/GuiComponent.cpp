@@ -16,8 +16,8 @@ bool GuiComponent::isLaunchTransitionRunning = false;
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
 	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5), mScaleOrigin(0.5f, 0.5f),
-	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mIsProcessing(false), mVisible(true), mShowing(false),
-	mStaticExtra(false), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true), mIsMouseOver(false)
+	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mVisible(true), mShowing(false),
+	mStaticExtra(false), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true), mIsMouseOver(false), mChildZIndexDirty(false)
 {
 	mClipRect = Vector4f();
 }
@@ -69,6 +69,12 @@ void GuiComponent::updateSelf(int deltaTime)
 
 void GuiComponent::updateChildren(int deltaTime)
 {
+	if (mChildZIndexDirty)
+	{
+		mChildZIndexDirty = false;
+		sortChildren();
+	}
+
 	for (auto it = mChildren.cbegin(), next_it = it; it != mChildren.cend(); it = next_it)
 	{
 		++next_it;
@@ -231,7 +237,13 @@ float GuiComponent::getZIndex() const
 
 void GuiComponent::setZIndex(float z)
 {
+	if (mZIndex == z)
+		return;
+
 	mZIndex = z;
+
+	if (mParent != nullptr)
+		mParent->mChildZIndexDirty = true;
 }
 
 float GuiComponent::getDefaultZIndex() const
@@ -769,11 +781,6 @@ HelpStyle GuiComponent::getHelpStyle()
 	}
 
 	return style;
-}
-
-bool GuiComponent::isProcessing() const
-{
-	return mIsProcessing;
 }
 
 void GuiComponent::onShow()
