@@ -719,6 +719,7 @@ bool SystemData::loadConfig(Window* window)
 {
 	deleteSystems();
 	ThemeData::setDefaultTheme(nullptr);
+	UIModeController::getInstance(); // Init UIModeController before loading systems
 
 	std::string path = getConfigPath();
 
@@ -1415,11 +1416,17 @@ void SystemData::loadTheme()
 		sysData["global.netplay"] = SystemConf::getInstance()->getBool("global.netplay") ? "true" : "false";
 		sysData["global.netplay.username"] = SystemConf::getInstance()->getBool("global.netplay") ? SystemConf::getInstance()->get("global.netplay.nickname") : "";
 
+		// Screen
+		sysData["screen.width"] = std::to_string(Renderer::getScreenWidth());
+		sysData["screen.height"] = std::to_string(Renderer::getScreenHeight());
+		sysData["screen.ratio"] = Renderer::getAspectRatio();
+		sysData["screen.vertical"] = Renderer::isVerticalScreen() ? "true" : "false";
+
 		// Retrocompatibility
 		sysData["cheevos.username"] = SystemConf::getInstance()->getBool("global.retroachievements") ? SystemConf::getInstance()->get("global.retroachievements.username") : "";
 
 		// System variables
-		sysData["system.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection() || isGroupSystem()) ? "true" : "false";
+		sysData["system.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection() || isGameSystem()) ? "true" : "false";
 		sysData["system.netplay"] = isNetplaySupported() ? "true" : "false";
 		sysData["system.savestates"] = isCurrentFeatureSupported(EmulatorFeatures::autosave) ? "true" : "false";
 
@@ -1452,6 +1459,11 @@ void SystemData::loadTheme()
 		global.cheevos.username
 		global.netplay				( bool )
 		global.netplay.username
+		global.language
+		screen.width				( float )
+		screen.height				( float ) 
+		screen.ratio
+		screen.vertical             ( bool )
 		system.cheevos				( bool )
 		system.netplay				( bool )
 		system.savestates			( bool )
@@ -1465,6 +1477,9 @@ void SystemData::loadTheme()
 		system.sortedBy
 		system.theme
 		system.command
+
+		lang					
+		cheevos.username		-> retrocompat
 		*/
 
 		mTheme->loadFile(getThemeFolder(), sysData, path);

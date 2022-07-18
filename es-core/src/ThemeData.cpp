@@ -429,6 +429,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "linearSmooth", BOOLEAN },
 		{ "saturation", FLOAT },
 		{ "shader", PATH },
+		{ "onclick", STRING },
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
 	{ "carousel", {
@@ -606,14 +607,18 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 
 	mVariables.clear();
 	mVariables.insert(sysDataMap.cbegin(), sysDataMap.cend());
+
 	mVariables["lang"] = mLanguage;
+	mVariables["global.language"] = mLanguage;
 
 	for (auto var : mVariables)
 	{
-		if (var.second == "true" || var.second == "false")
+		if (var.first == "screen.height" || var.first == "screen.width")
+			mEvaluatorVariables[var.first] = Utils::String::toFloat(var.second);
+		else if (var.second == "true" || var.second == "false")
 			mEvaluatorVariables[var.first] = var.second == "true" ? 1 : 0;
 		else
-			mEvaluatorVariables[var.first] = var.second;
+			mEvaluatorVariables[var.first] = var.second;		
 	}
 
 	pugi::xml_document doc;
@@ -946,11 +951,40 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 	if (!parseFilterAttributes(node))
 		return;
 
-	std::string val = resolvePlaceholders(node.text().as_string());
-	//if (val.empty()) return;
-	
-	mVariables.erase(key);
-	mVariables.insert(std::pair<std::string, std::string>(key, val));	
+	std::string val = node.text().as_string();
+
+	if (val == "true" || val == "false")
+	{
+		mVariables[key] = val;
+		mEvaluatorVariables[key] = val == "true" ? 1 : 0;
+	}
+	else if (val.find("${") != std::string::npos || val.find("=") != std::string::npos || val.find(">") != std::string::npos || val.find("<") != std::string::npos)
+	{
+		try
+		{
+			auto ret = mEvaluator.eval(val.c_str(), &mEvaluatorVariables);
+			mEvaluatorVariables[key] = ret;
+
+			if (ret.isString())
+				mVariables[key] = ret.toString();
+			else
+				mVariables[key] = std::to_string(ret.toNumber()); // ? "true" : "false";
+		}
+		catch (std::domain_error& e)
+		{
+			val = resolvePlaceholders(val.c_str());
+
+			mVariables[key] = val;
+			mEvaluatorVariables[key] = val;
+		}
+	}
+	else
+	{
+		val = resolvePlaceholders(val.c_str());
+
+		mVariables[key] = val;
+		mEvaluatorVariables[key] = val;
+	}
 }
 
 void ThemeData::parseVariables(const pugi::xml_node& root)

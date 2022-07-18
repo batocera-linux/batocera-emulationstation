@@ -25,6 +25,7 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "TextToSpeech.h"
 #include "Binding.h"
+#include "guis/GuiRetroAchievements.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -1998,7 +1999,20 @@ bool SystemView::onAction(const std::string& action)
 	{
 		listInput(1);
 		return true;
-	}	
+	}
 
+	if (action == "cheevos")
+	{
+		if (SystemConf::getInstance()->getBool("global.retroachievements") && !Settings::getInstance()->getBool("RetroachievementsMenuitem") && SystemConf::getInstance()->get("global.retroachievements.username") != "")
+		{
+			if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));				
+			else
+				GuiRetroAchievements::show(mWindow);
+		}
+
+		return true;
+	}
+	
 	return false;
 }

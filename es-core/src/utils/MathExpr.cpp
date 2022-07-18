@@ -78,7 +78,7 @@ namespace Utils
 				expr = nextChar;
 				lastTokenWasOp = false;
 			}
-			else if (isvariablechar(*expr) || *expr == '{')
+			else if (isvariablechar(*expr) || *expr == '{' || *expr == '$')
 			{
 				// If the function is a variable, resolve it and
 				// add the parsed number to the output queue.
@@ -86,6 +86,9 @@ namespace Utils
 					throw std::domain_error("Detected variable, but the variable map is null.");
 
 				std::stringstream ss;
+
+				if (*expr == '$' && *(expr+1) == '{')
+					expr++;
 
 				if (*expr == '{')
 				{

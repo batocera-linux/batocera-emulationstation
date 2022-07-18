@@ -137,6 +137,7 @@ namespace Renderer
 	int         getScreenOffsetY();
 	int         getScreenRotate ();
 	float		getScreenProportion();
+	std::string getAspectRatio();
 	bool		isVerticalScreen();
 
 	// API specific
