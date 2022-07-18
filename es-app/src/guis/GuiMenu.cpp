@@ -1235,7 +1235,8 @@ void GuiMenu::openSystemSettings()
 	if (selectedRotation.empty())
 		selectedRotation = "auto";
 
-	optionsRotation->add(_("0 DEGREES (AUTO)"),              "auto", selectedRotation == "auto");
+	optionsRotation->add(_("AUTO"),              "auto", selectedRotation == "auto");
+	optionsRotation->add(_("0 DEGREES"),        "0", selectedRotation == "0");
 	optionsRotation->add(_("90 DEGREES"),       "1", selectedRotation == "1");
 	optionsRotation->add(_("180 DEGREES"),    "2", selectedRotation == "2");
 	optionsRotation->add(_("270 DEGREES"),        "3", selectedRotation == "3");
