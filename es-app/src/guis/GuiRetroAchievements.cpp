@@ -66,8 +66,13 @@ void RetroAchievementProgress::setColor(unsigned int color)
 
 void RetroAchievementProgress::render(const Transform4x4f& parentTrans)
 {
+	if (!isVisible())
+		return;
+
 	Transform4x4f trans = parentTrans * getTransform();
-	if (!isVisible() || !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 		
 	int padding = mSize.x() * 0.1f;

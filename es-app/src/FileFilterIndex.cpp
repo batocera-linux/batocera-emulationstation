@@ -1170,3 +1170,50 @@ void CollectionFilter::resetSystemFilter()
 {
 	mSystemFilter.clear();
 }
+
+std::string FileFilterIndex::getDisplayLabel(bool includeText)
+{
+	std::string filterInfo;
+
+	if (includeText && !mTextFilter.empty())
+		filterInfo = _("SEARCH") + " : " + mTextFilter;
+
+	for (auto decl : getFilterDataDecls())
+	{
+		auto items = getFilter(decl.type);
+		if (items != nullptr && items->size())
+		{
+			std::string itemsString;
+			for (auto item : (*items))
+			{
+				if (item.empty())
+					continue;
+
+				if (!itemsString.empty())
+					itemsString += ", ";
+
+				if (decl.type == GENRE_FILTER)
+				{
+					auto genre = Genres::getGameGenre(item);
+					if (genre != nullptr)
+					{
+						itemsString += genre->getLocalizedName();
+						continue;
+					}
+				}
+
+				itemsString += item;
+			}
+
+			if (!itemsString.empty())
+			{
+				if (!filterInfo.empty())
+					filterInfo += ", ";
+
+				filterInfo += decl.menuLabel + " : " + itemsString;
+			}
+		}
+	}
+
+	return filterInfo;
+}

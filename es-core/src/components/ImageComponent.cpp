@@ -525,8 +525,12 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 	
 	// Don't use soft clip if rotation applied : let renderer do the work
-	if (mCheckClipping && mRotation == 0 && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
-		return;
+	if (mCheckClipping && mRotation == 0)
+	{
+		auto rect = Renderer::getScreenRect(trans, mSize);
+		if (!Renderer::isVisibleOnScreen(rect))
+			return;
+	}
 
 	if (Settings::DebugMouse() && mIsMouseOver)
 	{

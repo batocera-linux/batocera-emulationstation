@@ -412,9 +412,9 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 
 template<typename T>
 void ImageGridComponent<T>::clear()
-{
-	mCameraOffset = 0;
+{	
 	IList<ImageGridData, T>::clear();
+	resetGrid();
 }
 
 template<typename T>
@@ -520,8 +520,14 @@ void ImageGridComponent<T>::update(int deltaTime)
 
 	listUpdate(deltaTime);
 
+	if (mEntriesDirty)
+	{
+		ensureVisibleTileExist();
+		mEntriesDirty = false;
+	}
+
 	for (auto entry : mEntries)
-		if (entry.data.tile != nullptr)
+		if (entry.data.tile != nullptr && entry.data.tile->isVisible())
 			entry.data.tile->update(deltaTime);
 }
 
@@ -614,28 +620,15 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 	Transform4x4f tileTrans = trans;
 
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
-
-	if (mEntriesDirty)
-	{
-		ensureVisibleTileExist();
-		mEntriesDirty = false;
-	}
 
 	if (Settings::DebugGrid())
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033);
-		Renderer::setMatrix(parentTrans);
-	}
 
-	// Create a clipRect to hide tiles used to buffer texture loading
-	Vector2i pos((int)Math::round(trans.translation()[0]), (int)Math::round(trans.translation()[1]));
-	Vector2i size((int)Math::round(mSize.x() * trans.r0().x()), (int)Math::round(mSize.y() * trans.r1().y()));
-
-	if (Settings::DebugGrid())
-	{
 		for (auto entry : mEntries)
 		{
 			auto tile = entry.data.tile;
@@ -653,6 +646,9 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	}
 
 	bool splittedRendering = (mAnimateSelection && mAutoLayout.x() != 0);
+
+	Vector2i pos(rect.x, rect.y);
+	Vector2i size(rect.w, rect.h);
 
 	if (mAutoLayout == Vector2f::Zero() && mLastRowPartial) // If the last row is partial in Retropie, extend clip to show the entire last row 
 		size.y() = (mTileSize + mMargin).y() * (mGridDimension.y() - 2 * EXTRAITEMS);
@@ -1310,16 +1306,16 @@ void ImageGridComponent<T>::onMouseWheel(int delta)
 	auto newCursor = mCursor - delta * dimOpposite;
 	/*
 	if (newCursor < 0)
-		newCursor += mEntries.size() - 1;
+		newCursor += mEntries.size();
 	else if (newCursor >= mEntries.size())
-		newCursor -= mEntries.size() - 1;
+		newCursor -= mEntries.size();
 	*/
 	if (mScrollLoop)
 	{
 		if (newCursor < 0)
-			newCursor += mEntries.size() - 1;
+			newCursor += mEntries.size();
 		else if (newCursor >= mEntries.size())
-			newCursor -= mEntries.size() - 1;
+			newCursor -= mEntries.size();
 	}
 	else
 	{

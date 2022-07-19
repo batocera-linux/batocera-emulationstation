@@ -251,7 +251,7 @@ bool HelpComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 			rect.x = 0;
 		}
 
-		if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+		if (rect.contains(x, y))
 		{
 			mIsMouseOver = true;
 
@@ -265,23 +265,18 @@ bool HelpComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 
 		mHotItem = -1;
 
-		int gx = trans.translation().x();
-
 		for (int i = 0; i < mGrid->getGridSize().x(); i += 4)
 		{			
-			int width = mGrid->getColWidth(i) + mGrid->getColWidth(i + 1) + mGrid->getColWidth(i + 2);
-			int spacing = mGrid->getColWidth(i + 3);
+			int width = mGrid->getColWidth(i) + mGrid->getColWidth(i + 1) + mGrid->getColWidth(i + 2) + mGrid->getColWidth(i + 3);
 
-			rect.x = gx - spacing / 2.0f;
-			rect.w = width + spacing / 2.0f;
-
-			if (x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+			auto rcItem = Renderer::getScreenRect(trans, Vector2f(width, rect.h), true);
+			if (rcItem.contains(x, y))
 			{
 				mHotItem = i / 4;
 				break;
 			}
 
-			gx += width + spacing;
+			trans.translate(width, 0);
 		}
 	}
 	else

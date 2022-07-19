@@ -95,9 +95,10 @@ void GuiComponent::render(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = parentTrans * getTransform();
 
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
-	
+
 	if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
 		Renderer::pushClipRect(mClipRect.x(), mClipRect.y(), mClipRect.z(), mClipRect.w());
 
@@ -1127,9 +1128,8 @@ bool GuiComponent::hitTest(int x, int y, Transform4x4f& parentTransform, std::ve
 
 	Transform4x4f trans = getTransform() * parentTransform;
 
-	Renderer::Rect rect = Renderer::getScreenRect(trans, getSize(), true);
-
-	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+	auto rect = Renderer::getScreenRect(trans, getSize(), true);
+	if (x != -1 && y != -1 && rect.contains(x, y))
 	{
 		if (pResult)
 			pResult->push_back(this);

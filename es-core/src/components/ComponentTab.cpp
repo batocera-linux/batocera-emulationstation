@@ -361,7 +361,7 @@ bool ComponentTab::hitTest(int x, int y, Transform4x4f& parentTransform, std::ve
 	mHotTab = -1;
 
 	auto rect = Renderer::getScreenRect(trans, getSize(), true);
-	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+	if (x != -1 && y != -1 && rect.contains(x, y))
 	{
 		ret = true;
 
@@ -377,7 +377,7 @@ bool ComponentTab::hitTest(int x, int y, Transform4x4f& parentTransform, std::ve
 				rect.x = (rx - mCameraOffset) * trans.r0().x() + trans.translation().x(); // +Math::round(mCameraOffset);
 				rect.w = tabWidth * trans.r0().x();
 
-				if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+				if (rect.contains(x, y))
 				{
 					mHotTab = i;
 					break;
@@ -392,6 +392,8 @@ bool ComponentTab::hitTest(int x, int y, Transform4x4f& parentTransform, std::ve
 		if (pResult != nullptr)
 			pResult->push_back(this);
 	}
+
+	trans.translate(-mCameraOffset, 0);
 
 	for (int i = 0; i < getChildCount(); i++)
 		ret |= getChild(i)->hitTest(x, y, trans, pResult);

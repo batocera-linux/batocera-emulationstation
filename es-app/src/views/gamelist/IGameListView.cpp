@@ -23,16 +23,11 @@ void IGameListView::render(const Transform4x4f& parentTrans)
 {
 	Transform4x4f trans = parentTrans * getTransform();
 
-	float scaleX = trans.r0().x();
-	float scaleY = trans.r1().y();
-
-	Vector2i pos((int)Math::round(trans.translation()[0]), (int)Math::round(trans.translation()[1]));
-	Vector2i size((int)Math::round(mSize.x() * scaleX), (int)Math::round(mSize.y() * scaleY));
-	
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), size.x(), size.y()))
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
-	Renderer::pushClipRect(pos, size);
+	Renderer::pushClipRect(rect);
 	renderChildren(trans);
 	Renderer::popClipRect();
 }
