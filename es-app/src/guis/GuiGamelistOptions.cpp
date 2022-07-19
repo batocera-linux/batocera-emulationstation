@@ -25,7 +25,8 @@
 #include "views/gamelist/ISimpleGameListView.h"
 
 std::vector<std::string> GuiGamelistOptions::gridSizes {
-	"automatic", "1x1",
+	"automatic", 
+	"1x1", "1x2", "1x3", "1x4", "1x5", "1x6", "1x7",
 	"2x1", "2x2", "2x3", "2x4", "2x5", "2x6", "2x7",
 	"3x1", "3x2", "3x3", "3x4", "3x5", "3x6", "3x7",
 	"4x1", "4x2", "4x3", "4x4", "4x5", "4x6", "4x7",
@@ -58,20 +59,40 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 
 	auto theme = ThemeData::getMenuTheme();
 
-	bool showFilters = !Settings::getInstance()->getBool("ForceDisableFilters");
-
 	if (!isInRelevancyMode)
 	{
 		mMenu.addGroup(_("NAVIGATION"));
 
-		if (showFilters)				
+		if (!Settings::getInstance()->getBool("ForceDisableFilters"))
+		{
 			addTextFilterToMenu();
 
-		ComponentListRow row;
+			std::string filterInfo;
 
+			auto idx = mSystem->getIndex(false);
+			if (idx != nullptr && idx->isFiltered())
+				filterInfo = idx->getDisplayLabel(false);
+
+			if (!filterInfo.empty())
+				mMenu.addWithDescription(_("OTHER FILTERS"), filterInfo, nullptr, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
+			else
+				mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));			
+		}
+
+		ISimpleGameListView* simpleView = dynamic_cast<ISimpleGameListView*>(getGamelist());
+		if (simpleView != nullptr)
+		{
+			mMenu.addEntry(_("SELECT RANDOM GAME"), false, [this, simpleView]
+			{
+				simpleView->moveToRandomGame();
+				delete this;
+			});
+		}
+		
 		if (!fromPlaceholder)
 		{
 			// jump to letter
+			ComponentListRow row;
 			row.elements.clear();
 
 			std::vector<std::string> letters = getGamelist()->getEntriesLetters();
@@ -106,16 +127,6 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			}
 		}
 				
-		ISimpleGameListView* simpleView = dynamic_cast<ISimpleGameListView*>(getGamelist());
-		if (simpleView != nullptr)
-		{
-			mMenu.addEntry(_("SELECT RANDOM GAME"), false, [this, simpleView]
-			{
-				simpleView->moveToRandomGame();
-				delete this;
-			});
-		}
-
 		// sort list by
 		unsigned int currentSortId = mSystem->getSortId();
 		if (currentSortId > FileSorts::getSortTypes().size())
@@ -129,20 +140,27 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 		}
 
 		mMenu.addWithLabel(_("SORT GAMES BY"), mListSort);	
-
-		// Show filtered menu
-		if (showFilters)
-			mMenu.addEntry(_("OTHER FILTERS"), true, std::bind(&GuiGamelistOptions::openGamelistFilter, this));
 	}
 
 	if (!isInRelevancyMode)
 	{
 		if (customCollection != customCollections.cend())
 		{
-			mMenu.addGroup(_("COLLECTION"));
-
 			if (customCollection->second.filteredIndex != nullptr)
-				mMenu.addEntry(_("EDIT DYNAMIC COLLECTION FILTERS"), false, std::bind(&GuiGamelistOptions::editCollectionFilters, this));
+			{
+				mMenu.addGroup(_("DYNAMIC COLLECTION"));
+
+				std::string filterInfo;
+				if (customCollection->second.filteredIndex->isFiltered())
+					filterInfo = customCollection->second.filteredIndex->getDisplayLabel(true);
+
+				if (!filterInfo.empty())
+					mMenu.addWithDescription(_("EDIT DYNAMIC COLLECTION FILTERS"), filterInfo, nullptr, std::bind(&GuiGamelistOptions::editCollectionFilters, this));
+				else
+					mMenu.addEntry(_("EDIT DYNAMIC COLLECTION FILTERS"), false, std::bind(&GuiGamelistOptions::editCollectionFilters, this));
+			}
+			else 
+				mMenu.addGroup(_("CUSTOM COLLECTION"));
 
 			mMenu.addEntry(_("DELETE COLLECTION"), false, std::bind(&GuiGamelistOptions::deleteCollection, this));
 		}

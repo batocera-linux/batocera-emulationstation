@@ -343,7 +343,8 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool ren
 	if (renderBackground)
 		mBackground.render(trans);
 
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
 	auto& currentProperties = getCurrentProperties(false);
@@ -358,11 +359,14 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool ren
 		if (currentProperties.Label.Visible && !mLabelMerged)
 			bottomPadding = std::max((int)topPadding, (int)(mSize.y() * currentProperties.Label.size.y()));
 
-		int x = (int)Math::round(trans.translation()[0] + padding);
-		int y = (int)Math::round(trans.translation()[1] + topPadding);
-		int w = (int)Math::round(mSize.x()* trans.r0().x() - 2 * padding);
-		int h = (int)Math::round(mSize.y()* trans.r1().y() - topPadding - bottomPadding);
+		Transform4x4f tx = trans;
+		tx.translate(padding, topPadding);
 
+		int x = (int)Math::round(tx.translation()[0]);
+		int y = (int)Math::round(tx.translation()[1]);
+		int w = (int)Math::round((mSize.x() - 2 * padding) * tx.r0().x());
+		int h = (int)Math::round((mSize.y() - topPadding - bottomPadding) * tx.r1().y());
+		
 		Renderer::pushClipRect(x, y, w, h);
 	}
 

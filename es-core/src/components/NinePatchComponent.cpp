@@ -141,7 +141,9 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 		return;
 
 	Transform4x4f trans = parentTrans * getTransform();
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
 	// Apply cornersize < 0 only with default ":/frame.png" image, not with customized ones
