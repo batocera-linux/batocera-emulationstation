@@ -22,9 +22,9 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	retroachievements_enabled->setState(retroachievementsEnabled);
 	addWithLabel(_("RETROACHIEVEMENTS"), retroachievements_enabled);
 
-	addSwitch(_("HARDCORE MODE"), _("Disable loading states (as well as auto-load) for more points."), "global.retroachievements.hardcore", false, nullptr);
+	addSwitch(_("HARDCORE MODE"), _("Disable loading states, rewind and cheats for more points."), "global.retroachievements.hardcore", false, nullptr);
 	addSwitch(_("LEADERBOARDS"), _("Compete in high-score and best time leaderboards (requires hardcore)."), "global.retroachievements.leaderboards", false, nullptr);
-	addSwitch(_("VERBOSE MODE"), "global.retroachievements.verbose", false);
+	addSwitch(_("VERBOSE MODE"), _("Show achievement progression on game launch and other notifications."), "global.retroachievements.verbose", false, nullptr);
 	addSwitch(_("RICH PRESENCE"), "global.retroachievements.richpresence", false);
 	addSwitch(_("ENCORE MODE"), _("Unlocked achievements can be earned again."), "global.retroachievements.encore", false, nullptr);
 	addSwitch(_("AUTOMATIC SCREENSHOT"), _("Automatically take a screenshot when an achievement is earned."), "global.retroachievements.screenshot", false, nullptr);
