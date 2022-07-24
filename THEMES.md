@@ -373,10 +373,37 @@ Theme variables can be used to simplify theme construction.  There are 2 types o
 
 #### System Variables
 
-System variables are system specific and are derived from the values in es_systems.cfg.
-* `system.name`
-* `system.fullName`
-* `system.theme`
+System variables can be used with variables, text bindings & if conditions.
+
+* system.name
+* system.fullName
+* system.theme
+* global.architecture
+* global.help					( bool )
+* global.clock				( bool )
+* global.cheevos				( bool )
+* global.cheevos.username
+* global.netplay				( bool )
+* global.netplay.username
+* global.language
+* screen.width				( float )
+* screen.height				( float ) 
+* screen.ratio
+* screen.vertical             ( bool )
+* system.cheevos				( bool )
+* system.netplay				( bool )
+* system.savestates			( bool )
+* system.fullName
+* system.group
+* system.hardwareType
+* system.manufacturer
+* system.name
+* system.releaseYear
+* system.releaseYearOrNull
+* system.sortedBy
+* system.theme
+* system.command
+* cheevos.username
 * `lang`  ** Batocera 5.24
 
 #### Theme Defined Variables
@@ -403,34 +430,40 @@ or to specify only a portion of the value of a theme property:
 
 ### Filter using attributes
 
-** Batocera 5.24
-
 System attributes allow filtering elements and adapt display under conditions :
 
 These attributes apply to every XML element in the theme.
 
 * `tinyScreen` - type : BOOLEAN
   
-* Allow elements to be active only with small screens like GPI Case (if true), or disable element with normal screens ( if false )
+  Allow elements to be active only with small screens like GPI Case (if true), or disable element with normal screens ( if false )
   
 * `ifHelpPrompts`- type : BOOLEAN
   
-* Allow elements to be active only if help is visible/invisible in ES menus.
+  Allow elements to be active only if help is visible/invisible in ES menus.
   
 * `lang` - type : STRING
-  * Allow elements to be used only if the lang is the current language in EmulationStation.
-  * lang is 2 lower characters. ( fr, br, en, ru, pt.... )
+  Allow elements to be used only if the lang is the current language in EmulationStation.
+  lang is 2 lower characters. ( fr, br, en, ru, pt.... )
   
 * `ifSubset` - type : STRING
-  
-* BATOCERA 29 : Allow filtering elements in a xml file  when subsets are active.   
+    
+  Allow filtering elements in a xml file  when subsets are active.   
   
     ```xml <image ifSubset="systemview:horizontal|transparent|legacy, iconview=standard">```
   
-  * name of the subset followed with  `:`  and the name value in the subset. To test multiple values, split with a comma `|` 
-  
-  * To test multiple subsets, split with a comma `,` 
+  name of the subset followed with  `:`  and the name value in the subset. To test multiple values, split with a comma `|`   
+  To test multiple subsets, split with a comma `,` 
 
+* `if` - type : STRING
+
+  Allows to filter any element given a condition expression.
+  
+   ```xml <image if="${screen.height} >= 1080">```
+   
+   ```xml <image if="${screen.ratio} == '16/9'">```
+  
+  
 #### Usage in themes
 
 Variables can be used to specify the value of a theme property:
