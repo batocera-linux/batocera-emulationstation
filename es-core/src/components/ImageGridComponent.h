@@ -123,6 +123,14 @@ public:
 	virtual void onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
+	Vector3f getCameraOffset() 
+	{ 
+		if (isVertical())
+			return Vector3f(0, mCameraOffset, 0);
+
+		return Vector3f(mCameraOffset,  0, 0);
+	}
+
 	Delegate<ILongMouseClickEvent> longMouseClick;
 
 protected:
