@@ -1082,13 +1082,13 @@ void GuiMenu::openSystemSettings()
 
 	// brighness
 	int brighness;
-	if (ApiSystem::getInstance()->getBrighness(brighness))
+	if (ApiSystem::getInstance()->getBrightness(brighness))
 	{
 		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
 		brightnessComponent->setValue(brighness);
 		brightnessComponent->setOnValueChanged([](const float &newVal)
 		{
-			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal));
+			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
 		});
 
 		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
