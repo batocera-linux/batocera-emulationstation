@@ -1029,40 +1029,25 @@ bool ApiSystem::getBrightness(int& value)
 
 	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
 	{
-		std::string brightnessPath = "/sys/class/backlight/backlight/brightness";
-		std::string maxBrightnessPath = "/sys/class/backlight/backlight/max_brightness";
+		for (auto file : Utils::FileSystem::getDirContent("/sys/class/backlight"))
+		{				
+			std::string brightnessPath = file + "/brightness";
+			std::string maxBrightnessPath = file + "/max_brightness";
 
-		if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
-		{
-			BACKLIGHT_BRIGHTNESS_NAME = brightnessPath;
-			BACKLIGHT_BRIGHTNESS_MAX_NAME = maxBrightnessPath;
+			if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
+			{
+				BACKLIGHT_BRIGHTNESS_NAME = brightnessPath;
+				BACKLIGHT_BRIGHTNESS_MAX_NAME = maxBrightnessPath;
 
-			LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << brightnessPath;
-			LOG(LogInfo) << "ApiSystem::getBrightness > max_brightness path resolved to " << maxBrightnessPath;
-		}
-		else
-		{						
-			for (auto file : Utils::FileSystem::getDirContent("/sys/class/backlight"))
-			{				
-				brightnessPath = file + "/brightness";
-				maxBrightnessPath = file + "/max_brightness";
-
-				if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
-				{
-					BACKLIGHT_BRIGHTNESS_NAME = brightnessPath;
-					BACKLIGHT_BRIGHTNESS_MAX_NAME = maxBrightnessPath;
-
-					LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << brightnessPath;
-					LOG(LogInfo) << "ApiSystem::getBrightness > max_brightness path resolved to " << maxBrightnessPath;
-					break;
-				}
+				LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << file;
+				break;
 			}
 		}
 	}
 
 	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
 	{
-		LOG(LogInfo) << "ApiSystem::getBrightness > brightness path is not resolved/supported";
+		LOG(LogInfo) << "ApiSystem::getBrightness > brightness path is not resolved";
 
 		BACKLIGHT_BRIGHTNESS_NAME = "notfound";
 		return false;
