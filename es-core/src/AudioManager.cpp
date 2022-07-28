@@ -424,18 +424,29 @@ void AudioManager::playSong(const std::string& song)
 		if (title_frame != NULL)
 		{
 			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
-			if (title_content != NULL)
+			if (title_content->size >0)
 			{
-				if (title_content->size < MAX_STR_SIZE)
-					title_content->data[title_content->size] = '\0';
-
-				if ((strlen(title_content->data) > 3) && (strlen(title_content->data) < MAX_STR_SIZE))
+				std::string song_name(title_content->data, title_content->size);
+				ID3v2_frame* artist_frame = tag_get_artist(tag);
+				if (artist_frame != NULL)
 				{
-					setSongName(title_content->data);
+					ID3v2_frame_text_content* artist_content = parse_text_frame_content(artist_frame);
+					if (artist_content->size >0)
+					{
+						std::string artist(artist_content->data, artist_content->size);
+						song_name += " - " + artist;
+					}
+					setSongName(song_name);
+					free(title_content);
+					if (artist_content != NULL)
+						free(artist_content);
+					free_tag(tag);
 					return;
 				}
+				free(title_content);
 			}
 		}
+		free_tag(tag);
 	}
 
 	// Then, if no v2, let's try with an ID3 v1 tag	
@@ -458,6 +469,10 @@ void AudioManager::playSong(const std::string& song)
 			LOG(LogError) << "Error AudioManager reading " << song;
 		else if (strncmp(info.tag, "TAG", 3) == 0) {
 			std::string songTitle(info.title, 30);
+			if (info.artist != NULL) {
+				std::string songArtist(info.artist, 30);
+				songTitle += " - " + songArtist;
+			}
 			setSongName(songTitle);
 			fclose(file);
 			return;
