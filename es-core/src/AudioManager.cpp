@@ -424,26 +424,24 @@ void AudioManager::playSong(const std::string& song)
 		if (title_frame != NULL)
 		{
 			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
-			if (title_content->size >0)
+			if (title_content != NULL && title_content->size >0)
 			{
 				std::string song_name(title_content->data, title_content->size);
 				ID3v2_frame* artist_frame = tag_get_artist(tag);
 				if (artist_frame != NULL)
 				{
 					ID3v2_frame_text_content* artist_content = parse_text_frame_content(artist_frame);
-					if (artist_content->size >0)
+					if (artist_content != NULL && artist_content->size >0)
 					{
 						std::string artist(artist_content->data, artist_content->size);
 						song_name += " - " + artist;
-					}
-					setSongName(song_name);
-					free(title_content);
-					if (artist_content != NULL)
 						free(artist_content);
-					free_tag(tag);
-					return;
+					}
 				}
+				setSongName(song_name);
 				free(title_content);
+				free_tag(tag);
+				return;
 			}
 		}
 		free_tag(tag);
