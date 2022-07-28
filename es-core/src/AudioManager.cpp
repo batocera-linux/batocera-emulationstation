@@ -435,10 +435,12 @@ void AudioManager::playSong(const std::string& song)
 					{
 						std::string artist(artist_content->data, artist_content->size);
 						song_name += " - " + artist;
+						free(artist_content->data);
 						free(artist_content);
 					}
 				}
 				setSongName(song_name);
+				free(title_content->data);
 				free(title_content);
 				free_tag(tag);
 				return;
