@@ -1089,6 +1089,9 @@ void GuiMenu::openSystemSettings()
 		brightnessComponent->setOnValueChanged([](const float &newVal)
 		{
 			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
+#if !WIN32
+			SystemConf::getInstance()->set("display.brightness", std::to_string((int)Math::round(newVal)));
+#endif
 		});
 
 		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
