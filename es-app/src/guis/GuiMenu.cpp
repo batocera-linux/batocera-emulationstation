@@ -3471,6 +3471,14 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			_("NO"), nullptr));
 	}, "iconRestart");
 
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SUSPEND))
+	{
+		s->addEntry(_("SUSPEND SYSTEM"), false, [window] {
+			window->pushGui(new GuiMsgBox(window, _("REALLY SUSPEND ?"),
+				_("YES"), [] { ApiSystem::getInstance()->suspend(); },
+				_("NO"), nullptr));
+		}, "iconFastShutdown");
+	}
 
 	s->addEntry(_("SHUTDOWN SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), 
