@@ -131,6 +131,7 @@ namespace Renderer
 		if (glGetError() != GL_NO_ERROR)
 			return 0;
 
+		bindTexture(0);
 		bindTexture(texture);
 
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _repeat ? GL_REPEAT : GL_CLAMP_TO_EDGE);
