@@ -274,7 +274,7 @@ void GridGameListView::launch(FileData* game)
 	{
 		auto tile = mGrid.getSelectedTile();
 		if (tile != nullptr)
-			target = mGrid.getPosition() + tile->getLaunchTarget();
+			target = mGrid.getPosition() + tile->getLaunchTarget() - mGrid.getCameraOffset();
 	}
 
 	ViewController::get()->launch(game, target);

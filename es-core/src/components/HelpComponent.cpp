@@ -38,18 +38,21 @@ HelpComponent::HelpComponent(Window* window) : GuiComponent(window)
 
 void HelpComponent::clearPrompts()
 {
+	mGrid.reset();
 	mPrompts.clear();
 	updateGrid();
 }
 
 void HelpComponent::setPrompts(const std::vector<HelpPrompt>& prompts)
 {
+	mGrid.reset();
 	mPrompts = prompts;
 	updateGrid();
 }
 
 void HelpComponent::setStyle(const HelpStyle& style)
 {
+	mGrid.reset();
 	mStyle = style;
 	updateGrid();
 }
@@ -66,10 +69,10 @@ void HelpComponent::updateGrid()
 
 	// [icon] [spacer1] [text] [spacer2]
 
-	std::vector< std::shared_ptr<ImageComponent> > icons;
-	std::vector< std::shared_ptr<TextComponent> > labels;
+	std::vector<std::pair<std::shared_ptr<ImageComponent>, std::shared_ptr<TextComponent>>> items;
 
 	int maxWidth = Renderer::getScreenWidth() - ENTRY_SPACING;
+	
 	if (Settings::DrawClock())
 	{
 		std::string clockBuf;
@@ -78,8 +81,8 @@ void HelpComponent::updateGrid()
 		else
 			clockBuf = "__00:00_";
 
-		TextComponent fakeClock(mWindow, clockBuf, font, mStyle.textColor);
-		maxWidth = Renderer::getScreenWidth() - fakeClock.getSize().x();
+		auto size = mStyle.font->sizeText(clockBuf);
+		maxWidth = Renderer::getScreenWidth() - size.x();
 	}
 
 	bool is43screen = Renderer::getScreenProportion() < 1.4;
@@ -128,22 +131,23 @@ void HelpComponent::updateGrid()
 			lbl->setGlowOffset(mStyle.glowOffset.x(), mStyle.glowOffset.y());
 		}
 
-		icons.push_back(icon);
-		labels.push_back(lbl);
+		items.push_back({ icon, lbl });
 	}
 
-	mGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(icons.size() * 4, 1));
+	mGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(items.size() * 4, 1));
 	mGrid->setSize(width, height);
-	for (unsigned int i = 0; i < icons.size(); i++)
+	for (unsigned int i = 0; i < items.size(); i++)
 	{
+		auto item = items.at(i);
+
 		const int col = i * 4;
-		mGrid->setColWidthPerc(col, icons.at(i)->getSize().x() / width);
+		mGrid->setColWidthPerc(col, item.first->getSize().x() / width);
 		mGrid->setColWidthPerc(col + 1, ICON_TEXT_SPACING / width);
-		mGrid->setColWidthPerc(col + 2, labels.at(i)->getSize().x() / width);
+		mGrid->setColWidthPerc(col + 2, item.second->getSize().x() / width);
 		mGrid->setColWidthPerc(col + 3, ENTRY_SPACING / width);
 
-		mGrid->setEntry(icons.at(i), Vector2i(col, 0), false, false);
-		mGrid->setEntry(labels.at(i), Vector2i(col + 2, 0), false, false);
+		mGrid->setEntry(item.first, Vector2i(col, 0), false, false);
+		mGrid->setEntry(item.second, Vector2i(col + 2, 0), false, false);
 	}
 
 	mGrid->setPosition(Vector3f(mStyle.position.x(), mStyle.position.y(), 0.0f));

@@ -155,7 +155,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 		return;
 
 	if (mAutoScroll != AutoScrollType::NONE)
-		Renderer::pushClipRect(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y());
+		Renderer::pushClipRect(rect);
 
 	beginCustomClipRect();
 
@@ -371,7 +371,11 @@ void TextComponent::update(int deltaTime)
 			mMarqueeOffset = (int)(Math::Scroll::loop(delay, scrollTime + returnTime, (float)mMarqueeTime, scrollLength + returnLength));
 
 			if (mMarqueeOffset > (scrollLength - (limit - returnLength)))
+			{
 				mMarqueeOffset2 = (int)(mMarqueeOffset - (scrollLength + returnLength));
+				if (mMarqueeOffset2 == 0)
+					mMarqueeOffset = 0;
+			}
 		}
 	}
 	else if(mAutoScroll == AutoScrollType::VERTICAL && mSize.y() > 0)

@@ -420,6 +420,8 @@ namespace Renderer
 
 	void GLES20Renderer::resetCache()
 	{
+		bindTexture(0);
+
 		for (auto customShader : customShaders)
 			if (customShader.second != nullptr)
 				customShader.second->deleteProgram();
@@ -451,6 +453,7 @@ namespace Renderer
 			return 0;
 		}
 		
+		bindTexture(0);
 		bindTexture(texture);
 
 		GL_CHECK_ERROR(glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _repeat ? GL_REPEAT : GL_CLAMP_TO_EDGE));

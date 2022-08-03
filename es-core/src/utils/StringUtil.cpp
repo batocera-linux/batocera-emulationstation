@@ -791,7 +791,7 @@ namespace Utils
 				++str;
 
 			int64_t value = 0;
-			for (; *str && *str != '.' && *str != ' '; str++)
+			for (; *str && *str != '.' && *str != ' ' && *str != '\r' && *str != '\n'; str++)
 			{
 				if (*str < '0' || *str > '9')
 					return 0;

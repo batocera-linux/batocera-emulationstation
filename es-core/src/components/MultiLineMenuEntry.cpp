@@ -21,6 +21,9 @@ MultiLineMenuEntry::MultiLineMenuEntry(Window* window, const std::string& text, 
 	mSubstring->setVerticalAlignment(ALIGN_TOP);
 	mSubstring->setOpacity(192);
 
+	if (!multiLine)
+		mSubstring->setAutoScroll(TextComponent::AutoScrollType::HORIZONTAL);
+
 	setEntry(mText, Vector2i(0, 0), true, true);
 	setEntry(mSubstring, Vector2i(0, 1), false, true);
 

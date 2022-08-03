@@ -146,7 +146,12 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 	}
 
 	if (!description.empty())
+	{
+		if (!multiLine)
+			mList->setUpdateType(ComponentListFlags::UpdateType::UPDATE_ALWAYS);			
+
 		row.addElement(std::make_shared<MultiLineMenuEntry>(mWindow, Utils::String::toUpper(label), description, multiLine), true);
+	}
 	else	
 		row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
 

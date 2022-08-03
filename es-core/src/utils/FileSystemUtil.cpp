@@ -865,11 +865,20 @@ namespace Utils
 			struct stat info;
 
 			// check if lstat succeeded
-			if(lstat(path.c_str(), &info) == 0)
+			if (lstat(path.c_str(), &info) == 0)
 			{
-				resolved.resize(info.st_size);
-				if(readlink(path.c_str(), (char*)resolved.data(), resolved.size()) > 0)
-					resolved = getGenericPath(resolved);
+				resolved.resize(4096);
+
+				int cnt = readlink(path.c_str(), (char*)resolved.data(), resolved.size());
+				if (cnt > 0)
+				{
+					resolved.resize(cnt);
+
+					if (resolved[0] == '.')
+						resolved = getAbsolutePath(resolved, getParent(path));
+					else 
+						resolved = getGenericPath(resolved);
+				}
 			}
 #endif // _WIN32
 

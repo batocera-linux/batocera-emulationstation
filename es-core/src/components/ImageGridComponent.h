@@ -123,6 +123,14 @@ public:
 	virtual void onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
+	Vector3f getCameraOffset() 
+	{ 
+		if (isVertical())
+			return Vector3f(0, mCameraOffset, 0);
+
+		return Vector3f(mCameraOffset,  0, 0);
+	}
+
 	Delegate<ILongMouseClickEvent> longMouseClick;
 
 protected:
@@ -221,6 +229,12 @@ std::shared_ptr<GridTileComponent> ImageGridComponent<T>::createTile(int i, int 
 
 	int X = i % (int)dimOpposite;
 	int Y = i / (int)dimOpposite;
+
+	if (i < 0)
+	{
+		X = (i + mEntries.size() - 1) % (int)dimOpposite;
+		Y = ((i + mEntries.size() - 1) / (int)dimOpposite) - ((mEntries.size() - 1) / (int)dimOpposite);
+	}
 
 	if (!isVertical())
 		std::swap(X, Y);
@@ -1231,15 +1245,44 @@ void ImageGridComponent<T>::resetGrid()
 
 	calcGridDimension();
 
+	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
+
 	mStartPosition = 0;
 	if (mCenterSelection != CenterSelection::NEVER)
 	{
 		int dimScrollable = (isVertical() ? mGridDimension.y() : mGridDimension.x()) - 2 * EXTRAITEMS;
 		mStartPosition -= (int)Math::floorf(dimScrollable / 2.0f);
+		
+		int centralCol = (int)(dimScrollable - 0.5) / 2;
+		int maxCentralCol = (int)(dimScrollable) / 2;
+		int firstVisibleCol = 0 / dimOpposite; // mStartPosition
+
+		int lastCol = ((mEntries.size() - 1) / dimOpposite);
+		int lastScroll = std::max(0, (int)(lastCol + 1 - dimScrollable));
+
+		int oldCol = 0;
+		int col = 0;
+
+		if ((col < centralCol || (col == 0 && col == centralCol)) && mCenterSelection == CenterSelection::PARTIAL)
+			mStartPosition = 0;
+		else if ((col - centralCol) > lastScroll && mCenterSelection == CenterSelection::PARTIAL && !mScrollLoop)
+			mStartPosition = lastScroll * dimOpposite;
+		else if (maxCentralCol != centralCol && col == firstVisibleCol + maxCentralCol || col == firstVisibleCol + centralCol)
+		{
+			if (col == firstVisibleCol + maxCentralCol)
+				mStartPosition = (col - maxCentralCol) * dimOpposite;
+			else
+				mStartPosition = (col - centralCol) * dimOpposite;
+		}
+		else
+		{
+			if (oldCol == firstVisibleCol + maxCentralCol)
+				mStartPosition = (col - maxCentralCol) * dimOpposite;
+			else
+				mStartPosition = (col - centralCol) * dimOpposite;
+		}
 	}
-
-	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
-
+	
 	auto tileDistance = mTileSize + mMargin;
 	mCameraOffset = (isVertical() ? tileDistance.y() : tileDistance.x()) * (mStartPosition / dimOpposite);
 	mEntriesDirty = true;

@@ -480,6 +480,11 @@ void SystemData::createGroupedSystems()
 		if (root->getChildren().size() > 0 && !existingSystem)
 		{
 			system->loadTheme();
+
+			auto defaultView = Settings::getInstance()->getString(system->getName() + ".defaultView");
+			auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(system->getName() + ".gridSize"));
+			system->setSystemViewMode(defaultView, gridSizeOverride, false);
+
 			sSystemVector.push_back(system);
 		}
 		

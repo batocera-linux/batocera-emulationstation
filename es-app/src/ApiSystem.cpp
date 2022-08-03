@@ -1015,96 +1015,80 @@ bool ApiSystem::unzipFile(const std::string fileName, const std::string destFold
 	return ret;
 }
 
-const char* BACKLIGHT_BRIGHTNESS_NAME = "/sys/class/backlight/backlight/brightness";
-const char* BACKLIGHT_BRIGHTNESS_MAX_NAME = "/sys/class/backlight/backlight/max_brightness";
-#define BACKLIGHT_BUFFER_SIZE 127
+static std::string BACKLIGHT_BRIGHTNESS_NAME;
+static std::string BACKLIGHT_BRIGHTNESS_MAX_NAME;
 
-bool ApiSystem::getBrighness(int& value)
-{
-#if WIN32
+bool ApiSystem::getBrightness(int& value)
+{	
+	#if WIN32
 	return false;
-#else
+	#endif
+
+	if (BACKLIGHT_BRIGHTNESS_NAME == "notfound")
+		return false;
+
+	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
+	{
+		for (auto file : Utils::FileSystem::getDirContent("/sys/class/backlight"))
+		{				
+			std::string brightnessPath = file + "/brightness";
+			std::string maxBrightnessPath = file + "/max_brightness";
+
+			if (Utils::FileSystem::exists(brightnessPath) && Utils::FileSystem::exists(maxBrightnessPath))
+			{
+				BACKLIGHT_BRIGHTNESS_NAME = brightnessPath;
+				BACKLIGHT_BRIGHTNESS_MAX_NAME = maxBrightnessPath;
+
+				LOG(LogInfo) << "ApiSystem::getBrightness > brightness path resolved to " << file;
+				break;
+			}
+		}
+	}
+
+	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_MAX_NAME.empty())
+	{
+		LOG(LogInfo) << "ApiSystem::getBrightness > brightness path is not resolved";
+
+		BACKLIGHT_BRIGHTNESS_NAME = "notfound";
+		return false;
+	}
+
 	value = 0;
 
-	int fd;
-	int max = 255;	
-	char buffer[BACKLIGHT_BUFFER_SIZE + 1];
-	ssize_t count;
-
-	fd = open(BACKLIGHT_BRIGHTNESS_MAX_NAME, O_RDONLY);
-	if (fd < 0)
+	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_MAX_NAME));
+	if (max == 0)
 		return false;
 
-	memset(buffer, 0, BACKLIGHT_BUFFER_SIZE + 1);
-
-	count = read(fd, buffer, BACKLIGHT_BUFFER_SIZE);
-	if (count > 0)
-		max = atoi(buffer);
-
-	close(fd);
-
-	if (max == 0) 
-		return 0;
-
-	fd = open(BACKLIGHT_BRIGHTNESS_NAME, O_RDONLY);
-	if (fd < 0)
-		return false;
-
-	memset(buffer, 0, BACKLIGHT_BUFFER_SIZE + 1);
-
-	count = read(fd, buffer, BACKLIGHT_BUFFER_SIZE);
-	if (count > 0)
-		value = atoi(buffer);
-
-	close(fd);
+	if (Utils::FileSystem::exists(BACKLIGHT_BRIGHTNESS_NAME))
+		value = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_NAME));
 
 	value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
 	return true;
-#endif
 }
 
-void ApiSystem::setBrighness(int value)
+void ApiSystem::setBrightness(int value)
 {
-#if !WIN32	
+#if WIN32	
+	return;
+#endif 
+
+	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_NAME == "notfound")
+		return;
+
 	if (value < 5)
 		value = 5;
 
 	if (value > 100)
 		value = 100;
 
-	int fd;
-	int max = 255;
-	char buffer[BACKLIGHT_BUFFER_SIZE + 1];
-	ssize_t count;
-
-	fd = open(BACKLIGHT_BRIGHTNESS_MAX_NAME, O_RDONLY);
-	if (fd < 0)
+	int max = Utils::String::toInteger(Utils::FileSystem::readAllText(BACKLIGHT_BRIGHTNESS_MAX_NAME));
+	if (max == 0)
 		return;
 
-	memset(buffer, 0, BACKLIGHT_BUFFER_SIZE + 1);
-
-	count = read(fd, buffer, BACKLIGHT_BUFFER_SIZE);
-	if (count > 0)
-		max = atoi(buffer);
-
-	close(fd);
-
-	if (max == 0) 
-		return;
-
-	fd = open(BACKLIGHT_BRIGHTNESS_NAME, O_WRONLY);
-	if (fd < 0)
-		return;
-	
 	float percent = (value / 100.0f * (float)max) + 0.5f;
-	sprintf(buffer, "%d\n", (uint32_t)percent);
-
-	count = write(fd, buffer, strlen(buffer));
-	if (count < 0)
-		LOG(LogError) << "ApiSystem::setBrighness failed";
-
-	close(fd);
-#endif
+		
+	std::string content = std::to_string((uint32_t) percent) + "\n";
+	Utils::FileSystem::writeAllText(BACKLIGHT_BRIGHTNESS_NAME, content);
 }
 
 std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)

@@ -1082,13 +1082,16 @@ void GuiMenu::openSystemSettings()
 
 	// brighness
 	int brighness;
-	if (ApiSystem::getInstance()->getBrighness(brighness))
+	if (ApiSystem::getInstance()->getBrightness(brighness))
 	{
 		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
 		brightnessComponent->setValue(brighness);
 		brightnessComponent->setOnValueChanged([](const float &newVal)
 		{
-			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal));
+			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
+#if !WIN32
+			SystemConf::getInstance()->set("display.brightness", std::to_string((int)Math::round(newVal)));
+#endif
 		});
 
 		s->addWithLabel(_("BRIGHTNESS"), brightnessComponent);
@@ -3469,6 +3472,14 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			_("NO"), nullptr));
 	}, "iconRestart");
 
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SUSPEND))
+	{
+		s->addEntry(_("SUSPEND SYSTEM"), false, [window] {
+			window->pushGui(new GuiMsgBox(window, _("REALLY SUSPEND ?"),
+				_("YES"), [] { ApiSystem::getInstance()->suspend(); },
+				_("NO"), nullptr));
+		}, "iconFastShutdown");
+	}
 
 	s->addEntry(_("SHUTDOWN SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), 
