@@ -369,8 +369,8 @@ msgstr "RETROACHIEVEMENTS 成就"
 msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
-msgid "Disable loading states (as well as auto-load) for more points."
-msgstr "停用即時存檔載入（以及自動即時存檔載入）以獲得更多點數。"
+msgid "Disable loading states, rewind and cheats for more points."
+msgstr ""
 
 msgid "LEADERBOARDS"
 msgstr "排行榜"
@@ -380,6 +380,9 @@ msgstr "在高分和最佳時間排行榜中競爭（需要硬派模式）。"
 
 msgid "VERBOSE MODE"
 msgstr "詳細模式"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr "RICH PRESENCE"
@@ -636,23 +639,29 @@ msgstr "返回"
 msgid "NAVIGATION"
 msgstr "導覽"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "跳至以該字母開頭的遊戲"
+msgid "OTHER FILTERS"
+msgstr "其他篩選器"
 
 msgid "SELECT RANDOM GAME"
 msgstr "隨意選擇遊戲"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "跳至以該字母開頭的遊戲"
+
 msgid "SORT GAMES BY"
 msgstr "排序遊戲依"
 
-msgid "OTHER FILTERS"
-msgstr "其他篩選器"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "合輯"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "刪除合輯"
+
+msgid "COLLECTION"
+msgstr "合輯"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "遊戲清單模式"
@@ -1144,8 +1153,8 @@ msgstr "贏得成就"
 msgid "%d%% complete"
 msgstr "已完成 %d%%"
 
-msgid "SAVE STATE MANAGER"
-msgstr "即時存檔管理員"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "新遊戲"
@@ -1766,8 +1775,8 @@ msgstr "可用的選項會依目前的音訊輸出而改變。"
 msgid "SCREEN ROTATION"
 msgstr "螢幕旋轉"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 度（自動）"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 度"
@@ -2009,8 +2018,8 @@ msgstr "即時存檔"
 msgid "AUTO SAVE/LOAD"
 msgstr "自動儲存/載入"
 
-msgid "Load latest save state on game launch and save state when exiting game."
-msgstr "在遊戲啟動時載入最近的即時存檔，並在離開遊戲時儲存即時存檔。"
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "遞增即時存檔"
@@ -2033,8 +2042,8 @@ msgstr "不要增加"
 msgid "Use current slot on a new game."
 msgstr "將目前的存檔槽用於新遊戲。"
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "顯示即時存檔管理員"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "總是"
@@ -2042,8 +2051,8 @@ msgstr "總是"
 msgid "IF NOT EMPTY"
 msgstr "若不為空時"
 
-msgid "Display save state manager before launching a game."
-msgstr "啟動遊戲前顯示即時存檔管理員。"
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
@@ -2317,6 +2326,9 @@ msgstr "確定要退出？"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "遊戲啟動時自動儲存/讀取"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr "在遊戲啟動時載入最近的即時存檔，並在離開遊戲時儲存即時存檔。"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "顯示遊戲控制器覆層"
@@ -2951,6 +2963,21 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "Disable loading states (as well as auto-load) for more points."
+#~ msgstr "停用即時存檔載入（以及自動即時存檔載入）以獲得更多點數。"
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "即時存檔管理員"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 度（自動）"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "顯示即時存檔管理員"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "啟動遊戲前顯示即時存檔管理員。"
 
 #, c-format
 #~ msgid "%d m"
@@ -3655,8 +3682,8 @@ msgstr "螢幕閱讀器已停用"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "螢幕保護 \\\"隨機影片\\\" 將顯示遊戲列表中的影片。\n"
 #~ "如果遊戲列表中沒有影片，或者在嘗試播放失敗幾次後，顯示為\\\"黑屏\"。\n"

@@ -370,7 +370,7 @@ msgstr "RETROPRESTATIONER"
 msgid "HARDCORE MODE"
 msgstr "HARDCORE-LÄGE"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -381,6 +381,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MÅNGSIDIGT LÄGE"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -639,23 +642,29 @@ msgstr "gå tillbaka"
 msgid "NAVIGATION"
 msgstr "NAVIGATION"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "HOPPA TILL SPEL SOM BÖRJAR MED BOKSTAVEN"
+msgid "OTHER FILTERS"
+msgstr "ANDRA FILTER"
 
 msgid "SELECT RANDOM GAME"
 msgstr "VÄLJ SLUMPMÄSSIGT SPEL"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "HOPPA TILL SPEL SOM BÖRJAR MED BOKSTAVEN"
+
 msgid "SORT GAMES BY"
 msgstr "SORTERA SPEL EFTER"
 
-msgid "OTHER FILTERS"
-msgstr "ANDRA FILTER"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "SAMLING"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "RADERA SAMLING"
+
+msgid "COLLECTION"
+msgstr "SAMLING"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "VYSTIL FÖR SPELLISTAN"
@@ -1147,8 +1156,8 @@ msgstr "Vunna prestationer"
 msgid "%d%% complete"
 msgstr "%d%% slutfört"
 
-msgid "SAVE STATE MANAGER"
-msgstr "HANTERARE FÖR 'SAVE STATE'"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "STARTA NYTT SPEL"
@@ -1773,8 +1782,8 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "SKÄRMROTATION"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 GRADER (AUTO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 GRADER"
@@ -2019,7 +2028,7 @@ msgstr "SAVESTATES"
 msgid "AUTO SAVE/LOAD"
 msgstr "SPARA/LADDA AUTOMATISKT"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2043,8 +2052,8 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "VISA SAVE STATE-HANTERARE"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "ALLTID"
@@ -2052,7 +2061,7 @@ msgstr "ALLTID"
 msgid "IF NOT EMPTY"
 msgstr "OM EJ TOM"
 
-msgid "Display save state manager before launching a game."
+msgid "Display savestate manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2329,6 +2338,9 @@ msgstr "VILL DU VERKLIGEN AVSLUTA?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA KONTROLLER-OVERLAYS"
@@ -2976,6 +2988,15 @@ msgstr "SKÄRMLÄSARE AKTIVERAD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKÄRMLÄSARE INAKTIVERAD"
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "HANTERARE FÖR 'SAVE STATE'"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 GRADER (AUTO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "VISA SAVE STATE-HANTERARE"
 
 #, c-format
 #~ msgid "%d m"

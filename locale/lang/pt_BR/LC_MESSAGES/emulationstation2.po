@@ -370,10 +370,8 @@ msgstr "CONQUISTAS RETRÔ"
 msgid "HARDCORE MODE"
 msgstr "MODO RESTRITO"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Desativa os estados de carregamento (assim como o carregamento automático) "
-"para obter mais pontos."
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -385,6 +383,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr "Presença Rica"
@@ -647,23 +648,29 @@ msgstr "voltar"
 msgid "NAVIGATION"
 msgstr "NAVEGAÇÃO"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "PULAR PARA O JOGO COMEÇANDO COM"
+msgid "OTHER FILTERS"
+msgstr "OUTROS FILTROS"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELECIONAR JOGO ALEATÓRIO"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "PULAR PARA O JOGO COMEÇANDO COM"
+
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
-msgid "OTHER FILTERS"
-msgstr "OUTROS FILTROS"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "COLEÇÃO"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "APAGAR COLEÇÃO"
+
+msgid "COLLECTION"
+msgstr "COLEÇÃO"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "MODO DE VISUALIZAÇÃO DA LISTA DE JOGOS"
@@ -1157,8 +1164,8 @@ msgstr "Conquistas realizadas"
 msgid "%d%% complete"
 msgstr "%d%% concluído"
 
-msgid "SAVE STATE MANAGER"
-msgstr "GERENCIADOR DE ESTADOS DE SALVAMENTO"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
@@ -1800,8 +1807,8 @@ msgstr "Opções disponíveis podem mudar dependendo da saída de áudio atual."
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DE TELA"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 GRAUS (AUTOMÁTICO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 GRAUS"
@@ -2050,10 +2057,8 @@ msgstr "ESTADOS DE SALVAMENTO"
 msgid "AUTO SAVE/LOAD"
 msgstr "SALVAR/CARREGAR AUTOMÁTICO"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
-"estado ao sair do jogo."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
@@ -2076,8 +2081,8 @@ msgstr "NÃO INCREMENTAR"
 msgid "Use current slot on a new game."
 msgstr "Usa o espaço atual em um novo jogo."
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "EXIBIR GERENCIADOR"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "SEMPRE"
@@ -2085,8 +2090,8 @@ msgstr "SEMPRE"
 msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
-msgid "Display save state manager before launching a game."
-msgstr "Exiba o gerenciador de estado de salvamento antes de iniciar um jogo."
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -2364,6 +2369,11 @@ msgstr "DESEJA SAIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
+"estado ao sair do jogo."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO CONTROLE"
@@ -3015,6 +3025,24 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "Disable loading states (as well as auto-load) for more points."
+#~ msgstr ""
+#~ "Desativa os estados de carregamento (assim como o carregamento "
+#~ "automático) para obter mais pontos."
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "GERENCIADOR DE ESTADOS DE SALVAMENTO"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 GRAUS (AUTOMÁTICO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "EXIBIR GERENCIADOR"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr ""
+#~ "Exiba o gerenciador de estado de salvamento antes de iniciar um jogo."
 
 #~ msgid "Reset achievements to be able to earn them again."
 #~ msgstr "Conquistas retrô desbloqueadas podem ser conquistadas novamente."

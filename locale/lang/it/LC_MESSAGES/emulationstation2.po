@@ -370,7 +370,7 @@ msgstr "TROFEI"
 msgid "HARDCORE MODE"
 msgstr "MODALITÀ HARDCORE"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -381,6 +381,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MODALITÀ VERBOSE"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -637,23 +640,29 @@ msgstr "torna indietro"
 msgid "NAVIGATION"
 msgstr "NAVIGAZIONE"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "SALTA AL GIOCO CHE INIZIA CON LA LETTERA"
+msgid "OTHER FILTERS"
+msgstr "ALTRI FILTRI"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELEZIONA GIOCO CASUALE"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "SALTA AL GIOCO CHE INIZIA CON LA LETTERA"
+
 msgid "SORT GAMES BY"
 msgstr "ORDINA I GIOCHI PER"
 
-msgid "OTHER FILTERS"
-msgstr "ALTRI FILTRI"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "COLLEZIONE"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "ELIMINA COLLEZIONE"
+
+msgid "COLLECTION"
+msgstr "COLLEZIONE"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "STILE LISTA GIOCHI"
@@ -1145,8 +1154,8 @@ msgstr "Trofei vinti"
 msgid "%d%% complete"
 msgstr "%d%% completo"
 
-msgid "SAVE STATE MANAGER"
-msgstr "GESTORE SALVATAGGI INSTANT."
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "AVVIA NUOVO GIOCO"
@@ -1769,8 +1778,8 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "ROTAZIONE SCHERMO"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 GRADI (AUTO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 GRADI"
@@ -2015,7 +2024,7 @@ msgstr "SALVATAGGI ISTANTANEI"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOSALVATAGGIO/CARICAMENTO"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2039,8 +2048,8 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "MOSTRA GESTORE SALVATAGGI"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "SEMPRE"
@@ -2048,7 +2057,7 @@ msgstr "SEMPRE"
 msgid "IF NOT EMPTY"
 msgstr "SE NON VUOTO"
 
-msgid "Display save state manager before launching a game."
+msgid "Display savestate manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2325,6 +2334,9 @@ msgstr "VUOI USCIRE?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SALVA/CARICA AUTOMATICO"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRA MAPPA DEL CONTROLLER"
@@ -2973,6 +2985,15 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "GESTORE SALVATAGGI INSTANT."
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 GRADI (AUTO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "MOSTRA GESTORE SALVATAGGI"
 
 #, c-format
 #~ msgid "%d m"

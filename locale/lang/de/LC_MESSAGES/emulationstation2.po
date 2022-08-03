@@ -370,7 +370,7 @@ msgstr "RETROACHIEVEMENTS"
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -381,6 +381,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "AUSFÜHRLICHER MODUS"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -639,23 +642,29 @@ msgstr "zurück"
 msgid "NAVIGATION"
 msgstr "NAVIGATION"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "ZUM SPIEL MIT DEM ANFANGSBUCHSTABEN SPRINGEN"
+msgid "OTHER FILTERS"
+msgstr "ANDERE FILTER"
 
 msgid "SELECT RANDOM GAME"
 msgstr "WÄHLE ZUFÄLLIGES SPIEL"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "ZUM SPIEL MIT DEM ANFANGSBUCHSTABEN SPRINGEN"
+
 msgid "SORT GAMES BY"
 msgstr "SPIELE SORTIEREN NACH"
 
-msgid "OTHER FILTERS"
-msgstr "ANDERE FILTER"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "SAMMLUNG"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "SAMMLUNG LÖSCHEN"
+
+msgid "COLLECTION"
+msgstr "SAMMLUNG"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "SPIELELISTE ANSICHTSSTIL"
@@ -1147,8 +1156,8 @@ msgstr "Gewonnene Errungenschaften"
 msgid "%d%% complete"
 msgstr "%d%% komplett"
 
-msgid "SAVE STATE MANAGER"
-msgstr "SPEICHERSTAND-VERWALTUNG"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "STARTE NEUES SPIEL"
@@ -1773,8 +1782,8 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "BILD-ROTATION"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 GRAD (AUTO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 GRAD"
@@ -2019,7 +2028,7 @@ msgstr "SPEICHERSTÄNDE"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO SPEICHERN/LADEN"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2043,8 +2052,8 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "ZEIGE SPEICHERSTAND-MANAGER"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "IMMER"
@@ -2052,8 +2061,8 @@ msgstr "IMMER"
 msgid "IF NOT EMPTY"
 msgstr "WENN NICHT LEER"
 
-msgid "Display save state manager before launching a game."
-msgstr "Zeige den Speicherstand-Manager vor dem Starten eines Spiels."
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "PER SYSTEM ERWEITERTE KONFIGURATION"
@@ -2330,6 +2339,9 @@ msgstr "WIRKLICH BEENDEN?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOM. SPEICHERN/LADEN BEIM SPIELSTART"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "CONTROLLER-OVERLAYS ANZEIGEN"
@@ -2980,6 +2992,18 @@ msgstr "BILDSCHIRM-LESER AKTIVIERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "SPEICHERSTAND-VERWALTUNG"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 GRAD (AUTO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "ZEIGE SPEICHERSTAND-MANAGER"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "Zeige den Speicherstand-Manager vor dem Starten eines Spiels."
 
 #, c-format
 #~ msgid "%d m"

@@ -369,7 +369,7 @@ msgstr "레트로 도전과제"
 msgid "HARDCORE MODE"
 msgstr "하드코어 모드"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -380,6 +380,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "상세 모드"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -636,23 +639,29 @@ msgstr "돌아가기"
 msgid "NAVIGATION"
 msgstr "네비게이션"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "문자로 시작하는 게임으로 이동"
+msgid "OTHER FILTERS"
+msgstr "다른 필터"
 
 msgid "SELECT RANDOM GAME"
 msgstr "무작위 게임 선택"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "문자로 시작하는 게임으로 이동"
+
 msgid "SORT GAMES BY"
 msgstr "다음으로 게임 정렬"
 
-msgid "OTHER FILTERS"
-msgstr "다른 필터"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "컬렉션"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "컬렉션 삭제"
+
+msgid "COLLECTION"
+msgstr "컬렉션"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "게임 목록 정렬 방법"
@@ -1144,8 +1153,8 @@ msgstr "획득한 도전과제"
 msgid "%d%% complete"
 msgstr "%d%% 완료"
 
-msgid "SAVE STATE MANAGER"
-msgstr "상태 매니저 저장"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "새 게임 시작"
@@ -1765,8 +1774,8 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "화면 회전"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 도 (자동)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 도"
@@ -2010,7 +2019,7 @@ msgstr "상태저장"
 msgid "AUTO SAVE/LOAD"
 msgstr "자동 세이브/로드"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2034,8 +2043,8 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "상태 매니저 저장 보이기"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "항상"
@@ -2043,8 +2052,8 @@ msgstr "항상"
 msgid "IF NOT EMPTY"
 msgstr "비어있지 않은 경우"
 
-msgid "Display save state manager before launching a game."
-msgstr "게임 런칭 전에 상태 저정 매니저 디스플레이"
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
@@ -2320,6 +2329,9 @@ msgstr "정말로 나가시겠습니까?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "자동 저장/불러오기"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "오버레이 컨트롤러 표시"
@@ -2953,6 +2965,18 @@ msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "상태 매니저 저장"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 도 (자동)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "상태 매니저 저장 보이기"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "게임 런칭 전에 상태 저정 매니저 디스플레이"
 
 #, c-format
 #~ msgid "%d m"

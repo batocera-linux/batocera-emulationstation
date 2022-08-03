@@ -370,7 +370,7 @@ msgstr "RETROPRESTATIES"
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -381,6 +381,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "VERBOSE MODUS"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -639,23 +642,29 @@ msgstr "ga terug"
 msgid "NAVIGATION"
 msgstr "NAVIGATIE"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "GA NAAR SPEL BEGINNEND MET LETTER"
+msgid "OTHER FILTERS"
+msgstr "ANDERE FILTERS"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELECTEER WILLEKEURIG SPEL"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "GA NAAR SPEL BEGINNEND MET LETTER"
+
 msgid "SORT GAMES BY"
 msgstr "SORTEER SPELLEN OP"
 
-msgid "OTHER FILTERS"
-msgstr "ANDERE FILTERS"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "COLLECTIE"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "COLLECTIE VERWIJDEREN"
+
+msgid "COLLECTION"
+msgstr "COLLECTIE"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "STIJL SPELLIJST WEERGAVE"
@@ -1145,8 +1154,8 @@ msgstr "Verdiende prestaties"
 msgid "%d%% complete"
 msgstr "%d%% voltooid"
 
-msgid "SAVE STATE MANAGER"
-msgstr "SAVE STATE MANAGER"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "START EEN NIEUW SPEL"
@@ -1771,8 +1780,8 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "SCHERM ROTATIE"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 GRADEN (AUTO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 GRADEN"
@@ -2014,7 +2023,7 @@ msgstr "SAVESTATES"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO OPSLAAN/LADEN"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2038,8 +2047,8 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "TOON SAVE STATE MANAGER"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "ALTIJD"
@@ -2047,7 +2056,7 @@ msgstr "ALTIJD"
 msgid "IF NOT EMPTY"
 msgstr "ALS NIET LEEG"
 
-msgid "Display save state manager before launching a game."
+msgid "Display savestate manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2325,6 +2334,9 @@ msgstr "ECHT AFSLUITEN?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO OPSLAAN/LADEN BIJ STARTEN SPEL"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "TOON CONTROLLER OVERLAGEN"
@@ -2972,6 +2984,15 @@ msgstr "SCHERM LEZER INGESCHAKELD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SCHERM LEZER UITGESCHAKELD"
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "SAVE STATE MANAGER"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 GRADEN (AUTO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "TOON SAVE STATE MANAGER"
 
 #, c-format
 #~ msgid "%d m"

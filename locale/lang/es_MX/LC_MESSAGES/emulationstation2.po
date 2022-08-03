@@ -370,7 +370,7 @@ msgstr "RETROACHIEVEMENTS (LOGROS)"
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -381,6 +381,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALLADO"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -637,23 +640,29 @@ msgstr "ir atrás"
 msgid "NAVIGATION"
 msgstr "NAVEGACIÓN"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr ""
+msgid "OTHER FILTERS"
+msgstr "OTROS FILTROS"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELECCIONAR JUEGO ALEATORIO"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
+
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JUEGOS POR"
 
-msgid "OTHER FILTERS"
-msgstr "OTROS FILTROS"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "COLECCIÓN"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "ELIMINAR COLECCIÓN"
+
+msgid "COLLECTION"
+msgstr "COLECCIÓN"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ESTILO DE LA LISTA DE JUEGOS"
@@ -1143,7 +1152,7 @@ msgstr "Logros conseguidos"
 msgid "%d%% complete"
 msgstr "%d%% completado"
 
-msgid "SAVE STATE MANAGER"
+msgid "SAVESTATE MANAGER"
 msgstr ""
 
 msgid "START NEW GAME"
@@ -1762,7 +1771,7 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "ORIENTACION DE PANTALLA"
 
-msgid "0 DEGREES (AUTO)"
+msgid "0 DEGREES"
 msgstr ""
 
 msgid "90 DEGREES"
@@ -2005,7 +2014,7 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2029,7 +2038,7 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
+msgid "SHOW SAVESTATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -2038,7 +2047,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "Display save state manager before launching a game."
+msgid "Display savestate manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2310,6 +2319,9 @@ msgstr "¿SALIR DE EMULATIONSTATION?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO GUARDAR/CARGAR PARTIDAS"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
