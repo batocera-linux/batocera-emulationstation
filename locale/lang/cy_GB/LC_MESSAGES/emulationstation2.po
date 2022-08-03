@@ -2299,6 +2299,12 @@ msgstr "AILGYCHWYN SYSTEM"
 msgid "REALLY RESTART?"
 msgstr "AILGYCHWYN GO IAWN?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "CAU LAWR SYSTEM"
 

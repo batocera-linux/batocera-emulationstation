@@ -2321,6 +2321,12 @@ msgstr "システムを再起動"
 msgid "REALLY RESTART?"
 msgstr "本当に再起動しますか？"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "システムをシャットダウン"
 

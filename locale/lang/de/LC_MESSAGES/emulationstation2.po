@@ -2316,6 +2316,12 @@ msgstr "SYSTEM NEUSTARTEN"
 msgid "REALLY RESTART?"
 msgstr "WIRKLICH NEUSTARTEN?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "SYSTEM ABSCHALTEN"
 

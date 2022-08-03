@@ -2299,6 +2299,12 @@ msgstr "REAVIAR LO SISTÈMA"
 msgid "REALLY RESTART?"
 msgstr "REAVIAR PER DE BON ?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "ATUDAR LO SISTÈMA"
 

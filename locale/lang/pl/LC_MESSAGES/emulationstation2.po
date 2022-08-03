@@ -2336,6 +2336,12 @@ msgstr "PONOWNE URUCHAMIANIE SYSTEMU"
 msgid "REALLY RESTART?"
 msgstr "URUCHOMIĆ PONOWNIE SYSTEM?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "WYŁĄCZENIE SYSTEMU"
 

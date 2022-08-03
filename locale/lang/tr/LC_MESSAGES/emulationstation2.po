@@ -2297,6 +2297,12 @@ msgstr "YENİDEN BAŞLAT"
 msgid "REALLY RESTART?"
 msgstr "YENİDEN BAŞLATILSIN MI?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "KAPAT"
 

@@ -2295,6 +2295,12 @@ msgstr "הפעלה מחדש"
 msgid "REALLY RESTART?"
 msgstr "תתבצע הפעלה מחדש?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "כיבוי "
 

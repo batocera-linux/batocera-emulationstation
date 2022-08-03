@@ -2311,6 +2311,12 @@ msgstr "SYSTEEM HERSTARTEN"
 msgid "REALLY RESTART?"
 msgstr "ECHT HERSTARTEN?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "SYSTEEM AFSLUITEN"
 

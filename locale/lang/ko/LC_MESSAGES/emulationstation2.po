@@ -2306,6 +2306,12 @@ msgstr "시스템 다시 시작"
 msgid "REALLY RESTART?"
 msgstr "정말로 다시 시작 하시겠습니까?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "시스템 종료"
 

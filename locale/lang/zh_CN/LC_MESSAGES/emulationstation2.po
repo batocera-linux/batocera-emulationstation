@@ -2290,6 +2290,12 @@ msgstr "重启"
 msgid "REALLY RESTART?"
 msgstr "是否重新启动?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "关机"
 

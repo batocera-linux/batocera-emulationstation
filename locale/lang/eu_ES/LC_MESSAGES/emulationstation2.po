@@ -2289,6 +2289,12 @@ msgstr "SISTEMA BERRABIARAZI"
 msgid "REALLY RESTART?"
 msgstr "BERRABIARAZI?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "ITZALI SISTEMA"
 

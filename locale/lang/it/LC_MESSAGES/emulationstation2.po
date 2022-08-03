@@ -2311,6 +2311,12 @@ msgstr "RIAVVIA IL SISTEMA"
 msgid "REALLY RESTART?"
 msgstr "RIAVVIARE?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "ARRESTA IL SISTEMA"
 

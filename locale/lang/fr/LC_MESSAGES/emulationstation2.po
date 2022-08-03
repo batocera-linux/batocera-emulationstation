@@ -2312,6 +2312,12 @@ msgstr "REDÉMARRER"
 msgid "REALLY RESTART?"
 msgstr "VOULEZ-VOUS VRAIMENT REDÉMARRER ?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "ÉTEINDRE"
 

@@ -2339,6 +2339,12 @@ msgstr "REINICIAR O SISTEMA"
 msgid "REALLY RESTART?"
 msgstr "DESEJA REINICIAR?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA"
 

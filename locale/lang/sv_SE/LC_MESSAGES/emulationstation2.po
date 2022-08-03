@@ -2315,6 +2315,12 @@ msgstr "STARTA OM SYSTEMET"
 msgid "REALLY RESTART?"
 msgstr "VILL DU VERKLIGEN STARTA OM?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "STÄNG AV SYSTEMET"
 

@@ -2297,6 +2297,12 @@ msgstr ""
 msgid "REALLY RESTART?"
 msgstr ""
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr ""
 

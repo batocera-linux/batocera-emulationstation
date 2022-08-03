@@ -2303,6 +2303,12 @@ msgstr "重新啟動系統"
 msgid "REALLY RESTART?"
 msgstr "確定要重新啟動嗎?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "系統關機"
 

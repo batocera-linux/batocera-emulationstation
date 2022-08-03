@@ -2330,6 +2330,12 @@ msgstr "RESTARTOVAT"
 msgid "REALLY RESTART?"
 msgstr "OPRAVDU RESTARTOVAT?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "VYPNOUT"
 
