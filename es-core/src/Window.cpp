@@ -515,7 +515,7 @@ void Window::renderSindenBorders()
 		if (gun->needBorders()) 
 			drawGunBorders = true;		
 	
-	if (!drawGunBorders && SystemConf::getInstance()->getBool("sinden.forceborders")) // SETTING FOR DEBUGGING BORDERS
+	if (!drawGunBorders && SystemConf::getInstance()->getBool("controllers.guns.forceborders")) // SETTING FOR DEBUGGING BORDERS
 		drawGunBorders = true; 
 
 	if (drawGunBorders)
@@ -524,7 +524,7 @@ void Window::renderSindenBorders()
 		int innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 
 		// sinden.bordersize=thin/big/medium
-		auto bordersize = SystemConf::getInstance()->get("sinden.bordersize");
+		auto bordersize = SystemConf::getInstance()->get("controllers.guns.bordersSize");
 		if (bordersize == "thin")
 		{
 			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
