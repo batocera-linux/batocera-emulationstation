@@ -524,7 +524,7 @@ void Window::renderSindenBorders()
 		int innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 
 		// sinden.bordersize=thin/big/medium
-		auto bordersize = SystemConf::getInstance()->get("controllers.guns.bordersSize");
+		auto bordersize = SystemConf::getInstance()->get("controllers.guns.borderssize");
 		if (bordersize == "thin")
 		{
 			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
