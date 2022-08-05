@@ -655,10 +655,10 @@ msgid "SORT GAMES BY"
 msgstr "TRIER PAR"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "COLLECTION DYNAMIQUE"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "COLLECTION PERSONNALISÉE"
 
 msgid "DELETE COLLECTION"
 msgstr "SUPPRIMER LA COLLECTION"
@@ -1155,7 +1155,7 @@ msgid "%d%% complete"
 msgstr "%d%% terminé"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "GESTIONNAIRE DE SAUVEGARDES"
 
 msgid "START NEW GAME"
 msgstr "NOUVELLE PARTIE"
@@ -1781,7 +1781,7 @@ msgid "SCREEN ROTATION"
 msgstr "ROTATION DE L’ÉCRAN"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 DEGRÉE"
 
 msgid "90 DEGREES"
 msgstr "90 DEGRÉES"
@@ -2049,7 +2049,7 @@ msgid "Use current slot on a new game."
 msgstr "Utilise le premier emplacement de sauvegarde au lancement d'une partie"
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "AFFICHER LE GESTIONNAIRE DE SAUVEGARDES"
 
 msgid "ALWAYS"
 msgstr "TOUJOURS"
@@ -2058,7 +2058,7 @@ msgid "IF NOT EMPTY"
 msgstr "SI NON VIDE"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Afficher le gestionnaire de sauvegarde au lancement d'un jeu"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURATION AVANCÉE PAR SYSTÈME"
@@ -2098,12 +2098,30 @@ msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
 
+msgid "SINDEN GUNS"
+msgstr "PISTOLETS SINDEN"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "MANETTE J%i"
 
 msgid "default"
 msgstr "par défaut"
+
+msgid "GUNS BORDER SIZE"
+msgstr "ÉPAISSEUR DE LA BORDURE"
+
+msgid "THIN"
+msgstr "FIN"
+
+msgid "MEDIUM"
+msgstr "MOYEN"
+
+msgid "BIG"
+msgstr "GROS"
+
+msgid "RECOIL"
+msgstr "RECUL"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D’ÉDITER SA CONFIGURATION"
@@ -2313,10 +2331,10 @@ msgid "REALLY RESTART?"
 msgstr "VOULEZ-VOUS VRAIMENT REDÉMARRER ?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "METTRE EN VEILLE"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "VRAIMENT METTRE EN VEILLE ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ÉTEINDRE"

@@ -2102,12 +2102,30 @@ msgstr "CONTROLLER-AKTIVITÄT ANZEIGEN"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "CONTROLLER AKKU-LEVEL ANZEIGEN"
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S CONTROLLER"
 
 msgid "default"
 msgstr "standard"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DU MUSST DAS THEME ANWENDEN, BEVOR DU DESSEN KONFIGURATION BEARBEITEST"
