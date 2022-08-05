@@ -68,6 +68,7 @@ private:
 	void openSystemSettings();
 	void openGamesSettings();
 	void openControllersSettings(int autoSel = 0);
+  	void openControllersSpecificSettings_sindengun();
 	void openNetworkSettings(bool selectWifiEnable = false);	
 	void openQuitMenu();
 	void openSystemInformations();

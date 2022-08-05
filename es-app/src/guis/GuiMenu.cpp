@@ -2385,6 +2385,16 @@ void GuiMenu::openControllersSettings(int autoSel)
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
+#ifdef BATOCERA
+	bool sindenguns_menu = false;
+	for (auto gun : InputManager::getInstance()->getGuns())
+	  if (gun->needBorders())
+	    sindenguns_menu = true;
+	if(sindenguns_menu) {
+	  s->addEntry(_("SINDEN GUNS"), true, [this] { openControllersSpecificSettings_sindengun(); });
+	}
+#endif
+
 	ComponentListRow row;
 
 	// Here we go; for each player
@@ -2493,6 +2503,24 @@ void GuiMenu::openControllersSettings(int autoSel)
 		// this is dependant of this configuration, thus update it
 		InputManager::getInstance()->computeLastKnownPlayersDeviceIndexes();
 	});
+
+	window->pushGui(s);
+}
+void GuiMenu::openControllersSpecificSettings_sindengun()
+{
+	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
+
+	Window* window = mWindow;
+
+	std::string selectedSet = SystemConf::getInstance()->get("controllers.guns.borderssize");
+	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("GUNS BORDER SIZE"), false);
+	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
+	border_set->add(_("THIN"),   "THIN",   "THIN"   == selectedSet);
+	border_set->add(_("MEDIUM"), "MEDIUM", "MEDIUM" == selectedSet);
+	border_set->add(_("BIG"),    "BIG",    "BIG"    == selectedSet);
+
+	s->addOptionList(_("GUNS BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
+	s->addSwitch(_("RECOIL"), "controllers.guns.recoil", false);
 
 	window->pushGui(s);
 }
