@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <systems>
   <system name="c64">
+    <game>armydays</game>
+    <game>babyblues</game>
+    <game>blazeout</game>
+    <game>cosmiccommando</game>
     <game>cosmicstorm</game>
+    <game>gangster</game>
+    <game>ghosttown</game>
+    <game>groueshoot</game>
+    <game>glorious12</game>
     <game>goosebusters</game>
-    <game>spaceharrier</game>
+    <game>gunslinger</game>
+    <game>highnoonshootout</game>
+    <game>indianattack</game>
+    <game>operationthunderbolt</game>
+    <game>operationwolf</game>
+    <game>timetraveller</game>
+    <game>shootinggallery</game>
+    <game>starbasedefence</game>
   </system>
   <system name="3do">
     <game>corpsekiller</game>
@@ -52,7 +67,6 @@
   </system>
   <system name="mastersystem">
     <game>assaultcity</game>
-    <game>bankpanic</game>
     <game>gangstertown</game>
     <game>laserghost</game>
     <game>marksmanshooting</game>
@@ -120,6 +134,7 @@
     <game>extremeghostbuster</game>
     <game>ghoulpanic</game>
     <game>gunbare</game>
+    <game>guntuwesternfrontjune</game>
     <game>gunfighter</game>
     <game>judgedredd</game>
     <game>lethalenforcers</game>
@@ -130,10 +145,13 @@
     <game>pointblank</game>
     <game>pointblank2</game>
     <game>pointblank3</game>
+    <game>policenauts</game>
     <game>projecthornedowl</game>
     <game>rescueshot</game>
     <game>residentevilsurvivor</game>
     <game>silenthill</game>
+    <game>thegunshooting</game>
+    <game>thegunshooting2</game>
     <game>timecrisis</game>
     <game>timecrisisprojecttitan</game>
   </system>
