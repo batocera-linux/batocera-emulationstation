@@ -125,9 +125,9 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 	bool showSystemNameByFile = (fd->getType() == GAME || fd->getParent() == nullptr || fd->getParent()->getName() != "collections");
 	if (showSystemNameByFile)
 	{
-		if (fd->getSystem()->isGroupChildSystem())
+		/*if (fd->getSystem()->isGroupChildSystem())
 			showSystemNameByFile = fd->getSystem()->getRootFolder()->getChildren().size() > 1;
-		else if (!fd->getSystem()->isGameSystem())
+		else */if (!fd->getSystem()->isGameSystem())
 			showSystemNameByFile = false;
 	}
 

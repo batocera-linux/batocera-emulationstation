@@ -573,9 +573,12 @@ bool ComponentList::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 	mHotRow = -1;
 		
 	auto rect = Renderer::getScreenRect(trans, getSize(), true);
-	if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+	if (x != -1 && y != -1 && rect.contains(x, y))
 	{
 		ret = true;
+
+		Transform4x4f ti = trans;
+		ti.translate(0, -mCameraOffset);
 
 		float ry = 0;
 
@@ -586,16 +589,15 @@ bool ComponentList::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 
 			if (entry.data.selectable && ry - mCameraOffset + rowHeight >= 0)
 			{
-				rect.y = (ry - mCameraOffset) * trans.r1().y() + trans.translation().y();
-				rect.h = rowHeight * trans.r1().y();
-
-				if (x != -1 && y != -1 && x >= rect.x && x <= rect.x + rect.w && y >= rect.y && y <= rect.y + rect.h)
+				rect = Renderer::getScreenRect(ti, Vector2f(getSize().x(), rowHeight), true);
+				if (rect.contains(x, y))
 				{
 					mHotRow = i;
 					break;
 				}
 			}
 
+			ti.translate(0, rowHeight);
 			ry += rowHeight;
 			if (ry - mCameraOffset > mSize.y())
 				break;
@@ -604,6 +606,8 @@ bool ComponentList::hitTest(int x, int y, Transform4x4f& parentTransform, std::v
 		if (pResult != nullptr)
 			pResult->push_back(this);
 	}
+
+	trans.translate(0, -mCameraOffset);
 
 	for (int i = 0; i < getChildCount(); i++)
 		ret |= getChild(i)->hitTest(x, y, trans, pResult);

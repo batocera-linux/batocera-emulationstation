@@ -1709,7 +1709,7 @@ void GuiMenu::openSystemSettings()
 
 	// brighness
 	int brighness;
-	if (ApiSystem::getInstance()->getBrighness(brighness))
+	if (ApiSystem::getInstance()->getBrightness(brighness))
 	{
 		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
 		brightnessComponent->setValue(brighness);
@@ -1719,7 +1719,10 @@ void GuiMenu::openSystemSettings()
             auto thebright = std::to_string((int)Math::round(newVal));
             runSystemCommand("/usr/bin/odroidgoa_utils.sh bright " + thebright, "", nullptr);
 #else
-			ApiSystem::getInstance()->setBrighness((int)Math::round(newVal));
+			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
+#if !WIN32
+			SystemConf::getInstance()->set("display.brightness", std::to_string((int)Math::round(newVal)));
+#endif
 #endif
 		});
         
@@ -2804,7 +2807,7 @@ void GuiMenu::openGamesSettings()
 	// AUTO SAVE/LOAD
 	auto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);
 	autosave_enabled->setState(SystemConf::getInstance()->get("global.autosave") == "1");
-	s->addWithDescription(_("AUTO SAVE/LOAD"), _("Load latest save state on game launch and save state when exiting game."), autosave_enabled);
+	s->addWithDescription(_("AUTO SAVE/LOAD"), _("Load latest savestate on game launch and savestate when exiting game."), autosave_enabled);
 	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getState() ? "1" : ""); });
 
 	// INCREMENTAL SAVESTATES
@@ -2819,9 +2822,9 @@ void GuiMenu::openGamesSettings()
 	s->addSaveFunc([incrementalSaveStates] { SystemConf::getInstance()->set("global.incrementalsavestates", incrementalSaveStates->getSelected()); });
 	
 	// SHOW SAVE STATES
-	auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVE STATE MANAGER"));
+	auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVESTATE MANAGER"));
 	showSaveStates->addRange({ { _("NO"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get("global.savestates"));
-	s->addWithDescription(_("SHOW SAVE STATE MANAGER"), _("Display save state manager before launching a game."), showSaveStates);
+	s->addWithDescription(_("SHOW SAVESTATE MANAGER"), _("Display savestate manager before launching a game."), showSaveStates);
 	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
 
 
@@ -3066,6 +3069,16 @@ void GuiMenu::openControllersSettings(int autoSel)
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
+#ifdef BATOCERA
+	bool sindenguns_menu = false;
+	for (auto gun : InputManager::getInstance()->getGuns())
+	  if (gun->needBorders())
+	    sindenguns_menu = true;
+	if(sindenguns_menu) {
+	  s->addEntry(_("SINDEN GUNS"), true, [this] { openControllersSpecificSettings_sindengun(); });
+	}
+#endif
+
 	ComponentListRow row;
 
 	// Here we go; for each player
@@ -3174,6 +3187,24 @@ void GuiMenu::openControllersSettings(int autoSel)
 		// this is dependant of this configuration, thus update it
 		InputManager::getInstance()->computeLastKnownPlayersDeviceIndexes();
 	});
+
+	window->pushGui(s);
+}
+void GuiMenu::openControllersSpecificSettings_sindengun()
+{
+	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
+
+	Window* window = mWindow;
+
+	std::string selectedSet = SystemConf::getInstance()->get("controllers.guns.borderssize");
+	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("GUNS BORDER SIZE"), false);
+	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
+	border_set->add(_("THIN"),   "THIN",   "THIN"   == selectedSet);
+	border_set->add(_("MEDIUM"), "MEDIUM", "MEDIUM" == selectedSet);
+	border_set->add(_("BIG"),    "BIG",    "BIG"    == selectedSet);
+
+	s->addOptionList(_("GUNS BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
+	s->addSwitch(_("RECOIL"), "controllers.guns.recoil", false);
 
 	window->pushGui(s);
 }
@@ -4190,6 +4221,14 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			_("NO"), nullptr));
 	}, "iconRestart");
 
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SUSPEND))
+	{
+		s->addEntry(_("SUSPEND SYSTEM"), false, [window] {
+			window->pushGui(new GuiMsgBox(window, _("REALLY SUSPEND ?"),
+				_("YES"), [] { ApiSystem::getInstance()->suspend(); },
+				_("NO"), nullptr));
+		}, "iconFastShutdown");
+	}
 
 	s->addEntry(_("SHUTDOWN SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), 

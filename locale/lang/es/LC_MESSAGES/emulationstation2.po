@@ -370,8 +370,8 @@ msgstr "RETROACHIEVEMENTS (TROFEOS)"
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
-msgid "Disable loading states (as well as auto-load) for more points."
-msgstr "Desactiva los guardados de partidas para ganar más puntos."
+msgid "Disable loading states, rewind and cheats for more points."
+msgstr ""
 
 msgid "LEADERBOARDS"
 msgstr "CLASIFICACIONES"
@@ -383,6 +383,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALLADO"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr "MOSTRAR INFO AVANZADA"
@@ -643,23 +646,29 @@ msgstr "ir atrás"
 msgid "NAVIGATION"
 msgstr "NAVEGACIÓN"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "IR A LA LETRA"
+msgid "OTHER FILTERS"
+msgstr "OTROS FILTROS"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELECCIONAR JUEGO ALEATORIO"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "IR A LA LETRA"
+
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JUEGOS POR"
 
-msgid "OTHER FILTERS"
-msgstr "OTROS FILTROS"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "COLECCIÓN"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "ELIMINAR COLECCIÓN"
+
+msgid "COLLECTION"
+msgstr "COLECCIÓN"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ESTILO DE LA LISTA DE JUEGOS"
@@ -1151,8 +1160,8 @@ msgstr "Trofeos conseguidos"
 msgid "%d%% complete"
 msgstr "%d%% completado"
 
-msgid "SAVE STATE MANAGER"
-msgstr "GESTOR DE PARTIDAS GUARDADAS"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "NUEVA PARTIDA"
@@ -1791,8 +1800,8 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "ROTACIÓN DE LA PANTALLA"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 GRADOS (AUTO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 GRADOS"
@@ -2040,9 +2049,8 @@ msgstr "PARTIDAS GUARDADAS"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTO GUARDAR/CARGAR"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Carga la última partida guardada al iniciar un juego y la guarda al salir."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
@@ -2065,8 +2073,8 @@ msgstr "NO INCREMENTAR"
 msgid "Use current slot on a new game."
 msgstr "Usa la ranura actual en una nueva partida."
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "SIEMPRE"
@@ -2074,8 +2082,8 @@ msgstr "SIEMPRE"
 msgid "IF NOT EMPTY"
 msgstr "SI HAY PARTIDAS GUARDADAS"
 
-msgid "Display save state manager before launching a game."
-msgstr "Enseñar el gestor de partidas guardadas antes de iniciar un juego."
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
@@ -2116,12 +2124,30 @@ msgstr "MOSTRAR ACTIVIDAD DEL MANDO EN PANTALLA"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVEL DE BATERÍA DEL MANDO"
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "MANDO DEL JUGADOR %i"
 
 msgid "default"
 msgstr "predeterminado"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DEBES APLICAR EL TEMA ANTES DE EDITAR LA CONFIGURACIÓN"
@@ -2331,6 +2357,12 @@ msgstr "REINICIAR SISTEMA"
 msgid "REALLY RESTART?"
 msgstr "¿SEGURO QUE QUIERES REINICIAR?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "APAGAR SISTEMA"
 
@@ -2354,6 +2386,10 @@ msgstr "¿SALIR DE EMULATIONSTATION?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO GUARDAR/CARGAR PARTIDAS"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Carga la última partida guardada al iniciar un juego y la guarda al salir."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR SUPERPOSICIONES DEL MANDO"
@@ -3003,6 +3039,21 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "Disable loading states (as well as auto-load) for more points."
+#~ msgstr "Desactiva los guardados de partidas para ganar más puntos."
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "GESTOR DE PARTIDAS GUARDADAS"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 GRADOS (AUTO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "MOSTRAR GESTOR DE PARTIDAS GUARDADAS"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "Enseñar el gestor de partidas guardadas antes de iniciar un juego."
 
 #~ msgid "Reset achievements to be able to earn them again."
 #~ msgstr "Restablece los logros para poder volver a conseguirlos."

@@ -480,6 +480,11 @@ void SystemData::createGroupedSystems()
 		if (root->getChildren().size() > 0 && !existingSystem)
 		{
 			system->loadTheme();
+
+			auto defaultView = Settings::getInstance()->getString(system->getName() + ".defaultView");
+			auto gridSizeOverride = Vector2f::parseString(Settings::getInstance()->getString(system->getName() + ".gridSize"));
+			system->setSystemViewMode(defaultView, gridSizeOverride, false);
+
 			sSystemVector.push_back(system);
 		}
 		
@@ -1427,7 +1432,7 @@ void SystemData::loadTheme()
 
 		// System variables
 		sysData["system.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection() || isGameSystem()) ? "true" : "false";
-		sysData["system.netplay"] = isNetplaySupported() ? "true" : "false";
+		sysData["system.netplay"] = SystemConf::getInstance()->getBool("global.netplay") && isNetplaySupported() ? "true" : "false";
 		sysData["system.savestates"] = isCurrentFeatureSupported(EmulatorFeatures::autosave) ? "true" : "false";
 
 		if (Settings::getInstance()->getString("SortSystems") == "hardware")
@@ -1880,7 +1885,10 @@ bool SystemData::getShowFilenames()
 {
 	if (mShowFilenames == nullptr)
 	{
-		auto curFn = Settings::getInstance()->getString(getName() + ".ShowFilenames");
+		auto group = getParentGroupSystem();
+		std::string name = group ? group->getName() : getName();
+
+		auto curFn = Settings::getInstance()->getString(name + ".ShowFilenames");
 		if (curFn.empty())
 			mShowFilenames = std::make_shared<bool>(Settings::getInstance()->getBool("ShowFilenames"));
 		else

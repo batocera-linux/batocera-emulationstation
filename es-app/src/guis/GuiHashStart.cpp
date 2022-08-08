@@ -35,7 +35,7 @@ GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : Gu
 	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SYSTEMS INCLUDED"), true);
 	for (auto sys : SystemData::sSystemVector)
 	{
-		if (!sys->isGameSystem() || !sys->isVisible())
+		if (!sys->isGameSystem())
 			continue;
 
 		bool takeNetplay = ((type & ThreadedHasher::HASH_NETPLAY_CRC) == ThreadedHasher::HASH_NETPLAY_CRC) && sys->isNetplaySupported();

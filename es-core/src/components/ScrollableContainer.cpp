@@ -19,15 +19,11 @@ void ScrollableContainer::render(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = parentTrans * getTransform();
 
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
-	Vector2i clipPos((int)trans.translation().x(), (int)trans.translation().y());
-
-	Vector3f dimScaled = trans * Vector3f(mSize.x(), mSize.y(), 0);
-	Vector2i clipDim((int)(dimScaled.x() - trans.translation().x()), (int)(dimScaled.y() - trans.translation().y()));
-
-	Renderer::pushClipRect(clipPos, clipDim);
+	Renderer::pushClipRect(rect);
 
 	trans.translate(-Vector3f(mScrollPos.x(), mScrollPos.y(), 0));
 	Renderer::setMatrix(trans);

@@ -10,9 +10,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "DOSTĘPNA AKTUALIZACJA"
@@ -78,10 +78,10 @@ msgid "enter path to title shot"
 msgstr "wprowadź ścieżkę do ujęcia tytułu"
 
 msgid "Manual"
-msgstr "Instrukcja"
+msgstr "Podręcznik"
 
 msgid "enter path to manual"
-msgstr "wprowadź ścieżkę do instrukcji"
+msgstr "wprowadź ścieżkę do podręcznika"
 
 msgid "Magazine"
 msgstr "Magazyn"
@@ -372,7 +372,7 @@ msgstr "RETROACHIEVEMENTS"
 msgid "HARDCORE MODE"
 msgstr "TRYB HARDCORE"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -380,24 +380,28 @@ msgstr "RANKINGI"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
+"Rywalizuj w tabelach wyników i najlepszych czasów (wymaga \"hardcore\")."
 
 msgid "VERBOSE MODE"
 msgstr "TRYB INFORMACJI PEŁNEJ"
 
-msgid "RICH PRESENCE"
+msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
+
+msgid "RICH PRESENCE"
+msgstr "BOGATA PREZENCJA"
 
 msgid "ENCORE MODE"
 msgstr "TRYB ENCORE"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Odblokowane osiągnięcia można zdobyć ponownie."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATYCZNY ZRZUT EKRANU"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "Automatycznie zrób zrzut ekranu po zdobyciu osiągnięcia."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "WSKAŹNIKI WYZWAŃ"
@@ -428,6 +432,7 @@ msgstr "POKAŻ WPIS RETROACHIEVEMENT W MENU GŁÓWNYM"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
+"Zobacz swoje statystyki \"RetroAchievement\" bezpośrednio z menu głównego!"
 
 msgid "GAME INDEXES"
 msgstr "INDEKSY GIER"
@@ -544,7 +549,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "POKAŻ GRY UKRYTYCH SYSTEMÓW W KOLEKCJACH"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "POKAŻ PUSTE SYSTEMY"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ZAKTUALIZUJ LISTY GIER"
@@ -626,7 +631,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "POKAŻ NIEDOSTĘPNE GRY"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "Pokaż pokoje gier, których nie ma na tym komputerze."
 
 msgid "FINISHED"
 msgstr "ZAKOŃCZONO"
@@ -640,23 +645,29 @@ msgstr "wstecz"
 msgid "NAVIGATION"
 msgstr "NAWIGACJA"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "PRZEJDŹ DO GRY NA LITERĘ"
+msgid "OTHER FILTERS"
+msgstr "INNE FILTRY"
 
 msgid "SELECT RANDOM GAME"
 msgstr "WYBIERZ LOSOWO GRĘ"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "PRZEJDŹ DO GRY NA LITERĘ"
+
 msgid "SORT GAMES BY"
 msgstr "SORTUJ GRY"
 
-msgid "OTHER FILTERS"
-msgstr "INNE FILTRY"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "KOLEKCJA"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "USUŃ KOLEKCJĘ"
+
+msgid "COLLECTION"
+msgstr "KOLEKCJA"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "RODZAJ WIDOKU LISTY GIER"
@@ -835,7 +846,7 @@ msgid "slideshow"
 msgstr "pokaz slajdów"
 
 msgid "suspend"
-msgstr ""
+msgstr "wstrzymaj"
 
 msgid "always"
 msgstr "zawsze"
@@ -1021,7 +1032,7 @@ msgid "GAME MEDIA"
 msgstr "MEDIA GRY"
 
 msgid "VIEW GAME MANUAL"
-msgstr "ZOBACZ INSTRUKCJĘ DO GRY"
+msgstr "ZOBACZ PODRĘCZNIK GRY"
 
 msgid "VIEW GAME MAGAZINE"
 msgstr "ZOBACZ MAGAZYN O GRZE"
@@ -1148,8 +1159,8 @@ msgstr "Zdobyte osiągnięcia"
 msgid "%d%% complete"
 msgstr "Ukończone w %d%%"
 
-msgid "SAVE STATE MANAGER"
-msgstr "MENEDŻER ZAPISU STANÓW"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "ROZPOCZNIJ NOWĄ GRĘ"
@@ -1206,34 +1217,34 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "SCRAPE'UJ DLA"
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "NAZWA KRÓTKA"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "OCENA SPOŁECZNOŚCI"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "WIDEO"
 
 msgid "FANART"
-msgstr ""
+msgstr "FAN ART"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "RAMKA (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "TYŁ PUDEŁKA"
 
 msgid "MAP"
-msgstr ""
+msgstr "MAPA"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "PODRĘCZNIK"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA PADTOKEY"
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1445,7 +1456,7 @@ msgid "GAME SETTINGS"
 msgstr "USTAWIENIA GIER"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA INTERFEJSU UŻYTKOWNIKA"
 
 msgid "SOUND SETTINGS"
 msgstr "USTAWIENIA DŹWIĘKU"
@@ -1466,7 +1477,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "USTAWIENIA SYSTEMOWE"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "ODBLOKUJ TRYB INTERFEJSU UŻYTKOWNIKA"
 
 msgid "QUIT"
 msgstr "WYJDŹ"
@@ -1478,13 +1489,13 @@ msgid "CHOOSE"
 msgstr "PRZEJDŹ"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "TRYB INTERFEJSU UŻYTKOWNIKA JEST TERAZ ODBLOKOWANY"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "WPROWADŹ KOD, ABY ODBLOKOWAĆ"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "OPCJE DEWELOPERA INTERFEJSU"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPCJE WIDEO"
@@ -1496,7 +1507,7 @@ msgid "SHOW FRAMERATE"
 msgstr "POKAŻ FPS"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
+msgstr "Włącza również natywny licznik FPS emulatora, jeśli jest dostępny."
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1514,7 +1525,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "ZATRZYMAJ ROZPOCZENANIE TEJ GRY PODCZAS URUCHAMIANIA"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "WŁĄCZ DOSTĘP PUBLICZNY DO WEB API"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1528,6 +1539,8 @@ msgstr "STWÓRZ PLIK POMOCY TECHNICZNEJ"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
+"UTWORZYĆ PLIK POMOCY? OBEJMUJE ON WSZYSTKIE DANE Z TWOJEGO FOLDERU "
+"SYSTEMOWEGO."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "PLIK POMOCY TECHNICZNEJ UTWORZONY W FOLDERZE ZAPISÓW"
@@ -1569,20 +1582,24 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNORUJ ZAWARTOŚĆ DYSKU WIELOPLIKOWEGO (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "WŁĄCZ FILTROWANIE GIER"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
+"Czy pokazywać lub ukrywać ustawienia związane z filtrowaniem gier w opcjach "
+"widoku."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "ZAPISZ METADANE PRZY WYJŚCIU"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr ""
+msgstr "ANALIZUJ TYLKO LISTY GIER"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
+"Narzędzie do debugowania: Nie sprawdzaj, czy ROM-y faktycznie istnieją. Może "
+"powodować problemy!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SZUKAJ LOKALNEJ ART"
@@ -1591,9 +1608,11 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
+"Jeśli na liście gier nie określono żadnego obrazu, spróbuj znaleźć nośnik o "
+"tej samej nazwie pliku, którego chcesz użyć."
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "INTERFEJS UŻYTKOWNIKA"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "PRZEJŚCIA KARUZELI"
@@ -1697,7 +1716,7 @@ msgid "LANGUAGE"
 msgstr "JĘZYK"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "JĘZYK (REGION)"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "WYBIERZ STREFĘ CZASOWĄ"
@@ -1709,7 +1728,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "POKAŻ ZEGAR W FORMACIE 12-GODZINNYM"
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "TRYB OSZCZĘDZANIA ENERGII"
 
 msgid "DISABLED"
 msgstr "WYŁĄCZONE"
@@ -1725,21 +1744,28 @@ msgstr "NATYCHMIASTOWY"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
 msgstr ""
+"Zmniejsza zużycie energii w stanie bezczynności (przydatne w przypadku "
+"urządzeń przenośnych)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "CZYTNIK EKRANU (ZAMIANA TEKSTU NA MOWĘ)"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "TRYB INTERFEJSU UŻYTKOWNIKA"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
+msgstr "Zablokuj niektóre menu konfiguracyjne dla gości / dzieci."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"Zmieniasz interfejs użytkownika na tryb ograniczonego dostępu:\n"
+"Spowoduje to ukrycie większości opcji menu, aby zapobiec zmianom w "
+"systemie.\n"
+"Aby odblokować i powrócić do pełnego interfejsu użytkownika, wprowadź ten "
+"kod:"
 
 msgid "Do you want to proceed?"
 msgstr "Czy chcesz kontynuować?"
@@ -1770,12 +1796,13 @@ msgstr "PROFIL AUDIO"
 
 msgid "Available options can change depending on current audio output."
 msgstr ""
+"Dostępne opcje mogą się zmieniać w zależności od bieżącego wyjścia audio."
 
 msgid "SCREEN ROTATION"
 msgstr "OBRÓT EKRANU"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 STOPNI (AUTO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 STOPNI"
@@ -1808,16 +1835,16 @@ msgid "MULTIMEDIA KEYS"
 msgstr "KLUCZE MULTIMEDIÓW"
 
 msgid "ON"
-msgstr "ON"
+msgstr "WŁ."
 
 msgid "OFF"
-msgstr "OFF"
+msgstr "WYŁ."
 
 msgid "BUTTON LED COLOR"
 msgstr "KOLOR DIODY PRZYCISKU"
 
 msgid "off"
-msgstr "wyłączony"
+msgstr "wył."
 
 msgid "red"
 msgstr "czerwony"
@@ -1847,7 +1874,7 @@ msgid "heartbeat"
 msgstr "pulsujący"
 
 msgid "on"
-msgstr "włączony"
+msgstr "wł."
 
 msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
@@ -1871,7 +1898,7 @@ msgid "ENFORCE SECURITY"
 msgstr "ZWIĘKSZ BEZPIECZEŃSTWO"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
+msgstr "Wymagaj hasła dostępu do udziału sieciowego."
 
 msgid "ROOT PASSWORD"
 msgstr "HASŁO ADMINISTRATORA"
@@ -1931,13 +1958,13 @@ msgid "GAME ASPECT RATIO"
 msgstr "PROPORCJE GRY"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "Wymuś renderowanie gry o tym współczynniku proporcji."
 
 msgid "VIDEO MODE"
 msgstr "TRYB WIDEO"
 
 msgid "Force the emulator to run at this resolution."
-msgstr ""
+msgstr "Wymuś uruchomienie emulatora w tej rozdzielczości."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "WYGŁADZANIE GIER (FILTROWANIE DWULINIOWE)"
@@ -1947,6 +1974,8 @@ msgstr "PRZEWIJANIE"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
+"Przechowuj poprzednie stany, aby przewinąć do nich w czasie rzeczywistym, "
+"jeśli rdzeń to obsługuje."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
@@ -2020,32 +2049,32 @@ msgstr "ZAPISANE STANY GRY"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATYCZNE ZAPISYWANIE/WCZYTYWANIE"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PRZYROSTOWY ZAPIS STANU"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "INKREMENTUJ NA ZAPIS"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "Nigdy nie nadpisuj starych stanów zapisu, zawsze twórz nowe."
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "INKREMENTUJ SLOT"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "Inkrementuj slot na nową grę."
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "NIE INKREMENTUJ"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "Użyj obecnego slotu w nowej grze."
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "POKAŻ MENEDŻERA ZAPISU STANÓW"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "ZAWSZE"
@@ -2053,8 +2082,8 @@ msgstr "ZAWSZE"
 msgid "IF NOT EMPTY"
 msgstr "JEŚLI NIE PUSTY"
 
-msgid "Display save state manager before launching a game."
-msgstr "Wyświetl menedżera zapisu stanów przed uruchomieniem gry"
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2093,12 +2122,30 @@ msgstr "POKAŻ DZIAŁANIE KONTROLERA"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "POKAŻ POZIOM BATERII KONTROLERA"
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "KONTROLER P%i"
 
 msgid "default"
 msgstr "domyślnie"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ JEGO KONFIGURACJI"
@@ -2185,7 +2232,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "OPCJE EKRANU"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "PRZEJŚCIE LISTY"
 
 msgid "auto"
 msgstr "auto"
@@ -2212,7 +2259,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORUJ WIODĄCE PRZEDIMKI PODCZAS SORTOWANIA"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr ""
+msgstr "Zignoruj „The” i „A”, jeśli na początku."
 
 msgid "VOLUME"
 msgstr "GŁOŚNOŚĆ"
@@ -2299,13 +2346,19 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "URUCHOM WYGASZACZ EKRANU"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "ZOBACZ PODRĘCZNIK"
 
 msgid "RESTART SYSTEM"
 msgstr "PONOWNE URUCHAMIANIE SYSTEMU"
 
 msgid "REALLY RESTART?"
 msgstr "URUCHOMIĆ PONOWNIE SYSTEM?"
+
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "WYŁĄCZENIE SYSTEMU"
@@ -2330,6 +2383,11 @@ msgstr "NAPRAWDĘ WYJŚĆ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
+"wychodzeniu z gry."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "POKAŻ NAKŁADKI KONTROLERA"
@@ -2465,7 +2523,7 @@ msgid "RANDOM"
 msgstr "LOSOWO"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "PASEK NAWIGACJI"
 
 msgid "FILES"
 msgstr "PLIKI"
@@ -2737,10 +2795,10 @@ msgid "VERTICAL"
 msgstr "PIONOWA"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "PISTOLET ŚWIETLNY"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "POSIADA MEDIA"
 
 msgid "SCRAPING"
 msgstr "SCRAPE'OWANIE"
@@ -2755,6 +2813,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"KALIBRACJA PISTOLETU\n"
+"Strzelanie do celów w celu kalibracji"
 
 #, c-format
 msgid "%s connected"
@@ -2966,25 +3026,42 @@ msgstr[1] "%d sekundy temu"
 msgstr[2] "%d sekund temu"
 
 msgid "WORKING..."
-msgstr "DZIAŁAM..."
+msgstr "PRACUJĘ..."
 
 #, c-format
 msgid "%d h"
-msgstr "%d h"
+msgstr "%d godz"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d min"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d sek"
 
 msgid "SCREEN READER ENABLED"
-msgstr "CZYTNIK EKRANU WŁĄCZONY"
+msgstr "WŁĄCZONY CZYTNIK EKRANU"
 
 msgid "SCREEN READER DISABLED"
-msgstr "CZYTNIK EKRANU WYŁĄCZONY"
+msgstr "WYŁĄCZONY CZYTNIK EKRANU"
+
+#~ msgid "Disable loading states (as well as auto-load) for more points."
+#~ msgstr ""
+#~ "Wyłącz ładowanie stanów (jak również automatyczne ładowanie) dla większej "
+#~ "ilości punktów."
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "MENEDŻER ZAPISU STANÓW"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 STOPNI (AUTO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "POKAŻ MENEDŻERA ZAPISU STANÓW"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "Wyświetl menedżera zapisu stanów przed uruchomieniem gry."
 
 #, c-format
 #~ msgid "%d m"
@@ -3019,7 +3096,7 @@ msgstr "CZYTNIK EKRANU WYŁĄCZONY"
 #~ msgstr "SCRAPE'UJ MAPĘ"
 
 #~ msgid "SCRAPE MANUAL"
-#~ msgstr "SCRAPE'UJ INSTRUKCJE"
+#~ msgstr "SCRAPE'UJ PODRĘCZNIK"
 
 #~ msgid "SCRAPE PADTOKEY SETTINGS"
 #~ msgstr "SCRAPE'UJ USTAWIENIA KONTROLERA"
@@ -3080,7 +3157,7 @@ msgstr "CZYTNIK EKRANU WYŁĄCZONY"
 #~ msgstr "RODZAJ PRZEJŚCIA LISTY"
 
 #~ msgid "VIEW USER'S MANUAL"
-#~ msgstr "ZOBACZ INSTRUKCJĘ OBSŁUGI"
+#~ msgstr "ZOBACZ PODRĘCZNIK"
 
 #~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
 #~ msgstr "URUCHOM PONOWNIE ABY ZASTOSOWAĆ"
@@ -3110,7 +3187,7 @@ msgstr "CZYTNIK EKRANU WYŁĄCZONY"
 #~ msgstr "WYŚWIETL MENEDŻERA ZAPISU STANÓW PRZED URUCHOMIENIEM GRY"
 
 #~ msgid "VIEW BATOCERA MANUAL"
-#~ msgstr "ZOBACZ INSTRUKCJĘ BATOCERA"
+#~ msgstr "ZOBACZ PODRĘCZNIK BATOCERA'Y"
 
 #~ msgid "USE RUN-AHEAD FRAMES"
 #~ msgstr "UŻYJ KLATEK Z WYPRZEDZENIEM"

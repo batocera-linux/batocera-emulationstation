@@ -25,6 +25,7 @@ public:
 		mY = -1;
 		mLButtonDown = false;
 		mRButtonDown = false;
+		mNeedBorders = false;
 	}
 
 	int index() { return mIndex; }

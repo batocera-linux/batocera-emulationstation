@@ -371,9 +371,8 @@ msgstr "RETROÚSPĚCHY"
 msgid "HARDCORE MODE"
 msgstr "REŽIM HARDCORE"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Zakázat načítání pozic (stejně jako automatické načítání) pro více bodů."
 
 msgid "LEADERBOARDS"
 msgstr "VÝSLEDKOVÁ TABULE"
@@ -384,6 +383,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "ÚPLNÝ INFORMAČNÍ REŽIM"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr "BOHATÁ PREZENTACE"
@@ -640,23 +642,29 @@ msgstr "vrátit se zpět"
 msgid "NAVIGATION"
 msgstr "NAVIGACE"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "PŘEJÍT NA HRU ZAČÍNAJÍCÍ PÍSMENEM"
+msgid "OTHER FILTERS"
+msgstr "OSTATNÍ FILTRY"
 
 msgid "SELECT RANDOM GAME"
 msgstr "VYBRAT NÁHODNOU HRU"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "PŘEJÍT NA HRU ZAČÍNAJÍCÍ PÍSMENEM"
+
 msgid "SORT GAMES BY"
 msgstr "Třídit hry podle"
 
-msgid "OTHER FILTERS"
-msgstr "OSTATNÍ FILTRY"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "SBÍRKY"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "SMAZAT SBÍRKU"
+
+msgid "COLLECTION"
+msgstr "SBÍRKY"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "STYL ZOBRAZENÍ HERNÍHO SEZNAMU"
@@ -1148,8 +1156,8 @@ msgstr "Získané úspěchy"
 msgid "%d%% complete"
 msgstr "HOTOVO %d%%"
 
-msgid "SAVE STATE MANAGER"
-msgstr "SPRÁVCE ULOŽENÍ"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "START NOVÉ HRY"
@@ -1786,8 +1794,8 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr "OTOČENÍ OBRAZOVKY"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 STUPŇŮ (AUTO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 STUPŇŮ"
@@ -2035,10 +2043,8 @@ msgstr "ULOŽENÉ POZICE"
 msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Načtení poslední pozice uložení při spuštění hry a uložení pozice při "
-"ukončení hry."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
@@ -2061,8 +2067,8 @@ msgstr "NEZVYŠOVAT"
 msgid "Use current slot on a new game."
 msgstr "Používat aktuální slot na novou hru."
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "ZOBRAZIT SPRÁVCE ULOŽENÝCH POZIC"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "VŽDY"
@@ -2070,8 +2076,8 @@ msgstr "VŽDY"
 msgid "IF NOT EMPTY"
 msgstr "POKUD NENÍ PRÁZDNÝ"
 
-msgid "Display save state manager before launching a game."
-msgstr "Zobrazení správce stavu uložení před spuštěním hry."
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "POKROČILÁ KONFIGURACE SYSTÉMU"
@@ -2110,12 +2116,30 @@ msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i'S HER.OVLADAČ"
 
 msgid "default"
 msgstr "výchozí"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "PŘED ÚPRAVOU KONFIGURACE JE NUTNÉ POUŽÍT MOTIV"
@@ -2324,6 +2348,12 @@ msgstr "RESTARTOVAT"
 msgid "REALLY RESTART?"
 msgstr "OPRAVDU RESTARTOVAT?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "VYPNOUT"
 
@@ -2347,6 +2377,11 @@ msgstr "OPRAVDU UKONČIT?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO. UKLÁDÁNÍ/NAČÍTÁNÍ PŘI STARTU HRY"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Načtení poslední pozice uložení při spuštění hry a uložení pozice při "
+"ukončení hry."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ZOBRAZIT PŘEKRYTÍ HER.OVLADAČE"
@@ -3007,6 +3042,22 @@ msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "Disable loading states (as well as auto-load) for more points."
+#~ msgstr ""
+#~ "Zakázat načítání pozic (stejně jako automatické načítání) pro více bodů."
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "SPRÁVCE ULOŽENÍ"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 STUPŇŮ (AUTO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "ZOBRAZIT SPRÁVCE ULOŽENÝCH POZIC"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "Zobrazení správce stavu uložení před spuštěním hry."
 
 #~ msgid "Reset achievements to be able to earn them again."
 #~ msgstr "Resetujte úspěchy, abyste je mohli získat znovu."

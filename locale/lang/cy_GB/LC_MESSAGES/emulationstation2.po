@@ -375,7 +375,7 @@ msgstr "CYFLAWNIADAU-RETRO"
 msgid "HARDCORE MODE"
 msgstr "MODD CRAIDD CALED"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -386,6 +386,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "MODD VERBOSE"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -642,23 +645,29 @@ msgstr "mynd yn ôl"
 msgid "NAVIGATION"
 msgstr "MORDWYO"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr ""
+msgid "OTHER FILTERS"
+msgstr "FFILTRAU ERAILL"
 
 msgid "SELECT RANDOM GAME"
 msgstr "DEWIS GÊM AR HAP"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
+
 msgid "SORT GAMES BY"
 msgstr "TREFNU GEMAU GAN"
 
-msgid "OTHER FILTERS"
-msgstr "FFILTRAU ERAILL"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "CASGLIAD"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "DILEU CASGLIAD"
+
+msgid "COLLECTION"
+msgstr "CASGLIAD"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "GOLWG STEIL RHESTR GEMAU"
@@ -1148,7 +1157,7 @@ msgstr "Cyflawniadau a enillwyd"
 msgid "%d%% complete"
 msgstr "%d% % yn gyflawn"
 
-msgid "SAVE STATE MANAGER"
+msgid "SAVESTATE MANAGER"
 msgstr ""
 
 msgid "START NEW GAME"
@@ -1765,7 +1774,7 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr ""
 
-msgid "0 DEGREES (AUTO)"
+msgid "0 DEGREES"
 msgstr ""
 
 msgid "90 DEGREES"
@@ -2008,7 +2017,7 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2032,7 +2041,7 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
+msgid "SHOW SAVESTATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -2041,7 +2050,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "Display save state manager before launching a game."
+msgid "Display savestate manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2076,12 +2085,30 @@ msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
 msgstr "rhagosodiad"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2290,6 +2317,12 @@ msgstr "AILGYCHWYN SYSTEM"
 msgid "REALLY RESTART?"
 msgstr "AILGYCHWYN GO IAWN?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "CAU LAWR SYSTEM"
 
@@ -2313,6 +2346,9 @@ msgstr "GADAEL GO IAWN?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AWTO ARBED / LLWYTH"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""

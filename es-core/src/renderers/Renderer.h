@@ -52,6 +52,8 @@ namespace Renderer
 		int w;
 		int h;
 
+		inline bool contains(int px, int py) { return px >= x && px <= x + w && py >= y && py <= y + h; };
+
 	}; // Rect
 
 	struct Vertex
@@ -140,6 +142,8 @@ namespace Renderer
 	std::string getAspectRatio();
 	bool		isVerticalScreen();
 
+	Vector2i    physicalScreenToRotatedScreen(int x, int y);
+
 	// API specific
 	inline static unsigned int convertColor (const unsigned int _color) { return ((_color & 0xFF000000) >> 24) | ((_color & 0x00FF0000) >> 8) | ((_color & 0x0000FF00) << 8) | ((_color & 0x000000FF) << 24); } 
 	// convertColor
@@ -168,6 +172,7 @@ namespace Renderer
 
 	bool         isClippingEnabled  ();
 	bool         isVisibleOnScreen  (float x, float y, float w, float h);
+	inline bool  isVisibleOnScreen  (const Rect& rect) { return isVisibleOnScreen(rect.x, rect.y, rect.w, rect.h); }
 	bool         isSmallScreen      ();
 	unsigned int mixColors(unsigned int first, unsigned int second, float percent);
 

@@ -370,7 +370,7 @@ msgstr "RETROACHIEVEMENTS"
 msgid "HARDCORE MODE"
 msgstr "HALADÓ MÓD"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -381,6 +381,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "KÖVETŐ (VERBOSE) MÓD"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -637,23 +640,29 @@ msgstr "vissza"
 msgid "NAVIGATION"
 msgstr "NAVIGÁCIÓ"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr ""
+msgid "OTHER FILTERS"
+msgstr "EGYÉB SZŰRŐK"
 
 msgid "SELECT RANDOM GAME"
 msgstr "VÉLETLENSZERŰ JÁTÉK KIVÁLASZTÁSA"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
+
 msgid "SORT GAMES BY"
 msgstr "JÁTÉKOK RENDEZÉSE"
 
-msgid "OTHER FILTERS"
-msgstr "EGYÉB SZŰRŐK"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "GYŰJTEMÉNY"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "GYŰJTEMÉNY TÖRLÉSE"
+
+msgid "COLLECTION"
+msgstr "GYŰJTEMÉNY"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "JÁTÉKLISTA NÉZET"
@@ -1143,7 +1152,7 @@ msgstr "Elért achivementek"
 msgid "%d%% complete"
 msgstr "%d%% teljesítve"
 
-msgid "SAVE STATE MANAGER"
+msgid "SAVESTATE MANAGER"
 msgstr ""
 
 msgid "START NEW GAME"
@@ -1762,7 +1771,7 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr ""
 
-msgid "0 DEGREES (AUTO)"
+msgid "0 DEGREES"
 msgstr ""
 
 msgid "90 DEGREES"
@@ -2005,7 +2014,7 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2029,7 +2038,7 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
+msgid "SHOW SAVESTATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -2038,7 +2047,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "Display save state manager before launching a game."
+msgid "Display savestate manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2073,12 +2082,30 @@ msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
 msgstr "alap"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2287,6 +2314,12 @@ msgstr "ÚJRAINDÍTÁS"
 msgid "REALLY RESTART?"
 msgstr "BIZTOS ÚJRAINDÍTOD?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "LEÁLLÍTÁS"
 
@@ -2310,6 +2343,9 @@ msgstr "BIZTOS KILÉPSZ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO MENTÉS/TÖLTÉS"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""

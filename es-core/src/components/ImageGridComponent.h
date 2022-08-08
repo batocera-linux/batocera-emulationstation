@@ -123,6 +123,14 @@ public:
 	virtual void onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
+	Vector3f getCameraOffset() 
+	{ 
+		if (isVertical())
+			return Vector3f(0, mCameraOffset, 0);
+
+		return Vector3f(mCameraOffset,  0, 0);
+	}
+
 	Delegate<ILongMouseClickEvent> longMouseClick;
 
 protected:
@@ -221,6 +229,12 @@ std::shared_ptr<GridTileComponent> ImageGridComponent<T>::createTile(int i, int 
 
 	int X = i % (int)dimOpposite;
 	int Y = i / (int)dimOpposite;
+
+	if (i < 0)
+	{
+		X = (i + mEntries.size() - 1) % (int)dimOpposite;
+		Y = ((i + mEntries.size() - 1) / (int)dimOpposite) - ((mEntries.size() - 1) / (int)dimOpposite);
+	}
 
 	if (!isVertical())
 		std::swap(X, Y);
@@ -412,9 +426,9 @@ void ImageGridComponent<T>::add(const std::string& name, const std::string& imag
 
 template<typename T>
 void ImageGridComponent<T>::clear()
-{
-	mCameraOffset = 0;
+{	
 	IList<ImageGridData, T>::clear();
+	resetGrid();
 }
 
 template<typename T>
@@ -535,8 +549,14 @@ void ImageGridComponent<T>::update(int deltaTime)
 
 	listUpdate(deltaTime);
 
+	if (mEntriesDirty)
+	{
+		ensureVisibleTileExist();
+		mEntriesDirty = false;
+	}
+
 	for (auto entry : mEntries)
-		if (entry.data.tile != nullptr)
+		if (entry.data.tile != nullptr && entry.data.tile->isVisible())
 			entry.data.tile->update(deltaTime);
 }
 
@@ -629,28 +649,15 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 	Transform4x4f tileTrans = trans;
 
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
-
-	if (mEntriesDirty)
-	{
-		ensureVisibleTileExist();
-		mEntriesDirty = false;
-	}
 
 	if (Settings::DebugGrid())
 	{
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033);
-		Renderer::setMatrix(parentTrans);
-	}
 
-	// Create a clipRect to hide tiles used to buffer texture loading
-	Vector2i pos((int)Math::round(trans.translation()[0]), (int)Math::round(trans.translation()[1]));
-	Vector2i size((int)Math::round(mSize.x() * trans.r0().x()), (int)Math::round(mSize.y() * trans.r1().y()));
-
-	if (Settings::DebugGrid())
-	{
 		for (auto entry : mEntries)
 		{
 			auto tile = entry.data.tile;
@@ -668,6 +675,9 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	}
 
 	bool splittedRendering = (mAnimateSelection && mAutoLayout.x() != 0);
+
+	Vector2i pos(rect.x, rect.y);
+	Vector2i size(rect.w, rect.h);
 
 	if (mAutoLayout == Vector2f::Zero() && mLastRowPartial) // If the last row is partial in Retropie, extend clip to show the entire last row 
 		size.y() = (mTileSize + mMargin).y() * (mGridDimension.y() - 2 * EXTRAITEMS);
@@ -1250,15 +1260,44 @@ void ImageGridComponent<T>::resetGrid()
 
 	calcGridDimension();
 
+	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
+
 	mStartPosition = 0;
 	if (mCenterSelection != CenterSelection::NEVER)
 	{
 		int dimScrollable = (isVertical() ? mGridDimension.y() : mGridDimension.x()) - 2 * EXTRAITEMS;
 		mStartPosition -= (int)Math::floorf(dimScrollable / 2.0f);
+		
+		int centralCol = (int)(dimScrollable - 0.5) / 2;
+		int maxCentralCol = (int)(dimScrollable) / 2;
+		int firstVisibleCol = 0 / dimOpposite; // mStartPosition
+
+		int lastCol = ((mEntries.size() - 1) / dimOpposite);
+		int lastScroll = std::max(0, (int)(lastCol + 1 - dimScrollable));
+
+		int oldCol = 0;
+		int col = 0;
+
+		if ((col < centralCol || (col == 0 && col == centralCol)) && mCenterSelection == CenterSelection::PARTIAL)
+			mStartPosition = 0;
+		else if ((col - centralCol) > lastScroll && mCenterSelection == CenterSelection::PARTIAL && !mScrollLoop)
+			mStartPosition = lastScroll * dimOpposite;
+		else if (maxCentralCol != centralCol && col == firstVisibleCol + maxCentralCol || col == firstVisibleCol + centralCol)
+		{
+			if (col == firstVisibleCol + maxCentralCol)
+				mStartPosition = (col - maxCentralCol) * dimOpposite;
+			else
+				mStartPosition = (col - centralCol) * dimOpposite;
+		}
+		else
+		{
+			if (oldCol == firstVisibleCol + maxCentralCol)
+				mStartPosition = (col - maxCentralCol) * dimOpposite;
+			else
+				mStartPosition = (col - centralCol) * dimOpposite;
+		}
 	}
-
-	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
-
+	
 	auto tileDistance = mTileSize + mMargin;
 	mCameraOffset = (isVertical() ? tileDistance.y() : tileDistance.x()) * (mStartPosition / dimOpposite);
 	mEntriesDirty = true;
@@ -1325,16 +1364,16 @@ void ImageGridComponent<T>::onMouseWheel(int delta)
 	auto newCursor = mCursor - delta * dimOpposite;
 	/*
 	if (newCursor < 0)
-		newCursor += mEntries.size() - 1;
+		newCursor += mEntries.size();
 	else if (newCursor >= mEntries.size())
-		newCursor -= mEntries.size() - 1;
+		newCursor -= mEntries.size();
 	*/
 	if (mScrollLoop)
 	{
 		if (newCursor < 0)
-			newCursor += mEntries.size() - 1;
+			newCursor += mEntries.size();
 		else if (newCursor >= mEntries.size())
-			newCursor -= mEntries.size() - 1;
+			newCursor -= mEntries.size();
 	}
 	else
 	{

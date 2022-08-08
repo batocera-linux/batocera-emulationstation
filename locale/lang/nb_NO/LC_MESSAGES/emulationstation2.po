@@ -367,7 +367,7 @@ msgstr "RETROUTMERKELSER"
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
 
 msgid "LEADERBOARDS"
@@ -377,6 +377,9 @@ msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
 
 msgid "VERBOSE MODE"
+msgstr ""
+
+msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
 
 msgid "RICH PRESENCE"
@@ -634,22 +637,28 @@ msgstr ""
 msgid "NAVIGATION"
 msgstr ""
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgid "OTHER FILTERS"
 msgstr ""
 
 msgid "SELECT RANDOM GAME"
 msgstr ""
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr ""
+
 msgid "SORT GAMES BY"
 msgstr "SORTER SPILL ETTER"
 
-msgid "OTHER FILTERS"
+msgid "DYNAMIC COLLECTION"
 msgstr ""
 
-msgid "COLLECTION"
+msgid "CUSTOM COLLECTION"
 msgstr ""
 
 msgid "DELETE COLLECTION"
+msgstr ""
+
+msgid "COLLECTION"
 msgstr ""
 
 msgid "GAMELIST VIEW STYLE"
@@ -1138,7 +1147,7 @@ msgstr ""
 msgid "%d%% complete"
 msgstr ""
 
-msgid "SAVE STATE MANAGER"
+msgid "SAVESTATE MANAGER"
 msgstr ""
 
 msgid "START NEW GAME"
@@ -1755,7 +1764,7 @@ msgstr ""
 msgid "SCREEN ROTATION"
 msgstr ""
 
-msgid "0 DEGREES (AUTO)"
+msgid "0 DEGREES"
 msgstr ""
 
 msgid "90 DEGREES"
@@ -1998,7 +2007,7 @@ msgstr ""
 msgid "AUTO SAVE/LOAD"
 msgstr ""
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
@@ -2022,7 +2031,7 @@ msgstr ""
 msgid "Use current slot on a new game."
 msgstr ""
 
-msgid "SHOW SAVE STATE MANAGER"
+msgid "SHOW SAVESTATE MANAGER"
 msgstr ""
 
 msgid "ALWAYS"
@@ -2031,7 +2040,7 @@ msgstr ""
 msgid "IF NOT EMPTY"
 msgstr ""
 
-msgid "Display save state manager before launching a game."
+msgid "Display savestate manager before launching a game."
 msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
@@ -2066,11 +2075,29 @@ msgstr ""
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
 
 msgid "default"
+msgstr ""
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -2280,6 +2307,12 @@ msgstr "START PÅ NYTT"
 msgid "REALLY RESTART?"
 msgstr "VIL DU VIRKELIG STARTE PÅ NYTT?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "SLÅ AV"
 
@@ -2303,6 +2336,9 @@ msgstr ""
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO LAGRE/LASTE"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""

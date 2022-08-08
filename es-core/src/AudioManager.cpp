@@ -423,7 +423,42 @@ void AudioManager::playSong(const std::string& song)
 
 	LOG(LogDebug) << "AudioManager::setSongName";
 
-	// First, start with an ID3 v1 tag	
+	// First let's try with an ID3 v2 tag
+#define MAX_STR_SIZE 255 // Empiric max size of a MP3 title
+
+	ID3v2_tag* tag = load_tag(song.c_str());
+	if (tag != NULL)
+	{
+		ID3v2_frame* title_frame = tag_get_title(tag);
+		if (title_frame != NULL)
+		{
+			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
+			if (title_content != NULL && title_content->size >0)
+			{
+				std::string song_name(title_content->data, title_content->size);
+				ID3v2_frame* artist_frame = tag_get_artist(tag);
+				if (artist_frame != NULL)
+				{
+					ID3v2_frame_text_content* artist_content = parse_text_frame_content(artist_frame);
+					if (artist_content != NULL && artist_content->size >0)
+					{
+						std::string artist(artist_content->data, artist_content->size);
+						song_name += " - " + artist;
+						free(artist_content->data);
+						free(artist_content);
+					}
+				}
+				setSongName(song_name);
+				free(title_content->data);
+				free(title_content);
+				free_tag(tag);
+				return;
+			}
+		}
+		free_tag(tag);
+	}
+
+	// Then, if no v2, let's try with an ID3 v1 tag	
 	struct {
 		char tag[3];	// i.e. "TAG"
 		char title[30];
@@ -443,6 +478,10 @@ void AudioManager::playSong(const std::string& song)
 			LOG(LogError) << "Error AudioManager reading " << song;
 		else if (strncmp(info.tag, "TAG", 3) == 0) {
 			std::string songTitle(info.title, 30);
+			if (info.artist != NULL) {
+				std::string songArtist(info.artist, 30);
+				songTitle += " - " + songArtist;
+			}
 			setSongName(songTitle);
 			fclose(file);
 			return;
@@ -452,30 +491,6 @@ void AudioManager::playSong(const std::string& song)
 	}
 	else
 		LOG(LogError) << "Error AudioManager opening mp3 file " << song;
-
-	// Then let's try with an ID3 v2 tag
-#define MAX_STR_SIZE 255 // Empiric max size of a MP3 title
-
-	ID3v2_tag* tag = load_tag(song.c_str());
-	if (tag != NULL)
-	{
-		ID3v2_frame* title_frame = tag_get_title(tag);
-		if (title_frame != NULL)
-		{
-			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
-			if (title_content != NULL)
-			{
-				if (title_content->size < MAX_STR_SIZE)
-					title_content->data[title_content->size] = '\0';
-
-				if ((strlen(title_content->data) > 3) && (strlen(title_content->data) < MAX_STR_SIZE))
-				{
-					setSongName(title_content->data);
-					return;
-				}
-			}
-		}
-	}
 
 	setSongName(Utils::FileSystem::getStem(song.c_str()));
 }

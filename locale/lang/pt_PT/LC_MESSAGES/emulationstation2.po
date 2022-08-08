@@ -370,20 +370,22 @@ msgstr "RETROACHIEVEMENTS"
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Desativa os estados de carregamento (assim como o carregamento automático) "
-"para obter mais pontos."
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr "Competir em tabelas de classificação de pontuação alta e melhor tempo "
+msgstr ""
+"Competir em tabelas de classificação de pontuação alta e melhor tempo "
 "(requer que o modo restrito esteja ativo)."
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -399,8 +401,7 @@ msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "Automatically take a screenshot when an achievement is earned."
 msgstr ""
-"Automaticamente captura uma imagem quando uma conquista retro é "
-"conquistada."
+"Automaticamente captura uma imagem quando uma conquista retro é conquistada."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFIOS"
@@ -646,23 +647,29 @@ msgstr "voltar"
 msgid "NAVIGATION"
 msgstr "NAVEGAÇÃO"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "SALTE PARA O JOGO COMEÇANDO COM"
+msgid "OTHER FILTERS"
+msgstr "OUTROS FILTROS"
 
 msgid "SELECT RANDOM GAME"
 msgstr "SELECIONAR JOGO ALEATÓRIO"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "SALTE PARA O JOGO COMEÇANDO COM"
+
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
-msgid "OTHER FILTERS"
-msgstr "OUTROS FILTROS"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "COLEÇÃO"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "ELIMINAR COLEÇÃO"
+
+msgid "COLLECTION"
+msgstr "COLEÇÃO"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "TIPO DE VISUALIZAÇÃO DOS JOGOS"
@@ -1156,8 +1163,8 @@ msgstr "Conquistas ganhas"
 msgid "%d%% complete"
 msgstr "%d%% completo"
 
-msgid "SAVE STATE MANAGER"
-msgstr "GERIR JOGOS GUARDADOS"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
@@ -1506,7 +1513,6 @@ msgstr "MOSTRAR FRAMERATE"
 msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr "Ativar o contador de fps nativo do emulador, se disponível."
 
-
 msgid "VSYNC"
 msgstr "VSYNC"
 
@@ -1739,7 +1745,8 @@ msgid "INSTANT"
 msgstr "INSTANTÂNEO"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
+msgstr ""
+"Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE ECRÃ (TEXTO PARA VOZ)"
@@ -1796,8 +1803,8 @@ msgstr "Opções disponíveis podem mudar dependendo da saída de áudio atual."
 msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DO ECRÃ"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 GRAUS (AUTOMÁTICO)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 GRAUS"
@@ -1969,7 +1976,8 @@ msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
+msgstr ""
+"Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
@@ -2043,10 +2051,8 @@ msgstr "SAVESTATES"
 msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Carregar o ultimo save state mais recente ao iniciar o jogo e guardar o "
-"estado ao sair do jogo."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SAVESTATES INCREMENTAIS"
@@ -2069,8 +2075,8 @@ msgstr "NÃO INCREMENTAR"
 msgid "Use current slot on a new game."
 msgstr "Usar o slot atual em um novo jogo."
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "MOSTRAR MENU DE SAVESTATES"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "SEMPRE"
@@ -2078,8 +2084,8 @@ msgstr "SEMPRE"
 msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
-msgid "Display save state manager before launching a game."
-msgstr "Mostrar save state antes de iniciar um jogo"
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
@@ -2119,12 +2125,30 @@ msgstr "MOSTRAR ATIVIDADE DO COMANDO"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "COMANDO DO JOGADOR %i"
 
 msgid "default"
 msgstr "PADRÃO"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"
@@ -2333,6 +2357,12 @@ msgstr "REINICIAR O SISTEMA"
 msgid "REALLY RESTART?"
 msgstr "DESEJA REINICIAR?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA"
 
@@ -2356,6 +2386,11 @@ msgstr "DESEJA SAIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAVES/LOADING AO INICIAR JOGO"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Carregar o ultimo save state mais recente ao iniciar o jogo e guardar o "
+"estado ao sair do jogo."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO COMANDO"
@@ -3004,6 +3039,23 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "Disable loading states (as well as auto-load) for more points."
+#~ msgstr ""
+#~ "Desativa os estados de carregamento (assim como o carregamento "
+#~ "automático) para obter mais pontos."
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "GERIR JOGOS GUARDADOS"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 GRAUS (AUTOMÁTICO)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "MOSTRAR MENU DE SAVESTATES"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "Mostrar save state antes de iniciar um jogo"
 
 #, c-format
 #~ msgid "%d m"

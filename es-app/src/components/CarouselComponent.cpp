@@ -314,10 +314,11 @@ void CarouselComponent::render(const Transform4x4f& parentTrans)
 
 	Transform4x4f trans = getTransform() * parentTrans;
 
-	if (!Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x(), mSize.y()))
+	auto rect = Renderer::getScreenRect(trans, mSize);
+	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
-	Renderer::pushClipRect(Vector2i(trans.translation().x(), trans.translation().y()), Vector2i(mSize.x(), mSize.y()));
+	Renderer::pushClipRect(rect);
 	renderCarousel(trans);
 	Renderer::popClipRect();
 }
@@ -805,7 +806,9 @@ void CarouselComponent::onMouseMove(int x, int y)
 		{
 			float camOffset = mCamOffset;
 
-			mLastCursor = -1;
+			if (mLastCursor == offset)
+				mLastCursor = -1;
+
 			mCursor = offset;
 
 			onCursorChanged(CursorState::CURSOR_STOPPED);

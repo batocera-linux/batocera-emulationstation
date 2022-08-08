@@ -230,8 +230,12 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		
 	Transform4x4f trans = parentTrans * getTransform();
 	
-	if (mRotation == 0 && !mTargetIsMin && !Renderer::isVisibleOnScreen(trans.translation().x(), trans.translation().y(), mSize.x() * trans.r0().x(), mSize.y() * trans.r1().y()))
-		return;
+	if (mRotation == 0 && !mTargetIsMin)
+	{
+		auto rect = Renderer::getScreenRect(trans, mSize);
+		if (!Renderer::isVisibleOnScreen(rect))
+			return;
+	}
 
 	Renderer::setMatrix(trans);
 

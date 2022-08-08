@@ -80,6 +80,8 @@ public:
 	inline const std::string getTextFilter() { return mTextFilter; }
 	inline bool hasRelevency() { return !mTextFilter.empty() && mUseRelevency; }
 
+	std::string getDisplayLabel(bool includeText = false);
+
 protected:
 	//std::vector<FilterDataDecl> filterDataDecl;
 	std::map<int, FilterDataDecl> mFilterDecl;

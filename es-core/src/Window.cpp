@@ -527,7 +527,7 @@ void Window::renderSindenBorders()
 		if (gun->needBorders()) 
 			drawGunBorders = true;		
 	
-	if (!drawGunBorders && SystemConf::getInstance()->getBool("sinden.forceborders")) // SETTING FOR DEBUGGING BORDERS
+	if (!drawGunBorders && SystemConf::getInstance()->getBool("controllers.guns.forceborders")) // SETTING FOR DEBUGGING BORDERS
 		drawGunBorders = true; 
 
 	if (drawGunBorders)
@@ -536,7 +536,7 @@ void Window::renderSindenBorders()
 		int innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 
 		// sinden.bordersize=thin/big/medium
-		auto bordersize = SystemConf::getInstance()->get("sinden.bordersize");
+		auto bordersize = SystemConf::getInstance()->get("controllers.guns.borderssize");
 		if (bordersize == "thin")
 		{
 			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
@@ -1186,17 +1186,19 @@ void Window::processMouseMove(int x, int y, bool touchScreen)
 		mLastShowCursor = 0;
 	}
 
-	mLastMousePoint.x() = x; mLastMousePoint.y() = y;
+	auto point = Renderer::physicalScreenToRotatedScreen(x, y);
+
+	mLastMousePoint.x() = point.x(); mLastMousePoint.y() = point.y();
 
 	GuiComponent* gui = peekGui();
 	if (!gui)
 		return;
 
-	auto hits = hitTest(x, y);
+	auto hits = hitTest(point.x(), point.y());
 
 	if (mMouseCapture != nullptr)
 	{
-		mMouseCapture->onMouseMove(x, y);
+		mMouseCapture->onMouseMove(point.x(), point.y());
 		return;
 	}
 	else
@@ -1204,26 +1206,28 @@ void Window::processMouseMove(int x, int y, bool touchScreen)
 		std::reverse(hits.begin(), hits.end());
 
 		for(auto hit : hits)
-			hit->onMouseMove(x, y);
+			hit->onMouseMove(point.x(), point.y());
 	}
 }
 
 bool Window::processMouseButton(int button, bool down, int x, int y)
 {
-	mLastMousePoint.x() = x; mLastMousePoint.y() = y;
+	auto point = Renderer::physicalScreenToRotatedScreen(x, y);
+
+	mLastMousePoint.x() = point.x(); mLastMousePoint.y() = point.y();
 
 	if (mMouseCapture != nullptr)
 	{
 	//	auto hits = hitTest(x, y);
-		mMouseCapture->onMouseClick(button, down, x, y);
+		mMouseCapture->onMouseClick(button, down, point.x(), point.y());
 		return true;
 	}
 
-	auto ctrls = hitTest(x, y);
+	auto ctrls = hitTest(point.x(), point.y());
 	std::reverse(ctrls.begin(), ctrls.end());
 
 	for (auto ctrl : ctrls)		
-		if (ctrl->onMouseClick(button, down, x, y))
+		if (ctrl->onMouseClick(button, down, point.x(), point.y()))
 			return true;
 
 	return false;

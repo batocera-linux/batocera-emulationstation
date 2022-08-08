@@ -68,6 +68,30 @@ namespace Renderer
 		return rc;
 	}
 
+	Vector2i  physicalScreenToRotatedScreen(int x, int y)
+	{
+		int mx = x;
+		int my = y;
+
+		switch (Renderer::getScreenRotate())
+		{
+		case 1:
+			mx = Renderer::getScreenHeight() - mx;
+			std::swap(mx, my);
+			break;
+		case 2:
+			mx = Renderer::getScreenWidth() - mx;
+			my = Renderer::getScreenHeight() - my;
+			break;
+		case 3:
+			my = Renderer::getScreenWidth() - my;
+			std::swap(mx, my);
+			break;
+		}
+
+		return Vector2i(mx, my);
+	}
+
 	static void setIcon()
 	{
 		size_t                     width   = 0;

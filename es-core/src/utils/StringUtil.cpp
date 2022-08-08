@@ -713,7 +713,7 @@ namespace Utils
 			if (_string.length() <= 1)
 				return Utils::String::toUpper(_string);
 
-			return Utils::String::toUpper(_string.substr(0, 1)) + _string.substr(1);
+			return Utils::String::toUpper(_string.substr(0, 1)) + Utils::String::toLower(_string.substr(1));
 		}
 
 		std::string removeHtmlTags(const std::string& html)
@@ -791,7 +791,7 @@ namespace Utils
 				++str;
 
 			int64_t value = 0;
-			for (; *str && *str != '.' && *str != ' '; str++)
+			for (; *str && *str != '.' && *str != ' ' && *str != '\r' && *str != '\n'; str++)
 			{
 				if (*str < '0' || *str > '9')
 					return 0;

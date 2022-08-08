@@ -371,10 +371,8 @@ msgstr "РЕТРОДОСТИЖЕНИЯ"
 msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
 
-msgid "Disable loading states (as well as auto-load) for more points."
+msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Отключить загрузку состояния (а также автозагрузку), чтобы получить больше "
-"очков."
 
 msgid "LEADERBOARDS"
 msgstr "ДОСКА ЛИДЕРОВ"
@@ -386,6 +384,9 @@ msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
 
 msgid "RICH PRESENCE"
 msgstr "БОГАТОЕ ПРИСУТСТВИЕ"
@@ -643,23 +644,29 @@ msgstr "назад"
 msgid "NAVIGATION"
 msgstr "НАВИГАЦИЯ"
 
-msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "ПЕРЕЙТИ К ИГРЕ НАЧИНАЮЩЕЙСЯ С БУКВЫ"
+msgid "OTHER FILTERS"
+msgstr "ДРУГИЕ ФИЛЬТРЫ"
 
 msgid "SELECT RANDOM GAME"
 msgstr "ВЫБРАТЬ СЛУЧАЙНУЮ ИГРУ"
 
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "ПЕРЕЙТИ К ИГРЕ НАЧИНАЮЩЕЙСЯ С БУКВЫ"
+
 msgid "SORT GAMES BY"
 msgstr "СОРТИРОВКА ПО"
 
-msgid "OTHER FILTERS"
-msgstr "ДРУГИЕ ФИЛЬТРЫ"
+msgid "DYNAMIC COLLECTION"
+msgstr ""
 
-msgid "COLLECTION"
-msgstr "КОЛЛЕКЦИЯ"
+msgid "CUSTOM COLLECTION"
+msgstr ""
 
 msgid "DELETE COLLECTION"
 msgstr "УДАЛИТЬ КОЛЛЕКЦИЮ"
+
+msgid "COLLECTION"
+msgstr "КОЛЛЕКЦИЯ"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "ВИД СПИСКА ИГР"
@@ -1151,8 +1158,8 @@ msgstr "Достижений получено"
 msgid "%d%% complete"
 msgstr "%d%% готово"
 
-msgid "SAVE STATE MANAGER"
-msgstr "МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+msgid "SAVESTATE MANAGER"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "НАЧАТЬ НОВУЮ ИГРУ"
@@ -1785,8 +1792,8 @@ msgstr "Доступные опции могут меняться в завис�
 msgid "SCREEN ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
 
-msgid "0 DEGREES (AUTO)"
-msgstr "0 ГРАДУСОВ (АВТО)"
+msgid "0 DEGREES"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90 ГРАДУСОВ"
@@ -2032,10 +2039,8 @@ msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
 msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
-msgid "Load latest save state on game launch and save state when exiting game."
+msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Загружает последнее сохранение при запуске игры и сохраняет при выходе из "
-"игры."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
@@ -2058,8 +2063,8 @@ msgstr "НЕ УВЕЛИЧИВАТЬ"
 msgid "Use current slot on a new game."
 msgstr "Использовать текущий слот в новой игре."
 
-msgid "SHOW SAVE STATE MANAGER"
-msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
 
 msgid "ALWAYS"
 msgstr "ВСЕГДА"
@@ -2067,8 +2072,8 @@ msgstr "ВСЕГДА"
 msgid "IF NOT EMPTY"
 msgstr "ЕСЛИ ИМЕЕТСЯ"
 
-msgid "Display save state manager before launching a game."
-msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
+msgid "Display savestate manager before launching a game."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -2108,12 +2113,30 @@ msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
+msgid "SINDEN GUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i КОНТРОЛЛЕР"
 
 msgid "default"
 msgstr "по умолчанию"
+
+msgid "GUNS BORDER SIZE"
+msgstr ""
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
@@ -2322,6 +2345,12 @@ msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 msgid "REALLY RESTART?"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ?"
 
+msgid "SUSPEND SYSTEM"
+msgstr ""
+
+msgid "REALLY SUSPEND ?"
+msgstr ""
+
 msgid "SHUTDOWN SYSTEM"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
 
@@ -2345,6 +2374,11 @@ msgstr "ВЫЙТИ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА ПРИ ЗАПУСКЕ"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Загружает последнее сохранение при запуске игры и сохраняет при выходе из "
+"игры."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "ПОКАЗАТЬ ОВЕРЛЕЙ КОНТРОЛЛЕРА"
@@ -3003,6 +3037,23 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "Disable loading states (as well as auto-load) for more points."
+#~ msgstr ""
+#~ "Отключить загрузку состояния (а также автозагрузку), чтобы получить "
+#~ "больше очков."
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0 ГРАДУСОВ (АВТО)"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
 
 #~ msgid "Reset achievements to be able to earn them again."
 #~ msgstr "Сбросить достижения, чтобы заработать их снова."
