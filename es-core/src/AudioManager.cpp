@@ -439,6 +439,8 @@ void AudioManager::playSong(const std::string& song)
 						free(artist_content);
 					}
 				}
+				song_name.erase(std::remove_if(song_name.begin(), song_name.end(),
+						[](unsigned char c){return !std::isprint(c);}), song_name.end());
 				setSongName(song_name);
 				free(title_content->data);
 				free(title_content);
