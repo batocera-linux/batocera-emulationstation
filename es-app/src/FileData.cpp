@@ -109,11 +109,11 @@ FileData::~FileData()
 	if (mDisplayName)
 		delete mDisplayName;
 
-	if(mParent)
+	if (mParent)
 		mParent->removeChild(this);
 
-	if(mType == GAME)
-		mSystem->removeFromIndex(this);	
+	if (mType == GAME)
+		mSystem->removeFromIndex(this);
 }
 
 std::string& FileData::getDisplayName()
@@ -135,51 +135,42 @@ std::string FileData::getCleanName()
 	return Utils::String::removeParenthesis(getDisplayName());
 }
 
+std::string FileData::findLocalArt(const std::string& type, std::vector<std::string> exts)
+{
+	if (Settings::getInstance()->getBool("LocalArt"))
+	{
+		for (auto ext : exts)
+		{
+			std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + (type.empty() ? "" :  "-" + type) + ext;
+			if (Utils::FileSystem::exists(path))
+				return path;
+		}
+	}
+
+	return "";
+}
+
 const std::string FileData::getThumbnailPath()
 {
 	std::string thumbnail = getMetadata(MetaDataId::Thumbnail);
 
 	// no thumbnail, try image
-	if(thumbnail.empty())
+	if (thumbnail.empty())
 	{
+		thumbnail = findLocalArt("thumb");
+		if (!thumbnail.empty())
+			setMetadata(MetaDataId::Thumbnail, thumbnail);
+
 		// no image, try to use local image
-		if(thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
-		{
-			const char* extList[2] = { ".png", ".jpg" };
-			for(int i = 0; i < 2; i++)
-			{
-				if(thumbnail.empty())
-				{
-					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-thumb" + extList[i];
-					if (Utils::FileSystem::exists(path))
-					{
-						setMetadata(MetaDataId::Thumbnail, path);
-						thumbnail = path;
-					}
-				}
-			}
-		}
 
 		if (thumbnail.empty())
 			thumbnail = getMetadata(MetaDataId::Image);
 
-		// no image, try to use local image
-		if (thumbnail.empty() && Settings::getInstance()->getBool("LocalArt"))
-		{
-			const char* extList[2] = { ".png", ".jpg" };
-			for (int i = 0; i < 2; i++)
-			{
-				if (thumbnail.empty())
-				{
-					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-image" + extList[i];					
-					if (!Utils::FileSystem::exists(path))
-						path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + extList[i];
+		if (thumbnail.empty())
+			thumbnail = findLocalArt("image");
 
-					if (Utils::FileSystem::exists(path))
-						thumbnail = path;
-				}
-			}
-		}
+		if (thumbnail.empty())
+			thumbnail = findLocalArt();
 
 		if (thumbnail.empty() && getType() == GAME && getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		{
@@ -192,8 +183,6 @@ const std::string FileData::getThumbnailPath()
 				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(thumbnail));
 				if (TextureData::PdfHandler == nullptr && ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 					return ":/pdf.jpg";
-			/*	else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
-					return ":/vid.jpg";*/
 			}
 		}
 
@@ -226,6 +215,9 @@ const bool FileData::hasCheevos()
 	return false;
 }
 
+static std::set<std::string> _imageExtensions = { ".jpg", ".png", ".jpeg", ".gif" };
+static std::set<std::string> _videoExtensions = { ".mp4", ".avi", ".mkv", ".webm" };
+
 bool FileData::hasAnyMedia()
 {
 	if (Utils::FileSystem::exists(getImagePath()) || Utils::FileSystem::exists(getThumbnailPath()) || Utils::FileSystem::exists(getVideoPath()))
@@ -248,7 +240,7 @@ bool FileData::hasAnyMedia()
 		else if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
 		{
 			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(path));
-			if (ext != ".jpg" && ext != ".png" && ext != ".jpeg" && ext != ".gif")
+			if (_imageExtensions.find(ext) == _imageExtensions.cend())
 				continue;
 
 			if (Utils::FileSystem::exists(path))
@@ -272,9 +264,11 @@ std::vector<std::string> FileData::getFileMedias()
 			continue;
 
 		std::string path = mMetadata.get(mdd.key);
+		if (path.empty())
+			continue;
 
 		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(path));
-		if (ext != ".jpg" && ext != ".png" && ext != ".jpeg" && ext != ".gif")
+		if (_imageExtensions.find(ext) == _imageExtensions.cend())
 			continue;
 		
 		if (Utils::FileSystem::exists(path))
@@ -302,16 +296,13 @@ const std::string FileData::getVideoPath()
 	std::string video = getMetadata(MetaDataId::Video);
 	
 	// no video, try to use local video
-	if(video.empty() && Settings::getInstance()->getBool("LocalArt"))
+	if (video.empty())
 	{
-		std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-video.mp4";
-		if (Utils::FileSystem::exists(path))
-		{
-			setMetadata(MetaDataId::Video, path);
-			video = path;
-		}
+		video = findLocalArt("video", { ".mp4" });
+		if (!video.empty())
+			setMetadata(MetaDataId::Video, video);
 	}
-
+	
 	if (video.empty() && getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 	{
 		if (getType() == FOLDER && ((FolderData*)this)->mChildren.size())
@@ -319,7 +310,7 @@ const std::string FileData::getVideoPath()
 		else if (getType() == GAME)
 		{
 			auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
-			if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == "webm")
+			if (_videoExtensions.find(ext) != _videoExtensions.cend())
 				return getPath();
 		}
 	}
@@ -332,23 +323,13 @@ const std::string FileData::getMarqueePath()
 	std::string marquee = getMetadata(MetaDataId::Marquee);
 
 	// no marquee, try to use local marquee
-	if (marquee.empty() && Settings::getInstance()->getBool("LocalArt"))
+	if (marquee.empty())
 	{
-		const char* extList[2] = { ".png", ".jpg" };
-		for(int i = 0; i < 2; i++)
-		{
-			if(marquee.empty())
-			{
-				std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-marquee" + extList[i];
-				if (Utils::FileSystem::exists(path))
-				{
-					setMetadata(MetaDataId::Marquee, path);
-					marquee = path;
-				}
-			}
-		}
+		marquee = findLocalArt("marquee");
+		if (!marquee.empty())
+			setMetadata(MetaDataId::Marquee, marquee);
 	}
-
+	
 	return marquee;
 }
 
@@ -357,30 +338,19 @@ const std::string FileData::getImagePath()
 	std::string image = getMetadata(MetaDataId::Image);
 
 	// no image, try to use local image
-	if(image.empty())
-	{		
+	if (image.empty())
+	{
 		if (Utils::String::toLower(Utils::FileSystem::getExtension(getPath())) == ".png")
 			return getPath();
 
-		if (Settings::getInstance()->getBool("LocalArt"))
-		{
-			const char* extList[2] = { ".png", ".jpg" };
-			for (int i = 0; i < 2; i++)
-			{
-				if (image.empty())
-				{
-					std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + "-image" + extList[i];
-					if (!Utils::FileSystem::exists(path))
-						path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + extList[i];
+		if (image.empty())
+			image = findLocalArt("image");
 
-					if (Utils::FileSystem::exists(path))
-					{
-						setMetadata(MetaDataId::Image, path);
-						image = path;
-					}
-				}
-			}
-		}
+		if (image.empty())
+			image = findLocalArt();
+
+		if (!image.empty())
+			setMetadata(MetaDataId::Image, image);
 
 		if (image.empty() && getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		{
@@ -393,8 +363,6 @@ const std::string FileData::getImagePath()
 				auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(image));
 				if (TextureData::PdfHandler == nullptr && ext == ".pdf" && ResourceManager::getInstance()->fileExists(":/pdf.jpg"))
 					return ":/pdf.jpg";
-				/* else if ((ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm") && ResourceManager::getInstance()->fileExists(":/vid.jpg"))
-					return ":/vid.jpg"; */
 			}
 		}
 	}
@@ -402,7 +370,8 @@ const std::string FileData::getImagePath()
 	return image;
 }
 
-std::string FileData::getKey() {
+std::string FileData::getKey()
+{
 	return getFileName();
 }
 
@@ -1134,17 +1103,15 @@ FileData* FolderData::findUniqueGameForFolder()
 	return nullptr;
 }
 
-std::vector<FileData*> FolderData::getFlatGameList(bool displayedOnly, SystemData* system) const 
-{
-	return getFilesRecursive(GAME, displayedOnly, system);
-}
 
-std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool displayedOnly, SystemData* system, bool includeVirtualStorage) const
-{
-	std::vector<FileData*> out;
 
-	auto isVirtualFolder = [](FileData* file) 
-	{ 
+void FolderData::getFilesRecursiveWithContext(std::vector<FileData*>& out, unsigned int typeMask, GetFileContext* filter, bool displayedOnly, SystemData* system, bool includeVirtualStorage) const
+{
+	if (filter == nullptr)
+		return;
+
+	auto isVirtualFolder = [](FileData* file)
+	{
 		if (file->getType() == GAME)
 			return false;
 
@@ -1152,20 +1119,8 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 		return fld->isVirtualStorage();
 	};
 
-	bool showHiddenFiles = Settings::ShowHiddenFiles() && !UIModeController::getInstance()->isUIModeKiosk();
-
-	auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");
-	if (shv == "1") showHiddenFiles = true;
-	else if (shv == "0") showHiddenFiles = false;
-
 	SystemData* pSystem = (system != nullptr ? system : mSystem);
 	
-	std::vector<std::string> hiddenExts;
-	if (pSystem->isGameSystem() && !pSystem->isCollection())
-		hiddenExts = Utils::String::split(Utils::String::toLower(Settings::getInstance()->getString(pSystem->getName() + ".HiddenExt")), ';');
-
-	bool filterKidGame = UIModeController::getInstance()->isUIModeKid();
-
 	FileFilterIndex* idx = pSystem->getIndex(false);
 
 	for (auto it : mChildren)
@@ -1176,16 +1131,16 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 			{
 				if (displayedOnly)
 				{
-					if (!showHiddenFiles && it->getHidden())
+					if (!filter->showHiddenFiles && it->getHidden())
 						continue;
 
-					if (filterKidGame && it->getKidGame())
+					if (filter->filterKidGame && it->getKidGame())
 						continue;
 
-					if (typeMask == GAME && hiddenExts.size() > 0)
+					if (typeMask == GAME && filter->hiddenExtensions.size() > 0)
 					{
 						std::string extlow = Utils::String::toLower(Utils::FileSystem::getExtension(it->getFileName(), false));
-						if (std::find(hiddenExts.cbegin(), hiddenExts.cend(), extlow) != hiddenExts.cend())
+						if (filter->hiddenExtensions.find(extlow) != filter->hiddenExtensions.cend())
 							continue;
 					}
 				}
@@ -1197,8 +1152,8 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 
 		if (it->getType() != FOLDER)
 			continue;
-				
-		FolderData* folder = (FolderData*)it;		
+
+		FolderData* folder = (FolderData*)it;
 		if (folder->getChildren().size() > 0)
 		{
 			if (includeVirtualStorage || !isVirtualFolder(folder))
@@ -1206,14 +1161,41 @@ std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool
 				if (folder->isVirtualStorage() && folder->getSourceFileData()->getSystem()->isGroupChildSystem() && folder->getSourceFileData()->getSystem()->getName() == "windows_installers")
 					out.push_back(it);
 				else
-				{
-					std::vector<FileData*> subchildren = folder->getFilesRecursive(typeMask, displayedOnly, system, includeVirtualStorage);
-					out.insert(out.cend(), subchildren.cbegin(), subchildren.cend());
-				}
+					folder->getFilesRecursiveWithContext(out, typeMask, filter, displayedOnly, system, includeVirtualStorage);
 			}
 		}
 	}
+}
 
+std::vector<FileData*> FolderData::getFlatGameList(bool displayedOnly, SystemData* system) const
+{
+	return getFilesRecursive(GAME, displayedOnly, system);
+}
+
+std::vector<FileData*> FolderData::getFilesRecursive(unsigned int typeMask, bool displayedOnly, SystemData* system, bool includeVirtualStorage) const
+{
+	SystemData* pSystem = (system != nullptr ? system : mSystem);
+	
+	GetFileContext ctx;
+	ctx.showHiddenFiles = Settings::ShowHiddenFiles() && !UIModeController::getInstance()->isUIModeKiosk();
+
+	auto shv = Settings::getInstance()->getString(getSystem()->getName() + ".ShowHiddenFiles");
+	if (shv == "1")
+		ctx.showHiddenFiles = true;
+	else if (shv == "0")
+		ctx.showHiddenFiles = false;
+
+	if (pSystem->isGameSystem() && !pSystem->isCollection())
+	{
+		for (auto ext : Utils::String::split(Utils::String::toLower(Settings::getInstance()->getString(pSystem->getName() + ".HiddenExt")), ';'))
+			if (ctx.hiddenExtensions.find(ext) == ctx.hiddenExtensions.cend())
+				ctx.hiddenExtensions.insert(ext);
+	}
+
+	ctx.filterKidGame = UIModeController::getInstance()->isUIModeKid();
+
+	std::vector<FileData*> out;
+	getFilesRecursiveWithContext(out, typeMask, &ctx, displayedOnly, system, includeVirtualStorage);
 	return out;
 }
 
