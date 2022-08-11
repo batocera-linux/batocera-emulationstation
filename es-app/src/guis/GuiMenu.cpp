@@ -2395,6 +2395,19 @@ void GuiMenu::openControllersSettings(int autoSel)
 	}
 #endif
 
+#ifdef BATOCERA
+	bool wiiguns_menu = false;
+	for (auto gun : InputManager::getInstance()->getGuns())
+	  if (gun->name() == "wiigun calibrated")
+	    wiiguns_menu = true;
+	for (auto joy : InputManager::getInstance()->getInputConfigs())
+	  if (joy->getDeviceName() == "Nintendo Wii Remote")
+	    wiiguns_menu = true;
+	if(wiiguns_menu) {
+	  s->addEntry(_("WIIGUNS"), true, [this] { openControllersSpecificSettings_wiigun(); });
+	}
+#endif
+
 	ComponentListRow row;
 
 	// Here we go; for each player
@@ -2506,6 +2519,7 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	window->pushGui(s);
 }
+
 void GuiMenu::openControllersSpecificSettings_sindengun()
 {
 	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
@@ -2528,6 +2542,26 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	    SystemConf::getInstance()->setBool("controllers.guns.recoil", enable_recoil->getState());
 	    SystemConf::getInstance()->saveSystemConf();
 	    ApiSystem::getInstance()->replugControllers_sindenguns();
+	  }
+	});
+	mWindow->pushGui(s);
+}
+
+void GuiMenu::openControllersSpecificSettings_wiigun()
+{
+	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
+
+	std::string baseMode = SystemConf::getInstance()->get("controllers.wiimote.mode");
+	auto wiimode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MODE"), false);
+	wiimode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	wiimode_choices->add(_("GUN"), "gun", baseMode == "gun");
+	wiimode_choices->add(_("JOYSTICK"), "joystick", baseMode == "joystick");
+	s->addWithLabel(_("MODE"), wiimode_choices);
+	s->addSaveFunc([wiimode_choices] {
+	  if(wiimode_choices->getSelected() != SystemConf::getInstance()->get("controllers.wiimote.mode")) {
+	    SystemConf::getInstance()->set("controllers.wiimote.mode", wiimode_choices->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    ApiSystem::getInstance()->replugControllers_wiimotes();
 	  }
 	});
 	mWindow->pushGui(s);
