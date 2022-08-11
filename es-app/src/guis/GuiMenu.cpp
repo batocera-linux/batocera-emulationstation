@@ -2395,6 +2395,19 @@ void GuiMenu::openControllersSettings(int autoSel)
 	}
 #endif
 
+#ifdef BATOCERA
+	bool wiiguns_menu = false;
+	for (auto gun : InputManager::getInstance()->getGuns())
+	  if (gun->name() == "wiigun calibrated")
+	    wiiguns_menu = true;
+	for (auto joy : InputManager::getInstance()->getInputConfigs())
+	  if (joy->getDeviceName() == "Nintendo Wii Remote")
+	    wiiguns_menu = true;
+	if(wiiguns_menu) {
+	  s->addEntry(_("WIIGUNS"), true, [this] { openControllersSpecificSettings_wiigun(); });
+	}
+#endif
+
 	ComponentListRow row;
 
 	// Here we go; for each player
@@ -2506,11 +2519,10 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	window->pushGui(s);
 }
+
 void GuiMenu::openControllersSpecificSettings_sindengun()
 {
 	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
-
-	Window* window = mWindow;
 
 	std::string selectedSet = SystemConf::getInstance()->get("controllers.guns.borderssize");
 	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("GUNS BORDER SIZE"), false);
@@ -2520,9 +2532,39 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	border_set->add(_("BIG"),    "BIG",    "BIG"    == selectedSet);
 
 	s->addOptionList(_("GUNS BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
-	s->addSwitch(_("RECOIL"), "controllers.guns.recoil", false);
 
-	window->pushGui(s);
+	bool baseRecoilEnabled = SystemConf::getInstance()->getBool("controllers.guns.recoil", false);
+	auto enable_recoil = std::make_shared<SwitchComponent>(mWindow);
+	enable_recoil->setState(baseRecoilEnabled);
+	s->addWithLabel(_("RECOIL"), enable_recoil);
+	s->addSaveFunc([enable_recoil] {
+	  if(enable_recoil->getState() != SystemConf::getInstance()->getBool("controllers.guns.recoil", false)) {
+	    SystemConf::getInstance()->setBool("controllers.guns.recoil", enable_recoil->getState());
+	    SystemConf::getInstance()->saveSystemConf();
+	    ApiSystem::getInstance()->replugControllers_sindenguns();
+	  }
+	});
+	mWindow->pushGui(s);
+}
+
+void GuiMenu::openControllersSpecificSettings_wiigun()
+{
+	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
+
+	std::string baseMode = SystemConf::getInstance()->get("controllers.wiimote.mode");
+	auto wiimode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MODE"), false);
+	wiimode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	wiimode_choices->add(_("GUN"), "gun", baseMode == "gun");
+	wiimode_choices->add(_("JOYSTICK"), "joystick", baseMode == "joystick");
+	s->addWithLabel(_("MODE"), wiimode_choices);
+	s->addSaveFunc([wiimode_choices] {
+	  if(wiimode_choices->getSelected() != SystemConf::getInstance()->get("controllers.wiimote.mode")) {
+	    SystemConf::getInstance()->set("controllers.wiimote.mode", wiimode_choices->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    ApiSystem::getInstance()->replugControllers_wiimotes();
+	  }
+	});
+	mWindow->pushGui(s);
 }
 
 struct ThemeConfigOption
