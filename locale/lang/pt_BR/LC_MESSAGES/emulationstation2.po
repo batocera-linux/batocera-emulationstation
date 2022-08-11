@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -372,6 +372,8 @@ msgstr "MODO RESTRITO"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
+"Desativa os estados de carregamento, rebobinar e trapaças para obter mais "
+"pontos."
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -386,6 +388,7 @@ msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
+"Mostra a progressão das conquistas e outras notificações ao iniciar o jogo."
 
 msgid "RICH PRESENCE"
 msgstr "Presença Rica"
@@ -394,7 +397,7 @@ msgid "ENCORE MODE"
 msgstr "MODO DE REPETIÇÃO (BIS)"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Conquistas desbloqueadas podem ser obtidas novamente."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE TELA AUTOMÁTICO"
@@ -661,10 +664,10 @@ msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "COLEÇÃO DINÂMICA"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "COLEÇÃO PERSONALIZADA"
 
 msgid "DELETE COLLECTION"
 msgstr "APAGAR COLEÇÃO"
@@ -851,7 +854,7 @@ msgid "slideshow"
 msgstr "apresentação de eslaides"
 
 msgid "suspend"
-msgstr ""
+msgstr "suspender"
 
 msgid "always"
 msgstr "sempre"
@@ -1165,7 +1168,7 @@ msgid "%d%% complete"
 msgstr "%d%% concluído"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "GERENCIADOR DE ESTADOS DE SALVAMENTO"
 
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
@@ -1808,7 +1811,7 @@ msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DE TELA"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 GRAUS"
 
 msgid "90 DEGREES"
 msgstr "90 GRAUS"
@@ -2059,6 +2062,8 @@ msgstr "SALVAR/CARREGAR AUTOMÁTICO"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
+"Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
+"estado ao sair do jogo."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
@@ -2082,7 +2087,7 @@ msgid "Use current slot on a new game."
 msgstr "Usa o espaço atual em um novo jogo."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "EXIBIR GERENCIADOR"
 
 msgid "ALWAYS"
 msgstr "SEMPRE"
@@ -2091,7 +2096,7 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Exiba o gerenciador de estado de salvamento antes de iniciar um jogo."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -2133,7 +2138,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 
 msgid "SINDEN GUNS"
-msgstr ""
+msgstr "ARMAS SINDEN"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2143,19 +2148,19 @@ msgid "default"
 msgstr "padrão"
 
 msgid "GUNS BORDER SIZE"
-msgstr ""
+msgstr "TAMANHO DA BORDA DAS ARMAS"
 
 msgid "THIN"
-msgstr ""
+msgstr "FINO"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "MÉDIO"
 
 msgid "BIG"
-msgstr ""
+msgstr "GRANDE"
 
 msgid "RECOIL"
-msgstr ""
+msgstr "RECUO"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"
@@ -2365,10 +2370,10 @@ msgid "REALLY RESTART?"
 msgstr "DESEJA REINICIAR ?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "SUSPENDER SISTEMA"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "SUSPENDER REALMENTE?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR SISTEMA"
@@ -3038,11 +3043,11 @@ msgstr "%d h"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d min"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d seg"
 
 msgid "SCREEN READER ENABLED"
 msgstr "LEITOR DE TELA ATIVADO"
