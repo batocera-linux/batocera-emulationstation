@@ -1902,7 +1902,7 @@ void GuiMenu::openGamesSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION) && !hasGlobalFeature("videomode"))
 	{
 		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
-		s->addWithDescription(_("VIDEO MODE"), _("Send this resolution to the display. Does not affect the rendering resolution."), videoModeOptionList);
+		s->addWithDescription(_("VIDEO MODE"), _("Set the display's resolution to this. Does not affect the rendering resolution."), videoModeOptionList);
 		s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()); });
 	}
 
@@ -3682,7 +3682,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::videomode))
 	{
 		auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
-		systemConfiguration->addWithDescription(_("VIDEO MODE"), _("Send this resolution to the display. Does not affect the rendering resolution."), videoResolutionMode_choice);
+		systemConfiguration->addWithDescription(_("VIDEO MODE"), _("Set the display's resolution to this. Does not affect the rendering resolution."), videoResolutionMode_choice);
 		systemConfiguration->addSaveFunc([configName, videoResolutionMode_choice] { SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected()); });
 	}
 
