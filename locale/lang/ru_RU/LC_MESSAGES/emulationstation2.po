@@ -1953,8 +1953,9 @@ msgstr "Принудительно рендерить игру в данном �
 msgid "VIDEO MODE"
 msgstr "РАЗРЕШЕНИЕ"
 
-msgid "Force the emulator to run at this resolution."
-msgstr "Принудительно запускать эмулятор с этим разрешением."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "СГЛАЖИВАНИЕ ИГР (БИЛИНЕЙНАЯ ФИЛЬТРАЦИЯ)"
@@ -2116,6 +2117,9 @@ msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 msgid "SINDEN GUNS"
 msgstr ""
 
+msgid "WIIGUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "P%i КОНТРОЛЛЕР"
@@ -2136,6 +2140,15 @@ msgid "BIG"
 msgstr ""
 
 msgid "RECOIL"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -3037,6 +3050,9 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "Принудительно запускать эмулятор с этим разрешением."
 
 #~ msgid "Disable loading states (as well as auto-load) for more points."
 #~ msgstr ""

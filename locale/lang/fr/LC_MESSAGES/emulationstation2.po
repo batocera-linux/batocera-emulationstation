@@ -1939,7 +1939,8 @@ msgstr "Forcer le jeu dans ce format d'affichage."
 msgid "VIDEO MODE"
 msgstr "MODE VIDÉO"
 
-msgid "Force the emulator to run at this resolution."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "Forcer l'émulateur dans cette résolution."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
@@ -2101,6 +2102,9 @@ msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
 msgid "SINDEN GUNS"
 msgstr "PISTOLETS SINDEN"
 
+msgid "WIIGUNS"
+msgstr "WIIGUNS"
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "MANETTE J%i"
@@ -2122,6 +2126,15 @@ msgstr "GROS"
 
 msgid "RECOIL"
 msgstr "RECUL"
+
+msgid "MODE"
+msgstr "MODE"
+
+msgid "GUN"
+msgstr "PISTOLET"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D’ÉDITER SA CONFIGURATION"
@@ -3013,6 +3026,9 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "Forcer l'émulateur dans cette résolution."
 
 #~ msgid "SAVE STATE MANAGER"
 #~ msgstr "GESTIONNAIRE DE SAUVEGARDES"

@@ -1929,7 +1929,8 @@ msgstr ""
 msgid "VIDEO MODE"
 msgstr "מצד וידאו"
 
-msgid "Force the emulator to run at this resolution."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
@@ -2084,6 +2085,9 @@ msgstr "הצגת רמת סוללה לבקר"
 msgid "SINDEN GUNS"
 msgstr ""
 
+msgid "WIIGUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr ""
@@ -2104,6 +2108,15 @@ msgid "BIG"
 msgstr ""
 
 msgid "RECOIL"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"

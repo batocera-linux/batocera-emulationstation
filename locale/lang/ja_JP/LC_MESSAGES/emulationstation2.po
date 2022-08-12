@@ -1948,8 +1948,9 @@ msgstr "ゲームを指定アスペクト比でレンダリングします"
 msgid "VIDEO MODE"
 msgstr "ゲーム画面解像度"
 
-msgid "Force the emulator to run at this resolution."
-msgstr "エミュレータを指定解像度で実行します"
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "バイリニアフィルタリング"
@@ -2109,6 +2110,9 @@ msgstr "コントローラーバッテリーレベルを表示"
 msgid "SINDEN GUNS"
 msgstr ""
 
+msgid "WIIGUNS"
+msgstr ""
+
 #, c-format
 msgid "P%i'S CONTROLLER"
 msgstr "プレイヤー%iのコントローラー"
@@ -2129,6 +2133,15 @@ msgid "BIG"
 msgstr ""
 
 msgid "RECOIL"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -3009,6 +3022,9 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "エミュレータを指定解像度で実行します"
 
 #~ msgid "Disable loading states (as well as auto-load) for more points."
 #~ msgstr "より多くのポイントの読込み状態（および自動読込み）を無効にします"
