@@ -4,43 +4,40 @@
     <game>armydays</game>
     <game>babyblues</game>
     <game>blazeout</game>
-    <game>cosmiccommando</game>
+    <game gun="stack_light_rifle">cosmiccommando</game>
     <game>cosmicstorm</game>
     <game>gangster</game>
     <game>ghosttown</game>
-    <game>groueshoot</game>
-    <game>glorious12</game>
+    <game gun="stack_light_rifle">groueshoot</game>
+    <game gun="stack_light_rifle">glorious12</game>
     <game>goosebusters</game>
     <game>gunslinger</game>
     <game>highnoonshootout</game>
-    <game>indianattack</game>
+    <game gun="stack_light_rifle">indianattack</game>
     <game>operationthunderbolt</game>
     <game>operationwolf</game>
     <game>timetraveller</game>
-    <game>shootinggallery</game>
-    <game>starbasedefence</game>
+    <game gun="stack_light_rifle">shootinggallery</game>
+    <game>shootinputin</game>
+    <game gun="stack_light_rifle">starbasedefence</game>
   </system>
   <system name="3do">
     <game>corpsekiller</game>
-    <game>creatureshock</game>
     <game>crimepatrol</game>
-    <game>cyberdillo</game>
     <game>demolitionman</game>
     <game>drugwars</game>
-    <game>killingtime</game>
     <game>lastbountyhunter</game>
     <game>lostgold</game>
     <game>maddogii</game>
     <game>maddogmccree</game>
-    <game>sewershark</game>
     <game>shootoutatoldtucson</game>
     <game>spacepirates</game>
-    <game>starblade</game>
     <game>whoshotjohnnyrock</game>
   </system>
   <system name="atari2600">
     <game>bobbyneedsfood</game>
     <game>sentinel</game>
+    <game>shootingarcade</game>
   </system>
   <system name="atari7800">
     <game>alienbrigade</game>
@@ -101,7 +98,9 @@
     <game>adventuresofbayoubilly</game>
     <game>babyboomer</game>
     <game>barkerbillstrickshooting</game>
+    <game>bloodofjurassic</game>
     <game>chiller</game>
+    <game>cobramission</game>
     <game>crimebusters</game>
     <game>daydreamindavey</game>
     <game>duckhunt</game>
@@ -118,12 +117,16 @@
     <game>mastershooter</game>
     <game>mechanizedattack</game>
     <game>operationwolf</game>
+    <game>russianroulette</game>
     <game>shootingrange</game>
     <game>spaceshadow</game>
     <game>strikewolf</game>
+    <game>russianroulette</game>
+    <game>superrussianroulette</game>
     <game>totheearth</game>
     <game>trackfieldii</game>
     <game>wildgunman</game>
+    <game>zombiezap</game>
   </system>
   <system name="psx">
     <game>area51</game>
@@ -158,13 +161,16 @@
   <system name="saturn">
     <game>area51</game>
     <game>chaoscontrol</game>
+    <game>chaoscontrolremix</game>
     <game>corpsekiller</game>
+    <game>crimepatrol</game>
     <game>cryptkiller</game>
     <game>deathcrimson</game>
     <game>diehardtrilogy</game>
     <game>houseofthedead</game>
     <game>maximumforce</game>
     <game>mechanicalviolatorhakaider</game>
+    <game>mightyhits</game>
     <game>policenauts</game>
     <game>scudthedisposableassassin</game>
     <game>virtuacop</game>
