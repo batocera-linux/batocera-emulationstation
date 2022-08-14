@@ -2127,11 +2127,20 @@ msgstr "GROS"
 msgid "RECOIL"
 msgstr "RECUL"
 
-msgid "MODE"
-msgstr "MODE"
-
 msgid "GUN"
 msgstr "PISTOLET"
+
+msgid "MACHINE GUN"
+msgstr "MITRAILLETTE"
+
+msgid "QUIET GUN"
+msgstr "PISTOLET (BRUIT FAIBLE)"
+
+msgid "QUIET MACHINE GUN"
+msgstr "MITRAILLETTE (BRUIT FAIBLE)"
+
+msgid "MODE"
+msgstr "MODE"
 
 msgid "JOYSTICK"
 msgstr "JOYSTICK"
