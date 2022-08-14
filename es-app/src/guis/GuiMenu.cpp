@@ -2533,13 +2533,17 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 
 	s->addOptionList(_("GUNS BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
-	bool baseRecoilEnabled = SystemConf::getInstance()->getBool("controllers.guns.recoil", false);
-	auto enable_recoil = std::make_shared<SwitchComponent>(mWindow);
-	enable_recoil->setState(baseRecoilEnabled);
-	s->addWithLabel(_("RECOIL"), enable_recoil);
-	s->addSaveFunc([enable_recoil] {
-	  if(enable_recoil->getState() != SystemConf::getInstance()->getBool("controllers.guns.recoil", false)) {
-	    SystemConf::getInstance()->setBool("controllers.guns.recoil", enable_recoil->getState());
+	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
+	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
+	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	sindenmode_choices->add(_("GUN"), "gun", baseMode == "gun");
+	sindenmode_choices->add(_("MACHINE GUN"), "machinegun", baseMode == "machinegun");
+	sindenmode_choices->add(_("QUIET GUN"), "gun-quiet", baseMode == "gun-quiet");
+	sindenmode_choices->add(_("QUIET MACHINE GUN"), "machinegun-quiet", baseMode == "machinegun-quiet");
+	s->addWithLabel(_("RECOIL"), sindenmode_choices);
+	s->addSaveFunc([sindenmode_choices] {
+	  if(sindenmode_choices->getSelected() != SystemConf::getInstance()->get("controllers.guns.recoil")) {
+	    SystemConf::getInstance()->set("controllers.guns.recoil", sindenmode_choices->getSelected());
 	    SystemConf::getInstance()->saveSystemConf();
 	    ApiSystem::getInstance()->replugControllers_sindenguns();
 	  }

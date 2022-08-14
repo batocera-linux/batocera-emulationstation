@@ -2112,10 +2112,19 @@ msgstr ""
 msgid "RECOIL"
 msgstr ""
 
-msgid "MODE"
+msgid "GUN"
 msgstr ""
 
-msgid "GUN"
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
 msgstr ""
 
 msgid "JOYSTICK"
