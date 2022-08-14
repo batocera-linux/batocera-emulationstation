@@ -527,13 +527,13 @@ void Window::renderSindenBorders()
 		auto bordersize = SystemConf::getInstance()->get("controllers.guns.borderssize");
 		if (bordersize == "thin")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.000f;
 			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
 		}
 		else if (bordersize == "medium")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.015f;
-			innerBorderWidth = Renderer::getScreenHeight() * 0.015f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
 		}
 
 		Renderer::setScreenMargin(0, 0);
