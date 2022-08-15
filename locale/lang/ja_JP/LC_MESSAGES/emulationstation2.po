@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v35beta(2022/07/05)\n"
+"Project-Id-Version: batocera-es v35beta(2022/08/13)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-07-05 23:44+0900\n"
+"PO-Revision-Date: 2022-08-13 16:49+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -371,6 +371,7 @@ msgstr "ハードコアモード"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
+"ステート読込を無効にし、巻き戻し、チートでより多くのポイントを獲得します"
 
 msgid "LEADERBOARDS"
 msgstr "リーダーボード"
@@ -382,7 +383,7 @@ msgid "VERBOSE MODE"
 msgstr "詳細な処理モード"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "ゲームの起動やその他の通知でアチーブメントの進行状況を表示します"
 
 msgid "RICH PRESENCE"
 msgstr "リッチプレゼンス(フレンド参加)"
@@ -391,7 +392,7 @@ msgid "ENCORE MODE"
 msgstr "アンコール モード"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "ロック解除されたアチーブメントは再び獲得できます"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
@@ -652,10 +653,10 @@ msgid "SORT GAMES BY"
 msgstr "ゲームの並び替え"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "システム・項目別コレクション"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "カスタムコレクション"
 
 msgid "DELETE COLLECTION"
 msgstr "コレクションを削除"
@@ -727,10 +728,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "利用できないコア"
 
 msgid "AVAILABLE GAMES"
-msgstr "プレイ可能なゲーム"
+msgstr "参加可能なゲーム"
 
 msgid "UNAVAILABLE GAMES"
-msgstr "プレイできないゲーム"
+msgstr "参加できないゲーム"
 
 msgid "NO GAMES FOUND"
 msgstr "ゲームが見つかりません"
@@ -840,7 +841,7 @@ msgid "slideshow"
 msgstr "スライドショー(ゲーム画像)"
 
 msgid "suspend"
-msgstr ""
+msgstr "サスペンド"
 
 msgid "always"
 msgstr "全て"
@@ -998,8 +999,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"現在、バージョン「%s」を使用中\n"
-"バージョン「%s」に更新しますか?"
+"現在、「%s」を使用中\n"
+"「%s」に更新しますか?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -1083,16 +1084,16 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
 
 msgid "DELETE ITEM"
-msgstr "項目を削除"
+msgstr "ファイルを削除"
 
 msgid "DELETE GAME"
-msgstr "このゲームを削除"
+msgstr "ゲームを削除"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
-"この操作はゲームファイルを削除します！\n"
+"この操作は実際にファイルを削除します！\n"
 "実行しますか？"
 
 msgid "COLLECTIONS"
@@ -1154,7 +1155,7 @@ msgid "%d%% complete"
 msgstr "%d%% 完了"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "ステートセーブマネージャー"
 
 msgid "START NEW GAME"
 msgstr "最初から開始"
@@ -1295,7 +1296,7 @@ msgid "SCRAPE NOW"
 msgstr "取得開始"
 
 msgid "START"
-msgstr "実行"
+msgstr "スタート"
 
 msgid ""
 "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
@@ -1787,7 +1788,7 @@ msgid "SCREEN ROTATION"
 msgstr "画面の回転"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 度"
 
 msgid "90 DEGREES"
 msgstr "右90度回転"
@@ -1950,7 +1951,7 @@ msgstr "ゲーム画面解像度"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "ディスプレイの解像度を設定します。レンダリング解像度には影響しません"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "バイリニアフィルタリング"
@@ -2035,7 +2036,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "自動ステート読込"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
+msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ステートセーブ保存方法"
@@ -2059,7 +2060,7 @@ msgid "Use current slot on a new game."
 msgstr "選択スロットにセーブを上書き保存"
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "ステートセーブマネージャーの表示"
 
 msgid "ALWAYS"
 msgstr "常に"
@@ -2068,7 +2069,7 @@ msgid "IF NOT EMPTY"
 msgstr "セーブがある場合"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "ゲーム起動前にステートセーブマネージャを表示します"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
@@ -2108,10 +2109,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "コントローラーバッテリーレベルを表示"
 
 msgid "SINDEN GUNS"
-msgstr ""
+msgstr "シンデン ライトガンコン"
 
 msgid "WIIGUNS"
-msgstr ""
+msgstr "WII ガンコン"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2121,22 +2122,22 @@ msgid "default"
 msgstr "標準"
 
 msgid "GUNS BORDER SIZE"
-msgstr ""
+msgstr "ガンコン 境界サイズ"
 
 msgid "THIN"
-msgstr ""
+msgstr "超極細"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "中"
 
 msgid "BIG"
-msgstr ""
+msgstr "大"
 
 msgid "RECOIL"
-msgstr ""
+msgstr "反動"
 
 msgid "GUN"
-msgstr ""
+msgstr "ガンコン"
 
 msgid "MACHINE GUN"
 msgstr ""
@@ -2148,10 +2149,10 @@ msgid "QUIET MACHINE GUN"
 msgstr ""
 
 msgid "MODE"
-msgstr ""
+msgstr "モード"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "ジョイスティック"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -2362,10 +2363,10 @@ msgid "REALLY RESTART?"
 msgstr "本当に再起動しますか？"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "システムをサスペンド"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "サスペンド状態にしますか？"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "システムをシャットダウン"
@@ -3020,46 +3021,17 @@ msgstr "%d 時"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d 分"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d 秒"
 
 msgid "SCREEN READER ENABLED"
 msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "Force the emulator to run at this resolution."
-#~ msgstr "エミュレータを指定解像度で実行します"
-
-#~ msgid "Disable loading states (as well as auto-load) for more points."
-#~ msgstr "より多くのポイントの読込み状態（および自動読込み）を無効にします"
-
-#~ msgid "SAVE STATE MANAGER"
-#~ msgstr "ステートセーブマネージャ"
-
-#~ msgid "0 DEGREES (AUTO)"
-#~ msgstr "0度（自動）"
-
-#~ msgid "SHOW SAVE STATE MANAGER"
-#~ msgstr "ステートセーブマネージャの表示"
-
-#~ msgid "Display save state manager before launching a game."
-#~ msgstr "ゲーム起動時にステートセーブマネージャを表示します"
-
-#~ msgid "Reset achievements to be able to earn them again."
-#~ msgstr "achievementをリセットして、再び獲得できるようにします"
-
-#, c-format
-#~ msgid "%d m"
-#~ msgstr "%d 分"
-
-#, c-format
-#~ msgid "%d s"
-#~ msgstr "%d 秒"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"
