@@ -6,6 +6,7 @@
 #include "Settings.h"
 #include "PowerSaver.h"
 #include "Log.h"
+#include "renderers/Renderer.h"
 
 TextureDataManager		TextureResource::sTextureDataManager;
 std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
@@ -313,17 +314,23 @@ bool TextureResource::isLoaded() const
 
 size_t TextureResource::getTotalMemUsage(bool includeQueueSize)
 {
-	size_t total = 0;
-	// Count up all textures that manage their own texture data
-	for (auto tex : sAllTextures)
-	{
-		if (tex->mTextureData != nullptr)
-			total += tex->mTextureData->getVRAMUsage();
-	}
-	// Now get the committed memory from the manager
-	total += sTextureDataManager.getCommittedSize();
-	// And the size of the loading queue
+	size_t total = Renderer::getTotalMemUsage();
 
+	if (total == (size_t)-1)
+	{
+		total = 0;
+
+		// Count up all textures that manage their own texture data
+		for (auto tex : sAllTextures)
+		{
+			if (tex->mTextureData != nullptr)
+				total += tex->mTextureData->getVRAMUsage();
+		}
+		// Now get the committed memory from the manager
+		total += sTextureDataManager.getCommittedSize();
+	}
+
+	// And the size of the loading queue
 	if (includeQueueSize)
 		total += sTextureDataManager.getQueueSize();
 

@@ -117,6 +117,8 @@ namespace Renderer
 
 		virtual void         setSwapInterval() = 0;
 		virtual void         swapBuffers() = 0;
+
+		virtual size_t		 getTotalMemUsage() { return (size_t) -1; };
 	};
 	
 	std::vector<std::string> getRendererNames();
@@ -166,6 +168,8 @@ namespace Renderer
 	void         setScissor        (const Rect& _scissor);
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
+
+	size_t		 getTotalMemUsage  ();
 
 	std::string  getDriverName();
 	std::vector<std::pair<std::string, std::string>> getDriverInformation();
