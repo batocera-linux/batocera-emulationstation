@@ -57,6 +57,96 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 	return ret;
 }
 
+void CustomFeatures::importXmlElements(pugi::xml_node& from, const std::string& elementName, pugi::xml_node& to, const std::string& remplacementKey)
+{
+	for (pugi::xml_node system = from.child(elementName.c_str()); system; system = system.next_sibling(elementName.c_str()))
+	{
+		if (!remplacementKey.empty())
+		{
+			// Remove existing one ?
+			if (!system.attribute(remplacementKey.c_str()))
+				continue;
+
+			std::string name = system.attribute(remplacementKey.c_str()).as_string();
+			if (name.empty())
+				continue;
+
+			for (pugi::xml_node& srcSystem : to.children())
+			{
+				if (std::string(srcSystem.name()) != elementName)
+					continue;
+
+				std::string srcName = srcSystem.attribute(remplacementKey.c_str()).as_string();
+				if (srcName != name)
+					continue;
+
+				srcSystem.remove_child(srcSystem);
+				break;
+			}
+		}
+			
+		to.append_copy(system);
+	}
+}
+
+void CustomFeatures::loadAdditionnalFeatures(pugi::xml_node& srcSystems)
+{
+	for (auto customPath : Utils::FileSystem::getDirContent(Paths::getUserEmulationStationPath(), false, false))
+	{
+		if (Utils::FileSystem::getExtension(customPath) != ".cfg" || !Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_features_"))
+			continue;
+
+		pugi::xml_document doc;
+		pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+		if (!res)
+		{
+			LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
+			continue;
+		}
+
+		pugi::xml_node systemList = doc.child("features");
+		if (!systemList)
+		{
+			LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <features> tag !";
+			continue;
+		}
+
+		// import/replace shared features
+		pugi::xml_node sharedFeaturesToAdd = systemList.child("sharedFeatures");
+		if (sharedFeaturesToAdd)
+		{
+			pugi::xml_node sharedFeatures = srcSystems.child("sharedFeatures");
+			if (sharedFeatures)
+				importXmlElements(sharedFeaturesToAdd, "feature", sharedFeatures, "value");
+			else
+				srcSystems.append_copy(sharedFeaturesToAdd);
+		}
+
+		// import/replace global features
+		pugi::xml_node globalFeaturesToAdd = systemList.child("globalFeatures");
+		if (globalFeaturesToAdd)
+		{
+			pugi::xml_node globalFeatures = srcSystems.child("globalFeatures");
+			if (globalFeatures)
+			{
+				importXmlElements(globalFeaturesToAdd, "sharedFeature", globalFeatures, "value");
+				importXmlElements(globalFeaturesToAdd, "feature", globalFeatures, "value");
+			}
+			else
+				srcSystems.append_copy(globalFeaturesToAdd);
+		}
+
+		// import emulators
+		importXmlElements(systemList, "emulator", srcSystems);
+	}
+
+	/* Uncomment to see final XML result
+	std::string fileName = "c:\\temp\\test.xml";
+	Utils::FileSystem::removeFile(fileName);
+	doc.save_file(fileName.c_str());
+	*/
+}
+
 bool CustomFeatures::loadEsFeaturesFile()
 {
 	EmulatorFeatures.clear();
@@ -88,6 +178,8 @@ bool CustomFeatures::loadEsFeaturesFile()
 		LOG(LogError) << "es_features.cfg is missing the <features> tag!";
 		return false;
 	}
+
+	loadAdditionnalFeatures(systemList);
 
 	pugi::xml_node sharedFeatures = systemList.child("sharedFeatures");
 	if (sharedFeatures)
