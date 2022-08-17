@@ -6,6 +6,9 @@
 
 #if defined(_WIN32)
 #include <Windows.h>
+#include <ctype.h>
+#else
+#include <unistd.h>
 #endif
 
 namespace Utils
@@ -885,6 +888,15 @@ namespace Utils
 			auto len = snprintf(hex, sizeof(hex) - 1, "%08X", color);
 			hex[len] = 0;
 			return hex;
+		}
+
+		bool isPrintableChar(char c)
+		{			
+#if defined(_WIN32)
+			return isprint(c);
+#else
+			return std::isprint(c);
+#endif
 		}
 
 #if defined(_WIN32)

@@ -48,6 +48,8 @@ namespace Utils
 		std::string toHexString(unsigned int color);
 		unsigned int fromHexString(const std::string& string);
 
+		bool		isPrintableChar(char c);
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring);
 		const std::wstring convertToWideString(const std::string string);
