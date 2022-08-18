@@ -92,6 +92,8 @@ namespace Renderer
 		return customShader;	
 	}
 
+	static int getAvailableVideoMemory();
+
 	static void setupDefaultShaders()
 	{
 #if defined(USE_OPENGLES_20)
@@ -221,6 +223,7 @@ namespace Renderer
 		shaderProgramAlpha.createShaderProgram(vertexShaderAlpha, fragmentShaderAlpha);
 		
 		useProgram(nullptr);
+
 	} // setupDefaultShaders
 
 //////////////////////////////////////////////////////////////////////////
@@ -272,21 +275,36 @@ namespace Renderer
 
 //////////////////////////////////////////////////////////////////////////
 
+	#ifndef GL_GPU_MEM_INFO_CURRENT_AVAILABLE_MEM_NVX
+	#define GL_GPU_MEM_INFO_CURRENT_AVAILABLE_MEM_NVX 0x9049
+	#endif
+
 	static int getAvailableVideoMemory()
-	{
+	{	
+		/*
+		const std::string extensions = glGetString(GL_EXTENSIONS) ? (const char*)glGetString(GL_EXTENSIONS) : "";
+		if (extensions.find("GL_NVX_gpu_memory_info") != std::string::npos)
+		{
+			GLint totalMemoryKb = 0;
+			glGetIntegerv(GL_GPU_MEMORY_INFO_TOTAL_AVAILABLE_MEMORY_NVX, &totalMemoryKb);
+			if (totalMemoryKb != 0)
+				return totalMemoryKb / 1024;
+		}
+		*/
 		float total = 0;
 
-		float megabytes = 10.0;
+		float megabytes = 4.0;
 		int sz = sqrtf(megabytes * 1024.0 * 1024.0 / 4.0f);
 
 		std::vector<unsigned int> textures;
-		textures.reserve(1000000);
+		textures.reserve(1000);
 
 		while (true)
 		{
-			unsigned int textureId;
+			unsigned int textureId = 0;
 			glGenTextures(1, &textureId);
-			if (glGetError() != GL_NO_ERROR)
+
+			if (textureId == 0 || glGetError() != GL_NO_ERROR)
 				break;
 
 			textures.push_back(textureId);
@@ -296,12 +314,14 @@ namespace Renderer
 			if (glGetError() != GL_NO_ERROR)
 				break;
 
-			textures.push_back(textureId);
 			total += megabytes;
 		}
 
+		while (glGetError() != GL_NO_ERROR)
+			;
+
 		for (auto tx : textures)
-			Renderer::destroyTexture(tx);
+			glDeleteTextures(1, &tx);
 
 		return total;
 	}
@@ -374,6 +394,13 @@ namespace Renderer
 		if (!shaders.empty())
 			info.push_back(std::pair<std::string, std::string>("SHADERS", shaders));
 
+		/*
+		int videoMem = getTotalMemUsage() / 1024.0 / 1024.0;
+		info.push_back(std::pair<std::string, std::string>("USED VRAM", std::to_string(videoMem) + " MB"));
+
+		videoMem = getAvailableVideoMemory();
+		info.push_back(std::pair<std::string, std::string>("FREE VRAM", std::to_string(videoMem) + " MB"));
+		*/
 		return info;
 	}
 
@@ -803,26 +830,48 @@ namespace Renderer
 		useProgram(&shaderProgramColorNoTexture);
 
 		glEnable(GL_STENCIL_TEST);
+
+		glClearStencil(0);
+		glClear(GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
+
 		glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
 		glDepthMask(GL_FALSE);
-		glStencilFunc(GL_NEVER, 1, 0xFF);
-		glStencilOp(GL_REPLACE, GL_KEEP, GL_KEEP);
-		glStencilMask(0xFF);
-		glClear(GL_STENCIL_BUFFER_BIT);
-		
+
+		glStencilFunc(GL_ALWAYS, 1, ~0);
+		glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
+		glEnable(GL_BLEND);
+		glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
 		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _numVertices, _vertices, GL_DYNAMIC_DRAW);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, _numVertices);
+		glDisable(GL_BLEND);
 
 		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 		glDepthMask(GL_TRUE);
-		glStencilMask(0x00);
-		glStencilFunc(GL_EQUAL, 0, 0xFF);
-		glStencilFunc(GL_EQUAL, 1, 0xFF);
+
+		glStencilFunc(GL_EQUAL, 1, ~0);
+		glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 	}
 
 	void GLES20Renderer::disableStencil()
 	{
 		glDisable(GL_STENCIL_TEST);
+	}
+
+	size_t GLES20Renderer::getTotalMemUsage()
+	{
+		size_t total = 0;
+
+		for (auto tex : _textures)
+		{
+			if (tex.first != 0 && tex.second)
+			{
+				size_t size = tex.second->size.x() * tex.second->size.y() * (tex.second->type == GL_ALPHA ? 1 : 4);
+				total += size;
+			}
+		}	
+
+		return total;
 	}
 } // Renderer::
 

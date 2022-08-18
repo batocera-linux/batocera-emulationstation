@@ -424,14 +424,14 @@ void AudioManager::playSong(const std::string& song)
 		if (title_frame != NULL)
 		{
 			ID3v2_frame_text_content* title_content = parse_text_frame_content(title_frame);
-			if (title_content != NULL && title_content->size >0)
+			if (title_content != NULL && title_content->size > 0)
 			{
 				std::string song_name(title_content->data, title_content->size);
 				ID3v2_frame* artist_frame = tag_get_artist(tag);
 				if (artist_frame != NULL)
 				{
 					ID3v2_frame_text_content* artist_content = parse_text_frame_content(artist_frame);
-					if (artist_content != NULL && artist_content->size >0)
+					if (artist_content != NULL && artist_content->size > 0)
 					{
 						std::string artist(artist_content->data, artist_content->size);
 						song_name += " - " + artist;
@@ -439,8 +439,7 @@ void AudioManager::playSong(const std::string& song)
 						free(artist_content);
 					}
 				}
-				song_name.erase(std::remove_if(song_name.begin(), song_name.end(),
-						[](unsigned char c){return !std::isprint(c);}), song_name.end());
+				song_name.erase(std::remove_if(song_name.begin(), song_name.end(), [](unsigned char c) { return !Utils::String::isPrintableChar(c); }), song_name.end());
 				setSongName(song_name);
 				free(title_content->data);
 				free(title_content);
@@ -469,11 +468,14 @@ void AudioManager::playSong(const std::string& song)
 			LOG(LogError) << "Error AudioManager seeking " << song;
 		else if (fread(&info, sizeof(info), 1, file) != 1)
 			LOG(LogError) << "Error AudioManager reading " << song;
-		else if (strncmp(info.tag, "TAG", 3) == 0) {
+		else if (strncmp(info.tag, "TAG", 3) == 0) 
+		{
 			std::string songTitle(info.title, 30);
-			if (info.artist != NULL) {
+			songTitle = " - " + songTitle.substr(0, 30);
+			if (info.artist != NULL) 
+			{
 				std::string songArtist(info.artist, 30);
-				songTitle += " - " + songArtist;
+				songTitle += " - " + songArtist.substr(0, 30);
 			}
 			setSongName(songTitle);
 			fclose(file);

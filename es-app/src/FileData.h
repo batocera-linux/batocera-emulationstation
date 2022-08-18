@@ -39,6 +39,13 @@ enum NetPlayMode
 	SPECTATOR
 };
 
+struct GetFileContext
+{
+	bool showHiddenFiles;
+	bool filterKidGame;
+	std::set<std::string> hiddenExtensions;
+};
+
 struct LaunchGameOptions
 {
 	LaunchGameOptions() { netPlayMode = NetPlayMode::DISABLED; }
@@ -166,6 +173,8 @@ private:
 	MetaDataList mMetadata;
 
 protected:	
+	std::string  findLocalArt(const std::string& type = "", std::vector<std::string> exts = { ".png", ".jpg" });
+
 	static FileData* mRunningGame;
 
 	FolderData* mParent;
@@ -233,6 +242,9 @@ public:
 	void removeFromVirtualFolders(FileData* game);
 
 private:
+	void getFilesRecursiveWithContext(std::vector<FileData*>& out, unsigned int typeMask, GetFileContext* filter, bool displayedOnly, SystemData* system, bool includeVirtualStorage) const;
+
+
 	std::vector<FileData*> mChildren;
 	bool	mOwnsChildrens;
 	bool	mIsDisplayableAsVirtualFolder;

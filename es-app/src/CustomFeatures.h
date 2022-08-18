@@ -59,6 +59,9 @@ public:
 	
 private:
 	static CustomFeatures loadCustomFeatures(pugi::xml_node node);
+	static void loadAdditionnalFeatures(pugi::xml_node& srcSystems);
+
+	static void importXmlElements(pugi::xml_node& from, const std::string& elementName, pugi::xml_node& to, const std::string& remplacementKey = "");
 };
 
 class EmulatorFeatures
