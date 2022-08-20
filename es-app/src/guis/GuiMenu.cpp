@@ -2404,7 +2404,7 @@ void GuiMenu::openControllersSettings(int autoSel)
 	  if (joy->getDeviceName() == "Nintendo Wii Remote")
 	    wiiguns_menu = true;
 	if(wiiguns_menu) {
-	  s->addEntry(_("WIIMOTE AS LIGHT GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
+	  s->addEntry(_("WIIMOTE GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
 	}
 #endif
 
@@ -2525,13 +2525,13 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
 
 	std::string selectedSet = SystemConf::getInstance()->get("controllers.guns.borderssize");
-	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("WHITE BORDER SIZE"), false);
+	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER SIZE"), false);
 	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
 	border_set->add(_("THIN"),   "THIN",   "THIN"   == selectedSet);
 	border_set->add(_("MEDIUM"), "MEDIUM", "MEDIUM" == selectedSet);
 	border_set->add(_("BIG"),    "BIG",    "BIG"    == selectedSet);
 
-	s->addOptionList(_("WHITE BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
+	s->addOptionList(_("BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
