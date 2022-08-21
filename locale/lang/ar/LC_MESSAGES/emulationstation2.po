@@ -2089,10 +2089,10 @@ msgstr "اعرض نشاط وحدة التحكم"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2102,7 +2102,7 @@ msgstr ""
 msgid "default"
 msgstr "افتراضي"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

@@ -2084,10 +2084,10 @@ msgstr "KONTROLLERİN AKTİVİTELERİNİ GÖSTER"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROLLERİN PİL DÜZEYİNİ GÖSTER"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2097,7 +2097,7 @@ msgstr ""
 msgid "default"
 msgstr "varsayılan"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

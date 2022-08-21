@@ -2090,10 +2090,10 @@ msgstr "顯示控制器活動狀態"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2103,7 +2103,7 @@ msgstr "玩家 %i 的控制器"
 msgid "default"
 msgstr "預設值"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

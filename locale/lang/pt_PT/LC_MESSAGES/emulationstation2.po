@@ -2126,10 +2126,10 @@ msgstr "MOSTRAR ATIVIDADE DO COMANDO"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2139,7 +2139,7 @@ msgstr "COMANDO DO JOGADOR %i"
 msgid "default"
 msgstr "PADRÃO"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

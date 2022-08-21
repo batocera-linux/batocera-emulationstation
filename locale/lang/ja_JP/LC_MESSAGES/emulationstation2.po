@@ -2108,11 +2108,11 @@ msgstr "コントローラーアクティビティを表示"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "コントローラーバッテリーレベルを表示"
 
-msgid "SINDEN GUNS"
-msgstr "シンデン ライトガンコン"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
 
-msgid "WIIGUNS"
-msgstr "WII ガンコン"
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2121,8 +2121,8 @@ msgstr "プレイヤー%iのコントローラー"
 msgid "default"
 msgstr "標準"
 
-msgid "GUNS BORDER SIZE"
-msgstr "ガンコン 境界サイズ"
+msgid "BORDER SIZE"
+msgstr ""
 
 msgid "THIN"
 msgstr "超極細"
@@ -3032,6 +3032,15 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "SINDEN GUNS"
+#~ msgstr "シンデン ライトガンコン"
+
+#~ msgid "WIIGUNS"
+#~ msgstr "WII ガンコン"
+
+#~ msgid "GUNS BORDER SIZE"
+#~ msgstr "ガンコン 境界サイズ"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

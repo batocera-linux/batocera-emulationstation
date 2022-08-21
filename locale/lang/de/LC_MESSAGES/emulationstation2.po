@@ -2103,10 +2103,10 @@ msgstr "CONTROLLER-AKTIVITÄT ANZEIGEN"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "CONTROLLER AKKU-LEVEL ANZEIGEN"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2116,7 +2116,7 @@ msgstr "P%i'S CONTROLLER"
 msgid "default"
 msgstr "standard"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

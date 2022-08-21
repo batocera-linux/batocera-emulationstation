@@ -2082,10 +2082,10 @@ msgstr "הצגת פעילות בקר"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "הצגת רמת סוללה לבקר"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2095,7 +2095,7 @@ msgstr ""
 msgid "default"
 msgstr "ברירת מחדל"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

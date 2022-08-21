@@ -2083,10 +2083,10 @@ msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2096,7 +2096,7 @@ msgstr ""
 msgid "default"
 msgstr "alap"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

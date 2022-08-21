@@ -2097,10 +2097,10 @@ msgstr "TOON CONTROLLER ACTIVITEIT"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "TOON CONTROLLER BATTERIJ NIVEAU"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2110,7 +2110,7 @@ msgstr "P%i'S CONTROLLER"
 msgid "default"
 msgstr "standaard"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

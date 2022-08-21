@@ -2081,10 +2081,10 @@ msgstr "ΕΜΦΑΝΙΣΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ΕΜΦΑΝΙΣΗ ΕΠΙΠΕΔΟΥ ΜΠΑΤΑΡΙΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2094,7 +2094,7 @@ msgstr ""
 msgid "default"
 msgstr "Προεπιλεγμένο"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

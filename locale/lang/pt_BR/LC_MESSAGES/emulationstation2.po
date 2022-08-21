@@ -2138,10 +2138,10 @@ msgstr "EXIBIR ATIVIDADE DO CONTROLE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 
-msgid "SINDEN GUNS"
-msgstr "ARMAS SINDEN"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2151,8 +2151,8 @@ msgstr "CONTROLE DO JOGADOR %i"
 msgid "default"
 msgstr "padrão"
 
-msgid "GUNS BORDER SIZE"
-msgstr "TAMANHO DA BORDA DAS ARMAS"
+msgid "BORDER SIZE"
+msgstr ""
 
 msgid "THIN"
 msgstr "FINO"
@@ -3076,6 +3076,12 @@ msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "SINDEN GUNS"
+#~ msgstr "ARMAS SINDEN"
+
+#~ msgid "GUNS BORDER SIZE"
+#~ msgstr "TAMANHO DA BORDA DAS ARMAS"
 
 #~ msgid "Force the emulator to run at this resolution."
 #~ msgstr "Force o emulador a ser executado nesta resolução."

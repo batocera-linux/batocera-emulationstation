@@ -2115,11 +2115,11 @@ msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 
-msgid "SINDEN GUNS"
-msgstr "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
 
-msgid "WIIGUNS"
-msgstr "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2128,8 +2128,8 @@ msgstr "P%i'S HER.OVLADAČ"
 msgid "default"
 msgstr "výchozí"
 
-msgid "GUNS BORDER SIZE"
-msgstr "VELIKOST HRANICE ZBRANĚ"
+msgid "BORDER SIZE"
+msgstr ""
 
 msgid "THIN"
 msgstr "TENKÁ"
@@ -3059,6 +3059,15 @@ msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "SINDEN GUNS"
+#~ msgstr "SINDEN GUNS"
+
+#~ msgid "WIIGUNS"
+#~ msgstr "WIIGUNS"
+
+#~ msgid "GUNS BORDER SIZE"
+#~ msgstr "VELIKOST HRANICE ZBRANĚ"
 
 #~ msgid ""
 #~ "Automatically decrease frame delay temporarily to prevent frame drops. "

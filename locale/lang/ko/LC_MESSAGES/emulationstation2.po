@@ -2092,10 +2092,10 @@ msgstr "활성 컨트롤러 보이기"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "컨트롤러 배터리 상태 보이기"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2105,7 +2105,7 @@ msgstr "P%i 컨트롤러"
 msgid "default"
 msgstr "기본"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"

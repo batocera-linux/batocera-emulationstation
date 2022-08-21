@@ -2077,10 +2077,10 @@ msgstr "显示控制器活动"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
 
-msgid "WIIGUNS"
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2090,7 +2090,7 @@ msgstr ""
 msgid "default"
 msgstr "默认"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"
