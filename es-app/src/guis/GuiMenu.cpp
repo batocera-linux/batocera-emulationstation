@@ -2542,7 +2542,7 @@ void GuiMenu::openGamesSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION) && !hasGlobalFeature("videomode"))
 	{
 		auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "global");
-		s->addWithDescription(_("VIDEO MODE"), _("Force the emulator to run at this resolution."), videoModeOptionList);
+		s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution. Does not affect the rendering resolution."), videoModeOptionList);
 		s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("global.videomode", videoModeOptionList->getSelected()); });
 	}
 #endif
@@ -3075,7 +3075,20 @@ void GuiMenu::openControllersSettings(int autoSel)
 	  if (gun->needBorders())
 	    sindenguns_menu = true;
 	if(sindenguns_menu) {
-	  s->addEntry(_("SINDEN GUNS"), true, [this] { openControllersSpecificSettings_sindengun(); });
+	  s->addEntry(_("SINDEN GUN SETTINGS"), true, [this] { openControllersSpecificSettings_sindengun(); });
+	}
+#endif
+
+#ifdef BATOCERA
+	bool wiiguns_menu = false;
+	for (auto gun : InputManager::getInstance()->getGuns())
+	  if (gun->name() == "wiigun calibrated")
+	    wiiguns_menu = true;
+	for (auto joy : InputManager::getInstance()->getInputConfigs())
+	  if (joy->getDeviceName() == "Nintendo Wii Remote")
+	    wiiguns_menu = true;
+	if(wiiguns_menu) {
+	  s->addEntry(_("WIIMOTE GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
 	}
 #endif
 
@@ -3190,23 +3203,56 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	window->pushGui(s);
 }
+
 void GuiMenu::openControllersSpecificSettings_sindengun()
 {
 	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
 
-	Window* window = mWindow;
-
 	std::string selectedSet = SystemConf::getInstance()->get("controllers.guns.borderssize");
-	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("GUNS BORDER SIZE"), false);
+	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER SIZE"), false);
 	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
 	border_set->add(_("THIN"),   "THIN",   "THIN"   == selectedSet);
 	border_set->add(_("MEDIUM"), "MEDIUM", "MEDIUM" == selectedSet);
 	border_set->add(_("BIG"),    "BIG",    "BIG"    == selectedSet);
 
-	s->addOptionList(_("GUNS BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
-	s->addSwitch(_("RECOIL"), "controllers.guns.recoil", false);
+	s->addOptionList(_("BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
-	window->pushGui(s);
+	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
+	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
+	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	sindenmode_choices->add(_("GUN"), "gun", baseMode == "gun");
+	sindenmode_choices->add(_("MACHINE GUN"), "machinegun", baseMode == "machinegun");
+	sindenmode_choices->add(_("QUIET GUN"), "gun-quiet", baseMode == "gun-quiet");
+	sindenmode_choices->add(_("QUIET MACHINE GUN"), "machinegun-quiet", baseMode == "machinegun-quiet");
+	s->addWithLabel(_("RECOIL"), sindenmode_choices);
+	s->addSaveFunc([sindenmode_choices] {
+	  if(sindenmode_choices->getSelected() != SystemConf::getInstance()->get("controllers.guns.recoil")) {
+	    SystemConf::getInstance()->set("controllers.guns.recoil", sindenmode_choices->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    ApiSystem::getInstance()->replugControllers_sindenguns();
+	  }
+	});
+	mWindow->pushGui(s);
+}
+
+void GuiMenu::openControllersSpecificSettings_wiigun()
+{
+	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
+
+	std::string baseMode = SystemConf::getInstance()->get("controllers.wiimote.mode");
+	auto wiimode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MODE"), false);
+	wiimode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	wiimode_choices->add(_("GUN"), "gun", baseMode == "gun");
+	wiimode_choices->add(_("JOYSTICK"), "joystick", baseMode == "joystick");
+	s->addWithLabel(_("MODE"), wiimode_choices);
+	s->addSaveFunc([wiimode_choices] {
+	  if(wiimode_choices->getSelected() != SystemConf::getInstance()->get("controllers.wiimote.mode")) {
+	    SystemConf::getInstance()->set("controllers.wiimote.mode", wiimode_choices->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    ApiSystem::getInstance()->replugControllers_wiimotes();
+	  }
+	});
+	mWindow->pushGui(s);
 }
 
 struct ThemeConfigOption
@@ -4941,7 +4987,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::videomode))
 	{
 		auto videoResolutionMode_choice = createVideoResolutionModeOptionList(mWindow, configName);
-		systemConfiguration->addWithDescription(_("VIDEO MODE"), _("Force the emulator to run at this resolution."), videoResolutionMode_choice);
+		systemConfiguration->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution. Does not affect the rendering resolution."), videoResolutionMode_choice);
 		systemConfiguration->addSaveFunc([configName, videoResolutionMode_choice] { SystemConf::getInstance()->set(configName + ".videomode", videoResolutionMode_choice->getSelected()); });
 	}
 

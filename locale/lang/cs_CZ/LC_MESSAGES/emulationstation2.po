@@ -372,7 +372,7 @@ msgid "HARDCORE MODE"
 msgstr "REŽIM HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
+msgstr "Zakázat načítání, přetáčení a cheaty pro více bodů."
 
 msgid "LEADERBOARDS"
 msgstr "VÝSLEDKOVÁ TABULE"
@@ -385,7 +385,7 @@ msgid "VERBOSE MODE"
 msgstr "ÚPLNÝ INFORMAČNÍ REŽIM"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "Zobrazte pokrok dosažený při spuštění hry a dalších oznámeních."
 
 msgid "RICH PRESENCE"
 msgstr "BOHATÁ PREZENTACE"
@@ -394,7 +394,7 @@ msgid "ENCORE MODE"
 msgstr "REŽIM ENCORE"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Odemčené úspěchy lze znovu získat."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATICKÉ SNÍMKY OBRAZOVKY"
@@ -655,10 +655,10 @@ msgid "SORT GAMES BY"
 msgstr "Třídit hry podle"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "DYNAMICKÁ SBÍRKA"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "SBÍRKA NA MÍRU"
 
 msgid "DELETE COLLECTION"
 msgstr "SMAZAT SBÍRKU"
@@ -843,7 +843,7 @@ msgid "slideshow"
 msgstr "prezentace"
 
 msgid "suspend"
-msgstr ""
+msgstr "pozastavit"
 
 msgid "always"
 msgstr "vždy"
@@ -972,13 +972,13 @@ msgid "RIGHT ANALOG STICK"
 msgstr "PRAVÁ ANALOGOVÁ PÁČKA"
 
 msgid "EDIT DESCRIPTION"
-msgstr "EDIT DESCRIPTION"
+msgstr "UPRAVIT POPIS"
 
 msgid "DELETE MAPPING"
 msgstr "ODSTRANIT MAPOVÁNÍ"
 
 msgid "SAVE CHANGES?"
-msgstr "ZAPSAT ZMĚNY?"
+msgstr "ULOŽIT ZMĚNY?"
 
 msgid "ARE YOU SURE?"
 msgstr "JSTE SI JISTI?"
@@ -1410,7 +1410,7 @@ msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr "ZPLOŠTIT-ZÁŘIT"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
@@ -1795,7 +1795,7 @@ msgid "SCREEN ROTATION"
 msgstr "OTOČENÍ OBRAZOVKY"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 STUPŇŮ"
 
 msgid "90 DEGREES"
 msgstr "90 STUPŇŮ"
@@ -1924,8 +1924,6 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Dočasně sníží zpoždění snímků, aby se zabránilo jejich výpadkům. Může se "
-"objevit sekání."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "PROMĚNLIVÁ OBNOVOVACÍ FREKVENCE (G-SYNC, FREESYNC)"
@@ -1957,8 +1955,9 @@ msgstr "Vynutí vykreslování hry v tomto poměru stran."
 msgid "VIDEO MODE"
 msgstr "REŽIM VIDEA"
 
-msgid "Force the emulator to run at this resolution."
-msgstr "Vynutí spuštění emulátoru v tomto rozlišení."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr "Nastaví rozlišení displeje. Neovlivňuje rozlišení vykreslování."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "PLYNULOST HRY (BILINEAR FILTERING)"
@@ -2044,7 +2043,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
+msgstr "Načíst nejnovější uložení při spuštění hry a uložení při ukončení hry."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
@@ -2068,7 +2067,7 @@ msgid "Use current slot on a new game."
 msgstr "Používat aktuální slot na novou hru."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "ZOBRAZIT SPRÁVCE ULOŽENÍ"
 
 msgid "ALWAYS"
 msgstr "VŽDY"
@@ -2077,7 +2076,7 @@ msgid "IF NOT EMPTY"
 msgstr "POKUD NENÍ PRÁZDNÝ"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Před spuštěním hry zobrazte správce stavu uložení."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "POKROČILÁ KONFIGURACE SYSTÉMU"
@@ -2116,7 +2115,10 @@ msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2126,20 +2128,38 @@ msgstr "P%i'S HER.OVLADAČ"
 msgid "default"
 msgstr "výchozí"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"
-msgstr ""
+msgstr "TENKÁ"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "STŘEDNÍ"
 
 msgid "BIG"
-msgstr ""
+msgstr "VELKÁ"
 
 msgid "RECOIL"
+msgstr "ZÁKLUZ"
+
+msgid "GUN"
+msgstr "PISTOLE"
+
+msgid "MACHINE GUN"
 msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr "MÓD"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "PŘED ÚPRAVOU KONFIGURACE JE NUTNÉ POUŽÍT MOTIV"
@@ -2444,9 +2464,6 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"NĚKTERÉ SOUBORY, KTERÉ JSTE PROPOJILI, SE NACHÁZEJÍ MIMO CESTU K SEZNAMU "
-"HER..\n"
-"CHCETE POUŽÍT KOPII TĚCHTO SOUBORŮ VZHLEDEM K SEZNAMU HER?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ"
@@ -2518,7 +2535,7 @@ msgid "RANDOM"
 msgstr "NÁHODNÝ"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "NAVIGAČNÍ LIŠTA"
 
 msgid "FILES"
 msgstr "SOUBORY"
@@ -2630,7 +2647,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "CHCETE PŘEPNOUT OBRAZOVKU ?"
+msgstr ""
 
 msgid "Collections"
 msgstr "Sbírka"
@@ -2795,7 +2812,7 @@ msgid "LIGHTGUN"
 msgstr "SVĚTELNÁ ZBRAŇ"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "MOJE MÉDIA"
 
 msgid "SCRAPING"
 msgstr "VYHLEDÁVÁNÍ"
@@ -3031,17 +3048,50 @@ msgstr "%d h"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d mn"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d sec"
 
 msgid "SCREEN READER ENABLED"
 msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "SINDEN GUNS"
+#~ msgstr "SINDEN GUNS"
+
+#~ msgid "WIIGUNS"
+#~ msgstr "WIIGUNS"
+
+#~ msgid "GUNS BORDER SIZE"
+#~ msgstr "VELIKOST HRANICE ZBRANĚ"
+
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Canintroduce stuttering."
+#~ msgstr ""
+#~ "Dočasně sníží zpoždění snímků, aby se zabránilo jejich výpadkům. Může se "
+#~ "objevit sekání."
+
+#~ msgid "REALLY SUSPEND?"
+#~ msgstr "OPRAVDU POZASTAVIT?"
+
+#~ msgid ""
+#~ "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
+#~ "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST?"
+#~ msgstr ""
+#~ "NĚKTERÉ SOUBORY, KTERÉ JSTE PROPOJILI, SE NACHÁZEJÍ MIMO CESTU K SEZNAMU "
+#~ "HER..\n"
+#~ "CHCETE POUŽÍT KOPII TĚCHTO SOUBORŮ VZHLEDEM K SEZNAMU HER?"
+
+#~ msgid "DO YOU WANT TO SWITCH THE SCREEN?"
+#~ msgstr "CHCETE PŘEPNOUT OBRAZOVKU?"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "Vynutí spuštění emulátoru v tomto rozlišení."
 
 #~ msgid "Disable loading states (as well as auto-load) for more points."
 #~ msgstr ""
@@ -3196,9 +3246,6 @@ msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 #~ msgid "THIS FUNCTION IS DISABLED WHEN SCRAPING IS RUNNING"
 #~ msgstr "TATO FUNKCE JE ZAKÁZÁNA, KDYŽ JE SPUŠTĚN VYHLEDÁVAČ"
 
-#~ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM ?"
-#~ msgstr "OPRAVDU CHCETE ODSTRANIT TENTO PRVEK?"
-
 #~ msgid "Select the game you want to join"
 #~ msgstr "Vyberte hru, ke které se chcete připojit"
 
@@ -3232,15 +3279,12 @@ msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 #~ msgid "CUSTOM IMAGE FILTER"
 #~ msgstr "FILTR VLASTNÍCH OBRÁZKU"
 
-#~ msgid "ARE YOU SURE ?"
-#~ msgstr "JSTE SI JISTI?"
-
 #~ msgid "REBOOT SYSTEM TO APPLY"
 #~ msgstr "RESTARTOVAT SYSTÉM PRO APLIKACI"
 
 #~ msgid ""
 #~ "YOU ARE CURRENTLY USING VERSION : %s\n"
-#~ "DO YOU WANT TO UPDATE TO VERSION : %s ?"
+#~ "DO YOU WANT TO UPDATE TO VERSION : %s?"
 #~ msgstr ""
 #~ "AKTUÁLNÍ VERZE: %s\n"
 #~ "CHCETE AKTUALIZOVAT NA VERZI: %s?"
@@ -3259,9 +3303,6 @@ msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 #~ "UPOZORNĚNÍ: NĚKTERÉ VYBRANÉ SYSTÉMY NEMAJÍ NASTAVENOU PLATFORMU. VÝSLEDKY "
 #~ "MŮŽE BÝT JEŠTĚ NEPŘESNĚJŠÍ NEŽ OBVYKLE!\n"
 #~ "PŘESTO POKRAČOVAT?"
-
-#~ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT ?"
-#~ msgstr "PROBÍHÁ VYHLEDÁVÁNÍ. CHCETE JEJ ZASTAVIT?"
 
 #~ msgid "CONTROLLERS SETTINGS"
 #~ msgstr "NASTAVENÍ HER. OVLADAČŮ"
@@ -3314,12 +3355,6 @@ msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 #~ "Tím se skryje většina možností menu, aby se zabránilo změnám v systému.\n"
 #~ "Chcete-li se vrátit do úplného uživatelského rozhraní, zadejte tento kód:"
 
-#~ msgid "Do you want to proceed ?"
-#~ msgstr "Chcete pokračovat?"
-
-#~ msgid "INTEGER SCALE (PIXEL PERFECT)"
-#~ msgstr "CELKOVÉ ŠKÁLOVÁNÍ (PERFEKTNÍ PIXEL)"
-
 #~ msgid "SHADERS SET"
 #~ msgstr "SET SHADERU"
 
@@ -3354,7 +3389,7 @@ msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 #~ msgid ""
 #~ "WARNING : THIS GAME'S FORMAT IS NOT SUPPORTED BY THE CURRENT EMULATOR/"
 #~ "CORE.\n"
-#~ "DO YOU WANT TO LAUNCH IT ANYWAY ?"
+#~ "DO YOU WANT TO LAUNCH IT ANYWAY?"
 #~ msgstr ""
 #~ "VAROVÁNÍ : FORMÁT TÉTO HRY NENÍ PODPOROVÁN AKTUÁLNÍM EMULÁTOREM/JÁDREM.\n"
 #~ "CHCETE JI SPUSTIT?"
@@ -3362,7 +3397,7 @@ msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
 #~ msgid ""
 #~ "WARNING : THE SYSTEM HAS MISSING BIOS AND THE GAME MAY NOT WORK "
 #~ "CORRECTLY.\n"
-#~ "DO YOU WANT TO LAUNCH IT ANYWAY ?"
+#~ "DO YOU WANT TO LAUNCH IT ANYWAY?"
 #~ msgstr ""
 #~ "VAROVÁNÍ : V SYSTÉMU CHYBÍ BIOS A HRA NEMUSÍ FUNGOVAT SPRÁVNĚ.\n"
 #~ "CHCETE JI SPUSTIT?"

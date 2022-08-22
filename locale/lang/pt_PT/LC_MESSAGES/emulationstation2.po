@@ -1966,8 +1966,9 @@ msgstr "Force o jogo a renderizar nesta proporção de aspecto."
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
 
-msgid "Force the emulator to run at this resolution."
-msgstr "Force o emulador a ser executado nesta resolução."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
@@ -2125,7 +2126,10 @@ msgstr "MOSTRAR ATIVIDADE DO COMANDO"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2135,7 +2139,7 @@ msgstr "COMANDO DO JOGADOR %i"
 msgid "default"
 msgstr "PADRÃO"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"
@@ -2148,6 +2152,24 @@ msgid "BIG"
 msgstr ""
 
 msgid "RECOIL"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -3039,6 +3061,9 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "Force o emulador a ser executado nesta resolução."
 
 #~ msgid "Disable loading states (as well as auto-load) for more points."
 #~ msgstr ""

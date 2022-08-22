@@ -885,4 +885,9 @@ namespace Renderer
 		Instance()->swapBuffers();
 	}
 
+	size_t getTotalMemUsage()
+	{
+		return Instance()->getTotalMemUsage();
+	}
+
 } // Renderer::

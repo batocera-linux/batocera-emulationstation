@@ -1963,8 +1963,9 @@ msgstr "Wymuś renderowanie gry o tym współczynniku proporcji."
 msgid "VIDEO MODE"
 msgstr "TRYB WIDEO"
 
-msgid "Force the emulator to run at this resolution."
-msgstr "Wymuś uruchomienie emulatora w tej rozdzielczości."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "WYGŁADZANIE GIER (FILTROWANIE DWULINIOWE)"
@@ -2122,7 +2123,10 @@ msgstr "POKAŻ DZIAŁANIE KONTROLERA"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "POKAŻ POZIOM BATERII KONTROLERA"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2132,7 +2136,7 @@ msgstr "KONTROLER P%i"
 msgid "default"
 msgstr "domyślnie"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"
@@ -2145,6 +2149,24 @@ msgid "BIG"
 msgstr ""
 
 msgid "RECOIL"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -3045,6 +3067,9 @@ msgstr "WŁĄCZONY CZYTNIK EKRANU"
 
 msgid "SCREEN READER DISABLED"
 msgstr "WYŁĄCZONY CZYTNIK EKRANU"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "Wymuś uruchomienie emulatora w tej rozdzielczości."
 
 #~ msgid "Disable loading states (as well as auto-load) for more points."
 #~ msgstr ""

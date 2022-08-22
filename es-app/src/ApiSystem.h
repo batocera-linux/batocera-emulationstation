@@ -238,6 +238,9 @@ public:
 	virtual std::string getHostsName();
 	virtual bool emuKill();
 	virtual void suspend();
+
+  	virtual void replugControllers_sindenguns();
+    	virtual void replugControllers_wiimotes();
 	
 protected:
 	ApiSystem();

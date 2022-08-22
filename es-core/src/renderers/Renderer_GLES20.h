@@ -43,6 +43,8 @@ namespace Renderer
 
 		void         setSwapInterval() override;
 		void         swapBuffers() override;
+
+		size_t		getTotalMemUsage() override;
 	};
 }
 

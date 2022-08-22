@@ -1934,8 +1934,9 @@ msgstr "強制讓遊戲以這個畫面比例渲染。"
 msgid "VIDEO MODE"
 msgstr "影像模式"
 
-msgid "Force the emulator to run at this resolution."
-msgstr "強制讓模擬器以這個畫面解析度執行。"
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑遊戲畫面（雙線性過濾）"
@@ -2089,7 +2090,10 @@ msgstr "顯示控制器活動狀態"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2099,7 +2103,7 @@ msgstr "玩家 %i 的控制器"
 msgid "default"
 msgstr "預設值"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"
@@ -2112,6 +2116,24 @@ msgid "BIG"
 msgstr ""
 
 msgid "RECOIL"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -2987,6 +3009,9 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "強制讓模擬器以這個畫面解析度執行。"
 
 #~ msgid "Disable loading states (as well as auto-load) for more points."
 #~ msgstr "停用即時存檔載入（以及自動即時存檔載入）以獲得更多點數。"

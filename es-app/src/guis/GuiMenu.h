@@ -75,6 +75,7 @@ private:
 	void openGamesSettings();
 	void openControllersSettings(int autoSel = 0);
   	void openControllersSpecificSettings_sindengun();
+    	void openControllersSpecificSettings_wiigun();
 	void openNetworkSettings(bool selectWifiEnable = false);	
 	void openQuitMenu();
 	void openSystemInformations();

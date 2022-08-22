@@ -459,9 +459,9 @@ void Window::update(int deltaTime)
 			float textureTotalUsageMb = TextureResource::getTotalTextureSize() / 1000.0f / 1000.0f;
 			float fontVramUsageMb = Font::getTotalMemUsage() / 1000.0f / 1000.0f;
 
-			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb <<
-				" Tex Max: " << textureTotalUsageMb;
-			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(1)->buildTextCache(ss.str(), 50.f, 50.f, 0xFF00FFFF));
+			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Tex Max: " << textureTotalUsageMb;
+
+			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));			
 		}
 
 		mFrameTimeElapsed = 0;
@@ -539,13 +539,13 @@ void Window::renderSindenBorders()
 		auto bordersize = SystemConf::getInstance()->get("controllers.guns.borderssize");
 		if (bordersize == "thin")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.000f;
 			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
 		}
 		else if (bordersize == "medium")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.015f;
-			innerBorderWidth = Renderer::getScreenHeight() * 0.015f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
 		}
 
 		Renderer::setScreenMargin(0, 0);
@@ -619,9 +619,21 @@ void Window::render()
 		if (!mRenderedHelpPrompts)
 			mHelp->render(transform);
 
+	// FPS overlay
 	if (Settings::DrawFramerate() && mFrameDataText)
 	{
 		Renderer::setMatrix(transform);
+		Renderer::drawRect(45.f, 50.f, mFrameDataText->metrics.size.x(), mFrameDataText->metrics.size.y(), 0x00000080);
+
+		auto trans = transform;
+		trans.translate(1, 1);
+		Renderer::setMatrix(trans);
+
+		mFrameDataText->setColor(0x000000FF);
+		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
+		Renderer::setMatrix(transform);
+
+		mFrameDataText->setColor(0xFFFF40FF);		
 		mDefaultFonts.at(1)->renderTextCache(mFrameDataText.get());
 	}
 

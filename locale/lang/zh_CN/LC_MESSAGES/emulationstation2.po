@@ -1947,7 +1947,8 @@ msgstr ""
 msgid "VIDEO MODE"
 msgstr "视频模式"
 
-msgid "Force the emulator to run at this resolution."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
@@ -2099,7 +2100,10 @@ msgstr "显示控制器活动"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUNS"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
 #, c-format
@@ -2109,7 +2113,7 @@ msgstr ""
 msgid "default"
 msgstr "默认"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr ""
 
 msgid "THIN"
@@ -2122,6 +2126,24 @@ msgid "BIG"
 msgstr ""
 
 msgid "RECOIL"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"

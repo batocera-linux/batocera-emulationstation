@@ -1939,7 +1939,8 @@ msgstr "Forcer le jeu dans ce format d'affichage."
 msgid "VIDEO MODE"
 msgstr "MODE VIDÉO"
 
-msgid "Force the emulator to run at this resolution."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "Forcer l'émulateur dans cette résolution."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
@@ -2098,8 +2099,11 @@ msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
 
-msgid "SINDEN GUNS"
-msgstr "PISTOLETS SINDEN"
+msgid "SINDEN GUN SETTINGS"
+msgstr "PARAMÈTRES DES PISTOLETS SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "PARAMÈTRES DES PISTOLETS WIIMOTE"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2108,7 +2112,7 @@ msgstr "MANETTE J%i"
 msgid "default"
 msgstr "par défaut"
 
-msgid "GUNS BORDER SIZE"
+msgid "BORDER SIZE"
 msgstr "ÉPAISSEUR DE LA BORDURE"
 
 msgid "THIN"
@@ -2122,6 +2126,24 @@ msgstr "GROS"
 
 msgid "RECOIL"
 msgstr "RECUL"
+
+msgid "GUN"
+msgstr "PISTOLET"
+
+msgid "MACHINE GUN"
+msgstr "MITRAILLETTE"
+
+msgid "QUIET GUN"
+msgstr "PISTOLET (BRUIT FAIBLE)"
+
+msgid "QUIET MACHINE GUN"
+msgstr "MITRAILLETTE (BRUIT FAIBLE)"
+
+msgid "MODE"
+msgstr "MODE"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D’ÉDITER SA CONFIGURATION"
@@ -3013,6 +3035,18 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "SINDEN GUNS"
+#~ msgstr "PISTOLETS SINDEN"
+
+#~ msgid "WIIGUNS"
+#~ msgstr "WIIGUNS"
+
+#~ msgid "GUNS BORDER SIZE"
+#~ msgstr "ÉPAISSEUR DE LA BORDURE"
+
+#~ msgid "Force the emulator to run at this resolution."
+#~ msgstr "Forcer l'émulateur dans cette résolution."
 
 #~ msgid "SAVE STATE MANAGER"
 #~ msgstr "GESTIONNAIRE DE SAUVEGARDES"

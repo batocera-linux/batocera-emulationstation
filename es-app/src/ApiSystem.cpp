@@ -1786,3 +1786,12 @@ void ApiSystem::suspend()
 	executeScript("/usr/sbin/pm-suspend");
 }
 
+void ApiSystem::replugControllers_sindenguns() {
+  LOG(LogDebug) << "ApiSystem::replugControllers_sindenguns";
+  executeScript("/usr/bin/virtual-sindenlightgun-remap");
+}
+
+void ApiSystem::replugControllers_wiimotes() {
+  LOG(LogDebug) << "ApiSystem::replugControllers_wiimotes";
+  executeScript("/usr/bin/virtual-wii-mouse-bar-remap");
+}
