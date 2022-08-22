@@ -707,13 +707,30 @@ void GuiMenu::openExternalMounts(Window* mWindow, std::string configName)
                 SystemConf::getInstance()->saveSystemConf();
             });
 
+		auto emuelec_external_device_retry_delay = std::make_shared< OptionListComponent<std::string> >(mWindow, _("DELAY BETWEEN TRIES"), false);
+		emuelec_external_device_retry_delay->addRange({ { _("AUTO"), "" },{ "1", "1" },{ "2", "2" },{ "3", "3" },{ "4", "4" },{ "5", "5" },{ "6", "6" },{ "7", "7" },{ "8", "8" },{ "9", "9" },{ "10", "10" },{ "11", "11" },{ "12", "12" },{ "13", "13" },{ "14", "14" },{ "15", "15" },{ "16", "16" },{ "17", "17" },{ "18", "18" },{ "19", "19" },{ "20", "20" },{ "21", "21" },{ "22", "22" },{ "23", "23" },{ "24", "24" },{ "25", "25" },{ "26", "26" },{ "27", "27" },{ "28", "28" },{ "29", "29" },{ "30", "30" } }, SystemConf::getInstance()->get("ee_load.delay"));
+        externalMounts->addWithDescription(_("DELAY BETWEEN TRIES"), _("How much delay in seconds between each retry."), emuelec_external_device_retry_delay);
+		emuelec_external_device_retry_delay->setSelectedChangedCallback([emuelec_external_device_retry_delay](std::string name) { 
+            if (SystemConf::getInstance()->set("ee_load.delay", name)) 
+                SystemConf::getInstance()->saveSystemConf();
+            });
+
         externalMounts->addEntry(_("FORCE MOUNT NOW"), true, [mWindow] { 
             std::string selectedExternalDrive = SystemConf::getInstance()->get("global.externalmount");
             mWindow->pushGui(new GuiMsgBox(mWindow, (_("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nSystem will try to mount the external drive selected ") + "\""+ selectedExternalDrive + "\"" + _(". Make sure you have all the settings saved before running this.\n\nTRY TO MOUNT EXTERNAL AND RESTART?")).c_str(), _("YES"),
 				[selectedExternalDrive] {
 				SystemConf::getInstance()->saveSystemConf();
-                    runSystemCommand("mount_romfs.sh yes " + selectedExternalDrive, "", nullptr);
-				}, _("NO"), nullptr));
+                
+                auto mountH = SystemConf::getInstance()->get("ee_mount.handler");
+                if (mountH == "eemount" || mountH.empty()) {
+                   runSystemCommand("eemount --esrestart " + selectedExternalDrive, "", nullptr);
+                } else if (mountH == "mount_romfs.sh") {
+                   runSystemCommand("mount_romfs.sh yes " + selectedExternalDrive, "", nullptr);
+                } else {
+                   runSystemCommand(mountH + selectedExternalDrive, "", nullptr);
+                }
+				
+                }, _("NO"), nullptr));
 		});
 
 mWindow->pushGui(externalMounts);
