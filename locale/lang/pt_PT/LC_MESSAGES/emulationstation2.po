@@ -371,7 +371,7 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
+msgstr "Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -385,7 +385,7 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -660,10 +660,10 @@ msgid "SORT GAMES BY"
 msgstr "ORDENAR JOGOS POR"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "COLEÇÃO DINÂNICA"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "COLEÇÃO CUSTOMIZADA"
 
 msgid "DELETE COLLECTION"
 msgstr "ELIMINAR COLEÇÃO"
@@ -1164,7 +1164,7 @@ msgid "%d%% complete"
 msgstr "%d%% completo"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "GERENCIADOR SAVESTATE"
 
 msgid "START NEW GAME"
 msgstr "INICIAR NOVO JOGO"
@@ -1804,7 +1804,7 @@ msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DO ECRÃ"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 GRAUS"
 
 msgid "90 DEGREES"
 msgstr "90 GRAUS"
@@ -1968,7 +1968,7 @@ msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "Define a resolução do monitor. Não afeta a resolução da renderização"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
@@ -2053,7 +2053,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
+msgstr "Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SAVESTATES INCREMENTAIS"
@@ -2077,7 +2077,7 @@ msgid "Use current slot on a new game."
 msgstr "Usar o slot atual em um novo jogo."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "MOSTRAR GERENCIADOR SAVESTATE"
 
 msgid "ALWAYS"
 msgstr "SEMPRE"
@@ -2086,7 +2086,7 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Mostrar o gerenciador de savestate antes de iniciar um jogo"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
@@ -2127,10 +2127,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES DA PISTOLA SINDEN"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES DA PISTOLA WIIMOTE"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2140,37 +2140,37 @@ msgid "default"
 msgstr "PADRÃO"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "TAMANHO DA BORDA"
 
 msgid "THIN"
-msgstr ""
+msgstr "FINO"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "MÉDIO"
 
 msgid "BIG"
-msgstr ""
+msgstr "GRANDE"
 
 msgid "RECOIL"
-msgstr ""
+msgstr "COICE"
 
 msgid "GUN"
-msgstr ""
+msgstr "PISTOLA"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "METRALHADORA"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "ARMA SILENCIOSA"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "METRALHADORA SILENCIOSA"
 
 msgid "MODE"
-msgstr ""
+msgstr "MODO"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "MANÍPULO"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"
@@ -2380,10 +2380,10 @@ msgid "REALLY RESTART?"
 msgstr "DESEJA REINICIAR?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "SUSPENDER SISTEMA"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "REALMENTE SUSPENDER ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "DESLIGAR O SISTEMA"
@@ -3062,118 +3062,3 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "Force the emulator to run at this resolution."
-#~ msgstr "Force o emulador a ser executado nesta resolução."
-
-#~ msgid "Disable loading states (as well as auto-load) for more points."
-#~ msgstr ""
-#~ "Desativa os estados de carregamento (assim como o carregamento "
-#~ "automático) para obter mais pontos."
-
-#~ msgid "SAVE STATE MANAGER"
-#~ msgstr "GERIR JOGOS GUARDADOS"
-
-#~ msgid "0 DEGREES (AUTO)"
-#~ msgstr "0 GRAUS (AUTOMÁTICO)"
-
-#~ msgid "SHOW SAVE STATE MANAGER"
-#~ msgstr "MOSTRAR MENU DE SAVESTATES"
-
-#~ msgid "Display save state manager before launching a game."
-#~ msgstr "Mostrar save state antes de iniciar um jogo"
-
-#, c-format
-#~ msgid "%d m"
-#~ msgstr "%d m"
-
-#, c-format
-#~ msgid "%d s"
-#~ msgstr "%d s"
-
-#~ msgid "RANDOM (HOLD)"
-#~ msgstr "ALEATÓRIO (SEGURE)"
-
-#~ msgid "SCRAPE SHORT NAME"
-#~ msgstr "OBTER NOME ABREVIADO"
-
-#~ msgid "SCRAPE RATINGS"
-#~ msgstr "OBTER CLASSIFICAÇÕES"
-
-#~ msgid "SCRAPE VIDEOS"
-#~ msgstr "OBTER VÍDEOS"
-
-#~ msgid "SCRAPE FANART"
-#~ msgstr "OBTER MEDIAS ARTE DO FÃ"
-
-#~ msgid "SCRAPE BEZEL (16:9)"
-#~ msgstr "OBTER MEDIAS DE MOLDURA (16:9)"
-
-#~ msgid "SCRAPE BOX BACKSIDE"
-#~ msgstr "OBTER MEDIAS DA PARTE DE TRÁS DA CAIXA"
-
-#~ msgid "SCRAPE MAP"
-#~ msgstr "OBTER MAPA"
-
-#~ msgid "SCRAPE MANUAL"
-#~ msgstr "PROCURA MANUAL"
-
-#~ msgid "SCRAPE PADTOKEY SETTINGS"
-#~ msgstr "OBTER AJUSTES DO COMANDO PARA TECLADO"
-
-#~ msgid "UI SETTINGS"
-#~ msgstr "DEFINIÇÕES DE INTERFACE"
-
-#~ msgid "UNLOCK UI MODE"
-#~ msgstr "DESBLOQUEAR MODO DE INTERFACE"
-
-#~ msgid "THE UI MODE IS NOW UNLOCKED"
-#~ msgstr "O MODO INTERFACE ESTÁ DESBLOQUEADO AGORA"
-
-#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-#~ msgstr "DIGITE O CÓDIGO PARA DESBLOQUEAR O MODO DE INTERFACE ATUAL"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "PRODUTORA"
-
-#~ msgid "ENABLE PUBLIC WEB ACCESS"
-#~ msgstr "ATIVAR O ACESSO PÚBLICO À WEB"
-
-#~ msgid "CREATE A SUPPORT FILE?"
-#~ msgstr "CRIAR UM ARQUIVO DE SUPORTE?"
-
-#~ msgid "ENABLE FILTERS"
-#~ msgstr "ATIVAR FILTROS"
-
-#~ msgid "PARSE GAMESLISTS ONLY"
-#~ msgstr "ANALIZAR APENAS A LISTA DE JOGOS"
-
-#~ msgid "UI"
-#~ msgstr "INTERFACE DO UTILIZADOR"
-
-#~ msgid "POWER SAVER MODES"
-#~ msgstr "MODO POUPANÇA DE ENERGIA"
-
-#~ msgid "UI MODE"
-#~ msgstr "MODO DA INTERFACE"
-
-#~ msgid ""
-#~ "You are changing the UI to a restricted mode:\n"
-#~ "This will hide most menu options to prevent changes to the system.\n"
-#~ "To unlock and return to the full UI, enter this code:"
-#~ msgstr ""
-#~ "Está a alterar a interface para um modo restrito:\n"
-#~ "Isso ocultará a maioria das definições do menu para evitar alterações no "
-#~ "sistema.\n"
-#~ "Para desbloquear e retornar á interface completa, digite este código:"
-
-#~ msgid "NEW GAME CREATES NEW SLOT"
-#~ msgstr "NOVO JOGO CRIA NOVO ESPAÇO"
-
-#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
-#~ msgstr "NOVO JOGO SOBRESCREVE NOVO ESPAÇO"
-
-#~ msgid "LIST TRANSITION STYLE"
-#~ msgstr "ESTILO DE TRANSIÇÃO"
-
-#~ msgid "VIEW USER'S MANUAL"
-#~ msgstr "VER MANUAL DO UTILIZADOR"
