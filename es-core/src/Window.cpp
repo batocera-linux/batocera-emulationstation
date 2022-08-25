@@ -35,7 +35,7 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 	mBackgroundOverlay->setImage(":/scroll_gradient.png"); 
 
 	mSplash = nullptr;
-	mLastShowCursor = -1;	
+	mLastShowCursor = -2;
 }
 
 Window::~Window()
@@ -1175,7 +1175,7 @@ void Window::processMouseWheel(int delta)
 
 void Window::processMouseMove(int x, int y, bool touchScreen)
 {
-	if (!touchScreen)
+	if (!touchScreen && (mLastShowCursor != -2 || x != 0 || y != 0))
 	{
 #if WIN32
 		auto guns = InputManager::getInstance()->getGuns();
