@@ -48,10 +48,12 @@ private:
 	ImageComponent*		mImage;	
 };
 
+class SystemScreenSaver;
+
 class VideoScreenSaver : public GameScreenSaverBase
 {
 public:
-	VideoScreenSaver(Window* window);
+	VideoScreenSaver(Window* window, SystemScreenSaver* systemScreenSaver);
 	~VideoScreenSaver();
 
 	void setVideo(const std::string path);
@@ -60,6 +62,7 @@ public:
 
 private:
 	VideoComponent*		mVideo;
+	SystemScreenSaver*  mSystemScreenSaver;
 
 	int mTime;
 	float mFade;
