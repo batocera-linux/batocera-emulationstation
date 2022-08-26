@@ -8,15 +8,15 @@
 #include "SystemConf.h"
 
 #ifndef HAVE_INTL
-char* ngettext(char* msgid, char* msgid_plural, unsigned long int n)
+const char* ngettext(const char* msgid, const char* msgid_plural, unsigned long int n)
 {
 	if (n != 1)
 		return msgid_plural;
 
 	return msgid;
 }
-char* pgettext(char* context, char* msgid) {
-  return msgid;
+const char* pgettext(const char* context, const char* msgid) {
+	return msgid;
 }
 #endif
 
