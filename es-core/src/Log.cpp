@@ -38,7 +38,7 @@ void Log::init()
 			lvl = LogInfo;
 		else if (level == "warning")
 			lvl = LogWarning;
-		else if (level == "error")
+		else if (level == "error" || level.empty())
 			lvl = LogError;
 		else
 			lvl = (LogLevel) -1; // Disabled
