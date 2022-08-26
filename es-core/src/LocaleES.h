@@ -15,8 +15,9 @@
 #else
 
 #define _(A) std::string(A)
-char* ngettext(char* msgid, char* msgid_plural, unsigned long int n);
-char* pgettext(char* context, char* msgid);
+
+const char* ngettext(const char* msgid, const char* msgid_plural, unsigned long int n);
+const char* pgettext(const char* context, const char* msgid);
 
 #endif
 
