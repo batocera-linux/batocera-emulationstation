@@ -136,6 +136,13 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 			return false;
 	}
 
+	if (script == ApiSystem::BATOCERASTORE)
+	{
+		std::string path = Paths::findEmulationStationFile("batocera-store.cfg");
+		if (path.empty() || !Utils::FileSystem::exists(path))
+			return false;
+	}
+
 	return true;
 }
 
