@@ -165,8 +165,13 @@ std::vector<FileData*> loadGamelistFile(const std::string xmlpath, SystemData* s
 				file = pGame->second;
 			else
 			{
-				LOG(LogWarning) << "File \"" << path << "\" does not exist or is arcade asset ! Ignoring.";
-				continue;
+				if (!fromFile && system->getSystemEnvData()->isValidExtension(Utils::String::toLower(Utils::FileSystem::getExtension(path))) && Utils::FileSystem::exists(path))
+					file = findOrCreateFile(system, path, type, fileMap);
+				else
+				{
+					LOG(LogWarning) << "File \"" << path << "\" does not exist or is arcade asset ! Ignoring.";
+					continue;
+				}
 			}
 		}
 
