@@ -195,7 +195,7 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 		setTitleImage(image);
 	}
 
-	setSubTitle(_("Points") + ":\t" + ra.points + "\r\n"+ _("Rank") + ":\t" + ra.rank);
+	setSubTitle(_("Points (hardcore)") + ":\t" + ra.points + "\r\n" +_("Softcore points") + ":\t" + ra.softpoints + "\r\n"+ _("Rank") + ":\t" + ra.rank);
 
 	for (auto game : ra.games)
 	{

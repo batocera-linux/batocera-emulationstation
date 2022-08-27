@@ -180,6 +180,7 @@ struct RetroAchievementInfo
 	std::string username;
 	std::string points;
 	std::string totalpoints;
+	std::string softpoints;
 	std::string rank;
 	std::string userpic;
 	std::string registered;
