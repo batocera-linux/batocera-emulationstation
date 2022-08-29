@@ -240,11 +240,16 @@ std::string InputConfig::buttonLabel(const std::string& button)
 	if (!Settings::getInstance()->getBool("InvertButtons"))
 	{
 		if (button == "a")
-			return "b";
+			return "SOUTH (B ON SNES)";
 		else if (button == "b")
-			return "a";
+			return "EAST (A ON SNES)";
 	}
 #endif
+
+	if (button == "a")
+		return "EAST (A ON SNES)";
+	else if (button == "b")
+		return "SOUTH (B ON SNES)";
 
 	return button;
 }
