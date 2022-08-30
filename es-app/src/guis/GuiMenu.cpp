@@ -2568,6 +2568,12 @@ void GuiMenu::openControllersSpecificSettings_wiigun()
 	    ApiSystem::getInstance()->replugControllers_wiimotes();
 	  }
 	});
+
+	s->addEntry(_("RECALIBRATE WIIMOTE GUN"), false, [this, s]
+	{
+		wiigun_calibrate();
+	});
+
 	mWindow->pushGui(s);
 }
 

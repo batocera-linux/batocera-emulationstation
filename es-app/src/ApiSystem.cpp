@@ -1717,3 +1717,7 @@ void ApiSystem::replugControllers_wiimotes() {
   LOG(LogDebug) << "ApiSystem::replugControllers_wiimotes";
   executeScript("/usr/bin/virtual-wii-mouse-bar-remap");
 }
+
+bool ApiSystem::wiigun_calibrate() {
+	return executeScript("/usr/bin/batocera-gun-calibrator-daemon $env{DEVNAME} 260");
+}
