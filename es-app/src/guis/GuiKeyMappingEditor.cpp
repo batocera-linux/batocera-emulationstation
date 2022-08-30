@@ -37,8 +37,8 @@ void GuiKeyMappingEditor::initMappingNames()
 		{ "a",				 InputConfig::buttonLabel("a"),    InputConfig::buttonImage("a") },
 		{ "b",				 InputConfig::buttonLabel("b"),    InputConfig::buttonImage("b") },
 
-		{ "x",               "NORTH (X ON SNES)",   ":/help/buttons_north.svg" },
-		{ "y",               "WEST (Y ON SNES)",    ":/help/buttons_west.svg" },
+		{ "x",               "NORTH",   ":/help/buttons_north.svg" },
+		{ "y",               "WEST",    ":/help/buttons_west.svg" },
 
 		{ "joystick1up",     "LEFT ANALOG UP",     ":/help/analog_up.svg" },
 		{ "joystick1down",   "LEFT ANALOG DOWN",     ":/help/analog_down.svg" },
@@ -62,8 +62,8 @@ void GuiKeyMappingEditor::initMappingNames()
 
 		{ "hotkey + a",       "HOTKEY + " + InputConfig::buttonLabel("a"),    ":/help/button_hotkey.svg", InputConfig::buttonImage("a") },
 		{ "hotkey + b",       "HOTKEY + " + InputConfig::buttonLabel("b"),   ":/help/button_hotkey.svg", InputConfig::buttonImage("b") },
-		{ "hotkey + x",       "HOTKEY + NORTH (X ON SNES)",    ":/help/button_hotkey.svg", ":/help/buttons_north.svg" },
-		{ "hotkey + y",       "HOTKEY + WEST (Y ON SNES)",   ":/help/button_hotkey.svg", ":/help/buttons_west.svg" }
+		{ "hotkey + x",       "HOTKEY + NORTH",    ":/help/button_hotkey.svg", ":/help/buttons_north.svg" },
+		{ "hotkey + y",       "HOTKEY + WEST",   ":/help/button_hotkey.svg", ":/help/buttons_west.svg" }
 	};
 }
 

@@ -35,8 +35,8 @@ void GuiInputConfig::initInputConfigStructure()
 	{
 		{ "a",                false, InputConfig::buttonLabel("a"),    InputConfig::buttonImage("a") },
 		{ "b",                true,  InputConfig::buttonLabel("b"),    InputConfig::buttonImage("b") },
-		{ "x",                true,  "NORTH (X ON SNES)",  ":/help/buttons_north.svg" },
-		{ "y",                true,  "WEST (Y ON SNES)",   ":/help/buttons_west.svg" },
+		{ "x",                true,  "NORTH",              ":/help/buttons_north.svg" },
+		{ "y",                true,  "WEST",               ":/help/buttons_west.svg" },
 
 		{ "start",            true,  "START",              ":/help/button_start.svg" },
 		{ "select",           true,  "SELECT",             ":/help/button_select.svg" },
