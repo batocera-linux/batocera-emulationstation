@@ -293,10 +293,14 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 			// Don't loose time looking in downloaded_images, downloaded_videos & media folders
 			if (fn == "media" || fn == "medias" || fn == "images" || fn == "manuals" || fn == "videos" || fn == "assets" || Utils::String::startsWith(fn, "downloaded_") || Utils::String::startsWith(fn, "."))
 				continue;
-
+			
 			// Hardcoded optimisation : WiiU has so many files in content & meta directories
 			if (mMetadata.name == "wiiu" && (fn == "content" || fn == "meta"))
 				continue;
+
+			// Hardcoded optimisation : vpinball 'roms' subfolder must be excluded
+			if (mMetadata.name == "vpinball" && fn == "roms")
+				continue;			
 
 			FolderData* newFolder = new FolderData(filePath, this);
 			populateFolder(newFolder, fileMap);

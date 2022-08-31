@@ -135,7 +135,7 @@ void SystemScreenSaver::startScreenSaver()
 		{
 			LOG(LogDebug) << "VideoScreenSaver::startScreenSaver " << path.c_str();
 
-			mVideoScreensaver = std::make_shared<VideoScreenSaver>(mWindow);
+			mVideoScreensaver = std::make_shared<VideoScreenSaver>(mWindow, this);
 			mVideoScreensaver->setGame(mCurrentGame);
 			mVideoScreensaver->setVideo(path);
 
@@ -826,8 +826,9 @@ void ImageScreenSaver::render(const Transform4x4f& transform)
 // VIDEO SCREEN SAVER CLASS
 // ------------------------------------------------------------------------------------------------------------------------
 
-VideoScreenSaver::VideoScreenSaver(Window* window) : GameScreenSaverBase(window)
+VideoScreenSaver::VideoScreenSaver(Window* window, SystemScreenSaver* systemScreenSaver) : GameScreenSaverBase(window)
 {
+	mSystemScreenSaver = systemScreenSaver;
 	mVideo = nullptr;
 	mTime = 0;
 	mFade = 1.0;
@@ -865,6 +866,16 @@ void VideoScreenSaver::setVideo(const std::string path)
 		mVideo->setVideo(path);
 		mVideo->setScreensaverMode(true);
 		mVideo->onShow();
+
+		if (mSystemScreenSaver != nullptr)
+		{
+			mVideo->setOnVideoEnded([&]() 
+			{ 				
+				auto ss = mSystemScreenSaver;
+				mWindow->postToUiThread([ss]() { ss->nextVideo(); });
+				return false; 
+			});
+		}
 	}
 
 	mFade = 1.0;

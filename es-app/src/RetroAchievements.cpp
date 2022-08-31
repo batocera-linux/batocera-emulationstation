@@ -382,6 +382,7 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 
 	info.points = ret.TotalPoints;
 	info.totalpoints = ret.TotalTruePoints;
+	info.softpoints = std::to_string(std::stoi(info.totalpoints) - std::stoi(info.points));
 	info.username = ret.Username;
 	info.registered = ret.MemberSince;
 
