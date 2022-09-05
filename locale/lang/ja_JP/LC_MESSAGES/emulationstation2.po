@@ -583,8 +583,11 @@ msgstr "お待ちください"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中の %d)"
 
-msgid "Points"
-msgstr "ポイント"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "ランク"
@@ -1140,6 +1143,9 @@ msgstr "インストール/削除するテーマを選択"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "現在のテーマ"
+
+msgid "Points"
+msgstr "ポイント"
 
 msgid "Unlocked on"
 msgstr "ロック解除"

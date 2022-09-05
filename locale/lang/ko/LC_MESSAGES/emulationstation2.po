@@ -582,8 +582,11 @@ msgstr "잠시만 기다려주세요"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points"
-msgstr "포인트"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "랭크"
@@ -1139,6 +1142,9 @@ msgstr "설치/제거 할 테마 선택"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "현재 테마"
+
+msgid "Points"
+msgstr "포인트"
 
 msgid "Unlocked on"
 msgstr "잠금 해제"

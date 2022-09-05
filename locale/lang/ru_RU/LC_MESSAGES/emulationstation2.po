@@ -587,8 +587,11 @@ msgstr "ПОДОЖДИТЕ"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d из %d)"
 
-msgid "Points"
-msgstr "Очки"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Ранг"
@@ -1144,6 +1147,9 @@ msgstr "ВЫБЕРИТЕ ТЕМЫ ДЛЯ УСТАНОВКИ/УДАЛЕНИЯ"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "ТЕКУЩАЯ ТЕМА"
+
+msgid "Points"
+msgstr "Очки"
 
 msgid "Unlocked on"
 msgstr "Получено"

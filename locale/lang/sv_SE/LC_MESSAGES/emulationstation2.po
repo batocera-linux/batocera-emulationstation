@@ -585,8 +585,11 @@ msgstr "VÄNLIGEN VÄNTA"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d av %d)"
 
-msgid "Points"
-msgstr "Poäng"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Rank"
@@ -1142,6 +1145,9 @@ msgstr "VÄLJ TEMAN ATT INSTALLERA/TA BORT"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "AKTUELLT TEMA"
+
+msgid "Points"
+msgstr "Poäng"
 
 msgid "Unlocked on"
 msgstr "Upplåst på"

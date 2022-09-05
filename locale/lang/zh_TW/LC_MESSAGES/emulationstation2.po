@@ -582,8 +582,11 @@ msgstr "請耐心等待"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (第 %d 個，共 %d 個)"
 
-msgid "Points"
-msgstr "點數"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "階級"
@@ -1139,6 +1142,9 @@ msgstr "選擇要安裝或移除的佈景主題"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "目前的佈景主題"
+
+msgid "Points"
+msgstr "點數"
 
 msgid "Unlocked on"
 msgstr "已解鎖於"

@@ -588,8 +588,11 @@ msgstr "PROSZĘ CZEKAĆ"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d z %d)"
 
-msgid "Points"
-msgstr "Punkty"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Ranga"
@@ -1145,6 +1148,9 @@ msgstr "WYBIERZ MOTYWY DO INSTALACJI/USUNIĘCIA"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "AKTUALNY MOTYW"
+
+msgid "Points"
+msgstr "Punkty"
 
 msgid "Unlocked on"
 msgstr "Odblokowano"

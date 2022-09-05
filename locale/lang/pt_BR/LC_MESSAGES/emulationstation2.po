@@ -594,8 +594,11 @@ msgstr "POR FAVOR, AGUARDE"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "Points"
-msgstr "Pontos"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Placar"
@@ -1153,6 +1156,9 @@ msgstr "SELECIONAR TEMAS PARA INSTALAR/REMOVER"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "TEMA ATUAL"
+
+msgid "Points"
+msgstr "Pontos"
 
 msgid "Unlocked on"
 msgstr "Desbloqueado em"
