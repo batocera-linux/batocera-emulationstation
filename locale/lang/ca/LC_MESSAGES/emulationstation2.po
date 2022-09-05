@@ -359,7 +359,7 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAQUET DESINSTAL·LAT SATISFACTÒRIAMENT"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "AJUSTOS DE TROFEUS"
+msgstr "AJUSTOS DE RETROACHIEVEMENTS"
 
 msgid "SETTINGS"
 msgstr "CONFIGURACIÓ"
@@ -452,7 +452,7 @@ msgid "OK"
 msgstr "ACCEPTA"
 
 msgid "FILTER GAMELIST BY"
-msgstr "FILTRAR LLISTA DE JOCS PER"
+msgstr "FILTRAR GAMELIST PER"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "EDITAR FILTRES DE COL·LECCIÓ DINÀMICA"
@@ -539,7 +539,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "ON HO VAS DEIXAR"
 
 msgid "START ON GAMELIST"
-msgstr "INICIAR A LA LLISTA DE JOCS"
+msgstr "INICIAR A LA GAMELIST"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COL·LECCIONS PERSONALITZADES SENSE TEMA"
@@ -554,7 +554,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRAR SISTEMES BUITS"
 
 msgid "UPDATE GAMELISTS"
-msgstr "ACTUALITZAR LLISTES DEJOCS"
+msgstr "ACTUALITZAR GAMELISTS"
 
 msgid "Loading..."
 msgstr "Carregant …"
@@ -672,7 +672,7 @@ msgid "COLLECTION"
 msgstr "COL·LECCIÓ"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr "ESTIL DE LA LLISTA DE JOCS"
+msgstr "ESTIL DE LA GAMELIST"
 
 msgid "automatic"
 msgstr "automàtic"
@@ -1168,7 +1168,7 @@ msgid "START NEW GAME"
 msgstr "COMENÇAR NOVA PARTIDA"
 
 msgid "START NEW AUTO SAVE"
-msgstr "COMENÁR NOU AUTO-DESAT"
+msgstr "COMENÇAR NOU AUTO-DESAT"
 
 msgid "AUTO SAVE"
 msgstr "AUTOGUARDAT"
@@ -1189,7 +1189,7 @@ msgid "SCREENSHOT"
 msgstr "CAPTURA"
 
 msgid "TITLE SCREENSHOT"
-msgstr "CAPTURA DE TÍTOL"
+msgstr "CAPTURA DEL TÍTOL"
 
 msgid "MIX V1"
 msgstr "MIX V1"
@@ -1198,10 +1198,10 @@ msgid "MIX V2"
 msgstr "MIX V2"
 
 msgid "BOX 2D"
-msgstr "CAIXA 2D"
+msgstr "BOX 2D"
 
 msgid "BOX 3D"
-msgstr "CAIXA 3D"
+msgstr "BOX 2D"
 
 msgid "FAN ART"
 msgstr "FAN ART"
@@ -1219,7 +1219,7 @@ msgid "MARQUEE"
 msgstr "MARQUESINA"
 
 msgid "SCRAPE FOR"
-msgstr "OBTENIR MITJANS PER"
+msgstr "OBTENIR MULTIMÈDIA DE"
 
 msgid "SHORT NAME"
 msgstr "NOM CURT"
@@ -1662,7 +1662,7 @@ msgid "FORMAT A DISK"
 msgstr "FORMATAR UN DISC"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-msgstr "NETEGAR LLISTES DE JOC I ELIMINAR MULTIMÈDIA NO USADA"
+msgstr "NETEJAR GAMELISTS I ELIMINAR MULTIMÈDIA NO USADA"
 
 msgid "Cleaning "
 msgstr "Netejant"
@@ -1704,7 +1704,7 @@ msgid "SAVE METADATA ON EXIT"
 msgstr "DESAR METADADES AL TANCAR"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr "INTERPRETAR NOMÉS LLISTES DE JOC"
+msgstr "INTERPRETAR NOMÉS GAMELISTS"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
@@ -1731,7 +1731,7 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Si no hi ha imatge especificada a la llista de joc, prova de trobar mitjans "
+"Si no hi ha imatge especificada a la gamelist, prova de trobar mitjans "
 "amb el mateix nom d'arxiu."
 
 msgid "USER INTERFACE"
@@ -1791,7 +1791,7 @@ msgstr "PRECÀRREGA D'ELEMENTS D'IU L'ARRENCAR"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Redueix la latència quan s'introdueixen llistes de joc des del menú de "
+"Redueix la latència quan s'introdueixen gamelists des del menú de "
 "sistema; incrementa el temps d'arrencada"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
@@ -1801,7 +1801,7 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-"Redueix la latència de desplaçament a una llista de jocs amb tots els "
+"Redueix la latència de desplaçament a una gamelist amb tots els "
 "mitjans; incrementa el temps d'arrencada"
 
 msgid "THREADED LOADING"
@@ -2232,7 +2232,7 @@ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "VA VALIDACIÓ DE JOCS S'ESTÀ REALITZANT. VOL ATURAR-LA?"
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr "REALMENT VOL ACTUALITZAR LES LLISTES DE JOCS?"
+msgstr "REALMENT VOL ACTUALITZAR LES GAMELISTS?"
 
 msgid "CONTROLLER MAPPING"
 msgstr "MAPATGE DE CONTROLADORS"
@@ -2313,7 +2313,7 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURACIÓ DEL TEMA"
 
 msgid "GAMELIST STYLE"
-msgstr "ESTIL DE LA LLISTA DE JOC"
+msgstr "ESTIL DE LA GAMELIST"
 
 msgid "basic"
 msgstr "bàsic"
@@ -2325,7 +2325,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "MIDA DE LA GRAELLA PER DEFECTE"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr "OPCIONS DEL TEMA DE LA LLISTA DE JOC"
+msgstr "OPCIONS DEL TEMA DE LA GAMELIST"
 
 msgid "THEME OPTIONS"
 msgstr "OPCIONS DEL TEMA"
@@ -2334,7 +2334,7 @@ msgid "DEFAULT VALUE"
 msgstr "VALOR PER DEFECTE"
 
 msgid "GAMELIST OPTIONS"
-msgstr "OPCIONS DE LA LLISTA DE JOC"
+msgstr "OPCIONS DE LA GAMELIST"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "MOSTRAR FAVORITS PRIMER"
@@ -2608,9 +2608,8 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"ALGUNS DELS ARXIUS QUE HA VINCULAT ESTÀN UBICATS FORA DE LA RUTA DE LLISTA "
-"DE JOCS.\n"
-"VOL USAR UNA CÒPIA D'AQUESTS ARXIUS RELATIVA A LA LLISTA DE JOCS?"
+"ALGUNS DELS ARXIUS QUE HA VINCULAT ESTÀN UBICATS FORA DE LA RUTA DE GAMELISTS.\n"
+"VOL USAR UNA CÒPIA D'AQUESTS ARXIUS RELATIVA A LA MATEIXA?"
 
 msgid "NO DEVICE FOUND"
 msgstr "DISPOSITIU NO TROBAT"
@@ -2708,7 +2707,7 @@ msgid "Loading theme"
 msgstr "Carregant tema"
 
 msgid "Loading gamelists"
-msgstr "Carregant llistes de jocs"
+msgstr "Carregant gamelists"
 
 msgid "MENU"
 msgstr "MENÚ"
@@ -2895,7 +2894,7 @@ msgid "INDEXING COMPLETED"
 msgstr "INDEXAT COMPLETAT"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "ACTUALITZI LES LLISTES DE JOC PER A APLICAR ELS CANVIS."
+msgstr "ACTUALITZI LES GAMELISTS PER A APLICAR ELS CANVIS."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "LA EMULACIÓ S'HA INTERROMPUT DE MANERA INESPERADA"
