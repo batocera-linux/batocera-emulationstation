@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: pajarorrojo\n"
+"PO-Revision-Date: 2022-09-06 12:03+0200\n"
+"Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALITZACIÓ DISPONIBLE"
@@ -236,7 +236,7 @@ msgid "Languages"
 msgstr "Idiomes"
 
 msgid "this game's languages"
-msgstr "llenguatges"
+msgstr "idiomes del joc"
 
 msgid "Region"
 msgstr "Regió"
@@ -557,7 +557,7 @@ msgid "UPDATE GAMELISTS"
 msgstr "ACTUALITZAR GAMELISTS"
 
 msgid "Loading..."
-msgstr "Carregant …"
+msgstr "Carregant..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "SELECCIONAR COL·LECCIONS"
@@ -591,10 +591,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Punts (hardcore)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Punts (softcore)"
 
 msgid "Rank"
 msgstr "Posició"
@@ -774,7 +774,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NO S’HA TROBAT CAP DISPOSITIU BLUETOOTH"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "ELS DISPOSITIUS BLUETOOTH S'HAN ELIMINAT"
+msgstr "ELS DISPOSITIUS BLUETOOTH S'HAN ELIMINAT."
 
 msgid "FILE BROWSER"
 msgstr "EXAMINAR"
@@ -1009,7 +1009,7 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"ESTEU USANT LA VERSIÓ %S\n"
+"ESTEU USANT LA VERSIÓ %s\n"
 "VOLEU ACTUALITZAR A LA VERSIÓ %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1152,7 +1152,7 @@ msgid "CURRENT THEME"
 msgstr "TEMA ACTUAL"
 
 msgid "Points"
-msgstr "Punts"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr "Desbloquejat el"
@@ -1204,10 +1204,10 @@ msgid "MIX V2"
 msgstr "MIX V2"
 
 msgid "BOX 2D"
-msgstr "BOX 2D"
+msgstr "CAPSA 2D"
 
 msgid "BOX 3D"
-msgstr "BOX 2D"
+msgstr "CAPSA 3D"
 
 msgid "FAN ART"
 msgstr "FAN ART"
@@ -1333,10 +1333,10 @@ msgid "VERSION"
 msgstr "VERSIÓ"
 
 msgid "USER DISK USAGE"
-msgstr "ÚS DE DISC D'USUARI"
+msgstr "OCUPACIÓ D'USUARI DEL DISC"
 
 msgid "SYSTEM DISK USAGE"
-msgstr "ÚS DE DISC DE SISTEMA"
+msgstr "OCUPACIÓ DEL DISC DE SISTEMA"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -1537,7 +1537,7 @@ msgstr "HABILITAR L'ACCÉS WEB A L'API PÚBLICA"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Permetre l'accés web a l'API pública mitjançant %s"
+msgstr "Permetre l’accès a la API web usant %s"
 
 msgid "LOG LEVEL"
 msgstr "NIVELL DE REGISTRE"
@@ -1644,7 +1644,7 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "INTERCANVIAR ELS BOTONS SUD I EST EMULATIONSTATION"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACCEDIR A LES OPCIONS DE JOC AMB EL BOTÓ NORD"
@@ -1724,7 +1724,7 @@ msgid "LANGUAGE"
 msgstr "IDIOMA"
 
 msgid "LANGUAGE (REGION)"
-msgstr "LLENGUATGE (REGIÓ)"
+msgstr "IDIOMA (REGIÓ)"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "SELECCIONA LA TEVA ZONA HORÀRIA"
@@ -2011,9 +2011,8 @@ msgstr "CONTROLADORS DE SISTEMA"
 msgid "CUSTOM IMAGE"
 msgstr "IMATGE PERSONALITZADA"
 
-#, fuzzy
 msgid "Show an image overlaid on top of the bezel."
-msgstr " "
+msgstr ""
 
 msgid "TATTOO CORNER"
 msgstr "CANTONADA DE LA CALCOMANIA"
@@ -2104,9 +2103,7 @@ msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ADMINISTRACIÓ AVANÇADA PER SISTEMA"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-"EL PROCÈS D'OBTENCIÓ DE MITJANS S'ESTÀ EXECUTANT.\n"
-"VOL PARAR-LO?"
+msgstr "L'SCRAPER S'ESTÀ EXECUTANT. VOL PARAR-LO?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "VA VALIDACIÓ DE JOCS S'ESTÀ REALITZANT. VOL ATURAR-LA?"
@@ -2849,7 +2846,9 @@ msgstr "OBTENCIÓ DE CONTINGUTS FINALITZADA"
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
-msgstr "CALIBRANT PISTOLA Dispari als objectius per a calibrar"
+msgstr ""
+"CALIBRANT PISTOLA\n"
+"Dispari als objectius per a calibrar"
 
 #, c-format
 msgid "%s connected"
@@ -2955,7 +2954,7 @@ msgid ""
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "NO S'HA ASSIGNAT CAP BOTÓ DRECERA. ÈS REQURIT PER A SORTIR DELS JOCS AMB UN "
-"COMANDAMENT. VOL USAR EL BOTÓ SELECT COM A BOTÓ DRECERA?"
+"COMANDAMENT.VOL USAR EL BOTÓ SELECT COM A BOTÓ DRECERA?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "ESTABLIR SELECT COM A BOTÓ DRECERA"
@@ -3083,47 +3082,8 @@ msgstr "LECTOR DE PANTALLA DESHABILITAT"
 #~ msgid "VIEW GAME MEDIAS"
 #~ msgstr "VEURE MULTIMÈDIA DE JOC"
 
-#~ msgid "SCRAPE RATINGS"
-#~ msgstr "OBTENIR DADES DE VALORACIÓ"
-
-#~ msgid "SCRAPE VIDEOS"
-#~ msgstr "OBTENIR VIDEOS"
-
-#~ msgid "SCRAPE FANART"
-#~ msgstr "OBTENIR FAN ART"
-
-#~ msgid "SCRAPE BOX BACKSIDE"
-#~ msgstr "OBTENIR REVERS DE LA CAPSA"
-
-#~ msgid "SCRAPE MAP"
-#~ msgstr "OBTENIR MAPA"
-
-#~ msgid "SCRAPE MANUAL"
-#~ msgstr "OBTENIR MANUAL"
-
-#~ msgid "SCRAPE PADTOKEY SETTINGS"
-#~ msgstr "OBTENIR AJUSTOS PADTOKEY"
-
-#~ msgid "ARE YOU SURE YOU WANT TO CONFIGURE INPUT?"
-#~ msgstr "ESTÀS SEGUR QUE VOLS CONFIGURAR EL DISPOSITIU D'ENTRADA?"
-
-#~ msgid "PLEASE ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-#~ msgstr ""
-#~ "SI US PLAU, ENTRA EL CODI PER A DESBLOQUEJAR EL MODE D'INTERFÍCIE "
-#~ "D'USUARI ACTUAL"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "DESENVOLUPADOR"
-
 #~ msgid "USE OMX PLAYER (HW ACCELERATED)"
 #~ msgstr "USA EL REPRODUCTOR OMX (ACCELERACIÓ PER HW)"
-
-#~ msgid "ENABLE PUBLIC WEB ACCESS"
-#~ msgstr "HABILITAR L'ACCÈS WEB"
-
-#~ msgid "A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"
-#~ msgstr ""
-#~ "PER A APLICAR LA NOVA CONFIGURACIÓ ES REQUEREIX UN REINICI DEL SISTEMA"
 
 #~ msgid "FILE GENERATED SUCCESSFULLY"
 #~ msgstr "FITXER GERNERAT SATISFACTÒRIAMENT"
@@ -3135,28 +3095,10 @@ msgstr "LECTOR DE PANTALLA DESHABILITAT"
 #~ msgstr "NETEJAR GAMELISTS I ELIMINAR MULTIMÈDIA NO USADA"
 
 #~ msgid "Cleaning "
-#~ msgstr "Netejant"
+#~ msgstr "Netejant "
 
 #~ msgid "REDETECT GAMES LANG/REGION"
 #~ msgstr "REDETECTAR IDIOMA/REGIÓ DELS JOCS"
 
-#~ msgid "IGNORE MULTIFILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-#~ msgstr "IGNORAR CONTINGUT MULTI-ARXIU (CUE/GDI/CCD/M3U)"
-
-#~ msgid "ENABLE FILTERS"
-#~ msgstr "HABILITAR FILTRES"
-
-#~ msgid "PARSE GAMESLISTS ONLY"
-#~ msgstr "INTERPRETAR NOMÉS LLISTES DE JOCS"
-
-#~ msgid "UI"
-#~ msgstr "IU"
-
 #~ msgid "HIDE WHEN RUNNING A GAME"
 #~ msgstr "OCULTAR MENTRE S'EXECUTA UN JOC"
-
-#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-#~ msgstr "AUTOCONFIGURAR COMANDAMENTS ALS EMULADORS"
-
-#~ msgid "SWITCH A/B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "INTERCANVIAR ELS BOTONS A/B A EMULATIONSTATION"
