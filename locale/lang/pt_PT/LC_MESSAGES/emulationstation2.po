@@ -593,10 +593,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Pontos (hardcore)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Pontos (softcore)"
 
 msgid "Rank"
 msgstr "Placar"
