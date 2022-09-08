@@ -585,8 +585,11 @@ msgstr "WACHTEN ALSTUBLIEFT"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d van %d)"
 
-msgid "Points"
-msgstr "Punten"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Rang"
@@ -1140,6 +1143,9 @@ msgstr "SELECTEER THEMAS OM TE INSTALLEREN/VERWIJDEREN"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "HUIDIG THEMA"
+
+msgid "Points"
+msgstr "Punten"
 
 msgid "Unlocked on"
 msgstr "Ontgrendeld op"

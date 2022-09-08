@@ -583,8 +583,11 @@ msgstr "ESPERE POR FAVOR"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points"
-msgstr "Puntos"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Posición"
@@ -1138,6 +1141,9 @@ msgstr ""
 #, c-format
 msgid "CURRENT THEME"
 msgstr "TEMA ACTUAL"
+
+msgid "Points"
+msgstr "Puntos"
 
 msgid "Unlocked on"
 msgstr "Desbloqueado el"

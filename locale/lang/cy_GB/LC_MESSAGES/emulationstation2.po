@@ -588,8 +588,11 @@ msgstr "ARHOSWCH OS GWELWCH YN DDA"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points"
-msgstr "Pwyntiau"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Rheng"
@@ -1143,6 +1146,9 @@ msgstr ""
 #, c-format
 msgid "CURRENT THEME"
 msgstr "THEMA PRESENNOL"
+
+msgid "Points"
+msgstr "Pwyntiau"
 
 msgid "Unlocked on"
 msgstr "Datgloi ar"

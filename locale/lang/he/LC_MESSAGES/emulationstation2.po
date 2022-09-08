@@ -586,8 +586,11 @@ msgstr "נא להמתין"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d מתוך %d)"
 
-msgid "Points"
-msgstr "נקודות"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "דירוג"
@@ -1139,6 +1142,9 @@ msgstr ""
 #, c-format
 msgid "CURRENT THEME"
 msgstr "ערכת נושא נוכחית"
+
+msgid "Points"
+msgstr "נקודות"
 
 msgid "Unlocked on"
 msgstr "נעילה בוטלה"

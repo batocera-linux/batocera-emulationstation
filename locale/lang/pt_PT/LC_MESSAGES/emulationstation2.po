@@ -371,7 +371,8 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
+msgstr ""
+"Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -385,7 +386,8 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
+msgstr ""
+"Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -590,8 +592,11 @@ msgstr "POR FAVOR, AGUARDE"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "Points"
-msgstr "Pontos"
+msgid "Points (hardcore)"
+msgstr "Pontos (hardcore)"
+
+msgid "Softcore points"
+msgstr "Pontos (softcore)"
 
 msgid "Rank"
 msgstr "Placar"
@@ -1149,6 +1154,9 @@ msgstr "SELECIONE TEMAS PARA INSTALAR/REMOVER"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "TEMA ATUAL"
+
+msgid "Points"
+msgstr "Pontos"
 
 msgid "Unlocked on"
 msgstr "Desbloqueado em"
@@ -2053,7 +2061,8 @@ msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
+msgstr ""
+"Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SAVESTATES INCREMENTAIS"
@@ -3061,4 +3070,3 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
-
