@@ -595,10 +595,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Pontos (modo restrito)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Pontos livres"
 
 msgid "Rank"
 msgstr "Placar"
@@ -1983,7 +1983,7 @@ msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "Define a resolução do monitor. Não afeta a resolução de renderização."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRO BILINEAR)"
@@ -2145,10 +2145,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "AJUSTES DA PISTOLA SINDEN"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "AJUSTES DA PISTOLA WIIMOTE"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2158,7 +2158,7 @@ msgid "default"
 msgstr "padrão"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "TAMANHO DA BORDA"
 
 msgid "THIN"
 msgstr "FINO"
@@ -2173,22 +2173,22 @@ msgid "RECOIL"
 msgstr "RECUO"
 
 msgid "GUN"
-msgstr ""
+msgstr "PISTOLA"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "METRALHADORA"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "SILENCIOSA"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "METRALHADORA SILENCIOSA"
 
 msgid "MODE"
-msgstr ""
+msgstr "MODO"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "CONTROLE"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"
