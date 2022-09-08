@@ -448,9 +448,9 @@ GuiBatoceraStoreEntry::GuiBatoceraStoreEntry(Window* window, PacmanPackage& entr
 		details = details + _U("  \uf114  ") + entry.repository;
 
 	if (entry.installed_size > 0)
-		details = details + _U("  \uf0A0  ") + Utils::FileSystem::megaBytesToString(entry.installed_size / 1024.0);
+		details = details + _U("  \uf0A0  ") + Utils::FileSystem::kiloBytesToString(entry.installed_size);
 	else if (entry.download_size > 0)
-		details = details + _U("  \uf0A0  ") + Utils::FileSystem::megaBytesToString(entry.download_size / 1024.0);
+		details = details + _U("  \uf0A0  ") + Utils::FileSystem::kiloBytesToString(entry.download_size);
 
 	if (mIsPending)
 	{
