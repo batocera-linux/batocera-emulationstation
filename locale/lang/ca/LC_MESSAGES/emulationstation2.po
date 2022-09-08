@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2022-09-06 12:03+0200\n"
+"PO-Revision-Date: 2022-09-08 14:20+0200\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "introdueix la ruta del mapa"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Motllura (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "introduir ruta a la motllura (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartutx"
@@ -320,7 +320,7 @@ msgid "Searching for devices..."
 msgstr "Buscant comandaments…"
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr ""
+msgstr "L’ESCANEIG BLUETOOTH JA ESTÀ ACTIU."
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATANT DISPOSITIU"
@@ -347,10 +347,10 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "TEMA DESINSTAL·LAT SATISFACTÒRIAMENT"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BISELLS INSTAL·LATS SATISFACTÒRIAMENT"
+msgstr "MOTLLURES INSTAL·LADES SATISFACTÒRIAMENT"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "BISELLS DESINSTAL·LAT SATISFACTÒRIAMENT"
+msgstr "MOTLLURES DESINSTAL·LADES SATISFACTÒRIAMENT"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr "PAQUET INSTAL·LAT SATISFACTÒRIAMENT"
@@ -390,10 +390,10 @@ msgstr ""
 "notificacions."
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "PRESÈNCIA RICA"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "MODE BIS"
 
 msgid "Unlocked achievements can be earned again."
 msgstr "Poden guanyar-se trofeus desbloquejats."
@@ -414,7 +414,7 @@ msgstr ""
 "Mostra icones a la cantonada inferior dreta al guanyar trofeus elegibles."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
+msgstr "SO DE DESBLOQUEIG D’UN RETROACHIEVEMENT"
 
 msgid "none"
 msgstr "cap"
@@ -1034,7 +1034,7 @@ msgid "INVALID PARAMETERS"
 msgstr "VALORS NO VÀLIDS"
 
 msgid "GAME MEDIA"
-msgstr ""
+msgstr "CONTINGUTS DE JOC"
 
 msgid "VIEW GAME MANUAL"
 msgstr "VEURE MANUAL DEL JOC"
@@ -1049,7 +1049,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "VEURE VIDEO A PANTALLA COMPLETA"
 
 msgid "VIEW GAME MEDIA"
-msgstr ""
+msgstr "VEURE CONTINGUTS DE JOC"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "EL NUCLI ACTUAL NO ÉS COMPATIBLE"
@@ -1152,7 +1152,7 @@ msgid "CURRENT THEME"
 msgstr "TEMA ACTUAL"
 
 msgid "Points"
-msgstr ""
+msgstr "Punts"
 
 msgid "Unlocked on"
 msgstr "Desbloquejat el"
@@ -1240,7 +1240,7 @@ msgid "FANART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "MOTLLURA (16:9)"
 
 msgid "BOX BACKSIDE"
 msgstr "CONTRACOBERTA DE LA CAIXA"
@@ -1276,10 +1276,10 @@ msgid "ALL"
 msgstr "TOTS"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr "JOCS AMB ALGUN MITJÀ FALTANT"
+msgstr "JOCS QUE MANQUEN D’ALGUN CONTINGUT"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr "JOCS AMB TOTS ELS MITJANS FALTANTS"
+msgstr "JOCS SENSE CAP CONTINGUT"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JOCS AMB MITJANS RECENTMENT OBTINGUTS"
@@ -1345,10 +1345,10 @@ msgid "VIDEO DRIVER"
 msgstr "CONTROLADOR DE VIDEO"
 
 msgid "THE BEZEL PROJECT"
-msgstr "THE BEZEL PROJECT"
+msgstr "THE BEZEL PROJECT (MOTLLURES)"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "SELECCIONI ELS BISELLS A INSTAL·LAR/ELIMINAR"
+msgstr "SELECCIONI LES MOTLLURES A INSTAL·LAR/ELIMINAR"
 
 msgid "fade"
 msgstr "esvair"
@@ -1524,7 +1524,7 @@ msgid "OVERSCAN"
 msgstr "SOBRE-EXPLORACIÓ"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr ""
+msgstr "USAR REPRODUCTOR OMX (ACCELERAT PER MAQUINARI)"
 
 msgid "TOOLS"
 msgstr "EINES"
@@ -1551,19 +1551,19 @@ msgstr ""
 "DE SISTEMA."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr ""
+msgstr "ARXIU DE SUPORT CREAT A LA CARPETA SAVES"
 
 msgid "SUPPORT FILE CREATION FAILED"
-msgstr ""
+msgstr "CREACIÓ D’ARXIU DE SUPORT FALLIDA"
 
 msgid "FORMAT A DISK"
 msgstr "FORMATAR UN DISC"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
-msgstr ""
+msgstr "NETEJAR GAMELISTS I ELIMINAR CONTINGUTS NO USATS"
 
 msgid "Cleaning"
-msgstr ""
+msgstr "Netejant"
 
 msgid "CLEAR CACHES"
 msgstr "NETEJAR MEMÒRIA CAU"
@@ -1578,7 +1578,7 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSIONS D'ARXIU"
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr ""
+msgstr "RE-DETECTAR TOTS ELS IDIOMES/REGIONS DELS JOCS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "TROBAR TOTS ELS JOCS AMB NETPLAY/TROFEUS"
@@ -1616,8 +1616,8 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Si no hi ha imatge especificada a la gamelist, prova de trobar mitjans amb "
-"el mateix nom d'arxiu."
+"Si no hi ha imatge especificada a la gamelist, prova de trobar continguts "
+"amb el mateix nom d'arxiu."
 
 msgid "USER INTERFACE"
 msgstr "INTERFÍCIE D'USUARI"
@@ -1632,7 +1632,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLAT EN PANTALLA"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr ""
+msgstr "AMAGAR EMULATIONSTATION MENTRE S’EXECUTA UN JOC"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENÚ SORTIR COMPLET"
@@ -1675,7 +1675,7 @@ msgstr ""
 "incrementa el temps d'arrencada"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr "PRE-CARREGAR METADADES DE MITJANS A L'ARRENCAR"
+msgstr "PRE-CARREGAR METADADES DE CONTINGUTS A L'ARRENCAR"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
@@ -2000,10 +2000,10 @@ msgid "DECORATIONS"
 msgstr "DECORACIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "ESTIRAR MOTLLURES (4K I ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "MOSTRAR CALCOMANIA A DAMUNT DE LA MOTLLURA"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLADORS DE SISTEMA"
@@ -2012,7 +2012,7 @@ msgid "CUSTOM IMAGE"
 msgstr "IMATGE PERSONALITZADA"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Mostrar una imatge sobre-posada al damunt d’una motllura."
 
 msgid "TATTOO CORNER"
 msgstr "CANTONADA DE LA CALCOMANIA"
@@ -2036,7 +2036,8 @@ msgid "RESIZE TATTOO"
 msgstr "REDIMENSIONAR TATUATGE"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Contreure/expandir la calcomania per a ajustar-se al borde del bisell."
+msgstr ""
+"Contreure/expandir la calcomania per a ajustar-se al borde de la motllura."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓ DEL JOC PER IA"
@@ -2763,7 +2764,7 @@ msgid "Extracting"
 msgstr "Extraient"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "CERCANT RETROACHIEVEMENTS"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "CERCANT JOCS NETPLAY"
@@ -2937,7 +2938,7 @@ msgid "KEYBOARD"
 msgstr "TECLAT"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
