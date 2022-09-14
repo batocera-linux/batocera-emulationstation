@@ -13,7 +13,9 @@ public:
 
 	void setColor(unsigned int color) override;
 	void onSizeChanged() override;
-
+	void onFocusGained() override;
+	void onFocusLost() override;
+	
 protected:
 	bool mMultiLine;
 	bool mSizeChanging;
