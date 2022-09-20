@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2022-09-09 16:07+0200\n"
+"PO-Revision-Date: 2022-09-20 15:59+0200\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -396,7 +396,7 @@ msgid "ENCORE MODE"
 msgstr "MODE BIS"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "Poden guanyar-se trofeus desbloquejats."
+msgstr "Poden guanyar-se trofeus ja assolits."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÀTICA"
@@ -414,13 +414,13 @@ msgstr ""
 "Mostra icones a la cantonada inferior dreta al guanyar trofeus elegibles."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "SO DE DESBLOQUEIG D’UN RETROACHIEVEMENT"
+msgstr "SO D’ASSOLIMENT D’UN RETROACHIEVEMENT"
 
 msgid "none"
 msgstr "cap"
 
 msgid "UNLOCK SOUND"
-msgstr "DESBLOQUEJAR SO"
+msgstr "SO D’ASSOLIMENTS"
 
 msgid "USERNAME"
 msgstr "USUARI"
@@ -440,7 +440,7 @@ msgid "GAME INDEXES"
 msgstr "ÍNDEXOS DE JOC"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXAR JOCS NOS A L'INICIAR"
+msgstr "INDEXAR JOCS NOUS EN INICIAR EL SISTEMA"
 
 msgid "INDEX GAMES"
 msgstr "INDEXAR JOCS"
@@ -603,7 +603,7 @@ msgid "VIEW DETAILS"
 msgstr "VEURE DETALLS"
 
 msgid "LAUNCH"
-msgstr "EXECUTA"
+msgstr "INICIAR"
 
 msgid "NETPLAY SETTINGS"
 msgstr "AJUSTOS DE NETPLAY"
@@ -830,7 +830,7 @@ msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "ACTUALMENT A LA CUA DE DESCÀRREGUES"
 
 msgid "NO MISSING BIOS FILES"
-msgstr "NO FANTEN ARXIUS DE BIOS"
+msgstr "NO FALTEN ARXIUS DE BIOS"
 
 msgid "MISSING BIOS CHECK"
 msgstr "BIOS QUE FALTEN"
@@ -1049,7 +1049,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "VEURE VIDEO A PANTALLA COMPLETA"
 
 msgid "VIEW GAME MEDIA"
-msgstr "VEURE CONTINGUTS DE JOC"
+msgstr "VEURE CONTINGUTS DEL JOC"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "EL NUCLI ACTUAL NO ÉS COMPATIBLE"
@@ -1124,7 +1124,7 @@ msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "AFEGIR A COL·LECCIÓ PERSONALITZADA …"
 
 msgid "SCRAPE"
-msgstr "OBTENIR DADES DELS JOCS"
+msgstr "OBTENIR CONTINGUTS DEL JOC"
 
 msgid "EDIT PADTOKEY PROFILE"
 msgstr "EDITAR PERFIL PAD-A-TECLA"
@@ -1139,7 +1139,7 @@ msgid "EDIT FOLDER METADATA"
 msgstr "EDITAR LA CARPETA DE METADADES"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDITA LES METADADES D'AQUEST JOC"
+msgstr "EDITAR LES METADADES DEL JOC"
 
 msgid "THEMES DOWNLOADER"
 msgstr "GESTOR DE TEMES"
@@ -1530,7 +1530,7 @@ msgid "TOOLS"
 msgstr "EINES"
 
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr "NO ENGEGAR AQUEST JOC A L'INICIAR"
+msgstr "NO INICIAR AQUEST JOC EN INICIAR EL SISTEMA"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
 msgstr "HABILITAR L'ACCÉS WEB A L'API PÚBLICA"
@@ -1581,7 +1581,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "RE-DETECTAR TOTS ELS IDIOMES/REGIONS DELS JOCS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TROBAR TOTS ELS JOCS AMB NETPLAY/TROFEUS"
+msgstr "TROBAR TOTS ELS JOCS AMB NETPLAY/RETROACHIEVEMENTS"
 
 msgid "DATA MANAGEMENT"
 msgstr "ADMINISTRADOR DE DADES"
@@ -1666,7 +1666,7 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMITZACIONS"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "PRECÀRREGA D'ELEMENTS D'IU L'ARRENCAR"
+msgstr "PRECÀRREGA D'ELEMENTS D'IU EN INICIAR EL SISTEMA"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
@@ -1675,7 +1675,7 @@ msgstr ""
 "incrementa el temps d'arrencada"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr "PRE-CARREGAR METADADES DE CONTINGUTS A L'ARRENCAR"
+msgstr "PRE-CARREGAR METADADES DE CONTINGUTS EN INICIAR EL SISTEMA"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
@@ -1785,7 +1785,7 @@ msgid "ENABLE KODI"
 msgstr "HABILITA EL KODI"
 
 msgid "LAUNCH KODI AT BOOT"
-msgstr "KODI A L'INICI"
+msgstr "INICIAR KODI A L'INICIAR EL SISTEMA"
 
 msgid "HARDWARE"
 msgstr "MAQUINARI"
@@ -1837,7 +1837,7 @@ msgid "SPLASH SETTING"
 msgstr "AJUSTOS D'IMATGE DE PRESENTACIÓ"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr "COMPROVAR ARXIUS DE BIOS ABANS D'ARRENCAR UN JOC"
+msgstr "COMPROVAR ARXIUS DE BIOS ABANS D’INICIAR UN JOC"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TECLES MULTIMÈDIA"
@@ -1876,7 +1876,7 @@ msgid "cyan"
 msgstr "cian"
 
 msgid "POWER LED COLOR"
-msgstr "COLOR DE L'INDICADOR DE ENGEGAT"
+msgstr "COLOR DE L'INDICADOR D’ENCESA"
 
 msgid "heartbeat"
 msgstr "batec"
@@ -2098,7 +2098,7 @@ msgid "IF NOT EMPTY"
 msgstr "SI NO ESTÀ BUIT"
 
 msgid "Display savestate manager before launching a game."
-msgstr "Mostrar administrador d'estat desat abans de arrencar un joc."
+msgstr "Mostrar administrador d'estat desat abans d’iniciar un joc."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ADMINISTRACIÓ AVANÇADA PER SISTEMA"
@@ -2113,7 +2113,7 @@ msgid "REALLY UPDATE GAMELISTS?"
 msgstr "REALMENT VOL ACTUALITZAR LES GAMELISTS?"
 
 msgid "CONTROLLER MAPPING"
-msgstr "MAPATGE DE CONTROLADORS"
+msgstr "MAPATGE DE COMANDAMENTS"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
@@ -2146,7 +2146,7 @@ msgstr "AJUSTOS DE WIIMOTE GUN"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "COMANDAMENT DEL P%i"
+msgstr "COMANDAMENT DEL J%i"
 
 msgid "default"
 msgstr "per defecte"
@@ -2380,7 +2380,7 @@ msgid "NOW PLAYING"
 msgstr "REPRODUÏNT ARA"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr "ENGEGAR ESTALVI DE PANTALLA"
+msgstr "INICIAR ESTALVI DE PANTALLA"
 
 msgid "VIEW USER MANUAL"
 msgstr "VEURE MANUAL D'USUARI"
@@ -2456,7 +2456,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUCIÓ INTERNA"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr "ARRENCAR AQUEST JOC EN INICIAR"
+msgstr "INICIAR AQUEST JOC EN INICIAR EL SISTEMA"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATAR DISPOSITIU"
@@ -2568,7 +2568,7 @@ msgid ""
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 "ADVERTÈNCIA: L'EMULADOR/NUCLI ACTUAL NO ADMET AQUEST FORMAT D'ARXIU DE JOC.\n"
-"VOL INTENTAR ARRENCAR-LO DE TOTES FORMES?"
+"VOL INTENTAR INICIAR-LO DE TOTES FORMES?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
@@ -2577,7 +2577,7 @@ msgid ""
 msgstr ""
 "ADVERTÈNCIA: EL SISTEMA NO TÉ TOTS ELS ARXIUS DE BIOS I EL JOC POT NO "
 "FUNCIONAR CORRECTAMENT.\n"
-"VOL ARRENCAR-LO DE TOTES FORMES?"
+"VOL INICIAR-LO DE TOTES FORMES?"
 
 msgid "Preloading UI"
 msgstr "Pre-carregant IU"
@@ -2942,7 +2942,7 @@ msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
-msgstr "CONTROLADOR %i"
+msgstr "COMANDAMENT %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
 msgstr "MANTENIU PREMUT QUALSEVOL BOTÓ PER OMETRE"
@@ -2981,7 +2981,7 @@ msgstr "BENVINGUT"
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "S'HA DETECTAT %i CONTROLADOR"
+msgstr[0] "S'HA DETECTAT %i COMANDAMENT"
 msgstr[1] "S'HA DETECTAT %i CONTROLADORS"
 
 msgid "NO GAMEPADS DETECTED"
