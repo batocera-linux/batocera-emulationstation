@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2022-09-20 15:59+0200\n"
+"PO-Revision-Date: 2022-09-20 21:13+0200\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -1258,19 +1258,19 @@ msgid "SCRAPER"
 msgstr "SCRAPER"
 
 msgid "SCRAPING DATABASE"
-msgstr "BASE DE DADES DE MITJANS DE JOC"
+msgstr "BASE DE DADES DE CONTINGUTS DE JOC"
 
 msgid "SOURCE"
 msgstr "ORIGEN"
 
 msgid "SCRAPE FROM"
-msgstr "OBTENIR DADES DE"
+msgstr "OBTENIR CONTINGUTS DE"
 
 msgid "FILTERS"
 msgstr "FILTRES"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "JOCS DEL QUE OBTENIR MITJANS"
+msgstr "JOCS DELS QUE OBTENIR CONTINGUTS"
 
 msgid "ALL"
 msgstr "TOTS"
@@ -1282,7 +1282,7 @@ msgid "GAMES MISSING ALL MEDIA"
 msgstr "JOCS SENSE CAP CONTINGUT"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "IGNORAR JOCS AMB MITJANS RECENTMENT OBTINGUTS"
+msgstr "IGNORAR JOCS AMB CONTINGUTS RECENTMENT OBTINGUTS"
 
 msgid "LAST DAY"
 msgstr "DARRER DIA"
@@ -1461,7 +1461,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "CENTRE MULTIMÈDIA DEL KODI"
 
 msgid "GAME SETTINGS"
-msgstr "AJUSTOS DEL JOC"
+msgstr "AJUSTOS DE JOC"
 
 msgid "USER INTERFACE SETTINGS"
 msgstr "AJUSTOS D'INTERFÍCIE D'USUARI"
@@ -1681,7 +1681,7 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-"Redueix la latència de desplaçament a una gamelist amb tots els mitjans; "
+"Redueix la latència de desplaçament a una gamelist amb tots els continguts; "
 "incrementa el temps d'arrencada"
 
 msgid "THREADED LOADING"
@@ -2836,7 +2836,7 @@ msgid "HAS MEDIAS"
 msgstr "TÉ CONTINGUTS"
 
 msgid "SCRAPING"
-msgstr "OBTENING CONTINGUTS"
+msgstr "OBTENINT CONTINGUTS"
 
 msgid "SCRAPE FAILED"
 msgstr "OBTENCIÓ DE CONTINGUTS FALLIDA"
