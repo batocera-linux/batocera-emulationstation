@@ -373,7 +373,7 @@ msgid "HARDCORE MODE"
 msgstr "TRYB HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
+msgstr "Wyłącz wczytywanie stanów, przewijanie i cheaty dla większej ilości punktów."
 
 msgid "LEADERBOARDS"
 msgstr "RANKINGI"
@@ -386,7 +386,7 @@ msgid "VERBOSE MODE"
 msgstr "TRYB INFORMACJI PEŁNEJ"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "Pokaż postępy osiągnięć przy uruchomieniu gry i w innych powiadomieniach."
 
 msgid "RICH PRESENCE"
 msgstr "BOGATA PREZENCJA"
@@ -555,7 +555,7 @@ msgid "UPDATE GAMELISTS"
 msgstr "ZAKTUALIZUJ LISTY GIER"
 
 msgid "Loading..."
-msgstr "Ładuję..."
+msgstr "Wczytywanie..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "WYBIERZ KOLEKCJE"
@@ -588,8 +588,11 @@ msgstr "PROSZĘ CZEKAĆ"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d z %d)"
 
-msgid "Points"
-msgstr "Punkty"
+msgid "Points (hardcore)"
+msgstr "Punkty (hardcore)"
+
+msgid "Softcore points"
+msgstr "Punkty (softcore)"
 
 msgid "Rank"
 msgstr "Ranga"
@@ -658,10 +661,10 @@ msgid "SORT GAMES BY"
 msgstr "SORTUJ GRY"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "KOLEKCJA DYNAMICZNA"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "KOLEKCJA NIESTANDARDOWA"
 
 msgid "DELETE COLLECTION"
 msgstr "USUŃ KOLEKCJĘ"
@@ -1146,6 +1149,9 @@ msgstr "WYBIERZ MOTYWY DO INSTALACJI/USUNIĘCIA"
 msgid "CURRENT THEME"
 msgstr "AKTUALNY MOTYW"
 
+msgid "Points"
+msgstr "Punkty"
+
 msgid "Unlocked on"
 msgstr "Odblokowano"
 
@@ -1160,7 +1166,7 @@ msgid "%d%% complete"
 msgstr "Ukończone w %d%%"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "MENEDŻER ZAPISU STANÓW"
 
 msgid "START NEW GAME"
 msgstr "ROZPOCZNIJ NOWĄ GRĘ"
@@ -1677,10 +1683,10 @@ msgstr ""
 "wydłuża czas uruchamiania"
 
 msgid "THREADED LOADING"
-msgstr "ŁADOWNAIE WĄTKOWE"
+msgstr "WCZYTYWANIE WĄTKOWE"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "ASYNCHRONICZNE ŁADOWANIE OBRAZÓW"
+msgstr "ASYNCHRONICZNE WCZYTYWANIE OBRAZÓW"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTYMALIZUJ OBRAZY DLA VRAM"
@@ -1802,7 +1808,7 @@ msgid "SCREEN ROTATION"
 msgstr "OBRÓT EKRANU"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 STOPNI"
 
 msgid "90 DEGREES"
 msgstr "90 STOPNI"
@@ -1965,7 +1971,7 @@ msgstr "TRYB WIDEO"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "Ustawia rozdzielczość ekranu. Nie wpływa na rozdzielczość renderowania."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "WYGŁADZANIE GIER (FILTROWANIE DWULINIOWE)"
@@ -2051,22 +2057,22 @@ msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATYCZNE ZAPISYWANIE/WCZYTYWANIE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
+msgstr "Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy wychodzeniu z gry."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PRZYROSTOWY ZAPIS STANU"
 
 msgid "INCREMENT PER SAVE"
-msgstr "INKREMENTUJ NA ZAPIS"
+msgstr "PRZYROST NA ZAPIS"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "Nigdy nie nadpisuj starych stanów zapisu, zawsze twórz nowe."
+msgstr "Nigdy nie nadpisuj starych stanów, zawsze twórz nowe."
 
 msgid "INCREMENT SLOT"
-msgstr "INKREMENTUJ SLOT"
+msgstr "NASTĘPNY SLOT"
 
 msgid "Increment slot on a new game."
-msgstr "Inkrementuj slot na nową grę."
+msgstr "Inkrementuj slot przy nowej grze."
 
 msgid "DO NOT INCREMENT"
 msgstr "NIE INKREMENTUJ"
@@ -2075,7 +2081,7 @@ msgid "Use current slot on a new game."
 msgstr "Użyj obecnego slotu w nowej grze."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "POKAŻ MENEDŻER ZAPISU STANÓW"
 
 msgid "ALWAYS"
 msgstr "ZAWSZE"
@@ -2084,7 +2090,7 @@ msgid "IF NOT EMPTY"
 msgstr "JEŚLI NIE PUSTY"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Wyświetl menedżera zapisu stanów przed uruchomieniem gry."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
@@ -2096,7 +2102,7 @@ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "HASZOWANIE GIER W TOKU. CZY CHCESZ JE ZATRZYMAĆ?"
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr "NAPRAWDĘ ZAKTUALIZOWAĆ LISTY GIER?"
+msgstr "ZAKTUALIZOWAĆ LISTY GIER?"
 
 msgid "CONTROLLER MAPPING"
 msgstr "MAPOWANIE KONTROLERA"
@@ -2124,10 +2130,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "POKAŻ POZIOM BATERII KONTROLERA"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA PISTOLETU SINDEN"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA PISTOLETU WIIMOTE"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2137,37 +2143,37 @@ msgid "default"
 msgstr "domyślnie"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "ROZMIAR OBRAMOWANIA"
 
 msgid "THIN"
-msgstr ""
+msgstr "CIENKIE"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "ŚREDNIE"
 
 msgid "BIG"
-msgstr ""
+msgstr "WIELKIE"
 
 msgid "RECOIL"
-msgstr ""
+msgstr "ODRZUT"
 
 msgid "GUN"
-msgstr ""
+msgstr "PISTOLET"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "KARABIN MASZYNOWY"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "CICHY PISTOLET"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "CICHY KARABIN MASZYNOWY"
 
 msgid "MODE"
-msgstr ""
+msgstr "TRYB"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "JOYSTICK"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "MUSISZ ZASTOSOWAĆ MOTYW PRZED EDYCJĄ JEGO KONFIGURACJI"
@@ -2221,16 +2227,16 @@ msgid "AFTER NAME"
 msgstr "PO NAZWIE"
 
 msgid "SHOW REGION FLAG"
-msgstr "POKAŻ FLAGĘ JĘZYKA NA LISTACH"
+msgstr "POKAŻ FLAGĘ JĘZYKA"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "POKAŻ IKONĘ SAVESTATE NA LISTACH"
+msgstr "POKAŻ IKONĘ ZAPISU STANÓW"
 
 msgid "SHOW MANUAL ICON"
-msgstr "POKAŻ IKONĘ PODRĘCZNIKA NA LISTACH"
+msgstr "POKAŻ IKONĘ PODRĘCZNIKA"
 
 msgid "SHOW FILENAMES INSTEAD"
-msgstr "POKAŻ NAZWY PLIKÓW NA LISTACH"
+msgstr "POKAŻ NAZWY PLIKÓW"
 
 msgid "FILE EXTENSIONS"
 msgstr "ROZSZERZENIA PLIKÓW"
@@ -2377,10 +2383,10 @@ msgid "REALLY RESTART?"
 msgstr "URUCHOMIĆ PONOWNIE SYSTEM?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "WSTRZYMAJ SYSTEM"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "RZECZYWIŚCIE WSTRZYMAĆ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "WYŁĄCZENIE SYSTEMU"
@@ -2401,7 +2407,7 @@ msgid "QUIT EMULATIONSTATION"
 msgstr "WYJDŹ Z EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr "NAPRAWDĘ WYJŚĆ?"
+msgstr "RZECZYWIŚCIE WYJŚĆ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTOMATYCZNY ZAPIS/ODCZYT"
@@ -2567,13 +2573,13 @@ msgstr ""
 "CZY CHCESZ POMIMO TEGO URUCHOMIĆ GRĘ?"
 
 msgid "Preloading UI"
-msgstr "Ładuję wstępnie interfejs"
+msgstr "Wstępne wczytywanie interfejsu"
 
 msgid "Loading theme"
-msgstr "Ładowanie motywu"
+msgstr "Wczytywanie motywu"
 
 msgid "Loading gamelists"
-msgstr "Ładowanie list gier"
+msgstr "Wczytywanie list gier"
 
 msgid "MENU"
 msgstr "MENU"
@@ -2649,7 +2655,7 @@ msgid "ACCEPT RESULT"
 msgstr "AKCEPTUJ WYNIK"
 
 msgid "Loading system config..."
-msgstr "Ładuję konfigurację systemową..."
+msgstr "Wczytywanie konfiguracji systemowej..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."

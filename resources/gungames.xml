@@ -18,7 +18,7 @@
     <game>operationwolf</game>
     <game>timetraveller</game>
     <game gun="stack_light_rifle">shootinggallery</game>
-    <game>shootinputin</game>
+    <game gun="stack_light_rifle">shootinputin</game>
     <game gun="stack_light_rifle">starbasedefence</game>
   </system>
   <system name="3do">
@@ -101,14 +101,12 @@
   </system>
   <system name="nes">
     <game>3in1supergun</game>
-    <game>adventuresofbayoubilly</game>
     <game>babyboomer</game>
     <game>barkerbillstrickshooting</game>
     <game>bloodofjurassic</game>
     <game>chiller</game>
     <game>cobramission</game>
     <game>crimebusters</game>
-    <game>daydreamindavey</game>
     <game>duckhunt</game>
     <game>freedomforce</game>
     <game>gotcha</game>
@@ -118,8 +116,6 @@
     <game>hogansalley</game>
     <game>laserinvasion</game>
     <game>lightgungame2in1</game>
-    <game>loneranger</game>
-    <game>madcity</game>
     <game>mastershooter</game>
     <game>mechanizedattack</game>
     <game>operationwolf</game>
@@ -129,15 +125,12 @@
     <game>strikewolf</game>
     <game>superrussianroulette</game>
     <game>totheearth</game>
-    <game>trackfieldii</game>
     <game>wildgunman</game>
     <game>zombiezap</game>
   </system>
   <system name="psx">
     <game>area51</game>
     <game>cryptkiller</game>
-    <game>diehardtrilogy</game>
-    <game>diehardtrilogy2</game>
     <game>elementalgearbolt</game>
     <game>extremeghostbuster</game>
     <game>ghoulpanic</game>
@@ -153,11 +146,8 @@
     <game>pointblank</game>
     <game>pointblank2</game>
     <game>pointblank3</game>
-    <game>policenauts</game>
     <game>projecthornedowl</game>
     <game>rescueshot</game>
-    <game>residentevilsurvivor</game>
-    <game>silenthill</game>
     <game>thegunshooting</game>
     <game>thegunshooting2</game>
     <game>timecrisis</game>
@@ -171,12 +161,10 @@
     <game>crimepatrol</game>
     <game>cryptkiller</game>
     <game>deathcrimson</game>
-    <game>diehardtrilogy</game>
     <game>houseofthedead</game>
     <game>maximumforce</game>
     <game>mechanicalviolatorhakaider</game>
     <game>mightyhits</game>
-    <game>policenauts</game>
     <game>scudthedisposableassassin</game>
     <game>virtuacop</game>
     <game>virtuacop2</game>

@@ -450,18 +450,32 @@ These attributes apply to every XML element in the theme.
     
   Allow filtering elements in a xml file  when subsets are active.   
   
-    ```xml <image ifSubset="systemview:horizontal|transparent|legacy, iconview=standard">```
+    ```xml
+    <image ifSubset="systemview:horizontal|transparent|legacy, iconview=standard">
+    ```
   
   name of the subset followed with  `:`  and the name value in the subset. To test multiple values, split with a comma `|`   
   To test multiple subsets, split with a comma `,` 
+  
+* `ifArch` - type : STRING
+
+  Allow filtering elements in a xml file based on current architecture. The current list can be found in `getArchString()` at the bottom of [`platform.cpp`](https://github.com/batocera-linux/batocera-emulationstation/blob/master/es-core/src/platform.cpp)
+  
+    ```xml
+    <path ifArch="rpi3,rpi4">./art/lowerspecimages/logo.png</path>
+    ```
 
 * `if` - type : STRING
 
   Allows to filter any element given a condition expression.
   
-   ```xml <image if="${screen.height} >= 1080">```
+   ```xml
+   <image if="${screen.height} >= 1080">
+   ```
    
-   ```xml <image if="${screen.ratio} == '16/9'">```
+   ```xml
+   <image if="${screen.ratio} == '16/9'">
+   ```
   
   
 #### Usage in themes

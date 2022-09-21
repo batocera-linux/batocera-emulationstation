@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v35beta(2022/08/13)\n"
+"Project-Id-Version: batocera-es v35beta(2022/09/03)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-08-13 16:49+0900\n"
+"PO-Revision-Date: 2022-09-06 13:25+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -310,7 +310,9 @@ msgstr "いろいろ"
 #, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "このコレクションには、次のような %i ゲームがあります :%s"
+msgstr[0] ""
+"このコレクションには、次のような\n"
+"ゲームが %i 種あります :%s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH 検出中"
@@ -493,7 +495,7 @@ msgid "SELECT THEME FOLDER"
 msgstr "追加するコレクションを選択"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "マイコレクションを作成"
+msgstr "コレクションを作成"
 
 msgid "New Collection Name"
 msgstr "新規コレクション名"
@@ -544,7 +546,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "非表示システムにあるゲームをコレクションに表示"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr "ゲームが無いシステムを表示"
+msgstr "全てのシステムを表示"
 
 msgid "UPDATE GAMELISTS"
 msgstr "ゲームリストを更新"
@@ -568,7 +570,7 @@ msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "基本ゲームコレクション"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr "マイコレクション"
+msgstr "コレクション"
 
 msgid "DYNAMIC COLLECTIONS"
 msgstr "システム・項目別コレクション"
@@ -583,8 +585,11 @@ msgstr "お待ちください"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中の %d)"
 
-msgid "Points"
-msgstr "ポイント"
+msgid "Points (hardcore)"
+msgstr "ポイント (ハードコア)"
+
+msgid "Softcore points"
+msgstr "ソフトコア ポイント"
 
 msgid "Rank"
 msgstr "ランク"
@@ -656,7 +661,7 @@ msgid "DYNAMIC COLLECTION"
 msgstr "システム・項目別コレクション"
 
 msgid "CUSTOM COLLECTION"
-msgstr "カスタムコレクション"
+msgstr "コレクション"
 
 msgid "DELETE COLLECTION"
 msgstr "コレクションを削除"
@@ -1111,7 +1116,7 @@ msgid "FAVORITES"
 msgstr "お気に入り"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "カスタムコレクションに追加..."
+msgstr "コレクションに追加..."
 
 msgid "SCRAPE"
 msgstr "スクレイプ"
@@ -1140,6 +1145,9 @@ msgstr "インストール/削除するテーマを選択"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "現在のテーマ"
+
+msgid "Points"
+msgstr "ポイント"
 
 msgid "Unlocked on"
 msgstr "ロック解除"
@@ -2109,10 +2117,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "コントローラーバッテリーレベルを表示"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "シンデン ライトガンコンの設定"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "wiimoteの銃の設定"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2122,7 +2130,7 @@ msgid "default"
 msgstr "標準"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "境界サイズ"
 
 msgid "THIN"
 msgstr "超極細"
@@ -2140,13 +2148,13 @@ msgid "GUN"
 msgstr "ガンコン"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "機関銃"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "静かな銃"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "静音機関銃"
 
 msgid "MODE"
 msgstr "モード"
@@ -2512,12 +2520,12 @@ msgstr[0] "コレクション %i"
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] "%i 個 のアイテム"
+msgstr[0] "%i 項目"
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "%i 個 のゲーム"
+msgstr[0] "ゲーム数 :%i"
 
 msgid "RANDOM"
 msgstr "ランダム"
@@ -2795,7 +2803,7 @@ msgid "VERTICAL"
 msgstr "縦表示"
 
 msgid "LIGHTGUN"
-msgstr "ライトガン"
+msgstr "ライトガン(ガンコン)対応"
 
 msgid "HAS MEDIAS"
 msgstr "メディア有り"
@@ -3032,15 +3040,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "SINDEN GUNS"
-#~ msgstr "シンデン ライトガンコン"
-
-#~ msgid "WIIGUNS"
-#~ msgstr "WII ガンコン"
-
-#~ msgid "GUNS BORDER SIZE"
-#~ msgstr "ガンコン 境界サイズ"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

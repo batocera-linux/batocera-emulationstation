@@ -591,7 +591,10 @@ msgstr "الرجاء الإنتظار"
 msgid "%d%% (%d of %d)"
 msgstr ""
 
-msgid "Points"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
 msgstr ""
 
 msgid "Rank"
@@ -1146,6 +1149,9 @@ msgstr ""
 #, c-format
 msgid "CURRENT THEME"
 msgstr "السمة الحالية"
+
+msgid "Points"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""

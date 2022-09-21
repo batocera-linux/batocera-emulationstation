@@ -585,8 +585,11 @@ msgstr "VEUILLEZ PATIENTER"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "Points"
-msgstr "Points"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Rang"
@@ -1140,6 +1143,9 @@ msgstr "SÉLECTIONNEZ LES THÈMES À INSTALLER / SUPPRIMER"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "THÈME ACTUEL"
+
+msgid "Points"
+msgstr "Points"
 
 msgid "Unlocked on"
 msgstr "Déverrouillé le"

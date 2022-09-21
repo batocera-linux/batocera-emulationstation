@@ -585,8 +585,11 @@ msgstr "PROSÍM, ČEKEJTE"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points"
-msgstr "Body"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Hodnost"
@@ -1142,6 +1145,9 @@ msgstr "VYBRAT MOTIVY K INSTALACI/ODSTRANIT"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "AKTUÁLNÍ MOTIV"
+
+msgid "Points"
+msgstr "Body"
 
 msgid "Unlocked on"
 msgstr "Odblokovano"

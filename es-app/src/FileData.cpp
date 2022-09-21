@@ -370,7 +370,8 @@ const std::string FileData::getImagePath()
 	// no image, try to use local image
 	if (image.empty())
 	{
-		if (Utils::String::toLower(Utils::FileSystem::getExtension(getPath())) == ".png")
+		auto romExt = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
+		if (romExt == ".png" || (getSystemName() == "pico8" && romExt == ".p8"))
 			return getPath();
 
 		if (image.empty())

@@ -587,7 +587,10 @@ msgstr "请稍后"
 msgid "%d%% (%d of %d)"
 msgstr ""
 
-msgid "Points"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
 msgstr ""
 
 msgid "Rank"
@@ -1157,6 +1160,9 @@ msgstr ""
 #, c-format
 msgid "CURRENT THEME"
 msgstr "当前主题"
+
+msgid "Points"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""
