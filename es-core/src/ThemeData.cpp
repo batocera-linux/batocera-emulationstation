@@ -390,7 +390,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "iconL", PATH },
 		{ "iconR", PATH },
 		{ "iconStart", PATH },
-		{ "iconSelect", PATH } } },
+		{ "iconSelect", PATH },
+		{ "iconF1", PATH }, } },
 	{ "video", {
 		// Common properties
 		{ "pos", NORMALIZED_PAIR },
