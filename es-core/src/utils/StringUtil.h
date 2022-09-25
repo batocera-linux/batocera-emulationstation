@@ -48,6 +48,8 @@ namespace Utils
 		std::string toHexString(unsigned int color);
 		unsigned int fromHexString(const std::string& string);
 
+		std::string padLeft(const std::string& data, const size_t& totalWidth, const char& padding);
+
 		bool		isPrintableChar(char c);
 
 #if defined(_WIN32)

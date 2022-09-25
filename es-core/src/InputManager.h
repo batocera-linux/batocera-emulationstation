@@ -58,7 +58,7 @@ public:
 	std::map<int, PlayerDeviceInfo>& lastKnownPlayersDeviceIndexes() { return m_lastKnownPlayersDeviceIndexes; }
 	void computeLastKnownPlayersDeviceIndexes();
 
-	void updateBatteryLevel(int id, std::string device, int level);
+	void updateBatteryLevel(int id, const std::string& device, const std::string& devicePath, int level);
 
 	static Delegate<IJoystickChangedEvent> joystickChanged;
 
