@@ -144,6 +144,17 @@ std::string FileData::findLocalArt(const std::string& type, std::vector<std::str
 			std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + (type.empty() ? "" :  "-" + type) + ext;
 			if (Utils::FileSystem::exists(path))
 				return path;
+
+			if (type == "video")
+			{
+				path = getSystemEnvData()->mStartPath + "/videos/" + getDisplayName() + "-" + type + ext;
+				if (Utils::FileSystem::exists(path))
+					return path;
+
+				path = getSystemEnvData()->mStartPath + "/videos/" + getDisplayName() + ext;
+				if (Utils::FileSystem::exists(path))
+					return path;
+			}
 		}
 	}
 
