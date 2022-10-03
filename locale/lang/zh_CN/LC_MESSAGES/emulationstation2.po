@@ -89,10 +89,10 @@ msgid "enter path to magazine"
 msgstr "输入杂志路径"
 
 msgid "Map"
-msgstr "键位"
+msgstr "地图"
 
 msgid "enter path to map"
-msgstr "输入键位路径"
+msgstr "输入地图路径"
 
 msgid "Bezel (16:9)"
 msgstr "边框（16:9）"
@@ -101,10 +101,10 @@ msgid "enter path to bezel (16:9)"
 msgstr "输入边框（16:9）路径"
 
 msgid "Cartridge"
-msgstr "存储器"
+msgstr "游戏卡带"
 
 msgid "enter path to cartridge"
-msgstr "输入存储器路径"
+msgstr "输入游戏卡带封面路径"
 
 msgid "Alt BoxArt"
 msgstr "包装盒封面"
@@ -119,10 +119,10 @@ msgid "enter path to box background"
 msgstr "输入盒子背面路径"
 
 msgid "Wheel"
-msgstr "方向盘"
+msgstr "标志"
 
 msgid "enter path to wheel"
-msgstr "输入方向盘路径"
+msgstr "输入标志路径"
 
 msgid "Mix"
 msgstr "混合图"
@@ -365,7 +365,7 @@ msgid "SPORTS"
 msgstr "运动"
 
 msgid "SPORTS WITH ANIMALS"
-msgstr "撸宠"
+msgstr "动物运动"
 
 msgid "STRATEGY"
 msgstr "策略"
@@ -393,14 +393,14 @@ msgstr "'%s' 合辑编辑完成。"
 
 #, c-format
 msgid "Editing the '%s' Collection. Add/remove games with Y."
-msgstr "编辑 '%s' 合辑。按Y键添加/删除游戏。"
+msgstr "编辑 '%s' 合辑。按 Y 键添加/删除游戏。"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
 msgstr "无"
 
 msgid "Various"
-msgstr "多开发商"
+msgstr "多样化"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -501,7 +501,7 @@ msgstr "挑战指标"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "在右下角显示图标当符合条件的成就可达成时。"
+msgstr "当符合条件的成就可达成时在右下角显示图标。"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "复古成就解锁音效"
@@ -751,7 +751,7 @@ msgid "SELECT RANDOM GAME"
 msgstr "选择随机游戏"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "跳转到某些字母开头的游戏"
+msgstr "跳转到某字母开头的游戏"
 
 msgid "SORT GAMES BY"
 msgstr "游戏排序方式"
@@ -796,7 +796,7 @@ msgid "COLLECTION MANAGEMENT"
 msgstr "合辑管理"
 
 msgid "ADD/REMOVE GAMES TO THIS GAME COLLECTION"
-msgstr "向游戏合辑中 添加/删除 游戏"
+msgstr "向游戏合辑中添加/删除游戏"
 
 msgid "EDIT PAD TO KEYBOARD CONFIGURATION"
 msgstr "编辑手柄映射键盘设定"
@@ -945,13 +945,13 @@ msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "当前下载排队"
 
 msgid "NO MISSING BIOS FILES"
-msgstr "没有丢失的 BIOS 文件"
+msgstr "没有缺少的 BIOS 文件"
 
 msgid "MISSING BIOS CHECK"
-msgstr "缺失的BIOS"
+msgstr "检查缺少的 BIOS"
 
 msgid "NO MISSING BIOS"
-msgstr "未缺失的BIOS"
+msgstr "没有缺少的 BIOS"
 
 msgid "dim"
 msgstr "暗灰"
@@ -1038,7 +1038,7 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "屏保-幻灯片设置"
 
 msgid "IMAGE DURATION (SECS)"
-msgstr "图像替换 (SECS)"
+msgstr "图像持续时间（秒）"
 
 msgid "STRETCH IMAGES"
 msgstr "拉伸图像"
@@ -1331,7 +1331,7 @@ msgid "LOGO SOURCE"
 msgstr "商标数据"
 
 msgid "WHEEL"
-msgstr "方向盘"
+msgstr "标志"
 
 msgid "MARQUEE"
 msgstr "蒙版"
@@ -1665,7 +1665,7 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "创建支持文件"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr "是否创建支持文件？ 这包括您系统文件夹中的所有数据。"
+msgstr "是否创建支持文件？这包括您系统文件夹中的所有数据。"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "支持文件已在保存文件夹中创建"
@@ -1704,7 +1704,7 @@ msgid "DATA MANAGEMENT"
 msgstr "数据管理"
 
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "忽略多文件盘片内容 (CUE/GDI/CCD/M3U)"
+msgstr "忽略多文件盘片内容（CUE/GDI/CCD/M3U）"
 
 msgid "ENABLE GAME FILTERING"
 msgstr "启用游戏过滤"
@@ -1755,7 +1755,7 @@ msgid "AUTO"
 msgstr "自动"
 
 msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "在 EMULATIONSTATION 中交换 A/B 按键"
+msgstr "在 EMULATIONSTATION 中交换 A 和 B 按键"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "使用北按钮访问游戏选项"
@@ -2944,7 +2944,7 @@ msgid "HAS MEDIAS"
 msgstr "有媒体"
 
 msgid "SCRAPING"
-msgstr "刮削"
+msgstr "刮削中"
 
 msgid "SCRAPE FAILED"
 msgstr "刮削失败"
@@ -3713,7 +3713,7 @@ msgstr "%d 小时"
 #~ "如果需要返回完整模式，请按顺序输入以下按键："
 
 #~ msgid "RETROACHIEVEMENTS SETTINGS"
-#~ msgstr "RetroArch成就设置"
+#~ msgstr "复古成就设置"
 
 #~ msgid "SHOW IN MAIN MENU"
 #~ msgstr "在主菜单中显示"
