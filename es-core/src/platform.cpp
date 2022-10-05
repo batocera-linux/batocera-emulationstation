@@ -336,29 +336,49 @@ BatteryInformation queryBatteryInformation()
 
 	static std::string batteryStatusPath;
 	static std::string batteryCapacityPath;
+	static std::string batteryCurrChargePath;
+	static std::string batteryMaxChargePath;
 
 	// Find battery path - only at the first call
 	if (batteryStatusPath.empty())
 	{
 		std::string batteryRootPath;
+                std::string fuelgaugeRootPath;
+                std::string chargerRootPath;
 
 		auto files = Utils::FileSystem::getDirContent("/sys/class/power_supply");
 		for (auto file : files)
 		{
-			if (Utils::String::toLower(file).find("/bat") != std::string::npos)
-			{
+			if ( (Utils::String::toLower(file).find("/bat") != std::string::npos) && (batteryRootPath.empty()) )
 				batteryRootPath = file;
-				break;
-			}
-		}
 
+			if ( (Utils::String::toLower(file).find("fuel") != std::string::npos) && (fuelgaugeRootPath.empty()) )
+				fuelgaugeRootPath = file;
+
+                        if ( (Utils::String::toLower(file).find("charger") != std::string::npos) && (chargerRootPath.empty()) )
+                                chargerRootPath = file;
+                }
+
+		// If there's no battery device, look for discrete charger and fuel gauge
 		if (batteryRootPath.empty())
-			batteryStatusPath = ".";
+		{
+			if (!fuelgaugeRootPath.empty())
+			{
+				batteryCurrChargePath = fuelgaugeRootPath + "/charge_now";
+				batteryMaxChargePath = fuelgaugeRootPath + "/charge_full";
+				batteryCapacityPath = ".";
+			}
+			if (!chargerRootPath.empty())
+                                batteryStatusPath = chargerRootPath + "/status";
+                        else
+                                batteryStatusPath = ".";
+		}
 		else
 		{
 			batteryStatusPath = batteryRootPath + "/status";
 			batteryCapacityPath = batteryRootPath + "/capacity";
 		}
+
 	}
 
 	if (batteryStatusPath.length() <= 1)
@@ -370,8 +390,18 @@ BatteryInformation queryBatteryInformation()
 	else
 	{
 		ret.hasBattery = true;
-		ret.isCharging = (Utils::String::replace(Utils::FileSystem::readAllText(batteryStatusPath), "\n", "") != "Discharging");
-		ret.level = atoi(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
+		std::string chargerStatus;
+		chargerStatus = Utils::String::replace(Utils::FileSystem::readAllText(batteryStatusPath), "\n", "");
+		ret.isCharging = ((chargerStatus != "Not charging") && (chargerStatus != "Discharging"));
+		// If reading from fuel gauge, we have to calculate remaining charge
+		if (batteryCapacityPath.length() <= 1)
+		{
+			float now = std::stof(Utils::FileSystem::readAllText(batteryCurrChargePath).c_str());
+			float full = std::stof(Utils::FileSystem::readAllText(batteryMaxChargePath).c_str());
+			ret.level = int(round((now/full)*100));
+		}
+		else
+			ret.level = atoi(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
 	}
 
 	return ret;
