@@ -367,6 +367,12 @@ BatteryInformation queryBatteryInformation()
 				batteryCurrChargePath = fuelgaugeRootPath + "/charge_now";
 				batteryMaxChargePath = fuelgaugeRootPath + "/charge_full";
 				batteryCapacityPath = ".";
+				// If there's a fuel gauge without "charge_now" or "charge_full" property, don't poll it
+				if ((!Utils::FileSystem::exists(batteryCurrChargePath)) || (!Utils::FileSystem::exists(batteryMaxChargePath)))
+				{
+					batteryCurrChargePath = ".";
+					batteryMaxChargePath = ".";
+				}
 			}
 			if (!chargerRootPath.empty())
                                 batteryStatusPath = chargerRootPath + "/status";
@@ -378,10 +384,9 @@ BatteryInformation queryBatteryInformation()
 			batteryStatusPath = batteryRootPath + "/status";
 			batteryCapacityPath = batteryRootPath + "/capacity";
 		}
-
 	}
 
-	if (batteryStatusPath.length() <= 1)
+	if ((batteryStatusPath.length() <= 1) || (batteryCurrChargePath.length() <= 1))
 	{
 		ret.hasBattery = false;
 		ret.isCharging = false;
@@ -401,7 +406,7 @@ BatteryInformation queryBatteryInformation()
 			ret.level = int(round((now/full)*100));
 		}
 		else
-			ret.level = atoi(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
+			ret.level = Utils::String::toInteger(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
 	}
 
 	return ret;
