@@ -678,7 +678,7 @@ msgid "automatic"
 msgstr "автоматически"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr "ПОСМОТРЕТЬ НАСРОЙКИ"
+msgstr "ПОСМОТРЕТЬ НАСТРОЙКИ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "ПОСМОТРЕТЬ ДАННЫЕ PADTOKEY"

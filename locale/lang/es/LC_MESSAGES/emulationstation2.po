@@ -372,6 +372,8 @@ msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
+"Desactiva los guardados de partida, rebobinado y trucos para obtener más "
+"puntos."
 
 msgid "LEADERBOARDS"
 msgstr "CLASIFICACIONES"
@@ -386,6 +388,7 @@ msgstr "MODO DETALLADO"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
+"Muestra la progresión de logros y otras notificaciones al lanzar el juego."
 
 msgid "RICH PRESENCE"
 msgstr "MOSTRAR INFO AVANZADA"
@@ -590,10 +593,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Puntos (Modo Hardcore)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Puntos (Modo normal)"
 
 msgid "Rank"
 msgstr "Posición"
@@ -662,10 +665,10 @@ msgid "SORT GAMES BY"
 msgstr "ORDENAR JUEGOS POR"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "COLECCIÓN DINÁMICA"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "COLECCIÓN PERSONALIZADA"
 
 msgid "DELETE COLLECTION"
 msgstr "ELIMINAR COLECCIÓN"
@@ -850,7 +853,7 @@ msgid "slideshow"
 msgstr "pase de imágenes"
 
 msgid "suspend"
-msgstr ""
+msgstr "suspender"
 
 msgid "always"
 msgstr "siempre"
@@ -1167,7 +1170,7 @@ msgid "%d%% complete"
 msgstr "%d%% completado"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "GESTOR DE PARTIDAS GUARDADAS"
 
 msgid "START NEW GAME"
 msgstr "NUEVA PARTIDA"
@@ -1807,7 +1810,7 @@ msgid "SCREEN ROTATION"
 msgstr "ROTACIÓN DE LA PANTALLA"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 GRADOS"
 
 msgid "90 DEGREES"
 msgstr "90 GRADOS"
@@ -1972,6 +1975,7 @@ msgstr "MODO DE VÍDEO"
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
+"Ajusta la resolución de pantalla. No afecta a la resolución de renderizado."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "SUAVIZAR JUEGOS (FILTRO BILINEAL)"
@@ -2057,7 +2061,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "AUTO GUARDAR/CARGAR"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
+msgstr "Carga el ultimo estado guardado al lanzar el juego y guarda al salir."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
@@ -2081,7 +2085,7 @@ msgid "Use current slot on a new game."
 msgstr "Usa la ranura actual en una nueva partida."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "MOSTRAR GESTOR DE PARTIDAS"
 
 msgid "ALWAYS"
 msgstr "SIEMPRE"
@@ -2090,7 +2094,7 @@ msgid "IF NOT EMPTY"
 msgstr "SI HAY PARTIDAS GUARDADAS"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Mostrar el gestor de partidas guardadas antes de lanzar un juego."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
@@ -2132,10 +2136,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVEL DE BATERÍA DEL MANDO"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE PISTOLA SINDEN"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "AJUSTES DE PISTOLA WIIMOTE"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2145,37 +2149,37 @@ msgid "default"
 msgstr "predeterminado"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "TAMAÑO DEL BORDE"
 
 msgid "THIN"
-msgstr ""
+msgstr "DELGADO"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "MEDIANO"
 
 msgid "BIG"
-msgstr ""
+msgstr "GRANDE"
 
 msgid "RECOIL"
-msgstr ""
+msgstr "RETROCESO"
 
 msgid "GUN"
-msgstr ""
+msgstr "PISTOLA"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "AMETRALLADORA"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "PISTOLA SILENCIOSA"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "AMETRALLADORA SILENCIOSA"
 
 msgid "MODE"
-msgstr ""
+msgstr "MODO"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "JOYSTICK"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DEBES APLICAR EL TEMA ANTES DE EDITAR LA CONFIGURACIÓN"
@@ -2386,10 +2390,10 @@ msgid "REALLY RESTART?"
 msgstr "¿SEGURO QUE QUIERES REINICIAR?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "SUSPENDER SISTEMA"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "¿REALMENTE DESEAS SUSPENDER?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "APAGAR SISTEMA"
@@ -3881,8 +3885,8 @@ msgstr "TEXTO A VOZ DESACTIVADO"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
-#~ "SETTINGS\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
 #~ msgstr ""
 #~ "EL PROTECTOR DE PANTALLA \"VIDEO ALEATORIO\" MUESTRA VIDEOS DE TUS LISTAS "
 #~ "DE JUEGOS.\n"
