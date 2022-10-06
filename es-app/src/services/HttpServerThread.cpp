@@ -218,6 +218,13 @@ void HttpServerThread::run()
 		}
 #endif
 
+		// http://127.0.0.1/quit?confirm=menu
+		if (req.has_param("confirm") && req.get_param_value("confirm") == "menu")
+		{
+			GuiMenu::openQuitMenu_static(mWindow);
+			return;
+		}
+
 		quitES();		
 	});
 
