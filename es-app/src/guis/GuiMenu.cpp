@@ -2534,6 +2534,15 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 
 	s->addOptionList(_("BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
+	std::string selectedBordersMode = SystemConf::getInstance()->get("controllers.guns.bordersmode");
+	auto bordersmode_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER MODE"), false);
+	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
+	border_set->add(_("NORMAL"),   "NORMAL",   "NORMAL"   == selectedSet);
+	border_set->add(_("IN GAME ONLY"), "INGAMEONLY", "INGAMEONLY" == selectedSet);
+	border_set->add(_("HIDDEN"),    "HIDDEN",    "HIDDEN"    == selectedSet);
+
+	s->addOptionList(_("BORDER MODE"), { { _("AUTO"), "auto" },{ _("NORMAL") , "normal" },{ _("INGAMEONLY"), "gameonly" },{ _("HIDDEN"), "hidden" } }, "controllers.guns.bordersmode", false);
+
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
 	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
@@ -2549,6 +2558,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	    ApiSystem::getInstance()->replugControllers_sindenguns();
 	  }
 	});
+
 	mWindow->pushGui(s);
 }
 
