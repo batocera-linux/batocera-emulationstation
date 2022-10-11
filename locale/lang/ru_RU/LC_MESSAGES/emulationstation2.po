@@ -372,7 +372,8 @@ msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Отключить быструю загрузку, перемотку и читы для большего количества очков."
+msgstr ""
+"Отключить быструю загрузку, перемотку и читы для большего количества очков."
 
 msgid "LEADERBOARDS"
 msgstr "ДОСКА ЛИДЕРОВ"
@@ -1961,8 +1962,7 @@ msgstr "РАЗРЕШЕНИЕ"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
-"Устанавливает разрешение дисплея. Не влияет на разрешение рендеринга."
+msgstr "Устанавливает разрешение дисплея. Не влияет на разрешение рендеринга."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "СГЛАЖИВАНИЕ ИГР (БИЛИНЕЙНАЯ ФИЛЬТРАЦИЯ)"
@@ -2048,7 +2048,8 @@ msgid "AUTO SAVE/LOAD"
 msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
+msgstr ""
+"Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
@@ -2145,6 +2146,21 @@ msgstr "СРЕДНИЙ"
 
 msgid "BIG"
 msgstr "БОЛЬШОЙ"
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
+msgid "INGAMEONLY"
+msgstr ""
 
 msgid "RECOIL"
 msgstr "RECOIL"

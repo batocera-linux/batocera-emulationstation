@@ -391,7 +391,7 @@ msgstr ""
 "Muestra la progresión de logros y otras notificaciones al lanzar el juego."
 
 msgid "RICH PRESENCE"
-msgstr "MOSTRAR INFO AVANZADA"
+msgstr "RICH PRESENCE (INFO Y ESTADOS EN TIEMPO REAL)"
 
 msgid "ENCORE MODE"
 msgstr "MODO BIS"
@@ -413,8 +413,8 @@ msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
-"Mostrar iconos en la esquina inferior derecha cuando se puedan conseguir "
-"trofeos."
+"Muestra indicadores en la esquina inferior derecha de la pantalla en los "
+"momentos que se pueden obtener trofeos durante la partida."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO DE TROFEO"
@@ -835,7 +835,7 @@ msgid "NO MISSING BIOS FILES"
 msgstr "NO FALTAN ARCHIVOS BIOS"
 
 msgid "MISSING BIOS CHECK"
-msgstr "COMPROBACIÓN DE BIOS FALTANTES"
+msgstr "COMPROBACIÓN DE BIOS AUSENTES"
 
 msgid "NO MISSING BIOS"
 msgstr "NO FALTAN BIOS"
@@ -1278,7 +1278,7 @@ msgid "ALL"
 msgstr "TODOS LOS JUEGOS"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr "JUEGOS CON ALGÚN MEDIO FALTANTE"
+msgstr "JUEGOS CON ALGÚN MEDIO AUSENTE"
 
 msgid "GAMES MISSING ALL MEDIA"
 msgstr "JUEGOS SIN NINGÚN MEDIO"
@@ -2160,6 +2160,21 @@ msgstr "MEDIANO"
 msgid "BIG"
 msgstr "GRANDE"
 
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
+msgid "INGAMEONLY"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "RETROCESO"
 
@@ -2507,7 +2522,7 @@ msgid "GAMES TO INDEX"
 msgstr "JUEGOS A INDEXAR"
 
 msgid "ONLY MISSING"
-msgstr "SOLO CONTENIDO FALTANTE"
+msgstr "SOLO CONTENIDO AUSENTE"
 
 msgid "SYSTEM INFO"
 msgstr "INFORMACIÓN DEL SISTEMA"
@@ -3885,8 +3900,8 @@ msgstr "TEXTO A VOZ DESACTIVADO"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "EL PROTECTOR DE PANTALLA \"VIDEO ALEATORIO\" MUESTRA VIDEOS DE TUS LISTAS "
 #~ "DE JUEGOS.\n"

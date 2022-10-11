@@ -2130,6 +2130,21 @@ msgstr "MOYEN"
 msgid "BIG"
 msgstr "GROS"
 
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
+msgid "INGAMEONLY"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "RECUL"
 

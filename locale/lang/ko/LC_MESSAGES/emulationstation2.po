@@ -2127,6 +2127,21 @@ msgstr "중간"
 msgid "BIG"
 msgstr "크게"
 
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
+msgid "INGAMEONLY"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "리코일"
 
@@ -2534,7 +2549,8 @@ msgid ""
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"경고: 현재 시스템에는 BIOS파일이 빠져있어 게임이 정상적으로 작동하지 않을 수 있습니다.\n"
+"경고: 현재 시스템에는 BIOS파일이 빠져있어 게임이 정상적으로 작동하지 않을 수 "
+"있습니다.\n"
 "그래도 시작하시겠습니까?"
 
 msgid "Preloading UI"
@@ -2910,8 +2926,8 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"핫키 버튼이 할당되지 않았습니다. 컨트럴러로 게임 종료 시 필요합니다. 선택 "
-"버튼을 핫키로 사용하시겠습니까?"
+"핫키 버튼이 할당되지 않았습니다. 컨트럴러로 게임 종료 시 필요합니다. 선택 버"
+"튼을 핫키로 사용하시겠습니까?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "핫키로 선택 설정"
