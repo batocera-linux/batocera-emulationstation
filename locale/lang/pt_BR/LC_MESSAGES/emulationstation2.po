@@ -2170,16 +2170,16 @@ msgid "BIG"
 msgstr "GRANDE"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "MODO DA BORDA"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "SOMENTE NO JOGO"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "OCULTO"
 
 msgid "RECOIL"
 msgstr "RECUO"
