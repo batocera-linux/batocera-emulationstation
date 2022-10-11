@@ -2153,9 +2153,6 @@ msgstr ""
 msgid "HIDDEN"
 msgstr ""
 
-msgid "INGAMEONLY"
-msgstr ""
-
 msgid "RECOIL"
 msgstr "反動"
 

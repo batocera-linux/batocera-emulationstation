@@ -2541,7 +2541,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	border_set->add(_("IN GAME ONLY"), "INGAMEONLY", "INGAMEONLY" == selectedSet);
 	border_set->add(_("HIDDEN"),    "HIDDEN",    "HIDDEN"    == selectedSet);
 
-	s->addOptionList(_("BORDER MODE"), { { _("AUTO"), "auto" },{ _("NORMAL") , "normal" },{ _("INGAMEONLY"), "gameonly" },{ _("HIDDEN"), "hidden" } }, "controllers.guns.bordersmode", false);
+	s->addOptionList(_("BORDER MODE"), { { _("AUTO"), "auto" },{ _("NORMAL") , "normal" },{ _("IN GAME ONLY"), "gameonly" },{ _("HIDDEN"), "hidden" } }, "controllers.guns.bordersmode", false);
 
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
