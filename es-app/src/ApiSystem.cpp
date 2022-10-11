@@ -336,7 +336,7 @@ bool ApiSystem::ping()
 	if (!executeScript("timeout 1 ping -c 1 -t 1000 google.com"))
 	{
 		// ping Google DNS
-		if (!executeScript("timeout 1 ping -c 1 -t 1000 8.8.4.4"))
+		if (!executeScript("timeout 1 ping -c 1 -t 1000 8.8.8.8"))
 		{
 			// ping Google secondary DNS & give 2 seconds, return this one's status
 			return executeScript("timeout 2 ping -c 1 -t 2000 8.8.4.4");
