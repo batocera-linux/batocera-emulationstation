@@ -29,6 +29,7 @@
 #include "utils/ThreadPool.h"
 #include <SDL_timer.h>
 #include "TextToSpeech.h"
+#include "VolumeControl.h"
 
 ViewController* ViewController::sInstance = nullptr;
 
@@ -830,6 +831,19 @@ std::shared_ptr<SystemView> ViewController::getSystemListView()
 	return mSystemListView;
 }
 
+void ViewController::changeVolume(int increment)
+{
+	int newVal = VolumeControl::getInstance()->getVolume() + increment;
+	if (newVal > 100)
+		newVal = 100;
+	if (newVal < 0)
+		newVal = 0;
+
+	VolumeControl::getInstance()->setVolume(newVal);
+#if !WIN32
+	SystemConf::getInstance()->set("audio.volume", std::to_string(VolumeControl::getInstance()->getVolume()));
+#endif
+}
 
 bool ViewController::input(InputConfig* config, Input input)
 {
@@ -877,6 +891,18 @@ bool ViewController::input(InputConfig* config, Input input)
 	if (((mState.viewing != GAME_LIST && config->isMappedTo("l3", input)) || config->isMappedTo("r3", input)) && input.value != 0)
 	{		
 		AudioManager::getInstance()->playRandomMusic(false);
+		return true;
+	}
+
+	if (config->isMappedTo("joystick2up", input) && input.value != 0)
+	{
+		changeVolume(5);
+		return true;
+	}
+
+	if (config->isMappedTo("joystick2up", input, true) && input.value != 0)
+	{
+		changeVolume(-5);
 		return true;
 	}
 

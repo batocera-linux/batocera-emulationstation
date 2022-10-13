@@ -12,14 +12,17 @@
 
 class StrInputConfig
 {
- public:
-  StrInputConfig(std::string ideviceName, std::string ideviceGUIDString) {
-    deviceName = ideviceName;
-    deviceGUIDString = ideviceGUIDString;
-  }
+public:
+	StrInputConfig(const std::string& ideviceName, const std::string& ideviceGUIDString, const std::string& idevicePath)
+	{
+		deviceName = ideviceName;
+		deviceGUIDString = ideviceGUIDString;
+		devicePath = idevicePath;
+	}
 
-  std::string deviceName;
-  std::string deviceGUIDString;
+	std::string deviceName;
+	std::string deviceGUIDString;
+	std::string devicePath;
 };
 
 struct DecorationSetInfo

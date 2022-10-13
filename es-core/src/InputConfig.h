@@ -106,7 +106,7 @@ public:
 class InputConfig
 {
 public:
-	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes); 
+	InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes, const std::string& devicePath = ""); 
 
 	void clear();
 	void mapInput(const std::string& name, Input input);
@@ -121,6 +121,9 @@ public:
 	inline int getDeviceNbHats() const { return mDeviceNbHats; }; 
 	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; 
 	inline int getBatteryLevel() const { return mBatteryLevel; }; 
+	inline const std::string& getDevicePath() { return mDevicePath; };
+
+	std::string getSortDevicePath();
 
 	//Returns true if Input is mapped to this name, false otherwise.
 	bool isMappedTo(const std::string& name, Input input, bool reversedAxis = false); 
@@ -152,6 +155,7 @@ private:
 	const int mDeviceNbButtons; // number of buttons of the device 
 	const int mDeviceNbHats;    // number of hats    of the device 
 	const int mDeviceNbAxes;    // number of axes    of the device 
+	std::string mDevicePath;
 
 	int mBatteryLevel;
 

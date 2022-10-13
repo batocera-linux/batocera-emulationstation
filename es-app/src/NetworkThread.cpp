@@ -55,7 +55,7 @@ void NetworkThread::checkPadsBatteryLevel()
 		if (pad.status == "Charging")
 			pad.battery = -1;
 
-		InputManager::getInstance()->updateBatteryLevel(pad.id, pad.device, pad.battery);
+		InputManager::getInstance()->updateBatteryLevel(pad.id, pad.device, pad.path, pad.battery);
 	}
 }
 

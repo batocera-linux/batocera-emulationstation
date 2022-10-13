@@ -1671,6 +1671,9 @@ std::vector<PadInfo> ApiSystem::getPadsInfo()
 		if (pad.attribute("status"))
 			pi.status = pad.attribute("status").as_string();
 
+		if (pad.attribute("path"))
+			pi.path = pad.attribute("path").as_string();
+
 		ret.push_back(pi);
 	}
 
