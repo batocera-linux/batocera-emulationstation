@@ -590,8 +590,11 @@ msgstr "ESPERATZ"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "Points"
-msgstr "Punts"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Posicion"
@@ -1143,6 +1146,9 @@ msgstr ""
 #, c-format
 msgid "CURRENT THEME"
 msgstr "TÈMA ACTUALA"
+
+msgid "Points"
+msgstr "Punts"
 
 msgid "Unlocked on"
 msgstr ""
@@ -2109,6 +2115,18 @@ msgid "MEDIUM"
 msgstr ""
 
 msgid "BIG"
+msgstr ""
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
 msgstr ""
 
 msgid "RECOIL"

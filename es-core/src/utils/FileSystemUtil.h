@@ -66,7 +66,7 @@ namespace Utils
 		bool		renameFile(const std::string src, const std::string dst, bool overWrite = true);
 
 		std::string megaBytesToString(unsigned long size);
-
+		std::string kiloBytesToString(unsigned long size);
 
 		std::string getTempPath();
 		std::string getPdfTempPath();

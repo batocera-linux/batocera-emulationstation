@@ -5,7 +5,7 @@ msgstr ""
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ckau\n"
-"Language-Team: Russian <https://4pda.ru/forum/index.php?showtopic=802556>\n"
+"Language-Team: Russian <https://4pda.to/forum/index.php?showtopic=802556>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -373,6 +373,7 @@ msgstr "РЕЖИМ ХАРДКОРА"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
+"Отключить быструю загрузку, перемотку и читы для большего количества очков."
 
 msgid "LEADERBOARDS"
 msgstr "ДОСКА ЛИДЕРОВ"
@@ -386,7 +387,7 @@ msgid "VERBOSE MODE"
 msgstr "ПОДРОБНЫЙ РЕЖИМ"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "Показать прогресс достижений при запуске игры и в других уведомлениях."
 
 msgid "RICH PRESENCE"
 msgstr "БОГАТОЕ ПРИСУТСТВИЕ"
@@ -395,7 +396,7 @@ msgid "ENCORE MODE"
 msgstr "РЕЖИМ ЭНКОРА"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Разблокированные достижения можно получить снова."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "АВТОМАТИЧЕСКИЙ СКРИНШОТ"
@@ -587,8 +588,11 @@ msgstr "ПОДОЖДИТЕ"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d из %d)"
 
-msgid "Points"
-msgstr "Очки"
+msgid "Points (hardcore)"
+msgstr "Очки (хардкор)"
+
+msgid "Softcore points"
+msgstr "Очки (софткор)"
 
 msgid "Rank"
 msgstr "Ранг"
@@ -657,10 +661,10 @@ msgid "SORT GAMES BY"
 msgstr "СОРТИРОВКА ПО"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "ДИНАМИЧЕСКАЯ КОЛЛЕКЦИЯ"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "СВОЯ КОЛЛЕКЦИЯ"
 
 msgid "DELETE COLLECTION"
 msgstr "УДАЛИТЬ КОЛЛЕКЦИЮ"
@@ -675,7 +679,7 @@ msgid "automatic"
 msgstr "автоматически"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr "ПОСМОТРЕТЬ НАСРОЙКИ"
+msgstr "ПОСМОТРЕТЬ НАСТРОЙКИ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "ПОСМОТРЕТЬ ДАННЫЕ PADTOKEY"
@@ -845,7 +849,7 @@ msgid "slideshow"
 msgstr "слайдшоу"
 
 msgid "suspend"
-msgstr ""
+msgstr "приостановить"
 
 msgid "always"
 msgstr "всегда"
@@ -1145,6 +1149,9 @@ msgstr "ВЫБЕРИТЕ ТЕМЫ ДЛЯ УСТАНОВКИ/УДАЛЕНИЯ"
 msgid "CURRENT THEME"
 msgstr "ТЕКУЩАЯ ТЕМА"
 
+msgid "Points"
+msgstr "Очки"
+
 msgid "Unlocked on"
 msgstr "Получено"
 
@@ -1159,7 +1166,7 @@ msgid "%d%% complete"
 msgstr "%d%% готово"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
 
 msgid "START NEW GAME"
 msgstr "НАЧАТЬ НОВУЮ ИГРУ"
@@ -1606,7 +1613,7 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Если в геймлисте нет изображения, попытатся найти медиа с таким же именем "
+"Если в геймлисте нет изображения, попытаться найти медиа с таким же именем "
 "файла для использования."
 
 msgid "USER INTERFACE"
@@ -1793,7 +1800,7 @@ msgid "SCREEN ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 ГРАДУСОВ"
 
 msgid "90 DEGREES"
 msgstr "90 ГРАДУСОВ"
@@ -1955,7 +1962,7 @@ msgstr "РАЗРЕШЕНИЕ"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "Устанавливает разрешение дисплея. Не влияет на разрешение рендеринга."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "СГЛАЖИВАНИЕ ИГР (БИЛИНЕЙНАЯ ФИЛЬТРАЦИЯ)"
@@ -2042,6 +2049,7 @@ msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
+"Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
@@ -2065,7 +2073,7 @@ msgid "Use current slot on a new game."
 msgstr "Использовать текущий слот в новой игре."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
 
 msgid "ALWAYS"
 msgstr "ВСЕГДА"
@@ -2074,7 +2082,7 @@ msgid "IF NOT EMPTY"
 msgstr "ЕСЛИ ИМЕЕТСЯ"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
@@ -2115,10 +2123,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ SINDEN GUN"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ WIIMOTE GUN"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2128,37 +2136,49 @@ msgid "default"
 msgstr "по умолчанию"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "РАЗМЕР РАМКИ"
 
 msgid "THIN"
-msgstr ""
+msgstr "ТОНКИЙ"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "СРЕДНИЙ"
 
 msgid "BIG"
+msgstr "БОЛЬШОЙ"
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
 msgstr ""
 
 msgid "RECOIL"
-msgstr ""
+msgstr "RECOIL"
 
 msgid "GUN"
-msgstr ""
+msgstr "GUN"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "MACHINE GUN"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "QUIET GUN"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "QUIET MACHINE GUN"
 
 msgid "MODE"
-msgstr ""
+msgstr "РЕЖИМ"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "ДЖОЙСТИК"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
@@ -2368,10 +2388,10 @@ msgid "REALLY RESTART?"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "ПРИОСТАНОВЛЕННАЯ СИСТЕМА"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "ПРИОСТАНОВИТЬ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
@@ -3048,11 +3068,11 @@ msgstr "%d ч"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d мин"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d сек"
 
 msgid "SCREEN READER ENABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"

@@ -373,11 +373,14 @@ public:
 		return -1;
 	}
 
-	void addEx(const std::string& name, const std::string& description, const T& obj, bool selected, bool treeChild = false)
+	void addEx(const std::string& name, const std::string& description, const T& obj, bool selected, bool treeChild = false, bool distinct = true)
 	{
-		for (auto sysIt = mEntries.cbegin(); sysIt != mEntries.cend(); sysIt++)
-			if (sysIt->name == name)
-				return;
+		if (distinct)
+		{
+			for (auto sysIt = mEntries.cbegin(); sysIt != mEntries.cend(); sysIt++)
+				if (sysIt->name == name)
+					return;
+		}
 
 		OptionListData e;
 		e.name = name;

@@ -585,8 +585,11 @@ msgstr "BITTE WARTEN"
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d von %d)"
 
-msgid "Points"
-msgstr "Punkte"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
+msgstr ""
 
 msgid "Rank"
 msgstr "Rang"
@@ -1142,6 +1145,9 @@ msgstr "THEMES ZUM INSTALLIEREN/ENTFERNEN AUSWÄHLEN"
 #, c-format
 msgid "CURRENT THEME"
 msgstr "AKTUELLES THEME"
+
+msgid "Points"
+msgstr "Punkte"
 
 msgid "Unlocked on"
 msgstr "Freigeschaltet am"
@@ -2126,6 +2132,18 @@ msgid "MEDIUM"
 msgstr ""
 
 msgid "BIG"
+msgstr ""
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
 msgstr ""
 
 msgid "RECOIL"

@@ -293,10 +293,14 @@ void SystemData::populateFolder(FolderData* folder, std::unordered_map<std::stri
 			// Don't loose time looking in downloaded_images, downloaded_videos & media folders
 			if (fn == "media" || fn == "medias" || fn == "images" || fn == "manuals" || fn == "videos" || fn == "assets" || Utils::String::startsWith(fn, "downloaded_") || Utils::String::startsWith(fn, "."))
 				continue;
-
+			
 			// Hardcoded optimisation : WiiU has so many files in content & meta directories
 			if (mMetadata.name == "wiiu" && (fn == "content" || fn == "meta"))
 				continue;
+
+			// Hardcoded optimisation : vpinball 'roms' subfolder must be excluded
+			if (mMetadata.name == "vpinball" && fn == "roms")
+				continue;			
 
 			FolderData* newFolder = new FolderData(filePath, this);
 			populateFolder(newFolder, fileMap);
@@ -916,7 +920,7 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
 	{
 		std::string name = system.child("name").text().get();
-		if (name == systemName)
+		if (Utils::String::compareIgnoreCase(name, systemName) == 0)
 			return loadSystem(system, fullMode);
 	}
 
@@ -1431,7 +1435,7 @@ void SystemData::loadTheme()
 		sysData["cheevos.username"] = SystemConf::getInstance()->getBool("global.retroachievements") ? SystemConf::getInstance()->get("global.retroachievements.username") : "";
 
 		// System variables
-		sysData["system.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection() || isGameSystem()) ? "true" : "false";
+		sysData["system.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection()) ? "true" : "false";
 		sysData["system.netplay"] = SystemConf::getInstance()->getBool("global.netplay") && isNetplaySupported() ? "true" : "false";
 		sysData["system.savestates"] = isCurrentFeatureSupported(EmulatorFeatures::autosave) ? "true" : "false";
 
@@ -1803,9 +1807,9 @@ bool SystemData::hasEmulatorSelection()
 }
 
 SystemData* SystemData::getSystem(const std::string name)
-{
+{	
 	for (auto sys : SystemData::sSystemVector)
-		if (sys->getName() == name)
+		if (Utils::String::compareIgnoreCase(sys->getName(), name) == 0)
 			return sys;
 
 	return nullptr;

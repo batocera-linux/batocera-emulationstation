@@ -144,6 +144,17 @@ std::string FileData::findLocalArt(const std::string& type, std::vector<std::str
 			std::string path = getSystemEnvData()->mStartPath + "/images/" + getDisplayName() + (type.empty() ? "" :  "-" + type) + ext;
 			if (Utils::FileSystem::exists(path))
 				return path;
+
+			if (type == "video")
+			{
+				path = getSystemEnvData()->mStartPath + "/videos/" + getDisplayName() + "-" + type + ext;
+				if (Utils::FileSystem::exists(path))
+					return path;
+
+				path = getSystemEnvData()->mStartPath + "/videos/" + getDisplayName() + ext;
+				if (Utils::FileSystem::exists(path))
+					return path;
+			}
 		}
 	}
 
@@ -340,7 +351,8 @@ const std::string FileData::getImagePath()
 	// no image, try to use local image
 	if (image.empty())
 	{
-		if (Utils::String::toLower(Utils::FileSystem::getExtension(getPath())) == ".png")
+		auto romExt = Utils::String::toLower(Utils::FileSystem::getExtension(getPath()));
+		if (romExt == ".png" || (getSystemName() == "pico8" && romExt == ".p8"))
 			return getPath();
 
 		if (image.empty())

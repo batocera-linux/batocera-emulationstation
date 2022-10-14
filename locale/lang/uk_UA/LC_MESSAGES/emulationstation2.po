@@ -585,7 +585,10 @@ msgstr "ЗАЧЕКАЙТЕ"
 msgid "%d%% (%d of %d)"
 msgstr ""
 
-msgid "Points"
+msgid "Points (hardcore)"
+msgstr ""
+
+msgid "Softcore points"
 msgstr ""
 
 msgid "Rank"
@@ -1140,6 +1143,9 @@ msgstr ""
 #, c-format
 msgid "CURRENT THEME"
 msgstr "ПОТОЧНА ТЕМА"
+
+msgid "Points"
+msgstr ""
 
 msgid "Unlocked on"
 msgstr ""
@@ -2106,6 +2112,18 @@ msgid "MEDIUM"
 msgstr ""
 
 msgid "BIG"
+msgstr ""
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
 msgstr ""
 
 msgid "RECOIL"

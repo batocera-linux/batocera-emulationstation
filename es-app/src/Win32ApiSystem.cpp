@@ -136,6 +136,13 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 			return false;
 	}
 
+	if (script == ApiSystem::BATOCERASTORE)
+	{
+		std::string path = Paths::findEmulationStationFile("batocera-store.cfg");
+		if (path.empty() || !Utils::FileSystem::exists(path))
+			return false;
+	}
+
 	return true;
 }
 
@@ -320,8 +327,20 @@ bool Win32ApiSystem::executeScript(const std::string command)
 {
 	LOG(LogInfo) << "Running " << command;
 
-	std::string output;
-	return executeCMD(command.c_str(), output) == 0;
+	std::string executable;
+	std::string parameters;
+	Utils::FileSystem::splitCommand(command, &executable, &parameters);
+
+	std::string path = Paths::findEmulationStationFile(executable + ".exe");
+	if (!path.empty() && Utils::FileSystem::exists(path))
+	{
+		std::string cmd = parameters.empty() ? path : path + " " + parameters;
+
+		std::string output;
+		return executeCMD(cmd.c_str(), output) == 0;
+	}
+
+	return false;
 }
 
 std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string command, const std::function<void(const std::string)>& func)
@@ -336,7 +355,7 @@ std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string comm
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
 
 		std::string output;
-		auto ret = executeCMD(cmd.c_str(), output);
+		auto ret = executeCMD(cmd.c_str(), output, nullptr, func);
 		return std::pair<std::string, int>(output, ret);
 	}
 
