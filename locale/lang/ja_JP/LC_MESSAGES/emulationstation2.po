@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v35beta(2022/09/03)\n"
+"Project-Id-Version: batocera-es v36beta(2022/10/11)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-09-06 13:25+0900\n"
+"PO-Revision-Date: 2022-10-11 20:54+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1647,7 +1647,7 @@ msgstr "△(上)ボタン長押しでゲーム設定を開く"
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
-msgstr "△(上)を反転（ステートセーブ）、×（下）を長押し（ゲーム設定）"
+msgstr "△(上)短押(ステートセーブ)、×(下)長押(ゲーム設定)を反転します"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
@@ -2140,6 +2140,18 @@ msgstr "中"
 
 msgid "BIG"
 msgstr "大"
+
+msgid "BORDER MODE"
+msgstr "BORDER MODE"
+
+msgid "NORMAL"
+msgstr "標準"
+
+msgid "IN GAME ONLY"
+msgstr "ゲーム内のみ"
+
+msgid "HIDDEN"
+msgstr "非表示"
 
 msgid "RECOIL"
 msgstr "反動"
@@ -3040,6 +3052,9 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "INGAMEONLY"
+#~ msgstr "ゲーム内のみ"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

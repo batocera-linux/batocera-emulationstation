@@ -363,8 +363,16 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 
 bool ApiSystem::ping() 
 {
-	if (!executeScript("timeout 1 ping -c 1 -t 1000 8.8.8.8")) // ping Google DNS
-		return executeScript("timeout 2 ping -c 1 -t 2000 8.8.4.4"); // ping Google secondary DNS & give 2 seconds
+	// ping Google, if it fails then move on, if succeeds exit loop and return "true"
+	if (!executeScript("timeout 1 ping -c 1 -t 1000 google.com"))
+	{
+		// ping Google DNS
+		if (!executeScript("timeout 1 ping -c 1 -t 1000 8.8.8.8"))
+		{
+			// ping Google secondary DNS & give 2 seconds, return this one's status
+			return executeScript("timeout 2 ping -c 1 -t 2000 8.8.4.4");
+		}
+	}
 
 	return true;
 }
@@ -1748,6 +1756,9 @@ std::vector<PadInfo> ApiSystem::getPadsInfo()
 
 		if (pad.attribute("status"))
 			pi.status = pad.attribute("status").as_string();
+
+		if (pad.attribute("path"))
+			pi.path = pad.attribute("path").as_string();
 
 		ret.push_back(pi);
 	}

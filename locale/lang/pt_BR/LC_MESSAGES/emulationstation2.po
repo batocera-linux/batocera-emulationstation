@@ -381,7 +381,7 @@ msgstr "PLACAR"
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
 "Competir em tabelas de classificação de pontuação alta e melhor tempo "
-"(requer que o modo restrito esteja ativo)."
+"(requer modo restrito ativo)."
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
@@ -607,7 +607,7 @@ msgid "VIEW DETAILS"
 msgstr "VISUALIZAR DETALHES"
 
 msgid "LAUNCH"
-msgstr "EXECUTAR"
+msgstr "INICIAR JOGO"
 
 msgid "NETPLAY SETTINGS"
 msgstr "AJUSTES DE JOGO EM REDE"
@@ -839,7 +839,7 @@ msgid "NO MISSING BIOS FILES"
 msgstr "NENHUM ARQUIVO DE BIOS FALTANDO"
 
 msgid "MISSING BIOS CHECK"
-msgstr "BIOS FALTANDO"
+msgstr "VERIFICAR AUSÊNCIA DE BIOS"
 
 msgid "NO MISSING BIOS"
 msgstr "NENHUMA BIOS FALTANDO"
@@ -1167,7 +1167,7 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JOGO NÃO POSSUI CONQUISTAS"
 
 msgid "Achievements won"
-msgstr "Conquistas realizadas"
+msgstr "Conquistas alcançadas"
 
 #, c-format
 msgid "%d%% complete"
@@ -1192,7 +1192,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR PARA UM ESPAÇO LIVRE"
 
 msgid "SCRAPER SETTINGS"
-msgstr "AJUSTES DE SCRAPER"
+msgstr "AJUSTES (SCRAPER)"
 
 msgid "IMAGE SOURCE"
 msgstr "FONTE DA MÍDIA DE IMAGEM"
@@ -1258,7 +1258,7 @@ msgid "MANUAL"
 msgstr "MANUAL"
 
 msgid "PADTOKEY SETTINGS"
-msgstr "AJUSTES DE CONTROLE PARA TECLADO"
+msgstr "AJUSTES DE CONTROLE PARA TECLADO (PAD2KEY)"
 
 msgid "SCRAPER"
 msgstr "PROCURAR MÍDIAS DE JOGO"
@@ -1276,7 +1276,7 @@ msgid "FILTERS"
 msgstr "FILTROS"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "PROCURAR MÍDIAS DOS JOGOS PARA"
+msgstr "PROCURAR MÍDIAS PARA"
 
 msgid "ALL"
 msgstr "TODOS"
@@ -1832,13 +1832,13 @@ msgid "BOOT SPLASH"
 msgstr "TELA DE ABERTURA"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "VÍDEO(S) PADRÃO(ÕES)"
+msgstr "VÍDEO(S) PADRÃO(ÕES) COM SOM"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr "VÍDEO(S) SILENCIADO(S)"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "IMAGEM"
+msgstr "IMAGEM DO BATOCERA"
 
 msgid "SPLASH SETTING"
 msgstr "AJUSTES DA TELA DE ABERTURA"
@@ -1892,7 +1892,7 @@ msgid "on"
 msgstr "ligado"
 
 msgid "OVERCLOCK"
-msgstr "FORÇAR FREQUÊNCIA DO PROCESSADOR"
+msgstr "FORÇAR O PROCESSADOR"
 
 msgid "STORAGE"
 msgstr "ARMAZENAMENTO"
@@ -2073,16 +2073,16 @@ msgstr ""
 "estado ao sair do jogo."
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "ESTADOS DE SALVAMENTO INCREMENTAIS"
+msgstr "TIPO DE INCREMENTO"
 
 msgid "INCREMENT PER SAVE"
-msgstr "INCREMENTAR POR ESTADO DE SALVAMENTO"
+msgstr "POR ESTADO DE SALVAMENTO"
 
 msgid "Never overwrite old savestates, always make new ones."
 msgstr "Nunca sobrescreva estados de salvamento antigos, sempre crie novos."
 
 msgid "INCREMENT SLOT"
-msgstr "INCREMENTAR ESPAÇO"
+msgstr "POR ESPAÇO DE SALVAMENTO"
 
 msgid "Increment slot on a new game."
 msgstr "Incrementa novo espaço em um novo jogo."
@@ -2168,6 +2168,18 @@ msgstr "MÉDIO"
 
 msgid "BIG"
 msgstr "GRANDE"
+
+msgid "BORDER MODE"
+msgstr "MODO DA BORDA"
+
+msgid "NORMAL"
+msgstr "NORMAL"
+
+msgid "IN GAME ONLY"
+msgstr "SOMENTE NO JOGO"
+
+msgid "HIDDEN"
+msgstr "OCULTO"
 
 msgid "RECOIL"
 msgstr "RECUO"

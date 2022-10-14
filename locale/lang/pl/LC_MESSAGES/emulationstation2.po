@@ -373,7 +373,8 @@ msgid "HARDCORE MODE"
 msgstr "TRYB HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Wyłącz wczytywanie stanów, przewijanie i cheaty dla większej ilości punktów."
+msgstr ""
+"Wyłącz wczytywanie stanów, przewijanie i cheaty dla większej ilości punktów."
 
 msgid "LEADERBOARDS"
 msgstr "RANKINGI"
@@ -386,7 +387,8 @@ msgid "VERBOSE MODE"
 msgstr "TRYB INFORMACJI PEŁNEJ"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "Pokaż postępy osiągnięć przy uruchomieniu gry i w innych powiadomieniach."
+msgstr ""
+"Pokaż postępy osiągnięć przy uruchomieniu gry i w innych powiadomieniach."
 
 msgid "RICH PRESENCE"
 msgstr "BOGATA PREZENCJA"
@@ -1971,7 +1973,8 @@ msgstr "TRYB WIDEO"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr "Ustawia rozdzielczość ekranu. Nie wpływa na rozdzielczość renderowania."
+msgstr ""
+"Ustawia rozdzielczość ekranu. Nie wpływa na rozdzielczość renderowania."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "WYGŁADZANIE GIER (FILTROWANIE DWULINIOWE)"
@@ -2057,7 +2060,9 @@ msgid "AUTO SAVE/LOAD"
 msgstr "AUTOMATYCZNE ZAPISYWANIE/WCZYTYWANIE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy wychodzeniu z gry."
+msgstr ""
+"Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
+"wychodzeniu z gry."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "PRZYROSTOWY ZAPIS STANU"
@@ -2153,6 +2158,18 @@ msgstr "ŚREDNIE"
 
 msgid "BIG"
 msgstr "WIELKIE"
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
 
 msgid "RECOIL"
 msgstr "ODRZUT"

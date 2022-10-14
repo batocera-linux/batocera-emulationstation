@@ -920,7 +920,7 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 	for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
 	{
 		std::string name = system.child("name").text().get();
-		if (name == systemName)
+		if (Utils::String::compareIgnoreCase(name, systemName) == 0)
 			return loadSystem(system, fullMode);
 	}
 
@@ -1435,7 +1435,7 @@ void SystemData::loadTheme()
 		sysData["cheevos.username"] = SystemConf::getInstance()->getBool("global.retroachievements") ? SystemConf::getInstance()->get("global.retroachievements.username") : "";
 
 		// System variables
-		sysData["system.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection() || isGameSystem()) ? "true" : "false";
+		sysData["system.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") && (isCheevosSupported() || isCollection()) ? "true" : "false";
 		sysData["system.netplay"] = SystemConf::getInstance()->getBool("global.netplay") && isNetplaySupported() ? "true" : "false";
 		sysData["system.savestates"] = isCurrentFeatureSupported(EmulatorFeatures::autosave) ? "true" : "false";
 
@@ -1812,9 +1812,9 @@ bool SystemData::hasEmulatorSelection()
 }
 
 SystemData* SystemData::getSystem(const std::string name)
-{
+{	
 	for (auto sys : SystemData::sSystemVector)
-		if (sys->getName() == name)
+		if (Utils::String::compareIgnoreCase(sys->getName(), name) == 0)
 			return sys;
 
 	return nullptr;

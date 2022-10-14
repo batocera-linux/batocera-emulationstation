@@ -93,12 +93,6 @@
     <game>maddogii</game>
     <game>whoshotjohnnyrock</game> 
   </system>
-  <system name="model3">
-    <game>lamachineguns</game>
-    <game>starwarstrilogyarcade</game>
-    <game>thelostworldjurassicpark</game>
-    <game>theoceanhunter</game>
-  </system>
   <system name="nes">
     <game>3in1supergun</game>
     <game>babyboomer</game>

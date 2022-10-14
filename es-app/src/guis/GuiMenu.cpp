@@ -1553,6 +1553,7 @@ void GuiMenu::openSystemSettings()
 	language_choice->add("ESPAÑOL", 	     "es_ES", language == "es_ES" || language == "es");
 	language_choice->add("ESPAÑOL MEXICANO",     "es_MX", language == "es_MX");
 	language_choice->add("BASQUE",               "eu_ES", language == "eu_ES");
+	language_choice->add("SUOMI",                "fi_FI", language == "fi_FI");
 	language_choice->add("FRANÇAIS",             "fr_FR", language == "fr_FR" || language == "fr");
 	language_choice->add("עברית",                "he_IL", language == "he_IL");
 	language_choice->add("HUNGARIAN",            "hu_HU", language == "hu_HU");
@@ -3086,17 +3087,17 @@ void GuiMenu::openControllersSettings(int autoSel)
 	clearLoadedInput();
 
 	std::vector<std::shared_ptr<OptionListComponent<StrInputConfig *>>> options;
-	//char strbuf[256];
 
 	auto configList = InputManager::getInstance()->getInputConfigs();
 
 	for (int player = 0; player < MAX_PLAYERS; player++) 
-	{
-		std::string label = Utils::String::format(_("P%i'S CONTROLLER").c_str(), player + 1);
+	{		
 		std::string confName = Utils::String::format("INPUT P%iNAME", player + 1);
 		std::string confGuid = Utils::String::format("INPUT P%iGUID", player + 1);
+		std::string confPath = Utils::String::format("INPUT P%iPATH", player + 1);
 
-		LOG(LogInfo) << player + 1 << " " << confName << " " << confGuid;
+		std::string label = Utils::String::format(_("P%i'S CONTROLLER").c_str(), player + 1);
+
 		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig *> >(mWindow, label, false);
 		inputOptionList->add(_("default"), nullptr, false);
 		options.push_back(inputOptionList);
@@ -3104,28 +3105,26 @@ void GuiMenu::openControllersSettings(int autoSel)
 		// Checking if a setting has been saved, else setting to default
 		std::string configuratedName = Settings::getInstance()->getString(confName);
 		std::string configuratedGuid = Settings::getInstance()->getString(confGuid);
+		std::string configuratedPath = Settings::getInstance()->getString(confPath);
+
 		bool found = false;
 
 		// For each available and configured input
 		for (auto config : configList)
 		{
-			// create name
-			std::stringstream dispNameSS;
-			dispNameSS << "#" << config->getDeviceIndex() << " ";
+#if WIN32
+			std::string displayName = config->getDeviceName();
+#else
+			std::string displayName = "#" + std::to_string(config->getDeviceIndex()) + " " + config->getDeviceName();
+#endif
 
-			std::string deviceName = config->getDeviceName();
-			if (deviceName.size() > 25) 
-				dispNameSS << deviceName.substr(0, 16) << "..." << deviceName.substr(deviceName.size() - 5, deviceName.size() - 1);
-			else
-				dispNameSS << deviceName;
+			bool foundFromConfig = !configuratedPath.empty() ? config->getSortDevicePath() == configuratedPath : configuratedName == config->getDeviceName() && configuratedGuid == config->getDeviceGUIDString();
 
-			std::string displayName = dispNameSS.str();
-
-			bool foundFromConfig = configuratedName == config->getDeviceName() && configuratedGuid == config->getDeviceGUIDString();
 			int deviceID = config->getDeviceId();
+
 			// Si la manette est configurée, qu'elle correspond a la configuration, et qu'elle n'est pas
 			// deja selectionnée on l'ajoute en séléctionnée
-			StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString());
+			StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString(), config->getSortDevicePath());
 			mLoadedInput.push_back(newInputConfig);
 
 			if (foundFromConfig && std::find(alreadyTaken.begin(), alreadyTaken.end(), deviceID) == alreadyTaken.end() && !found) 
@@ -3133,13 +3132,22 @@ void GuiMenu::openControllersSettings(int autoSel)
 				found = true;
 				alreadyTaken.push_back(deviceID);
 				
-				LOG(LogWarning) << "adding entry for player" << player << " (selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString();
+				LOG(LogWarning) << "adding entry for player" << player << " (selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString() << "  " << config->getDevicePath();
+
+#if WIN32
+				inputOptionList->addEx(displayName, config->getDevicePath(), newInputConfig, true, false, false);
+#else
 				inputOptionList->add(displayName, newInputConfig, true);
+#endif
 			}
 			else 
 			{
-				LOG(LogInfo) << "adding entry for player" << player << " (not selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString();
+				LOG(LogInfo) << "adding entry for player" << player << " (not selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString() << "  " << config->getDevicePath();
+#if WIN32
+				inputOptionList->addEx(displayName, config->getDevicePath(), newInputConfig, false, false, false);
+#else
 				inputOptionList->add(displayName, newInputConfig, false);
+#endif
 			}
 		}
 
@@ -3156,10 +3164,9 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 		for (int player = 0; player < MAX_PLAYERS; player++) 
 		{
-			std::stringstream sstm;
-			sstm << "INPUT P" << player + 1;
-			std::string confName = sstm.str() + "NAME";
-			std::string confGuid = sstm.str() + "GUID";
+			std::string confName = Utils::String::format("INPUT P%iNAME", player + 1);
+			std::string confGuid = Utils::String::format("INPUT P%iGUID", player + 1);
+			std::string confPath = Utils::String::format("INPUT P%iPATH", player + 1);
 
 			auto input = options.at(player);
 
@@ -3168,14 +3175,15 @@ void GuiMenu::openControllersSettings(int autoSel)
 			{
 				changed |= Settings::getInstance()->setString(confName, "DEFAULT");
 				changed |= Settings::getInstance()->setString(confGuid, "");
+				changed |= Settings::getInstance()->setString(confPath, "");
 			}
 			else if (input->changed())
 			{
-				LOG(LogWarning) << "Found the selected controller ! : name in list  = " << input->getSelectedName();
-				LOG(LogWarning) << "Found the selected controller ! : guid  = " << selected->deviceGUIDString;
+				LOG(LogInfo) << "Found the selected controller : " << input->getSelectedName() << ", " << selected->deviceGUIDString << ", " << selected->devicePath;
 
 				changed |= Settings::getInstance()->setString(confName, selected->deviceName);
 				changed |= Settings::getInstance()->setString(confGuid, selected->deviceGUIDString);
+				changed |= Settings::getInstance()->setString(confPath, selected->devicePath);
 			}			
 		}
 
@@ -3202,6 +3210,15 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 
 	s->addOptionList(_("BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
+	std::string selectedBordersMode = SystemConf::getInstance()->get("controllers.guns.bordersmode");
+	auto bordersmode_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER MODE"), false);
+	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
+	border_set->add(_("NORMAL"),   "NORMAL",   "NORMAL"   == selectedSet);
+	border_set->add(_("IN GAME ONLY"), "INGAMEONLY", "INGAMEONLY" == selectedSet);
+	border_set->add(_("HIDDEN"),    "HIDDEN",    "HIDDEN"    == selectedSet);
+
+	s->addOptionList(_("BORDER MODE"), { { _("AUTO"), "auto" },{ _("NORMAL") , "normal" },{ _("IN GAME ONLY"), "gameonly" },{ _("HIDDEN"), "hidden" } }, "controllers.guns.bordersmode", false);
+
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
 	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
@@ -3217,6 +3234,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	    ApiSystem::getInstance()->replugControllers_sindenguns();
 	  }
 	});
+
 	mWindow->pushGui(s);
 }
 
@@ -4254,9 +4272,9 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SUSPEND))
 	{
-		s->addEntry(_("SUSPEND SYSTEM"), false, [window] {
+		s->addEntry(_("SUSPEND SYSTEM"), false, [window, s] {
 			window->pushGui(new GuiMsgBox(window, _("REALLY SUSPEND ?"),
-				_("YES"), [] { ApiSystem::getInstance()->suspend(); },
+				_("YES"), [s] { s->close(); ApiSystem::getInstance()->suspend(); },
 				_("NO"), nullptr));
 		}, "iconFastShutdown");
 	}

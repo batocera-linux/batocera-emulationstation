@@ -526,9 +526,20 @@ void Window::renderSindenBorders()
 	for (auto gun : InputManager::getInstance()->getGuns())
 		if (gun->needBorders()) 
 			drawGunBorders = true;		
-	
-	if (!drawGunBorders && SystemConf::getInstance()->getBool("controllers.guns.forceborders")) // SETTING FOR DEBUGGING BORDERS
-		drawGunBorders = true; 
+
+	// normal (default) : draw borders when required
+	// hidden : the border are not displayed (assume that there are provided by an other way like bezels)
+	// force  : force even if no gun requires it (or even no gun at all)
+	// gameonly : borders are not visible in es, just in game (for boards having a sinden gun alway plugged in)
+	auto bordersMode = SystemConf::getInstance()->get("controllers.guns.bordersmode");
+	if (drawGunBorders)
+	  if(bordersMode == "hidden" || bordersMode == "gameonly")
+	    drawGunBorders = false;
+
+	if (!drawGunBorders)
+	  if(bordersMode == "force")
+	    // SETTING FOR DEBUGGING BORDERS
+	    drawGunBorders = true;
 
 	if (drawGunBorders)
 	{

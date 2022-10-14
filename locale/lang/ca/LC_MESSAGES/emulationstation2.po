@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2022-09-20 21:13+0200\n"
+"PO-Revision-Date: 2022-09-23 18:14+0200\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -2187,6 +2187,18 @@ msgstr "MITJÀ"
 msgid "BIG"
 msgstr "GRAN"
 
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "RETROCÉS"
 
@@ -2266,10 +2278,10 @@ msgid "SHOW SAVESTATE ICON"
 msgstr "MOSTRAR ICONA D'ESTAT DESAT"
 
 msgid "SHOW MANUAL ICON"
-msgstr "MOSTARR ICONA MANUAL"
+msgstr "MOSTRAR ICONA MANUAL"
 
 msgid "SHOW FILENAMES INSTEAD"
-msgstr "MOSTAR NOMS D'ARXIUS EN LLOC DE"
+msgstr "MOSTRAR NOM D’ARXIU ENLLOC DEL NOM DEL JOC"
 
 msgid "FILE EXTENSIONS"
 msgstr "EXTENSIONS D'ARXIU"

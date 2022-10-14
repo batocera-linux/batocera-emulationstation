@@ -890,6 +890,16 @@ namespace Utils
 			return hex;
 		}
 
+		std::string padLeft(const std::string& data, const size_t& totalWidth, const char& padding)
+		{
+			if (data.length() >= totalWidth)
+				return data;
+
+			std::string ret = data;
+			ret.insert(0, totalWidth - ret.length(), padding);
+			return ret;
+		}
+
 		bool isPrintableChar(char c)
 		{			
 #if defined(_WIN32)

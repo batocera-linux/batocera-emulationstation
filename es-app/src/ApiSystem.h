@@ -71,6 +71,7 @@ struct PadInfo
 	std::string name;
 	std::string device;
 	std::string status;
+	std::string path;
 	int battery;
 };
 

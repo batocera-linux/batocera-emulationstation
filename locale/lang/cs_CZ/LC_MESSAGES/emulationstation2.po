@@ -586,10 +586,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Body (hardcore)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Body Softcore"
 
 msgid "Rank"
 msgstr "Hodnost"
@@ -1163,7 +1163,7 @@ msgid "%d%% complete"
 msgstr "HOTOVO %d%%"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "SPRÁVCE UKLÁDÁNÍ POZIC"
 
 msgid "START NEW GAME"
 msgstr "START NOVÉ HRY"
@@ -1930,6 +1930,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
+"Automaticky dočasně sníží zpoždění snímků, aby se zabránilo jejich výpadkům. "
+"Může způsobit zadrhávání."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "PROMĚNLIVÁ OBNOVOVACÍ FREKVENCE (G-SYNC, FREESYNC)"
@@ -2122,10 +2124,10 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "NASTAVENÍ ZBRANĚ SINDEN"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2135,7 +2137,7 @@ msgid "default"
 msgstr "výchozí"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "VELIKOST OHRANIČENÍ"
 
 msgid "THIN"
 msgstr "TENKÁ"
@@ -2146,6 +2148,18 @@ msgstr "STŘEDNÍ"
 msgid "BIG"
 msgstr "VELKÁ"
 
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "ZÁKLUZ"
 
@@ -2153,13 +2167,13 @@ msgid "GUN"
 msgstr "PISTOLE"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "AUTOMATICKÁ ZBRAŇ"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "TICHÁ ZBRAŇ"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "TICHÁ AUTOMATICKÁ ZBRAŇ"
 
 msgid "MODE"
 msgstr "MÓD"
@@ -2375,10 +2389,10 @@ msgid "REALLY RESTART?"
 msgstr "OPRAVDU RESTARTOVAT?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "SYSTÉM POZASTAVENÍ"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "OPRAVDU POZASTAVIT ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "VYPNOUT"
@@ -2470,6 +2484,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
+"NĚKTERÉ SOUBORY, KTERÉ JSTE PROPOJILI, SE NACHÁZEJÍ MIMO CESTU K SEZNAMU "
+"HER.\n"
+"CHCETE POUŽÍT KOPII TĚCHTO SOUBORŮ VZHLEDEM K SEZNAMU HER ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ"
@@ -2653,7 +2670,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "CHCETE PŘEPNOUT OBRAZOVKU ?"
 
 msgid "Collections"
 msgstr "Sbírka"
