@@ -370,6 +370,9 @@ void ISimpleGameListView::showSelectedGameSaveSnapshots()
 			ViewController::get()->launch(cursor, options);
 		}
 		));
+#ifdef _ENABLEEMUELEC
+		guiSaveStateLoad(mWindow, cursor);
+#endif
 	}
 }
 
@@ -411,6 +414,9 @@ void ISimpleGameListView::launchSelectedGame()
 					ViewController::get()->launch(cursor, options);
 				}
 				));
+#ifdef _ENABLEEMUELEC
+				guiSaveStateLoad(mWindow, cursor);
+#endif
 			}
 			else
 			{

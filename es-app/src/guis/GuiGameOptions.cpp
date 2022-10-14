@@ -28,8 +28,8 @@
 #include "SystemConf.h"
 
 #ifdef _ENABLEEMUELEC
-#include "platform.h"
 #include <regex>
+#include "platform.h"
 #endif
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
@@ -147,18 +147,21 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 	{
 		mMenu.addGroup(_("GAME"));
 
+ 
 		if (SaveStateRepository::isEnabled(game))
 		{
 			mMenu.addEntry(_("SAVE STATES"), false, [window, game, this]
 			{
-				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState state)
-				{
-					LaunchGameOptions options;
-					options.saveStateInfo = state;
-					ViewController::get()->launch(game, options);
-				}));
-
-				this->close();
+					mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState state)
+					{
+						LaunchGameOptions options;
+						options.saveStateInfo = state;
+						ViewController::get()->launch(game, options);
+					}));
+#ifdef _ENABLEEMUELEC
+					guiSaveStateLoad(mWindow, game);
+#endif
+					this->close();
 			});
 		}
 		else

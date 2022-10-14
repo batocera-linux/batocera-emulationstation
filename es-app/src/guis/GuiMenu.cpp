@@ -5003,6 +5003,22 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		systemConfiguration->addSaveFunc([configName, autosave_enabled] { SystemConf::getInstance()->set(configName + ".autosave", autosave_enabled->getSelected()); });
 	}
 #ifdef _ENABLEEMUELEC
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::cloudsave))
+	{
+		auto enable_cloudsave = std::make_shared<SwitchComponent>(mWindow);
+		bool cloudSaveEnabled = SystemConf::getInstance()->get(configName + ".cloudsave") == "1";
+		enable_cloudsave->setState(cloudSaveEnabled);
+		systemConfiguration->addWithLabel(_("ENABLE CLOUD SAVE"), enable_cloudsave);
+
+		systemConfiguration->addSaveFunc([enable_cloudsave, mWindow, configName] {
+			bool cloudSaveEnabled = enable_cloudsave->getState();
+			SystemConf::getInstance()->set(configName + ".cloudsave", cloudSaveEnabled ? "1" : "0");
+			SystemConf::getInstance()->saveSystemConf();
+		});
+	}
+#endif
+	
+#ifdef _ENABLEEMUELEC
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
 		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))

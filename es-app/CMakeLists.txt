@@ -27,6 +27,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveState.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateRepository.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/CloudSaves.h
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
@@ -132,7 +133,8 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveState.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateRepository.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/CloudSaves.cpp
 
     # GuiComponents
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp

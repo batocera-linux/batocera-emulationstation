@@ -94,6 +94,7 @@ public:
 		nativevideo = 1048576,
 		hlebios = 2097152,
     joybtnremap = 4194304,
+		cloudsave = 8388608,
 #endif
 		all = 0x0FFFFFFF
 	};

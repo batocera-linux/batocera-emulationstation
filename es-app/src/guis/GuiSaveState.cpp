@@ -94,8 +94,15 @@ GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<v
 	mGrid->applyTheme(mTheme, "grid", "gamegrid", 0);
 	mGrid->setCursorChangedCallback([&](const CursorState& /*state*/) { updateHelpPrompts(); });
 
+#ifdef _ENABLEEMUELEC
+	if (!CloudSaves::getInstance().isSupported(game)) {
+		loadGrid();
+		centerWindow();
+	}
+#else
 	loadGrid();
 	centerWindow();
+#endif
 }
 
 void GuiSaveState::loadGrid()
@@ -111,6 +118,11 @@ void GuiSaveState::loadGrid()
 		std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->creationDate >= file2->creationDate; });
 	else
 		std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->slot < file2->slot; });
+
+#ifdef _ENABLEEMUELEC
+	if (CloudSaves::getInstance().isSupported(mGame))
+		mGrid->add(_("SAVE TO CLOUD"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-3));
+#endif
 
 	mGrid->add(_("START NEW GAME"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-2));
 
@@ -194,6 +206,12 @@ bool GuiSaveState::input(InputConfig* config, Input input)
 		if (mGrid->size())
 		{
 			const SaveState& item = mGrid->getSelected();
+#ifdef _ENABLEEMUELEC
+			if (item.slot == -3) {
+				CloudSaves::getInstance().save(mWindow, mGame);
+				return false;
+			}
+#endif
 			mRunCallback(item);
 		}
 

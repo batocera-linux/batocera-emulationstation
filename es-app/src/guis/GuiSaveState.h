@@ -10,6 +10,10 @@
 #include "components/TextComponent.h"
 #include "SaveState.h"
 
+#ifdef _ENABLEEMUELEC
+	#include "CloudSaves.h"
+#endif
+
 class ThemeData;
 class FileData;
 class SaveStateRepository;
@@ -26,6 +30,12 @@ public:
 	bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 	bool onMouseClick(int button, bool pressed, int x, int y);
 
+#ifdef _ENABLEEMUELEC
+	void loadGridAndCenter() {
+		loadGrid();
+		centerWindow();
+	};
+#endif
 
 protected:
 	void centerWindow();
