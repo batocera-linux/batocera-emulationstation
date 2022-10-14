@@ -2149,16 +2149,16 @@ msgid "BIG"
 msgstr "VELKÁ"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "HRANIČNÍ REŽIM"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "NORMÁLNÍ"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "POUZE VE HŘE"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "SKRYTÝ"
 
 msgid "RECOIL"
 msgstr "ZÁKLUZ"
