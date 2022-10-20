@@ -141,6 +141,7 @@
     <game>pointblank2</game>
     <game>pointblank3</game>
     <game>projecthornedowl</game>
+    <game>puffypsiloveyou</game>
     <game>rescueshot</game>
     <game>thegunshooting</game>
     <game>thegunshooting2</game>
@@ -165,7 +166,6 @@
   <system name="snes">
     <game>battleclash</game>
     <game>bazookablitzkrieg</game>
-    <game>lamborghiniamericanchallenge</game>
     <game gun="justifier">lethalenforcers</game>
     <game>metalcombatfalconsrevenge</game>
     <game>nintendoscope6</game>
