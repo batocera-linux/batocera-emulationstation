@@ -371,8 +371,7 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
-"Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
+msgstr "Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -380,14 +379,13 @@ msgstr "PLACAR"
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
 "Competir em tabelas de classificação de pontuação alta e melhor tempo "
-"(requer que o modo restrito esteja ativo)."
+"(requer modo restrito esteja ativo)."
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
-"Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
+msgstr "Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -402,8 +400,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
-"Automaticamente captura uma imagem quando uma conquista retro é conquistada."
+msgstr "Automaticamente captura uma imagem quando uma conquista retro é conquistada."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFIOS"
@@ -605,7 +602,7 @@ msgid "VIEW DETAILS"
 msgstr "VER DETALHES"
 
 msgid "LAUNCH"
-msgstr "EXECUTAR"
+msgstr "INICIAR JOGO"
 
 msgid "NETPLAY SETTINGS"
 msgstr "DEFINIÇÕES DE JOGOS EM REDE"
@@ -837,7 +834,7 @@ msgid "NO MISSING BIOS FILES"
 msgstr "NENHUM FICHEIRO DE BIOS EM FALTA"
 
 msgid "MISSING BIOS CHECK"
-msgstr "BIOS EM FALTA"
+msgstr "VERIFICAR BIOS EM FALTA"
 
 msgid "NO MISSING BIOS"
 msgstr "SEM BIOS EM FALTA"
@@ -1165,7 +1162,7 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JOGO NÃO TEM CONQUISTAS"
 
 msgid "Achievements won"
-msgstr "Conquistas ganhas"
+msgstr "Conquistas alcançadas"
 
 #, c-format
 msgid "%d%% complete"
@@ -1190,7 +1187,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR PARA UM SLOT LIVRE"
 
 msgid "SCRAPER SETTINGS"
-msgstr "AJUSTES DO OBTER CAPAS"
+msgstr "AJUSTES OBTER CAPAS"
 
 msgid "IMAGE SOURCE"
 msgstr "FONTE DA MEDIA DE IMAGEM"
@@ -1256,7 +1253,7 @@ msgid "MANUAL"
 msgstr "MANUAL"
 
 msgid "PADTOKEY SETTINGS"
-msgstr "AJUSTES DE COMANDO PARA TECLADO"
+msgstr "AJUSTES DE COMANDO PARA TECLADO (PAD2KEY)"
 
 msgid "SCRAPER"
 msgstr "OBTER CAPAS"
@@ -1274,7 +1271,7 @@ msgid "FILTERS"
 msgstr "FILTROS"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "JOGOS A PROCURAR POR"
+msgstr "PROCURAR MEDIAS PARA"
 
 msgid "ALL"
 msgstr "TODOS"
@@ -1541,7 +1538,7 @@ msgstr "ATIVAR ACESSO PÚBLICO À API WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Permitir acesso público web à API utilizando %s"
+msgstr "Permite acesso público web à API utilizando %s"
 
 msgid "LOG LEVEL"
 msgstr "NÍVEL DO LOG"
@@ -1753,8 +1750,7 @@ msgid "INSTANT"
 msgstr "INSTANTÂNEO"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
-"Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
+msgstr "Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE ECRÃ (TEXTO PARA VOZ)"
@@ -1827,13 +1823,13 @@ msgid "BOOT SPLASH"
 msgstr "ECRÃ DE ABERTURA"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "VÍDEO(S) PADRÃO(ÕES) DO ECRÃ DE ABERTURA"
+msgstr "VÍDEO(S) PADRÃO(ÕES) COM SOM"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr "SILENCIAR VÍDEO(S) DO ECRÃ DE ABERTURA"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "IMAGEM NO ECRÃ DE ABERTURA DO BATOCERA"
+msgstr "IMAGEM DO BATOCERA"
 
 msgid "SPLASH SETTING"
 msgstr "DEFINIÇÕES DO ECRÃ DE ABERTURA"
@@ -1941,7 +1937,7 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Diminua automaticamente o atraso de frame temporariamente para evitar quedas "
+"Diminue automaticamente o atraso de frame temporariamente para evitar quedas "
 "de frame. Pode acontecer engasgos."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -1969,7 +1965,7 @@ msgid "GAME ASPECT RATIO"
 msgstr "PROPORÇÃO DO ECRÃ"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr "Force o jogo a renderizar nesta proporção de aspecto."
+msgstr "Força o jogo a renderizar nesta proporção de aspecto."
 
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
@@ -1985,8 +1981,7 @@ msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
-"Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
+msgstr "Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
@@ -2061,20 +2056,19 @@ msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
+msgstr "Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "SAVESTATES INCREMENTAIS"
+msgstr "TIPO DE INCREMENTO"
 
 msgid "INCREMENT PER SAVE"
-msgstr "INCREMENTAR POR SAVES"
+msgstr "POR ESTADO DE SAVES"
 
 msgid "Never overwrite old savestates, always make new ones."
 msgstr "Nunca sobrescreva savestates antigos, sempre crie novos."
 
 msgid "INCREMENT SLOT"
-msgstr "INCREMENTAR SLOT"
+msgstr "POR ESPAÇO DE SLOT"
 
 msgid "Increment slot on a new game."
 msgstr "INCREMENTAR SLOT EM UM NOVO JOGO"
@@ -2161,19 +2155,19 @@ msgid "BIG"
 msgstr "GRANDE"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "MODO DA BORDA"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "SOMENTE NO JOGO"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "OCULTO"
 
 msgid "RECOIL"
-msgstr "COICE"
+msgstr "RECUO"
 
 msgid "GUN"
 msgstr "PISTOLA"
