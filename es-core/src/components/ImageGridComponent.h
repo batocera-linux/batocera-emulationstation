@@ -320,8 +320,15 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 
 				entry.data.tile = tile;
 
-				if (mCursor == i && getSelectedTile() == nullptr)
+				if (mCursor == i)
 				{
+					auto curTile = getSelectedTile();
+					while (curTile != nullptr)
+					{
+						curTile->setSelected(false, false, nullptr, true);
+						curTile = getSelectedTile();
+					}
+
 					mLastCursor = mCursor;
 					tile->setSelected(true, true, nullptr, true);
 				}
@@ -1019,15 +1026,19 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 	{
 		if (ALLOWANIMATIONS && mAnimateSelection)
 			oldPos = mEntries[mLastCursor].data.tile->getBackgroundPosition();
-
-		if (mEntries[mLastCursor].data.tile->isSelected())
-			mEntries[mLastCursor].data.tile->setSelected(false, true, nullptr, true);
 	}
 
 	if (mCursor >= 0 && mCursor < mEntries.size() && mEntries[mCursor].data.tile != nullptr)
 	{
 		if (!mEntries[mCursor].data.tile->isSelected())
 		{
+			auto selectedTile = getSelectedTile();
+			while (selectedTile != nullptr)
+			{
+				selectedTile->setSelected(false, true, nullptr, true);
+				selectedTile = getSelectedTile();
+			}
+
 			if (!mAnimateSelection)
 			{
 				oldPos = Vector3f(0, 0);
@@ -1409,11 +1420,15 @@ bool ImageGridComponent<T>::onMouseClick(int button, bool pressed, int x, int y)
 				{
 					mCursor = cursor;
 
-					if (mLastCursor >= 0 && mLastCursor < mEntries.size() && mEntries[mLastCursor].data.tile != nullptr)
-						mEntries[mLastCursor].data.tile->setSelected(false, true, nullptr, true);
-
 					if (mCursor >= 0 && mCursor < mEntries.size() && mEntries[mCursor].data.tile != nullptr)
 					{
+						auto selectedTile = getSelectedTile();
+						while (selectedTile != nullptr)
+						{
+							selectedTile->setSelected(false, true, nullptr, true);
+							selectedTile = getSelectedTile();
+						}
+
 						Vector3f oldPos = Vector3f::Zero();
 						mEntries[mCursor].data.tile->setSelected(true, true, mAnimateSelection ? nullptr : &oldPos, true);
 					}
@@ -1529,12 +1544,15 @@ void ImageGridComponent<T>::onMouseMove(int x, int y)
 			if (mCursor != newCursor && newCursor >= 0 && newCursor < mEntries.size())
 			{
 				mCursor = newCursor;
-
-				if (mLastCursor >= 0 && mLastCursor < mEntries.size() && mEntries[mLastCursor].data.tile != nullptr)
-					mEntries[mLastCursor].data.tile->setSelected(false, true, nullptr, true);
-
 				if (mCursor >= 0 && mCursor < mEntries.size() && mEntries[mCursor].data.tile != nullptr)
 				{
+					auto selectedTile = getSelectedTile();
+					while (selectedTile != nullptr)
+					{
+						selectedTile->setSelected(false, true, nullptr, true);
+						selectedTile = getSelectedTile();
+					}
+
 					Vector3f oldPos = Vector3f::Zero();
 					mEntries[mCursor].data.tile->setSelected(true, true, mAnimateSelection ? nullptr : &oldPos, true, false);
 				}
