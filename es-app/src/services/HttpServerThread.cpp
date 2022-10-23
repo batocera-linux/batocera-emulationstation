@@ -21,8 +21,8 @@
 #include "ApiSystem.h"
 
 #include "ThreadedHasher.h"
-#include "scrapers\ThreadedScraper.h"
-#include "guis\GuiUpdate.h"
+#include "scrapers/ThreadedScraper.h"
+#include "guis/GuiUpdate.h"
 
 /* 
 
