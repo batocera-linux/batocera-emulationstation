@@ -1083,8 +1083,8 @@ void ApiSystem::setBrightness(int value)
 	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_NAME == "notfound")
 		return;
 
-	if (value < 5)
-		value = 5;
+	if (value < 1)
+		value = 1;
 
 	if (value > 100)
 		value = 100;
