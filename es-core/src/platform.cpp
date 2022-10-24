@@ -389,7 +389,7 @@ BatteryInformation queryBatteryInformation()
 		}
 	}
 
-	if ((batteryStatusPath.length() <= 1) || (batteryCurrChargePath.length() <= 1))
+	if ((batteryStatusPath.length() <= 1) && (batteryCurrChargePath.length() <= 1))
 	{
 		ret.hasBattery = false;
 		ret.isCharging = false;
