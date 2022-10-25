@@ -151,18 +151,26 @@ std::string ApiSystem::getVersion()
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";
 
-	std::string localVersionFile = Paths::getVersionInfoPath();	
-	if (!Utils::FileSystem::exists(localVersionFile))
-		localVersionFile = Paths::findEmulationStationFile("version.info");
+	if (isScriptingSupported(VERSIONINFO)) {
+	  auto res = executeEnumerationScript("batocera-version");
+	  if (res.size() >= 0)
+	    return res[0];
+	  else
+	    return "";
+	} else {
+	  std::string localVersionFile = Paths::getVersionInfoPath();
+	  if (!Utils::FileSystem::exists(localVersionFile))
+	    localVersionFile = Paths::findEmulationStationFile("version.info");
 
-	if (Utils::FileSystem::exists(localVersionFile))
-	{
-		std::string localVersion = Utils::FileSystem::readAllText(localVersionFile);
-		localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
-		return localVersion;
-	}
+	  if (Utils::FileSystem::exists(localVersionFile))
+	    {
+	      std::string localVersion = Utils::FileSystem::readAllText(localVersionFile);
+	      localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
+	      return localVersion;
+	    }
 	
-	return PROGRAM_VERSION_STRING;
+	  return PROGRAM_VERSION_STRING;
+	}
 }
 
 std::string ApiSystem::getApplicationName()
@@ -1244,6 +1252,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::SUSPEND:
 		return Utils::FileSystem::exists("/usr/sbin/pm-suspend");
+	case ApiSystem::VERSIONINFO:
+		executables.push_back("batocera-version");
+		break;
 	}
 
 	if (executables.size() == 0)

@@ -105,7 +105,8 @@ public:
 		INSTALL = 22,
 		SUPPORTFILE = 23,
 		UPGRADE = 24,
-		SUSPEND = 25
+		SUSPEND = 25,
+		VERSIONINFO = 26
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
