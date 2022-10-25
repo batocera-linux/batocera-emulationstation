@@ -168,18 +168,26 @@ std::string ApiSystem::getVersion()
 	std::ifstream ifs("/usr/share/batocera/batocera.version");
 #endif
 
-	std::string localVersionFile = Paths::getVersionInfoPath();	
-	if (!Utils::FileSystem::exists(localVersionFile))
-		localVersionFile = Paths::findEmulationStationFile("version.info");
+	if (isScriptingSupported(VERSIONINFO)) {
+	  auto res = executeEnumerationScript("batocera-version");
+	  if (res.size() >= 0)
+	    return res[0];
+	  else
+	    return "";
+	} else {
+	  std::string localVersionFile = Paths::getVersionInfoPath();
+	  if (!Utils::FileSystem::exists(localVersionFile))
+	    localVersionFile = Paths::findEmulationStationFile("version.info");
 
-	if (Utils::FileSystem::exists(localVersionFile))
-	{
-		std::string localVersion = Utils::FileSystem::readAllText(localVersionFile);
-		localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
-		return localVersion;
-	}
+	  if (Utils::FileSystem::exists(localVersionFile))
+	    {
+	      std::string localVersion = Utils::FileSystem::readAllText(localVersionFile);
+	      localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
+	      return localVersion;
+	    }
 	
-	return PROGRAM_VERSION_STRING;
+	  return PROGRAM_VERSION_STRING;
+	}
 }
 
 std::string ApiSystem::getApplicationName()
@@ -1152,8 +1160,8 @@ void ApiSystem::setBrightness(int value)
 	if (BACKLIGHT_BRIGHTNESS_NAME.empty() || BACKLIGHT_BRIGHTNESS_NAME == "notfound")
 		return;
 
-	if (value < 5)
-		value = 5;
+	if (value < 1)
+		value = 1;
 
 	if (value > 100)
 		value = 100;
@@ -1317,6 +1325,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::SUSPEND:
 		return Utils::FileSystem::exists("/usr/sbin/pm-suspend");
+	case ApiSystem::VERSIONINFO:
+		executables.push_back("batocera-version");
+		break;
 	}
 
 	if (executables.size() == 0)

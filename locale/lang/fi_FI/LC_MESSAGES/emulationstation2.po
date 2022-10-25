@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-11 12:01+0300\n"
+"PO-Revision-Date: 2022-10-19 13:56+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -709,7 +709,7 @@ msgid "SEARCH"
 msgstr "ETSI"
 
 msgid "CANCEL"
-msgstr "PERUUTA"
+msgstr "TAKAISIN"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "YHDISTÄ VERKKOPELIIN"
@@ -778,7 +778,7 @@ msgid "FILE BROWSER"
 msgstr "TIEDOSTOSELAIN"
 
 msgid "RESET"
-msgstr ""
+msgstr "TYHJENNÄ"
 
 msgid "PARENT FOLDER"
 msgstr "YLÄTASON KANSION"
@@ -1089,7 +1089,7 @@ msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
-msgstr ""
+msgstr "ETSI SAMANKALTAISIA PELEJÄ..."
 
 msgid "DELETE ITEM"
 msgstr "POISTA KOHDE"
@@ -1113,10 +1113,10 @@ msgstr ""
 
 #, c-format
 msgid "ADD TO %s"
-msgstr ""
+msgstr "LISÄÄ %s"
 
 msgid "FAVORITES"
-msgstr "SUOSIKIT"
+msgstr "SUOSIKKEIHIN"
 
 msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "LISÄÄ MUKAUTETTUUN KOKOELMAAN..."
@@ -1283,22 +1283,22 @@ msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr ""
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "EILEN"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "VIIME VIIKOLLA"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "VIIMEISEN 15 PÄIVÄN AIKANA"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "VIIME KUUSSA"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "VIIMEISEN 3 KUUKAUDEN AIKANA"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "VIIME VUONNA"
 
 msgid "SYSTEMS INCLUDED"
 msgstr "SISÄLLETYT JÄRJESTELMÄT"
@@ -1947,29 +1947,31 @@ msgid "Current setting"
 msgstr ""
 
 msgid "DEFAULT GLOBAL SETTINGS"
-msgstr ""
+msgstr "JÄRJESTELMÄNLAAJUISET OLETUSASETUKSET"
 
 msgid "GAME ASPECT RATIO"
-msgstr ""
+msgstr "PELIN KUVASUHDE"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "Pakota peli renderöitäväksi tällä kuvasuhteella."
 
 msgid "VIDEO MODE"
-msgstr ""
+msgstr "RESOLUUTIO"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "Aseta näytön resoluutio. Ei vaikuta renderöitävään resoluution."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr ""
 
 msgid "REWIND"
-msgstr ""
+msgstr "TAKAISIN KELAUS"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
+"Mikäli ydin sitä tukee, tallentaa pelintilaa, jotta sitä voidaan kelata "
+"takaisin reaaliajassa."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr ""
@@ -1978,10 +1980,10 @@ msgid "SHADER SET"
 msgstr ""
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "KORISTEET"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr ""
+msgstr "VENYTÄ KEHYKSIÄ (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
 msgstr ""
@@ -2541,13 +2543,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "RANDOM"
-msgstr ""
+msgstr "SATUNNAINEN"
 
 msgid "NAVIGATION BAR"
 msgstr ""
 
 msgid "FILES"
-msgstr ""
+msgstr "TIEDOSTOT"
 
 msgid ""
 "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
@@ -2607,7 +2609,7 @@ msgid "SAVE STATES (HOLD)"
 msgstr ""
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "PELIN ASETUKSET (PIDÄ)"
 
 msgid "GAME OPTIONS"
 msgstr ""
@@ -2976,16 +2978,16 @@ msgid "accept"
 msgstr ""
 
 msgid "SELECT ALL"
-msgstr ""
+msgstr "VALITSE KAIKKI"
 
 msgid "select all"
-msgstr ""
+msgstr "valitse kaikki"
 
 msgid "SELECT NONE"
-msgstr ""
+msgstr "TYHJENNÄ"
 
 msgid "select none"
-msgstr ""
+msgstr "tyhjennä"
 
 #, c-format
 msgid "%i SELECTED"

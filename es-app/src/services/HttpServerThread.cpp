@@ -20,6 +20,10 @@
 #include "Settings.h"
 #include "ApiSystem.h"
 
+#include "ThreadedHasher.h"
+#include "scrapers/ThreadedScraper.h"
+#include "guis/GuiUpdate.h"
+
 /* 
 
 Misc APIS
@@ -32,6 +36,7 @@ POST /messagebox												-> body must contain the message text as text/plain
 POST /notify													-> body must contain the message text as text/plain
 POST /launch													-> body must contain the exact file path as text/plain
 GET  /runningGame
+GET  /isIdle
 
 System/Games APIS
 -----------------
@@ -267,6 +272,28 @@ void HttpServerThread::run()
 			res.set_content(ret, "application/json");
 	});
 
+	mHttpServer->Get("/isIdle", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		bool idle = 
+			HttpApi::getRunnningGameInfo().empty() && 
+			!ThreadedScraper::isRunning() && 
+			!ThreadedHasher::isRunning() && 
+			GuiUpdate::state != GuiUpdateState::UPDATER_RUNNING;
+
+		if (idle)
+		{
+			res.set_content("[ true ]", "application/json");
+			res.status = 200;
+		}
+		else
+		{
+			res.set_content("[ false ]", "application/json");
+			res.status = 201;
+		}
+	});	
 
 	mHttpServer->Get(R"(/systems/(/?.*)/logo)", [](const httplib::Request& req, httplib::Response& res)
 	{		

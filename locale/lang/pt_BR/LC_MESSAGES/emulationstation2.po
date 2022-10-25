@@ -640,7 +640,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "EXIBIR JOGOS INDISPONÍVEIS"
 
 msgid "Show rooms for games not present on this machine."
-msgstr "Exiba salas para jogos que não estão presentes nesta máquina."
+msgstr "Exibe salas para jogos que não estão presentes nesta máquina."
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -723,7 +723,7 @@ msgid "CONNECT TO NETPLAY"
 msgstr "CONECTE-SE AOS JOGOS EM REDE"
 
 msgid "Select a game lobby to join"
-msgstr "Selecione uma sala de jogo para juntar-se"
+msgstr "Seleciona uma sala de jogo para juntar-se"
 
 msgid "REFRESH"
 msgstr "ATUALIZAR"
@@ -1285,7 +1285,7 @@ msgid "GAMES MISSING ANY MEDIA"
 msgstr "FALTANDO QUALQUER MÍDIA"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr "FALTANDO TODAS AS MÍDIA"
+msgstr "FALTANDO TODAS AS MÍDIAS"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORAR JOGOS COM MÍDIAS RECENTES"
@@ -1545,7 +1545,7 @@ msgstr "ATIVAR ACESSO PÚBLICO À API WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Permitir acesso público web à API utilizando %s"
+msgstr "Permite acesso público web à API utilizando %s"
 
 msgid "LOG LEVEL"
 msgstr "NÍVEL DE LOG"
@@ -1948,7 +1948,7 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Diminua automaticamente o atraso de quadros temporariamente para evitar "
+"Diminue automaticamente o atraso de quadros temporariamente para evitar "
 "quedas na taxa de quadros. Pode acontecer engasgos."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -1960,7 +1960,7 @@ msgstr "TAXA DE ATUALIZAÇÃO VARIÁVEL"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Não saia da sincronização principal solicitada pelo núcleo. G-Sync, "
+"Não sair da sincronização principal solicitada pelo núcleo. G-Sync, "
 "FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
@@ -1976,7 +1976,7 @@ msgid "GAME ASPECT RATIO"
 msgstr "PROPORÇÃO DE ASPECTO DO JOGO"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr "Force o jogo a renderizar nesta proporção de aspecto."
+msgstr "Força o jogo a renderizar nesta proporção de aspecto."
 
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
@@ -2079,7 +2079,7 @@ msgid "INCREMENT PER SAVE"
 msgstr "POR ESTADO DE SALVAMENTO"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "Nunca sobrescreva estados de salvamento antigos, sempre crie novos."
+msgstr "Nunca sobrescreve estados de salvamento antigos, sempre crie novos."
 
 msgid "INCREMENT SLOT"
 msgstr "POR ESPAÇO DE SALVAMENTO"
@@ -2103,7 +2103,8 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "Display savestate manager before launching a game."
-msgstr "Exiba o gerenciador de estado de salvamento antes de iniciar um jogo."
+msgstr ""
+"ExibeaA o gerenciador de estado de salvamento antes de iniciar um jogo."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
@@ -2657,7 +2658,7 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"É necessária uma conta válida. Registre uma conta em https://"
+"É necessáriO uma conta válida. Registre uma conta em https://"
 "retroachievements.org"
 
 msgid "Searching"
@@ -2853,7 +2854,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLAS"
 
 msgid "HAS MEDIAS"
-msgstr "POSSUI MÍDIA"
+msgstr "POSSUI MÍDIAS"
 
 msgid "SCRAPING"
 msgstr "PROCURANDO MÍDIAS"
@@ -3015,7 +3016,7 @@ msgid "DISCARD CHANGES"
 msgstr "DESCARTAR MODIFICAÇÕES"
 
 msgid "up/down"
-msgstr "cima / baixo"
+msgstr "cima/baixo"
 
 msgid "accept"
 msgstr "aceitar"
@@ -3024,7 +3025,7 @@ msgid "SELECT ALL"
 msgstr "SELECIONAR TUDO"
 
 msgid "select all"
-msgstr "tudo selecionado"
+msgstr "todos selecionados"
 
 msgid "SELECT NONE"
 msgstr "SELECIONAR NENHUM"

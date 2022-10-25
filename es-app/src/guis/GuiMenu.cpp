@@ -1697,7 +1697,7 @@ void GuiMenu::openSystemSettings()
 	int brighness;
 	if (ApiSystem::getInstance()->getBrightness(brighness))
 	{
-		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 5.f, 100.f, 5.f, "%");
+		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 1.f, 100.f, 1.f, "%");
 		brightnessComponent->setValue(brighness);
 		brightnessComponent->setOnValueChanged([](const float &newVal)
 		{
