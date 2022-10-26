@@ -2553,6 +2553,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
 	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	sindenmode_choices->add(_("DISABLED"), "disabled", baseMode == "disabled");
 	sindenmode_choices->add(_("GUN"), "gun", baseMode == "gun");
 	sindenmode_choices->add(_("MACHINE GUN"), "machinegun", baseMode == "machinegun");
 	sindenmode_choices->add(_("QUIET GUN"), "gun-quiet", baseMode == "gun-quiet");
