@@ -23,6 +23,7 @@
 #include "ThreadedHasher.h"
 #include "scrapers/ThreadedScraper.h"
 #include "guis/GuiUpdate.h"
+#include "ContentInstaller.h"
 
 /* 
 
@@ -280,6 +281,7 @@ void HttpServerThread::run()
 		bool idle = 
 			HttpApi::getRunnningGameInfo().empty() && 
 			!ThreadedScraper::isRunning() && 
+			!ContentInstaller::isRunning() &&
 			!ThreadedHasher::isRunning() && 
 			GuiUpdate::state != GuiUpdateState::UPDATER_RUNNING;
 
