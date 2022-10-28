@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -372,12 +372,14 @@ msgstr "MODE DIFFICILE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
+"Désactiver les chargement d'état, rembobinage et codes pour plus de points."
 
 msgid "LEADERBOARDS"
 msgstr "TABLEAU DES SCORES"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
+"Avoir ses meilleurs temps et scores dans le classement (hardcore requis)."
 
 msgid "VERBOSE MODE"
 msgstr "MODE VERBEUX"
@@ -1595,6 +1597,7 @@ msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
+"Debug: Ne pas vérifier si les ROMs existent. Peut causer des problèmes!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "RECHERCHER DES VISUELS COMPLÉMENTAIRES"
@@ -1603,6 +1606,8 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
+"Si la liste de jeux ne précise pas d'image, essayer d'utiliser un média avec "
+"le même nom de fichier."
 
 msgid "USER INTERFACE"
 msgstr "INTERFACE UTILISATEUR"
@@ -1752,6 +1757,9 @@ msgid ""
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"Vous allez passer à une interface plus restreinte:\n"
+"Cela cachera la plupart des options pouvant modifier le système.\n"
+"Pour revenir à l'interface complète, utilisez ce code:"
 
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous continuer ?"
@@ -1901,7 +1909,7 @@ msgid "High numbers can result in visible jitter."
 msgstr ""
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr ""
+msgstr "UTILISER DEUX INSTANCES (SI IMAGES EN AVANCE)"
 
 msgid "Can prevent audio skips on button presses."
 msgstr "Peut prévenir des sauts audios sur pression des boutons"
@@ -2033,6 +2041,8 @@ msgstr "SAUVEGARDE / CHARGEMENT AUTO"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
+"Charge et enregistre l'état de jeu le plus récent en lançant et quittant le "
+"jeu."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SAUVEGARDES INCRÉMENTALES"
