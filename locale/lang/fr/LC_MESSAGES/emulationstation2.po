@@ -379,19 +379,19 @@ msgstr "TABLEAU DES SCORES"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
-"Avoir ses meilleurs temps et scores dans le classement (hardcore requis)."
+"Avoir ses meilleurs temps et scores dans le classement (mode difficile requis)."
 
 msgid "VERBOSE MODE"
 msgstr "MODE VERBEUX"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "Afficher la progression des succès au lancement du jeu ainsi que les autres notifications."
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "RICH PRESENCE"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "ENCORE MODE"
 
 msgid "Unlocked achievements can be earned again."
 msgstr "Les succès débloqués peuvent de nouveau être gagnés"
@@ -588,10 +588,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Points (mode difficile)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Points (mode facile)"
 
 msgid "Rank"
 msgstr "Rang"
@@ -1232,7 +1232,7 @@ msgid "VIDEO"
 msgstr "VIDÉO"
 
 msgid "FANART"
-msgstr ""
+msgstr "FANART"
 
 msgid "BEZEL (16:9)"
 msgstr "DÉCORATION (16:9)"
@@ -1392,7 +1392,7 @@ msgstr "Caractéristiques processeur"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -1510,7 +1510,7 @@ msgid "SHOW FRAMERATE"
 msgstr "AFFICHER LE NOMBRE D'IMAGES/SEC"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "Active également le compteur en jeu si disponible"
+msgstr "Active également le fps en jeu si disponible"
 
 msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
@@ -1587,7 +1587,7 @@ msgstr "ACTIVER LES FILTRES DE JEUX"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr ""
+msgstr "Afficher ou masquer les paramètres de filtrage de jeu dans l'écran d'options."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "SAUVEGARDER LES MÉTADONNÉES EN QUITTANT"
@@ -1906,7 +1906,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "NOMBRE D'IMAGES EN AVANCE"
 
 msgid "High numbers can result in visible jitter."
-msgstr ""
+msgstr "Un nombre élevé peut introduire des défauts visuels."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "UTILISER DEUX INSTANCES (SI IMAGES EN AVANCE)"
@@ -1915,15 +1915,15 @@ msgid "Can prevent audio skips on button presses."
 msgstr "Peut prévenir des sauts audios sur pression des boutons"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr "IMAGES EN RETARD AUTOMATIQUE"
+msgstr "RETARD D'IMAGE AUTOMATIQUE"
 
 msgid "AUTO FRAME DELAY"
-msgstr "RETARD AUTOMATIQUE"
+msgstr "RETARD D'IMAGE AUTOMATIQUE"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
-msgstr ""
+msgstr "Réduire automatiquement délai de retard d'image temporairement pour éviter des sauts. Peut introduire des défaut visuels."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "TAUX DE RAFFRAÎCHISSEMENT VARIABLE (G-SYNC, FREESYNC)"
@@ -1933,7 +1933,7 @@ msgstr "TAUX DE RAFFRAÎCHISSEMENT VARIABLE"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr ""
+msgstr "Ne pas s'écarter des temps nécessaires au core. G-Sync, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "PACK DE DÉCORATIONS"
@@ -1964,7 +1964,7 @@ msgid "REWIND"
 msgstr "REMBOBINAGE"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
+msgstr "Enregistrer les états pour le rembobinage en temps réel, si le core le permet."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
@@ -2141,16 +2141,16 @@ msgid "BIG"
 msgstr "GROS"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "MODE DES BORDURES"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "EN JEU SEULEMENT"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "CACHÉ"
 
 msgid "RECOIL"
 msgstr "RECUL"
