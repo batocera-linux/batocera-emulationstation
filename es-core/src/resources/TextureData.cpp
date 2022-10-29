@@ -239,6 +239,10 @@ bool TextureData::updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, 
 // Avoid multiple extraction in the same file at the same time
 static Utils::StringListLockType mImageExtractorLock;
 
+#if WIN32
+extern void _checkUpgradedVlcVersion();
+#endif
+
 bool TextureData::loadFromVideo()
 {
 	Utils::StringListLock lock(mImageExtractorLock, mPath);
@@ -278,6 +282,10 @@ bool TextureData::loadFromVideo()
 
 		for (int i = 0; i < cmdline.size(); i++)
 			vlcArgs[i] = cmdline[i].c_str();
+
+#if WIN32
+		_checkUpgradedVlcVersion();
+#endif
 
 		vlcInstance = libvlc_new(cmdline.size(), vlcArgs);
 		if (vlcInstance == nullptr)
