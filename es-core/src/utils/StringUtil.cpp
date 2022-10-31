@@ -599,6 +599,15 @@ namespace Utils
 			return data;
 		}
 
+		std::string extractString(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter, bool keepDelimiter)
+		{
+			auto ret = extractStrings(_string, startDelimiter, endDelimiter, keepDelimiter);
+			if (ret.size() > 0)
+				return ret[0];
+
+			return "";
+		}
+
 		std::vector<std::string> extractStrings(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter, bool keepDelimiter)
 		{
 			std::vector<std::string> ret;

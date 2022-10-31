@@ -91,10 +91,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 #endif
 		break;
 	case ApiSystem::BLUETOOTH:
-#if _DEBUG
 		executables.push_back("batocera-bluetooth");
-#endif
 		break;
+
 	case ApiSystem::RESOLUTION:
 #if _DEBUG
 		executables.push_back("batocera-resolution");

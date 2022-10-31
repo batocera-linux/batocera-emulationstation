@@ -477,20 +477,36 @@ std::string ApiSystem::getIpAdress()
 	return result;
 }
 
+void ApiSystem::startBluetoothLiveDevices(const std::function<void(const std::string)>& func)
+{
+	executeScript("batocera-bluetooth live_devices", func);
+}
+
+void ApiSystem::stopBluetoothLiveDevices()
+{
+	executeScript("batocera-bluetooth stop_live_devices");
+}
+
+bool ApiSystem::pairBluetoothDevice(const std::string& deviceName)
+{
+	return executeScript("batocera-bluetooth trust " + deviceName);
+}
+
+bool ApiSystem::removeBluetoothDevice(const std::string& deviceName)
+{
+	return executeScript("batocera-bluetooth remove " + deviceName);
+}
+
 bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& func)
 {
 	return executeScript("batocera-bluetooth trust", func).second == 0;
 }
 
-std::vector<std::string> ApiSystem::getBluetoothDeviceList()
+std::vector<std::string> ApiSystem::getPairedBluetoothDeviceList()
 {
 	return executeEnumerationScript("batocera-bluetooth list");
 }
 
-bool ApiSystem::removeBluetoothDevice(const std::string deviceName)
-{
-	return executeScript("batocera-bluetooth remove "+ deviceName);
-}
 
 std::vector<std::string> ApiSystem::getAvailableStorageDevices() 
 {

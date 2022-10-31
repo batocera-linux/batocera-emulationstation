@@ -6,10 +6,10 @@
 
 #include <thread>
 
-class GuiBluetooth : public GuiComponent
+class GuiBluetoothForget : public GuiComponent
 {
 public:
-	GuiBluetooth(Window* window);
+	GuiBluetoothForget(Window* window);
 	bool input(InputConfig* config, Input input) override;
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
