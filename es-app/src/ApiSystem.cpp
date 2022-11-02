@@ -499,7 +499,7 @@ bool ApiSystem::removeBluetoothDevice(const std::string& deviceName)
 
 bool ApiSystem::scanNewBluetooth(const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-bluetooth trust", func).second == 0;
+	return executeScript("batocera-bluetooth trust input", func).second == 0;
 }
 
 std::vector<std::string> ApiSystem::getPairedBluetoothDeviceList()
@@ -1165,12 +1165,6 @@ std::pair<std::string, int> ApiSystem::executeScript(const std::string command, 
 	while (fgets(line, 1024, pipe))
 	{
 		strtok(line, "\n");
-
-		// Long theme names/URL can crash the GUI MsgBox
-		// "48" found by trials and errors. Ideally should be fixed
-		// in es-core MsgBox -- FIXME
-		if (strlen(line) > 48)
-			line[47] = '\0';
 
 		if (func != nullptr)
 			func(std::string(line));

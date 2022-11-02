@@ -696,6 +696,21 @@ msgstr "닫기"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "정말로 이 아이템을 삭제하시겠습니까?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "블루투스 장치 제거"
+
+msgid "REMOVE ALL"
+msgstr "모두 제거"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "발견된 블루투스 장치가 없습니다"
+
+msgid "REMOVE"
+msgstr "제거"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "블루투스 장치가 삭제되었습니다."
+
 msgid "INPUT"
 msgstr "입력"
 
@@ -756,17 +771,11 @@ msgstr "와이파이를 검색 중입니다"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "네트워크에 접속중이 아닙니다"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "블루투스 장치 제거"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "블루투스 장치 페어링"
 
-msgid "REMOVE ALL"
-msgstr "모두 제거"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "발견된 블루투스 장치가 없습니다"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "블루투스 장치가 삭제되었습니다."
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "파일 탐색기"
@@ -807,9 +816,6 @@ msgstr "업데이트"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "다운로드 대기열에 '%s'가 추가됨"
-
-msgid "REMOVE"
-msgstr "제거"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "대기열에 제거가 추가됨"
@@ -2093,8 +2099,11 @@ msgstr ""
 "렉트 버튼을 사용하십시오키를 누르지 않고 있는 모든 버튼/스틱을 건너뜁니다. 완"
 "료 확인을 위해남쪽 버튼 누르세요."
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "블루투스 장치 페어링"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "활성 컨트롤러 보이기"

@@ -700,6 +700,21 @@ msgstr "סגור"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr ""
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "שכח התקן בלו-טות'"
+
+msgid "REMOVE ALL"
+msgstr "הסר הכל"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "לא נמצא התקן בלו-טות'"
+
+msgid "REMOVE"
+msgstr "הסרה"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "התקן בלו-טות' נמחק."
+
 msgid "INPUT"
 msgstr "קלט"
 
@@ -760,17 +775,11 @@ msgstr ""
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "המערכת אינה מחוברת לרשת"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "שכח התקן בלו-טות'"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "הצמדת בתקן בלו-טות'"
 
-msgid "REMOVE ALL"
-msgstr "הסר הכל"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "לא נמצא התקן בלו-טות'"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "התקן בלו-טות' נמחק."
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "סייר קבצים"
@@ -811,9 +820,6 @@ msgstr "עידכון"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' נוסף לתור הורדות"
-
-msgid "REMOVE"
-msgstr "הסרה"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
@@ -2079,8 +2085,11 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "הצמדת בתקן בלו-טות'"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "הצגת פעילות בקר"

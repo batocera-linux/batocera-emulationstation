@@ -697,6 +697,21 @@ msgstr "KAPAT"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "BUNU SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ ?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "HEPSİNİ SİL"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "BLUETOOTH CİHAZI BULUNAMADI"
+
+msgid "REMOVE"
+msgstr "SİL"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
 msgid "INPUT"
 msgstr "GİRDİ"
 
@@ -757,16 +772,10 @@ msgstr "WIFI AĞLARI TARANIYOR"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "AĞA BAĞLI DEĞİLSİNİZ"
 
-msgid "FORGET A BLUETOOTH DEVICE"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
-msgid "REMOVE ALL"
-msgstr "HEPSİNİ SİL"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH CİHAZI BULUNAMADI"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgid "PAIR"
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -808,9 +817,6 @@ msgstr "GÜNCELLE"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' İNDİRME KUYRUĞUNA EKLENDİ"
-
-msgid "REMOVE"
-msgstr "SİL"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
@@ -2081,7 +2087,10 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH DEVICE"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"

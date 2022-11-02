@@ -696,6 +696,21 @@ msgstr "关闭"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "确定是否删除？"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "忘记蓝牙设备"
+
+msgid "REMOVE ALL"
+msgstr "移除所有"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "未发现蓝牙设备"
+
+msgid "REMOVE"
+msgstr "卸载"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "文件浏览器蓝牙设备已被删除。"
+
 msgid "INPUT"
 msgstr "名称编辑"
 
@@ -756,17 +771,11 @@ msgstr "正在查询WIFI网络"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "你没联网"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "忘记蓝牙设备"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "配对蓝牙设备"
 
-msgid "REMOVE ALL"
-msgstr "移除所有"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "未发现蓝牙设备"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "文件浏览器蓝牙设备已被删除。"
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "文件浏览器"
@@ -807,9 +816,6 @@ msgstr "更新"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "将 '%s' 添加到下载队列"
-
-msgid "REMOVE"
-msgstr "卸载"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "卸载已添加到队列"
@@ -2086,8 +2092,11 @@ msgstr ""
 "您将映射一个控制器。 映射基于按钮相对于SNES控制器上的等效按钮的位置， 而不是"
 "其物理标签。 如果没有热键专用键， 请使用选择键。 按住任何键来跳过。"
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "配对蓝牙设备"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "显示控制器活动"
@@ -3491,8 +3500,8 @@ msgstr "已禁用屏幕阅读器"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "屏保 \"随机视频\" 将显示游戏列表中的视频。\n"
 #~ "如果游戏列表中没有视频，或在尝试播放失败几次后，显示为\"黑屏\"。\n"
