@@ -42,7 +42,8 @@
 #include "guis/GuiBackupStart.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiWifi.h"
-#include "guis/GuiBluetooth.h"
+#include "guis/GuiBluetoothPair.h"
+#include "guis/GuiBluetoothForget.h"
 #include "scrapers/ThreadedScraper.h"
 #include "FileSorts.h"
 #include "ThreadedHasher.h"
@@ -2360,13 +2361,21 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
 	{
+#if defined(BATOCERA) || defined(WIN32)
+		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
+		s->addEntry(_("PAIR A BLUETOOTH DEVICE"), false, [window, this, s]
+		{
+			window->pushGui(new GuiBluetoothPair(window));
+		});
+#else 
 		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
 		s->addEntry(_("PAIR A BLUETOOTH DEVICE"), false, [window] { ThreadedBluetooth::start(window); });
+#endif
 
 		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
 		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s]
 		{
-			window->pushGui(new GuiBluetooth(window));
+			window->pushGui(new GuiBluetoothForget(window));
 		});
 	}
 

@@ -120,7 +120,7 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 	addRow(row, setCursorHere);
 }
 
-void MenuComponent::addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool multiLine)
+void MenuComponent::addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool multiLine, const std::string userData, bool doUpdateSize)
 {
 	auto theme = ThemeData::getMenuTheme();
 
@@ -161,7 +161,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
 
-	addRow(row, setCursorHere);
+	addRow(row, setCursorHere, doUpdateSize, userData);
 }
 
 void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool onButtonRelease, const std::string userData, bool doUpdateSize)

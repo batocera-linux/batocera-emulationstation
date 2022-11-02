@@ -6,12 +6,12 @@
 #include "Settings.h"
 #include "ApiSystem.h"
 #include "LocaleES.h"
-#include "GuiBluetooth.h"
+#include "GuiBluetoothForget.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "GuiLoading.h"
 
-GuiBluetooth::GuiBluetooth(Window* window)
+GuiBluetoothForget::GuiBluetoothForget(Window* window)
 	: GuiComponent(window), mMenu(window, _("FORGET A BLUETOOTH DEVICE").c_str())
 {
 	mWaitingLoad = false;
@@ -31,9 +31,9 @@ GuiBluetooth::GuiBluetooth(Window* window)
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
-bool GuiBluetooth::load()
+bool GuiBluetoothForget::load()
 {
-	std::vector<std::string> ssids = ApiSystem::getInstance()->getBluetoothDeviceList();
+	std::vector<std::string> ssids = ApiSystem::getInstance()->getPairedBluetoothDeviceList();
 
 	mMenu.clear();
 
@@ -42,7 +42,28 @@ bool GuiBluetooth::load()
 	else
 	{
 		for (auto ssid : ssids)
-			mMenu.addEntry(ssid, false, [this, ssid]() { GuiBluetooth::onRemoveDevice(ssid); });
+		{
+			if (ssid.empty())
+				continue;
+
+			if (Utils::String::startsWith(ssid, "<device "))
+			{
+				auto id = Utils::String::extractString(ssid, "id=\"", "\"", false);
+				auto name = Utils::String::extractString(ssid, "name=\"", "\"", false);
+				auto type = Utils::String::extractString(ssid, "type=\"", "\"", false);
+
+				std::string icon;
+
+				if (type == "audio")
+					icon = "iconSound";
+				else if (type == "joystick")
+					icon = "iconControllers";
+
+				mMenu.addWithDescription(name, id, nullptr, [this, id]() { GuiBluetoothForget::onRemoveDevice(id); }, icon);
+			}
+			else
+				mMenu.addEntry(ssid, false, [this, ssid]() { GuiBluetoothForget::onRemoveDevice(ssid); });
+		}
 	}
 
 	mMenu.updateSize();
@@ -53,7 +74,7 @@ bool GuiBluetooth::load()
 	return ssids.size() > 0;
 }
 
-bool GuiBluetooth::input(InputConfig* config, Input input)
+bool GuiBluetoothForget::input(InputConfig* config, Input input)
 {
 	if (GuiComponent::input(config, input))
 		return true;
@@ -69,15 +90,15 @@ bool GuiBluetooth::input(InputConfig* config, Input input)
 	return false;
 }
 
-std::vector<HelpPrompt> GuiBluetooth::getHelpPrompts()
+std::vector<HelpPrompt> GuiBluetoothForget::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
+	prompts.push_back(HelpPrompt(BUTTON_OK, _("REMOVE")));
 	return prompts;
 }
 
-
-void GuiBluetooth::onRemoveAll()
+void GuiBluetoothForget::onRemoveAll()
 {
 	if (mWaitingLoad)
 		return;
@@ -101,7 +122,7 @@ void GuiBluetooth::onRemoveAll()
 		}));	
 }
 
-void GuiBluetooth::onRemoveDevice(const std::string& value)
+void GuiBluetoothForget::onRemoveDevice(const std::string& value)
 {
 	if (mWaitingLoad)
 		return;

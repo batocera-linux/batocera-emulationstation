@@ -82,7 +82,7 @@ public:
 	{
 		WIFI = 0,
 		RETROACHIVEMENTS = 1,
-		BLUETOOTH = 2,
+		BLUETOOTH = 2,		
 		RESOLUTION = 3,
 		BIOSINFORMATION = 4,
 		NETPLAY = 5,
@@ -150,9 +150,15 @@ public:
 
 	virtual std::string getIpAdress();
 
+	void startBluetoothLiveDevices(const std::function<void(const std::string)>& func);
+	void stopBluetoothLiveDevices();
+	bool pairBluetoothDevice(const std::string& deviceName);
+	bool removeBluetoothDevice(const std::string& deviceName);
+
+	std::vector<std::string> getPairedBluetoothDeviceList();
+
+	// Obsolete
     bool scanNewBluetooth(const std::function<void(const std::string)>& func = nullptr);
-	std::vector<std::string> getBluetoothDeviceList();
-	bool removeBluetoothDevice(const std::string deviceName);
 
     std::vector<std::string> getAvailableBackupDevices();
     std::vector<std::string> getAvailableInstallDevices();
