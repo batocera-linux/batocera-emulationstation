@@ -371,7 +371,8 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
+msgstr ""
+"Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -385,7 +386,8 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
+msgstr ""
+"Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -400,7 +402,8 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "Automaticamente captura uma imagem quando uma conquista retro é conquistada."
+msgstr ""
+"Automaticamente captura uma imagem quando uma conquista retro é conquistada."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFIOS"
@@ -705,6 +708,21 @@ msgstr "FECHAR"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "TEM A CERTEZA QUE DESEJA ELIMINAR ESTE ITEM?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "DESEMPARELHAR DISPOSITIVO BLUETOOTH"
+
+msgid "REMOVE ALL"
+msgstr "REMOVER TODOS"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
+
+msgid "REMOVE"
+msgstr "REMOVER"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM ELIMINADOS."
+
 msgid "INPUT"
 msgstr "EDITAR"
 
@@ -765,17 +783,11 @@ msgstr "A PROCURA DE REDES WIFI"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NÃO ESTÁ CONECTADO A UMA REDE"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "DESEMPARELHAR DISPOSITIVO BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "EMPARELHAR DISPOSITIVO BLUETOOTH"
 
-msgid "REMOVE ALL"
-msgstr "REMOVER TODOS"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM ELIMINADOS."
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "NAVEGADOR DE ARQUIVOS"
@@ -816,9 +828,6 @@ msgstr "ATUALIZAR"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' ADICIONADO À LISTA DE TRANSFERÊNCIAS"
-
-msgid "REMOVE"
-msgstr "REMOVER"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "ADICIONADO À LISTA DE DESINSTALAÇÃO"
@@ -1750,7 +1759,8 @@ msgid "INSTANT"
 msgstr "INSTANTÂNEO"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
+msgstr ""
+"Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE ECRÃ (TEXTO PARA VOZ)"
@@ -1981,7 +1991,8 @@ msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
+msgstr ""
+"Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
@@ -2056,7 +2067,8 @@ msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
+msgstr ""
+"Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "TIPO DE INCREMENTO"
@@ -2120,8 +2132,11 @@ msgstr ""
 "TECLA PARA IGNORAR TODOS OS BOTÕES / ANALÒGICOS QUE NÃO POSSUA.PRESSIONE A "
 "SETA PARA BAIXO PARA CONFIRMAR QUANDO CONCLUÍDO."
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "EMPARELHAR DISPOSITIVO BLUETOOTH"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ATIVIDADE DO COMANDO"

@@ -699,6 +699,21 @@ msgstr "閉じる"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "この項目を削除してもよろしいですか？"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "BLUETOOTH デバイスを削除"
+
+msgid "REMOVE ALL"
+msgstr "すべて削除"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "BLUETOOTH デバイスが見つかりません"
+
+msgid "REMOVE"
+msgstr "削除"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH デバイスが削除されました"
+
 msgid "INPUT"
 msgstr "入力"
 
@@ -759,17 +774,11 @@ msgstr "WIFIネットワークの検索"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ネットワークに接続されていません"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH デバイスを削除"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "BLUETOOTH デバイスのペアリング"
 
-msgid "REMOVE ALL"
-msgstr "すべて削除"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH デバイスが見つかりません"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH デバイスが削除されました"
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "ファイルブラウザ"
@@ -810,9 +819,6 @@ msgstr "更新"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' をダウンロード キューに追加しました"
-
-msgid "REMOVE"
-msgstr "削除"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "アンインストールをキューに追加しました"
@@ -2107,8 +2113,11 @@ msgstr ""
 "を長押しで、  割り当てられないボタン/スティックをスキップします。 完了した"
 "ら、下（決定）ボタンを押して確認します。"
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH デバイスのペアリング"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"

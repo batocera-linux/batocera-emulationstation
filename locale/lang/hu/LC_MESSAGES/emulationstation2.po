@@ -697,6 +697,21 @@ msgstr "BEZÁR"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "BIZTOSAN TÖRÖLNI SZERETNÉD?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "MINDET ELTÁVOLÍT"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
+
+msgid "REMOVE"
+msgstr "ELTÁVOLÍTÁS"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
 msgid "INPUT"
 msgstr "BEMENET"
 
@@ -757,16 +772,10 @@ msgstr "WIFI HÁLÓZAT KERESÉSE"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NEM VAGY CSATLAKOZVA HÁLÓZATHOZ"
 
-msgid "FORGET A BLUETOOTH DEVICE"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
-msgid "REMOVE ALL"
-msgstr "MINDET ELTÁVOLÍT"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgid "PAIR"
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -808,9 +817,6 @@ msgstr "FRISSÍTÉS"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' HOZZÁADVA A LETÖLTÉSI SORHOZ"
-
-msgid "REMOVE"
-msgstr "ELTÁVOLÍTÁS"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
@@ -2080,7 +2086,10 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH DEVICE"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"

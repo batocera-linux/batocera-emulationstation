@@ -696,6 +696,21 @@ msgstr "關閉"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "您確定要刪除這個項目嗎？"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "忘記藍牙裝置"
+
+msgid "REMOVE ALL"
+msgstr "移除全部"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "沒有發現藍牙裝置"
+
+msgid "REMOVE"
+msgstr "刪除"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "藍牙裝置已被刪除。"
+
 msgid "INPUT"
 msgstr "輸入"
 
@@ -756,17 +771,11 @@ msgstr "搜尋 WI-FI 網路"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "您沒有連線到網際網路"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "忘記藍牙裝置"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "配對藍牙裝置"
 
-msgid "REMOVE ALL"
-msgstr "移除全部"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "沒有發現藍牙裝置"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "藍牙裝置已被刪除。"
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "檔案瀏覽器"
@@ -807,9 +816,6 @@ msgstr "更新"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "已將「%s」加入到下載隊列中"
-
-msgid "REMOVE"
-msgstr "刪除"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "已將移除請求加入至隊列"
@@ -2087,8 +2093,11 @@ msgstr ""
 "並非它的實體標示。 如果您沒有專門的按鈕可指派為「熱鍵」， 請將它指派給「選擇"
 "鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 完成時按南功能鍵確認。"
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "配對藍牙裝置"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "顯示控制器活動狀態"

@@ -2361,17 +2361,21 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
 	{
+#if ! defined(WIN32)
+		// PAIR A BLUETOOTH CONTROLLER
+		s->addEntry(_("PAIR BLUETOOTH PADS AUTOMATICALLY"), false, [window] { ThreadedBluetooth::start(window); });
+#endif
 #if defined(BATOCERA) || defined(WIN32)
 		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
-		s->addEntry(_("PAIR A BLUETOOTH DEVICE"), false, [window, this, s]
+		s->addEntry(_("PAIR A BLUETOOTH DEVICE MANUALLY"), false, [window, this, s]
 		{
-			window->pushGui(new GuiBluetoothPair(window));
+		  if (ThreadedBluetooth::isRunning()) {
+		    window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCAN IS ALREADY RUNNING.")));
+		  } else {
+		    window->pushGui(new GuiBluetoothPair(window));
+		  }
 		});
-#else 
-		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
-		s->addEntry(_("PAIR A BLUETOOTH DEVICE"), false, [window] { ThreadedBluetooth::start(window); });
 #endif
-
 		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
 		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s]
 		{

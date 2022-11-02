@@ -702,6 +702,21 @@ msgstr "ЗАКРЫТЬ"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ УДАЛИТЬ ЭТОТ ОБЪЕКТ?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"
+
+msgid "REMOVE ALL"
+msgstr "УДАЛИТЬ ВСЕ"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "BLUETOOTH УСТРОЙСТВА НЕ НАЙДЕНЫ"
+
+msgid "REMOVE"
+msgstr "УДАЛИТЬ"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
+
 msgid "INPUT"
 msgstr "ВВОД"
 
@@ -762,17 +777,11 @@ msgstr "ПОИСК WIFI СЕТИ"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "ВЫ НЕ ПОДКЛЮЧЕНЫ К СЕТИ"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
-msgid "REMOVE ALL"
-msgstr "УДАЛИТЬ ВСЕ"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH УСТРОЙСТВА НЕ НАЙДЕНЫ"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "ФАЙЛОВЫЙ БРАУЗЕР"
@@ -813,9 +822,6 @@ msgstr "ОБНОВИТЬ"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' ДОБАВЛЕНА В ОЧЕРЕДЬ ЗАГРУЗКИ"
-
-msgid "REMOVE"
-msgstr "УДАЛИТЬ"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "УДАЛЕНИЕ ДОБАВЛЕНО В ОЧЕРЕДЬ "
@@ -2113,8 +2119,11 @@ msgstr ""
 "НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ. КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
 "ПОДТВЕРЖДЕНИЯ."
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
