@@ -147,12 +147,14 @@ bool ApiSystem::isFreeSpaceLimit()
 	return getFreeSpaceGB(Paths::getRootPath()) < 2;
 }
 
-std::string ApiSystem::getVersion() 
+std::string ApiSystem::getVersion(bool extra)
 {
 	LOG(LogDebug) << "ApiSystem::getVersion";
 
 	if (isScriptingSupported(VERSIONINFO)) {
-	  auto res = executeEnumerationScript("batocera-version");
+	  std::string strextra = "";
+	  if(extra) strextra += " --extra";
+	  auto res = executeEnumerationScript(std::string("batocera-version") + strextra);
 	  if (res.size() >= 0)
 	    return res[0];
 	  else
