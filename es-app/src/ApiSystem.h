@@ -122,7 +122,7 @@ public:
 
     bool isFreeSpaceLimit();
 
-    virtual std::string getVersion();
+    virtual std::string getVersion(bool extra = false);
 	virtual std::string getApplicationName();
 
     std::string getRootPassword();
