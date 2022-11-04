@@ -25,7 +25,7 @@ ComponentList::ComponentList(Window* window) : IList<ComponentListRow, std::stri
 	mScrollbar.loadFromMenuTheme();	
 }
 
-void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool updateSize, const std::string userData)
+void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool updateSize, const std::string& userData)
 {
 	IList<ComponentListRow, std::string>::Entry e;
 	e.name = "";
