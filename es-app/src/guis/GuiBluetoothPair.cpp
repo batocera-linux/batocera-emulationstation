@@ -89,13 +89,7 @@ void GuiBluetoothPair::loadDevicesAsync()
 					Instance->removeEntry(id);
 				else
 				{
-					std::string icon;
-
-					if (type == "audio")
-						icon = "iconSound";
-					else if (type == "joystick")
-						icon = "iconControllers";
-
+					std::string icon = type.empty() ? "unknown" : type;
 					Instance->addWithDescription(name, id, nullptr, [id]()
 					{
 						if (Instance != nullptr)

@@ -52,17 +52,11 @@ bool GuiBluetoothForget::load()
 				auto name = Utils::String::extractString(ssid, "name=\"", "\"", false);
 				auto type = Utils::String::extractString(ssid, "type=\"", "\"", false);
 
-				std::string icon;
-
-				if (type == "audio")
-					icon = "iconSound";
-				else if (type == "joystick")
-					icon = "iconControllers";
-
-				mMenu.addWithDescription(name, id, nullptr, [this, id]() { GuiBluetoothForget::onRemoveDevice(id); }, icon);
+				std::string icon = type.empty() ? "unknown" : type;
+				mMenu.addWithDescription(name, id, nullptr, [this, id, name]() { GuiBluetoothForget::onRemoveDevice(id, name); }, icon);
 			}
 			else
-				mMenu.addEntry(ssid, false, [this, ssid]() { GuiBluetoothForget::onRemoveDevice(ssid); });
+				mMenu.addEntry(ssid, false, [this, ssid]() { GuiBluetoothForget::onRemoveDevice(ssid, ""); });
 		}
 	}
 
@@ -122,31 +116,39 @@ void GuiBluetoothForget::onRemoveAll()
 		}));	
 }
 
-void GuiBluetoothForget::onRemoveDevice(const std::string& value)
+void GuiBluetoothForget::onRemoveDevice(const std::string& id, const std::string& name)
 {
 	if (mWaitingLoad)
 		return;
 
-	Window* window = mWindow;
+	std::string deviceName = name;
+	std::string macAddress = id;
 
-	std::string macAddress = value;
 	auto idx = macAddress.find(" ");
 	if (idx != std::string::npos)
+	{
+		deviceName = macAddress.substr(idx + 1);
 		macAddress = macAddress.substr(0, idx);
+	}
 
-	mWindow->pushGui(new GuiLoading<bool>(mWindow, _("PLEASE WAIT"),
-		[this, window, macAddress](auto gui)
-		{
-			mWaitingLoad = true;
+	if (deviceName.empty())
+		deviceName = macAddress;
 
-	#if WIN32 && _DEBUG
-			std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-	#endif
-			return ApiSystem::getInstance()->removeBluetoothDevice(macAddress);			
+	Window* window = mWindow;
+	window->pushGui(new GuiMsgBox(window, Utils::String::format(_("ARE YOU SURE YOU WANT TO REMOVE '%s' ?").c_str(), deviceName.c_str()),
+		_("YES"), [this, window, macAddress]
+		{ 			
+			window->pushGui(new GuiLoading<bool>(window, _("PLEASE WAIT"),
+				[this, window, macAddress](auto gui)
+				{
+					mWaitingLoad = true;
+					return ApiSystem::getInstance()->removeBluetoothDevice(macAddress);
+				},
+				[this, window](bool ret)
+				{
+					mWaitingLoad = false;
+					load();
+				}));
 		},
-		[this, window](bool ret)
-		{
-			mWaitingLoad = false;
-			load();
-		}));		
+		_("NO"), nullptr));
 }

@@ -91,53 +91,57 @@ void CustomFeatures::importXmlElements(pugi::xml_node& from, const std::string& 
 
 void CustomFeatures::loadAdditionnalFeatures(pugi::xml_node& srcSystems)
 {
-	for (auto customPath : Utils::FileSystem::getDirContent(Paths::getUserEmulationStationPath(), false, false))
+	std::vector<std::string> rootPaths = { Paths::getUserEmulationStationPath(), Paths::getEmulationStationPath() };
+	for (auto rootPath : VectorHelper::distinct(rootPaths, [](auto x) { return x; }))
 	{
-		if (Utils::FileSystem::getExtension(customPath) != ".cfg" || !Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_features_"))
-			continue;
-
-		pugi::xml_document doc;
-		pugi::xml_parse_result res = doc.load_file(customPath.c_str());
-		if (!res)
+		for (auto customPath : Utils::FileSystem::getDirContent(rootPath, false, false))
 		{
-			LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
-			continue;
-		}
+			if (Utils::FileSystem::getExtension(customPath) != ".cfg" || !Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_features_"))
+				continue;
 
-		pugi::xml_node systemList = doc.child("features");
-		if (!systemList)
-		{
-			LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <features> tag !";
-			continue;
-		}
-
-		// import/replace shared features
-		pugi::xml_node sharedFeaturesToAdd = systemList.child("sharedFeatures");
-		if (sharedFeaturesToAdd)
-		{
-			pugi::xml_node sharedFeatures = srcSystems.child("sharedFeatures");
-			if (sharedFeatures)
-				importXmlElements(sharedFeaturesToAdd, "feature", sharedFeatures, "value");
-			else
-				srcSystems.append_copy(sharedFeaturesToAdd);
-		}
-
-		// import/replace global features
-		pugi::xml_node globalFeaturesToAdd = systemList.child("globalFeatures");
-		if (globalFeaturesToAdd)
-		{
-			pugi::xml_node globalFeatures = srcSystems.child("globalFeatures");
-			if (globalFeatures)
+			pugi::xml_document doc;
+			pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+			if (!res)
 			{
-				importXmlElements(globalFeaturesToAdd, "sharedFeature", globalFeatures, "value");
-				importXmlElements(globalFeaturesToAdd, "feature", globalFeatures, "value");
+				LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
+				continue;
 			}
-			else
-				srcSystems.append_copy(globalFeaturesToAdd);
-		}
 
-		// import emulators
-		importXmlElements(systemList, "emulator", srcSystems);
+			pugi::xml_node systemList = doc.child("features");
+			if (!systemList)
+			{
+				LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <features> tag !";
+				continue;
+			}
+
+			// import/replace shared features
+			pugi::xml_node sharedFeaturesToAdd = systemList.child("sharedFeatures");
+			if (sharedFeaturesToAdd)
+			{
+				pugi::xml_node sharedFeatures = srcSystems.child("sharedFeatures");
+				if (sharedFeatures)
+					importXmlElements(sharedFeaturesToAdd, "feature", sharedFeatures, "value");
+				else
+					srcSystems.append_copy(sharedFeaturesToAdd);
+			}
+
+			// import/replace global features
+			pugi::xml_node globalFeaturesToAdd = systemList.child("globalFeatures");
+			if (globalFeaturesToAdd)
+			{
+				pugi::xml_node globalFeatures = srcSystems.child("globalFeatures");
+				if (globalFeatures)
+				{
+					importXmlElements(globalFeaturesToAdd, "sharedFeature", globalFeatures, "value");
+					importXmlElements(globalFeaturesToAdd, "feature", globalFeatures, "value");
+				}
+				else
+					srcSystems.append_copy(globalFeaturesToAdd);
+			}
+
+			// import emulators
+			importXmlElements(systemList, "emulator", srcSystems);
+		}
 	}
 
 	/* Uncomment to see final XML result

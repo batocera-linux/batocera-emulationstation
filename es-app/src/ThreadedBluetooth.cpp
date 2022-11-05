@@ -38,10 +38,6 @@ void ThreadedBluetooth::updateNotificationComponentContent(const std::string inf
 
 void ThreadedBluetooth::run()
 {
-#if WIN32
-	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
-#endif
-
 	ApiSystem::getInstance()->scanNewBluetooth([this](const std::string info)
 	{
 		updateNotificationComponentContent(info);

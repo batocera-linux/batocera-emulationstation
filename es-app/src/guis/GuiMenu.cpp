@@ -315,24 +315,7 @@ void GuiMenu::addEntry(std::string name, bool add_arrow, const std::function<voi
 
 	ComponentListRow row;
 
-	if (!iconName.empty())
-	{
-		std::string iconPath = theme->getMenuIcon(iconName);
-		if (!iconPath.empty())
-		{
-			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow, true);
-			icon->setImage(iconPath);
-			icon->setColorShift(theme->Text.color);
-			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
-			row.addElement(icon, false);
-
-			// spacer between icon and text
-			auto spacer = std::make_shared<GuiComponent>(mWindow);
-			spacer->setSize(10, 0);
-			row.addElement(spacer, false);
-		}
-	}
+	MenuComponent::addMenuIcon(mWindow, row, iconName);
 
 	auto text = std::make_shared<TextComponent>(mWindow, name, font, color);
 	row.addElement(text, true);
@@ -2345,6 +2328,8 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	Window* window = mWindow;
 	
+	s->addGroup(_("SETTINGS"));
+
 	// CONTROLLER CONFIGURATION
 	s->addEntry(_("CONTROLLER MAPPING"), false, [window, this, s]
 	{
@@ -2358,30 +2343,47 @@ void GuiMenu::openControllersSettings(int autoSel)
 			_("CANCEL"), nullptr,
 			GuiMsgBoxIcon::ICON_INFORMATION));
 	});
+	
+	bool sindenguns_menu = false;
+	bool wiiguns_menu = false;
+
+	for (auto gun : InputManager::getInstance()->getGuns())
+	{
+		sindenguns_menu |= gun->needBorders();
+		wiiguns_menu |= gun->name() == "wiigun calibrated";
+	}
+
+	for (auto joy : InputManager::getInstance()->getInputConfigs())
+		wiiguns_menu |= joy->getDeviceName() == "Nintendo Wii Remote";
+
+	if (sindenguns_menu)
+		s->addEntry(_("SINDEN GUN SETTINGS"), true, [this] { openControllersSpecificSettings_sindengun(); });
+
+	if (wiiguns_menu)
+		s->addEntry(_("WIIMOTE GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
 	{
-#if ! defined(WIN32)
+		s->addGroup(_("BLUETOOTH"));
+
 		// PAIR A BLUETOOTH CONTROLLER
 		s->addEntry(_("PAIR BLUETOOTH PADS AUTOMATICALLY"), false, [window] { ThreadedBluetooth::start(window); });
-#endif
+
 #if defined(BATOCERA) || defined(WIN32)
 		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
 		s->addEntry(_("PAIR A BLUETOOTH DEVICE MANUALLY"), false, [window, this, s]
 		{
-		  if (ThreadedBluetooth::isRunning()) {
-		    window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCAN IS ALREADY RUNNING.")));
-		  } else {
-		    window->pushGui(new GuiBluetoothPair(window));
-		  }
+			if (ThreadedBluetooth::isRunning())
+				window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCAN IS ALREADY RUNNING.")));
+			else
+				window->pushGui(new GuiBluetoothPair(window));
 		});
 #endif
 		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
-		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s]
-		{
-			window->pushGui(new GuiBluetoothForget(window));
-		});
+		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s] { window->pushGui(new GuiBluetoothForget(window)); });
 	}
+
+	s->addGroup(_("DISPLAY OPTIONS"));
 
 	// CONTROLLER ACTIVITY
 	auto activity = std::make_shared<SwitchComponent>(mWindow);
@@ -2399,28 +2401,8 @@ void GuiMenu::openControllersSettings(int autoSel)
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
-#ifdef BATOCERA
-	bool sindenguns_menu = false;
-	for (auto gun : InputManager::getInstance()->getGuns())
-	  if (gun->needBorders())
-	    sindenguns_menu = true;
-	if(sindenguns_menu) {
-	  s->addEntry(_("SINDEN GUN SETTINGS"), true, [this] { openControllersSpecificSettings_sindengun(); });
-	}
-#endif
 
-#ifdef BATOCERA
-	bool wiiguns_menu = false;
-	for (auto gun : InputManager::getInstance()->getGuns())
-	  if (gun->name() == "wiigun calibrated")
-	    wiiguns_menu = true;
-	for (auto joy : InputManager::getInstance()->getInputConfigs())
-	  if (joy->getDeviceName() == "Nintendo Wii Remote")
-	    wiiguns_menu = true;
-	if(wiiguns_menu) {
-	  s->addEntry(_("WIIMOTE GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
-	}
-#endif
+	s->addGroup(_("PLAYER ASSIGNMENTS"));
 
 	ComponentListRow row;
 
@@ -2825,7 +2807,19 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 						themeconfig->addGroup(_("THEME OPTIONS"));
 					}
 
-					if (!prefix.empty())
+					if (displayName == "-" && item->size() <= 1)
+					{
+						ComponentListRow row;
+						row.selectable = false;
+
+						auto font = ThemeData::getMenuTheme()->TextSmall.font;
+						auto text = std::make_shared<TextComponent>(mWindow, "", font, 0); 						
+						text->setLineSpacing(1.0f);
+						row.addElement(text, true);						
+
+						themeconfig->addRow(row);
+					}
+					else if (!prefix.empty())
 						themeconfig->addWithDescription(displayName, prefix, item);
 					else if (!defaultName.empty())
 						themeconfig->addWithDescription(displayName, _("DEFAULT VALUE") + " : " + defaultName, item);

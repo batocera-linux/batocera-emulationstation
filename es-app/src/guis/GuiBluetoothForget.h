@@ -15,7 +15,7 @@ public:
 
 private:
 	bool	load();
-	void	onRemoveDevice(const std::string& value);
+	void	onRemoveDevice(const std::string& id, const std::string& name = "");
 	void	onRemoveAll();
 
 	MenuComponent mMenu;

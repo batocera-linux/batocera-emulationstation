@@ -655,70 +655,74 @@ bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreNa
 
 // Load custom additionnal config from es_systems_*.cfg files
 void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
-{
-	for (auto customPath : Utils::FileSystem::getDirContent(Paths::getUserEmulationStationPath(), false, false))
+{	
+	std::vector<std::string> rootPaths = { Paths::getUserEmulationStationPath(), Paths::getEmulationStationPath() };
+	for (auto rootPath : VectorHelper::distinct(rootPaths, [](auto x) { return x; }))
 	{
-		if (Utils::FileSystem::getExtension(customPath) != ".cfg")
-			continue;
-
-		if (!Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_systems_"))
-			continue;
-
-		pugi::xml_document doc;
-		pugi::xml_parse_result res = doc.load_file(customPath.c_str());
-		if (!res)
+		for (auto customPath : Utils::FileSystem::getDirContent(rootPath, false, false))
 		{
-			LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
-			return;
-		}
-
-		pugi::xml_node systemList = doc.child("systemList");
-		if (!systemList)
-		{
-			LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <systemList> tag !";
-			return;
-		}
-
-		for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
-		{
-			if (!system.child("name"))
+			if (Utils::FileSystem::getExtension(customPath) != ".cfg")
 				continue;
 
-			std::string name = system.child("name").text().get();
-			if (name.empty())
+			if (!Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_systems_"))
 				continue;
 
-			bool found = false;
-
-			// Remove existing one
-			for (pugi::xml_node& srcSystem : srcSystems.children())
+			pugi::xml_document doc;
+			pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+			if (!res)
 			{
-				if (std::string(srcSystem.name()) != "system")
-					continue;
-
-				std::string srcName = srcSystem.child("name").text().get();
-				if (srcName != name)
-					continue;
-				
-				found = true;
-					
-				for (pugi::xml_node& child : system.children())
-				{
-					std::string tag = child.name();
-					if (tag == "name")
-						continue;
-						
-					srcSystem.remove_child(tag.c_str());
-
-					if (tag == "emulators" || !std::string(child.text().get()).empty())				
-						srcSystem.append_copy(child);												
-				}
-					
-				break;				
+				LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
+				return;
 			}
 
-			if (!found)
-				srcSystems.append_copy(system);
+			pugi::xml_node systemList = doc.child("systemList");
+			if (!systemList)
+			{
+				LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <systemList> tag !";
+				return;
+			}
+
+			for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
+			{
+				if (!system.child("name"))
+					continue;
+
+				std::string name = system.child("name").text().get();
+				if (name.empty())
+					continue;
+
+				bool found = false;
+
+				// Remove existing one
+				for (pugi::xml_node& srcSystem : srcSystems.children())
+				{
+					if (std::string(srcSystem.name()) != "system")
+						continue;
+
+					std::string srcName = srcSystem.child("name").text().get();
+					if (srcName != name)
+						continue;
+
+					found = true;
+
+					for (pugi::xml_node& child : system.children())
+					{
+						std::string tag = child.name();
+						if (tag == "name")
+							continue;
+
+						srcSystem.remove_child(tag.c_str());
+
+						if (tag == "emulators" || !std::string(child.text().get()).empty())
+							srcSystem.append_copy(child);
+					}
+
+					break;
+				}
+
+				if (!found)
+					srcSystems.append_copy(system);
+			}
 		}
 	}
 }

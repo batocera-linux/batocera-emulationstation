@@ -185,10 +185,10 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		if (!takeNetplay && !takeCheevos)
 			continue;
 
-		if (!sys->isVisible())
-			continue;
-
 		if (systems != nullptr && systems->find(sys->getName()) == systems->cend())
+			continue;
+		
+		if (!sys->isGameSystem() || sys->getRootFolder() == nullptr)
 			continue;
 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
