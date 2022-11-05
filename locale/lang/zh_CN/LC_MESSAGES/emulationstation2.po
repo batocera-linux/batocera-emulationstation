@@ -366,6 +366,15 @@ msgstr "设置"
 msgid "RETROACHIEVEMENTS"
 msgstr "RetroArch成就"
 
+msgid "USERNAME"
+msgstr "用户名"
+
+msgid "PASSWORD"
+msgstr "密码"
+
+msgid "OPTIONS"
+msgstr "选项"
+
 msgid "HARDCORE MODE"
 msgstr "专家模式"
 
@@ -415,12 +424,6 @@ msgstr "无"
 
 msgid "UNLOCK SOUND"
 msgstr "解锁声音"
-
-msgid "USERNAME"
-msgstr "用户名"
-
-msgid "PASSWORD"
-msgstr "密码"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "在主菜单中显示追溯成就条目"
@@ -499,9 +502,6 @@ msgstr "新合辑名称"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "新建合辑"
-
-msgid "OPTIONS"
-msgstr "选项"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "合辑和系统分类"
@@ -710,6 +710,10 @@ msgstr "卸载"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "文件浏览器蓝牙设备已被删除。"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "名称编辑"
@@ -1009,6 +1013,13 @@ msgid ""
 msgstr ""
 "您当前正在使用的版本为 %s\n"
 "是否要更新到 %s?"
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要连接到互联网"
@@ -2092,11 +2103,23 @@ msgstr ""
 "您将映射一个控制器。 映射基于按钮相对于SNES控制器上的等效按钮的位置， 而不是"
 "其物理标签。 如果没有热键专用键， 请使用选择键。 按住任何键来跳过。"
 
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN枪设置"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "WIIMOTE枪设置"
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "视图画面选项"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "显示控制器活动"
@@ -2104,11 +2127,8 @@ msgstr "显示控制器活动"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "显示控制器电池电量"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN枪设置"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE枪设置"
+msgid "PLAYER ASSIGNMENTS"
+msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2242,9 +2262,6 @@ msgstr "游戏视频"
 
 msgid "grid"
 msgstr "网格列表"
-
-msgid "DISPLAY OPTIONS"
-msgstr "视图画面选项"
 
 msgid "LIST TRANSITION"
 msgstr "列表过渡"

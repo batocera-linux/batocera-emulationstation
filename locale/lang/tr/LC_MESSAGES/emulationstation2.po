@@ -367,6 +367,15 @@ msgstr "AYARLAR"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETRO BAŞARILARI"
 
+msgid "USERNAME"
+msgstr "KULLANICI ADI"
+
+msgid "PASSWORD"
+msgstr "PAROLA"
+
+msgid "OPTIONS"
+msgstr "SEÇENEKLER"
+
 msgid "HARDCORE MODE"
 msgstr "DONANIM MODU"
 
@@ -416,12 +425,6 @@ msgstr "yok"
 
 msgid "UNLOCK SOUND"
 msgstr "SESLERİN KİLİDİNİ KALDIR"
-
-msgid "USERNAME"
-msgstr "KULLANICI ADI"
-
-msgid "PASSWORD"
-msgstr "PAROLA"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -500,9 +503,6 @@ msgstr "Yeni Koleksiyon İsimi"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "YENİ DİNAMİK KOLEKSİYON OLUŞTUR"
-
-msgid "OPTIONS"
-msgstr "SEÇENEKLER"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "KOLEKSİYON VE SİSTEMLERİ SIRALA"
@@ -710,6 +710,10 @@ msgid "REMOVE"
 msgstr "SİL"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr ""
 
 msgid "INPUT"
@@ -1006,6 +1010,13 @@ msgstr "GÜNCELLE?"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2087,11 +2098,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROLLERİN AKTİVİTELERİNİ GÖSTER"
@@ -2099,10 +2122,7 @@ msgstr "KONTROLLERİN AKTİVİTELERİNİ GÖSTER"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROLLERİN PİL DÜZEYİNİ GÖSTER"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2237,9 +2257,6 @@ msgstr "video"
 
 msgid "grid"
 msgstr "kafes"
-
-msgid "DISPLAY OPTIONS"
-msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "LIST TRANSITION"
 msgstr ""

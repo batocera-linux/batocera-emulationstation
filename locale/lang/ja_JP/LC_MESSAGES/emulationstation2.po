@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/10/11)\n"
+"Project-Id-Version: batocera-es v36beta(2022/11/03)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-10-11 20:54+0900\n"
+"PO-Revision-Date: 2022-11-03 17:13+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -321,7 +321,7 @@ msgid "Searching for devices..."
 msgstr "機器を検出中..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "BLUETOOTH は既にスキャン実行中です"
+msgstr "BLUETOOTH は現在、検出実行中です"
 
 msgid "FORMATTING DEVICE"
 msgstr "デバイスのフォーマット"
@@ -367,6 +367,15 @@ msgstr "設定"
 
 msgid "RETROACHIEVEMENTS"
 msgstr "RetroAchievements 使用"
+
+msgid "USERNAME"
+msgstr "ユーザー名"
+
+msgid "PASSWORD"
+msgstr "パスワード"
+
+msgid "OPTIONS"
+msgstr "設定"
 
 msgid "HARDCORE MODE"
 msgstr "ハードコアモード"
@@ -418,12 +427,6 @@ msgstr "無し"
 
 msgid "UNLOCK SOUND"
 msgstr "サウンドのロック解除"
-
-msgid "USERNAME"
-msgstr "ユーザー名"
-
-msgid "PASSWORD"
-msgstr "パスワード"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
@@ -502,9 +505,6 @@ msgstr "新規コレクション名"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "システム・項目別コレクションを作成"
-
-msgid "OPTIONS"
-msgstr "設定"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "コレクションとシステムの並べ替え"
@@ -714,6 +714,10 @@ msgstr "削除"
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH デバイスが削除されました"
 
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "入力"
 
@@ -778,7 +782,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "BLUETOOTH デバイスのペアリング"
 
 msgid "PAIR"
-msgstr ""
+msgstr "ペアリング中"
 
 msgid "FILE BROWSER"
 msgstr "ファイルブラウザ"
@@ -1010,8 +1014,17 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"現在、「%s」を使用中\n"
-"「%s」に更新しますか?"
+"「%s」\n"
+"を使用しています\n"
+"「%s」\n"
+"に更新しますか?"
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -2113,11 +2126,23 @@ msgstr ""
 "を長押しで、  割り当てられないボタン/スティックをスキップします。 完了した"
 "ら、下（決定）ボタンを押して確認します。"
 
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgid "SINDEN GUN SETTINGS"
+msgstr "シンデン ライトガンコンの設定"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "wiimoteの銃の設定"
+
+msgid "BLUETOOTH"
 msgstr ""
 
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "BLUETOOTH コントローラーをペアリング"
+
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "BLUETOOTH デバイスをペアリング"
+
+msgid "DISPLAY OPTIONS"
+msgstr "表示設定"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"
@@ -2125,11 +2150,8 @@ msgstr "コントローラーアクティビティを表示"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "コントローラーバッテリーレベルを表示"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr "シンデン ライトガンコンの設定"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "wiimoteの銃の設定"
+msgid "PLAYER ASSIGNMENTS"
+msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2264,9 +2286,6 @@ msgstr "ビデオ"
 
 msgid "grid"
 msgstr "グリッド"
-
-msgid "DISPLAY OPTIONS"
-msgstr "表示設定"
 
 msgid "LIST TRANSITION"
 msgstr "リスト画面遷移"
@@ -3061,9 +3080,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "INGAMEONLY"
-#~ msgstr "ゲーム内のみ"
 
 #~ msgid "GRAPHICS API"
 #~ msgstr "グラフィック API"

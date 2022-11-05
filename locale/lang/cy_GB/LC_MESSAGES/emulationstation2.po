@@ -372,6 +372,15 @@ msgstr "GOSODIADAU"
 msgid "RETROACHIEVEMENTS"
 msgstr "CYFLAWNIADAU-RETRO"
 
+msgid "USERNAME"
+msgstr "ENW DEFNYDDIWR"
+
+msgid "PASSWORD"
+msgstr "CYFINAIR"
+
+msgid "OPTIONS"
+msgstr "OPSIYNAU"
+
 msgid "HARDCORE MODE"
 msgstr "MODD CRAIDD CALED"
 
@@ -421,12 +430,6 @@ msgstr "dim"
 
 msgid "UNLOCK SOUND"
 msgstr ""
-
-msgid "USERNAME"
-msgstr "ENW DEFNYDDIWR"
-
-msgid "PASSWORD"
-msgstr "CYFINAIR"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -505,9 +508,6 @@ msgstr "Enw Casgliad Newydd"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "CREU CASGLIAD DYNAMIG NEWYDD"
-
-msgid "OPTIONS"
-msgstr "OPSIYNAU"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "TREFNU CASGLIADAU A SYSTEMAU"
@@ -715,6 +715,10 @@ msgid "REMOVE"
 msgstr "DIDDYMU"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr ""
 
 msgid "INPUT"
@@ -1011,6 +1015,13 @@ msgstr "IAWN I DDIWEDDARU?"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2089,11 +2100,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "ARDDANGOS OPSIYNAU"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
@@ -2101,10 +2124,7 @@ msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2239,9 +2259,6 @@ msgstr "fideo"
 
 msgid "grid"
 msgstr "grid"
-
-msgid "DISPLAY OPTIONS"
-msgstr "ARDDANGOS OPSIYNAU"
 
 msgid "LIST TRANSITION"
 msgstr ""

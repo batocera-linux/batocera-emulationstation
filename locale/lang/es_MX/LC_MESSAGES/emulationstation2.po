@@ -367,6 +367,15 @@ msgstr "AJUSTES"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS (LOGROS)"
 
+msgid "USERNAME"
+msgstr "USUARIO"
+
+msgid "PASSWORD"
+msgstr "CONTRASEÑA"
+
+msgid "OPTIONS"
+msgstr "OPCIONES"
+
 msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
@@ -416,12 +425,6 @@ msgstr "ninguno"
 
 msgid "UNLOCK SOUND"
 msgstr "SONIDO DE DESBLOQUEO"
-
-msgid "USERNAME"
-msgstr "USUARIO"
-
-msgid "PASSWORD"
-msgstr "CONTRASEÑA"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -500,9 +503,6 @@ msgstr "Nombre de la nueva colección"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "CREAR NUEVA COLECCIÓN DINÁMICA"
-
-msgid "OPTIONS"
-msgstr "OPCIONES"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ORGANIZAR COLECCIONES Y SISTEMAS"
@@ -711,6 +711,10 @@ msgstr "DESINSTALAR"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "EL DISPOSITIVO HA SIDO ELIMINADO"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "VALIDAR"
@@ -1006,6 +1010,13 @@ msgstr "¿ESTÁS SEGURO DE ACTUALIZAR?"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2086,11 +2097,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "OPCIONES DE PANTALLA"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ACTIVIDAD DEL CONTROL EN PANTALLA"
@@ -2098,10 +2121,7 @@ msgstr "MOSTRAR ACTIVIDAD DEL CONTROL EN PANTALLA"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVEL DE BATERÍA DEL CONTROL"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2236,9 +2256,6 @@ msgstr "vídeo"
 
 msgid "grid"
 msgstr "cuadrícula"
-
-msgid "DISPLAY OPTIONS"
-msgstr "OPCIONES DE PANTALLA"
 
 msgid "LIST TRANSITION"
 msgstr ""

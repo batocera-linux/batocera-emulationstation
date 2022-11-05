@@ -364,6 +364,15 @@ msgstr ""
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROUTMERKELSER"
 
+msgid "USERNAME"
+msgstr "BRUKERNAVN"
+
+msgid "PASSWORD"
+msgstr "PASSORD"
+
+msgid "OPTIONS"
+msgstr "VALG"
+
 msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
 
@@ -413,12 +422,6 @@ msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
-
-msgid "USERNAME"
-msgstr "BRUKERNAVN"
-
-msgid "PASSWORD"
-msgstr "PASSORD"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -497,9 +500,6 @@ msgstr ""
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr ""
-
-msgid "OPTIONS"
-msgstr "VALG"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr ""
@@ -707,6 +707,10 @@ msgid "REMOVE"
 msgstr ""
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr ""
 
 msgid "INPUT"
@@ -1003,6 +1007,13 @@ msgstr "VIL DU VIRKELIG OPPDATERE?"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2079,10 +2090,22 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
 msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
@@ -2091,10 +2114,7 @@ msgstr ""
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2228,9 +2248,6 @@ msgid "video"
 msgstr ""
 
 msgid "grid"
-msgstr ""
-
-msgid "DISPLAY OPTIONS"
 msgstr ""
 
 msgid "LIST TRANSITION"

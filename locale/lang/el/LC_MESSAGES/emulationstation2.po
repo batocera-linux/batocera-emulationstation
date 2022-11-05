@@ -364,6 +364,15 @@ msgstr "ΡΥΘΜΙΣΕΙΣ"
 msgid "RETROACHIEVEMENTS"
 msgstr ""
 
+msgid "USERNAME"
+msgstr "ΟΝΟΜΑ ΧΡΗΣΤΗ"
+
+msgid "PASSWORD"
+msgstr "ΚΩΔΙΚΟΣ"
+
+msgid "OPTIONS"
+msgstr "ΕΠΙΛΟΓΕΣ"
+
 msgid "HARDCORE MODE"
 msgstr "ΛΕΙΤΟΥΡΓΙΑ HARDCORE"
 
@@ -413,12 +422,6 @@ msgstr "κανένα"
 
 msgid "UNLOCK SOUND"
 msgstr "ΞΕΚΛΕΙΔΩΜΑ ΗΧΟΥ"
-
-msgid "USERNAME"
-msgstr "ΟΝΟΜΑ ΧΡΗΣΤΗ"
-
-msgid "PASSWORD"
-msgstr "ΚΩΔΙΚΟΣ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -497,9 +500,6 @@ msgstr "Όνομα Νέας Συλλογής"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "ΔΗΜΙΟΥΡΓΙΑ ΝΕΑΣ ΔΥΝΑΜΙΚΗΣ ΣΥΛΛΟΓΗΣ"
-
-msgid "OPTIONS"
-msgstr "ΕΠΙΛΟΓΕΣ"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ΤΑΞΙΝΟΜΗΣΗ ΣΥΛΛΟΓΩΝ ΚΑΙ ΣΥΣΤΗΜΑΤΩΝ"
@@ -708,6 +708,10 @@ msgstr "ΑΦΑΙΡΕΣΗ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "ΔΙΑΓΡΑΦΗΚΑΝ ΣΥΣΚΕΥΕΣ BLUETOOTH"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "ΕΙΣΑΓΩΓΗ"
@@ -1003,6 +1007,13 @@ msgstr "ΘΕΛΕΤΕ ΝΑ ΚΑΝΕΤΕ ΑΝΑΒΑΘΜΙΣΗ;"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2084,11 +2095,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "ΕΠΙΛΟΓΕΣ ΕΜΦΑΝΙΣΗΣ"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ΕΜΦΑΝΙΣΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
@@ -2096,10 +2119,7 @@ msgstr "ΕΜΦΑΝΙΣΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ΕΜΦΑΝΙΣΗ ΕΠΙΠΕΔΟΥ ΜΠΑΤΑΡΙΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2234,9 +2254,6 @@ msgstr "βίντεο"
 
 msgid "grid"
 msgstr "πλέγμα"
-
-msgid "DISPLAY OPTIONS"
-msgstr "ΕΠΙΛΟΓΕΣ ΕΜΦΑΝΙΣΗΣ"
 
 msgid "LIST TRANSITION"
 msgstr ""

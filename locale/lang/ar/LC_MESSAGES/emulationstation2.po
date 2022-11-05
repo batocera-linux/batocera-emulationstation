@@ -375,6 +375,15 @@ msgstr "إعدادات"
 msgid "RETROACHIEVEMENTS"
 msgstr "امتيازات"
 
+msgid "USERNAME"
+msgstr "اسم المستخدم"
+
+msgid "PASSWORD"
+msgstr "كلمة المرور"
+
+msgid "OPTIONS"
+msgstr "خيارات"
+
 msgid "HARDCORE MODE"
 msgstr "وضع HARDCORE"
 
@@ -424,12 +433,6 @@ msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
-
-msgid "USERNAME"
-msgstr "اسم المستخدم"
-
-msgid "PASSWORD"
-msgstr "كلمة المرور"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -508,9 +511,6 @@ msgstr "اسم جديد للمجموعة"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "إنشاء مجموعة ديناميكية جديدة"
-
-msgid "OPTIONS"
-msgstr "خيارات"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ترتيب المجموعات والانظمة"
@@ -718,6 +718,10 @@ msgid "REMOVE"
 msgstr ""
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr ""
 
 msgid "INPUT"
@@ -1014,6 +1018,13 @@ msgstr "هل فعلا تريد التحديث ؟"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2092,11 +2103,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "خيارات العرض"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "اعرض نشاط وحدة التحكم"
@@ -2104,10 +2127,7 @@ msgstr "اعرض نشاط وحدة التحكم"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2242,9 +2262,6 @@ msgstr "الفيديو"
 
 msgid "grid"
 msgstr "الشبكة"
-
-msgid "DISPLAY OPTIONS"
-msgstr "خيارات العرض"
 
 msgid "LIST TRANSITION"
 msgstr ""

@@ -366,6 +366,15 @@ msgstr "設定"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS 成就"
 
+msgid "USERNAME"
+msgstr "使用者名稱"
+
+msgid "PASSWORD"
+msgstr "使用者密碼"
+
+msgid "OPTIONS"
+msgstr "選項"
+
 msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
@@ -415,12 +424,6 @@ msgstr "沒有"
 
 msgid "UNLOCK SOUND"
 msgstr "解鎖音效"
-
-msgid "USERNAME"
-msgstr "使用者名稱"
-
-msgid "PASSWORD"
-msgstr "使用者密碼"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
@@ -499,9 +502,6 @@ msgstr "新的合輯名稱"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "建立新的動態合輯"
-
-msgid "OPTIONS"
-msgstr "選項"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "排序合輯與遊戲平台"
@@ -710,6 +710,10 @@ msgstr "刪除"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "藍牙裝置已被刪除。"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "輸入"
@@ -1009,6 +1013,13 @@ msgid ""
 msgstr ""
 "您正在使用版本 %s\n"
 "您想要升級至版本 %s 嗎？"
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要連線到網際網路"
@@ -2093,11 +2104,23 @@ msgstr ""
 "並非它的實體標示。 如果您沒有專門的按鈕可指派為「熱鍵」， 請將它指派給「選擇"
 "鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 完成時按南功能鍵確認。"
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "顯示設定"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "顯示控制器活動狀態"
@@ -2105,10 +2128,7 @@ msgstr "顯示控制器活動狀態"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2243,9 +2263,6 @@ msgstr "影片"
 
 msgid "grid"
 msgstr "網格"
-
-msgid "DISPLAY OPTIONS"
-msgstr "顯示設定"
 
 msgid "LIST TRANSITION"
 msgstr "列表轉場"

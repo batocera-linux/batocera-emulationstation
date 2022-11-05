@@ -368,6 +368,15 @@ msgstr "НАСТРОЙКИ"
 msgid "RETROACHIEVEMENTS"
 msgstr "РЕТРОДОСТИЖЕНИЯ"
 
+msgid "USERNAME"
+msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
+
+msgid "PASSWORD"
+msgstr "ПАРОЛЬ"
+
+msgid "OPTIONS"
+msgstr "НАСТРОЙКИ"
+
 msgid "HARDCORE MODE"
 msgstr "РЕЖИМ ХАРДКОРА"
 
@@ -421,12 +430,6 @@ msgstr "нет"
 
 msgid "UNLOCK SOUND"
 msgstr "ЗВУК ПОЛУЧЕНИЯ"
-
-msgid "USERNAME"
-msgstr "ИМЯ ПОЛЬЗОВАТЕЛЯ"
-
-msgid "PASSWORD"
-msgstr "ПАРОЛЬ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ПОКАЗЫВАТЬ РЕТРОДОСТИЖЕНИЯ В ГЛАВНОМ МЕНЮ"
@@ -505,9 +508,6 @@ msgstr "Название новой коллекции"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "СОЗДАТЬ ДИНАМИЧЕСКУЮ КОЛЛЕКЦИЮ"
-
-msgid "OPTIONS"
-msgstr "НАСТРОЙКИ"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "СОРТИРОВКА КОЛЛЕКЦИЙ И СИСТЕМ"
@@ -716,6 +716,10 @@ msgstr "УДАЛИТЬ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "ВВОД"
@@ -1015,6 +1019,13 @@ msgid ""
 msgstr ""
 "ВЫ ИСПОЛЬЗУЕТЕ ВЕРСИЮ %s\n"
 "ХОТИТЕ ОБНОВИТЬ ДО ВЕРСИИ %s?"
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
@@ -2119,11 +2130,23 @@ msgstr ""
 "НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ. КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
 "ПОДТВЕРЖДЕНИЯ."
 
+msgid "SINDEN GUN SETTINGS"
+msgstr "НАСТРОЙКИ SINDEN GUN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "НАСТРОЙКИ WIIMOTE GUN"
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "НАСТРОЙКИ ЭКРАНА"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
@@ -2131,11 +2154,8 @@ msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr "НАСТРОЙКИ SINDEN GUN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "НАСТРОЙКИ WIIMOTE GUN"
+msgid "PLAYER ASSIGNMENTS"
+msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2269,9 +2289,6 @@ msgstr "видео"
 
 msgid "grid"
 msgstr "сетка"
-
-msgid "DISPLAY OPTIONS"
-msgstr "НАСТРОЙКИ ЭКРАНА"
 
 msgid "LIST TRANSITION"
 msgstr "СТИЛЬ ПЕРЕХОДОВ"

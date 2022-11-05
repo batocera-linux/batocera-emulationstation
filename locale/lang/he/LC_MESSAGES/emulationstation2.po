@@ -370,6 +370,15 @@ msgstr "הגדרות"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS הישגי"
 
+msgid "USERNAME"
+msgstr "שם משתמש"
+
+msgid "PASSWORD"
+msgstr "סיסמה"
+
+msgid "OPTIONS"
+msgstr "אפשרויות"
+
 msgid "HARDCORE MODE"
 msgstr "מצב קשה-מאוד"
 
@@ -419,12 +428,6 @@ msgstr "ללא"
 
 msgid "UNLOCK SOUND"
 msgstr "ביטול נעילת שמע"
-
-msgid "USERNAME"
-msgstr "שם משתמש"
-
-msgid "PASSWORD"
-msgstr "סיסמה"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -503,9 +506,6 @@ msgstr "שם לאוסף חדש"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "יצירת אוסף דינמי חדש"
-
-msgid "OPTIONS"
-msgstr "אפשרויות"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "מיון אוספים ומערכת"
@@ -714,6 +714,10 @@ msgstr "הסרה"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "התקן בלו-טות' נמחק."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "קלט"
@@ -1009,6 +1013,13 @@ msgstr "באמת לעדכן ?"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2085,11 +2096,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "הצגת אפשרויות"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "הצגת פעילות בקר"
@@ -2097,10 +2120,7 @@ msgstr "הצגת פעילות בקר"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "הצגת רמת סוללה לבקר"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2235,9 +2255,6 @@ msgstr "וידאו"
 
 msgid "grid"
 msgstr "רשת"
-
-msgid "DISPLAY OPTIONS"
-msgstr "הצגת אפשרויות"
 
 msgid "LIST TRANSITION"
 msgstr ""

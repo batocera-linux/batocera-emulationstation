@@ -374,6 +374,15 @@ msgstr "PARAMÈTRES"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
+msgid "USERNAME"
+msgstr "NOM UTILIZAIRE"
+
+msgid "PASSWORD"
+msgstr "SENHAL"
+
+msgid "OPTIONS"
+msgstr "OPCIONS"
+
 msgid "HARDCORE MODE"
 msgstr "MÒDE DIFICIL DIFICIL"
 
@@ -423,12 +432,6 @@ msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
-
-msgid "USERNAME"
-msgstr "NOM UTILIZAIRE"
-
-msgid "PASSWORD"
-msgstr "SENHAL"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -507,9 +510,6 @@ msgstr "Nom de la colleccion novèla"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "COLLECCION DINAMICA NOVÈLA"
-
-msgid "OPTIONS"
-msgstr "OPCIONS"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "TRIAR LAS COLLECCIONS E LOS SISTÈMAS"
@@ -718,6 +718,10 @@ msgstr "SUPRIMIR"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "TOTES LOS PERIFERICS BLUETOOTH SON ESTATS SUPRIMITS."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "ENTRADA"
@@ -1013,6 +1017,13 @@ msgstr "METRE A JORN PER DE BON ?"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2089,11 +2100,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "OPCIONS D'AFICHATGE"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
@@ -2101,10 +2124,7 @@ msgstr ""
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2239,9 +2259,6 @@ msgstr "vidèo"
 
 msgid "grid"
 msgstr ""
-
-msgid "DISPLAY OPTIONS"
-msgstr "OPCIONS D'AFICHATGE"
 
 msgid "LIST TRANSITION"
 msgstr ""

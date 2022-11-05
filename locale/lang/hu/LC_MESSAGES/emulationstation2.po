@@ -367,6 +367,15 @@ msgstr "BEÁLLÍTÁSOK"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
+msgid "USERNAME"
+msgstr "FELHASZNÁLÓNÉV"
+
+msgid "PASSWORD"
+msgstr "JELSZÓ"
+
+msgid "OPTIONS"
+msgstr "BEÁLLÍTÁSOK"
+
 msgid "HARDCORE MODE"
 msgstr "HALADÓ MÓD"
 
@@ -416,12 +425,6 @@ msgstr "egy sem"
 
 msgid "UNLOCK SOUND"
 msgstr "HANGOK ENGEDÉLYEZÉSE"
-
-msgid "USERNAME"
-msgstr "FELHASZNÁLÓNÉV"
-
-msgid "PASSWORD"
-msgstr "JELSZÓ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -500,9 +503,6 @@ msgstr "Új gyűjtemény neve"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "ÚJ DINAMIKUS GYŰJTEMÉNY KÉSZÍTÉSE"
-
-msgid "OPTIONS"
-msgstr "BEÁLLÍTÁSOK"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "GYŰJTEMÉNYEK ÉS RENDSZEREK RENDEZÉSE"
@@ -710,6 +710,10 @@ msgid "REMOVE"
 msgstr "ELTÁVOLÍTÁS"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr ""
 
 msgid "INPUT"
@@ -1006,6 +1010,13 @@ msgstr "BIZTOS FRISSÍTESZ?"
 #, c-format
 msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
@@ -2086,11 +2097,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "BEÁLLÍTÁSOK MEGJELENÍTÉSE"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
@@ -2098,10 +2121,7 @@ msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2236,9 +2256,6 @@ msgstr "videó"
 
 msgid "grid"
 msgstr "rács"
-
-msgid "DISPLAY OPTIONS"
-msgstr "BEÁLLÍTÁSOK MEGJELENÍTÉSE"
 
 msgid "LIST TRANSITION"
 msgstr ""

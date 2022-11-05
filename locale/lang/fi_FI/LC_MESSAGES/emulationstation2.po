@@ -372,6 +372,15 @@ msgstr "ASETUKSET"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
+msgid "USERNAME"
+msgstr "KÄYTTÄJÄNIMI"
+
+msgid "PASSWORD"
+msgstr "SALASANA"
+
+msgid "OPTIONS"
+msgstr "ASETUKSET"
+
 msgid "HARDCORE MODE"
 msgstr "HARDCORE-TILA"
 
@@ -421,12 +430,6 @@ msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
-
-msgid "USERNAME"
-msgstr "KÄYTTÄJÄNIMI"
-
-msgid "PASSWORD"
-msgstr "SALASANA"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -505,9 +508,6 @@ msgstr "Uuden kokelman nimi"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr ""
-
-msgid "OPTIONS"
-msgstr "ASETUKSET"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "LAJITTELE KOKOELMAT JA JÄRJESTELMÄT"
@@ -716,6 +716,10 @@ msgstr "POISTA"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH-LAITTEET ON POISTETTU."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "SYÖTE"
@@ -1015,6 +1019,13 @@ msgid ""
 msgstr ""
 "KÄYTÄT TÄLLÄ HETKELLÄ VERSIOTA %s\n"
 "HALUATKO PÄIVITTÄÄ VERSIOON %s?"
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "VERKKOYHTEYS VAADITAAN"
@@ -2110,10 +2121,22 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
 msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
@@ -2122,10 +2145,7 @@ msgstr ""
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2259,9 +2279,6 @@ msgid "video"
 msgstr ""
 
 msgid "grid"
-msgstr ""
-
-msgid "DISPLAY OPTIONS"
 msgstr ""
 
 msgid "LIST TRANSITION"
