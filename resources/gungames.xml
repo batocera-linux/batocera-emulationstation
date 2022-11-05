@@ -8,7 +8,7 @@
     <game>cosmicstorm</game>
     <game>gangster</game>
     <game>ghosttown</game>
-    <game gun="stack_light_rifle">groueshoot</game>
+    <game gun="stack_light_rifle">grouseshoot</game>
     <game gun="stack_light_rifle">glorious12</game>
     <game>goosebusters</game>
     <game>gunslinger</game>
@@ -79,6 +79,7 @@
   </system>
   <system name="megadrive">
     <game>bodycount</game>
+    <game gun="justifier">gunfight3in1</game>
     <game gun="justifier">lethalenforcers</game>
     <game gun="justifier">lethalenforcersii</game>
     <game>menacer6gamecartridge</game>
@@ -108,7 +109,6 @@
     <game>gunsight</game>
     <game>hitmarmot</game>
     <game>hogansalley</game>
-    <game>laserinvasion</game>
     <game>lightgungame2in1</game>
     <game>mastershooter</game>
     <game>mechanizedattack</game>
@@ -141,6 +141,7 @@
     <game>pointblank2</game>
     <game>pointblank3</game>
     <game>projecthornedowl</game>
+    <game>puffypsiloveyou</game>
     <game>rescueshot</game>
     <game>thegunshooting</game>
     <game>thegunshooting2</game>
@@ -151,7 +152,6 @@
     <game>area51</game>
     <game>chaoscontrol</game>
     <game>chaoscontrolremix</game>
-    <game>corpsekiller</game>
     <game>crimepatrol</game>
     <game>cryptkiller</game>
     <game>deathcrimson</game>
@@ -166,7 +166,6 @@
   <system name="snes">
     <game>battleclash</game>
     <game>bazookablitzkrieg</game>
-    <game>lamborghiniamericanchallenge</game>
     <game gun="justifier">lethalenforcers</game>
     <game>metalcombatfalconsrevenge</game>
     <game>nintendoscope6</game>
@@ -177,5 +176,44 @@
     <game>tinstar</game>
     <game>xzone</game>
     <game>yoshissafari</game>
+  </system>
+  <system name="wii">
+    <game>arcadeshootinggallery</game>
+    <game>attackofthemovies3d</game>
+    <game>bigbuckhunterpro</game>
+    <game>chickenblaster</game>
+    <game>chickenriot</game>
+    <game>chickenshoot</game>
+    <game>cocotofestival</game>
+    <game>cocotomagiccircus</game>
+    <game>deadspaceextraction</game>
+    <game>dinostrike</game>
+    <game>fastdrawshowdown</game>
+    <game>ghostsquad</game>
+    <game>gunbladenyandlamachineguns</game>
+    <game>gunslingers</game>
+    <game>heavyfireafghanistan</game>
+    <game>heavyfireblackarms</game>
+    <game>heavyfirespecialoperations</game>
+    <game>houseofthedeadoverkill</game>
+    <game>houseofthedead2and3</game>
+    <game>maddogmccreegunslingerpack</game>
+    <game>martianpanic</game>
+    <game>nerfnstrike</game>
+    <game>nerfnstrikeelite</game>
+    <game>pheasantsforeverwingshooter</game>
+    <game>pirateblast</game>
+    <game>reload</game>
+    <game>remingtongreatamericanbirdhunt</game>
+    <game>remingtonsuperslamhuntingafrica</game>
+    <game>remingtonsuperslamhuntingalaska</game>
+    <game>remingtonsuperslamhuntingnorthamerica</game>
+    <game>residentevildarksidechronicles</game>
+    <game>residentevilumbrellachronicles</game>
+    <game>targetterror</game>
+    <game>topshotarcade</game>
+    <game>wildwestguns</game>
+    <game>wildwestshootout</game>
+    <game>wickedmonstersblast</game>
   </system>
 </systems>
