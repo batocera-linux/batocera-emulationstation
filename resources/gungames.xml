@@ -177,4 +177,43 @@
     <game>xzone</game>
     <game>yoshissafari</game>
   </system>
+  <system name="wii">
+    <game>arcadeshootinggallery</game>
+    <game>attackofthemovies3d</game>
+    <game>bigbuckhunterpro</game>
+    <game>chickenblaster</game>
+    <game>chickenriot</game>
+    <game>chickenshoot</game>
+    <game>cocotofestival</game>
+    <game>cocotomagiccircus</game>
+    <game>deadspaceextraction</game>
+    <game>dinostrike</game>
+    <game>fastdrawshowdown</game>
+    <game>ghostsquad</game>
+    <game>gunbladenyandlamachineguns</game>
+    <game>gunslingers</game>
+    <game>heavyfireafghanistan</game>
+    <game>heavyfireblackarms</game>
+    <game>heavyfirespecialoperations</game>
+    <game>houseofthedeadoverkill</game>
+    <game>houseofthedead2and3</game>
+    <game>maddogmccreegunslingerpack</game>
+    <game>martianpanic</game>
+    <game>nerfnstrike</game>
+    <game>nerfnstrikeelite</game>
+    <game>pheasantsforeverwingshooter</game>
+    <game>pirateblast</game>
+    <game>reload</game>
+    <game>remingtongreatamericanbirdhunt</game>
+    <game>remingtonsuperslamhuntingafrica</game>
+    <game>remingtonsuperslamhuntingalaska</game>
+    <game>remingtonsuperslamhuntingnorthamerica</game>
+    <game>residentevildarksidechronicles</game>
+    <game>residentevilumbrellachronicles</game>
+    <game>targetterror</game>
+    <game>topshotarcade</game>
+    <game>wildwestguns</game>
+    <game>wildwestshootout</game>
+    <game>wickedmonstersblast</game>
+  </system>
 </systems>
