@@ -99,8 +99,7 @@ const std::map<PlatformId, unsigned short> cheevosConsoleID
 const std::set<unsigned short> consolesWithmd5hashes 
 {
 	RC_CONSOLE_APPLE_II,
-	RC_CONSOLE_ATARI_2600,
-	RC_CONSOLE_ATARI_7800,
+	RC_CONSOLE_ATARI_2600,	
 	RC_CONSOLE_ATARI_JAGUAR,
 	RC_CONSOLE_COLECOVISION,
 	RC_CONSOLE_GAMEBOY,
