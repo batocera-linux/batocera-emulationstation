@@ -442,7 +442,7 @@ bool TextureData::load(bool updateCache)
 		if (PdfHandler != nullptr && ext == ".pdf")
 			return loadFromPdf();
 
-		if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm")
+		if (Utils::FileSystem::isVideo(mPath))
 			return loadFromVideo();
 		
 		std::string path = mPath;

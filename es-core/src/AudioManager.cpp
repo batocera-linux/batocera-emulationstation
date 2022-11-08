@@ -161,15 +161,8 @@ void AudioManager::getMusicIn(const std::string &path, std::vector<std::string>&
 			if (anySystem || mSystemName == Utils::FileSystem::getFileName(*it))
 				getMusicIn(*it, all_matching_files);
 		}
-		else
-		{
-			std::string extension = Utils::String::toLower(Utils::FileSystem::getExtension(*it));
-			if (extension == ".mp3" || extension == ".ogg" || extension == ".flac"
-				|| extension == ".wav" || extension == ".mod" || extension == ".xm"
-				|| extension == ".stm" || extension == ".s3m" || extension == ".far"
-				|| extension == ".it" || extension == ".669" || extension == ".mtm")
-				all_matching_files.push_back(*it);
-		}
+		else if (Utils::FileSystem::isAudio(*it))
+			all_matching_files.push_back(*it);
 	}
 }
 

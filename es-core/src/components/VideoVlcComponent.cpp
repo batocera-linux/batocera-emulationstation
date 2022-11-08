@@ -639,10 +639,20 @@ void VideoVlcComponent::startVideo()
 			}
 			libvlc_media_tracks_release(tracks, track_count);
 
+			if (mVideoWidth == 0 && mVideoHeight == 0 && Utils::FileSystem::isAudio(path))
+			{
+				if (getPlayAudio() && !mScreensaverMode && Settings::getInstance()->getBool("VideoAudio"))
+				{
+					// Make fake dimension to play audio files
+					mVideoWidth = 1;
+					mVideoHeight = 1;
+				}
+			}
+
 			// Make sure we found a valid video track
 			if ((mVideoWidth > 0) && (mVideoHeight > 0))
 			{			
-				if (Settings::getInstance()->getBool("OptimizeVideo"))
+				if (mVideoWidth > 1 && Settings::getInstance()->getBool("OptimizeVideo"))
 				{
 					// Avoid videos bigger than resolution
 					Vector2f maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
@@ -682,8 +692,12 @@ void VideoVlcComponent::startVideo()
 				}
 
 				libvlc_media_player_play(mMediaPlayer);
-				libvlc_video_set_callbacks(mMediaPlayer, lock, unlock, display, (void*)&mContext);
-				libvlc_video_set_format(mMediaPlayer, "RGBA", (int)mVideoWidth, (int)mVideoHeight, (int)mVideoWidth * 4);
+
+				if (mVideoWidth > 1)
+				{
+					libvlc_video_set_callbacks(mMediaPlayer, lock, unlock, display, (void*)&mContext);
+					libvlc_video_set_format(mMediaPlayer, "RGBA", (int)mVideoWidth, (int)mVideoHeight, (int)mVideoWidth * 4);
+				}
 			}
 		}
 	}
