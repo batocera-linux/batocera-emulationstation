@@ -380,8 +380,7 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
-"Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
+msgstr "Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -395,8 +394,7 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
-"Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
+msgstr "Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -411,8 +409,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
-"Automaticamente captura uma imagem quando uma conquista retro é conquistada."
+msgstr "Automaticamente captura uma imagem quando uma conquista retro é conquistada."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFIOS"
@@ -725,7 +722,7 @@ msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM ELIMINADOS."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "TEM A CERTEZA QUE DESEJA REMOVER '%s' ?"
 
 msgid "INPUT"
 msgstr "EDITAR"
@@ -791,7 +788,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "EMPARELHAR DISPOSITIVO BLUETOOTH"
 
 msgid "PAIR"
-msgstr ""
+msgstr "EMPARELHAR"
 
 msgid "FILE BROWSER"
 msgstr "NAVEGADOR DE ARQUIVOS"
@@ -1032,6 +1029,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"MODIFICAÇÕES NÃO OFICIAIS DO SISTEMA DETECTADAS.\n"
+"ATUALIZAR PODE CORROMPER O SEU SISTEMA.\n"
+"DESEJA ATUALIZAR PARA A VERSÃO %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NECESSÁRIO CONECÇÃO A INTERNET"
@@ -1770,8 +1770,7 @@ msgid "INSTANT"
 msgstr "INSTANTÂNEO"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
-"Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
+msgstr "Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE ECRÃ (TEXTO PARA VOZ)"
@@ -2002,8 +2001,7 @@ msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
-"Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
+msgstr "Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
