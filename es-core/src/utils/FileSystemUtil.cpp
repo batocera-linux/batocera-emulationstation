@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <algorithm>
+#include <set>
 
 #if defined(_WIN32)
 // because windows...
@@ -1478,6 +1479,25 @@ namespace Utils
 
 			return hex;
 		}		
+
+		static std::set<std::string> _imageExtensions = { ".jpg", ".png", ".jpeg", ".gif" };
+		static std::set<std::string> _videoExtensions = { ".mp4", ".avi", ".mkv", ".webm" };
+		static std::set<std::string> _audioExtensions = { ".mp3", ".wav", ".ogg", ".flac", ".mod", ".xm", ".stm", ".s3m", ".far", ".it", ".669", ".mtm" };
+
+		bool isImage(const std::string& _path)
+		{
+			return _imageExtensions.find(Utils::String::toLower(Utils::FileSystem::getExtension(_path))) != _imageExtensions.cend();
+		}
+
+		bool isVideo(const std::string& _path)
+		{
+			return _videoExtensions.find(Utils::String::toLower(Utils::FileSystem::getExtension(_path))) != _videoExtensions.cend();
+		}
+
+		bool isAudio(const std::string& _path)
+		{
+			return _audioExtensions.find(Utils::String::toLower(Utils::FileSystem::getExtension(_path))) != _audioExtensions.cend();
+		}
 
 #ifdef WIN32
 		void splitCommand(std::string cmd, std::string* executable, std::string* parameters)

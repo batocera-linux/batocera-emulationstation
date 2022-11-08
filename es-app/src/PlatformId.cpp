@@ -180,6 +180,7 @@ namespace PlatformIds
 		{ "apfm1000",				APF_MP_1000 },
 		{ "camplynx",				CAMPUTER_LYNX },
 		{ "gamepock",				EPOCH_GAMEPOCKET },	
+		{ "wasm4",					WASM4 },
 
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
