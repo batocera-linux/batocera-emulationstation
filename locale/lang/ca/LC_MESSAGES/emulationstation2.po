@@ -1167,7 +1167,15 @@ msgstr "GESTOR DE TEMES"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECCIONAR TEMES A INSTAL·LAR/ELIMINAR"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "TEMA ACTUAL"
 

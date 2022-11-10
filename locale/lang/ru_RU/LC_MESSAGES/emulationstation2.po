@@ -1162,7 +1162,15 @@ msgstr "ЗАГРУЗКА ТЕМ"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "ВЫБЕРИТЕ ТЕМЫ ДЛЯ УСТАНОВКИ/УДАЛЕНИЯ"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "ТЕКУЩАЯ ТЕМА"
 

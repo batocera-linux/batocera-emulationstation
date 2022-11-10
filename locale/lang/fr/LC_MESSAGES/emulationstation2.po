@@ -721,7 +721,7 @@ msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "ÊTES VOUS SÛR DE VOULOIR SUPPRIMER '%s' ?"
 
 msgid "INPUT"
 msgstr "ÉDITER"
@@ -1165,7 +1165,15 @@ msgstr "TÉLÉCHARGEMENT DE THÈMES"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SÉLECTIONNEZ LES THÈMES À INSTALLER / SUPPRIMER"
 
-#, c-format
+msgid "All"
+msgstr "Tous"
+
+msgid "Installed"
+msgstr "Installé"
+
+msgid "Available"
+msgstr "Disponible"
+
 msgid "CURRENT THEME"
 msgstr "THÈME ACTUEL"
 
@@ -2143,7 +2151,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "PARAMÈTRES DES PISTOLETS WIIMOTE"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "ASSOCIER LES JOYSTICKS BLUETOOTH AUTOMATIQUEMENT"
@@ -2161,7 +2169,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "AFFECTATIONS DES JOUEURS"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -3102,166 +3110,3 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
-
-#~ msgid "SINDEN GUNS"
-#~ msgstr "PISTOLETS SINDEN"
-
-#~ msgid "WIIGUNS"
-#~ msgstr "WIIGUNS"
-
-#~ msgid "GUNS BORDER SIZE"
-#~ msgstr "ÉPAISSEUR DE LA BORDURE"
-
-#~ msgid "Force the emulator to run at this resolution."
-#~ msgstr "Forcer l'émulateur dans cette résolution."
-
-#~ msgid "SAVE STATE MANAGER"
-#~ msgstr "GESTIONNAIRE DE SAUVEGARDES"
-
-#~ msgid "0 DEGREES (AUTO)"
-#~ msgstr "0 DEGRÉE (AUTO)"
-
-#~ msgid "SHOW SAVE STATE MANAGER"
-#~ msgstr "AFFICHER LE GESTIONNAIRE DE SAUVEGARDES"
-
-#~ msgid "Display save state manager before launching a game."
-#~ msgstr "Afficher le gestionnaire de sauvegarde au lancement d'un jeu"
-
-#, c-format
-#~ msgid "%d m"
-#~ msgstr "%d m"
-
-#, c-format
-#~ msgid "%d s"
-#~ msgstr "%d s"
-
-#~ msgid "RANDOM (HOLD)"
-#~ msgstr "ALÉATOIRE (MAINTENU)"
-
-#~ msgid "SCRAPE SHORT NAME"
-#~ msgstr "SCRAPER LES NOMS COURTS"
-
-#~ msgid "SCRAPE RATINGS"
-#~ msgstr "SCRAPER LES NOTATIONS"
-
-#~ msgid "SCRAPE VIDEOS"
-#~ msgstr "SCRAPER LES VIDÉOS"
-
-#~ msgid "SCRAPE FANART"
-#~ msgstr "SCRAPER LES FANARTS"
-
-#~ msgid "SCRAPE BEZEL (16:9)"
-#~ msgstr "SCRAPER LES DÉCORATION (16/9)"
-
-#~ msgid "SCRAPE BOX BACKSIDE"
-#~ msgstr "SCRAPER LE DOS DES BOITES"
-
-#~ msgid "SCRAPE MAP"
-#~ msgstr "SCRAPER LES CARTES"
-
-#~ msgid "SCRAPE MANUAL"
-#~ msgstr "SCRAPER LES MANUELS"
-
-#~ msgid "SCRAPE PADTOKEY SETTINGS"
-#~ msgstr "SCRAPER LES RÉGLAGES PADTOKEY"
-
-#~ msgid "UI SETTINGS"
-#~ msgstr "PARAMÈTRES DE L'INTERFACE"
-
-#~ msgid "UNLOCK UI MODE"
-#~ msgstr "DÉVERROUILLER L’INTERFACE"
-
-#~ msgid "THE UI MODE IS NOW UNLOCKED"
-#~ msgstr "L’INTERFACE EST MAINTENANT DÉVERROUILLÉE"
-
-#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
-#~ msgstr "ENTREZ LE CODE POUR DÉVERROUILLER L’INTERFACE"
-
-#~ msgid "DEVELOPER"
-#~ msgstr "DÉVELOPPEUR"
-
-#~ msgid "ENABLE PUBLIC WEB ACCESS"
-#~ msgstr "ACTIVER L'ACCÈS WEB PUBLIC"
-
-#~ msgid "CREATE A SUPPORT FILE?"
-#~ msgstr "CRÉER UN FICHIER DE SUPPORT ?"
-
-#~ msgid "ENABLE FILTERS"
-#~ msgstr "ACTIVER LES FILTRES"
-
-#~ msgid "PARSE GAMESLISTS ONLY"
-#~ msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
-
-#~ msgid "UI"
-#~ msgstr "INTERFACE"
-
-#~ msgid "POWER SAVER MODES"
-#~ msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
-
-#~ msgid "UI MODE"
-#~ msgstr "TYPE D’INTERFACE"
-
-#~ msgid ""
-#~ "You are changing the UI to a restricted mode:\n"
-#~ "This will hide most menu options to prevent changes to the system.\n"
-#~ "To unlock and return to the full UI, enter this code:"
-#~ msgstr ""
-#~ "Vous allez restreindre l’accès à l’interface :\n"
-#~ "Cela masquera la plupart des options de menu pour empêcher des "
-#~ "modifications du système.\n"
-#~ "Pour déverrouiller l’interface, entrez le code suivant :"
-
-#~ msgid "NEW GAME CREATES NEW SLOT"
-#~ msgstr "Nouveau jeu crée un nouveau slot"
-
-#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
-#~ msgstr "Nouveau jeu écrase le slot actuel"
-
-#~ msgid "LIST TRANSITION STYLE"
-#~ msgstr "TRANSITION DE L’INTERFACE"
-
-#~ msgid "VIEW USER'S MANUAL"
-#~ msgstr "VOIR LE MANUEL DE L’UTILISATEUR"
-
-#~ msgid "REBOOT SYSTEM TO APPLY THE UPDATE"
-#~ msgstr "REDÉMARREZ LE SYSTÈME POUR APPLIQUER LA MISE À JOUR"
-
-#~ msgid "UPDATING BATOCERA"
-#~ msgstr "MISE À JOUR DE BATOCERA"
-
-#~ msgid "INSTALL BATOCERA"
-#~ msgstr "INSTALLER BATOCERA"
-
-#~ msgid "GAMES MISSING MEDIAS"
-#~ msgstr "JEUX AVEC MÉDIAS MANQUANTS"
-
-#~ msgid "GAMES WITHOUT ANY MEDIA"
-#~ msgstr "JEUX SANS AUCUN MÉDIA"
-
-#~ msgid "AUTOCONFIGURE EMULATORS CONTROLLERS"
-#~ msgstr "AUTOCONFIGURATION ÉMULATEURS/MANETTES"
-
-#~ msgid "INSTALL BATOCERA ON A NEW DISK"
-#~ msgstr "INSTALLER BATOCERA SUR UN NOUVEAU DISQUE"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER"
-#~ msgstr "MONTRER LE GESTIONNAIRE DE SAUVEGARDES"
-
-#~ msgid "DISPLAY SAVE STATE MANAGER BEFORE LAUNCHING A GAME"
-#~ msgstr "Afficher le gestionnaire de sauvegardes avant de lancer le jeu"
-
-#~ msgid "VIEW BATOCERA MANUAL"
-#~ msgstr "VOIR LE MANUEL DE BATOCERA"
-
-#~ msgid "USE RUN-AHEAD FRAMES"
-#~ msgstr "UTILISER DES IMAGES A EXÉCUTER EN AVANCE"
-
-#~ msgid "RUN-AHEAD USE SECOND INSTANCE"
-#~ msgstr "2ND INSTANCE POUR L'EXÉCUTION EN AVANCE"
-
-#~ msgid ""
-#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
-#~ "Turn off if this worsens audio/video stuttering."
-#~ msgstr ""
-#~ "Réduit automatiquement le retard d’image pour éviter les ralentissements. "
-#~ "Désactivez le si cela aggrave les saccades audio/vidéo"

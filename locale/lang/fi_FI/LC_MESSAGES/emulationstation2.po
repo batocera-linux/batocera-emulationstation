@@ -1162,7 +1162,15 @@ msgstr "TEEMOJEN LATAAJA"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VALITSE TEEMAT ASENNETTAVAKSI/POISTETTAVAKSI"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "NYKYINEN TEEMA"
 

@@ -380,7 +380,8 @@ msgid "HARDCORE MODE"
 msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
+msgstr ""
+"Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -394,7 +395,8 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
+msgstr ""
+"Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -409,7 +411,8 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "Automaticamente captura uma imagem quando uma conquista retro é conquistada."
+msgstr ""
+"Automaticamente captura uma imagem quando uma conquista retro é conquistada."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFIOS"
@@ -1168,7 +1171,15 @@ msgstr "TRANSFERÊNCIA DE TEMAS"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECIONE TEMAS PARA INSTALAR/REMOVER"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "TEMA ATUAL"
 
@@ -1770,7 +1781,8 @@ msgid "INSTANT"
 msgstr "INSTANTÂNEO"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
+msgstr ""
+"Reduz o consumo de energia quando parado (útil para aparelhos portáteis)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LEITOR DE ECRÃ (TEXTO PARA VOZ)"
@@ -2001,7 +2013,8 @@ msgid "REWIND"
 msgstr "VOLTAR NO TEMPO"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
+msgstr ""
+"Armazenar estados antigos para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA COMPLETA (PIXEL PERFEITO)"
@@ -2076,7 +2089,8 @@ msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
+msgstr ""
+"Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "TIPO DE INCREMENTO"

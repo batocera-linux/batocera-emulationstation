@@ -1159,7 +1159,15 @@ msgstr "STAHOVAČ TÉMAT"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VYBRAT MOTIVY K INSTALACI/ODSTRANIT"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "AKTUÁLNÍ MOTIV"
 

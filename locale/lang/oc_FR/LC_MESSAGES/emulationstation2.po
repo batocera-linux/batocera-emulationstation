@@ -1160,7 +1160,15 @@ msgstr "TELECARGAMENT DE TÈMAS"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "TÈMA ACTUALA"
 

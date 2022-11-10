@@ -1156,7 +1156,15 @@ msgstr "테마 다운로더"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "설치/제거 할 테마 선택"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "현재 테마"
 

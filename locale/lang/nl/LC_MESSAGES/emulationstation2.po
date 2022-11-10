@@ -1157,7 +1157,15 @@ msgstr "THEMA DOWNLOADER"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECTEER THEMAS OM TE INSTALLEREN/VERWIJDEREN"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "HUIDIG THEMA"
 
