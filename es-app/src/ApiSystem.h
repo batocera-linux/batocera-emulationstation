@@ -30,11 +30,15 @@ struct BatoceraBezel
 
 struct BatoceraTheme
 {
-	std::string name;
-	std::string url;
-	bool isInstalled;
-
+	std::string name; 
+	std::string url;  
+	std::string author;
+	std::string lastUpdate;
+	int upToDate;
+	int size;
 	std::string image;
+	
+	bool isInstalled;
 };
 
 struct PacmanPackage
@@ -195,6 +199,7 @@ public:
 
 	// Themes
 	virtual std::vector<BatoceraTheme> getBatoceraThemesList();
+	virtual bool isThemeInstalled(const std::string& themeName, const std::string& url);
 	virtual std::pair<std::string,int> installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func = nullptr);
 	virtual std::pair<std::string, int> uninstallBatoceraBezel(std::string bezelsystem, const std::function<void(const std::string)>& func = nullptr);
 
@@ -255,9 +260,11 @@ protected:
 	virtual bool executeScript(const std::string command);  
 	virtual std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func);
 	virtual std::vector<std::string> executeEnumerationScript(const std::string command);
-	
-	void getBatoceraThemesImages(std::vector<BatoceraTheme>& items);
-	std::string getUpdateUrl();
+	virtual bool downloadGitRepository(const std::string& url, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, long defaultDownloadSize = 0);
+		
+	virtual std::string getUpdateUrl();
+	virtual std::string getThemesUrl();
+
     static ApiSystem* instance;
 
     void launchExternalWindow_before(Window *window);

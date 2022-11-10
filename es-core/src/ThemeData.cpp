@@ -15,6 +15,7 @@
 #include "anim/ThemeStoryboard.h"
 #include "Paths.h"
 #include "utils/HtmlColor.h"
+#include "utils/VectorEx.h"
 
 std::vector<std::string> ThemeData::sSupportedViews{ { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "gamecarousel" }, { "menu" }, { "screen" }, { "splash" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "gamecarousel" }, { "z-index" }, { "visible" },{ "manufacturer" } };
@@ -1880,13 +1881,15 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 	{ 
 		Paths::getUserThemesPath(),
 		Paths::getThemesPath(),
-		Paths::getUserEmulationStationPath() + "/themes",
-		"/etc/emulationstation/themes" // Backward compatibility with Retropie
+		Paths::getUserEmulationStationPath() + "/themes"
+#if !WIN32
+		,"/etc/emulationstation/themes" // Backward compatibility with Retropie
+#endif
 	};
 
 	std::map<std::string, ThemeSet> sets;
 
-	for(auto path : paths)
+	for (auto path : VectorHelper::distinct(paths, [](auto x) { return x; }))	
 	{
 		if (!Utils::FileSystem::isDirectory(path))
 			continue;
@@ -1895,6 +1898,9 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 
 		for(Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it)
 		{
+			if (Utils::String::startsWith(Utils::FileSystem::getFileName(*it), "."))
+				continue;
+
 			if(Utils::FileSystem::isDirectory(*it))
 			{
 				ThemeSet set = {*it};

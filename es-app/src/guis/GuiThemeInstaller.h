@@ -8,6 +8,7 @@
 #include "components/ImageComponent.h"
 #include "ApiSystem.h"
 #include "ContentInstaller.h"
+#include "components/ComponentTab.h"
 
 template<typename T>
 class OptionListComponent;
@@ -18,6 +19,8 @@ public:
 	GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entry);
 
 	bool isInstallPending() { return mIsPending; }
+	bool isCurrentTheme() { return mIsCurrentTheme; }
+
 	BatoceraTheme& getEntry() { return mEntry; }
 	virtual void setColor(unsigned int color);
 
@@ -32,6 +35,7 @@ private:
 
 	BatoceraTheme mEntry;
 	bool mIsPending;
+	bool mIsCurrentTheme;
 };
 
 class GuiThemeInstaller : public GuiComponent, IContentInstalledNotify
@@ -44,6 +48,7 @@ public:
 	void update(int deltaTime) override;
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
+	virtual void onSizeChanged() override;
 
 	void OnContentInstalled(int contentType, std::string contentName, bool success) override;
 
@@ -52,10 +57,25 @@ private:
 	void loadList();
 
 	void centerWindow();
-	void processTheme(BatoceraTheme theme);
+	void processTheme(BatoceraTheme theme, bool isCurrentTheme);
 
 	int				mReloadList;
-	MenuComponent	mMenu;
+	int				mTabFilter;
+	//MenuComponent	mMenu;
+
+	NinePatchComponent				mBackground;
+	ComponentGrid					mGrid;
+
+	std::shared_ptr<TextComponent>	mTitle;
+	std::shared_ptr<TextComponent>	mSubtitle;
+
+	std::shared_ptr<ComponentList>	mList;
+
+	std::shared_ptr<ComponentGrid>	mHeaderGrid;
+	std::shared_ptr<ComponentGrid>	mButtonGrid;
+
+	std::shared_ptr<ComponentTab>	mTabs;
+
 
 	std::vector<BatoceraTheme> mThemes;
 };

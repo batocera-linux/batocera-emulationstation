@@ -398,6 +398,23 @@ HttpReq::Status HttpReq::status()
 						if (!req->mFilePath.empty())
 						{
 							bool renamed = Utils::FileSystem::renameFile(req->mTempStreamPath.c_str(), req->mFilePath.c_str());
+#if WIN32
+							if (renamed)
+							{
+								auto wfn = Utils::String::convertToWideString(req->mFilePath);
+								HANDLE hFile = CreateFileW(wfn.c_str(), GENERIC_WRITE, FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL);
+								if (hFile != INVALID_HANDLE_VALUE)
+								{
+									SYSTEMTIME st;
+									GetSystemTime(&st);              // Gets the current system time
+									FILETIME ft;
+									SystemTimeToFileTime(&st, &ft);  // Converts the current system time to file time format
+
+									SetFileTime(hFile, &ft, &ft, &ft);
+									CloseHandle(hFile);
+								}
+							}
+#endif
 							if (!renamed)
 							{
 								// Strange behaviour on Windows : sometimes std::rename fails if it's done too early after closing stream

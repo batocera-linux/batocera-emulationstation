@@ -15,6 +15,8 @@
 #include "RetroAchievements.h"
 #include "utils/ZipFile.h"
 #include "Paths.h"
+#include "utils/VectorEx.h"
+#include "LocaleES.h"
 
 #include <stdlib.h>
 #include <sstream>
@@ -29,6 +31,8 @@
 #include <fstream>
 #include <SDL.h>
 #include <pugixml/src/pugixml.hpp>
+#include <rapidjson/rapidjson.h>
+#include <rapidjson/pointer.h>
 
 #if WIN32
 #include <Windows.h>
@@ -63,7 +67,6 @@
 #define script_suport "batocera-support";
 #define script_gameforce "batocera-gameforce"; // buttonColorLed X, powerLed X
 #define script_audio "batocera-audio"; // list, list-profiles, get-profile, set-profile 'X', get, set 'X'
-#define script_themes "batocera-es-theme"; // list, install X, remove X
 #define script_bezelproject "batocera-es-thebezelproject"; // list, install X, remove X
 #define script_format "batocera-format"; // listDisks, listFstypes
 #define script_store "batocera-store"; // list, update, refresh, clean-all, install "X", remove "X"
@@ -777,45 +780,6 @@ bool ApiSystem::setAudioOutputProfile(std::string selected)
 	return exitcode == 0;
 }
 
-std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
-{
-	LOG(LogDebug) << "ApiSystem::getBatoceraThemesList";
-
-	std::vector<BatoceraTheme> res;
-
-	std::string command = "batocera-es-theme list";
-	FILE *pipe = popen(command.c_str(), "r");
-	if (pipe == NULL)
-		return res;
-
-	char line[1024];
-	char *pch;
-
-	while (fgets(line, 1024, pipe)) 
-	{
-		strtok(line, "\n");
-		// provide only themes that are [A]vailable or [I]nstalled as a result
-		// (Eliminate [?] and other non-installable lines of text)
-		if ((strncmp(line, "[A]", 3) == 0) || (strncmp(line, "[I]", 3) == 0))
-		{
-			auto parts = Utils::String::splitAny(line, " \t");
-			if (parts.size() < 2)
-				continue;
-
-			BatoceraTheme bt;
-			bt.isInstalled = (Utils::String::startsWith(parts[0], "[I]"));
-			bt.name = parts[1];
-			bt.url = parts.size() < 3 ? "" : (parts[2] == "-" ? parts[3] : parts[2]);
-
-			res.push_back(bt);
-		}
-	}
-	pclose(pipe);
-
-	getBatoceraThemesImages(res);
-	return res;
-}
-
 std::string ApiSystem::getUpdateUrl()
 {
 	auto systemsetting = SystemConf::getInstance()->get("global.updates.url");
@@ -825,20 +789,214 @@ std::string ApiSystem::getUpdateUrl()
 	return "https://updates.batocera.org";
 }
 
-void ApiSystem::getBatoceraThemesImages(std::vector<BatoceraTheme>& items)
+std::string ApiSystem::getThemesUrl()
 {
-	for (auto it = items.begin(); it != items.end(); ++it)
-		it->image = getUpdateUrl() + "/themes/" + it->name + ".jpg";
+	auto systemsetting = SystemConf::getInstance()->get("global.themes.url");
+	if (!systemsetting.empty())
+		return systemsetting;
+
+	return getUpdateUrl() + "/themes.json";
+}
+
+bool ApiSystem::downloadGitRepository(const std::string& url, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, long defaultDownloadSize)
+{
+	if (func != nullptr)
+		func("Downloading " + label);
+
+	long downloadSize = defaultDownloadSize;
+	if (downloadSize == 0)
+	{
+		std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
+		if (statUrl != url)
+		{
+			HttpReq statreq(statUrl);
+			if (statreq.wait())
+			{
+				std::string content = statreq.getContent();
+				auto pos = content.find("\"size\": ");
+				if (pos != std::string::npos)
+				{
+					auto end = content.find(",", pos);
+					if (end != std::string::npos)
+						downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024;
+				}
+			}
+		}
+	}
+
+	HttpReq httpreq(url + "/archive/master.zip", fileName);
+
+	int curPos = -1;
+	while (httpreq.status() == HttpReq::REQ_IN_PROGRESS)
+	{
+		if (downloadSize > 0)
+		{
+			double pos = httpreq.getPosition();
+			if (pos > 0 && curPos != pos)
+			{
+				if (func != nullptr)
+				{
+					std::string pc = std::to_string((int)(pos * 100.0 / downloadSize));
+					func(std::string("Downloading " + label + " >>> " + pc + " %"));
+				}
+
+				curPos = pos;
+			}
+		}
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(20));
+	}
+
+	if (httpreq.status() != HttpReq::REQ_SUCCESS)
+		return false;
+
+	return true;
+}
+
+bool ApiSystem::isThemeInstalled(const std::string& themeName, const std::string& url)
+{
+	std::string themeUrl = Utils::FileSystem::getFileName(url);
+
+	std::vector<std::string> paths =
+	{
+		Paths::getUserThemesPath(),
+		Paths::getThemesPath(),
+		Paths::getUserEmulationStationPath() + "/themes"
+#if !WIN32
+		,"/etc/emulationstation/themes" // Backward compatibility with Retropie
+#endif
+	};
+
+	for (auto path : VectorHelper::distinct(paths, [](auto x) { return x; }))
+	{
+		if (path.empty())
+			continue;
+
+		if (Utils::FileSystem::isDirectory(path + "/" + themeUrl + "-master"))
+			return true;
+		else if (Utils::FileSystem::isDirectory(path + "/" + themeUrl))
+			return true;
+		else if (Utils::FileSystem::isDirectory(path + "/" + themeName))
+			return true;
+	}
+
+	return false;
+}
+
+extern std::string jsonString(const rapidjson::Value& val, const std::string name);
+extern int jsonInt(const rapidjson::Value& val, const std::string name);
+
+std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
+{
+	LOG(LogDebug) << "ApiSystem::getBatoceraThemesList";
+
+	std::vector<BatoceraTheme> res;
+
+	auto url = getThemesUrl();
+
+	HttpReq httpreq(url);
+	if (httpreq.wait())
+	{
+		rapidjson::Document doc;
+		doc.Parse(httpreq.getContent().c_str());
+		if (doc.HasParseError())
+			return res;
+
+		if (!doc.HasMember("data"))
+			return res;
+
+		for (auto& item : doc["data"].GetArray())
+		{
+			BatoceraTheme bt;
+			bt.name = jsonString(item, "theme");
+			bt.url = jsonString(item, "theme_url");
+			bt.author = jsonString(item, "author");
+			bt.lastUpdate = jsonString(item, "last_update");
+			bt.upToDate = jsonInt(item, "up_to_date");
+			bt.size = jsonInt(item, "size");
+			bt.isInstalled = isThemeInstalled(bt.name, bt.url);
+
+			auto screenShot = jsonString(item, "screenshot");
+			if (!screenShot.empty())
+				bt.image = Utils::FileSystem::getParent(url) + "/" + screenShot;
+
+			res.push_back(bt);
+		}
+	}
+
+	return res;	
 }
 
 std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-es-theme install " + thname, func);
+	for (auto theme : getBatoceraThemesList())
+	{
+		if (theme.name != thname)
+			continue;
+
+		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
+		std::string extractionDirectory = Paths::getUserEmulationStationPath() + "/themes/.tmp";
+		std::string zipFile = extractionDirectory +"/" + themeFileName + ".zip";
+
+		Utils::FileSystem::createDirectory(extractionDirectory);
+		Utils::FileSystem::removeFile(zipFile);
+
+		if (downloadGitRepository(theme.url, zipFile, thname, func, theme.size * 1024 * 1024))
+		{
+			if (func != nullptr)
+				func(_("Extracting") + " " + thname);
+
+			unzipFile(zipFile, extractionDirectory);
+			
+			std::string folderName = extractionDirectory + "/" + themeFileName + "-master";
+			if (!Utils::FileSystem::exists(folderName))
+				folderName = extractionDirectory + "/" + themeFileName;
+
+			if (Utils::FileSystem::exists(folderName))
+			{
+				std::string finalfolderName = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName;
+				if (Utils::FileSystem::exists(finalfolderName))
+					Utils::FileSystem::deleteDirectoryFiles(finalfolderName, true);
+
+				Utils::FileSystem::renameFile(folderName, finalfolderName);
+			}
+
+			Utils::FileSystem::removeFile(zipFile);
+			Utils::FileSystem::deleteDirectoryFiles(extractionDirectory, true);
+
+			return std::pair<std::string, int>(std::string("OK"), 0);
+		}
+
+		Utils::FileSystem::deleteDirectoryFiles(extractionDirectory, true);
+		return std::pair<std::string, int>(std::string(""), 1);
+	}
+
+	return std::pair<std::string, int>(std::string(""), 1);
 }
 
 std::pair<std::string, int> ApiSystem::uninstallBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
 {
-	return executeScript("batocera-es-theme remove " + thname, func);
+	for (auto theme : getBatoceraThemesList())
+	{
+		if (!theme.isInstalled || theme.name != thname)
+			continue;
+
+		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
+
+		std::string folderName = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName;
+		if (!Utils::FileSystem::exists(folderName))
+			folderName = folderName + "-master";
+
+		if (Utils::FileSystem::exists(folderName))
+		{
+			Utils::FileSystem::deleteDirectoryFiles(folderName, true);
+			return std::pair<std::string, int>("OK", 0);
+		}
+
+		break;
+	}
+
+	return std::pair<std::string, int>(std::string(""), 1);
 }
 
 std::vector<BatoceraBezel> ApiSystem::getBatoceraBezelsList()
@@ -1197,6 +1355,8 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 
 	switch (script)
 	{
+	case ApiSystem::THEMESDOWNLOADER:
+		return true;
 	case ApiSystem::RETROACHIVEMENTS:
 #ifdef CHEEVOS_DEV_LOGIN
 		return true;
@@ -1223,9 +1383,6 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::OVERCLOCK:
 		executables.push_back("batocera-overclock");
 		break;
-	case ApiSystem::THEMESDOWNLOADER:
-		executables.push_back("batocera-es-theme");
-		break;		
 	case ApiSystem::NETPLAY:
 		executables.push_back("7zr");
 		break;
