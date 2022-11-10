@@ -914,8 +914,14 @@ namespace Utils
 #if WIN32			
 			if (isDirectory(_path))
 				return RemoveDirectoryW(Utils::String::convertToWideString(getPreferredPath(_path)).c_str());
+						
+			if (!DeleteFileW(Utils::String::convertToWideString(_path).c_str()))
+			{
+				SetFileAttributesW(Utils::String::convertToWideString(_path).c_str(), FILE_ATTRIBUTE_NORMAL);
+				return DeleteFileW(Utils::String::convertToWideString(_path).c_str());
+			}
 
-			return DeleteFileW(Utils::String::convertToWideString(_path).c_str());
+			return true;
 #else
 			if (isDirectory(_path))
 				return (rmdir(path.c_str()) == 0);

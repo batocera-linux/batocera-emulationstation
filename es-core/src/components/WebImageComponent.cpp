@@ -65,6 +65,9 @@ void WebImageComponent::resize()
 		mBusyAnim.setSize(mTargetSize);
 	else 
 		mBusyAnim.setSize(mSize);
+
+	if (getParent() != nullptr && getParent()->isKindOf<ComponentGrid>())
+		getParent()->onSizeChanged();
 }
 
 WebImageComponent::~WebImageComponent()
