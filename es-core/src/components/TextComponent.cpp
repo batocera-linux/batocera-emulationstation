@@ -299,7 +299,7 @@ void TextComponent::buildTextCache()
 	Vector2f size = f->sizeText(text);
 	if (!isMultiline)
 	{
-		if (sx && text.size() && (size.x() > sx || addAbbrev) && (mAutoScroll != AutoScrollType::HORIZONTAL))
+		if (sx && text.size() && (size.x() > (sx + 1) || addAbbrev) && (mAutoScroll != AutoScrollType::HORIZONTAL))
 		{
 			// abbreviate text
 			const std::string abbrev = "...";
