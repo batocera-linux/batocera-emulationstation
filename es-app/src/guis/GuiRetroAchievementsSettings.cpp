@@ -71,17 +71,26 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 		bool newState = retroachievements_enabled->getState();
 		std::string newUsername = SystemConf::getInstance()->get("global.retroachievements.username");
 		std::string newPassword = SystemConf::getInstance()->get("global.retroachievements.password");
+		std::string token = SystemConf::getInstance()->get("global.retroachievements.token");
 
-		if (newState && (!retroachievementsEnabled || username != newUsername || password != newPassword))
+		if (newState && (!retroachievementsEnabled || username != newUsername || password != newPassword || token.empty()))
 		{
-			std::string error;
-			if (!RetroAchievements::testAccount(newUsername, newPassword, error))
+			std::string tokenOrError;
+			if (RetroAchievements::testAccount(newUsername, newPassword, tokenOrError))
 			{
-				window->pushGui(new GuiMsgBox(window, _("UNABLE TO ACTIVATE RETROACHIEVEMENTS:") + "\n" + error, _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
+				SystemConf::getInstance()->set("global.retroachievements.token", tokenOrError);
+			}
+			else
+			{
+				SystemConf::getInstance()->set("global.retroachievements.token", "");
+
+				window->pushGui(new GuiMsgBox(window, _("UNABLE TO ACTIVATE RETROACHIEVEMENTS:") + "\n" + tokenOrError, _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
 				retroachievements_enabled->setState(false);
 				newState = false;
 			}
 		}
+		else if (!newState)
+			SystemConf::getInstance()->set("global.retroachievements.token", "");
 
 		if (SystemConf::getInstance()->setBool("global.retroachievements", newState))
 			if (!ThreadedHasher::isRunning() && newState)
