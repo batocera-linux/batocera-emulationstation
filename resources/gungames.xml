@@ -122,6 +122,26 @@
     <game>wildgunman</game>
     <game>zombiezap</game>
   </system>
+  <system name="ps3">
+    <game>childofeden</game>
+    <game>deadspaceextraction</game>
+    <game>deadstormpirates</game>
+    <game>fastdrawshowdown</game>
+    <game>galgun</game>
+    <game>heavyfireafghanistan</game>
+    <game>heavyfireshatteredspear</game>
+    <game>houseofthedead3</game>
+    <game>houseofthedead4</game>
+    <game>houseofthedeadoverkill</game>
+    <game>maddogmccree</game>
+    <game>maddogiithelostgold</game>
+    <game>residentevilchronicles</game>
+    <game>theshoot</game>
+    <game>thelastbountyhunter</game>
+    <game>timecrisis4</game>
+    <game>timecrisisrazingstorm</game>
+    <game>wickedmonstersblast</game>
+  </system>
   <system name="psx">
     <game>area51</game>
     <game>cryptkiller</game>
