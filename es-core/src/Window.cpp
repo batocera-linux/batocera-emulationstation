@@ -1098,6 +1098,7 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	{
 		mClock->setFont(Font::get(FONT_SIZE_SMALL));
 		mClock->setColor(0x777777FF);		
+		mClock->setOrigin(Vector2f::Zero());
 		mClock->setHorizontalAlignment(ALIGN_RIGHT);
 		mClock->setVerticalAlignment(ALIGN_TOP);
 		

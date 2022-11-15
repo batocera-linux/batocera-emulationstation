@@ -560,11 +560,11 @@ std::string RetroAchievements::getCheevosHash( SystemData* system, const std::st
 	return ret;
 }
 
-bool RetroAchievements::testAccount(const std::string& username, const std::string& password, std::string& error)
+bool RetroAchievements::testAccount(const std::string& username, const std::string& password, std::string& tokenOrError)
 {
 	if (username.empty() || password.empty())
 	{
-		error = _("A valid account is required. Please register an account on https://retroachievements.org");
+		tokenOrError = _("A valid account is required. Please register an account on https://retroachievements.org");
 		return false;
 	}
 
@@ -575,7 +575,7 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 		HttpReq request("https://retroachievements.org/dorequest.php?r=login&u=" + HttpReq::urlEncode(username) + "&p=" + HttpReq::urlEncode(password));
 		if (!request.wait())
 		{						
-			error = request.getErrorMsg();
+			tokenOrError = request.getErrorMsg();
 			return false;
 		}
 
@@ -583,19 +583,24 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 		ogdoc.Parse(request.getContent().c_str());
 		if (ogdoc.HasParseError() || !ogdoc.HasMember("Success"))
 		{
-			error = "Unable to parse response";
+			tokenOrError = "Unable to parse response";
 			return false;
 		}
 
 		if (ogdoc["Success"].IsTrue())
-			return true;		
+		{
+			if (ogdoc.HasMember("Token"))
+				tokenOrError = ogdoc["Token"].GetString();
+
+			return true;
+		}
 
 		if (ogdoc.HasMember("Error"))
-			error = ogdoc["Error"].GetString();
+			tokenOrError = ogdoc["Error"].GetString();
 	}
 	catch (...)
 	{
-		error = "Unknown error";
+		tokenOrError = "Unknown error";
 	}
 
 	return false;
