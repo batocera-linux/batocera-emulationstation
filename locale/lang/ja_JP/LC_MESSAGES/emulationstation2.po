@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/11/03)\n"
+"Project-Id-Version: batocera-es v36beta(2022/11/11)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-11-03 17:13+0900\n"
+"PO-Revision-Date: 2022-11-15 20:37+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -382,13 +382,13 @@ msgstr "ハードコアモード"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"ステート読込を無効にし、巻き戻し、チートでより多くのポイントを獲得します"
+"ステート読込み、巻き戻し、チートを無効にしてより多くのポイントを獲得します"
 
 msgid "LEADERBOARDS"
 msgstr "リーダーボード"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr "ハイスコ​​アとベストタイムをリーダーボードで競います（ハードコアが必要）"
+msgstr "HighScoreとベストタイムをリーダーボードで競います（ハードコアが必要）"
 
 msgid "VERBOSE MODE"
 msgstr "詳細な処理モード"
@@ -403,13 +403,13 @@ msgid "ENCORE MODE"
 msgstr "アンコール モード"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "ロック解除されたアチーブメントは再び獲得できます"
+msgstr "ロック解除されたアチーブメントを再び獲得できます"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自動スクリーンショット"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "achievementを獲得すると、自動的にスクリーンショットを撮ります"
+msgstr "アチーブメントを獲得すると、自動的にスクリーンショットを撮ります"
 
 msgid "CHALLENGE INDICATORS"
 msgstr "チャレンジインジケーター"
@@ -417,7 +417,7 @@ msgstr "チャレンジインジケーター"
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "対象となるACHIEVEMENTSを獲得できる場合、右下隅にアイコンを表示します"
+msgstr "対象となるアチーブメントを獲得できる場合、右下隅にアイコンを表示します"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "RETROACHIEVEMENTサウンドのロック解除"
@@ -432,7 +432,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "メインメニューにRetroAchievementの統計を表示します!"
+msgstr "メインメニューにRETROACHIEVEMENTSの統計を表示します!"
 
 msgid "GAME INDEXES"
 msgstr "ゲームインデックス"
@@ -691,7 +691,7 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "文字別ゲームフィルタ"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "この機能は、スクレイプの実行中は無効になります"
+msgstr "この機能は、スクレイプ実行中は無効になります"
 
 msgid "CLOSE"
 msgstr "閉じる"
@@ -700,23 +700,23 @@ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "この項目を削除してもよろしいですか？"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH デバイスを削除"
+msgstr "BLUETOOTH デバイスの削除"
 
 msgid "REMOVE ALL"
 msgstr "すべて削除"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH デバイスが見つかりません"
+msgstr "ペアリングしていません"
 
 msgid "REMOVE"
 msgstr "削除"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH デバイスが削除されました"
+msgstr "BLUETOOTH デバイスを削除しました"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "'%s' を削除してもよろしいですか？"
 
 msgid "INPUT"
 msgstr "入力"
@@ -1025,6 +1025,10 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"非公式のシステムカスタマイズがされています\n"
+"更新すると、システムが破損する可能性があります\n"
+"更新しますか?\n"
+"(バージョン %s)"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ネットワーク接続が必要です"
@@ -1162,13 +1166,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "インストール/削除するテーマを選択"
 
 msgid "All"
-msgstr ""
+msgstr "すべて"
 
 msgid "Installed"
-msgstr ""
+msgstr "インストール済"
 
 msgid "Available"
-msgstr ""
+msgstr "利用可能"
 
 msgid "CURRENT THEME"
 msgstr "現在のテーマ"
@@ -1295,7 +1299,7 @@ msgid "GAMES TO SCRAPE FOR"
 msgstr "スクレイプするゲーム"
 
 msgid "ALL"
-msgstr "全て"
+msgstr "すべて"
 
 msgid "GAMES MISSING ANY MEDIA"
 msgstr "メディア情報が不足"
@@ -1465,7 +1469,7 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "コントローラー＆BLUETOOTH 設定"
 
 msgid "INTERNAL"
-msgstr "BATOCERA内ストレージ(通常)"
+msgstr "システムと同ストレージ(通常)"
 
 msgid "ANY EXTERNAL"
 msgstr "外付けストレージ(userdata分離)"
@@ -1569,19 +1573,19 @@ msgstr "サポートファイルを作成"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
-"サポートファイルを作成しますか？　これには、システムフォルダ内の　すべての"
-"データが含まれます"
+"サポートファイルを作成しますか？これには、 システムフォルダ内のすべてのデータ"
+"が含まれます"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
 "サポートファイルを作成しました\n"
-"(SAVEフォルダに保存)"
+"(savesフォルダに保存)"
 
 msgid "SUPPORT FILE CREATION FAILED"
 msgstr "サポートファイルの作成に失敗しました"
 
 msgid "FORMAT A DISK"
-msgstr "ディスクをフォーマット"
+msgstr "データストレージのファイルシステムの変更"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ゲームリストの整理と未使用のメディアを削除"
@@ -2129,19 +2133,19 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 "コントローラーのボタン設定を行います。 物理的なものではなく、スーファミコント"
-"ローラー上の 同等のボタンに対するボタンの位置に基づいて設定します。 ホット"
-"キー用の特別なボタンがない場合は、 セレクトボタンを 使用してください。ボタン"
-"を長押しで、  割り当てられないボタン/スティックをスキップします。 完了した"
-"ら、下（決定）ボタンを押して確認します。"
+"ローラー上の 同等のボタンに対するボタン位置に基づいて設定します。 ホットキー"
+"用の特別なボタンがない場合は、 「セレクト」ボタンを使用してください。 ボタン"
+"を長押しで、割り当てられない ボタン/スティックをスキップします。 完了したら、"
+"下（決定）ボタンを押して確認します。"
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "シンデン ライトガンコンの設定"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr "wiimoteの銃の設定"
+msgstr "wii リモコン(銃)の設定"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "BLUETOOTH コントローラーをペアリング"
@@ -2159,11 +2163,11 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "コントローラーバッテリーレベルを表示"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "プレイヤーの割当"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "プレイヤー%iのコントローラー"
+msgstr "プレイヤー %i コントローラー"
 
 msgid "default"
 msgstr "標準"
@@ -2485,10 +2489,10 @@ msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "起動時にこのゲームを開始する"
 
 msgid "FORMAT DEVICE"
-msgstr "デバイスのフォーマット"
+msgstr "ファイルシステムの変更とフォーマット"
 
 msgid "DEVICE TO FORMAT"
-msgstr "対象ディスク"
+msgstr "対象ストレージ"
 
 msgid "FILE SYSTEM"
 msgstr "ファイルシステム"
@@ -2500,7 +2504,7 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "選択した設定は無効です"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "このドライブをフォーマットしますか？"
+msgstr "このストレージをフォーマットしますか？"
 
 msgid "EDIT METADATA"
 msgstr "メタ情報を編集"
@@ -2680,7 +2684,7 @@ msgid "SEARCH FOR"
 msgstr "検索"
 
 msgid "ACCEPT RESULT"
-msgstr "了解"
+msgstr "結果を確認"
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
@@ -2975,9 +2979,8 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"ホットキーを有効にするボタンを選択しませんでした。 これは、コントローラーで"
-"ゲームを終了するために必要です。 ホットキーに「セレクト」ボタンを 使用します"
-"か?"
+"ホットキーを使用するボタンを選択しませんでした。 これは、コントローラーでゲー"
+"ムを終了するために必要です。 ホットキーに「セレクト」ボタンを 使用しますか?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "「セレクト」をホットキーに設定"

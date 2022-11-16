@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "AKTUALIZACE DOSTUPNÁ"
@@ -716,7 +716,7 @@ msgstr "ZAŘÍZENÍ BLUETOOTH BYLA ODSTRANĚNA."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "JSTE SI JISTI, ŽE CHCETE ODSTRANIT '%s' ?"
 
 msgid "INPUT"
 msgstr "ZADAT"
@@ -782,7 +782,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
 
 msgid "PAIR"
-msgstr ""
+msgstr "PÁROVÁNÍ"
 
 msgid "FILE BROWSER"
 msgstr "DATOVÝ PROHLÍŽEČ"
@@ -1023,6 +1023,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"ZJIŠTĚNY NEOFICIÁLNÍ ÚPRAVY SYSTÉMU.\n"
+"AKTUALIZACE BY MOHLA POŠKODIT VÁŠ SYSTÉM.\n"
+"CHCETE AKTUALIZOVAT NA VERZI %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "JE NUTNÉ PŘIPOJENÍ K SÍTI"
@@ -1160,13 +1163,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VYBRAT MOTIVY K INSTALACI/ODSTRANIT"
 
 msgid "All"
-msgstr ""
+msgstr "Všechno"
 
 msgid "Installed"
-msgstr ""
+msgstr "Nainstalováno"
 
 msgid "Available"
-msgstr ""
+msgstr "Dostupné"
 
 msgid "CURRENT THEME"
 msgstr "AKTUÁLNÍ MOTIV"
@@ -2146,13 +2149,13 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
+msgstr "AUTOMATICKÉ PÁROVÁNÍ BLUETOOTH PADU"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "RUČNÍ SPÁROVÁNÍ ZAŘÍZENÍ BLUETOOTH"
 
 msgid "DISPLAY OPTIONS"
 msgstr "MOŽNOSTI DISPLEJE"
@@ -2164,7 +2167,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "PŘIDĚLENÍ HRÁČŮ"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
