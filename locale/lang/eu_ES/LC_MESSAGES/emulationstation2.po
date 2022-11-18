@@ -2622,34 +2622,35 @@ msgstr "Zenbat aldiz jokatua"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Karpeta honek %i jokoa dauka, %s barne"
+msgstr[1] "Karpeta honek %i jokoak dauzka, %s barne"
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "Ez da Sarrerarik Aurkitu"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "HOnakoaren antzeko jokoak"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "GORDETAKO EGOERAK (MANTENDU)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "JOKU AUKERAK (MANTENDU)"
 
 msgid "GAME OPTIONS"
-msgstr ""
+msgstr "JOKU AUKERAK"
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "GOGOKOAK"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
-msgstr ""
+msgstr "Baliozko kontu bat behar da. Mesedez izena eman "
+"https://retroachievements.org webgunean"
 
 msgid "Searching"
-msgstr ""
+msgstr "Bilatzen"
 
 msgid "NO GAMES FOUND - SKIP"
 msgstr "EZ DIRA JOKUAK AURKITU - TXANDAPASA"
@@ -2661,7 +2662,7 @@ msgid "SKIP"
 msgstr "TXANDAPASA"
 
 msgid "Downloading"
-msgstr ""
+msgstr "Deskargatzen"
 
 msgid "SEARCH FOR"
 msgstr "BILATU:"
@@ -2670,16 +2671,16 @@ msgid "ACCEPT RESULT"
 msgstr "ONARTU EMAITZA"
 
 msgid "Loading system config..."
-msgstr ""
+msgstr "Kargatu sistemaren konfigurazioa..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr ""
+msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr ""
+msgstr "PANTIALA ALDATU NAHI DUZU?"
 
 msgid "Collections"
-msgstr ""
+msgstr "Kolekzioak"
 
 msgid "FILENAME, ASCENDING"
 msgstr "FITXATEGI IZENA, IGOTZEN"
@@ -2706,170 +2707,172 @@ msgid "LAST PLAYED, DESCENDING"
 msgstr "AZKEN ALDIZ JOKATUA, JAISTEN"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "JOKALARI KOPURUA, GORUNTZ"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "JOKALARI KOPURUA, BEHERUNTZ"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "PUBLIKATZE DATA, GORUNTZ"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "PUBLIKATZE DATA, BEHERUNTZ"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "MOTA, GORUNTZ"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "MOTA, BEHERUNTZ"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "GARATZAILEA, GORUNTZ"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "GARATZAILEA, BEHERUNTZ"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "PUBLIKATZAILEA, GORUNTZ"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "PUBLIKATZAILEA, BEHERUNTZ"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "SISTEMA, GORUNTZ"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "SISTEMA, BEHERUNTZ"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "FITXATEGIAREN SORTZE DATA, GORUNTZ"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "FITXATEGIAREN SORTZE DATA, BEHERUNTZ"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "JOKATUTAKO DENBORA, GORUNTZ"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "JOKATUTAKO DENBORA, BEHERUNTZ"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
+msgstr "SISTEMA, PUBLIKATZE URTEA, GORUNTZ"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
+msgstr "SISTEMA, PUBLIKATZE URTEA, GORUNTZ"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
+msgstr "PUBLIKATZE URTEA, SISTEMA, GORUNTZ"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
+msgstr "PUBLIKATZE URTEA, SISTEMA, BEHERUNTZ"
 
 msgid "A,AN,THE"
-msgstr ""
+msgstr "A,AN,THE"
 
 msgid "Extracting"
-msgstr ""
+msgstr "Erauzten"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr ""
+msgstr "RETROACHIEVEMTNS BILATZEN"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr ""
+msgstr "SAREKO JOKOAK BILATZEN"
 
 msgid "INDEXING COMPLETED"
-msgstr ""
+msgstr "INEXATZEA AMAITU DA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr ""
+msgstr "EGUNERATU JOKO LISTAK ALDAKETAK APLIKATZEKO."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr ""
+msgstr "EMULADOREA USTEKABEAK IRTEN DA"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
-msgstr ""
+msgstr "KOMANDO LERROKO ARGUMENTU OKERRAK"
 
 msgid "INVALID CONFIGURATION"
-msgstr ""
+msgstr "KONFIGUAZIO EZEGOKIA"
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "EMULADORE EZEZAGUNA"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "EMULADOREA EZ DAGO ESKURAGARRI"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "NUKLEOA EZ DAGO ESKURAGARRI"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "ERRORE EZEZAGUNA"
 
 msgid "GENRE"
 msgstr "GENEROA"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "FAMILIA"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "JOKALAKIRAK"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr ""
+msgstr "PUBLIKATZAILEA/GARATZAILEA"
 
 msgid "RATING"
 msgstr "PUNTUAZIOA"
 
 msgid "YEAR"
-msgstr ""
+msgstr "URTEA"
 
 msgid "REGION"
-msgstr ""
+msgstr "HERRIALDEA"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "HAURJOKOA"
 
 msgid "ALREADY PLAYED"
-msgstr ""
+msgstr "JAD AJOLASTUTA"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "LORPENAK DITU"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "BERTIKALA"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "ARGIZKO PISTOLA"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "MEDIAK DITU"
 
 msgid "SCRAPING"
-msgstr ""
+msgstr "DATUAK LORTZEN"
 
 msgid "SCRAPE FAILED"
-msgstr ""
+msgstr "DATU LORTZEAN ARAZOAK"
 
 msgid "SCRAPING FINISHED"
-msgstr ""
+msgstr "DATU LORTZEA ONDO AMAITU DA"
 
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"PISTOLA KALIBRATZEN"
+"Ituei tiro egin kalibratzeko"
 
 #, c-format
 msgid "%s connected"
-msgstr ""
+msgstr "%s konektatuta"
 
 #, c-format
 msgid "%s disconnected"
-msgstr ""
+msgstr "%s deskonektatuta"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT ERABILI MAIUSKULA, MINUSKULA ETA BEREZIENTZAT "
 
 msgid "ALT GR"
-msgstr ""
+msgstr "ALT GR"
 
 msgid "SHIFT"
 msgstr "MAIUS"
@@ -2879,63 +2882,63 @@ msgstr "HUTSUNEA"
 
 msgctxt "joystick"
 msgid "UP"
-msgstr ""
+msgstr "GORA"
 
 msgctxt "joystick"
 msgid "DOWN"
-msgstr ""
+msgstr "BEHERA"
 
 msgctxt "joystick"
 msgid "LEFT"
-msgstr ""
+msgstr "EZKERRA"
 
 msgctxt "joystick"
 msgid "RIGHT"
-msgstr ""
+msgstr "ESKUINA"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "HASI"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "AUKERATU"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "GORA EZKERREKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "BEHERA EZKERREKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "EZKERRERA EZKERREKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "ESKUINERA EZKERREKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "GORA ESKUINEKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "BEHERA ESKUINEKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "EZKERRERA ESKUINEKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "ESKUINERA ESKUINEKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
 msgstr "KONFIGURATZEN"
@@ -2944,7 +2947,7 @@ msgid "KEYBOARD"
 msgstr "TEKLATUA"
 
 msgid "CEC"
-msgstr ""
+msgstr "cec"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -2960,12 +2963,14 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
+"HOTKEY BOTOIA EZ DA EZARRI. KONTROLATZAILEA ERABILIZ JOKOETATIK ATERATZEKO BEHARREZKOA DA"
+"SELECT BOTOIA ERABILI NAHI AL DUZU HOTKEY BEZELA?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr ""
+msgstr "EZARRI SELECT HOTKEY BEZELQA"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr ""
+msgstr "EZ EZARRI HOTKEY-RIK"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -2998,22 +3003,22 @@ msgid "DISCARD CHANGES"
 msgstr "ALDAKETAK BAZTERTU"
 
 msgid "up/down"
-msgstr ""
+msgstr "gora/behera"
 
 msgid "accept"
-msgstr ""
+msgstr "ados"
 
 msgid "SELECT ALL"
 msgstr "DENAK"
 
 msgid "select all"
-msgstr ""
+msgstr "denak"
 
 msgid "SELECT NONE"
 msgstr "BAT ERE EZ"
 
 msgid "select none"
-msgstr ""
+msgstr "batere ez"
 
 #, c-format
 msgid "%i SELECTED"
@@ -3031,52 +3036,52 @@ msgid "EDIT"
 msgstr "EDITATU"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "GAITUTA"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "duela egun %d"
+msgstr[1] "duela %d egun "
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "duela ordu %d"
+msgstr[1] "duela %d ordu"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "duela minutu %d"
+msgstr[1] "duela %d minutu"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "duela segundu %d"
+msgstr[1] "duela %d segundu"
 
 msgid "WORKING..."
 msgstr "LANEAN..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d ordu"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d min"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d seg"
 
 msgid "SCREEN READER ENABLED"
-msgstr ""
+msgstr "PANTAILA IRAKURLEA GAITUTA"
 
 msgid "SCREEN READER DISABLED"
-msgstr ""
+msgstr "PANTAILA IRAKURLEA EZGAITUTA"
 
 #~ msgid "SCRAPE RATINGS"
 #~ msgstr "LORTU PUNTUAZIOAK"
@@ -3152,7 +3157,7 @@ msgstr ""
 #~ "RESULTS MAY BE EVEN MORE INACCURATE THAN USUAL!\n"
 #~ "CONTINUE ANYWAY?"
 #~ msgstr ""
-#~ "ABISUA: AUKERATU DITUZUN SISTEMA BATZUEK EZ DUTE PLATAFORMARIK EZARRITA. "
+#~ "KONTUZ: AUKERATU DITUZUN SISTEMA BATZUEK EZ DUTE PLATAFORMARIK EZARRITA. "
 #~ "EMAITZAK NORMALEAN BAINO ZEHAZTASUN GUTXIAGOKOAK IZAN DAITEZKE!\n"
 #~ "JARRAITU HALA ERE?"
 
