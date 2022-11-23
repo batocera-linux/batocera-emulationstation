@@ -1718,6 +1718,12 @@ std::string FileData::getProperty(const std::string& name)
 	if (name == "kidGame")
 		return getKidGame() ? _("YES") : _("NO");
 
+	if (name == "system")
+		return getSourceFileData()->getSystemName();
+
+	if (name == "systemName")
+		return getSourceFileData()->getSystem()->getFullName();
+
 	if (name == "gameTime")
 	{
 		int seconds = atol(getMetadata(MetaDataId::GameTime).c_str());
