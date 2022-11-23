@@ -45,26 +45,25 @@ public:
 // keepInCacheDuration = 600 -> image expire in 10 minutes ( 60*10 )
 // keepInCacheDuration = 86400 -> image expire in 24 hours ( 60*60*10 )
 
-WebImageComponent::WebImageComponent(Window* window, double keepInCacheDuration) : ImageComponent(window, true), 
+WebImageComponent::WebImageComponent(Window* window, double keepInCacheDuration) : ImageComponent(window, false), 
 	mRequest(nullptr), mKeepInCacheDuration(keepInCacheDuration),
-	mBusyAnim(window, "")
+	mBusyAnim(nullptr)
 {
 	mWaitLoaded = false;
 	mOnLoaded = nullptr;
-
-	mBusyAnim.setBackgroundVisible(false);
-	mBusyAnim.setSize(mSize);	
 }
- 
 
 void WebImageComponent::resize()
 {
 	ImageComponent::resize();
 	
-	if (mSize.x() == 0)
-		mBusyAnim.setSize(mTargetSize);
-	else 
-		mBusyAnim.setSize(mSize);
+	if (mBusyAnim != nullptr)
+	{
+		if (mSize.x() == 0)
+			mBusyAnim->setSize(mTargetSize);
+		else
+			mBusyAnim->setSize(mSize);
+	}
 
 	if (getParent() != nullptr && getParent()->isKindOf<ComponentGrid>())
 		getParent()->onSizeChanged();
@@ -74,6 +73,9 @@ WebImageComponent::~WebImageComponent()
 {
 	if (mRequest != nullptr)
 		delete mRequest;
+
+	if (mBusyAnim != nullptr)
+		delete mBusyAnim;
 
 	if (mKeepInCacheDuration == 0 && Utils::FileSystem::exists(mLocalFile))
 	{
@@ -168,11 +170,18 @@ void WebImageComponent::update(int deltaTime)
 	if (mRequest == nullptr)
 		return;
 
-	mBusyAnim.update(deltaTime);
+	if (mBusyAnim != nullptr)
+		mBusyAnim->update(deltaTime);
 
 	auto status = mRequest->status();
 	if (status == HttpReq::REQ_IN_PROGRESS)
 		return;
+
+	if (mBusyAnim != nullptr)
+	{
+		delete mBusyAnim;
+		mBusyAnim = nullptr;
+	}
 
 	delete mRequest;
 	mRequest = nullptr;	
@@ -209,6 +218,13 @@ void WebImageComponent::render(const Transform4x4f& parentTrans)
 		
 		mRequest = new HttpReq(mUrlToLoad, mLocalFile);
 		mUrlToLoad = "";
+
+		if (mBusyAnim != nullptr)
+			delete mBusyAnim;
+
+		mBusyAnim = new BusyComponent(mWindow, "");
+		mBusyAnim->setBackgroundVisible(false);
+		mBusyAnim->setSize(mSize);
 	}
 	
 	if (mRequest == nullptr && mWaitLoaded && mOnLoaded != nullptr && mLoadingTexture == nullptr && mTexture && mTexture->bind())
@@ -220,6 +236,6 @@ void WebImageComponent::render(const Transform4x4f& parentTrans)
 
 	ImageComponent::render(parentTrans);
 
-	if (mRequest != nullptr)
-		mBusyAnim.render(trans);
+	if (mRequest != nullptr && mBusyAnim != nullptr)
+		mBusyAnim->render(trans);
 }

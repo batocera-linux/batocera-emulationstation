@@ -36,7 +36,7 @@ class GameAchievementEntry : public ComponentGrid
 {
 public:
 	GameAchievementEntry(Window* window, Achievement& ra) :
-		ComponentGrid(window, Vector2i(3, 2))
+		ComponentGrid(window, Vector2i(3, 4))
 	{
 		mGameInfo = ra;
 
@@ -44,7 +44,7 @@ public:
 
 		mImage = std::make_shared<WebImageComponent>(mWindow);
 
-		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 2));
+		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 4));
 				
 		std::string desc = mGameInfo.Description;
 		desc += _U(" - ") + _("Points") + ": " + mGameInfo.Points;
@@ -57,10 +57,19 @@ public:
 		mSubstring = std::make_shared<TextComponent>(mWindow, desc, theme->TextSmall.font, theme->Text.color);
 		mSubstring->setOpacity(192);
 
-		setEntry(mText, Vector2i(2, 0), false, true);
-		setEntry(mSubstring, Vector2i(2, 1), false, true);
+		setEntry(mText, Vector2i(2, 1), false, true);
+		setEntry(mSubstring, Vector2i(2, 2), false, true);
 
 		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+
+		float hTxt = mText->getSize().y() / height;
+		float hSub = mSubstring->getSize().y() / height;
+		float topPadding = Math::max(0.0f, (height - mText->getSize().y() - mSubstring->getSize().y()) / height / 2.0f);
+
+		setRowHeightPerc(0, topPadding);
+		setRowHeightPerc(1, hTxt);
+		setRowHeightPerc(2, hSub);
+		setRowHeightPerc(3, Math::max(0.0f, 1.0f - topPadding - hTxt - hSub));
 
 		setColWidthPerc(0, (height - IMAGESPACER) / WINDOW_WIDTH);
 		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
