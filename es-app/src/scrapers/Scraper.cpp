@@ -264,6 +264,8 @@ ScraperHttpRequest::ScraperHttpRequest(std::vector<ScraperSearchResult>& results
 	mRequest = new HttpReq(url, &mOptions);
 	mRetryCount = 0;
 	mOverQuotaPendingTime = 0;
+	mOverQuotaRetryDelay = OVERQUOTA_RETRY_DELAY;
+	mOverQuotaRetryCount = OVERQUOTA_RETRY_COUNT;
 }
 
 ScraperHttpRequest::~ScraperHttpRequest()
@@ -276,7 +278,7 @@ void ScraperHttpRequest::update()
 	if (mOverQuotaPendingTime > 0)
 	{
 		int lastTime = SDL_GetTicks();
-		if (lastTime - mOverQuotaPendingTime > OVERQUOTA_RETRY_DELAY)
+		if (lastTime - mOverQuotaPendingTime > mOverQuotaRetryDelay)
 		{
 			mOverQuotaPendingTime = 0;
 
@@ -306,7 +308,7 @@ void ScraperHttpRequest::update()
 	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
 	{
 		mRetryCount++;
-		if (mRetryCount >= OVERQUOTA_RETRY_COUNT)
+		if (mRetryCount >= mOverQuotaRetryCount/* || !retryOn249()*/)
 		{
 			setStatus(ASYNC_DONE); // Ignore error
 			return;
@@ -314,8 +316,15 @@ void ScraperHttpRequest::update()
 
 		setStatus(ASYNC_IN_PROGRESS);
 
+		auto retryDelay = mRequest->getResponseHeader("Retry-After");
+		if (!retryDelay.empty())
+		{
+			mOverQuotaRetryCount = 1;
+			mOverQuotaRetryDelay = Utils::String::toInteger(retryDelay) * 1000;
+		}
+
 		mOverQuotaPendingTime = SDL_GetTicks();
-		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying in 5 seconds";
+		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying in " << mOverQuotaRetryDelay << " seconds";
 		return;
 	}
 
@@ -479,6 +488,8 @@ ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::stri
 {
 	mRetryCount = 0;
 	mOverQuotaPendingTime = 0;
+	mOverQuotaRetryDelay = OVERQUOTA_RETRY_DELAY;
+	mOverQuotaRetryCount = OVERQUOTA_RETRY_COUNT;
 
 	if (url.find("screenscraper") != std::string::npos && (path.find(".jpg") != std::string::npos || path.find(".png") != std::string::npos) && url.find("media=map") == std::string::npos)
 	{
@@ -513,7 +524,7 @@ void ImageDownloadHandle::update()
 	if (mOverQuotaPendingTime > 0)
 	{
 		int lastTime = SDL_GetTicks();
-		if (lastTime - mOverQuotaPendingTime > OVERQUOTA_RETRY_DELAY)
+		if (lastTime - mOverQuotaPendingTime > mOverQuotaRetryDelay)
 		{
 			mOverQuotaPendingTime = 0;
 
@@ -535,7 +546,7 @@ void ImageDownloadHandle::update()
 	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
 	{
 		mRetryCount++;
-		if (mRetryCount >= OVERQUOTA_RETRY_COUNT)
+		if (mRetryCount >= mOverQuotaRetryCount)
 		{
 			setStatus(ASYNC_DONE); // Ignore error
 			return;
@@ -543,11 +554,17 @@ void ImageDownloadHandle::update()
 
 		setStatus(ASYNC_IN_PROGRESS);
 
+		auto retryDelay = mRequest->getResponseHeader("Retry-After");
+		if (!retryDelay.empty())
+		{
+			mOverQuotaRetryCount = 1;
+			mOverQuotaRetryDelay = Utils::String::toInteger(retryDelay) * 1000;
+		}
+
 		mOverQuotaPendingTime = SDL_GetTicks();
-		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying in 5 seconds";
+		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying in " << mOverQuotaRetryDelay << " seconds";
 		return;
 	}
-
 
 	// Ignored errors
 	if (status == HttpReq::REQ_404_NOTFOUND || status == HttpReq::REQ_IO_ERROR)
@@ -567,8 +584,8 @@ void ImageDownloadHandle::update()
 	{
 		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mSavePath));
 
-		// Make sure extension is the good one, according to the response 'content-type'
-		std::string contentType = mRequest->getResponseContentType();
+		// Make sure extension is the good one, according to the response 'Content-Type'
+		std::string contentType = mRequest->getResponseHeader("Content-Type");
 		if (!contentType.empty())
 		{
 			std::string trueExtension;
