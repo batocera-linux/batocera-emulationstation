@@ -226,14 +226,14 @@ void GuiThemeInstaller::loadThemesAsync()
 
 	mWindow->pushGui(new GuiLoading<std::vector<BatoceraTheme>>(mWindow, _("PLEASE WAIT"),
 		[this, window](auto gui)
-	{
-		return ApiSystem::getInstance()->getBatoceraThemesList();		
-	},
+		{
+			return ApiSystem::getInstance()->getBatoceraThemesList();		
+		},
 		[this, window](std::vector<BatoceraTheme> themes)
-	{
-		mThemes = themes;
-		loadList();
-	}
+		{
+			mThemes = themes;
+			loadList();
+		}
 	));
 }
 
@@ -437,7 +437,7 @@ GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entr
 		mPreviewImage = std::make_shared<WebImageComponent>(window, 600); // image expire after 10 minutes
 		mPreviewImage->setImage(mEntry.image, false, maxSize);		
 		mPreviewImage->setMaxSize(maxSize);
-		mPreviewImage->setRoundCorners(0.02);
+		// mPreviewImage->setRoundCorners(0.02);
 
 		setEntry(mPreviewImage, Vector2i(4, 0), false, false, Vector2i(1, 4));
 	}

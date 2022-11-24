@@ -67,7 +67,7 @@ public:
 
 	void setTitle(const std::string title) { mMenu.setTitle(title); }
 	void setSubTitle(const std::string text) { mMenu.setSubTitle(text); }
-	void setTitleImage(std::shared_ptr<ImageComponent> titleImage) { mMenu.setTitleImage(titleImage); }
+	void setTitleImage(std::shared_ptr<ImageComponent> titleImage, bool replaceTitle = false) { mMenu.setTitleImage(titleImage, replaceTitle); }
 
 	bool checkNetwork();
 

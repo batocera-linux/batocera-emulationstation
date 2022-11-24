@@ -46,6 +46,8 @@ class HfsDBRequest : public ScraperHttpRequest
 		  mIsArcade = isArcade;
 	}
 
+	virtual bool retryOn249() { return false; }
+
   protected:
 	bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) override;
 	bool isGameRequest() { return !mRequestQueue; }

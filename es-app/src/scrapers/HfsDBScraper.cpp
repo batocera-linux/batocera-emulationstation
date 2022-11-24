@@ -207,25 +207,52 @@ void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queu
 	
 	std::vector<std::string> urls;
 	
-	if (!params.system->hasPlatformId(PlatformIds::ARCADE)) // Do special post-processing for arcade systems
-	{
-		auto& platforms = params.system->getPlatformIds();
-		if (!platforms.empty())
+	bool useMd5 = false;
+	/*
+	if (params.nameOverride.length() == 0)
+	{	
+		std::string fileNameToHash = params.game->getFullPath();
+		auto length = Utils::FileSystem::getFileSize(fileNameToHash);
+
+		if (length > 1024 * 1024 && !params.game->getMetadata(MetaDataId::Md5).empty()) // 1Mb
 		{
-			for (auto platform : platforms)
+			useMd5 = true;				
+			urls.push_back(path + "games?medias__md5=" + params.game->getMetadata(MetaDataId::Md5));
+		}
+		else if (length > 0 && length <= 131072 * 1024) // 128 Mb max
+		{
+			std::string val = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
+			if (!val.empty())
 			{
-				auto it = hfsdb_platformids.find(platform);
-				if (it != hfsdb_platformids.cend())
-				{
-					for (auto plaformId : Utils::String::split(it->second, ',', true))
-						urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&system=" + HttpReq::urlEncode(Utils::String::trim(plaformId)) + "&limit=5");
-				}
+				useMd5 = true;
+				params.game->setMetadata(MetaDataId::Md5, val);
+				urls.push_back(path + "games?medias__md5=" + val);
 			}
 		}
 	}
+	*/
+	if (!useMd5)
+	{
+		if (!params.system->hasPlatformId(PlatformIds::ARCADE)) // Do special post-processing for arcade systems
+		{
+			auto& platforms = params.system->getPlatformIds();
+			if (!platforms.empty())
+			{
+				for (auto platform : platforms)
+				{
+					auto it = hfsdb_platformids.find(platform);
+					if (it != hfsdb_platformids.cend())
+					{
+						for (auto plaformId : Utils::String::split(it->second, ',', true))
+							urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&system=" + HttpReq::urlEncode(Utils::String::trim(plaformId)) + "&limit=5");
+					}
+				}
+			}
+		}
 
-	if (urls.size() == 0)
-		urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&limit=5");
+		if (urls.size() == 0)
+			urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&limit=5");
+	}
 
 	HttpReqOptions tokenAuth;
 	tokenAuth.customHeaders.push_back("Authorization: Token " + mToken);

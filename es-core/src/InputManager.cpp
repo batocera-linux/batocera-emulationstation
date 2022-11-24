@@ -528,49 +528,66 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 	if (!root)
 		return false;
 	
-	// looking for a device having the same guid and name, or if not, one with the same guid or in last chance, one with the same name
-
-	bool found_guid = false;
-	bool found_exact = false;
-	for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig")) {
-		// check the guid
-		if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0) {
-			// found a correct guid
-			found_guid = true; // no more need to check the name only
+	// Search for exact match guid + name
+	for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+	{
+		if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0 && strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0)
+		{
 			configNode = item;
-#if WIN32
-			found_exact = true;
 			break;
-#else
-			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
-				// found the exact device
-				found_exact = true;
+		}
+	}
+
+	// Search for guid + name match but test guid without the new crc16 bytes (SDL2 2.26)
+	// Cf. https://github.com/libsdl-org/SDL/commit/c1e087394020a8cb9d2a04a1eabbcc23a6a5b20d
+	if (!configNode)
+	{
+		for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+		{
+			// Remove CRC-16 encoding from SDL2 2.26+ guids
+			std::string guid = config->getDeviceGUIDString();
+			for (int i = 4; i < 8 && i < guid.length(); i++)
+				guid[i] = '0';
+
+			if (guid != config->getDeviceGUIDString())
+			if (strcmp(guid.c_str(), item.attribute("deviceGUID").value()) == 0 && strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0)
+			{
 				configNode = item;
 				break;
 			}
-#endif
 		}
+	}
 
-#if !WIN32
-		// check for a name if no guid is found
-		if (found_guid == false) {
-			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
+	// Search for exact match guid
+	if (!configNode && allowApproximate)
+	{
+		for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+		{
+			if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0)
+			{
+				LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
 				configNode = item;
+				break;
 			}
 		}
-#endif
+	}
+
+	// Search for name match
+	if (!configNode && allowApproximate)
+	{
+		for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+		{
+			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0)
+			{
+				LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
+				configNode = item;
+				break;
+			}
+		}
 	}
 
 	if (!configNode)
 		return false;
-	
-	if (found_exact == false)
-	{
-		LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
-
-		if (!allowApproximate)
-			return false;
-	}
 
 	config->loadFromXML(configNode);
 	return true;

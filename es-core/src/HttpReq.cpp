@@ -117,7 +117,7 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 
 	mFilePath = outputFilename;
 	mPosition = -1;
-	mPercent = -1;
+	mPercent = -1;	
 	mHandle = curl_easy_init();
 
 	if(mHandle == NULL)
@@ -227,6 +227,9 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 		onError(curl_easy_strerror(err));
 		return;
 	}
+
+	curl_easy_setopt(mHandle, CURLOPT_HEADERFUNCTION, &HttpReq::header_callback);
+	curl_easy_setopt(mHandle, CURLOPT_HEADERDATA, this);
 
 #ifdef WIN32
 	// Setup system proxy on Windows if required
@@ -368,11 +371,7 @@ HttpReq::Status HttpReq::status()
 				else if (msg->data.result == CURLE_OK)
 				{
 					int http_status_code;
-					curl_easy_getinfo(msg->easy_handle, CURLINFO_RESPONSE_CODE, &http_status_code);
-
-					char *ct = NULL;
-					if (!curl_easy_getinfo(msg->easy_handle, CURLINFO_CONTENT_TYPE, &ct) && ct)
-						req->mResponseContentType = ct;
+					curl_easy_getinfo(msg->easy_handle, CURLINFO_RESPONSE_CODE, &http_status_code);					
 
 					if (http_status_code < 200 || http_status_code > 299)
 					{
@@ -486,6 +485,32 @@ void HttpReq::onError(const char* msg)
 std::string HttpReq::getErrorMsg()
 {
 	return mErrorMsg;
+}
+
+std::string HttpReq::getResponseHeader(const std::string& header)
+{
+	auto it = mResponseHeaders.find(header);
+	if (it != mResponseHeaders.cend())
+		return it->second;
+		
+	return "";
+}
+
+size_t HttpReq::header_callback(char *buffer, size_t size, size_t nitems, void *userdata)
+{
+	HttpReq* request = ((HttpReq*)userdata);
+
+	std::string data = Utils::String::trim(buffer);
+	if (!data.empty() && !Utils::String::startsWith(data, "HTTP/"))
+	{
+		auto splitPost = data.find(":");
+		if (splitPost != std::string::npos)
+			request->mResponseHeaders[Utils::String::trim(data.substr(0, splitPost))] = Utils::String::trim(data.substr(splitPost + 1));
+		else
+			request->mResponseHeaders[data] = "";
+	}
+
+	return nitems * size;
 }
 
 //used as a curl callback
