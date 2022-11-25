@@ -706,6 +706,7 @@ void Window::render()
 	auto guns = InputManager::getInstance()->getGuns();
 	if (guns.size())
 	{
+		auto margin = Renderer::setScreenMargin(0, 0);
 		Renderer::setMatrix(Transform4x4f::Identity());
 
 		if (mGunAimTexture == nullptr)
@@ -739,6 +740,8 @@ void Window::render()
 				Renderer::drawTriangleStrips(&vertices[0], 4);
 			}
 		}
+
+		Renderer::setScreenMargin(margin.x(), margin.y());
 	}
 }
 
