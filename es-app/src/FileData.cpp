@@ -1718,6 +1718,9 @@ std::string FileData::getProperty(const std::string& name)
 	if (name == "kidGame")
 		return getKidGame() ? _("YES") : _("NO");
 
+	if (name == "gunGame")
+		return isLightGunGame() ? _("YES") : _("NO");
+
 	if (name == "system")
 		return getSourceFileData()->getSystemName();
 
