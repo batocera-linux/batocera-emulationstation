@@ -576,6 +576,10 @@ int FileFilterIndex::showFile(FileData* game)
 					textScore = 1;
 					keepGoing = true;
 				}
+				else if (Utils::String::containsIgnoreCasePinyin(name, mTextFilter)) {
+					textScore = 2;
+					keepGoing = true;
+				}
 			}
 			else
 			{
@@ -585,7 +589,12 @@ int FileFilterIndex::showFile(FileData* game)
 					{
 						textScore = 1;
 						keepGoing = true;
-						break;
+						break;  // score=1 need break
+					}
+					else if (Utils::String::containsIgnoreCasePinyin(name, Utils::String::trim(token)))
+					{
+						textScore = 2;
+						keepGoing = true;
 					}
 				}
 			}
