@@ -341,11 +341,13 @@ namespace Renderer
 		setProjection(projection);
 	}
 
-	void		setScreenMargin(int marginX, int marginY)
+	Vector2i	setScreenMargin(int marginX, int marginY)
 	{
-		if (screenMargin.x() == marginX && screenMargin.y() == marginY)
-			return;
+		auto oldMargin = screenMargin;
 
+		if (screenMargin.x() == marginX && screenMargin.y() == marginY)
+			return oldMargin;
+		
 		screenMargin = Vector2i(marginX, marginY);
 
 		Rect          viewport;
@@ -355,7 +357,7 @@ namespace Renderer
 		viewport.h = screenHeight - 2 * screenMargin.y();
 
 		setViewport(viewport);
-		// updateProjection();
+		return oldMargin;
 	}
 
 
