@@ -1584,6 +1584,25 @@ bool SystemData::isCheevosSupported()
 	if (mIsCheevosSupported < 0)
 	{
 		mIsCheevosSupported = 0;
+		
+		if (isGroupSystem())
+		{
+			auto groupName = getName();
+
+			for (auto sys : SystemData::sSystemVector)
+			{
+				if (sys == this || sys->mEnvData == nullptr || sys->mEnvData->mGroup != groupName)
+					continue;
+
+				if (sys->isCheevosSupported())
+				{
+					mIsCheevosSupported = 1;
+					return true;
+				}
+			}
+
+			return false;
+		}
 
 		if (!CustomFeatures::FeaturesLoaded)
 		{
@@ -1599,7 +1618,7 @@ bool SystemData::isCheevosSupported()
 
 			return mIsCheevosSupported != 0;
 		}
-
+		
 		for (auto emul : mEmulators)
 		{
 			for (auto core : emul.cores)
