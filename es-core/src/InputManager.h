@@ -65,6 +65,7 @@ public:
 	GunManager* getGunManager() { return mGunManager; }
 
 	void sendMouseClick(Window* window, int button);
+	InputConfig* getInputConfigByDevice(int deviceId);
 
 private:
 	InputManager();
@@ -93,8 +94,6 @@ private:
 	bool loadInputConfig(InputConfig* config); // returns true if successfully loaded, false if not (or didn't exist)
 
 	bool tryLoadInputConfig(std::string path, InputConfig* config, bool allowApproximate = true);
-
-	InputConfig* getInputConfigByDevice(int deviceId);
 
 	void clearJoysticks();
 	void rebuildAllJoysticks(bool deinit = true);

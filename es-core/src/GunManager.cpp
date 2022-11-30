@@ -9,6 +9,7 @@
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
 #include "renderers/Renderer.h"
+#include "InputManager.h"
 
 #ifdef HAVE_UDEV
 #include <poll.h>
@@ -177,11 +178,42 @@ void GunManager::updateGuns(Window* window)
 	int gunEvent = 0;
 	for (Gun* gun : mGuns)
 	{
+		bool previousL = gun->mLButtonDown;
+		bool previousR = gun->mRButtonDown;
+		float previousX  = gun->x();
+		float previousY  = gun->y();
 		int evt = readGunEvents(gun);
 		if (evt != 0)
 			gunEvent = evt;
 
 		updateGunPosition(gun);
+
+		// left
+		if(gun->mLButtonDown && !previousL) {
+		  if(!window->processMouseButton(SDL_BUTTON_LEFT, true, gun->x(), gun->y())) {
+		    window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, SDL_BUTTON_LEFT, true, false));
+		  }
+		} else if(!gun->mLButtonDown && previousL) {
+		  if(!window->processMouseButton(SDL_BUTTON_LEFT, false, gun->x(), gun->y())) {
+		    window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, SDL_BUTTON_LEFT, false, false));
+		  }
+		}
+
+		// move
+		else if( fabsf(previousX - gun->x()) > 30 || fabsf(previousY - gun->y()) > 30) {
+		  window->processMouseMove(gun->x(), gun->y(), true);
+		}
+
+		// right
+		if(gun->mRButtonDown && !previousR) {
+		  if(!window->processMouseButton(SDL_BUTTON_RIGHT, true, gun->x(), gun->y())) {
+		    window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, SDL_BUTTON_RIGHT, true, false));
+		  }
+		} else if(!gun->mRButtonDown && previousR) {
+		  if(!window->processMouseButton(SDL_BUTTON_RIGHT, false, gun->x(), gun->y())) {
+		    window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, SDL_BUTTON_RIGHT, false, false));
+		  }
+		}
 	}
 
 	if (gunEvent == 1 || gunEvent == 2)

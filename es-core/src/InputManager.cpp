@@ -436,7 +436,10 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		return true;
 		*/
 	case SDL_MOUSEMOTION:
-		window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
+#ifndef WIN32
+		if (!(mGunManager != nullptr && mGunManager->getGuns().size()))
+#endif
+			window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
 		return true;
 
 	case SDL_MOUSEWHEEL:
