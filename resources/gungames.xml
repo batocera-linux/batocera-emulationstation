@@ -225,7 +225,7 @@
     <game>pirateblast</game>
     <game>reload</game>
     <game>remingtongreatamericanbirdhunt</game>
-    <game>remingtonsuperslamhuntingafrica</game>
+    <game vertical_offset="14.5" yaw="31.5" pitch="20.5" ir_up="`Axis 1-`/1.07" ir_down="`Axis 1+`/1.08" ir_left="`Axis 0-`/1.25" ir_right="(`Axis 0+`+0.25)/1.28">remingtonsuperslamhuntingafrica</game>
     <game>remingtonsuperslamhuntingalaska</game>
     <game>remingtonsuperslamhuntingnorthamerica</game>
     <game>residentevildarksidechronicles</game>
