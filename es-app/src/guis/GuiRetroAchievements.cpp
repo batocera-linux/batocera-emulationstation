@@ -119,7 +119,7 @@ public:
 		setEntry(mText, Vector2i(2, 1), false, true);
 		setEntry(mSubstring, Vector2i(2, 2), false, true);
 
-		int percent = Math::round(mGameInfo.wonAchievements * 100.0f / mGameInfo.totalAchievements);
+		int percent = mGameInfo.totalAchievements == 0 ? 0 : Math::round(mGameInfo.wonAchievements * 100.0f / mGameInfo.totalAchievements);
 		
 		char trstring[256];
 		snprintf(trstring, 256, _("%d%% (%d of %d)").c_str(), percent, mGameInfo.wonAchievements, mGameInfo.totalAchievements);		
