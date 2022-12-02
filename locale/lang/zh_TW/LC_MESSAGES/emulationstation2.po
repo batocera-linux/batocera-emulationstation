@@ -1665,6 +1665,12 @@ msgstr "調換北功能鍵（即時存檔）與長按南功能鍵（遊戲選項
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "僅透過第一支遊戲搖桿操作 EMULATIONSTATION"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "顯示網路指示器圖示"
 

@@ -1665,6 +1665,12 @@ msgstr "切换到短按上键来存档，长按下键显示游戏选项"
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "仅用第一个控制器控制模拟器"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "显示网络标识"
 

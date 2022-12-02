@@ -1678,6 +1678,12 @@ msgstr "Obrátit horní tlačítko (uložit) a dlouhý stisk dolního (nastaven�
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "OVLÁDÁNÍ EMULÁTORU POUZE PRVNÍM JOYSTICKEM"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ZOBRAZIT INDIKÁTOR SÍTĚ"
 
@@ -1904,7 +1910,7 @@ msgid "on"
 msgstr "zapnout"
 
 msgid "OVERCLOCK"
-msgstr "PRETAKTOVÁNÍ"
+msgstr "PŘETAKTOVÁNÍ"
 
 msgid "STORAGE"
 msgstr "ULOŽIŠTĚ"
@@ -2426,7 +2432,7 @@ msgid "REALLY RESTART?"
 msgstr "OPRAVDU RESTARTOVAT?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "SYSTÉM POZASTAVENÍ"
+msgstr "POZASTAVIT SYSTÉM"
 
 msgid "REALLY SUSPEND ?"
 msgstr "OPRAVDU POZASTAVIT ?"

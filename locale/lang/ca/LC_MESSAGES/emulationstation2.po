@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2022-11-09 10:04+0100\n"
+"PO-Revision-Date: 2022-11-22 12:15+0100\n"
 "Last-Translator: pedrobarbosa\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -1168,13 +1168,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECCIONAR TEMES A INSTAL·LAR/ELIMINAR"
 
 msgid "All"
-msgstr ""
+msgstr "Tots"
 
 msgid "Installed"
-msgstr ""
+msgstr "Instal·lat"
 
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 msgid "CURRENT THEME"
 msgstr "TEMA ACTUAL"
@@ -1686,6 +1686,12 @@ msgstr ""
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLAR EMULATIONSTATION NOMÉS AMB EL PRIMER COMANDAMENT"
+
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "MOSTRAR INDICADOR DE XARXA"

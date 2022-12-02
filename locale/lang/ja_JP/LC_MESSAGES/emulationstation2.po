@@ -1683,6 +1683,12 @@ msgstr "△(上)短押(ステートセーブ)、×(下)長押(ゲーム設定)�
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ネットワークインジケータを表示"
 

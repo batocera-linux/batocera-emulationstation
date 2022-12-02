@@ -1661,6 +1661,12 @@ msgstr ""
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "ΕΛΕΓΧΟΣ EMULATIONSTATION ΜΟΝΟ ΜΕ ΤΟ ΠΡΩΤΟ ΧΕΙΡΙΣΤΗΡΙΟ"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ΕΜΦΑΝΙΣΗ ΔΕΙΚΤΗ ΔΙΚΤΥΟΥ"
 
