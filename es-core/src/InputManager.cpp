@@ -282,7 +282,8 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
 
 #if WIN32
-	SDL_SetHint(SDL_HINT_JOYSTICK_HIDAPI, "0");
+	if (!Settings::getInstance()->getBool("HidJoysticks"))
+		SDL_SetHint(SDL_HINT_JOYSTICK_HIDAPI_JOY_CONS, "0");
 #endif
 
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
