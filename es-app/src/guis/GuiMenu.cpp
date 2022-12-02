@@ -738,6 +738,17 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"), firstJoystickOnly);
 	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
+#if !defined(WIN32)
+	{
+	  auto gun_mt = std::make_shared<SliderComponent>(mWindow, 0.f, 10.f, 0.1f, "%");
+	  gun_mt->setValue(Settings::getInstance()->getFloat("GunMoveTolerence"));
+	  s->addWithLabel(_("GUN MOVE TOLERENCE"), gun_mt);
+	  s->addSaveFunc([gun_mt] {
+	    Settings::getInstance()->setFloat("GunMoveTolerence", gun_mt->getValue());
+	  });
+	}
+#endif
+
 #if defined(WIN32)
 	// Network Indicator
 	auto networkIndicator = std::make_shared<SwitchComponent>(mWindow);
