@@ -354,6 +354,8 @@ void Settings::setDefaults()
 	mBoolMap["wifi.enabled"] = false;
 #endif
 
+	mFloatMap["GunMoveTolerence"] = 2.5;
+
 	mDefaultBoolMap = mBoolMap;
 	mDefaultIntMap = mIntMap;
 	mDefaultFloatMap = mFloatMap;
