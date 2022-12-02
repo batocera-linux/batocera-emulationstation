@@ -774,8 +774,7 @@ namespace Utils
 			}
 
 			if(_allowHome)
-			{
-#if WIN32
+			{				
 				auto from_dirs = getPathList(Paths::getHomePath());
 				auto to_dirs = getPathList(_path);
 
@@ -810,14 +809,6 @@ namespace Utils
 				}
 
 				return output;
-#else				
-				path = removeCommonPath(_path, Paths::getHomePath(), contains);
-				if(contains)
-				{
-					// success
-					return ("~/" + path);
-				}
-#endif
 			}
 
 			// nothing to resolve
