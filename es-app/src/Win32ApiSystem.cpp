@@ -278,7 +278,13 @@ bool Win32ApiSystem::executeScript(const std::string command)
 	std::string parameters;
 	Utils::FileSystem::splitCommand(command, &executable, &parameters);
 
-	std::string path = Paths::findEmulationStationFile(executable + ".exe");
+	std::string path;
+
+	if (executable.find(":") != std::string::npos && Utils::FileSystem::exists(executable))
+		path = Utils::FileSystem::getPreferredPath(executable);
+	else
+		path = Paths::findEmulationStationFile(executable + ".exe");
+
 	if (!path.empty() && Utils::FileSystem::exists(path))
 	{
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
@@ -291,12 +297,19 @@ bool Win32ApiSystem::executeScript(const std::string command)
 }
 
 std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string command, const std::function<void(const std::string)>& func)
-{
+{	LOG(LogInfo) << "Running " << command;
+
 	std::string executable;
 	std::string parameters;
 	Utils::FileSystem::splitCommand(command, &executable, &parameters);
 
-	std::string path = Paths::findEmulationStationFile(executable + ".exe");
+	std::string path;
+
+	if (executable.find(":") != std::string::npos && Utils::FileSystem::exists(executable))
+		path = Utils::FileSystem::getPreferredPath(executable);
+	else
+		path = Paths::findEmulationStationFile(executable + ".exe");
+
 	if (!path.empty() && Utils::FileSystem::exists(path))
 	{
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
