@@ -126,6 +126,7 @@ void Settings::setDefaults()
 	mStringMap["StartupSystem"] = "lastsystem";
 
 #if WIN32
+	mBoolMap["HidJoysticks"] = true;
 	mBoolMap["ShowOnlyExit"] = true;
 	mBoolMap["FullscreenBorderless"] = true;
 #else

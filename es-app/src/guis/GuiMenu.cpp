@@ -750,6 +750,12 @@ void GuiMenu::openDeveloperSettings()
 #endif
 
 #if defined(WIN32)
+
+	auto hidJoysticks = std::make_shared<SwitchComponent>(mWindow);
+	hidJoysticks->setState(Settings::getInstance()->getBool("HidJoysticks"));
+	s->addWithLabel(_("ENABLE HID JOYSTICK DRIVERS"), hidJoysticks);
+	s->addSaveFunc([this, hidJoysticks] { Settings::getInstance()->setBool("HidJoysticks", hidJoysticks->getState()); });
+	
 	// Network Indicator
 	auto networkIndicator = std::make_shared<SwitchComponent>(mWindow);
 	networkIndicator->setState(Settings::getInstance()->getBool("ShowNetworkIndicator"));
