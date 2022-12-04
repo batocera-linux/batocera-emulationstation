@@ -1172,13 +1172,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECIONE TEMAS PARA INSTALAR/REMOVER"
 
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 msgid "Installed"
-msgstr ""
+msgstr "Instalado"
 
 msgid "Available"
-msgstr ""
+msgstr "Disponível"
 
 msgid "CURRENT THEME"
 msgstr "TEMA ATUAL"
@@ -1690,10 +1690,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION APENAS COM O PRIMEIRO COMANDO"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "TOLERÂNCIA AO MOVIMENTO DA ARMA"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "ATIVAR DRIVERS HID DO COMANDO"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "MOSTRAR INDICADOR DE REDE"
