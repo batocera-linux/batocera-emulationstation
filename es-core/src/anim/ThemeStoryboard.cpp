@@ -2,6 +2,7 @@
 #include "Log.h"
 #include "utils/StringUtil.h"
 #include "utils/HtmlColor.h"
+#include "resources/ResourceManager.h"
 
 ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
 {
@@ -23,6 +24,8 @@ ThemeStoryboard::ThemeStoryboard(const ThemeStoryboard& src)
 			animations.push_back(new ThemeStringAnimation((const ThemeStringAnimation&)(*anim)));
 		else if (dynamic_cast<ThemePathAnimation*>(anim) != nullptr)
 			animations.push_back(new ThemePathAnimation((const ThemePathAnimation&)(*anim)));
+		else if (dynamic_cast<ThemeSoundAnimation*>(anim) != nullptr)
+			animations.push_back(new ThemeSoundAnimation((const ThemeSoundAnimation&)(*anim)));
 	}
 }
 
@@ -34,7 +37,7 @@ ThemeStoryboard::~ThemeStoryboard()
 	animations.clear();
 }
 
-bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap)
+bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap, const std::string& relativePath)
 {
 	if (strcmp(root.name(), "storyboard") != 0)
 		return false;
@@ -105,8 +108,8 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 
 		case ThemeData::ElementPropertyType::PATH:
 			anim = new ThemePathAnimation();
-			if (node.attribute("from")) anim->from = node.attribute("from").as_string();
-			if (node.attribute("to")) anim->to = node.attribute("to").as_string();
+			if (node.attribute("from")) anim->from = Utils::FileSystem::resolveRelativePath(node.attribute("from").as_string(), relativePath, true);
+			if (node.attribute("to")) anim->to = Utils::FileSystem::resolveRelativePath(node.attribute("to").as_string(), relativePath, true); 
 			break;
 
 		case ThemeData::ElementPropertyType::STRING:
@@ -170,6 +173,44 @@ bool ThemeStoryboard::fromXmlNode(const pugi::xml_node& root, const std::map<std
 
 			animations.push_back(anim);
 		}
+	}
+
+	for (pugi::xml_node node = root.child("sound"); node; node = node.next_sibling("sound"))
+	{
+		std::string path = node.attribute("path").as_string();
+		if (path.empty())
+			continue;
+
+		path = Utils::FileSystem::resolveRelativePath(path, relativePath, true);
+		if (!ResourceManager::getInstance()->fileExists(path))
+			continue;
+
+		auto sound = new ThemeSoundAnimation();
+		sound->propertyName = "sound";
+		sound->to = path;		
+
+		for (pugi::xml_attribute xattr : node.attributes())
+		{
+			if (strcmp(xattr.name(), "begin") == 0 || strcmp(xattr.name(), "at") == 0)
+				sound->begin = Utils::String::toInteger(xattr.as_string());
+			else if (strcmp(xattr.name(), "duration") == 0)
+				sound->duration = Utils::String::toInteger(xattr.as_string());
+			else if (strcmp(xattr.name(), "repeat") == 0)
+			{
+				std::string arepeat = xattr.as_string();
+				if (arepeat == "forever")
+					sound->repeat = 0;
+				else if (!arepeat.empty() && arepeat != "none")
+					sound->repeat = Utils::String::toInteger(arepeat);
+			}
+			else if (strcmp(xattr.name(), "autoreverse") == 0 || strcmp(xattr.name(), "autoReverse") == 0)
+			{
+				std::string areverse = xattr.as_string();
+				sound->autoReverse = (areverse == "true" || areverse == "1");
+			}
+		}
+
+		animations.push_back(sound);
 	}
 
 	return animations.size() > 0;

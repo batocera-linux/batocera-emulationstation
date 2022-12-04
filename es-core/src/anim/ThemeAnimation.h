@@ -115,3 +115,14 @@ class ThemePathAnimation : public ThemeAnimation
 		return from.s;
 	}
 };
+
+class ThemeSoundAnimation : public ThemeAnimation
+{
+	ThemeData::ThemeElement::Property computeValue(float value) override
+	{
+		if (value >= 0.9999)
+			return to.s;
+
+		return from.s;
+	}
+};
