@@ -11,6 +11,7 @@
 #include "anim/StoryboardAnimator.h"
 #include "components/ScrollableContainer.h"
 #include "math/Vector2i.h"
+#include "Sound.h"
 
 bool GuiComponent::isLaunchTransitionRunning = false;
 
@@ -958,6 +959,9 @@ ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string na
 	if (name == "clipRect")
 		return Vector4f(mClipRect.x() / screenScale.x(), mClipRect.y() / screenScale.y(), mClipRect.z() /screenScale.x(), mClipRect.w() / screenScale.y());
 
+	if (name == "sound")
+		return mStoryBoardSound;
+
 	return "";
 }
 
@@ -1025,6 +1029,14 @@ void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeEle
 
 	if (name == "clipRect" && value.type == ThemeData::ThemeElement::Property::PropertyType::Rect)
 		setClipRect(Vector4f(value.r.x() * screenScale.x(), value.r.y() * screenScale.y(), value.r.z() * screenScale.x(), value.r.w() * screenScale.y()));
+
+	if (name == "sound" && value.type == ThemeData::ThemeElement::Property::PropertyType::String && mStoryBoardSound != value.s)
+	{
+		mStoryBoardSound = value.s;
+
+		if (!mStoryBoardSound.empty())
+			Sound::get(mStoryBoardSound)->play();
+	}
 
 	mTransformDirty = true;
 }

@@ -1665,7 +1665,8 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				else
 				{
 					auto storyBoard = new ThemeStoryboard();
-					if (!storyBoard->fromXmlNode(node, typeMap))
+
+					if (!storyBoard->fromXmlNode(node, typeMap, mPaths.size() ? Utils::FileSystem::getParent(mPaths.back()) : ""))
 					{
 						auto sb = element.mStoryBoards.find(storyBoard->eventName);
 						if (sb != element.mStoryBoards.cend())
