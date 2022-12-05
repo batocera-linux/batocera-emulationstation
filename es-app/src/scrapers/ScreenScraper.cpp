@@ -162,6 +162,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ADAM, 89 },
 	{ PHILIPS_CDI, 133 },
 	{ SUPER_NINTENDO_MSU1, 210 },
+	{ FMTOWNS, 253 },
 	{ FUJITSU_FM7, 97 },
 	{ CASIO_PV1000, 74 },
 	{ TIGER_GAMECOM, 121 },
