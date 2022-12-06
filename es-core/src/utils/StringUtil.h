@@ -39,6 +39,7 @@ namespace Utils
 		std::string proper(const std::string& _string);
 		std::string removeHtmlTags(const std::string& html);
 		bool        containsIgnoreCase(const std::string & _string, const std::string & _what);
+		bool        containsIgnoreCasePinyin(const std::string & _string, const std::string & _what);
 		bool		startsWithIgnoreCase(const std::string& name1, const std::string& name2);
 
 		int			toInteger(const std::string& string);
