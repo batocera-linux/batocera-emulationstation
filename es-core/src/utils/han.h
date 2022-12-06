@@ -20916,8 +20916,8 @@ static struct __haninit {
 	__haninit() {
 		for (int i=0; i<sizeof(s_unicode_pinyin)/sizeof(s_unicode_pinyin[0]); ++i) {
 			s_mapPinyin[ s_unicode_pinyin[i].code ] = s_unicode_pinyin[i].ptr;
-			for (int i=0; i<256; ++i) s_tblpinyin[i][0] = i;
 		}
+		for (int i=0; i<256; ++i) s_tblpinyin[i][0] = i;
 	}
 }__haniniter;
 
