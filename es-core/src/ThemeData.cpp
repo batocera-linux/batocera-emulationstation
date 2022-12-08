@@ -1882,7 +1882,7 @@ std::map<std::string, ThemeSet> ThemeData::getThemeSets()
 		Paths::getThemesPath(),
 		Paths::getUserEmulationStationPath() + "/themes",
 #ifdef _ENABLEEMUELEC
-        "/emuelec/themes", // emuelec
+        "/emuelec/themes","/storage/roms/themes", // emuelec
 #endif
 		"/etc/emulationstation/themes" // Backward compatibility with Retropie
 	};
