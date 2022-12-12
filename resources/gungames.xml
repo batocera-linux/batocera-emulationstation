@@ -98,6 +98,7 @@
   <system name="nes">
     <game>3in1supergun</game>
     <game>babyboomer</game>
+    <game>barroomshootout</game>
     <game>barkerbillstrickshooting</game>
     <game>bloodofjurassic</game>
     <game>chiller</game>
@@ -115,10 +116,12 @@
     <game>mechanizedattack</game>
     <game>operationwolf</game>
     <game>russianroulette</game>
+    <game>shootthegoof</game>
     <game>shootingrange</game>
     <game>spaceshadow</game>
     <game>strikewolf</game>
     <game>superrussianroulette</game>
+    <game>tophunter</game>
     <game>totheearth</game>
     <game>wildgunman</game>
     <game>zombiezap</game>
