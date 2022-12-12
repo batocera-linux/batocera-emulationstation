@@ -208,21 +208,21 @@
     <game vertical_offset="15" yaw="18.7" pitch="19">chickenblaster</game>
     <game vertical_offset="14.70" yaw="18.9" pitch="19.3">chickenriot</game>
     <game vertical_offset="0" yaw="41.3" pitch="31.6">chickenshoot</game>
-    <game>cocotofestival</game>
+    <game vertical_offset="14" yaw="18.6" pitch="18.4">cocotofestival</game>
     <game vertical_offset="15.3" yaw="18.5" pitch="18.69" ir_right="(`Axis 0+`+0.01)">cocotomagiccircus</game>
     <game vertical_offset="14.5" yaw="18.3" pitch="19.15">deadspaceextraction</game>
     <game vertical_offset="15" yaw="18.9" pitch="18.9">dinostrike</game>
-    <game>fastdrawshowdown</game>
+    <game vertical_offset="14.9" yaw="18.8" pitch="18.8">fastdrawshowdown</game>
     <game vertical_offset="15" yaw="18.7" pitch="19">ghostsquad</game>
     <game vertical_offset="15.2" yaw="18.6" pitch="18.9">gunbladenyandlamachineguns</game>
     <game vertical_offset="15" yaw="18.7" pitch="12">gunslingers</game>
     <game vertical_offset="15" yaw="18.7" pitch="19" ir_down="`Axis 1+`/1.03">heavyfireafghanistan</game>
-    <game>heavyfireblackarms</game>
-    <game>heavyfirespecialoperations</game>
+    <game vertical_offset="14.5" yaw="22" pitch="22">heavyfireblackarms</game>
+    <game vertical_offset="14.5" yaw="22" pitch="22">heavyfirespecialoperations</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedeadoverkill</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedead2and3</game>
     <game vertical_offset="15" yaw="18.8" pitch="19" ir_down="`Axis 1+`/1.02">maddogmccreegunslingerpack</game>
-    <game>martianpanic</game>
+    <game vertical_offset="14.7" yaw="19" pitch="19">martianpanic</game>
     <game vertical_offset="15" yaw="18.6" pitch="18.9">nerfnstrike</game>
     <game vertical_offset="21.3" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)">nerfnstrikeelite</game>
     <game vertical_offset="14.9" yaw="18.6" pitch="18.7">pheasantsforeverwingshooter</game>
@@ -235,10 +235,11 @@
     <game vertical_offset="0" yaw="20.6" pitch="15.75">residentevildarksidechronicles</game>
     <game vertical_offset="15.2" yaw="15.3" pitch="11.7">residentevilumbrellachronicles</game>
     <game vertical_offset="15.15" yaw="19.1" pitch="19.4">targetterror</game>
-    <game vertical_offset="15" yaw="24.70" pitch="19">topshotarcade</game>
+    <game vertical_offset="14.8" yaw="16.9" pitch="17">tomclancysghostrecon</game>
+    <game vertical_offset="15" yaw="24.7" pitch="19">topshotarcade</game>
     <game vertical_offset="15.3" yaw="18.8" pitch="19.2">topshotdinosaurhunter</game>
     <game vertical_offset="15" yaw="18.3" pitch="18">wickedmonstersblast</game>
-    <game>wildwestguns</game>
+    <game vertical_offset="14.7" yaw="18.9" pitch="19">wildwestguns</game>
     <game vertical_offset="15" yaw="18.8" pitch="19">wildwestshootout</game>
   </system>
 </systems>
