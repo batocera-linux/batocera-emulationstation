@@ -576,7 +576,7 @@ bool SystemView::showNavigationBar()
 		showNavigationBar(_("GO TO LETTER"), [](SystemData* meta) { if (meta->isCollection()) return _("COLLECTIONS"); return Utils::String::toUpper(meta->getSystemMetadata().fullName.substr(0, 1)); });
 		return true;
 	}
-	else if (sortMode == "manufacturer")
+	else if (sortMode == "manufacturer" || sortMode == "subgroup")
 	{
 		showNavigationBar(_("GO TO MANUFACTURER"), [](SystemData* meta) { return meta->getSystemMetadata().manufacturer; });
 		return true;
