@@ -159,6 +159,7 @@
     <game>judgedredd</game>
     <game>lethalenforcers</game>
     <game>maximumforce</game>
+    <game>mightyhits</game>
     <game>mightyhitsspecial</game>
     <game>moorhen3chickenchase</game>
     <game>moorhuhn</game>
@@ -166,7 +167,7 @@
     <game>pointblank2</game>
     <game>pointblank3</game>
     <game>projecthornedowl</game>
-    <game>puffypsiloveyou</game>
+    <game>puffynopsiloveyou</game>
     <game>rescueshot</game>
     <game>thegunshooting</game>
     <game>thegunshooting2</game>
@@ -192,6 +193,7 @@
     <game>battleclash</game>
     <game>bazookablitzkrieg</game>
     <game gun="justifier">lethalenforcers</game>
+    <game>macsbasicriflemarksmanship</game>
     <game>metalcombatfalconsrevenge</game>
     <game>nintendoscope6</game>
     <game reversedbuttons="true">operationthunderbolt</game>
