@@ -934,8 +934,14 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 		if (theme.name != thname)
 			continue;
 
+		std::string installFolder = Paths::getUserThemesPath();
+		if (installFolder.empty())
+			installFolder = Paths::getThemesPath();
+		if (installFolder.empty())
+			installFolder = Paths::getUserEmulationStationPath() + "/themes";
+
 		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
-		std::string extractionDirectory = Paths::getUserEmulationStationPath() + "/themes/.tmp";
+		std::string extractionDirectory = installFolder + "/.tmp";
 		std::string zipFile = extractionDirectory +"/" + themeFileName + ".zip";
 
 		Utils::FileSystem::createDirectory(extractionDirectory);
@@ -954,7 +960,7 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 
 			if (Utils::FileSystem::exists(folderName))
 			{
-				std::string finalfolderName = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName;
+				std::string finalfolderName = installFolder  + "/" + themeFileName;
 				if (Utils::FileSystem::exists(finalfolderName))
 					Utils::FileSystem::deleteDirectoryFiles(finalfolderName, true);
 
@@ -981,9 +987,15 @@ std::pair<std::string, int> ApiSystem::uninstallBatoceraTheme(std::string thname
 		if (!theme.isInstalled || theme.name != thname)
 			continue;
 
+		std::string installFolder = Paths::getUserThemesPath();
+		if (installFolder.empty())
+			installFolder = Paths::getThemesPath();
+		if (installFolder.empty())
+			installFolder = Paths::getUserEmulationStationPath() + "/themes";
+
 		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
 
-		std::string folderName = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName;
+		std::string folderName = installFolder + "/" + themeFileName;
 		if (!Utils::FileSystem::exists(folderName))
 			folderName = folderName + "-master";
 
