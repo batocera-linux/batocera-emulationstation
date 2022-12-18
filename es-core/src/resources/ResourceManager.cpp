@@ -88,7 +88,7 @@ std::string ResourceManager::getResourcePath(const std::string& path) const
 	}
 #endif
 
-	LOG(LogError) << "Resource path not found: " << path;
+	LOG(LogDebug) << "Resource path not found: " << path;
 
 	// not a resource, return unmodified path
 	return path;

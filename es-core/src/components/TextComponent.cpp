@@ -13,7 +13,7 @@ TextComponent::TextComponent(Window* window) : GuiComponent(window),
 	mFont(Font::get(FONT_SIZE_MEDIUM)), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(ALIGN_LEFT), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0,0)),
-	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE), mTextLength(-1)
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE), mTextLength(-1), mMultiline(MultiLineType::AUTO)
 {	
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
@@ -25,7 +25,7 @@ TextComponent::TextComponent(Window* window, const std::string& text, const std:
 	mFont(NULL), mUppercase(false), mColor(0x000000FF), mAutoCalcExtent(true, true),
 	mHorizontalAlignment(align), mVerticalAlignment(ALIGN_CENTER), mLineSpacing(1.5f), mBgColor(0),
 	mRenderBackground(false), mGlowColor(0), mGlowSize(2), mPadding(Vector4f(0, 0, 0, 0)), mGlowOffset(Vector2f(0, 0)),
-	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE), mTextLength(-1)
+	mReflection(0.0f, 0.0f), mReflectOnBorders(false), mAutoScroll(AutoScrollType::NONE), mTextLength(-1), mMultiline(MultiLineType::AUTO)
 {
 	setFont(font);
 	setColor(color);
@@ -263,7 +263,15 @@ void TextComponent::onTextChanged()
 
 	if (mAutoCalcExtent.x())
 	{
-		mSize = mFont->sizeText(mUppercase ? Utils::String::toUpper(mText) : mText, mLineSpacing);
+		auto text = mUppercase ? Utils::String::toUpper(mText) : mText;
+		if (mMultiline == MultiLineType::SINGLELINE)
+		{
+			size_t newline = text.find('\n');
+			if (newline != std::string::npos)
+				text = text.substr(0, newline); // single line of text - stop at the first newline since it'll mess everything up
+		}
+
+		mSize = mFont->sizeText(text, mLineSpacing);
 		mSize[0] += mPadding.x() + mPadding.z();
 	}
 	else if(mAutoCalcExtent.y())
@@ -284,13 +292,18 @@ void TextComponent::buildTextCache()
 	std::string text = mUppercase ? Utils::String::toUpper(mText) : mText;
 
 	std::shared_ptr<Font> f = mFont;
-	const bool isMultiline = (mAutoScroll != AutoScrollType::HORIZONTAL) && (mSize.y() == 0 || sy > f->getHeight(mLineSpacing)*1.8f);
+	
+	bool isMultiline = mMultiline == MultiLineType::MULTILINE;
+	if (mMultiline == MultiLineType::AUTO)
+		isMultiline = (mAutoScroll != AutoScrollType::HORIZONTAL) && (mSize.y() == 0 || sy > mFont->getHeight(mLineSpacing) * 1.8f);
 
 	bool addAbbrev = false;
-	if(!isMultiline)
+	if (!isMultiline)
 	{
 		size_t newline = text.find('\n');
-		text = text.substr(0, newline); // single line of text - stop at the first newline since it'll mess everything up
+		if (newline != std::string::npos)
+			text = text.substr(0, newline); // single line of text - stop at the first newline since it'll mess everything up
+
 		addAbbrev = newline != std::string::npos;
 	}
 
@@ -334,7 +347,10 @@ void TextComponent::update(int deltaTime)
 	}
 
 	int sy = mSize.y() - mPadding.y() - mPadding.w();
-	const bool isMultiline = mAutoScroll != AutoScrollType::HORIZONTAL && (mSize.y() == 0 || sy > mFont->getHeight()*1.95f);
+
+	bool isMultiline = mMultiline == MultiLineType::MULTILINE;
+	if (mMultiline == MultiLineType::AUTO)
+		isMultiline = (mAutoScroll != AutoScrollType::HORIZONTAL) && (mSize.y() == 0 || sy > mFont->getHeight(mLineSpacing) * 1.8f); // 1.95f
 
 	if (mAutoScroll == AutoScrollType::HORIZONTAL && !isMultiline && mSize.x() > 0)
 	{
@@ -604,6 +620,15 @@ void TextComponent::setAutoScroll(AutoScrollType value)
 
 	mAutoScroll = value;
 	onSizeChanged();	
+}
+
+void TextComponent::setMultiLine(MultiLineType value)
+{
+	if (mMultiline == value)
+		return;
+
+	mMultiline = value;
+	onTextChanged();
 }
 
 ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string name)

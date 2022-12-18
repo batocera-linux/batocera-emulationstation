@@ -168,7 +168,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 
 		row.addElement(std::make_shared<MultiLineMenuEntry>(mWindow, Utils::String::toUpper(label), description, multiLine), true);
 	}
-	else	
+	else
 		row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
 
 	if (comp != nullptr)
