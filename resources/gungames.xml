@@ -175,6 +175,9 @@
     <game>timecrisis</game>
     <game>timecrisisprojecttitan</game>
   </system>
+  <system name="pygame">
+    <game>pygun</game>
+  </system>
   <system name="saturn">
     <game>area51</game>
     <game>chaoscontrol</game>
