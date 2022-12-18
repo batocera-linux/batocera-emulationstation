@@ -84,6 +84,7 @@ rc_condset_t* rc_parse_condset(const char** memaddr, rc_parse_state_t* parse, in
         switch ((*next)->oper)
         {
           case RC_OPERATOR_AND:
+          case RC_OPERATOR_XOR:
           case RC_OPERATOR_DIV:
           case RC_OPERATOR_MULT:
           case RC_OPERATOR_NONE:
