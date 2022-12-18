@@ -519,6 +519,9 @@ msgstr "לפי  יצרן"
 msgid "BY HARDWARE TYPE"
 msgstr "לפי סוג חומרה"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "לפי שנה הוצאה לאור"
 

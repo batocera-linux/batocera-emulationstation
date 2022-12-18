@@ -518,6 +518,9 @@ msgstr "OP PRODUCENT"
 msgid "BY HARDWARE TYPE"
 msgstr "OP HARDWARE TYPE"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "OP UITGAVE JAAR"
 

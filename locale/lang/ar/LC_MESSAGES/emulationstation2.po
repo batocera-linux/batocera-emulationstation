@@ -524,6 +524,9 @@ msgstr "حسب المطور"
 msgid "BY HARDWARE TYPE"
 msgstr ""
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr ""
 

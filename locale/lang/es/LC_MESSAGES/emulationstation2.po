@@ -381,8 +381,8 @@ msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Desactiva los guardados de partida, rebobinado y trucos para obtener más "
-"puntos."
+"Desactiva los guardados de partida, rebobinado y trucos para obtener puntos "
+"hardcore."
 
 msgid "LEADERBOARDS"
 msgstr "CLASIFICACIONES"
@@ -412,8 +412,7 @@ msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICA"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
-"Toma una captura de pantalla automáticamente cuando se obtiene un logro."
+msgstr "Toma una captura de pantalla automáticamente al obtener logro."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFÍO"
@@ -499,19 +498,19 @@ msgid "CREATE CUSTOM COLLECTION"
 msgstr "CREAR COLECCIÓN PERSONALIZADA"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "CREAR NUEVA COLECCIÓN PERSONALIZADA A PARTIR DEL TEMA"
+msgstr "CREAR UNA NUEVA COLECCIÓN PERSONALIZADA A PARTIR DEL TEMA"
 
 msgid "SELECT THEME FOLDER"
 msgstr "SELECCIONAR LA CARPETA DEL TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "CREAR NUEVA COLECCIÓN EDITABLE"
+msgstr "CREAR UNA NUEVA COLECCIÓN EDITABLE"
 
 msgid "New Collection Name"
 msgstr "Nombre de la nueva colección"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "CREAR NUEVA COLECCIÓN DINÁMICA"
+msgstr "CREAR UNA NUEVA COLECCIÓN DINÁMICA"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ORGANIZAR COLECCIONES Y SISTEMAS"
@@ -524,6 +523,9 @@ msgstr "POR MARCA"
 
 msgid "BY HARDWARE TYPE"
 msgstr "POR HARDWARE"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "POR AÑO DE LANZAMIENTO"
@@ -544,7 +546,7 @@ msgid "START ON GAMELIST"
 msgstr "INICIAR EN UNA LISTA DE JUEGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "AGRUPAR COLECCIONES PERSONALIZADAS SIN TEMA"
+msgstr "AGRUPAR COLECCIONES PERSONALIZADAS SIN TEMATIZAR"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOMBRE DEL SISTEMA EN LAS COLECCIONES"
@@ -586,7 +588,7 @@ msgid "CUSTOM GAME COLLECTIONS"
 msgstr "COLECCIONES DE JUEGOS PERSONALIZADAS"
 
 msgid "PLEASE WAIT"
-msgstr "ESPERE POR FAVOR"
+msgstr "ESPERA POR FAVOR"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1185,7 +1187,7 @@ msgid "Points"
 msgstr "Puntos"
 
 msgid "Unlocked on"
-msgstr "Desbloqueado el"
+msgstr "Obtenido el"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JUEGO AÚN NO DISPONE DE TROFEOS"
@@ -1663,7 +1665,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLADO EN PANTALLA"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr "OCULTAR EMULATIONSTATION CUANDO SE INICIE UN JUEGO"
+msgstr "OCULTAR EMULATIONSTATION AL INICIAR UN JUEGO"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "SALIR AL MENÚ"
@@ -1691,10 +1693,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLAR SISTEMA SOLO CON EL MANDO PRINCIPAL"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "TOLERANCIA AL MOVIMIENTO DE LA PISTOLA"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "ACTIVAR LOS DRIVERS DE JOYSTICK HID"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "MOSTRAR INDICADOR DE RED"
@@ -2074,7 +2076,7 @@ msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓN DE JUEGO POR IA"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr "HABILITAR SERVICIO DE TRADUCCIÓN POR IA"
+msgstr "ACTIVAR EL SERVICIO DE TRADUCCIÓN POR IA"
 
 msgid "TARGET LANGUAGE"
 msgstr "IDIOMA DE DESTINO"
@@ -2101,22 +2103,22 @@ msgid "INCREMENTAL SAVESTATES"
 msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
 
 msgid "INCREMENT PER SAVE"
-msgstr "INCREMENTAR POR GUARDADO"
+msgstr "INCREMENTAR EN CADA GUARDADO"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "Nunca sobrescribir partidas guardadas, crear siempre nuevos guardados."
+msgstr "Crea siempre una nueva ranura al guardar, nunca sobrescribe."
 
 msgid "INCREMENT SLOT"
-msgstr "INCREMENTAR RANURA"
+msgstr "INCREMENTAR POR PARTIDA"
 
 msgid "Increment slot on a new game."
-msgstr "Incrementar ranura en una nueva partida."
+msgstr "Crea una nueva ranura de guardado al iniciar el juego."
 
 msgid "DO NOT INCREMENT"
 msgstr "NO INCREMENTAR"
 
 msgid "Use current slot on a new game."
-msgstr "Usa la ranura actual en una nueva partida."
+msgstr "Función desactivada."
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "MOSTRAR GESTOR DE PARTIDAS"
@@ -2255,7 +2257,7 @@ msgid "detailed"
 msgstr "detallado"
 
 msgid "DEFAULT GRID SIZE"
-msgstr "TAMAÑO PREDETERMINADO DE CUADRÍCULA"
+msgstr "TAMAÑO PRED. DE CUADRÍCULA"
 
 msgid "GAMELIST THEME OPTIONS"
 msgstr "OPCIONES DE LA LISTA DE JUEGOS"
@@ -2312,7 +2314,7 @@ msgid "APPEARANCE"
 msgstr "APARIENCIA"
 
 msgid "THEME SET"
-msgstr "TEMA ACTUAL"
+msgstr "TEMA ACTIVO"
 
 msgid "video"
 msgstr "vídeo"
@@ -2718,7 +2720,7 @@ msgid "Loading system config..."
 msgstr "Cargando la configuración del sistema..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "GUARDANDO METADATOS. POR FAVOR ESPERE..."
+msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERA…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "¿QUIERES CAMBIAR LA PANTALLA?"

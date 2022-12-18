@@ -518,6 +518,9 @@ msgstr "PODLE VÝROBCE"
 msgid "BY HARDWARE TYPE"
 msgstr "PODLE TYPU HARDWARU"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "PODLE ROKU VYDÁNÍ"
 

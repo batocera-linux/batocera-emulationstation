@@ -516,6 +516,9 @@ msgstr "PER PRODUTTORE"
 msgid "BY HARDWARE TYPE"
 msgstr "PER HARDWARE"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "PER ANNO DI USCITA"
 

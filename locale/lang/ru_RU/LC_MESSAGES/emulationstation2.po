@@ -521,6 +521,9 @@ msgstr "ПО ПРОИЗВОДИТЕЛЮ"
 msgid "BY HARDWARE TYPE"
 msgstr "ПО ЖЕЛЕЗУ"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "ПО ГОДУ ВЫПУСКА"
 

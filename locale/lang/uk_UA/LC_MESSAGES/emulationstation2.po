@@ -518,6 +518,9 @@ msgstr "ЗА ВИРОБНИКОМ"
 msgid "BY HARDWARE TYPE"
 msgstr "ЗА ТИПОМ ОБЛАДНАННЯ"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "ЗА РОКОМ ВИХОДУ"
 

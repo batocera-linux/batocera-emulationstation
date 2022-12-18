@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/11/11)\n"
+"Project-Id-Version: batocera-es v36beta(2022/12/09)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-11-15 20:37+0900\n"
+"PO-Revision-Date: 2022-12-10 07:45+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "更新可能"
@@ -450,7 +450,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "FILTER GAMELIST BY"
-msgstr "ゲームリスト別のフィルタ"
+msgstr "項目別(ゲームリスト)のフィルタ"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "システム・項目別コレクション詳細編集"
@@ -517,6 +517,9 @@ msgstr "メーカー別"
 
 msgid "BY HARDWARE TYPE"
 msgstr "ゲーム機器別"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "リリース年別"
@@ -646,7 +649,7 @@ msgid "NAVIGATION"
 msgstr "ナビゲーション"
 
 msgid "OTHER FILTERS"
-msgstr "その他フィルタ"
+msgstr "項目別ゲームフィルタ"
 
 msgid "SELECT RANDOM GAME"
 msgstr "ランダムにゲーム選択"
@@ -685,7 +688,7 @@ msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
 
 msgid "RESET FILTERS"
-msgstr "フィルターのリセット"
+msgstr "フィルタのリセット"
 
 msgid "FILTER GAMES BY TEXT"
 msgstr "文字別ゲームフィルタ"
@@ -946,10 +949,12 @@ msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "カスタム画像ファイル拡張子"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "パッドをキーボードに割当てる設定"
+msgstr "キーボードキーをパッドに割り当てる設定"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr "変更する動作を選択"
+msgstr ""
+"ボタン、キーを選択（決定はB、同時押しはXで次のキーを選択、最後のキーの決定を"
+"B、キャンセルはYかA）"
 
 msgid "SAVE"
 msgstr "保存"
@@ -1423,7 +1428,7 @@ msgstr "CPU 機能"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr "SHARP-BILINEAR-SIMPLE"
+msgstr "シャープ-バイリニア-シンプル(SHARP-BILINEAR-SIMPLE)"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -1435,11 +1440,11 @@ msgstr "レトロ"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "拡張"
+msgstr "拡張(ENHANCED)"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "曲率"
+msgstr "曲率(CURVATURE)"
 
 msgctxt "game_options"
 msgid "ZFAST"
@@ -1447,7 +1452,7 @@ msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr "フラットグロー(FLATTEN-GLOW)"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
@@ -1618,11 +1623,11 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "(CUE/GDI/CCD/M3U)に記載のファイルを表示しない"
 
 msgid "ENABLE GAME FILTERING"
-msgstr "ゲームフィルタリングを有効"
+msgstr "ゲームフィルタを有効"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr "表示オプションでゲームフィルタリング関連の設定の表示の有無"
+msgstr "表示設定にある、各ゲームフィルタ設定を有効(表示)にします"
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "終了時にメタ情報を保存"
@@ -1684,10 +1689,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "ガンコン移動公差(許容誤差範囲)"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "HID ジョイスティック ドライバーを有効にする"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ネットワークインジケータを表示"
@@ -1947,10 +1952,10 @@ msgid "High numbers can result in visible jitter."
 msgstr "数値が大きいと、目に見えるジッターが発生する可能性があります"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr "先読みには2番目のインスタンスを使用します"
+msgstr "先読みで2番目のインスタンスを使用"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "ボタンを押したときの音声スキップを防ぎます"
+msgstr "先読み使用でボタンを押したときの音声の途切れを防ぎます"
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "自動フレーム遅延"
@@ -1962,8 +1967,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"フレームドロップを防ぐために、フレーム遅延を自動的に減らします。不具合がでる"
-"場合があります"
+"フレームドロップ防止で、フレーム遅延を自動で減らします。不具合がでる場合があ"
+"ります"
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "可変リフレッシュレート（G-SYNC、FREESYNC）"
@@ -1973,8 +1978,7 @@ msgstr "可変リフレッシュレート"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr ""
-"コア要求のタイミングから逸脱しないでください。 G-Sync、FreeSync、HDMI2.1VRR"
+msgstr "コア要求のタイミングを調整(G-Sync、FreeSync、HDMI2.1VRR)"
 
 msgid "DECORATION SET"
 msgstr "ベゼルを選択"
@@ -2078,7 +2082,7 @@ msgid "SAVESTATES"
 msgstr "ステートセーブ"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "自動ステート読込"
+msgstr "自動ステート読込み"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
@@ -2145,7 +2149,7 @@ msgstr ""
 "下（決定）ボタンを押して確認します。"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr "シンデン ライトガンコンの設定"
+msgstr "シンデン ライトガンの設定"
 
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "wii リモコン(銃)の設定"
@@ -2456,7 +2460,7 @@ msgid "REALLY QUIT?"
 msgstr "本当に終了しますか？"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "自動ステート読込でゲームを開始"
+msgstr "自動ステート読込みでゲームを開始"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
@@ -2522,8 +2526,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"リンクしたファイルの中には、ゲームリストのパス以外のものがあります。\n"
-"ゲームリストに関連するこれらのファイルのコピーを使用しますか？"
+"ゲームリストがあるフォルダ外のファイルを選択しています\n"
+"関連ファイルをゲームリストがある指定フォルダにコピーして\n"
+"使用しますか？(いいえ、はコピーせずパス指定のみ)"
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
@@ -3097,6 +3102,3 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "GRAPHICS API"
-#~ msgstr "グラフィック API"

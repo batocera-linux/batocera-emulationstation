@@ -523,6 +523,9 @@ msgstr "WEDŁUG PRODUCENTA"
 msgid "BY HARDWARE TYPE"
 msgstr "WEDŁUG SPRZĘTU"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "WEDŁUG ROKU WYDANIA"
 

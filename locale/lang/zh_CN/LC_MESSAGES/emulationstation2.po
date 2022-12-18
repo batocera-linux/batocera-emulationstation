@@ -515,6 +515,9 @@ msgstr "按制造商"
 msgid "BY HARDWARE TYPE"
 msgstr "按硬件类型"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "按发布年"
 

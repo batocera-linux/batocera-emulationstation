@@ -518,6 +518,9 @@ msgstr "EFTER TILLVERKARE"
 msgid "BY HARDWARE TYPE"
 msgstr "EFTER HÅRDVARUTYP"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "EFTER UTGIVNINGSÅR"
 

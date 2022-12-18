@@ -515,6 +515,9 @@ msgstr "제조업체 순"
 msgid "BY HARDWARE TYPE"
 msgstr "하드웨어 종류 순"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "출시 년도 순"
 

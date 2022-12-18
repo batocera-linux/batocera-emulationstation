@@ -516,6 +516,9 @@ msgstr "ÜRETİCİYE GÖRE"
 msgid "BY HARDWARE TYPE"
 msgstr "DONANIMA GÖRE"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "ÇIKIŞ YILINA GÖRE"
 

@@ -516,6 +516,9 @@ msgstr "GYÁRTÓ SZERINT"
 msgid "BY HARDWARE TYPE"
 msgstr "HARDVER TÍPUS SZERINT"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "MEGJELENÉSI ÉV SZERINT"
 

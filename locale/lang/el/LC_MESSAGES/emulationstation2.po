@@ -513,6 +513,9 @@ msgstr "ΚΑΤΑ ΚΑΤΑΣΚΕΥΑΣΤΗ"
 msgid "BY HARDWARE TYPE"
 msgstr "ΚΑΤΑ ΤΥΠΟ ΥΛΙΚΟΥ"
 
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
+
 msgid "BY RELEASE YEAR"
 msgstr "ΚΑΤΑ ΕΤΟΣ ΚΥΚΛΟΦΟΡΙΑΣ"
 
