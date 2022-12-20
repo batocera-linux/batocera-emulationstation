@@ -27,6 +27,7 @@ namespace PlatformIds
 		{ "colecovision",			COLECOVISION },
 		{ "c64",					COMMODORE_64 },
 		{ "vic20",				COMMODORE_VIC20 },
+		{ "c16",				COMMODORE_PLUS4 },
 		{ "intellivision",			INTELLIVISION },
 		{ "macintosh",				MAC_OS },
 		{ "xbox",					XBOX },
