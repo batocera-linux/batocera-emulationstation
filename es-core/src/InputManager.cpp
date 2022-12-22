@@ -309,6 +309,11 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		char guid[40];
 		SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 40);
 
+#if WIN32
+		// SDL 2.26 + -> Remove new CRC-16 name hash encoding
+		for (int i = 4; i < 8; i++) guid[i] = '0';
+#endif
+
 		// create the InputConfig
 		auto cfg = mInputConfigs.find(joyId);
 		if (cfg != mInputConfigs.cend())
