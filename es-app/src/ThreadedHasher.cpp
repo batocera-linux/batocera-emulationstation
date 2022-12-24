@@ -194,6 +194,9 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		if (!sys->isGameSystem() || sys->getRootFolder() == nullptr)
 			continue;
 
+		if (sys->isGroupChildSystem() ? sys->isHidden() : !sys->isVisible())
+			continue;
+
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
 		{
 			bool netPlay = takeNetplay && (forceAllGames || file->getMetadata(MetaDataId::Crc32).empty());
