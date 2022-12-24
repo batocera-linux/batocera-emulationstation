@@ -524,7 +524,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "WEDŁUG SPRZĘTU"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "WEDŁUG PRODUCENTA I RODZAJU"
 
 msgid "BY RELEASE YEAR"
 msgstr "WEDŁUG ROKU WYDANIA"
@@ -724,7 +724,7 @@ msgstr "URZĄDZENIA BLUETOOTH ZOSTAŁY USUNIĘTE."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "CZY NA PEWNO USUNĄĆ '%s'?"
 
 msgid "INPUT"
 msgstr "WEJŚCIE"
@@ -790,7 +790,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "PODŁĄCZ URZĄDZENIE BLUETOOTH"
 
 msgid "PAIR"
-msgstr ""
+msgstr "PARUJ"
 
 msgid "FILE BROWSER"
 msgstr "PRZEGLĄDARKA PLIKÓW"
@@ -1031,6 +1031,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"WYKRYTO NIEOFICJALNE MODYFIKACJE SYSTEMU.\n"
+"AKTUALIZACJA MOŻE ZABURZYĆ TWÓJ SYSTEM.\n"
+"CZY CHCESZ ZAKTUALIZOWAĆ DO WERSJI %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "WYMAGA POŁĄCZENIA Z INTERNETEM"
@@ -1168,13 +1171,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "WYBIERZ MOTYWY DO INSTALACJI/USUNIĘCIA"
 
 msgid "All"
-msgstr ""
+msgstr "Wszystko"
 
 msgid "Installed"
-msgstr ""
+msgstr "Zainstalowane"
 
 msgid "Available"
-msgstr ""
+msgstr "Dostępne"
 
 msgid "CURRENT THEME"
 msgstr "AKTUALNY MOTYW"
@@ -1688,10 +1691,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "STERUJ EMULATIONSTATION TYLKO Z PIERWSZEGO JOYSTICKA"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "TOLERANCJA RUCHU PISTOLETU"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "WŁĄCZ STEROWNIKI UKRYTYCH JOYSTICKÓW"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "POKAŻ INDYKATOR SIECI"
@@ -2166,13 +2169,13 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "USTAWIENIA PISTOLETU WIIMOTE"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
+msgstr "SPARUJ AUTOMATYCZNIE PADY BLUETOOTH"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "SPARUJ RĘCZNIE URZĄDZENIE BLUETOOTH"
 
 msgid "DISPLAY OPTIONS"
 msgstr "OPCJE EKRANU"
@@ -2184,7 +2187,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "POKAŻ POZIOM BATERII KONTROLERA"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "PRZYPISANIE GRACZY"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2206,16 +2209,16 @@ msgid "BIG"
 msgstr "WIELKIE"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "TRYB OBRAMOWANIA"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "NORMALNE"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "TYLKO W GRZE"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "UKRYTE"
 
 msgid "RECOIL"
 msgstr "ODRZUT"
