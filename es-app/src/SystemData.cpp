@@ -1059,6 +1059,9 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	std::vector<EmulatorData> systemEmulators;
 	
 	pugi::xml_node emulatorsNode = system.child("emulators");
+	if (emulatorsNode == nullptr)
+		emulatorsNode = system;
+
 	if (emulatorsNode != nullptr)
 	{
 		for (pugi::xml_node emuNode = emulatorsNode.child("emulator"); emuNode; emuNode = emuNode.next_sibling("emulator"))
@@ -1079,6 +1082,9 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 			}
 
 			pugi::xml_node coresNode = emuNode.child("cores");
+			if (coresNode == nullptr)
+				coresNode = emuNode;
+
 			if (coresNode != nullptr)
 			{
 				for (pugi::xml_node coreNode = coresNode.child("core"); coreNode; coreNode = coreNode.next_sibling("core"))
