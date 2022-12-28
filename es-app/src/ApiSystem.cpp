@@ -1723,7 +1723,7 @@ void ApiSystem::updateBatoceraStorePackageList()
 	executeScript("batocera-store update");
 }
 
-std::vector<std::string> ApiSystem::getShaderList(const std::string systemName)
+std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 

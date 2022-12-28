@@ -37,7 +37,7 @@ public:
 
 	bool launchKodi(Window *window) override;	
 
-	std::vector<std::string> getShaderList(const std::string systemName = "") override;
+	std::vector<std::string> getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core) override;
 
 	virtual std::string getSevenZipCommand() override;
 	virtual std::string getHostsName() override;

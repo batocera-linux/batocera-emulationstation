@@ -239,7 +239,7 @@ public:
 
 
 	virtual std::vector<std::string> getRetroachievementsSoundsList();
-	virtual std::vector<std::string> getShaderList(const std::string systemName = "");
+	virtual std::vector<std::string> getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core);
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 
 	virtual std::vector<std::string> getTimezones();
