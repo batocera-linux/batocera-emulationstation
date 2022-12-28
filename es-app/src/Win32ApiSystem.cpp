@@ -1044,7 +1044,7 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string& system
 
 						for (auto si : sysInfo)
 						{								
-							if ((emulator.empty() || emulator == system || emulator == "libretro") && Utils::String::startsWith(si, "shader:"))
+							if (emulator == "libretro" && Utils::String::startsWith(si, "shader:"))
 								found = true;
 							else if (!emulator.empty() && !core.empty() && Utils::String::startsWith(si, emulator + "." + core + ":"))
 								found = true;
