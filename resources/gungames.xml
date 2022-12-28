@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <systems>
+  <system name="amstradcpc">
+    <game gun="phaser">americanturboking</game>
+    <game gun="gunstick">bestialwarrior</game>
+    <game gun="phaser">billythekid</game>
+    <game gun="phaser">bronxstreetcop</game>
+    <game gun="phaser">bullseye</game>
+    <game gun="gunstick">cosmicsheriff</game>
+    <game gun="gunstick">elequipoa</game>
+    <game gun="phaser">f16fightingfalcon</game>
+    <game gun="gunstick">guillermotell</game>
+    <game gun="phaser">junglewarfare</game>
+    <game gun="gunstick">mikegunner</game>
+    <game gun="phaser">missilegroundzero</game>
+    <game gun="phaser">operationwolf</game>
+    <game gun="gunstick">outlaws</game>
+    <game gun="phaser">solarinvasion</game>
+    <game gun="gunstick">solo</game>
+    <game gun="gunstick">sootland</game>
+    <game gun="gunstick">spacesmugglers</game>
+    <game gun="gunstick">targetplus</game>
+    <game gun="gunstick">trigger</game>
+    <game gun="phaser">robotattack</game>
+    <game gun="phaser">rookie</game>
+  </system>
   <system name="c64">
     <game>armydays</game>
     <game>babyblues</game>
@@ -62,6 +86,10 @@
     <game>deathcrimsonox</game>
     <game>houseofthedead2</game>
     <game>virtuacop2</game>
+  </system>
+  <system name="gx4000">
+    <game gun="phaser">skeeshoot</game>
+    <game gun="phaser">theenforcer</game>
   </system>
   <system name="mastersystem">
     <game>assaultcity</game>
