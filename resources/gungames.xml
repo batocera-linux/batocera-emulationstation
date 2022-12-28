@@ -127,6 +127,20 @@
     <game>wildgunman</game>
     <game>zombiezap</game>
   </system>
+  <system name="ps2">
+    <game>endgame</game>
+    <game>guncom2</game>
+    <game>gunfighter2jessejames</game>
+    <game>gunvaricollection</game>
+    <game>ninjaassault</game>
+    <game>timecrisisii</game>
+    <game>timecrisis2</game>
+    <game>timecrisis3</game>
+    <game>crisiszone</game>
+    <game>timecrisiscrisiszone</game>
+    <game>vampirenight</game>
+    <game>virtuacopeliteedition</game>
+  </system>
   <system name="ps3">
     <game>childofeden</game>
     <game>deadspaceextraction</game>
