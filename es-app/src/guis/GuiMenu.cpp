@@ -1598,7 +1598,7 @@ void GuiMenu::addDecorationSetOptionListComponent(Window* window, GuiSettings* p
 
 
 
-void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName)
+void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName, const std::string& system, const std::string& emulator, const std::string& core)
 {	
 	if (feat.preset == "hidden")
 		return;
@@ -1732,7 +1732,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	{
 		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
 
-		auto shaders = ApiSystem::getInstance()->getShaderList();
+		auto shaders = ApiSystem::getInstance()->getShaderList(configName != "global" ? system : "", configName != "global" ? emulator : "", configName != "global" ? core : "");
 		if (shaders.size() > 0)
 		{
 			item->add(_("NONE"), "none", storedValue == "none");
@@ -1816,7 +1816,7 @@ static bool hasGlobalFeature(const std::string& name)
 	return CustomFeatures::GlobalFeatures.hasGlobalFeature(name);
 }
 
-void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
+void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& system, const std::string& emulator, const std::string& core, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
 {
 	bool firstGroup = true;
 	
@@ -1841,7 +1841,7 @@ void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* windo
 		{
 			if (feat.submenu.empty())
 			{
-				addFeatureItem(window, settings, feat, configName);
+				addFeatureItem(window, settings, feat, configName, system, emulator, core);
 				continue;
 			}
 
@@ -1853,12 +1853,12 @@ void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* windo
 			auto items = features.where([feat](auto x) { return x.preset != "hidden" && x.submenu == feat.submenu; });
 			if (items.size() > 0)
 			{
-				settings->addEntry(pgettext("game_options", feat.submenu.c_str()), true, [window, configName, feat, items]
+				settings->addEntry(pgettext("game_options", feat.submenu.c_str()), true, [window, configName, feat, items, system, emulator, core]
 				{
 					GuiSettings* groupSettings = new GuiSettings(window, pgettext("game_options", feat.submenu.c_str()));
 
 					for (auto feat : items)
-						addFeatureItem(window, groupSettings, feat, configName);
+						addFeatureItem(window, groupSettings, feat, configName, system, emulator, core);
 
 					window->pushGui(groupSettings);
 				});
@@ -1938,7 +1938,7 @@ void GuiMenu::openGamesSettings()
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) && !hasGlobalFeature("shaderset"))
 	{
-		auto installedShaders = ApiSystem::getInstance()->getShaderList();
+		auto installedShaders = ApiSystem::getInstance()->getShaderList("", "", "");
 		if (installedShaders.size() > 0)
 		{
 			std::string currentShader = SystemConf::getInstance()->get("global.shaderset");
@@ -2110,7 +2110,7 @@ void GuiMenu::openGamesSettings()
 	}
 	
 	// Load global custom features
-	addFeatures(CustomFeatures::GlobalFeatures, window, s, "global", _("DEFAULT GLOBAL SETTINGS"));
+	addFeatures(CustomFeatures::GlobalFeatures, window, s, "global", "", "", "", _("DEFAULT GLOBAL SETTINGS"));
 	
 	if (!hasGlobalFeature("disableautocontrollers") && SystemData::sSystemVector.any([](auto sys) { return !sys->getCompatibleCoreNames(EmulatorFeatures::autocontrollers).empty(); }))
 	{
@@ -3806,7 +3806,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
 		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))
 	{
-		auto installedShaders = ApiSystem::getInstance()->getShaderList(systemData->getName());
+		auto installedShaders = ApiSystem::getInstance()->getShaderList(systemData->getName(), currentEmulator, currentCore);
 		if (installedShaders.size() > 0)
 		{
 			std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
@@ -4121,7 +4121,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 
 	// Load per-game / per-emulator / per-system custom features
-	addFeatures(customFeatures, mWindow, systemConfiguration, configName, _("SETTINGS"), true);
+	addFeatures(customFeatures, mWindow, systemConfiguration, configName, systemData->getName(), currentEmulator.empty() ? systemData->getEmulator(true) : currentEmulator, currentCore.empty() ? systemData->getCore(true) : currentCore, _("SETTINGS"), true);
 
 	// automatic controller configuration
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autocontrollers))

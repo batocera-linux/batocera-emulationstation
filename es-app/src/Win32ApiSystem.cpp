@@ -15,6 +15,7 @@
 #include <algorithm>
 #include "LocaleES.h"
 #include "Paths.h"
+#include "utils/VectorEx.h"
 
 #pragma comment(lib, "shell32.lib")
 #pragma comment(lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
@@ -999,7 +1000,7 @@ std::vector<std::string> Win32ApiSystem::getVideoModes()
 }
 
 
-std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemName)
+std::vector<std::string> Win32ApiSystem::getShaderList(const std::string& system, const std::string& emulator, const std::string& core)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
@@ -1019,17 +1020,48 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemN
 
 				if (std::find(ret.cbegin(), ret.cend(), parent) == ret.cend())
 				{
-					if (!systemName.empty())
+					if (!system.empty())
 					{
-						auto data = Utils::FileSystem::readAllText(file);
+						auto lines = Utils::String::splitAny(Utils::FileSystem::readAllText(file), "\r\n", true);
+												
+						bool take = false;
 
-						auto idx = data.find(systemName + ":");
-						if (idx != std::string::npos)
+						VectorEx<std::string> sysInfo;
+						for (auto line : lines)
 						{
-							auto lines = Utils::String::split(data.substr(idx), '\n', true);
-							if (lines.size() > 1 && lines[1].find("shader:") != std::string::npos && lines[1].find("disabled") != std::string::npos)
-								continue;
+							if (Utils::String::startsWith(line, system + ":"))
+								take = true;
+							else if (take)
+							{
+								if (!Utils::String::startsWith(line, " "))
+									break;
+
+								sysInfo.push_back(Utils::String::trim(line));
+							}
 						}
+
+						bool found = false;
+
+						for (auto si : sysInfo)
+						{								
+							if (emulator == "libretro" && Utils::String::startsWith(si, "shader:"))
+								found = true;
+							else if (!emulator.empty() && !core.empty() && Utils::String::startsWith(si, emulator + "." + core + ":"))
+								found = true;
+							else if (!emulator.empty() && Utils::String::startsWith(si, emulator + ":"))
+								found = true;
+
+							if (found)
+							{
+								if (si.find("disabled") != std::string::npos)
+									found = false;
+
+								break;
+							}
+						}
+
+						if (!found)
+							continue;
 					}
 
 					ret.push_back(parent);
