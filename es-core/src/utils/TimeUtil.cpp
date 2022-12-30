@@ -80,7 +80,7 @@ namespace Utils
 			struct tm  clockTstruct = *localtime(&clockNow);
 
 			char       clockBuf[256];
-			strftime(clockBuf, sizeof(clockBuf), "%Ex %R", &clockTstruct);
+			strftime(clockBuf, sizeof(clockBuf), "%x %R", &clockTstruct);
 			return clockBuf;
 		}
 
