@@ -2068,8 +2068,8 @@ std::string SystemData::getProperty(const std::string& name)
 			struct tm  clockTstruct = *localtime(&clockNow);
 
 			char       clockBuf[256];
-			strftime(clockBuf, sizeof(clockBuf), "%Ex", &clockTstruct);
-
+			strftime(clockBuf, sizeof(clockBuf), "%x", &clockTstruct);
+			
 			return clockBuf;
 		}
 	}
