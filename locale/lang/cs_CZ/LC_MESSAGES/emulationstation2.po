@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "AKTUALIZACE DOSTUPNÁ"
@@ -519,7 +519,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "PODLE TYPU HARDWARU"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "PODLE VÝROBCE A TYPU"
 
 msgid "BY RELEASE YEAR"
 msgstr "PODLE ROKU VYDÁNÍ"
@@ -1682,10 +1682,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "OVLÁDÁNÍ EMULÁTORU POUZE PRVNÍM JOYSTICKEM"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "TOLERANCE POHYBU ZBRANĚ"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "POVOLIT SKRYTÉ OVLADAČE JOYSTICKU"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ZOBRAZIT INDIKÁTOR SÍTĚ"
@@ -2435,7 +2435,7 @@ msgid "REALLY RESTART?"
 msgstr "OPRAVDU RESTARTOVAT?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "POZASTAVIT SYSTÉM"
+msgstr "POZASTAVIT"
 
 msgid "REALLY SUSPEND ?"
 msgstr "OPRAVDU POZASTAVIT ?"
