@@ -227,6 +227,7 @@
     <game vertical_offset="14.5" yaw="22" pitch="22">heavyfireblackarms</game>
     <game vertical_offset="14.5" yaw="22" pitch="22">heavyfirespecialoperations</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedeadoverkill</game>
+    <game vertical_offset="15" yaw="19" pitch="19">houseofthedeadtheoverkill</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedead2and3</game>
     <game vertical_offset="15" yaw="18.8" pitch="19" ir_down="`Axis 1+`/1.02">maddogmccreegunslingerpack</game>
     <game vertical_offset="14.7" yaw="19" pitch="19">martianpanic</game>
