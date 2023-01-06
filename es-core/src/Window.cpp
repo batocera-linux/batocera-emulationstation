@@ -542,20 +542,20 @@ void Window::renderSindenBorders()
 
 	if (drawGunBorders)
 	{
-		int outerBorderWidth = Renderer::getScreenHeight() * 0.03f;
+		int outerBorderWidth = Renderer::getScreenHeight() * 0.00f;
 		int innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 
 		// sinden.bordersize=thin/big/medium
 		auto bordersize = SystemConf::getInstance()->get("controllers.guns.borderssize");
 		if (bordersize == "thin")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.000f;
-			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.00f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.01f;
 		}
-		else if (bordersize == "medium")
+		else if (bordersize == "big")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
-			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.01f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 		}
 
 		Renderer::setScreenMargin(0, 0);
