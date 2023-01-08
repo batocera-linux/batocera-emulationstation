@@ -1040,6 +1040,22 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string& system
 							}
 						}
 
+						if (!take && sysInfo.size() == 0)
+						{
+							for (auto line : lines)
+							{
+								if (Utils::String::startsWith(line, "default:"))
+									take = true;
+								else if (take)
+								{
+									if (!Utils::String::startsWith(line, " "))
+										break;
+
+									sysInfo.push_back(Utils::String::trim(line));
+								}
+							}
+						}
+
 						bool found = false;
 
 						for (auto si : sysInfo)
