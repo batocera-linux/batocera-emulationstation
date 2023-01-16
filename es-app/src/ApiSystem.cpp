@@ -798,7 +798,35 @@ std::string ApiSystem::getThemesUrl()
 	return getUpdateUrl() + "/themes.json";
 }
 
-bool ApiSystem::downloadGitRepository(const std::string& url, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, long defaultDownloadSize)
+std::string ApiSystem::getGitRepositoryDefaultBranch(const std::string& url)
+{
+	std::string ret = "master";
+
+	std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
+	if (statUrl != url)
+	{
+		HttpReq statreq(statUrl);
+		if (statreq.wait())
+		{
+			const std::string default_branch = "\"default_branch\": ";
+
+			std::string content = statreq.getContent();
+			auto pos = content.find(default_branch);
+			if (pos != std::string::npos)
+			{
+				auto end = content.find(",", pos);
+				if (end != std::string::npos)
+				{
+					ret = Utils::String::replace(content.substr(pos + default_branch.length(), end - pos - default_branch.length()), "\"", "");
+				}
+			}
+		}
+	}
+
+	return ret;
+}
+
+bool ApiSystem::downloadGitRepository(const std::string& url, const std::string& branch, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, long defaultDownloadSize)
 {
 	if (func != nullptr)
 		func("Downloading " + label);
@@ -824,7 +852,7 @@ bool ApiSystem::downloadGitRepository(const std::string& url, const std::string&
 		}
 	}
 
-	HttpReq httpreq(url + "/archive/master.zip", fileName);
+	HttpReq httpreq(url + "/archive/"+ branch +".zip", fileName);
 
 	int curPos = -1;
 	while (httpreq.status() == HttpReq::REQ_IN_PROGRESS)
@@ -872,11 +900,13 @@ bool ApiSystem::isThemeInstalled(const std::string& themeName, const std::string
 		if (path.empty())
 			continue;
 
+		if (Utils::FileSystem::isDirectory(path + "/" + themeUrl))
+			return true;
+
 		if (Utils::FileSystem::isDirectory(path + "/" + themeUrl + "-master"))
 			return true;
-		else if (Utils::FileSystem::isDirectory(path + "/" + themeUrl))
-			return true;
-		else if (Utils::FileSystem::isDirectory(path + "/" + themeName))
+
+		if (Utils::FileSystem::isDirectory(path + "/" + themeName))
 			return true;
 	}
 
@@ -946,15 +976,17 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 
 		Utils::FileSystem::createDirectory(extractionDirectory);
 		Utils::FileSystem::removeFile(zipFile);
+		
+		std::string branch = getGitRepositoryDefaultBranch(theme.url);
 
-		if (downloadGitRepository(theme.url, zipFile, thname, func, theme.size * 1024 * 1024))
+		if (downloadGitRepository(theme.url, branch, zipFile, thname, func, theme.size * 1024 * 1024))
 		{
 			if (func != nullptr)
 				func(_("Extracting") + " " + thname);
 
 			unzipFile(zipFile, extractionDirectory);
 			
-			std::string folderName = extractionDirectory + "/" + themeFileName + "-master";
+			std::string folderName = extractionDirectory + "/" + themeFileName + "-" + branch;
 			if (!Utils::FileSystem::exists(folderName))
 				folderName = extractionDirectory + "/" + themeFileName;
 

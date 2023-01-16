@@ -465,7 +465,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
 			std::string zipFile = Utils::FileSystem::getCanonicalPath(Paths::getUserDecorationsPath() + "/" + themeFileName + ".zip");
 
-			if (downloadGitRepository(themeUrl, zipFile, bezelsystem, func))
+			if (downloadGitRepository(themeUrl, "master", zipFile, bezelsystem, func))
 			{
 				std::string theBezelProject = Paths::getUserDecorationsPath() + "/thebezelproject/games/"+ bezelsystem;
 				Utils::FileSystem::createDirectory(theBezelProject);
