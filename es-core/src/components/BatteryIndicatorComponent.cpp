@@ -46,9 +46,6 @@ void BatteryIndicatorComponent::init()
 	if (ResourceManager::getInstance()->fileExists(":/battery/empty.svg"))
 		mEmpty = ResourceManager::getInstance()->getResourcePath(":/battery/empty.svg");	
 
-	if (ResourceManager::getInstance()->fileExists(":/battery/empty.svg"))
-		mEmpty = ResourceManager::getInstance()->getResourcePath(":/battery/empty.svg");
-
 	if (ResourceManager::getInstance()->fileExists(":/network.svg"))
 	{
 		mView |= ActivityView::NETWORK;
