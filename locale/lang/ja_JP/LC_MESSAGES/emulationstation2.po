@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/12/19)\n"
+"Project-Id-Version: batocera-es v36beta(2022/01/16)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2022-12-19 08:42+0900\n"
+"PO-Revision-Date: 2023-01-21 18:22+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1492,7 +1492,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI メディアセンター"
 
 msgid "GAME SETTINGS"
-msgstr "システム(エミュレータ)設定"
+msgstr "ゲーム(エミュレータ)設定"
 
 msgid "USER INTERFACE SETTINGS"
 msgstr "ユーザーインターフェイス 設定"
@@ -1513,7 +1513,7 @@ msgid "UPDATES & DOWNLOADS"
 msgstr "更新とダウンロード"
 
 msgid "SYSTEM SETTINGS"
-msgstr "BATOCRA 設定"
+msgstr "システム 設定"
 
 msgid "UNLOCK USER INTERFACE MODE"
 msgstr "ユーザーインターフェイスモードのロック解除"
@@ -1859,7 +1859,7 @@ msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr "音声無し動画スプラッシュ"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOCERA スプラッシュ画像"
+msgstr "スプラッシュ画像"
 
 msgid "SPLASH SETTING"
 msgstr "スプラッシュ設定"
@@ -2152,7 +2152,7 @@ msgid "SINDEN GUN SETTINGS"
 msgstr "シンデン ライトガンの設定"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr "wii リモコン(銃)の設定"
+msgstr "wii リモコンの用途設定"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2195,7 +2195,7 @@ msgid "BIG"
 msgstr "大"
 
 msgid "BORDER MODE"
-msgstr "BORDER MODE"
+msgstr "境界モード"
 
 msgid "NORMAL"
 msgstr "標準"
@@ -2207,25 +2207,25 @@ msgid "HIDDEN"
 msgstr "非表示"
 
 msgid "RECOIL"
-msgstr "反動"
+msgstr "トリガーの反動"
 
 msgid "GUN"
 msgstr "ガンコン"
 
 msgid "MACHINE GUN"
-msgstr "機関銃"
+msgstr "マシンガン"
 
 msgid "QUIET GUN"
-msgstr "静かな銃"
+msgstr "サイレントガン(弱反動)"
 
 msgid "QUIET MACHINE GUN"
-msgstr "静音機関銃"
+msgstr "サイレントマシンガン(弱反動)"
 
 msgid "MODE"
-msgstr "モード"
+msgstr "モード選択"
 
 msgid "JOYSTICK"
-msgstr "ジョイスティック"
+msgstr "ゲームパッド"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -2481,7 +2481,7 @@ msgid "FULL BOOT"
 msgstr "フルブート"
 
 msgid "EMULATED WIIMOTES"
-msgstr "WIIリモートのエミュレート"
+msgstr "WIIリモートをエミュレート"
 
 msgid "CHANGE SCREEN LAYOUT"
 msgstr "スクリーンレイアウトの変更"
