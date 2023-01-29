@@ -310,3 +310,4 @@ std::string InputConfig::getSortDevicePath()
 
 	return mDevicePath;
 }
+
