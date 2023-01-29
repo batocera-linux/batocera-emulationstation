@@ -12,6 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
@@ -298,7 +299,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "'%s' удалено из '%s'"
 
 msgid "This collection is empty."
-msgstr "Коллекция пуста"
+msgstr "Коллекция пуста."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -321,7 +322,7 @@ msgid "Searching for devices..."
 msgstr "Поиск устройств..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "BLUETOOTH СКАНИРОВАНИЕ УЖЕ ЗАПУЩЕНО"
+msgstr "BLUETOOTH СКАНИРОВАНИЕ УЖЕ ЗАПУЩЕНО."
 
 msgid "FORMATTING DEVICE"
 msgstr "ФОРМАТИРОВАНИЕ УСТРОЙСТВА"
@@ -522,7 +523,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "ПО ЖЕЛЕЗУ"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "ПО ПРОИЗВОДИТЕЛЮ И ТИПУ"
 
 msgid "BY RELEASE YEAR"
 msgstr "ПО ГОДУ ВЫПУСКА"
@@ -718,11 +719,11 @@ msgid "REMOVE"
 msgstr "УДАЛИТЬ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО"
+msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ УДАЛИТЬ '%s'?"
 
 msgid "INPUT"
 msgstr "ВВОД"
@@ -788,7 +789,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 msgid "PAIR"
-msgstr ""
+msgstr "CОПРЯЖЕНИЕ"
 
 msgid "FILE BROWSER"
 msgstr "ФАЙЛОВЫЙ БРАУЗЕР"
@@ -831,7 +832,7 @@ msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' ДОБАВЛЕНА В ОЧЕРЕДЬ ЗАГРУЗКИ"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "УДАЛЕНИЕ ДОБАВЛЕНО В ОЧЕРЕДЬ "
+msgstr "УДАЛЕНИЕ ДОБАВЛЕНО В ОЧЕРЕДЬ"
 
 msgid "INSTALL"
 msgstr "УСТАНОВИТЬ"
@@ -943,7 +944,7 @@ msgid "USE CUSTOM IMAGES"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЕ ИЗОБРАЖЕНИЯ"
 
 msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "ПАПКА ПОЛЬЗ. ИЗОБР."
+msgstr "КАТАЛОГ ПОЛЬЗ. ИЗОБРАЖЕНИЙ"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr "ИСПОЛЬЗОВАТЬ ИЗОБРАЖЕНИЯ ИЗ ПОДПАПКИ ПОЛЬЗ. КАТАЛОГА"
@@ -1029,6 +1030,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"ОБНАРУЖЕНЫ НЕОФИЦИАЛЬНЫЕ МОДИФИКАЦИИ СИСТЕМЫ.\n"
+"ОБНОВЛЕНИЕ МОЖЕТ СЛОМАТЬ ВАШУ СИСТЕМУ.\n"
+"ХОТИТЕ ЛИ ВЫ ОБНОВИТЬСЯ ДО ВЕРСИИ %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ТРЕБУЕТСЯ ПОДКЛЮЧЕНИЕ К СЕТИ"
@@ -1166,13 +1170,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "ВЫБЕРИТЕ ТЕМЫ ДЛЯ УСТАНОВКИ/УДАЛЕНИЯ"
 
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 msgid "Installed"
-msgstr ""
+msgstr "Установлено"
 
 msgid "Available"
-msgstr ""
+msgstr "Доступно"
 
 msgid "CURRENT THEME"
 msgstr "ТЕКУЩАЯ ТЕМА"
@@ -1588,7 +1592,7 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТЬ СПИСОК ИГР И УДАЛИТЬ НЕ ИСПОЛЬЗУЕМЫЕ МЕДИА"
 
 msgid "Cleaning"
-msgstr "Очистка "
+msgstr "Очистка"
 
 msgid "CLEAR CACHES"
 msgstr "ОЧИСТИТЬ КЭШ"
@@ -1685,10 +1689,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "УПРАВЛЯТЬ EMULATIONSTATION ТОЛЬКО ПЕРВЫМ КОНТРОЛЛЕРОМ"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "ДОПУСТИМОСТЬ ПЕРЕМЕЩЕНИЯ ПИСТОЛЕТА"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ HID ДРАЙВЕРЫ ДЖОЙСТИКОВ"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ПОКАЗАТЬ ИНДИКАТОР СЕТИ"
@@ -1761,7 +1765,7 @@ msgid "TIME ZONE"
 msgstr "ЧАСОВОЙ ПОЯС"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "ПОКАЗАТЬ ЧАСЫ В 12-ЧАСОВОМ ФОРМАТЕ "
+msgstr "ПОКАЗАТЬ ЧАСЫ В 12-ЧАСОВОМ ФОРМАТЕ"
 
 msgid "POWER SAVING MODE"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
@@ -2010,7 +2014,7 @@ msgstr ""
 "поддерживает это."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "ЦЕЛОЕ МАСШТАБИРОВАНИЕ (ИДЕАЛЬНО)"
+msgstr "ЦЕЛОЧИСЛЕННОЕ МАСШТАБИРОВАНИЕ (PP)"
 
 msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
@@ -2154,13 +2158,13 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "НАСТРОЙКИ WIIMOTE GUN"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
+msgstr "АВТОМАТИЧЕСКОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "РУЧНОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 msgid "DISPLAY OPTIONS"
 msgstr "НАСТРОЙКИ ЭКРАНА"
@@ -2172,7 +2176,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "НАЗНАЧЕНИЯ ИГРОКА"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2194,16 +2198,16 @@ msgid "BIG"
 msgstr "БОЛЬШОЙ"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "РЕЖИМ ГРАНИЦ"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "НОРМАЛЬНЫЙ"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "ТОЛЬКО В ИГРЕ"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "СКРЫТЫЙ"
 
 msgid "RECOIL"
 msgstr "RECOIL"
@@ -2815,7 +2819,7 @@ msgid "INDEXING COMPLETED"
 msgstr "ИНДЕКСАЦИЯ ЗАВЕРШЕНА"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ"
+msgstr "ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗМЕНЕНИЯ."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "ЭМУЛЯТОР НЕОЖИДАННО ПРЕКРАТИЛ РАБОТУ"
