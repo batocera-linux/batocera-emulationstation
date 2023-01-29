@@ -2761,7 +2761,11 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				if (it->name == selectedName)
 					selectedColorSet = it;
 
-			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME " + Utils::String::toUpper(subset)).c_str()), false);
+			std::string displayName;
+			if (!themeColorSets.empty())
+				displayName = themeColorSets.cbegin()->subSetDisplayName;
+
+			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, displayName.empty() ? _(("THEME " + Utils::String::toUpper(subset)).c_str()) : displayName, false);
 			item->setTag(!perSystemSettingName.empty() ? perSystemSettingName : settingName);
 
 			std::string defaultName;
@@ -2789,8 +2793,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				item->selectFirstItem();
 
 			if (!themeColorSets.empty())
-			{
-				std::string displayName = themeColorSets.cbegin()->subSetDisplayName;
+			{				
 				if (!displayName.empty())
 				{
 					bool hasApplyToSubset = themeColorSets.cbegin()->appliesTo.size() > 0;
