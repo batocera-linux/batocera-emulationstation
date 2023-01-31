@@ -34,8 +34,8 @@ void GuiKeyMappingEditor::initMappingNames()
 		{ "start",   "START",        ":/help/button_start.svg" },
 		{ "select",  "SELECT",       ":/help/button_select.svg" },
 
-		{ "a",               "EAST",    ":/help/buttons_east.svg" },
-		{ "b",               "SOUTH",    ":/help/buttons_south.svg" },
+		{ "a",				 InputConfig::buttonDisplayName("a"),    InputConfig::buttonImage("a") },
+		{ "b",				 InputConfig::buttonDisplayName("b"),    InputConfig::buttonImage("b") },
 
 		{ "x",               "NORTH",   ":/help/buttons_north.svg" },
 		{ "y",               "WEST",    ":/help/buttons_west.svg" },
@@ -60,8 +60,8 @@ void GuiKeyMappingEditor::initMappingNames()
 
 		{ "hotkey + start",          "HOTKEY + START",      ":/help/button_hotkey.svg", ":/help/button_start.svg" },
 
-		{ "hotkey + a",       "HOTKEY + EAST",    ":/help/button_hotkey.svg", ":/help/buttons_east.svg" },
-		{ "hotkey + b",       "HOTKEY + SOUTH",   ":/help/button_hotkey.svg", ":/help/buttons_south.svg" },
+		{ "hotkey + a",       "HOTKEY + " + InputConfig::buttonDisplayName("a"),    ":/help/button_hotkey.svg", InputConfig::buttonImage("a") },
+		{ "hotkey + b",       "HOTKEY + " + InputConfig::buttonDisplayName("b"),   ":/help/button_hotkey.svg", InputConfig::buttonImage("b") },
 		{ "hotkey + x",       "HOTKEY + NORTH",    ":/help/button_hotkey.svg", ":/help/buttons_north.svg" },
 		{ "hotkey + y",       "HOTKEY + WEST",   ":/help/button_hotkey.svg", ":/help/buttons_west.svg" }
 	};
