@@ -142,6 +142,7 @@ public:
 	bool isConfigured();
 
 	static std::string buttonLabel(const std::string& button);
+	static std::string buttonDisplayName(const std::string& button);	
 	static std::string buttonImage(const std::string& button);
 
 	void updateBatteryLevel(int level) { mBatteryLevel = level; }; 
