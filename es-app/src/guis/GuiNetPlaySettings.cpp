@@ -16,6 +16,9 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window) : GuiSettings(window, _("
 	enableNetplay->setState(SystemConf::getInstance()->getBool("global.netplay"));
 	addWithLabel(_("ENABLE NETPLAY"), enableNetplay);
 	addInputTextRow(_("NICKNAME"), "global.netplay.nickname", false);
+
+	addGroup(_("OPTIONS"));
+
 	addInputTextRow(_("PORT"), "global.netplay.port", false);
 	addOptionList(_("USE RELAY SERVER"), { { _("NONE"), "" },{ _("NEW YORK") , "nyc" },{ _("MADRID") , "madrid" },{ _("MONTREAL") , "montreal" },{ _("SAO PAULO") , "saopaulo" } }, "global.netplay.relay", false);
 	addSwitch(_("SHOW UNAVAILABLE GAMES"), _("Show rooms for games not present on this machine."), "NetPlayShowMissingGames", true, nullptr);

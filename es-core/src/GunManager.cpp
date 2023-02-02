@@ -174,14 +174,22 @@ void GunManager::updateGuns(Window* window)
 	}
 #endif
 
+	float gunMoveTolerence = Settings::getInstance()->getFloat("GunMoveTolerence")/100.0;
+
 	int gunEvent = 0;
 	for (Gun* gun : mGuns)
 	{
+		Gun oldGun = *gun;
+
 		int evt = readGunEvents(gun);
 		if (evt != 0)
 			gunEvent = evt;
 
 		updateGunPosition(gun);
+
+		if(fabsf(oldGun.mX - gun->mX) > gunMoveTolerence || fabsf(oldGun.mY - gun->mY) > gunMoveTolerence) {
+		  window->processMouseMove(gun->x(), gun->y(), true);
+		}
 	}
 
 	if (gunEvent == 1 || gunEvent == 2)

@@ -375,6 +375,15 @@ msgstr "إعدادات"
 msgid "RETROACHIEVEMENTS"
 msgstr "امتيازات"
 
+msgid "USERNAME"
+msgstr "اسم المستخدم"
+
+msgid "PASSWORD"
+msgstr "كلمة المرور"
+
+msgid "OPTIONS"
+msgstr "خيارات"
+
 msgid "HARDCORE MODE"
 msgstr "وضع HARDCORE"
 
@@ -424,12 +433,6 @@ msgstr ""
 
 msgid "UNLOCK SOUND"
 msgstr ""
-
-msgid "USERNAME"
-msgstr "اسم المستخدم"
-
-msgid "PASSWORD"
-msgstr "كلمة المرور"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -509,9 +512,6 @@ msgstr "اسم جديد للمجموعة"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "إنشاء مجموعة ديناميكية جديدة"
 
-msgid "OPTIONS"
-msgstr "خيارات"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "ترتيب المجموعات والانظمة"
 
@@ -522,6 +522,9 @@ msgid "BY MANUFACTURER"
 msgstr "حسب المطور"
 
 msgid "BY HARDWARE TYPE"
+msgstr ""
+
+msgid "BY MANUFACTURER AND TYPE"
 msgstr ""
 
 msgid "BY RELEASE YEAR"
@@ -705,6 +708,25 @@ msgstr "إغلاق"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr ""
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "إزالة الكل"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "لم يتم إيجاد أجهزة بلوتوث"
+
+msgid "REMOVE"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "إدخال"
 
@@ -765,16 +787,10 @@ msgstr "جارِ البحث عن شبكة WIFI"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr ""
 
-msgid "FORGET A BLUETOOTH DEVICE"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
-msgid "REMOVE ALL"
-msgstr "إزالة الكل"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "لم يتم إيجاد أجهزة بلوتوث"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgid "PAIR"
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -816,9 +832,6 @@ msgstr ""
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' تم اضافته لمسار التنزيلات"
-
-msgid "REMOVE"
-msgstr ""
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
@@ -1011,6 +1024,13 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "بحاجة الى الاتصال بالشبكة"
 
@@ -1146,7 +1166,15 @@ msgstr "محمل السمات"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "السمة الحالية"
 
@@ -1645,6 +1673,12 @@ msgstr ""
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr ""
 
@@ -2086,8 +2120,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH DEVICE"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "خيارات العرض"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "اعرض نشاط وحدة التحكم"
@@ -2095,10 +2144,7 @@ msgstr "اعرض نشاط وحدة التحكم"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2233,9 +2279,6 @@ msgstr "الفيديو"
 
 msgid "grid"
 msgstr "الشبكة"
-
-msgid "DISPLAY OPTIONS"
-msgstr "خيارات العرض"
 
 msgid "LIST TRANSITION"
 msgstr ""

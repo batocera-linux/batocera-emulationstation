@@ -153,16 +153,8 @@ namespace Renderer
 		screenOffsetX = Settings::getInstance()->getInt("ScreenOffsetX") ? Settings::getInstance()->getInt("ScreenOffsetX") : 0;
 		screenOffsetY = Settings::getInstance()->getInt("ScreenOffsetY") ? Settings::getInstance()->getInt("ScreenOffsetY") : 0;
 		screenRotate  = Settings::getInstance()->getInt("ScreenRotate")  ? Settings::getInstance()->getInt("ScreenRotate")  : 0;
-		
 
-		/*
-		if ((screenRotate == 1 || screenRotate == 3) && !Settings::getInstance()->getBool("Windowed"))
-		{
-			int tmp = screenWidth;
-			screenWidth = screenHeight;
-			screenHeight = tmp;
-		}
-		else */if (screenRotate == 1 || screenRotate == 3)
+		if (screenRotate == 1 || screenRotate == 3)
 		{
 			int tmp = screenWidth;
 			screenWidth = screenHeight;
@@ -180,6 +172,19 @@ namespace Renderer
 				
 				sdlWindowPosition = Vector2i(rc.x, rc.y);
 
+				if (!Settings::getInstance()->getBool("Windowed") && !Settings::getInstance()->getBool("WindowWidth"))
+				{
+					windowWidth = screenWidth = rc.w;
+					windowHeight = screenHeight = rc.h;
+
+					if (screenRotate == 1 || screenRotate == 3)
+					{
+						int tmp = screenWidth;
+						screenWidth = screenHeight;
+						screenHeight = tmp;
+					}
+				}
+
 				if (Settings::getInstance()->getBool("Windowed") && (Settings::getInstance()->getInt("WindowWidth") || Settings::getInstance()->getInt("ScreenWidth")))
 				{
 					if (windowWidth != rc.w || windowHeight != rc.h)
@@ -190,13 +195,6 @@ namespace Renderer
 						);
 					}
 				}
-			/*	else
-				{
-					windowWidth = rc.w;
-					windowHeight = rc.h;
-					screenWidth = rc.w;
-					screenHeight = rc.h;
-				}*/
 			}
 		}
 		
@@ -217,8 +215,6 @@ namespace Renderer
 			return false;
 		}
 
-		LOG(LogInfo) << "Created window successfully.";
-
 		createContext();
 		setIcon();
 		setSwapInterval();
@@ -230,7 +226,7 @@ namespace Renderer
 			// If we don't do that, with some machines, the screen stays black... (Ambernic Win600)
 			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_TRUE);
 			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_FALSE);
-			SDL_SetWindowPosition(sdlWindow, 0, 0);
+			SDL_SetWindowPosition(sdlWindow, sdlWindowPosition.x(), sdlWindowPosition.y());
 		}
 #endif
 
@@ -341,11 +337,13 @@ namespace Renderer
 		setProjection(projection);
 	}
 
-	void		setScreenMargin(int marginX, int marginY)
+	Vector2i	setScreenMargin(int marginX, int marginY)
 	{
-		if (screenMargin.x() == marginX && screenMargin.y() == marginY)
-			return;
+		auto oldMargin = screenMargin;
 
+		if (screenMargin.x() == marginX && screenMargin.y() == marginY)
+			return oldMargin;
+		
 		screenMargin = Vector2i(marginX, marginY);
 
 		Rect          viewport;
@@ -355,7 +353,7 @@ namespace Renderer
 		viewport.h = screenHeight - 2 * screenMargin.y();
 
 		setViewport(viewport);
-		// updateProjection();
+		return oldMargin;
 	}
 
 

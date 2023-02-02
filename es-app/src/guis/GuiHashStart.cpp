@@ -27,10 +27,24 @@ GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : Gu
 
 	mMenu.addWithLabel(_("GAMES TO INDEX"), mFilters);
 	
-	std::string currentSystem;
+	std::unordered_set<std::string> checkedSystems;	
 
 	if (ViewController::get()->getState().viewing == ViewController::GAME_LIST)
-		currentSystem = ViewController::get()->getState().getSystem()->getName();
+	{
+		auto system = ViewController::get()->getState().getSystem();
+		if (system != nullptr)
+		{
+			std::string systemName = system->getName();
+
+			if (system->isGroupSystem())
+			{
+				for (auto child : system->getGroupChildSystemNames(systemName))
+					checkedSystems.insert(child);
+			}
+			else
+				checkedSystems.insert(systemName);
+		}
+	}
 
 	mSystems = std::make_shared< OptionListComponent<SystemData*> >(mWindow, _("SYSTEMS INCLUDED"), true);
 	for (auto sys : SystemData::sSystemVector)
@@ -42,8 +56,8 @@ GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : Gu
 		bool takeCheevos = ((type & ThreadedHasher::HASH_CHEEVOS_MD5) == ThreadedHasher::HASH_CHEEVOS_MD5) && sys->isCheevosSupported();
 		if (!takeNetplay && !takeCheevos)
 			continue;
-
-		mSystems->add(sys->getFullName(), sys, currentSystem.empty() ? !sys->getPlatformIds().empty() : sys->getName() == currentSystem && !sys->getPlatformIds().empty());
+		
+		mSystems->add(sys->getFullName(), sys, checkedSystems.size() == 0 ? !sys->getPlatformIds().empty() : checkedSystems.find(sys->getName()) != checkedSystems.cend() && !sys->getPlatformIds().empty());
 	}
 
 	mMenu.addWithLabel(_("SYSTEMS INCLUDED"), mSystems);

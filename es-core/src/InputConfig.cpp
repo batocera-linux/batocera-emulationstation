@@ -263,6 +263,18 @@ std::string InputConfig::buttonLabel(const std::string& button)
 	return button;
 }
 
+std::string InputConfig::buttonDisplayName(const std::string& button)
+{
+#ifdef INVERTEDINPUTCONFIG
+	if (!Settings::getInstance()->getBool("InvertButtons"))
+	{
+		return button == "a" ? "SOUTH" : button == "b" ? "EAST" : button;
+	}
+#endif
+
+	return button == "a" ? "EAST" : button == "b" ? "SOUTH" : button;
+}
+
 std::string InputConfig::buttonImage(const std::string& button)
 {
 #ifdef INVERTEDINPUTCONFIG
@@ -329,3 +341,4 @@ std::string InputConfig::getSortDevicePath()
 
 	return mDevicePath;
 }
+

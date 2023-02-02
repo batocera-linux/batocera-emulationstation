@@ -236,6 +236,8 @@ protected:
 
 	Vector2f mScreenOffset;
 
+	std::string mStoryBoardSound;
+
 	float mRotation = 0.0;
 	float mScale = 1.0;
 	float mDefaultZIndex = 0;

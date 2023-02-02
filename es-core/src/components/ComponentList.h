@@ -75,7 +75,7 @@ class ComponentList : public IList<ComponentListRow, std::string>
 public:
 	ComponentList(Window* window);
 
-	void addRow(const ComponentListRow& row, bool setCursorHere = false, bool updateSize = true, const std::string userData = "");
+	void addRow(const ComponentListRow& row, bool setCursorHere = false, bool updateSize = true, const std::string& userData = "");
 	void addGroup(const std::string& label, bool forceVisible = false);
 	void removeLastRowIfGroup();
 

@@ -530,13 +530,13 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	{
 		auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(game->getPath()));
 
-		if (ext == ".mp4" || ext == ".avi" || ext == ".mkv" || ext == ".webm")
+		if (Utils::FileSystem::isVideo(game->getPath()))
 			GuiVideoViewer::playVideo(mWindow, game->getPath());
 		else if (ext == ".pdf")
 			GuiImageViewer::showPdf(mWindow, game->getPath());
 		else if (ext == ".cbz")
 			GuiImageViewer::showCbz(mWindow, game->getPath());
-		else
+		else if (!Utils::FileSystem::isAudio(game->getPath()))
 		{
 			auto gameImage = game->getImagePath();
 			if (Utils::FileSystem::exists(gameImage))

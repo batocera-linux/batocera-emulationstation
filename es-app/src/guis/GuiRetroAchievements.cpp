@@ -101,14 +101,14 @@ class RetroAchievementEntry : public ComponentGrid
 {
 public:
 	RetroAchievementEntry(Window* window, RetroAchievementGame& ra) :
-		ComponentGrid(window, Vector2i(4, 2))
+		ComponentGrid(window, Vector2i(4, 4))
 	{
 		mGameInfo = ra;
 
 		auto theme = ThemeData::getMenuTheme();
 
 		mImage = std::make_shared<WebImageComponent>(mWindow);
-		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 2));
+		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 4));
 
 		mText = std::make_shared<TextComponent>(mWindow, mGameInfo.name.c_str(), theme->Text.font, theme->Text.color);
 		mText->setVerticalAlignment(ALIGN_TOP);
@@ -116,18 +116,27 @@ public:
 		mSubstring = std::make_shared<TextComponent>(mWindow, mGameInfo.points + " points", theme->TextSmall.font, theme->Text.color);
 		mSubstring->setOpacity(192);
 
-		setEntry(mText, Vector2i(2, 0), false, true);
-		setEntry(mSubstring, Vector2i(2, 1), false, true);
-		
-		int percent = Math::round(mGameInfo.wonAchievements * 100.0f / mGameInfo.totalAchievements);
+		setEntry(mText, Vector2i(2, 1), false, true);
+		setEntry(mSubstring, Vector2i(2, 2), false, true);
+
+		int percent = mGameInfo.totalAchievements == 0 ? 0 : Math::round(mGameInfo.wonAchievements * 100.0f / mGameInfo.totalAchievements);
 		
 		char trstring[256];
 		snprintf(trstring, 256, _("%d%% (%d of %d)").c_str(), percent, mGameInfo.wonAchievements, mGameInfo.totalAchievements);		
 		mProgress = std::make_shared<RetroAchievementProgress>(mWindow, mGameInfo.wonAchievements, mGameInfo.totalAchievements, Utils::String::trim(trstring));
 
-		setEntry(mProgress, Vector2i(3, 0), false, true, Vector2i(1, 2));
+		setEntry(mProgress, Vector2i(3, 0), false, true, Vector2i(1, 4));
 
 		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+
+		float hTxt = mText->getSize().y() / height;
+		float hSub = mSubstring->getSize().y() / height;		
+		float topPadding = Math::max(0.0f, (height - mText->getSize().y() - mSubstring->getSize().y()) / height / 2.0f);
+
+		setRowHeightPerc(0, topPadding);
+		setRowHeightPerc(1, hTxt);
+		setRowHeightPerc(2, hSub);
+		setRowHeightPerc(3, Math::max(0.0f, 1.0f - topPadding - hTxt - hSub));
 
 		setColWidthPerc(0, (height - IMAGESPACER) / WINDOW_WIDTH);
 		setColWidthPerc(1, IMAGESPACER / WINDOW_WIDTH);
@@ -188,14 +197,14 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 		return;
 	}
 
+	setSubTitle(_("Points (hardcore)") + ":\t" + ra.points + "\r\n" + _("Softcore points") + ":\t" + ra.softpoints + "\r\n" + _("Rank") + ":\t" + ra.rank);
+
 	if (!ra.userpic.empty())
 	{
 		auto image = std::make_shared<WebImageComponent>(mWindow, 0);  // image expire immediately
 		image->setImage(ra.userpic);
 		setTitleImage(image);
 	}
-
-	setSubTitle(_("Points (hardcore)") + ":\t" + ra.points + "\r\n" +_("Softcore points") + ":\t" + ra.softpoints + "\r\n"+ _("Rank") + ":\t" + ra.rank);
 
 	for (auto game : ra.games)
 	{

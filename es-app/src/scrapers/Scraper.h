@@ -89,6 +89,7 @@ public:
 	~ScraperHttpRequest();
 
 	virtual void update() override;
+	virtual bool retryOn249() { return true; }
 
 protected:
 	virtual bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) = 0;
@@ -99,6 +100,8 @@ private:
 	int	mRetryCount;
 
 	int mOverQuotaPendingTime;
+	int mOverQuotaRetryDelay;
+	int mOverQuotaRetryCount;
 };
 
 // a request to get a list of results
@@ -134,8 +137,11 @@ public:
 
 private:
 	HttpReq* mRequest;
+
 	int	mRetryCount;
 	int mOverQuotaPendingTime;
+	int mOverQuotaRetryDelay;
+	int mOverQuotaRetryCount;
 
 	std::string mSavePath;
 	int mMaxWidth;

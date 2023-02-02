@@ -72,6 +72,16 @@ public:
 
 	virtual void onShow() override;
 
+	enum MultiLineType : unsigned int
+	{
+		AUTO = 0,
+		MULTILINE = 1,
+		SINGLELINE = 2
+	};
+
+	MultiLineType getMultiLine() { return mMultiline; }
+	void setMultiLine(MultiLineType value);
+
 protected:
 	void buildTextCache();
 	virtual void onTextChanged();
@@ -87,7 +97,7 @@ private:
 	unsigned int mBgColor;
 
 	bool mRenderBackground;
-
+	
 	bool mUppercase;
 	Vector2i mAutoCalcExtent;
 	std::shared_ptr<TextCache> mTextCache;
@@ -110,6 +120,7 @@ private:
 	int mTextLength;
 
 	AutoScrollType mAutoScroll;
+	MultiLineType  mMultiline;
 };
 
 #endif // ES_CORE_COMPONENTS_TEXT_COMPONENT_H

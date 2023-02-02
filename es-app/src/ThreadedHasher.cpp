@@ -179,16 +179,22 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 	
 	for (auto sys : SystemData::sSystemVector)
 	{
+		if (sys->isGroupSystem() || sys->isCollection())
+			continue;
+
 		bool takeNetplay = ((type & HASH_NETPLAY_CRC) == HASH_NETPLAY_CRC) && sys->isNetplaySupported();
 		bool takeCheevos = ((type & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5) && sys->isCheevosSupported();
 
 		if (!takeNetplay && !takeCheevos)
 			continue;
 
-		if (!sys->isVisible())
+		if (systems != nullptr && systems->find(sys->getName()) == systems->cend())
+			continue;
+		
+		if (!sys->isGameSystem() || sys->getRootFolder() == nullptr)
 			continue;
 
-		if (systems != nullptr && systems->find(sys->getName()) == systems->cend())
+		if (sys->isGroupChildSystem() ? sys->isHidden() : !sys->isVisible())
 			continue;
 
 		for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))

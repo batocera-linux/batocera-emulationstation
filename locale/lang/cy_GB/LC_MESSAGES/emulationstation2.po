@@ -372,6 +372,15 @@ msgstr "GOSODIADAU"
 msgid "RETROACHIEVEMENTS"
 msgstr "CYFLAWNIADAU-RETRO"
 
+msgid "USERNAME"
+msgstr "ENW DEFNYDDIWR"
+
+msgid "PASSWORD"
+msgstr "CYFINAIR"
+
+msgid "OPTIONS"
+msgstr "OPSIYNAU"
+
 msgid "HARDCORE MODE"
 msgstr "MODD CRAIDD CALED"
 
@@ -421,12 +430,6 @@ msgstr "dim"
 
 msgid "UNLOCK SOUND"
 msgstr ""
-
-msgid "USERNAME"
-msgstr "ENW DEFNYDDIWR"
-
-msgid "PASSWORD"
-msgstr "CYFINAIR"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -506,9 +509,6 @@ msgstr "Enw Casgliad Newydd"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "CREU CASGLIAD DYNAMIG NEWYDD"
 
-msgid "OPTIONS"
-msgstr "OPSIYNAU"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "TREFNU CASGLIADAU A SYSTEMAU"
 
@@ -520,6 +520,9 @@ msgstr "GAN GYNHYRCHWR"
 
 msgid "BY HARDWARE TYPE"
 msgstr "GAN Y FATH O GALEDWEDD"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "GAN DDYDDIAD RHYDDHAU"
@@ -702,6 +705,25 @@ msgstr "CAU"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "A YDYCH CHI'N SIWR CHI EISIAU DILEU'R EITEM HON ?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "DIDDYMU POPETH"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "HEB FFEINDIO DYFEISIAU BLUETOOTH"
+
+msgid "REMOVE"
+msgstr "DIDDYMU"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "MEWNBWN"
 
@@ -762,16 +784,10 @@ msgstr "CHWILIO RHWYDWEITHIAU WIFI"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NID YDYCH CHI'N GYSWLLT Â RHWYDWAITH"
 
-msgid "FORGET A BLUETOOTH DEVICE"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
-msgid "REMOVE ALL"
-msgstr "DIDDYMU POPETH"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "HEB FFEINDIO DYFEISIAU BLUETOOTH"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgid "PAIR"
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -813,9 +829,6 @@ msgstr "DIWEDDARIAD"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' YCHWANEGWYD I GIW LAWRLWYTHO"
-
-msgid "REMOVE"
-msgstr "DIDDYMU"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
@@ -1008,6 +1021,13 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "ANGEN CYSWLLT RHWYDWAITH"
 
@@ -1143,7 +1163,15 @@ msgstr "LAWRLWYTHWR THEMAU"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "THEMA PRESENNOL"
 
@@ -1642,6 +1670,12 @@ msgstr ""
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "DANGOS DANGOSYDD RHWYDWAITH"
 
@@ -2083,8 +2117,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH DEVICE"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "ARDDANGOS OPSIYNAU"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
@@ -2092,10 +2141,7 @@ msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2230,9 +2276,6 @@ msgstr "fideo"
 
 msgid "grid"
 msgstr "grid"
-
-msgid "DISPLAY OPTIONS"
-msgstr "ARDDANGOS OPSIYNAU"
 
 msgid "LIST TRANSITION"
 msgstr ""

@@ -34,5 +34,5 @@ private:
 	bool				  mWaitLoaded;
 	std::function<void()> mOnLoaded;
 
-	BusyComponent		  mBusyAnim;
+	BusyComponent*		  mBusyAnim;
 };

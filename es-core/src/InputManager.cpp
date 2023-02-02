@@ -281,6 +281,11 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 	if (deinit)
 		SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
 
+#if WIN32
+	if (!Settings::getInstance()->getBool("HidJoysticks"))
+		SDL_SetHint(SDL_HINT_JOYSTICK_HIDAPI, "0");
+#endif
+
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);	
 
@@ -303,6 +308,11 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 
 		char guid[40];
 		SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joy), guid, 40);
+
+#if WIN32
+		// SDL 2.26 + -> Remove new CRC-16 name hash encoding
+		for (int i = 4; i < 8; i++) guid[i] = '0';
+#endif
 
 		// create the InputConfig
 		auto cfg = mInputConfigs.find(joyId);
@@ -414,11 +424,6 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	
 	case SDL_MOUSEBUTTONDOWN:        
 	case SDL_MOUSEBUTTONUP:
-#ifndef WIN32
-		if (mGunManager != nullptr && mGunManager->getGuns().size())
-			window->cancelScreenSaver();
-		else
-#endif
 		if (!window->processMouseButton(ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, ev.button.x, ev.button.y))
 			window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
 
@@ -432,7 +437,11 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		return true;
 		*/
 	case SDL_MOUSEMOTION:
+#if !WIN32
+	  if (ev.motion.which == SDL_TOUCH_MOUSEID)
+#endif
 		window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
+
 		return true;
 
 	case SDL_MOUSEWHEEL:
@@ -538,49 +547,66 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 	if (!root)
 		return false;
 	
-	// looking for a device having the same guid and name, or if not, one with the same guid or in last chance, one with the same name
-
-	bool found_guid = false;
-	bool found_exact = false;
-	for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig")) {
-		// check the guid
-		if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0) {
-			// found a correct guid
-			found_guid = true; // no more need to check the name only
+	// Search for exact match guid + name
+	for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+	{
+		if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0 && strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0)
+		{
 			configNode = item;
-#if WIN32
-			found_exact = true;
 			break;
-#else
-			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
-				// found the exact device
-				found_exact = true;
+		}
+	}
+
+	// Search for guid + name match but test guid without the new crc16 bytes (SDL2 2.26)
+	// Cf. https://github.com/libsdl-org/SDL/commit/c1e087394020a8cb9d2a04a1eabbcc23a6a5b20d
+	if (!configNode)
+	{
+		for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+		{
+			// Remove CRC-16 encoding from SDL2 2.26+ guids
+			std::string guid = config->getDeviceGUIDString();
+			for (int i = 4; i < 8 && i < guid.length(); i++)
+				guid[i] = '0';
+
+			if (guid != config->getDeviceGUIDString())
+			if (strcmp(guid.c_str(), item.attribute("deviceGUID").value()) == 0 && strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0)
+			{
 				configNode = item;
 				break;
 			}
-#endif
 		}
+	}
 
-#if !WIN32
-		// check for a name if no guid is found
-		if (found_guid == false) {
-			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0) {
+	// Search for exact match guid
+	if (!configNode && allowApproximate)
+	{
+		for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+		{
+			if (strcmp(config->getDeviceGUIDString().c_str(), item.attribute("deviceGUID").value()) == 0)
+			{
+				LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
 				configNode = item;
+				break;
 			}
 		}
-#endif
+	}
+
+	// Search for name match
+	if (!configNode && allowApproximate)
+	{
+		for (pugi::xml_node item = root.child("inputConfig"); item; item = item.next_sibling("inputConfig"))
+		{
+			if (strcmp(config->getDeviceName().c_str(), item.attribute("deviceName").value()) == 0)
+			{
+				LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
+				configNode = item;
+				break;
+			}
+		}
 	}
 
 	if (!configNode)
 		return false;
-	
-	if (found_exact == false)
-	{
-		LOG(LogInfo) << "Approximative device found using guid=" << configNode.attribute("deviceGUID").value() << " name=" << configNode.attribute("deviceName").value() << ")";
-
-		if (!allowApproximate)
-			return false;
-	}
 
 	config->loadFromXML(configNode);
 	return true;

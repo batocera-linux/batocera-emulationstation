@@ -655,70 +655,74 @@ bool SystemData::isFeatureSupported(std::string emulatorName, std::string coreNa
 
 // Load custom additionnal config from es_systems_*.cfg files
 void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
-{
-	for (auto customPath : Utils::FileSystem::getDirContent(Paths::getUserEmulationStationPath(), false, false))
+{	
+	std::vector<std::string> rootPaths = { Paths::getUserEmulationStationPath(), Paths::getEmulationStationPath() };
+	for (auto rootPath : VectorHelper::distinct(rootPaths, [](auto x) { return x; }))
 	{
-		if (Utils::FileSystem::getExtension(customPath) != ".cfg")
-			continue;
-
-		if (!Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_systems_"))
-			continue;
-
-		pugi::xml_document doc;
-		pugi::xml_parse_result res = doc.load_file(customPath.c_str());
-		if (!res)
+		for (auto customPath : Utils::FileSystem::getDirContent(rootPath, false, false))
 		{
-			LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
-			return;
-		}
-
-		pugi::xml_node systemList = doc.child("systemList");
-		if (!systemList)
-		{
-			LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <systemList> tag !";
-			return;
-		}
-
-		for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
-		{
-			if (!system.child("name"))
+			if (Utils::FileSystem::getExtension(customPath) != ".cfg")
 				continue;
 
-			std::string name = system.child("name").text().get();
-			if (name.empty())
+			if (!Utils::String::startsWith(Utils::FileSystem::getFileName(customPath), "es_systems_"))
 				continue;
 
-			bool found = false;
-
-			// Remove existing one
-			for (pugi::xml_node& srcSystem : srcSystems.children())
+			pugi::xml_document doc;
+			pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+			if (!res)
 			{
-				if (std::string(srcSystem.name()) != "system")
-					continue;
-
-				std::string srcName = srcSystem.child("name").text().get();
-				if (srcName != name)
-					continue;
-				
-				found = true;
-					
-				for (pugi::xml_node& child : system.children())
-				{
-					std::string tag = child.name();
-					if (tag == "name")
-						continue;
-						
-					srcSystem.remove_child(tag.c_str());
-
-					if (tag == "emulators" || !std::string(child.text().get()).empty())				
-						srcSystem.append_copy(child);												
-				}
-					
-				break;				
+				LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
+				return;
 			}
 
-			if (!found)
-				srcSystems.append_copy(system);
+			pugi::xml_node systemList = doc.child("systemList");
+			if (!systemList)
+			{
+				LOG(LogError) << Utils::FileSystem::getFileName(customPath) << " is missing the <systemList> tag !";
+				return;
+			}
+
+			for (pugi::xml_node system = systemList.child("system"); system; system = system.next_sibling("system"))
+			{
+				if (!system.child("name"))
+					continue;
+
+				std::string name = system.child("name").text().get();
+				if (name.empty())
+					continue;
+
+				bool found = false;
+
+				// Remove existing one
+				for (pugi::xml_node& srcSystem : srcSystems.children())
+				{
+					if (std::string(srcSystem.name()) != "system")
+						continue;
+
+					std::string srcName = srcSystem.child("name").text().get();
+					if (srcName != name)
+						continue;
+
+					found = true;
+
+					for (pugi::xml_node& child : system.children())
+					{
+						std::string tag = child.name();
+						if (tag == "name")
+							continue;
+
+						srcSystem.remove_child(tag.c_str());
+
+						if (tag == "emulators" || !std::string(child.text().get()).empty())
+							srcSystem.append_copy(child);
+					}
+
+					break;
+				}
+
+				if (!found)
+					srcSystems.append_copy(system);
+			}
 		}
 	}
 }
@@ -1055,6 +1059,9 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 	std::vector<EmulatorData> systemEmulators;
 	
 	pugi::xml_node emulatorsNode = system.child("emulators");
+	if (emulatorsNode == nullptr)
+		emulatorsNode = system;
+
 	if (emulatorsNode != nullptr)
 	{
 		for (pugi::xml_node emuNode = emulatorsNode.child("emulator"); emuNode; emuNode = emuNode.next_sibling("emulator"))
@@ -1075,6 +1082,9 @@ SystemData* SystemData::loadSystem(pugi::xml_node system, bool fullMode)
 			}
 
 			pugi::xml_node coresNode = emuNode.child("cores");
+			if (coresNode == nullptr)
+				coresNode = emuNode;
+
 			if (coresNode != nullptr)
 			{
 				for (pugi::xml_node coreNode = coresNode.child("core"); coreNode; coreNode = coreNode.next_sibling("core"))
@@ -1580,6 +1590,25 @@ bool SystemData::isCheevosSupported()
 	if (mIsCheevosSupported < 0)
 	{
 		mIsCheevosSupported = 0;
+		
+		if (isGroupSystem())
+		{
+			auto groupName = getName();
+
+			for (auto sys : SystemData::sSystemVector)
+			{
+				if (sys == this || sys->mEnvData == nullptr || sys->mEnvData->mGroup != groupName)
+					continue;
+
+				if (sys->isCheevosSupported())
+				{
+					mIsCheevosSupported = 1;
+					return true;
+				}
+			}
+
+			return false;
+		}
 
 		if (!CustomFeatures::FeaturesLoaded)
 		{
@@ -1588,7 +1617,7 @@ bool SystemData::isCheevosSupported()
 				"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
 				"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame",
 				"nds", "arcade", "megadrive-japan", "pcenginecd", "supergrafx", "supervision", "snes-msu1", "amstradcpc",
-				"dreamcast", "psp", "jaguar", "intellivision", "vectrex"
+				"dreamcast", "psp", "jaguar", "intellivision", "vectrex", "megaduck", "arduboy", "wasm4"
 #ifdef _ENABLEEMUELEC 
                 ,"genesis", "msx", "sfc"
 #endif
@@ -1600,7 +1629,7 @@ bool SystemData::isCheevosSupported()
 
 			return mIsCheevosSupported != 0;
 		}
-
+		
 		for (auto emul : mEmulators)
 		{
 			for (auto core : emul.cores)
@@ -2044,8 +2073,8 @@ std::string SystemData::getProperty(const std::string& name)
 			struct tm  clockTstruct = *localtime(&clockNow);
 
 			char       clockBuf[256];
-			strftime(clockBuf, sizeof(clockBuf), "%Ex", &clockTstruct);
-
+			strftime(clockBuf, sizeof(clockBuf), "%x", &clockTstruct);
+			
 			return clockBuf;
 		}
 	}

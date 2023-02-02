@@ -85,8 +85,9 @@ public:
 	int getPosition() { return mPosition; }
 
 	std::string getUrl() { return mUrl; }
-	std::string getFilePath() { return mFilePath; }
-	std::string getResponseContentType() { return mResponseContentType; }
+	std::string getFilePath() { return mFilePath; }	
+	std::map<std::string, std::string>& getResponseHeaders() { return mResponseHeaders; }
+	std::string getResponseHeader(const std::string& header);
 
 	bool wait();
 
@@ -95,6 +96,8 @@ private:
 	void closeStream();
 
 	static size_t write_content(void* buff, size_t size, size_t nmemb, void* req_ptr);
+	static size_t header_callback(char *buffer, size_t size, size_t nitems, void *userdata);
+
 	//static int update_progress(void* req_ptr, double dlTotal, double dlNow, double ulTotal, double ulNow);
 
 	//god dammit libcurl why can't you have some way to check the status of an individual handle
@@ -115,15 +118,15 @@ private:
 	// file stream mode
 	std::string   mFilePath;
 	std::string   mTempStreamPath;	
-	FILE*		  mFile;
-
-	std::string   mResponseContentType;
+	FILE*		  mFile;	
 
 	std::string mErrorMsg;
 	std::string mUrl;
 
 	int mPercent;
 	double mPosition;
+
+	std::map<std::string, std::string> mResponseHeaders;	
 };
 
 #endif // ES_CORE_HTTP_REQ_H

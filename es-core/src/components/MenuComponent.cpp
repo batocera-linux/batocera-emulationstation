@@ -9,8 +9,8 @@
 #define TITLE_HEIGHT (mTitle->getFont()->getLetterHeight() + (mSubtitle ? TITLE_WITHSUB_VERT_PADDING : TITLE_VERT_PADDING) + (mSubtitle ? mSubtitle->getSize().y() + SUBTITLE_VERT_PADDING : 0))
 
 MenuComponent::MenuComponent(Window* window, 
-	const std::string title, const std::shared_ptr<Font>& titleFont,
-	const std::string subTitle) 
+	const std::string& title, const std::shared_ptr<Font>& titleFont,
+	const std::string& subTitle) 
 	: GuiComponent(window),
 	mBackground(window), mGrid(window, Vector2i(1, 3))
 {
@@ -81,30 +81,63 @@ MenuComponent::MenuComponent(Window* window,
 	mGrid.resetCursor();
 }
 
-void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere)
+
+void MenuComponent::addMenuIcon(Window* window, ComponentListRow& row, const std::string& iconName)
+{
+	if (iconName.empty())
+		return;
+		
+	auto theme = ThemeData::getMenuTheme();
+
+	std::string iconPath = theme->getMenuIcon(iconName);
+	if (!iconPath.empty())
+	{
+		// icon
+		auto icon = std::make_shared<ImageComponent>(window, true);
+		icon->setImage(iconPath);
+		icon->setColorShift(theme->Text.color);
+		icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
+		row.addElement(icon, false);
+
+		// spacer between icon and text
+		auto spacer = std::make_shared<GuiComponent>(window);
+		spacer->setSize(10, 0);
+		row.addElement(spacer, false);
+
+		return;
+	}
+
+	std::string label;
+	if (iconName == "audio")
+		label = _U("\uf028");
+	else if (iconName == "keyboard")
+		label = _U("\uf11c");
+	else if (iconName == "joystick")
+		label = _U("\uf11b");
+	else if (iconName == "mouse")
+		label = _U("\uf124");
+	else if (iconName == "unknown")
+		label = _U("\uf1de");
+	
+	if (!label.empty())
+	{
+		auto text = std::make_shared<TextComponent>(window, label, theme->Text.font, theme->Text.color, ALIGN_CENTER);
+		row.addElement(text, false);
+
+		// spacer between icon and text
+		auto spacer = std::make_shared<GuiComponent>(window);
+		spacer->setSize(10, 0);
+		row.addElement(spacer, false);
+	}
+}
+
+void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string& iconName, bool setCursorHere)
 {
 	auto theme = ThemeData::getMenuTheme();
 
 	ComponentListRow row;
 
-	if (!iconName.empty())
-	{
-		std::string iconPath = theme->getMenuIcon(iconName);
-		if (!iconPath.empty())
-		{
-			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow, true);
-			icon->setImage(iconPath);
-			icon->setColorShift(theme->Text.color);
-			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
-			row.addElement(icon, false);
-
-			// spacer between icon and text
-			auto spacer = std::make_shared<GuiComponent>(mWindow);
-			spacer->setSize(10, 0);
-			row.addElement(spacer, false);
-		}
-	}
+	addMenuIcon(mWindow, row, iconName);
 
 	auto text = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color);
 	row.addElement(text, true);
@@ -120,30 +153,13 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 	addRow(row, setCursorHere);
 }
 
-void MenuComponent::addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool multiLine)
+void MenuComponent::addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func, const std::string& iconName, bool setCursorHere, bool multiLine, const std::string& userData, bool doUpdateSize)
 {
 	auto theme = ThemeData::getMenuTheme();
 
 	ComponentListRow row;
 
-	if (!iconName.empty())
-	{
-		std::string iconPath = theme->getMenuIcon(iconName);
-		if (!iconPath.empty())
-		{
-			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow, true);
-			icon->setImage(iconPath);
-			icon->setColorShift(theme->Text.color);
-			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
-			row.addElement(icon, false);
-
-			// spacer between icon and text
-			auto spacer = std::make_shared<GuiComponent>(mWindow);
-			spacer->setSize(10, 0);
-			row.addElement(spacer, false);
-		}
-	}
+	addMenuIcon(mWindow, row, iconName);
 
 	if (!description.empty())
 	{
@@ -152,7 +168,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 
 		row.addElement(std::make_shared<MultiLineMenuEntry>(mWindow, Utils::String::toUpper(label), description, multiLine), true);
 	}
-	else	
+	else
 		row.addElement(std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(label), theme->Text.font, theme->Text.color), true);
 
 	if (comp != nullptr)
@@ -161,10 +177,10 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
 
-	addRow(row, setCursorHere);
+	addRow(row, setCursorHere, doUpdateSize, userData);
 }
 
-void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName, bool setCursorHere, bool onButtonRelease, const std::string userData, bool doUpdateSize)
+void MenuComponent::addEntry(const std::string& name, bool add_arrow, const std::function<void()>& func, const std::string& iconName, bool setCursorHere, bool onButtonRelease, const std::string& userData, bool doUpdateSize)
 {
 	auto theme = ThemeData::getMenuTheme();
 	std::shared_ptr<Font> font = theme->Text.font;
@@ -173,24 +189,7 @@ void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::
 	// populate the list
 	ComponentListRow row;
 
-	if (!iconName.empty())
-	{
-		std::string iconPath = theme->getMenuIcon(iconName);
-		if (!iconPath.empty())
-		{
-			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow, true);
-			icon->setImage(iconPath);
-			icon->setColorShift(theme->Text.color);
-			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
-			row.addElement(icon, false);
-
-			// spacer between icon and text
-			auto spacer = std::make_shared<GuiComponent>(mWindow);
-			spacer->setSize(10, 0);
-			row.addElement(spacer, false);
-		}
-	}
+	addMenuIcon(mWindow, row, iconName);
 
 	auto text = std::make_shared<TextComponent>(mWindow, name, font, color);
 	row.addElement(text, true);
@@ -214,7 +213,7 @@ void MenuComponent::addEntry(const std::string name, bool add_arrow, const std::
 	addRow(row, setCursorHere, doUpdateSize, userData);
 }
 
-void MenuComponent::setTitle(const std::string title, const std::shared_ptr<Font>& font)
+void MenuComponent::setTitle(const std::string& title, const std::shared_ptr<Font>& font)
 {
 	mTitle->setText(Utils::String::toUpper(title));
 	
@@ -238,14 +237,13 @@ void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage, bo
 		return;
 	}
 
-	mTitleImage = titleImage;
-	mTitleImage->setOrigin(0.5, 0.5);
-
-	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
-	float iw = TITLE_HEIGHT / width;
-
+	mTitleImage = titleImage;	
+	mTitleImage->setPadding(TITLE_HEIGHT * 0.15f);
+	
 	if (replaceTitle)
-	{
+	{		
+		mTitleImage->setMaxSize(mSize.x() * 0.7f, TITLE_HEIGHT);
+
 		mHeaderGrid->setColWidthPerc(0, 0);
 		mHeaderGrid->setColWidthPerc(1, 1);
 		mHeaderGrid->setEntry(mTitleImage, Vector2i(0, 0), false, false, Vector2i(2, 2));
@@ -258,6 +256,11 @@ void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage, bo
 	}
 	else
 	{
+		float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
+		float iw = TITLE_HEIGHT / width;
+
+		mTitleImage->setMaxSize(1.3f * iw * mSize.x(), TITLE_HEIGHT);
+
 		mHeaderGrid->setColWidthPerc(0, 1 - iw);
 		mHeaderGrid->setColWidthPerc(1, iw);
 		mHeaderGrid->setEntry(mTitleImage, Vector2i(1, 0), false, false, Vector2i(1, 2));
@@ -266,7 +269,7 @@ void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage, bo
 	updateSize();	
 }
 
-void MenuComponent::setSubTitle(const std::string text)
+void MenuComponent::setSubTitle(const std::string& text)
 {
 	if (text.empty())
 	{
@@ -282,8 +285,6 @@ void MenuComponent::setSubTitle(const std::string text)
 		return;
 	}
 	
-	bool updateGridSize = false;
-
 	if (mSubtitle == nullptr)
 	{
 		auto theme = ThemeData::getMenuTheme();
@@ -293,21 +294,21 @@ void MenuComponent::setSubTitle(const std::string text)
 			theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 
 		mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 1), false, true);
-		updateGridSize = true;
 	}
 	
-	//mSubtitle->setText(Utils::String::toUpper(text));
 	mSubtitle->setText(text);
 	mSubtitle->setVerticalAlignment(Alignment::ALIGN_TOP);
 	mSubtitle->setSize(Renderer::getScreenWidth() * 0.88f, 0);
 	mSubtitle->setLineSpacing(1.1);
-
-
-
+	
 	const float titleHeight = mTitle->getFont()->getLetterHeight() + (mSubtitle ? TITLE_WITHSUB_VERT_PADDING : TITLE_VERT_PADDING);
 	const float subtitleHeight = mSubtitle->getSize().y() + SUBTITLE_VERT_PADDING;
 
 	mHeaderGrid->setRowHeightPerc(0, titleHeight / TITLE_HEIGHT);	
+
+	if (mTitleImage != nullptr)
+		setTitleImage(mTitleImage);
+
 	updateSize();
 }
 
@@ -356,6 +357,19 @@ void MenuComponent::updateSize()
 
 	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 	setSize(width, height);
+	
+	if (mTitleImage != nullptr && mTitle != nullptr && mTitle->isVisible())
+	{
+		float pad = Renderer::getScreenWidth() * 0.012;
+		mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+		mTitle->setHorizontalAlignment(ALIGN_LEFT);
+
+		if (mSubtitle != nullptr)
+		{
+			mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
+			mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
+		}
+	}
 }
 
 void MenuComponent::onSizeChanged()
@@ -369,31 +383,18 @@ void MenuComponent::onSizeChanged()
 	mGrid.setRowHeightPerc(2, getButtonGridHeight() / mSize.y(), false);
 
 	mGrid.setSize(mSize);
-
+	/*
 	if (mTitleImage != nullptr)
 	{
+		mTitleImage->setMaxSize(mSize.x() * 0.80, TITLE_HEIGHT * 0.85); // replaceTitle
+
 		if (mTitle != nullptr && mTitle->isVisible())
 		{
-			mTitleImage->setPosition(mSize.x() - TITLE_HEIGHT / 2, TITLE_HEIGHT / 2);
-			mTitleImage->setMaxSize(TITLE_HEIGHT*0.66, TITLE_HEIGHT*0.66);
-
-			float pad = Renderer::getScreenWidth() * 0.012;
-			mTitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-
-			mTitle->setHorizontalAlignment(ALIGN_LEFT);
-
-			if (mSubtitle != nullptr)
-			{
-				mSubtitle->setPadding(Vector4f(pad, 0.0f, pad, 0.0f));
-				mSubtitle->setHorizontalAlignment(ALIGN_LEFT);
-			}
+			float iw = mTitleImage->getSize().x() / mSize.x();
+			mHeaderGrid->setColWidthPerc(0, 1 - iw);
+			mHeaderGrid->setColWidthPerc(1, iw);
 		}
-		else
-		{
-			mTitleImage->setPosition(mSize.x() / 2, TITLE_HEIGHT / 2);
-			mTitleImage->setMaxSize(mSize.x() * 0.80, TITLE_HEIGHT * 0.85);
-		}
-	}
+	}*/
 }
 
 void MenuComponent::clearButtons()

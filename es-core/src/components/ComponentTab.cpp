@@ -214,12 +214,12 @@ void ComponentTab::render(const Transform4x4f& parentTrans)
 		if (mFocused)
 		{				
 			Renderer::drawRect(mSelectorBarOffset, 0.0f, selectedTabWidth, mSize.y(), bgColor, Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
-			Renderer::drawRect(mSelectorBarOffset, 0.0f, selectedTabWidth, mSize.y(), selectorColor, selectorGradientColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
+			Renderer::drawRect(mSelectorBarOffset, 0.0f, selectedTabWidth, mSize.y(), selectorColor, selectorColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
 		}
 		else
 		{
 			Renderer::drawRect(mSelectorBarOffset, mSize.y() - SELECTOR_PX, selectedTabWidth, SELECTOR_PX, bgColor, Renderer::Blend::ZERO, Renderer::Blend::ONE_MINUS_SRC_COLOR);
-			Renderer::drawRect(mSelectorBarOffset, mSize.y() - SELECTOR_PX, selectedTabWidth, SELECTOR_PX, selectorColor, selectorGradientColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
+			Renderer::drawRect(mSelectorBarOffset, mSize.y() - SELECTOR_PX, selectedTabWidth, SELECTOR_PX, selectorColor, selectorColor, selectorGradientHorz, Renderer::Blend::ONE, Renderer::Blend::ONE);
 		}
 	}
 

@@ -367,6 +367,15 @@ msgstr "AYARLAR"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETRO BAŞARILARI"
 
+msgid "USERNAME"
+msgstr "KULLANICI ADI"
+
+msgid "PASSWORD"
+msgstr "PAROLA"
+
+msgid "OPTIONS"
+msgstr "SEÇENEKLER"
+
 msgid "HARDCORE MODE"
 msgstr "DONANIM MODU"
 
@@ -416,12 +425,6 @@ msgstr "yok"
 
 msgid "UNLOCK SOUND"
 msgstr "SESLERİN KİLİDİNİ KALDIR"
-
-msgid "USERNAME"
-msgstr "KULLANICI ADI"
-
-msgid "PASSWORD"
-msgstr "PAROLA"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -501,9 +504,6 @@ msgstr "Yeni Koleksiyon İsimi"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "YENİ DİNAMİK KOLEKSİYON OLUŞTUR"
 
-msgid "OPTIONS"
-msgstr "SEÇENEKLER"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "KOLEKSİYON VE SİSTEMLERİ SIRALA"
 
@@ -515,6 +515,9 @@ msgstr "ÜRETİCİYE GÖRE"
 
 msgid "BY HARDWARE TYPE"
 msgstr "DONANIMA GÖRE"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "ÇIKIŞ YILINA GÖRE"
@@ -697,6 +700,25 @@ msgstr "KAPAT"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "BUNU SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ ?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "HEPSİNİ SİL"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "BLUETOOTH CİHAZI BULUNAMADI"
+
+msgid "REMOVE"
+msgstr "SİL"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "GİRDİ"
 
@@ -757,16 +779,10 @@ msgstr "WIFI AĞLARI TARANIYOR"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "AĞA BAĞLI DEĞİLSİNİZ"
 
-msgid "FORGET A BLUETOOTH DEVICE"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
-msgid "REMOVE ALL"
-msgstr "HEPSİNİ SİL"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH CİHAZI BULUNAMADI"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgid "PAIR"
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -808,9 +824,6 @@ msgstr "GÜNCELLE"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' İNDİRME KUYRUĞUNA EKLENDİ"
-
-msgid "REMOVE"
-msgstr "SİL"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
@@ -1003,6 +1016,13 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "AĞ BAĞLANTISI GEREKİYOR"
 
@@ -1138,7 +1158,15 @@ msgstr "TEMA İNDİRİCİ"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "ŞİMDİKİ TEMA"
 
@@ -1639,6 +1667,12 @@ msgstr ""
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION U SADECE İLK KUMANDA İLE YÖNET"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AĞ GÖSTERGESİNİ GÖRÜNTÜLE"
 
@@ -2081,8 +2115,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH DEVICE"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROLLERİN AKTİVİTELERİNİ GÖSTER"
@@ -2090,10 +2139,7 @@ msgstr "KONTROLLERİN AKTİVİTELERİNİ GÖSTER"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROLLERİN PİL DÜZEYİNİ GÖSTER"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2228,9 +2274,6 @@ msgstr "video"
 
 msgid "grid"
 msgstr "kafes"
-
-msgid "DISPLAY OPTIONS"
-msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "LIST TRANSITION"
 msgstr ""

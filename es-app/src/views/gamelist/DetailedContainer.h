@@ -120,6 +120,9 @@ protected:
 	ImageComponent* mSaveState;
 	ImageComponent* mNoSaveState;
 
+	ImageComponent* mGunGame;
+	ImageComponent* mNotGunGame;
+
 	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblGameTime, mLblFavorite;
 	TextComponent mDeveloper, mPublisher, mGenre, mPlayers, mPlayCount, mName, mGameTime, mTextFavorite;
 

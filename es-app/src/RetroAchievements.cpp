@@ -30,7 +30,6 @@ const std::map<PlatformId, unsigned short> cheevosConsoleID
 	{ GAME_BOY_COLOR, RC_CONSOLE_GAMEBOY_COLOR },
 	{ NINTENDO_ENTERTAINMENT_SYSTEM, RC_CONSOLE_NINTENDO },
 	{ TURBOGRAFX_16, RC_CONSOLE_PC_ENGINE },
-	{ TURBOGRAFX_CD, RC_CONSOLE_PC_ENGINE },
 	{ SUPERGRAFX, RC_CONSOLE_PC_ENGINE },
 	{ SEGA_CD, RC_CONSOLE_SEGA_CD },
 	{ SEGA_32X, RC_CONSOLE_SEGA_32X },
@@ -75,6 +74,7 @@ const std::map<PlatformId, unsigned short> cheevosConsoleID
 	{ ATARI_7800, RC_CONSOLE_ATARI_7800 },
 	{ SHARP_X6800, RC_CONSOLE_X68K },
 	{ WONDERSWAN, RC_CONSOLE_WONDERSWAN },
+	{ WASM4, RC_CONSOLE_WASM4 },
 	{ NEOGEO_CD, RC_CONSOLE_NEO_GEO_CD },
 	{ CHANNELF, RC_CONSOLE_FAIRCHILD_CHANNEL_F },
 	{ ZX_SPECTRUM, RC_CONSOLE_ZX_SPECTRUM },
@@ -93,14 +93,23 @@ const std::map<PlatformId, unsigned short> cheevosConsoleID
 
 	{ SUPER_NINTENDO_MSU1, RC_CONSOLE_SUPER_NINTENDO },
 
-	//{ CASSETTE_VISION, RC_CONSOLE_CASSETTEVISION },	
+	{ EMERSON_ARCADIA_2001, RC_CONSOLE_ARCADIA_2001 },
+	{ ATARI_JAGUAR_CD, RC_CONSOLE_ATARI_JAGUAR_CD },
+	{ TURBOGRAFX_CD, RC_CONSOLE_PC_ENGINE_CD },
+
+	/*	
+	RC_CONSOLE_ELEKTOR_TV_GAMES_COMPUTER
+	RC_CONSOLE_INTERTON_VC_4000
+	RC_CONSOLE_ATARI_JAGUAR_CD
+	RC_CONSOLE_PC_ENGINE_CD
+	RC_CONSOLE_CASSETTEVISION
+	*/	
 };
 
 const std::set<unsigned short> consolesWithmd5hashes 
 {
 	RC_CONSOLE_APPLE_II,
-	RC_CONSOLE_ATARI_2600,
-	RC_CONSOLE_ATARI_7800,
+	RC_CONSOLE_ATARI_2600,	
 	RC_CONSOLE_ATARI_JAGUAR,
 	RC_CONSOLE_COLECOVISION,
 	RC_CONSOLE_GAMEBOY,
@@ -113,7 +122,6 @@ const std::set<unsigned short> consolesWithmd5hashes
 	RC_CONSOLE_MEGA_DRIVE,
 	RC_CONSOLE_MSX,
 	RC_CONSOLE_NEOGEO_POCKET,
-	RC_CONSOLE_NINTENDO_64,
 	RC_CONSOLE_ORIC,
 	RC_CONSOLE_PC8800,
 	RC_CONSOLE_POKEMON_MINI,
@@ -560,11 +568,11 @@ std::string RetroAchievements::getCheevosHash( SystemData* system, const std::st
 	return ret;
 }
 
-bool RetroAchievements::testAccount(const std::string& username, const std::string& password, std::string& error)
+bool RetroAchievements::testAccount(const std::string& username, const std::string& password, std::string& tokenOrError)
 {
 	if (username.empty() || password.empty())
 	{
-		error = _("A valid account is required. Please register an account on https://retroachievements.org");
+		tokenOrError = _("A valid account is required. Please register an account on https://retroachievements.org");
 		return false;
 	}
 
@@ -575,7 +583,7 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 		HttpReq request("https://retroachievements.org/dorequest.php?r=login&u=" + HttpReq::urlEncode(username) + "&p=" + HttpReq::urlEncode(password));
 		if (!request.wait())
 		{						
-			error = request.getErrorMsg();
+			tokenOrError = request.getErrorMsg();
 			return false;
 		}
 
@@ -583,19 +591,24 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 		ogdoc.Parse(request.getContent().c_str());
 		if (ogdoc.HasParseError() || !ogdoc.HasMember("Success"))
 		{
-			error = "Unable to parse response";
+			tokenOrError = "Unable to parse response";
 			return false;
 		}
 
 		if (ogdoc["Success"].IsTrue())
-			return true;		
+		{
+			if (ogdoc.HasMember("Token"))
+				tokenOrError = ogdoc["Token"].GetString();
+
+			return true;
+		}
 
 		if (ogdoc.HasMember("Error"))
-			error = ogdoc["Error"].GetString();
+			tokenOrError = ogdoc["Error"].GetString();
 	}
 	catch (...)
 	{
-		error = "Unknown error";
+		tokenOrError = "Unknown error";
 	}
 
 	return false;

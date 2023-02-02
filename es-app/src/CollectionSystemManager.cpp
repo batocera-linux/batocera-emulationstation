@@ -198,6 +198,50 @@ bool systemByManufacurerSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
+bool systemBySubgroupSort(SystemData* sys1, SystemData* sys2)
+{	
+	// Move collection at End
+	if (sys1->isCollection() != sys2->isCollection())
+		return sys2->isCollection();
+
+	// Move custom collections before auto collections
+	if (sys1->isCollection() && sys2->isCollection())
+	{
+		std::string hw1 = Utils::String::toUpper(sys1->getSystemMetadata().hardwareType);
+		std::string hw2 = Utils::String::toUpper(sys2->getSystemMetadata().hardwareType);
+
+		if (hw1 != hw2)
+			return hw1.compare(hw2) >= 0;
+	}
+	
+	// Order by manufacturer
+	std::string mf1 = Utils::String::toUpper(sys1->getSystemMetadata().manufacturer);
+	std::string mf2 = Utils::String::toUpper(sys2->getSystemMetadata().manufacturer);
+
+	if (mf1 != mf2)
+		return mf1.compare(mf2) < 0;
+
+	// Order by hardware
+	if (!sys1->isCollection() || !sys2->isCollection())
+	{
+		std::string hw1 = Utils::String::toUpper(sys1->getSystemMetadata().hardwareType);
+		std::string hw2 = Utils::String::toUpper(sys2->getSystemMetadata().hardwareType);
+		if (hw1 != hw2)
+			return hw1.compare(hw2) < 0;
+	}
+
+	// Then by release date 
+	if (sys1->getSystemMetadata().releaseYear < sys2->getSystemMetadata().releaseYear)
+		return true;
+	else if (sys1->getSystemMetadata().releaseYear > sys2->getSystemMetadata().releaseYear)
+		return false;
+
+	// Then by name
+	std::string name1 = Utils::String::toUpper(sys1->getName());
+	std::string name2 = Utils::String::toUpper(sys2->getName());
+	return name1.compare(name2) < 0;
+}
+
 bool systemByReleaseDate(SystemData* sys1, SystemData* sys2)
 {
 	// Order by hardware
@@ -326,6 +370,7 @@ void CollectionSystemManager::updateSystemsList()
 	bool sortByManufacturer = SystemData::IsManufacturerSupported && sortMode == "manufacturer";
 	bool sortByHardware = SystemData::IsManufacturerSupported && sortMode == "hardware";
 	bool sortByReleaseDate = SystemData::IsManufacturerSupported && sortMode == "releaseDate";
+	bool sortBySubgroup = SystemData::IsManufacturerSupported && sortMode == "subgroup";
 
 	// remove all Collection Systems
 	removeCollectionsFromDisplayedSystems();
@@ -336,7 +381,7 @@ void CollectionSystemManager::updateSystemsList()
 	// add custom enabled ones
 	addEnabledCollectionsToDisplayedSystems(&mCustomCollectionSystemsData, &map);
 
-	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware && !sortByReleaseDate)
+	if (!sortMode.empty() && !sortByManufacturer && !sortByHardware && !sortByReleaseDate && !sortBySubgroup)
 		std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByAlphaSort);
 
 	// add auto enabled ones
@@ -354,6 +399,8 @@ void CollectionSystemManager::updateSystemsList()
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByHardwareSort);
 		else if (sortByReleaseDate)
 			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemByReleaseDate);
+		else if (sortBySubgroup)
+			std::sort(SystemData::sSystemVector.begin(), SystemData::sSystemVector.end(), systemBySubgroupSort);
 
 		// Move RetroPie / Retrobat system to end
 		for (auto sysIt = SystemData::sSystemVector.cbegin(); sysIt != SystemData::sSystemVector.cend(); )

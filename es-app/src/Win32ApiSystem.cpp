@@ -15,6 +15,7 @@
 #include <algorithm>
 #include "LocaleES.h"
 #include "Paths.h"
+#include "utils/VectorEx.h"
 
 #pragma comment(lib, "shell32.lib")
 #pragma comment(lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
@@ -91,10 +92,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 #endif
 		break;
 	case ApiSystem::BLUETOOTH:
-#if _DEBUG
 		executables.push_back("batocera-bluetooth");
-#endif
 		break;
+
 	case ApiSystem::RESOLUTION:
 #if _DEBUG
 		executables.push_back("batocera-resolution");
@@ -270,58 +270,6 @@ int Win32ApiSystem::executeCMD(const char* lpCommandLine, std::string& output, c
 	return ret;
 }
 
-bool downloadGitRepository(const std::string url, const std::string fileName, const std::string label, const std::function<void(const std::string)>& func)
-{
-	if (func != nullptr)
-		func("Downloading " + label);
-
-	long downloadSize = 0;
-
-	std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
-	if (statUrl != url)
-	{
-		HttpReq statreq(statUrl);
-		if (statreq.wait())
-		{
-			std::string content = statreq.getContent();
-			auto pos = content.find("\"size\": ");
-			if (pos != std::string::npos)
-			{
-				auto end = content.find(",", pos);
-				if (end != std::string::npos)
-					downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024;
-			}
-		}
-	}
-
-	HttpReq httpreq(url + "/archive/master.zip", fileName);
-
-	int curPos = -1;
-	while (httpreq.status() == HttpReq::REQ_IN_PROGRESS)
-	{
-		if (downloadSize > 0)
-		{
-			double pos = httpreq.getPosition();
-			if (pos > 0 && curPos != pos)
-			{
-				if (func != nullptr)
-				{
-					std::string pc = std::to_string((int)(pos * 100.0 / downloadSize));
-					func(std::string("Downloading " + label + " >>> " + pc + " %"));
-				}
-
-				curPos = pos;
-			}
-		}
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(20));
-	}
-
-	if (httpreq.status() != HttpReq::REQ_SUCCESS)
-		return false;
-
-	return true;
-}
 
 bool Win32ApiSystem::executeScript(const std::string command)
 {
@@ -331,7 +279,13 @@ bool Win32ApiSystem::executeScript(const std::string command)
 	std::string parameters;
 	Utils::FileSystem::splitCommand(command, &executable, &parameters);
 
-	std::string path = Paths::findEmulationStationFile(executable + ".exe");
+	std::string path;
+
+	if (executable.find(":") != std::string::npos && Utils::FileSystem::exists(executable))
+		path = Utils::FileSystem::getPreferredPath(executable);
+	else
+		path = Paths::findEmulationStationFile(executable + ".exe");
+
 	if (!path.empty() && Utils::FileSystem::exists(path))
 	{
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
@@ -344,12 +298,19 @@ bool Win32ApiSystem::executeScript(const std::string command)
 }
 
 std::pair<std::string, int> Win32ApiSystem::executeScript(const std::string command, const std::function<void(const std::string)>& func)
-{
+{	LOG(LogInfo) << "Running " << command;
+
 	std::string executable;
 	std::string parameters;
 	Utils::FileSystem::splitCommand(command, &executable, &parameters);
 
-	std::string path = Paths::findEmulationStationFile(executable + ".exe");
+	std::string path;
+
+	if (executable.find(":") != std::string::npos && Utils::FileSystem::exists(executable))
+		path = Utils::FileSystem::getPreferredPath(executable);
+	else
+		path = Paths::findEmulationStationFile(executable + ".exe");
+
 	if (!path.empty() && Utils::FileSystem::exists(path))
 	{
 		std::string cmd = parameters.empty() ? path : path + " " + parameters;
@@ -411,133 +372,6 @@ unsigned long Win32ApiSystem::getFreeSpaceGB(std::string mountpoint)
 		return i64FreeBytes / (1024 * 1024 * 1024);
 
 	return 0;
-}
-
-std::pair<std::string, int> Win32ApiSystem::installBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
-{
-	for (auto theme : getBatoceraThemesList())
-	{
-		if (theme.name != thname)
-			continue;
-		
-		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
-		std::string zipFile = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName + ".zip";
-
-		Utils::FileSystem::removeFile(zipFile);
-
-		if (downloadGitRepository(theme.url, zipFile, thname, func))
-		{
-			if (func != nullptr)
-				func(_("Extracting") + " " + thname);
-
-			unzipFile(zipFile, Paths::getUserEmulationStationPath() + "/themes");
-			Utils::FileSystem::removeFile(zipFile);
-
-			std::string folderName = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName + "-master";
-			if (Utils::FileSystem::exists(folderName))
-			{
-				std::string finalfolderName = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName;
-				if (Utils::FileSystem::exists(finalfolderName))
-					Utils::FileSystem::deleteDirectoryFiles(finalfolderName, true);
-
-				Utils::FileSystem::renameFile(folderName, finalfolderName);
-			}
-
-			return std::pair<std::string, int>(std::string("OK"), 0);
-		}
-	}
-
-	return std::pair<std::string, int>(std::string(""), 1);
-}
-
-std::pair<std::string, int> Win32ApiSystem::uninstallBatoceraTheme(std::string thname, const std::function<void(const std::string)>& func)
-{
-	for (auto theme : getBatoceraThemesList())
-	{
-		if (!theme.isInstalled || theme.name != thname)
-			continue;
-		
-		std::string themeFileName = Utils::FileSystem::getFileName(theme.url);
-		std::string folderName = Paths::getUserEmulationStationPath() + "/themes/" + themeFileName + "-master";
-			
-		if (!Utils::FileSystem::exists(folderName))
-			folderName = Utils::String::replace(folderName, "-master", "");
-
-		if (Utils::FileSystem::exists(folderName))
-		{
-			Utils::FileSystem::deleteDirectoryFiles(folderName, true);
-			return std::pair<std::string, int>("OK", 0);
-		}
-
-		break;
-	}
-
-	return std::pair<std::string, int>(std::string(""), 1);
-}
-
-std::vector<BatoceraTheme> Win32ApiSystem::getBatoceraThemesList()
-{
-	LOG(LogDebug) << "Win32ApiSystem::getBatoceraThemesList";
-
-	std::vector<BatoceraTheme> res;
-
-	HttpReq httpreq(getUpdateUrl() + "/themes.txt");
-	if (httpreq.wait())
-	{
-		auto lines = Utils::String::split(httpreq.getContent(), '\n');
-		for (auto line : lines)
-		{
-			auto parts = Utils::String::splitAny(line, " \t");
-			if (parts.size() > 1)
-			{
-				auto themeName = parts[0];
-				std::string themeUrl = Utils::FileSystem::getFileName(parts[1]);
-
-				bool themeExists = false;
-
-				std::vector<std::string> paths =
-				{
-					Paths::getUserThemesPath(),
-					Paths::getThemesPath(),
-					Paths::getUserEmulationStationPath() + "/themes",
-					"/etc/emulationstation/themes" // Backward compatibility with Retropie
-				};
-				
-				for (auto path : paths)
-				{
-					if (Utils::FileSystem::isDirectory(path + "/" + themeUrl + "-master"))
-					{
-						themeExists = true;
-						break;
-					}
-					else if (Utils::FileSystem::isDirectory(path + "/" + themeUrl))
-					{
-						themeExists = true;
-						break;
-					}
-					else if (Utils::FileSystem::isDirectory(path + "/" + themeName))
-					{
-						themeExists = true;
-						break;
-					}
-				}
-
-				auto parts = Utils::String::splitAny(line, " \t");
-				if (parts.size() < 2)
-					continue;
-
-				BatoceraTheme bt;
-				bt.isInstalled = themeExists;
-				bt.name = themeName;
-				bt.url = parts[1];
-				res.push_back(bt);
-			}
-		}
-	}
-
-	getBatoceraThemesImages(res);
-
-	return res;
 }
 
 std::vector<std::string> Win32ApiSystem::getSystemInformations()
@@ -631,7 +465,7 @@ std::pair<std::string, int> Win32ApiSystem::installBatoceraBezel(std::string bez
 			std::string themeFileName = Utils::FileSystem::getFileName(themeUrl);
 			std::string zipFile = Utils::FileSystem::getCanonicalPath(Paths::getUserDecorationsPath() + "/" + themeFileName + ".zip");
 
-			if (downloadGitRepository(themeUrl, zipFile, bezelsystem, func))
+			if (downloadGitRepository(themeUrl, "master", zipFile, bezelsystem, func))
 			{
 				std::string theBezelProject = Paths::getUserDecorationsPath() + "/thebezelproject/games/"+ bezelsystem;
 				Utils::FileSystem::createDirectory(theBezelProject);
@@ -1166,7 +1000,7 @@ std::vector<std::string> Win32ApiSystem::getVideoModes()
 }
 
 
-std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemName)
+std::vector<std::string> Win32ApiSystem::getShaderList(const std::string& system, const std::string& emulator, const std::string& core)
 {
 	Utils::FileSystem::FileSystemCacheActivator fsc;
 
@@ -1186,17 +1020,64 @@ std::vector<std::string> Win32ApiSystem::getShaderList(const std::string systemN
 
 				if (std::find(ret.cbegin(), ret.cend(), parent) == ret.cend())
 				{
-					if (!systemName.empty())
+					if (!system.empty())
 					{
-						auto data = Utils::FileSystem::readAllText(file);
+						auto lines = Utils::String::splitAny(Utils::FileSystem::readAllText(file), "\r\n", true);
+												
+						bool take = false;
 
-						auto idx = data.find(systemName + ":");
-						if (idx != std::string::npos)
+						VectorEx<std::string> sysInfo;
+						for (auto line : lines)
 						{
-							auto lines = Utils::String::split(data.substr(idx), '\n', true);
-							if (lines.size() > 1 && lines[1].find("shader:") != std::string::npos && lines[1].find("disabled") != std::string::npos)
-								continue;
+							if (Utils::String::startsWith(line, system + ":"))
+								take = true;
+							else if (take)
+							{
+								if (!Utils::String::startsWith(line, " "))
+									break;
+
+								sysInfo.push_back(Utils::String::trim(line));
+							}
 						}
+
+						if (!take && sysInfo.size() == 0)
+						{
+							for (auto line : lines)
+							{
+								if (Utils::String::startsWith(line, "default:"))
+									take = true;
+								else if (take)
+								{
+									if (!Utils::String::startsWith(line, " "))
+										break;
+
+									sysInfo.push_back(Utils::String::trim(line));
+								}
+							}
+						}
+
+						bool found = false;
+
+						for (auto si : sysInfo)
+						{								
+							if (emulator == "libretro" && Utils::String::startsWith(si, "shader:"))
+								found = true;
+							else if (!emulator.empty() && !core.empty() && Utils::String::startsWith(si, emulator + "." + core + ":"))
+								found = true;
+							else if (!emulator.empty() && Utils::String::startsWith(si, emulator + ":"))
+								found = true;
+
+							if (found)
+							{
+								if (si.find("disabled") != std::string::npos)
+									found = false;
+
+								break;
+							}
+						}
+
+						if (!found)
+							continue;
 					}
 
 					ret.push_back(parent);

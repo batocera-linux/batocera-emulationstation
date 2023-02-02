@@ -367,6 +367,15 @@ msgstr "BEÁLLÍTÁSOK"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS"
 
+msgid "USERNAME"
+msgstr "FELHASZNÁLÓNÉV"
+
+msgid "PASSWORD"
+msgstr "JELSZÓ"
+
+msgid "OPTIONS"
+msgstr "BEÁLLÍTÁSOK"
+
 msgid "HARDCORE MODE"
 msgstr "HALADÓ MÓD"
 
@@ -416,12 +425,6 @@ msgstr "egy sem"
 
 msgid "UNLOCK SOUND"
 msgstr "HANGOK ENGEDÉLYEZÉSE"
-
-msgid "USERNAME"
-msgstr "FELHASZNÁLÓNÉV"
-
-msgid "PASSWORD"
-msgstr "JELSZÓ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -501,9 +504,6 @@ msgstr "Új gyűjtemény neve"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "ÚJ DINAMIKUS GYŰJTEMÉNY KÉSZÍTÉSE"
 
-msgid "OPTIONS"
-msgstr "BEÁLLÍTÁSOK"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "GYŰJTEMÉNYEK ÉS RENDSZEREK RENDEZÉSE"
 
@@ -515,6 +515,9 @@ msgstr "GYÁRTÓ SZERINT"
 
 msgid "BY HARDWARE TYPE"
 msgstr "HARDVER TÍPUS SZERINT"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "MEGJELENÉSI ÉV SZERINT"
@@ -697,6 +700,25 @@ msgstr "BEZÁR"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "BIZTOSAN TÖRÖLNI SZERETNÉD?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "MINDET ELTÁVOLÍT"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
+
+msgid "REMOVE"
+msgstr "ELTÁVOLÍTÁS"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "BEMENET"
 
@@ -757,16 +779,10 @@ msgstr "WIFI HÁLÓZAT KERESÉSE"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NEM VAGY CSATLAKOZVA HÁLÓZATHOZ"
 
-msgid "FORGET A BLUETOOTH DEVICE"
+msgid "PAIR A BLUETOOTH DEVICE"
 msgstr ""
 
-msgid "REMOVE ALL"
-msgstr "MINDET ELTÁVOLÍT"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgid "PAIR"
 msgstr ""
 
 msgid "FILE BROWSER"
@@ -808,9 +824,6 @@ msgstr "FRISSÍTÉS"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' HOZZÁADVA A LETÖLTÉSI SORHOZ"
-
-msgid "REMOVE"
-msgstr "ELTÁVOLÍTÁS"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
@@ -1003,6 +1016,13 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "HÁLÓZATI CSATLAKOZÁS SZÜKSÉGES"
 
@@ -1138,7 +1158,15 @@ msgstr "TÉMA LETÖLTŐ"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "JELENLEGI TÉMA"
 
@@ -1639,6 +1667,12 @@ msgstr ""
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "AZ ES VEZÉRLÉSE CSAK AZ EGYES SZÁMÚ VEZÉRLŐVEL"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "HÁLÓZATI JELZŐ MEGJELENÍTÉSE"
 
@@ -2080,8 +2114,23 @@ msgid ""
 "CONFIRM WHEN DONE."
 msgstr ""
 
-msgid "PAIR A BLUETOOTH DEVICE"
+msgid "SINDEN GUN SETTINGS"
 msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "BEÁLLÍTÁSOK MEGJELENÍTÉSE"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
@@ -2089,10 +2138,7 @@ msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2227,9 +2273,6 @@ msgstr "videó"
 
 msgid "grid"
 msgstr "rács"
-
-msgid "DISPLAY OPTIONS"
-msgstr "BEÁLLÍTÁSOK MEGJELENÍTÉSE"
 
 msgid "LIST TRANSITION"
 msgstr ""

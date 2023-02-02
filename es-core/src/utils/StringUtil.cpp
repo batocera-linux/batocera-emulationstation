@@ -11,6 +11,8 @@
 #include <unistd.h>
 #endif
 
+#include "han.h"
+
 namespace Utils
 {
 	namespace String
@@ -599,6 +601,15 @@ namespace Utils
 			return data;
 		}
 
+		std::string extractString(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter, bool keepDelimiter)
+		{
+			auto ret = extractStrings(_string, startDelimiter, endDelimiter, keepDelimiter);
+			if (ret.size() > 0)
+				return ret[0];
+
+			return "";
+		}
+
 		std::vector<std::string> extractStrings(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter, bool keepDelimiter)
 		{
 			std::vector<std::string> ret;
@@ -709,6 +720,45 @@ namespace Utils
 			);
 
 			return (it != _string.end());
+		}
+		
+		bool containsIgnoreCasePinyin(const std::string & _string, const std::string & _what)
+		{
+			std::vector<const char*> vpinyin;
+			size_t len = _string.size();
+			size_t idx = 0;
+			bool ret = false;
+
+			vpinyin.reserve(len);
+			while(idx < len) {
+				int code = chars2Unicode(_string, idx);
+				if (code < 0x80) {
+					vpinyin.push_back( s_tblpinyin[_string[idx-1]] );
+				} else {
+					ret = true;
+					auto it = s_mapPinyin.find(code);
+					if (it != s_mapPinyin.end()) {
+						vpinyin.push_back(it->second);
+					} else {
+						vpinyin.push_back(NULL);
+					}
+				}
+			}
+			if (!ret) return false; // all chars < 0x80
+
+			auto it = std::search(
+				vpinyin.begin(), vpinyin.end(),
+				_what.begin(), _what.end(),
+				[](const char *ptr, char ch2) {
+				    if (!ptr) return false;
+					for(;;) {
+						char ch1 = *ptr++;
+						if (!ch1) return false;
+						if (toupper(ch1) == toupper(ch2)) return true;
+					}
+				}
+			);
+			return (it != vpinyin.end());
 		}
 
 		std::string proper(const std::string& _string)

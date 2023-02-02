@@ -165,18 +165,24 @@ void GuiUpdate::update(int deltaTime)
 
 			std::string message = _("REALLY UPDATE?");
 
-			if (!mUpdateVersion.empty())
-				message = Utils::String::format(_("YOU ARE CURRENTLY USING VERSION %s\nDO YOU WANT TO UPDATE TO VERSION %s?").c_str(), ApiSystem::getInstance()->getVersion().c_str(), mUpdateVersion.c_str()),
-
-			window->pushGui(new GuiMsgBox(window, message, _("YES"), [this]
+			if (!mUpdateVersion.empty()) 
 			{
-				mState = 2;
-				mLoading = true;
+				std::string versionExtra = ApiSystem::getInstance()->getVersion(true);
+				if (versionExtra == "none")
+					message = Utils::String::format(_("YOU ARE CURRENTLY USING VERSION %s\nDO YOU WANT TO UPDATE TO VERSION %s?").c_str(), ApiSystem::getInstance()->getVersion().c_str(), mUpdateVersion.c_str());
+				else
+					message = Utils::String::format(_("UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\nUPGRADING COULD BREAK YOUR SYSTEM.\nDO YOU WANT TO UPDATE TO VERSION %s?").c_str(), mUpdateVersion.c_str());
 
-				mState = -1;
-				new ThreadedUpdater(mWindow);
+				window->pushGui(new GuiMsgBox(window, message, _("YES"), [this]
+				{
+					mState = 2;
+					mLoading = true;
 
-			}, _("NO"), [this] { mState = -1; }));
+					mState = -1;
+					new ThreadedUpdater(mWindow);
+
+				}, _("NO"), [this] { mState = -1; }));
+			}
 		}		
 		break;
 

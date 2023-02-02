@@ -366,6 +366,15 @@ msgstr "設定"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROACHIEVEMENTS 成就"
 
+msgid "USERNAME"
+msgstr "使用者名稱"
+
+msgid "PASSWORD"
+msgstr "使用者密碼"
+
+msgid "OPTIONS"
+msgstr "選項"
+
 msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
@@ -415,12 +424,6 @@ msgstr "沒有"
 
 msgid "UNLOCK SOUND"
 msgstr "解鎖音效"
-
-msgid "USERNAME"
-msgstr "使用者名稱"
-
-msgid "PASSWORD"
-msgstr "使用者密碼"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "顯示 RETROACHIEVEMENT 項目在主選單"
@@ -500,9 +503,6 @@ msgstr "新的合輯名稱"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "建立新的動態合輯"
 
-msgid "OPTIONS"
-msgstr "選項"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "排序合輯與遊戲平台"
 
@@ -514,6 +514,9 @@ msgstr "依製作廠商"
 
 msgid "BY HARDWARE TYPE"
 msgstr "依硬體類型"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "依發行年分"
@@ -696,6 +699,25 @@ msgstr "關閉"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "您確定要刪除這個項目嗎？"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "忘記藍牙裝置"
+
+msgid "REMOVE ALL"
+msgstr "移除全部"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "沒有發現藍牙裝置"
+
+msgid "REMOVE"
+msgstr "刪除"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "藍牙裝置已被刪除。"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "輸入"
 
@@ -756,17 +778,11 @@ msgstr "搜尋 WI-FI 網路"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "您沒有連線到網際網路"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "忘記藍牙裝置"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "配對藍牙裝置"
 
-msgid "REMOVE ALL"
-msgstr "移除全部"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "沒有發現藍牙裝置"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "藍牙裝置已被刪除。"
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "檔案瀏覽器"
@@ -807,9 +823,6 @@ msgstr "更新"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "已將「%s」加入到下載隊列中"
-
-msgid "REMOVE"
-msgstr "刪除"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "已將移除請求加入至隊列"
@@ -1004,6 +1017,13 @@ msgstr ""
 "您正在使用版本 %s\n"
 "您想要升級至版本 %s 嗎？"
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要連線到網際網路"
 
@@ -1139,7 +1159,15 @@ msgstr "佈景主題下載器"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "選擇要安裝或移除的佈景主題"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "目前的佈景主題"
 
@@ -1640,6 +1668,12 @@ msgstr "調換北功能鍵（即時存檔）與長按南功能鍵（遊戲選項
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "僅透過第一支遊戲搖桿操作 EMULATIONSTATION"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "顯示網路指示器圖示"
 
@@ -2087,8 +2121,23 @@ msgstr ""
 "並非它的實體標示。 如果您沒有專門的按鈕可指派為「熱鍵」， 請將它指派給「選擇"
 "鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 完成時按南功能鍵確認。"
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "配對藍牙裝置"
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "顯示設定"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "顯示控制器活動狀態"
@@ -2096,10 +2145,7 @@ msgstr "顯示控制器活動狀態"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
+msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
@@ -2234,9 +2280,6 @@ msgstr "影片"
 
 msgid "grid"
 msgstr "網格"
-
-msgid "DISPLAY OPTIONS"
-msgstr "顯示設定"
 
 msgid "LIST TRANSITION"
 msgstr "列表轉場"

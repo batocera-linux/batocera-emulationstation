@@ -25,7 +25,7 @@ ComponentList::ComponentList(Window* window) : IList<ComponentListRow, std::stri
 	mScrollbar.loadFromMenuTheme();	
 }
 
-void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool updateSize, const std::string userData)
+void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool updateSize, const std::string& userData)
 {
 	IList<ComponentListRow, std::string>::Entry e;
 	e.name = "";
@@ -54,6 +54,8 @@ void ComponentList::addRow(const ComponentListRow& row, bool setCursorHere, bool
 		mCursor = (int)mEntries.size() - 1;
 		onCursorChanged(CURSOR_STOPPED);
 	}
+	else if (mFocused && mCursor == 0 && mEntries.size() == 1)
+		onCursorChanged(CURSOR_STOPPED);
 }
 
 void ComponentList::removeLastRowIfGroup()
@@ -112,11 +114,28 @@ void ComponentList::onSizeChanged()
 void ComponentList::onFocusLost()
 {
 	mFocused = false;
+
+	if (size())
+	{
+		for (auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
+			for (auto elt : it->data.elements)
+				elt.component->onFocusLost();
+	}
 }
 
 void ComponentList::onFocusGained()
 {
 	mFocused = true;
+
+	if (size())
+	{
+		for (auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
+			for (auto elt : it->data.elements)
+				elt.component->onFocusLost();
+
+		for (auto elt : mEntries.at(mCursor).data.elements)
+			elt.component->onFocusGained();
+	}
 }
 
 bool ComponentList::input(InputConfig* config, Input input)
@@ -209,12 +228,14 @@ void ComponentList::onCursorChanged(const CursorState& state)
 	updateCameraOffset();
 
 	// this is terribly inefficient but we don't know what we came from so...
-	if (size())
+	if (mFocused && mCursor >= 0 && mCursor < size())
 	{
 		for (auto it = mEntries.cbegin(); it != mEntries.cend(); it++)
-			it->data.elements.back().component->onFocusLost();
+			for (auto elt : it->data.elements)
+				elt.component->onFocusLost();
 
-		mEntries.at(mCursor).data.elements.back().component->onFocusGained();
+		for (auto elt : mEntries.at(mCursor).data.elements)
+			elt.component->onFocusGained();
 	}
 
 	if (mCursorChangedCallback)

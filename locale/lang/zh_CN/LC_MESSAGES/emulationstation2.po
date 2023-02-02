@@ -158,7 +158,7 @@ msgid "Genre"
 msgstr "类型"
 
 msgid "enter game genre"
-msgstr "输入游戏类型"
+msgstr "此游戏类型"
 
 msgid "Game family"
 msgstr "游戏系列"
@@ -462,6 +462,15 @@ msgstr "设置"
 msgid "RETROACHIEVEMENTS"
 msgstr "RetroArch 成就"
 
+msgid "USERNAME"
+msgstr "用户名"
+
+msgid "PASSWORD"
+msgstr "密码"
+
+msgid "OPTIONS"
+msgstr "选项"
+
 msgid "HARDCORE MODE"
 msgstr "专家模式"
 
@@ -511,12 +520,6 @@ msgstr "无"
 
 msgid "UNLOCK SOUND"
 msgstr "解锁音效"
-
-msgid "USERNAME"
-msgstr "用户名"
-
-msgid "PASSWORD"
-msgstr "密码"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "在主菜单中显示复古成就条目"
@@ -596,9 +599,6 @@ msgstr "新合辑名称"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "新建合辑"
 
-msgid "OPTIONS"
-msgstr "选项"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "合辑和系统分类"
 
@@ -610,6 +610,9 @@ msgstr "按制造商"
 
 msgid "BY HARDWARE TYPE"
 msgstr "按硬件类型"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "按发布年"
@@ -819,6 +822,25 @@ msgstr "关闭"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "确定是否删除？"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "忘记蓝牙设备"
+
+msgid "REMOVE ALL"
+msgstr "移除所有"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "未发现蓝牙设备"
+
+msgid "REMOVE"
+msgstr "卸载"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "文件浏览器蓝牙设备已被删除。"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "名称编辑"
 
@@ -879,18 +901,6 @@ msgstr "正在查询 WI-FI 网络"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "你没联网"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "忘记蓝牙设备"
-
-msgid "REMOVE ALL"
-msgstr "移除所有"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "未发现蓝牙设备"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "蓝牙设备已被删除。"
-
 msgid "FILE BROWSER"
 msgstr "文件浏览器"
 
@@ -930,9 +940,6 @@ msgstr "更新"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "将 '%s' 添加到下载队列"
-
-msgid "REMOVE"
-msgstr "卸载"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "卸载已添加到队列"
@@ -1127,6 +1134,13 @@ msgstr ""
 "您当前使用的版本 %s\n"
 "您想更新到版本 %s 吗？"
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要连接到互联网"
 
@@ -1262,7 +1276,12 @@ msgstr "主题下载"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "选择要安装/删除的主题"
 
-#, c-format
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "当前主题"
 
@@ -1512,7 +1531,7 @@ msgstr "CPU 特征"
 #, fuzzy
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "鲜明-双线性-简易"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -1528,15 +1547,15 @@ msgstr "增强"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "曲率"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "快速"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "扁平流"
 
 #, fuzzy
 msgctxt "game_options"
@@ -1767,6 +1786,9 @@ msgstr "切换到短按北键保存状态和长按南键打开游戏选项"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "仅使用第一个操纵杆控制 EMULATIONSTATION"
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "显示网络标识"
@@ -2239,6 +2261,15 @@ msgstr ""
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "配对蓝牙设备"
 
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "视图画面选项"
+
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "显示控制器活动"
 
@@ -2271,16 +2302,16 @@ msgid "BIG"
 msgstr "大"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "边界模式"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "正常"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "仅在游戏中"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "隐藏"
 
 msgid "RECOIL"
 msgstr "后坐力"
@@ -2383,9 +2414,6 @@ msgstr "游戏视频"
 
 msgid "grid"
 msgstr "网格列表"
-
-msgid "DISPLAY OPTIONS"
-msgstr "视图画面选项"
 
 msgid "LIST TRANSITION"
 msgstr "列表转换"
@@ -2711,7 +2739,7 @@ msgid "Full"
 msgstr "完整"
 
 msgid "Kiosk"
-msgstr "大厅"
+msgstr "客厅"
 
 msgid "Kid"
 msgstr "儿童"

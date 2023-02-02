@@ -199,7 +199,7 @@ public:
 	static std::map<std::string, std::string>	getCheevosHashes();
 
 	static std::string				getCheevosHash(SystemData* pSystem, const std::string fileName);
-	static bool						testAccount(const std::string& username, const std::string& password, std::string& error);
+	static bool						testAccount(const std::string& username, const std::string& password, std::string& tokenOrError);
 
 private:
 	static std::string				getCheevosHashFromFile(int consoleId, const std::string fileName);

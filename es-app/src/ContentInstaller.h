@@ -30,6 +30,7 @@ public:
 
 	static void Enqueue(Window* window, ContentType type, const std::string contentName);
 	static bool IsInQueue(ContentType type, const std::string contentName);
+	static bool isRunning() { return mInstance != nullptr; }
 
 private: // Methods
 	ContentInstaller(Window* window);

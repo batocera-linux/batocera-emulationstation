@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "AKTUALIZACE DOSTUPNÁ"
@@ -368,6 +368,15 @@ msgstr "NASTAVENÍ"
 msgid "RETROACHIEVEMENTS"
 msgstr "RETROÚSPĚCHY"
 
+msgid "USERNAME"
+msgstr "UŽIVATELSKÉ JMÉNO"
+
+msgid "PASSWORD"
+msgstr "HESLO"
+
+msgid "OPTIONS"
+msgstr "VOLBY"
+
 msgid "HARDCORE MODE"
 msgstr "REŽIM HARDCORE"
 
@@ -418,12 +427,6 @@ msgstr "žádný"
 
 msgid "UNLOCK SOUND"
 msgstr "ODEMKNOUT ZVUK"
-
-msgid "USERNAME"
-msgstr "UŽIVATELSKÉ JMÉNO"
-
-msgid "PASSWORD"
-msgstr "HESLO"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "ZOBRAZIT POLOŽKU RETROÚSPĚCHY V HLAVNÍ NABÍDCE"
@@ -503,9 +506,6 @@ msgstr "Název nové sbírky"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "VYTVOŘIT NOVOU DYNAMICKOU SBÍRKU"
 
-msgid "OPTIONS"
-msgstr "VOLBY"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "TŘÍDĚNÍ SBÍREK A SYSTÉMŮ"
 
@@ -517,6 +517,9 @@ msgstr "PODLE VÝROBCE"
 
 msgid "BY HARDWARE TYPE"
 msgstr "PODLE TYPU HARDWARU"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr "PODLE VÝROBCE A TYPU"
 
 msgid "BY RELEASE YEAR"
 msgstr "PODLE ROKU VYDÁNÍ"
@@ -699,6 +702,25 @@ msgstr "ZAVŘÍT"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "JSTE SI JISTI, ŽE CHCETE TUTO POLOŽKU ODSTRANIT?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "ZAPOMENOUT NA ZAŘÍZENÍ BLUETOOTH"
+
+msgid "REMOVE ALL"
+msgstr "VŠE ODSTRANIT"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "BLUETOOTH NENALEZEN"
+
+msgid "REMOVE"
+msgstr "ODSTRANIT"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "ZAŘÍZENÍ BLUETOOTH BYLA ODSTRANĚNA."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "JSTE SI JISTI, ŽE CHCETE ODSTRANIT '%s' ?"
+
 msgid "INPUT"
 msgstr "ZADAT"
 
@@ -759,17 +781,11 @@ msgstr "VYHLEDÁVÁNÍ SÍTÍ WI-FI"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "NEJSTE PŘIPOJENI K SÍTI"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "ZAPOMENOUT NA ZAŘÍZENÍ BLUETOOTH"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
 
-msgid "REMOVE ALL"
-msgstr "VŠE ODSTRANIT"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH NENALEZEN"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "ZAŘÍZENÍ BLUETOOTH BYLA ODSTRANĚNA."
+msgid "PAIR"
+msgstr "PÁROVÁNÍ"
 
 msgid "FILE BROWSER"
 msgstr "DATOVÝ PROHLÍŽEČ"
@@ -810,9 +826,6 @@ msgstr "AKTUALIZOVAT"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' PŘIDÁNO DO FRONTY KE STAŽENÍ"
-
-msgid "REMOVE"
-msgstr "ODSTRANIT"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "ODINSTALACE PŘIDÁNA DO FRONTY"
@@ -1007,6 +1020,16 @@ msgstr ""
 "V SOUČASNÉ DOBĚ POUŽÍVÁTE VERZI %s\n"
 "CHCETE AKTUALIZOVAT VERZI %s?"
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"ZJIŠTĚNY NEOFICIÁLNÍ ÚPRAVY SYSTÉMU.\n"
+"AKTUALIZACE BY MOHLA POŠKODIT VÁŠ SYSTÉM.\n"
+"CHCETE AKTUALIZOVAT NA VERZI %s?"
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "JE NUTNÉ PŘIPOJENÍ K SÍTI"
 
@@ -1142,7 +1165,15 @@ msgstr "STAHOVAČ TÉMAT"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VYBRAT MOTIVY K INSTALACI/ODSTRANIT"
 
-#, c-format
+msgid "All"
+msgstr "Všechno"
+
+msgid "Installed"
+msgstr "Nainstalováno"
+
+msgid "Available"
+msgstr "Dostupné"
+
 msgid "CURRENT THEME"
 msgstr "AKTUÁLNÍ MOTIV"
 
@@ -1650,6 +1681,12 @@ msgstr "Obrátit horní tlačítko (uložit) a dlouhý stisk dolního (nastaven�
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "OVLÁDÁNÍ EMULÁTORU POUZE PRVNÍM JOYSTICKEM"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr "TOLERANCE POHYBU ZBRANĚ"
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr "POVOLIT SKRYTÉ OVLADAČE JOYSTICKU"
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ZOBRAZIT INDIKÁTOR SÍTĚ"
 
@@ -1876,7 +1913,7 @@ msgid "on"
 msgstr "zapnout"
 
 msgid "OVERCLOCK"
-msgstr "PRETAKTOVÁNÍ"
+msgstr "PŘETAKTOVÁNÍ"
 
 msgid "STORAGE"
 msgstr "ULOŽIŠTĚ"
@@ -2114,8 +2151,23 @@ msgstr ""
 "SELECT. PŘESKOČTE VŠECHNA TLAČÍTKA/KLÁVESY, KTERÉ NEMÁTE, PODRŽENÍM "
 "LIBOVOLNÉ KLÁVESY. PO DOKONČENÍ STISKNĚTE JIŽNÍ TLAČÍTKO PRO POTVRZENÍ."
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "PŘIPOJENÍ OVLADAČE PŘES BLUETOOTH"
+msgid "SINDEN GUN SETTINGS"
+msgstr "NASTAVENÍ ZBRANĚ SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "AUTOMATICKÉ PÁROVÁNÍ BLUETOOTH PADU"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "RUČNÍ SPÁROVÁNÍ ZAŘÍZENÍ BLUETOOTH"
+
+msgid "DISPLAY OPTIONS"
+msgstr "MOŽNOSTI DISPLEJE"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
@@ -2123,11 +2175,8 @@ msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr "NASTAVENÍ ZBRANĚ SINDEN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
+msgid "PLAYER ASSIGNMENTS"
+msgstr "PŘIDĚLENÍ HRÁČŮ"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2262,9 +2311,6 @@ msgstr "video"
 msgid "grid"
 msgstr "mřížka"
 
-msgid "DISPLAY OPTIONS"
-msgstr "MOŽNOSTI DISPLEJE"
-
 msgid "LIST TRANSITION"
 msgstr "PŘECHOD NA SEZNAM"
 
@@ -2389,7 +2435,7 @@ msgid "REALLY RESTART?"
 msgstr "OPRAVDU RESTARTOVAT?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "SYSTÉM POZASTAVENÍ"
+msgstr "POZASTAVIT"
 
 msgid "REALLY SUSPEND ?"
 msgstr "OPRAVDU POZASTAVIT ?"

@@ -42,7 +42,8 @@
 #include "guis/GuiBackupStart.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiWifi.h"
-#include "guis/GuiBluetooth.h"
+#include "guis/GuiBluetoothPair.h"
+#include "guis/GuiBluetoothForget.h"
 #include "scrapers/ThreadedScraper.h"
 #include "FileSorts.h"
 #include "ThreadedHasher.h"
@@ -900,24 +901,7 @@ void GuiMenu::addEntry(std::string name, bool add_arrow, const std::function<voi
 
 	ComponentListRow row;
 
-	if (!iconName.empty())
-	{
-		std::string iconPath = theme->getMenuIcon(iconName);
-		if (!iconPath.empty())
-		{
-			// icon
-			auto icon = std::make_shared<ImageComponent>(mWindow, true);
-			icon->setImage(iconPath);
-			icon->setColorShift(theme->Text.color);
-			icon->setResize(0, theme->Text.font->getLetterHeight() * 1.25f);
-			row.addElement(icon, false);
-
-			// spacer between icon and text
-			auto spacer = std::make_shared<GuiComponent>(mWindow);
-			spacer->setSize(10, 0);
-			row.addElement(spacer, false);
-		}
-	}
+	MenuComponent::addMenuIcon(mWindow, row, iconName);
 
 	auto text = std::make_shared<TextComponent>(mWindow, name, font, color);
 	row.addElement(text, true);
@@ -1321,7 +1305,7 @@ void GuiMenu::openDeveloperSettings()
 
 	auto invertJoy = std::make_shared<SwitchComponent>(mWindow);
 	invertJoy->setState(Settings::getInstance()->getBool("InvertButtons"));
-	s->addWithLabel(_("SWITCH A & B BUTTONS IN EMULATIONSTATION"), invertJoy);
+	s->addWithDescription(_("SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"), _("Switches the South and East buttons' functionality"), invertJoy);
 	s->addSaveFunc([this, s, invertJoy]
 	{
 		if (Settings::getInstance()->setBool("InvertButtons", invertJoy->getState()))
@@ -1345,7 +1329,24 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"), firstJoystickOnly);
 	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
+#if !defined(WIN32)
+	{
+	  auto gun_mt = std::make_shared<SliderComponent>(mWindow, 0.f, 10.f, 0.1f, "%");
+	  gun_mt->setValue(Settings::getInstance()->getFloat("GunMoveTolerence"));
+	  s->addWithLabel(_("GUN MOVE TOLERENCE"), gun_mt);
+	  s->addSaveFunc([gun_mt] {
+	    Settings::getInstance()->setFloat("GunMoveTolerence", gun_mt->getValue());
+	  });
+	}
+#endif
+
 #if defined(WIN32)
+
+	auto hidJoysticks = std::make_shared<SwitchComponent>(mWindow);
+	hidJoysticks->setState(Settings::getInstance()->getBool("HidJoysticks"));
+	s->addWithLabel(_("ENABLE HID JOYSTICK DRIVERS"), hidJoysticks);
+	s->addSaveFunc([this, hidJoysticks] { Settings::getInstance()->setBool("HidJoysticks", hidJoysticks->getState()); });
+	
 	// Network Indicator
 	auto networkIndicator = std::make_shared<SwitchComponent>(mWindow);
 	networkIndicator->setState(Settings::getInstance()->getBool("ShowNetworkIndicator"));
@@ -1557,6 +1558,7 @@ void GuiMenu::openSystemSettings()
 	language_choice->add("FRANÇAIS",             "fr_FR", language == "fr_FR" || language == "fr");
 	language_choice->add("עברית",                "he_IL", language == "he_IL");
 	language_choice->add("HUNGARIAN",            "hu_HU", language == "hu_HU");
+	language_choice->add("BAHASA INDONESIA",     "id_ID", language == "id_ID");
 	language_choice->add("ITALIANO",             "it_IT", language == "it_IT");
 	language_choice->add("JAPANESE", 	     "ja_JP", language == "ja_JP");
 	language_choice->add("KOREAN",   	     "ko_KR", language == "ko_KR" || language == "ko");
@@ -2222,7 +2224,7 @@ void GuiMenu::addDecorationSetOptionListComponent(Window* window, GuiSettings* p
 
 
 
-void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName)
+void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const CustomFeature& feat, const std::string& configName, const std::string& system, const std::string& emulator, const std::string& core)
 {	
 	if (feat.preset == "hidden")
 		return;
@@ -2356,7 +2358,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	{
 		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
 
-		auto shaders = ApiSystem::getInstance()->getShaderList();
+		auto shaders = ApiSystem::getInstance()->getShaderList(configName != "global" ? system : "", configName != "global" ? emulator : "", configName != "global" ? core : "");
 		if (shaders.size() > 0)
 		{
 			item->add(_("NONE"), "none", storedValue == "none");
@@ -2440,7 +2442,7 @@ static bool hasGlobalFeature(const std::string& name)
 	return CustomFeatures::GlobalFeatures.hasGlobalFeature(name);
 }
 
-void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
+void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& system, const std::string& emulator, const std::string& core, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
 {
 	bool firstGroup = true;
 	
@@ -2465,7 +2467,7 @@ void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* windo
 		{
 			if (feat.submenu.empty())
 			{
-				addFeatureItem(window, settings, feat, configName);
+				addFeatureItem(window, settings, feat, configName, system, emulator, core);
 				continue;
 			}
 
@@ -2477,12 +2479,12 @@ void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* windo
 			auto items = features.where([feat](auto x) { return x.preset != "hidden" && x.submenu == feat.submenu; });
 			if (items.size() > 0)
 			{
-				settings->addEntry(pgettext("game_options", feat.submenu.c_str()), true, [window, configName, feat, items]
+				settings->addEntry(pgettext("game_options", feat.submenu.c_str()), true, [window, configName, feat, items, system, emulator, core]
 				{
 					GuiSettings* groupSettings = new GuiSettings(window, pgettext("game_options", feat.submenu.c_str()));
 
 					for (auto feat : items)
-						addFeatureItem(window, groupSettings, feat, configName);
+						addFeatureItem(window, groupSettings, feat, configName, system, emulator, core);
 
 					window->pushGui(groupSettings);
 				});
@@ -2586,7 +2588,7 @@ void GuiMenu::openGamesSettings()
 #ifndef _ENABLEEMUELEC	
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) && !hasGlobalFeature("shaderset"))
 	{
-		auto installedShaders = ApiSystem::getInstance()->getShaderList();
+		auto installedShaders = ApiSystem::getInstance()->getShaderList("", "", "");
 		if (installedShaders.size() > 0)
 		{
 #endif
@@ -2777,7 +2779,7 @@ void GuiMenu::openGamesSettings()
 	}
 	
 	// Load global custom features
-	addFeatures(CustomFeatures::GlobalFeatures, window, s, "global", _("DEFAULT GLOBAL SETTINGS"));
+	addFeatures(CustomFeatures::GlobalFeatures, window, s, "global", "", "", "", _("DEFAULT GLOBAL SETTINGS"));
 	
 	if (!hasGlobalFeature("disableautocontrollers") && SystemData::sSystemVector.any([](auto sys) { return !sys->getCompatibleCoreNames(EmulatorFeatures::autocontrollers).empty(); }))
 	{
@@ -3013,31 +3015,61 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	Window* window = mWindow;
 	
+	s->addGroup(_("SETTINGS"));
+
 	// CONTROLLER CONFIGURATION
 	s->addEntry(_("CONTROLLER MAPPING"), false, [window, this, s]
 	{
 		window->pushGui(new GuiMsgBox(window,
-			_("YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-				"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-				"IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-				"ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE "
-				"SOUTH BUTTON TO CONFIRM WHEN DONE."), 
+			_("YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, "
+				"NOT ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, "
+				"USE THE SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY "
+				"HOLDING ANY BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."),
 			_("OK"), [window, this, s] { window->pushGui(new GuiDetectDevice(window, false, [this, s] { s->setSave(false); delete s; this->openControllersSettings(); })); },
 			_("CANCEL"), nullptr,
 			GuiMsgBoxIcon::ICON_INFORMATION));
 	});
+	
+	bool sindenguns_menu = false;
+	bool wiiguns_menu = false;
+
+	for (auto gun : InputManager::getInstance()->getGuns())
+	{
+		sindenguns_menu |= gun->needBorders();
+		wiiguns_menu |= gun->name() == "wiigun calibrated";
+	}
+
+	for (auto joy : InputManager::getInstance()->getInputConfigs())
+		wiiguns_menu |= joy->getDeviceName() == "Nintendo Wii Remote";
+
+	if (sindenguns_menu)
+		s->addEntry(_("SINDEN GUN SETTINGS"), true, [this] { openControllersSpecificSettings_sindengun(); });
+
+	if (wiiguns_menu)
+		s->addEntry(_("WIIMOTE GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
 	{
-		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
-		s->addEntry(_("PAIR A BLUETOOTH DEVICE"), false, [window] { ThreadedBluetooth::start(window); });
+		s->addGroup(_("BLUETOOTH"));
 
-		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
-		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s]
+		// PAIR A BLUETOOTH CONTROLLER
+		s->addEntry(_("PAIR BLUETOOTH PADS AUTOMATICALLY"), false, [window] { ThreadedBluetooth::start(window); });
+
+#if defined(BATOCERA) || defined(WIN32)
+		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
+		s->addEntry(_("PAIR A BLUETOOTH DEVICE MANUALLY"), false, [window, this, s]
 		{
-			window->pushGui(new GuiBluetooth(window));
+			if (ThreadedBluetooth::isRunning())
+				window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCAN IS ALREADY RUNNING.")));
+			else
+				window->pushGui(new GuiBluetoothPair(window));
 		});
+#endif
+		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
+		s->addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window, this, s] { window->pushGui(new GuiBluetoothForget(window)); });
 	}
+
+	s->addGroup(_("DISPLAY OPTIONS"));
 
 	// CONTROLLER ACTIVITY
 	auto activity = std::make_shared<SwitchComponent>(mWindow);
@@ -3055,28 +3087,8 @@ void GuiMenu::openControllersSettings(int autoSel)
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
-#ifdef BATOCERA
-	bool sindenguns_menu = false;
-	for (auto gun : InputManager::getInstance()->getGuns())
-	  if (gun->needBorders())
-	    sindenguns_menu = true;
-	if(sindenguns_menu) {
-	  s->addEntry(_("SINDEN GUN SETTINGS"), true, [this] { openControllersSpecificSettings_sindengun(); });
-	}
-#endif
 
-#ifdef BATOCERA
-	bool wiiguns_menu = false;
-	for (auto gun : InputManager::getInstance()->getGuns())
-	  if (gun->name() == "wiigun calibrated")
-	    wiiguns_menu = true;
-	for (auto joy : InputManager::getInstance()->getInputConfigs())
-	  if (joy->getDeviceName() == "Nintendo Wii Remote")
-	    wiiguns_menu = true;
-	if(wiiguns_menu) {
-	  s->addEntry(_("WIIMOTE GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
-	}
-#endif
+	s->addGroup(_("PLAYER ASSIGNMENTS"));
 
 	ComponentListRow row;
 
@@ -3222,6 +3234,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
 	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	sindenmode_choices->add(_("DISABLED"), "disabled", baseMode == "disabled");
 	sindenmode_choices->add(_("GUN"), "gun", baseMode == "gun");
 	sindenmode_choices->add(_("MACHINE GUN"), "machinegun", baseMode == "machinegun");
 	sindenmode_choices->add(_("QUIET GUN"), "gun-quiet", baseMode == "gun-quiet");
@@ -3416,7 +3429,11 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				if (it->name == selectedName)
 					selectedColorSet = it;
 
-			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, _(("THEME " + Utils::String::toUpper(subset)).c_str()), false);
+			std::string displayName;
+			if (!themeColorSets.empty())
+				displayName = themeColorSets.cbegin()->subSetDisplayName;
+
+			std::shared_ptr<OptionListComponent<std::string>> item = std::make_shared<OptionListComponent<std::string> >(mWindow, displayName.empty() ? _(("THEME " + Utils::String::toUpper(subset)).c_str()) : displayName, false);
 			item->setTag(!perSystemSettingName.empty() ? perSystemSettingName : settingName);
 
 			std::string defaultName;
@@ -3444,8 +3461,7 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				item->selectFirstItem();
 
 			if (!themeColorSets.empty())
-			{
-				std::string displayName = themeColorSets.cbegin()->subSetDisplayName;
+			{				
 				if (!displayName.empty())
 				{
 					bool hasApplyToSubset = themeColorSets.cbegin()->appliesTo.size() > 0;
@@ -3480,7 +3496,19 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 						themeconfig->addGroup(_("THEME OPTIONS"));
 					}
 
-					if (!prefix.empty())
+					if (displayName == "-" && item->size() <= 1)
+					{
+						ComponentListRow row;
+						row.selectable = false;
+
+						auto font = ThemeData::getMenuTheme()->TextSmall.font;
+						auto text = std::make_shared<TextComponent>(mWindow, "", font, 0); 						
+						text->setLineSpacing(1.0f);
+						row.addElement(text, true);						
+
+						themeconfig->addRow(row);
+					}
+					else if (!prefix.empty())
 						themeconfig->addWithDescription(displayName, prefix, item);
 					else if (!defaultName.empty())
 						themeconfig->addWithDescription(displayName, _("DEFAULT VALUE") + " : " + defaultName, item);
@@ -5086,7 +5114,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
 		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))
 	{
-		auto installedShaders = ApiSystem::getInstance()->getShaderList(systemData->getName());
+		auto installedShaders = ApiSystem::getInstance()->getShaderList(systemData->getName(), currentEmulator, currentCore);
 		if (installedShaders.size() > 0)
 		{
 			std::string currentShader = SystemConf::getInstance()->get(configName + ".shaderset");
@@ -5433,7 +5461,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 #endif
 	// Load per-game / per-emulator / per-system custom features
-	addFeatures(customFeatures, mWindow, systemConfiguration, configName, _("SETTINGS"), true);
+	addFeatures(customFeatures, mWindow, systemConfiguration, configName, systemData->getName(), currentEmulator.empty() ? systemData->getEmulator(true) : currentEmulator, currentCore.empty() ? systemData->getCore(true) : currentCore, _("SETTINGS"), true);
 
 	// automatic controller configuration
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::autocontrollers))

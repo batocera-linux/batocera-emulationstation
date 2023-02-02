@@ -13,6 +13,7 @@
 #include "FileData.h"
 #include "CollectionSystemManager.h"
 #include "Genres.h"
+#include "SystemConf.h"
 
 #define UNKNOWN_LABEL "UNKNOWN"
 #define INCLUDE_UNKNOWN false;
@@ -566,6 +567,8 @@ int FileFilterIndex::showFile(FileData* game)
 	if (!mTextFilter.empty())
 	{
 		auto name = game->getSourceFileData()->getName();
+		std::string language = SystemConf::getInstance()->get("system.language");
+		bool isChinese = (language == "zh_CN" || language == "zh_TW");
 
 		if (!mUseRelevency)
 		{
@@ -574,6 +577,10 @@ int FileFilterIndex::showFile(FileData* game)
 				if (Utils::String::containsIgnoreCase(name, mTextFilter))
 				{
 					textScore = 1;
+					keepGoing = true;
+				}
+				else if (isChinese && Utils::String::containsIgnoreCasePinyin(name, mTextFilter)) {
+					textScore = 2;
 					keepGoing = true;
 				}
 			}
@@ -585,7 +592,12 @@ int FileFilterIndex::showFile(FileData* game)
 					{
 						textScore = 1;
 						keepGoing = true;
-						break;
+						break;  // score=1 need break
+					}
+					else if (isChinese && Utils::String::containsIgnoreCasePinyin(name, Utils::String::trim(token)))
+					{
+						textScore = 2;
+						keepGoing = true;
 					}
 				}
 			}

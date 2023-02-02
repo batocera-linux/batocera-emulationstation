@@ -22,26 +22,27 @@ class MenuComponent : public GuiComponent
 {
 public:
 	MenuComponent(Window* window, 
-		const std::string title, const std::shared_ptr<Font>& titleFont = Font::get(FONT_SIZE_LARGE),
-		const std::string subTitle = "");
+		const std::string& title, const std::shared_ptr<Font>& titleFont = Font::get(FONT_SIZE_LARGE),
+		const std::string& subTitle = "");
 
 	void onSizeChanged() override;
 
 	inline void setUpdateType(ComponentListFlags::UpdateType updateType) { mList->setUpdateType(updateType); }
 
-	inline void addRow(const ComponentListRow& row, bool setCursorHere = false, bool doUpdateSize = true, const std::string userData = "") { mList->addRow(row, setCursorHere, true, userData); if (doUpdateSize) updateSize(); }
+	inline void addRow(const ComponentListRow& row, bool setCursorHere = false, bool doUpdateSize = true, const std::string& userData = "") { mList->addRow(row, setCursorHere, true, userData); if (doUpdateSize) updateSize(); }
 	inline void clear() { mList->clear(); }
 
-	void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func = nullptr, const std::string iconName = "", bool setCursorHere = false);
-	void addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func = nullptr, const std::string iconName = "", bool setCursorHere = false,/* bool invert_when_selected = true, */bool multiLine = false);
-	void addEntry(const std::string name, bool add_arrow = false, const std::function<void()>& func = nullptr, const std::string iconName = "", bool setCursorHere = false, bool onButtonRelease = false, const std::string userData = "", bool doUpdateSize = true);
+	void addWithLabel(const std::string& label, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func = nullptr, const std::string& iconName = "", bool setCursorHere = false);
+	void addWithDescription(const std::string& label, const std::string& description, const std::shared_ptr<GuiComponent>& comp, const std::function<void()>& func = nullptr, const std::string& iconName = "", bool setCursorHere = false, bool multiLine = false, const std::string& userData = "", bool doUpdateSize = true);
+	void addEntry(const std::string& name, bool add_arrow = false, const std::function<void()>& func = nullptr, const std::string& iconName = "", bool setCursorHere = false, bool onButtonRelease = false, const std::string& userData = "", bool doUpdateSize = true);
 	void addGroup(const std::string& label, bool forceVisible = false, bool doUpdateSize = true) { mList->addGroup(label, forceVisible); if (doUpdateSize) updateSize(); }
 	void removeLastRowIfGroup(bool doUpdateSize = true) { mList->removeLastRowIfGroup(); if (doUpdateSize) updateSize(); }
+	void removeEntry(const std::string& userData, bool doUpdateSize = true) { mList->remove(userData); if (doUpdateSize) updateSize(); }
 
 	void addButton(const std::string& label, const std::string& helpText, const std::function<void()>& callback);
 
-	void setTitle(const std::string title, const std::shared_ptr<Font>& font = nullptr);
-	void setSubTitle(const std::string text);
+	void setTitle(const std::string& title, const std::shared_ptr<Font>& font = nullptr);
+	void setSubTitle(const std::string& text);
 	void setTitleImage(std::shared_ptr<ImageComponent> titleImage, bool replaceTitle = false);
 
 	inline void setCursorToList() { mGrid.setCursorTo(mList); }
@@ -70,10 +71,12 @@ public:
 		updateSize();
 	}
 
-	void updateSize();
+	virtual void updateSize();
 	void clearButtons();
 
 	std::shared_ptr<ComponentList> getList() { return mList; };
+	
+	static void addMenuIcon(Window* window, ComponentListRow& row, const std::string& iconName);
 
 private:
 	void updateGrid();

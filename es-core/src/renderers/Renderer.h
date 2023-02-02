@@ -195,7 +195,7 @@ namespace Renderer
 	
 	void		activateWindow();
 
-	void		setScreenMargin(int marginX, int marginY);
+	Vector2i	setScreenMargin(int marginX, int marginY);
 
 } // Renderer::
 

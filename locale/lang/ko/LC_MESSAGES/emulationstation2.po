@@ -366,6 +366,15 @@ msgstr "설정"
 msgid "RETROACHIEVEMENTS"
 msgstr "레트로 도전과제"
 
+msgid "USERNAME"
+msgstr "사용자명"
+
+msgid "PASSWORD"
+msgstr "비밀번호"
+
+msgid "OPTIONS"
+msgstr "옵션"
+
 msgid "HARDCORE MODE"
 msgstr "하드코어 모드"
 
@@ -415,12 +424,6 @@ msgstr "없음"
 
 msgid "UNLOCK SOUND"
 msgstr "해제 사운드"
-
-msgid "USERNAME"
-msgstr "사용자명"
-
-msgid "PASSWORD"
-msgstr "비밀번호"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "메인 메뉴에 레트로 도전과제 엔트리 표시"
@@ -500,9 +503,6 @@ msgstr "새 컬렉션 이름"
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "새 다이나믹 컬렉션 만들기"
 
-msgid "OPTIONS"
-msgstr "옵션"
-
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "컬렉션 및 시스템 정렬"
 
@@ -514,6 +514,9 @@ msgstr "제조업체 순"
 
 msgid "BY HARDWARE TYPE"
 msgstr "하드웨어 종류 순"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "출시 년도 순"
@@ -696,6 +699,25 @@ msgstr "닫기"
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "정말로 이 아이템을 삭제하시겠습니까?"
 
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "블루투스 장치 제거"
+
+msgid "REMOVE ALL"
+msgstr "모두 제거"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "발견된 블루투스 장치가 없습니다"
+
+msgid "REMOVE"
+msgstr "제거"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "블루투스 장치가 삭제되었습니다."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr ""
+
 msgid "INPUT"
 msgstr "입력"
 
@@ -756,17 +778,11 @@ msgstr "와이파이를 검색 중입니다"
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "네트워크에 접속중이 아닙니다"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "블루투스 장치 제거"
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "블루투스 장치 페어링"
 
-msgid "REMOVE ALL"
-msgstr "모두 제거"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "발견된 블루투스 장치가 없습니다"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "블루투스 장치가 삭제되었습니다."
+msgid "PAIR"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "파일 탐색기"
@@ -807,9 +823,6 @@ msgstr "업데이트"
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "다운로드 대기열에 '%s'가 추가됨"
-
-msgid "REMOVE"
-msgstr "제거"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr "대기열에 제거가 추가됨"
@@ -1004,6 +1017,13 @@ msgstr ""
 "현재 %s\n"
 " 버전 사용중이십니까?%s 버전으로 업데이트 원하십니까?"
 
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "인터넷 연결이 필요합니다"
 
@@ -1139,7 +1159,15 @@ msgstr "테마 다운로더"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "설치/제거 할 테마 선택"
 
-#, c-format
+msgid "All"
+msgstr ""
+
+msgid "Installed"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
 msgid "CURRENT THEME"
 msgstr "현재 테마"
 
@@ -1642,6 +1670,12 @@ msgstr "위 버튼(상태저장) 과 아래 버튼(게임 옵션)을 변경"
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "첫 번째 조이스틱으로만 에뮬레이션스테이션 제어"
 
+msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr ""
+
 msgid "SHOW NETWORK INDICATOR"
 msgstr "네트워크 아이콘 표시"
 
@@ -2093,8 +2127,23 @@ msgstr ""
 "렉트 버튼을 사용하십시오키를 누르지 않고 있는 모든 버튼/스틱을 건너뜁니다. 완"
 "료 확인을 위해남쪽 버튼 누르세요."
 
-msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "블루투스 장치 페어링"
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN 건 설정"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "위리모트 건 설정"
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "표시 옵션"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "활성 컨트롤러 보이기"
@@ -2102,11 +2151,8 @@ msgstr "활성 컨트롤러 보이기"
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "컨트롤러 배터리 상태 보이기"
 
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN 건 설정"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "위리모트 건 설정"
+msgid "PLAYER ASSIGNMENTS"
+msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2240,9 +2286,6 @@ msgstr "비디오"
 
 msgid "grid"
 msgstr "그리드"
-
-msgid "DISPLAY OPTIONS"
-msgstr "표시 옵션"
 
 msgid "LIST TRANSITION"
 msgstr "목록 전"

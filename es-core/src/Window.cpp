@@ -212,8 +212,19 @@ void Window::input(InputConfig* config, Input input)
 	if (config == nullptr)
 		return;
 	
-	if (config->getDeviceIndex() > 0 && Settings::getInstance()->getBool("FirstJoystickOnly"))
-		return;
+	if (config->getDeviceIndex() >= 0 && Settings::getInstance()->getBool("FirstJoystickOnly"))
+	{
+		// Find first player controller info
+		auto playerDevices = InputManager::getInstance()->lastKnownPlayersDeviceIndexes();
+		auto playerDevice = playerDevices.find(0); 
+		if (playerDevice != playerDevices.cend())
+		{
+			if (config->getDeviceIndex() != playerDevice->second.index)
+				return;
+		}
+		else if (config->getDeviceIndex() > 0) // Not found ? Use SDL device index
+			return;
+	}
 
 	if (mScreenSaver) 
 	{
@@ -543,20 +554,20 @@ void Window::renderSindenBorders()
 
 	if (drawGunBorders)
 	{
-		int outerBorderWidth = Renderer::getScreenHeight() * 0.03f;
+		int outerBorderWidth = Renderer::getScreenHeight() * 0.00f;
 		int innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 
 		// sinden.bordersize=thin/big/medium
 		auto bordersize = SystemConf::getInstance()->get("controllers.guns.borderssize");
 		if (bordersize == "thin")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.000f;
-			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.00f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.01f;
 		}
-		else if (bordersize == "medium")
+		else if (bordersize == "big")
 		{
-			outerBorderWidth = Renderer::getScreenHeight() * 0.010f;
-			innerBorderWidth = Renderer::getScreenHeight() * 0.010f;
+			outerBorderWidth = Renderer::getScreenHeight() * 0.01f;
+			innerBorderWidth = Renderer::getScreenHeight() * 0.02f;
 		}
 
 		Renderer::setScreenMargin(0, 0);
@@ -707,6 +718,7 @@ void Window::render()
 	auto guns = InputManager::getInstance()->getGuns();
 	if (guns.size())
 	{
+		auto margin = Renderer::setScreenMargin(0, 0);
 		Renderer::setMatrix(Transform4x4f::Identity());
 
 		if (mGunAimTexture == nullptr)
@@ -740,6 +752,8 @@ void Window::render()
 				Renderer::drawTriangleStrips(&vertices[0], 4);
 			}
 		}
+
+		Renderer::setScreenMargin(margin.x(), margin.y());
 	}
 }
 
@@ -1099,6 +1113,7 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	{
 		mClock->setFont(Font::get(FONT_SIZE_SMALL));
 		mClock->setColor(0x777777FF);		
+		mClock->setOrigin(Vector2f::Zero());
 		mClock->setHorizontalAlignment(ALIGN_RIGHT);
 		mClock->setVerticalAlignment(ALIGN_TOP);
 		

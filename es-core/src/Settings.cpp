@@ -128,6 +128,7 @@ void Settings::setDefaults()
 	mStringMap["StartupSystem"] = "lastsystem";
 
 #if WIN32
+	mBoolMap["HidJoysticks"] = true;
 	mBoolMap["ShowOnlyExit"] = true;
 	mBoolMap["FullscreenBorderless"] = true;
 #else
@@ -374,6 +375,8 @@ void Settings::setDefaults()
 	mBoolMap["kodi.atstartup"] = false;
 	mBoolMap["wifi.enabled"] = false;
 #endif
+
+	mFloatMap["GunMoveTolerence"] = 2.5;
 
 	mDefaultBoolMap = mBoolMap;
 	mDefaultIntMap = mIntMap;

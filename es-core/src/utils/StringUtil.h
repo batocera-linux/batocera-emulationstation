@@ -32,12 +32,14 @@ namespace Utils
 		std::vector<std::string> split  (const std::string& s, char seperator, bool removeEmptyEntries = false);
 		std::vector<std::string> splitAny(const std::string& s, const std::string& seperator, bool removeEmptyEntries = false);
 		std::vector<std::string> extractStrings(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter, bool keepDelimiter = false);
+		std::string              extractString(const std::string& _string, const std::string& startDelimiter, const std::string& endDelimiter, bool keepDelimiter = false);
 
 		std::string join(const std::vector<std::string>& items, std::string separator);
 		int			compareIgnoreCase(const std::string& name1, const std::string& name2);
 		std::string proper(const std::string& _string);
 		std::string removeHtmlTags(const std::string& html);
 		bool        containsIgnoreCase(const std::string & _string, const std::string & _what);
+		bool        containsIgnoreCasePinyin(const std::string & _string, const std::string & _what);
 		bool		startsWithIgnoreCase(const std::string& name1, const std::string& name2);
 
 		int			toInteger(const std::string& string);
