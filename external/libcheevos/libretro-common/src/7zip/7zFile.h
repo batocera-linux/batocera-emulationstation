@@ -1,5 +1,5 @@
 /* 7zFile.h -- File IO
-2009-11-24 : Igor Pavlov : Public domain */
+2017-04-03 : Igor Pavlov : Public domain */
 
 #ifndef __7Z_FILE_H
 #define __7Z_FILE_H
@@ -16,9 +16,7 @@
 
 #include "7zTypes.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+EXTERN_C_BEGIN
 
 /* ---------- File ---------- */
 
@@ -56,7 +54,7 @@ WRes File_GetLength(CSzFile *p, uint64_t *length);
 
 typedef struct
 {
-  ISeqInStream s;
+  ISeqInStream vt;
   CSzFile file;
 } CFileSeqInStream;
 
@@ -65,7 +63,7 @@ void FileSeqInStream_CreateVTable(CFileSeqInStream *p);
 
 typedef struct
 {
-  ISeekInStream s;
+  ISeekInStream vt;
   CSzFile file;
 } CFileInStream;
 
@@ -74,14 +72,12 @@ void FileInStream_CreateVTable(CFileInStream *p);
 
 typedef struct
 {
-  ISeqOutStream s;
+  ISeqOutStream vt;
   CSzFile file;
 } CFileOutStream;
 
 void FileOutStream_CreateVTable(CFileOutStream *p);
 
-#ifdef __cplusplus
-}
-#endif
+EXTERN_C_END
 
 #endif

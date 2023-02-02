@@ -35,6 +35,7 @@
   h4 = temp & (kHash4Size - 1); \
   hv = (temp ^ (p->crc[cur[4]] << 3)) & p->hashMask; }
 
+/* #define HASH_ZIP_CALC hv = ((cur[0] | ((uint32_t)cur[1] << 8)) ^ p->crc[cur[2]]) & 0xFFFF; */
 #define HASH_ZIP_CALC hv = ((cur[2] | ((uint32_t)cur[0] << 8)) ^ p->crc[cur[1]]) & 0xFFFF;
 
 
