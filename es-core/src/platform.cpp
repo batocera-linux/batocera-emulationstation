@@ -434,7 +434,7 @@ std::string getArchString()
 	return "rpizero2";
 #endif
 
-#if RPI1
+#if RPI1 || BCM2835
 	return "rpi1";
 #endif
 
@@ -442,11 +442,11 @@ std::string getArchString()
 	return "rpi2";
 #endif
 
-#if RPI3
+#if RPI3 || BCM2836 || BCM2837
 	return "rpi3";
 #endif
 
-#if RPI4
+#if RPI4 || BCM2711
 	return "rpi4";
 #endif
 
