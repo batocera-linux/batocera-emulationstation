@@ -742,7 +742,7 @@ void GuiMenu::openDeveloperSettings()
 	{
 	  auto gun_mt = std::make_shared<SliderComponent>(mWindow, 0.f, 10.f, 0.1f, "%");
 	  gun_mt->setValue(Settings::getInstance()->getFloat("GunMoveTolerence"));
-	  s->addWithLabel(_("GUN MOVE TOLERENCE"), gun_mt);
+	  s->addWithDescription(_("LIGHT GUN MOVEMENT DEADZONE"), _("Can help prevent cursor jitter. Has no effect in-game."), gun_mt);
 	  s->addSaveFunc([gun_mt] {
 	    Settings::getInstance()->setFloat("GunMoveTolerence", gun_mt->getValue());
 	  });
@@ -2385,14 +2385,14 @@ void GuiMenu::openControllersSettings(int autoSel)
 		s->addGroup(_("BLUETOOTH"));
 
 		// PAIR A BLUETOOTH CONTROLLER
-		s->addEntry(_("PAIR BLUETOOTH PADS AUTOMATICALLY"), false, [window] { ThreadedBluetooth::start(window); });
+		s->addEntry(_("PAIR A BLUETOOTH CONTROLLER AUTOMATICALLY"), false, [window] { ThreadedBluetooth::start(window); });
 
 #if defined(BATOCERA) || defined(WIN32)
 		// PAIR A BLUETOOTH CONTROLLER OR BT AUDIO DEVICE
-		s->addEntry(_("PAIR A BLUETOOTH DEVICE MANUALLY"), false, [window, this, s]
+		s->addEntry(_("PAIR A BLUETOOTH DEVICE FROM A LIST"), false, [window, this, s]
 		{
 			if (ThreadedBluetooth::isRunning())
-				window->pushGui(new GuiMsgBox(window, _("BLUETOOTH SCAN IS ALREADY RUNNING.")));
+				window->pushGui(new GuiMsgBox(window, _("A BLUETOOTH SCAN IS ALREADY RUNNING.")));
 			else
 				window->pushGui(new GuiBluetoothPair(window));
 		});
