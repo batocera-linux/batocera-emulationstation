@@ -2914,22 +2914,6 @@ msgid "SPACE"
 msgstr "ESPACE"
 
 msgctxt "joystick"
-msgid "SOUTH"
-msgstr "SUD"
-
-msgctxt "joystick"
-msgid "EAST"
-msgstr "EST"
-
-msgctxt "joystick"
-msgid "NORTH"
-msgstr "NORD"
-
-msgctxt "joystick"
-msgid "WEST"
-msgstr "OUEST"
-
-msgctxt "joystick"
 msgid "UP"
 msgstr "D-PAD HAUT"
 
@@ -2946,36 +2930,12 @@ msgid "RIGHT"
 msgstr "D-PAD DROITE"
 
 msgctxt "joystick"
-msgid "D-PAD UP"
-msgstr "D-PAD HAUT"
-
-msgctxt "joystick"
-msgid "D-PAD DOWN"
-msgstr "D-PAD BAS"
-
-msgctxt "joystick"
-msgid "D-PAD LEFT"
-msgstr "D-PAD GAUCHE"
-
-msgctxt "joystick"
-msgid "D-PAD RIGHT"
-msgstr "D-PAD DROITE"
-
-msgctxt "joystick"
 msgid "START"
 msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
-
-msgctxt "joystick"
-msgid "LEFT SHOULDER"
-msgstr "L1"
-
-msgctxt "joystick"
-msgid "RIGHT SHOULDER"
-msgstr "R1"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -3008,22 +2968,6 @@ msgstr "JOYSTICK DROITE / GAUCHE"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "JOYSTICK DROITE / DROITE"
-
-msgctxt "joystick"
-msgid "LEFT TRIGGER"
-msgstr "GACHETTE GAUCHE (L2)"
-
-msgctxt "joystick"
-msgid "RIGHT TRIGGER"
-msgstr "GACHETTE DROITE (R2)"
-
-msgctxt "joystick"
-msgid "LEFT STICK PRESS"
-msgstr "APPUI STICK GAUCHE (L3)"
-
-msgctxt "joystick"
-msgid "RIGHT STICK PRESS"
-msgstr "APPUI STICK DROIT (R3)"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3171,6 +3115,62 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgctxt "joystick"
+#~ msgid "SOUTH"
+#~ msgstr "SUD"
+
+#~ msgctxt "joystick"
+#~ msgid "EAST"
+#~ msgstr "EST"
+
+#~ msgctxt "joystick"
+#~ msgid "NORTH"
+#~ msgstr "NORD"
+
+#~ msgctxt "joystick"
+#~ msgid "WEST"
+#~ msgstr "OUEST"
+
+#~ msgctxt "joystick"
+#~ msgid "D-PAD UP"
+#~ msgstr "D-PAD HAUT"
+
+#~ msgctxt "joystick"
+#~ msgid "D-PAD DOWN"
+#~ msgstr "D-PAD BAS"
+
+#~ msgctxt "joystick"
+#~ msgid "D-PAD LEFT"
+#~ msgstr "D-PAD GAUCHE"
+
+#~ msgctxt "joystick"
+#~ msgid "D-PAD RIGHT"
+#~ msgstr "D-PAD DROITE"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT SHOULDER"
+#~ msgstr "L1"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT SHOULDER"
+#~ msgstr "R1"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT TRIGGER"
+#~ msgstr "GACHETTE GAUCHE (L2)"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT TRIGGER"
+#~ msgstr "GACHETTE DROITE (R2)"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT STICK PRESS"
+#~ msgstr "APPUI STICK GAUCHE (L3)"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT STICK PRESS"
+#~ msgstr "APPUI STICK DROIT (R3)"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"
