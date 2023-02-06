@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/01/16)\n"
+"Project-Id-Version: batocera-es v36beta(2022/02/03)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2023-01-21 18:22+0900\n"
+"PO-Revision-Date: 2023-02-05 20:56+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -420,13 +420,13 @@ msgid ""
 msgstr "対象となるアチーブメントを獲得できる場合、右下隅にアイコンを表示します"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENTサウンドのロック解除"
+msgstr "RETROACHIEVEMENTロック解除効果音"
 
 msgid "none"
 msgstr "無し"
 
 msgid "UNLOCK SOUND"
-msgstr "サウンドのロック解除"
+msgstr "ロック解除効果音"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
@@ -682,7 +682,7 @@ msgid "VIEW CUSTOMIZATION"
 msgstr "表示のカスタマイズ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドからキーボード情報を表示"
+msgstr "パッドキー設定情報を表示"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
@@ -949,7 +949,7 @@ msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "カスタム画像ファイル拡張子"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "キーボードキーをパッドに割り当てる設定"
+msgstr "パッドキー設定(キーボードをパッドに割り当てる)"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr ""
@@ -1081,7 +1081,7 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "互換性のあるコア"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "このゲームのACHIEVEMENTSを表示"
+msgstr "このゲームのアチーブメントを表示"
 
 msgid "GAME"
 msgstr "ゲーム"
@@ -1150,10 +1150,10 @@ msgid "SCRAPE"
 msgstr "スクレイプ"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "パッドキープロファイルの編集"
+msgstr "パッドキー設定の編集"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr "パッドキープロファイルの作成"
+msgstr "パッドキー設定の作成"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "このゲームの詳細設定"
@@ -1189,10 +1189,10 @@ msgid "Unlocked on"
 msgstr "ロック解除"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "このゲームにはまだACHIEVEMENTSがありません"
+msgstr "このゲームにはまだアチーブメントがありません"
 
 msgid "Achievements won"
-msgstr "ACHIEVEMENTS達成"
+msgstr "アチーブメント達成"
 
 #, c-format
 msgid "%d%% complete"
@@ -1614,7 +1614,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "すべてのゲームの言語/地域を再検出"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "ネットプレイ/ACHIEVEMENTS ですべてのゲームを検索"
+msgstr "ネットプレイ/アチーブメント ですべてのゲームを検索"
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
@@ -1675,10 +1675,10 @@ msgid "AUTO"
 msgstr "自動"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "ESメニューの 決定 とキャンセル のボタン入れ替え"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "emulationstationで、南(下)と東(右)のボタンの機能を入れ替えます"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "△(上)ボタン長押しでゲーム設定を開く"
@@ -2144,6 +2144,11 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"コントローラーのボタン設定を行います。 このコントローラのボタンのラベル通りで"
+"はなく、システムで 使用するボタン位置に基づいて設定します。（A,B,X,Yの位置）"
+"ホットキー用の特別なボタン（PSやHOME）がない場合は、 「セレクト」ボタンを使用"
+"してください。 ボタンを長押しで、割り当てられないボタン/スティックを スキップ"
+"します。 完了したら、決定（下）ボタンを押して確認します。"
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "シンデン ライトガンの設定"
@@ -2261,10 +2266,10 @@ msgid "SHOW HIDDEN FILES"
 msgstr "非表示設定ファイルを表示"
 
 msgid "SHOW FOLDERS"
-msgstr "romsサブフォルダの表示"
+msgstr "romサブフォルダの表示"
 
 msgid "having multiple games"
-msgstr "ゲームがあるフォルダ"
+msgstr "2個以上romがあるフォルダ"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
@@ -2646,7 +2651,9 @@ msgstr "プレイ回数"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "このフォルダには、%i種のゲームがあります。%sフォルダ"
+msgstr[0] ""
+"このフォルダには、\n"
+"%i種類のゲームがあります。%s"
 
 msgid "No Entries Found"
 msgstr "エントリが見つかりません"
@@ -2857,7 +2864,7 @@ msgid "ALREADY PLAYED"
 msgstr "プレイ済み"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "ACHIEVEMENTSがある"
+msgstr "アチーブメントがある"
 
 msgid "VERTICAL"
 msgstr "縦表示"
@@ -2978,7 +2985,7 @@ msgid "GAMEPAD %i"
 msgstr "ゲームパッド %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "何かのボタンを押し続けるとスキップ"
+msgstr "キー/ボタンを押し続けるとスキップ"
 
 msgid "-NOT DEFINED-"
 msgstr "-未割当-"
