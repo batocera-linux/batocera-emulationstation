@@ -85,6 +85,7 @@
     <game>deathcrimson2</game>
     <game>deathcrimsonox</game>
     <game>houseofthedead2</game>
+    <game>thehouseofthedead2</game>
     <game>virtuacop2</game>
   </system>
   <system name="gx4000">
@@ -178,12 +179,17 @@
     <game>heavyfireafghanistan</game>
     <game>heavyfireshatteredspear</game>
     <game>houseofthedeadiii</game>
+    <game>houseofthedead3</game>
     <game>houseofthedead4</game>
     <game>houseofthedeadoverkill</game>
     <game>maddogmccree</game>
     <game>maddogiithelostgold</game>
     <game>residentevilthedarksidechronicles</game>
     <game>residenteviltheumbrellachronicles</game>
+    <game>thehouseofthedeadiii</game>
+    <game>thehouseofthedead3</game>
+    <game>thehouseofthedead4</game>
+    <game>thehouseofthedeadoverkill</game>
     <game>theshoot</game>
     <game>thelastbountyhunter</game>
     <game>timecrisis4</game>
@@ -232,6 +238,7 @@
     <game>mechanicalviolatorhakaider</game>
     <game>mightyhits</game>
     <game>scudthedisposableassassin</game>
+    <game>thehouseofthedead</game>
     <game>virtuacop</game>
     <game>virtuacop2</game>
   </system>
@@ -285,6 +292,8 @@
     <game vertical_offset="0" yaw="20.6" pitch="15.75">residentevilthedarksidechronicles</game>
     <game vertical_offset="15.2" yaw="15.3" pitch="11.7">residenteviltheumbrellachronicles</game>
     <game vertical_offset="15.15" yaw="19.1" pitch="19.4">targetterror</game>
+    <game vertical_offset="15" yaw="19" pitch="19">thehouseofthedead2and3</game>
+    <game vertical_offset="15" yaw="19" pitch="19">thehouseofthedeadoverkill</game>
     <game vertical_offset="14.8" yaw="16.9" pitch="17">tomclancysghostrecon</game>
     <game vertical_offset="15" yaw="24.7" pitch="19">topshotarcade</game>
     <game vertical_offset="15.3" yaw="18.8" pitch="19.2">topshotdinosaurhunter</game>
