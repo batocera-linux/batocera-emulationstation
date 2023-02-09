@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/02/03)\n"
+"Project-Id-Version: batocera-es v36beta(2022/02/09)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2023-02-05 20:56+0900\n"
+"PO-Revision-Date: 2023-02-09 17:59+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1087,7 +1087,7 @@ msgid "GAME"
 msgstr "ゲーム"
 
 msgid "SAVE STATES"
-msgstr "セーブマネージャ"
+msgstr "セーブ"
 
 msgid "OPEN"
 msgstr "開く"
@@ -2671,7 +2671,7 @@ msgid "GAME OPTIONS"
 msgstr "ゲーム設定"
 
 msgid "FAVORITE"
-msgstr "気に入り"
+msgstr "お気に入り"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2913,19 +2913,19 @@ msgstr "空白"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "N ボタン / 上位置"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "S ボタン / 下位置"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "E ボタン / 右位置"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "W ボタン / 左位置"
 
 msgctxt "joystick"
 msgid "START"
@@ -2937,19 +2937,19 @@ msgstr "セレクト"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "十字キー上"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "十字キー下"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "十字キー左"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "十字キー右"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2985,27 +2985,27 @@ msgstr "右アナログST 右"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "左 ショルダー(L1)"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "右 ショルダー(R1)"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "左 トリガー(L2)"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "右 トリガー(R2)"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "左 アナログST押(L3)"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "右 アナログST押(R3)"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3146,35 +3146,3 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "上"
-
-#~ msgctxt "joystick"
-#~ msgid "DOWN"
-#~ msgstr "下"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT"
-#~ msgstr "左"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT"
-#~ msgstr "右"
-
-#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "ESメニューでの AとB ボタンの入れ替え"
-
-#~ msgid ""
-#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
-#~ "BUTTON TO CONFIRM WHEN DONE."
-#~ msgstr ""
-#~ "コントローラーのボタン設定を行います。 物理的なものではなく、スーファミコ"
-#~ "ントローラー上の 同等のボタンに対するボタン位置に基づいて設定します。 ホッ"
-#~ "トキー用の特別なボタンがない場合は、 「セレクト」ボタンを使用してくださ"
-#~ "い。 ボタンを長押しで、割り当てられない ボタン/スティックをスキップしま"
-#~ "す。 完了したら、下（決定）ボタンを押して確認します。"

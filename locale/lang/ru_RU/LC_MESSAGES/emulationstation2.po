@@ -1673,10 +1673,10 @@ msgid "AUTO"
 msgstr "АВТО"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "ПЕРЕКЛЮЧЕНИЕ КНОПОК ПОДТВЕРЖДЕНИЯ И ОТМЕНЫ В EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "Меняет местами функции \"Южной\" и \"Восточной\" кнопки"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
@@ -2146,6 +2146,10 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ СВЕТА "
+"(СЕВЕР, ЮГ, ЗАПАД, ВОСТОК). ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНОЙ КНОПКИ ДЛЯ "
+"ХОТКЕЯ, ИСПОЛЬЗУЙТЕ КНОПКУ SELECT. ПРОПУСТИТЕ ВСЕ КНОПКИ/СТИКИ, КОТОРЫХ У "
+"ВАС НЕТ, УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "НАСТРОЙКИ SINDEN GUN"
@@ -2915,19 +2919,19 @@ msgstr "ПРОБЕЛ"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "СЕВЕР (СВЕРХУ)"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "ЮГ (СНИЗУ)"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "ВОСТОК (СПРАВА)"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "ЗАПАД (СЛЕВА)"
 
 msgctxt "joystick"
 msgid "START"
@@ -2939,19 +2943,19 @@ msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "КРЕСТОВИНА - ВВЕРХ"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "КРЕСТОВИНА - ВНИЗ"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "КРЕСТОВИНА - ВЛЕВО"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "КРЕСТОВИНА - ВПРАВО"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2987,27 +2991,27 @@ msgstr "ПРАВЫЙ АНАЛОГ ВПРАВО"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "ЛЕВЫЙ БАМПЕР"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "ПРАВЫЙ БАМПЕР"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "ЛЕВЫЙ ТРИГГЕР"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "ПРАВЫЙ ТРИГГЕР"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "НАЖАТИЕ НА ЛЕВЫЙ СТИК"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "НАЖАТИЕ НА ПРАВЫЙ СТИК"
 
 msgctxt "joystick"
 msgid "HOTKEY"

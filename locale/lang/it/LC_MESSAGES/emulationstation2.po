@@ -2918,19 +2918,19 @@ msgstr "SPAZIO"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "NORD"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "SUD"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "EST"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "OVEST"
 
 msgctxt "joystick"
 msgid "START"
@@ -2942,19 +2942,19 @@ msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD SÙ"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD GIÙ"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD SINISTRA"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD DESTRA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2974,7 +2974,7 @@ msgstr "ANALOGICO SX - DESTRA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ANALOGICO DX - SU"
+msgstr "ANALOGICO DX - SÙ"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
@@ -2990,27 +2990,27 @@ msgstr "ANALOGICO DX - DESTRA"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "SPALLA SINISTRA"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "SPALLA DESTRA"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "GRILLETTO SX"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "GRILLETTO DX"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "PREMI MANOPOLA SX"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "PREMI MANOPOLA DX"
 
 msgctxt "joystick"
 msgid "HOTKEY"

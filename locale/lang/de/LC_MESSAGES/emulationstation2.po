@@ -2931,19 +2931,19 @@ msgstr "LEERTASTE"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "NORD"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "SÜD"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "OST"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "WEST"
 
 msgctxt "joystick"
 msgid "START"
@@ -2955,19 +2955,19 @@ msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD OBEN"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD UNTEN"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD LINKS"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD RECHTS"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -3003,27 +3003,27 @@ msgstr "RECHTER ANALOG RECHTS"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "LINKE SCHULTER"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "RECHTE SCHULTER"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "LINKER TRIGGER"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "RECHTER TRIGGER"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "LINKER STICK DRUCK"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "RECHTER STICK DRUCK"
 
 msgctxt "joystick"
 msgid "HOTKEY"
