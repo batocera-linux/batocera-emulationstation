@@ -2914,20 +2914,20 @@ msgid "SPACE"
 msgstr "ПРОБЕЛ"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "ВВЕРХ"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "ВНИЗ"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "ВЛЕВО"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "ВПРАВО"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2936,6 +2936,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2968,6 +2984,30 @@ msgstr "ПРАВЫЙ АНАЛОГ ВЛЕВО"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "ПРАВЫЙ АНАЛОГ ВПРАВО"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3122,6 +3162,22 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "ВВЕРХ"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "ВНИЗ"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "ВЛЕВО"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "ВПРАВО"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"

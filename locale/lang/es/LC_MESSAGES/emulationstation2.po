@@ -2929,20 +2929,20 @@ msgid "SPACE"
 msgstr "ESPACIO"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "ARRIBA"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "ABAJO"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "IZQUIEDA"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "DERECHA"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2951,6 +2951,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2983,6 +2999,30 @@ msgstr "ANALÓGICO DERECHO: IZQUIERDA"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "ANALÓGICO DERECHO: DERECHA"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3132,6 +3172,22 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "ARRIBA"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "ABAJO"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "IZQUIEDA"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "DERECHA"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "INVERTIR LOS BOTONES A/B EN EMULATIONSTATION (CONF. ASIÁTICA)"
@@ -3964,8 +4020,8 @@ msgstr "TEXTO A VOZ DESACTIVADO"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "EL PROTECTOR DE PANTALLA \"VIDEO ALEATORIO\" MUESTRA VIDEOS DE TUS LISTAS "
 #~ "DE JUEGOS.\n"

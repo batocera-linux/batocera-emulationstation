@@ -2873,19 +2873,19 @@ msgid "SPACE"
 msgstr "BOŞLUK"
 
 msgctxt "joystick"
-msgid "UP"
+msgid "NORTH"
 msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
+msgid "SOUTH"
 msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
+msgid "EAST"
 msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
+msgid "WEST"
 msgstr ""
 
 msgctxt "joystick"
@@ -2894,6 +2894,22 @@ msgstr ""
 
 msgctxt "joystick"
 msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
 msgstr ""
 
 msgctxt "joystick"
@@ -2926,6 +2942,30 @@ msgstr ""
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
 msgstr ""
 
 msgctxt "joystick"

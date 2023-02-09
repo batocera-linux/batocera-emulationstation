@@ -2925,20 +2925,20 @@ msgid "SPACE"
 msgstr "SPACJA"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "GÓRA"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "DÓŁ"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "LEWO"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "PRAWO"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2947,6 +2947,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2979,6 +2995,30 @@ msgstr "PRAWY ANALOG W LEWO"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "PRAWY ANALOG W PRAWO"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3133,6 +3173,22 @@ msgstr "WŁĄCZONY CZYTNIK EKRANU"
 
 msgid "SCREEN READER DISABLED"
 msgstr "WYŁĄCZONY CZYTNIK EKRANU"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "GÓRA"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "DÓŁ"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "LEWO"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "PRAWO"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "PRZEŁĄCZ PRZYCISKI A/B W EMULATIONSTATION"

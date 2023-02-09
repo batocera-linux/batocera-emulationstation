@@ -2882,20 +2882,20 @@ msgid "SPACE"
 msgstr "스페이스"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "위"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "아래"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "왼쪽"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "오른쪽"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2904,6 +2904,22 @@ msgstr "시작"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "선택"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2936,6 +2952,30 @@ msgstr "오른쪽 아날로그 왼쪽"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "오른쪽 아날로그 오른쪽"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3076,6 +3116,22 @@ msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "위"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "아래"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "왼쪽"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "오른쪽"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "에뮬레이션스테이션에서 A/B 버튼 교체"

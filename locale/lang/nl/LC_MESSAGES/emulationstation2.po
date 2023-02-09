@@ -2887,20 +2887,20 @@ msgid "SPACE"
 msgstr "SPATIE"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "OMHOOG"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "OMLAAG"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "LINKS"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "RECHTS"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2909,6 +2909,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2941,6 +2957,30 @@ msgstr "RECHTER ANALOGE STICK LINKS"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "RECHTER ANALOGE STICK RECHTS"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3088,6 +3128,22 @@ msgstr "SCHERM LEZER INGESCHAKELD"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SCHERM LEZER UITGESCHAKELD"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "OMHOOG"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "OMLAAG"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "LINKS"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "RECHTS"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "VERWISSEL A&B KNOPPEN IN EMULTATIONSTATION"

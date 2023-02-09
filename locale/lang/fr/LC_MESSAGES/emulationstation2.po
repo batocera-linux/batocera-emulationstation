@@ -1669,7 +1669,8 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "INTERVERTIR LES BOUTONS DE CONFIRMATION ET ANNULATION DANS EMULATIONSTATION"
+msgstr ""
+"INTERVERTIR LES BOUTONS DE CONFIRMATION ET ANNULATION DANS EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
 msgstr "Intervertir les fonctions des boutons Sud et Est"
@@ -2150,9 +2151,9 @@ msgid ""
 msgstr ""
 "VOUS ALLEZ CONFIGURER UNE MANETTE. CECI EST BASÉ SUR LA POSITION RELATIVE "
 "DES BOUTONS ET NON SUR LEURS LIBELLÉS. SI VOUS N’AVEZ PAS DE TOUCHE SPÉCIALE "
-"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / PADS "
-"QUE VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ." 
-"APPUYEZ SUR LE BOUTON SUD POUR CONFIRMER UNE FOIS TERMINÉ."
+"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / PADS QUE "
+"VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ.APPUYEZ SUR "
+"LE BOUTON SUD POUR CONFIRMER UNE FOIS TERMINÉ."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "PARAMÈTRES DES PISTOLETS SINDEN"
@@ -2919,20 +2920,20 @@ msgid "SPACE"
 msgstr "ESPACE"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "D-PAD HAUT"
+msgid "NORTH"
+msgstr "NORD"
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "D-PAD BAS"
+msgid "SOUTH"
+msgstr "SUD"
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "D-PAD GAUCHE"
+msgid "EAST"
+msgstr "EST"
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "D-PAD DROITE"
+msgid "WEST"
+msgstr "OUEST"
 
 msgctxt "joystick"
 msgid "START"
@@ -2941,6 +2942,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr "D-PAD HAUT"
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr "D-PAD BAS"
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr "D-PAD GAUCHE"
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr "D-PAD DROITE"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2973,6 +2990,30 @@ msgstr "JOYSTICK DROITE / GAUCHE"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "JOYSTICK DROITE / DROITE"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr "L1"
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr "R1"
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr "GACHETTE GAUCHE (L2)"
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr "GACHETTE DROITE (R2)"
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr "APPUI STICK GAUCHE (L3)"
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr "APPUI STICK DROIT (R3)"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3122,60 +3163,20 @@ msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
 
 #~ msgctxt "joystick"
-#~ msgid "SOUTH"
-#~ msgstr "SUD"
-
-#~ msgctxt "joystick"
-#~ msgid "EAST"
-#~ msgstr "EST"
-
-#~ msgctxt "joystick"
-#~ msgid "NORTH"
-#~ msgstr "NORD"
-
-#~ msgctxt "joystick"
-#~ msgid "WEST"
-#~ msgstr "OUEST"
-
-#~ msgctxt "joystick"
-#~ msgid "D-PAD UP"
+#~ msgid "UP"
 #~ msgstr "D-PAD HAUT"
 
 #~ msgctxt "joystick"
-#~ msgid "D-PAD DOWN"
+#~ msgid "DOWN"
 #~ msgstr "D-PAD BAS"
 
 #~ msgctxt "joystick"
-#~ msgid "D-PAD LEFT"
+#~ msgid "LEFT"
 #~ msgstr "D-PAD GAUCHE"
 
 #~ msgctxt "joystick"
-#~ msgid "D-PAD RIGHT"
+#~ msgid "RIGHT"
 #~ msgstr "D-PAD DROITE"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT SHOULDER"
-#~ msgstr "L1"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT SHOULDER"
-#~ msgstr "R1"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT TRIGGER"
-#~ msgstr "GACHETTE GAUCHE (L2)"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT TRIGGER"
-#~ msgstr "GACHETTE DROITE (R2)"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT STICK PRESS"
-#~ msgstr "APPUI STICK GAUCHE (L3)"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT STICK PRESS"
-#~ msgstr "APPUI STICK DROIT (R3)"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "INVERSER LES BOUTONS A/B DANS EMULATIONSTATION"

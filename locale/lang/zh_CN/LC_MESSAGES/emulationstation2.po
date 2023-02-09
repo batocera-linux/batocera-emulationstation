@@ -2875,20 +2875,20 @@ msgid "SPACE"
 msgstr "空格"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "上"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "下"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "左"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "右"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2897,6 +2897,22 @@ msgstr "开始"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "选择"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2929,6 +2945,30 @@ msgstr "右摇杆左"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "右摇杆右"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3067,6 +3107,22 @@ msgstr "已启用屏幕阅读器"
 
 msgid "SCREEN READER DISABLED"
 msgstr "已禁用屏幕阅读器"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "上"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "下"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "左"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "右"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "在EMULATIONSTATION中切换 A/B 按键"

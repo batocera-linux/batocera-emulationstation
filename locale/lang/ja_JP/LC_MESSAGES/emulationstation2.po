@@ -2912,20 +2912,20 @@ msgid "SPACE"
 msgstr "空白"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "上"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "下"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "左"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "右"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2934,6 +2934,22 @@ msgstr "スタート"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "セレクト"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2966,6 +2982,30 @@ msgstr "右アナログST 左"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "右アナログST 右"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3106,6 +3146,22 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "上"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "下"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "左"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "右"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "ESメニューでの AとB ボタンの入れ替え"

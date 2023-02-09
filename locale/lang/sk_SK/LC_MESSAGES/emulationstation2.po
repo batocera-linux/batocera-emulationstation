@@ -2920,20 +2920,20 @@ msgid "SPACE"
 msgstr "Medzera"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "Hore"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "Dolu"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "Vľavo"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "Vpravo"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2942,6 +2942,22 @@ msgstr "Spustiť"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "Vybrať"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2974,6 +2990,30 @@ msgstr "Pravý analóg vľavo"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "Pravý analóg vpravo"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3128,6 +3168,22 @@ msgstr "Čítačka obrazovky povolená"
 
 msgid "SCREEN READER DISABLED"
 msgstr "Čítačka obrazovky zakázaná"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "Hore"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "Dolu"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "Vľavo"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "Vpravo"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "Prehodiť tlačidlá A a B v EmulationStation"

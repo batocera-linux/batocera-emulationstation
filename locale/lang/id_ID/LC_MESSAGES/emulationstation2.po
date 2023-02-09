@@ -2910,20 +2910,20 @@ msgid "SPACE"
 msgstr "SPASI"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "ATAS"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "BAWAH"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "KIRI"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "KANAN"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2932,6 +2932,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2964,6 +2980,30 @@ msgstr "ANALOG KANAN, KIRI"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "ANALOG KANAN, KANAN"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3104,6 +3144,22 @@ msgstr "PEMBACA LAYAR DIAKTIFKAN"
 
 msgid "SCREEN READER DISABLED"
 msgstr "PEMBACA LAYAR DINONAKTIFKAN"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "ATAS"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "BAWAH"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "KIRI"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "KANAN"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "GANTI TOMBOL A & B DI EMULATIONSTATION"

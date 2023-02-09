@@ -2915,20 +2915,20 @@ msgid "SPACE"
 msgstr "HUTSUNEA"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "GORA"
+msgid "NORTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "BEHERA"
+msgid "SOUTH"
+msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "EZKERRA"
+msgid "EAST"
+msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "ESKUINA"
+msgid "WEST"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2937,6 +2937,22 @@ msgstr "HASI"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "AUKERATU"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2969,6 +2985,30 @@ msgstr "EZKERRERA ESKUINEKO ANALOGIKOAN"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "ESKUINERA ESKUINEKO ANALOGIKOAN"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3116,6 +3156,22 @@ msgstr "PANTAILA IRAKURLEA GAITUTA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "PANTAILA IRAKURLEA EZGAITUTA"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "GORA"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "BEHERA"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "EZKERRA"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "ESKUINA"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "TRUKATU A & B BOTOIAK EMULATIONSTATION-EAN"

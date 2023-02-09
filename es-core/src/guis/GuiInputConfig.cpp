@@ -8,21 +8,36 @@
 #include "Log.h"
 #include "Window.h"
 
-#define fake_gettext_up pgettext("joystick", "UP")
-#define fake_gettext_down pgettext("joystick", "DOWN")
-#define fake_gettext_left pgettext("joystick", "LEFT")
-#define fake_gettext_right pgettext("joystick", "RIGHT")
-#define fake_gettext_start pgettext("joystick", "START")
+#define fake_gettext_north pgettext("joystick", "NORTH")
+#define fake_gettext_south pgettext("joystick", "SOUTH")
+#define fake_gettext_east  pgettext("joystick", "EAST")
+#define fake_gettext_west  pgettext("joystick", "WEST")
+
+#define fake_gettext_start  pgettext("joystick", "START")
 #define fake_gettext_select pgettext("joystick", "SELECT")
-#define fake_gettext_left_a_up pgettext("joystick", "LEFT ANALOG UP")
-#define fake_gettext_left_a_down pgettext("joystick", "LEFT ANALOG DOWN")
-#define fake_gettext_left_a_left pgettext("joystick", "LEFT ANALOG LEFT")
-#define fake_gettext_left_a_right pgettext("joystick", "LEFT ANALOG RIGHT")
-#define fake_gettext_right_a_up pgettext("joystick", "RIGHT ANALOG UP")
-#define fake_gettext_right_a_down pgettext("joystick", "RIGHT ANALOG DOWN")
-#define fake_gettext_right_a_left pgettext("joystick", "RIGHT ANALOG LEFT")
+
+#define fake_gettext_up    pgettext("joystick", "D-PAD UP")
+#define fake_gettext_down  pgettext("joystick", "D-PAD DOWN")
+#define fake_gettext_left  pgettext("joystick", "D-PAD LEFT")
+#define fake_gettext_right pgettext("joystick", "D-PAD RIGHT")
+
+#define fake_gettext_left_a_up     pgettext("joystick", "LEFT ANALOG UP")
+#define fake_gettext_left_a_down   pgettext("joystick", "LEFT ANALOG DOWN")
+#define fake_gettext_left_a_left   pgettext("joystick", "LEFT ANALOG LEFT")
+#define fake_gettext_left_a_right  pgettext("joystick", "LEFT ANALOG RIGHT")
+#define fake_gettext_right_a_up    pgettext("joystick", "RIGHT ANALOG UP")
+#define fake_gettext_right_a_down  pgettext("joystick", "RIGHT ANALOG DOWN")
+#define fake_gettext_right_a_left  pgettext("joystick", "RIGHT ANALOG LEFT")
 #define fake_gettext_right_a_right pgettext("joystick", "RIGHT ANALOG RIGHT")
-#define fake_gettext_hotkey pgettext("joystick", "HOTKEY")
+
+#define fake_gettext_pageup   pgettext("joystick", "LEFT SHOULDER")
+#define fake_gettext_pagedown pgettext("joystick", "RIGHT SHOULDER")
+#define fake_gettext_l2       pgettext("joystick", "LEFT TRIGGER")
+#define fake_gettext_r2       pgettext("joystick", "RIGHT TRIGGER")
+#define fake_gettext_l3       pgettext("joystick", "LEFT STICK PRESS")
+#define fake_gettext_r3       pgettext("joystick", "RIGHT STICK PRESS")
+
+#define fake_gettext_hotkey        pgettext("joystick", "HOTKEY")
 
 //MasterVolUp and MasterVolDown are also hooked up, but do not appear on this screen.
 //If you want, you can manually add them to es_input.cfg.
