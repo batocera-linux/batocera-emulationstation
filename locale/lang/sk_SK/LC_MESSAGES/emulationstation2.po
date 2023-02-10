@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2023-02-06 17:27+0100\n"
+"PO-Revision-Date: 2023-02-10 13:17+0100\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
 "2;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Loco-Source-Locale: en\n"
 "X-Loco-Project-Id: 136009\n"
 "X-Loco-Api-Version: 1.0.27 20230201-1\n"
@@ -138,13 +138,13 @@ msgid "Rating"
 msgstr "Hodnotenie"
 
 msgid "enter rating"
-msgstr "Zadajte hodnotenie"
+msgstr "zadajte hodnotenie"
 
 msgid "Release date"
 msgstr "Dátum vydania"
 
 msgid "enter release date"
-msgstr "Zadajte dátum vydania"
+msgstr "zadajte dátum vydania"
 
 msgid "Developer"
 msgstr "Vývojár"
@@ -264,7 +264,7 @@ msgid "all games"
 msgstr "všetky hry"
 
 msgid "last played"
-msgstr "Naposledy hrané"
+msgstr "naposledy hrané"
 
 msgid "favorites"
 msgstr "obľúbené"
@@ -302,7 +302,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "Odobrané '%s' z '%s'"
 
 msgid "This collection is empty."
-msgstr "Táto kolekcia je prázdna"
+msgstr "Táto kolekcia je prázdna."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -1353,7 +1353,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "Beží vyhľadávanie. Chcete ho zastaviť?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "Žiadne hry vyhovujúce kritériu"
+msgstr "Žiadne hry vyhovujúce kritériu."
 
 msgid "INFORMATION"
 msgstr "Informácia"
@@ -2113,7 +2113,7 @@ msgid "DO NOT INCREMENT"
 msgstr "Nezvyšovať"
 
 msgid "Use current slot on a new game."
-msgstr "Použiť aktuálny slot na novú hru"
+msgstr "Použiť aktuálny slot na novú hru."
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "Zobraziť správcu uložených stavov"
@@ -2821,7 +2821,7 @@ msgid "INDEXING COMPLETED"
 msgstr "Indexovanie ukončené"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "Aktualizujte zoznamy hier na použitie zmien"
+msgstr "Aktualizujte zoznamy hier na použitie zmien."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "Emulátor sa nečakane ukončil"
@@ -2921,19 +2921,19 @@ msgstr "Medzera"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "SEVER"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "JUH"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "VÝCHOD"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "ZÁPAD"
 
 msgctxt "joystick"
 msgid "START"
@@ -2943,21 +2943,25 @@ msgctxt "joystick"
 msgid "SELECT"
 msgstr "Vybrať"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "Hore"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "Dolu"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "Vľavo"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "Vpravo"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2991,29 +2995,35 @@ msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "Pravý analóg vpravo"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "Vľavo"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "Vpravo"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "Vľavo"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "Vpravo"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "Vľavo"
 
+#, fuzzy
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "Vpravo"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3084,7 +3094,7 @@ msgid "DISCARD CHANGES"
 msgstr "Zahodiť zmeny"
 
 msgid "up/down"
-msgstr "Hore/Dolu"
+msgstr "hore/dolu"
 
 msgid "accept"
 msgstr "prijať"
