@@ -4,14 +4,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Rui Santos <eagle75pt@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -35,88 +35,88 @@ msgid "emulator"
 msgstr "emulador"
 
 msgid "Core"
-msgstr "CORE"
+msgstr "Core"
 
 msgid "core"
 msgstr "core"
 
 msgid "Image"
-msgstr "Captura de ecrã"
+msgstr "Imagem"
 
 msgid "enter path to image"
-msgstr "digite o caminho para a captura de ecrã"
+msgstr "introduza o caminho para a imagem"
 
 msgid "Video"
 msgstr "Vídeo"
 
 msgid "enter path to video"
-msgstr "digite o caminho para o vídeo"
+msgstr "introduza o caminho para o vídeo"
 
 msgid "Logo"
 msgstr "Logotipo"
 
 msgid "enter path to logo"
-msgstr "digite o caminho para o logotipo"
+msgstr "introduza o caminho para o logotipo"
 
 msgid "Box"
 msgstr "Caixa do jogo"
 
 msgid "enter path to box"
-msgstr "digite o caminho para a caixa do jogo"
+msgstr "introduza o caminho para a caixa do jogo"
 
 msgid "Fan art"
 msgstr "Arte do fã"
 
 msgid "enter path to fanart"
-msgstr "digite o caminho para a arte do fã"
+msgstr "introduza o caminho para a arte do fã"
 
 msgid "Title shot"
 msgstr "Imagem de ecrã inicial"
 
 msgid "enter path to title shot"
-msgstr "digite o caminho para a imagem de ecrã inicial"
+msgstr "introduza o caminho para a imagem de ecran inicial"
 
 msgid "Manual"
 msgstr "Manual"
 
 msgid "enter path to manual"
-msgstr "digite o caminho para o manual"
+msgstr "introduza o caminho para o manual"
 
 msgid "Magazine"
 msgstr "Revista"
 
 msgid "enter path to magazine"
-msgstr "digite o caminho para a revista"
+msgstr "introduza o caminho para a revista"
 
 msgid "Map"
 msgstr "Mapa"
 
 msgid "enter path to map"
-msgstr "digite o caminho para o mapa"
+msgstr "introduza o caminho para o mapa"
 
 msgid "Bezel (16:9)"
 msgstr "Moldura (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "insira o caminho do diretório para a moldura (16:9)"
+msgstr "introduza o caminho do diretório para a moldura (16:9)"
 
 msgid "Cartridge"
 msgstr "Cartucho"
 
 msgid "enter path to cartridge"
-msgstr "digite o caminho para o cartucho"
+msgstr "introduza o caminho para o cartucho"
 
 msgid "Alt BoxArt"
-msgstr "Arte Alternativa da Caixa"
+msgstr "Arte alternativa da caixa"
 
 msgid "enter path to alt boxart"
-msgstr "digite o caminho da arte alternativa da caixa"
+msgstr "introduza o caminho da arte alternativa da caixa"
 
 msgid "Box backside"
 msgstr "Parte de trás da caixa"
 
 msgid "enter path to box background"
-msgstr "digite o caminho da parte de trás da caixa"
+msgstr "introduza o caminho da parte de trás da caixa"
 
 msgid "Wheel"
 msgstr "Logotipo para carrossel"
@@ -134,31 +134,31 @@ msgid "Rating"
 msgstr "Avaliação"
 
 msgid "enter rating"
-msgstr "digite a avaliação"
+msgstr "introduza a avaliação"
 
 msgid "Release date"
 msgstr "Data de lançamento"
 
 msgid "enter release date"
-msgstr "digite a data de lançamento"
+msgstr "introduza a data de lançamento"
 
 msgid "Developer"
 msgstr "Produtora"
 
 msgid "this game's developer"
-msgstr "a produtora deste jogo"
+msgstr "produtora deste jogo"
 
 msgid "Publisher"
 msgstr "Editora"
 
 msgid "this game's publisher"
-msgstr "a editora deste jogo"
+msgstr "editora deste jogo"
 
 msgid "Genre"
 msgstr "Género"
 
 msgid "enter game genre"
-msgstr "digite o género"
+msgstr "introduza o género"
 
 msgid "Game family"
 msgstr "Família de Jogos"
@@ -170,7 +170,7 @@ msgid "Genres"
 msgstr "Géneros"
 
 msgid "enter game genres"
-msgstr "digite os géneros do jogo"
+msgstr "introduza os géneros do jogo"
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -200,19 +200,19 @@ msgid "Kidgame"
 msgstr "Jogo infantil"
 
 msgid "enter kidgame"
-msgstr "entrar no infantil"
+msgstr "entrar no jogo infantil"
 
 msgid "Play count"
 msgstr "Número de partidas"
 
 msgid "enter number of times played"
-msgstr "Digite o número de vezes jogado"
+msgstr "introduza o número de vezes jogado"
 
 msgid "Last played"
 msgstr "Última vez jogado"
 
 msgid "enter last played date"
-msgstr "digite a data da última partida"
+msgstr "introduza a data da última partida"
 
 msgid "Crc32"
 msgstr "Crc32"
@@ -245,37 +245,37 @@ msgid "this game's region"
 msgstr "a região deste jogo"
 
 msgid "Cheevos Hash"
-msgstr "Número identificador da conquista"
+msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr "Verificação da Conquista"
+msgstr "Soma de verificação Cheevos"
 
 msgid "Cheevos Game ID"
-msgstr "ID da Conquista"
+msgstr "ID de jogo Cheevos"
 
 msgid "Screenscraper Game ID"
-msgstr "ID da Media do Jogo"
+msgstr "ID da informação do Jogo"
 
 msgid "all games"
 msgstr "todos os jogos"
 
 msgid "last played"
-msgstr "Última vez jogado"
+msgstr "última vez jogado"
 
 msgid "favorites"
-msgstr "FAVORITOS"
+msgstr "favoritos"
 
 msgid "2 players"
-msgstr "2 JOGADORES"
+msgstr "2 jogadores"
 
 msgid "4 players"
-msgstr "4 JOGADORES"
+msgstr "4 jogadores"
 
 msgid "never played"
 msgstr "nunca jogado"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "conquistas anteriores"
 
 msgid "arcade"
 msgstr "arcade"
@@ -287,15 +287,15 @@ msgid "lightgun games"
 msgstr "jogos de pistola"
 
 msgid "collections"
-msgstr "COLEÇÕES"
+msgstr "coleções"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "'%s' Adicionado a '%s'"
+msgstr "'%s' adicionado a '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "'%s' Removido de '%s'"
+msgstr "'%s' removido de '%s'"
 
 msgid "This collection is empty."
 msgstr "Esta coleção está vazia."
@@ -381,7 +381,7 @@ msgstr "MODO HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Desativar estados de carregamento, volta no tempo e cheats para mais pontos"
+"Desativar estados de carga, retrocede no tempo e cheats para mais pontos."
 
 msgid "LEADERBOARDS"
 msgstr "PLACAR"
@@ -396,7 +396,7 @@ msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
-"Mostrar progresso de conquistas no lançamento do jogo e outras notificações"
+"Mostrar progresso de conquistas no arranque do jogo e outras notificações."
 
 msgid "RICH PRESENCE"
 msgstr "PRESENÇA RICA"
@@ -405,14 +405,13 @@ msgid "ENCORE MODE"
 msgstr "MODO DE REPETIÇÃO (BIS)"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "Conquistas desbloqueadas podem ser obtidas novamente"
+msgstr "Conquistas desbloqueadas podem ser obtidas novamente."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE ECRÃ AUTOMÁTICO"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
-"Automaticamente captura uma imagem quando uma conquista retro é conquistada."
+msgstr "Automaticamente captura uma imagem quando uma conquista é ganha."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICADORES DE DESAFIOS"
@@ -422,7 +421,7 @@ msgid ""
 "earned."
 msgstr ""
 "Mostrar os ícones no canto inferior direito quando as conquistas elegíveis "
-"podem ser obtidas."
+"podem ser ganhas."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SOM AO DESBLOQUEAR RETROACHIEVEMENT"
@@ -1677,10 +1676,10 @@ msgid "AUTO"
 msgstr "AUTOMÁTICO"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "TROCA OS BOTÕES CONFIRMA E CANCELA NO EMILATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "Alterna a funcionalidade dos botões SUL e ESTE"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ACESSE ÀS OPÇÕES DE JOGO COM O BOTÃO NORTE"
@@ -1948,7 +1947,7 @@ msgid "ENFORCE SECURITY"
 msgstr "REFORÇAR A SEGURANÇA"
 
 msgid "Require a password for accessing the network share."
-msgstr "Requer uma password para acessar a partilha de rede"
+msgstr "Requer uma password para aceder à partilha de rede."
 
 msgid "ROOT PASSWORD"
 msgstr "PASSWORD ROOT"
@@ -1963,7 +1962,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "SALTAR FRAMES"
 
 msgid "High numbers can result in visible jitter."
-msgstr "Números altos podem resultar em instabilidade visível"
+msgstr "Números altos podem resultar em instabilidade visível."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "EXECUTE EM SEGUNDO CASO"
@@ -2016,7 +2015,7 @@ msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr "Define a resolução do monitor. Não afeta a resolução da renderização"
+msgstr "Define a resolução do monitor. Não afeta a resolução da renderização."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOGOS SUAVES (FILTRAGEM BILINEAR)"
@@ -2101,8 +2100,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "LOADING/SAVES AUTOMATICAMENTE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Carregar o último savestate ao iniciar o jogo e guardar ao sair do jogo"
+msgstr "Carregar o último estado gravado no jogo e guardar ao sair do jogo."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "TIPO DE INCREMENTO"
@@ -2117,7 +2115,7 @@ msgid "INCREMENT SLOT"
 msgstr "POR ESPAÇO DE SLOT"
 
 msgid "Increment slot on a new game."
-msgstr "INCREMENTAR SLOT EM UM NOVO JOGO"
+msgstr "Incrementar a slot num novo jogo."
 
 msgid "DO NOT INCREMENT"
 msgstr "NÃO INCREMENTAR"
@@ -2135,7 +2133,7 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "Display savestate manager before launching a game."
-msgstr "Mostrar o gerenciador de savestate antes de iniciar um jogo"
+msgstr "Mostrar o gestor de estados gravados antes de iniciar um jogo."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "DEFINIÇÕES AVANÇADAS POR SISTEMA"
@@ -2158,6 +2156,10 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"SERÁ CONFIGURADO UM CONTROLADOR COM BASE NA POSIÇÃO DO BOTÃO, NÃO NA SUA "
+"ETIQUETA FISICA. SE NÃO TIVER UM BOTÃO ESPECIAL PARA HOTKEY, USE O BOTÃO "
+"SELECCIONAR. SALTE TODOS OS BOTÕES/MANIPULOS QUE NÃO TÊM Q UALQUER BOTÃO "
+"FISICO. PRESSIONE O BOTÃO SUL QUANDO TERMINAR."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "DEFINIÇÕES DA PISTOLA SINDEN"
@@ -2191,7 +2193,7 @@ msgid "P%i'S CONTROLLER"
 msgstr "COMANDO DO JOGADOR %i"
 
 msgid "default"
-msgstr "PADRÃO"
+msgstr "padrão"
 
 msgid "BORDER SIZE"
 msgstr "TAMANHO DA BORDA"
@@ -2924,19 +2926,19 @@ msgstr "ESPAÇO"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "NORTE"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "SUL"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "ESTE"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "OESTE"
 
 msgctxt "joystick"
 msgid "START"
@@ -2948,19 +2950,19 @@ msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD CIMA"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD BAIXO"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD ESQUERDA"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD DIREITA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2996,27 +2998,27 @@ msgstr "ANALÓGICO DIREITO - DIREITA"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "OMBRO ESQUERDO"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "OMBRO DIREITO"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "TRIGGER ESQUERDO"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "TRIGGER DIREITO"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "PRESSAO MANUPULO ESQUERDO"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "PRESSAO MANIPULO DIREITO"
 
 msgctxt "joystick"
 msgid "HOTKEY"
