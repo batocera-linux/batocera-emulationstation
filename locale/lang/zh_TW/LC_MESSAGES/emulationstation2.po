@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 23:48+0100\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: \n"
@@ -379,7 +379,7 @@ msgid "HARDCORE MODE"
 msgstr "硬派模式"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
+msgstr "停用載入即時存檔、倒帶及作弊功能以取得更多點數。"
 
 msgid "LEADERBOARDS"
 msgstr "排行榜"
@@ -391,7 +391,7 @@ msgid "VERBOSE MODE"
 msgstr "詳細模式"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "在遊戲啟動及其他通知顯示成就進度。"
 
 msgid "RICH PRESENCE"
 msgstr "RICH PRESENCE"
@@ -516,7 +516,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "依硬體類型"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "依製造商以及類型"
 
 msgid "BY RELEASE YEAR"
 msgstr "依發行年分"
@@ -586,10 +586,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (第 %d 個，共 %d 個)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "點數（硬派）"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "軟派點數"
 
 msgid "Rank"
 msgstr "階級"
@@ -658,10 +658,10 @@ msgid "SORT GAMES BY"
 msgstr "排序遊戲依"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "動態合輯"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "自定義合輯"
 
 msgid "DELETE COLLECTION"
 msgstr "刪除合輯"
@@ -716,7 +716,7 @@ msgstr "藍牙裝置已被刪除。"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "您確定要移除「%s」嗎？"
 
 msgid "INPUT"
 msgstr "輸入"
@@ -782,7 +782,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "配對藍牙裝置"
 
 msgid "PAIR"
-msgstr ""
+msgstr "配對"
 
 msgid "FILE BROWSER"
 msgstr "檔案瀏覽器"
@@ -856,7 +856,7 @@ msgid "slideshow"
 msgstr "幻燈片"
 
 msgid "suspend"
-msgstr ""
+msgstr "暫停"
 
 msgid "always"
 msgstr "總是"
@@ -1023,6 +1023,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"偵測到非官方的系統改動。\n"
+"升級可能會損毀您的系統。\n"
+"您想要更新至版本 %s 嗎？"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要連線到網際網路"
@@ -1160,13 +1163,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "選擇要安裝或移除的佈景主題"
 
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 msgid "Installed"
-msgstr ""
+msgstr "已安裝"
 
 msgid "Available"
-msgstr ""
+msgstr "可用的"
 
 msgid "CURRENT THEME"
 msgstr "目前的佈景主題"
@@ -1188,7 +1191,7 @@ msgid "%d%% complete"
 msgstr "已完成 %d%%"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "即時存檔管理員"
 
 msgid "START NEW GAME"
 msgstr "新遊戲"
@@ -1655,10 +1658,10 @@ msgid "AUTO"
 msgstr "自動"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "在 EMULATIONSTATION 中調換確認鍵與取消鍵"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "調換南功能鍵與東功能鍵的按鍵功能"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "透過北功能鍵存取遊戲選項"
@@ -1672,10 +1675,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "僅透過第一支遊戲搖桿操作 EMULATIONSTATION"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "光槍移動容忍度"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "啟用 HID 搖桿驅動程式"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "顯示網路指示器圖示"
@@ -1819,7 +1822,7 @@ msgid "SCREEN ROTATION"
 msgstr "螢幕旋轉"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0 度"
 
 msgid "90 DEGREES"
 msgstr "90 度"
@@ -1979,7 +1982,7 @@ msgstr "影像模式"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "指定顯示裝置的解析度。不會影響渲染解析度。"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑遊戲畫面（雙線性過濾）"
@@ -2063,7 +2066,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "自動儲存/載入"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
+msgstr "在遊戲啟動時載入最後的即時存檔，並在退出遊戲時儲存即時存檔。"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "遞增即時存檔"
@@ -2087,7 +2090,7 @@ msgid "Use current slot on a new game."
 msgstr "將目前的存檔槽用於新遊戲。"
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "顯示即時存檔管理員"
 
 msgid "ALWAYS"
 msgstr "總是"
@@ -2096,7 +2099,7 @@ msgid "IF NOT EMPTY"
 msgstr "若不為空時"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "在遊戲啟動前顯示即時存檔管理員。"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
@@ -2119,21 +2122,24 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"您即將要設定控制器按鍵對映。 按鍵對映將以超任遊戲控制器的按鈕位置做為參照，而"
+"並非它的實體標示。 如果您沒有專門的按鈕可指派為「熱鍵」， 請將它指派給「選擇"
+"鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 完成時按南功能鍵確認。"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "SINDEN 光線槍設定"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "WIIMOTE 光線槍設定"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "藍牙"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
+msgstr "自動配對藍牙手把"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "手動配對藍牙裝置"
 
 msgid "DISPLAY OPTIONS"
 msgstr "顯示設定"
@@ -2145,7 +2151,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "玩家分配"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2155,49 +2161,49 @@ msgid "default"
 msgstr "預設值"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "邊框尺寸"
 
 msgid "THIN"
-msgstr ""
+msgstr "窄"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "中等"
 
 msgid "BIG"
-msgstr ""
+msgstr "大"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "邊框模式"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "一般"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "僅在遊戲中"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "隱藏"
 
 msgid "RECOIL"
-msgstr ""
+msgstr "收縮"
 
 msgid "GUN"
-msgstr ""
+msgstr "光槍"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "機槍"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "靜音槍"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "靜音機槍"
 
 msgid "MODE"
-msgstr ""
+msgstr "模式"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "搖桿"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "在編輯主題設定之前必須先套用該佈景主題"
@@ -2404,10 +2410,10 @@ msgid "REALLY RESTART?"
 msgstr "確定要重新啟動嗎?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "系統休眠"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "確定要休眠？"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "系統關機"
@@ -2876,19 +2882,19 @@ msgstr "空白鍵"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "北功能鍵"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "南功能鍵"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "東功能鍵"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "西功能鍵"
 
 msgctxt "joystick"
 msgid "START"
@@ -2900,19 +2906,19 @@ msgstr "選擇"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD 上"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD 下"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD 左"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD 右"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2948,27 +2954,27 @@ msgstr "右類比 右"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "左肩鍵"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "右肩鍵"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "左板機"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "右板機"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "左搖桿按下"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "右搖桿按下"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3861,8 +3867,8 @@ msgstr "螢幕閱讀器已停用"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
-#~ "SETTINGS\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
 #~ msgstr ""
 #~ "螢幕保護 \\\"隨機影片\\\" 將顯示遊戲列表中的影片。\n"
 #~ "如果遊戲列表中沒有影片，或者在嘗試播放失敗幾次後，顯示為\\\"黑屏\"。\n"
