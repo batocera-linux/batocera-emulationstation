@@ -19,7 +19,7 @@ msgid "UPDATE AVAILABLE"
 msgstr "PEMBAHARUAN TERSEDIA"
 
 msgid "Name"
-msgstr "Name"
+msgstr "Nama"
 
 msgid "this game's name"
 msgstr "nama game ini"
@@ -37,10 +37,10 @@ msgid "emulator"
 msgstr "emulator"
 
 msgid "Core"
-msgstr "Core"
+msgstr "Inti"
 
 msgid "core"
-msgstr "core"
+msgstr "inti"
 
 msgid "Image"
 msgstr "Gambar"
@@ -85,10 +85,10 @@ msgid "enter path to manual"
 msgstr "masukkan jalur ke petunjuk"
 
 msgid "Magazine"
-msgstr "Kalawarta"
+msgstr "Majalah"
 
 msgid "enter path to magazine"
-msgstr "masukkan jalur ke kalawarta"
+msgstr "masukkan jalur ke majalah"
 
 msgid "Map"
 msgstr "Peta"
@@ -163,7 +163,7 @@ msgid "enter game genre"
 msgstr "masukkan genre game"
 
 msgid "Game family"
-msgstr "PGame kelurga"
+msgstr "Game kelurga"
 
 msgid "this game's game family"
 msgstr "ini game keluarga"
@@ -307,7 +307,7 @@ msgid "None"
 msgstr "Tidak ada"
 
 msgid "Various"
-msgstr "Macam-macam"
+msgstr "Macam -  macam"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -443,7 +443,7 @@ msgid "GAME INDEXES"
 msgstr "INDEKS GAME"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEKS GAME SAAT MEMULAI"
+msgstr "INDEKS GAME BARU - SAAT MEMULAI"
 
 msgid "INDEX GAMES"
 msgstr "INDEK GAME"
@@ -452,7 +452,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "TIDAK DAPAT MENGAKTIFKAN PENCAPAIAN:"
 
 msgid "OK"
-msgstr "KUY"
+msgstr "OKE"
 
 msgid "FILTER GAMELIST BY"
 msgstr "FILTER DAFTAR GAME BERDASARKAN"
@@ -591,7 +591,7 @@ msgstr "MOHON TUNGGU"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr ""
+msgstr "%d%% (%d of %d)"
 
 msgid "Points (hardcore)"
 msgstr "Poin (hardcore)"
@@ -1347,9 +1347,12 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
+"PERINGATAN: BEBERAPA SISTEM YANG ANDA PILIH TIDAK MEMILIKI SET PLATFORM. "
+"HASIL MUNGKIN KARENA MEMILIKI SISTEM YANG BERBEDA!\n"
+"INGIN LANJUTKAN?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "SCRAP SEDANG BERJALAN. ANDA YAKIN INGIN BERHENTI"
+msgstr "PENGUMPULAN DATA SEDANG BERJALAN. ANDA YAKIN INGIN BERHENTI"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "TIDAK ADA GAME YANG COCOK DENGAN KRITERIA ITU."
@@ -1669,10 +1672,10 @@ msgid "AUTO"
 msgstr "OTOMATIS"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "GANTI TOMBOL KONFIRMASI DAN BATALKAN DALAM EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "GANTI TOMBOL UTARA ( ATAS ) ATAS DAN DAN TIMUR ( KIRI )' functionality"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "OPSI AKSES GAME DENGAN NORTH BUTTON"
@@ -1681,8 +1684,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Beralih ke short-press North untuk Savestates & long-press tombol South "
-"untuk Opsi Game"
+"Beralih ke menekan sementara tombol Utara ( atas ) untuk Savestates & Tekan "
+"tombol Selatan ( bawah ) lebih lama untukuntuk Opsi Game"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROL EMULATIONSTATION DENGAN JOYSTICK PERTAMA"
@@ -2149,6 +2152,11 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"ANDA AKAN MELAKUKAN PENGATURAN PETA KONTROLLER. PETA BERDASARKAN POSISI "
+"TOMBOLBUKAN LABEL SECARA FISIK. BILA ANDA TIDAK MEMILIKI TOMBOL HOTKEY "
+"SPESIALGUNAKAN TOMBOL SELECT. LEWATI SEMUA TOMBOL/STICKS DENGAN TIDAK "
+"MENEKAN TOMBOL APA - PUN TEKAN TOMBOL UTARA ( BAWAH ) UNTUK KONFIRMASI "
+"KETIKA SUDAH SELESAI."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "PENGATURAN GUN SINDEN"
@@ -2179,7 +2187,7 @@ msgstr "TUGAS PEMAIN"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr ""
+msgstr "P%i'S KONTROLLER"
 
 msgid "default"
 msgstr "default"
@@ -2499,13 +2507,13 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUSI BAGIAN DALAM"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr "LUNCURKAN GAME INI SAAT MULAI"
+msgstr "JALANKAN GAME INI SAAT MULAI"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMAT PERANGKAT"
 
 msgid "DEVICE TO FORMAT"
-msgstr "PERNGAKAT YANG AKAN DIFORMAT"
+msgstr "PERANGAKAT YANG AKAN DIFORMAT"
 
 msgid "FILE SYSTEM"
 msgstr "SISTEM FILE"
@@ -2606,17 +2614,15 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PERINGATAN: EMULATOR/CORE YANG DITERAPKAN SAAT INI TIDAK MENDUKUNG FORMAT "
-"GAME INI.\n"
-"TETAP INGIN MELUNCURKANNYA?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PERINGATAN: SISTEM KEHILANGAN FILE BIOS DAN GAME MUNGKIN TIDAK BEKERJA.\n"
-"TETAP INGIN MELUNCURKANNYA?"
+"PERINGATAN: SISTEM KEHILANGAN FILE BIOS DAN GAME MUNGKIN TIDAK BEKERJA."
+"DENGAN BENAR.\n"
+"TETAP INGIN MENJALANKAN - NYA?"
 
 msgid "Preloading UI"
 msgstr "Pramuat UI"
@@ -2874,20 +2880,20 @@ msgid "HAS MEDIAS"
 msgstr "MEMILIKI MEDIA"
 
 msgid "SCRAPING"
-msgstr "SEDANG SCRAP"
+msgstr "SEDANG MENGUMPULKAN"
 
 msgid "SCRAPE FAILED"
-msgstr "SCRAP GAGAL"
+msgstr "MENGUMPULKAN GAGAL"
 
 msgid "SCRAPING FINISHED"
-msgstr "SCRAP SELESAI"
+msgstr "MENGUMPULKAN SELESAI"
 
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
 "KALIBER SENJATA\n"
-"TARGET KALIBER"
+"PUTUSKAN TARGET UNTUK MELAKUKAN KALIBRASI"
 
 #, c-format
 msgid "%s connected"
@@ -2911,19 +2917,19 @@ msgstr "SPASI"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "UTARA / ATAS"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "SELATAN / BAWAH"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "TIMUR / KANAN"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "BARAT / KIRI"
 
 msgctxt "joystick"
 msgid "START"
@@ -2935,19 +2941,19 @@ msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD ATAS"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD BAWAH"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD KIRI"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD KANAN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2983,34 +2989,34 @@ msgstr "ANALOG KANAN, KANAN"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "BAHU TANGAN KIRI"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "BAHU TANGAN KANAN"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "PEMICU - KIRI"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "PEMICU - KANAN"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "STICK - TOMBOL KIRI TEKAN"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "STICK - TOMBOL KANAN TEKAN"
 
 msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "HOTKEY"
 
 msgid "CONFIGURING"
-msgstr "MENGKONFIGURASI"
+msgstr "MENG-KONFIGURASI"
 
 msgid "KEYBOARD"
 msgstr "KEYBOARD"
@@ -3039,7 +3045,7 @@ msgid "SET SELECT AS HOTKEY"
 msgstr "ATUR SELECT SEBAGAI HOTKEY"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr ""
+msgstr "JANGAN MASUKAN HOTKEY"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
@@ -3050,7 +3056,7 @@ msgid "PRESS ANYTHING"
 msgstr "TEKAN APA SAJA"
 
 msgid "ALREADY TAKEN"
-msgstr "TELAH DIGUNAKAN"
+msgstr "SUDAH DIGUNAKAN"
 
 msgid "WELCOME"
 msgstr "SELAMAT DATANG"
@@ -3061,10 +3067,10 @@ msgid_plural "%i GAMEPADS DETECTED"
 msgstr[0] "GAMEPAD TERDETEKSI"
 
 msgid "NO GAMEPADS DETECTED"
-msgstr "GAMEPAD TIDAK TERDETEKSI"
+msgstr "MAAF, GAMEPAD TIDAK TERDETEKSI"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "TAHAN TOMBOL DI PERANGKATMU UNTUK MENKONFIGURASINYA"
+msgstr "TAHAN TOMBOL DI PERANGKATMU UNTUK MELAKUKAN KONFIGURASI"
 
 msgid "DISCARD CHANGES"
 msgstr "PERUBAHAN DIBATALKAN"
@@ -3125,7 +3131,7 @@ msgid_plural "%d seconds ago"
 msgstr[0] "sedetik lalu"
 
 msgid "WORKING..."
-msgstr "DIKERJAKAN..."
+msgstr "PROSES SEDANG BERJALAN..."
 
 #, c-format
 msgid "%d h"
@@ -3144,6 +3150,13 @@ msgstr "PEMBACA LAYAR DIAKTIFKAN"
 
 msgid "SCREEN READER DISABLED"
 msgstr "PEMBACA LAYAR DINONAKTIFKAN"
+
+#~ msgid ""
+#~ "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S "
+#~ "FILE DO YOU WANT TO LAUNCH IT ANYWAY?"
+#~ msgstr ""
+#~ "PERINGATAN: EMULATOR/CORE YANG DITERAPKAN SAAT INI TIDAK MENDUKUNG FILE "
+#~ "GAME INITETAP INGIN MENJALANKAN - NYA?"
 
 #~ msgctxt "joystick"
 #~ msgid "UP"
@@ -3171,20 +3184,12 @@ msgstr "PEMBACA LAYAR DINONAKTIFKAN"
 #~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
 #~ "BUTTON TO CONFIRM WHEN DONE."
 #~ msgstr ""
-#~ "ANDA AKAN MEMETAPKAN KONTROLER. PETA BERDASARKAN POSISI TOMBOL RELATIF "
-#~ "ITU SEBANDING PADA KONTROLER SNES, BUKAN LABEL FISIKNYA. JIKA ANDA TIDAK "
-#~ "PUNYA KUNCI KHUSUS UNTUK HOTKEY, GUNAKAN TOMBOL SELECT. ABAIKAN SEMUA "
-#~ "TOMBOL/STICK YANG TIDAK LU PUNYA DENGAN MEMEGANG KUNCI APAPUN. TEKAN "
-#~ "TOMBOL SELATAN UNTUK KONFIRMASI SETELAH SELESAI."
+#~ "ANDA AKAN MELAKUKAN PENGATURAN PETA LOKASI TOMBOL KONTROLER. LOKASI PETA "
+#~ "BERDASARKAN POSISI TOMBOL RELATIVE ITU SETARA PADA KONTROLER SNES, BUKAN "
+#~ "LABEL FISIKNYA. BILA ANDA TIDAK PUNYA KUNCI KHUSUS UNTUK HOTKEY, GUNAKAN "
+#~ "TOMBOL SELECT. ABAIKAN SEMUA SEMUA TOMBOL/STICK YANG TIDAK KAMU PUNYA "
+#~ "DENGAN MEMEGANG KUNCI APAPUN. TEKAN SELATAN TOMBOL UNTUK KONFIRMASI "
+#~ "SETELAH SELESAI."
 
 #~ msgid "STRETCH VIDEO"
-#~ msgstr "UKURAN VIDEO"
-
-#~ msgid ""
-#~ "WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. "
-#~ "RESULTSMAY BE FOR DIFFERENT SYSTEMS!\n"
-#~ "CONTINUE ANYWAY?"
-#~ msgstr ""
-#~ "PERINGATAN: BEBERAPA SISTEM PILIHAN ANDA TIDAK MEMILIKI SET PLATFORM. "
-#~ "RESULTSMUNGKIN UNTUK SISTEM YANG BERBEDA!\n"
-#~ "TETAP LANJUTKAN?"
+#~ msgstr "RENTANG-KAN VIDEO"
