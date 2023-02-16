@@ -1,34 +1,32 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: emulationstation\n"
+"Project-Id-Version: batocera-es v35beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-21 08:46+0000\n"
-"PO-Revision-Date: 2023-01-21 08:47+0000\n"
-"Last-Translator: Fap-Kimochi aka vzulfikar97 <vzulfikar97@gmail.com>\n"
-"Language-Team: Indonesian\n"
+"POT-Creation-Date: 2021-10-23 13:22+0200\n"
+"PO-Revision-Date: 2023-02-16 10:21+0900\n"
+"Last-Translator: Retro-is-Kimochi aka vzulfikar97 <vzulfikar97@gmail.com>\n"
+"Language-Team: Batocera Indonesia Army ( Comunity )\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Loco-Source-Locale: en_ID\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po\n"
+"X-Generator: Poedit 3.2\n"
 
 msgid "UPDATE AVAILABLE"
-msgstr "PEMBAHARUAN TERSEDIA"
+msgstr "UPDATE TERSEDIA"
 
 msgid "Name"
 msgstr "Nama"
 
 msgid "this game's name"
-msgstr "nama game ini"
+msgstr "Nama Game"
 
 msgid "Description"
 msgstr "Deskripsi"
 
 msgid "this game's description"
-msgstr "deskripsi game ini"
+msgstr "Deskripsi Game"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -46,163 +44,163 @@ msgid "Image"
 msgstr "Gambar"
 
 msgid "enter path to image"
-msgstr "masukkan jalur ke gambar"
+msgstr "Masukan Jalur Gambar"
 
 msgid "Video"
 msgstr "Video"
 
 msgid "enter path to video"
-msgstr "masukkan jalur ke video"
+msgstr "Masukan Jalur Video"
 
 msgid "Logo"
 msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr "masukkan jalur ke logo"
+msgstr "Masukan Jalur Logo"
 
 msgid "Box"
 msgstr "Box"
 
 msgid "enter path to box"
-msgstr "masukkan jalur ke box"
+msgstr "Masukan Jalur Box"
 
 msgid "Fan art"
-msgstr "Seni penggemar"
+msgstr "Karya Penggemar"
 
 msgid "enter path to fanart"
-msgstr "masukkan jalur ke seni penggemar"
+msgstr "Masukan Jalur Karya Penggemar"
 
 msgid "Title shot"
 msgstr "Judul utama"
 
 msgid "enter path to title shot"
-msgstr "masukkan jalur ke judul utama"
+msgstr "Masukan Jalur Judul Utama"
 
 msgid "Manual"
-msgstr "Petunjuk"
+msgstr "Panduan"
 
 msgid "enter path to manual"
-msgstr "masukkan jalur ke petunjuk"
+msgstr "Masukan Jalur Panduan"
 
 msgid "Magazine"
 msgstr "Majalah"
 
 msgid "enter path to magazine"
-msgstr "masukkan jalur ke majalah"
+msgstr "Masukan Jalur Majalah"
 
 msgid "Map"
 msgstr "Peta"
 
 msgid "enter path to map"
-msgstr "masukkan jalur ke peta"
+msgstr "Masukan Jalur"
 
 msgid "Bezel (16:9)"
 msgstr "Frame layar (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "masukkan jalur ke frame layar (16:9)"
+msgstr "Masukan Jalur ke Frame Layar (16:9)"
 
 msgid "Cartridge"
 msgstr "Katrid"
 
 msgid "enter path to cartridge"
-msgstr "masukkan jalur ke katrid"
+msgstr "Masukan Jalur Katrid"
 
 msgid "Alt BoxArt"
 msgstr "Sampul Depan"
 
 msgid "enter path to alt boxart"
-msgstr "masukkan jalur ke sampul depan"
+msgstr "Masukan Jalur Sampul Depan"
 
 msgid "Box backside"
 msgstr "Sampul belakang"
 
 msgid "enter path to box background"
-msgstr "masukkan jalur ke sampul belakang"
+msgstr "Masukan Jalur Sampul Belakang"
 
 msgid "Wheel"
-msgstr "Tokoh"
+msgstr "Kemudi"
 
 msgid "enter path to wheel"
-msgstr "masukkan jalur ke tokoh"
+msgstr "Masukan Jalur Kemudi"
 
 msgid "Mix"
 msgstr "Campuran"
 
 msgid "enter path to mix"
-msgstr "masukkan jalur ke campuran"
+msgstr "Masukan Jalur Campuran"
 
 msgid "Rating"
 msgstr "Peringkat"
 
 msgid "enter rating"
-msgstr "masukkan peringkat"
+msgstr "Masukan Peringkat"
 
 msgid "Release date"
-msgstr "Tanggal rilis"
+msgstr "Tanggal Rilis"
 
 msgid "enter release date"
-msgstr "masukkan tanggal rilis"
+msgstr "Masukan Tanggal Rilis"
 
 msgid "Developer"
 msgstr "Pengembang"
 
 msgid "this game's developer"
-msgstr "pengembang game ini"
+msgstr "Pengembang Game Ini"
 
 msgid "Publisher"
-msgstr "Penerbit"
+msgstr ""
 
 msgid "this game's publisher"
-msgstr "penerbit game ini"
+msgstr ""
 
 msgid "Genre"
 msgstr "Genre"
 
 msgid "enter game genre"
-msgstr "masukkan genre game"
+msgstr "Masukan Jenis Game"
 
 msgid "Game family"
 msgstr "Game kelurga"
 
 msgid "this game's game family"
-msgstr "ini game keluarga"
+msgstr "Ini Game Keluarga"
 
 msgid "Genres"
 msgstr "Jenis"
 
 msgid "enter game genres"
-msgstr "masukkan jenis game"
+msgstr "Masukan Genre Game"
 
 msgid "Arcade system"
-msgstr "Sistem arcade"
+msgstr "Sistem Arcade"
 
 msgid "this game's arcade system"
-msgstr "game ini sistem arcade"
+msgstr "Ini adalah Game System Arcade"
 
 msgid "Players"
 msgstr "Pemain"
 
 msgid "this game's number of players"
-msgstr "jumlah pemain game ini"
+msgstr "Jumlah Pemain Game Ini"
 
 msgid "Favorite"
 msgstr "Favorit"
 
 msgid "enter favorite"
-msgstr "masukkan favorit"
+msgstr "Masukan favorite"
 
 msgid "Hidden"
 msgstr "Sembunyikan"
 
 msgid "enter hidden"
-msgstr "masukkan sembunyi"
+msgstr "Masukan sembunyi"
 
 msgid "Kidgame"
 msgstr "Game anak"
 
 msgid "enter kidgame"
-msgstr "masukkan game anak"
+msgstr "Masukan Game"
 
 msgid "Play count"
 msgstr "Hitungan bermain"
@@ -211,13 +209,13 @@ msgid "enter number of times played"
 msgstr "masukkan jumlah hitungan bermain"
 
 msgid "Last played"
-msgstr "Dimainkan terakhir"
+msgstr "Terakhir Dimainkan"
 
 msgid "enter last played date"
-msgstr "masukkan tanggal terakhir dimainkan"
+msgstr "Masukan Tanggal Terakhir dimainkan"
 
 msgid "Crc32"
-msgstr "Crc32"
+msgstr "Ceksum Crc32"
 
 msgid "Crc32 checksum"
 msgstr "Ceksum Crc32"
@@ -229,22 +227,22 @@ msgid "Md5 checksum"
 msgstr "Ceksum Md5"
 
 msgid "Game time"
-msgstr "Lama game"
+msgstr "Lama Bermain"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "berapa lama game ini dimainkan (detik)"
+msgstr "Total Berapa Lama Game ini dimaiankan (detik)"
 
 msgid "Languages"
 msgstr "Bahasa"
 
 msgid "this game's languages"
-msgstr "bahasa game ini"
+msgstr "Bahasa Game Ini"
 
 msgid "Region"
-msgstr "Kawasan"
+msgstr "Wilayah"
 
 msgid "this game's region"
-msgstr "kawasan game ini"
+msgstr "Wilayah Game Ini"
 
 msgid "Cheevos Hash"
 msgstr "Hash cheevos"
@@ -384,8 +382,7 @@ msgstr "MODE HARDCORE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Nonaktifkan status pemuatan, mundur, dan curang untuk mendapatkan lebih "
-"banyak poin."
+"matikan status pemuatan, mundur, dan curang untuk mendapatkan poin lebih "
 
 msgid "LEADERBOARDS"
 msgstr "PAPAN PERINGKAT"
@@ -398,8 +395,7 @@ msgstr "MODE VERBOSE"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
-"Tampilkan perkembangan pencapaian pada peluncuran game dan notifikasi "
-"lainnya."
+"Tampilkan perkembangan pencapaian pada saat game dimuali dan notifikasi "
 
 msgid "RICH PRESENCE"
 msgstr "KEHADIRAN TINGGI"
@@ -724,7 +720,7 @@ msgstr "PERANGKAT BLUETOOTH TERHAPUS"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ANDA YAKIN INGIN MENGHAPUS '%s' ?"
+msgstr "'%s' ANDA YAKIN INGIN MENGHAPUS?"
 
 msgid "INPUT"
 msgstr "INPUT"
@@ -1006,7 +1002,7 @@ msgstr "APA KAMU YAKIN?"
 
 #, c-format
 msgid "UPDATING %s"
-msgstr "MEMPERBARUI %s"
+msgstr "%s MEMPERBARUI"
 
 msgid "UPDATE IS READY"
 msgstr "PEMBARUAN SUDAH SIAP"
@@ -1022,8 +1018,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"VERSIMU SAAT INI %s\n"
-"PERBARUI VERSIMU %s?"
+"VERSI SAAT INI %s\n"
+"PERBARUI VERSI %s?"
 
 #, c-format
 msgid ""
@@ -1134,11 +1130,11 @@ msgstr "KOLEKSI"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr "HAPUS DARI %s"
+msgstr "%s HAPUS DARI "
 
 #, c-format
 msgid "ADD TO %s"
-msgstr "TAMBAHKAN KE %s"
+msgstr " %s TAMBAHKAN KE"
 
 msgid "FAVORITES"
 msgstr "FAVORIT"
@@ -1337,14 +1333,14 @@ msgid "SYSTEMS INCLUDED"
 msgstr "SISTEM TERMASUK"
 
 msgid "SCRAPE NOW"
-msgstr "SCRAPE SEKARANG"
+msgstr "HIMPUN SEKARANG"
 
 msgid "START"
 msgstr "MULAI"
 
 msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. "
-"RESULTS MAY BE FOR DIFFERENT SYSTEMS!\n"
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
 "PERINGATAN: BEBERAPA SISTEM YANG ANDA PILIH TIDAK MEMILIKI SET PLATFORM. "
@@ -1568,7 +1564,7 @@ msgstr "AKTIFKAN PUBLIK AKSES WEB API"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Izinkan akses web API publik menggunakan %s"
+msgstr "%s Izinkan akses web API publik menggunakan "
 
 msgid "LOG LEVEL"
 msgstr "TINGKAT LOG"
@@ -1580,7 +1576,7 @@ msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr "BUAT FILE DUKUNGAN? INI TERMASUK SEMUA DATA DALAM FOLDER SISTEM ANDA."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr "FILE DUKUNGAN DIBUAT DALAM SAVE FOLDER"
+msgstr ""
 
 msgid "SUPPORT FILE CREATION FAILED"
 msgstr "PEMBUATAN FILE DUKUNGAN GAGAL"
@@ -1645,7 +1641,7 @@ msgid ""
 "filename to use."
 msgstr ""
 "Jika tidak ada gambar yang ditentukan dalam daftar game, coba cari media "
-"yang samayang digunakan."
+"yang sama untuk digunakan."
 
 msgid "USER INTERFACE"
 msgstr "ANTARMUKA PENGGUNA"
@@ -1684,8 +1680,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Beralih ke menekan sementara tombol Utara ( atas ) untuk Savestates & Tekan "
-"tombol Selatan ( bawah ) lebih lama untukuntuk Opsi Game"
+"Tekan Sebentar △ ( Segitiga ) untuk Penyimpanandan tekan lama × untuk "
+"pengaturan game"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROL EMULATIONSTATION DENGAN JOYSTICK PERTAMA"
@@ -1718,7 +1714,7 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-"Mengurangi lag saat menggulir melalui daftar game yang scraped sepenuhnya, "
+"Mengurangi lag saat menggulir sepenuhnya daftar game yang yang terhimpu "
 "meningkatkan waktu boot"
 
 msgid "THREADED LOADING"
@@ -1805,10 +1801,9 @@ msgid ""
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
 "Anda mengubah antarmuka pengguna ke mode terbatas:\n"
-"Ini akan menyembunyikan sebagian besar opsi menu untuk mencegah perubahan "
-"pada sistem.\n"
-"Untuk membuka kunci dan kembali ke antarmuka pengguna lengkap, masukkan kode "
-"ini:"
+"Ini akan menyembunyikan sebagian besar pilihan menu \n"
+"bertujuan untuk mencegah perubahan pada sistem\n"
+"untuk membuka dan kembali ke tampilan penuh, masukan kode ini:"
 
 msgid "Do you want to proceed?"
 msgstr "Apakah Anda ingin melanjutkan?"
@@ -2094,9 +2089,7 @@ msgid "AUTO SAVE/LOAD"
 msgstr "SAVE/LOAD OTOMATIS"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Muat status simpan terbaru saat peluncuran game dan simpan status saat "
-"keluar dari game."
+msgstr "Muat kondisi terbaru ketika mulai dan simpan status ketika keluar"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "SIMPAN STATUS SECARA BERTAHAP"
@@ -2152,11 +2145,11 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
-"ANDA AKAN MELAKUKAN PENGATURAN PETA KONTROLLER. PETA BERDASARKAN POSISI "
-"TOMBOLBUKAN LABEL SECARA FISIK. BILA ANDA TIDAK MEMILIKI TOMBOL HOTKEY "
-"SPESIALGUNAKAN TOMBOL SELECT. LEWATI SEMUA TOMBOL/STICKS DENGAN TIDAK "
-"MENEKAN TOMBOL APA - PUN TEKAN TOMBOL UTARA ( BAWAH ) UNTUK KONFIRMASI "
-"KETIKA SUDAH SELESAI."
+"ANDA AKAN MELAKUKAN PENGATURAN TOMBOL KONTROLLER. SEPERTI YANG TERTERA "
+"BERDASARKAN POSISI YANG DIPAKAI OLEH SISTEMBILA TIDAK ADA TOMBOL KHUSUS, "
+"TEKAN TOMBOL 'SELECT' UNTUK LEWATI LEWATI TOMBOL/STICKS APAPUN DENGAN "
+"MENEKAN TOMBOL APAPUNTEKAN TOMBOL SELATAN-(BAWAH) UNTUK KONFIRMASI KETIKA "
+"SELESAI"
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "PENGATURAN GUN SINDEN"
@@ -2187,7 +2180,7 @@ msgstr "TUGAS PEMAIN"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "P%i'S KONTROLLER"
+msgstr "PEMAIN %i KONTROLLER"
 
 msgid "default"
 msgstr "default"
@@ -2238,7 +2231,7 @@ msgid "JOYSTICK"
 msgstr "JOYSTIK"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
-msgstr "ANDA HARUS MENERAPKAN TEMA SEBELUM MENGEDIT KONFIGURASINYA"
+msgstr "ANDA HARUS MENERAPKAN TEMA SEBELUM MENGUBAH KONFIGURASI"
 
 msgid "THEME CONFIGURATION"
 msgstr "KONFIGURASI TEMA"
@@ -2439,19 +2432,19 @@ msgid "RESTART SYSTEM"
 msgstr "MUAT ULANG SISTEM"
 
 msgid "REALLY RESTART?"
-msgstr "BENERAN MUAT ULANG?"
+msgstr "SERIUS MUAT ULANG?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "SISTEM SUSPEND"
+msgstr "SISTEM DITUNDA"
 
 msgid "REALLY SUSPEND ?"
-msgstr "BENERAN SUSPEND?"
+msgstr "SERIUS TUNDA?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "MATIKAN SISTEM"
 
 msgid "REALLY SHUTDOWN?"
-msgstr "BENERAN DIMATIKAN?"
+msgstr "SERIUS MEMATIKAN?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "MATIKAN SISTEM DENGAN CEPAT"
@@ -2460,21 +2453,19 @@ msgid "Shutdown without saving metadata."
 msgstr "Matikan tanpa menyimpan metadata."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "BENERAN DIMATIKAN TANPA MENYIMPAN METADATA?"
+msgstr "SERIUS MEMATIKAN TANPA MENYIMPAN METADATA?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "KELUAR EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr "BENERAN KELUAR?"
+msgstr "SERIUS KELUAR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAVE/LOAD OTOMATIS SAAT PELUNCURAN GAME"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr ""
-"Muat status penyimpanan terbaru saat peluncuran game dan simpan status saat "
-"keluar dari game."
+msgstr "Muat status terbaru di awal game dan simpan status di akhir game."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "TAMPILKAN KONTROLER MENYELURUH"
@@ -2538,7 +2529,7 @@ msgid ""
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 "BEBERAPA FILE YANG ANDA TAUTkAN BERADA DI LUAR JALUR LISTGAME.\n"
-"APAKAH ANDA INGIN MENGGUNAKAN SALINAN FILE INI DENGAN GAMELIST ?"
+"INGIN MEMAKAI SALINAN FILE RELATIVE INI KE GAMELIST ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "TIDAK DITEMUKAN PERANGKAT"
@@ -2550,16 +2541,16 @@ msgid "ZOOM IN"
 msgstr "PERBESAR"
 
 msgid "MOVE"
-msgstr "MOVE"
+msgstr "PINDAH"
 
 msgid "ZOOM"
-msgstr "ZOOM"
+msgstr "PERBESAR"
 
 msgid "GAMES TO INDEX"
 msgstr "GAME KE INDEKS"
 
 msgid "ONLY MISSING"
-msgstr "YANG HILANG"
+msgstr "HANYA HILANG"
 
 msgid "SYSTEM INFO"
 msgstr "SISTEM INFORMASI"
@@ -2571,7 +2562,7 @@ msgid "QUICK SEARCH"
 msgstr "PENCARIAN CEPAT"
 
 msgid "GO TO LETTER"
-msgstr "KE KOP"
+msgstr "KE SURAT"
 
 msgid "GO TO MANUFACTURER"
 msgstr "KE PRODUSEN"
@@ -2614,18 +2605,17 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PERINGATAN: EMULATOR/INTI YANG SEBELUMNYA DI ATUR TIDAK MENDUKUNG FILE GAME INI "
-"FORMAT.\n"
-"TETAP INGIN MENJALANKAN - NYA?"
+"PERINGATAN: EMULATOR/INTI YANG SEBELUMNYA DI ATUR TIDAK MENDUKUNG FILE GAME "
+"INI IYA.\n"
+"TETAP INGIN JALANKAN?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PERINGATAN: SISTEM KEHILANGAN FILE BIOS DAN GAME MUNGKIN TIDAK BEKERJA."
-"DENGAN BENAR.\n"
-"TETAP INGIN MENJALANKAN - NYA?"
+"PERINGATAN: SISTEM KEHILANGAN FILE BIOS DAN GAME MUNGKIN TIDAK BEKERJA.\n"
+"TETAP INGIN JALANKAN"
 
 msgid "Preloading UI"
 msgstr "Pramuat UI"
@@ -2652,7 +2642,7 @@ msgid "Basic"
 msgstr "Dasar"
 
 msgid "Released"
-msgstr "Penerbit"
+msgstr "Diterbitkan"
 
 msgid "Times played"
 msgstr "Waktu bermain"
@@ -2660,7 +2650,7 @@ msgstr "Waktu bermain"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Folder ini berisi %i game, termasuk :%s"
+msgstr[0] "Folder ini berisi %n%iPermainan, termasuk :%s"
 
 msgid "No Entries Found"
 msgstr "Entri Tidak Ditemukan"
@@ -2691,7 +2681,7 @@ msgid "Searching"
 msgstr "Mencari"
 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "TIDAK DITEMUKAN GAME - LEWATI"
+msgstr "TIDAK ADA GAME DITEMUKAN - LEWATI"
 
 msgid "RETRY"
 msgstr "MENCOBA KEMBALI"
@@ -2883,20 +2873,20 @@ msgid "HAS MEDIAS"
 msgstr "MEMILIKI MEDIA"
 
 msgid "SCRAPING"
-msgstr "SEDANG MENGUMPULKAN"
+msgstr "HIMPUN"
 
 msgid "SCRAPE FAILED"
-msgstr "MENGUMPULKAN GAGAL"
+msgstr "MENGHIMPUN GAGAL"
 
 msgid "SCRAPING FINISHED"
-msgstr "MENGUMPULKAN SELESAI"
+msgstr "MENGHIMPUN SELESAI"
 
 msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
 "KALIBER SENJATA\n"
-"PUTUSKAN TARGET UNTUK MELAKUKAN KALIBRASI"
+"Sesuaikan Target untuk Melakukan Kalibrasi"
 
 #, c-format
 msgid "%s connected"
@@ -2960,27 +2950,27 @@ msgstr "D-PAD KANAN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ANALOG KIRI, ATAS"
+msgstr "ANALOG KIRI- ATAS"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ANALOG KIRI, BAWAH"
+msgstr "ANALOG KIRI- BAWAH"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALOG KIRI, KIRI"
+msgstr "ANALOG KIRI- KIRI"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANALOG KIRI, KANAN"
+msgstr "ANALOG KIRI- KANAN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ANALOG KANAN, ATAS"
+msgstr "ANALOG KANAN- ATAS"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ANALOG KANAN, BAWAH"
+msgstr "ANALOG KANAN- BAWAH"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
@@ -2992,34 +2982,34 @@ msgstr "ANALOG KANAN, KANAN"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr "BAHU TANGAN KIRI"
+msgstr "BAHU TANGAN KANAN-(R1)"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr "BAHU TANGAN KANAN"
+msgstr "BAHU TANGAN KANAN-(R1)"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr "PEMICU - KIRI"
+msgstr "PEMICU KIRI-(L2)"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr "PEMICU - KANAN"
+msgstr "PEMICU KANAN-(R2)"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr "STICK - TOMBOL KIRI TEKAN"
+msgstr "STIK KIRI TEKAN-(L3)"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr "STICK - TOMBOL KANAN TEKAN"
+msgstr "STIK KANAN TEKAN-(R3)"
 
 msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "HOTKEY"
 
 msgid "CONFIGURING"
-msgstr "MENG-KONFIGURASI"
+msgstr "MENGKONFIGURASI"
 
 msgid "KEYBOARD"
 msgstr "KEYBOARD"
@@ -3032,20 +3022,20 @@ msgid "GAMEPAD %i"
 msgstr "GAMEPAD %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "TAHAN TOMBOL APAPUN UNTUK LEWAT"
+msgstr "TAHAN TOMBOL APAPUN UNTUK LEWATI"
 
 msgid "-NOT DEFINED-"
-msgstr "-TIDAK TERDEFINISI-"
+msgstr "TIDAK TERDEFINISI"
 
 msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"TIDAK ADA TOMBOL HOTKEY YANG DITETAPKAN. INI DIPERLUKAN UNTUK KELUAR DARI "
-"GAME DENGAN KONTROLER. INGIN MENGGUNAKAN TOMBOL SELECT SEBAGAI HOTKEY?"
+"TIDAK ADA TOMBOL HOTKEY YANG DIPILIH. INI DIPERLUKAN UNTUK KELUAR GAME "
+"DENGAN KONTROLER. ANDA INGIN MENGGUNAKAN TOMBOL SELECT SEBAGAI HOTKEY?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "ATUR SELECT SEBAGAI HOTKEY"
+msgstr "PILIH SELECT SEBAGAI HOTKEY"
 
 msgid "DO NOT ASSIGN HOTKEY"
 msgstr "JANGAN MASUKAN HOTKEY"
@@ -3053,7 +3043,7 @@ msgstr "JANGAN MASUKAN HOTKEY"
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "TAHAN UNTUK %iS UNTUK LEWAT"
+msgstr[0] "%iS TAHAN UNTUK  UNTUK LEWAT"
 
 msgid "PRESS ANYTHING"
 msgstr "TEKAN APA SAJA"
@@ -3067,16 +3057,16 @@ msgstr "SELAMAT DATANG"
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "GAMEPAD TERDETEKSI"
+msgstr[0] "%i GAMEPAD TERDETEKSI"
 
 msgid "NO GAMEPADS DETECTED"
-msgstr "MAAF, GAMEPAD TIDAK TERDETEKSI"
+msgstr "TIDAK, GAMEPAD TIDAK TERDETEKSI"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "TAHAN TOMBOL DI PERANGKATMU UNTUK MELAKUKAN KONFIGURASI"
+msgstr "TAHAN TOMBOL DI PERANGKATMU UNTUK KONFIGURASI"
 
 msgid "DISCARD CHANGES"
-msgstr "PERUBAHAN DIBATALKAN"
+msgstr "BATALKAN PERUBAHAN"
 
 msgid "up/down"
 msgstr "atas/bawah"
@@ -3099,19 +3089,19 @@ msgstr "tidak satupun"
 #, c-format
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] "DIPILIH"
+msgstr[0] "%i DIPILIH"
 
 msgid "CHANGE"
 msgstr "UBAH"
 
 msgid "MOVE CURSOR"
-msgstr "GERAKKAN KURSOR"
+msgstr "GERAK KURSOR"
 
 msgid "EDIT"
-msgstr "SUNTING"
+msgstr "UBAH"
 
 msgid "ENABLED"
-msgstr "DI AKTIFKAN"
+msgstr "AKTIFKAN"
 
 #, c-format
 msgid "%d day ago"
@@ -3134,7 +3124,7 @@ msgid_plural "%d seconds ago"
 msgstr[0] "sedetik lalu"
 
 msgid "WORKING..."
-msgstr "PROSES SEDANG BERJALAN..."
+msgstr "MEMPROSES..."
 
 #, c-format
 msgid "%d h"
@@ -3152,47 +3142,7 @@ msgid "SCREEN READER ENABLED"
 msgstr "PEMBACA LAYAR DIAKTIFKAN"
 
 msgid "SCREEN READER DISABLED"
-msgstr "PEMBACA LAYAR DINONAKTIFKAN"
+msgstr "PEMBACA LAYAR DIMATIKAN"
 
-#~ msgid ""
-#~ "WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S "
-#~ "FILE DO YOU WANT TO LAUNCH IT ANYWAY?"
-#~ msgstr ""
-#~ "PERINGATAN: EMULATOR/CORE YANG DITERAPKAN SAAT INI TIDAK MENDUKUNG FILE "
-#~ "GAME INI TETAP INGIN MENJALANKAN - NYA?"
-
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "ATAS"
-
-#~ msgctxt "joystick"
-#~ msgid "DOWN"
-#~ msgstr "BAWAH"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT"
-#~ msgstr "KIRI"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT"
-#~ msgstr "KANAN"
-
-#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "GANTI TOMBOL A & B DI EMULATIONSTATION"
-
-#~ msgid ""
-#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
-#~ "BUTTON TO CONFIRM WHEN DONE."
-#~ msgstr ""
-#~ "ANDA AKAN MELAKUKAN PENGATURAN PETA LOKASI TOMBOL KONTROLER. LOKASI PETA "
-#~ "BERDASARKAN POSISI TOMBOL RELATIVE ITU SETARA PADA KONTROLER SNES, BUKAN "
-#~ "LABEL FISIKNYA. BILA ANDA TIDAK PUNYA KUNCI KHUSUS UNTUK HOTKEY, GUNAKAN "
-#~ "TOMBOL SELECT. ABAIKAN SEMUA SEMUA TOMBOL/STICK YANG TIDAK KAMU PUNYA "
-#~ "DENGAN MEMEGANG KUNCI APAPUN. TEKAN SELATAN TOMBOL UNTUK KONFIRMASI "
-#~ "SETELAH SELESAI."
-
-#~ msgid "STRETCH VIDEO"
-#~ msgstr "RENTANG-KAN VIDEO"
+#~ msgid "SUPPORT FILE CREATED IN SAVES FOLDER\n"
+#~ msgstr "FILE DUKUNGAN DIBUAT DALAM SAVE FOLDER"
