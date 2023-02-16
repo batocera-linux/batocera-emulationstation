@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-02-12 18:31+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-02-15 23:49+0000\n"
+"Last-Translator: eric\n"
 "Language-Team: Bokmål\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgid "Box"
 msgstr "Boks"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "skriv inn sti til boks"
 
 msgid "Fan art"
 msgstr "Fan kunst"
@@ -85,7 +85,7 @@ msgid "enter path to manual"
 msgstr ""
 
 msgid "Magazine"
-msgstr ""
+msgstr "Magasin"
 
 msgid "enter path to magazine"
 msgstr ""
@@ -109,13 +109,13 @@ msgid "enter path to cartridge"
 msgstr ""
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Alt BoxArt"
 
 msgid "enter path to alt boxart"
 msgstr ""
 
 msgid "Box backside"
-msgstr ""
+msgstr "Boks bakside"
 
 msgid "enter path to box background"
 msgstr ""
@@ -172,7 +172,7 @@ msgid "Genres"
 msgstr "Sjangre"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "skriv inn spillsjangre"
 
 msgid "Arcade system"
 msgstr "Arkade system"
@@ -247,13 +247,13 @@ msgid "this game's region"
 msgstr "dette spillets region"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Cheevos sjekksum"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "Cheevos Spill ID"
 
 msgid "Screenscraper Game ID"
 msgstr ""
@@ -286,7 +286,7 @@ msgid "vertical arcade"
 msgstr "VERTIKAL ARKADE"
 
 msgid "lightgun games"
-msgstr ""
+msgstr "lysvåpen spill"
 
 msgid "collections"
 msgstr "samlinger"
@@ -322,7 +322,7 @@ msgid "Searching for devices..."
 msgstr "Søker etter enheter..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr ""
+msgstr "BLUETOOTH SCANNING PÅGÅR ALLEREDE"
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATERER ENHET"
@@ -349,10 +349,10 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "TEMA UINSTALLASJON VAR VELLYKKET"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "INSTALLASJON AV BILDERKANTER VELLYKKET"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "UINSTALLASJON AV BILDERKANTER VELLYKKET"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr ""
@@ -498,10 +498,10 @@ msgid "SELECT THEME FOLDER"
 msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
+msgstr "LAG NY REDIGERBAR SAMLING"
 
 msgid "New Collection Name"
-msgstr ""
+msgstr "Nytt navn på samling"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "LAG NY DYNAMISK SAMLING"
@@ -516,7 +516,7 @@ msgid "BY MANUFACTURER"
 msgstr "ETTER PRODUSENT"
 
 msgid "BY HARDWARE TYPE"
-msgstr ""
+msgstr "ETTER MASKINVARE TYPE"
 
 msgid "BY MANUFACTURER AND TYPE"
 msgstr "ETTER PRODUSENT OG TYPE"
@@ -579,7 +579,7 @@ msgid "DYNAMIC COLLECTIONS"
 msgstr "DYNAMISKE SAMLINGER"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr ""
+msgstr "EGENDEFINERT SPILLSAMLING"
 
 msgid "PLEASE WAIT"
 msgstr "VENNLIGST VENT"
@@ -604,10 +604,10 @@ msgid "LAUNCH"
 msgstr "START"
 
 msgid "NETPLAY SETTINGS"
-msgstr ""
+msgstr "NETPLAY INNSTILLINGER"
 
 msgid "ENABLE NETPLAY"
-msgstr ""
+msgstr "AKTIVER NETPLAY"
 
 msgid "NICKNAME"
 msgstr "KALLENAVN"
@@ -664,7 +664,7 @@ msgid "DYNAMIC COLLECTION"
 msgstr "DYNAMISK SAMLING"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "EGENDEFINERT SAMLING"
 
 msgid "DELETE COLLECTION"
 msgstr "SLETT SAMLING"
@@ -700,7 +700,7 @@ msgid "CLOSE"
 msgstr "LUKK"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr ""
+msgstr "ER DU SIKKER PÅ AT DU VIL SLETTE DENNE"
 
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "GLØM BLUETOOTH ENHET"
@@ -740,7 +740,7 @@ msgid "REFRESH"
 msgstr "FORFRISKE"
 
 msgid "FAILED"
-msgstr ""
+msgstr "FEILET"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "UKJENT ROM VERSJON"
@@ -770,7 +770,7 @@ msgid "WATCH GAME"
 msgstr ""
 
 msgid "INPUT MANUALLY"
-msgstr ""
+msgstr "MANUELL INNTASTING"
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr ""
@@ -782,10 +782,10 @@ msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "DU ER IKKE KOBLET TIL ET NETTVERK"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "PAR EN BLUETOOTH ENHET"
 
 msgid "PAIR"
-msgstr ""
+msgstr "PAR"
 
 msgid "FILE BROWSER"
 msgstr "FILUTFORSKER"
@@ -904,7 +904,7 @@ msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
 
 msgid "DECORATION SET USED"
-msgstr ""
+msgstr "BRUKTE DEKORASJONSETT"
 
 msgid "STRETCH VIDEOS"
 msgstr "STREKK VIDEOER"
@@ -919,13 +919,13 @@ msgid "USE CUSTOM VIDEOS"
 msgstr "BRUKE EGENDEFINERTE VIDEOER"
 
 msgid "CUSTOM VIDEO DIRECTORY"
-msgstr ""
+msgstr "EGENDEFINERT VIDEO MAPPE"
 
 msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
 msgstr "BRUK VIDEOER I UNDERMAPPER AV EGENDEFINERT MAPPE"
 
 msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr ""
+msgstr "EGENDEFINERTE VIDEO FILENDELSER"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr ""
@@ -979,7 +979,7 @@ msgid "MOUSE CURSOR"
 msgstr "MUSEPEKER"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr ""
+msgstr "EMULER MUSEPEKER"
 
 msgid "LEFT ANALOG STICK"
 msgstr ""
@@ -991,7 +991,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "REDIGER BESKRIVELSE"
 
 msgid "DELETE MAPPING"
-msgstr ""
+msgstr "SLETT KARTLEGGING"
 
 msgid "SAVE CHANGES?"
 msgstr "LAGRE ENDRINGER?"
@@ -1065,7 +1065,7 @@ msgid "VIEW GAME MEDIA"
 msgstr "VIS SPILL MEDIA"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr ""
+msgstr "NÅVÆRENDE KJERNE ER IKKE KOMPATIBEL"
 
 msgid "COMPATIBLE CORE(S)"
 msgstr "KOMPATIBLE KJERNE(R)"
@@ -1086,7 +1086,7 @@ msgid "START A NETPLAY GAME"
 msgstr ""
 
 msgid "NETPLAY"
-msgstr ""
+msgstr "NETPLAY"
 
 msgid "START GAME"
 msgstr "START SPILL"
@@ -1140,7 +1140,7 @@ msgid "SCRAPE"
 msgstr "SØK"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "REDIGER PADTOKEY PROFIL"
 
 msgid "CREATE PADTOKEY PROFILE"
 msgstr ""
@@ -1149,7 +1149,7 @@ msgid "ADVANCED GAME OPTIONS"
 msgstr "AVANSERTE SPILL VALG"
 
 msgid "EDIT FOLDER METADATA"
-msgstr ""
+msgstr "REDIGER MAPPE METADATA"
 
 msgid "EDIT THIS GAME'S METADATA"
 msgstr "ENDRE DETTE SPILLETS METADATA"
@@ -1170,7 +1170,7 @@ msgid "Available"
 msgstr "Tilgjengelig"
 
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "NÅVÆRENDE TEMA"
 
 msgid "Points"
 msgstr "Poeng"
@@ -1234,10 +1234,10 @@ msgid "FAN ART"
 msgstr "FAN KUNST"
 
 msgid "BOX SOURCE"
-msgstr ""
+msgstr "BOKS KILDE"
 
 msgid "LOGO SOURCE"
-msgstr ""
+msgstr "LOGO KILDE"
 
 msgid "WHEEL"
 msgstr "HJUL"
@@ -1264,16 +1264,16 @@ msgid "BEZEL (16:9)"
 msgstr "KANT (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "BOKS BAKSIDE"
 
 msgid "MAP"
 msgstr "KART"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "MANUELT"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "PADTOKEY INNSTILLINGER"
 
 msgid "SCRAPER"
 msgstr "INFODATABASE"
@@ -1435,7 +1435,7 @@ msgstr ""
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
@@ -1455,7 +1455,7 @@ msgid "SHADERS"
 msgstr ""
 
 msgid "CONTROLLER SETTINGS"
-msgstr ""
+msgstr "KONTROLLINNSTILLINGER"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLL INSTILLINGER"
@@ -1509,7 +1509,7 @@ msgid "QUIT"
 msgstr "SLUTT"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr ""
+msgstr "ER DU SIKKER PÅ AT DU VIL KONFIGURERE INPUT?"
 
 msgid "CHOOSE"
 msgstr "VELG"
@@ -1555,16 +1555,16 @@ msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr ""
+msgstr "Tillat API for offentlig nettilgang ved å bruke %s"
 
 msgid "LOG LEVEL"
-msgstr ""
+msgstr "LOGNIVÅ"
 
 msgid "CREATE A SUPPORT FILE"
 msgstr "LAG EN SUPPORT FIL"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr ""
+msgstr "LAGE NY SUPPORT FIL? DETTE INKLUDERER ALL DATA I DIN SYSTEM MAPPE."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr ""
@@ -1606,7 +1606,7 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr ""
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "AKTIVER SPILLFILTRERING"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
@@ -1633,7 +1633,7 @@ msgid "USER INTERFACE"
 msgstr "BRUKERGRENSESNITT"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr ""
+msgstr "Karusell overganger"
 
 msgid "QUICK SYSTEM SELECT"
 msgstr "RASKT PLATTFORM VALG"
@@ -1674,7 +1674,7 @@ msgid "GUN MOVE TOLERENCE"
 msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "AKTIVER HID JOYSTICK DRIVERE"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "VIS NETTVERKSINDIKATOR"
@@ -1827,7 +1827,7 @@ msgid "270 DEGREES"
 msgstr "270 GRADER"
 
 msgid "BOOT SPLASH"
-msgstr ""
+msgstr "OPPSTART SPLASH"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
 msgstr ""
@@ -1836,13 +1836,13 @@ msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr ""
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr ""
+msgstr "BATOCERA SPLASH BILDE"
 
 msgid "SPLASH SETTING"
 msgstr ""
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr ""
+msgstr "SJEKK BIOS FILER FØR START AV SPILL"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "MULTIMEDIA TASTER"
@@ -1854,7 +1854,7 @@ msgid "OFF"
 msgstr "AV"
 
 msgid "BUTTON LED COLOR"
-msgstr ""
+msgstr "KNAPP LED FARGE"
 
 msgid "off"
 msgstr "av"
@@ -1881,7 +1881,7 @@ msgid "cyan"
 msgstr "cyan"
 
 msgid "POWER LED COLOR"
-msgstr ""
+msgstr "STRØM LED FARGE"
 
 msgid "heartbeat"
 msgstr "hjerteslag"
@@ -1935,15 +1935,17 @@ msgid "Can prevent audio skips on button presses."
 msgstr ""
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr ""
+msgstr "AUTOMATISK BILDEFORSINKELSE"
 
 msgid "AUTO FRAME DELAY"
-msgstr ""
+msgstr "AUTO BILDEFORSINKELSE"
 
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
+"Automatisk reduser bildeforsinkelse midlertidig for å forhindre at "
+"bildefrekvensen faller. Kan introdusere stamming."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "VARIABEL OPPDATERINGSFREKVENS (G-SYNC, FREESYNC)"
@@ -1956,10 +1958,10 @@ msgid ""
 msgstr ""
 
 msgid "DECORATION SET"
-msgstr ""
+msgstr "DEKORASJONSSETT"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Nåværende innstilling"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "STANDARD GLOBALE INNSTILLILNGER"
@@ -1993,7 +1995,7 @@ msgid "SHADER SET"
 msgstr "SKYGGELEGGER SETT"
 
 msgid "DECORATIONS"
-msgstr ""
+msgstr "DEKORASJONER"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr ""
@@ -2026,7 +2028,7 @@ msgid "SOUTH WEST"
 msgstr "SØR WEST"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr ""
+msgstr "EGENDEFINERT .PNG BILDE STI"
 
 msgid "RESIZE TATTOO"
 msgstr ""
@@ -2038,7 +2040,7 @@ msgid "AI GAME TRANSLATION"
 msgstr "AI SPILL OVERSETTELSE"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr ""
+msgstr "AKTIVER AI OVERSETTELSE TJENESTE"
 
 msgid "TARGET LANGUAGE"
 msgstr "MÅLSPRÅK"
@@ -2107,7 +2109,7 @@ msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
 msgid "CONTROLLER MAPPING"
-msgstr ""
+msgstr "KONTROLLKARTLEGGING"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
@@ -2129,7 +2131,7 @@ msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "PAR EN BLUETOOTH ENHET MANUELT"
 
 msgid "DISPLAY OPTIONS"
 msgstr "Visningsalternativer"
@@ -2151,7 +2153,7 @@ msgid "default"
 msgstr "standard"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "KANT STØRRELSE"
 
 msgid "THIN"
 msgstr "TYNN"
@@ -2163,7 +2165,7 @@ msgid "BIG"
 msgstr "STOR"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "KANT MODUS"
 
 msgid "NORMAL"
 msgstr "Normal"
@@ -2259,7 +2261,7 @@ msgid "SHOW FILENAMES INSTEAD"
 msgstr "VIS FILNAVN ISTEDET"
 
 msgid "FILE EXTENSIONS"
-msgstr ""
+msgstr "FILENDELSER"
 
 msgid "RESET CUSTOMIZATIONS"
 msgstr ""
@@ -2337,13 +2339,13 @@ msgid "PLAY SYSTEM-SPECIFIC MUSIC"
 msgstr ""
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr ""
+msgstr "SENK MUSIKKLYD NÅR VIDEO AVSPILLES"
 
 msgid "SOUNDS"
 msgstr "LYDER"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr ""
+msgstr "AKTIVER NAVIGASJONSLYDER"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr ""
@@ -2436,7 +2438,7 @@ msgid "SHOW CONTROLLER OVERLAYS"
 msgstr ""
 
 msgid "CUSTOM .PNG IMAGE"
-msgstr ""
+msgstr "EGENDEFINERT .PNG BILDE"
 
 msgid "OVERLAY CORNER"
 msgstr ""
@@ -2448,10 +2450,10 @@ msgid "FULL BOOT"
 msgstr ""
 
 msgid "EMULATED WIIMOTES"
-msgstr ""
+msgstr "EMULERTE WIIMOTES"
 
 msgid "CHANGE SCREEN LAYOUT"
-msgstr ""
+msgstr "ENDRE SKJERMLAYOUT"
 
 msgid "LARGE SCREEN"
 msgstr "STOR SKJERM"
@@ -2615,10 +2617,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "No Entries Found"
-msgstr ""
+msgstr "Ingen oppføringer funnet"
 
 msgid "Games similar to"
-msgstr ""
+msgstr "Spill lignende som"
 
 msgid "SAVE STATES (HOLD)"
 msgstr ""
@@ -2661,7 +2663,7 @@ msgid "ACCEPT RESULT"
 msgstr "AKSEPTER RESULTAT"
 
 msgid "Loading system config..."
-msgstr ""
+msgstr "Laster systemkonfigurasjon..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr ""
@@ -2721,10 +2723,10 @@ msgid "DEVELOPER, DESCENDING"
 msgstr "UTVIKLER, SYNKENDE"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "UTGIVER, STIGENDE"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "UTGIVER, SYNKENDE"
 
 msgid "SYSTEM, ASCENDING"
 msgstr "SYSTEM, STIGENDE"
@@ -2805,7 +2807,7 @@ msgid "PLAYERS"
 msgstr "SPILLERE"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr ""
+msgstr "UTGIVER/UTVIKLER"
 
 msgid "RATING"
 msgstr "RANGERING"
@@ -2829,7 +2831,7 @@ msgid "VERTICAL"
 msgstr "VERTIKALT"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "LYSVÅPEN"
 
 msgid "HAS MEDIAS"
 msgstr "HAR MEDIA"
@@ -2860,7 +2862,7 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SKIFT TEGN"
 
 msgid "ALT GR"
-msgstr ""
+msgstr "ALT GR"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -2975,7 +2977,7 @@ msgid "KEYBOARD"
 msgstr "TASTATUR"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -3062,7 +3064,7 @@ msgid "EDIT"
 msgstr "ENDRE"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "AKTIVERT"
 
 #, c-format
 msgid "%d day ago"
