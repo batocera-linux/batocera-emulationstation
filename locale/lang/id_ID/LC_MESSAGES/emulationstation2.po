@@ -149,10 +149,10 @@ msgid "this game's developer"
 msgstr "Pengembang Game Ini"
 
 msgid "Publisher"
-msgstr ""
+msgstr "Penerbit"
 
 msgid "this game's publisher"
-msgstr ""
+msgstr "Penerbit Game Ini"
 
 msgid "Genre"
 msgstr "Genre"
@@ -2843,7 +2843,7 @@ msgid "PLAYERS"
 msgstr "PEMAIN"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr "PENERBIT / PENGEMBANG"
+msgstr "PENERBIT/PENGEMBANG"
 
 msgid "RATING"
 msgstr "PERINGKAT"
@@ -3145,4 +3145,4 @@ msgid "SCREEN READER DISABLED"
 msgstr "PEMBACA LAYAR DIMATIKAN"
 
 #~ msgid "SUPPORT FILE CREATED IN SAVES FOLDER\n"
-#~ msgstr "FILE DUKUNGAN DIBUAT DALAM SAVE FOLDER"
+#~ msgstr "FILE DUKUNGAN DIBUAT DALAM SAVE FOLDER\n"
