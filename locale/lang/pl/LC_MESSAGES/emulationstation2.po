@@ -1675,10 +1675,10 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "PRZEŁĄCZ PRZYCISKI POTWIERDŹ (A) I ANULUJ (B) W EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "Przełącza funkcjonalność dolnego i prawego przycisku"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "DOSTĘP DO OPCJI GRY GÓRNYM PRZYCISKIEM"
@@ -2158,6 +2158,10 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"KONFIGURACJA KONTROLERA. MAPOWANIE PRZYCISKÓW KONTROLERA NA PODSTAWIE ICH "
+"POŁOŻENIA, A NIE JEGO OPISU. JEŻELI NIE MASZ SPECJALNEGO PRZYCISKU \"HOTKEY\" "
+"WYBIERZ PRZYCISK \"SELECT\". POMIŃ WSZYSTKIE PRZYCISKI, KTÓRYCH NIE MASZ "
+"PRZYTRZYMUJĄC DOWOLNY PRZYCISK. NACIŚNIJ DOLNY PRZYCISK GDY SKOŃCZYSZ."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "USTAWIENIA PISTOLETU SINDEN"
@@ -2926,19 +2930,19 @@ msgstr "SPACJA"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "GÓRA (Y)"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "DÓŁ (A)"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "PRAWO (B)"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "LEWO (X)"
 
 msgctxt "joystick"
 msgid "START"
@@ -2950,19 +2954,19 @@ msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD GÓRA"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD DÓŁ"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD LEWO"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD PRAWO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2998,27 +3002,27 @@ msgstr "PRAWY ANALOG W PRAWO"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "LEWE RAMIĘ"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "PRAWE RAMIĘ"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "LEWY SPUST"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "PRAWY SPUST"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "NACIŚNIĘCIE LEWEGO ANALOGA"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "NACIŚNIĘCIE PRAWEGO ANALOGA"
 
 msgctxt "joystick"
 msgid "HOTKEY"
