@@ -1954,12 +1954,10 @@ msgid "ENFORCE SECURITY"
 msgstr "REFORÇAR A SEGURANÇA"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
-"Require a password for accessing the network share. uma senha para acessar o "
-"compartilhamento da rede."
+msgstr "Solicitar uma senha para acessar o compartilhamento de rede."
 
 msgid "ROOT PASSWORD"
-msgstr "SENHA DO ROOT"
+msgstr "SENHA PRIMÁRIA (ROOT)"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A NOVA CONFIGURAÇÃO"
