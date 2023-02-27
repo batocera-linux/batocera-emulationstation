@@ -1668,10 +1668,10 @@ msgid "AUTO"
 msgstr "AUTOMATICKY"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "PŘEPÍNÁNÍ TLAČÍTEK POTVRZENÍ A ZRUŠENÍ V EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "Přepíná funkce tlačítek Jih a Východ."
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "PŘÍSTUP K MOŽNOSTEM HRY POMOCÍ HORNÍHO TLAČÍTKA"
@@ -2147,6 +2147,11 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"BUDETE MAPOVAT OVLADAČ. MAPOVAT NA ZÁKLADĚ POZICE TLAČÍTKA, NIKOLI JEHO "
+"FYZICKÉHO OZNAČENÍ. POKUD NEMÁTE SPECIÁLNÍ TLAČÍTKO PRO KLÁVESOVOU ZKRATKU, "
+"POUŽIJTE TLAČÍTKO VÝBĚRU. PODRŽENÍM LIBOVOLNÉHO TLAČÍTKA PŘESKOČTE VŠECHNA "
+"TLAČÍTKA/KLÁVESY, KTERÉ NEMÁTE. PO DOKONČENÍ STISKNĚTE JIŽNÍ TLAČÍTKO PRO "
+"POTVRZENÍ."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "NASTAVENÍ ZBRANĚ SINDEN"
@@ -2918,19 +2923,19 @@ msgstr "SPACE"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "SEVER"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "JIH"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "VÝCHOD"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "ZÁPAD"
 
 msgctxt "joystick"
 msgid "START"
@@ -2942,19 +2947,19 @@ msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD NAHORU"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD DOLŮ"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD VLEVO"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD VPRAVO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2990,27 +2995,27 @@ msgstr "PRAVÝ ANALOG VPRAVO"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "LEVÁ PÁČKA VLEVO"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "LEVÁ PÁČKA VPRAVO"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "PRAVÁ PÁČKA VLEVO"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "PRAVÁ PÁČKA VPRAVO"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "STISKNOUT LEVOU PÁČKU"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "STISKNOUT PRAVOU PÁČKU"
 
 msgctxt "joystick"
 msgid "HOTKEY"
