@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/02/09)\n"
+"Project-Id-Version: batocera-es v36beta(2022/02/28)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2023-02-09 17:59+0900\n"
+"PO-Revision-Date: 2023-02-28 20:03+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -17,16 +17,16 @@ msgid "UPDATE AVAILABLE"
 msgstr "更新可能"
 
 msgid "Name"
-msgstr "名前"
+msgstr "ゲーム名"
 
 msgid "this game's name"
-msgstr "ゲーム名"
+msgstr "このゲーム名を入力"
 
 msgid "Description"
 msgstr "説明"
 
 msgid "this game's description"
-msgstr "ゲームの説明"
+msgstr "このゲームの説明を入力"
 
 msgid "Emulator"
 msgstr "エミュレータ"
@@ -41,28 +41,28 @@ msgid "core"
 msgstr "コア"
 
 msgid "Image"
-msgstr "画像"
+msgstr "イメージ画像"
 
 msgid "enter path to image"
-msgstr "画像のパスを入力"
+msgstr "イメージ画像のパスを入力"
 
 msgid "Video"
-msgstr "動画"
+msgstr "イメージ(デモ)動画"
 
 msgid "enter path to video"
-msgstr "動画のパスを入力"
+msgstr "イメージ動画のパスを入力"
 
 msgid "Logo"
-msgstr "ロゴ"
+msgstr "ロゴ(マーキー)"
 
 msgid "enter path to logo"
 msgstr "ロゴのパスを入力"
 
 msgid "Box"
-msgstr "ボックス"
+msgstr "サムネイル画像(ボックス)"
 
 msgid "enter path to box"
-msgstr "ボックスのパスを入力"
+msgstr "サムネイル画像のパスを入力"
 
 msgid "Fan art"
 msgstr "ファンアート"
@@ -215,7 +215,7 @@ msgid "enter last played date"
 msgstr "最後にプレイした日時を入力"
 
 msgid "Crc32"
-msgstr "Crc32 チェックサム"
+msgstr "Crc32"
 
 msgid "Crc32 checksum"
 msgstr "Crc32 チェックサム"
@@ -601,7 +601,7 @@ msgid "VIEW DETAILS"
 msgstr "詳細を表示"
 
 msgid "LAUNCH"
-msgstr "開始"
+msgstr "ゲームを始める"
 
 msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
@@ -953,8 +953,8 @@ msgstr "パッドキー設定(キーボードをパッドに割り当てる)"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr ""
-"ボタン、キーを選択（決定はB、同時押しはXで次のキーを選択、最後のキーの決定を"
-"B、キャンセルはYかA）"
+"ボタン、キーを選択（決定はS、[同時押し]はNで決定だと次のキーを選択できる、最"
+"後のキー決定をS、キャンセルはWかE）"
 
 msgid "SAVE"
 msgstr "保存"
@@ -1069,7 +1069,7 @@ msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr "ゲームイメージビデオを表示"
+msgstr "ゲームイメージ動画を表示"
 
 msgid "VIEW GAME MEDIA"
 msgstr "ゲームメディアを表示"
@@ -1087,7 +1087,7 @@ msgid "GAME"
 msgstr "ゲーム"
 
 msgid "SAVE STATES"
-msgstr "セーブ"
+msgstr "セーブデータ"
 
 msgid "OPEN"
 msgstr "開く"
@@ -1265,7 +1265,7 @@ msgid "COMMUNITY RATING"
 msgstr "コミュニティの評価"
 
 msgid "VIDEO"
-msgstr "動画"
+msgstr "映像"
 
 msgid "FANART"
 msgstr "ファンアート画像"
@@ -1540,7 +1540,7 @@ msgid "VIDEO OPTIONS"
 msgstr "映像設定"
 
 msgid "VRAM LIMIT"
-msgstr "VRAM上限"
+msgstr "VRAM 制限"
 
 msgid "SHOW FRAMERATE"
 msgstr "フレームレート表示"
@@ -1647,7 +1647,7 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"ゲームリストに画像が指定されてない場合は、同じファイル名のメディアを検索しま"
+"ゲームリストにイメージ画像の指定が無い場合は、同じファイル名の画像を検索しま"
 "す"
 
 msgid "USER INTERFACE"
@@ -1663,7 +1663,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr "ゲーム開始時の画像、ゲーム名を非表示"
+msgstr "ゲーム開始時のイメージ画、ゲーム名を非表示"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
@@ -1681,12 +1681,12 @@ msgid "Switches the South and East buttons' functionality"
 msgstr "emulationstationで、南(下)と東(右)のボタンの機能を入れ替えます"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "△(上)ボタン長押しでゲーム設定を開く"
+msgstr "上(北)ボタン長押しでゲーム設定を開く"
 
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
-msgstr "△(上)短押(ステートセーブ)、×(下)長押(ゲーム設定)を反転します"
+msgstr "上(北)ボタン短押(ステートセーブ)、下(南)ボタン長押(ゲーム設定)を入れ替えます"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
@@ -2304,9 +2304,8 @@ msgstr "外観"
 msgid "THEME SET"
 msgstr "テーマ"
 
-# Not reflected
 msgid "video"
-msgstr "ビデオ"
+msgstr "イメージ動画"
 
 msgid "grid"
 msgstr "グリッド"
@@ -2375,13 +2374,13 @@ msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "動画再生時は音量を下げる"
 
 msgid "SOUNDS"
-msgstr "音声"
+msgstr "音響"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ナビゲーションサウンドを有効"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr "デモ動画の音声を有効"
+msgstr "デモ動画のBGMを有効"
 
 msgid "IP ADDRESS"
 msgstr "IP アドレス"
@@ -2450,7 +2449,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "システムを高速にシャットダウン"
 
 msgid "Shutdown without saving metadata."
-msgstr "メタデータを保存せずにシャットダウンします"
+msgstr "メタ情報を保存せずにシャットダウンします"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "メタ情報を保存せずに シャットダウンしますか？"
@@ -2528,9 +2527,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"ゲームリストがあるフォルダ外のファイルを選択しています\n"
-"関連ファイルをゲームリストがある指定フォルダにコピーして\n"
-"使用しますか？(いいえ、はコピーせずパス指定のみ)"
+"ゲームリストのフォルダ外のファイルを選択しています\n"
+"関連ファイルを指定フォルダ（rom/[system]/images等）に\n"
+"コピーしますか？(いいえ、はコピーせずパス指定のみ)"
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
