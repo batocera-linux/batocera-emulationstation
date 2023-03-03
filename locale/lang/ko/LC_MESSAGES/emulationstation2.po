@@ -1015,7 +1015,7 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 "현재 %s 버전을 사용중입니다\n"
-"\%s 버전으로 업데이트 하시겠습니까?"
+"%s 버전으로 업데이트 하시겠습니까?"
 
 #, c-format
 msgid ""
