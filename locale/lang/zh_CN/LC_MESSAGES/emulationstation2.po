@@ -2903,75 +2903,75 @@ msgstr "选择"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "十字方向键上"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "十字方向键下"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "十字方向键左"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "十字方向键右"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "左摇杆上"
+msgstr "左摇杆方向上"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "左摇杆下"
+msgstr "左摇杆方向下"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "左摇杆左"
+msgstr "左摇杆方向左"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "左摇杆右"
+msgstr "左摇杆方向右"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "右摇杆上"
+msgstr "右摇杆方向上"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "右摇杆下"
+msgstr "右摇杆方向下"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "右摇杆左"
+msgstr "右摇杆方向左"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "右摇杆右"
+msgstr "右摇杆方向右"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "键肩L1"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "键肩R1"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "扳机键L2"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "扳机键R2"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "左摇杆按压键L3"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "右摇杆按压键R3"
 
 msgctxt "joystick"
 msgid "HOTKEY"
