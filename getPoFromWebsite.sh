@@ -15,6 +15,9 @@ if ! wget -q "http://translations.batocera.org/?q=updatable&type=es" -O - |
 		echo "unable to find file on translations.batocera.org" >&2
 		exit 1
 	    fi
+
+	    dos2unix "locale/lang/${L}/LC_MESSAGES/emulationstation2.po"
+
 	done
 then
     echo "failed" >&2
