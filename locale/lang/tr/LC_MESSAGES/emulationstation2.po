@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Biohazard\n"
 "Language-Team: \n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -20,16 +20,16 @@ msgid "Name"
 msgstr "İsim"
 
 msgid "this game's name"
-msgstr ""
+msgstr "bu oyunun adı"
 
 msgid "Description"
 msgstr "Açıklama"
 
 msgid "this game's description"
-msgstr ""
+msgstr "bu oyunun açıklaması"
 
 msgid "Emulator"
-msgstr "Emulator"
+msgstr "Emulatör"
 
 msgid "emulator"
 msgstr "emulatör"
@@ -95,10 +95,10 @@ msgid "enter path to map"
 msgstr "haritanın yolunu girin"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Çerçeve (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "çerçeve (16:9) yolunu girin"
 
 msgid "Cartridge"
 msgstr "Kartuş"
@@ -119,10 +119,10 @@ msgid "enter path to box background"
 msgstr "kutu arkasının yolunu girin"
 
 msgid "Wheel"
-msgstr "Çark"
+msgstr "Tekerlek"
 
 msgid "enter path to wheel"
-msgstr "çark yolunu girin"
+msgstr "tekerlek yolunu girin"
 
 msgid "Mix"
 msgstr "Karışık"
@@ -146,13 +146,13 @@ msgid "Developer"
 msgstr "Geliştirici"
 
 msgid "this game's developer"
-msgstr ""
+msgstr "bu oyunun geliştiricisi"
 
 msgid "Publisher"
 msgstr "Yayıncı"
 
 msgid "this game's publisher"
-msgstr ""
+msgstr "bu oyunun yayıncısı"
 
 msgid "Genre"
 msgstr "Tür"
@@ -164,7 +164,7 @@ msgid "Game family"
 msgstr "Oyun ailesi"
 
 msgid "this game's game family"
-msgstr ""
+msgstr "bu oyunun ailesi"
 
 msgid "Genres"
 msgstr "Türler"
@@ -173,16 +173,16 @@ msgid "enter game genres"
 msgstr "oyun türlerine giriş"
 
 msgid "Arcade system"
-msgstr "Atari sistemi"
+msgstr "Oyun makinesi sistemi"
 
 msgid "this game's arcade system"
-msgstr ""
+msgstr "bu oyunun oyun makinesi sistemi"
 
 msgid "Players"
 msgstr "Oyuncu"
 
 msgid "this game's number of players"
-msgstr ""
+msgstr "bu oyunun oyuncu sayısı"
 
 msgid "Favorite"
 msgstr "Favori"
@@ -236,13 +236,13 @@ msgid "Languages"
 msgstr "Diller"
 
 msgid "this game's languages"
-msgstr ""
+msgstr "bu oyunun dilleri"
 
 msgid "Region"
 msgstr "Bölge"
 
 msgid "this game's region"
-msgstr ""
+msgstr "bu oyunun bölgesi"
 
 msgid "Cheevos Hash"
 msgstr "Cheevos Hash"
@@ -310,8 +310,8 @@ msgstr "Çeşitli"
 #, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bu koleksiyon %i oyun içerir:%s"
+msgstr[1] "Bu koleksiyon %s dahil, %i oyunlar içerir:"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH TARANIYOR"
@@ -323,16 +323,16 @@ msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "BLUETOOTH ARAMASI HALEN DEVAM EDİYOR."
 
 msgid "FORMATTING DEVICE"
-msgstr ""
+msgstr "CİHAZ BİÇİMLENDİRİLİYOR"
 
 msgid "Formatting"
-msgstr ""
+msgstr "Biçimlendiriliyor"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "İŞLEMİ TAMAMLAMAK İÇİN SİSTEMİ YENİDEN BAŞLATMAK GEREKLİ"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr ""
+msgstr "BİR SÜRÜCÜ ZATEN BİÇİMLENDİRİLMİŞ."
 
 msgid "DOWNLOADING"
 msgstr "İNDİRİLİYOR"
@@ -347,10 +347,10 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "TEMA BAŞARIYLA KALDIRILDI"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "KENARLAR BAŞARIYLA YÜKLENDİ"
+msgstr "ÇERÇEVELER BAŞARIYLA YÜKLENDİ"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "KENARLAR BAŞARIYLA KALDIRILDI"
+msgstr "ÇERÇEVELER BAŞARIYLA KALDIRILDI"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr "PAKET BAŞARIYLA YÜKLENDİ"
@@ -359,13 +359,13 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAKET BAŞARIYLA KALDIRILDI"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
+msgstr "RETROACHIEVEMENT AYARLARI"
 
 msgid "SETTINGS"
 msgstr "AYARLAR"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETRO BAŞARILARI"
+msgstr "RETROACHIEVEMENTS"
 
 msgid "USERNAME"
 msgstr "KULLANICI ADI"
@@ -377,72 +377,78 @@ msgid "OPTIONS"
 msgstr "SEÇENEKLER"
 
 msgid "HARDCORE MODE"
-msgstr "DONANIM MODU"
+msgstr "HARDCORE MODU"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
+"Daha fazla puan için yükleme durumlarını, geri sarmayı ve hileleri devre "
+"dışı bırakın."
 
 msgid "LEADERBOARDS"
 msgstr "SKORLAR"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
+"Yüksek puanlı ve en iyi zaman skor tablolarında yarışın (hardcore "
+"gerektirir)."
 
 msgid "VERBOSE MODE"
-msgstr "VERBOSE MODU"
+msgstr "AYRINTILI MODU"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
+"Oyun başlangıcında ve diğer bildirimlerde achievement ilerlemesini gösterin."
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "ZENGİN VARLIK"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "TEKRAR MODU"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Kilitlenmemiş achievements tekrar kazanılabilir."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "OTOMATİK EKRAN GÖRÜNTÜSÜ"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "Achievement kazanıldığında otomatik ekran görüntüsü al."
 
 msgid "CHALLENGE INDICATORS"
-msgstr ""
+msgstr "ZORLUK GÖSTERGELERİ"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
+"Uygun achievements kazanılabildiğinde sağ alt köşede simgeleri gösterir."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr ""
+msgstr "RETROACHIEVEMENT AÇILMA SESİ"
 
 msgid "none"
-msgstr "yok"
+msgstr "hiç"
 
 msgid "UNLOCK SOUND"
-msgstr "SESLERİN KİLİDİNİ KALDIR"
+msgstr "SESLERİ AÇ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr ""
+msgstr "ANA MENÜDE RETROACHIEVEMENTS GİRİŞİNİ GÖSTER"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr ""
+msgstr "RetroAchievement istatistiklerinizi doğrudan ana menüden görüntüleyin!"
 
 msgid "GAME INDEXES"
-msgstr "OYUN ENDEKSLERİ"
+msgstr "OYUN DİZİNLERİ"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr ""
+msgstr "YENİ OYUNLARI AÇILIŞTA DİZİNLE"
 
 msgid "INDEX GAMES"
-msgstr ""
+msgstr "OYUNLARI DİZİNLE"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr ""
+msgstr "RETROACHIEVEMENTLER AKTİVE EDİLEMİYOR"
 
 msgid "OK"
 msgstr "TAMAM"
@@ -517,7 +523,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "DONANIMA GÖRE"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "ÜRETİCİYE VE TİPE GÖRE"
 
 msgid "BY RELEASE YEAR"
 msgstr "ÇIKIŞ YILINA GÖRE"
@@ -547,10 +553,10 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "SİSTEMİN İÇİNDE GİZLENMİŞ OYUNLARI GÖSTER"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "BOŞ SİSTEMLERİ GÖSTER"
 
 msgid "UPDATE GAMELISTS"
-msgstr ""
+msgstr "OYUN LİSTELERİNİ GÜNCELLE"
 
 msgid "Loading..."
 msgstr "Yükleniyor..."
@@ -587,10 +593,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d da %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Puanlar (hardcore)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Softcore puanlar"
 
 msgid "Rank"
 msgstr "Rütbe"
@@ -617,22 +623,22 @@ msgid "USE RELAY SERVER"
 msgstr "ARA SUNUCU KULLAN"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr ""
+msgstr "MEVCUT OLMAYAN OYUNLARI GÖSTER"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "Bu makinede bulunmayan oyunların odalarını göster."
 
 msgid "FINISHED"
 msgstr "BİTTİ"
@@ -653,16 +659,16 @@ msgid "SELECT RANDOM GAME"
 msgstr "RASGELE OYUN SEÇ"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr ""
+msgstr "HARF İLE BAŞLAYAN OYUNA ATLA"
 
 msgid "SORT GAMES BY"
 msgstr "OYUNA GÖRE SIRALA"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "DİNAMİK KOLEKSİYON"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "ÖZEL KOLEKSİYON"
 
 msgid "DELETE COLLECTION"
 msgstr "KOLEKSİYONU SİL"
@@ -677,10 +683,10 @@ msgid "automatic"
 msgstr "otomatik"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr ""
+msgstr "ÖZELLEŞTİRMELERİ GÖSTER"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "KALVYE BİLGİLERİNİ GÖRÜNTÜLEYİN"
+msgstr "PAD TO KEYBOARD BİLGİLERİNİ GÖRÜNTÜLEYİN"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "GELİŞMİŞ SİSTEM AYARLARI"
@@ -692,16 +698,16 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "METİN OLARAK OYUNLARI LİSTELE"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr ""
+msgstr "SCRAPER ÇALIŞIRKEN BU ÖZELLİK DEVRE DIŞIDIR"
 
 msgid "CLOSE"
 msgstr "KAPAT"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "BUNU SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ ?"
+msgstr "BUNU SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BLUETOOTH CİHAZI UNUT"
 
 msgid "REMOVE ALL"
 msgstr "HEPSİNİ SİL"
@@ -713,11 +719,11 @@ msgid "REMOVE"
 msgstr "SİL"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
+msgstr "BLUETOOTH CİHAZLARI SİLİNDİ."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "BUNU SİLMEK İSTEDİĞİNİZE EMİN MİSİNİZ '%s' ?"
 
 msgid "INPUT"
 msgstr "GİRDİ"
@@ -729,10 +735,10 @@ msgid "CANCEL"
 msgstr "İPTAL"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "NETPLAY A BAĞLAN"
+msgstr "NETPLAY'E BAĞLAN"
 
 msgid "Select a game lobby to join"
-msgstr ""
+msgstr "Katılmak için oyun lobisi seç"
 
 msgid "REFRESH"
 msgstr "YENİLE"
@@ -759,7 +765,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLAR"
 
 msgid "NO GAMES FOUND"
-msgstr ""
+msgstr "HİÇBİR OYUN BULUNAMADI"
 
 msgid "JOIN GAME"
 msgstr "OYUNA GİR"
@@ -768,7 +774,7 @@ msgid "WATCH GAME"
 msgstr "OYUNU İZLE"
 
 msgid "INPUT MANUALLY"
-msgstr ""
+msgstr "ELLE GİRİŞ"
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "WIFI AĞI BULUNAMADI"
@@ -780,10 +786,10 @@ msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "AĞA BAĞLI DEĞİLSİNİZ"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr ""
+msgstr "BİR BLUETOOTH CİHAZ EŞLE"
 
 msgid "PAIR"
-msgstr ""
+msgstr "EŞLE"
 
 msgid "FILE BROWSER"
 msgstr "DOSYA YÖNETİCİSİ"
@@ -807,13 +813,13 @@ msgid "CONTENT DOWNLOADER"
 msgstr "İÇERİK İNDİRİCİ"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr ""
+msgstr "YÜKLEMEK/KALDIRMAK İÇİN İÇERİĞİ SEÇİN"
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "YÜKLÜ İÇERİĞİ GÜNCELLE"
 
 msgid "No items"
-msgstr "Burada görüntülenecek bir şey yok"
+msgstr "Öğe yok"
 
 msgid "MISC"
 msgstr "ÇEŞİTLİ"
@@ -826,7 +832,7 @@ msgid "'%s' ADDED TO DOWNLOAD QUEUE"
 msgstr "'%s' İNDİRME KUYRUĞUNA EKLENDİ"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr ""
+msgstr "KALDIRMA KUYRUĞA EKLENDİ"
 
 msgid "INSTALL"
 msgstr "KUR"
@@ -836,7 +842,7 @@ msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "İNDİRME KUYRUĞUNDA MEVCUT"
 
 msgid "NO MISSING BIOS FILES"
-msgstr ""
+msgstr "EKSİK BIOS DOSYASI YOK"
 
 msgid "MISSING BIOS CHECK"
 msgstr "EKSİK BIOS"
@@ -845,7 +851,7 @@ msgid "NO MISSING BIOS"
 msgstr "EKSİK BIOS YOK"
 
 msgid "dim"
-msgstr "dim"
+msgstr "karart"
 
 msgid "black"
 msgstr "siyah"
@@ -857,13 +863,13 @@ msgid "slideshow"
 msgstr "slayt şov"
 
 msgid "suspend"
-msgstr ""
+msgstr "askıya al"
 
 msgid "always"
-msgstr "herzaman"
+msgstr "her zaman"
 
 msgid "start & end"
-msgstr "başat & bitir"
+msgstr "başlat & bitir"
 
 msgid "never"
 msgstr "hiç"
@@ -890,7 +896,7 @@ msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "RASGELE VİDEO EKRAN KORUYUCU AYARLARI"
 
 msgid "VIDEO DURATION (SECS)"
-msgstr ""
+msgstr "VIDEO SÜRESİ (SANİYE)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "EKRAN KORUYUCU İÇİN OMX PLAYER KULLANIN"
@@ -902,10 +908,10 @@ msgid "USE MARQUEE AS GAME INFO"
 msgstr "OYUN BİLGİSİ OLARAK KAYAN YAZI KULLANIN"
 
 msgid "DECORATION SET USED"
-msgstr ""
+msgstr "KULLANILAN DEKORASYON SETİ"
 
 msgid "STRETCH VIDEOS"
-msgstr ""
+msgstr "VİDEOLARI GENİŞLET"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "VİDEO SESİNİ SUSTUR"
@@ -920,37 +926,37 @@ msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "ÖZEL VİDEO YOLU"
 
 msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr ""
+msgstr "ÖZEL KLASÖRÜN ALT KLASÖRÜ İÇİNDEKİ VİDEOLARI KULLAN"
 
 msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr ""
+msgstr "VİDEO ÖZEL DOSYA UZANTISI"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "EKRAN KORUYUCU AYARLARI"
 
 msgid "IMAGE DURATION (SECS)"
-msgstr "RESMİ (SANİYE) SONRA DEĞİŞTİR"
+msgstr "RESİM SÜRESİ (SANİYE)"
 
 msgid "STRETCH IMAGES"
-msgstr "İMAJI UZAT"
+msgstr "RESİMLERİ UZAT"
 
 msgid "USE CUSTOM IMAGES"
-msgstr "ÖZEL İMAJ KULLANIN"
+msgstr "ÖZEL RESİMLERİ KULLAN"
 
 msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "ÖZEL İMAJ YOLU"
+msgstr "ÖZEL RESİM YOLU"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr ""
+msgstr "ÖZEL KLASÖRÜN ALT KLASÖRÜ İÇİNDEKİ RESİMLERİ KULLAN"
 
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr ""
+msgstr "RESİM ÖZEL DOSYA UZANTISI"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "KLAVYE AYARLARI İÇİN BASILI TUTUN"
+msgstr "PAD TO KEYBOARD AYARLARI"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr "DEĞİŞTİRİLECEK AKSİYONU SEÇİNİZ"
+msgstr "DEĞİŞTİRİLMEK İÇİN EYLEMLERİ SEÇİN"
 
 msgid "SAVE"
 msgstr "KAYDET"
@@ -974,10 +980,10 @@ msgid "COMBINATIONS"
 msgstr "KOMBİNASYONLAR"
 
 msgid "MOUSE CURSOR"
-msgstr "FARE İŞARETÇİSİ"
+msgstr "FARE İMLECİ"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr "FARE İŞARETÇİSİ EMULASYONU"
+msgstr "FARE İMLECİ EMULASYONU"
 
 msgid "LEFT ANALOG STICK"
 msgstr "SOL ANALOG"
@@ -1005,7 +1011,7 @@ msgid "UPDATE IS READY"
 msgstr "GÜNCELLEME HAZIR"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "UYGULAMAK İÇİN BAŞTAN BAŞLAT"
 
 msgid "REALLY UPDATE?"
 msgstr "GÜNCELLE?"
@@ -1015,6 +1021,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"ŞU AN KULLANILAN VERSİYON %s\n"
+"ŞU VERSİYONA GÜNCELLENMESİNİ İSTİYOR MUSUN %s?"
 
 #, c-format
 msgid ""
@@ -1022,6 +1030,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"RESMİ OLMAYAN SİSTEM DEĞİŞİKLİKLERİ TESPİT EDİLDİ.\n"
+"GÜNCELLEMEK SİSTEMİNİZİ BOZABİLİR.\n"
+"ŞU VERSİYONA GÜNCELLENMESİNİ İSTİYOR MUSUN %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "AĞ BAĞLANTISI GEREKİYOR"
@@ -1030,7 +1041,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "YENİ GÜNCELLEME YOK"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "YENİ BİR DİSK'E KUR"
 
 msgid "TARGET DEVICE"
 msgstr "HEDEF CİHAZ"
@@ -1045,7 +1056,7 @@ msgid "INVALID PARAMETERS"
 msgstr "GEÇERSİZ PARAMETRELER"
 
 msgid "GAME MEDIA"
-msgstr ""
+msgstr "OYUN ORTAMI"
 
 msgid "VIEW GAME MANUAL"
 msgstr "OYUN KLAVUZUNU GÖR"
@@ -1057,31 +1068,31 @@ msgid "VIEW GAME MAP"
 msgstr "OYUN HARİTASINI GÖR"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr ""
+msgstr "TAM EKRAN VİDEO GÖSTER"
 
 msgid "VIEW GAME MEDIA"
-msgstr ""
+msgstr "OYUN ORTAMINI GÖSTER"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "ŞU ANKİ ÇEKİRDEK UYUMSUZ"
 
 msgid "COMPATIBLE CORE(S)"
-msgstr ""
+msgstr "UYUMLU ÇEKİRDEK(LER)"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr ""
+msgstr "BU OYUNUN ACHIEVEMENTLERİNİ GÖSTER"
 
 msgid "GAME"
 msgstr "OYUN"
 
 msgid "SAVE STATES"
-msgstr ""
+msgstr "KAYIT NOKTALARI"
 
 msgid "OPEN"
 msgstr "AÇ"
 
 msgid "START A NETPLAY GAME"
-msgstr ""
+msgstr "BİR NETPLAY OYUNUNA BAŞLA"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -1090,16 +1101,16 @@ msgid "START GAME"
 msgstr "OYUNU BAŞLAT"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
+msgstr "NETPLAY OYUNUNA EVSAHİBİ OL"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "AÇIK YAYINLANMIŞ OYUN"
 
 msgid "PLAYER PASSWORD"
-msgstr ""
+msgstr "OYUNCU ŞİFRESİ"
 
 msgid "VIEWER PASSWORD"
-msgstr ""
+msgstr "İZLEYİCİ ŞİFRESİ"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "BENZER OYUNLARI BUL..."
@@ -1114,7 +1125,7 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
-"BU OYUN DOSYA(LAR)INI SİLECEK !\n"
+"BU GERÇEK OYUN DOSYASINI VEYA DOSYALARINI SİLECEK !\n"
 "EMİN MİSİN?"
 
 msgid "COLLECTIONS"
@@ -1135,13 +1146,13 @@ msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "ÖZEL KOLLEKSİYONA EKLE..."
 
 msgid "SCRAPE"
-msgstr "SCRAPE ÇEK"
+msgstr "SCRAPE"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr ""
+msgstr "PADTOKEY PROFİLİNİ DÜZENLE"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr ""
+msgstr "PADTOKEY PROFİLİ YARAT"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "GELİŞMİŞ OYUN AYARLARI"
@@ -1156,16 +1167,16 @@ msgid "THEMES DOWNLOADER"
 msgstr "TEMA İNDİRİCİ"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
+msgstr "YÜKLE/KALDIR İÇİN TEMALARI SEÇ"
 
 msgid "All"
-msgstr ""
+msgstr "Hepsi"
 
 msgid "Installed"
-msgstr ""
+msgstr "Yüklü"
 
 msgid "Available"
-msgstr ""
+msgstr "Mevcut"
 
 msgid "CURRENT THEME"
 msgstr "ŞİMDİKİ TEMA"
@@ -1187,13 +1198,13 @@ msgid "%d%% complete"
 msgstr "%d%% tamamlandı"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "KAYITYERİ YÖNETİCİSİ"
 
 msgid "START NEW GAME"
 msgstr "YENİ OYUN BAŞLAT"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "YENİ OTO KAYIT BAŞLAT"
 
 msgid "AUTO SAVE"
 msgstr "OTOMATİK KAYDET"
@@ -1205,7 +1216,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "BOŞ YUVAYA KOPYALA"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "SCRAPER AYARLARI"
 
 msgid "IMAGE SOURCE"
 msgstr "RESİM KAYNAĞI"
@@ -1238,91 +1249,91 @@ msgid "LOGO SOURCE"
 msgstr "LOGO KAYNAĞI"
 
 msgid "WHEEL"
-msgstr "WHEEL"
+msgstr "TEKERLEK"
 
 msgid "MARQUEE"
 msgstr "KAYAN YAZI"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "İÇİN SCRAPE"
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "KISA İSİM"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "TOPLULUK DEĞERLENDİRMESİ"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "VİDEO"
 
 msgid "FANART"
-msgstr ""
+msgstr "FANART"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "ÇERÇEVE (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "KUTU ARKASI"
 
 msgid "MAP"
-msgstr ""
+msgstr "HARİTA"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "ELLE"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "PADTOKEY AYARLARI"
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
 
 msgid "SCRAPING DATABASE"
-msgstr ""
+msgstr "SCRAPING VERİTABANI"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "KAYNAK"
 
 msgid "SCRAPE FROM"
 msgstr "ŞURADAN ÇEK(SCRAPPER)"
 
 msgid "FILTERS"
-msgstr ""
+msgstr "FİLTRELER"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "SCRAPE EDİLECEK OYUNLAR"
 
 msgid "ALL"
-msgstr ""
+msgstr "HEPSİ"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "HERHANGİ BİR MEDYASI OLMAYAN OYUNLAR"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "HİÇBİR MEDYASI OLMAYAN OYUNLAR"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "YAKIN ZAMANDA SCRAPE EDİLMİŞ OYUNLARI YOKSAY"
 
 msgid "LAST DAY"
-msgstr ""
+msgstr "SON GÜN"
 
 msgid "LAST WEEK"
-msgstr ""
+msgstr "SON HAFTA"
 
 msgid "LAST 15 DAYS"
-msgstr ""
+msgstr "SON 15 GÜN"
 
 msgid "LAST MONTH"
-msgstr ""
+msgstr "SON AY"
 
 msgid "LAST 3 MONTHS"
-msgstr ""
+msgstr "SON 3 AY"
 
 msgid "LAST YEAR"
-msgstr ""
+msgstr "SON YIL"
 
 msgid "SYSTEMS INCLUDED"
-msgstr ""
+msgstr "DAHİL EDİLMİŞ SİSTEMLER"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPE ÇEK"
@@ -1335,9 +1346,12 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
+"UYARI: SEÇTİĞİNİZ SİSTEMLERDEN BAZILARINDA PLATFORM SETİ BULUNMAMAKTADIR. "
+"SONUÇLAR FARKLI SİSTEMLER İÇİN OLABİLİR!\n"
+"YİNE DE DEVAM ET?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "ÇEKME İŞLEMİ DEVAM EDİYOR. İPTAL ETMEK İSTERMİSİN ? (SCRAPE)"
+msgstr "SCRAPING İŞLEMİ DEVAM EDİYOR. İPTAL ETMEK İSTERMİSİN?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "BU KRİTERE UYAN OYUN BULUNAMADI."
@@ -1346,7 +1360,7 @@ msgid "INFORMATION"
 msgstr "BİLGİ"
 
 msgid "VERSION"
-msgstr "SÜRÜM"
+msgstr "VERSİYON"
 
 msgid "USER DISK USAGE"
 msgstr "KULLANICI DİSK KULLANIMI"
@@ -1361,10 +1375,10 @@ msgid "VIDEO DRIVER"
 msgstr "VİDEO SÜRÜCÜSÜ"
 
 msgid "THE BEZEL PROJECT"
-msgstr "KENAR PROJESİ"
+msgstr "ÇERÇEVE PROJESİ"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr ""
+msgstr "YÜKLE/KALDIR İÇİN ÇERÇEVELERİ SEÇİN"
 
 msgid "fade"
 msgstr "soldur"
@@ -1397,7 +1411,7 @@ msgid "Battery"
 msgstr "Pil"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Cpu model"
 msgstr "Cpu modeli"
@@ -1413,35 +1427,35 @@ msgstr "Cpu özellikleri"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr ""
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr ""
+msgstr "ENHANCED"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr ""
+msgstr "CURVATURE"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "FLATTEN-GLOW"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA ÖLÇEKLENDİRME"
 
 msgid "VENDOR"
 msgstr "YAPIMCI"
@@ -1453,22 +1467,22 @@ msgid "SHADERS"
 msgstr "GÖLGELENDİRMELER"
 
 msgid "CONTROLLER SETTINGS"
-msgstr ""
+msgstr "KONTROLÖR AYARLARI"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "KUMANDA AYARLARI"
+msgstr "KONTROLÖR VE BLUETOOTH AYARLARI"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "DAHİLİ"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "HERHANGİ HARİCİ"
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "maksimum 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "maksimum 640x480"
 
 msgid "MAIN MENU"
 msgstr "ANA MENÜ"
@@ -1477,10 +1491,10 @@ msgid "KODI MEDIA CENTER"
 msgstr "KODI MEDIA CENTER"
 
 msgid "GAME SETTINGS"
-msgstr ""
+msgstr "OYUN AYARLARI"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "KULLANICI ARAYÜZÜ AYARLARI"
 
 msgid "SOUND SETTINGS"
 msgstr "SES AYARLARI"
@@ -1501,13 +1515,13 @@ msgid "SYSTEM SETTINGS"
 msgstr "SİSTEM AYARLARI"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "KULLANICI ARAYÜZÜ MODUNUN KİLİDİNİ AÇ"
 
 msgid "QUIT"
 msgstr "ÇIKIŞ"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr ""
+msgstr "GİRİŞİ YAPILANDIRMAK İSTEDİĞİNİZDEN EMİN MİSİNİZ?"
 
 msgid "CHOOSE"
 msgstr "SEÇ"
@@ -1997,55 +2011,55 @@ msgid "DECORATIONS"
 msgstr "DEKARASYONLAR"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "KENARLARI UZAT (4K & ULTRAWIDE)"
+msgstr "ÇERÇEVELERİ UZAT (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr ""
+msgstr "ÇERÇEVE ÜZERİNDE DÖVME GÖSTER"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr ""
+msgstr "SİSTEM KONTROLCÜLERİ"
 
 msgid "CUSTOM IMAGE"
-msgstr ""
+msgstr "ÖZEL GÖRÜNTÜ"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr ""
+msgstr "Çerçevenin üzerine bindirilmiş bir resim gösterin."
 
 msgid "TATTOO CORNER"
-msgstr ""
+msgstr "KÖŞE DÖVMESİ"
 
 msgid "NORTH WEST"
-msgstr ""
+msgstr "KUZEY BATI"
 
 msgid "NORTH EAST"
-msgstr ""
+msgstr "KUZEY DOĞU"
 
 msgid "SOUTH EAST"
-msgstr ""
+msgstr "GÜNEY DOĞU"
 
 msgid "SOUTH WEST"
-msgstr ""
+msgstr "GÜNEY BATI"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr ""
+msgstr "ÖZEL .PNG GÖRÜNTÜ YOLU"
 
 msgid "RESIZE TATTOO"
-msgstr ""
+msgstr "DÖVME BOYUTLANDIR"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr ""
+msgstr "Dövmeyi çerçevenin kenarına sığacak şekilde küçültün/genişletin."
 
 msgid "AI GAME TRANSLATION"
 msgstr "YAPAY ZEKA OYUN ÇEVİRİSİ"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr ""
+msgstr "YAPAY ZEKA OYUN ÇEVİRİ SERVİSİNİ AÇ"
 
 msgid "TARGET LANGUAGE"
 msgstr "HEDEF DİL"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr ""
+msgstr "YAPAY ZEKA ÇEVİRİ SERVİSİ ADRESİ"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ÇEVİRİLEN EKRANDA BEKLET"
@@ -2054,52 +2068,53 @@ msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "KONTROLLERİ OTOMATİK YAPILANDIR"
 
 msgid "SAVESTATES"
-msgstr ""
+msgstr "KAYITYERLERİ"
 
 msgid "AUTO SAVE/LOAD"
-msgstr ""
+msgstr "OTO KAYDET/YÜKLE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
+"Oyun başlatıldığında en son kayıtyeri'ni yükle ve oyundan çıkarken kaydet."
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr ""
+msgstr "ARTAN KAYITYERLERİ"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "KAYIT BAŞINA ARTTIR"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "Eski kayıtyeri üzerine asla yazma, her zaman yeni yarat."
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "ARTAN YUVA"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "Yeni oyunda yuva'yı arttır."
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "ARTTIRMA"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "Yeni oyunda mevcut yuvayı kullan."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "KAYITYERİ YÖNETİCİSİNİ GÖSTER"
 
 msgid "ALWAYS"
-msgstr ""
+msgstr "HER ZAMAN"
 
 msgid "IF NOT EMPTY"
-msgstr ""
+msgstr "BOŞ DEĞİLSE"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Oyunu yüklemeden önce kayıtyeri yöneticisini göster."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "HER SİSTEM İÇİN GELİŞMİŞ AYARLAR"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
+msgstr "SCRAPER ÇALIŞIYOR. DURDURMAK İSTER MİSİN?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "OYUNLARI HASH DEVAM EDİYOR. DURDURMAK İSTERMİSİNİZ?"
@@ -3637,13 +3652,13 @@ msgstr ""
 #~ msgstr[1] "%i OYUN ATLANDI."
 
 #~ msgid "AUTOMATIC SCRAPER"
-#~ msgstr "OTOMATİK SCRAPPER"
+#~ msgstr "OTOMATİK SCRAPER"
 
 #~ msgid "REALLY SCRAPE?"
 #~ msgstr "SCRAPE YAPMAK İSTİYOR MUSUN ?"
 
 #~ msgid "MANUAL SCRAPER"
-#~ msgstr "MANUEL SCRAPE"
+#~ msgstr "MANUEL SCRAPER"
 
 #~ msgid "USER DECIDES ON CONFLICTS"
 #~ msgstr "ÇAKIŞMALARDA KULLANICI KARAR VERSİN"
