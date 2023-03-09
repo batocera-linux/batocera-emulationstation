@@ -2143,6 +2143,9 @@ msgstr ""
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "WII KONTROLLER VÅPEN INNSTILLINGER"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2215,6 +2218,18 @@ msgstr "MODUS"
 
 msgid "JOYSTICK"
 msgstr "JOYSTIKK"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DU MÅ BRUKE TEMAET FØR DU REDIGERER KONFIGURASJONEN"

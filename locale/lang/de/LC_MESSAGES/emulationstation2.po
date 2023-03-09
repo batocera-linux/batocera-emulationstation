@@ -2170,6 +2170,9 @@ msgstr "SINDEN WAFFENEINSTELLUNGEN"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "WIIMOTE WAFFENEINSTELLUNGEN"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2242,6 +2245,18 @@ msgstr "MODUS"
 
 msgid "JOYSTICK"
 msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "LINKS"
+
+msgid "RIGHT"
+msgstr "RECHTS"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DU MUSST DAS THEME ANWENDEN, BEVOR DU DESSEN KONFIGURATION BEARBEITEST"
@@ -3411,12 +3426,6 @@ msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
 
 #~ msgid "DOWN"
 #~ msgstr "RUNTER"
-
-#~ msgid "LEFT"
-#~ msgstr "LINKS"
-
-#~ msgid "RIGHT"
-#~ msgstr "RECHTS"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "LINKER ANALOG HOCH"

@@ -2159,6 +2159,9 @@ msgstr "NASTAVENÍ ZBRANĚ SINDEN"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2231,6 +2234,18 @@ msgstr "MÓD"
 
 msgid "JOYSTICK"
 msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "PŘED ÚPRAVOU KONFIGURACE JE NUTNÉ POUŽÍT MOTIV"

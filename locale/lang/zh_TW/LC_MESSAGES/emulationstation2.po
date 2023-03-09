@@ -2132,6 +2132,9 @@ msgstr "SINDEN 光線槍設定"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "WIIMOTE 光線槍設定"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "藍牙"
 
@@ -2204,6 +2207,18 @@ msgstr "模式"
 
 msgid "JOYSTICK"
 msgstr "搖桿"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "左"
+
+msgid "RIGHT"
+msgstr "右"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "在編輯主題設定之前必須先套用該佈景主題"
@@ -3350,12 +3365,6 @@ msgstr "螢幕閱讀器已停用"
 #~ msgid "DOWN"
 #~ msgstr "下"
 
-#~ msgid "LEFT"
-#~ msgstr "左"
-
-#~ msgid "RIGHT"
-#~ msgstr "右"
-
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "左類比搖桿 上"
 
@@ -3867,8 +3876,8 @@ msgstr "螢幕閱讀器已停用"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "螢幕保護 \\\"隨機影片\\\" 將顯示遊戲列表中的影片。\n"
 #~ "如果遊戲列表中沒有影片，或者在嘗試播放失敗幾次後，顯示為\\\"黑屏\"。\n"

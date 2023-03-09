@@ -2122,6 +2122,9 @@ msgstr ""
 msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr ""
 
@@ -2194,6 +2197,18 @@ msgstr ""
 
 msgid "JOYSTICK"
 msgstr ""
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "ЛІВОРУЧ"
+
+msgid "RIGHT"
+msgstr "ПРАВОРУЧ"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -3198,12 +3213,6 @@ msgstr ""
 
 #~ msgid "DOWN"
 #~ msgstr "ВНИЗ"
-
-#~ msgid "LEFT"
-#~ msgstr "ЛІВОРУЧ"
-
-#~ msgid "RIGHT"
-#~ msgstr "ПРАВОРУЧ"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "ЛІВИЙ АНАЛОГ ВГОРУ"

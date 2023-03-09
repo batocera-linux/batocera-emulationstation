@@ -2136,6 +2136,9 @@ msgstr ""
 msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr ""
 
@@ -2208,6 +2211,18 @@ msgstr ""
 
 msgid "JOYSTICK"
 msgstr ""
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "VÄNSTER"
+
+msgid "RIGHT"
+msgstr "HÖGER"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DU MÅSTE VERKSTÄLLA TEMAT INNAN DU ÄNDRAR DESS KONFIGURATION"
@@ -3362,12 +3377,6 @@ msgstr "SKÄRMLÄSARE INAKTIVERAD"
 
 #~ msgid "DOWN"
 #~ msgstr "NER"
-
-#~ msgid "LEFT"
-#~ msgstr "VÄNSTER"
-
-#~ msgid "RIGHT"
-#~ msgstr "HÖGER"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "VÄNSTER ANALOG UPP"

@@ -1686,7 +1686,8 @@ msgstr "上(北)ボタン長押しでゲーム設定を開く"
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
-msgstr "上(北)ボタン短押(ステートセーブ)、下(南)ボタン長押(ゲーム設定)を入れ替えます"
+msgstr ""
+"上(北)ボタン短押(ステートセーブ)、下(南)ボタン長押(ゲーム設定)を入れ替えます"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
@@ -2156,6 +2157,9 @@ msgstr "シンデン ライトガンの設定"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "wii リモコンの用途設定"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2228,6 +2232,18 @@ msgstr "モード選択"
 
 msgid "JOYSTICK"
 msgstr "ゲームパッド"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"

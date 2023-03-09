@@ -2167,6 +2167,9 @@ msgstr "DEFINIÇÕES DA PISTOLA SINDEN"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "DEFINIÇÕES DA PISTOLA WIIMOTE"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2239,6 +2242,18 @@ msgstr "MODO"
 
 msgid "JOYSTICK"
 msgstr "MANÍPULO"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"

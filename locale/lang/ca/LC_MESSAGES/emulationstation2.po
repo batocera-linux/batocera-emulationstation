@@ -2173,6 +2173,9 @@ msgstr "AJUSTOS DE SINDEN GUN"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "AJUSTOS DE WIIMOTE GUN"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2245,6 +2248,18 @@ msgstr "MODE"
 
 msgid "JOYSTICK"
 msgstr "PALANCA"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "HA D'APLICAR EL TEMA ABANS D'EDITAR LA SEVA CONFIGURACIÓ"

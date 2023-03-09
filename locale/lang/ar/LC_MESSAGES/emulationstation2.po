@@ -9,8 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: 2023-03-02 11:31+0100\n"
-"Last-Translator: Chipsum <"
-"chipsum@fallenbyte.com>\n"
+"Last-Translator: Chipsum <chipsum@fallenbyte.com>\n"
 "Language-Team: sultan AlShaheen, Chipsum\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -2137,6 +2136,9 @@ msgstr ""
 msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "بلوتوث"
 
@@ -2209,6 +2211,18 @@ msgstr ""
 
 msgid "JOYSTICK"
 msgstr ""
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "يسار"
+
+msgid "RIGHT"
+msgstr "يمين"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2667,8 +2681,7 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"حساب فعال إجباري.من فضلك قم بتسجيل حساب على https://"
-"retroachievements.org"
+"حساب فعال إجباري.من فضلك قم بتسجيل حساب على https://retroachievements.org"
 
 msgid "Searching"
 msgstr "يبحث"
@@ -3251,12 +3264,6 @@ msgstr ""
 #~ msgid "DOWN"
 #~ msgstr "أسفل"
 
-#~ msgid "LEFT"
-#~ msgstr "يسار"
-
-#~ msgid "RIGHT"
-#~ msgstr "يمين"
-
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "العجلة اليسرى للأعلى"
 
@@ -3636,8 +3643,8 @@ msgstr ""
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
-#~ "\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
+#~ "SETTINGS\" MENU."
 #~ msgstr ""
 #~ "تعرض شاشة \"فيديو عشوائي\" مقطع فيديو من قائمة الألعاب الخاصة بك.\n"
 #~ "إذا لم يكن لديك مقاطع فيديو ، أو إذا كان لا يمكن تشغيل أي منها بعد "

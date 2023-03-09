@@ -2157,6 +2157,9 @@ msgstr "НАСТРОЙКИ SINDEN GUN"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "НАСТРОЙКИ WIIMOTE GUN"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2229,6 +2232,18 @@ msgstr "РЕЖИМ"
 
 msgid "JOYSTICK"
 msgstr "ДЖОЙСТИК"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "ВЛЕВО"
+
+msgid "RIGHT"
+msgstr "ВПРАВО"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
@@ -3415,12 +3430,6 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
 
 #~ msgid "DOWN"
 #~ msgstr "ВНИЗ"
-
-#~ msgid "LEFT"
-#~ msgstr "ВЛЕВО"
-
-#~ msgid "RIGHT"
-#~ msgstr "ВПРАВО"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "ЛЕВЫЙ СТИК ВВЕРХ"

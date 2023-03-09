@@ -2129,6 +2129,9 @@ msgstr "SINDEN枪设置"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "WIIMOTE枪设置"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "蓝牙设备"
 
@@ -2201,6 +2204,18 @@ msgstr "模式"
 
 msgid "JOYSTICK"
 msgstr "游戏摇杆"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "必须在编辑主题的配置之前应用该主题"

@@ -2157,6 +2157,9 @@ msgstr "SINDEN PISTOLA EZARPENAK"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "WIIMOTE PISTOLA EZARPENAK"
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2229,6 +2232,18 @@ msgstr "MODUA"
 
 msgid "JOYSTICK"
 msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "EZKERRA"
+
+msgid "RIGHT"
+msgstr "ESKUINA"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "GAIA EZARRI BEHAR DUZU EZARPENAK EDITATU AURRETIK"
@@ -3212,12 +3227,6 @@ msgstr "PANTAILA IRAKURLEA EZGAITUTA"
 
 #~ msgid "DOWN"
 #~ msgstr "BEHERA"
-
-#~ msgid "LEFT"
-#~ msgstr "EZKERRA"
-
-#~ msgid "RIGHT"
-#~ msgstr "ESKUINA"
 
 #~ msgid "HOTKEY"
 #~ msgstr "HOTKEY"

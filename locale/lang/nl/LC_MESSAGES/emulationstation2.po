@@ -2131,6 +2131,9 @@ msgstr ""
 msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
 msgid "BLUETOOTH"
 msgstr ""
 
@@ -2203,6 +2206,18 @@ msgstr ""
 
 msgid "JOYSTICK"
 msgstr ""
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "LINKS"
+
+msgid "RIGHT"
+msgstr "RECHTS"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -3336,12 +3351,6 @@ msgstr "SCHERM LEZER UITGESCHAKELD"
 
 #~ msgid "DOWN"
 #~ msgstr "OMLAAG"
-
-#~ msgid "LEFT"
-#~ msgstr "LINKS"
-
-#~ msgid "RIGHT"
-#~ msgstr "RECHTS"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "LINKER ANALOGE STICK OMHOOG"
