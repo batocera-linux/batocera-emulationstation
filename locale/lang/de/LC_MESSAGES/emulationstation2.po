@@ -380,7 +380,7 @@ msgid "HARDCORE MODE"
 msgstr "HARDCORE MODUS"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "Ladestände, Zurückspulen und Cheats deaktivieren für mehr Punkte"
+msgstr "Ladestände, Zurückspulen und Cheats deaktivieren für mehr Punkte."
 
 msgid "LEADERBOARDS"
 msgstr "BESTENLISTEN"
@@ -1957,7 +1957,7 @@ msgid "LATENCY REDUCTION"
 msgstr "LATENZREDUZIERUNG"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "RUN-AHEAD FRAMES"
+msgstr "VORAUSEILENDE FRAMES"
 
 msgid "High numbers can result in visible jitter."
 msgstr "Hohe Zahlen können zu sichtbarem Jitter führen."
@@ -2028,10 +2028,10 @@ msgstr ""
 "dies unterstützt."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "INTEGER SCALING (PIXEL PERFECT)"
+msgstr "INTEGER SKALIERUNG (PIXEL PERFECT)"
 
 msgid "SHADER SET"
-msgstr "SHADER"
+msgstr "SHADER EINSTELLEN"
 
 msgid "DECORATIONS"
 msgstr "DEKORATIONEN"
@@ -2170,9 +2170,6 @@ msgstr "SINDEN WAFFENEINSTELLUNGEN"
 msgid "WIIMOTE GUN SETTINGS"
 msgstr "WIIMOTE WAFFENEINSTELLUNGEN"
 
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
-
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
@@ -2245,18 +2242,6 @@ msgstr "MODUS"
 
 msgid "JOYSTICK"
 msgstr "JOYSTICK"
-
-msgid "MOUSE ONLY"
-msgstr ""
-
-msgid "HAND"
-msgstr ""
-
-msgid "LEFT"
-msgstr "LINKS"
-
-msgid "RIGHT"
-msgstr "RECHTS"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DU MUSST DAS THEME ANWENDEN, BEVOR DU DESSEN KONFIGURATION BEARBEITEST"
@@ -3426,6 +3411,12 @@ msgstr "BILDSCHIRM-LESER DEAKTIVIERT"
 
 #~ msgid "DOWN"
 #~ msgstr "RUNTER"
+
+#~ msgid "LEFT"
+#~ msgstr "LINKS"
+
+#~ msgid "RIGHT"
+#~ msgstr "RECHTS"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "LINKER ANALOG HOCH"
