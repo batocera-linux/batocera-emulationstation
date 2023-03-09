@@ -52,6 +52,9 @@ public:
 	void updateGuns(Window* window);
 	std::vector<Gun*>& getGuns() { return mGunManager->getGuns(); }
 
+	// this list helps to convert mice to guns
+	std::vector<std::string> getMice();
+
 	std::string configureEmulators();
 
 	// information about last association players/pads 
