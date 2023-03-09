@@ -2435,7 +2435,7 @@ msgid "REALLY RESTART?"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "ПРИОСТАНОВЛЕННАЯ СИСТЕМА"
+msgstr "ПРИОСТАНОВИТЬ СИСТЕМУ"
 
 msgid "REALLY SUSPEND ?"
 msgstr "ПРИОСТАНОВИТЬ?"

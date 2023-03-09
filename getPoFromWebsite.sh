@@ -3,20 +3,23 @@
 if ! wget -q "http://translations.batocera.org/?q=updatable&type=es" -O - |
 	while read L
 	do
-	    echo "updating ${L}..." >&2
+	    echo -n "updating ${L}..." >&2
+
 	    if ! test -d "locale/lang/${L}"
 	    then
 		echo "directory locale/lang/${L} doesn't exist" >&2
 		exit 1
 	    fi
-	    
-	    if ! wget -q "http://translations.batocera.org/po/es_${L}.po" -O "locale/lang/${L}/LC_MESSAGES/emulationstation2.po"
+
+	    TARGET="locale/lang/${L}/LC_MESSAGES/emulationstation2.po"
+	    if ! wget -q "http://translations.batocera.org/po/es_${L}.po" -O "${TARGET}"
 	    then
 		echo "unable to find file on translations.batocera.org" >&2
 		exit 1
 	    fi
-
-	    dos2unix "locale/lang/${L}/LC_MESSAGES/emulationstation2.po"
+	    printf "\t"
+	    dos2unix "${TARGET}" 2>/dev/null
+	    msgfmt --statistics "${TARGET}"
 
 	done
 then
