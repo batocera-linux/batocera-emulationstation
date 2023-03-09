@@ -19,6 +19,14 @@
 #include "GunManager.h"
 #include "renderers/Renderer.h"
 
+#ifdef HAVE_UDEV
+#include <libudev.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#include <linux/input.h>
+#include <unistd.h>
+#endif
+
 #define KEYBOARD_GUID_STRING "-1"
 #define CEC_GUID_STRING      "-2"
 
@@ -87,6 +95,50 @@ void InputManager::init()
 
 	mGunManager = new GunManager();
 }
+
+std::vector<std::string> InputManager::getMice() {
+  std::vector<std::string> mice;
+
+  #ifdef HAVE_UDEV
+  struct udev *udev;
+  struct udev_list_entry *devs = NULL;
+  struct udev_list_entry *item = NULL;
+  char ident[256];
+
+  udev = udev_new();
+  if (udev != NULL)
+    {
+      struct udev_enumerate *enumerate = udev_enumerate_new(udev);
+      udev_enumerate_add_match_property(enumerate, "ID_INPUT_MOUSE", "1");
+      udev_enumerate_add_match_subsystem(enumerate, "input");
+      udev_enumerate_scan_devices(enumerate);
+      devs = udev_enumerate_get_list_entry(enumerate);
+
+      for (item = devs; item; item = udev_list_entry_get_next(item))
+	{
+	  const char *name = udev_list_entry_get_name(item);
+	  struct udev_device *dev = udev_device_new_from_syspath(udev, name);
+
+	  const char* devnode;
+	  devnode = udev_device_get_devnode(dev);
+	  if (devnode != NULL) {
+	    int fd = open(devnode, O_RDONLY | O_NONBLOCK);
+	    if (fd >= 0) {
+	      if (ioctl(fd, EVIOCGNAME(sizeof(ident)), ident) > 0) {
+		mice.push_back(std::string(ident));
+	      }
+	      close(fd);
+	    }
+	  }
+	  udev_device_unref(dev);
+	}
+
+      udev_unref(udev);
+    }
+  #endif
+  return mice;
+}
+
 
 void InputManager::deinit()
 {

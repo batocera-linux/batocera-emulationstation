@@ -2364,6 +2364,7 @@ void GuiMenu::openControllersSettings(int autoSel)
 	
 	bool sindenguns_menu = false;
 	bool wiiguns_menu = false;
+	bool steamdeckguns_menu = false;
 
 	for (auto gun : InputManager::getInstance()->getGuns())
 	{
@@ -2374,11 +2375,19 @@ void GuiMenu::openControllersSettings(int autoSel)
 	for (auto joy : InputManager::getInstance()->getInputConfigs())
 		wiiguns_menu |= joy->getDeviceName() == "Nintendo Wii Remote";
 
+	for (auto gun : InputManager::getInstance()->getGuns())
+	  steamdeckguns_menu |= gun->name() == "Steam Gun";
+	for (auto mouse : InputManager::getInstance()->getMice()) // the Steam Mouse can be converted to a Steam Gun via options
+	  steamdeckguns_menu |= mouse == "Steam Mouse";
+
 	if (sindenguns_menu)
 		s->addEntry(_("SINDEN GUN SETTINGS"), true, [this] { openControllersSpecificSettings_sindengun(); });
 
 	if (wiiguns_menu)
 		s->addEntry(_("WIIMOTE GUN SETTINGS"), true, [this] { openControllersSpecificSettings_wiigun(); });
+
+	if (steamdeckguns_menu)
+		s->addEntry(_("STEAMDECK MOUSE/GUN SETTINGS"), true, [this] { openControllersSpecificSettings_steamdeckgun(); });
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BLUETOOTH))
 	{
@@ -2600,6 +2609,41 @@ void GuiMenu::openControllersSpecificSettings_wiigun()
 	    ApiSystem::getInstance()->replugControllers_wiimotes();
 	  }
 	});
+	mWindow->pushGui(s);
+}
+
+void GuiMenu::openControllersSpecificSettings_steamdeckgun()
+{
+	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
+
+	std::string baseMode = SystemConf::getInstance()->get("controllers.steamdeckmouse.gun");
+	auto mode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MODE"), false);
+	mode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
+	mode_choices->add(_("MOUSE ONLY"), "0", baseMode == "0");
+	mode_choices->add(_("GUN"), "1", baseMode == "1");
+	s->addWithLabel(_("MODE"), mode_choices);
+	s->addSaveFunc([mode_choices] {
+	  if(mode_choices->getSelected() != SystemConf::getInstance()->get("controllers.steamdeckmouse.gun")) {
+	    SystemConf::getInstance()->set("controllers.steamdeckmouse.gun", mode_choices->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    ApiSystem::getInstance()->replugControllers_steamdeckguns();
+	  }
+	});
+
+	std::string baseHand = SystemConf::getInstance()->get("controllers.steamdeckmouse.hand");
+	auto hand_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("HAND"), false);
+	hand_choices->add(_("AUTO"), "auto", baseHand.empty() || baseHand == "auto");
+	hand_choices->add(_("LEFT"), "left", baseHand == "left");
+	hand_choices->add(_("RIGHT"), "right", baseHand == "right");
+	s->addWithLabel(_("HAND"), hand_choices);
+	s->addSaveFunc([hand_choices] {
+	  if(hand_choices->getSelected() != SystemConf::getInstance()->get("controllers.steamdeckmouse.hand")) {
+	    SystemConf::getInstance()->set("controllers.steamdeckmouse.hand", hand_choices->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    ApiSystem::getInstance()->replugControllers_steamdeckguns();
+	  }
+	});
+
 	mWindow->pushGui(s);
 }
 

@@ -1956,3 +1956,8 @@ void ApiSystem::replugControllers_wiimotes() {
   LOG(LogDebug) << "ApiSystem::replugControllers_wiimotes";
   executeScript("/usr/bin/virtual-wii-mouse-bar-remap");
 }
+
+void ApiSystem::replugControllers_steamdeckguns() {
+  LOG(LogDebug) << "ApiSystem::replugControllers_steamdeckguns";
+  executeScript("/usr/bin/steamdeckgun-remap");
+}

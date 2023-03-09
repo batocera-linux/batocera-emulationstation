@@ -253,6 +253,7 @@ public:
 
   	virtual void replugControllers_sindenguns();
     	virtual void replugControllers_wiimotes();
+    	virtual void replugControllers_steamdeckguns();
 	
 protected:
 	ApiSystem();
