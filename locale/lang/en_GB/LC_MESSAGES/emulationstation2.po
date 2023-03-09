@@ -1,14 +1,9 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-16 08:40+0100\n"
-"PO-Revision-Date: 2021-12-17 13:31+1100\n"
+"PO-Revision-Date: 2023-03-09 05:52+1100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_GB\n"
@@ -19,127 +14,127 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 
 msgid "UPDATE AVAILABLE"
-msgstr ""
+msgstr "UPDATE AVAILABLE"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "this game's name"
-msgstr ""
+msgstr "this game's name"
 
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 msgid "this game's description"
-msgstr ""
+msgstr "this game's description"
 
 msgid "Emulator"
-msgstr ""
+msgstr "Emulator"
 
 msgid "emulator"
-msgstr ""
+msgstr "emulator"
 
 msgid "Core"
-msgstr ""
+msgstr "Core"
 
 msgid "core"
-msgstr ""
+msgstr "core"
 
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 msgid "enter path to image"
-msgstr ""
+msgstr "enter path to image"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 msgid "enter path to video"
 msgstr ""
 
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr ""
+msgstr "enter path to logo"
 
 msgid "Box"
-msgstr ""
+msgstr "Box"
 
 msgid "enter path to box"
 msgstr ""
 
 msgid "Fan art"
-msgstr ""
+msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr ""
+msgstr "enter path to fanart"
 
 msgid "Title shot"
-msgstr ""
+msgstr "Title shot"
 
 msgid "enter path to title shot"
-msgstr ""
+msgstr "enter path to title shot"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgid "enter path to manual"
-msgstr ""
+msgstr "enter path to manual"
 
 msgid "Magazine"
-msgstr ""
+msgstr "Magazine"
 
 msgid "enter path to magazine"
-msgstr ""
+msgstr "enter path to magazine"
 
 msgid "Map"
-msgstr ""
+msgstr "Map"
 
 msgid "enter path to map"
-msgstr ""
+msgstr "enter path to map"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Bezel (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "enter path to bezel (16:9)"
 
 msgid "Cartridge"
-msgstr ""
+msgstr "Cartridge"
 
 msgid "enter path to cartridge"
-msgstr ""
+msgstr "enter path to cartridge"
 
 msgid "Alt BoxArt"
-msgstr ""
+msgstr "Alt BoxArt"
 
 msgid "enter path to alt boxart"
-msgstr ""
+msgstr "enter path to alt boxart"
 
 msgid "Box backside"
-msgstr ""
+msgstr "Box backside"
 
 msgid "enter path to box background"
 msgstr ""
 
 msgid "Wheel"
-msgstr ""
+msgstr "Wheel"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "enter path to wheel"
 
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr ""
+msgstr "enter path to mix"
 
 msgid "Rating"
-msgstr ""
+msgstr "Rating"
 
 msgid "enter rating"
-msgstr ""
+msgstr "enter rating"
 
 msgid "Release date"
 msgstr ""
