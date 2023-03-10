@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2023-02-10 13:17+0100\n"
+"PO-Revision-Date: 2023-03-10 08:40+0100\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -2160,7 +2160,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "Nastavenia zbrane Wiimote"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "Nastavenia myši/zbrane Steamdeck"
 
 msgid "BLUETOOTH"
 msgstr "Bluetooth"
@@ -2236,16 +2236,16 @@ msgid "JOYSTICK"
 msgstr "Joystick"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "Iba myš"
 
 msgid "HAND"
-msgstr ""
+msgstr "Ruka"
 
 msgid "LEFT"
-msgstr ""
+msgstr "Vľavo"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "Vpravo"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "Musíte použiť tému pred úpravou jej konfigurácie"
@@ -2958,25 +2958,21 @@ msgctxt "joystick"
 msgid "SELECT"
 msgstr "Vybrať"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr "Hore"
+msgstr "D-pad hore"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr "Dolu"
+msgstr "D-pad dolu"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr "Vľavo"
+msgstr "D-pad vľavo"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr "Vpravo"
+msgstr "D-pad vpravo"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -3010,35 +3006,29 @@ msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "Pravý analóg vpravo"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr "Vľavo"
+msgstr "Ľavé rameno"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr "Vpravo"
+msgstr "Pravé rameno"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr "Vľavo"
+msgstr "Ľavý spúšťač"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr "Vpravo"
+msgstr "Pravý spúšťač"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr "Vľavo"
+msgstr "Stlačenie ľavej páčky"
 
-#, fuzzy
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr "Vpravo"
+msgstr "Stlačenie pravej páčky"
 
 msgctxt "joystick"
 msgid "HOTKEY"

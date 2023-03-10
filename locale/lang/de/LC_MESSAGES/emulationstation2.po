@@ -2171,7 +2171,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "WIIMOTE WAFFENEINSTELLUNGEN"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "STEAMDECK MAUS/GEWEHR EINSTELLUNGEN"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2247,10 +2247,10 @@ msgid "JOYSTICK"
 msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "NUR MAUS"
 
 msgid "HAND"
-msgstr ""
+msgstr "HAND"
 
 msgid "LEFT"
 msgstr "LINKS"

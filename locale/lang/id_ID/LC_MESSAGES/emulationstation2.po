@@ -2158,7 +2158,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "PENGATURAN GUN WIIMOTE"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "PENGATURAN MOUSE/PISTOL STEAMDECK"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2234,16 +2234,16 @@ msgid "JOYSTICK"
 msgstr "JOYSTIK"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "HANYA MOUSE"
 
 msgid "HAND"
-msgstr ""
+msgstr "TANGAN"
 
 msgid "LEFT"
-msgstr ""
+msgstr "KIRI"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "KANAN"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "ANDA HARUS MENERAPKAN TEMA SEBELUM MENGUBAH KONFIGURASI"
