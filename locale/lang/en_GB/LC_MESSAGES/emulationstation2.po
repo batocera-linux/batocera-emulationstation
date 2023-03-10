@@ -137,46 +137,46 @@ msgid "enter rating"
 msgstr "enter rating"
 
 msgid "Release date"
-msgstr ""
+msgstr "Release date"
 
 msgid "enter release date"
-msgstr ""
+msgstr "enter release date"
 
 msgid "Developer"
-msgstr ""
+msgstr "Developer"
 
 msgid "this game's developer"
-msgstr ""
+msgstr "this game's developer"
 
 msgid "Publisher"
-msgstr ""
+msgstr "Publisher"
 
 msgid "this game's publisher"
-msgstr ""
+msgstr "this game's publisher"
 
 msgid "Genre"
-msgstr ""
+msgstr "Genre"
 
 msgid "enter game genre"
-msgstr ""
+msgstr "enter game genre"
 
 msgid "Game family"
-msgstr ""
+msgstr "Game family"
 
 msgid "this game's game family"
-msgstr ""
+msgstr "this game's game family"
 
 msgid "Genres"
-msgstr ""
+msgstr "Genres"
 
 msgid "enter game genres"
-msgstr ""
+msgstr "enter game genres"
 
 msgid "Arcade system"
-msgstr ""
+msgstr "Arcade system"
 
 msgid "this game's arcade system"
-msgstr ""
+msgstr "this game's arcade system"
 
 msgid "Players"
 msgstr ""
@@ -191,151 +191,151 @@ msgid "enter favorite"
 msgstr "enter favourite"
 
 msgid "Hidden"
-msgstr ""
+msgstr "Hidden"
 
 msgid "enter hidden"
-msgstr ""
+msgstr "enter hidden"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Kidgame"
 
 msgid "enter kidgame"
-msgstr ""
+msgstr "enter kidgame"
 
 msgid "Play count"
-msgstr ""
+msgstr "Play count"
 
 msgid "enter number of times played"
-msgstr ""
+msgstr "enter number of times played"
 
 msgid "Last played"
-msgstr ""
+msgstr "Last played"
 
 msgid "enter last played date"
-msgstr ""
+msgstr "enter last played date"
 
 msgid "Crc32"
-msgstr ""
+msgstr "Crc32"
 
 msgid "Crc32 checksum"
-msgstr ""
+msgstr "Crc32 checksum"
 
 msgid "Md5"
-msgstr ""
+msgstr "Md5"
 
 msgid "Md5 checksum"
-msgstr ""
+msgstr "Md5 checksum"
 
 msgid "Game time"
-msgstr ""
+msgstr "Game time"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr ""
+msgstr "how long the game has been played in total (seconds)"
 
 msgid "Languages"
-msgstr ""
+msgstr "Languages"
 
 msgid "this game's languages"
-msgstr ""
+msgstr "this game's languages"
 
 msgid "Region"
-msgstr ""
+msgstr "Region"
 
 msgid "this game's region"
-msgstr ""
+msgstr "this game's region"
 
 msgid "Cheevos Hash"
-msgstr ""
+msgstr "Cheevos Hash"
 
 msgid "Cheevos checksum"
-msgstr ""
+msgstr "Cheevos checksum"
 
 msgid "Cheevos Game ID"
-msgstr ""
+msgstr "Cheevos Game ID"
 
 msgid "Screenscraper Game ID"
-msgstr ""
+msgstr "Screenscraper Game ID"
 
 msgid "all games"
-msgstr ""
+msgstr "all games"
 
 msgid "last played"
-msgstr ""
+msgstr "last played"
 
 msgid "favorites"
 msgstr "favourites"
 
 msgid "2 players"
-msgstr ""
+msgstr "2 players"
 
 msgid "4 players"
-msgstr ""
+msgstr "4 players"
 
 msgid "never played"
-msgstr ""
+msgstr "never played"
 
 msgid "retroachievements"
-msgstr ""
+msgstr "retroachievements"
 
 msgid "arcade"
-msgstr ""
+msgstr "arcade"
 
 msgid "vertical arcade"
-msgstr ""
+msgstr "vertical arcade"
 
 msgid "lightgun games"
-msgstr ""
+msgstr "lightgun games"
 
 msgid "collections"
-msgstr ""
+msgstr "collections"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr ""
+msgstr "Added '%s' to '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr ""
+msgstr "Removed '%s' from '%s'"
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "This collection is empty"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "None"
 
 msgid "Various"
-msgstr ""
+msgstr "Various"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "This collection contains %i game:%s"
+msgstr[1] "This collection contains %i games :%s"
 
 msgid "SCANNING BLUETOOTH"
-msgstr ""
+msgstr "SCANNING BLUETOOTH"
 
 msgid "Searching for devices..."
-msgstr ""
+msgstr "Searching for devices..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr ""
+msgstr "BLUETOOTH SCAN IS ALREADY RUNNING"
 
 msgid "FORMATTING DEVICE"
-msgstr ""
+msgstr "FORMATTING DEVICE"
 
 msgid "Formatting"
-msgstr ""
+msgstr "Formatting"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr ""
+msgstr " REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr ""
+msgstr "A DRIVE IS ALREADY BEING FORMATTED."
 
 msgid "DOWNLOADING"
-msgstr ""
+msgstr "DOWNLOADING"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
