@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/02/28)\n"
+"Project-Id-Version: batocera-es v36(2022/03/11)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2023-02-28 20:03+0900\n"
+"PO-Revision-Date: 2023-03-12 18:52+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -2152,13 +2152,13 @@ msgstr ""
 "します。 完了したら、決定（下）ボタンを押して確認します。"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr "シンデン ライトガンの設定"
+msgstr "シンデン ライトガン 設定"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr "wii リモコンの用途設定"
+msgstr "wii リモコン 用途設定"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "STEAMDECK マウス/銃 設定"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2234,16 +2234,16 @@ msgid "JOYSTICK"
 msgstr "ゲームパッド"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "マウスのみ"
 
 msgid "HAND"
-msgstr ""
+msgstr "ハンド"
 
 msgid "LEFT"
-msgstr ""
+msgstr "左"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "右"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -2831,7 +2831,7 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "「ゲームリストを更新」で変更を適用します"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "エミュレータが予期せず興奮しました"
+msgstr "エミュレータが予期せず終了しました"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
 msgstr "コマンドライン引数が違います"
