@@ -47,7 +47,6 @@ set(CHEEVOS_SOURCES
 )
 
 set(LIBRETRO_COMMON_HEADERS
-
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_miscellaneous.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_endianness.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/retro_common.h	
@@ -75,13 +74,12 @@ set(LIBRETRO_COMMON_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/bitstream.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/cdrom.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/chd.h
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/chdconfig.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/coretypes.h
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/huffman.h
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/libchdr_zlib.h
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/lzma.h
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/minmax.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/flac.h		
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/libchdr/huffman.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/file/file_path.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/dr_libs/dr_flac.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/string/stdstring.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/lists/dir_list.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include/lists/string_list.h	
@@ -98,6 +96,7 @@ set(LIBRETRO_COMMON_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7z.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zTypes.h
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zFile.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/Precomp.h
 )
 
 set(LIBRETRO_COMMON_SOURCES
@@ -115,10 +114,7 @@ set(LIBRETRO_COMMON_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/libchdr/libchdr_cdrom.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/libchdr/libchdr_chd.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/libchdr/libchdr_huffman.c
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/libchdr/libchdr_lzma.c
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/libchdr/libchdr_zlib.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/libchdr/libchdr_flac.c
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/libchdr/libchdr_flac_codec.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/formats/m3u/m3u_file.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/streams/chd_stream.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/streams/file_stream.c
@@ -147,11 +143,14 @@ set(LIBRETRO_COMMON_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zBuf.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zCrc.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zDec.c
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zFile.c
-	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zIn.c
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zFile.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zStream.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/Bcj2.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/Bra.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/Delta.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/CpuArch.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/7zArcIn.c	
+	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/BraIA64.c	
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/LzFind.c
 	${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip/Lzma2Dec.c
                                 
@@ -210,7 +209,7 @@ endif()
 
 
 add_definitions("-DRC_DISABLE_LUA")
-add_definitions("-DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0")
+add_definitions("-D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0")
 
 if(NOT DEFINED MSVC)
 	add_definitions("-DHAVE_LROUND")
@@ -218,4 +217,6 @@ endif()
 
 include_directories(${COMMON_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/rcheevos/include)
 include_directories(${COMMON_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/include)
+include_directories(${COMMON_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/libretro-common/src/7zip)
+
 add_library(libcheevos STATIC ${CHEEVOS_SOURCES} ${CHEEVOS_HEADERS} ${LIBRETRO_COMMON_HEADERS} ${LIBRETRO_COMMON_SOURCES})
