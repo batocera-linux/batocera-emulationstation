@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-16 08:40+0100\n"
-"PO-Revision-Date: 2023-03-09 05:52+1100\n"
+"PO-Revision-Date: 2023-03-14 22:57+1100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_GB\n"
@@ -340,7 +340,7 @@ msgstr "DOWNLOADING"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THEME INSTALLED SUCCESSFULLY"
 
-msgid "AN ERROR OCCURRED"
+msgid "AN ERROR OCCURED"
 msgstr "AN ERROR OCCURRED"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
@@ -980,10 +980,10 @@ msgid "EMULATE MOUSE CURSOR"
 msgstr ""
 
 msgid "LEFT ANALOG STICK"
-msgstr ""
+msgstr "LEFT ANALOQUE STICK"
 
 msgid "RIGHT ANALOG STICK"
-msgstr ""
+msgstr "RIGHT ANALOQUE STICK"
 
 msgid "EDIT DESCRIPTION"
 msgstr ""
@@ -1072,13 +1072,13 @@ msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr ""
 
 msgid "GAME"
-msgstr ""
+msgstr "GAME"
 
 msgid "SAVE STATES"
 msgstr ""
 
 msgid "OPEN"
-msgstr ""
+msgstr "OPEN"
 
 msgid "START A NETPLAY GAME"
 msgstr ""
@@ -1157,7 +1157,7 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "ALL"
 
 msgid "Installed"
 msgstr ""
@@ -1263,7 +1263,7 @@ msgid "BOX BACKSIDE"
 msgstr ""
 
 msgid "MAP"
-msgstr ""
+msgstr "MAP"
 
 msgid "MANUAL"
 msgstr ""
@@ -1290,7 +1290,7 @@ msgid "GAMES TO SCRAPE FOR"
 msgstr ""
 
 msgid "ALL"
-msgstr ""
+msgstr "ALL"
 
 msgid "GAMES MISSING ANY MEDIA"
 msgstr ""
@@ -1844,37 +1844,37 @@ msgid "MULTIMEDIA KEYS"
 msgstr ""
 
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 msgid "BUTTON LED COLOR"
 msgstr "BUTTON LED COLOUR"
 
 msgid "off"
-msgstr ""
+msgstr "off"
 
 msgid "red"
-msgstr ""
+msgstr "red"
 
 msgid "green"
-msgstr ""
+msgstr "green"
 
 msgid "blue"
-msgstr ""
+msgstr "blue"
 
 msgid "white"
-msgstr ""
+msgstr "white"
 
 msgid "purple"
-msgstr ""
+msgstr "purple"
 
 msgid "yellow"
-msgstr ""
+msgstr "yellow"
 
 msgid "cyan"
-msgstr ""
+msgstr "cyan"
 
 msgid "POWER LED COLOR"
 msgstr "POWER LED COLOUR"
@@ -1883,7 +1883,7 @@ msgid "heartbeat"
 msgstr ""
 
 msgid "on"
-msgstr ""
+msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr ""
@@ -2118,9 +2118,6 @@ msgstr ""
 msgid "WIIMOTE GUN SETTINGS"
 msgstr ""
 
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
-
 msgid "BLUETOOTH"
 msgstr ""
 
@@ -2192,18 +2189,6 @@ msgid "MODE"
 msgstr ""
 
 msgid "JOYSTICK"
-msgstr ""
-
-msgid "MOUSE ONLY"
-msgstr ""
-
-msgid "HAND"
-msgstr ""
-
-msgid "LEFT"
-msgstr ""
-
-msgid "RIGHT"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -2569,7 +2554,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "RANDOM"
-msgstr ""
+msgstr "RANDOM"
 
 msgid "NAVIGATION BAR"
 msgstr ""
@@ -2919,35 +2904,35 @@ msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr ""
+msgstr "LEFT ANALOGUE UP"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr ""
+msgstr "LEFT ANALOGUE DOWN"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr ""
+msgstr "LEFT ANALOGUE LEFT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr ""
+msgstr "LEFT ANALOGUE RIGHT"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr ""
+msgstr "RIGHT ANALOGUE UP"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr ""
+msgstr "RIGHT ANALOGUE DOWN"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr ""
+msgstr "RIGHT ANALOGUE LEFT"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr ""
+msgstr "RIGHT ANALOGUE RIGHT"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
