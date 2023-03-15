@@ -50,7 +50,7 @@ msgid "Video"
 msgstr "Video"
 
 msgid "enter path to video"
-msgstr ""
+msgstr "enter path to video"
 
 msgid "Logo"
 msgstr "Logo"
@@ -62,7 +62,7 @@ msgid "Box"
 msgstr "Box"
 
 msgid "enter path to box"
-msgstr ""
+msgstr "enter path to box"
 
 msgid "Fan art"
 msgstr "Fan art"
@@ -116,7 +116,7 @@ msgid "Box backside"
 msgstr "Box backside"
 
 msgid "enter path to box background"
-msgstr ""
+msgstr "enter path to box background"
 
 msgid "Wheel"
 msgstr "Wheel"
@@ -179,10 +179,10 @@ msgid "this game's arcade system"
 msgstr "this game's arcade system"
 
 msgid "Players"
-msgstr ""
+msgstr "Players"
 
 msgid "this game's number of players"
-msgstr ""
+msgstr "this game's number of players"
 
 msgid "Favorite"
 msgstr "Favourite"
@@ -307,11 +307,11 @@ msgstr "None"
 msgid "Various"
 msgstr "Various"
 
-#, fuzzy, c-format
+#, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
 msgstr[0] "This collection contains %i game:%s"
-msgstr[1] "This collection contains %i games :%s"
+msgstr[1] "This collection contains %i games, including:%s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SCANNING BLUETOOTH"
@@ -338,58 +338,58 @@ msgid "DOWNLOADING"
 msgstr "DOWNLOADING"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "THEME INSTALLED SUCCESSFULLY"
 
-msgid "AN ERROR OCCURED"
-msgstr ""
+msgid "AN ERROR OCCURRED"
+msgstr "AN ERROR OCCURRED"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "THEME UNINSTALLED SUCCESSFULLY"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS INSTALLED SUCCESSFULLY"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZELS UNINSTALLED SUCCESSFULLY"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "PACKAGE INSTALLED SUCCESSFULLY"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr ""
+msgstr "PACKAGE REMOVED SUCCESSFULLY"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr ""
+msgstr "RETROACHIEVEMENT SETTINGS"
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "SETTINGS"
 
 msgid "RETROACHIEVEMENTS"
-msgstr ""
+msgstr "RETROACHIEVEMENTS"
 
 msgid "USERNAME"
-msgstr ""
+msgstr "USERNAME"
 
 msgid "PASSWORD"
-msgstr ""
+msgstr "PASSWORD"
 
 msgid "OPTIONS"
-msgstr ""
+msgstr "OPTIONS"
 
 msgid "HARDCORE MODE"
-msgstr ""
+msgstr "HARDCORE MODE"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
+msgstr "Disable loading states, rewind and cheats for more points."
 
 msgid "LEADERBOARDS"
-msgstr ""
+msgstr "LEADERBOARDS"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr ""
+msgstr "Compete in high-score and best time leaderboards (requires hardcore)."
 
 msgid "VERBOSE MODE"
-msgstr ""
+msgstr "VERBOSE MODE"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""

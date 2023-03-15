@@ -339,7 +339,7 @@ msgstr "正在下載"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "佈景主題安裝成功"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "發生錯誤"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

@@ -73,7 +73,7 @@ public:
 		{
 			GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
 
-			std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+			std::string error = _("AN ERROR OCCURRED") + std::string(": ") + updateStatus.first;
 			mWindow->displayNotificationMessage(error);
 		}
 

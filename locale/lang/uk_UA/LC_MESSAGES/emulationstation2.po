@@ -342,7 +342,7 @@ msgstr "ЗАВАНТАЖЕННЯ"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМУ УСПІШНО ВСТАНОВЛЕНО"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "ВІДБУЛАСЬ ПОМИЛКА"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

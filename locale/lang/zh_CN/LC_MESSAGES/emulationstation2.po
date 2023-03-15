@@ -339,7 +339,7 @@ msgstr "下载中"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "主题安装成功"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "出现错误"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

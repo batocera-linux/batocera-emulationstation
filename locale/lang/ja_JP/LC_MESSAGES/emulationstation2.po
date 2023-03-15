@@ -341,7 +341,7 @@ msgstr "ダウンロード中"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "テーマは正常にインストールされました"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "エラーが発生しました"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

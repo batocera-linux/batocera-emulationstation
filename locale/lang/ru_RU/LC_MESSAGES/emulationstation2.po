@@ -342,7 +342,7 @@ msgstr "ЗАГРУЗКА"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "ОШИБКА"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

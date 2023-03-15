@@ -343,7 +343,7 @@ msgstr "מוריד"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ערכת נושא הותקנה בהצלחה"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "אירעה שגיאה"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

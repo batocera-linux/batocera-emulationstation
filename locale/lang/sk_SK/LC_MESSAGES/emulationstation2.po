@@ -345,7 +345,7 @@ msgstr "Sťahujem"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "Téma úspešne nainštalovaná"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "Nastala chyba"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

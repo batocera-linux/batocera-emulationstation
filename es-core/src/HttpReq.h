@@ -18,7 +18,7 @@
  * //once one of those completes, the request is ready
  * if(myRequest.status() != REQ_SUCCESS)
  * {
- *    //an error occured
+ *    //an error occurred
  *    LOG(LogError) << "HTTP request error - " << myRequest.getErrorMessage();
  *    return;
  * }

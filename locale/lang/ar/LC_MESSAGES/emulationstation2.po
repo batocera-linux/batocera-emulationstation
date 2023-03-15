@@ -348,7 +348,7 @@ msgstr "جارِ التنزيل"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "تم تثبيت السمة بنجاح"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "حدث خطأ ما"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

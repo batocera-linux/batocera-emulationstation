@@ -344,7 +344,7 @@ msgstr ""
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr ""
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr ""
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

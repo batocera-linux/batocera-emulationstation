@@ -337,7 +337,7 @@ msgstr "ΚΑΤΕΒΑΙΝΕΙ"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ΤΟ ΘΕΜΑ ΕΓΚΑΤΑΣΤΑΘΗΚΕ ΕΠΙΤΥΧΩΣ"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "ΕΝΑ ΣΦΑΛΜΑ ΠΡΟΕΚΥΨΕ"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"

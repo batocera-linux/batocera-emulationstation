@@ -103,7 +103,7 @@ void GuiAutoScrape::onAutoScrapeError(std::pair<std::string, int> result)
     mLoading = false;
     mState = 5;
     mResult = result;
-    mResult.first = _("AN ERROR OCCURED") + std::string(": ") + mResult.first;
+    mResult.first = _("AN ERROR OCCURRED") + std::string(": ") + mResult.first;
 }
 
 void GuiAutoScrape::onAutoScrapeOk()
