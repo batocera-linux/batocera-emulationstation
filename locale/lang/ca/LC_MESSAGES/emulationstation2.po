@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.1.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALITZACIÓ DISPONIBLE"
@@ -2174,7 +2174,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "AJUSTOS DE WIIMOTE GUN"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "STEAMDECK CONFIGURACIÓ RATOLÍ/PISTOLA"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2250,16 +2250,16 @@ msgid "JOYSTICK"
 msgstr "PALANCA"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "NOMÉS RATOLÍ"
 
 msgid "HAND"
-msgstr ""
+msgstr "MÀ"
 
 msgid "LEFT"
-msgstr ""
+msgstr "ESQUERRA"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "DRETA"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "HA D'APLICAR EL TEMA ABANS D'EDITAR LA SEVA CONFIGURACIÓ"
