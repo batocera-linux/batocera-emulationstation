@@ -2168,7 +2168,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "DEFINIÇÕES DA PISTOLA WIIMOTE"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES RATO/PISTOLA DO STEAMDECK"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2244,16 +2244,16 @@ msgid "JOYSTICK"
 msgstr "MANÍPULO"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "APENAS RATO"
 
 msgid "HAND"
-msgstr ""
+msgstr "MÃO"
 
 msgid "LEFT"
-msgstr ""
+msgstr "ESQUERDA"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "DIREITA"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"
