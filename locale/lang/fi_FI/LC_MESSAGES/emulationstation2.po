@@ -2201,6 +2201,21 @@ msgstr ""
 msgid "HIDDEN"
 msgstr ""
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr ""
 

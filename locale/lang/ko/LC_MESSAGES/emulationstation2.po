@@ -2193,6 +2193,21 @@ msgstr "게임 내 전용"
 msgid "HIDDEN"
 msgstr "숨김"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "리코일"
 

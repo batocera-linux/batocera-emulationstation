@@ -2212,6 +2212,21 @@ msgstr "HANYA DI GAME"
 msgid "HIDDEN"
 msgstr "TERSEMBUNYI"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "HILANG"
 

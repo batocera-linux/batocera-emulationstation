@@ -2212,6 +2212,21 @@ msgstr "ТОЛЬКО В ИГРЕ"
 msgid "HIDDEN"
 msgstr "СКРЫТЫЙ"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "RECOIL"
 

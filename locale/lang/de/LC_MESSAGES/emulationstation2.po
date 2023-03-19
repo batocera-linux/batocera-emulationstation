@@ -2225,6 +2225,21 @@ msgstr "NUR IM SPIEL"
 msgid "HIDDEN"
 msgstr "VERBORGEN"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "RÜCKSTOSS"
 

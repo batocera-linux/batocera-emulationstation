@@ -2214,6 +2214,21 @@ msgstr "Iba v hre"
 msgid "HIDDEN"
 msgstr "Skryté"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "spätný ráz"
 

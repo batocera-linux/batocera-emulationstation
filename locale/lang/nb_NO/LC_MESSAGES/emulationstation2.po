@@ -2198,6 +2198,21 @@ msgstr "KUN I SPILL"
 msgid "HIDDEN"
 msgstr "SKJULT"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "REKYL"
 

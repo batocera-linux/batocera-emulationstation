@@ -2187,6 +2187,21 @@ msgstr "僅在遊戲中"
 msgid "HIDDEN"
 msgstr "隱藏"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "收縮"
 

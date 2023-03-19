@@ -2228,6 +2228,21 @@ msgstr "NOMÉS EN EL JOC"
 msgid "HIDDEN"
 msgstr "OCULT"
 
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
 msgid "RECOIL"
 msgstr "RETROCÉS"
 
