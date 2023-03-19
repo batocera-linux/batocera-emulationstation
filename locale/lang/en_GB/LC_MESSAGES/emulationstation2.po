@@ -340,7 +340,7 @@ msgstr "DOWNLOADING"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THEME INSTALLED SUCCESSFULLY"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "AN ERROR OCCURRED"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
@@ -421,10 +421,10 @@ msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr ""
 
 msgid "none"
-msgstr ""
+msgstr "none"
 
 msgid "UNLOCK SOUND"
-msgstr ""
+msgstr "UNLOCK SOUND"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr ""
@@ -445,31 +445,31 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr ""
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "FILTER GAMELIST BY"
-msgstr ""
+msgstr "FILTER GAMELIST BY"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr ""
+msgstr "EDIT DYNAMIC COLLECTION FILTERS"
 
 msgid "RESET ALL FILTERS"
-msgstr ""
+msgstr "RESET ALL FILTERS"
 
 msgid "BACK"
-msgstr ""
+msgstr "BACK"
 
 msgid "FIND GAMES"
-msgstr ""
+msgstr "FIND GAMES"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Unknown"
 
 msgid "YES"
-msgstr ""
+msgstr "YES"
 
 msgid "NO"
-msgstr ""
+msgstr "NO"
 
 msgid "SYSTEMS"
 msgstr ""
@@ -819,7 +819,7 @@ msgid "MISC"
 msgstr ""
 
 msgid "UPDATE"
-msgstr ""
+msgstr "UPDATE"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
@@ -829,7 +829,7 @@ msgid "UNINSTALLATION ADDED TO QUEUE"
 msgstr ""
 
 msgid "INSTALL"
-msgstr ""
+msgstr "INSTALL"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
@@ -845,7 +845,7 @@ msgid "NO MISSING BIOS"
 msgstr ""
 
 msgid "dim"
-msgstr ""
+msgstr "dim"
 
 msgid "black"
 msgstr ""
@@ -866,7 +866,7 @@ msgid "start & end"
 msgstr ""
 
 msgid "never"
-msgstr ""
+msgstr "never"
 
 msgid "systems"
 msgstr ""
@@ -953,31 +953,31 @@ msgid "SELECT ACTIONS TO CHANGE"
 msgstr ""
 
 msgid "SAVE"
-msgstr ""
+msgstr "SAVE"
 
 msgid "DELETE"
 msgstr ""
 
 msgid "PLAYER 1"
-msgstr ""
+msgstr "PLAYER 1"
 
 msgid "PLAYER 2"
-msgstr ""
+msgstr "PLAYER 2"
 
 msgid "PLAYER 3"
-msgstr ""
+msgstr "PLAYER 3"
 
 msgid "PLAYER 4"
-msgstr ""
+msgstr "PLAYER 4"
 
 msgid "COMBINATIONS"
-msgstr ""
+msgstr "COMBINATIONS"
 
 msgid "MOUSE CURSOR"
-msgstr ""
+msgstr "MOUSE CURSOR"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr ""
+msgstr "EMULATE MOUSE CURSOR"
 
 msgid "LEFT ANALOG STICK"
 msgstr "LEFT ANALOQUE STICK"
@@ -1160,47 +1160,47 @@ msgid "All"
 msgstr "ALL"
 
 msgid "Installed"
-msgstr ""
+msgstr "Installed"
 
 msgid "Available"
-msgstr ""
+msgstr "Available"
 
 msgid "CURRENT THEME"
-msgstr ""
+msgstr "CURRENT THEME"
 
 msgid "Points"
-msgstr ""
+msgstr "Points"
 
 msgid "Unlocked on"
-msgstr ""
+msgstr "Unlocked on"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr ""
+msgstr "THIS GAME HAS NO ACHIEVEMENTS YET"
 
 msgid "Achievements won"
-msgstr ""
+msgstr "Achievements won"
 
 #, c-format
 msgid "%d%% complete"
-msgstr ""
+msgstr "%d%% complete"
 
 msgid "SAVESTATE MANAGER"
 msgstr ""
 
 msgid "START NEW GAME"
-msgstr ""
+msgstr "START NEW GAME"
 
 msgid "START NEW AUTO SAVE"
-msgstr ""
+msgstr "START NEW AUTO SAVE"
 
 msgid "AUTO SAVE"
-msgstr ""
+msgstr "AUTO SAVE"
 
 msgid "SLOT"
-msgstr ""
+msgstr "SLOT"
 
 msgid "COPY TO FREE SLOT"
-msgstr ""
+msgstr "COPY TO FREE SLOT"
 
 msgid "SCRAPER SETTINGS"
 msgstr ""
@@ -1221,10 +1221,10 @@ msgid "MIX V2"
 msgstr ""
 
 msgid "BOX 2D"
-msgstr ""
+msgstr "BOX 2D"
 
 msgid "BOX 3D"
-msgstr ""
+msgstr "BOX 3D"
 
 msgid "FAN ART"
 msgstr ""
@@ -1251,7 +1251,7 @@ msgid "COMMUNITY RATING"
 msgstr ""
 
 msgid "VIDEO"
-msgstr ""
+msgstr "VIDEO"
 
 msgid "FANART"
 msgstr ""
@@ -2854,53 +2854,53 @@ msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr ""
 
 msgid "ALT GR"
-msgstr ""
+msgstr "ALT GR"
 
 msgid "SHIFT"
-msgstr ""
+msgstr "SHIFT"
 
 msgid "SPACE"
-msgstr ""
+msgstr "SPACE"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "NORTH"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "SOUTH"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "EAST"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "WEST"
 
 msgctxt "joystick"
 msgid "START"
-msgstr ""
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr ""
+msgstr "SELEC"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD UP"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD DOWN"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD LEFT"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD RIGHT"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2936,44 +2936,44 @@ msgstr "RIGHT ANALOGUE RIGHT"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "LEFT SHOULDER"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "RIGHT SHOULDER"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "LEFT TRIGGER"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "RIGHT TRIGGER"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "LEFT STICK PRESS"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "RIGHT STICK PRESS"
 
 msgctxt "joystick"
 msgid "HOTKEY"
-msgstr ""
+msgstr "HOTKEY"
 
 msgid "CONFIGURING"
-msgstr ""
+msgstr "CONFIGURING"
 
 msgid "KEYBOARD"
-msgstr ""
+msgstr "KEYBOARD"
 
 msgid "CEC"
-msgstr ""
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
-msgstr ""
+msgstr "GAMEPAD %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
 msgstr ""
@@ -2995,110 +2995,110 @@ msgstr ""
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "HOLD FOR %iS TO SKIP"
+msgstr[1] "HOLD FOR %iS TO SKIP"
 
 msgid "PRESS ANYTHING"
-msgstr ""
+msgstr "PRESS ANYTHING"
 
 msgid "ALREADY TAKEN"
-msgstr ""
+msgstr "ALREADY TAKEN"
 
 msgid "WELCOME"
-msgstr ""
+msgstr "WELCOME"
 
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i GAMEPAD DETECTED"
+msgstr[1] "%i GAMEPADS DETECTED"
 
 msgid "NO GAMEPADS DETECTED"
-msgstr ""
+msgstr "NO GAMEPADS DETECTED"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr ""
+msgstr "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 
 msgid "DISCARD CHANGES"
-msgstr ""
+msgstr "DISCARD CHANGES"
 
 msgid "up/down"
-msgstr ""
+msgstr "up/down"
 
 msgid "accept"
-msgstr ""
+msgstr "accept"
 
 msgid "SELECT ALL"
-msgstr ""
+msgstr "SELECT ALL"
 
 msgid "select all"
-msgstr ""
+msgstr "select all"
 
 msgid "SELECT NONE"
-msgstr ""
+msgstr "SELECT NONE"
 
 msgid "select none"
-msgstr ""
+msgstr "select none"
 
 #, c-format
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i SELECTED"
+msgstr[1] "%i SELECTED"
 
 msgid "CHANGE"
-msgstr ""
+msgstr "CHANGE"
 
 msgid "MOVE CURSOR"
-msgstr ""
+msgstr "MOVE CURSOR"
 
 msgid "EDIT"
-msgstr ""
+msgstr "EDIT"
 
 msgid "ENABLED"
-msgstr ""
+msgstr "ENABLED"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d day ago"
+msgstr[1] "%d days ago"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hour ago"
+msgstr[1] "%d hours ago"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d minute ago"
+msgstr[1] "%d minutes ago"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d second ago"
+msgstr[1] "%d seconds ago"
 
 msgid "WORKING..."
-msgstr ""
+msgstr "WORKING..."
 
 #, c-format
 msgid "%d h"
-msgstr ""
+msgstr "%d h"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d mn"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d sec"
 
 msgid "SCREEN READER ENABLED"
-msgstr ""
+msgstr "SCREEN READER ENABLED"
 
 msgid "SCREEN READER DISABLED"
-msgstr ""
+msgstr "SCREEN READER DISABLED"
