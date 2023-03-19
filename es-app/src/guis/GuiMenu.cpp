@@ -2572,6 +2572,16 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 
 	s->addOptionList(_("BORDER MODE"), { { _("AUTO"), "auto" },{ _("NORMAL") , "normal" },{ _("IN GAME ONLY"), "gameonly" },{ _("HIDDEN"), "hidden" } }, "controllers.guns.bordersmode", false);
 
+	std::string selectedBordersCOlor = SystemConf::getInstance()->get("controllers.guns.borderscolor");
+	auto borderscolor_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER COLOR"), false);
+	border_set->add(_("AUTO"),  "",      ""      == selectedSet);
+	border_set->add(_("WHITE"), "WHITE", "white" == selectedSet);
+	border_set->add(_("RED"),   "RED",   "red"   == selectedSet);
+	border_set->add(_("GREEN"), "GREEN", "green" == selectedSet);
+	border_set->add(_("BLUE"),  "BLUE",  "blue"  == selectedSet);
+
+	s->addOptionList(_("BORDER COLOR"), { { _("AUTO"), "auto" },{ _("WHITE") , "white" },{ _("RED") , "red" },{ _("GREEN"), "green" },{ _("BLUE"), "blue" } }, "controllers.guns.borderscolor", false);
+
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
 	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
