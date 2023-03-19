@@ -562,7 +562,13 @@ void Window::renderSindenBorders()
 		Renderer::setMatrix(Transform4x4f::Identity());
 
 		const unsigned int outerBorderColor = 0x000000FF;
-		const unsigned int innerBorderColor = 0xFFFFFFFF;
+		unsigned int innerBorderColor = 0xFFFFFFFF;
+
+		auto bordersColor = SystemConf::getInstance()->get("controllers.guns.borderscolor");
+		if (bordersColor == "red")   innerBorderColor = 0xFF0000FF;
+		if (bordersColor == "green") innerBorderColor = 0x00FF00FF;
+		if (bordersColor == "blue")  innerBorderColor = 0x0000FFFF;
+		if (bordersColor == "white") innerBorderColor = 0xFFFFFFFF;
 
 		// outer border
 		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
