@@ -2226,19 +2226,19 @@ msgid "HIDDEN"
 msgstr "VERBORGEN"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "Rahmenfarbe"
 
 msgid "WHITE"
-msgstr ""
+msgstr "WEISS"
 
 msgid "RED"
-msgstr ""
+msgstr "ROT"
 
 msgid "GREEN"
-msgstr ""
+msgstr "GRÜN"
 
 msgid "BLUE"
-msgstr ""
+msgstr "BLAU"
 
 msgid "RECOIL"
 msgstr "RÜCKSTOSS"
