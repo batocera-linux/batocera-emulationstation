@@ -2215,19 +2215,19 @@ msgid "HIDDEN"
 msgstr "NASCOSTO"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "COLORE BORDO"
 
 msgid "WHITE"
-msgstr ""
+msgstr "BIANCO"
 
 msgid "RED"
-msgstr ""
+msgstr "ROSSO"
 
 msgid "GREEN"
-msgstr ""
+msgstr "VERDE"
 
 msgid "BLUE"
-msgstr ""
+msgstr "BLU"
 
 msgid "RECOIL"
 msgstr "RITORNO"
