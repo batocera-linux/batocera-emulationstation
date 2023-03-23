@@ -2614,9 +2614,17 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	sindenmode_choices->add(_("QUIET GUN"),   	"gun-quiet",  	    baseMode == "gun-quiet");
 	sindenmode_choices->add(_("QUIET MACHINE GUN"), "machinegun-quiet", baseMode == "machinegun-quiet");
 	s->addWithLabel(_("RECOIL"), sindenmode_choices);
-	s->addSaveFunc([sindenmode_choices] {
-	  if(sindenmode_choices->getSelected() != SystemConf::getInstance()->get("controllers.guns.recoil")) {
+
+	s->addSaveFunc([sindenmode_choices, cameracontrast_set, camerabrightness_set, cameraexposure_set] {
+	  if(sindenmode_choices->getSelected()   != SystemConf::getInstance()->get("controllers.guns.recoil") ||
+	     cameracontrast_set->getSelected()   != SystemConf::getInstance()->get("controllers.guns.sinden.contrast") ||
+	     camerabrightness_set->getSelected() != SystemConf::getInstance()->get("controllers.guns.sinden.brightness") ||
+	     cameraexposure_set->getSelected()   != SystemConf::getInstance()->get("controllers.guns.sinden.exposure")
+	     ) {
 	    SystemConf::getInstance()->set("controllers.guns.recoil", sindenmode_choices->getSelected());
+	    SystemConf::getInstance()->set("controllers.guns.sinden.contrast",   cameracontrast_set->getSelected());
+	    SystemConf::getInstance()->set("controllers.guns.sinden.brightness", camerabrightness_set->getSelected());
+	    SystemConf::getInstance()->set("controllers.guns.sinden.exposure",   cameraexposure_set->getSelected());
 	    SystemConf::getInstance()->saveSystemConf();
 	    ApiSystem::getInstance()->replugControllers_sindenguns();
 	  }
