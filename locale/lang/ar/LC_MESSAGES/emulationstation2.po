@@ -307,10 +307,10 @@ msgstr "هذه المجموعة فارغة."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr "لا شيء"
+msgstr "بدون"
 
 msgid "Various"
-msgstr "مختلف"
+msgstr "العديد"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -350,7 +350,7 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "تم تثبيت السمة بنجاح"
 
 msgid "AN ERROR OCCURRED"
-msgstr ""
+msgstr "حصل خلل ما"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "تم حذف السمة بنجاح"
@@ -2151,7 +2151,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "إعدادات مسدس ويموت"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "جهاز ستيم/إعدادات المسدس"
 
 msgid "BLUETOOTH"
 msgstr "بلوتوث"
@@ -2206,19 +2206,19 @@ msgid "HIDDEN"
 msgstr "مخفي"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "لون الإطار"
 
 msgid "WHITE"
-msgstr ""
+msgstr "أبيض"
 
 msgid "RED"
-msgstr ""
+msgstr "أحمر"
 
 msgid "GREEN"
-msgstr ""
+msgstr "أخضر"
 
 msgid "BLUE"
-msgstr ""
+msgstr "أزرق"
 
 msgid "RECOIL"
 msgstr "ارتداد"
@@ -2242,10 +2242,10 @@ msgid "JOYSTICK"
 msgstr "ذراع التحكم"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "الفأرة فقط"
 
 msgid "HAND"
-msgstr ""
+msgstr "اليد"
 
 msgid "LEFT"
 msgstr "يسار"
