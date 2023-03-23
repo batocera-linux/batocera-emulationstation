@@ -2585,7 +2585,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	cameracontrast_set->add(_("Daytime/Bright Sunlight (40)"), "40", "40" == selectedCameraContrast);
 	cameracontrast_set->add(_("Default (50)"),                 "50", "50" == selectedCameraContrast);
 	cameracontrast_set->add(_("Dim Display/Evening (60)"),     "60", "60" == selectedCameraContrast);
-	s->addOptionList(_("CAMERA CONTRAST"), { { _("AUTO"), "auto" },{ _("Daytime/Bright Sunlight (40)") , "40" },{ _("Default (50)") , "50" },{ _("Dim Display/Evening (60)"), "60" } }, "controllers.guns.sinden.contrast", false);
+	s->addWithLabel(_("CAMERA CONTRAST"), cameracontrast_set);
 
 	std::string selectedCameraBrightness = SystemConf::getInstance()->get("controllers.guns.sinden.brightness");
 	auto camerabrightness_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("CAMERA BRIGHTNESS"), false);
@@ -2593,7 +2593,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	camerabrightness_set->add(_("Daytime/Bright Sunlight (80)"), "80", "80" == selectedCameraBrightness);
 	camerabrightness_set->add(_("Default (100)"),                "100", "100" == selectedCameraBrightness);
 	camerabrightness_set->add(_("Dim Display/Evening (120)"),    "120", "120" == selectedCameraBrightness);
-	s->addOptionList(_("CAMERA BRIGHTNESS"), { { _("AUTO"), "auto" },{ _("Daytime/Bright Sunlight (80)") , "80" },{ _("Default (100)") , "100" },{ _("Dim Display/Evening (120)"), "120" } }, "controllers.guns.sinden.brightness", false);
+	s->addWithLabel(_("CAMERA BRIGHTNESS"), camerabrightness_set);
 
 	std::string selectedCameraExposure = SystemConf::getInstance()->get("controllers.guns.sinden.exposure");
 	auto cameraexposure_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("CAMERA EXPOSURE"), false);
@@ -2603,7 +2603,7 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 	cameraexposure_set->add(_("Default (-7)"),       "-7", "-7" == selectedCameraExposure);
 	cameraexposure_set->add(_("Other (-8)"),         "-8", "-8" == selectedCameraExposure);
 	cameraexposure_set->add(_("Other (-9)"),         "-9", "-9" == selectedCameraExposure);
-	s->addOptionList(_("CAMERA EXPOSURE"), { { _("AUTO"), "auto" },{ _("Projector/CRT (-5)") , "-5" },{ _("Projector/CRT (-6)") , "-6" },{ _("Default (-7)"), "-7" },{ _("Other (-8)"), "-8" },{ _("Other (-9)"), "-9" } }, "controllers.guns.sinden.exposure", false);
+	s->addWithLabel(_("CAMERA EXPOSURE"), cameraexposure_set);
 
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
