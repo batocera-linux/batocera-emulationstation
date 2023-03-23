@@ -1781,7 +1781,7 @@ msgid "DISABLED"
 msgstr "DEAKTIVIERT"
 
 msgid "DEFAULT"
-msgstr "KEIN SPLASH"
+msgstr "STANDARD"
 
 msgid "ENHANCED"
 msgstr "VERBESSERT"
