@@ -2554,41 +2554,64 @@ void GuiMenu::openControllersSpecificSettings_sindengun()
 {
 	GuiSettings* s = new GuiSettings(mWindow, controllers_settings_label.c_str());
 
-	std::string selectedSet = SystemConf::getInstance()->get("controllers.guns.borderssize");
-	auto border_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER SIZE"), false);
-	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
-	border_set->add(_("THIN"),   "THIN",   "THIN"   == selectedSet);
-	border_set->add(_("MEDIUM"), "MEDIUM", "MEDIUM" == selectedSet);
-	border_set->add(_("BIG"),    "BIG",    "BIG"    == selectedSet);
-
+	std::string selectedBordersSize = SystemConf::getInstance()->get("controllers.guns.borderssize");
+	auto borderssize_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER SIZE"), false);
+	borderssize_set->add(_("AUTO"),   "",       ""       == selectedBordersSize);
+	borderssize_set->add(_("THIN"),   "THIN",   "THIN"   == selectedBordersSize);
+	borderssize_set->add(_("MEDIUM"), "MEDIUM", "MEDIUM" == selectedBordersSize);
+	borderssize_set->add(_("BIG"),    "BIG",    "BIG"    == selectedBordersSize);
 	s->addOptionList(_("BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
 	std::string selectedBordersMode = SystemConf::getInstance()->get("controllers.guns.bordersmode");
 	auto bordersmode_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER MODE"), false);
-	border_set->add(_("AUTO"),   "",       ""       == selectedSet);
-	border_set->add(_("NORMAL"),   "NORMAL",   "NORMAL"   == selectedSet);
-	border_set->add(_("IN GAME ONLY"), "INGAMEONLY", "INGAMEONLY" == selectedSet);
-	border_set->add(_("HIDDEN"),    "HIDDEN",    "HIDDEN"    == selectedSet);
-
+	bordersmode_set->add(_("AUTO"),         "",           ""           == selectedBordersMode);
+	bordersmode_set->add(_("NORMAL"),       "NORMAL",     "NORMAL"     == selectedBordersMode);
+	bordersmode_set->add(_("IN GAME ONLY"), "INGAMEONLY", "INGAMEONLY" == selectedBordersMode);
+	bordersmode_set->add(_("HIDDEN"),       "HIDDEN",     "HIDDEN"     == selectedBordersMode);
 	s->addOptionList(_("BORDER MODE"), { { _("AUTO"), "auto" },{ _("NORMAL") , "normal" },{ _("IN GAME ONLY"), "gameonly" },{ _("HIDDEN"), "hidden" } }, "controllers.guns.bordersmode", false);
 
-	std::string selectedBordersCOlor = SystemConf::getInstance()->get("controllers.guns.borderscolor");
+	std::string selectedBordersColor = SystemConf::getInstance()->get("controllers.guns.borderscolor");
 	auto borderscolor_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER COLOR"), false);
-	border_set->add(_("AUTO"),  "",      ""      == selectedSet);
-	border_set->add(_("WHITE"), "WHITE", "white" == selectedSet);
-	border_set->add(_("RED"),   "RED",   "red"   == selectedSet);
-	border_set->add(_("GREEN"), "GREEN", "green" == selectedSet);
-	border_set->add(_("BLUE"),  "BLUE",  "blue"  == selectedSet);
-
+	borderscolor_set->add(_("AUTO"),  "",      ""      == selectedBordersColor);
+	borderscolor_set->add(_("WHITE"), "WHITE", "white" == selectedBordersColor);
+	borderscolor_set->add(_("RED"),   "RED",   "red"   == selectedBordersColor);
+	borderscolor_set->add(_("GREEN"), "GREEN", "green" == selectedBordersColor);
+	borderscolor_set->add(_("BLUE"),  "BLUE",  "blue"  == selectedBordersColor);
 	s->addOptionList(_("BORDER COLOR"), { { _("AUTO"), "auto" },{ _("WHITE") , "white" },{ _("RED") , "red" },{ _("GREEN"), "green" },{ _("BLUE"), "blue" } }, "controllers.guns.borderscolor", false);
+
+	std::string selectedCameraContrast = SystemConf::getInstance()->get("controllers.guns.sinden.contrast");
+	auto cameracontrast_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("CAMERA CONTRAST"), false);
+	cameracontrast_set->add(_("AUTO"),  "",      ""      == selectedCameraContrast);
+	cameracontrast_set->add(_("Daytime/Bright Sunlight (40)"), "40", "40" == selectedCameraContrast);
+	cameracontrast_set->add(_("Default (50)"),                 "50", "50" == selectedCameraContrast);
+	cameracontrast_set->add(_("Dim Display/Evening (60)"),     "60", "60" == selectedCameraContrast);
+	s->addOptionList(_("CAMERA CONTRAST"), { { _("AUTO"), "auto" },{ _("Daytime/Bright Sunlight (40)") , "40" },{ _("Default (50)") , "50" },{ _("Dim Display/Evening (60)"), "60" } }, "controllers.guns.sinden.contrast", false);
+
+	std::string selectedCameraBrightness = SystemConf::getInstance()->get("controllers.guns.sinden.brightness");
+	auto camerabrightness_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("CAMERA BRIGHTNESS"), false);
+	camerabrightness_set->add(_("AUTO"),  "",      ""      == selectedCameraBrightness);
+	camerabrightness_set->add(_("Daytime/Bright Sunlight (80)"), "80", "80" == selectedCameraBrightness);
+	camerabrightness_set->add(_("Default (100)"),                "100", "100" == selectedCameraBrightness);
+	camerabrightness_set->add(_("Dim Display/Evening (120)"),    "120", "120" == selectedCameraBrightness);
+	s->addOptionList(_("CAMERA BRIGHTNESS"), { { _("AUTO"), "auto" },{ _("Daytime/Bright Sunlight (80)") , "80" },{ _("Default (100)") , "100" },{ _("Dim Display/Evening (120)"), "120" } }, "controllers.guns.sinden.brightness", false);
+
+	std::string selectedCameraExposure = SystemConf::getInstance()->get("controllers.guns.sinden.exposure");
+	auto cameraexposure_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("CAMERA EXPOSURE"), false);
+	cameraexposure_set->add(_("AUTO"),  "",      ""      == selectedCameraExposure);
+	cameraexposure_set->add(_("Projector/CRT (-5)"), "-5", "-5" == selectedCameraExposure);
+	cameraexposure_set->add(_("Projector/CRT (-6)"), "-6", "-6" == selectedCameraExposure);
+	cameraexposure_set->add(_("Default (-7)"),       "-7", "-7" == selectedCameraExposure);
+	cameraexposure_set->add(_("Other (-8)"),         "-8", "-8" == selectedCameraExposure);
+	cameraexposure_set->add(_("Other (-9)"),         "-9", "-9" == selectedCameraExposure);
+	s->addOptionList(_("CAMERA EXPOSURE"), { { _("AUTO"), "auto" },{ _("Projector/CRT (-5)") , "-5" },{ _("Projector/CRT (-6)") , "-6" },{ _("Default (-7)"), "-7" },{ _("Other (-8)"), "-8" },{ _("Other (-9)"), "-9" } }, "controllers.guns.sinden.exposure", false);
 
 	std::string baseMode = SystemConf::getInstance()->get("controllers.guns.recoil");
 	auto sindenmode_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("RECOIL"), false);
-	sindenmode_choices->add(_("AUTO"), "auto", baseMode.empty() || baseMode == "auto");
-	sindenmode_choices->add(_("DISABLED"), "disabled", baseMode == "disabled");
-	sindenmode_choices->add(_("GUN"), "gun", baseMode == "gun");
-	sindenmode_choices->add(_("MACHINE GUN"), "machinegun", baseMode == "machinegun");
-	sindenmode_choices->add(_("QUIET GUN"), "gun-quiet", baseMode == "gun-quiet");
+	sindenmode_choices->add(_("AUTO"),        	"auto",       	    baseMode.empty() || baseMode == "auto");
+	sindenmode_choices->add(_("DISABLED"),    	"disabled",   	    baseMode == "disabled");
+	sindenmode_choices->add(_("GUN"),         	"gun",        	    baseMode == "gun");
+	sindenmode_choices->add(_("MACHINE GUN"), 	"machinegun", 	    baseMode == "machinegun");
+	sindenmode_choices->add(_("QUIET GUN"),   	"gun-quiet",  	    baseMode == "gun-quiet");
 	sindenmode_choices->add(_("QUIET MACHINE GUN"), "machinegun-quiet", baseMode == "machinegun-quiet");
 	s->addWithLabel(_("RECOIL"), sindenmode_choices);
 	s->addSaveFunc([sindenmode_choices] {
