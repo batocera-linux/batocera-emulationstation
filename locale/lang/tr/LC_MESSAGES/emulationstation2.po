@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-03-22 22:50+0300\n"
+"PO-Revision-Date: 2023-03-23 21:08+0300\n"
 "Last-Translator: Biohazard\n"
 "Language-Team: \n"
 "Language: tr\n"
@@ -65,13 +65,13 @@ msgid "enter path to box"
 msgstr "kutucuğun yolunu girin"
 
 msgid "Fan art"
-msgstr "Fanatik sanatı"
+msgstr "Fan görseli"
 
 msgid "enter path to fanart"
-msgstr "fanatik sanatı yolunu girin"
+msgstr "fan görseli yolunu girin"
 
 msgid "Title shot"
-msgstr "Kısa başlık"
+msgstr "Vurucu başlık"
 
 msgid "enter path to title shot"
 msgstr "kısa başlığın yolunu girin"
@@ -92,7 +92,7 @@ msgid "Map"
 msgstr "Harita"
 
 msgid "enter path to map"
-msgstr "haritanın yolunu girin"
+msgstr "eşleme için yolu gir"
 
 msgid "Bezel (16:9)"
 msgstr "Çerçeve (16:9)"
@@ -266,16 +266,16 @@ msgid "favorites"
 msgstr "favoriler"
 
 msgid "2 players"
-msgstr "2 kişilik"
+msgstr "2 oyuncu"
 
 msgid "4 players"
-msgstr "4 kişilik"
+msgstr "4 oyuncu"
 
 msgid "never played"
 msgstr "daha once oynanmadı"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "retrobaşarımlar"
 
 msgid "arcade"
 msgstr "arcade"
@@ -359,13 +359,13 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAKET BAŞARIYLA KALDIRILDI"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROACHIEVEMENT AYARLARI"
+msgstr "RETROBAŞARIM AYARLARI"
 
 msgid "SETTINGS"
 msgstr "AYARLAR"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "RETROBAŞARIMLAR"
 
 msgid "USERNAME"
 msgstr "KULLANICI ADI"
@@ -392,7 +392,7 @@ msgid "VERBOSE MODE"
 msgstr "AYRINTILI MODU"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "Oyun başlangıcında ve diğer bildirimlerde achievement ilerlemesini gösterin."
+msgstr "Oyun başlangıcında ve diğer bildirimlerde başarım ilerlemesini gösterin."
 
 msgid "RICH PRESENCE"
 msgstr "ZENGİN VARLIK"
@@ -401,34 +401,34 @@ msgid "ENCORE MODE"
 msgstr "TEKRAR MODU"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "Kilitlenmemiş achievements tekrar kazanılabilir."
+msgstr "Kilitlenmemiş başarımlar tekrar kazanılabilir."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "OTOMATİK EKRAN GÖRÜNTÜSÜ"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "Achievement kazanıldığında otomatik ekran görüntüsü al."
+msgstr "Başarım kazanıldığında otomatik ekran görüntüsü al."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "ZORLUK GÖSTERGELERİ"
 
 msgid "Shows icons in the bottom right corner when eligible achievements can be earned."
-msgstr "Uygun achievements kazanılabildiğinde sağ alt köşede simgeleri gösterir."
+msgstr "Uygun başarımlar kazanılabildiğine sağ alt köşede simgeleri gösterir."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENT AÇILMA SESİ"
+msgstr "RETROBAŞARIM AÇILMA SESİ"
 
 msgid "none"
 msgstr "hiç"
 
 msgid "UNLOCK SOUND"
-msgstr "SESLERİ AÇ"
+msgstr "SES KİLİDİNİ AÇ"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "ANA MENÜDE RETROACHIEVEMENTS GİRİŞİNİ GÖSTER"
+msgstr "ANA MENÜDE RETROBAŞARIM GİRİŞİNİ GÖSTER"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "RetroAchievement istatistiklerinizi doğrudan ana menüden görüntüleyin!"
+msgstr "RetroBaşarım istatistiklerinizi doğrudan ana menüden görüntüleyin!"
 
 msgid "GAME INDEXES"
 msgstr "OYUN DİZİNLERİ"
@@ -440,7 +440,7 @@ msgid "INDEX GAMES"
 msgstr "OYUNLARI DİZİNLE"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "RETROACHIEVEMENTLER AKTİVE EDİLEMİYOR:"
+msgstr "RETROBAŞARIMLAR AKTİVE EDİLEMİYOR:"
 
 msgid "OK"
 msgstr "TAMAM"
@@ -563,7 +563,7 @@ msgid "PER GENRE"
 msgstr "TÜR BAŞINA"
 
 msgid "ARCADE SYSTEMS"
-msgstr "ATARİ SİSTEMLERİ"
+msgstr "ARCADE SİSTEMLERİ"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "OTOMATİK OYUN KOLEKSİYONLARI"
@@ -748,7 +748,7 @@ msgid "SAME ROM"
 msgstr "AYNI ROM"
 
 msgid "UNAVAILABLE CORE"
-msgstr "DESTEKLENMEYEN ÇEKİRDEK"
+msgstr "MEVCUT OLMAYAN ÇEKİRDEK"
 
 msgid "AVAILABLE GAMES"
 msgstr "MEVCUT OYUNLAR"
@@ -987,7 +987,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "AÇIKLAMAYI DÜZENLE"
 
 msgid "DELETE MAPPING"
-msgstr "HARİTALANDIRMAYI SİL"
+msgstr "EŞLEMEYİ SİL"
 
 msgid "SAVE CHANGES?"
 msgstr "DEĞİŞİKLİKLERİ KAYDET?"
@@ -1072,7 +1072,7 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "UYUMLU ÇEKİRDEK(LER)"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "BU OYUNUN ACHIEVEMENTLERİNİ GÖSTER"
+msgstr "BU OYUNUN BAŞARIMLARINI GÖSTER"
 
 msgid "GAME"
 msgstr "OYUN"
@@ -1180,10 +1180,10 @@ msgid "Unlocked on"
 msgstr "Kilit Açıldı"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "BU OYUNDA HENÜZ BAŞARI YOK"
+msgstr "BU OYUNDA HENÜZ BAŞARIM YOK"
 
 msgid "Achievements won"
-msgstr "Kazanılan başarılar"
+msgstr "Kazanılan başarımlar"
 
 #, c-format
 msgid "%d%% complete"
@@ -1232,7 +1232,7 @@ msgid "BOX 3D"
 msgstr "3D KUTU"
 
 msgid "FAN ART"
-msgstr "FAN SANATI"
+msgstr "FAN GÖRSELİ"
 
 msgid "BOX SOURCE"
 msgstr "KUTU KAYNAĞI"
@@ -1259,7 +1259,7 @@ msgid "VIDEO"
 msgstr "VİDEO"
 
 msgid "FANART"
-msgstr "FANART"
+msgstr "FANGÖRSELİ"
 
 msgid "BEZEL (16:9)"
 msgstr "ÇERÇEVE (16:9)"
@@ -1418,11 +1418,11 @@ msgstr "Cpu özellikleri"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr "SHARP-BILINEAR-SIMPLE"
+msgstr "KESKİN-BILINEAR-BASİT"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "SCANLINES"
+msgstr "TARAMA HATLARI"
 
 msgctxt "game_options"
 msgid "RETRO"
@@ -1430,11 +1430,11 @@ msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "ENHANCED"
+msgstr "GELİŞTİRİLMİŞ"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "CURVATURE"
+msgstr "EĞRİLİK"
 
 msgctxt "game_options"
 msgid "ZFAST"
@@ -1442,7 +1442,7 @@ msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "FLATTEN-GLOW"
+msgstr "DÜZLEŞTİRME-PARLAMA"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
@@ -1458,10 +1458,10 @@ msgid "SHADERS"
 msgstr "GÖLGELENDİRMELER"
 
 msgid "CONTROLLER SETTINGS"
-msgstr "KONTROLÖR AYARLARI"
+msgstr "KONTROL AYGITI AYARLARI"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "KONTROLÖR VE BLUETOOTH AYARLARI"
+msgstr "KONTROL AYGITI VE BLUETOOTH AYARLARI"
 
 msgid "INTERNAL"
 msgstr "DAHİLİ"
@@ -1533,7 +1533,7 @@ msgid "VRAM LIMIT"
 msgstr "VİDEO RAM LİMİTİ"
 
 msgid "SHOW FRAMERATE"
-msgstr "FRAMERATE GÖSTER"
+msgstr "KARE HIZI GÖSTER"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr "Eğer mümkün ise emülatörün dahili FPS sayacını açar."
@@ -1600,7 +1600,7 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "OYUNLARIN DİL/BÖLGE SİNİ TEKRAR ALGILA"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TÜM OYUNLARIN NETPLAY/BAŞARILARINI BUL"
+msgstr "TÜM OYUNLARIN NETPLAY/BAŞARIMLARI BUL"
 
 msgid "DATA MANAGEMENT"
 msgstr "VERİ YÖNETİMİ"
@@ -1656,16 +1656,16 @@ msgid "AUTO"
 msgstr "OTOMATİK"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "EMULATIONSTATION'DA ONAYLAMA VE İPTAL BUTONLARINI DEĞİŞTİR"
+msgstr "EMULATIONSTATION'DA ONAYLAMA VE İPTAL TUŞLARINI DEĞİŞTİR"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr "Güney ve Doğu düğmelerinin işlevselliğini değiştirir"
+msgstr "Güney ve Doğu tuşlarının işlevselliğini değiştir"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "KUZEY BUTONUNU KULLANARAK OYUN AYARLARINA ERİŞİM YAP"
+msgstr "KUZEY TUŞUNU KULLANARAK OYUN AYARLARINA ERİŞİM YAP"
 
 msgid "Switches to short-press North for Savestates & long-press South button for Game Options"
-msgstr "Kayıt Durumları için Kuzey'e kısa basın ve Oyun Seçenekleri için Güney düğmesine uzun basın"
+msgstr "Kayıt Durumları için Kuzey'e kısa basın ve Oyun Seçenekleri için Güney tuşuna uzun basın"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION U SADECE İLK KUMANDA İLE YÖNET"
@@ -1698,7 +1698,7 @@ msgid "THREADED LOADING"
 msgstr "THREADED YÜKLENİYOR"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "ASYNC İMAJLARI YÜKLENİYOR"
+msgstr "EŞZAMANSIZ İMAJLAR YÜKLENİYOR"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "VRAM KULLANIMINA GÖRE İMAJLARI OPTİMİZE ET"
@@ -1728,7 +1728,7 @@ msgid "START UPDATE"
 msgstr "GÜNCELLE"
 
 msgid "UPDATER IS ALREADY RUNNING"
-msgstr "GÜNCELLEYİCİ ZATEN KOŞUYOR"
+msgstr "GÜNCELLEYİCİ ZATEN ÇALIŞIYOR"
 
 msgid "LANGUAGE"
 msgstr "DİL"
@@ -1854,7 +1854,7 @@ msgid "OFF"
 msgstr "KAPALI"
 
 msgid "BUTTON LED COLOR"
-msgstr "BUTON IŞIK RENGİ"
+msgstr "TUŞ IŞIK RENGİ"
 
 msgid "off"
 msgstr "kapalı"
@@ -1923,26 +1923,26 @@ msgid "LATENCY REDUCTION"
 msgstr "GECİKME AZALTMA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "RUN-AHEAD KARELERİ"
+msgstr "ÖNDEN ÇALIŞAN KARELER"
 
 msgid "High numbers can result in visible jitter."
 msgstr "Yüksek sayılar görünür titreşime neden olabilir."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr "RUN-AHEAD İÇİN İKİNCİ BİR OTURUM KULLAN"
+msgstr "ÖNDEN ÇALIŞMAK İÇİN İKİNCİ OLUŞUM KULLAN"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "Düğmeye basıldığında ses atlamalarını önleyebilir."
+msgstr "Tuşa basıldığında ses atlamalarını önleyebilir."
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr "OTOMATİK ÇERÇEVE GECİKMESİ"
+msgstr "OTOMATİK KARE GECİKMESİ"
 
 msgid "AUTO FRAME DELAY"
-msgstr "OTO ÇERÇEVE GECİKMESİ"
+msgstr "OTOMATİK KARE GECİKMESİ"
 
 msgid "Automatically decrease frame delay temporarily to prevent frame drops. Can introduce stuttering."
 msgstr ""
-"Frame düşüşlerini önlemek için frame gecikmesini geçici olarak otomatik olarak azaltın. Tekleme yapabilir."
+"Kare düşüşlerini önlemek için kare gecikmesini geçici olarak otomatik olarak azaltın. Tekleme yapabilir."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "DEĞİŞKEN YENİLEME HIZI (G-SYNC, FREESYNC)"
@@ -1999,7 +1999,7 @@ msgid "SHOW TATTOO OVER BEZEL"
 msgstr "ÇERÇEVE ÜZERİNDE DÖVME GÖSTER"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "SİSTEM KONTROLCÜLERİ"
+msgstr "SİSTEM KONTROL AYGITLARI"
 
 msgid "CUSTOM IMAGE"
 msgstr "ÖZEL GÖRÜNTÜ"
@@ -2047,7 +2047,7 @@ msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "ÇEVİRİLEN EKRANDA BEKLET"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
-msgstr "KONTROLLERİ OTOMATİK YAPILANDIR"
+msgstr "KONTROL AYGITILARINI OTOMATİK YAPILANDIR"
 
 msgid "SAVESTATES"
 msgstr "KAYITYERLERİ"
@@ -2104,16 +2104,16 @@ msgid "REALLY UPDATE GAMELISTS?"
 msgstr "OYUN LİSTESİNİ GERÇEKTEN GÜNCELLE?"
 
 msgid "CONTROLLER MAPPING"
-msgstr "KONTROLLER HARİTALANDIRMA"
+msgstr "KONTROL AYGITI EŞLEME"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT ITS PHYSICAL LABEL. IF YOU DO "
 "NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY "
 "HOLDING ANY BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
-"BİR KONTROL KONTROLLER HARİTALAYACAKSINIZ. FİZİKSEL ETİKETİNE DEĞİL BUTONUN KONUMUNA GÖRE HARİTA YAPIN. "
-"HOTKEY İÇİN ÖZEL BUTONUNUZ YOKSA SEÇ BUTONUNU KULLANIN. ELİNİZDE BULUNMAYAN TÜM BUTONLARI/ÇUBUKLARI "
-"HERHANGİ BUTONA BASILI TUTARAK ATLAYIN. İŞLEMİN YAPILDIĞINI ONAYLAMAK İÇİN GÜNEY TUŞUNA BASIN."
+"BİR KONTROL AYGITI EŞLEYECEKSİNİZ. FİZİKSEL ETİKETİNE DEĞİL TUŞ'UN KONUMUNA GÖRE EŞLEME YAPIN. HOTKEY İÇİN "
+"ÖZEL TUŞUNUZ YOKSA SEÇ TUŞUNU KULLANIN. ELİNİZDE BULUNMAYAN TÜM TUŞLARI/ÇUBUKLARI HERHANGİ BUTONA BASILI "
+"TUTARAK ATLAYIN. İŞLEMİN YAPILDIĞINI ONAYLAMAK İÇİN GÜNEY TUŞUNA BASIN."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "SINDEN SİLAH AYARLARI"
@@ -2137,17 +2137,17 @@ msgid "DISPLAY OPTIONS"
 msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "KONTROLLERİN AKTİVİTELERİNİ GÖSTER"
+msgstr "KONTROL AYGITI AKTİVİTELERİNİ GÖSTER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "KONTROLLERİN PİL DÜZEYİNİ GÖSTER"
+msgstr "KONTROL AYGITI PİL DÜZEYİNİ GÖSTER"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "OYUNCU GÖREVLERİ"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "P%i'ÜN KONTROLCÜSÜ"
+msgstr "P%i'ÜN KONTROL AYGITI"
 
 msgid "default"
 msgstr "varsayılan"
@@ -2237,7 +2237,7 @@ msgid "basic"
 msgstr "temel"
 
 msgid "detailed"
-msgstr "detaylı"
+msgstr "detaylandırılmış"
 
 msgid "DEFAULT GRID SIZE"
 msgstr "VARSAYILAN IZGARA BOYUTU"
@@ -2309,7 +2309,7 @@ msgid "LIST TRANSITION"
 msgstr "GEÇİŞLERİ SIRALA"
 
 msgid "auto"
-msgstr "oto"
+msgstr "otomatik"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "OYUN BAŞLATMA GEÇİŞİ"
@@ -2462,7 +2462,7 @@ msgid "Load latest save state on game launch and save state when exiting game."
 msgstr "Oyun başlatıldığında en son kaydetme durumunu yükle ve oyundan çıkarken durumu kaydet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
-msgstr "CONTROLLER KAPLAMALARINI GÖSTER"
+msgstr "KONTROL AYGITI KAPLAMALARINI GÖSTER"
 
 msgid "CUSTOM .PNG IMAGE"
 msgstr "ÖZEL .PNG GÖRÜNTÜSÜ"
@@ -2574,13 +2574,13 @@ msgstr "YAPILANDIRMA"
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
 msgstr[0] "%i KOLEKSİYON"
-msgstr[1] "%i KOLEKSİYONLARI"
+msgstr[1] "%i KOLEKSİYON"
 
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] "%i ÖĞESİ"
-msgstr[1] "%i ÖĞELERİ"
+msgstr[0] "%i ÖĞE"
+msgstr[1] "%i ÖĞE"
 
 #, c-format
 msgid "%i GAME"
@@ -2651,7 +2651,7 @@ msgid "No Entries Found"
 msgstr "Girdi bulunamadı"
 
 msgid "Games similar to"
-msgstr "Oyunlar benzeşiyor"
+msgstr "Benzeşen oyunlar"
 
 msgid "SAVE STATES (HOLD)"
 msgstr "OYUN KONUMLARI (TUT)"
@@ -2794,7 +2794,7 @@ msgid "Extracting"
 msgstr "Çıkartılıyor"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "RETRO BAŞARILAR ARANIYOR"
+msgstr "RETROBAŞARIMLAR ARANIYOR"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "NETPLAY OYUNLARI ARANIYOR"
@@ -2854,7 +2854,7 @@ msgid "ALREADY PLAYED"
 msgstr "ÖNCEDEN OYNANMIŞ"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "ACHIEVEMENT MEVCUT"
+msgstr "BAŞARIM MEVCUT"
 
 msgid "VERTICAL"
 msgstr "DİKEY"
@@ -2991,11 +2991,11 @@ msgstr "SAĞ TETİK"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr "SOL STICK TUŞUNA BAS"
+msgstr "SOL STICK TUŞU"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr "SAĞ STICK TUŞUNA BAS"
+msgstr "SAĞ STICK TUŞU"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3015,7 +3015,7 @@ msgid "GAMEPAD %i"
 msgstr "GAMEPAD %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "GEÇMEK İÇİN BİR TUŞA BASILI TUTUN"
+msgstr "GEÇMEK İÇİN BİR TUŞA BASILI TUT"
 
 msgid "-NOT DEFINED-"
 msgstr "-TANIMLI DEĞİL-"
@@ -3023,7 +3023,9 @@ msgstr "-TANIMLI DEĞİL-"
 msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A CONTROLLER. DO YOU WANT TO "
 "USE THE SELECT BUTTON AS YOUR HOTKEY?"
-msgstr "HOTKE TUŞU ATANMADI. BU BİR OYUNDAN ÇIKARKEN GEREKECEKTİRSELECT TUŞUNU HOTKEY OLARAK KULLAN?"
+msgstr ""
+"HOTKEY TUŞU ATANMADI. BU KONTROL AYGITI BİR OYUNDAN ÇIKARKEN GEREKECEKTİR. SELECT TUŞUNU HOTKEY OLARAK "
+"KULLAN?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "HOTKEY ATA"
