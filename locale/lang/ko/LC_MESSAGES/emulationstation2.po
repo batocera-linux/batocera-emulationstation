@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2023-03-23 10:21+0100\n"
+"PO-Revision-Date: 2023-03-23 10:21+0100\n"
+"Last-Translator: rizzie Kim\n"
+"Language-Team: Dodam Enterprise\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1977,7 +1977,7 @@ msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "기본 글로벌 설정"
 
 msgid "GAME ASPECT RATIO"
-msgstr "게임 애스펙트 레이쇼"
+msgstr "게임 화면 비율"
 
 msgid "Force the game to render in this aspect ratio."
 msgstr "게임을 다음 화면 비율로 강제 렌더링 합니다."
@@ -2139,7 +2139,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "위리모트 건 설정"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "스팀덱 마우스/건 설정"
 
 msgid "BLUETOOTH"
 msgstr "블루투스"
@@ -2194,19 +2194,19 @@ msgid "HIDDEN"
 msgstr "숨김"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "테두리 색상"
 
 msgid "WHITE"
-msgstr ""
+msgstr "하얀색"
 
 msgid "RED"
-msgstr ""
+msgstr "빨간색"
 
 msgid "GREEN"
-msgstr ""
+msgstr "초록색"
 
 msgid "BLUE"
-msgstr ""
+msgstr "파란색"
 
 msgid "RECOIL"
 msgstr "리코일"
@@ -2230,16 +2230,16 @@ msgid "JOYSTICK"
 msgstr "조이스틱"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "마우스만"
 
 msgid "HAND"
-msgstr ""
+msgstr "손"
 
 msgid "LEFT"
-msgstr ""
+msgstr "왼쪽"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "오른쪽"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "테마 설정을 편집하기 전에 테마를 적용해야합니다"
@@ -2920,19 +2920,19 @@ msgstr "스페이스"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr "북"
+msgstr "북 (Y버튼)"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr "남"
+msgstr "남 (B버튼)"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr "동"
+msgstr "동 (A버튼)"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr "서"
+msgstr "서 (Y버튼)"
 
 msgctxt "joystick"
 msgid "START"
