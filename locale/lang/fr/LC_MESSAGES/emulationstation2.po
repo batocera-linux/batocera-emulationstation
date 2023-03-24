@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: evoflash <evoflash@me.com>\n"
+"Last-Translator: Chipsum \n evoflash <evoflash@me.com>\n"
 "Language-Team: Batocera official\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -2217,19 +2217,19 @@ msgid "HIDDEN"
 msgstr "CACHÉ"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "COULEUR DE LA BORDURE"
 
 msgid "WHITE"
-msgstr ""
+msgstr "BLANCHE"
 
 msgid "RED"
-msgstr ""
+msgstr "ROUGE"
 
 msgid "GREEN"
-msgstr ""
+msgstr "VERTE"
 
 msgid "BLUE"
-msgstr ""
+msgstr "BLEU"
 
 msgid "CAMERA CONTRAST"
 msgstr ""
