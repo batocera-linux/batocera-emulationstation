@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ATUALIZAÇÃO DISPONÍVEL"
@@ -20,13 +20,13 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "this game's name"
-msgstr "o nome desta música"
+msgstr "o nome deste jogo"
 
 msgid "Description"
 msgstr "Descrição"
 
 msgid "this game's description"
-msgstr "a descrição desta música"
+msgstr "a descrição deste jogo"
 
 msgid "Emulator"
 msgstr "Emulador"
@@ -59,10 +59,10 @@ msgid "enter path to logo"
 msgstr "insira o caminho do diretório para o logotipo"
 
 msgid "Box"
-msgstr "Caixa do música"
+msgstr "Caixa do jogo"
 
 msgid "enter path to box"
-msgstr "insira o caminho do diretório para a caixa do música"
+msgstr "insira o caminho do diretório para a caixa do jogo"
 
 msgid "Fan art"
 msgstr "Fã-arte"
@@ -146,43 +146,43 @@ msgid "Developer"
 msgstr "Desenvolvedora"
 
 msgid "this game's developer"
-msgstr "a desenvolvedora desta música"
+msgstr "a desenvolvedora deste jogo"
 
 msgid "Publisher"
 msgstr "Publicadora"
 
 msgid "this game's publisher"
-msgstr "o publicador desta música"
+msgstr "o publicador deste jogo"
 
 msgid "Genre"
 msgstr "Gênero"
 
 msgid "enter game genre"
-msgstr "digite o gênero do música"
+msgstr "digite o gênero do jogo"
 
 msgid "Game family"
 msgstr "Família"
 
 msgid "this game's game family"
-msgstr "a família desta música"
+msgstr "a família deste jogo"
 
 msgid "Genres"
 msgstr "Gêneros"
 
 msgid "enter game genres"
-msgstr "digite os gêneros do música"
+msgstr "digite os gêneros do jogo"
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
 
 msgid "this game's arcade system"
-msgstr "o sistema arcade desta música"
+msgstr "o sistema arcade deste jogo"
 
 msgid "Players"
 msgstr "Nº de jogadores"
 
 msgid "this game's number of players"
-msgstr "o número de jogadores desta música"
+msgstr "o número de jogadores deste jogo"
 
 msgid "Favorite"
 msgstr "Favorito"
@@ -227,22 +227,22 @@ msgid "Md5 checksum"
 msgstr "Verificação Md5"
 
 msgid "Game time"
-msgstr "Tempo de música"
+msgstr "Tempo de jogo"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "tempo total de música (segundos)"
+msgstr "tempo total de jogo (segundos)"
 
 msgid "Languages"
 msgstr "Idiomas"
 
 msgid "this game's languages"
-msgstr "os idiomas desta música"
+msgstr "os idiomas deste jogo"
 
 msgid "Region"
 msgstr "Região"
 
 msgid "this game's region"
-msgstr "a região desta música"
+msgstr "a região deste jogo"
 
 msgid "Cheevos Hash"
 msgstr "Número identificador da conquista"
@@ -257,7 +257,7 @@ msgid "Screenscraper Game ID"
 msgstr "ID da Mídia do Jogo"
 
 msgid "all games"
-msgstr "todos os músicas"
+msgstr "todos os jogos"
 
 msgid "last played"
 msgstr "jogado pela última vez"
@@ -284,7 +284,7 @@ msgid "vertical arcade"
 msgstr "arcade vertical"
 
 msgid "lightgun games"
-msgstr "músicas de pistola"
+msgstr "jogos de pistola"
 
 msgid "collections"
 msgstr "coleções"
@@ -310,8 +310,8 @@ msgstr "Vários"
 #, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Esta coleção contêm %i música:%s"
-msgstr[1] "Esta coleção contêm %i músicas, incluído:%s"
+msgstr[0] "Esta coleção contêm %i jogo:%s"
+msgstr[1] "Esta coleção contêm %i jogos, incluído:%s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "ESCANEANDO BLUETOOTH"
@@ -397,7 +397,7 @@ msgstr "MODO DETALHADO"
 
 msgid "Show achievement progression on game launch and other notifications."
 msgstr ""
-"Mostra a progressão das conquistas e outras notificações ao iniciar o música."
+"Mostra a progressão das conquistas e outras notificações ao iniciar o jogo."
 
 msgid "RICH PRESENCE"
 msgstr "Presença Rica"
@@ -444,13 +444,13 @@ msgstr ""
 "diretamente do menu principal!"
 
 msgid "GAME INDEXES"
-msgstr "ÍNDICES DO MÚSICA"
+msgstr "ÍNDICES DO JOGO"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "INDEXAR NOVOS MÚSICAS NA INICIALIZAÇÃO"
+msgstr "INDEXAR NOVOS JOGOS NA INICIALIZAÇÃO"
 
 msgid "INDEX GAMES"
-msgstr "INDEXAR MÚSICAS"
+msgstr "INDEXAR JOGOS"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "INCAPAZ DE ATIVAR CONQUISTAS:"
@@ -459,7 +459,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "FILTER GAMELIST BY"
-msgstr "FILTRAR LISTA DE MÚSICAS POR"
+msgstr "FILTRAR LISTA DE JOGOS POR"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "EDITAR FILTROS DE COLEÇÃO DINAMICA"
@@ -471,7 +471,7 @@ msgid "BACK"
 msgstr "VOLTAR"
 
 msgid "FIND GAMES"
-msgstr "PROCURAR MÚSICAS"
+msgstr "PROCURAR JOGOS"
 
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -486,7 +486,7 @@ msgid "SYSTEMS"
 msgstr "SISTEMAS"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "AJUSTES DA COLEÇÃO DE MÚSICAS"
+msgstr "AJUSTES DA COLEÇÃO DE JOGOS"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr "COLEÇÕES A EXIBIR"
@@ -546,7 +546,7 @@ msgid "RESTORE LAST SELECTED"
 msgstr "RESTAURAR O ÚLTIMO SELECIONADO"
 
 msgid "START ON GAMELIST"
-msgstr "INICIAR NA LISTA DE MÚSICAS"
+msgstr "INICIAR NA LISTA DE JOGOS"
 
 msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
 msgstr "AGRUPAR COLEÇÕES PERSONALIZADAS"
@@ -555,13 +555,13 @@ msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "EXIBIR NOME DO SISTEMA NAS COLEÇÕES"
 
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr "EXIBIR MÚSICAS DE SISTEMAS OCULTOS NAS COLEÇÕES"
+msgstr "EXIBIR JOGOS DE SISTEMAS OCULTOS NAS COLEÇÕES"
 
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "EXIBIR SISTEMAS VAZIOS"
 
 msgid "UPDATE GAMELISTS"
-msgstr "ATUALIZAR LISTA DE MÚSICAS"
+msgstr "ATUALIZAR LISTA DE JOGOS"
 
 msgid "Loading..."
 msgstr "Carregando..."
@@ -579,7 +579,7 @@ msgid "ARCADE SYSTEMS"
 msgstr "SISTEMAS ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "COLEÇÕES DE MÚSICAS AUTOMÁTICOS"
+msgstr "COLEÇÕES DE JOGOS AUTOMÁTICOS"
 
 msgid "EDITABLE COLLECTIONS"
 msgstr "COLEÇÕES EDITÁVEIS"
@@ -588,7 +588,7 @@ msgid "DYNAMIC COLLECTIONS"
 msgstr "COLEÇÕES DINÂMICAS"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr "COLEÇÕES DE MÚSICA PERSONALIZADOS"
+msgstr "COLEÇÕES DE JOGO PERSONALIZADOS"
 
 msgid "PLEASE WAIT"
 msgstr "POR FAVOR, AGUARDE"
@@ -610,13 +610,13 @@ msgid "VIEW DETAILS"
 msgstr "VISUALIZAR DETALHES"
 
 msgid "LAUNCH"
-msgstr "INICIAR MÚSICA"
+msgstr "INICIAR JOGO"
 
 msgid "NETPLAY SETTINGS"
-msgstr "AJUSTES DE MÚSICA EM REDE"
+msgstr "AJUSTES DE JOGO EM REDE"
 
 msgid "ENABLE NETPLAY"
-msgstr "ATIVAR MÚSICAS EM REDE"
+msgstr "ATIVAR JOGOS EM REDE"
 
 msgid "NICKNAME"
 msgstr "APELIDO"
@@ -640,10 +640,10 @@ msgid "SAO PAULO"
 msgstr "SÃO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr "EXIBIR MÚSICAS INDISPONÍVEIS"
+msgstr "EXIBIR JOGOS INDISPONÍVEIS"
 
 msgid "Show rooms for games not present on this machine."
-msgstr "Exibe salas para músicas que não estão presentes nesta máquina."
+msgstr "Exibe salas para jogos que não estão presentes nesta máquina."
 
 msgid "FINISHED"
 msgstr "CONCLUÍDO"
@@ -661,13 +661,13 @@ msgid "OTHER FILTERS"
 msgstr "OUTROS FILTROS"
 
 msgid "SELECT RANDOM GAME"
-msgstr "SELECIONAR MÚSICA ALEATÓRIO"
+msgstr "SELECIONAR JOGO ALEATÓRIO"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "PULAR PARA A MÚSICA COMEÇANDO COM"
+msgstr "PULAR PARA O JOGO COMEÇANDO COM"
 
 msgid "SORT GAMES BY"
-msgstr "ORDENAR MÚSICAS POR"
+msgstr "ORDENAR JOGOS POR"
 
 msgid "DYNAMIC COLLECTION"
 msgstr "COLEÇÃO DINÂMICA"
@@ -682,7 +682,7 @@ msgid "COLLECTION"
 msgstr "COLEÇÃO"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr "MODO DE VISUALIZAÇÃO DA LISTA DE MÚSICAS"
+msgstr "MODO DE VISUALIZAÇÃO DA LISTA DE JOGOS"
 
 msgid "automatic"
 msgstr "automático"
@@ -700,11 +700,11 @@ msgid "RESET FILTERS"
 msgstr "REESTABELECER FILTROS"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr "FILTRAR MÚSICAS POR TEXTO"
+msgstr "FILTRAR JOGOS POR TEXTO"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr ""
-"ESTA FUNCIONALIDADE ESTÁ DESATIVADA ENQUANTO A PROCURA POR MÍDIAS DE MÚSICA "
+"ESTA FUNCIONALIDADE ESTÁ DESATIVADA ENQUANTO A PROCURA POR MÍDIAS DE JOGO "
 "ESTIVER EM EXECUÇÃO"
 
 msgid "CLOSE"
@@ -742,10 +742,10 @@ msgid "CANCEL"
 msgstr "CANCELAR"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "CONECTE-SE AOS MÚSICAS EM REDE"
+msgstr "CONECTE-SE AOS JOGOS EM REDE"
 
 msgid "Select a game lobby to join"
-msgstr "Seleciona uma sala de música para juntar-se"
+msgstr "Seleciona uma sala de jogo para juntar-se"
 
 msgid "REFRESH"
 msgstr "ATUALIZAR"
@@ -766,19 +766,19 @@ msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
 
 msgid "AVAILABLE GAMES"
-msgstr "MÚSICAS DISPONÍVEIS"
+msgstr "JOGOS DISPONÍVEIS"
 
 msgid "UNAVAILABLE GAMES"
-msgstr "MÚSICAS INDISPONÍVEIS"
+msgstr "JOGOS INDISPONÍVEIS"
 
 msgid "NO GAMES FOUND"
-msgstr "NENHUM MÚSICA ENCONTRADO"
+msgstr "NENHUM JOGO ENCONTRADO"
 
 msgid "JOIN GAME"
-msgstr "ENTRAR NO MÚSICA"
+msgstr "ENTRAR NO JOGO"
 
 msgid "WATCH GAME"
-msgstr "ASSISTIR O MÚSICA"
+msgstr "ASSISTIR O JOGO"
 
 msgid "INPUT MANUALLY"
 msgstr "ENTRAR MANUALMENTE"
@@ -909,10 +909,10 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr "USAR O LEITOR OMX PARA NA PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO"
-msgstr "EXIBIR INFORMAÇÃO DO MÚSICA"
+msgstr "EXIBIR INFORMAÇÃO DO JOGO"
 
 msgid "USE MARQUEE AS GAME INFO"
-msgstr "USAR LETREIRO COMO INFORMAÇÃO DO MÚSICA"
+msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
 
 msgid "DECORATION SET USED"
 msgstr "CONJUNTO DE MOLDURA ULITIZADA"
@@ -1063,22 +1063,22 @@ msgid "INVALID PARAMETERS"
 msgstr "PARÂMETROS INVÁLIDOS"
 
 msgid "GAME MEDIA"
-msgstr "MÍDIA DE MÚSICA"
+msgstr "MÍDIA DE JOGO"
 
 msgid "VIEW GAME MANUAL"
-msgstr "VER MANUAL DO MÚSICA"
+msgstr "VER MANUAL DO JOGO"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr "VER REVISTA DO MÚSICA"
+msgstr "VER REVISTA DO JOGO"
 
 msgid "VIEW GAME MAP"
-msgstr "VER MAPA DO MÚSICA"
+msgstr "VER MAPA DO JOGO"
 
 msgid "VIEW FULLSCREEN VIDEO"
 msgstr "VISUALIZAR VÍDEO EM TELA CHEIA"
 
 msgid "VIEW GAME MEDIA"
-msgstr "VISUALIZAR MÍDIAS DE MÚSICA"
+msgstr "VISUALIZAR MÍDIAS DE JOGO"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "O NÚCLEO ATUAL NÃO É COMPATÍVEL"
@@ -1087,10 +1087,10 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "NÚCLEO(S) COMPATÍVEL(IS)"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "VISUALIZAR CONQUISTAS DESTE MÚSICA"
+msgstr "VISUALIZAR CONQUISTAS DESTE JOGO"
 
 msgid "GAME"
-msgstr "MÚSICA"
+msgstr "JOGO"
 
 msgid "SAVE STATES"
 msgstr "ESTADOS DE SALVAMENTO"
@@ -1099,19 +1099,19 @@ msgid "OPEN"
 msgstr "ABRIR"
 
 msgid "START A NETPLAY GAME"
-msgstr "INICIAR MÚSICA EM REDE"
+msgstr "INICIAR JOGO EM REDE"
 
 msgid "NETPLAY"
-msgstr "MÚSICAS EM REDE"
+msgstr "JOGOS EM REDE"
 
 msgid "START GAME"
-msgstr "INICIAR MÚSICA"
+msgstr "INICIAR JOGO"
 
 msgid "HOST A NETPLAY GAME"
-msgstr "ORGANIZAR MÚSICA EM REDE"
+msgstr "ORGANIZAR JOGO EM REDE"
 
 msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE O MÚSICA"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
 
 msgid "PLAYER PASSWORD"
 msgstr "SENHA DO JOGADOR"
@@ -1120,19 +1120,19 @@ msgid "VIEWER PASSWORD"
 msgstr "SENHA DE ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "MÚSICAS SEMELHANTES..."
+msgstr "JOGOS SEMELHANTES..."
 
 msgid "DELETE ITEM"
 msgstr "APAGAR ITEM"
 
 msgid "DELETE GAME"
-msgstr "APAGAR MÚSICA"
+msgstr "APAGAR JOGO"
 
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
-"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO MÚSICA!\n"
+"ISTO EXCLUIRÁ O(S) ARQUIVO(S) DO JOGO!\n"
 "TEM CERTEZA?"
 
 msgid "COLLECTIONS"
@@ -1153,7 +1153,7 @@ msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "ADICIONAR À COLEÇÃO PERSONALIZADA ..."
 
 msgid "SCRAPE"
-msgstr "PROCURAR POR MÍDIAS DESTE MÚSICA"
+msgstr "PROCURAR POR MÍDIAS DESTE JOGO"
 
 msgid "EDIT PADTOKEY PROFILE"
 msgstr "EDITAR PERFIL DE CONTROLE PARA TECLADO (PADTOKEY)"
@@ -1162,13 +1162,13 @@ msgid "CREATE PADTOKEY PROFILE"
 msgstr "CRIAR PERFIL DE CONTROLE PARA TECLADO (PADTOKEY)"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "OPÇÕES AVANÇADAS DO MÚSICA"
+msgstr "OPÇÕES AVANÇADAS DO JOGO"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "EDITAR PASTA DE INFORMAÇÕES"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "EDITAR AS INFORMAÇÕES DO MÚSICA"
+msgstr "EDITAR AS INFORMAÇÕES DO JOGO"
 
 msgid "THEMES DOWNLOADER"
 msgstr "GERENCIADOR DE TEMAS"
@@ -1195,7 +1195,7 @@ msgid "Unlocked on"
 msgstr "Desbloqueado em"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "ESTE MÚSICA NÃO POSSUI CONQUISTAS"
+msgstr "ESTE JOGO NÃO POSSUI CONQUISTAS"
 
 msgid "Achievements won"
 msgstr "Conquistas alcançadas"
@@ -1208,7 +1208,7 @@ msgid "SAVESTATE MANAGER"
 msgstr "GERENCIADOR DE ESTADOS DE SALVAMENTO"
 
 msgid "START NEW GAME"
-msgstr "INICIAR NOVO MÚSICA"
+msgstr "INICIAR NOVO JOGO"
 
 msgid "START NEW AUTO SAVE"
 msgstr "INICIAR NOVO SALVAMENTO AUTOMÁTICO"
@@ -1292,10 +1292,10 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
 
 msgid "SCRAPER"
-msgstr "PROCURAR MÍDIAS DE MÚSICA"
+msgstr "PROCURAR MÍDIAS DE JOGO"
 
 msgid "SCRAPING DATABASE"
-msgstr "BASE DE DADOS DAS MÍDIAS DE MÚSICA"
+msgstr "BASE DE DADOS DAS MÍDIAS DE JOGO"
 
 msgid "SOURCE"
 msgstr "FONTE"
@@ -1319,7 +1319,7 @@ msgid "GAMES MISSING ALL MEDIA"
 msgstr "FALTANDO TODAS AS MÍDIAS"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "IGNORAR MÚSICAS COM MÍDIAS RECENTES"
+msgstr "IGNORAR JOGOS COM MÍDIAS RECENTES"
 
 msgid "LAST DAY"
 msgstr "ÚLTIMO DIA"
@@ -1358,11 +1358,10 @@ msgstr ""
 "CONTINUAR MESMO ASSIM?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
-"A PROCURA POR MÍDIAS DE MÚSICA ESTÁ EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
+msgstr "A PROCURA POR MÍDIAS DE JOGO ESTÁ EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "NENHUM MÚSICA SE AJUSTA AO CRITÉRIO."
+msgstr "NENHUM JOGO SE AJUSTA AO CRITÉRIO."
 
 msgid "INFORMATION"
 msgstr "INFORMAÇÃO"
@@ -1499,7 +1498,7 @@ msgid "KODI MEDIA CENTER"
 msgstr "CENTRAL DE MÍDIA KODI"
 
 msgid "GAME SETTINGS"
-msgstr "AJUSTES DE MÚSICA"
+msgstr "AJUSTES DE JOGO"
 
 msgid "USER INTERFACE SETTINGS"
 msgstr "AJUSTES DE INTERFACE DO USUÁRIO"
@@ -1570,7 +1569,7 @@ msgid "TOOLS"
 msgstr "FERRAMENTAS"
 
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr "PARAR DE INICIALIZAR ESTE MÚSICA NA INICIALIZAÇÃO"
+msgstr "PARAR DE INICIALIZAR ESTE JOGO NA INICIALIZAÇÃO"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
 msgstr "ATIVAR ACESSO PÚBLICO À API WEB"
@@ -1599,7 +1598,7 @@ msgid "FORMAT A DISK"
 msgstr "FORMATAR O DISCO"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
-msgstr "APAGAR LISTA DE MÚSICAS & REMOVER MÍDIAS NÃO UTILIZADAS"
+msgstr "APAGAR LISTA DE JOGOS & REMOVER MÍDIAS NÃO UTILIZADAS"
 
 msgid "Cleaning"
 msgstr "Apagando"
@@ -1617,10 +1616,10 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "REESTABELECER EXTENSÕES DE ARQUIVO"
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "REDESCOBRIR IDIOMA/REGIÃO DE TODOS OS MÚSICAS"
+msgstr "REDESCOBRIR IDIOMA/REGIÃO DE TODOS OS JOGOS"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "PROCURAR TODOS OS MÚSICAS EM REDE/CONQUISTAS"
+msgstr "PROCURAR TODOS OS JOGOS EM REDE/CONQUISTAS"
 
 msgid "DATA MANAGEMENT"
 msgstr "GERENCIAMENTO DE DADOS"
@@ -1629,23 +1628,23 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNORAR MÚLTIPLOS DISCOS (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr "ATIVAR OPÇÕES DE FILTRO DE MÚSICA"
+msgstr "ATIVAR OPÇÕES DE FILTRO DE JOGO"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
-"Mostra ou oculta os ajustes relacionados ao filtro de músicas nas opções de "
+"Mostra ou oculta os ajustes relacionados ao filtro de jogos nas opções de "
 "visualização."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "SALVAR INFORMAÇÕES NA SAÍDA"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr "ANALISAR APENAS A LISTA DE MÚSICAS"
+msgstr "ANALISAR APENAS A LISTA DE JOGOS"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
-"Ferramenta de depuração: Não verifique se os arquivos dos MÚSICAS realmente "
+"Ferramenta de depuração: Não verifique se os arquivos dos JOGOS realmente "
 "existem. Pode causar problemas!"
 
 msgid "SEARCH FOR LOCAL ART"
@@ -1655,7 +1654,7 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Se nenhuma imagem for especificada na lista de músicas, tente encontrar uma "
+"Se nenhuma imagem for especificada na lista de jogos, tente encontrar uma "
 "mídia com o mesmo nome de arquivo para usar."
 
 msgid "USER INTERFACE"
@@ -1671,7 +1670,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLADO NA TELA"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr "OCULTAR EMULATIONSTATION AO EXECUTAR UM MÚSICA"
+msgstr "OCULTAR EMULATIONSTATION AO EXECUTAR UM JOGO"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "MENU DE SAÍDA COMPLETO"
@@ -1691,14 +1690,14 @@ msgstr ""
 "(cancelar) no EmulationStation"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "ACESSE AS OPÇÕES DE MÚSICA COM O BOTÃO NORTE"
+msgstr "ACESSE AS OPÇÕES DE JOGO COM O BOTÃO NORTE"
 
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
 "Inverte o botão Norte (estados de salvamento) e pressionar longamente o "
-"botão Sul (opções de música) no EmulationStation"
+"botão Sul (opções de jogo) no EmulationStation"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "EMULATIONSTATION APENAS COM O PRIMEIRO CONTROLE"
@@ -1721,7 +1720,7 @@ msgstr "PRÉ-CARREGAR ELEMENTO DA INTERFACE NA INICIALIZAÇÃO"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduz o tempo de acesso às listas de músicas à partir do sistema, aumenta o "
+"Reduz o tempo de acesso às listas de jogos à partir do sistema, aumenta o "
 "tempo de inicialização"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
@@ -1731,7 +1730,7 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-"Reduz o tempo de acesso ao navegar pela lista de músicas, aumenta o tempo de "
+"Reduz o tempo de acesso ao navegar pela lista de jogos, aumenta o tempo de "
 "inicialização"
 
 msgid "THREADED LOADING"
@@ -1886,7 +1885,7 @@ msgid "SPLASH SETTING"
 msgstr "AJUSTES DA TELA DE ABERTURA"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr "VERIFICAR ARQUIVOS DE BIOS ANTES DE INICIAR O MÚSICA"
+msgstr "VERIFICAR ARQUIVOS DE BIOS ANTES DE INICIAR O JOGO"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "TECLAS MULTIMÍDIA"
@@ -2013,10 +2012,10 @@ msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "PADRÃO DE AJUSTES GLOBAIS"
 
 msgid "GAME ASPECT RATIO"
-msgstr "PROPORÇÃO DE ASPECTO DO MÚSICA"
+msgstr "PROPORÇÃO DE ASPECTO DO JOGO"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr "Força o música a renderizar nesta proporção de aspecto."
+msgstr "Força o jogo a renderizar nesta proporção de aspecto."
 
 msgid "VIDEO MODE"
 msgstr "MODO DE RESOLUÇÃO DE VÍDEO"
@@ -2026,7 +2025,7 @@ msgid ""
 msgstr "Define a resolução do monitor. Não afeta a resolução de renderização."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "MÚSICAS SUAVES (FILTRO BILINEAR)"
+msgstr "JOGOS SUAVES (FILTRO BILINEAR)"
 
 msgid "REWIND"
 msgstr "REBOBINAR"
@@ -2084,7 +2083,7 @@ msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
 
 msgid "AI GAME TRANSLATION"
-msgstr "TRADUÇÃO DO TEXTO DO MÚSICA POR IA"
+msgstr "TRADUÇÃO DO TEXTO DO JOGO POR IA"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
 msgstr "ATIVAR O SERVIÇO DE TRADUÇÃO POR IA"
@@ -2109,8 +2108,8 @@ msgstr "SALVAR/CARREGAR AUTOMÁTICO"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Carrega o estado de salvamento mais recente ao iniciar o música e salva o "
-"estado ao sair do música."
+"Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
+"estado ao sair do jogo."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "TIPO DE INCREMENTO"
@@ -2125,13 +2124,13 @@ msgid "INCREMENT SLOT"
 msgstr "POR ESPAÇO DE SALVAMENTO"
 
 msgid "Increment slot on a new game."
-msgstr "Incrementa novo espaço em um novo música."
+msgstr "Incrementa novo espaço em um novo jogo."
 
 msgid "DO NOT INCREMENT"
 msgstr "NÃO INCREMENTAR"
 
 msgid "Use current slot on a new game."
-msgstr "Usa o espaço atual em um novo música."
+msgstr "Usa o espaço atual em um novo jogo."
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "EXIBIR GERENCIADOR"
@@ -2143,21 +2142,20 @@ msgid "IF NOT EMPTY"
 msgstr "SE DISPONÍVEL"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
-"Exibe o gerenciador de estado de salvamento antes de iniciar um música."
+msgstr "Exibe o gerenciador de estado de salvamento antes de iniciar um jogo."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURAÇÃO AVANÇADA POR SISTEMA"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "PROCURA POR MÍDIAS DE MÚSICA EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
+msgstr "PROCURA POR MÍDIAS DE JOGO EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
-"IDENTIFICAÇÃO NUMÉRICA DO MÚSICA ESTÁ EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
+"IDENTIFICAÇÃO NUMÉRICA DO JOGO ESTÁ EM EXECUÇÃO. DESEJA INTERROMPÊ-LA ?"
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr "DESEJA ATUALIZAR A LISTA DE MÚSICAS ?"
+msgstr "DESEJA ATUALIZAR A LISTA DE JOGOS ?"
 
 msgid "CONTROLLER MAPPING"
 msgstr "MAPEAMENTO DO CONTROLE"
@@ -2182,7 +2180,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "AJUSTES DA PISTOLA WIIMOTE"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "MOUSE DO STEAMDECK/AJUSTES DA PISTOLA"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2231,67 +2229,67 @@ msgid "NORMAL"
 msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
-msgstr "SOMENTE NO MÚSICA"
+msgstr "SOMENTE NO JOGO"
 
 msgid "HIDDEN"
 msgstr "OCULTO"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "COR DA BORDA"
 
 msgid "WHITE"
-msgstr ""
+msgstr "BRANCO"
 
 msgid "RED"
-msgstr ""
+msgstr "VERMELHO"
 
 msgid "GREEN"
-msgstr ""
+msgstr "VERDE"
 
 msgid "BLUE"
-msgstr ""
+msgstr "AZUL"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "CONTRASTE DA CÂMERA"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "Dia/Luz do Sold Brilhante (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "Padrão (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Tela Escura/Noite (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "BRILHO DA CÂMERA"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "Dia/Luz do Sold Brilhante (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "Padrão (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Dim Display/Evening (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "EXPOSIÇÃO DE CÂMERA"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "Projetor/CRT (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "Projetor/CRT (-5)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "Padrão (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "Outro (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "Outro (-9)"
 
 msgid "RECOIL"
 msgstr "RECUO"
@@ -2315,16 +2313,16 @@ msgid "JOYSTICK"
 msgstr "CONTROLE"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "MOUSE APENAS"
 
 msgid "HAND"
-msgstr ""
+msgstr "MÃO"
 
 msgid "LEFT"
-msgstr ""
+msgstr "ESQUERDA"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "DIREITA"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOCÊ DEVE APLICAR O TEMA ANTES DE MODIFICAR SUA CONFIGURAÇÃO"
@@ -2333,7 +2331,7 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURAÇÃO DO TEMA"
 
 msgid "GAMELIST STYLE"
-msgstr "ESTILO DA LISTA DE MÚSICAS"
+msgstr "ESTILO DA LISTA DE JOGOS"
 
 msgid "basic"
 msgstr "básico"
@@ -2345,7 +2343,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO PADRÃO DA GRADE"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr "OPÇÕES DE TEMAS DA LISTA DE MÚSICAS"
+msgstr "OPÇÕES DE TEMAS DA LISTA DE JOGOS"
 
 msgid "THEME OPTIONS"
 msgstr "OPÇÕES DE TEMA"
@@ -2354,7 +2352,7 @@ msgid "DEFAULT VALUE"
 msgstr "VALOR PADRÃO"
 
 msgid "GAMELIST OPTIONS"
-msgstr "OPÇÕES DE LISTA DE MÚSICA"
+msgstr "OPÇÕES DE LISTA DE JOGO"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "EXIBIR FAVORITOS NO TOPO"
@@ -2366,7 +2364,7 @@ msgid "SHOW FOLDERS"
 msgstr "EXIBIR PASTAS"
 
 msgid "having multiple games"
-msgstr "se houverem músicas"
+msgstr "se houverem jogos"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "EXIBIR '..' PARA A PASTA ASCENDENTE"
@@ -2408,13 +2406,13 @@ msgid "grid"
 msgstr "grade"
 
 msgid "LIST TRANSITION"
-msgstr "ESTILO DE TRANSIÇÃO PARA LISTA DE MÚSICA"
+msgstr "ESTILO DE TRANSIÇÃO PARA LISTA DE JOGO"
 
 msgid "auto"
 msgstr "automático"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr "ESTILO DE TRANSIÇÃO AO CARREGAR MÚSICA"
+msgstr "ESTILO DE TRANSIÇÃO AO CARREGAR JOGO"
 
 msgid "SHOW CLOCK"
 msgstr "EXIBIR RELÓGIO"
@@ -2435,7 +2433,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORAR ARTIGOS DEFINIDOS E INDEFINIDOS AO ORDENAR"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Ignora 'O/A' e 'Um/Uma' se estiver no início do nome do música."
+msgstr "Ignora 'O/A' e 'Um/Uma' se estiver no início do nome do jogo."
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2558,12 +2556,12 @@ msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "CARREGAR/SALVAR MÚSICA AO INICIAR"
+msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
-"Carrega o estado de salvamento mais recente ao iniciar o música e salva o "
-"estado ao sair do música."
+"Carrega o estado de salvamento mais recente ao iniciar o jogo e salva o "
+"estado ao sair do jogo."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "MOSTRAR INDICADORES DO CONTROLE"
@@ -2596,7 +2594,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "RESOLUÇÃO INTERNA"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr "INICIE ESTE MÚSICA NA INICIALIZAÇÃO"
+msgstr "INICIE ESTE JOGO NA INICIALIZAÇÃO"
 
 msgid "FORMAT DEVICE"
 msgstr "FORMATAR DISPOSITIVO"
@@ -2627,8 +2625,8 @@ msgid ""
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 "ALGUNS ARQUIVOS VINCULADOS ESTÃO LOCALIZADOS FORA DO CAMINHO DA LISTA DE "
-"MÚSICAS.\n"
-"DESEJA USAR UMA CÓPIA DESTES ARQUIVOS RELACIONADOS A LISTA DE MÚSICAS ?"
+"JOGOS.\n"
+"DESEJA USAR UMA CÓPIA DESTES ARQUIVOS RELACIONADOS A LISTA DE JOGOS ?"
 
 msgid "NO DEVICE FOUND"
 msgstr "NENHUM DISPOSITIVO ENCONTRADO"
@@ -2646,7 +2644,7 @@ msgid "ZOOM"
 msgstr "AMPLIAR"
 
 msgid "GAMES TO INDEX"
-msgstr "MÚSICAS PARA INDEXAR"
+msgstr "JOGOS PARA INDEXAR"
 
 msgid "ONLY MISSING"
 msgstr "APENAS AUSENTES"
@@ -2690,8 +2688,8 @@ msgstr[1] "%i ELEMENTOS"
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "%i MÚSICA"
-msgstr[1] "%i MÚSICAS"
+msgstr[0] "%i JOGO"
+msgstr[1] "%i JOGOS"
 
 msgid "RANDOM"
 msgstr "ALEATÓRIO"
@@ -2708,7 +2706,7 @@ msgid ""
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 "ALERTA: O EMULADOR / NÚCLEO ATUALMENTE CONFIGURADO NÃO SUPORTA O FORMATO DE "
-"ARQUIVO DESTE MÚSICA.\n"
+"ARQUIVO DESTE JOGO.\n"
 "VOCÊ QUER INICIÁ-LO MESMO ASSIM?"
 
 msgid ""
@@ -2716,7 +2714,7 @@ msgid ""
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"ALERTA: FALTA(M) ARQUIVO(S) DE BIOS DO SISTEMA E O MÚSICA PODE NÃO FUNCIONAR "
+"ALERTA: FALTA(M) ARQUIVO(S) DE BIOS DO SISTEMA E O JOGO PODE NÃO FUNCIONAR "
 "CORRETAMENTE.\n"
 "VOCÊ QUER INICIÁ-LO MESMO ASSIM ?"
 
@@ -2727,7 +2725,7 @@ msgid "Loading theme"
 msgstr "Carregando tema"
 
 msgid "Loading gamelists"
-msgstr "Carregando lista de músicas"
+msgstr "Carregando lista de jogos"
 
 msgid "MENU"
 msgstr "MENU"
@@ -2753,8 +2751,8 @@ msgstr "Número de partidas"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Esta pasta contém %i música, incluindo :%s"
-msgstr[1] "Esta pasta contém %i músicas, incluindo :%s"
+msgstr[0] "Esta pasta contém %i jogo, incluindo :%s"
+msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
 
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
@@ -2766,10 +2764,10 @@ msgid "SAVE STATES (HOLD)"
 msgstr "ESTADO DE SALVAMENTO (SEGURE)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr "OPÇÕES DE MÚSICA (SEGURE)"
+msgstr "OPÇÕES DE JOGO (SEGURE)"
 
 msgid "GAME OPTIONS"
-msgstr "OPÇÕES DE MÚSICA"
+msgstr "OPÇÕES DE JOGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
@@ -2785,7 +2783,7 @@ msgid "Searching"
 msgstr "Procurando"
 
 msgid "NO GAMES FOUND - SKIP"
-msgstr "NENHUM MÚSICA ENCONTRADO - IGNORAR"
+msgstr "NENHUM JOGO ENCONTRADO - IGNORAR"
 
 msgid "RETRY"
 msgstr "REPETIR"
@@ -2881,10 +2879,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "DATA DE CRIAÇÃO DE ARQUIVOS, DECRESCENTE"
 
 msgid "GAME TIME, ASCENDING"
-msgstr "TEMPO DE MÚSICA, ASCENDENTE"
+msgstr "TEMPO DE JOGO, ASCENDENTE"
 
 msgid "GAME TIME, DESCENDING"
-msgstr "TEMPO DE MÚSICA, DECRESCENTE"
+msgstr "TEMPO DE JOGO, DECRESCENTE"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
 msgstr "SISTEMA, ANO DE LANÇAMENTO, ASCENDENTE"
@@ -2908,13 +2906,13 @@ msgid "SEARCHING RETROACHIEVEMENTS"
 msgstr "PROCURANDO CONQUISTAS"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr "PROCURANDO MÚSICAS EM REDE"
+msgstr "PROCURANDO JOGOS EM REDE"
 
 msgid "INDEXING COMPLETED"
 msgstr "INDEXAÇÃO CONCLUÍDA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "ATUALIZE A LISTA DE MÚSICAS PARA APLICAR AS MODIFICAÇÕES."
+msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS MODIFICAÇÕES."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "O EMULADOR SAIU INESPERADAMENTE"
@@ -2959,7 +2957,7 @@ msgid "REGION"
 msgstr "REGIÃO"
 
 msgid "KIDGAME"
-msgstr "MÚSICA INFANTIL"
+msgstr "JOGO INFANTIL"
 
 msgid "ALREADY PLAYED"
 msgstr "JÁ JOGADO"
@@ -3136,7 +3134,7 @@ msgid ""
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "NENHUM BOTÃO DE TECLA DE ATALHO (HOTKEY) FOI ATRIBUÍDO. ISTO É NECESSÁRIO "
-"PARA SAIR DOS MÚSICAS COM UM CONTROLE. DESEJA USAR O BOTÃO DE SELEÇÃO COMO "
+"PARA SAIR DOS JOGOS COM UM CONTROLE. DESEJA USAR O BOTÃO DE SELEÇÃO COMO "
 "TECLA DE ATALHO (HOTKEY) ?"
 
 msgid "SET SELECT AS HOTKEY"

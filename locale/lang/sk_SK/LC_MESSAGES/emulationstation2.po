@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2023-03-10 08:40+0100\n"
+"PO-Revision-Date: 2023-03-28 08:18+0200\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -2215,61 +2215,61 @@ msgid "HIDDEN"
 msgstr "Skryté"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "Farba okraja"
 
 msgid "WHITE"
-msgstr ""
+msgstr "biela"
 
 msgid "RED"
-msgstr ""
+msgstr "červená"
 
 msgid "GREEN"
-msgstr ""
+msgstr "zelená"
 
 msgid "BLUE"
-msgstr ""
+msgstr "modrá"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "Kontrast fotoaparátu"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "Deň/jasné slnečné svetlo (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "Predvolené (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Matný displej/večer (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "Jas fotoaparátu"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "Deň/jasné slnečné svetlo (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "Predvolené (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Matný displej/večer (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "Expozícia fotoaparátu"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "Projektor/CRT (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "Projektor/CRT (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "Predvolené (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "Iné (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "Iné (-9)"
 
 msgid "RECOIL"
 msgstr "spätný ráz"
