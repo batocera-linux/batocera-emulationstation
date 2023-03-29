@@ -2045,13 +2045,16 @@ std::string SystemData::getProperty(const std::string& name)
 	{
 		auto seconds = info->playTime;
 
-		int h = 0, m = 0, s = 0;
+		int d = 0, h = 0, m = 0, s = 0;
+		d = seconds / 86400;
 		h = (seconds / 3600) % 24;
 		m = (seconds / 60) % 60;
 		s = seconds % 60;
 
 		std::string timeText;
-		if (h > 0)
+		if (d > 0)
+			timeText = Utils::String::format("%02d:%02d:%02d:%02d", d, h, m, s);
+		else if (h > 0)
 			timeText = Utils::String::format("%02d:%02d:%02d", h, m, s);
 		else
 			timeText = Utils::String::format("%02d:%02d", m, s);
