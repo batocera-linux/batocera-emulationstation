@@ -3218,6 +3218,10 @@ msgid "WORKING..."
 msgstr "ÇALIŞIYOR..."
 
 #, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
 msgid "%d h"
 msgstr "%d s"
 

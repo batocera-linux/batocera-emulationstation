@@ -3199,6 +3199,10 @@ msgid "WORKING..."
 msgstr "MEMPROSES..."
 
 #, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
 msgid "%d h"
 msgstr "%d jam"
 

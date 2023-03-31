@@ -3228,6 +3228,10 @@ msgid "WORKING..."
 msgstr "S'ESTÀ TREBALLANT…"
 
 #, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
 msgid "%d h"
 msgstr "%d h"
 

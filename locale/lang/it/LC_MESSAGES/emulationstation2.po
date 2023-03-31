@@ -3215,6 +3215,10 @@ msgid "WORKING..."
 msgstr "ATTENDERE..."
 
 #, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
 msgid "%d h"
 msgstr "%d o"
 

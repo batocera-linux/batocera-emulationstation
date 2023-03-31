@@ -3179,6 +3179,10 @@ msgid "WORKING..."
 msgstr "작업 중..."
 
 #, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
 msgid "%d h"
 msgstr "%d 시간"
 

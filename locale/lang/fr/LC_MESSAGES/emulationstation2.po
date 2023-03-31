@@ -4,12 +4,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Chipsum \n evoflash <evoflash@me.com>\n"
+"Last-Translator: Chipsum \n"
 "Language-Team: Batocera official\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+" evoflash <evoflash@me.com>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.1.1\n"
 
@@ -3215,6 +3216,10 @@ msgstr[1] "il y a %d secondes"
 
 msgid "WORKING..."
 msgstr "EN COURS..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
 
 #, c-format
 msgid "%d h"
