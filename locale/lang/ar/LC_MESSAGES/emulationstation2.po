@@ -589,7 +589,7 @@ msgid "CUSTOM GAME COLLECTIONS"
 msgstr "مجموعات ألعاب مخصصه"
 
 msgid "PLEASE WAIT"
-msgstr "الرجاء الإنتظار"
+msgstr "المرجو الإنتظار"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -2785,7 +2785,7 @@ msgid "Loading system config..."
 msgstr "جار تحميل إعدادات النظام..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "جار حفظ البيانات الوصفية, الرجاء الإنتظار..."
+msgstr "جار حفظ البيانات الوصفية, المرجو الإنتظار..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "أترغب في تبديل الشاشة ؟"
@@ -3246,7 +3246,7 @@ msgstr "جار التحقق من التحديثات..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d d"
 
 #, c-format
 msgid "%d h"
