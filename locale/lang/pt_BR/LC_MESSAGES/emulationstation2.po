@@ -3238,7 +3238,7 @@ msgstr "EM PROGRESSO..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d d"
 
 #, c-format
 msgid "%d h"
