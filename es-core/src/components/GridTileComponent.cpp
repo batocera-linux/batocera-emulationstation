@@ -303,7 +303,7 @@ void GridTileComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	if (mVideo != nullptr && mVideo->isPlaying() && mVideo->isFading())
+	if (mVideo != nullptr && mVideo->isPlaying() && (mVideo->isFading() || !ALLOWANIMATIONS))
 		resize();
 }
 
@@ -889,7 +889,8 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	mVideoPlayingProperties = mSelectedProperties;
 
 	if (!mVideoPlayingProperties.Label.applyTheme(theme->getElement(view, "gridtile:videoplaying", "text")))
-		mVideoPlayingProperties.Label.applyTheme(theme->getElement(view, "gridtile.text:videoplaying", "text"));
+		if (!mVideoPlayingProperties.Label.applyTheme(theme->getElement(view, "gridtile.text:videoplaying", "text")))
+			mVideoPlayingProperties.Label = mSelectedProperties.Label;
 
 	mVideoPlayingProperties.Image.applyTheme(theme->getElement(view, "gridtile.image:videoplaying", "image"));
 	mVideoPlayingProperties.Marquee.applyTheme(theme->getElement(view, "gridtile.marquee:videoplaying", "image"));
@@ -1242,7 +1243,7 @@ GridTileProperties& GridTileComponent::getCurrentProperties(bool mixValues)
 		
 		if (mSelected && mVideo != nullptr && mVideo->isPlaying())
 		{
-			if (!mVideo->isFading())
+			if (!mVideo->isFading() || !ALLOWANIMATIONS)
 				return mVideoPlayingProperties;
 
 			from = &mSelectedProperties;
