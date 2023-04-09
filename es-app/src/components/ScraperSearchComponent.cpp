@@ -254,7 +254,8 @@ void ScraperSearchComponent::search(const ScraperSearchParams& params)
 			ScraperSearch* ss = new ScraperSearch();
 			ss->name = scraperName;
 			ss->params = params;
-			ss->searchHandle = scraper->search(params);
+			ss->params.isManualScrape = true;
+			ss->searchHandle = scraper->search(ss->params);
 			mScrapEngines.push_back(ss);
 		}
 	}
