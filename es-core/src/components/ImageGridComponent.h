@@ -17,7 +17,7 @@
 #include "utils/Delegate.h"
 
 #define EXTRAITEMS 2
-#define ALLOWANIMATIONS (Settings::TransitionStyle() != "instant")
+#define ALLOWANIMATIONS (Settings::PowerSaverMode() != "instant" && Settings::TransitionStyle() != "instant")
 #define HOLD_TIME 1000
 
 enum ScrollDirection
