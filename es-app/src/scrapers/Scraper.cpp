@@ -308,20 +308,27 @@ void ScraperHttpRequest::update()
 	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
 	{
 		mRetryCount++;
-		if (mRetryCount >= mOverQuotaRetryCount/* || !retryOn249()*/)
+		if (mRetryCount >= mOverQuotaRetryCount)
 		{
 			setStatus(ASYNC_DONE); // Ignore error
 			return;
 		}
 
-		setStatus(ASYNC_IN_PROGRESS);
 
 		auto retryDelay = mRequest->getResponseHeader("Retry-After");
 		if (!retryDelay.empty())
 		{
 			mOverQuotaRetryCount = 1;
 			mOverQuotaRetryDelay = Utils::String::toInteger(retryDelay) * 1000;
+
+			if (!retryOn249() && mOverQuotaRetryDelay > 5000)
+			{
+				setStatus(ASYNC_DONE); // Ignore error if delay > 5 seconds
+				return;
+			}
 		}
+
+		setStatus(ASYNC_IN_PROGRESS);
 
 		mOverQuotaPendingTime = SDL_GetTicks();
 		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying in " << mOverQuotaRetryDelay << " seconds";

@@ -258,7 +258,7 @@ void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queu
 	tokenAuth.customHeaders.push_back("Authorization: Token " + mToken);
 	
 	for (auto url : urls)
-		requests.push(std::unique_ptr<ScraperRequest>(new HfsDBRequest(results, url, &tokenAuth, params.system->hasPlatformId(PlatformIds::ARCADE))));
+		requests.push(std::unique_ptr<ScraperRequest>(new HfsDBRequest(results, url, &tokenAuth, params.system->hasPlatformId(PlatformIds::ARCADE), params.isManualScrape)));
 }
 
 bool HfsDBScraper::isSupportedPlatform(SystemData* system)
