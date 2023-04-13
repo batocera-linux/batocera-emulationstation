@@ -559,7 +559,7 @@ GuiKeyMappingEditorEntry::GuiKeyMappingEditorEntry(Window* window, MappingInfo& 
 //	if (!target.description.empty())
 //		mTargetText->setText(mTarget.toTargetString() + _U("      \uF05A ") + target.description);
 
-	mDescription = std::make_shared<TextComponent>(mWindow, mTarget.description.empty() ? "" : _U("\uF05A  ") + mTarget.description, theme->Text.font, theme->Text.color);
+	mDescription = std::make_shared<TextComponent>(mWindow, mTarget.description.empty() ? "" : std::string(_U("\uF05A  ")) + pgettext("keys_files", mTarget.description.c_str()), theme->Text.font, theme->Text.color);
 	mDescription->setLineSpacing(1.5);
 
 	setEntry(mImage, Vector2i(0, 0), false, true);
