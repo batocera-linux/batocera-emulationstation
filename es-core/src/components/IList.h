@@ -7,6 +7,7 @@
 #include "resources/Font.h"
 #include "PowerSaver.h"
 #include "ThemeData.h"
+#include "Settings.h"
 #include <vector>
 
 enum CursorState
@@ -105,11 +106,17 @@ public:
 
 	bool isScrolling() const
 	{
+		if (Settings::ScrollLoadMedias())
+			return false;
+
 		return (mScrollVelocity != 0 && mScrollTier > 0);
 	}
 
 	int getScrollingVelocity() 
 	{
+		if (Settings::ScrollLoadMedias())
+			return 0;
+
 		return mScrollVelocity;
 	}
 
@@ -395,7 +402,11 @@ protected:
 			onScroll(absAmt);
 
 		mCursor = cursor;
-		onCursorChanged((mScrollTier > 0) ? CURSOR_SCROLLING : CURSOR_STOPPED);
+
+		if (Settings::ScrollLoadMedias())
+			onCursorChanged(CURSOR_STOPPED);
+		else
+			onCursorChanged((mScrollTier > 0) ? CURSOR_SCROLLING : CURSOR_STOPPED);
 	}
 
 
