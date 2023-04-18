@@ -28,6 +28,7 @@ IMPLEMENT_STATIC_BOOL_SETTING(BackgroundMusic, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VSync, true)
 IMPLEMENT_STATIC_BOOL_SETTING(PreloadMedias, false)
 IMPLEMENT_STATIC_BOOL_SETTING(IgnoreLeadingArticles, false)
+IMPLEMENT_STATIC_BOOL_SETTING(ScrollLoadMedias, false)
 IMPLEMENT_STATIC_INT_SETTING(ScreenSaverTime, 5 * 60 * 1000)
 
 #if WIN32
@@ -49,6 +50,7 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(DrawClock)
 	UPDATE_STATIC_BOOL_SETTING(ClockMode12)
 	UPDATE_STATIC_BOOL_SETTING(DrawFramerate)
+	UPDATE_STATIC_BOOL_SETTING(ScrollLoadMedias)
 	UPDATE_STATIC_BOOL_SETTING(VolumePopup)
 	UPDATE_STATIC_BOOL_SETTING(VSync)
 	UPDATE_STATIC_BOOL_SETTING(PreloadMedias)
@@ -116,6 +118,7 @@ void Settings::setDefaults()
 	mBoolMap["ShowParentFolder"] = true;
 	mBoolMap["IgnoreLeadingArticles"] = Settings::_IgnoreLeadingArticles;
 	mBoolMap["DrawFramerate"] = false;
+	mBoolMap["ScrollLoadMedias"] = false;	
 	mBoolMap["ShowExit"] = true;
 	mBoolMap["ExitOnRebootRequired"] = false;
 	mBoolMap["Windowed"] = false;

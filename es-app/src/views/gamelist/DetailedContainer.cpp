@@ -1223,25 +1223,30 @@ void DetailedContainerHost::update(int deltaTime)
 {
 	mContainer->updateFolderViewAmbiantProperties();
 
-	for (auto it = mContainers.begin(); it != mContainers.end(); it++)
+	int index = mContainers.size();
+	for (auto it = mContainers.begin(); it != mContainers.end(); )
 	{
 		DetailedContainer* dc = *it;
 
 		dc->updateFolderViewAmbiantProperties();
 
-		if (!dc->anyComponentHasStoryBoardRunning())
-		{			
+		if (!dc->anyComponentHasStoryBoardRunning() || index > 4)
+		{
 			mContainers.erase(it);
-			
+
 			for (auto cp : dc->getComponents())
 			{
 				cp->setVisible(false);
 				cp->onHide();
 			}
-			
+
 			mWindow->postToUiThread([dc]() { delete dc; }, this);
-			break;
+			// break;
 		}
+		else
+			++it;
+
+		index--;
 	}
 }
 

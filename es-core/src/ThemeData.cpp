@@ -1542,6 +1542,13 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 		}
 		else
 		{
+			// Allow variables in the form "{game:image}"
+			if (path.find("{") != std::string::npos && path.find(":") != std::string::npos && path.find("}") != std::string::npos)
+			{
+				element.properties[name] = path;
+				break;
+			}
+
 			if (ResourceManager::getInstance()->fileExists(path))
 			{
 				element.properties[name] = path;
@@ -1555,13 +1562,6 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 					element.properties[name] = rootPath;
 					break;
 				}
-			}
-
-			// Allow variables in the form "{game:image}"
-			if (path[0] == '{' && path.find(":") != std::string::npos && Utils::String::endsWith(path, "}"))
-			{
-				element.properties[name] = path;
-				break;
 			}
 
 			LOG(LogDebug) << "Warning : could not find file \"" << value << "\" " << "(which resolved to \"" << path << "\") ";
