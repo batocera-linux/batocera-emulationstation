@@ -4,15 +4,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Chipsum \n"
+"Last-Translator: Chipsum\n"
 "Language-Team: Batocera official\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-" evoflash <evoflash@me.com>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -299,7 +298,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "%s' supprimé de '%s'"
 
 msgid "This collection is empty."
-msgstr "Cette collection est vide"
+msgstr "Cette collection est vide."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -321,7 +320,7 @@ msgid "Searching for devices..."
 msgstr "Recherche de manettes..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS"
+msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS."
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATAGE DU PÉRIPHÉRIQUE"
@@ -333,7 +332,7 @@ msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR FINALISER L’OPÉRATION"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr "UN DISQUE EST DÉJÀ EN COURS DE FORMATAGE"
+msgstr "UN DISQUE EST DÉJÀ EN COURS DE FORMATAGE."
 
 msgid "DOWNLOADING"
 msgstr "TÉLÉCHARGEMENT"
@@ -407,13 +406,13 @@ msgid "ENCORE MODE"
 msgstr "ENCORE MODE"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "Les succès débloqués peuvent de nouveau être gagnés"
+msgstr "Les succès débloqués peuvent de nouveau être gagnés."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURE D'ÉCRAN AUTOMATIQUE"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "Prendre une capture d'écran automatique à chaque succès obtenu"
+msgstr "Prendre une capture d'écran automatique à chaque succès obtenu."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "INDICATEURS DE CHALLENGE"
@@ -423,7 +422,7 @@ msgid ""
 "earned."
 msgstr ""
 "Afficher les icônes dans le coin inférieur droit lorsque des succès rétro "
-"peuvent être obtenus"
+"peuvent être obtenus."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "SON DE DÉVERROUILLAGE DES SUCCÈS RÉTRO"
@@ -640,7 +639,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFFICHER LES JEUX NON DISPONIBLES"
 
 msgid "Show rooms for games not present on this machine."
-msgstr "Afficher les parties des jeux non disponibles sur cette machine"
+msgstr "Afficher les parties des jeux non disponibles sur cette machine."
 
 msgid "FINISHED"
 msgstr "TERMINÉ"
@@ -721,7 +720,7 @@ msgid "REMOVE"
 msgstr "SUPPRIMER"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS"
+msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
@@ -1354,7 +1353,7 @@ msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "UN SCRAPE EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
-msgstr "AUCUN JEU NE CORRESPOND"
+msgstr "AUCUN JEU NE CORRESPOND."
 
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
@@ -1545,7 +1544,7 @@ msgid "SHOW FRAMERATE"
 msgstr "AFFICHER LE NOMBRE D'IMAGES/SEC"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "Active également le fps en jeu si disponible"
+msgstr "Active également le fps en jeu si disponible."
 
 msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
@@ -1787,7 +1786,7 @@ msgid "INSTANT"
 msgstr "INSTANTANÉ"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "Réduit la consommation d'enegie si inactif"
+msgstr "Réduit la consommation d’énergie si inactif."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "LECTURE À L’ÉCRAN"
@@ -1796,7 +1795,7 @@ msgid "USER INTERFACE MODE"
 msgstr "RESTRICTIONS DE L'INTERFACE"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr "Vérouille les menus des bornes d'arcade et pour les enfants"
+msgstr "Verrouille les menus des bornes d'arcade et pour les enfants."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1958,7 +1957,7 @@ msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "UTILISER DEUX INSTANCES (SI IMAGES EN AVANCE)"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "Peut prévenir des sauts audios sur pression des boutons"
+msgstr "Peut prévenir des sauts audios sur pression des boutons."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "RETARD D'IMAGE AUTOMATIQUE"
@@ -2040,7 +2039,7 @@ msgid "CUSTOM IMAGE"
 msgstr "IMAGE PERSONNALISÉE"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "Affiche une image superposée au-dessus de la décoration"
+msgstr "Affiche une image superposée au-dessus de la décoration."
 
 msgid "TATTOO CORNER"
 msgstr "POSITION DU TATOUAGE"
@@ -2065,7 +2064,7 @@ msgstr "REDIMENSIONNER LE TATOUAGE"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
-"Rétrécir/agrandir le tatouage pour s’adapter à la bordure de la décoration"
+"Rétrécir/agrandir le tatouage pour s’adapter à la bordure de la décoration."
 
 msgid "AI GAME TRANSLATION"
 msgstr "IA DE TRADUCTION"
@@ -2103,19 +2102,20 @@ msgid "INCREMENT PER SAVE"
 msgstr "A CHAQUE SAUVEGARDE"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "Crée un nouvel emplacement de sauvegarde à chaque sauvegarde"
+msgstr "Crée un nouvel emplacement de sauvegarde à chaque sauvegarde."
 
 msgid "INCREMENT SLOT"
 msgstr "NOUVEL EMPLACEMENT"
 
 msgid "Increment slot on a new game."
-msgstr "Crée un nouvel emplacement de sauvegarde au lancement d'une partie"
+msgstr "Crée un nouvel emplacement de sauvegarde au lancement d'une partie."
 
 msgid "DO NOT INCREMENT"
 msgstr "EMPLACEMENT ACTUEL"
 
 msgid "Use current slot on a new game."
-msgstr "Utilise le premier emplacement de sauvegarde au lancement d'une partie"
+msgstr ""
+"Utilise le premier emplacement de sauvegarde au lancement d'une partie."
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "AFFICHER LE GESTIONNAIRE DE SAUVEGARDES"
@@ -2127,7 +2127,7 @@ msgid "IF NOT EMPTY"
 msgstr "SI NON VIDE"
 
 msgid "Display savestate manager before launching a game."
-msgstr "Afficher le gestionnaire de sauvegarde au lancement d'un jeu"
+msgstr "Afficher le gestionnaire de sauvegarde au lancement d'un jeu."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURATION AVANCÉE PAR SYSTÈME"
@@ -2233,46 +2233,46 @@ msgid "BLUE"
 msgstr "BLEU"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "CONTRASTE DE LA CAMÉRA"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "Journée/Lumière du soleil (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "Par défaut (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Soirée/Lumière faible (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "LUMINOSITÉ DE LA CAMÉRA"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "Journée/Lumière du soleil (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "Par défaut (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Soirée/Lumière faible (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "EXPOSITION DE LA CAMÉRA"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "Projecteur/CRT (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "Projecteur/CRT (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "Par défaut (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "Autre (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "Autre (-9)"
 
 msgid "RECOIL"
 msgstr "RECUL"
@@ -2416,7 +2416,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LES ARTICLES LORS DU TRI"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Ignore les articles 'Le, La, De...'"
+msgstr "Ignore les articles 'Le, La, De...'."
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2527,7 +2527,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "EXTINCTION RAPIDE"
 
 msgid "Shutdown without saving metadata."
-msgstr "Eteindre sans sauvegarder les métadonnées"
+msgstr "Éteindre sans sauvegarder les métadonnées."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES MÉTADONNÉES ?"
@@ -2543,7 +2543,7 @@ msgstr "SAUV./CHARG. AUTO AU LANCEMENT"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
-"Charge la dernière sauvegarde automatiquement et sauve en quittant le jeu"
+"Charge la dernière sauvegarde automatiquement et sauve en quittant le jeu."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "AFFICHER LA MANETTE EN SURIMPRESSION"
@@ -2894,7 +2894,7 @@ msgid "INDEXING COMPLETED"
 msgstr "INDEXATION TERMINÉE"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS"
+msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "L’ÉMULATEUR A QUITTÉ DE MANIÈRE INATTENDUE"
@@ -3149,7 +3149,7 @@ msgid "NO GAMEPADS DETECTED"
 msgstr "AUCUNE MANETTE DÉTECTÉE"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR LA CONFIGURER"
+msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR LA CONFIGURER."
 
 msgid "DISCARD CHANGES"
 msgstr "ANNULER LES CHANGEMENTS"
@@ -3219,7 +3219,7 @@ msgstr "EN COURS..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d j"
 
 #, c-format
 msgid "%d h"
