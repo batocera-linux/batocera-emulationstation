@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36(2022/03/20)\n"
+"Project-Id-Version: batocera-es v37b(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2023-03-26 11:14+0900\n"
+"PO-Revision-Date: 2023-04-06 23:17+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -366,7 +366,7 @@ msgid "SETTINGS"
 msgstr "設定"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RetroAchievements 使用"
+msgstr "RetroAchievements 表示"
 
 msgid "USERNAME"
 msgstr "ユーザー名"
@@ -3203,7 +3203,7 @@ msgstr "処理中..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d 日"
 
 #, c-format
 msgid "%d h"
