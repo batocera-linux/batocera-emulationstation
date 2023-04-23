@@ -53,6 +53,7 @@ GuiBatoceraStore::GuiBatoceraStore(Window* window)
 
 	// Entries
 	mList = std::make_shared<ComponentList>(mWindow);
+	mList->setUpdateType(ComponentListFlags::UpdateType::UPDATE_ALWAYS);
 	mGrid.setEntry(mList, Vector2i(0, 2), true, true);
 
 	// Buttons
