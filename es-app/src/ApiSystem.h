@@ -61,6 +61,8 @@ struct PacmanPackage
 	size_t download_size;
 	size_t installed_size;
 
+	std::string preview_url;
+
 	std::string group;
 	std::vector<std::string> licenses;	
 

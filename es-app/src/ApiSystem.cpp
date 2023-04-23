@@ -1720,6 +1720,8 @@ std::vector<PacmanPackage> ApiSystem::getBatoceraStorePackages()
 				package.download_size = node.text().as_llong();
 			if (tag == "installed_size")
 				package.installed_size = node.text().as_llong();
+			if (tag == "preview_url")
+				package.preview_url = node.text().get();
 		}
 
 		if (!package.name.empty())

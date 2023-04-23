@@ -15,6 +15,7 @@
 #include "GuiLoading.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
+#include "components/WebImageComponent.h"
 
 #include <unordered_set>
 #include <algorithm>
@@ -201,6 +202,8 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 	
 	std::string lastGroup = "-1**ce-fakegroup-c";
 
+	bool hasImages = std::any_of(mPackages.cbegin(), mPackages.cend(), [](const PacmanPackage x) { return !x.preview_url.empty(); });
+
 	int i = 0;
 	for (auto package : mPackages)
 	{
@@ -220,7 +223,7 @@ void GuiBatoceraStore::loadList(bool updatePackageList, bool restoreIndex)
 
 		ComponentListRow row;
 
-		auto grid = std::make_shared<GuiBatoceraStoreEntry>(mWindow, package);
+		auto grid = std::make_shared<GuiBatoceraStoreEntry>(mWindow, package, hasImages);
 		row.addElement(grid, true);
 
 		if (!grid->isInstallPending())
@@ -411,8 +414,8 @@ std::vector<HelpPrompt> GuiBatoceraStore::getHelpPrompts()
 // GuiBatoceraStoreEntry
 //////////////////////////////////////////////////////////////
 
-GuiBatoceraStoreEntry::GuiBatoceraStoreEntry(Window* window, PacmanPackage& entry) :
-	ComponentGrid(window, Vector2i(4, 3))
+GuiBatoceraStoreEntry::GuiBatoceraStoreEntry(Window* window, PacmanPackage& entry, bool withPreviewImage) :
+	ComponentGrid(window, Vector2i(5, 4))
 {
 	mEntry = entry;
 
@@ -444,6 +447,14 @@ GuiBatoceraStoreEntry::GuiBatoceraStoreEntry(Window* window, PacmanPackage& entr
 		_U("  \uf085  ") + entry.available_version +
 		_U("  \uf007  ") + entry.packager;
 		
+	if (withPreviewImage)
+	{
+		details =
+			_U("\uf0C5  ") + entry.name +
+			/*"\r\n" + */_U("  \uf085  ") + entry.available_version +
+			"\r\n" + _U("  \uf007  ") + entry.packager;
+	}
+
 	if (!entry.repository.empty() && entry.repository != "batocera")
 		details = details + _U("  \uf114  ") + entry.repository;
 
@@ -462,9 +473,9 @@ GuiBatoceraStoreEntry::GuiBatoceraStoreEntry(Window* window, PacmanPackage& entr
 	mSubstring = std::make_shared<TextComponent>(mWindow, details, theme->TextSmall.font, theme->Text.color);
 	mSubstring->setOpacity(192);
 
-	setEntry(mImage, Vector2i(0, 0), false, true, Vector2i(1, 3));
-	setEntry(mText, Vector2i(2, 0), false, true);
-	setEntry(mSubstring, Vector2i(2, 1), false, true);
+	setEntry(mImage, Vector2i(0, 1), false, true/*, Vector2i(1, 3)*/);
+	setEntry(mText, Vector2i(2, 1), false, true);
+	setEntry(mSubstring, Vector2i(2, 2), false, true);
 
 	float h = mText->getSize().y() * 1.1f + mSubstring->getSize().y()/* + mDetails->getSize().y()*/;
 	float sw = WINDOW_WIDTH;
@@ -473,8 +484,40 @@ GuiBatoceraStoreEntry::GuiBatoceraStoreEntry(Window* window, PacmanPackage& entr
 	setColWidthPerc(1, 0.015f, false);
 	setColWidthPerc(3, 0.002f, false);
 
-	setRowHeightPerc(0, mText->getSize().y() / h, false);
-	setRowHeightPerc(1, mSubstring->getSize().y() / h, false);
+	if (withPreviewImage)
+	{		
+		float windowWidth = WINDOW_WIDTH;
+
+		float itemHeight = (theme->Text.font->getHeight() + theme->TextSmall.font->getHeight() * 2) * 1.15f;
+		//itemHeight = Math::max(itemHeight, Renderer::getScreenHeight() * 0.132f);
+
+		float refImageWidth = (itemHeight / windowWidth) * 1.7777f; // 16:9
+		refImageWidth = Math::min(refImageWidth, 0.24);
+
+		setColWidthPerc(4, refImageWidth, false);
+		
+		if (!mEntry.preview_url.empty())
+		{
+			Vector2f maxSize(windowWidth * refImageWidth, itemHeight * 0.85f);
+
+			mPreviewImage = std::make_shared<WebImageComponent>(window, 600);
+			mPreviewImage->setImage(mEntry.preview_url, false, maxSize);
+			mPreviewImage->setMaxSize(maxSize);
+
+			setEntry(mPreviewImage, Vector2i(4, 0), false, false, Vector2i(1, 4));
+		}
+		
+		h = itemHeight;
+	}
+	else
+	{
+		h *= 1.15f;			
+		setColWidthPerc(4, 0.001f, false);
+	}
+
+	setRowHeightPerc(0, (h - mText->getSize().y() - mSubstring->getSize().y()) / h / 2.0f, false);
+	setRowHeightPerc(1, mText->getSize().y() / h, false);
+	setRowHeightPerc(2, mSubstring->getSize().y() / h, false);
 
 	if (mIsPending)
 	{		
@@ -494,4 +537,10 @@ void GuiBatoceraStoreEntry::setColor(unsigned int color)
 	mSubstring->setColor(color);
 }
 
+void GuiBatoceraStoreEntry::update(int deltaTime)
+{
+	ComponentGrid::update(deltaTime);
 
+	if (mPreviewImage != nullptr)
+		mPreviewImage->update(deltaTime);
+}
