@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-05-26 23:04+0800\n"
+"PO-Revision-Date: 2023-04-26 16:04+0800\n"
 "Last-Translator: Administrator <>\n"
 "Language-Team: mikakunin\n"
 "Language: zh_CN\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "发现可用更新"
@@ -309,8 +309,9 @@ msgstr "多开发商"
 
 #, fuzzy, c-format
 msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "此专辑里有 :%s 个游戏"
+msgid_plural "This collection contains %i games, 包括:%s"
+msgstr[0] "此合集包含 %i 个游戏:%s"
+msgstr[1] "此合集包含 %i 游戏, bunlar dahil: %s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "正在扫描蓝牙设备"
@@ -340,7 +341,7 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "主题安装成功"
 
 msgid "AN ERROR OCCURRED"
-msgstr ""
+msgstr "出现错误"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "主题卸载成功"
@@ -379,34 +380,34 @@ msgid "HARDCORE MODE"
 msgstr "专家模式"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr ""
+msgstr "禁用加载状态、倒带和作弊以获得更多点数."
 
 msgid "LEADERBOARDS"
 msgstr "排行榜"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr ""
+msgstr "在高分榜和最佳时间排行榜上竞争（需要硬核模式）."
 
 msgid "VERBOSE MODE"
 msgstr "详细模式"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "在游戏启动时显示成就进度和其他通知."
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "详细在线状态"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "安可模式"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "解锁的成就可以再次获得."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "获得成就时自动截图."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "挑战记录"
@@ -429,7 +430,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "在主菜单中显示成就菜单项"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr ""
+msgstr "从主菜单查看您的RetroAchievement统计数据!"
 
 msgid "GAME INDEXES"
 msgstr "游戏索引"
@@ -516,7 +517,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "按硬件类型"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "按制造商和类型"
 
 msgid "BY RELEASE YEAR"
 msgstr "按发布年"
@@ -546,7 +547,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "在合辑中显示隐藏游戏"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "显示空系统"
 
 msgid "UPDATE GAMELISTS"
 msgstr "更新游戏列表(放入ROM或者安装程序后操作）"
@@ -586,10 +587,10 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中的 %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "得分 (硬核模式)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "软核分数"
 
 msgid "Rank"
 msgstr "评价等级"
@@ -631,7 +632,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "显示本机未安装的游戏的房间列表"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -658,10 +659,10 @@ msgid "SORT GAMES BY"
 msgstr "游戏排序方式"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "动态专辑"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "自定义专辑"
 
 msgid "DELETE COLLECTION"
 msgstr "删除专辑"
@@ -716,7 +717,7 @@ msgstr "已解除蓝牙设备"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "你确定要删除 '%s' 吗?"
 
 msgid "INPUT"
 msgstr "名称编辑"
@@ -782,7 +783,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "配对蓝牙手柄"
 
 msgid "PAIR"
-msgstr ""
+msgstr "配对"
 
 msgid "FILE BROWSER"
 msgstr "文件浏览器"
@@ -856,7 +857,7 @@ msgid "slideshow"
 msgstr "片段展示"
 
 msgid "suspend"
-msgstr ""
+msgstr "暂停"
 
 msgid "always"
 msgstr "总是"
@@ -1023,6 +1024,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"检测到此版本为非官方系统.\n"
+"升级可能会破坏您的系统.\n"
+"您想把版本更新到 %s 吗?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要连接到互联网"
@@ -1160,13 +1164,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "选择要安装/删除的主题"
 
 msgid "All"
-msgstr ""
+msgstr "所有"
 
 msgid "Installed"
-msgstr ""
+msgstr "安装"
 
 msgid "Available"
-msgstr ""
+msgstr "现有"
 
 msgid "CURRENT THEME"
 msgstr "当前主题"
@@ -1188,7 +1192,7 @@ msgid "%d%% complete"
 msgstr "%d%% 已完成"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "存档管理器"
 
 msgid "START NEW GAME"
 msgstr "开始新游戏"
@@ -1245,34 +1249,34 @@ msgid "MARQUEE"
 msgstr "蒙版"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "抓取数据"
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "抓取名称"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "社区评级"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "视频"
 
 msgid "FANART"
-msgstr ""
+msgstr "同人"
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "挡板 (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "盒子背面"
 
 msgid "MAP"
-msgstr ""
+msgstr "地图"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "说明书"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "按键设置"
 
 msgid "SCRAPER"
 msgstr "抓取元数据(在线获取游戏封面，视频等，仅支持英文搜索）"
@@ -1436,7 +1440,7 @@ msgstr "曲线扫描"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr "ZFAST（贼快着色器，听说是老任家的，我老狼不服~！）"
+msgstr "快速着色"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
@@ -1483,7 +1487,7 @@ msgid "GAME SETTINGS"
 msgstr "游戏设置"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "用户界面设置"
 
 msgid "SOUND SETTINGS"
 msgstr "声音设置"
@@ -1504,7 +1508,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "解锁用户界面模式"
 
 msgid "QUIT"
 msgstr "退出"
@@ -1516,13 +1520,13 @@ msgid "CHOOSE"
 msgstr "浏览"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "用户界面模式现已解锁"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "请输入解锁密码"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "前端开发人员选项"
 
 msgid "VIDEO OPTIONS"
 msgstr "视频选项"
@@ -1534,7 +1538,7 @@ msgid "SHOW FRAMERATE"
 msgstr "显示帧率"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
+msgstr "如果可用，将会打开模拟器自带FPS计数器."
 
 msgid "VSYNC"
 msgstr "垂直同步"
@@ -1552,7 +1556,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "关闭在启动时启动此游戏"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "启用公共WEB API访问"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1565,7 +1569,7 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "创建支持文件"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr ""
+msgstr "创建一个支持文件？这将包括系统文件夹中的所有数据."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "在“saves”文件夹中创建的支持文件"
@@ -1607,20 +1611,20 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "忽略多文件磁盘内容（CUE/GDI/CCD/M3U）"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "启用游戏筛选"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr ""
+msgstr "在视图选项中显示还是隐藏与游戏筛选相关的设置."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "退出时保存元数据"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr ""
+msgstr "仅分析游戏列表"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr ""
+msgstr "调试工具：不检查ROM是否真的存在。这可能会造成问题！"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "打开在磁盘上查找预览图"
@@ -1628,10 +1632,10 @@ msgstr "打开在磁盘上查找预览图"
 msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
-msgstr ""
+msgstr "如果游戏列表中没有指定图像，请尝试查找具有相同文件名的媒体."
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "用户界面"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
@@ -1655,10 +1659,10 @@ msgid "AUTO"
 msgstr "自动"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "在EmulationStation 中调整确认和取消按键的位置"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "切换南部和东部按钮的功能"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "使用Y键/三角键(北键)访问游戏设置选项"
@@ -1672,10 +1676,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "仅使用第一个手柄控制主界面"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "枪支移动容忍度"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "启用HID手柄驱动程序"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "显示网络标识"
@@ -1738,7 +1742,7 @@ msgid "LANGUAGE"
 msgstr "语言"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "语言 (地区)"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "选择你的时区"
@@ -1750,7 +1754,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "12小时格式"
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "省电模式"
 
 msgid "DISABLED"
 msgstr "禁用"
@@ -1765,22 +1769,25 @@ msgid "INSTANT"
 msgstr "瞬间"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr ""
+msgstr "减少空闲时的功耗（对移动设备很有用）."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "屏幕阅读器（文本到语音）"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "用户界面模式"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
+msgstr "锁定某些配置菜单以供客人和小孩使用."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"您正在将用户界面更改为受限制的模式:\n"
+"这将隐藏大多数菜单设置，以防止系统设置被更改.\n"
+"要解锁并返回完整的用户界面，请输入以下密码:"
 
 msgid "Do you want to proceed?"
 msgstr "是否继续?"
@@ -1810,13 +1817,13 @@ msgid "AUDIO PROFILE"
 msgstr "音频输出端口"
 
 msgid "Available options can change depending on current audio output."
-msgstr ""
+msgstr "可用选项会根据当前音频输出而改变."
 
 msgid "SCREEN ROTATION"
 msgstr "屏幕旋转"
 
 msgid "0 DEGREES"
-msgstr ""
+msgstr "0度"
 
 msgid "90 DEGREES"
 msgstr "90度"
@@ -1912,7 +1919,7 @@ msgid "ENFORCE SECURITY"
 msgstr "强制安全性保护"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
+msgstr "访问网络共享需要密码."
 
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
@@ -1970,14 +1977,14 @@ msgid "GAME ASPECT RATIO"
 msgstr "游戏画面纵横比"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "强制游戏按此纵横比进行渲染."
 
 msgid "VIDEO MODE"
 msgstr "视频模式"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr ""
+msgstr "设置显示器的分辨率。不会影响游戏渲染分辨率."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑游戏（双线性过滤）"
@@ -1986,7 +1993,7 @@ msgid "REWIND"
 msgstr "回放功能"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
+msgstr "如果核心支持，即可把之前的存档用于实时倒带."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
@@ -2061,31 +2068,31 @@ msgid "AUTO SAVE/LOAD"
 msgstr "自动存档/读取"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
+msgstr "在游戏启动时加载最新的存档，在退出游戏时保存存档."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "增量存档状态"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "增量保存"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "永远不覆盖旧存档，而是创建新的存档."
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "增量存档槽"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "增加新游戏的插槽."
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "不递增"
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "在新游戏中使用当前存档槽位"
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "显示存档管理器"
 
 msgid "ALWAYS"
 msgstr "一直保持不变"
@@ -2094,7 +2101,7 @@ msgid "IF NOT EMPTY"
 msgstr "如果已被使用"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "在启动游戏之前显示存档管理器."
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "按系统(模拟器)配置"
@@ -2117,24 +2124,27 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"你即将映射一个手柄。基于按键的位置进行映射而不是其物理标签。\n"
+"如果没有专门用于热键的按键，请使用SELECT按键。\n"
+"通过长按任意键来跳过所有无法识别的按钮/摇杆。完成后请按南方向按键确认。"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "SINDEN枪设置"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "WIIMOTE枪设置"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "STEAMDECK鼠标/枪设置"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "蓝牙"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
+msgstr "自动配对蓝牙键盘"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "手动配对蓝牙设备"
 
 msgid "DISPLAY OPTIONS"
 msgstr "视图画面选项"
@@ -2146,7 +2156,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "显示手柄电池电量"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "玩家分配"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -2156,118 +2166,118 @@ msgid "default"
 msgstr "默认"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "边框大小"
 
 msgid "THIN"
-msgstr ""
+msgstr "薄"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "中"
 
 msgid "BIG"
-msgstr ""
+msgstr "大"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "边界模式"
 
 msgid "NORMAL"
-msgstr ""
+msgstr "常规"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "仅在游戏中"
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "隐藏"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "边框颜色"
 
 msgid "WHITE"
-msgstr ""
+msgstr "白色"
 
 msgid "RED"
-msgstr ""
+msgstr "红色"
 
 msgid "GREEN"
-msgstr ""
+msgstr "绿色"
 
 msgid "BLUE"
-msgstr ""
+msgstr "蓝色"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "相机对比度"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "白天/明亮的阳光（40）"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "默认 (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "昏暗的显示屏/夜间（60）"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "相机亮度"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "白天/明亮的阳光（80）"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "默认 (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "昏暗的显示屏/夜间 (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "相机曝光"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "投影仪/CRT（-5）"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "投影仪/CRT (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "默认 (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "其他 (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "其他 (-9)"
 
 msgid "RECOIL"
-msgstr ""
+msgstr "后坐力"
 
 msgid "GUN"
-msgstr ""
+msgstr "光枪"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "机枪"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "消音枪"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "消音机枪"
 
 msgid "MODE"
-msgstr ""
+msgstr "模式"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "游戏摇杆"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "仅限鼠标"
 
 msgid "HAND"
-msgstr ""
+msgstr "手"
 
 msgid "LEFT"
-msgstr ""
+msgstr "左"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "右"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "在编辑其配置之前，先应用主题"
@@ -2351,7 +2361,7 @@ msgid "grid"
 msgstr "网格列表"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "列表转换"
 
 msgid "auto"
 msgstr "自动"
@@ -2360,7 +2370,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "游戏启动过程"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "快速滚动时的游戏媒体"
 
 msgid "SHOW CLOCK"
 msgstr "显示时钟"
@@ -2381,7 +2391,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "排序时忽略前导"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr ""
+msgstr "忽略开头的“The”和“A”."
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2468,7 +2478,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "查看用户手册"
 
 msgid "RESTART SYSTEM"
 msgstr "重启"
@@ -2477,10 +2487,10 @@ msgid "REALLY RESTART?"
 msgstr "是否重新启动?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "暂停"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "暂停系统吗？"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "关机"
@@ -2507,7 +2517,7 @@ msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "自动保存/加载"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr ""
+msgstr "在游戏启动时加载最新存档，在退出游戏时存档。"
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "显示控制器覆盖"
@@ -2637,7 +2647,7 @@ msgid "RANDOM"
 msgstr "随机"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "导航栏"
 
 msgid "FILES"
 msgstr "文件"
@@ -2907,10 +2917,10 @@ msgid "VERTICAL"
 msgstr "竖屏"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "光枪"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "HAS MEDIAS"
 
 msgid "SCRAPING"
 msgstr "抓取"
@@ -2925,6 +2935,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"校准枪\n"
+"向目标开火进行校准"
 
 #, c-format
 msgid "%s connected"
@@ -2948,19 +2960,19 @@ msgstr "空格"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "北按钮"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "南按钮"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "东按钮"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "西按钮"
 
 msgctxt "joystick"
 msgid "START"
@@ -2972,19 +2984,19 @@ msgstr "选择"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "十字方向键上"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "十字方向键下"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "十字方向键左"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "十字方向键右"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -3020,27 +3032,27 @@ msgstr "右摇杆右"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "键肩L1"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "键肩R1"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "扳机键L2"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "扳机键R2"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "左摇杆按压键L3"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "右摇杆按压键R3"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3166,7 +3178,7 @@ msgstr "进行中..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d 天"
 
 #, c-format
 msgid "%d h"
@@ -3174,11 +3186,11 @@ msgstr "%d 小时"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d 分钟"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d 秒"
 
 msgid "SCREEN READER ENABLED"
 msgstr "屏幕阅读器已启用"
