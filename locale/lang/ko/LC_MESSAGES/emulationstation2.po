@@ -2373,6 +2373,9 @@ msgstr "자동"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "게임 실행 전환"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "시계 표시"
 

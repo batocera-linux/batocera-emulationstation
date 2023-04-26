@@ -2392,6 +2392,9 @@ msgstr "otomatis"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSISI PELUNCURAN GAME"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "TAMPILKAN JAM"
 

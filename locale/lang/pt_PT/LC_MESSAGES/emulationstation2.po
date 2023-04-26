@@ -2402,6 +2402,9 @@ msgstr "automático"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSIÇÃO DE CARREGAMENTO DO JOGO"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "MOSTRAR RELÓGIO"
 

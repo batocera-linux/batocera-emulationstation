@@ -2355,6 +2355,9 @@ msgstr ""
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ΜΕΤΑΒΑΣΗ ΕΚΚΙΝΗΣΗΣ ΠΑΙΧΝΙΔΙΟΥ"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "ΕΜΦΑΝΙΣΗ ΡΟΛΟΓΙΟΥ"
 

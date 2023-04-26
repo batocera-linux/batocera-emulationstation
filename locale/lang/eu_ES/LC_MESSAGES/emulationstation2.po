@@ -2392,6 +2392,9 @@ msgstr "automatikoa"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "JOKOA ABIARAZTERAKO TRANSIZIOA"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "ERAKUTSI ORDUA"
 

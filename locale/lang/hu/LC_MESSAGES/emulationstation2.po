@@ -2357,6 +2357,9 @@ msgstr ""
 msgid "GAME LAUNCH TRANSITION"
 msgstr "JÁTÉK INDÍTÁSI ÁTMENET"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "ÓRA MEGJELENÍTÉSE"
 

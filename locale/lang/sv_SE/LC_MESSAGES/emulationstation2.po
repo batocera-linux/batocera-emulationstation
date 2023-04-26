@@ -2371,6 +2371,9 @@ msgstr "auto"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ÖVERGÅNG VID SPELSTART"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "VISA KLOCKA"
 

@@ -2398,6 +2398,9 @@ msgstr "otomatik"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "OYUN BAŞLATMA GEÇİŞİ"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "SAATİ GÖSTER"
 

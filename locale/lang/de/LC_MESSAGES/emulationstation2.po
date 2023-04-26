@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPDATE VERFÜGBAR"
@@ -32,31 +32,31 @@ msgid "Emulator"
 msgstr "Emulator"
 
 msgid "emulator"
-msgstr "emulator"
+msgstr "Emulator"
 
 msgid "Core"
 msgstr "Core"
 
 msgid "core"
-msgstr "core"
+msgstr "Core"
 
 msgid "Image"
 msgstr "Bild"
 
 msgid "enter path to image"
-msgstr "Pfad zum Bild eingeben"
+msgstr "Pfad zu Bild eingeben"
 
 msgid "Video"
 msgstr "Video"
 
 msgid "enter path to video"
-msgstr "Pfad zum Video eingeben"
+msgstr "Pfad zu Video eingeben"
 
 msgid "Logo"
 msgstr "Logo"
 
 msgid "enter path to logo"
-msgstr "Pfad zum Logo eingeben"
+msgstr "Pfad zu Logo eingeben"
 
 msgid "Box"
 msgstr "Box"
@@ -71,34 +71,34 @@ msgid "enter path to fanart"
 msgstr "Pfad zu Fan-Art eingeben"
 
 msgid "Title shot"
-msgstr "Titelfoto"
+msgstr "Titelbild"
 
 msgid "enter path to title shot"
-msgstr "Pfad zum Titelfoto eingeben"
+msgstr "Pfad zu Titelbild eingeben"
 
 msgid "Manual"
 msgstr "Handbuch"
 
 msgid "enter path to manual"
-msgstr "Pfad zum Handbuch eingeben"
+msgstr "Pfad zu Handbuch eingeben"
 
 msgid "Magazine"
 msgstr "Magazin"
 
 msgid "enter path to magazine"
-msgstr "Pfad zum Magazin eingeben"
+msgstr "Pfad zu Magazin eingeben"
 
 msgid "Map"
 msgstr "Karte"
 
 msgid "enter path to map"
-msgstr "Pfad zur Karte eingeben"
+msgstr "Pfad zu Karte eingeben"
 
 msgid "Bezel (16:9)"
 msgstr "Bezel (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "Pfad zum Bezel (16:9) eingeben"
+msgstr "Pfad zu Bezel (16:9) eingeben"
 
 msgid "Cartridge"
 msgstr "Cartridge"
@@ -110,25 +110,25 @@ msgid "Alt BoxArt"
 msgstr "Alt BoxArt"
 
 msgid "enter path to alt boxart"
-msgstr "Pfad zu alt BoxArt eingeben"
+msgstr "Pfad zu Alt BoxArt eingeben"
 
 msgid "Box backside"
 msgstr "Box-Rückseite"
 
 msgid "enter path to box background"
-msgstr "Pfad zum Box-Hintergrund eingeben"
+msgstr "Pfad zu Box-Rückseite eingeben"
 
 msgid "Wheel"
 msgstr "Wheel"
 
 msgid "enter path to wheel"
-msgstr "Pfad zum Wheel eingeben"
+msgstr "Pfad zu Wheel eingeben"
 
 msgid "Mix"
 msgstr "Mix"
 
 msgid "enter path to mix"
-msgstr "Pfad zum Mix eingeben"
+msgstr "Pfad zu Mix eingeben"
 
 msgid "Rating"
 msgstr "Bewertung"
@@ -215,16 +215,16 @@ msgid "enter last played date"
 msgstr "Datum des letzten Spielaufrufs eintragen"
 
 msgid "Crc32"
-msgstr "Crc32"
+msgstr "CRC32"
 
 msgid "Crc32 checksum"
-msgstr "Crc32 Prüfsumme"
+msgstr "CRC32-Prüfsumme"
 
 msgid "Md5"
-msgstr "Md5"
+msgstr "MD5"
 
 msgid "Md5 checksum"
-msgstr "Md5 Prüfsumme"
+msgstr "MD5-Prüfsumme"
 
 msgid "Game time"
 msgstr "Spielzeit"
@@ -245,10 +245,10 @@ msgid "this game's region"
 msgstr "Region dieses Spiels"
 
 msgid "Cheevos Hash"
-msgstr "Cheevos Hash"
+msgstr "Cheevos-Hash"
 
 msgid "Cheevos checksum"
-msgstr "Cheevos Checksumme"
+msgstr "Cheevos-Prüfsumme"
 
 msgid "Cheevos Game ID"
 msgstr "Cheevos Spiel-ID"
@@ -275,13 +275,13 @@ msgid "never played"
 msgstr "noch nie gespielt"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "RetroAchievements"
 
 msgid "arcade"
-msgstr "arcade"
+msgstr "Arcade"
 
 msgid "vertical arcade"
-msgstr "vertical arcade"
+msgstr "Vertical Arcade"
 
 msgid "lightgun games"
 msgstr "Lightgun-Spiele"
@@ -329,7 +329,7 @@ msgid "Formatting"
 msgstr "Formatiere"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "UM DEN VORGANG ABZUSCHLIESSEN, IST EIN NEUSTART ERFORDERLICH"
+msgstr "EIN NEUSTART IST ERFORDERLICH, UM DEN VORGANG ABZUSCHLIESSEN"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "EIN LAUFWERK WIRD BEREITS FORMATIERT."
@@ -595,13 +595,13 @@ msgid "Points (hardcore)"
 msgstr "Punkte (Hardcore)"
 
 msgid "Softcore points"
-msgstr "Softcore Punkte"
+msgstr "Softcore-Punkte"
 
 msgid "Rank"
 msgstr "Rang"
 
 msgid "VIEW DETAILS"
-msgstr "ZEIGE DETAILS"
+msgstr "DETAILS ANSEHEN"
 
 msgid "LAUNCH"
 msgstr "STARTEN"
@@ -704,10 +704,10 @@ msgid "CLOSE"
 msgstr "SCHLIESSEN"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "SIND SIE SICHER, DASS SIE DIESES ELEMENT LÖSCHEN MÖCHTEN?"
+msgstr "SIND SIE SICHER, DASS SIE DIESES ELEMENT ENTFERNEN MÖCHTEN?"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH-GERÄT LÖSCHEN"
+msgstr "BLUETOOTH-GERÄT ENTFERNEN"
 
 msgid "REMOVE ALL"
 msgstr "ALLE ENTFERNEN"
@@ -786,16 +786,16 @@ msgid "YOU ARE NOT CONNECTED TO A NETWORK"
 msgstr "KEINE VERBINDUNG ZU EINEM NETZWERK"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH-GERÄT PAAREN"
+msgstr "BLUETOOTH-GERÄT KOPPELN"
 
 msgid "PAIR"
-msgstr "PAAREN"
+msgstr "KOPPELN"
 
 msgid "FILE BROWSER"
 msgstr "DATEIBROWSER"
 
 msgid "RESET"
-msgstr "RESET"
+msgstr "ZURÜCKSETZEN"
 
 msgid "PARENT FOLDER"
 msgstr "ÜBERGEORDNETER ORDNER"
@@ -947,10 +947,10 @@ msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "BENUTZERDEF. BILDERVERZEICHNIS"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "BILDER IN UNTERORDNERN DES BENUTZERDEF. VERZEICHNISSES VERWENDEN"
+msgstr "BILDER IN UNTERORDNERN VON BENUTZERDEF. VERZEICHNISSEN VERWENDEN"
 
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr "BENUTZERDEF. BILD DATEI-ERWEITERUNGEN"
+msgstr "BENUTZERDEF. BILD-DATEIERWEITERUNGEN"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD TO KEYBOARD KONFIGURATION"
@@ -995,7 +995,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "BESCHREIBUNG ANPASSEN"
 
 msgid "DELETE MAPPING"
-msgstr "ZUWEISUNG LÖSCHEN"
+msgstr "ZUORDNUNG LÖSCHEN"
 
 msgid "SAVE CHANGES?"
 msgstr "ÄNDERUNGEN SPEICHERN?"
@@ -1101,7 +1101,7 @@ msgid "START GAME"
 msgstr "SPIEL STARTEN"
 
 msgid "HOST A NETPLAY GAME"
-msgstr "EIN NEUES NETPLAY-SPIEL HOSTEN"
+msgstr "NEUES NETPLAY-SPIEL HOSTEN"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "SPIEL ÖFFENTLICH ANKÜNDIGEN"
@@ -1219,13 +1219,13 @@ msgid "SCRAPER SETTINGS"
 msgstr "SCRAPER-EINSTELLUNGEN"
 
 msgid "IMAGE SOURCE"
-msgstr "BILDQUELLE"
+msgstr "BILD QUELLE"
 
 msgid "SCREENSHOT"
-msgstr "BILDSCHIRMFOTO"
+msgstr "SCREENSHOT"
 
 msgid "TITLE SCREENSHOT"
-msgstr "TITEL BILDSCHIRMFOTO"
+msgstr "SCREENSHOT TITELBILDSCHIRM"
 
 msgid "MIX V1"
 msgstr "MIX V1"
@@ -1300,7 +1300,7 @@ msgid "FILTERS"
 msgstr "FILTER"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "SPIELE DIE ZU SCRAPEN SIND"
+msgstr "SPIELE FÜR SCRAPING"
 
 msgid "ALL"
 msgstr "ALLE"
@@ -1381,16 +1381,16 @@ msgid "SELECT BEZELS TO INSTALL/REMOVE"
 msgstr "BEZELS ZUM INSTALLIEREN/ENTFERNEN AUSWÄHLEN"
 
 msgid "fade"
-msgstr "überblenden"
+msgstr "Überblenden"
 
 msgid "slide"
-msgstr "gleiten"
+msgstr "Gleiten"
 
 msgid "instant"
-msgstr "sofortig"
+msgstr "Sofort"
 
 msgid "fade & slide"
-msgstr "überblenden & gleiten"
+msgstr "Überblenden & Gleiten"
 
 msgid "System"
 msgstr "System"
@@ -1515,7 +1515,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMEINSTELLUNGEN"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr "ENTSPERRE MODUS BENUTZEROBERFLÄCHE"
+msgstr "BENUTZEROBERFLÄCHEN-MODUS ENTSPERREN"
 
 msgid "QUIT"
 msgstr "BEENDEN"
@@ -1536,7 +1536,7 @@ msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND ENTWICKLEROPTIONEN"
 
 msgid "VIDEO OPTIONS"
-msgstr "VIDEO-OPTIONEN"
+msgstr "VIDEOEINSTELLUNGEN"
 
 msgid "VRAM LIMIT"
 msgstr "VRAM LIMIT"
@@ -1617,7 +1617,7 @@ msgid "DATA MANAGEMENT"
 msgstr "DATENVERWALTUNG"
 
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "MULTIDISK DATEIEN IGNORIEREN (CUE/GDI/CCD/M3U)"
+msgstr "MULTIDISK-DATEIEN IGNORIEREN (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
 msgstr "SPIELEFILTER AKTIVIEREN"
@@ -1668,7 +1668,7 @@ msgid "COMPLETE QUIT MENU"
 msgstr "VOLLSTÄNDIGES EXIT-MENÜ ANZEIGEN"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "RETROARCH-MENÜ-TREIBER"
+msgstr "RETROARCH-MENÜ TREIBER"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -1696,10 +1696,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "WAFFENBEWEGUNG TOLERANZ"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr "HID-JOYSTICK-TREIBER AKTIVIEREN"
+msgstr "HID-JOYSTICK TREIBER AKTIVIEREN"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr "NETZWERK-INDIKATOR ANZEIGEN"
+msgstr "NETZWERKSTATUS ANZEIGEN"
 
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMIERUNGEN"
@@ -1796,19 +1796,17 @@ msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "BILDSCHIRMLESER (TEXT ZU SPRACHE)"
 
 msgid "USER INTERFACE MODE"
-msgstr "BENUTZEROBERFLÄCHENMODUS"
+msgstr "BENUTZEROBERFLÄCHEN-MODUS"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
-"Bestimmte Konfigurationsmenüs für die Verwendung mit Gastbenutzern/Kindern "
-"sperren."
+msgstr "Bestimmte Konfigurationsmenüs für Gastbenutzer/Kinder sperren."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"Sie ändern die Benutzeroberfläche in einen eingeschränkten Modus:\n"
+"Sie wechseln mit der Benutzeroberfläche in den eingeschränkten Modus:\n"
 "Dadurch werden die meisten Menüoptionen ausgeblendet, um Änderungen am "
 "System zu verhindern.\n"
 "Um die vollständige Benutzeroberfläche zu entsperren und zurückzukehren, "
@@ -1864,10 +1862,10 @@ msgid "BOOT SPLASH"
 msgstr "BOOT SPLASH"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "STANDARD-VIDEO/BENUTZER-GESETZTER SPLASH"
+msgstr "STANDARD-VIDEO/BENUTZERDEF. SPLASH"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "STILLES VIDEO/BENUTZER-GESETZTER SPLASH"
+msgstr "STUMMES VIDEO/BENUTZERDEF. SPLASH"
 
 msgid "BATOCERA SPLASH IMAGE"
 msgstr "BATOCERA SPLASH-BILD"
@@ -2047,7 +2045,7 @@ msgid "SYSTEM CONTROLLERS"
 msgstr "SYSTEM CONTROLLER"
 
 msgid "CUSTOM IMAGE"
-msgstr "BENUTZERDEFINIERTES BILD"
+msgstr "BENUTZERDEF. BILD"
 
 msgid "Show an image overlaid on top of the bezel."
 msgstr "Ein ausgewähltes Bild als Tattoo-Overlay über dem Bezel anzeigen."
@@ -2110,17 +2108,17 @@ msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLE SPEICHERSTÄNDE"
 
 msgid "INCREMENT PER SAVE"
-msgstr "PRO SPEICHERVORGANG ERHÖHEN"
+msgstr "PRO SPEICHERVORGANG NEU ERSTELLEN"
 
 msgid "Never overwrite old savestates, always make new ones."
 msgstr ""
 "Niemals alte Speicherstände überschreiben, sondern immer neue erstellen."
 
 msgid "INCREMENT SLOT"
-msgstr "SLOT ERHÖHEN"
+msgstr "NÄCHSTHÖHERER SLOT"
 
 msgid "Increment slot on a new game."
-msgstr "Slot für ein neues Spiel erhöhen."
+msgstr "Nächsthöheren Slot für ein neues Spiel auswählen."
 
 msgid "DO NOT INCREMENT"
 msgstr "NICHT ERHÖHEN"
@@ -2161,10 +2159,12 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
-"ORDNE DIE CONTROLLER-TASTEN BASIEREND AUF IHRER POSITION UND NICHT DER "
-"BEZEICHNUNG ZU. FALLS KEINE SPEZIELLE TASTE FÜR DEN HOTKEY VORHANDEN, NUTZE "
-"DIE SELECT-TASTE. ÜBERSPRINGE ALLE TASTEN/STICKS, DIE NICHT VORHANDEN SIND, "
-"DURCH HALTEN IRGENDEINER TASTE. DRÜCKE AM ENDE DIE SÜD-TASTE ZUM BESTÄTIGEN."
+"SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
+"TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
+"RÄUMLICHEN POSITION. FALLS KEINE SPEZIAL-TASTE FÜR DEN HOTKEY VORHANDEN IST, "
+"NUTZEN SIE DIE SELECT-TASTE. ALLE TASTEN/STICKS, DIE NICHT VORHANDEN SIND, "
+"ÜBERSPRINGEN SIE DURCH HALTEN EINER BELIEBIGEN TASTE. ZUM ABSCHLUSS DER "
+"KONFIGURATION DRÜCKEN SIE DIE SÜD-TASTE."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "SINDEN GUN EINSTELLUNGEN"
@@ -2179,10 +2179,10 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "BLUETOOTH-PADS AUTOMATISCH PAAREN"
+msgstr "BLUETOOTH-GAMEPADS AUTOMATISCH KOPPELN"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "BLUETOOTH-GERÄT MANUELL PAAREN"
+msgstr "BLUETOOTH-GERÄT MANUELL KOPPELN"
 
 msgid "DISPLAY OPTIONS"
 msgstr "OPTIONEN ANZEIGEN"
@@ -2191,7 +2191,7 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "CONTROLLER-AKTIVITÄT ANZEIGEN"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "CONTROLLER AKKU-LEVEL ANZEIGEN"
+msgstr "CONTROLLER AKKUSTAND ANZEIGEN"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "SPIELERZUWEISUNGEN"
@@ -2201,7 +2201,7 @@ msgid "P%i'S CONTROLLER"
 msgstr "P%i'S CONTROLLER"
 
 msgid "default"
-msgstr "standard"
+msgstr "Standard"
 
 msgid "BORDER SIZE"
 msgstr "RAHMENGRÖSSE"
@@ -2408,6 +2408,9 @@ msgstr "Auto"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ÜBERGANG BEI SPIELSTART"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "UHRZEIT ANZEIGEN"
 
@@ -2415,7 +2418,7 @@ msgid "ON-SCREEN HELP"
 msgstr "BILDSCHIRMHILFE"
 
 msgid "SHOW BATTERY STATUS"
-msgstr "AKKU-STATUS ANZEIGEN"
+msgstr "AKKUSTAND ANZEIGEN"
 
 msgid "ICON"
 msgstr "ICON"
@@ -3163,7 +3166,7 @@ msgstr "KEIN GAMEPAD ERKANNT"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr ""
-"BELIEBIGE TASTE AM CONTROLLER GEDRÜCKT HALTEN, UM IHN ZU KONFIGURIEREN."
+"BELIEBIGE TASTE AM CONTROLLER GEDRÜCKT HALTEN, UM DIESEN ZU KONFIGURIEREN."
 
 msgid "DISCARD CHANGES"
 msgstr "ÄNDERUNGEN VERWERFEN"
@@ -3230,6 +3233,10 @@ msgstr[1] "%d Sekunden her"
 
 msgid "WORKING..."
 msgstr "VERARBEITE..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
 
 #, c-format
 msgid "%d h"

@@ -2392,6 +2392,9 @@ msgstr "авто"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "ПОКАЗАТЬ ЧАСЫ"
 

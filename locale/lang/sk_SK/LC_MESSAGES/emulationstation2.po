@@ -2394,6 +2394,9 @@ msgstr "auto"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "Prechod pri spustení hry"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "Zobraziť hodiny"
 

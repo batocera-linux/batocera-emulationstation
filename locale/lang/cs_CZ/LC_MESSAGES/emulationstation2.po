@@ -2394,6 +2394,9 @@ msgstr "automaticky"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "PŘECHOD PO SPUŠTĚNÍ HRY"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "ZOBRAZIT HODINY"
 

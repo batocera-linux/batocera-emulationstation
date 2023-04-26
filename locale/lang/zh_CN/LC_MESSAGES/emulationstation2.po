@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: emulationstation\n"
+"Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2022-05-26 23:04+0800\n"
+"Last-Translator: Administrator <>\n"
+"Language-Team: mikakunin\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Virtaal 0.7.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "发现可用更新"
@@ -20,13 +20,13 @@ msgid "Name"
 msgstr "游戏名"
 
 msgid "this game's name"
-msgstr "此游戏的名字"
+msgstr "本游戏名称"
 
 msgid "Description"
 msgstr "游戏描述"
 
 msgid "this game's description"
-msgstr "此游戏的描述"
+msgstr "本游戏描述"
 
 msgid "Emulator"
 msgstr "模拟器"
@@ -53,7 +53,7 @@ msgid "enter path to video"
 msgstr "输入视频路径"
 
 msgid "Logo"
-msgstr "Logo"
+msgstr "Logo图标"
 
 msgid "enter path to logo"
 msgstr "输入LOGO路径"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "输入手册路径"
 
 msgid "Magazine"
-msgstr "杂志"
+msgstr "游戏攻略"
 
 msgid "enter path to magazine"
-msgstr "输入杂志路径"
+msgstr "输入游戏攻略路径"
 
 msgid "Map"
 msgstr "地图"
@@ -95,16 +95,16 @@ msgid "enter path to map"
 msgstr "输入地图路径"
 
 msgid "Bezel (16:9)"
-msgstr "边框(16:9)"
+msgstr "遮罩(16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "输入边框路径（16:9）"
+msgstr "输入框架(16:9)路径"
 
 msgid "Cartridge"
-msgstr "存储器"
+msgstr "存档器"
 
 msgid "enter path to cartridge"
-msgstr "输入存储器路径"
+msgstr "输入存档器路径"
 
 msgid "Alt BoxArt"
 msgstr "包装盒封面"
@@ -113,10 +113,10 @@ msgid "enter path to alt boxart"
 msgstr "输入包装盒封面路径"
 
 msgid "Box backside"
-msgstr "盒子背景"
+msgstr "包装合背面"
 
 msgid "enter path to box background"
-msgstr "输入盒子背景的路径"
+msgstr "输入包装合背面路径"
 
 msgid "Wheel"
 msgstr "商标"
@@ -143,46 +143,46 @@ msgid "enter release date"
 msgstr "输入发行日期"
 
 msgid "Developer"
-msgstr "开发者"
+msgstr "游戏开发商"
 
 msgid "this game's developer"
-msgstr "此游戏开发者"
+msgstr "此游戏开发商"
 
 msgid "Publisher"
 msgstr "发行商"
 
 msgid "this game's publisher"
-msgstr "此游戏的发行商"
+msgstr "此游戏发行商"
 
 msgid "Genre"
 msgstr "游戏类型"
 
 msgid "enter game genre"
-msgstr "此游戏类型"
+msgstr "输入游戏类型"
 
 msgid "Game family"
-msgstr "游戏系列"
+msgstr "游戏所属合集"
 
 msgid "this game's game family"
-msgstr "此游戏系列"
+msgstr "本游戏所属合集"
 
 msgid "Genres"
-msgstr "类型"
+msgstr "游戏载体类型"
 
 msgid "enter game genres"
-msgstr "此游戏类型"
+msgstr "本游戏载体类型"
 
 msgid "Arcade system"
-msgstr "游戏系统"
+msgstr "游戏系统类型"
 
 msgid "this game's arcade system"
-msgstr "此游戏使用的系统"
+msgstr "本游戏系统类型"
 
 msgid "Players"
 msgstr "游玩人数"
 
 msgid "this game's number of players"
-msgstr "玩家数量"
+msgstr "本游戏支持游玩人数"
 
 msgid "Favorite"
 msgstr "收藏"
@@ -215,13 +215,13 @@ msgid "enter last played date"
 msgstr "输入最后游玩时间"
 
 msgid "Crc32"
-msgstr "CRC32"
+msgstr "CRC32值"
 
 msgid "Crc32 checksum"
 msgstr "Crc32校验"
 
 msgid "Md5"
-msgstr "Md5"
+msgstr "Md5值"
 
 msgid "Md5 checksum"
 msgstr "Md5校验"
@@ -230,34 +230,34 @@ msgid "Game time"
 msgstr "游戏时间"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "游戏总共玩了多长时间（秒）"
+msgstr "游戏总游玩时间（秒）"
 
 msgid "Languages"
 msgstr "语言"
 
 msgid "this game's languages"
-msgstr "该游戏语言"
+msgstr "本游戏语种"
 
 msgid "Region"
 msgstr "区域"
 
 msgid "this game's region"
-msgstr "该游戏区域"
+msgstr "本游戏发行区域"
 
 msgid "Cheevos Hash"
-msgstr "Cheevos哈希值"
+msgstr "成就"
 
 msgid "Cheevos checksum"
-msgstr "Cheevos校验和"
+msgstr "成就检测"
 
 msgid "Cheevos Game ID"
-msgstr "Cheevos 游戏ID"
+msgstr "成就游戏ID"
 
 msgid "Screenscraper Game ID"
-msgstr "Screenscraper游戏ID"
+msgstr "屏幕截取器 游戏ID"
 
 msgid "all games"
-msgstr "全部游戏"
+msgstr "所有游戏"
 
 msgid "last played"
 msgstr "最后游玩"
@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "从未玩过的"
 
 msgid "retroachievements"
-msgstr "追溯成就"
+msgstr "RetroArch成就"
 
 msgid "arcade"
 msgstr "街机"
@@ -298,7 +298,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "移除 '%s' 从 '%s'"
 
 msgid "This collection is empty."
-msgstr "此合辑为空."
+msgstr "此专辑为空."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -307,10 +307,10 @@ msgstr "无"
 msgid "Various"
 msgstr "多开发商"
 
-#, c-format
+#, fuzzy, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "此合辑包含 %i 个游戏，其中包括%s"
+msgstr[0] "此专辑里有 :%s 个游戏"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "正在扫描蓝牙设备"
@@ -322,43 +322,43 @@ msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "蓝牙扫描已在运行。"
 
 msgid "FORMATTING DEVICE"
-msgstr "格式化设备"
+msgstr "格式化驱动器"
 
 msgid "Formatting"
-msgstr "格式化"
+msgstr "正在格式化..."
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "需要重新启动系统才能完成操作"
+msgstr "重启动以完成操作"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr "驱动器已被格式化。"
+msgstr "磁盘格式化完成"
 
 msgid "DOWNLOADING"
-msgstr "下载中"
+msgstr "正在下载..."
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "主题安装成功"
 
 msgid "AN ERROR OCCURRED"
-msgstr "出现错误"
+msgstr ""
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "主题卸载成功"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "框架安装成功"
+msgstr "遮罩安装成功"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "BEZELS卸载成功"
+msgstr "遮罩卸载成功"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "包安装成功"
+msgstr "补丁包安装成功"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "包卸载成功"
+msgstr "补丁包卸载成功"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "追溯成就设置"
+msgstr "RetroArch成就 设置"
 
 msgid "SETTINGS"
 msgstr "设置"
@@ -379,45 +379,45 @@ msgid "HARDCORE MODE"
 msgstr "专家模式"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "禁用读档、回放和作弊以获取更多分数。"
+msgstr ""
 
 msgid "LEADERBOARDS"
 msgstr "排行榜"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr "在高分和最佳时间排行榜上竞争（需要hardcore）。"
+msgstr ""
 
 msgid "VERBOSE MODE"
 msgstr "详细模式"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "在游戏启动和其他通知中显示成就进展。"
+msgstr ""
 
 msgid "RICH PRESENCE"
-msgstr "充分状态"
+msgstr ""
 
 msgid "ENCORE MODE"
-msgstr "安可模式"
+msgstr ""
 
 msgid "Unlocked achievements can be earned again."
-msgstr "解锁的成就可以再次获得。"
+msgstr ""
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "获得成就时自动截屏。"
+msgstr ""
 
 msgid "CHALLENGE INDICATORS"
-msgstr "挑战指标"
+msgstr "挑战记录"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "当可以获得符合条件的成就时，在右下角显示图标。"
+msgstr "获得符合条件的成就时，在右下角显示图标。"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "复古成就解锁声音"
+msgstr "成就解锁声音"
 
 msgid "none"
 msgstr "无"
@@ -426,22 +426,22 @@ msgid "UNLOCK SOUND"
 msgstr "解锁声音"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "在主菜单中显示追溯成就条目"
+msgstr "在主菜单中显示成就菜单项"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "从主菜单中查看您的RetroAchievement统计数据！"
+msgstr ""
 
 msgid "GAME INDEXES"
 msgstr "游戏索引"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "在启动时索引新游戏"
+msgstr "新游戏在启动时编制索引"
 
 msgid "INDEX GAMES"
-msgstr "索引游戏"
+msgstr "游戏索引"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "无法激活追溯成就："
+msgstr "无法激活追溯成就"
 
 msgid "OK"
 msgstr "确定"
@@ -450,7 +450,7 @@ msgid "FILTER GAMELIST BY"
 msgstr "游戏列表筛选方式"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "编辑合辑"
+msgstr "编辑专辑"
 
 msgid "RESET ALL FILTERS"
 msgstr "重置所有筛选器"
@@ -474,10 +474,10 @@ msgid "SYSTEMS"
 msgstr "游戏平台"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "游戏合辑设置"
+msgstr "游戏专辑设置"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr "要显示的合辑"
+msgstr "要显示的专辑"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "显示的游戏平台"
@@ -486,22 +486,22 @@ msgid "GROUPED SYSTEMS"
 msgstr "系统分组"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr "创建自定合辑"
+msgstr "创建自定专辑"
 
 msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "从主题创建新的自定合辑"
+msgstr "从主题创建新的自定义专辑"
 
 msgid "SELECT THEME FOLDER"
 msgstr "选择主题文件夹"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "新建合辑"
+msgstr "新建可编辑专辑"
 
 msgid "New Collection Name"
 msgstr "新合辑名称"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "新建合辑"
+msgstr "新建动态专辑"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "合辑和系统分类"
@@ -516,7 +516,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "按硬件类型"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr "按制造商和类型"
+msgstr ""
 
 msgid "BY RELEASE YEAR"
 msgstr "按发布年"
@@ -543,13 +543,13 @@ msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合辑中显示系统名称"
 
 msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
-msgstr "显示系统集合中隐藏的游戏"
+msgstr "在合辑中显示隐藏游戏"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr "显示空系统"
+msgstr ""
 
 msgid "UPDATE GAMELISTS"
-msgstr "更新游戏列表"
+msgstr "更新游戏列表(放入ROM或者安装程序后操作）"
 
 msgid "Loading..."
 msgstr "载入中..."
@@ -558,41 +558,41 @@ msgid "SELECT COLLECTIONS"
 msgstr "选择合辑"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr "自动合辑"
+msgstr "自动归类专辑"
 
 msgid "PER GENRE"
-msgstr "每个流派"
+msgstr "所有种类"
 
 msgid "ARCADE SYSTEMS"
 msgstr "游戏系统"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "自动归类游戏合辑"
+msgstr "自动归类游戏专辑"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr "自定义合辑"
+msgstr "自定义专辑"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr "动态合辑"
+msgstr "动态专辑"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr "自定游戏合辑"
+msgstr "自定游戏专辑"
 
 msgid "PLEASE WAIT"
 msgstr "请稍后"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d of %d)"
+msgstr "%d%% (%d 中的 %d)"
 
 msgid "Points (hardcore)"
-msgstr "点数(硬核模式)"
+msgstr ""
 
 msgid "Softcore points"
-msgstr "软核点"
+msgstr ""
 
 msgid "Rank"
-msgstr "级别"
+msgstr "评价等级"
 
 msgid "VIEW DETAILS"
 msgstr "查看详细信息"
@@ -616,22 +616,22 @@ msgid "USE RELAY SERVER"
 msgstr "使用中继服务"
 
 msgid "NEW YORK"
-msgstr "纽约（美国）"
+msgstr "网络设置"
 
 msgid "MADRID"
-msgstr "马德里（西班牙）"
+msgstr "马德里"
 
 msgid "MONTREAL"
-msgstr "蒙特利尔（加拿大）"
+msgstr "蒙特利尔"
 
 msgid "SAO PAULO"
-msgstr "圣保罗（巴西）"
+msgstr "圣保罗"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr "显示不可用游戏"
+msgstr "显示不可用的游戏"
 
 msgid "Show rooms for games not present on this machine."
-msgstr "显示此计算机上不存在的游戏的房间。"
+msgstr ""
 
 msgid "FINISHED"
 msgstr "完成"
@@ -649,7 +649,7 @@ msgid "OTHER FILTERS"
 msgstr "其他筛选器"
 
 msgid "SELECT RANDOM GAME"
-msgstr "选择随机游戏"
+msgstr "随机选择游戏"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
 msgstr "跳转到以字母开头的游戏"
@@ -658,16 +658,16 @@ msgid "SORT GAMES BY"
 msgstr "游戏排序方式"
 
 msgid "DYNAMIC COLLECTION"
-msgstr "动态集合"
+msgstr ""
 
 msgid "CUSTOM COLLECTION"
-msgstr "自定义集合"
+msgstr ""
 
 msgid "DELETE COLLECTION"
-msgstr "删除合辑"
+msgstr "删除专辑"
 
 msgid "COLLECTION"
-msgstr "合辑"
+msgstr "专辑"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "游戏列表样式"
@@ -676,13 +676,13 @@ msgid "automatic"
 msgstr "自动"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr "视图自定义"
+msgstr "自定义视图"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "查看键盘信息"
+msgstr "查看键盘映射信息"
 
 msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "高级系统选项"
+msgstr "高级系统(模拟器)设置选项"
 
 msgid "RESET FILTERS"
 msgstr "重置筛选"
@@ -691,7 +691,7 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "用文本筛选游戏"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "刮削器运行时禁用此功能"
+msgstr "截取过程此功能被禁用"
 
 msgid "CLOSE"
 msgstr "关闭"
@@ -700,7 +700,7 @@ msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "确定是否删除？"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "忘记蓝牙设备"
+msgstr "解除配对的蓝牙设备"
 
 msgid "REMOVE ALL"
 msgstr "移除所有"
@@ -712,11 +712,11 @@ msgid "REMOVE"
 msgstr "卸载"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "文件浏览器蓝牙设备已被删除。"
+msgstr "已解除蓝牙设备"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "您确定要移除'%s'吗?"
+msgstr ""
 
 msgid "INPUT"
 msgstr "名称编辑"
@@ -728,7 +728,7 @@ msgid "CANCEL"
 msgstr "取消"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "联网游戏"
+msgstr "进行联网游戏"
 
 msgid "Select a game lobby to join"
 msgstr "选择要加入的游戏大厅"
@@ -743,7 +743,7 @@ msgid "UNKNOWN ROM VERSION"
 msgstr "未知ROM版本"
 
 msgid "DIFFERENT ROM"
-msgstr "不同的ROM"
+msgstr "不一致的ROM"
 
 msgid "SAME ROM"
 msgstr "相同的ROM"
@@ -758,7 +758,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "无法运行的游戏"
 
 msgid "NO GAMES FOUND"
-msgstr "未找到游戏"
+msgstr "找不到可用游戏服务"
 
 msgid "JOIN GAME"
 msgstr "加入游戏"
@@ -776,13 +776,13 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "正在查询WIFI网络"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "你没联网"
+msgstr "你还未连接网络"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "配对蓝牙设备"
+msgstr "配对蓝牙手柄"
 
 msgid "PAIR"
-msgstr "配对"
+msgstr ""
 
 msgid "FILE BROWSER"
 msgstr "文件浏览器"
@@ -791,10 +791,10 @@ msgid "RESET"
 msgstr "重置"
 
 msgid "PARENT FOLDER"
-msgstr "父文件夹"
+msgstr "主文件夹"
 
 msgid "SCREENSHOTS FOLDER"
-msgstr "屏幕截图文件夹"
+msgstr "截图文件夹"
 
 msgid "SELECT"
 msgstr "选择"
@@ -809,7 +809,7 @@ msgid "SELECT CONTENT TO INSTALL/REMOVE"
 msgstr "选择要安装/删除的内容"
 
 msgid "UPDATE INSTALLED CONTENT"
-msgstr "更新已安装内容"
+msgstr "更新已安装的内容"
 
 msgid "No items"
 msgstr "在此视角下没东西"
@@ -822,10 +822,10 @@ msgstr "更新"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "将 '%s' 添加到下载队列"
+msgstr "把 '%s' 添加到下载队列进行后台下载"
 
 msgid "UNINSTALLATION ADDED TO QUEUE"
-msgstr "卸载已添加到队列"
+msgstr "将卸载添加到队列中"
 
 msgid "INSTALL"
 msgstr "安装"
@@ -835,19 +835,19 @@ msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "当前下载排队"
 
 msgid "NO MISSING BIOS FILES"
-msgstr "没有丢失BIOS文件"
+msgstr "未丢bios文件"
 
 msgid "MISSING BIOS CHECK"
-msgstr "缺失的BIOS"
+msgstr "检查缺失的bios"
 
 msgid "NO MISSING BIOS"
-msgstr "未缺失的BIOS"
+msgstr "未缺bios"
 
 msgid "dim"
 msgstr "暗灰"
 
 msgid "black"
-msgstr "黑"
+msgstr "黑色"
 
 msgid "random video"
 msgstr "随机视频"
@@ -856,7 +856,7 @@ msgid "slideshow"
 msgstr "片段展示"
 
 msgid "suspend"
-msgstr "暂停"
+msgstr ""
 
 msgid "always"
 msgstr "总是"
@@ -901,10 +901,10 @@ msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用悬浮蒙版图片作为游戏信息"
 
 msgid "DECORATION SET USED"
-msgstr "使用装饰套件"
+msgstr "使用的装饰框"
 
 msgid "STRETCH VIDEOS"
-msgstr "拉伸视频"
+msgstr "视频拉伸"
 
 msgid "MUTE VIDEO AUDIO"
 msgstr "视频静音"
@@ -940,16 +940,16 @@ msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "自定图像目录"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "在自定义目录的子文件夹中使用图像"
+msgstr "在自定义目录的子文件夹中使用图片"
 
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr "自定义图像文件扩展名"
+msgstr "自定义图片文件扩展名"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "pad到键盘自动以"
+msgstr "按键到键盘映射设置"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr "选择行动来改变"
+msgstr "选择动作以更改"
 
 msgid "SAVE"
 msgstr "保存"
@@ -958,16 +958,16 @@ msgid "DELETE"
 msgstr "删除"
 
 msgid "PLAYER 1"
-msgstr "玩家一"
+msgstr "玩家1"
 
 msgid "PLAYER 2"
-msgstr "玩家二"
+msgstr "玩家2"
 
 msgid "PLAYER 3"
-msgstr "玩家三"
+msgstr "玩家3"
 
 msgid "PLAYER 4"
-msgstr "玩家四"
+msgstr "玩家4"
 
 msgid "COMBINATIONS"
 msgstr "组合键"
@@ -979,7 +979,7 @@ msgid "EMULATE MOUSE CURSOR"
 msgstr "仿真鼠标光标"
 
 msgid "LEFT ANALOG STICK"
-msgstr "左摇杆"
+msgstr "手柄左摇杆"
 
 msgid "RIGHT ANALOG STICK"
 msgstr "右摇杆"
@@ -988,7 +988,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "编辑描述"
 
 msgid "DELETE MAPPING"
-msgstr "删除标记"
+msgstr "删除（按键/设备）适配"
 
 msgid "SAVE CHANGES?"
 msgstr "是否保存更改?"
@@ -1004,7 +1004,7 @@ msgid "UPDATE IS READY"
 msgstr "更新已准备就绪"
 
 msgid "REBOOT TO APPLY"
-msgstr "重新启动以应用"
+msgstr "重启并应用"
 
 msgid "REALLY UPDATE?"
 msgstr "是否进行更新?"
@@ -1014,8 +1014,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"您当前正在使用的版本为 %s\n"
-"是否要更新到 %s?"
+"当前版本 %s\n"
+"是否更新到版本 %s?(汉化版升级将导致汉化失效）"
 
 #, c-format
 msgid ""
@@ -1023,9 +1023,6 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"检测到非官方修改的系统.\n"
-"升级可能会破坏您的系统.\n"
-"您是否要更新到版本：%s？"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "需要连接到互联网"
@@ -1034,7 +1031,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "暂无可用更新"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr "安装Batocera到新磁盘"
+msgstr "安装到新的磁盘"
 
 msgid "TARGET DEVICE"
 msgstr "目标设备"
@@ -1055,7 +1052,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "阅读游戏手册"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr "查看游戏杂志"
+msgstr "阅读游戏攻略"
 
 msgid "VIEW GAME MAP"
 msgstr "阅读游戏地图"
@@ -1070,22 +1067,22 @@ msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "当前核心不兼容"
 
 msgid "COMPATIBLE CORE(S)"
-msgstr "兼容核心"
+msgstr "兼容内核"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "查看该游戏成就"
+msgstr "查看此游戏的成就"
 
 msgid "GAME"
 msgstr "游戏"
 
 msgid "SAVE STATES"
-msgstr "存档"
+msgstr "存档槽"
 
 msgid "OPEN"
 msgstr "打开"
 
 msgid "START A NETPLAY GAME"
-msgstr "开始网络游戏"
+msgstr "开始联网游戏"
 
 msgid "NETPLAY"
 msgstr "联网游戏"
@@ -1094,22 +1091,22 @@ msgid "START GAME"
 msgstr "开始游戏"
 
 msgid "HOST A NETPLAY GAME"
-msgstr "主持网络游戏"
+msgstr "开启网络游戏服务"
 
 msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公开广播游戏"
+msgstr "公开的游戏"
 
 msgid "PLAYER PASSWORD"
-msgstr "玩家密码"
+msgstr "玩家登陆口令"
 
 msgid "VIEWER PASSWORD"
-msgstr "查看密码"
+msgstr "围观者口令"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "查找类似游戏..."
+msgstr "寻找类似游戏"
 
 msgid "DELETE ITEM"
-msgstr "删除项目"
+msgstr "删除房间"
 
 msgid "DELETE GAME"
 msgstr "删除游戏"
@@ -1122,11 +1119,11 @@ msgstr ""
 "确定执行吗?"
 
 msgid "COLLECTIONS"
-msgstr "收藏"
+msgstr "所有专辑"
 
 #, c-format
 msgid "REMOVE FROM %s"
-msgstr "从%s中删除"
+msgstr "从 %s 移除"
 
 #, c-format
 msgid "ADD TO %s"
@@ -1136,19 +1133,19 @@ msgid "FAVORITES"
 msgstr "收藏"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "添加到自定义集合..."
+msgstr "添加到自定义专辑"
 
 msgid "SCRAPE"
-msgstr "抓取元数据"
+msgstr "抓取封面元数据"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "编辑填充标记设置"
+msgstr "编辑映射键盘文件"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr "创建填充标记设置"
+msgstr "创建映射键盘文件(手柄映射键鼠）"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "高级游戏选项"
+msgstr "高级游戏设置选项"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "编辑文件夹的信息"
@@ -1163,35 +1160,35 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "选择要安装/删除的主题"
 
 msgid "All"
-msgstr "全部"
+msgstr ""
 
 msgid "Installed"
-msgstr "已经安装"
+msgstr ""
 
 msgid "Available"
-msgstr "可用的"
+msgstr ""
 
 msgid "CURRENT THEME"
 msgstr "当前主题"
 
 msgid "Points"
-msgstr "点"
+msgstr "得分点"
 
 msgid "Unlocked on"
-msgstr "上锁"
+msgstr "解锁"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "该游戏还没有成绩"
+msgstr "这个游戏还没有取得任何成就"
 
 msgid "Achievements won"
-msgstr "取得成就"
+msgstr "已取得成就"
 
 #, c-format
 msgid "%d%% complete"
-msgstr "%d%% 完成"
+msgstr "%d%% 已完成"
 
 msgid "SAVESTATE MANAGER"
-msgstr "存档管理器"
+msgstr ""
 
 msgid "START NEW GAME"
 msgstr "开始新游戏"
@@ -1203,13 +1200,13 @@ msgid "AUTO SAVE"
 msgstr "自动存档"
 
 msgid "SLOT"
-msgstr "插槽"
+msgstr "存档槽"
 
 msgid "COPY TO FREE SLOT"
-msgstr "复制到空闲插槽"
+msgstr "复制到空存档槽"
 
 msgid "SCRAPER SETTINGS"
-msgstr "刮削设置"
+msgstr "抓取设置"
 
 msgid "IMAGE SOURCE"
 msgstr "图片数据"
@@ -1221,10 +1218,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "标题截图"
 
 msgid "MIX V1"
-msgstr "V1 滤镜"
+msgstr "V1 MIX"
 
 msgid "MIX V2"
-msgstr "V2 滤镜"
+msgstr "V2 MIX"
 
 msgid "BOX 2D"
 msgstr "2D 盒子"
@@ -1236,7 +1233,7 @@ msgid "FAN ART"
 msgstr "同人作品"
 
 msgid "BOX SOURCE"
-msgstr "封面数据"
+msgstr "盒子封面数据"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO数据"
@@ -1248,85 +1245,85 @@ msgid "MARQUEE"
 msgstr "蒙版"
 
 msgid "SCRAPE FOR"
-msgstr "刮削器"
+msgstr ""
 
 msgid "SHORT NAME"
-msgstr "简称"
+msgstr ""
 
 msgid "COMMUNITY RATING"
-msgstr "社区评级"
+msgstr ""
 
 msgid "VIDEO"
-msgstr "视频"
+msgstr ""
 
 msgid "FANART"
-msgstr "同人"
+msgstr ""
 
 msgid "BEZEL (16:9)"
-msgstr "边框（16:9）"
+msgstr ""
 
 msgid "BOX BACKSIDE"
-msgstr "盒子背面"
+msgstr ""
 
 msgid "MAP"
-msgstr "地图"
+msgstr ""
 
 msgid "MANUAL"
-msgstr "手册"
+msgstr ""
 
 msgid "PADTOKEY SETTINGS"
-msgstr "填充标记设置"
+msgstr ""
 
 msgid "SCRAPER"
-msgstr "抓取元数据"
+msgstr "抓取元数据(在线获取游戏封面，视频等，仅支持英文搜索）"
 
 msgid "SCRAPING DATABASE"
-msgstr "刮取数据库"
+msgstr "抓取数据库"
 
 msgid "SOURCE"
-msgstr "来源"
+msgstr "高分"
 
 msgid "SCRAPE FROM"
-msgstr "游戏数据来源"
+msgstr "游戏数据来源网站"
 
 msgid "FILTERS"
 msgstr "过滤器"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "要抓取的游戏"
+msgstr "为游戏抓取"
 
 msgid "ALL"
-msgstr "全部"
+msgstr "所有数据"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr "缺少任何媒体的游戏"
+msgstr "游戏丢失一些媒体"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr "缺少所有媒体的游戏"
+msgstr "游戏丢失所有媒体"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "忽略最近搜刮的游戏"
+msgstr "忽略最近被删掉的游戏"
 
 msgid "LAST DAY"
-msgstr "最后一天"
+msgstr "最近一天"
 
 msgid "LAST WEEK"
-msgstr "上周"
+msgstr "最近一周"
 
 msgid "LAST 15 DAYS"
-msgstr "过去15天"
+msgstr "最近15天"
 
 msgid "LAST MONTH"
-msgstr "上个月"
+msgstr "最近一个月"
 
 msgid "LAST 3 MONTHS"
-msgstr "3个月前过去3个月"
+msgstr "最近三个月"
 
 msgid "LAST YEAR"
-msgstr "去年"
+msgstr "最近一年"
 
 msgid "SYSTEMS INCLUDED"
-msgstr "系统包括"
+msgstr "包含的游戏系统"
 
 msgid "SCRAPE NOW"
 msgstr "开始抓取"
@@ -1339,11 +1336,11 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"警告：您选择的一些系统没有平台设置。结果可能适用于不同的系统！\n"
-"还是要继续吗？"
+"警告：您选择的某些系统没有平台集。结果可能适用于不同的系统！\n"
+"继续吗？"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "抓取进行中,确定要终止吗？"
+msgstr "正在获取数据.要停止吗？"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有匹配的游戏。"
@@ -1355,7 +1352,7 @@ msgid "VERSION"
 msgstr "版本"
 
 msgid "USER DISK USAGE"
-msgstr "用户磁盘使用"
+msgstr "用户磁盘使用状态"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "系统磁盘使用"
@@ -1370,7 +1367,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "框架项目"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "选择要安装/卸载的挡板"
+msgstr "选择要安装/卸下的框架"
 
 msgid "fade"
 msgstr "淡出"
@@ -1403,47 +1400,47 @@ msgid "Battery"
 msgstr "电池"
 
 msgid "Model"
-msgstr "模型"
+msgstr "型号"
 
 msgid "Cpu model"
 msgstr "CPU 型号"
 
 msgid "Cpu number"
-msgstr "CPU 序列号"
+msgstr "CPU 核心数量"
 
 msgid "Cpu max frequency"
-msgstr "CPU最大频率"
+msgstr "CPU 最大频率"
 
 msgid "Cpu feature"
 msgstr "CPU 特征"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr "鲜明-双线性-简易"
+msgstr "夏普 双线性-简单"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "扫描线"
+msgstr "扫描线滤镜"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr "复古"
+msgstr "复古类"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "增强"
+msgstr "画质增强"
 
 msgctxt "game_options"
 msgid "CURVATURE"
-msgstr "曲率"
+msgstr "曲线扫描"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr "快速"
+msgstr "ZFAST（贼快着色器，听说是老任家的，我老狼不服~！）"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr "扁平流"
+msgstr "平面光亮"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
@@ -1459,34 +1456,34 @@ msgid "SHADERS"
 msgstr "着色器"
 
 msgid "CONTROLLER SETTINGS"
-msgstr "控制器设置"
+msgstr "手柄按键设置"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "控制器设置"
+msgstr "手柄/蓝牙手柄设置"
 
 msgid "INTERNAL"
-msgstr "内部设备"
+msgstr "内部存储"
 
 msgid "ANY EXTERNAL"
-msgstr "外部设备"
+msgstr "外部存储磁盘"
 
 msgid "maximum 1920x1080"
-msgstr "最大 1920x1080"
+msgstr "最大1920X1080"
 
 msgid "maximum 640x480"
-msgstr "最大 640x480"
+msgstr "最小640X480"
 
 msgid "MAIN MENU"
 msgstr "主菜单"
 
 msgid "KODI MEDIA CENTER"
-msgstr "KODI 媒体中心"
+msgstr "KODI 媒体中心(emu-zh.com中文模拟系统)"
 
 msgid "GAME SETTINGS"
 msgstr "游戏设置"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr "用户界面设置"
+msgstr ""
 
 msgid "SOUND SETTINGS"
 msgstr "声音设置"
@@ -1507,25 +1504,25 @@ msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr "解锁用户界面模式"
+msgstr ""
 
 msgid "QUIT"
 msgstr "退出"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr "您确定要配置输入吗?"
+msgstr "确定要配置输入吗？"
 
 msgid "CHOOSE"
 msgstr "浏览"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr "用户界面现在已解锁"
+msgstr ""
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr "输入解锁密码"
+msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr "开发者选项"
+msgstr ""
 
 msgid "VIDEO OPTIONS"
 msgstr "视频选项"
@@ -1537,7 +1534,7 @@ msgid "SHOW FRAMERATE"
 msgstr "显示帧率"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "打开模拟器本身的FPS计数器（如果可用）。"
+msgstr ""
 
 msgid "VSYNC"
 msgstr "垂直同步"
@@ -1552,14 +1549,14 @@ msgid "TOOLS"
 msgstr "工具"
 
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr "停止启动这个游戏"
+msgstr "关闭在启动时启动此游戏"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr "启用公共web api访问"
+msgstr ""
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "允许使用公共web访问API %s"
+msgstr "允许使用%s访问公共页面 API(内网登陆操作)"
 
 msgid "LOG LEVEL"
 msgstr "日志级别"
@@ -1568,10 +1565,10 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "创建支持文件"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr "创建支持文件？这包括系统文件夹中的所有数据。"
+msgstr ""
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr "在存档文件夹中创建支持文件"
+msgstr "在“saves”文件夹中创建的支持文件"
 
 msgid "SUPPORT FILE CREATION FAILED"
 msgstr "支持文件创建失败"
@@ -1580,7 +1577,7 @@ msgid "FORMAT A DISK"
 msgstr "格式化磁盘"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
-msgstr "清除游戏列表并删除未使用的媒体"
+msgstr "清除游戏列表并删除未使用的媒体(视频,图片)"
 
 msgid "Cleaning"
 msgstr "清理中"
@@ -1589,10 +1586,10 @@ msgid "CLEAR CACHES"
 msgstr "清除缓存"
 
 msgid "BUILD IMAGE CACHE"
-msgstr "生成映像缓存"
+msgstr "建立图片缓存"
 
 msgid "Building image cache"
-msgstr "正在构建图像缓存"
+msgstr "正在建立图片缓存"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "重置文件扩展"
@@ -1601,40 +1598,40 @@ msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "重新查询游戏的 语言/区域"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "查找所有具有网络游戏/成就游戏"
+msgstr "在联网及成就中查找所有游戏"
 
 msgid "DATA MANAGEMENT"
-msgstr "日期管理"
+msgstr "数据管理"
 
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
-msgstr "忽略多文件磁盘内容 (CUE/GDI/CCD/M3U)"
+msgstr "忽略多文件磁盘内容（CUE/GDI/CCD/M3U）"
 
 msgid "ENABLE GAME FILTERING"
-msgstr "启用游戏筛选"
+msgstr ""
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr "是否在视图选项中显示或隐藏与游戏过滤相关的设置。"
+msgstr ""
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "退出时保存元数据"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr "仅分析游戏列表"
+msgstr ""
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr "调试工具：不检查ROM文件是否存在。可能会引起问题！"
+msgstr ""
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr "在磁盘上查找图形"
+msgstr "打开在磁盘上查找预览图"
 
 msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
-msgstr "如果游戏列表中没有指定图像，请尝试查找具有相同文件名的媒体。"
+msgstr ""
 
 msgid "USER INTERFACE"
-msgstr "用户界面"
+msgstr ""
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "循环画面转场"
@@ -1646,39 +1643,39 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "虚拟键盘"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr "运行游戏时隐藏模拟器"
+msgstr "运行游戏时隐藏界面"
 
 msgid "COMPLETE QUIT MENU"
-msgstr "完成并退出"
+msgstr "完成并退出菜单"
 
 msgid "RETROARCH MENU DRIVER"
-msgstr "RETROARCH菜单驱动程序"
+msgstr "RETROARCH菜单驱动"
 
 msgid "AUTO"
 msgstr "自动"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "模拟中切换确认和取消按钮"
+msgstr ""
 
 msgid "Switches the South and East buttons' functionality"
-msgstr "切换下和左按钮的功能"
+msgstr ""
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "使用上键查看游戏选项"
+msgstr "使用Y键/三角键(北键)访问游戏设置选项"
 
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
-msgstr "切换到短按上键来存档，长按下键显示游戏选项"
+msgstr "切换到短按Y键保存状态，长按A键保存游戏选项"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "仅用第一个控制器控制模拟器"
+msgstr "仅使用第一个手柄控制主界面"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr "枪移动公差"
+msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr "启用HID操纵杆驱动程序"
+msgstr ""
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "显示网络标识"
@@ -1687,11 +1684,11 @@ msgid "OPTIMIZATIONS"
 msgstr "优化"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "启动时预加载UI元素"
+msgstr "在启动时预加载UI元素"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr "减少从系统菜单进入游戏列表时的延迟，会增加启动时间"
+msgstr "减少从系统菜单输入游戏列表时的延迟，增加启动时间"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "启动时预加载元数据媒体"
@@ -1699,7 +1696,7 @@ msgstr "启动时预加载元数据媒体"
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
-msgstr "减少在滚动游戏列表时的延迟，会增加启动时间"
+msgstr "减少扫描完整的游戏列表时的延迟，增加启动时间"
 
 msgid "THREADED LOADING"
 msgstr "线程载入中"
@@ -1714,7 +1711,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "优化视频VRAM的使用"
 
 msgid "DOWNLOADS"
-msgstr "资料下载"
+msgstr "下载项"
 
 msgid "THEMES"
 msgstr "主题"
@@ -1735,25 +1732,25 @@ msgid "START UPDATE"
 msgstr "开始更新"
 
 msgid "UPDATER IS ALREADY RUNNING"
-msgstr "更新程序已在运行"
+msgstr "更新程序已经运行"
 
 msgid "LANGUAGE"
 msgstr "语言"
 
 msgid "LANGUAGE (REGION)"
-msgstr "语言(区域)"
+msgstr ""
 
 msgid "SELECT YOUR TIME ZONE"
-msgstr "选择您的时区"
+msgstr "选择你的时区"
 
 msgid "TIME ZONE"
 msgstr "时区"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "以12小时格式显示时钟"
+msgstr "12小时格式"
 
 msgid "POWER SAVING MODE"
-msgstr "省电模式"
+msgstr ""
 
 msgid "DISABLED"
 msgstr "禁用"
@@ -1762,31 +1759,28 @@ msgid "DEFAULT"
 msgstr "默认"
 
 msgid "ENHANCED"
-msgstr "增强"
+msgstr "画质增强"
 
 msgid "INSTANT"
 msgstr "瞬间"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "减少空闲时的功耗（适用于移动设备）。"
+msgstr ""
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
-msgstr "屏幕阅读器（文本转语音）"
+msgstr "屏幕阅读器（文本到语音）"
 
 msgid "USER INTERFACE MODE"
-msgstr "用户界面模式"
+msgstr ""
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr "锁定某些配置菜单以供客人/小孩使用。"
+msgstr ""
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"您正在将用户界面更改为受限模式：\n"
-"这将隐藏大多数菜单选项，以防止系统受到更改。\n"
-"要解锁并返回完整用户界面，请输入以下代码:"
 
 msgid "Do you want to proceed?"
 msgstr "是否继续?"
@@ -1795,10 +1789,10 @@ msgid "KODI SETTINGS"
 msgstr "KODI 设置"
 
 msgid "ENABLE KODI"
-msgstr "启用 KODI"
+msgstr "启用 KODI多媒体中心"
 
 msgid "LAUNCH KODI AT BOOT"
-msgstr "开机时进入KODI"
+msgstr "开机时进入KODI媒体中心"
 
 msgid "HARDWARE"
 msgstr "硬件"
@@ -1813,16 +1807,16 @@ msgid "AUDIO OUTPUT"
 msgstr "音频输出"
 
 msgid "AUDIO PROFILE"
-msgstr "音频配置文件"
+msgstr "音频输出端口"
 
 msgid "Available options can change depending on current audio output."
-msgstr "可用选项可以根据当前音频输出而更改."
+msgstr ""
 
 msgid "SCREEN ROTATION"
 msgstr "屏幕旋转"
 
 msgid "0 DEGREES"
-msgstr "0度"
+msgstr ""
 
 msgid "90 DEGREES"
 msgstr "90度"
@@ -1834,19 +1828,19 @@ msgid "270 DEGREES"
 msgstr "270度"
 
 msgid "BOOT SPLASH"
-msgstr "开机画面"
+msgstr "启动界面"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "默认视频/用户设置启动"
+msgstr "默认开机视频/用户设置的随机开机视频"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "静音视频/用户设置启动"
+msgstr "无声视频/用户设置启动"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOCERA启动图像"
+msgstr "BATOCERA启动图"
 
 msgid "SPLASH SETTING"
-msgstr "启动设置"
+msgstr "启动画面设置"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "在启动游戏前检查BIOS"
@@ -1855,13 +1849,13 @@ msgid "MULTIMEDIA KEYS"
 msgstr "多媒体功能键"
 
 msgid "ON"
-msgstr "开"
+msgstr "打开"
 
 msgid "OFF"
 msgstr "关"
 
 msgid "BUTTON LED COLOR"
-msgstr "按键LED颜色"
+msgstr "按键灯颜色"
 
 msgid "off"
 msgstr "关闭"
@@ -1891,10 +1885,10 @@ msgid "POWER LED COLOR"
 msgstr "电源LED颜色"
 
 msgid "heartbeat"
-msgstr "心跳"
+msgstr "跳动频率"
 
 msgid "on"
-msgstr "开启"
+msgstr "打开"
 
 msgid "OVERCLOCK"
 msgstr "超频"
@@ -1909,7 +1903,7 @@ msgid "BACKUP USER DATA"
 msgstr "备份用户数据"
 
 msgid "ADVANCED"
-msgstr "高级设置"
+msgstr "高级设置选项"
 
 msgid "SECURITY"
 msgstr "安全性保护"
@@ -1918,7 +1912,7 @@ msgid "ENFORCE SECURITY"
 msgstr "强制安全性保护"
 
 msgid "Require a password for accessing the network share."
-msgstr "访问网络共享需要密码."
+msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
@@ -1933,16 +1927,16 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD 框架"
 
 msgid "High numbers can result in visible jitter."
-msgstr "高数值会导致可见抖动。"
+msgstr "高频率可能会导致可见抖动(闪屏)"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr "使用第二个文件运行"
+msgstr "为RUN-AHEAD使用第二个实例"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "可以防止按钮按下时的音频跳过."
+msgstr "可以防止按键时的音频卡顿"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr "自动帧延迟"
+msgstr "自动跳帧"
 
 msgid "AUTO FRAME DELAY"
 msgstr "自动帧延迟"
@@ -1950,17 +1944,18 @@ msgstr "自动帧延迟"
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
-msgstr "自动临时减少帧延迟以防止帧丢失。会导致卡顿."
+msgstr "自动暂时减少帧延迟以防止帧丢失导致卡卡顿"
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
-msgstr "可变刷新率 (G-SYNC, FREESYNC)"
+msgstr "可变刷新率（G-SYNC、FREESYNC）"
 
 msgid "VARIABLE REFRESH RATE"
 msgstr "可变刷新率"
 
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
-msgstr "不偏离核心请求的时间. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"不要设置过高的响应时间（分辨率及刷新率），G-Sync、FreeSync、HDMI 2.1 VRR"
 
 msgid "DECORATION SET"
 msgstr "装饰框设置"
@@ -1972,26 +1967,26 @@ msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "默认全局设置"
 
 msgid "GAME ASPECT RATIO"
-msgstr "游戏纵横比"
+msgstr "游戏画面纵横比"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr "强制游戏以此纵横比渲染。"
+msgstr ""
 
 msgid "VIDEO MODE"
 msgstr "视频模式"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr "设置显示器的分辨率。不影响渲染分辨率。"
+msgstr ""
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "平滑游戏（双线性滤波）"
+msgstr "平滑游戏（双线性过滤）"
 
 msgid "REWIND"
 msgstr "回放功能"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "如果核心支持，存储过去的状态以实时回放."
+msgstr ""
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "整数缩放 (像素完美显示)"
@@ -2000,25 +1995,25 @@ msgid "SHADER SET"
 msgstr "着色器设置"
 
 msgid "DECORATIONS"
-msgstr "装饰框"
+msgstr "装饰框(复古游戏边框）"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "弹性挡板（4K和超宽）"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "在边框上显示纹理"
+msgstr "在框架上显示 花纹"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "系统控制器"
+msgstr "系统控制设备"
 
 msgid "CUSTOM IMAGE"
-msgstr "自定义图像"
+msgstr "自定义图片"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "显示覆盖在边框顶部的图像。"
+msgstr "显示覆盖在挡板顶部的图像"
 
 msgid "TATTOO CORNER"
-msgstr "纹理边角"
+msgstr "花纹角"
 
 msgid "NORTH WEST"
 msgstr "西北"
@@ -2027,31 +2022,31 @@ msgid "NORTH EAST"
 msgstr "东北"
 
 msgid "SOUTH EAST"
-msgstr "东南"
+msgstr "右下"
 
 msgid "SOUTH WEST"
-msgstr "西南"
+msgstr "左下"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "自定义 .PNG图像路径"
+msgstr "自宝义.png 图片路径"
 
 msgid "RESIZE TATTOO"
-msgstr "调整纹理大小"
+msgstr "调整花纹大小"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "缩小/放大纹理，使其适合边框。"
+msgstr "收缩/扩展花纹，使其适合嵌框的边框。"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI游戏翻译"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr "启用AI翻译服务"
+msgstr "启用AI智能翻译服务"
 
 msgid "TARGET LANGUAGE"
 msgstr "目标语言"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr "AI翻译服务URL"
+msgstr "AI智能翻译服务地址"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻译时暂停"
@@ -2060,61 +2055,61 @@ msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自动配置控制器"
 
 msgid "SAVESTATES"
-msgstr "存档状态"
+msgstr "存档槽"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "自动保存/加载"
+msgstr "自动存档/读取"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "游戏启动时加载最新存档，退出游戏时自动存档。"
+msgstr ""
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "增量安全性"
+msgstr "增量存档状态"
 
 msgid "INCREMENT PER SAVE"
-msgstr "每次都保存到新存档位"
+msgstr ""
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "不覆盖旧的存档，每次都创建新存档。"
+msgstr ""
 
 msgid "INCREMENT SLOT"
-msgstr "增量存档位"
+msgstr ""
 
 msgid "Increment slot on a new game."
-msgstr "在新游戏中增加存档位。"
+msgstr ""
 
 msgid "DO NOT INCREMENT"
-msgstr "不递增"
+msgstr ""
 
 msgid "Use current slot on a new game."
-msgstr "在新游戏中使用当前存档位。"
+msgstr ""
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr "显示存档管理器"
+msgstr ""
 
 msgid "ALWAYS"
-msgstr "总是"
+msgstr "一直保持不变"
 
 msgid "IF NOT EMPTY"
-msgstr "如果不为空"
+msgstr "如果已被使用"
 
 msgid "Display savestate manager before launching a game."
-msgstr "启动游戏前显示存档管理器."
+msgstr ""
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr "按系统配置"
+msgstr "按系统(模拟器)配置"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "刮削器正在运行。你想停止吗？"
+msgstr "抓取工具正在运行，是否停止？"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "正在效验游戏.你想停止吗?"
+msgstr "正在效验游戏.是否停止?"
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr "要更新游戏列表吗？"
+msgstr "确定更新游戏列表吗?"
 
 msgid "CONTROLLER MAPPING"
-msgstr "控制器映射"
+msgstr "手柄设置"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
@@ -2122,27 +2117,24 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
-"你需要映射一个控制器。映射基于按钮的位置，而不是它的物理标签。\n"
-"如果没有专门的热键按钮，请使用选择按钮。\n"
-"跳过所有你没有的按钮/摇杆。完成后按南面按钮确认。"
 
 msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN枪设置"
+msgstr ""
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE枪设置"
+msgstr ""
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "STEAMDECK 鼠标/光枪设置"
+msgstr ""
 
 msgid "BLUETOOTH"
-msgstr "蓝牙设备"
+msgstr ""
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "自动配对蓝牙手柄"
+msgstr ""
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "手动配对蓝牙设备"
+msgstr ""
 
 msgid "DISPLAY OPTIONS"
 msgstr "视图画面选项"
@@ -2151,134 +2143,134 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "显示控制器活动"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "显示控制器电池电量"
+msgstr "显示手柄电池电量"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr "玩家分配"
+msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "%i 号玩家"
+msgstr "玩家%i 控制器"
 
 msgid "default"
 msgstr "默认"
 
 msgid "BORDER SIZE"
-msgstr "边框大小"
+msgstr ""
 
 msgid "THIN"
-msgstr "小"
+msgstr ""
 
 msgid "MEDIUM"
-msgstr "中"
+msgstr ""
 
 msgid "BIG"
-msgstr "大"
+msgstr ""
 
 msgid "BORDER MODE"
-msgstr "边界模式"
+msgstr ""
 
 msgid "NORMAL"
-msgstr "正常"
+msgstr ""
 
 msgid "IN GAME ONLY"
-msgstr "仅在游戏中"
+msgstr ""
 
 msgid "HIDDEN"
-msgstr "隐藏"
+msgstr ""
 
 msgid "BORDER COLOR"
-msgstr "边框颜色"
+msgstr ""
 
 msgid "WHITE"
-msgstr "白色"
+msgstr ""
 
 msgid "RED"
-msgstr "红色"
+msgstr ""
 
 msgid "GREEN"
-msgstr "绿色"
+msgstr ""
 
 msgid "BLUE"
-msgstr "蓝色"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
-msgstr "照相机对比度"
+msgstr ""
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr "白天/明亮的阳光（40）"
+msgstr ""
 
 msgid "Default (50)"
-msgstr "默认值（50）"
+msgstr ""
 
 msgid "Dim Display/Evening (60)"
-msgstr "昏暗的显示屏/晚间（60）"
+msgstr ""
 
 msgid "CAMERA BRIGHTNESS"
-msgstr "照相机亮度"
+msgstr ""
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr "白天/明亮的阳光（80）"
+msgstr ""
 
 msgid "Default (100)"
-msgstr "默认值（100）"
+msgstr ""
 
 msgid "Dim Display/Evening (120)"
-msgstr "昏暗的显示屏/晚间（120）"
+msgstr ""
 
 msgid "CAMERA EXPOSURE"
-msgstr "照相机曝光"
+msgstr ""
 
 msgid "Projector/CRT (-5)"
-msgstr "放映机/CRT（-5）"
+msgstr ""
 
 msgid "Projector/CRT (-6)"
-msgstr "放映机/CRT（-6）"
+msgstr ""
 
 msgid "Default (-7)"
-msgstr "默认值 (-7)"
+msgstr ""
 
 msgid "Other (-8)"
-msgstr "其他 (-8)"
+msgstr ""
 
 msgid "Other (-9)"
-msgstr "其他 (-9)"
+msgstr ""
 
 msgid "RECOIL"
-msgstr "回弹"
+msgstr ""
 
 msgid "GUN"
-msgstr "光枪"
+msgstr ""
 
 msgid "MACHINE GUN"
-msgstr "机枪"
+msgstr ""
 
 msgid "QUIET GUN"
-msgstr "静音光枪"
+msgstr ""
 
 msgid "QUIET MACHINE GUN"
-msgstr "静音机枪"
+msgstr ""
 
 msgid "MODE"
-msgstr "模式"
+msgstr ""
 
 msgid "JOYSTICK"
-msgstr "游戏摇杆"
+msgstr ""
 
 msgid "MOUSE ONLY"
-msgstr "仅限鼠标"
+msgstr ""
 
 msgid "HAND"
-msgstr "手"
+msgstr ""
 
 msgid "LEFT"
-msgstr "左"
+msgstr ""
 
 msgid "RIGHT"
-msgstr "右"
+msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
-msgstr "必须在编辑主题的配置之前应用该主题"
+msgstr "在编辑其配置之前，先应用主题"
 
 msgid "THEME CONFIGURATION"
 msgstr "主题配置"
@@ -2314,28 +2306,28 @@ msgid "SHOW HIDDEN FILES"
 msgstr "显示隐藏文件"
 
 msgid "SHOW FOLDERS"
-msgstr "显示文件夹"
+msgstr "显示文件夹(ROM目录下子文件夹)"
 
 msgid "having multiple games"
 msgstr "有多个游戏"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "显示 '..' 父文件夹"
+msgstr "显示 '..' 父文件夹(上级）"
 
 msgid "BEFORE NAME"
-msgstr "在名称之前"
+msgstr "游戏名前"
 
 msgid "AFTER NAME"
-msgstr "在名称之后"
+msgstr "游戏名后"
 
 msgid "SHOW REGION FLAG"
-msgstr "显示区域标志"
+msgstr "显示区域标识"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "显示存档图标"
+msgstr "显示保存槽图标"
 
 msgid "SHOW MANUAL ICON"
-msgstr "显示手册图标"
+msgstr "显示自定义图标"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在列表中显示文件名"
@@ -2344,13 +2336,13 @@ msgid "FILE EXTENSIONS"
 msgstr "文件扩展名"
 
 msgid "RESET CUSTOMIZATIONS"
-msgstr "重置自定义项"
+msgstr "重置自定义设置"
 
 msgid "APPEARANCE"
 msgstr "外观"
 
 msgid "THEME SET"
-msgstr "主题设置"
+msgstr "选择主题"
 
 msgid "video"
 msgstr "游戏视频"
@@ -2359,13 +2351,16 @@ msgid "grid"
 msgstr "网格列表"
 
 msgid "LIST TRANSITION"
-msgstr "列表过渡"
+msgstr ""
 
 msgid "auto"
 msgstr "自动"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "游戏启动过程"
+
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
 
 msgid "SHOW CLOCK"
 msgstr "显示时钟"
@@ -2380,13 +2375,13 @@ msgid "ICON"
 msgstr "图标"
 
 msgid "ICON AND TEXT"
-msgstr "图标和文本"
+msgstr "图标和文字"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "排序时忽略前导文章"
+msgstr "排序时忽略前导"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "忽略开头的“The”和“A”."
+msgstr ""
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2431,7 +2426,7 @@ msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "启用视频音频"
 
 msgid "IP ADDRESS"
-msgstr "IP地址"
+msgstr "IP地址(IPV4)"
 
 msgid "CONNECTED"
 msgstr "已连接"
@@ -2464,16 +2459,16 @@ msgid "QUICK ACCESS"
 msgstr "快速进入"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr "跳到下一首音乐"
+msgstr "下一首音乐"
 
 msgid "NOW PLAYING"
-msgstr "正在播放"
+msgstr "正在播放音乐"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
 
 msgid "VIEW USER MANUAL"
-msgstr "查看用户手册"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "重启"
@@ -2482,10 +2477,10 @@ msgid "REALLY RESTART?"
 msgstr "是否重新启动?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "暂停系统"
+msgstr ""
 
 msgid "REALLY SUSPEND ?"
-msgstr "确定要暂停吗?"
+msgstr ""
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "关机"
@@ -2497,7 +2492,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "快速关机"
 
 msgid "Shutdown without saving metadata."
-msgstr "关闭而不保存元数据."
+msgstr "关闭而不保存数据"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "是否不保存元数据并直接关机?"
@@ -2512,16 +2507,16 @@ msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "自动保存/加载"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr "游戏启动时加载最新存档并在退出游戏时存档。"
+msgstr ""
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "显示控制器覆盖"
 
 msgid "CUSTOM .PNG IMAGE"
-msgstr "自定义 .PNG图像"
+msgstr "自定义.png图片"
 
 msgid "OVERLAY CORNER"
-msgstr "覆盖角落"
+msgstr "覆盖边角"
 
 msgid "COLORIZATION"
 msgstr "彩色化"
@@ -2545,7 +2540,7 @@ msgid "INTERNAL RESOLUTION"
 msgstr "内部分辨率"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
-msgstr "启动时启动此游戏"
+msgstr "开机启动这个游戏"
 
 msgid "FORMAT DEVICE"
 msgstr "格式化装置"
@@ -2563,20 +2558,20 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "所选的选项无效"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "您确定要格式化此驱动器吗？"
+msgstr "您确定要格式化这个磁盘驱动器吗？"
 
 msgid "EDIT METADATA"
 msgstr "编辑元数据"
 
 msgid "GENRES"
-msgstr "类型"
+msgstr "所有边角"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"您链接的一些文件位于游戏列表路径之外。\n"
-"需要将这些文件的副本拷贝进游戏列表吗?"
+"你链接的一些文件位于游戏列表路径之外。\n"
+"是否要使用这些文件相对于游戏列表的副本？"
 
 msgid "NO DEVICE FOUND"
 msgstr "未找到设备"
@@ -2588,16 +2583,16 @@ msgid "ZOOM IN"
 msgstr "放大"
 
 msgid "MOVE"
-msgstr "位移"
+msgstr "移动"
 
 msgid "ZOOM"
-msgstr "缩放"
+msgstr "縮放"
 
 msgid "GAMES TO INDEX"
 msgstr "游戏索引"
 
 msgid "ONLY MISSING"
-msgstr "仅缺失"
+msgstr "仅丢失"
 
 msgid "SYSTEM INFO"
 msgstr "系统信息"
@@ -2606,19 +2601,19 @@ msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "错误：每个系统都被隐藏，现在重新显示"
 
 msgid "QUICK SEARCH"
-msgstr "快速搜索"
+msgstr "迅速搜"
 
 msgid "GO TO LETTER"
-msgstr "访问封面"
+msgstr "访问信息"
 
 msgid "GO TO MANUFACTURER"
 msgstr "访问制造商"
 
 msgid "GO TO HARDWARE"
-msgstr "访问硬件"
+msgstr "访问硬件商"
 
 msgid "GO TO DECADE"
-msgstr "访问年份"
+msgstr "访问新版"
 
 msgid "CONFIGURATION"
 msgstr "配置"
@@ -2626,23 +2621,23 @@ msgstr "配置"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] "%i 合辑"
+msgstr[0] "游戏专辑共有 %i 个"
 
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
-msgstr[0] "%i 主题"
+msgstr[0] "%i 个项目"
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "%i 游戏"
+msgstr[0] "有 %i 个游戏"
 
 msgid "RANDOM"
 msgstr "随机"
 
 msgid "NAVIGATION BAR"
-msgstr "导航栏"
+msgstr ""
 
 msgid "FILES"
 msgstr "文件"
@@ -2652,8 +2647,8 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"警告：当前设置的模拟器/核心不支持此游戏的文件格式。\n"
-"还要启动它吗？"
+"警告：当前设置的 模拟器/核心 不支持此游戏的文件格式。\n"
+"你还是想启动它吗？"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
@@ -2661,31 +2656,31 @@ msgid ""
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 "警告：系统缺少BIOS文件，游戏可能无法正常运行。\n"
-"还要启动它吗？"
+"你还是想启动它吗？"
 
 msgid "Preloading UI"
 msgstr "预加载 UI"
 
 msgid "Loading theme"
-msgstr "加载主题"
+msgstr "正在加载主题"
 
 msgid "Loading gamelists"
-msgstr "加载游戏列表"
+msgstr "正在加载游戏列表"
 
 msgid "MENU"
 msgstr "菜单"
 
 msgid "Full"
-msgstr "全屏"
+msgstr "全局"
 
 msgid "Kiosk"
-msgstr "客厅"
+msgstr "大厅"
 
 msgid "Kid"
 msgstr "儿童"
 
 msgid "Basic"
-msgstr "基本"
+msgstr "基础"
 
 msgid "Released"
 msgstr "发行日期"
@@ -2696,30 +2691,31 @@ msgstr "游玩次数"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "此文件夹包含%i个游戏，包括：%s"
+msgstr[0] "此文件夹中有 %i 游戏。包含有 %s 子文件夹"
 
 msgid "No Entries Found"
 msgstr "找不到条目"
 
 msgid "Games similar to"
-msgstr "游戏类似于"
+msgstr "类似游戏"
 
 msgid "SAVE STATES (HOLD)"
-msgstr "保存状态（保持）"
+msgstr "保存（按住）"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr "游戏设置（保持）"
+msgstr "游戏设置（按住）"
 
 msgid "GAME OPTIONS"
-msgstr "游戏设置"
+msgstr "游戏及模拟器设置菜单"
 
 msgid "FAVORITE"
-msgstr "收藏"
+msgstr "加入收藏夹"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
-msgstr "需要有效的帐户！请在此注册： https://retroachievements.org"
+msgstr ""
+"需要一个有效的帐户，可以登陆这个网址注册帐户https://retroachievements.org"
 
 msgid "Searching"
 msgstr "搜索中"
@@ -2734,7 +2730,7 @@ msgid "SKIP"
 msgstr "跳过"
 
 msgid "Downloading"
-msgstr "下载中"
+msgstr "正在下载中"
 
 msgid "SEARCH FOR"
 msgstr "搜索方式按"
@@ -2791,10 +2787,10 @@ msgid "RELEASE DATE, DESCENDING"
 msgstr "游戏发行日期 (降序)"
 
 msgid "GENRE, ASCENDING"
-msgstr "游戏类型 (升序)"
+msgstr "游戏的类型 (升序)"
 
 msgid "GENRE, DESCENDING"
-msgstr "游戏类型 (降序)"
+msgstr "游戏的类型 (降序)"
 
 msgid "DEVELOPER, ASCENDING"
 msgstr "游戏开发公司 (升序)"
@@ -2827,34 +2823,34 @@ msgid "GAME TIME, DESCENDING"
 msgstr "游戏时间，降序"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr "系统, 发布年份, 升序"
+msgstr "游戏系统，发布年份，升序"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr "系统, 发布年份, 降序"
+msgstr "游戏系统，发布年份，降序"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr "发布年份, 系统, 升序"
+msgstr "发布年份、游戏系统、升序"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr "发布年份, 系统, 降序"
+msgstr "发布年份、游戏系统、降序"
 
 msgid "A,AN,THE"
-msgstr "A,AN,THE"
+msgstr "A,AN,THE(英文单位）"
 
 msgid "Extracting"
 msgstr "提取中"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "检索追溯成就"
+msgstr "查找成就"
 
 msgid "SEARCHING NETPLAY GAMES"
-msgstr "搜索网络游戏"
+msgstr "查找联网游戏"
 
 msgid "INDEXING COMPLETED"
 msgstr "索引已完成"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "更新游戏列表并应用更改."
+msgstr "更新游戏列表以应用更改。"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "模拟器意外退出"
@@ -2866,13 +2862,13 @@ msgid "INVALID CONFIGURATION"
 msgstr "无效配置"
 
 msgid "UNKNOWN EMULATOR"
-msgstr "模拟器未知"
+msgstr "未知模拟器"
 
 msgid "EMULATOR IS MISSING"
-msgstr "模拟器缺失"
+msgstr "模拟器丢失"
 
 msgid "CORE IS MISSING"
-msgstr "核心缺失"
+msgstr "核心丢失"
 
 msgid "UKNOWN ERROR"
 msgstr "未知错误"
@@ -2881,19 +2877,19 @@ msgid "GENRE"
 msgstr "类型"
 
 msgid "FAMILY"
-msgstr "家庭"
+msgstr "游戏家族"
 
 msgid "PLAYERS"
 msgstr "玩家数"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr "发布者/开发者"
+msgstr "出版商/开发者"
 
 msgid "RATING"
 msgstr "评分"
 
 msgid "YEAR"
-msgstr "年"
+msgstr "年份"
 
 msgid "REGION"
 msgstr "区域"
@@ -2905,16 +2901,16 @@ msgid "ALREADY PLAYED"
 msgstr "玩过的游戏"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "HAS成就"
+msgstr "有成就的"
 
 msgid "VERTICAL"
-msgstr "垂直"
+msgstr "竖屏"
 
 msgid "LIGHTGUN"
-msgstr "灯光"
+msgstr ""
 
 msgid "HAS MEDIAS"
-msgstr "HAS媒体"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "抓取"
@@ -2929,22 +2925,20 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
-"校准光枪\n"
-"瞄准目标进行校准"
 
 #, c-format
 msgid "%s connected"
-msgstr "%s 已连接"
+msgstr "%s 正在连接"
 
 #, c-format
 msgid "%s disconnected"
-msgstr "%s 已断开连接"
+msgstr "%s 关闭连接"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT键可切换大小写或特殊字符"
 
 msgid "ALT GR"
-msgstr "Alt Gr键或Ctrl+Alt"
+msgstr "右ALT键"
 
 msgid "SHIFT"
 msgstr "SHIFT"
@@ -2954,19 +2948,19 @@ msgstr "空格"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr "北按钮"
+msgstr ""
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr "南按钮"
+msgstr ""
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr "东按钮"
+msgstr ""
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr "西按钮"
+msgstr ""
 
 msgctxt "joystick"
 msgid "START"
@@ -2978,75 +2972,75 @@ msgstr "选择"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr "十字方向键上"
+msgstr ""
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr "十字方向键下"
+msgstr ""
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr "十字方向键左"
+msgstr ""
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr "十字方向键右"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "左摇杆方向上"
+msgstr "左摇杆上"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "左摇杆方向下"
+msgstr "左摇杆下"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "左摇杆方向左"
+msgstr "左摇杆左"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "左摇杆方向右"
+msgstr "左摇杆右"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "右摇杆方向上"
+msgstr "右摇杆上"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "右摇杆方向下"
+msgstr "右摇杆下"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "右摇杆方向左"
+msgstr "右摇杆左"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "右摇杆方向右"
+msgstr "右摇杆右"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr "键肩L1"
+msgstr ""
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr "键肩R1"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr "扳机键L2"
+msgstr ""
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr "扳机键R2"
+msgstr ""
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr "左摇杆按压键L3"
+msgstr ""
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr "右摇杆按压键R3"
+msgstr ""
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3074,24 +3068,26 @@ msgstr "-未定义-"
 msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
-msgstr "还未指定热键，使用手柄热键才能退出游戏。 您想将选择键作为热键吗？"
+msgstr ""
+"温馨提示：没有指定热键按钮,这是使用手柄器退出游戏必用按键，是否要使用“选择”按"
+"钮作为热键？"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "将选择键设置为热键"
+msgstr "设置选择键为热键"
 
 msgid "DO NOT ASSIGN HOTKEY"
-msgstr "不指定热键"
+msgstr "不分配热键（不建议）"
 
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "按住 %iS键 跳过"
+msgstr[0] "长按 %iS 跳过"
 
 msgid "PRESS ANYTHING"
 msgstr "按任意键"
 
 msgid "ALREADY TAKEN"
-msgstr "按键已占用"
+msgstr "按键已被占用"
 
 msgid "WELCOME"
 msgstr "欢迎"
@@ -3099,7 +3095,7 @@ msgstr "欢迎"
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "检测到 %i 个游戏手柄"
+msgstr[0] "检测到有 %i 个手柄/控制器"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "未检测到游戏手柄"
@@ -3131,7 +3127,7 @@ msgstr "全部不选"
 #, c-format
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] "已选中 %i 个"
+msgstr[0] "%i 已选择"
 
 msgid "CHANGE"
 msgstr "更改"
@@ -3143,7 +3139,7 @@ msgid "EDIT"
 msgstr "编辑"
 
 msgid "ENABLED"
-msgstr "启用"
+msgstr "打开"
 
 #, c-format
 msgid "%d day ago"
@@ -3170,28 +3166,127 @@ msgstr "进行中..."
 
 #, c-format
 msgid "%d d"
-msgstr "%d d"
+msgstr ""
 
 #, c-format
 msgid "%d h"
-msgstr "%d 时"
+msgstr "%d 小时"
 
 #, c-format
 msgid "%d mn"
-msgstr "%d 分"
+msgstr ""
 
 #, c-format
 msgid "%d sec"
-msgstr "%d 秒"
+msgstr ""
 
 msgid "SCREEN READER ENABLED"
-msgstr "已启用屏幕阅读器"
+msgstr "屏幕阅读器已启用"
 
 msgid "SCREEN READER DISABLED"
-msgstr "已禁用屏幕阅读器"
+msgstr "屏幕阅读器已关闭"
+
+#~ msgid "%d m"
+#~ msgstr "%d 分"
+
+#~ msgid "%d s"
+#~ msgstr "%d 秒"
+
+#~ msgid "0 DEGREES (AUTO)"
+#~ msgstr "0度（自动）"
+
+#~ msgid "AN ERROR OCCURED"
+#~ msgstr "出现一个错误"
+
+#~ msgid "CREATE A SUPPORT FILE?"
+#~ msgstr "是否创建支持文件?"
+
+#~ msgid "DEVELOPER"
+#~ msgstr "开发人员选项"
+
+#~ msgid "Display save state manager before launching a game."
+#~ msgstr "在启动游戏之前显示存档管理器"
+
+#~ msgid "ENABLE FILTERS"
+#~ msgstr "启用筛选器"
+
+#~ msgid "ENABLE PUBLIC WEB ACCESS"
+#~ msgstr "启用公共页面访问(网页访问)"
+
+#~ msgid "ENTER THE CODE TO UNLOCK THE CURRENT UI MODE"
+#~ msgstr "请输入解锁当前用户界面模式的代码"
+
+#~ msgid "LIST TRANSITION STYLE"
+#~ msgstr "画面转场样式"
+
+#~ msgid "NEW GAME CREATES NEW SLOT"
+#~ msgstr "新游戏创建新存档槽"
+
+#~ msgid "NEW GAME OVERWRITES CURRENT SLOT"
+#~ msgstr "新游戏覆盖 当前存档槽"
+
+#~ msgid "PARSE GAMESLISTS ONLY"
+#~ msgstr "仅分析游戏列表"
+
+#~ msgid "POWER SAVER MODES"
+#~ msgstr "省电模式"
+
+#~ msgid "RANDOM (HOLD)"
+#~ msgstr "随机选取（按住）"
+
+#~ msgid "SAVE STATE MANAGER"
+#~ msgstr "存档管理器"
+
+#~ msgid "SCRAPE BEZEL (16:9)"
+#~ msgstr "抓取框架(16:9)"
+
+#~ msgid "SCRAPE BOX BACKSIDE"
+#~ msgstr "抓取合子背面"
+
+#~ msgid "SCRAPE FANART"
+#~ msgstr "抓取同人作品"
+
+#~ msgid "SCRAPE MANUAL"
+#~ msgstr "抓取手册"
+
+#~ msgid "SCRAPE MAP"
+#~ msgstr "抓取游戏地图"
+
+#~ msgid "SCRAPE PADTOKEY SETTINGS"
+#~ msgstr "抓取pad按键设置"
+
+#~ msgid "SCRAPE RATINGS"
+#~ msgstr "抓取游戏评分"
+
+#~ msgid "SCRAPE SHORT NAME"
+#~ msgstr "抓取"
+
+#~ msgid "SCRAPE VIDEOS"
+#~ msgstr "抓取视频"
+
+#~ msgid "SHOW SAVE STATE MANAGER"
+#~ msgstr "显示存档槽状态"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "在EMULATIONSTATION中切换 A/B 按键"
+#~ msgstr "在模拟器界面中切换 A/B 按键"
+
+#~ msgid "THE UI MODE IS NOW UNLOCKED"
+#~ msgstr "用户界面模式现在已解锁"
+
+#~ msgid "UI"
+#~ msgstr "界面"
+
+#~ msgid "UI MODE"
+#~ msgstr "UI模式"
+
+#~ msgid "UI SETTINGS"
+#~ msgstr "主题及UI 设置"
+
+#~ msgid "UNLOCK UI MODE"
+#~ msgstr "界面不锁定"
+
+#~ msgid "VIEW USER'S MANUAL"
+#~ msgstr "查看用户手册"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
@@ -3200,22 +3295,5534 @@ msgstr "已禁用屏幕阅读器"
 #~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
 #~ "BUTTON TO CONFIRM WHEN DONE."
 #~ msgstr ""
-#~ "如果你要映射手柄，请长按手柄的任意键进行配置，映射基于相对等效按钮的位置，"
-#~ "而不是根据实际标签。如果您没有热键专用键，请使用选择键做热键。你可以按任意"
-#~ "键来跳过你没有的按钮."
+#~ "认真看谢谢：你正在设置一个控制器，按钮基于任天堂控制器上等效按钮的位置进行"
+#~ "设置，而不是按键上的图标。如果没有热键专用键，请使用“选择”按钮。按住任何"
+#~ "键，跳过所有您没有的按钮/摇杆。按下“A”按钮确认完成。"
 
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "上"
+#~ msgid ""
+#~ "You are changing the UI to a restricted mode:\n"
+#~ "This will hide most menu options to prevent changes to the system.\n"
+#~ "To unlock and return to the full UI, enter this code:"
+#~ msgstr ""
+#~ "注意：您正在将UI更改为受限模式\n"
+#~ "将会锁定大部分菜单(没有文件管理等),建议不懂解开的别手欠。\n"
+#~ "要解锁并返回完整UI，按顺序输入下面指令："
+
+#~ msgctxt "game_options"
+#~ msgid " 3.54 MHz"
+#~ msgstr " 3.54 MHz(频率)"
+
+#~ msgctxt "game_options"
+#~ msgid " 7.09 MHz (A500 speed)"
+#~ msgstr " 7.09 MHz (A500 频率)"
+
+#~ msgctxt "game_options"
+#~ msgid "(FDS) AUTOMATICALLY LOAD DISK SIDE A"
+#~ msgstr "(FDS) 自动加载A盘"
+
+#~ msgctxt "game_options"
+#~ msgid "(FDS) FAST FORWARD DISK LOADING"
+#~ msgstr "(FDS) 快速加载盘"
+
+#~ msgctxt "game_options"
+#~ msgid "0 (Default)"
+#~ msgstr "0 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "0 degrees (Default)"
+#~ msgstr "0 度 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "1 (post FX)"
+#~ msgstr "1 (发送 FX)"
+
+#~ msgctxt "game_options"
+#~ msgid "1 Frame"
+#~ msgstr "1 帧"
+
+#~ msgctxt "game_options"
+#~ msgid "1 MHz (Underclock)"
+#~ msgstr "1 MHz (时钟频率下)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.0 (240p)"
+#~ msgstr "1.0 默认(240p)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.0x (12.50Mhz)"
+#~ msgstr "1.0x (倍)(12.50Mhz)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.1x (13.75Mhz)"
+#~ msgstr "1.1x (倍)(13.75Mhz)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.2x (15.00Mhz)"
+#~ msgstr "1.2x (倍)(15.00Mhz)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.5x (18.75Mhz)"
+#~ msgstr "1.5x (倍)(18.75Mhz)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.5x 720p (960x792)"
+#~ msgstr "1.5倍 720p (960x792)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.6x (20.00Mhz)"
+#~ msgstr "1.6x (倍)(20.00Mhz)"
+
+#~ msgctxt "game_options"
+#~ msgid "1.8x (22.50Mhz)"
+#~ msgstr "1.8x (倍)(22.50Mhz)"
+
+#~ msgctxt "game_options"
+#~ msgid "1/2 Frame"
+#~ msgstr "2份之1 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "1/3 Frame"
+#~ msgstr "3份之1 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "1/32 Frame"
+#~ msgstr "32份之1 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "1/4 Frame"
+#~ msgstr "4份之1 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "1/5 Frame"
+#~ msgstr "5份之1 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "1/6 Frame"
+#~ msgstr "6份之1 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "1/60 Frame"
+#~ msgstr "60份之1 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "1/8 Frame1"
+#~ msgstr "8份之1 框架1"
+
+#~ msgctxt "game_options"
+#~ msgid "10 MHz (Default)"
+#~ msgstr "10 MHz (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "100%(native)"
+#~ msgstr "100%(原始)"
+
+#~ msgctxt "game_options"
+#~ msgid "100Mhz (Overclock)"
+#~ msgstr "100Mhz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "100fps"
+#~ msgstr "100(FPS)帧每秒"
+
+#~ msgctxt "game_options"
+#~ msgid "10Mbps (good for 1080p 60FPS)"
+#~ msgstr "10Mbps (1080p 60FPS 较好支持)"
+
+#~ msgctxt "game_options"
+#~ msgid "10fps"
+#~ msgstr "10FPS(帧频)"
+
+#~ msgctxt "game_options"
+#~ msgid "10x native (2560x1920)"
+#~ msgstr "10x 倍原始分辨率 (2560x1920)"
+
+#~ msgctxt "game_options"
+#~ msgid "11x native (2816x2112)"
+#~ msgstr "11x 倍原始分辨率 (2816x2112)"
+
+#~ msgctxt "game_options"
+#~ msgid "120FPS"
+#~ msgstr "120FPS(帧)"
+
+#~ msgctxt "game_options"
+#~ msgid "120fps"
+#~ msgstr "120FPS(帧)"
+
+#~ msgctxt "game_options"
+#~ msgid "1280x960 (Default)"
+#~ msgstr "1280x960 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "1280x960 (x2)"
+#~ msgstr "1280x960 (2倍)"
+
+#~ msgctxt "game_options"
+#~ msgid "12x native (3072x2304)"
+#~ msgstr "12x 倍原始分辨率 (3072x2304)"
+
+#~ msgctxt "game_options"
+#~ msgid "13MB (Recommended)"
+#~ msgstr "13MB (推荐使用)"
+
+#~ msgctxt "game_options"
+#~ msgid "13x native (3328x2496)"
+#~ msgstr "13x 倍原始分辨率 (3328x2496)"
+
+#~ msgctxt "game_options"
+#~ msgid "14.18 MHz (A1200 speed)"
+#~ msgstr "14.18 MHz (A1200 处理速度)"
+
+#~ msgctxt "game_options"
+#~ msgid "14x native (3584x2688)"
+#~ msgstr "14x 倍原始分辨率 (3584x2688)"
+
+#~ msgctxt "game_options"
+#~ msgid "150Mhz (Overclock)"
+#~ msgstr "150Mhz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "15x native (3840x2880)"
+#~ msgstr "15x 倍原始分辨率(3840x2880)"
+
+#~ msgctxt "game_options"
+#~ msgid "16 MHz (Overclock)"
+#~ msgstr "16 MHz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "1600x1200 (x2.5)"
+#~ msgstr "1600x1200 (x2.5倍)"
+
+#~ msgctxt "game_options"
+#~ msgid "16:9 RENDERING RESOLUTION"
+#~ msgstr "16:9 渲染分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "16x (CSAA)"
+#~ msgstr "16x (CSAA)覆盖采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "16x MSAA"
+#~ msgstr "16x MSAA多重采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "16x SSAA"
+#~ msgstr "16x SSAA超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "16x native (4096x3072)"
+#~ msgstr "16x 倍原始分辨率(4096x3072)"
+
+#~ msgctxt "game_options"
+#~ msgid "16xQ (CSAA)"
+#~ msgstr "16xQ (CSAA)覆盖采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "180 degrees"
+#~ msgstr "180度"
+
+#~ msgctxt "game_options"
+#~ msgid "1920x1440 (x3)"
+#~ msgstr "1920x1440 (x3倍)"
+
+#~ msgctxt "game_options"
+#~ msgid "1X"
+#~ msgstr "1倍"
+
+#~ msgctxt "game_options"
+#~ msgid "1st Joystick (2 Axes, 2 Btns)"
+#~ msgstr "第一个手柄（双摇杆，双按键）"
+
+#~ msgctxt "game_options"
+#~ msgid "1x (Default)"
+#~ msgstr "1x (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "1x (native)"
+#~ msgstr "1x (原始)"
+
+#~ msgctxt "game_options"
+#~ msgid "1x native (256x192) (Default)"
+#~ msgstr "1x  原始(256x192) (默认值)"
+
+#~ msgctxt "game_options"
+#~ msgid "1x native (640x528)"
+#~ msgstr "1x 原始(640x528)"
+
+#~ msgctxt "game_options"
+#~ msgid "1x(native)"
+#~ msgstr "1x(原始)"
+
+#~ msgctxt "game_options"
+#~ msgid "2 (shadows)"
+#~ msgstr "2 (阴影)"
+
+#~ msgctxt "game_options"
+#~ msgid "2 MHz (Underclock)"
+#~ msgstr "2 MHz (时钟频率下)"
+
+#~ msgctxt "game_options"
+#~ msgid "2.0 (480p)"
+#~ msgstr "2.0 (480p)"
+
+#~ msgctxt "game_options"
+#~ msgid "2.5x 1080p (1600x1320)"
+#~ msgstr "2.5x 倍1080p (1600x1320)"
+
+#~ msgctxt "game_options"
+#~ msgid "200Mhz (Overclock)"
+#~ msgstr "200Mhz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "20Mbps (not supported by some routers)"
+#~ msgstr "20Mbps (某些协议不支持)"
+
+#~ msgctxt "game_options"
+#~ msgid "2560x1920 (x4)"
+#~ msgstr "2560x1920 (x4倍)"
+
+#~ msgctxt "game_options"
+#~ msgid "26K for old games and 86K for newer games."
+#~ msgstr "26K 用于复古游戏 86K 用于较新游戏."
+
+#~ msgctxt "game_options"
+#~ msgid "270 degrees"
+#~ msgstr "270度"
+
+#~ msgctxt "game_options"
+#~ msgid "2880x2160 (x4.5)"
+#~ msgstr "2880x2160 (x4.5倍)"
+
+#~ msgctxt "game_options"
+#~ msgid "2P GAMEPAD MAPPING (KEYRAH)"
+#~ msgstr "2P 玩家手柄配置 (KEYRAH)"
+
+#~ msgctxt "game_options"
+#~ msgid "2X"
+#~ msgstr "2X(2倍)"
+
+#~ msgctxt "game_options"
+#~ msgid "2nd Joystick (2 Axes, 2 Btns)"
+#~ msgstr "第二个手柄(双摇杆,双按键)"
+
+#~ msgctxt "game_options"
+#~ msgid "2x (720p)"
+#~ msgstr "2x 倍(720p)"
+
+#~ msgctxt "game_options"
+#~ msgid "2x MSAA"
+#~ msgstr "16x MSAA多重采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "2x SSAA"
+#~ msgstr "16x SSAA超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "2x native (512x384)"
+#~ msgstr "2x 倍原始分辨率 (512x384)"
+
+#~ msgctxt "game_options"
+#~ msgid "2x-Postrender"
+#~ msgstr "2x倍后期渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "2x-VBlank"
+#~ msgstr "2x倍场消隐"
+
+#~ msgctxt "game_options"
+#~ msgid "3 (shadows)"
+#~ msgstr "3 (阴影)"
+
+#~ msgctxt "game_options"
+#~ msgid "32 MHz (Overclock)"
+#~ msgstr "32 MHz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "320x240 (Half)"
+#~ msgstr "320x240 (一半)"
+
+#~ msgctxt "game_options"
+#~ msgid "32K RAM EXPANSION"
+#~ msgstr "32K 内存扩展"
+
+#~ msgctxt "game_options"
+#~ msgid "32k RAM expansion card installed"
+#~ msgstr "32K 内存扩展已安装"
+
+#~ msgctxt "game_options"
+#~ msgid "32x MSAA"
+#~ msgstr "32x MSAA多重采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "32x SSAA"
+#~ msgstr "32x SSAA超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "33Mhz (Overclock)"
+#~ msgstr "33Mhz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "386 (prefetch)"
+#~ msgstr "386 (数据预取)"
+
+#~ msgctxt "game_options"
+#~ msgid "386 (slow)"
+#~ msgstr "386 (慢速)"
+
+#~ msgctxt "game_options"
+#~ msgid "3D ENGINE"
+#~ msgstr "3D 引擎"
+
+#~ msgctxt "game_options"
+#~ msgid "3x (720p)"
+#~ msgstr "3x 倍(720p)"
+
+#~ msgctxt "game_options"
+#~ msgid "3x native (768x576)"
+#~ msgstr "3x 倍原始分辨率 (768x576)"
+
+#~ msgctxt "game_options"
+#~ msgid "4 (special FX)"
+#~ msgstr "4 (特别 FX)"
+
+#~ msgctxt "game_options"
+#~ msgid "4 PLAYER ADAPTER"
+#~ msgstr "4 玩家适配器"
+
+#~ msgctxt "game_options"
+#~ msgid "486 (slow)"
+#~ msgstr "486 (慢速)"
+
+#~ msgctxt "game_options"
+#~ msgid "4:3 (Default)"
+#~ msgstr "4:3 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "4:3 RENDERING RESOLUTION"
+#~ msgstr "4:3渲染分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "4X"
+#~ msgstr "4X倍"
+
+#~ msgctxt "game_options"
+#~ msgid "4x (SSAA)"
+#~ msgstr "4x SSAA超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "4x MSAA"
+#~ msgstr "4x MSAA多重采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "4x SSAA"
+#~ msgstr "4x SSAA超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "4x native (1024x768)"
+#~ msgstr "4x 倍原始分辨率(1024x768)"
+
+#~ msgctxt "game_options"
+#~ msgid "5 (other)"
+#~ msgstr "5 (其它的)"
+
+#~ msgctxt "game_options"
+#~ msgid "5 MHz (Underclock)"
+#~ msgstr "5 MHz (时钟频率下)"
+
+#~ msgctxt "game_options"
+#~ msgid "5 Pro Controller"
+#~ msgstr "5 专业游戏手柄(NS)"
+
+#~ msgctxt "game_options"
+#~ msgid "5 Sideway Wiimote"
+#~ msgstr "5 横握式 Wii控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "50 (Default)"
+#~ msgstr "50 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "50Mbps (highest quality available)"
+#~ msgstr "50Mbps (最高质量传输)"
+
+#~ msgctxt "game_options"
+#~ msgid "5Mbps (good for 720p)"
+#~ msgstr "5Mbps (较好支持720p)"
+
+#~ msgctxt "game_options"
+#~ msgid "5x native (1280x960)"
+#~ msgstr "5x 倍原始分辨率(1280x960)"
+
+#~ msgctxt "game_options"
+#~ msgid "5x/1080p"
+#~ msgstr "5x倍/1080p"
+
+#~ msgctxt "game_options"
+#~ msgid "64 MHz (Overclock)"
+#~ msgstr "64 MHz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "640x480 (Native)"
+#~ msgstr "640x480 (原始)"
+
+#~ msgctxt "game_options"
+#~ msgid "66Mhz (Overclock)"
+#~ msgstr "66Mhz (超频)"
+
+#~ msgctxt "game_options"
+#~ msgid "6x (2160p 4K)"
+#~ msgstr "6x (2160p 4K)"
+
+#~ msgctxt "game_options"
+#~ msgid "6x (Recommended)"
+#~ msgstr "6x (推荐使用)"
+
+#~ msgctxt "game_options"
+#~ msgid "6x 4K (3840x3168)"
+#~ msgstr "6x 4K (3840x3168)"
+
+#~ msgctxt "game_options"
+#~ msgid "6x native (1536x1152)"
+#~ msgstr "6x 原始分辨率(1536x1152)"
+
+#~ msgctxt "game_options"
+#~ msgid "6x/1440p"
+#~ msgstr "6x倍/1440p"
+
+#~ msgctxt "game_options"
+#~ msgid "720p"
+#~ msgstr "1.5倍 720p (960x792)"
+
+#~ msgctxt "game_options"
+#~ msgid "7x native (1792x1344)"
+#~ msgstr "7x 倍原始分辨率(1792x1344)"
+
+#~ msgctxt "game_options"
+#~ msgid "8 MHz (Underclock)"
+#~ msgstr "8 MHz (时钟频率下)"
+
+#~ msgctxt "game_options"
+#~ msgid "8X"
+#~ msgstr "8X倍"
+
+#~ msgctxt "game_options"
+#~ msgid "8x (2160p 4K)"
+#~ msgstr "8x倍(2160p 4K)"
+
+#~ msgctxt "game_options"
+#~ msgid "8x (CSAA)"
+#~ msgstr "8x (CSAA)覆盖采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "8x 5K (5120x4224)"
+#~ msgstr "8x5K (5120x4224)"
+
+#~ msgctxt "game_options"
+#~ msgid "8x MSAA"
+#~ msgstr "8x MSAA多重采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "8x SSAA"
+#~ msgstr "8x SSAA超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "8x native (2048x1536)"
+#~ msgstr "8x 倍原始分辨率(2048x1536)"
+
+#~ msgctxt "game_options"
+#~ msgid "8xQ (CSAA)"
+#~ msgstr "8xQ (CSAA)覆盖采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "9 MHz (Underclock)"
+#~ msgstr "9 MHz (时钟频率下)"
+
+#~ msgctxt "game_options"
+#~ msgid "90 degrees"
+#~ msgstr "90度"
+
+#~ msgctxt "game_options"
+#~ msgid "960x720 (x1.5)"
+#~ msgstr "960x720 (x1.5倍)"
+
+#~ msgctxt "game_options"
+#~ msgid "9x native (2304x1728)"
+#~ msgstr "9x 倍原始分辨率 (2304x1728)"
+
+#~ msgctxt "game_options"
+#~ msgid "9x/4K"
+#~ msgstr "9x倍/4K"
+
+#~ msgctxt "game_options"
+#~ msgid "ACTIVE INPUT DEVICES FIX"
+#~ msgstr "主动修复输入设备"
+
+#~ msgctxt "game_options"
+#~ msgid "ADDITIONAL FRAMELIMIT"
+#~ msgstr "附加帧限制"
+
+#~ msgctxt "game_options"
+#~ msgid "ADJUST POWERPC FREQUENCY"
+#~ msgstr "调整POWERPC频率"
+
+#~ msgctxt "game_options"
+#~ msgid "ADVANCED OPTIONS"
+#~ msgstr "高级设置"
+
+#~ msgctxt "game_options"
+#~ msgid "AI GAME TRANSLATION"
+#~ msgstr "AI游戏翻译"
+
+#~ msgctxt "game_options"
+#~ msgid "AI TRANSLATION SERVICE URL"
+#~ msgstr "AI智能翻译服务地址"
+
+#~ msgctxt "game_options"
+#~ msgid "ALIGN SPRITE (HACK)"
+#~ msgstr "对齐 sprite (HACK)"
+
+#~ msgctxt "game_options"
+#~ msgid "ALLOW ROTATION"
+#~ msgstr "允许旋转"
+
+#~ msgctxt "game_options"
+#~ msgid "ALT DPAD MODE"
+#~ msgstr "ALT DPAD 模式"
+
+#~ msgctxt "game_options"
+#~ msgid "AMD Athlon, 1.2GHz (1000000 cps)"
+#~ msgstr "AMD 速龙1.2Ghz"
+
+#~ msgctxt "game_options"
+#~ msgid "AMIGA MODEL"
+#~ msgstr "晶晨处理器型号"
+
+#~ msgctxt "game_options"
+#~ msgid "ANAGLYPH PRESET (3D)"
+#~ msgstr "立体预设(3D)"
+
+#~ msgctxt "game_options"
+#~ msgid "ANALOG DEADZONE"
+#~ msgstr "模拟信号死区"
+
+#~ msgctxt "game_options"
+#~ msgid "ANALOG JOYSTICK DEADZONE"
+#~ msgstr "手柄模拟信号死区"
+
+#~ msgctxt "game_options"
+#~ msgid "ANISOTROPIC FILTERING"
+#~ msgstr "各向异性过滤"
+
+#~ msgctxt "game_options"
+#~ msgid "ANTI-ALIASING"
+#~ msgstr "抗锯齿(画面）"
+
+#~ msgctxt "game_options"
+#~ msgid "ANTI-ALIASING (MSAA)"
+#~ msgstr "MSAA多重采样反锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "ANTI-ALIASING (MSAA/SSAA)"
+#~ msgstr "(MSAA/SSAA)多重/超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "ANTI-ALIASING MODE"
+#~ msgstr "抗锯齿模式"
+
+#~ msgctxt "game_options"
+#~ msgid "ARCHIMEDES MODEL"
+#~ msgstr "阿基米德型号(浮点??)"
+
+#~ msgctxt "game_options"
+#~ msgid "ARTWORK CROP"
+#~ msgstr "三维修正"
+
+#~ msgctxt "game_options"
+#~ msgid "ASMJIT Recompiler"
+#~ msgstr "重新编译ASMJIT"
+
+#~ msgctxt "game_options"
+#~ msgid "ASPECT RATIO"
+#~ msgstr "游戏画面纵横比"
+
+#~ msgctxt "game_options"
+#~ msgid "ASYNC SHADER (VULKAN ONLY)"
+#~ msgstr "异步着色器（仅限VULKAN模式)"
+
+#~ msgctxt "game_options"
+#~ msgid "ATARI SYSTEM"
+#~ msgstr "ATARI 系统"
+
+#~ msgctxt "game_options"
+#~ msgid "AUDIO FILTER"
+#~ msgstr "音频过滤"
+
+#~ msgctxt "game_options"
+#~ msgid "AUDIO LATENCY"
+#~ msgstr "音频采样率（声音质量）"
+
+#~ msgctxt "game_options"
+#~ msgid "AUTO (DEFAULT)"
+#~ msgstr "自动 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "AUTO FRAMESKIP"
+#~ msgstr "自动跳帧"
+
+#~ msgctxt "game_options"
+#~ msgid "AUTO HEIGHT"
+#~ msgstr "自动高度"
+
+#~ msgctxt "game_options"
+#~ msgid "AUTO SAVE/LOAD"
+#~ msgstr "自动存档/读取"
+
+#~ msgctxt "game_options"
+#~ msgid "AUTOMATIC FRAME DELAY"
+#~ msgstr "自动帧延迟"
+
+#~ msgctxt "game_options"
+#~ msgid "AUTOMATIC GAMEFIXES"
+#~ msgstr "自动修复游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Accel"
+#~ msgstr "加速器"
+
+#~ msgctxt "game_options"
+#~ msgid "Access to modding and other advanced options."
+#~ msgstr "访问MODDING和其它高级选项"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Archimedes ROM images"
+#~ msgstr "Acorn Archimedes ROM 镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Archimedes floppy images"
+#~ msgstr "Acorn Archimedes 软盘镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Archimedes hard disks"
+#~ msgstr "Acorn Archimedes 硬盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Atom Utility ROMs"
+#~ msgstr "Acorn Atom 通用 ROMs"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Atom cassettes"
+#~ msgstr "Acorn Atom 磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Atom disk images"
+#~ msgstr "Acorn Atom 磁盘镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn BBC Micro Model B Original disks"
+#~ msgstr "Acorn BBC Micro Model B 原始盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn BBC Micro Model B disks"
+#~ msgstr "Acorn BBC Micro Model B 盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn BBC Micro ROMs"
+#~ msgstr "Acorn BBC Micro ROMs"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn BBC Micro cassettes"
+#~ msgstr "Acorn BBC Micro 磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn BBC Micro hard disks"
+#~ msgstr "Acorn BBC Micro 硬盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Electron Cartridges"
+#~ msgstr "Acorn Electron 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Electron Cassettes"
+#~ msgstr "Acorn Electron 磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Acorn Electron Disks"
+#~ msgstr "Acorn Electron 光盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Acron Electron ROMs"
+#~ msgstr "Acron Electron ROMs"
+
+#~ msgctxt "game_options"
+#~ msgid "Activate rumble on supported controllers."
+#~ msgstr "在支持的手柄上激活低音"
+
+#~ msgctxt "game_options"
+#~ msgid "Add color to Game Boy games."
+#~ msgstr "为GAME BOY加上彩色"
+
+#~ msgctxt "game_options"
+#~ msgid "Adjust screen line draw mode."
+#~ msgstr "调整屏幕线条绘制模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Affects efficiency/stability."
+#~ msgstr "影响 效率/稳定性"
+
+#~ msgctxt "game_options"
+#~ msgid "Affects mouse speed globally."
+#~ msgstr "影响鼠标移动速度"
+
+#~ msgctxt "game_options"
+#~ msgid "After NMI"
+#~ msgstr "NMI之后"
+
+#~ msgctxt "game_options"
+#~ msgid "All 0s (Default)"
+#~ msgstr "全部 0s (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "All 1s"
+#~ msgstr "全部 1s"
+
+#~ msgctxt "game_options"
+#~ msgid "All Borders"
+#~ msgstr "全部边界"
+
+#~ msgctxt "game_options"
+#~ msgid "Allow cores to set rotation."
+#~ msgstr "允许核心设置旋转"
+
+#~ msgctxt "game_options"
+#~ msgid "Allows Alt+Tab to RPCS3's menu. Useful for manual disc-swapping."
+#~ msgstr "允许Alt+Tab访问RPCS3的菜单，用于手动换光盘。"
+
+#~ msgctxt "game_options"
+#~ msgid "Allows the use of switchres profiles if present."
+#~ msgstr "如果存在swithcres配置文件允许使用"
+
+#~ msgctxt "game_options"
+#~ msgid "Allows up to 5 or 8 controllers in supported games."
+#~ msgstr "受支持的游戏中最多允许5或8个控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Allows up to 7 or 12 controllers in supported games."
+#~ msgstr "受支持的游戏中最多允许7或12个控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Allows you to limit FPS to 60."
+#~ msgstr "允许您将FPS限制为60"
+
+#~ msgctxt "game_options"
+#~ msgid "Alone in the Dark"
+#~ msgstr "鬼屋魔影系列"
+
+#~ msgctxt "game_options"
+#~ msgid "Analog"
+#~ msgstr "模拟（信号）"
+
+#~ msgctxt "game_options"
+#~ msgid "Analog Controller"
+#~ msgstr "模拟手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "Analog Controller (DualShock)"
+#~ msgstr "模拟手柄(DualShock)"
+
+#~ msgctxt "game_options"
+#~ msgid "Analog Joystick"
+#~ msgstr "模拟摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Analog Joystick (Flystick)"
+#~ msgstr "模拟摇杆 (Flystick)"
+
+#~ msgctxt "game_options"
+#~ msgid "Analog Stick"
+#~ msgstr "左摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Applies to both players."
+#~ msgstr "应用到双玩家"
+
+#~ msgctxt "game_options"
+#~ msgid "Apply a joy2key profile for the current game."
+#~ msgstr "应用 摇杆映射配置到当前游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Apply a post-processing effect."
+#~ msgstr "处理效果后应用"
+
+#~ msgctxt "game_options"
+#~ msgid "Arcade MVS Europe"
+#~ msgstr "Arcade MVS 欧版"
+
+#~ msgctxt "game_options"
+#~ msgid "Arcade MVS Japan"
+#~ msgstr "Arcade MVS 日版"
+
+#~ msgctxt "game_options"
+#~ msgid "Arcade MVS USA"
+#~ msgstr "Arcade MVS 美版"
+
+#~ msgctxt "game_options"
+#~ msgid "Arcade Universe BIOS (Cheats)"
+#~ msgstr "Arcade 全球 BIOS (修改版)"
+
+#~ msgctxt "game_options"
+#~ msgid "Archimedes 440/1 (Default)"
+#~ msgstr "Archimedes 440/1 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "Arrange the dual screen layout."
+#~ msgstr "设置双屏布局"
+
+#~ msgctxt "game_options"
+#~ msgid "Arrows"
+#~ msgstr "全部"
+
+#~ msgctxt "game_options"
+#~ msgid "Arrows 3button"
+#~ msgstr "全部三按键"
+
+#~ msgctxt "game_options"
+#~ msgid "Async (skip draw, recommended)"
+#~ msgstr "异步(建议跳过）"
+
+#~ msgctxt "game_options"
+#~ msgid "Async with interp. (hybrid)"
+#~ msgstr "英普异步（混合模式）"
+
+#~ msgctxt "game_options"
+#~ msgid "Atari 400 / 800 floppy disks"
+#~ msgstr "Atari 400 / 800 软盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Atari Joypad"
+#~ msgstr " 摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Atari XE Game System cartridges"
+#~ msgstr "Atari XE 游戏盒"
+
+#~ msgctxt "game_options"
+#~ msgid "Auto"
+#~ msgstr "自动"
+
+#~ msgctxt "game_options"
+#~ msgid "Auto Frame Skip"
+#~ msgstr "自动跳帧"
+
+#~ msgctxt "game_options"
+#~ msgid "Auto zoom"
+#~ msgstr "自动缩放"
+
+#~ msgctxt "game_options"
+#~ msgid "Auto-disable zoom"
+#~ msgstr "自动禁用缩放"
+
+#~ msgctxt "game_options"
+#~ msgid "Autodetect"
+#~ msgstr "自动检测"
+
+#~ msgctxt "game_options"
+#~ msgid "Autodetect (Compatible)"
+#~ msgstr "自动检测（兼容模式）"
+
+#~ msgctxt "game_options"
+#~ msgid "Autodetect (Recommended)"
+#~ msgstr "自动检测（推荐）"
+
+#~ msgctxt "game_options"
+#~ msgid "Autodetect (by game name tag)"
+#~ msgstr "自动检测（按游戏名标签）"
+
+#~ msgctxt "game_options"
+#~ msgid "Automatic"
+#~ msgstr "自动"
+
+#~ msgctxt "game_options"
+#~ msgid "Automatic switches region per file path tags"
+#~ msgstr "自动切换每个制式标签"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Automatically decrease frame delay temporarily to prevent frame drops. "
+#~ "Can introduce stuttering."
+#~ msgstr "自动暂时减少帧延迟以防止帧丢失导致卡卡顿"
+
+#~ msgctxt "game_options"
+#~ msgid "Automatically reduce frameskip if the system has spare overhead."
+#~ msgstr "如果系统有空闲，自动减少跳帧"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Automatically use gamefixes as appropriate. Stacks with manual gamefixes."
+#~ msgstr "根据需要自动使用游戏修复，叠加手动游戏修复。"
+
+#~ msgctxt "game_options"
+#~ msgid "Avoids having to manually load side A every time."
+#~ msgstr "避免每次手动加载A盘"
+
+#~ msgctxt "game_options"
+#~ msgid "B = Fire"
+#~ msgstr "B=开火"
+
+#~ msgctxt "game_options"
+#~ msgid "B = Fire, A = Up"
+#~ msgstr "B=开火，A=向上"
+
+#~ msgctxt "game_options"
+#~ msgid "BGFX"
+#~ msgstr "BGFX渲染库"
+
+#~ msgctxt "game_options"
+#~ msgid "BGFX GRAPHICS API"
+#~ msgstr "BGFX 显卡渲染 API"
+
+#~ msgctxt "game_options"
+#~ msgid "BGFX VIDEO FILTER"
+#~ msgstr "BGFX 视频过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "BGFX for post-processing, accel/opengl for raw image."
+#~ msgstr "BGFX 后台处理, accel/opengl 处理前端"
+
+#~ msgctxt "game_options"
+#~ msgid "BILINEAR FILTERING"
+#~ msgstr "双线性过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "BLARGG NTSC FILTER"
+#~ msgstr "BLARGG NTSC制式过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "BLEND HIGH-RES MODE"
+#~ msgstr "融合高分辨率模式"
+
+#~ msgctxt "game_options"
+#~ msgid "BLEND SPRITES (SINGE)"
+#~ msgstr "混合精灵(单线）"
+
+#~ msgctxt "game_options"
+#~ msgid "BOOT ANIMATION FIRST"
+#~ msgstr "优先启动动画"
+
+#~ msgctxt "game_options"
+#~ msgid "BOOT DISK"
+#~ msgstr "启动磁盘"
+
+#~ msgctxt "game_options"
+#~ msgid "BROADCAST"
+#~ msgstr "广播模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Bally Professional Arcade cartridges"
+#~ msgstr "Bally Professional 街机盒"
+
+#~ msgctxt "game_options"
+#~ msgid "Before NMI"
+#~ msgstr "NMI 之前"
+
+#~ msgctxt "game_options"
+#~ msgid "Bilinear"
+#~ msgstr "双线性"
+
+#~ msgctxt "game_options"
+#~ msgid "Bilinear (no edge blending)"
+#~ msgstr "双线性(无边混合)"
+
+#~ msgctxt "game_options"
+#~ msgid "Bisqwit 2x"
+#~ msgstr "Bisqwit 2倍"
+
+#~ msgctxt "game_options"
+#~ msgid "Bisqwit 4x"
+#~ msgstr "Bisqwit 4倍"
+
+#~ msgctxt "game_options"
+#~ msgid "Bisqwit 8x"
+#~ msgstr "Bisqwit 8倍"
+
+#~ msgctxt "game_options"
+#~ msgid "Bit Corp Gamate cartridges"
+#~ msgstr "Bit Corp 游戏盒"
+
+#~ msgctxt "game_options"
+#~ msgid "Blue - Bubbles Blue"
+#~ msgstr "Blue -蓝泡泡"
+
+#~ msgctxt "game_options"
+#~ msgid "Blue - Game Master"
+#~ msgstr "Blue -游戏大师"
+
+#~ msgctxt "game_options"
+#~ msgid "Blue - Shiny Sky Blue"
+#~ msgstr "Blue - 闪亮蓝天"
+
+#~ msgctxt "game_options"
+#~ msgid "Blue - Slime Blue"
+#~ msgstr "Blue -象素蓝"
+
+#~ msgctxt "game_options"
+#~ msgid "Blur"
+#~ msgstr "模糊化"
+
+#~ msgctxt "game_options"
+#~ msgid "Blur high-res mode, allowing for better transparency effects."
+#~ msgstr "模糊高分辨率模式，允许更好的透明度效果"
+
+#~ msgctxt "game_options"
+#~ msgid "Both"
+#~ msgstr "双人"
+
+#~ msgctxt "game_options"
+#~ msgid "Both Joysticks (4 Axes, 4 Btns)"
+#~ msgstr "双打摇杆(4摇杆,4按键)"
+
+#~ msgctxt "game_options"
+#~ msgid "Both types require holding D-pad down during initial charge."
+#~ msgstr "这两种类型都需要在初始充电时按住D-pad"
+
+#~ msgctxt "game_options"
+#~ msgid "Bottom only"
+#~ msgstr "仅在底部"
+
+#~ msgctxt "game_options"
+#~ msgid "Brazil"
+#~ msgstr "巴西"
+
+#~ msgctxt "game_options"
+#~ msgid "Buffered rendering"
+#~ msgstr "缓冲渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "Button Options"
+#~ msgstr "按键设置"
+
+#~ msgctxt "game_options"
+#~ msgid "By Save"
+#~ msgstr "通过档案读取"
+
+#~ msgctxt "game_options"
+#~ msgid "Bypass the pre-game menu."
+#~ msgstr "绕过游戏之前菜单"
+
+#~ msgctxt "game_options"
+#~ msgid "C128 DCR NTSC"
+#~ msgstr "C128 DCR NTSC制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C128 DCR PAL"
+#~ msgstr "C128 DCR PAL制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C128 NTSC"
+#~ msgstr "C128 NTSC制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C128 PAL"
+#~ msgstr "C128 PAL制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C16 NTSC"
+#~ msgstr "C16 NTSC制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C16 PAL"
+#~ msgstr "C16 PAL制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C64 Games System PAL"
+#~ msgstr "C64 PAL制式游戏系统"
+
+#~ msgctxt "game_options"
+#~ msgid "C64 Japanese NTSC"
+#~ msgstr "C64 日版 NTSC制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C64 NTSC"
+#~ msgstr "C64 NTSC制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C64 NTSC Automatic"
+#~ msgstr "C64 NTSC 自动"
+
+#~ msgctxt "game_options"
+#~ msgid "C64 PAL"
+#~ msgstr "C64 PAL制式"
+
+#~ msgctxt "game_options"
+#~ msgid "C64 PAL Automatic"
+#~ msgstr "C64 PAL自动"
+
+#~ msgctxt "game_options"
+#~ msgid "CABLE"
+#~ msgstr "数据线"
+
+#~ msgctxt "game_options"
+#~ msgid "CD"
+#~ msgstr "CD光盘"
+
+#~ msgctxt "game_options"
+#~ msgid "CD TURBO SPEED"
+#~ msgstr "CD 涡速"
+
+#~ msgctxt "game_options"
+#~ msgid "CD-ROM SPEED"
+#~ msgstr "CD-ROM 速度"
+
+#~ msgctxt "game_options"
+#~ msgid "CD32 Default (2MB Chip)"
+#~ msgstr "CD32 默认 (2MB Chip)"
+
+#~ msgctxt "game_options"
+#~ msgid "CD32 Pad"
+#~ msgstr "CD32 Pad控制"
+
+#~ msgctxt "game_options"
+#~ msgid "CHOOSE DREAMCAST CONSOLE REGION"
+#~ msgstr "选择DREAMCAST 控制器所属区域"
+
+#~ msgctxt "game_options"
+#~ msgid "CHOOSE DREAMCAST LANGUAGE"
+#~ msgstr "选择 DREAMCAST 语言"
+
+#~ msgctxt "game_options"
+#~ msgid "COLOR COMPUTER MODEL"
+#~ msgstr "彩色计算机型号"
+
+#~ msgctxt "game_options"
+#~ msgid "COLOR CORRECTION"
+#~ msgstr "着色校正"
+
+#~ msgctxt "game_options"
+#~ msgid "COLOR FILTER"
+#~ msgstr "着色过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "COLOR PALETTE"
+#~ msgstr "调色板"
+
+#~ msgctxt "game_options"
+#~ msgid "COLOR PALETTE (2D)"
+#~ msgstr "调色板(2D)"
+
+#~ msgctxt "game_options"
+#~ msgid "COLORIZATION"
+#~ msgstr "彩色化"
+
+#~ msgctxt "game_options"
+#~ msgid "CONSOLE REGION"
+#~ msgstr "手柄区域"
+
+#~ msgctxt "game_options"
+#~ msgid "CONSOLE TYPE"
+#~ msgstr "手柄类型"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROL CHOICE"
+#~ msgstr "选择控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROL MAPPING"
+#~ msgstr "控制器设置"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER 1 TYPE"
+#~ msgstr "1号控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER 2 TYPE"
+#~ msgstr "2号控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER 3 TYPE"
+#~ msgstr "3号控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER 4 TYPE"
+#~ msgstr "4号控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER COMBINATION"
+#~ msgstr "组合控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER PAK 1"
+#~ msgstr "1号N64存档卡(震动包）"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER PAK 2"
+#~ msgstr "2号N64存档卡(震动包）"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER PAK 3"
+#~ msgstr "3号N64存档卡(震动包）"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER PAK 4"
+#~ msgstr "4号N64存档卡(震动包）"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER PORT"
+#~ msgstr "控制器端口"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER PROFILE"
+#~ msgstr "控制器配置文件"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER TO LIGHTGUN"
+#~ msgstr "控制器连接光枪"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER TYPE"
+#~ msgstr "控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER TYPE 1"
+#~ msgstr "控制器类型1"
+
+#~ msgctxt "game_options"
+#~ msgid "CONTROLLER TYPE 2"
+#~ msgstr "控制器类型2"
+
+#~ msgctxt "game_options"
+#~ msgid "CPC MODEL"
+#~ msgstr "CPC 型号"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU CLOCK"
+#~ msgstr "CPU时钟频率"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU COMPATIBILITY"
+#~ msgstr "CPU兼容性"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU CORE METHOD"
+#~ msgstr "CPU核心算法"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU DYNAREC (SPEED UP)"
+#~ msgstr "CPU DYNAREC (加速)"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU EXECUTION MODE"
+#~ msgstr "CPU执行模式"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU FEATURE"
+#~ msgstr "CPU 特征"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU SPEED"
+#~ msgstr "CPU运算速度"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU TIMING MODE (FPS)"
+#~ msgstr "CPU定时模式（FPS）"
+
+#~ msgctxt "game_options"
+#~ msgid "CPU TYPE"
+#~ msgstr "CPU类型"
+
+#~ msgctxt "game_options"
+#~ msgid "CRT GHOSTING EFFECT"
+#~ msgstr "CRT阴极射线管重影效应"
+
+#~ msgctxt "game_options"
+#~ msgid "CRT Geom Deluxe (Composite)"
+#~ msgstr "CRT高级几何(豪华)"
+
+#~ msgctxt "game_options"
+#~ msgid "CRT Geom Deluxe (RGB)"
+#~ msgstr "CRT高级几何(RGB三色)"
+
+#~ msgctxt "game_options"
+#~ msgid "CRT SWITCHRES"
+#~ msgstr "CRT SWITCHRES"
+
+#~ msgctxt "game_options"
+#~ msgid "CUBIC AUDIO INTERPOLATION"
+#~ msgstr "音频三次插内"
+
+#~ msgctxt "game_options"
+#~ msgid "CUSTOM .PNG IMAGE PATH"
+#~ msgstr "自宝义.png 图片路径"
+
+#~ msgctxt "game_options"
+#~ msgid "CUSTOM CONFIG"
+#~ msgstr "自定义设置"
+
+#~ msgctxt "game_options"
+#~ msgid "CUSTOM GAME CONFIG"
+#~ msgstr "自定义游戏设置"
+
+#~ msgctxt "game_options"
+#~ msgid "CUSTOM IMAGE"
+#~ msgstr "自定义图片"
+
+#~ msgctxt "game_options"
+#~ msgid "CUSTOM MAME CONFIG"
+#~ msgstr "自定义MAME设置"
+
+#~ msgctxt "game_options"
+#~ msgid "CUSTOMIZE WIIMOTE & GAMEPAD"
+#~ msgstr "自定义 Wii手柄&控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Cached Interpreter (Faster)"
+#~ msgstr "释放缓存（更快）"
+
+#~ msgctxt "game_options"
+#~ msgid "Camputers Lynx cassettes"
+#~ msgstr "Camputers Lynx 磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Can Fix broken graphics in some games."
+#~ msgstr "可以修复一些游戏中损坏的图形"
+
+#~ msgctxt "game_options"
+#~ msgid "Can avoid flashing screen issues. Significant performance cost."
+#~ msgstr "可以避免闪烁屏幕问题，显著性能"
+
+#~ msgctxt "game_options"
+#~ msgid "Can be used to simulate colors of particular displays."
+#~ msgstr "可用于模拟特定显示器的颜色"
+
+#~ msgctxt "game_options"
+#~ msgid "Can change the language of some games."
+#~ msgstr "可以为一些游戏选择语言"
+
+#~ msgctxt "game_options"
+#~ msgid "Can fix drifting joysticks in games."
+#~ msgstr "可以在游戏中修复漂移的摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Can fix screen tearing on unorthodox displays (most LCDs don't need this)."
+#~ msgstr "可以修复非正统显示器上的屏幕贴图错误（大多数LCD不需要）"
+
+#~ msgctxt "game_options"
+#~ msgid "Can fix slowdown. Only works on some drivers."
+#~ msgstr "可以修复运行缓慢，仅针对某些驱动"
+
+#~ msgctxt "game_options"
+#~ msgid "Can improve frame rate and responsiveness."
+#~ msgstr "可以提高帧速率和响应速度"
+
+#~ msgctxt "game_options"
+#~ msgid "Can improve frame rates and responsiveness."
+#~ msgstr "可以提高帧速率和响应速度"
+
+#~ msgctxt "game_options"
+#~ msgid "Can increase performance for games that stress the CPU."
+#~ msgstr "可以提高对CPU的高占用率游戏的性能"
+
+#~ msgctxt "game_options"
+#~ msgid "Can prevent audio skips on button presses when using run-ahead."
+#~ msgstr "可以防止按键时音频卡顿"
+
+#~ msgctxt "game_options"
+#~ msgid "Can smooth the image."
+#~ msgstr "可以图象平滑"
+
+#~ msgctxt "game_options"
+#~ msgid "Capcom VS games Expand Screen Width"
+#~ msgstr "卡普空对战游戏宽屏模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Cartridge"
+#~ msgstr "盒带存档器"
+
+#~ msgctxt "game_options"
+#~ msgid "Cartridge (Slot 1)"
+#~ msgstr "1号盒带存档器"
+
+#~ msgctxt "game_options"
+#~ msgid "Cartridge (Slot 2)"
+#~ msgstr "2号盒带存档器"
+
+#~ msgctxt "game_options"
+#~ msgid "Cartridge (Slot 3)"
+#~ msgstr "3号盒带存档器"
+
+#~ msgctxt "game_options"
+#~ msgid "Cartridge (Slot 4)"
+#~ msgstr "4号盒带存档器"
+
+#~ msgctxt "game_options"
+#~ msgid "Casio PV-1000 cartridges"
+#~ msgstr "Casio PV-1000 磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Cassette"
+#~ msgstr "磁带盒"
+
+#~ msgctxt "game_options"
+#~ msgid "Cassette 1"
+#~ msgstr "磁带盒1"
+
+#~ msgctxt "game_options"
+#~ msgid "Cassette 2"
+#~ msgstr "磁带盒2"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Change behaviour when emulating GB games. Auto uses SGB for GB and GBC "
+#~ "for GBC."
+#~ msgstr "在模拟GB游戏时，自动为GB和GBC使用SGB"
+
+#~ msgctxt "game_options"
+#~ msgid "Change pixel scaling and filtering method."
+#~ msgstr "更改图像算法和滤镜"
+
+#~ msgctxt "game_options"
+#~ msgid "Change the game's language."
+#~ msgstr "更改游戏语言"
+
+#~ msgctxt "game_options"
+#~ msgid "Change the output resolution ratio."
+#~ msgstr "更改输出分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "Change the speed of the emulated PowerPC chip (fixes some issues)."
+#~ msgstr "更改模拟PowerPC芯片的速度（修复了一些问题）"
+
+#~ msgctxt "game_options"
+#~ msgid "Chinese"
+#~ msgstr "中文"
+
+#~ msgctxt "game_options"
+#~ msgid "Chinese (Simplified)"
+#~ msgstr "中文（简体）"
+
+#~ msgctxt "game_options"
+#~ msgid "Chinese (Traditional) [Big5]"
+#~ msgstr "中文（繁体）"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose broadcast standard (for older TV's)."
+#~ msgstr "选择广播标准（针对旧电视）"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose cable type for the TV."
+#~ msgstr "选择电视线缆类型"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose console type."
+#~ msgstr "选择控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose the Dreamcast console language."
+#~ msgstr "选择 Dreamcast 控制器语言"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose the Dreamcast console region."
+#~ msgstr "选择 Dreamcast 控制器所属区域"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose the NDS screen sizings."
+#~ msgstr "选择 NDS屏幕大小"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Choose the amount of polygon sort accuracy (Higher may cause artifacts)."
+#~ msgstr "选择几何图形精度（较高会导致瑕疵）"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose the emulator language."
+#~ msgstr "选择模拟器语言"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose the preferred screen layout."
+#~ msgstr "选择首选屏幕布局"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose the scaling mode for the game screen."
+#~ msgstr "选择游戏屏幕缩放模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose the screen size."
+#~ msgstr "选择屏幕尺寸"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose whether or not to limit the framerate."
+#~ msgstr "选择是否限制帧频率（FPS）"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Choose which graphics API library to use. Vulkan is better, when "
+#~ "supported."
+#~ msgstr "选择图形API，对支持VULKAN模式较好"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Choose which graphics API library to use. Vulkan may not work for every "
+#~ "core."
+#~ msgstr "选择图形API，VULKAN可能不支持所有核心"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose which internal rendering resolution you want to use."
+#~ msgstr "选择内部渲染分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose which pad to control your hero."
+#~ msgstr "选择控制英雄单位的键盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose which screen ratio you want to use."
+#~ msgstr "选择屏幕比例(画面比例）"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose your console region."
+#~ msgstr "选择你的控制器所属区域"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose your graphics renderer."
+#~ msgstr "选择你的图形渲染器"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose your graphics rendering"
+#~ msgstr "选择使用的图形渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "Choose your preferred aspect ratio."
+#~ msgstr "选择屏幕的纵横比例"
+
+#~ msgctxt "game_options"
+#~ msgid "Chrono Chross Odd/Even Bit Hack"
+#~ msgstr "时空之轮 奇偶位HACK入"
+
+#~ msgctxt "game_options"
+#~ msgid "Classic Controller"
+#~ msgstr "典型控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Close app on the remote host when quitting Moonlight."
+#~ msgstr "退出Moonlight时关闭远程主机上的应用程序。"
+
+#~ msgctxt "game_options"
+#~ msgid "Coleco ADAM diskettes"
+#~ msgstr "Coleco ADAM 磁盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Coleco Adam Digital Data Packs"
+#~ msgstr "Coleco Adam 数字数据包"
+
+#~ msgctxt "game_options"
+#~ msgid "Coleco Adam cartridges"
+#~ msgstr "Coleco Adam 磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Coleco ColecoVision cartridges"
+#~ msgstr "Coleco ColecoVision磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Color"
+#~ msgstr "彩色"
+
+#~ msgctxt "game_options"
+#~ msgid "Color Computer"
+#~ msgstr "彩色计算机"
+
+#~ msgctxt "game_options"
+#~ msgid "Color Computer 2"
+#~ msgstr "彩色计算机2"
+
+#~ msgctxt "game_options"
+#~ msgid "Color Computer 2B"
+#~ msgstr "彩色计算机 2B"
+
+#~ msgctxt "game_options"
+#~ msgid "Color Computer 3 (NTSC) (Default)"
+#~ msgstr "Color Computer 3 (NTSC) （默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "Color Computer 3 (PAL)"
+#~ msgstr "Color Computer 3 (PAL制式)"
+
+#~ msgctxt "game_options"
+#~ msgid "Compatible"
+#~ msgstr "兼容的"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Compile shaders on next launch of game (one time). Reduces micro-freezes."
+#~ msgstr "在下次启动时编译着色器（一次），防止卡死"
+
+#~ msgctxt "game_options"
+#~ msgid "Composite"
+#~ msgstr "混合型"
+
+#~ msgctxt "game_options"
+#~ msgid "Config"
+#~ msgstr "配置"
+
+#~ msgctxt "game_options"
+#~ msgid "Console AES Japan"
+#~ msgstr "日版控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Console AES World"
+#~ msgstr "世界版控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Controls for 5/6 button games and other unique controls"
+#~ msgstr "5/6按钮游戏控制器和其他独特控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Converts DirectX 9/10/11/12 calls to Vulkan."
+#~ msgstr "将 DirectX 9/10/11/12 转换为 vulkan."
+
+#~ msgctxt "game_options"
+#~ msgid "Core provided"
+#~ msgstr "提供的核心"
+
+#~ msgctxt "game_options"
+#~ msgid "Core-powered video filter."
+#~ msgstr "核心驱动视频过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "Core-powered video filter. Bisqwit filters are CPU heavy."
+#~ msgstr "核心驱动视频过滤器，Bisqwit过滤器CPU占用率高"
+
+#~ msgctxt "game_options"
+#~ msgid "Crash-n Burn"
+#~ msgstr "烧录崩溃"
+
+#~ msgctxt "game_options"
+#~ msgid "Creatronic Mega Duck cartridges"
+#~ msgstr "Creatronic Mega Duck 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Croatia"
+#~ msgstr "克罗地亚"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Crop MAME artwork to maximize the game screen and only fill unused space."
+#~ msgstr "精致化MAME到全屏，填充未使用的屏幕区域"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Crop artwork to only unused space, keeping the game as large as possible."
+#~ msgstr "精致化未使用屏幕区域，尽可能放大游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Cursor Joystick"
+#~ msgstr "摇杆鼠标"
+
+#~ msgctxt "game_options"
+#~ msgid "Custom"
+#~ msgstr "自定义(左上角显示FPS，CPU和GPU占用率）"
+
+#~ msgctxt "game_options"
+#~ msgid "Custom Keyboard Binds (best for Pad2Key)"
+#~ msgstr "自定义键盘映射（方便手柄映射键盘）"
+
+#~ msgctxt "game_options"
+#~ msgid "Cycle Timing Check"
+#~ msgstr "循环定时检测"
+
+#~ msgctxt "game_options"
+#~ msgid "Cycle-exact"
+#~ msgstr "精确循环"
+
+#~ msgctxt "game_options"
+#~ msgid "Czech Republic"
+#~ msgstr "捷克共和国"
+
+#~ msgctxt "game_options"
+#~ msgid "DE"
+#~ msgstr "德国"
+
+#~ msgctxt "game_options"
+#~ msgid "DECORATION SET"
+#~ msgstr "游戏框架设置（边框设置）"
+
+#~ msgctxt "game_options"
+#~ msgid "DECORATIONS"
+#~ msgstr "游戏装饰框菜单"
+
+#~ msgctxt "game_options"
+#~ msgid "DEFAULT POWER ON RAM STATE"
+#~ msgstr "默认RAM电源状态"
+
+#~ msgctxt "game_options"
+#~ msgid "DEV MENU"
+#~ msgstr "DEV菜单"
+
+#~ msgctxt "game_options"
+#~ msgid "DISABLE 4MB EXPANSION RAM PACK"
+#~ msgstr "关闭4MB 扩展RAM补丁"
+
+#~ msgctxt "game_options"
+#~ msgid "DISABLE EMULATOR JOYSTICK"
+#~ msgstr "关闭模拟器摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "DISK SHADER CACHE"
+#~ msgstr "着色器磁盘缓存"
+
+#~ msgctxt "game_options"
+#~ msgid "DISPLAY ROTATION"
+#~ msgstr "旋转显示"
+
+#~ msgctxt "game_options"
+#~ msgid "DMA Only (Slightly Faster)"
+#~ msgstr "仅限DMA模式（略快）"
+
+#~ msgctxt "game_options"
+#~ msgid "DOOM RES HACK"
+#~ msgstr "毁灭战士 RES HACK"
+
+#~ msgctxt "game_options"
+#~ msgid "DOUBLE"
+#~ msgstr "双重"
+
+#~ msgctxt "game_options"
+#~ msgid "DS (default)"
+#~ msgstr "DS (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "DS3 Orientation"
+#~ msgstr "DS3 目标方向"
+
+#~ msgctxt "game_options"
+#~ msgid "DSi (Experiemental)"
+#~ msgstr "DSi (实验功能)"
+
+#~ msgctxt "game_options"
+#~ msgid "DUAL CORE MODE"
+#~ msgstr "双核心模式"
+
+#~ msgctxt "game_options"
+#~ msgid "DUALSHOCK MOTION CONTROL"
+#~ msgstr "索尼DUALSHOCK运动型手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "DXVK FEATURE"
+#~ msgstr "DXVK 特征"
+
+#~ msgctxt "game_options"
+#~ msgid "DXVK HUD"
+#~ msgstr "DXVK HUD显示(显示运行信息)"
+
+#~ msgctxt "game_options"
+#~ msgid "DYNAMICALLY CALCULATE OPTIMAL SETTINGS"
+#~ msgstr "最佳动态计算设置"
+
+#~ msgctxt "game_options"
+#~ msgid "DYNAREC CODE INVALIDATION"
+#~ msgstr "DYNAREC 代码失效"
+
+#~ msgctxt "game_options"
+#~ msgid "Dark Forces Flat Tex Triangles Fix"
+#~ msgstr "阴影/多边形质量修正"
+
+#~ msgctxt "game_options"
+#~ msgid "Default"
+#~ msgstr "默认"
+
+#~ msgctxt "game_options"
+#~ msgid "Default (2 Buttons)"
+#~ msgstr "默认(2 按键)"
+
+#~ msgctxt "game_options"
+#~ msgid "Default Only"
+#~ msgstr "仅限默认"
+
+#~ msgctxt "game_options"
+#~ msgid "Default by model"
+#~ msgstr "默认模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Define the resolution and a new dedicated window."
+#~ msgstr "自定义一个专用窗口和分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "Delay VIF1 Stalls (For SOCOM2 & Spy Hunter)"
+#~ msgstr "延迟 VIF1 (仅SOCOM2 和间谍猎人)"
+
+#~ msgctxt "game_options"
+#~ msgid "Delay freeing some memory."
+#~ msgstr "延迟释放内存"
+
+#~ msgctxt "game_options"
+#~ msgid "Dendy is a popular Russian clone with unique characteristics."
+#~ msgstr "DENDY 是一个受欢迎的俄罗斯克隆人，具有独特的特征。"
+
+#~ msgctxt "game_options"
+#~ msgid "Denmark"
+#~ msgstr "丹麦"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Depends on video mode being set to BGFX. Vulkan is better, when supported."
+#~ msgstr "视频渲染依赖于BGFX,对VULKAN的支持更好(假如你显卡支持)"
+
+#~ msgctxt "game_options"
+#~ msgid "Diablo Music Fix"
+#~ msgstr "暗黑破坏神音乐修正"
+
+#~ msgctxt "game_options"
+#~ msgid "Digital"
+#~ msgstr "数字信号"
+
+#~ msgctxt "game_options"
+#~ msgid "Digital Controller"
+#~ msgstr "数字信号控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Disable"
+#~ msgstr "禁用"
+
+#~ msgctxt "game_options"
+#~ msgid "Disable support for memory write watches in ntdll."
+#~ msgstr "禁用对ntdll中内存写入"
+
+#~ msgctxt "game_options"
+#~ msgid "Disable to access the system's settings, like time and language."
+#~ msgstr "禁用访问系统设置，如时间和语言"
+
+#~ msgctxt "game_options"
+#~ msgid "Disabled"
+#~ msgstr "已禁用"
+
+#~ msgctxt "game_options"
+#~ msgid "Disabled (Beatle Interpreter)"
+#~ msgstr "禁用(语音口译)"
+
+#~ msgctxt "game_options"
+#~ msgid "Disk (Drive 1)"
+#~ msgstr "光盘驱动器1"
+
+#~ msgctxt "game_options"
+#~ msgid "Disk (Drive 2)"
+#~ msgstr "光盘驱动器2"
+
+#~ msgctxt "game_options"
+#~ msgid "Disk (Drive 3)"
+#~ msgstr "光盘驱动器3"
+
+#~ msgctxt "game_options"
+#~ msgid "Disk (Drive 4)"
+#~ msgstr "光盘驱动器4"
+
+#~ msgctxt "game_options"
+#~ msgid "Disk Image"
+#~ msgstr "光盘镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "Distorts the output to fill the display fully."
+#~ msgstr "失真填充输出全部"
+
+#~ msgctxt "game_options"
+#~ msgid "Does not affect the on-screen keyboard."
+#~ msgstr "不影响屏幕键盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Don't Use (Default)"
+#~ msgstr "不使用 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+#~ msgstr "不要设置过高的核心响应时间，G-Sync、FreeSync、HDMI 2.1 VRR"
+
+#~ msgctxt "game_options"
+#~ msgid "Double the rendering resolution. No effect on 64-bit machines."
+#~ msgstr "将渲染分辨率提高一倍,对64位机器没有影响。"
+
+#~ msgctxt "game_options"
+#~ msgid "Dual Konami Justifiers"
+#~ msgstr "双重Konami 过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "DualShock / Xbox Type"
+#~ msgstr "索尼Dualshock/微软XBOX 类型"
+
+#~ msgctxt "game_options"
+#~ msgid "DualShock Controller"
+#~ msgstr "索尼DualShock 手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "DualShock has rumble support. Not all games support DualShock."
+#~ msgstr "索尼DualShock有喇叭支持，并非所有游戏都支持DualShock。"
+
+#~ msgctxt "game_options"
+#~ msgid "Dynamic (fast)"
+#~ msgstr "动态（快速）"
+
+#~ msgctxt "game_options"
+#~ msgid "EE timing hack (Try if all else fails)"
+#~ msgstr "EE timing hack (如果其它都不行试试这个)"
+
+#~ msgctxt "game_options"
+#~ msgid "EGA"
+#~ msgstr "EGA增强图形适配器"
+
+#~ msgctxt "game_options"
+#~ msgid "ELECTRON MODEL"
+#~ msgstr "电子型号"
+
+#~ msgctxt "game_options"
+#~ msgid "EMULATE PCG-8100"
+#~ msgstr "模拟 PCG-8100"
+
+#~ msgctxt "game_options"
+#~ msgid "EMULATE WIIMOTE"
+#~ msgstr "模拟 WiiMOTE"
+
+#~ msgctxt "game_options"
+#~ msgid "EMULATED CPU PERFORMANCE"
+#~ msgstr ""
+#~ "EMULATED CPU PERFORMANCE\n"
+#~ "EMULATED CPU PERFORMANCE\n"
+#~ "模拟CPU性能"
+
+#~ msgctxt "game_options"
+#~ msgid "EMULATED RAM SIZE"
+#~ msgstr "模拟内存大小"
+
+#~ msgctxt "game_options"
+#~ msgid "EMULATED SYSTEM"
+#~ msgstr "模拟系统"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE AI TRANSLATION SERVICE"
+#~ msgstr "启用AI智能翻译服务"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE AUTO LOAD STATES"
+#~ msgstr "打开自动加载档案槽"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE AUTO SAVE STATES"
+#~ msgstr "打开自动保存档案槽"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE CHEATS"
+#~ msgstr "打开金手指"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE DEBUG"
+#~ msgstr "打开DEBUG调试"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE FULL-SCREEN ANTI-ALIASING"
+#~ msgstr "打开全屏抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE MESH TRANSPARENCY"
+#~ msgstr "打开网格透明度"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE MIP-MAP"
+#~ msgstr "ENABLE MIP-MAP纹理映射技术"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE MOUSE"
+#~ msgstr "打开鼠标光标"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE OSD"
+#~ msgstr "打开OSD菜单"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE POLYGON SPLITTING"
+#~ msgstr "打开几何图形拆分"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE RAW INPUT"
+#~ msgstr "ENABLE RAW输入模型"
+
+#~ msgctxt "game_options"
+#~ msgid "ENABLE XIM"
+#~ msgstr "ENABLE XIM无线设备支持"
+
+#~ msgctxt "game_options"
+#~ msgid "ENHANCED RENDERING RESOLUTION"
+#~ msgstr "增强渲染分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "ENHANCED RENDERING RESOLUTION (32-BIT ONLY)"
+#~ msgstr "增强渲染分辨率（32位)"
+
+#~ msgctxt "game_options"
+#~ msgid "ES"
+#~ msgstr "ES主界面"
+
+#~ msgctxt "game_options"
+#~ msgid "ESYNC"
+#~ msgstr "ESYNC消除同步对象消耗"
+
+#~ msgctxt "game_options"
+#~ msgid "EXTENDED SCREEN"
+#~ msgstr "扩展屏幕"
+
+#~ msgctxt "game_options"
+#~ msgid "Electron"
+#~ msgstr "电分子"
+
+#~ msgctxt "game_options"
+#~ msgid "Electron w/64k Master RAM Board (default)"
+#~ msgstr "板载64k主RAM板的Electron（默认）"
+
+#~ msgctxt "game_options"
+#~ msgid "Emable or disable high score saving"
+#~ msgstr "禁用高分数保存"
+
+#~ msgctxt "game_options"
+#~ msgid "Emerson Arcadia 2001 cartridges"
+#~ msgstr "Emerson Arcadia 2001 磁带"
+
+#~ msgctxt "game_options"
+#~ msgid "Emphasize botton"
+#~ msgstr "Emphasize 按键"
+
+#~ msgctxt "game_options"
+#~ msgid "Emphasize top"
+#~ msgstr "Emphasize 排行"
+
+#~ msgctxt "game_options"
+#~ msgid "Emulate Chroma 81 interface (colorization)."
+#~ msgstr "模拟 Chroma 81接口（彩色化）"
+
+#~ msgctxt "game_options"
+#~ msgid "Emulate NTSC quirks to show more colors in hi-res mode."
+#~ msgstr "模拟NTSC异形将更多彩色进行输出"
+
+#~ msgctxt "game_options"
+#~ msgid "Emulate a Wiimote Sideway with L2 for Shake and Nunchuk on R-stick."
+#~ msgstr "用L2模拟 Wiimote侧面，右摇杆模拟双节棍"
+
+#~ msgctxt "game_options"
+#~ msgid "Emulate a keyboard/mouse/joypad."
+#~ msgstr "模拟 键盘/鼠标/控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Emulate a pak in the controller expansion port."
+#~ msgstr "在控制器扩展端口中模拟一个PAK"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Emulate the Super Game Boy 2 for SGB. Runs games at the correct speed."
+#~ msgstr "用SGB2模拟SGB,让游戏运行正常速度"
+
+#~ msgctxt "game_options"
+#~ msgid "Emulate the Wiimote pointer with a DS4's gyroscope."
+#~ msgstr "用索尼DS4手柄的陀螺仪模拟 WIIMOTE动向(体感)"
+
+#~ msgctxt "game_options"
+#~ msgid "Emulate the Wiimote pointer with a mouse."
+#~ msgstr "用鼠标模拟Wiimote动向（体感）"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable"
+#~ msgstr "启用公共页面访问"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable Dreamcast auto load states."
+#~ msgstr "打开 Dreamcast 自动加载存档"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable Dreamcast auto saves states."
+#~ msgstr "打开 Dreamcast 自动保存存档"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable XIM support."
+#~ msgstr "打开XIM无线设备支持"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable auto frameskipping for performance on lower-end systems."
+#~ msgstr "在低端系统上启用自动跳帧以提高性能"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable cheats for MelonDS."
+#~ msgstr "为MelonDS打开金手指"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable crosshairs in shooting games for the selected players."
+#~ msgstr "为选定玩家启用射击游戏的十字准心"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable for Doom to run at its correct resolution."
+#~ msgstr "使毁灭战士用正确的分辨率运行"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable for more fluidity, disable if screen tearing."
+#~ msgstr "打开获得更好的流畅性，如果屏幕裂开请关闭"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable full-screen antialiasing in Direct3D."
+#~ msgstr "使用Direct3D启动全屏抗据齿"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable high quality effects for special stages."
+#~ msgstr "打开使特殊阶段获得高质量画质"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable launching pre-installed WHDLoad installs."
+#~ msgstr "启用启动预安装的WHDLoad安装"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable or disable monsters in battle."
+#~ msgstr "战斗过程启用或禁用怪物"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable per-game custom configuration via MAME menu."
+#~ msgstr "通过MAME菜单启用每个游戏的自定义配置"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable proper quad rendering (for higher end systems)."
+#~ msgstr "启用适当的四倍渲染（适用于高端配置）"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable the GIF FIFO (Wallace and Gromit, DJ Hero)"
+#~ msgstr "启用GIF先进先出"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable the debug menu and the walk-through-walls button."
+#~ msgstr "启用DEBUG调试菜单和穿插按键"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enable the legacy or the new 3D engine (choose legacy for older GPUs)."
+#~ msgstr "启用传统或者新的3D引擎（选择传统或者旧GPU）"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable the on screen display."
+#~ msgstr "启用在屏幕上显示"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enable this option if you get missing graphics or broken lighting ingame."
+#~ msgstr "如果缺少图形或者光照失效可以打开这个"
+
+#~ msgctxt "game_options"
+#~ msgid "Enable vertical sync to avoid tearing in some cases."
+#~ msgstr "某些情况下启用垂直同步以避免画面裂开"
+
+#~ msgctxt "game_options"
+#~ msgid "Enabled (Default)"
+#~ msgstr "开启（默认）"
+
+#~ msgctxt "game_options"
+#~ msgid "Enabled meshed polygons for translucency."
+#~ msgstr "启用半透明几何图形"
+
+#~ msgctxt "game_options"
+#~ msgid "Enables Action Replay cheats."
+#~ msgstr "启用动作回放金手指"
+
+#~ msgctxt "game_options"
+#~ msgid "Enables Direct3D Automip-map generation."
+#~ msgstr "启用Direct3D自动MIP生成贴图"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enables bilinear filtering on tilemaps. Looks good, but can cause some "
+#~ "stretch artifacts."
+#~ msgstr "在tilemaps上启用双线性过滤。可能会导致一些拉伸瑕疵"
+
+#~ msgctxt "game_options"
+#~ msgid "Enables improved polygon splitting."
+#~ msgstr "启用改进的几何图形分割"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enables mipmap usage and trilinear filtering. Doesn't work with some "
+#~ "games."
+#~ msgstr "启用mipmap使用和三线过滤，某些游戏不起作用"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enables run-ahead. Doubles CPU requirements. High numbers can result in "
+#~ "visible jitter."
+#~ msgstr "启用“RUN-AHEAD”,CPU需求翻倍,过高可能会导致可见闪屏"
+
+#~ msgctxt "game_options"
+#~ msgid "English"
+#~ msgstr "英语"
+
+#~ msgctxt "game_options"
+#~ msgid "English (Default)"
+#~ msgstr "英语（默认）"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhanced sound output support for compatible games."
+#~ msgstr "增强对兼容游戏的声音输出支持"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement."
+#~ msgstr "改善"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. 3 point is accurate to N64, standard is better."
+#~ msgstr "改善.N64 3精确重点，更好的标准"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enhancement. Double the rendering resolution. Makes 3D objects clearer."
+#~ msgstr "改善.将渲染分辨率提高一倍,使3D对象更清晰。"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Enables texture upscaling textures and their size."
+#~ msgstr "改善.启用纹理放大纹理及纹理大小"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enhancement. Improves clarity of distant textures when mip-mapping is "
+#~ "enabled."
+#~ msgstr "改善.启用mip贴图时，可以提高远处纹理的清晰度"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enhancement. Increase the rendering resolution when in 16:9 ratio. Makes "
+#~ "3D objects clearer."
+#~ msgstr "改善.以16:9的比例增加渲染分辨率。使3D对象更清晰"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Increase the rendering resolution."
+#~ msgstr "改善.提高渲染分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enhancement. Increase the rendering resolution. Makes 3D objects clearer."
+#~ msgstr "改善.提高渲染分辨率，使3D对象更清晰"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Only works with a 16/9 ratio and bezels disabled."
+#~ msgstr "改善.只适用于16/9和禁用挡板的情况"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Reduces slowdown in mode 7 games."
+#~ msgstr "改善.7模式游戏减少减速情况 "
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Reduces system slowdown. Causes issues in some games."
+#~ msgstr "改善.降低系统减速，某些游戏引发问题"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Remove the eight sprite per line limit."
+#~ msgstr "改善.移除8 sprites限制"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Remove the eight sprites per line limit."
+#~ msgstr "改善.移除8 sprites限制S"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Remove the eighty sprites per line limit."
+#~ msgstr "改善.移除80 sprites限制精灵限制"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Remove the four sprites per line limit."
+#~ msgstr "改善.移除4 sprites限制"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Remove the sixteen sprites per line limit."
+#~ msgstr "改善.移除16 sprites限制"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enhancement. Remove the thirty-two sprites per line limit. Crashes "
+#~ "certain games."
+#~ msgstr "改善.移除32 sprites限制"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Removes disc loading."
+#~ msgstr "改善.移除光盘读取"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Skipping it can break some games."
+#~ msgstr "改善.跳过可能会破坏一些游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Smooth out jagged edges on 3D object polygons."
+#~ msgstr "改善.平滑3D对象几何图形上的锯齿边"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Smooth out jagged edges on 3D objects polygons."
+#~ msgstr "改善.平滑3D对象几何图形上的锯齿边（多数)"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Smooth/upscale textures on 3D objects."
+#~ msgstr "改善.3D对象平滑/高纹理贴图"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Smooth/upscale textures."
+#~ msgstr "改善.平滑/高纹理贴图"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Enhancement. Swap from SNES' guassian interpolation to cubic. Improves "
+#~ "sound quality."
+#~ msgstr "改善.把SNES的高斯转换为立体声，提高音质"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Upscale in-game screen-captures."
+#~ msgstr "改善.高端游戏内截图"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Upscale textures."
+#~ msgstr "改善.高端纹理贴图"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Upscales screen textures (2D games only)."
+#~ msgstr "改善.高端场景贴图（2D游戏）"
+
+#~ msgctxt "game_options"
+#~ msgid "Enhancement. Upscales textures on 3D objects."
+#~ msgstr "改善.高端3D纹理贴图"
+
+#~ msgctxt "game_options"
+#~ msgid "Entex AdventureVision cartridges"
+#~ msgstr "Entex AdventureVision 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Epoch Game Pocket Computer cartridges"
+#~ msgstr "Epoch Game Pocket Computer 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Europe"
+#~ msgstr "欧洲"
+
+#~ msgctxt "game_options"
+#~ msgid "European (Cent/East) [W-1250]"
+#~ msgstr "欧洲（中部/东部）[W-1250]"
+
+#~ msgctxt "game_options"
+#~ msgid "European (Western)"
+#~ msgstr "欧洲（西部）"
+
+#~ msgctxt "game_options"
+#~ msgid "Even (Default)"
+#~ msgstr "偶数（默认）"
+
+#~ msgctxt "game_options"
+#~ msgid "Exclusive Ubershaders"
+#~ msgstr "专用UBER着色器"
+
+#~ msgctxt "game_options"
+#~ msgid "Extend the game screen area, similar to the Master System."
+#~ msgstr "扩展游戏屏幕区域，类似于主系统"
+
+#~ msgctxt "game_options"
+#~ msgid "External"
+#~ msgstr "外部存储"
+
+#~ msgctxt "game_options"
+#~ msgid "FAKE GOURAUD"
+#~ msgstr "无效GOURAUD"
+
+#~ msgctxt "game_options"
+#~ msgid "FAST BLITTER (LESS COMPATIBLE)"
+#~ msgstr "快速修正（不大兼容）"
+
+#~ msgctxt "game_options"
+#~ msgid "FAST DISK TRANSFER RATE"
+#~ msgstr "快速磁盘传输速率"
+
+#~ msgctxt "game_options"
+#~ msgid "FFX videos fix (Fixes bad graphic overlays)"
+#~ msgstr "FFX视频修正（修复错误的图形）"
+
+#~ msgctxt "game_options"
+#~ msgid "FIDELITY FX SUPER RESOLUTION"
+#~ msgstr "精确FX超高分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "FILTER TILEMAPS"
+#~ msgstr "贴图过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "FIX 2D SCREEN"
+#~ msgstr "修正2D场景"
+
+#~ msgctxt "game_options"
+#~ msgid "FLOPPY TURBO SPEED"
+#~ msgstr "软盘加速"
+
+#~ msgctxt "game_options"
+#~ msgid "FORCE LARGE ADDRESS"
+#~ msgstr "强制使用大内存地址"
+
+#~ msgctxt "game_options"
+#~ msgid "FORCE MANAGED"
+#~ msgstr "强制监管"
+
+#~ msgctxt "game_options"
+#~ msgid "FORCE NTSC TIMINGS ON PAL"
+#~ msgstr "强制NTSC时钟应用在PAL"
+
+#~ msgctxt "game_options"
+#~ msgid "FORCE WINDOWS CE"
+#~ msgstr "强制WINDOWS CE"
+
+#~ msgctxt "game_options"
+#~ msgid "FORCE WINDOWS CE MODE"
+#~ msgstr "强制WINDOSWS CE模式"
+
+#~ msgctxt "game_options"
+#~ msgid "FPS LIMITER"
+#~ msgstr "FPS限制"
+
+#~ msgctxt "game_options"
+#~ msgid "FPU Compare hack (For Digimon Rumble Arena 2)"
+#~ msgstr "FPU 对比hack (For Digimon Rumble Arena 2)"
+
+#~ msgctxt "game_options"
+#~ msgid "FPU Multiply hack (For Tales of Destiny)"
+#~ msgstr "FPU成倍 hack (For Tales of Destiny)"
+
+#~ msgctxt "game_options"
+#~ msgid "FPU Negative Div hack (For Gundam Games)"
+#~ msgstr "FPU 不利于 Div hack (For Gundam Games)"
+
+#~ msgctxt "game_options"
+#~ msgid "FR"
+#~ msgstr "法国"
+
+#~ msgctxt "game_options"
+#~ msgid "FRAME DUPING (SPEED UP)"
+#~ msgstr "帧复制（加速）"
+
+#~ msgctxt "game_options"
+#~ msgid "FRAME LIMIT"
+#~ msgstr "帧限制"
+
+#~ msgctxt "game_options"
+#~ msgid "FRAMERATE"
+#~ msgstr "显示帧率"
+
+#~ msgctxt "game_options"
+#~ msgid "FRAMERATE LIMIT"
+#~ msgstr "帧率限制"
+
+#~ msgctxt "game_options"
+#~ msgid "FRAMESKIP"
+#~ msgstr "跳帧"
+
+#~ msgctxt "game_options"
+#~ msgid "FRAMESKIP (GL64MK2 ONLY)"
+#~ msgstr "跳帧(GL64MK2)"
+
+#~ msgctxt "game_options"
+#~ msgid "Fast Interpreter"
+#~ msgstr "快速解释器"
+
+#~ msgctxt "game_options"
+#~ msgid "Finland"
+#~ msgstr "芬兰"
+
+#~ msgctxt "game_options"
+#~ msgid "Fix flickering in a static screen like Workbench."
+#~ msgstr "修复在静态屏幕中闪烁的问题"
+
+#~ msgctxt "game_options"
+#~ msgid "Fix main 2D screen to follow action."
+#~ msgstr "修复主2D屏幕以跟踪操作。"
+
+#~ msgctxt "game_options"
+#~ msgid "Fix screen tearing."
+#~ msgstr "修复屏幕撕裂"
+
+#~ msgctxt "game_options"
+#~ msgid "Fix screen tearing. CPU heavy."
+#~ msgstr "修复屏幕撕裂,高CPU占用"
+
+#~ msgctxt "game_options"
+#~ msgid "Fix texture banding when upscaling."
+#~ msgstr "修正放大时的纹理"
+
+#~ msgctxt "game_options"
+#~ msgid "Fixes a possible bug with multiple controllers detection."
+#~ msgstr "修复多控制器检测可能出现的错误"
+
+#~ msgctxt "game_options"
+#~ msgid "Flight Stick (3 Axes, 4 Btns, 1 Hat)"
+#~ msgstr "飞行摇杆(3轴,4键,1帽)"
+
+#~ msgctxt "game_options"
+#~ msgid "Floppy Disk"
+#~ msgstr "软盘"
+
+#~ msgctxt "game_options"
+#~ msgid "For Gyro-enabled games (bound to left analog stick)"
+#~ msgstr "用于支持陀螺的游戏（绑定到左摇杆）"
+
+#~ msgctxt "game_options"
+#~ msgid "For Gyro-enabled games (bound to right analog stick)"
+#~ msgstr "用于支持陀螺的游戏（绑定到右摇杆）"
+
+#~ msgctxt "game_options"
+#~ msgid "For digital controller mode."
+#~ msgstr "用于数字手柄模式"
+
+#~ msgctxt "game_options"
+#~ msgid "For use with HD texture packs."
+#~ msgstr "用于HD纹理贴图补丁包"
+
+#~ msgctxt "game_options"
+#~ msgid "For weak machines. Some games will not work with this."
+#~ msgstr "用于低配置机器,某些游戏可能无法运行"
+
+#~ msgctxt "game_options"
+#~ msgid "Force 16:9"
+#~ msgstr "强制16:9"
+
+#~ msgctxt "game_options"
+#~ msgid "Force 4:3"
+#~ msgstr "强制4:3"
+
+#~ msgctxt "game_options"
+#~ msgid "Force Nvidia GPUs to always be reported as AMD GPUs."
+#~ msgstr "强制 NVIDIA GPG 反馈为AMD GPU"
+
+#~ msgctxt "game_options"
+#~ msgid "Force WINE to run games with large addresses."
+#~ msgstr "强制WINE运行游戏使用大内存地址模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Force a specific model and prevent tags detection."
+#~ msgstr "强制特定型号并阻止标记检测"
+
+#~ msgctxt "game_options"
+#~ msgid "Force integer scaling for pixels on larger displays."
+#~ msgstr "强制在较大的显示器上整数缩放像素"
+
+#~ msgctxt "game_options"
+#~ msgid "Force mouse in games."
+#~ msgstr "强制在游戏中显示鼠标"
+
+#~ msgctxt "game_options"
+#~ msgid "Forces Dreamcast Windows CE mode on."
+#~ msgstr "强制开启WIN CE模式的Dreamcast"
+
+#~ msgctxt "game_options"
+#~ msgid "Forces the DX driver to use Managed textures instead of Dynamic."
+#~ msgstr "强制DX驱动程序使用托管纹理,不是动态纹理"
+
+#~ msgctxt "game_options"
+#~ msgid "France"
+#~ msgstr "法国"
+
+#~ msgctxt "game_options"
+#~ msgid "French"
+#~ msgstr "法文"
+
+#~ msgctxt "game_options"
+#~ msgid "Full"
+#~ msgstr "FULL"
+
+#~ msgctxt "game_options"
+#~ msgid "Full (more compatible)"
+#~ msgstr ""
+#~ "Full (more compatible)\n"
+#~ "Full (more compatible)\n"
+#~ "完整（更兼容）"
+
+#~ msgctxt "game_options"
+#~ msgid "Full 255 lines"
+#~ msgstr "完整（255线）"
+
+#~ msgctxt "game_options"
+#~ msgid "Full Frame"
+#~ msgstr "满帧"
+
+#~ msgctxt "game_options"
+#~ msgid "Fuller Joystick"
+#~ msgstr "Fuller 摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Fullspeed can break some games."
+#~ msgstr "全速可能会损坏一些游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Funtech Super A'Can cartridges"
+#~ msgstr "Funtech Super A'Can 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "GAME ASPECT RATIO"
+#~ msgstr "游戏画面纵横比"
+
+#~ msgctxt "game_options"
+#~ msgid "GAME BOY MODE"
+#~ msgstr "GAME BOY模式"
+
+#~ msgctxt "game_options"
+#~ msgid "GAME CHEATS"
+#~ msgstr "游戏金手指"
+
+#~ msgctxt "game_options"
+#~ msgid "GAME REGION (ENCODING)"
+#~ msgstr "游戏所属区域（编码）"
+
+#~ msgctxt "game_options"
+#~ msgid "GAME RENDERING"
+#~ msgstr "游戏渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "GAMEPAD AUTOMATIC MAPPING"
+#~ msgstr "游戏按键自动设置"
+
+#~ msgctxt "game_options"
+#~ msgid "GAMEPAD CURSOR SPEED"
+#~ msgstr "游戏PAD光标速度"
+
+#~ msgctxt "game_options"
+#~ msgid "GB - Black and White"
+#~ msgstr "GB - 黑白模式"
+
+#~ msgctxt "game_options"
+#~ msgid "GB - DMG"
+#~ msgstr "GB - DMG"
+
+#~ msgctxt "game_options"
+#~ msgid "GB - Light"
+#~ msgstr "GB - 亮度"
+
+#~ msgctxt "game_options"
+#~ msgid "GB - Pocket"
+#~ msgstr "GB - 口袋"
+
+#~ msgctxt "game_options"
+#~ msgid "GB - Smart Coloring"
+#~ msgstr "GB-智能着色"
+
+#~ msgctxt "game_options"
+#~ msgid "GB COLORIZATION"
+#~ msgstr "GB 着色处理"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Blue"
+#~ msgstr "GBC - 蓝光"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Brown"
+#~ msgstr "GBC - 棕色"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Dark Blue"
+#~ msgstr "GBC - 深蓝"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Dark Brown"
+#~ msgstr "GBC - 深棕"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Dark Green"
+#~ msgstr "GBC - 深绿"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Grayscale"
+#~ msgstr "GBC - 灰度"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Green"
+#~ msgstr "GBC - 绿色"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Orange"
+#~ msgstr "GBC-橙色"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Pastel Mix"
+#~ msgstr "GBC - 粉彩Mix"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Red"
+#~ msgstr "GBC - 红色"
+
+#~ msgctxt "game_options"
+#~ msgid "GBC - Yellow"
+#~ msgstr "GBC - 黄色"
+
+#~ msgctxt "game_options"
+#~ msgid "GCE Vectrex cartridges"
+#~ msgstr "GCE Vectrex 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "GLCore"
+#~ msgstr "GL核心"
+
+#~ msgctxt "game_options"
+#~ msgid "GPU SYNC"
+#~ msgstr "GPU同步"
+
+#~ msgctxt "game_options"
+#~ msgid "GRAPHICAL USER INTERFACE"
+#~ msgstr "用户图形界面"
+
+#~ msgctxt "game_options"
+#~ msgid "GRAPHICS API"
+#~ msgstr "显卡渲染API"
+
+#~ msgctxt "game_options"
+#~ msgid "GRAPHICS BACKEND"
+#~ msgstr "GRAPHICS 后台"
+
+#~ msgctxt "game_options"
+#~ msgid "GRAPHICS CHIP TYPE"
+#~ msgstr "显示芯片类型"
+
+#~ msgctxt "game_options"
+#~ msgid "Game Boy"
+#~ msgstr "Game Boy(GB)"
+
+#~ msgctxt "game_options"
+#~ msgid "Game Boy Color"
+#~ msgstr "Game Boy Color(GBC)"
+
+#~ msgctxt "game_options"
+#~ msgid "Game info/art"
+#~ msgstr "游戏信息"
+
+#~ msgctxt "game_options"
+#~ msgid "GamePad + 4 Pro Controller"
+#~ msgstr "GamePad + 4 Pro 手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "GamePad + 4 Sideway Wiimote"
+#~ msgstr "GamePad + 4 横握Wiimote"
+
+#~ msgctxt "game_options"
+#~ msgid "Gamepad"
+#~ msgstr "游戏手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "Gamepad (D-pad, 2 Buttons)"
+#~ msgstr "Gamepad (D-pad, 2 键)"
+
+#~ msgctxt "game_options"
+#~ msgid "Gamepad Classic"
+#~ msgstr "典型Gamepad"
+
+#~ msgctxt "game_options"
+#~ msgid "Gamepad Classic Alt"
+#~ msgstr "典型Gamepad  Alt"
+
+#~ msgctxt "game_options"
+#~ msgid "Gamepad Modern"
+#~ msgstr "新款Gamepad"
+
+#~ msgctxt "game_options"
+#~ msgid "Generic Keyboard Binds"
+#~ msgstr "通用键盘绑定(映射)"
+
+#~ msgctxt "game_options"
+#~ msgid "Genesis/Megadrive Style"
+#~ msgstr "Genesis/Megadrive Style(世嘉MD)"
+
+#~ msgctxt "game_options"
+#~ msgid "German"
+#~ msgstr "德语"
+
+#~ msgctxt "game_options"
+#~ msgid "Germany"
+#~ msgstr "德国"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Good speedup and high compatibility; recommended but may cause issues."
+#~ msgstr "加速性能好，兼容性强；建议使用但可能会导致问题"
+
+#~ msgctxt "game_options"
+#~ msgid "Graphic Display Controller model."
+#~ msgstr "图形显示控制器型号"
+
+#~ msgctxt "game_options"
+#~ msgid "Gravis GamePad (D-pad + 4 Btns)"
+#~ msgstr "重型GamePad (D-pad + 4 键)"
+
+#~ msgctxt "game_options"
+#~ msgid "Greece"
+#~ msgstr "希腊"
+
+#~ msgctxt "game_options"
+#~ msgid "Greek"
+#~ msgstr "希腊语"
+
+#~ msgctxt "game_options"
+#~ msgid "HEADS UP DISPLAY"
+#~ msgstr "运行信息显示(游戏内)"
+
+#~ msgctxt "game_options"
+#~ msgid "HEAP DELAY FREE"
+#~ msgstr "堆积空延迟"
+
+#~ msgctxt "game_options"
+#~ msgid "HI-RES ARTIFACTING"
+#~ msgstr "高分辨率ARTIFACTING"
+
+#~ msgctxt "game_options"
+#~ msgid "HIDE NVIDIA GPU"
+#~ msgstr "隐藏NVIDIA GPU"
+
+#~ msgctxt "game_options"
+#~ msgid "HIGH RESOLUTION MODE"
+#~ msgstr "高分辨率模式"
+
+#~ msgctxt "game_options"
+#~ msgid "HIGH SCORE PLUGIN"
+#~ msgstr "高分插件"
+
+#~ msgctxt "game_options"
+#~ msgid "HIGH-RES BLENDING"
+#~ msgstr "混合高分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "HQ MODE"
+#~ msgstr "HQ模式"
+
+#~ msgctxt "game_options"
+#~ msgid "HQ Mode"
+#~ msgstr "HQ模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Hack. Increases most PAL games' speed by 17%."
+#~ msgstr "HACK将大多数PAL速度提高17%。"
+
+#~ msgctxt "game_options"
+#~ msgid "Handle DMAC writes when it busy"
+#~ msgstr "DMAC繁忙时处理写入"
+
+#~ msgctxt "game_options"
+#~ msgid "Hard Drive"
+#~ msgstr "硬盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Hartung Game Master cartridges"
+#~ msgstr "Hartung Game Master 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Help games which are too quick or that have bugs."
+#~ msgstr "辅助运行太快或者有BUG的游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Hides borders on many games. Some games use the borders."
+#~ msgstr "隐藏大部分游戏边界,有些游戏需要边界"
+
+#~ msgctxt "game_options"
+#~ msgid "Hides borders on many games. Some games used the borders."
+#~ msgstr "隐藏大部分游戏边界,有些游戏正在使用边界"
+
+#~ msgctxt "game_options"
+#~ msgid "High"
+#~ msgstr "高"
+
+#~ msgctxt "game_options"
+#~ msgid "High 720p"
+#~ msgstr "高分辨率720P"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Higher number for higher picture quality, but requires more bandwidth."
+#~ msgstr "数字越大，图像质量越高，但需要更多带宽"
+
+#~ msgctxt "game_options"
+#~ msgid "Horizontal"
+#~ msgstr "水平"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "How much RAM the emulated Mac will have installed (Mac IIx & Mac LC 3 "
+#~ "only)"
+#~ msgstr "模拟Mac安装多少RAM（仅限Mac IIx和Mac LC 3）"
+
+#~ msgctxt "game_options"
+#~ msgid "Hungary"
+#~ msgstr "匈牙利"
+
+#~ msgctxt "game_options"
+#~ msgid "Hybrid"
+#~ msgstr "混合"
+
+#~ msgctxt "game_options"
+#~ msgid "Hybrid Ubershaders"
+#~ msgstr "混合UBER着色器"
+
+#~ msgctxt "game_options"
+#~ msgid "Hybride"
+#~ msgstr "混合型"
+
+#~ msgctxt "game_options"
+#~ msgid "Hybride + Bicubique"
+#~ msgstr "混合+双立方"
+
+#~ msgctxt "game_options"
+#~ msgid "IMAGE READER"
+#~ msgstr "镜象读取器"
+
+#~ msgctxt "game_options"
+#~ msgid "INPUT INTERFACE"
+#~ msgstr "输入接口"
+
+#~ msgctxt "game_options"
+#~ msgid "INSTALL MEDIA FOUNDATION"
+#~ msgstr "安装基础媒体"
+
+#~ msgctxt "game_options"
+#~ msgid "INTEGER SCALING"
+#~ msgstr "整粉缩放"
+
+#~ msgctxt "game_options"
+#~ msgid "INTEGER SCALING (PIXEL PERFECT)"
+#~ msgstr "整数缩放 (像素完美显示)"
+
+#~ msgctxt "game_options"
+#~ msgid "INTERNAL RESOLUTION"
+#~ msgstr "内部分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "INVERT AXIS"
+#~ msgstr "反转AXIS"
+
+#~ msgctxt "game_options"
+#~ msgid "Iceland"
+#~ msgstr "冰岛"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "If game crashes, try ASMJIT. If still crashing, try Fast Interpreter."
+#~ msgstr "若游戏崩溃，尝试用ASMJIT，如果不行，可以试试FAST INTERPRETER"
+
+#~ msgctxt "game_options"
+#~ msgid "If screen is rotated by 90 degrees, select SDL."
+#~ msgstr "若屏幕旋转90度，请选择SDL"
+
+#~ msgctxt "game_options"
+#~ msgid "If the D-Pad is oriented incorrectly for your controller."
+#~ msgstr "如果D-PAD控制器方向不对"
+
+#~ msgctxt "game_options"
+#~ msgid "Ignored with 'Cycle-exact'."
+#~ msgstr "用“Cycle-exact\"忽略掉"
+
+#~ msgctxt "game_options"
+#~ msgid "Improve performance if VSync is disabled and using Vulkan."
+#~ msgstr "若禁用VSYNC，并使用VULKAN，可以提高性能"
+
+#~ msgctxt "game_options"
+#~ msgid "Improve speed, at a minor cost of accuracy."
+#~ msgstr "用较小计算精度提高运行速度"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Improves both sprite scaling and road rendering. Does not affect the car "
+#~ "sprite."
+#~ msgstr "改进 sprite scaling 和 road rendering,不影响 car sprite"
+
+#~ msgctxt "game_options"
+#~ msgid "Improves clarity of distant textures when mip-mapping is enabled."
+#~ msgstr "启用mip-mapping时，可以提高远景纹理清晰度"
+
+#~ msgctxt "game_options"
+#~ msgid "Improves clarity of distant textures."
+#~ msgstr "提高远景纹理清晰度"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Improves performance at the cost of latency and more video stuttering."
+#~ msgstr "启用高延迟和视频卡顿来提升性能"
+
+#~ msgctxt "game_options"
+#~ msgid "Improves performance in 3D games. Can cause glitches."
+#~ msgstr "提升3D游戏性能，可能会有问题"
+
+#~ msgctxt "game_options"
+#~ msgid "In milliseconds. Can reduce crackling/cutting out."
+#~ msgstr "每毫采样率，越高音质越好，老机子要是卡就调自动"
+
+#~ msgctxt "game_options"
+#~ msgid "Increase emulator performance, at the cost of accuracy/stability."
+#~ msgstr "牺牲计算精准/稳定性，提高模拟器性能"
+
+#~ msgctxt "game_options"
+#~ msgid "Inserts CD during boot animation prevent loading fail."
+#~ msgstr "在启动画面时插入CD，防止加载失败"
+
+#~ msgctxt "game_options"
+#~ msgid "Inserts CD during boot animation to prevent loading fail."
+#~ msgstr "在启动画面时插入CD，防止加载失败"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Install the image reader card to read idks image files (Mac IIx only)"
+#~ msgstr "安装镜像读取器以读取idks文件（仅限Mac IIx）"
+
+#~ msgctxt "game_options"
+#~ msgid "Instant VU1. May cause some graphical errors"
+#~ msgstr "即时VU1，可能会导致一些图形错误"
+
+#~ msgctxt "game_options"
+#~ msgid "Integer Scale"
+#~ msgstr "整型级别"
+
+#~ msgctxt "game_options"
+#~ msgid "Interpreter (Slowest)"
+#~ msgstr "编译器（最慢）"
+
+#~ msgctxt "game_options"
+#~ msgid "Interpreter is the most accurate, but is the slowest."
+#~ msgstr "最准确编译，速度最慢"
+
+#~ msgctxt "game_options"
+#~ msgid "Interpreter only (experimental)"
+#~ msgstr "仅编译（实验）"
+
+#~ msgctxt "game_options"
+#~ msgid "InuYasha Sengoku Battle Fix"
+#~ msgstr "修正 战国犬夜叉"
+
+#~ msgctxt "game_options"
+#~ msgid "Invert joystick on flight games."
+#~ msgstr "翻转飞行游戏的摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Italian"
+#~ msgstr "意大利语"
+
+#~ msgctxt "game_options"
+#~ msgid "Italy"
+#~ msgstr "意大利"
+
+#~ msgctxt "game_options"
+#~ msgid "JAST SOUND"
+#~ msgstr "JAST音频"
+
+#~ msgctxt "game_options"
+#~ msgid "JINC2 (no edge blending)"
+#~ msgstr "JINC2 (无混合边界)"
+
+#~ msgctxt "game_options"
+#~ msgid "JOY2KEY PROFILE"
+#~ msgstr "摇杆映射到键位配置文件"
+
+#~ msgctxt "game_options"
+#~ msgid "JOYPAD TYPE"
+#~ msgstr "摇杆（手柄）类型"
+
+#~ msgctxt "game_options"
+#~ msgid "JOYSTICK HACK (FOR ROBOTRON 2084)"
+#~ msgstr "摇杆HACK（ROBOTRON 2084)"
+
+#~ msgctxt "game_options"
+#~ msgid "JOYSTICK TO DPAD"
+#~ msgstr "摇杆映射DPAD"
+
+#~ msgctxt "game_options"
+#~ msgid "JUMP ON A"
+#~ msgstr "A键为跳跃"
+
+#~ msgctxt "game_options"
+#~ msgid "JUMP ON B"
+#~ msgstr "B键为跳跃"
+
+#~ msgctxt "game_options"
+#~ msgid "Japan"
+#~ msgstr "日本"
+
+#~ msgctxt "game_options"
+#~ msgid "Japanese"
+#~ msgstr "日语"
+
+#~ msgctxt "game_options"
+#~ msgid "Japanese [Shift-JIS]"
+#~ msgstr "日语[Shift-JIS]"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad"
+#~ msgstr "手柄（摇杆）"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 2 Button"
+#~ msgstr "手柄（摇杆）2键"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 2 Button + Master Tap"
+#~ msgstr "手柄（摇杆）2键+Master TAP"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 3 Button"
+#~ msgstr "手柄（摇杆）3键"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 3 Button + 4-WayPlay"
+#~ msgstr "手柄（摇杆）3键+4wayplay"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 3 Button + Teamplayer"
+#~ msgstr "手柄（摇杆）3键+Teamplayer"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 6 Button"
+#~ msgstr "手柄（摇杆）6键"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 6 Button + 4-WayPlay"
+#~ msgstr "手柄（摇杆）6键+4wayplay"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad 6 Button + Teamplayer"
+#~ msgstr "手柄（摇杆）6键+Teamplayer"
+
+#~ msgctxt "game_options"
+#~ msgid "Joypad Auto"
+#~ msgstr "自动手柄（摇杆）"
+
+#~ msgctxt "game_options"
+#~ msgid "Joystick"
+#~ msgstr "摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Joystick (Analog, 2 Buttons)"
+#~ msgstr "摇杆（左摇杆，两键）"
+
+#~ msgctxt "game_options"
+#~ msgid "KEYBOARD PASSTHROUGH"
+#~ msgstr "键盘直通"
+
+#~ msgctxt "game_options"
+#~ msgid "KEYBOARD SUPPORT"
+#~ msgstr "键盘支持"
+
+#~ msgctxt "game_options"
+#~ msgid "Kempston Joystick"
+#~ msgstr "Kempston 摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Keyboard"
+#~ msgstr "键盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Keyboard + Mouse"
+#~ msgstr "键盘+鼠标"
+
+#~ msgctxt "game_options"
+#~ msgid "Keyboard + Mouse (Left An.)"
+#~ msgstr "键盘+鼠标(左边 AN）"
+
+#~ msgctxt "game_options"
+#~ msgid "Keyboard + Mouse (Right An.)"
+#~ msgstr "键盘+鼠标(右边 AN）"
+
+#~ msgctxt "game_options"
+#~ msgid "Keyboard passthrough"
+#~ msgstr "键盘直通"
+
+#~ msgctxt "game_options"
+#~ msgid "Keyboard shortcuts unavailable if passing through the keyboard."
+#~ msgstr "键盘直通时，快捷键会被禁用"
+
+#~ msgctxt "game_options"
+#~ msgid "Keypad"
+#~ msgstr "键盘（KEYPAD）"
+
+#~ msgctxt "game_options"
+#~ msgid "Keypad 3button"
+#~ msgstr "键盘（KEYPAD）3键"
+
+#~ msgctxt "game_options"
+#~ msgid "Keypad to joyport mappings for 2 players."
+#~ msgstr "Keypad 映射两个玩家端口"
+
+#~ msgctxt "game_options"
+#~ msgid "Konami Justifier"
+#~ msgstr "Konami Justifier光枪"
+
+#~ msgctxt "game_options"
+#~ msgid "Konami Justifier (P2)"
+#~ msgstr "Konami Justifier 光枪(P2)"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Konami Justifier P2 is daisy chained from controller 2, appears as port 3 "
+#~ "to system."
+#~ msgstr "P2光枪连接了到了手柄2上，将系统端口设置为3"
+
+#~ msgctxt "game_options"
+#~ msgid "Konami Justifiers"
+#~ msgstr "Konami Justifiers（光枪）"
+
+#~ msgctxt "game_options"
+#~ msgid "Korean"
+#~ msgstr "韩语（朝鲜语）"
+
+#~ msgctxt "game_options"
+#~ msgid "LANGUAGE"
+#~ msgstr "语言"
+
+#~ msgctxt "game_options"
+#~ msgid "LATENCY REDUCTION"
+#~ msgstr "减少延迟"
+
+#~ msgctxt "game_options"
+#~ msgid "LCD FILTER"
+#~ msgstr "LCD过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "LCD GHOSTING EFFECT"
+#~ msgstr "LCD重影"
+
+#~ msgctxt "game_options"
+#~ msgid "LCD GHOSTING EFFECTS"
+#~ msgstr "LCK重影效应"
+
+#~ msgctxt "game_options"
+#~ msgid "LCD GHOSTING FILTER"
+#~ msgstr "LCD重影过滤器"
+
+#~ msgctxt "game_options"
+#~ msgid "LCD Ghosting (Accurate)"
+#~ msgstr "LCD重影（精确）"
+
+#~ msgctxt "game_options"
+#~ msgid "LCD Ghosting (Fast)"
+#~ msgstr "LCD重影（快速）"
+
+#~ msgctxt "game_options"
+#~ msgid "LIMIT FRAMERATE"
+#~ msgstr "限制帧率"
+
+#~ msgctxt "game_options"
+#~ msgid "LINE MODE"
+#~ msgstr "行扫描模式"
+
+#~ msgctxt "game_options"
+#~ msgid "LLVM Recompiler"
+#~ msgstr "LLVM重新编译"
+
+#~ msgctxt "game_options"
+#~ msgid "LOAD CUSTOM TEXTURES"
+#~ msgstr "加载自定义纹理"
+
+#~ msgctxt "game_options"
+#~ msgid "LYNX MODEL"
+#~ msgstr "LYNX 型号"
+
+#~ msgctxt "game_options"
+#~ msgid "Left stick"
+#~ msgstr "左摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Legacy (laggy)"
+#~ msgstr "传统（laggy)"
+
+#~ msgctxt "game_options"
+#~ msgid "Legacy3D"
+#~ msgstr "传统3D"
+
+#~ msgctxt "game_options"
+#~ msgid "Light (load times)"
+#~ msgstr "光照（加载时）"
+
+#~ msgctxt "game_options"
+#~ msgid "Light Gun"
+#~ msgstr "光枪"
+
+#~ msgctxt "game_options"
+#~ msgid "Light Phaser"
+#~ msgstr "光源"
+
+#~ msgctxt "game_options"
+#~ msgid "Lightgun device must be selected on at least one port."
+#~ msgstr "至少一个端口上选择光枪设备"
+
+#~ msgctxt "game_options"
+#~ msgid "Lightguns can only be used in port 2."
+#~ msgstr "光枪只能用在端口2上"
+
+#~ msgctxt "game_options"
+#~ msgid "Lightguns/multitap."
+#~ msgstr "光枪/多点"
+
+#~ msgctxt "game_options"
+#~ msgid "Lightrec Interpreter"
+#~ msgstr "多点编译器"
+
+#~ msgctxt "game_options"
+#~ msgid "Low"
+#~ msgstr "慢(低)"
+
+#~ msgctxt "game_options"
+#~ msgid "Low 360p"
+#~ msgstr "低 360P"
+
+#~ msgctxt "game_options"
+#~ msgid "Lunar Ignore Brightness Color Fix"
+#~ msgstr "修正忽略阴极的彩色亮度"
+
+#~ msgctxt "game_options"
+#~ msgid "Lynx 128k (Default)"
+#~ msgstr "Lynx 128k (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "MAC MODEL"
+#~ msgstr "MAC 型号"
+
+#~ msgctxt "game_options"
+#~ msgid "MAME Detect"
+#~ msgstr "MAME侦测"
+
+#~ msgctxt "game_options"
+#~ msgid "MANUAL GAMEFIXES"
+#~ msgstr "手动修正游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "MAX (as many as possible)"
+#~ msgstr "最大/满(尽可能多）"
+
+#~ msgctxt "game_options"
+#~ msgid "MEDIA TYPE"
+#~ msgstr "媒体类型"
+
+#~ msgctxt "game_options"
+#~ msgid "MEMORY CARD MODE"
+#~ msgstr "记忆卡模式"
+
+#~ msgctxt "game_options"
+#~ msgid "MEMORY MANAGEMENT UNIT"
+#~ msgstr "记忆卡管理单元"
+
+#~ msgctxt "game_options"
+#~ msgid "MICRO VU SPEED HACKS"
+#~ msgstr "MICRO VU SPEED HACKS（微VU速度黑入）"
+
+#~ msgctxt "game_options"
+#~ msgid "MODEL"
+#~ msgstr "型号"
+
+#~ msgctxt "game_options"
+#~ msgid "MODEL TYPE"
+#~ msgstr "制式类型"
+
+#~ msgctxt "game_options"
+#~ msgid "MODERN PEDAL CONTROLS"
+#~ msgstr "近代PEDAL控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "MONSTERS"
+#~ msgstr "怪物（恶魔）"
+
+#~ msgctxt "game_options"
+#~ msgid "MOUSE AS WIIMOTE POINTER"
+#~ msgstr "用鼠标做为WiiMOTE点"
+
+#~ msgctxt "game_options"
+#~ msgid "MOUSE SPEED"
+#~ msgstr "鼠标速度"
+
+#~ msgctxt "game_options"
+#~ msgid "MSAA (default)"
+#~ msgstr "MSAA (默认)多重采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "MULTITAP"
+#~ msgstr "多重"
+
+#~ msgctxt "game_options"
+#~ msgid "Mac Harddisks"
+#~ msgstr "Mac 硬盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Macintosh 400K/800K Disk images"
+#~ msgstr "Macintosh 400K/800K 磁盘镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "Macintosh High Density Disk images"
+#~ msgstr "Macintosh High Density 磁盘镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "Makes second fire button press up instead."
+#~ msgstr "设置第二个开火按键（上压时）"
+
+#~ msgctxt "game_options"
+#~ msgid "Makes the blue button press up instead."
+#~ msgstr "设置蓝色按键（上压时）"
+
+#~ msgctxt "game_options"
+#~ msgid "Manual"
+#~ msgstr "手册"
+
+#~ msgctxt "game_options"
+#~ msgid "Manual keyboard"
+#~ msgstr "键盘使用手册"
+
+#~ msgctxt "game_options"
+#~ msgid "Manually activate the adapter for supported games."
+#~ msgstr "手动激活支持游戏的适配器"
+
+#~ msgctxt "game_options"
+#~ msgid "Manually define which internal resolution to use. AUTO = High."
+#~ msgstr "手动定义要使用的内部分辨率，自动=高"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Manually define which resolution to use.&#x0a;Auto defaults to High and "
+#~ "switches to Super-High when needed."
+#~ msgstr "手动定义要使用的分辨率&#x0a；默认为高，并在需要时切换为超高"
+
+#~ msgctxt "game_options"
+#~ msgid "Manually set cycles per second. Use with caution."
+#~ msgstr "手动设置每秒的循环次数，谨慎使用"
+
+#~ msgctxt "game_options"
+#~ msgid "Map controller inputs to lightgun inputs"
+#~ msgstr "将控制器输入映射到光枪输入"
+
+#~ msgctxt "game_options"
+#~ msgid "Map your controller to an emulated Wiimote."
+#~ msgstr "将控制器映射到模拟Wiimote"
+
+#~ msgctxt "game_options"
+#~ msgid "Max (demanding games)"
+#~ msgstr "最大（要示严格游戏）"
+
+#~ msgctxt "game_options"
+#~ msgid "Max Performance"
+#~ msgstr "最强性能"
+
+#~ msgctxt "game_options"
+#~ msgid "May help to fix choppy audio on weaker CPUs."
+#~ msgstr "可能有助于修复老CPU上的杂音"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "May not work well on all hardware. Hybrid is preferred, where supported."
+#~ msgstr "可能无法在所有硬件上正常工作。如果支持，则首选混合"
+
+#~ msgctxt "game_options"
+#~ msgid "Medium"
+#~ msgstr "中等"
+
+#~ msgctxt "game_options"
+#~ msgid "Megadrive (8 Buttons)"
+#~ msgstr "Megadrive (MD 8 键)"
+
+#~ msgctxt "game_options"
+#~ msgid "Memory Pak"
+#~ msgstr "记忆卡PAK"
+
+#~ msgctxt "game_options"
+#~ msgid "Menacer Light Gun"
+#~ msgstr "Menacer 光枪"
+
+#~ msgctxt "game_options"
+#~ msgid "Merge"
+#~ msgstr "合并"
+
+#~ msgctxt "game_options"
+#~ msgid "Microcosm"
+#~ msgstr "小规模"
+
+#~ msgctxt "game_options"
+#~ msgid "Mirrored"
+#~ msgstr "镜像（反面）"
+
+#~ msgctxt "game_options"
+#~ msgid "Modern Fightstick Style"
+#~ msgstr "现在格斗摇杆风格"
+
+#~ msgctxt "game_options"
+#~ msgid "Monochrome (Blargg)"
+#~ msgstr "黑白（BLARGG）"
+
+#~ msgctxt "game_options"
+#~ msgid "More accurate emulation, but slower."
+#~ msgstr "更精确的模拟，速度较慢"
+
+#~ msgctxt "game_options"
+#~ msgid "More compatible"
+#~ msgstr "兼容性更强"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Most games already have an internal framelimit. Minor performance cost."
+#~ msgstr "大多数游戏已经有了内部框架限制，较小的系统占用率"
+
+#~ msgctxt "game_options"
+#~ msgid "Most games use port 2, some use port 1."
+#~ msgstr "大多游戏使用PORT2，有些用PORT1"
+
+#~ msgctxt "game_options"
+#~ msgid "Mouse"
+#~ msgstr "仿真鼠标光标"
+
+#~ msgctxt "game_options"
+#~ msgid "Mouse (1351)"
+#~ msgstr "鼠标 (1351)"
+
+#~ msgctxt "game_options"
+#~ msgid "Much faster than interpreter (but may have issues)."
+#~ msgstr "比编译器快(有可能出现问题)."
+
+#~ msgctxt "game_options"
+#~ msgid "N64 3-point"
+#~ msgstr "N64 3-point(3荧光管）"
+
+#~ msgctxt "game_options"
+#~ msgid "NES Gamepad"
+#~ msgstr "NES 手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "NES Zapper"
+#~ msgstr "NES 遥控器"
+
+#~ msgctxt "game_options"
+#~ msgid "NEW 3DS MODE"
+#~ msgstr "新的3DS 模式"
+
+#~ msgctxt "game_options"
+#~ msgid "NO (DEFAULT)"
+#~ msgstr "不（否）(默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "NO WRITE WATCH"
+#~ msgstr "未写入手表"
+
+#~ msgctxt "game_options"
+#~ msgid "NORTH EAST"
+#~ msgstr "东北"
+
+#~ msgctxt "game_options"
+#~ msgid "NORTH WEST"
+#~ msgstr "西北"
+
+#~ msgctxt "game_options"
+#~ msgid "NTSC (Default)"
+#~ msgstr "NTSC制式 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "NTSC (NES)"
+#~ msgstr "NTSC (NES)"
+
+#~ msgctxt "game_options"
+#~ msgid "NTSC FILTER"
+#~ msgstr "NTSC FILTER（NTSC过滤器）"
+
+#~ msgctxt "game_options"
+#~ msgid "NTSC-J"
+#~ msgstr "NTSC-J（日式）"
+
+#~ msgctxt "game_options"
+#~ msgid "NTSC-U/C"
+#~ msgstr "NTSC-U/C（美)"
+
+#~ msgctxt "game_options"
+#~ msgid "Namco GunCon"
+#~ msgstr "Namco GunCon(光枪）"
+
+#~ msgctxt "game_options"
+#~ msgid "Namco GunCon (Rumble)"
+#~ msgstr "Namco GunCon (带喇叭)"
+
+#~ msgctxt "game_options"
+#~ msgid "Native (400x240)"
+#~ msgstr "原始 (400x240)"
+
+#~ msgctxt "game_options"
+#~ msgid "Natural (Default)"
+#~ msgstr "Natural (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "NeGcon (Rumble)"
+#~ msgstr "NeGcon (带喇叭)"
+
+#~ msgctxt "game_options"
+#~ msgid "Nearest"
+#~ msgstr "邻近"
+
+#~ msgctxt "game_options"
+#~ msgid "Nearest Neighbour"
+#~ msgstr "Nearest Neighbour（邻近取样）"
+
+#~ msgctxt "game_options"
+#~ msgid "Nearest-Neighbor"
+#~ msgstr "Nearest-Neighbor（邻近取样）"
+
+#~ msgctxt "game_options"
+#~ msgid "Needed by some games that use special unicode characters."
+#~ msgstr "一些使用特殊unicode字符的游戏需要用到"
+
+#~ msgctxt "game_options"
+#~ msgid "Neo Geo CD Pad"
+#~ msgstr "Neo Geo CD 手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "Neo Geo Mini Pad"
+#~ msgstr "Neo Geo Mini Pad（手柄）"
+
+#~ msgctxt "game_options"
+#~ msgid "No Limitation"
+#~ msgstr "无限制"
+
+#~ msgctxt "game_options"
+#~ msgid "No Ubershaders"
+#~ msgstr "不使用UBER着色器"
+
+#~ msgctxt "game_options"
+#~ msgid "No skipping"
+#~ msgstr "不允许跳过"
+
+#~ msgctxt "game_options"
+#~ msgid "None"
+#~ msgstr "无"
+
+#~ msgctxt "game_options"
+#~ msgid "Normal"
+#~ msgstr "一般"
+
+#~ msgctxt "game_options"
+#~ msgid "Normal (interpreter)"
+#~ msgstr "一般(interpreter编译器)"
+
+#~ msgctxt "game_options"
+#~ msgid "Norway"
+#~ msgstr "挪威"
+
+#~ msgctxt "game_options"
+#~ msgid "OFF"
+#~ msgstr "关"
+
+#~ msgctxt "game_options"
+#~ msgid "OPH Flag hack (Try if game freezes)"
+#~ msgstr "OPH Flag hack (如果游戏卡死可以试)"
+
+#~ msgctxt "game_options"
+#~ msgid "OVERCLOCK (UNSTABLE)"
+#~ msgstr "超频（不稳定）"
+
+#~ msgctxt "game_options"
+#~ msgid "OVERCLOCK MULTIPLIER"
+#~ msgstr "超频倍率"
+
+#~ msgctxt "game_options"
+#~ msgid "OVERCLOCK TYPE"
+#~ msgstr "超频类型"
+
+#~ msgctxt "game_options"
+#~ msgid "OVERSIZE OVERLAY (SINGE)"
+#~ msgstr "全部覆盖（单面）"
+
+#~ msgctxt "game_options"
+#~ msgid "Off"
+#~ msgstr "关"
+
+#~ msgctxt "game_options"
+#~ msgid "Off (Default)"
+#~ msgstr "关 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "Off (default)"
+#~ msgstr "关 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "Off (faster, unstable)"
+#~ msgstr "关 (更快，不稳定)"
+
+#~ msgctxt "game_options"
+#~ msgid "Off at Start"
+#~ msgstr "启动时关掉"
+
+#~ msgctxt "game_options"
+#~ msgid "Off is safer, On for specific games."
+#~ msgstr "关了更安全，某些指定游戏要用"
+
+#~ msgctxt "game_options"
+#~ msgid "Off will help some games, others will run too fast."
+#~ msgstr "半了有助一些指定游戏，其它会运行过快"
+
+#~ msgctxt "game_options"
+#~ msgid "Older games skipped drawing every second line, this masks that."
+#~ msgstr "老游戏跳过所有二线，这个可以修正"
+
+#~ msgctxt "game_options"
+#~ msgid "On (Default)"
+#~ msgstr "打开（默认）"
+
+#~ msgctxt "game_options"
+#~ msgid "On (Speed hack)"
+#~ msgstr "打开（速度HACK）"
+
+#~ msgctxt "game_options"
+#~ msgid "On (forced)"
+#~ msgstr "打开（强制）"
+
+#~ msgctxt "game_options"
+#~ msgid "On (slower)"
+#~ msgstr "打开（很慢）"
+
+#~ msgctxt "game_options"
+#~ msgid "On at Start"
+#~ msgstr "启动时打开"
+
+#~ msgctxt "game_options"
+#~ msgid "On with game detection message"
+#~ msgstr "打开用于游戏信息检测"
+
+#~ msgctxt "game_options"
+#~ msgid "On with rewind support"
+#~ msgstr "打开和回放功能一起支持"
+
+#~ msgctxt "game_options"
+#~ msgid "Only Async (skip draw) avoids freezing while compiling shaders."
+#~ msgstr "编译着色器时，只有ASYNC（跳过绘制）可以避免卡死"
+
+#~ msgctxt "game_options"
+#~ msgid "Only Overscan Area"
+#~ msgstr "只有过扫描区域"
+
+#~ msgctxt "game_options"
+#~ msgid "Only for Super Game Boy enhanced games."
+#~ msgstr "仅适用于超级ame boy增强型游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Only for games that employed it (for Boktai)"
+#~ msgstr "仅适用于使用它的游戏(botkai)"
+
+#~ msgctxt "game_options"
+#~ msgid "Only some games feature rumble. Not compatible with all controllers."
+#~ msgstr "只有一些游戏支持手柄喇叭，不是所有手柄都支持"
+
+#~ msgctxt "game_options"
+#~ msgid "Only supported games. Higher settings increase system requirements."
+#~ msgstr "只支持游戏，更高的设置要求更强的主机配置"
+
+#~ msgctxt "game_options"
+#~ msgid "OpenGL"
+#~ msgstr "OpenGL"
+
+#~ msgctxt "game_options"
+#~ msgid "OpenGL (Default)"
+#~ msgstr "OpenGL (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "Optimized (auto)"
+#~ msgstr "优化（自动）"
+
+#~ msgctxt "game_options"
+#~ msgid "Original Hardware (FirebrandX)"
+#~ msgstr "原装硬件(FirebrandX)"
+
+#~ msgctxt "game_options"
+#~ msgid "Original resolution"
+#~ msgstr "原始分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "Overclock the SNES CPU (Gradius 3, Super R-Type)."
+#~ msgstr "超频SNES CPU(Gradius 3, Super R-Type)."
+
+#~ msgctxt "game_options"
+#~ msgid "P1 & P2"
+#~ msgstr "玩家1和玩家2"
+
+#~ msgctxt "game_options"
+#~ msgid "P1 only"
+#~ msgstr "仅玩家1"
+
+#~ msgctxt "game_options"
+#~ msgid "P2 only"
+#~ msgstr "仅玩家2"
+
+#~ msgctxt "game_options"
+#~ msgid "PAUSE ON TRANSLATED SCREEN"
+#~ msgstr "翻译时暂停"
+
+#~ msgctxt "game_options"
+#~ msgid "PC MODEL"
+#~ msgstr "PC型号"
+
+#~ msgctxt "game_options"
+#~ msgid "PCE Joypad"
+#~ msgstr "PCE 摇杆（控制器）"
+
+#~ msgctxt "game_options"
+#~ msgid "PCE Mouse"
+#~ msgstr "PCE 鼠标"
+
+#~ msgctxt "game_options"
+#~ msgid "PDP-1 Paper Tape Reader Images"
+#~ msgstr "PDP-1 Paper Tape Reader 镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "PER-GAME SAVES"
+#~ msgstr "各游戏存档"
+
+#~ msgctxt "game_options"
+#~ msgid "PERFORMANCE HACKS"
+#~ msgstr "性能HACKS"
+
+#~ msgctxt "game_options"
+#~ msgid "PERFORMANCE HACKS (needs review)"
+#~ msgstr "性能HACKS（要验证）"
+
+#~ msgctxt "game_options"
+#~ msgid "PHYSICAL KEYBOARD LAYOUT"
+#~ msgstr "物理键盘布局"
+
+#~ msgctxt "game_options"
+#~ msgid "POLYGON SORT ACCURACY"
+#~ msgstr "几何图排列精度"
+
+#~ msgctxt "game_options"
+#~ msgid "PRE-CACHE SHADERS"
+#~ msgstr "各着色器缓存"
+
+#~ msgctxt "game_options"
+#~ msgid "PREFERRED AV DECODER"
+#~ msgstr "首选AV解码器"
+
+#~ msgctxt "game_options"
+#~ msgid "PREFERRED SPU THREADS"
+#~ msgstr "首选 SPU 编译器"
+
+#~ msgctxt "game_options"
+#~ msgid "PS1 Analog Joystick"
+#~ msgstr "PS1 模拟手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "PS1 Digital Controller"
+#~ msgstr "PS1 数字手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "PS2's internal ratio setting. Some games only support 4/3."
+#~ msgstr "PS2的内部比率设置，有些游戏只支持4:3"
+
+#~ msgctxt "game_options"
+#~ msgid "PS3's internal ratio setting. Some games only support 16/9."
+#~ msgstr "PS3的内部比率设置，有些游戏只支持16:9"
+
+#~ msgctxt "game_options"
+#~ msgid "PVM Style (FirebrandX)"
+#~ msgstr "PVM 风格（FirebrandX)"
+
+#~ msgctxt "game_options"
+#~ msgid "Paddle Control"
+#~ msgstr "Paddle Control(控制器）"
+
+#~ msgctxt "game_options"
+#~ msgid "Paddle can only be used in port 2."
+#~ msgstr "Paddle 只能用在port 2."
+
+#~ msgctxt "game_options"
+#~ msgid "Pandemonium 2 Lazy Screen Update Fix"
+#~ msgstr "Pandemonium 2 修复更新惰性屏幕"
+
+#~ msgctxt "game_options"
+#~ msgid "Passes all physical keyboard events for Pad2Key."
+#~ msgstr "所有手柄映射键盘通过物理直通"
+
+#~ msgctxt "game_options"
+#~ msgid "Pentium (slow)"
+#~ msgstr "Pentium (慢)"
+
+#~ msgctxt "game_options"
+#~ msgid "Per-game"
+#~ msgstr "每个游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Performance"
+#~ msgstr "专业信息显示（显示每个核心运行速度）"
+
+#~ msgctxt "game_options"
+#~ msgid "PlayStation Mouse"
+#~ msgstr "PlayStation 鼠标"
+
+#~ msgctxt "game_options"
+#~ msgid "Poland"
+#~ msgstr "波兰"
+
+#~ msgctxt "game_options"
+#~ msgid "Port 1"
+#~ msgstr "Port 1（端口1）"
+
+#~ msgctxt "game_options"
+#~ msgid "Port 1+2"
+#~ msgstr "Port 1+2（端口1+2）"
+
+#~ msgctxt "game_options"
+#~ msgid "Port 2"
+#~ msgstr "Port 2（端口2）"
+
+#~ msgctxt "game_options"
+#~ msgid "Port1"
+#~ msgstr "Port 1（端口1）"
+
+#~ msgctxt "game_options"
+#~ msgid "Port1+2"
+#~ msgstr "Port 1+2"
+
+#~ msgctxt "game_options"
+#~ msgid "Port2"
+#~ msgstr "Port 2（端口2）"
+
+#~ msgctxt "game_options"
+#~ msgid "Portugal"
+#~ msgstr "葡萄牙"
+
+#~ msgctxt "game_options"
+#~ msgid "Portugese"
+#~ msgstr "葡萄牙语"
+
+#~ msgctxt "game_options"
+#~ msgid "Potator - Blue"
+#~ msgstr "Potator - Blue（蓝）"
+
+#~ msgctxt "game_options"
+#~ msgid "Potator - Green"
+#~ msgstr "Potator - Green（绿）"
+
+#~ msgctxt "game_options"
+#~ msgid "Potator - Green - BGB"
+#~ msgstr "Potator - Green （绿） BGB"
+
+#~ msgctxt "game_options"
+#~ msgid "Potator - Green Wataroo"
+#~ msgstr "Potator - Green（绿）Wataroo"
+
+#~ msgctxt "game_options"
+#~ msgid "Potator - Orangish - Amber"
+#~ msgstr "Potator - Orangish（橙） - Amber"
+
+#~ msgctxt "game_options"
+#~ msgid "Precise Interpreter"
+#~ msgstr "精确编译"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Prefer \"Before NMI\", change to After NMI only if needed by the game."
+#~ msgstr "优先”NMI之前“，有需要再改”NMI之后“"
+
+#~ msgctxt "game_options"
+#~ msgid "Preload"
+#~ msgstr "预加载"
+
+#~ msgctxt "game_options"
+#~ msgid "Preload TLB hack to avoid tlb miss on Goemon"
+#~ msgstr "预加载TLB hack以避免Goemon上的TLB未命中"
+
+#~ msgctxt "game_options"
+#~ msgid "Preload requires more RAM."
+#~ msgstr "预加载需要更多的内存"
+
+#~ msgctxt "game_options"
+#~ msgid "Preloading is impossible from ES."
+#~ msgstr "ES不可能预加载"
+
+#~ msgctxt "game_options"
+#~ msgid "Pro Controller required for games that require shake motions."
+#~ msgstr "需要晃动动作的游戏需要 NS Pro控制器（支持陀螺仪）"
+
+#~ msgctxt "game_options"
+#~ msgid "Produces a clean LCD effect."
+#~ msgstr "生成清理LCD效果"
+
+#~ msgctxt "game_options"
+#~ msgid "QUAD RENDERING"
+#~ msgstr "四向着色法"
+
+#~ msgctxt "game_options"
+#~ msgid "QUIT ON HOST"
+#~ msgstr "主机上退出"
+
+#~ msgctxt "game_options"
+#~ msgid "Quickload"
+#~ msgstr "快速加载"
+
+#~ msgctxt "game_options"
+#~ msgid "RAM SIZE"
+#~ msgstr "内存大小"
+
+#~ msgctxt "game_options"
+#~ msgid "REAL PALETTES"
+#~ msgstr "真调色板"
+
+#~ msgctxt "game_options"
+#~ msgid "REDUCE SPRITE FLICKERING"
+#~ msgstr "减少 SPRITE 闪烁"
+
+#~ msgctxt "game_options"
+#~ msgid "REDUCE SPRITE FLICKERING (UNSTABLE)"
+#~ msgstr "REDUCE SPRITE FLICKERING（不稳定）"
+
+#~ msgctxt "game_options"
+#~ msgid "REGION"
+#~ msgstr "区域"
+
+#~ msgctxt "game_options"
+#~ msgid "REMOVE INTERLACE ARTIFACTS"
+#~ msgstr "移除隔行复古扫描线"
+
+#~ msgctxt "game_options"
+#~ msgid "REMOVE SCANLINES"
+#~ msgstr "移除扫描线"
+
+#~ msgctxt "game_options"
+#~ msgid "RENDER RESOLUTION"
+#~ msgstr "渲染分辨率(内部）"
+
+#~ msgctxt "game_options"
+#~ msgid "RENDER TO TEXTURE UPSCALING"
+#~ msgstr "纹理放大渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "RENDERING MODE"
+#~ msgstr "渲染模式"
+
+#~ msgctxt "game_options"
+#~ msgid "RENDERING RESOLUTION"
+#~ msgstr "渲染分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "RESIZE TATTOO"
+#~ msgstr "调整花纹大小"
+
+#~ msgctxt "game_options"
+#~ msgid "RESOLUTION MULTIPLIER"
+#~ msgstr "分辨率倍增器"
+
+#~ msgctxt "game_options"
+#~ msgid "REWIND"
+#~ msgstr "录像回放功能"
+
+#~ msgctxt "game_options"
+#~ msgid "ROM (Slot 1)"
+#~ msgstr "ROM (接口 1)"
+
+#~ msgctxt "game_options"
+#~ msgid "ROM (Slot 2)"
+#~ msgstr "ROM (接口 2)"
+
+#~ msgctxt "game_options"
+#~ msgid "ROM (Slot 3)"
+#~ msgstr "ROM (接口 3)"
+
+#~ msgctxt "game_options"
+#~ msgid "ROM (Slot 4)"
+#~ msgstr "ROM (接口 4)"
+
+#~ msgctxt "game_options"
+#~ msgid "ROTATE SCREEN 90 DEGREES"
+#~ msgstr "屏幕旋转90度"
+
+#~ msgctxt "game_options"
+#~ msgid "RU"
+#~ msgstr "俄罗斯"
+
+#~ msgctxt "game_options"
+#~ msgid "RUMBLE"
+#~ msgstr "轰鸣（带喇叭的手柄）"
+
+#~ msgctxt "game_options"
+#~ msgid "RUN-AHEAD FRAMES"
+#~ msgstr "RUN-AHEAD 框架"
+
+#~ msgctxt "game_options"
+#~ msgid "Random Values"
+#~ msgstr "随机值"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Read mouse through Rawinput, allowing 2 mice for 2 player shooting games."
+#~ msgstr "通过RAW读取鼠标，允许2只鼠标进行2人射击游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Recompiler (Fastest)"
+#~ msgstr "重新编译（最快）"
+
+#~ msgctxt "game_options"
+#~ msgid "Reduce load time at the cost of accuracy."
+#~ msgstr "降低精度来提升加载速度"
+
+#~ msgctxt "game_options"
+#~ msgid "Reduce stutter that happens when compiling shaders."
+#~ msgstr "减少编译着色器时的卡顿"
+
+#~ msgctxt "game_options"
+#~ msgid "Regular Bilnear"
+#~ msgstr "常规双线性"
+
+#~ msgctxt "game_options"
+#~ msgid "Remove lines in internal resolution (fixes Soul Calibur)."
+#~ msgstr "删除内部分辨率中的扫描线（修正 Soul calibur)"
+
+#~ msgctxt "game_options"
+#~ msgid "Removes loading but can add possible glitches/crashes."
+#~ msgstr "删除加载，但可能会故障/崩溃"
+
+#~ msgctxt "game_options"
+#~ msgid "Renders game at a lower res then upscales to increase FPS."
+#~ msgstr "以较低的分辨率渲染游戏，增加FPS"
+
+#~ msgctxt "game_options"
+#~ msgid "Required by some games."
+#~ msgstr "某些游戏需要"
+
+#~ msgctxt "game_options"
+#~ msgid "Required for certain visual effects."
+#~ msgstr "某些游戏需要,某些特效需要"
+
+#~ msgctxt "game_options"
+#~ msgid "Required for some games."
+#~ msgstr "有些游戏需要"
+
+#~ msgctxt "game_options"
+#~ msgid "Required for some homebrew."
+#~ msgstr "有些自制游戏需要"
+
+#~ msgctxt "game_options"
+#~ msgid "Requires BIOS file to be present."
+#~ msgstr "要求有BIOS文件"
+
+#~ msgctxt "game_options"
+#~ msgid "Resize automatically screen height."
+#~ msgstr "自动调整屏幕高度"
+
+#~ msgctxt "game_options"
+#~ msgid "Resolution multipliers to smooth vectors"
+#~ msgstr "平滑成倍分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "Restore BLENDMODE outline on Singe sprites."
+#~ msgstr "在singe sprites恢复  BLENDMODE"
+
+#~ msgctxt "game_options"
+#~ msgid "RetroPad Face Button Options."
+#~ msgstr "RetroPad正按按键设置"
+
+#~ msgctxt "game_options"
+#~ msgid "Rewind can be CPU heavy."
+#~ msgstr "回放会增加CPU负载"
+
+#~ msgctxt "game_options"
+#~ msgid "Right stick"
+#~ msgstr "右摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotate"
+#~ msgstr "翻转"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotate 270"
+#~ msgstr "翻转270度"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotate 90"
+#~ msgstr "翻转90度"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotate the screen by 90 degrees."
+#~ msgstr "将屏幕旋转90度"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotate the screen with the emulator."
+#~ msgstr "用模拟器翻转屏幕"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotate the screen, useful for certain vertical gameplay homebrews."
+#~ msgstr "旋转屏幕，对某些垂直画面游戏有用"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotated 4-Way Stick (Q*Bert)"
+#~ msgstr "Rotated 4-Way Stick (Q*Bert)（旋转四向杆）"
+
+#~ msgctxt "game_options"
+#~ msgid "Rotates screen by 90 degrees. Intended for rotating displays."
+#~ msgstr "将屏幕旋转90度，用于旋转显示器"
+
+#~ msgctxt "game_options"
+#~ msgid "Rumble Pak"
+#~ msgstr "Rumble Pak（震动包）"
+
+#~ msgctxt "game_options"
+#~ msgid "Russia"
+#~ msgstr "俄罗斯"
+
+#~ msgctxt "game_options"
+#~ msgid "Russian"
+#~ msgstr "俄罗斯语"
+
+#~ msgctxt "game_options"
+#~ msgid "SAVESTATE/REWIND"
+#~ msgstr "保存状态/回放"
+
+#~ msgctxt "game_options"
+#~ msgid "SCALING METHOD"
+#~ msgstr "缩放算法"
+
+#~ msgctxt "game_options"
+#~ msgid "SCALING MODE"
+#~ msgstr "缩放模式"
+
+#~ msgctxt "game_options"
+#~ msgid "SCREEN LAYOUT"
+#~ msgstr "更改屏幕布局"
+
+#~ msgctxt "game_options"
+#~ msgid "SCREEN ORIENTATION"
+#~ msgstr "屏幕方向"
+
+#~ msgctxt "game_options"
+#~ msgid "SCREEN RATIO"
+#~ msgstr "屏幕比例"
+
+#~ msgctxt "game_options"
+#~ msgid "SCREEN ROTATION"
+#~ msgstr "屏幕旋转"
+
+#~ msgctxt "game_options"
+#~ msgid "SCREEN SIZE"
+#~ msgstr "屏幕大小"
+
+#~ msgctxt "game_options"
+#~ msgid "SCREEN SIZING"
+#~ msgstr "屏幕尺寸"
+
+#~ msgctxt "game_options"
+#~ msgid "SCREEN SWAP"
+#~ msgstr "屏幕替换"
+
+#~ msgctxt "game_options"
+#~ msgid "SENSOR SENSITIVITY (GYROSCOPE)"
+#~ msgstr "传感器灵敏度（陀螺仪）"
+
+#~ msgctxt "game_options"
+#~ msgid "SENSOR SENSITIVITY (TILT)"
+#~ msgstr "传感器灵敏度（体感）倾斜"
+
+#~ msgctxt "game_options"
+#~ msgid "SHADER MODE"
+#~ msgstr "着色器模式"
+
+#~ msgctxt "game_options"
+#~ msgid "SHADER SET"
+#~ msgstr "着色器设置"
+
+#~ msgctxt "game_options"
+#~ msgid "SHARE MAME ARTWORK"
+#~ msgstr "SHARE MAME ARTWORK（共用街机美化）"
+
+#~ msgctxt "game_options"
+#~ msgid "SHOW BIOS BOOTLOGO"
+#~ msgstr "显示BIOS启动LOGO"
+
+#~ msgctxt "game_options"
+#~ msgid "SHOW LIGHTGUN CROSSHAIRS"
+#~ msgstr "显示光枪准星"
+
+#~ msgctxt "game_options"
+#~ msgid "SHOW TATTOO OVER BEZEL"
+#~ msgstr "在框架上显示 花纹"
+
+#~ msgctxt "game_options"
+#~ msgid "SINGLE"
+#~ msgstr "单个（单行扫描）"
+
+#~ msgctxt "game_options"
+#~ msgid "SIO ACCELERATION"
+#~ msgstr "SIO加速"
+
+#~ msgctxt "game_options"
+#~ msgid "SKIP DS SYSTEM MENU"
+#~ msgstr "跳过DS 菜单"
+
+#~ msgctxt "game_options"
+#~ msgid "SKIP START MENU"
+#~ msgstr "跳过启动菜单"
+
+#~ msgctxt "game_options"
+#~ msgid "SKIPDRAW HACK"
+#~ msgstr "跳过渲染（HACK)"
+
+#~ msgctxt "game_options"
+#~ msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+#~ msgstr "平滑游戏（双线性过滤）"
+
+#~ msgctxt "game_options"
+#~ msgid "SNES Gamepad"
+#~ msgstr "SNES Gamepad手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "SNES Mouse"
+#~ msgstr "SNES 鼠标"
+
+#~ msgctxt "game_options"
+#~ msgid "SNES Multitap"
+#~ msgstr "SNES Multitap接口"
+
+#~ msgctxt "game_options"
+#~ msgid "SNES Style"
+#~ msgstr "SNES Style风格"
+
+#~ msgctxt "game_options"
+#~ msgid "SOFTWARE LIST"
+#~ msgstr "软件列表"
+
+#~ msgctxt "game_options"
+#~ msgid "SOLAR SENSOR LEVEL"
+#~ msgstr "阳极感应等级"
+
+#~ msgctxt "game_options"
+#~ msgid "SOUND BOARD"
+#~ msgstr "声卡（声音板）"
+
+#~ msgctxt "game_options"
+#~ msgid "SOUND QUALITY"
+#~ msgstr "声音品质"
+
+#~ msgctxt "game_options"
+#~ msgid "SOUTH EAST"
+#~ msgstr "东南"
+
+#~ msgctxt "game_options"
+#~ msgid "SOUTH WEST"
+#~ msgstr "西南"
+
+#~ msgctxt "game_options"
+#~ msgid "SPECIAL CONTROL LAYOUTS"
+#~ msgstr "特殊手柄/摇杆布局"
+
+#~ msgctxt "game_options"
+#~ msgid "SPECIFIC GAME FIXES"
+#~ msgstr "具体游戏修正"
+
+#~ msgctxt "game_options"
+#~ msgid "SPEECH MODULE"
+#~ msgstr "语音识别模块"
+
+#~ msgctxt "game_options"
+#~ msgid "SPEED HACK (SAFE)"
+#~ msgstr "速度HACK（安全）"
+
+#~ msgctxt "game_options"
+#~ msgid "SPINDASH TYPE"
+#~ msgstr "SPINDASH类型"
+
+#~ msgctxt "game_options"
+#~ msgid "SPU DECODER"
+#~ msgstr "SPU解码"
+
+#~ msgctxt "game_options"
+#~ msgid "SSAA"
+#~ msgstr "SSAA超级采样抗锯齿"
+
+#~ msgctxt "game_options"
+#~ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+#~ msgstr "弹性挡板（4K和超宽）"
+
+#~ msgctxt "game_options"
+#~ msgid "STRETCH TO DISPLAY AREA"
+#~ msgstr "延伸显示区域"
+
+#~ msgctxt "game_options"
+#~ msgid "SUPER FX OVERCLOCK"
+#~ msgstr "超级FX 超频"
+
+#~ msgctxt "game_options"
+#~ msgid "SWAP GAMEPADS"
+#~ msgstr "SWAP 控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "SYNC SAVE FILES"
+#~ msgstr "SYNC存档文件"
+
+#~ msgctxt "game_options"
+#~ msgid "SYNCHRONOUS RENDERING"
+#~ msgstr "同步渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "SYSTEM CONTROLLERS"
+#~ msgstr "机子手柄（控制器）"
+
+#~ msgctxt "game_options"
+#~ msgid "Scale to best fit"
+#~ msgstr "按最佳比例缩放"
+
+#~ msgctxt "game_options"
+#~ msgid "Search for custom configured joystick profiles."
+#~ msgstr "搜索自定义配置的手柄（摇杆）配置文件"
+
+#~ msgctxt "game_options"
+#~ msgid "See your FPS and version of Vulkan API/driver."
+#~ msgstr "在vulkan驱动/API下显示FPS和信息"
+
+#~ msgctxt "game_options"
+#~ msgid "Select Keyboard, Joystick or Gamepad mode"
+#~ msgstr "选择键盘，摇杆 或者手柄的模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Select a boot disk or hard drive if needed"
+#~ msgstr "如果需要可以选择一个启动硬盘"
+
+#~ msgctxt "game_options"
+#~ msgid "Select controller type for Amiga P1."
+#~ msgstr "为amiga P1选择控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid "Select controller type for Amiga P2."
+#~ msgstr "为amiga P2选择控制器类型"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Select model of Mac (Recommendations are Mac Plus for B&W, Mac LC 3 for "
+#~ "Color)"
+#~ msgstr ""
+#~ "选择MAC型号 (Recommendations are Mac Plus for B&W, Mac LC 3 for Color)"
+
+#~ msgctxt "game_options"
+#~ msgid "Select model to emulate"
+#~ msgstr "选择模拟器型号"
+
+#~ msgctxt "game_options"
+#~ msgid "Select the model of Color Computer to emulate"
+#~ msgstr "选择要模拟的Color Computer型号"
+
+#~ msgctxt "game_options"
+#~ msgid "Select the processor model."
+#~ msgstr "选择处理器型号"
+
+#~ msgctxt "game_options"
+#~ msgid "Select which Intel CPU to emulate."
+#~ msgstr "选择要模拟的英特尔CPU"
+
+#~ msgctxt "game_options"
+#~ msgid "Selfie"
+#~ msgstr "自拍"
+
+#~ msgctxt "game_options"
+#~ msgid "Set controller 1 and 2 to None to use it standalone."
+#~ msgstr "设置手柄1和2为无，以单独使用"
+
+#~ msgctxt "game_options"
+#~ msgid "Set system-wide controls via MAME menu"
+#~ msgstr "通过MAME菜单设置系统宽度控制"
+
+#~ msgctxt "game_options"
+#~ msgid "Set the color palette to use."
+#~ msgstr "设置要使用的调色板"
+
+#~ msgctxt "game_options"
+#~ msgid "Set the deadzone of the joystick analog sticks."
+#~ msgstr "设置摇杆和手柄模拟杆的死区"
+
+#~ msgctxt "game_options"
+#~ msgid "Sex"
+#~ msgstr "瑟琴"
+
+#~ msgctxt "game_options"
+#~ msgid "Shared"
+#~ msgstr "共享"
+
+#~ msgctxt "game_options"
+#~ msgid "Sharp Bilinear"
+#~ msgstr "夏普 双线性-简单"
+
+#~ msgctxt "game_options"
+#~ msgid "Sharpen"
+#~ msgstr "锐化"
+
+#~ msgctxt "game_options"
+#~ msgid "Sharpen More"
+#~ msgstr "加强锐化"
+
+#~ msgctxt "game_options"
+#~ msgid "Show"
+#~ msgstr "在合辑中显示系统名称"
+
+#~ msgctxt "game_options"
+#~ msgid "Show (specific games)"
+#~ msgstr "显示（特定游戏）"
+
+#~ msgctxt "game_options"
+#~ msgid "Show an image overlaid on top of the bezel."
+#~ msgstr "显示覆盖在挡板顶部的图像"
+
+#~ msgctxt "game_options"
+#~ msgid "Show context-sensitive info over the game."
+#~ msgstr "在游戏中显示相关信息"
+
+#~ msgctxt "game_options"
+#~ msgid "Shrink/expand tattoo to fit within the bezel's border."
+#~ msgstr "收缩/扩展花纹，使其适合嵌框的边框。"
+
+#~ msgctxt "game_options"
+#~ msgid "Simple"
+#~ msgstr "简单"
+
+#~ msgctxt "game_options"
+#~ msgid "Simple (interpreter for old real-mode games)"
+#~ msgstr "简单（为复古游戏进行编译）"
+
+#~ msgctxt "game_options"
+#~ msgid "Simple 2x"
+#~ msgstr "简单2X"
+
+#~ msgctxt "game_options"
+#~ msgid "Simulate LCD color inaccuracy."
+#~ msgstr "模仿LCD颜色不精确的地方"
+
+#~ msgctxt "game_options"
+#~ msgid "Simulate VIF1 FIFO read (Fix slow loading)"
+#~ msgstr "模仿VIF1 FIFO 读取（修正加载慢）"
+
+#~ msgctxt "game_options"
+#~ msgid "Simultaneous"
+#~ msgstr "同步进行"
+
+#~ msgctxt "game_options"
+#~ msgid "Sinclair 1 Joystick"
+#~ msgstr "Sinclair 1 手柄（摇杆）"
+
+#~ msgctxt "game_options"
+#~ msgid "Sinclair 1 controller set to AUTO."
+#~ msgstr "Sinclair 1 手柄设置为自动"
+
+#~ msgctxt "game_options"
+#~ msgid "Sinclair 2 Joystick"
+#~ msgstr "Sinclair 1 手柄（摇杆）"
+
+#~ msgctxt "game_options"
+#~ msgid "Sinclair 2 controller set to AUTO."
+#~ msgstr "Sinclair 2 手柄设置为自动"
+
+#~ msgctxt "game_options"
+#~ msgid "Single"
+#~ msgstr "单个"
+
+#~ msgctxt "game_options"
+#~ msgid "Skip"
+#~ msgstr "跳过"
+
+#~ msgctxt "game_options"
+#~ msgid "Skip (safer)"
+#~ msgstr "跳过（安全）"
+
+#~ msgctxt "game_options"
+#~ msgid "Skip Drawing"
+#~ msgstr "跳过绘制"
+
+#~ msgctxt "game_options"
+#~ msgid "Skip MPEG hack (Skips videos/FMVs that freeze)"
+#~ msgstr "跳过 MPEG hack(跳过视频/FMVS 会卡死）"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Skip buffer disables auto frameskip and renders at display output "
+#~ "resolution."
+#~ msgstr "跳过缓冲区禁用自动帧跳过以显示输出分辨率渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "Skip buffer effects"
+#~ msgstr "跳过缓存区"
+
+#~ msgctxt "game_options"
+#~ msgid "Skip drawing screen effects. Cumulative."
+#~ msgstr "跳过屏幕绘制，累积"
+
+#~ msgctxt "game_options"
+#~ msgid "Skip frames to improve performance, at the cost of choppy motion."
+#~ msgstr "跳帧以提高性能，但可能画面不稳定"
+
+#~ msgctxt "game_options"
+#~ msgid "Skipping it can break some games."
+#~ msgstr "跳过它可能会损坏一些游戏"
+
+#~ msgctxt "game_options"
+#~ msgid "Skynet"
+#~ msgstr "Skynet（防火墙？）"
+
+#~ msgctxt "game_options"
+#~ msgid "Slot A (Default)"
+#~ msgstr "Slot A 接口(默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "Slot B"
+#~ msgstr "Slot B 接口"
+
+#~ msgctxt "game_options"
+#~ msgid "Slot C"
+#~ msgstr "Slot C 接口"
+
+#~ msgctxt "game_options"
+#~ msgid "Slot D"
+#~ msgstr "Slot D 接口"
+
+#~ msgctxt "game_options"
+#~ msgid "Slot E"
+#~ msgstr "Slot E 接口"
+
+#~ msgctxt "game_options"
+#~ msgid "Slovakia"
+#~ msgstr "斯洛伐克"
+
+#~ msgctxt "game_options"
+#~ msgid "Slovenia"
+#~ msgstr "斯洛伐克语"
+
+#~ msgctxt "game_options"
+#~ msgid "Slow down or speed up games as appropriate."
+#~ msgstr "适当放慢或加快游戏速度"
+
+#~ msgctxt "game_options"
+#~ msgid "Small performance increase (may drop frames)."
+#~ msgstr "性能略有提高（可能会降低帧数）"
+
+#~ msgctxt "game_options"
+#~ msgid "Smooth (Linear)"
+#~ msgstr "平滑（线性）"
+
+#~ msgctxt "game_options"
+#~ msgid "Smooth pixels."
+#~ msgstr "像素平滑"
+
+#~ msgctxt "game_options"
+#~ msgid "Smooth textures on 3D objects."
+#~ msgstr "平滑3D纹理贴图"
+
+#~ msgctxt "game_options"
+#~ msgid "Smooth textures on distant 3D objects based on angle."
+#~ msgstr "平滑场景远处3D纹理贴图"
+
+#~ msgctxt "game_options"
+#~ msgid "Smooth textures."
+#~ msgstr "平滑纹理"
+
+#~ msgctxt "game_options"
+#~ msgid "Smooths out textures on 3D objects."
+#~ msgstr "平滑3D对象上的纹理"
+
+#~ msgctxt "game_options"
+#~ msgid "Soften the hash sound effect from some games."
+#~ msgstr "软件处理一些游戏的杂音"
+
+#~ msgctxt "game_options"
+#~ msgid "Software"
+#~ msgstr "软件"
+
+#~ msgctxt "game_options"
+#~ msgid "Some games accept input from port 2 instead of port 1."
+#~ msgstr "有些游戏接受来自 port 2而不是 port 1的输入"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Some games have issues when the animation is shown, others require it."
+#~ msgstr "有些游戏在播放动画时会出现问题，有些则需要"
+
+#~ msgctxt "game_options"
+#~ msgid "Some games rely on this (Apros)."
+#~ msgstr "一些游戏依赖于此（Apros)"
+
+#~ msgctxt "game_options"
+#~ msgid "Spain"
+#~ msgstr "西班牙"
+
+#~ msgctxt "game_options"
+#~ msgid "Spanish"
+#~ msgstr "西班牙语"
+
+#~ msgctxt "game_options"
+#~ msgid "Speech module installed"
+#~ msgstr "已安装语音模块"
+
+#~ msgctxt "game_options"
+#~ msgid "Speed hack for dual core mode to fix some glitches."
+#~ msgstr "速度HACK为双核模式修复一些故障"
+
+#~ msgctxt "game_options"
+#~ msgid "Speed up. Causes visual glitches on first load."
+#~ msgstr "提速，首次加载时会导致显示故障"
+
+#~ msgctxt "game_options"
+#~ msgid "Speeds up file loading. Some games won't load with this."
+#~ msgstr "正在加载提速文件。某些游戏要用"
+
+#~ msgctxt "game_options"
+#~ msgid "Square pixel"
+#~ msgstr "方形像素"
+
+#~ msgctxt "game_options"
+#~ msgid "Stacks with auto gamefixes."
+#~ msgstr "大量游戏自动修正"
+
+#~ msgctxt "game_options"
+#~ msgid "Standard (Default)"
+#~ msgstr "标准的（默认）"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Streaming Optimal Playable Settings, overrides other settings if enabled."
+#~ msgstr "流媒体优化可播放设置，如果启用，将覆盖其他设置"
+
+#~ msgctxt "game_options"
+#~ msgid "Stretch"
+#~ msgstr "弹性挡板（4K和超宽）"
+
+#~ msgctxt "game_options"
+#~ msgid "Stretch games to full-screen, but may distort the aspect ratio"
+#~ msgstr "将游戏拉伸到全屏，但可能会扭曲纵横比"
+
+#~ msgctxt "game_options"
+#~ msgid "Stretch to 16:9"
+#~ msgstr "拉伸到16:9"
+
+#~ msgctxt "game_options"
+#~ msgid "Stretch to full"
+#~ msgstr "完全拉伸"
+
+#~ msgctxt "game_options"
+#~ msgid "Stretch to window"
+#~ msgstr "拉伸到窗口"
+
+#~ msgctxt "game_options"
+#~ msgid "Super Famicom (8 Buttons)"
+#~ msgstr "Super Famicom (8 键)"
+
+#~ msgctxt "game_options"
+#~ msgid "Super Game Boy"
+#~ msgstr "用SGB2模拟SGB,让游戏运行正常速度"
+
+#~ msgctxt "game_options"
+#~ msgid "Super Scope"
+#~ msgstr "超范围"
+
+#~ msgctxt "game_options"
+#~ msgid "Super high"
+#~ msgstr "超高"
+
+#~ msgctxt "game_options"
+#~ msgid "Super-high 1440p"
+#~ msgstr "超高 1440P"
+
+#~ msgctxt "game_options"
+#~ msgid "Swap the Nintendo DS Displays."
+#~ msgstr "切换 Nintendo DS 显示"
+
+#~ msgctxt "game_options"
+#~ msgid "Sweden"
+#~ msgstr "瑞典"
+
+#~ msgctxt "game_options"
+#~ msgid "Switzerland (French)"
+#~ msgstr "瑞士（法语）"
+
+#~ msgctxt "game_options"
+#~ msgid "Switzerland (German)"
+#~ msgstr "瑞士（德语）"
+
+#~ msgctxt "game_options"
+#~ msgid "System requirements at native; (RAM|VRAM)."
+#~ msgstr "本机系统要求（内存/虚拟内存）"
+
+#~ msgctxt "game_options"
+#~ msgid "TARGET LANGUAGE"
+#~ msgstr "目标语言"
+
+#~ msgctxt "game_options"
+#~ msgid "TATTOO CORNER"
+#~ msgstr "花纹角"
+
+#~ msgctxt "game_options"
+#~ msgid "TEAM COLOR MODE"
+#~ msgstr "TEAM COLOR 模式"
+
+#~ msgctxt "game_options"
+#~ msgid "TEST PLAY"
+#~ msgstr "测试运行"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE DEPOSTERIZE"
+#~ msgstr "纹理解吸"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE FILTERING"
+#~ msgstr "纹理过滤"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE FILTERING MODE"
+#~ msgstr "纹理过滤模式"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE MIP-MAPPING (BLUR)"
+#~ msgstr "纹理MIP映射（模糊）"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE SMOOTHING"
+#~ msgstr "纹理平滑"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE UPSCALING"
+#~ msgstr "纹理粗化扩大"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE UPSCALING (RICE ONLY)"
+#~ msgstr "纹理粗化扩大（仅限颗粒）"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE UPSCALING (XBRZ)"
+#~ msgstr "纹理粗化扩大（XBRZ）"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE UPSCALING LEVEL"
+#~ msgstr "纹理粗化扩大等级"
+
+#~ msgctxt "game_options"
+#~ msgid "TEXTURE UPSCALING TYPE"
+#~ msgstr "纹理粗化扩大模式"
+
+#~ msgctxt "game_options"
+#~ msgid "THREADED 3D"
+#~ msgstr "线程3D"
+
+#~ msgctxt "game_options"
+#~ msgid "THREADED PRESENTATION"
+#~ msgstr "线程演示"
+
+#~ msgctxt "game_options"
+#~ msgid "THREADED VIDEO"
+#~ msgstr "线程视频"
+
+#~ msgctxt "game_options"
+#~ msgid "TI-99/4A Cartridges"
+#~ msgstr "TI-99/4A 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "TIMED AXIS INTERVALS"
+#~ msgstr "定时轴间隔"
+
+#~ msgctxt "game_options"
+#~ msgid "TOS languages."
+#~ msgstr "TOS语言"
+
+#~ msgctxt "game_options"
+#~ msgid "TRILINEAR FILTERING"
+#~ msgstr "三线性滤波"
+
+#~ msgctxt "game_options"
+#~ msgid "TV MODE"
+#~ msgstr "TV模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Tandy Radio Shack Color Computer cartridges"
+#~ msgstr "Tandy Radio Shack Color Computer 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Tandy Radio Shack Color Computer disk images"
+#~ msgstr "Tandy Radio Shack Color Computer 磁盘镜象"
+
+#~ msgctxt "game_options"
+#~ msgid "The New 3DS has a faster processor, ZL/ZR buttons and a C-stick."
+#~ msgstr "新的3DS有更快处理器，ZL/ZR按键和 C-stick"
+
+#~ msgctxt "game_options"
+#~ msgid "The emulated graphics card."
+#~ msgstr "模拟的显卡"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "The final output image, unrelated to the Wii's emulated NAND setting."
+#~ msgstr "最终的输出图像，与Wii的模拟NAND设置无关"
+
+#~ msgctxt "game_options"
+#~ msgid "The upscaling method used when enabled."
+#~ msgstr "打开后使用的粗化方式"
+
+#~ msgctxt "game_options"
+#~ msgid "Tiger Game.com cartridges"
+#~ msgstr "Tiger Game.com 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Timex 1 Joystick"
+#~ msgstr "Timex 1 Joystick（手柄）"
+
+#~ msgctxt "game_options"
+#~ msgid "Timex 2 Joystick"
+#~ msgstr "Timex 2 Joystick（手柄）"
+
+#~ msgctxt "game_options"
+#~ msgid "To have music and not only sound in games (Owl-Zoo)."
+#~ msgstr "让游戏有音乐，不仅有声音（Owl-Zoo)"
+
+#~ msgctxt "game_options"
+#~ msgid "To use game cheats or 16/9 Aspect Ratio Fix codes."
+#~ msgstr "使用游戏金手指或16/9纵横比 修正代码"
+
+#~ msgctxt "game_options"
+#~ msgid "Toggle MSAA/SSAA. Depends on anti-aliasing being enabled."
+#~ msgstr "切换MSAA/SSAA，取决用于堆叠方式"
+
+#~ msgctxt "game_options"
+#~ msgid "Toggle with hotkey + D-pad up or Scroll Lock in-game."
+#~ msgstr "使用”热键+D-pad向上切换或滚动“ 锁定游戏内"
+
+#~ msgctxt "game_options"
+#~ msgid "Tomy Tutor & Pyuuta cartridge"
+#~ msgstr "Tomy Tutor & Pyuuta 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Top only"
+#~ msgstr "仅排行"
+
+#~ msgctxt "game_options"
+#~ msgid "Treats the right analog stick as the second joystick."
+#~ msgstr "把正确的模拟摇杆当作第二个摇杆"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Tries to guess Per-vertex colour (gouraud) from the Model2 per-poly "
+#~ "information (flat)."
+#~ msgstr "尝试根据每个poly信息（平面）从Model2猜测每个顶点颜色（gouraud）"
+
+#~ msgctxt "game_options"
+#~ msgid "Turkey"
+#~ msgstr "土耳其"
+
+#~ msgctxt "game_options"
+#~ msgid "Turkish"
+#~ msgstr "土耳其语"
+
+#~ msgctxt "game_options"
+#~ msgid "Twin Stick with Triggers"
+#~ msgstr "带触发器的Twin Stick"
+
+#~ msgctxt "game_options"
+#~ msgid "Type of ROM file to load"
+#~ msgstr "加载的ROM文件类型"
+
+#~ msgctxt "game_options"
+#~ msgid "Type of ROM file to load."
+#~ msgstr "加载的ROM文件类型"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Type of ROM file to load. Disk Image requires Mac IIx and Image Reader"
+#~ msgstr "加载的ROM文件类型。磁盘镜像需要Mac IIx和镜象读取器"
+
+#~ msgctxt "game_options"
+#~ msgid "UBERSHADERS"
+#~ msgstr "UBER着色器（渲染器）"
+
+#~ msgctxt "game_options"
+#~ msgid "UI KEYS"
+#~ msgstr "UI KEYS（UI口令）"
+
+#~ msgctxt "game_options"
+#~ msgid "UK"
+#~ msgstr "英国"
+
+#~ msgctxt "game_options"
+#~ msgid "USA"
+#~ msgstr "美国"
+
+#~ msgctxt "game_options"
+#~ msgid "USA (Default)"
+#~ msgstr "美国 (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "USE PAD PROFILES"
+#~ msgstr "使用PAD配置文件"
+
+#~ msgctxt "game_options"
+#~ msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+#~ msgstr "使用第二个实例进行预演"
+
+#~ msgctxt "game_options"
+#~ msgid "USE SOFTWARE RENDERING"
+#~ msgstr "使用软件渲染"
+
+#~ msgctxt "game_options"
+#~ msgid "Universe BIOS is not compatible with cheats."
+#~ msgstr "通用BIOS不兼容金手指"
+
+#~ msgctxt "game_options"
+#~ msgid "Upscale textures on 3D objects."
+#~ msgstr "3D高级纹理"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Use L2/R2 for Accel/Brake and L1/R1 or R-stick Up/Down for Shift Up/Down."
+#~ msgstr "用L2/R2 加速/刹车 用L1/R1 或者右摇杆上下 进行向上/向下移动"
+
+#~ msgctxt "game_options"
+#~ msgid "Use MAME software lists to identify ROM"
+#~ msgstr "使用MAME软件列表来识别ROM"
+
+#~ msgctxt "game_options"
+#~ msgid "Use an alternate resolution. Some games need this."
+#~ msgstr "使用替代分辨率,有些游戏需要这个"
+
+#~ msgctxt "game_options"
+#~ msgid "Use one save file per game."
+#~ msgstr "每个游戏使用一个存档文件"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Use the same art paths as standalone MAME - not recommended if using "
+#~ "decorations or shaders."
+#~ msgstr "给单独的MAME用相同的ART(着色器)路径"
+
+#~ msgctxt "game_options"
+#~ msgid "Use to eliminate cursor drift/unwanted input."
+#~ msgstr "用于消除光标漂移/多余输入"
+
+#~ msgctxt "game_options"
+#~ msgid "Use with Singe HD lightgun games."
+#~ msgstr "和Singe HD lightgun游戏一起使用"
+
+#~ msgctxt "game_options"
+#~ msgid "Use your physical anaglypth 3D glasses!"
+#~ msgstr "使用物理anaglypth3D眼镜"
+
+#~ msgctxt "game_options"
+#~ msgid "Useful for certain arcade games."
+#~ msgstr "为某个街机游戏使用"
+
+#~ msgctxt "game_options"
+#~ msgid "Useful for speedruns/glitches."
+#~ msgstr "给speedruns/glitches使用"
+
+#~ msgctxt "game_options"
+#~ msgid "Usually not much faster than single core mode."
+#~ msgstr "通常不会比单核模式快"
+
+#~ msgctxt "game_options"
+#~ msgid "V-Tech Creativision cartridges"
+#~ msgstr "V-Tech Creativision 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "VARIABLE REFRESH RATE"
+#~ msgstr "可变刷新率"
+
+#~ msgctxt "game_options"
+#~ msgid "VERTICAL ROTATION (TATE)"
+#~ msgstr "垂直旋转（TATE）"
+
+#~ msgctxt "game_options"
+#~ msgid "VGA (Default)"
+#~ msgstr "VGA (默认)"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO FILTER"
+#~ msgstr "视频滤镜"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO FORMAT STANDARD"
+#~ msgstr "视频格式标准"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO MODE"
+#~ msgstr "视频模式(更改游戏画面分辨率）"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO RESOLUTION"
+#~ msgstr "视频分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO STREAM BITRATE"
+#~ msgstr "视频流码率"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO STREAM CODEC"
+#~ msgstr "视频流编码"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO STREAM FRAMERATE"
+#~ msgstr "视频流帧率"
+
+#~ msgctxt "game_options"
+#~ msgid "VIDEO STREAM RESOLUTION"
+#~ msgstr "视频流分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "VIRTUAL DESKTOP"
+#~ msgstr "虚拟桌面"
+
+#~ msgctxt "game_options"
+#~ msgid "VSYNC"
+#~ msgstr "垂直同步"
+
+#~ msgctxt "game_options"
+#~ msgid "VSYNC INTERVAL"
+#~ msgstr "垂直同步间隔"
+
+#~ msgctxt "game_options"
+#~ msgid "VTech V.Smile Motion cartridges"
+#~ msgstr "VTech V.Smile Motion 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "VTech V.Smile cartridges"
+#~ msgstr "VTech V.Smile 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "VU Add hack (Fixes Tri-Ace games boot crash)"
+#~ msgstr "VU添加HACK(修正 TRI-ACE 游戏启动崩溃)"
+
+#~ msgctxt "game_options"
+#~ msgid "VU I bit hack - Crash Tag Team Racing"
+#~ msgstr "VU I bit hack-古惑狼赛车"
+
+#~ msgctxt "game_options"
+#~ msgid "VU I bit hack - Scarface The World is Yours"
+#~ msgstr "VU I bit hack - 疤面煞星之掌握世界"
+
+#~ msgctxt "game_options"
+#~ msgid "VU XGkick hack (For Eremental Gerad)"
+#~ msgstr "VU XGkick hack (Eremental Gerad)"
+
+#~ msgctxt "game_options"
+#~ msgid "VU0 Kickstart to avoid sync problems with VU1"
+#~ msgstr "VU0 Kickstart 避免和 VU1同步问题"
+
+#~ msgctxt "game_options"
+#~ msgid "Value to use for the emulated solar sensor (Boktai)."
+#~ msgstr "用于模拟阳极传感器BOKTAI值 "
+
+#~ msgctxt "game_options"
+#~ msgid "Vastly improves the speed of buffer maps."
+#~ msgstr "大大提高了地图缓冲区的速度"
+
+#~ msgctxt "game_options"
+#~ msgid "Vertical"
+#~ msgstr "竖屏"
+
+#~ msgctxt "game_options"
+#~ msgid "Very High"
+#~ msgstr "非常高"
+
+#~ msgctxt "game_options"
+#~ msgid "Video Game Music Files"
+#~ msgstr "Video Game 音乐文件"
+
+#~ msgctxt "game_options"
+#~ msgid "Video Technology Socrates cartridges"
+#~ msgstr "Video Technology Socrates 盒子"
+
+#~ msgctxt "game_options"
+#~ msgid "Vulkan"
+#~ msgstr "将 DirectX 9/10/11/12 转换为 vulkan."
+
+#~ msgctxt "game_options"
+#~ msgid "WHDLOAD LAUNCHER"
+#~ msgstr "WHDLOAD加载程序"
+
+#~ msgctxt "game_options"
+#~ msgid "WIDESCREEN CHEAT (PRIORITY)"
+#~ msgstr "宽屏作弊（优先级）"
+
+#~ msgctxt "game_options"
+#~ msgid "WIDESCREEN HACK (GLITCHY)"
+#~ msgstr "宽屏HACK(GLITCHY)"
+
+#~ msgctxt "game_options"
+#~ msgid "WIDESCREEN PATCHES"
+#~ msgstr "宽屏补丁包"
+
+#~ msgctxt "game_options"
+#~ msgid "WII TV MODE"
+#~ msgstr "Wii TV模式"
+
+#~ msgctxt "game_options"
+#~ msgid "WRITE COLOUR BUFFERS"
+#~ msgstr "写入颜色缓冲区"
+
+#~ msgctxt "game_options"
+#~ msgid "WRITE DEPTH BUFFER"
+#~ msgstr "写入深度缓冲区"
+
+#~ msgctxt "game_options"
+#~ msgid "WRX HIGH RESOLUTION"
+#~ msgstr "WRX高分辨率"
+
+#~ msgctxt "game_options"
+#~ msgid "Widescreen"
+#~ msgstr "宽屏"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "Wii NAND's aspect ratio setting. Most games support both ratios natively."
+#~ msgstr "Wii NAND纵横比设置。大多数游戏都支持这两种"
+
+#~ msgctxt "game_options"
+#~ msgid "Wii U Classic Controller"
+#~ msgstr "Wii U 经典控制器"
+
+#~ msgctxt "game_options"
+#~ msgid "Wiimote Sideway"
+#~ msgstr "Wiimote 横握手柄"
+
+#~ msgctxt "game_options"
+#~ msgid "Wiimote Sideway + Nunchuk"
+#~ msgstr "Wiimote 横握手柄加鸡腿"
+
+#~ msgctxt "game_options"
+#~ msgid "Wiimote Sideway + Swing"
+#~ msgstr "Wiimote 横握手柄+体感"
+
+#~ msgctxt "game_options"
+#~ msgid "Wiimote Sideway + Tilt"
+#~ msgstr "Wiimote 横握手柄 + Tilt"
+
+#~ msgctxt "game_options"
+#~ msgid "Works with 'Cycle-exact' mode and for a few games."
+#~ msgstr "为一些游戏使用“循环精确”模式"
+
+#~ msgctxt "game_options"
+#~ msgid "Y = Fire"
+#~ msgstr "Y=开火"
+
+#~ msgctxt "game_options"
+#~ msgid "Y = Fire, B = Up"
+#~ msgstr "Y=开火，B=向上"
+
+#~ msgctxt "game_options"
+#~ msgid "YES"
+#~ msgstr "是"
+
+#~ msgctxt "game_options"
+#~ msgid "YUV v3 (Firebrand)"
+#~ msgstr "YUV v3 (Firebrand)不懂什么东西，老狼我胎教英文~"
+
+#~ msgctxt "game_options"
+#~ msgid "ZOOM (HIDE BORDERS)"
+#~ msgstr "缩放（隐藏边框）"
+
+#~ msgctxt "game_options"
+#~ msgid "Zooms in to hide black borders."
+#~ msgstr "放大隐藏黑色边框"
+
+#~ msgctxt "game_options"
+#~ msgid "Zooms in to hide black borders. Borders are different per game."
+#~ msgstr "放大隐藏黑色边框，每个游戏不同~"
+
+#~ msgctxt "game_options"
+#~ msgid "amber"
+#~ msgstr "amber(我真不懂什么鬼）"
+
+#~ msgctxt "game_options"
+#~ msgid "bilinear"
+#~ msgstr "双线性"
+
+#~ msgctxt "game_options"
+#~ msgid "black and white"
+#~ msgstr "黑和白"
+
+#~ msgctxt "game_options"
+#~ msgid "black/blue"
+#~ msgstr "黑/蓝"
+
+#~ msgctxt "game_options"
+#~ msgid "black/cyan"
+#~ msgstr "黑/青"
+
+#~ msgctxt "game_options"
+#~ msgid "black/electric cyan"
+#~ msgstr "黑/电青"
+
+#~ msgctxt "game_options"
+#~ msgid "black/green"
+#~ msgstr "黑/绿"
+
+#~ msgctxt "game_options"
+#~ msgid "black/magenta"
+#~ msgstr "黑/洋红"
+
+#~ msgctxt "game_options"
+#~ msgid "black/white"
+#~ msgstr "黑/白"
+
+#~ msgctxt "game_options"
+#~ msgid "black/yellow"
+#~ msgstr "黑/黄"
+
+#~ msgctxt "game_options"
+#~ msgid "blue sea"
+#~ msgstr "蓝色海洋"
+
+#~ msgctxt "game_options"
+#~ msgid "bottom only"
+#~ msgstr "仅底部"
+
+#~ msgctxt "game_options"
+#~ msgid "bottom/top"
+#~ msgstr "底部/顶部"
+
+#~ msgctxt "game_options"
+#~ msgid "dark knight"
+#~ msgstr "暗夜骑士(不懂会不会出问题!)"
+
+#~ msgctxt "game_options"
+#~ msgid "external (variable fps)"
+#~ msgstr "外部(可变FPS)"
+
+#~ msgctxt "game_options"
+#~ msgid "fullspeed"
+#~ msgstr "全速"
+
+#~ msgctxt "game_options"
+#~ msgid "green"
+#~ msgstr "绿色"
+
+#~ msgctxt "game_options"
+#~ msgid "green forest"
+#~ msgstr "绿色森林"
+
+#~ msgctxt "game_options"
+#~ msgid "green/magenta"
+#~ msgstr "绿/洋红"
+
+#~ msgctxt "game_options"
+#~ msgid "h264 (less latency)"
+#~ msgstr "h264 (短延迟)"
+
+#~ msgctxt "game_options"
+#~ msgid "h265 (HEVC) (higher quality at lower bitrates)"
+#~ msgstr "h265 (HEVC) (更低的比特率更高的质量)"
+
+#~ msgctxt "game_options"
+#~ msgid ""
+#~ "h265 (HEVC) is CPU heavy and increases latency, but is more bandwidth "
+#~ "efficient."
+#~ msgstr "h265 (HEVC) CPU占用高增加了延迟，但是带宽效率更高"
+
+#~ msgctxt "game_options"
+#~ msgid "hot desert"
+#~ msgstr "炎热沙漠"
+
+#~ msgctxt "game_options"
+#~ msgid "hybrid/bottom"
+#~ msgstr "混合/底部"
+
+#~ msgctxt "game_options"
+#~ msgid "hybrid/top"
+#~ msgstr "混合/顶部"
+
+#~ msgctxt "game_options"
+#~ msgid "internal (fixed 60fps)"
+#~ msgstr "内部(固定 60FPS)"
+
+#~ msgctxt "game_options"
+#~ msgid "internal (variable fps)"
+#~ msgstr "内部(动态FPS)"
+
+#~ msgctxt "game_options"
+#~ msgid "large"
+#~ msgstr "大规模"
+
+#~ msgctxt "game_options"
+#~ msgid "larger"
+#~ msgstr "更大规模"
+
+#~ msgctxt "game_options"
+#~ msgid "left/right"
+#~ msgstr "左/右"
+
+#~ msgctxt "game_options"
+#~ msgid "maximum"
+#~ msgstr "最大限度"
+
+#~ msgctxt "game_options"
+#~ msgid "medium"
+#~ msgstr "中等"
+
+#~ msgctxt "game_options"
+#~ msgid "minimum"
+#~ msgstr "最小限度"
+
+#~ msgctxt "game_options"
+#~ msgid "nearest"
+#~ msgstr "邻近"
+
+#~ msgctxt "game_options"
+#~ msgid "off"
+#~ msgstr "关闭"
+
+#~ msgctxt "game_options"
+#~ msgid "original"
+#~ msgstr "首发"
+
+#~ msgctxt "game_options"
+#~ msgid "original gameboy"
+#~ msgstr "首发 gameboy"
+
+#~ msgctxt "game_options"
+#~ msgid "pink dreams"
+#~ msgstr "粉色梦想"
+
+#~ msgctxt "game_options"
+#~ msgid "quick switch"
+#~ msgstr "快速切换"
+
+#~ msgctxt "game_options"
+#~ msgid "red/blue"
+#~ msgstr "红/蓝"
+
+#~ msgctxt "game_options"
+#~ msgid "red/cyan"
+#~ msgstr "红/青"
+
+#~ msgctxt "game_options"
+#~ msgid "red/electric cyan"
+#~ msgstr "红/电青"
+
+#~ msgctxt "game_options"
+#~ msgid "right/left"
+#~ msgstr "右/左"
+
+#~ msgctxt "game_options"
+#~ msgid "small"
+#~ msgstr "小规模"
+
+#~ msgctxt "game_options"
+#~ msgid "smaller"
+#~ msgstr "更小规模"
+
+#~ msgctxt "game_options"
+#~ msgid "standard"
+#~ msgstr "标准"
+
+#~ msgctxt "game_options"
+#~ msgid "top only"
+#~ msgstr "仅顶部"
+
+#~ msgctxt "game_options"
+#~ msgid "top/bottom"
+#~ msgstr "顶部/底部"
+
+#~ msgctxt "game_options"
+#~ msgid "trilinear"
+#~ msgstr "三线性"
+
+#~ msgctxt "game_options"
+#~ msgid "weird colors"
+#~ msgstr "奇异色彩"
+
+#~ msgctxt "game_options"
+#~ msgid "white"
+#~ msgstr "白色"
+
+#~ msgctxt "game_options"
+#~ msgid "xBR (no edge blending)"
+#~ msgstr "xBR (无混合边缘)"
+
+#~ msgctxt "game_options"
+#~ msgid "yellow/blue"
+#~ msgstr "黄/蓝"
 
 #~ msgctxt "joystick"
 #~ msgid "DOWN"
-#~ msgstr "下"
+#~ msgstr "十字方向下"
 
 #~ msgctxt "joystick"
 #~ msgid "LEFT"
-#~ msgstr "左"
+#~ msgstr "十字方向左"
 
 #~ msgctxt "joystick"
 #~ msgid "RIGHT"
-#~ msgstr "右"
+#~ msgstr "十字方向右"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "十字方向上"

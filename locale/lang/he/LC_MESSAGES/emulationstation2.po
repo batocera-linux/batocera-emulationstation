@@ -2356,6 +2356,9 @@ msgstr ""
 msgid "GAME LAUNCH TRANSITION"
 msgstr "מעבר הפעלת משחק"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "הצגת שעון"
 

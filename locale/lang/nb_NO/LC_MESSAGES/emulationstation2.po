@@ -2378,6 +2378,9 @@ msgstr "auto"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "SPILLLANSERINGSOVERGANG"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "VIS KLOKKE"
 

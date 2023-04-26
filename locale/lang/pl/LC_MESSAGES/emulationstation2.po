@@ -2405,6 +2405,9 @@ msgstr "auto"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "PRZEJŚCIE ROZRUCHU GRY"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "POKAŻ ZEGAR"
 

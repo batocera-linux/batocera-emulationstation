@@ -2408,6 +2408,9 @@ msgstr "automàtic"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRANSICIÓ AL INICIAR UN JOC"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "MOSTRA EL RELLOTGE"
 

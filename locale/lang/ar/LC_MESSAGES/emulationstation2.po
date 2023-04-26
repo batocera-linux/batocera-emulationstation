@@ -2385,6 +2385,9 @@ msgstr "تلقائي"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "انتقالات تشغيل لعبة"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "عرض الساعة"
 

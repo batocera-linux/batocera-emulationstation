@@ -2392,6 +2392,9 @@ msgstr "自動"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ゲーム開始の画面遷移"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "時間を表示"
 

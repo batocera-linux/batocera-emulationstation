@@ -2350,6 +2350,9 @@ msgstr ""
 msgid "GAME LAUNCH TRANSITION"
 msgstr ""
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr ""
 

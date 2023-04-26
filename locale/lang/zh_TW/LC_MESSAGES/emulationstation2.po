@@ -2367,6 +2367,9 @@ msgstr "自動"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "遊戲啟動過場"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "顯示時鐘"
 
