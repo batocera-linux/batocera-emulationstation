@@ -309,9 +309,9 @@ msgstr "多开发商"
 
 #, fuzzy, c-format
 msgid "This collection contains %i game:%s"
-msgid_plural "This collection contains %i games, 包括:%s"
+msgid_plural "This collection contains %i games, including:%s"
 msgstr[0] "此合集包含 %i 个游戏:%s"
-msgstr[1] "此合集包含 %i 游戏, bunlar dahil: %s"
+msgstr[1] "此合集包含 %i 游戏, 包括: %s"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "正在扫描蓝牙设备"
