@@ -13,6 +13,7 @@
 #include <thread>
 #include <direct.h>
 #include <algorithm>
+#include <SDL.h>
 #include "LocaleES.h"
 #include "Paths.h"
 #include "utils/VectorEx.h"
@@ -120,7 +121,17 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("emulatorLauncher");
 		break;
 	case ApiSystem::PADSINFO:
-		executables.push_back("batocera-padsinfo");
+		{
+			SDL_version ver;
+			SDL_GetVersion(&ver);
+			if (ver.major >= 2 && ver.minor >= 24)
+			{
+				// PADSINFO is managed with SDL_JOYBATTERYUPDATED event starting with SDL 2.24+
+				return true;
+			}
+			else
+				executables.push_back("batocera-padsinfo");
+		}
 		break;
 	case ApiSystem::UPGRADE:
 		return true;
