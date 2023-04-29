@@ -412,11 +412,59 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 	SDL_JoystickEventState(SDL_ENABLE);
 }
 
+#if WIN32
+// Retrocompatible declaration for SDL_JoyBatteryEvent
+typedef struct SDL_JoyBatteryEventX
+{
+	Uint32 type;        
+	Uint32 timestamp;   
+	SDL_JoystickID which; 
+	SDL_JoystickPowerLevel level;
+} SDL_JoyBatteryEventX;
+#endif
+
 bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 {
 	bool causedEvent = false;
+
 	switch (ev.type)
 	{
+#if WIN32
+	case 1543: // SDL_JOYBATTERYUPDATED, new event with SDL 2.24+
+	{
+		SDL_JoyBatteryEventX* jbattery = (SDL_JoyBatteryEventX*)&ev;
+
+		auto inputConfig = mInputConfigs.find(jbattery->which);
+		if (inputConfig != mInputConfigs.cend() && inputConfig->second->isConfigured())
+		{
+			int level = 0;
+
+			switch (jbattery->level)
+			{
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_LOW:
+				level = 25;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_MEDIUM:
+				level = 50;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_MAX:
+				level = 75;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_FULL:
+				level = 100;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_WIRED:
+				level = -1;
+				break;
+			}
+
+			inputConfig->second->updateBatteryLevel(level);
+			computeLastKnownPlayersDeviceIndexes();
+		}
+	}
+	break;
+#endif
+
 	case SDL_JOYAXISMOTION:
 	{		
 	// some axes are "full" : from -32000 to +32000

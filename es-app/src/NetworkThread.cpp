@@ -5,6 +5,7 @@
 #include "LocaleES.h"
 #include "Log.h"
 #include <chrono>
+#include <SDL.h>
 
 #define CHECKUPDATE_MINUTES 60
 
@@ -46,6 +47,16 @@ NetworkThread::~NetworkThread()
 
 void NetworkThread::checkPadsBatteryLevel()
 {
+#if WIN32
+	SDL_version ver;
+	SDL_GetVersion(&ver);
+	if (ver.major >= 2 && ver.minor >= 24)
+	{
+		// use SDL_JOYBATTERYUPDATED event instead starting with SDL 2.24+
+		return;
+	}
+#endif
+
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PADSINFO))
 		return;
 
