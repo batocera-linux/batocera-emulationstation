@@ -435,7 +435,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		SDL_JoyBatteryEventX* jbattery = (SDL_JoyBatteryEventX*)&ev;
 
 		auto inputConfig = mInputConfigs.find(jbattery->which);
-		if (inputConfig != mInputConfigs.cend() && inputConfig->second->isConfigured())
+		if (inputConfig != mInputConfigs.cend() && inputConfig->second->isConfigured() && jbattery->level != SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_UNKNOWN)
 		{
 			int level = 0;
 
