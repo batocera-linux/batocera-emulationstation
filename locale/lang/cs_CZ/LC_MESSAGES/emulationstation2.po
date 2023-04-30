@@ -1671,7 +1671,7 @@ msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "PŘEPÍNÁNÍ TLAČÍTEK POTVRZENÍ A ZRUŠENÍ V EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr "Přepíná funkce tlačítek Jih a Východ."
+msgstr "Přepíná funkce tlačítek Jih a Východ"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "PŘÍSTUP K MOŽNOSTEM HRY POMOCÍ HORNÍHO TLAČÍTKA"
@@ -2160,7 +2160,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "NASTAVENÍ MYŠI/PISTOLE STEAMDECK"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2215,61 +2215,61 @@ msgid "HIDDEN"
 msgstr "SKRYTÝ"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "BARVA HRANICE"
 
 msgid "WHITE"
-msgstr ""
+msgstr "BÍLÁ"
 
 msgid "RED"
-msgstr ""
+msgstr "ČERVENÁ"
 
 msgid "GREEN"
-msgstr ""
+msgstr "ZELENÁ"
 
 msgid "BLUE"
-msgstr ""
+msgstr "MODRÁ"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "KONTRAST KAMERY"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "Denní/jasné sluneční světlo (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "Výchozí (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Stmívání displeje/večer (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "JAS KAMERY"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "Denní/jasné sluneční světlo (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "Výchozí (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Stmívání displeje/večer (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "EXPOZICE KAMERY"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "Projektor/CRT (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "Projektor/CRT (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "Výchozí (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "Ostatní (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "Ostatní (-9)"
 
 msgid "RECOIL"
 msgstr "ZÁKLUZ"
@@ -2293,16 +2293,16 @@ msgid "JOYSTICK"
 msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "POUZE MYŠ"
 
 msgid "HAND"
-msgstr ""
+msgstr "RUČNÍ"
 
 msgid "LEFT"
-msgstr ""
+msgstr "LEVÁ"
 
 msgid "RIGHT"
-msgstr ""
+msgstr "PRAVÁ"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "PŘED ÚPRAVOU KONFIGURACE JE NUTNÉ POUŽÍT MOTIV"
@@ -2395,7 +2395,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "PŘECHOD PO SPUŠTĚNÍ HRY"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "HERNÍ MÉDIA PŘI RYCHLÉM POSOUVÁNÍ"
 
 msgid "SHOW CLOCK"
 msgstr "ZOBRAZIT HODINY"
@@ -3230,7 +3230,7 @@ msgstr "PRACUJI..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d d"
 
 #, c-format
 msgid "%d h"

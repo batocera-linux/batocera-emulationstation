@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPDATE VERFÜGBAR"
@@ -2409,7 +2409,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "ÜBERGANG BEI SPIELSTART"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "SPIELEMEDIEN BEI SCHNELLEM SCROLLEN"
 
 msgid "SHOW CLOCK"
 msgstr "UHRZEIT ANZEIGEN"
@@ -3236,7 +3236,7 @@ msgstr "VERARBEITE..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d T"
 
 #, c-format
 msgid "%d h"
