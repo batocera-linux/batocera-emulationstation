@@ -1544,20 +1544,23 @@ void GuiMenu::openSystemSettings()
 #ifdef _ENABLEEMUELEC
 	auto emuelec_timezones = std::make_shared<OptionListComponent<std::string> >(mWindow, _("TIMEZONE"), false);
 	std::string currentTimezone = SystemConf::getInstance()->get("system.timezone");
-	if (currentTimezone.empty())
-		currentTimezone = std::string(getShOutput(R"(/usr/bin/emuelec-utils current_timezone)"));
-	std::string a;
-	for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils timezones)")); getline(ss, a, ','); ) {
-		emuelec_timezones->add(a, a, currentTimezone == a); // emuelec
-	}
-	s->addWithLabel(_("TIMEZONE"), emuelec_timezones);
-	s->addSaveFunc([emuelec_timezones] {
-		if (emuelec_timezones->changed()) {
-			std::string selectedTimezone = emuelec_timezones->getSelected();
-			runSystemCommand("ln -sf /usr/share/zoneinfo/" + selectedTimezone + " $(readlink /etc/localtime)", "", nullptr);
+	if (!test_shell.compare("success")) {
+		if (currentTimezone.empty())
+			currentTimezone = std::string(getShOutput(R"(/usr/bin/emuelec-utils current_timezone)"));
+		std::string a;
+		for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils timezones)")); getline(ss, a, ','); ) {
+			emuelec_timezones->add(a, a, currentTimezone == a); // emuelec
 		}
-		SystemConf::getInstance()->set("system.timezone", emuelec_timezones->getSelected());
-	});
+		s->addWithLabel(_("TIMEZONE"), emuelec_timezones);
+		s->addSaveFunc([emuelec_timezones] {
+			if (emuelec_timezones->changed()) {
+				std::string selectedTimezone = emuelec_timezones->getSelected();
+				runSystemCommand("ln -sf /usr/share/zoneinfo/" + selectedTimezone + " $(readlink /etc/localtime)", "", nullptr);
+			}
+			SystemConf::getInstance()->set("system.timezone", emuelec_timezones->getSelected());
+		});
+	}
+
 #endif
 
 	// language choice
