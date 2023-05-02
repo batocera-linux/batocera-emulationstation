@@ -251,6 +251,25 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 
 
 			});
+#ifdef _ENABLEEMUELEC			
+			if (!isImageViewer) {
+				if (game->getMetadata(MetaDataId::Hidden) == "false")
+				{
+					mMenu.addEntry(_("HIDE GAME"), false, [this, game]
+					{
+						hideGame(game, true);
+						close();
+					});
+				}
+				else {
+					mMenu.addEntry(_("UNHIDE GAME"), false, [this, game]
+					{
+						hideGame(game, false);
+						close();
+					});
+				}
+			}
+#endif
 		}
 
 #ifdef _ENABLEEMUELEC
@@ -516,6 +535,28 @@ void GuiGameOptions::deleteGame(FileData* file)
 }
 
 #ifdef _ENABLEEMUELEC
+
+void GuiGameOptions::hideGame(FileData* file, bool hide)
+{
+	if (file->getType() != GAME)
+		return;
+
+	auto sourceFile = file->getSourceFileData();
+	file->setMetadata(MetaDataId::Hidden, (hide) ? "true" : "false");
+	ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
+
+	auto sys = sourceFile->getSystem();
+	if (sys->isGroupChildSystem())
+		sys = sys->getParentGroupSystem();
+
+	sys->getRootFolder()->getMetadata().setDirty();
+	
+	CollectionSystemManager::get()->deleteCollectionFiles(sourceFile);
+
+	auto view = ViewController::get()->getGameListView(sys, false);
+	if (view != nullptr)
+		ViewController::get()->reloadGameListView(view.get());
+}
 
 void GuiGameOptions::createMultidisc(FileData* file)
 {
