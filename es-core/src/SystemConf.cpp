@@ -41,11 +41,8 @@ static std::map<std::string, std::string> defaults =
 	{ "dolphin_auto_gamepad", "1" },
 	{ "flycast_auto_gamepad", "1" },
 	{ "mupen64plus_auto_gamepad", "1" },
-
-	{ "advmame_joy_cache", "0" },
-	{ "dolphin_joy_cache", "0" },
-	{ "flycast_joy_cache", "0" },
-	{ "mupen64plus_joy_cache", "0" },
+	{ "ppssppsdl_auto_gamepad", "1" },
+	{ "yabasanshiro_auto_gamepad", "1" },
 
 	{ "global.retroachievements.encore", "0" },
 #else
