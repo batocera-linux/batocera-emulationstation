@@ -103,7 +103,7 @@ void MetaDataList::initMetadata()
 	for (int i = 0 ; i < mMetaDataDecls.size() ; i++)
 		mMetaDataIndexes[mMetaDataDecls[i].id] = i;
 
-	int maxID = mMetaDataDecls.size() + 1;
+	int maxID = MetaDataId::Max;
 
 	if (mDefaultGameMap != nullptr) 
 		delete[] mDefaultGameMap;
