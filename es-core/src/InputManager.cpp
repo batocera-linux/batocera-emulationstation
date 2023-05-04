@@ -391,7 +391,22 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		mInputConfigs[joyId] = new InputConfig(joyId, idx, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy), devicePath);
 
 		if (!loadInputConfig(mInputConfigs[joyId]))
-			LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+		{
+#if !BATOCERA
+			std::string mappingString;
+			
+			if (SDL_IsGameController(idx))
+				mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
+			
+			if (!mappingString.empty() && loadFromSdlMapping(mInputConfigs[joyId], mappingString))
+			{
+				InputManager::getInstance()->writeDeviceConfig(mInputConfigs[joyId]); // save
+				LOG(LogInfo) << "Creating joystick from SDL Game Controller mapping " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+			}
+			else
+#endif
+				LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+		}
 		else
 			LOG(LogInfo) << "Added known joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
 
@@ -700,6 +715,134 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 
 	config->loadFromXML(configNode);
 	return true;
+}
+
+static std::map<std::string, std::string> _sdlToEsMapping =
+{
+#ifdef INVERTEDINPUTCONFIG
+   { "a",             "a" },
+   { "b",             "b" },
+#else
+   { "a",             "b" },
+   { "b",             "a" },
+#endif
+   { "x",             "y" },
+   { "y",             "x" },
+   { "back",          "select" },
+   { "start",         "start" },
+   { "leftshoulder",  "pageup" },
+   { "rightshoulder", "pagedown" },
+   { "dpup",          "up" },
+   { "dpright",       "right" },
+   { "dpdown",        "down" },
+   { "dpleft",        "left" },
+   { "leftx",         "joystick1left" },
+   { "lefty",         "joystick1up" },
+   { "rightx",        "joystick2left" },
+   { "righty",        "joystick2up" },
+   { "lefttrigger",   "l2" },
+   { "righttrigger",  "r2" },
+   { "leftstick",     "l3" },
+   { "rightstick",    "r3" }
+   // { "guide",         "hotkey" } // Better take select for hotkey ?
+};
+
+bool InputManager::loadFromSdlMapping(InputConfig* config, const std::string& mapping)
+{	
+	bool isConfigured = false;
+
+	auto mapArray = Utils::String::split(mapping, ',', true);
+	for (auto tt : mapArray)
+	{
+		size_t pos = tt.find(':');
+		if (pos == std::string::npos) 
+			continue;
+
+		std::string key = tt.substr(0, pos);
+		std::string value = tt.substr(pos + 1);
+
+		auto inputName = _sdlToEsMapping.find(key);
+		if (inputName == _sdlToEsMapping.cend())
+		{
+			LOG(LogError) << "[InputDevice] Unknown mapping: " << key;
+			continue;
+		}
+
+		int valueSign = 1;
+		int idx = 0;
+				
+		switch (value[idx])
+		{
+		case '-': 
+			valueSign = -1;
+			idx++;
+			break;
+		case '+': 
+			idx++;
+			break;
+		}
+
+		Input input;
+		input.device = config->getDeviceId();
+		input.type = InputType::TYPE_COUNT;
+		input.configured = false;		
+
+		switch (value[idx])
+		{
+		case 'a':
+			{
+				input.type = InputType::TYPE_AXIS;
+				input.id = Utils::String::toInteger(value.substr(idx + 1));				
+				input.value = 1 * valueSign;
+				input.configured = true;
+
+				// Invert directions for these mappings
+				if (inputName->second == "joystick1up" || inputName->second == "joystick1left" || inputName->second == "joystick2up" || inputName->second == "joystick2left")
+					input.value *= -1;
+			}
+			break;
+		case 'b':
+			{
+				input.type = InputType::TYPE_BUTTON;
+				input.id = Utils::String::toInteger(value.substr(idx + 1));
+				input.value = 1;
+				input.configured = true;
+			}
+			break;
+		case 'h':
+			{
+				auto hatIds = Utils::String::split(value.substr(idx + 1), '.', true);
+				if (hatIds.size() > 1)
+				{
+					input.type = InputType::TYPE_HAT;
+					input.id = Utils::String::toInteger(hatIds[0]);
+					input.value = Utils::String::toInteger(hatIds[1]);
+					input.configured = true;
+				}
+			}
+			break;
+		}
+
+		if (input.configured)
+		{
+			// BATOCERA : Uncomment the next line using a patch to compute the code
+			// input.computeCode();
+			
+			config->mapInput(inputName->second, input);
+			isConfigured = true;
+		}
+	}
+
+	if (isConfigured)
+	{
+		// Use select button if hotkey is undefined
+		Input tmp;
+		if (!config->getInputByName("hotkey", &tmp))
+			if (config->getInputByName("select", &tmp))
+				config->mapInput("hotkey", tmp);
+	}
+
+	return isConfigured;
 }
 
 bool InputManager::loadInputConfig(InputConfig* config)
