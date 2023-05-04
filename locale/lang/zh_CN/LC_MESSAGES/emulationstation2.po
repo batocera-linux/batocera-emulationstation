@@ -1279,7 +1279,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "按键设置"
 
 msgid "SCRAPER"
-msgstr "抓取元数据(在线获取游戏封面，视频等，仅支持英文搜索）"
+msgstr "抓取元数据"
 
 msgid "SCRAPING DATABASE"
 msgstr "抓取数据库"
@@ -1481,7 +1481,7 @@ msgid "MAIN MENU"
 msgstr "主菜单"
 
 msgid "KODI MEDIA CENTER"
-msgstr "KODI 媒体中心(emu-zh.com中文模拟系统)"
+msgstr "KODI媒体中心"
 
 msgid "GAME SETTINGS"
 msgstr "游戏设置"
@@ -5205,7 +5205,7 @@ msgstr "屏幕阅读器已关闭"
 
 #~ msgctxt "game_options"
 #~ msgid "Disabled (Beatle Interpreter)"
-#~ msgstr "禁用(语音口译)"
+#~ msgstr "禁用(Beatle 解释器)"
 
 #~ msgctxt "game_options"
 #~ msgid "Disk (Drive 1)"
@@ -5270,7 +5270,7 @@ msgstr "屏幕阅读器已关闭"
 
 #~ msgctxt "game_options"
 #~ msgid "EE timing hack (Try if all else fails)"
-#~ msgstr "EE timing hack (如果其它都不行试试这个)"
+#~ msgstr "EE 时序修改(如果其它都不行试试这个)"
 
 #~ msgctxt "game_options"
 #~ msgid "EGA"
@@ -5548,7 +5548,7 @@ msgstr "屏幕阅读器已关闭"
 #~ msgid ""
 #~ "Enables mipmap usage and trilinear filtering. Doesn't work with some "
 #~ "games."
-#~ msgstr "启用mipmap使用和三线过滤，某些游戏不起作用"
+#~ msgstr "启用贴图缩小和三线性过滤。但某些游戏可能不适用."
 
 #~ msgctxt "game_options"
 #~ msgid ""
@@ -7046,7 +7046,7 @@ msgstr "屏幕阅读器已关闭"
 
 #~ msgctxt "game_options"
 #~ msgid "Off will help some games, others will run too fast."
-#~ msgstr "半了有助一些指定游戏，其它会运行过快"
+#~ msgstr "关了有助于运行特定游戏，但其它游戏会运行过快"
 
 #~ msgctxt "game_options"
 #~ msgid "Older games skipped drawing every second line, this masks that."
@@ -8595,7 +8595,7 @@ msgstr "屏幕阅读器已关闭"
 
 #~ msgctxt "game_options"
 #~ msgid "YUV v3 (Firebrand)"
-#~ msgstr "YUV v3 (Firebrand)不懂什么东西，老狼我胎教英文~"
+#~ msgstr "YUV v3 (火线版)视频编码"
 
 #~ msgctxt "game_options"
 #~ msgid "ZOOM (HIDE BORDERS)"
@@ -8611,7 +8611,7 @@ msgstr "屏幕阅读器已关闭"
 
 #~ msgctxt "game_options"
 #~ msgid "amber"
-#~ msgstr "amber(我真不懂什么鬼）"
+#~ msgstr "深黄色"
 
 #~ msgctxt "game_options"
 #~ msgid "bilinear"
@@ -8663,7 +8663,7 @@ msgstr "屏幕阅读器已关闭"
 
 #~ msgctxt "game_options"
 #~ msgid "dark knight"
-#~ msgstr "暗夜骑士(不懂会不会出问题!)"
+#~ msgstr "暗夜骑士"
 
 #~ msgctxt "game_options"
 #~ msgid "external (variable fps)"
