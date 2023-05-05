@@ -5,6 +5,7 @@
 #endif
 
 #include "platform.h"
+#include "ApiSystem.h"
 #include "Gamelist.h"
 #include "SystemData.h"
 #include "FileData.h"
