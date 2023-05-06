@@ -51,6 +51,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ATARI_LYNX, 28 },
 	{ ATARI_ST, 42},
 	// missing Atari XE ?
+	{ BBC_MICRO, 37 },
 	{ COLECOVISION, 48 },
 	{ COMMODORE_64, 66 },
 	{ INTELLIVISION, 115 },
@@ -108,6 +109,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ TRS80_COLOR_COMPUTER, 144 },
 	{ TANDY, 144 },
 	{ SUPERGRAFX, 105 },
+	{ GP32, 101},
 
 	{ AMIGACD32, 130 },
 	{ AMIGACDTV, 129 },

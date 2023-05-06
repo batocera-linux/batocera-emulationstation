@@ -49,6 +49,7 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ ATOMISWAVE, "29731" },
 	{ ACORN_ATOM, "138925" },
 	{ ACORN_BBC_MICRO, "190502" },
+	{ ACORN_ELECTRON, "124274"},
 	{ VIC20, "174662" },
 	{ COMMODORE_64, "168000" },
 	{ CAVESTORY, "75768" },
@@ -136,7 +137,8 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ TOMY_TUTOR, "240926" },
 	{ APF_MP_1000, "139722" },
 	{ CAMPUTER_LYNX, "240842" },
-	{ EPOCH_GAMEPOCKET, "190501" }
+	{ EPOCH_GAMEPOCKET, "190501" },
+	{ GP32, "240869"}
 };
 
 const std::set<Scraper::ScraperMediaSource>& HfsDBScraper::getSupportedMedias()

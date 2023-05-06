@@ -38,6 +38,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ ATARI_LYNX, "4924" },
 	{ ATARI_ST, "4937" },
 	{ ATARI_XE, "30" },
+	{ BBC_MICRO, "5013"},
 	{ COLECOVISION, "31" },	
 	{ COMMODORE_64, "40" },
 	{ INTELLIVISION, "32" },
@@ -110,6 +111,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ PHILIPS_CDI, "4917" },
 	{ WATARA_SUPERVISION, "4959" },
 	{ SONIC, "36,21" }, // Sega Mega Drive & Sega CD
+	{ GP32, "5015"},
 
 	// 1 = PC
 	{ PC, "1" },
