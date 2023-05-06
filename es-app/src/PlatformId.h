@@ -25,6 +25,7 @@ namespace PlatformIds
 		ATARI_JAGUAR,
 		ATARI_JAGUAR_CD,
 		ATARI_XE,
+		BBC_MICRO,
 		COLECOVISION,
 		COMMODORE_64,
 		INTELLIVISION,
@@ -105,6 +106,7 @@ namespace PlatformIds
 		TIC80,
 		MODEL3,
 		IMAGEVIEWER,
+		GP32,
 
 		// Windows Specific
 		VISUALPINBALL,
