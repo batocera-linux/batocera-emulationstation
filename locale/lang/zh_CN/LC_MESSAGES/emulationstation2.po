@@ -307,7 +307,7 @@ msgstr "无"
 msgid "Various"
 msgstr "多开发商"
 
-#, fuzzy, c-format
+#, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
 msgstr[0] "此合集包含 %i 个游戏:%s"
