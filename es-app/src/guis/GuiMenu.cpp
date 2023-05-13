@@ -2428,8 +2428,11 @@ void GuiMenu::openControllersSettings(int autoSel)
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		s->addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
-
+#if WIN32
+	s->addGroup(_("CONTROLLERS PRIORITY"));
+#else
 	s->addGroup(_("PLAYER ASSIGNMENTS"));
+#endif
 
 	ComponentListRow row;
 
@@ -2443,6 +2446,82 @@ void GuiMenu::openControllersSettings(int autoSel)
 
 	auto configList = InputManager::getInstance()->getInputConfigs();
 
+#if WIN32	
+	for (int player = 0; player < MAX_PLAYERS; player++)
+	{
+		std::string label = Utils::String::format(_("CONTROLLER #%i").c_str(), player + 1);
+
+		auto inputOptionList = std::make_shared<OptionListComponent<StrInputConfig*> >(mWindow, label, false);
+		inputOptionList->add(_("default"), nullptr, false);
+		options.push_back(inputOptionList);
+
+		// Checking if a setting has been saved, else setting to default
+		std::string configuratedName = Settings::getInstance()->getString(Utils::String::format("INPUT P%iNAME", player + 1));
+		std::string configuratedGuid = Settings::getInstance()->getString(Utils::String::format("INPUT P%iGUID", player + 1));
+		std::string configuratedPath = Settings::getInstance()->getString(Utils::String::format("INPUT P%iPATH", player + 1));
+
+		bool found = false;
+
+		// Add configurated controller even if it's disconnected
+		StrInputConfig* defaultInputConfig = nullptr;
+
+		if (!configuratedPath.empty())
+		{
+			StrInputConfig* newInputConfig = new StrInputConfig(configuratedName, configuratedGuid, configuratedPath);
+			mLoadedInput.push_back(newInputConfig);
+		
+			auto it = std::find_if(configList.cbegin(), configList.cend(), [configuratedName, configuratedGuid, configuratedPath](InputConfig* x) { return x->getDeviceName() == configuratedName && x->getDeviceGUIDString() == configuratedGuid && x->getSortDevicePath() == configuratedPath; });
+			if (it != configList.cend())
+			{
+				if (std::find(alreadyTaken.begin(), alreadyTaken.end(), (*it)->getDeviceId()) == alreadyTaken.end())
+				{
+					inputOptionList->addEx(configuratedName, configuratedPath, newInputConfig, true, false, false);
+					alreadyTaken.push_back((*it)->getDeviceId());
+					defaultInputConfig = newInputConfig;
+				}
+			}
+			else
+				inputOptionList->addEx(configuratedName + " (" + _("NOT CONNECTED") + ")", configuratedPath, newInputConfig, true, false, false);
+
+			found = true;
+		}
+
+		// for each available and configured input
+		for (auto config : configList)
+		{
+			if (defaultInputConfig != nullptr && defaultInputConfig->deviceName == config->getDeviceName() && defaultInputConfig->deviceGUIDString == config->getDeviceGUIDString() && defaultInputConfig->devicePath == config->getSortDevicePath())
+				continue;
+
+			std::string displayName = config->getDeviceName();
+
+			bool foundFromConfig = !configuratedPath.empty() ? config->getSortDevicePath() == configuratedPath : configuratedName == config->getDeviceName() && configuratedGuid == config->getDeviceGUIDString();
+			int deviceID = config->getDeviceId();
+
+			StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString(), config->getSortDevicePath());
+			mLoadedInput.push_back(newInputConfig);
+
+			if (foundFromConfig && std::find(alreadyTaken.begin(), alreadyTaken.end(), deviceID) == alreadyTaken.end() && !found)
+			{
+				found = true;
+				alreadyTaken.push_back(deviceID);
+
+				LOG(LogWarning) << "adding entry for player" << player << " (selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString() << "  " << config->getDevicePath();
+				inputOptionList->addEx(displayName, config->getDevicePath(), newInputConfig, true, false, false);
+			}
+			else
+			{
+				LOG(LogInfo) << "adding entry for player" << player << " (not selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString() << "  " << config->getDevicePath();
+				inputOptionList->addEx(displayName, config->getDevicePath(), newInputConfig, false, false, false);
+			}
+		}
+
+		if (!inputOptionList->hasSelection())
+			inputOptionList->selectFirstItem();
+			
+		// Populate controllers list
+		s->addWithLabel(label, inputOptionList);
+	}
+#else
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{		
 		std::string confName = Utils::String::format("INPUT P%iNAME", player + 1);
@@ -2465,18 +2544,11 @@ void GuiMenu::openControllersSettings(int autoSel)
 		// For each available and configured input
 		for (auto config : configList)
 		{
-#if WIN32
-			std::string displayName = config->getDeviceName();
-#else
 			std::string displayName = "#" + std::to_string(config->getDeviceIndex()) + " " + config->getDeviceName();
-#endif
-
 			bool foundFromConfig = !configuratedPath.empty() ? config->getSortDevicePath() == configuratedPath : configuratedName == config->getDeviceName() && configuratedGuid == config->getDeviceGUIDString();
 
 			int deviceID = config->getDeviceId();
 
-			// Si la manette est configurée, qu'elle correspond a la configuration, et qu'elle n'est pas
-			// deja selectionnée on l'ajoute en séléctionnée
 			StrInputConfig* newInputConfig = new StrInputConfig(config->getDeviceName(), config->getDeviceGUIDString(), config->getSortDevicePath());
 			mLoadedInput.push_back(newInputConfig);
 
@@ -2486,21 +2558,12 @@ void GuiMenu::openControllersSettings(int autoSel)
 				alreadyTaken.push_back(deviceID);
 				
 				LOG(LogWarning) << "adding entry for player" << player << " (selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString() << "  " << config->getDevicePath();
-
-#if WIN32
-				inputOptionList->addEx(displayName, config->getDevicePath(), newInputConfig, true, false, false);
-#else
 				inputOptionList->add(displayName, newInputConfig, true);
-#endif
 			}
 			else 
 			{
 				LOG(LogInfo) << "adding entry for player" << player << " (not selected): " << config->getDeviceName() << "  " << config->getDeviceGUIDString() << "  " << config->getDevicePath();
-#if WIN32
-				inputOptionList->addEx(displayName, config->getDevicePath(), newInputConfig, false, false, false);
-#else
 				inputOptionList->add(displayName, newInputConfig, false);
-#endif
 			}
 		}
 
@@ -2510,6 +2573,7 @@ void GuiMenu::openControllersSettings(int autoSel)
 		// Populate controllers list
 		s->addWithLabel(label, inputOptionList);
 	}
+#endif
 
 	s->addSaveFunc([this, options, window] 
 	{
