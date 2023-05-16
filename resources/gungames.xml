@@ -165,8 +165,8 @@
     <game>timecrisisii</game>
     <game>timecrisis2</game>
     <game>timecrisis3</game>
-    <game>crisiszone</game>
-    <game>timecrisiscrisiszone</game>
+    <game fog_bug="true">timecrisiscrisiszone</game>
+    <game fog_bug="true">crisiszone</game>
     <game>vampirenight</game>
     <game>virtuacopeliteedition</game>
   </system>
