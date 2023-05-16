@@ -591,6 +591,7 @@
   <genre>
     <id>2965</id>
     <nom_fr>Pachinko</nom_fr>
+    <nom_en>Pachinko</nom_en>
     <parent>2857</parent>
   </genre>
   <genre>
@@ -843,6 +844,7 @@
   <genre>
     <id>2844</id>
     <nom_fr>Shooter Small</nom_fr>
+    <nom_en>Shooter Small</nom_en>
     <parent>2843</parent>
   </genre>
   <genre>
