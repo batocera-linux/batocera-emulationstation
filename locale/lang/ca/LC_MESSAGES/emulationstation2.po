@@ -3023,27 +3023,27 @@ msgstr "OEST"
 
 msgctxt "joystick"
 msgid "START"
-msgstr "COMENÇA"
+msgstr "START"
 
 msgctxt "joystick"
 msgid "SELECT"
-msgstr "SELECCIÓ"
+msgstr "SELECT"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr "D-PAD AMUNT"
+msgstr "CREU DIGITAL, AMUNT"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr "D-PAD AVALL"
+msgstr "CREU DIGITAL, AVALL"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr "D-PAD ESQUERA"
+msgstr "CREU DIGITAL, ESQUERRA"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr "D-PAD DRETA"
+msgstr "CREU DIGITAL, DRETA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -3059,7 +3059,7 @@ msgstr "ANALÒGICA ESQUERRA, ESQUERRA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANÀLOG ESQUERRE, DRETA"
+msgstr "ANALÒGICA ESQUERRA, DRETA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
@@ -3079,27 +3079,27 @@ msgstr "ANALÒGICA DRETA, DRETA"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr "SHOULDER (BUMPER) ESQUERRE"
+msgstr "L (BOTÓ SUPERIOR ESQUERRE)"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr "SHOULDER (BUMPER) DRET"
+msgstr "R (BOTÓ SUPERIOR DRET)"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr "ACTIVADOR ESQUERRE"
+msgstr "GALLET ESQUERRE"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr "ACTIVADOR DRET"
+msgstr "GALLET DRET"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr "PREM STICK ESQUERRE"
+msgstr "BOTÓ PALANCA ESQUERRA"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr "PREM STICK DRET"
+msgstr "BOTÓ PALANCA DRETA"
 
 msgctxt "joystick"
 msgid "HOTKEY"
