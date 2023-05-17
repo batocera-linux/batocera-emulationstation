@@ -48,14 +48,6 @@
     <parent>10</parent>
   </genre>
   <genre>
-    <id>20688</id>
-    <nom_fr>Action RPG</nom_fr>
-    <nom_en>Action RPG</nom_en>
-    <nom_es>Juego de Rol de Acción</nom_es>
-    <nom_pt>Jogos de RPG</nom_pt>
-    <parent>8</parent>
-  </genre>
-  <genre>
     <id>413</id>
     <nom_fr>Adulte</nom_fr>
     <nom_de>Erwachsene</nom_de>
@@ -195,6 +187,14 @@
     <nom_pt>Jogo casual</nom_pt>
   </genre>
   <genre>
+    <id>2648</id>
+    <nom_fr>Chasse et Peche</nom_fr>
+    <nom_de>Jagen und Angeln</nom_de>
+    <nom_en>Hunting and Fishing</nom_en>
+    <nom_es>Caza y Pesca</nom_es>
+    <nom_pt>Caça e Pesca</nom_pt>
+  </genre>
+  <genre>
     <id>3192</id>
     <nom_fr>Chasse</nom_fr>
     <nom_de>Jagen</nom_de>
@@ -204,12 +204,13 @@
     <parent>2648</parent>
   </genre>
   <genre>
-    <id>2648</id>
-    <nom_fr>Chasse et Peche</nom_fr>
-    <nom_de>Jagen und Angeln</nom_de>
-    <nom_en>Hunting and Fishing</nom_en>
-    <nom_es>Caza y Pesca</nom_es>
-    <nom_pt>Caça e Pesca</nom_pt>
+    <id>2895</id>
+    <nom_fr>Peche</nom_fr>
+    <nom_de>Angeln</nom_de>
+    <nom_en>Fishing</nom_en>
+    <nom_es>Pesca</nom_es>
+    <nom_pt>Pesca</nom_pt>
+    <parent>2648</parent>
   </genre>
   <genre>
     <id>14</id>
@@ -286,60 +287,6 @@
     <altname>MINI-GAMES</altname>
   </genre>
   <genre>
-    <id>20682</id>
-    <nom_fr>Construction &amp; Management</nom_fr>
-    <nom_en>Build And Management</nom_en>
-    <nom_es>Construcción y Gestión</nom_es>
-    <nom_pt>Construção e Gestão</nom_pt>
-    <parent>40</parent>
-  </genre>
-  <genre>
-    <id>2918</id>
-    <nom_fr>Course de chevaux</nom_fr>
-    <nom_de>Pferderennen</nom_de>
-    <nom_en>Horses race</nom_en>
-    <nom_es>Carreras de caballos</nom_es>
-    <nom_pt>Corrida com Cavalos</nom_pt>
-    <parent>2650</parent>
-  </genre>
-  <genre>
-    <id>2973</id>
-    <nom_fr>Course de Moto vue 1er pers.</nom_fr>
-    <nom_de>Motorradrennen, 1st Pers.</nom_de>
-    <nom_en>Motorcycle Race, 1st Pers.</nom_en>
-    <nom_es>Carreras de moto, 1ª persona</nom_es>
-    <nom_pt>Corrida de moto em 1ª pessoa</nom_pt>
-    <parent>28</parent>
-  </genre>
-  <genre>
-    <id>2871</id>
-    <nom_fr>Course de Moto vue 3eme pers.</nom_fr>
-    <nom_de>Motorradrennen, 3rd Pers.</nom_de>
-    <nom_en>Motorcycle Race, 3rd Pers.</nom_en>
-    <nom_es>Carreras de moto, 3ª persona</nom_es>
-    <nom_pt>Corrida de moto em 3ª pessoa</nom_pt>
-    <parent>28</parent>
-  </genre>
-  <genre>
-    <id>2884</id>
-    <nom_fr>Course vue 1ere pers.</nom_fr>
-    <nom_de>Rennen 1st Pers.</nom_de>
-    <nom_en>Race 1st Pers. view</nom_en>
-    <nom_es>Carreras 1ª persona</nom_es>
-    <nom_pt>Corrida em 1ª pessoa</nom_pt>
-    <altname>DRIVING / RACE 1ST PERSON</altname>
-    <parent>28</parent>
-  </genre>
-  <genre>
-    <id>2888</id>
-    <nom_fr>Course vue 3eme pers.</nom_fr>
-    <nom_de>Rennen 3rd Pers.</nom_de>
-    <nom_en>Race 3rd Pers. view</nom_en>
-    <nom_es>Carreras 3ª persona</nom_es>
-    <nom_pt>Corrida em 3ª pessoa</nom_pt>
-    <parent>28</parent>
-  </genre>
-  <genre>
     <id>28</id>
     <nom_fr>Course, Conduite</nom_fr>
     <nom_de>Rennen, Fahren</nom_de>
@@ -376,6 +323,43 @@
     <nom_en>Race</nom_en>
     <nom_es>Carreras</nom_es>
     <nom_pt>Corrida</nom_pt>
+    <parent>28</parent>
+  </genre>
+  <genre>
+    <id>2973</id>
+    <nom_fr>Course de Moto vue 1er pers.</nom_fr>
+    <nom_de>Motorradrennen, 1st Pers.</nom_de>
+    <nom_en>Motorcycle Race, 1st Pers.</nom_en>
+    <nom_es>Carreras de moto, 1ª persona</nom_es>
+    <nom_pt>Corrida de moto em 1ª pessoa</nom_pt>
+    <parent>28</parent>
+  </genre>
+  <genre>
+    <id>2871</id>
+    <nom_fr>Course de Moto vue 3eme pers.</nom_fr>
+    <nom_de>Motorradrennen, 3rd Pers.</nom_de>
+    <nom_en>Motorcycle Race, 3rd Pers.</nom_en>
+    <nom_es>Carreras de moto, 3ª persona</nom_es>
+    <nom_pt>Corrida de moto em 3ª pessoa</nom_pt>
+    <parent>28</parent>
+  </genre>
+  <genre>
+    <id>2884</id>
+    <nom_fr>Course vue 1ere pers.</nom_fr>
+    <nom_de>Rennen 1st Pers.</nom_de>
+    <nom_en>Race 1st Pers. view</nom_en>
+    <nom_es>Carreras 1ª persona</nom_es>
+    <nom_pt>Corrida em 1ª pessoa</nom_pt>
+    <altname>DRIVING / RACE 1ST PERSON</altname>
+    <parent>28</parent>
+  </genre>
+  <genre>
+    <id>2888</id>
+    <nom_fr>Course vue 3eme pers.</nom_fr>
+    <nom_de>Rennen 3rd Pers.</nom_de>
+    <nom_en>Race 3rd Pers. view</nom_en>
+    <nom_es>Carreras 3ª persona</nom_es>
+    <nom_pt>Corrida em 3ª pessoa</nom_pt>
     <parent>28</parent>
   </genre>
   <genre>
@@ -449,13 +433,6 @@
     <parent>39</parent>
   </genre>
   <genre>
-    <id>20692</id>
-    <nom_fr>Dungeon RPG</nom_fr>
-    <nom_en>Dungeon Crawler RPG</nom_en>
-    <nom_es>Juego de Rol de Calabozo</nom_es>
-    <parent>8</parent>
-  </genre>
-  <genre>
     <id>31</id>
     <nom_fr>Flipper</nom_fr>
     <nom_de>Flipper</nom_de>
@@ -464,30 +441,35 @@
     <nom_pt>Pinball</nom_pt>
   </genre>
   <genre>
-    <id>2958</id>
-    <nom_fr>Go</nom_fr>
-    <nom_de>Go</nom_de>
-    <nom_en>Go</nom_en>
-    <nom_es>Go</nom_es>
-    <nom_pt>Go</nom_pt>
-    <parent>2647</parent>
-  </genre>
-  <genre>
-    <id>2882</id>
-    <nom_fr>Hanafuda</nom_fr>
-    <nom_de>Hanafuda</nom_de>
-    <nom_en>Hanafuda</nom_en>
-    <nom_es>Hanafuda</nom_es>
-    <nom_pt>Hanafuda</nom_pt>
-    <parent>2647</parent>
-  </genre>
-  <genre>
     <id>42</id>
     <nom_fr>Jeu de cartes</nom_fr>
     <nom_de>Kartenspiele</nom_de>
     <nom_en>Playing cards</nom_en>
     <nom_es>Juegos de cartas</nom_es>
     <nom_pt>Jogo de cartas</nom_pt>
+  </genre>
+  <genre>
+    <id>8</id>
+    <nom_fr>Jeu de rôles</nom_fr>
+    <nom_de>Rollenspiele</nom_de>
+    <nom_en>Role playing games</nom_en>
+    <nom_es>Juegos de rol</nom_es>
+    <nom_pt>Jogos de RPG</nom_pt>
+  </genre>
+  <genre>
+    <id>20688</id>
+    <nom_fr>Action RPG</nom_fr>
+    <nom_en>Action RPG</nom_en>
+    <nom_es>Juego de Rol de Acción</nom_es>
+    <nom_pt>Jogos de RPG</nom_pt>
+    <parent>8</parent>
+  </genre>
+  <genre>
+    <id>20692</id>
+    <nom_fr>Dungeon RPG</nom_fr>
+    <nom_en>Dungeon Crawler RPG</nom_en>
+    <nom_es>Juego de Rol de Calabozo</nom_es>
+    <parent>8</parent>
   </genre>
   <genre>
     <id>20696</id>
@@ -504,18 +486,17 @@
     <parent>8</parent>
   </genre>
   <genre>
-    <id>8</id>
-    <nom_fr>Jeu de rôles</nom_fr>
-    <nom_de>Rollenspiele</nom_de>
-    <nom_en>Role playing games</nom_en>
-    <nom_es>Juegos de rol</nom_es>
-    <nom_pt>Jogos de RPG</nom_pt>
-  </genre>
-  <genre>
     <id>20698</id>
     <nom_fr>Jeu de rôles en équipe</nom_fr>
     <nom_en>Team-as-one RPG</nom_en>
     <nom_es>Juego de Rol en Equipo</nom_es>
+    <parent>8</parent>
+  </genre>
+  <genre>
+    <id>20690</id>
+    <nom_fr>MMORPG</nom_fr>
+    <nom_en>Massive Multiplayer Online RPG</nom_en>
+    <nom_es>MMORPG</nom_es>
     <parent>8</parent>
   </genre>
   <genre>
@@ -537,12 +518,22 @@
     <nom_pt>Jogo de tabuleiro Asiático</nom_pt>
   </genre>
   <genre>
-    <id>30</id>
-    <nom_fr>Ludo-Educatif</nom_fr>
-    <nom_de>Lernspiel</nom_de>
-    <nom_en>Educational</nom_en>
-    <nom_es>Educacional</nom_es>
-    <nom_pt>Educacional</nom_pt>
+    <id>2958</id>
+    <nom_fr>Go</nom_fr>
+    <nom_de>Go</nom_de>
+    <nom_en>Go</nom_en>
+    <nom_es>Go</nom_es>
+    <nom_pt>Go</nom_pt>
+    <parent>2647</parent>
+  </genre>
+  <genre>
+    <id>2882</id>
+    <nom_fr>Hanafuda</nom_fr>
+    <nom_de>Hanafuda</nom_de>
+    <nom_en>Hanafuda</nom_en>
+    <nom_es>Hanafuda</nom_es>
+    <nom_pt>Hanafuda</nom_pt>
+    <parent>2647</parent>
   </genre>
   <genre>
     <id>2869</id>
@@ -554,11 +545,40 @@
     <parent>2647</parent>
   </genre>
   <genre>
-    <id>20690</id>
-    <nom_fr>MMORPG</nom_fr>
-    <nom_en>Massive Multiplayer Online RPG</nom_en>
-    <nom_es>MMORPG</nom_es>
-    <parent>8</parent>
+    <id>2949</id>
+    <nom_fr>Othello</nom_fr>
+    <nom_de>Othello</nom_de>
+    <nom_en>Othello</nom_en>
+    <nom_es>Reversi</nom_es>
+    <nom_pt>Othello</nom_pt>
+    <altname>TABLETOP / OTHELLO - REVERSI</altname>
+    <parent>2647</parent>
+  </genre>
+  <genre>
+    <id>2956</id>
+    <nom_fr>Renju</nom_fr>
+    <nom_de>Renju</nom_de>
+    <nom_en>Renju</nom_en>
+    <nom_es>Renju</nom_es>
+    <nom_pt>Renju</nom_pt>
+    <parent>2647</parent>
+  </genre>
+  <genre>
+    <id>2961</id>
+    <nom_fr>Shougi</nom_fr>
+    <nom_de>Shougi</nom_de>
+    <nom_en>Shougi</nom_en>
+    <nom_es>Shougi</nom_es>
+    <nom_pt>Shougi</nom_pt>
+    <parent>2647</parent>
+  </genre>
+  <genre>
+    <id>30</id>
+    <nom_fr>Ludo-Educatif</nom_fr>
+    <nom_de>Lernspiel</nom_de>
+    <nom_en>Educational</nom_en>
+    <nom_es>Educacional</nom_es>
+    <nom_pt>Educacional</nom_pt>
   </genre>
   <genre>
     <id>425</id>
@@ -568,6 +588,15 @@
     <nom_es>Música y Baile</nom_es>
     <nom_pt>Música e dança</nom_pt>
     <altname>Music</altname>
+  </genre>
+  <genre>
+    <id>2925</id>
+    <nom_fr>Rythme</nom_fr>
+    <nom_de>Rythmus</nom_de>
+    <nom_en>Rhythm</nom_en>
+    <nom_es>Rítmico</nom_es>
+    <nom_pt>Rítmico</nom_pt>
+    <parent>425</parent>
   </genre>
   <!--
   <genre>
@@ -579,29 +608,10 @@
     <nom_pt>N/A</nom_pt>
   </genre>-->
   <genre>
-    <id>2949</id>
-    <nom_fr>Othello</nom_fr>
-    <nom_de>Othello</nom_de>
-    <nom_en>Othello</nom_en>
-    <nom_es>Reversi</nom_es>
-    <nom_pt>Othello</nom_pt>
-    <altname>TABLETOP / OTHELLO - REVERSI</altname>
-    <parent>2647</parent>
-  </genre>
-  <genre>
     <id>2965</id>
     <nom_fr>Pachinko</nom_fr>
     <nom_en>Pachinko</nom_en>
     <parent>2857</parent>
-  </genre>
-  <genre>
-    <id>2895</id>
-    <nom_fr>Peche</nom_fr>
-    <nom_de>Angeln</nom_de>
-    <nom_en>Fishing</nom_en>
-    <nom_es>Pesca</nom_es>
-    <nom_pt>Pesca</nom_pt>
-    <parent>2648</parent>
   </genre>
   <genre>
     <id>7</id>
@@ -789,24 +799,6 @@
     <nom_pt>Reflexão</nom_pt>
   </genre>
   <genre>
-    <id>2956</id>
-    <nom_fr>Renju</nom_fr>
-    <nom_de>Renju</nom_de>
-    <nom_en>Renju</nom_en>
-    <nom_es>Renju</nom_es>
-    <nom_pt>Renju</nom_pt>
-    <parent>2647</parent>
-  </genre>
-  <genre>
-    <id>2925</id>
-    <nom_fr>Rythme</nom_fr>
-    <nom_de>Rythmus</nom_de>
-    <nom_en>Rhythm</nom_en>
-    <nom_es>Rítmico</nom_es>
-    <nom_pt>Rítmico</nom_pt>
-    <parent>425</parent>
-  </genre>
-  <genre>
     <id>79</id>
     <nom_fr>Shoot'em Up</nom_fr>
     <nom_de>Shoot'em Up</nom_de>
@@ -848,21 +840,20 @@
     <parent>2843</parent>
   </genre>
   <genre>
-    <id>2961</id>
-    <nom_fr>Shougi</nom_fr>
-    <nom_de>Shougi</nom_de>
-    <nom_en>Shougi</nom_en>
-    <nom_es>Shougi</nom_es>
-    <nom_pt>Shougi</nom_pt>
-    <parent>2647</parent>
-  </genre>
-  <genre>
     <id>40</id>
     <nom_fr>Simulation</nom_fr>
     <nom_de>Simulation</nom_de>
     <nom_en>Simulation</nom_en>
     <nom_es>Simulación</nom_es>
     <nom_pt>Simulação</nom_pt>    
+  </genre>
+  <genre>
+    <id>20682</id>
+    <nom_fr>Construction &amp; Management</nom_fr>
+    <nom_en>Build And Management</nom_en>
+    <nom_es>Construcción y Gestión</nom_es>
+    <nom_pt>Construção e Gestão</nom_pt>
+    <parent>40</parent>
   </genre>
   <genre>
     <id>20702</id>
@@ -1139,6 +1130,15 @@
     <nom_en>Sports with Animals</nom_en>
     <nom_es>Deportes con animales</nom_es>
     <nom_pt>Esporte com animais</nom_pt>
+  </genre>
+  <genre>
+    <id>2918</id>
+    <nom_fr>Course de chevaux</nom_fr>
+    <nom_de>Pferderennen</nom_de>
+    <nom_en>Horses race</nom_en>
+    <nom_es>Carreras de caballos</nom_es>
+    <nom_pt>Corrida com Cavalos</nom_pt>
+    <parent>2650</parent>
   </genre>
   <genre>
     <id>27</id>
