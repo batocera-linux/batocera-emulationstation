@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-05-16 18:53+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-05-16 21:32+0200\n"
+"Last-Translator: Ewing001 <ewing001@freemail.hu>\n"
 "Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -101,10 +101,10 @@ msgid "enter path to bezel (16:9)"
 msgstr "keret elérési útja"
 
 msgid "Cartridge"
-msgstr "Cartridge"
+msgstr "Kazetta"
 
 msgid "enter path to cartridge"
-msgstr "cartridge elérési útja"
+msgstr "kazetta elérési útja"
 
 msgid "Alt BoxArt"
 msgstr "Alternatív dobozkép"
@@ -444,7 +444,7 @@ msgid "INDEX NEW GAMES AT STARTUP"
 msgstr "ÚJ JÁTÉKOK INDEXELÉSE INDÍTÁSKOR"
 
 msgid "INDEX GAMES"
-msgstr "INDEX GAMES"
+msgstr "INDEX JÁTÉKOK"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NEM LEHET AKTIVÁLNI A RETROACHIEVEMENTS-EKET:"
@@ -1215,7 +1215,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "SZABAD HELYRE MÁSOLÁS"
 
 msgid "SCRAPER SETTINGS"
-msgstr ""
+msgstr "LEKÉRDEZÉS BEÁLLTÁS"
 
 msgid "IMAGE SOURCE"
 msgstr "KÉP FORRÁSA"
@@ -1254,7 +1254,7 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "LEKÉRÉS"
 
 msgid "SHORT NAME"
 msgstr "RÖVID NÉV"
@@ -1299,7 +1299,7 @@ msgid "FILTERS"
 msgstr "SZŰRŐK"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "JÁTÉKOKAT LEKÉRNI"
 
 msgid "ALL"
 msgstr "ÖSSZES"
@@ -1311,7 +1311,7 @@ msgid "GAMES MISSING ALL MEDIA"
 msgstr "JÁTÉKOKBÓL HIÁNYZÓ ÖSSZES MÉDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "FIGYELMEN KÍVÜL HAGYJA A NEMRÉG LEKÉRT JÁTÉKOKAT"
 
 msgid "LAST DAY"
 msgstr "ELMÚLT NAP"
@@ -1430,11 +1430,11 @@ msgstr "ÉLES-BILINEÁRIS-EGYSZERŰ"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr ""
+msgstr "SCANLINES"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr ""
+msgstr "RETRO"
 
 msgctxt "game_options"
 msgid "ENHANCED"
@@ -1446,21 +1446,21 @@ msgstr "GÖRBÜLET"
 
 msgctxt "game_options"
 msgid "ZFAST"
-msgstr ""
+msgstr "ZFAST"
 
 msgctxt "game_options"
 msgid "FLATTEN-GLOW"
-msgstr ""
+msgstr "LAPÍTOTT RAGYOGÁS"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr ""
+msgstr "RGA méretezés"
 
 msgid "VENDOR"
-msgstr ""
+msgstr "FORGALMAZÓ"
 
 msgid "RENDERER"
-msgstr ""
+msgstr "RENDERER"
 
 msgid "SHADERS"
 msgstr "SHADER"

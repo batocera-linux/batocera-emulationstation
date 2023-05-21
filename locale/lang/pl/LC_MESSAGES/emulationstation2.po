@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "DOSTĘPNA AKTUALIZACJA"
@@ -102,10 +102,10 @@ msgid "enter path to bezel (16:9)"
 msgstr "wprowadź ścieżkę do ramki (16:9)"
 
 msgid "Cartridge"
-msgstr "Kaseta"
+msgstr "Kartridż"
 
 msgid "enter path to cartridge"
-msgstr "wprowadź ścieżkę do kasety"
+msgstr "wprowadź ścieżkę do kartridża"
 
 msgid "Alt BoxArt"
 msgstr "Alternatywne Art pudełka"
@@ -204,7 +204,7 @@ msgid "enter kidgame"
 msgstr "wprowadź jako dla dzieci"
 
 msgid "Play count"
-msgstr "Liczba gier"
+msgstr "Liczba rozgrywek"
 
 msgid "enter number of times played"
 msgstr "wprowadź liczbę rozegranych gier"
@@ -213,7 +213,7 @@ msgid "Last played"
 msgstr "Ostatnio rozegrane"
 
 msgid "enter last played date"
-msgstr "wpisz datę ostatniej gry"
+msgstr "wpisz datę ostatniej rozgrywki"
 
 msgid "Crc32"
 msgstr "Crc32"
@@ -2171,7 +2171,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "USTAWIENIA PISTOLETU WIIMOTE"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA MYSZY/PISTOLETU STEAMDECKA"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2226,61 +2226,61 @@ msgid "HIDDEN"
 msgstr "UKRYTE"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "KOLOR OBRAMOWANIA"
 
 msgid "WHITE"
-msgstr ""
+msgstr "BIAŁY"
 
 msgid "RED"
-msgstr ""
+msgstr "CZERWONY"
 
 msgid "GREEN"
-msgstr ""
+msgstr "ZIELONY"
 
 msgid "BLUE"
-msgstr ""
+msgstr "NIEBIESKI"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "KONTRAST KAMERY"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "Dzień/Światło słoneczne (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "Domyślnie (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Ciemny ekran/Wieczór (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "JASNOŚĆ KAMERY"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "Dzień/Światło słoneczne (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "Domyślnie (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Ciemny ekran/Wieczór (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "EKSPOZYCJA KAMERY"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "Projektor/Kineskop (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "Projektor/Kineskop (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "Domyślnie (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "Inne (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "Inne (-9)"
 
 msgid "RECOIL"
 msgstr "ODRZUT"
@@ -2304,10 +2304,10 @@ msgid "JOYSTICK"
 msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "TYLKO MYSZ"
 
 msgid "HAND"
-msgstr ""
+msgstr "DŁOŃ"
 
 msgid "LEFT"
 msgstr "LEWO"
@@ -2406,7 +2406,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "PRZEJŚCIE ROZRUCHU GRY"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "MEDIA GRY PODCZAS SZYBKIEGO PRZEWIJANIA"
 
 msgid "SHOW CLOCK"
 msgstr "POKAŻ ZEGAR"
@@ -3238,7 +3238,7 @@ msgstr "PRACUJĘ..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d dni"
 
 #, c-format
 msgid "%d h"
