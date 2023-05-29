@@ -188,7 +188,7 @@
     <game>theshoot</game>
     <game>thelastbountyhunter</game>
     <game>timecrisis4</game>
-    <game>timecrisisrazingstorm</game>
+    <game color_buffers="true" frame_limit="30">timecrisisrazingstorm</game>
     <game>wickedmonstersblast</game>
   </system>
   <system name="psx">
