@@ -2209,46 +2209,46 @@ msgid "BLUE"
 msgstr "파란색"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "카메라 대비"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "오후/밝은 일광 (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "기본 (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "저녁/흐린 시야 (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "카메라 밝기"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "오후/밝은 일광 (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "기본 (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "저녁/흐린 시야 (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "카메라 노출"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "프로젝터/CRT (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "프로젝터/CRT (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "기본 (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "기타 (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "기타 (-9)"
 
 msgid "RECOIL"
 msgstr "리코일"
