@@ -2369,7 +2369,7 @@ void GuiMenu::openControllersSettings(int autoSel)
 	for (auto gun : InputManager::getInstance()->getGuns())
 	{
 		sindenguns_menu |= gun->needBorders();
-		wiiguns_menu |= gun->name() == "wiigun calibrated";
+		wiiguns_menu |= gun->name() == "Wii Gun calibrated";
 	}
 
 	for (auto joy : InputManager::getInstance()->getInputConfigs())
