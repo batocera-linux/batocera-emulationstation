@@ -157,6 +157,7 @@
   </system>
   <system name="ps2">
     <game>cocotofunfair</game>
+    <game>deathcrimsonox</game>
     <game>endgame</game>
     <game>guncom2</game>
     <game>gunfighter</game>
@@ -168,7 +169,7 @@
     <game>timecrisiscrisiszone</game>
     <game>crisiszone</game>
     <game>vampirenight</game>
-    <game>virtuacopeliteedition</game>
+    <game>virtuacop</game>
   </system>
   <system name="ps3">
     <game>childofeden</game>
