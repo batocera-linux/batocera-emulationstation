@@ -214,61 +214,62 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 #endif
 
 	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)));
-	httpreq.wait();
-
-	rapidjson::Document doc;
-	doc.Parse(httpreq.getContent().c_str());
-	if (doc.HasParseError())
-		return ret;
-
-	ret.ID = jsonInt(doc, "ID");
-	ret.Title = jsonString(doc, "Title");
-	ret.ConsoleID = jsonInt(doc, "ConsoleID");
-	ret.ForumTopicID = jsonInt(doc, "ForumTopicID");
-	ret.Flags = jsonInt(doc, "Flags");
-	ret.ImageIcon = jsonString(doc, "ImageIcon");
-	ret.ImageTitle = jsonString(doc, "ImageTitle");
-	ret.ImageIngame = jsonString(doc, "ImageIngame");
-	ret.ImageBoxArt = jsonString(doc, "ImageBoxArt");
-	ret.Publisher = jsonString(doc, "Publisher");
-	ret.Developer = jsonString(doc, "Developer");
-	ret.Genre = jsonString(doc, "Genre");
-	ret.Released = jsonString(doc, "Released");
-	ret.ConsoleName = jsonString(doc, "ConsoleName");
-	ret.NumDistinctPlayersCasual = jsonString(doc, "NumDistinctPlayersCasual");
-	ret.NumDistinctPlayersHardcore = jsonString(doc, "NumDistinctPlayersHardcore");
-	ret.NumAchievements = jsonInt(doc, "NumAchievements");
-	ret.NumAwardedToUser = jsonInt(doc, "NumAwardedToUser");
-	ret.NumAwardedToUserHardcore = jsonInt(doc, "NumAwardedToUserHardcore");
-	ret.UserCompletion = jsonString(doc, "UserCompletion");
-	ret.UserCompletionHardcore = jsonString(doc, "UserCompletionHardcore");
-
-	if (doc.HasMember("Achievements"))
+	if (httpreq.wait())
 	{
-		const rapidjson::Value& ra = doc["Achievements"];
-		for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
-		{
-			auto& recent = achivId->value;
-						
-			Achievement item;
-			item.ID = jsonString(recent, "ID");
-			item.NumAwarded = jsonString(recent, "NumAwarded");
-			item.NumAwardedHardcore = jsonString(recent, "NumAwardedHardcore");
-			item.Title = jsonString(recent, "Title");
-			item.Description = jsonString(recent, "Description");
-			item.Points = jsonString(recent, "Points");
-			item.TrueRatio = jsonString(recent, "TrueRatio");
-			item.Author = jsonString(recent, "Author");
-			item.DateModified = jsonString(recent, "DateModified");
-			item.DateCreated = jsonString(recent, "DateCreated");
-			item.BadgeName = jsonString(recent, "BadgeName");
-			item.DisplayOrder = jsonInt(recent, "DisplayOrder");
-			item.DateEarned = jsonString(recent, "DateEarned");
-			ret.Achievements.push_back(item);
-		}
-	}
+		rapidjson::Document doc;
+		doc.Parse(httpreq.getContent().c_str());
+		if (doc.HasParseError())
+			return ret;
 
-	std::sort(ret.Achievements.begin(), ret.Achievements.end(), sortAchievements);
+		ret.ID = jsonInt(doc, "ID");
+		ret.Title = jsonString(doc, "Title");
+		ret.ConsoleID = jsonInt(doc, "ConsoleID");
+		ret.ForumTopicID = jsonInt(doc, "ForumTopicID");
+		ret.Flags = jsonInt(doc, "Flags");
+		ret.ImageIcon = jsonString(doc, "ImageIcon");
+		ret.ImageTitle = jsonString(doc, "ImageTitle");
+		ret.ImageIngame = jsonString(doc, "ImageIngame");
+		ret.ImageBoxArt = jsonString(doc, "ImageBoxArt");
+		ret.Publisher = jsonString(doc, "Publisher");
+		ret.Developer = jsonString(doc, "Developer");
+		ret.Genre = jsonString(doc, "Genre");
+		ret.Released = jsonString(doc, "Released");
+		ret.ConsoleName = jsonString(doc, "ConsoleName");
+		ret.NumDistinctPlayersCasual = jsonString(doc, "NumDistinctPlayersCasual");
+		ret.NumDistinctPlayersHardcore = jsonString(doc, "NumDistinctPlayersHardcore");
+		ret.NumAchievements = jsonInt(doc, "NumAchievements");
+		ret.NumAwardedToUser = jsonInt(doc, "NumAwardedToUser");
+		ret.NumAwardedToUserHardcore = jsonInt(doc, "NumAwardedToUserHardcore");
+		ret.UserCompletion = jsonString(doc, "UserCompletion");
+		ret.UserCompletionHardcore = jsonString(doc, "UserCompletionHardcore");
+
+		if (doc.HasMember("Achievements"))
+		{
+			const rapidjson::Value& ra = doc["Achievements"];
+			for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+			{
+				auto& recent = achivId->value;
+
+				Achievement item;
+				item.ID = jsonString(recent, "ID");
+				item.NumAwarded = jsonString(recent, "NumAwarded");
+				item.NumAwardedHardcore = jsonString(recent, "NumAwardedHardcore");
+				item.Title = jsonString(recent, "Title");
+				item.Description = jsonString(recent, "Description");
+				item.Points = jsonString(recent, "Points");
+				item.TrueRatio = jsonString(recent, "TrueRatio");
+				item.Author = jsonString(recent, "Author");
+				item.DateModified = jsonString(recent, "DateModified");
+				item.DateCreated = jsonString(recent, "DateCreated");
+				item.BadgeName = jsonString(recent, "BadgeName");
+				item.DisplayOrder = jsonInt(recent, "DisplayOrder");
+				item.DateEarned = jsonString(recent, "DateEarned");
+				ret.Achievements.push_back(item);
+			}
+		}
+
+		std::sort(ret.Achievements.begin(), ret.Achievements.end(), sortAchievements);
+	}
 
 	return ret;
 }
@@ -284,95 +285,101 @@ UserSummary RetroAchievements::getUserSummary(const std::string userName, int ga
 	std::string count = std::to_string(gameCount);
 
 	HttpReq httpreq(getApiUrl("API_GetUserSummary", "u="+ HttpReq::urlEncode(usrName) +"&g="+ count +"&a="+ count));
-	httpreq.wait();
-
-	rapidjson::Document doc;
-	doc.Parse(httpreq.getContent().c_str());
-	if (doc.HasParseError())
-		return ret;
-
-	ret.Username = usrName;
-	ret.RecentlyPlayedCount = jsonInt(doc, "RecentlyPlayedCount");
-	ret.MemberSince = jsonString(doc, "MemberSince");
-	ret.RichPresenceMsg = jsonString(doc, "RichPresenceMsg");
-	ret.LastGameID = jsonString(doc, "LastGameID");
-	ret.ContribCount = jsonString(doc, "ContribCount");
-	ret.ContribYield = jsonString(doc, "ContribYield");
-	ret.TotalTruePoints = jsonString(doc, "TotalTruePoints");
-	ret.TotalPoints = jsonString(doc, "TotalPoints");
-	ret.Permissions = jsonString(doc, "Permissions");
-	ret.Untracked = jsonString(doc, "Untracked");
-	ret.ID = jsonString(doc, "ID");
-	ret.UserWallActive = jsonString(doc, "UserWallActive");
-	ret.Motto = jsonString(doc, "Motto");
-	ret.Rank = jsonString(doc, "Rank");
-	ret.TotalRanked = jsonString(doc, "TotalRanked");
-	ret.Points = jsonString(doc, "Points");
-	ret.UserPic = jsonString(doc, "UserPic");
-	ret.Status = jsonString(doc, "Status");
-
-	if (doc.HasMember("RecentlyPlayed"))
+	if (httpreq.wait())
 	{
-		for (auto& recent : doc["RecentlyPlayed"].GetArray())
+		rapidjson::Document doc;
+		doc.Parse(httpreq.getContent().c_str());
+		if (doc.HasParseError())
 		{
-			RecentGame item;
-			item.GameID = jsonString(recent, "GameID");
-			item.ConsoleID = jsonString(recent, "ConsoleID");
-			item.ConsoleName = jsonString(recent, "ConsoleName");
-			item.Title = jsonString(recent, "Title");
-			item.ImageIcon = jsonString(recent, "ImageIcon");
-			item.LastPlayed = jsonString(recent, "LastPlayed");
-			item.MyVote = jsonString(recent, "MyVote");
-
-			ret.RecentlyPlayed.push_back(item);
+			ret.Status = _("INVALID CONTENT");
+			return ret;
 		}
-	}
 
-	if (doc.HasMember("Awarded"))
-	{
-		const rapidjson::Value& ra = doc["Awarded"];
-		for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+		ret.Username = usrName;
+		ret.RecentlyPlayedCount = jsonInt(doc, "RecentlyPlayedCount");
+		ret.MemberSince = jsonString(doc, "MemberSince");
+		ret.RichPresenceMsg = jsonString(doc, "RichPresenceMsg");
+		ret.LastGameID = jsonString(doc, "LastGameID");
+		ret.ContribCount = jsonString(doc, "ContribCount");
+		ret.ContribYield = jsonString(doc, "ContribYield");
+		ret.TotalTruePoints = jsonString(doc, "TotalTruePoints");
+		ret.TotalPoints = jsonString(doc, "TotalPoints");
+		ret.Permissions = jsonString(doc, "Permissions");
+		ret.Untracked = jsonString(doc, "Untracked");
+		ret.ID = jsonString(doc, "ID");
+		ret.UserWallActive = jsonString(doc, "UserWallActive");
+		ret.Motto = jsonString(doc, "Motto");
+		ret.Rank = jsonString(doc, "Rank");
+		ret.TotalRanked = jsonString(doc, "TotalRanked");
+		ret.Points = jsonString(doc, "Points");
+		ret.UserPic = jsonString(doc, "UserPic");
+		ret.Status = jsonString(doc, "Status");
+
+		if (doc.HasMember("RecentlyPlayed"))
 		{
-			std::string gameID = achivId->name.GetString();
-			auto& recent = achivId->value;
-
-			Award item;
-			item.NumPossibleAchievements = jsonInt(recent, "NumPossibleAchievements");
-			item.PossibleScore = jsonInt(recent, "PossibleScore");
-			item.NumAchieved = jsonInt(recent, "NumAchieved");
-			item.ScoreAchieved = jsonInt(recent, "ScoreAchieved");
-			item.NumAchievedHardcore = jsonInt(recent, "NumAchievedHardcore");
-			item.ScoreAchievedHardcore = jsonInt(recent, "ScoreAchievedHardcore");
-
-			ret.Awarded[gameID] = item;
-		}
-	}
-
-	if (doc.HasMember("RecentAchievements"))
-	{
-		const rapidjson::Value& ra = doc["RecentAchievements"];		
-		for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
-		{			
-			std::string gameID = achivId->name.GetString();
-
-			for (auto itrc = achivId->value.MemberBegin(); itrc != achivId->value.MemberEnd(); ++itrc)
+			for (auto& recent : doc["RecentlyPlayed"].GetArray())
 			{
-				auto& recent = itrc->value;
-				RecentAchievement item;
-
-				item.ID = jsonString(recent, "ID");
+				RecentGame item;
 				item.GameID = jsonString(recent, "GameID");
-				item.GameTitle = jsonString(recent, "GameTitle");
-				item.Description = jsonString(recent, "Description");
-				item.Points = jsonString(recent, "Points");
-				item.BadgeName = jsonString(recent, "BadgeName");
-				item.IsAwarded = jsonString(recent, "IsAwarded");
-				item.DateAwarded = jsonString(recent, "DateAwarded");
-				item.HardcoreAchieved = jsonString(recent, "HardcoreAchieved");
-				ret.RecentAchievements[gameID].push_back(item);
-			}			
+				item.ConsoleID = jsonString(recent, "ConsoleID");
+				item.ConsoleName = jsonString(recent, "ConsoleName");
+				item.Title = jsonString(recent, "Title");
+				item.ImageIcon = jsonString(recent, "ImageIcon");
+				item.LastPlayed = jsonString(recent, "LastPlayed");
+				item.MyVote = jsonString(recent, "MyVote");
+
+				ret.RecentlyPlayed.push_back(item);
+			}
+		}
+
+		if (doc.HasMember("Awarded"))
+		{
+			const rapidjson::Value& ra = doc["Awarded"];
+			for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+			{
+				std::string gameID = achivId->name.GetString();
+				auto& recent = achivId->value;
+
+				Award item;
+				item.NumPossibleAchievements = jsonInt(recent, "NumPossibleAchievements");
+				item.PossibleScore = jsonInt(recent, "PossibleScore");
+				item.NumAchieved = jsonInt(recent, "NumAchieved");
+				item.ScoreAchieved = jsonInt(recent, "ScoreAchieved");
+				item.NumAchievedHardcore = jsonInt(recent, "NumAchievedHardcore");
+				item.ScoreAchievedHardcore = jsonInt(recent, "ScoreAchievedHardcore");
+
+				ret.Awarded[gameID] = item;
+			}
+		}
+
+		if (doc.HasMember("RecentAchievements"))
+		{
+			const rapidjson::Value& ra = doc["RecentAchievements"];
+			for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+			{
+				std::string gameID = achivId->name.GetString();
+
+				for (auto itrc = achivId->value.MemberBegin(); itrc != achivId->value.MemberEnd(); ++itrc)
+				{
+					auto& recent = itrc->value;
+					RecentAchievement item;
+
+					item.ID = jsonString(recent, "ID");
+					item.GameID = jsonString(recent, "GameID");
+					item.GameTitle = jsonString(recent, "GameTitle");
+					item.Description = jsonString(recent, "Description");
+					item.Points = jsonString(recent, "Points");
+					item.BadgeName = jsonString(recent, "BadgeName");
+					item.IsAwarded = jsonString(recent, "IsAwarded");
+					item.DateAwarded = jsonString(recent, "DateAwarded");
+					item.HardcoreAchieved = jsonString(recent, "HardcoreAchieved");
+					ret.RecentAchievements[gameID].push_back(item);
+				}
+			}
 		}
 	}
+	else
+		ret.Status = httpreq.getErrorMsg();
 
 	return ret;
 }
@@ -382,6 +389,12 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 {
 	RetroAchievementInfo info;
 
+	if (ret.Username.empty() && !ret.Status.empty())
+	{
+		info.error = ret.Status;
+		return info;
+	}
+
 	info.userpic = "https://retroachievements.org" + ret.UserPic;
 	info.rank = ret.Rank;
 
@@ -390,7 +403,7 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 
 	info.points = ret.TotalPoints;
 	info.totalpoints = ret.TotalTruePoints;
-	info.softpoints = std::to_string(std::stoi(info.totalpoints) - std::stoi(info.points));
+	info.softpoints = std::to_string(Utils::String::toInteger(info.totalpoints) - Utils::String::toInteger(info.points));
 	info.username = ret.Username;
 	info.registered = ret.MemberSince;
 
@@ -430,58 +443,60 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 
 	try
 	{
+		std::map<int, std::string> officialGames;
+
 		HttpReq hashLibrary("https://retroachievements.org/dorequest.php?r=hashlibrary");
 		HttpReq officialGamesList("https://retroachievements.org/dorequest.php?r=officialgameslist");
 
 		// Official games
-		officialGamesList.wait();
-
-		rapidjson::Document ogdoc;
-		ogdoc.Parse(officialGamesList.getContent().c_str());
-		if (ogdoc.HasParseError())
-			return ret;
-
-		if (!ogdoc.HasMember("Response"))
-			return ret;
-
-		std::map<int, std::string> officialGames;
-
-		const rapidjson::Value& response = ogdoc["Response"];
-		for (auto it = response.MemberBegin(); it != response.MemberEnd(); ++it)
+		if (officialGamesList.wait())
 		{
-			int gameId = Utils::String::toInteger(it->name.GetString());
+			rapidjson::Document ogdoc;
+			ogdoc.Parse(officialGamesList.getContent().c_str());
+			if (ogdoc.HasParseError())
+				return ret;
 
-			if (it->value.GetType() == rapidjson::Type::kStringType)
-				officialGames[gameId] = it->value.GetString();
-			else if (it->value.GetType() == rapidjson::Type::kNumberType)
-				officialGames[gameId] = std::to_string(it->value.GetInt());
+			if (!ogdoc.HasMember("Response"))
+				return ret;
+
+			const rapidjson::Value& response = ogdoc["Response"];
+			for (auto it = response.MemberBegin(); it != response.MemberEnd(); ++it)
+			{
+				int gameId = Utils::String::toInteger(it->name.GetString());
+
+				if (it->value.GetType() == rapidjson::Type::kStringType)
+					officialGames[gameId] = it->value.GetString();
+				else if (it->value.GetType() == rapidjson::Type::kNumberType)
+					officialGames[gameId] = std::to_string(it->value.GetInt());
+			}
 		}
 
 		// Hash library
-		hashLibrary.wait();
-
-		rapidjson::Document doc;
-		doc.Parse(hashLibrary.getContent().c_str());
-		if (doc.HasParseError())
-			return ret;
-
-		if (!doc.HasMember("MD5List"))
-			return ret;
-
-		const rapidjson::Value& mdlist = doc["MD5List"];
-		for (auto it = mdlist.MemberBegin(); it != mdlist.MemberEnd(); ++it)
+		if (hashLibrary.wait())
 		{
-			std::string name = Utils::String::toUpper(it->name.GetString());
+			rapidjson::Document doc;
+			doc.Parse(hashLibrary.getContent().c_str());
+			if (doc.HasParseError())
+				return ret;
 
-			if (!it->value.IsInt())
-				continue;
-			
-			int gameId = it->value.GetInt();
+			if (!doc.HasMember("MD5List"))
+				return ret;
 
-			if (officialGames.find(gameId) == officialGames.cend())
-				continue;
+			const rapidjson::Value& mdlist = doc["MD5List"];
+			for (auto it = mdlist.MemberBegin(); it != mdlist.MemberEnd(); ++it)
+			{
+				std::string name = Utils::String::toUpper(it->name.GetString());
 
-			ret[name] = std::to_string(gameId);			
+				if (!it->value.IsInt())
+					continue;
+
+				int gameId = it->value.GetInt();
+
+				if (officialGames.find(gameId) == officialGames.cend())
+					continue;
+
+				ret[name] = std::to_string(gameId);
+			}
 		}
 	}
 	catch (...)
