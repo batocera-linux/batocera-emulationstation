@@ -50,10 +50,10 @@ void Win32ApiSystem::deinit()
 std::string getUrlFromUpdateType(std::string url)
 {
 	std::string updatesType = Settings::getInstance()->getString("updates.type");
-	if (updatesType == "beta")
+	if (updatesType == "butterfly")
 		return Utils::String::replace(url, "continuous-stable", "continuous-master");
 	else if (updatesType == "unstable")
-		return Utils::String::replace(url, "continuous-stable", "continuous-beta");
+		return Utils::String::replace(url, "continuous-stable", "continuous-butterfly");
 
 	return url;
 }
@@ -732,7 +732,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 		std::string esUpdateDirectory = Utils::FileSystem::getPreferredPath(Utils::FileSystem::getParent(esUpdateScript));
 
 		std::string updatesType = Settings::getInstance()->getString("updates.type");
-		if (updatesType == "beta" || updatesType == "unstable")
+		if (updatesType == "butterfly" || updatesType == "unstable")
 			esUpdateScript += " -branch " + updatesType;
 
 		std::string output;
@@ -794,7 +794,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 void Win32ApiSystem::updateEmulatorLauncher(const std::function<void(const std::string)>& func)
 {
 	std::string updatesType = Settings::getInstance()->getString("updates.type");
-	if (updatesType != "beta" && updatesType != "unstable")
+	if (updatesType != "butterfly" && updatesType != "unstable")
 		return;
 
 	// Check emulatorLauncher exists
@@ -866,7 +866,7 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 		std::string esUpdateDirectory = Utils::FileSystem::getPreferredPath(Utils::FileSystem::getParent(esUpdateScript));
 
 		std::string updatesType = Settings::getInstance()->getString("updates.type");
-		if (updatesType == "beta" || updatesType == "unstable")
+		if (updatesType == "butterfly" || updatesType == "unstable")
 			esUpdateScript += " -branch " + updatesType;
 
 		std::string cmdOutput; 

@@ -861,11 +861,11 @@ void GuiMenu::openUpdatesSettings()
 			updatesTypeList->add("unstable", "unstable", updatesType == "unstable");
 		else
 #endif
-			if (updatesType.empty() || updatesType != "beta")
+			if (updatesType.empty() || updatesType != "butterfly")
 				updatesType = "stable";
 
 		updatesTypeList->add("stable", "stable", updatesType == "stable");
-		updatesTypeList->add("beta", "beta", updatesType == "beta");
+		updatesTypeList->add("butterfly", "butterfly", updatesType == "butterfly");
 
 		updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
 		updatesTypeList->setSelectedChangedCallback([](std::string name)
