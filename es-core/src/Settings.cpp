@@ -325,6 +325,9 @@ void Settings::setDefaults()
 	mStringMap["INPUT P3NAME"] = "DEFAULT";
 	mStringMap["INPUT P4NAME"] = "DEFAULT";
 	mStringMap["INPUT P5NAME"] = "DEFAULT";
+	mStringMap["INPUT P6NAME"] = "DEFAULT";
+	mStringMap["INPUT P7NAME"] = "DEFAULT";
+	mStringMap["INPUT P8NAME"] = "DEFAULT";
 
 	// Audio settings
 	mBoolMap["audio.bgmusic"] = Settings::_BackgroundMusic;
