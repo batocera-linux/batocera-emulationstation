@@ -420,7 +420,10 @@ std::string getArchString()
 {
 #if WIN32
 	return "windows";
-#endif
+#else
+	std::string arch = Utils::FileSystem::readAllText("/usr/share/batocera/batocera.arch");
+	if (!arch.empty())
+		return arch;
 
 #if X86
 	return "x86";
@@ -450,80 +453,78 @@ std::string getArchString()
 	return "rpi4";
 #endif
 
-#if ODROIDGOA
-	return "odroidgoa";
-#endif
-
-#if GAMEFORCE
-	return "gameforce";
-#endif
-
-#if RK3326
-	return "rk3326";
-#endif
-
 #if ODROIDXU4
 	return "odroidxu4";
 #endif
 
-#if ODROIDC2
-	return "odroidc2";
-#endif
-
-#if ODROIDC4
-	return "odroidc4";
-#endif
-
-#if TINKERBOARD
-	return "tinkerboard";
+#if RK3128
+	return "rk3128";
 #endif
 
 #if RK3288
 	return "rk3288";
 #endif
 
+#if RK3326
+	return "rk3326";
+#endif
+
+#if RK3328
+	return "rk3328";
+#endif
+
 #if RK3399
 	return "rk3399";
 #endif
 
-#if MIQI
-	return "miqi";
+#if RK3568
+	return "rk3568";
 #endif
 
-#if TRITIUM_H5
-	return "tritium_h5";
+#if RK3588
+	return "rk3588";
 #endif
 
-#if ORANGEPI_ZERO2
-	return "orangepi_zero2";
+#if H3
+	return "h3";
 #endif
 
-#if ORANGEPI_PC
-	return "orangepi_pc";
+#if H5
+	return "h5";
 #endif
 
-#if CHA
-	return "cha";
+#if H6
+	return "h6";
+#endif
+
+#if H616
+	return "h616";
 #endif
 
 #if S812
 	return "s812";
 #endif
 
-#if S922X
-	return "s922x";
-#endif
-
 #if S905
 	return "s905";
+#endif
+
+#if S912
+	return "s912";
+#endif
+
+#if S905GEN2
+	return "s905gen2";
 #endif
 
 #if S905GEN3
 	return "s905gen3";
 #endif
 
-#if S912
-	return "s912";
+#if S922X
+	return "s922x";
+#endif
+
 #endif
 
 	return "";
