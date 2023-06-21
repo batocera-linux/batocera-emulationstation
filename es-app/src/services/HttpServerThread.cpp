@@ -29,6 +29,7 @@
 
 Misc APIS
 -----------------
+GET  /caps                                                      -> capability info
 GET  /restart
 GET  /quit
 GET  /emukill
@@ -248,6 +249,14 @@ void HttpServerThread::run()
 			return;
 
 		ApiSystem::getInstance()->emuKill();
+	});
+
+	mHttpServer->Get("/caps", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		res.set_content(HttpApi::getCaps(), "application/json");
 	});
 
 	mHttpServer->Get("/systems", [](const httplib::Request& req, httplib::Response& res)

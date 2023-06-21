@@ -5,6 +5,7 @@
 #endif
 
 #include "platform.h"
+#include "ApiSystem.h"
 #include "Gamelist.h"
 #include "SystemData.h"
 #include "FileData.h"
@@ -317,3 +318,23 @@ std::string HttpApi::getRunnningGameInfo()
 	return ToJson(file);
 }
 
+std::string HttpApi::getCaps()
+{
+	rapidjson::StringBuffer s;
+	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
+
+	writer.StartObject();
+
+	writer.Key("Version"); writer.String(ApiSystem::getInstance()->getVersion().c_str());
+
+	// MetaDataId::SortName is disabled in this EmulationStation 
+	writer.Key("SortName"); writer.Bool(false);
+
+	//	:
+	// add capability info for web client 
+	//	:
+
+	writer.EndObject();
+
+	return s.GetString();
+}
