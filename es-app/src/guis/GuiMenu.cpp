@@ -854,6 +854,12 @@ void GuiMenu::openUpdatesSettings()
 
 		auto updatesTypeList = std::make_shared<OptionListComponent<std::string> >(mWindow, _("UPDATE TYPE"), false);
 
+#if BATOCERA
+#define BETA_NAME "butterfly"
+#else
+#define BETA_NAME "beta"
+#endif
+
 		std::string updatesType = SystemConf::getInstance()->get("updates.type");
 
 #if WIN32
@@ -861,11 +867,11 @@ void GuiMenu::openUpdatesSettings()
 			updatesTypeList->add("unstable", "unstable", updatesType == "unstable");
 		else
 #endif
-			if (updatesType.empty() || updatesType != "butterfly")
+			if (updatesType.empty() || updatesType != BETA_NAME)
 				updatesType = "stable";
 
 		updatesTypeList->add("stable", "stable", updatesType == "stable");
-		updatesTypeList->add("butterfly", "butterfly", updatesType == "butterfly");
+		updatesTypeList->add(BETA_NAME, BETA_NAME, updatesType == BETA_NAME);
 
 		updateGui->addWithLabel(_("UPDATE TYPE"), updatesTypeList);
 		updatesTypeList->setSelectedChangedCallback([](std::string name)
