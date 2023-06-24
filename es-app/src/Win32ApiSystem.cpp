@@ -18,6 +18,10 @@
 #include "Paths.h"
 #include "utils/VectorEx.h"
 
+#include <powerbase.h>
+#include <powrprof.h>
+#pragma comment(lib, "Powrprof.lib")
+
 #pragma comment(lib, "shell32.lib")
 #pragma comment(lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
 #pragma comment(lib, "ws2_32.lib")
@@ -84,6 +88,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 
 	switch (script)
 	{
+	case ApiSystem::SUSPEND:
+		return canSuspend();
+	
 	case ApiSystem::WIFI:
 		executables.push_back("batocera-wifi");
 		break;
@@ -155,6 +162,22 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	}
 
 	return true;
+}
+
+bool Win32ApiSystem::canSuspend()
+{
+	SYSTEM_POWER_CAPABILITIES cap;
+	NTSTATUS status = ::CallNtPowerInformation(SystemPowerCapabilities, NULL, 0, &cap, sizeof(cap));
+	return (status == 0 && cap.HiberFilePresent);
+}
+
+void Win32ApiSystem::suspend()
+{	
+	if (!canSuspend())
+		return;
+
+	LOG(LogDebug) << "Win32ApiSystem::suspend";
+	::SetSuspendState(TRUE, FALSE, FALSE);
 }
 
 int Win32ApiSystem::executeCMD(const char* lpCommandLine, std::string& output, const char* lpCurrentDirectory, const std::function<void(const std::string)>& func)
