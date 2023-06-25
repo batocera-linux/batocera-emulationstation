@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-19 13:56+0300\n"
+"PO-Revision-Date: 2023-06-25 11:46+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "PÄIVITYS SAATAVILLA"
@@ -676,7 +676,7 @@ msgid "COLLECTION"
 msgstr "KOKOELMA"
 
 msgid "GAMELIST VIEW STYLE"
-msgstr ""
+msgstr "PELILISTAN TYYLI"
 
 msgid "automatic"
 msgstr "automaattinen"
@@ -850,28 +850,28 @@ msgid "NO MISSING BIOS"
 msgstr "EI PUUTTUVAA BIOS:TA"
 
 msgid "dim"
-msgstr ""
+msgstr "himmennä"
 
 msgid "black"
-msgstr ""
+msgstr "musta"
 
 msgid "random video"
-msgstr ""
+msgstr "satunnainen video"
 
 msgid "slideshow"
-msgstr ""
+msgstr "diaesitys"
 
 msgid "suspend"
-msgstr ""
+msgstr "valmiustila"
 
 msgid "always"
-msgstr ""
+msgstr "aina"
 
 msgid "start & end"
 msgstr ""
 
 msgid "never"
-msgstr ""
+msgstr "ei koskaan"
 
 msgid "systems"
 msgstr ""
@@ -883,13 +883,13 @@ msgid "SCREENSAVER SETTINGS"
 msgstr "NÄYTÖNSÄÄSTÄJÄN ASETUKSET"
 
 msgid "START SCREENSAVER AFTER"
-msgstr ""
+msgstr "KÄYNNISTÄ NÄYTÖN SÄÄSTÄJÄ"
 
 msgid "SCREENSAVER TYPE"
 msgstr "NÄYTÖNSÄÄSTÄJÄN TYYPPI"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr ""
+msgstr "PYSÄYTÄ MUSIIKKI NÄYTÖNSÄÄSTÄJÄN AIKANA"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "SATUNNAISEN VIDEONÄYTÖNSÄÄSTÄJÄN ASETUKSET"
@@ -1281,34 +1281,34 @@ msgid "PADTOKEY SETTINGS"
 msgstr ""
 
 msgid "SCRAPER"
-msgstr ""
+msgstr "TIEDONHAKIJA"
 
 msgid "SCRAPING DATABASE"
-msgstr ""
+msgstr "TIEDONHAUN TIETOKANTA"
 
 msgid "SOURCE"
-msgstr ""
+msgstr "LÄHDE"
 
 msgid "SCRAPE FROM"
-msgstr ""
+msgstr "ETSI TIETOA"
 
 msgid "FILTERS"
 msgstr "SUODATTIMET"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr ""
+msgstr "ETSI TIETOA PELEILLE"
 
 msgid "ALL"
-msgstr ""
+msgstr "KAIKKI"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr ""
+msgstr "JOISTA PUUTTUU MEDIAA"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr ""
+msgstr "JOISTA PUUTTUU KAIKKI MEDIA"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr ""
+msgstr "OHITA HILJATTAIN ETSITYT PELIT"
 
 msgid "LAST DAY"
 msgstr "EILEN"
@@ -1332,7 +1332,7 @@ msgid "SYSTEMS INCLUDED"
 msgstr "SISÄLLETYT JÄRJESTELMÄT"
 
 msgid "SCRAPE NOW"
-msgstr ""
+msgstr "ETSI NYT"
 
 msgid "START"
 msgstr "KÄYNNISTÄ"
@@ -1344,7 +1344,7 @@ msgid ""
 msgstr ""
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr ""
+msgstr "ETSINTÄ KÄYNNISSÄ. HALUATKO PYSÄYTTÄÄ SEN?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr ""
@@ -1368,7 +1368,7 @@ msgid "VIDEO DRIVER"
 msgstr ""
 
 msgid "THE BEZEL PROJECT"
-msgstr ""
+msgstr "KEHYSPROJEKTI"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
 msgstr "VALITSE KEHYKSIÄ ASENNETTAVAKSI/POISTETTAVAKSI"
@@ -1785,7 +1785,6 @@ msgstr "KÄYTTÖLIITTYMÄTILA"
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr "Lukitse tietyt asetukset käyttöliittymästä vierailta/lapsilta."
 
-#, fuzzy
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
@@ -1793,8 +1792,9 @@ msgid ""
 msgstr ""
 "Olet muuttamassa käyttöliittymää rajoitetumpaan tilaan:\n"
 "Tämä piilottaa lähes kaikki asetukset estääkseen muutosten tekemisen "
-"järjestelmään:\n"
-"Avataksesi asetukset ja palataksesi "
+"järjestelmään.\n"
+"Avataksesi asetukset ja palataksesi täyteen käyttöliittymään, syötä tämä "
+"koodi:"
 
 msgid "Do you want to proceed?"
 msgstr "Haluatko jatkaa?"
@@ -2131,7 +2131,7 @@ msgid "REALLY UPDATE GAMELISTS?"
 msgstr ""
 
 msgid "CONTROLLER MAPPING"
-msgstr ""
+msgstr "OHJAIMEN KARTOITUKSET"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
@@ -2153,29 +2153,29 @@ msgid "BLUETOOTH"
 msgstr ""
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
+msgstr "YHDISTÄ BLUETOOTH-OHJAIMET AUTOMAATTISESTI"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "YHDISTÄ BLUETOOTH-LAITE AUTOMAATTISESTI"
 
 msgid "DISPLAY OPTIONS"
 msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
-msgstr ""
+msgstr "NÄYTÄ OHJAIMEN AKTIIVISUUS"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
+msgstr "NÄYTÄ OHJAIMEN AKUNTASO"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr ""
+msgstr "P%i OHJAIN"
 
 msgid "default"
-msgstr ""
+msgstr "oletus"
 
 msgid "BORDER SIZE"
 msgstr ""
@@ -2295,19 +2295,19 @@ msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
 
 msgid "THEME CONFIGURATION"
-msgstr ""
+msgstr "TEEMAN ASETUKSET"
 
 msgid "GAMELIST STYLE"
 msgstr ""
 
 msgid "basic"
-msgstr ""
+msgstr "perus"
 
 msgid "detailed"
-msgstr ""
+msgstr "yksityiskohtainen"
 
 msgid "DEFAULT GRID SIZE"
-msgstr ""
+msgstr "RUUDUKON OLETUSKOKO"
 
 msgid "GAMELIST THEME OPTIONS"
 msgstr ""
@@ -2322,37 +2322,37 @@ msgid "GAMELIST OPTIONS"
 msgstr ""
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr ""
+msgstr "NÄYTÄ SUOSIKIT YLIMPÄNÄ"
 
 msgid "SHOW HIDDEN FILES"
-msgstr ""
+msgstr "NÄYTÄ PIILOTETUT TIEDOSTOT"
 
 msgid "SHOW FOLDERS"
-msgstr ""
+msgstr "NÄYTÄ KANSIOT"
 
 msgid "having multiple games"
-msgstr ""
+msgstr "joissa on useita pelejä"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr ""
+msgstr "NÄYTÄ \"..\" YLÄKANSIO"
 
 msgid "BEFORE NAME"
-msgstr ""
+msgstr "ENNEN NIMEÄ"
 
 msgid "AFTER NAME"
-msgstr ""
+msgstr "NIMEN JÄLKEEN"
 
 msgid "SHOW REGION FLAG"
-msgstr ""
+msgstr "NÄYTÄ ALUEEN LIPPU"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr ""
+msgstr "NÄYTÄ TILATALLENNUKSEN KUVAKE"
 
 msgid "SHOW MANUAL ICON"
-msgstr ""
+msgstr "NÄYTÄ OHJEKIRJAN KUVAKE"
 
 msgid "SHOW FILENAMES INSTEAD"
-msgstr ""
+msgstr "NÄYTÄ TIEDOSTONIMET MIELUUMMIN"
 
 msgid "FILE EXTENSIONS"
 msgstr "TIEDOSTOPÄÄTTEET"
@@ -2364,25 +2364,25 @@ msgid "APPEARANCE"
 msgstr "ULKOASU"
 
 msgid "THEME SET"
-msgstr ""
+msgstr "TEEMA"
 
 msgid "video"
 msgstr ""
 
 msgid "grid"
-msgstr ""
+msgstr "ruudukko"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "LISTAN SIIRTYMÄ"
 
 msgid "auto"
 msgstr ""
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr ""
+msgstr "PELIN KÄYNNISTYKSEN SIIRTYMÄ"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "PELIN MEDIAT NOPEAN SELAAMISEN AIKANA"
 
 msgid "SHOW CLOCK"
 msgstr "NÄYTÄ KELLO"
@@ -2400,7 +2400,7 @@ msgid "ICON AND TEXT"
 msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr ""
+msgstr "OHITA ALKUARTIKKELIT LAJITELTAESSA"
 
 msgid "Ignore 'The' and 'A' if at the start."
 msgstr ""
@@ -2735,7 +2735,7 @@ msgid "GAME OPTIONS"
 msgstr ""
 
 msgid "FAVORITE"
-msgstr ""
+msgstr "SUOSIKKI"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2917,7 +2917,7 @@ msgid "YEAR"
 msgstr ""
 
 msgid "REGION"
-msgstr ""
+msgstr "ALUE"
 
 msgid "KIDGAME"
 msgstr ""
