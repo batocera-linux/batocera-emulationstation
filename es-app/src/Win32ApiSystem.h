@@ -42,6 +42,9 @@ public:
 	virtual std::string getSevenZipCommand() override;
 	virtual std::string getHostsName() override;
 
+	bool canSuspend();
+	virtual void suspend() override;
+
 protected:
 
 	bool executeScript(const std::string command) override;
