@@ -424,6 +424,14 @@ void GuiMenu::openDeveloperSettings()
 			ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
 		}
 	});
+
+	// es resolution
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
+	  {
+	    auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "es", "resolution");
+	    s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution for emulationstation."), videoModeOptionList);
+	    s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("es.resolution", videoModeOptionList->getSelected()); });
+	  }
 #endif
 
 #ifdef _RPI_
@@ -3922,11 +3930,11 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList
 	return ratio_choice;
 }
 
-std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window, std::string configname) 
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window, std::string configname, std::string configoptname) 
 {
 	auto videoResolutionMode_choice = std::make_shared<OptionListComponent<std::string> >(window, _("VIDEO MODE"), false);
 
-	std::string currentVideoMode = SystemConf::getInstance()->get(configname + ".videomode");
+	std::string currentVideoMode = SystemConf::getInstance()->get(configname + "." + configoptname);
 	if (currentVideoMode.empty())
 		currentVideoMode = std::string("auto");
 	
