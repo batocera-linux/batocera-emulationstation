@@ -270,6 +270,8 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 
 		std::sort(ret.Achievements.begin(), ret.Achievements.end(), sortAchievements);
 	}
+	else
+		ret.Title = httpreq.getErrorMsg();
 
 	return ret;
 }

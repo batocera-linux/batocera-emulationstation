@@ -377,13 +377,34 @@ HttpReq::Status HttpReq::status()
 					{
 						std::string err;
 
-						if (http_status_code >= 400 && http_status_code <= 500)
+						if (http_status_code >= 400 && http_status_code <= 503)
 						{
 							if (req->mFilePath.empty())
-								err = req->getContent();
+							{
+								auto content = req->getContent();
+								if (!content.empty() && content.find("<body") != std::string::npos)
+								{
+									// Parse response HTML & extract body
+									auto body = Utils::String::extractString(content, "<body", "</body>", true);
+									body = Utils::String::replace(body, "\r", "");
+									body = Utils::String::replace(body, "\n", "");
+									body = Utils::String::replace(body, "</p>", "\r\n");
+									body = Utils::String::replace(body, "<br>", "\r\n");
+									body = Utils::String::replace(body, "<hr>", "\r\n");
+									body = Utils::String::removeHtmlTags(body);
 
-							req->mStatus = (Status)http_status_code;
-						}
+									if (!body.empty())
+										err = "HTTP status " + std::to_string(http_status_code) + "\r\n" + body;
+								}
+								else
+									err = content;
+							}
+
+							if (http_status_code > 500)
+								req->mStatus = REQ_IO_ERROR;
+							else
+								req->mStatus = (Status)http_status_code;
+						}						
 						else
 							req->mStatus = REQ_IO_ERROR;
 

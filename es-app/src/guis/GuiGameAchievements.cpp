@@ -27,7 +27,12 @@ void GuiGameAchievements::show(Window* window, int gameId)
 	},
 		[window](GameInfoAndUserProgress ra)
 	{
-		window->pushGui(new GuiGameAchievements(window, ra));
+		if (ra.ID == 0 && !ra.Title.empty())
+			window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURRED") + "\r\n" + ra.Title, _("OK")));
+		else if (ra.ID == 0)
+			window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURRED"), _("OK")));
+		else
+			window->pushGui(new GuiGameAchievements(window, ra));
 	}));
 }
 
