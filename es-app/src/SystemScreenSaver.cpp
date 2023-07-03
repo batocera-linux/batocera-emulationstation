@@ -72,6 +72,10 @@ void SystemScreenSaver::startScreenSaver()
 {
 	bool loadingNext = mLoadingNext;
 
+	if(mState == STATE_INACTIVE) {
+	  Scripting::fireEvent("screensaver-started");
+	}
+
 	stopScreenSaver();
 
 	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
@@ -212,6 +216,10 @@ void SystemScreenSaver::stopScreenSaver()
 
 	mVideoScreensaver = nullptr;
 	mImageScreensaver = nullptr;
+
+	if(isExitingScreenSaver && mState != STATE_INACTIVE) {
+	  Scripting::fireEvent("screensaver-stopped");
+	}
 
 	// we need this to loop through different videos
 	mState = STATE_INACTIVE;
