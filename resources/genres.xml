@@ -215,6 +215,7 @@
     <nom_en>Hunting and Fishing</nom_en>
     <nom_es>Caza y Pesca</nom_es>
     <nom_pt>Caça e Pesca</nom_pt>
+    <nom_ja>狩猟&amp;釣り</nom_ja>
   </genre>
   <genre>
     <id>3192</id>
@@ -234,7 +235,7 @@
     <nom_es>Pesca</nom_es>
     <nom_pt>Pesca</nom_pt>
     <parent>2648</parent>
-    <nom_ja>狩猟&amp;釣り</nom_ja>
+    <nom_ja>釣り</nom_ja>
   </genre>
   <genre>
     <id>14</id>
@@ -325,6 +326,7 @@
     <nom_en>Race, Driving</nom_en>
     <nom_es>Carreras, Conducción</nom_es>
     <nom_pt>Corrida, Pilotagem</nom_pt>
+    <nom_ja>操縦系</nom_ja>
     <altname>Racing</altname>
     <altname>Course</altname>
     <altname>Race</altname>
@@ -337,6 +339,7 @@
     <nom_en>Plane</nom_en>
     <nom_es>Avión</nom_es>
     <nom_pt>Avião</nom_pt>
+    <nom_ja>飛行機</nom_ja>
     <parent>28</parent>
   </genre>
   <genre>
@@ -346,6 +349,7 @@
     <nom_en>Boat</nom_en>
     <nom_es>Bote</nom_es>
     <nom_pt>Bote</nom_pt>
+    <nom_ja>ボート</nom_ja>
     <parent>28</parent>
   </genre>
   <genre>
@@ -355,6 +359,7 @@
     <nom_en>Race</nom_en>
     <nom_es>Carreras</nom_es>
     <nom_pt>Corrida</nom_pt>
+    <nom_ja>競走</nom_ja>
     <parent>28</parent>
   </genre>
   <genre>
@@ -500,6 +505,7 @@
     <nom_en>Role playing games</nom_en>
     <nom_es>Juegos de rol</nom_es>
     <nom_pt>Jogos de RPG</nom_pt>
+    <nom_ja>ロールプレイング</nom_ja>
   </genre>
   <genre>
     <id>20688</id>
@@ -515,6 +521,7 @@
     <nom_fr>Dungeon RPG</nom_fr>
     <nom_en>Dungeon Crawler RPG</nom_en>
     <nom_es>Juego de Rol de Calabozo</nom_es>
+    <nom_ja>ローグタイプ</nom_ja>
     <parent>8</parent>
   </genre>
   <genre>
@@ -545,6 +552,7 @@
     <nom_fr>MMORPG</nom_fr>
     <nom_en>Massive Multiplayer Online RPG</nom_en>
     <nom_es>MMORPG</nom_es>
+    <nom_ja>MMORPG</nom_ja>
     <parent>8</parent>
   </genre>
   <genre>
@@ -574,8 +582,8 @@
     <nom_en>Go</nom_en>
     <nom_es>Go</nom_es>
     <nom_pt>Go</nom_pt>
+    <nom_ja>囲碁</nom_ja>
     <parent>2647</parent>
-    <nom_ja>教育系</nom_ja>
   </genre>
   <genre>
     <id>2882</id>
@@ -584,6 +592,7 @@
     <nom_en>Hanafuda</nom_en>
     <nom_es>Hanafuda</nom_es>
     <nom_pt>Hanafuda</nom_pt>
+    <nom_ja>花札</nom_ja>
     <parent>2647</parent>
   </genre>
   <genre>
@@ -603,6 +612,7 @@
     <nom_en>Othello</nom_en>
     <nom_es>Reversi</nom_es>
     <nom_pt>Othello</nom_pt>
+    <nom_ja>リバーシ</nom_ja>
     <altname>TABLETOP / OTHELLO - REVERSI</altname>
     <parent>2647</parent>
   </genre>
@@ -613,6 +623,7 @@
     <nom_en>Renju</nom_en>
     <nom_es>Renju</nom_es>
     <nom_pt>Renju</nom_pt>
+    <nom_ja>連珠</nom_ja>
     <parent>2647</parent>
   </genre>
   <genre>
@@ -622,6 +633,7 @@
     <nom_en>Shougi</nom_en>
     <nom_es>Shougi</nom_es>
     <nom_pt>Shougi</nom_pt>
+    <nom_ja>将棋</nom_ja>
     <parent>2647</parent>
   </genre>
   <genre>
@@ -631,6 +643,7 @@
     <nom_en>Educational</nom_en>
     <nom_es>Educacional</nom_es>
     <nom_pt>Educacional</nom_pt>
+    <nom_ja>教育系</nom_ja>
   </genre>
   <genre>
     <id>425</id>
@@ -649,6 +662,7 @@
     <nom_en>Rhythm</nom_en>
     <nom_es>Rítmico</nom_es>
     <nom_pt>Rítmico</nom_pt>
+    <nom_ja>リズム</nom_ja>
     <parent>425</parent>
   </genre>
   <!--
@@ -932,6 +946,7 @@
     <nom_en>Build And Management</nom_en>
     <nom_es>Construcción y Gestión</nom_es>
     <nom_pt>Construção e Gestão</nom_pt>
+    <nom_ja>経営系</nom_ja>
     <parent>40</parent>
   </genre>
   <genre>
@@ -1248,6 +1263,7 @@
     <nom_en>Horses race</nom_en>
     <nom_es>Carreras de caballos</nom_es>
     <nom_pt>Corrida com Cavalos</nom_pt>
+    <nom_ja>競馬</nom_ja>
     <parent>2650</parent>
   </genre>
   <genre>
