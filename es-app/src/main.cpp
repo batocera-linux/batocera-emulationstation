@@ -523,7 +523,6 @@ int main(int argc, char* argv[])
 
 	Window window;
 	SystemScreenSaver screensaver(&window);
-	PowerSaver::init();
 	ViewController::init(&window);
 	CollectionSystemManager::init(&window);
 	VideoVlcComponent::init();
@@ -534,6 +533,8 @@ int main(int argc, char* argv[])
 		LOG(LogError) << "Window failed to initialize!";
 		return 1;
 	}
+
+	PowerSaver::init();
 
 	bool splashScreen = Settings::getInstance()->getBool("SplashScreen");
 	bool splashScreenProgress = Settings::getInstance()->getBool("SplashScreenProgress");
