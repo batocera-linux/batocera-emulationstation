@@ -8,16 +8,6 @@
 
 TextureDataManager::TextureDataManager()
 {
-	unsigned char data[5 * 5 * 4];
-	mBlank = std::make_shared<TextureData>(false, false);
-	for (int i = 0; i < (5 * 5); ++i)
-	{
-		data[i * 4] = 0; // (i % 2) * 255;
-		data[i*4+1] = 0; // (i % 2) * 255;
-		data[i*4+2] = 0; // (i % 2) * 255;
-		data[i*4+3] = 0;
-	}
-	mBlank->initFromRGBA(data, 5, 5);
 	mLoader = new TextureLoader(this);
 }
 
@@ -129,7 +119,7 @@ bool TextureDataManager::bind(const TextureResource* key)
 	if (tex != nullptr)
 		bound = tex->uploadAndBind();
 	if (!bound)
-		mBlank->uploadAndBind();
+		getBlankTexture()->uploadAndBind();
 	return bound;
 }
 
@@ -369,6 +359,30 @@ void TextureLoader::clearQueue()
 
 void TextureDataManager::clearQueue()
 {
+	mBlank = nullptr;
+
 	if (mLoader != nullptr)
 		mLoader->clearQueue();
+}
+
+std::shared_ptr<TextureData> TextureDataManager::getBlankTexture()
+{
+	if (mBlank == nullptr)
+	{
+		mBlank = std::make_shared<TextureData>(false, false);
+
+		int size = 8;
+		unsigned char* data = new unsigned char[size * size * 4];
+		for (int i = 0; i < size * size; ++i)
+		{
+			data[i * 4] = 0;
+			data[i * 4 + 1] = 0;
+			data[i * 4 + 2] = 0;
+			data[i * 4 + 3] = 0;
+		}
+
+		mBlank->initFromRGBA(data, size, size);
+	}
+
+	return mBlank;
 }

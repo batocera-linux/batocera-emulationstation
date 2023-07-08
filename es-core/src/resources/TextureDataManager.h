@@ -96,6 +96,8 @@ public:
 	void onTextureLoaded(std::shared_ptr<TextureData> tex);
 
 private:
+	std::shared_ptr<TextureData> getBlankTexture();
+
 	std::mutex					mMutex;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
