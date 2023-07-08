@@ -73,7 +73,7 @@ void SystemScreenSaver::startScreenSaver()
 	bool loadingNext = mLoadingNext;
 
 	if(mState == STATE_INACTIVE) {
-	  Scripting::fireEvent("screensaver-started");
+	  Scripting::fireEvent("screensaver-start");
 	}
 
 	stopScreenSaver();
@@ -218,7 +218,7 @@ void SystemScreenSaver::stopScreenSaver()
 	mImageScreensaver = nullptr;
 
 	if(isExitingScreenSaver && mState != STATE_INACTIVE) {
-	  Scripting::fireEvent("screensaver-stopped");
+	  Scripting::fireEvent("screensaver-stop");
 	}
 
 	// we need this to loop through different videos
