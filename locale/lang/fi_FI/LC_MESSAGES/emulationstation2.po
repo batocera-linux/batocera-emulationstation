@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-06-25 11:46+0300\n"
+"PO-Revision-Date: 2023-07-06 01:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -199,13 +199,13 @@ msgid "Hidden"
 msgstr "Piilotettu"
 
 msgid "enter hidden"
-msgstr ""
+msgstr "syötä piilotettu"
 
 msgid "Kidgame"
-msgstr ""
+msgstr "Lastenpeli"
 
 msgid "enter kidgame"
-msgstr ""
+msgstr "syötä lastenpeli"
 
 msgid "Play count"
 msgstr "Pelikerrat"
@@ -217,7 +217,7 @@ msgid "Last played"
 msgstr "Viimeksi pelattu"
 
 msgid "enter last played date"
-msgstr ""
+msgstr "syötä viimeisin pelipäivä"
 
 msgid "Crc32"
 msgstr "CRS32"
@@ -303,7 +303,7 @@ msgid "Removed '%s' from '%s'"
 msgstr ""
 
 msgid "This collection is empty."
-msgstr ""
+msgstr "Tämä kokoelma on tyhjä."
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -480,7 +480,7 @@ msgid "SYSTEMS"
 msgstr "JÄRJESTELMÄT"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "PELI KOKELMAN ASETUKSET"
+msgstr "PELIKOKOELMAN ASETUKSET"
 
 msgid "COLLECTIONS TO DISPLAY"
 msgstr ""
@@ -658,16 +658,16 @@ msgid "SELECT RANDOM GAME"
 msgstr "VALITSE SATUNNAINEN PELI"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr ""
+msgstr "SIIRRY PELIIN JOKA ALKAA KIRJAIMELLA"
 
 msgid "SORT GAMES BY"
-msgstr ""
+msgstr "PELIEN JÄRJESTYS"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "DYNAAMINEN KOKOELMA"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "MUKAUTETTU KOKOELMA"
 
 msgid "DELETE COLLECTION"
 msgstr "POISTA KOKOELMA"
@@ -694,7 +694,7 @@ msgid "RESET FILTERS"
 msgstr ""
 
 msgid "FILTER GAMES BY TEXT"
-msgstr ""
+msgstr "SUODATA PELEJÄ TEKSTILLÄ"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr ""
@@ -1064,7 +1064,7 @@ msgid "VIEW GAME MAP"
 msgstr "NÄYTÄ PELIN KARTTA"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr "NÄYTÄ KOKORUUDUN VIDEO"
+msgstr "NÄYTÄ VIDEO KOKORUUDULLA"
 
 msgid "VIEW GAME MEDIA"
 msgstr "NÄYTÄ PELIN MEDIA"
@@ -1142,7 +1142,7 @@ msgid "ADD TO CUSTOM COLLECTION..."
 msgstr "LISÄÄ MUKAUTETTUUN KOKOELMAAN..."
 
 msgid "SCRAPE"
-msgstr ""
+msgstr "ETSI TIETOA"
 
 msgid "EDIT PADTOKEY PROFILE"
 msgstr ""
@@ -1457,7 +1457,7 @@ msgid "RENDERER"
 msgstr ""
 
 msgid "SHADERS"
-msgstr ""
+msgstr "VARJOSTIMET"
 
 msgid "CONTROLLER SETTINGS"
 msgstr "OHJAIMEN ASETUKSET"
@@ -2059,19 +2059,19 @@ msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr ""
 
 msgid "AI GAME TRANSLATION"
-msgstr ""
+msgstr "PELIN KÄÄNNÖS TEKOÄLYLLÄ"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr ""
+msgstr "OTA KÄYTTÖÖN TEKOÄLYN KÄÄNNÖS"
 
 msgid "TARGET LANGUAGE"
-msgstr ""
+msgstr "KOHDEKIELI"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr ""
+msgstr "TEKOÄLYKÄÄNNÖSPALVELUN URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr ""
+msgstr "TAUOTA KÄÄNNETYLLÄ RUUDULLA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
@@ -2316,7 +2316,7 @@ msgid "THEME OPTIONS"
 msgstr ""
 
 msgid "DEFAULT VALUE"
-msgstr ""
+msgstr "OLETUSARVO"
 
 msgid "GAMELIST OPTIONS"
 msgstr ""
@@ -2708,7 +2708,7 @@ msgid "Basic"
 msgstr "Perus"
 
 msgid "Released"
-msgstr ""
+msgstr "Julkaistu"
 
 msgid "Times played"
 msgstr "Kertoja pelattu"
@@ -2776,88 +2776,88 @@ msgid "Collections"
 msgstr ""
 
 msgid "FILENAME, ASCENDING"
-msgstr ""
+msgstr "TIEDOSTONIMI, NOUSEVA"
 
 msgid "FILENAME, DESCENDING"
-msgstr ""
+msgstr "TIEDOSTONIMI, LASKEVA"
 
 msgid "RATING, ASCENDING"
-msgstr ""
+msgstr "ARVOSTELU, NOUSEVA"
 
 msgid "RATING, DESCENDING"
-msgstr ""
+msgstr "ARVOSTELU, LASKEVA"
 
 msgid "TIMES PLAYED, ASCENDING"
-msgstr ""
+msgstr "PELIKERRAT, NOUSEVA"
 
 msgid "TIMES PLAYED, DESCENDING"
-msgstr ""
+msgstr "PELIKERRAT, LASKEVA"
 
 msgid "LAST PLAYED, ASCENDING"
-msgstr ""
+msgstr "VIIMEKSI PELATTU, NOUSEVA"
 
 msgid "LAST PLAYED, DESCENDING"
-msgstr ""
+msgstr "VIIMEKSI PELATTU, LASKEVA"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr ""
+msgstr "PELAAJIEN MÄÄRÄ, NOUSEVA"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr ""
+msgstr "PELAAJIEN MÄÄRÄ, LASKEVA"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr ""
+msgstr "JULKAISUPÄIVÄ, NOUSEVA"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr ""
+msgstr "JULKAISUPÄIVÄ, LASKEVA"
 
 msgid "GENRE, ASCENDING"
-msgstr ""
+msgstr "TYYLILAJI, NOUSEVA"
 
 msgid "GENRE, DESCENDING"
-msgstr ""
+msgstr "TYYLILAJI, LASKEVA"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr ""
+msgstr "KEHITTÄJÄ, NOUSEVA"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr ""
+msgstr "KEHITTÄJÄ, LASKEVA"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr ""
+msgstr "JULKAISIJA, NOUSEVA"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr ""
+msgstr "JULKAISIJA, LASKEVA"
 
 msgid "SYSTEM, ASCENDING"
-msgstr ""
+msgstr "JÄRJESTELMÄ, NOUSEVA"
 
 msgid "SYSTEM, DESCENDING"
-msgstr ""
+msgstr "JÄRJESTELMÄ, LASKEVA"
 
 msgid "FILE CREATION DATE, ASCENDING"
-msgstr ""
+msgstr "TIEDOSTON LUOMISPÄIVÄ, NOUSEVA"
 
 msgid "FILE CREATION DATE, DESCENDING"
-msgstr ""
+msgstr "TIEDOSTON LUOMISPÄIVÄ, LASKEVA"
 
 msgid "GAME TIME, ASCENDING"
-msgstr ""
+msgstr "PELIAIKA, NOUSEVA"
 
 msgid "GAME TIME, DESCENDING"
-msgstr ""
+msgstr "PELIAIKA, , LASKEVA"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
-msgstr ""
+msgstr "JÄRJESTELMÄ, JULKAISUVUOSI, NOUSEVA"
 
 msgid "SYSTEM, RELEASE YEAR, DESCENDING"
-msgstr ""
+msgstr "JÄRJESTELMÄ, JULKAISUVUOSI, LASKEVA"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr ""
+msgstr "JULKAISUVUOSI, JÄRJESTELMÄ, NOUSEVA"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr ""
+msgstr "JULKAISUVUOSI, JÄRJESTELMÄ, , LASKEVA"
 
 msgid "A,AN,THE"
 msgstr ""
@@ -2887,55 +2887,55 @@ msgid "INVALID CONFIGURATION"
 msgstr ""
 
 msgid "UNKNOWN EMULATOR"
-msgstr ""
+msgstr "TUNTEMATON EMULAATTORI"
 
 msgid "EMULATOR IS MISSING"
-msgstr ""
+msgstr "EMULAATTORIA EI OLE"
 
 msgid "CORE IS MISSING"
-msgstr ""
+msgstr "YDIN PUUTTUU"
 
 msgid "UKNOWN ERROR"
-msgstr ""
+msgstr "TUNTEMATON VIRHE"
 
 msgid "GENRE"
-msgstr ""
+msgstr "TYYLILAJI"
 
 msgid "FAMILY"
-msgstr ""
+msgstr "PELISARJA"
 
 msgid "PLAYERS"
-msgstr ""
+msgstr "PELAAJAT"
 
 msgid "PUBLISHER/DEVELOPER"
-msgstr ""
+msgstr "JULKAISIJA/KEHITTÄJÄ"
 
 msgid "RATING"
-msgstr ""
+msgstr "ARVOSANA"
 
 msgid "YEAR"
-msgstr ""
+msgstr "VUOSI"
 
 msgid "REGION"
 msgstr "ALUE"
 
 msgid "KIDGAME"
-msgstr ""
+msgstr "LASTENPELI"
 
 msgid "ALREADY PLAYED"
-msgstr ""
+msgstr "KERTOJA PELATTU"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr ""
+msgstr "TUKEE SAAVUTUKSIA"
 
 msgid "VERTICAL"
-msgstr ""
+msgstr "PYSTYSUUNTAINEN"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "VALOASE"
 
 msgid "HAS MEDIAS"
-msgstr ""
+msgstr "SISÄLTÄÄ MEDIAA"
 
 msgid "SCRAPING"
 msgstr ""
