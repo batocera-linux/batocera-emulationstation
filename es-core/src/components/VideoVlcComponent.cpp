@@ -435,6 +435,7 @@ void VideoVlcComponent::freeContext()
 
 #if WIN32
 #include <Windows.h>
+#pragma comment(lib, "Version.lib")
 
 // If Vlc2 dlls have been upgraded with vlc3 dlls, libqt4_plugin.dll is not compatible, so check if libvlc is 3.x then delete obsolete libqt4_plugin.dll
 void _checkUpgradedVlcVersion()

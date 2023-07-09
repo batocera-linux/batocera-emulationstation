@@ -22,31 +22,39 @@ endif(VLC_INCLUDE_DIR AND VLC_LIBRARIES)
 # use pkg-config to get the directories and then use these values
 # in the FIND_PATH() and FIND_LIBRARY() calls
 if(NOT WIN32)
-  find_package(PkgConfig)
-  pkg_check_modules(VLC libvlc>=1.0.0)
-  set(VLC_DEFINITIONS ${VLC_CFLAGS})
-  set(VLC_LIBRARIES ${VLC_LDFLAGS})
-endif(NOT WIN32)
+	find_package(PkgConfig)
+	pkg_check_modules(VLC libvlc>=1.0.0)
+	set(VLC_DEFINITIONS ${VLC_CFLAGS})
+	set(VLC_LIBRARIES ${VLC_LDFLAGS})
 
-# TODO add argument support to pass version on find_package
-include(MacroEnsureVersion)
-macro_ensure_version(1.0.0 ${VLC_VERSION} VLC_VERSION_OK)
-if(VLC_VERSION_OK)
-  set(VLC_FOUND TRUE)
-  message(STATUS "VLC library found")
-else(VLC_VERSION_OK)
-  set(VLC_FOUND FALSE)
-  message(FATAL_ERROR "VLC library not found")
-endif(VLC_VERSION_OK)
+	# TODO add argument support to pass version on find_package
+	include(MacroEnsureVersion)
+	macro_ensure_version(1.0.0 ${VLC_VERSION} VLC_VERSION_OK)
+	if(VLC_VERSION_OK)
+		set(VLC_FOUND TRUE)
+		message(STATUS "VLC library found")
+	else(VLC_VERSION_OK)
+		set(VLC_FOUND FALSE)
+		message(FATAL_ERROR "VLC library not found")
+	endif(VLC_VERSION_OK)
 
-find_path(VLC_INCLUDE_DIR
-          NAMES vlc.h
-          PATHS ${VLC_INCLUDE_DIRS}
-          PATH_SUFFIXES vlc)
+	find_path(VLC_INCLUDE_DIR
+			  NAMES vlc.h
+			  PATHS ${VLC_INCLUDE_DIRS}
+			  PATH_SUFFIXES vlc)
 
-find_library(VLC_LIBRARIES
-             NAMES vlc
-             PATHS ${VLC_LIBRARY_DIRS})
+	find_library(VLC_LIBRARIES
+				 NAMES vlc
+				 PATHS ${VLC_LIBRARY_DIRS})
+else()
+	find_path(VLC_INCLUDE_DIR
+			  NAMES vlc/vlc.h
+			  PATHS ${VLC_INCLUDE_DIRS})
+			  
+	find_library(VLC_LIBRARIES
+				 NAMES libvlc.lib
+				 PATHS ${VLC_LIBRARY_DIRS})
+endif()
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(VLC DEFAULT_MSG VLC_INCLUDE_DIR VLC_LIBRARIES)
