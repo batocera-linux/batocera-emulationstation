@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
 option(GLES "Set to ON if targeting Embedded OpenGL" ${GLES})
 option(GLES2 "Set to ON if targeting OpenGL ES 2.0" ${GLES2})
@@ -15,7 +15,69 @@ option(DISABLE_KODI "Set to ON to disable kodi in menu" OFF)
 option(ENABLE_PULSE "Set to ON to enable pulse audio (versus alsa)" OFF)
 option(ENABLE_TTS "Set to ON to enable text to speech" OFF)
 
+# Win32 default platform & directory detection
+if(WIN32)
+
+	if (NOT CMAKE_GENERATOR_PLATFORM)
+		set(CMAKE_GENERATOR_PLATFORM Win32)	    
+	endif()
+	
+	MESSAGE("-- Destination platform : " ${CMAKE_GENERATOR_PLATFORM})
+
+	if(NOT VLC_VERSION)
+		set(VLC_VERSION 1.0.0)
+	endif()
+
+	if (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../batocera-emulationstation-win32-dependencies)
+		set(CUSTOM_LIBDIR ${CMAKE_CURRENT_SOURCE_DIR}/../batocera-emulationstation-win32-dependencies)
+	elseif (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/win32-libs) 
+		set(CUSTOM_LIBDIR ${CMAKE_CURRENT_SOURCE_DIR}/win32-libs)
+	else ()
+		MESSAGE("-- Downloading Windows libraries...")
+		
+		include(FetchContent)
+		
+		FetchContent_Declare(win32libs
+		  GIT_REPOSITORY "https://github.com/batocera-linux/batocera-emulationstation-win32-dependencies.git"
+		  GIT_TAG "origin/master"
+		  SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/win32-libs"
+		)
+
+		FetchContent_MakeAvailable(win32libs)
+		set(CUSTOM_LIBDIR ${CMAKE_CURRENT_SOURCE_DIR}/win32-libs)
+	endif()
+	
+	if(CUSTOM_LIBDIR)		
+		MESSAGE("-- Default libraries path set to : " ${CUSTOM_LIBDIR} )		
+	endif()
+endif()
+
 project(emulationstation-all)
+
+# Win32 custom directories assignation
+if(WIN32 AND CUSTOM_LIBDIR)
+	if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+		set(CUSTOM_PLATFORM "x64")
+	else()
+		set(CUSTOM_PLATFORM "x86")
+	endif()
+	
+	set(
+	  CMAKE_PREFIX_PATH
+	  ${CUSTOM_LIBDIR}/rapidjson
+	  ${CUSTOM_LIBDIR}/freetype
+	  ${CUSTOM_LIBDIR}/freetype/${CUSTOM_PLATFORM}
+	  ${CUSTOM_LIBDIR}/freeimage
+	  ${CUSTOM_LIBDIR}/freeimage/${CUSTOM_PLATFORM}
+	  ${CUSTOM_LIBDIR}/SDL2_mixer
+	  ${CUSTOM_LIBDIR}/SDL2_mixer/${CUSTOM_PLATFORM}
+	  ${CUSTOM_LIBDIR}/SDL2
+	  ${CUSTOM_LIBDIR}/SDL2/${CUSTOM_PLATFORM}
+	  ${CUSTOM_LIBDIR}/libvlc
+	  ${CUSTOM_LIBDIR}/libvlc/${CUSTOM_PLATFORM}
+	  ${CUSTOM_LIBDIR}/curl/${CUSTOM_PLATFORM}
+	)
+endif()
 
 #-------------------------------------------------------------------------------
 #add local find scripts to CMAKE path
@@ -36,7 +98,7 @@ endif()
 
 # disable kodi menu
 if(DISABLE_KODI)
-  MESSAGE("kodi disabled")
+  MESSAGE("Kodi disabled")
 else()
   add_definitions(-D_ENABLE_KODI_)
 endif()
@@ -46,12 +108,6 @@ endif()
 if(ENABLE_FILEMANAGER)
   MESSAGE("file manager enabled")
   add_definitions(-D_ENABLE_FILEMANAGER_)
-endif()
-
-if(CEC)
-  MESSAGE("CEC enabled")
-else()
-  MESSAGE("CEC disabled")
 endif()
 
 if(BCM)
@@ -113,35 +169,40 @@ find_package(CURL REQUIRED)
 find_package(VLC REQUIRED)
 find_package(RapidJSON REQUIRED)
 
-if(ENABLE_PULSE)
-  MESSAGE("pulse audio enabled")
-  find_package(PulseAudio REQUIRED)
-  add_definitions(-D_ENABLE_PULSE_)
-else()
-  MESSAGE("pulse audio disabled")
-endif()
+if(NOT WIN32)
+	if(ENABLE_PULSE)
+	  MESSAGE("pulse audio enabled")
+	  find_package(PulseAudio REQUIRED)
+	  add_definitions(-D_ENABLE_PULSE_)
+	else()
+	  MESSAGE("pulse audio disabled")
+	endif()
 
-find_package(udev)
-if(UDEV_FOUND)
-  MESSAGE("udev found. guns enabled")
-  add_definitions(-DHAVE_UDEV)
-else()
-  MESSAGE("udev not found. guns will be disabled")
-endif()
+	find_package(udev)
+	if(UDEV_FOUND)
+	  MESSAGE("udev found. guns enabled")
+	  add_definitions(-DHAVE_UDEV)
+	else()
+	  MESSAGE("udev not found. guns will be disabled")
+	endif()
+	
+	if(ENABLE_TTS)
+	  MESSAGE("tts enabled")
+	  find_library(LIBESPEAK_LIBRARIES NAMES espeak REQUIRED)
+	  if("${LIBESPEAK_LIBRARIES}" STREQUAL "LIBESPEAK_LIBRARIES-NOTFOUND")
+		MESSAGE(FATAL_ERROR "espeak not found")
+	  endif()
+	  add_definitions(-D_ENABLE_TTS_)
+	else()
+	  MESSAGE("tts disabled")
+	endif()
 
-if(ENABLE_TTS)
-  MESSAGE("tts enabled")
-  find_library(LIBESPEAK_LIBRARIES NAMES espeak REQUIRED)
-  if("${LIBESPEAK_LIBRARIES}" STREQUAL "LIBESPEAK_LIBRARIES-NOTFOUND")
-    MESSAGE(FATAL_ERROR "espeak not found")
-  endif()
-  add_definitions(-D_ENABLE_TTS_)
-else()
-  MESSAGE("tts disabled")
-endif()
-
-if(CEC)
-  find_package(libCEC)
+	if(CEC)
+	  MESSAGE("CEC enabled")
+	  find_package(libCEC)
+	else()
+	  MESSAGE("CEC disabled")
+	endif()
 endif()
 
 #add ALSA for Linux
@@ -394,26 +455,33 @@ else()
     endif()
 endif()
 
-# batocera / i18n
-# i18n
-find_program (MSGFMT_EXECUTABLE msgfmt)
-find_program (MSGMERGE_EXECUTABLE msgmerge)
-find_program (XGETTEXT_EXECUTABLE xgettext)
-find_package(Intl)
+if(NOT WIN32)
+	# batocera / i18n
+	# i18n
+	find_program (MSGFMT_EXECUTABLE msgfmt)
+	find_program (MSGMERGE_EXECUTABLE msgmerge)
+	find_program (XGETTEXT_EXECUTABLE xgettext)
+	find_package(Intl)
 
-if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE AND Intl_FOUND)
-  message (STATUS "Native language support enabled.")
-  add_definitions(-DHAVE_INTL)
-else()
-  message (STATUS "Native language support disabled.")
+	if(MSGFMT_EXECUTABLE AND MSGMERGE_EXECUTABLE AND XGETTEXT_EXECUTABLE AND Intl_FOUND)
+	  message (STATUS "Native language support enabled.")
+	  add_definitions(-DHAVE_INTL)
+	else()
+	  message (STATUS "Native language support disabled.")
+	endif()
 endif()
 
 #-------------------------------------------------------------------------------
 # set up build directories
-set(dir ${CMAKE_CURRENT_SOURCE_DIR})
+
+if(WIN32)		
+	set(dir ${CMAKE_CURRENT_SOURCE_DIR}/bin/${CMAKE_GENERATOR_PLATFORM})
+else()
+	set(dir ${CMAKE_CURRENT_SOURCE_DIR})
+endif()
+
 set(EXECUTABLE_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
 set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
-
 
 #-------------------------------------------------------------------------------
 # add each component

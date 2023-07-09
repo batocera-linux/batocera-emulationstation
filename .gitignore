@@ -25,6 +25,8 @@ Debug
 Release
 MinSizeRel
 RelWithDebInfo
+bin
+win32-libs
 
 # CMake
 CMakeCache.txt
