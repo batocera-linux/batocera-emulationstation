@@ -18,8 +18,8 @@ public:
 
 	static std::string getRunnningGameInfo();
 
-	static std::string ToJson(SystemData* system);
-	static std::string ToJson(FileData* file);
+	static std::string ToJson(SystemData* system, bool localpaths = false);
+	static std::string ToJson(FileData* file, bool localpaths = false);
 
 	static FileData*   findFileData(SystemData* system, const std::string& id);
 
@@ -30,6 +30,6 @@ public:
 
 private:
 	static std::string getFileDataId(FileData* game);
-	static void getFileDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, FileData* game);
-	static void getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, SystemData* sys);
+	static void getFileDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, FileData* game, bool localpaths = false);
+	static void getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, SystemData* sys, bool localpaths = false);
 };

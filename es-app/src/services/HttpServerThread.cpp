@@ -487,7 +487,8 @@ void HttpServerThread::run()
 			auto game = HttpApi::findFileData(system, gameId);
 			if (game != nullptr)
 			{
-				res.set_content(HttpApi::ToJson(game), "application/json");
+				bool localpaths = req.has_param("localpaths") && req.get_param_value("localpaths") == "true";
+				res.set_content(HttpApi::ToJson(game, localpaths), "application/json");
 				return;
 			}
 		}
@@ -505,7 +506,8 @@ void HttpServerThread::run()
 		SystemData* system = SystemData::getSystem(systemName);
 		if (system != nullptr)
 		{
-			res.set_content(HttpApi::ToJson(system), "application/json");
+			bool localpaths = req.has_param("localpaths") && req.get_param_value("localpaths") == "true";
+			res.set_content(HttpApi::ToJson(system, localpaths), "application/json");
 			return;
 		}
 
