@@ -23,6 +23,12 @@ namespace Scripting
 		if (Utils::FileSystem::exists(test))
 			scriptDirList.push_back(test);
 
+#if BATOCERA
+		test =  "/var/run/emulationstation/scripts/" + eventName;
+		if (Utils::FileSystem::exists(test))
+		  scriptDirList.push_back(test);
+#endif
+
         for(std::list<std::string>::const_iterator dirIt = scriptDirList.cbegin(); dirIt != scriptDirList.cend(); ++dirIt) {
             std::list<std::string> scripts = Utils::FileSystem::getDirContent(*dirIt);
             for (std::list<std::string>::const_iterator it = scripts.cbegin(); it != scripts.cend(); ++it) {
