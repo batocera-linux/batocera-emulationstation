@@ -5,7 +5,7 @@
 #include "renderers/Renderer.h"
 #include "GuiComponent.h"
 #include "resources/Font.h"
-#include "platform.h"
+#include "utils/Platform.h"
 
 class TextureResource;
 
@@ -104,7 +104,7 @@ protected:
 	int mBatteryCheckTime;
 	int mBatteryTextX;
 
-	BatteryInformation mBatteryInfo;
+	Utils::Platform::BatteryInformation mBatteryInfo;
 
 	std::shared_ptr<TextureResource> mBatteryImage;
 	std::shared_ptr<Font>			 mBatteryFont;

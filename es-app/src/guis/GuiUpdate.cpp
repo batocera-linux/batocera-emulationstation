@@ -5,7 +5,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "ApiSystem.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "LocaleES.h"
 #include "components/AsyncNotificationComponent.h"
 

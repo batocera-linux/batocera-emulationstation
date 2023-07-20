@@ -3,7 +3,7 @@
 #include "utils/FileSystemUtil.h"
 #include "Log.h"
 #include "Scripting.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include <pugixml/src/pugixml.hpp>
 #include <algorithm>
 #include <vector>

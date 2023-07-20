@@ -12,7 +12,7 @@
 #include "Log.h"
 #include "MameNames.h"
 #include "Genres.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "PowerSaver.h"
 #include "Settings.h"
 #include "SystemData.h"
@@ -431,7 +431,7 @@ void launchStartupGame()
 	{
 		InputManager::getInstance()->init();
 		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", InputManager::getInstance()->configureEmulators());
-		runSystemCommand(command, gamePath, nullptr);
+		Utils::Platform::ProcessStartInfo(command).run();		
 	}	
 }
 
@@ -563,7 +563,7 @@ int main(int argc, char* argv[])
 		}
 
 		// we can't handle es_systems.cfg file problems inside ES itself, so display the error message then quit
-		window.pushGui(new GuiMsgBox(&window, errorMsg, _("QUIT"), [] { quitES(); }));
+		window.pushGui(new GuiMsgBox(&window, errorMsg, _("QUIT"), [] { Utils::Platform::quitES(); }));
 	}
 
 	SystemConf* systemConf = SystemConf::getInstance();
@@ -722,7 +722,7 @@ int main(int argc, char* argv[])
 		Log::flush();
 	}
 
-	if (isFastShutdown())
+	if (Utils::Platform::isFastShutdown())
 		Settings::getInstance()->setBool("IgnoreGamelist", true);
 
 	ThreadedHasher::stop();
@@ -749,7 +749,7 @@ int main(int argc, char* argv[])
 
 	window.deinit();
 
-	processQuitMode();
+	Utils::Platform::processQuitMode();
 
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
 

@@ -4,7 +4,7 @@
 #include "Log.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "EmulationStation.h"
 #include "HttpReq.h"
 #include <Windows.h>

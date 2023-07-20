@@ -3,7 +3,7 @@
 #include "utils/FileSystemUtil.h"
 #include "CECInput.h"
 #include "Log.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Scripting.h"
 #include "Window.h"
 #include <pugixml/src/pugixml.hpp>
@@ -988,8 +988,8 @@ void InputManager::doOnFinish()
 						std::string tocall = command.text().get();
 
 						LOG(LogInfo) << "	" << tocall;
-						std::cout << "==============================================\ninput config finish command:\n";
-						int exitCode = runSystemCommand(tocall, "", nullptr);
+						std::cout << "==============================================\ninput config finish command:\n";						
+						int exitCode = Utils::Platform::ProcessStartInfo(tocall).run();
 						std::cout << "==============================================\n";
 
 						if(exitCode != 0)

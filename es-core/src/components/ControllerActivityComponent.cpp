@@ -5,7 +5,7 @@
 #include "ThemeData.h"
 #include "InputManager.h"
 #include "Settings.h"
-#include "platform.h"
+#include "utils/Platform.h"
 
 // #define DEVTEST
 
@@ -26,7 +26,7 @@ void ControllerActivityComponent::init()
 
 	mView = CONTROLLERS;
 	
-	mBatteryInfo = BatteryInformation();
+	mBatteryInfo = Utils::Platform::BatteryInformation();
 	mBatteryCheckTime = UPDATE_BATTERY_DELAY;
 
 	mNetworkCheckTime = UPDATE_NETWORK_DELAY;
@@ -428,7 +428,7 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 
 void ControllerActivityComponent::updateNetworkInfo()
 {
-	mNetworkConnected = Settings::ShowNetworkIndicator() && !queryIPAdress().empty();
+	mNetworkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();
 }
 
 void ControllerActivityComponent::updateBatteryInfo()
@@ -439,7 +439,7 @@ void ControllerActivityComponent::updateBatteryInfo()
 		return;
 	}
 
-	BatteryInformation info = queryBatteryInformation();
+	auto info = Utils::Platform::queryBatteryInformation();
 
 	if (info.hasBattery == mBatteryInfo.hasBattery && info.isCharging == mBatteryInfo.isCharging && info.level == mBatteryInfo.level)
 		return;

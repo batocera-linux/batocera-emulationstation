@@ -1,7 +1,7 @@
 #include "Log.h"
 
 #include "utils/FileSystemUtil.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include <iostream>
 #include <mutex>
 #include "Settings.h"

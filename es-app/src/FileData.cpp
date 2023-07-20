@@ -9,7 +9,7 @@
 #include "FileSorts.h"
 #include "Log.h"
 #include "MameNames.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Scripting.h"
 #include "SystemData.h"
 #include "VolumeControl.h"
@@ -33,6 +33,8 @@
 #include "guis/GuiMsgBox.h"
 #include "Paths.h"
 #include "resources/TextureData.h"
+
+using namespace Utils::Platform;
 
 FileData* FileData::mRunningGame = nullptr;
 
@@ -646,7 +648,10 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	mRunningGame = gameToUpdate;
 
-	int exitCode = runSystemCommand(command, getDisplayName(), hideWindow ? NULL : window);
+	ProcessStartInfo process(command);
+	process.window = hideWindow ? NULL : window;
+	
+	int exitCode = process.run();
 	if (exitCode != 0)
 		LOG(LogWarning) << "...launch terminated with nonzero exit code " << exitCode << "!";
 

@@ -6,7 +6,7 @@
 #include <Windows.h>
 #endif
 
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Gamelist.h"
 #include "SystemData.h"
 #include "FileData.h"
@@ -232,7 +232,7 @@ void HttpServerThread::run()
 			return;
 		}
 
-		quitES();		
+		Utils::Platform::quitES();
 	});
 
 	mHttpServer->Get("/restart", [](const httplib::Request& req, httplib::Response& res)
@@ -240,7 +240,7 @@ void HttpServerThread::run()
 		if (!isAllowed(req, res))
 			return;
 
-		quitES(QuitMode::REBOOT);
+		Utils::Platform::quitES(Utils::Platform::QuitMode::REBOOT);
 	});
 
 	mHttpServer->Get("/emukill", [](const httplib::Request& req, httplib::Response& res)
