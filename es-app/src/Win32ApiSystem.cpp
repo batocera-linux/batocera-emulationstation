@@ -929,40 +929,17 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 
 bool Win32ApiSystem::launchKodi(Window *window)
 {
-	std::string args;
-	
 	std::string command = Paths::getKodiPath();
 	if (!Utils::FileSystem::exists(command))
 		return false;
-
+		
 	if (!Utils::String::startsWith(command, "C:\\Program Files"))
-		args = "-p";
+		command = "\"" + command + "\" -p";
+	else 
+		command = "\"" + command + "\"";
 
 	ApiSystem::launchExternalWindow_before(window);
-
-	std::wstring wexe = Utils::String::convertToWideString(command);
-	std::wstring wargs = Utils::String::convertToWideString(args);
-
-	SHELLEXECUTEINFOW lpExecInfo;
-	lpExecInfo.cbSize = sizeof(SHELLEXECUTEINFOW);
-	lpExecInfo.lpFile = wexe.c_str();
-	lpExecInfo.lpDirectory = NULL;
-	lpExecInfo.fMask = SEE_MASK_DOENVSUBST | SEE_MASK_NOCLOSEPROCESS;
-	lpExecInfo.hwnd = NULL;
-	lpExecInfo.nShow = SW_SHOW;  // show command prompt with normal window size 
-	lpExecInfo.hInstApp = (HINSTANCE)SE_ERR_DDEFAIL;   //WINSHELLAPI BOOL WINAPI result;
-	lpExecInfo.lpVerb = L"open";
-	lpExecInfo.lpParameters = wargs.c_str();
-
-	ShellExecuteExW(&lpExecInfo);
-
-	bool ret = lpExecInfo.hProcess != NULL;
-	if (lpExecInfo.hProcess != NULL)
-	{
-		WaitForSingleObject(lpExecInfo.hProcess, INFINITE);
-		CloseHandle(lpExecInfo.hProcess);
-	}
-
+	int ret = Utils::Platform::ProcessStartInfo(command).run();
 	ApiSystem::launchExternalWindow_after(window);
 
 	return ret;
