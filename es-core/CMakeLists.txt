@@ -15,8 +15,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/gettext.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
-	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Settings.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Sound.h
@@ -111,6 +110,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringListLock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Platform.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/zip_file.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ZipFile.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.h
@@ -133,8 +133,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/GunManager.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.cpp # batocera
-	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.cpp # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Scripting.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Settings.cpp
@@ -226,6 +225,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringListLock.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Platform.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/MathExpr.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ZipFile.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.cpp

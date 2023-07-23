@@ -6,8 +6,8 @@
 #include "components/VideoVlcComponent.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
+#include "utils/Platform.h"
 #include "Log.h"
-#include "platform.h"
 #include "Settings.h"
 #include "SystemConf.h"
 #include <algorithm>
@@ -1115,7 +1115,7 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 
 	if (node.attribute("ifArch"))
 	{
-		std::string arch = getArchString();
+		std::string arch = Utils::Platform::getArchString();
 		if (!arch.empty())
 		{
 			const std::string ifBoard = Utils::String::toLower(node.attribute("ifArch").as_string());
@@ -1133,7 +1133,7 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 
 	if (node.attribute("ifNotArch"))
 	{
-		std::string arch = getArchString();
+		std::string arch = Utils::Platform::getArchString();
 		if (!arch.empty())
 		{
 			const std::string ifBoard = Utils::String::toLower(node.attribute("ifNotArch").as_string());

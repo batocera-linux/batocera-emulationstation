@@ -4,7 +4,7 @@
 #include <Windows.h>
 #endif
 
-#include "platform.h"
+#include "utils/Platform.h"
 #include "ApiSystem.h"
 #include "Gamelist.h"
 #include "SystemData.h"

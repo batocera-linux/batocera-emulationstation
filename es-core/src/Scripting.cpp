@@ -1,8 +1,10 @@
 #include "Scripting.h"
 #include "Log.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "utils/FileSystemUtil.h"
 #include "Paths.h"
+
+using namespace Utils::Platform;
 
 namespace Scripting
 {
@@ -42,7 +44,11 @@ namespace Scripting
                     script += " \"" + arg + "\"";
                 }
                 LOG(LogDebug) << "  executing: " << script;
-                runSystemCommand(script, "", nullptr);
+
+                ProcessStartInfo psi;
+                psi.command = script;
+                psi.waitForExit = false;
+                psi.run();                
             }
         }
 	}

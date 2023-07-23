@@ -8,7 +8,7 @@
 #include "FileSorts.h"
 #include "Gamelist.h"
 #include "Log.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Settings.h"
 #include "ThemeData.h"
 #include "views/UIModeController.h"
@@ -41,6 +41,7 @@ static std::map<std::string, std::function<std::string(SystemData*)>> properties
 	{ "hardwareType",	[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType; } },
 	{ "command",		[] (SystemData* sys) { return sys->getSystemEnvData()->mLaunchCommand; } },
 	{ "group",			[] (SystemData* sys) { return sys->getSystemEnvData()->mGroup; } },	
+	{ "collection",     [] (SystemData* sys) { return sys->isCollection() ? "true" : "false"; } },	
 };
 
 VectorEx<SystemData*> SystemData::sSystemVector;
@@ -1427,7 +1428,7 @@ void SystemData::loadTheme()
 		// Global variables
 		sysData["global.help"] = Settings::getInstance()->getBool("ShowHelpPrompts") ? "true" : "false";
 		sysData["global.clock"] = Settings::DrawClock() ? "true" : "false";
-		sysData["global.architecture"] = getArchString();
+		sysData["global.architecture"] = Utils::Platform::getArchString();
 
 		sysData["global.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") ? "true" : "false";
 		sysData["global.cheevos.username"] = SystemConf::getInstance()->getBool("global.retroachievements") ? SystemConf::getInstance()->get("global.retroachievements.username") : "";

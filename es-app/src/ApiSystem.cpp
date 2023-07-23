@@ -7,8 +7,8 @@
 #include "InputManager.h"
 #include "EmulationStation.h"
 #include "SystemConf.h"
-#include "platform.h"
 #include "Sound.h"
+#include "utils/Platform.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include "utils/ThreadPool.h"
@@ -437,11 +437,11 @@ bool ApiSystem::launchKodi(Window *window)
 	switch (exitCode) 
 	{
 	case 10: // reboot code
-		quitES(QuitMode::REBOOT);		
+		Utils::Platform::quitES(Utils::Platform::QuitMode::REBOOT);
 		return true;
 		
 	case 11: // shutdown code
-		quitES(QuitMode::SHUTDOWN);		
+		Utils::Platform::quitES(Utils::Platform::QuitMode::SHUTDOWN);
 		return true;
 	}
 
@@ -479,7 +479,7 @@ std::string ApiSystem::getIpAdress()
 {
 	LOG(LogDebug) << "ApiSystem::getIpAdress";
 	
-	std::string result = queryIPAdress(); // platform.h
+	std::string result = Utils::Platform::queryIPAdress(); // platform.h
 	if (result.empty())
 		return "NOT CONNECTED";
 

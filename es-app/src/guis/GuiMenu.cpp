@@ -30,7 +30,8 @@
 #include "VolumeControl.h"
 #include <SDL_events.h>
 #include <algorithm>
-#include "platform.h"
+#include "utils/Platform.h"
+
 
 #include "SystemConf.h"
 #include "ApiSystem.h"
@@ -892,7 +893,7 @@ void GuiMenu::openUpdatesSettings()
 		updateGui->addEntry(GuiUpdate::state == GuiUpdateState::State::UPDATE_READY ? _("APPLY UPDATE") : _("START UPDATE"), true, [this]
 		{
 			if (GuiUpdate::state == GuiUpdateState::State::UPDATE_READY)
-				quitES(QuitMode::RESTART);
+				Utils::Platform::quitES(Utils::Platform::QuitMode::RESTART);
 			else if (GuiUpdate::state == GuiUpdateState::State::UPDATER_RUNNING)
 				mWindow->pushGui(new GuiMsgBox(mWindow, _("UPDATER IS ALREADY RUNNING")));
 			else
@@ -1521,7 +1522,7 @@ void GuiMenu::openSystemSettings()
 	{
 		if (s->getVariable("exitreboot") && Settings::getInstance()->getBool("ExitOnRebootRequired"))
 		{
-			quitES(QuitMode::QUIT);
+			Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 			return;
 		}
 		
@@ -3061,7 +3062,7 @@ void GuiMenu::openUISettings()
 	s->addSwitch(_("SHOW CLOCK"), "DrawClock", true);
 	s->addSwitch(_("ON-SCREEN HELP"), "ShowHelpPrompts", true, [s] { s->setVariable("reloadAll", true); });
 
-	if (queryBatteryInformation().hasBattery)
+	if (Utils::Platform::queryBatteryInformation().hasBattery)
 		s->addOptionList(_("SHOW BATTERY STATUS"), { { _("NO"), "" },{ _("ICON"), "icon" },{ _("ICON AND TEXT"), "text" } }, "ShowBattery", true);
 
 	s->addGroup(_("GAMELIST OPTIONS"));
@@ -3280,7 +3281,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 #ifdef WIN32
 	if (!quickAccessMenu && Settings::getInstance()->getBool("ShowOnlyExit"))
 	{
-		quitES(QuitMode::QUIT);
+		Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 		return;
 	}
 #endif
@@ -3335,7 +3336,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 
 	s->addEntry(_("RESTART SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART?"), 
-			_("YES"), [] { quitES(QuitMode::REBOOT); }, 
+			_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::REBOOT); },
 			_("NO"), nullptr));
 	}, "iconRestart");
 
@@ -3350,13 +3351,13 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 
 	s->addEntry(_("SHUTDOWN SYSTEM"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN?"), 
-			_("YES"), [] { quitES(QuitMode::SHUTDOWN); }, 
+			_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::SHUTDOWN); },
 			_("NO"), nullptr));
 	}, "iconShutdown");
 
 	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"), _("Shutdown without saving metadata."), nullptr, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATA?"), 
-			_("YES"), [] { quitES(QuitMode::FAST_SHUTDOWN); },
+			_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::FAST_SHUTDOWN); },
 			_("NO"), nullptr));
 	}, "iconFastShutdown");
 
@@ -3365,7 +3366,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	{
 		s->addEntry(_("QUIT EMULATIONSTATION"), false, [window] {
 			window->pushGui(new GuiMsgBox(window, _("REALLY QUIT?"), 
-				_("YES"), [] { quitES(QuitMode::QUIT); }, 
+				_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT); },
 				_("NO"), nullptr));
 		}, "iconQuit");
 	}

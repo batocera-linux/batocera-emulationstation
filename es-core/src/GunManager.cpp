@@ -1,6 +1,6 @@
 #include "GunManager.h"
 #include "Log.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Window.h"
 #include <SDL.h>
 #include <iostream>
