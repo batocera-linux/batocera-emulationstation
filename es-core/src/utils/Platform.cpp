@@ -1,4 +1,4 @@
-#include "platform.h"
+#include "Platform.h"
 
 #include <SDL_events.h>
 
@@ -141,7 +141,7 @@ namespace Utils
 			int ret = fork();
 			if (ret == 0) 
 			{
-				system((cmd_utf8 + cmdOutput).c_str())				
+				system((cmd_utf8 + cmdOutput).c_str());
 				exit(0); // exit the child process
 			}
 
