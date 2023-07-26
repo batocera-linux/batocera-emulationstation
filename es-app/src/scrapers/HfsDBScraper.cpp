@@ -46,6 +46,7 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ ATARI_JAGUAR_CD, "84220" },
 	{ ATARI_LYNX, "33756" },
 	{ ATARI_ST, "82160" },
+	{ ATARI_XE, "240841" },
 	{ ATOMISWAVE, "29731" },
 	{ ACORN_ATOM, "138925" },
 	{ ACORN_BBC_MICRO, "190502" },
