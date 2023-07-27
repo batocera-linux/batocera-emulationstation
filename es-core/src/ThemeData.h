@@ -406,6 +406,7 @@ private:
 	std::string mGamelistview;
 	std::string mSystemThemeFolder;	
 	std::string mLanguage;
+	std::string mLangAndRegion;
 	std::string mRegion;
 
 	std::map<std::string, std::string> mVariables;
