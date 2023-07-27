@@ -578,6 +578,11 @@ ThemeData::ThemeData()
 		mRegion = "eu";
 
 	std::string language = SystemConf::getInstance()->get("system.language");
+
+	mLangAndRegion = language;
+	if (mLangAndRegion.empty())
+		mLangAndRegion = "en";
+
 	if (!language.empty())
 	{
 		auto shortNameDivider = language.find("_");
@@ -587,7 +592,7 @@ ThemeData::ThemeData()
 
 	if (language.empty())
 		language = "en";
-
+	
 	mLanguage = Utils::String::toLower(language);
 	mVersion = 0;
 }
@@ -611,7 +616,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	mVariables.insert(sysDataMap.cbegin(), sysDataMap.cend());
 
 	mVariables["lang"] = mLanguage;
-	mVariables["global.language"] = mLanguage;
+	mVariables["global.language"] = mLangAndRegion;
 
 	for (auto var : mVariables)
 	{
@@ -1426,7 +1431,7 @@ bool ThemeData::parseLanguage(const pugi::xml_node& node)
 		std::string elemKey = nameAttr.substr(prevOff, off - prevOff);
 		prevOff = nameAttr.find_first_not_of(delim, off);
 		off = nameAttr.find_first_of(delim, prevOff);
-		if (elemKey == mLanguage)
+		if (elemKey == mLanguage || elemKey == mLangAndRegion)
 			return true;
 	}
 
@@ -2241,6 +2246,7 @@ std::shared_ptr<ThemeData> ThemeData::clone(const std::string& viewName)
 	theme->mGamelistview = mGamelistview;
 	theme->mSystemThemeFolder = mSystemThemeFolder;
 	theme->mLanguage = mLanguage;
+	theme->mLangAndRegion = mLangAndRegion;	
 	theme->mRegion = mRegion;
 
 	if (!viewName.empty())
