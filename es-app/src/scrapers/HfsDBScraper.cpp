@@ -72,6 +72,7 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ GX4000, "30250" },
 	{ INTELLIVISION, "84444" },
 	{ SEGA_MASTER_SYSTEM, "82166" },
+	{ SEGA_PICO, "175183" },
 	{ THOMSON_TO_MO, "183673" },
 	{ MSX, "113089" },
 	{ NOKIA_NGAGE, "128704" },

@@ -60,6 +60,7 @@ namespace PlatformIds
 		{ "genesis",				SEGA_GENESIS },
 		{ "mastersystem",			SEGA_MASTER_SYSTEM },
 		{ "megadrive",				SEGA_MEGA_DRIVE },
+		{ "pico",				SEGA_PICO },
 		{ "saturn",					SEGA_SATURN },
 		{ "sg-1000",				SEGA_SG1000 },
 		{ "psx",					PLAYSTATION },
