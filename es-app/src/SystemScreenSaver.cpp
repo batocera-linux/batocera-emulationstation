@@ -696,11 +696,14 @@ void GameScreenSaverBase::setGame(FileData* game)
 				}
 			}
 
-			mDecoration = new ImageComponent(mWindow, true);
-			mDecoration->setImage(sets[setId].imageUrl);
-			mDecoration->setOrigin(0.5f, 0.5f);
-			mDecoration->setPosition(Renderer::getScreenWidth() / 2.0f, (float)Renderer::getScreenHeight() / 2.0f);
-			mDecoration->setMaxSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+			if (!Renderer::isVerticalScreen())
+			{
+				mDecoration = new ImageComponent(mWindow, true);
+				mDecoration->setImage(sets[setId].imageUrl);
+				mDecoration->setOrigin(0.5f, 0.5f);
+				mDecoration->setPosition(Renderer::getScreenWidth() / 2.0f, (float)Renderer::getScreenHeight() / 2.0f);
+				mDecoration->setMaxSize((float)Renderer::getScreenWidth() * Renderer::getScreenProportion(), (float)Renderer::getScreenHeight());
+			}
 		}
 	}
 
