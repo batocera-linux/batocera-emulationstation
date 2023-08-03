@@ -220,7 +220,7 @@ void HttpServerThread::run()
 		if (req.has_param("confirm") && req.get_param_value("confirm") == "switchscreen") 
 		{
 			Window* win = mWindow;
-			mWindow->postToUiThread([win]() { win->pushGui(new GuiMsgBox(win, _("DO YOU WANT TO SWITCH THE SCREEN ?"), _("YES"), [] { quitES(); }, _("NO"), nullptr)); });			
+			mWindow->postToUiThread([win]() { win->pushGui(new GuiMsgBox(win, _("DO YOU WANT TO SWITCH THE SCREEN ?"), _("YES"), [] { Utils::Platform::quitES(); }, _("NO"), nullptr)); });
 			return;
 		}
 #endif
