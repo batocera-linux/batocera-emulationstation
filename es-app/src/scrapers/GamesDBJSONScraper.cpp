@@ -69,6 +69,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ SEGA_GENESIS, "18" },
 	{ SEGA_MASTER_SYSTEM, "35" },
 	{ SEGA_MEGA_DRIVE, "36" },
+	{ SEGA_PICO, "4958" },
 	{ SEGA_SATURN, "17" },
 	{ SEGA_SG1000, "4949" },
 	{ PLAYSTATION, "10" },

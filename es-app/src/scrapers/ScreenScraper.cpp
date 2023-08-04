@@ -88,6 +88,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ SEGA_GENESIS, 1 },
 	{ SEGA_MASTER_SYSTEM, 2 },
 	{ SEGA_MEGA_DRIVE, 1 },
+	{ SEGA_PICO, 250 },
 	{ SEGA_SATURN, 22 },
 	{ SEGA_SG1000, 109 },
 	{ SHARP_X1, 220 },
