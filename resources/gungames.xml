@@ -115,6 +115,15 @@
     <game>menacer6gamecartridge</game>
     <game>t2thearcadegame</game>
   </system>
+  <system name="mode2">
+    <game>behindenemylines</game>
+    <game>gunblade</game>
+    <game>houseofthedead</game>
+    <game>pilotkids</game>
+    <game>railchase2</game>
+    <game>virtuacop</game>
+    <game>virtuacop2</game>
+  </system>
   <system name="segacd">
     <game>corpsekiller</game>
     <game>crimepatrol</game>
