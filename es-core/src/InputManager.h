@@ -19,6 +19,7 @@ struct PlayerDeviceInfo
 {
 	int index;
 	int batteryLevel;
+	bool isWheel;
 };
 
 class IJoystickChangedEvent

@@ -1050,6 +1050,7 @@ void InputManager::computeLastKnownPlayersDeviceIndexes()
 			PlayerDeviceInfo dev;
 			dev.index = playerJoystick->getDeviceIndex();
 			dev.batteryLevel = playerJoystick->getBatteryLevel();
+			dev.isWheel = playerJoystick->isWheel();
 
 			m_lastKnownPlayersDeviceIndexes[player] = dev;
 		}

@@ -25,6 +25,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mImage(nullptr), mVideo(nullptr), mThumbnail(nullptr), mFlag(nullptr),
 	mKidGame(nullptr), mNotKidGame(nullptr), mHidden(nullptr), 
 	mGunGame(nullptr), mNotGunGame(nullptr),
+	mWheelGame(nullptr), mNotWheelGame(nullptr),
 	mFavorite(nullptr), mNotFavorite(nullptr),
 	mManual(nullptr), mNoManual(nullptr), 
 	mMap(nullptr), mNoMap(nullptr),
@@ -206,6 +207,12 @@ DetailedContainer::~DetailedContainer()
 
 	if (mNotGunGame != nullptr)
 		delete mNotGunGame;
+
+	if (mWheelGame != nullptr)
+		delete mWheelGame;
+
+	if (mNotWheelGame != nullptr)
+		delete mNotWheelGame;
 
 	if (mCheevos != nullptr)
 		delete mCheevos;
@@ -429,6 +436,9 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	loadIfThemed(&mGunGame, theme, "md_gungame", false, true);
 	loadIfThemed(&mNotGunGame, theme, "md_notgungame", false, true);
+
+	loadIfThemed(&mWheelGame, theme, "md_wheelgame", false, true);
+	loadIfThemed(&mNotWheelGame, theme, "md_notwheelgame", false, true);
 
 	loadIfThemed(&mCheevos, theme, "md_cheevos", false, true);
 	loadIfThemed(&mNotCheevos, theme, "md_notcheevos", false, true);
@@ -857,6 +867,13 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		if (mNotGunGame != nullptr)
 			mNotGunGame->setVisible(!file->isLightGunGame());
 
+		// Wheel game
+		if (mWheelGame != nullptr)
+			mWheelGame->setVisible(file->isWheelGame());
+
+		if (mNotWheelGame != nullptr)
+			mNotWheelGame->setVisible(!file->isWheelGame());
+
 		bool systemHasCheevos = 
 			SystemConf::getInstance()->getBool("global.retroachievements") && (
 			file->getSourceFileData()->getSystem()->isCheevosSupported() || 
@@ -1133,6 +1150,8 @@ void DetailedContainer::disableComponent(GuiComponent* comp)
 	if (mNotKidGame == comp) mNotKidGame->setVisible(false);
 	if (mGunGame == comp) mGunGame->setVisible(false);
 	if (mNotGunGame == comp) mNotGunGame->setVisible(false);
+	if (mWheelGame == comp) mWheelGame->setVisible(false);
+	if (mNotWheelGame == comp) mNotWheelGame->setVisible(false);
 	if (mCheevos == comp) mCheevos->setVisible(false);
 	if (mNotCheevos == comp) mNotCheevos->setVisible(false);
 	if (mFavorite == comp) mFavorite->setVisible(false);
@@ -1166,6 +1185,8 @@ std::vector<GuiComponent*>  DetailedContainer::getComponents()
 	if (mNotKidGame != nullptr) comps.push_back(mNotKidGame);
 	if (mGunGame != nullptr) comps.push_back(mGunGame);
 	if (mNotGunGame != nullptr) comps.push_back(mNotGunGame);
+	if (mWheelGame != nullptr) comps.push_back(mWheelGame);
+	if (mNotWheelGame != nullptr) comps.push_back(mNotWheelGame);
 	if (mCheevos != nullptr) comps.push_back(mCheevos);
 	if (mNotCheevos != nullptr) comps.push_back(mNotCheevos);
 	if (mFavorite != nullptr) comps.push_back(mFavorite);

@@ -123,6 +123,9 @@ protected:
 	ImageComponent* mGunGame;
 	ImageComponent* mNotGunGame;
 
+  	ImageComponent* mWheelGame;
+	ImageComponent* mNotWheelGame;
+
 	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblGameTime, mLblFavorite;
 	TextComponent mDeveloper, mPublisher, mGenre, mPlayers, mPlayCount, mName, mGameTime, mTextFavorite;
 
