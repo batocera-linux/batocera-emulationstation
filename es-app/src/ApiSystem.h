@@ -112,7 +112,8 @@ public:
 		SUPPORTFILE = 23,
 		UPGRADE = 24,
 		SUSPEND = 25,
-		VERSIONINFO = 26
+		VERSIONINFO = 26,
+		PLANEMODE = 27,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -256,7 +257,9 @@ public:
   	virtual void replugControllers_sindenguns();
     	virtual void replugControllers_wiimotes();
     	virtual void replugControllers_steamdeckguns();
-	
+
+  	virtual bool isPlanemode();
+    	virtual bool planemode(bool enable);
 protected:
 	ApiSystem();
 

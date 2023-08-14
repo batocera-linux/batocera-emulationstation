@@ -3329,6 +3329,21 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 				delete s;
 			}, "iconManual");
 		}
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PLANEMODE))
+		  {
+		    if(ApiSystem::getInstance()->isPlanemode()) {
+		      s->addEntry(_("DISABLE PLANE MODE"), false, [window, s] {
+			ApiSystem::getInstance()->planemode(false);
+			delete s;
+		      }, "iconPlanemode");
+		    } else {
+		      s->addEntry(_("ENABLE PLANE MODE"), false, [window, s] {
+			ApiSystem::getInstance()->planemode(true);
+			delete s;
+		      }, "iconPlanemode");
+		    }
+		  }
 	}
 
 	if (quickAccessMenu)
