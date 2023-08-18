@@ -5,6 +5,11 @@
 #include "Settings.h"
 #include "utils/StringUtil.h"
 
+#ifdef HAVE_UDEV
+#include <libudev.h>
+#endif
+
+
 //some util functions
 std::string inputTypeToString(InputType type)
 {
@@ -56,7 +61,48 @@ InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& devic
 	: mDeviceId(deviceId), mDeviceIndex(deviceIndex), mDeviceName(deviceName), mDeviceGUID(deviceGUID), mDeviceNbButtons(deviceNbButtons), mDeviceNbHats(deviceNbHats), mDeviceNbAxes(deviceNbAxes), mDevicePath(devicePath)
 {
 	mBatteryLevel = -1;
+	mIsWheel = false;
+#ifdef HAVE_UDEV
+	mIsWheel = isWheel(devicePath);
+#endif
 }
+
+#ifdef HAVE_UDEV
+bool InputConfig::isWheel(const std::string path) {
+	struct udev *udev;
+	struct udev_list_entry *devs = NULL;
+	struct udev_list_entry *item = NULL;
+	bool res = false;
+
+	udev = udev_new();
+	if (udev != NULL)
+	  {
+	    struct udev_enumerate *enumerate = udev_enumerate_new(udev);
+	    udev_enumerate_add_match_property(enumerate, "ID_INPUT_WHEEL", "1");
+	    udev_enumerate_add_match_subsystem(enumerate, "input");
+	    udev_enumerate_scan_devices(enumerate);
+	    devs = udev_enumerate_get_list_entry(enumerate);
+
+	    for (item = devs; item; item = udev_list_entry_get_next(item))
+	      {
+	    	const char *name = udev_list_entry_get_name(item);
+	    	struct udev_device *dev = udev_device_new_from_syspath(udev, name);
+
+		const char* devnode;
+	    	devnode = udev_device_get_devnode(dev);
+	    	if (devnode != NULL) {
+		  std::string strdevnode = devnode;
+		  if(strdevnode == path) {
+		    res = true;
+		  }
+	    	}
+	    	udev_device_unref(dev);
+	      }
+	    udev_unref(udev);
+	  }
+	return res;
+}
+#endif
 
 void InputConfig::clear()
 {

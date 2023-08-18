@@ -414,6 +414,12 @@ const bool FileData::isLightGunGame()
 	//return Genres::genreExists(&getMetadata(), GENRE_LIGHTGUN);
 }
 
+const bool FileData::isWheelGame()
+{
+	return MameNames::getInstance()->isWheel(Utils::FileSystem::getStem(getPath()), mSystem->getName());
+	//return Genres::genreExists(&getMetadata(), GENRE_WHEEL);
+}
+
 FileData* FileData::getSourceFileData()
 {
 	return this;
@@ -446,7 +452,10 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	if (InputManager::getInstance()->getGuns().size() && gameToUpdate->isLightGunGame())
 #endif
 		controllersConfig = controllersConfig + "-lightgun ";
-	
+
+        if (gameToUpdate->isWheelGame())
+		controllersConfig = controllersConfig + "-wheel ";
+
 	std::string systemName = system->getName();
 	std::string emulator = getEmulator();
 	std::string core = getCore();
@@ -1725,6 +1734,9 @@ std::string FileData::getProperty(const std::string& name)
 
 	if (name == "gunGame")
 		return isLightGunGame() ? _("YES") : _("NO");
+
+	if (name == "wheelGame")
+	  return isWheelGame() ? _("YES") : _("NO");
 
 	if (name == "system")
 		return getSourceFileData()->getSystemName();

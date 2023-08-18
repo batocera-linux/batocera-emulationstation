@@ -62,6 +62,7 @@ protected:
 	// Pads
 	std::shared_ptr<TextureResource> mPadTexture;	
 	std::shared_ptr<TextureResource> mGunTexture;
+  	std::shared_ptr<TextureResource> mWheelTexture;
 
 	class PlayerPad
 	{
@@ -72,6 +73,7 @@ protected:
 		}
 	
 		int  index;
+		bool isWheel;
 		int  batteryLevel;
 		int  keyState;
 		int  timeOut;
@@ -84,6 +86,7 @@ protected:
 		void reset()
 		{
 			index = -1;
+			isWheel = false;
 			batteryLevel = -1;
 			keyState = 0;
 			timeOut = 0;

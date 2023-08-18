@@ -120,7 +120,8 @@ public:
 	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; 
 	inline int getDeviceNbHats() const { return mDeviceNbHats; }; 
 	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; 
-	inline int getBatteryLevel() const { return mBatteryLevel; }; 
+	inline int getBatteryLevel() const { return mBatteryLevel; };
+  	inline int isWheel()         const { return mIsWheel;      };
 	inline const std::string& getDevicePath() { return mDevicePath; };
 
 	std::string getSortDevicePath();
@@ -159,6 +160,11 @@ private:
 	std::string mDevicePath;
 
 	int mBatteryLevel;
+	bool mIsWheel;
+
+#ifdef HAVE_UDEV
+	static bool isWheel(const std::string path);
+#endif
 
 public:
 	static void AssignActionButtons();

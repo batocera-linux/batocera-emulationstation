@@ -21,6 +21,7 @@ public:
 	const bool        isDevice(const std::string& _deviceName);
 	const bool        isVertical(const std::string& _nameName);
 	const bool		  isLightgun(const std::string& _nameName, const std::string& systemName, bool isArcade);
+  	const bool		  isWheel(const std::string& _nameName, const std::string& systemName);
 
 private:
 
@@ -45,6 +46,7 @@ private:
 	std::unordered_set<std::string> mArcadeLightGunGames;
 
 	std::map<std::string, std::unordered_set<std::string>> mNonArcadeGunGames;
+  	std::map<std::string, std::unordered_set<std::string>> mWheelGames;
 
 }; // MameNames
 
