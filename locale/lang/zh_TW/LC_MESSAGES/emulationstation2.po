@@ -7,13 +7,13 @@ msgstr ""
 "Last-Translator: James Ou <james1191991@gmail.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Loco-Source-Locale: en_SG\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Loco-Parser: loco_parse_po\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "有可用的更新"
@@ -287,6 +287,9 @@ msgstr "直立式街機"
 
 msgid "lightgun games"
 msgstr "光線槍遊戲"
+
+msgid "wheel games"
+msgstr ""
 
 msgid "collections"
 msgstr "合輯"
@@ -803,6 +806,192 @@ msgstr "選擇"
 
 msgid "ADD COMBINATION KEY"
 msgstr "新增組合按鍵"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "控制器設定"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "控制器與藍牙設定"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "玩家分配"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "玩家 %i 的控制器"
+
+msgid "CONTROLLER MAPPING"
+msgstr "遊戲控制器按鍵對映"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"您即將要設定控制器按鍵對映。 按鍵對映將以超任遊戲控制器的按鈕位置做為參照，而"
+"並非它的實體標示。 如果您沒有專門的按鈕可指派為「熱鍵」， 請將它指派給「選擇"
+"鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 完成時按南功能鍵確認。"
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN 光線槍設定"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "WIIMOTE 光線槍設定"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "STEAMDECK 鼠標/槍設定"
+
+msgid "BLUETOOTH"
+msgstr "藍牙"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "自動配對藍牙手把"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "手動配對藍牙裝置"
+
+msgid "DISPLAY OPTIONS"
+msgstr "顯示設定"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "顯示控制器活動狀態"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "顯示遊戲控制器的電池電量"
+
+msgid "default"
+msgstr "預設值"
+
+msgid "NOT CONNECTED"
+msgstr "尚未連線"
+
+msgid "BORDER SIZE"
+msgstr "邊框尺寸"
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "THIN"
+msgstr "窄"
+
+msgid "MEDIUM"
+msgstr "中等"
+
+msgid "BIG"
+msgstr "大"
+
+msgid "BORDER MODE"
+msgstr "邊框模式"
+
+msgid "NORMAL"
+msgstr "一般"
+
+msgid "IN GAME ONLY"
+msgstr "僅在遊戲中"
+
+msgid "HIDDEN"
+msgstr "隱藏"
+
+msgid "BORDER COLOR"
+msgstr "邊框顏色"
+
+msgid "WHITE"
+msgstr "白色"
+
+msgid "RED"
+msgstr "紅色"
+
+msgid "GREEN"
+msgstr "綠色"
+
+msgid "BLUE"
+msgstr "藍色"
+
+msgid "CAMERA CONTRAST"
+msgstr "相機對比度"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "白天/明亮的陽光(40)"
+
+msgid "Default (50)"
+msgstr "預設(50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "昏暗的顯示屏/夜間(60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "相機亮度"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "白天/明亮的陽光(80)"
+
+msgid "Default (100)"
+msgstr "預設(100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "昏暗的顯示屏/夜間(120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "相機曝光"
+
+msgid "Projector/CRT (-5)"
+msgstr "投影機/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "投影機/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "預設(-7)"
+
+msgid "Other (-8)"
+msgstr "其他·(-8)"
+
+msgid "Other (-9)"
+msgstr "其他·(-9)"
+
+msgid "RECOIL"
+msgstr "收縮"
+
+msgid "DISABLED"
+msgstr "停用"
+
+msgid "GUN"
+msgstr "光槍"
+
+msgid "MACHINE GUN"
+msgstr "機槍"
+
+msgid "QUIET GUN"
+msgstr "靜音槍"
+
+msgid "QUIET MACHINE GUN"
+msgstr "靜音機槍"
+
+msgid "MODE"
+msgstr "模式"
+
+msgid "JOYSTICK"
+msgstr "搖桿"
+
+msgid "MOUSE ONLY"
+msgstr "僅限鼠標"
+
+msgid "HAND"
+msgstr "手"
+
+msgid "LEFT"
+msgstr "左"
+
+msgid "RIGHT"
+msgstr "右"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "內容下載器"
@@ -1460,12 +1649,6 @@ msgstr "渲染器"
 msgid "SHADERS"
 msgstr "著色器"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "控制器設定"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "控制器與藍牙設定"
-
 msgid "INTERNAL"
 msgstr "內部的"
 
@@ -1546,6 +1729,12 @@ msgstr "垂直同步"
 
 msgid "OVERSCAN"
 msgstr "過掃瞄 (OVERSCAN)"
+
+msgid "VIDEO MODE"
+msgstr "影像模式"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "使用 OMX 播放器（硬體加速）"
@@ -1656,9 +1845,6 @@ msgstr "完成後退出選單"
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCH 選單驅動程式"
 
-msgid "AUTO"
-msgstr "自動"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "在 EMULATIONSTATION 中調換確認鍵與取消鍵"
 
@@ -1756,9 +1942,6 @@ msgstr "將時鐘顯示為 12 小時制"
 
 msgid "POWER SAVING MODE"
 msgstr "省電模式"
-
-msgid "DISABLED"
-msgstr "停用"
 
 msgid "DEFAULT"
 msgstr "預設"
@@ -1979,9 +2162,6 @@ msgstr "遊戲畫面比例"
 msgid "Force the game to render in this aspect ratio."
 msgstr "強制讓遊戲以這個畫面比例渲染。"
 
-msgid "VIDEO MODE"
-msgstr "影像模式"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "指定顯示裝置的解析度。不會影響渲染解析度。"
@@ -2114,169 +2294,6 @@ msgstr "遊戲校驗正在進行中。您想要終止嗎？"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "確定要更新遊戲清單嗎？"
-
-msgid "CONTROLLER MAPPING"
-msgstr "遊戲控制器按鍵對映"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
-" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"您即將要設定控制器按鍵對映。 按鍵對映將以超任遊戲控制器的按鈕位置做為參照，而並非它的實體標示。 如果您沒有專門的按鈕可指派為「熱鍵」， "
-"請將它指派給「選擇鍵」。 長按任意按鈕可跳過您無法指派的按鍵。 完成時按南功能鍵確認。"
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN 光線槍設定"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE 光線槍設定"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "STEAMDECK 鼠標/槍設定"
-
-msgid "BLUETOOTH"
-msgstr "藍牙"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "自動配對藍牙手把"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "手動配對藍牙裝置"
-
-msgid "DISPLAY OPTIONS"
-msgstr "顯示設定"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "顯示控制器活動狀態"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "顯示遊戲控制器的電池電量"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "玩家分配"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "玩家 %i 的控制器"
-
-msgid "default"
-msgstr "預設值"
-
-msgid "BORDER SIZE"
-msgstr "邊框尺寸"
-
-msgid "THIN"
-msgstr "窄"
-
-msgid "MEDIUM"
-msgstr "中等"
-
-msgid "BIG"
-msgstr "大"
-
-msgid "BORDER MODE"
-msgstr "邊框模式"
-
-msgid "NORMAL"
-msgstr "一般"
-
-msgid "IN GAME ONLY"
-msgstr "僅在遊戲中"
-
-msgid "HIDDEN"
-msgstr "隱藏"
-
-msgid "BORDER COLOR"
-msgstr "邊框顏色"
-
-msgid "WHITE"
-msgstr "白色"
-
-msgid "RED"
-msgstr "紅色"
-
-msgid "GREEN"
-msgstr "綠色"
-
-msgid "BLUE"
-msgstr "藍色"
-
-msgid "CAMERA CONTRAST"
-msgstr "相機對比度"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "白天/明亮的陽光(40)"
-
-msgid "Default (50)"
-msgstr "預設(50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "昏暗的顯示屏/夜間(60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "相機亮度"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "白天/明亮的陽光(80)"
-
-msgid "Default (100)"
-msgstr "預設(100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "昏暗的顯示屏/夜間(120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "相機曝光"
-
-msgid "Projector/CRT (-5)"
-msgstr "投影機/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "投影機/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "預設(-7)"
-
-msgid "Other (-8)"
-msgstr "其他·(-8)"
-
-msgid "Other (-9)"
-msgstr "其他·(-9)"
-
-msgid "RECOIL"
-msgstr "收縮"
-
-msgid "GUN"
-msgstr "光槍"
-
-msgid "MACHINE GUN"
-msgstr "機槍"
-
-msgid "QUIET GUN"
-msgstr "靜音槍"
-
-msgid "QUIET MACHINE GUN"
-msgstr "靜音機槍"
-
-msgid "MODE"
-msgstr "模式"
-
-msgid "JOYSTICK"
-msgstr "搖桿"
-
-msgid "MOUSE ONLY"
-msgstr "僅限鼠標"
-
-msgid "HAND"
-msgstr "手"
-
-msgid "LEFT"
-msgstr "左"
-
-msgid "RIGHT"
-msgstr "右"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "在編輯主題設定之前必須先套用該佈景主題"
@@ -2440,9 +2457,6 @@ msgstr "IP 位址"
 msgid "CONNECTED"
 msgstr "已連線"
 
-msgid "NOT CONNECTED"
-msgstr "尚未連線"
-
 msgid "INTERNET STATUS"
 msgstr "網路狀態"
 
@@ -2478,6 +2492,12 @@ msgstr "啟動螢幕保護程式"
 
 msgid "VIEW USER MANUAL"
 msgstr "檢視使用者手冊"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
@@ -2720,9 +2740,12 @@ msgstr "遊戲設定"
 msgid "FAVORITE"
 msgstr "我的最愛"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
-"A valid account is required. Please register an account on https:"
-"//retroachievements.org"
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr "需要提供一個有效的帳號。請在 https://retroachievements.org 註冊帳號"
 
 msgid "Searching"
@@ -2917,6 +2940,9 @@ msgstr "直立式"
 msgid "LIGHTGUN"
 msgstr "光線槍"
 
+msgid "STEERING WHEEL"
+msgstr ""
+
 msgid "HAS MEDIAS"
 msgstr "含有媒體"
 
@@ -3078,7 +3104,9 @@ msgstr "-未定義-"
 msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
-msgstr "您沒有指派任何按鈕為「熱鍵」。 這是使用控制器退出遊戲所必須的按鈕。 您是否要將「選擇鍵」指派為「熱鍵」？"
+msgstr ""
+"您沒有指派任何按鈕為「熱鍵」。 這是使用控制器退出遊戲所必須的按鈕。 您是否要"
+"將「選擇鍵」指派為「熱鍵」？"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "指派「選擇鍵」為「熱鍵」"

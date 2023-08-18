@@ -38,8 +38,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 && "
-"n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
 "X-Loco-Source-Locale: en\n"
 "X-Generator: Poedit 3.3.2\n"
 "X-Loco-Project-Id: 90894\n"
@@ -320,6 +320,9 @@ msgstr "أركيد عمودية"
 msgid "lightgun games"
 msgstr "ألعاب المسدس الضوئي"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "مجموعات"
 
@@ -451,7 +454,8 @@ msgid "CHALLENGE INDICATORS"
 msgstr "إشارات المنافسة"
 
 msgid ""
-"Shows icons in the bottom right corner when eligible achievements can be earned."
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
 msgstr "عرض أيقونة في الزاوية اليمنى أسفل الشاشة إن كانت هنالك إنجازات لكسبها."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
@@ -839,6 +843,193 @@ msgstr "حدد"
 
 msgid "ADD COMBINATION KEY"
 msgstr "أضف زر مزيج"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "خصائص لوحة التحكم"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "إعدادات وحدات التحكم"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "مهام اللاعب"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "وحدة تحكم اللاعب %i"
+
+msgid "CONTROLLER MAPPING"
+msgstr "ضبط أزرار وحدة التحكم"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"ستقوم بتعديل لوحة التحكم. تلك التعديلات تعتمد على مكان الزر، ليس الاسم "
+"المكتوب عليه. إن لم يكن لديك زر خاص بالزر الساخن، استعمل الزر (SELECT). "
+"لتخطي (الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط "
+"على زر الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "إعدادات مسدس سِينْدِن"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "إعدادات مسدس ويموت"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "جهاز ستيم/إعدادات المسدس"
+
+msgid "BLUETOOTH"
+msgstr "بلوتوث"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "اقتران البلوتوث بذراع التحكم تِلقائيا"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "اقتران بلوتوث يدوي"
+
+msgid "DISPLAY OPTIONS"
+msgstr "خيارات العرض"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "عرض نشاط وحدة التحكم"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "عرض نسبة بطارية وحدة التحكم"
+
+msgid "default"
+msgstr "افتراضي"
+
+msgid "NOT CONNECTED"
+msgstr "غير متصل"
+
+msgid "BORDER SIZE"
+msgstr "حجم الإطار"
+
+msgid "AUTO"
+msgstr "تلقائي"
+
+msgid "THIN"
+msgstr "رقيق"
+
+msgid "MEDIUM"
+msgstr "متوسط"
+
+msgid "BIG"
+msgstr "ثخين"
+
+msgid "BORDER MODE"
+msgstr "نمط الإطار"
+
+msgid "NORMAL"
+msgstr "عادي"
+
+msgid "IN GAME ONLY"
+msgstr "أثناء اللعب فقط"
+
+msgid "HIDDEN"
+msgstr "مخفي"
+
+msgid "BORDER COLOR"
+msgstr "لون الإطار"
+
+msgid "WHITE"
+msgstr "أبيض"
+
+msgid "RED"
+msgstr "أحمر"
+
+msgid "GREEN"
+msgstr "أخضر"
+
+msgid "BLUE"
+msgstr "أزرق"
+
+msgid "CAMERA CONTRAST"
+msgstr "تباين الكاميرا"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "النّهار/سطوع (٤٠)"
+
+msgid "Default (50)"
+msgstr "الإفتراضي (٥٠)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "تعتيم الشاشة/المساء (٦٠)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "سطوع الكاميرا"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "النّهار/سطوع (٨٠)"
+
+msgid "Default (100)"
+msgstr "الإفتراضي (١٠٠)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "تعتيم الشاشة/المساء (١٢٠)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "تعرض الكاميرا للضوء"
+
+msgid "Projector/CRT (-5)"
+msgstr "جهاز العرض/تلفاز قديم (٥-)"
+
+msgid "Projector/CRT (-6)"
+msgstr "جهاز العرض/تلفاز قديم (٦-)"
+
+msgid "Default (-7)"
+msgstr "الإفتراضي (٧-)"
+
+msgid "Other (-8)"
+msgstr "أخرى (٨-)"
+
+msgid "Other (-9)"
+msgstr "أخرى (٩-)"
+
+msgid "RECOIL"
+msgstr "ارتداد"
+
+msgid "DISABLED"
+msgstr "معطل"
+
+msgid "GUN"
+msgstr "مسدس"
+
+msgid "MACHINE GUN"
+msgstr "رشاشة"
+
+msgid "QUIET GUN"
+msgstr "مسدس صامت"
+
+msgid "QUIET MACHINE GUN"
+msgstr "رشاشة صامتة"
+
+msgid "MODE"
+msgstr "النمط"
+
+msgid "JOYSTICK"
+msgstr "ذراع التحكم"
+
+msgid "MOUSE ONLY"
+msgstr "الفأرة فقط"
+
+msgid "HAND"
+msgstr "اليد"
+
+msgid "LEFT"
+msgstr "يسار"
+
+msgid "RIGHT"
+msgstr "يمين"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "تنزيل محتويات"
@@ -1373,8 +1564,8 @@ msgid "START"
 msgstr "ابدأ"
 
 msgid ""
-"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS MAY "
-"BE FOR DIFFERENT SYSTEMS!\n"
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
 "انتباه: بعض من الأنظمة التي اخترتها لا تحتوي على منصة محددة. النتائج قد تكون "
@@ -1497,12 +1688,6 @@ msgstr "المُصَيِّر"
 msgid "SHADERS"
 msgstr "المظللات"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "خصائص لوحة التحكم"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "إعدادات وحدات التحكم"
-
 msgid "INTERNAL"
 msgstr "داخلي"
 
@@ -1583,6 +1768,12 @@ msgstr "التزامن العمودي Vsync"
 
 msgid "OVERSCAN"
 msgstr "فائض الشاشة"
+
+msgid "VIDEO MODE"
+msgstr "وضع الفيديو"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "استعمال القارئ أوه أم أكس (يستعمل الجهاز للتسريع)"
@@ -1694,9 +1885,6 @@ msgstr "أكمل واخرج من القائمة"
 msgid "RETROARCH MENU DRIVER"
 msgstr "سمة قائمة ريتروأرك"
 
-msgid "AUTO"
-msgstr "تلقائي"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "تبديل زري الموافقة والرفض في EMULATIONSTATION"
 
@@ -1707,8 +1895,8 @@ msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "عرض قائمة خيارات اللعبة بالزر العُلوي(شَمال)"
 
 msgid ""
-"Switches to short-press North for Savestates & long-press South button for Game "
-"Options"
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
 msgstr ""
 "يقوم بتبديل وظيفة الضغطة الخفيفة على زر شمال لحالات الحفظ مع الضغط المطول "
 "لخيارات اللعبة"
@@ -1733,14 +1921,17 @@ msgstr "التحميل المسبق لعناصر واجهة المستخدم خ�
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr "تخفيض التباطؤ خلال دخول قائمة الألعاب من قائمة النظام، يزيد مدة الإقلاع"
+msgstr ""
+"تخفيض التباطؤ خلال دخول قائمة الألعاب من قائمة النظام، يزيد مدة الإقلاع"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "التحميل المسبق لبيانات الوسائط خلال الإقلاع"
 
 msgid ""
-"Reduces lag when scrolling through a fully scraped gamelist, increases boot time"
-msgstr "تخفيض التباطؤ خلال التمرير بين الألعاب المجلوب محتواها، يزيد مدة الإقلاع"
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
+msgstr ""
+"تخفيض التباطؤ خلال التمرير بين الألعاب المجلوب محتواها، يزيد مدة الإقلاع"
 
 msgid "THREADED LOADING"
 msgstr "تحميل مترابط"
@@ -1796,9 +1987,6 @@ msgstr "عرض الساعة بنمط ١٢ بدل ٢٤"
 msgid "POWER SAVING MODE"
 msgstr "اقتصاد الطاقة"
 
-msgid "DISABLED"
-msgstr "معطل"
-
 msgid "DEFAULT"
 msgstr "افتراضي"
 
@@ -1827,7 +2015,8 @@ msgid ""
 msgstr ""
 "سوف تقوم بتغيير واجهة المستخدم الى الوضع المقيّد:\n"
 "وهذا سوف يؤدي الى إخفاء أغلب خيارات القائمة لحماية النظام من التغيير.\n"
-"للإلغاء والرجوع الى واجهة المستخدم الكاملة لاحقا ادخل هذا الرمز من وحدة التحكم:"
+"للإلغاء والرجوع الى واجهة المستخدم الكاملة لاحقا ادخل هذا الرمز من وحدة "
+"التحكم:"
 
 msgid "Do you want to proceed?"
 msgstr "هل تريد المتابعة ؟"
@@ -1992,7 +2181,8 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"تنقيص تباطؤ الإطار تلقائياً موقتاً لمنع الدروب فريم(frame drops)، قد يسبب تقطيع."
+"تنقيص تباطؤ الإطار تلقائياً موقتاً لمنع الدروب فريم(frame drops)، قد يسبب "
+"تقطيع."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "نسبة التحديث المتغيرة (G-SYNC, FREESYNC)"
@@ -2000,7 +2190,8 @@ msgstr "نسبة التحديث المتغيرة (G-SYNC, FREESYNC)"
 msgid "VARIABLE REFRESH RATE"
 msgstr "إنعاش المعدل متغير"
 
-msgid "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr "لا تحيد عن التوقيت المتطلب من النواة.G-Sync، FreeSync، HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
@@ -2018,10 +2209,8 @@ msgstr "نسبة ارتفاع عرض الشاشة"
 msgid "Force the game to render in this aspect ratio."
 msgstr "إرغام اللعبة على الإشتغال بنسبة ارتفاع الشاشة هذه."
 
-msgid "VIDEO MODE"
-msgstr "وضع الفيديو"
-
-msgid "Sets the display's resolution. Does not affect the rendering resolution."
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "تغيير دقة الشاشة.لن يؤثر على دقة شاشة التَّصيِيِر."
 
 #, fuzzy
@@ -2153,171 +2342,6 @@ msgstr "تجزئة اللعبة تعمل حالياً. هل تريد ايقاف�
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "أترغب حقا في تحديث قائمة الألعاب؟"
-
-msgid "CONTROLLER MAPPING"
-msgstr "ضبط أزرار وحدة التحكم"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT ITS "
-"PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE SELECT "
-"BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. PRESS "
-"THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"ستقوم بتعديل لوحة التحكم. تلك التعديلات تعتمد على مكان الزر، ليس الاسم المكتوب "
-"عليه. إن لم يكن لديك زر خاص بالزر الساخن، استعمل الزر (SELECT). لتخطي "
-"(الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط على زر "
-"الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "إعدادات مسدس سِينْدِن"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "إعدادات مسدس ويموت"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "جهاز ستيم/إعدادات المسدس"
-
-msgid "BLUETOOTH"
-msgstr "بلوتوث"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "اقتران البلوتوث بذراع التحكم تِلقائيا"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "اقتران بلوتوث يدوي"
-
-msgid "DISPLAY OPTIONS"
-msgstr "خيارات العرض"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "عرض نشاط وحدة التحكم"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "عرض نسبة بطارية وحدة التحكم"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "مهام اللاعب"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "وحدة تحكم اللاعب %i"
-
-msgid "default"
-msgstr "افتراضي"
-
-msgid "BORDER SIZE"
-msgstr "حجم الإطار"
-
-msgid "THIN"
-msgstr "رقيق"
-
-msgid "MEDIUM"
-msgstr "متوسط"
-
-msgid "BIG"
-msgstr "ثخين"
-
-msgid "BORDER MODE"
-msgstr "نمط الإطار"
-
-msgid "NORMAL"
-msgstr "عادي"
-
-msgid "IN GAME ONLY"
-msgstr "أثناء اللعب فقط"
-
-msgid "HIDDEN"
-msgstr "مخفي"
-
-msgid "BORDER COLOR"
-msgstr "لون الإطار"
-
-msgid "WHITE"
-msgstr "أبيض"
-
-msgid "RED"
-msgstr "أحمر"
-
-msgid "GREEN"
-msgstr "أخضر"
-
-msgid "BLUE"
-msgstr "أزرق"
-
-msgid "CAMERA CONTRAST"
-msgstr "تباين الكاميرا"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "النّهار/سطوع (٤٠)"
-
-msgid "Default (50)"
-msgstr "الإفتراضي (٥٠)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "تعتيم الشاشة/المساء (٦٠)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "سطوع الكاميرا"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "النّهار/سطوع (٨٠)"
-
-msgid "Default (100)"
-msgstr "الإفتراضي (١٠٠)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "تعتيم الشاشة/المساء (١٢٠)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "تعرض الكاميرا للضوء"
-
-msgid "Projector/CRT (-5)"
-msgstr "جهاز العرض/تلفاز قديم (٥-)"
-
-msgid "Projector/CRT (-6)"
-msgstr "جهاز العرض/تلفاز قديم (٦-)"
-
-msgid "Default (-7)"
-msgstr "الإفتراضي (٧-)"
-
-msgid "Other (-8)"
-msgstr "أخرى (٨-)"
-
-msgid "Other (-9)"
-msgstr "أخرى (٩-)"
-
-msgid "RECOIL"
-msgstr "ارتداد"
-
-msgid "GUN"
-msgstr "مسدس"
-
-msgid "MACHINE GUN"
-msgstr "رشاشة"
-
-msgid "QUIET GUN"
-msgstr "مسدس صامت"
-
-msgid "QUIET MACHINE GUN"
-msgstr "رشاشة صامتة"
-
-msgid "MODE"
-msgstr "النمط"
-
-msgid "JOYSTICK"
-msgstr "ذراع التحكم"
-
-msgid "MOUSE ONLY"
-msgstr "الفأرة فقط"
-
-msgid "HAND"
-msgstr "اليد"
-
-msgid "LEFT"
-msgstr "يسار"
-
-msgid "RIGHT"
-msgstr "يمين"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "عليك باستعمال السمة قبل تعديل خصائصها"
@@ -2481,9 +2505,6 @@ msgstr "عنوان بروتوكول الإنترنت"
 msgid "CONNECTED"
 msgstr "متصل"
 
-msgid "NOT CONNECTED"
-msgstr "غير متصل"
-
 msgid "INTERNET STATUS"
 msgstr "حالة الإنترنت"
 
@@ -2519,6 +2540,12 @@ msgstr "بدء شاشة التوقف"
 
 msgid "VIEW USER MANUAL"
 msgstr "قراءة دليل المستخدم"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "إعادة تشغيل النظام"
@@ -2781,10 +2808,14 @@ msgstr "خيارات الألعاب"
 msgid "FAVORITE"
 msgstr "المفضلة"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
-msgstr "مطلوب حساب فعال، من فضلك قم بتسجيل حساب على https://retroachievements.org"
+msgstr ""
+"مطلوب حساب فعال، من فضلك قم بتسجيل حساب على https://retroachievements.org"
 
 msgid "Searching"
 msgstr "يبحث"
@@ -2978,6 +3009,9 @@ msgstr "عمودية"
 msgid "LIGHTGUN"
 msgstr "المسدس"
 
+msgid "STEERING WHEEL"
+msgstr ""
+
 msgid "HAS MEDIAS"
 msgstr "لديها وسائط"
 
@@ -3137,8 +3171,8 @@ msgid "-NOT DEFINED-"
 msgstr "-غير محدد-"
 
 msgid ""
-"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A "
-"CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "لم تعين الزر الساخن.هذا هام جدا للخروج من الألعاب التي تشتغل بوحدة التحكم. "
 "أترغب في استعمال الزر سيليكت كالزر الساخن الخاص بك؟"

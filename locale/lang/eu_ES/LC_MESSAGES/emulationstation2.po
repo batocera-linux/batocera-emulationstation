@@ -283,6 +283,9 @@ msgstr "arkade bertikala"
 msgid "lightgun games"
 msgstr "argizko pistola jokoak"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "kolekzioak"
 
@@ -804,6 +807,189 @@ msgstr "AUKERATU"
 
 msgid "ADD COMBINATION KEY"
 msgstr "GEHITU KONBINAZIO TEKLA"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "KONTROLATZAILE KONFIGURAZIOA"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "AGINTEEN KONFIGURAZIOAK"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "JOKALARI ASIGNAZIOAK"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "%iJ-REN KONTORLATZAILEA"
+
+msgid "CONTROLLER MAPPING"
+msgstr "KONTROLATZAILE MAPEATZEA"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN PISTOLA EZARPENAK"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "WIIMOTE PISTOLA EZARPENAK"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "BLUETOOHT PAD-AK AUTOMATIKOKI PAREKATU"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "BLUETOOTH PAD-AK ESKUZ PAREKATU"
+
+msgid "DISPLAY OPTIONS"
+msgstr "IKUSKATZE AUKERAK"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ERAKUTSI KONTROLATZAILE AKTIBITATEA"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ERAKUTSI KONTROLATZAILE BATERIA MAILA"
+
+msgid "default"
+msgstr "defektuz"
+
+msgid "NOT CONNECTED"
+msgstr "KONEKTATU GABE"
+
+msgid "BORDER SIZE"
+msgstr "ERTZ TAMAINA"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "THIN"
+msgstr "MEHEA"
+
+msgid "MEDIUM"
+msgstr "ERTAINA"
+
+msgid "BIG"
+msgstr "ZABALA"
+
+msgid "BORDER MODE"
+msgstr "ERTZ MODUA"
+
+msgid "NORMAL"
+msgstr "ARRUNTA"
+
+msgid "IN GAME ONLY"
+msgstr "JOKOAN BAKARRIK"
+
+msgid "HIDDEN"
+msgstr "EZKUTATUA"
+
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
+msgid "CAMERA CONTRAST"
+msgstr ""
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr ""
+
+msgid "Default (50)"
+msgstr ""
+
+msgid "Dim Display/Evening (60)"
+msgstr ""
+
+msgid "CAMERA BRIGHTNESS"
+msgstr ""
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr ""
+
+msgid "Default (100)"
+msgstr ""
+
+msgid "Dim Display/Evening (120)"
+msgstr ""
+
+msgid "CAMERA EXPOSURE"
+msgstr ""
+
+msgid "Projector/CRT (-5)"
+msgstr ""
+
+msgid "Projector/CRT (-6)"
+msgstr ""
+
+msgid "Default (-7)"
+msgstr ""
+
+msgid "Other (-8)"
+msgstr ""
+
+msgid "Other (-9)"
+msgstr ""
+
+msgid "RECOIL"
+msgstr "ATZERA JOTZEA"
+
+msgid "DISABLED"
+msgstr "EZGAITUTA"
+
+msgid "GUN"
+msgstr "PISTAOLA"
+
+msgid "MACHINE GUN"
+msgstr "METRAILADORE"
+
+msgid "QUIET GUN"
+msgstr "PISTOLA ISILA"
+
+msgid "QUIET MACHINE GUN"
+msgstr "AMETRALLADORE ISILA"
+
+msgid "MODE"
+msgstr "MODUA"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "EZKERRA"
+
+msgid "RIGHT"
+msgstr "ESKUINA"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "EDUKI DEKSARGATZAILEA"
@@ -1462,12 +1648,6 @@ msgstr "RENDERIZATZAILEA"
 msgid "SHADERS"
 msgstr "SHADER-AK"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "KONTROLATZAILE KONFIGURAZIOA"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "AGINTEEN KONFIGURAZIOAK"
-
 msgid "INTERNAL"
 msgstr "BARNEKOA"
 
@@ -1548,6 +1728,12 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
+
+msgid "VIDEO MODE"
+msgstr "BIDEO MODUA"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "ERABILI OMX IKARKURLERA (HADRWARE BIDEZKO AZELERAZIOAREKIN)"
@@ -1665,9 +1851,6 @@ msgstr "IRTETZE MENU OSOA"
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROACH-EN MENU DRIVER-A"
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
@@ -1771,9 +1954,6 @@ msgstr "ERAKUTSI ORDULARIA 12 ORDUKO FORMATUAN"
 
 msgid "POWER SAVING MODE"
 msgstr "ENERGIA AURREZTE MODUA"
-
-msgid "DISABLED"
-msgstr "EZGAITUTA"
 
 msgid "DEFAULT"
 msgstr "BESTERIK EZEKO AUKERA"
@@ -2000,9 +2180,6 @@ msgstr "JOKOEN ITXURA RATIOA"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Behartu jokoa itxura ratio horretan erakustera"
 
-msgid "VIDEO MODE"
-msgstr "BIDEO MODUA"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
@@ -2140,167 +2317,6 @@ msgstr "JOKOEK HASH FUNTZIOAK EXEKUTATZEN ARI DIRA. GELDITZEA NAHI AL DUZU?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "BENETAN EGUNERATU JOKO LISTAK?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "KONTROLATZAILE MAPEATZEA"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN PISTOLA EZARPENAK"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE PISTOLA EZARPENAK"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "BLUETOOHT PAD-AK AUTOMATIKOKI PAREKATU"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "BLUETOOTH PAD-AK ESKUZ PAREKATU"
-
-msgid "DISPLAY OPTIONS"
-msgstr "IKUSKATZE AUKERAK"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ERAKUTSI KONTROLATZAILE AKTIBITATEA"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ERAKUTSI KONTROLATZAILE BATERIA MAILA"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "JOKALARI ASIGNAZIOAK"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "%iJ-REN KONTORLATZAILEA"
-
-msgid "default"
-msgstr "defektuz"
-
-msgid "BORDER SIZE"
-msgstr "ERTZ TAMAINA"
-
-msgid "THIN"
-msgstr "MEHEA"
-
-msgid "MEDIUM"
-msgstr "ERTAINA"
-
-msgid "BIG"
-msgstr "ZABALA"
-
-msgid "BORDER MODE"
-msgstr "ERTZ MODUA"
-
-msgid "NORMAL"
-msgstr "ARRUNTA"
-
-msgid "IN GAME ONLY"
-msgstr "JOKOAN BAKARRIK"
-
-msgid "HIDDEN"
-msgstr "EZKUTATUA"
-
-msgid "BORDER COLOR"
-msgstr ""
-
-msgid "WHITE"
-msgstr ""
-
-msgid "RED"
-msgstr ""
-
-msgid "GREEN"
-msgstr ""
-
-msgid "BLUE"
-msgstr ""
-
-msgid "CAMERA CONTRAST"
-msgstr ""
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
-
-msgid "Default (50)"
-msgstr ""
-
-msgid "Dim Display/Evening (60)"
-msgstr ""
-
-msgid "CAMERA BRIGHTNESS"
-msgstr ""
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
-
-msgid "Default (100)"
-msgstr ""
-
-msgid "Dim Display/Evening (120)"
-msgstr ""
-
-msgid "CAMERA EXPOSURE"
-msgstr ""
-
-msgid "Projector/CRT (-5)"
-msgstr ""
-
-msgid "Projector/CRT (-6)"
-msgstr ""
-
-msgid "Default (-7)"
-msgstr ""
-
-msgid "Other (-8)"
-msgstr ""
-
-msgid "Other (-9)"
-msgstr ""
-
-msgid "RECOIL"
-msgstr "ATZERA JOTZEA"
-
-msgid "GUN"
-msgstr "PISTAOLA"
-
-msgid "MACHINE GUN"
-msgstr "METRAILADORE"
-
-msgid "QUIET GUN"
-msgstr "PISTOLA ISILA"
-
-msgid "QUIET MACHINE GUN"
-msgstr "AMETRALLADORE ISILA"
-
-msgid "MODE"
-msgstr "MODUA"
-
-msgid "JOYSTICK"
-msgstr "JOYSTICK"
-
-msgid "MOUSE ONLY"
-msgstr ""
-
-msgid "HAND"
-msgstr ""
-
-msgid "LEFT"
-msgstr "EZKERRA"
-
-msgid "RIGHT"
-msgstr "ESKUINA"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "GAIA EZARRI BEHAR DUZU EZARPENAK EDITATU AURRETIK"
@@ -2464,9 +2480,6 @@ msgstr "IP HELBIDEA"
 msgid "CONNECTED"
 msgstr "KONEKTATUTA"
 
-msgid "NOT CONNECTED"
-msgstr "KONEKTATU GABE"
-
 msgid "INTERNET STATUS"
 msgstr "INTERNET EGOERA"
 
@@ -2502,6 +2515,12 @@ msgstr "ABIARAZI PANTAILA BABESLEA"
 
 msgid "VIEW USER MANUAL"
 msgstr "IKUSI ERABILTZAILE MANUALA"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "SISTEMA BERRABIARAZI"
@@ -2753,6 +2772,9 @@ msgstr "JOKU AUKERAK"
 msgid "FAVORITE"
 msgstr "GOGOKOAK"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2951,6 +2973,9 @@ msgstr "BERTIKALA"
 
 msgid "LIGHTGUN"
 msgstr "ARGIZKO PISTOLA"
+
+msgid "STEERING WHEEL"
+msgstr ""
 
 msgid "HAS MEDIAS"
 msgstr "MEDIAK DITU"

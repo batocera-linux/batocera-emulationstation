@@ -286,6 +286,9 @@ msgstr "Vertical Arcade"
 msgid "lightgun games"
 msgstr "Lightgun-Spiele"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "Sammlungen"
 
@@ -808,6 +811,195 @@ msgstr "AUSWÄHLEN"
 
 msgid "ADD COMBINATION KEY"
 msgstr "KOMBINATIONSTASTE HINZUFÜGEN"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "CONTROLLER EINSTELLUNGEN"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "CONTROLLER & BLUETOOTH EINSTELLUNGEN"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "SPIELERZUWEISUNGEN"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "P%i'S CONTROLLER"
+
+msgid "CONTROLLER MAPPING"
+msgstr "CONTROLLER TASTENBELEGUNG"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
+"TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
+"RÄUMLICHEN POSITION. FALLS KEINE SPEZIAL-TASTE FÜR DEN HOTKEY VORHANDEN IST, "
+"NUTZEN SIE DIE SELECT-TASTE. ALLE TASTEN/STICKS, DIE NICHT VORHANDEN SIND, "
+"ÜBERSPRINGEN SIE DURCH HALTEN EINER BELIEBIGEN TASTE. ZUM ABSCHLUSS DER "
+"KONFIGURATION DRÜCKEN SIE DIE SÜD-TASTE."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN GUN EINSTELLUNGEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "WIIMOTE GUN EINSTELLUNGEN"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "STEAMDECK MAUS/GUN EINSTELLUNGEN"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "BLUETOOTH-GAMEPADS AUTOMATISCH KOPPELN"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "BLUETOOTH-GERÄT MANUELL KOPPELN"
+
+msgid "DISPLAY OPTIONS"
+msgstr "OPTIONEN ANZEIGEN"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "CONTROLLER-AKTIVITÄT ANZEIGEN"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "CONTROLLER AKKUSTAND ANZEIGEN"
+
+msgid "default"
+msgstr "Standard"
+
+msgid "NOT CONNECTED"
+msgstr "NICHT VERBUNDEN"
+
+msgid "BORDER SIZE"
+msgstr "RAHMENGRÖSSE"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "THIN"
+msgstr "SCHMAL"
+
+msgid "MEDIUM"
+msgstr "MITTEL"
+
+msgid "BIG"
+msgstr "GROSS"
+
+msgid "BORDER MODE"
+msgstr "RAHMENMODUS"
+
+msgid "NORMAL"
+msgstr "NORMAL"
+
+msgid "IN GAME ONLY"
+msgstr "NUR IM SPIEL"
+
+msgid "HIDDEN"
+msgstr "VERBORGEN"
+
+msgid "BORDER COLOR"
+msgstr "RAHMENFARBE"
+
+msgid "WHITE"
+msgstr "WEISS"
+
+msgid "RED"
+msgstr "ROT"
+
+msgid "GREEN"
+msgstr "GRÜN"
+
+msgid "BLUE"
+msgstr "BLAU"
+
+msgid "CAMERA CONTRAST"
+msgstr "KAMERA KONTRAST"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Tageszeit/Helles Sonnenlicht (40)"
+
+msgid "Default (50)"
+msgstr "Standard (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Bildschirm dimmen/Abend (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "KAMERA HELLIGKEIT"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Tageszeit/Helles Sonnenlicht (80)"
+
+msgid "Default (100)"
+msgstr "Standard (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Bildschirm dimmen/Abend (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "KAMERA BELICHTUNG"
+
+msgid "Projector/CRT (-5)"
+msgstr "Projektor/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Projector/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Standard (-7)"
+
+msgid "Other (-8)"
+msgstr "Andere (-8)"
+
+msgid "Other (-9)"
+msgstr "Andere (-9)"
+
+msgid "RECOIL"
+msgstr "RÜCKSTOSS"
+
+msgid "DISABLED"
+msgstr "DEAKTIVIERT"
+
+msgid "GUN"
+msgstr "PISTOLE"
+
+msgid "MACHINE GUN"
+msgstr "MASCHINENGEWEHR"
+
+msgid "QUIET GUN"
+msgstr "LEISE PISTOLE"
+
+msgid "QUIET MACHINE GUN"
+msgstr "LEISES MASCHINENGEWEHR"
+
+msgid "MODE"
+msgstr "MODUS"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr "NUR MAUS"
+
+msgid "HAND"
+msgstr "HAND"
+
+msgid "LEFT"
+msgstr "LINKS"
+
+msgid "RIGHT"
+msgstr "RECHTS"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "CONTENT-DOWNLOADER"
@@ -1466,12 +1658,6 @@ msgstr "RENDERER"
 msgid "SHADERS"
 msgstr "SHADER"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "CONTROLLER EINSTELLUNGEN"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "CONTROLLER & BLUETOOTH EINSTELLUNGEN"
-
 msgid "INTERNAL"
 msgstr "INTERN"
 
@@ -1553,6 +1739,12 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
+
+msgid "VIDEO MODE"
+msgstr "VIDEOMODUS"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYER VERWENDEN (HARDWARE-BESCHLEUNIGT)"
@@ -1670,9 +1862,6 @@ msgstr "VOLLSTÄNDIGES EXIT-MENÜ ANZEIGEN"
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCH-MENÜ TREIBER"
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "BESTÄTIGEN- & ZURÜCK-TASTE IN EMULATIONSTATION TAUSCHEN"
 
@@ -1776,9 +1965,6 @@ msgstr "UHR IM 12-STUNDEN-FORMAT ANZEIGEN"
 
 msgid "POWER SAVING MODE"
 msgstr "ENERGIESPARMODUS"
-
-msgid "DISABLED"
-msgstr "DEAKTIVIERT"
 
 msgid "DEFAULT"
 msgstr "STANDARD"
@@ -2006,9 +2192,6 @@ msgstr "SPIELBILDSCHIRM SEITENVERHÄLTNIS"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Rendern des Spiels in diesem Seitenverhältnis erzwingen."
 
-msgid "VIDEO MODE"
-msgstr "VIDEOMODUS"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
@@ -2149,173 +2332,6 @@ msgstr "SPIELE-HASHING LÄUFT GERADE. MÖCHTEN SIE DIESEN VORGANG STOPPEN?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "SPIELELISTEN WIRKLICH UPDATEN?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "CONTROLLER TASTENBELEGUNG"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"SIE FÜHREN NUN DIE TASTENZUORDNUNG EINES CONTROLLERS DURCH. WEISEN SIE DIE "
-"TASTEN NICHT AUFGRUND IHRER BEZEICHNUNG ZU SONDERN ENTSPRECHEND IHRER "
-"RÄUMLICHEN POSITION. FALLS KEINE SPEZIAL-TASTE FÜR DEN HOTKEY VORHANDEN IST, "
-"NUTZEN SIE DIE SELECT-TASTE. ALLE TASTEN/STICKS, DIE NICHT VORHANDEN SIND, "
-"ÜBERSPRINGEN SIE DURCH HALTEN EINER BELIEBIGEN TASTE. ZUM ABSCHLUSS DER "
-"KONFIGURATION DRÜCKEN SIE DIE SÜD-TASTE."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN GUN EINSTELLUNGEN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE GUN EINSTELLUNGEN"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "STEAMDECK MAUS/GUN EINSTELLUNGEN"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "BLUETOOTH-GAMEPADS AUTOMATISCH KOPPELN"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "BLUETOOTH-GERÄT MANUELL KOPPELN"
-
-msgid "DISPLAY OPTIONS"
-msgstr "OPTIONEN ANZEIGEN"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "CONTROLLER-AKTIVITÄT ANZEIGEN"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "CONTROLLER AKKUSTAND ANZEIGEN"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "SPIELERZUWEISUNGEN"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "P%i'S CONTROLLER"
-
-msgid "default"
-msgstr "Standard"
-
-msgid "BORDER SIZE"
-msgstr "RAHMENGRÖSSE"
-
-msgid "THIN"
-msgstr "SCHMAL"
-
-msgid "MEDIUM"
-msgstr "MITTEL"
-
-msgid "BIG"
-msgstr "GROSS"
-
-msgid "BORDER MODE"
-msgstr "RAHMENMODUS"
-
-msgid "NORMAL"
-msgstr "NORMAL"
-
-msgid "IN GAME ONLY"
-msgstr "NUR IM SPIEL"
-
-msgid "HIDDEN"
-msgstr "VERBORGEN"
-
-msgid "BORDER COLOR"
-msgstr "RAHMENFARBE"
-
-msgid "WHITE"
-msgstr "WEISS"
-
-msgid "RED"
-msgstr "ROT"
-
-msgid "GREEN"
-msgstr "GRÜN"
-
-msgid "BLUE"
-msgstr "BLAU"
-
-msgid "CAMERA CONTRAST"
-msgstr "KAMERA KONTRAST"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "Tageszeit/Helles Sonnenlicht (40)"
-
-msgid "Default (50)"
-msgstr "Standard (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "Bildschirm dimmen/Abend (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "KAMERA HELLIGKEIT"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "Tageszeit/Helles Sonnenlicht (80)"
-
-msgid "Default (100)"
-msgstr "Standard (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "Bildschirm dimmen/Abend (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "KAMERA BELICHTUNG"
-
-msgid "Projector/CRT (-5)"
-msgstr "Projektor/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "Projector/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "Standard (-7)"
-
-msgid "Other (-8)"
-msgstr "Andere (-8)"
-
-msgid "Other (-9)"
-msgstr "Andere (-9)"
-
-msgid "RECOIL"
-msgstr "RÜCKSTOSS"
-
-msgid "GUN"
-msgstr "PISTOLE"
-
-msgid "MACHINE GUN"
-msgstr "MASCHINENGEWEHR"
-
-msgid "QUIET GUN"
-msgstr "LEISE PISTOLE"
-
-msgid "QUIET MACHINE GUN"
-msgstr "LEISES MASCHINENGEWEHR"
-
-msgid "MODE"
-msgstr "MODUS"
-
-msgid "JOYSTICK"
-msgstr "JOYSTICK"
-
-msgid "MOUSE ONLY"
-msgstr "NUR MAUS"
-
-msgid "HAND"
-msgstr "HAND"
-
-msgid "LEFT"
-msgstr "LINKS"
-
-msgid "RIGHT"
-msgstr "RECHTS"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr ""
@@ -2480,9 +2496,6 @@ msgstr "IP-ADDRESSE"
 msgid "CONNECTED"
 msgstr "VERBUNDEN"
 
-msgid "NOT CONNECTED"
-msgstr "NICHT VERBUNDEN"
-
 msgid "INTERNET STATUS"
 msgstr "INTERNET STATUS"
 
@@ -2518,6 +2531,12 @@ msgstr "BILDSCHIRMSCHONER STARTEN"
 
 msgid "VIEW USER MANUAL"
 msgstr "BEDIENUNGSANLEITUNG ANSEHEN"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "SYSTEM NEUSTARTEN"
@@ -2769,6 +2788,9 @@ msgstr "SPIELOPTIONEN"
 msgid "FAVORITE"
 msgstr "FAVORIT"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2967,6 +2989,9 @@ msgstr "VERTIKAL"
 
 msgid "LIGHTGUN"
 msgstr "LIGHTGUN"
+
+msgid "STEERING WHEEL"
+msgstr ""
 
 msgid "HAS MEDIAS"
 msgstr "MIT MEDIEN"

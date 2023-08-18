@@ -286,6 +286,9 @@ msgstr "竖屏街机"
 msgid "lightgun games"
 msgstr "光枪游戏"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "合辑"
 
@@ -802,6 +805,192 @@ msgstr "选择"
 
 msgid "ADD COMBINATION KEY"
 msgstr "增加组合键"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "手柄按键设置"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "手柄/蓝牙手柄设置"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "玩家分配"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "玩家%i 控制器"
+
+msgid "CONTROLLER MAPPING"
+msgstr "手柄设置"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"你即将映射一个手柄。基于按键的位置进行映射而不是其物理标签。\n"
+"如果没有专门用于热键的按键，请使用SELECT按键。\n"
+"通过长按任意键来跳过所有无法识别的按钮/摇杆。完成后请按南方向按键确认。"
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN枪设置"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "WIIMOTE枪设置"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "STEAMDECK鼠标/枪设置"
+
+msgid "BLUETOOTH"
+msgstr "蓝牙"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "自动配对蓝牙键盘"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "手动配对蓝牙设备"
+
+msgid "DISPLAY OPTIONS"
+msgstr "视图画面选项"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "显示控制器活动"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "显示手柄电池电量"
+
+msgid "default"
+msgstr "默认"
+
+msgid "NOT CONNECTED"
+msgstr "未连接"
+
+msgid "BORDER SIZE"
+msgstr "边框大小"
+
+msgid "AUTO"
+msgstr "自动"
+
+msgid "THIN"
+msgstr "薄"
+
+msgid "MEDIUM"
+msgstr "中"
+
+msgid "BIG"
+msgstr "大"
+
+msgid "BORDER MODE"
+msgstr "边界模式"
+
+msgid "NORMAL"
+msgstr "常规"
+
+msgid "IN GAME ONLY"
+msgstr "仅在游戏中"
+
+msgid "HIDDEN"
+msgstr "隐藏"
+
+msgid "BORDER COLOR"
+msgstr "边框颜色"
+
+msgid "WHITE"
+msgstr "白色"
+
+msgid "RED"
+msgstr "红色"
+
+msgid "GREEN"
+msgstr "绿色"
+
+msgid "BLUE"
+msgstr "蓝色"
+
+msgid "CAMERA CONTRAST"
+msgstr "相机对比度"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "白天/明亮的阳光（40）"
+
+msgid "Default (50)"
+msgstr "默认 (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "昏暗的显示屏/夜间（60）"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "相机亮度"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "白天/明亮的阳光（80）"
+
+msgid "Default (100)"
+msgstr "默认 (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "昏暗的显示屏/夜间 (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "相机曝光"
+
+msgid "Projector/CRT (-5)"
+msgstr "投影仪/CRT（-5）"
+
+msgid "Projector/CRT (-6)"
+msgstr "投影仪/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "默认 (-7)"
+
+msgid "Other (-8)"
+msgstr "其他 (-8)"
+
+msgid "Other (-9)"
+msgstr "其他 (-9)"
+
+msgid "RECOIL"
+msgstr "后坐力"
+
+msgid "DISABLED"
+msgstr "禁用"
+
+msgid "GUN"
+msgstr "光枪"
+
+msgid "MACHINE GUN"
+msgstr "机枪"
+
+msgid "QUIET GUN"
+msgstr "消音枪"
+
+msgid "QUIET MACHINE GUN"
+msgstr "消音机枪"
+
+msgid "MODE"
+msgstr "模式"
+
+msgid "JOYSTICK"
+msgstr "游戏摇杆"
+
+msgid "MOUSE ONLY"
+msgstr "仅限鼠标"
+
+msgid "HAND"
+msgstr "手"
+
+msgid "LEFT"
+msgstr "左"
+
+msgid "RIGHT"
+msgstr "右"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "下载内容"
@@ -1459,12 +1648,6 @@ msgstr "渲染器"
 msgid "SHADERS"
 msgstr "着色器"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "手柄按键设置"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "手柄/蓝牙手柄设置"
-
 msgid "INTERNAL"
 msgstr "内部存储"
 
@@ -1545,6 +1728,12 @@ msgstr "垂直同步"
 
 msgid "OVERSCAN"
 msgstr "过扫描"
+
+msgid "VIDEO MODE"
+msgstr "视频模式"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "使用OMX播放器（硬件加速）"
@@ -1655,9 +1844,6 @@ msgstr "完成并退出菜单"
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCH菜单驱动"
 
-msgid "AUTO"
-msgstr "自动"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "在EmulationStation 中调整确认和取消按键的位置"
 
@@ -1755,9 +1941,6 @@ msgstr "12小时格式"
 
 msgid "POWER SAVING MODE"
 msgstr "省电模式"
-
-msgid "DISABLED"
-msgstr "禁用"
 
 msgid "DEFAULT"
 msgstr "默认"
@@ -1979,9 +2162,6 @@ msgstr "游戏画面纵横比"
 msgid "Force the game to render in this aspect ratio."
 msgstr "强制游戏按此纵横比进行渲染."
 
-msgid "VIDEO MODE"
-msgstr "视频模式"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "设置显示器的分辨率。不会影响游戏渲染分辨率."
@@ -2114,170 +2294,6 @@ msgstr "正在效验游戏.是否停止?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "确定更新游戏列表吗?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "手柄设置"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"你即将映射一个手柄。基于按键的位置进行映射而不是其物理标签。\n"
-"如果没有专门用于热键的按键，请使用SELECT按键。\n"
-"通过长按任意键来跳过所有无法识别的按钮/摇杆。完成后请按南方向按键确认。"
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN枪设置"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE枪设置"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "STEAMDECK鼠标/枪设置"
-
-msgid "BLUETOOTH"
-msgstr "蓝牙"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "自动配对蓝牙键盘"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "手动配对蓝牙设备"
-
-msgid "DISPLAY OPTIONS"
-msgstr "视图画面选项"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "显示控制器活动"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "显示手柄电池电量"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "玩家分配"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "玩家%i 控制器"
-
-msgid "default"
-msgstr "默认"
-
-msgid "BORDER SIZE"
-msgstr "边框大小"
-
-msgid "THIN"
-msgstr "薄"
-
-msgid "MEDIUM"
-msgstr "中"
-
-msgid "BIG"
-msgstr "大"
-
-msgid "BORDER MODE"
-msgstr "边界模式"
-
-msgid "NORMAL"
-msgstr "常规"
-
-msgid "IN GAME ONLY"
-msgstr "仅在游戏中"
-
-msgid "HIDDEN"
-msgstr "隐藏"
-
-msgid "BORDER COLOR"
-msgstr "边框颜色"
-
-msgid "WHITE"
-msgstr "白色"
-
-msgid "RED"
-msgstr "红色"
-
-msgid "GREEN"
-msgstr "绿色"
-
-msgid "BLUE"
-msgstr "蓝色"
-
-msgid "CAMERA CONTRAST"
-msgstr "相机对比度"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "白天/明亮的阳光（40）"
-
-msgid "Default (50)"
-msgstr "默认 (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "昏暗的显示屏/夜间（60）"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "相机亮度"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "白天/明亮的阳光（80）"
-
-msgid "Default (100)"
-msgstr "默认 (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "昏暗的显示屏/夜间 (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "相机曝光"
-
-msgid "Projector/CRT (-5)"
-msgstr "投影仪/CRT（-5）"
-
-msgid "Projector/CRT (-6)"
-msgstr "投影仪/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "默认 (-7)"
-
-msgid "Other (-8)"
-msgstr "其他 (-8)"
-
-msgid "Other (-9)"
-msgstr "其他 (-9)"
-
-msgid "RECOIL"
-msgstr "后坐力"
-
-msgid "GUN"
-msgstr "光枪"
-
-msgid "MACHINE GUN"
-msgstr "机枪"
-
-msgid "QUIET GUN"
-msgstr "消音枪"
-
-msgid "QUIET MACHINE GUN"
-msgstr "消音机枪"
-
-msgid "MODE"
-msgstr "模式"
-
-msgid "JOYSTICK"
-msgstr "游戏摇杆"
-
-msgid "MOUSE ONLY"
-msgstr "仅限鼠标"
-
-msgid "HAND"
-msgstr "手"
-
-msgid "LEFT"
-msgstr "左"
-
-msgid "RIGHT"
-msgstr "右"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "在编辑其配置之前，先应用主题"
@@ -2441,9 +2457,6 @@ msgstr "IP地址(IPV4)"
 msgid "CONNECTED"
 msgstr "已连接"
 
-msgid "NOT CONNECTED"
-msgstr "未连接"
-
 msgid "INTERNET STATUS"
 msgstr "网络状态"
 
@@ -2479,6 +2492,12 @@ msgstr "启动屏保"
 
 msgid "VIEW USER MANUAL"
 msgstr "查看用户手册"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "重启"
@@ -2721,6 +2740,9 @@ msgstr "游戏及模拟器设置菜单"
 msgid "FAVORITE"
 msgstr "加入收藏夹"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2918,6 +2940,9 @@ msgstr "竖屏"
 
 msgid "LIGHTGUN"
 msgstr "光枪"
+
+msgid "STEERING WHEEL"
+msgstr ""
 
 msgid "HAS MEDIAS"
 msgstr "HAS MEDIAS"

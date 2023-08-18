@@ -286,6 +286,9 @@ msgstr "縦表示アーケード"
 msgid "lightgun games"
 msgstr "ガンコントローラ ゲーム"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "コレクション"
 
@@ -804,6 +807,194 @@ msgstr "セレクト(選択)"
 
 msgid "ADD COMBINATION KEY"
 msgstr "同時押しキーを追加"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "コントローラー 設定"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "コントローラー＆BLUETOOTH 設定"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "プレイヤーの割当"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "プレイヤー %i コントローラー"
+
+msgid "CONTROLLER MAPPING"
+msgstr "ボタン設定"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"コントローラーのボタン設定を行います。 このコントローラのボタンのラベル通りで"
+"はなく、システムで 使用するボタン位置に基づいて設定します。（A,B,X,Yの位置）"
+"ホットキー用の特別なボタン（PSやHOME）がない場合は、 「セレクト」ボタンを使用"
+"してください。 ボタンを長押しで、割り当てられないボタン/スティックを スキップ"
+"します。 完了したら、決定（下）ボタンを押して確認します。"
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "シンデン ライトガン 設定"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "wii リモコン 用途設定"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "STEAMDECK マウス/銃 設定"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "BLUETOOTH コントローラーをペアリング"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "BLUETOOTH デバイスをペアリング"
+
+msgid "DISPLAY OPTIONS"
+msgstr "表示設定"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "コントローラーアクティビティを表示"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "コントローラーバッテリーレベルを表示"
+
+msgid "default"
+msgstr "標準"
+
+msgid "NOT CONNECTED"
+msgstr "未接続"
+
+msgid "BORDER SIZE"
+msgstr "境界サイズ"
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "THIN"
+msgstr "超極細"
+
+msgid "MEDIUM"
+msgstr "中"
+
+msgid "BIG"
+msgstr "大"
+
+msgid "BORDER MODE"
+msgstr "境界モード"
+
+msgid "NORMAL"
+msgstr "標準"
+
+msgid "IN GAME ONLY"
+msgstr "ゲーム内のみ"
+
+msgid "HIDDEN"
+msgstr "非表示"
+
+msgid "BORDER COLOR"
+msgstr "境界色"
+
+msgid "WHITE"
+msgstr "白"
+
+msgid "RED"
+msgstr "赤"
+
+msgid "GREEN"
+msgstr "緑"
+
+msgid "BLUE"
+msgstr "青"
+
+msgid "CAMERA CONTRAST"
+msgstr "カメラ コントラスト"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "昼間/明るい日差し (40)"
+
+msgid "Default (50)"
+msgstr "標準 (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "薄暗い表示/夜 (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "カメラ 明るさ"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "昼間/明るい日差し (80)"
+
+msgid "Default (100)"
+msgstr "標準 (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "薄暗い表示/夜 (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "カメラ 露出"
+
+msgid "Projector/CRT (-5)"
+msgstr "プロジェクター/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "プロジェクター/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "標準 (-7)"
+
+msgid "Other (-8)"
+msgstr "その他 (-8)"
+
+msgid "Other (-9)"
+msgstr "その他 (-9)"
+
+msgid "RECOIL"
+msgstr "トリガーの反動"
+
+msgid "DISABLED"
+msgstr "無効"
+
+msgid "GUN"
+msgstr "ガンコン"
+
+msgid "MACHINE GUN"
+msgstr "マシンガン"
+
+msgid "QUIET GUN"
+msgstr "サイレントガン(弱反動)"
+
+msgid "QUIET MACHINE GUN"
+msgstr "サイレントマシンガン(弱反動)"
+
+msgid "MODE"
+msgstr "モード選択"
+
+msgid "JOYSTICK"
+msgstr "ゲームパッド"
+
+msgid "MOUSE ONLY"
+msgstr "マウスのみ"
+
+msgid "HAND"
+msgstr "ハンドモード"
+
+msgid "LEFT"
+msgstr "左"
+
+msgid "RIGHT"
+msgstr "右"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "コンテンツダウンローダー"
@@ -1467,12 +1658,6 @@ msgstr "レンダラー"
 msgid "SHADERS"
 msgstr "シェーダー"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "コントローラー 設定"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "コントローラー＆BLUETOOTH 設定"
-
 msgid "INTERNAL"
 msgstr "システムと同ストレージ(通常)"
 
@@ -1553,6 +1738,12 @@ msgstr "VSYNC(垂直同期)有効"
 
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
+
+msgid "VIDEO MODE"
+msgstr "ゲーム画面解像度"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
@@ -1671,9 +1862,6 @@ msgstr "完全終了メニュー"
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCH メニュードライバー"
 
-msgid "AUTO"
-msgstr "自動"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューの 決定 とキャンセル のボタン入れ替え"
 
@@ -1773,9 +1961,6 @@ msgstr "時計を12時間形式で表示"
 
 msgid "POWER SAVING MODE"
 msgstr "省電力モード(小型マシン用)"
-
-msgid "DISABLED"
-msgstr "無効"
 
 msgid "DEFAULT"
 msgstr "標準"
@@ -1999,9 +2184,6 @@ msgstr "ゲーム画面比率"
 msgid "Force the game to render in this aspect ratio."
 msgstr "ゲームを指定アスペクト比でレンダリングします"
 
-msgid "VIDEO MODE"
-msgstr "ゲーム画面解像度"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "ディスプレイの解像度を設定します。レンダリング解像度には影響しません"
@@ -2135,172 +2317,6 @@ msgstr "ゲームのハッシュ化が実行されています。 中止しま�
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "ゲームリストを更新しますか？"
-
-msgid "CONTROLLER MAPPING"
-msgstr "ボタン設定"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"コントローラーのボタン設定を行います。 このコントローラのボタンのラベル通りで"
-"はなく、システムで 使用するボタン位置に基づいて設定します。（A,B,X,Yの位置）"
-"ホットキー用の特別なボタン（PSやHOME）がない場合は、 「セレクト」ボタンを使用"
-"してください。 ボタンを長押しで、割り当てられないボタン/スティックを スキップ"
-"します。 完了したら、決定（下）ボタンを押して確認します。"
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "シンデン ライトガン 設定"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "wii リモコン 用途設定"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "STEAMDECK マウス/銃 設定"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "BLUETOOTH コントローラーをペアリング"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "BLUETOOTH デバイスをペアリング"
-
-msgid "DISPLAY OPTIONS"
-msgstr "表示設定"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "コントローラーアクティビティを表示"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "コントローラーバッテリーレベルを表示"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "プレイヤーの割当"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "プレイヤー %i コントローラー"
-
-msgid "default"
-msgstr "標準"
-
-msgid "BORDER SIZE"
-msgstr "境界サイズ"
-
-msgid "THIN"
-msgstr "超極細"
-
-msgid "MEDIUM"
-msgstr "中"
-
-msgid "BIG"
-msgstr "大"
-
-msgid "BORDER MODE"
-msgstr "境界モード"
-
-msgid "NORMAL"
-msgstr "標準"
-
-msgid "IN GAME ONLY"
-msgstr "ゲーム内のみ"
-
-msgid "HIDDEN"
-msgstr "非表示"
-
-msgid "BORDER COLOR"
-msgstr "境界色"
-
-msgid "WHITE"
-msgstr "白"
-
-msgid "RED"
-msgstr "赤"
-
-msgid "GREEN"
-msgstr "緑"
-
-msgid "BLUE"
-msgstr "青"
-
-msgid "CAMERA CONTRAST"
-msgstr "カメラ コントラスト"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "昼間/明るい日差し (40)"
-
-msgid "Default (50)"
-msgstr "標準 (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "薄暗い表示/夜 (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "カメラ 明るさ"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "昼間/明るい日差し (80)"
-
-msgid "Default (100)"
-msgstr "標準 (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "薄暗い表示/夜 (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "カメラ 露出"
-
-msgid "Projector/CRT (-5)"
-msgstr "プロジェクター/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "プロジェクター/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "標準 (-7)"
-
-msgid "Other (-8)"
-msgstr "その他 (-8)"
-
-msgid "Other (-9)"
-msgstr "その他 (-9)"
-
-msgid "RECOIL"
-msgstr "トリガーの反動"
-
-msgid "GUN"
-msgstr "ガンコン"
-
-msgid "MACHINE GUN"
-msgstr "マシンガン"
-
-msgid "QUIET GUN"
-msgstr "サイレントガン(弱反動)"
-
-msgid "QUIET MACHINE GUN"
-msgstr "サイレントマシンガン(弱反動)"
-
-msgid "MODE"
-msgstr "モード選択"
-
-msgid "JOYSTICK"
-msgstr "ゲームパッド"
-
-msgid "MOUSE ONLY"
-msgstr "マウスのみ"
-
-msgid "HAND"
-msgstr "ハンドモード"
-
-msgid "LEFT"
-msgstr "左"
-
-msgid "RIGHT"
-msgstr "右"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -2464,9 +2480,6 @@ msgstr "IP アドレス"
 msgid "CONNECTED"
 msgstr "接続中"
 
-msgid "NOT CONNECTED"
-msgstr "未接続"
-
 msgid "INTERNET STATUS"
 msgstr "接続状態"
 
@@ -2502,6 +2515,12 @@ msgstr "スクリーンセーバーを起動"
 
 msgid "VIEW USER MANUAL"
 msgstr "ユーザーズマニュアルを表示"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "システムを再起動"
@@ -2748,6 +2767,9 @@ msgstr "ゲーム設定"
 msgid "FAVORITE"
 msgstr "お気に入り"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2946,6 +2968,9 @@ msgstr "縦表示"
 
 msgid "LIGHTGUN"
 msgstr "ライトガン(ガンコン)対応"
+
+msgid "STEERING WHEEL"
+msgstr ""
 
 msgid "HAS MEDIAS"
 msgstr "メディア有り"

@@ -291,6 +291,9 @@ msgstr ""
 msgid "lightgun games"
 msgstr "valoasepelit"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "kokoelmat"
 
@@ -808,6 +811,189 @@ msgid "SELECT"
 msgstr "VALITSE"
 
 msgid "ADD COMBINATION KEY"
+msgstr ""
+
+msgid "CONTROLLER SETTINGS"
+msgstr "OHJAIMEN ASETUKSET"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "OHJAIMEN JA BLUETOOTH ASETUKSET"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr ""
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "P%i OHJAIN"
+
+msgid "CONTROLLER MAPPING"
+msgstr "OHJAIMEN KARTOITUKSET"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "YHDISTÄ BLUETOOTH-OHJAIMET AUTOMAATTISESTI"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "YHDISTÄ BLUETOOTH-LAITE AUTOMAATTISESTI"
+
+msgid "DISPLAY OPTIONS"
+msgstr ""
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "NÄYTÄ OHJAIMEN AKTIIVISUUS"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "NÄYTÄ OHJAIMEN AKUNTASO"
+
+msgid "default"
+msgstr "oletus"
+
+msgid "NOT CONNECTED"
+msgstr "EI YHDISTETTY"
+
+msgid "BORDER SIZE"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AUTOMAATTINEN"
+
+msgid "THIN"
+msgstr "OHUT"
+
+msgid "MEDIUM"
+msgstr "KESKIKOKOINEN"
+
+msgid "BIG"
+msgstr "ISO"
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr "NORMAALI"
+
+msgid "IN GAME ONLY"
+msgstr "VAIN PELISSÄ"
+
+msgid "HIDDEN"
+msgstr "PIILOTETTU"
+
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr "VALKOINEN"
+
+msgid "RED"
+msgstr "PUNAINEN"
+
+msgid "GREEN"
+msgstr "VIHREÄ"
+
+msgid "BLUE"
+msgstr "SININEN"
+
+msgid "CAMERA CONTRAST"
+msgstr "KAMERAN KONTRASTI"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr ""
+
+msgid "Default (50)"
+msgstr ""
+
+msgid "Dim Display/Evening (60)"
+msgstr ""
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "KAMERAN KIRKKAUS"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr ""
+
+msgid "Default (100)"
+msgstr ""
+
+msgid "Dim Display/Evening (120)"
+msgstr ""
+
+msgid "CAMERA EXPOSURE"
+msgstr "KAMERAN VALOITUS"
+
+msgid "Projector/CRT (-5)"
+msgstr ""
+
+msgid "Projector/CRT (-6)"
+msgstr ""
+
+msgid "Default (-7)"
+msgstr ""
+
+msgid "Other (-8)"
+msgstr ""
+
+msgid "Other (-9)"
+msgstr ""
+
+msgid "RECOIL"
+msgstr "REKYYLI"
+
+msgid "DISABLED"
+msgstr "POISTETTU KÄYTÖSTÄ"
+
+msgid "GUN"
+msgstr "ASE"
+
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "JOYSTICK"
+msgstr ""
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr ""
+
+msgid "RIGHT"
 msgstr ""
 
 msgid "CONTENT DOWNLOADER"
@@ -1464,12 +1650,6 @@ msgstr "RENDERÖIJÄ"
 msgid "SHADERS"
 msgstr "VARJOSTIMET"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "OHJAIMEN ASETUKSET"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "OHJAIMEN JA BLUETOOTH ASETUKSET"
-
 msgid "INTERNAL"
 msgstr "SISÄINEN"
 
@@ -1551,6 +1731,12 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "YLISKANNAUS"
+
+msgid "VIDEO MODE"
+msgstr "RESOLUUTIO"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "KÄYTÄ OMX-SOITINTA (LAITTEISTO KIIHDYTETTY)"
@@ -1663,9 +1849,6 @@ msgstr ""
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCHIN VALIKON AJURI"
 
-msgid "AUTO"
-msgstr "AUTOMAATTINEN"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr ""
 
@@ -1765,9 +1948,6 @@ msgstr "NÄYTÄ KELLO 12 TUNNIN MUODOSSA"
 
 msgid "POWER SAVING MODE"
 msgstr "VIRRANSÄÄSTÖTILA"
-
-msgid "DISABLED"
-msgstr "POISTETTU KÄYTÖSTÄ"
 
 msgid "DEFAULT"
 msgstr "OLETUS"
@@ -1994,9 +2174,6 @@ msgstr "PELIN KUVASUHDE"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Pakota peli renderöitäväksi tällä kuvasuhteella."
 
-msgid "VIDEO MODE"
-msgstr "RESOLUUTIO"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "Aseta näytön resoluutio. Ei vaikuta renderöitävään resoluution."
@@ -2132,167 +2309,6 @@ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr ""
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr ""
-
-msgid "CONTROLLER MAPPING"
-msgstr "OHJAIMEN KARTOITUKSET"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "YHDISTÄ BLUETOOTH-OHJAIMET AUTOMAATTISESTI"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "YHDISTÄ BLUETOOTH-LAITE AUTOMAATTISESTI"
-
-msgid "DISPLAY OPTIONS"
-msgstr ""
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "NÄYTÄ OHJAIMEN AKTIIVISUUS"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "NÄYTÄ OHJAIMEN AKUNTASO"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr ""
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "P%i OHJAIN"
-
-msgid "default"
-msgstr "oletus"
-
-msgid "BORDER SIZE"
-msgstr ""
-
-msgid "THIN"
-msgstr "OHUT"
-
-msgid "MEDIUM"
-msgstr "KESKIKOKOINEN"
-
-msgid "BIG"
-msgstr "ISO"
-
-msgid "BORDER MODE"
-msgstr ""
-
-msgid "NORMAL"
-msgstr "NORMAALI"
-
-msgid "IN GAME ONLY"
-msgstr "VAIN PELISSÄ"
-
-msgid "HIDDEN"
-msgstr "PIILOTETTU"
-
-msgid "BORDER COLOR"
-msgstr ""
-
-msgid "WHITE"
-msgstr "VALKOINEN"
-
-msgid "RED"
-msgstr "PUNAINEN"
-
-msgid "GREEN"
-msgstr "VIHREÄ"
-
-msgid "BLUE"
-msgstr "SININEN"
-
-msgid "CAMERA CONTRAST"
-msgstr "KAMERAN KONTRASTI"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
-
-msgid "Default (50)"
-msgstr ""
-
-msgid "Dim Display/Evening (60)"
-msgstr ""
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "KAMERAN KIRKKAUS"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
-
-msgid "Default (100)"
-msgstr ""
-
-msgid "Dim Display/Evening (120)"
-msgstr ""
-
-msgid "CAMERA EXPOSURE"
-msgstr "KAMERAN VALOITUS"
-
-msgid "Projector/CRT (-5)"
-msgstr ""
-
-msgid "Projector/CRT (-6)"
-msgstr ""
-
-msgid "Default (-7)"
-msgstr ""
-
-msgid "Other (-8)"
-msgstr ""
-
-msgid "Other (-9)"
-msgstr ""
-
-msgid "RECOIL"
-msgstr "REKYYLI"
-
-msgid "GUN"
-msgstr "ASE"
-
-msgid "MACHINE GUN"
-msgstr ""
-
-msgid "QUIET GUN"
-msgstr ""
-
-msgid "QUIET MACHINE GUN"
-msgstr ""
-
-msgid "MODE"
-msgstr ""
-
-msgid "JOYSTICK"
-msgstr ""
-
-msgid "MOUSE ONLY"
-msgstr ""
-
-msgid "HAND"
-msgstr ""
-
-msgid "LEFT"
-msgstr ""
-
-msgid "RIGHT"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -2457,9 +2473,6 @@ msgstr "IP-OSOITE"
 msgid "CONNECTED"
 msgstr "YHDISTETTY"
 
-msgid "NOT CONNECTED"
-msgstr "EI YHDISTETTY"
-
 msgid "INTERNET STATUS"
 msgstr "INTERNET-YHTEYDEN TILA"
 
@@ -2495,6 +2508,12 @@ msgstr "KÄYNNISTÄ NÄYTÖNSÄÄSTÄJÄ"
 
 msgid "VIEW USER MANUAL"
 msgstr "NÄYTÄ OHJEKIRJA"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "KÄYNNISTÄ JÄRJESTELMÄ UUDELLEEN"
@@ -2747,6 +2766,9 @@ msgstr "PELIN ASETUKSET"
 msgid "FAVORITE"
 msgstr "SUOSIKKI"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2943,6 +2965,9 @@ msgstr "PYSTYSUUNTAINEN"
 
 msgid "LIGHTGUN"
 msgstr "VALOASE"
+
+msgid "STEERING WHEEL"
+msgstr ""
 
 msgid "HAS MEDIAS"
 msgstr "SISÄLTÄÄ MEDIAA"

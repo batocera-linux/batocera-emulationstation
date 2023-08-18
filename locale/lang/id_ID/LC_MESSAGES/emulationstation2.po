@@ -286,6 +286,9 @@ msgstr "arcade vertikal"
 msgid "lightgun games"
 msgstr "permainan bersenjata ringan"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "koleksi"
 
@@ -805,6 +808,194 @@ msgstr "PILIH"
 
 msgid "ADD COMBINATION KEY"
 msgstr "TAMBAH KOMBINASI"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "PENGATURAN CONTROLLER"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "PENGATURAN CONTROLLER & BLUETOOTH"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "TUGAS PEMAIN"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "PEMAIN %i KONTROLLER"
+
+msgid "CONTROLLER MAPPING"
+msgstr "PEMETAAN KONTROLER"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"ANDA AKAN MELAKUKAN PENGATURAN TOMBOL KONTROLLER. SEPERTI YANG TERTERA "
+"BERDASARKAN POSISI YANG DIPAKAI OLEH SISTEMBILA TIDAK ADA TOMBOL KHUSUS, "
+"TEKAN TOMBOL 'SELECT' UNTUK LEWATI LEWATI TOMBOL/STICKS APAPUN DENGAN "
+"MENEKAN TOMBOL APAPUNTEKAN TOMBOL SELATAN-(BAWAH) UNTUK KONFIRMASI KETIKA "
+"SELESAI"
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "PENGATURAN GUN SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "PENGATURAN GUN WIIMOTE"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "PENGATURAN MOUSE/PISTOL STEAMDECK"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "PASANGKAN PAD BLUETOOTH SECARA OTOMATIS"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "PASANGKAN PERANGKAT BLUETOOTH SECARA MANUAL"
+
+msgid "DISPLAY OPTIONS"
+msgstr "TAMPILAN PILIHAN"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "TAMPILKAN AKTIVITAS KONTROLER"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "TAMPILKAN TINGKAT BATERAI KONTROLER"
+
+msgid "default"
+msgstr "default"
+
+msgid "NOT CONNECTED"
+msgstr "TIDAK TERHUBUNG"
+
+msgid "BORDER SIZE"
+msgstr "UKURAN"
+
+msgid "AUTO"
+msgstr "OTOMATIS"
+
+msgid "THIN"
+msgstr "KECIL"
+
+msgid "MEDIUM"
+msgstr "SEDANG"
+
+msgid "BIG"
+msgstr "BESAR"
+
+msgid "BORDER MODE"
+msgstr "MODE UKURAN"
+
+msgid "NORMAL"
+msgstr "NORMAL"
+
+msgid "IN GAME ONLY"
+msgstr "HANYA DI GAME"
+
+msgid "HIDDEN"
+msgstr "TERSEMBUNYI"
+
+msgid "BORDER COLOR"
+msgstr "WARNA BORDER"
+
+msgid "WHITE"
+msgstr "PUTIH"
+
+msgid "RED"
+msgstr "MERAH"
+
+msgid "GREEN"
+msgstr "HIJAU"
+
+msgid "BLUE"
+msgstr "BIRU"
+
+msgid "CAMERA CONTRAST"
+msgstr "KONTRAS KAMERA"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Siang Hari/Kecerahan Sinar Matahari (40)"
+
+msgid "Default (50)"
+msgstr "Standar (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Tampilan Redup/Malam Hari (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "KECERAHAN KAMERA"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Siang Hari/Kecerahan Sinar Matahari (80)"
+
+msgid "Default (100)"
+msgstr "Standar (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Tampilan Redup/Malam Hari (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "EKSPOSUR KAMERA"
+
+msgid "Projector/CRT (-5)"
+msgstr "Proyektor/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Proyektor/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Standar (-7)"
+
+msgid "Other (-8)"
+msgstr "Lain-nya (-8)"
+
+msgid "Other (-9)"
+msgstr "Lain-nya (-9)"
+
+msgid "RECOIL"
+msgstr "HILANG"
+
+msgid "DISABLED"
+msgstr "TIDAK AKTIF"
+
+msgid "GUN"
+msgstr "SENJATA"
+
+msgid "MACHINE GUN"
+msgstr "SENJATA MESIN"
+
+msgid "QUIET GUN"
+msgstr "SENJATA PEREDAM"
+
+msgid "QUIET MACHINE GUN"
+msgstr "SENJATA MESIN PEREDAM"
+
+msgid "MODE"
+msgstr "MODE"
+
+msgid "JOYSTICK"
+msgstr "JOYSTIK"
+
+msgid "MOUSE ONLY"
+msgstr "HANYA MOUSE"
+
+msgid "HAND"
+msgstr "TANGAN"
+
+msgid "LEFT"
+msgstr "KIRI"
+
+msgid "RIGHT"
+msgstr "KANAN"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "PENGUNDUH KONTEN"
@@ -1463,12 +1654,6 @@ msgstr "RENDERER"
 msgid "SHADERS"
 msgstr "SHADERS"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "PENGATURAN CONTROLLER"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "PENGATURAN CONTROLLER & BLUETOOTH"
-
 msgid "INTERNAL"
 msgstr "PERANGKAT INTERNAL"
 
@@ -1549,6 +1734,12 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
+
+msgid "VIDEO MODE"
+msgstr "MODE VIDEO"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "GUNAKAN OMX PLAYER (HARDWARE DIPERCEPAT)"
@@ -1664,9 +1855,6 @@ msgstr "MENU KELUAR LENGKAP"
 msgid "RETROARCH MENU DRIVER"
 msgstr "MENU DRIVER RETROARCH"
 
-msgid "AUTO"
-msgstr "OTOMATIS"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "GANTI TOMBOL KONFIRMASI DAN BATALKAN DALAM EMULATIONSTATION"
 
@@ -1770,9 +1958,6 @@ msgstr "TAMPILKAN JAM DALAM FORMAT 12 JAM"
 
 msgid "POWER SAVING MODE"
 msgstr "MODE HEMAT DAYA"
-
-msgid "DISABLED"
-msgstr "TIDAK AKTIF"
 
 msgid "DEFAULT"
 msgstr "DEFAULT"
@@ -1999,9 +2184,6 @@ msgstr "ASPEK RASIO GAME"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Paksa game untuk merender di rasio ini."
 
-msgid "VIDEO MODE"
-msgstr "MODE VIDEO"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "Mengatur resolusi tampilan. Tidak memengaruhi resolusi rendering."
@@ -2135,172 +2317,6 @@ msgstr "HASHING GAME SEDANG BERJALAN. INGIN MENGHENTIKANNYA?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "BENERAN UPDATE LISTGAME?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "PEMETAAN KONTROLER"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"ANDA AKAN MELAKUKAN PENGATURAN TOMBOL KONTROLLER. SEPERTI YANG TERTERA "
-"BERDASARKAN POSISI YANG DIPAKAI OLEH SISTEMBILA TIDAK ADA TOMBOL KHUSUS, "
-"TEKAN TOMBOL 'SELECT' UNTUK LEWATI LEWATI TOMBOL/STICKS APAPUN DENGAN "
-"MENEKAN TOMBOL APAPUNTEKAN TOMBOL SELATAN-(BAWAH) UNTUK KONFIRMASI KETIKA "
-"SELESAI"
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "PENGATURAN GUN SINDEN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "PENGATURAN GUN WIIMOTE"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "PENGATURAN MOUSE/PISTOL STEAMDECK"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "PASANGKAN PAD BLUETOOTH SECARA OTOMATIS"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "PASANGKAN PERANGKAT BLUETOOTH SECARA MANUAL"
-
-msgid "DISPLAY OPTIONS"
-msgstr "TAMPILAN PILIHAN"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "TAMPILKAN AKTIVITAS KONTROLER"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "TAMPILKAN TINGKAT BATERAI KONTROLER"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "TUGAS PEMAIN"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "PEMAIN %i KONTROLLER"
-
-msgid "default"
-msgstr "default"
-
-msgid "BORDER SIZE"
-msgstr "UKURAN"
-
-msgid "THIN"
-msgstr "KECIL"
-
-msgid "MEDIUM"
-msgstr "SEDANG"
-
-msgid "BIG"
-msgstr "BESAR"
-
-msgid "BORDER MODE"
-msgstr "MODE UKURAN"
-
-msgid "NORMAL"
-msgstr "NORMAL"
-
-msgid "IN GAME ONLY"
-msgstr "HANYA DI GAME"
-
-msgid "HIDDEN"
-msgstr "TERSEMBUNYI"
-
-msgid "BORDER COLOR"
-msgstr "WARNA BORDER"
-
-msgid "WHITE"
-msgstr "PUTIH"
-
-msgid "RED"
-msgstr "MERAH"
-
-msgid "GREEN"
-msgstr "HIJAU"
-
-msgid "BLUE"
-msgstr "BIRU"
-
-msgid "CAMERA CONTRAST"
-msgstr "KONTRAS KAMERA"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "Siang Hari/Kecerahan Sinar Matahari (40)"
-
-msgid "Default (50)"
-msgstr "Standar (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "Tampilan Redup/Malam Hari (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "KECERAHAN KAMERA"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "Siang Hari/Kecerahan Sinar Matahari (80)"
-
-msgid "Default (100)"
-msgstr "Standar (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "Tampilan Redup/Malam Hari (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "EKSPOSUR KAMERA"
-
-msgid "Projector/CRT (-5)"
-msgstr "Proyektor/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "Proyektor/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "Standar (-7)"
-
-msgid "Other (-8)"
-msgstr "Lain-nya (-8)"
-
-msgid "Other (-9)"
-msgstr "Lain-nya (-9)"
-
-msgid "RECOIL"
-msgstr "HILANG"
-
-msgid "GUN"
-msgstr "SENJATA"
-
-msgid "MACHINE GUN"
-msgstr "SENJATA MESIN"
-
-msgid "QUIET GUN"
-msgstr "SENJATA PEREDAM"
-
-msgid "QUIET MACHINE GUN"
-msgstr "SENJATA MESIN PEREDAM"
-
-msgid "MODE"
-msgstr "MODE"
-
-msgid "JOYSTICK"
-msgstr "JOYSTIK"
-
-msgid "MOUSE ONLY"
-msgstr "HANYA MOUSE"
-
-msgid "HAND"
-msgstr "TANGAN"
-
-msgid "LEFT"
-msgstr "KIRI"
-
-msgid "RIGHT"
-msgstr "KANAN"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "ANDA HARUS MENERAPKAN TEMA SEBELUM MENGUBAH KONFIGURASI"
@@ -2464,9 +2480,6 @@ msgstr "ALAMAT IP"
 msgid "CONNECTED"
 msgstr "TERHUBUNG"
 
-msgid "NOT CONNECTED"
-msgstr "TIDAK TERHUBUNG"
-
 msgid "INTERNET STATUS"
 msgstr "STATUS INTERNET"
 
@@ -2502,6 +2515,12 @@ msgstr "LUNCURKAN SCREENSAVER"
 
 msgid "VIEW USER MANUAL"
 msgstr "LIHAT PANDUAN PENGGUNA"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "MUAT ULANG SISTEM"
@@ -2745,6 +2764,9 @@ msgstr "PILIHAN GAME"
 msgid "FAVORITE"
 msgstr "FAVORIT"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2943,6 +2965,9 @@ msgstr "VERTIKAL"
 
 msgid "LIGHTGUN"
 msgstr "SENJATA RINGAN"
+
+msgid "STEERING WHEEL"
+msgstr ""
 
 msgid "HAS MEDIAS"
 msgstr "MEMILIKI MEDIA"
