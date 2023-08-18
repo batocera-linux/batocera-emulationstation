@@ -40,7 +40,7 @@ FileFilterIndex::FileFilterIndex()
 		{ CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") },
 		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") },
 		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") },
-		{ WHEEL_FILTER, 	&wheelIndexAllKeys,  &filterByWheel,	&wheelIndexFilteredKeys, "wheel",		false,				"",				_("WHEEL") },
+		{ WHEEL_FILTER, 	&wheelIndexAllKeys,     &filterByWheel,	    &wheelIndexFilteredKeys,    "wheel",		false,				"",				_("STEERING WHEEL") },
 		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAS MEDIAS") }
 	};
 
