@@ -143,8 +143,8 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::UPGRADE:
 		return true;
 
-	case ApiSystem::PLANEMODE:
-		return true;
+	// case ApiSystem::PLANEMODE:
+		// return true;
 	}
 
 	if (executables.size() == 0)
