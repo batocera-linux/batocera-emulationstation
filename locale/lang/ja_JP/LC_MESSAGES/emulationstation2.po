@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v37b(2022/04/26)\n"
+"Project-Id-Version: batocera-es v37b(2023/08/18)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2023-04-28 19:34+0900\n"
+"PO-Revision-Date: 2023-08-18 23:20+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -47,10 +47,10 @@ msgid "enter path to image"
 msgstr "イメージ画像のパスを入力"
 
 msgid "Video"
-msgstr "イメージ(デモ)動画"
+msgstr "デモ動画"
 
 msgid "enter path to video"
-msgstr "イメージ動画のパスを入力"
+msgstr "デモ動画のパスを入力"
 
 msgid "Logo"
 msgstr "ロゴ(マーキー)"
@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "ガンコントローラ ゲーム"
 
 msgid "wheel games"
-msgstr ""
+msgstr "ステアリング　ゲーム"
 
 msgid "collections"
 msgstr "コレクション"
@@ -815,14 +815,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "コントローラー＆BLUETOOTH 設定"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "コントローラーの優先順位"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "プレイヤーの割当"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "コントローラー #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1414,25 +1414,25 @@ msgid "IMAGE SOURCE"
 msgstr "イメージ ソース元"
 
 msgid "SCREENSHOT"
-msgstr "スクリーンショット"
+msgstr "スクリーンショット<image>"
 
 msgid "TITLE SCREENSHOT"
-msgstr "タイトルスクリーンショット"
+msgstr "タイトルスクリーンショット<image>"
 
 msgid "MIX V1"
-msgstr "MIX V1"
+msgstr "MIX V1<image>"
 
 msgid "MIX V2"
-msgstr "MIX V2"
+msgstr "MIX V2<image>"
 
 msgid "BOX 2D"
-msgstr "2D ボックス"
+msgstr "2D ボックス<thumbnail>"
 
 msgid "BOX 3D"
-msgstr "3D ボックス"
+msgstr "3D ボックス<thumbnail>"
 
 msgid "FAN ART"
-msgstr "ファンアート"
+msgstr "ファンアート<fanart>"
 
 msgid "BOX SOURCE"
 msgstr "ボックス ソース元"
@@ -1441,37 +1441,37 @@ msgid "LOGO SOURCE"
 msgstr "ロゴ(マーキー) ソース元"
 
 msgid "WHEEL"
-msgstr "ホイール"
+msgstr "ホイール<marquee>"
 
 msgid "MARQUEE"
-msgstr "マーキー"
+msgstr "マーキー<marquee>"
 
 msgid "SCRAPE FOR"
-msgstr "スクレイプ"
+msgstr "スクレイプ <gamelist項目>"
 
 msgid "SHORT NAME"
 msgstr "短名"
 
 msgid "COMMUNITY RATING"
-msgstr "コミュニティの評価"
+msgstr "コミュニティの評価<rating>"
 
 msgid "VIDEO"
-msgstr "映像"
+msgstr "デモ動画<video>"
 
 msgid "FANART"
-msgstr "ファンアート画像"
+msgstr "ファンアート画像<fanart>"
 
 msgid "BEZEL (16:9)"
-msgstr "ベゼル(16:9)"
+msgstr "ベゼル(16:9)<bezel>(decorationsフォルダにコピー)"
 
 msgid "BOX BACKSIDE"
-msgstr "ボックス背景"
+msgstr "ボックス背景<boxback>"
 
 msgid "MAP"
-msgstr "マップ"
+msgstr "マップ<map>"
 
 msgid "MANUAL"
-msgstr "マニュアル"
+msgstr "マニュアル<manual>"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "パッドキー設定"
@@ -1740,10 +1740,10 @@ msgid "OVERSCAN"
 msgstr "オーバースキャン"
 
 msgid "VIDEO MODE"
-msgstr "ゲーム画面解像度"
+msgstr "映像解像度"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "エミュレーションステーションが表示する解像度を設定します"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
@@ -1981,7 +1981,7 @@ msgid "USER INTERFACE MODE"
 msgstr "ユーザーインターフェイス モード"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr "ゲストユーザー/子供で使用するために特定の設定メニューをロックします"
+msgstr "ゲストユーザー/子供が使用するために特定の設定メニューをロックします"
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -2135,7 +2135,7 @@ msgid "LATENCY REDUCTION"
 msgstr "ちらつき軽減"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "先行フレーム"
+msgstr "フレーム先読み"
 
 msgid "High numbers can result in visible jitter."
 msgstr "数値が大きいと、目に見えるジッターが発生する可能性があります"
@@ -2147,7 +2147,7 @@ msgid "Can prevent audio skips on button presses."
 msgstr "先読み使用でボタンを押したときの音声の途切れを防ぎます"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr "自動フレーム遅延"
+msgstr "自動フレームディレイ"
 
 msgid "AUTO FRAME DELAY"
 msgstr "自動フレーム遅延"
@@ -2517,10 +2517,10 @@ msgid "VIEW USER MANUAL"
 msgstr "ユーザーズマニュアルを表示"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "機内モード 無効"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "機内モード 有効"
 
 msgid "RESTART SYSTEM"
 msgstr "システムを再起動"
@@ -2747,10 +2747,10 @@ msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] ""
 "このフォルダには、\n"
-"%i種類のゲームがあります。%s"
+"%i種類のゲームがあります%s"
 
 msgid "No Entries Found"
-msgstr "エントリが見つかりません"
+msgstr "該当データがありません"
 
 msgid "Games similar to"
 msgstr "類似ゲーム→"
@@ -2768,7 +2768,7 @@ msgid "FAVORITE"
 msgstr "お気に入り"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "無効なコンテンツ"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2970,7 +2970,7 @@ msgid "LIGHTGUN"
 msgstr "ライトガン(ガンコン)対応"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "ステアリングホイール (ハンコン)"
 
 msgid "HAS MEDIAS"
 msgstr "メディア有り"
