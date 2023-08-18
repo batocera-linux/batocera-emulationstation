@@ -6,6 +6,7 @@
 #include "InputManager.h"
 #include "Settings.h"
 #include "utils/Platform.h"
+#include "IExternalActivity.h"
 
 // #define DEVTEST
 
@@ -242,11 +243,10 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 			itemsWidth += szW + mSpacing;
 	}
 
-	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
-		itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
-
 	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
-	  itemsWidth += szW + mSpacing; // getTextureSize(mPlanemodeImage).x()
+		itemsWidth += szW + mSpacing; // getTextureSize(mPlanemodeImage).x()
+	else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
+		itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
 
 	auto batteryText = std::to_string(mBatteryInfo.level) + "%";
 	
@@ -333,11 +333,10 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 		}
 	}
 	
-	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
-		x += renderTexture(x, szW, mNetworkImage, mColorShift);
-
 	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
 		x += renderTexture(x, szW, mPlanemodeImage, mColorShift);
+	else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
+		x += renderTexture(x, szW, mNetworkImage, mColorShift);
 
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
 	{
@@ -406,7 +405,6 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 				mPlanemodeImage = nullptr;
 		}
 
-
 		// Battery
 		if (elem->has("incharge") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("incharge")))
 		{
@@ -468,9 +466,8 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 
 void ControllerActivityComponent::updateNetworkInfo()
 {
-	mNetworkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();
-	//mPlanemodeEnabled = Settings::ShowNetworkIndicator() && ApiSystem::getInstance()->isPlanemode();
-	mPlanemodeEnabled = false;
+	mNetworkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();	
+	mPlanemodeEnabled = Settings::ShowNetworkIndicator() && IExternalActivity::Instance != nullptr && IExternalActivity::Instance->isPlaneMode();	
 }
 
 void ControllerActivityComponent::updateBatteryInfo()

@@ -142,6 +142,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		break;
 	case ApiSystem::UPGRADE:
 		return true;
+
+	case ApiSystem::PLANEMODE:
+		return true;
 	}
 
 	if (executables.size() == 0)
@@ -1131,5 +1134,34 @@ std::string Win32ApiSystem::getHostsName()
 
 	return "127.0.0.1";
 }
+
+
+bool Win32ApiSystem::isPlaneMode()
+{
+	HKEY hSubKey;
+	LONG nRet = ::RegOpenKeyEx(HKEY_LOCAL_MACHINE, "SYSTEM\\CurrentControlSet\\Control\\RadioManagement\\SystemRadioState", 0L, KEY_QUERY_VALUE, &hSubKey);
+	if (nRet == ERROR_SUCCESS)
+	{
+		DWORD dwBufferSize(sizeof(DWORD));
+		DWORD nResult(0);
+
+		nRet = ::RegQueryValueExA(hSubKey, "", 0, NULL, reinterpret_cast<LPBYTE>(&nResult), &dwBufferSize);
+		::RegCloseKey(hSubKey);
+
+		if (nRet == ERROR_SUCCESS)
+			return nResult;
+	}
+
+	return false;
+}
+
+bool Win32ApiSystem::setPlaneMode(bool enable)
+{
+	return false;
+}
+
+
+
 #endif
+
 

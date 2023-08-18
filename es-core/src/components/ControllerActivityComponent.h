@@ -20,7 +20,6 @@ public:
 		PLANEMODE = 8
 	};
 
-
 	ControllerActivityComponent(Window* window);
 
 	void onSizeChanged() override;

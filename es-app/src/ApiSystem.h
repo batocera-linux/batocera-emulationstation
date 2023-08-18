@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "components/BusyComponent.h"
 #include "resources/TextureData.h"
+#include "components/IExternalActivity.h"
 
 struct BiosFile 
 {
@@ -81,7 +82,7 @@ struct PadInfo
 	int battery;
 };
 
-class ApiSystem : public IPdfHandler
+class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
 	enum ScriptId : unsigned int
@@ -258,8 +259,9 @@ public:
     	virtual void replugControllers_wiimotes();
     	virtual void replugControllers_steamdeckguns();
 
-  	virtual bool isPlanemode();
-    	virtual bool planemode(bool enable);
+  	virtual bool isPlaneMode();
+    virtual bool setPlaneMode(bool enable);
+
 protected:
 	ApiSystem();
 
