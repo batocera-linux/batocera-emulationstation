@@ -363,6 +363,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		// Wifi
 		{ "networkIcon", PATH },
 
+		// plane mode
+		{ "planemodeIcon", PATH },
+
 		// Battery
 		{ "incharge", PATH },
 		{ "full", PATH },
