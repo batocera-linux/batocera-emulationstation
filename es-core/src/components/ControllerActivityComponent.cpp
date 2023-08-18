@@ -245,6 +245,9 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
 		itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
 
+	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
+	  itemsWidth += szW + mSpacing; // getTextureSize(mPlanemodeImage).x()
+
 	auto batteryText = std::to_string(mBatteryInfo.level) + "%";
 	
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
@@ -333,6 +336,9 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
 		x += renderTexture(x, szW, mNetworkImage, mColorShift);
 
+	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
+		x += renderTexture(x, szW, mPlanemodeImage, mColorShift);
+
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
 	{
 		x += renderTexture(x, szW, mBatteryImage, mColorShift);
@@ -387,6 +393,19 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 			else
 				mNetworkImage = nullptr;
 		}
+
+		// planeMode
+		if (elem->has("planemodeIcon"))
+		{
+			if (ResourceManager::getInstance()->fileExists(elem->get<std::string>("planemodeIcon")))
+			{
+				mView |= ActivityView::PLANEMODE;
+				mPlanemodeImage = TextureResource::get(elem->get<std::string>("planemodeIcon"), false, true);
+			}
+			else
+				mPlanemodeImage = nullptr;
+		}
+
 
 		// Battery
 		if (elem->has("incharge") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("incharge")))
@@ -450,6 +469,8 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 void ControllerActivityComponent::updateNetworkInfo()
 {
 	mNetworkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();
+	//mPlanemodeEnabled = Settings::ShowNetworkIndicator() && ApiSystem::getInstance()->isPlanemode();
+	mPlanemodeEnabled = false;
 }
 
 void ControllerActivityComponent::updateBatteryInfo()

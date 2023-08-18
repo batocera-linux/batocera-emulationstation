@@ -16,7 +16,8 @@ public:
 	{
 		CONTROLLERS = 1,
 		BATTERY = 2,
-		NETWORK = 4
+		NETWORK = 4,
+		PLANEMODE = 8
 	};
 
 
@@ -101,6 +102,8 @@ protected:
 	std::shared_ptr<TextureResource> mNetworkImage;
 	bool mNetworkConnected;
 	int mNetworkCheckTime;
+    	std::shared_ptr<TextureResource> mPlanemodeImage;
+  	bool mPlanemodeEnabled;
 
 protected:
 	// Battery info

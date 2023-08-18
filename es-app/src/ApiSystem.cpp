@@ -1472,6 +1472,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::VERSIONINFO:
 		executables.push_back("batocera-version");
 		break;
+	case ApiSystem::PLANEMODE:
+		executables.push_back("batocera-planemode");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1962,4 +1965,16 @@ void ApiSystem::replugControllers_wiimotes() {
 void ApiSystem::replugControllers_steamdeckguns() {
   LOG(LogDebug) << "ApiSystem::replugControllers_steamdeckguns";
   executeScript("/usr/bin/steamdeckgun-remap");
+}
+
+bool ApiSystem::isPlanemode() {
+  auto res = executeEnumerationScript("batocera-planemode status");
+  if (res.size() > 0)
+    return res[0] == "on";
+  
+  return false;
+}
+
+bool ApiSystem::planemode(bool enable) {
+  return executeScript("batocera-planemode " + std::string(enable ? "enable" : "disable"));
 }
