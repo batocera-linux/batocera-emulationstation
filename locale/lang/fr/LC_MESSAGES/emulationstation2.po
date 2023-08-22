@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "jeux au pistolet"
 
 msgid "wheel games"
-msgstr ""
+msgstr "jeux au volant"
 
 msgid "collections"
 msgstr "collections"
@@ -575,7 +575,7 @@ msgid "PER GENRE"
 msgstr "PAR GENRE"
 
 msgid "ARCADE SYSTEMS"
-msgstr "SYSTEMES D'ARCADE"
+msgstr "SYSTÈMES D'ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
@@ -787,7 +787,7 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "VOUS N’ETES CONNECTÉ À AUCUN RÉSEAU"
+msgstr "VOUS N’ÊTES CONNECTÉ À AUCUN RÉSEAU"
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH"
@@ -820,14 +820,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "PARAMÈTRES DES MANETTES ET BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "ORDRE DES MANETTES"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "AFFECTATIONS DES JOUEURS"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "MANETTE %i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1193,7 +1193,7 @@ msgid "SAVE CHANGES?"
 msgstr "SAUVEGARDER LES CHANGEMENTS ?"
 
 msgid "ARE YOU SURE?"
-msgstr "ETES-VOUS SUR(E) ?"
+msgstr "ÊTES-VOUS SÛR(E) ?"
 
 #, c-format
 msgid "UPDATING %s"
@@ -1223,7 +1223,7 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 "MODIFICATIONS NON OFFICIELLES DÉTECTÉES.\n"
-"METTRE À JOUR PEUT CASSER LE SYSTEM.\n"
+"METTRE À JOUR PEUT CASSER LE SYSTÈME.\n"
 "VOULEZ-VOUS METTRE À JOUR EN VERSION %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1316,7 +1316,9 @@ msgstr "SUPPRIMER LE JEU"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr "VOUS ALLEZ SUPPRIMER LE JEU ACTUEL. ETES-VOUS SUR(E) ?"
+msgstr ""
+"VOUS ALLEZ SUPPRIMER LE(S) FICHIER(S) DE JEU ACTUEL.\n"
+"ÊTES-VOUS SÛR(E) ?"
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIONS"
@@ -1327,19 +1329,19 @@ msgstr "SUPPRIMER DE %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr "AJOUTER A %s"
+msgstr "AJOUTER À %s"
 
 msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AJOUTER A UNE COLLECTION..."
+msgstr "AJOUTER À UNE COLLECTION..."
 
 msgid "SCRAPE"
 msgstr "SCRAPER"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "EDITER UN PROFIL PADTOKEY"
+msgstr "ÉDITER UN PROFIL PADTOKEY"
 
 msgid "CREATE PADTOKEY PROFILE"
 msgstr "CRÉER UN PROFIL PADTOKEY"
@@ -1705,7 +1707,7 @@ msgid "QUIT"
 msgstr "QUITTER"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr "ÊTES-VOUS SUR(E) DE VOULOIR CONFIGURER LA MANETTE ?"
+msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR CONFIGURER LA MANETTE ?"
 
 msgid "CHOOSE"
 msgstr "CHOISIR"
@@ -1741,10 +1743,10 @@ msgid "VIDEO MODE"
 msgstr "MODE VIDÉO"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Définir la résolution d'écran pour EmulationStation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION MATÉRIEL)"
+msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION MATÉRIELLE)"
 
 msgid "TOOLS"
 msgstr "OUTILS"
@@ -2522,10 +2524,10 @@ msgid "VIEW USER MANUAL"
 msgstr "VOIR LE MANUEL UTILISATEUR"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "DÉSACTIVE LE MODE AVION"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "ACTIVE LE MODE AVION"
 
 msgid "RESTART SYSTEM"
 msgstr "REDÉMARRER"
@@ -2616,7 +2618,7 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "LES OPTIONS SÉLECTIONNÉES SONT INVALIDES"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "VOUS ALLEZ FORMATER CE DISQUE. ETES-VOUS SUR(E) ?"
+msgstr "VOUS ALLEZ FORMATER CE DISQUE. ÊTES-VOUS SÛR(E) ?"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
@@ -2777,7 +2779,7 @@ msgid "FAVORITE"
 msgstr "FAVORIS"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "CONTENU INVALIDE"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2919,7 +2921,7 @@ msgid "INDEXING COMPLETED"
 msgstr "INDEXATION TERMINÉE"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
+msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "L’ÉMULATEUR A QUITTÉ DE MANIÈRE INATTENDUE"
@@ -2979,7 +2981,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLET"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "VOLANT"
 
 msgid "HAS MEDIAS"
 msgstr "AVEC DES MÉDIAS"
