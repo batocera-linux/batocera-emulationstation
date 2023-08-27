@@ -210,6 +210,7 @@ void GunManager::updateGuns(Window* window)
 		  window->processMouseMove(gun->x(), gun->y(), true);
 		}
 
+#ifdef HAVE_UDEV
 		// gun pads
 		if(gun->isDPadUpButtonDown() != oldGun.isDPadUpButtonDown())
 		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_5, gun->isDPadUpButtonDown() ? 1 : 0, true));
@@ -229,6 +230,7 @@ void GunManager::updateGuns(Window* window)
 
 		if(gun->isSelectButtonDown() != oldGun.isSelectButtonDown())
 		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_1, gun->isSelectButtonDown() ? 1 : 0, true));
+#endif
 	}
 
 	if (gunEvent == 1 || gunEvent == 2)

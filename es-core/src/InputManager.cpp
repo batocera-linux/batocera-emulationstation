@@ -911,6 +911,7 @@ void InputManager::loadDefaultKBConfig()
 
 void InputManager::loadDefaultGunConfig()
 {
+#ifdef HAVE_UDEV
 	InputConfig* cfg = getInputConfigByDevice(DEVICE_GUN);
 
 	cfg->clear();
@@ -920,6 +921,7 @@ void InputManager::loadDefaultGunConfig()
 	cfg->mapInput("right", Input(DEVICE_GUN, TYPE_BUTTON, BTN_8, 1, true));
 	cfg->mapInput("start",  Input(DEVICE_GUN, TYPE_BUTTON, BTN_MIDDLE, 1, true));
 	cfg->mapInput("select", Input(DEVICE_GUN, TYPE_BUTTON, BTN_1, 1, true));
+#endif
 }
 
 void InputManager::writeDeviceConfig(InputConfig* config)
