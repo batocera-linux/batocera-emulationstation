@@ -18,6 +18,7 @@ namespace pugi { class xml_node; }
 #define DEVICE_KEYBOARD -1
 #define DEVICE_CEC      -2
 #define DEVICE_MOUSE	-3
+#define DEVICE_GUN      -4
 
 #define MAX_PLAYERS 8
 

@@ -69,6 +69,7 @@ public:
 	GunManager* getGunManager() { return mGunManager; }
 
 	void sendMouseClick(Window* window, int button);
+	InputConfig* getInputConfigByDevice(int deviceId);
 
 private:
 	InputManager();
@@ -80,6 +81,7 @@ private:
 	static std::string getTemporaryConfigPath();
 
 	void loadDefaultKBConfig();
+  	void loadDefaultGunConfig();
 
 	std::map<std::string, int> mJoysticksInitialValues;
 	std::map<SDL_JoystickID, SDL_Joystick*> mJoysticks;
@@ -87,6 +89,7 @@ private:
 
 	InputConfig* mMouseButtonsInputConfig;
 	InputConfig* mKeyboardInputConfig;
+  	InputConfig* mGunInputConfig;
 	InputConfig* mCECInputConfig;
 
 	std::map<SDL_JoystickID, int*> mPrevAxisValues;
@@ -98,8 +101,6 @@ private:
 	bool loadFromSdlMapping(InputConfig* config, const std::string& mapping);
 
 	bool tryLoadInputConfig(std::string path, InputConfig* config, bool allowApproximate = true);
-
-	InputConfig* getInputConfigByDevice(int deviceId);
 
 	void clearJoysticks();
 	void rebuildAllJoysticks(bool deinit = true);
