@@ -25,6 +25,12 @@ public:
 		mY = -1;
 		mLButtonDown = false;
 		mRButtonDown = false;
+		mStartButtonDown = false;
+		mSelectButtonDown = false;
+		mDPadUpButtonDown    = false;
+		mDPadDownButtonDown  = false;
+		mDPadLeftButtonDown  = false;
+		mDPadRightButtonDown = false;
 		mNeedBorders = false;
 	}
 
@@ -36,6 +42,12 @@ public:
 
 	bool isLButtonDown() { return mLButtonDown; }
 	bool isRButtonDown() { return mRButtonDown; }
+	bool isStartButtonDown() { return mStartButtonDown; }
+	bool isSelectButtonDown() { return mSelectButtonDown; }
+	bool isDPadUpButtonDown() { return mDPadUpButtonDown; }
+	bool isDPadDownButtonDown() { return mDPadDownButtonDown; }
+	bool isDPadLeftButtonDown() { return mDPadLeftButtonDown; }
+	bool isDPadRightButtonDown() { return mDPadRightButtonDown; }
 
 	bool needBorders() { return mNeedBorders; }
 
@@ -47,6 +59,12 @@ private:
 
 	bool mLButtonDown;
 	bool mRButtonDown;
+  	bool mStartButtonDown;
+  	bool mSelectButtonDown;
+	bool mDPadUpButtonDown;
+	bool mDPadDownButtonDown;
+	bool mDPadLeftButtonDown;
+	bool mDPadRightButtonDown;
 
 	int mIndex;
 
