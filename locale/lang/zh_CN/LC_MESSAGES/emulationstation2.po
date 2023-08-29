@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "从未玩过的"
 
 msgid "retroachievements"
-msgstr "RetroArch成就"
+msgstr "retroarch成就"
 
 msgid "arcade"
 msgstr "街机"
@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "光枪游戏"
 
 msgid "wheel games"
-msgstr ""
+msgstr "轮盘游戏"
 
 msgid "collections"
 msgstr "合辑"
@@ -329,16 +329,16 @@ msgid "FORMATTING DEVICE"
 msgstr "格式化驱动器"
 
 msgid "Formatting"
-msgstr "正在格式化..."
+msgstr "正在格式化"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "重启动以完成操作"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr "磁盘格式化完成"
+msgstr "磁盘格式化完成."
 
 msgid "DOWNLOADING"
-msgstr "正在下载..."
+msgstr "正在下载"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "主题安装成功"
@@ -445,7 +445,7 @@ msgid "INDEX GAMES"
 msgstr "游戏索引"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "无法激活追溯成就"
+msgstr "无法激活追溯成就:"
 
 msgid "OK"
 msgstr "确定"
@@ -635,7 +635,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
 
 msgid "Show rooms for games not present on this machine."
-msgstr "显示本机未安装的游戏的房间列表"
+msgstr "显示本机未安装的游戏的房间列表."
 
 msgid "FINISHED"
 msgstr "完成"
@@ -716,7 +716,7 @@ msgid "REMOVE"
 msgstr "卸载"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "已解除蓝牙设备"
+msgstr "已解除蓝牙设备."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
@@ -813,14 +813,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "手柄/蓝牙手柄设置"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "控制器优先级"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "玩家分配"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "控制器 #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1296,7 +1296,7 @@ msgid "VIEWER PASSWORD"
 msgstr "围观者口令"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "寻找类似游戏"
+msgstr "寻找类似游戏..."
 
 msgid "DELETE ITEM"
 msgstr "删除房间"
@@ -1326,7 +1326,7 @@ msgid "FAVORITES"
 msgstr "收藏"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "添加到自定义专辑"
+msgstr "添加到自定义专辑..."
 
 msgid "SCRAPE"
 msgstr "抓取封面元数据"
@@ -1733,7 +1733,7 @@ msgid "VIDEO MODE"
 msgstr "视频模式"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "设置用于模拟的显示器分辨率."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "使用OMX播放器（硬件加速）"
@@ -2123,7 +2123,7 @@ msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "为RUN-AHEAD使用第二个实例"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "可以防止按键时的音频卡顿"
+msgstr "可以防止按键时的音频卡顿."
 
 msgid "AUTOMATIC FRAME DELAY"
 msgstr "自动跳帧"
@@ -2134,7 +2134,7 @@ msgstr "自动帧延迟"
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
-msgstr "自动暂时减少帧延迟以防止帧丢失导致卡卡顿"
+msgstr "自动暂时减少帧延迟以防止帧丢失导致卡卡顿."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "可变刷新率（G-SYNC、FREESYNC）"
@@ -2145,7 +2145,7 @@ msgstr "可变刷新率"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"不要设置过高的响应时间（分辨率及刷新率），G-Sync、FreeSync、HDMI 2.1 VRR"
+"不要设置过高的响应时间（分辨率及刷新率），G-Sync、FreeSync、HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "装饰框设置"
@@ -2197,7 +2197,7 @@ msgid "CUSTOM IMAGE"
 msgstr "自定义图片"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "显示覆盖在挡板顶部的图像"
+msgstr "显示覆盖在挡板顶部的图像."
 
 msgid "TATTOO CORNER"
 msgstr "花纹角"
@@ -2269,7 +2269,7 @@ msgid "DO NOT INCREMENT"
 msgstr "不递增"
 
 msgid "Use current slot on a new game."
-msgstr "在新游戏中使用当前存档槽位"
+msgstr "在新游戏中使用当前存档槽位."
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "显示存档管理器"
@@ -2494,10 +2494,10 @@ msgid "VIEW USER MANUAL"
 msgstr "查看用户手册"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "禁用平面模式"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "启用平面模式"
 
 msgid "RESTART SYSTEM"
 msgstr "重启"
@@ -2521,7 +2521,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "快速关机"
 
 msgid "Shutdown without saving metadata."
-msgstr "关闭而不保存数据"
+msgstr "关闭而不保存数据."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "是否不保存元数据并直接关机?"
@@ -2741,7 +2741,7 @@ msgid "FAVORITE"
 msgstr "加入收藏夹"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "无效内容"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2942,7 +2942,7 @@ msgid "LIGHTGUN"
 msgstr "光枪"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "方向盘"
 
 msgid "HAS MEDIAS"
 msgstr "HAS MEDIAS"
