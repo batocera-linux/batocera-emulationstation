@@ -11,6 +11,7 @@ class FileData;
 
 class RegSaveState {
 public:
+  bool enabled;
   std::string directory;
   std::string file;
   int romGroup;
@@ -47,8 +48,9 @@ private:
 	std::map<std::string, std::vector<SaveState*>> mStates;
 
 	static std::map<std::string, RegSaveState*> mRegSaveStates;
-	static bool mRegSaveStatesLoaded;
+  	static bool mRegSaveStatesLoaded;
+	static bool mRegSaveStatesMode;
 	static RegSaveState* getRegSaveState(std::string emulator, std::string core);
 	RegSaveState* getRegSaveState() const;
-
+	static void loadSaveStateConfig();
 };

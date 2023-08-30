@@ -51,7 +51,7 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 		  if(racommands) {
 		    return command + " -state_slot " + std::to_string(nextSlot);
 		  } else {
-		    return command + " --state_slot " + std::to_string(nextSlot) + " --state_file \"" + rom + "\"";
+		    return command + " --state_slot " + std::to_string(slot) + " --state_file \"" + fileName + "\"" + " --state_nextslot " + std::to_string(nextSlot);
 		  }
 		}
 
@@ -78,7 +78,7 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 		  if(racommands) {
 		    cmd = cmd + " -autosave 0 -state_slot " + std::to_string(nextSlot);
 		  } else {
-		    cmd = cmd + " --state_slot " + std::to_string(nextSlot) + " --state_file \"" + rom + "\"";
+		    cmd = cmd + " --state_slot " + std::to_string(slot) + " --state_file \"" + fileName + "\"" + " --state_nextslot " + std::to_string(nextSlot);
 		  }
 		}
 		else if (incrementalSaveStates)
@@ -90,7 +90,7 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 		    if (!fileName.empty())
 		      cmd = cmd + " -autosave 1";
 		  } else {
-		    cmd = cmd + " --state_slot " + std::to_string(nextSlot) + " --state_file \"" + rom + "\" --autosave";
+		    cmd = cmd + " --state_slot " + std::to_string(slot) + " --state_file \"" + fileName + "\" --autosave" + " --state_nextslot " + std::to_string(nextSlot);
 		  }
 		}
 		else
@@ -102,7 +102,7 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 		    if (!fileName.empty())
 		      cmd = cmd + " -autosave 1";
 		  } else {
-		    cmd = cmd + " --state_slot " + std::to_string(nextSlot) + " --state_file \"" + rom + "\"";
+		    cmd = cmd + " --state_slot " + std::to_string(slot) + " --state_file \"" + fileName + "\"" + " --state_nextslot " + std::to_string(nextSlot);
 		  }
 		}
 

@@ -3,6 +3,7 @@
 #include "FileData.h"
 #include "utils/StringUtil.h"
 #include <regex>
+#include "Log.h"
 
 #include <time.h>
 #include "Paths.h"
@@ -12,61 +13,195 @@
 #endif
 
 bool SaveStateRepository::mRegSaveStatesLoaded = false;
+bool SaveStateRepository::mRegSaveStatesMode   = false;
 std::map<std::string, RegSaveState*> SaveStateRepository::mRegSaveStates;
 
 SaveStateRepository::SaveStateRepository(SystemData* system)
 {
 	mSystem = system;
-#ifdef BATOCERA
-	if(mRegSaveStatesLoaded == false) {
-	  mRegSaveStatesLoaded = true;
-	  RegSaveState* regsavestate = new RegSaveState();
-	  regsavestate->directory 	   = "{{savedirectory}}/{{system}}";
-	  regsavestate->file     	   = "{{romfilename}}.state{{slot}}";
-	  regsavestate->romGroup      	   = 1;
-	  regsavestate->slotGroup      	   = 2;
-	  regsavestate->image      	   = "{{romfilename}}.state{{slot}}.png";
-	  regsavestate->nofileextension    = true;
-	  regsavestate->firstslot          = 0;
-	  regsavestate->autosave           = true;
-	  regsavestate->autosave_file      = "{{romfilename}}.state.auto";
-	  regsavestate->autosave_image     = "{{romfilename}}.state.auto.png";
-	  mRegSaveStates["libretro_snes9x"] = regsavestate;
-	  mRegSaveStates["libretro_fceumm"] = regsavestate;
-
-	  regsavestate = new RegSaveState();
-	  regsavestate->directory 	   = "{{savedirectory}}/dolphin-emu/StateSaves";
-	  regsavestate->file     	   = "{{romfilename}}.s{{slot2d}}";
-	  regsavestate->romGroup      	   = 1;
-	  regsavestate->slotGroup      	   = 2;
-	  regsavestate->image    	   = "{{romfilename}}.s{{slot2d}}.png";
-	  regsavestate->nofileextension    = false;
-	  regsavestate->firstslot          = 1;
-	  regsavestate->autosave           = false;
-	  regsavestate->autosave_file      = "";
-	  regsavestate->autosave_image     = "";
-	  mRegSaveStates["dolphin_dolphin"] = regsavestate;
-
-	  regsavestate = new RegSaveState();
-	  regsavestate->directory 	   = "{{savedirectory}}/n64";
-	  regsavestate->file     	   = "{{romfilename}}.st{{slot}}";
-	  regsavestate->romGroup      	   = 1;
-	  regsavestate->slotGroup      	   = 2;
-	  regsavestate->image     	   = "{{romfilename}}.st{{slot}}.png";
-	  regsavestate->nofileextension    = false;
-	  regsavestate->firstslot          = 0;
-	  regsavestate->autosave           = false;
-	  regsavestate->autosave_file      = "";
-	  regsavestate->autosave_image     = "";
-	  mRegSaveStates["mupen64plus_glide64mk2"] = regsavestate;
-	}
-#endif
 	refresh();
 }
 
 SaveStateRepository::~SaveStateRepository()
 {
 	clear();
+}
+
+void SaveStateRepository::loadSaveStateConfig()
+{
+	if(mRegSaveStatesLoaded)
+	  return;
+	mRegSaveStatesLoaded = true;
+  
+  	std::string path = Paths::getUserEmulationStationPath() + "/es_savestates.cfg";
+	if (!Utils::FileSystem::exists(path))
+		path = Paths::getEmulationStationPath() + "/es_savestates.cfg";
+	if (!Utils::FileSystem::exists(path))
+		return;
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result res = doc.load_file(path.c_str());
+
+	if (!res)
+	{
+		LOG(LogError) << "Could not parse es_savestates.cfg file!";
+		LOG(LogError) << res.description();
+		return;
+	}
+
+	pugi::xml_node savestates = doc.child("savestates");
+	if (!savestates)
+	{
+		LOG(LogError) << "es_savestates.cfg is missing the <savestates> tag!";
+		return;
+	}
+
+	mRegSaveStatesMode = true;
+
+	for (pugi::xml_node emulatorNode = savestates.first_child(); emulatorNode; emulatorNode = emulatorNode.next_sibling())
+	{
+	  std::string emulatornodename = emulatorNode.name();
+	  if (emulatornodename == "emulator")
+	    {
+	      if (!emulatorNode.attribute("name"))
+		continue;
+
+	      std::string emulatorname = emulatorNode.attribute("name").value();
+	      bool        attr_enabled         = true; // default to true
+	      std::string attr_directory       = "";
+	      std::string attr_file  	       = "";
+	      std::string attr_image 	       = "";
+	      bool        attr_nofileextension = false;
+	      int         attr_firstslot       = 0;
+	      bool        attr_autosave        = false;
+	      std::string attr_autosave_file   = "";
+	      std::string attr_autosave_image  = "";
+
+	      auto attr = emulatorNode.attribute("enabled");
+	      if(attr)
+		if(attr.value() == "false") attr_enabled = false;
+
+	      attr = emulatorNode.attribute("directory");
+	      if(attr)
+		attr_directory = attr.value();
+
+	      attr = emulatorNode.attribute("file");
+	      if(attr)
+		attr_file = attr.value();
+
+	      attr = emulatorNode.attribute("image");
+	      if(attr)
+		attr_image = attr.value();
+
+	      attr = emulatorNode.attribute("nofileextension");
+	      if(attr) {
+		if(strcmp(attr.value(), "true") == 0) attr_nofileextension = true;
+	      }
+
+	      attr = emulatorNode.attribute("firstslot");
+	      if(attr)
+		attr_firstslot = Utils::String::toInteger(attr.value());
+
+	      attr = emulatorNode.attribute("autosave");
+	      if(attr)
+		if(strcmp(attr.value(), "true") == 0) attr_autosave = true;
+
+	      attr = emulatorNode.attribute("autosave_file");
+	      if(attr)
+		attr_autosave_file = attr.value();
+
+	      attr = emulatorNode.attribute("autosave_image");
+	      if(attr)
+		attr_autosave_image = attr.value();
+
+	      RegSaveState* regsavestate = new RegSaveState();
+	      regsavestate->enabled         = attr_enabled;
+	      regsavestate->directory 	    = attr_directory;
+	      regsavestate->file     	    = attr_file;
+	      regsavestate->romGroup        = 1; // should be computed (but always 1)
+	      regsavestate->slotGroup       = 2; // should be computed (but always 2)
+	      regsavestate->image      	    = attr_image;
+	      regsavestate->nofileextension = attr_nofileextension;
+	      regsavestate->firstslot       = attr_firstslot;
+	      regsavestate->autosave        = attr_autosave;
+	      regsavestate->autosave_file   = attr_autosave_file;
+	      regsavestate->autosave_image  = attr_autosave_image;
+	      mRegSaveStates[emulatorname] = regsavestate;
+
+	      for (pugi::xml_node coreNode = emulatorNode.first_child(); coreNode; coreNode = coreNode.next_sibling())
+		{
+		  std::string corenodename = coreNode.name();
+		  if (corenodename == "core")
+		    {
+		      if (!emulatorNode.attribute("name"))
+			continue;
+
+		      //
+		      std::string corename = coreNode.attribute("name").value();
+		      bool        attrcore_enabled         = attr_enabled;
+		      std::string attrcore_directory       = attr_directory;
+		      std::string attrcore_file  	   = attr_file;
+		      std::string attrcore_image 	   = attr_image;
+		      bool        attrcore_nofileextension = attr_nofileextension;
+		      int         attrcore_firstslot       = attr_firstslot;
+		      bool        attrcore_autosave        = attr_autosave;
+		      std::string attrcore_autosave_file   = attr_autosave_file;
+		      std::string attrcore_autosave_image  = attr_autosave_image;
+
+		      attr = coreNode.attribute("enabled");
+		      if(attr)
+			if(attr.value() == "false") attrcore_enabled = false;
+		      
+		      attr = coreNode.attribute("directory");
+		      if(attr)
+			attrcore_directory = attr.value();
+
+		      attr = coreNode.attribute("file");
+		      if(attr)
+			attrcore_file = attr.value();
+
+		      attr = coreNode.attribute("image");
+		      if(attr)
+			attrcore_image = attr.value();
+
+		      attr = coreNode.attribute("nofileextension");
+		      if(attr) {
+			if(strcmp(attr.value(), "true") == 0) attrcore_nofileextension = true;
+		      }
+
+		      attr = coreNode.attribute("firstslot");
+		      if(attr)
+			attrcore_firstslot = Utils::String::toInteger(attr.value());
+
+		      attr = coreNode.attribute("autosave");
+		      if(attr)
+			if(strcmp(attr.value(), "true") == 0) attrcore_autosave = true;
+
+		      attr = coreNode.attribute("autosave_file");
+		      if(attr)
+			attrcore_autosave_file = attr.value();
+
+		      attr = coreNode.attribute("autosave_image");
+		      if(attr)
+			attrcore_autosave_image = attr.value();
+
+		      regsavestate = new RegSaveState();
+		      regsavestate->enabled         = attrcore_enabled;
+		      regsavestate->directory 	    = attrcore_directory;
+		      regsavestate->file     	    = attrcore_file;
+		      regsavestate->romGroup        = 1; // should be computed (but always 1)
+		      regsavestate->slotGroup       = 2; // should be computed (but always 2)
+		      regsavestate->image      	    = attrcore_image;
+		      regsavestate->nofileextension = attrcore_nofileextension;
+		      regsavestate->firstslot       = attrcore_firstslot;
+		      regsavestate->autosave        = attrcore_autosave;
+		      regsavestate->autosave_file   = attrcore_autosave_file;
+		      regsavestate->autosave_image  = attrcore_autosave_image;
+		      mRegSaveStates[emulatorname + "_" + corename] = regsavestate;
+		    }
+		}
+	    }
+	}
 }
 
 void SaveStateRepository::clear()
@@ -79,10 +214,22 @@ void SaveStateRepository::clear()
 }
 
 RegSaveState* SaveStateRepository::getRegSaveState(std::string emulator, std::string core) {
-  if(mRegSaveStatesLoaded == false) return NULL;
+  if(mRegSaveStatesMode == false) return NULL;
+
+  // search emulator_core
   auto it = mRegSaveStates.find(emulator + "_" + core);
-  if (it != mRegSaveStates.cend())
+  if (it != mRegSaveStates.cend()) {
+    if(it->second->enabled == false) return NULL;
     return it->second;
+  }
+
+  // search emulator only
+  auto it2 = mRegSaveStates.find(emulator);
+  if (it2 != mRegSaveStates.cend()) {
+    if(it2->second->enabled == false) return NULL;
+    return it2->second;
+  }
+
   return NULL;
 }
 
@@ -92,12 +239,13 @@ RegSaveState* SaveStateRepository::getRegSaveState() const {
 
 std::string SaveStateRepository::getSavesPath()
 {
-  if(mRegSaveStatesLoaded) {
+  if(mRegSaveStatesMode) {
     RegSaveState* rs = getRegSaveState();
     if(rs != NULL) {
       std::string path = rs->directory;
-      path = Utils::String::replace(path, "{{savedirectory}}", Paths::getSavesPath());
-      path = Utils::String::replace(path, "{{system}}",        mSystem->getName());
+      if(Utils::String::startsWith(path, "/") == false)
+	path = Utils::FileSystem::combine(Paths::getSavesPath(), path);
+      path = Utils::String::replace(path, "{{system}}", mSystem->getName());
       return path;
     }
     return "";
@@ -123,7 +271,7 @@ void SaveStateRepository::refresh()
 
 	auto files = Utils::FileSystem::getDirectoryFiles(path);
 
-	if(mRegSaveStatesLoaded) {
+	if(mRegSaveStatesMode) {
 	  rs = getRegSaveState();
 	  std::string restr = rs->file;
 	  restr = Utils::String::replace(restr, "\\", "\\\\");
@@ -159,7 +307,7 @@ void SaveStateRepository::refresh()
 			// TODO RESTORE BAK FILE !? If board was turned off during a game ?
 		}
 
-		if(mRegSaveStatesLoaded) {
+		if(mRegSaveStatesMode) {
 		  if(rs == NULL) continue;
 		  std::string basename = Utils::FileSystem::getFileName(file.path);
 		  if (std::regex_match(basename.c_str(), matches, re)) {
@@ -196,7 +344,7 @@ void SaveStateRepository::refresh()
 		SaveState* state = new SaveState();
 
 		// slot
-		if(mRegSaveStatesLoaded) {
+		if(mRegSaveStatesMode) {
 		  if(isAutoFile) {
 		    state->slot = -1;
 		  } else {
@@ -223,7 +371,7 @@ void SaveStateRepository::refresh()
 		state->fileName = file.path;
 
 		// generator
-		if(mRegSaveStatesLoaded) {
+		if(mRegSaveStatesMode) {
 		  // generators are the same for autosave and slots
 		  state->fileGenerator = rs->file;
 		  state->fileGenerator = Utils::String::replace(state->fileGenerator, "{{romfilename}}", rom);
@@ -236,7 +384,7 @@ void SaveStateRepository::refresh()
 		}
 
 		// screenshot
-		if(mRegSaveStatesLoaded) {
+		if(mRegSaveStatesMode) {
 		  std::string screenshot = Utils::FileSystem::combine(getSavesPath(), isAutoFile ? rs->autosave_image : rs->image);
 		  std::string basename   = Utils::FileSystem::getFileName(file.path);
 
@@ -256,7 +404,7 @@ void SaveStateRepository::refresh()
 		    state->screenshot = state->fileName + ".png";
 		}
 
-		if(mRegSaveStatesLoaded) {
+		if(mRegSaveStatesMode) {
 		  state->racommands = false;
 		  state->hasAutosave = rs->autosave;
 		} else {
@@ -281,7 +429,7 @@ bool SaveStateRepository::hasSaveStates(FileData* game)
 		if (game->getSourceFileData()->getSystem() != mSystem)
 			return false;
 
-		if(mRegSaveStatesLoaded) {
+		if(mRegSaveStatesMode) {
 		  RegSaveState* rs = getRegSaveState(game->getEmulator(), game->getCore());
 		  if(rs == NULL) return false;
 
@@ -308,7 +456,7 @@ std::vector<SaveState*> SaveStateRepository::getSaveStates(FileData* game)
 {
 	if (isEnabled(game) && game->getSourceFileData()->getSystem() == mSystem)
 	{
-	  if(mRegSaveStatesLoaded) {
+	  if(mRegSaveStatesMode) {
 	    RegSaveState* rs = getRegSaveState(game->getEmulator(), game->getCore());
 	    if(rs == NULL) return std::vector<SaveState*>();
 
@@ -334,10 +482,12 @@ std::vector<SaveState*> SaveStateRepository::getSaveStates(FileData* game)
 
 bool SaveStateRepository::isEnabled(FileData* game)
 {
+	SaveStateRepository::loadSaveStateConfig(); // probably a better place to put it...
+  
 	auto emulatorName = game->getEmulator();
 	auto coreName     = game->getCore();
 
-	if(mRegSaveStatesLoaded) {
+	if(mRegSaveStatesMode) {
 	  RegSaveState* rs = getRegSaveState(emulatorName, coreName);
 	  if(rs == NULL)
 	    return false;
@@ -349,14 +499,11 @@ bool SaveStateRepository::isEnabled(FileData* game)
 	  if (!game->isFeatureSupported(EmulatorFeatures::autosave))
 	    return false;
 	}
-
 	auto system = game->getSourceFileData()->getSystem();
 	if (system->getSaveStateRepository()->getSavesPath().empty())
 		return false;
-	
 	if (system->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		return false;
-
 	return true;
 }
 
@@ -368,7 +515,7 @@ int SaveStateRepository::getNextFreeSlot(FileData* game)
 	auto repo = game->getSourceFileData()->getSystem()->getSaveStateRepository();
 	auto states = repo->getSaveStates(game);
 	if (states.size() == 0) {
-	  if(mRegSaveStatesLoaded) {
+	  if(mRegSaveStatesMode) {
 	    RegSaveState* rs = getRegSaveState(game->getEmulator(), game->getCore());
 	    if(rs == NULL)
 	      return 0;
