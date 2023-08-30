@@ -21,6 +21,11 @@ struct SaveState
 	
 	std::string rom;
 	std::string fileName;
+	std::string screenshot;
+	std::string fileGenerator;
+  	std::string imageGenerator;
+  	bool hasAutosave;
+  	bool racommands;
 	std::string getScreenShot() const;
 	int slot;
 
