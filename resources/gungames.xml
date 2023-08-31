@@ -124,12 +124,6 @@
     <game>maddogii</game>
     <game>whoshotjohnnyrock</game> 
   </system>
-  <system name="namco2x6">
-    <game>cobra</game>
-    <game>timecrisis3</game>
-    <game>timecrisis4</game>
-    <game>vampirenight</game>
-  </system>
   <system name="nes">
     <game>3in1supergun</game>
     <game>babyboomer</game>
