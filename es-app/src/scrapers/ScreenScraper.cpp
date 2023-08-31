@@ -178,7 +178,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ FUNTECH_SUPER_A_CAN, 100 },
 	{ CAMPUTER_LYNX, 88 },
 	{ EPOCH_GAMEPOCKET, 95 },
-	{ WASM4, 262 }
+	{ WASM4, 262 },
+	{ GAMATE, 266 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()
