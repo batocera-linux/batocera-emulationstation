@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "silah oyunları"
 
 msgid "wheel games"
-msgstr ""
+msgstr "çark oyunları"
 
 msgid "collections"
 msgstr "koleksiyonlar"
@@ -770,7 +770,7 @@ msgid "NO GAMES FOUND"
 msgstr "HİÇBİR OYUN BULUNAMADI"
 
 msgid "JOIN GAME"
-msgstr "OYUNA GİR"
+msgstr "OYUNA KATIL"
 
 msgid "WATCH GAME"
 msgstr "OYUNU İZLE"
@@ -812,27 +812,27 @@ msgid "ADD COMBINATION KEY"
 msgstr "KOMBİNASYON TUŞU EKLE"
 
 msgid "CONTROLLER SETTINGS"
-msgstr "KONTROL AYGITI AYARLARI"
+msgstr "KONTROLCÜ AYARLARI"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "KONTROL AYGITI VE BLUETOOTH AYARLARI"
+msgstr "KONTROLCÜ VE BLUETOOTH AYARLARI"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "ÖNCELİKLİ KONTROLCÜ "
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "OYUNCU GÖREVLERİ"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "KONTROLCÜ #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "P%i'ÜN KONTROL AYGITI"
+msgstr "P%i'ÜN KONTROLCÜ"
 
 msgid "CONTROLLER MAPPING"
-msgstr "KONTROL AYGITI EŞLEME"
+msgstr "KONTROLCÜ EŞLEME"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
@@ -840,7 +840,7 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
-"BİR KONTROL AYGITI EŞLEYECEKSİNİZ. FİZİKSEL ETİKETİNE DEĞİL TUŞ'UN KONUMUNA "
+"BİR KONTROLCÜ EŞLEYECEKSİNİZ. FİZİKSEL ETİKETİNE DEĞİL TUŞ'UN KONUMUNA "
 "GÖRE EŞLEME YAPIN. HOTKEY İÇİN ÖZEL TUŞUNUZ YOKSA SEÇ TUŞUNU KULLANIN. "
 "ELİNİZDE BULUNMAYAN TÜM TUŞLARI/ÇUBUKLARI HERHANGİ BUTONA BASILI TUTARAK "
 "ATLAYIN. İŞLEMİN YAPILDIĞINI ONAYLAMAK İÇİN GÜNEY TUŞUNA BASIN."
@@ -1740,7 +1740,7 @@ msgid "VIDEO MODE"
 msgstr "VİDEO MODU"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Emulationstation için ekran çözünürlüğünü ayarlar."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYER KULLAN (HARDWARE ACCELERATED)"
@@ -2415,7 +2415,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "OYUN BAŞLATMA GEÇİŞİ"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "HIZLI KAYDIRMA SIRASINDA OYUN MEDYALARI"
 
 msgid "SHOW CLOCK"
 msgstr "SAATİ GÖSTER"
@@ -2523,10 +2523,10 @@ msgid "VIEW USER MANUAL"
 msgstr "KULLANICI KLAVUZUNU GÖSTER"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "UÇAK MODU KAPALI"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "UÇAK MODU AÇIK"
 
 msgid "RESTART SYSTEM"
 msgstr "YENİDEN BAŞLAT"
@@ -2777,7 +2777,7 @@ msgid "FAVORITE"
 msgstr "FAVORİ"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "GEÇERSİZ İÇERİK"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2979,7 +2979,7 @@ msgid "LIGHTGUN"
 msgstr "LIGHTGUN"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "DİREKSİYON"
 
 msgid "HAS MEDIAS"
 msgstr "MEDYAYA SAHİP"
