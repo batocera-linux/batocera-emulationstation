@@ -68,6 +68,9 @@ MameNames::MameNames()
 
 				if (gameNode.attribute("gun") && gameNode.attribute("gun").value() == sTrue)
 					mArcadeLightGunGames.insert(namePair.mameName);
+
+				if (gameNode.attribute("wheel") && gameNode.attribute("wheel").value() == sTrue)
+					mArcadeWheelGames.insert(namePair.mameName);
 			}
 		}
 		else
@@ -196,7 +199,7 @@ MameNames::MameNames()
 						}
 
 						if (games.size())
-							mWheelGames[Utils::String::trim(systemName)] = games;
+							mNonArcadeWheelGames[Utils::String::trim(systemName)] = games;
 					}	
 				}
 			}
@@ -291,10 +294,13 @@ const bool MameNames::isLightgun(const std::string& _nameName, const std::string
 	return false;
 }
 
-const bool MameNames::isWheel(const std::string& _nameName, const std::string& systemName)
+const bool MameNames::isWheel(const std::string& _nameName, const std::string& systemName, bool isArcade)
 {
-	auto it = mWheelGames.find(systemName);
-	if (it == mWheelGames.cend())
+	if (isArcade)
+		return mArcadeWheelGames.find(_nameName) != mArcadeWheelGames.cend();
+
+	auto it = mNonArcadeWheelGames.find(systemName);
+	if (it == mNonArcadeWheelGames.cend())
 		return false;
 
 	std::string indexedName = getIndexedName(_nameName);
