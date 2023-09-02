@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "components/BusyComponent.h"
 #include "resources/TextureData.h"
+#include "components/IExternalActivity.h"
 
 struct BiosFile 
 {
@@ -81,7 +82,7 @@ struct PadInfo
 	int battery;
 };
 
-class ApiSystem : public IPdfHandler
+class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
 	enum ScriptId : unsigned int
@@ -112,7 +113,8 @@ public:
 		SUPPORTFILE = 23,
 		UPGRADE = 24,
 		SUSPEND = 25,
-		VERSIONINFO = 26
+		VERSIONINFO = 26,
+		PLANEMODE = 27,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -256,7 +258,10 @@ public:
   	virtual void replugControllers_sindenguns();
     	virtual void replugControllers_wiimotes();
     	virtual void replugControllers_steamdeckguns();
-	
+
+  	virtual bool isPlaneMode();
+    virtual bool setPlaneMode(bool enable);
+
 protected:
 	ApiSystem();
 

@@ -6,6 +6,7 @@
 #include "InputManager.h"
 #include "Settings.h"
 #include "utils/Platform.h"
+#include "IExternalActivity.h"
 
 // #define DEVTEST
 
@@ -37,6 +38,7 @@ void ControllerActivityComponent::init()
 
 	mPadTexture = nullptr;
 	mGunTexture = nullptr;
+	mWheelTexture = nullptr;
 	mHorizontalAlignment = ALIGN_LEFT;
 	mSpacing = (int)(Renderer::getScreenHeight() / 200.0f);
 
@@ -89,6 +91,12 @@ void ControllerActivityComponent::onSizeChanged()
 	{
 		size_t heightPx = (size_t)Math::round(mSize.y());
 		mGunTexture->rasterizeAt(heightPx, heightPx);
+	}
+
+	if (mSize.y() > 0 && mWheelTexture)
+	{
+		size_t heightPx = (size_t)Math::round(mSize.y());
+		mWheelTexture->rasterizeAt(heightPx, heightPx);
 	}
 }
 
@@ -199,6 +207,7 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 
 			pad.index = it->second.index;
 			pad.batteryLevel = it->second.batteryLevel;
+			pad.isWheel = it->second.isWheel;
 		}
 
 		for (int idx = 0; idx < MAX_PLAYERS; idx++)
@@ -234,7 +243,9 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 			itemsWidth += szW + mSpacing;
 	}
 
-	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
+	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
+		itemsWidth += szW + mSpacing; // getTextureSize(mPlanemodeImage).x()
+	else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
 		itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
 
 	auto batteryText = std::to_string(mBatteryInfo.level) + "%";
@@ -274,12 +285,22 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 			else if (pad.keyState == 2)
 				padcolor = mHotkeyColor;
 
-			if (mPadTexture && mPadTexture->bind())
-				x += renderTexture(x, szW, mPadTexture, padcolor);
-			else
-			{
-				Renderer::drawRect(x, 0.0f, szW, szH, padcolor);
-				x += szW + mSpacing;
+			if(pad.isWheel) {
+			  if (mWheelTexture && mWheelTexture->bind())
+			    x += renderTexture(x, szW, mWheelTexture, padcolor);
+			  else
+			    {
+			      Renderer::drawRoundRect(x, 0.0f, szW, szH, szW/2.0, padcolor);
+			      x += szW + mSpacing;
+			    }
+			} else {
+			  if (mPadTexture && mPadTexture->bind())
+			    x += renderTexture(x, szW, mPadTexture, padcolor);
+			  else
+			    {
+			      Renderer::drawRect(x, 0.0f, szW, szH, padcolor);
+			      x += szW + mSpacing;
+			    }
 			}
 
 			if (showControllerBattery && pad.batteryLevel >= 0 && mBatteryFont != nullptr)
@@ -312,7 +333,9 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 		}
 	}
 	
-	if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
+	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
+		x += renderTexture(x, szW, mPlanemodeImage, mColorShift);
+	else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
 		x += renderTexture(x, szW, mNetworkImage, mColorShift);
 
 	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
@@ -353,7 +376,10 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 			mPadTexture = TextureResource::get(elem->get<std::string>("imagePath"), false, true);
 
 		if (elem->has("gunPath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("gunPath")))
-			mGunTexture = TextureResource::get(elem->get<std::string>("gunPath"), false, true);		
+			mGunTexture = TextureResource::get(elem->get<std::string>("gunPath"), false, true);
+
+		if (elem->has("wheelPath") && ResourceManager::getInstance()->fileExists(elem->get<std::string>("wheelPath")))
+		  mWheelTexture = TextureResource::get(elem->get<std::string>("wheelPath"), false, true);
 
 		// Wifi
 		if (elem->has("networkIcon"))
@@ -365,6 +391,18 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 			}
 			else
 				mNetworkImage = nullptr;
+		}
+
+		// planeMode
+		if (elem->has("planemodeIcon"))
+		{
+			if (ResourceManager::getInstance()->fileExists(elem->get<std::string>("planemodeIcon")))
+			{
+				mView |= ActivityView::PLANEMODE;
+				mPlanemodeImage = TextureResource::get(elem->get<std::string>("planemodeIcon"), false, true);
+			}
+			else
+				mPlanemodeImage = nullptr;
 		}
 
 		// Battery
@@ -428,7 +466,8 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 
 void ControllerActivityComponent::updateNetworkInfo()
 {
-	mNetworkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();
+	mNetworkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();	
+	mPlanemodeEnabled = Settings::ShowNetworkIndicator() && IExternalActivity::Instance != nullptr && IExternalActivity::Instance->isPlaneMode();	
 }
 
 void ControllerActivityComponent::updateBatteryInfo()

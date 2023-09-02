@@ -3300,34 +3300,54 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			if (!sname.empty())
 			{
 				s->addWithDescription(_("SKIP TO THE NEXT SONG"), _("NOW PLAYING") + ": " + sname, nullptr, [s, window]
-				{
-					Window* w = window;
-					AudioManager::getInstance()->playRandomMusic(false);
-					delete s;
-					openQuitMenu_static(w, true, false);
-				}, "iconSound");
+					{
+						Window* w = window;
+						AudioManager::getInstance()->playRandomMusic(false);
+						delete s;
+						openQuitMenu_static(w, true, false);
+					}, "iconSound");
 			}
 		}
 
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
-		{
-			Window* w = window;
-			window->postToUiThread([w]()
 			{
-				w->startScreenSaver();
-				w->renderScreenSaver();
-			});
-			delete s;
+				Window* w = window;
+				window->postToUiThread([w]()
+					{
+						w->startScreenSaver();
+						w->renderScreenSaver();
+					});
+				delete s;
 
-		}, "iconScraper", true);
-		
+			}, "iconScraper", true);
+
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(Paths::getUserManualPath()))
 		{
 			s->addEntry(_("VIEW USER MANUAL"), false, [s, window]
+				{
+					GuiImageViewer::showPdf(window, Paths::getUserManualPath());
+					delete s;
+				}, "iconManual");
+		}
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PLANEMODE))
+		{
+			if (ApiSystem::getInstance()->isPlaneMode())
 			{
-				GuiImageViewer::showPdf(window, Paths::getUserManualPath());
-				delete s;
-			}, "iconManual");
+				s->addEntry(_("DISABLE PLANE MODE"), false, [window, s]
+					{
+						ApiSystem::getInstance()->setPlaneMode(false);
+						delete s;
+					}, "iconPlanemode");
+			}
+			else 
+			{
+				s->addEntry(_("ENABLE PLANE MODE"), false, [window, s]
+					{
+						ApiSystem::getInstance()->setPlaneMode(true);
+						delete s;
+					}, "iconPlanemode");
+			}
 		}
 	}
 

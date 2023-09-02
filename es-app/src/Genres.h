@@ -8,6 +8,7 @@
 #include <map>
 
 #define GENRE_LIGHTGUN 32
+#define GENRE_WHEEL    33
 #define GENRE_ADULT 413
 
 class MetaDataList;

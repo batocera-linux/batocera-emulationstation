@@ -59,6 +59,9 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ XBOX, 32 },
 	{ XBOX_360, 33 },
 	{ MSX, 113 },
+	{ MSX2, 116 },
+	{ MSX2_PLUS, 117 },
+	{ MSX_TURBO_R, 118 },
 	{ NEOGEO, 142 },
 	{ NEOGEO_POCKET, 25},
 	{ NEOGEO_POCKET_COLOR, 82 },
@@ -178,7 +181,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ FUNTECH_SUPER_A_CAN, 100 },
 	{ CAMPUTER_LYNX, 88 },
 	{ EPOCH_GAMEPOCKET, 95 },
-	{ WASM4, 262 }
+	{ WASM4, 262 },
+	{ GAMATE, 266 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()

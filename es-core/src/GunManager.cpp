@@ -9,6 +9,7 @@
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
 #include "renderers/Renderer.h"
+#include "InputManager.h"
 
 #ifdef HAVE_UDEV
 #include <poll.h>
@@ -87,6 +88,24 @@ int GunManager::readGunEvents(Gun* gun)
 					break;
 				case BTN_RIGHT:
 					gun->mRButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_MIDDLE:
+					gun->mStartButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_1:
+					gun->mSelectButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_5:
+					gun->mDPadUpButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_6:
+					gun->mDPadDownButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_7:
+					gun->mDPadLeftButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_8:
+					gun->mDPadRightButtonDown = (input_events[i].value != 0);
 					break;
 				}
 			}
@@ -190,6 +209,28 @@ void GunManager::updateGuns(Window* window)
 		if(fabsf(oldGun.mX - gun->mX) > gunMoveTolerence || fabsf(oldGun.mY - gun->mY) > gunMoveTolerence) {
 		  window->processMouseMove(gun->x(), gun->y(), true);
 		}
+
+#ifdef HAVE_UDEV
+		// gun pads
+		if(gun->isDPadUpButtonDown() != oldGun.isDPadUpButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_5, gun->isDPadUpButtonDown() ? 1 : 0, true));
+
+		if(gun->isDPadDownButtonDown() != oldGun.isDPadDownButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_6, gun->isDPadDownButtonDown() ? 1 : 0, true));
+
+		if(gun->isDPadLeftButtonDown() != oldGun.isDPadLeftButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_7, gun->isDPadLeftButtonDown() ? 1 : 0, true));
+
+		if(gun->isDPadRightButtonDown() != oldGun.isDPadRightButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_8, gun->isDPadRightButtonDown() ? 1 : 0, true));
+
+		// start / select
+		if(gun->isStartButtonDown() != oldGun.isStartButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_MIDDLE, gun->isStartButtonDown() ? 1 : 0, true));
+
+		if(gun->isSelectButtonDown() != oldGun.isSelectButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_1, gun->isSelectButtonDown() ? 1 : 0, true));
+#endif
 	}
 
 	if (gunEvent == 1 || gunEvent == 2)

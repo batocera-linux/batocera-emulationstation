@@ -20,7 +20,7 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
-	, filterByLightGun(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false)
+	, filterByLightGun(false), filterByWheel(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -40,6 +40,7 @@ FileFilterIndex::FileFilterIndex()
 		{ CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") },
 		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") },
 		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") },
+		{ WHEEL_FILTER, 	&wheelIndexAllKeys,     &filterByWheel,	    &wheelIndexFilteredKeys,    "wheel",		false,				"",				_("STEERING WHEEL") },
 		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAS MEDIAS") }
 	};
 
@@ -113,6 +114,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &verticalIndexAllKeys, &(indexToImport->verticalIndexAllKeys) },
 		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) },
 		{ &lightGunIndexAllKeys, &(indexToImport->lightGunIndexAllKeys) },
+		{ &wheelIndexAllKeys, &(indexToImport->wheelIndexAllKeys) },
 		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) }
 	};
 
@@ -156,6 +158,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(cheevosIndexAllKeys);
 	clearIndex(verticalIndexAllKeys);
 	clearIndex(lightGunIndexAllKeys);
+	clearIndex(wheelIndexAllKeys);
 	clearIndex(hasMediasIndexAllKeys);
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
@@ -175,6 +178,9 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&lightGunIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&lightGunIndexAllKeys, "TRUE", false);
+
+	manageIndexEntry(&wheelIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&wheelIndexAllKeys, "TRUE", false);
 
 	manageIndexEntry(&hasMediasIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&hasMediasIndexAllKeys, "TRUE", false);
@@ -330,6 +336,17 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->isLightGunGame() ? "TRUE" : "FALSE";
+	}
+
+	case WHEEL_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		return game->isWheelGame() ? "TRUE" : "FALSE";
 	}
 
 	case VERTICAL_FILTER:
@@ -1055,6 +1072,8 @@ bool CollectionFilter::load(const std::string file)
 			verticalIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "lightgun")
 			lightGunIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "wheel")
+			wheelIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "hasMedia")
 			hasMediaIndexFilteredKeys.insert(node.text().as_string());
 	}
@@ -1125,6 +1144,9 @@ bool CollectionFilter::save()
 
 	for (auto key : lightGunIndexFilteredKeys)
 		root.append_child("lightgun").text().set(key.c_str());
+
+	for (auto key : wheelIndexFilteredKeys)
+		root.append_child("wheel").text().set(key.c_str());
 
 	for (auto key : hasMediaIndexFilteredKeys)
 		root.append_child("hasMedia").text().set(key.c_str());

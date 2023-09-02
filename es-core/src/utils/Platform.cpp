@@ -5,11 +5,13 @@
 #if WIN32
 #include <codecvt>
 #else
+#include <sys/types.h>
 #include <unistd.h>
 #include <ifaddrs.h>
 #include <netinet/in.h>
 #include <sys/stat.h>
 #include <arpa/inet.h>
+#include <sys/wait.h>
 #endif
 
 #include <fcntl.h>
@@ -138,11 +140,24 @@ namespace Utils
 				return system((cmd_utf8 + cmdOutput).c_str());
 
 			// fork the current process
-			int ret = fork();
+			pid_t ret = fork();
 			if (ret == 0) 
 			{
-				system((cmd_utf8 + cmdOutput).c_str());
-				exit(0); // exit the child process
+				ret = fork();
+				if (ret == 0)
+				{
+					execl("/bin/sh", "sh", "-c", (cmd_utf8 + cmdOutput).c_str(), (char *) NULL);
+					_exit(1); // execl failed
+				}
+				_exit(0); // exit the child process
+			}
+			else
+			{
+				if (ret > 0)
+				{
+					int status;
+					waitpid(ret, &status, 0); // keep calm and kill zombies
+				}
 			}
 
 			return 0;

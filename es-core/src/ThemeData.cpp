@@ -327,12 +327,14 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		// Controllers
 		{ "imagePath", PATH },		
 		{ "gunPath", PATH },
+  		{ "wheelPath", PATH },
 		{ "color", COLOR },
 		{ "activityColor", COLOR },
 		{ "hotkeyColor", COLOR },
 		
 		// Wifi
 		{ "networkIcon", PATH },
+		{ "planemodeIcon", PATH },
 
 		// Battery
 		{ "incharge", PATH },
@@ -360,6 +362,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		// Wifi
 		{ "networkIcon", PATH },
+
+		// plane mode
+		{ "planemodeIcon", PATH },
 
 		// Battery
 		{ "incharge", PATH },

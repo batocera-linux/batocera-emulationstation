@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<systems>
+  <system name="dreamcast" wheel="joystick1left" accelerate="rt" brake="lt">
+    <game>crazytaxi</game>
+    <game>segarally2</game>
+    <game>daytonausa</game>
+  </system>
+  <system name="gamecube" wheel="joystick1left" accelerate="a" brake="b">
+    <game>fzerogx</game>
+    <game>mariokartdoubledash</game>
+    <game accelerate="rt" brake="lt">needforspeedunderground2</game>
+  </system>
+  <system name="ps2" wheel="joystick1left" accelerate="cross" brake="square">
+    <game>f12002</game>
+    <game>granturismo4</game>
+  </system>
+</systems>

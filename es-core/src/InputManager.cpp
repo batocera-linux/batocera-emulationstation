@@ -29,6 +29,7 @@
 
 #define KEYBOARD_GUID_STRING "-1"
 #define CEC_GUID_STRING      "-2"
+#define GUN_GUID_STRING      "-4"
 
 // SO HEY POTENTIAL POOR SAP WHO IS TRYING TO MAKE SENSE OF ALL THIS (by which I mean my future self)
 // There are like four distinct IDs used for joysticks (crazy, right?)
@@ -50,7 +51,7 @@ static std::mutex mJoysticksLock;
 InputManager* InputManager::mInstance = NULL;
 Delegate<IJoystickChangedEvent> InputManager::joystickChanged;
 
-InputManager::InputManager() : mKeyboardInputConfig(NULL), mMouseButtonsInputConfig(NULL), mCECInputConfig(NULL)
+InputManager::InputManager() : mKeyboardInputConfig(NULL), mMouseButtonsInputConfig(NULL), mCECInputConfig(NULL), mGunInputConfig(NULL)
 {
 
 }
@@ -87,6 +88,9 @@ void InputManager::init()
 #else
 	mCECInputConfig = nullptr;
 #endif
+
+	mGunInputConfig = new InputConfig(DEVICE_GUN, -1, "Gun", GUN_GUID_STRING, 0, 0, 0);
+	loadDefaultGunConfig();
 
 	// Mouse input, hardcoded not configurable with es_input.cfg
 	mMouseButtonsInputConfig = new InputConfig(DEVICE_MOUSE, -1, "Mouse", CEC_GUID_STRING, 0, 0, 0);
@@ -165,6 +169,12 @@ void InputManager::deinit()
 		mMouseButtonsInputConfig = NULL;
 	}
 
+	if(mGunInputConfig != NULL)
+	{
+		delete mGunInputConfig;
+		mGunInputConfig = NULL;
+	}
+
 #ifdef HAVE_LIBCEC
 	CECInput::deinit();
 #endif
@@ -195,6 +205,9 @@ InputConfig* InputManager::getInputConfigByDevice(int device)
 
 	if(device == DEVICE_MOUSE)
 		return mMouseButtonsInputConfig;
+
+	if(device == DEVICE_GUN)
+		return mGunInputConfig;
 	
 	return mInputConfigs[device];
 }
@@ -896,6 +909,21 @@ void InputManager::loadDefaultKBConfig()
 	cfg->mapInput("pagedown", Input(DEVICE_KEYBOARD, TYPE_KEY, SDLK_LEFTBRACKET, 1, true));
 }
 
+void InputManager::loadDefaultGunConfig()
+{
+#ifdef HAVE_UDEV
+	InputConfig* cfg = getInputConfigByDevice(DEVICE_GUN);
+
+	cfg->clear();
+	cfg->mapInput("up",    Input(DEVICE_GUN, TYPE_BUTTON, BTN_5, 1, true));
+	cfg->mapInput("down",  Input(DEVICE_GUN, TYPE_BUTTON, BTN_6, 1, true));
+	cfg->mapInput("left",  Input(DEVICE_GUN, TYPE_BUTTON, BTN_7, 1, true));
+	cfg->mapInput("right", Input(DEVICE_GUN, TYPE_BUTTON, BTN_8, 1, true));
+	cfg->mapInput("start",  Input(DEVICE_GUN, TYPE_BUTTON, BTN_MIDDLE, 1, true));
+	cfg->mapInput("select", Input(DEVICE_GUN, TYPE_BUTTON, BTN_1, 1, true));
+#endif
+}
+
 void InputManager::writeDeviceConfig(InputConfig* config)
 {
 	assert(initialized());
@@ -1033,6 +1061,7 @@ int InputManager::getNumConfiguredDevices()
 		num++;
 
 	// Mouse input is hardcoded & not configurable with es_input.cfg
+	// Gun input is hardcoded & not configurable with es_input.cfg
 
 	return num;
 }
@@ -1050,6 +1079,7 @@ void InputManager::computeLastKnownPlayersDeviceIndexes()
 			PlayerDeviceInfo dev;
 			dev.index = playerJoystick->getDeviceIndex();
 			dev.batteryLevel = playerJoystick->getBatteryLevel();
+			dev.isWheel = playerJoystick->isWheel();
 
 			m_lastKnownPlayersDeviceIndexes[player] = dev;
 		}

@@ -2158,7 +2158,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "НАСТРОЙКИ WIIMOTE GUN"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "STEAMDECK МЫШЬ/НАСТРОЙКИ ПИСТОЛЕТА"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2213,61 +2213,61 @@ msgid "HIDDEN"
 msgstr "СКРЫТЫЙ"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "ЦВЕТ РАМКИ"
 
 msgid "WHITE"
-msgstr ""
+msgstr "БЕЛЫЙ"
 
 msgid "RED"
-msgstr ""
+msgstr "КРАСНЫЙ"
 
 msgid "GREEN"
-msgstr ""
+msgstr "ЗЕЛЁНЫЙ"
 
 msgid "BLUE"
-msgstr ""
+msgstr "СИНИЙ"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "КОНТРАСТ КАМЕРЫ"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "Дневное время/яркий солнечный свет (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "По умолчанию (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Тусклый дисплей/вечер (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "ЯРКОСТЬ КАМЕРЫ"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "Дневное время/яркий солнечный свет (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "По умолчанию (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Тусклый дисплей/вечер (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "ЭКСПОЗИЦИЯ КАМЕРЫ"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "Проектор/ЭЛТ (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "Проектор/ЭЛТ (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "По умолчанию (-7)"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "Другой (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "Другой (-9)"
 
 msgid "RECOIL"
 msgstr "RECOIL"
@@ -2291,10 +2291,10 @@ msgid "JOYSTICK"
 msgstr "ДЖОЙСТИК"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "ТОЛЬКО МЫШЬ"
 
 msgid "HAND"
-msgstr ""
+msgstr "РУКА"
 
 msgid "LEFT"
 msgstr "ВЛЕВО"
@@ -2393,7 +2393,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "ИГРОВЫЕ МЕДИА ВО ВРЕМЯ БЫСТРОЙ ПРОКРУТКИ"
 
 msgid "SHOW CLOCK"
 msgstr "ПОКАЗАТЬ ЧАСЫ"
@@ -2510,10 +2510,10 @@ msgid "REALLY RESTART?"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "ПРИОСТАНОВИТЬ СИСТЕМУ"
+msgstr "СПЯЩИЙ РЕЖИМ"
 
 msgid "REALLY SUSPEND ?"
-msgstr "ПРИОСТАНОВИТЬ?"
+msgstr "ПЕРЕЙТИ В СПЯЩИЙ РЕЖИМ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
@@ -3226,7 +3226,7 @@ msgstr "ОБРАБОТКА..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d д"
 
 #, c-format
 msgid "%d h"

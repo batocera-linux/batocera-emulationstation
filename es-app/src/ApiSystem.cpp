@@ -83,11 +83,15 @@ ApiSystem* ApiSystem::instance = nullptr;
 ApiSystem *ApiSystem::getInstance() 
 {
 	if (ApiSystem::instance == nullptr)
+	{
 #if WIN32
 		ApiSystem::instance = new Win32ApiSystem();
 #else
 		ApiSystem::instance = new ApiSystem();
 #endif
+		
+		IExternalActivity::Instance = ApiSystem::instance;
+	}
 
 	return ApiSystem::instance;
 }
@@ -1472,6 +1476,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::VERSIONINFO:
 		executables.push_back("batocera-version");
 		break;
+	case ApiSystem::PLANEMODE:
+		executables.push_back("batocera-planemode");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -1939,7 +1946,6 @@ std::string ApiSystem::getHostsName()
 bool ApiSystem::emuKill()
 {
 	LOG(LogDebug) << "ApiSystem::emuKill";
-
 	return executeScript("batocera-es-swissknife --emukill");
 }
 
@@ -1949,17 +1955,35 @@ void ApiSystem::suspend()
 	executeScript("/usr/sbin/pm-suspend");
 }
 
-void ApiSystem::replugControllers_sindenguns() {
-  LOG(LogDebug) << "ApiSystem::replugControllers_sindenguns";
-  executeScript("/usr/bin/virtual-sindenlightgun-remap");
+void ApiSystem::replugControllers_sindenguns()
+{
+	LOG(LogDebug) << "ApiSystem::replugControllers_sindenguns";
+	executeScript("/usr/bin/virtual-sindenlightgun-remap");
 }
 
-void ApiSystem::replugControllers_wiimotes() {
-  LOG(LogDebug) << "ApiSystem::replugControllers_wiimotes";
-  executeScript("/usr/bin/virtual-wii-mouse-bar-remap");
+void ApiSystem::replugControllers_wiimotes()
+{
+	LOG(LogDebug) << "ApiSystem::replugControllers_wiimotes";
+	executeScript("/usr/bin/virtual-wii-mouse-bar-remap");
 }
 
-void ApiSystem::replugControllers_steamdeckguns() {
-  LOG(LogDebug) << "ApiSystem::replugControllers_steamdeckguns";
-  executeScript("/usr/bin/steamdeckgun-remap");
+void ApiSystem::replugControllers_steamdeckguns()
+{
+	LOG(LogDebug) << "ApiSystem::replugControllers_steamdeckguns";
+	executeScript("/usr/bin/steamdeckgun-remap");
+}
+
+bool ApiSystem::isPlaneMode()
+{
+	auto res = executeEnumerationScript("batocera-planemode status");
+	if (res.size() > 0)
+		return res[0] == "on";
+
+	return false;
+}
+
+bool ApiSystem::setPlaneMode(bool enable)
+{
+	LOG(LogDebug) << "ApiSystem::setPlaneMode";
+	return executeScript("batocera-planemode " + std::string(enable ? "enable" : "disable"));
 }

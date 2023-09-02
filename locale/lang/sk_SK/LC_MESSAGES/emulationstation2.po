@@ -290,6 +290,9 @@ msgstr "zvislá arkáda"
 msgid "lightgun games"
 msgstr "hry so svetelnou pištoľou"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "kolekcie"
 
@@ -807,6 +810,193 @@ msgstr "Vybrať"
 
 msgid "ADD COMBINATION KEY"
 msgstr "Pridať klávesu kombinácie"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "Nastavenia ovládača"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "Nastavenia ovládača a bluetooth"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "Priradenia hráčov"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "Ovládač P%i"
+
+msgid "CONTROLLER MAPPING"
+msgstr "Mapovanie ovládača"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"Idete namapovať ovládač. Mapujte podľa polohy tlačidiel, nie podľa fycizkého "
+"popisu. Ak nemáte osobitné tlačidlo pre HotKey, použite tlačidlo Select. "
+"Preskočte všetky tlačidlá a páčky, ktoré nemáte podržadním nejakého "
+"tlačidla. Stlačte južné tlačidlo na potvrdenie, až skončíte."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "Nastavenia zbrane Sinden"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "Nastavenia zbrane Wiimote"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "Nastavenia myši/zbrane Steamdeck"
+
+msgid "BLUETOOTH"
+msgstr "Bluetooth"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "Spárovať Bluetooth ovládače automaticky"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "Spárovať Bluetooth zariadenie ručne"
+
+msgid "DISPLAY OPTIONS"
+msgstr "Voľby zobrazenia"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "Zobraziť aktivitu ovládača"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "Zobraziť úroveň batérie ovládača"
+
+msgid "default"
+msgstr "predvolené"
+
+msgid "NOT CONNECTED"
+msgstr "Nepripojené"
+
+msgid "BORDER SIZE"
+msgstr "Veľkosť okraja"
+
+msgid "AUTO"
+msgstr "Auto"
+
+msgid "THIN"
+msgstr "Tenký"
+
+msgid "MEDIUM"
+msgstr "Stredné"
+
+msgid "BIG"
+msgstr "Veľký"
+
+msgid "BORDER MODE"
+msgstr "Režim okrajov"
+
+msgid "NORMAL"
+msgstr "Normálny"
+
+msgid "IN GAME ONLY"
+msgstr "Iba v hre"
+
+msgid "HIDDEN"
+msgstr "Skryté"
+
+msgid "BORDER COLOR"
+msgstr "Farba okraja"
+
+msgid "WHITE"
+msgstr "biela"
+
+msgid "RED"
+msgstr "červená"
+
+msgid "GREEN"
+msgstr "zelená"
+
+msgid "BLUE"
+msgstr "modrá"
+
+msgid "CAMERA CONTRAST"
+msgstr "Kontrast fotoaparátu"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Deň/jasné slnečné svetlo (40)"
+
+msgid "Default (50)"
+msgstr "Predvolené (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Matný displej/večer (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "Jas fotoaparátu"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Deň/jasné slnečné svetlo (80)"
+
+msgid "Default (100)"
+msgstr "Predvolené (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Matný displej/večer (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "Expozícia fotoaparátu"
+
+msgid "Projector/CRT (-5)"
+msgstr "Projektor/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Projektor/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Predvolené (-7)"
+
+msgid "Other (-8)"
+msgstr "Iné (-8)"
+
+msgid "Other (-9)"
+msgstr "Iné (-9)"
+
+msgid "RECOIL"
+msgstr "spätný ráz"
+
+msgid "DISABLED"
+msgstr "Zakázané"
+
+msgid "GUN"
+msgstr "Zbraň"
+
+msgid "MACHINE GUN"
+msgstr "Automatická zbraň"
+
+msgid "QUIET GUN"
+msgstr "Tichá zbraň"
+
+msgid "QUIET MACHINE GUN"
+msgstr "Tichá automatická zbraň"
+
+msgid "MODE"
+msgstr "Režim"
+
+msgid "JOYSTICK"
+msgstr "Joystick"
+
+msgid "MOUSE ONLY"
+msgstr "Iba myš"
+
+msgid "HAND"
+msgstr "Ruka"
+
+msgid "LEFT"
+msgstr "Vľavo"
+
+msgid "RIGHT"
+msgstr "Vpravo"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "Sťahovač obsahu"
@@ -1465,12 +1655,6 @@ msgstr "Vykresľovač"
 msgid "SHADERS"
 msgstr "Shadery"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "Nastavenia ovládača"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "Nastavenia ovládača a bluetooth"
-
 msgid "INTERNAL"
 msgstr "Vnútorné"
 
@@ -1551,6 +1735,12 @@ msgstr "Vsync"
 
 msgid "OVERSCAN"
 msgstr "Overscan"
+
+msgid "VIDEO MODE"
+msgstr "Režim videa"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "Použiť OMX prehrávač (hardvérovo akcelerovaný)"
@@ -1667,9 +1857,6 @@ msgstr "Kompletná ponuka ukončenia"
 msgid "RETROARCH MENU DRIVER"
 msgstr "Ovládač ponuky Retroarch"
 
-msgid "AUTO"
-msgstr "Auto"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "Vymeniť tlačidlá Potvrdiť a Zrušiť v EmulationStation"
 
@@ -1773,9 +1960,6 @@ msgstr "Zobraziť hodiny v 12-hodinovom formáte"
 
 msgid "POWER SAVING MODE"
 msgstr "Šetriaci režim"
-
-msgid "DISABLED"
-msgstr "Zakázané"
 
 msgid "DEFAULT"
 msgstr "Predvolené"
@@ -2000,9 +2184,6 @@ msgstr "Pomer strán hry"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Vynútiť zobrazenie hry v tomto pomere strán."
 
-msgid "VIDEO MODE"
-msgstr "Režim videa"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "Nastaví rozlíšenie obrazovky. Nemá vplyv na renderovacie rozlíšenie."
@@ -2138,171 +2319,6 @@ msgstr "Beží hashovanie hry. Chcete ho zastaviť?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "Naozaj aktualizovať zoznamy hier?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "Mapovanie ovládača"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"Idete namapovať ovládač. Mapujte podľa polohy tlačidiel, nie podľa fycizkého "
-"popisu. Ak nemáte osobitné tlačidlo pre HotKey, použite tlačidlo Select. "
-"Preskočte všetky tlačidlá a páčky, ktoré nemáte podržadním nejakého "
-"tlačidla. Stlačte južné tlačidlo na potvrdenie, až skončíte."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "Nastavenia zbrane Sinden"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "Nastavenia zbrane Wiimote"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "Nastavenia myši/zbrane Steamdeck"
-
-msgid "BLUETOOTH"
-msgstr "Bluetooth"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "Spárovať Bluetooth ovládače automaticky"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "Spárovať Bluetooth zariadenie ručne"
-
-msgid "DISPLAY OPTIONS"
-msgstr "Voľby zobrazenia"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "Zobraziť aktivitu ovládača"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "Zobraziť úroveň batérie ovládača"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "Priradenia hráčov"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "Ovládač P%i"
-
-msgid "default"
-msgstr "predvolené"
-
-msgid "BORDER SIZE"
-msgstr "Veľkosť okraja"
-
-msgid "THIN"
-msgstr "Tenký"
-
-msgid "MEDIUM"
-msgstr "Stredné"
-
-msgid "BIG"
-msgstr "Veľký"
-
-msgid "BORDER MODE"
-msgstr "Režim okrajov"
-
-msgid "NORMAL"
-msgstr "Normálny"
-
-msgid "IN GAME ONLY"
-msgstr "Iba v hre"
-
-msgid "HIDDEN"
-msgstr "Skryté"
-
-msgid "BORDER COLOR"
-msgstr "Farba okraja"
-
-msgid "WHITE"
-msgstr "biela"
-
-msgid "RED"
-msgstr "červená"
-
-msgid "GREEN"
-msgstr "zelená"
-
-msgid "BLUE"
-msgstr "modrá"
-
-msgid "CAMERA CONTRAST"
-msgstr "Kontrast fotoaparátu"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "Deň/jasné slnečné svetlo (40)"
-
-msgid "Default (50)"
-msgstr "Predvolené (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "Matný displej/večer (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "Jas fotoaparátu"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "Deň/jasné slnečné svetlo (80)"
-
-msgid "Default (100)"
-msgstr "Predvolené (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "Matný displej/večer (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "Expozícia fotoaparátu"
-
-msgid "Projector/CRT (-5)"
-msgstr "Projektor/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "Projektor/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "Predvolené (-7)"
-
-msgid "Other (-8)"
-msgstr "Iné (-8)"
-
-msgid "Other (-9)"
-msgstr "Iné (-9)"
-
-msgid "RECOIL"
-msgstr "spätný ráz"
-
-msgid "GUN"
-msgstr "Zbraň"
-
-msgid "MACHINE GUN"
-msgstr "Automatická zbraň"
-
-msgid "QUIET GUN"
-msgstr "Tichá zbraň"
-
-msgid "QUIET MACHINE GUN"
-msgstr "Tichá automatická zbraň"
-
-msgid "MODE"
-msgstr "Režim"
-
-msgid "JOYSTICK"
-msgstr "Joystick"
-
-msgid "MOUSE ONLY"
-msgstr "Iba myš"
-
-msgid "HAND"
-msgstr "Ruka"
-
-msgid "LEFT"
-msgstr "Vľavo"
-
-msgid "RIGHT"
-msgstr "Vpravo"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "Musíte použiť tému pred úpravou jej konfigurácie"
@@ -2466,9 +2482,6 @@ msgstr "IP adresa"
 msgid "CONNECTED"
 msgstr "Pripojené"
 
-msgid "NOT CONNECTED"
-msgstr "Nepripojené"
-
 msgid "INTERNET STATUS"
 msgstr "Stav internetu"
 
@@ -2504,6 +2517,12 @@ msgstr "Spustiť šetrič obrazovky"
 
 msgid "VIEW USER MANUAL"
 msgstr "Zobraziť používateľskú príručku"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "Reštartovať systém"
@@ -2756,6 +2775,9 @@ msgstr "Herné voľby"
 msgid "FAVORITE"
 msgstr "Obľúbené"
 
+msgid "INVALID CONTENT"
+msgstr ""
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2954,6 +2976,9 @@ msgstr "Zvislé"
 
 msgid "LIGHTGUN"
 msgstr "Svetelná pištoľ"
+
+msgid "STEERING WHEEL"
+msgstr ""
 
 msgid "HAS MEDIAS"
 msgstr "Má médiá"

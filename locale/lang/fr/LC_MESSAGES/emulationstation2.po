@@ -286,6 +286,9 @@ msgstr "arcade vertical"
 msgid "lightgun games"
 msgstr "jeux au pistolet"
 
+msgid "wheel games"
+msgstr "jeux au volant"
+
 msgid "collections"
 msgstr "collections"
 
@@ -572,7 +575,7 @@ msgid "PER GENRE"
 msgstr "PAR GENRE"
 
 msgid "ARCADE SYSTEMS"
-msgstr "SYSTEMES D'ARCADE"
+msgstr "SYSTÈMES D'ARCADE"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
 msgstr "COLLECTIONS AUTOMATIQUES"
@@ -784,7 +787,7 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
 
 msgid "YOU ARE NOT CONNECTED TO A NETWORK"
-msgstr "VOUS N’ETES CONNECTÉ À AUCUN RÉSEAU"
+msgstr "VOUS N’ÊTES CONNECTÉ À AUCUN RÉSEAU"
 
 msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH"
@@ -809,6 +812,194 @@ msgstr "SÉLECTIONNER"
 
 msgid "ADD COMBINATION KEY"
 msgstr "AJOUTER UNE COMBINAISON DE TOUCHES"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "PARAMÈTRES DES MANETTES"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "PARAMÈTRES DES MANETTES ET BLUETOOTH"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "ORDRE DES MANETTES"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "AFFECTATIONS DES JOUEURS"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "MANETTE %i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "MANETTE J%i"
+
+msgid "CONTROLLER MAPPING"
+msgstr "CONFIGURER UNE MANETTE"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"VOUS ALLEZ CONFIGURER UNE MANETTE. CECI EST BASÉ SUR LA POSITION RELATIVE "
+"DES BOUTONS ET NON SUR LEURS LIBELLÉS. SI VOUS N’AVEZ PAS DE TOUCHE SPÉCIALE "
+"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / PADS QUE "
+"VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ.APPUYEZ SUR "
+"LE BOUTON SUD POUR CONFIRMER UNE FOIS TERMINÉ."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "PARAMÈTRES DES PISTOLETS SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "PARAMÈTRES DES PISTOLETS WIIMOTE"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "PARAMÈTRES DES SOURIS/PISTOLETS STEAMDECK"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "ASSOCIER LES JOYSTICKS BLUETOOTH AUTOMATIQUEMENT"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH MANUELLEMENT"
+
+msgid "DISPLAY OPTIONS"
+msgstr "OPTIONS D'AFFICHAGE"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
+
+msgid "default"
+msgstr "par défaut"
+
+msgid "NOT CONNECTED"
+msgstr "DÉCONNECTÉ"
+
+msgid "BORDER SIZE"
+msgstr "ÉPAISSEUR DE LA BORDURE"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "THIN"
+msgstr "FIN"
+
+msgid "MEDIUM"
+msgstr "MOYEN"
+
+msgid "BIG"
+msgstr "GROS"
+
+msgid "BORDER MODE"
+msgstr "MODE DES BORDURES"
+
+msgid "NORMAL"
+msgstr "NORMAL"
+
+msgid "IN GAME ONLY"
+msgstr "EN JEU SEULEMENT"
+
+msgid "HIDDEN"
+msgstr "CACHÉ"
+
+msgid "BORDER COLOR"
+msgstr "COULEUR DE LA BORDURE"
+
+msgid "WHITE"
+msgstr "BLANCHE"
+
+msgid "RED"
+msgstr "ROUGE"
+
+msgid "GREEN"
+msgstr "VERTE"
+
+msgid "BLUE"
+msgstr "BLEU"
+
+msgid "CAMERA CONTRAST"
+msgstr "CONTRASTE DE LA CAMÉRA"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Journée/Lumière du soleil (40)"
+
+msgid "Default (50)"
+msgstr "Par défaut (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Soirée/Lumière faible (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "LUMINOSITÉ DE LA CAMÉRA"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Journée/Lumière du soleil (80)"
+
+msgid "Default (100)"
+msgstr "Par défaut (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Soirée/Lumière faible (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "EXPOSITION DE LA CAMÉRA"
+
+msgid "Projector/CRT (-5)"
+msgstr "Projecteur/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Projecteur/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Par défaut (-7)"
+
+msgid "Other (-8)"
+msgstr "Autre (-8)"
+
+msgid "Other (-9)"
+msgstr "Autre (-9)"
+
+msgid "RECOIL"
+msgstr "RECUL"
+
+msgid "DISABLED"
+msgstr "DÉSACTIVÉ"
+
+msgid "GUN"
+msgstr "PISTOLET"
+
+msgid "MACHINE GUN"
+msgstr "MITRAILLETTE"
+
+msgid "QUIET GUN"
+msgstr "PISTOLET (BRUIT FAIBLE)"
+
+msgid "QUIET MACHINE GUN"
+msgstr "MITRAILLETTE (BRUIT FAIBLE)"
+
+msgid "MODE"
+msgstr "MODE"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr "SOURIS SEULEMENT"
+
+msgid "HAND"
+msgstr "MAIN"
+
+msgid "LEFT"
+msgstr "GAUCHE"
+
+msgid "RIGHT"
+msgstr "DROITE"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE CONTENU"
@@ -1002,7 +1193,7 @@ msgid "SAVE CHANGES?"
 msgstr "SAUVEGARDER LES CHANGEMENTS ?"
 
 msgid "ARE YOU SURE?"
-msgstr "ETES-VOUS SUR(E) ?"
+msgstr "ÊTES-VOUS SÛR(E) ?"
 
 #, c-format
 msgid "UPDATING %s"
@@ -1032,7 +1223,7 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 "MODIFICATIONS NON OFFICIELLES DÉTECTÉES.\n"
-"METTRE À JOUR PEUT CASSER LE SYSTEM.\n"
+"METTRE À JOUR PEUT CASSER LE SYSTÈME.\n"
 "VOULEZ-VOUS METTRE À JOUR EN VERSION %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1125,7 +1316,9 @@ msgstr "SUPPRIMER LE JEU"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr "VOUS ALLEZ SUPPRIMER LE JEU ACTUEL. ETES-VOUS SUR(E) ?"
+msgstr ""
+"VOUS ALLEZ SUPPRIMER LE(S) FICHIER(S) DE JEU ACTUEL.\n"
+"ÊTES-VOUS SÛR(E) ?"
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIONS"
@@ -1136,19 +1329,19 @@ msgstr "SUPPRIMER DE %s"
 
 #, c-format
 msgid "ADD TO %s"
-msgstr "AJOUTER A %s"
+msgstr "AJOUTER À %s"
 
 msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AJOUTER A UNE COLLECTION..."
+msgstr "AJOUTER À UNE COLLECTION..."
 
 msgid "SCRAPE"
 msgstr "SCRAPER"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "EDITER UN PROFIL PADTOKEY"
+msgstr "ÉDITER UN PROFIL PADTOKEY"
 
 msgid "CREATE PADTOKEY PROFILE"
 msgstr "CRÉER UN PROFIL PADTOKEY"
@@ -1465,12 +1658,6 @@ msgstr "RENDU"
 msgid "SHADERS"
 msgstr "FILTRES"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "PARAMÈTRES DES MANETTES"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "PARAMÈTRES DES MANETTES ET BLUETOOTH"
-
 msgid "INTERNAL"
 msgstr "INTERNE"
 
@@ -1520,7 +1707,7 @@ msgid "QUIT"
 msgstr "QUITTER"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr "ÊTES-VOUS SUR(E) DE VOULOIR CONFIGURER LA MANETTE ?"
+msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR CONFIGURER LA MANETTE ?"
 
 msgid "CHOOSE"
 msgstr "CHOISIR"
@@ -1552,8 +1739,14 @@ msgstr "SYNCHRONISATION VERTICALE"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
+msgid "VIDEO MODE"
+msgstr "MODE VIDÉO"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Définir la résolution d'écran pour EmulationStation."
+
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION MATÉRIEL)"
+msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION MATÉRIELLE)"
 
 msgid "TOOLS"
 msgstr "OUTILS"
@@ -1665,9 +1858,6 @@ msgstr "AFFICHER LE MENU QUITTER COMPLET"
 msgid "RETROARCH MENU DRIVER"
 msgstr "THÈME DE L’INTERFACE RETROARCH"
 
-msgid "AUTO"
-msgstr "AUTO"
-
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr ""
 "INTERVERTIR LES BOUTONS DE CONFIRMATION ET ANNULATION DANS EMULATIONSTATION"
@@ -1772,9 +1962,6 @@ msgstr "HORLOGE AU FORMAT 12 HEURES"
 
 msgid "POWER SAVING MODE"
 msgstr "MODE D'ÉCONOMIE D'ÉNERGIE"
-
-msgid "DISABLED"
-msgstr "DÉSACTIVÉ"
 
 msgid "DEFAULT"
 msgstr "PAR DÉFAUT"
@@ -1999,9 +2186,6 @@ msgstr "FORMAT D’AFFICHAGE"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Forcer le jeu dans ce format d'affichage."
 
-msgid "VIDEO MODE"
-msgstr "MODE VIDÉO"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "Forcer l'émulateur dans cette résolution."
@@ -2140,172 +2324,6 @@ msgstr "L'INDEXATION DES JEUX EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR LES LISTES DE JEUX ?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "CONFIGURER UNE MANETTE"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
-"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr ""
-"VOUS ALLEZ CONFIGURER UNE MANETTE. CECI EST BASÉ SUR LA POSITION RELATIVE "
-"DES BOUTONS ET NON SUR LEURS LIBELLÉS. SI VOUS N’AVEZ PAS DE TOUCHE SPÉCIALE "
-"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / PADS QUE "
-"VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ.APPUYEZ SUR "
-"LE BOUTON SUD POUR CONFIRMER UNE FOIS TERMINÉ."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "PARAMÈTRES DES PISTOLETS SINDEN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "PARAMÈTRES DES PISTOLETS WIIMOTE"
-
-msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "PARAMÈTRES DES SOURIS/PISTOLETS STEAMDECK"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "ASSOCIER LES JOYSTICKS BLUETOOTH AUTOMATIQUEMENT"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH MANUELLEMENT"
-
-msgid "DISPLAY OPTIONS"
-msgstr "OPTIONS D'AFFICHAGE"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "AFFECTATIONS DES JOUEURS"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "MANETTE J%i"
-
-msgid "default"
-msgstr "par défaut"
-
-msgid "BORDER SIZE"
-msgstr "ÉPAISSEUR DE LA BORDURE"
-
-msgid "THIN"
-msgstr "FIN"
-
-msgid "MEDIUM"
-msgstr "MOYEN"
-
-msgid "BIG"
-msgstr "GROS"
-
-msgid "BORDER MODE"
-msgstr "MODE DES BORDURES"
-
-msgid "NORMAL"
-msgstr "NORMAL"
-
-msgid "IN GAME ONLY"
-msgstr "EN JEU SEULEMENT"
-
-msgid "HIDDEN"
-msgstr "CACHÉ"
-
-msgid "BORDER COLOR"
-msgstr "COULEUR DE LA BORDURE"
-
-msgid "WHITE"
-msgstr "BLANCHE"
-
-msgid "RED"
-msgstr "ROUGE"
-
-msgid "GREEN"
-msgstr "VERTE"
-
-msgid "BLUE"
-msgstr "BLEU"
-
-msgid "CAMERA CONTRAST"
-msgstr "CONTRASTE DE LA CAMÉRA"
-
-msgid "Daytime/Bright Sunlight (40)"
-msgstr "Journée/Lumière du soleil (40)"
-
-msgid "Default (50)"
-msgstr "Par défaut (50)"
-
-msgid "Dim Display/Evening (60)"
-msgstr "Soirée/Lumière faible (60)"
-
-msgid "CAMERA BRIGHTNESS"
-msgstr "LUMINOSITÉ DE LA CAMÉRA"
-
-msgid "Daytime/Bright Sunlight (80)"
-msgstr "Journée/Lumière du soleil (80)"
-
-msgid "Default (100)"
-msgstr "Par défaut (100)"
-
-msgid "Dim Display/Evening (120)"
-msgstr "Soirée/Lumière faible (120)"
-
-msgid "CAMERA EXPOSURE"
-msgstr "EXPOSITION DE LA CAMÉRA"
-
-msgid "Projector/CRT (-5)"
-msgstr "Projecteur/CRT (-5)"
-
-msgid "Projector/CRT (-6)"
-msgstr "Projecteur/CRT (-6)"
-
-msgid "Default (-7)"
-msgstr "Par défaut (-7)"
-
-msgid "Other (-8)"
-msgstr "Autre (-8)"
-
-msgid "Other (-9)"
-msgstr "Autre (-9)"
-
-msgid "RECOIL"
-msgstr "RECUL"
-
-msgid "GUN"
-msgstr "PISTOLET"
-
-msgid "MACHINE GUN"
-msgstr "MITRAILLETTE"
-
-msgid "QUIET GUN"
-msgstr "PISTOLET (BRUIT FAIBLE)"
-
-msgid "QUIET MACHINE GUN"
-msgstr "MITRAILLETTE (BRUIT FAIBLE)"
-
-msgid "MODE"
-msgstr "MODE"
-
-msgid "JOYSTICK"
-msgstr "JOYSTICK"
-
-msgid "MOUSE ONLY"
-msgstr "SOURIS SEULEMENT"
-
-msgid "HAND"
-msgstr "MAIN"
-
-msgid "LEFT"
-msgstr "GAUCHE"
-
-msgid "RIGHT"
-msgstr "DROITE"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D’ÉDITER SA CONFIGURATION"
@@ -2469,9 +2487,6 @@ msgstr "ADRESSE IP"
 msgid "CONNECTED"
 msgstr "CONNECTÉ"
 
-msgid "NOT CONNECTED"
-msgstr "DÉCONNECTÉ"
-
 msgid "INTERNET STATUS"
 msgstr "STATUT INTERNET"
 
@@ -2507,6 +2522,12 @@ msgstr "LANCER L'ÉCONOMISEUR D'ÉCRAN"
 
 msgid "VIEW USER MANUAL"
 msgstr "VOIR LE MANUEL UTILISATEUR"
+
+msgid "DISABLE PLANE MODE"
+msgstr "DÉSACTIVE LE MODE AVION"
+
+msgid "ENABLE PLANE MODE"
+msgstr "ACTIVE LE MODE AVION"
 
 msgid "RESTART SYSTEM"
 msgstr "REDÉMARRER"
@@ -2597,7 +2618,7 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "LES OPTIONS SÉLECTIONNÉES SONT INVALIDES"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "VOUS ALLEZ FORMATER CE DISQUE. ETES-VOUS SUR(E) ?"
+msgstr "VOUS ALLEZ FORMATER CE DISQUE. ÊTES-VOUS SÛR(E) ?"
 
 msgid "EDIT METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES"
@@ -2757,6 +2778,9 @@ msgstr "OPTIONS DU JEU"
 msgid "FAVORITE"
 msgstr "FAVORIS"
 
+msgid "INVALID CONTENT"
+msgstr "CONTENU INVALIDE"
+
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
@@ -2897,7 +2921,7 @@ msgid "INDEXING COMPLETED"
 msgstr "INDEXATION TERMINÉE"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "METTEZ A JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
+msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "L’ÉMULATEUR A QUITTÉ DE MANIÈRE INATTENDUE"
@@ -2955,6 +2979,9 @@ msgstr "VERTICAL"
 
 msgid "LIGHTGUN"
 msgstr "PISTOLET"
+
+msgid "STEERING WHEEL"
+msgstr "VOLANT"
 
 msgid "HAS MEDIAS"
 msgstr "AVEC DES MÉDIAS"
