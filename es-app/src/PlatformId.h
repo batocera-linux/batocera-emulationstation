@@ -35,7 +35,7 @@ namespace PlatformIds
 		MSX,
 		MSX2,
 		MSX2_PLUS,
-		MSX_TURBOR_R,
+		MSX_TURBO_R,
 		NEOGEO,
 		NEOGEO_POCKET,
 		NEOGEO_POCKET_COLOR,
