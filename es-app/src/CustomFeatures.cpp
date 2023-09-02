@@ -41,6 +41,7 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "rewind") ret = ret | EmulatorFeatures::Features::rewind;
 		if (trim == "smooth") ret = ret | EmulatorFeatures::Features::smooth;
 		if (trim == "shaders") ret = ret | EmulatorFeatures::Features::shaders;
+		if (trim == "videofilters") ret = ret | EmulatorFeatures::Features::videofilters;
 		if (trim == "pixel_perfect") ret = ret | EmulatorFeatures::Features::pixel_perfect;
 		if (trim == "decoration") ret = ret | EmulatorFeatures::Features::decoration;
 		if (trim == "latency_reduction") ret = ret | EmulatorFeatures::Features::latency_reduction;
