@@ -110,6 +110,8 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 		{ "decorations", &mUserDecorationsPath },
 		{ "system.shaders", &mShadersPath },
 		{ "shaders", &mUserShadersPath },
+		{ "system.videofilters", &mVideoFiltersPath },
+		{ "videofilters", &mUserVideoFiltersPath },
 		{ "system.retroachievementsounds", &mRetroachivementSounds },
 		{ "retroachievementsounds", &mUserRetroachivementSounds },
 		{ "timezones", &mTimeZonesPath },

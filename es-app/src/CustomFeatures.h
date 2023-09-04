@@ -89,6 +89,7 @@ public:
 		padTokeyboard = 65536,
 		cheevos = 131072,
 		autocontrollers = 262144,
+		videofilters = 524288,
 
 		all = 0x0FFFFFFF
 	};

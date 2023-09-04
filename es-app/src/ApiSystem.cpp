@@ -1790,6 +1790,30 @@ std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName,
 	return ret;
 }
 
+std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& systemName, const std::string& emulator, const std::string& core)
+{
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
+	std::vector<std::string> ret;
+
+	LOG(LogDebug) << "ApiSystem::getVideoFilterList";
+
+	for (auto folder : { Paths::getUserVideoFilters(), Paths::getVideoFilters() })
+	{
+		for (auto file : Utils::FileSystem::getDirContent(folder, false))
+		{
+			auto videofilter = Utils::FileSystem::getFileName(file);
+			if (videofilter.substr(videofilter.find_last_of('.') + 1) == "filt")
+			{
+				if (std::find(ret.cbegin(), ret.cend(), videofilter) == ret.cend())
+					ret.push_back(videofilter.substr(0, videofilter.find_last_of('.')));
+			}
+		}
+	}
+
+	std::sort(ret.begin(), ret.end());
+	return ret;
+}
 
 std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 {

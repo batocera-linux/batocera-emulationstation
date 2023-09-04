@@ -1749,6 +1749,19 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 			  item->add(pgettext("game_options", Utils::String::toUpper(shader).c_str()), shader, storedValue == shader);
 		}
 	}
+	else if (feat.preset == "videofilters")
+	{
+		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
+
+		auto videofilters = ApiSystem::getInstance()->getVideoFilterList(configName != "global" ? system : "", configName != "global" ? emulator : "", configName != "global" ? core : "");
+		if (videofilters.size() > 0)
+		{
+			item->add(_("NONE"), "none", storedValue == "none");
+
+			for (auto videofilter : videofilters)
+				item->add(pgettext("game_options", Utils::String::toUpper(videofilter).c_str()), videofilter, storedValue == videofilter);
+		}
+	}
 	else if (feat.preset == "decorations" || feat.preset == "bezel")
 	{
 		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
@@ -1963,6 +1976,29 @@ void GuiMenu::openGamesSettings()
 
 			s->addWithLabel(_("SHADER SET"), shaders_choices);
 			s->addSaveFunc([shaders_choices] { SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected()); });
+		}
+	}
+
+	// Video Filters
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::VIDEOFILTERS) && !hasGlobalFeature("videofilters"))
+	{
+		auto installedVideofilters = ApiSystem::getInstance()->getVideoFilterList("", "", "");
+		if (installedVideofilters.size() > 0)
+		{
+			std::string currentVideofilter = SystemConf::getInstance()->get("global.videofilters");
+
+			auto videofilters_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO FILTER"), false);
+			videofilters_choices->add(_("AUTO"), "auto", currentVideofilter.empty() || currentVideofilter == "auto");
+			videofilters_choices->add(_("NONE"), "none", currentVideofilter == "none");
+
+			for (auto videofilter : installedVideofilters)
+				videofilters_choices->add(_(Utils::String::toUpper(videofilter).c_str()), videofilter, currentVideofilter == videofilter);
+
+			if (!videofilters_choices->hasSelection())
+				videofilters_choices->selectFirstItem();
+
+			s->addWithLabel(_("VIDEO FILTER"), videofilters_choices);
+			s->addSaveFunc([videofilters_choices] { SystemConf::getInstance()->set("global.videofilters", videofilters_choices->getSelected()); });
 		}
 	}
 
@@ -3594,6 +3630,30 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 			systemConfiguration->addWithLabel(_("SHADER SET"), shaders_choices);
 			systemConfiguration->addSaveFunc([configName, shaders_choices] { SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected()); });
+		}
+	}
+
+	// Video Filters preset
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::VIDEOFILTERS) &&
+		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::videofilters))
+	{
+		auto installedVideofilters = ApiSystem::getInstance()->getVideoFilterList(systemData->getName(), currentEmulator, currentCore);
+		if (installedVideofilters.size() > 0)
+		{
+			std::string currentVideofilter = SystemConf::getInstance()->get(configName + ".videofilter");
+
+			auto videofilters_choices = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO FILTER"), false);
+			videofilters_choices->add(_("AUTO"), "auto", currentVideofilter.empty() || currentVideofilter == "auto");
+			videofilters_choices->add(_("NONE"), "none", currentVideofilter == "none");
+
+			for (auto videofilter : installedVideofilters)
+				videofilters_choices->add(_(Utils::String::toUpper(videofilter).c_str()), videofilter, currentVideofilter == videofilter);
+
+			if (!videofilters_choices->hasSelection())
+				videofilters_choices->selectFirstItem();
+
+			systemConfiguration->addWithLabel(_("VIDEO FILTER"), videofilters_choices);
+			systemConfiguration->addSaveFunc([configName, videofilters_choices] { SystemConf::getInstance()->set(configName + ".videofilter", videofilters_choices->getSelected()); });
 		}
 	}
 

@@ -115,6 +115,7 @@ public:
 		SUSPEND = 25,
 		VERSIONINFO = 26,
 		PLANEMODE = 27,
+		VIDEOFILTERS = 28,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -243,6 +244,7 @@ public:
 
 
 	virtual std::vector<std::string> getRetroachievementsSoundsList();
+	virtual std::vector<std::string> getVideoFilterList(const std::string& systemName, const std::string& emulator, const std::string& core);
 	virtual std::vector<std::string> getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core);
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 
