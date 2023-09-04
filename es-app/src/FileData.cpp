@@ -416,7 +416,7 @@ const bool FileData::isLightGunGame()
 
 const bool FileData::isWheelGame()
 {
-	return MameNames::getInstance()->isWheel(Utils::FileSystem::getStem(getPath()), mSystem->getName());
+	return MameNames::getInstance()->isWheel(Utils::FileSystem::getStem(getPath()), mSystem->getName(), mSystem && mSystem->hasPlatformId(PlatformIds::ARCADE));
 	//return Genres::genreExists(&getMetadata(), GENRE_WHEEL);
 }
 
