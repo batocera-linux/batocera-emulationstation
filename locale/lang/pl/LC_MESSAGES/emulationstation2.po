@@ -288,7 +288,7 @@ msgid "lightgun games"
 msgstr "gry z pistoletem"
 
 msgid "wheel games"
-msgstr ""
+msgstr "gry z kierownicą"
 
 msgid "collections"
 msgstr "kolekcje"
@@ -820,14 +820,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLERY I USTAWIENIA BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "PRIORYTET KONTROLERÓW"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "PRZYPISANIE GRACZY"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "KONTROLER #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1743,7 +1743,7 @@ msgid "VIDEO MODE"
 msgstr "TRYB WIDEO"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Ustawia rozdzielczość ekranu dla EmulationStation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "UŻYWAJ ODTWARZACZA OMX (WSPOMAGANY SPRZĘTOWO)"
@@ -2530,10 +2530,10 @@ msgid "VIEW USER MANUAL"
 msgstr "ZOBACZ PODRĘCZNIK"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "WYŁĄCZ TRYB SAMOLOTOWY"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "WŁĄCZ TRYB SAMOLOTOWY"
 
 msgid "RESTART SYSTEM"
 msgstr "PONOWNE URUCHAMIANIE SYSTEMU"
@@ -2787,7 +2787,7 @@ msgid "FAVORITE"
 msgstr "ULUBIONE"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "NIEPRAWIDŁOWA ZAWARTOŚĆ"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2988,7 +2988,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLET ŚWIETLNY"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "KIEROWNICA"
 
 msgid "HAS MEDIAS"
 msgstr "POSIADA MEDIA"
