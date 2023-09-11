@@ -230,7 +230,7 @@ msgid "Game time"
 msgstr "Speel tijd"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "hoe lang het spel totaal gespeeld is (seconden)"
+msgstr "hoe lang het spel in totaal gespeeld is (seconden)"
 
 msgid "Languages"
 msgstr "Talen"
@@ -395,7 +395,7 @@ msgid "VERBOSE MODE"
 msgstr "VERBOSE MODUS"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "Laat achievement voortgang zien bij het starten van het spel en andere notificaties"
 
 msgid "RICH PRESENCE"
 msgstr ""
@@ -404,13 +404,13 @@ msgid "ENCORE MODE"
 msgstr ""
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Ontgrendelde prestaties kunnen opnieuw verdiend worden"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISCHE SCREENSHOT"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "Maak automatisch een screenshot als een prestatie is verdiend."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "CHALLENGE INDICATORS"
@@ -419,7 +419,7 @@ msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
-"Laat icoontjes zien rechts-onder wanneer beschikbare prestaties verdiend "
+"Laat iconen zien rechts-onder wanneer beschikbare prestaties verdiend "
 "kunnen worden."
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
@@ -429,13 +429,13 @@ msgid "none"
 msgstr "geen"
 
 msgid "UNLOCK SOUND"
-msgstr "GELUID ONTGRENDELEN"
+msgstr "ONTGRENDEL GELUID"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "TOON RETROPRESTATIES IN HOOFDMENU"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr ""
+msgstr "Bekijk je RetroAchievement statistieken vanuit het hoofdmenu!"
 
 msgid "GAME INDEXES"
 msgstr "SPEL INDEXEN"
@@ -552,7 +552,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "TOON SPELLEN VAN VERBORGEN COLLECTIES"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "LAAT LEGE SYSTEMEN ZIEN"
 
 msgid "UPDATE GAMELISTS"
 msgstr "UPDATE SPELLIJST"
@@ -592,7 +592,7 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d van %d)"
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Punten (hardcore)"
 
 msgid "Softcore points"
 msgstr ""
@@ -664,13 +664,13 @@ msgid "SORT GAMES BY"
 msgstr "SORTEER SPELLEN OP"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "DYNAMISCHE COLLECTIE"
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "AANGEPASTE COLLECTIE"
 
 msgid "DELETE COLLECTION"
-msgstr "COLLECTIE VERWIJDEREN"
+msgstr "VERWIJDER COLLECTIE"
 
 msgid "COLLECTION"
 msgstr "COLLECTIE"
@@ -685,16 +685,16 @@ msgid "VIEW CUSTOMIZATION"
 msgstr "AANPASSING WEERGEVEN"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "CONTROLLER NAAR KEYBOARD WEERGEVEN"
+msgstr "CONTROLLER NAAR KEYBOARD INFORMATIE WEERGEVEN"
 
 msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "GEAVANCEERDE SYSTEEM OPTIES"
+msgstr "GEAVANCEERDE SYSTEEMOPTIES"
 
 msgid "RESET FILTERS"
 msgstr "HERSTEL FILTERS"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr "FILTREER SPELLEN OP TEXT"
+msgstr "FILTER SPELLEN OP TEXT"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "DEZE FUNCTIE IS UITGESCHAKELD ALS DE SCRAPER BEZIG IS"
@@ -709,7 +709,7 @@ msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "VERGEET EEN BLUETOOTH APPARAAT"
 
 msgid "REMOVE ALL"
-msgstr "ALLES VERWIJDEREN"
+msgstr "VERWIJDER ALLES"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "GEEN BLUETOOTH APPARATEN GEVONDEN"
@@ -722,7 +722,7 @@ msgstr "BLUETOOTH APPARATEN ZIJN VERWIJDERD."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "WEET JE ZEKER DAT JE '%s' WILT VERWIJDEREN?"
 
 msgid "INPUT"
 msgstr "INVOER"
@@ -734,13 +734,13 @@ msgid "CANCEL"
 msgstr "ANNULEREN"
 
 msgid "CONNECT TO NETPLAY"
-msgstr "VERBINDEN MET NETPLAY"
+msgstr "VERBIND MET NETPLAY"
 
 msgid "Select a game lobby to join"
 msgstr "Selecteer een spel lobby voor deelname"
 
 msgid "REFRESH"
-msgstr "VERVERSEN"
+msgstr "VERVERS"
 
 msgid "FAILED"
 msgstr "MISLUKT"
@@ -815,7 +815,7 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONTROLLER & BLUETOOTH INSTELLINGEN"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "CONTROLLERS PRIORITEIT"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr ""
@@ -896,7 +896,7 @@ msgid "IN GAME ONLY"
 msgstr ""
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "VERBORGEN"
 
 msgid "BORDER COLOR"
 msgstr ""
@@ -905,13 +905,13 @@ msgid "WHITE"
 msgstr ""
 
 msgid "RED"
-msgstr ""
+msgstr "ROOD"
 
 msgid "GREEN"
-msgstr ""
+msgstr "GROEN"
 
 msgid "BLUE"
-msgstr ""
+msgstr "BLEUW"
 
 msgid "CAMERA CONTRAST"
 msgstr ""
@@ -920,7 +920,7 @@ msgid "Daytime/Bright Sunlight (40)"
 msgstr ""
 
 msgid "Default (50)"
-msgstr ""
+msgstr "Standaard (50)"
 
 msgid "Dim Display/Evening (60)"
 msgstr ""
@@ -932,7 +932,7 @@ msgid "Daytime/Bright Sunlight (80)"
 msgstr ""
 
 msgid "Default (100)"
-msgstr ""
+msgstr "Standaard (100)"
 
 msgid "Dim Display/Evening (120)"
 msgstr ""
@@ -962,7 +962,7 @@ msgid "DISABLED"
 msgstr "UITGESCHAKELD"
 
 msgid "GUN"
-msgstr ""
+msgstr "GUN"
 
 msgid "MACHINE GUN"
 msgstr ""
@@ -977,13 +977,13 @@ msgid "MODE"
 msgstr ""
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "ALLEEN MUIS"
 
 msgid "HAND"
-msgstr ""
+msgstr "HAND"
 
 msgid "LEFT"
 msgstr "LINKS"
@@ -1051,7 +1051,7 @@ msgid "always"
 msgstr "altijd"
 
 msgid "start & end"
-msgstr "start & einde"
+msgstr "start & eind"
 
 msgid "never"
 msgstr "nooit"
