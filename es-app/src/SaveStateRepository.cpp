@@ -149,8 +149,8 @@ void SaveStateRepository::refresh()
 			state->rom = stem;
 
 			// default behavior
-			state->fileGenerator  = state->rom + ".state{{slot}}");
-			state->imageGenerator = state->rom + ".state{{slot}}.png");
+			state->fileGenerator  = state->rom + ".state{{slot}}";
+			state->imageGenerator = state->rom + ".state{{slot}}.png";
 
 			// default behavior
 			if (Utils::FileSystem::exists(state->fileName + ".png"))
