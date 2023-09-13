@@ -109,8 +109,8 @@ void SaveStateRepository::refresh()
 			state->slot = slot;
 
 			// generators are the same for autosave and slots
-			state->fileGenerator = Utils::String::replace(rs->file, "{{romfilename}}", rom);
-			state->imageGenerator = Utils::String::replace(Utils::FileSystem::combine(getSavesPath(), rs->image), "{{romfilename}}", rom);
+			state->fileGenerator  = Utils::String::replace(rs->file,  "{{romfilename}}", rom);
+			state->imageGenerator = Utils::String::replace(rs->image, "{{romfilename}}", rom);
 
 			// screenshot
 			if (Utils::FileSystem::exists(state->fileName + ".png"))
@@ -149,8 +149,8 @@ void SaveStateRepository::refresh()
 			state->rom = stem;
 
 			// default behavior
-			state->fileGenerator = Utils::FileSystem::combine(getSavesPath(), rom + ".state{{slot}}");
-			state->imageGenerator = Utils::FileSystem::combine(getSavesPath(), rom + ".state{{slot}}.png");
+			state->fileGenerator  = state->rom + ".state{{slot}}");
+			state->imageGenerator = state->rom + ".state{{slot}}.png");
 
 			// default behavior
 			if (Utils::FileSystem::exists(state->fileName + ".png"))

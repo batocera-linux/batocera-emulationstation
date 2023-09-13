@@ -202,6 +202,7 @@ bool SaveState::copyToSlot(int slot, bool move) const
 	destStateImage = Utils::String::replace(destStateImage, "{{slot0}}", std::to_string(slot));
 	destStateImage = Utils::String::replace(destStateImage, "{{slot00}}", Utils::String::padLeft(std::to_string(slot), 2, '0'));
 	destStateImage = Utils::String::replace(destStateImage, "{{slot2d}}", Utils::String::padLeft(std::to_string(slot), 2, '0'));
+	destStateImage = Utils::FileSystem::combine(Utils::FileSystem::getParent(fileName), destStateImage);
 	
 	if (move)
 	{
