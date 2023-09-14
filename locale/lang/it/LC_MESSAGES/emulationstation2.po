@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "giochi lightgun"
 
 msgid "wheel games"
-msgstr ""
+msgstr "giochi con volante"
 
 msgid "collections"
 msgstr "collezione"
@@ -815,14 +815,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "OPZIONI CONTROLLER E BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "PRIORITA' CONTROLLERS"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "ASSEGNAZIONE GIOCATORI"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "CONTROLLER #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1737,7 +1737,7 @@ msgid "VIDEO MODE"
 msgstr "MODALITÀ VIDEO"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Imposta la risuluzione schermo per emulationstation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USA OMX PLAYER (ACCELERAZIONE HARDWARE)"
@@ -2519,10 +2519,10 @@ msgid "VIEW USER MANUAL"
 msgstr "VISUALIZZA MANUALE UTENTE"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "DISABILITA MODALITA' AEREO"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "ABILITA' MODALITA' AEREO"
 
 msgid "RESTART SYSTEM"
 msgstr "RIAVVIA IL SISTEMA"
@@ -2773,7 +2773,7 @@ msgid "FAVORITE"
 msgstr "PREFERITO"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "CONTENUTO INVALIDO"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2975,7 +2975,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLA"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "VOLANTE"
 
 msgid "HAS MEDIAS"
 msgstr "HA MEDIA"
