@@ -158,7 +158,7 @@
   <system name="ps2">
     <game>cocotofunfair</game>
     <game>deathcrimsonox</game>
-    <game>endgame</game>
+    <game gun1port="2">endgame</game>
     <game>guncom2</game>
     <game>gunfighter</game>
     <game>gunvaricollection</game>
