@@ -321,7 +321,7 @@ msgid "lightgun games"
 msgstr "ألعاب المسدس الضوئي"
 
 msgid "wheel games"
-msgstr ""
+msgstr "العاب سيارات"
 
 msgid "collections"
 msgstr "مجموعات"
@@ -845,20 +845,20 @@ msgid "ADD COMBINATION KEY"
 msgstr "أضف زر مزيج"
 
 msgid "CONTROLLER SETTINGS"
-msgstr "خصائص لوحة التحكم"
+msgstr "خصائص وحدة التحكم"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "إعدادات وحدات التحكم"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "اولوية وحدات التحكم"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "مهام اللاعب"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "وحدة التحكم #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1773,7 +1773,7 @@ msgid "VIDEO MODE"
 msgstr "وضع الفيديو"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "يضبط دقة العرض لمحطة المحاكاة"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "استعمال القارئ أوه أم أكس (يستعمل الجهاز للتسريع)"
@@ -2542,10 +2542,10 @@ msgid "VIEW USER MANUAL"
 msgstr "قراءة دليل المستخدم"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "الغاء وضع الطيران"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "تفعيل وضع الطيران"
 
 msgid "RESTART SYSTEM"
 msgstr "إعادة تشغيل النظام"
@@ -2809,7 +2809,7 @@ msgid "FAVORITE"
 msgstr "المفضلة"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "محتوى غير صالح"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -3010,7 +3010,7 @@ msgid "LIGHTGUN"
 msgstr "المسدس"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "عجلة القيادة"
 
 msgid "HAS MEDIAS"
 msgstr "لديها وسائط"
