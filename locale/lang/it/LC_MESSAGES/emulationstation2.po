@@ -2205,6 +2205,9 @@ msgstr "RIDIMENSIONAMENTO PIXEL PERFECT"
 msgid "SHADER SET"
 msgstr "EFFETTO SHADER"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "CORNICI"
 

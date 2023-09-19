@@ -2181,6 +2181,9 @@ msgstr "整数缩放 (像素完美显示)"
 msgid "SHADER SET"
 msgstr "着色器设置"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "装饰框(复古游戏边框）"
 

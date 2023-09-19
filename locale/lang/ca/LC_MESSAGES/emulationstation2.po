@@ -2218,6 +2218,9 @@ msgstr "ESCALA SENCERA (PIXEL PERFECT)"
 msgid "SHADER SET"
 msgstr "SHADERS ESTABLERTS"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DECORACIONS"
 

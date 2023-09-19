@@ -2185,6 +2185,9 @@ msgstr "정수단위 해상도 조정 (픽셀 일치)"
 msgid "SHADER SET"
 msgstr "셰이더 설정"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "꾸미기"
 

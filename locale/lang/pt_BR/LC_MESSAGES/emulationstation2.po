@@ -2223,6 +2223,9 @@ msgstr "ESCALA INTEIRA (PIXEL PERFEITO)"
 msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "MOLDURAS"
 

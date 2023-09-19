@@ -2206,6 +2206,9 @@ msgstr "CELOČÍSELNÉ ŠKÁLOVÁNÍ (PERFEKTNÍ PIXEL)"
 msgid "SHADER SET"
 msgstr "SADA SHADERU"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DEKORACE"
 

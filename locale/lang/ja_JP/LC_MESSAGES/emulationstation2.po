@@ -2204,6 +2204,9 @@ msgstr "整数スケール (ピクセルを正方形表示)"
 msgid "SHADER SET"
 msgstr "シェーダー設定"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "ベゼル(ゲーム画面外装飾表示)"
 

@@ -2215,6 +2215,9 @@ msgstr "SKALOWANIE CAŁKOWITE (PIKSELOWE)"
 msgid "SHADER SET"
 msgstr "ZESTAW SHADERÓW"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DEKORACJE"
 

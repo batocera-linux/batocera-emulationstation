@@ -2229,6 +2229,9 @@ msgstr "تحجيم عددي (بكسل برفكت)"
 msgid "SHADER SET"
 msgstr "مظللات الفيديو"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "التزيينات"
 

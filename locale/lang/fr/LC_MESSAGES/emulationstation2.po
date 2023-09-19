@@ -2207,6 +2207,9 @@ msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
 msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DÉCORATIONS"
 

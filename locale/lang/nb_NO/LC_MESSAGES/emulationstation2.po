@@ -2190,6 +2190,9 @@ msgstr "HELTALL SKALERING (PIKSEL PERFEKT)"
 msgid "SHADER SET"
 msgstr "SKYGGELEGGER SETT"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DEKORASJONER"
 

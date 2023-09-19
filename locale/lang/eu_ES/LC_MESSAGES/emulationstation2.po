@@ -2202,6 +2202,9 @@ msgstr "ZENBAKI OSOKO ESKALATZEA (PIXEL PERFECT)"
 msgid "SHADER SET"
 msgstr "EZARRI SHADER-ak"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DEKORAZIOAK"
 

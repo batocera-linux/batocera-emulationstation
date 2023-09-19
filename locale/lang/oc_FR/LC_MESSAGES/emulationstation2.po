@@ -2172,6 +2172,9 @@ msgstr ""
 msgid "SHADER SET"
 msgstr ""
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DECORACIONS"
 

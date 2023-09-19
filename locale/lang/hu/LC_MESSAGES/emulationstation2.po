@@ -2215,6 +2215,9 @@ msgstr "INTEGER SCALE (PIXEL PONTOS)"
 msgid "SHADER SET"
 msgstr "SHADER VÁLASZTÁS"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DEKORÁCIÓ"
 

@@ -2215,6 +2215,9 @@ msgstr "INTEGER-SKALIERUNG (PIXEL PERFECT)"
 msgid "SHADER SET"
 msgstr "SHADER SET"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DEKORATIONEN"
 

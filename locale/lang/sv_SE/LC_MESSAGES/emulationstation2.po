@@ -2183,6 +2183,9 @@ msgstr "HELHETSSKALNING (PIXEL PERFECT)"
 msgid "SHADER SET"
 msgstr "SHADERS-UPPSÄTTNING"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "DEKORATIONER"
 

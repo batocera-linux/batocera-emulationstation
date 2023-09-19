@@ -2172,6 +2172,9 @@ msgstr "GRADDFA CYFANRIF (PIXEL PERFFAITH)"
 msgid "SHADER SET"
 msgstr "SET CYSGODYDD"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "ADDURNIADAU"
 

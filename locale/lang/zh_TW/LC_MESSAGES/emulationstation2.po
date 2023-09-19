@@ -2181,6 +2181,9 @@ msgstr "整數縮放 (完美像素)"
 msgid "SHADER SET"
 msgstr "著色器設定集"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "裝飾框"
 

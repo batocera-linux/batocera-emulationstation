@@ -2169,6 +2169,9 @@ msgstr "ЦІЛЕ МАСШТАБУВАННЯ (ІДЕАЛЬНО)"
 msgid "SHADER SET"
 msgstr "ШЕЙДЕРИ"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "РАМКИ (ОВЕРЛЕЇ)"
 

@@ -2204,6 +2204,9 @@ msgstr "Celočíselná mierka (pixel perfect)"
 msgid "SHADER SET"
 msgstr "Sada shaderov"
 
+msgid "VIDEO FILTER"
+msgstr ""
+
 msgid "DECORATIONS"
 msgstr "Dekorácie"
 
