@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-05-07 21:47+0200\n"
+"PO-Revision-Date: 2023-09-19 21:36+0200\n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -289,7 +289,7 @@ msgid "lightgun games"
 msgstr "juegos de pistola lightgun"
 
 msgid "wheel games"
-msgstr ""
+msgstr "juegos compatibles con volante"
 
 msgid "collections"
 msgstr "colecciones"
@@ -823,14 +823,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTES DE MANDOS Y DISPOSITIVOS BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "PRIORIDAD DE LOS MANDOS"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "ASIGNACIÓN DE MANDOS"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "MANDO #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -993,7 +993,7 @@ msgid "JOYSTICK"
 msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr "RATÓN SOLO"
+msgstr "SOLO RATÓN"
 
 msgid "HAND"
 msgstr "MANO"
@@ -1747,7 +1747,7 @@ msgid "VIDEO MODE"
 msgstr "MODO DE VÍDEO"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Ajusta la resolución de pantalla en emulationstation"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
@@ -2218,7 +2218,7 @@ msgid "SHADER SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTRO DE VIDEO"
 
 msgid "DECORATIONS"
 msgstr "DECORACIONES DE PANTALLA"
@@ -2525,7 +2525,7 @@ msgid "SKIP TO THE NEXT SONG"
 msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 
 msgid "NOW PLAYING"
-msgstr "SONANDO"
+msgstr "REPRODUCIENDO"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
@@ -2534,10 +2534,10 @@ msgid "VIEW USER MANUAL"
 msgstr "VER EL MANUAL DE USUARIO DE BATOCERA"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "DESACTIVAR MODO AVIÓN"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "ACTIVAR MODO AVIÓN"
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR SISTEMA"
@@ -2788,7 +2788,7 @@ msgid "FAVORITE"
 msgstr "FAVORITO"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "CONTENIDO NO VÁLIDO"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2990,7 +2990,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLA (LIGHTGUN)"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "VOLANTE"
 
 msgid "HAS MEDIAS"
 msgstr "TIENE MEDIOS"
