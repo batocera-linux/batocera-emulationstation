@@ -2215,7 +2215,7 @@ msgid "SHADER SET"
 msgstr "FILTROS DE IMAGEM"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTRO DE VÍDEO"
 
 msgid "DECORATIONS"
 msgstr "MOLDURAS"

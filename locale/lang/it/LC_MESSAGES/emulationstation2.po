@@ -2206,7 +2206,7 @@ msgid "SHADER SET"
 msgstr "EFFETTO SHADER"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTRO VIDEO"
 
 msgid "DECORATIONS"
 msgstr "CORNICI"
