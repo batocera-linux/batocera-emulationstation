@@ -1479,6 +1479,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::PLANEMODE:
 		executables.push_back("batocera-planemode");
 		break;
+	case ApiSystem::SERVICES:
+		executables.push_back("batocera-services");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -2010,4 +2013,28 @@ bool ApiSystem::setPlaneMode(bool enable)
 {
 	LOG(LogDebug) << "ApiSystem::setPlaneMode";
 	return executeScript("batocera-planemode " + std::string(enable ? "enable" : "disable"));
+}
+
+std::vector<Service> ApiSystem::getServices()
+{
+  std::vector<Service> services;
+
+  LOG(LogDebug) << "ApiSystem::getServices";
+
+  auto slines = executeEnumerationScript("batocera-services list");
+  for (auto sline : slines) {
+    auto splits = Utils::String::split(sline, ' ', true);
+    if (splits.size() == 2) {
+      Service s;
+      s.name = splits[0];
+      s.enabled = (splits[1] == "*");
+      services.push_back(s);
+    }
+  }
+  return services;
+}
+
+bool ApiSystem::enableService(std::string name, bool enable) {
+  LOG(LogDebug) << "ApiSystem::enableService";
+  return executeScript("batocera-services " + std::string(enable ? "enable" : "disable") + " " + name);
 }

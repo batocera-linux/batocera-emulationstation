@@ -82,6 +82,12 @@ struct PadInfo
 	int battery;
 };
 
+struct Service
+{
+  std::string name;
+  bool enabled;
+};
+
 class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
@@ -116,6 +122,7 @@ public:
 		VERSIONINFO = 26,
 		PLANEMODE = 27,
 		VIDEOFILTERS = 28,
+		SERVICES = 29
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -261,8 +268,11 @@ public:
     	virtual void replugControllers_wiimotes();
     	virtual void replugControllers_steamdeckguns();
 
-  	virtual bool isPlaneMode();
-    virtual bool setPlaneMode(bool enable);
+    	virtual bool isPlaneMode();
+    	virtual bool setPlaneMode(bool enable);
+
+    	virtual std::vector<Service> getServices();
+    	virtual bool enableService(std::string name, bool enable);
 
 protected:
 	ApiSystem();

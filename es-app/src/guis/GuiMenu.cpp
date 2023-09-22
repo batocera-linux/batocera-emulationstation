@@ -395,6 +395,27 @@ void GuiMenu::openSystemInformations()
 	mWindow->pushGui(new GuiSystemInformation(mWindow));
 }
 
+void GuiMenu::openServicesSettings()
+{
+	auto s = new GuiSettings(mWindow, _("SERVICES").c_str());
+
+	auto services = ApiSystem::getInstance()->getServices();
+	for(unsigned int i = 0; i < services.size(); i++) {
+	  auto service_enabled = std::make_shared<SwitchComponent>(mWindow);
+	  service_enabled->setState(services[i].enabled);
+	  s->addWithLabel(services[i].name, service_enabled);
+	  s->addSaveFunc([services, i, service_enabled]
+	  {
+	    if (services[i].enabled != service_enabled->getState())
+	      {
+		ApiSystem::getInstance()->enableService(services[i].name, service_enabled->getState());
+	      }
+	  });
+	}
+
+	mWindow->pushGui(s);
+}
+
 void GuiMenu::openDeveloperSettings()
 {
 	Window *window = mWindow;
@@ -1483,6 +1504,12 @@ void GuiMenu::openSystemSettings()
 		s->addEntry(_("INSTALL ON A NEW DISK"), true, [this] { mWindow->pushGui(new GuiInstallStart(mWindow)); });
 	
 	s->addGroup(_("ADVANCED"));
+
+	if(ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SERVICES)) {
+	  // Services
+	  if (isFullUI)
+	    s->addEntry(_("SERVICES"), true, [this] { openServicesSettings(); });
+	}
 
 	// Security
 	s->addEntry(_("SECURITY"), true, [this, s] 
