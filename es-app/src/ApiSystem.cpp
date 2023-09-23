@@ -2023,7 +2023,7 @@ std::vector<Service> ApiSystem::getServices()
 
   auto slines = executeEnumerationScript("batocera-services list");
   for (auto sline : slines) {
-    auto splits = Utils::String::split(sline, ' ', true);
+    auto splits = Utils::String::split(sline, ';', true);
     if (splits.size() == 2) {
       Service s;
       s.name = splits[0];
