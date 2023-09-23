@@ -66,10 +66,10 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 	std::string cmd = command;
 	if (slot == -1) // Run current AutoSave
 	{
-		if (racommands)
+		if (racommands || fileName.empty())
 			cmd = cmd + " -autosave 1 -state_slot " + std::to_string(nextSlot);
 		else
-			cmd = cmd + " -state_slot autosave";
+			cmd = cmd + " -state_slot " + std::to_string(nextSlot) + " -state_file \"" + fileName + "\"";
 	}
 	else
 	{
