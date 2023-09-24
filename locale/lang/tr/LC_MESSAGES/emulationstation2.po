@@ -1715,6 +1715,9 @@ msgstr "KULLANICI ARAYÜZÜ MODU KİLİDİ AÇILDI"
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "KİLİDİ AÇMAK İÇİN KODU GİRİN"
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND GELİŞTİRİCİ AYARLARI"
 

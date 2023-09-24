@@ -1748,6 +1748,9 @@ msgstr "تم فك نمط واجهة المستخدم"
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "أدخل الكود الآن لكي تكسب"
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "خيارات مطور الواجهة الأمامية"
 

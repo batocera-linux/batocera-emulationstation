@@ -1700,6 +1700,9 @@ msgstr ""
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr ""
 

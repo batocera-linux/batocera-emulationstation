@@ -1709,6 +1709,9 @@ msgstr "사용자 인터페이스 모드가 사용해제되었습니다"
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "해제 코드 입력"
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "프론트엔드 개발자 옵션"
 

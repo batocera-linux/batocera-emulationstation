@@ -1718,6 +1718,9 @@ msgstr "ユーザーインターフェイスモードのロックを解除しま
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ロック解除(ボタンを順に押す)"
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "開発者オプション"
 

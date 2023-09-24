@@ -1715,6 +1715,9 @@ msgstr "Režim používateľského rozhrania je teraz odomknutý"
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "Zadajte teraz kód na odomknutie"
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "Vývojárske voľby frontendu"
 
