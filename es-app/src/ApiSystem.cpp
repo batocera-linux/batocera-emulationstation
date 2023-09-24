@@ -2035,6 +2035,11 @@ std::vector<Service> ApiSystem::getServices()
 }
 
 bool ApiSystem::enableService(std::string name, bool enable) {
+  bool res;
   LOG(LogDebug) << "ApiSystem::enableService";
-  return executeScript("batocera-services " + std::string(enable ? "enable" : "disable") + " " + name);
+  res = executeScript("batocera-services " + std::string(enable ? "enable" : "disable") + " " + name);
+  if(res) {
+    res = executeScript("batocera-services " + std::string(enable ? "start" : "stop") + " " + name);
+  }
+  return res;
 }
