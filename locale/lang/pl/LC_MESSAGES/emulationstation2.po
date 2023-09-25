@@ -2219,7 +2219,7 @@ msgid "SHADER SET"
 msgstr "ZESTAW SHADERÓW"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTR WIDEO"
 
 msgid "DECORATIONS"
 msgstr "DEKORACJE"
