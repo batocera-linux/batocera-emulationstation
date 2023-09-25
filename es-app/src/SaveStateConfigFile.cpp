@@ -79,6 +79,7 @@ SaveStateConfigFile::SaveStateConfigFile()
 			bool        attr_nofileextension = false;
 			int         attr_firstslot = 0;
 			bool        attr_autosave = false;
+			bool		attr_incremental = false;
 			std::string attr_autosave_file = "";
 			std::string attr_autosave_image = "";
 
@@ -111,6 +112,10 @@ SaveStateConfigFile::SaveStateConfigFile()
 			if (attr)
 				if (strcmp(attr.value(), "true") == 0) attr_autosave = true;
 
+			attr = emulatorNode.attribute("incremental");
+			if (attr)
+				if (strcmp(attr.value(), "true") == 0) attr_incremental = true;
+
 			attr = emulatorNode.attribute("autosave_file");
 			if (attr)
 				attr_autosave_file = attr.value();
@@ -131,6 +136,8 @@ SaveStateConfigFile::SaveStateConfigFile()
 			regsavestate->autosave = attr_autosave;
 			regsavestate->autosave_file = attr_autosave_file;
 			regsavestate->autosave_image = attr_autosave_image;
+			regsavestate->incremental = attr_incremental;
+
 			mRegSaveStates[emulatorname] = regsavestate;
 
 			for (pugi::xml_node coreNode = emulatorNode.first_child(); coreNode; coreNode = coreNode.next_sibling())
@@ -150,6 +157,7 @@ SaveStateConfigFile::SaveStateConfigFile()
 					bool        attrcore_nofileextension = attr_nofileextension;
 					int         attrcore_firstslot = attr_firstslot;
 					bool        attrcore_autosave = attr_autosave;
+					bool		attrcore_incremental = attr_incremental;
 					std::string attrcore_autosave_file = attr_autosave_file;
 					std::string attrcore_autosave_image = attr_autosave_image;
 
@@ -182,6 +190,10 @@ SaveStateConfigFile::SaveStateConfigFile()
 					if (attr)
 						if (strcmp(attr.value(), "true") == 0) attrcore_autosave = true;
 
+					attr = coreNode.attribute("incremental");
+					if (attr)
+						if (strcmp(attr.value(), "true") == 0) attrcore_incremental = true;
+
 					attr = coreNode.attribute("autosave_file");
 					if (attr)
 						attrcore_autosave_file = attr.value();
@@ -202,6 +214,8 @@ SaveStateConfigFile::SaveStateConfigFile()
 					regsavestate->autosave = attrcore_autosave;
 					regsavestate->autosave_file = attrcore_autosave_file;
 					regsavestate->autosave_image = attrcore_autosave_image;
+					regsavestate->incremental = attrcore_incremental;
+					
 					mRegSaveStates[emulatorname + "_" + corename] = regsavestate;
 				}
 			}

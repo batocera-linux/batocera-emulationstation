@@ -24,6 +24,7 @@ public:
 	bool autosave;
 	std::string autosave_file;
 	std::string autosave_image;
+	bool incremental;
 	
 	bool matchSlotFile(const std::string& filename, std::string& romName, int& slot);
 	bool matchAutoFile(const std::string& filename, std::string& romName);

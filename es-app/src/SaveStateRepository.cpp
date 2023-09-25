@@ -56,6 +56,31 @@ std::string SaveStateRepository::getSavesPath()
 	return Utils::FileSystem::combine(Paths::getSavesPath(), mSystem->getName());	
 }
 
+bool SaveStateRepository::supportsAutoSave()
+{
+	if (SaveStateConfigFile::isEnabled())
+	{
+		RegSaveState* rs = SaveStateConfigFile::getRegSaveState(mSystem);
+		if (rs == nullptr || !rs->autosave)
+			return false;
+	}
+
+	return true;
+}
+
+bool SaveStateRepository::supportsIncrementalSaveStates()
+{
+	if (SaveStateConfigFile::isEnabled())
+	{
+		RegSaveState* rs = SaveStateConfigFile::getRegSaveState(mSystem);
+		if (rs == nullptr || !rs->incremental)
+			return false;
+	}
+
+	return true;
+}
+
+
 void SaveStateRepository::refresh()
 {
 	clear();
@@ -318,6 +343,13 @@ void SaveStateRepository::renumberSlots(FileData* game)
 	std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->slot < file2->slot; });
 
 	int slot = 0;
+
+	if (SaveStateConfigFile::isEnabled())
+	{
+		RegSaveState* rs = SaveStateConfigFile::getRegSaveState(game->getEmulator(), game->getCore());
+		if (rs != nullptr && rs->firstslot >= 0)
+			slot = rs->firstslot;
+	}
 
 	for (auto state : states)
 	{

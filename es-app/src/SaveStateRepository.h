@@ -19,6 +19,8 @@ public:
 	static int	getNextFreeSlot(FileData* game);
 	static void renumberSlots(FileData* game);
 
+	bool supportsAutoSave();
+	bool supportsIncrementalSaveStates();
 	bool hasSaveStates(FileData* game);
 
 	std::vector<SaveState*> getSaveStates(FileData* game);

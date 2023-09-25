@@ -45,12 +45,14 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 	if (game == nullptr)
 		return command;
 
+	bool supportsIncremental = game->getSourceFileData()->getSystem()->getSaveStateRepository()->supportsIncrementalSaveStates();
+
 	// We start games with new slots : If the users saves the game, we don't loose the previous save
 	int nextSlot = SaveStateRepository::getNextFreeSlot(game);
 
 	if (!isSlotValid())
 	{
-		if (nextSlot > 0 && !SystemConf::getIncrementalSaveStatesUseCurrentSlot())
+		if (nextSlot > 0 && !SystemConf::getIncrementalSaveStatesUseCurrentSlot() && supportsIncremental)
 		{
 			// We start a game normally but there are saved games : Start game on next free slot to avoid loosing a saved game
 			return command + " -state_slot " + std::to_string(nextSlot);
@@ -59,7 +61,7 @@ std::string SaveState::setupSaveState(FileData* game, const std::string& command
 		return command;
 	}
 
-	bool incrementalSaveStates = SystemConf::getIncrementalSaveStates() && hasAutosave;
+	bool incrementalSaveStates = SystemConf::getIncrementalSaveStates() && hasAutosave && supportsIncremental;
 
 	std::string path = Utils::FileSystem::getParent(fileName);
 
