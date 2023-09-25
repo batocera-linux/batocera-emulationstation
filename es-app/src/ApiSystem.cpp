@@ -1472,7 +1472,7 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("batocera-upgrade");
 		break;
 	case ApiSystem::SUSPEND:
-		return Utils::FileSystem::exists("/usr/sbin/pm-suspend");
+		return (Utils::FileSystem::exists("/usr/sbin/pm-suspend") && Utils::FileSystem::exists("/usr/bin/pm-is-supported") && executeScript("/usr/bin/pm-is-supported --suspend"));
 	case ApiSystem::VERSIONINFO:
 		executables.push_back("batocera-version");
 		break;
