@@ -1719,7 +1719,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "SAISISSEZ LE CODE DE DÉVERROUILLAGE"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "SERVICES"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPTION DEVELOPPEUR"
@@ -2211,7 +2211,7 @@ msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTRE VIDÉO"
 
 msgid "DECORATIONS"
 msgstr "DÉCORATIONS"
