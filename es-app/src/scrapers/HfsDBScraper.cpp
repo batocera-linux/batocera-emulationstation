@@ -140,7 +140,8 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ APF_MP_1000, "139722" },
 	{ CAMPUTER_LYNX, "240842" },
 	{ EPOCH_GAMEPOCKET, "190501" },
-	{ GP32, "240869"}
+	{ GP32, "240869"},
+	{ VTECH_SOCRATES, "240929"}
 };
 
 const std::set<Scraper::ScraperMediaSource>& HfsDBScraper::getSupportedMedias()
