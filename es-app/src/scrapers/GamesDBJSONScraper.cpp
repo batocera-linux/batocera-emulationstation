@@ -113,6 +113,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ WATARA_SUPERVISION, "4959" },
 	{ SONIC, "36,21" }, // Sega Mega Drive & Sega CD
 	{ GP32, "5015"},
+	{ VTECH_SOCRATES, "4998" },
 
 	// 1 = PC
 	{ PC, "1" },

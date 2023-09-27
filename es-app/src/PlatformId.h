@@ -111,6 +111,7 @@ namespace PlatformIds
 		MODEL3,
 		IMAGEVIEWER,
 		GP32,
+		VTECH_SOCRATES,
 
 		// Windows Specific
 		VISUALPINBALL,
