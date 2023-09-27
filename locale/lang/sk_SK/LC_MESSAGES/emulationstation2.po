@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2023-04-28 11:10+0200\n"
+"PO-Revision-Date: 2023-09-27 14:27+0200\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
 "2;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Loco-Source-Locale: en\n"
 "X-Loco-Project-Id: 136009\n"
 "X-Loco-Api-Version: 1.0.27 20230201-1\n"
@@ -291,7 +291,7 @@ msgid "lightgun games"
 msgstr "hry so svetelnou pištoľou"
 
 msgid "wheel games"
-msgstr ""
+msgstr "kolieskové hry"
 
 msgid "collections"
 msgstr "kolekcie"
@@ -818,14 +818,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "Nastavenia ovládača a bluetooth"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "Priorita ovládačov"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "Priradenia hráčov"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "Ovládač #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1716,7 +1716,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "Zadajte teraz kód na odomknutie"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "Služby"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "Vývojárske voľby frontendu"
@@ -1743,7 +1743,7 @@ msgid "VIDEO MODE"
 msgstr "Režim videa"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Nastaví predvolené rozlíšenie pre EmulationStation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "Použiť OMX prehrávač (hardvérovo akcelerovaný)"
@@ -2208,7 +2208,7 @@ msgid "SHADER SET"
 msgstr "Sada shaderov"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "Video filter"
 
 msgid "DECORATIONS"
 msgstr "Dekorácie"
@@ -2525,10 +2525,10 @@ msgid "VIEW USER MANUAL"
 msgstr "Zobraziť používateľskú príručku"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "Zakázať režim lietadlo"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "Povoliť režim lietadlo"
 
 msgid "RESTART SYSTEM"
 msgstr "Reštartovať systém"
@@ -2782,7 +2782,7 @@ msgid "FAVORITE"
 msgstr "Obľúbené"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "Neplatný obsah"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2984,7 +2984,7 @@ msgid "LIGHTGUN"
 msgstr "Svetelná pištoľ"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "Volant"
 
 msgid "HAS MEDIAS"
 msgstr "Má médiá"
