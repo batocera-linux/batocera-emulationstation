@@ -92,10 +92,10 @@ msgid "enter path to map"
 msgstr "sartu maparako bidea"
 
 msgid "Bezel (16:9)"
-msgstr ""
+msgstr "Bezel-a (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr ""
+msgstr "sartu bezel-erako bidea (16:9)"
 
 msgid "Cartridge"
 msgstr "Kartutxoa"
@@ -116,10 +116,10 @@ msgid "enter path to box background"
 msgstr "sartu kutxa atzealderako bidea"
 
 msgid "Wheel"
-msgstr ""
+msgstr "Gurpila"
 
 msgid "enter path to wheel"
-msgstr ""
+msgstr "sartu gurpilerako bidea"
 
 msgid "Mix"
 msgstr "Nahasketa"
@@ -284,7 +284,7 @@ msgid "lightgun games"
 msgstr "argizko pistola jokoak"
 
 msgid "wheel games"
-msgstr ""
+msgstr "gurpil jokoak"
 
 msgid "collections"
 msgstr "kolekzioak"
@@ -302,10 +302,10 @@ msgstr "Kolekzio hau hutsik dago"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
-msgstr ""
+msgstr "Bat ere ez"
 
 msgid "Various"
-msgstr ""
+msgstr "Anitzak"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -347,10 +347,10 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "GAIA ONDO DESINSTALATU DA"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZEL-AK ONDO INSTALATU DIRA"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr ""
+msgstr "BEZEL-AK ONDO DESINSTALATU DIRA"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr "PAKETEA ONDO INSTALATU DA"
@@ -516,16 +516,16 @@ msgid "ALPHABETICALLY"
 msgstr "ALFABETIKOKI"
 
 msgid "BY MANUFACTURER"
-msgstr "EGILARENGATIK"
+msgstr "EGILAREN ARABERA"
 
 msgid "BY HARDWARE TYPE"
-msgstr "HARWARE MOTARENGATIK"
+msgstr "HARWARE MOTAREN ARABERA"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "FABRIKATZAILE ETA MOTAREN ARABERA"
 
 msgid "BY RELEASE YEAR"
-msgstr "PUBLIKAZIO URTEARENGATIK"
+msgstr "PUBLIKAZIO URTEAREN ARABERA"
 
 msgid "SORT SYSTEMS"
 msgstr "ORDENATU SISTEMAK"
@@ -622,16 +622,16 @@ msgid "USE RELAY SERVER"
 msgstr "ERABILI BERBIDALTZE ZERBITZARIA"
 
 msgid "NEW YORK"
-msgstr ""
+msgstr "NEW YORK"
 
 msgid "MADRID"
-msgstr ""
+msgstr "MADRID"
 
 msgid "MONTREAL"
-msgstr ""
+msgstr "MONTREAL"
 
 msgid "SAO PAULO"
-msgstr ""
+msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ERAKUTIS ESKURAGARRI EZ DAUDEN JOKOAK"
@@ -815,14 +815,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AGINTEEN KONFIGURAZIOAK"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "AGINTE KONTROL PRIORITATEA"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "JOKALARI ASIGNAZIOAK"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "#%i ANGINTE KONTROLA"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -845,7 +845,7 @@ msgid "WIIMOTE GUN SETTINGS"
 msgstr "WIIMOTE PISTOLA EZARPENAK"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "STEAMDECK XAGU/PISTOLA"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -902,58 +902,58 @@ msgid "BORDER COLOR"
 msgstr ""
 
 msgid "WHITE"
-msgstr ""
+msgstr "ZURIA"
 
 msgid "RED"
-msgstr ""
+msgstr "GORRIA"
 
 msgid "GREEN"
-msgstr ""
+msgstr "BERDEA"
 
 msgid "BLUE"
-msgstr ""
+msgstr "URDINA"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "KAMERAREN KONTRASTEA"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr ""
+msgstr "Eguna/Eguzki argia (40)"
 
 msgid "Default (50)"
-msgstr ""
+msgstr "Defektuz (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Pantaila ahula/Arratsaldea (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr ""
+msgstr "KAMERAREN ARGITASUNA"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr ""
+msgstr "Eguna/Eguzki argia (80)"
 
 msgid "Default (100)"
-msgstr ""
+msgstr "Defektuz (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Pantaila ahula/Arratsaldea (120)"
 
 msgid "CAMERA EXPOSURE"
-msgstr ""
+msgstr "KAMERAREN ESPOSIZIOA"
 
 msgid "Projector/CRT (-5)"
-msgstr ""
+msgstr "Proiektorea/CRT (-5)"
 
 msgid "Projector/CRT (-6)"
-msgstr ""
+msgstr "Proiektorea/CRT (-6)"
 
 msgid "Default (-7)"
-msgstr ""
+msgstr "Defektus (-7"
 
 msgid "Other (-8)"
-msgstr ""
+msgstr "Bestela (-8)"
 
 msgid "Other (-9)"
-msgstr ""
+msgstr "Bestela (-9)"
 
 msgid "RECOIL"
 msgstr "ATZERA JOTZEA"
@@ -980,16 +980,16 @@ msgid "JOYSTICK"
 msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "XAGUA BAKARRIK"
 
 msgid "HAND"
-msgstr ""
+msgstr "ESKUA"
 
 msgid "LEFT"
-msgstr "EZKERRA"
+msgstr "EZKER"
 
 msgid "RIGHT"
-msgstr "ESKUINA"
+msgstr "ESKUIN"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "EDUKI DEKSARGATZAILEA"
@@ -1736,7 +1736,7 @@ msgid "VIDEO MODE"
 msgstr "BIDEO MODUA"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Pantailaren bereizmena ezartzen du emulationstation-entzat"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "ERABILI OMX IKARKURLERA (HADRWARE BIDEZKO AZELERAZIOAREKIN)"
@@ -1855,10 +1855,10 @@ msgid "RETROARCH MENU DRIVER"
 msgstr "RETROACH-EN MENU DRIVER-A"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "ALDATU ONARTU & UTZI BOTOIAK EMULATIONSTATION-EAN"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "Aldatu Hego eta Ekialde botoiein funtzionalitatea"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "IPAR BOTOIAREKIN JOKO EZARPENAK ATZITU"
@@ -1874,10 +1874,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROLATU EMULATIONSTATION LEHENENGO JOYSTICK-AREKIN BAKARRIK"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "PISTOLAREN MUGITZE TOLERANTZIA"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "GAITU HID JOYSTICK DRIVER-AK"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "ERAKUTSI SATE INDIKADOREA"
@@ -2206,7 +2206,7 @@ msgid "SHADER SET"
 msgstr "EZARRI SHADER-ak"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "BIDEO FILTROAK"
 
 msgid "DECORATIONS"
 msgstr "DEKORAZIOAK"
@@ -2415,7 +2415,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "JOKOA ABIARAZTERAKO TRANSIZIOA"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "JOKOAREN MEDIA BALIABIDEAK SCROLL AZKARRA DAGOEN BITARTEAN"
 
 msgid "SHOW CLOCK"
 msgstr "ERAKUTSI ORDUA"
@@ -2523,10 +2523,10 @@ msgid "VIEW USER MANUAL"
 msgstr "IKUSI ERABILTZAILE MANUALA"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "DESGAITU PLANO MODUA"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "GAITU PLANO MODUA"
 
 msgid "RESTART SYSTEM"
 msgstr "SISTEMA BERRABIARAZI"
@@ -2779,7 +2779,7 @@ msgid "FAVORITE"
 msgstr "GOGOKOAK"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "EDUKI BALIOGABEA"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2981,7 +2981,7 @@ msgid "LIGHTGUN"
 msgstr "ARGIZKO PISTOLA"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "BOLANTEA"
 
 msgid "HAS MEDIAS"
 msgstr "MEDIAK DITU"
@@ -3022,19 +3022,19 @@ msgstr "HUTSUNEA"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "IPARRA"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "HEGOA"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "EKIALDEA"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "MENDEBALDEA"
 
 msgctxt "joystick"
 msgid "START"
@@ -3046,19 +3046,19 @@ msgstr "AUKERATU"
 
 msgctxt "joystick"
 msgid "D-PAD UP"
-msgstr ""
+msgstr "D-PAD GORA"
 
 msgctxt "joystick"
 msgid "D-PAD DOWN"
-msgstr ""
+msgstr "D-PAD BEHERA"
 
 msgctxt "joystick"
 msgid "D-PAD LEFT"
-msgstr ""
+msgstr "D-PAD EZKERRA"
 
 msgctxt "joystick"
 msgid "D-PAD RIGHT"
-msgstr ""
+msgstr "D-PAD ESKUINA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -3094,27 +3094,27 @@ msgstr "ESKUINERA ESKUINEKO ANALOGIKOAN"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr ""
+msgstr "EZKER SORBALDA"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr ""
+msgstr "ESKUIN SORBALDA"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr ""
+msgstr "EZKER KOLPEKARIA"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr ""
+msgstr "ESKUIN KOLPEKARIA"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
-msgstr ""
+msgstr "EZKER STICK SAKATZEA"
 
 msgctxt "joystick"
 msgid "RIGHT STICK PRESS"
-msgstr ""
+msgstr "ESKUIN STICK SAKATZEA"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3247,7 +3247,7 @@ msgstr "LANEAN..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d d"
 
 #, c-format
 msgid "%d h"
