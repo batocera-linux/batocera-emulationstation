@@ -115,6 +115,7 @@ namespace PlatformIds
 		{ "mrboom",					MRBOOM },
 		{ "sonicretro",				SONIC },
 		{ "cannonball",				CANNONBALL },
+		{ "multivision",			SEGA_SG1000 },	
 
 		// windows specific systems & names
 		{ "windows",				MOONLIGHT },
