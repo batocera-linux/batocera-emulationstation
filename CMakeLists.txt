@@ -14,6 +14,7 @@ option(ENABLE_FILEMANAGER "Set to ON to enable f1 shortcut for filesystem" OFF)
 option(DISABLE_KODI "Set to ON to disable kodi in menu" OFF)
 option(ENABLE_PULSE "Set to ON to enable pulse audio (versus alsa)" OFF)
 option(ENABLE_TTS "Set to ON to enable text to speech" OFF)
+option(USE_SYSTEM_PUGIXML "Set to ON to use system-wide pugixml library" OFF)
 
 # Win32 default platform & directory detection
 if(WIN32)
@@ -302,6 +303,11 @@ if(ENABLE_PULSE)
  LIST(APPEND COMMON_INCLUDE_DIRS
     ${PULSEAUDIO_INCLUDE_DIR}
       )
+endif()
+
+if(USE_SYSTEM_PUGIXML)
+  MESSAGE("Use system pugixml")
+  find_package(pugixml REQUIRED)
 endif()
 
 #add libCEC_INCLUDE_DIR
