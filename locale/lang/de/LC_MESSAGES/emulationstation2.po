@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "Lightgun-Spiele"
 
 msgid "wheel games"
-msgstr ""
+msgstr "Lenkrad-Spiele"
 
 msgid "collections"
 msgstr "Sammlungen"
@@ -819,14 +819,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "CONTROLLER & BLUETOOTH EINSTELLUNGEN"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "CONTROLLER PRIORITÄT"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "SPIELERZUWEISUNGEN"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "CONTROLLER #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1719,7 +1719,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "GEBEN SIE JETZT DEN CODE ZUM ENTSPERREN EIN"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "SERVICES"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND ENTWICKLEROPTIONEN"
@@ -1747,7 +1747,7 @@ msgid "VIDEO MODE"
 msgstr "VIDEOMODUS"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Legt die Auflösung für Emulationstation fest."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYER VERWENDEN (HARDWARE-BESCHLEUNIGT)"
@@ -2219,7 +2219,7 @@ msgid "SHADER SET"
 msgstr "SHADER SET"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "VIDEOFILTER"
 
 msgid "DECORATIONS"
 msgstr "DEKORATIONEN"
@@ -2539,10 +2539,10 @@ msgid "VIEW USER MANUAL"
 msgstr "BEDIENUNGSANLEITUNG ANSEHEN"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "DEAKTIVIERE FLUGMODUS"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "AKTIVIERE FLUGMODUS"
 
 msgid "RESTART SYSTEM"
 msgstr "SYSTEM NEUSTARTEN"
@@ -2795,7 +2795,7 @@ msgid "FAVORITE"
 msgstr "FAVORIT"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "UNGÜLTIGER INHALT"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2997,7 +2997,7 @@ msgid "LIGHTGUN"
 msgstr "LIGHTGUN"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "LENKRAD"
 
 msgid "HAS MEDIAS"
 msgstr "MIT MEDIEN"
