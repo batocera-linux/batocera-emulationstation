@@ -2,21 +2,14 @@
 
 #include <string>
 #include "utils/TimeUtil.h"
+#include "SaveStateConfigFile.h"
 
 class FileData;
 
 struct SaveState
 {
-	SaveState()
-	{
-		slot = -99;
-	}
+	friend class SaveStateRepository;
 
-	SaveState(int slotId)
-	{
-		slot = slotId;
-	}
-	
 	bool isSlotValid() const { return slot != -99; }
 	
 	std::string rom;
@@ -34,13 +27,30 @@ struct SaveState
 
 	Utils::Time::DateTime creationDate;
 
+	std::shared_ptr<SaveStateConfig> config;
+
 public:
-	virtual std::string makeStateFilename(int slot, bool fullPath = true) const;
+	virtual std::string makeStateFilename(int slot, bool fullPath = true, bool useImageGenerator = false) const;
 
 	std::string setupSaveState(FileData* game, const std::string& command);
 	void onGameEnded(FileData* game);
 
 private:
+	SaveState()
+	{
+		slot = -99;
+		hasAutosave = false;
+		racommands = false;
+	}
+
+
+	SaveState(int slotId)
+	{
+		slot = slotId;
+		hasAutosave = false;
+		racommands = false;
+	}
+
 	std::string mAutoFileBackup;
 	std::string mAutoImageBackup;
 

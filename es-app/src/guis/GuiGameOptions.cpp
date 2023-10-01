@@ -146,7 +146,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		{
 			mMenu.addEntry(_("SAVE STATES"), false, [window, game, this]
 			{
-				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState state)
+				mWindow->pushGui(new GuiSaveState(mWindow, game, [this, game](SaveState* state)
 				{
 					LaunchGameOptions options;
 					options.saveStateInfo = state;

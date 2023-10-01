@@ -580,7 +580,15 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 		command = command + " -monitor " + std::to_string(monitorId);
 
 	if (SaveStateRepository::isEnabled(this))
-		command = options.saveStateInfo.setupSaveState(this, command);
+	{
+		if (options.saveStateInfo == nullptr)
+		{
+			options.saveStateInfo = system->getSaveStateRepository()->getTemporaryNewGameSaveState(emulator, core);
+			options.isSaveStateInfoTemporary = true;
+		}
+
+		command = options.saveStateInfo->setupSaveState(this, command);		
+	}
 
 	return command;
 }
@@ -668,7 +676,14 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	if (SaveStateRepository::isEnabled(this))
 	{
-		options.saveStateInfo.onGameEnded(this);
+		if (options.saveStateInfo != nullptr)
+		{
+			options.saveStateInfo->onGameEnded(this);
+
+			if (options.isSaveStateInfoTemporary)
+				delete options.saveStateInfo;
+		}
+
 		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
 	}
 

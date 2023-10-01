@@ -48,7 +48,13 @@ struct GetFileContext
 
 struct LaunchGameOptions
 {
-	LaunchGameOptions() { netPlayMode = NetPlayMode::DISABLED; }
+	LaunchGameOptions() 
+	{ 
+		netPlayMode = NetPlayMode::DISABLED; 
+		port = 0;
+		saveStateInfo = nullptr; 
+		isSaveStateInfoTemporary = false; 		  
+	}
 
 	int netPlayMode;
 	std::string ip;
@@ -57,7 +63,8 @@ struct LaunchGameOptions
 	std::string core;
 	std::string netplayClientPassword;
 
-	SaveState	saveStateInfo;
+	SaveState*	saveStateInfo;
+	bool isSaveStateInfoTemporary;
 };
 
 class FolderData;

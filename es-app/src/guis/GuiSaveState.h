@@ -14,10 +14,18 @@ class ThemeData;
 class FileData;
 class SaveStateRepository;
 
+struct SaveStateItem
+{
+	SaveStateItem() { saveState = nullptr; }
+	SaveStateItem(SaveState* save) { saveState = save; }
+
+	SaveState* saveState;
+};
+
 class GuiSaveState : public GuiComponent
 {
 public:
-	GuiSaveState(Window* window, FileData* game, const std::function<void(const SaveState& state)>& callback);
+	GuiSaveState(Window* window, FileData* game, const std::function<void(SaveState* state)>& callback);
 
 	bool input(InputConfig* config, Input input) override;
 	void onSizeChanged() override;
@@ -31,14 +39,14 @@ protected:
 	void centerWindow();
 	void loadGrid();
 
-	std::shared_ptr<ImageGridComponent<SaveState>> mGrid;
+	std::shared_ptr<ImageGridComponent<SaveStateItem>> mGrid;
 	std::shared_ptr<ThemeData> mTheme;
 	std::shared_ptr<TextComponent>	mTitle;
 
 	NinePatchComponent				mBackground;
 	ComponentGrid					mLayout;
 	
-	std::function<void(const SaveState& state)>			mRunCallback;
+	std::function<void(SaveState* state)>			mRunCallback;
 
 	FileData* mGame;
 	SaveStateRepository* mRepository;

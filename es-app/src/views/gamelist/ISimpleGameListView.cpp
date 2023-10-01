@@ -361,7 +361,7 @@ void ISimpleGameListView::showSelectedGameSaveSnapshots()
 	{
 		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
 
-		mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
+		mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState* state)
 		{
 			Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 
@@ -402,7 +402,7 @@ void ISimpleGameListView::launchSelectedGame()
 			if (SaveStateRepository::isEnabled(cursor) &&
 				(cursor->getCurrentGameSetting("savestates") == "1" || (cursor->getCurrentGameSetting("savestates") == "2" && cursor->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(cursor))))
 			{
-				mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
+				mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState* state)
 				{
 					Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 
