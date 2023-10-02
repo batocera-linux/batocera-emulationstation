@@ -582,10 +582,7 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	if (SaveStateRepository::isEnabled(this))
 	{
 		if (options.saveStateInfo == nullptr)
-		{
-			options.saveStateInfo = system->getSaveStateRepository()->getTemporaryNewGameSaveState(emulator, core);
-			options.isSaveStateInfoTemporary = true;
-		}
+			options.saveStateInfo = SaveStateRepository::getEmptySaveState();
 
 		command = options.saveStateInfo->setupSaveState(this, command);		
 	}
@@ -677,12 +674,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (SaveStateRepository::isEnabled(this))
 	{
 		if (options.saveStateInfo != nullptr)
-		{
 			options.saveStateInfo->onGameEnded(this);
-
-			if (options.isSaveStateInfoTemporary)
-				delete options.saveStateInfo;
-		}
 
 		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
 	}

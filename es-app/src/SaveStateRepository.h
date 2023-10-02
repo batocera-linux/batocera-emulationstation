@@ -32,7 +32,7 @@ public:
 	SaveState* getDefaultAutoSaveSaveState();
 	SaveState* getDefaultNewGameSaveState();
 
-	SaveState* getTemporaryNewGameSaveState(const std::string& emulator, const std::string& core);
+	static SaveState* getEmptySaveState();
 
 private:
 	// std::string getDefaultSavesPath();
@@ -40,6 +40,7 @@ private:
 	SystemData* mSystem;
 	std::map<std::string, std::vector<SaveState*>> mStates;
 
+	static SaveState* _empty;
 	SaveState* _autosave;
 	SaveState* _newGame;
 };

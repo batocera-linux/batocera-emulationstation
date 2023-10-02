@@ -14,6 +14,8 @@
 #include "Win32ApiSystem.h"
 #endif
 
+SaveState* SaveStateRepository::_empty = new SaveState(-99);
+
 SaveStateRepository::SaveStateRepository(SystemData* system)
 {
 	_newGame = nullptr;
@@ -269,27 +271,7 @@ SaveState* SaveStateRepository::getDefaultNewGameSaveState()
 	return _newGame;
 }
 
-SaveState* SaveStateRepository::getTemporaryNewGameSaveState(const std::string& emulator, const std::string& core)
+SaveState* SaveStateRepository::getEmptySaveState()
 {
-	auto ret = new SaveState(-2);
-
-	for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
-	{
-		if (rs->emulator == emulator && rs->core == core)
-		{
-			ret->config = rs;
-			return ret;
-		}
-	}
-
-	for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
-	{
-		if (rs->emulator == emulator)
-		{
-			ret->config = rs;
-			return ret;
-		}
-	}
-
-	return ret;
+	return _empty;
 }
