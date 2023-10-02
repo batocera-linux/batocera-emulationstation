@@ -1253,7 +1253,7 @@ void DetailedContainerHost::update(int deltaTime)
 
 		if (!dc->anyComponentHasStoryBoardRunning() || index > 4)
 		{
-			mContainers.erase(it);
+			it = mContainers.erase(it);
 
 			for (auto cp : dc->getComponents())
 			{
