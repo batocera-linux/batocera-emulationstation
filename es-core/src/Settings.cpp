@@ -431,7 +431,7 @@ bool Settings::saveFile()
 		node.append_attribute("value").set_value(iter->second.c_str());
 	}
 
-	doc.save_file(path.c_str());
+	doc.save_file(WINSTRINGW(path).c_str());
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("settings-changed");
@@ -446,7 +446,7 @@ void Settings::loadFile()
 		return;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(path.c_str());
+	pugi::xml_parse_result result = doc.load_file(WINSTRINGW(path).c_str());
 	if(!result)
 	{
 		LOG(LogError) << "Could not parse Settings file!\n   " << result.description();

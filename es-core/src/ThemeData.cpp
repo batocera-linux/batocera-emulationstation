@@ -634,7 +634,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = fromFile ? doc.load_file(path.c_str()) : doc.load_string(path.c_str());
+	pugi::xml_parse_result res = fromFile ? doc.load_file(WINSTRINGW(path).c_str()) : doc.load_string(path.c_str());
 	if(!res)
 		throw error << "XML parsing error: \n    " << res.description();
 
@@ -909,7 +909,7 @@ void ThemeData::parseInclude(const pugi::xml_node& node)
 	mPaths.push_back(path);
 
 	pugi::xml_document includeDoc;
-	pugi::xml_parse_result result = includeDoc.load_file(path.c_str());
+	pugi::xml_parse_result result = includeDoc.load_file(WINSTRINGW(path).c_str());
 	if (!result)
 	{
 		LOG(LogWarning) << "Error parsing file: \n    " << result.description() << "    from included file \"" << relPath << "\":\n    ";

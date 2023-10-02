@@ -46,7 +46,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/mamenames.xml");
 	if (Utils::FileSystem::exists(xmlpath))
 	{		
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
@@ -81,7 +81,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/mamebioses.xml"); 	
 	if (Utils::FileSystem::exists(xmlpath))
 	{
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
@@ -107,7 +107,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/mamedevices.xml"); 	
 	if (Utils::FileSystem::exists(xmlpath))
 	{
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
@@ -132,7 +132,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/gungames.xml");
 	if (Utils::FileSystem::exists(xmlpath))
 	{
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			pugi::xml_node systems = doc.child("systems");
@@ -173,7 +173,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/wheelgames.xml");
 	if (Utils::FileSystem::exists(xmlpath))
 	{
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			pugi::xml_node systems = doc.child("systems");

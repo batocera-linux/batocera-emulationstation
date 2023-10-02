@@ -25,7 +25,7 @@ void Genres::init()
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(xmlpath.c_str());
+	pugi::xml_parse_result result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 
 	if (!result)
 	{

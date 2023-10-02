@@ -101,7 +101,7 @@ void CustomFeatures::loadAdditionnalFeatures(pugi::xml_node& srcSystems)
 				continue;
 
 			pugi::xml_document doc;
-			pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+			pugi::xml_parse_result res = doc.load_file(WINSTRINGW(customPath).c_str());
 			if (!res)
 			{
 				LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
@@ -148,7 +148,7 @@ void CustomFeatures::loadAdditionnalFeatures(pugi::xml_node& srcSystems)
 	/* Uncomment to see final XML result
 	std::string fileName = "c:\\temp\\test.xml";
 	Utils::FileSystem::removeFile(fileName);
-	doc.save_file(fileName.c_str());
+	doc.save_file(WINSTRINGW(fileName).c_str());
 	*/
 }
 
@@ -168,7 +168,7 @@ bool CustomFeatures::loadEsFeaturesFile()
 		return false;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if (!res)
 	{

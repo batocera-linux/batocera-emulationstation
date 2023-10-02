@@ -653,7 +653,7 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 		return false;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if (!res)
 	{
@@ -935,7 +935,7 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 	if (Utils::FileSystem::exists(path))
 	{
 		// merge files
-		pugi::xml_parse_result result = doc.load_file(path.c_str());
+		pugi::xml_parse_result result = doc.load_file(WINSTRINGW(path).c_str());
 		if (!result)
 		{
 			LOG(LogError) << "Error parsing input config: " << result.description();
@@ -970,14 +970,14 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 		root = doc.append_child("inputList");
 
 	config->writeToXML(root);
-	doc.save_file(path.c_str());
+	doc.save_file(WINSTRINGW(path).c_str());
         
 	/* create a es_last_input.cfg so that people can easily share their config */
 	pugi::xml_document lastdoc;
 	pugi::xml_node lastroot = lastdoc.append_child("inputList");
 	config->writeToXML(lastroot);
 	std::string lastpath = getTemporaryConfigPath();
-	lastdoc.save_file(lastpath.c_str());
+	lastdoc.save_file(WINSTRINGW(lastpath).c_str());
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("controls-changed");
@@ -997,7 +997,7 @@ void InputManager::doOnFinish()
 
 	if(Utils::FileSystem::exists(path))
 	{
-		pugi::xml_parse_result result = doc.load_file(path.c_str());
+		pugi::xml_parse_result result = doc.load_file(WINSTRINGW(path).c_str());
 		if(!result)
 		{
 			LOG(LogError) << "Error parsing input config: " << result.description();
