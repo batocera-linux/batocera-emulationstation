@@ -3,15 +3,17 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2023-10-04 11:17+0000\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Catalan; Valencian\n"
 "Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Loco-Source-Locale: es_ES\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Parser: loco_parse_po"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALITZACIÓ DISPONIBLE"
@@ -122,7 +124,7 @@ msgid "Wheel"
 msgstr "Wheel"
 
 msgid "enter path to wheel"
-msgstr "introdueix la ruta del wheee"
+msgstr "introdueix la ruta del wheel"
 
 msgid "Mix"
 msgstr "Mix"
@@ -286,8 +288,9 @@ msgstr "arcade vertical"
 msgid "lightgun games"
 msgstr "jocs de pistola lightgun"
 
+# Maybe Wheel is like "roulette"?
 msgid "wheel games"
-msgstr ""
+msgstr "jocs de conducció"
 
 msgid "collections"
 msgstr "col·leccions"
@@ -820,14 +823,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTOS DE COMANDAMENTS I BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "PRIORITAT DEL COMANDAMENT"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "ASSIGNACIONS DE JUGADOR"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "COMANDAMENT #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -839,8 +842,8 @@ msgstr "MAPATGE DE COMANDAMENTS"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
+" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "ES FARÀ EL MAPATGE D'UN COMANDAMENT. AQUEST ES BASA EN LA POSICIÓ DELS "
 "BOTONS, NO EN LA SEVA ETIQUETA FÍSICA. SI NO DISPOSA D'UN BOTÓ ESPECIAL PER "
@@ -1719,7 +1722,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "INTRODUÏU EL CODI DE DESBLOQUEIG"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "SERVEIS"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPCIONS DE DESENVOLUPADOR D'INTERFÍCIE"
@@ -1746,7 +1749,7 @@ msgid "VIDEO MODE"
 msgstr "MODE DE VÍDEO"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Estableix la resolució de pantalla per emulestation"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR REPRODUCTOR OMX (ACCELERAT PER MAQUINARI)"
@@ -2222,7 +2225,7 @@ msgid "SHADER SET"
 msgstr "SHADERS ESTABLERTS"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTRE DE VÍDEO"
 
 msgid "DECORATIONS"
 msgstr "DECORACIONS"
@@ -2539,10 +2542,10 @@ msgid "VIEW USER MANUAL"
 msgstr "VEURE MANUAL D'USUARI"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "DESACTIVAR MODE AVIÓ"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "ACTIVAR MODE AVIÓ"
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIA EL SISTEMA"
@@ -2793,14 +2796,14 @@ msgid "FAVORITE"
 msgstr "FAVORIT"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "CONTINGUT INVÀLID"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+"A valid account is required. Please register an account on https:"
+"//retroachievements.org"
 msgstr ""
-"Es requereix un compte vàlid. Si us plau enregistri'n un de nou a https://"
-"retroachievements.org"
+"Es requereix un compte vàlid. Si us plau enregistri'n un de nou a https:"
+"//retroachievements.org"
 
 msgid "Searching"
 msgstr "Cercant"
@@ -2995,7 +2998,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLA DE LLUM"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "VOLANT"
 
 msgid "HAS MEDIAS"
 msgstr "TÉ CONTINGUTS"
@@ -3282,66 +3285,3 @@ msgstr "LECTOR DE PANTALLA HABILITAT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTOR DE PANTALLA DESHABILITAT"
-
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "AMUNT"
-
-#~ msgctxt "joystick"
-#~ msgid "DOWN"
-#~ msgstr "AVALL"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT"
-#~ msgstr "ESQUERRA"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT"
-#~ msgstr "DRETA"
-
-#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "INTERCANVIAR ELS BOTONS SUD I EST EMULATIONSTATION"
-
-#~ msgid ""
-#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
-#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
-#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
-#~ "BUTTON TO CONFIRM WHEN DONE."
-#~ msgstr ""
-#~ "ESTÀ A PUNT DE MAPEJAR UN CONTROLADOR. EL MAPATGE BASAT EN LA POSICIÓ DE "
-#~ "BOTONS RELATIVA ÉS EQUIVALENT A UN CONTROLADOR DE SNES; NO A LA SEVA "
-#~ "REPRESENTACIÓ FÍSICA. SI NO TÉ UN BOTÓ ESPECIAL PER A FER-LO SERVIR DE "
-#~ "DRECERA, USI EL BOTÓ SELECT. SALTI TOTS ELS BOTONS O PALANQUES QUE NO "
-#~ "DISPOSI AMB UNA PULSACIÓ LLARGA DE QUALSEVOL BOTÓ. PREMEU EL BOTÓ SUD PER "
-#~ "A CONFIRMAR QUAN ACABI."
-
-#~ msgid "BLUETOOTH SCANNING IS ALREADY RUNNING."
-#~ msgstr "L'ESCANEIG BLUETOOTH S’ESTÀ EXECUTANT."
-
-#~ msgid "GAME MEDIAS"
-#~ msgstr "MULTIMÈDIA DE JOC"
-
-#~ msgid "VIEW GAME MEDIAS"
-#~ msgstr "VEURE MULTIMÈDIA DE JOC"
-
-#~ msgid "USE OMX PLAYER (HW ACCELERATED)"
-#~ msgstr "USA EL REPRODUCTOR OMX (ACCELERACIÓ PER HW)"
-
-#~ msgid "FILE GENERATED SUCCESSFULLY"
-#~ msgstr "FITXER GERNERAT SATISFACTÒRIAMENT"
-
-#~ msgid "FILE GENERATION FAILED"
-#~ msgstr "LA GENERACIÓ DE FITXER HA FALLAT"
-
-#~ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIAS"
-#~ msgstr "NETEJAR GAMELISTS I ELIMINAR MULTIMÈDIA NO USADA"
-
-#~ msgid "Cleaning "
-#~ msgstr "Netejant "
-
-#~ msgid "REDETECT GAMES LANG/REGION"
-#~ msgstr "REDETECTAR IDIOMA/REGIÓ DELS JOCS"
-
-#~ msgid "HIDE WHEN RUNNING A GAME"
-#~ msgstr "OCULTAR MENTRE S'EXECUTA UN JOC"
