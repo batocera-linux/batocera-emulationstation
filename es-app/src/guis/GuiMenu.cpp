@@ -1800,6 +1800,7 @@ void GuiMenu::openSystemSettings()
 #ifdef _ENABLEEMUELEC
 	auto emuelec_timezones = std::make_shared<OptionListComponent<std::string> >(mWindow, _("TIMEZONE"), false);
 	std::string currentTimezone = SystemConf::getInstance()->get("system.timezone");
+	std::string test_shell = getShOutput(R"(/usr/bin/emuelec-utils test)");
 	if (!test_shell.compare("success")) {
 		if (currentTimezone.empty())
 			currentTimezone = std::string(getShOutput(R"(/usr/bin/emuelec-utils current_timezone)"));
