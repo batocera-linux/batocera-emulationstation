@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
@@ -288,7 +288,7 @@ msgid "lightgun games"
 msgstr "световой пистолет"
 
 msgid "wheel games"
-msgstr ""
+msgstr "игры с рулём"
 
 msgid "collections"
 msgstr "коллекции"
@@ -819,14 +819,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "ПРИОРИТЕТ КОНТРОЛЛЕРОВ"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "НАЗНАЧЕНИЯ ИГРОКА"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "КОНТРОЛЛЕР #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1717,7 +1717,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ВВЕДИТЕ КОД ДЛЯ РАЗБЛОКИРОВКИ"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "СЕРВИСЫ"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "НАСТРОЙКИ РАЗРАБОТЧИКА"
@@ -1744,7 +1744,7 @@ msgid "VIDEO MODE"
 msgstr "РАЗРЕШЕНИЕ"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Устанавливает разрешение экрана для emulationstation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "ИСП. OMX ПЛЕЕР (АППАРАТНОЕ УСКОРЕНИЕ)"
@@ -2207,7 +2207,7 @@ msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "ВИДЕО ФИЛЬТР"
 
 msgid "DECORATIONS"
 msgstr "РАМКИ (ОВЕРЛЕИ)"
@@ -2523,10 +2523,10 @@ msgid "VIEW USER MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "ОТКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -2780,7 +2780,7 @@ msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "НЕДОПУСТИМОЕ СОДЕРЖАНИЕ"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2982,7 +2982,7 @@ msgid "LIGHTGUN"
 msgstr "СВЕТОВОЙ ПИСТОЛЕТ"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "РУЛЬ"
 
 msgid "HAS MEDIAS"
 msgstr "С МЕДИА"
