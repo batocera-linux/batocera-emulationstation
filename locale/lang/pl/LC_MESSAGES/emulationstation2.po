@@ -21,13 +21,13 @@ msgid "Name"
 msgstr "Nazwa"
 
 msgid "this game's name"
-msgstr "nazwa gry"
+msgstr "nazwa tej gry"
 
 msgid "Description"
 msgstr "Opis"
 
 msgid "this game's description"
-msgstr "opis gry"
+msgstr "opis tej gry"
 
 msgid "Emulator"
 msgstr "Emulator"
@@ -36,16 +36,16 @@ msgid "emulator"
 msgstr "emulator"
 
 msgid "Core"
-msgstr "Core"
+msgstr "Rdzeń"
 
 msgid "core"
-msgstr "core"
+msgstr "rdzeń"
 
 msgid "Image"
-msgstr "Obraz"
+msgstr "ROM"
 
 msgid "enter path to image"
-msgstr "wprowadź ścieżkę do obrazu"
+msgstr "wprowadź ścieżkę do ROMu"
 
 msgid "Video"
 msgstr "Wideo"
@@ -66,10 +66,10 @@ msgid "enter path to box"
 msgstr "wprowadź ścieżkę do pudełka"
 
 msgid "Fan art"
-msgstr "Fan art"
+msgstr "Grafiki fanów"
 
 msgid "enter path to fanart"
-msgstr "wprowadź ścieżkę do fan art"
+msgstr "wprowadź ścieżkę do grafik fanów"
 
 msgid "Title shot"
 msgstr "Ujęcie tytułu"
@@ -108,16 +108,16 @@ msgid "enter path to cartridge"
 msgstr "wprowadź ścieżkę do kartridża"
 
 msgid "Alt BoxArt"
-msgstr "Alternatywne Art pudełka"
+msgstr "Alternatywna grafika pudełka"
 
 msgid "enter path to alt boxart"
-msgstr "wprowadź ścieżkę do alternatywnego art pudełka"
+msgstr "wprowadź ścieżkę do alternatywnej grafiki pudełka"
 
 msgid "Box backside"
 msgstr "Tył pudełka"
 
 msgid "enter path to box background"
-msgstr "wprowadź ścieżkę do tła pudełka"
+msgstr "wprowadź ścieżkę do tyłu pudełka"
 
 msgid "Wheel"
 msgstr "Koło"
@@ -126,10 +126,10 @@ msgid "enter path to wheel"
 msgstr "wprowadź ścieżkę do koła"
 
 msgid "Mix"
-msgstr "Mix"
+msgstr "Wymieszanie"
 
 msgid "enter path to mix"
-msgstr "wprowadź ścieżkę do mixa"
+msgstr "wprowadź ścieżkę do wymieszania"
 
 msgid "Rating"
 msgstr "Ocena"
@@ -144,16 +144,16 @@ msgid "enter release date"
 msgstr "wprowadź datę produkcji"
 
 msgid "Developer"
-msgstr "Deweloper"
+msgstr "Twórca gry"
 
 msgid "this game's developer"
-msgstr "deweloper gry"
+msgstr "twórca tej gry"
 
 msgid "Publisher"
-msgstr "Wydawca"
+msgstr "Wydawca gry"
 
 msgid "this game's publisher"
-msgstr "wydawca gry"
+msgstr "wydawca tej gry"
 
 msgid "Genre"
 msgstr "Gatunek"
@@ -171,19 +171,19 @@ msgid "Genres"
 msgstr "Gatunki"
 
 msgid "enter game genres"
-msgstr "wprowadź gatunek gry"
+msgstr "wprowadź gatunki gry"
 
 msgid "Arcade system"
 msgstr "System gier zręcznościowych"
 
 msgid "this game's arcade system"
-msgstr "system gry"
+msgstr "system gier zręcznościowych tej gry"
 
 msgid "Players"
 msgstr "Graczy"
 
 msgid "this game's number of players"
-msgstr "liczba graczy tej gry"
+msgstr "liczba graczy w tej grze"
 
 msgid "Favorite"
 msgstr "Ulubiona"
@@ -195,22 +195,22 @@ msgid "Hidden"
 msgstr "Ukryta"
 
 msgid "enter hidden"
-msgstr "wprowadź jako ukrytą"
+msgstr "ustaw jako ukrytą"
 
 msgid "Kidgame"
 msgstr "Gra dla dzieci"
 
 msgid "enter kidgame"
-msgstr "wprowadź jako dla dzieci"
+msgstr "ustaw jako grę dla dzieci"
 
 msgid "Play count"
 msgstr "Liczba rozgrywek"
 
 msgid "enter number of times played"
-msgstr "wprowadź liczbę rozegranych gier"
+msgstr "wprowadź liczbę rozgrywek"
 
 msgid "Last played"
-msgstr "Ostatnio rozegrane"
+msgstr "Ostatnia rozgrywka"
 
 msgid "enter last played date"
 msgstr "wpisz datę ostatniej rozgrywki"
@@ -231,37 +231,37 @@ msgid "Game time"
 msgstr "Czas gry"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "jak długo gra została rozegrana w sumie (w sekundach)"
+msgstr "łączny czas rozgrywek (w sekundach)"
 
 msgid "Languages"
 msgstr "Języki"
 
 msgid "this game's languages"
-msgstr "języki gry"
+msgstr "języki w tej grze"
 
 msgid "Region"
 msgstr "Region"
 
 msgid "this game's region"
-msgstr "region gry"
+msgstr "region tej gry"
 
 msgid "Cheevos Hash"
-msgstr "Numer skrótu Cheevos"
+msgstr "Skrót Cheevos"
 
 msgid "Cheevos checksum"
 msgstr "Suma kontrolna Cheevos"
 
 msgid "Cheevos Game ID"
-msgstr "ID Gry Cheevos"
+msgstr "Identyfikator gry Cheevos"
 
 msgid "Screenscraper Game ID"
-msgstr "ID Gry Screenscraper'a"
+msgstr "Identyfikator gry Screenscraper"
 
 msgid "all games"
 msgstr "wszystkie gry"
 
 msgid "last played"
-msgstr "ostatnio grane"
+msgstr "ostatnia rozgrywka"
 
 msgid "favorites"
 msgstr "ulubione"
@@ -276,10 +276,10 @@ msgid "never played"
 msgstr "nidgy nie grane"
 
 msgid "retroachievements"
-msgstr "retroachievements"
+msgstr "retroosiągnięcia"
 
 msgid "arcade"
-msgstr "zręcznościowe"
+msgstr "gry zręcznościowe"
 
 msgid "vertical arcade"
 msgstr "gry w pionie"
@@ -309,7 +309,7 @@ msgid "None"
 msgstr "Brak"
 
 msgid "Various"
-msgstr "Rozmaite"
+msgstr "Różne"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -322,7 +322,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "SKANOWANIE BLUETOOTH"
 
 msgid "Searching for devices..."
-msgstr "Wyszukiwanie kontrolerów..."
+msgstr "Wyszukiwanie urządzeń..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "SKANOWANIE BLUETOOTH JEST JUŻ URUCHOMIONE."
@@ -343,34 +343,34 @@ msgid "DOWNLOADING"
 msgstr "POBIERANIE"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "MOTYW POMYŚLNIE ZAINSTALOWANY"
+msgstr "MOTYW ZOSTAŁ POMYŚLNIE ZAINSTALOWANY"
 
 msgid "AN ERROR OCCURRED"
 msgstr "WYSTĄPIŁ BŁĄD"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
-msgstr "MOTYW POMYŚLNIE ODINSTALOWANY"
+msgstr "MOTYW ZOSTAŁ POMYŚLNIE ODINSTALOWANY"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "RAMKI POMYŚLNIE ZAINSTALOWANE"
+msgstr "RAMKI ZOSTAŁY POMYŚLNIE ZAINSTALOWANE"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "RAMKI POMYŚLNIE ODINSTALOWANE"
+msgstr "RAMKI ZOSTAŁY POMYŚLNIE ODINSTALOWANE"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "PAKIET POMYŚLNIE ZAINSTALOWANY"
+msgstr "PAKIET ZOSTAŁ POMYŚLNIE ZAINSTALOWANY"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "PAKIET POMYŚLNIE USUNIĘTY"
+msgstr "PAKIET ZOSTAŁ POMYŚLNIE ODINSTALOWANY"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "USTAWIENIA RETROACHIEVEMENT"
+msgstr "USTAWIENIA RETROOSIĄGNIĘĆ"
 
 msgid "SETTINGS"
 msgstr "USTAWIENIA"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROACHIEVEMENTS"
+msgstr "RETROOSIĄGNIĘCIA"
 
 msgid "USERNAME"
 msgstr "NAZWA UŻYTKOWNIKA"
