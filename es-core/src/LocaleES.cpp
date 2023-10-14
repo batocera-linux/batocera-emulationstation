@@ -256,8 +256,19 @@ void EsLocale::checkLocalisationLoaded()
 		std::string line;
 
 		std::ifstream file(xmlpath);
-		while (std::getline(file, line))
+		std::string old_line;
+		while (1)
 		{
+			if (old_line.empty())
+			{
+				if (!std::getline(file, line)) break;
+			}
+			else
+			{
+				line = old_line;
+				old_line = "";
+			}
+
 			if (line.find("\"Plural-Forms:") == 0)
 			{
 				auto start = line.find("plural=");
@@ -325,13 +336,28 @@ void EsLocale::checkLocalisationLoaded()
 				msgid = "";
 				msgid_plural = "";
 
-				auto start = line.find("\"");
-				if (start != std::string::npos)
+				int cnt = 0;
+				do
 				{
-					auto end = line.find("\"", start + 1);
-					if (end != std::string::npos)
-						msgid = line.substr(start + 1, end - start - 1);
-				}
+					if (line.empty()) break;
+					else if (line.find("msg") == 0 && cnt > 0)
+					{
+						old_line = line;
+						break;
+					}
+					cnt++;
+
+					auto start = line.find("\"");
+					if (start != std::string::npos)
+					{
+						auto end = line.find("\"", start + 1);
+						if (end != std::string::npos)
+							msgid += line.substr(start + 1, end - start - 1);
+						else break;
+					}
+					else break;
+				} while (std::getline(file, line));
+				msgid = Utils::String::replace(msgid, "\\n", "\n");
 			}
 			else if (line.find("msgstr") == 0)
 			{
@@ -348,31 +374,48 @@ void EsLocale::checkLocalisationLoaded()
 					}
 				}
 
-				auto start = line.find("\"");
-				if (start != std::string::npos)
+				std::string	msgstr;
+				int cnt = 0;
+				do
 				{
-					auto end = line.find("\"", start + 1);
-					if (end != std::string::npos)
+					if (line.empty()) break;
+					else if (line.find("msg") == 0 && cnt > 0)
 					{
-						std::string	msgstr = line.substr(start + 1, end - start - 1);
-						if (!msgid.empty() && !msgstr.empty())
-							if (idx.empty() || idx == "0")
-							{
-								if (mItems.find(msgid) == mItems.cend() || msgctxt.empty())
-									mItems[msgid] = msgstr;
-							}
-
-						if (!msgctxt.empty() && !msgstr.empty())
-							mItems[msgctxt + "|" + msgid] = msgstr;
-
-						if (!msgid_plural.empty() && !msgstr.empty())
-						{
-							if (!idx.empty() && idx != "0")
-								mItems[idx + "@" + msgid_plural] = msgstr;
-							else
-								mItems[msgid_plural] = msgstr;
-						}
+						old_line = line;
+						break;
 					}
+					cnt++;
+
+					auto start = line.find("\"");
+					if (start != std::string::npos)
+					{
+						auto end = line.find("\"", start + 1);
+						if (end != std::string::npos)
+							msgstr += line.substr(start + 1, end - start - 1);
+						else break;
+					}
+					else break;
+				} while (std::getline(file, line));
+				msgstr = Utils::String::replace(msgstr, "\\n", "\n");
+
+				if (!msgid.empty() && !msgstr.empty())
+				{
+					if (idx.empty() || idx == "0")
+					{
+						if (mItems.find(msgid) == mItems.cend() || msgctxt.empty())
+							mItems[msgid] = msgstr;
+					}
+				}
+
+				if (!msgctxt.empty() && !msgstr.empty())
+					mItems[msgctxt + "|" + msgid] = msgstr;
+
+				if (!msgid_plural.empty() && !msgstr.empty())
+				{
+					if (!idx.empty() && idx != "0")
+						mItems[idx + "@" + msgid_plural] = msgstr;
+					else
+						mItems[msgid_plural] = msgstr;
 				}
 
 				msgctxt = "";
