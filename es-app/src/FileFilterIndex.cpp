@@ -1010,7 +1010,7 @@ bool CollectionFilter::load(const std::string file)
 	mPath = file;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(file.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(file).c_str());
 
 	if (!res)
 	{
@@ -1151,7 +1151,7 @@ bool CollectionFilter::save()
 	for (auto key : hasMediaIndexFilteredKeys)
 		root.append_child("hasMedia").text().set(key.c_str());
 		
-	if (!doc.save_file(mPath.c_str()))
+	if (!doc.save_file(WINSTRINGW(mPath).c_str()))
 	{
 		LOG(LogError) << "Error saving CollectionFilter to \"" << mPath << "\" !";
 		return false;

@@ -30,6 +30,8 @@ Font::FontFace::FontFace(ResourceData&& d, int size) : data(d)
 	int err = FT_New_Memory_Face(sLibrary, data.ptr.get(), (FT_Long)data.length, 0, &face);
 	if (!err)
 		FT_Set_Pixel_Sizes(face, 0, size);
+	else
+		face = nullptr;
 }
 
 Font::FontFace::~FontFace()

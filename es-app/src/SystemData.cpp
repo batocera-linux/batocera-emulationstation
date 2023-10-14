@@ -451,7 +451,6 @@ void SystemData::createGroupedSystems()
 
 		for (auto childSystem : item.second)
 		{
-
 			auto children = childSystem->getRootFolder()->getChildren();
 			if (children.size() > 0)
 			{
@@ -669,7 +668,7 @@ void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
 				continue;
 
 			pugi::xml_document doc;
-			pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+			pugi::xml_parse_result res = doc.load_file(WINSTRINGW(customPath).c_str());
 			if (!res)
 			{
 				LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
@@ -746,7 +745,7 @@ bool SystemData::loadConfig(Window* window)
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if (!res)
 	{
@@ -911,7 +910,7 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 		return nullptr;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 	if (!res)
 		return nullptr;
 
@@ -941,7 +940,7 @@ std::map<std::string, std::string> SystemData::getKnownSystemNames()
 		return ret;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 	if (!res)
 		return ret;
 

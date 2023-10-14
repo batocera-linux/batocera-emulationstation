@@ -1317,7 +1317,7 @@ std::vector<std::string> CollectionSystemManager::getSystemsFromConfig()
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if(!res)
 	{

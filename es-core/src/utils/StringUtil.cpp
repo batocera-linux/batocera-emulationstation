@@ -201,41 +201,37 @@ namespace Utils
 
 		unsigned int chars2Unicode(const std::string& _string, size_t& _cursor)
 		{
-			const char&  c      = _string[_cursor];
+			unsigned const char checkCharType = _string[_cursor];
 			unsigned int result = '?';
 
-			if((c & 0x80) == 0) // 0xxxxxxx, one byte character
-			{
+			// 0xxxxxxx, one byte character.
+			if (checkCharType <= 0x7F) {
 				// 0xxxxxxx
-				result = ((_string[_cursor++]       )      );
+				result = (_string[_cursor++]);
 			}
-			else if((c & 0xE0) == 0xC0) // 110xxxxx, two byte character
-			{
-				// 0001xxxx
-				
-
-				// 110xxxxx 10xxxxxx
-				result = ((_string[_cursor++] & 0x1F) <<  6) |
-						 ((_string[_cursor++] & 0x3F)      );
-			}
-			else if((c & 0xF0) == 0xE0) // 1110xxxx, three byte character
-			{
-				// 1110xxxx 10xxxxxx 10xxxxxx
-				result = ((_string[_cursor++] & 0x0F) << 12) |
-						 ((_string[_cursor++] & 0x3F) <<  6) |
-						 ((_string[_cursor++] & 0x3F)      );
-			}
-			else if((c & 0xF8) == 0xF0) // 11110xxx, four byte character
-			{
+			// 11110xxx, four byte character.
+			else if (checkCharType >= 0xF0 && _cursor < _string.length() - 2) {
 				// 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-				result = ((_string[_cursor++] & 0x07) << 18) |
-						 ((_string[_cursor++] & 0x3F) << 12) |
-						 ((_string[_cursor++] & 0x3F) <<  6) |
-						 ((_string[_cursor++] & 0x3F)      );
+				result = (_string[_cursor++] & 0x07) << 18;
+				result |= (_string[_cursor++] & 0x3F) << 12;
+				result |= (_string[_cursor++] & 0x3F) << 6;
+				result |= _string[_cursor++] & 0x3F;
 			}
-			else
-			{
-				// error, invalid unicode
+			// 1110xxxx, three byte character.
+			else if (checkCharType >= 0xE0 && _cursor < _string.length() - 1) {
+				// 1110xxxx 10xxxxxx 10xxxxxx
+				result = (_string[_cursor++] & 0x0F) << 12;
+				result |= (_string[_cursor++] & 0x3F) << 6;
+				result |= _string[_cursor++] & 0x3F;
+			}
+			// 110xxxxx, two byte character.
+			else if (checkCharType >= 0xC0 && _cursor < _string.length()) {
+				// 110xxxxx 10xxxxxx
+				result = (_string[_cursor++] & 0x1F) << 6;
+				result |= _string[_cursor++] & 0x3F;
+			}
+			else {
+				// Error, invalid character.
 				++_cursor;
 			}
 
