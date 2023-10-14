@@ -777,7 +777,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 			if (lines.size() > 0)
 			{			
 				std::string lastLine = Utils::String::trim(Utils::String::replace(lines[lines.size() - 1], "\f", ""));
-				if (!lastLine.find(".zip") != std::string::npos && Utils::FileSystem::exists(lastLine))
+				if (lastLine.find(".zip") != std::string::npos && Utils::FileSystem::exists(lastLine))
 				{
 					if (func != nullptr)
 						func(std::string("Updating EmulationStation"));

@@ -835,7 +835,8 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 {
 	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(_text, 0, xLen, alignment) : 0);
 	
-	float yTop = getGlyph('S')->bearing.y();
+	auto glyph = getGlyph('S');
+	float yTop = glyph ? glyph->bearing.y() : 35;
 	float yBot = getHeight(lineSpacing);
 	float yDecal = (yBot + yTop) / 2.0f;
 	float y = offset[1] + (yBot + yTop)/2.0f;

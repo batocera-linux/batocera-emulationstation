@@ -1986,7 +1986,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 			Background.scrollbarCorner = elem->get<float>("scrollbarCorner");		
 
 		if (elem->has("scrollbarAlignment"))
-			Background.scrollbarAlignment = elem->get<float>("scrollbarAlignment");
+			Background.scrollbarAlignment = elem->get<std::string>("scrollbarAlignment");
 	}
 
 	elem = theme->getElement("menu", "menutitle", "menuText");
@@ -2271,7 +2271,7 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 	mPaths.push_back(path);
 
 	pugi::xml_document includeDoc;
-	pugi::xml_parse_result result = includeDoc.load_file(path.c_str());
+	pugi::xml_parse_result result = includeDoc.load_file(WINSTRINGW(path).c_str());
 	if (!result)
 	{
 		mPaths.pop_back();
