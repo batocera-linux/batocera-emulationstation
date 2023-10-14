@@ -332,6 +332,7 @@ void GuiControllersSettings::openControllersSpecificSettings_sindengun()
 	borderscolor_set->add(_("BLUE"), "BLUE", "blue" == selectedBordersColor);
 	s->addOptionList(_("BORDER COLOR"), { { _("AUTO"), "auto" },{ _("WHITE") , "white" },{ _("RED") , "red" },{ _("GREEN"), "green" },{ _("BLUE"), "blue" } }, "controllers.guns.borderscolor", false);
 
+#if BATOCERA
 	std::string selectedCameraContrast = SystemConf::getInstance()->get("controllers.guns.sinden.contrast");
 	auto cameracontrast_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("CAMERA CONTRAST"), false);
 	cameracontrast_set->add(_("AUTO"), "", "" == selectedCameraContrast);
@@ -382,6 +383,7 @@ void GuiControllersSettings::openControllersSpecificSettings_sindengun()
 			ApiSystem::getInstance()->replugControllers_sindenguns();
 		}
 	});
+#endif
 
 	mWindow->pushGui(s);
 }

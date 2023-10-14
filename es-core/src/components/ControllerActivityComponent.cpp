@@ -240,7 +240,8 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 
 		auto guns = InputManager::getInstance()->getGuns();
 		for (int idx = 0; idx < guns.size(); idx++)
-			itemsWidth += szW + mSpacing;
+			if (!guns[idx]->isMouse())
+				itemsWidth += szW + mSpacing;
 	}
 
 	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
@@ -320,6 +321,8 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 		for (int idx = 0; idx < guns.size(); idx++)
 		{
 			Gun* gun = guns[idx];
+			if (gun->isMouse())
+				continue;
 
 			unsigned int gunColor = gun->isLButtonDown() || gun->isRButtonDown() ? mActivityColor : mColorShift;
 

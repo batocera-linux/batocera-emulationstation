@@ -7,15 +7,20 @@
 
 #include <time.h>
 #include "Paths.h"
-
+#include "utils/VectorEx.h"
 #include "SaveStateConfigFile.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
 #endif
 
+SaveState* SaveStateRepository::_empty = new SaveState(-99);
+
 SaveStateRepository::SaveStateRepository(SystemData* system)
 {
+	_newGame = nullptr;
+	_autosave = nullptr;
+
 	mSystem = system;
 	refresh();
 }
@@ -34,90 +39,67 @@ void SaveStateRepository::clear()
 	mStates.clear();
 }
 
-std::string SaveStateRepository::getSavesPath()
+bool SaveStateRepository::supportsAutoSave()
 {
-	if (SaveStateConfigFile::isEnabled())
-	{
-		RegSaveState* rs = SaveStateConfigFile::getRegSaveState(mSystem);
-		if (rs != NULL)
-		{
-			std::string path = Utils::String::replace(rs->directory, "{{system}}", mSystem->getName());
+	for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
+		if (rs->autosave)
+			return true;
 
-			if (!Utils::String::startsWith(path, "/"))
-				path = Utils::FileSystem::combine(Paths::getSavesPath(), path);
+	return false;
+}
 
-			return path;
-		}
+bool SaveStateRepository::supportsIncrementalSaveStates()
+{
+	for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
+		if (rs->incremental)
+			return true;
 
-		return "";
-	}
-
-	// default behavior
-	return Utils::FileSystem::combine(Paths::getSavesPath(), mSystem->getName());	
+	return false;
 }
 
 void SaveStateRepository::refresh()
 {
 	clear();
 
-	auto path = getSavesPath();
-	if (!Utils::FileSystem::exists(path))
-		return;
+	auto list = SaveStateConfigFile::getSaveStateConfigs(mSystem);
+	for (auto rs : list)
+	{
+		std::string path = rs->getDirectory(mSystem);
 
-	RegSaveState* rs = SaveStateConfigFile::getRegSaveState(mSystem);
-	if (SaveStateConfigFile::isEnabled() && rs == nullptr)
-		return;
-
-	auto files = Utils::FileSystem::getDirectoryFiles(path);
-	for (auto file : files)
-	{		
-		if (file.hidden || file.directory)
+		if (!Utils::FileSystem::exists(path))
 			continue;
 
-		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(file.path));
-
-		if (ext == ".bak")
+		auto files = Utils::FileSystem::getDirectoryFiles(path);
+		for (auto file : files)
 		{
-			// auto ffstem = Utils::FileSystem::combine(Utils::FileSystem::getParent(file.path), Utils::FileSystem::getStem(file.path));
-			// Utils::FileSystem::removeFile(ffstem);
-			// Utils::FileSystem::renameFile(file.path, ffstem);
-			// TODO RESTORE BAK FILE !? If board was turned off during a game ?
-		}
+			if (file.hidden || file.directory)
+				continue;
 
-		std::string rom;
-		int slot = -1;
+			std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(file.path));
 
-		if (SaveStateConfigFile::isEnabled())
-		{
+			std::string rom;
+			int slot = -1;
+
 			std::string fileName = Utils::FileSystem::getFileName(file.path);
 			if (!rs->matchSlotFile(fileName, rom, slot) && !rs->matchAutoFile(fileName, rom))
-				continue;			
-		}
-		else 
-		{
-			// default behavior
-			if (ext != ".auto" && !Utils::String::startsWith(ext, ".state"))
 				continue;
-		}
 
-		SaveState* state = new SaveState();
-		state->fileName = file.path;
-
-		if (SaveStateConfigFile::isEnabled())
-		{
+			SaveState* state = new SaveState();
+			state->config = rs;
+			state->fileName = file.path;
 			state->rom = rom;
 			state->slot = slot;
 
 			// generators are the same for autosave and slots
-			state->fileGenerator  = Utils::String::replace(rs->file,  "{{romfilename}}", rom);
+			state->fileGenerator = Utils::String::replace(rs->file, "{{romfilename}}", rom);
 			state->imageGenerator = Utils::String::replace(rs->image, "{{romfilename}}", rom);
 
 			// screenshot
 			if (Utils::FileSystem::exists(state->fileName + ".png"))
 				state->screenshot = state->fileName + ".png";
 			else
-			{				
-				std::string screenshot = Utils::FileSystem::combine(getSavesPath(), slot < 0 ? rs->autosave_image : rs->image);
+			{
+				std::string screenshot = Utils::FileSystem::combine(path, slot < 0 ? rs->autosave_image : rs->image);
 				std::string basename = Utils::FileSystem::getFileName(file.path);
 
 				screenshot = Utils::String::replace(screenshot, "{{romfilename}}", rom);
@@ -131,42 +113,16 @@ void SaveStateRepository::refresh()
 			}
 
 			// retroarch specific commands
-			state->racommands = false;
+			state->racommands = rs->racommands;
 			state->hasAutosave = rs->autosave;
-		}
-		else
-		{
-			// default behavior
-			if (ext == ".auto")
-				state->slot = -1;
-			else if (Utils::String::startsWith(ext, ".state"))
-				state->slot = Utils::String::toInteger(ext.substr(6));
-
-			auto stem = Utils::FileSystem::getStem(file.path);
-			if (Utils::String::endsWith(stem, ".state"))
-				stem = Utils::FileSystem::getStem(stem);
-
-			state->rom = stem;
-
-			// default behavior
-			state->fileGenerator  = state->rom + ".state{{slot}}";
-			state->imageGenerator = state->rom + ".state{{slot}}.png";
-
-			// default behavior
-			if (Utils::FileSystem::exists(state->fileName + ".png"))
-				state->screenshot = state->fileName + ".png";
-
-			// retroarch specific commands
-			state->racommands = true;
-			state->hasAutosave = true;
-		}
 
 #if WIN32
-		state->creationDate.setTime(file.lastWriteTime);
+			state->creationDate.setTime(file.lastWriteTime);
 #else
-		state->creationDate = Utils::FileSystem::getFileModificationDate(state->fileName);
+			state->creationDate = Utils::FileSystem::getFileModificationDate(state->fileName);
 #endif
-		mStates[state->rom].push_back(state);
+			mStates[state->rom].push_back(state);
+		}
 	}
 }
 
@@ -177,29 +133,11 @@ bool SaveStateRepository::hasSaveStates(FileData* game)
 		if (game->getSourceFileData()->getSystem() != mSystem)
 			return false;
 
-		if (SaveStateConfigFile::isEnabled())
+		for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
 		{
-			RegSaveState* rs = SaveStateConfigFile::getRegSaveState(game->getEmulator(), game->getCore());
-			if (rs == NULL) 
-				return false;
+			std::string name = rs->nofileextension ? Utils::FileSystem::getStem(game->getPath()) : Utils::FileSystem::getFileName(game->getPath());
 
-			if (rs->nofileextension) 
-			{
-				auto it = mStates.find(Utils::FileSystem::getStem(game->getPath()));
-				if (it != mStates.cend())
-					return true;
-			}
-			else 
-			{
-				auto it = mStates.find(Utils::FileSystem::getFileName(game->getPath()));
-				if (it != mStates.cend())
-					return true;
-			}
-		}
-		else 
-		{
-			// default behavior
-			auto it = mStates.find(Utils::FileSystem::getStem(game->getPath()));
+			auto it = mStates.find(name);
 			if (it != mStates.cend())
 				return true;
 		}
@@ -207,36 +145,29 @@ bool SaveStateRepository::hasSaveStates(FileData* game)
 
 	return false;
 }
-std::vector<SaveState*> SaveStateRepository::getSaveStates(FileData* game)
+std::vector<SaveState*> SaveStateRepository::getSaveStates(FileData* game, std::shared_ptr<SaveStateConfig> config)
 {
 	if (isEnabled(game) && game->getSourceFileData()->getSystem() == mSystem)
 	{
-		if (SaveStateConfigFile::isEnabled())
-		{
-			RegSaveState* rs = SaveStateConfigFile::getRegSaveState(game->getEmulator(), game->getCore());
-			if (rs == NULL) 
-				return std::vector<SaveState*>();
+		std::vector<SaveState*> ret;
 
-			if (rs->nofileextension) 
-			{
-				auto it = mStates.find(Utils::FileSystem::getStem(game->getPath()));
-				if (it != mStates.cend())
-					return it->second;
-			}
-			else 
-			{
-				auto it = mStates.find(Utils::FileSystem::getFileName(game->getPath()));
-				if (it != mStates.cend())
-					return it->second;
-			}
-		}
-		else 
+		for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
 		{
-			// default behavior
-			auto it = mStates.find(Utils::FileSystem::getStem(game->getPath()));
+			if (config != nullptr && !config->equals(rs))
+				continue;
+
+			std::string name = rs->nofileextension ? Utils::FileSystem::getStem(game->getPath()) : Utils::FileSystem::getFileName(game->getPath());
+
+			auto it = mStates.find(name);
 			if (it != mStates.cend())
-				return it->second;
+			{
+				for (auto item : it->second)
+					if (rs->equals(item->config))
+						ret.push_back(item);
+			}
 		}
+
+		return ret;
 	}
 
 	return std::vector<SaveState*>();
@@ -244,54 +175,28 @@ std::vector<SaveState*> SaveStateRepository::getSaveStates(FileData* game)
 
 bool SaveStateRepository::isEnabled(FileData* game)
 {
-	auto emulatorName = game->getEmulator();
-	auto coreName = game->getCore();
-
-	if (SaveStateConfigFile::isEnabled())
-	{
-		RegSaveState* rs = SaveStateConfigFile::getRegSaveState(emulatorName, coreName);
-		if (rs == nullptr)
-			return false;
-	}
-	else 
-	{
-		// default behavior
-		if (emulatorName != "libretro" && emulatorName != "angle" && !Utils::String::startsWith(emulatorName, "lr-"))
-			return false;
-
-		if (!game->isFeatureSupported(EmulatorFeatures::autosave))
-			return false;
-	}
-
 	auto system = game->getSourceFileData()->getSystem();
-	if (system->getSaveStateRepository()->getSavesPath().empty())
-		return false;
 
 	if (system->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		return false;
 
-	return true;
+	// Should we really keep this flag ?
+	// if (!game->isFeatureSupported(EmulatorFeatures::autosave))
+	//	 return false;
+
+	return SaveStateConfigFile::getSaveStateConfigs(system).size() != 0;
 }
 
-int SaveStateRepository::getNextFreeSlot(FileData* game)
+int SaveStateRepository::getNextFreeSlot(FileData* game, std::shared_ptr<SaveStateConfig> config)
 {
 	if (!isEnabled(game))
 		return -99;
 
-	auto repo = game->getSourceFileData()->getSystem()->getSaveStateRepository();
-	auto states = repo->getSaveStates(game);
-	if (states.size() == 0)
-	{
-		if (SaveStateConfigFile::isEnabled())
-		{
-			RegSaveState* rs = SaveStateConfigFile::getRegSaveState(game->getEmulator(), game->getCore());
-			if (rs != nullptr && rs->firstslot >= 0) 
-				return rs->firstslot;
-		}
+	auto repo = game->getSourceFileData()->getSystem()->getSaveStateRepository();	
+	auto states = repo->getSaveStates(game, config);
 
-		// default behavior
-		return 0;		
-	}
+	if (states.size() == 0)
+		return config != nullptr ? config->firstslot : 0;
 
 	for (int i = 99999; i >= 0; i--)
 	{
@@ -303,7 +208,7 @@ int SaveStateRepository::getNextFreeSlot(FileData* game)
 	return -99;
 }
 
-void SaveStateRepository::renumberSlots(FileData* game)
+void SaveStateRepository::renumberSlots(FileData* game, std::shared_ptr<SaveStateConfig> config)
 {
 	if (!isEnabled(game))
 		return;
@@ -311,13 +216,13 @@ void SaveStateRepository::renumberSlots(FileData* game)
 	auto repo = game->getSourceFileData()->getSystem()->getSaveStateRepository();	
 	repo->refresh();
 
-	auto states = repo->getSaveStates(game);
+	auto states = repo->getSaveStates(game, config);
 	if (states.size() == 0)
 		return;
 
 	std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->slot < file2->slot; });
 
-	int slot = 0;
+	int slot = config == nullptr ? 0 : config->firstslot;
 
 	for (auto state : states)
 	{
@@ -329,4 +234,44 @@ void SaveStateRepository::renumberSlots(FileData* game)
 		
 		slot++;
 	}	
+}
+
+
+SaveState* SaveStateRepository::getDefaultAutoSaveSaveState()
+{
+	if (_autosave == nullptr)
+	{
+		_autosave = new SaveState(-1);
+
+		for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
+		{
+			if (rs->autosave)
+				_autosave->config = rs;
+
+			break;
+		}
+	}
+
+	return _autosave;
+}
+
+SaveState* SaveStateRepository::getDefaultNewGameSaveState()
+{
+	if (_newGame == nullptr)
+	{
+		_newGame = new SaveState(-2);
+
+		for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
+		{
+			_newGame->config = rs;
+			break;
+		}
+	}
+
+	return _newGame;
+}
+
+SaveState* SaveStateRepository::getEmptySaveState()
+{
+	return _empty;
 }

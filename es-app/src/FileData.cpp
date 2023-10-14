@@ -556,6 +556,8 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 		if (!options.netplayClientPassword.empty())
 			pass = " -netplaypass " + options.netplayClientPassword;
 
+		// TODO : Add options.mitm_session when it's available
+
 #if WIN32
 		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
 			command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
@@ -580,7 +582,12 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 		command = command + " -monitor " + std::to_string(monitorId);
 
 	if (SaveStateRepository::isEnabled(this))
-		command = options.saveStateInfo.setupSaveState(this, command);
+	{
+		if (options.saveStateInfo == nullptr)
+			options.saveStateInfo = SaveStateRepository::getEmptySaveState();
+
+		command = options.saveStateInfo->setupSaveState(this, command);		
+	}
 
 	return command;
 }
@@ -668,7 +675,9 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 
 	if (SaveStateRepository::isEnabled(this))
 	{
-		options.saveStateInfo.onGameEnded(this);
+		if (options.saveStateInfo != nullptr)
+			options.saveStateInfo->onGameEnded(this);
+
 		getSourceFileData()->getSystem()->getSaveStateRepository()->refresh();
 	}
 

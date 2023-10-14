@@ -4,44 +4,36 @@
 
 #include <string>
 #include <vector>
+#include <deque>
 
 #ifdef HAVE_UDEV
 #include <libudev.h>
+#elif WIN32
+#include <SDL.h>
+#include <Windows.h>
 #endif
 
 class InputConfig;
 class Window;
+class Stabilizer;
 union SDL_Event;
 
-class Gun
+class GunData
 {
 	friend class GunManager;
 
 public:
-	Gun() 
-	{
-		mIndex = 0;
-		mX = -1; 
-		mY = -1;
-		mLButtonDown = false;
-		mRButtonDown = false;
-		mStartButtonDown = false;
-		mSelectButtonDown = false;
-		mDPadUpButtonDown    = false;
-		mDPadDownButtonDown  = false;
-		mDPadLeftButtonDown  = false;
-		mDPadRightButtonDown = false;
-		mNeedBorders = false;
-	}
-
-	int index() { return mIndex; }
-	std::string& name() { return mName; }
+	GunData() : mX(-1), mY(-1), mLButtonDown(false), mRButtonDown(false), mMButtonDown(false), mStartButtonDown(false), mSelectButtonDown(false),
+		mDPadUpButtonDown(false), mDPadDownButtonDown(false), mDPadLeftButtonDown(false), mDPadRightButtonDown(false) 
+	{ }
 
 	float x();
 	float y();
 
 	bool isLButtonDown() { return mLButtonDown; }
 	bool isRButtonDown() { return mRButtonDown; }
+	bool isMButtonDown() { return mMButtonDown; }
+
 	bool isStartButtonDown() { return mStartButtonDown; }
 	bool isSelectButtonDown() { return mSelectButtonDown; }
 	bool isDPadUpButtonDown() { return mDPadUpButtonDown; }
@@ -49,32 +41,86 @@ public:
 	bool isDPadLeftButtonDown() { return mDPadLeftButtonDown; }
 	bool isDPadRightButtonDown() { return mDPadRightButtonDown; }
 
-	bool needBorders() { return mNeedBorders; }
-
 private:
-	std::string mName;
 
 	float mX;
 	float mY;
 
 	bool mLButtonDown;
 	bool mRButtonDown;
-  	bool mStartButtonDown;
-  	bool mSelectButtonDown;
+	bool mMButtonDown;
+	bool mStartButtonDown;
+	bool mSelectButtonDown;
 	bool mDPadUpButtonDown;
 	bool mDPadDownButtonDown;
 	bool mDPadLeftButtonDown;
 	bool mDPadRightButtonDown;
+};
 
-	int mIndex;
+class Gun : public GunData
+{
+	friend class GunManager;
+
+public:
+	Gun() 
+	{
+		mIndex = 0;
+		mNeedBorders = false;
+		m_isMouse = false;
+		m_pStabilizer = nullptr;
+
+#ifdef HAVE_UDEV
+		dev = nullptr;
+		fd = 0;
+#elif WIN32
+		m_internalButtonState = 0;
+		m_internalX = 0;
+		m_internalY = 0;	
+		m_lastTick = 0;
+#endif
+	}
+
+	Gun(const Gun& src) = delete;
+
+	~Gun()
+	{
+		if (m_pStabilizer != nullptr)
+		{
+			delete m_pStabilizer;
+			m_pStabilizer = nullptr;
+		}
+	}
+
+	int index() { return mIndex; }
+	std::string& name() { return mName; }
+	bool needBorders() { return mNeedBorders; }
+	bool isMouse() { return m_isMouse; }
+
+	Stabilizer* getStabilizer();
+
+#if WIN32
+	bool isLastTickElapsed();
+#endif
+
+private:
+	Stabilizer* m_pStabilizer;
+
+	std::string mName;
+	int  mIndex;
+	bool mNeedBorders;
+	bool m_isMouse;
 
 #ifdef HAVE_UDEV
 	std::string devpath;
 	udev_device* dev;
 	int fd;
+#elif WIN32
+	std::string mPath;
+	int		m_internalButtonState;
+	float	m_internalX;
+	float	m_internalY;
+	int		m_lastTick;
 #endif
-
-	bool mNeedBorders;
 };
 
 //you should only ever instantiate one of these, by the way
@@ -87,9 +133,12 @@ public:
 	std::vector<Gun*>& getGuns() { return mGuns; }
 	void updateGuns(Window* window);
 
+	bool isReplacingMouse();
+
 private:
 	bool updateGunPosition(Gun* gun);
 	int readGunEvents(Gun* gun);
+	void renumberGuns();
 
 	std::vector<Gun*> mGuns;
 
@@ -102,6 +151,10 @@ private:
   bool udev_addGun(struct udev_device *dev, Window* window, bool needGunBorder);
   bool udev_removeGun(struct udev_device *dev, Window* window);
   void udev_closeGun(Gun* gun);
+#elif WIN32
+	static bool mMessageHookRegistered;	
+	static void WindowsMessageHook(void* userdata, void* hWnd, unsigned int message, Uint64 wParam, Sint64 lParam);
+	void enableRawInputCapture(bool enable);
 #endif
 };
 

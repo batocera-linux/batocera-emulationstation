@@ -1,5 +1,6 @@
 #include "SaveStateConfigFile.h"
 #include "SystemData.h"
+#include "FileData.h"
 #include "utils/StringUtil.h"
 #include "utils/FileSystemUtil.h"
 #include "Paths.h"
@@ -8,6 +9,126 @@
 
 static std::mutex mLock;
 static SaveStateConfigFile* mInstance;
+
+static std::shared_ptr<SaveStateConfig> _default;
+
+SaveStateConfig::SaveStateConfig()
+{
+	enabled = true;
+	nofileextension = true;
+	firstslot = 0;
+	romGroup = 1; // should be computed (but always 1)
+	slotGroup = 2; // should be computed (but always 2)
+	incremental = false;
+	autosave = false;
+	racommands = false;
+}
+
+std::shared_ptr<SaveStateConfig> SaveStateConfig::Default()
+{
+	if (_default == nullptr)
+	{
+		_default = std::make_shared<SaveStateConfig>();
+		_default->directory = "{{system}}";
+		_default->file = "{{romfilename}}.state{{slot}}";
+		_default->image = "{{romfilename}}.state{{slot}}.png";
+		_default->nofileextension = true;
+		_default->firstslot = 0;
+		_default->romGroup = 1; // should be computed (but always 1)
+		_default->slotGroup = 2; // should be computed (but always 2)
+		_default->incremental = true;
+		_default->autosave = true;
+		_default->autosave_file = "{{romfilename}}.state.auto";			
+		_default->autosave_image = "{{romfilename}}.state.auto.png";
+		_default->racommands = true;
+
+		_default->SetupRegEx();
+	}
+
+	return _default;
+}
+
+std::string SaveStateConfig::getDirectory(SystemData* system)
+{
+	std::string path = Utils::String::replace(directory, "{{system}}", system->getName());
+	path = Utils::String::replace(path, "{{emulator}}", emulator);
+	path = Utils::String::replace(path, "{{core}}", core.empty() ? emulator : core);
+
+	if (!Utils::String::startsWith(path, "/"))
+		path = Utils::FileSystem::combine(Paths::getSavesPath(), path);
+
+	return path;
+}
+
+void SaveStateConfig::SetupRegEx()
+{
+	if (!this->file.empty())
+	{
+		std::string restr = this->file;
+		restr = Utils::String::replace(restr, "\\", "\\\\");
+		restr = Utils::String::replace(restr, ".", "\\.");
+		restr = Utils::String::replace(restr, "{{romfilename}}", "(.*)");
+		restr = Utils::String::replace(restr, "{{slot}}", "($|[0-9]+)");
+		restr = Utils::String::replace(restr, "{{slot0}}", "([0-9]+)");
+		restr = Utils::String::replace(restr, "{{slot00}}", "([0-9]+)");
+		restr = Utils::String::replace(restr, "{{slot2d}}", "([0-9]+)");
+		restr = "^" + restr + "$";
+
+		this->slotFileRegEx = std::regex(restr);
+	}
+
+	if (autosave && !autosave_file.empty())
+	{
+		std::string autorestr = this->autosave_file;
+		autorestr = Utils::String::replace(autorestr, "\\", "\\\\");
+		autorestr = Utils::String::replace(autorestr, ".", "\\.");
+		autorestr = Utils::String::replace(autorestr, "{{romfilename}}", "(.*)");
+		autorestr = "^" + autorestr + "$";
+		this->autoFileRegEx = std::regex(autorestr);
+	}
+}
+
+bool SaveStateConfig::matchSlotFile(const std::string& filename, std::string& romName, int& slot)
+{
+	if (file.empty())
+		return false;
+
+	std::cmatch matches;
+	if (!std::regex_match(filename.c_str(), matches, slotFileRegEx))
+		return false;
+
+	if (matches.size() - 1 < (size_t) romGroup)
+		return false;
+
+	romName = matches[romGroup];
+
+	if (matches.size() - 1 < (size_t) slotGroup)
+		return false;
+
+	slot = Utils::String::toInteger(matches[slotGroup]);
+
+	return !romName.empty();
+}
+
+bool SaveStateConfig::matchAutoFile(const std::string& filename, std::string& romName)
+{
+	if (!autosave || autosave_file.empty())
+		return false;
+
+	std::cmatch matches;
+	if (std::regex_match(filename.c_str(), matches, autoFileRegEx))
+	{
+		if (matches.size() - 1 < 1)
+			return false;
+
+		romName = matches[1];
+		return !romName.empty();
+	}
+
+	return false;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
 
 SaveStateConfigFile* SaveStateConfigFile::Instance()
 {
@@ -19,24 +140,50 @@ SaveStateConfigFile* SaveStateConfigFile::Instance()
 	return mInstance;
 }
 
+
 bool SaveStateConfigFile::isEnabled()
 {
-	return Instance()->mRegSaveStatesMode;
+	return Instance()->mSaveStateConfigMode;
 }
 
-RegSaveState* SaveStateConfigFile::getRegSaveState(const std::string& emulator, const std::string& core)
-{			
-	return Instance()->internalGetRegSaveState(emulator, core);
-}
-
-RegSaveState* SaveStateConfigFile::getRegSaveState(SystemData* system)
+bool SaveStateConfig::isDefaultConfig(SystemData* system)
 {
-	return Instance()->internalGetRegSaveState(system->getEmulator(), system->getCore());
+	auto defaultEmulator = system->getDefaultEmulator();
+	auto defaultCore = system->getDefaultCore();
+
+	if (core.empty())
+		return emulator == defaultEmulator;
+
+	return emulator == defaultEmulator && core == defaultCore;
+}
+
+bool SaveStateConfig::isActiveConfig(FileData* game)
+{
+	auto defaultEmulator = game->getEmulator();
+	auto defaultCore = game->getCore();
+
+	if (core.empty())
+		return emulator == defaultEmulator;
+
+	return emulator == defaultEmulator && core == defaultCore;
+}
+
+static std::string readXmlValue(const pugi::xml_node& node, const std::string& name, const std::string& defaultValue = "")
+{
+	auto attr = node.attribute(name.c_str());
+	if (attr)
+		return attr.value();
+
+	auto child = node.child(name.c_str());
+	if (child)
+		return child.text().get();
+		
+	return defaultValue;
 }
 
 SaveStateConfigFile::SaveStateConfigFile()
 {
-	mRegSaveStatesMode = false;
+	mSaveStateConfigMode = false;
 
 	std::string path = Paths::getUserEmulationStationPath() + "/es_savestates.cfg";
 	if (!Utils::FileSystem::exists(path))
@@ -61,237 +208,123 @@ SaveStateConfigFile::SaveStateConfigFile()
 		return;
 	}
 
-	mRegSaveStatesMode = true;
+	mSaveStateConfigMode = true;
 
 	for (pugi::xml_node emulatorNode = savestates.first_child(); emulatorNode; emulatorNode = emulatorNode.next_sibling())
 	{
-		std::string emulatornodename = emulatorNode.name();
-		if (emulatornodename == "emulator")
+		std::string emulatorNodeName = emulatorNode.name();
+		if (emulatorNodeName == "emulator")
 		{
 			if (!emulatorNode.attribute("name"))
 				continue;
+			
+			auto emul = std::make_shared<SaveStateConfig>();
+			emul->emulator = readXmlValue(emulatorNode, "name");
+			emul->enabled = readXmlValue(emulatorNode, "enabled") != "false";
+			emul->directory = readXmlValue(emulatorNode, "directory", "{{system}}");
+			emul->defaultCoreDirectory = readXmlValue(emulatorNode, "defaultCoreDirectory");			
+			emul->file = readXmlValue(emulatorNode, "file");
+			emul->romGroup = Utils::String::toInteger(readXmlValue(emulatorNode, "romGroup", "1"));
+			emul->slotGroup = Utils::String::toInteger(readXmlValue(emulatorNode, "slotGroup", "2"));
+			emul->image = readXmlValue(emulatorNode, "image");
+			emul->nofileextension = readXmlValue(emulatorNode, "nofileextension", "true") == "true";
+			emul->firstslot = Utils::String::toInteger(readXmlValue(emulatorNode, "firstslot", "0"));
+			emul->autosave = readXmlValue(emulatorNode, "autosave", "false") == "true";
+			emul->autosave_file = readXmlValue(emulatorNode, "autosave_file");
+			emul->autosave_image = readXmlValue(emulatorNode, "autosave_image");
+			emul->incremental = readXmlValue(emulatorNode, "incremental") == "true";
+			emul->racommands = false;
 
-			std::string emulatorname = emulatorNode.attribute("name").value();
-			bool        attr_enabled = true; // default to true
-			std::string attr_directory = "";
-			std::string attr_file = "";
-			std::string attr_image = "";
-			bool        attr_nofileextension = false;
-			int         attr_firstslot = 0;
-			bool        attr_autosave = false;
-			std::string attr_autosave_file = "";
-			std::string attr_autosave_image = "";
-
-			auto attr = emulatorNode.attribute("enabled");
-			if (attr)
-				if (attr.value() == "false") attr_enabled = false;
-
-			attr = emulatorNode.attribute("directory");
-			if (attr)
-				attr_directory = attr.value();
-
-			attr = emulatorNode.attribute("file");
-			if (attr)
-				attr_file = attr.value();
-
-			attr = emulatorNode.attribute("image");
-			if (attr)
-				attr_image = attr.value();
-
-			attr = emulatorNode.attribute("nofileextension");
-			if (attr) {
-				if (strcmp(attr.value(), "true") == 0) attr_nofileextension = true;
-			}
-
-			attr = emulatorNode.attribute("firstslot");
-			if (attr)
-				attr_firstslot = Utils::String::toInteger(attr.value());
-
-			attr = emulatorNode.attribute("autosave");
-			if (attr)
-				if (strcmp(attr.value(), "true") == 0) attr_autosave = true;
-
-			attr = emulatorNode.attribute("autosave_file");
-			if (attr)
-				attr_autosave_file = attr.value();
-
-			attr = emulatorNode.attribute("autosave_image");
-			if (attr)
-				attr_autosave_image = attr.value();
-
-			RegSaveState* regsavestate = new RegSaveState();
-			regsavestate->enabled = attr_enabled;
-			regsavestate->directory = attr_directory;
-			regsavestate->file = attr_file;
-			regsavestate->romGroup = 1; // should be computed (but always 1)
-			regsavestate->slotGroup = 2; // should be computed (but always 2)
-			regsavestate->image = attr_image;
-			regsavestate->nofileextension = attr_nofileextension;
-			regsavestate->firstslot = attr_firstslot;
-			regsavestate->autosave = attr_autosave;
-			regsavestate->autosave_file = attr_autosave_file;
-			regsavestate->autosave_image = attr_autosave_image;
-			mRegSaveStates[emulatorname] = regsavestate;
-
-			for (pugi::xml_node coreNode = emulatorNode.first_child(); coreNode; coreNode = coreNode.next_sibling())
+			mSaveStateConfigs[emul->emulator] = emul;
+			
+			for (pugi::xml_node coreNode = emulatorNode.child("core"); coreNode; coreNode = coreNode.next_sibling("core"))
 			{
-				std::string corenodename = coreNode.name();
-				if (corenodename == "core")
-				{
-					if (!emulatorNode.attribute("name"))
-						continue;
+				SaveStateCoreConfig core;
+				core.name = readXmlValue(coreNode, "name");
+				if (core.name.empty())
+					continue;
 
-					//
-					std::string corename = coreNode.attribute("name").value();
-					bool        attrcore_enabled = attr_enabled;
-					std::string attrcore_directory = attr_directory;
-					std::string attrcore_file = attr_file;
-					std::string attrcore_image = attr_image;
-					bool        attrcore_nofileextension = attr_nofileextension;
-					int         attrcore_firstslot = attr_firstslot;
-					bool        attrcore_autosave = attr_autosave;
-					std::string attrcore_autosave_file = attr_autosave_file;
-					std::string attrcore_autosave_image = attr_autosave_image;
+				core.enabled = readXmlValue(coreNode, "enabled", "true") != "false";
+				core.system = readXmlValue(coreNode, "system");				
+				core.directory = readXmlValue(coreNode, "directory", "");
+				if (core.enabled && core.directory.empty())
+					continue;
 
-					attr = coreNode.attribute("enabled");
-					if (attr)
-						if (attr.value() == "false") attrcore_enabled = false;
-
-					attr = coreNode.attribute("directory");
-					if (attr)
-						attrcore_directory = attr.value();
-
-					attr = coreNode.attribute("file");
-					if (attr)
-						attrcore_file = attr.value();
-
-					attr = coreNode.attribute("image");
-					if (attr)
-						attrcore_image = attr.value();
-
-					attr = coreNode.attribute("nofileextension");
-					if (attr) {
-						if (strcmp(attr.value(), "true") == 0) attrcore_nofileextension = true;
-					}
-
-					attr = coreNode.attribute("firstslot");
-					if (attr)
-						attrcore_firstslot = Utils::String::toInteger(attr.value());
-
-					attr = coreNode.attribute("autosave");
-					if (attr)
-						if (strcmp(attr.value(), "true") == 0) attrcore_autosave = true;
-
-					attr = coreNode.attribute("autosave_file");
-					if (attr)
-						attrcore_autosave_file = attr.value();
-
-					attr = coreNode.attribute("autosave_image");
-					if (attr)
-						attrcore_autosave_image = attr.value();
-
-					regsavestate = new RegSaveState();
-					regsavestate->enabled = attrcore_enabled;
-					regsavestate->directory = attrcore_directory;
-					regsavestate->file = attrcore_file;
-					regsavestate->romGroup = 1; // should be computed (but always 1)
-					regsavestate->slotGroup = 2; // should be computed (but always 2)
-					regsavestate->image = attrcore_image;
-					regsavestate->nofileextension = attrcore_nofileextension;
-					regsavestate->firstslot = attrcore_firstslot;
-					regsavestate->autosave = attrcore_autosave;
-					regsavestate->autosave_file = attrcore_autosave_file;
-					regsavestate->autosave_image = attrcore_autosave_image;
-					mRegSaveStates[emulatorname + "_" + corename] = regsavestate;
-				}
+				emul->coreConfigs.push_back(core);
 			}
 		}
 	}
 
-	for (const auto& kv : mRegSaveStates) 
-	{
-		RegSaveState* rs = kv.second;
-
-		if (!rs->file.empty())
-		{
-			std::string restr = rs->file;
-			restr = Utils::String::replace(restr, "\\", "\\\\");
-			restr = Utils::String::replace(restr, ".", "\\.");
-			restr = Utils::String::replace(restr, "{{romfilename}}", "(.*)");
-			restr = Utils::String::replace(restr, "{{slot}}", "($|[0-9]+)");
-			restr = Utils::String::replace(restr, "{{slot0}}", "([0-9]+)");
-			restr = Utils::String::replace(restr, "{{slot00}}", "([0-9]+)");
-			restr = Utils::String::replace(restr, "{{slot2d}}", "([0-9]+)");
-			restr = "^" + restr + "$";
-
-			rs->slotFileRegEx = std::regex(restr);
-		}
-
-		if (rs->autosave && !rs->autosave_file.empty())
-		{
-			std::string autorestr = rs->autosave_file;
-			autorestr = Utils::String::replace(autorestr, "\\", "\\\\");
-			autorestr = Utils::String::replace(autorestr, ".", "\\.");
-			autorestr = Utils::String::replace(autorestr, "{{romfilename}}", "(.*)");
-			autorestr = "^" + autorestr + "$";
-			rs->autoFileRegEx = std::regex(autorestr);
-		}
-	}
+	for (const auto& kv : mSaveStateConfigs)
+		kv.second->SetupRegEx();
 }
 
-RegSaveState* SaveStateConfigFile::internalGetRegSaveState(const std::string& emulator, const std::string& core)
+std::shared_ptr<SaveStateConfig> SaveStateConfigFile::getSaveStateConfig(const std::string& emulator)
 {
-	if (!mRegSaveStatesMode) 
-		return nullptr;
-
-	auto it = mRegSaveStates.find(emulator + "_" + core);
-	if (it == mRegSaveStates.cend())
-		it = mRegSaveStates.find(emulator);
-
-	if (it != mRegSaveStates.cend() && it->second->enabled)
+	auto it = mSaveStateConfigs.find(emulator);
+	if (it != mSaveStateConfigs.cend() && it->second->enabled)
 		return it->second;
 			
 	return nullptr;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////
 
-bool RegSaveState::matchSlotFile(const std::string& filename, std::string& romName, int& slot)
+std::vector<std::shared_ptr<SaveStateConfig>> SaveStateConfigFile::getSaveStateConfigs(SystemData* system)
 {
-	if (file.empty())
-		return false;
+	std::vector<std::shared_ptr<SaveStateConfig>> ret;
 
-	std::cmatch matches;
-	if (!std::regex_match(filename.c_str(), matches, slotFileRegEx))
-		return false;
-
-	if (matches.size() - 1 < romGroup)
-		return false;
-
-	romName = matches[romGroup];
-
-	if (matches.size() - 1 < slotGroup)
-		return false;
-		
-	slot = Utils::String::toInteger(matches[slotGroup]);
-	
-	return !romName.empty();
-}
-
-bool RegSaveState::matchAutoFile(const std::string& filename, std::string& romName)
-{
-	if (!autosave || autosave_file.empty())
-		return false;
-
-	std::cmatch matches;
-	if (std::regex_match(filename.c_str(), matches, autoFileRegEx))
+	if (!isEnabled())
 	{
-		if (matches.size() - 1 < 1)
-			return false;
-
-		romName = matches[1];
-		return !romName.empty();
+		ret.push_back(SaveStateConfig::Default());
+		return ret;
 	}
 
-	return false;
+	auto systemName = system->getName();
+	auto defaultEmulator = system->getDefaultEmulator();
+	auto defaultCore = system->getDefaultCore();
+
+	for (auto emul : system->getEmulators())
+	{
+		auto pInfo = Instance()->getSaveStateConfig(emul.name);
+		if (pInfo == nullptr || !pInfo->enabled)
+			continue;
+
+		bool splittedCores = pInfo->directory.find("{{core}}") != std::string::npos;
+
+		if (emul.cores.size() == 0 || !splittedCores)
+		{
+			if (!pInfo->defaultCoreDirectory.empty())
+			{
+				auto copy = std::make_shared<SaveStateConfig>(*pInfo);
+				copy->directory = pInfo->defaultCoreDirectory;
+				ret.push_back(copy);
+			}
+			else
+				ret.push_back(pInfo);
+
+			continue;
+		}
+
+		for (auto core : emul.cores)
+		{
+			auto coreConf = std::find_if(pInfo->coreConfigs.cbegin(), pInfo->coreConfigs.cend(), [core, systemName](const SaveStateCoreConfig& x) { return x.name == core.name && x.system == systemName; });
+			if (coreConf == pInfo->coreConfigs.cend())
+				coreConf = std::find_if(pInfo->coreConfigs.cbegin(), pInfo->coreConfigs.cend(), [core, systemName](const SaveStateCoreConfig& x) { return x.name == core.name; });
+			
+			if (coreConf != pInfo->coreConfigs.cend() && !coreConf->enabled)
+				continue;
+			
+			auto copy = std::make_shared<SaveStateConfig>(*pInfo);
+			copy->core = core.name;
+
+			if (coreConf != pInfo->coreConfigs.cend() && !coreConf->directory.empty())
+				copy->directory = coreConf->directory;
+			else if (!pInfo->defaultCoreDirectory.empty() && emul.name == defaultEmulator && core.name == defaultCore)
+				copy->directory = pInfo->defaultCoreDirectory;
+
+			ret.push_back(copy);
+		}
+	}
+
+	return ret;
 }

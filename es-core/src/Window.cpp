@@ -25,6 +25,10 @@
 #include "Splash.h"
 #include "PowerSaver.h"
 
+#if WIN32
+#include <SDL_syswm.h>
+#endif
+
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr)
 {			
@@ -715,6 +719,8 @@ void Window::render()
 		auto margin = Renderer::setScreenMargin(0, 0);
 		Renderer::setMatrix(Transform4x4f::Identity());
 
+		bool hasMousePointer = false;
+
 		if (mGunAimTexture == nullptr)
 			mGunAimTexture = TextureResource::get(":/gun.png", false, false, true, false);
 
@@ -722,6 +728,12 @@ void Window::render()
 		{
 			for (auto gun : guns)
 			{
+				if (gun->isMouse())
+				{
+					hasMousePointer = true;
+					continue;
+				}
+
 				int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
 
 				Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
@@ -745,7 +757,69 @@ void Window::render()
 
 				Renderer::drawTriangleStrips(&vertices[0], 4);
 			}
+		}	
+
+#if WIN32
+		if (hasMousePointer)
+		{
+			if (mMouseCursorTexture == nullptr)
+				mMouseCursorTexture = TextureResource::get(":/cursor.png", false, true, true, false);
+
+			if (mMouseCursorTexture->bind())
+			{
+				for (auto gun : guns)
+				{
+					if (!gun->isMouse())
+						continue;
+
+					if (gun->isLastTickElapsed())
+						break;
+
+					SDL_SysWMinfo wmInfo;
+					SDL_VERSION(&wmInfo.version);
+					if (SDL_GetWindowWMInfo(Renderer::getSDLWindow(), &wmInfo))
+					{
+						HWND hWnd = wmInfo.info.win.window;
+
+						POINT cursorPos;
+						GetCursorPos(&cursorPos);
+
+						// Convert screen coordinates to client coordinates
+						ScreenToClient(hWnd, &cursorPos);
+
+						// Get the client rectangle of the window
+						RECT clientRect;
+						GetClientRect(hWnd, &clientRect);
+
+						// Check if the cursor is within the client area
+						if (!PtInRect(&clientRect, cursorPos))
+							continue;
+					}					
+
+					int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 38;
+					
+					Vector2i sz = ImageIO::adjustPictureSize(mMouseCursorTexture->getSize(), Vector2i(pointerSize, pointerSize));
+
+					Vector2f topLeft = { gun->x(), gun->y() };
+					Vector2f bottomRight = { gun->x() + sz.x(), gun->y() + sz.y() };
+
+					auto aimColor = 0xFFFFFFFF;
+					
+					if (gun->isLButtonDown() || gun->isRButtonDown())
+						aimColor = 0xC0FAFAFF;
+
+					Renderer::Vertex vertices[4];
+					vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          1.0f }, aimColor };
+					vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          0.0f }, aimColor };
+					vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 1.0f }, aimColor };
+					vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 0.0f }, aimColor };
+
+					Renderer::drawTriangleStrips(&vertices[0], 4);
+					break;
+				}
+			}
 		}
+#endif
 
 		Renderer::setScreenMargin(margin.x(), margin.y());
 	}

@@ -51,7 +51,7 @@ static std::mutex mJoysticksLock;
 InputManager* InputManager::mInstance = NULL;
 Delegate<IJoystickChangedEvent> InputManager::joystickChanged;
 
-InputManager::InputManager() : mKeyboardInputConfig(NULL), mMouseButtonsInputConfig(NULL), mCECInputConfig(NULL), mGunInputConfig(NULL)
+InputManager::InputManager() : mKeyboardInputConfig(nullptr), mMouseButtonsInputConfig(nullptr), mCECInputConfig(nullptr), mGunInputConfig(nullptr), mGunManager(nullptr)
 {
 
 }
@@ -68,6 +68,7 @@ InputManager* InputManager::getInstance()
 
 	return mInstance;
 }
+
 
 void InputManager::init()
 {
@@ -351,6 +352,7 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		SDL_SetHint(SDL_HINT_JOYSTICK_HIDAPI, "0");
 #endif
 
+	SDL_SetHint("SDL_JOYSTICK_HIDAPI_WII", "1");
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);	
 
@@ -552,23 +554,18 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	
 	case SDL_MOUSEBUTTONDOWN:        
 	case SDL_MOUSEBUTTONUP:
-		if (!window->processMouseButton(ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, ev.button.x, ev.button.y))
-			window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
+		if (!getGunManager()->isReplacingMouse())
+			if (!window->processMouseButton(ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, ev.button.x, ev.button.y))
+				window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
 
 		return true;
-		/*
-	case SDL_FINGERMOTION:
-		window->processMouseMove(ev.tfinger.x * Renderer::getScreenWidth(), ev.tfinger.y * Renderer::getScreenHeight());
 
-		LOG(LogDebug) << "Touch motion: " << ev.tfinger.x * Renderer::getScreenWidth() << ", " << ev.tfinger.y* Renderer::getScreenHeight();
-
-		return true;
-		*/
 	case SDL_MOUSEMOTION:
 #if !WIN32
 	  if (ev.motion.which == SDL_TOUCH_MOUSEID)
 #endif
-		window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
+		if (!getGunManager()->isReplacingMouse())
+			window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
 
 		return true;
 

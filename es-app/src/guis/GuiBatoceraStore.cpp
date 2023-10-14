@@ -129,18 +129,18 @@ void GuiBatoceraStore::onSizeChanged()
 	const float subtitleHeight = mSubtitle->getFont()->getLetterHeight();
 	const float titleSubtitleSpacing = mSize.y() * 0.03f;
 
-	mGrid.setRowHeightPerc(0, (titleHeight + titleSubtitleSpacing + subtitleHeight + TITLE_VERT_PADDING) / mSize.y());
+	mGrid.setRowHeight(0, titleHeight + titleSubtitleSpacing + subtitleHeight + TITLE_VERT_PADDING);
 
 	if (mTabs->size() == 0)
-		mGrid.setRowHeightPerc(1, 0.00001f);
+		mGrid.setRowHeight(1, 0.00001f);
 	else 
-		mGrid.setRowHeightPerc(1, (titleHeight + titleSubtitleSpacing) / mSize.y());
+		mGrid.setRowHeight(1, titleHeight + titleSubtitleSpacing);
 
-	mGrid.setRowHeightPerc(3, mButtonGrid->getSize().y() / mSize.y());
+	mGrid.setRowHeight(3, mButtonGrid->getSize().y());
 
-	mHeaderGrid->setRowHeightPerc(1, titleHeight / mHeaderGrid->getSize().y());
-	mHeaderGrid->setRowHeightPerc(2, titleSubtitleSpacing / mHeaderGrid->getSize().y());
-	mHeaderGrid->setRowHeightPerc(3, subtitleHeight / mHeaderGrid->getSize().y());
+	mHeaderGrid->setRowHeight(1, titleHeight);
+	mHeaderGrid->setRowHeight(2, titleSubtitleSpacing);
+	mHeaderGrid->setRowHeight(3, subtitleHeight);
 }
 
 void GuiBatoceraStore::centerWindow()

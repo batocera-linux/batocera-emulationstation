@@ -12,7 +12,7 @@
 
 static int slots = 6; // 5;
 
-GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<void(const SaveState& state)>& callback) :
+GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<void(SaveState* state)>& callback) :
 	GuiComponent(window), mGrid(nullptr), mBackground(window, ":/frame.png"),
 	mLayout(window, Vector2i(3, 5)), mTitle(nullptr)
 {
@@ -30,7 +30,7 @@ GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<v
 	mTitle = std::make_shared<TextComponent>(mWindow, _("SAVESTATE MANAGER"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mLayout.setEntry(mTitle, Vector2i(1, 1), false, true);
 
-	mGrid = std::make_shared<ImageGridComponent<SaveState>>(mWindow);
+	mGrid = std::make_shared<ImageGridComponent<SaveStateItem>>(mWindow);
 	mLayout.setEntry(mGrid, Vector2i(1, 3), true, true);
 
 	addChild(&mBackground);
@@ -100,37 +100,55 @@ GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<v
 
 void GuiSaveState::loadGrid()
 {
-	bool incrementalSaveStates = SystemConf::getIncrementalSaveStates();
-
 	mGrid->clear();
 	mGrid->onSizeChanged(); // To Rebuild tiles
 
+	bool supportsIncrementalSaveStates = SystemConf::getIncrementalSaveStates();
+	bool incrementalSaveStates = supportsIncrementalSaveStates && mRepository->supportsIncrementalSaveStates();
+
 	auto states = mRepository->getSaveStates(mGame);
+	
+	std::sort(states.begin(), states.end(), [&, supportsIncrementalSaveStates, incrementalSaveStates](const SaveState* file1, const SaveState* file2)
+		{ 
+			// Show active emulator first
+			if (file1->config != nullptr && file2->config != nullptr && !file1->config->equals(file2->config))
+				return file1->config->isActiveConfig(mGame);
+			
+			if (supportsIncrementalSaveStates && file1->config != nullptr ? file1->config->incremental : incrementalSaveStates)
+				return file1->creationDate >= file2->creationDate;
 
-	if (incrementalSaveStates)
-		std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->creationDate >= file2->creationDate; });
-	else
-		std::sort(states.begin(), states.end(), [](const SaveState* file1, const SaveState* file2) { return file1->slot < file2->slot; });
+			return file1->slot < file2->slot; 
+		});
 
-	mGrid->add(_("START NEW GAME"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-2));
 
-	if (mGame->getCurrentGameSetting("autosave") == "1")
+	mGrid->add(_("START NEW GAME"), ":/freeslot.svg", "", "", false, false, false, false, SaveStateItem(mRepository->getDefaultNewGameSaveState()));
+
+	if (mRepository->supportsAutoSave() && mGame->getCurrentGameSetting("autosave") == "1")
 	{
 		auto autoSave = std::find_if(states.cbegin(), states.cend(), [](SaveState* x) { return x->slot == -1; });
 		if (autoSave == states.cend())
-			mGrid->add(_("START NEW AUTO SAVE"), ":/freeslot.svg", "", "", false, false, false, false, SaveState(-1));
+			mGrid->add(_("START NEW AUTO SAVE"), ":/freeslot.svg", "", "", false, false, false, false, SaveStateItem(mRepository->getDefaultAutoSaveSaveState()));
 	}
 
 	for (auto item : states)
 	{
-		if (item->slot == -1)
-			mGrid->add(_("AUTO SAVE") + std::string("\r\n") + item->creationDate.toLocalTimeString(), item->getScreenShot(), "", "", false, false, false, false, *item);
-		else if (incrementalSaveStates)
-			mGrid->add(item->creationDate.toLocalTimeString(), item->getScreenShot(), "", "", false, false, false, false, *item);
-		else 
-			mGrid->add(_("SLOT") + std::string(" ") + std::to_string(item->slot) + std::string("\r\n") + item->creationDate.toLocalTimeString() , item->getScreenShot(), "", "", false, false, false, false, *item);
-	}
+		std::string coreinfo;
+		
+		if (item->config != nullptr && !item->config->emulator.empty() && !item->config->isActiveConfig(mGame))
+		{
+			if (item->config->core.empty() || item->config->emulator == item->config->core)
+				coreinfo = std::string("\r\n") + item->config->emulator;
+			else
+				coreinfo = std::string("\r\n") + item->config->emulator + ": " + item->config->core;
+		}
 
+		if (item->slot == -1)
+			mGrid->add(_("AUTO SAVE") + std::string("\r\n") + item->creationDate.toLocalTimeString() + coreinfo, item->getScreenShot(), "", "", false, false, false, false, SaveStateItem(item));
+		else if (supportsIncrementalSaveStates && item->config != nullptr ? item->config->incremental : incrementalSaveStates)
+			mGrid->add(item->creationDate.toLocalTimeString() + coreinfo, item->getScreenShot(), "", "", false, false, false, false, SaveStateItem(item));
+		else 
+			mGrid->add(_("SLOT") + std::string(" ") + std::to_string(item->slot) + std::string("\r\n") + item->creationDate.toLocalTimeString() + coreinfo, item->getScreenShot(), "", "", false, false, false, false, SaveStateItem(item));
+	}
 }
 
 void GuiSaveState::onSizeChanged()
@@ -193,8 +211,8 @@ bool GuiSaveState::input(InputConfig* config, Input input)
 	{
 		if (mGrid->size())
 		{
-			const SaveState& item = mGrid->getSelected();
-			mRunCallback(item);
+			const SaveStateItem& item = mGrid->getSelected();
+			mRunCallback(item.saveState);
 		}
 
 		delete this;
@@ -208,10 +226,13 @@ bool GuiSaveState::input(InputConfig* config, Input input)
 			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"), _("YES"), 
 				[this]
 				{
-					const SaveState& toDelete = mGrid->getSelected();
-					toDelete.remove();
+					
+					const SaveStateItem& toDelete = mGrid->getSelected();
+					auto conf = toDelete.saveState->config;
 
-					SaveStateRepository::renumberSlots(mGame);
+					toDelete.saveState->remove();
+
+					SaveStateRepository::renumberSlots(mGame, conf);
 					mRepository->refresh();
 
 					loadGrid();
@@ -226,11 +247,12 @@ bool GuiSaveState::input(InputConfig* config, Input input)
 	{
 		if (mGrid->size())
 		{
-			int slot = mRepository->getNextFreeSlot(mGame);
+			const SaveStateItem& toCopy = mGrid->getSelected();
+			
+			int slot = mRepository->getNextFreeSlot(mGame, toCopy.saveState->config);
 			if (slot >= 0)
-			{
-				const SaveState& toCopy = mGrid->getSelected();
-				if (toCopy.copyToSlot(slot))
+			{				
+				if (toCopy.saveState->copyToSlot(slot))
 				{
 					mRepository->refresh();
 					loadGrid();
@@ -250,11 +272,15 @@ std::vector<HelpPrompt> GuiSaveState::getHelpPrompts()
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK"), [&] { delete this; }));
 	prompts.push_back(HelpPrompt(BUTTON_OK, _("LAUNCH")));
 
-	if (mGrid->size() && !mGrid->getSelected().fileName.empty())
+	if (mGrid->size())
 	{
-		prompts.push_back(HelpPrompt("y", _("DELETE")));
-		prompts.push_back(HelpPrompt("x", _("COPY TO FREE SLOT")));
-	}
+		const SaveStateItem& item = mGrid->getSelected();
+		if (!item.saveState->fileName.empty())
+		{
+			prompts.push_back(HelpPrompt("y", _("DELETE")));
+			prompts.push_back(HelpPrompt("x", _("COPY TO FREE SLOT")));
+		}
+	}	
 
 	return prompts;
 }

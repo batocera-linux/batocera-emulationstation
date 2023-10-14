@@ -175,6 +175,7 @@ private:
 	int mTransitionOffset;
 
 	std::shared_ptr<TextureResource> mGunAimTexture;
+	std::shared_ptr<TextureResource> mMouseCursorTexture;
 
 	GuiComponent* mMouseCapture;
 	Vector2i	  mLastMousePoint;
