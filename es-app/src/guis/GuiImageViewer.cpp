@@ -519,7 +519,7 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 		{
 			std::vector<std::string> ret;
 
-			for (int i = 0; i < INITIALPAGES && i < files.size(); i++)
+			for (size_t i = 0; i < INITIALPAGES && i < files.size(); i++)
 			{
 				auto fileToExtract = files[i];
 
@@ -535,7 +535,7 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 			if (fileList.size() == 0)
 				return;
 
-			for (int i = 0; i < fileList.size(); i++)
+			for (size_t i = 0; i < fileList.size(); i++)
 			{
 				ImageIO::removeImageCache(fileList[i]);
 				mGrid.setImage(fileList[i], std::to_string(i + 1));
