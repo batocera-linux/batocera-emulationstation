@@ -28,19 +28,41 @@ MultiLineMenuEntry::MultiLineMenuEntry(Window* window, const std::string& text, 
 	setEntry(mSubstring, Vector2i(0, 1), false, true);
 
 	float th = mText->getSize().y();
-	float sh = mSubstring->getSize().y();
-	float h = th + sh;
 
-	setRowHeightPerc(0, (th * 0.9) / h);
-	setRowHeightPerc(1, (sh * 1.1) / h);
+	if (mSubstring->getText().empty())
+	{
+		setRowHeight(0, th);
+		setRowHeight(1, 0);
 
-	setSize(Vector2f(0, h));
+		setSize(Vector2f(0, th));
+	}
+	else
+	{
+		float sh = mSubstring->getSize().y();
+		float h = th + sh;
+
+		setRowHeightPerc(0, (th * 0.9) / h);
+		setRowHeightPerc(1, (sh * 1.1) / h);
+
+		setSize(Vector2f(0, h));
+	}
 }
 
 void MultiLineMenuEntry::setColor(unsigned int color)
 {
 	mText->setColor(color);
 	mSubstring->setColor(color);
+}
+
+std::string MultiLineMenuEntry::getDescription()
+{
+	return mSubstring->getText();
+}
+
+void MultiLineMenuEntry::setDescription(const std::string& description)
+{
+	mSubstring->setText(description);
+	onSizeChanged();
 }
 
 void MultiLineMenuEntry::onSizeChanged()
@@ -55,13 +77,24 @@ void MultiLineMenuEntry::onSizeChanged()
 		mSubstring->setSize(mSize.x(), 0);
 
 		float th = mText->getSize().y();
-		float sh = mSubstring->getSize().y();
-		float h = th + sh;
 
-		setRowHeightPerc(0, (th * 0.9) / h);
-		setRowHeightPerc(1, (sh * 1.1) / h);
+		if (mSubstring->getText().empty())
+		{
+			setRowHeight(0, th);
+			setRowHeight(1, 0);
 
-		setSize(Vector2f(mSize.x(), h));
+			setSize(Vector2f(mSize.x(), th));
+		}
+		else
+		{
+			float sh = mSubstring->getSize().y();
+			float h = th + sh;
+
+			setRowHeightPerc(0, (th * 0.9) / h);
+			setRowHeightPerc(1, (sh * 1.1) / h);
+
+			setSize(Vector2f(mSize.x(), h));
+		}
 
 		mSizeChanging = false;
 	}

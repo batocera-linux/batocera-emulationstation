@@ -379,22 +379,10 @@ void MenuComponent::onSizeChanged()
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	// update grid row/col sizes
-	mGrid.setRowHeightPerc(0, TITLE_HEIGHT / mSize.y(), false);
-	mGrid.setRowHeightPerc(2, getButtonGridHeight() / mSize.y(), false);
+	mGrid.setRowHeight(0, TITLE_HEIGHT, false);
+	mGrid.setRowHeight(2, getButtonGridHeight(), false);
 
 	mGrid.setSize(mSize);
-	/*
-	if (mTitleImage != nullptr)
-	{
-		mTitleImage->setMaxSize(mSize.x() * 0.80, TITLE_HEIGHT * 0.85); // replaceTitle
-
-		if (mTitle != nullptr && mTitle->isVisible())
-		{
-			float iw = mTitleImage->getSize().x() / mSize.x();
-			mHeaderGrid->setColWidthPerc(0, 1 - iw);
-			mHeaderGrid->setColWidthPerc(1, iw);
-		}
-	}*/
 }
 
 void MenuComponent::clearButtons()

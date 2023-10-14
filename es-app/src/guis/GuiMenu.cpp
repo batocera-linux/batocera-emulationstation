@@ -759,7 +759,7 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"), firstJoystickOnly);
 	s->addSaveFunc([this, firstJoystickOnly] { Settings::getInstance()->setBool("FirstJoystickOnly", firstJoystickOnly->getState()); });
 
-#if !defined(WIN32)
+//#if !defined(WIN32)
 	{
 	  auto gun_mt = std::make_shared<SliderComponent>(mWindow, 0.f, 10.f, 0.1f, "%");
 	  gun_mt->setValue(Settings::getInstance()->getFloat("GunMoveTolerence"));
@@ -768,7 +768,7 @@ void GuiMenu::openDeveloperSettings()
 	    Settings::getInstance()->setFloat("GunMoveTolerence", gun_mt->getValue());
 	  });
 	}
-#endif
+//#endif
 
 #if defined(WIN32)
 
@@ -1864,6 +1864,40 @@ static bool hasGlobalFeature(const std::string& name)
 	return CustomFeatures::GlobalFeatures.hasGlobalFeature(name);
 }
 
+static std::string getFeatureMenuDescription(const std::string& configName, const VectorEx<CustomFeature>& items)
+{
+	std::string description;
+
+	for (auto item : items)
+	{
+		std::string storageName = configName + "." + item.value;
+		std::string storedValue = SystemConf::getInstance()->get(storageName);
+		if (!storedValue.empty())
+		{
+			std::string text = pgettext("game_options", item.name.c_str());
+
+			for (auto ch : item.choices)
+			{
+				if (ch.value == storedValue)
+				{
+					storedValue = ch.name;
+					break;
+				}
+			}
+
+			text += " : " + Utils::String::toUpper(storedValue);
+
+			if (description.empty())
+				description = text;
+			else
+				description = description + "\r\n" + text;
+		}
+	}
+
+	return description;
+}
+
+
 void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* window, GuiSettings* settings, const std::string& configName, const std::string& system, const std::string& emulator, const std::string& core, const std::string& defaultGroupName, bool addDefaultGroupOnlyIfNotFirst)
 {
 	bool firstGroup = true;
@@ -1901,6 +1935,44 @@ void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* windo
 			auto items = features.where([feat](auto x) { return x.preset != "hidden" && x.submenu == feat.submenu; });
 			if (items.size() > 0)
 			{
+				std::string label = Utils::String::toUpper(pgettext("game_options", feat.submenu.c_str()));
+				std::string description = getFeatureMenuDescription(configName, items);
+
+				std::shared_ptr<MultiLineMenuEntry> entry = std::make_shared<MultiLineMenuEntry>(window, label, description, true);
+
+				ComponentListRow row;
+				row.addElement(entry, true);
+
+				auto arrow = makeArrow(window);
+				if (EsLocale::isRTL()) arrow->setFlipX(true);
+				row.addElement(arrow, false);
+
+				row.makeAcceptInputHandler([window, configName, feat, items, system, emulator, core, settings, entry]
+				{
+					GuiSettings* groupSettings = new GuiSettings(window, pgettext("game_options", feat.submenu.c_str()));
+
+					for (auto feat : items)
+						addFeatureItem(window, groupSettings, feat, configName, system, emulator, core);
+
+					groupSettings->addSaveFunc([settings, entry, configName, items]
+					{
+						if (entry != nullptr)
+						{
+							std::string newDesc = getFeatureMenuDescription(configName, items);
+							if (newDesc != entry->getDescription())
+							{
+								entry->setDescription(newDesc);
+								settings->updateSize();
+							}
+						}
+					});
+
+					window->pushGui(groupSettings);
+				});
+
+				settings->addRow(row);
+
+				/*
 				settings->addEntry(pgettext("game_options", feat.submenu.c_str()), true, [window, configName, feat, items, system, emulator, core]
 				{
 					GuiSettings* groupSettings = new GuiSettings(window, pgettext("game_options", feat.submenu.c_str()));
@@ -1909,7 +1981,7 @@ void GuiMenu::addFeatures(const VectorEx<CustomFeature>& features, Window* windo
 						addFeatureItem(window, groupSettings, feat, configName, system, emulator, core);
 
 					window->pushGui(groupSettings);
-				});
+				});*/
 			}
 		}
 	}
