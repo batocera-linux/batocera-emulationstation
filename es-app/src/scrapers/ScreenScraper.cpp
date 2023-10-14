@@ -205,7 +205,8 @@ const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedM
 		ScraperMediaSource::Manual,
 		ScraperMediaSource::Ratings,
 		ScraperMediaSource::PadToKey,
-		ScraperMediaSource::Bezel_16_9
+		ScraperMediaSource::Bezel_16_9,
+		ScraperMediaSource::Region
 	};
 
 	return mdds;
@@ -670,6 +671,14 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 		if (media_list)
 		{
+			// ScraperRegion applies only to medias -> Import into romlang during findMedia(), as it's searched first
+			std::string regionOverride = Settings::getInstance()->getString("ScraperRegion");
+			if (!regionOverride.empty())
+			{
+				region = romlang;
+				romlang = regionOverride;
+			}
+
 			std::vector<std::string> ripList = getRipList(Settings::getInstance()->getString("ScrapperImageSrc"));
 			if (!ripList.empty())
 			{
