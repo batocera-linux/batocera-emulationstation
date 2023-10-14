@@ -556,6 +556,8 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 		if (!options.netplayClientPassword.empty())
 			pass = " -netplaypass " + options.netplayClientPassword;
 
+		// TODO : Add options.mitm_session when it's available
+
 #if WIN32
 		if (Utils::String::toLower(command).find("retroarch.exe") != std::string::npos)
 			command = Utils::String::replace(command, "%NETPLAY%", "--connect " + options.ip + " --port " + std::to_string(options.port) + " --nick " + SystemConf::getInstance()->get("global.netplay.nickname"));
