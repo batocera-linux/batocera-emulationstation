@@ -82,7 +82,7 @@ public:
 	static bool isUrl(const std::string& s);
 
 	int getPercent() { return mPercent; }
-	int getPosition() { return mPosition; }
+	int64_t getPosition() { return mPosition; }
 
 	std::string getUrl() { return mUrl; }
 	std::string getFilePath() { return mFilePath; }	
@@ -124,7 +124,7 @@ private:
 	std::string mUrl;
 
 	int mPercent;
-	double mPosition;
+	int64_t mPosition;
 
 	std::map<std::string, std::string> mResponseHeaders;	
 };
