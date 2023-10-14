@@ -830,12 +830,12 @@ std::string ApiSystem::getGitRepositoryDefaultBranch(const std::string& url)
 	return ret;
 }
 
-bool ApiSystem::downloadGitRepository(const std::string& url, const std::string& branch, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, long defaultDownloadSize)
+bool ApiSystem::downloadGitRepository(const std::string& url, const std::string& branch, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, int64_t defaultDownloadSize)
 {
 	if (func != nullptr)
 		func("Downloading " + label);
 
-	long downloadSize = defaultDownloadSize;
+	int64_t downloadSize = defaultDownloadSize;
 	if (downloadSize == 0)
 	{
 		std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
@@ -850,7 +850,7 @@ bool ApiSystem::downloadGitRepository(const std::string& url, const std::string&
 				{
 					auto end = content.find(",", pos);
 					if (end != std::string::npos)
-						downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024;
+						downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024LL;
 				}
 			}
 		}
@@ -863,12 +863,12 @@ bool ApiSystem::downloadGitRepository(const std::string& url, const std::string&
 	{
 		if (downloadSize > 0)
 		{
-			double pos = httpreq.getPosition();
+			int64_t pos = httpreq.getPosition();
 			if (pos > 0 && curPos != pos)
 			{
 				if (func != nullptr)
 				{
-					std::string pc = std::to_string((int)(pos * 100.0 / downloadSize));
+					std::string pc = std::to_string((int)(pos * 100LL / downloadSize));
 					func(std::string("Downloading " + label + " >>> " + pc + " %"));
 				}
 
@@ -983,7 +983,7 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 		
 		std::string branch = getGitRepositoryDefaultBranch(theme.url);
 
-		if (downloadGitRepository(theme.url, branch, zipFile, thname, func, theme.size * 1024 * 1024))
+		if (downloadGitRepository(theme.url, branch, zipFile, thname, func, theme.size * 1024LL * 1024))
 		{
 			if (func != nullptr)
 				func(_("Extracting") + " " + thname);
@@ -1536,8 +1536,8 @@ std::vector<std::string> ApiSystem::getFormatDiskList()
 {
 #if WIN32 && _DEBUG
 	std::vector<std::string> ret;
-	ret.push_back("d:\ DRIVE D:");
-	ret.push_back("e:\ DRIVE Z:");
+	ret.push_back("d:\\ DRIVE D:");
+	ret.push_back("e:\\ DRIVE Z:");
 	return ret;
 #endif
 	return executeEnumerationScript("batocera-format listDisks");

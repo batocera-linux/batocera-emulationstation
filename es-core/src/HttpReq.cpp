@@ -51,7 +51,7 @@ bool HttpReq::isUrl(const std::string& str)
 }
 
 #ifdef WIN32
-LONG _regGetDWORD(HKEY hKey, const std::string &strPath, const std::string &strValueName)
+static LONG _regGetDWORD(HKEY hKey, const std::string &strPath, const std::string &strValueName)
 {
 	HKEY hSubKey;
 	LONG nRet = ::RegOpenKeyEx(hKey, strPath.c_str(), 0L, KEY_QUERY_VALUE, &hSubKey);
@@ -70,7 +70,7 @@ LONG _regGetDWORD(HKEY hKey, const std::string &strPath, const std::string &strV
 	return 0;
 }
 
-std::string _regGetString(HKEY hKey, const std::string &strPath, const std::string &strValueName)
+static std::string _regGetString(HKEY hKey, const std::string &strPath, const std::string &strValueName)
 {
 	std::string ret;
 
@@ -252,7 +252,6 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 
 			if (!proxyServer.empty())
 			{
-				CURLcode ret;
 				curl_easy_setopt(mHandle, CURLOPT_PROXY, proxyServer.c_str());
 				curl_easy_setopt(mHandle, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
 			}
@@ -552,7 +551,7 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 		return 0;
 
 	size_t rs = size * nmemb;
-	fwrite(buff, 1, rs, file) != rs;	
+	fwrite(buff, 1, rs, file);
 	if (ferror(file))
 	{
 		request->closeStream();			
@@ -562,15 +561,15 @@ size_t HttpReq::write_content(void* buff, size_t size, size_t nmemb, void* req_p
 		return 0;
 	}
 
-	double cl;
-	if (!curl_easy_getinfo(request->mHandle, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &cl))
-	{		
+	curl_off_t cl = 0;
+	if (!curl_easy_getinfo(request->mHandle, CURLINFO_CONTENT_LENGTH_DOWNLOAD_T, &cl))
+	{
 		request->mPosition += rs;
 
 		if (cl <= 0)
 			request->mPercent = -1;
 		else
-			request->mPercent = (int) (request->mPosition * 100.0 / cl);
+			request->mPercent = (int)(request->mPosition * 100LL / cl);
 	}
 
 	return nmemb;
