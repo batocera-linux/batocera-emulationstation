@@ -242,7 +242,7 @@ void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage, bo
 	
 	if (replaceTitle)
 	{		
-		mTitleImage->setMaxSize(mSize.x() * 0.7f, TITLE_HEIGHT);
+		mTitleImage->setMaxSize(mSize.x() * 0.85f, TITLE_HEIGHT);
 
 		mHeaderGrid->setColWidthPerc(0, 0);
 		mHeaderGrid->setColWidthPerc(1, 1);
@@ -383,6 +383,14 @@ void MenuComponent::onSizeChanged()
 	mGrid.setRowHeight(2, getButtonGridHeight(), false);
 
 	mGrid.setSize(mSize);
+
+	// Fix size if the Title Image replaces the title
+	if (mTitleImage != nullptr && (mTitle == nullptr || !mTitle->isVisible()))
+	{		
+		mTitleImage->setOrigin(0.5f, 0.5f);
+		mTitleImage->setPosition(getPosition().x() + mSize.x() / 2.0f, getPosition().y() + TITLE_HEIGHT / 2.0f);
+		mTitleImage->setMaxSize(mSize.x() * 0.85f, TITLE_HEIGHT);
+	}
 }
 
 void MenuComponent::clearButtons()
