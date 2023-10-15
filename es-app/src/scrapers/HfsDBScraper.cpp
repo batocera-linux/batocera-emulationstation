@@ -25,6 +25,7 @@ namespace httplib { namespace detail { extern std::string base64_encode(const st
 const std::map<PlatformId, std::string> hfsdb_platformids
 { 
 	{ ARCADE, "29794" }, // Has special filtering
+	{ TEKNOPARROT, "29794" },
 
 	{ THREEDO, "82826" },
 	{ NINTENDO_3DS, "148845" },

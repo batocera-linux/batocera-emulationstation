@@ -167,6 +167,8 @@ namespace PlatformIds
 		EPOCH_GAMEPOCKET,
 		WASM4,
 
+		TEKNOPARROT,
+
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT
 	};
