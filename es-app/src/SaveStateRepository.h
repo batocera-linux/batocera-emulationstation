@@ -29,8 +29,9 @@ public:
 	void clear();
 	void refresh();
 
+	SaveState* getGameAutoSave(FileData* game);
 	SaveState* getDefaultAutoSaveSaveState();
-	SaveState* getDefaultNewGameSaveState();
+	SaveState* getDefaultNewGameSaveState();	
 
 	static SaveState* getEmptySaveState();
 

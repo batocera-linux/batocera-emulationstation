@@ -275,3 +275,46 @@ SaveState* SaveStateRepository::getEmptySaveState()
 {
 	return _empty;
 }
+
+SaveState* SaveStateRepository::getGameAutoSave(FileData* game)
+{
+	std::shared_ptr<SaveStateConfig> current;
+
+	auto emul = game->getEmulator();
+	auto core = game->getCore();
+
+	auto confs = SaveStateConfigFile::getSaveStateConfigs(game->getSourceFileData()->getSystem());
+	for (auto conf : confs)
+	{
+		if (conf->emulator == emul && conf->core == core)
+		{
+			current = conf;
+			break;
+		}
+	}
+
+	if (!current)
+	{
+		for (auto conf : confs)
+		{
+			if (conf->emulator == emul)
+			{
+				current = conf;
+				break;
+			}
+		}
+	}
+
+	if (!current && confs.size())
+		current = confs[0];
+
+	if (current)
+	{
+		auto states = getSaveStates(game, current);
+		auto it = std::find_if(states.cbegin(), states.cend(), [](const SaveState* x) { return x->slot == -1; });
+		if (it != states.cend())
+			return *it;
+	}
+
+	return getDefaultAutoSaveSaveState();	
+}
