@@ -240,17 +240,7 @@ void SaveStateRepository::renumberSlots(FileData* game, std::shared_ptr<SaveStat
 SaveState* SaveStateRepository::getDefaultAutoSaveSaveState()
 {
 	if (_autosave == nullptr)
-	{
 		_autosave = new SaveState(-1);
-
-		for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
-		{
-			if (rs->autosave)
-				_autosave->config = rs;
-
-			break;
-		}
-	}
 
 	return _autosave;
 }
@@ -258,16 +248,8 @@ SaveState* SaveStateRepository::getDefaultAutoSaveSaveState()
 SaveState* SaveStateRepository::getDefaultNewGameSaveState()
 {
 	if (_newGame == nullptr)
-	{
 		_newGame = new SaveState(-2);
-
-		for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
-		{
-			_newGame->config = rs;
-			break;
-		}
-	}
-
+	
 	return _newGame;
 }
 
@@ -316,5 +298,5 @@ SaveState* SaveStateRepository::getGameAutoSave(FileData* game)
 			return *it;
 	}
 
-	return getDefaultAutoSaveSaveState();	
+	return getDefaultAutoSaveSaveState();
 }
