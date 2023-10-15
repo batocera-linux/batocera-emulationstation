@@ -190,6 +190,9 @@ namespace PlatformIds
 		{ "gamepock",				EPOCH_GAMEPOCKET },	
 		{ "wasm4",					WASM4 },
 
+		{ "pcarcade",				TEKNOPARROT },
+		{ "teknoparrot",			TEKNOPARROT },
+
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }
 	};
