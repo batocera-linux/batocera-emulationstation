@@ -82,14 +82,7 @@ public:
 
 	Gun(const Gun& src) = delete;
 
-	~Gun()
-	{
-		if (m_pStabilizer != nullptr)
-		{
-			delete m_pStabilizer;
-			m_pStabilizer = nullptr;
-		}
-	}
+	~Gun();
 
 	int index() { return mIndex; }
 	std::string& name() { return mName; }
