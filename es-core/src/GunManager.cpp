@@ -225,9 +225,9 @@ public:
 	std::pair<float, float> getStabilizedPosition()
 	{
 		if (mBuffer.empty())
-			return { 0.0, 0.0 };
+			return { 0.0f, 0.0f };
 
-		float sumX = 0.0, sumY = 0.0;
+		float sumX = 0.0f, sumY = 0.0f;
 		for (const auto& pos : mBuffer)
 		{
 			sumX += pos.first;
@@ -891,3 +891,12 @@ float GunData::y() { return mY * Renderer::getScreenHeight(); }
 float GunData::x() { return mX; }
 float GunData::y() { return mY; }
 #endif
+
+Gun::~Gun()
+{
+	if (m_pStabilizer != nullptr)
+	{
+		delete m_pStabilizer;
+		m_pStabilizer = nullptr;
+	}
+}
