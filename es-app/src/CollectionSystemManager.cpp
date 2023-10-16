@@ -1048,22 +1048,10 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 					include = false;
 				else
 				{
-					int min = -1;
+					auto range = game->parsePlayersRange();
 
-					auto split = players.rfind("+");
-					if (split != std::string::npos)
-						players = Utils::String::replace(players, "+", "-999");
-
-					split = players.rfind("-");
-					if (split != std::string::npos)
-					{
-						min = atoi(players.substr(0, split).c_str());
-						players = players.substr(split + 1);
-					}
-
-					int max = atoi(players.c_str());
 					int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
-					include = min <= 0 ? (val == max) : (min <= val && val <= max);
+					include = range.first <= 0 ? (val == range.second) : (range.first <= val && val <= range.second);
 				}
 			}
 			break;

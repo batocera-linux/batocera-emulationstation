@@ -221,8 +221,8 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 			continue;
 		
 		// Players -> remove "1-"
-		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
-			value = Utils::String::replace(value, "1-", "");
+		// if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
+		// 	value = Utils::String::replace(value, "1-", "");
 
 		set(mdd.id, value);
 	}
@@ -253,8 +253,8 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 			value = Utils::String::toLower(value);
 
 		// Players -> remove "1-"
-		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
-			value = Utils::String::replace(value, "1-", "");
+		// if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
+		// 	value = Utils::String::replace(value, "1-", "");
 
 		if (mdd.id == MetaDataId::Name)
 			mName = value;
@@ -362,11 +362,11 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 	}
 
 	// Players -> remove "1-"
-	if (mType == GAME_METADATA && id == 12 && Utils::String::startsWith(value, "1-")) // "players"
-	{
-		mMap[id] = Utils::String::replace(value, "1-", "");
-		return;
-	}
+	// if (mType == GAME_METADATA && id == 12 && Utils::String::startsWith(value, "1-")) // "players"
+	// {
+	// 	mMap[id] = Utils::String::replace(value, "1-", "");
+	// 	return;
+	// }
 
 	auto prev = mMap.find(id);
 	if (prev != mMap.cend() && prev->second == value)

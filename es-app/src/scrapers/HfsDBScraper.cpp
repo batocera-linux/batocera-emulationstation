@@ -449,6 +449,8 @@ static void processGame(const Value& game, std::vector<ScraperSearchResult>& res
 			{
 				value = Utils::String::replace(value, " joueurs", "");
 				value = Utils::String::replace(value, " joueur", "");
+				value = Utils::String::replace(value, "+ de ", "");
+
 				result.mdl.set(MetaDataId::Players, value);
 			}
 			else if (name == "editor")

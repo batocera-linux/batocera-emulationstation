@@ -767,6 +767,33 @@ int FileFilterIndex::showFile(FileData* game)
 				}
 			}
 		}
+		else if (filterData.type == PLAYER_FILTER)
+		{
+			auto range = game->parsePlayersRange();
+
+			if (range.first <= 0 && range.second > 0)
+				filterValid = isKeyBeingFilteredBy(std::to_string(range.second), filterData.type);
+			else if (range.second > 0)
+			{
+				auto it = mFilterDecl.find(PLAYER_FILTER);
+				if (it != mFilterDecl.cend())
+				{
+					auto fltKeys = it->second.currentFilteredKeys;					
+					if (fltKeys != nullptr)
+					{
+						for (auto flt : *fltKeys)
+						{
+							int val = Utils::String::toInteger(flt);
+							if (range.first <= val && val <= range.second)
+							{
+								filterValid = true;
+								break;
+							}
+						}
+					}
+				}
+			}			
+		}
 		else
 		{
 			// try to find a match
@@ -850,40 +877,15 @@ void FileFilterIndex::manageGenreEntryInIndex(FileData* game, bool remove)
 {
 	for (auto key : Genres::getGenreFiltersNames(&game->getMetadata()))
 		manageIndexEntry(&genreIndexAllKeys, key, remove);
-
-	/*
-
-	std::string key = getIndexableKey(game, GENRE_FILTER, false);
-
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-
-	// only add unknown in pubdev IF both dev and pub are empty
-	if (!includeUnknown && (key == UNKNOWN_LABEL || key == "BIOS"))		
-		return;	 // no valid genre info found
-
-	manageIndexEntry(&genreIndexAllKeys, key, remove);
-
-	auto subkey = getIndexableKey(game, GENRE_FILTER, true);
-	if (!includeUnknown && (subkey == UNKNOWN_LABEL || subkey == "BIOS"))
-		return;	 // no valid genre info found
-
-	manageIndexEntry(&genreIndexAllKeys, subkey, remove);*/
 }
 
 void FileFilterIndex::managePlayerEntryInIndex(FileData* game, bool remove)
 {
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-	std::string key = getIndexableKey(game, PLAYER_FILTER, false);
-
-	// only add unknown in pubdev IF both dev and pub are empty
-	if (!includeUnknown && key == UNKNOWN_LABEL) {
-		// no valid player info found
+	if (remove || !playersIndexAllKeys.empty())
 		return;
-	}
 
-	manageIndexEntry(&playersIndexAllKeys, key, remove);
+	for (int i = 1; i < 10; i++)
+		playersIndexAllKeys.insert(std::pair<std::string, int>(std::to_string(i), 1));
 }
 
 void FileFilterIndex::managePubDevEntryInIndex(FileData* game, bool remove)
