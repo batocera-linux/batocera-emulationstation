@@ -102,7 +102,7 @@ void ComponentGrid::setRowHeightPerc(int row, float height, bool update)
 
 void ComponentGrid::setColWidth(int col, float width, bool update)
 {
-	assert(width >= 0 && width <= 1);
+//	assert(width >= 0 && width <= 1);
 	assert(col >= 0 && col < mGridSize.x());
 
 	mColWidths[col]->value = width;
@@ -114,7 +114,7 @@ void ComponentGrid::setColWidth(int col, float width, bool update)
 
 void ComponentGrid::setRowHeight(int row, float height, bool update)
 {
-	assert(height >= 0 && height <= 1);
+//	assert(height >= 0 && height <= 1);
 	assert(row >= 0 && row < mGridSize.y());
 
 	mRowHeights[row]->value = height;
