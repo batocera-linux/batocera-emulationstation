@@ -268,14 +268,20 @@ std::shared_ptr<SaveStateConfig> SaveStateConfigFile::getSaveStateConfig(const s
 	return nullptr;
 }
 
+static std::map<std::string, std::vector<std::shared_ptr<SaveStateConfig>>> _cache;
 
 std::vector<std::shared_ptr<SaveStateConfig>> SaveStateConfigFile::getSaveStateConfigs(SystemData* system)
 {
+	auto it = _cache.find(system->getName());
+	if (it != _cache.cend())
+		return it->second;
+	
 	std::vector<std::shared_ptr<SaveStateConfig>> ret;
 
 	if (!isEnabled())
 	{
 		ret.push_back(SaveStateConfig::Default());
+		_cache.insert(std::pair<std::string, std::vector<std::shared_ptr<SaveStateConfig>>>(system->getName(), ret));
 		return ret;
 	}
 
@@ -326,5 +332,6 @@ std::vector<std::shared_ptr<SaveStateConfig>> SaveStateConfigFile::getSaveStateC
 		}
 	}
 
+	_cache.insert(std::pair<std::string, std::vector<std::shared_ptr<SaveStateConfig>>>(system->getName(), ret));
 	return ret;
 }
