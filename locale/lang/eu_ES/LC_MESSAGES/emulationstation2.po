@@ -194,10 +194,10 @@ msgid "enter hidden"
 msgstr "sartu ezkutatua"
 
 msgid "Kidgame"
-msgstr "Umeentza jokua"
+msgstr "Umeentzako jokua"
 
 msgid "enter kidgame"
-msgstr "sartu umeentzat jokua"
+msgstr "sartu umeentzako jokua"
 
 msgid "Play count"
 msgstr "Partida zenbatekoa"
@@ -381,7 +381,7 @@ msgstr "HARDCORE MODUA"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Karga egoerak, atzeratzea eta puntu gehiago lortzeko tranpak desgaituta"
+"Karga egoerak, atzeratzea eta puntu gehiago lortzeko tranpak desgaituta."
 
 msgid "LEADERBOARDS"
 msgstr "LIDER TAULAK"
@@ -419,7 +419,7 @@ msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
 msgstr ""
-"Erakutis ikonoak eskuin beheko iskinan aukeratu daitezkeen lorpenak irabazi "
+"Erakutsi ikonoak eskuin beheko iskinan aukeratu daitezkeen lorpenak irabazi "
 "daitezkeenean"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
@@ -483,10 +483,10 @@ msgid "GAME COLLECTION SETTINGS"
 msgstr "JOKO KOLEKZIO KONFIGURAZIOA"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr "ERAKUTIS BEHARREKO KOLEKZIOAK"
+msgstr "ERAKUTSI BEHARREKO KOLEKZIOAK"
 
 msgid "SYSTEMS DISPLAYED"
-msgstr "ERAKUTISTAKO SISTEMAK"
+msgstr "ERAKUTSITAKO SISTEMAK"
 
 msgid "GROUPED SYSTEMS"
 msgstr "TALDEKATUTAKO SISTEMAK"
@@ -634,7 +634,7 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "SHOW UNAVAILABLE GAMES"
-msgstr "ERAKUTIS ESKURAGARRI EZ DAUDEN JOKOAK"
+msgstr "ERAKUTSI ESKURAGARRI EZ DAUDEN JOKOAK"
 
 msgid "Show rooms for games not present on this machine."
 msgstr "Erakutsi makinan eskuragarri ez dauden jokuen gelak"
@@ -643,7 +643,7 @@ msgid "FINISHED"
 msgstr "AMAITUTA"
 
 msgid "VIEW OPTIONS"
-msgstr "ERAKUTIS AUKERAK"
+msgstr "ERAKUTSI AUKERAK"
 
 msgid "go back"
 msgstr "atzera egin"
@@ -682,7 +682,7 @@ msgid "automatic"
 msgstr "automatikoa"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr "ERAKUTIS NEURRIRATZEA"
+msgstr "ERAKUTSI NEURRIRATZEA"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "IKUSI PAD-ETK TEKLATURAKO INFORMAZIOA"
@@ -718,7 +718,7 @@ msgid "REMOVE"
 msgstr "KENDU"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOHT GAILUAK KENDU DIRA"
+msgstr "BLUETOOTH GAILUAK KENDU DIRA"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
@@ -737,7 +737,7 @@ msgid "CONNECT TO NETPLAY"
 msgstr "KONEKTATU SARE JOKORA"
 
 msgid "Select a game lobby to join"
-msgstr "Aukeraty zein joko gelara batu nahi duzun "
+msgstr "Aukeratu zein joko gelara batu nahi duzun"
 
 msgid "REFRESH"
 msgstr "FRESKATU"
@@ -773,7 +773,7 @@ msgid "WATCH GAME"
 msgstr "IKUSI JOKOA"
 
 msgid "INPUT MANUALLY"
-msgstr "ESKUZKO SARRERA "
+msgstr "ESKUZKO SARRERA"
 
 msgid "NO WI-FI NETWORKS FOUND"
 msgstr "HARI GABEKO SARERIK EZ DA AURKITU"
@@ -812,7 +812,7 @@ msgid "CONTROLLER SETTINGS"
 msgstr "KONTROLATZAILE KONFIGURAZIOA"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "AGINTEEN KONFIGURAZIOAK"
+msgstr "AGINTE & BLUETOOTH KONFIGURAZIOAK"
 
 msgid "CONTROLLERS PRIORITY"
 msgstr "AGINTE KONTROL PRIORITATEA"
@@ -826,7 +826,7 @@ msgstr "#%i ANGINTE KONTROLA"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "%iJ-REN KONTORLATZAILEA"
+msgstr "%i-REN KONTORLATZAILEA"
 
 msgid "CONTROLLER MAPPING"
 msgstr "KONTROLATZAILE MAPEATZEA"
@@ -854,7 +854,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "BLUETOOHT PAD-AK AUTOMATIKOKI PAREKATU"
+msgstr "BLUETOOTH PAD-AK AUTOMATIKOKI PAREKATU"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr "BLUETOOTH PAD-AK ESKUZ PAREKATU"
@@ -950,7 +950,7 @@ msgid "Projector/CRT (-6)"
 msgstr "Proiektorea/CRT (-6)"
 
 msgid "Default (-7)"
-msgstr "Defektus (-7"
+msgstr "Defektuz (-7"
 
 msgid "Other (-8)"
 msgstr "Bestela (-8)"
@@ -965,10 +965,10 @@ msgid "DISABLED"
 msgstr "EZGAITUTA"
 
 msgid "GUN"
-msgstr "PISTAOLA"
+msgstr "PISTOLA"
 
 msgid "MACHINE GUN"
-msgstr "METRAILADORE"
+msgstr "METRAILADOREA"
 
 msgid "QUIET GUN"
 msgstr "PISTOLA ISILA"
@@ -1075,7 +1075,7 @@ msgid "SCREENSAVER TYPE"
 msgstr "PANTAILA BABESLEAREN PORTAERA"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "GELDITU MUSIKA PANTIALA BABESELAN"
+msgstr "GELDITU MUSIKA PANTIALA BABESLEAN"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "AUSAZKO BIDEO PANTAILA BABESLE KONFIGURAZIOA"
@@ -1099,7 +1099,7 @@ msgid "STRETCH VIDEOS"
 msgstr "LUZATU BIDEOAK"
 
 msgid "MUTE VIDEO AUDIO"
-msgstr "ISILDU BIDOAREN AUDIOA"
+msgstr "ISILDU BIDEOAREN AUDIOA"
 
 msgid "SCREENSAVER CONTROLS"
 msgstr "PANTAILA BABESLE KONTROLAK"
@@ -1256,7 +1256,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "IKUSI PANTAILA OSOKO BIDEOA"
 
 msgid "VIEW GAME MEDIA"
-msgstr "IKUSI JOKO MEIDA"
+msgstr "IKUSI JOKO MEDIA"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "UNEKO NUKLEOA EZ DA BATERAGARRIA"
@@ -1443,7 +1443,7 @@ msgid "SCRAPE FOR"
 msgstr "LOR DATUAK HONENTZAT"
 
 msgid "SHORT NAME"
-msgstr "IZEN MITZA"
+msgstr "IZEN MOTZA"
 
 msgid "COMMUNITY RATING"
 msgstr "KOMUNIDADEAREN KALIFIKAZIOA"
@@ -1485,7 +1485,7 @@ msgid "FILTERS"
 msgstr "FILTROAK"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "JOKUA HUAENTZAT DATUAK LORTZEN"
+msgstr "JOKUA HAUENTZAT DATUAK LORTZEN"
 
 msgid "ALL"
 msgstr "GUZTIAK"
@@ -1506,7 +1506,7 @@ msgid "LAST WEEK"
 msgstr "AZKEN ASTEA"
 
 msgid "LAST 15 DAYS"
-msgstr "AZLKEN 15 EGUNAK"
+msgstr "AZKEN 15 EGUNAK"
 
 msgid "LAST MONTH"
 msgstr "AZKEN HILABETEA"
@@ -1532,7 +1532,7 @@ msgid ""
 "CONTINUE ANYWAY?"
 msgstr ""
 "KONTUZ: AUKERATU DITUZUN SISTEMETAKO BATZUK EZ DUTE PLATAFORMA EZARRITA."
-"EMAITZAK BESTE SISTEMA BATENTZAT IZA DAITEZKE!\n"
+"EMAITZAK BESTE SISTEMA BATENTZAT IZAN DAITEZKE!\n"
 "JARRAITU HALA ERE?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -1542,7 +1542,7 @@ msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "EZ DAGO JOKORIK IRIZPIDE HORI BETETZEN DUENIK"
 
 msgid "INFORMATION"
-msgstr "INFORMAZAIOA"
+msgstr "INFORMAZIOA"
 
 msgid "VERSION"
 msgstr "BERTSIOA"
@@ -1551,7 +1551,7 @@ msgid "USER DISK USAGE"
 msgstr "ERABILTZAILE DISKO ERABILERA"
 
 msgid "SYSTEM DISK USAGE"
-msgstr "SISTEMARE DISKO ERABILERA"
+msgstr "SISTEMAREN DISKO ERABILERA"
 
 msgid "SYSTEM"
 msgstr "SISTEMA"
@@ -1655,7 +1655,7 @@ msgid "INTERNAL"
 msgstr "BARNEKOA"
 
 msgid "ANY EXTERNAL"
-msgstr "KAPOKOREN BAT"
+msgstr "KANPOKOREN BAT"
 
 msgid "maximum 1920x1080"
 msgstr "1920x1080 gehienzkoa"
@@ -1718,7 +1718,7 @@ msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "ERABILTZAILE INTERFAZEAREN GARATZAILE EZARPENAK"
 
 msgid "VIDEO OPTIONS"
-msgstr "BEIDOE EZARPENAK"
+msgstr "BIDEO EZARPENAK"
 
 msgid "VRAM LIMIT"
 msgstr "VRAM LIMITEA"
@@ -1727,7 +1727,7 @@ msgid "SHOW FRAMERATE"
 msgstr "ERAKUTSI FRAMERATEA"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "EmuladorearenFP kontadorea ere bueltatzen du, eskuragarri badago."
+msgstr "Emuladorearen FPs kontadorea ere bueltatzen du, eskuragarri badago."
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1748,7 +1748,7 @@ msgid "TOOLS"
 msgstr "TRESNAK"
 
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr "UTIZ JOKO HAU ABIARAZTEAN JARUTITZEN"
+msgstr "UTZI JOKO HAU ABIARAZTEAN JARUTITZEN"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
 msgstr "GAITU WEB API PUBLIKO SARBIDEA"
@@ -1816,7 +1816,7 @@ msgid ""
 msgstr "Erakutsi edo ezkutatu filtroen inguruko aukerak erakusteko ezarpenetan"
 
 msgid "SAVE METADATA ON EXIT"
-msgstr "GORDE MATADATUAK IRTETZEAN"
+msgstr "GORDE METADATUAK IRTETZEAN"
 
 msgid "PARSE GAMELISTS ONLY"
 msgstr "PARSEATU JOKO LISTAK BAKARRIK"
@@ -1827,20 +1827,20 @@ msgstr ""
 "sor ditzake!"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr "BILATU ARTEak LOKALEAN"
+msgstr "BILATU ARTEAK LOKALEAN"
 
 msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Irudirik ez badago ezarrita joko listan, media bilatzen saitaufitxategi izen "
+"Irudirik ez badago ezarrita joko listan, media bilatzen saiatu fitxategi izen "
 "berdinarekin."
 
 msgid "USER INTERFACE"
 msgstr "ERABILTZAILE INTERFAZEA"
 
 msgid "CAROUSEL TRANSITIONS"
-msgstr "KARUSEL TRANSIZIOAK"
+msgstr "KARRUSEL TRANSIZIOAK"
 
 msgid "QUICK SYSTEM SELECT"
 msgstr "SISTEMA AUKERATZE AZKARRA"
@@ -1870,7 +1870,7 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Ipar botoia denbora gutxiz sakatzeak Egoera gorde & Hego botoiarensakatze "
+"Ipar botoia denbora gutxiz sakatzeak Egoera gorde & Hego botoiaren sakatze "
 "luzeak Joko Ezarpenak erakustera trukatzen ditu"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
@@ -1883,7 +1883,7 @@ msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "GAITU HID JOYSTICK DRIVER-AK"
 
 msgid "SHOW NETWORK INDICATOR"
-msgstr "ERAKUTSI SATE INDIKADOREA"
+msgstr "ERAKUTSI SARE INDIKADOREA"
 
 msgid "OPTIMIZATIONS"
 msgstr "OPTIMIZAZIOAK"
@@ -1917,7 +1917,7 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "IRUDIEN VRAM ERABILERA OPTIMIZATU"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
-msgstr "BIDOE VRAM ERABILERA OPTIMIZATU"
+msgstr "BIDEO VRAM ERABILERA OPTIMIZATU"
 
 msgid "DOWNLOADS"
 msgstr "DESKARGAK"
@@ -1950,7 +1950,7 @@ msgid "LANGUAGE (REGION)"
 msgstr "HIZKUNTZA (HERRIALDEA)"
 
 msgid "SELECT YOUR TIME ZONE"
-msgstr "AUKERATU ZIRE DENBORA ZONALDEA"
+msgstr "AUKERATU ZURE DENBORA ZONALDEA"
 
 msgid "TIME ZONE"
 msgstr "DENBORA ZONALDEA"
@@ -1976,7 +1976,7 @@ msgstr ""
 "erabilgarria)"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
-msgstr "PANTAILA IRAKURLEA (TEXTUA MINTZAMENERA)"
+msgstr "PANTAILA IRAKURLEA (TESTUA MINTZAMENERA)"
 
 msgid "USER INTERFACE MODE"
 msgstr "ERABILTZAILE INTERFAZE MODUA"
@@ -2012,7 +2012,7 @@ msgid "BRIGHTNESS"
 msgstr "DISTIRA"
 
 msgid "VIDEO OUTPUT"
-msgstr "BIDOE IRTEERA"
+msgstr "BIDEO IRTEERA"
 
 msgid "AUDIO OUTPUT"
 msgstr "AUDIO IRTEERA"
@@ -2046,10 +2046,10 @@ msgid "DEFAULT VIDEO/USER SET SPLASH"
 msgstr "BESTERIK EZEKO BIDEO/ERABILTZAILEAK EZARRITAKO ABIARAZTE PANTAILA"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "ISILEKO BIDOE/ERABILTZAILEAK EZARRITAKO ABIARAZTE PANTAILA"
+msgstr "ISILEKO BIDEO/ERABILTZAILEAK EZARRITAKO ABIARAZTE PANTAILA"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOZERA ABIARAZTE IRUDIA"
+msgstr "BATOCERA ABIARAZTE IRUDIA"
 
 msgid "SPLASH SETTING"
 msgstr "ABIARAZTE PANTAILA"
@@ -2067,7 +2067,7 @@ msgid "OFF"
 msgstr "OFF"
 
 msgid "BUTTON LED COLOR"
-msgstr "BOTIAREN LED KOLOREA"
+msgstr "BOTOIAREN LED KOLOREA"
 
 msgid "off"
 msgstr "off"
@@ -2139,7 +2139,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "AURRETIK-EXEKUTATU FRAME-AK"
 
 msgid "High numbers can result in visible jitter."
-msgstr "Zenbaki altuek dardarak sor ditzkete"
+msgstr "Zenbaki altuek dardarak sor ditzakete"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "ERABILI BIGARREN INSTANTZIA AURRETIK-EXEKUTATZEAN"
@@ -2157,7 +2157,7 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Automatikoki gutxitu markoen atzerapena denbora batez markoakgaltzea "
+"Automatikoki gutxitu markoen atzerapena denbora batez markoak galtzea "
 "ekiditeko. Moteltzea ekarri dezake."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -2169,13 +2169,13 @@ msgstr "FRESKATZE TASA ALDAKORRA"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Ez desbiatu nukleoak eskatzen duen denboratik. G-Syc, FreeSync, HDMI 2.1 VRR."
+"Ez desbideratu nukleoak eskatzen duen denboratik. G-Syc, FreeSync, HDMI 2.1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DEKORAZIOA"
 
 msgid "Current setting"
-msgstr "Unekio ezarpena"
+msgstr "Uneko ezarpena"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "BESTERIK EZEKO EZARPEN GLOBALAK"
@@ -2189,7 +2189,7 @@ msgstr "Behartu jokoa itxura ratio horretan erakustera"
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
-"Monitorearen bereizmena ezartzen du. Ez du renderizatze resoluzioan eraginik."
+"Monitorearen bereizmena ezartzen du. Ez du renderizatze bereizmenean eraginik."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOKO LEUNAK (BILINEAR FILTRATZEA)"
@@ -2206,7 +2206,7 @@ msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ZENBAKI OSOKO ESKALATZEA (PIXEL PERFECT)"
 
 msgid "SHADER SET"
-msgstr "EZARRI SHADER-ak"
+msgstr "EZARRI SHADER-AK"
 
 msgid "VIDEO FILTER"
 msgstr "BIDEO FILTROAK"
@@ -2230,7 +2230,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "Erakutsi irudi bat bezel-aren gainean ezarrita"
 
 msgid "TATTOO CORNER"
-msgstr "TATUAI gunea"
+msgstr "TATUAI GUNEA"
 
 msgid "NORTH WEST"
 msgstr "IPAR MENDEBALDEA"
@@ -2251,7 +2251,7 @@ msgid "RESIZE TATTOO"
 msgstr "TATUAIAREN TAMAINA BERREZARRI"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Txikitu/zabladu tatua bezelaren iskinen barnean sartu dadin"
+msgstr "Txikitu/zabaldu tatuaia bezelaren iskinen barnean sartu dadin"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AA-KO JOKO ITZULPENA"
@@ -2280,7 +2280,7 @@ msgstr "GORDE/KARGATU AUTOMATIKOKI"
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
 "Kargatu gordetako azken egoera jokua abiaraztean eta gorde egoera jokotik "
-"irtetean "
+"irtetean"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "EGOERA GORDETZE INKREMENTALAK"
@@ -2343,7 +2343,7 @@ msgid "detailed"
 msgstr "xehetasunak"
 
 msgid "DEFAULT GRID SIZE"
-msgstr "DEFEKTUZKO LAUKISARE TMAAINA"
+msgstr "DEFEKTUZKO LAUKISARE TAMAINA"
 
 msgid "GAMELIST THEME OPTIONS"
 msgstr "JOKO LISTA GAI AUKERAK"
@@ -2376,7 +2376,7 @@ msgid "BEFORE NAME"
 msgstr "IZENAREN AURRETIK"
 
 msgid "AFTER NAME"
-msgstr "IZENAREN OBDOREN"
+msgstr "IZENAREN ONDOREN"
 
 msgid "SHOW REGION FLAG"
 msgstr "ERAKUTSI HERRIALDE BANDERA"
@@ -2581,10 +2581,10 @@ msgid "OVERLAY CORNER"
 msgstr "KAPA IZKINAK"
 
 msgid "COLORIZATION"
-msgstr "KOLORAZIOA"
+msgstr "KOLOREZTATZEA"
 
 msgid "FULL BOOT"
-msgstr "BERABIARAZTE OSOA"
+msgstr "BERRABIARAZTE OSOA"
 
 msgid "EMULATED WIIMOTES"
 msgstr "WIIMOTE EMULATUAK"
@@ -2599,7 +2599,7 @@ msgid "SIDE BY SIDE"
 msgstr "BATA BESTEAREN ONDOAN"
 
 msgid "INTERNAL RESOLUTION"
-msgstr "BARNE RESOLUZIOA"
+msgstr "BARNE BEREIZMENA"
 
 msgid "LAUNCH THIS GAME AT STARTUP"
 msgstr "EXEKUTATU JOKO HAU ABIAARAZTEAN"
@@ -2632,7 +2632,7 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"ESTEKATU DITUZUN FITXATEGI BATZUK JOKOLIST-AREN BIDETIK KANPO KOKATUTA "
+"ESTEKATU DITUZUN FITXATEGI BATZUK JOKO LISTAREN BIDETIK KANPO KOKATUTA "
 "DAUDE.\n"
 "FITXATEGI HORIEN KOIPA BAT JOKO LISTAREKIKO ERLATIBO BEZELA ERABILI NAHI AL "
 "DUZU?"
@@ -2647,7 +2647,7 @@ msgid "ZOOM IN"
 msgstr "BARNERAKO ZOOM-A"
 
 msgid "MOVE"
-msgstr "MOGUTI"
+msgstr "MUGITU"
 
 msgid "ZOOM"
 msgstr "ZOOM-A"
@@ -2767,7 +2767,7 @@ msgid "No Entries Found"
 msgstr "Ez da Sarrerarik Aurkitu"
 
 msgid "Games similar to"
-msgstr "HOnakoaren antzeko jokoak"
+msgstr "Honakoaren antzeko jokoak"
 
 msgid "SAVE STATES (HOLD)"
 msgstr "GORDETAKO EGOERAK (MANTENDU)"
@@ -2819,7 +2819,7 @@ msgid "SAVING METADATAS. PLEASE WAIT..."
 msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "PANTIALA ALDATU NAHI DUZU?"
+msgstr "PANTAILA ALDATU NAHI DUZU?"
 
 msgid "Collections"
 msgstr "Kolekzioak"
@@ -2921,7 +2921,7 @@ msgid "SEARCHING NETPLAY GAMES"
 msgstr "SAREKO JOKOAK BILATZEN"
 
 msgid "INDEXING COMPLETED"
-msgstr "INEXATZEA AMAITU DA"
+msgstr "INDEXATZEA AMAITU DA"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "EGUNERATU JOKO LISTAK ALDAKETAK APLIKATZEKO."
@@ -2933,7 +2933,7 @@ msgid "BAD COMMAND LINE ARGUMENTS"
 msgstr "KOMANDO LERROKO ARGUMENTU OKERRAK"
 
 msgid "INVALID CONFIGURATION"
-msgstr "KONFIGUAZIO EZEGOKIA"
+msgstr "KONFIGURAZIO EZEGOKIA"
 
 msgid "UNKNOWN EMULATOR"
 msgstr "EMULADORE EZEZAGUNA"
@@ -2972,7 +2972,7 @@ msgid "KIDGAME"
 msgstr "HAURJOKOA"
 
 msgid "ALREADY PLAYED"
-msgstr "JAD AJOLASTUTA"
+msgstr "JADA JOLASTUTA"
 
 msgid "HAS ACHIEVEMENTS"
 msgstr "LORPENAK DITU"
@@ -3130,7 +3130,7 @@ msgid "KEYBOARD"
 msgstr "TEKLATUA"
 
 msgid "CEC"
-msgstr "cec"
+msgstr "CEC"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -3147,10 +3147,10 @@ msgid ""
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "HOTKEY BOTOIA EZ DA EZARRI. KONTROLATZAILEA ERABILIZ JOKOETATIK ATERATZEKO "
-"BEHARREZKOA DASELECT BOTOIA ERABILI NAHI AL DUZU HOTKEY BEZELA?"
+"BEHARREZKOA DA. SELECT BOTOIA ERABILI NAHI AL DUZU HOTKEY BEZELA?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "EZARRI SELECT HOTKEY BEZELQA"
+msgstr "EZARRI SELECT HOTKEY BEZELA"
 
 msgid "DO NOT ASSIGN HOTKEY"
 msgstr "EZ EZARRI HOTKEY-RIK"
@@ -3297,10 +3297,10 @@ msgstr "PANTAILA IRAKURLEA EZGAITUTA"
 #~ "BUTTON TO CONFIRM WHEN DONE."
 #~ msgstr ""
 #~ "KONTROLATZAILE BAT MAPEATZERA ZOAZ. BOTOIEN POSIZIOAN OINARRITUTA "
-#~ "MAPEATUSNES KONTROLATZAILEAREN BALIOKIDEAN OINARRITUTA, EZ BERE ETIKETA "
-#~ "FISIKOAN.EZ BADAUKAZU TEKLA BEREZIRIK HOTKEY-RAKOM ERABILI SELECT BOTOIA."
+#~ "MAPEATU SNES KONTROLATZAILEAREN BALIOKIDEAN OINARRITUTA, EZ BERE ETIKETA "
+#~ "FISIKOAN. EZ BADAUKAZU TEKLA BEREZIRIK HOTKEY-RAKO ERABILI SELECT BOTOIA."
 #~ "SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK EDOZIEN BOTOI MANTENDUZ. AMAITZEAN "
-#~ "SAKATU HEGO BOTOIAKONFIRMATZEKO"
+#~ "SAKATU HEGO BOTOIA KONFIRMATZEKO"
 
 #~ msgid "SCRAPE RATINGS"
 #~ msgstr "LORTU PUNTUAZIOAK"
@@ -3398,7 +3398,7 @@ msgstr "PANTAILA IRAKURLEA EZGAITUTA"
 #~ msgstr ""
 #~ "AGINTE BAT KONFIGURATZERA ZOAZ. JOYSTICK BAT SOILIK BADUZU NORABIDEAK "
 #~ "KONFIGURATU ETA AHAZTU BESTE KONFIGURAZIOA BOTO BAT SAKATU ETA MANTENDUZ. "
-#~ "EZ BADUZU BOTOI BEREZIRIK HOTKEY-arentzat ERABILI EZAZU SELECT BOTOIA. "
+#~ "EZ BADUZU BOTOI BEREZIRIK HOTKEY-ARENTZAT ERABILI EZAZU SELECT BOTOIA. "
 #~ "ZURE AGINTEAN EXISTITZEN EZ DIREN BOTOIEI EZ EGIN KASURIK BOTOI BAT "
 #~ "SAKATU ETA MANTENDUZ."
 

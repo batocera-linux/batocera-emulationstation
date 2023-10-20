@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: 2023-05-07 21:47+0200\n"
-"Last-Translator: pajarorrojo\n"
+"Last-Translator: joelsedano\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -289,7 +289,7 @@ msgid "lightgun games"
 msgstr "juegos de pistola lightgun"
 
 msgid "wheel games"
-msgstr ""
+msgstr "juegos de volante"
 
 msgid "collections"
 msgstr "colecciones"
@@ -823,14 +823,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTES DE MANDOS Y DISPOSITIVOS BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "PRIORIDAD DE MANDOS"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "ASIGNACIÓN DE MANDOS"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "MANDO #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1722,7 +1722,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "INTRODUCE EL CÓDIGO DE DESBLOQUEO"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "SERVICIOS"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPCIONES DE DESARROLLADOR"
@@ -1750,7 +1750,7 @@ msgid "VIDEO MODE"
 msgstr "MODO DE VÍDEO"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Establece la resolución de pantalla para emulationstation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
@@ -2221,7 +2221,7 @@ msgid "SHADER SET"
 msgstr "EFECTOS DE PANTALLA (SHADERS)"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTRO DE VIDEO"
 
 msgid "DECORATIONS"
 msgstr "DECORACIONES DE PANTALLA"
@@ -2537,10 +2537,10 @@ msgid "VIEW USER MANUAL"
 msgstr "VER EL MANUAL DE USUARIO DE BATOCERA"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "DESACTIVAR MODO AVIÓN"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "ACTIVAR MODO AVIÓN"
 
 msgid "RESTART SYSTEM"
 msgstr "REINICIAR SISTEMA"
@@ -2791,7 +2791,7 @@ msgid "FAVORITE"
 msgstr "FAVORITO"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "CONTENIDO INVÁLIDO"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2993,7 +2993,7 @@ msgid "LIGHTGUN"
 msgstr "PISTOLA (LIGHTGUN)"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "VOLANTE"
 
 msgid "HAS MEDIAS"
 msgstr "TIENE MEDIOS"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-09-30 18:24+0000\n"
+"PO-Revision-Date: 2023-10-19 23:41+0000\n"
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
@@ -1560,7 +1560,7 @@ msgid "SYSTEM DISK USAGE"
 msgstr "GEBRUIK SCHIJFRUIMTE SYSTEEM"
 
 msgid "SYSTEM"
-msgstr "BESTURINGSSYSTEEM"
+msgstr "SYSTEEM"
 
 msgid "VIDEO DRIVER"
 msgstr "VIDEO DRIVER"
@@ -2546,25 +2546,25 @@ msgid "ENABLE PLANE MODE"
 msgstr "VLIEGTUIGMODUS INSCHAKELEN"
 
 msgid "RESTART SYSTEM"
-msgstr "SYSTEEM HERSTARTEN"
+msgstr "HERSTARTEN"
 
 msgid "REALLY RESTART?"
 msgstr "WILT U ECHT HERSTARTEN?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "SYSTEEM SLAAPSTAND"
+msgstr "SLAAPSTAND"
 
 msgid "REALLY SUSPEND ?"
 msgstr "WILT U ECHT DE SLAAPSTAND INSTELLEN?"
 
 msgid "SHUTDOWN SYSTEM"
-msgstr "SYSTEEM AFSLUITEN"
+msgstr "AFSLUITEN"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "WILT U ECHT AFSLUITEN?"
 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr "SYSTEEM SNEL AFSLUITEN"
+msgstr "SNEL AFSLUITEN"
 
 msgid "Shutdown without saving metadata."
 msgstr "Afsluiten zonder metadata op te slaan."
@@ -2672,7 +2672,7 @@ msgid "ONLY MISSING"
 msgstr "ALLEEN MISSENDE"
 
 msgid "SYSTEM INFO"
-msgstr "SYSTEEM INFO"
+msgstr "SYSTEEMINFORMATIE"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr "FOUT: ELK SYSTEEM IS VERBORGEN, ALLES WORDT NU OPNIEUW WEERGEGEVEN"
@@ -3257,7 +3257,7 @@ msgstr[1] "%d minuten geleden"
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
-msgstr[0] "%d seconde geleden"
+msgstr[0] "%d seconden geleden"
 msgstr[1] "%d secondes geleden"
 
 msgid "WORKING..."
