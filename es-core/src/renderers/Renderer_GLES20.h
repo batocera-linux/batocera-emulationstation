@@ -6,6 +6,9 @@
 
 #define RENDERER_GLES_20
 
+#include <map>
+#include <cstring>
+
 #include "Renderer.h"
 
 namespace Renderer
@@ -13,6 +16,8 @@ namespace Renderer
 	class GLES20Renderer : public IRenderer
 	{
 	public:
+		GLES20Renderer();
+
 		std::string getDriverName() override;
 		std::vector<std::pair<std::string, std::string>> getDriverInformation() override;
 
@@ -43,8 +48,13 @@ namespace Renderer
 
 		void         setSwapInterval() override;
 		void         swapBuffers() override;
+		
+		void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters);
 
-		size_t		getTotalMemUsage() override;
+		size_t		 getTotalMemUsage() override;
+
+	private:
+		unsigned int mFrameBuffer;
 	};
 }
 

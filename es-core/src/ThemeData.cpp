@@ -4,6 +4,7 @@
 #include "components/TextComponent.h"
 #include "components/NinePatchComponent.h"
 #include "components/VideoVlcComponent.h"
+#include "components/PostProcessShaderComponent.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include "utils/Platform.h"
@@ -47,6 +48,12 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "offsetY", FLOAT },
 		{ "clipRect", NORMALIZED_RECT } } },
 
+	{ "shader", {
+		{ "path", PATH },
+		{ "pos", NORMALIZED_PAIR },
+		{ "size", NORMALIZED_PAIR },				
+		{ "zIndex", FLOAT } } },
+
 	{ "image", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -84,7 +91,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "roundCorners", FLOAT },
 		{ "opacity", FLOAT },
 		{ "saturation", FLOAT },
-		{ "shader", PATH },
+		// { "shader", PATH },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
 		{ "onclick", STRING },
@@ -435,7 +442,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "audio", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
 		{ "saturation", FLOAT },
-		{ "shader", PATH },
+		// { "shader", PATH },
 		{ "onclick", STRING },
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
@@ -1706,6 +1713,29 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				type = PATH;
 			else if (name == "animate" && std::string(root.name()) == "imagegrid")
 				node.set_name("animateSelection");
+			else if (element.type == "shader")
+				type = STRING;
+			else if (name == "shader")
+			{
+				element.children.push_back(std::pair<std::string, ThemeElement>(name, ThemeElement()));
+				std::pair<std::string, ThemeElement>& item = element.children.back();
+				item.second.extra = 1;
+
+				std::string text = node.text().as_string();
+				if (!text.empty())
+				{
+					item.second.type = "shader";
+					processElement(root, item.second, "path", text, PATH);					
+				}
+				else
+				{
+					auto elemTypeIt = sElementMap.find(name);
+					if (elemTypeIt != sElementMap.cend())
+						parseElement(node, elemTypeIt->second, item.second, view, overwrite);
+				}
+
+				continue;
+			}
 			else
 			{
 				LOG(LogWarning) << "Unknown property type \"" << name << "\" (for element of type " << root.name() << ").";
@@ -1833,6 +1863,8 @@ GuiComponent* ThemeData::createExtraComponent(Window* window, const ThemeElement
 		comp = new NinePatchComponent(window);
 	else if (elem.type == "video")
 		comp = new VideoVlcComponent(window);
+	else if (elem.type == "shader")
+		comp = new PostProcessShaderComponent(window);
 
 	return comp;
 }
@@ -2223,6 +2255,7 @@ ThemeData::ThemeElement::ThemeElement(const ThemeElement& src)
 	extra = src.extra;
 	type = src.type;
 	properties = src.properties;
+	children = src.children;
 
 	for (auto sb : src.mStoryBoards)
 		mStoryBoards[sb.first] = new ThemeStoryboard(*sb.second);
@@ -2297,4 +2330,32 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 	mPaths.pop_back();
 
 	return true;
+}
+
+void ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader)
+{
+	if (pShader == nullptr)
+		return;
+
+	pShader->path = "";
+	pShader->parameters.clear();
+
+	for (auto child : elem->children)
+	{
+		if (child.second.type == "shader" && child.second.has("path"))
+		{
+			pShader->path = child.second.get<std::string>("path");
+
+			for (auto prop : child.second.properties)
+			{
+				if (prop.first == "pos" || prop.first == "path" || prop.first == "size" || prop.first == "zIndex")
+					continue;
+
+				if (prop.second.type != ThemeData::ThemeElement::Property::PropertyType::String)
+					continue;
+
+				pShader->parameters[prop.first] = prop.second.s;
+			}
+		}
+	}
 }

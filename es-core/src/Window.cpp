@@ -609,7 +609,8 @@ void Window::render()
 		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
-			{
+			{				
+				Renderer::blurBehind(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 				mBackgroundOverlay->render(transform);
 
 				auto& middle = mGuiStack.at(mGuiStack.size() - 2);
@@ -627,6 +628,7 @@ void Window::render()
 						middle->render(transform);
 				}
 
+				Renderer::blurBehind(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 				mBackgroundOverlay->render(transform);
 				top->render(transform);
 			}

@@ -5,6 +5,7 @@
 #include "Renderer_GLES20.h"
 #include "renderers/Renderer.h"
 #include "math/Transform4x4f.h"
+#include "utils/StringUtil.h"
 #include "Log.h"
 #include "Settings.h"
 
@@ -13,6 +14,8 @@
 
 #include "GlExtensions.h"
 #include "Shader.h"
+
+#include "resources/ResourceManager.h"
 
 namespace Renderer
 {
@@ -71,7 +74,7 @@ namespace Renderer
 
 	static std::map<std::string, ShaderProgram*> customShaders;
 
-	static ShaderProgram* getShaderProgram(char* shaderFile)
+	static ShaderProgram* getShaderProgram(const char* shaderFile)
 	{
 		if (shaderFile == nullptr)
 			return nullptr;
@@ -327,6 +330,10 @@ namespace Renderer
 	}
 
 //////////////////////////////////////////////////////////////////////////
+	GLES20Renderer::GLES20Renderer() : mFrameBuffer(-1)
+	{
+
+	}
 
 	unsigned int GLES20Renderer::getWindowFlags()
 	{
@@ -454,6 +461,12 @@ namespace Renderer
 				customShader.second->deleteProgram();
 
 		customShaders.clear();
+
+		if (mFrameBuffer != -1)
+		{
+			glDeleteFramebuffers(1, &mFrameBuffer);
+			mFrameBuffer = -1;
+		}
 	}
 
 	void GLES20Renderer::destroyContext()
@@ -677,9 +690,9 @@ namespace Renderer
 			{
 				ShaderProgram* shader = &shaderProgramColorTexture;
 
-				if (_vertices->customShader != nullptr)
+				if (_vertices->customShader != nullptr && !_vertices->customShader->path.empty())
 				{
-					ShaderProgram* customShader = getShaderProgram(_vertices->customShader);
+					ShaderProgram* customShader = getShaderProgram(_vertices->customShader->path.c_str());
 					if (customShader != nullptr)
 						shader = customShader;
 				}
@@ -689,12 +702,37 @@ namespace Renderer
 				// Update Shader Uniforms
 
 				shader->setSaturation(_vertices->saturation);
-				
+				shader->setResolution();
+
 				if (shader->supportsTextureSize() && it != _textures.cend() && it->second != nullptr)
+				{
+					shader->setInputSize(it->second->size);
 					shader->setTextureSize(it->second->size);
+				}
 				
 				if (_numVertices > 0)
-					shader->setOutputSize(_vertices[_numVertices-1].pos);
+				{
+					Vector2f vec = _vertices[_numVertices - 1].pos;
+					if (_numVertices == 4)
+					{
+						vec.x() -= _vertices[0].pos.x();
+						vec.y() -= _vertices[0].pos.y();
+					}
+
+					// Inverted rendering
+					if (_vertices[_numVertices - 1].tex.y() == 1 && _vertices[0].tex.y() == 0)
+						vec.y() = -vec.y();
+
+					shader->setOutputSize(vec);
+				}
+
+				if (_vertices->customShader != nullptr && !_vertices->customShader->path.empty())
+				{
+					for (auto param : _vertices->customShader->parameters)
+						shader->setUniformEx(param.first, param.second);
+				}
+
+				shader->setResolution();
 			}
 		}
 		else
@@ -873,6 +911,118 @@ namespace Renderer
 
 		return total;
 	}
+	
+	void GLES20Renderer::postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters)
+	{
+		std::string fullPath = ResourceManager::getInstance()->getResourcePath(path);
+
+		ShaderProgram* customShader = getShaderProgram(fullPath.c_str());
+		if (customShader == nullptr)
+			return;
+
+		if (mFrameBuffer == -1)
+			glGenFramebuffers(1, &mFrameBuffer);
+
+		if (mFrameBuffer == -1)
+			return;
+
+		float textureScale = 1.0f;
+		
+		// Special hack for blur shader -> Texture downscaling		
+		if (path == ":/shaders/blur.glsl")
+		{
+			auto it = parameters.find("blur");
+			if (it != parameters.cend())
+			{
+				float blurSize = Utils::String::toFloat(it->second);
+
+				textureScale = blurSize / 5.0f;
+				if (textureScale < 1.0f)
+					textureScale = 1.0f;
+			}
+		}
+
+
+		int x = _x; int y = _y; int w = _w; int h = _h;
+
+		if (y < 0) 
+		{
+			h += y; y = 0;
+			if (h <= 0)
+				return;
+		}
+
+		if (x < 0)
+		{
+			w += x; x = 0;
+			if (w <= 0) 
+				return;
+		}
+
+		int tw = w / textureScale;
+		int th = h / textureScale;
+
+		auto nTextureID = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+		if (nTextureID > 0)
+		{
+			auto oldProgram = currentProgram;
+			auto oldMatrix = worldViewMatrix;
+
+			GLboolean oldCissors;
+			glGetBooleanv(GL_SCISSOR_TEST, &oldCissors);
+			glDisable(GL_SCISSOR_TEST);
+
+			setMatrix(Transform4x4f::Identity());
+
+			bindTexture(nTextureID);
+
+			int width = getScreenWidth();
+			int height = getScreenHeight();
+
+			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer);
+			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0);
+			glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR);
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+			Vertex vertices[4];
+			vertices[0] = { { (float) x     , (float) y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[1] = { { (float) x     , (float) y + h }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+			vertices[2] = { { (float) x + w, (float) y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[3] = { { (float) x + w, (float) y + h  }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+			// round vertices
+			for (int i = 0; i < 4; ++i)
+				vertices[i].pos.round();
+
+			useProgram(customShader);
+
+			customShader->setSaturation(1.0f);
+			customShader->setTextureSize(Vector2f(tw, th));
+			customShader->setInputSize(Vector2f(tw, th));			
+			customShader->setOutputSize(vertices[3].pos);
+			customShader->setResolution();
+
+			for(auto param : parameters)
+				customShader->setUniformEx(param.first, param.second);
+
+			glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW);
+
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+			glDisable(GL_BLEND);
+
+			bindTexture(0);
+			useProgram(oldProgram);
+			setMatrix(oldMatrix);
+
+			if (oldCissors)
+				glEnable(GL_SCISSOR_TEST);
+
+			destroyTexture(nTextureID);
+		}		
+	}
+	
 } // Renderer::
 
 #endif // USE_OPENGLES_20

@@ -2,6 +2,8 @@
 #include "Log.h"
 #include "renderers/Renderer.h"
 #include "resources/ResourceManager.h"
+#include "utils/StringUtil.h"
+#include "utils/HtmlColor.h"
 
 namespace Renderer
 {
@@ -84,7 +86,9 @@ namespace Renderer
 		linkStatus(false),
 		mId(-1),
 		mOutputSize(-1),
-		mTextureSize(-1)	
+		mInputSize(-1),
+		mTextureSize(-1),
+		mResolution(-1)
 	{
 	}
 
@@ -205,11 +209,21 @@ namespace Renderer
 		if (mOutputSize == -1)
 			mOutputSize = glGetUniformLocation(mId, "outputSize");
 
+		mInputSize = glGetUniformLocation(mId, "InputSize");
+		if (mInputSize == -1)
+			mInputSize = glGetUniformLocation(mId, "inputSize");
+
+		mResolution = glGetUniformLocation(mId, "Resolution");
+		if (mResolution == -1)
+			mResolution = glGetUniformLocation(mId, "resolution");
+		
 		mSaturation = glGetUniformLocation(mId, "saturation");
 
 		GLint texUniform = glGetUniformLocation(mId, "u_tex");		
 		if (texUniform == -1)
 			texUniform = glGetUniformLocation(mId, "textureSampler");
+		if (texUniform == -1)
+			texUniform = glGetUniformLocation(mId, "Texture");
 		
 		if (texUniform != -1)
 		{
@@ -234,6 +248,86 @@ namespace Renderer
 	{
 		if (mOutputSize != -1)
 			GL_CHECK_ERROR(glUniform2f(mOutputSize, size.x(), size.y()));
+	}
+
+	void ShaderProgram::setInputSize(const Vector2f& size)
+	{
+		if (mInputSize != -1)
+			GL_CHECK_ERROR(glUniform2f(mInputSize, size.x(), size.y()));
+	}
+
+	void ShaderProgram::setResolution()
+	{
+		if (mResolution != -1)
+			GL_CHECK_ERROR(glUniform2f(mResolution, getScreenWidth(), getScreenHeight()));
+	}
+
+
+	void ShaderProgram::setUniformFloat(const std::string& name, const GLfloat& value)
+	{
+		GLint location = glGetUniformLocation(mId, name.c_str());
+		if (location != -1)
+			GL_CHECK_ERROR(glUniform1f(location, value));
+	}
+
+	void ShaderProgram::setUniformVector2f(const std::string& name, const Vector2f& value)
+	{
+		GLint location = glGetUniformLocation(mId, name.c_str());
+		if (location != -1)
+			GL_CHECK_ERROR(glUniform2f(location, value.x(), value.y()));
+	}
+
+	void ShaderProgram::setUniformEx(const std::string& name, const std::string value)
+	{
+		GLint location = glGetUniformLocation(mId, name.c_str());
+		if (location == -1)
+			return;
+
+		GLsizei length;
+		GLint size;
+		GLenum type;
+
+		char buffer[64];
+		glGetActiveUniform(mId, location, (GLsizei)sizeof(buffer), &length, &size, &type, buffer);
+
+		switch (type)
+		{
+		case GL_INT:
+			glUniform1i(location, Utils::String::toInteger(value));
+			break;
+		case GL_FLOAT:
+			glUniform1f(location, Utils::String::toFloat(value));
+			break;
+		case GL_FLOAT_VEC2:
+			{
+				auto size = Vector2f::parseString(value);
+				glUniform2f(location, size.x(), size.y());
+			}
+			break;
+		case GL_FLOAT_VEC4:
+		{
+			if (value != "0" && value != "1" && value.find(" ") == std::string::npos && value.find(".") == std::string::npos)
+			{
+				// It's a color
+				auto clr = Utils::HtmlColor::parse(value);
+
+				unsigned char red = (clr >> 24) & 0xFF;
+				unsigned char green = (clr >> 16) & 0xFF;
+				unsigned char blue = (clr >> 8) & 0xFF;
+				unsigned char alpha = clr & 0xFF;
+
+				glUniform4f(location, red / 255.0f, green / 255.0f, blue / 255.0f, alpha / 255.0f);
+			}
+			else 
+			{
+				// Coordinates
+				auto size = Vector4f::parseString(value);
+				glUniform4f(location, size.x(), size.y(), size.z(), size.w());
+			}
+
+		}
+		break;
+		}
 	}
 
 	void ShaderProgram::setMatrix(Transform4x4f& mvpMatrix)

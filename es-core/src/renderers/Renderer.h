@@ -3,6 +3,8 @@
 #define ES_CORE_RENDERER_RENDERER_H
 
 #include <vector>
+#include <map>
+#include <cstring>
 #include "math/Vector2f.h"
 #include "math/Vector3f.h"
 
@@ -56,6 +58,12 @@ namespace Renderer
 
 	}; // Rect
 
+	struct ShaderInfo
+	{
+		std::string path;
+		std::map<std::string, std::string> parameters;
+	};
+
 	struct Vertex
 	{
 		Vertex() 
@@ -79,7 +87,7 @@ namespace Renderer
 		unsigned int col;
 
 		float saturation;
-		char* customShader;
+		ShaderInfo* customShader;
 
 	}; // Vertex
 
@@ -117,6 +125,8 @@ namespace Renderer
 
 		virtual void         setSwapInterval() = 0;
 		virtual void         swapBuffers() = 0;
+		
+		virtual void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters) { };
 
 		virtual size_t		 getTotalMemUsage() { return (size_t) -1; };
 	};
@@ -168,6 +178,9 @@ namespace Renderer
 	void         setScissor        (const Rect& _scissor);
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
+
+	void		 blurBehind		   (const float _x, const float _y, const float _w, const float _h, const float blurSize = 4.0f);
+	void		 postProcessShader (const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters);
 
 	size_t		 getTotalMemUsage  ();
 

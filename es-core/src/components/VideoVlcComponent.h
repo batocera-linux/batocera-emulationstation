@@ -122,7 +122,7 @@ private:
 
 	std::string					    mSubtitlePath;
 	std::string					    mSubtitleTmpFile;
-	std::string						mCustomShader;
+	Renderer::ShaderInfo			mCustomShader;
 
 	VideoVlcFlags::VideoVlcEffect	mEffect;
 
