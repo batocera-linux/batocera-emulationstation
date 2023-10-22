@@ -294,6 +294,10 @@ std::vector<std::string> getFallbackFontPaths()
 	return paths;
 }
 
+#if defined(WIN32) || defined(X86) || defined(X86_64)
+static std::map<std::string, ResourceData> globalTTFCache;
+#endif
+
 FT_Face Font::getFaceForChar(unsigned int id)
 {
 	static const std::vector<std::string> fallbackFonts = getFallbackFontPaths();
@@ -308,8 +312,24 @@ FT_Face Font::getFaceForChar(unsigned int id)
 			// i == 0 -> mPath
 			// otherwise, take from fallbackFonts
 			const std::string& path = (i == 0 ? mPath : fallbackFonts.at(i - 1));
+
+#if defined(WIN32) || defined(X86) || defined(X86_64)
+			auto itCache = globalTTFCache.find(path);
+			if (itCache == globalTTFCache.cend())
+			{
+				ResourceData dataX = ResourceManager::getInstance()->getFileData(path);
+				globalTTFCache.insert(std::pair<std::string, ResourceData>(path, dataX));
+				itCache = globalTTFCache.find(path);
+			}
+						
+			if (itCache == globalTTFCache.cend())
+				continue;
+
+			mFaceCache[i] = std::unique_ptr<FontFace>(new FontFace(std::move(itCache->second), mSize));
+#else
 			ResourceData data = ResourceManager::getInstance()->getFileData(path);
 			mFaceCache[i] = std::unique_ptr<FontFace>(new FontFace(std::move(data), mSize));
+#endif
 			fit = mFaceCache.find(i);
 		}
 
