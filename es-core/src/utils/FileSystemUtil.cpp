@@ -32,6 +32,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <unordered_map>
 
 #include "Paths.h"
 
@@ -144,15 +145,18 @@ namespace Utils
 
 				std::unique_lock<std::mutex> lock(mFileCacheMutex);
 
-				auto it = mFileCache.find(key);
-				if (it != mFileCache.cend())
-					return &it->second;
-
-				it = mFileCache.find(Utils::FileSystem::getParent(key) + "/*");
-				if (it != mFileCache.cend())
+				if (mFileCache.size())
 				{
-					mFileCache[key] = FileCache(false, false);
-					return &mFileCache[key];
+					auto it = mFileCache.find(key);
+					if (it != mFileCache.cend())
+						return &it->second;
+
+					it = mFileCache.find(Utils::FileSystem::getParent(key) + "/*");
+					if (it != mFileCache.cend())
+					{
+						mFileCache[key] = FileCache(false, false);
+						return &mFileCache[key];
+					}
 				}
 
 				return nullptr;
@@ -169,12 +173,12 @@ namespace Utils
 			static inline bool isEnabled() { return mEnabled; }
 
 		private:
-			static std::map<std::string, FileCache> mFileCache;
+			static std::unordered_map<std::string, FileCache> mFileCache;
 			static std::mutex mFileCacheMutex;
 			static bool mEnabled;
 		};
 
-		std::map<std::string, FileCache> FileCache::mFileCache;
+		std::unordered_map<std::string, FileCache> FileCache::mFileCache;
 		std::mutex FileCache::mFileCacheMutex;
 		bool FileCache::mEnabled = false;
 
