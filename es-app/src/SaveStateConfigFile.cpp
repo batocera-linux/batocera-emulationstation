@@ -289,7 +289,7 @@ std::vector<std::shared_ptr<SaveStateConfig>> SaveStateConfigFile::getSaveStateC
 	auto defaultEmulator = system->getDefaultEmulator();
 	auto defaultCore = system->getDefaultCore();
 
-	for (auto emul : system->getEmulators())
+	for (const EmulatorData& emul : system->getEmulators())
 	{
 		auto pInfo = Instance()->getSaveStateConfig(emul.name);
 		if (pInfo == nullptr || !pInfo->enabled)
@@ -311,7 +311,7 @@ std::vector<std::shared_ptr<SaveStateConfig>> SaveStateConfigFile::getSaveStateC
 			continue;
 		}
 
-		for (auto core : emul.cores)
+		for (const CoreData& core : emul.cores)
 		{
 			auto coreConf = std::find_if(pInfo->coreConfigs.cbegin(), pInfo->coreConfigs.cend(), [core, systemName](const SaveStateCoreConfig& x) { return x.name == core.name && x.system == systemName; });
 			if (coreConf == pInfo->coreConfigs.cend())
