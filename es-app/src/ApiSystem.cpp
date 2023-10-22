@@ -2017,29 +2017,37 @@ bool ApiSystem::setPlaneMode(bool enable)
 
 std::vector<Service> ApiSystem::getServices()
 {
-  std::vector<Service> services;
+	std::vector<Service> services;
 
-  LOG(LogDebug) << "ApiSystem::getServices";
+	LOG(LogDebug) << "ApiSystem::getServices";
 
-  auto slines = executeEnumerationScript("batocera-services list");
-  for (auto sline : slines) {
-    auto splits = Utils::String::split(sline, ';', true);
-    if (splits.size() == 2) {
-      Service s;
-      s.name = splits[0];
-      s.enabled = (splits[1] == "*");
-      services.push_back(s);
-    }
-  }
-  return services;
+	auto slines = executeEnumerationScript("batocera-services list");
+
+	for (auto sline : slines) 
+	{
+		auto splits = Utils::String::split(sline, ';', true);
+		if (splits.size() == 2) 
+		{
+			Service s;
+			s.name = splits[0];
+			s.enabled = (splits[1] == "*");
+			services.push_back(s);
+		}
+	}
+	return services;
 }
 
-bool ApiSystem::enableService(std::string name, bool enable) {
-  bool res;
-  LOG(LogDebug) << "ApiSystem::enableService";
-  res = executeScript("batocera-services " + std::string(enable ? "enable" : "disable") + " " + name);
-  if(res) {
-    res = executeScript("batocera-services " + std::string(enable ? "start" : "stop") + " " + name);
-  }
-  return res;
+bool ApiSystem::enableService(std::string name, bool enable) 
+{
+	std::string serviceName = name;
+	if (serviceName.find(" ") != std::string::npos)
+		serviceName = "\"" + serviceName + "\"";
+
+	LOG(LogDebug) << "ApiSystem::enableService " << serviceName;
+
+	bool res = executeScript("batocera-services " + std::string(enable ? "enable" : "disable") + " " + serviceName);
+	if (res)
+		res = executeScript("batocera-services " + std::string(enable ? "start" : "stop") + " " + serviceName);
+	
+	return res;
 }

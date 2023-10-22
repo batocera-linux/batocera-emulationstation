@@ -578,7 +578,7 @@ void ImageComponent::render(const Transform4x4f& parentTrans)
 		fadeIn(true);
 
 		mVertices->saturation = mSaturation;
-		mVertices->customShader = mCustomShader.empty() ? nullptr : (char*)mCustomShader.c_str();
+		mVertices->customShader = mCustomShader.path.empty() ? nullptr : &mCustomShader;
 
 		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
 		{
@@ -781,8 +781,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		if (elem->has("saturation"))
 			mSaturation = Math::clamp(elem->get<float>("saturation"), 0.0f, 1.0f);
 
-		if (elem->has("shader"))
-			mCustomShader = elem->get<std::string>("shader");		
+		ThemeData::parseCustomShader(elem, &mCustomShader);
 	}	
 
 	if(properties & ThemeFlags::ROTATION) 

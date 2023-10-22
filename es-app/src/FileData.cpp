@@ -1780,3 +1780,29 @@ std::string FileData::getProperty(const std::string& name)
 
 	return getMetadata().get(name);	
 }
+
+std::pair<int, int> FileData::parsePlayersRange()
+{
+	std::string players = getMetadata(MetaDataId::Players);
+	if (players.empty())
+		return std::pair<int, int>(-1,-1);
+
+	auto key = players;
+
+	int min = 1;
+
+	auto split = key.rfind("+");
+	if (split != std::string::npos)
+		key = Utils::String::replace(key, "+", "-99999");
+
+	split = key.rfind("-");
+	if (split != std::string::npos)
+	{
+		min = Utils::String::toInteger(key.substr(0, split));
+		key = key.substr(split + 1);
+	}
+
+	int max = Utils::String::toInteger(key);
+
+	return std::pair<int, int>(min, max);
+}

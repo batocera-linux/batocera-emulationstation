@@ -47,7 +47,13 @@ namespace Renderer
 		void setMatrix(Transform4x4f& mvpMatrix);
 		void setSaturation(GLfloat saturation);
 		void setTextureSize(const Vector2f& size);
+		void setInputSize(const Vector2f& size);
 		void setOutputSize(const Vector2f& size);
+		void setResolution();
+
+		void setUniformFloat(const std::string& name, const GLfloat& value);
+		void setUniformVector2f(const std::string& name, const Vector2f& value);
+		void setUniformEx(const std::string& name, const std::string value);
 
 		bool supportsTextureSize() { return mTextureSize != -1; }
 
@@ -64,6 +70,8 @@ namespace Renderer
 		GLint mSaturation;		
 		GLint mTextureSize;
 		GLint mOutputSize;
+		GLint mInputSize;
+		GLint mResolution;
 
 		std::vector<Shader> mAttachedShaders;
 

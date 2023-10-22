@@ -30,9 +30,19 @@ namespace glext
 	PFNGLACTIVETEXTUREPROC glActiveTexture_ = nullptr;
 	PFNGLUNIFORM1FPROC glUniform1f = nullptr;
 	PFNGLUNIFORM2FPROC glUniform2f = nullptr;
+	PFNGLUNIFORM4FPROC glUniform4f = nullptr;
 	PFNGLDELETEPROGRAMPROC glDeleteProgram = nullptr;
 	PFNGLDELETESHADERPROC glDeleteShader = nullptr;
-	
+
+	PFNGLFRAMEBUFFERTEXTURE2DPROC glFramebufferTexture2D = nullptr;
+	PFNGLBINDFRAMEBUFFEREXTPROC glBindFramebuffer = nullptr;
+	PFNGLBLITFRAMEBUFFERPROC glBlitFramebuffer = nullptr;
+	PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers = nullptr;
+	PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers = nullptr;
+	PFNGLCOPYIMAGESUBDATAPROC glCopyImageSubData = nullptr;
+
+	PFNGLGETACTIVEUNIFORMPROC glGetActiveUniform = nullptr;
+
 	void* _glProcAddress(const char *proc)
 	{
 		void* ret = SDL_GL_GetProcAddress(proc);
@@ -93,10 +103,18 @@ namespace glext
 		glActiveTexture_ = (PFNGLACTIVETEXTUREPROC)_glProcAddress("glActiveTexture");
 		glUniform1f = (PFNGLUNIFORM1FPROC)_glProcAddress("glUniform1f");
 		glUniform2f = (PFNGLUNIFORM2FPROC)_glProcAddress("glUniform2f");		
+		glUniform4f = (PFNGLUNIFORM4FPROC)_glProcAddress("glUniform4f");		
 		glDeleteProgram = (PFNGLDELETEPROGRAMPROC)_glProcAddress("glDeleteProgram");
 		glDeleteShader = (PFNGLDELETESHADERPROC)_glProcAddress("glDeleteShader");
 
-		typedef void (APIENTRYP PFNGLDELETESHADERPROC) (GLuint shader);
+		glFramebufferTexture2D = (PFNGLFRAMEBUFFERTEXTURE2DPROC)_glProcAddress("glFramebufferTexture2D");
+		glBindFramebuffer = (PFNGLBINDFRAMEBUFFEREXTPROC)_glProcAddress("glBindFramebuffer");
+		glBlitFramebuffer = (PFNGLBLITFRAMEBUFFERPROC)_glProcAddress("glBlitFramebuffer");
+		glGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC)_glProcAddress("glGenFramebuffers");
+		glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC)_glProcAddress("glDeleteFramebuffers");		
+		glCopyImageSubData = (PFNGLCOPYIMAGESUBDATAPROC)_glProcAddress("glCopyImageSubData");
+
+		glGetActiveUniform = (PFNGLGETACTIVEUNIFORMPROC)_glProcAddress("glGetActiveUniform");
 
 		return 
 			glCreateShader != nullptr && glCompileShader != nullptr && glCreateProgram != nullptr && glGenBuffers != nullptr && 

@@ -173,6 +173,7 @@ public:
 
 	void setSelectedGame();
 
+	std::pair<int, int> parsePlayersRange();
 
 	std::string getProperty(const std::string& name);
 

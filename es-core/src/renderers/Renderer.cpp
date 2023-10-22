@@ -847,6 +847,18 @@ namespace Renderer
 		Instance()->setMatrix(_matrix);
 	}
 
+	void blurBehind(const float _x, const float _y, const float _w, const float _h, const float blurSize)
+	{
+		std::map<std::string, std::string> map;
+		map["blur"] = std::to_string(blurSize);
+		Instance()->postProcessShader(":/shaders/blur.glsl", _x, _y, _w, _h, map);		
+	}
+
+	void postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters)
+	{
+		Instance()->postProcessShader(path, _x, _y, _w, _h, parameters);
+	}
+
 	Rect& getViewport()
 	{
 		return viewPort;

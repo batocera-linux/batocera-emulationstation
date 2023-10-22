@@ -38,6 +38,7 @@
 #include "TextToSpeech.h"
 #include "Paths.h"
 #include "resources/TextureData.h"
+#include "Scripting.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -517,6 +518,8 @@ int main(int argc, char* argv[])
 	}
 #endif
 
+	Scripting::fireEvent("start");
+
 	// metadata init
 	Genres::init();
 	MetaDataList::initMetadata();
@@ -603,7 +606,7 @@ int main(int argc, char* argv[])
 
 	// tts
 	TextToSpeech::getInstance()->enable(Settings::getInstance()->getBool("TTS"), false);
-
+	
 	if (errorMsg == NULL)
 		ViewController::get()->goToStart(true);
 

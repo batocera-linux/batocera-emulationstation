@@ -78,14 +78,16 @@ namespace FileSorts
 			return file1->getType() == FOLDER;
 
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order
-		auto name1 = ((FileData *) file1)->getName();
-		auto name2 = ((FileData *) file2)->getName();
+		const std::string& name1 = ((FileData *) file1)->getName();
+		const std::string& name2 = ((FileData *) file2)->getName();
 
 		if (Settings::IgnoreLeadingArticles())
 		{
 			static auto articles = Utils::String::commaStringToVector(_("A,AN,THE"));
-			name1 = stripLeadingArticle(name1, articles);
-			name2 = stripLeadingArticle(name2, articles);
+			auto name1a = stripLeadingArticle(name1, articles);
+			auto name2a = stripLeadingArticle(name2, articles);
+
+			return Utils::String::compareIgnoreCase(name1a, name2a) < 0;
 		}
 
 		return Utils::String::compareIgnoreCase(name1, name2) < 0;

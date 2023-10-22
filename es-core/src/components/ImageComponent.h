@@ -130,7 +130,7 @@ public:
 	void setTargetIsMax() { mTargetIsMax = true; }
 
 	void setSaturation(float saturation);
-	void setCustomShader(const std::string& customShader) { mCustomShader = customShader; }
+	void setCustomShader(const Renderer::ShaderInfo& customShader) { mCustomShader = customShader; }
 
 	std::string getOriginalThemePath() { return mSourceThemePath; }
 
@@ -186,8 +186,8 @@ private:
 	float mRoundCorners;
 	float mSaturation;
 
-	std::string mCustomShader;
-
+	Renderer::ShaderInfo mCustomShader;
+	
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::map<std::string, std::shared_ptr<TextureResource>> mPlaylistCache;
 

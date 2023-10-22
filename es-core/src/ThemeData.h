@@ -28,6 +28,8 @@ class Window;
 class Font;
 class ThemeStoryboard;
 
+namespace Renderer { class ShaderInfo; }
+
 namespace ThemeFlags
 {
 	enum PropertyFlags : unsigned int
@@ -206,6 +208,8 @@ public:
 		std::string type;
 		std::map<std::string, ThemeStoryboard*> mStoryBoards;
 
+		std::vector<std::pair<std::string, ThemeElement>> children;
+
 		struct Property
 		{
 		public:
@@ -360,6 +364,8 @@ public:
 
 	std::shared_ptr<ThemeData> clone(const std::string& viewName);
 	bool appendFile(const std::string& path, bool perGameOverride = false);
+
+	static void parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader);
 
 private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;

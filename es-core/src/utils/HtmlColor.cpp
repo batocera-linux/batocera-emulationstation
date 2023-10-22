@@ -161,7 +161,7 @@ namespace Utils
 
 		unsigned int parse(const std::string& str)
 		{
-			if (str.empty())
+			if (str.empty() || str == "transparent")
 				return 0;
 
 			if (str[0] >= 'a' && str[0] <= 'z')

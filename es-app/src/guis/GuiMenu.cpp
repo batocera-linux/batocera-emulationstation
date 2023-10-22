@@ -1537,7 +1537,12 @@ void GuiMenu::openSystemSettings()
 	});
 #else
 	if (isFullUI)
+	{
 		s->addGroup(_("ADVANCED"));
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SERVICES) && ApiSystem::getInstance()->getServices().size())
+			s->addEntry(_("SERVICES"), true, [this] { openServicesSettings(); });
+	}
 #endif
 	
 	// Developer options

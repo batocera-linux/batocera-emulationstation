@@ -496,39 +496,29 @@ void GuiGamelistOptions::jumpToLetter()
 		mSystem->setSortId(0);
 		
 		FolderData* root = mSystem->getRootFolder();
-		/*
-		const FolderData::SortType& sort = FileSorts::getSortTypes().at(0);
-		root->sort(sort);
-		*/
-		getGamelist()->onFileChanged(root, FILE_SORTED);
+		if (root != nullptr)
+			gamelist->onFileChanged(root, FILE_SORTED);
 	}
 
-	// this is a really shitty way to get a list of files
-	const std::vector<FileData*>& files = gamelist->getCursor()->getParent()->getChildrenListToDisplay();
+	long letterIndex = -1;
 
-	long min = 0;
-	long max = (long)files.size() - 1;
-	long mid = 0;
-
-	while(max >= min)
+	auto files = gamelist->getFileDataEntries();
+	for (int i = files.size() - 1; i >= 0; i--)
 	{
-		mid = ((max - min) / 2) + min;
-
-		// game somehow has no first character to check
-		if(files.at(mid)->getName().empty())
+		auto name = files.at(i)->getName();
+		if (name.empty())
 			continue;
 
-		char checkLetter = (char)toupper(files.at(mid)->getName()[0]);
+		char checkLetter = (char)toupper(name[0]);
+		if (letterIndex >= 0 && checkLetter != letter)
+			break;
 
-		if(checkLetter < letter)
-			min = mid + 1;
-		else if(checkLetter > letter || (mid > 0 && (letter == toupper(files.at(mid - 1)->getName()[0]))))
-			max = mid - 1;
-		else
-			break; //exact match found
+		if (checkLetter == letter)
+			letterIndex = i;
 	}
 
-	gamelist->setCursor(files.at(mid));
+	if (letterIndex >= 0)
+		gamelist->setCursor(files.at(letterIndex));
 
 	delete this;
 }

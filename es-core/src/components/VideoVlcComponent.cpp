@@ -381,7 +381,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 
 		// Render it
 		vertices->saturation = mSaturation;
-		vertices->customShader = mCustomShader.empty() ? nullptr : (char*)mCustomShader.c_str();
+		vertices->customShader = mCustomShader.path.empty() ? nullptr : &mCustomShader;
 
 		Renderer::drawTriangleStrips(&vertices[0], 4);
 
@@ -737,6 +737,8 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	using namespace ThemeFlags;
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "video");
+	if (!elem)
+		return;
 
 	if (elem && elem->has("effect"))
 	{
@@ -764,11 +766,8 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 		if (elem->has("saturation"))
 			setSaturation(Math::clamp(elem->get<float>("saturation"), 0.0f, 1.0f));
 
-		if (elem->has("shader"))
-		{
-			mCustomShader = elem->get<std::string>("shader");
-			mStaticImage.setCustomShader(mCustomShader);
-		}
+		ThemeData::parseCustomShader(elem, &mCustomShader);
+		mStaticImage.setCustomShader(mCustomShader);
 	}
 
 	if (elem && elem->has("loops"))

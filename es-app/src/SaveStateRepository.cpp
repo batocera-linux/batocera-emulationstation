@@ -133,13 +133,25 @@ bool SaveStateRepository::hasSaveStates(FileData* game)
 		if (game->getSourceFileData()->getSystem() != mSystem)
 			return false;
 
+		auto name = Utils::FileSystem::getFileName(game->getPath());
+
+		auto it = mStates.find(name);
+		if (it != mStates.cend())
+			return true;
+
 		for (auto rs : SaveStateConfigFile::getSaveStateConfigs(mSystem))
 		{
-			std::string name = rs->nofileextension ? Utils::FileSystem::getStem(game->getPath()) : Utils::FileSystem::getFileName(game->getPath());
+			if (!rs->nofileextension)
+				continue;
+
+			std::string name = Utils::FileSystem::getStem(game->getPath());
 
 			auto it = mStates.find(name);
 			if (it != mStates.cend())
 				return true;
+
+			// Don't need to test again
+			return false;
 		}
 	}
 
