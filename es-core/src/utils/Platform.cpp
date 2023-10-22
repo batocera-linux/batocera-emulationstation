@@ -32,6 +32,7 @@ namespace Utils
 		{ 			
 			window = nullptr; 
 			waitForExit = true;
+			showWindow = true;
 		}
 
 		ProcessStartInfo::ProcessStartInfo(const std::string& cmd)
@@ -39,6 +40,7 @@ namespace Utils
 			command = cmd;
 			window = nullptr; 
 			waitForExit = true;
+			showWindow = true;
 		}
 
 		int ProcessStartInfo::run() const
@@ -82,7 +84,7 @@ namespace Utils
 			lpExecInfo.hwnd = NULL;
 			lpExecInfo.lpVerb = L"open"; // to open  program
 			lpExecInfo.lpDirectory = NULL;
-			lpExecInfo.nShow = SW_SHOW;  // show command prompt with normal window size 
+			lpExecInfo.nShow = showWindow ? SW_SHOW : SW_HIDE;  // show command prompt with normal window size 
 			lpExecInfo.hInstApp = (HINSTANCE)SE_ERR_DDEFAIL;   //WINSHELLAPI BOOL WINAPI result;
 			lpExecInfo.lpParameters = wargs.c_str(); //  file name as an argument	
 
@@ -190,10 +192,6 @@ namespace Utils
 
 			switch (quitMode)
 			{
-			case QuitMode::QUIT:
-				Scripting::fireEvent("quit");
-				break;
-
 			case QuitMode::REBOOT:
 			case QuitMode::FAST_REBOOT:
 				Scripting::fireEvent("quit", "reboot");
@@ -206,7 +204,6 @@ namespace Utils
 				Scripting::fireEvent("shutdown");
 				break;
 			}
-
 
 			SDL_Event* quit = new SDL_Event();
 			quit->type = SDL_QUIT;
@@ -230,6 +227,10 @@ namespace Utils
 
 			switch (quitMode)
 			{
+			case QuitMode::QUIT:
+				Scripting::fireEvent("quit");
+				break;
+
 			case QuitMode::RESTART:
 				LOG(LogInfo) << "Restarting EmulationStation";
 				touch("/tmp/restart.please");

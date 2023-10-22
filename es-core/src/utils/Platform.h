@@ -37,6 +37,7 @@ namespace Utils
 
 			std::string command;			
 			bool waitForExit;
+			bool showWindow;
 			Window* window;
 		};
 
