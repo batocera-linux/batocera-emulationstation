@@ -35,7 +35,7 @@ public:
 	virtual void launch(FileData* game) = 0;
 	
 	virtual std::vector<std::string> getEntriesLetters() override;
-	virtual std::vector<FileData*> getFileDataEntries() = 0;
+	// virtual std::vector<FileData*> getFileDataEntries() = 0;
 
 	void	moveToFolder(FolderData* folder);
 	FolderData*		getCurrentFolder();
