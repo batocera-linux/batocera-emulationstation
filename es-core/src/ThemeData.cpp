@@ -2019,6 +2019,8 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 
 		if (elem->has("scrollbarAlignment"))
 			Background.scrollbarAlignment = elem->get<std::string>("scrollbarAlignment");
+
+		ThemeData::parseCustomShader(elem, &Background.shader);
 	}
 
 	elem = theme->getElement("menu", "menutitle", "menuText");
