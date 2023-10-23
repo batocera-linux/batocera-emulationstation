@@ -598,20 +598,24 @@ void Window::render()
 	Transform4x4f transform = Transform4x4f::Identity();
 
 	mRenderedHelpPrompts = false;
-
+	
 	// draw only bottom and top of GuiStack (if they are different)
 	if (mGuiStack.size())
 	{
 		auto& bottom = mGuiStack.front();
 		auto& top = mGuiStack.back();
 
+		auto menuBackground = ThemeData::getMenuTheme()->Background;
+
 		bottom->render(transform);
 		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
 			{				
-				Renderer::blurBehind(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 				mBackgroundOverlay->render(transform);
+
+				if (!menuBackground.shader.path.empty())
+					Renderer::postProcessShader(menuBackground.shader.path, 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), menuBackground.shader.parameters);
 
 				auto& middle = mGuiStack.at(mGuiStack.size() - 2);
 				if (middle != bottom)
@@ -628,8 +632,11 @@ void Window::render()
 						middle->render(transform);
 				}
 
-				Renderer::blurBehind(0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight());
 				mBackgroundOverlay->render(transform);
+
+				if (!menuBackground.shader.path.empty())
+					Renderer::postProcessShader(menuBackground.shader.path, 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), menuBackground.shader.parameters);
+
 				top->render(transform);
 			}
 		}

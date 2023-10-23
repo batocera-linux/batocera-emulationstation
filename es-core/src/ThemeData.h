@@ -13,6 +13,7 @@
 #include <vector>
 #include <pugixml/src/pugixml.hpp>
 #include "utils/MathExpr.h"
+#include "renderers/Renderer.h"
 
 namespace pugi { class xml_node; }
 
@@ -27,8 +28,6 @@ class TextComponent;
 class Window;
 class Font;
 class ThemeStoryboard;
-
-namespace Renderer { class ShaderInfo; }
 
 namespace ThemeFlags
 {
@@ -135,6 +134,8 @@ struct MenuBackground
 	float			scrollbarSize;
 	float			scrollbarCorner;
 	std::string		scrollbarAlignment;
+
+	Renderer::ShaderInfo shader;
 };
 
 struct MenuGroupElement
