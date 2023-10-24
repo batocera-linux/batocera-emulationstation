@@ -48,7 +48,7 @@ void GuiInputConfig::initInputConfigStructure()
 {
 	GUI_INPUT_CONFIG_LIST =
 	{
-		{ "a",                false, InputConfig::buttonDisplayName("a"),    InputConfig::buttonImage("a") },
+		{ "a",                true,  InputConfig::buttonDisplayName("a"),    InputConfig::buttonImage("a") },
 		{ "b",                true,  InputConfig::buttonDisplayName("b"),    InputConfig::buttonImage("b") },
 		{ "x",                true,  "NORTH",              ":/help/buttons_north.svg" },
 		{ "y",                true,  "WEST",               ":/help/buttons_west.svg" },
