@@ -541,4 +541,56 @@
     <game>volvodriveforlife</game>
     <game>worldracing</game>
   </system>
+  <system name="xbox360">
+    <game>bajaedgeofcontrol</game>
+    <game>burnout3</game>
+    <game>burnoutparadise</game>
+    <game>crashtimeii</game>
+    <game>crazytaxi</game>
+    <game>dirt</game>
+    <game>dirt2</game>
+    <game>dirt3</game>
+    <game>dirt3completeedition</game>
+    <game>dirtshowdown</game>
+    <game>disneypixarcars</game>
+    <game>f12010</game>
+    <game>f12012</game>
+    <game>f12013</game>
+    <game>flatoutultimatecarnage</game>
+    <game>forzahorizon</game>
+    <game>forzamotorsport</game>
+    <game>fuel</game>
+    <game>gearsofwarprojectgothamracing4</game>
+    <game>grid</game>
+    <game>hypercrash</game>
+    <game>importtunerchallenge</game>
+    <game>juiced2</game>
+    <game>marvelultimateallianceforzamotorsport2</game>
+    <game>midnightclub</game>
+    <game>nascar08</game>
+    <game>needforspeed</game>
+    <game>nightdriver</game>
+    <game>projectgothamracing</game>
+    <game>racepro</game>
+    <game>segarallyrevo</game>
+    <game>shift2</game>
+    <game>splitsecond</game>
+    <game>stuntman</game>
+    <game>superstarsv8</game>
+    <game>testdriveunlimited</game>
+    <game>testdriveunlimited2</game>
+    <game>wrcfiaworldrallychampionship</game>
+  </system>
+  <system name="wiiu">
+    <game>cruisin</game>
+    <game>disneypixarcars</game>
+    <game>fzero</game>
+    <game>f1racestars</game>
+    <game>fastandfurious</game>
+    <game>fastracingneo</game>
+    <game>hellokittykruisers</game>
+    <game>mariokart8</game>
+    <game>needforspeedmostwantedu</game>
+    <game>sonicandallstarsracing</game>
+  </system>
 </systems>
