@@ -445,8 +445,8 @@ namespace Renderer
 #if OPENGL_EXTENSIONS
 		SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
 
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 #else
@@ -470,7 +470,7 @@ namespace Renderer
 	std::string GLES20Renderer::getDriverName()
 	{
 #if OPENGL_EXTENSIONS
-		return "OPENGL 2.1 / GLSL";
+		return "OPENGL 3.0 / GLSL";
 #else 
 		return "OPENGL ES 2.0";
 #endif
@@ -1027,6 +1027,10 @@ namespace Renderer
 
 	void GLES20Renderer::postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters)
 	{
+#if OPENGL_EXTENSIONS
+		if (glBlitFramebuffer == nullptr)
+			return;
+
 		std::string fullPath = ResourceManager::getInstance()->getResourcePath(path);
 
 		ShaderBatch* shaderBatch = ShaderBatch::getShaderBatch(fullPath.c_str());
@@ -1201,6 +1205,7 @@ namespace Renderer
 			if (nFrameBuffer2 != -1)
 				glDeleteFramebuffers(1, &nFrameBuffer2);
 		}		
+#endif
 	}
 	
 } // Renderer::
