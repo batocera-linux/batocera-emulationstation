@@ -193,8 +193,8 @@
     <game>wickedmonstersblast</game>
   </system>
   <system name="psx">
-    <game>area51</game>
-    <game>cryptkiller</game>
+    <game gun="justifier">area51</game>
+    <game gun="justifier">cryptkiller</game>
     <game>elementalgearbolt</game>
     <game>extremeghostbuster</game>
     <game>ghoulpanic</game>
@@ -202,16 +202,16 @@
     <game>guntuwesternfrontjune</game>
     <game>gunfighter</game>
     <game>judgedredd</game>
-    <game>lethalenforcers</game>
-    <game>maximumforce</game>
+    <game gun="justifier">lethalenforcers</game>
+    <game gun="justifier">maximumforce</game>
     <game>mightyhits</game>
-    <game>mightyhitsspecial</game>
+    <game gun="justifier">mightyhitsspecial</game>
     <game>moorhen3chickenchase</game>
     <game>moorhuhn</game>
     <game>pointblank</game>
     <game>pointblank2</game>
     <game>pointblank3</game>
-    <game>projecthornedowl</game>
+    <game gun="justifier">projecthornedowl</game>
     <game>puffynopsiloveyou</game>
     <game>rescueshot</game>
     <game>thegunshooting</game>
