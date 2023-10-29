@@ -33,10 +33,10 @@ namespace Scripting
 
         // Start using a thread to avoid lags
 
-        auto runScript = [command]() {
+        auto runScript = [command, eventName]() {
             ProcessStartInfo psi;
             psi.command = command;
-            psi.waitForExit = false;
+            psi.waitForExit = (eventName == "quit");
             psi.showWindow = false;
             psi.run();
         };
@@ -48,7 +48,7 @@ namespace Scripting
 
         ProcessStartInfo psi;
         psi.command = command;
-        psi.waitForExit = false;
+        psi.waitForExit = (eventName == "quit");
         psi.showWindow = false;
         psi.run();
 #endif

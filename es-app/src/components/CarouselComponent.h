@@ -70,6 +70,8 @@ private:
 	bool mDisable;
 	bool mScreensaverActive;
 
+	bool mWasRendered;
+
 	std::function<void(CursorState state)> mCursorChangedCallback;
 
 	std::shared_ptr<ThemeData> mTheme;

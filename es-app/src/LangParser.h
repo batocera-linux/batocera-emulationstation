@@ -8,6 +8,8 @@ class SystemData;
 class LangInfo
 {
 public:
+	LangInfo() { mHardRegion = false; }
+
 	static LangInfo parse(std::string rom, SystemData* system);
 	static std::string getFlag(const std::string lang, const std::string region);
 
@@ -19,5 +21,7 @@ public:
 
 private:
 	void extractLang(std::string val);
+
+	bool mHardRegion;
 };
 
