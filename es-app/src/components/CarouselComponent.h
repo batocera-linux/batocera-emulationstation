@@ -74,7 +74,9 @@ private:
 
 	std::function<void(CursorState state)> mCursorChangedCallback;
 
-	std::shared_ptr<ThemeData> mTheme;
+	std::shared_ptr<ThemeData>	mTheme;
+	std::string					mThemeViewName;
+
 	int mLastCursor;	
 
 	enum ImageSource

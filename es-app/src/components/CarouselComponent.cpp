@@ -15,6 +15,7 @@ const int logoBuffersRight[] = { 1, 2, 5 };
 CarouselComponent::CarouselComponent(Window* window) :
 	IList<CarouselComponentData, FileData*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP)
 {
+	mThemeViewName = "gamecarousel";
 	mWasRendered = false;
 	mCamOffset = 0;
 	mScreensaverActive = false;
@@ -654,11 +655,11 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 		marqueePath = entry.object->getMarqueePath();
 
 	if (mImageSource != TEXT && Utils::FileSystem::exists(marqueePath))
-	{
+	{		
 		ImageComponent* logo = new ImageComponent(mWindow, false, true);
 		logo->setMaxSize(mLogoSize * mLogoScale);
 		logo->setIsLinear(true);
-		logo->applyTheme(mTheme, "gamecarousel", "gamecarouselLogo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
+		logo->applyTheme(mTheme, mThemeViewName, "gamecarouselLogo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
 		logo->setImage(marqueePath, false, MaxSizeInfo(mLogoSize * mLogoScale));
 
 		entry.data.logo = std::shared_ptr<GuiComponent>(logo);
@@ -668,7 +669,7 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 		TextComponent* text = new TextComponent(mWindow, entry.name, Renderer::isSmallScreen() ? Font::get(FONT_SIZE_MEDIUM) : Font::get(FONT_SIZE_LARGE), 0x000000FF, ALIGN_CENTER);
 		text->setScaleOrigin(0.0f);
 		text->setSize(mLogoSize * mLogoScale);
-		text->applyTheme(mTheme, "gamecarousel", "gamecarouselLogoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
+		text->applyTheme(mTheme, mThemeViewName, "gamecarouselLogoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
 
 		if (mType == VERTICAL || mType == VERTICAL_WHEEL)
 		{
@@ -734,6 +735,7 @@ void CarouselComponent::add(const std::string& name, FileData* obj)
 void CarouselComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
 	mTheme = theme;
+	mThemeViewName = view;
 
 	IList<CarouselComponentData, FileData*>::applyTheme(theme, view, element, properties);
 
