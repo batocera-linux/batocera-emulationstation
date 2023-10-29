@@ -96,7 +96,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 
 	// Keyboard
 	// Case for if multiline is enabled, then don't create the keyboard.
-	if (!mMultiLine) 
+	// if (!mMultiLine) 
 	{
 		std::vector<std::vector<const char*>>* layout = &kbUs;
 
@@ -134,8 +134,17 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 				else if (lower == "OK")
 				{
 					lower = _U("\uF058");
-					upper = _U("\uF058");
-					alted = _U("\uF058");
+
+					if (mMultiLine)
+					{
+						upper = _U("\uF149");
+						alted = _U("\uF149");
+					}
+					else
+					{
+						upper = _U("\uF058");
+						alted = _U("\uF058");
+					}
 				}
 				else if (lower == "SPACE")
 				{
@@ -199,7 +208,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	// Determine size from text size
 	float textHeight = mText->getFont()->getHeight();
 	if (multiLine)
-		textHeight *= 6;
+		textHeight *= 4;
 
 	mText->setSize(0, textHeight);
 
@@ -242,7 +251,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		if (Renderer::isSmallScreen())
 			setSize(OSK_WIDTH, Renderer::getScreenHeight());
 		else
-			setSize(OSK_WIDTH, mTitle->getFont()->getHeight() + textHeight + mKeyboardGrid->getSize().y() + 40);
+			setSize(OSK_WIDTH, OSK_HEIGHT - mText->getFont()->getHeight() + textHeight);
 
 		setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 	}
@@ -255,18 +264,18 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 	}
 }
 
-
 void GuiTextEditPopupKeyboard::onSizeChanged()
 {
 	GuiComponent::onSizeChanged();
 
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
-	mText->setSize(mSize.x() - OSK_PADDINGX - OSK_PADDINGX, mText->getSize().y());
+	mText->setSize(mSize.x() - (2 * OSK_PADDINGX), mText->getSize().y());
 
 	// update grid
-	mGrid.setRowHeightPerc(0, mTitle->getFont()->getHeight() / mSize.y());
-	mGrid.setRowHeightPerc(2, mKeyboardGrid->getSize().y() / mSize.y());
+	mGrid.setRowHeight(0, mTitle->getFont()->getHeight() + OSK_PADDINGY);
+	mGrid.setRowHeight(1, mText->getSize().y() + 2 * OSK_PADDINGY);
+	mGrid.setRowHeight(2, mKeyboardGrid->getSize().y());
 	mGrid.setSize(mSize);
 
 	auto pos = mKeyboardGrid->getPosition();
@@ -416,11 +425,18 @@ std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
 std::shared_ptr<ButtonComponent> GuiTextEditPopupKeyboard::makeButton(const std::string& key, const std::string& shiftedKey, const std::string& altedKey)
 {
 	std::shared_ptr<ButtonComponent> button = std::make_shared<ButtonComponent>(mWindow, key, key, [this, key, shiftedKey, altedKey]
-	{
+	{						
 		if (key == _U("\uF058") || key.find("OK") != std::string::npos)
-		{
-			mOkCallback(mText->getValue());
-			delete this;
+		{	
+			if (mMultiLine && (mShift || mAlt))
+			{
+				mText->startEditing(); mText->textInput("\r\n"); mText->stopEditing();
+			}
+			else
+			{
+				mOkCallback(mText->getValue());
+				delete this;
+			}
 			return;
 		}
 		else if (key == _U("\uF177") || key == "DEL")
