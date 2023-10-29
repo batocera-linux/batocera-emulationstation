@@ -15,6 +15,7 @@ const int logoBuffersRight[] = { 1, 2, 5 };
 CarouselComponent::CarouselComponent(Window* window) :
 	IList<CarouselComponentData, FileData*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP)
 {
+	mWasRendered = false;
 	mCamOffset = 0;
 	mScreensaverActive = false;
 	mDisable = false;		
@@ -51,6 +52,7 @@ CarouselComponent::~CarouselComponent()
 
 void CarouselComponent::clearEntries()
 {
+	mWasRendered = false;
 	mEntries.clear();
 }
 
@@ -321,6 +323,12 @@ void CarouselComponent::render(const Transform4x4f& parentTrans)
 	Renderer::pushClipRect(rect);
 	renderCarousel(trans);
 	Renderer::popClipRect();
+
+	if (!mWasRendered && mShowing)
+	{
+		mWasRendered = true;
+		onShow();
+	}
 }
 
 std::vector<HelpPrompt> CarouselComponent::getHelpPrompts()
@@ -551,6 +559,12 @@ void CarouselComponent::getCarouselFromTheme(const ThemeData::ThemeElement* elem
 void CarouselComponent::onShow()
 {
 	GuiComponent::onShow();		
+
+	if (!mWasRendered)
+	{
+		// If it's not rendered yet, every logo is null. Do defer storyboarding to the 1st render()
+		return;
+	}
 
 	bool cursorStoryboardSet = false;
 
