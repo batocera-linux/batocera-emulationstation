@@ -64,6 +64,15 @@ void LangInfo::extractLang(std::string val)
 		{ { "in", "ìndia" }, "in", "in" },
 	};
 
+	static std::set<std::string> hardRegions =
+	{
+		"usa", "us",
+		"europe", "eu",
+		"brazil", "br",
+		"japan", "jp",
+		"kr", "korea"
+	};
+
 	for (auto s : Utils::String::splitAny(val, "_, "))
 	{
 		bool clearLang = s.find("t-") != std::string::npos;
@@ -84,8 +93,11 @@ void LangInfo::extractLang(std::string val)
 					languages.insert(langData.lang);
 				}
 
-				if (!langData.region.empty())
+				if (!langData.region.empty() && !mHardRegion)
+				{
 					region = langData.region;
+					mHardRegion = hardRegions.find(s) != hardRegions.cend();
+				}
 			}
 		}
 	}
