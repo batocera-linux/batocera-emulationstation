@@ -350,9 +350,10 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 #if WIN32
 	if (!Settings::getInstance()->getBool("HidJoysticks"))
 		SDL_SetHint(SDL_HINT_JOYSTICK_HIDAPI, "0");
-#endif
 
-	SDL_SetHint("SDL_JOYSTICK_HIDAPI_WII", "1");
+	SDL_SetHint("SDL_JOYSTICK_HIDAPI_WII", "0");
+#endif
+			
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);	
 
