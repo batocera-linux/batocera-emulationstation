@@ -403,7 +403,7 @@ msgid "Show achievement progression on game launch and other notifications."
 msgstr "Показать прогресс достижений при запуске игры и в других уведомлениях."
 
 msgid "RICH PRESENCE"
-msgstr "БОГАТОЕ ПРИСУТСТВИЕ"
+msgstr "ТЕКУЩАЯ АКТИВНОСТЬ (RICH PRESENCE)"
 
 msgid "ENCORE MODE"
 msgstr "РЕЖИМ ЭНКОРА"
