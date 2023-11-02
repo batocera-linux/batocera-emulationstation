@@ -1031,6 +1031,9 @@ namespace Renderer
 		if (glBlitFramebuffer == nullptr)
 			return;
 
+		if (getScreenRotate() != 0 && getScreenRotate() != 2)
+			return;
+
 		std::string fullPath = ResourceManager::getInstance()->getResourcePath(path);
 
 		ShaderBatch* shaderBatch = ShaderBatch::getShaderBatch(fullPath.c_str());
@@ -1112,6 +1115,14 @@ namespace Renderer
 				vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
 				vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
 				vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+				if (getScreenRotate() == 2)
+				{
+					vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+					vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+					vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+					vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+				}
 			}
 			else
 			{			
@@ -1137,7 +1148,11 @@ namespace Renderer
 
 					glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer);
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0);
-					glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR);
+
+					if (getScreenRotate() == 2)
+						glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR);
+					else
+						glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
 					if (shaderBatch->size() == 1)
 						glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -1158,6 +1173,15 @@ namespace Renderer
 						vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
 						vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
 						vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+						if (getScreenRotate() == 2)
+						{
+							vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+							vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+							vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+							vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+						}
+
 						for (int i = 0; i < 4; ++i) vertices[i].pos.round();
 
 						glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW);
