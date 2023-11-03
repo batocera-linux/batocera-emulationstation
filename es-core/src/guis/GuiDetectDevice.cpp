@@ -28,8 +28,7 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	addChild(&mGrid);
 	
 	// title
-	mTitle = std::make_shared<TextComponent>(mWindow, firstRun ? _("WELCOME") : _("CONFIGURE INPUT"),
-		theme->Title.font, theme->Title.color, ALIGN_CENTER);
+	mTitle = std::make_shared<TextComponent>(mWindow, firstRun ? _("WELCOME") : _("CONFIGURE INPUT"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mGrid.setEntry(mTitle, Vector2i(0, 0), false, true, Vector2i(1, 1), GridFlags::BORDER_BOTTOM);
 
 	// device info
@@ -53,9 +52,9 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	mGrid.setEntry(mMsg1, Vector2i(0, 2), false, true);
 	
 	if(firstRun)
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_CENTER); 
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS ESC TO CANCEL."), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
 	else
-	  mMsg2 = std::make_shared<TextComponent>(mWindow, "", theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
+	  mMsg2 = std::make_shared<TextComponent>(mWindow, _("PRESS ESC OR A HOTKEY TO CANCEL."), theme->TextSmall.font, theme->Text.color, ALIGN_CENTER);
 	
 	mGrid.setEntry(mMsg2, Vector2i(0, 3), false, true);
 
@@ -79,11 +78,9 @@ void GuiDetectDevice::onSizeChanged()
 
 	// grid
 	mGrid.setSize(mSize);
-	mGrid.setRowHeightPerc(0, mTitle->getFont()->getHeight() / mSize.y());
-	//mGrid.setRowHeightPerc(1, mDeviceInfo->getFont()->getHeight() / mSize.y());
-	mGrid.setRowHeightPerc(2, mMsg1->getFont()->getHeight() / mSize.y());
-	mGrid.setRowHeightPerc(3, mMsg2->getFont()->getHeight() / mSize.y());
-	//mGrid.setRowHeightPerc(4, mDeviceHeld->getFont()->getHeight() / mSize.y());
+	mGrid.setRowHeight(0, mTitle->getFont()->getHeight() * 1.1f);	
+	mGrid.setRowHeight(2, mMsg1->getFont()->getHeight());
+	mGrid.setRowHeight(3, mMsg2->getFont()->getHeight());	
 }
 
 bool GuiDetectDevice::input(InputConfig* config, Input input)
