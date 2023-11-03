@@ -83,7 +83,14 @@ void GuiInputConfig::initInputConfigStructure(InputConfig* target)
 #endif
 
 	if (target->getDeviceId() >= 0)
+	{
 		GUI_INPUT_CONFIG_LIST[1].skippable = (target->getDeviceNbButtons() <= 1) || (target->getDeviceNbButtons() == 5 && target->getDeviceNbAxes() == 0 && target->getDeviceNbHats() == 0);
+
+		GUI_INPUT_CONFIG_LIST[6].skippable = 
+		GUI_INPUT_CONFIG_LIST[7].skippable = 
+		GUI_INPUT_CONFIG_LIST[8].skippable = 
+		GUI_INPUT_CONFIG_LIST[9].skippable = target->getDeviceNbHats() == 0;
+	}
 }
 
 GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window), 
