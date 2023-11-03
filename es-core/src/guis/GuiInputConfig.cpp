@@ -44,45 +44,53 @@
 
 #define HOLD_TO_SKIP_MS 1000
 
-void GuiInputConfig::initInputConfigStructure()
+void GuiInputConfig::initInputConfigStructure(InputConfig* target)
 {
 	GUI_INPUT_CONFIG_LIST =
 	{
-		{ "a",                false, InputConfig::buttonDisplayName("a"),    InputConfig::buttonImage("a") },
-		{ "b",                true,  InputConfig::buttonDisplayName("b"),    InputConfig::buttonImage("b") },
-		{ "x",                true,  "NORTH",              ":/help/buttons_north.svg" },
-		{ "y",                true,  "WEST",               ":/help/buttons_west.svg" },
+		{ "b",               false, "SOUTH",			  ":/help/buttons_south.svg" },
+		{ "a",               false, "EAST",			      ":/help/buttons_east.svg" },
+		{ "x",               true,  "NORTH",              ":/help/buttons_north.svg" },
+		{ "y",               true,  "WEST",               ":/help/buttons_west.svg" },
 
-		{ "start",            true,  "START",              ":/help/button_start.svg" },
-		{ "select",           true,  "SELECT",             ":/help/button_select.svg" },
+		{ "start",           true,  "START",              ":/help/button_start.svg" },
+		{ "select",          true,  "SELECT",             ":/help/button_select.svg" },
 
-		{ "up",               false, "D-PAD UP",           ":/help/dpad_up.svg" },
-		{ "down",             false, "D-PAD DOWN",         ":/help/dpad_down.svg" },
-		{ "left",             false, "D-PAD LEFT",         ":/help/dpad_left.svg" },
-		{ "right",            false, "D-PAD RIGHT",        ":/help/dpad_right.svg" },
+		{ "up",              false, "D-PAD UP",           ":/help/dpad_up.svg" },
+		{ "down",            false, "D-PAD DOWN",         ":/help/dpad_down.svg" },
+		{ "left",            false, "D-PAD LEFT",         ":/help/dpad_left.svg" },
+		{ "right",           false, "D-PAD RIGHT",        ":/help/dpad_right.svg" },
 
 		{ "pageup",          true,  "LEFT SHOULDER",      ":/help/button_l.svg" },
 		{ "pagedown",        true,  "RIGHT SHOULDER",     ":/help/button_r.svg" },
 
 		{ "joystick1up",     true,  "LEFT ANALOG UP",     ":/help/analog_up.svg" },
 		{ "joystick1left",   true,  "LEFT ANALOG LEFT",   ":/help/analog_left.svg" },
-		{ "joystick2up",     true,  "RIGHT ANALOG UP",     ":/help/analog_up.svg" },
-		{ "joystick2left",   true,  "RIGHT ANALOG LEFT",   ":/help/analog_left.svg" },
+		{ "joystick2up",     true,  "RIGHT ANALOG UP",    ":/help/analog_up.svg" },
+		{ "joystick2left",   true,  "RIGHT ANALOG LEFT",  ":/help/analog_left.svg" },
 
 		{ "l2",              true,  "LEFT TRIGGER",       ":/help/button_lt.svg" },
 		{ "r2",              true,  "RIGHT TRIGGER",      ":/help/button_rt.svg" },
-		{ "l3",              true,  "LEFT STICK PRESS",       ":/help/analog_thumb.svg" },
-		{ "r3",              true,  "RIGHT STICK PRESS",      ":/help/analog_thumb.svg" },
+		{ "l3",              true,  "LEFT STICK PRESS",   ":/help/analog_thumb.svg" },
+		{ "r3",              true,  "RIGHT STICK PRESS",  ":/help/analog_thumb.svg" },
 
-		{ "hotkey",          true,  "HOTKEY",      ":/help/button_hotkey.svg" }
+		{ "hotkey",          true,  "HOTKEY",             ":/help/button_hotkey.svg" }
 	};
+	
+#ifdef INVERTEDINPUTCONFIG
+	GUI_INPUT_CONFIG_LIST[0].name = "a";
+	GUI_INPUT_CONFIG_LIST[1].name = "b";
+#endif
+
+	if (target->getDeviceId() >= 0)
+		GUI_INPUT_CONFIG_LIST[1].skippable = (target->getDeviceNbButtons() <= 1) || (target->getDeviceNbButtons() == 5 && target->getDeviceNbAxes() == 0 && target->getDeviceNbHats() == 0);
 }
 
 GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfigureAll, const std::function<void()>& okCallback) : GuiComponent(window), 
 	mBackground(window, ":/frame.png"), mGrid(window, Vector2i(1, 7)), 
 	mTargetConfig(target), mHoldingInput(false), mBusyAnim(window)
 {
-	initInputConfigStructure();
+	initInputConfigStructure(target);
 
 	auto theme = ThemeData::getMenuTheme();
 	mBackground.setImagePath(theme->Background.path);
@@ -133,6 +141,7 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 		
 		// icon
 		auto icon = std::make_shared<ImageComponent>(mWindow);
+		icon->setIsLinear(true);
 		icon->setImage(GUI_INPUT_CONFIG_LIST[i].icon);
 		icon->setColorShift(theme->Text.color);
 		icon->setResize(0, Font::get(FONT_SIZE_MEDIUM)->getLetterHeight() * 1.25f);
@@ -267,6 +276,9 @@ GuiInputConfig::GuiInputConfig(Window* window, InputConfig* target, bool reconfi
 			okFunction();
 		}
 	}));
+
+	buttons.push_back(std::make_shared<ButtonComponent>(mWindow, _("CANCEL"), "cancel", [this] { delete this; }));
+
 	mButtonGrid = makeButtonGrid(mWindow, buttons);
 	mGrid.setEntry(mButtonGrid, Vector2i(0, 6), true, false);
 
@@ -295,12 +307,11 @@ void GuiInputConfig::onSizeChanged()
 
 	int cnt = (1.0 - h) / (mList->getRowHeight(0) / mSize.y());
 
-	mGrid.setRowHeightPerc(1, mTitle->getFont()->getHeight() / mSize.y()); // *0.75f
-	mGrid.setRowHeightPerc(2, mSubtitle1->getFont()->getHeight() / mSize.y());
-	mGrid.setRowHeightPerc(3, mSubtitle2->getFont()->getHeight() / mSize.y());
-	//mGrid.setRowHeightPerc(4, 0.03f);
-	mGrid.setRowHeightPerc(5, (mList->getRowHeight(0) * cnt + 2) / mSize.y());
-	mGrid.setRowHeightPerc(6, mButtonGrid->getSize().y() / mSize.y());
+	mGrid.setRowHeight(1, mTitle->getFont()->getHeight());
+	mGrid.setRowHeight(2, mSubtitle1->getFont()->getHeight());
+	mGrid.setRowHeight(3, mSubtitle2->getFont()->getHeight());
+	mGrid.setRowHeight(5, (mList->getRowHeight(0) * cnt + 2));
+	mGrid.setRowHeight(6, mButtonGrid->getSize().y());
 
 	mBusyAnim.setSize(mSize);
 }
