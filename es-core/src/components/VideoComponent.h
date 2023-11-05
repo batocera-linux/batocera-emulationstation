@@ -46,6 +46,8 @@ public:
 		return mVideoPath;		
 	}
 
+	std::string getThemeTypeName() override { return "video"; }
+
 	// Loads the video at the given filepath
 	bool setVideo(std::string path, bool checkFileExists = true);
 	// Loads a static image that is displayed if the video cannot be played
@@ -150,6 +152,7 @@ public:
 	bool getPlayAudio() { return mPlayAudio; }
 	void setPlayAudio(bool value) { mPlayAudio = value; }
 
+	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 
 	virtual void setClipRect(const Vector4f& vec);
@@ -158,11 +161,7 @@ public:
 
 	bool showSnapshots();
 
-	std::string getOriginalThemePath() { return mSourceThemePath; }
-
 protected:
-	std::string mSourceThemePath;
-
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::function<bool()> mVideoEnded;
 

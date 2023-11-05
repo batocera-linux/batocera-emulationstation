@@ -126,7 +126,7 @@ namespace Renderer
 		virtual void         setSwapInterval() = 0;
 		virtual void         swapBuffers() = 0;
 		
-		virtual void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters) { };
+		virtual void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data = nullptr) { };
 
 		virtual size_t		 getTotalMemUsage() { return (size_t) -1; };
 	};
@@ -180,7 +180,7 @@ namespace Renderer
 	void         swapBuffers       ();
 
 	void		 blurBehind		   (const float _x, const float _y, const float _w, const float _h, const float blurSize = 4.0f);
-	void		 postProcessShader (const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters);
+	void		 postProcessShader (const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data = nullptr);
 
 	size_t		 getTotalMemUsage  ();
 

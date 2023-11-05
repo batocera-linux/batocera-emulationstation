@@ -922,7 +922,7 @@ namespace Renderer
 			// SDL_GL_SetSwapInterval returns 0 on success, -1 on error.
 			// if vsync is requested, try normal vsync; if that doesn't work, try late swap tearing
 			// if that doesn't work, report an error
-			if(SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
+			if (SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
 				LOG(LogWarning) << "Tried to enable vsync, but failed! (" << SDL_GetError() << ")";
 		}
 		else
@@ -1025,7 +1025,7 @@ namespace Renderer
 		return total;
 	}
 
-	void GLES20Renderer::postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters)
+	void GLES20Renderer::postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data)
 	{
 #if OPENGL_EXTENSIONS
 		if (glBlitFramebuffer == nullptr)
@@ -1049,7 +1049,7 @@ namespace Renderer
 		float textureScale = 1.0f;
 		
 		// Special hack for single-pass blur shader -> Texture downscaling
-		if (path == ":/shaders/blur.glsl")
+		if (path == ":/shaders/blur.glsl" && data == nullptr)
 		{
 			auto it = parameters.find("blur");
 			if (it != parameters.cend())
@@ -1091,7 +1091,7 @@ namespace Renderer
 			unsigned int nFrameBuffer2 = -1;
 			unsigned int nTexture2 = -1;
 
-			if (shaderBatch->size() > 1)
+			if (shaderBatch->size() > 1 || data != nullptr)
 			{
 				// Multiple passes ? We need another framebuffer + another texture
 				glGenFramebuffers(1, &nFrameBuffer2);
@@ -1109,7 +1109,7 @@ namespace Renderer
 
 			Vertex vertices[4];
 				
-			if (shaderBatch->size() == 1)
+			if (shaderBatch->size() == 1 && data == nullptr)
 			{
 				vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
 				vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
@@ -1154,7 +1154,7 @@ namespace Renderer
 					else
 						glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR);
 
-					if (shaderBatch->size() == 1)
+					if (shaderBatch->size() == 1 && data == nullptr)
 						glBindFramebuffer(GL_FRAMEBUFFER, 0);
 					else
 					{
@@ -1166,7 +1166,7 @@ namespace Renderer
 				{					
 					bindTexture(i % 2 == 1 ? nTexture2 : nTextureID );
 					
-					if (i == shaderBatch->size() - 1)
+					if (i == shaderBatch->size() - 1 && data == nullptr)
 					{						
 						// This is the last shader in the batch. 
 						vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
@@ -1221,10 +1221,22 @@ namespace Renderer
 			if (oldCissors)
 				glEnable(GL_SCISSOR_TEST);
 
-			destroyTexture(nTextureID);
+			if (data != nullptr)
+			{				
+				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0); // Detach
+				glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-			if (nTexture2 != -1)
-				destroyTexture(nTexture2);
+				bool takeFirst = (shaderBatch->size() - 1) % 2 == 1;
+				*data = takeFirst ? nTextureID : nTexture2;
+				destroyTexture(takeFirst ? nTexture2 : nTextureID);
+			}
+			else
+			{
+				destroyTexture(nTextureID);
+
+				if (nTexture2 != -1)
+					destroyTexture(nTexture2);
+			}
 
 			if (nFrameBuffer2 != -1)
 				glDeleteFramebuffers(1, &nFrameBuffer2);

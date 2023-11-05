@@ -170,6 +170,8 @@ struct ButtonElement
 
 class ThemeData
 {
+	friend class GuiComponent;
+
 public:
 	class ThemeMenu
 	{
@@ -372,6 +374,7 @@ private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
 	static std::vector<std::string> sSupportedFeatures;
 	static std::vector<std::string> sSupportedViews;
+	static std::map<std::string, std::string> sBaseClasses;
 
 	std::deque<std::string> mPaths;
 	float mVersion;
@@ -400,8 +403,10 @@ private:
 	void processElement(const pugi::xml_node& root, ThemeElement& element, const std::string& name, const std::string& value, ElementPropertyType type);
 
 	void parseCustomViewBaseClass(const pugi::xml_node& root, ThemeView& view, std::string baseClass);
+	bool findPropertyFromBaseClass(const std::string& typeName, const std::string& propertyName, ElementPropertyType& type);
 
 	static GuiComponent* createExtraComponent(Window* window, const ThemeElement& elem, bool forceLoad = false);
+	static void applySelfTheme(GuiComponent* comp, const ThemeElement& elem);
 
 	std::string resolveSystemVariable(const std::string& systemThemeFolder, const std::string& path);
 	std::string resolvePlaceholders(const char* in);

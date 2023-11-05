@@ -40,7 +40,7 @@ void PostProcessShaderComponent::applyTheme(const std::shared_ptr<ThemeData>& th
 
 	for (auto prop : elem->properties)
 	{
-		if (prop.first == "pos" || prop.first == "path" || prop.first == "size" || prop.first == "zIndex")
+		if (prop.first == "pos" || prop.first == "path" || prop.first == "size" || prop.first == "zIndex" || prop.first == "visible")
 			continue;
 
 		if (prop.second.type != ThemeData::ThemeElement::Property::PropertyType::String)
@@ -48,4 +48,28 @@ void PostProcessShaderComponent::applyTheme(const std::shared_ptr<ThemeData>& th
 
 		mParameters[prop.first] = prop.second.s;
 	}
+}
+
+ThemeData::ThemeElement::Property PostProcessShaderComponent::getProperty(const std::string name)
+{
+	if (name == "path")
+		return mShaderPath;
+	else if (name != "pos" && name != "size" && name != "zIndex" && name != "visible")
+	{
+		auto it = mParameters.find(name);
+		if (it != mParameters.cend())
+			return it->second;
+	}
+
+	return GuiComponent::getProperty(name);
+}
+
+void PostProcessShaderComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{
+	if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+		mShaderPath = value.s;
+	else if (name != "pos" && name != "size" && name != "zIndex" && name != "visible" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+		mParameters[name] = value.s;
+	else 
+		GuiComponent::setProperty(name, value);
 }

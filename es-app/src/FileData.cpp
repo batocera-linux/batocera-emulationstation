@@ -1752,6 +1752,39 @@ std::string FileData::getProperty(const std::string& name)
 	if (name == "wheelGame")
 	  return isWheelGame() ? _("YES") : _("NO");
 
+	if (name == "cheevos")
+		return hasCheevos() ? _("YES") : _("NO");
+
+	if (name == "playerCount")
+	{
+		std::string value = getMetadata().get("players");
+		auto split = value.rfind("+");
+		if (split != std::string::npos)
+			return value.substr(0, split);
+
+		split = value.rfind("-");
+		if (split != std::string::npos)
+			return value.substr(split + 1);
+
+		std::string ret = value;
+
+		int count = Utils::String::toInteger(value);
+
+		if (count >= 10) ret = "9";
+		else if (count == 0) ret = "1";
+
+		return ret;
+	}
+
+	if (name == "hasManual")
+		return Utils::FileSystem::exists(getMetadata(MetaDataId::Manual)) || Utils::FileSystem::exists(getMetadata(MetaDataId::Magazine)) ? _("YES") : _("NO");
+
+	if (name == "hasSaveState" || name == "savestate")
+	{
+		bool hasSaveState = SaveStateRepository::isEnabled(this) && getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(this);
+		return hasSaveState ? _("YES") : _("NO");
+	}
+	
 	if (name == "system")
 		return getSourceFileData()->getSystemName();
 

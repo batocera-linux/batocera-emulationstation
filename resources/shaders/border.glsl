@@ -22,18 +22,31 @@ COMPAT_ATTRIBUTE vec2 TexCoord;
 COMPAT_ATTRIBUTE vec4 COLOR;
 COMPAT_VARYING   vec2 v_tex;
 COMPAT_VARYING   vec4 v_col;
+COMPAT_VARYING   vec2 v_pos;
 
 void main(void)                                    
 {                                                  
 	gl_Position = MVPMatrix * vec4(VertexCoord.xy, 0.0, 1.0);
 	v_tex       = TexCoord;                           
 	v_col       = COLOR;                           
+	v_pos       = VertexCoord;
 }
 
 #elif defined(FRAGMENT)
 			
-varying   vec4      v_col;
-varying   vec2      v_tex;
+#if __VERSION__ >= 130
+#define COMPAT_VARYING out
+#define COMPAT_ATTRIBUTE in
+#define COMPAT_TEXTURE texture
+#else
+#define COMPAT_VARYING varying 
+#define COMPAT_ATTRIBUTE attribute 
+#define COMPAT_TEXTURE texture2D
+#endif
+			
+COMPAT_VARYING   vec4      v_col;
+COMPAT_VARYING   vec2      v_tex;
+COMPAT_VARYING   vec2      v_pos;
 
 uniform   sampler2D u_tex;
 uniform   vec2      resolution;
@@ -42,42 +55,82 @@ uniform   vec2      outputSize;
 
 uniform   float      borderSize;
 uniform   vec4       borderColor;
+uniform   float      cornerRadius;
+uniform   float      innerShadowSize;
+uniform   vec4       innerShadowColor;
+
+uniform   float      outerShadowSize;
+uniform   vec4       outerShadowColor;
 
 vec4 sampleTexture(sampler2D tex, vec2 texCoord) 
 {
     // Check if the texture coordinate is within the [0, 1] range
     if (texCoord.x >= 0 && texCoord.x <= 1 && texCoord.y >= 0 && texCoord.y <= 1)
-        return texture2D(tex, texCoord);
+        return COMPAT_TEXTURE(tex, texCoord);
     
     return vec4(0.0); // Return transparent black for coordinates outside [0, 1]    
 }
 
+float getComputedValue(float value, float defaultValue) {
+	if (value == 0.0)
+		return defaultValue;
+	
+	if (value < 1.0)
+		return abs(outputSize.y) * value;
+	
+	return value;
+}
+
 void main(void)                                    
 {
-	float offset = borderSize;
-	if (offset == 0.0) {
-		offset = 2.0;
+	float outerBorder = getComputedValue(borderSize, 0.0);
+	float innerShadow = getComputedValue(innerShadowSize, 0.0);
+	float outerShadow = getComputedValue(outerShadowSize, 0.0);
+	float cornerSize = getComputedValue(cornerRadius, 0.0);
+
+	// Don't perform bordering if bottom/right pixel is transparent
+	vec2 bottomRight = vec2(1.0, 1.0);
+	if (sampleTexture(u_tex, bottomRight).a < 0.3) {
+		gl_FragColor = sampleTexture(u_tex, v_tex);
+		return;
 	}
 	
-	vec2 step = 1.0 / textureSize;
-	
-	vec2 decal = vec2(-offset / outputSize.x, offset / outputSize.y);	
+	// Apply border padding
+	vec2 decal = vec2((outerBorder/2.0+outerShadow) / abs(outputSize.x), (outerBorder/2.0+outerShadow) / abs(outputSize.y));	
+	vec2 v_padtex = vec2(v_tex.x / (1.0 - 2 * decal.x) - decal.x, v_tex.y * (1.0 + 2 * decal.y) - decal.y);
 
-	vec2 v_padtex = vec2(v_tex.x / (1.0 + 2 * decal.x) + decal.x, v_tex.y * (1.0 + 2 * decal.y) - decal.y);
-	if (decal.y < 0) // If outputSize is negative
-		v_padtex.y = v_tex.y * (1.0 - 2 * decal.y) + decal.y;
-	
-	vec4 blurColor = sampleTexture(u_tex, v_tex);
+	// read texture
+	vec4 sampledColor = sampleTexture(u_tex, v_padtex);
 
-	// Normalize the accumulated color	
-	blurColor.rgb = borderColor.rgb;
-	blurColor.a = blurColor.a * borderColor.a;
+	vec2 middle = vec2(abs(outputSize.x), abs(outputSize.y)) / 2.0;
+	vec2 center = abs(v_pos - middle);
+	vec2 q = center - middle + cornerSize;
 	
-	// Output the final blurred color
-	vec4 clr = sampleTexture(u_tex, v_padtex);
-	if (clr.a != 0)
-		gl_FragColor = clr;
-	else
-		gl_FragColor = blurColor;
+	float distance = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - cornerSize;	
+	if (distance > 0.0) {
+		discard;
+	}		
+	else if (distance > -(outerBorder + innerShadow + outerShadow)) {		
+				
+		if (outerShadow != 0.0 && distance > -outerShadow) {
+			sampledColor = outerShadowColor;
+			sampledColor.a = outerShadowColor.a * (1.0 - (outerShadow + distance) / (outerShadow));
+		}		
+		else if (distance > -(outerBorder + outerShadow)) {
+			sampledColor = borderColor;
+		}
+		else if (innerShadow != 0.0) {		
+			float val = abs(outerBorder + outerShadow + distance) / innerShadow;
+			sampledColor = mix(sampledColor, innerShadowColor, innerShadowColor.a * (1.0 - val)); //(distance + outerBorder + outerShadow + innerShadow) / (outerBorder + outerShadow + innerShadow));			
+		}
+	}
+	else {
+		float pixelValue;
+		pixelValue = 1.0 - smoothstep(-0.75, 0.5, distance);
+		sampledColor.a *= pixelValue;
+		sampledColor.rgb *= pixelValue;
+	}
+	
+	gl_FragColor = sampledColor * v_col;
 }
 #endif

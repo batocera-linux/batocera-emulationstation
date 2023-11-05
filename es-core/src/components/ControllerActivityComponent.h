@@ -22,6 +22,8 @@ public:
 
 	ControllerActivityComponent(Window* window);
 
+	std::string getThemeTypeName() override { return "controllerActivity"; }
+
 	void onSizeChanged() override;
 	void onPositionChanged() override;
 

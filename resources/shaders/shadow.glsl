@@ -97,7 +97,7 @@ void main(void)
 	blurColor.a *= 0.5;
 	
 	// Output the final blurred color
-	gl_FragColor = (sampleTexture(u_tex, v_padtex) + blurColor);
+	gl_FragColor = (sampleTexture(u_tex, v_padtex) + blurColor) * v_col;
 
 }
 #endif

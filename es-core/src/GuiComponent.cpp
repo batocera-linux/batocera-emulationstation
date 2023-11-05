@@ -12,13 +12,14 @@
 #include "components/ScrollableContainer.h"
 #include "math/Vector2i.h"
 #include "Sound.h"
+#include "utils/StringUtil.h"
 
 bool GuiComponent::isLaunchTransitionRunning = false;
 
 GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
 	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5), mScaleOrigin(0.5f, 0.5f),
 	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mVisible(true), mShowing(false),
-	mStaticExtra(false), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true), mIsMouseOver(false), mChildZIndexDirty(false)
+	mExtraType(ExtraType::BUILTIN), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true), mIsMouseOver(false), mChildZIndexDirty(false)
 {
 	mClipRect = Vector4f();
 }
@@ -38,8 +39,15 @@ GuiComponent::~GuiComponent()
 	if(mParent)
 		mParent->removeChild(this);
 
-	for(unsigned int i = 0; i < getChildCount(); i++)
-		getChild(i)->setParent(NULL);
+	for (int i = (int)getChildCount() - 1; i >= 0; i--)
+	{
+		auto child = getChild(i);
+
+		if (child->mExtraType == ExtraType::EXTRACHILDREN)
+			delete child;
+		else
+			child->setParent(NULL);
+	}
 }
 
 bool GuiComponent::input(InputConfig* config, Input input)
@@ -549,6 +557,14 @@ bool GuiComponent::hasStoryBoard(const std::string& name, bool compareEmptyName)
 	return mStoryboardAnimator != nullptr; 
 }
 
+bool GuiComponent::currentStoryBoardHasProperty(const std::string& propertyName)
+{
+	if (mStoryboardAnimator == nullptr)
+		return false;
+	
+	return storyBoardExists(mStoryboardAnimator->getName(), propertyName);
+}
+
 bool GuiComponent::isStoryBoardRunning(const std::string& name)
 {
 	if (!name.empty())
@@ -649,12 +665,47 @@ void GuiComponent::enableStoryboardProperty(const std::string& name, bool enable
 		mStoryboardAnimator->enableProperty(name, enable);
 }
 
+void GuiComponent::loadThemedChildren(const ThemeData::ThemeElement* elem)
+{
+	if (mChildren.size())
+	{
+		for (int i = (int)mChildren.size() - 1; i >= 0; i--)
+		{
+			auto child = getChild(i);
+			if (child->mExtraType == ExtraType::EXTRACHILDREN)
+				delete child;
+		}
+	}
+
+	if (elem->children.size() == 0)
+		return;
+
+	for (auto child : elem->children)
+	{
+		if (child.second.type == "shader")
+			continue;
+
+		auto comp = ThemeData::createExtraComponent(mWindow, child.second, false);
+		if (comp != nullptr)
+		{
+			comp->setTag(child.first);
+			comp->setExtraType(ExtraType::EXTRACHILDREN);
+
+			addChild(comp);
+			ThemeData::applySelfTheme(comp, child.second);
+		}
+	}
+
+	sortChildren();
+	// performLayout();
+}
+
 void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
 	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
 
-	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "");
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, ""); // getThemeTypeName()
 	if(!elem)
 		return;
 
@@ -717,10 +768,8 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 	else
 		setZIndex(getDefaultZIndex());
 
-	if(properties & ThemeFlags::VISIBLE && elem->has("visible"))
-		setVisible(elem->get<bool>("visible"));
-	else
-		setVisible(true);
+	if (properties & ThemeFlags::VISIBLE)
+		setVisible(!elem->has("visible") || elem->get<bool>("visible"));
 
 	if (properties & POSITION && elem->has("offset"))
 	{
@@ -753,7 +802,13 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 	else
 		setClickAction("");
 
+	for (auto prop : elem->properties)
+		if (prop.second.type == ThemeData::ThemeElement::Property::PropertyType::String && Utils::String::endsWith(prop.first, "_binding"))
+			mBindingExpressions[Utils::String::replace(prop.first, "_binding", "")] = prop.second.s;
+
 	applyStoryboard(elem);
+	loadThemedChildren(elem);
+
 	mTransformDirty = true;
 }
 
@@ -1037,6 +1092,9 @@ void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeEle
 		if (!mStoryBoardSound.empty())
 			Sound::get(mStoryBoardSound)->play();
 	}
+
+	if (name == "visible" && value.type == ThemeData::ThemeElement::Property::PropertyType::Bool)
+		setVisible(value.b);
 
 	mTransformDirty = true;
 }

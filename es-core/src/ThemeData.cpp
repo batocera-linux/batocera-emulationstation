@@ -5,6 +5,13 @@
 #include "components/NinePatchComponent.h"
 #include "components/VideoVlcComponent.h"
 #include "components/PostProcessShaderComponent.h"
+#include "components/StackPanelComponent.h"
+#include "components/ClockComponent.h"
+#include "components/NetworkIconComponent.h"
+#include "components/BatteryIconComponent.h"
+#include "components/BatteryTextComponent.h"
+#include "components/WebImageComponent.h"
+
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include "utils/Platform.h"
@@ -21,12 +28,20 @@
 std::vector<std::string> ThemeData::sSupportedViews{ { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "gamecarousel" }, { "menu" }, { "screen" }, { "splash" } };
 std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "gamecarousel" }, { "z-index" }, { "visible" },{ "manufacturer" } };
 
+std::map<std::string, std::string> ThemeData::sBaseClasses {	
+	{ "clock", "text" },
+	{ "batteryText", "text" },
+	{ "batteryIcon", "image" },
+	{ "networkIcon", "image" },
+	{ "webImage", "image" }
+};
+
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
 
 	{ "splash", {		
 		{ "backgroundColor", COLOR } } },
 
-	{ "control", { // Using "control" in themes.xml does affect the original type of the control when overriding common properties for multiple md_
+	{ "control", { // Using "control" in themes.xml does create a new object. it does not change the original type of the control when overriding common properties for multiple elements
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 		{ "x", FLOAT },
@@ -48,10 +63,20 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "offsetY", FLOAT },
 		{ "clipRect", NORMALIZED_RECT } } },
 
+	{ "stackpanel", {		
+		{ "pos", NORMALIZED_PAIR },
+		{ "size", NORMALIZED_PAIR },
+		{ "orientation", STRING },			// horizontal, vertical
+		{ "reverse", BOOLEAN },
+		{ "separator", FLOAT },
+		{ "visible", BOOLEAN },
+		{ "zIndex", FLOAT } } },
+
 	{ "shader", {
 		{ "path", PATH },
 		{ "pos", NORMALIZED_PAIR },
-		{ "size", NORMALIZED_PAIR },				
+		{ "size", NORMALIZED_PAIR },		
+		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 
 	{ "image", {
@@ -82,21 +107,21 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "tile", BOOLEAN },
 		{ "color", COLOR },
 		{ "colorEnd", COLOR },
-		{ "gradientType", STRING },
+		{ "gradientType", STRING },				// horizontal, vertical
 		{ "visible", BOOLEAN },
 		{ "reflexion", NORMALIZED_PAIR },
 		{ "reflexionOnFrame", BOOLEAN },
-		{ "horizontalAlignment", STRING },		
-		{ "verticalAlignment", STRING },
+		{ "horizontalAlignment", STRING },		// left, center, right
+		{ "verticalAlignment", STRING },		// top, center, bottom
 		{ "roundCorners", FLOAT },
 		{ "opacity", FLOAT },
 		{ "saturation", FLOAT },
-		// { "shader", PATH },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
 		{ "onclick", STRING },
 		{ "linearSmooth", BOOLEAN },
 		{ "zIndex", FLOAT } } },
+
 	{ "imagegrid", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -117,21 +142,21 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "autoLayout", NORMALIZED_PAIR },
 		{ "autoLayoutSelectedZoom", FLOAT },
 		{ "animateSelection", BOOLEAN },
-		{ "imageSource", STRING }, // image, thumbnail, marquee
+		{ "imageSource", STRING },				// image, thumbnail, marquee
 		{ "zIndex", FLOAT },
 		{ "gameImage", PATH },
 		{ "folderImage", PATH },
 		{ "logoBackgroundImage", PATH },
 		{ "showVideoAtDelay", FLOAT },
-		{ "scrollDirection", STRING },
+		{ "scrollDirection", STRING },			// horizontal, vertical, horizontalCenter, verticalCenter
 		{ "scrollSound", PATH },
 
 		{ "scrollbarColor", COLOR },
 		{ "scrollbarSize", FLOAT },
 		{ "scrollbarCorner", FLOAT },
-		{ "scrollbarAlignment", STRING },
+		{ "scrollbarAlignment", STRING },		// left, right, outer left, outer right
 
-		{ "centerSelection", STRING },
+		{ "centerSelection", STRING },			// true, false, partial
 		{ "scrollLoop", BOOLEAN } } },
 	{ "gridtile", {
 		{ "size", NORMALIZED_PAIR },
@@ -142,9 +167,29 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "backgroundColor", COLOR },
 		{ "backgroundCenterColor", COLOR },
 		{ "backgroundEdgeColor", COLOR },
-		{ "selectionMode", STRING },
-		{ "reflexion", NORMALIZED_PAIR },
-		{ "imageSizeMode", STRING } } },
+		{ "selectionMode", STRING },			// full, image
+		{ "imageSizeMode", STRING },			// size, minSize, maxSize
+		{ "reflexion", NORMALIZED_PAIR } } },
+
+	{ "clock", {} }, // Inherits text
+
+	{ "networkIcon", {  // Inherits image
+		{ "networkIcon", PATH },
+		{ "planemodeIcon", PATH } } },
+
+	{ "webImage", {  // Inherits image
+		{ "path", STRING } } },
+
+	{ "batteryText", {} }, // Inherits text	
+
+	{ "batteryIcon", { // Inherits image
+		{ "incharge", PATH },
+		{ "full", PATH },
+		{ "at75", PATH },
+		{ "at50", PATH },
+		{ "at25", PATH },
+		{ "empty", PATH } } },
+
 	{ "text", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -170,8 +215,8 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "fontPath", PATH },
 		{ "fontSize", FLOAT },
 		{ "color", COLOR },
-		{ "alignment", STRING },
-		{ "verticalAlignment", STRING },
+		{ "alignment", STRING },				// left, center, right
+		{ "verticalAlignment", STRING },		// top, center, bottom
 		{ "forceUppercase", BOOLEAN },
 		{ "lineSpacing", FLOAT },
 		{ "value", STRING },
@@ -181,11 +226,12 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "glowSize", FLOAT },
 		{ "glowOffset", NORMALIZED_PAIR },
 		{ "singleLineScroll", BOOLEAN },
-		{ "autoScroll", STRING },
+		{ "autoScroll", STRING },				// horizontal, vertical, none
 		{ "padding", NORMALIZED_RECT },
 		{ "onclick", STRING },
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
+
 	{ "textlist", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -205,7 +251,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "selectorOffsetY", FLOAT },
 		{ "selectorColor", COLOR },
 		{ "selectorColorEnd", COLOR },
-		{ "selectorGradientType", STRING },
+		{ "selectorGradientType", STRING },			// horizontal, vertical
 		{ "selectorImagePath", PATH },
 		{ "selectorImageTile", BOOLEAN },
 		{ "selectedColor", COLOR },
@@ -214,7 +260,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "fontPath", PATH },
 		{ "fontSize", FLOAT },
 		{ "scrollSound", PATH },
-		{ "alignment", STRING },
+		{ "alignment", STRING },					// left, center, right
 		{ "horizontalMargin", FLOAT },
 		{ "forceUppercase", BOOLEAN },
 		{ "lineSpacing", FLOAT },
@@ -223,7 +269,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarColor", COLOR },
 		{ "scrollbarSize", FLOAT },
 		{ "scrollbarCorner", FLOAT },
-		{ "scrollbarAlignment", STRING },		
+		{ "scrollbarAlignment", STRING },			// left, right, outer left, outer right
 
 		{ "glowColor", COLOR },
 		{ "glowSize", FLOAT },
@@ -234,12 +280,14 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "extraTextSelectedColor", COLOR },
 
 		{ "zIndex", FLOAT } } },
+
 	{ "container", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
 	 	{ "origin", NORMALIZED_PAIR },
 	 	{ "visible", BOOLEAN },
 	 	{ "zIndex", FLOAT } } },
+
 	{ "ninepatch", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -265,6 +313,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "animateColor", COLOR },
 		{ "animateColorTime", FLOAT },
 		{ "zIndex", FLOAT } } },
+
 	{ "datetime", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -284,7 +333,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "fontPath", PATH },
 		{ "fontSize", FLOAT },
 		{ "color", COLOR },
-		{ "alignment", STRING },
+		{ "alignment", STRING },				// left, center, right
 		{ "forceUppercase", BOOLEAN },
 		{ "lineSpacing", FLOAT },
 		{ "value", STRING },
@@ -292,6 +341,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "displayRelative", BOOLEAN },
 	 	{ "visible", BOOLEAN },
 	 	{ "zIndex", FLOAT } } },
+
 	{ "rating", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
@@ -316,7 +366,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "unfilledColor", COLOR },
 		{ "filledPath", PATH },
 		{ "unfilledPath", PATH },
-		{ "horizontalAlignment", STRING },
+		{ "horizontalAlignment", STRING },		// left, center, right
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 	{ "sound", {
@@ -329,7 +379,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		// Common
 		{ "itemSpacing", FLOAT },
-		{ "horizontalAlignment", STRING },
+		{ "horizontalAlignment", STRING },		// left, center, right
 
 		// Controllers
 		{ "imagePath", PATH },		
@@ -359,7 +409,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		// Common
 		{ "itemSpacing", FLOAT },
-		{ "horizontalAlignment", STRING },
+		{ "horizontalAlignment", STRING },		// left, center, right
 
 		// Controllers
 		{ "imagePath", PATH },
@@ -436,53 +486,53 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "effect", STRING },
 		{ "roundCorners", FLOAT },
 		{ "color", COLOR },
-		{ "snapshotSource", STRING }, // image, thumbnail, marquee
+		{ "snapshotSource", STRING },			// image, thumbnail, marquee
 		{ "defaultSnapshot", PATH },
-		{ "loops", FLOAT }, // Number of loops to do -1 (default) is infinite 
+		{ "loops", FLOAT },						// Number of loops to do -1 (default) is infinite 
 		{ "audio", BOOLEAN },
 		{ "linearSmooth", BOOLEAN },
 		{ "saturation", FLOAT },
-		// { "shader", PATH },
 		{ "onclick", STRING },
 		{ "showSnapshotNoVideo", BOOLEAN },
 		{ "showSnapshotDelay", BOOLEAN } } },
+
 	{ "carousel", {
-		{ "type", STRING },
+		{ "type", STRING },						// horizontal, vertical, horizontal_wheel, vertical_wheel
 		{ "size", NORMALIZED_PAIR },
 		{ "pos", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
 		{ "color", COLOR },
 		{ "colorEnd", COLOR },
-		{ "gradientType", STRING },
+		{ "gradientType", STRING },				// horizontal, vertical
 		{ "logoScale", FLOAT },
 		{ "logoRotation", FLOAT },
 		{ "logoRotationOrigin", NORMALIZED_PAIR },
 		{ "logoSize", NORMALIZED_PAIR },
 		{ "logoPos", NORMALIZED_PAIR },
-		{ "logoAlignment", STRING },
+		{ "logoAlignment", STRING },			// left, top, right, bottom, center
 		{ "maxLogoCount", FLOAT },
 		{ "systemInfoDelay", FLOAT },	
 		{ "systemInfoCountOnly", BOOLEAN },		
-		{ "defaultTransition", STRING },
+		{ "defaultTransition", STRING },		// auto, instant, fade, slide, fade & slide
 		{ "minLogoOpacity", FLOAT },
 		{ "transitionSpeed", FLOAT },
 		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },
 
 	{ "gamecarousel",{
-		{ "type", STRING },
+		{ "type", STRING },					// horizontal, vertical, horizontal_wheel, vertical_wheel
 		{ "size", NORMALIZED_PAIR },
 		{ "pos", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
-		{ "imageSource", STRING }, // image, thumbnail, marquee
+		{ "imageSource", STRING },			// image, thumbnail, marquee
 		{ "logoScale", FLOAT },
 		{ "logoRotation", FLOAT },
 		{ "logoRotationOrigin", NORMALIZED_PAIR },
 		{ "logoSize", NORMALIZED_PAIR },
 		{ "logoPos", NORMALIZED_PAIR },
-		{ "logoAlignment", STRING },
+		{ "logoAlignment", STRING },		// left, top, right, bottom, center
 		{ "maxLogoCount", FLOAT },
-		{ "defaultTransition", STRING },
+		{ "defaultTransition", STRING },	// auto, instant, fade, slide, fade & slide
 		{ "minLogoOpacity", FLOAT },
 		{ "transitionSpeed", FLOAT },
 		{ "scrollSound", PATH },
@@ -494,7 +544,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "separatorColor", COLOR },
 		{ "selectorColor", COLOR },
 		{ "selectorColorEnd", COLOR },
-		{ "selectorGradientType", STRING },
+		{ "selectorGradientType", STRING },		// horizontal, selectorGradientType
 		{ "selectedColor", COLOR },
 		{ "color", COLOR } } },
 	{ "menuTextSmall", {
@@ -505,7 +555,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "fontPath", PATH },
 		{ "fontSize", FLOAT },		
 		{ "lineSpacing", FLOAT },		
-		{ "alignment", STRING },			
+		{ "alignment", STRING },					// left, center, right
 		{ "backgroundColor", COLOR },
 		{ "separatorColor", COLOR },
 		{ "visible", BOOLEAN },
@@ -519,7 +569,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scrollbarColor", COLOR },
 		{ "scrollbarSize", FLOAT },
 		{ "scrollbarCorner", FLOAT },
-		{ "scrollbarAlignment", STRING } } },
+		{ "scrollbarAlignment", STRING } } },		// left, right, outer left, outer right
 	{ "menuIcons", { 		
 		{ "iconSystem", PATH },
 		{ "iconUpdates", PATH },
@@ -1495,7 +1545,11 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 	switch (type)
 	{
 	case STRING:
-		element.properties[name] = str;
+		if (str.find("{") != std::string::npos && str.find(":") != std::string::npos && str.find("}") != std::string::npos)
+			element.properties[name + "_binding"] = str;
+		else
+			element.properties[name] = str;
+
 		break;
 
 	case FLOAT:
@@ -1515,7 +1569,14 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 		break;
 
 	case BOOLEAN:
-		element.properties[name] = Utils::String::toBoolean(str);
+		if (str.find("{") != std::string::npos && str.find(":") != std::string::npos && str.find("}") != std::string::npos)
+		{
+			element.properties[name+"_binding"] = str;
+			element.properties[name] = true;
+		}
+		else 
+			element.properties[name] = Utils::String::toBoolean(str);
+
 		break;
 
 	case PATH:
@@ -1562,6 +1623,7 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 			// Allow variables in the form "{game:image}"
 			if (path.find("{") != std::string::npos && path.find(":") != std::string::npos && path.find("}") != std::string::npos)
 			{
+				element.properties[name + "_binding"] = str;
 				element.properties[name] = path;
 				break;
 			}
@@ -1593,6 +1655,40 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 	}
 }
 
+bool ThemeData::findPropertyFromBaseClass(const std::string& typeName, const std::string& propertyName, ElementPropertyType& type)
+{
+	auto baseClassIt = sBaseClasses.find(typeName);
+	if (baseClassIt == sBaseClasses.cend())
+		return false;
+
+	auto ctrlElements = sElementMap.find(baseClassIt->second);
+	if (ctrlElements == sElementMap.cend())
+		return findPropertyFromBaseClass(baseClassIt->second, propertyName, type);
+
+	auto it = ctrlElements->second.find(propertyName);
+	if (it != ctrlElements->second.cend())
+	{
+		type = it->second;
+		return true;
+	}
+
+	return findPropertyFromBaseClass(baseClassIt->second, propertyName, type);
+}
+/*
+static std::set<std::string> _autoExtraTypes =
+{
+	"image", "text", "stackpanel", "shader", "clock", "networkIcon", "webImage", "batteryText", "batteryIcon", "ninepatch", "video"
+};
+
+static std::set<std::string> _reservedNames =
+{
+	"clock", "folderpath",
+	"logoText", "logo", 
+	"gamecarouselLogoText", "gamecarouselLogo",
+	"systemInfo",
+	"background",
+};*/
+
 void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::string, ElementPropertyType>& typeMap, ThemeElement& element, ThemeView& view, bool overwrite)
 {
 	// ThemeException error;
@@ -1613,6 +1709,17 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		if (element.extra && mPerGameOverrideTmp)
 			element.extra = 3; // Set as "Per-game" Extra
 	}
+	/*
+	else if (element.extra == 0 && _autoExtraTypes.find(element.type) != _autoExtraTypes.cend())
+	{
+		// Automatically Set as extra if it's not a reserved name
+		std::string name = root.attribute("name").as_string();
+		if (_reservedNames.find(name) == _reservedNames.cend() && !Utils::String::startsWith(name, "md_") && !Utils::String::startsWith(name, "gridtile") && name.find(",") == std::string::npos)
+		{
+			element.extra = 1;
+		}
+	}
+	*/
 
 	// Import properties from another control
 	if (root.attribute("importProperties"))
@@ -1645,7 +1752,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 		if (typeIt != typeMap.cend())
 			type = typeIt->second;
-		else
+		else if (!findPropertyFromBaseClass(root.name(), name, type))
 			continue;
 
 		if (!overwrite && element.properties.find(name) != element.properties.cend())
@@ -1664,7 +1771,20 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 		ElementPropertyType type = STRING;
 
 		auto typeIt = typeMap.find(name);
-		if (typeIt == typeMap.cend())
+
+		bool foundType = (typeIt != typeMap.cend());
+
+		if (!foundType && overwrite && strcmp(root.name(), "control") == 0 && element.type != "control")
+		{
+			auto elemTypeIt = sElementMap.find(element.type);
+			if (elemTypeIt != sElementMap.cend())
+			{
+				typeIt = elemTypeIt->second.find(name);
+				foundType = typeIt != elemTypeIt->second.cend();
+			}
+		}
+
+		if (!foundType)
 		{
 			if (name == "storyboard")
 			{
@@ -1736,9 +1856,24 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 				continue;
 			}
-			else
+			else if (!findPropertyFromBaseClass(root.name(), name, type))
 			{
-				LOG(LogWarning) << "Unknown property type \"" << name << "\" (for element of type " << root.name() << ").";
+				auto elemTypeIt = sElementMap.find(name);
+				if (elemTypeIt == sElementMap.cend())
+				{
+					LOG(LogWarning) << "Unknown property : " << root.name() << "." << name;
+					continue;
+				}
+
+				LOG(LogDebug) << "Processing child element \"" << name << "\" found in element " << root.name();
+
+				const std::string elemKey = node.attribute("name") ? node.attribute("name").as_string() : name;
+
+				element.children.push_back(std::pair<std::string, ThemeElement>(elemKey, ThemeElement()));
+
+				std::pair<std::string, ThemeElement>& item = element.children.back();
+				item.second.extra = 1;
+				parseElement(node, elemTypeIt->second, item.second, view, overwrite);
 				continue;
 			}
 		}
@@ -1865,6 +2000,24 @@ GuiComponent* ThemeData::createExtraComponent(Window* window, const ThemeElement
 		comp = new VideoVlcComponent(window);
 	else if (elem.type == "shader")
 		comp = new PostProcessShaderComponent(window);
+	else if (elem.type == "stackpanel")
+		comp = new StackPanelComponent(window);		
+	else if (elem.type == "clock")
+		comp = new ClockComponent(window);
+	else if (elem.type == "networkIcon")
+		comp = new NetworkIconComponent(window);
+	else if (elem.type == "batteryIcon")
+		comp = new BatteryIconComponent(window);
+	else if (elem.type == "batteryText")
+		comp = new BatteryTextComponent(window);
+	else if (elem.type == "webImage")
+		comp = new WebImageComponent(window);
+
+	if (comp != nullptr)
+	{
+		comp->setExtraType((ExtraType)elem.extra);
+		comp->setDefaultZIndex(10);
+	}
 
 	return comp;
 }
@@ -2360,4 +2513,17 @@ void ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer:
 			}
 		}
 	}
+}
+
+void ThemeData::applySelfTheme(GuiComponent* comp, const ThemeElement& elem)
+{
+	auto theme = std::make_shared<ThemeData>();
+
+	ThemeView& view = theme->mViews.insert(std::pair<std::string, ThemeView>("default", ThemeView())).first->second;
+	auto element = view.elements.insert(std::pair<std::string, ThemeElement>("default", elem));
+
+	comp->applyTheme(theme, "default", "default", ThemeFlags::ALL);
+
+	// Clear storyboard or they'll be deleted as we use a temporary fake theme...
+	element.first->second.mStoryBoards.clear();
 }

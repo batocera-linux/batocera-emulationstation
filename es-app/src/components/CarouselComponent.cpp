@@ -16,6 +16,13 @@ CarouselComponent::CarouselComponent(Window* window) :
 	IList<CarouselComponentData, FileData*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP)
 {
 	mThemeViewName = "gamecarousel";
+	mThemeLogoName = "gamecarouselLogo";
+	mThemeLogoTextName = "gamecarouselLogoText";
+	mThemeElementName = "gamecarousel";
+	mThemeClass = "gamecarousel";
+
+	// setThemedContext("logo", "logoText", "systemcarousel", "carousel") // For a future system view !?
+
 	mWasRendered = false;
 	mCamOffset = 0;
 	mScreensaverActive = false;
@@ -569,6 +576,13 @@ void CarouselComponent::onShow()
 
 	bool cursorStoryboardSet = false;
 
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		auto logo = mEntries.at(i).data.logo;
+		if (logo)
+			logo->isShowing() = true;
+	}
+
 	if (mCursor >= 0 && mCursor < mEntries.size())
 	{
 		auto logo = mEntries.at(mCursor).data.logo;
@@ -603,6 +617,13 @@ void CarouselComponent::onShow()
 void CarouselComponent::onHide()
 {
 	GuiComponent::onHide();	
+
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		auto logo = mEntries.at(i).data.logo;
+		if (logo)
+			logo->isShowing() = false;
+	}
 }
 
 void CarouselComponent::onScreenSaverActivate()
@@ -659,7 +680,7 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 		ImageComponent* logo = new ImageComponent(mWindow, false, true);
 		logo->setMaxSize(mLogoSize * mLogoScale);
 		logo->setIsLinear(true);
-		logo->applyTheme(mTheme, mThemeViewName, "gamecarouselLogo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
+		logo->applyTheme(mTheme, mThemeViewName, mThemeLogoName, ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
 		logo->setImage(marqueePath, false, MaxSizeInfo(mLogoSize * mLogoScale));
 
 		entry.data.logo = std::shared_ptr<GuiComponent>(logo);
@@ -669,7 +690,7 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 		TextComponent* text = new TextComponent(mWindow, entry.name, Renderer::isSmallScreen() ? Font::get(FONT_SIZE_MEDIUM) : Font::get(FONT_SIZE_LARGE), 0x000000FF, ALIGN_CENTER);
 		text->setScaleOrigin(0.0f);
 		text->setSize(mLogoSize * mLogoScale);
-		text->applyTheme(mTheme, mThemeViewName, "gamecarouselLogoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
+		text->applyTheme(mTheme, mThemeViewName, mThemeLogoTextName, ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
 
 		if (mType == VERTICAL || mType == VERTICAL_WHEEL)
 		{
@@ -739,7 +760,7 @@ void CarouselComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 
 	IList<CarouselComponentData, FileData*>::applyTheme(theme, view, element, properties);
 
-	const ThemeData::ThemeElement* carouselElem = theme->getElement(view, "gamecarousel", "gamecarousel");
+	const ThemeData::ThemeElement* carouselElem = theme->getElement(view, mThemeElementName, getThemeTypeName());
 	if (carouselElem)
 		getCarouselFromTheme(carouselElem);
 }

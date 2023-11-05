@@ -30,6 +30,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mManual(nullptr), mNoManual(nullptr), 
 	mMap(nullptr), mNoMap(nullptr),
 	mCheevos(nullptr), mNotCheevos(nullptr),
+	mNetplay(nullptr), mNotNetplay(nullptr),
 	mSaveState(nullptr), mNoSaveState(nullptr),
 	mState(true), mFolderView(nullptr),
 
@@ -219,6 +220,12 @@ DetailedContainer::~DetailedContainer()
 
 	if (mNotCheevos != nullptr)
 		delete mNotCheevos;
+
+	if (mNetplay != nullptr)
+		delete mNetplay;
+
+	if (mNotNetplay != nullptr)
+		delete mNotNetplay;	
 
 	if (mFavorite != nullptr)
 		delete mFavorite;
@@ -442,6 +449,9 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	loadIfThemed(&mCheevos, theme, "md_cheevos", false, true);
 	loadIfThemed(&mNotCheevos, theme, "md_notcheevos", false, true);
+
+	loadIfThemed(&mNetplay, theme, "md_netplay", false, true);
+	loadIfThemed(&mNotNetplay, theme, "md_notnetplay", false, true);
 	
 	loadIfThemed(&mFavorite, theme, "md_favorite", false, true);
 	loadIfThemed(&mNotFavorite, theme, "md_notfavorite", false, true);
@@ -887,6 +897,19 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		if (mNotCheevos != nullptr)
 			mNotCheevos->setVisible(systemHasCheevos && !file->hasCheevos());
 
+		// Netplay
+		bool systemHasNetplay =
+			SystemConf::getInstance()->getBool("global.netplay") && (
+				file->getSourceFileData()->getSystem()->isNetplaySupported() ||
+				file->getSystem()->isCollection() ||
+				!file->getSystem()->isGameSystem());
+
+		if (mNetplay != nullptr)
+			mNetplay->setVisible(systemHasNetplay && file->isNetplaySupported());
+
+		if (mNotNetplay != nullptr)
+			mNotNetplay->setVisible(systemHasNetplay && !file->isNetplaySupported());
+
 		if (mFavorite != nullptr)
 			mFavorite->setVisible(file->getFavorite());
 
@@ -943,13 +966,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 			updateDetailsForFolder((FolderData*)file);
 
 		for (auto extra : mThemeExtras)
-		{
-			TextComponent* text = dynamic_cast<TextComponent*>(extra);
-			if (text != nullptr)
-				Binding::updateBindings(text, file->getSystem());
-
 			Binding::updateBindings(extra, file);
-		}
 	}
 
 	std::vector<GuiComponent*> comps = getComponents();
@@ -1154,6 +1171,8 @@ void DetailedContainer::disableComponent(GuiComponent* comp)
 	if (mNotWheelGame == comp) mNotWheelGame->setVisible(false);
 	if (mCheevos == comp) mCheevos->setVisible(false);
 	if (mNotCheevos == comp) mNotCheevos->setVisible(false);
+	if (mNetplay == comp) mNetplay->setVisible(false);
+	if (mNotNetplay == comp) mNotNetplay->setVisible(false);	
 	if (mFavorite == comp) mFavorite->setVisible(false);
 	if (mNotFavorite == comp) mNotFavorite->setVisible(false);
 	if (mHidden == comp) mHidden->setVisible(false);
@@ -1189,6 +1208,8 @@ std::vector<GuiComponent*>  DetailedContainer::getComponents()
 	if (mNotWheelGame != nullptr) comps.push_back(mNotWheelGame);
 	if (mCheevos != nullptr) comps.push_back(mCheevos);
 	if (mNotCheevos != nullptr) comps.push_back(mNotCheevos);
+	if (mNetplay != nullptr) comps.push_back(mNetplay);
+	if (mNotNetplay != nullptr) comps.push_back(mNotNetplay);	
 	if (mFavorite != nullptr) comps.push_back(mFavorite);
 	if (mNotFavorite != nullptr) comps.push_back(mNotFavorite);
 	if (mHidden != nullptr) comps.push_back(mHidden);

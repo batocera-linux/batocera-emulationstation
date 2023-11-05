@@ -49,7 +49,7 @@ namespace Renderer
 		void         setSwapInterval() override;
 		void         swapBuffers() override;
 		
-		void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters);
+		void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data = nullptr);
 
 		size_t		 getTotalMemUsage() override;
 

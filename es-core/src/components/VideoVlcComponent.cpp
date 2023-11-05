@@ -237,7 +237,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 			return;
 	}
 
-	Renderer::setMatrix(trans);
+	//Renderer::setMatrix(trans);
 
 	// Build a texture for the video frame
 	if (initFromPixels)
@@ -251,7 +251,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 
 				resize();
 				trans = parentTrans * getTransform();
-				Renderer::setMatrix(trans);
+		//		Renderer::setMatrix(trans);
 			}
 
 #ifdef _RPI_
@@ -275,19 +275,24 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		
 	float opacity = (mOpacity / 255.0f) * t;
 
-	if (hasStoryBoard())
+	if (hasStoryBoard() && currentStoryBoardHasProperty("opacity") && isStoryBoardRunning())
 		opacity = (mOpacity / 255.0f);
 
 	unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
 
 	Renderer::Vertex   vertices[4];
-	
-	if (mEffect == VideoVlcFlags::VideoVlcEffect::SLIDERIGHT && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !hasStoryBoard())
+	vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
+	vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
+	vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
+	vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
+
+	bool isDefaultEffectDisabled = hasStoryBoard() && currentStoryBoardHasProperty("scale") && isStoryBoardRunning();
+
+	if (mEffect == VideoVlcFlags::VideoVlcEffect::SLIDERIGHT && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !isDefaultEffectDisabled)
 	{
 		float t = 1.0 - mFadeIn;
-		t -= 1; // cubic ease in
+		t -= 1;
 		t = Math::lerp(0, 1, t*t*t + 1);
-		//t = 1.0 - t;
 
 		vertices[0] = { { 0.0f     , 0.0f      }, { t, 0.0f }, color };
 		vertices[1] = { { 0.0f     , mSize.y() }, { t, 1.0f }, color };
@@ -295,58 +300,37 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		vertices[3] = { { mSize.x(), mSize.y() }, { t + 1.0f, 1.0f }, color };
 	}
 	else
-	if (mEffect == VideoVlcFlags::VideoVlcEffect::SIZE && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !hasStoryBoard())
+	if (mEffect == VideoVlcFlags::VideoVlcEffect::SIZE && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !isDefaultEffectDisabled)
 	{		
-		float t = 1.0 - mFadeIn;
-		t -= 1; // cubic ease in
-		t = Math::lerp(0, 1, t*t*t + 1);
-		t = 1.0 - t;
-	
-		float w = mSize.x() * t;
-		float h = mSize.y() * t;
-		float centerX = mSize.x() / 2.0f;
-		float centerY = mSize.y() / 2.0f;
+		float bump = Math::easeOutCubic(mFadeIn);
 
-		Vector2f topLeft(Math::round(centerX - w / 2.0f), Math::round(centerY - h / 2.0f));
-		Vector2f bottomRight(Math::round(centerX + w / 2.0f), Math::round(centerY + h / 2.0f));
-
-		vertices[0] = { { topLeft.x()		, topLeft.y()	  }, { 0.0f, 0.0f }, color };
-		vertices[1] = { { topLeft.x()		, bottomRight.y() }, { 0.0f, 1.0f }, color };
-		vertices[2] = { { bottomRight.x()	, topLeft.y()     }, { 1.0f, 0.0f }, color };
-		vertices[3] = { { bottomRight.x()	, bottomRight.y() }, { 1.0f, 1.0f }, color };
+		auto scale = mScale;
+		mScale = mScale * bump;
+		mTransformDirty = true;
+		trans = parentTrans * getTransform();
+		mScale = scale;
+		mTransformDirty = true;
 	}
-	else if (mEffect == VideoVlcFlags::VideoVlcEffect::BUMP && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !hasStoryBoard())
+	else if (mEffect == VideoVlcFlags::VideoVlcEffect::BUMP && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !isDefaultEffectDisabled)
 	{
-		// Bump Effect
 		float bump = sin((MATHPI / 2.0) * mFadeIn) + sin(MATHPI * mFadeIn) / 2.0;
 
-		float w = mSize.x() * bump;
-		float h = mSize.y() * bump;
-		float centerX = mSize.x() / 2.0f;
-		float centerY = mSize.y() / 2.0f;
-
-		Vector2f topLeft(Math::round(centerX - w / 2.0f), Math::round(centerY - h / 2.0f));
-		Vector2f bottomRight(Math::round(centerX + w / 2.0f), Math::round(centerY + h / 2.0f));
-
-		vertices[0] = { { topLeft.x()		, topLeft.y()	  }, { 0.0f, 0.0f }, color };
-		vertices[1] = { { topLeft.x()		, bottomRight.y() }, { 0.0f, 1.0f }, color };
-		vertices[2] = { { bottomRight.x()	, topLeft.y()     }, { 1.0f, 0.0f }, color };
-		vertices[3] = { { bottomRight.x()	, bottomRight.y() }, { 1.0f, 1.0f }, color };
-	}
-	else
-	{
-		vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
-		vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
-		vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
-		vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
+		auto scale = mScale;
+		mScale = mScale * bump;
+		mTransformDirty = true;
+		trans = parentTrans * getTransform();
+		mScale = scale;
+		mTransformDirty = true;
 	}
 
 	// round vertices
-	for(int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; ++i)
 		vertices[i].pos.round();
 	
 	if (mTexture->bind())
 	{
+		Renderer::setMatrix(trans);
+
 		beginCustomClipRect();
 
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;

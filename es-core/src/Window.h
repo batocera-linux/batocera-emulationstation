@@ -180,6 +180,10 @@ private:
 	GuiComponent* mMouseCapture;
 	Vector2i	  mLastMousePoint;
 	int			  mLastShowCursor;
+
+	void renderMenuBackgroundShader();
+	void resetMenuBackgroundShader();
+	unsigned int mMenuBackgroundShaderTextureCache;
 };
 
 #endif // ES_CORE_WINDOW_H

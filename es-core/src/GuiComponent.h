@@ -30,6 +30,14 @@ namespace AnimateFlags
 	};
 }
 
+enum class ExtraType : unsigned int
+{
+	BUILTIN = 0,
+	EXTRA = 1,
+	STATIC = 2,
+	EXTRACHILDREN = 3
+};
+
 #define GetComponentScreenRect(tx, sz) Renderer::getScreenRect(tx, sz)
 
 class GuiComponent
@@ -40,6 +48,8 @@ public:
 
 	template<typename T>
 	bool isKindOf() { return (dynamic_cast<T*>(this) != nullptr); }
+
+	virtual std::string getThemeTypeName() { return "component"; }
 
 	virtual void textInput(const char* text);
 
@@ -174,13 +184,14 @@ public:
 	std::string getTag() const { return mTag; };
 	void setTag(const std::string& value) { mTag = value; };
 
-	bool isStaticExtra() const { return mStaticExtra; }
-	void setIsStaticExtra(bool value) { mStaticExtra = value; }
+	ExtraType getExtraType() { return mExtraType; }
+	bool isStaticExtra() const { return mExtraType == ExtraType::STATIC; }
+	void setExtraType(ExtraType value) { mExtraType = value; }
 
 	virtual ThemeData::ThemeElement::Property getProperty(const std::string name);
 	virtual void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value);
 
-	bool isShowing() { return mShowing; }
+	bool& isShowing() { return mShowing; }
 
 	// Storyboards
 	bool hasStoryBoard(const std::string& name = "", bool compareEmptyName = false);
@@ -191,6 +202,7 @@ public:
 	void pauseStoryboard();
 	void stopStoryboard();
 	void enableStoryboardProperty(const std::string& name, bool enable);
+	bool currentStoryBoardHasProperty(const std::string& propertyName);
 
 	bool storyBoardExists(const std::string& name = "", const std::string& propertyName = "");
 
@@ -214,6 +226,8 @@ public:
 	
 	void setClickAction(const std::string& action) { mClickAction = action; }
 
+	std::map<std::string, std::string> getBindingExpressions() { return mBindingExpressions; }
+
 protected:
 	void beginCustomClipRect();
 	void endCustomClipRect();
@@ -221,6 +235,8 @@ protected:
 	void renderChildren(const Transform4x4f& transform) const;
 	void updateSelf(int deltaTime); // updates animations
 	void updateChildren(int deltaTime); // updates animations
+
+	void loadThemedChildren(const ThemeData::ThemeElement* elem);
 
 	unsigned char mOpacity;
 	Window* mWindow;
@@ -244,8 +260,11 @@ protected:
 	float mZIndex = 0;
 
 	bool mVisible;
+
+	std::map<std::string, std::string> mBindingExpressions;
+
 	bool mShowing;
-	bool mStaticExtra;
+	ExtraType mExtraType;
 
 	bool mTransformDirty;
 	bool mChildZIndexDirty;
