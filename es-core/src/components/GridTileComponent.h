@@ -198,6 +198,8 @@ public:
 	GridTileComponent(Window* window);
 	~GridTileComponent();
 
+	std::string getThemeTypeName() override { return "gridtile"; }
+
 	void render(const Transform4x4f& parentTrans) override;
 
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);

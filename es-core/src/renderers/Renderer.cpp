@@ -854,9 +854,9 @@ namespace Renderer
 		Instance()->postProcessShader(":/shaders/blur.glsl", _x, _y, _w, _h, map);		
 	}
 
-	void postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters)
+	void postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data)
 	{
-		Instance()->postProcessShader(path, _x, _y, _w, _h, parameters);
+		Instance()->postProcessShader(path, _x, _y, _w, _h, parameters, data);
 	}
 
 	Rect& getViewport()

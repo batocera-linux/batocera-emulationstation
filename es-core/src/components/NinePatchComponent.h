@@ -24,6 +24,8 @@ public:
 	NinePatchComponent(Window* window, const std::string& path = "", unsigned int edgeColor = 0xFFFFFFFF, unsigned int centerColor = 0xFFFFFFFF);
 	virtual ~NinePatchComponent();
 
+	std::string getThemeTypeName() override { return "ninepatch"; }
+
 	void render(const Transform4x4f& parentTrans) override;
 	void update(int deltaTime) override;
 

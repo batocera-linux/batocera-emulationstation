@@ -85,6 +85,8 @@ public:
 
 	ImageGridComponent(Window* window);
 
+	std::string getThemeTypeName() override { return "imagegrid"; }
+
 	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool cheevos, bool folder, bool virtualFolder, const T& obj);
 	virtual void clear();
 

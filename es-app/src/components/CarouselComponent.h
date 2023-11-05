@@ -25,6 +25,16 @@ public:
 	CarouselComponent(Window* window);
 	~CarouselComponent();
 
+	void setThemedContext(const std::string& logoName, std::string& logoTextName, std::string& elementName, const std::string& className)
+	{
+		mThemeLogoName = logoName;
+		mThemeLogoTextName = logoTextName;
+		mThemeElementName = elementName;
+		mThemeClass = className;
+	}
+
+	std::string getThemeTypeName() override { return mThemeClass; }
+
 	virtual void onShow() override;
 	virtual void onHide() override;
 
@@ -75,7 +85,12 @@ private:
 	std::function<void(CursorState state)> mCursorChangedCallback;
 
 	std::shared_ptr<ThemeData>	mTheme;
+
 	std::string					mThemeViewName;
+	std::string					mThemeLogoName;
+	std::string					mThemeLogoTextName;
+	std::string					mThemeElementName;
+	std::string					mThemeClass;
 
 	int mLastCursor;	
 

@@ -65,6 +65,8 @@ public:
 		ALIGN_RIGHT
 	};
 
+	std::string getThemeTypeName() override { return "textlist"; }
+
 	inline void setAlignment(Alignment align) { mAlignment = align; }
 
 	inline void setCursorChangedCallback(const std::function<void(CursorState state)>& func) { mCursorChangedCallback = func; }

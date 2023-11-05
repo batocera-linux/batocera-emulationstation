@@ -25,6 +25,8 @@ public:
 	ImageComponent(Window* window, bool forceLoad = false, bool dynamic = true);
 	virtual ~ImageComponent();
 
+	std::string getThemeTypeName() override { return "image"; }
+
 	std::string getValue() const override { return mPath; }
 
 	void setDefaultImage(std::string path);
@@ -128,11 +130,10 @@ public:
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 	void setTargetIsMax() { mTargetIsMax = true; }
+	bool getTargetIsMax() { return mTargetIsMax; }
 
 	void setSaturation(float saturation);
 	void setCustomShader(const Renderer::ShaderInfo& customShader) { mCustomShader = customShader; }
-
-	std::string getOriginalThemePath() { return mSourceThemePath; }
 
 protected:
 	std::shared_ptr<TextureResource> mTexture;
@@ -141,8 +142,6 @@ protected:
 	Vector2f mTargetSize;
 
 private:
-	std::string mSourceThemePath;
-
 	bool mFlipX, mFlipY, mTargetIsMax, mTargetIsMin;
 
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).

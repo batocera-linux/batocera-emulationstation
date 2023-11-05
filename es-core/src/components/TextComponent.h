@@ -20,6 +20,8 @@ public:
 	TextComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color = 0x000000FF, Alignment align = ALIGN_LEFT,
 		Vector3f pos = Vector3f::Zero(), Vector2f size = Vector2f::Zero(), unsigned int bgcolor = 0x00000000);
 
+	std::string getThemeTypeName() override { return "text"; }
+
 	void setFont(const std::shared_ptr<Font>& font);
 	void setFont(std::string path, int size);
 	void setUppercase(bool uppercase);
@@ -90,6 +92,8 @@ protected:
 	std::shared_ptr<Font> mFont;
 	std::string mSourceText;
 
+	Vector2i mAutoCalcExtent;
+
 private:	
 	void onColorChanged();
 
@@ -99,7 +103,7 @@ private:
 	bool mRenderBackground;
 	
 	bool mUppercase;
-	Vector2i mAutoCalcExtent;
+	
 	std::shared_ptr<TextCache> mTextCache;
 	Alignment mHorizontalAlignment;
 	Alignment mVerticalAlignment;

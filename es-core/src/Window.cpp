@@ -24,13 +24,14 @@
 #include "components/VolumeInfoComponent.h"
 #include "Splash.h"
 #include "PowerSaver.h"
+#include "renderers/Renderer.h"
 
 #if WIN32
 #include <SDL_syswm.h>
 #endif
 
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr)
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr), mMenuBackgroundShaderTextureCache(-1)
 {			
 	mTransitionOffset = 0;
 
@@ -44,6 +45,8 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 
 Window::~Window()
 {
+	resetMenuBackgroundShader();
+
 	for (auto extra : mScreenExtras)
 		delete extra;
 
@@ -58,6 +61,8 @@ Window::~Window()
 
 void Window::pushGui(GuiComponent* gui)
 {
+	resetMenuBackgroundShader();
+
 	if (mGuiStack.size() > 0)
 	{
 		auto& top = mGuiStack.back();
@@ -73,6 +78,8 @@ void Window::pushGui(GuiComponent* gui)
 
 void Window::removeGui(GuiComponent* gui)
 {
+	resetMenuBackgroundShader();
+
 	if (mMouseCapture == gui)
 		mMouseCapture = nullptr;
 
@@ -176,6 +183,8 @@ void Window::reactivateGui()
 
 void Window::deinit(bool deinitRenderer)
 {
+	resetMenuBackgroundShader();
+
 	for (auto extra : mScreenExtras)
 		extra->onHide();
 
@@ -440,6 +449,9 @@ void Window::update(int deltaTime)
 			deltaTime = mAverageDeltaTime;
 	}
 
+	for (auto extra : mScreenExtras)
+		extra->update(deltaTime);
+
 	if (mVolumeInfo)
 		mVolumeInfo->update(deltaTime);
 
@@ -593,6 +605,47 @@ void Window::renderSindenBorders()
 		Renderer::setScreenMargin(0, 0);
 }
 
+void Window::renderMenuBackgroundShader()
+{
+	auto menuBackground = ThemeData::getMenuTheme()->Background;
+
+	const Renderer::ShaderInfo& info = menuBackground.shader;
+	if (!info.path.empty())
+	{
+		if (mMenuBackgroundShaderTextureCache == -1)
+			Renderer::postProcessShader(info.path, 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), info.parameters, &mMenuBackgroundShaderTextureCache);
+
+		if (mMenuBackgroundShaderTextureCache != -1)
+		{
+			Renderer::bindTexture(mMenuBackgroundShaderTextureCache);
+			Renderer::setMatrix(Transform4x4f::Identity());
+
+			int w = Renderer::getScreenWidth();
+			int h = Renderer::getScreenHeight();
+
+			Renderer::Vertex vertices[4];
+			vertices[0] = { { (float)0    , (float)0       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[1] = { { (float)0    , (float)0 + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+			vertices[2] = { { (float)0 + w, (float)0       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[3] = { { (float)0 + w, (float)0 + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+			Renderer::drawTriangleStrips(&vertices[0], 4);
+			Renderer::bindTexture(0);
+		}
+	}
+	else
+		resetMenuBackgroundShader();
+}
+
+void Window::resetMenuBackgroundShader()
+{
+	if (mMenuBackgroundShaderTextureCache != -1)
+	{
+		Renderer::destroyTexture(mMenuBackgroundShaderTextureCache);
+		mMenuBackgroundShaderTextureCache = -1;
+	}
+}
+
 void Window::render()
 {
 	Transform4x4f transform = Transform4x4f::Identity();
@@ -611,11 +664,9 @@ void Window::render()
 		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
-			{				
+			{
 				mBackgroundOverlay->render(transform);
-
-				if (!menuBackground.shader.path.empty())
-					Renderer::postProcessShader(menuBackground.shader.path, 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), menuBackground.shader.parameters);
+				renderMenuBackgroundShader();
 
 				auto& middle = mGuiStack.at(mGuiStack.size() - 2);
 				if (middle != bottom)
@@ -633,14 +684,16 @@ void Window::render()
 				}
 
 				mBackgroundOverlay->render(transform);
-
-				if (!menuBackground.shader.path.empty())
-					Renderer::postProcessShader(menuBackground.shader.path, 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), menuBackground.shader.parameters);
+				renderMenuBackgroundShader();
 
 				top->render(transform);
 			}
 		}
+		else  
+			resetMenuBackgroundShader();
 	}
+	else 
+		resetMenuBackgroundShader();
 
 	renderSindenBorders();
 
@@ -695,8 +748,11 @@ void Window::render()
 	// or not because it may perform a fade on transition
 	renderScreenSaver();
 
-	for (auto extra : mScreenExtras)
-		extra->render(transform);
+	if (!mRenderScreenSaver)
+	{
+		for (auto extra : mScreenExtras)
+			extra->render(transform);
+	}
 
 	if (mVolumeInfo && Settings::VolumePopup())
 		mVolumeInfo->render(transform);
@@ -1180,7 +1236,7 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	mScreenExtras.clear();
 	mScreenExtras = ThemeData::makeExtras(theme, "screen", this);
-
+	
 	std::stable_sort(mScreenExtras.begin(), mScreenExtras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
 
 	if (mBackgroundOverlay)

@@ -497,7 +497,7 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 
 	using namespace ThemeFlags;
 
-	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "text");
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, getThemeTypeName());
 	if(!elem)
 		return;
 
@@ -532,7 +532,12 @@ void TextComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const st
 		if (elem->has("padding"))
 		{
 			Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-			mPadding = elem->get<Vector4f>("padding") * Vector4f(scale.x(), scale.y(), scale.x(), scale.y());
+			
+			auto padding = elem->get<Vector4f>("padding");
+			if (padding.x() < 1 && padding.y() < 1 && padding.z() < 1 && padding.w() < 1)
+				mPadding = padding * Vector4f(scale.x(), scale.y(), scale.x(), scale.y());
+			else 
+				mPadding = padding; // Pixel size
 		}
 		else
 			mPadding = Vector4f::Zero();

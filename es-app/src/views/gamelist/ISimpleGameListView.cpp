@@ -612,13 +612,7 @@ void ISimpleGameListView::updateThemeExtrasBindings()
 	auto system = file->getSystem();
 
 	for (auto extra : mThemeExtras)
-	{
-		TextComponent* text = dynamic_cast<TextComponent*>(extra);
-		if (text != nullptr)
-			Binding::updateBindings(text, system);
-
 		Binding::updateBindings(extra, file);
-	}
 }
 
 bool ISimpleGameListView::onAction(const std::string& action)

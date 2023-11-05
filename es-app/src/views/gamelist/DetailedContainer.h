@@ -111,6 +111,9 @@ protected:
 	ImageComponent* mCheevos;
 	ImageComponent* mNotCheevos;
 
+	ImageComponent* mNetplay;
+	ImageComponent* mNotNetplay;
+
 	ImageComponent* mManual;
 	ImageComponent* mNoManual;
 

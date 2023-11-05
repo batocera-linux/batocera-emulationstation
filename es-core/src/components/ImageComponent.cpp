@@ -691,7 +691,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 {
 	using namespace ThemeFlags;
 
-	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "image");
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, getThemeTypeName());
 	if (!elem)
 		return;
 
@@ -699,7 +699,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		mLinear = elem->get<bool>("linearSmooth");
 
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
+	
 	if (properties & POSITION && elem->has("pos"))
 	{
 		Vector2f denormalized = elem->get<Vector2f>("pos") * scale;
@@ -717,7 +717,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		float denormalized = elem->get<float>("y") * scale.y();
 		setPosition(Vector3f(mPosition.x(), denormalized, 0));
 	}
-
+	
 	if (properties & ThemeFlags::SIZE)
 	{
 		if (elem->has("size"))
@@ -792,17 +792,18 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		if(elem->has("rotationOrigin"))
 			setRotationOrigin(elem->get<Vector2f>("rotationOrigin"));
 
+		if (elem->has("scale"))
+			setScale(elem->get<float>("scale"));
+
+		if (elem->has("scaleOrigin"))
+			setScaleOrigin(elem->get<Vector2f>("scaleOrigin"));
+
 		if (elem->has("flipX"))
 			setFlipX(elem->get<bool>("flipX"));
 
 		if (elem->has("flipY"))
 			setFlipY(elem->get<bool>("flipY"));
 
-		if (elem->has("scale"))
-			setScale(elem->get<float>("scale"));
-
-		if (elem->has("scaleOrigin"))
-			setScaleOrigin(elem->get<Vector2f>("scaleOrigin"));
 	}
 
 	if (properties & ALIGNMENT && elem->has("horizontalAlignment"))
@@ -829,22 +830,26 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	if (properties & ALIGNMENT && elem->has("roundCorners"))
 		setRoundCorners(elem->get<float>("roundCorners"));
-
+	
 	if(properties & ThemeFlags::Z_INDEX && elem->has("zIndex"))
 		setZIndex(elem->get<float>("zIndex"));
 	else
 		setZIndex(getDefaultZIndex());
+	
+	if (properties & ThemeFlags::VISIBLE)
+		setVisible(!elem->has("visible") || elem->get<bool>("visible"));
 
-	if(properties & ThemeFlags::VISIBLE && elem->has("visible"))
-		setVisible(elem->get<bool>("visible"));
+	if (properties & POSITION && elem->has("clipRect"))
+	{
+		Vector4f val = elem->get<Vector4f>("clipRect") * Vector4f(scale.x(), scale.y(), scale.x(), scale.y());
+		setClipRect(val);
+	}
 	else
-		setVisible(true);
-
+		setClipRect(Vector4f());
+		
 	if (properties & PATH && elem->has("path"))
 	{
 		auto path = elem->get<std::string>("path");
-
-		mSourceThemePath = path;
 
 		if (!path.empty())
 		{			
@@ -872,7 +877,14 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	else
 		setClickAction("");
 
+	for (auto prop : elem->properties)
+		if (prop.second.type == ThemeData::ThemeElement::Property::PropertyType::String && Utils::String::endsWith(prop.first, "_binding"))
+			mBindingExpressions[Utils::String::replace(prop.first, "_binding", "")] = prop.second.s;
+
 	applyStoryboard(elem);
+	loadThemedChildren(elem);
+
+	mTransformDirty = true;
 }
 
 std::vector<HelpPrompt> ImageComponent::getHelpPrompts()

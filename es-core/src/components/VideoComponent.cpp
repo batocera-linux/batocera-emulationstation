@@ -9,7 +9,7 @@
 #include "LocaleES.h"
 #include "Paths.h"
 
-#define FADE_TIME_MS	800
+#define FADE_TIME_MS	400
 
 std::string getTitlePath() 
 {
@@ -233,6 +233,14 @@ void VideoComponent::renderSnapshot(const Transform4x4f& parentTrans)
 		{
 			t = ((getOpacity() / 255.0) * (t / 255.0)) * 255.0;
 			mStaticImage.setOpacity((unsigned char)t);
+
+			if (!currentStoryBoardHasProperty("scale") && getScale() == 1.0f)
+			{
+				if (mIsPlaying)
+					mStaticImage.setScale(t / 255.0);
+				else
+					mStaticImage.setScale(getScale());
+			}
 		}
 
 		mStaticImage.render(parentTrans);
@@ -351,10 +359,10 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	if (elem->has("path"))
 	{
-		mSourceThemePath = elem->get<std::string>("path");
+		auto path = elem->get<std::string>("path");
 
-		if (Utils::FileSystem::exists(mSourceThemePath))
-			mVideoPath = mSourceThemePath;
+		if (Utils::FileSystem::exists(path))
+			mVideoPath = path;
 		else
 			mVideoPath = mConfig.defaultVideoPath;
 	}
@@ -389,6 +397,10 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 		setClickAction(elem->get<std::string>("onclick"));
 	else
 		setClickAction("");
+
+	for (auto prop : elem->properties)
+		if (prop.second.type == ThemeData::ThemeElement::Property::PropertyType::String && Utils::String::endsWith(prop.first, "_binding"))
+			mBindingExpressions[Utils::String::replace(prop.first, "_binding", "")] = prop.second.s;
 
 	if (elem->has("defaultSnapshot"))
 		mStaticImage.setDefaultImage(elem->get<std::string>("defaultSnapshot"));
@@ -615,6 +627,14 @@ void VideoComponent::setRoundCorners(float value)
 	mStaticImage.setRoundCorners(value);
 }
 
+ThemeData::ThemeElement::Property VideoComponent::getProperty(const std::string name)
+{
+	if (name == "path")
+		return mVideoPath;
+
+	return GuiComponent::getProperty(name);
+}
+
 void VideoComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
 {
 	GuiComponent::setProperty(name, value);
@@ -623,6 +643,14 @@ void VideoComponent::setProperty(const std::string name, const ThemeData::ThemeE
 	{
 		if (name == "offset" || name == "offsetX" || name == "offsetY" || name == "scale")
 			mStaticImage.setProperty(name, value);
+	}
+
+	if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+	{
+		if (Utils::FileSystem::exists(value.s))
+			setVideo(value.s);
+		else
+			setVideo(mConfig.defaultVideoPath);		
 	}
 }
 

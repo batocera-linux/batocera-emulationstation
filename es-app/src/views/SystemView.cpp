@@ -690,11 +690,7 @@ void SystemView::updateExtraTextBinding()
 		return;
 
 	for (auto extra : mEntries[mCursor].data.backgroundExtras)
-	{
-		TextComponent* text = dynamic_cast<TextComponent*>(extra);
-		if (text != nullptr)
-			Binding::updateBindings(text, system, true);
-	}
+		Binding::updateBindings(extra, system, true);
 }
 
 void SystemView::onCursorChanged(const CursorState& state)
@@ -1666,6 +1662,13 @@ void SystemView::onShow()
 
 	bool cursorStoryboardSet = false;
 
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		auto logo = mEntries.at(i).data.logo;
+		if (logo)
+			logo->isShowing() = true;
+	}
+
 	if (mCursor >= 0 && mCursor < mEntries.size())
 	{
 		auto logo = mEntries.at(mCursor).data.logo;
@@ -1703,12 +1706,19 @@ void SystemView::onShow()
 
 	if (getSelected() != nullptr)
 		TextToSpeech::getInstance()->say(getSelected()->getFullName());
-
 }
 
 void SystemView::onHide()
 {
 	GuiComponent::onHide();	
+
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		auto logo = mEntries.at(i).data.logo;
+		if (logo)
+			logo->isShowing() = false;
+	}
+
 	updateExtras([this](GuiComponent* p) { p->onHide(); });
 
 	for (auto sb : mStaticBackgrounds)
