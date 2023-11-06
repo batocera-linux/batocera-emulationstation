@@ -232,7 +232,7 @@ bool HttpApi::ImportMedia(FileData* file, const std::string& mediaType, const st
 
 	for (auto mdd : MetaDataList::getMDD())
 	{
-		if (mdd.key != mediaType && mdd.type != MD_PATH)
+		if (mdd.key != mediaType || mdd.type != MD_PATH)
 			continue;
 
 		if (mdd.id == MetaDataId::Video)
