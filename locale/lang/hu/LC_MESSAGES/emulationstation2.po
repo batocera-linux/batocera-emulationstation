@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-05-16 21:32+0200\n"
-"Last-Translator: Ewing001 <ewing001@freemail.hu>\n"
+"PO-Revision-Date: 2023-11-06 10:04+0100\n"
+"Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "FRISSÍTÉS ELÉRHETŐ"
@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "fénypisztoly játékok"
 
 msgid "wheel games"
-msgstr ""
+msgstr "kormányos játékok"
 
 msgid "collections"
 msgstr "gyűjtemények"
@@ -818,14 +818,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLLER BEÁLLÍTÁSOK"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "A VEZÉRLŐK PRIORITÁSA"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "JÁTÉKOS FELADATOK"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "VEZÉRLŐ #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1717,7 +1717,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ÍRJA BE MOST A KÓDOT A FELOLDÁSHOZ"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "SZOLGÁLTATÁSOK"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND FEJLESZTŐI BEÁLLÍTÁSOK"
@@ -1744,7 +1744,7 @@ msgid "VIDEO MODE"
 msgstr "VIDEO MÓD"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Kijelző felbontás beállítása az emulációhoz."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYER HASZNÁLATA (HARDVERESEN GYORSÍTOTT)"
@@ -2219,7 +2219,7 @@ msgid "SHADER SET"
 msgstr "SHADER VÁLASZTÁS"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "VIDEO SZŰRŐ"
 
 msgid "DECORATIONS"
 msgstr "DEKORÁCIÓ"
@@ -2537,10 +2537,10 @@ msgid "VIEW USER MANUAL"
 msgstr "FELHASZNÁLÓI KÉZIKÖNYV MEGTEKINTÉSE"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "REPÜLŐ MÓD LETILTÁSA"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "REPÜLŐ MÓD BEKAPCSOLÁSA"
 
 msgid "RESTART SYSTEM"
 msgstr "ÚJRAINDÍTÁS"
@@ -2774,7 +2774,7 @@ msgstr[0] "Ez a könyvtár %i játékot tartalmaz, beleértve: %s"
 msgstr[1] "Ez a könyvtár %i játékot tartalmaz, beleértve: %s"
 
 msgid "No Entries Found"
-msgstr "Nem található elem."
+msgstr "Nem található elem"
 
 msgid "Games similar to"
 msgstr "Játék ami hasonló"
@@ -2792,7 +2792,7 @@ msgid "FAVORITE"
 msgstr "KEDVENC"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "ÉRVÉNYTELEN TARTALOM"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2994,7 +2994,7 @@ msgid "LIGHTGUN"
 msgstr "FÉNYPUSKA"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "KORMÁNYOS JÁTÉKOK"
 
 msgid "HAS MEDIAS"
 msgstr "RENDELKEZIK MÉDIÁVAL"
