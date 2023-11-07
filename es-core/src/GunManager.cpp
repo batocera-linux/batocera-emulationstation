@@ -52,7 +52,7 @@ public:
 			if (name.find(id) != std::string::npos)
 				return LightGunType::SindenLightgun;
 
-		std::string gun4irDeviceIds[] = { "VID_2341&PID_8042" };
+		std::string gun4irDeviceIds[] = { "VID_2341&PID_8042", "VID_2341&PID_8043", "VID_2341&PID_8044", "VID_2341&PID_8045" };
 		for (auto id : gun4irDeviceIds)
 			if (name.find(id) != std::string::npos)
 				return LightGunType::Gun4Ir;
