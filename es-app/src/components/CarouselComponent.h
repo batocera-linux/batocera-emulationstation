@@ -25,7 +25,7 @@ public:
 	CarouselComponent(Window* window);
 	~CarouselComponent();
 
-	void setThemedContext(const std::string& logoName, std::string& logoTextName, std::string& elementName, const std::string& className)
+	void setThemedContext(const std::string& logoName, const std::string& logoTextName, const std::string& elementName, const std::string& className)
 	{
 		mThemeLogoName = logoName;
 		mThemeLogoTextName = logoTextName;

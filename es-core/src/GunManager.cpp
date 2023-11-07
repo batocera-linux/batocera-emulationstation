@@ -352,9 +352,12 @@ void GunManager::WindowsMessageHook(void* userdata, void* hWnd, unsigned int mes
 		GetCursorPos(&cursorPos);		
 		ScreenToClient((HWND)hWnd, &cursorPos);
 
-		gun->m_internalX = cursorPos.x;
-		gun->m_internalY = cursorPos.y;
-		gun->m_lastTick = GetTickCount();
+		if (gun->m_internalX != cursorPos.x || gun->m_internalY != cursorPos.y)
+		{
+			gun->m_internalX = cursorPos.x;
+			gun->m_internalY = cursorPos.y;
+			gun->m_lastTick = GetTickCount();
+		}
 	}
 	else if (rawMouse.lLastX != 0 && rawMouse.lLastY != 0)
 	{
@@ -373,13 +376,19 @@ void GunManager::WindowsMessageHook(void* userdata, void* hWnd, unsigned int mes
 			gun->getStabilizer()->add(cursorPos.x, cursorPos.y);
 
 			auto stabilizedPos = gun->getStabilizer()->getStabilizedPosition();
-			gun->m_internalX = stabilizedPos.first;
-			gun->m_internalY = stabilizedPos.second;
+
+			if (gun->m_internalX != stabilizedPos.first || gun->m_internalY != stabilizedPos.second)
+			{
+				gun->m_internalX = stabilizedPos.first;
+				gun->m_internalY = stabilizedPos.second;
+				gun->m_lastTick = GetTickCount();
+			}
 		}
 		else if ((rawMouse.usFlags & 0x01) == MOUSE_MOVE_RELATIVE)
 		{
 			gun->m_internalX = Math::clamp(gun->mX + rawMouse.lLastX, -1, rectClient.right - rectClient.left + 1);
 			gun->m_internalY = Math::clamp(gun->mY + rawMouse.lLastY, -1, rectClient.bottom - rectClient.top + 1);
+			gun->m_lastTick = GetTickCount();
 		}
 	}
 
@@ -397,36 +406,44 @@ void GunManager::WindowsMessageHook(void* userdata, void* hWnd, unsigned int mes
 			clickEnabled = _isScreenPointOverWindow((HWND)hWnd, ptScreen.x, ptScreen.y) && ::WindowFromPoint(ptScreen) == (HWND)hWnd;
 		}
 
+		int	buttonState = gun->m_internalButtonState;
+
 		// Check the button flags
 		if (rawMouse.usButtonFlags & RI_MOUSE_LEFT_BUTTON_DOWN && clickEnabled)
-			gun->m_internalButtonState |= 1;
+			buttonState |= 1;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_LEFT_BUTTON_UP)
-			gun->m_internalButtonState &= ~1;
+			buttonState &= ~1;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_RIGHT_BUTTON_DOWN && clickEnabled)
-			gun->m_internalButtonState |= 2;
+			buttonState |= 2;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_RIGHT_BUTTON_UP)
-			gun->m_internalButtonState &= ~2;
+			buttonState &= ~2;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_MIDDLE_BUTTON_DOWN && clickEnabled)
-			gun->m_internalButtonState |= 4;
+			buttonState |= 4;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_MIDDLE_BUTTON_UP)
-			gun->m_internalButtonState &= ~4;
+			buttonState &= ~4;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_4_DOWN && clickEnabled)
-			gun->m_internalButtonState |= 8;
+			buttonState |= 8;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_4_UP)
-			gun->m_internalButtonState &= ~8;
+			buttonState &= ~8;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_5_DOWN && clickEnabled)
-			gun->m_internalButtonState |= 16;
+			buttonState |= 16;
 
 		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_5_UP)
-			gun->m_internalButtonState &= ~16;
+			buttonState &= ~16;
+
+		if (buttonState != gun->m_internalButtonState)
+		{
+			gun->m_internalButtonState = buttonState;
+			gun->m_lastTick = GetTickCount();
+		}
 	}
 }
 #endif
