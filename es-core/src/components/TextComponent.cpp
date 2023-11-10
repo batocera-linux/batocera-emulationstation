@@ -274,8 +274,13 @@ void TextComponent::onTextChanged()
 		mSize = mFont->sizeText(text, mLineSpacing);
 		mSize[0] += mPadding.x() + mPadding.z();
 	}
-	else if(mAutoCalcExtent.y())
-		mSize[1] = mFont->sizeWrappedText(mUppercase ? Utils::String::toUpper(mText) : mText, getSize().x(), mLineSpacing).y() + mPadding.y() + mPadding.w();
+	else if (mAutoCalcExtent.y())
+	{
+		if (mMultiline == MultiLineType::SINGLELINE)
+			mSize[1] = mFont->getHeight() + mPadding.y() + mPadding.w();
+		else
+			mSize[1] = mFont->sizeWrappedText(mUppercase ? Utils::String::toUpper(mText) : mText, getSize().x(), mLineSpacing).y() + mPadding.y() + mPadding.w();
+	}
 }
 
 void TextComponent::buildTextCache()
