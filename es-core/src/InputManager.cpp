@@ -75,10 +75,10 @@ void InputManager::init()
 	if (initialized())
 		deinit();
 
-	rebuildAllJoysticks(false);
-
 	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0, 0, 0); 
 	loadInputConfig(mKeyboardInputConfig);
+
+  rebuildAllJoysticks(false);
 
 #ifdef HAVE_LIBCEC
 	SDL_USER_CECBUTTONDOWN = SDL_RegisterEvents(2);
