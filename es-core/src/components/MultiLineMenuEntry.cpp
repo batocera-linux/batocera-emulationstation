@@ -15,6 +15,7 @@ MultiLineMenuEntry::MultiLineMenuEntry(Window* window, const std::string& text, 
 	auto theme = ThemeData::getMenuTheme();
 
 	mText = std::make_shared<TextComponent>(mWindow, text.c_str(), theme->Text.font, theme->Text.color);
+	mText->setMultiLine(TextComponent::MultiLineType::SINGLELINE);
 	mText->setVerticalAlignment(ALIGN_TOP);
 
 	mSubstring = std::make_shared<TextComponent>(mWindow, substring.c_str(), theme->TextSmall.font, theme->Text.color);		
