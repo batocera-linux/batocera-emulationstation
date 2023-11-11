@@ -68,6 +68,7 @@ public:
 		mNeedBorders = false;
 		m_isMouse = false;
 		m_pStabilizer = nullptr;
+		m_lastTick = 0;
 
 #ifdef HAVE_UDEV
 		dev = nullptr;
@@ -75,8 +76,7 @@ public:
 #elif WIN32
 		m_internalButtonState = 0;
 		m_internalX = 0;
-		m_internalY = 0;	
-		m_lastTick = 0;
+		m_internalY = 0;			
 #endif
 	}
 
@@ -91,9 +91,7 @@ public:
 
 	Stabilizer* getStabilizer();
 
-#if WIN32
 	bool isLastTickElapsed();
-#endif
 
 private:
 	Stabilizer* m_pStabilizer;
@@ -107,13 +105,15 @@ private:
 	std::string devpath;
 	udev_device* dev;
 	int fd;
+	bool	mIsCalibrating;
 #elif WIN32
 	std::string mPath;
 	int		m_internalButtonState;
 	float	m_internalX;
 	float	m_internalY;
-	int		m_lastTick;
 #endif
+
+	int		m_lastTick;
 };
 
 //you should only ever instantiate one of these, by the way
