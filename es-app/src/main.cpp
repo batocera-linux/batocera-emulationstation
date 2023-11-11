@@ -710,6 +710,7 @@ int main(int argc, char* argv[])
 		TRYCATCH("Window.update" ,window.update(deltaTime))	
 		TRYCATCH("Window.render", window.render())
 
+/*
 #ifdef WIN32		
 		int processDuration = SDL_GetTicks() - processStart;
 		if (processDuration < timeLimit)
@@ -719,6 +720,7 @@ int main(int argc, char* argv[])
 				Sleep(timeToWait);
 		}
 #endif
+*/
 
 		Renderer::swapBuffers();
 
