@@ -70,6 +70,6 @@ void main(void)
 	blurColor /= float(total);
 
 	// Output the final blurred color
-	gl_FragColor = blurColor;
+	gl_FragColor = blurColor * v_col;
 }
 #endif
