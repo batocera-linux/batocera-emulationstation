@@ -14,6 +14,11 @@
 #include <SDL.h>
 #include <stack>
 
+#if WIN32
+#include <Windows.h>
+#include <SDL_syswm.h>
+#endif
+
 namespace Renderer
 {
 	static std::stack<Rect> clipStack;
@@ -222,11 +227,37 @@ namespace Renderer
 
 #if WIN32
 		if (windowFlags & SDL_WINDOW_BORDERLESS)
-		{			
-			// If we don't do that, with some machines, the screen stays black... (Ambernic Win600)
+		{
+			int x;
+			int y;
+			SDL_GetWindowPosition(sdlWindow, &x, &y);
+
 			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_TRUE);
-			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_FALSE);
-			SDL_SetWindowPosition(sdlWindow, sdlWindowPosition.x(), sdlWindowPosition.y());
+			
+			SDL_SysWMinfo wmInfo;
+			SDL_VERSION(&wmInfo.version);
+			SDL_GetWindowWMInfo(sdlWindow, &wmInfo);
+			HWND hWnd = wmInfo.info.win.window;
+			if (hWnd != NULL)
+			{
+				LONG lStyle = GetWindowLong(hWnd, GWL_STYLE);
+				lStyle &= ~(WS_CAPTION | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SYSMENU);
+				SetWindowLong(hWnd, GWL_STYLE, lStyle);
+
+				LONG lExStyle = GetWindowLong(hWnd, GWL_EXSTYLE);
+				lExStyle &= ~(WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE | WS_EX_STATICEDGE);
+				SetWindowLong(hWnd, GWL_EXSTYLE, lExStyle);
+
+				SetWindowPos(hWnd, NULL,
+					x, y,
+					windowWidth, windowHeight,
+					SWP_FRAMECHANGED | SWP_NOZORDER | SWP_NOOWNERZORDER);
+			}
+			else
+			{
+				SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_FALSE);
+				SDL_SetWindowPosition(sdlWindow, x, y);
+			}
 		}
 #endif
 
