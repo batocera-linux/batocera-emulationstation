@@ -3486,7 +3486,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 				}, "iconManual");
 		}
 
-		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PLANEMODE))
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::WRITEPLANEMODE))
 		{
 			if (ApiSystem::getInstance()->isPlaneMode())
 			{

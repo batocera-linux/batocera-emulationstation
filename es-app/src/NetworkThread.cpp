@@ -7,112 +7,110 @@
 #include <chrono>
 #include <SDL.h>
 
-#define CHECKUPDATE_MINUTES 60
+#include "watchers/BatteryLevelWatcher.h"
+#include "watchers/NetworkStateWatcher.h"
 
 NetworkThread::NetworkThread(Window* window) : mWindow(window)
 {
-	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE) && !ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PADSINFO))
-		return;
+	WatchersManager* mgr = WatchersManager::getInstance();
+
+	mgr->RegisterComponent(new BatteryLevelWatcher());
+	mgr->RegisterComponent(new NetworkStateWatcher());
+	
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
+		mgr->RegisterComponent(&mCheckUpdatesComponent);
+
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PADSINFO))
+		mgr->RegisterComponent(&mCheckPadsBatteryLevelComponent);
+
+	mgr->RegisterNotify(this);
 
 	LOG(LogDebug) << "NetworkThread : Starting";
-
-	// creer le thread
-	mCheckUpdateTimer = CHECKUPDATE_MINUTES;
-	mFirstRun = true;
-	mRunning = true;
-	mThread = new std::thread(&NetworkThread::run, this);
-
 	InputManager::joystickChanged += this;
+}
+
+CheckPadsBatteryLevelComponent::CheckPadsBatteryLevelComponent()
+{
+#if WIN32		
+	mEnabled = false; // Windows uses SDL_JOYBATTERYUPDATED event instead
+#else
+	mEnabled = ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PADSINFO);
+#endif
+}
+
+bool CheckPadsBatteryLevelComponent::check()
+{
+	bool changed = false;
+
+	auto padsInfo = ApiSystem::getInstance()->getPadsInfo();
+
+	if (mPadsInfo.size() != padsInfo.size())
+		changed = true;
+	else
+	{
+		for (int i = 0; i < padsInfo.size(); i++)
+		{
+			if (padsInfo[i].status == "Charging")
+				padsInfo[i].battery = -1;
+
+			if (mPadsInfo[i].battery != padsInfo[i].battery || mPadsInfo[i].status != padsInfo[i].status || mPadsInfo[i].id != padsInfo[i].id || mPadsInfo[i].name != padsInfo[i].name || mPadsInfo[i].path != padsInfo[i].path || mPadsInfo[i].device != padsInfo[i].device)
+			{
+				changed = true;
+				break;
+			}
+		}
+	}
+
+	mPadsInfo = padsInfo;
+	return changed;
+}
+
+bool CheckUpdatesComponent::enabled()
+{
+	return mEnabled && SystemConf::getInstance()->getBool("updates.enabled") && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE);
+};
+
+bool CheckUpdatesComponent::check()
+{
+	LOG(LogDebug) << "CheckUpdatesComponent : Checking for updates";
+
+	std::vector<std::string> msgtbl;
+	if (ApiSystem::getInstance()->canUpdate(msgtbl))
+	{
+		std::string msg = "";
+		for (int i = 0; i < msgtbl.size(); i++)
+		{
+			if (i != 0) msg += "\n";
+			msg += msgtbl[i];
+		}
+
+		LOG(LogDebug) << "CheckUpdatesComponent : Update available " << msg.c_str();
+		mLastUpdateMessage = msg;
+		mEnabled = false;
+		return true;
+	}
+	else
+		LOG(LogDebug) << "NetworkThread : No update found";
 }
 
 void NetworkThread::onJoystickChanged()
 {
-	mEvent.notify_one();
+	WatchersManager::getInstance()->ResetComponent(&mCheckPadsBatteryLevelComponent);
 }
 
-NetworkThread::~NetworkThread()
+void NetworkThread::OnWatcherChanged(IWatcher* component)
 {
-	if (mThread == nullptr)
-		return;
-	
-	LOG(LogDebug) << "NetworkThread : Exit";
-
-	mEvent.notify_all();
-
-	mRunning = false;
-	mThread->join();
-	delete mThread;
-	mThread = nullptr;	
-}
-
-void NetworkThread::checkPadsBatteryLevel()
-{
-#if WIN32
-	SDL_version ver;
-	SDL_GetVersion(&ver);
-	if (ver.major >= 2 && ver.minor >= 24)
+	if (component == &mCheckUpdatesComponent)
 	{
-		// use SDL_JOYBATTERYUPDATED event instead starting with SDL 2.24+
+		mWindow->displayNotificationMessage(_U("\uF019  ") + _("UPDATE AVAILABLE") + std::string(": ") + mCheckUpdatesComponent.getLastUpdateMessage());
 		return;
 	}
-#endif
 
-	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PADSINFO))
+	if (component == &mCheckPadsBatteryLevelComponent)
+	{
+		auto pads = mCheckPadsBatteryLevelComponent.getPadsInfo();
+
+		mWindow->postToUiThread([pads]() { for (auto pad : pads) InputManager::getInstance()->updateBatteryLevel(pad.id, pad.device, pad.path, pad.battery); });
 		return;
-
-	auto padsInfo = ApiSystem::getInstance()->getPadsInfo();
-	for (auto pad : padsInfo)
-	{
-		if (pad.status == "Charging")
-			pad.battery = -1;
-
-		InputManager::getInstance()->updateBatteryLevel(pad.id, pad.device, pad.path, pad.battery);
-	}
-}
-
-void NetworkThread::run()
-{
-	while (mRunning)
-	{
-		if (mFirstRun)
-		{
-			mFirstRun = false;
-			checkPadsBatteryLevel();
-
-			std::unique_lock<std::mutex> lock(mLock);
-			mEvent.wait_for(lock, std::chrono::seconds(15));
-		}
-		else
-		{			
-			std::unique_lock<std::mutex> lock(mLock);
-			mEvent.wait_for(lock, std::chrono::minutes(5));
-			mCheckUpdateTimer += 1;
-		}
-		
-		checkPadsBatteryLevel();
-
-		if (mCheckUpdateTimer >= CHECKUPDATE_MINUTES && SystemConf::getInstance()->getBool("updates.enabled") && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
-		{
-			mCheckUpdateTimer = 0;
-
-			LOG(LogDebug) << "NetworkThread : Checking for updates";
-
-			std::vector<std::string> msgtbl;
-			if (ApiSystem::getInstance()->canUpdate(msgtbl))
-			{
-				std::string msg = "";
-				for (int i = 0; i < msgtbl.size(); i++)
-				{
-					if (i != 0) msg += "\n";
-					msg += msgtbl[i];
-				}
-
-				LOG(LogDebug) << "NetworkThread : Update available " << msg.c_str();
-				mWindow->displayNotificationMessage(_U("\uF019  ") + _("UPDATE AVAILABLE") + std::string(": ") + msg);
-				mRunning = false;
-			}
-			else
-				LOG(LogDebug) << "NetworkThread : No update found";
-		}
 	}
 }

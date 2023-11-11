@@ -3,23 +3,46 @@
 #include "utils/Platform.h"
 #include "IExternalActivity.h"
 
-#define UPDATE_NETWORK_DELAY	2000
+#include "watchers/NetworkStateWatcher.h"
 
-NetworkIconComponent::NetworkIconComponent(Window* window) : ImageComponent(window)
+NetworkIconComponent::NetworkIconComponent(Window* window) : ImageComponent(window), mConnected(false), mPlaneMode(false), mDirty(true)
 {	
-	mNetworkCheckTime = UPDATE_NETWORK_DELAY;
 	setVisible(false);
+
+	WatchersManager::getInstance()->RegisterNotify(this);
+
+	NetworkStateWatcher* watcher = WatchersManager::GetComponent<NetworkStateWatcher>();
+	if (watcher != nullptr)
+	{
+		mConnected = watcher->isConnected();
+		mPlaneMode = watcher->isPlaneMode();
+	}
+}
+
+NetworkIconComponent::~NetworkIconComponent()
+{
+	WatchersManager::getInstance()->UnregisterNotify(this);
+}
+
+void NetworkIconComponent::OnWatcherChanged(IWatcher* component)
+{
+	NetworkStateWatcher* watcher = dynamic_cast<NetworkStateWatcher*>(component);
+	if (watcher != nullptr)
+	{
+		mConnected = watcher->isConnected();
+		mPlaneMode = watcher->isPlaneMode();
+		mDirty = true;
+	}	
 }
 
 void NetworkIconComponent::update(int deltaTime)
 {
 	ImageComponent::update(deltaTime);
 
-	mNetworkCheckTime += deltaTime;
-	if (mNetworkCheckTime >= UPDATE_NETWORK_DELAY)
+	if (mDirty)
 	{		
-		bool networkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();
-		bool planemodeEnabled = Settings::ShowNetworkIndicator() && IExternalActivity::Instance != nullptr && IExternalActivity::Instance->isPlaneMode();
+		bool networkConnected = Settings::ShowNetworkIndicator() && mConnected;
+		bool planemodeEnabled = Settings::ShowNetworkIndicator() && mPlaneMode;
 
 		setVisible(networkConnected || planemodeEnabled);
 
@@ -33,7 +56,7 @@ void NetworkIconComponent::update(int deltaTime)
 			setImage(txName);
 		}
 
-		mNetworkCheckTime = 0;
+		mDirty = false;
 	}
 }
 

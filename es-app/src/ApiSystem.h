@@ -120,9 +120,10 @@ public:
 		UPGRADE = 24,
 		SUSPEND = 25,
 		VERSIONINFO = 26,
-		PLANEMODE = 27,
-		VIDEOFILTERS = 28,
-		SERVICES = 29
+		VIDEOFILTERS = 27,
+		SERVICES = 28,
+		READPLANEMODE = 29,
+		WRITEPLANEMODE = 30,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -265,14 +266,15 @@ public:
 	virtual void suspend();
 
   	virtual void replugControllers_sindenguns();
-    	virtual void replugControllers_wiimotes();
-    	virtual void replugControllers_steamdeckguns();
+    virtual void replugControllers_wiimotes();
+    virtual void replugControllers_steamdeckguns();
 
-    	virtual bool isPlaneMode();
-    	virtual bool setPlaneMode(bool enable);
+    virtual bool isPlaneMode();
+    virtual bool setPlaneMode(bool enable);
+	virtual bool isReadPlaneModeSupported();
 
-    	virtual std::vector<Service> getServices();
-    	virtual bool enableService(std::string name, bool enable);
+    virtual std::vector<Service> getServices();
+    virtual bool enableService(std::string name, bool enable);
 
 protected:
 	ApiSystem();

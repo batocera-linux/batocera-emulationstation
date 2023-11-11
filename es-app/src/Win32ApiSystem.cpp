@@ -146,8 +146,8 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::SERVICES:
 		executables.push_back("batocera-services");
 		break;
-	// case ApiSystem::PLANEMODE:
-		// return true;
+	 case ApiSystem::READPLANEMODE:
+		return true;	 
 	}
 
 	if (executables.size() == 0)

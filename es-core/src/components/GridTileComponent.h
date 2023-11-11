@@ -7,6 +7,7 @@
 #include "TextComponent.h"
 #include "ThemeData.h"
 #include "resources/TextureResource.h"
+#include "renderers/Renderer.h"
 
 class VideoComponent;
 
@@ -49,6 +50,7 @@ public:
 		image->setColorShiftEnd(colorEnd);
 		image->setMirroring(reflexion);
 		image->setRoundCorners(roundCorners);
+		image->setCustomShader(customShader);
 	}
 
 	bool Loaded;
@@ -63,6 +65,8 @@ public:
 	unsigned int colorEnd;
 
 	std::string  sizeMode;
+
+	Renderer::ShaderInfo customShader;
 
 	float roundCorners;
 };

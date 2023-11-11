@@ -1476,7 +1476,8 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::VERSIONINFO:
 		executables.push_back("batocera-version");
 		break;
-	case ApiSystem::PLANEMODE:
+	case ApiSystem::READPLANEMODE:
+	case ApiSystem::WRITEPLANEMODE:
 		executables.push_back("batocera-planemode");
 		break;
 	case ApiSystem::SERVICES:
@@ -2007,6 +2008,11 @@ bool ApiSystem::isPlaneMode()
 		return res[0] == "on";
 
 	return false;
+}
+
+bool ApiSystem::isReadPlaneModeSupported()
+{
+	return isScriptingSupported(READPLANEMODE);
 }
 
 bool ApiSystem::setPlaneMode(bool enable)

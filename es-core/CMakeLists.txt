@@ -1,6 +1,6 @@
 project("core")
 
-set(CORE_HEADERS
+set(CORE_HEADERS	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AsyncHandle.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AudioManager.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CECInput.h
@@ -126,9 +126,14 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Randomizer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/VectorEx.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/HtmlColor.h
+
+	# Watchers
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/WatchersManager.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/BatteryLevelWatcher.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/NetworkStateWatcher.h
 )
 
-set(CORE_SOURCES
+set(CORE_SOURCES	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AudioManager.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CECInput.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/GuiComponent.cpp
@@ -245,6 +250,11 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Randomizer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/HtmlColor.cpp
+
+	# Watchers
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/WatchersManager.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/BatteryLevelWatcher.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/NetworkStateWatcher.cpp
 )
 
 # Keep Directory structure in Visual Studio

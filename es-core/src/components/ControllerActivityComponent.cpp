@@ -8,15 +8,39 @@
 #include "utils/Platform.h"
 #include "IExternalActivity.h"
 
+#include "watchers/BatteryLevelWatcher.h"
+#include "watchers/NetworkStateWatcher.h"
+
 // #define DEVTEST
 
 #define PLAYER_PAD_TIME_MS		 150
-#define UPDATE_NETWORK_DELAY	2000
-#define UPDATE_BATTERY_DELAY	5000
 
-ControllerActivityComponent::ControllerActivityComponent(Window* window) : GuiComponent(window)
+ControllerActivityComponent::ControllerActivityComponent(Window* window) : GuiComponent(window), mBatteryInfoChanged(false), mBatteryTextX(0), mNetworkConnected(false), mPlanemodeEnabled(false)
 {
+	WatchersManager::getInstance()->RegisterNotify(this);
 	init();
+}
+
+ControllerActivityComponent::~ControllerActivityComponent()
+{
+	WatchersManager::getInstance()->UnregisterNotify(this);
+}
+
+void ControllerActivityComponent::OnWatcherChanged(IWatcher* component)
+{
+	BatteryLevelWatcher* batteryWatcher = dynamic_cast<BatteryLevelWatcher*>(component);
+	if (batteryWatcher != nullptr)
+	{
+		mWatchedBatteryInfo = batteryWatcher->getBatteryInfo();
+		mBatteryInfoChanged = true;
+	}
+
+	NetworkStateWatcher* networkWatcher = dynamic_cast<NetworkStateWatcher*>(component);
+	if (networkWatcher != nullptr)
+	{
+		mNetworkConnected = networkWatcher->isConnected();
+		mPlanemodeEnabled = networkWatcher->isPlaneMode();
+	}
 }
 
 void ControllerActivityComponent::init()
@@ -26,11 +50,6 @@ void ControllerActivityComponent::init()
 	mBatteryTextX = -999;
 
 	mView = CONTROLLERS;
-	
-	mBatteryInfo = Utils::Platform::BatteryInformation();
-	mBatteryCheckTime = UPDATE_BATTERY_DELAY;
-
-	mNetworkCheckTime = UPDATE_NETWORK_DELAY;
 
 	mColorShift = 0xFFFFFF99;
 	mActivityColor = 0xFF000066;
@@ -50,8 +69,24 @@ void ControllerActivityComponent::init()
 
 	for (int i = 0; i < MAX_PLAYERS; i++)
 		mPads[i].reset();
+	
+	mNetworkConnected = false;
+	mPlanemodeEnabled = false;
 
-	updateNetworkInfo();
+	NetworkStateWatcher* networkWatcher = WatchersManager::GetComponent<NetworkStateWatcher>();
+	if (networkWatcher != nullptr)
+	{
+		mNetworkConnected = networkWatcher->isConnected();
+		mPlanemodeEnabled = networkWatcher->isPlaneMode();
+	}
+
+	mWatchedBatteryInfo = Utils::Platform::BatteryInformation();
+	mBatteryInfoChanged = true;
+
+	BatteryLevelWatcher* batteryWatcher = WatchersManager::GetComponent<BatteryLevelWatcher>();
+	if (batteryWatcher != nullptr)
+		mWatchedBatteryInfo = batteryWatcher->getBatteryInfo();
+
 	updateBatteryInfo();
 }
 
@@ -126,26 +161,9 @@ void ControllerActivityComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
 
-	if (mView & BATTERY)
-	{
-		mBatteryCheckTime += deltaTime;
-		if (mBatteryCheckTime >= UPDATE_BATTERY_DELAY)
-		{
-			updateBatteryInfo();
-			mBatteryCheckTime = 0;
-		}
-	}
+	if (mBatteryInfoChanged)
+		updateBatteryInfo();
 	
-	if (mView & NETWORK)
-	{
-		mNetworkCheckTime += deltaTime;
-		if (mNetworkCheckTime >= UPDATE_NETWORK_DELAY)
-		{
-			updateNetworkInfo();
-			mNetworkCheckTime = 0;			
-		}
-	}
-
 	if (mView & CONTROLLERS)
 	{
 		for (int i = 0; i < MAX_PLAYERS; i++)
@@ -467,22 +485,17 @@ void ControllerActivityComponent::applyTheme(const std::shared_ptr<ThemeData>& t
 	updateBatteryInfo();
 }
 
-void ControllerActivityComponent::updateNetworkInfo()
-{
-	mNetworkConnected = Settings::ShowNetworkIndicator() && !Utils::Platform::queryIPAdress().empty();	
-	mPlanemodeEnabled = Settings::ShowNetworkIndicator() && IExternalActivity::Instance != nullptr && IExternalActivity::Instance->isPlaneMode();	
-}
-
 void ControllerActivityComponent::updateBatteryInfo()
 {
+	mBatteryInfoChanged = false;
+
 	if (Settings::getInstance()->getString("ShowBattery").empty() || (mView & BATTERY) == 0)
 	{
 		mBatteryInfo.hasBattery = false;
 		return;
 	}
 
-	auto info = Utils::Platform::queryBatteryInformation();
-
+	auto info = mWatchedBatteryInfo;
 	if (info.hasBattery == mBatteryInfo.hasBattery && info.isCharging == mBatteryInfo.isCharging && info.level == mBatteryInfo.level)
 		return;
 

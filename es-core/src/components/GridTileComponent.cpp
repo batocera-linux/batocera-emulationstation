@@ -583,6 +583,8 @@ bool GridImageProperties::applyTheme(const ThemeData::ThemeElement* elem)
 	if (elem && elem->has("roundCorners"))
 		roundCorners = elem->get<float>("roundCorners");
 
+	ThemeData::parseCustomShader(elem, &customShader);
+
 	return true;
 }
 
@@ -1206,6 +1208,8 @@ void GridImageProperties::mixProperties(GridImageProperties& def, GridImagePrope
 	colorEnd = mixColors(def.colorEnd, sel.colorEnd, percent);
 	reflexion = mixVectors(def.reflexion, sel.reflexion, percent);
 	roundCorners = mixFloat(def.roundCorners, sel.roundCorners, percent);
+
+	customShader = percent >= 0.02f ? sel.customShader : def.customShader;
 }
 
 void GridTextProperties::mixProperties(GridTextProperties& def, GridTextProperties& sel, float percent)

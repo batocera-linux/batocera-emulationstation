@@ -9,5 +9,6 @@ public:
 
 public:
 	virtual bool isPlaneMode() = 0;
+	virtual bool isReadPlaneModeSupported() = 0;
 };
 #endif // ES_APP_COMPONENTS_EXTERNALACTIVITY_COMPONENT_H
