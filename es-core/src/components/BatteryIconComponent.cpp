@@ -1,12 +1,9 @@
 #include "components/BatteryIconComponent.h"
 #include "Settings.h"
+#include "watchers/BatteryLevelWatcher.h"
 
-#define UPDATE_NETWORK_DELAY	2000
-
-BatteryIconComponent::BatteryIconComponent(Window* window) : ImageComponent(window)
+BatteryIconComponent::BatteryIconComponent(Window* window) : ImageComponent(window), mDirty(true)
 {	
-	mBatteryInfoCheckTime = UPDATE_NETWORK_DELAY;
-
 	mIncharge = ResourceManager::getInstance()->getResourcePath(":/battery/incharge.svg");
 	mFull = ResourceManager::getInstance()->getResourcePath(":/battery/full.svg");
 	mAt75 = ResourceManager::getInstance()->getResourcePath(":/battery/75.svg");
@@ -14,46 +11,65 @@ BatteryIconComponent::BatteryIconComponent(Window* window) : ImageComponent(wind
 	mAt25 = ResourceManager::getInstance()->getResourcePath(":/battery/25.svg");
 	mEmpty = ResourceManager::getInstance()->getResourcePath(":/battery/empty.svg");
 
-	mBatteryInfo = Utils::Platform::BatteryInformation();
-	//setVisible(Settings::getInstance()->getBool("ShowNetworkIndicator") && !Utils::Platform::queryIPAdress().empty());
+	mBatteryInfo = Utils::Platform::BatteryInformation();	
+
+	WatchersManager::getInstance()->RegisterNotify(this);
+
+	BatteryLevelWatcher* watcher = WatchersManager::GetComponent<BatteryLevelWatcher>();
+	if (watcher != nullptr)
+		mBatteryInfo = watcher->getBatteryInfo();
+}
+
+BatteryIconComponent::~BatteryIconComponent()
+{
+	WatchersManager::getInstance()->UnregisterNotify(this);
+}
+
+void BatteryIconComponent::OnWatcherChanged(IWatcher* component)
+{
+	BatteryLevelWatcher* watcher = dynamic_cast<BatteryLevelWatcher*>(component);
+	if (watcher != nullptr)
+	{
+		mBatteryInfo = watcher->getBatteryInfo();
+		mDirty = true;
+	}
 }
 
 void BatteryIconComponent::update(int deltaTime)
 {
 	ImageComponent::update(deltaTime);
 
-	mBatteryInfoCheckTime += deltaTime;
-	if (mBatteryInfoCheckTime >= UPDATE_NETWORK_DELAY)
-	{		
-		if (Settings::getInstance()->getString("ShowBattery").empty())
-			mBatteryInfo.hasBattery = false;
-		else 
-			mBatteryInfo = Utils::Platform::queryBatteryInformation();
+	if (!mDirty)
+		return;
 
-		setVisible(mBatteryInfo.hasBattery); // Settings::getInstance()->getBool("ShowNetworkIndicator") && !Utils::Platform::queryIPAdress().empty());
+	if (Settings::getInstance()->getString("ShowBattery").empty())
+		mBatteryInfo.hasBattery = false;
+	else
+		mBatteryInfo = Utils::Platform::queryBatteryInformation();
 
-		if (mBatteryInfo.hasBattery)
-		{
-			std::string txName = mIncharge;
+	setVisible(mBatteryInfo.hasBattery); // Settings::getInstance()->getBool("ShowNetworkIndicator") && !Utils::Platform::queryIPAdress().empty());
 
-			if (mBatteryInfo.isCharging && !mIncharge.empty())
-				txName = mIncharge;
-			else if (mBatteryInfo.level > 75 && !mFull.empty())
-				txName = mFull;
-			else if (mBatteryInfo.level > 50 && !mAt75.empty())
-				txName = mAt75;
-			else if (mBatteryInfo.level > 25 && !mAt50.empty())
-				txName = mAt50;
-			else if (mBatteryInfo.level > 5 && !mAt25.empty())
-				txName = mAt25;
-			else
-				txName = mEmpty;
+	if (mBatteryInfo.hasBattery)
+	{
+		std::string txName = mIncharge;
 
-			setImage(txName);
-		}
+		if (mBatteryInfo.isCharging && !mIncharge.empty())
+			txName = mIncharge;
+		else if (mBatteryInfo.level > 75 && !mFull.empty())
+			txName = mFull;
+		else if (mBatteryInfo.level > 50 && !mAt75.empty())
+			txName = mAt75;
+		else if (mBatteryInfo.level > 25 && !mAt50.empty())
+			txName = mAt50;
+		else if (mBatteryInfo.level > 5 && !mAt25.empty())
+			txName = mAt25;
+		else
+			txName = mEmpty;
 
-		mBatteryInfoCheckTime = 0;
+		setImage(txName);
 	}
+
+	mDirty = false;
 }
 
 void BatteryIconComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)

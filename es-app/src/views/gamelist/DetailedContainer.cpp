@@ -463,6 +463,9 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 	loadIfThemed(&mNoMap, theme, "md_nomap", false, true);
 	loadIfThemed(&mSaveState, theme, "md_savestate", false, true);
 	loadIfThemed(&mNoSaveState, theme, "md_nosavestate", false, true);		
+	
+	for (auto comp : getComponents())
+		disableComponent(comp);
 
 	for (auto ctrl : getMetaComponents())
 	{
@@ -1153,6 +1156,9 @@ bool DetailedContainer::anyComponentHasStoryBoard()
 
 void DetailedContainer::disableComponent(GuiComponent* comp)
 {
+	if (comp == nullptr)
+		return;
+
 	if (mVideo == comp) { mVideo->setImage(""); mVideo->setVideo(""); }
 	if (mImage == comp) mImage->setImage("");
 	if (mThumbnail == comp) mThumbnail->setImage("");

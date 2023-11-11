@@ -6,10 +6,11 @@
 #include "GuiComponent.h"
 #include "resources/Font.h"
 #include "utils/Platform.h"
+#include "watchers/WatchersManager.h"
 
 class TextureResource;
 
-class ControllerActivityComponent : public GuiComponent
+class ControllerActivityComponent : public GuiComponent, IWatcherNotify
 {
 public:
 	enum ActivityView : unsigned int
@@ -21,6 +22,7 @@ public:
 	};
 
 	ControllerActivityComponent(Window* window);
+	~ControllerActivityComponent();
 
 	std::string getThemeTypeName() override { return "controllerActivity"; }
 
@@ -43,6 +45,8 @@ public:
 	void setHotkeyColor(unsigned int color) { mHotkeyColor = color; }
 	
 	bool hasBattery() { return mBatteryInfo.hasBattery; }
+
+	void OnWatcherChanged(IWatcher* component) override;
 
 protected:
 	virtual void	init();
@@ -99,19 +103,18 @@ protected:
 
 protected:
 	// Network info
-	void updateNetworkInfo();
-	std::shared_ptr<TextureResource> mNetworkImage;
+	std::shared_ptr<TextureResource> mNetworkImage;	
+    std::shared_ptr<TextureResource> mPlanemodeImage;
 	bool mNetworkConnected;
-	int mNetworkCheckTime;
-    	std::shared_ptr<TextureResource> mPlanemodeImage;
   	bool mPlanemodeEnabled;
 
 protected:
 	// Battery info
-	int mBatteryCheckTime;
 	int mBatteryTextX;
 
 	Utils::Platform::BatteryInformation mBatteryInfo;
+	Utils::Platform::BatteryInformation mWatchedBatteryInfo;
+	bool mBatteryInfoChanged;
 
 	std::shared_ptr<TextureResource> mBatteryImage;
 	std::shared_ptr<Font>			 mBatteryFont;
