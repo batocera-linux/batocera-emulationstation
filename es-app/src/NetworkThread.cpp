@@ -91,6 +91,8 @@ bool CheckUpdatesComponent::check()
 	}
 	else
 		LOG(LogDebug) << "NetworkThread : No update found";
+
+	return false;
 }
 
 void NetworkThread::onJoystickChanged()
