@@ -162,14 +162,19 @@ int GunManager::readGunEvents(Gun* gun)
 	  for (unsigned i = 0; i<len/sizeof(input_event); i++) {
 			if (input_events[i].type == EV_KEY) {
 				//printf("key, code=%i, value=%i\n", input_events[i].code, input_events[i].value);
-				switch (input_events[i].code) {
+				gun->m_lastTick = SDL_GetTicks();
+
+				switch (input_events[i].code) 
+				{
 				case KEY_CONFIG:
 					if (input_events[i].value == 1) {
 						// starting calibration
+						gun->mIsCalibrating = true;
 						return 1;
 					}
 					else {
 						// stopping calibration
+						gun->mIsCalibrating = false;
 						return 2;
 					}
 					break;
@@ -250,14 +255,21 @@ Stabilizer* Gun::getStabilizer()
 	return m_pStabilizer;
 }
 
+bool Gun::isLastTickElapsed()
+{
+#ifdef HAVE_UDEV
+	if (mIsCalibrating)
+		return false;
+#endif
+
+	return m_lastTick == 0 || (SDL_GetTicks() - m_lastTick) > 5000;
+}
+
 #if WIN32
 
 bool GunManager::mMessageHookRegistered = false;
 
-bool Gun::isLastTickElapsed()
-{
-	return m_lastTick == 0 || (GetTickCount() - m_lastTick) > 5000;
-}
+
 
 void GunManager::enableRawInputCapture(bool enable)
 {
@@ -356,7 +368,7 @@ void GunManager::WindowsMessageHook(void* userdata, void* hWnd, unsigned int mes
 		{
 			gun->m_internalX = cursorPos.x;
 			gun->m_internalY = cursorPos.y;
-			gun->m_lastTick = GetTickCount();
+			gun->m_lastTick = SDL_GetTicks();
 		}
 	}
 	else if (rawMouse.lLastX != 0 && rawMouse.lLastY != 0)
@@ -381,14 +393,14 @@ void GunManager::WindowsMessageHook(void* userdata, void* hWnd, unsigned int mes
 			{
 				gun->m_internalX = stabilizedPos.first;
 				gun->m_internalY = stabilizedPos.second;
-				gun->m_lastTick = GetTickCount();
+				gun->m_lastTick = SDL_GetTicks();
 			}
 		}
 		else if ((rawMouse.usFlags & 0x01) == MOUSE_MOVE_RELATIVE)
 		{
 			gun->m_internalX = Math::clamp(gun->mX + rawMouse.lLastX, -1, rectClient.right - rectClient.left + 1);
 			gun->m_internalY = Math::clamp(gun->mY + rawMouse.lLastY, -1, rectClient.bottom - rectClient.top + 1);
-			gun->m_lastTick = GetTickCount();
+			gun->m_lastTick = SDL_GetTicks();
 		}
 	}
 
@@ -442,7 +454,7 @@ void GunManager::WindowsMessageHook(void* userdata, void* hWnd, unsigned int mes
 		if (buttonState != gun->m_internalButtonState)
 		{
 			gun->m_internalButtonState = buttonState;
-			gun->m_lastTick = GetTickCount();
+			gun->m_lastTick = SDL_GetTicks();
 		}
 	}
 }
@@ -566,6 +578,7 @@ void GunManager::updateGuns(Window* window)
 				newgun->mPath = devicePath;
 				newgun->mNeedBorders = gunType == LightGunType::SindenLightgun;
 				newgun->m_isMouse = gunType == LightGunType::Mouse;
+				newgun->m_lastTick = SDL_GetTicks();
 
 				if (newgun->m_isMouse)
 				{
@@ -608,6 +621,8 @@ void GunManager::updateGuns(Window* window)
 			newgun->mIndex = mGuns.size();
 			newgun->mName = WIIMOTE_GUN;
 			newgun->m_isMouse = false;
+			newgun->m_lastTick = SDL_GetTicks();
+
 			mGuns.push_back(newgun);
 
 			if (window != NULL)
@@ -747,15 +762,25 @@ bool GunManager::updateGunPosition(Gun* gun)
 #ifdef HAVE_UDEV
 	struct input_absinfo absinfo;
 
+	float x = gun->mX;
+	float y = gun->mY;
+
 	if (ioctl(gun->fd, EVIOCGABS(ABS_X), &absinfo) == -1) 
 		return false;
 
-	gun->mX = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
+	x = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
 
 	if (ioctl(gun->fd, EVIOCGABS(ABS_Y), &absinfo) == -1) 
 		return false;
 
-	gun->mY = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
+	y = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
+
+	if (x != gun->mX || y != gun->mY)
+	{
+		gun->mX = x;
+		gun->mY = y;
+		gun->m_lastTick = SDL_GetTicks();
+	}
 
 	return true;
 #else
@@ -861,6 +886,7 @@ bool GunManager::udev_addGun(struct udev_device *dev, Window* window, bool needG
 	newgun->dev = dev;
 	newgun->fd = fd;
 	newgun->mNeedBorders = needGunBorder;
+	newgun->m_lastTick = SDL_GetTicks();
 
 	if (!newgun->mName.empty() && window != NULL)
 		window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));

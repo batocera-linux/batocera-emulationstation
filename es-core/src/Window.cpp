@@ -799,10 +799,8 @@ void Window::render()
 					continue;
 				}
 
-#if WIN32
 				if (gun->isLastTickElapsed())
 					continue;
-#endif
 
 				int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
 
