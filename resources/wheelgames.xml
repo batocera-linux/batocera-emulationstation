@@ -115,7 +115,7 @@
   <system name="msx">
     <game>a1spirit</game>
   </system>
-  <system name="n64">
+  <system name="n64" wheel="joystick1left" accelerate="a" brake="b">
     <game>aerogauge</game>
     <game>automobililamborghini</game>
     <game>bettleadventureracing</game>
@@ -424,7 +424,7 @@
     <game>safarirace</game>
     <game>zippyrace</game>
   </system>
-  <system name="wii">
+  <system name="wii" wheel="joystick1left" accelerate="a" brake="b">
     <game>3dpixelracing</game>
     <game>actiongirlzracing</game>
     <game>atvquadkings</game>
