@@ -1,0 +1,55 @@
+name: Report a bug
+description: Report a bug and help us improve EmulationStation.
+body:
+  - type: markdown
+    attributes:
+      value: "## Welcome!"
+  - type: markdown
+    attributes:
+      value: |
+        Before you start, make sure your issue is related to EmulationStation.
+        If it's related to the operating system (linux), the hardware, or games, you're not in the good repository.
+        For Batocera specific issues, post in batocera-linux/batocera.linux repository.
+        For Retobat specific issues, post in RetroBat-Official/retrobat-setup repository.
+  - type: dropdown
+    id: project
+    attributes:
+      label: Concerned project
+      description: Does it concerns Batocera, Retrobat or another projet ?
+      options:
+        - Batocera
+        - Retrobat
+        - Both
+        - Standalone emulationstation
+        - Another project        
+    validations:
+      required: true        
+  - type: input
+    id: version
+    attributes:
+      label: Distribution Version
+      description: Version tested.      
+    validations:
+      required: false
+  - type: input
+    id: arch
+    attributes:
+      label: Architecture
+      description: Architecture for Batocera, or Windows version for Retrobat
+      placeholder: Windows 10, Windows 11, Rasperry Pi 4 B, PC, Steam Deck, Odroid C4, Orange Pi 5, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue description
+      description: A precise explanation of the issue. 
+    validations:
+      required: true
+  - type: textarea
+    id: logs_and_data
+    attributes:
+      label: Logs and data
+      description: Provide all the relevant logs (es_log.txt) or files.      
+    validations:
+      required: false
