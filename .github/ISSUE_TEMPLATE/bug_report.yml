@@ -3,14 +3,11 @@ description: Report a bug and help us improve EmulationStation.
 body:
   - type: markdown
     attributes:
-      value: "## Welcome!"
-  - type: markdown
-    attributes:
       value: |
         Before you start, make sure your issue is related to EmulationStation.
         If it's related to the operating system (linux), the hardware, or games, you're not in the good repository.
-        For Batocera specific issues, post in batocera-linux/batocera.linux repository.
-        For Retobat specific issues, post in RetroBat-Official/retrobat-setup repository.
+        For Batocera specific issues, post in https://github.com/batocera-linux/batocera.linux/issues repository.
+        For Retobat specific issues, post in https://github.com/RetroBat-Official/retrobat-setup/issues repository.
   - type: dropdown
     id: project
     attributes:
@@ -21,7 +18,7 @@ body:
         - Retrobat
         - Both
         - Standalone emulationstation
-        - Another project        
+        - Another project (specify in Distribution version)
     validations:
       required: true        
   - type: input
@@ -29,6 +26,7 @@ body:
     attributes:
       label: Distribution Version
       description: Version tested.      
+      placeholder: Batocera V38, Retrobat V6, etc...
     validations:
       required: false
   - type: input
