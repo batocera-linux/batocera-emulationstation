@@ -12,6 +12,8 @@
 #include <thread>
 #include <condition_variable>
 #include <pulse/pulseaudio.h>
+#include "utils/StringUtil.h"
+#include "SystemConf.h"
 
 class PulseAudioControl
 {
@@ -25,7 +27,9 @@ public:
 
 	  	mReady   = 0;
 		mMute    = 0;
-		mVolume  = 100;
+
+		std::string volume = SystemConf::getInstance()->get("audio.volume");
+		mVolume = !volume.empty() ? Utils::String::toInteger(volume) : 100;
 
 		mThread = new std::thread(&PulseAudioControl::run, this);
 		WaitEvent();
