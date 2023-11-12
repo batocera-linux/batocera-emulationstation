@@ -5,6 +5,8 @@
 #include "utils/StringUtil.h"
 #include "utils/HtmlColor.h"
 
+#include <set>
+
 namespace Renderer
 {
 	std::string SHADER_VERSION_STRING;
@@ -182,6 +184,20 @@ namespace Renderer
 		return false;
 	}
 
+	static std::set<std::string> builtInUniforms =
+	{
+		"MVPMatrix", 
+		"VertexCoord", "positionVertex", 
+		"TexCoord", "texCoordVertex", 
+		"COLOR", "colorVertex", 
+		"TextureSize", "textureSize", 
+		"OutputSize", "outputSize", 
+		"InputSize", "inputSize", 
+		"Resolution", "resolution", 
+		"saturation", 
+		"u_tex", "textureSampler", "Texture"
+	};
+
 	void ShaderProgram::findAttribsAndUniforms()
 	{
 		// Matrix
@@ -225,11 +241,40 @@ namespace Renderer
 		if (texUniform == -1)
 			texUniform = glGetUniformLocation(mId, "Texture");
 		
+		GLint numUniforms = 0;
+		glGetProgramiv(mId, GL_ACTIVE_UNIFORMS, &numUniforms);
+
+		for (int i = 0; i < numUniforms; ++i) 
+		{
+			GLenum type;
+			GLsizei length;
+			GLint size;
+
+			char buffer[256];
+			glGetActiveUniform(mId, i, (GLsizei)sizeof(buffer), &length, &size, &type, buffer);			
+
+			std::string uniformName = buffer;
+			if (builtInUniforms.find(uniformName) != builtInUniforms.cend())
+				continue;
+
+			UniformInfo info;
+			info.location = i;
+			info.type = type;
+
+			mCustomUniforms[uniformName] = info;
+		}
+
 		if (texUniform != -1)
 		{
 			GL_CHECK_ERROR(glUseProgram(mId));
 			GL_CHECK_ERROR(glUniform1i(texUniform, 0));
 		}
+	}
+
+	void ShaderProgram::setMatrix(Transform4x4f& mvpMatrix)
+	{
+		if (mvpUniform != -1 && mvpUniform != GL_INVALID_VALUE && mvpUniform != GL_INVALID_OPERATION)
+			GL_CHECK_ERROR(glUniformMatrix4fv(mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 	}
 
 	void ShaderProgram::setSaturation(GLfloat saturation)
@@ -244,16 +289,16 @@ namespace Renderer
 			GL_CHECK_ERROR(glUniform2f(mTextureSize, size.x(), size.y()));
 	}
 	
-	void ShaderProgram::setOutputSize(const Vector2f& size)
-	{
-		if (mOutputSize != -1)
-			GL_CHECK_ERROR(glUniform2f(mOutputSize, size.x(), size.y()));
-	}
-
 	void ShaderProgram::setInputSize(const Vector2f& size)
 	{
 		if (mInputSize != -1)
 			GL_CHECK_ERROR(glUniform2f(mInputSize, size.x(), size.y()));
+	}
+
+	void ShaderProgram::setOutputSize(const Vector2f& size)
+	{
+		if (mOutputSize != -1)
+			GL_CHECK_ERROR(glUniform2f(mOutputSize, size.x(), size.y()));
 	}
 
 	void ShaderProgram::setResolution()
@@ -262,35 +307,44 @@ namespace Renderer
 			GL_CHECK_ERROR(glUniform2f(mResolution, getScreenWidth(), getScreenHeight()));
 	}
 
-
-	void ShaderProgram::setUniformFloat(const std::string& name, const GLfloat& value)
+	void ShaderProgram::setCustomUniformsParameters(const std::map<std::string, std::string>& parameters)
 	{
-		GLint location = glGetUniformLocation(mId, name.c_str());
-		if (location != -1)
-			GL_CHECK_ERROR(glUniform1f(location, value));
-	}
+		// Reset values of custom uniforms that are not present in the parameters
+		for (auto item : mCustomUniforms)
+		{
+			if (parameters.find(item.first) != parameters.cend())
+				continue;
 
-	void ShaderProgram::setUniformVector2f(const std::string& name, const Vector2f& value)
-	{
-		GLint location = glGetUniformLocation(mId, name.c_str());
-		if (location != -1)
-			GL_CHECK_ERROR(glUniform2f(location, value.x(), value.y()));
+			switch (item.second.type)
+			{
+			case GL_INT:
+				glUniform1i(item.second.location, 0);
+				break;
+			case GL_FLOAT:
+				glUniform1f(item.second.location, 0.0f);
+				break;
+			case GL_FLOAT_VEC2:
+				glUniform2f(item.second.location, 0.0f, 0.0f);
+				break;
+			case GL_FLOAT_VEC4:
+				glUniform4f(item.second.location, 0.0f, 0.0f, 0.0f, 0.0f);
+				break;
+			}
+		}
+
+		for (auto param : parameters)
+			setUniformEx(param.first, param.second);
 	}
 
 	void ShaderProgram::setUniformEx(const std::string& name, const std::string value)
 	{
-		GLint location = glGetUniformLocation(mId, name.c_str());
-		if (location == -1)
+		auto it = mCustomUniforms.find(name);
+		if (it == mCustomUniforms.cend())
 			return;
 
-		GLsizei length;
-		GLint size;
-		GLenum type;
+		GLint location = it->second.location;
 
-		char buffer[64];
-		glGetActiveUniform(mId, location, (GLsizei)sizeof(buffer), &length, &size, &type, buffer);
-
-		switch (type)
+		switch (it->second.type)
 		{
 		case GL_INT:
 			glUniform1i(location, Utils::String::toInteger(value));
@@ -328,12 +382,6 @@ namespace Renderer
 		}
 		break;
 		}
-	}
-
-	void ShaderProgram::setMatrix(Transform4x4f& mvpMatrix)
-	{
-		if (mvpUniform != -1 && mvpUniform != GL_INVALID_VALUE && mvpUniform != GL_INVALID_OPERATION)
-			GL_CHECK_ERROR(glUniformMatrix4fv(mvpUniform, 1, GL_FALSE, (float*)&mvpMatrix));
 	}
 
 	void ShaderProgram::select()

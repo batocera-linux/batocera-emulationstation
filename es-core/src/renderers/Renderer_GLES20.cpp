@@ -840,12 +840,7 @@ namespace Renderer
 				}
 
 				if (_vertices->customShader != nullptr && !_vertices->customShader->path.empty())
-				{
-					for (auto param : _vertices->customShader->parameters)
-						shader->setUniformEx(param.first, param.second);
-				}
-
-				shader->setResolution();
+					shader->setCustomUniformsParameters(_vertices->customShader->parameters);
 			}
 		}
 		else
@@ -1207,12 +1202,13 @@ namespace Renderer
 				customShader->setResolution();
 
 				// Parameters in the glslp
-				for (auto param : shaderBatch->parameters)
-					customShader->setUniformEx(param.first, param.second);
+				std::map<std::string, std::string> params = shaderBatch->parameters;
 
 				// Parameters in the theme
-				for (auto param : parameters)
-					customShader->setUniformEx(param.first, param.second);
+				for (const auto& entry : parameters)
+					params[entry.first] = entry.second;
+				
+				customShader->setCustomUniformsParameters(params);
 
 				glEnable(GL_BLEND);
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 namespace Renderer
 {
@@ -51,15 +52,15 @@ namespace Renderer
 		void setOutputSize(const Vector2f& size);
 		void setResolution();
 
-		void setUniformFloat(const std::string& name, const GLfloat& value);
-		void setUniformVector2f(const std::string& name, const Vector2f& value);
-		void setUniformEx(const std::string& name, const std::string value);
+		void setCustomUniformsParameters(const std::map<std::string, std::string>& parameters);
 
 		bool supportsTextureSize() { return mTextureSize != -1; }
 
 		void deleteProgram();
 
 	private:
+		void setUniformEx(const std::string& name, const std::string value);
+
 		GLuint mId;
 		bool linkStatus;
 		GLint mPositionAttribute;
@@ -73,6 +74,13 @@ namespace Renderer
 		GLint mInputSize;
 		GLint mResolution;
 
+		struct UniformInfo
+		{
+			GLint location;
+			GLenum type;			
+		};
+
+		std::map<std::string, UniformInfo> mCustomUniforms;
 		std::vector<Shader> mAttachedShaders;
 
 	private:
