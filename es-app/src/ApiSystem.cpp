@@ -1962,6 +1962,15 @@ std::string ApiSystem::getRunningArchitecture()
 	return "";
 }
 
+std::string ApiSystem::getRunningBoard()
+{
+	auto res = executeEnumerationScript("cat /boot/boot/batocera.board");
+	if (res.size() > 0)
+		return res[0];
+
+	return "";
+}
+
 std::string ApiSystem::getHostsName()
 {
 	auto hostName = SystemConf::getInstance()->get("system.hostname");

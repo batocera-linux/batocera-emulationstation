@@ -229,6 +229,7 @@ public:
 	virtual std::vector<std::string> extractPdfImages(const std::string& fileName, int pageIndex = -1, int pageCount = 1, int quality = 0);
 
 	virtual std::string getRunningArchitecture();
+	virtual std::string getRunningBoard();
 
 	std::vector<PacmanPackage> getBatoceraStorePackages();
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
