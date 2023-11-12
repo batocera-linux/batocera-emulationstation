@@ -4,8 +4,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before you start, make sure your issue is related to EmulationStation.
-        If it's related to the operating system (linux), the hardware, or games, you're not in the good repository.
+        Please do not ask for help here, use Batocera and Retobat discord servers and forums instead.
+        Before you start, make sure your request is related to EmulationStation.        
+        If your request is related to the operating system (linux), a specific hardware device, or what happens with emulators / games, you're not in the good repository.
         For Batocera specific issues, post in https://github.com/batocera-linux/batocera.linux/issues repository.
         For Retobat specific issues, post in https://github.com/RetroBat-Official/retrobat-setup/issues repository.
   - type: dropdown

@@ -4,9 +4,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before you start, make sure your request is related to EmulationStation.
+        Please do not ask for help here, use Batocera and Retobat discord servers and forums instead.
+        Before you start, make sure your request is related to EmulationStation.        
         EmulationStation is common to Batocera and Retrobat. Feature request should apply to both projects.
-        If your request is related to the operating system (linux), a specific  hardware, or in emulator / games, you're not in the good repository.
+        If your request is related to the operating system (linux), a specific hardware device, or what happens with emulators / games, you're not in the good repository.
         For Batocera specific requests, post in https://github.com/batocera-linux/batocera.linux/issues repository.
         For Retobat specific requests, post in https://github.com/RetroBat-Official/retrobat-setup/issues repository.
   - type: textarea
