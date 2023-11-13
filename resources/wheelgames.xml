@@ -304,79 +304,79 @@
     <game>tnnmotorsportshardcore</game>
     <game>wrcfiaworldrallychampionship</game>
   </system>
-  <system name="psx">
+  <system name="psx" wheel="joystick1left" accelerate="cross" brake="square">
     <game>andrettiracing</game>
-    <game wheel="negcon">battlegear</game>
+    <game type="negcon">battlegear</game>
     <game>castrolhondasuperbike</game>
     <game>colinmcraerally</game>
-    <game wheel="negcon">crashteamracing</game>
+    <game type="negcon">crashteamracing</game>
     <game>demolitionracer</game>
-    <game wheel="negcon">destructionderby</game>
+    <game type="negcon">destructionderby</game>
     <game>driver</game>
     <game>dukesofhazzard</game>
     <game>f12000</game>
     <game>f1championship</game>
     <game>f1racingchampionship</game>
-    <game wheel="negcon">fordracing</game>
+    <game type="negcon">fordracing</game>
     <game>formula1</game>
     <game>formula198</game>
     <game>formula1championship</game>
-    <game wheel="negcon">formulakarts</game>
-    <game wheel="negcon">formulaone</game>
-    <game wheel="negcon">granturismo</game>
-    <game wheel="negcon">hardcore4x4</game>
+    <game type="negcon">formulakarts</game>
+    <game type="negcon">formulaone</game>
+    <game type="negcon">granturismo</game>
+    <game type="negcon">hardcore4x4</game>
     <game>internationalrallychampionship</game>
     <game>italianjob</game>
     <game>killerloop</game>
     <game>londonracer</game>
     <game>michaelschumacherracingworld</game>
     <game>michelinrallymasters</game>
-    <game wheel="negcon">millemigila</game>
+    <game type="negcon">millemigila</game>
     <game>mobil1rallychampionship</game>
     <game>monacograndprixracing</game>
     <game>motoracer</game>
     <game>motorhead</game>
-    <game wheel="negcon">motortoongrandprix</game>
-    <game wheel="negcon">nascar99</game>
+    <game type="negcon">motortoongrandprix</game>
+    <game type="negcon">nascar99</game>
     <game>nascar2000</game>
     <game>nascar2001</game>
     <game>nascar98</game>
     <game>nascar99</game>
     <game>nascarheat</game>
     <game>nascarracing</game>
-    <game wheel="negcon">nascarrumble</game>
+    <game type="negcon">nascarrumble</game>
     <game>nascarthunder</game>
-    <game wheel="negcon">needforspeed</game>
+    <game type="negcon">needforspeed</game>
     <game>newmanhaasracing</game>
     <game>parismarseilleracing</game>
-    <game wheel="negcon">peakperformance</game>
+    <game type="negcon">peakperformance</game>
     <game>porschechallenge</game>
-    <game wheel="negcon">r4ridgeracer</game>
-    <game wheel="negcon">rageracer</game>
-    <game wheel="negcon">rallycross</game>
-    <game wheel="negcon">rallydeafrica</game>
-    <game wheel="negcon">rallydeeurope</game>
-    <game wheel="negcon">raytracers</game>
+    <game type="negcon">r4ridgeracer</game>
+    <game type="negcon">rageracer</game>
+    <game type="negcon">rallycross</game>
+    <game type="negcon">rallydeafrica</game>
+    <game type="negcon">rallydeeurope</game>
+    <game type="negcon">raytracers</game>
     <game>revolt</game>
-    <game wheel="negcon">rcrevenge</game>
-    <game wheel="negcon">ridgeracer</game>
+    <game type="negcon">rcrevenge</game>
+    <game type="negcon">ridgeracer</game>
     <game>roadsters</game>
     <game>rollcage</game>
     <game>rushhour</game>
-    <game wheel="negcon">sidebysidespecial</game>
+    <game type="negcon">sidebysidespecial</game>
     <game>taxi2</game>
     <game>testdrive</game>
     <game>toca2</game>
-    <game wheel="negcon">tocatouringcarchampionship</game>
+    <game type="negcon">tocatouringcarchampionship</game>
     <game>tokyohighwaybattle</game>
-    <game wheel="negcon">tougemaxg</game>
+    <game type="negcon">tougemaxg</game>
     <game>tnnmotorsportshardcore</game>
-    <game wheel="negcon">twistedmetaliii</game>
+    <game type="negcon">twistedmetaliii</game>
     <game>vanishingpoint</game>
-    <game wheel="negcon">vrally</game>
+    <game type="negcon">vrally</game>
     <game>waltdisneyworldquestmagicalracingtour</game>
     <game>warmup</game>
-    <game wheel="negcon">wipeout</game>
+    <game type="negcon">wipeout</game>
   </system>
   <system name="saturn">
     <game>andrettiracing</game>
