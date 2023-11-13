@@ -557,7 +557,7 @@ void GuiMenu::openDeveloperSettings()
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
 		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
 	
-	s->addEntry(_("CLEAN GAMELISTS & REMOVE UNUSED MEDIA"), true, [this, s]
+	s->addWithDescription(_("CLEAN GAMELISTS & REMOVE UNUSED MEDIA"), _("Remove unused entries, and clean references to missing medias."), nullptr, [this, s]
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE?"), _("YES"), [&]
 		{
@@ -573,59 +573,26 @@ void GuiMenu::openDeveloperSettings()
 		}, _("NO"), nullptr));
 	});
 
-	s->addEntry(_("CLEAR CACHES"), true, [this, s]
-	{
-		ImageIO::clearImageCache();
-
-		auto rootPath = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath());
-
-		Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
-		Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getTempPath());
-		Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getPdfTempPath());
-
-		ViewController::reloadAllGames(mWindow, false);
-	});
-
-	s->addEntry(_("BUILD IMAGE CACHE"), true, [this, s]
-	{
-		unsigned int x;
-		unsigned int y;
-
-		int idx = 0;
-		for (auto sys : SystemData::sSystemVector)
+	s->addWithDescription(_("RESET GAMELISTS USAGE DATA"), _("Reset values of GameTime, PlayCount and LastPlayed metadatas."), nullptr, [this, s]
 		{
-			if (sys->isCollection())
-			{
-				idx++;
-				continue;
-			}
-
-			mWindow->renderSplashScreen(_("Building image cache") + ": " + sys->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
-
-			for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
-			{
-				for (auto mdd : MetaDataList::getMDD())
+			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE?"), _("YES"), [&]
 				{
-					if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
-						continue;
+					int idx = 0;
+					for (auto system : SystemData::sSystemVector)
+					{
+						mWindow->renderSplashScreen(_("Cleaning") + ": " + system->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
+						resetGamelistUsageData(system);
+						idx++;
+					}
 
-					auto value = file->getMetadata(mdd.id);
-					if (value.empty())
-						continue;
+					mWindow->closeSplashScreen();
 
-					auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(value));
-					if (ext == ".jpg" || ext == ".png")
-						ImageIO::loadImageSize(value.c_str(), &x, &y);
-				}
-			}
+					ViewController::reloadAllGames(mWindow, false);
+				}, _("NO"), nullptr));
+		});
 
-			idx++;
-		}
-
-		mWindow->closeSplashScreen();
-	});
-
-	s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
+	s->addWithDescription(_("RESET FILE EXTENSIONS"), _("Reset customized file extensions filters to default."), nullptr, [this, s]
+	//s->addEntry(_("RESET FILE EXTENSIONS"), false, [this, s]
 	{
 		for (auto system : SystemData::sSystemVector)
 			Settings::getInstance()->setString(system->getName() + ".HiddenExt", "");
@@ -652,7 +619,59 @@ void GuiMenu::openDeveloperSettings()
 		}));
 	});
 
-	s->addEntry(_("FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_ALL , true); });
+	s->addEntry(_("FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"), false, [this] { ThreadedHasher::start(mWindow, ThreadedHasher::HASH_ALL, true); });
+
+	s->addEntry(_("CLEAR CACHES"), true, [this, s]
+		{
+			ImageIO::clearImageCache();
+
+			auto rootPath = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath());
+
+			Utils::FileSystem::deleteDirectoryFiles(rootPath + "/tmp/");
+			Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getTempPath());
+			Utils::FileSystem::deleteDirectoryFiles(Utils::FileSystem::getPdfTempPath());
+
+			ViewController::reloadAllGames(mWindow, false);
+		});
+
+	s->addEntry(_("BUILD IMAGE CACHE"), true, [this, s]
+		{
+			unsigned int x;
+			unsigned int y;
+
+			int idx = 0;
+			for (auto sys : SystemData::sSystemVector)
+			{
+				if (sys->isCollection())
+				{
+					idx++;
+					continue;
+				}
+
+				mWindow->renderSplashScreen(_("Building image cache") + ": " + sys->getFullName(), (float)idx / (float)SystemData::sSystemVector.size());
+
+				for (auto file : sys->getRootFolder()->getFilesRecursive(GAME))
+				{
+					for (auto mdd : MetaDataList::getMDD())
+					{
+						if (mdd.id != MetaDataId::Image && mdd.id != MetaDataId::Thumbnail)
+							continue;
+
+						auto value = file->getMetadata(mdd.id);
+						if (value.empty())
+							continue;
+
+						auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(value));
+						if (ext == ".jpg" || ext == ".png")
+							ImageIO::loadImageSize(value.c_str(), &x, &y);
+					}
+				}
+
+				idx++;
+			}
+
+			mWindow->closeSplashScreen();
+		});
 
 	s->addGroup(_("DATA MANAGEMENT"));
 
