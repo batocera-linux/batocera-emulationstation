@@ -458,6 +458,46 @@ void updateGamelist(SystemData* system)
 		clearTemporaryGamelistRecovery(system);
 }
 
+void resetGamelistUsageData(SystemData* system)
+{
+	if (!system->isGameSystem() || system->isCollection() || (!Settings::HiddenSystemsShowGames() && !system->isVisible())) //  || system->hasPlatformId(PlatformIds::IMAGEVIEWER)
+		return;
+
+	FolderData* rootFolder = system->getRootFolder();
+	if (rootFolder == nullptr)
+	{
+		LOG(LogError) << "resetGamelistUsageData : Found no root folder for system \"" << system->getName() << "\"!";
+		return;
+	}
+
+	std::stack<FolderData*> stack;
+	stack.push(rootFolder);
+
+	while (stack.size())
+	{
+		FolderData* current = stack.top();
+		stack.pop();
+
+		for (auto it : current->getChildren())
+		{
+			if (it->getType() == FOLDER)
+			{
+				stack.push((FolderData*)it);
+				continue;
+			}
+						
+			it->setMetadata(MetaDataId::GameTime, "");
+			it->setMetadata(MetaDataId::PlayCount, "");
+			it->setMetadata(MetaDataId::LastPlayed, "");
+		}
+	}
+
+
+	std::stack<FolderData*> folders;
+	folders.push(rootFolder);
+
+	// rootFolder->getChildren();
+}
 
 void cleanupGamelist(SystemData* system)
 {

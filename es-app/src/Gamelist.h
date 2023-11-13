@@ -16,6 +16,7 @@ void parseGamelist(SystemData* system, std::unordered_map<std::string, FileData*
 // Writes currently loaded metadata for a SystemData to gamelist.xml.
 void updateGamelist(SystemData* system);
 void cleanupGamelist(SystemData* system);
+void resetGamelistUsageData(SystemData* system);
 
 bool saveToGamelistRecovery(FileData* file);
 bool removeFromGamelistRecovery(FileData* file);
