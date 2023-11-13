@@ -20,7 +20,7 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
-	, filterByLightGun(false), filterByWheel(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false)
+	, filterByLightGun(false), filterByWheel(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -41,7 +41,8 @@ FileFilterIndex::FileFilterIndex()
 		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") },
 		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") },
 		{ WHEEL_FILTER, 	&wheelIndexAllKeys,     &filterByWheel,	    &wheelIndexFilteredKeys,    "wheel",		false,				"",				_("STEERING WHEEL") },
-		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAS MEDIAS") }
+		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAVING MEDIAS") },
+		{ MISSING_MEDIA_FILTER, &missingMediasIndexAllKeys, &filterByMissingMedia, &missingMediaIndexFilteredKeys, "missingMedia",		false,				"",				_("MISSING MEDIAS") }
 	};
 
 	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
@@ -115,7 +116,8 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) },
 		{ &lightGunIndexAllKeys, &(indexToImport->lightGunIndexAllKeys) },
 		{ &wheelIndexAllKeys, &(indexToImport->wheelIndexAllKeys) },
-		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) }
+		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) },
+		{ &missingMediasIndexAllKeys, &(indexToImport->missingMediasIndexAllKeys) }
 	};
 
 	std::vector<IndexImportStructure> indexImportDecl = std::vector<IndexImportStructure>(indexStructDecls, indexStructDecls + sizeof(indexStructDecls) / sizeof(indexStructDecls[0]));
@@ -160,6 +162,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(lightGunIndexAllKeys);
 	clearIndex(wheelIndexAllKeys);
 	clearIndex(hasMediasIndexAllKeys);
+	clearIndex(missingMediasIndexAllKeys);
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
@@ -181,10 +184,41 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&wheelIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&wheelIndexAllKeys, "TRUE", false);
-
-	manageIndexEntry(&hasMediasIndexAllKeys, "FALSE", false);
-	manageIndexEntry(&hasMediasIndexAllKeys, "TRUE", false);
 	
+//	manageIndexEntry(&hasMediasIndexAllKeys, "any", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "image", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "video", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "marquee", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "thumbnail", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "fanart", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "titleshot", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "manual", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "magazine", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "map", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "bezel", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "cartridge", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "boxart", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "boxback", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "wheel", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "mix", false);
+	
+//	manageIndexEntry(&missingMediasIndexAllKeys, "all", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "image", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "video", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "marquee", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "thumbnail", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "fanart", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "titleshot", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "manual", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "magazine", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "map", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "bezel", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "cartridge", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "boxart", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "boxback", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "wheel", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "mix", false);
+
 	manageIndexEntry(&ratingsIndexAllKeys, "1 STAR", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "2 STARS", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "3 STARS", false);
@@ -315,7 +349,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 
 		return game->hasCheevos() ? "TRUE" : "FALSE";		
 	}
-
+/*
 	case HASMEDIA_FILTER:
 	{
 		if (getSecondary)
@@ -325,7 +359,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->hasAnyMedia() ? "TRUE" : "FALSE";
-	}
+	}*/
 
 	case LIGHTGUN_FILTER:
 	{
@@ -756,7 +790,59 @@ int FileFilterIndex::showFile(FileData* game)
 
 		bool filterValid = false;
 
-		if (filterData.type == GENRE_FILTER)
+		if (filterData.type == HASMEDIA_FILTER)
+		{
+			auto it = mFilterDecl.find(HASMEDIA_FILTER);
+			if (it == mFilterDecl.cend())
+				break;
+
+			auto keys = it->second.currentFilteredKeys;
+			if (keys == nullptr)
+				break;
+
+			for (auto it : *keys)			
+			{
+				if (it == "FALSE" || it == "TRUE") // Here for Retrocompatibility
+				{
+					if (game->hasAnyMedia() == (it == "TRUE"))
+					{
+						filterValid = true;
+						break;
+					}
+				}				
+				else 
+				{
+					std::string path = game->getMetadata().get(it);
+					if (!path.empty() && Utils::FileSystem::exists(path))
+					{
+						filterValid = true;
+						break;
+					}
+				}
+
+			}
+		}
+		else if (filterData.type == MISSING_MEDIA_FILTER)
+		{
+			auto it = mFilterDecl.find(MISSING_MEDIA_FILTER);
+			if (it == mFilterDecl.cend())
+				break;
+
+			auto keys = it->second.currentFilteredKeys;
+			if (keys == nullptr)
+				break;
+
+			for (auto it : *keys)
+			{
+				std::string path = game->getMetadata().get(it);
+				if (path.empty() || !Utils::FileSystem::exists(path))
+				{
+					filterValid = true;
+					break;
+				}
+			}
+		}
+		else if (filterData.type == GENRE_FILTER)
 		{
 			for (auto val : Genres::getGenreFiltersNames(&game->getMetadata()))
 			{
@@ -1078,6 +1164,8 @@ bool CollectionFilter::load(const std::string file)
 			wheelIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "hasMedia")
 			hasMediaIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "missingMedia")
+			missingMediaIndexFilteredKeys.insert(node.text().as_string());
 	}
 
 	for (auto& it : mFilterDecl)
@@ -1153,6 +1241,9 @@ bool CollectionFilter::save()
 	for (auto key : hasMediaIndexFilteredKeys)
 		root.append_child("hasMedia").text().set(key.c_str());
 		
+	for (auto key : missingMediaIndexFilteredKeys)
+		root.append_child("missingMedia").text().set(key.c_str());
+
 	if (!doc.save_file(WINSTRINGW(mPath).c_str()))
 	{
 		LOG(LogError) << "Error saving CollectionFilter to \"" << mPath << "\" !";
