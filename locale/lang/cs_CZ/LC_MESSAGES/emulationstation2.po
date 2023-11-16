@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "hry se světelnou pistolí"
 
 msgid "wheel games"
-msgstr ""
+msgstr "kolové hry"
 
 msgid "collections"
 msgstr "sbírky"
@@ -815,14 +815,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "NASTAVENÍ HER.OVLADAČE A BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "PRIORITA OVLADAČŮ"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "PŘIDĚLENÍ HRÁČŮ"
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "OVLADAČ #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -1714,7 +1714,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ZADEJTE KÓD A ODEMKNĚTE"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "SLUŽBY"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "MOŽNOSTI FRONTENDOVÉHO VÝVOJÁŘE"
@@ -1741,7 +1741,7 @@ msgid "VIDEO MODE"
 msgstr "REŽIM VIDEA"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Nastaví rozlišení displeje pro emulační stanici."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "POUŽITÍ PŘEHRÁVAČE OMX (HARDWAROVÁ AKCELERACE)"
@@ -2210,7 +2210,7 @@ msgid "SHADER SET"
 msgstr "SADA SHADERU"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "FILTR VIDEA"
 
 msgid "DECORATIONS"
 msgstr "DEKORACE"
@@ -2525,10 +2525,10 @@ msgid "VIEW USER MANUAL"
 msgstr "ZOBRAZIT UŽIVATELSKÝ MANUÁL"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "ZAKÁZAT REŽIM LETADLA"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "POVOLIT REŽIM LETADLA"
 
 msgid "RESTART SYSTEM"
 msgstr "RESTARTOVAT"
@@ -2784,7 +2784,7 @@ msgid "FAVORITE"
 msgstr "OBLÍBENÉ"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "NEPLATNÝ OBSAH"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2986,7 +2986,7 @@ msgid "LIGHTGUN"
 msgstr "SVĚTELNÁ ZBRAŇ"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "ŘÍDICÍ KOLO"
 
 msgid "HAS MEDIAS"
 msgstr "MOJE MÉDIA"
