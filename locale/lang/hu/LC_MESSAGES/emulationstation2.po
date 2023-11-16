@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-11-06 10:04+0100\n"
+"PO-Revision-Date: 2023-11-16 09:41+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -967,7 +967,7 @@ msgid "RECOIL"
 msgstr "VISSZARUGÁS"
 
 msgid "DISABLED"
-msgstr "LETÍLTVA"
+msgstr "LETILTVA"
 
 msgid "GUN"
 msgstr "FEGYVER"
@@ -1089,7 +1089,7 @@ msgid "VIDEO DURATION (SECS)"
 msgstr "VIDEÓ IDŐTARTAMA (MP)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "OMX LEJÁTSZÓ HAZSNÁLATA KÉPERNYŐVÉDŐNEK"
+msgstr "OMX LEJÁTSZÓ HASZNÁLATA KÉPERNYŐVÉDŐNEK"
 
 msgid "SHOW GAME INFO"
 msgstr "JÁTÉK INFORMÁCIÓK MEGJELENÍTÉSE"
@@ -1923,7 +1923,7 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "VRAM HASZNÁLAT OPTIMIZÁLÁSA"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
-msgstr "VIDO VRAM HASZNÁLAT OPTIMIZÁLÁSA"
+msgstr "VIDEO VRAM HASZNÁLAT OPTIMIZÁLÁSA"
 
 msgid "DOWNLOADS"
 msgstr "LETÖLTÉSEK"
@@ -2393,7 +2393,7 @@ msgid "SHOW REGION FLAG"
 msgstr "NYELVI ZÁSZLÓK MEGJELENÍTÉSE A LISTÁKBAN"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "MENTIS ÁLLAPOTOK MEGJELENÍTÉSE A LISTÁKBAN"
+msgstr "MENTÉS ÁLLAPOTOK MEGJELENÍTÉSE A LISTÁKBAN"
 
 msgid "SHOW MANUAL ICON"
 msgstr "KÉZIKÖNYV IKON MEGJELENÍTÉSE A LISTÁKBAN"
@@ -2919,7 +2919,7 @@ msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "MEGJELENÉSI DÁTUM, RENDSZER, CSÖKKENŐ SORREND"
 
 msgid "A,AN,THE"
-msgstr "A,AN,THE"
+msgstr "A,AZ,EZ"
 
 msgid "Extracting"
 msgstr "Kitömörítés"
@@ -3012,7 +3012,7 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
-"PUSKA KALIBRÁCIÓ\n"
+"FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
 
 #, c-format
