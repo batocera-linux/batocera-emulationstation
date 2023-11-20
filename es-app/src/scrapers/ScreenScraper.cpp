@@ -184,7 +184,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ CAMPUTER_LYNX, 88 },
 	{ EPOCH_GAMEPOCKET, 95 },
 	{ WASM4, 262 },
-	{ GAMATE, 266 }
+	{ GAMATE, 266 },
+	{ ARDUBOY, 263 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()
