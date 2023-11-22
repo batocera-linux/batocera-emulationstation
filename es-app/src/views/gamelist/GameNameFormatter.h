@@ -27,6 +27,7 @@ private:
 	bool mShowSaveStates;
 
 	bool mShowGunIcon;
+  	bool mShowWheelIcon;
 
 	int mShowFlags;
 };

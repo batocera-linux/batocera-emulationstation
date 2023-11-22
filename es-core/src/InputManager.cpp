@@ -611,23 +611,44 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	case SDL_JOYDEVICEADDED:
 		{
 			std::string addedDeviceName;
+			bool isWheel = false;
 			auto id = SDL_JoystickGetDeviceInstanceID(ev.jdevice.which);
 			auto it = std::find_if(mInputConfigs.cbegin(), mInputConfigs.cend(), [id](const std::pair<SDL_JoystickID, InputConfig*> & t) { return t.second != nullptr && t.second->getDeviceId() == id; });
 			if (it == mInputConfigs.cend())
 				addedDeviceName = SDL_JoystickNameForIndex(ev.jdevice.which);
-			
+
+#ifdef HAVE_UDEV
+#if BATOCERA
+                        SDL_Joystick* joy = SDL_JoystickOpen(ev.jdevice.which);
+		        if (joy != nullptr) {
+                          SDL_JoystickID joyId = SDL_JoystickInstanceID(joy);
+                          isWheel = InputConfig::isWheel(SDL_JoystickDevicePathById(joyId));
+                          SDL_JoystickClose(joy);
+			}
+#endif
+#endif
 			rebuildAllJoysticks();
 
-			if (!addedDeviceName.empty())
-				window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(addedDeviceName).c_str()));
+			if (!addedDeviceName.empty()) {
+			  if(isWheel) {
+			    window->displayNotificationMessage(_U("\uF1B9 ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(addedDeviceName).c_str()));
+			  } else {
+			    window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(addedDeviceName).c_str()));
+			  }
+			}
 		}
 		return true;
 
 	case SDL_JOYDEVICEREMOVED:
 		{
 			auto it = mInputConfigs.find(ev.jdevice.which);
-			if (it != mInputConfigs.cend() && it->second != nullptr)
-				window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(it->second->getDeviceName()).c_str()));
+			if (it != mInputConfigs.cend() && it->second != nullptr) {
+			  if(it->second->isWheel()) {
+			    window->displayNotificationMessage(_U("\uF1B9 ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(it->second->getDeviceName()).c_str()));
+			  } else {
+			    window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(it->second->getDeviceName()).c_str()));
+			  }
+			}
 	
 			rebuildAllJoysticks();
 		}

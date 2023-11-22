@@ -18,6 +18,7 @@
 #define MANUAL		_U("\uF02D")
 
 #define GUN			_U("\uF05B")
+#define WHEEL			_U("\uF1B9")
 
 #define RATINGSTAR _U("\uF005")
 #define SEPARATOR_BEFORE "["
@@ -69,6 +70,7 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 	mShowSaveStates = system->getBoolSetting("ShowSaveStates");
 
 	mShowGunIcon = system->getName() != "lightgun";
+	mShowWheelIcon = system->getName() != "wheel";
 
 	mShowFlags = system->getShowFlags();
 
@@ -194,6 +196,9 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 
 	if (mShowGunIcon && fd->getSourceFileData()->isLightGunGame())
 		after.push_back(GUN);
+
+	if (mShowWheelIcon && fd->getSourceFileData()->isWheelGame())
+		after.push_back(WHEEL);
 
 	if (mShowCheevosIcon && fd->hasCheevos())
 		after.push_back(CHEEVOSICON);

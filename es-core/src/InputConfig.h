@@ -165,12 +165,12 @@ private:
 	int mBatteryLevel;
 	bool mIsWheel;
 
+public:
+	static void AssignActionButtons();
 #ifdef HAVE_UDEV
 	static bool isWheel(const std::string path);
 #endif
 
-public:
-	static void AssignActionButtons();
 };
 
 #endif // ES_CORE_INPUT_CONFIG_H
