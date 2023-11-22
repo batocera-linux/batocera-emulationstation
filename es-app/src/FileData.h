@@ -11,6 +11,7 @@
 #include "KeyboardMapping.h"
 #include "SystemData.h"
 #include "SaveState.h"
+#include "BindingManager.h"
 
 class Window;
 struct SystemEnvironmentData;
@@ -71,7 +72,7 @@ struct LaunchGameOptions
 class FolderData;
 
 // A tree node that holds information for a file.
-class FileData : public IKeyboardMapContainer
+class FileData : public IKeyboardMapContainer, public IBindable
 {
 public:
 	FileData(FileType type, const std::string& path, SystemData* system);
@@ -175,7 +176,10 @@ public:
 
 	std::pair<int, int> parsePlayersRange();
 
-	std::string getProperty(const std::string& name);
+	// IBindable
+	BindableProperty getProperty(const std::string& name) override;
+	std::string getBindableTypeName()  override { return "game"; }
+	IBindable*  getBindableParent() override;
 
 private:
 	std::string getKeyboardMappingFilePath();

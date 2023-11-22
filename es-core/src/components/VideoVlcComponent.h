@@ -4,6 +4,7 @@
 
 #include "VideoComponent.h"
 #include "ThemeData.h"
+#include "renderers/Renderer.h"
 #include <mutex>
 
 struct libvlc_instance_t;
@@ -92,6 +93,12 @@ public:
 
 	void setSaturation(float saturation);
 
+	void setRoundCorners(float value) override;
+	void onSizeChanged() override;
+	void onPaddingChanged() override;
+	
+	Vector2f getSize() const override;
+
 private:
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
 	// Used internally whenever the resizing parameters or texture change.
@@ -114,6 +121,8 @@ private:
 	void freeContext();
 
 private:
+	void crop(float left, float top, float right, float bot);
+
 	static libvlc_instance_t*		mVLC;
 	libvlc_media_t*					mMedia;
 	libvlc_media_player_t*			mMediaPlayer;
@@ -134,6 +143,16 @@ private:
 
 	bool							mLinearSmooth;
 	float							mSaturation;
+
+	void updateVertices();
+	void updateColors();
+	void updateRoundCorners();
+	
+	Renderer::Vertex				mVertices[4];
+	std::vector<Renderer::Vertex>	mRoundCornerStencil;
+
+	Vector2f mTopLeftCrop;
+	Vector2f mBottomRightCrop;
 };
 
 #endif // ES_CORE_COMPONENTS_VIDEO_VLC_COMPONENT_H

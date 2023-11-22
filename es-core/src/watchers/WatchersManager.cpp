@@ -18,6 +18,15 @@ WatchersManager* WatchersManager::getInstance()
 	return mInstance;
 }
 
+void WatchersManager::stop()
+{
+	if (mInstance != nullptr)
+	{
+		delete mInstance;
+		mInstance = nullptr;
+	}
+}
+
 WatchersManager::WatchersManager()
 {
 	LOG(LogDebug) << "WatchersManager : Starting";
@@ -101,18 +110,22 @@ WatchersManager::~WatchersManager()
 	
 	LOG(LogDebug) << "WatchersManager : Exit";
 
+	// Remove locks
+	{
+		std::unique_lock<std::mutex> lock(mWatchersLock);
+
+		for (auto comp : mWatchers)
+			delete comp;
+
+		mWatchers.clear();
+	}
+
 	mRunning = false;
 	mEvent.notify_all();
 
 	mThread->join();
 	delete mThread;
 	mThread = nullptr;	
-
-	for (auto comp : mWatchers)
-		UnregisterComponent(comp->component);
-
-	for (auto notif : mNotification)
-		UnregisterNotify(notif);
 }
 
 void WatchersManager::run()

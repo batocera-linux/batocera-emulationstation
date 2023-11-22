@@ -77,6 +77,8 @@ protected:
 	bool anyComponentHasStoryBoard();
 	bool anyComponentHasStoryBoardRunning();
 
+	void handleStoryBoard(GuiComponent* comp, bool activate, int moveBy, bool recursive = true);
+
 	ISimpleGameListView* mParent;
 	GuiComponent* mList;
 	Window* mWindow;

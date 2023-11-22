@@ -192,7 +192,7 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	}
 
 #ifdef WIN32
-	addEntry(_("QUIT").c_str(), !Settings::getInstance()->getBool("ShowOnlyExit"), [this] {openQuitMenu(); }, "iconQuit");
+	addEntry(_("QUIT"), !Settings::getInstance()->getBool("ShowOnlyExit") || !Settings::getInstance()->getBool("ShowExit"), [this] { openQuitMenu(); }, "iconQuit");
 #else
 	addEntry(_("QUIT").c_str(), true, [this] { openQuitMenu(); }, "iconQuit");
 #endif
@@ -2034,6 +2034,55 @@ void GuiMenu::openGamesSettings()
 	}
 	
 
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS) || (SystemData::isNetplayActivated() && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::NETPLAY)))
+		s->addGroup(_("ACCOUNTS"));
+
+	// Retroachievements
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS))
+		s->addEntry(_("RETROACHIEVEMENT SETTINGS"), true, [this] { openRetroachievementsSettings(); });
+
+	// Netplay
+	if (SystemData::isNetplayActivated() && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::NETPLAY))
+		s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
+
+	// Missing Bios
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
+	{
+		s->addGroup(_("BIOS SETTINGS"));
+		s->addEntry(_("MISSING BIOS CHECK"), true, [this, s] { openMissingBiosSettings(); });
+
+		auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
+		checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
+		s->addWithLabel(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
+		s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
+	}
+
+	// Custom config for systems
+	s->addGroup(_("SAVESTATES"));
+
+	// AUTO SAVE/LOAD
+	auto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);
+	autosave_enabled->setState(SystemConf::getInstance()->get("global.autosave") == "1");
+	s->addWithDescription(_("AUTO SAVE/LOAD"), _("Load latest savestate on game launch and savestate when exiting game."), autosave_enabled);
+	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getState() ? "1" : ""); });
+
+	// INCREMENTAL SAVESTATES
+	auto incrementalSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INCREMENTAL SAVESTATES"));
+	incrementalSaveStates->addRange({
+		{ _("INCREMENT PER SAVE"), _("Never overwrite old savestates, always make new ones."), "" }, // Don't use 1 -> 1 is YES, auto too
+		{ _("INCREMENT SLOT"), _("Increment slot on a new game."), "0" },
+		{ _("DO NOT INCREMENT"), _("Use current slot on a new game."), "2" } },
+		SystemConf::getInstance()->get("global.incrementalsavestates"));
+
+	s->addWithLabel(_("INCREMENTAL SAVESTATES"), incrementalSaveStates);
+	s->addSaveFunc([incrementalSaveStates] { SystemConf::getInstance()->set("global.incrementalsavestates", incrementalSaveStates->getSelected()); });
+
+	// SHOW SAVE STATES
+	auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVESTATE MANAGER"));
+	showSaveStates->addRange({ { _("NO"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get("global.savestates"));
+	s->addWithDescription(_("SHOW SAVESTATE MANAGER"), _("Display savestate manager before launching a game."), showSaveStates);
+	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
+
 	s->addGroup(_("DEFAULT GLOBAL SETTINGS"));
 
 	// Screen ratio choice
@@ -2287,80 +2336,34 @@ void GuiMenu::openGamesSettings()
 		s->addSaveFunc([autoControllers] { SystemConf::getInstance()->set("global.disableautocontrollers", autoControllers->getState() ? "" : "1"); });
 	}
 
-	// Custom config for systems
-	s->addGroup(_("SAVESTATES"));
-
-	// AUTO SAVE/LOAD
-	auto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);
-	autosave_enabled->setState(SystemConf::getInstance()->get("global.autosave") == "1");
-	s->addWithDescription(_("AUTO SAVE/LOAD"), _("Load latest savestate on game launch and savestate when exiting game."), autosave_enabled);
-	s->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set("global.autosave", autosave_enabled->getState() ? "1" : ""); });
-
-	// INCREMENTAL SAVESTATES
-	auto incrementalSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INCREMENTAL SAVESTATES"));
-	incrementalSaveStates->addRange({ 
-		{ _("INCREMENT PER SAVE"), _("Never overwrite old savestates, always make new ones."), "" }, // Don't use 1 -> 1 is YES, auto too
-		{ _("INCREMENT SLOT"), _("Increment slot on a new game."), "0" },
-		{ _("DO NOT INCREMENT"), _("Use current slot on a new game."), "2" } },
-		SystemConf::getInstance()->get("global.incrementalsavestates"));
-
-	s->addWithLabel(_("INCREMENTAL SAVESTATES"), incrementalSaveStates);
-	s->addSaveFunc([incrementalSaveStates] { SystemConf::getInstance()->set("global.incrementalsavestates", incrementalSaveStates->getSelected()); });
-	
-	// SHOW SAVE STATES
-	auto showSaveStates = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW SAVESTATE MANAGER"));
-	showSaveStates->addRange({ { _("NO"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get("global.savestates"));
-	s->addWithDescription(_("SHOW SAVESTATE MANAGER"), _("Display savestate manager before launching a game."), showSaveStates);
-	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
-
-
 	s->addGroup(_("SYSTEM SETTINGS"));
 
 	// Custom config for systems
 	s->addEntry(_("PER SYSTEM ADVANCED CONFIGURATION"), true, [this, s, window]
-	{
-		s->save();
-		GuiSettings* configuration = new GuiSettings(window, _("PER SYSTEM ADVANCED CONFIGURATION").c_str());
-
-		// For each activated system
-		std::vector<SystemData *> systems = SystemData::sSystemVector;
-		for (auto system : systems)
 		{
-			if (system->isCollection() || !system->isGameSystem())
-				continue;
+			s->save();
+			GuiSettings* configuration = new GuiSettings(window, _("PER SYSTEM ADVANCED CONFIGURATION").c_str());
 
-			if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
-				continue;
+			// For each activated system
+			std::vector<SystemData*> systems = SystemData::sSystemVector;
+			for (auto system : systems)
+			{
+				if (system->isCollection() || !system->isGameSystem())
+					continue;
 
-			if (!system->hasFeatures() && !system->hasEmulatorSelection())
-				continue;
+				if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE))
+					continue;
 
-			configuration->addEntry(system->getFullName(), true, [this, system, window] {
-				popSystemConfigurationGui(window, system);
-			});
-		}
+				if (!system->hasFeatures() && !system->hasEmulatorSelection())
+					continue;
 
-		window->pushGui(configuration);
-	});
+				configuration->addEntry(system->getFullName(), true, [this, system, window] {
+					popSystemConfigurationGui(window, system);
+					});
+			}
 
-	// Retroachievements
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS))
-		s->addEntry(_("RETROACHIEVEMENT SETTINGS"), true, [this] { openRetroachievementsSettings(); });
-
-	// Netplay
-	if (SystemData::isNetplayActivated() && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::NETPLAY))
-		s->addEntry(_("NETPLAY SETTINGS"), true, [this] { openNetplaySettings(); }, "iconNetplay");
-
-	// Missing Bios
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BIOSINFORMATION))
-	{
-		s->addEntry(_("MISSING BIOS CHECK"), true, [this, s] { openMissingBiosSettings(); });
-
-		auto checkBiosesAtLaunch = std::make_shared<SwitchComponent>(mWindow);
-		checkBiosesAtLaunch->setState(Settings::getInstance()->getBool("CheckBiosesAtLaunch"));
-		s->addWithLabel(_("CHECK BIOS FILES BEFORE RUNNING A GAME"), checkBiosesAtLaunch);
-		s->addSaveFunc([checkBiosesAtLaunch] { Settings::getInstance()->setBool("CheckBiosesAtLaunch", checkBiosesAtLaunch->getState()); });
-	}
+			window->pushGui(configuration);
+		});
 
 	mWindow->pushGui(s);
 }
@@ -3454,7 +3457,7 @@ void GuiMenu::openQuitMenu()
 void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool animate)
 {
 #ifdef WIN32
-	if (!quickAccessMenu && Settings::getInstance()->getBool("ShowOnlyExit"))
+	if (!quickAccessMenu && Settings::getInstance()->getBool("ShowOnlyExit") && Settings::getInstance()->getBool("ShowExit"))
 	{
 		Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 		return;

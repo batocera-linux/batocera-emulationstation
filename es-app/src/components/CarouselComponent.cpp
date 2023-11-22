@@ -654,57 +654,78 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 	if (entry.data.logo != nullptr)
 		return;
 
-	std::string marqueePath;
-
-	if (mImageSource == TITLESHOT && !entry.object->getMetadata(MetaDataId::TitleShot).empty())
-		marqueePath = entry.object->getMetadata(MetaDataId::TitleShot);
-	else if (mImageSource == BOXART && !entry.object->getMetadata(MetaDataId::BoxArt).empty())
-		marqueePath = entry.object->getMetadata(MetaDataId::BoxArt);
-	else if (mImageSource == MARQUEE && !entry.object->getMarqueePath().empty())
-		marqueePath = entry.object->getMarqueePath();
-	else if ((mImageSource == THUMBNAIL || mImageSource == BOXART) && !entry.object->getThumbnailPath().empty())
-		marqueePath = entry.object->getThumbnailPath();
-	else if ((mImageSource == IMAGE || mImageSource == TITLESHOT) && !entry.object->getImagePath().empty())
-		marqueePath = entry.object->getImagePath();
-	else if (mImageSource == FANART && !entry.object->getMetadata(MetaDataId::FanArt).empty())
-		marqueePath = entry.object->getMetadata(MetaDataId::FanArt);
-	else if (mImageSource == CARTRIDGE && !entry.object->getMetadata(MetaDataId::Cartridge).empty())
-		marqueePath = entry.object->getMetadata(MetaDataId::Cartridge);
-	else if (mImageSource == MIX && !entry.object->getMetadata(MetaDataId::Mix).empty())
-		marqueePath = entry.object->getMetadata(MetaDataId::Mix);
-	else
-		marqueePath = entry.object->getMarqueePath();
-
-	if (mImageSource != TEXT && Utils::FileSystem::exists(marqueePath))
-	{		
-		ImageComponent* logo = new ImageComponent(mWindow, false, true);
-		logo->setMaxSize(mLogoSize * mLogoScale);
-		logo->setIsLinear(true);
-		logo->applyTheme(mTheme, mThemeViewName, mThemeLogoName, ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
-		logo->setImage(marqueePath, false, MaxSizeInfo(mLogoSize * mLogoScale));
-
-		entry.data.logo = std::shared_ptr<GuiComponent>(logo);
-	}
-	else // no logo in theme; use text 
+	// itemTemplate
+	const ThemeData::ThemeElement* carouselElem = mTheme->getElement(mThemeViewName, mThemeElementName, mThemeClass);
+	if (carouselElem)
 	{
-		TextComponent* text = new TextComponent(mWindow, entry.name, Renderer::isSmallScreen() ? Font::get(FONT_SIZE_MEDIUM) : Font::get(FONT_SIZE_LARGE), 0x000000FF, ALIGN_CENTER);
-		text->setScaleOrigin(0.0f);
-		text->setSize(mLogoSize * mLogoScale);
-		text->applyTheme(mTheme, mThemeViewName, mThemeLogoTextName, ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
-
-		if (mType == VERTICAL || mType == VERTICAL_WHEEL)
+		auto itemTemplate = std::find_if(carouselElem->children.cbegin(), carouselElem->children.cend(), [](const std::pair<std::string, ThemeData::ThemeElement> ss) { return ss.first == "itemTemplate"; });
+		if (itemTemplate != carouselElem->children.cend())
 		{
-			text->setHorizontalAlignment(mLogoAlignment);
-			text->setVerticalAlignment(ALIGN_CENTER);
-		}
-		else
-		{
-			text->setHorizontalAlignment(ALIGN_CENTER);
-			text->setVerticalAlignment(mLogoAlignment);
-		}
+			CarouselItemTemplate* templ = new CarouselItemTemplate(mWindow);
+			templ->setScaleOrigin(0.0f);
+			templ->setSize(mLogoSize * mLogoScale);
+			templ->loadTemplatedChildren(&itemTemplate->second);
 
-		entry.data.logo = std::shared_ptr<GuiComponent>(text);
+			entry.data.logo = std::shared_ptr<GuiComponent>(templ);
+		}
 	}
+
+	if (!entry.data.logo)
+	{
+		std::string marqueePath;
+
+		if (mImageSource == TITLESHOT && !entry.object->getMetadata(MetaDataId::TitleShot).empty())
+			marqueePath = entry.object->getMetadata(MetaDataId::TitleShot);
+		else if (mImageSource == BOXART && !entry.object->getMetadata(MetaDataId::BoxArt).empty())
+			marqueePath = entry.object->getMetadata(MetaDataId::BoxArt);
+		else if (mImageSource == MARQUEE && !entry.object->getMarqueePath().empty())
+			marqueePath = entry.object->getMarqueePath();
+		else if ((mImageSource == THUMBNAIL || mImageSource == BOXART) && !entry.object->getThumbnailPath().empty())
+			marqueePath = entry.object->getThumbnailPath();
+		else if ((mImageSource == IMAGE || mImageSource == TITLESHOT) && !entry.object->getImagePath().empty())
+			marqueePath = entry.object->getImagePath();
+		else if (mImageSource == FANART && !entry.object->getMetadata(MetaDataId::FanArt).empty())
+			marqueePath = entry.object->getMetadata(MetaDataId::FanArt);
+		else if (mImageSource == CARTRIDGE && !entry.object->getMetadata(MetaDataId::Cartridge).empty())
+			marqueePath = entry.object->getMetadata(MetaDataId::Cartridge);
+		else if (mImageSource == MIX && !entry.object->getMetadata(MetaDataId::Mix).empty())
+			marqueePath = entry.object->getMetadata(MetaDataId::Mix);
+		else
+			marqueePath = entry.object->getMarqueePath();
+
+		if (mImageSource != TEXT && Utils::FileSystem::exists(marqueePath))
+		{
+			ImageComponent* logo = new ImageComponent(mWindow, false, true);
+			logo->setMaxSize(mLogoSize * mLogoScale);
+			logo->setIsLinear(true);
+			logo->applyTheme(mTheme, mThemeViewName, mThemeLogoName, ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
+			logo->setImage(marqueePath, false, MaxSizeInfo(mLogoSize * mLogoScale));
+
+			entry.data.logo = std::shared_ptr<GuiComponent>(logo);
+		}
+		else // no logo in theme; use text 
+		{
+			TextComponent* text = new TextComponent(mWindow, entry.name, Renderer::isSmallScreen() ? Font::get(FONT_SIZE_MEDIUM) : Font::get(FONT_SIZE_LARGE), 0x000000FF, ALIGN_CENTER);
+			text->setScaleOrigin(0.0f);
+			text->setSize(mLogoSize * mLogoScale);
+			text->applyTheme(mTheme, mThemeViewName, mThemeLogoTextName, ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
+
+			if (mType == VERTICAL || mType == VERTICAL_WHEEL)
+			{
+				text->setHorizontalAlignment(mLogoAlignment);
+				text->setVerticalAlignment(ALIGN_CENTER);
+			}
+			else
+			{
+				text->setHorizontalAlignment(ALIGN_CENTER);
+				text->setVerticalAlignment(mLogoAlignment);
+			}
+
+			entry.data.logo = std::shared_ptr<GuiComponent>(text);
+		}
+	}
+
+	entry.data.logo->updateBindings(entry.object);
 
 	if (mType == VERTICAL || mType == VERTICAL_WHEEL)
 	{
@@ -865,3 +886,80 @@ void CarouselComponent::onMouseWheel(int delta)
 	mScrollVelocity = 0;
 }
 
+
+CarouselItemTemplate::CarouselItemTemplate(Window* window) : GuiComponent(window)
+{
+
+}
+
+void CarouselItemTemplate::loadTemplatedChildren(const ThemeData::ThemeElement* elem)
+{
+	loadThemedChildren(elem);
+}
+
+bool CarouselItemTemplate::selectStoryboard(const std::string& name)
+{
+	bool selected = false;
+
+	for (auto child : enumerateExtraChildrens())
+		selected |= child->selectStoryboard(name);
+
+	return GuiComponent::selectStoryboard(name) || selected;
+}
+
+void CarouselItemTemplate::deselectStoryboard(bool restoreinitialProperties)
+{
+	for (auto child : enumerateExtraChildrens())
+		child->deselectStoryboard(restoreinitialProperties);
+
+	GuiComponent::deselectStoryboard(restoreinitialProperties);
+}
+
+void CarouselItemTemplate::startStoryboard()
+{
+	for (auto child : enumerateExtraChildrens())
+		child->startStoryboard();
+
+	GuiComponent::startStoryboard();
+}
+
+bool CarouselItemTemplate::storyBoardExists(const std::string& name, const std::string& propertyName)
+{
+	for (auto child : enumerateExtraChildrens())
+		if (child->storyBoardExists(name, propertyName))
+			return true;
+
+	return GuiComponent::storyBoardExists(name, propertyName);
+}
+
+void CarouselItemTemplate::updateBindings(IBindable* bindable)
+{
+	if (bindable != nullptr)
+	{
+		std::vector<IBindable*> bindables;
+
+		IBindable* currentParent = bindable;
+
+		auto childs = enumerateExtraChildrens();
+
+		for (auto comp : childs)
+		{
+			auto id = comp->getTag();
+			if (id.empty() || id == comp->getThemeTypeName())
+				continue;
+
+			IBindable* bindable = new ComponentBinding(comp, currentParent);
+			bindables.push_back(bindable);
+
+			currentParent = bindable;
+		}
+
+		GuiComponent::updateBindings(currentParent);
+
+		for (auto bindable : bindables)
+			delete bindable;
+	}
+	else
+		GuiComponent::updateBindings(bindable);
+}
+	

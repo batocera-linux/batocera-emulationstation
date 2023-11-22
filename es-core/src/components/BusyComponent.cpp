@@ -8,11 +8,12 @@
 
 // animation definition
 AnimationFrame BUSY_ANIMATION_FRAMES[] = {
-	{":/busy_0.svg", 300},
-	{":/busy_1.svg", 300},
-	{":/busy_2.svg", 300},
-	{":/busy_3.svg", 300},
+	{ ":/busy_0.svg", 300 },
+	{ ":/busy_1.svg", 300 },
+	{ ":/busy_2.svg", 300 },
+	{ ":/busy_3.svg", 300 },
 };
+
 const AnimationDef BUSY_ANIMATION_DEF = { BUSY_ANIMATION_FRAMES, 4, true };
 
 BusyComponent::BusyComponent(Window* window, const std::string& text) : GuiComponent(window),

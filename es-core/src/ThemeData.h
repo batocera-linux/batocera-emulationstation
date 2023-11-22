@@ -7,6 +7,7 @@
 #include "utils/FileSystemUtil.h"
 #include <deque>
 #include <map>
+#include <set>
 #include <unordered_map>
 #include <memory>
 #include <sstream>
@@ -14,6 +15,7 @@
 #include <pugixml/src/pugixml.hpp>
 #include "utils/MathExpr.h"
 #include "renderers/Renderer.h"
+#include "ThemeVariables.h"
 
 namespace pugi { class xml_node; }
 
@@ -295,7 +297,7 @@ private:
 
 public:
 
-	ThemeData();
+	ThemeData(bool temporary = false);
 
 	// throws ThemeException
 	void loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path, bool fromFile = true);
@@ -368,12 +370,13 @@ public:
 	std::shared_ptr<ThemeData> clone(const std::string& viewName);
 	bool appendFile(const std::string& path, bool perGameOverride = false);
 
-	static void parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader);
+	static bool parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader);
 
 private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;
-	static std::vector<std::string> sSupportedFeatures;
-	static std::vector<std::string> sSupportedViews;
+	static std::set<std::string> sSupportedItemTemplate;
+	static std::set<std::string> sSupportedFeatures;
+	static std::set<std::string> sSupportedViews;
 	static std::map<std::string, std::string> sBaseClasses;
 
 	std::deque<std::string> mPaths;
@@ -421,11 +424,14 @@ private:
 	std::string mLangAndRegion;
 	std::string mRegion;
 
-	std::map<std::string, std::string> mVariables;
+	ThemeVariables mVariables;
 	
 	class UnsortedViewMap : public std::vector<std::pair<std::string, ThemeView>>
 	{
 	public:		
+		UnsortedViewMap() : std::vector<std::pair<std::string, ThemeView>>() {}
+		UnsortedViewMap(std::initializer_list<std::pair<std::string, ThemeView>> initList) : std::vector<std::pair<std::string, ThemeView>>(initList) { }
+
 		std::vector<std::pair<std::string, ThemeView>>::const_iterator find(std::string view) const
 		{
 			for (std::vector<std::pair<std::string, ThemeView>>::const_iterator it = cbegin(); it != cend(); it++)
@@ -470,8 +476,7 @@ private:
 	static ThemeData* mDefaultTheme;	
 
 	bool mPerGameOverrideTmp;
-	
-	Utils::MathExpr mEvaluator;
+
 	Utils::MathExpr::ValueMap mEvaluatorVariables;
 };
 

@@ -77,6 +77,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 		mImage->setImage(imageFile);
 		mImage->setIsLinear(true);
 		mImage->setColorShift(theme->Text.color);
+		mImage->setOrigin(0.5f, 0.5f);
 		mImage->setMaxSize(theme->Text.font->getLetterHeight() * 2.0f, theme->Text.font->getLetterHeight() * 2.0f);		
 
 		mGrid.setEntry(mImage, Vector2i(0, 0), false, false);

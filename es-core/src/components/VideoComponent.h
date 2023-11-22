@@ -69,7 +69,8 @@ public:
 
 	void onOriginChanged() override;
 	void onSizeChanged() override;
-	void setOpacity(unsigned char opacity) override;
+	void onOpacityChanged() override;
+
 	void setScale(float scale) override;
 
 	void render(const Transform4x4f& parentTrans) override;
@@ -124,7 +125,7 @@ public:
 	}
 
 	float getRoundCorners() { return mRoundCorners; }
-	void setRoundCorners(float value);
+	virtual void setRoundCorners(float value);
 	
 	bool isFading() {
 		return mIsPlaying && mFadeIn < 1.0;
@@ -178,6 +179,8 @@ protected:
 	// Start the video after any configured delay
 	void startVideoWithDelay();
 
+	void	recalcLayout() override;
+
 private:
 	// Handle looping the video. Must be called periodically
 	virtual void handleLooping();
@@ -200,16 +203,21 @@ protected:
 
 	std::string						mVideoPath;
 	std::string						mPlayingVideoPath;
+
+	std::string						mThemedPath;
+
 	bool							mStartDelayed;
 	unsigned						mStartTime;
-	bool							mIsPlaying;	
-	bool							mDisable;
+	bool							mIsPlaying;		
 	bool							mScreensaverActive;
 	bool							mScreensaverMode;
 	bool							mTargetIsMax;
 	bool							mTargetIsMin;
 
 	bool							mIsWaitingForVideoToStart;
+
+	bool							mIsTopWindow;
+	bool							mEnabled;
 
 	float							mRoundCorners;
 

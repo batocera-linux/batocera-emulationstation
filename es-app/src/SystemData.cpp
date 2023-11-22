@@ -31,17 +31,28 @@
 
 using namespace Utils;
 
-static std::map<std::string, std::function<std::string(SystemData*)>> properties =
+static std::map<std::string, std::function<BindableProperty(SystemData*)>> properties =
 {
-	{ "name",			[] (SystemData* sys) { return sys->getName(); } },
-	{ "fullName",		[] (SystemData* sys) { return sys->getFullName(); } },
-	{ "manufacturer",	[] (SystemData* sys) { return sys->getSystemMetadata().manufacturer; } },
-	{ "theme",			[] (SystemData* sys) { return sys->getThemeFolder(); } },
-	{ "releaseYear",	[] (SystemData* sys) { return std::to_string(sys->getSystemMetadata().releaseYear); } },
-	{ "hardwareType",	[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType; } },
-	{ "command",		[] (SystemData* sys) { return sys->getSystemEnvData()->mLaunchCommand; } },
-	{ "group",			[] (SystemData* sys) { return sys->getSystemEnvData()->mGroup; } },	
-	{ "collection",     [] (SystemData* sys) { return sys->isCollection() ? "true" : "false"; } },	
+	{ "name",				[] (SystemData* sys) { return sys->getName(); } },
+	{ "fullName",			[] (SystemData* sys) { return sys->getFullName(); } },
+	{ "manufacturer",		[] (SystemData* sys) { return sys->getSystemMetadata().manufacturer; } },
+	{ "theme",				[] (SystemData* sys) { return sys->getThemeFolder(); } },
+	{ "releaseYear",		[] (SystemData* sys) { return std::to_string(sys->getSystemMetadata().releaseYear); } },
+	{ "hardwareType",		[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType; } },
+	{ "command",			[] (SystemData* sys) { return sys->getSystemEnvData()->mLaunchCommand; } },
+	{ "group",				[] (SystemData* sys) { return sys->getSystemEnvData()->mGroup; } },		
+	{ "collection",			[] (SystemData* sys) { return sys->isCollection(); } },		
+	{ "showManual",         [] (SystemData* sys) { return sys->getBoolSetting("ShowManualIcon"); } },
+	{ "showSaveStates",     [] (SystemData* sys) { return sys->getBoolSetting("ShowSaveStates"); } },
+	{ "showCheevos",        [] (SystemData* sys) { return sys->getShowCheevosIcon() && sys->getBoolSetting("ShowCheevosIcon"); } },
+	{ "showFlags",          [] (SystemData* sys) { return sys->getShowFlags(); } },
+	{ "showFavorites",      [] (SystemData* sys) { return sys->getShowFavoritesIcon(); } },
+	{ "showParentFolder",   [] (SystemData* sys) { return sys->getShowParentFolder(); } },
+	{ "hasKeyboardMapping", [] (SystemData* sys) { return sys->hasKeyboardMapping(); } },
+	{ "isCheevosSupported", [] (SystemData* sys) { return sys->isCheevosSupported(); } },
+	{ "isNetplaySupported", [] (SystemData* sys) { return sys->isNetplaySupported(); } },
+	{ "hasfilter",			[] (SystemData* sys) { auto idx = sys->getIndex(false); return idx != nullptr && idx->isFiltered(); } },
+	{ "filter",				[] (SystemData* sys) { auto idx = sys->getIndex(false); return (idx != nullptr && idx->isFiltered() ? idx->getDisplayLabel(true) : BindableProperty::EmptyString); } },
 };
 
 VectorEx<SystemData*> SystemData::sSystemVector;
@@ -1454,6 +1465,12 @@ void SystemData::loadTheme()
 		else
 			sysData["system.sortedBy"] = getSystemMetadata().manufacturer;
 
+		auto showSystemName = (!isGameSystem() || isCollection()) && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+		if (showSystemName && !isGameSystem() && getFolderViewMode() != "never")
+			showSystemName = false;
+
+		sysData["system.showSystemName"] = showSystemName ? "true" : "false";
+
 		if (getSystemMetadata().releaseYear > 0)
 		{
 			sysData["system.releaseYearOrNull"] = std::to_string(getSystemMetadata().releaseYear);
@@ -1466,7 +1483,7 @@ void SystemData::loadTheme()
 		{
 			auto name = "system." + property.first;
 			if (sysData.find(name) == sysData.cend())
-				sysData.insert(std::pair<std::string, std::string>("system." + property.first, property.second(this)));
+				sysData.insert(std::pair<std::string, std::string>("system." + property.first, property.second(this).toString()));
 		}
 
 		// Variables 
@@ -1998,45 +2015,56 @@ int SystemData::getShowFlags()
 	return Utils::String::toInteger(spf);
 }
 
-std::string SystemData::getProperty(const std::string& name)
+BindableProperty SystemData::getProperty(const std::string& name)
 {
 	auto it = properties.find(name);
 	if (it != properties.cend())
 		return it->second(this);
 
-	// Statistics
+	if (name == "image" || name == "logo")
+	{
+		if (mTheme != nullptr)
+		{
+			const ThemeData::ThemeElement* logoElem = mTheme->getElement("system", "logo", "image");
+			if (logoElem && logoElem->has("path"))
+				return BindableProperty(logoElem->get<std::string>("path"), BindablePropertyType::Path);
 
-	GameCountInfo* info = getGameCountInfo();
-	if (info == nullptr)
-		return "";
+			return BindableProperty("", BindablePropertyType::Path);
+		}
+	}
 
 	if (name == "subSystems")
 	{
 		if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
-			return std::to_string(getRootFolder()->getChildren().size());
+			return (int)getRootFolder()->getChildren().size();
 
-		return std::to_string(Math::max(1, getGroupChildSystemNames(getName()).size()));
+		return Math::max(1, getGroupChildSystemNames(getName()).size());
 	}
+
+	// Statistics
+	GameCountInfo* info = getGameCountInfo();
+	if (info == nullptr)
+		return BindableProperty::Null;
 
 	if (name == "total")
 	{
 		if (info->totalGames != info->visibleGames)
 			return std::to_string(info->visibleGames) + " / " + std::to_string(info->totalGames);
 
-		return std::to_string(info->totalGames);
+		return info->totalGames;
 	}
 
 	if (name == "played")
-		return std::to_string(info->playCount);
+		return info->playCount;
 
 	if (name == "favorites")
-		return std::to_string(info->favoriteCount);
+		return info->favoriteCount;
 
 	if (name == "hidden")
-		return std::to_string(info->hiddenCount);
+		return info->hiddenCount;
 
 	if (name == "gamesPlayed")
-		return std::to_string(info->gamesPlayed);
+		return info->gamesPlayed;
 
 	if (name == "mostPlayed")
 		return info->mostPlayed;
@@ -2073,9 +2101,11 @@ std::string SystemData::getProperty(const std::string& name)
 			char       clockBuf[256];
 			strftime(clockBuf, sizeof(clockBuf), "%x", &clockTstruct);
 			
-			return clockBuf;
+			return BindableProperty(clockBuf, BindablePropertyType::String);
 		}
+
+		return BindableProperty::EmptyString;
 	}
 
-	return "";
+	return BindableProperty::Null;
 }

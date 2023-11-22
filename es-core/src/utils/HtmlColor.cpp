@@ -199,5 +199,16 @@ namespace Utils
 
 			return val;
 		}
+
+		unsigned int applyColorOpacity(unsigned int color, unsigned char opacity)
+		{
+			unsigned char red = (color >> 24) & 0xFF;
+			unsigned char green = (color >> 16) & 0xFF;
+			unsigned char blue = (color >> 8) & 0xFF;
+			unsigned char alpha = color & 0xFF;
+
+			return (red << 24) | (green << 16) | (blue << 8) | ((alpha * opacity) / 255);
+		}
+
 	}
 }

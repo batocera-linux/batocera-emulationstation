@@ -57,11 +57,16 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 		}
 		else
 		{
-			mTextureData = std::make_shared<TextureData>(tile, linear);
-			data = mTextureData;
+			data = mTextureData = std::make_shared<TextureData>(tile, linear);
+			mTextureData->setDynamic(false);
+			
 			if (maxSize != nullptr)
 				data->setMaxSize(*maxSize);
+
 			data->initFromPath(path);
+
+			sTextureDataManager.cleanupVRAM(data);
+
 			// Load it so we can read the width/height
 			data->load();
 
@@ -73,6 +78,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 	{
 		// Create a texture managed by this class because it cannot be dynamically loaded and unloaded
 		mTextureData = std::make_shared<TextureData>(tile, linear);
+		mTextureData->setDynamic(false);
 	}
 
 	if (sAllTextures.find(this) == sAllTextures.end())
@@ -108,7 +114,8 @@ void TextureResource::updateFromExternalPixels(unsigned char* dataRGBA, size_t w
 
 	// Cache the image dimensions
 	mSize = Vector2i((int)width, (int)height);
-	mSourceSize = Vector2f(mTextureData->sourceWidth(), mTextureData->sourceHeight());
+	mSourceSize = Vector2f((float)width, (float)height);
+	// mSourceSize = Vector2f(mTextureData->sourceWidth(), mTextureData->sourceHeight());
 }
 
 void TextureResource::initFromPixels(unsigned char* dataRGBA, size_t width, size_t height)
@@ -208,7 +215,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 
 	TextureKeyType key(canonicalPath, tile, linear);
 	auto foundTexture = sTextureMap.find(key);
-	if(foundTexture != sTextureMap.cend())
+	if (foundTexture != sTextureMap.cend())
 	{
 		if (!foundTexture->second.expired())
 		{
@@ -237,7 +244,7 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 
 			return rc;
 		}
-		else
+		else if (!asReloadable)
 			sTextureMap.erase(foundTexture);
 	}
 	

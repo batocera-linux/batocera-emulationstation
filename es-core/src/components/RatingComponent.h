@@ -20,6 +20,8 @@ class RatingComponent : public GuiComponent
 public:
 	RatingComponent(Window* window);
 
+	std::string getThemeTypeName() override { return "rating"; }
+
 	std::string getValue() const override;
 	void setValue(const std::string& value) override; // Should be a normalized float (in the range [0..1]) - if it's not, it will be clamped.
 
@@ -27,8 +29,8 @@ public:
 	void render(const Transform4x4f& parentTrans);
 
 	void onSizeChanged() override;
-
-	void setOpacity(unsigned char opacity) override;
+	void onOpacityChanged() override;
+	void onPaddingChanged() override;
 
 	// Multiply all pixels in the image by this color when rendering.
 	void setColorShift(unsigned int color);
@@ -38,6 +40,9 @@ public:
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 	void setHorizontalAlignment(Alignment align);
 	void setUnfilledColor(unsigned int color);
+
+	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
+	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 
 private:
 	void updateVertices();

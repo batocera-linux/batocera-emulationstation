@@ -19,6 +19,22 @@ struct CarouselComponentData
 	// std::vector<GuiComponent*> backgroundExtras;
 };
 
+
+class CarouselItemTemplate : public GuiComponent
+{
+public:
+	CarouselItemTemplate(Window* window);
+
+	void loadTemplatedChildren(const ThemeData::ThemeElement* elem);
+
+	bool selectStoryboard(const std::string& name = "") override;
+	void deselectStoryboard(bool restoreinitialProperties = true) override;
+	void startStoryboard() override;
+	bool storyBoardExists(const std::string& name = "", const std::string& propertyName = "");
+
+	void updateBindings(IBindable* bindable) override;
+};
+
 class CarouselComponent : public IList<CarouselComponentData, FileData*>
 {
 public:

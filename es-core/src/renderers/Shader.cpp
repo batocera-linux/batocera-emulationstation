@@ -85,9 +85,11 @@ namespace Renderer
 		mTexCoordAttribute(-1),
 		mvpUniform(-1),
 		mSaturation(-1),
+		mCornerRadius(-1),
 		linkStatus(false),
 		mId(-1),
 		mOutputSize(-1),
+		mOutputOffset(-1),
 		mInputSize(-1),
 		mTextureSize(-1),
 		mResolution(-1)
@@ -192,9 +194,10 @@ namespace Renderer
 		"COLOR", "colorVertex", 
 		"TextureSize", "textureSize", 
 		"OutputSize", "outputSize", 
+		"OutputOffset", "outputOffset",
 		"InputSize", "inputSize", 
 		"Resolution", "resolution", 
-		"saturation", 
+		"saturation", "es_cornerRadius",
 		"u_tex", "textureSampler", "Texture"
 	};
 
@@ -225,6 +228,10 @@ namespace Renderer
 		if (mOutputSize == -1)
 			mOutputSize = glGetUniformLocation(mId, "outputSize");
 
+		mOutputOffset = glGetUniformLocation(mId, "OutputOffset");
+		if (mOutputOffset == -1)
+			mOutputOffset = glGetUniformLocation(mId, "outputOffset");
+
 		mInputSize = glGetUniformLocation(mId, "InputSize");
 		if (mInputSize == -1)
 			mInputSize = glGetUniformLocation(mId, "inputSize");
@@ -234,6 +241,7 @@ namespace Renderer
 			mResolution = glGetUniformLocation(mId, "resolution");
 		
 		mSaturation = glGetUniformLocation(mId, "saturation");
+		mCornerRadius = glGetUniformLocation(mId, "es_cornerRadius");
 
 		GLint texUniform = glGetUniformLocation(mId, "u_tex");		
 		if (texUniform == -1)
@@ -283,6 +291,12 @@ namespace Renderer
 			GL_CHECK_ERROR(glUniform1f(mSaturation, saturation));
 	}
 
+	void ShaderProgram::setCornerRadius(GLfloat radius)
+	{
+		if (mCornerRadius != -1)
+			GL_CHECK_ERROR(glUniform1f(mCornerRadius, radius));
+	}	
+
 	void ShaderProgram::setTextureSize(const Vector2f& size)
 	{
 		if (mTextureSize != -1)
@@ -299,6 +313,12 @@ namespace Renderer
 	{
 		if (mOutputSize != -1)
 			GL_CHECK_ERROR(glUniform2f(mOutputSize, size.x(), size.y()));
+	}
+
+	void ShaderProgram::setOutputOffset(const Vector2f& size)
+	{
+		if (mOutputOffset != -1)
+			GL_CHECK_ERROR(glUniform2f(mOutputOffset, size.x(), size.y()));
 	}
 
 	void ShaderProgram::setResolution()
@@ -329,6 +349,11 @@ namespace Renderer
 			case GL_FLOAT_VEC4:
 				glUniform4f(item.second.location, 0.0f, 0.0f, 0.0f, 0.0f);
 				break;
+			case GL_BOOL:
+				glUniform1i(item.second.location, GL_FALSE);
+				break;
+			default:
+				break;
 			}
 		}
 
@@ -351,6 +376,9 @@ namespace Renderer
 			break;
 		case GL_FLOAT:
 			glUniform1f(location, Utils::String::toFloat(value));
+			break;
+		case GL_BOOL:
+			glUniform1i(location, Utils::String::toBoolean(value) ? GL_TRUE : GL_FALSE);
 			break;
 		case GL_FLOAT_VEC2:
 			{

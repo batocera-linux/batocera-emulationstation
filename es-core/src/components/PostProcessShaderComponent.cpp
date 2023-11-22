@@ -31,7 +31,7 @@ void PostProcessShaderComponent::applyTheme(const std::shared_ptr<ThemeData>& th
 {
 	GuiComponent::applyTheme(theme, view, element, properties);
 
-	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "shader");
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, getThemeTypeName());
 	if (elem == nullptr)
 		return;
 

@@ -5,6 +5,9 @@
 #include "math/Vector2i.h"
 #include "math/Vector2f.h"
 #include "ThemeData.h"
+#include "utils/HtmlColor.h"
+
+#define SUBSTRING_OPACITY	192
 
 MultiLineMenuEntry::MultiLineMenuEntry(Window* window, const std::string& text, const std::string& substring, bool multiLine) :
 	ComponentGrid(window, Vector2i(1, 2))
@@ -18,9 +21,8 @@ MultiLineMenuEntry::MultiLineMenuEntry(Window* window, const std::string& text, 
 	mText->setMultiLine(TextComponent::MultiLineType::SINGLELINE);
 	mText->setVerticalAlignment(ALIGN_TOP);
 
-	mSubstring = std::make_shared<TextComponent>(mWindow, substring.c_str(), theme->TextSmall.font, theme->Text.color);		
+	mSubstring = std::make_shared<TextComponent>(mWindow, substring.c_str(), theme->TextSmall.font, Utils::HtmlColor::applyColorOpacity(theme->Text.color, SUBSTRING_OPACITY));
 	mSubstring->setVerticalAlignment(ALIGN_TOP);
-	mSubstring->setOpacity(192);
 
 	if (!multiLine)
 		mSubstring->setMultiLine(TextComponent::MultiLineType::SINGLELINE);
@@ -52,7 +54,7 @@ MultiLineMenuEntry::MultiLineMenuEntry(Window* window, const std::string& text, 
 void MultiLineMenuEntry::setColor(unsigned int color)
 {
 	mText->setColor(color);
-	mSubstring->setColor(color);
+	mSubstring->setColor(Utils::HtmlColor::applyColorOpacity(color, SUBSTRING_OPACITY));
 }
 
 std::string MultiLineMenuEntry::getDescription()

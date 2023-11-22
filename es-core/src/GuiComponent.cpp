@@ -13,13 +13,14 @@
 #include "math/Vector2i.h"
 #include "Sound.h"
 #include "utils/StringUtil.h"
+#include "BindingManager.h"
 
 bool GuiComponent::isLaunchTransitionRunning = false;
 
-GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255),
-	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5), mScaleOrigin(0.5f, 0.5f),
-	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mVisible(true), mShowing(false),
-	mExtraType(ExtraType::BUILTIN), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true), mIsMouseOver(false), mChildZIndexDirty(false)
+GuiComponent::GuiComponent(Window* window) : mWindow(window), mParent(NULL), mOpacity(255), mAmbientOpacity(255),
+	mPosition(Vector3f::Zero()), mOrigin(Vector2f::Zero()), mRotationOrigin(0.5, 0.5), mScaleOrigin(0.5f, 0.5f), mSourceBounds(Vector4f::Zero()),
+	mSize(Vector2f::Zero()), mTransform(Transform4x4f::Identity()), mVisible(true), mShowing(false), mPadding(Vector4f(0, 0, 0, 0)), mClipChildren(false),
+	mExtraType(ExtraType::BUILTIN), mStoryboardAnimator(nullptr), mScreenOffset(0.0f), mTransformDirty(true), mIsMouseOver(false), mMousePressed(false), mChildZIndexDirty(false)
 {
 	mClipRect = Vector4f();
 }
@@ -36,7 +37,7 @@ GuiComponent::~GuiComponent()
 		mStoryboardAnimator = nullptr;
 	}
 
-	if(mParent)
+	if (mParent)
 		mParent->removeChild(this);
 
 	for (int i = (int)getChildCount() - 1; i >= 0; i--)
@@ -105,15 +106,21 @@ void GuiComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 
 	auto rect = Renderer::getScreenRect(trans, mSize);
-	if (!Renderer::isVisibleOnScreen(rect))
+
+	// Don't use soft clip if rotation applied : let renderer do the work
+	if (mRotation == 0 && trans.r0().y() == 0 && !Renderer::isVisibleOnScreen(rect))	
 		return;
 
-	if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
+	if (mClipChildren)
+		Renderer::pushClipRect(rect);
+	else if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
 		Renderer::pushClipRect(mClipRect.x(), mClipRect.y(), mClipRect.z(), mClipRect.w());
-
+	
 	renderChildren(trans);
 
-	if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
+	if (mClipChildren)
+		Renderer::popClipRect();
+	else if (!mClipRect.empty() && !GuiComponent::isLaunchTransitionRunning)
 		Renderer::popClipRect();
 }
 
@@ -176,17 +183,44 @@ Vector2f GuiComponent::getSize() const
 
 void GuiComponent::setSize(float w, float h)
 {
+	auto oldClientSize = getClientRect();
 	auto size = Vector2f(w, h);
 	//if (size == mSize)
 	//	return;
 
 	mSize = size;
     onSizeChanged();
+
+	auto clientSize = getClientRect();
+
+	if (mChildren.size() && oldClientSize != clientSize)
+		recalcChildrenLayout();
+}
+
+void GuiComponent::setPadding(const Vector4f padding)
+{
+	if (mPadding == padding)
+		return;
+
+	auto oldClientSize = getClientRect();
+
+	mPadding = padding;
+	onPaddingChanged();
+
+	auto clientSize = getClientRect();
+
+	if (mChildren.size() && oldClientSize != clientSize)
+		recalcChildrenLayout();
 }
 
 float GuiComponent::getRotation() const
 {
 	return mRotation;
+}
+
+float GuiComponent::getRotationDegrees() const
+{
+	return ES_RAD_TO_DEG(mRotation);
 }
 
 void GuiComponent::setRotation(float rotation)
@@ -341,6 +375,12 @@ void GuiComponent::setParent(GuiComponent* parent)
 {
 	mParent = parent;
 
+	if (mParent != nullptr)
+	{
+		mShowing = mParent->mShowing;
+		
+		setAmbientOpacity(mParent->getOpacity());
+	}
 }
 
 GuiComponent* GuiComponent::getParent() const
@@ -350,7 +390,10 @@ GuiComponent* GuiComponent::getParent() const
 
 unsigned char GuiComponent::getOpacity() const
 {
-	return mOpacity;
+	if (mAmbientOpacity == 255)
+		return mOpacity;
+
+	return (unsigned char) (((int)mOpacity * (int)mAmbientOpacity) / 255);
 }
 
 void GuiComponent::setOpacity(unsigned char opacity)
@@ -359,10 +402,24 @@ void GuiComponent::setOpacity(unsigned char opacity)
 		return;
 
 	mOpacity = opacity;
-	for(auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
-	{
-		(*it)->setOpacity(opacity);
-	}
+	onOpacityChanged();
+
+	auto ambientOpacity = getOpacity();
+	for (auto it : mChildren)
+		it->setAmbientOpacity(ambientOpacity);
+}
+
+void GuiComponent::setAmbientOpacity(unsigned char opacity)
+{
+	if (mAmbientOpacity == opacity)
+		return;
+
+	mAmbientOpacity = opacity;
+	onOpacityChanged();
+
+	auto ambientOpacity = getOpacity();
+	for (auto it : mChildren)
+		it->setAmbientOpacity(ambientOpacity);
 }
 
 const Transform4x4f& GuiComponent::getTransform()
@@ -680,7 +737,7 @@ void GuiComponent::loadThemedChildren(const ThemeData::ThemeElement* elem)
 	if (elem->children.size() == 0)
 		return;
 
-	for (auto child : elem->children)
+	for (const std::pair<std::string, ThemeData::ThemeElement>& child : elem->children)
 	{
 		if (child.second.type == "shader")
 			continue;
@@ -691,57 +748,88 @@ void GuiComponent::loadThemedChildren(const ThemeData::ThemeElement* elem)
 			comp->setTag(child.first);
 			comp->setExtraType(ExtraType::EXTRACHILDREN);
 
+			std::pair<std::string, ThemeData::ThemeElement>* item = (std::pair<std::string, ThemeData::ThemeElement>*) &child;
+
+			// Default pos & size properties
+			if (child.second.properties.find("pos") == child.second.properties.cend() &&
+				child.second.properties.find("x") == child.second.properties.cend() &&
+				child.second.properties.find("y") == child.second.properties.cend())
+				item->second.properties["pos"] = Vector2f(0, 0);
+
+			if (child.second.properties.find("size") == child.second.properties.cend() &&
+				child.second.properties.find("minSize") == child.second.properties.cend() &&
+				child.second.properties.find("maxSize") == child.second.properties.cend() &&
+				child.second.properties.find("w") == child.second.properties.cend() &&
+				child.second.properties.find("w") == child.second.properties.cend() &&
+				child.second.properties.find("h") == child.second.properties.cend())
+				item->second.properties["size"] = Vector2f(1, 1);
+
 			addChild(comp);
-			ThemeData::applySelfTheme(comp, child.second);
+			ThemeData::applySelfTheme(comp, child.second);			
 		}
 	}
 
-	sortChildren();
-	// performLayout();
+	sortChildren();	
 }
 
 void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
-	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
-
-	const ThemeData::ThemeElement* elem = theme->getElement(view, element, ""); // getThemeTypeName()
-	if(!elem)
+	const ThemeData::ThemeElement* elem = theme->getElement(view, element, getThemeTypeName()); // getThemeTypeName()
+	if (!elem)
 		return;
+
+	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector4f clientRectangle = getParent() ? getParent()->getClientRect() : Vector4f(0, 0, (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f scale = Vector2f(clientRectangle.z(), clientRectangle.w());
+	Vector2f offset = Vector2f(clientRectangle.x(), clientRectangle.y());
 
 	using namespace ThemeFlags;
 
-	if(properties & POSITION && elem->has("pos"))
-	{
-		Vector2f denormalized = elem->get<Vector2f>("pos") * scale;
+	if (properties & POSITION && elem->has("pos"))
+	{		
+		auto pos = mSourceBounds.xy() = elem->get<Vector2f>("pos");
+
+		Vector2f denormalized = pos * scale + offset;
 		setPosition(Vector3f(denormalized.x(), denormalized.y(), 0));
 	}
 
 	if (properties & POSITION && elem->has("x"))
 	{
-		float denormalized = elem->get<float>("x") * scale.x();
-		setPosition(Vector3f(denormalized, mPosition.y(), 0));
+		auto x = mSourceBounds.x() = elem->get<float>("x");
+		setPosition(Vector3f(x * scale.x() + offset.x(), mPosition.y(), 0));
 	}
 
 	if (properties & POSITION && elem->has("y"))
 	{
-		float denormalized = elem->get<float>("y") * scale.y();
-		setPosition(Vector3f(mPosition.x(), denormalized, 0));
+		auto y = mSourceBounds.y() = elem->get<float>("y");
+		setPosition(Vector3f(mPosition.x(), y * scale.y() + offset.y(), 0));
 	}
 
-	if(properties & ThemeFlags::SIZE && elem->has("size"))
-		setSize(elem->get<Vector2f>("size") * scale);
+	if (properties & ThemeFlags::SIZE && elem->has("size"))
+	{
+		auto sz = mSourceBounds.zw() = elem->get<Vector2f>("size");
+		setSize(sz * scale);
+	}
 
 	if (properties & SIZE && elem->has("w"))
 	{
-		float denormalized = elem->get<float>("w") * scale.x();
-		setSize(Vector2f(denormalized, mSize.y()));
+		auto w = mSourceBounds.z() = elem->get<float>("w");
+		setSize(Vector2f(w * scale.x(), mSize.y()));
 	}
 
 	if (properties & SIZE && elem->has("h"))
 	{
-		float denormalized = elem->get<float>("h") * scale.y();
-		setSize(Vector2f(mSize.x(), denormalized));
+		auto h = mSourceBounds.w() = elem->get<float>("h");
+		setSize(Vector2f(mSize.x(), h * scale.y()));
+	}
+	
+	if (elem->has("padding"))
+	{
+		auto padding = elem->get<Vector4f>("padding");
+		if (abs(padding.x()) < 1 && abs(padding.y()) < 1 && abs(padding.z()) < 1 && abs(padding.w()) < 1)
+			setPadding(padding * Vector4f(scale.x(), scale.y(), scale.x(), scale.y()));
+		else
+			setPadding(padding); // Pixel size
 	}
 
 	// position + size also implies origin
@@ -771,6 +859,9 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 	if (properties & ThemeFlags::VISIBLE)
 		setVisible(!elem->has("visible") || elem->get<bool>("visible"));
 
+	if (elem->has("opacity"))
+		setOpacity((unsigned char)(elem->get<float>("opacity") * 255.0));
+
 	if (properties & POSITION && elem->has("offset"))
 	{
 		Vector2f denormalized = elem->get<Vector2f>("offset") * screenScale;
@@ -796,6 +887,9 @@ void GuiComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std
 	}
 	else
 		setClipRect(Vector4f());
+
+	if (elem->has("clipChildren"))
+		mClipChildren = elem->get<bool>("clipChildren");
 
 	if (elem->has("onclick"))
 		setClickAction(elem->get<std::string>("onclick"));
@@ -961,16 +1055,18 @@ ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string na
 	}
 
 	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
+	Vector4f clientRectangle = getParent() ? getParent()->getClientRect() : Vector4f(0, 0, (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f scale = Vector2f(clientRectangle.z(), clientRectangle.w());
+	// Vector2f offset = Vector2f(clientRectangle.x(), clientRectangle.y());
 
 	if (name == "pos")
-		return Vector2f(mPosition.x(), mPosition.y()) / scale;
+		return Vector2f(mPosition.x() - clientRectangle.x(), mPosition.y() - clientRectangle.y()) / scale;
 
 	if (name == "x")
-		return mPosition.x() / scale.x();
+		return (mPosition.x() - clientRectangle.x()) / scale.x();
 
 	if (name == "y")
-		return mPosition.y() / scale.y();
+		return (mPosition.y() - clientRectangle.y()) / scale.y();
 	
 	if (name == "size")
 		return mSize / scale;
@@ -985,19 +1081,22 @@ ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string na
 		return getOrigin();
 
 	if (name == "rotation")
-		return getRotation();
+		return getRotationDegrees();
 
 	if (name == "rotationOrigin")
 		return getRotationOrigin();
 
 	if (name == "opacity")
-		return getOpacity() / 255.0f;
+		return mOpacity / 255.0f;
 
 	if (name == "zIndex")
 		return getZIndex();
 
 	if (name == "scale")
 		return getScale();
+
+	if (name == "padding")
+		return mPadding;
 
 	if (name == "scaleOrigin")
 		return getScaleOrigin();
@@ -1023,7 +1122,9 @@ ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string na
 void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
 {
 	Vector2f screenScale = Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-	Vector2f scale = getParent() ? getParent()->getSize() : screenScale;
+	Vector4f clientRectangle = getParent() ? getParent()->getClientRect() : Vector4f(0, 0, (float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	Vector2f scale = Vector2f(clientRectangle.z(), clientRectangle.w());
+	Vector2f offset = Vector2f(clientRectangle.x(), clientRectangle.y());
 
 	if (getParent() != nullptr && getParent()->isKindOf<ScrollableContainer>())
 	{
@@ -1034,68 +1135,94 @@ void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeEle
 		}
 	}
 
-	if (name == "pos" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
-		setPosition(Vector3f(value.v.x() * scale.x(), value.v.y() * scale.y(), 0));
-
-	if (name == "x" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setPosition(Vector3f(value.f * scale.x(), mPosition.y(), 0));
-
-	if (name == "y" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setPosition(Vector3f(mPosition.x(), value.f * scale.y(), 0));
-
-	if (name == "size" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
-		setSize(Vector2f(value.v.x() * scale.x(), value.v.y() * scale.y()));
-
-	if (name == "w" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setSize(Vector2f(value.f * scale.x(), mSize.y()));
-
-	if (name == "h" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setSize(Vector2f(mSize.x(), value.f * scale.y()));
-
-	if (name == "origin" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
-		setOrigin(Vector2f(value.v.x(), value.v.y()));
-
-	if (name == "rotation" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setRotationDegrees(value.f);
-
-	if (name == "rotationOrigin" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
-		setRotationOrigin(Vector2f(value.v.x(), value.v.y()));
-
-	if (name == "zIndex" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setZIndex(value.f);
-
-	if (name == "opacity" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setOpacity(value.f * 255.0f);
-
-	if (name == "scale" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setScale(value.f);
-
-	if (name == "scaleOrigin" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
-		setScaleOrigin(Vector2f(value.v.x(), value.v.y()));
-
-	if (name == "offset" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
-		setScreenOffset(Vector2f(value.v.x() * screenScale.x(), value.v.y() * screenScale.y()));
-	
-	if (name == "offsetX" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setScreenOffset(Vector2f(value.f * screenScale.x(), mScreenOffset.y()));
-
-	if (name == "offsetY" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
-		setScreenOffset(Vector2f(mScreenOffset.x(), value.f * screenScale.y()));
-
-	if (name == "clipRect" && value.type == ThemeData::ThemeElement::Property::PropertyType::Rect)
-		setClipRect(Vector4f(value.r.x() * screenScale.x(), value.r.y() * screenScale.y(), value.r.z() * screenScale.x(), value.r.w() * screenScale.y()));
-
-	if (name == "sound" && value.type == ThemeData::ThemeElement::Property::PropertyType::String && mStoryBoardSound != value.s)
+	switch (value.type)
 	{
-		mStoryBoardSound = value.s;
+	case ThemeData::ThemeElement::Property::PropertyType::Pair:
 
-		if (!mStoryBoardSound.empty())
-			Sound::get(mStoryBoardSound)->play();
+		if (name == "pos")
+		{
+			mSourceBounds.xy() = value.v;
+			setPosition(Vector3f(offset.x() + value.v.x() * scale.x(), offset.y() + value.v.y() * scale.y(), 0));
+		}
+		else if (name == "size")
+		{
+			mSourceBounds.zw() = value.v;
+			setSize(Vector2f(value.v.x() * scale.x(), value.v.y() * scale.y()));
+		}
+		else if (name == "origin")
+			setOrigin(Vector2f(value.v.x(), value.v.y()));
+		else if (name == "rotationOrigin")
+			setRotationOrigin(Vector2f(value.v.x(), value.v.y()));
+		else if (name == "scaleOrigin")
+			setScaleOrigin(Vector2f(value.v.x(), value.v.y()));
+		else if (name == "offset")
+			setScreenOffset(Vector2f(value.v.x() * screenScale.x(), value.v.y() * screenScale.y()));
+
+		break;
+
+	case ThemeData::ThemeElement::Property::PropertyType::Float:
+
+		if (name == "x")
+		{
+			mSourceBounds.x() = value.f;
+			setPosition(Vector3f(offset.x() + value.f * scale.x(), mPosition.y(), 0));
+		}
+		else if (name == "y")
+		{
+			mSourceBounds.y() = value.f;
+			setPosition(Vector3f(mPosition.x(), offset.y() + value.f * scale.y(), 0));
+		}
+		else if (name == "w")
+		{
+			mSourceBounds.z() = value.f;
+			setSize(Vector2f(value.f * scale.x(), mSize.y()));
+		}
+		else if (name == "h")
+		{
+			mSourceBounds.w() = value.f;
+			setSize(Vector2f(mSize.x(), value.f * scale.y()));
+		}
+		else if (name == "rotation")
+			setRotationDegrees(value.f);
+		else if (name == "zIndex")
+			setZIndex(value.f);
+		else if (name == "opacity")
+			setOpacity(value.f * 255.0f);
+		else if (name == "scale")
+			setScale(value.f);
+		else if (name == "offsetX")
+			setScreenOffset(Vector2f(value.f * screenScale.x(), mScreenOffset.y()));
+		else if (name == "offsetY")
+			setScreenOffset(Vector2f(mScreenOffset.x(), value.f * screenScale.y()));
+
+		break;
+
+	case ThemeData::ThemeElement::Property::PropertyType::Rect:
+		if (name == "clipRect")
+			setClipRect(Vector4f(value.r.x() * screenScale.x(), value.r.y() * screenScale.y(), value.r.z() * screenScale.x(), value.r.w() * screenScale.y()));
+		else if (name == "padding")
+			setPadding(value.r);
+
+		break;
+
+	case ThemeData::ThemeElement::Property::PropertyType::Bool:
+		if (name == "visible")
+			setVisible(value.b);
+
+		break;
+
+	case ThemeData::ThemeElement::Property::PropertyType::String:
+		if (name == "sound" && mStoryBoardSound != value.s)
+		{
+			mStoryBoardSound = value.s;
+
+			if (!mStoryBoardSound.empty())
+				Sound::get(mStoryBoardSound)->play();
+		}
+
+		break;
 	}
-
-	if (name == "visible" && value.type == ThemeData::ThemeElement::Property::PropertyType::Bool)
-		setVisible(value.b);
-
+	
 	mTransformDirty = true;
 }
 
@@ -1158,11 +1285,6 @@ void GuiComponent::onRotationOriginChanged()
 	mTransformDirty = true;
 }
 
-void GuiComponent::onSizeChanged()
-{
-	mTransformDirty = true;
-}
-
 void GuiComponent::onRotationChanged()
 {
 	mTransformDirty = true;
@@ -1179,6 +1301,16 @@ void GuiComponent::onScaleOriginChanged()
 }
 
 void GuiComponent::onScreenOffsetChanged()
+{
+	mTransformDirty = true;
+}
+
+void GuiComponent::onSizeChanged()
+{
+	mTransformDirty = true;
+}
+
+void GuiComponent::onPaddingChanged()
 {
 	mTransformDirty = true;
 }
@@ -1283,3 +1415,69 @@ bool GuiComponent::onMouseClick(int button, bool pressed, int x, int y)
 	return false;
 }
 
+std::vector<GuiComponent*> GuiComponent::enumerateExtraChildrens()
+{
+	std::vector<GuiComponent*> recursiveExtraChildrens;
+
+	std::stack<GuiComponent*> stack;
+	stack.push(this);
+
+	while (stack.size())
+	{
+		GuiComponent* current = stack.top();
+		stack.pop();
+
+		for (auto it : current->mChildren)
+		{
+			if (it->mExtraType != ExtraType::EXTRACHILDREN || !it->isVisible())
+				continue;
+
+			stack.push(it);
+			recursiveExtraChildrens.push_back(it);
+		}
+	}
+
+	return recursiveExtraChildrens;
+}
+
+void GuiComponent::updateBindings(IBindable* bindable)
+{
+	auto recursiveExtraChildrens = enumerateExtraChildrens();
+	for (auto child : recursiveExtraChildrens)
+		BindingManager::updateBindings(child, bindable, false);
+
+	for (auto child : recursiveExtraChildrens)
+		if (child->getThemeTypeName() == "stackpanel")
+			child->onSizeChanged();
+}
+
+Vector4f GuiComponent::getClientRect()
+{
+	return Vector4f(
+		mPadding.x(),
+		mPadding.y(),
+		getSize().x() - mPadding.x() - mPadding.z(),
+		getSize().y() - mPadding.y() - mPadding.w());
+}
+
+void GuiComponent::recalcChildrenLayout()
+{
+	for (auto child : mChildren)
+		child->recalcLayout();
+}
+
+void GuiComponent::recalcLayout()
+{
+	if (mExtraType != ExtraType::EXTRACHILDREN || !getParent())
+		return;
+
+	Vector4f clientRectangle = getParent()->getClientRect();
+	Vector2f newPos = mSourceBounds.xy() * clientRectangle.zw() + clientRectangle.xy();
+	Vector2f newSize = mSourceBounds.zw() * clientRectangle.zw();
+	
+	if (mPosition.v2() != newPos)
+		setPosition(newPos.x(), newPos.y());
+
+	if (mSize != newSize)
+		setSize(newSize.x(), newSize.y());
+}

@@ -67,8 +67,11 @@ namespace Renderer
 	struct Vertex
 	{
 		Vertex() 
-			: saturation(1.0f), customShader(nullptr)
-		{ 
+			: col(0)			
+			, saturation(1.0f)
+			, cornerRadius(0.0f)
+			, customShader(nullptr)
+		{
 
 		}
 
@@ -77,6 +80,7 @@ namespace Renderer
 			, tex(_tex)
 			, col(_col) 
 			, saturation(1.0f)
+			, cornerRadius(0.0f)
 			, customShader(nullptr)
 		{ 
 
@@ -87,6 +91,7 @@ namespace Renderer
 		unsigned int col;
 
 		float saturation;
+		float cornerRadius;
 		ShaderInfo* customShader;
 
 	}; // Vertex
@@ -129,6 +134,8 @@ namespace Renderer
 		virtual void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data = nullptr) { };
 
 		virtual size_t		 getTotalMemUsage() { return (size_t) -1; };
+
+		virtual bool		 shaderSupportsCornerSize(const std::string& shader) { return false; };
 	};
 	
 	std::vector<std::string> getRendererNames();
@@ -183,6 +190,7 @@ namespace Renderer
 	void		 postProcessShader (const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data = nullptr);
 
 	size_t		 getTotalMemUsage  ();
+	bool		 shaderSupportsCornerSize(const std::string& shader);
 
 	std::string  getDriverName();
 	std::vector<std::pair<std::string, std::string>> getDriverInformation();

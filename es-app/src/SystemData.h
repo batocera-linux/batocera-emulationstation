@@ -17,6 +17,7 @@
 #include "math/Vector2f.h"
 #include "CustomFeatures.h"
 #include "utils/VectorEx.h"
+#include "BindingManager.h"
 
 class FileData;
 class FolderData;
@@ -61,7 +62,7 @@ struct SystemEnvironmentData
 	}
 };
 
-class SystemData : public IKeyboardMapContainer
+class SystemData : public IKeyboardMapContainer, public IBindable
 {
 public:
     SystemData(const SystemMetadata& type, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem = false, bool groupedSystem = false, bool withTheme = true, bool loadThemeOnlyIfElements = false);
@@ -209,7 +210,9 @@ public:
 
 	SaveStateRepository* getSaveStateRepository();
 
-	std::string getProperty(const std::string& name);
+	// IBindable
+	BindableProperty getProperty(const std::string& name) override;
+	std::string getBindableTypeName() override { return "system"; }
 
 private:
 	std::string getKeyboardMappingFilePath();

@@ -20,6 +20,8 @@ public:
 	void onSizeChanged() override;
 	void update(int deltaTime) override;
 
+	void recalcLayout() override;
+
 private:
 	void performLayout();
 

@@ -5,6 +5,7 @@
 #include "TextToSpeech.h"
 #include "Settings.h"
 #include "Window.h"
+#include "utils/HtmlColor.h"
 
 #define TEXT_PADDING Math::max(12, Renderer::getScreenWidth() * 0.014)
 
@@ -12,8 +13,7 @@ ButtonComponent::ButtonComponent(Window* window, const std::string& text, const 
 	mBox(window, ThemeData::getMenuTheme()->Button.path),	
 	mFocused(false), 
 	mEnabled(true),
-	mMousePressed(false),
-	mPadding(Vector4f(0, 0, 0, 0))
+	mMousePressed(false)	
 {
 	auto menuTheme = ThemeData::getMenuTheme();
 
@@ -58,6 +58,14 @@ bool ButtonComponent::input(InputConfig* config, Input input)
 	}
 
 	return GuiComponent::input(config, input);
+}
+
+void ButtonComponent::onOpacityChanged()
+{
+	mBox.setOpacity(getOpacity());
+
+	if (mTextCache)
+		mTextCache->setColor(getCurTextColor());
 }
 
 void ButtonComponent::setText(const std::string& text, const std::string& helpText, bool upperCase)
@@ -167,12 +175,12 @@ void ButtonComponent::render(const Transform4x4f& parentTrans)
 
 unsigned int ButtonComponent::getCurTextColor() const
 {
-	return mFocused ? mTextColorFocused : mTextColorUnfocused;
+	return Utils::HtmlColor::applyColorOpacity(mFocused ? mTextColorFocused : mTextColorUnfocused, getOpacity());
 }
 
 unsigned int ButtonComponent::getCurBackColor() const
 {
-	return mFocused ? mColorFocused : mColor;
+	return Utils::HtmlColor::applyColorOpacity(mFocused ? mColorFocused : mColor, getOpacity());
 }
 
 std::vector<HelpPrompt> ButtonComponent::getHelpPrompts()
@@ -182,12 +190,8 @@ std::vector<HelpPrompt> ButtonComponent::getHelpPrompts()
 	return prompts;
 }
 
-void ButtonComponent::setPadding(const Vector4f padding)
+void ButtonComponent::onPaddingChanged()
 {
-	if (mPadding == padding)
-		return;
-
-	mPadding = padding;
 	onSizeChanged();
 }
 

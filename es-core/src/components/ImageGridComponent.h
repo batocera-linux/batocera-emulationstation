@@ -15,6 +15,7 @@
 #include <set>
 #include "InputManager.h"
 #include "utils/Delegate.h"
+#include "BindingManager.h"
 
 #define EXTRAITEMS 2
 #define ALLOWANIMATIONS (Settings::PowerSaverMode() != "instant" && Settings::TransitionStyle() != "instant")
@@ -61,6 +62,10 @@ struct ImageGridData
 	bool		virtualFolder;
 };
 
+// Type trait to check if a type derives from IBindable
+template <typename T>
+struct is_bindable : std::is_base_of<IBindable, std::remove_pointer_t<T>> {};
+
 template<typename T>
 class ImageGridComponent : public IList<ImageGridData, T>
 {
@@ -82,6 +87,7 @@ public:
 	using IList<ImageGridData, T>::size;
 	using IList<ImageGridData, T>::isScrolling;
 	using IList<ImageGridData, T>::stopScrolling;
+	using IList<ImageGridData, T>::updateBindings;
 
 	ImageGridComponent(Window* window);
 
@@ -159,6 +165,8 @@ private:
 	std::string mDefaultFolderTexture;
 	std::string mDefaultLogoBackgroundTexture;
 
+	std::vector<std::shared_ptr<GridTileComponent>> mVisibleTiles;
+
 	// TILES
 	bool mLastRowPartial;
 	bool mAnimateSelection;
@@ -203,6 +211,27 @@ private:
 	float mCameraOffset;
 
 	std::map<int, std::shared_ptr<GridTileComponent>> mScrollLoopTiles;
+
+	// Handle pointer types derived from IBindable
+	template <typename U = T>
+	typename std::enable_if<is_bindable<U>::value>::type
+	processEntryBindings(std::shared_ptr<GridTileComponent> tile, const typename IList<ImageGridData, T>::Entry& entry)
+	{
+		LOG(LogDebug) << "processEntryBindings(IBindable)";
+
+		IBindable* bindingPtr = static_cast<IBindable*>(entry.object);
+		tile->updateBindings(bindingPtr);
+	}
+	
+	// Handle other types
+	template <typename U = T>
+	typename std::enable_if<!is_bindable<U>::value>::type
+		processEntryBindings(std::shared_ptr<GridTileComponent> tile, const typename IList<ImageGridData, T>::Entry& entry)
+	{
+		LOG(LogDebug) << "processEntryBindings(other class)";
+
+		tile->updateBindings(nullptr);
+	}
 };
 
 
@@ -280,7 +309,7 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 	Vector2f startPosition = mTileSize / 2;
 	startPosition += Vector2f(mPadding.x(), mPadding.y());
 
-	auto oldScrollLoopTiles = mScrollLoopTiles;
+	auto oldScrollLoopTiles = mScrollLoopTiles;	
 	mScrollLoopTiles.clear();
 
 	int from = mScrollLoop ? Math::min(range.x(), 0) : 0;
@@ -322,6 +351,9 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 
 				entry.data.tile = tile;
 
+				if (tile->isVisible())
+					mVisibleTiles.push_back(tile);
+
 				if (mCursor == i)
 				{
 					auto curTile = getSelectedTile();
@@ -343,6 +375,8 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 				loadTile(entry.data.tile, entry);
 				entry.data.tile->setVisible(true);
 
+				mVisibleTiles.push_back(entry.data.tile);
+
 				if (mShowing)
 					entry.data.tile->onShow();
 			}
@@ -356,14 +390,19 @@ void ImageGridComponent<T>::ensureVisibleTileExist()
 		}
 		else if (entry.data.tile != nullptr)
 		{
-			entry.data.tile->setVisible(false);
+			if (entry.data.tile->isVisible())
+				entry.data.tile->setVisible(false);
+
+			auto it = std::find(mVisibleTiles.cbegin(), mVisibleTiles.cend(), entry.data.tile);
+			if (it != mVisibleTiles.cend())
+				mVisibleTiles.erase(it);
 
 			if (!mShowing)
-			{
+			{				
 				entry.data.tile->resetImages();
 				entry.data.tile = nullptr;
 			}
-			else
+			else if (entry.data.tile->isShowing())
 				entry.data.tile->onHide();
 		}
 	}
@@ -549,9 +588,13 @@ void ImageGridComponent<T>::update(int deltaTime)
 		mEntriesDirty = false;
 	}
 
+	for (auto tile : mVisibleTiles)
+		tile->update(deltaTime);
+	/*
 	for (auto entry : mEntries)
 		if (entry.data.tile != nullptr && entry.data.tile->isVisible())
 			entry.data.tile->update(deltaTime);
+	*/
 }
 
 template<typename T>
@@ -594,6 +637,7 @@ void ImageGridComponent<T>::onHide()
 			entry.data.tile->onHide();
 
 	ensureVisibleTileExist();
+	mEntriesDirty = false;
 }
 
 template<typename T>
@@ -626,6 +670,10 @@ void ImageGridComponent<T>::setGridSizeOverride(Vector2f size)
 template<typename T>
 std::shared_ptr<GridTileComponent> ImageGridComponent<T>::getSelectedTile()
 {
+	for (auto tile : mVisibleTiles)
+		if (tile->isSelected())
+			return tile;
+
 	for (auto entry : mEntries)
 		if (entry.data.tile != nullptr)
 			if (entry.data.tile->isSelected())
@@ -652,17 +700,13 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 		Renderer::setMatrix(trans);
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033);
 
-		for (auto entry : mEntries)
+		for (auto tile : mVisibleTiles)
 		{
-			auto tile = entry.data.tile;
-			if (tile != nullptr && tile->isVisible())
-			{
-				auto tt = trans * tile->getTransform();
-				tt.translate(isVertical() ? 0 : -mCameraOffset, isVertical() ? -mCameraOffset : 0);
+			auto tt = trans * tile->getTransform();
+			tt.translate(isVertical() ? 0 : -mCameraOffset, isVertical() ? -mCameraOffset : 0);
 
-				Renderer::setMatrix(tt);
-				Renderer::drawRect(0.0, 0.0, tile->getSize().x(), tile->getSize().y(), 0x00FF0033);
-			}
+			Renderer::setMatrix(tt);
+			Renderer::drawRect(0.0, 0.0, tile->getSize().x(), tile->getSize().y(), 0x00FF0033);
 		}
 
 		Renderer::setMatrix(parentTrans);
@@ -688,20 +732,16 @@ void ImageGridComponent<T>::render(const Transform4x4f& parentTrans)
 	for (auto scrollLoopTile : mScrollLoopTiles)
 		scrollLoopTile.second->render(tileTrans);
 
-	for (int i = 0; i < mEntries.size(); i++)
+	for (auto tile : mVisibleTiles)
 	{
-		typename IList<ImageGridData, T>::Entry& entry = mEntries[i];
-		if (entry.data.tile != nullptr && entry.data.tile->isVisible())
+		if (tile->isSelected())
 		{
-			if (entry.data.tile->isSelected())
-			{
-				selectedTile = entry.data.tile;
-				if (splittedRendering && entry.data.tile->shouldSplitRendering())
-					entry.data.tile->renderBackground(tileTrans);
-			}
-			else
-				entry.data.tile->render(tileTrans);
+			selectedTile = tile;
+			if (splittedRendering && tile->shouldSplitRendering())
+				tile->renderBackground(tileTrans);
 		}
+		else
+			tile->render(tileTrans);
 	}
 
 	// Render the selected image content on top of the others
@@ -1048,6 +1088,14 @@ void ImageGridComponent<T>::onCursorChanged(const CursorState& state)
 			}
 			else
 				mEntries[mCursor].data.tile->setSelected(true, true, oldPos == Vector3f::Zero() ? nullptr : &oldPos, true);
+
+			auto selected = mEntries[mCursor].data.tile;
+			auto old = mLastCursor >= 0 && mLastCursor < mEntries.size() ? mEntries[mLastCursor].data.tile : nullptr;
+
+			for (auto tile : mVisibleTiles)
+				if (tile != selected && tile != old)
+					if (tile->hasItemTemplate())
+						tile->setSelected(false);
 		}
 		else if (mLastCursor = -9999)
 			mEntries[mCursor].data.tile->startVideo();
@@ -1165,8 +1213,6 @@ template<typename T>
 void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, typename IList<ImageGridData, T>::Entry& entry)
 {
 	std::string name = entry.name;
-	std::string imagePath = entry.data.texturePath;
-	std::string marqueePath = entry.data.marqueePath;
 
 	// Label
 	if (!entry.data.favorite || tile->hasFavoriteMedia())
@@ -1179,6 +1225,13 @@ void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, ty
 	}
 	else
 		tile->setLabel(name);
+
+	processEntryBindings(tile, entry);
+	if (tile->hasItemTemplate())
+		return;
+
+	std::string imagePath = entry.data.texturePath;
+	std::string marqueePath = entry.data.marqueePath;
 
 	bool preloadMedias = Settings::PreloadMedias();
 
@@ -1253,6 +1306,8 @@ void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, ty
 template<typename T>
 void ImageGridComponent<T>::resetGrid()
 {
+	mVisibleTiles.clear();
+
 	if (mGridSizeOverride.x() != 0 && mGridSizeOverride.y() != 0)
 		mAutoLayout = mGridSizeOverride;
 
@@ -1346,10 +1401,9 @@ bool ImageGridComponent<T>::hitTest(int x, int y, Transform4x4f& parentTransform
 	Transform4x4f trans = parentTransform * getTransform();
 	
 	trans.translate(isVertical() ? 0 : -mCameraOffset, isVertical() ? -mCameraOffset : 0);
-
-	for (auto entry : mEntries)
-		if (entry.data.tile != nullptr)
-			entry.data.tile->hitTest(x, y, trans, pResult);
+	
+	for (auto tile : mVisibleTiles)
+		tile->hitTest(x, y, trans, pResult);
 
 	return ret;
 }

@@ -7,7 +7,7 @@
 NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, unsigned int edgeColor, unsigned int centerColor) : GuiComponent(window),
 	mCornerSize(16, 16),
 	mEdgeColor(edgeColor), mCenterColor(centerColor),
-	mVertices(NULL), mPadding(Vector4f(0, 0, 0, 0))
+	mVertices(NULL)
 {
 	mTimer = 0;
 	mAnimateTiming = 0;
@@ -17,15 +17,6 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 	setImagePath(path);
 }
 
-void NinePatchComponent::setOpacity(unsigned char opacity)
-{
-	if (mOpacity == opacity)
-		return;
-
-	mOpacity = opacity;
-	updateColors();
-}
-
 NinePatchComponent::~NinePatchComponent()
 {
 	if (mTexture != nullptr)
@@ -33,6 +24,11 @@ NinePatchComponent::~NinePatchComponent()
 
 	if (mVertices != NULL)
 		delete[] mVertices;
+}
+
+void NinePatchComponent::onOpacityChanged()
+{
+	updateColors();
 }
 
 void NinePatchComponent::update(int deltaTime)
@@ -52,7 +48,7 @@ void NinePatchComponent::updateColors()
 	if (mVertices == nullptr)
 		return;
 
-	float opacity = mOpacity / 255.0;
+	float opacity = getOpacity() / 255.0;
 
 	unsigned int e = mEdgeColor;
 	unsigned int c = mCenterColor;
@@ -143,13 +139,13 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 
 	auto rect = Renderer::getScreenRect(trans, mSize);
-	if (!Renderer::isVisibleOnScreen(rect))
+	if (mRotation == 0 && trans.r0().y() == 0 && !Renderer::isVisibleOnScreen(rect))
 		return;
 
 	// Apply cornersize < 0 only with default ":/frame.png" image, not with customized ones
 	if (mCornerSize.x() <= 1 && mCornerSize.y() <= 1 && mCornerSize.x() == mCornerSize.y() && mPath == ":/frame.png")
 	{
-		float opacity = mOpacity / 255.0;
+		float opacity = getOpacity() / 255.0;
 
 		unsigned int e = mEdgeColor;
 
@@ -175,7 +171,7 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	{
 		if (mAnimateTiming > 0)
 		{
-			float opacity = mOpacity / 255.0;
+			float opacity = getOpacity() / 255.0;
 
 			unsigned int e = mEdgeColor;
 			unsigned int c = mCenterColor;
@@ -202,17 +198,6 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	}
 
 	renderChildren(trans);
-}
-
-void NinePatchComponent::onSizeChanged()
-{
-	GuiComponent::onSizeChanged();
-
-	if (mPreviousSize == mSize)
-		return;
-
-	mPreviousSize = mSize;
-	buildVertices();
 }
 
 const Vector2f& NinePatchComponent::getCornerSize() const
@@ -315,7 +300,16 @@ void NinePatchComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, con
 		setAnimateTiming(elem->get<float>("animateColorTime"));
 
 	if (elem->has("padding"))
-		setPadding(elem->get<Vector4f>("padding"));
+	{
+		Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+		auto padding = elem->get<Vector4f>("padding");
+		if (abs(padding.x()) < 1 && abs(padding.y()) < 1 && abs(padding.z()) < 1 && abs(padding.w()) < 1)
+			setPadding(padding * Vector4f(scale.x(), scale.y(), scale.x(), scale.y()));
+		else
+			setPadding(padding); // Pixel size
+	}
+	//	setPadding(elem->get<Vector4f>("padding"));
 }
 
 void NinePatchComponent::onShow()
@@ -336,28 +330,29 @@ void NinePatchComponent::onHide()
 
 ThemeData::ThemeElement::Property NinePatchComponent::getProperty(const std::string name)
 {
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
 	if (name == "color")
 		return mCenterColor;
-	else if (name == "centerColor")
+	
+	if (name == "centerColor")
 		return mCenterColor;
-	else if (name == "edgeColor")
+	
+	if (name == "edgeColor")
 		return mEdgeColor;
-	else if (name == "cornerSize")
+	
+	if (name == "cornerSize")
 		return mCornerSize;
-	else if (name == "animateColor")
+	
+	if (name == "animateColor")
 		return mAnimateColor;
-	else if (name == "padding")
-		return mPadding;
+	
+	if (name == "path")
+		return mPath;
 
 	return GuiComponent::getProperty(name);
 }
 
 void NinePatchComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
 {
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
 	if (name == "color" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
 	{
 		setCenterColor(value.i);
@@ -371,17 +366,24 @@ void NinePatchComponent::setProperty(const std::string name, const ThemeData::Th
 		setAnimateColor(value.i);
 	else if (name == "cornerSize" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
 		setCornerSize(value.v);
-	else if (name == "padding" && value.type == ThemeData::ThemeElement::Property::PropertyType::Rect)
-		setPadding(value.r);
+	else if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+		setImagePath(value.s);
 	else
 		GuiComponent::setProperty(name, value);
 }
 
-void NinePatchComponent::setPadding(const Vector4f padding) 
-{ 
-	if (mPadding == padding)
+void NinePatchComponent::onSizeChanged()
+{
+	GuiComponent::onSizeChanged();
+
+	if (mPreviousSize == mSize)
 		return;
 
-	mPadding = padding; 
+	mPreviousSize = mSize;
+	buildVertices();
+}
+
+void NinePatchComponent::onPaddingChanged() 
+{ 
 	buildVertices();
 }

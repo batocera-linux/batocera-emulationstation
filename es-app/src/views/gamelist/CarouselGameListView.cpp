@@ -74,7 +74,10 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 		if (showParentFolder && mCursorStack.size())
 		{
-			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
+			SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+			FileData* placeholder = new FolderData("..", system->isCollection() ? this->mRoot->getSystem() : system); // this->mRoot->getSystem()
+
+			// FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
 			mList.add(". .", placeholder);
 		}
 

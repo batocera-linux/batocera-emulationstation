@@ -241,7 +241,7 @@ namespace Renderer
 	void GLES10Renderer::setMatrix(const Transform4x4f& _matrix)
 	{
 		Transform4x4f matrix = _matrix;
-		matrix.round();
+		// matrix.round();
 		glMatrixMode(GL_MODELVIEW);
 		glLoadMatrixf((GLfloat*)&matrix);
 

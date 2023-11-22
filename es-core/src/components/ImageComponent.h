@@ -40,7 +40,7 @@ public:
 	void setImage(const std::shared_ptr<TextureResource>& texture);
 
 	void onSizeChanged() override;
-	void setOpacity(unsigned char opacity) override;
+	void onOpacityChanged() override;
 
 	// Resize the image to fit this size. If one axis is zero, scale that axis to maintain aspect ratio.
 	// If both are non-zero, potentially break the aspect ratio.  If both are zero, no resizing.
@@ -84,6 +84,8 @@ public:
 	Vector2i getTextureSize() const;
 
 	Vector2f getSize() const override;
+	void	 setSize(float w, float h) override;
+	void	 setSize(const Vector2f& size) override { setSize(size.x(), size.y()); }
 
 	bool hasImage();
 
@@ -98,26 +100,17 @@ public:
 
 	std::shared_ptr<TextureResource> getTexture() { return mTexture; };
 
-	const MaxSizeInfo getMaxSizeInfo()
-	{
-		if (mTargetSize == Vector2f(0, 0))
-			return MaxSizeInfo(mSize, mTargetIsMax);
-
-		return MaxSizeInfo(mTargetSize, mTargetIsMax);
-	};
-
-	Vector4f getPadding() { return mPadding; }
-	void setPadding(const Vector4f padding);
-
+	const MaxSizeInfo getMaxSizeInfo();
 	void setHorizontalAlignment(Alignment align) { mHorizontalAlignment = align; }
 	void setVerticalAlignment(Alignment align) { mVerticalAlignment = align; }
 
 	float getRoundCorners() { return mRoundCorners; }
 	void setRoundCorners(float value);
 
-	virtual void onShow() override;
-	virtual void onHide() override;
-	virtual void update(int deltaTime);
+	void onShow() override;
+	void onHide() override;
+	void update(int deltaTime) override;
+	void onPaddingChanged() override;
 
 	void setPlaylist(std::shared_ptr<IPlaylist> playList);
 
@@ -133,13 +126,17 @@ public:
 	bool getTargetIsMax() { return mTargetIsMax; }
 
 	void setSaturation(float saturation);
-	void setCustomShader(const Renderer::ShaderInfo& customShader) { mCustomShader = customShader; }
+	void setCustomShader(const Renderer::ShaderInfo& customShader);
+
+	Vector2f& getTargetSize() { return mTargetSize; }
 
 protected:
 	std::shared_ptr<TextureResource> mTexture;
 	std::shared_ptr<TextureResource> mLoadingTexture;
 
 	Vector2f mTargetSize;
+
+	void	recalcLayout() override;
 
 private:
 	bool mFlipX, mFlipY, mTargetIsMax, mTargetIsMin;
@@ -176,8 +173,6 @@ private:
 	bool mAllowFading;
 
 	std::string mPath;
-
-	Vector4f	mPadding;
 
 	Alignment mHorizontalAlignment;
 	Alignment mVerticalAlignment;

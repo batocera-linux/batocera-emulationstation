@@ -183,8 +183,17 @@ void ComponentGrid::updateCellComponent(const GridEntry& cell)
 		pos[1] += getRowHeight(y);
 
 	// center component
-	pos[0] = pos.x() + (size.x() - cell.component->getSize().x()) / 2;
-	pos[1] = pos.y() + (size.y() - cell.component->getSize().y()) / 2;
+
+	if (cell.component->getThemeTypeName() == "image")
+	{
+		pos[0] = pos.x() + size.x() * cell.component->getOrigin().x();
+		pos[1] = pos.y() + size.y() * cell.component->getOrigin().y();
+	}
+	else
+	{
+		pos[0] = pos.x() + (size.x() - cell.component->getSize().x()) / 2;
+		pos[1] = pos.y() + (size.y() - cell.component->getSize().y()) / 2;
+	}
 	
 	cell.component->setPosition(pos);
 }

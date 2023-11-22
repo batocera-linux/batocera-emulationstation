@@ -15,6 +15,8 @@ public:
 	DateTimeComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color = 0x000000FF, Alignment align = ALIGN_LEFT,
 		Vector3f pos = Vector3f::Zero(), Vector2f size = Vector2f::Zero(), unsigned int bgcolor = 0x00000000);
 
+	std::string getThemeTypeName() override { return "datetime"; }
+
 	void render(const Transform4x4f& parentTrans) override;
 
 	void setValue(const std::string& val) override;

@@ -491,12 +491,6 @@ void resetGamelistUsageData(SystemData* system)
 			it->setMetadata(MetaDataId::LastPlayed, "");
 		}
 	}
-
-
-	std::stack<FolderData*> folders;
-	folders.push(rootFolder);
-
-	// rootFolder->getChildren();
 }
 
 void cleanupGamelist(SystemData* system)

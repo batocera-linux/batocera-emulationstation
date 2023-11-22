@@ -23,7 +23,7 @@
 #include "guis/GuiGamelistOptions.h"
 #include "BasicGameListView.h"
 #include "utils/Randomizer.h"
-#include "views/Binding.h"
+#include "BindingManager.h"
 #include "guis/GuiImageViewer.h"
 #include "guis/GuiGameAchievements.h"
 
@@ -382,7 +382,7 @@ void ISimpleGameListView::launchSelectedGame()
 	FileData* cursor = getCursor();
 	FolderData* folder = NULL;
 
-	if (mCursorStack.size() && cursor->getType() == PLACEHOLDER && cursor->getPath() == "..")
+	if (mCursorStack.size() && (cursor->getType() == PLACEHOLDER || cursor->getType() == FOLDER) && cursor->getPath() == "..")
 	{
 		auto top = mCursorStack.top();
 		mCursorStack.pop();
@@ -612,7 +612,7 @@ void ISimpleGameListView::updateThemeExtrasBindings()
 	auto system = file->getSystem();
 
 	for (auto extra : mThemeExtras)
-		Binding::updateBindings(extra, file);
+		BindingManager::updateBindings(extra, file);
 }
 
 bool ISimpleGameListView::onAction(const std::string& action)

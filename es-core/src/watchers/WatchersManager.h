@@ -52,6 +52,7 @@ public:
 	static void ResetComponent(IWatcher* instance);
 
 	static WatchersManager* getInstance();
+	static void             stop();
 
 	virtual ~WatchersManager();
 

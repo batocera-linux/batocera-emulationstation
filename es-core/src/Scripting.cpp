@@ -65,7 +65,9 @@ namespace Scripting
         {
             Paths::getUserEmulationStationPath() + "/scripts/" + eventName,
             Paths::getEmulationStationPath() + "/scripts/" + eventName,
+#ifndef WIN32
             "/var/run/emulationstation/scripts/" + eventName
+#endif
         };
 
         for (auto dir : VectorHelper::distinct(scriptDirList, [](auto x) { return x; }))
@@ -87,7 +89,9 @@ namespace Scripting
         {
             Paths::getUserEmulationStationPath() + "/scripts",
             Paths::getEmulationStationPath() + "/scripts",
+#ifndef WIN32
             "/var/run/emulationstation/scripts"
+#endif
         };
 
         for (auto dir : VectorHelper::distinct(paths, [](auto x) { return x; }))

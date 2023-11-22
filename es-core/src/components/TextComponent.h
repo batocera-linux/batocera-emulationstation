@@ -35,12 +35,14 @@ public:
 	void setBackgroundColor(unsigned int color);
 	void setRenderBackground(bool render);
 
+	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;
 
 	std::string getValue() const override;
 	void setValue(const std::string& value) override;
 	
-	void setOpacity(unsigned char opacity) override;
+	void onOpacityChanged() override;
+	void onPaddingChanged() override;
 
 	inline std::shared_ptr<Font> getFont() const { return mFont; }
 
@@ -49,10 +51,6 @@ public:
 	void setGlowColor(unsigned int color) { mGlowColor = color; };
 	void setGlowSize(unsigned int size) { mGlowSize = size; };
 	void setGlowOffset(float x, float y) { mGlowOffset = Vector2f(x,y); };
-
-	void setPadding(const Vector4f padding);
-
-	virtual void update(int deltaTime);
 
 	enum AutoScrollType : unsigned int
 	{
@@ -84,6 +82,10 @@ public:
 	MultiLineType getMultiLine() { return mMultiline; }
 	void setMultiLine(MultiLineType value);
 
+	bool getBindingDefaults() { return mBindingDefaults; }
+
+	void setBonusTextColor(unsigned int color);
+
 protected:
 	void buildTextCache();
 	virtual void onTextChanged();
@@ -91,6 +93,8 @@ protected:
 	std::string mText;
 	std::shared_ptr<Font> mFont;
 	std::string mSourceText;
+
+	bool		mBindingDefaults;
 
 	Vector2i mAutoCalcExtent;
 
@@ -112,7 +116,6 @@ private:
 	unsigned int mGlowColor;
 	unsigned int mGlowSize;
 	Vector2f	 mGlowOffset;
-	Vector4f	 mPadding;
 	
 	Vector2f	mReflection;
 	bool		mReflectOnBorders;
@@ -122,6 +125,12 @@ private:
 	int mMarqueeTime;
 
 	int mTextLength;
+
+	int mAutoScrollDelay;
+	int mAutoScrollSpeed;
+
+	unsigned int mBonusColor;
+	bool mHasBonusColor;
 
 	AutoScrollType mAutoScroll;
 	MultiLineType  mMultiline;

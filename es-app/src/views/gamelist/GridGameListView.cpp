@@ -196,7 +196,10 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 
 			if (showParentFolder)
 			{
-				FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
+				SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+
+				//FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
+				FileData* placeholder = new FolderData("..", system->isCollection() ? this->mRoot->getSystem() : system); // this->mRoot->getSystem()
 				mGrid.add(". .", imagePath, "", "", false, true, false, displayAsVirtualFolder && !imagePath.empty(), placeholder);
 			}
 		}
@@ -231,6 +234,8 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 		addPlaceholder();
 
 	updateFolderPath();
+
+	mGrid.update(0);
 
 	if (mShowing)
 		onShow();

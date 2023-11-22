@@ -946,6 +946,17 @@ namespace Utils
 			return ret;
 		}
 
+		int occurs(const std::string& str, char target)
+		{
+			int count = 0;
+			
+			for (char ch : str)
+				if (ch == target)
+					count++;
+
+			return count;
+		}
+
 		bool isPrintableChar(char c)
 		{			
 #if defined(_WIN32)

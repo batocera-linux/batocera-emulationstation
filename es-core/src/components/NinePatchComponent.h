@@ -43,19 +43,18 @@ public:
 	void setCornerSize(float sizeX, float sizeY);
 	inline void setCornerSize(const Vector2f& size) { setCornerSize(size.x(), size.y()); }
 
-	virtual void setOpacity(unsigned char opacity);
+	void onOpacityChanged() override;
 
 	void setAnimateColor(unsigned int color) { mAnimateColor = color; };
 	void setAnimateTiming(float timing) { mAnimateTiming = timing; };
 
-	virtual void onShow() override;
-	virtual void onHide() override;
+	void onShow() override;
+	void onHide() override;
+	void onPaddingChanged() override;
 
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 
-	Vector4f getPadding() { return mPadding; }
-	void setPadding(const Vector4f padding);
 
 private:
 	void buildVertices();
@@ -74,8 +73,7 @@ private:
 
 	float mTimer;
 	float mAnimateTiming;
-	unsigned int mAnimateColor;	
-	Vector4f	 mPadding;
+	unsigned int mAnimateColor;		
 };
 
 #endif // ES_CORE_COMPONENTS_NINE_PATCH_COMPONENT_H

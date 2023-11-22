@@ -63,7 +63,8 @@ namespace Utils
 		Utils::Time::DateTime getFileCreationDate(const std::string& _path);
 		Utils::Time::DateTime getFileModificationDate(const std::string& _path);
 
-		std::string	readAllText(const std::string fileName);
+		std::string	readAllText(const std::string& fileName);
+		stringList	readAllLines(const std::string& fileName);
 		void		writeAllText(const std::string& fileName, const std::string& text);
 		bool		copyFile(const std::string src, const std::string dst);
 		void		deleteDirectoryFiles(const std::string path, bool deleteDirectory = false);
@@ -78,6 +79,7 @@ namespace Utils
 #ifdef WIN32
 		void		splitCommand(std::string cmd, std::string* executable, std::string* parameters);
 #endif
+		void		preloadFileSystemCache(const std::string& path, bool trySaveStates = true);
 
 		std::string getFileCrc32(const std::string& filename);
 		std::string getFileMd5(const std::string& filename);

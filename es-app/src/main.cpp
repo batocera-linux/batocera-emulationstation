@@ -39,6 +39,7 @@
 #include "Paths.h"
 #include "resources/TextureData.h"
 #include "Scripting.h"
+#include "watchers/WatchersManager.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -436,8 +437,14 @@ void launchStartupGame()
 	}	
 }
 
+// #include "BindingManager.h"
+// #include "utils/MathExpr.h"
+
 int main(int argc, char* argv[])
 {	
+//	Utils::MathExpr evaluator;
+//	auto ret = evaluator.eval("empty(\"Alien Syndrome\") ? upper(\"test\") : \"\"");
+
 	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);
 	signal(SIGILL, signalHandler);
@@ -730,12 +737,13 @@ int main(int argc, char* argv[])
 	if (Utils::Platform::isFastShutdown())
 		Settings::getInstance()->setBool("IgnoreGamelist", true);
 
+	WatchersManager::stop();
 	ThreadedHasher::stop();
 	ThreadedScraper::stop();
 
 	ApiSystem::getInstance()->deinit();
 
-	while(window.peekGui() != ViewController::get())
+	while (window.peekGui() != ViewController::get())
 		delete window.peekGui();
 
 	if (SystemData::hasDirtySystems())

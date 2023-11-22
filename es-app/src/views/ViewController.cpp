@@ -926,17 +926,13 @@ void ViewController::update(int deltaTime)
 
 	if (mDeferPlayViewTransitionTo != nullptr)
 	{
-		auto destView = mDeferPlayViewTransitionTo;
-		mDeferPlayViewTransitionTo.reset();
-		
-		mWindow->postToUiThread([this, destView]() 
-		{ 
-			if (mCurrentView)
-				mCurrentView->onHide();
+		if (mCurrentView)
+			mCurrentView->onHide();
 
-			mCurrentView = destView;
-			playViewTransition(false); 
-		});
+		mCurrentView = mDeferPlayViewTransitionTo;
+		mDeferPlayViewTransitionTo = nullptr;
+
+		playViewTransition(false); 
 	}
 }
 
