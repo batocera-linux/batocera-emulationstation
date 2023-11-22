@@ -491,7 +491,7 @@
     <game>urbanextremestreetrage</game>
     <game>wackyraces</game>
   </system>
-  <system name="xbox">
+  <system name="xbox" wheel="joystick1left" accelerate="lt" brake="rt">
     <game>4x4evo2</game>
     <game>alfaromeoracing</game>
     <game>apex</game>
