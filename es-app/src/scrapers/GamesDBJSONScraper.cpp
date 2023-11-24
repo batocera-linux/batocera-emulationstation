@@ -41,6 +41,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ BBC_MICRO, "5013"},
 	{ COLECOVISION, "31" },	
 	{ COMMODORE_64, "40" },
+	{ COMMODORE_PET, "5008" },
 	{ INTELLIVISION, "32" },
 	{ MAC_OS, "37" },
 	{ XBOX, "14" },
