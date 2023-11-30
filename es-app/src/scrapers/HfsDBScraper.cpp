@@ -94,6 +94,7 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ TURBOGRAFX_16, "30273" },
 	{ TURBOGRAFX_CD, "138489" },
 	{ COMMODORE_PET, "240850" },
+	{ COMMODORE_PLUS4, "240851" },
 	{ PLAYSTATION_3, "91841" },
 	{ PLAYSTATION_2, "83494" },
 	{ PLAYSTATION_VITA, "91844" },
