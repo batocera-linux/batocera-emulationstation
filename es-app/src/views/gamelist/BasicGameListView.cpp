@@ -76,23 +76,8 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();
-		if (favoritesFirst)
-		{			
-			for (auto file : files)
-			{
-				if (file->getFavorite())
-					mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
-			}
-		}
-
 		for (auto file : files)		
-		{
-			if (favoritesFirst && file->getFavorite())
-				continue;
-				
 			mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
-		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mList.size() > 1 && mList.getCursorIndex() == 0)

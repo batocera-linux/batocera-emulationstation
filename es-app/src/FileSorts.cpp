@@ -74,9 +74,6 @@ namespace FileSorts
 	//returns if file1 should come before file2
 	bool compareName(const FileData* file1, const FileData* file2)
 	{
-		if (Settings::ShowFoldersFirst() && file1->getType() != file2->getType())
-			return file1->getType() == FOLDER;
-
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order
 		const std::string& name1 = ((FileData *) file1)->getName();
 		const std::string& name2 = ((FileData *) file2)->getName();

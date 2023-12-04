@@ -198,21 +198,8 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();
-		if (favoritesFirst)
-		{
-			for (auto file : files)
-				if (file->getFavorite())
-					mGrid.add(formatter.getDisplayName(file, file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file))), getImagePath(file), file);
-		}
-
 		for (auto file : files)
-		{
-			if (file->getFavorite() && favoritesFirst)
-				continue;
-
 			mGrid.add(formatter.getDisplayName(file, file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file))), getImagePath(file), file);
-		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mGrid.size() > 1 && mGrid.getCursorIndex() == 0)

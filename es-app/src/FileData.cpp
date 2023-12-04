@@ -222,17 +222,17 @@ const std::string FileData::getThumbnailPath()
 	return thumbnail;
 }
 
-const bool FileData::getFavorite()
+const bool FileData::getFavorite() const
 {
 	return getMetadata(MetaDataId::Favorite) == "true";
 }
 
-const bool FileData::getHidden()
+const bool FileData::getHidden() const
 {
 	return getMetadata(MetaDataId::Hidden) == "true";
 }
 
-const bool FileData::getKidGame()
+const bool FileData::getKidGame() const
 {
 	auto data = getMetadata(MetaDataId::KidGame);
 	return data != "false" && !data.empty();
@@ -1086,10 +1086,19 @@ const std::vector<FileData*> FolderData::getChildrenListToDisplay()
 	}
 	else
 	{
-		std::sort(ret.begin(), ret.end(), sort.comparisonFunction);
+		bool foldersFirst = Settings::ShowFoldersFirst();
+		bool favoritesFirst = getSystem()->getShowFavoritesFirst();
 
-		if (!sort.ascending)
-			std::reverse(ret.begin(), ret.end());
+		std::sort(ret.begin(), ret.end(), [sort, foldersFirst, favoritesFirst](const FileData* file1, const FileData* file2) -> bool
+			{
+				if (favoritesFirst && file1->getFavorite() != file2->getFavorite())
+					return file1->getFavorite();
+
+				if (foldersFirst && file1->getType() != file2->getType())
+					return (file1->getType() == FOLDER);
+
+				return sort.comparisonFunction(file1, file2) == sort.ascending;
+			});
 	}
 
 	return ret;

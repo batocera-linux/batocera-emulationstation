@@ -107,9 +107,9 @@ public:
 	void setCore(const std::string value);
 	void setEmulator(const std::string value);
 
-	virtual const bool getHidden();
-	virtual const bool getFavorite();
-	virtual const bool getKidGame();
+	virtual const bool getHidden() const;
+	virtual const bool getFavorite() const;
+	virtual const bool getKidGame() const;
 	virtual const bool hasCheevos();
 
 	bool hasAnyMedia();
@@ -147,7 +147,7 @@ public:
 
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
-	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	std::string getMetadata(MetaDataId key) const { return getMetadata().get(key); }
 	void setMetadata(MetaDataId key, const std::string& value) { return getMetadata().set(key, value); }
 
 	void detectLanguageAndRegion(bool overWrite);

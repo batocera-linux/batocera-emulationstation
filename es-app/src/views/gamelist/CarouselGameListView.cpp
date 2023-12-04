@@ -83,25 +83,8 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();		
-		if (favoritesFirst)
-		{
-			for (auto file : files)
-			{
-				if (!file->getFavorite())
-					continue;
-				
-				mList.add(formatter.getDisplayName(file), file);
-			}
-		}
-
 		for (auto file : files)		
-		{
-			if (file->getFavorite() && favoritesFirst)
-				continue;
-
 			mList.add(formatter.getDisplayName(file), file);
-		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mList.size() > 1 && mList.getCursorIndex() == 0)
