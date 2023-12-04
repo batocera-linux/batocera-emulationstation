@@ -43,7 +43,11 @@ public:
 	void operator= (IBindable* value) { bindable = value; type = BindablePropertyType::Bindable; }
 
 	bool isString() { return type == BindablePropertyType::String || type == BindablePropertyType::Path; }
+
 	std::string toString();
+	bool toBoolean();
+	int toInteger();
+	int toFloat();
 	
 	union
 	{

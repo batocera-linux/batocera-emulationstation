@@ -1841,6 +1841,9 @@ BindableProperty FileData::getProperty(const std::string& name)
 	if (name == "folder" || name == "isFolder")
 		return getType() == FOLDER; 
 
+	if (name == "virtualfolder")
+		return getType() == FOLDER && (getPath() == ".." || ((FolderData*)this)->isVirtualFolderDisplay());
+
 	if (name == "placeHolder" || name == "isPlaceHolder" || name == "placeholder")
 		return getType() == PLACEHOLDER;
 

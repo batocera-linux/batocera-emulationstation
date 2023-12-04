@@ -52,14 +52,7 @@ enum CenterSelection
 struct ImageGridData
 {
 	std::shared_ptr<GridTileComponent> tile;
-
 	std::string texturePath;
-	std::string marqueePath;
-	std::string videoPath;
-	bool		favorite;
-	bool		cheevos;
-	bool		folder;
-	bool		virtualFolder;
 };
 
 // Type trait to check if a type derives from IBindable
@@ -93,7 +86,7 @@ public:
 
 	std::string getThemeTypeName() override { return "imagegrid"; }
 
-	void add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool cheevos, bool folder, bool virtualFolder, const T& obj);
+	void add(const std::string& name, const std::string& imagePath, const T& obj);
 	virtual void clear();
 
 	void setImage(const std::string& imagePath, const T& obj);
@@ -214,23 +207,19 @@ private:
 
 	// Handle pointer types derived from IBindable
 	template <typename U = T>
-	typename std::enable_if<is_bindable<U>::value>::type
-	processEntryBindings(std::shared_ptr<GridTileComponent> tile, const typename IList<ImageGridData, T>::Entry& entry)
+	typename std::enable_if<is_bindable<U>::value, IBindable*>::type
+		getBindable(const typename IList<ImageGridData, T>::Entry& entry)
 	{
-		LOG(LogDebug) << "processEntryBindings(IBindable)";
-
 		IBindable* bindingPtr = static_cast<IBindable*>(entry.object);
-		tile->updateBindings(bindingPtr);
+		return bindingPtr;
 	}
-	
+
 	// Handle other types
 	template <typename U = T>
-	typename std::enable_if<!is_bindable<U>::value>::type
-		processEntryBindings(std::shared_ptr<GridTileComponent> tile, const typename IList<ImageGridData, T>::Entry& entry)
+	typename std::enable_if<!is_bindable<U>::value, IBindable*>::type
+		getBindable(const typename IList<ImageGridData, T>::Entry& entry)
 	{
-		LOG(LogDebug) << "processEntryBindings(other class)";
-
-		tile->updateBindings(nullptr);
+		return nullptr;
 	}
 };
 
@@ -454,18 +443,12 @@ ImageGridComponent<T>::ImageGridComponent(Window* window) : IList<ImageGridData,
 }
 
 template<typename T>
-void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const std::string& videoPath, const std::string& marqueePath, bool favorite, bool cheevos, bool folder, bool virtualFolder, const T& obj)
+void ImageGridComponent<T>::add(const std::string& name, const std::string& imagePath, const T& obj)
 {
 	typename IList<ImageGridData, T>::Entry entry;
 	entry.name = name;
 	entry.object = obj;
 	entry.data.texturePath = imagePath;
-	entry.data.videoPath = videoPath;
-	entry.data.marqueePath = marqueePath;
-	entry.data.favorite = favorite;
-	entry.data.cheevos = cheevos;
-	entry.data.folder = folder;
-	entry.data.virtualFolder = virtualFolder;
 
 	static_cast<IList< ImageGridData, T >*>(this)->add(entry);
 
@@ -1214,8 +1197,13 @@ void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, ty
 {
 	std::string name = entry.name;
 
+	IBindable* bindable = getBindable(entry);
+	
+	// tile->setFavorite(entry.data.favorite); //	tile->setCheevos(entry.data.cheevos);
+	bool favorite = bindable ? bindable->getProperty("favorite").toBoolean() : false;
+
 	// Label
-	if (!entry.data.favorite || tile->hasFavoriteMedia())
+	if (!favorite || tile->hasFavoriteMedia())
 	{
 		// Remove favorite text glyph
 		if (Utils::String::startsWith(name, _U("\uF006 ")))
@@ -1226,12 +1214,32 @@ void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, ty
 	else
 		tile->setLabel(name);
 
-	processEntryBindings(tile, entry);
+	if (bindable != nullptr)
+		tile->updateBindings(bindable);
+	
 	if (tile->hasItemTemplate())
 		return;
 
 	std::string imagePath = entry.data.texturePath;
-	std::string marqueePath = entry.data.marqueePath;
+	std::string marqueePath = bindable ? bindable->getProperty("marquee").toString() : ""; // entry.data.marqueePath;
+	std::string videoPath = bindable ? bindable->getProperty("video").toString() : ""; // entry.data.marqueePath;
+	
+	if (Utils::FileSystem::isAudio(imagePath) && videoPath.empty())
+	{
+		videoPath = imagePath;
+
+		if (ResourceManager::getInstance()->fileExists(":/mp3.jpg"))
+			imagePath = ":/mp3.jpg";
+	}
+	else if (Utils::FileSystem::isVideo(imagePath) && videoPath.empty())
+	{
+		videoPath = imagePath;
+		imagePath = "";
+	}
+
+	bool cheevos = bindable ? bindable->getProperty("cheevos").toBoolean() : false;
+	bool folder = bindable ? bindable->getProperty("folder").toBoolean() : false;
+	bool virtualFolder = bindable ? bindable->getProperty("virtualfolder").toBoolean() : false; 
 
 	bool preloadMedias = Settings::PreloadMedias();
 
@@ -1240,7 +1248,7 @@ void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, ty
 	// Image
 	if ((preloadMedias && !imagePath.empty()) || (!preloadMedias && ResourceManager::getInstance()->fileExists(imagePath)))
 	{
-		if (entry.data.virtualFolder)
+		if (virtualFolder)
 		{
 			tile->setLabel("");
 
@@ -1261,7 +1269,7 @@ void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, ty
 	}
 	else if (mImageSource == MARQUEEORTEXT)
 		tile->setImage("");
-	else if (entry.data.folder)
+	else if (folder)
 		tile->setImage(mDefaultFolderTexture, mDefaultFolderTexture == ":/folder.svg");
 	else
 	{
@@ -1286,14 +1294,12 @@ void ImageGridComponent<T>::loadTile(std::shared_ptr<GridTileComponent> tile, ty
 		}
 	}
 
-	tile->setFavorite(entry.data.favorite);
-	tile->setCheevos(entry.data.cheevos);
+	tile->setFavorite(favorite);
+	tile->setCheevos(cheevos);
 
 	// Video
 	if (mAllowVideo)
 	{
-		std::string videoPath = entry.data.videoPath;
-
 		if ((preloadMedias && !videoPath.empty()) || (!preloadMedias && ResourceManager::getInstance()->fileExists(videoPath)))
 			tile->setVideo(videoPath, mVideoDelay);
 		else

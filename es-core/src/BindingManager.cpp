@@ -346,3 +346,57 @@ std::string BindableProperty::toString()
 
 	return "";
 }
+
+bool BindableProperty::toBoolean()
+{
+	switch (type)
+	{
+	case BindablePropertyType::String:
+	case BindablePropertyType::Path:
+		return Utils::String::toBoolean(s);
+	case BindablePropertyType::Int:
+		return i != 0;
+	case BindablePropertyType::Bool:
+		return b;
+	case BindablePropertyType::Float:
+		return f != 0.0;
+	}
+
+	return false;
+}
+
+int BindableProperty::toInteger()
+{
+	switch (type)
+	{
+	case BindablePropertyType::String:
+	case BindablePropertyType::Path:
+		return Utils::String::toInteger(s);
+	case BindablePropertyType::Int:
+		return i;
+	case BindablePropertyType::Bool:
+		return b ? 1 : 0;
+	case BindablePropertyType::Float:
+		return (int) f;
+	}
+
+	return 0;
+}
+
+int BindableProperty::toFloat()
+{
+	switch (type)
+	{
+	case BindablePropertyType::String:
+	case BindablePropertyType::Path:
+		return Utils::String::toFloat(s);
+	case BindablePropertyType::Int:
+		return (float) i;
+	case BindablePropertyType::Bool:
+		return b ? 1.0f : 0.0f;
+	case BindablePropertyType::Float:
+		return f;
+	}
+
+	return 0.0f;
+}

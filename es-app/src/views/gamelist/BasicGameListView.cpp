@@ -71,8 +71,6 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 		{
 			SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
 			FileData* placeholder = new FolderData("..", system->isCollection() ? this->mRoot->getSystem() : system); // this->mRoot->getSystem()
-
-			//FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
 			mList.add(". .", placeholder, true);
 		}
 
@@ -83,10 +81,8 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 		{			
 			for (auto file : files)
 			{
-				if (!file->getFavorite())
-					continue;
-						
-				mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
+				if (file->getFavorite())
+					mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
 			}
 		}
 
