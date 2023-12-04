@@ -166,42 +166,49 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 
 	mTextCache->setCustomShader(nullptr);
 
-	if (mExtraType == ExtraType::EXTRACHILDREN && mVerticalAlignment == Alignment::ALIGN_TOP && mMultiline == MultiLineType::MULTILINE && mAutoScroll == AutoScrollType::NONE)
-	{
-		// Clip multiline - non partial lines
-		auto lineHeight = mFont->getHeight(mLineSpacing);
-		if (lineHeight > 0)
-		{
-			auto lines = (int)(rect.h / lineHeight);
-			rect.h = lineHeight * lines + 1;
-		}
+	bool popClipRect = false;
 
-		Renderer::pushClipRect(rect);		
-	}
-	else if (mAutoScroll != AutoScrollType::NONE || mExtraType == ExtraType::EXTRACHILDREN)
+	if (mRotation == 0 && trans.r0().y() == 0)
 	{
-		if (mAutoScroll == AutoScrollType::VERTICAL)
+		if (mExtraType == ExtraType::EXTRACHILDREN && mVerticalAlignment == Alignment::ALIGN_TOP && mMultiline == MultiLineType::MULTILINE && mAutoScroll == AutoScrollType::NONE)
 		{
-			Renderer::ShaderInfo shader;
-			shader.path = ":/shaders/vscrolleffect.glsl";
-			shader.parameters["s_offset"] = std::to_string((float)mMarqueeOffset);
-			shader.parameters["s_height"] = std::to_string(rect.h);
-			shader.parameters["s_forcetop"] = "4";
-			shader.parameters["s_forcebottom"] = "4";
-			mTextCache->setCustomShader(&shader);
-
 			// Clip multiline - non partial lines
-			/*
 			auto lineHeight = mFont->getHeight(mLineSpacing);
 			if (lineHeight > 0)
 			{
-				auto nonPartialLines = (int)(rect.h / lineHeight);
-				int decal = rect.h - (lineHeight * nonPartialLines);
-				shader.parameters["s_forcebottom"] = std::to_string(Math::max(4, decal));
-			}*/
-		}
+				auto lines = (int)(rect.h / lineHeight);
+				rect.h = lineHeight * lines + 1;
+			}
 
-		Renderer::pushClipRect(rect);
+			Renderer::pushClipRect(rect);
+			popClipRect = true;
+		}
+		else if (mAutoScroll != AutoScrollType::NONE || mExtraType == ExtraType::EXTRACHILDREN)
+		{
+			if (mAutoScroll == AutoScrollType::VERTICAL)
+			{
+				Renderer::ShaderInfo shader;
+				shader.path = ":/shaders/vscrolleffect.glsl";
+				shader.parameters["s_offset"] = std::to_string((float)mMarqueeOffset);
+				shader.parameters["s_height"] = std::to_string(rect.h);
+				shader.parameters["s_forcetop"] = "4";
+				shader.parameters["s_forcebottom"] = "4";
+				mTextCache->setCustomShader(&shader);
+
+				// Clip multiline - non partial lines
+				/*
+				auto lineHeight = mFont->getHeight(mLineSpacing);
+				if (lineHeight > 0)
+				{
+					auto nonPartialLines = (int)(rect.h / lineHeight);
+					int decal = rect.h - (lineHeight * nonPartialLines);
+					shader.parameters["s_forcebottom"] = std::to_string(Math::max(4, decal));
+				}*/
+			}
+
+			Renderer::pushClipRect(rect);
+			popClipRect = true;
+		}
 	}
 
 	beginCustomClipRect();
@@ -301,7 +308,7 @@ void TextComponent::render(const Transform4x4f& parentTrans)
 
 	endCustomClipRect();
 
-	if (mAutoScroll != AutoScrollType::NONE || mExtraType == ExtraType::EXTRACHILDREN)
+	if (popClipRect)
 		Renderer::popClipRect();
 }
 
