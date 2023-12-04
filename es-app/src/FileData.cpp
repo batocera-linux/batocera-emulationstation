@@ -1817,6 +1817,9 @@ BindableProperty FileData::getProperty(const std::string& name)
 					return BindableProperty::EmptyString;
 			}
 
+			if (getSystem()->isCollection() && parent == getSystem()->getRootFolder())
+				return BindableProperty::EmptyString;
+
 			if (!parent->isVirtualFolderDisplay())
 				return parent->getBreadCrumbPath();
 		}
