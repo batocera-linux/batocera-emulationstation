@@ -1210,7 +1210,23 @@ namespace Utils
 			return Utils::Time::DateTime();
 		}
 
-		std::string	readAllText(const std::string fileName)
+		std::list<std::string> readAllLines(const std::string& fileName)
+		{
+			std::list<std::string> lines;
+
+			std::ifstream file(WINSTRINGW(fileName));
+			if (!file.is_open()) 
+				return lines;
+
+			std::string line;
+			while (std::getline(file, line))
+				lines.push_back(line);
+
+			file.close();
+			return lines;
+		}
+
+		std::string	readAllText(const std::string& fileName)
 		{
 			std::ifstream t(WINSTRINGW(fileName));
 
@@ -1536,6 +1552,45 @@ namespace Utils
 			}
 		}
 #endif
+		void preloadFileSystemCache(const std::string& path, bool trySaveStates)
+		{
+#if WIN32		
+			if (path.empty())
+				return;
+
+			static std::set<std::string> preloaded;
+
+			if (preloaded.find(path) != preloaded.cend())
+				return;
+
+			preloaded.insert(path);
+
+			auto doWork = [&](std::string* path)
+			{
+				if (trySaveStates)
+				{
+					std::string systemName = Utils::FileSystem::getFileName(*path);
+					for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(Paths::getSavesPath(), systemName)))
+						Utils::FileSystem::exists(file);
+				}
+
+				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/images")))
+					Utils::FileSystem::exists(file);
+
+				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/videos")))
+					Utils::FileSystem::exists(file);
+
+				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/manuals")))
+					Utils::FileSystem::exists(file);
+
+				delete path;
+			};
+
+			std::thread thread(doWork, new std::string(path));
+			::SetThreadPriority(thread.native_handle(), THREAD_PRIORITY_LOWEST);
+			thread.detach();
+#endif
+		}
 
 	} // FileSystem::
 

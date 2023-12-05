@@ -129,6 +129,9 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 		addSaveFunc([regionCtrl] { Settings::getInstance()->setString("ScraperRegion", regionCtrl->getSelected()); });
 	}
 
+	addSwitch(_("OVERWRITE DESCRIPTIONS"), "ScrapeDescription", true);
+	addSwitch(_("OVERWRITE MEDIAS"), "ScrapeOverWrite", true);
+
 	addGroup(_("SCRAPE FOR"));
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::ShortTitle))
@@ -151,6 +154,7 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Map))
 		addSwitch(_("MAP"), "ScrapeMap", true);
+
 
 	/*
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))

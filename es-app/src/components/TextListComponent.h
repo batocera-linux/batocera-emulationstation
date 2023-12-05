@@ -48,6 +48,7 @@ public:
 	using IList<TextListData, T>::getChildCount;
 	using IList<TextListData, T>::isScrolling;
 	using IList<TextListData, T>::stopScrolling;
+	using IList<TextListData, T>::getOpacity;
 
 	TextListComponent(Window* window);
 
@@ -224,7 +225,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF000033, 0xFF000033);
 	}
 
-	float opacity = GuiComponent::mOpacity / 255.0;
+	float opacity = getOpacity() / 255.0;
 	float entrySize = getRowHeight();
 
 	int startEntry = mCameraOffset / entrySize;
@@ -324,7 +325,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 				mSelectorColorGradientHorizontal);
 		}
 
-		font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, GuiComponent::mOpacity);
+		font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, getOpacity());
 
 		// render currently selected item text again if
 		// marquee is scrolled far enough for it to repeat
@@ -333,7 +334,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 			drawTrans = trans;
 			drawTrans.translate(offset - Vector3f((float)mMarqueeOffset2, 0, 0));
 
-			font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, GuiComponent::mOpacity);
+			font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, getOpacity());
 		}
 
 		y += entrySize;

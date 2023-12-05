@@ -52,6 +52,7 @@ namespace Utils
 
 		std::string padLeft(const std::string& data, const size_t& totalWidth, const char& padding);
 
+		int			occurs(const std::string& str, char target);
 		bool		isPrintableChar(char c);
 
 #if defined(_WIN32)

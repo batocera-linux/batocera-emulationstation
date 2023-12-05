@@ -50,11 +50,14 @@ namespace Renderer
 		void setTextureSize(const Vector2f& size);
 		void setInputSize(const Vector2f& size);
 		void setOutputSize(const Vector2f& size);
+		void setOutputOffset(const Vector2f& size);
+		void setCornerRadius(GLfloat radius);
 		void setResolution();
 
 		void setCustomUniformsParameters(const std::map<std::string, std::string>& parameters);
 
 		bool supportsTextureSize() { return mTextureSize != -1; }
+		bool supportsCornerRadius() { return mCornerRadius != -1; }
 
 		void deleteProgram();
 
@@ -71,9 +74,11 @@ namespace Renderer
 		GLint mSaturation;		
 		GLint mTextureSize;
 		GLint mOutputSize;
+		GLint mOutputOffset;
 		GLint mInputSize;
 		GLint mResolution;
-
+		GLint mCornerRadius;
+		
 		struct UniformInfo
 		{
 			GLint location;

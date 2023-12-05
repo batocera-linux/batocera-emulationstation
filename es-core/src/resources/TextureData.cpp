@@ -24,7 +24,7 @@
 
 IPdfHandler* TextureData::PdfHandler = nullptr;
 
-TextureData::TextureData(bool tile, bool linear) : mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false),
+TextureData::TextureData(bool tile, bool linear) : mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false), mDynamic(true), mReloadable(false),
 									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f),
 									  mPackedSize(Vector2i(0, 0)), mBaseSize(Vector2i(0, 0))
 {
@@ -584,17 +584,9 @@ void TextureData::setSourceSize(float width, float height)
 	}
 }
 
-size_t TextureData::getVRAMUsage()
-{
-	if ((mTextureID != 0) || (mDataRGBA != nullptr))
-		return mWidth * mHeight * 4;
-	else
-		return 0;
-}
-
 void TextureData::setMaxSize(MaxSizeInfo maxSize)
 {
-	if (!Settings::getInstance()->getBool("OptimizeVRAM"))
+	if (!OPTIMIZEVRAM)
 		return;
 
 	if (mSourceWidth == 0 || mSourceHeight == 0)

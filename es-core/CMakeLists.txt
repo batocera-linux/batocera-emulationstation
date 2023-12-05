@@ -3,6 +3,7 @@ project("core")
 set(CORE_HEADERS	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AsyncHandle.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AudioManager.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/BindingManager.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CECInput.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/GuiComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/HelpStyle.h
@@ -21,6 +22,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Sound.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Splash.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeData.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeVariables.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MultiStateInput.h
@@ -69,6 +71,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/OptionListComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollableContainer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SliderComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SwitchComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextEditComponent.h
@@ -135,6 +138,7 @@ set(CORE_HEADERS
 
 set(CORE_SOURCES	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AudioManager.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/BindingManager.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CECInput.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/GuiComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/HelpStyle.cpp
@@ -152,6 +156,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Sound.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Splash.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeData.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeVariables.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MultiStateInput.cpp
@@ -194,6 +199,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/NinePatchComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollableContainer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SliderComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SwitchComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextEditComponent.cpp

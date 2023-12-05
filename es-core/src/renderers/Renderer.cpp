@@ -62,10 +62,10 @@ namespace Renderer
 	Rect		getScreenRect(const Transform4x4f& transform, const Vector2f& size, bool viewPort)
 	{
 		auto rc = Rect(
-			transform.translation().x(),
-			transform.translation().y(),
-			size.x() * transform.r0().x(),
-			size.y() * transform.r1().y());
+			(int)Math::round(transform.translation().x()),
+			(int)Math::round(transform.translation().y()),
+			(int)Math::round(size.x() * transform.r0().x()),
+			(int)Math::round(size.y() * transform.r1().y()));
 
 		if (viewPort && screenMargin.x() != 0 && screenMargin.y() != 0)
 			return screenToviewport(rc);
@@ -866,6 +866,11 @@ namespace Renderer
 	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		Instance()->drawTriangleFan(_vertices, _numVertices, _srcBlendFactor, _dstBlendFactor);
+	}
+
+	bool shaderSupportsCornerSize(const std::string& shader)
+	{
+		return Instance()->shaderSupportsCornerSize(shader);
 	}
 
 	void setProjection(const Transform4x4f& _projection)

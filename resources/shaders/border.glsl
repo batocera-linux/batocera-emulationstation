@@ -52,6 +52,7 @@ uniform   sampler2D u_tex;
 uniform   vec2      resolution;
 uniform   vec2      textureSize;
 uniform   vec2      outputSize;
+uniform   vec2      outputOffset;
 
 uniform   float      borderSize;
 uniform   vec4       borderColor;
@@ -62,13 +63,17 @@ uniform   vec4       innerShadowColor;
 uniform   float      outerShadowSize;
 uniform   vec4       outerShadowColor;
 
+uniform   float		saturation;
+
+uniform bool		bilinearFiltering;
+
 vec4 sampleTexture(sampler2D tex, vec2 texCoord) 
 {
     // Check if the texture coordinate is within the [0, 1] range
-    if (texCoord.x >= 0 && texCoord.x <= 1 && texCoord.y >= 0 && texCoord.y <= 1)
+   // if (texCoord.x >= 0 && texCoord.x <= 1 && texCoord.y >= 0 && texCoord.y <= 1)
         return COMPAT_TEXTURE(tex, texCoord);
     
-    return vec4(0.0); // Return transparent black for coordinates outside [0, 1]    
+  //  return vec4(0.0); // Return transparent black for coordinates outside [0, 1]    
 }
 
 float getComputedValue(float value, float defaultValue) {
@@ -94,7 +99,7 @@ void main(void)
 		gl_FragColor = sampleTexture(u_tex, v_tex);
 		return;
 	}
-	
+		
 	// Apply border padding
 	vec2 decal = vec2((outerBorder/2.0+outerShadow) / abs(outputSize.x), (outerBorder/2.0+outerShadow) / abs(outputSize.y));	
 	vec2 v_padtex = vec2(v_tex.x / (1.0 - 2 * decal.x) - decal.x, v_tex.y * (1.0 + 2 * decal.y) - decal.y);
@@ -102,8 +107,38 @@ void main(void)
 	// read texture
 	vec4 sampledColor = sampleTexture(u_tex, v_padtex);
 
+    // Apply bilinear filtering
+	if (bilinearFiltering)
+	{
+		vec2 texelSize = 1.0 / textureSize;
+		vec2 uv = v_padtex;
+
+		vec2 f = fract(uv);
+
+		vec4 texel00 = sampleTexture(u_tex, uv);
+		
+		vec4 texel10 = sampleTexture(u_tex, uv + vec2(texelSize.x, 0.0));
+		vec4 texel01 = sampleTexture(u_tex, uv + vec2(0.0, texelSize.y));
+		vec4 texel11 = sampleTexture(u_tex, uv + texelSize);
+
+		// Bilinear interpolation
+		vec4 interpolatedColor = mix(
+			mix(texel00, texel10, f.x),
+			mix(texel01, texel11, f.x),
+			f.y
+		);
+
+		sampledColor = interpolatedColor;
+	}
+
+	if (saturation != 1.0) {
+		vec3 gray = vec3(dot(sampledColor.rgb, vec3(0.34, 0.55, 0.11)));
+		vec3 blend = mix(gray, sampledColor.rgb, saturation);
+		sampledColor = vec4(blend, sampledColor.a);
+	}
+				
 	vec2 middle = vec2(abs(outputSize.x), abs(outputSize.y)) / 2.0;
-	vec2 center = abs(v_pos - middle);
+	vec2 center = abs(v_pos - outputOffset - middle);
 	vec2 q = center - middle + cornerSize;
 	
 	float distance = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - cornerSize;	

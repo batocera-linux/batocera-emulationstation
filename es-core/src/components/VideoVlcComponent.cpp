@@ -59,10 +59,9 @@ static void display(void* data, void* id)
 		c->component->onVideoStarted();
 }
 
-VideoVlcComponent::VideoVlcComponent(Window* window) :
-	VideoComponent(window),
-	mMediaPlayer(nullptr), 
-	mMedia(nullptr)
+VideoVlcComponent::VideoVlcComponent(Window* window) : VideoComponent(window), 
+	mMediaPlayer(nullptr), mMedia(nullptr),
+	mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f)
 {
 	mSaturation = 1.0f;
 	mElapsed = 0;
@@ -85,15 +84,31 @@ VideoVlcComponent::~VideoVlcComponent()
 	stopVideo();
 }
 
+Vector2f VideoVlcComponent::getSize() const
+{
+	if (mTargetIsMax && mPadding != Vector4f::Zero())
+	{
+		auto targetSize = mTargetSize - mPadding.xy() - mPadding.zw();
+
+		if (mSize.x() == targetSize.x())
+			return Vector2f(mSize.x() + mPadding.x() + mPadding.z(), mSize.y());
+		else if (mSize.y() == targetSize.y())
+			return Vector2f(mSize.x(), mSize.y() + mPadding.y() + mPadding.w());
+	}
+
+	return GuiComponent::getSize() * (mBottomRightCrop - mTopLeftCrop);
+}
+
 void VideoVlcComponent::setResize(float width, float height)
 {
 	if (mSize.x() != 0 && mSize.y() != 0 && !mTargetIsMax && !mTargetIsMin && mTargetSize.x() == width && mTargetSize.y() == height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = false;
 	mTargetIsMin = false;
-	mStaticImage.setResize(width, height);
+	mStaticImage.setMaxSize(width, height);
 	resize();
 }
 
@@ -103,6 +118,7 @@ void VideoVlcComponent::setMaxSize(float width, float height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = true;
 	mTargetIsMin = false;
 	mStaticImage.setMaxSize(width, height);
@@ -115,9 +131,10 @@ void VideoVlcComponent::setMinSize(float width, float height)
 		return;
 
 	mTargetSize = Vector2f(width, height);
+	mSize = mTargetSize;
 	mTargetIsMax = false;
 	mTargetIsMin = true;
-	mStaticImage.setMinSize(width, height);
+	mStaticImage.setMaxSize(width, height);
 	resize();
 }
 
@@ -127,74 +144,272 @@ void VideoVlcComponent::onVideoStarted()
 	resize();
 }
 
+void VideoVlcComponent::crop(float left, float top, float right, float bot)
+{
+	mTopLeftCrop.x() = Math::clamp(left, 0.0f, 1.0f);
+	mTopLeftCrop.y() = Math::clamp(top, 0.0f, 1.0f);
+	mBottomRightCrop.x() = 1.0f - Math::clamp(right, 0.0f, 1.0f);
+	mBottomRightCrop.y() = 1.0f - Math::clamp(bot, 0.0f, 1.0f);
+}
+
 void VideoVlcComponent::resize()
 {
-	if(!mTexture)
+	if (!mTexture)
 		return;
 
 	const Vector2f textureSize((float)mVideoWidth, (float)mVideoHeight);
 
-	if(textureSize == Vector2f::Zero())
+	if (textureSize == Vector2f::Zero())
 		return;
 
-		// SVG rasterization is determined by height (see SVGResource.cpp), and rasterization is done in terms of pixels
-		// if rounding is off enough in the rasterization step (for images with extreme aspect ratios), it can cause cutoff when the aspect ratio breaks
-		// so, we always make sure the resultant height is an integer to make sure cutoff doesn't happen, and scale width from that
-		// (you'll see this scattered throughout the function)
-		// this is probably not the best way, so if you're familiar with this problem and have a better solution, please make a pull request!
+	auto targetSize = mTargetSize - mPadding.xy() - mPadding.zw();
 
-		if(mTargetIsMax)
+	if (mTargetIsMax)
+	{
+		crop(0, 0, 0, 0);
+		mSize = textureSize;
+
+		Vector2f resizeScale((targetSize.x() / mSize.x()), (targetSize.y() / mSize.y()));
+
+		if (resizeScale.x() < resizeScale.y())
 		{
-
-			mSize = textureSize;
-
-			Vector2f resizeScale((mTargetSize.x() / mSize.x()), (mTargetSize.y() / mSize.y()));
-
-			if(resizeScale.x() < resizeScale.y())
-			{
-				mSize[0] *= resizeScale.x();
-				mSize[1] *= resizeScale.x();
-			}else{
-				mSize[0] *= resizeScale.y();
-				mSize[1] *= resizeScale.y();
-			}
+			mSize[0] *= resizeScale.x(); // this will be mTargetSize.x(). We can't exceed it, nor be lower than it.
+			// we need to make sure we're not creating an image larger than max size
+			//mSize[1] = Math::min(Math::round(mSize[1] *= resizeScale.x()), mTargetSize.y());
+			mSize[1] = Math::min(mSize[1] *= resizeScale.x(), targetSize.y());
+		}
+		else
+		{
+			//mSize[1] = Math::round(mSize[1] * resizeScale.y()); // this will be mTargetSize.y(). We can't exceed it.
+			mSize[1] = mSize[1] * resizeScale.y(); // this will be mTargetSize.y(). We can't exceed it.
 
 			// for SVG rasterization, always calculate width from rounded height (see comment above)
-			mSize[1] = Math::round(mSize[1]);
-			mSize[0] = (mSize[1] / textureSize.y()) * textureSize.x();
-
+			// we need to make sure we're not creating an image larger than max size
+			mSize[0] = Math::min((mSize[1] / textureSize.y()) * textureSize.x(), targetSize.x());
 		}
-		else if (mTargetIsMin)
+	}
+	else if (mTargetIsMin)
+	{
+		// mSize = ImageIO::getPictureMinSize(textureSize, mTargetSize);			
+		mSize = textureSize;
+
+		Vector2f resizeScale((targetSize.x() / mSize.x()), (targetSize.y() / mSize.y()));
+
+		if (resizeScale.x() > resizeScale.y())
 		{
-			mSize = ImageIO::getPictureMinSize(textureSize, mTargetSize);
-		}
-		else {
-			// if both components are set, we just stretch
-			// if no components are set, we don't resize at all
-			mSize = mTargetSize == Vector2f::Zero() ? textureSize : mTargetSize;
+			mSize[0] *= resizeScale.x();
+			mSize[1] *= resizeScale.x();
 
-			// if only one component is set, we resize in a way that maintains aspect ratio
-			// for SVG rasterization, we always calculate width from rounded height (see comment above)
-			if(!mTargetSize.x() && mTargetSize.y())
-			{
-				mSize[1] = Math::round(mTargetSize.y());
-				mSize[0] = (mSize.y() / textureSize.y()) * textureSize.x();
-			}else if(mTargetSize.x() && !mTargetSize.y())
-			{
-				mSize[1] = Math::round((mTargetSize.x() / textureSize.x()) * textureSize.y());
-				mSize[0] = (mSize.y() / textureSize.y()) * textureSize.x();
-			}
+			float cropPercent = (mSize.y() - targetSize.y()) / (mSize.y() * 2);
+			crop(0, cropPercent, 0, cropPercent);
+		}
+		else
+		{
+			mSize[0] *= resizeScale.y();
+			mSize[1] *= resizeScale.y();
+
+			float cropPercent = (mSize.x() - targetSize.x()) / (mSize.x() * 2);
+			crop(cropPercent, 0, cropPercent, 0);
 		}
 
-	// mSize.y() should already be rounded
+		// for SVG rasterization, always calculate width from rounded height (see comment above)
+		// we need to make sure we're not creating an image smaller than min size
+		// mSize[1] = Math::max(Math::round(mSize[1]), mTargetSize.y());
+		// mSize[0] = Math::max((mSize[1] / textureSize.y()) * textureSize.x(), mTargetSize.x());
+	}
+	else
+	{
+		crop(0, 0, 0, 0);
+		// if both components are set, we just stretch
+		// if no components are set, we don't resize at all
+		mSize = targetSize == Vector2f::Zero() ? textureSize : targetSize;
+
+		// if only one component is set, we resize in a way that maintains aspect ratio
+		// for SVG rasterization, we always calculate width from rounded height (see comment above)
+		if (!targetSize.x() && targetSize.y())
+		{
+			//mSize[1] = Math::round(mTargetSize.y());
+			mSize[1] = targetSize.y();
+			mSize[0] = (mSize.y() / textureSize.y()) * textureSize.x();
+		}
+		else if (targetSize.x() && !targetSize.y())
+		{
+			//mSize[1] = Math::round((mTargetSize.x() / textureSize.x()) * textureSize.y());
+			mSize[1] = (targetSize.x() / textureSize.x()) * textureSize.y();
+			mSize[0] = (mSize.y() / textureSize.y()) * textureSize.x();
+		}
+	}
+
 	mTexture->rasterizeAt((size_t)Math::round(mSize.x()), (size_t)Math::round(mSize.y()));
-
 	onSizeChanged();
+}
+
+void VideoVlcComponent::onSizeChanged()
+{
+	GuiComponent::onSizeChanged();
+	updateVertices();
+}
+
+void VideoVlcComponent::onPaddingChanged()
+{
+	GuiComponent::onPaddingChanged();
+	resize();
+	updateVertices();
 }
 
 void VideoVlcComponent::setColorShift(unsigned int color)
 {
 	mColorShift = color;
+}
+
+void VideoVlcComponent::updateVertices()
+{
+	if (!mTexture)
+		return;
+
+	auto textureSize = mTexture->getSize();
+
+	Vector2f     topLeft = mSize * mTopLeftCrop;
+	Vector2f     bottomRight = mSize * mBottomRightCrop;
+
+	Vector2f paddingOffset;
+
+	if (mPadding != Vector4f::Zero())
+	{
+		paddingOffset = mPadding.xy() - (mPadding.xy() + mPadding.zw()) * mOrigin;
+		topLeft += paddingOffset;
+		bottomRight += paddingOffset;
+	}
+
+	const float        px = mTexture->isTiled() ? mSize.x() / textureSize.x() : 1.0f;
+	const float        py = mTexture->isTiled() ? mSize.y() / textureSize.y() : 1.0f;
+
+	const unsigned int color = Renderer::convertColor(mColorShift);
+
+	mVertices[0] = {
+		{ topLeft.x(),					topLeft.y()	 },
+		{ mTopLeftCrop.x(),				1.0f - mBottomRightCrop.y()    },
+		color };
+
+	mVertices[1] = {
+		{ topLeft.x(),					bottomRight.y() },
+		{ mTopLeftCrop.x(),				py - mTopLeftCrop.y() },
+		color };
+
+	mVertices[2] = {
+		{ bottomRight.x(),				topLeft.y()	},
+		{ mBottomRightCrop.x() * px,	1.0f - mBottomRightCrop.y()     },
+		color };
+
+	mVertices[3] = {
+		{ bottomRight.x(),				bottomRight.y() },
+		{ mBottomRightCrop.x() * px,    py - mTopLeftCrop.y() },
+		color };
+
+	// Fix vertices for min Target
+	if (mTargetIsMin)
+	{		
+		auto targetSize = mTargetSize - mPadding.xy() - mPadding.zw();
+		Vector2f targetSizePos = (mSize - targetSize) * mOrigin + paddingOffset;
+
+		float x = targetSizePos.x();
+		float y = targetSizePos.y();
+		float r = x + targetSize.x();
+		float b = y + targetSize.y();
+
+		mVertices[0].pos[0] = x;
+		mVertices[0].pos[1] = y;
+
+		mVertices[1].pos[0] = x;
+		mVertices[1].pos[1] = b;
+
+		mVertices[2].pos[0] = r;
+		mVertices[2].pos[1] = y;
+
+		mVertices[3].pos[0] = r;
+		mVertices[3].pos[1] = b;
+	}
+
+	/*
+	// round vertices
+	for (int i = 0; i < 4; ++i)
+		mVertices[i].pos.round();
+	*/
+	/*
+	if (mFlipX)
+	{
+		for (int i = 0; i < 4; ++i)
+			mVertices[i].tex[0] = px - mVertices[i].tex[0];
+	}
+
+	if (mFlipY)
+	{
+		for (int i = 0; i < 4; ++i)
+			mVertices[i].tex[1] = py - mVertices[i].tex[1];
+	}
+	*/
+	updateColors();
+	updateRoundCorners();	
+}
+
+void VideoVlcComponent::updateColors()
+{
+	float t = mFadeIn;
+	if (mFadeIn < 1.0)
+	{
+		t = 1.0 - mFadeIn;
+		t -= 1; // cubic ease in
+		t = Math::lerp(0, 1, t * t * t + 1);
+		t = 1.0 - t;
+	}
+
+	float opacity = (getOpacity() / 255.0f) * t;
+
+	if (hasStoryBoard() && currentStoryBoardHasProperty("opacity") && isStoryBoardRunning())
+		opacity = (getOpacity() / 255.0f);
+
+	unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
+
+	mVertices[0].col = color;
+	mVertices[1].col = color;
+	mVertices[2].col = color;
+	mVertices[3].col = color;
+}
+
+void VideoVlcComponent::setRoundCorners(float value)
+{
+	if (mRoundCorners == value)
+		return;
+
+	VideoComponent::setRoundCorners(value);
+	updateRoundCorners();
+}
+
+void VideoVlcComponent::updateRoundCorners()
+{
+	if (mRoundCorners <= 0 || Renderer::shaderSupportsCornerSize(mCustomShader.path))
+	{
+		mRoundCornerStencil.clear();
+		return;
+	}
+
+	float x = 0;
+	float y = 0;
+	float size_x = mSize.x();
+	float size_y = mSize.y();
+
+	if (mTargetIsMin)
+	{
+		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
+
+		x = targetSizePos.x();
+		y = targetSizePos.y();
+		size_x = mTargetSize.x();
+		size_y = mTargetSize.y();
+	}
+
+	float radius = mRoundCorners < 1 ? Math::max(size_x, size_y) * mRoundCorners : mRoundCorners;
+	mRoundCornerStencil = Renderer::createRoundRect(x, y, size_x, size_y, radius);
 }
 
 void VideoVlcComponent::render(const Transform4x4f& parentTrans)
@@ -237,8 +452,6 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 			return;
 	}
 
-	//Renderer::setMatrix(trans);
-
 	// Build a texture for the video frame
 	if (initFromPixels)
 	{		
@@ -251,7 +464,6 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 
 				resize();
 				trans = parentTrans * getTransform();
-		//		Renderer::setMatrix(trans);
 			}
 
 #ifdef _RPI_
@@ -272,23 +484,12 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 
 	if (mTexture == nullptr)
 		return;
-		
-	float opacity = (mOpacity / 255.0f) * t;
 
-	if (hasStoryBoard() && currentStoryBoardHasProperty("opacity") && isStoryBoardRunning())
-		opacity = (mOpacity / 255.0f);
-
-	unsigned int color = Renderer::convertColor(mColorShift & 0xFFFFFF00 | (unsigned char)((mColorShift & 0xFF) * opacity));
-
-	Renderer::Vertex   vertices[4];
-	vertices[0] = { { 0.0f     , 0.0f      }, { 0.0f, 0.0f }, color };
-	vertices[1] = { { 0.0f     , mSize.y() }, { 0.0f, 1.0f }, color };
-	vertices[2] = { { mSize.x(), 0.0f      }, { 1.0f, 0.0f }, color };
-	vertices[3] = { { mSize.x(), mSize.y() }, { 1.0f, 1.0f }, color };
+	updateColors();
 
 	bool isDefaultEffectDisabled = hasStoryBoard() && currentStoryBoardHasProperty("scale") && isStoryBoardRunning();
 
-	if (mEffect == VideoVlcFlags::VideoVlcEffect::SLIDERIGHT && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !isDefaultEffectDisabled)
+	/*if (mEffect == VideoVlcFlags::VideoVlcEffect::SLIDERIGHT && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !isDefaultEffectDisabled)
 	{
 		float t = 1.0 - mFadeIn;
 		t -= 1;
@@ -299,7 +500,7 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		vertices[2] = { { mSize.x(), 0.0f      }, { t + 1.0f, 0.0f }, color };
 		vertices[3] = { { mSize.x(), mSize.y() }, { t + 1.0f, 1.0f }, color };
 	}
-	else
+	else*/
 	if (mEffect == VideoVlcFlags::VideoVlcEffect::SIZE && mFadeIn > 0.0 && mFadeIn < 1.0 && mConfig.startDelay > 0 && !isDefaultEffectDisabled)
 	{		
 		float bump = Math::easeOutCubic(mFadeIn);
@@ -324,8 +525,8 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 	}
 
 	// round vertices
-	for (int i = 0; i < 4; ++i)
-		vertices[i].pos.round();
+	// for (int i = 0; i < 4; ++i)
+	//	vertices[i].pos.round();
 	
 	if (mTexture->bind())
 	{
@@ -334,46 +535,22 @@ void VideoVlcComponent::render(const Transform4x4f& parentTrans)
 		beginCustomClipRect();
 
 		Vector2f targetSizePos = (mTargetSize - mSize) * mOrigin * -1;
-
-		if (mTargetIsMin)
-		{			
-			Vector2i pos(trans.translation().x() + (int)targetSizePos.x(), trans.translation().y() + (int)targetSizePos.y());
-			Vector2i size((int)(mTargetSize.x() * trans.r0().x()), (int)(mTargetSize.y() * trans.r1().y()));
-			Renderer::pushClipRect(pos, size);
-		}
-
-		if (mRoundCorners > 0)
-		{
-			float x = 0;
-			float y = 0;
-			float size_x = mSize.x();
-			float size_y = mSize.y();
-			
-			if (mTargetIsMin)
-			{
-				x = targetSizePos.x();
-				y = targetSizePos.y();
-				size_x = mTargetSize.x();
-				size_y = mTargetSize.y();
-			}
-			
-			float radius = Math::max(size_x, size_y) * mRoundCorners;
-			Renderer::enableRoundCornerStencil(x, y, size_x, size_y, radius);
-
-			mTexture->bind();
-		}
-
+		
 		// Render it
-		vertices->saturation = mSaturation;
-		vertices->customShader = mCustomShader.path.empty() ? nullptr : &mCustomShader;
-
-		Renderer::drawTriangleStrips(&vertices[0], 4);
-
-		if (mRoundCorners > 0)
+		mVertices->saturation = mSaturation;
+		mVertices->customShader = mCustomShader.path.empty() ? nullptr : &mCustomShader;
+	
+		if (mRoundCorners > 0 && mRoundCornerStencil.size() > 0)
+		{
+			Renderer::setStencil(mRoundCornerStencil.data(), mRoundCornerStencil.size());
+			Renderer::drawTriangleStrips(&mVertices[0], 4);
 			Renderer::disableStencil();
-
-		if (mTargetIsMin)
-			Renderer::popClipRect();
+		}
+		else
+		{
+			mVertices->cornerRadius = mRoundCorners < 1 ? Math::max(mSize.x(), mSize.y()) * mRoundCorners : mRoundCorners;
+			Renderer::drawTriangleStrips(&mVertices[0], 4);
+		}
 
 		endCustomClipRect();
 
@@ -401,7 +578,7 @@ void VideoVlcComponent::freeContext()
 	if (!mContext.valid)
 		return;
 
-	if (!mDisable)
+	if (mIsTopWindow)
 	{
 		// Release texture memory -> except if mDisable by topWindow ( ex: menu was poped )
 		mTexture = nullptr;
@@ -716,8 +893,6 @@ void VideoVlcComponent::stopVideo()
 
 void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {
-	VideoComponent::applyTheme(theme, view, element, properties);
-
 	using namespace ThemeFlags;
 
 	const ThemeData::ThemeElement* elem = theme->getElement(view, element, "video");
@@ -743,14 +918,16 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	{
 		if (elem && elem->has("color"))
 			setColorShift(elem->get<unsigned int>("color"));
-		
-		if (elem->has("opacity"))
-			setOpacity((unsigned char)(elem->get<float>("opacity") * 255.0));
+
+		if (elem->has("linearSmooth"))
+			mLinearSmooth = elem->get<bool>("linearSmooth");
 
 		if (elem->has("saturation"))
 			setSaturation(Math::clamp(elem->get<float>("saturation"), 0.0f, 1.0f));
 
-		ThemeData::parseCustomShader(elem, &mCustomShader);
+		if (ThemeData::parseCustomShader(elem, &mCustomShader))
+			updateRoundCorners();
+
 		mStaticImage.setCustomShader(mCustomShader);
 	}
 
@@ -759,11 +936,7 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	else
 		mLoops = -1;
 
-	if (elem->has("linearSmooth"))
-		mLinearSmooth = elem->get<bool>("linearSmooth");
-
-	applyStoryboard(elem);
-	mStaticImage.applyStoryboard(elem, "snapshot");
+	VideoComponent::applyTheme(theme, view, element, properties);
 }
 
 void VideoVlcComponent::update(int deltaTime)
@@ -788,6 +961,17 @@ void VideoVlcComponent::onShow()
 ThemeData::ThemeElement::Property VideoVlcComponent::getProperty(const std::string name)
 {
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+	
+	if (Utils::String::startsWith(name, "shader."))
+	{
+		auto prop = name.substr(7);
+
+		auto it = mCustomShader.parameters.find(prop);
+		if (it != mCustomShader.parameters.cend())
+			return Utils::String::toFloat(it->second);
+
+		return 0.0f;
+	}
 
 	if (name == "size" || name == "maxSize" || name == "minSize")
 		return mSize / scale;
@@ -807,22 +991,30 @@ ThemeData::ThemeElement::Property VideoVlcComponent::getProperty(const std::stri
 void VideoVlcComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
 {
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
-	if ((name == "maxSize" || name == "minSize") && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
+	
+	if (value.type == ThemeData::ThemeElement::Property::PropertyType::Pair && (name == "maxSize" || name == "minSize"))
 	{
+		mSourceBounds.zw() = value.v;
 		mTargetSize = Vector2f(value.v.x() * scale.x(), value.v.y() * scale.y());
 		resize();
 	}
-	else if (name == "color" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "color")
 		setColorShift(value.i);
-	else if (name == "roundCorners" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "roundCorners")
 		setRoundCorners(value.f);
-	else if (name == "saturation" && value.type == ThemeData::ThemeElement::Property::PropertyType::Float)
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "saturation")
 		setSaturation(value.f);
-	else
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && Utils::String::startsWith(name, "shader."))
+	{
+		auto prop = name.substr(7);
+
+		auto it = mCustomShader.parameters.find(prop);
+		if (it != mCustomShader.parameters.cend())
+			mCustomShader.parameters[prop] = std::to_string(value.f);
+	}
+	else 
 		VideoComponent::setProperty(name, value);
 }
-
 
 void VideoVlcComponent::pauseVideo()
 {

@@ -343,7 +343,7 @@ void GuiImageViewer::loadPdf(const std::string& imagePath)
 	mPdf = imagePath;
 	
 	for (int i = 0; i < pages; i++)
-		mGrid.add("", ":/blank.png", "", "", false, false, false, false, std::to_string(i + 1));
+		mGrid.add("", ":/blank.png", std::to_string(i + 1));
 	
 	if (pages > INITIALPAGES)
 	{
@@ -428,7 +428,7 @@ void GuiImageViewer::loadImages(std::vector<std::string>& images)
 	mWindow->postToUiThread([images, window, this]
 	{
 		for (int i = 0; i < images.size(); i++)
-			mGrid.add("", images[i], "", "", false, false, false, false, std::to_string(i + 1));
+			mGrid.add("", images[i], std::to_string(i + 1));
 
 		window->pushGui(this);
 	});
@@ -485,7 +485,7 @@ void GuiImageViewer::loadCbz(const std::string& imagePath)
 	mPdf = imagePath;
 
 	for (int i = 0; i < pages; i++)
-		mGrid.add("", ":/blank.png", "", "", false, false, false, false, std::to_string(i + 1));
+		mGrid.add("", ":/blank.png", std::to_string(i + 1));
 
 	if (pages > INITIALPAGES)
 	{
@@ -628,7 +628,7 @@ void GuiImageViewer::add(const std::string imagePath)
 {
 	if (!Utils::FileSystem::exists(imagePath))
 		return;
-
+	/*
 	std::string img;
 	std::string vid;
 
@@ -644,8 +644,8 @@ void GuiImageViewer::add(const std::string imagePath)
 		vid = imagePath;
 	else
 		img = imagePath;
-	
-	mGrid.add("", img, vid, "", false, false, false, false, imagePath);
+	*/
+	mGrid.add("", imagePath, imagePath); // vid, "", false, false, false, false, 
 }
 
 void GuiImageViewer::setCursor(const std::string imagePath)

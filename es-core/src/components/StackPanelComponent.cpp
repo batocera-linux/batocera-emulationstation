@@ -6,7 +6,7 @@
 
 StackPanelComponent::StackPanelComponent(Window* window) : GuiComponent(window), mHorizontal(true), mReverse(false), mSeparator(0.0f)
 {
-
+	mClipChildren = true;
 }
 
 void StackPanelComponent::render(const Transform4x4f& parentTrans)
@@ -26,7 +26,13 @@ void StackPanelComponent::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF00FF50, 0xFF00FF50);
 	}
 
+	if (mClipChildren)
+		Renderer::pushClipRect(rect);
+
 	GuiComponent::renderChildren(trans);
+
+	if (mClipChildren)
+		Renderer::popClipRect();
 }
 
 
@@ -63,12 +69,22 @@ void StackPanelComponent::onSizeChanged()
 	performLayout();
 }
 
+void StackPanelComponent::recalcLayout()
+{
+	GuiComponent::recalcLayout();
+	performLayout();
+}
+
 void StackPanelComponent::performLayout()
 {
 	int pos = 0;
 
 	if (mReverse)
 		pos = mHorizontal ? mSize.x() : mSize.y();
+
+	recalcChildrenLayout();
+
+	bool aligned = false;
 
 	for (auto child : mChildren)
 	{
@@ -85,43 +101,95 @@ void StackPanelComponent::performLayout()
 
 		if (mHorizontal)
 		{
+			float sz = child->getSize().x();		
+
+			bool wasAligned = aligned;
+
+			if (!wasAligned)
+			{
+				if (mReverse && pos - sz < 0)
+				{
+					wasAligned = true;
+					sz = Math::max(0.0f, (float)pos);
+				}
+				else if (!mReverse && pos + sz >= mSize.x())
+				{
+					wasAligned = true;
+					sz = Math::max(0.0f, mSize.x() - pos);
+				}
+			}
+
 			if (image != nullptr && maxSize)
 				image->setMaxSize(child->getSize().x(), mSize.y());
 			else if (text != nullptr) 
 			{				
 				child->setSize(0, mSize.y());
-				child->setSize(child->getSize().x(), mSize.y());				
+				child->setSize(Math::min(sz, child->getSize().x()), mSize.y());
+
+				if (wasAligned && child->getSize().x() < sz)
+					wasAligned = false;
 			}
-			else
-				child->setSize(child->getSize().x(), mSize.y());
+			else if (child->getSize() != Vector2f(sz, mSize.y()))
+				child->setSize(sz, mSize.y());
+
+			aligned |= wasAligned;
 
 			if (mReverse)
 			{
-				child->setPosition(pos - child->getSize().x(), 0);
-				pos -= child->getSize().x() + mSeparator;
+				auto childpos = pos - child->getSize().x() + child->getSize().x() * child->getOrigin().x();
+
+				if (image != nullptr && maxSize)
+					child->setPosition(childpos, child->getPosition().y() - child->getSize().y() * child->getOrigin().y() + mSize.y() * child->getOrigin().y());
+				else
+					child->setPosition(childpos, child->getPosition().y());
+
+				if (child->getSize().x() > 0)
+					pos -= child->getSize().x() + mSeparator;				
 			}
 			else
 			{
-				child->setPosition(pos, 0);
-				pos += child->getSize().x() + mSeparator;
+				auto childpos = pos + child->getSize().x() * child->getOrigin().x();
+
+				if (image != nullptr && maxSize)
+					child->setPosition(childpos, child->getPosition().y() - child->getSize().y() * child->getOrigin().y() + mSize.y() * child->getOrigin().y());
+				else 
+					child->setPosition(childpos, child->getPosition().y());
+
+				if (child->getSize().x() > 0)
+					pos += child->getSize().x() + mSeparator;
 			}
 		}
 		else
 		{
 			if (image != nullptr && maxSize)
 				image->setMaxSize(mSize.x(), child->getSize().y());
-			else
+			else if (child->getSize() != Vector2f(mSize.x(), child->getSize().y()))
 				child->setSize(mSize.x(), child->getSize().y());
 
 			if (mReverse)
 			{
-				child->setPosition(0, pos - child->getSize().y());
-				pos -= child->getSize().y() + mSeparator;
+				auto childpos = pos - child->getSize().y() + child->getSize().y() * child->getOrigin().y();
+
+				if (image != nullptr && maxSize)
+					child->setPosition(child->getPosition().x() - child->getSize().x() * child->getOrigin().x() + mSize.y() * child->getOrigin().x(), childpos);
+				else
+					child->setPosition(child->getPosition().x(), childpos);
+
+				//child->setPosition(0, pos - child->getSize().y());
+				if (child->getSize().y() > 0)
+					pos -= child->getSize().y() + mSeparator;
 			}
 			else
 			{
-				child->setPosition(0, pos);
-				pos += child->getSize().y() + mSeparator;
+				auto childpos = pos + child->getSize().y() * child->getOrigin().y();
+
+				if (image != nullptr && maxSize)
+					child->setPosition(child->getPosition().x() - child->getSize().x() * child->getOrigin().x() + mSize.x() * child->getOrigin().x(), childpos);
+				else
+					child->setPosition(child->getPosition().x(), childpos);
+
+				if (child->getSize().y() > 0)
+					pos += child->getSize().y() + mSeparator;
 			}
 		}
 	}

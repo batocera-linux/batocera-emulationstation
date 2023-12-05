@@ -19,7 +19,7 @@
 
 #define VIDEODELAY	100
 
-GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBackground(window), mLabel(window), mVideo(nullptr), mVideoPlaying(false)
+GridTileComponent::GridTileComponent(Window* window) : GuiComponent(window), mBackground(window), mLabel(window), mVideo(nullptr), mVideoPlaying(false), mHasItemTemplate(false)
 {
 	mHasStandardMarquee = false;
 	mSelectedZoomPercent = 1.0f;
@@ -118,6 +118,9 @@ std::shared_ptr<TextureResource> GridTileComponent::getTexture(bool marquee)
 
 void GridTileComponent::resize()
 {
+	if (mHasItemTemplate)
+		return;
+
 	auto& currentProperties = getCurrentProperties();
 
 	Vector2f& size = currentProperties.Size;
@@ -176,10 +179,16 @@ void GridTileComponent::resize()
 	// Recompute final image size if necessary
 	if (mImage != nullptr && currentProperties.Image.sizeMode == "maxSize")
 	{
-		auto origin = mImage->getOrigin();
-		auto pos = mImage->getPosition();
-		imageSize = mImage->getSize();
-		imageOffset = Vector2f(pos.x() - imageSize.x() * origin.x(), pos.y() - imageSize.y() * origin.y());
+		// If the overlay zindex < image zindex, then keep dimensions
+		if (mImageOverlay != nullptr && mImageOverlay->hasImage() && mImageOverlay->isVisible() && mImageOverlay->getZIndex() < mImage->getZIndex())
+			;
+		else
+		{
+			auto origin = mImage->getOrigin();
+			auto pos = mImage->getPosition();
+			imageSize = mImage->getSize();
+			imageOffset = Vector2f(pos.x() - imageSize.x() * origin.x(), pos.y() - imageSize.y() * origin.y());
+		}
 	}
 	
 	// Text	
@@ -302,13 +311,23 @@ void GridTileComponent::resize()
 void GridTileComponent::update(int deltaTime)
 {
 	GuiComponent::update(deltaTime);
+	
+	if (hasStoryBoard() && !isStoryBoardRunning())
+		deselectStoryboard(false);
 
+	for (auto comp : enumerateExtraChildrens())
+		if (comp->hasStoryBoard() && !comp->isStoryBoardRunning())
+			comp->deselectStoryboard(false);
+			
 	if (mVideo != nullptr && mVideo->isPlaying() && (mVideo->isFading() || !ALLOWANIMATIONS))
 		resize();
 }
 
 void GridTileComponent::renderBackground(const Transform4x4f& parentTrans)
 {
+	if (mHasItemTemplate)
+		return;
+
 	if (!mVisible)
 		return;
 
@@ -344,8 +363,18 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool ren
 		mBackground.render(trans);
 
 	auto rect = Renderer::getScreenRect(trans, mSize);
-	if (!Renderer::isVisibleOnScreen(rect))
+
+	if (mRotation == 0 && trans.r0().y() == 0 && !Renderer::isVisibleOnScreen(rect))
 		return;
+
+	if (mHasItemTemplate)
+	{
+		for (auto child : mChildren)
+			if (child->isVisible() && child->getExtraType() == ExtraType::EXTRACHILDREN)
+				child->render(trans);
+
+		return;
+	}
 
 	auto& currentProperties = getCurrentProperties(false);
 
@@ -370,6 +399,19 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool ren
 		Renderer::pushClipRect(x, y, w, h);
 	}
 
+	float refZindex = mImage != NULL ? mImage->getZIndex() : mVideo != nullptr ? mVideo->getZIndex() : 10.0f;
+
+	bool overlayDrawn = false;
+	if (mImageOverlay != nullptr && mImageOverlay->hasImage() && mImageOverlay->isVisible() && mImage != nullptr && mImageOverlay->getZIndex() < refZindex)
+	{
+		mImageOverlay->render(trans);
+		overlayDrawn = true;
+	}
+
+	for (auto child : mChildren)
+		if (child->isVisible() && child->getExtraType() == ExtraType::EXTRACHILDREN && child->getZIndex() < refZindex)
+			child->render(trans);
+
 	if (mImage != NULL)
 	{
 		if (!isMinSize || !mSelected || mVideo == nullptr || !(mVideo->isPlaying() && !mVideo->isFading()))
@@ -384,6 +426,10 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool ren
 
 	std::vector<GuiComponent*> zOrdered;
 
+	for (auto child : mChildren)
+		if (child->isVisible() && child->getExtraType() == ExtraType::EXTRACHILDREN && child->getZIndex() >= refZindex)
+			zOrdered.push_back(child);
+
 	if (mMarquee != nullptr && mMarquee->hasImage())
 		zOrdered.push_back(mMarquee);
 	else
@@ -395,7 +441,7 @@ void GridTileComponent::renderContent(const Transform4x4f& parentTrans, bool ren
 	if (mCheevos != nullptr && mCheevos->hasImage() && mCheevos->isVisible())
 		zOrdered.push_back(mCheevos);
 
-	if (mImageOverlay != nullptr && mImageOverlay->hasImage() && mImageOverlay->isVisible())
+	if (mImageOverlay != nullptr && mImageOverlay->hasImage() && mImageOverlay->isVisible() && !overlayDrawn)
 		zOrdered.push_back(mImageOverlay);
 
 	if (zOrdered.size() > 1)
@@ -478,9 +524,11 @@ void GridTileComponent::createVideo()
 	if (mVideo != nullptr)
 		return;
 
-	mVideo = new VideoVlcComponent(mWindow);
+	auto vlc = new VideoVlcComponent(mWindow);
+	vlc->setEffect(VideoVlcFlags::SIZE);
 
 	// video
+	mVideo = vlc;
 	mVideo->setOrigin(0.5f, 0.5f);
 	mVideo->setStartDelay(VIDEODELAY);
 	mVideo->setDefaultZIndex(11);
@@ -694,6 +742,41 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	resetProperties();
 
 	const ThemeData::ThemeElement* grid = theme->getElement(view, "gamegrid", "imagegrid");
+	if (grid)
+	{
+		auto itemTemplate = std::find_if(grid->children.cbegin(), grid->children.cend(), [](const std::pair<std::string, ThemeData::ThemeElement> ss) { return ss.first == "itemTemplate"; });
+		if (itemTemplate != grid->children.cend())
+		{
+			mHasItemTemplate = true;
+			mScaleOrigin = Vector2f::Zero();
+
+			applyStoryboard(&itemTemplate->second);
+			loadThemedChildren(&itemTemplate->second);
+
+			mBackground.setVisible(false);
+
+			if (mImage != nullptr)
+			{
+				removeChild(mImage);
+				delete mImage;
+				mImage = nullptr;
+			}
+
+			if (mVideo != nullptr)
+			{
+				removeChild(mVideo);
+				delete mVideo;
+				mVideo = nullptr;
+			}
+
+			removeChild(&mBackground);
+			removeChild(&mLabel);
+
+			return;
+		}
+	}
+
+	// Old Non-Templated grid
 	if (grid && grid->has("showVideoAtDelay"))
 	{
 		createVideo();
@@ -716,6 +799,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	{
 		applyThemeToProperties(elem, mDefaultProperties);
 		applyThemeToProperties(elem, mSelectedProperties);		
+		loadThemedChildren(elem);
 	}
 
 	// Apply theme to the selected gridtile
@@ -921,6 +1005,9 @@ bool GridTileComponent::isSelected() const
 
 void GridTileComponent::setImage(const std::string& path, bool isDefaultImage)
 {
+	if (mImage == nullptr)
+		return;
+
 	if (path == ":/folder.svg" || path == ":/cartridge.svg")
 		mIsDefaultImage = true;
 	else
@@ -930,7 +1017,7 @@ void GridTileComponent::setImage(const std::string& path, bool isDefaultImage)
 		return;
 
 	mCurrentPath = path;
-	
+
 	if (mSelectedProperties.Size.x() > mSize.x())
 		mImage->setImage(path, false, MaxSizeInfo(mSelectedProperties.Size, mSelectedProperties.Image.sizeMode != "maxSize"), false);
 	else
@@ -977,6 +1064,8 @@ void GridTileComponent::setFavorite(bool favorite)
 
 void GridTileComponent::resetImages()
 {
+	updateBindings(nullptr);
+
 	setLabel("");
 	setImage("");
 	setMarquee("");
@@ -1011,15 +1100,79 @@ void GridTileComponent::setVideo(const std::string& path, float defaultDelay)
 	resize();
 }
 
+void GridTileComponent::handleStoryBoard(bool activate)
+{
+	if (hasStoryBoard() && (isStoryBoardRunning("activate") || isStoryBoardRunning("deactivate")))
+		deselectStoryboard(false);
+
+	if (selectStoryboard(activate ? "activate" : "deactivate"))
+		startStoryboard();
+	else if (selectStoryboard())
+		startStoryboard();
+
+	for (auto comp : enumerateExtraChildrens())
+	{
+		if (comp->isStoryBoardRunning("activate") || comp->isStoryBoardRunning("deactivate"))
+			comp->deselectStoryboard(false);
+
+		if (comp->selectStoryboard(activate ? "activate" : "deactivate"))
+		{
+			comp->startStoryboard();
+		}
+		else if (comp->selectStoryboard())
+		{
+			if (!comp->isStoryBoardRunning())
+				comp->startStoryboard();
+		}
+		else if (!activate)
+		{
+			if (comp->isStoryBoardRunning("scroll"))
+				comp->deselectStoryboard(false);
+
+			if (comp->selectStoryboard("scroll"))
+				comp->startStoryboard();
+		}
+	}
+}
+
 void GridTileComponent::onShow()
 {
 	GuiComponent::onShow();	
+
+	if (mSelected)
+		handleStoryBoard(true);
+	else
+	{
+		if (selectStoryboard())
+			startStoryboard();
+
+		for (auto comp : enumerateExtraChildrens())
+		{
+			if (comp->selectStoryboard())
+				comp->startStoryboard();
+			else if (comp->selectStoryboard("scroll"))
+				comp->startStoryboard();
+		}
+	}
+
 	resize();
 }
 
 void GridTileComponent::onHide()
 {
-	GuiComponent::onHide();	
+	GuiComponent::onHide();		
+
+	if (mSelected)
+	{
+		if (hasStoryBoard() && isStoryBoardRunning())
+			deselectStoryboard(true);
+
+		for (auto comp : enumerateExtraChildrens())
+		{
+			if (comp->hasStoryBoard() && comp->isStoryBoardRunning())
+				comp->deselectStoryboard(true);
+		}
+	}
 }
 
 void GridTileComponent::startVideo()
@@ -1049,13 +1202,33 @@ void GridTileComponent::setSelected(bool selected, bool allowAnimation, Vector3f
 
 	if (mSelected == selected && !force)
 	{
-		if (mSelected && startsVideo)
+		if (mHasItemTemplate && !mSelected)
+		{
+			if (selectStoryboard("scroll"))
+				startStoryboard();
+
+			for (auto comp : enumerateExtraChildrens())
+			{
+				if (comp->isStoryBoardRunning("scroll"))
+					comp->deselectStoryboard(false);
+
+				if (comp->selectStoryboard("scroll"))
+					comp->startStoryboard();
+			}
+		}
+		else if (mSelected && startsVideo)
 			startVideo();
 
 		return;
 	}
 
+	if (mSelected != selected)
+		handleStoryBoard(selected);
+
 	mSelected = selected;
+
+	if (mHasItemTemplate)
+		return;
 
 	if (!mSelected)
 	{
@@ -1336,4 +1509,95 @@ void GridTileComponent::forceMarquee(const std::string& path)
 Vector3f GridTileComponent::getLaunchTarget()
 {
 	return Vector3f(getCenter().x(), getCenter().y(), 0);
+}
+
+class GridNameBinding : public IBindable
+{
+public:
+	GridNameBinding(GridTileComponent* tile, const std::string& name, IBindable* parent)
+	{		
+		mName = name;
+		mParent = parent;
+		mTile = tile;
+	}
+
+	BindableProperty getProperty(const std::string& name) override
+	{
+		if (name == "label")
+			return mName;
+
+		if (name == "h")
+		{
+			auto size = mTile->getSize();
+			if (size.x() != 0)
+				return (size.y() / size.x());
+
+			return 1.0f;
+		}
+
+		if (name == "y")
+		{
+			auto size = mTile->getSize();
+			if (size.y() != 0)
+				return (size.x() / size.y());
+
+			return 1.0f;
+		}
+
+		if (name == "w" || name == "h")
+			return mTile->getProperty(name).f;
+
+		return BindableProperty::Null;
+	}
+
+	std::string getBindableTypeName() override { return "grid"; }
+	IBindable* getBindableParent() override { return mParent; };
+
+private:
+	IBindable* mParent;
+	std::string mName;
+	GridTileComponent* mTile;
+};
+
+void GridTileComponent::updateBindings(IBindable* bindable)
+{
+	if (bindable != nullptr)
+	{
+		std::vector<IBindable*> bindables;
+
+		IBindable* currentParent = bindable;
+		/*
+		auto childs = enumerateExtraChildrens();
+		std::reverse(childs.begin(), childs.end());
+
+		for (auto comp : childs)
+		{
+			auto id = comp->getTag();
+			if (id.empty() || id == comp->getThemeTypeName())
+				continue;
+			
+			IBindable* bindable = new ComponentBinding(comp, currentParent);
+			bindables.push_back(bindable);
+
+			currentParent = bindable;
+		}
+		*/
+		GridNameBinding localBinding(this, Utils::String::trim(mLabel.getText()), currentParent);
+		GuiComponent::updateBindings(&localBinding);
+
+		for (auto bindable : bindables)
+			delete bindable;
+	}
+	else
+		GuiComponent::updateBindings(bindable);
+}
+
+bool GridTileComponent::hasFavoriteMedia() 
+{ 	
+	for (auto comp : enumerateExtraChildrens())
+		for (auto xp : comp->getBindingExpressions())
+			if (xp.second == "{game:favorite}")
+				return true;
+
+	return mFavorite != nullptr; 
 }

@@ -11,6 +11,7 @@
 #include "KeyboardMapping.h"
 #include "SystemData.h"
 #include "SaveState.h"
+#include "BindingManager.h"
 
 class Window;
 struct SystemEnvironmentData;
@@ -71,7 +72,7 @@ struct LaunchGameOptions
 class FolderData;
 
 // A tree node that holds information for a file.
-class FileData : public IKeyboardMapContainer
+class FileData : public IKeyboardMapContainer, public IBindable
 {
 public:
 	FileData(FileType type, const std::string& path, SystemData* system);
@@ -106,9 +107,9 @@ public:
 	void setCore(const std::string value);
 	void setEmulator(const std::string value);
 
-	virtual const bool getHidden();
-	virtual const bool getFavorite();
-	virtual const bool getKidGame();
+	virtual const bool getHidden() const;
+	virtual const bool getFavorite() const;
+	virtual const bool getKidGame() const;
 	virtual const bool hasCheevos();
 
 	bool hasAnyMedia();
@@ -146,7 +147,7 @@ public:
 
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
-	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	std::string getMetadata(MetaDataId key) const { return getMetadata().get(key); }
 	void setMetadata(MetaDataId key, const std::string& value) { return getMetadata().set(key, value); }
 
 	void detectLanguageAndRegion(bool overWrite);
@@ -175,7 +176,10 @@ public:
 
 	std::pair<int, int> parsePlayersRange();
 
-	std::string getProperty(const std::string& name);
+	// IBindable
+	BindableProperty getProperty(const std::string& name) override;
+	std::string getBindableTypeName()  override { return "game"; }
+	IBindable*  getBindableParent() override;
 
 private:
 	std::string getKeyboardMappingFilePath();

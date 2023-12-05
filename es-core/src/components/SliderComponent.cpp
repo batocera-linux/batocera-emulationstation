@@ -3,12 +3,13 @@
 #include "resources/Font.h"
 #include "LocaleES.h"
 #include "Window.h"
+#include "utils/HtmlColor.h"
 
 #define MOVE_REPEAT_DELAY 500
 #define MOVE_REPEAT_RATE 40
 
 SliderComponent::SliderComponent(Window* window, float min, float max, float increment, const std::string& suffix) : GuiComponent(window),
-	mMin(min), mMax(max), mSingleIncrement(increment), mMoveRate(0), mKnob(window), mSuffix(suffix)
+	mMin(min), mMax(max), mSingleIncrement(increment), mMoveRate(0), mKnob(window), mSuffix(suffix), mMoveAccumulator(0)
 {
 	assert((min - max) != 0);
 
@@ -29,6 +30,19 @@ SliderComponent::SliderComponent(Window* window, float min, float max, float inc
 		setSize(Renderer::getScreenWidth() * 0.25f, menuTheme->Text.font->getLetterHeight());
 	else
 		setSize(Renderer::getScreenWidth() * 0.15f, menuTheme->Text.font->getLetterHeight());
+}
+
+void SliderComponent::onOpacityChanged()
+{
+	mKnob.setOpacity(getOpacity());
+	
+	if (mValueCache)
+		mValueCache->setColor(getCurColor());
+}
+
+unsigned int SliderComponent::getCurColor() const
+{
+	return Utils::HtmlColor::applyColorOpacity(mColor, getOpacity());
 }
 
 void SliderComponent::setColor(unsigned int color) 
@@ -95,7 +109,7 @@ void SliderComponent::render(const Transform4x4f& parentTrans)
 
 	//render line
 	const float lineWidth = 2;
-	Renderer::drawRect(mKnob.getSize().x() / 2, mSize.y() / 2 - lineWidth / 2, width, lineWidth, mColor);
+	Renderer::drawRect(mKnob.getSize().x() / 2, mSize.y() / 2 - lineWidth / 2, width, lineWidth, getCurColor());
 
 	//render knob
 	mKnob.render(trans);
@@ -156,7 +170,7 @@ void SliderComponent::onValueChanged()
 		const std::string max = ss.str();
 
 		Vector2f textSize = mFont->sizeText(max);
-		mValueCache = std::shared_ptr<TextCache>(mFont->buildTextCache(val, mSize.x() - textSize.x(), (mSize.y() - textSize.y()) / 2, mColor));
+		mValueCache = std::shared_ptr<TextCache>(mFont->buildTextCache(val, mSize.x() - textSize.x(), (mSize.y() - textSize.y()) / 2, getCurColor()));
 		mValueCache->metrics.size[0] = textSize.x(); // fudge the width
 	}
 

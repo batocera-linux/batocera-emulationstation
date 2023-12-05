@@ -364,14 +364,19 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 {
 	mPercent = -1;
 
+	bool overWriteMedias = Settings::getInstance()->getBool("ScrapeOverWrite") && search.overWriteMedias;
+
 	for (auto& url : result.urls)
 	{
 		if (url.second.url.empty())
 			continue;
-		
-		if (!search.overWriteMedias && Utils::FileSystem::exists(search.game->getMetadata(url.first)))
+
+		if (!overWriteMedias && Utils::FileSystem::exists(search.game->getMetadata(url.first)))
 		{
 			mResult.mdl.set(url.first, search.game->getMetadata(url.first));
+			if (mResult.urls.find(url.first) != mResult.urls.cend())
+				mResult.urls[url.first].url = "";
+
 			continue;
 		}
 
@@ -399,31 +404,31 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 
 		std::string resourcePath = Scraper::getSaveAsPath(search.game, url.first, ext);
 
-		if (!search.overWriteMedias && Utils::FileSystem::exists(resourcePath))
+		if (!overWriteMedias && Utils::FileSystem::exists(resourcePath))
 		{
 			mResult.mdl.set(url.first, resourcePath);
 			if (mResult.urls.find(url.first) != mResult.urls.cend())
 				mResult.urls[url.first].url = "";
-		}
-		else
-		{
-			mFuncs.push_back(new ResolvePair(
-				[this, url, resourcePath, resize] 
-				{ 
-					return downloadImageAsync(url.second.url, resourcePath, resize); 
-				},
-				[this, url](ImageDownloadHandle* result)
-				{
-					auto finalFile = result->getImageFileName();
 
-					if (Utils::FileSystem::getFileSize(finalFile) > 0)
-						mResult.mdl.set(url.first, finalFile);
-
-					if (mResult.urls.find(url.first) != mResult.urls.cend())
-						mResult.urls[url.first].url = "";
-				},
-				suffix, result.mdl.getName()));
+			continue;
 		}
+
+		mFuncs.push_back(new ResolvePair(
+			[this, url, resourcePath, resize] 
+			{ 
+				return downloadImageAsync(url.second.url, resourcePath, resize); 
+			},
+			[this, url](ImageDownloadHandle* result)
+			{
+				auto finalFile = result->getImageFileName();
+
+				if (Utils::FileSystem::getFileSize(finalFile) > 0)
+					mResult.mdl.set(url.first, finalFile);
+
+				if (mResult.urls.find(url.first) != mResult.urls.cend())
+					mResult.urls[url.first].url = "";
+			},
+			suffix, result.mdl.getName()));
 	}
 
 	auto it = mFuncs.cbegin();

@@ -17,49 +17,51 @@
 #endif
 
 uniform   mat4 MVPMatrix;
+uniform   vec2       resolution;
+
 COMPAT_ATTRIBUTE vec2 VertexCoord;
 COMPAT_ATTRIBUTE vec2 TexCoord;
 COMPAT_ATTRIBUTE vec4 COLOR;
 COMPAT_VARYING   vec2 v_tex;
 COMPAT_VARYING   vec4 v_col;
+COMPAT_VARYING   vec2 v_pos;
 
 void main(void)                                    
 {                                                  
 	gl_Position = MVPMatrix * vec4(VertexCoord.xy, 0.0, 1.0);
 	v_tex       = TexCoord;                           
-	v_col       = COLOR;                           
+	v_col       = COLOR;      
+	v_pos       = VertexCoord.xy;	
 }
 
 #elif defined(FRAGMENT)
 			
 varying   vec4      v_col;
 varying   vec2      v_tex;
-
 uniform   sampler2D u_tex;
-uniform   vec2      resolution;
-uniform   vec2      textureSize;
-uniform   vec2      outputSize;
+varying   vec2      v_pos;
 
-uniform   float      pixelSize;
-uniform   vec2       u_resolution;
+uniform   float     s_offset;
+uniform   float     s_height;
+uniform   float     s_forcetop;
+uniform   float     s_forcebottom;
 
 void main(void)                                    
-{         
-	vec2 p = v_tex.st;
+{                                                  
+	vec4 clr = texture2D(u_tex, v_tex) * v_col;
+
+	float top = v_pos.y - s_offset;
+	if (top < s_forcetop) {
+		float diff = 1.0 - ((s_forcetop - top) / s_forcetop);
+		clr.a = clr.a * diff;
+	}
 	
-	float pixels = pixelSize;
-	if (pixels == 0.0) {
-		gl_FragColor = texture2D(u_tex, v_tex);
+	float bottom = s_height - (v_pos.y - s_offset);
+	if (bottom < s_forcebottom) {
+		float diff = 1.0 - ((s_forcebottom - bottom) / s_forcebottom);
+		clr.a = clr.a * diff;
 	}
-	else {
-		// Calculate pixel size in normalized device coordinates
-		vec2 pixelSizeNDC = vec2(pixelSize) / outputSize;
-
-		// Snap the texture coordinates to a grid based on pixel size
-		p.x = floor(p.x / pixelSizeNDC.x) * pixelSizeNDC.x;
-		p.y = floor(p.y / pixelSizeNDC.y) * pixelSizeNDC.y;
-
-		gl_FragColor = texture2D(u_tex, p);
-	}
+		
+	gl_FragColor = clr;
 }
 #endif

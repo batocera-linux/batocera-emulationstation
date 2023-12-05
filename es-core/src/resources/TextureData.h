@@ -51,7 +51,8 @@ public:
 	void releaseRAM();
 
 	// Get the amount of VRAM currenty used by this texture
-	size_t getVRAMUsage();
+	inline size_t getEstimatedVRAMUsage() { return mWidth * mHeight * 4; }
+	inline size_t getVRAMUsage() { return mTextureID != 0 || mDataRGBA != nullptr ? mWidth * mHeight * 4 : 0; }
 
 	size_t width();
 	size_t height();
@@ -74,8 +75,13 @@ public:
 
 	bool updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height);
 
-	bool isRequired() { return mRequired; };
+	inline bool isRequired() { return mRequired; };
 	void setRequired(bool value) { mRequired = value; };
+
+	inline bool isDynamic() { return mDynamic; };
+	void setDynamic(bool value) { mDynamic = value; };
+
+	inline bool isReloadable() { return mReloadable; };
 
 private:
 	bool			mRequired;
@@ -92,6 +98,7 @@ private:
 	float			mSourceHeight;
 	bool			mScalable;
 	bool			mReloadable;
+	bool			mDynamic;
 
 	MaxSizeInfo		mMaxSize;
 	Vector2i		mPackedSize;

@@ -451,6 +451,7 @@ void Font::renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, 
 {
 	Transform4x4f trans = parentTrans;
 	trans.translate(x, y);
+	trans.round();
 	Renderer::setMatrix(trans);
 	renderTextCache(cache, verticesChanged);
 }
@@ -461,6 +462,7 @@ void Font::renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans,
 	{
 		Transform4x4f glowTrans = parentTrans;
 		glowTrans.translate(mGlowOffset.x(), mGlowOffset.y());
+		glowTrans.round();
 		Renderer::setMatrix(glowTrans);
 
 		auto copy = cache->vertexLists;
@@ -503,7 +505,9 @@ void Font::renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans,
 		cache->vertexLists = copy;
 	}
 
-	Renderer::setMatrix(parentTrans);
+	auto trans = parentTrans;
+	trans.round();
+	Renderer::setMatrix(trans);
 	renderTextCache(cache);
 }
 
@@ -529,7 +533,11 @@ void Font::renderTextCache(TextCache* cache, bool verticesChanged)
 		}
 
 		if (tex != 0)
+		{
+			vertex.verts[0].customShader = cache->customShader.path.empty() ? nullptr : &cache->customShader;
 			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size(), Renderer::Blend::SRC_ALPHA, Renderer::Blend::ONE_MINUS_SRC_ALPHA, cache->vertexLists.size() > 1 || verticesChanged);
+			vertex.verts[0].customShader = nullptr;
+		}
 	}
 
 	if (cache->renderingGlow || !verticesChanged)
@@ -951,10 +959,12 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 					sz.x(),
 					sz.y());
 				
-				is.vertex[0] = { { (float) rc.x			, (float) rc.y + rc.h }	, { 0.0f, 0.0f }, 0xFFFFFFFF };
-				is.vertex[1] = { { (float) rc.x			, (float) rc.y }		, { 0.0f, 1.0f }, 0xFFFFFFFF };
-				is.vertex[2] = { { (float) rc.x + rc.w  , (float) rc.y + rc.h }	, { 1.0f, 0.0f }, 0xFFFFFFFF };
-				is.vertex[3] = { { (float) rc.x + rc.w  , (float) rc.y }		, { 1.0f, 1.0f }, 0xFFFFFFFF };
+				unsigned int vertexColor = Renderer::convertColor(0xFFFFFF00 | (color & 0xFF));
+				
+				is.vertex[0] = { { (float) rc.x			, (float) rc.y + rc.h }	, { 0.0f, 0.0f }, vertexColor };
+				is.vertex[1] = { { (float) rc.x			, (float) rc.y }		, { 0.0f, 1.0f }, vertexColor };
+				is.vertex[2] = { { (float) rc.x + rc.w  , (float) rc.y + rc.h }	, { 1.0f, 0.0f }, vertexColor };
+				is.vertex[3] = { { (float) rc.x + rc.w  , (float) rc.y }		, { 1.0f, 1.0f }, vertexColor };
 
 				imageSubstitutes.push_back(is);
 
@@ -1082,6 +1092,15 @@ void TextCache::setColors(unsigned int color, unsigned int extraColor)
 				it2->col = convertedColor;
 		}
 	}
+
+	if (renderingGlow)
+		return;
+
+	unsigned int substitColor = Renderer::convertColor(0xFFFFFF00 | (color & 0xFF));
+
+	for (TextImageSubstitute& it : imageSubstitutes)
+		for (int i = 0; i < 4; i++)
+			it.vertex[i].col = substitColor;
 }
 
 void TextCache::setColor(unsigned int color)
@@ -1091,6 +1110,15 @@ void TextCache::setColor(unsigned int color)
 	for (auto it = vertexLists.begin(); it != vertexLists.end(); it++)
 		for (auto it2 = it->verts.begin(); it2 != it->verts.end(); it2++)
 				it2->col = convertedColor;
+	
+	if (renderingGlow)
+		return;
+
+	unsigned int substitColor = Renderer::convertColor(0xFFFFFF00 | (color & 0xFF));
+
+	for (TextImageSubstitute& it : imageSubstitutes)
+		for (int i = 0; i < 4; i++)
+			it.vertex[i].col = substitColor;
 }
 
 std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig)

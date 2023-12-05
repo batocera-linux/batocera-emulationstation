@@ -11,7 +11,7 @@
 #include "Window.h"
 #include "components/ComponentGrid.h"
 #include <set>
-#include "views/Binding.h"
+#include "BindingManager.h"
 
 #ifdef _RPI_
 #include "Settings.h"
@@ -736,7 +736,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 {
 	bool state = (file != NULL);
 	if (state)
-	{	
+	{
 		if (!isClearing && !isDeactivating)
 			loadThemedExtras(file);
 
@@ -764,7 +764,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 			else if (src == MARQUEE && !file->getMarqueePath().empty())
 				snapShot = file->getMarqueePath();
 			else if ((src == THUMBNAIL || src == BOXART) && !file->getThumbnailPath().empty())
-				snapShot = file->getThumbnailPath();			
+				snapShot = file->getThumbnailPath();
 			else if ((src == IMAGE || src == TITLESHOT) && !file->getImagePath().empty())
 				snapShot = file->getImagePath();
 			else if (src == FANART && Utils::FileSystem::exists(file->getMetadata(MetaDataId::FanArt)))
@@ -773,7 +773,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 				snapShot = file->getMetadata(MetaDataId::Cartridge);
 			else if (src == MIX && Utils::FileSystem::exists(file->getMetadata(MetaDataId::Mix)))
 				snapShot = file->getMetadata(MetaDataId::Mix);
-			
+
 			mVideo->setImage(snapShot, false, mVideo->getMaxSizeInfo());
 		}
 
@@ -784,7 +784,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 
 			mThumbnail->setImage(file->getThumbnailPath(), false, mThumbnail->getMaxSizeInfo());
 		}
-		
+
 		if (mImage != nullptr)
 		{
 			if (mViewType == DetailedContainerType::VideoView && mThumbnail == nullptr)
@@ -813,7 +813,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 					}
 
 					std::string path = file->getMetadata(id);
-					if (Utils::FileSystem::exists(path)) 
+					if (Utils::FileSystem::exists(path))
 					{
 						image = path;
 						break;
@@ -839,19 +839,31 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 				mFlag->setImage(":/folder.svg");
 		}
 
-		bool hasManualOrMagazine = Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)) || Utils::FileSystem::exists(file->getMetadata(MetaDataId::Magazine));
+		if (mManual != nullptr || mNoManual != nullptr)
+		{
+			bool hasManualOrMagazine = Settings::getInstance()->getBool("PreloadMedias") ?
+				!file->getMetadata(MetaDataId::Manual).empty() || !file->getMetadata(MetaDataId::Magazine).empty() :
+				Utils::FileSystem::exists(file->getMetadata(MetaDataId::Manual)) || Utils::FileSystem::exists(file->getMetadata(MetaDataId::Magazine));
 
-		if (mManual != nullptr)
-			mManual->setVisible(hasManualOrMagazine);
+			if (mManual != nullptr)
+				mManual->setVisible(hasManualOrMagazine);
 
-		if (mNoManual != nullptr)
-			mNoManual->setVisible(!hasManualOrMagazine);
+			if (mNoManual != nullptr)
+				mNoManual->setVisible(!hasManualOrMagazine);
+		}
 
-		if (mMap != nullptr)
-			mMap->setVisible(Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)));
+		if (mMap != nullptr || mNoMap != nullptr)
+		{
+			bool hasMap = Settings::getInstance()->getBool("PreloadMedias") ?
+				!file->getMetadata(MetaDataId::Map).empty() :
+				Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map));
 
-		if (mNoMap != nullptr)
-			mNoMap->setVisible(!Utils::FileSystem::exists(file->getMetadata(MetaDataId::Map)));
+			if (mMap != nullptr)
+				mMap->setVisible(hasMap);
+
+			if (mNoMap != nullptr)
+				mNoMap->setVisible(!hasMap);
+		}
 
 		// Save states
 		bool hasSaveState = false;
@@ -969,63 +981,15 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 			updateDetailsForFolder((FolderData*)file);
 
 		for (auto extra : mThemeExtras)
-			Binding::updateBindings(extra, file);
+			BindingManager::updateBindings(extra, file);
 	}
 
 	std::vector<GuiComponent*> comps = getComponents();
 
-	/*if (file == nullptr && !isClearing)
-	{
-		if (isDeactivating)
-			for (auto comp : getComponents())
-				comp->deselectStoryboard(!isDeactivating); // TODO !?
-	}
-	else */
 	if (state && file != nullptr && !isClearing)
 	{
 		for (auto comp : getComponents())
-		{
-			if (moveBy > 0 && comp->storyBoardExists("activateNext"))
-			{
-				comp->deselectStoryboard();
-				comp->selectStoryboard("activateNext");
-
-				if (comp->isShowing())
-					comp->startStoryboard();
-			}
-			else if (moveBy < 0 && comp->storyBoardExists("activatePrev"))
-			{
-				comp->deselectStoryboard();
-				comp->selectStoryboard("activatePrev");
-
-				if (comp->isShowing())
-					comp->startStoryboard();
-			}
-			else if (moveBy != 0 && comp->storyBoardExists("activate"))
-			{
-				comp->deselectStoryboard();
-				comp->selectStoryboard("activate");
-
-				if (comp->isShowing())
-					comp->startStoryboard();
-			}
-			else if (moveBy == 0 && comp->storyBoardExists("open"))
-			{
-				comp->deselectStoryboard();
-				comp->selectStoryboard("open");
-
-				if (comp->isShowing())
-					comp->startStoryboard();
-			}
-			else if (moveBy == 0 && comp->storyBoardExists("") && !comp->hasStoryBoard("", true))
-			{
-				comp->deselectStoryboard();
-				comp->selectStoryboard();
-
-				if (comp->isShowing())
-					comp->onShow();
-			}
-		}
+			handleStoryBoard(comp, true, moveBy);
 	}
 	
 	// We're clearing / populating : don't setup fade animations
@@ -1053,30 +1017,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 	{
 		if (fadeOut && isDeactivating && hasActivationStoryboard(comp, false, true))
 		{
-			if (moveBy > 0 && comp->storyBoardExists("deactivateNext"))
-			{
-				comp->deselectStoryboard(false);
-				comp->selectStoryboard("deactivateNext");
-
-				if (comp->isShowing())
-					comp->startStoryboard();
-			}
-			else if (moveBy < 0 && comp->storyBoardExists("deactivatePrev"))
-			{
-				comp->deselectStoryboard(false);
-				comp->selectStoryboard("deactivatePrev");
-
-				if (comp->isShowing())
-					comp->startStoryboard();
-			}
-			else if (moveBy != 0 && comp->storyBoardExists("deactivate"))
-			{
-				comp->deselectStoryboard(false);
-				comp->selectStoryboard("deactivate");
-
-				if (comp->isShowing())
-					comp->startStoryboard();
-			}
+			handleStoryBoard(comp, false, moveBy);
 		}
 		else if (fadeOut && isDeactivating && !hasActivationStoryboard(comp))
 		{
@@ -1114,7 +1055,68 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		}
 	}
 
-	Utils::FileSystem::removeFile(getTitlePath());
+#ifdef _RPI_
+	if (Settings::getInstance()->getBool("ScreenSaverOmxPlayer"))
+		Utils::FileSystem::removeFile(getTitlePath());
+#endif
+}
+
+void DetailedContainer::handleStoryBoard(GuiComponent* comp, bool activate, int moveBy, bool recursive)
+{
+	if (moveBy > 0 && comp->storyBoardExists(activate ? "activateNext" : "deactivateNext"))
+	{
+		comp->deselectStoryboard(activate);
+		comp->selectStoryboard(activate ? "activateNext" : "deactivateNext");
+
+		if (comp->isShowing())
+			comp->startStoryboard();
+	}
+	else if (moveBy < 0 && comp->storyBoardExists(activate ? "activatePrev" : "deactivatePrev"))
+	{
+		comp->deselectStoryboard(activate);
+		comp->selectStoryboard(activate ? "activatePrev" : "deactivatePrev");
+
+		if (comp->isShowing())
+			comp->startStoryboard();
+	}
+	else if (moveBy != 0 && comp->storyBoardExists(activate ? "activate" : "deactivate"))
+	{
+		comp->deselectStoryboard(activate);
+		comp->selectStoryboard(activate ? "activate" : "deactivate");
+
+		if (comp->isShowing())
+			comp->startStoryboard();
+	}
+	else if (activate && moveBy == 0 && comp->storyBoardExists("open"))
+	{
+		comp->deselectStoryboard();
+		comp->selectStoryboard("open");
+
+		if (comp->isShowing())
+			comp->startStoryboard();
+	}
+	else if (activate && moveBy == 0 && comp->storyBoardExists("") && !comp->hasStoryBoard("", true))
+	{
+		comp->deselectStoryboard();
+		comp->selectStoryboard();
+
+		if (comp->isShowing())
+			comp->onShow();
+	}
+	else if (activate && moveBy == 0 && comp->storyBoardExists("activate"))
+	{
+		comp->deselectStoryboard(activate);
+		comp->selectStoryboard("activate");
+
+		if (comp->isShowing())
+			comp->startStoryboard();
+	}
+
+	if (!recursive)
+		return;
+	
+	for (auto child : comp->enumerateExtraChildrens())
+		handleStoryBoard(child, activate, moveBy, false);
 }
 
 bool DetailedContainer::hasActivationStoryboard(GuiComponent* comp, bool checkActivate, bool checkDeactivate)

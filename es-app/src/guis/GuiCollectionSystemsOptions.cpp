@@ -155,59 +155,64 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 	addGroup(_("CREATE CUSTOM COLLECTION"));
 
-	// add "Create New Custom Collection from Theme"
-	std::vector<std::string> unusedFolders = CollectionSystemManager::get()->getUnusedSystemsFromTheme();
-	if (unusedFolders.size() > 0)
-	{
-		addEntry(_("CREATE NEW CUSTOM COLLECTION FROM THEME").c_str(), true, [this, unusedFolders] 
-	    {
-			auto s = new GuiSettings(mWindow, _("SELECT THEME FOLDER").c_str());
-		    std::shared_ptr< OptionListComponent<std::string> > folderThemes = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SELECT THEME FOLDER"), true);
+	auto unusedFolders = CollectionSystemManager::get()->getUnusedSystemsFromTheme();
 
-			// add Custom Systems
-			for(auto it = unusedFolders.cbegin() ; it != unusedFolders.cend() ; it++)
+	auto createCustomCollection = [this, unusedFolders](const std::string& label, bool dynamicCollection)
+	{				
+		auto window = mWindow;
+
+		auto finalCreateCollection = [this, dynamicCollection, window](const std::string& newVal)
+		{
+			window->postToUiThread([this, newVal, dynamicCollection]()
 			{
-				ComponentListRow row;
-				std::string name = *it;
+				if (dynamicCollection)
+					createFilterCollection(newVal, true);
+				else
+					createCollection(newVal);
+			});
+		};
 
-				std::function<void()> createCollectionCall = [name, this, s] {
-					createCollection(name);
-				};
-				row.makeAcceptInputHandler(createCollectionCall);
+		if (unusedFolders.size() == 0)
+		{
+			if (Settings::getInstance()->getBool("UseOSK"))
+				mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("New Collection Name"), "", finalCreateCollection, false));
+			else
+				mWindow->pushGui(new GuiTextEditPopup(mWindow, _("New Collection Name"), "", finalCreateCollection, false));
 
-				auto themeFolder = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(name), ThemeData::getMenuTheme()->Text.font, ThemeData::getMenuTheme()->Text.color);
-				row.addElement(themeFolder, true);
-				s->addRow(row);				
-			}
-			mWindow->pushGui(s);
-		});
-	}
+			return;
+		}
 
-	auto createCustomCollection = [this](const std::string& newVal) {
-		std::string name = newVal;
-		// we need to store the first Gui and remove it, as it'll be deleted by the actual Gui
-		Window* window = mWindow;
-		GuiComponent* topGui = window->peekGui();
-		window->removeGui(topGui);
-		createCollection(name);
+		auto s = new GuiSettings(mWindow, label);
+
+		s->addGroup(_("CREATE CUSTOM COLLECTION"));
+		s->addEntry(_("ENTER NAME"), true, [this, window, finalCreateCollection]
+			{
+				if (Settings::getInstance()->getBool("UseOSK"))
+					window->pushGui(new GuiTextEditPopupKeyboard(window, _("New Collection Name"), "", finalCreateCollection, false));
+				else
+					window->pushGui(new GuiTextEditPopup(window, _("New Collection Name"), "", finalCreateCollection, false));
+			});
+
+		s->addGroup(_("CREATE FROM THEME"));
+
+		// add Custom Systems
+		for (auto it = unusedFolders.cbegin(); it != unusedFolders.cend(); it++)
+		{
+			std::string name = *it;
+			s->addEntry(Utils::String::toUpper(name), false, [name, this, dynamicCollection]
+				{
+					if (dynamicCollection)
+						createFilterCollection(name, false);
+					else
+						createCollection(name);
+				});
+		}
+
+		mWindow->pushGui(s);
 	};
-	addEntry(_("CREATE NEW EDITABLE COLLECTION").c_str(), true, [this, createCustomCollection] 
-	{
-		if (Settings::getInstance()->getBool("UseOSK"))
-			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("New Collection Name"), "", createCustomCollection, false));
-		else
-			mWindow->pushGui(new GuiTextEditPopup(mWindow, _("New Collection Name"), "", createCustomCollection, false));		
-	});
 
-	auto createDynCollection = [this](const std::string& newVal) { createFilterCollection(newVal); };
-
-	addEntry(_("CREATE NEW DYNAMIC COLLECTION").c_str(), true, [this, createDynCollection]
-	{
-		if (Settings::getInstance()->getBool("UseOSK"))
-			mWindow->pushGui(new GuiTextEditPopupKeyboard(mWindow, _("New Collection Name"), "", createDynCollection, false));
-		else
-			mWindow->pushGui(new GuiTextEditPopup(mWindow, _("New Collection Name"), "", createDynCollection, false));
-	});
+	addEntry(_("CREATE NEW EDITABLE COLLECTION").c_str(), true, [this, createCustomCollection] { createCustomCollection(_("CREATE NEW EDITABLE COLLECTION"), false); });	
+	addEntry(_("CREATE NEW DYNAMIC COLLECTION").c_str(), true, [this, createCustomCollection] { createCustomCollection(_("CREATE NEW DYNAMIC COLLECTION"), true); });
 
 	addGroup(_("OPTIONS"));
 
@@ -284,7 +289,18 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	addSaveFunc([startOnGamelist] { Settings::getInstance()->setBool("StartupOnGameList", startOnGamelist->getState()); });
 
 
+	auto bundleCustomCollectionsEx = std::make_shared< OptionListComponent<std::string> >(mWindow, _("GROUP CUSTOM COLLECTIONS"), false);
+	bundleCustomCollectionsEx->addRange({ { _("UNTHEMED"), "" },{ "NEVER", "false" },{ "ALWAYS", "true" } }, Settings::getInstance()->getString("UseCustomCollectionsSystemEx"));
+	addWithLabel(_("GROUP CUSTOM COLLECTIONS"), bundleCustomCollectionsEx);
+	addSaveFunc([this, bundleCustomCollectionsEx]
+	{
+		if (Settings::getInstance()->setString("UseCustomCollectionsSystemEx", bundleCustomCollectionsEx->getSelected()))
+			setVariable("reloadAll", true);
+	});
+
+
 	// GROUP UNTHEMED CUSTOM COLLECTIONS
+	/*
 	std::shared_ptr<SwitchComponent> bundleCustomCollections = std::make_shared<SwitchComponent>(mWindow);
 	bundleCustomCollections->setState(Settings::getInstance()->getBool("UseCustomCollectionsSystem"));
 	addWithLabel(_("GROUP UNTHEMED CUSTOM COLLECTIONS"), bundleCustomCollections);
@@ -292,7 +308,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	{
 		if (Settings::getInstance()->setBool("UseCustomCollectionsSystem", bundleCustomCollections->getState()))
 			setVariable("reloadAll", true);
-	});
+	});*/
 
 	/*
 
@@ -405,17 +421,28 @@ void GuiCollectionSystemsOptions::createCollection(std::string inName)
 	CollectionSystemManager::get()->saveCustomCollection(newSys);
 
 	Window* window = mWindow;
-	while(window->peekGui() && window->peekGui() != ViewController::get())
+	while (window->peekGui() && window->peekGui() != ViewController::get())
 		delete window->peekGui();
+
+	window->renderSplashScreen();
+
+	CollectionSystemManager::get()->reloadCollection(name, false);
+	ViewController::get()->goToGameList(newSys, true);
+
+	window->closeSplashScreen();
 }
 
-void GuiCollectionSystemsOptions::createFilterCollection(std::string inName)
+void GuiCollectionSystemsOptions::createFilterCollection(std::string inName, bool editFilters)
 {
 	std::string name = CollectionSystemManager::get()->getValidNewCollectionName(inName);
 	if (name.empty())
 		return;
 
 	CollectionFilter cf;
+
+	if (!editFilters)
+		cf.setTextFilter(Utils::String::toUpper(name));
+
 	cf.create(name);
 	
 	SystemData* newSys = CollectionSystemManager::get()->addNewCustomCollection(name);
@@ -444,6 +471,13 @@ void GuiCollectionSystemsOptions::createFilterCollection(std::string inName)
 	while (window->peekGui() && window->peekGui() != ViewController::get())
 		delete window->peekGui();
 
+	if (!editFilters)
+	{
+		CollectionSystemManager::get()->reloadCollection(name, false);
+		ViewController::get()->goToGameList(newSys, true);
+		return;
+	}
+
 	GuiGamelistFilter* ggf = new GuiGamelistFilter(window, customCollection->second.filteredIndex);
 	
 	ggf->onFinalize([name, newSys, window]()
@@ -466,7 +500,6 @@ GuiCollectionSystemsOptions::~GuiCollectionSystemsOptions()
 
 void GuiCollectionSystemsOptions::addSystemsToMenu()
 {
-
 	std::map<std::string, CollectionSystemData> &autoSystems = CollectionSystemManager::get()->getAutoCollectionSystems();
 
 	autoOptionList = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SELECT COLLECTIONS"), true);

@@ -83,8 +83,6 @@ public:
 	std::vector<std::string> getUnusedSystemsFromTheme();
 	SystemData* addNewCustomCollection(std::string name, bool needSave = true);
 
-	bool isThemeGenericCollectionCompatible(bool genericCustomCollections);
-	bool isThemeCustomCollectionCompatible(std::vector<std::string> stringVector);
 	std::string getValidNewCollectionName(std::string name, int index = 0);
 			
 	bool toggleGameInCollection(FileData* file, const std::string collectionName = "");
@@ -123,7 +121,6 @@ private:
 	void addEnabledCollectionsToDisplayedSystems(std::map<std::string, CollectionSystemData>* colSystemData, std::unordered_map<std::string, FileData*>* pMap);
 
 	std::vector<std::string> getSystemsFromConfig();
-	std::vector<std::string> getSystemsFromTheme();
 	std::vector<std::string> getCollectionsFromConfigFolder();
 	std::vector<std::string> getCollectionThemeFolders(bool custom);
 	std::vector<std::string> getUserCollectionThemeFolders();
@@ -134,6 +131,9 @@ private:
 	bool themeFolderExists(std::string folder);
 
 	bool includeFileInAutoCollections(FileData* file);
+
+	void updateSystemsFromTheme();	
+	std::vector<std::string> mSystemsFromTheme;
 
 	SystemData* mCustomCollectionsBundle;
 };

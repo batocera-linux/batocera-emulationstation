@@ -24,8 +24,9 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "TextToSpeech.h"
-#include "Binding.h"
+#include "BindingManager.h"
 #include "guis/GuiRetroAchievements.h"
+#include "components/CarouselComponent.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -90,7 +91,7 @@ void SystemView::reloadTheme(SystemData* system)
 		{
 			if (e.data.logo->isKindOf<TextComponent>())
 				e.data.logo->applyTheme(theme, "system", "logoText", ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
-			else
+			else if (e.data.logo->isKindOf<ImageComponent>())
 				e.data.logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE);
 		}
 
@@ -163,38 +164,58 @@ void SystemView::ensureLogo(IList<SystemViewData, SystemData*>::Entry& entry)
 	auto system = entry.object;
 	const std::shared_ptr<ThemeData>& theme = system->getTheme();
 
-	// make logo
-	const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
-	if (logoElem && logoElem->has("path") && theme->getSystemThemeFolder() != "default")
+	// itemTemplate
+	const ThemeData::ThemeElement* carouselElem = theme->getElement("system", "systemcarousel", "carousel");
+	if (carouselElem)
 	{
-		std::string path = logoElem->get<std::string>("path");
-		if (path.empty())
-			path = logoElem->has("default") ? logoElem->get<std::string>("default") : "";
-
-		if (!path.empty())
+		auto itemTemplate = std::find_if(carouselElem->children.cbegin(), carouselElem->children.cend(), [](const std::pair<std::string, ThemeData::ThemeElement> ss) { return ss.first == "itemTemplate"; });
+		if (itemTemplate != carouselElem->children.cend())
 		{
-			// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
-			auto logo = std::make_shared<ImageComponent>(mWindow, false, true); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
-			logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
-			logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
-																														// Process here to be enable to set max picture size
-			auto elem = theme->getElement("system", "logo", "image");
-			if (elem && elem->has("path"))
-			{
-				auto logoPath = elem->get<std::string>("path");
-				if (!logoPath.empty())
-					logo->setImage(logoPath, (elem->has("tile") && elem->get<bool>("tile")), MaxSizeInfo(mCarousel.logoSize * mCarousel.logoScale), false);
-			}
+			CarouselItemTemplate* templ = new CarouselItemTemplate(mWindow);
+			templ->setScaleOrigin(0.0f);
+			templ->setSize(mCarousel.logoSize * mCarousel.logoScale);
+			templ->loadTemplatedChildren(&itemTemplate->second);
 
-			// If logosize is defined for full width/height, don't rotate by target size
-			// ex : <logoSize>1 .05< / logoSize>
-			if (mCarousel.size.x() != mCarousel.logoSize.x() & mCarousel.size.y() != mCarousel.logoSize.y())
-				logo->setRotateByTargetSize(true);
-
-			entry.data.logo = logo;
+			entry.data.logo = std::shared_ptr<GuiComponent>(templ);
 		}
 	}
 
+	// Logo is <image name="logo"> ?
+	if (!entry.data.logo)
+	{
+		const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
+		if (logoElem && logoElem->has("path") && theme->getSystemThemeFolder() != "default")
+		{
+			std::string path = logoElem->get<std::string>("path");
+			if (path.empty())
+				path = logoElem->has("default") ? logoElem->get<std::string>("default") : "";
+
+			if (!path.empty())
+			{
+				// Remove dynamic flags for png & jpg files : themes can contain oversized images that can't be unloaded by the TextureResource manager
+				auto logo = std::make_shared<ImageComponent>(mWindow, false, true); // Utils::String::toLower(Utils::FileSystem::getExtension(path)) != ".svg");
+				logo->setMaxSize(mCarousel.logoSize * mCarousel.logoScale);
+				logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
+																															// Process here to be enable to set max picture size
+				auto elem = theme->getElement("system", "logo", "image");
+				if (elem && elem->has("path"))
+				{
+					auto logoPath = elem->get<std::string>("path");
+					if (!logoPath.empty())
+						logo->setImage(logoPath, (elem->has("tile") && elem->get<bool>("tile")), MaxSizeInfo(mCarousel.logoSize * mCarousel.logoScale), false);
+				}
+
+				// If logosize is defined for full width/height, don't rotate by target size
+				// ex : <logoSize>1 .05< / logoSize>
+				if (mCarousel.size.x() != mCarousel.logoSize.x() & mCarousel.size.y() != mCarousel.logoSize.y())
+					logo->setRotateByTargetSize(true);
+
+				entry.data.logo = logo;
+			}
+		}
+	}
+
+	// Logo is <text name="logo"> ?
 	if (!entry.data.logo)
 	{
 		// no logo in theme; use text
@@ -220,6 +241,8 @@ void SystemView::ensureLogo(IList<SystemViewData, SystemData*>::Entry& entry)
 			text->setVerticalAlignment(mCarousel.logoAlignment);
 		}
 	}
+
+	entry.data.logo->updateBindings(system);
 
 	if (mCarousel.type == VERTICAL || mCarousel.type == VERTICAL_WHEEL)
 	{
@@ -690,7 +713,7 @@ void SystemView::updateExtraTextBinding()
 		return;
 
 	for (auto extra : mEntries[mCursor].data.backgroundExtras)
-		Binding::updateBindings(extra, system, true);
+		BindingManager::updateBindings(extra, system);
 }
 
 void SystemView::onCursorChanged(const CursorState& state)
@@ -698,6 +721,8 @@ void SystemView::onCursorChanged(const CursorState& state)
 	if (AudioManager::isInitialized())
 		AudioManager::getInstance()->changePlaylist(getSelected()->getTheme());
 	
+	Utils::FileSystem::preloadFileSystemCache(mEntries.at(mCursor).object->getRootFolder()->getPath(), true);
+
 	ensureLogo(mEntries.at(mCursor));
 
 	// update help style

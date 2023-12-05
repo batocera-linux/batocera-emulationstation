@@ -78,7 +78,7 @@ namespace Renderer
 
 	static ShaderProgram* getShaderProgram(const char* shaderFile)
 	{
-		if (shaderFile == nullptr)
+		if (shaderFile == nullptr || strlen(shaderFile) == 0)
 			return nullptr;
 
 		auto it = _customShaders.find(shaderFile);
@@ -117,17 +117,19 @@ namespace Renderer
 		if (it != _customShaderBatch.cend())
 			return it->second;
 
+		std::string fullPath = ResourceManager::getInstance()->getResourcePath(shaderFile);
+
 		ShaderBatch* ret = new ShaderBatch();
 
-		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(shaderFile));
+		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fullPath));
 		if (ext == ".glslp")
 		{
-			std::string path = Utils::FileSystem::getParent(shaderFile);
+			std::string path = Utils::FileSystem::getParent(fullPath);
 
 			std::map<std::string, std::string> confMap;
 
 			std::string line;
-			std::ifstream systemConf(shaderFile);
+			std::ifstream systemConf(fullPath);
 			if (systemConf && systemConf.is_open())
 			{
 				while (std::getline(systemConf, line))
@@ -183,7 +185,7 @@ namespace Renderer
 		}
 		else
 		{
-			ShaderProgram* customShader = getShaderProgram(shaderFile);
+			ShaderProgram* customShader = getShaderProgram(fullPath.c_str());
 			if (customShader != nullptr)
 				ret->push_back(customShader);
 		}
@@ -257,11 +259,14 @@ namespace Renderer
 			attribute vec4 COLOR;
 			varying   vec2 v_tex;
 			varying   vec4 v_col;
+			varying   vec2 v_pos;
+
 			void main(void)                                    
 			{                                                  
 			    gl_Position = MVPMatrix * vec4(VertexCoord.xy, 0.0, 1.0);
 			    v_tex       = TexCoord;                           
-			    v_col       = COLOR;                           
+			    v_col       = COLOR;  
+				v_pos       = VertexCoord;                         
 			}
 			)=====";
 
@@ -276,19 +281,44 @@ namespace Renderer
 
 			varying   vec4      v_col;
 			varying   vec2      v_tex;
+			varying   vec2      v_pos;
+
 			uniform   sampler2D u_tex;
-			uniform   float saturation;
+			uniform   vec2      outputSize;
+			uniform   vec2      outputOffset;
+			uniform   vec2      textureSize;
+			uniform   float		saturation;
+			uniform   float     es_cornerRadius;
+
 			void main(void)                                    
 			{                                                  
-			    vec4 clr = texture2D(u_tex, v_tex) * v_col;
+			    vec4 clr = texture2D(u_tex, v_tex);
 		
 			    if (saturation != 1.0) {
 			    	vec3 gray = vec3(dot(clr.rgb, vec3(0.34, 0.55, 0.11)));
 			    	vec3 blend = mix(gray, clr.rgb, saturation);
 			    	clr = vec4(blend, clr.a);
 			    }
+
+				if (es_cornerRadius != 0.0) {
+
+					vec2 pos = abs(v_pos - outputOffset);
+					vec2 middle = vec2(abs(outputSize.x), abs(outputSize.y)) / 2.0;
+					vec2 center = abs(v_pos - outputOffset - middle);
+					vec2 q = center - middle + es_cornerRadius;
+					float distance = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - es_cornerRadius;	
+
+					if (distance > 0.0) {
+						discard;
+					} 
+					else if (pos.x >= 1.0 && pos.y >= 1.0 && pos.x <= outputSize.x - 1.0 && pos.y <= outputSize.y - 1.0)
+					{
+						float pixelValue = 1.0 - smoothstep(-0.75, 0.5, distance);
+						clr.a *= pixelValue;						
+					}
+				}
 			
-			    gl_FragColor = clr;
+			    gl_FragColor = clr * v_col;
 			}
 			)=====";
 
@@ -309,6 +339,7 @@ namespace Renderer
 			varying   vec4      v_col;
 			varying   vec2      v_tex;
 			uniform   sampler2D u_tex;
+
 			void main(void)           
 			{                         
 			    vec4 a = vec4(1.0, 1.0, 1.0, texture2D(u_tex, v_tex).a);
@@ -812,9 +843,9 @@ namespace Renderer
 
 				useProgram(shader);
 
-				// Update Shader Uniforms
-
+				// Update Shader Uniforms				
 				shader->setSaturation(_vertices->saturation);
+				shader->setCornerRadius(_vertices->cornerRadius);
 				shader->setResolution();
 
 				if (shader->supportsTextureSize() && it != _textures.cend() && it->second != nullptr)
@@ -836,7 +867,8 @@ namespace Renderer
 					if (_vertices[_numVertices - 1].tex.y() == 1 && _vertices[0].tex.y() == 0)
 						vec.y() = -vec.y();
 
-					shader->setOutputSize(vec);
+					shader->setOutputSize(vec);						
+					shader->setOutputOffset(_vertices[0].pos);
 				}
 
 				if (_vertices->customShader != nullptr && !_vertices->customShader->path.empty())
@@ -874,7 +906,7 @@ namespace Renderer
 	void GLES20Renderer::setMatrix(const Transform4x4f& _matrix)
 	{
 		worldViewMatrix = _matrix;
-		worldViewMatrix.round();
+		// worldViewMatrix.round();
 		mvpMatrix = projectionMatrix * worldViewMatrix;
 	} // setMatrix
 
@@ -957,6 +989,7 @@ namespace Renderer
 			{
 				useProgram(&shaderProgramColorTexture);
 				shaderProgramColorTexture.setSaturation(_vertices->saturation);
+				shaderProgramColorTexture.setCornerRadius(0.0f);
 			}
 		}
 		else
@@ -1026,6 +1059,15 @@ namespace Renderer
 		return total;
 	}
 
+	bool GLES20Renderer::shaderSupportsCornerSize(const std::string& shader)
+	{
+		ShaderProgram* customShader = getShaderProgram(shader.c_str());
+		if (customShader == nullptr)
+			customShader = &shaderProgramColorTexture;
+			
+		return customShader->supportsCornerRadius();
+	}
+
 	void GLES20Renderer::postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data)
 	{
 #if OPENGL_EXTENSIONS
@@ -1035,9 +1077,7 @@ namespace Renderer
 		if (getScreenRotate() != 0 && getScreenRotate() != 2)
 			return;
 
-		std::string fullPath = ResourceManager::getInstance()->getResourcePath(path);
-
-		ShaderBatch* shaderBatch = ShaderBatch::getShaderBatch(fullPath.c_str());
+		ShaderBatch* shaderBatch = ShaderBatch::getShaderBatch(path.c_str());
 		if (shaderBatch == nullptr || shaderBatch->size() == 0)
 			return;
 
@@ -1196,9 +1236,11 @@ namespace Renderer
 				useProgram(customShader);
 
 				customShader->setSaturation(1.0f);
+				customShader->setCornerRadius(0.0f);
 				customShader->setTextureSize(Vector2f(tw, th));
 				customShader->setInputSize(Vector2f(tw, th));
 				customShader->setOutputSize(vertices[3].pos);
+				customShader->setOutputOffset(vertices[0].pos);
 				customShader->setResolution();
 
 				// Parameters in the glslp

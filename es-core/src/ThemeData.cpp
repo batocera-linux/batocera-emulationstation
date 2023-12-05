@@ -11,6 +11,7 @@
 #include "components/BatteryIconComponent.h"
 #include "components/BatteryTextComponent.h"
 #include "components/WebImageComponent.h"
+#include "components/RatingComponent.h"
 
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
@@ -25,8 +26,9 @@
 #include "utils/HtmlColor.h"
 #include "utils/VectorEx.h"
 
-std::vector<std::string> ThemeData::sSupportedViews{ { "system" }, { "basic" }, { "detailed" }, { "grid" }, { "video" }, { "gamecarousel" }, { "menu" }, { "screen" }, { "splash" } };
-std::vector<std::string> ThemeData::sSupportedFeatures { { "video" }, { "carousel" }, { "gamecarousel" }, { "z-index" }, { "visible" },{ "manufacturer" } };
+std::set<std::string> ThemeData::sSupportedItemTemplate { "imagegrid", "carousel", "gamecarousel" };
+std::set<std::string> ThemeData::sSupportedViews        { "system", "basic", "detailed", "grid", "video", "gamecarousel", "menu", "screen", "splash" };
+std::set<std::string> ThemeData::sSupportedFeatures     { "video", "carousel", "gamecarousel", "z-index", "visible", "manufacturer" };
 
 std::map<std::string, std::string> ThemeData::sBaseClasses {	
 	{ "clock", "text" },
@@ -61,23 +63,32 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "offset", NORMALIZED_PAIR },
 		{ "offsetX", FLOAT },
 		{ "offsetY", FLOAT },
+		{ "clipChildren", BOOLEAN },
 		{ "clipRect", NORMALIZED_RECT } } },
 
 	{ "stackpanel", {		
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
 		{ "orientation", STRING },			// horizontal, vertical
 		{ "reverse", BOOLEAN },
 		{ "separator", FLOAT },
+		{ "opacity", FLOAT },
 		{ "visible", BOOLEAN },
+		{ "clipChildren", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 
-	{ "shader", {
+	{ "screenshader", {
 		{ "path", PATH },
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },		
 		{ "visible", BOOLEAN },
 		{ "zIndex", FLOAT } } },
+
+	{ "shader", {} },
 
 	{ "image", {
 		{ "pos", NORMALIZED_PAIR },
@@ -211,10 +222,13 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
 		{ "text", STRING },
+		{ "emptyTextDefaults", BOOLEAN },       // Allow localized substitution when text/value is empty/true/false/0 ( UNKNOWN / YES / NO / NONE ) - Default is false
 		{ "backgroundColor", COLOR },
 		{ "fontPath", PATH },
 		{ "fontSize", FLOAT },
 		{ "color", COLOR },
+		{ "extraTextColor", COLOR },
+
 		{ "alignment", STRING },				// left, center, right
 		{ "verticalAlignment", STRING },		// top, center, bottom
 		{ "forceUppercase", BOOLEAN },
@@ -225,8 +239,12 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "glowColor", COLOR },
 		{ "glowSize", FLOAT },
 		{ "glowOffset", NORMALIZED_PAIR },
+		{ "multiLine", STRING },				// auto, true, false
 		{ "singleLineScroll", BOOLEAN },
 		{ "autoScroll", STRING },				// horizontal, vertical, none
+		{ "autoScrollDelay", FLOAT },
+		{ "autoScrollSpeed", FLOAT },
+
 		{ "padding", NORMALIZED_RECT },
 		{ "onclick", STRING },
 		{ "visible", BOOLEAN },
@@ -284,8 +302,17 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 	{ "container", {
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
 	 	{ "origin", NORMALIZED_PAIR },
 	 	{ "visible", BOOLEAN },
+		{ "scale", FLOAT },
+		{ "opacity", FLOAT },
+		{ "clipChildren", BOOLEAN },
+		{ "scaleOrigin", NORMALIZED_PAIR },
+		{ "padding", NORMALIZED_RECT },
 	 	{ "zIndex", FLOAT } } },
 
 	{ "ninepatch", {
@@ -358,6 +385,9 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "scale", FLOAT },
 		{ "scaleOrigin", NORMALIZED_PAIR },
 		{ "opacity", FLOAT },
+
+		{ "value", FLOAT },
+		{ "padding", NORMALIZED_RECT },
 
 		{ "origin", NORMALIZED_PAIR },
 		{ "rotation", FLOAT },
@@ -471,11 +501,15 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		{ "scale", FLOAT },
 		{ "scaleOrigin", NORMALIZED_PAIR },
+
+		{ "padding", NORMALIZED_RECT },
+
 		{ "opacity", FLOAT },
 		{ "origin", NORMALIZED_PAIR },
 		{ "rotation", FLOAT },
 		{ "rotationOrigin", NORMALIZED_PAIR },
 		{ "visible", BOOLEAN },
+		{ "enabled", BOOLEAN },
 		{ "zIndex", FLOAT },
 		// video properties
 		{ "maxSize", NORMALIZED_PAIR },
@@ -604,32 +638,17 @@ ThemeData* ThemeData::mDefaultTheme = nullptr;
 
 std::string ThemeData::resolvePlaceholders(const char* in)
 {
-	if (in == nullptr || in[0] == 0)
-		return in;
-
-	auto begin = strstr(in, "${");
-	if (begin == nullptr)
-		return in;
-
-	auto end = strstr(begin, "}");
-	if (end == nullptr)
-		return in;
-
-	std::string inStr(in);
-
-	const size_t variableBegin = begin - in;
-	const size_t variableEnd = end - in;
-
-	std::string prefix  = inStr.substr(0, variableBegin);
-	std::string replace = inStr.substr(variableBegin + 2, variableEnd - (variableBegin + 2));
-	std::string suffix = resolvePlaceholders(end + 1);
-
-	return prefix + mVariables[replace] + suffix;
+	return mVariables.resolvePlaceholders(in);
 }
 
-ThemeData::ThemeData()
-{	
+ThemeData::ThemeData(bool temporary)
+{
 	mPerGameOverrideTmp = false;
+	mVersion = 0;
+
+	if (temporary)
+		return;
+
 	mColorset = Settings::getInstance()->getString("ThemeColorSet");
 	mIconset = Settings::getInstance()->getString("ThemeIconSet");
 	mMenu = Settings::getInstance()->getString("ThemeMenu");
@@ -654,9 +673,8 @@ ThemeData::ThemeData()
 
 	if (language.empty())
 		language = "en";
-	
+
 	mLanguage = Utils::String::toLower(language);
-	mVersion = 0;
 }
 
 void ThemeData::loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path, bool fromFile)
@@ -1007,7 +1025,7 @@ void ThemeData::parseFeature(const pugi::xml_node& node)
 			return;
 	}
 
-	if (std::find(sSupportedFeatures.cbegin(), sSupportedFeatures.cend(), supportedAttr) != sSupportedFeatures.cend())
+	if (sSupportedFeatures.find(supportedAttr) != sSupportedFeatures.cend())
 		parseViews(node);
 }
 
@@ -1031,7 +1049,7 @@ void ThemeData::parseVariable(const pugi::xml_node& node)
 	{
 		try
 		{
-			auto ret = mEvaluator.eval(val.c_str(), &mEvaluatorVariables);
+			auto ret = Utils::MathExpr::evaluate(val.c_str(), &mEvaluatorVariables);
 			mEvaluatorVariables[key] = ret;
 
 			if (ret.isString())
@@ -1090,7 +1108,7 @@ void ThemeData::parseViewElement(const pugi::xml_node& node)
 		prevOff = nameAttr.find_first_not_of(delim, off);
 		off = nameAttr.find_first_of(delim, prevOff);
 
-		if (std::find(sSupportedViews.cbegin(), sSupportedViews.cend(), viewKey) != sSupportedViews.cend())
+		if (sSupportedViews.find(viewKey) != sSupportedViews.cend())
 		{	
 			ThemeView& view = mViews.insert(std::pair<std::string, ThemeView>(viewKey, ThemeView())).first->second;
 			parseView(node, view);
@@ -1122,7 +1140,7 @@ bool ThemeData::parseFilterAttributes(const pugi::xml_node& node)
 		{
 			try
 			{
-				float evaluationResult = mEvaluator.eval(ifAttribute.c_str(), &mEvaluatorVariables).toNumber();
+				float evaluationResult = Utils::MathExpr::evaluate(ifAttribute.c_str(), &mEvaluatorVariables).toNumber();
 				if (evaluationResult == 0)
 					return false;
 			}
@@ -1548,12 +1566,22 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 		if (str.find("{") != std::string::npos && str.find(":") != std::string::npos && str.find("}") != std::string::npos)
 			element.properties[name + "_binding"] = str;
 		else
+		{
+			element.properties.erase(name + "_binding");
 			element.properties[name] = str;
-
+		}
+		
 		break;
 
 	case FLOAT:
-		element.properties[name] = Utils::String::toFloat(str);
+		if (str.find("{") != std::string::npos && str.find(":") != std::string::npos && str.find("}") != std::string::npos)
+			element.properties[name + "_binding"] = str;
+		else
+		{
+			element.properties.erase(name + "_binding");
+			element.properties[name] = Utils::String::toFloat(str);
+		}
+
 		break;
 
 	case NORMALIZED_RECT:
@@ -1574,8 +1602,11 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 			element.properties[name+"_binding"] = str;
 			element.properties[name] = true;
 		}
-		else 
+		else
+		{
+			element.properties.erase(name + "_binding");
 			element.properties[name] = Utils::String::toBoolean(str);
+		}
 
 		break;
 
@@ -1623,10 +1654,12 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 			// Allow variables in the form "{game:image}"
 			if (path.find("{") != std::string::npos && path.find(":") != std::string::npos && path.find("}") != std::string::npos)
 			{
-				element.properties[name + "_binding"] = str;
+				element.properties[name + "_binding"] = path;
 				element.properties[name] = path;
 				break;
 			}
+			else
+				element.properties.erase(name + "_binding");
 
 			if (ResourceManager::getInstance()->fileExists(path))
 			{
@@ -1784,6 +1817,14 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 			}
 		}
 
+		if (element.type == "text" && name == "text" && foundType)
+		{
+			// Special processing for <text><text></text></text> elements
+			// Check if there's a child in the embedded <text> element. If there are no children, it's a property. If there are children (like pos/size...), it's a child object
+			if (node.first_child() && !std::string(node.first_child().name()).empty())
+				foundType = false;
+		}
+
 		if (!foundType)
 		{
 			if (name == "storyboard")
@@ -1803,7 +1844,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				{
 					auto storyBoard = new ThemeStoryboard();
 
-					if (!storyBoard->fromXmlNode(node, typeMap, mPaths.size() ? Utils::FileSystem::getParent(mPaths.back()) : ""))
+					if (!storyBoard->fromXmlNode(node, typeMap, mPaths.size() ? Utils::FileSystem::getParent(mPaths.back()) : "", mVariables))
 					{
 						auto sb = element.mStoryBoards.find(storyBoard->eventName);
 						if (sb != element.mStoryBoards.cend())
@@ -1833,8 +1874,26 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				type = PATH;
 			else if (name == "animate" && std::string(root.name()) == "imagegrid")
 				node.set_name("animateSelection");
-			else if (element.type == "shader")
+			else if (element.type == "shader" || element.type == "screenshader")
+			{
+				// Child properties of shaders are to be added dynamically. They can't be described here as they are used for uniforms arguments
 				type = STRING;
+			}
+			else if (name == "itemTemplate" && sSupportedItemTemplate.find(root.name()) != sSupportedItemTemplate.cend())
+			{
+				if (!overwrite && element.properties.find(name) != element.properties.cend())
+					continue;
+
+				element.children.push_back(std::pair<std::string, ThemeElement>("itemTemplate", ThemeElement()));
+				std::pair<std::string, ThemeElement>& item = element.children.back();
+				item.second.extra = 99;
+
+				auto elemTypeIt = sElementMap.find("control");
+				if (elemTypeIt != sElementMap.cend())
+					parseElement(node, elemTypeIt->second, item.second, view, overwrite);
+
+				continue;
+			}
 			else if (name == "shader")
 			{
 				element.children.push_back(std::pair<std::string, ThemeElement>(name, ThemeElement()));
@@ -1864,6 +1923,9 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 					LOG(LogWarning) << "Unknown property : " << root.name() << "." << name;
 					continue;
 				}
+
+				if (!parseFilterAttributes(node))
+					continue;
 
 				LOG(LogDebug) << "Processing child element \"" << name << "\" found in element " << root.name();
 
@@ -1998,7 +2060,7 @@ GuiComponent* ThemeData::createExtraComponent(Window* window, const ThemeElement
 		comp = new NinePatchComponent(window);
 	else if (elem.type == "video")
 		comp = new VideoVlcComponent(window);
-	else if (elem.type == "shader")
+	else if (elem.type == "screenshader")
 		comp = new PostProcessShaderComponent(window);
 	else if (elem.type == "stackpanel")
 		comp = new StackPanelComponent(window);		
@@ -2012,6 +2074,8 @@ GuiComponent* ThemeData::createExtraComponent(Window* window, const ThemeElement
 		comp = new BatteryTextComponent(window);
 	else if (elem.type == "webImage")
 		comp = new WebImageComponent(window);
+	else if (elem.type == "rating")
+		comp = new RatingComponent(window);
 
 	if (comp != nullptr)
 	{
@@ -2487,10 +2551,10 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 	return true;
 }
 
-void ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader)
+bool ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader)
 {
 	if (pShader == nullptr)
-		return;
+		return false;
 
 	pShader->path = "";
 	pShader->parameters.clear();
@@ -2499,26 +2563,32 @@ void ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer:
 	{
 		if (child.second.type == "shader" && child.second.has("path"))
 		{
-			pShader->path = child.second.get<std::string>("path");
-
-			for (auto prop : child.second.properties)
+			auto path = child.second.get<std::string>("path");
+			if (!path.empty()) //ResourceManager::getInstance()->fileExists(path))
 			{
-				if (prop.first == "pos" || prop.first == "path" || prop.first == "size" || prop.first == "zIndex")
-					continue;
+				pShader->path = path;
 
-				if (prop.second.type != ThemeData::ThemeElement::Property::PropertyType::String)
-					continue;
+				for (auto prop : child.second.properties)
+				{
+					if (prop.first == "pos" || prop.first == "path" || prop.first == "size" || prop.first == "zIndex")
+						continue;
 
-				pShader->parameters[prop.first] = prop.second.s;
+					if (prop.second.type != ThemeData::ThemeElement::Property::PropertyType::String)
+						continue;
+
+					pShader->parameters[prop.first] = prop.second.s;
+				}
 			}
 		}
 	}
+
+	return !pShader->path.empty();
 }
 
 void ThemeData::applySelfTheme(GuiComponent* comp, const ThemeElement& elem)
 {
-	auto theme = std::make_shared<ThemeData>();
-
+	auto theme = std::make_shared<ThemeData>(true);	
+	
 	ThemeView& view = theme->mViews.insert(std::pair<std::string, ThemeView>("default", ThemeView())).first->second;
 	auto element = view.elements.insert(std::pair<std::string, ThemeElement>("default", elem));
 

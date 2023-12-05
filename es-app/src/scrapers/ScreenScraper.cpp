@@ -654,7 +654,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
             if(arcadeSystem != ArcadeSystems.cend())
                 result.mdl.set(MetaDataId::ArcadeSystemName, arcadeSystem->second.first);
 		}
-
+		
         // TODO: Validate rating
 		if (Settings::getInstance()->getBool("ScrapeRatings") && game.child("note"))
 		{

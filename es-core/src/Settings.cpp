@@ -166,7 +166,9 @@ void Settings::setDefaults()
     mBoolMap["EnableSounds"] = false;
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;
+	mBoolMap["ScrapeDescription"] = true;	
 	mBoolMap["ScrapePadToKey"] = true;
+	mBoolMap["ScrapeOverWrite"] = true;	
 	mBoolMap["IgnoreGamelist"] = false;
 	mBoolMap["HideConsole"] = true;
 	mBoolMap["QuickSystemSelect"] = true;
@@ -268,8 +270,9 @@ void Settings::setDefaults()
 	mStringMap["CollectionSystemsCustom"] = "";
 	mBoolMap["SortAllSystems"] = true; 
 	mStringMap["SortSystems"] = "manufacturer";
-	mBoolMap["UseCustomCollectionsSystem"] = true;
-
+	
+	mStringMap["UseCustomCollectionsSystemEx"] = "";
+	
 	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["FavoritesFirst"] = false;
@@ -471,6 +474,16 @@ void Settings::loadFile()
 		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
 	for(pugi::xml_node node = root.child("string"); node; node = node.next_sibling("string"))
 		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
+	
+	// Migrate old preferences
+	auto it = mBoolMap.find("UseCustomCollectionsSystem");
+	if (it != mBoolMap.cend())
+	{
+		if (it->second == false)
+			mStringMap["UseCustomCollectionsSystemEx"] = "false";
+
+		mBoolMap.erase(it);
+	}
 
 	mWasChanged = false;
 }

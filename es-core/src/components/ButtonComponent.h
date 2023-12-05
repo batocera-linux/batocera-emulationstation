@@ -27,6 +27,7 @@ public:
 	void onSizeChanged() override;
 	void onFocusGained() override;
 	void onFocusLost() override;
+	void onOpacityChanged() override;
         
 	void setColorShift(unsigned int color) { mModdedColor = color; mNewColor = true; updateImage(); }
 	void removeColorShift() { mNewColor = false; updateImage(); }
@@ -35,8 +36,7 @@ public:
 
 	void setRenderNonFocusedBackground(bool value) { mRenderNonFocusedBackground = value; }
 
-	Vector4f getPadding() { return mPadding; }
-	void setPadding(const Vector4f padding);
+	void onPaddingChanged();
 
 	bool hasFocus() { return mFocused; }
 
@@ -67,8 +67,6 @@ private:
 	unsigned int mColorFocused;
 
 	bool mRenderNonFocusedBackground;
-	Vector4f	mPadding;
-
 	bool mMousePressed;
 };
 

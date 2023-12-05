@@ -69,31 +69,15 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 		if (showParentFolder && mCursorStack.size())
 		{
-			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
+			SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+			FileData* placeholder = new FolderData("..", system->isCollection() ? this->mRoot->getSystem() : system); // this->mRoot->getSystem()
 			mList.add(". .", placeholder, true);
 		}
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();
-		if (favoritesFirst)
-		{			
-			for (auto file : files)
-			{
-				if (!file->getFavorite())
-					continue;
-						
-				mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
-			}
-		}
-
 		for (auto file : files)		
-		{
-			if (favoritesFirst && file->getFavorite())
-				continue;
-				
 			mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
-		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mList.size() > 1 && mList.getCursorIndex() == 0)

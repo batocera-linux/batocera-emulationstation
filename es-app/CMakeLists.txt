@@ -30,8 +30,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.h
 
     # GuiComponents
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextListComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.h
@@ -97,7 +96,6 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/GameNameFormatter.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/SystemView.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/views/Binding.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.h
 
@@ -139,8 +137,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.cpp	
 
     # GuiComponents
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.cpp
 
@@ -201,8 +198,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/GameNameFormatter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/SystemView.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/views/Binding.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.cpp # batocera

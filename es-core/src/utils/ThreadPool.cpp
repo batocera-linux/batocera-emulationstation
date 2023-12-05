@@ -15,7 +15,7 @@ namespace Utils
 	{
 		mRunning = true;
 
-		size_t num_threads = std::thread::hardware_concurrency() * mThreadByCore;
+		size_t num_threads = mThreadByCore < 0 ? abs(mThreadByCore) : std::thread::hardware_concurrency() * mThreadByCore;
 
 		auto doWork = [&](size_t id)
 		{

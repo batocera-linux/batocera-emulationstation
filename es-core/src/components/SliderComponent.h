@@ -23,6 +23,7 @@ public:
 	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;
 	
+	void onOpacityChanged() override;
 	void onSizeChanged() override;
 	
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
@@ -36,6 +37,7 @@ public:
 
 private:
 	void onValueChanged();
+	unsigned int getCurColor() const;
 
 	float mMin, mMax;
 	float mValue;

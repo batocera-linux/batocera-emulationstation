@@ -145,7 +145,8 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 	if (EsLocale::isRTL())
 		text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
 
-	row.addElement(comp, false);
+	if (comp != nullptr)
+		row.addElement(comp, false);
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
@@ -176,6 +177,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
+
 
 	addRow(row, setCursorHere, doUpdateSize, userData);
 }

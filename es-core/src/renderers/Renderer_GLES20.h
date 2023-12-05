@@ -53,6 +53,8 @@ namespace Renderer
 
 		size_t		 getTotalMemUsage() override;
 
+		bool		 shaderSupportsCornerSize(const std::string& shader) override;
+
 	private:
 		unsigned int mFrameBuffer;
 	};

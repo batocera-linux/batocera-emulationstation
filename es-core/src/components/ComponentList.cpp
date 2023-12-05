@@ -319,7 +319,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 	if (!size())
 		return;
 
-	float opacity = mOpacity / 255.0;
+	float opacity = getOpacity() / 255.0;
 	auto menuTheme = ThemeData::getMenuTheme();
 	unsigned int selectorColor = menuTheme->Text.selectorColor;
 	unsigned int selectorGradientColor = menuTheme->Text.selectorGradientColor;
@@ -412,7 +412,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 		it->render(trans);
 
 	// draw separators
-	if (separatorColor != 0)
+	if (separatorColor != 0 ||  menuTheme->Group.separatorColor != 0)
 	{		
 		Renderer::setMatrix(trans);
 
@@ -428,7 +428,7 @@ void ComponentList::render(const Transform4x4f& parentTrans)
 				{
 					if (prevIsGroup && menuTheme->Group.separatorColor != separatorColor)
 						Renderer::drawRect(0.0f, y - 2.0f, mSize.x(), 1.0f, menuTheme->Group.separatorColor & 0xFFFFFF00 | (unsigned char)((menuTheme->Group.separatorColor & 0xFF) * opacity));
-					else
+					else if (separatorColor != 0)
 						Renderer::drawRect(0.0f, y, mSize.x(), 1.0f, separatorColor & 0xFFFFFF00 | (unsigned char)((separatorColor & 0xFF) * opacity));
 				}
 

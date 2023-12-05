@@ -181,6 +181,8 @@ protected:
 	std::vector<TextImageSubstitute> imageSubstitutes;
 	bool renderingGlow;
 
+	Renderer::ShaderInfo customShader;
+
 public:
 	TextCache()
 	{
@@ -196,6 +198,7 @@ public:
 	void setColors(unsigned int color, unsigned int extraColor);
 
 	void setRenderingGlow(bool glow) { renderingGlow = glow; }
+	void setCustomShader(Renderer::ShaderInfo* shader) { if (shader == nullptr) customShader.path = ""; else customShader = *shader; }
 
 	friend Font;
 };
