@@ -285,7 +285,7 @@ void ImageComponent::setDefaultImage(std::string path)
 	mDefaultPath = path;
 }
 
-void ImageComponent::setImage(const std::string&  path, bool tile, MaxSizeInfo maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
+void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSizeInfo& maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
 {
 	std::string canonicalPath = (path[0] == '{' ? "" : Utils::FileSystem::getCanonicalPath(path));
 	if (!mPath.empty() && mPath == canonicalPath)
@@ -334,7 +334,7 @@ void ImageComponent::setImage(const std::string&  path, bool tile, MaxSizeInfo m
 
 	if (mPath.empty() || (checkFileExists && !ResourceManager::getInstance()->fileExists(mPath)))
 	{
-		if(mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
+		if (mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
 		else
 			mTexture = TextureResource::get(mDefaultPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
@@ -350,17 +350,23 @@ void ImageComponent::setImage(const std::string&  path, bool tile, MaxSizeInfo m
 			if (mPlaylist != nullptr)
 				mPlaylistCache[mPath] = texture;
 
-			if (!mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
+			if (mShowing && !mForceLoad && mDynamic && !mAllowFading && texture != nullptr && !texture->isLoaded())
+			{
 				mLoadingTexture = texture;
+				mLoadingTexture->reload();
+			}
 			else
 				mTexture = texture;
 		}
 	}
 
-	if (isShowing() && mTexture != nullptr)
+	if (mShowing && mTexture != nullptr)
+	{
+		mTexture->reload();
 		mTexture->setRequired(true);
+	}
 
-	if (mLoadingTexture == nullptr)
+	if (mLoadingTexture == nullptr && !mTargetSize.empty())
 		resize();
 }
 
@@ -899,21 +905,10 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			if (mPlaylist == nullptr)
 			{
 				bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-				if (tile)
-					setImage(path, true, MaxSizeInfo(), false);
-				else
-				{
-					auto sz = getMaxSizeInfo();
-					if (!mLinear && sz.x() > 32 && sz.y() > 32)
-						setImage(path, tile, sz, false);
-					else
-						setImage(path, false, MaxSizeInfo(), false);
-				}
+				setImage(path, tile, tile ? MaxSizeInfo::Empty : getMaxSizeInfo(), false);				
 			}
 		}
 	}
-
-	
 }
 
 std::vector<HelpPrompt> ImageComponent::getHelpPrompts()
@@ -949,11 +944,17 @@ void ImageComponent::onShow()
 	GuiComponent::onShow();	
 
 	if (mTexture != nullptr)
+	{
+		mTexture->reload();			
 		mTexture->setRequired(true);
+	}
 }
 
 void ImageComponent::onHide()
 {
+	if (mTexture)
+		mTexture->setRequired(false);
+
 	if (mShowing)
 	{
 		if (mLoadingTexture)
@@ -965,8 +966,6 @@ void ImageComponent::onHide()
 
 		if (mTexture)
 		{
-			mTexture->setRequired(false);
-
 			int count = mTexture.use_count();
 			if (count == 1 && !mTexture->isLoaded())
 				TextureResource::cancelAsync(mTexture);
@@ -1074,7 +1073,7 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "roundCorners")
 		setRoundCorners(value.f);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::String && name == "path")
-		setImage(value.s, false);
+		setImage(value.s, false, getMaxSizeInfo());
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "saturation")
 		setSaturation(value.f);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && Utils::String::startsWith(name, "shader."))
@@ -1134,20 +1133,19 @@ void ImageComponent::recalcLayout()
 
 const MaxSizeInfo ImageComponent::getMaxSizeInfo()
 {
-	if (!mTargetIsMax)
+	if (!mSize.empty())
 	{
-		auto size = mSourceBounds.zw();
-		if (size.x() != 0 && size.y() != 0)
+		if (mTargetSize.empty())
 		{
-			float x = mTargetSize.x() / size.x();
-			float y = mTargetSize.y() / size.y();
+			if (mSize.x() > 32 && mSize.y() > 32)
+				return MaxSizeInfo(mSize, mTargetIsMin);
 
-			return MaxSizeInfo(x, y, mTargetIsMax);
+			return MaxSizeInfo::Empty;
 		}
+
+		if (mTargetSize.x() > 32 && mTargetSize.y() > 32)
+			return MaxSizeInfo(mTargetSize, mTargetIsMin);
 	}
 
-	if (mTargetSize == Vector2f(0, 0))
-		return MaxSizeInfo(mSize, mTargetIsMax);
-
-	return MaxSizeInfo(mTargetSize, mTargetIsMax);
-};
+	return MaxSizeInfo::Empty;
+}

@@ -12,7 +12,7 @@ TextureDataManager		TextureResource::sTextureDataManager;
 std::map< TextureResource::TextureKeyType, std::weak_ptr<TextureResource> > TextureResource::sTextureMap;
 std::set<TextureResource*> 	TextureResource::sAllTextures;
 
-TextureResource::TextureResource(const std::string& path, bool tile, bool linear, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
+TextureResource::TextureResource(const std::string& path, bool tile, bool linear, bool dynamic, bool allowAsync, const MaxSizeInfo* maxSize) : mTextureData(nullptr), mForceLoad(false)
 {
 	// Create a texture data object for this texture
 	if (!path.empty())
@@ -28,29 +28,29 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 
 			data->initFromPath(path);
 
-			bool async = false;
-
-			std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
-			auto fullpath = rm->getResourcePath(path);
-
 			unsigned int width, height;
-
-			if (allowAsync && Settings::getInstance()->getBool("AsyncImages") && ImageIO::loadImageSize(fullpath.c_str(), &width, &height))
+			if (allowAsync && Settings::getInstance()->getBool("AsyncImages") && ImageIO::loadImageSize(ResourceManager::getInstance()->getResourcePath(path), &width, &height))
 			{
-				data->setTemporarySize(width, height);
-				async = true;
-			}
-
-			// Force the texture manager to load it using a blocking load
-			sTextureDataManager.load(data, !async); // 
-
-			if (async)
-			{
-				mSize = Vector2i(width, height);
 				mSourceSize = Vector2f(width, height);
+
+				if (maxSize != nullptr && !maxSize->empty() && Settings::getInstance()->getBool("OptimizeVRAM"))
+				{
+					auto sz = ImageIO::adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
+					if (sz.x() < width || sz.y() < height)
+					{
+						width = sz.x();
+						height = sz.y();
+					}
+				}
+
+				data->setTemporarySize(width, height);
+				mSize = Vector2i(width, height);					
 			}
 			else
 			{
+				// Force the texture manager to load it using a blocking load
+				sTextureDataManager.load(data, true);
+
 				mSize = Vector2i((int)data->width(), (int)data->height());
 				mSourceSize = Vector2f(data->sourceWidth(), data->sourceHeight());
 			}
@@ -58,20 +58,18 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 		else
 		{
 			data = mTextureData = std::make_shared<TextureData>(tile, linear);
-			mTextureData->setDynamic(false);
-			
+
 			if (maxSize != nullptr)
 				data->setMaxSize(*maxSize);
 
+			data->setDynamic(false);
 			data->initFromPath(path);
-
-			sTextureDataManager.cleanupVRAM(data);
-
-			// Load it so we can read the width/height
 			data->load();
 
 			mSize = Vector2i((int)data->width(), (int)data->height());
 			mSourceSize = Vector2f(data->sourceWidth(), data->sourceHeight());
+
+			sTextureDataManager.cleanupVRAM(data);
 		}
 	}
 	else
@@ -197,7 +195,7 @@ void TextureResource::cancelAsync(std::shared_ptr<TextureResource> texture)
 		sTextureDataManager.cancelAsync(texture.get());
 }
 
-std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool linear, bool forceLoad, bool dynamic, bool asReloadable, MaxSizeInfo* maxSize)
+std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool linear, bool forceLoad, bool dynamic, bool asReloadable, const MaxSizeInfo* maxSize)
 {
 	std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
 
@@ -294,7 +292,11 @@ void TextureResource::rasterizeAt(size_t width, size_t height)
 	// mSourceSize = Vector2f((float)width, (float)height);
 	if (data != nullptr)
 	{
-		data->setSourceSize((float)width, (float)height);
+		if (data->setSourceSize((float)width, (float)height))
+		{
+			mSize = Vector2i(data->width(), data->height());
+			mSourceSize = Vector2f(data->sourceWidth(), data->sourceHeight());
+		}
 
 		if (mForceLoad || (mTextureData != nullptr))
 			if (!data->isLoaded())
@@ -321,21 +323,16 @@ bool TextureResource::isLoaded() const
 
 size_t TextureResource::getTotalMemUsage(bool includeQueueSize)
 {
-	size_t total = Renderer::getTotalMemUsage();
+	size_t total = 0;
 
-	if (total == (size_t)-1)
+	// Count up all textures that manage their own texture data
+	for (auto tex : sAllTextures)
 	{
-		total = 0;
-
-		// Count up all textures that manage their own texture data
-		for (auto tex : sAllTextures)
-		{
-			if (tex->mTextureData != nullptr)
-				total += tex->mTextureData->getVRAMUsage();
-		}
-		// Now get the committed memory from the manager
-		total += sTextureDataManager.getCommittedSize();
+		if (tex->mTextureData != nullptr)
+			total += tex->mTextureData->getVRAMUsage();
 	}
+	// Now get the committed memory from the manager
+	total += sTextureDataManager.getCommittedSize();
 
 	// And the size of the loading queue
 	if (includeQueueSize)

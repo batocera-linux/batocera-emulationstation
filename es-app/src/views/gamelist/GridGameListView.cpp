@@ -139,11 +139,6 @@ const std::string GridGameListView::getImagePath(FileData* file)
 	return file->getThumbnailPath();
 }
 
-const bool GridGameListView::isVirtualFolder(FileData* file)
-{
-	return file->getType() == FOLDER && ((FolderData*)file)->isVirtualFolderDisplay();
-}
-
 void GridGameListView::populateList(const std::vector<FileData*>& files)
 {
 	updateHeaderLogoAndText();

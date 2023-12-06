@@ -142,7 +142,7 @@ bool VideoComponent::setVideo(std::string path, bool checkFileExists)
 	return false;
 }
 
-void VideoComponent::setImage(std::string path, bool tile, MaxSizeInfo maxSize)
+void VideoComponent::setImage(std::string path, bool tile, const MaxSizeInfo& maxSize)
 {
 	// Check that the image has changed
 	if (!path.empty() && path == mStaticImagePath)

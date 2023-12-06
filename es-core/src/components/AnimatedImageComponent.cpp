@@ -23,7 +23,7 @@ void AnimatedImageComponent::load(const AnimationDef* def)
 		}
 
 		auto img = std::unique_ptr<ImageComponent>(new ImageComponent(mWindow));
-		img->setResize(mSize.x(), mSize.y());
+		img->setMaxSize(mSize.x(), mSize.y());
 		img->setImage(def->frames[i].path, false);
 
 		mFrames.push_back(ImageFrame(std::move(img), def->frames[i].time));
@@ -47,7 +47,7 @@ void AnimatedImageComponent::onSizeChanged()
 	GuiComponent::onSizeChanged();
 
 	for(auto it = mFrames.cbegin(); it != mFrames.cend(); it++)
-		it->first->setResize(mSize.x(), mSize.y());
+		it->first->setMaxSize(mSize.x(), mSize.y());
 }
 
 void AnimatedImageComponent::update(int deltaTime)

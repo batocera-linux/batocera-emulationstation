@@ -94,7 +94,7 @@ public:
 
 	virtual SystemEnvironmentData* getSystemEnvData() const;
 
-	virtual const std::string getThumbnailPath();
+	virtual const std::string getThumbnailPath(bool fallbackWithImage = true);
 	virtual const std::string getVideoPath();
 	virtual const std::string getMarqueePath();
 	virtual const std::string getImagePath();

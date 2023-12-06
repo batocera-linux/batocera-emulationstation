@@ -59,7 +59,6 @@ private:
 
 	void updateInfoPanel();
 	const std::string getImagePath(FileData* file);
-	const bool isVirtualFolder(FileData* file);
 };
 
 #endif // ES_APP_VIEWS_GAME_LIST_GRID_GAME_LIST_VIEW_H

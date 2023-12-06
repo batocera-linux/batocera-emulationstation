@@ -42,7 +42,7 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 	{ "rom",				[](FileData* file) { return BindableProperty(Utils::FileSystem::getFileName(file->getPath()), BindablePropertyType::Path); } },
 	{ "path",				[](FileData* file) { return BindableProperty(file->getPath(), BindablePropertyType::Path); } },
 	{ "image",				[](FileData* file) { return BindableProperty(file->getImagePath(), BindablePropertyType::Path); } },
-	{ "thumbnail",			[](FileData* file) { return BindableProperty(file->getThumbnailPath(), BindablePropertyType::Path); } },
+	{ "thumbnail",			[](FileData* file) { return BindableProperty(file->getThumbnailPath(false), BindablePropertyType::Path); } },
 	{ "video",				[](FileData* file) { return BindableProperty(file->getVideoPath(), BindablePropertyType::Path); } },
 	{ "marquee",			[](FileData* file) { return BindableProperty(file->getMarqueePath(), BindablePropertyType::Path); } },
 	{ "favorite",			[](FileData* file) { return file->getFavorite(); } },
@@ -181,7 +181,7 @@ std::string FileData::findLocalArt(const std::string& type, std::vector<std::str
 	return "";
 }
 
-const std::string FileData::getThumbnailPath()
+const std::string FileData::getThumbnailPath(bool fallbackWithImage)
 {
 	std::string thumbnail = getMetadata(MetaDataId::Thumbnail);
 
@@ -193,15 +193,17 @@ const std::string FileData::getThumbnailPath()
 			setMetadata(MetaDataId::Thumbnail, thumbnail);
 
 		// no image, try to use local image
+		if (fallbackWithImage)
+		{
+			if (thumbnail.empty())
+				thumbnail = getMetadata(MetaDataId::Image);
 
-		if (thumbnail.empty())
-			thumbnail = getMetadata(MetaDataId::Image);
+			if (thumbnail.empty())
+				thumbnail = findLocalArt("image");
 
-		if (thumbnail.empty())
-			thumbnail = findLocalArt("image");
-
-		if (thumbnail.empty())
-			thumbnail = findLocalArt();
+			if (thumbnail.empty())
+				thumbnail = findLocalArt();
+		}
 
 		if (thumbnail.empty() && getType() == GAME && getSourceFileData()->getSystem()->hasPlatformId(PlatformIds::IMAGEVIEWER))
 		{
@@ -248,7 +250,7 @@ const bool FileData::hasCheevos()
 
 bool FileData::hasAnyMedia()
 {
-	if (Utils::FileSystem::exists(getImagePath()) || Utils::FileSystem::exists(getThumbnailPath()) || Utils::FileSystem::exists(getVideoPath()))
+	if (Utils::FileSystem::exists(getImagePath()) || Utils::FileSystem::exists(getThumbnailPath(false)) || Utils::FileSystem::exists(getVideoPath()))
 		return true;
 
 	for (auto mdd : mMetadata.getMDD())

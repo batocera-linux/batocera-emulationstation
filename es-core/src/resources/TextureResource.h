@@ -16,11 +16,11 @@
 class TextureResource : public IReloadable
 {
 public:
-	TextureResource(const std::string& path, bool tile, bool linear, bool dynamic, bool allowAsync, MaxSizeInfo* maxSize = nullptr);
+	TextureResource(const std::string& path, bool tile, bool linear, bool dynamic, bool allowAsync, const MaxSizeInfo* maxSize = nullptr);
 
 public:
 	static void cancelAsync(std::shared_ptr<TextureResource> texture);
-	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool linear = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, MaxSizeInfo* maxSize = nullptr);
+	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool linear = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, const MaxSizeInfo* maxSize = nullptr);
 	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	void updateFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	virtual void initFromMemory(const char* file, size_t length);

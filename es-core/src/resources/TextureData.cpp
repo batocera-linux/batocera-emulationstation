@@ -25,7 +25,7 @@
 IPdfHandler* TextureData::PdfHandler = nullptr;
 
 TextureData::TextureData(bool tile, bool linear) : mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false), mDynamic(true), mReloadable(false),
-									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f),
+									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f), mMaxSize(MaxSizeInfo::Empty),
 									  mPackedSize(Vector2i(0, 0)), mBaseSize(Vector2i(0, 0))
 {
 	mIsExternalDataRGBA = false;
@@ -81,14 +81,13 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 
 		if (!mMaxSize.empty() && mSourceWidth < mMaxSize.x() && mSourceHeight < mMaxSize.y())
 		{
-			auto sz = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(mMaxSize.x(), mMaxSize.y()));
+			auto sz = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
 			mSourceWidth = sz.x();
 			mSourceHeight = sz.y();
 		}
 	}
 	else
 		mSourceWidth = (mSourceHeight * svgImage->width) / svgImage->height; // FCA : Always compute width using source aspect ratio
-
 
 	mWidth = (size_t)Math::round(mSourceWidth);
 	mHeight = (size_t)Math::round(mSourceHeight);
@@ -106,28 +105,25 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 
 	mBaseSize = Vector2i(mWidth, mHeight);
 
-	if (OPTIMIZEVRAM && !mMaxSize.empty())
+	if (OPTIMIZEVRAM && !mMaxSize.empty() && (mWidth > mMaxSize.x() || mHeight > mMaxSize.y()))
 	{
-		if (mHeight < mMaxSize.y() && mWidth < mMaxSize.x()) // FCATMP
-		{
-			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
-			mHeight = sz.y();
-			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
-		}
+		auto imageSize = Vector2i(mWidth, mHeight);
+		auto displaySize = Vector2i((int)Math::round(mMaxSize.x()), (int)Math::round(mMaxSize.y()));
 
-		if (!mMaxSize.empty() && (mWidth > mMaxSize.x() || mHeight > mMaxSize.y()))
+		Vector2i sz = ImageIO::adjustPictureSize(imageSize, displaySize, mMaxSize.externalZoom());
+		if (sz.x() == displaySize.x())
 		{
-			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
-			mHeight = sz.y();
-			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
-			
-			mPackedSize = Vector2i(mWidth, mHeight);
+			mWidth = sz.x();
+			mHeight = Math::round((mWidth * svgImage->height) / svgImage->width);
 		}
 		else
-			mPackedSize = Vector2i(0, 0);
+		{
+			mHeight = sz.y();
+			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
+		}
 	}
 	else
-		mPackedSize = Vector2i(0, 0);
+		mPackedSize = Vector2i::Zero();
 
 	if (mWidth * mHeight <= 0)
 	{
@@ -567,11 +563,11 @@ void TextureData::setTemporarySize(float width, float height)
 	mSourceHeight = height;
 }
 
-void TextureData::setSourceSize(float width, float height)
+bool TextureData::setSourceSize(float width, float height)
 {
 	if (mScalable)
 	{
-		if ((int) mSourceHeight < (int) height && (int) mSourceWidth != (int) width)
+		if ((int) Math::round(mSourceHeight) < (int)Math::round(height) && (int)Math::round(mSourceWidth) != (int)Math::round(width))
 		{
 			LOG(LogDebug) << "Requested scalable image size too small. Reloading image from (" << mSourceWidth << ", " << mSourceHeight << ") to (" << width << ", " << height << ")";
 
@@ -580,11 +576,15 @@ void TextureData::setSourceSize(float width, float height)
 			releaseVRAM();
 			releaseRAM();
 			load();
+
+			return isLoaded();
 		}
 	}
+
+	return false;
 }
 
-void TextureData::setMaxSize(MaxSizeInfo maxSize)
+void TextureData::setMaxSize(const MaxSizeInfo& maxSize)
 {
 	if (!OPTIMIZEVRAM)
 		return;
