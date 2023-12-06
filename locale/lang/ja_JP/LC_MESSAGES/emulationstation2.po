@@ -494,17 +494,17 @@ msgstr "システムのグループ化"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "コレクション作成"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "テーマファイルからコレクションを作成"
+msgid "New Collection Name"
+msgstr "新規コレクション名"
 
-msgid "SELECT THEME FOLDER"
-msgstr "追加するコレクションを選択"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "コレクションを作成"
-
-msgid "New Collection Name"
-msgstr "新規コレクション名"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "システム・項目別コレクションを作成"
@@ -542,8 +542,11 @@ msgstr "最終選択を復元"
 msgid "START ON GAMELIST"
 msgstr "起動時にゲームリストを表示"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "マイコレクションをグループ化"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "コレクションにシステム名を表示"
@@ -1446,6 +1449,15 @@ msgstr "ホイール<marquee>"
 msgid "MARQUEE"
 msgstr "マーキー<marquee>"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "スクレイプ <gamelist項目>"
 
@@ -1475,6 +1487,9 @@ msgstr "マニュアル<manual>"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "パッドキー設定"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "スクレイプ"
@@ -1789,8 +1804,29 @@ msgstr "データストレージのファイルシステムの変更"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ゲームリストの整理と未使用のメディアを削除"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "クリーニング"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "ファイル表示拡張子設定をリセット"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "すべてのゲームの言語/地域を再検出"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "ネットプレイ/アチーブメント ですべてのゲームを検索"
 
 msgid "CLEAR CACHES"
 msgstr "キャッシュをクリア"
@@ -1800,15 +1836,6 @@ msgstr "イメージキャッシュのビルド"
 
 msgid "Building image cache"
 msgstr "イメージキャッシュのビルド中"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "ファイル表示拡張子設定をリセット"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "すべてのゲームの言語/地域を再検出"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "ネットプレイ/アチーブメント ですべてのゲームを検索"
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
@@ -2178,6 +2205,54 @@ msgstr "ベゼルを選択"
 msgid "Current setting"
 msgstr "現在の設定"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "ステートセーブ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "自動ステート読込み"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ステートセーブ保存方法"
+
+msgid "INCREMENT PER SAVE"
+msgstr "常に別スロットにセーブ"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "古いセーブに上書きせず、常に新しくセーブを保存"
+
+msgid "INCREMENT SLOT"
+msgstr "ゲームごとに別にセーブ"
+
+msgid "Increment slot on a new game."
+msgstr "別の違うゲームの場合は、新しくセーブを保存"
+
+msgid "DO NOT INCREMENT"
+msgstr "同一スロットにセーブ"
+
+msgid "Use current slot on a new game."
+msgstr "選択スロットにセーブを上書き保存"
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ステートセーブマネージャーの表示"
+
+msgid "ALWAYS"
+msgstr "常に"
+
+msgid "IF NOT EMPTY"
+msgstr "セーブがある場合"
+
+msgid "Display savestate manager before launching a game."
+msgstr "ゲーム起動前にステートセーブマネージャを表示します"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "グローバル基本設定"
 
@@ -2270,48 +2345,6 @@ msgstr "翻訳画面で一時停止"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自動コントローラー設定"
 
-msgid "SAVESTATES"
-msgstr "ステートセーブ"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "自動ステート読込み"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ステートセーブ保存方法"
-
-msgid "INCREMENT PER SAVE"
-msgstr "常に別スロットにセーブ"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "古いセーブに上書きせず、常に新しくセーブを保存"
-
-msgid "INCREMENT SLOT"
-msgstr "ゲームごとに別にセーブ"
-
-msgid "Increment slot on a new game."
-msgstr "別の違うゲームの場合は、新しくセーブを保存"
-
-msgid "DO NOT INCREMENT"
-msgstr "同一スロットにセーブ"
-
-msgid "Use current slot on a new game."
-msgstr "選択スロットにセーブを上書き保存"
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "ステートセーブマネージャーの表示"
-
-msgid "ALWAYS"
-msgstr "常に"
-
-msgid "IF NOT EMPTY"
-msgstr "セーブがある場合"
-
-msgid "Display savestate manager before launching a game."
-msgstr "ゲーム起動前にステートセーブマネージャを表示します"
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
 
@@ -2384,6 +2417,9 @@ msgstr "ステートセーブアイコンを表示"
 msgid "SHOW MANUAL ICON"
 msgstr "マニュアルアイコンを表示"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "リストにファイル名を表示"
 
@@ -2431,6 +2467,9 @@ msgstr "アイコン"
 
 msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ソート時に「The,a,an」を無視"
@@ -2978,8 +3017,11 @@ msgstr "ライトガン(ガンコン)対応"
 msgid "STEERING WHEEL"
 msgstr "ステアリングホイール (ハンコン)"
 
-msgid "HAS MEDIAS"
-msgstr "メディア有り"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "情報を取得中"
@@ -3174,6 +3216,12 @@ msgstr "ゲームパッドが検出されませんでした"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "ボタンを押し続けると、 コントローラーの設定をします"
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "変更をしない"
 
@@ -3256,3 +3304,15 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "テーマファイルからコレクションを作成"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "追加するコレクションを選択"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "マイコレクションをグループ化"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "メディア有り"

@@ -495,17 +495,17 @@ msgstr "SISTEM GRUP"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "BUAT KOLEKSI KUSTOM"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "BUAT KOLEKSI KUSTOM BARU DARI TEMA"
+msgid "New Collection Name"
+msgstr "Nama Koleksi Baru"
 
-msgid "SELECT THEME FOLDER"
-msgstr "PILIH FOLDER TEMA"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "BUAT KOLEKSI BARU YANG DAPAT DIEDIT"
-
-msgid "New Collection Name"
-msgstr "Nama Koleksi Baru"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "BUAT KOLEKSI DINAMIS BARU"
@@ -543,8 +543,11 @@ msgstr "PULIHKAN TERAKHIR DIPILIH"
 msgid "START ON GAMELIST"
 msgstr "MULAI DI DAFTAR GAME"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "KELOMPOK KOLEKSI KUSTOM YANG TIDAK DIKENAL"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "TAMPILKAN NAMA SISTEM DALAM KOLEKSI"
@@ -1442,6 +1445,15 @@ msgstr "WHEEL"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "SCRAPE UNTUK"
 
@@ -1471,6 +1483,9 @@ msgstr "PANDUAN"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "PENGATURAN PADTOKEY"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1781,8 +1796,29 @@ msgstr "FORMAT DISK"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "BERSIHKAN LIST GAME dan HAPUS MEDIA YANG TIDAK DIGUNAKAN"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Membersihkan"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "RESET EKSTENSI FILE"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "DETECT SEMUA BAHASA GAME/REGION"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "TEMUKAN SEMUA GAME DENGAN NETPLAY/PRESTASI"
 
 msgid "CLEAR CACHES"
 msgstr "HAPUS CACHE"
@@ -1792,15 +1828,6 @@ msgstr "BUAT CACHE IMAGE"
 
 msgid "Building image cache"
 msgstr "Membuat chace image"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "RESET EKSTENSI FILE"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "DETECT SEMUA BAHASA GAME/REGION"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TEMUKAN SEMUA GAME DENGAN NETPLAY/PRESTASI"
 
 msgid "DATA MANAGEMENT"
 msgstr "MANAJEMEN DATA"
@@ -2178,6 +2205,54 @@ msgstr "SET DEKORASI"
 msgid "Current setting"
 msgstr "Pengaturan saat ini"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "SIMPAN STATUS"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "SAVE/LOAD OTOMATIS"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "Muat kondisi terbaru ketika mulai dan simpan status ketika keluar"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "SIMPAN STATUS SECARA BERTAHAP"
+
+msgid "INCREMENT PER SAVE"
+msgstr "TAHAP PER SAVE"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Jangan pernah menimpa status save lama, selalu buat yang baru."
+
+msgid "INCREMENT SLOT"
+msgstr "PENAMBAHAN SLOT"
+
+msgid "Increment slot on a new game."
+msgstr "Penambahan slot pada game baru."
+
+msgid "DO NOT INCREMENT"
+msgstr "JANGAN TAMBAHKAN"
+
+msgid "Use current slot on a new game."
+msgstr "Gunakan slot saat ini di game baru."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "TAMPILKAN MANAJER PENYIMPANAN"
+
+msgid "ALWAYS"
+msgstr "SELALU"
+
+msgid "IF NOT EMPTY"
+msgstr "JIKA TIDAK KOSONG"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Tampilkan pengelola penyimpanan sebelum meluncurkan game."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "PENGATURAN GLOBAL DEFAULT"
 
@@ -2270,48 +2345,6 @@ msgstr "JEDA PADA LAYAR TERJEMAHAN"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "KONTROL KONFIGURASI OTOMATIS"
 
-msgid "SAVESTATES"
-msgstr "SIMPAN STATUS"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "SAVE/LOAD OTOMATIS"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Muat kondisi terbaru ketika mulai dan simpan status ketika keluar"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "SIMPAN STATUS SECARA BERTAHAP"
-
-msgid "INCREMENT PER SAVE"
-msgstr "TAHAP PER SAVE"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Jangan pernah menimpa status save lama, selalu buat yang baru."
-
-msgid "INCREMENT SLOT"
-msgstr "PENAMBAHAN SLOT"
-
-msgid "Increment slot on a new game."
-msgstr "Penambahan slot pada game baru."
-
-msgid "DO NOT INCREMENT"
-msgstr "JANGAN TAMBAHKAN"
-
-msgid "Use current slot on a new game."
-msgstr "Gunakan slot saat ini di game baru."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "TAMPILKAN MANAJER PENYIMPANAN"
-
-msgid "ALWAYS"
-msgstr "SELALU"
-
-msgid "IF NOT EMPTY"
-msgstr "JIKA TIDAK KOSONG"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Tampilkan pengelola penyimpanan sebelum meluncurkan game."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "KONFIGURASI LANJUTAN PER SISTEM"
 
@@ -2384,6 +2417,9 @@ msgstr "TAMPILKAN IKON PENYIMPANAN"
 msgid "SHOW MANUAL ICON"
 msgstr "TAMPILKAN IKON SECARA MANUAL"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "TAMPILKAN NAMA FILE SEHARUSNYA"
 
@@ -2431,6 +2467,9 @@ msgstr "IKON"
 
 msgid "ICON AND TEXT"
 msgstr "IKON DAN TEKS"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ABAIKAN ARTIKEL TERKEMUKA SAAT MENYORTIR"
@@ -2975,8 +3014,11 @@ msgstr "SENJATA RINGAN"
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
-msgstr "MEMILIKI MEDIA"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "HIMPUN"
@@ -3171,6 +3213,12 @@ msgstr "TIDAK, GAMEPAD TIDAK TERDETEKSI"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "TAHAN TOMBOL DI PERANGKATMU UNTUK KONFIGURASI"
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "BATALKAN PERUBAHAN"
 
@@ -3253,3 +3301,15 @@ msgstr "PEMBACA LAYAR DIAKTIFKAN"
 
 msgid "SCREEN READER DISABLED"
 msgstr "PEMBACA LAYAR DIMATIKAN"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "BUAT KOLEKSI KUSTOM BARU DARI TEMA"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "PILIH FOLDER TEMA"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "KELOMPOK KOLEKSI KUSTOM YANG TIDAK DIKENAL"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "MEMILIKI MEDIA"

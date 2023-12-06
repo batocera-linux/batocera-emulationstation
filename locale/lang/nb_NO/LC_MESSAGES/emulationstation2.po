@@ -494,17 +494,17 @@ msgstr "GRUPPERTE SYSTEM"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "LAG EGENDEFINERT SAMLING"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "LAG NY EGENDEFINERT SAMLING FRA TEMA"
+msgid "New Collection Name"
+msgstr "Nytt navn på samling"
 
-msgid "SELECT THEME FOLDER"
-msgstr "VELG TEMAMAPPE"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "LAG NY REDIGERBAR SAMLING"
-
-msgid "New Collection Name"
-msgstr "Nytt navn på samling"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "LAG NY DYNAMISK SAMLING"
@@ -542,8 +542,11 @@ msgstr ""
 msgid "START ON GAMELIST"
 msgstr "START PÅ SPILLLISTE"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPPER UTEMA-SAMLINGER"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "VIS SYSTEMNAVN I SAMLINGER"
@@ -1437,6 +1440,15 @@ msgstr "HJUL"
 msgid "MARQUEE"
 msgstr ""
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "SKRAP ETTER"
 
@@ -1466,6 +1478,9 @@ msgstr "MANUELT"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY INNSTILLINGER"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "INFODATABASE"
@@ -1776,8 +1791,29 @@ msgstr "FORMATER DISK"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr ""
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Rengjør"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "NULLSTILL FILENDELSER"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr ""
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "FINN ALLE SPILL MED NETPLAY/PRESTASJONER"
 
 msgid "CLEAR CACHES"
 msgstr ""
@@ -1787,15 +1823,6 @@ msgstr ""
 
 msgid "Building image cache"
 msgstr ""
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "NULLSTILL FILENDELSER"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr ""
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "FINN ALLE SPILL MED NETPLAY/PRESTASJONER"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATASTYRING"
@@ -2164,6 +2191,54 @@ msgstr "DEKORASJONSSETT"
 msgid "Current setting"
 msgstr "Nåværende innstilling"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr "AUTO LAGRE/LAST"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "INKREMENTER SAVESTATER"
+
+msgid "INCREMENT PER SAVE"
+msgstr "INKREMENTER PER SAVE"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr "IKKE INKREMENTER"
+
+msgid "Use current slot on a new game."
+msgstr "Bruk gjeldende spor på et nytt spill."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr "ALLTID"
+
+msgid "IF NOT EMPTY"
+msgstr "HVIS IKKE TOMT"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Vis savestate manager før du starter et spill."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "STANDARD GLOBALE INNSTILLILNGER"
 
@@ -2256,48 +2331,6 @@ msgstr ""
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOKONFIGURER SPILLKONTROLLER"
 
-msgid "SAVESTATES"
-msgstr ""
-
-msgid "AUTO SAVE/LOAD"
-msgstr "AUTO LAGRE/LAST"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "INKREMENTER SAVESTATER"
-
-msgid "INCREMENT PER SAVE"
-msgstr "INKREMENTER PER SAVE"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
-
-msgid "INCREMENT SLOT"
-msgstr ""
-
-msgid "Increment slot on a new game."
-msgstr ""
-
-msgid "DO NOT INCREMENT"
-msgstr "IKKE INKREMENTER"
-
-msgid "Use current slot on a new game."
-msgstr "Bruk gjeldende spor på et nytt spill."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr "ALLTID"
-
-msgid "IF NOT EMPTY"
-msgstr "HVIS IKKE TOMT"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Vis savestate manager før du starter et spill."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "PER SYSTEM AVANSERT KONFIGURASJON"
 
@@ -2370,6 +2403,9 @@ msgstr ""
 msgid "SHOW MANUAL ICON"
 msgstr "VIS MANUAL IKON"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VIS FILNAVN ISTEDET"
 
@@ -2417,6 +2453,9 @@ msgstr "IKON"
 
 msgid "ICON AND TEXT"
 msgstr "IKON OG TEKST"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LEDENDE ARTIKLER VED SORTERING"
@@ -2964,8 +3003,11 @@ msgstr "LYSVÅPEN"
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
-msgstr "HAR MEDIA"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SKRAPER"
@@ -3160,6 +3202,12 @@ msgstr "INGEN KONTROLLERE OPPDAGET"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HOLD EN KNAPP PÅ ENHETEN DIN FOR Å KONFIGUERE DEN."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "FORKAST ENDRINGER"
 
@@ -3247,3 +3295,15 @@ msgstr "SKJERMLESER AKTIVERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKJERMLESER DEAKTIVERT"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "LAG NY EGENDEFINERT SAMLING FRA TEMA"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "VELG TEMAMAPPE"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "GRUPPER UTEMA-SAMLINGER"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "HAR MEDIA"

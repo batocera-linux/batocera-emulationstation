@@ -497,17 +497,17 @@ msgstr "ÖSSZERENDELT RENDSZEREK"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "EGYEDI GYŰJTEMÉNY KÉSZÍTÉSE"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "ÚJ EGYEDI GYŰJTEMÉNY KÉSZÍTÉSE A TÉMÁBÓL"
+msgid "New Collection Name"
+msgstr "Új gyűjtemény neve"
 
-msgid "SELECT THEME FOLDER"
-msgstr "TÉMA KÖNYVTÁR KIVÁLASZTÁSA"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "ÚJ SZERKESZTHETŐ GYŰJTEMÉNY KÉSZÍTÉSE"
-
-msgid "New Collection Name"
-msgstr "Új gyűjtemény neve"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "ÚJ DINAMIKUS GYŰJTEMÉNY KÉSZÍTÉSE"
@@ -545,8 +545,11 @@ msgstr "UTOLSÓ VÁLASZTOTT VISSZAÁLLÍTÁSA"
 msgid "START ON GAMELIST"
 msgstr "INDÍTÁSI JÁTÉKLISTA"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "TÉMA NÉLKÜLI EGYEDI GYŰJTEMÉNYEK CSOPORTOSÍTÁSA"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "RENDSZER MEGNEVEZÉSÉNEK MUTATÁSA A GYŰJTEMÉNYEKBEN"
@@ -1444,6 +1447,15 @@ msgstr "KERÉK"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "LEKÉRÉS"
 
@@ -1473,6 +1485,9 @@ msgstr "KÉZIKÖNYV"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY BEÁLLÍTÁSOK"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1785,8 +1800,29 @@ msgstr "LEMEZ FORMÁZÁSA"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "JÁTÉKLISTA TISZTÍTÁSA ÉS A NEM HASZNÁLT MÉDIÁK ELTÁVOLÍTÁSA"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Tisztítás"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "FÁJL KITERJESZTÉSEK VISSZAÁLLÍTÁSA"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "JÁTÉKOK NYELVÉNEK ÉS RÉGIÓJÁNAK ÚJRA DEKETÁLÁSA"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "MINDEN NETPLAY/ACHIEVEMENT JÁTÉK MEGKERESÉSE"
 
 msgid "CLEAR CACHES"
 msgstr "CACHE ÜRÍTÉSE"
@@ -1796,15 +1832,6 @@ msgstr "KÉP CACHE FELÉPÍTÉSE"
 
 msgid "Building image cache"
 msgstr "Kép cache építése"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "FÁJL KITERJESZTÉSEK VISSZAÁLLÍTÁSA"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "JÁTÉKOK NYELVÉNEK ÉS RÉGIÓJÁNAK ÚJRA DEKETÁLÁSA"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "MINDEN NETPLAY/ACHIEVEMENT JÁTÉK MEGKERESÉSE"
 
 msgid "DATA MANAGEMENT"
 msgstr "ADAT MENEDZSMENT"
@@ -2187,6 +2214,56 @@ msgstr "DEKORÁCIÓS SZETT"
 msgid "Current setting"
 msgstr "Aktuális beállítás"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "JÁTÉKÁLLÁS REKESZ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "AUTOMATIKUS MENTÉS/BETÖLTÉS"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Töltse be a legújabb játékállást a játék indításakor és mentse a játékállást "
+"a játékból való kilépéskor."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "NÖVEKVŐ JÁTÉKÁLLÁS REKESZ"
+
+msgid "INCREMENT PER SAVE"
+msgstr "NÖVEKVŐ MENTÉS"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Soha ne írja felül a régi játékállást, mindig készítsen újakat."
+
+msgid "INCREMENT SLOT"
+msgstr "NÖVEKVŐ HELY"
+
+msgid "Increment slot on a new game."
+msgstr "Növekvő hely egy új játékban."
+
+msgid "DO NOT INCREMENT"
+msgstr "NE NÖVELJE"
+
+msgid "Use current slot on a new game."
+msgstr "Használja az aktuális helyet egy új játékban."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "MUTASD A JÁTÉKÁLLÁS MENEDZSER"
+
+msgid "ALWAYS"
+msgstr "MINDIG"
+
+msgid "IF NOT EMPTY"
+msgstr "HA NEM ÜRES"
+
+msgid "Display savestate manager before launching a game."
+msgstr "A játék elindítása előtt jelenítse meg a játékállás managert."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "ALAPÉRTELMEZETT GLOBÁLIS BEÁLLÍTÁSOK"
 
@@ -2282,50 +2359,6 @@ msgstr "PILLANAT ÁLJ A LEFORDÍTOTT KÉPERNYŐN"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "KONTROLLEREK AUTOMATIKUS BEÁLLÍTÁSA"
 
-msgid "SAVESTATES"
-msgstr "JÁTÉKÁLLÁS REKESZ"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "AUTOMATIKUS MENTÉS/BETÖLTÉS"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Töltse be a legújabb játékállást a játék indításakor és mentse a játékállást "
-"a játékból való kilépéskor."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "NÖVEKVŐ JÁTÉKÁLLÁS REKESZ"
-
-msgid "INCREMENT PER SAVE"
-msgstr "NÖVEKVŐ MENTÉS"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Soha ne írja felül a régi játékállást, mindig készítsen újakat."
-
-msgid "INCREMENT SLOT"
-msgstr "NÖVEKVŐ HELY"
-
-msgid "Increment slot on a new game."
-msgstr "Növekvő hely egy új játékban."
-
-msgid "DO NOT INCREMENT"
-msgstr "NE NÖVELJE"
-
-msgid "Use current slot on a new game."
-msgstr "Használja az aktuális helyet egy új játékban."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "MUTASD A JÁTÉKÁLLÁS MENEDZSER"
-
-msgid "ALWAYS"
-msgstr "MINDIG"
-
-msgid "IF NOT EMPTY"
-msgstr "HA NEM ÜRES"
-
-msgid "Display savestate manager before launching a game."
-msgstr "A játék elindítása előtt jelenítse meg a játékállás managert."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "RENDSZERENKÉNTI HALADÓ KONFIGURÁCIÓ"
 
@@ -2398,6 +2431,9 @@ msgstr "MENTÉS ÁLLAPOTOK MEGJELENÍTÉSE A LISTÁKBAN"
 msgid "SHOW MANUAL ICON"
 msgstr "KÉZIKÖNYV IKON MEGJELENÍTÉSE A LISTÁKBAN"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "FÁJLNEVEK MEGJELENÍTÉSE A LISTÁKBAN"
 
@@ -2445,6 +2481,9 @@ msgstr "IKON"
 
 msgid "ICON AND TEXT"
 msgstr "IKON ÉS SZÖVEG"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "VEZETŐ CIKKEK FIGYELMEN KÍVÜL HAGYÁSA RENDEZÉSKOR"
@@ -2996,8 +3035,11 @@ msgstr "FÉNYPUSKA"
 msgid "STEERING WHEEL"
 msgstr "KORMÁNYOS JÁTÉKOK"
 
-msgid "HAS MEDIAS"
-msgstr "RENDELKEZIK MÉDIÁVAL"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "LEKÉRDEZÉS"
@@ -3195,6 +3237,12 @@ msgstr "NINCS GAMEPAD"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "TARTS NYOMVA EGY GOMBOT A KONFIGURÁLÁSHOZ."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "MÓDOSÍTÁSOK ELVETÉSE"
 
@@ -3282,3 +3330,15 @@ msgstr "KÉPERNYŐOLVASÓ ENGEDÉLYEZVE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "A KÉPERNYŐOLVASÓ LE VAN TILTVA"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "ÚJ EGYEDI GYŰJTEMÉNY KÉSZÍTÉSE A TÉMÁBÓL"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "TÉMA KÖNYVTÁR KIVÁLASZTÁSA"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "TÉMA NÉLKÜLI EGYEDI GYŰJTEMÉNYEK CSOPORTOSÍTÁSA"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "RENDELKEZIK MÉDIÁVAL"

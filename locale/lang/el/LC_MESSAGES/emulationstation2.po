@@ -489,17 +489,17 @@ msgstr "ΟΜΑΔΟΠΟΙΗΜΕΝΑ ΣΥΣΤΗΜΑΤΑ"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "ΔΗΜΙΟΥΡΓΙΑ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗΣ ΣΥΛΛΟΓΗΣ"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "ΔΗΜΙΟΥΡΓΙΑ ΝΕΑΣ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗΣ ΣΥΛΛΟΓΗΣ ΑΠΟ ΤΟ ΘΕΜΑ"
+msgid "New Collection Name"
+msgstr "Όνομα Νέας Συλλογής"
 
-msgid "SELECT THEME FOLDER"
-msgstr "ΕΠΙΛΟΓΗ ΦΑΚΕΛΟΥ ΘΕΜΑΤΟΣ"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "ΔΗΜΙΟΥΡΓΙΑ ΝΕΑΣ ΕΠΕΞΕΡΓΑΣΙΜΗΣ ΣΥΛΛΟΓΗΣ"
-
-msgid "New Collection Name"
-msgstr "Όνομα Νέας Συλλογής"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "ΔΗΜΙΟΥΡΓΙΑ ΝΕΑΣ ΔΥΝΑΜΙΚΗΣ ΣΥΛΛΟΓΗΣ"
@@ -537,8 +537,11 @@ msgstr "ΕΠΑΝΑΦΟΡΑ ΤΕΛΕΥΤΑΙΟΥ ΕΠΙΛΕΓΜΕΝΟΥ"
 msgid "START ON GAMELIST"
 msgstr "ΕΚΚΙΝΗΣΗ ΣΕ ΛΙΣΤΑ ΠΑΙΧΝΙΔΙΩΝ"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "ΟΜΑΔΟΠΟΙΗΣΗ ΠΡΟΣΩΠΙΚΩΝ ΣΥΛΛΟΓΩΝ ΧΩΡΙΣ ΘΕΜΑ"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ΕΜΦΑΝΙΣΗ ΟΝΟΜΑΤΩΝ ΣΥΣΤΗΜΑΤΟΣ ΣΤΙΣ ΣΥΛΛΟΓΕΣ"
@@ -1426,6 +1429,15 @@ msgstr ""
 msgid "MARQUEE"
 msgstr "ΛΟΓΟΤΥΠΟ"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr ""
 
@@ -1454,6 +1466,9 @@ msgid "MANUAL"
 msgstr ""
 
 msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "ACCOUNT"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1762,8 +1777,29 @@ msgstr "ΔΙΑΜΟΡΦΩΣΗ ΕΝΟΣ ΔΙΣΚΟΥ"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ΚΑΘΑΡΙΣΜΟΣ ΛΙΣΤΩΝ ΠΑΙΧΝΙΔΙΩΝ & ΑΦΑΙΡΕΣΗ ΑΧΡΗΣΙΜΟΠΟΙΗΤΩΝ ΜΕΣΩΝ"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Καθαρισμός"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "ΕΠΑΝΑΦΟΡΑ ΕΠΕΚΤΑΣΕΩΝ ΑΡΧΕΙΟΥ"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "ΕΠΑΝΑΠΡΟΣΔΙΟΡΙΣΜΕΝΗ ΓΛΩΣΣΑ/ΠΕΡΙΟΧΗ ΠΑΙΧΝΙΔΙΩΝ"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "ΕΥΡΕΣΗ ΟΛΩΝ ΤΩΝ ΠΑΙΧΝΙΔΙΩΝ ΜΕ NETPLAY/ACHIEVEMENTS"
 
 msgid "CLEAR CACHES"
 msgstr "ΚΑΘΑΡΙΣΜΟΣ ΚΡΥΦΩΝ ΜΝΗΜΩΝ"
@@ -1773,15 +1809,6 @@ msgstr "ΔΗΜΙΟΥΡΓΙΑ ΚΡΥΦΗΣ ΜΝΗΜΗΣ ΕΙΚΟΝΑΣ"
 
 msgid "Building image cache"
 msgstr "ΔΗΜΙΟΥΡΓΕΙΤΑΙ ΚΡΥΦΗ ΜΝΗΜΗ ΕΙΚΟΝΑΣ"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "ΕΠΑΝΑΦΟΡΑ ΕΠΕΚΤΑΣΕΩΝ ΑΡΧΕΙΟΥ"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "ΕΠΑΝΑΠΡΟΣΔΙΟΡΙΣΜΕΝΗ ΓΛΩΣΣΑ/ΠΕΡΙΟΧΗ ΠΑΙΧΝΙΔΙΩΝ"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "ΕΥΡΕΣΗ ΟΛΩΝ ΤΩΝ ΠΑΙΧΝΙΔΙΩΝ ΜΕ NETPLAY/ACHIEVEMENTS"
 
 msgid "DATA MANAGEMENT"
 msgstr "ΔΙΑΧΕΙΡΙΣΗ ΔΕΔΟΜΕΝΩΝ"
@@ -2142,6 +2169,54 @@ msgstr ""
 msgid "Current setting"
 msgstr ""
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "INCREMENT PER SAVE"
+msgstr ""
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "Display savestate manager before launching a game."
+msgstr ""
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
@@ -2233,48 +2308,6 @@ msgstr "ΠΑΥΣΗ ΣΤΗΝ ΜΕΤΑΦΡΑΣΜΕΝΗ ΟΘΟΝΗ"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "ΑΥΤΟΜΑΤΗ ΡΥΘΜΙΣΗ ΧΕΙΡΙΣΤΗΡΙΩΝ"
 
-msgid "SAVESTATES"
-msgstr ""
-
-msgid "AUTO SAVE/LOAD"
-msgstr ""
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
-msgid "INCREMENT PER SAVE"
-msgstr ""
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
-
-msgid "INCREMENT SLOT"
-msgstr ""
-
-msgid "Increment slot on a new game."
-msgstr ""
-
-msgid "DO NOT INCREMENT"
-msgstr ""
-
-msgid "Use current slot on a new game."
-msgstr ""
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr ""
-
-msgid "IF NOT EMPTY"
-msgstr ""
-
-msgid "Display savestate manager before launching a game."
-msgstr ""
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ΣΥΝΘΕΤΕΣ ΕΠΙΛΟΓΕΣ ΑΝΑ ΣΥΣΤΗΜΑ"
 
@@ -2347,6 +2380,9 @@ msgstr "ΕΜΦΑΝΙΣΗ ΣΗΜΟΤΟΔΟΤΗ ΑΠΟΘΗΚΕΥΜΕΝΩΝ ΣΤΑ�
 msgid "SHOW MANUAL ICON"
 msgstr "ΕΜΦΑΝΙΣΗ ΕΙΚΟΝΙΔΙΟΥ ΕΓΧΕΙΡΙΔΙΟΥ ΣΤΙΣ ΛΙΣΤΕΣ"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ΕΜΦΑΝΙΣΗ ΟΝΟΜΑΤΩΝ ΑΡΧΕΙΩΝ ΣΤΙΣ ΛΙΣΤΕΣ"
 
@@ -2394,6 +2430,9 @@ msgstr "ΕΙΚΟΝΙΔΙΟ"
 
 msgid "ICON AND TEXT"
 msgstr "ΕΙΚΟΝΙΔΙΟ ΚΑΙ ΚΕΙΜΕΝΟ"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ΑΓΝΟΗΣΗ ΚΥΡΙΩΝ ΑΡΘΡΩΝ ΚΑΤΑ ΤΗΝ ΤΑΞΙΝΟΜΗΣΗ"
@@ -2938,7 +2977,10 @@ msgstr ""
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3132,6 +3174,12 @@ msgstr "ΔΕΝ ΕΝΤΟΠΙΣΤΗΚΑΝ ΧΕΙΡΙΣΤΗΡΙΑ"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "ΠΑΤΗΣΤΕ ΕΝΑ ΚΟΥΜΠΙ ΣΤΗΝ ΣΥΣΚΕΥΗ ΣΑΣ ΓΙΑ ΝΑ ΤΟ ΡΥΘΜΙΣΕΤΕ"
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ΑΚΥΡΩΣΗ ΑΛΛΑΓΩΝ"
 
@@ -3219,6 +3267,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "ΔΗΜΙΟΥΡΓΙΑ ΝΕΑΣ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗΣ ΣΥΛΛΟΓΗΣ ΑΠΟ ΤΟ ΘΕΜΑ"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "ΕΠΙΛΟΓΗ ΦΑΚΕΛΟΥ ΘΕΜΑΤΟΣ"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "ΟΜΑΔΟΠΟΙΗΣΗ ΠΡΟΣΩΠΙΚΩΝ ΣΥΛΛΟΓΩΝ ΧΩΡΙΣ ΘΕΜΑ"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "ΑΛΛΑΓΗ A/B ΚΟΥΜΠΙΩΝ ΣΤΟ EMULATIONSTATION"

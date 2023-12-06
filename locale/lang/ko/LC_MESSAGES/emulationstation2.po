@@ -491,17 +491,17 @@ msgstr "시스템 그룹"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "사용자 컬렉션 만들기"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "테마에서 새 사용자 컬렉션 만들기"
+msgid "New Collection Name"
+msgstr "새 컬렉션 이름"
 
-msgid "SELECT THEME FOLDER"
-msgstr "테마 폴더 선택"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "새 편집가능 컬렉션 만들기"
-
-msgid "New Collection Name"
-msgstr "새 컬렉션 이름"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "새 다이나믹 컬렉션 만들기"
@@ -539,8 +539,11 @@ msgstr "최근 선택 복구"
 msgid "START ON GAMELIST"
 msgstr "시작 게임 목록"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "테마가 없는 커스텀 컬렉션을 그룹"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "컬렉션에서 시스템 이름 표시"
@@ -1437,6 +1440,15 @@ msgstr "휠"
 msgid "MARQUEE"
 msgstr "마키"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "스크랩"
 
@@ -1466,6 +1478,9 @@ msgstr "매뉴얼"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "패드키 설정"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "스크랩"
@@ -1776,8 +1791,29 @@ msgstr "디스크 포맷"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "게임 목록 정리 & 미사용 미디어 삭제"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "정리 중"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "파일 확장자 초기화"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "게임 언어/지역 재감지"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "넷플레이/도전과제가 있는 모든 게임 검색"
 
 msgid "CLEAR CACHES"
 msgstr "캐시 비우기"
@@ -1787,15 +1823,6 @@ msgstr "이미지 캐시 생성"
 
 msgid "Building image cache"
 msgstr "이미지 캐시 생성중"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "파일 확장자 초기화"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "게임 언어/지역 재감지"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "넷플레이/도전과제가 있는 모든 게임 검색"
 
 msgid "DATA MANAGEMENT"
 msgstr "데이터 관리"
@@ -2160,6 +2187,54 @@ msgstr "데코레이션 셋"
 msgid "Current setting"
 msgstr "현재 설정"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "상태저장"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "자동 세이브/로드"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "게임 실행시 상태저장 파일을 불러오고 종료시 상태저장합니다."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "증가하는 상태저장"
+
+msgid "INCREMENT PER SAVE"
+msgstr "저장 마다 증가"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "지난 상태저장을 덮어씌우지 않고 항상 새 저장을 만듭니다."
+
+msgid "INCREMENT SLOT"
+msgstr "슬롯 추가"
+
+msgid "Increment slot on a new game."
+msgstr "새 게임마다 슬롯을 추가합니다."
+
+msgid "DO NOT INCREMENT"
+msgstr "추가 안함"
+
+msgid "Use current slot on a new game."
+msgstr "새 게임에 현재 슬롯을 사용합니다."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "상태저장 매니저 보이기"
+
+msgid "ALWAYS"
+msgstr "항상"
+
+msgid "IF NOT EMPTY"
+msgstr "비어있지 않은 경우"
+
+msgid "Display savestate manager before launching a game."
+msgstr "게임 실행전 상태저장 매니저를 보입니다."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "기본 글로벌 설정"
 
@@ -2251,48 +2326,6 @@ msgstr "번역화면 일시정지"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "컨트롤러 자동설정"
 
-msgid "SAVESTATES"
-msgstr "상태저장"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "자동 세이브/로드"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "게임 실행시 상태저장 파일을 불러오고 종료시 상태저장합니다."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "증가하는 상태저장"
-
-msgid "INCREMENT PER SAVE"
-msgstr "저장 마다 증가"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "지난 상태저장을 덮어씌우지 않고 항상 새 저장을 만듭니다."
-
-msgid "INCREMENT SLOT"
-msgstr "슬롯 추가"
-
-msgid "Increment slot on a new game."
-msgstr "새 게임마다 슬롯을 추가합니다."
-
-msgid "DO NOT INCREMENT"
-msgstr "추가 안함"
-
-msgid "Use current slot on a new game."
-msgstr "새 게임에 현재 슬롯을 사용합니다."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "상태저장 매니저 보이기"
-
-msgid "ALWAYS"
-msgstr "항상"
-
-msgid "IF NOT EMPTY"
-msgstr "비어있지 않은 경우"
-
-msgid "Display savestate manager before launching a game."
-msgstr "게임 실행전 상태저장 매니저를 보입니다."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
 
@@ -2365,6 +2398,9 @@ msgstr "목록에 상태저장 플래그 표시"
 msgid "SHOW MANUAL ICON"
 msgstr "목록에 매뉴얼 아이콘 표시"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "목록에 파일이름 표시"
 
@@ -2412,6 +2448,9 @@ msgstr "아이콘"
 
 msgid "ICON AND TEXT"
 msgstr "아이콘 및 텍스트"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "정렬할 때 선행 조항 무시"
@@ -2955,8 +2994,11 @@ msgstr "라이트건"
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
-msgstr "미디어 있음"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "스크랩 중"
@@ -3151,6 +3193,12 @@ msgstr "검색된 게임패드 없음"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "설정 하려면 장치의 버튼을 길게 누르세요."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "변경 취소"
 
@@ -3233,6 +3281,18 @@ msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "테마에서 새 사용자 컬렉션 만들기"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "테마 폴더 선택"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "테마가 없는 커스텀 컬렉션을 그룹"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "미디어 있음"
 
 #~ msgctxt "joystick"
 #~ msgid "UP"

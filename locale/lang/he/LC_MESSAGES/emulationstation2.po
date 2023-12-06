@@ -495,17 +495,17 @@ msgstr "קבוצות מערכות"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "יצירת אוסף מותאם אישית"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "יצירת אוסף מותאם אישית מערכת נושא"
+msgid "New Collection Name"
+msgstr "שם לאוסף חדש"
 
-msgid "SELECT THEME FOLDER"
-msgstr "בחירת ספריית ערכת נושא"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "יצירת אוסף חדש הניתן לעריכה"
-
-msgid "New Collection Name"
-msgstr "שם לאוסף חדש"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "יצירת אוסף דינמי חדש"
@@ -543,8 +543,11 @@ msgstr "שחזר בחירה אחרונה"
 msgid "START ON GAMELIST"
 msgstr "התחלת ברשימת משחקים"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "צור קבוצת אוספים מותאמים אישית ללא ערכות נושא"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "הצג שם מערכת באוסף"
@@ -1430,6 +1433,15 @@ msgstr "גלגל"
 msgid "MARQUEE"
 msgstr "דגל"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr ""
 
@@ -1458,6 +1470,9 @@ msgid "MANUAL"
 msgstr ""
 
 msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "ACCOUNT"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1766,8 +1781,29 @@ msgstr "מחיקת כונן"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr ""
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr ""
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "איפוס סיומות קבצים"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr ""
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "מציאת כל המשחקים בעלי NETPLAY או ACHIEVMENTS"
 
 msgid "CLEAR CACHES"
 msgstr "מנקה CACHES"
@@ -1777,15 +1813,6 @@ msgstr "בניית תמונת CACHES"
 
 msgid "Building image cache"
 msgstr "בניית תמונת CACHES מתבצעת"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "איפוס סיומות קבצים"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr ""
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "מציאת כל המשחקים בעלי NETPLAY או ACHIEVMENTS"
 
 msgid "DATA MANAGEMENT"
 msgstr "ניהול DATA"
@@ -2143,6 +2170,54 @@ msgstr ""
 msgid "Current setting"
 msgstr ""
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr "שמירה/טעינה אוטומטית"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "INCREMENT PER SAVE"
+msgstr ""
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "Display savestate manager before launching a game."
+msgstr ""
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
@@ -2234,48 +2309,6 @@ msgstr "השהה במסך מתורגם"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "תצורת בקרים אוטומטית"
 
-msgid "SAVESTATES"
-msgstr ""
-
-msgid "AUTO SAVE/LOAD"
-msgstr "שמירה/טעינה אוטומטית"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
-msgid "INCREMENT PER SAVE"
-msgstr ""
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
-
-msgid "INCREMENT SLOT"
-msgstr ""
-
-msgid "Increment slot on a new game."
-msgstr ""
-
-msgid "DO NOT INCREMENT"
-msgstr ""
-
-msgid "Use current slot on a new game."
-msgstr ""
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr ""
-
-msgid "IF NOT EMPTY"
-msgstr ""
-
-msgid "Display savestate manager before launching a game."
-msgstr ""
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "הגדרות מתקדמות לפי מערכת"
 
@@ -2348,6 +2381,9 @@ msgstr ""
 msgid "SHOW MANUAL ICON"
 msgstr ""
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr ""
 
@@ -2395,6 +2431,9 @@ msgstr "סמל"
 
 msgid "ICON AND TEXT"
 msgstr "סמל וטקסט"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr ""
@@ -2942,7 +2981,10 @@ msgstr ""
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3140,6 +3182,12 @@ msgstr ""
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr ""
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr ""
 
@@ -3237,6 +3285,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "יצירת אוסף מותאם אישית מערכת נושא"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "בחירת ספריית ערכת נושא"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "צור קבוצת אוספים מותאמים אישית ללא ערכות נושא"
 
 #~ msgid "SCRAPE RATINGS"
 #~ msgstr "SCRAPE דירוגים"

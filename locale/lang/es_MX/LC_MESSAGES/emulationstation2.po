@@ -502,17 +502,17 @@ msgstr "SISTEMAS AGRUPADOS"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "CREAR COLECCIÓN PERSONALIZADA"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "CREAR UNA NUEVA COLECCIÓN PERSONALIZADA A PARTIR DEL TEMA"
+msgid "New Collection Name"
+msgstr "Nombre de la nueva colección"
 
-msgid "SELECT THEME FOLDER"
-msgstr "SELECCIONAR LA CARPETA DEL TEMA"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CREAR UNA NUEVA COLECCIÓN EDITABLE"
-
-msgid "New Collection Name"
-msgstr "Nombre de la nueva colección"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "CREAR UNA NUEVA COLECCIÓN DINÁMICA"
@@ -550,8 +550,11 @@ msgstr "DONDE LO DEJASTE"
 msgid "START ON GAMELIST"
 msgstr "INICIAR EN LA LISTA DE JUEGOS"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "AGRUPAR COLECCIONES PERSONALIZADAS SIN TEMATIZAR"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOMBRE DEL SISTEMA EN LAS COLECCIONES"
@@ -1449,6 +1452,15 @@ msgstr "LOGO DEL JUEGO"
 msgid "MARQUEE"
 msgstr "MARQUESINA"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "OBTENER"
 
@@ -1478,6 +1490,9 @@ msgstr "MANUAL DE INSTRUCCIONES"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE PADTOKEY (MANDO A TECLAS)"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "ESCRAPEAR (OBTENER INFO DE JUEGOS)"
@@ -1791,8 +1806,29 @@ msgstr "FORMATEAR UN DISCO"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "LIMPIAR LISTAS DE JUEGOS Y ELIMINAR LOS MEDIOS NO UTILIZADOS"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Limpiando"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "RESTABLECER EXTENSIONES DE ARCHIVOS"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "REDETECTAR IDIOMA/REGIÓN DE LOS JUEGOS"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "BUSCAR TODOS LOS JUEGOS CON NETPLAY/TROFEOS"
 
 msgid "CLEAR CACHES"
 msgstr "LIMPIAR CACHÉS"
@@ -1802,15 +1838,6 @@ msgstr "CONSTRUIR CACHÉ DE IMÁGENES"
 
 msgid "Building image cache"
 msgstr "CONSTRUYENDO CACHÉ DE IMÁGENES"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "RESTABLECER EXTENSIONES DE ARCHIVOS"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "REDETECTAR IDIOMA/REGIÓN DE LOS JUEGOS"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "BUSCAR TODOS LOS JUEGOS CON NETPLAY/TROFEOS"
 
 msgid "DATA MANAGEMENT"
 msgstr "MANEJO DE DATOS"
@@ -2189,6 +2216,54 @@ msgstr "SET DE DECORACIONES"
 msgid "Current setting"
 msgstr "Configuración actual"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "PARTIDAS GUARDADAS"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "AUTO GUARDAR/CARGAR"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "Carga el ultimo estado guardado al lanzar el juego y guarda al salir."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
+
+msgid "INCREMENT PER SAVE"
+msgstr "INCREMENTAR EN CADA GUARDADO"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Crea siempre una nueva ranura al guardar, nunca sobrescribe."
+
+msgid "INCREMENT SLOT"
+msgstr "INCREMENTAR POR PARTIDA"
+
+msgid "Increment slot on a new game."
+msgstr "Crea una nueva ranura de guardado al iniciar el juego."
+
+msgid "DO NOT INCREMENT"
+msgstr "NO INCREMENTAR"
+
+msgid "Use current slot on a new game."
+msgstr "Función desactivada."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "MOSTRAR GESTOR DE PARTIDAS"
+
+msgid "ALWAYS"
+msgstr "SIEMPRE"
+
+msgid "IF NOT EMPTY"
+msgstr "SI HAY PARTIDAS GUARDADAS"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Mostrar el gestor de partidas guardadas antes de lanzar un juego."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "AJUSTES GLOBALES POR DEFECTO"
 
@@ -2283,48 +2358,6 @@ msgstr "PAUSAR EN LA PANTALLA TRADUCIDA"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURAR MANDOS"
 
-msgid "SAVESTATES"
-msgstr "PARTIDAS GUARDADAS"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "AUTO GUARDAR/CARGAR"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Carga el ultimo estado guardado al lanzar el juego y guarda al salir."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "GUARDADOS DE PARTIDAS INCREMENTALES"
-
-msgid "INCREMENT PER SAVE"
-msgstr "INCREMENTAR EN CADA GUARDADO"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Crea siempre una nueva ranura al guardar, nunca sobrescribe."
-
-msgid "INCREMENT SLOT"
-msgstr "INCREMENTAR POR PARTIDA"
-
-msgid "Increment slot on a new game."
-msgstr "Crea una nueva ranura de guardado al iniciar el juego."
-
-msgid "DO NOT INCREMENT"
-msgstr "NO INCREMENTAR"
-
-msgid "Use current slot on a new game."
-msgstr "Función desactivada."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "MOSTRAR GESTOR DE PARTIDAS"
-
-msgid "ALWAYS"
-msgstr "SIEMPRE"
-
-msgid "IF NOT EMPTY"
-msgstr "SI HAY PARTIDAS GUARDADAS"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Mostrar el gestor de partidas guardadas antes de lanzar un juego."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
 
@@ -2397,6 +2430,9 @@ msgstr "MOSTRAR ICONO DE PARTIDAS GUARDADAS EN LAS LISTAS"
 msgid "SHOW MANUAL ICON"
 msgstr "MOSTRAR ICONO DE MANUAL DE JUEGO EN LAS LISTAS"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOMBRES DE ARCHIVO EN LAS LISTAS"
 
@@ -2444,6 +2480,9 @@ msgstr "ICONO"
 
 msgid "ICON AND TEXT"
 msgstr "ICONO Y TEXTO"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORAR LOS PRONOMBRES EN LOS TÍTULOS AL ORDENAR"
@@ -2995,8 +3034,11 @@ msgstr "PISTOLA (LIGHTGUN)"
 msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
-msgid "HAS MEDIAS"
-msgstr "TIENE MEDIOS"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "ESCRAPEANDO"
@@ -3193,6 +3235,12 @@ msgstr "NO SE DETECTÓ NINGÚN MANDO"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MANTÉN PULSADO CUALQUIER BOTÓN DEL MANDO PARA CONFIGURARLO."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "DESCARTAR LOS CAMBIOS"
 
@@ -3280,3 +3328,15 @@ msgstr "TEXTO A VOZ ACTIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "TEXTO A VOZ DESACTIVADO"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "CREAR UNA NUEVA COLECCIÓN PERSONALIZADA A PARTIR DEL TEMA"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "SELECCIONAR LA CARPETA DEL TEMA"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "AGRUPAR COLECCIONES PERSONALIZADAS SIN TEMATIZAR"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "TIENE MEDIOS"

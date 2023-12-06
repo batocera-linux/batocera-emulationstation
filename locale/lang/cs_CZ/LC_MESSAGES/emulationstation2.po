@@ -494,17 +494,17 @@ msgstr "SESKUPENÉ SYSTÉMY"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "VYTVOŘIT VLASTNÍ SBÍRKU"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "VYTVOŘIT NOVOU VLASTNÍ SBÍRKU Z TÉMATU"
+msgid "New Collection Name"
+msgstr "Název nové sbírky"
 
-msgid "SELECT THEME FOLDER"
-msgstr "VYBRAT SLOŽKU TÉMAT"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "VYTVOŘIT NOVOU UPRAVITELNOU SBÍRKU"
-
-msgid "New Collection Name"
-msgstr "Název nové sbírky"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "VYTVOŘIT NOVOU DYNAMICKOU SBÍRKU"
@@ -542,8 +542,11 @@ msgstr "OBNOVIT POSLEDNÍ VYBRANÉ"
 msgid "START ON GAMELIST"
 msgstr "ZAČÍT NA SEZNAMU HER"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "SKUPINA VLASTNÍCH SBÍREK BEZ TÉMATU"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ZOBRAZIT NÁZEV SYSTÉMU VE SBÍRKÁCH"
@@ -1441,6 +1444,15 @@ msgstr "KOLO"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "VYHLEDAT PRO"
 
@@ -1470,6 +1482,9 @@ msgstr "MANUÁL"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "NASTAVENÍ KLÁVES OVLADAČE"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
@@ -1780,8 +1795,29 @@ msgstr "VYMAZAT DISK"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "VYČISTIT SEZNAMY HER A ODSTRANIT NEPOUŽÍVANÁ MÉDIA"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Čištění"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "RESET SOUBORU ROZŠÍŘENÍ"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "ZNOVU ZJISTIT JAZYK/OBLAST VŠECH HER"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "NAJÍT VŠECHNY HRY Z NETPLAY/ÚSPĚCHY"
 
 msgid "CLEAR CACHES"
 msgstr "VYČISTIT MEZIPAMĚŤ"
@@ -1791,15 +1827,6 @@ msgstr "VYTVOŘIT MEZIPAMĚŤ OBRÁZKU"
 
 msgid "Building image cache"
 msgstr "Vytváření mezipaměti pro obrázek"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "RESET SOUBORU ROZŠÍŘENÍ"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "ZNOVU ZJISTIT JAZYK/OBLAST VŠECH HER"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "NAJÍT VŠECHNY HRY Z NETPLAY/ÚSPĚCHY"
 
 msgid "DATA MANAGEMENT"
 msgstr "SPRÁVA DAT"
@@ -2179,6 +2206,54 @@ msgstr "SADA DEKORACÍ"
 msgid "Current setting"
 msgstr "Aktuální nastavení"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "ULOŽENÉ POZICE"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "Načíst nejnovější uložení při spuštění hry a uložení při ukončení hry."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
+
+msgid "INCREMENT PER SAVE"
+msgstr "PŘÍRŮSTEK NA ULOŽENÍ"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Nikdy nepřepisovat staré uložené pozice, vždy vytvářet nové."
+
+msgid "INCREMENT SLOT"
+msgstr "ZVYŠENÍ SLOTU"
+
+msgid "Increment slot on a new game."
+msgstr "Zvýšení počtu slotů v nové hře."
+
+msgid "DO NOT INCREMENT"
+msgstr "NEZVYŠOVAT"
+
+msgid "Use current slot on a new game."
+msgstr "Používat aktuální slot na novou hru."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ZOBRAZIT SPRÁVCE ULOŽENÍ"
+
+msgid "ALWAYS"
+msgstr "VŽDY"
+
+msgid "IF NOT EMPTY"
+msgstr "POKUD NENÍ PRÁZDNÝ"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Před spuštěním hry zobrazte správce stavu uložení."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "VÝCHOZÍ CELKOVÉ NASTAVENÍ"
 
@@ -2272,48 +2347,6 @@ msgstr "PAUZA NA PŘELOŽENÉ OBRAZOVCE"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTO.NASTAVENÍ HER.OVLADAČE"
 
-msgid "SAVESTATES"
-msgstr "ULOŽENÉ POZICE"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Načíst nejnovější uložení při spuštění hry a uložení při ukončení hry."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
-
-msgid "INCREMENT PER SAVE"
-msgstr "PŘÍRŮSTEK NA ULOŽENÍ"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Nikdy nepřepisovat staré uložené pozice, vždy vytvářet nové."
-
-msgid "INCREMENT SLOT"
-msgstr "ZVYŠENÍ SLOTU"
-
-msgid "Increment slot on a new game."
-msgstr "Zvýšení počtu slotů v nové hře."
-
-msgid "DO NOT INCREMENT"
-msgstr "NEZVYŠOVAT"
-
-msgid "Use current slot on a new game."
-msgstr "Používat aktuální slot na novou hru."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "ZOBRAZIT SPRÁVCE ULOŽENÍ"
-
-msgid "ALWAYS"
-msgstr "VŽDY"
-
-msgid "IF NOT EMPTY"
-msgstr "POKUD NENÍ PRÁZDNÝ"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Před spuštěním hry zobrazte správce stavu uložení."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "POKROČILÁ KONFIGURACE SYSTÉMU"
 
@@ -2386,6 +2419,9 @@ msgstr "ZOBRAZIT ZNAK ULOŽENÉ POZICE V SEZNAMECH"
 msgid "SHOW MANUAL ICON"
 msgstr "ZOBRAZIT IKONU MANUÁLU V SEZNAMECH"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ZOBRAZIT NÁZVY SOUBORŮ V SEZNAMECH"
 
@@ -2433,6 +2469,9 @@ msgstr "IKONA"
 
 msgid "ICON AND TEXT"
 msgstr "IKONA A TEXT"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "PŘI ŘAZENÍ IGNOROVAT ÚVODNÍ ČLÁNKY"
@@ -2988,8 +3027,11 @@ msgstr "SVĚTELNÁ ZBRAŇ"
 msgid "STEERING WHEEL"
 msgstr "ŘÍDICÍ KOLO"
 
-msgid "HAS MEDIAS"
-msgstr "MOJE MÉDIA"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "VYHLEDÁVÁNÍ"
@@ -3188,6 +3230,12 @@ msgstr "NEBYLY ZJIŠTĚNY ŽÁDNÉ GAMEPADY"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PODRŽENÍM TLAČÍTKA NA ZAŘÍZENÍ JEJ NAKONFIGURUJETE."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ZAHODIT ZMĚNY"
 
@@ -3280,6 +3328,18 @@ msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "VYTVOŘIT NOVOU VLASTNÍ SBÍRKU Z TÉMATU"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "VYBRAT SLOŽKU TÉMAT"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "SKUPINA VLASTNÍCH SBÍREK BEZ TÉMATU"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "MOJE MÉDIA"
 
 #~ msgctxt "joystick"
 #~ msgid "UP"

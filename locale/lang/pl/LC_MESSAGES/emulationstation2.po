@@ -499,17 +499,17 @@ msgstr "SYSTEMY ZGRUPOWANE"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "STWÓRZ KOLEKCJĘ NIESTANDARDOWĄ"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "STWÓRZ NOWĄ KOLEKCJĘ NIESTANDARDOWĄ Z MOTYWU"
+msgid "New Collection Name"
+msgstr "Nazwa nowej kolekcji"
 
-msgid "SELECT THEME FOLDER"
-msgstr "WYBIERZ FOLDER MOTYWU"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "STWÓRZ NOWĄ KOLEKCJĘ DO EDYCJI"
-
-msgid "New Collection Name"
-msgstr "Nazwa nowej kolekcji"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "STWÓRZ NOWĄ KOLEKCJĘ DYNAMICZNĄ"
@@ -547,8 +547,11 @@ msgstr "PRZYWRÓĆ OSTATNIO WYBRANE"
 msgid "START ON GAMELIST"
 msgstr "URUCHOM Z LISTĄ GIER"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRUPUJ KOLEKCJE NIESTANDARDOWE BEZ MOTYWU"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "POKAŻ NAZWĘ SYSTEMU W KOLEKCJACH"
@@ -1446,6 +1449,15 @@ msgstr "KOŁO"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "SCRAPE'UJ DLA"
 
@@ -1475,6 +1487,9 @@ msgstr "PODRĘCZNIK"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "USTAWIENIA PADTOKEY"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1787,8 +1802,29 @@ msgstr "SFORMATUJ DYSK"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "CZYŚĆ LISTY GIER I USUŃ NIEUŻYWANE MEDIA"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Czyszczenie"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "WYKRYJ JĘZYK/REGION GIER"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "ZNAJDŹ WSZYSTKIE GRY Z NETPLAY/OSIĄGNIĘCIAMI"
 
 msgid "CLEAR CACHES"
 msgstr "WYCZYŚĆ PAMIĘĆ PODRĘCZNĄ"
@@ -1798,15 +1834,6 @@ msgstr "STWÓRZ PAMIĘĆ PODRĘCZNĄ OBRAZÓW"
 
 msgid "Building image cache"
 msgstr "Tworzenie pamięci podręcznej obrazów"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "WYKRYJ JĘZYK/REGION GIER"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "ZNAJDŹ WSZYSTKIE GRY Z NETPLAY/OSIĄGNIĘCIAMI"
 
 msgid "DATA MANAGEMENT"
 msgstr "ZARZĄDZANIE DANYMI"
@@ -2187,6 +2214,56 @@ msgstr "ZESTAW DEKORACJI"
 msgid "Current setting"
 msgstr "Aktualne ustawienie"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "ZAPISANE STANY GRY"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "AUTOMATYCZNE ZAPISYWANIE/WCZYTYWANIE"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
+"wychodzeniu z gry."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "PRZYROSTOWY ZAPIS STANU"
+
+msgid "INCREMENT PER SAVE"
+msgstr "PRZYROST NA ZAPIS"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Nigdy nie nadpisuj starych stanów, zawsze twórz nowe."
+
+msgid "INCREMENT SLOT"
+msgstr "NASTĘPNY SLOT"
+
+msgid "Increment slot on a new game."
+msgstr "Inkrementuj slot przy nowej grze."
+
+msgid "DO NOT INCREMENT"
+msgstr "NIE INKREMENTUJ"
+
+msgid "Use current slot on a new game."
+msgstr "Użyj obecnego slotu w nowej grze."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "POKAŻ MENEDŻER ZAPISU STANÓW"
+
+msgid "ALWAYS"
+msgstr "ZAWSZE"
+
+msgid "IF NOT EMPTY"
+msgstr "JEŚLI NIE PUSTY"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Wyświetl menedżera zapisu stanów przed uruchomieniem gry."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "DOMYŚLNE USTAWIENIA GLOBALNE"
 
@@ -2281,50 +2358,6 @@ msgstr "PAUZA NA EKRANIE Z TŁUMACZENIEM"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOKONFIGURUJ KONTROLERY"
 
-msgid "SAVESTATES"
-msgstr "ZAPISANE STANY GRY"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "AUTOMATYCZNE ZAPISYWANIE/WCZYTYWANIE"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Wczytaj najnowszy stan zapisu przy uruchamianiu gry i zapisz stan przy "
-"wychodzeniu z gry."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "PRZYROSTOWY ZAPIS STANU"
-
-msgid "INCREMENT PER SAVE"
-msgstr "PRZYROST NA ZAPIS"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Nigdy nie nadpisuj starych stanów, zawsze twórz nowe."
-
-msgid "INCREMENT SLOT"
-msgstr "NASTĘPNY SLOT"
-
-msgid "Increment slot on a new game."
-msgstr "Inkrementuj slot przy nowej grze."
-
-msgid "DO NOT INCREMENT"
-msgstr "NIE INKREMENTUJ"
-
-msgid "Use current slot on a new game."
-msgstr "Użyj obecnego slotu w nowej grze."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "POKAŻ MENEDŻER ZAPISU STANÓW"
-
-msgid "ALWAYS"
-msgstr "ZAWSZE"
-
-msgid "IF NOT EMPTY"
-msgstr "JEŚLI NIE PUSTY"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Wyświetl menedżera zapisu stanów przed uruchomieniem gry."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ZAAWANSOWANA KONFIGURACJA DLA SYSTEMU"
 
@@ -2397,6 +2430,9 @@ msgstr "POKAŻ IKONĘ ZAPISU STANÓW"
 msgid "SHOW MANUAL ICON"
 msgstr "POKAŻ IKONĘ PODRĘCZNIKA"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "POKAŻ NAZWY PLIKÓW"
 
@@ -2444,6 +2480,9 @@ msgstr "IKONA"
 
 msgid "ICON AND TEXT"
 msgstr "IKONA I TEKST"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORUJ WIODĄCE PRZEDIMKI PODCZAS SORTOWANIA"
@@ -2996,8 +3035,11 @@ msgstr "PISTOLET ŚWIETLNY"
 msgid "STEERING WHEEL"
 msgstr "KIEROWNICA"
 
-msgid "HAS MEDIAS"
-msgstr "POSIADA MEDIA"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SCRAPE'OWANIE"
@@ -3196,6 +3238,12 @@ msgstr "NIE WYKRYTO ŻADNEGO KONTROLERA"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "PORZUĆ ZMIANY"
 
@@ -3288,6 +3336,18 @@ msgstr "WŁĄCZONY CZYTNIK EKRANU"
 
 msgid "SCREEN READER DISABLED"
 msgstr "WYŁĄCZONY CZYTNIK EKRANU"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "STWÓRZ NOWĄ KOLEKCJĘ NIESTANDARDOWĄ Z MOTYWU"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "WYBIERZ FOLDER MOTYWU"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "GRUPUJ KOLEKCJE NIESTANDARDOWE BEZ MOTYWU"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "POSIADA MEDIA"
 
 #~ msgctxt "joystick"
 #~ msgid "UP"

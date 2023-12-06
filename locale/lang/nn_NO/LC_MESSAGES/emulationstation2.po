@@ -489,16 +489,16 @@ msgstr ""
 msgid "CREATE CUSTOM COLLECTION"
 msgstr ""
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+msgid "New Collection Name"
 msgstr ""
 
-msgid "SELECT THEME FOLDER"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
 msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr ""
-
-msgid "New Collection Name"
 msgstr ""
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
@@ -537,7 +537,10 @@ msgstr ""
 msgid "START ON GAMELIST"
 msgstr ""
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
 msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
@@ -1424,6 +1427,15 @@ msgstr ""
 msgid "MARQUEE"
 msgstr ""
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr ""
 
@@ -1452,6 +1464,9 @@ msgid "MANUAL"
 msgstr ""
 
 msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "ACCOUNT"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1760,7 +1775,28 @@ msgstr ""
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr ""
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
+msgstr ""
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr ""
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr ""
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "CLEAR CACHES"
@@ -1770,15 +1806,6 @@ msgid "BUILD IMAGE CACHE"
 msgstr ""
 
 msgid "Building image cache"
-msgstr ""
-
-msgid "RESET FILE EXTENSIONS"
-msgstr ""
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr ""
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr ""
 
 msgid "DATA MANAGEMENT"
@@ -2137,6 +2164,54 @@ msgstr ""
 msgid "Current setting"
 msgstr ""
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "INCREMENT PER SAVE"
+msgstr ""
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "Display savestate manager before launching a game."
+msgstr ""
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
@@ -2228,48 +2303,6 @@ msgstr ""
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr ""
 
-msgid "SAVESTATES"
-msgstr ""
-
-msgid "AUTO SAVE/LOAD"
-msgstr ""
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
-msgid "INCREMENT PER SAVE"
-msgstr ""
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
-
-msgid "INCREMENT SLOT"
-msgstr ""
-
-msgid "Increment slot on a new game."
-msgstr ""
-
-msgid "DO NOT INCREMENT"
-msgstr ""
-
-msgid "Use current slot on a new game."
-msgstr ""
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr ""
-
-msgid "IF NOT EMPTY"
-msgstr ""
-
-msgid "Display savestate manager before launching a game."
-msgstr ""
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr ""
 
@@ -2342,6 +2375,9 @@ msgstr ""
 msgid "SHOW MANUAL ICON"
 msgstr ""
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr ""
 
@@ -2388,6 +2424,9 @@ msgid "ICON"
 msgstr ""
 
 msgid "ICON AND TEXT"
+msgstr ""
+
+msgid "SHOW FOLDERS FIRST"
 msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
@@ -2928,7 +2967,10 @@ msgstr ""
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3121,6 +3163,12 @@ msgstr "INGEN KONTROLLERE OPPDAGET"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HOLD EN KNAPP PÅ ENHETEN DIN FOR Å KONFIGUERE DEN."
+
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
 
 msgid "DISCARD CHANGES"
 msgstr "FORKAST ENDRINGER"

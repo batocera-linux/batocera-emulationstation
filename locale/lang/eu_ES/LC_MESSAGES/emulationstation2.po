@@ -494,17 +494,17 @@ msgstr "TALDEKATUTAKO SISTEMAK"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "SORTU NEURRIRA EGINDAKO KOLEKZIOA"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "SORTU NEURRIRA EGINDAKO KOLEKZIOA GAITIK"
+msgid "New Collection Name"
+msgstr "Kolekzio Berri Izena"
 
-msgid "SELECT THEME FOLDER"
-msgstr "AUKERATU GAI KARPETA"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "SORTU KOLEKZIO EDITAGARRI BERRIA"
-
-msgid "New Collection Name"
-msgstr "Kolekzio Berri Izena"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "SORTU KOLEKZIO DINAMIKO BERRIA"
@@ -542,8 +542,11 @@ msgstr "BEREZARRI AUKERATUTAKO AZKENA"
 msgid "START ON GAMELIST"
 msgstr "HONAKO JOKO LISTAN HASI"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "TLADEKATU GAIRIK GABEKO NEURRIRA EGINDAKO KOLEKZIOAK"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ERAKUTIS SISTEMA IZENA KOLEKZIO BERRIETAN"
@@ -836,10 +839,12 @@ msgid ""
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
-msgstr "KONTROLATZAILE BAT MAPEATZERA ZOAZ. MAPEATZERAKOAN BOTOIEN POSIZIOA "
-"HARTU KONTUTAN, EZ BOTOIEN IZEN FISIKOA. EZ BADAUKAZI BOTOI FISIKORIK "
-"HOTKEY-ARENTZAT, ERABILI SELECT BOTOIA. SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK "
-"EDOZEIN BOTOI SAKATUTA MANTENDUZ. SAKATU HEGO BOTOIAK KONFIRMATZEKO AMAITUTAKOAN."
+msgstr ""
+"KONTROLATZAILE BAT MAPEATZERA ZOAZ. MAPEATZERAKOAN BOTOIEN POSIZIOA HARTU "
+"KONTUTAN, EZ BOTOIEN IZEN FISIKOA. EZ BADAUKAZI BOTOI FISIKORIK HOTKEY-"
+"ARENTZAT, ERABILI SELECT BOTOIA. SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK "
+"EDOZEIN BOTOI SAKATUTA MANTENDUZ. SAKATU HEGO BOTOIAK KONFIRMATZEKO "
+"AMAITUTAKOAN."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "SINDEN PISTOLA EZARPENAK"
@@ -1439,6 +1444,15 @@ msgstr "GURPILA"
 msgid "MARQUEE"
 msgstr "MARKESINA"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "LOR DATUAK HONENTZAT"
 
@@ -1468,6 +1482,9 @@ msgstr "MANUALA"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "PAD-ETIK TEKLATURAKO KONFIGURAZIOA"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "DATU LORTZAILEA"
@@ -1780,8 +1797,29 @@ msgstr "DISKOA FORMATEATU"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "GARBITU JOKO LISTA ETA KENDU ERABILTZEN EZ DEN MEDIA"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Garbitzen"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "BERREZARRI FITXATEGI LUZAPENAK"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "JOKU GUZTIEK HIZKUNTZA/HERRIALDEA BERRIZ ERE DETEKTATU"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "BILATU SARE JOKO/LORPENAK DITUZTEN JOKU GUZTIAK"
 
 msgid "CLEAR CACHES"
 msgstr "HUSTU KATXEAK"
@@ -1791,15 +1829,6 @@ msgstr "ERAIKI IRUDI KATXEA"
 
 msgid "Building image cache"
 msgstr "IRUDI KATXEA ERAIKITZEN"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "BERREZARRI FITXATEGI LUZAPENAK"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "JOKU GUZTIEK HIZKUNTZA/HERRIALDEA BERRIZ ERE DETEKTATU"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "BILATU SARE JOKO/LORPENAK DITUZTEN JOKU GUZTIAK"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATU KUDEAKETA"
@@ -1833,8 +1862,8 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Irudirik ez badago ezarrita joko listan, media bilatzen saiatu fitxategi izen "
-"berdinarekin."
+"Irudirik ez badago ezarrita joko listan, media bilatzen saiatu fitxategi "
+"izen berdinarekin."
 
 msgid "USER INTERFACE"
 msgstr "ERABILTZAILE INTERFAZEA"
@@ -2169,13 +2198,64 @@ msgstr "FRESKATZE TASA ALDAKORRA"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Ez desbideratu nukleoak eskatzen duen denboratik. G-Syc, FreeSync, HDMI 2.1 VRR."
+"Ez desbideratu nukleoak eskatzen duen denboratik. G-Syc, FreeSync, HDMI 2.1 "
+"VRR."
 
 msgid "DECORATION SET"
 msgstr "DEKORAZIOA"
 
 msgid "Current setting"
 msgstr "Uneko ezarpena"
+
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "EGOERA GORDETZEA"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "GORDE/KARGATU AUTOMATIKOKI"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Kargatu gordetako azken egoera jokua abiaraztean eta gorde egoera jokotik "
+"irtetean"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "EGOERA GORDETZE INKREMENTALAK"
+
+msgid "INCREMENT PER SAVE"
+msgstr "GORDETZE BAKOITZEKO GEHIKUNTZA"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Inoiz ez gainidatzi egoera gordetze zaharrak, beti berriak egin."
+
+msgid "INCREMENT SLOT"
+msgstr "GEHIKUNTZA ARTEKA"
+
+msgid "Increment slot on a new game."
+msgstr "Gehitu arteka joko berri batean."
+
+msgid "DO NOT INCREMENT"
+msgstr "EZ GEHITU"
+
+msgid "Use current slot on a new game."
+msgstr "Erabili uneko arteka joku berri batean"
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ERAKUTSI GORDETAKO EGOERA KUDEATZAILEA"
+
+msgid "ALWAYS"
+msgstr "BETI"
+
+msgid "IF NOT EMPTY"
+msgstr "HUTSIK EZ BADAGO"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Erakutsi gordetako egoera kudeatzailea jokoa abiarazi aurretik."
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "BESTERIK EZEKO EZARPEN GLOBALAK"
@@ -2189,7 +2269,8 @@ msgstr "Behartu jokoa itxura ratio horretan erakustera"
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
-"Monitorearen bereizmena ezartzen du. Ez du renderizatze bereizmenean eraginik."
+"Monitorearen bereizmena ezartzen du. Ez du renderizatze bereizmenean "
+"eraginik."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "JOKO LEUNAK (BILINEAR FILTRATZEA)"
@@ -2271,50 +2352,6 @@ msgstr "GELDITU ITZULITAKO PANTAILAN"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "KONTROLAGAILUAK AUTOKONFIGURATU"
 
-msgid "SAVESTATES"
-msgstr "EGOERA GORDETZEA"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "GORDE/KARGATU AUTOMATIKOKI"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Kargatu gordetako azken egoera jokua abiaraztean eta gorde egoera jokotik "
-"irtetean"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "EGOERA GORDETZE INKREMENTALAK"
-
-msgid "INCREMENT PER SAVE"
-msgstr "GORDETZE BAKOITZEKO GEHIKUNTZA"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Inoiz ez gainidatzi egoera gordetze zaharrak, beti berriak egin."
-
-msgid "INCREMENT SLOT"
-msgstr "GEHIKUNTZA ARTEKA"
-
-msgid "Increment slot on a new game."
-msgstr "Gehitu arteka joko berri batean."
-
-msgid "DO NOT INCREMENT"
-msgstr "EZ GEHITU"
-
-msgid "Use current slot on a new game."
-msgstr "Erabili uneko arteka joku berri batean"
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "ERAKUTSI GORDETAKO EGOERA KUDEATZAILEA"
-
-msgid "ALWAYS"
-msgstr "BETI"
-
-msgid "IF NOT EMPTY"
-msgstr "HUTSIK EZ BADAGO"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Erakutsi gordetako egoera kudeatzailea jokoa abiarazi aurretik."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "SISTEMA BAKOITZEKO KONFIGURAZIO AURRERATUA"
 
@@ -2387,6 +2424,9 @@ msgstr "ERAKUTSI GORDETAKO EGOERA IKONOA"
 msgid "SHOW MANUAL ICON"
 msgstr "ERAKUTSI MANUALAREN IKONOA"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ERAKUTSI FITXATEGI IZENAK HORREN ORDEZ"
 
@@ -2434,6 +2474,9 @@ msgstr "IKONOA"
 
 msgid "ICON AND TEXT"
 msgstr "IKONO ETA TESTUA"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "HASERAKO ARTIKULUAK EZ KONTUAN HARTU ORDENATZEAN"
@@ -2986,8 +3029,11 @@ msgstr "ARGIZKO PISTOLA"
 msgid "STEERING WHEEL"
 msgstr "BOLANTEA"
 
-msgid "HAS MEDIAS"
-msgstr "MEDIAK DITU"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "DATUAK LORTZEN"
@@ -3182,6 +3228,12 @@ msgstr "EZ DA AGINTERIK DETEKTATU"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "BOTOI BAT SAKATUA MANTENDU AGINTEAN KONFIGURATZEKO."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ALDAKETAK BAZTERTU"
 
@@ -3270,6 +3322,18 @@ msgstr "PANTAILA IRAKURLEA GAITUTA"
 msgid "SCREEN READER DISABLED"
 msgstr "PANTAILA IRAKURLEA EZGAITUTA"
 
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "SORTU NEURRIRA EGINDAKO KOLEKZIOA GAITIK"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "AUKERATU GAI KARPETA"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "TLADEKATU GAIRIK GABEKO NEURRIRA EGINDAKO KOLEKZIOAK"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "MEDIAK DITU"
+
 #~ msgctxt "joystick"
 #~ msgid "UP"
 #~ msgstr "GORA"
@@ -3296,8 +3360,8 @@ msgstr "PANTAILA IRAKURLEA EZGAITUTA"
 #~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
 #~ "BUTTON TO CONFIRM WHEN DONE."
 #~ msgstr ""
-#~ "KONTROLATZAILE BAT MAPEATZERA ZOAZ. BOTOIEN POSIZIOAN OINARRITUTA "
-#~ "MAPEATU SNES KONTROLATZAILEAREN BALIOKIDEAN OINARRITUTA, EZ BERE ETIKETA "
+#~ "KONTROLATZAILE BAT MAPEATZERA ZOAZ. BOTOIEN POSIZIOAN OINARRITUTA MAPEATU "
+#~ "SNES KONTROLATZAILEAREN BALIOKIDEAN OINARRITUTA, EZ BERE ETIKETA "
 #~ "FISIKOAN. EZ BADAUKAZU TEKLA BEREZIRIK HOTKEY-RAKO ERABILI SELECT BOTOIA."
 #~ "SALTATU EZ DITUZUN BOTOI/STICK GUZTIAK EDOZIEN BOTOI MANTENDUZ. AMAITZEAN "
 #~ "SAKATU HEGO BOTOIA KONFIRMATZEKO"

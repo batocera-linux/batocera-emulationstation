@@ -7,13 +7,13 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: Catalan; Valencian\n"
 "Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po"
+"X-Loco-Parser: loco_parse_po\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ACTUALITZACIÓ DISPONIBLE"
@@ -502,17 +502,17 @@ msgstr "SISTEMES AGRUPATS"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "CREAR COL·LECCIÓ PERSONALITZADA"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "CREAR NOVA COL·LECCIÓ PERSONALITZADA A PARTIR DEL TEMA"
+msgid "New Collection Name"
+msgstr "Nom de la nova col·lecció"
 
-msgid "SELECT THEME FOLDER"
-msgstr "SELECCIONAR LA CARPETA DEL TEMA"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CREAR NOVA COL·LECCIÓ EDITABLE"
-
-msgid "New Collection Name"
-msgstr "Nom de la nova col·lecció"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "CREAR NOVA COL·LECCIÓ DINÀMICA"
@@ -550,8 +550,11 @@ msgstr "ON HO VAS DEIXAR"
 msgid "START ON GAMELIST"
 msgstr "INICIAR A LA GAMELIST"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "AGRUPAR COL·LECCIONS PERSONALITZADES SENSE TEMA"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR EL NOM DEL SISTEMA A LES COL·LECCIONS"
@@ -842,8 +845,8 @@ msgstr "MAPATGE DE COMANDAMENTS"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
-" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "ES FARÀ EL MAPATGE D'UN COMANDAMENT. AQUEST ES BASA EN LA POSICIÓ DELS "
 "BOTONS, NO EN LA SEVA ETIQUETA FÍSICA. SI NO DISPOSA D'UN BOTÓ ESPECIAL PER "
@@ -1449,6 +1452,15 @@ msgstr "RODA"
 msgid "MARQUEE"
 msgstr "MARQUESINA"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "OBTENIR MULTIMÈDIA DE"
 
@@ -1478,6 +1490,9 @@ msgstr "MANUAL"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTOS PAD-A-TECLA"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1790,8 +1805,29 @@ msgstr "FORMATAR UN DISC"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "NETEJAR GAMELISTS I ELIMINAR CONTINGUTS NO USATS"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Netejant"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "REINICIAR EXTENSIONS D'ARXIU"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "RE-DETECTAR TOTS ELS IDIOMES/REGIONS DELS JOCS"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "TROBAR TOTS ELS JOCS AMB NETPLAY/RETROACHIEVEMENTS"
 
 msgid "CLEAR CACHES"
 msgstr "NETEJAR MEMÒRIA CAU"
@@ -1801,15 +1837,6 @@ msgstr "CONSTRUIR MEMÒRIA CAU D'IMATGES"
 
 msgid "Building image cache"
 msgstr "Construïnt memòria cau d'imatges"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "REINICIAR EXTENSIONS D'ARXIU"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "RE-DETECTAR TOTS ELS IDIOMES/REGIONS DELS JOCS"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TROBAR TOTS ELS JOCS AMB NETPLAY/RETROACHIEVEMENTS"
 
 msgid "DATA MANAGEMENT"
 msgstr "ADMINISTRADOR DE DADES"
@@ -2192,6 +2219,55 @@ msgstr "CONJUNT DE DECORACIONS"
 msgid "Current setting"
 msgstr "Ajust actual"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "ESTATS DESATS"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "AUTO DESAR/CARREGAR"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Carregar últim estat desat al iniciar un joc i desar estat al treure'l."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ESTATS DESATS INCREMENTALS"
+
+msgid "INCREMENT PER SAVE"
+msgstr "INCREMENT PER DESAT"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "No sobreescriure vells estats desats; sempre crear-n'hi de nous."
+
+msgid "INCREMENT SLOT"
+msgstr "INCREMENTAR RANURA"
+
+msgid "Increment slot on a new game."
+msgstr "Incrementar ranura a un nou joc."
+
+msgid "DO NOT INCREMENT"
+msgstr "NO INCREMENTAR"
+
+msgid "Use current slot on a new game."
+msgstr "Usar la ranura actual a un nou joc."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "MOSTRAR ADMINISTRADOR D'ESTATS DESATS"
+
+msgid "ALWAYS"
+msgstr "SEMPRE"
+
+msgid "IF NOT EMPTY"
+msgstr "SI NO ESTÀ BUIT"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Mostrar administrador d'estat desat abans d’iniciar un joc."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "AJUSTOS GLOBALS PER DEFECTE"
 
@@ -2288,49 +2364,6 @@ msgstr "PAUSAR AL TRADUÏR UNA PANTALLA"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTOCONFIGURAR COMANDAMENTS"
 
-msgid "SAVESTATES"
-msgstr "ESTATS DESATS"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "AUTO DESAR/CARREGAR"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Carregar últim estat desat al iniciar un joc i desar estat al treure'l."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ESTATS DESATS INCREMENTALS"
-
-msgid "INCREMENT PER SAVE"
-msgstr "INCREMENT PER DESAT"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "No sobreescriure vells estats desats; sempre crear-n'hi de nous."
-
-msgid "INCREMENT SLOT"
-msgstr "INCREMENTAR RANURA"
-
-msgid "Increment slot on a new game."
-msgstr "Incrementar ranura a un nou joc."
-
-msgid "DO NOT INCREMENT"
-msgstr "NO INCREMENTAR"
-
-msgid "Use current slot on a new game."
-msgstr "Usar la ranura actual a un nou joc."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "MOSTRAR ADMINISTRADOR D'ESTATS DESATS"
-
-msgid "ALWAYS"
-msgstr "SEMPRE"
-
-msgid "IF NOT EMPTY"
-msgstr "SI NO ESTÀ BUIT"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Mostrar administrador d'estat desat abans d’iniciar un joc."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ADMINISTRACIÓ AVANÇADA PER SISTEMA"
 
@@ -2403,6 +2436,9 @@ msgstr "MOSTRAR ICONA D'ESTAT DESAT"
 msgid "SHOW MANUAL ICON"
 msgstr "MOSTRAR ICONA MANUAL"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOM D’ARXIU ENLLOC DEL NOM DEL JOC"
 
@@ -2450,6 +2486,9 @@ msgstr "ICONA"
 
 msgid "ICON AND TEXT"
 msgstr "ICONA I TEXT"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORAR ARTICLES DETERMINATS A L'ORDENAR"
@@ -2799,11 +2838,11 @@ msgid "INVALID CONTENT"
 msgstr "CONTINGUT INVÀLID"
 
 msgid ""
-"A valid account is required. Please register an account on https:"
-"//retroachievements.org"
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
 msgstr ""
-"Es requereix un compte vàlid. Si us plau enregistri'n un de nou a https:"
-"//retroachievements.org"
+"Es requereix un compte vàlid. Si us plau enregistri'n un de nou a https://"
+"retroachievements.org"
 
 msgid "Searching"
 msgstr "Cercant"
@@ -3000,8 +3039,11 @@ msgstr "PISTOLA DE LLUM"
 msgid "STEERING WHEEL"
 msgstr "VOLANT"
 
-msgid "HAS MEDIAS"
-msgstr "TÉ CONTINGUTS"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "OBTENINT CONTINGUTS"
@@ -3198,6 +3240,12 @@ msgstr "NO S'HA DETECTAT CAP CONTROLADOR"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PREMEU UN BOTÓ DEL VOSTRE DISPOSITIU PER CONFIGURAR-LO."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "DESCARTA ELS CANVIS"
 
@@ -3285,3 +3333,15 @@ msgstr "LECTOR DE PANTALLA HABILITAT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTOR DE PANTALLA DESHABILITAT"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "CREAR NOVA COL·LECCIÓ PERSONALITZADA A PARTIR DEL TEMA"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "SELECCIONAR LA CARPETA DEL TEMA"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "AGRUPAR COL·LECCIONS PERSONALITZADES SENSE TEMA"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "TÉ CONTINGUTS"

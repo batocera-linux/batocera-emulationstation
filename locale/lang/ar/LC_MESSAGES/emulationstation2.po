@@ -530,17 +530,17 @@ msgstr "أنظمة مجمّعة"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "إنشاء مجموعة مخصصه"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "إنشاء مجموعة مخصصه جديدة من السمة"
+msgid "New Collection Name"
+msgstr "اسم جديد للمجموعة"
 
-msgid "SELECT THEME FOLDER"
-msgstr "قم بإختيار مجلد السمة"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "إنشاء مجموعة جديدة قابلة للتعديل"
-
-msgid "New Collection Name"
-msgstr "اسم جديد للمجموعة"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "إنشاء مجموعة مرنة جديدة"
@@ -578,8 +578,11 @@ msgstr "آخر نظام تم تحديده"
 msgid "START ON GAMELIST"
 msgstr "بدء مع قائمة الألعاب"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "جمع المجموعات المخصصه الغير موسومه"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "عرض اسم النظام في المجموعات"
@@ -1476,6 +1479,15 @@ msgstr "عجلة"
 msgid "MARQUEE"
 msgstr "شاشة أسمية"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "جلب لـِ"
 
@@ -1505,6 +1517,9 @@ msgstr "الكتيب"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "إعدادات وحدة التحكم إلى لوحة المفاتيح"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "الجالِب"
@@ -1815,8 +1830,29 @@ msgstr "تهيئة القرص"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "تنقية قائمة الألعاب وإزالة الوسائط الغير مستعملة"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "تنظيف"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "اعادة تعيين امتدادات الملف"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "إعادة اكتشاف لغة و منطقة الألعاب"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "إيجاد كل ألعاب النت/الإنجازات"
 
 msgid "CLEAR CACHES"
 msgstr "تفريغ التخزين المؤقت"
@@ -1826,15 +1862,6 @@ msgstr "بناء  التخزين المؤقت للصور"
 
 msgid "Building image cache"
 msgstr "بناء التخزين المؤقت للصور"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "اعادة تعيين امتدادات الملف"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "إعادة اكتشاف لغة و منطقة الألعاب"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "إيجاد كل ألعاب النت/الإنجازات"
 
 msgid "DATA MANAGEMENT"
 msgstr "تسيير البيانات"
@@ -2203,6 +2230,54 @@ msgstr "اختيار التزيين"
 msgid "Current setting"
 msgstr "الإعدادات الحالية"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "حالات الحفظ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "الحفظ/التحميل التلقائي"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "تشغيل آخر حالة حفظ للعبة حين تشغيلها وحفظ الحالة عند الخروج منها."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "حالات حفظ متزايدة"
+
+msgid "INCREMENT PER SAVE"
+msgstr "زيادة حسب حالة الحفظ"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "عدم استبدال حالات الحفظ القديمة، دوما أنشئ حالات جديدة."
+
+msgid "INCREMENT SLOT"
+msgstr "زيادة الفتحة"
+
+msgid "Increment slot on a new game."
+msgstr "زيادة فُتحة عند بدئ لُعبة جديدة."
+
+msgid "DO NOT INCREMENT"
+msgstr "لا تُزايِد"
+
+msgid "Use current slot on a new game."
+msgstr "استعمل الفُتحة الحالية عند بدئ لُعبة جديدة."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "عرض مدير حالات الحفظ"
+
+msgid "ALWAYS"
+msgstr "دائماً"
+
+msgid "IF NOT EMPTY"
+msgstr "ان لم تكن فارغة"
+
+msgid "Display savestate manager before launching a game."
+msgstr "عرض مدير حالات الحفظ قبل تشغيل لعبة."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "الإعدادات العامة الافتراضية"
 
@@ -2295,48 +2370,6 @@ msgstr "توقف مؤقت للشاشة المترجمة"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "إعداد تلقائي لجهاز التحكم"
 
-msgid "SAVESTATES"
-msgstr "حالات الحفظ"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "الحفظ/التحميل التلقائي"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "تشغيل آخر حالة حفظ للعبة حين تشغيلها وحفظ الحالة عند الخروج منها."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "حالات حفظ متزايدة"
-
-msgid "INCREMENT PER SAVE"
-msgstr "زيادة حسب حالة الحفظ"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "عدم استبدال حالات الحفظ القديمة، دوما أنشئ حالات جديدة."
-
-msgid "INCREMENT SLOT"
-msgstr "زيادة الفتحة"
-
-msgid "Increment slot on a new game."
-msgstr "زيادة فُتحة عند بدئ لُعبة جديدة."
-
-msgid "DO NOT INCREMENT"
-msgstr "لا تُزايِد"
-
-msgid "Use current slot on a new game."
-msgstr "استعمل الفُتحة الحالية عند بدئ لُعبة جديدة."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "عرض مدير حالات الحفظ"
-
-msgid "ALWAYS"
-msgstr "دائماً"
-
-msgid "IF NOT EMPTY"
-msgstr "ان لم تكن فارغة"
-
-msgid "Display savestate manager before launching a game."
-msgstr "عرض مدير حالات الحفظ قبل تشغيل لعبة."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "إعدادات متقدمة لكل نظام"
 
@@ -2409,6 +2442,9 @@ msgstr "عرض أيقونة حالة الحفظ"
 msgid "SHOW MANUAL ICON"
 msgstr "إظهار أيقونة دليل الاستخدام"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "عرض اسم الملف في القائمة"
 
@@ -2456,6 +2492,9 @@ msgstr "أيقونة"
 
 msgid "ICON AND TEXT"
 msgstr "أيقونة ونَص"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "تجاهل الأغراض الرئيسية عند الفرز"
@@ -3018,8 +3057,11 @@ msgstr "المسدس"
 msgid "STEERING WHEEL"
 msgstr "عجلة القيادة"
 
-msgid "HAS MEDIAS"
-msgstr "لديها وسائط"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "جلب"
@@ -3224,6 +3266,12 @@ msgstr "لم يتم اكتشاف أي يد تحكم"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "اختر زر من لوحة المفاتيح أو ذراع التحكم وابقى ضاغطا عليه للتعديل."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "تجاهل التغييرات"
 
@@ -3331,3 +3379,15 @@ msgstr "قارئ الشاشة مفعل"
 
 msgid "SCREEN READER DISABLED"
 msgstr "قارئ الشاشة معطل"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "إنشاء مجموعة مخصصه جديدة من السمة"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "قم بإختيار مجلد السمة"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "جمع المجموعات المخصصه الغير موسومه"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "لديها وسائط"

@@ -498,17 +498,17 @@ msgstr "СГРУППИРОВАННЫЕ СИСТЕМЫ"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "СОЗДАТЬ СВОЮ КОЛЛЕКЦИЮ"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "СОЗДАТЬ КОЛЛЕКЦИЮ ИЗ ТЕМЫ"
+msgid "New Collection Name"
+msgstr "Название новой коллекции"
 
-msgid "SELECT THEME FOLDER"
-msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ"
-
-msgid "New Collection Name"
-msgstr "Название новой коллекции"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "СОЗДАТЬ ДИНАМИЧЕСКУЮ КОЛЛЕКЦИЮ"
@@ -546,8 +546,11 @@ msgstr "ЗАПОМНИТЬ ПОСЛЕДНЮЮ"
 msgid "START ON GAMELIST"
 msgstr "НАЧИНАТЬ СО СПИСКА ИГР"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
@@ -1444,6 +1447,15 @@ msgstr "КОЛЕСО"
 msgid "MARQUEE"
 msgstr "БАНЕР"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "ЗАГРУЗКА ДЛЯ"
 
@@ -1473,6 +1485,9 @@ msgstr "РУКОВОДСТВО"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "НАСТРОЙКИ PADTOKEY"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "СКРАПЕР"
@@ -1784,8 +1799,29 @@ msgstr "ФОРМАТИРОВАТЬ"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТЬ СПИСОК ИГР И УДАЛИТЬ НЕ ИСПОЛЬЗУЕМЫЕ МЕДИА"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Очистка"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "НАЙТИ ВСЕ ИГРЫ С NETPLAY/ДОСТИЖЕНИЯМИ"
 
 msgid "CLEAR CACHES"
 msgstr "ОЧИСТИТЬ КЭШ"
@@ -1795,15 +1831,6 @@ msgstr "СОЗДАТЬ КЭШ ИЗОБРАЖЕНИЙ"
 
 msgid "Building image cache"
 msgstr "Создание кэша изображений"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "НАЙТИ ВСЕ ИГРЫ С NETPLAY/ДОСТИЖЕНИЯМИ"
 
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
@@ -2176,6 +2203,55 @@ msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
 msgid "Current setting"
 msgstr "Текущая настройка"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
+
+msgid "INCREMENT PER SAVE"
+msgstr "УВЕЛИЧЕНИЕ СОХРАНЕНИЙ"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Никогда не перезаписывает старые сохранения, всегда создаёт новые."
+
+msgid "INCREMENT SLOT"
+msgstr "УВЕЛИЧЕНИЕ СЛОТА"
+
+msgid "Increment slot on a new game."
+msgstr "Увеличение слота в новой игре."
+
+msgid "DO NOT INCREMENT"
+msgstr "НЕ УВЕЛИЧИВАТЬ"
+
+msgid "Use current slot on a new game."
+msgstr "Использовать текущий слот в новой игре."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+
+msgid "ALWAYS"
+msgstr "ВСЕГДА"
+
+msgid "IF NOT EMPTY"
+msgstr "ЕСЛИ ИМЕЕТСЯ"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "СТАНДАРТНЫЕ ГЛОБАЛЬНЫЕ НАСТРОЙКИ"
 
@@ -2269,49 +2345,6 @@ msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"
 
-msgid "SAVESTATES"
-msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
-
-msgid "INCREMENT PER SAVE"
-msgstr "УВЕЛИЧЕНИЕ СОХРАНЕНИЙ"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Никогда не перезаписывает старые сохранения, всегда создаёт новые."
-
-msgid "INCREMENT SLOT"
-msgstr "УВЕЛИЧЕНИЕ СЛОТА"
-
-msgid "Increment slot on a new game."
-msgstr "Увеличение слота в новой игре."
-
-msgid "DO NOT INCREMENT"
-msgstr "НЕ УВЕЛИЧИВАТЬ"
-
-msgid "Use current slot on a new game."
-msgstr "Использовать текущий слот в новой игре."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
-
-msgid "ALWAYS"
-msgstr "ВСЕГДА"
-
-msgid "IF NOT EMPTY"
-msgstr "ЕСЛИ ИМЕЕТСЯ"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
 
@@ -2384,6 +2417,9 @@ msgstr "ПОКАЗАТЬ ИКОНКУ СОХРАНЕНИЙ В СПИСКАХ"
 msgid "SHOW MANUAL ICON"
 msgstr "ПОКАЗАТЬ ИКОНКУ РУКОВОДСТВА В СПИСКАХ"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
 
@@ -2431,6 +2467,9 @@ msgstr "ИКОНКА"
 
 msgid "ICON AND TEXT"
 msgstr "ИКОНКА И ТЕКСТ"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКИ"
@@ -2984,8 +3023,11 @@ msgstr "СВЕТОВОЙ ПИСТОЛЕТ"
 msgid "STEERING WHEEL"
 msgstr "РУЛЬ"
 
-msgid "HAS MEDIAS"
-msgstr "С МЕДИА"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "ЗАГРУЗКА"
@@ -3184,6 +3226,12 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ НАСТРОЙКИ."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
 
@@ -3276,6 +3324,18 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "СОЗДАТЬ КОЛЛЕКЦИЮ ИЗ ТЕМЫ"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "С МЕДИА"
 
 #~ msgctxt "joystick"
 #~ msgid "UP"

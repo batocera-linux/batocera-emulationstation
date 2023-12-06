@@ -493,17 +493,17 @@ msgstr "已分組的遊戲平台"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "建立自定義合輯"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "從佈景主題建立新的自定義合輯"
+msgid "New Collection Name"
+msgstr "新的合輯名稱"
 
-msgid "SELECT THEME FOLDER"
-msgstr "選擇佈景主題資料夾"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "建立新的可編輯合輯"
-
-msgid "New Collection Name"
-msgstr "新的合輯名稱"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "建立新的動態合輯"
@@ -541,8 +541,11 @@ msgstr "恢復最後選擇的"
 msgid "START ON GAMELIST"
 msgstr "啟動至遊戲清單"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "對沒有主題的自定義合輯進行分組"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合輯中顯示遊戲平台名稱"
@@ -1438,6 +1441,15 @@ msgstr "商標"
 msgid "MARQUEE"
 msgstr "跑馬燈"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "搜刮給"
 
@@ -1467,6 +1479,9 @@ msgstr "使用手冊"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "手把轉鍵盤設定"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "資料搜刮器"
@@ -1776,8 +1791,29 @@ msgstr "格式化磁碟"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "清理遊戲清單 & 移除未使用的媒體"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "清理中"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "重設檔案類型"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "重新偵測遊戲語言/地區"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "尋找所有提供多人遊戲/成就的遊戲"
 
 msgid "CLEAR CACHES"
 msgstr "清除快取"
@@ -1787,15 +1823,6 @@ msgstr "建立圖片快取"
 
 msgid "Building image cache"
 msgstr "正在建立圖片快取"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "重設檔案類型"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "重新偵測遊戲語言/地區"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "尋找所有提供多人遊戲/成就的遊戲"
 
 msgid "DATA MANAGEMENT"
 msgstr "資料管理"
@@ -2156,6 +2183,54 @@ msgstr "裝飾框集"
 msgid "Current setting"
 msgstr "目前設定"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "即時存檔"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "自動儲存/載入"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "在遊戲啟動時載入最後的即時存檔，並在退出遊戲時儲存即時存檔。"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "遞增即時存檔"
+
+msgid "INCREMENT PER SAVE"
+msgstr "依存檔遞增"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "永遠不要覆寫舊的即時存檔，總是儲存為新的。"
+
+msgid "INCREMENT SLOT"
+msgstr "增加存檔槽"
+
+msgid "Increment slot on a new game."
+msgstr "開始新遊戲時才增加存檔槽。"
+
+msgid "DO NOT INCREMENT"
+msgstr "不要增加"
+
+msgid "Use current slot on a new game."
+msgstr "將目前的存檔槽用於新遊戲。"
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "顯示即時存檔管理員"
+
+msgid "ALWAYS"
+msgstr "總是"
+
+msgid "IF NOT EMPTY"
+msgstr "若不為空時"
+
+msgid "Display savestate manager before launching a game."
+msgstr "在遊戲啟動前顯示即時存檔管理員。"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "預設全域設定"
 
@@ -2247,48 +2322,6 @@ msgstr "在已翻譯的畫面上暫停"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自動設定遊戲控制器"
 
-msgid "SAVESTATES"
-msgstr "即時存檔"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "自動儲存/載入"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "在遊戲啟動時載入最後的即時存檔，並在退出遊戲時儲存即時存檔。"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "遞增即時存檔"
-
-msgid "INCREMENT PER SAVE"
-msgstr "依存檔遞增"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "永遠不要覆寫舊的即時存檔，總是儲存為新的。"
-
-msgid "INCREMENT SLOT"
-msgstr "增加存檔槽"
-
-msgid "Increment slot on a new game."
-msgstr "開始新遊戲時才增加存檔槽。"
-
-msgid "DO NOT INCREMENT"
-msgstr "不要增加"
-
-msgid "Use current slot on a new game."
-msgstr "將目前的存檔槽用於新遊戲。"
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "顯示即時存檔管理員"
-
-msgid "ALWAYS"
-msgstr "總是"
-
-msgid "IF NOT EMPTY"
-msgstr "若不為空時"
-
-msgid "Display savestate manager before launching a game."
-msgstr "在遊戲啟動前顯示即時存檔管理員。"
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "遊戲平台個別進階設定"
 
@@ -2361,6 +2394,9 @@ msgstr "在清單中顯示存檔狀態旗幟"
 msgid "SHOW MANUAL ICON"
 msgstr "在清單中顯示手冊圖示"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在清單中顯示檔案名稱"
 
@@ -2408,6 +2444,9 @@ msgstr "圖示"
 
 msgid "ICON AND TEXT"
 msgstr "圖示與文字"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "排序時忽略冠詞"
@@ -2949,8 +2988,11 @@ msgstr "光線槍"
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
-msgstr "含有媒體"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "搜刮中"
@@ -3145,6 +3187,12 @@ msgstr "沒有偵測到遊戲手把"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "長按您要設定的控制器上的任一按鈕。"
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "放棄修改"
 
@@ -3227,3 +3275,15 @@ msgstr "螢幕閱讀器已啟用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "螢幕閱讀器已停用"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "從佈景主題建立新的自定義合輯"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "選擇佈景主題資料夾"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "對沒有主題的自定義合輯進行分組"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "含有媒體"

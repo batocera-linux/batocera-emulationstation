@@ -497,17 +497,17 @@ msgstr "GRUPLANDIRILMIŞ SİSTEMLER"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "ÖZEL KOLEKSİYON OLUŞTUR"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "TEMA İLE YENİ ÖZEL KOLEKSİYON OLUŞTUR"
+msgid "New Collection Name"
+msgstr "Yeni Koleksiyon İsimi"
 
-msgid "SELECT THEME FOLDER"
-msgstr "TEMA KLASÖRÜNÜ SEÇ"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "DÜZENLENEBİLİR YENİ KOLEKSİYON OLUŞTUR"
-
-msgid "New Collection Name"
-msgstr "Yeni Koleksiyon İsimi"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "YENİ DİNAMİK KOLEKSİYON OLUŞTUR"
@@ -545,8 +545,11 @@ msgstr "SON SEÇİLENİ GERİ GETİR"
 msgid "START ON GAMELIST"
 msgstr "OYUN LİSTESİNDE BAŞLAT"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "TEMASIZ ÖZEL KOLEKSİYONLARI GURUPLANDIR"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "KOLEKSİYONDAKİ SİSTEM İSMİNİ GÖSTER"
@@ -1443,6 +1446,15 @@ msgstr "TEKERLEK"
 msgid "MARQUEE"
 msgstr "KAYAN YAZI"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "İÇİN SCRAPE"
 
@@ -1472,6 +1484,9 @@ msgstr "ELLE"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY AYARLARI"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1782,8 +1797,29 @@ msgstr "DİSKİ BİÇİMLENDİR"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "OYUN LİSTESİNİ TEMİZLE & KULLANILMAYAN MEDYALARI KALDIR"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Temizleniyor"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "DOSYA UZANTILARINI RESETLE"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "OYUNLARIN DİL/BÖLGE SİNİ TEKRAR ALGILA"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "TÜM OYUNLARIN NETPLAY/BAŞARIMLARI BUL"
 
 msgid "CLEAR CACHES"
 msgstr "ÖNBELLEĞİ TEMİZLE"
@@ -1793,15 +1829,6 @@ msgstr "GÖRÜNTÜ ÖNBELLEĞİ OLUŞTUR"
 
 msgid "Building image cache"
 msgstr "Görüntü önbelleği oluşturuluyor"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "DOSYA UZANTILARINI RESETLE"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "OYUNLARIN DİL/BÖLGE SİNİ TEKRAR ALGILA"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "TÜM OYUNLARIN NETPLAY/BAŞARIMLARI BUL"
 
 msgid "DATA MANAGEMENT"
 msgstr "VERİ YÖNETİMİ"
@@ -2182,6 +2209,55 @@ msgstr "DEKORASYON SETİ"
 msgid "Current setting"
 msgstr "Mevcut ayarlar"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "KAYITYERLERİ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "OTO KAYDET/YÜKLE"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Oyun başlatıldığında en son kayıtyeri'ni yükle ve oyundan çıkarken kaydet."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ARTAN KAYITYERLERİ"
+
+msgid "INCREMENT PER SAVE"
+msgstr "KAYIT BAŞINA ARTTIR"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Eski kayıtyeri üzerine asla yazma, her zaman yeni yarat."
+
+msgid "INCREMENT SLOT"
+msgstr "ARTAN YUVA"
+
+msgid "Increment slot on a new game."
+msgstr "Yeni oyunda yuva'yı arttır."
+
+msgid "DO NOT INCREMENT"
+msgstr "ARTTIRMA"
+
+msgid "Use current slot on a new game."
+msgstr "Yeni oyunda mevcut yuvayı kullan."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "KAYITYERİ YÖNETİCİSİNİ GÖSTER"
+
+msgid "ALWAYS"
+msgstr "HER ZAMAN"
+
+msgid "IF NOT EMPTY"
+msgstr "BOŞ DEĞİLSE"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Oyunu yüklemeden önce kayıtyeri yöneticisini göster."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "VARSAYILAN GENEL AYARLAR"
 
@@ -2275,49 +2351,6 @@ msgstr "ÇEVİRİLEN EKRANDA BEKLET"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "KONTROL AYGITILARINI OTOMATİK YAPILANDIR"
 
-msgid "SAVESTATES"
-msgstr "KAYITYERLERİ"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "OTO KAYDET/YÜKLE"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Oyun başlatıldığında en son kayıtyeri'ni yükle ve oyundan çıkarken kaydet."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ARTAN KAYITYERLERİ"
-
-msgid "INCREMENT PER SAVE"
-msgstr "KAYIT BAŞINA ARTTIR"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Eski kayıtyeri üzerine asla yazma, her zaman yeni yarat."
-
-msgid "INCREMENT SLOT"
-msgstr "ARTAN YUVA"
-
-msgid "Increment slot on a new game."
-msgstr "Yeni oyunda yuva'yı arttır."
-
-msgid "DO NOT INCREMENT"
-msgstr "ARTTIRMA"
-
-msgid "Use current slot on a new game."
-msgstr "Yeni oyunda mevcut yuvayı kullan."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "KAYITYERİ YÖNETİCİSİNİ GÖSTER"
-
-msgid "ALWAYS"
-msgstr "HER ZAMAN"
-
-msgid "IF NOT EMPTY"
-msgstr "BOŞ DEĞİLSE"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Oyunu yüklemeden önce kayıtyeri yöneticisini göster."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "HER SİSTEM İÇİN GELİŞMİŞ AYARLAR"
 
@@ -2390,6 +2423,9 @@ msgstr "ANLIK GÖRÜNTÜ LİSTESİNDE BAYRAKLARI GÖSTER"
 msgid "SHOW MANUAL ICON"
 msgstr "LİSTEDE KLAVUZ SİMGELERİNİ GÖSTER"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "LİSTEDE DOSYA İSİMLERİNİ GÖSTER"
 
@@ -2437,6 +2473,9 @@ msgstr "SİMGE"
 
 msgid "ICON AND TEXT"
 msgstr "SİMGE VE METİN"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "SIRALAMA SIRASINDA BAŞLICA MAKALELERİ GÖRMEZDEN GEL"
@@ -2987,8 +3026,11 @@ msgstr "LIGHTGUN"
 msgid "STEERING WHEEL"
 msgstr "DİREKSİYON"
 
-msgid "HAS MEDIAS"
-msgstr "MEDYAYA SAHİP"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "SCRAPE LENİYOR"
@@ -3185,6 +3227,12 @@ msgstr "GAMEPAD BULUNAMADI"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "CİHAZI YAPILANDIRMAK İÇİN BİR TUŞA BASILI TUT."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "DEĞİŞİKLİKLERİ KAYDETME"
 
@@ -3272,6 +3320,18 @@ msgstr "EKRAN OKUYUCUSU AKTİF EDİLDİ"
 
 msgid "SCREEN READER DISABLED"
 msgstr "EKRAN OKUYUCUSU PASİF EDİLDİ"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "TEMA İLE YENİ ÖZEL KOLEKSİYON OLUŞTUR"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "TEMA KLASÖRÜNÜ SEÇ"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "TEMASIZ ÖZEL KOLEKSİYONLARI GURUPLANDIR"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "MEDYAYA SAHİP"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "EMULATIONSTATION DA A/B BUTONLARIN YERİNİ DEĞİŞTİR"

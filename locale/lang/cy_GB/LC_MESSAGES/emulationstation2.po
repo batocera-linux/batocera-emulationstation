@@ -497,17 +497,17 @@ msgstr "SYSTEMAU GRWPEDIG"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "CREU CASGLIAD WEDI'I ADDASU"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "CREU CASGLIAD NEWYDD WEDI'I ADDASU O THEMA"
+msgid "New Collection Name"
+msgstr "Enw Casgliad Newydd"
 
-msgid "SELECT THEME FOLDER"
-msgstr "DEWIS FFOLDER THEMA"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CREU CASGLIAD NEWYDD SYDD GALLU CAEL EI GOLYGU"
-
-msgid "New Collection Name"
-msgstr "Enw Casgliad Newydd"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "CREU CASGLIAD DYNAMIG NEWYDD"
@@ -545,8 +545,11 @@ msgstr "ADFER DEWIS DIWETHAF"
 msgid "START ON GAMELIST"
 msgstr "DECHRAU AR RHESTR GEMAU"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRWPIO CASGLIADAU WEDI'I ADDASU DI-THEMA"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "DANGOS ENW'R SYSTEM MEWN CASGLIADAU"
@@ -1434,6 +1437,15 @@ msgstr "OLWYN"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr ""
 
@@ -1462,6 +1474,9 @@ msgid "MANUAL"
 msgstr ""
 
 msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "ACCOUNT"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1770,8 +1785,29 @@ msgstr "FFORMATIO DISG"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "GLANHAU RHESTR GEMAU & DIDDYMU CYFRYNGAU HEB EI DDEFNYDDIO"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Yn glanhau "
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "AILOSOD ESTYNIADAU FFEIL"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "AIL-GANFOD RHANBARTH/IEITHOEDD GEMAU"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "DOD O HYD I BOB GEM GYDA RHWYDWAITH / CYFLAWNIADAU"
 
 msgid "CLEAR CACHES"
 msgstr "CLIRIO COF DROS DRO"
@@ -1781,15 +1817,6 @@ msgstr "ADEILADU DELWEDD COF DROS DRO"
 
 msgid "Building image cache"
 msgstr "Adeiladu delwedd cof dros dro"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "AILOSOD ESTYNIADAU FFEIL"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "AIL-GANFOD RHANBARTH/IEITHOEDD GEMAU"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "DOD O HYD I BOB GEM GYDA RHWYDWAITH / CYFLAWNIADAU"
 
 msgid "DATA MANAGEMENT"
 msgstr "RHEOLI DATA"
@@ -2147,6 +2174,54 @@ msgstr ""
 msgid "Current setting"
 msgstr ""
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "INCREMENT PER SAVE"
+msgstr ""
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "Display savestate manager before launching a game."
+msgstr ""
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
@@ -2238,48 +2313,6 @@ msgstr "SAIB AR SGRIN CYFIEITHU"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AWTO-TRAWSWEDDU RHEOLYDDION"
 
-msgid "SAVESTATES"
-msgstr ""
-
-msgid "AUTO SAVE/LOAD"
-msgstr ""
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
-msgid "INCREMENT PER SAVE"
-msgstr ""
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
-
-msgid "INCREMENT SLOT"
-msgstr ""
-
-msgid "Increment slot on a new game."
-msgstr ""
-
-msgid "DO NOT INCREMENT"
-msgstr ""
-
-msgid "Use current slot on a new game."
-msgstr ""
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr ""
-
-msgid "IF NOT EMPTY"
-msgstr ""
-
-msgid "Display savestate manager before launching a game."
-msgstr ""
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "FFURFWEDDU UWCH I BOB SYSTEM"
 
@@ -2352,6 +2385,9 @@ msgstr ""
 msgid "SHOW MANUAL ICON"
 msgstr ""
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "DANGOS ENWAU FFEILIAU MEWN RHESTR"
 
@@ -2399,6 +2435,9 @@ msgstr "EICON"
 
 msgid "ICON AND TEXT"
 msgstr "EICON A THESTUN"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr ""
@@ -2955,7 +2994,10 @@ msgstr ""
 msgid "STEERING WHEEL"
 msgstr ""
 
-msgid "HAS MEDIAS"
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -3157,6 +3199,12 @@ msgstr "DIM PADIAU-GÊM WEDI CANFOD"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "DALWCH BOTWM AR EICH DYFAIS I'W GADARNHAU."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "TAFLU NEWIDIADAU"
 
@@ -3264,6 +3312,15 @@ msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "CREU CASGLIAD NEWYDD WEDI'I ADDASU O THEMA"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "DEWIS FFOLDER THEMA"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "GRWPIO CASGLIADAU WEDI'I ADDASU DI-THEMA"
 
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "CYFNEWID BOTYMAU A/B YN EMULATIONSTATION"
