@@ -1274,14 +1274,23 @@ void SystemView::setExtraRequired(int cursor, bool required)
 
 void SystemView::preloadExtraNeighbours(int cursor)
 {
-	auto setTexture = [](GuiComponent* extra, const std::function<void(std::shared_ptr<TextureResource>)>& func)
+	auto ensureTexture = [](GuiComponent* extra, bool reload)
 	{
-		if (extra->isKindOf<ImageComponent>())
-		{
-			auto tex = ((ImageComponent*)extra)->getTexture();
-			if (tex != nullptr)
-				func(tex);
-		}
+		if (extra == nullptr)
+			return;
+
+		ImageComponent* image = dynamic_cast<ImageComponent*>(extra);
+		if (image == nullptr)
+			return;
+		
+		auto tex = image->getTexture();
+		if (tex == nullptr)
+			return;
+
+		if (reload)
+			tex->reload();
+		else
+			tex->prioritize();
 	};
 
 	// Make sure near textures are in at top position & will be released last if VRAM is required
@@ -1303,11 +1312,18 @@ void SystemView::preloadExtraNeighbours(int cursor)
 		if (index < 0)
 			index += (int)mEntries.size();
 
-		for (GuiComponent* extra : mEntries.at(index).data.backgroundExtras)
-			if (dx > 1)
-				setTexture(extra, [](std::shared_ptr<TextureResource> x) { x->reload(); });
-			else
-				setTexture(extra, [](std::shared_ptr<TextureResource> x) { x->prioritize(); });
+		Entry& entry = mEntries.at(index);
+
+		if (entry.data.logo)
+		{
+			ensureTexture(entry.data.logo.get(), dx > 1);
+
+			for (auto child : entry.data.logo->enumerateExtraChildrens())
+				ensureTexture(child, dx > 1);
+		}
+
+		for (auto extra : entry.data.backgroundExtras)
+			ensureTexture(extra, dx > 1);
 	}
 }
 

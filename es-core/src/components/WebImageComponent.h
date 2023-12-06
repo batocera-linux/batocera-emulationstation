@@ -13,7 +13,7 @@ public:
 
 	std::string getThemeTypeName() override { return "webImage"; }
 
-	void setImage(const std::string& path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo(), bool checkFileExists = true, bool allowMultiImagePlaylist = false) override;
+	void setImage(const std::string& path, bool tile = false, const MaxSizeInfo& maxSize = MaxSizeInfo::Empty, bool checkFileExists = true, bool allowMultiImagePlaylist = false) override;
 
 	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;

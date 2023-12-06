@@ -12,6 +12,8 @@
 #include "renderers/Renderer.h"
 #include "Paths.h"
 
+const MaxSizeInfo MaxSizeInfo::Empty;
+
 unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const size_t size, size_t & width, size_t & height, MaxSizeInfo* maxSize, Vector2i* baseSize, Vector2i* packedSize, int subImageIndex)
 {
 	LOG(LogDebug) << "ImageIO::loadFromMemoryRGBA32";

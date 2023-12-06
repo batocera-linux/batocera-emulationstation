@@ -58,7 +58,7 @@ public:
 	size_t height();
 	float sourceWidth();
 	float sourceHeight();
-	void setSourceSize(float width, float height);
+	bool setSourceSize(float width, float height);
 
 	bool tiled() { return mTile; }
 
@@ -66,7 +66,7 @@ public:
 		return mDataRGBA;
 	}
 
-	void setMaxSize(MaxSizeInfo maxSize);
+	void setMaxSize(const MaxSizeInfo& maxSize);
 	bool isMaxSizeValid();
 
 	void setTemporarySize(float width, float height);
