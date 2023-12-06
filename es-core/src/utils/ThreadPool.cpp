@@ -4,6 +4,8 @@
 #include <Windows.h>
 #endif
 
+#include <stdlib.h>
+
 namespace Utils
 {
 	ThreadPool::ThreadPool(int threadByCore) : mRunning(false), mWaiting(false), mNumWork(0)
