@@ -51,8 +51,8 @@ public:
 	void releaseRAM();
 
 	// Get the amount of VRAM currenty used by this texture
-	inline size_t getEstimatedVRAMUsage() { return mWidth * mHeight * 4; }
-	inline size_t getVRAMUsage() { return mTextureID != 0 || mDataRGBA != nullptr ? mWidth * mHeight * 4 : 0; }
+	inline size_t getEstimatedVRAMUsage() { return mSize.x() * mSize.y() * 4; }
+	inline size_t getVRAMUsage() { return mTextureID != 0 || mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0; }
 
 	size_t width();
 	size_t height();
@@ -66,10 +66,12 @@ public:
 		return mDataRGBA;
 	}
 
+	void setStoredSize(float width, float height);
+	void setPhysicalSize(int width, int height) { mPhysicalSize.x() = width; mPhysicalSize.y() = height; }
+
 	void setMaxSize(const MaxSizeInfo& maxSize);
 	bool isMaxSizeValid();
 
-	void setTemporarySize(float width, float height);
 
 	inline const std::string& getPath() { return mPath; };
 
@@ -92,17 +94,22 @@ private:
 	std::string		mPath;
 	unsigned int	mTextureID;
 	unsigned char*	mDataRGBA;
-	size_t			mWidth;
-	size_t			mHeight;
-	float			mSourceWidth;
-	float			mSourceHeight;
-	bool			mScalable;
 	bool			mReloadable;
 	bool			mDynamic;
 
 	MaxSizeInfo		mMaxSize;
-	Vector2i		mPackedSize;
-	Vector2i		mBaseSize;
+
+	Vector2i		mSize;
+	Vector2i		mPhysicalSize;
+
+	bool			mScalable;
+	Vector2f		mScalableMinimumSize;
+/*
+	size_t			mWidth;
+	size_t			mHeight;
+	float			mSourceWidth;
+	float			mSourceHeight;
+*/
 
 	bool			mIsExternalDataRGBA;
 };

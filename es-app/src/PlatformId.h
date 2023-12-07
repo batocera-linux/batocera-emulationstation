@@ -166,6 +166,7 @@ namespace PlatformIds
 		CAMPUTER_LYNX,
 		EPOCH_GAMEPOCKET,
 		WASM4,
+		TANDY_VIS,
 
 		TEKNOPARROT,
 

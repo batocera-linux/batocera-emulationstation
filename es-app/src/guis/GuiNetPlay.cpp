@@ -372,11 +372,6 @@ public:
 		mImage = std::make_shared<ImageComponent>(mWindow);
 		mImage->setIsLinear(true);
 
-		if (entry.fileData == nullptr)
-			mImage->setImage(":/cartridge.svg");
-		else
-			mImage->setImage(entry.fileData->getImagePath());		
-
 		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata(MetaDataId::Name) + " [" + entry.fileData->getSystemName() + "]";
 
 		mText = std::make_shared<TextComponent>(mWindow, name.c_str(), theme->Text.font, theme->Text.color);
@@ -455,6 +450,14 @@ public:
 		setRowHeight(2, mDetails->getSize().y(), false);
 
 		setSize(Vector2f(0, rowHeight));
+
+		if (entry.fileData == nullptr || !Utils::FileSystem::exists(entry.fileData->getImagePath()))
+			mImage->setImage(":/cartridge.svg");
+		else
+		{
+			mImage->setRoundCorners(0.08f);
+			mImage->setImage(entry.fileData->getImagePath());
+		}
 	}
 
 	LobbyAppEntry& getEntry() {

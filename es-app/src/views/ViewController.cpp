@@ -1377,7 +1377,14 @@ bool ViewController::hitTest(int x, int y, Transform4x4f& parentTransform, std::
 //  Skip ViewController rect
 
 	for (int i = 0; i < getChildCount(); i++)
-		ret |= getChild(i)->hitTest(x, y, trans, pResult);
+	{
+		auto child = getChild(i);
+		if (mCurrentView == nullptr || child != mCurrentView.get())
+			ret |= getChild(i)->hitTest(x, y, trans, pResult);
+	}
+
+	if (mCurrentView != nullptr)
+		mCurrentView->hitTest(x, y, trans, pResult);
 
 	return ret;
 }

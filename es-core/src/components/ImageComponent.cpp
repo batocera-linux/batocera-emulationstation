@@ -332,12 +332,20 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 
 	mLoadingTexture.reset();
 
+	MaxSizeInfo defMaxSize = MaxSizeInfo::Empty;
+	MaxSizeInfo* pDefaultMaxSize = nullptr;
+	if (maxSize.empty())
+	{
+		defMaxSize = getMaxSizeInfo();
+		pDefaultMaxSize = defMaxSize.empty() ? nullptr : &defMaxSize;
+	}
+
 	if (mPath.empty() || (checkFileExists && !ResourceManager::getInstance()->fileExists(mPath)))
 	{
 		if (mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
 		else
-			mTexture = TextureResource::get(mDefaultPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+			mTexture = TextureResource::get(mDefaultPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? pDefaultMaxSize : &maxSize);
 	} 
 	else
 	{
@@ -345,7 +353,7 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 			mTexture = mPlaylistCache[mPath];
 		else
 		{
-			std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? nullptr : &maxSize);
+			std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? pDefaultMaxSize : &maxSize);
 
 			if (mPlaylist != nullptr)
 				mPlaylistCache[mPath] = texture;
@@ -905,7 +913,7 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			if (mPlaylist == nullptr)
 			{
 				bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-				setImage(path, tile, tile ? MaxSizeInfo::Empty : getMaxSizeInfo(), false);				
+				setImage(path, tile); // , tile ? MaxSizeInfo::Empty : getMaxSizeInfo(), false);
 			}
 		}
 	}
@@ -927,7 +935,7 @@ void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 
 	auto image = mPlaylist->getNextItem();
 	if (!image.empty())
-		setImage(image, false, getMaxSizeInfo(), true, false);
+		setImage(image); // , false, getMaxSizeInfo(), true, false);
 }
 
 void ImageComponent::onShow()
@@ -938,7 +946,7 @@ void ImageComponent::onShow()
 	{
 		auto item = mPlaylist->getNextItem();
 		if (!item.empty())
-			setImage(item, false, getMaxSizeInfo(), true, false);
+			setImage(item); // , false, getMaxSizeInfo(), true, false);
 	}
 
 	GuiComponent::onShow();	
@@ -989,7 +997,7 @@ void ImageComponent::update(int deltaTime)
 			if (!item.empty())
 			{
 				// LOG(LogDebug) << "getNextItem: " << item;
-				setImage(item, false, getMaxSizeInfo(), true, false);
+				setImage(item); // , false, getMaxSizeInfo(), true, false);
 			}
 
 			mPlaylistTimer = 0.0;
@@ -1073,7 +1081,7 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "roundCorners")
 		setRoundCorners(value.f);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::String && name == "path")
-		setImage(value.s, false, getMaxSizeInfo());
+		setImage(value.s); // , false, getMaxSizeInfo()
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "saturation")
 		setSaturation(value.f);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && Utils::String::startsWith(name, "shader."))

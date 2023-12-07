@@ -142,7 +142,8 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ GAMATE, "5004" },
 	{ CREATONIC_MEGA_DUCK, "4948" },
 	{ TOMY_TUTOR, "4960" },
-	{ APF_MP_1000, "4969" }
+	{ APF_MP_1000, "4969" },
+	{ TANDY_VIS, "4982" }
 		
 	/* Non existing systems
 	{ AMIGACDTV, "129" },

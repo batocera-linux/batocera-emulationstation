@@ -31,7 +31,7 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 			unsigned int width, height;
 			if (allowAsync && Settings::getInstance()->getBool("AsyncImages") && ImageIO::loadImageSize(ResourceManager::getInstance()->getResourcePath(path), &width, &height))
 			{
-				mSourceSize = Vector2f(width, height);
+				data->setPhysicalSize(width, height);				
 
 				if (maxSize != nullptr && !maxSize->empty() && Settings::getInstance()->getBool("OptimizeVRAM"))
 				{
@@ -43,8 +43,10 @@ TextureResource::TextureResource(const std::string& path, bool tile, bool linear
 					}
 				}
 
-				data->setTemporarySize(width, height);
+				data->setStoredSize(width, height);
+
 				mSize = Vector2i(width, height);					
+				mSourceSize = Vector2f(width, height);
 			}
 			else
 			{
@@ -289,7 +291,6 @@ void TextureResource::rasterizeAt(size_t width, size_t height)
 	else
 		data = sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
 
-	// mSourceSize = Vector2f((float)width, (float)height);
 	if (data != nullptr)
 	{
 		if (data->setSourceSize((float)width, (float)height))
@@ -297,10 +298,10 @@ void TextureResource::rasterizeAt(size_t width, size_t height)
 			mSize = Vector2i(data->width(), data->height());
 			mSourceSize = Vector2f(data->sourceWidth(), data->sourceHeight());
 		}
-
+		/*
 		if (mForceLoad || (mTextureData != nullptr))
 			if (!data->isLoaded())
-				data->load();
+				data->load();*/
 	}
 }
 

@@ -83,9 +83,12 @@ unsigned char* ImageIO::loadFromMemoryRGBA32(const unsigned char * data, const s
 					if (baseSize != nullptr)
 						*baseSize = Vector2i(width, height);
 
-					if (maxSize != nullptr && maxSize->x() > 0 && maxSize->y() > 0 && (width > maxSize->x() || height > maxSize->y()))
+					size_t maxX = maxSize == nullptr ? 0 : (size_t) Math::round(maxSize->x());
+					size_t maxY = maxSize == nullptr ? 0 : (size_t) Math::round(maxSize->y());
+
+					if (maxSize != nullptr && maxX > 0 && maxY > 0 && (width > maxX || height > maxY))
 					{
-						Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxSize->x(), maxSize->y()), maxSize->externalZoom());
+						Vector2i sz = adjustPictureSize(Vector2i(width, height), Vector2i(maxX, maxY), maxSize->externalZoom());
 
 						if (sz.x() > Renderer::getScreenWidth() || sz.y() > Renderer::getScreenHeight())
 							sz = adjustPictureSize(sz, Vector2i(Renderer::getScreenWidth(), Renderer::getScreenHeight()), false);
