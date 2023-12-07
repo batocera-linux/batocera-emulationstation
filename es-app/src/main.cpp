@@ -759,6 +759,10 @@ int main(int argc, char* argv[])
 #ifdef FREEIMAGE_LIB
 	FreeImage_DeInitialise();
 #endif
+	
+	// Delete ViewController
+	while (window.peekGui() != nullptr)
+		delete window.peekGui();
 
 	window.deinit();
 

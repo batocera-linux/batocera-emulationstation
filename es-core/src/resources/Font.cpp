@@ -408,8 +408,8 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	if (glyphSize.x() > 0 && glyphSize.y() > 0)
 		Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
 
-	// update max glyph height
-	if(glyphSize.y() > mMaxGlyphHeight)
+	// update max glyph height - Limit to ascii table. If we don't it can take in the fallback fonts
+	if (glyphSize.y() > mMaxGlyphHeight && id >= 32 && id < 128)
 		mMaxGlyphHeight = glyphSize.y();
 
 	mGlyphMap[id] = pGlyph;

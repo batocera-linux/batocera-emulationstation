@@ -192,7 +192,7 @@ class RetroAchievements
 {
 public:
 	static std::string				getApiUrl(const std::string method, const std::string parameters);
-	static UserSummary				getUserSummary(const std::string userName = "", int gameCount = 500);
+	static UserSummary				getUserSummary(const std::string userName = "", int gameCount = 100);
 	static GameInfoAndUserProgress	getGameInfoAndUserProgress(int gameId, const std::string userName = "");
 	static RetroAchievementInfo		toRetroAchivementInfo(UserSummary& ret);
 
