@@ -99,6 +99,12 @@ void main(void)
 		gl_FragColor = sampleTexture(u_tex, v_tex);
 		return;
 	}
+	
+	vec2 topLeft = vec2(0.0, 0.0);
+	if (sampleTexture(u_tex, topLeft).a < 0.3) {
+		gl_FragColor = sampleTexture(u_tex, v_tex);
+		return;
+	}
 		
 	// Apply border padding
 	vec2 decal = vec2((outerBorder/2.0+outerShadow) / abs(outputSize.x), (outerBorder/2.0+outerShadow) / abs(outputSize.y));	

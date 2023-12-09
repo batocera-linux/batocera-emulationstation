@@ -73,13 +73,7 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 	{
 		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 		if (showParentFolder && mCursorStack.size())
-		{
-			SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
-			FileData* placeholder = new FolderData("..", system->isCollection() ? this->mRoot->getSystem() : system); // this->mRoot->getSystem()
-
-			// FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-			mList.add(". .", placeholder);
-		}
+			mList.add(". .", createParentFolderData());
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
@@ -132,7 +126,7 @@ void CarouselGameListView::setCursor(FileData* cursor)
 void CarouselGameListView::addPlaceholder()
 {
 	// empty list - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());	
+	FileData* placeholder = createNoEntriesPlaceholder();
 	mList.add(placeholder->getName(), placeholder);
 }
 

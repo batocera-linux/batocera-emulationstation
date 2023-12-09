@@ -58,6 +58,10 @@ public:
 	virtual bool onAction(const std::string& action) override;
 
 protected:	
+	FolderData* createParentFolderData();
+	FileData*   createNoEntriesPlaceholder();
+	FileData*   mLastParentFolderData;
+
 	void	  updateThemeExtrasBindings();
 
 	void	  updateFolderPath();

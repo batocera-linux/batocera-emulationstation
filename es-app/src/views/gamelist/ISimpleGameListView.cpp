@@ -28,7 +28,7 @@
 #include "guis/GuiGameAchievements.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
-	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
+	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr), mLastParentFolderData(nullptr),
 	mYButton("y"), mXButton("x"), mOKButton("OK"), mSelectButton("select")
 {
 	mExtraMode = ThemeData::ExtraImportType::ALL_EXTRAS;
@@ -60,6 +60,11 @@ ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool 
 
 ISimpleGameListView::~ISimpleGameListView()
 {
+	if (mLastParentFolderData != nullptr)
+	{
+		delete mLastParentFolderData;
+		mLastParentFolderData = nullptr;
+	}
 	for (auto extra : mThemeExtras)
 		delete extra;
 }
@@ -729,4 +734,60 @@ bool ISimpleGameListView::onAction(const std::string& action)
 
 	
 	return false;
+}
+
+FolderData* ISimpleGameListView::createParentFolderData()
+{
+	SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+	auto folder = new FolderData("..", system);
+	folder->setMetadata(MetaDataId::Name, ". .");
+
+	std::string dest = mRoot->getSystem()->getName();
+
+	if (mCursorStack.size() > 1)
+	{
+		std::stack<FileData*> tempStack = mCursorStack;
+		tempStack.pop();
+
+		FileData* top = tempStack.top();
+		
+		dest = top->getName();
+		folder->setMetadata(MetaDataId::Image, top->getMetadata(MetaDataId::Image));
+		folder->setMetadata(MetaDataId::Thumbnail, top->getMetadata(MetaDataId::Thumbnail));
+		folder->setMetadata(MetaDataId::Marquee, top->getMetadata(MetaDataId::Marquee));
+	}
+
+	auto backTo = Utils::String::format(_("Back to %s").c_str(), dest.c_str());
+	folder->setMetadata(MetaDataId::Desc, backTo); // _("Parent folder")
+
+	if (mCursorStack.size() <= 1)
+	{
+		auto logo = mRoot->getSystem()->getProperty("logo");
+		if (Utils::FileSystem::exists(logo.toString()))
+		{
+			folder->setMetadata(MetaDataId::Image, logo.toString());
+			folder->setMetadata(MetaDataId::Marquee, logo.toString());
+		}
+	}
+
+	if (mLastParentFolderData != nullptr)
+		delete mLastParentFolderData;
+
+	mLastParentFolderData = folder;
+
+	return folder;
+}
+
+
+FileData* ISimpleGameListView::createNoEntriesPlaceholder()
+{
+	// empty grid - add a placeholder
+	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());
+
+	if (mLastParentFolderData != nullptr)
+		delete mLastParentFolderData;
+
+	mLastParentFolderData = placeholder;
+
+	return placeholder;
 }

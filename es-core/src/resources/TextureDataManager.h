@@ -95,8 +95,7 @@ public:
 	void load(std::shared_ptr<TextureData> tex, bool block = false);
 
 	void clearQueue();
-
-	void onTextureLoaded(std::shared_ptr<TextureData> tex);
+	
 	void cleanupVRAM(std::shared_ptr<TextureData> exclude = nullptr);
 
 private:

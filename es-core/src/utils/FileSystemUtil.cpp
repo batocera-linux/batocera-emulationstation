@@ -1210,6 +1210,18 @@ namespace Utils
 			return Utils::Time::DateTime();
 		}
 
+		static void skipUtf8Bom(std::ifstream& file) 
+		{
+			if (!file.is_open())
+				return;
+
+			char bom[3];
+			if (file.read(bom, 3) && bom[0] == '\xEF' && bom[1] == '\xBB' && bom[2] == '\xBF')			
+				return;
+			
+			file.seekg(0);
+		}
+
 		std::list<std::string> readAllLines(const std::string& fileName)
 		{
 			std::list<std::string> lines;
@@ -1217,6 +1229,8 @@ namespace Utils
 			std::ifstream file(WINSTRINGW(fileName));
 			if (!file.is_open()) 
 				return lines;
+
+			skipUtf8Bom(file);
 
 			std::string line;
 			while (std::getline(file, line))
@@ -1229,6 +1243,8 @@ namespace Utils
 		std::string	readAllText(const std::string& fileName)
 		{
 			std::ifstream t(WINSTRINGW(fileName));
+
+			skipUtf8Bom(t);
 
 			std::stringstream buffer;
 			buffer << t.rdbuf();
@@ -1500,6 +1516,11 @@ namespace Utils
 		static std::set<std::string> _imageExtensions = { ".jpg", ".png", ".jpeg", ".gif" };
 		static std::set<std::string> _videoExtensions = { ".mp4", ".avi", ".mkv", ".webm" };
 		static std::set<std::string> _audioExtensions = { ".mp3", ".wav", ".ogg", ".flac", ".mod", ".xm", ".stm", ".s3m", ".far", ".it", ".669", ".mtm" };
+
+		bool isSVG(const std::string& _path)
+		{
+			return Utils::String::toLower(Utils::FileSystem::getExtension(_path)) == ".svg";
+		}
 
 		bool isImage(const std::string& _path)
 		{

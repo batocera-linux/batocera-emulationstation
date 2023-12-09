@@ -42,6 +42,7 @@ namespace Utils
 		bool		isImage		       (const std::string& _path);
 		bool		isVideo            (const std::string& _path);
 		bool		isAudio            (const std::string& _path);
+		bool		isSVG			   (const std::string& _path);
 
 		struct FileInfo
 		{
