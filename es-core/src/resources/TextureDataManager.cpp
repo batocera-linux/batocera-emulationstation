@@ -17,21 +17,6 @@ TextureDataManager::~TextureDataManager()
 	delete mLoader;
 }
 
-void TextureDataManager::onTextureLoaded(std::shared_ptr<TextureData> tex)
-{
-	std::unique_lock<std::mutex> lock(mMutex);
-
-	for (auto it = mTextureLookup.cbegin(); it != mTextureLookup.cend(); it++)
-	{
-		std::shared_ptr<TextureData> texture = *(*it).second;
-		if (texture == tex)
-		{
-			const TextureResource* pResource = it->first;
-			((TextureResource*)pResource)->onTextureLoaded(tex);
-		}
-	}
-}
-
 std::shared_ptr<TextureData> TextureDataManager::add(const TextureResource* key, bool tiled, bool linear)
 {	
 	std::unique_lock<std::mutex> lock(mMutex);
@@ -130,7 +115,7 @@ size_t TextureDataManager::getTotalSize()
 
 	size_t total = 0;
 	for (auto tex : mTextures)
-		total += tex->width() * tex->height() * 4;
+		total += tex->getEstimatedVRAMUsage();
 
 	return total;
 }

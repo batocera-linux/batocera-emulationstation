@@ -23,6 +23,7 @@ public:
 
 	const float x() const { return mSize.x(); }
 	const float y() const { return mSize.y(); }
+	const Vector2f& size() const { return mSize; }
 
 	const bool externalZoom() const { return mExternalZoom; }
 	const bool isExternalZoomKnown() const { return mExternalZoomKnown; }
@@ -42,7 +43,12 @@ public:
 	static void flipPixelsVert(unsigned char* imagePx, const size_t& width, const size_t& height);
 	
 	static Vector2f getPictureMinSize(Vector2f imageSize, Vector2f maxSize);
+	
 	static Vector2i adjustPictureSize(Vector2i imageSize, Vector2i maxSize, bool externSize = false);
+	
+	static Vector2f adjustPictureSizeF(float cxDIB, float cyDIB, float iMaxX, float iMaxY, bool externSize = false);
+	static Vector2f adjustPictureSizeF(Vector2f imageSize, Vector2f maxSize, bool externSize = false);
+
 	static bool		loadImageSize(const std::string& fn, unsigned int *x, unsigned int *y);
 
 	static void		removeImageCache(const std::string& fn);

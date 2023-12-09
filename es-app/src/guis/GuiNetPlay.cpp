@@ -370,7 +370,7 @@ public:
 		auto theme = ThemeData::getMenuTheme();
 
 		mImage = std::make_shared<ImageComponent>(mWindow);
-		mImage->setIsLinear(true);
+		// mImage->setIsLinear(true);
 
 		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata(MetaDataId::Name) + " [" + entry.fileData->getSystemName() + "]";
 

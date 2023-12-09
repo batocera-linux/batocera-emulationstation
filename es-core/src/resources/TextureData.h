@@ -35,7 +35,7 @@ public:
 	// Read the data into memory if necessary
 	bool load(bool updateCache = false);
 	bool loadFromCbz();
-	bool loadFromPdf();
+	bool loadFromPdf(int pageIndex = 1);
 	bool loadFromVideo();
 
 	bool isLoaded();
@@ -54,11 +54,15 @@ public:
 	inline size_t getEstimatedVRAMUsage() { return mSize.x() * mSize.y() * 4; }
 	inline size_t getVRAMUsage() { return mTextureID != 0 || mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0; }
 
+	const 	Vector2i& getSize() const { return mSize; }
+	const 	Vector2f& getPhysicalSize() const { return mPhysicalSize; }
+	/*
 	size_t width();
 	size_t height();
 	float sourceWidth();
-	float sourceHeight();
-	bool setSourceSize(float width, float height);
+	float sourceHeight();*/
+
+	bool rasterizeAt(float width, float height);
 
 	bool tiled() { return mTile; }
 
@@ -84,6 +88,9 @@ public:
 	void setDynamic(bool value) { mDynamic = value; };
 
 	inline bool isReloadable() { return mReloadable; };
+	
+	inline bool isScalable() { return mScalable; }
+	void setScalable(bool value) { mScalable = value; };
 
 private:
 	bool			mRequired;
@@ -100,7 +107,7 @@ private:
 	MaxSizeInfo		mMaxSize;
 
 	Vector2i		mSize;
-	Vector2i		mPhysicalSize;
+	Vector2f		mPhysicalSize;
 
 	bool			mScalable;
 	Vector2f		mScalableMinimumSize;

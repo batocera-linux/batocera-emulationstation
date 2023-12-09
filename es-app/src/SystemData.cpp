@@ -467,6 +467,34 @@ void SystemData::createGroupedSystems()
 			{
 				auto folder = new FolderData(childSystem->getRootFolder()->getPath(), childSystem, false);
 				folder->setMetadata(childSystem->getRootFolder()->getMetadata());
+				
+				if (folder->getMetadata(MetaDataId::Desc).empty())
+				{
+					char trstring[1024];
+
+					std::string games_list;
+
+					int games_counter = 0;
+					auto games = childSystem->getRootFolder()->getFilesRecursive(GAME, true);
+					for (auto game : games)
+					{
+						games_counter++;
+						if (games_counter == 3)
+							break;
+
+						games_list += "\n";
+						games_list += "- " + game->getName();
+					}
+
+					games_counter = childSystem->getGameCountInfo()->totalGames;
+
+					snprintf(trstring, 1024, ngettext(
+						"This collection contains %i game:%s",
+						"This collection contains %i games, including:%s", games_counter), games_counter, games_list.c_str());
+
+					folder->setMetadata(MetaDataId::Desc, std::string(trstring));
+				}
+
 				root->addChild(folder);
 
 				if (folder->getMetadata(MetaDataId::Image).empty())
@@ -1963,6 +1991,9 @@ bool SystemData::getShowParentFolder()
 
 std::string SystemData::getFolderViewMode()
 {
+	if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+		return "always";
+
 	std::string showFoldersMode = Settings::getInstance()->getString("FolderViewMode");
 
 	auto fvm = Settings::getInstance()->getString(getName() + ".FolderViewMode");

@@ -185,10 +185,7 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 				}				
 			}
 			
-			SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
-
-			FileData* placeholder = new FolderData("..", system->isCollection() ? this->mRoot->getSystem() : system); // this->mRoot->getSystem()
-			mGrid.add(". .", imagePath, placeholder);
+			mGrid.add(". .", imagePath, createParentFolderData());
 		}
 
 		GameNameFormatter formatter(mRoot->getSystem());
@@ -238,7 +235,7 @@ void GridGameListView::updateInfoPanel()
 void GridGameListView::addPlaceholder()
 {
 	// empty grid - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());
+	FileData* placeholder = createNoEntriesPlaceholder();
 	mGrid.add(placeholder->getName(), "", placeholder);
 }
 

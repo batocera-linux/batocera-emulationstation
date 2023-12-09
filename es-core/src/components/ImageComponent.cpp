@@ -85,7 +85,7 @@ void ImageComponent::resize()
 	if (!mTexture)
 		return;
 
-	const Vector2f textureSize = mTexture->getSourceImageSize();
+	const Vector2f textureSize = mTexture->getPhysicalSize();
 	if (textureSize == Vector2f::Zero())
 		return;
 
@@ -250,12 +250,13 @@ void ImageComponent::updateVertices()
 		mVertices[3].pos[0] = r;
 		mVertices[3].pos[1] = b;
 	}
-
-	/*	
-	// round vertices
-	for (int i = 0; i < 4; ++i)
-		mVertices[i].pos.round();
-	*/
+	
+	if (mTexture && mTexture->isScalable())
+	{
+		// For SVG images we need to round vertices in order to be precisely aligned
+		for (int i = 0; i < 4; ++i)
+			mVertices[i].pos.round();
+	}
 
 	if (mFlipX)
 	{
@@ -1145,14 +1146,16 @@ const MaxSizeInfo ImageComponent::getMaxSizeInfo()
 	{
 		if (mTargetSize.empty())
 		{
-			if (mSize.x() > 32 && mSize.y() > 32)
-				return MaxSizeInfo(mSize, mTargetIsMin);
+			auto size = mSize - mPadding.xy() - mPadding.zw();
+			if (size.x() > 32 && size.y() > 32)
+				return MaxSizeInfo(size, mTargetIsMin);
 
 			return MaxSizeInfo::Empty;
 		}
 
-		if (mTargetSize.x() > 32 && mTargetSize.y() > 32)
-			return MaxSizeInfo(mTargetSize, mTargetIsMin);
+		auto targetSize = mTargetSize - mPadding.xy() - mPadding.zw();
+		if (targetSize.x() > 32 && targetSize.y() > 32)
+			return MaxSizeInfo(targetSize, mTargetIsMin);
 	}
 
 	return MaxSizeInfo::Empty;

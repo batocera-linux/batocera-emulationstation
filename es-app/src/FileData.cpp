@@ -1783,6 +1783,38 @@ BindableProperty FileData::getProperty(const std::string& name)
 		return "";
 	}
 
+	if (name == "collection")
+	{
+		if (getSystem()->isCollection() || getSystem()->isGroupChildSystem())
+		{
+			FolderData* parent = getParent();
+
+			if (getType() == FOLDER)
+			{				
+				if (parent != nullptr && (parent->getSystem()->isCollection() || getSystem()->isGroupChildSystem() || getSystem()->isGroupSystem()))
+					return BindableProperty(parent->getSystem());
+			}
+
+			if (getSystem()->isGroupChildSystem() && parent != nullptr)
+			{
+				auto group = getSystem()->getParentGroupSystem();
+				if (group != nullptr)
+				{
+					std::string showFoldersMode = group->getFolderViewMode();
+					if (showFoldersMode == "never")
+						return BindableProperty(getBindableParent());
+					else if (showFoldersMode == "having multiple games" && parent && parent->findUniqueGameForFolder() != nullptr)
+						return BindableProperty(getBindableParent());
+				}
+			}
+
+			if (getSystem()->isCollection() || getSystem()->isGroupChildSystem() || getSystem()->isGroupSystem())
+				return BindableProperty(getSystem());
+		}
+			
+		return BindableProperty::Null; // getProperty("system");
+	}
+
 	if (name == "system")
 	{
 		auto sys = getSourceFileData()->getSystem();
@@ -1964,6 +1996,10 @@ IBindable* FileData::getBindableParent()
 	SystemData* sys = getSystem();
 
 	SystemData* group = sys->getParentGroupSystem();
+
+	if (group != nullptr && sys->isGroupChildSystem())
+		return group;
+
 	if (group != nullptr && group != sys)
 	{
 		std::string showFoldersMode = group->getFolderViewMode();
@@ -1982,17 +2018,20 @@ IBindable* FileData::getBindableParent()
 	}
 
 	FolderData* parent = getParent();	
-	/*
-	if (parent == nullptr && mPath == "..")
+	
+	if (mPath == "..")
 	{
-		if (group != nullptr && sys->isGroupChildSystem())
-			return group;
-		else if (sys->isCollection())
+		if (sys->isCollection())
 		{
-
+			parent = sys->getRootFolder()->getParent();
+			if (parent != nullptr)
+				return parent->getSystem();
 		}
+
+		if (group != nullptr && sys->isGroupChildSystem())
+			return group;		
 	}
-	*/
+	
 	while (parent != nullptr)
 	{
 		sys = parent->getSystem();

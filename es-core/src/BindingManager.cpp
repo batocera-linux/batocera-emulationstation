@@ -139,6 +139,7 @@ std::string BindingManager::updateBoundExpression(std::string& xp, IBindable* bi
 	else
 	{
 		xp = Utils::String::replace(xp, "{binding:", "{system:"); // Retrocompatibility for old {binding: which is {system
+		xp = Utils::String::replace(xp, "{collection:", "{game:collection:"); // Retrocompatibility for old {binding: which is {system
 		evaluableExpression = xp;
 
 		IBindable* current = bindable;
@@ -190,8 +191,17 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 					auto ret = Utils::MathExpr::evaluate(evaluableExpression.c_str());
 					if (ret.type == Utils::MathExpr::STRING)
 						xp = ret.string;
+					else if (ret.type == Utils::MathExpr::NUMBER)
+						xp = std::to_string((int) ret.number);
 				}
-				catch (...) { }
+				catch (const std::exception& e)
+				{
+					LOG(LogDebug) << "Evaluation exception " << e.what() << " : " << evaluableExpression;
+				}
+				catch (...)
+				{
+					LOG(LogDebug) << "Evaluation exception : " << evaluableExpression;
+				}
 			}			
 
 			comp->setProperty(propertyName, Utils::String::trim(xp));
@@ -208,7 +218,14 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 						if (ret.type == Utils::MathExpr::NUMBER)
 							value = (int)ret.number;
 					}
-					catch (...) { }
+					catch (const std::exception& e)
+					{
+						LOG(LogDebug) << "Evaluation exception " << e.what() << " : " << evaluableExpression;
+					}
+					catch (...)
+					{
+						LOG(LogDebug) << "Evaluation exception : " << evaluableExpression;
+					}
 				}
 
 				comp->setProperty(propertyName, (unsigned int)value);
@@ -227,7 +244,14 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 						if (ret.type == Utils::MathExpr::NUMBER)
 							value = ret.number;
 					}
-					catch (...) { }
+					catch (const std::exception& e)
+					{
+						LOG(LogDebug) << "Evaluation exception " << e.what() << " : " << evaluableExpression;
+					}
+					catch (...)
+					{
+						LOG(LogDebug) << "Evaluation exception : " << evaluableExpression;
+					}
 				}
 
 				comp->setProperty(propertyName, value);
@@ -251,7 +275,14 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 						if (ret.type == Utils::MathExpr::NUMBER)
 							value = (ret.number != 0);
 					}
-					catch (...) { }
+					catch (const std::exception& e)
+					{
+						LOG(LogDebug) << "Evaluation exception " << e.what() << " : " << evaluableExpression;
+					}
+					catch (...)
+					{
+						LOG(LogDebug) << "Evaluation exception : " << evaluableExpression;
+					}
 				}
 
 				comp->setProperty(propertyName, value); // negate ? !value : value);

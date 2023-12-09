@@ -950,7 +950,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 					yBot - (2.0f * padding),
 					yBot - padding);
 
-				auto imgSize = is.texture->getSourceImageSize();
+				auto imgSize = is.texture->getPhysicalSize();
 				auto sz = ImageIO::adjustPictureSize(Vector2i(imgSize.x(), imgSize.y()), Vector2i(rect.w, rect.h));
 
 				Renderer::Rect rc(

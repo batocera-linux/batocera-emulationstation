@@ -547,7 +547,7 @@ Vector2f ControllerActivityComponent::getTextureSize(std::shared_ptr<TextureReso
 	if (texture == nullptr)
 		return Vector2f::Zero();
 
-	auto imageSize = texture->getSourceImageSize();
+	auto imageSize = texture->getPhysicalSize();
 	if (imageSize.x() == 0 || imageSize.y() == 0)
 		return Vector2f::Zero();
 

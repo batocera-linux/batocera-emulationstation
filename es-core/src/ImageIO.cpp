@@ -8,9 +8,11 @@
 #include <sstream>
 #include <fstream>
 #include <map>
+#include <unordered_map>
 #include <mutex>
 #include "renderers/Renderer.h"
 #include "Paths.h"
+#include "math/Vector4f.h"
 
 const MaxSizeInfo MaxSizeInfo::Empty;
 
@@ -177,6 +179,40 @@ void ImageIO::flipPixelsVert(unsigned char* imagePx, const size_t& width, const 
 	}
 }
 
+Vector2f ImageIO::adjustPictureSizeF(Vector2f imageSize, Vector2f maxSize, bool externSize)
+{
+	return adjustPictureSizeF(imageSize.x(), imageSize.y(), maxSize.x(), maxSize.y(), externSize);
+}
+
+Vector2f ImageIO::adjustPictureSizeF(float cxDIB, float cyDIB, float iMaxX, float iMaxY, bool externSize)
+{
+	if (externSize)
+		return getPictureMinSize(Vector2f(cxDIB, cyDIB), Vector2f(iMaxX, iMaxY));
+
+	if (cxDIB == 0 || cyDIB == 0)
+		return Vector2f(cxDIB, cyDIB);
+
+	float xCoef = iMaxX / cxDIB;
+	float yCoef = iMaxY / cyDIB;
+
+	cyDIB = cyDIB * std::max(xCoef, yCoef);
+	cxDIB = cxDIB * std::max(xCoef, yCoef);
+
+	if (cxDIB > iMaxX)
+	{
+		cyDIB = cyDIB * iMaxX / cxDIB;
+		cxDIB = iMaxX;
+	}
+
+	if (cyDIB > iMaxY)
+	{
+		cxDIB = cxDIB * iMaxY / cyDIB;
+		cyDIB = iMaxY;
+	}
+
+	return Vector2f(cxDIB, cyDIB);
+}
+
 Vector2i ImageIO::adjustPictureSize(Vector2i imageSize, Vector2i maxSize, bool externSize)
 {
 	if (externSize)
@@ -260,7 +296,7 @@ struct CachedFileInfo
 	int y;	
 };
 
-static std::map<std::string, CachedFileInfo> sizeCache;
+static std::unordered_map<std::string, CachedFileInfo> sizeCache;
 static bool sizeCacheDirty = false;
 
 std::string getImageCacheFilename()
@@ -407,6 +443,87 @@ void ImageIO::updateImageCache(const std::string& fn, int sz, int x, int y)
 	}
 }
 
+static bool extractSvgSize(const std::string& svgFilePath, float& width, float& height)
+{
+	width = -1;
+	height = -1;
+
+	std::ifstream svgFile(svgFilePath);
+
+	if (!svgFile.is_open())
+		return false;
+
+	bool started = false;
+
+	std::string line;
+	while (std::getline(svgFile, line))
+	{
+		if (!started)
+			started = line.find("<svg") != std::string::npos;
+
+		if (!started)
+			continue;
+
+		// Find the width attribute within the <svg> element
+		size_t widthPos = line.find("width=\"");
+		if (widthPos != std::string::npos)
+		{
+			widthPos += 7;
+
+			size_t widthEnd = line.find("\"", widthPos);
+			if (widthEnd != std::string::npos)
+			{
+				std::string widthStr = line.substr(widthPos, widthEnd - widthPos);
+				width = Utils::String::toFloat(widthStr);
+			}
+		}
+
+		// Find the height attribute within the <svg> element
+		size_t heightPos = line.find("height=\"");
+		if (heightPos != std::string::npos)
+		{
+			heightPos += 8;
+
+			// Extract the height value		
+			size_t heightEnd = line.find("\"", heightPos);
+			if (heightEnd != std::string::npos)
+			{
+				std::string heightStr = line.substr(heightPos, heightEnd - heightPos);
+				height = Utils::String::toFloat(heightStr);
+			}
+		}
+
+		// Break the loop once width and height are found
+		if (width > 0 && height > 0)
+			break;
+
+		size_t viewBoxPos = line.find("viewBox=\"");
+		if (viewBoxPos != std::string::npos)
+		{
+			viewBoxPos += 9;
+
+			// Extract the viewBox value
+
+			size_t viewBoxEnd = line.find("\"", viewBoxPos);
+			if (viewBoxEnd != std::string::npos)
+			{
+				std::string viewBoxStr = line.substr(viewBoxPos, viewBoxEnd - viewBoxPos);
+
+				auto vec = Vector4f::parseString(viewBoxStr);
+				width = vec.z();
+				height = vec.w();
+				break;
+			}
+		}
+
+		if (line.find(">") != std::string::npos)
+			break;
+	}
+
+	svgFile.close();
+
+	return width > 0 && height > 0;
+}
 
 bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int *y)
 {
@@ -428,6 +545,31 @@ bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int
 	LOG(LogDebug) << "ImageIO::loadImageSize " << fn;
 
 	auto ext = Utils::String::toLower(Utils::FileSystem::getExtension(fn));
+	
+	if (ext == ".svg")
+	{
+		float width, height;
+		if (!extractSvgSize(fn, width, height))
+		{
+			updateImageCache(fn, -1, -1, -1);
+			return false;
+		}
+
+		if (width == (int)width && height == (int)height)
+		{
+			auto size = Utils::FileSystem::getFileSize(fn);
+
+			*x = width;
+			*y = height;
+			updateImageCache(fn, size, *x, *y);
+
+			return true;
+		}
+
+		updateImageCache(fn, -1, -1, -1);
+		return false;
+	}
+	
 	if (ext != ".jpg" && ext != ".png" && ext != ".jpeg" && ext != ".gif")
 	{
 		LOG(LogWarning) << "ImageIO::loadImageSize\tUnknown file type";

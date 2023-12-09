@@ -58,14 +58,39 @@ namespace Utils
 		Expression* expression = new Expression;
 
 		// Find the position of the first '?'
-		size_t conditionEnd = input.find('?');
+
+		bool inQuote = false;
+		bool inChar = false;
+		int parenth = 0;
+
+		size_t conditionEnd = 0;
+		while (true)
+		{
+			char c = input[conditionEnd];
+			if (c == 0)
+			{
+				expression->expression = input;
+				return expression;
+			}
+
+			if (c == '\"' && !inChar)
+				inQuote = !inQuote;
+			else if (c == '\'' && !inQuote)
+				inChar = !inChar;
+			else if (c == '?' && !inQuote && !inChar)
+				break;
+
+			conditionEnd++;
+		}
+
+		//size_t conditionEnd = input.find('?');
 		if (conditionEnd != std::string::npos)
 		{
 			size_t start = conditionEnd > 0 ? conditionEnd - 1 : conditionEnd;
 
-			bool inQuote = false;
-			bool inChar = false;
-			int parenth = 0;
+			inQuote = false;
+			inChar = false;
+			parenth = 0;
 
 			bool foundVar = false;
 			bool exitOnCloseP = false;
