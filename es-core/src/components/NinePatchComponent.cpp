@@ -118,8 +118,8 @@ void NinePatchComponent::buildVertices()
 		mVertices[v + 4] = { { imgPos.x() + imgSize.x(), imgPos.y() + imgSize.y() }, { texPos.x() + texSize.x(), texPos.y() + texSize.y() }, 0 };
 
 		// round vertices
-		for(int i = 1; i < 5; ++i)
-			mVertices[v + i].pos.round();
+		// for(int i = 1; i < 5; ++i)
+		//	mVertices[v + i].pos.round();
 
 		// make duplicates of first and last vertex so this can be rendered as a triangle strip
 		mVertices[v + 0] = mVertices[v + 1];

@@ -26,7 +26,7 @@
 #include "utils/HtmlColor.h"
 #include "utils/VectorEx.h"
 
-std::set<std::string> ThemeData::sSupportedItemTemplate { "imagegrid", "carousel", "gamecarousel" };
+std::set<std::string> ThemeData::sSupportedItemTemplate { "imagegrid", "carousel", "gamecarousel", "textlist" };
 std::set<std::string> ThemeData::sSupportedViews        { "system", "basic", "detailed", "grid", "video", "gamecarousel", "menu", "screen", "splash" };
 std::set<std::string> ThemeData::sSupportedFeatures     { "video", "carousel", "gamecarousel", "z-index", "visible", "manufacturer" };
 
@@ -169,6 +169,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 
 		{ "centerSelection", STRING },			// true, false, partial
 		{ "scrollLoop", BOOLEAN } } },
+
 	{ "gridtile", {
 		{ "size", NORMALIZED_PAIR },
 		{ "padding", NORMALIZED_RECT },
