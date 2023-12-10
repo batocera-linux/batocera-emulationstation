@@ -808,7 +808,10 @@ void TextComponent::setProperty(const std::string name, const ThemeData::ThemeEl
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "color")
 		setColor(value.i);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "backgroundColor")
+	{
 		setBackgroundColor(value.i);
+		setRenderBackground(value.i != 0);
+	}
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "glowColor")
 		setGlowColor(value.i);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "glowSize")

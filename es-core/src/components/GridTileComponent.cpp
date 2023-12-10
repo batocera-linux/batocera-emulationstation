@@ -1118,11 +1118,15 @@ void GridTileComponent::handleStoryBoard(bool activate)
 		if (comp->selectStoryboard(activate ? "activate" : "deactivate"))
 		{
 			comp->startStoryboard();
+			comp->update(0);
 		}
 		else if (comp->selectStoryboard())
 		{
 			if (!comp->isStoryBoardRunning())
+			{
 				comp->startStoryboard();
+				comp->update(0);
+			}
 		}
 		else if (!activate)
 		{
@@ -1130,7 +1134,10 @@ void GridTileComponent::handleStoryBoard(bool activate)
 				comp->deselectStoryboard(false);
 
 			if (comp->selectStoryboard("scroll"))
+			{
 				comp->startStoryboard();
+				comp->update(0);
+			}
 		}
 	}
 }

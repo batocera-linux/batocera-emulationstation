@@ -13,6 +13,8 @@
 #include "Window.h"
 #include "InputManager.h"
 #include "utils/Delegate.h"
+#include "CarouselComponent.h"
+#include "BindingManager.h"
 
 #define HOLD_TIME 1000
 
@@ -22,7 +24,11 @@ struct TextListData
 {
 	unsigned int colorId;
 	std::shared_ptr<TextCache> textCache;
+	std::shared_ptr<GuiComponent> itemTemplate;
 };
+
+template <typename T>
+struct is_textlist_bindable : std::is_base_of<IBindable, std::remove_pointer_t<T>> {};
 
 //A graphical list. Supports multiple colors for rows and scrolling.
 template <typename T>
@@ -120,6 +126,8 @@ private:
 	float getRowHeight() const;
 	float getTotalRowHeight() const;
 
+	ThemeData::ThemeElement		mItemTemplate;
+
 	int mMarqueeOffset;
 	int mMarqueeOffset2;
 	int mMarqueeTime;
@@ -166,6 +174,24 @@ private:
 	int		  mPressedRow;
 	Vector2i  mPressedPoint;
 	int		  mTimeHoldingButton;
+
+	// Handle pointer types derived from IBindable
+	template <typename U = T>
+	typename std::enable_if<is_textlist_bindable<U>::value, IBindable*>::type
+		getBindable(const typename IList<TextListData, T>::Entry& entry)
+	{
+		IBindable* bindingPtr = static_cast<IBindable*>(entry.object);
+		return bindingPtr;
+	}
+
+	// Handle other types
+	template <typename U = T>
+	typename std::enable_if<!is_textlist_bindable<U>::value, IBindable*>::type
+		getBindable(const typename IList<TextListData, T>::Entry& entry)
+	{
+		return nullptr;
+	}
+
 };
 
 template <typename T>
@@ -249,92 +275,121 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		else
 			color = mColors[entry.data.colorId];
 
-		if (!entry.data.textCache)
-			entry.data.textCache = std::unique_ptr<TextCache>(font->buildTextCache(mUppercase ? Utils::String::toUpper(entry.name) : entry.name, 0, 0, 0x000000FF));
-
-		if (mCursor == i && mHasBonusSelectedColor)
-			entry.data.textCache->setColors(color, mBonusSelectedColor);
-		else if (mHasBonusColor)
-			entry.data.textCache->setColors(color, mBonusColor);
-		else
-			entry.data.textCache->setColor(color);
-
-		Vector3f offset(0, y, 0);
-
-		if (mLineCount > 0) // Vertical center
-			offset[1] += (int)((entrySize - entry.data.textCache->metrics.size.y()) / 2);
-
-		switch (mAlignment)
+		if (!entry.data.itemTemplate && !mItemTemplate.type.empty())
 		{
-		case ALIGN_LEFT:
-			offset[0] = mHorizontalMargin;
-			break;
-		case ALIGN_CENTER:
-			offset[0] = (int)((mSize.x() - entry.data.textCache->metrics.size.x()) / 2);
-			if (offset[0] < mHorizontalMargin)
-				offset[0] = mHorizontalMargin;
-			break;
-		case ALIGN_RIGHT:
-			offset[0] = (mSize.x() - entry.data.textCache->metrics.size.x());
-			offset[0] -= mHorizontalMargin;
-			if (offset[0] < mHorizontalMargin)
-				offset[0] = mHorizontalMargin;
-			break;
-		}
-
-		// render text
-		Transform4x4f drawTrans = trans;
-
-		// currently selected item text might be scrolling
-		if ((mCursor == i) && (mMarqueeOffset > 0))
-			drawTrans.translate(offset - Vector3f((float)mMarqueeOffset, 0, 0));
-		else
-			drawTrans.translate(offset);
-
-		if (Settings::DebugText())
-		{
-			Renderer::setMatrix(drawTrans);
-			auto sz = mFont->sizeText(mUppercase ? Utils::String::toUpper(entry.name) : entry.name);
-			Renderer::drawRect(0.0f, 0.0f, sz.x(), sz.y(), 0xFF000033, 0xFF000033);
-		}
-
-		if (mCursor == i)
-		{
-			if (mSelectorImage.hasImage())
+			auto bindable = getBindable(entry);
+			if (bindable != nullptr)
 			{
-				mSelectorImage.setPosition(0.f, y, 0.f);
-				mSelectorImage.render(trans);
+				CarouselItemTemplate* templ = new CarouselItemTemplate(mWindow);
+				templ->setScaleOrigin(0.0f);
+				templ->setSize(mSize.x(), entrySize);
+				templ->loadTemplatedChildren(&mItemTemplate);
+				templ->updateBindings(bindable);
+				
+				entry.data.itemTemplate = std::shared_ptr<GuiComponent>(templ);
+
+				if (mCursor == i && (entry.data.itemTemplate->selectStoryboard("activate") || entry.data.itemTemplate->selectStoryboard()))
+				{
+					entry.data.itemTemplate->startStoryboard();
+					entry.data.itemTemplate->update(0);
+				}
 			}
+		}
+		
+		if (entry.data.itemTemplate)
+		{
+			entry.data.itemTemplate->setPosition(0.0f, y);
+			entry.data.itemTemplate->render(trans);
+		}
+		else
+		{
+			if (!entry.data.textCache)
+				entry.data.textCache = std::unique_ptr<TextCache>(font->buildTextCache(mUppercase ? Utils::String::toUpper(entry.name) : entry.name, 0, 0, 0x000000FF));
+
+			if (mCursor == i && mHasBonusSelectedColor)
+				entry.data.textCache->setColors(color, mBonusSelectedColor);
+			else if (mHasBonusColor)
+				entry.data.textCache->setColors(color, mBonusColor);
 			else
+				entry.data.textCache->setColor(color);
+
+			Vector3f offset(0, y, 0);
+
+			if (mLineCount > 0) // Vertical center
+				offset[1] += (int)((entrySize - entry.data.textCache->metrics.size.y()) / 2);
+
+			switch (mAlignment)
+			{
+			case ALIGN_LEFT:
+				offset[0] = mHorizontalMargin;
+				break;
+			case ALIGN_CENTER:
+				offset[0] = (int)((mSize.x() - entry.data.textCache->metrics.size.x()) / 2);
+				if (offset[0] < mHorizontalMargin)
+					offset[0] = mHorizontalMargin;
+				break;
+			case ALIGN_RIGHT:
+				offset[0] = (mSize.x() - entry.data.textCache->metrics.size.x());
+				offset[0] -= mHorizontalMargin;
+				if (offset[0] < mHorizontalMargin)
+					offset[0] = mHorizontalMargin;
+				break;
+			}
+
+			// render text
+			Transform4x4f drawTrans = trans;
+
+			// currently selected item text might be scrolling
+			if ((mCursor == i) && (mMarqueeOffset > 0))
+				drawTrans.translate(offset - Vector3f((float)mMarqueeOffset, 0, 0));
+			else
+				drawTrans.translate(offset);
+
+			if (Settings::DebugText())
+			{
+				Renderer::setMatrix(drawTrans);
+				auto sz = mFont->sizeText(mUppercase ? Utils::String::toUpper(entry.name) : entry.name);
+				Renderer::drawRect(0.0f, 0.0f, sz.x(), sz.y(), 0xFF000033, 0xFF000033);
+			}
+
+			if (mCursor == i)
+			{
+				if (mSelectorImage.hasImage())
+				{
+					mSelectorImage.setPosition(0.f, y, 0.f);
+					mSelectorImage.render(trans);
+				}
+				else
+				{
+					Renderer::setMatrix(trans);
+					Renderer::drawRect(0.0f, y, mSize.x(), mSelectorHeight,
+						mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity),
+						mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity),
+						mSelectorColorGradientHorizontal);
+				}
+			}
+			else if (i == mHotRow)
 			{
 				Renderer::setMatrix(trans);
-				Renderer::drawRect(0.0f, y, mSize.x(), mSelectorHeight,
-					mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity),
-					mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity),
+
+				float hotOpacity = 0.1f;
+				Renderer::drawRect(0.0f, y, mSize.x(), entrySize,
+					mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity * hotOpacity),
+					mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity * hotOpacity),
 					mSelectorColorGradientHorizontal);
 			}
-		}
-		else if (i == mHotRow)
-		{
-			Renderer::setMatrix(trans);
-
-			float hotOpacity = 0.1f;
-			Renderer::drawRect(0.0f, y, mSize.x(), entrySize,
-				mSelectorColor & 0xFFFFFF00 | (unsigned char)((mSelectorColor & 0xFF) * opacity * hotOpacity),
-				mSelectorColorEnd & 0xFFFFFF00 | (unsigned char)((mSelectorColorEnd & 0xFF) * opacity * hotOpacity),
-				mSelectorColorGradientHorizontal);
-		}
-
-		font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, getOpacity());
-
-		// render currently selected item text again if
-		// marquee is scrolled far enough for it to repeat
-		if (mCursor == i && mMarqueeOffset2 < 0)
-		{
-			drawTrans = trans;
-			drawTrans.translate(offset - Vector3f((float)mMarqueeOffset2, 0, 0));
 
 			font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, getOpacity());
+
+			// render currently selected item text again if
+			// marquee is scrolled far enough for it to repeat
+			if (mCursor == i && mMarqueeOffset2 < 0)
+			{
+				drawTrans = trans;
+				drawTrans.translate(offset - Vector3f((float)mMarqueeOffset2, 0, 0));
+
+				font->renderTextCacheEx(entry.data.textCache.get(), drawTrans, mGlowSize, mGlowColor, mGlowOffset, getOpacity());
+			}
 		}
 
 		y += entrySize;
@@ -417,6 +472,13 @@ void TextListComponent<T>::update(int deltaTime)
 	}
 
 	mScrollbar.update(deltaTime);
+
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		typename IList<TextListData, T>::Entry& entry = mEntries.at((unsigned int)i);
+		if (entry.data.itemTemplate)
+			entry.data.itemTemplate->update(deltaTime);
+	}
 
 	listUpdate(deltaTime);
 
@@ -503,11 +565,7 @@ void TextListComponent<T>::updateCameraOffset()
 template <typename T>
 float TextListComponent<T>::getRowHeight() const
 {
-	float entrySize = Math::max(mFont->getHeight(1.0), (float)mFont->getSize()) * mLineSpacing;
-	if (mLineCount > 0)
-		entrySize = mSize.y() / mLineCount;
-
-	return entrySize;
+	return mLineCount > 0 ? (mSize.y() / (float) mLineCount) : (Math::max(mFont->getHeight(1.0), (float)mFont->getSize()) * mLineSpacing);
 }
 
 template <typename T>
@@ -529,6 +587,32 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 
 	if (mLastCursor != mCursor || mLastCursorState != state)
 	{
+		if (mCursor >= 0 && mCursor < mEntries.size())
+		{
+			typename IList<TextListData, T>::Entry& entry = mEntries.at(mCursor);
+			if (entry.data.itemTemplate)
+			{
+				if (entry.data.itemTemplate->selectStoryboard("activate") || entry.data.itemTemplate->selectStoryboard())
+				{
+					entry.data.itemTemplate->startStoryboard();
+					entry.data.itemTemplate->update(0);
+				}
+			}
+		}
+
+		if (mLastCursor >= 0 && mLastCursor < mEntries.size())
+		{
+			typename IList<TextListData, T>::Entry& entry = mEntries.at(mLastCursor);
+			if (entry.data.itemTemplate)
+			{
+				if (entry.data.itemTemplate->selectStoryboard("deactivate") || entry.data.itemTemplate->selectStoryboard())
+				{
+					entry.data.itemTemplate->startStoryboard();
+					entry.data.itemTemplate->update(0);
+				} 
+			}
+		}
+
 		if (mCursorChangedCallback)
 			mCursorChangedCallback(state);
 
@@ -559,6 +643,15 @@ void TextListComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, c
 		return;
 
 	mScrollbar.fromTheme(theme, view, element, "textlist");
+
+
+	if (elem)
+	{
+		auto itemTemplate = std::find_if(elem->children.cbegin(), elem->children.cend(), [](const std::pair<std::string, ThemeData::ThemeElement> ss) { return ss.first == "itemTemplate"; });
+		if (itemTemplate != elem->children.cend())
+			mItemTemplate = itemTemplate->second;
+	}
+
 
 	using namespace ThemeFlags;
 	if (properties & COLOR)

@@ -507,8 +507,8 @@ namespace Renderer
 		vertices[3] = { { _x + _w,_y + _h }, { 0.0f, 0.0f }, colorEnd };
 
 		// round vertices
-		for(int i = 0; i < 4; ++i)
-			vertices[i].pos.round();
+		//for(int i = 0; i < 4; ++i)
+		//	vertices[i].pos.round();
 
 		bindTexture(0);
 		drawTriangleStrips(vertices, 4, _srcBlendFactor, _dstBlendFactor);
