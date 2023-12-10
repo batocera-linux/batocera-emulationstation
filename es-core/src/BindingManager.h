@@ -69,6 +69,9 @@ public:
 	virtual IBindable* getBindableParent() { return nullptr; };
 };
 
+/// <summary>
+/// Class for Child Components, that expose {name:XXX} properties to binding where name is the theme name attribute ( image name="toto" -> {toto.visible} )
+/// </summary>
 class ComponentBinding : public IBindable
 {
 public:
@@ -81,6 +84,24 @@ public:
 private:
 	IBindable*    mParent;
 	std::string   mName;
+	GuiComponent* mComponent;
+};
+
+/// <summary>
+/// Class for ItemTemplate roots, that exposes {grid:XXX} properties to binding. {grid:label} is exposed though name parameter
+/// </summary>
+class GridTemplateBinding : public IBindable
+{
+public:
+	GridTemplateBinding(GuiComponent* tile, const std::string& name, IBindable* parent);
+	BindableProperty getProperty(const std::string& name) override;
+
+	std::string getBindableTypeName() override { return "grid"; }
+	IBindable* getBindableParent() override { return mParent; };
+
+private:
+	IBindable* mParent;
+	std::string mName;
 	GuiComponent* mComponent;
 };
 

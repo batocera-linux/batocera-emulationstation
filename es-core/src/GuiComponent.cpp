@@ -1116,7 +1116,12 @@ ThemeData::ThemeElement::Property GuiComponent::getProperty(const std::string na
 	if (name == "sound")
 		return mStoryBoardSound;
 
-	return "";
+	if (name == "visible")
+		return mVisible;
+
+	ThemeData::ThemeElement::Property unk;
+	unk.type = ThemeData::ThemeElement::Property::Unknown;
+	return unk;
 }
 
 void GuiComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
@@ -1440,15 +1445,63 @@ std::vector<GuiComponent*> GuiComponent::enumerateExtraChildrens()
 	return recursiveExtraChildrens;
 }
 
+/// <summary>
+/// Sort GuiComponents by binding expressions inter-dependancies
+/// </summary>
+static void visit(const std::vector<GuiComponent*>& items, const std::string& itemId, std::vector<GuiComponent*>& sortedItems, std::unordered_map<GuiComponent*, bool>& visited)
+{
+	auto itemIt = std::find_if(items.begin(), items.end(), [&](GuiComponent* item) { return !visited[item] && item->getTag() == itemId; });
+	if (itemIt != items.end())
+	{
+		GuiComponent* comp = *itemIt;
+		visited[comp] = true;
+
+		for (auto expression : comp->getBindingExpressions())
+		{
+			for (auto name : Utils::String::extractStrings(expression.second, "{", ":"))
+			{
+				if (name == "system" || name == "game" || name == "collection" || name == "grid")
+					continue;
+
+				auto referenceIt = std::find_if(items.begin(), items.end(), [&](GuiComponent* item) { return item->getTag() == name; });
+				if (referenceIt != items.end())
+				{
+					visit(items, name, sortedItems, visited);
+					break;
+				}
+			}
+		}
+
+		sortedItems.push_back(comp);
+	}
+}
+
+
 void GuiComponent::updateBindings(IBindable* bindable)
 {
 	auto recursiveExtraChildrens = enumerateExtraChildrens();
-	for (auto child : recursiveExtraChildrens)
-		BindingManager::updateBindings(child, bindable, false);
+
+	// Sort items by inter-dependency -> The ones that references another one are last
+	std::vector<GuiComponent*> sortedItems;
+	std::unordered_map<GuiComponent*, bool> visited;
 
 	for (auto child : recursiveExtraChildrens)
-		if (child->getThemeTypeName() == "stackpanel")
-			child->onSizeChanged();
+		visit(recursiveExtraChildrens, child->getTag(), sortedItems, visited);
+
+	bool hasStackPanel = false;
+
+	for (auto child : sortedItems) // recursiveExtraChildrens
+	{
+		hasStackPanel |= child->getThemeTypeName() == "stackpanel";
+		BindingManager::updateBindings(child, bindable, false);
+	}
+
+	if (hasStackPanel)
+	{
+		for (auto child : recursiveExtraChildrens)
+			if (child->getThemeTypeName() == "stackpanel")
+				child->onSizeChanged();
+	}
 }
 
 Vector4f GuiComponent::getClientRect()

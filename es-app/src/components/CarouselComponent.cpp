@@ -661,7 +661,7 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 		auto itemTemplate = std::find_if(carouselElem->children.cbegin(), carouselElem->children.cend(), [](const std::pair<std::string, ThemeData::ThemeElement> ss) { return ss.first == "itemTemplate"; });
 		if (itemTemplate != carouselElem->children.cend())
 		{
-			CarouselItemTemplate* templ = new CarouselItemTemplate(mWindow);
+			CarouselItemTemplate* templ = new CarouselItemTemplate(entry.name, mWindow);
 			templ->setScaleOrigin(0.0f);
 			templ->setSize(mLogoSize * mLogoScale);
 			templ->loadTemplatedChildren(&itemTemplate->second);
@@ -887,9 +887,9 @@ void CarouselComponent::onMouseWheel(int delta)
 }
 
 
-CarouselItemTemplate::CarouselItemTemplate(Window* window) : GuiComponent(window)
+CarouselItemTemplate::CarouselItemTemplate(const std::string& name, Window* window) : GuiComponent(window)
 {
-
+	mName = name;
 }
 
 void CarouselItemTemplate::loadTemplatedChildren(const ThemeData::ThemeElement* elem)
@@ -936,11 +936,31 @@ void CarouselItemTemplate::updateBindings(IBindable* bindable)
 {
 	if (bindable != nullptr)
 	{
+		auto childs = enumerateExtraChildrens();
+
+		if (Utils::String::containsIgnoreCase(mName, _U("\uF006 ")))
+		{
+			bool hasFavorite = false;
+
+			for (auto comp : childs)
+			{
+				for (auto xp : comp->getBindingExpressions())
+				{
+					if (xp.second.find("{game:favorite}") != std::string::npos)
+					{
+						hasFavorite = true;
+						break;
+					}
+				}
+			}
+
+			if (hasFavorite)
+				mName = Utils::String::replace(mName, _U("\uF006 "), "");
+		}
+
 		std::vector<IBindable*> bindables;
 
 		IBindable* currentParent = bindable;
-
-		auto childs = enumerateExtraChildrens();
 
 		for (auto comp : childs)
 		{
@@ -952,9 +972,10 @@ void CarouselItemTemplate::updateBindings(IBindable* bindable)
 			bindables.push_back(bindable);
 
 			currentParent = bindable;
-		}
-
-		GuiComponent::updateBindings(currentParent);
+		}		
+	
+		GridTemplateBinding localBinding(this, mName, currentParent);
+		GuiComponent::updateBindings(&localBinding);
 
 		for (auto bindable : bindables)
 			delete bindable;
