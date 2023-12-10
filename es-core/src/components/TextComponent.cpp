@@ -755,6 +755,8 @@ ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string n
 		return mLineSpacing;
 	else if (name == "text")
 		return mText;
+	else if (name == "fontPath")
+		return mFont ? mFont->getPath() : std::string();
 	else if (name == "value")
 		return mText;
 	else if (name == "autoScroll")
@@ -764,8 +766,12 @@ ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string n
 		if (getAutoScroll() == AutoScrollType::VERTICAL)
 			return "vertical";
 		
-		return "";
+		return std::string();
 	}
+	else if (name == "autoScrollDelay")
+		return (unsigned int) mAutoScrollDelay;
+	else if (name == "autoScrollSpeed")
+		return (unsigned int)mAutoScrollSpeed;	
 	else if (name == "singleLineScroll")
 		return getAutoScroll() == AutoScrollType::HORIZONTAL;
 	else if (name == "multiLine")
@@ -775,7 +781,7 @@ ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string n
 		if (getMultiLine() == MultiLineType::SINGLELINE)
 			return "false";
 		
-		return "";
+		return std::string();
 	}
 
 	return GuiComponent::getProperty(name);
@@ -807,6 +813,10 @@ void TextComponent::setProperty(const std::string name, const ThemeData::ThemeEl
 		setAutoScroll(value.b);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "color")
 		setColor(value.i);
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "autoScrollDelay")
+		mAutoScrollDelay = value.i;
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "autoScrollSpeed")
+		mAutoScrollSpeed = value.i;
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "backgroundColor")
 	{
 		setBackgroundColor(value.i);

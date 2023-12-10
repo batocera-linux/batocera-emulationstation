@@ -171,7 +171,7 @@ void SystemView::ensureLogo(IList<SystemViewData, SystemData*>::Entry& entry)
 		auto itemTemplate = std::find_if(carouselElem->children.cbegin(), carouselElem->children.cend(), [](const std::pair<std::string, ThemeData::ThemeElement> ss) { return ss.first == "itemTemplate"; });
 		if (itemTemplate != carouselElem->children.cend())
 		{
-			CarouselItemTemplate* templ = new CarouselItemTemplate(mWindow);
+			CarouselItemTemplate* templ = new CarouselItemTemplate(entry.name, mWindow);
 			templ->setScaleOrigin(0.0f);
 			templ->setSize(mCarousel.logoSize * mCarousel.logoScale);
 			templ->loadTemplatedChildren(&itemTemplate->second);

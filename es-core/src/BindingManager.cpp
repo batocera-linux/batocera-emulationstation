@@ -178,7 +178,7 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 
 		bool uniqueVariable = xp[0] == '{' && xp[xp.size() - 1] == '}' && Utils::String::occurs(xp, '{') == 1;
 
-		std::string evaluableExpression = updateBoundExpression(xp, bindable, text != nullptr && showDefaultText);
+		std::string evaluableExpression = updateBoundExpression(xp, bindable, text != nullptr && (text->getBindingDefaults() || showDefaultText));
 		
 		switch (existing.type)
 		{
@@ -352,7 +352,7 @@ BindableProperty ComponentBinding::getProperty(const std::string& name)
 	case ThemeData::ThemeElement::Property::PropertyType::Int:
 		return (int)prop.i;
 	case ThemeData::ThemeElement::Property::PropertyType::Bool:
-		return (int)prop.b;
+		return prop.b;
 	case ThemeData::ThemeElement::Property::PropertyType::Float:
 		return prop.f;
 	}
@@ -430,4 +430,45 @@ int BindableProperty::toFloat()
 	}
 
 	return 0.0f;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// GridTemplateBinding
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+GridTemplateBinding::GridTemplateBinding(GuiComponent* tile, const std::string& name, IBindable* parent)
+{
+	mName = name;
+	mParent = parent;
+	mComponent = tile;
+}
+
+BindableProperty GridTemplateBinding::getProperty(const std::string& name)
+{
+	if (name == "label")
+		return mName;
+
+	if (name == "h")
+	{
+		auto size = mComponent->getSize();
+		if (size.x() != 0)
+			return (size.y() / size.x());
+
+		return 1.0f;
+	}
+
+	if (name == "y")
+	{
+		auto size = mComponent->getSize();
+		if (size.y() != 0)
+			return (size.x() / size.y());
+
+		return 1.0f;
+	}
+
+	if (name == "w" || name == "h")
+		return mComponent->getProperty(name).f;
+
+	return BindableProperty::Null;
 }

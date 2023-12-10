@@ -1518,54 +1518,6 @@ Vector3f GridTileComponent::getLaunchTarget()
 	return Vector3f(getCenter().x(), getCenter().y(), 0);
 }
 
-class GridNameBinding : public IBindable
-{
-public:
-	GridNameBinding(GridTileComponent* tile, const std::string& name, IBindable* parent)
-	{		
-		mName = name;
-		mParent = parent;
-		mTile = tile;
-	}
-
-	BindableProperty getProperty(const std::string& name) override
-	{
-		if (name == "label")
-			return mName;
-
-		if (name == "h")
-		{
-			auto size = mTile->getSize();
-			if (size.x() != 0)
-				return (size.y() / size.x());
-
-			return 1.0f;
-		}
-
-		if (name == "y")
-		{
-			auto size = mTile->getSize();
-			if (size.y() != 0)
-				return (size.x() / size.y());
-
-			return 1.0f;
-		}
-
-		if (name == "w" || name == "h")
-			return mTile->getProperty(name).f;
-
-		return BindableProperty::Null;
-	}
-
-	std::string getBindableTypeName() override { return "grid"; }
-	IBindable* getBindableParent() override { return mParent; };
-
-private:
-	IBindable* mParent;
-	std::string mName;
-	GridTileComponent* mTile;
-};
-
 void GridTileComponent::updateBindings(IBindable* bindable)
 {
 	if (bindable != nullptr)
@@ -1573,23 +1525,21 @@ void GridTileComponent::updateBindings(IBindable* bindable)
 		std::vector<IBindable*> bindables;
 
 		IBindable* currentParent = bindable;
-		/*
-		auto childs = enumerateExtraChildrens();
-		std::reverse(childs.begin(), childs.end());
 
+		auto childs = enumerateExtraChildrens();
 		for (auto comp : childs)
 		{
 			auto id = comp->getTag();
 			if (id.empty() || id == comp->getThemeTypeName())
 				continue;
-			
+
 			IBindable* bindable = new ComponentBinding(comp, currentParent);
 			bindables.push_back(bindable);
 
 			currentParent = bindable;
 		}
-		*/
-		GridNameBinding localBinding(this, Utils::String::trim(mLabel.getText()), currentParent);
+
+		GridTemplateBinding localBinding(this, Utils::String::trim(mLabel.getText()), currentParent);
 		GuiComponent::updateBindings(&localBinding);
 
 		for (auto bindable : bindables)

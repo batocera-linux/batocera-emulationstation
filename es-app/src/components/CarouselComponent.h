@@ -23,7 +23,7 @@ struct CarouselComponentData
 class CarouselItemTemplate : public GuiComponent
 {
 public:
-	CarouselItemTemplate(Window* window);
+	CarouselItemTemplate(const std::string& name, Window* window);
 
 	void loadTemplatedChildren(const ThemeData::ThemeElement* elem);
 
@@ -33,6 +33,9 @@ public:
 	bool storyBoardExists(const std::string& name = "", const std::string& propertyName = "");
 
 	void updateBindings(IBindable* bindable) override;
+
+private:
+	std::string mName;
 };
 
 class CarouselComponent : public IList<CarouselComponentData, FileData*>

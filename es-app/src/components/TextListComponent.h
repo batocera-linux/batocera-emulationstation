@@ -54,14 +54,22 @@ public:
 	using IList<TextListData, T>::getChildCount;
 	using IList<TextListData, T>::isScrolling;
 	using IList<TextListData, T>::stopScrolling;
+	using IList<TextListData, T>::setOpacity;
 	using IList<TextListData, T>::getOpacity;
-
+	using IList<TextListData, T>::onShow;
+	using IList<TextListData, T>::onHide;
+	using IList<TextListData, T>::isShowing;
+	
 	TextListComponent(Window* window);
 
 	bool input(InputConfig* config, Input input) override;
 	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;
 	void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties) override;
+	
+	void onShow() override;
+	void onHide() override;
+	void setOpacity(unsigned char opacity) override;
 
 	void add(const std::string& name, const T& obj, unsigned int colorId);
 
@@ -102,8 +110,6 @@ public:
 	inline void setLineSpacing(float lineSpacing) { mLineSpacing = lineSpacing; }
 	inline void setBonusTextColor(unsigned int color) { mBonusColor = color; mHasBonusColor = true; }
 	inline void setBonusSelectedTextColor(unsigned int color) { mBonusSelectedColor = color; mHasBonusSelectedColor = true; }
-
-	virtual void onShow() override;
 
 	void onSizeChanged() override;
 
@@ -252,40 +258,63 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 	}
 
 	float opacity = getOpacity() / 255.0;
+	
 	float entrySize = getRowHeight();
-
 	int startEntry = mCameraOffset / entrySize;
 	int screenCount = mLineCount > 0 ? mLineCount : (int)(mSize.y() / entrySize);
+	int lastEntry = Math::min((int) mEntries.size(), startEntry + screenCount + 1);
 	
 	int listCutoff = startEntry + screenCount;
 	if (listCutoff > size())
 		listCutoff = size();
 
+	int loopStart = startEntry;
+	int loopEnd = lastEntry;
+
+	if (!mItemTemplate.type.empty())
+	{
+		startEntry = Math::max(0, startEntry - 2);
+		lastEntry = Math::min((int) mEntries.size(), lastEntry + 2);
+
+		loopStart = 0;
+		loopEnd = mEntries.size();
+	}
+
 	Renderer::pushClipRect(rect);
 
 	float y = startEntry * entrySize - mCameraOffset;
 
-	for (int i = startEntry; i < mEntries.size(); i++)
+	for (int i = loopStart; i < loopEnd; i++) // mEntries.size()
 	{
 		typename IList<TextListData, T>::Entry& entry = mEntries.at((unsigned int)i);
 
-		unsigned int color;
-		if (mCursor == i && mSelectedColor)
-			color = mSelectedColor;
-		else
-			color = mColors[entry.data.colorId];
+		if (i < startEntry || i >= lastEntry)
+		{
+			if (entry.data.itemTemplate)
+			{
+				if (entry.data.itemTemplate->isShowing())
+					entry.data.itemTemplate->onHide();
+
+				if (entry.data.itemTemplate->isVisible())
+					entry.data.itemTemplate->setVisible(false);
+			}
+
+			continue;
+		}
 
 		if (!entry.data.itemTemplate && !mItemTemplate.type.empty())
 		{
 			auto bindable = getBindable(entry);
 			if (bindable != nullptr)
 			{
-				CarouselItemTemplate* templ = new CarouselItemTemplate(mWindow);
+				CarouselItemTemplate* templ = new CarouselItemTemplate(entry.name, mWindow);
 				templ->setScaleOrigin(0.0f);
 				templ->setSize(mSize.x(), entrySize);
+				templ->isShowing() = isShowing();
+				templ->setAmbientOpacity(getOpacity());
 				templ->loadTemplatedChildren(&mItemTemplate);
 				templ->updateBindings(bindable);
-				
+
 				entry.data.itemTemplate = std::shared_ptr<GuiComponent>(templ);
 
 				if (mCursor == i && (entry.data.itemTemplate->selectStoryboard("activate") || entry.data.itemTemplate->selectStoryboard()))
@@ -298,11 +327,23 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		
 		if (entry.data.itemTemplate)
 		{
+			if (!entry.data.itemTemplate->isVisible())
+				entry.data.itemTemplate->setVisible(true);
+
+			if (isShowing() && !entry.data.itemTemplate->isShowing())
+				entry.data.itemTemplate->onShow();
+
 			entry.data.itemTemplate->setPosition(0.0f, y);
 			entry.data.itemTemplate->render(trans);
 		}
 		else
 		{
+			unsigned int color;
+			if (mCursor == i && mSelectedColor)
+				color = mSelectedColor;
+			else
+				color = mColors[entry.data.colorId];
+
 			if (!entry.data.textCache)
 				entry.data.textCache = std::unique_ptr<TextCache>(font->buildTextCache(mUppercase ? Utils::String::toUpper(entry.name) : entry.name, 0, 0, 0x000000FF));
 
@@ -393,7 +434,7 @@ void TextListComponent<T>::render(const Transform4x4f& parentTrans)
 		}
 
 		y += entrySize;
-		if (y > mSize.y())
+		if (mItemTemplate.type.empty() && y > mSize.y())
 			break;
 	}
 
@@ -473,11 +514,14 @@ void TextListComponent<T>::update(int deltaTime)
 
 	mScrollbar.update(deltaTime);
 
-	for (int i = 0; i < mEntries.size(); i++)
+	if (!mItemTemplate.type.empty())
 	{
-		typename IList<TextListData, T>::Entry& entry = mEntries.at((unsigned int)i);
-		if (entry.data.itemTemplate)
-			entry.data.itemTemplate->update(deltaTime);
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+		{
+			auto& entry = mEntries.at(i);
+			if (entry.data.itemTemplate && entry.data.itemTemplate->isShowing())
+				entry.data.itemTemplate->update(deltaTime);
+		}
 	}
 
 	listUpdate(deltaTime);
@@ -619,18 +663,6 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 		mLastCursor = mCursor;
 		mLastCursorState = state;
 	}
-}
-
-template<typename T>
-void TextListComponent<T>::onShow()
-{
-	GuiComponent::onShow();
-
-	mMarqueeOffset = 0;
-	mMarqueeOffset2 = 0;
-	mMarqueeTime = 0;
-
-	mScrollbar.onCursorChanged();
 }
 
 template <typename T>
@@ -888,6 +920,60 @@ void TextListComponent<T>::onMouseWheel(int delta)
 	mScrollVelocity = 0;
 	mTimeHoldingButton = -1;
 	mHotRow = -1;
+}
+
+template<typename T>
+void TextListComponent<T>::setOpacity(unsigned char opacity)
+{
+	IList<TextListData, T>::setOpacity(opacity);
+
+	if (!mItemTemplate.type.empty())
+	{
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+		{
+			auto& entry = mEntries.at(i);
+			if (entry.data.itemTemplate != nullptr)
+				entry.data.itemTemplate->setOpacity(opacity);
+		}
+	}
+}
+
+template<typename T>
+void TextListComponent<T>::onShow()
+{
+	IList<TextListData, T>::onShow();	
+
+	if (!mItemTemplate.type.empty())
+	{
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+		{
+			auto& entry = mEntries.at(i);
+			if (entry.data.itemTemplate)
+				entry.data.itemTemplate->onShow();
+		}
+	}
+
+	mMarqueeOffset = 0;
+	mMarqueeOffset2 = 0;
+	mMarqueeTime = 0;
+
+	mScrollbar.onCursorChanged();
+}
+
+template<typename T>
+void TextListComponent<T>::onHide()
+{
+	IList<TextListData, T>::onHide();
+
+	if (!mItemTemplate.type.empty())
+	{
+		for (unsigned int i = 0; i < mEntries.size(); i++)
+		{
+			auto& entry = mEntries.at(i);
+			if (entry.data.itemTemplate)
+				entry.data.itemTemplate->onHide();
+		}
+	}
 }
 
 #endif // ES_APP_COMPONENTS_TEXT_LIST_COMPONENT_H
