@@ -181,6 +181,8 @@ public:
 	std::string getBindableTypeName()  override { return "game"; }
 	IBindable*  getBindableParent() override;
 
+	std::string getGenre();
+
 private:
 	std::string getKeyboardMappingFilePath();
 	std::string getMessageFromExitCode(int exitCode);
