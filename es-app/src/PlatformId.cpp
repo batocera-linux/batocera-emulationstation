@@ -155,6 +155,7 @@ namespace PlatformIds
 		{ "easyrpg",				EASYRPG },			
 		{ "pet",					COMMODORE_PET },
 		{ "cpet",					COMMODORE_PET },
+		{ "cplus4",					COMMODORE_PLUS4 },
 		{ "atom",					ACORN_ATOM },
 		{ "bbcmicro",				ACORN_BBC_MICRO },
 		{ "bbc",					ACORN_BBC_MICRO },
