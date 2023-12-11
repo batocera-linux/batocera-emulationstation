@@ -678,7 +678,7 @@ void DetailedContainer::updateDetailsForFolder(FolderData* folder)
 	mReleaseDate.setValue(folder->getMetadata(MetaDataId::ReleaseDate));
 	mDeveloper.setValue(folder->getMetadata(MetaDataId::Developer));
 	mPublisher.setValue(folder->getMetadata(MetaDataId::Publisher));
-	mGenre.setValue(folder->getMetadata(MetaDataId::Genre));
+	mGenre.setValue(folder->getGenre());
 	mLastPlayed.setValue("");
 	mPlayCount.setValue("");
 	mGameTime.setValue("");
@@ -961,7 +961,7 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		mReleaseDate.setValue(file->getMetadata(MetaDataId::ReleaseDate));
 		mDeveloper.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Developer)));
 		mPublisher.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Publisher)));
-		mGenre.setValue(valueOrUnknown(file->getMetadata(MetaDataId::Genre)));
+		mGenre.setValue(valueOrUnknown(file->getGenre()));
 
 		if (mPlayers.getOriginalThemeText() == "1")
 			mPlayers.setValue(valueOrOne(file->getMetadata(MetaDataId::Players)));

@@ -51,6 +51,7 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 	{ "gunGame",			[](FileData* file) { return file->isLightGunGame(); } },
 	{ "wheelGame",			[](FileData* file) { return file->isWheelGame(); } },
 	{ "cheevos",			[](FileData* file) { return file->hasCheevos(); } },
+	{ "genre",			    [](FileData* file) { return file->getGenre(); } },
 	{ "systemName",			[](FileData* file) { return file->getSourceFileData()->getSystem()->getFullName(); } },
 };
 
@@ -1755,6 +1756,15 @@ void FileData::setSelectedGame()
 		TextToSpeech::getInstance()->say(desc, true);	
 }
 
+std::string FileData::getGenre()
+{
+	std::string genre = Genres::genreStringFromIds(Utils::String::split(getMetadata(MetaDataId::GenreIds), ',', true));
+	if (genre.empty())
+		genre = getMetadata(MetaDataId::Genre);
+
+	return genre;
+}
+
 BindableProperty FileData::getProperty(const std::string& name)
 {
 	auto it = properties.find(name);
@@ -1781,7 +1791,7 @@ BindableProperty FileData::getProperty(const std::string& name)
 				return name.substr(i);
 
 		return "";
-	}
+	}	
 
 	if (name == "collection")
 	{
