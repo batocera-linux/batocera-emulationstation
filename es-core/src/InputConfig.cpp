@@ -7,6 +7,7 @@
 
 #ifdef HAVE_UDEV
 #include <libudev.h>
+#include "utils/FileSystemUtil.h"
 #endif
 
 
@@ -55,6 +56,34 @@ std::string toLower(std::string str)
 
 	return str;
 }
+
+#ifdef HAVE_UDEV
+
+std::string getDeviceSyspath(const std::string& path) {
+  struct udev *udev;
+  struct udev_list_entry *devs = NULL;
+  struct udev_list_entry *item = NULL;
+
+  udev = udev_new();
+  if (udev != NULL)
+    {
+      struct udev_enumerate *enumerate = udev_enumerate_new(udev);
+      udev_enumerate_add_match_subsystem(enumerate, "input");
+      udev_enumerate_scan_devices(enumerate);
+      devs = udev_enumerate_get_list_entry(enumerate);
+
+      for (item = devs; item; item = udev_list_entry_get_next(item)) {
+	  const char *name = udev_list_entry_get_name(item);
+	  if(Utils::FileSystem::getFileName(name) == Utils::FileSystem::getFileName(path))
+	    return name;
+	}
+      udev_unref(udev);
+    }
+  return "";
+}
+
+#endif
+
 //end util functions
 
 InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& deviceName, const std::string& deviceGUID, int deviceNbButtons, int deviceNbHats, int deviceNbAxes, const std::string& devicePath) 
@@ -62,8 +91,11 @@ InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& devic
 {
 	mBatteryLevel = -1;
 	mIsWheel = false;
+	mDeviceSysPath = "";
 #ifdef HAVE_UDEV
 	mIsWheel = isWheel(devicePath);
+	mDeviceSysPath = getDeviceSyspath(devicePath);
+	LOG(LogInfo) << "INFO: device syspath for " << devicePath << " is " << mDeviceSysPath << "\n";
 #endif
 }
 

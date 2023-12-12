@@ -117,6 +117,7 @@ public:
         
 	inline int getDeviceIndex() const { return mDeviceIndex; }; 
 	inline const std::string& getDeviceName() { return mDeviceName; }
+	inline const std::string& getDeviceSysPath() { return mDeviceSysPath; }
 	inline const std::string& getDeviceGUIDString() { return mDeviceGUID; }
 	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; 
 	inline int getDeviceNbHats() const { return mDeviceNbHats; }; 
@@ -154,6 +155,7 @@ private:
 	const int mDeviceId;
 	const int mDeviceIndex; 
 	const std::string mDeviceName;
+	std::string mDeviceSysPath;
 	const std::string mDeviceGUID;
 	const int mDeviceNbButtons; // number of buttons of the device 
 	const int mDeviceNbHats;    // number of hats    of the device 
