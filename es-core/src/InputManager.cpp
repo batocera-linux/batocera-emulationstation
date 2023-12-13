@@ -1098,7 +1098,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 #if WIN32
 	std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getSortDevicePath() < b->getSortDevicePath(); });
 #else
-	std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getDeviceIndex() < b->getDeviceIndex(); });
+	std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getDeviceSysPath() == b->getDeviceSysPath() ? a->getDeviceIndex() < b->getDeviceIndex() : a->getDeviceSysPath() < b->getDeviceSysPath(); });
 #endif
 
 	// 2. Pour chaque joueur verifier si il y a un configurated
