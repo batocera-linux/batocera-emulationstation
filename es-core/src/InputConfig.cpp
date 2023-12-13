@@ -59,10 +59,11 @@ std::string toLower(std::string str)
 
 #ifdef HAVE_UDEV
 
-std::string getDeviceSyspath(const std::string& path) {
+std::string getDeviceParentSyspath(const std::string& path) {
   struct udev *udev;
   struct udev_list_entry *devs = NULL;
   struct udev_list_entry *item = NULL;
+  std::string res;
 
   udev = udev_new();
   if (udev != NULL)
@@ -74,8 +75,37 @@ std::string getDeviceSyspath(const std::string& path) {
 
       for (item = devs; item; item = udev_list_entry_get_next(item)) {
 	  const char *name = udev_list_entry_get_name(item);
-	  if(Utils::FileSystem::getFileName(name) == Utils::FileSystem::getFileName(path))
+	  if(Utils::FileSystem::getFileName(name) == Utils::FileSystem::getFileName(path)) {
+
+	    struct udev_device* ud = udev_device_new_from_syspath(udev, name);
+	    if(ud != NULL) {
+	      // have a bluetooth parent ?
+	      udev_device* bt_parent = udev_device_get_parent_with_subsystem_devtype(ud, "bluetooth", NULL);
+	      if(bt_parent != NULL) {
+		const char *bt_parent_sysname = udev_device_get_syspath(bt_parent);
+		res = bt_parent_sysname;
+		udev_device_unref(ud);
+		udev_unref(udev);
+		return res;
+	      }
+
+	      // have a usb parent ?
+	      udev_device* usb_parent = udev_device_get_parent_with_subsystem_devtype(ud, "usb", NULL);
+	      if(usb_parent != NULL) {
+		const char *usb_parent_sysname = udev_device_get_syspath(usb_parent);
+		res = usb_parent_sysname;
+		udev_device_unref(ud);
+		udev_unref(udev);
+		return res;
+	      }
+	      udev_device_unref(ud);
+	    }
+
+	    // fallback (should not happen) ; return the device path
+	    res = name;
+	    udev_unref(udev);
 	    return name;
+	  }
 	}
       udev_unref(udev);
     }
@@ -91,11 +121,11 @@ InputConfig::InputConfig(int deviceId, int deviceIndex, const std::string& devic
 {
 	mBatteryLevel = -1;
 	mIsWheel = false;
-	mDeviceSysPath = "";
+	mDeviceParentSysPath = "";
 #ifdef HAVE_UDEV
 	mIsWheel = isWheel(devicePath);
-	mDeviceSysPath = getDeviceSyspath(devicePath);
-	LOG(LogInfo) << "INFO: device syspath for " << devicePath << " is " << mDeviceSysPath << "\n";
+	mDeviceParentSysPath = getDeviceParentSyspath(devicePath);
+	LOG(LogInfo) << "INFO: device syspath for " << devicePath << " is " << mDeviceParentSysPath << "\n";
 #endif
 }
 
@@ -378,6 +408,7 @@ void InputConfig::AssignActionButtons()
 
 std::string InputConfig::getSortDevicePath()
 {
+#ifdef WIN32
 	if (Utils::String::startsWith(Utils::String::toUpper(mDevicePath), "USB\\"))
 	{
 		auto lastSplit = mDevicePath.rfind("\\");
@@ -397,6 +428,11 @@ std::string InputConfig::getSortDevicePath()
 			}
 		}
 	}
+#endif
+
+#ifdef HAVE_UDEV
+	if (!mDeviceParentSysPath.empty()) return mDeviceParentSysPath;
+#endif
 
 	return mDevicePath;
 }
