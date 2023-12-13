@@ -498,10 +498,10 @@ msgid "New Collection Name"
 msgstr "Název nové sbírky"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "VLOŽIT JMÉNO"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "VYTVOŘIT Z TÉMATU"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "VYTVOŘIT NOVOU UPRAVITELNOU SBÍRKU"
@@ -543,10 +543,10 @@ msgid "START ON GAMELIST"
 msgstr "ZAČÍT NA SEZNAMU HER"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "SKUPINOVÉ VLASTNÍ SBÍRKY"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "NEZAMĚŘENÉ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ZOBRAZIT NÁZEV SYSTÉMU VE SBÍRKÁCH"
@@ -1445,13 +1445,13 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "PREFEROVANÁ OBLAST"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "PŘEPSAT POPISY"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "PŘEPSAT MÉDIA"
 
 msgid "SCRAPE FOR"
 msgstr "VYHLEDAT PRO"
@@ -1484,7 +1484,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "NASTAVENÍ KLÁVES OVLADAČE"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "ÚČET"
 
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
@@ -1796,22 +1796,22 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "VYČISTIT SEZNAMY HER A ODSTRANIT NEPOUŽÍVANÁ MÉDIA"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Odstraňte nepoužívané položky a vyčistěte odkazy na chybějící média."
 
 msgid "Cleaning"
 msgstr "Čištění"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "RESETOVÁNÍ ÚDAJŮ O POUŽÍVÁNÍ SEZNAMŮ HER"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Obnovení hodnot metadat Herní čas, Počet přehrání a Naposledy hrané."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESET SOUBORU ROZŠÍŘENÍ"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "Obnovení výchozího nastavení filtrů přizpůsobených přípon souborů."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "ZNOVU ZJISTIT JAZYK/OBLAST VŠECH HER"
@@ -2207,10 +2207,10 @@ msgid "Current setting"
 msgstr "Aktuální nastavení"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "ÚČTY"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "NASTAVENÍ BIOSU"
 
 msgid "SAVESTATES"
 msgstr "ULOŽENÉ POZICE"
@@ -2420,7 +2420,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "ZOBRAZIT IKONU MANUÁLU V SEZNAMECH"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "ZOBRAZIT IKONU RETROÚSPĚCHŮ"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ZOBRAZIT NÁZVY SOUBORŮ V SEZNAMECH"
@@ -2471,7 +2471,7 @@ msgid "ICON AND TEXT"
 msgstr "IKONA A TEXT"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "ZOBRAZIT SLOŽKY JAKO PRVNÍ"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "PŘI ŘAZENÍ IGNOROVAT ÚVODNÍ ČLÁNKY"
@@ -3028,10 +3028,10 @@ msgid "STEERING WHEEL"
 msgstr "ŘÍDICÍ KOLO"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "MAJÍCÍ MÉDIA"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "CHYBĚJÍCÍ MÉDIA"
 
 msgid "SCRAPING"
 msgstr "VYHLEDÁVÁNÍ"
@@ -3231,10 +3231,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PODRŽENÍM TLAČÍTKA NA ZAŘÍZENÍ JEJ NAKONFIGURUJETE."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "STISKNĚTE ESC PRO ZRUŠENÍ."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "STISKNĚTE ESC NEBO HOTKEY PRO ZRUŠENÍ."
 
 msgid "DISCARD CHANGES"
 msgstr "ZAHODIT ZMĚNY"

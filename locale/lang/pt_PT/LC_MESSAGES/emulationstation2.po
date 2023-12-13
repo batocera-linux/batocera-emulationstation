@@ -503,10 +503,10 @@ msgid "New Collection Name"
 msgstr "Nome de Nova Coleção"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "INSIRA O NOME"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "CRIAR A PARTIR DO TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CRIAR UMA NOVA COLEÇÃO PERSONALIZAVEL"
@@ -548,10 +548,10 @@ msgid "START ON GAMELIST"
 msgstr "INICIAR NA LISTA DE JOGOS"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "COLEÇÕES PERSONALIZADAS EM GRUPO"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "SEM TEMA"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR NOME DO SISTEMA NAS COLEÇÕES"
@@ -1451,13 +1451,13 @@ msgid "MARQUEE"
 msgstr "LETREIRO"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "REGIÃO PREFERIDA"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "SUBSTITUIR DESCRIÇÕES"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "SUBSTITUIR MEDIA"
 
 msgid "SCRAPE FOR"
 msgstr "OBTER MEDIA PARA"
@@ -1490,7 +1490,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE COMANDO PARA TECLADO (PAD2KEY)"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "CONTA"
 
 msgid "SCRAPER"
 msgstr "OBTER MÉDIAS"
@@ -1802,22 +1802,22 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "LIMPAR LISTA DE JOGOS & REMOVER MEDIAS NÃO UTILIZADAS"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Remova entradas não utilizadas e limpe referências a medias ausentes."
 
 msgid "Cleaning"
 msgstr "Limpeza"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "REINICIAR DADOS DE USO DE LISTAS DE JOGOS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Redefina os valores dos metadados GameTime, PlayCount e LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REPOR EXTENSÕES DE FICHEIRO"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "Redefina os filtros de extensões de arquivo personalizados para o padrão."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "REDETECTAR O IDIOMA/REGIÃO DOS JOGOS"
@@ -2214,10 +2214,10 @@ msgid "Current setting"
 msgstr "Definição atual"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "CONTAS"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "DEFINIÇÕES DA BIOS"
 
 msgid "SAVESTATES"
 msgstr "SAVESTATES"
@@ -2427,7 +2427,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "MOSTRAR ÍCONE DO MANUAL"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "MOSTRAR ÍCONE DE RETROACHIEVEMENTS"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOMES DE FICHEIROS"
@@ -2478,7 +2478,7 @@ msgid "ICON AND TEXT"
 msgstr "ÍCONE E TEXTO"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "MOSTRAR AS PASTAS PRIMEIRO"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORE OS ARTIGOS PRINCIPAIS AO ORDENAR"
@@ -3030,10 +3030,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "TER MEDIA"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "MEDIA EM FALTA"
 
 msgid "SCRAPING"
 msgstr "A PROCURAR"
@@ -3231,10 +3231,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRESSIONE UM BOTÃO DO COMANDO PARA INICIAR A CONFIGURAÇÃO."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "PRESSIONE ESC PARA CANCELAR."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "PRESSIONE ESC OU A TECLA DE HOTKEY PARA CANCELAR."
 
 msgid "DISCARD CHANGES"
 msgstr "DESCARTAR MODIFICAÇÕES"
@@ -3324,36 +3324,6 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-#~ msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA PARA O TEMA"
-
-#~ msgid "SELECT THEME FOLDER"
-#~ msgstr "SELECIONE A PASTA DO TEMA"
-
-#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-#~ msgstr "AGRUPAR COLEÇÕES PERSONALIZADAS"
-
-#~ msgid "HAS MEDIAS"
-#~ msgstr "POSSUI MEDIAS"
-
-#~ msgctxt "joystick"
-#~ msgid "UP"
-#~ msgstr "CIMA"
-
-#~ msgctxt "joystick"
-#~ msgid "DOWN"
-#~ msgstr "BAIXO"
-
-#~ msgctxt "joystick"
-#~ msgid "LEFT"
-#~ msgstr "ESQUERDA"
-
-#~ msgctxt "joystick"
-#~ msgid "RIGHT"
-#~ msgstr "DIREITA"
-
-#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-#~ msgstr "INVERTER BOTÕES A/B NO EMULATIONSTATION"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

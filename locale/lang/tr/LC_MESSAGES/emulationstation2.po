@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-04-04 00:23+0300\n"
-"Last-Translator: Biohazard\n"
+"PO-Revision-Date: 2023-12-12 00:23+0300\n"
+"Last-Translator: Sawex\n"
 "Language-Team: \n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -501,10 +501,10 @@ msgid "New Collection Name"
 msgstr "Yeni Koleksiyon İsimi"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "İSİM GİRİN"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "TEMA OLUŞTURUN"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "DÜZENLENEBİLİR YENİ KOLEKSİYON OLUŞTUR"
@@ -546,10 +546,10 @@ msgid "START ON GAMELIST"
 msgstr "OYUN LİSTESİNDE BAŞLAT"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "ÖZEL KOLEKSİYON GRUBU"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "TEMASIZ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "KOLEKSİYONDAKİ SİSTEM İSMİNİ GÖSTER"
@@ -1447,13 +1447,13 @@ msgid "MARQUEE"
 msgstr "KAYAN YAZI"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "TERCİH EDİLEN BÖLGE"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "AÇIKLAMAYI ÜZERİNE YAZ"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "MEDYALARI ÜZERİNE YAZ"
 
 msgid "SCRAPE FOR"
 msgstr "İÇİN SCRAPE"
@@ -1486,25 +1486,25 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY AYARLARI"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "HESAP"
 
 msgid "SCRAPER"
-msgstr "SCRAPER"
+msgstr "KAZIMA"
 
 msgid "SCRAPING DATABASE"
-msgstr "SCRAPING VERİTABANI"
+msgstr "KAZIMA VERİTABANI"
 
 msgid "SOURCE"
 msgstr "KAYNAK"
 
 msgid "SCRAPE FROM"
-msgstr "ŞURADAN ÇEK(SCRAPPER)"
+msgstr "ŞURADAN ÇEK(KAZIMA)"
 
 msgid "FILTERS"
 msgstr "FİLTRELER"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "SCRAPE EDİLECEK OYUNLAR"
+msgstr "KAZINACAK OYUNLAR"
 
 msgid "ALL"
 msgstr "HEPSİ"
@@ -1731,7 +1731,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "KİLİDİ AÇMAK İÇİN KODU GİRİN"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "SERVİSLER"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND GELİŞTİRİCİ AYARLARI"
@@ -1798,22 +1798,22 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "OYUN LİSTESİNİ TEMİZLE & KULLANILMAYAN MEDYALARI KALDIR"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Kullanılmayan girişleri kaldırın ve eksik ortamlara yönelik referansları temizleyin"
 
 msgid "Cleaning"
 msgstr "Temizleniyor"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "OYUN KULLANIM LİSTESİNİ SIFIRLA"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini sıfırlayın"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DOSYA UZANTILARINI RESETLE"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "Özelleştirilmiş dosya uzantısı filtrelerini varsayılana sıfırla"
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "OYUNLARIN DİL/BÖLGE SİNİ TEKRAR ALGILA"
@@ -2210,10 +2210,10 @@ msgid "Current setting"
 msgstr "Mevcut ayarlar"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "HESAPLAR"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "BİOS AYARLARI"
 
 msgid "SAVESTATES"
 msgstr "KAYITYERLERİ"
@@ -2289,7 +2289,7 @@ msgid "SHADER SET"
 msgstr "SHADER AYARLA"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "VİDEO FİLTRESİ"
 
 msgid "DECORATIONS"
 msgstr "DEKARASYONLAR"
@@ -2424,7 +2424,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "LİSTEDE KLAVUZ SİMGELERİNİ GÖSTER"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "RETROARŞİV SİMGESİNİ GÖSTER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "LİSTEDE DOSYA İSİMLERİNİ GÖSTER"
@@ -2475,7 +2475,7 @@ msgid "ICON AND TEXT"
 msgstr "SİMGE VE METİN"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "KLASÖRLERİ ÖNCE GÖSTER"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "SIRALAMA SIRASINDA BAŞLICA MAKALELERİ GÖRMEZDEN GEL"
@@ -3027,19 +3027,19 @@ msgid "STEERING WHEEL"
 msgstr "DİREKSİYON"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "MEDYALARINIZ"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "KAYIP MEDYALAR"
 
 msgid "SCRAPING"
-msgstr "SCRAPE LENİYOR"
+msgstr "KAZINIYOR"
 
 msgid "SCRAPE FAILED"
-msgstr "SCRAPE BAŞARISIZ"
+msgstr "KAZIMA BAŞARISIZ"
 
 msgid "SCRAPING FINISHED"
-msgstr "SCRAPE TAMAMLANDI"
+msgstr "KAZIMA TAMAMLANDI"
 
 msgid ""
 "CALIBRATING GUN\n"
@@ -3228,10 +3228,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "CİHAZI YAPILANDIRMAK İÇİN BİR TUŞA BASILI TUT."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "İPTAL ETMEK İÇİN ESC BAS"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "İPTAL ETMEK İÇİN ESC VEYA KISAYOLA BAS"
 
 msgid "DISCARD CHANGES"
 msgstr "DEĞİŞİKLİKLERİ KAYDETME"
