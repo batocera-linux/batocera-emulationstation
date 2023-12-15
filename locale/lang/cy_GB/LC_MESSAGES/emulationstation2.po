@@ -2772,9 +2772,6 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-msgid "No Entries Found"
-msgstr "Ni ddarganfuwyd unrhyw gofnodion"
-
 msgid "Games similar to"
 msgstr "Gemau tebyg i"
 
@@ -2789,6 +2786,13 @@ msgstr "OPSIYNAU GÊM"
 
 msgid "FAVORITE"
 msgstr ""
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Ni ddarganfuwyd unrhyw gofnodion"
 
 msgid "INVALID CONTENT"
 msgstr ""

@@ -2804,9 +2804,6 @@ msgstr[0] "Tato složka obsahuje %i hra, včetně: %s"
 msgstr[1] "Tato složka obsahuje %i hry, včetně: %s"
 msgstr[2] "Tato složka obsahuje %i her, včetně: %s"
 
-msgid "No Entries Found"
-msgstr "Nebyly nalezeny žádné záznamy"
-
 msgid "Games similar to"
 msgstr "Podobné hry jako"
 
@@ -2821,6 +2818,13 @@ msgstr "HERNÍ MOŽNOSTI"
 
 msgid "FAVORITE"
 msgstr "OBLÍBENÉ"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Nebyly nalezeny žádné záznamy"
 
 msgid "INVALID CONTENT"
 msgstr "NEPLATNÝ OBSAH"

@@ -2772,9 +2772,6 @@ msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "현재 폴더에 %i개의 개임이 있습니다, 다음 게임 포함:%s"
 
-msgid "No Entries Found"
-msgstr "항목을 찾지 못했습니다"
-
 msgid "Games similar to"
 msgstr "다음과 비슷한 게임"
 
@@ -2789,6 +2786,13 @@ msgstr "게임 옵션"
 
 msgid "FAVORITE"
 msgstr "즐겨찾기"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "항목을 찾지 못했습니다"
 
 msgid "INVALID CONTENT"
 msgstr ""

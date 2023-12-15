@@ -1817,7 +1817,8 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "REPOR EXTENSÕES DE FICHEIRO"
 
 msgid "Reset customized file extensions filters to default."
-msgstr "Redefina os filtros de extensões de arquivo personalizados para o padrão."
+msgstr ""
+"Redefina os filtros de extensões de arquivo personalizados para o padrão."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "REDETECTAR O IDIOMA/REGIÃO DOS JOGOS"
@@ -2808,9 +2809,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Esta pasta contém %i jogo, incluindo :%s"
 msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
 
-msgid "No Entries Found"
-msgstr "Nenhuma Entrada Encontrada"
-
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"
 
@@ -2825,6 +2823,13 @@ msgstr "OPÇÕES DE JOGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Nenhuma Entrada Encontrada"
 
 msgid "INVALID CONTENT"
 msgstr "CONTEÚDO INVÁLIDO"
@@ -3323,7 +3328,6 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
-
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

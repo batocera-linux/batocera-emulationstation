@@ -1798,7 +1798,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "OYUN LİSTESİNİ TEMİZLE & KULLANILMAYAN MEDYALARI KALDIR"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr "Kullanılmayan girişleri kaldırın ve eksik ortamlara yönelik referansları temizleyin"
+msgstr ""
+"Kullanılmayan girişleri kaldırın ve eksik ortamlara yönelik referansları "
+"temizleyin"
 
 msgid "Cleaning"
 msgstr "Temizleniyor"
@@ -1807,7 +1809,9 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "OYUN KULLANIM LİSTESİNİ SIFIRLA"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini sıfırlayın"
+msgstr ""
+"Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini "
+"sıfırlayın"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DOSYA UZANTILARINI RESETLE"
@@ -2803,9 +2807,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Bu klasör %i oyununu barındırıyor, içeriği :%s"
 msgstr[1] "Bu klasör %i oyunlarını barındırıyor, içeriği :%s"
 
-msgid "No Entries Found"
-msgstr "Girdi bulunamadı"
-
 msgid "Games similar to"
 msgstr "Benzeşen oyunlar"
 
@@ -2820,6 +2821,13 @@ msgstr "OYUN AYARLARI"
 
 msgid "FAVORITE"
 msgstr "FAVORİ"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Girdi bulunamadı"
 
 msgid "INVALID CONTENT"
 msgstr "GEÇERSİZ İÇERİK"

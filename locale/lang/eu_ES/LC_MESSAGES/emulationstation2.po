@@ -2806,9 +2806,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Karpeta honek %i jokoa dauka, %s barne"
 msgstr[1] "Karpeta honek %i jokoak dauzka, %s barne"
 
-msgid "No Entries Found"
-msgstr "Ez da Sarrerarik Aurkitu"
-
 msgid "Games similar to"
 msgstr "Honakoaren antzeko jokoak"
 
@@ -2823,6 +2820,13 @@ msgstr "JOKU AUKERAK"
 
 msgid "FAVORITE"
 msgstr "GOGOKOAK"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Ez da Sarrerarik Aurkitu"
 
 msgid "INVALID CONTENT"
 msgstr "EDUKI BALIOGABEA"

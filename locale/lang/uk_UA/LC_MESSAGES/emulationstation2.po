@@ -2757,9 +2757,6 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-msgid "No Entries Found"
-msgstr "Записів не знайдено"
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2774,6 +2771,13 @@ msgstr "ОПЦІЇ ГРИ"
 
 msgid "FAVORITE"
 msgstr ""
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Записів не знайдено"
 
 msgid "INVALID CONTENT"
 msgstr ""

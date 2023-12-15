@@ -2821,9 +2821,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Esta pasta contém %i jogo, incluindo :%s"
 msgstr[1] "Esta pasta contém %i jogos, incluindo :%s"
 
-msgid "No Entries Found"
-msgstr "Nenhuma Entrada Encontrada"
-
 msgid "Games similar to"
 msgstr "Jogos semelhantes a"
 
@@ -2838,6 +2835,13 @@ msgstr "OPÇÕES DE JOGO"
 
 msgid "FAVORITE"
 msgstr "FAVORITO"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Nenhuma Entrada Encontrada"
 
 msgid "INVALID CONTENT"
 msgstr "CONTEÚDO INVÁLIDO"

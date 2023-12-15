@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v38b(2023/09/25)\n"
+"Project-Id-Version: batocera-es v39b(2023/12/08)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-09-25 21:44+0900\n"
+"PO-Revision-Date: 2023-12-08 23:30+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -345,7 +345,7 @@ msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "テーマは正常にインストールされました"
 
 msgid "AN ERROR OCCURRED"
-msgstr "エラーが発生しました"
+msgstr "エラーが発生"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "テーマは正常にアンインストールされました"
@@ -468,7 +468,7 @@ msgid "FIND GAMES"
 msgstr "ゲームを検索"
 
 msgid "Unknown"
-msgstr "不明"
+msgstr " "
 
 msgid "YES"
 msgstr "はい"
@@ -498,10 +498,10 @@ msgid "New Collection Name"
 msgstr "新規コレクション名"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "コレクション名 登録"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "テーマから作成（テーマで用意されたコレクション）"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "コレクションを作成"
@@ -543,10 +543,10 @@ msgid "START ON GAMELIST"
 msgstr "起動時にゲームリストを表示"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "カスタムコレクションのグループ化"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "テーマに無い"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "コレクションにシステム名を表示"
@@ -1107,7 +1107,7 @@ msgid "MUTE VIDEO AUDIO"
 msgstr "動画音声をミュート"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr "スクリーンセーバー操作"
+msgstr "スクリーンセーバー操作(スタートでそのゲームを開始)"
 
 msgid "USE CUSTOM VIDEOS"
 msgstr "カスタム動画を使用"
@@ -1450,13 +1450,13 @@ msgid "MARQUEE"
 msgstr "マーキー<marquee>"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "ゲーム優先リージョン<region>"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "説明を上書き"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "メディアを上書き"
 
 msgid "SCRAPE FOR"
 msgstr "スクレイプ <gamelist項目>"
@@ -1489,7 +1489,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "パッドキー設定"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "アカウント(SCREENSCRAPER)"
 
 msgid "SCRAPER"
 msgstr "スクレイプ"
@@ -1734,7 +1734,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ロック解除(ボタンを順に押す)"
 
 msgid "SERVICES"
-msgstr "サービス"
+msgstr "サービス(その他の機能)"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "開発者オプション"
@@ -1743,7 +1743,7 @@ msgid "VIDEO OPTIONS"
 msgstr "映像設定"
 
 msgid "VRAM LIMIT"
-msgstr "VRAM 制限"
+msgstr "VRAM 制限(ESテーマ用)"
 
 msgid "SHOW FRAMERATE"
 msgstr "フレームレート表示"
@@ -1805,22 +1805,23 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ゲームリストの整理と未使用のメディアを削除"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "使用していない項目データや、メディアが無い参照リンクを削除します"
 
 msgid "Cleaning"
 msgstr "クリーニング"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "ゲームリストの使用データをリセット"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
+"プレイ時間, プレイ回数, 最後にプレイしたゲーム名 のデータ値を初期化します"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ファイル表示拡張子設定をリセット"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "カスタマイズしたファイル拡張子フィルタを初期化します"
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "すべてのゲームの言語/地域を再検出"
@@ -1923,7 +1924,7 @@ msgid "OPTIMIZATIONS"
 msgstr "最適化"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "起動時にUI部を先読みする"
+msgstr "起動時にUI要素を先読みする"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
@@ -1939,10 +1940,10 @@ msgstr ""
 "スクレイプ済みゲームリストのスクロール時のラグを減少(起動時間が長くなります)"
 
 msgid "THREADED LOADING"
-msgstr "スレッド読み込み"
+msgstr "スレッド読み込み(CPUコアが複数ある場合)"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "イメージの非同期読み込み"
+msgstr "画像の非同期読み込み(画像を並行して読み込む)"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "画像表示にVRAMを使用"
@@ -2206,10 +2207,10 @@ msgid "Current setting"
 msgstr "現在の設定"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "アカウント"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "BIOS 設定"
 
 msgid "SAVESTATES"
 msgstr "ステートセーブ"
@@ -2418,7 +2419,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "マニュアルアイコンを表示"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "RetroAchievements アイコンを表示"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "リストにファイル名を表示"
@@ -2469,7 +2470,7 @@ msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "サブフォルダを最初に表示"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ソート時に「The,a,an」を無視"
@@ -2794,9 +2795,6 @@ msgstr[0] ""
 "このフォルダには、\n"
 "%i種類のゲームがあります%s"
 
-msgid "No Entries Found"
-msgstr "該当データがありません"
-
 msgid "Games similar to"
 msgstr "類似ゲーム→"
 
@@ -2811,6 +2809,13 @@ msgstr "ゲーム設定"
 
 msgid "FAVORITE"
 msgstr "お気に入り"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "該当データがありません"
 
 msgid "INVALID CONTENT"
 msgstr "無効なコンテンツ"
@@ -3018,10 +3023,10 @@ msgid "STEERING WHEEL"
 msgstr "ステアリングホイール (ハンコン)"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "メディア有り"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "メディア無し"
 
 msgid "SCRAPING"
 msgstr "情報を取得中"
@@ -3217,10 +3222,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "ボタンを押し続けると、 コントローラーの設定をします"
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "ESCキーでキャンセルします"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "ESC またはホットキーを押すと、キャンセルします"
 
 msgid "DISCARD CHANGES"
 msgstr "変更をしない"
@@ -3310,9 +3315,3 @@ msgstr "スクリーンリーダー無効"
 
 #~ msgid "SELECT THEME FOLDER"
 #~ msgstr "追加するコレクションを選択"
-
-#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-#~ msgstr "マイコレクションをグループ化"
-
-#~ msgid "HAS MEDIAS"
-#~ msgstr "メディア有り"

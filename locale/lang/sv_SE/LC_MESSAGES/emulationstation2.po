@@ -2775,9 +2775,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Denna mapp innehåller %i spel, inklusive :%s"
 msgstr[1] "Denna mapp innehåller %i spel, inklusive :%s"
 
-msgid "No Entries Found"
-msgstr "Inga poster hittades"
-
 msgid "Games similar to"
 msgstr "Spel som liknar"
 
@@ -2792,6 +2789,13 @@ msgstr "SPELALTERNATIV"
 
 msgid "FAVORITE"
 msgstr "FAVORIT"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Inga poster hittades"
 
 msgid "INVALID CONTENT"
 msgstr ""

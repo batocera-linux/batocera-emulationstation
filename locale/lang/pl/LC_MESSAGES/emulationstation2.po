@@ -2813,9 +2813,6 @@ msgstr[0] "Ten folder zawiera %i grę, w tym: %s"
 msgstr[1] "Ten folder zawiera %i gry, w tym: %s"
 msgstr[2] "Ten folder zawiera %i gier, w tym: %s"
 
-msgid "No Entries Found"
-msgstr "Nie znaleziono wpisów"
-
 msgid "Games similar to"
 msgstr "Gry podobne do"
 
@@ -2830,6 +2827,13 @@ msgstr "OPCJE GRY"
 
 msgid "FAVORITE"
 msgstr "ULUBIONE"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Nie znaleziono wpisów"
 
 msgid "INVALID CONTENT"
 msgstr "NIEPRAWIDŁOWA ZAWARTOŚĆ"

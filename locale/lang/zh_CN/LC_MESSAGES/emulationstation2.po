@@ -2766,9 +2766,6 @@ msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "此文件夹中有 %i 游戏。包含有 %s 子文件夹"
 
-msgid "No Entries Found"
-msgstr "找不到条目"
-
 msgid "Games similar to"
 msgstr "类似游戏"
 
@@ -2783,6 +2780,13 @@ msgstr "游戏及模拟器设置菜单"
 
 msgid "FAVORITE"
 msgstr "加入收藏夹"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "找不到条目"
 
 msgid "INVALID CONTENT"
 msgstr "无效内容"

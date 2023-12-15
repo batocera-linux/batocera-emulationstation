@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-11-16 09:41+0100\n"
+"PO-Revision-Date: 2023-12-15 10:08+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -501,10 +501,10 @@ msgid "New Collection Name"
 msgstr "Új gyűjtemény neve"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "IRJA BE A NEVET"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "LÉTREHOZÁS A TÉMÁBÓL"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "ÚJ SZERKESZTHETŐ GYŰJTEMÉNY KÉSZÍTÉSE"
@@ -546,10 +546,10 @@ msgid "START ON GAMELIST"
 msgstr "INDÍTÁSI JÁTÉKLISTA"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr " EGYEDI GYŰJTEMÉNYEK CSOPORTJA"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "TÉMÁZATLAN"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "RENDSZER MEGNEVEZÉSÉNEK MUTATÁSA A GYŰJTEMÉNYEKBEN"
@@ -1448,13 +1448,13 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "ELŐNYBEN RÉSZESÍTETT RÉGIÓ"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "A LEÍRÁSOK FELÜLÍRÁSA"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "MÉDIÁK FELÜLÍRÁSA"
 
 msgid "SCRAPE FOR"
 msgstr "LEKÉRÉS"
@@ -1487,7 +1487,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY BEÁLLÍTÁSOK"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "FIÓK"
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1802,21 +1802,25 @@ msgstr "JÁTÉKLISTA TISZTÍTÁSA ÉS A NEM HASZNÁLT MÉDIÁK ELTÁVOLÍTÁSA"
 
 msgid "Remove unused entries, and clean references to missing medias."
 msgstr ""
+"Távolítsa el a fel nem használt bejegyzéseket, és törölje a hiányzó "
+"adathordozókra vonatkozó hivatkozásokat."
 
 msgid "Cleaning"
 msgstr "Tisztítás"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "A JÁTÉKLISTÁK HASZNÁLATI ADATAINAK VISSZAÁLLÍTÁSA"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "FÁJL KITERJESZTÉSEK VISSZAÁLLÍTÁSA"
 
 msgid "Reset customized file extensions filters to default."
 msgstr ""
+"Állítsa vissza a testreszabott fájlkiterjesztési szűrőket az "
+"alapértelmezettre."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "JÁTÉKOK NYELVÉNEK ÉS RÉGIÓJÁNAK ÚJRA DEKETÁLÁSA"
@@ -2215,10 +2219,10 @@ msgid "Current setting"
 msgstr "Aktuális beállítás"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "FIÓKOK"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "BIOS BEÁLLÍTÁSOK"
 
 msgid "SAVESTATES"
 msgstr "JÁTÉKÁLLÁS REKESZ"
@@ -2432,7 +2436,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "KÉZIKÖNYV IKON MEGJELENÍTÉSE A LISTÁKBAN"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "RETROACHIEVEMENTS IKON MUTATÁSA"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "FÁJLNEVEK MEGJELENÍTÉSE A LISTÁKBAN"
@@ -2483,7 +2487,7 @@ msgid "ICON AND TEXT"
 msgstr "IKON ÉS SZÖVEG"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "ELŐSZÖR MUTASD MEG A MAPPÁKAT"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "VEZETŐ CIKKEK FIGYELMEN KÍVÜL HAGYÁSA RENDEZÉSKOR"
@@ -2812,9 +2816,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Ez a könyvtár %i játékot tartalmaz, beleértve: %s"
 msgstr[1] "Ez a könyvtár %i játékot tartalmaz, beleértve: %s"
 
-msgid "No Entries Found"
-msgstr "Nem található elem"
-
 msgid "Games similar to"
 msgstr "Játék ami hasonló"
 
@@ -2829,6 +2830,13 @@ msgstr "JÁTÉK BEÁLLÍTÁSOK"
 
 msgid "FAVORITE"
 msgstr "KEDVENC"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Nem található elem"
 
 msgid "INVALID CONTENT"
 msgstr "ÉRVÉNYTELEN TARTALOM"
@@ -3036,10 +3044,10 @@ msgid "STEERING WHEEL"
 msgstr "KORMÁNYOS JÁTÉKOK"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "MEGLÉVŐ MÉDIÁK"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "HIÁNYZÓ MÉDIÁK"
 
 msgid "SCRAPING"
 msgstr "LEKÉRDEZÉS"
@@ -3238,10 +3246,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "TARTS NYOMVA EGY GOMBOT A KONFIGURÁLÁSHOZ."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "NYOMJA MEG az ESC billentyűt a TÖRLÉSHEZ."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "NYOMJA MEG az ESC billentyűt vagy a HOTKEY-t a TÖRLÉSHEZ."
 
 msgid "DISCARD CHANGES"
 msgstr "MÓDOSÍTÁSOK ELVETÉSE"

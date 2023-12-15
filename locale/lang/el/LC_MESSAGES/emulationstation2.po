@@ -2754,9 +2754,6 @@ msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "Αυτός ο φάκελος περιέχει %i παιχνίδι, συμπεριλαμβανομένου :%s"
 msgstr[1] "Αυτός ο φάκελος περιέχει %i παιχνίδια, συμπεριλαμβανομένων :%s"
 
-msgid "No Entries Found"
-msgstr "Δεν Βρέθηκαν Καταχωρήσεις"
-
 msgid "Games similar to"
 msgstr "Παιχνίδια παρόμοια με"
 
@@ -2771,6 +2768,13 @@ msgstr "ΕΠΙΛΟΓΕΣ ΠΑΙΧΝΙΔΙΟΥ"
 
 msgid "FAVORITE"
 msgstr "ΑΓΑΠΗΜΕΝΟ"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Δεν Βρέθηκαν Καταχωρήσεις"
 
 msgid "INVALID CONTENT"
 msgstr ""

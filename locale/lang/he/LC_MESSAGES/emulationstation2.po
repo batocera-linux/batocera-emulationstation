@@ -2760,9 +2760,6 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-msgid "No Entries Found"
-msgstr ""
-
 msgid "Games similar to"
 msgstr ""
 
@@ -2776,6 +2773,13 @@ msgid "GAME OPTIONS"
 msgstr ""
 
 msgid "FAVORITE"
+msgstr ""
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
 msgstr ""
 
 msgid "INVALID CONTENT"

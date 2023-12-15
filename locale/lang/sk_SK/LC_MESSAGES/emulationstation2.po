@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2023-10-08 19:51+0200\n"
+"PO-Revision-Date: 2023-12-14 09:50+0100\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
 "2;\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.1\n"
 "X-Loco-Source-Locale: en\n"
 "X-Loco-Project-Id: 136009\n"
 "X-Loco-Api-Version: 1.0.27 20230201-1\n"
@@ -501,10 +501,10 @@ msgid "New Collection Name"
 msgstr "Názov novej kolekcie"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "Zadajte názov"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "Vytvoriť z témy"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "Vytvoriť novú editovateľnú kolekciu"
@@ -546,10 +546,10 @@ msgid "START ON GAMELIST"
 msgstr "Spustiť na zoznam hier"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "Zoskupiť vlastné kolekcie"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "Bez témy"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "Zobraziť názov systému v kolekciách"
@@ -1447,13 +1447,13 @@ msgid "MARQUEE"
 msgstr "Markíza"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "Preferovaný región"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "Prepísať popisy"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "Prepísať médiá"
 
 msgid "SCRAPE FOR"
 msgstr "Vyhľadať pre"
@@ -1486,7 +1486,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "Nastavenia PadToKey"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "Účet"
 
 msgid "SCRAPER"
 msgstr "Vyhľadávač"
@@ -1800,22 +1800,22 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "Vyčistiť zoznamy hier a odstrániť nepoužité médiá"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Odstrániť nepoužité položky a vyčistiť referencie na chýbajúce médiá."
 
 msgid "Cleaning"
 msgstr "Čistenie"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "Vynulovať údaje použitia zoznamov"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "Vynulovať koncovky súborov"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "Vynulovať vlastné filtre prípon súborov na predvolené."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "Znovu zistiť jazyk a regióny všetkých hier"
@@ -2206,10 +2206,10 @@ msgid "Current setting"
 msgstr "Aktuálne nastavenie"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "Účty"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "Nastavenia BIOSu"
 
 msgid "SAVESTATES"
 msgstr "Uložené pozície"
@@ -2420,7 +2420,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "Zobraziť ručnú ikonu"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "Zobraziť ikonu retroachievements"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "Zobraziť názvy súborov"
@@ -2471,7 +2471,7 @@ msgid "ICON AND TEXT"
 msgstr "Ikona a text"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "Zobraziť najprv priečinky"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "Pri triedení ignorovať hlavné články"
@@ -2802,9 +2802,6 @@ msgstr[0] "Tento priečinok obsahuje %i hru, vrátane:%s"
 msgstr[1] "Tento priečinok obsahuje %i hry, vrátane:%s"
 msgstr[2] "Tento priečinok obsahuje %i hier, vrátane:%s"
 
-msgid "No Entries Found"
-msgstr "Nenašli sa žiadne položky"
-
 msgid "Games similar to"
 msgstr "Hry podobné ako"
 
@@ -2819,6 +2816,13 @@ msgstr "Herné voľby"
 
 msgid "FAVORITE"
 msgstr "Obľúbené"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Nenašli sa žiadne položky"
 
 msgid "INVALID CONTENT"
 msgstr "Neplatný obsah"
@@ -3026,10 +3030,10 @@ msgid "STEERING WHEEL"
 msgstr "Volant"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "Majú médiá"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "Chýbajúce médiá"
 
 msgid "SCRAPING"
 msgstr "Vyhľadávanie"
@@ -3229,10 +3233,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "Stlačte tlačidlo A na nastavenie vášho zariadenia."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "Stlačte ESC na zrušenie."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "Stlačte ESC alebo HOTKEY na zrušenie."
 
 msgid "DISCARD CHANGES"
 msgstr "Zahodiť zmeny"

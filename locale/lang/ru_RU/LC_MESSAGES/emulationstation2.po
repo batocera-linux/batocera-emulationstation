@@ -2800,9 +2800,6 @@ msgstr[0] "Папка содержит %i игру, включая :%s"
 msgstr[1] "Папка содержит %i игры, включая :%s"
 msgstr[2] "Папка содержит %i игр, включая :%s"
 
-msgid "No Entries Found"
-msgstr "Игр не найдено"
-
 msgid "Games similar to"
 msgstr "Игры похожие на"
 
@@ -2817,6 +2814,13 @@ msgstr "ПАРАМЕТРЫ"
 
 msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Игр не найдено"
 
 msgid "INVALID CONTENT"
 msgstr "НЕДОПУСТИМОЕ СОДЕРЖАНИЕ"
