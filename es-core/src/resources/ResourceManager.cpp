@@ -11,7 +11,6 @@
 #include <unordered_map>
 
 auto array_deleter = [](unsigned char* p) { delete[] p; };
-auto nop_deleter = [](unsigned char* /*p*/) { };
 
 std::shared_ptr<ResourceManager> ResourceManager::sInstance = nullptr;
 
@@ -27,47 +26,55 @@ std::shared_ptr<ResourceManager>& ResourceManager::getInstance()
 	return sInstance;
 }
 
+static std::mutex                                 _cacheBuildLock;
+static std::vector<std::string>                   _cachedPaths;
+static std::string                                _cachedThemeSet;
+static ConcurrentMap<std::string, std::string>    _resourcePathCache;
+
 std::vector<std::string> ResourceManager::getResourcePaths() const
 {
-	static ConcurrentVector<std::string> paths;
+	auto themeSet = Settings::getInstance()->getString("ThemeSet");
 
-	if (paths.size() == 0)
-	{
+	std::unique_lock<std::mutex> lock(_cacheBuildLock);
+	if (_cachedPaths.size() == 0 || _cachedThemeSet != themeSet)
+	{	
+		_cachedThemeSet = themeSet;
+		_cachedPaths.clear();
+		_resourcePathCache.clear();
+
 		// check if theme overrides default resources
 		if (!Paths::getUserThemesPath().empty())
 		{
-			std::string themePath = Paths::getUserThemesPath() + "/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
+			std::string themePath = Paths::getUserThemesPath() + "/" + themeSet + "/resources";
 			if (Utils::FileSystem::isDirectory(themePath))
-				paths.push_back(themePath);
+				_cachedPaths.push_back(themePath);
 		}
 
 		if (!Paths::getThemesPath().empty())
 		{
-			std::string roThemePath = Paths::getThemesPath() + "/" + Settings::getInstance()->getString("ThemeSet") + "/resources";
+			std::string roThemePath = Paths::getThemesPath() + "/" + themeSet + "/resources";
 			if (Utils::FileSystem::isDirectory(roThemePath))
-				paths.push_back(roThemePath);
+				_cachedPaths.push_back(roThemePath);
 		}
 
 		// check in homepath
-		paths.push_back(Paths::getUserEmulationStationPath() + "/resources");
+		_cachedPaths.push_back(Paths::getUserEmulationStationPath() + "/resources");
 
 		// check in emulationStation path
-		paths.push_back(Paths::getEmulationStationPath() + "/resources");
+		_cachedPaths.push_back(Paths::getEmulationStationPath() + "/resources");
 
 		// check in Exe path
 		if (Paths::getEmulationStationPath() != Paths::getExePath())
-			paths.push_back(Paths::getExePath() + "/resources");
+			_cachedPaths.push_back(Paths::getExePath() + "/resources");
 
 		// check in cwd
 		auto cwd = Utils::FileSystem::getCWDPath() + "/resources";
-		if (!paths.contains(cwd))
-			paths.push_back(cwd);
+		if (std::find(_cachedPaths.cbegin(), _cachedPaths.cend(), cwd) == _cachedPaths.cend())
+			_cachedPaths.push_back(cwd);
 	}
 
-	return paths.toVector();
+	return _cachedPaths;
 }
-
-static ConcurrentMap<std::string, std::string> _resourcePathCache;
 
 std::string ResourceManager::getResourcePath(const std::string& path) const
 {
@@ -134,11 +141,7 @@ const ResourceData ResourceManager::getFileData(const std::string& path) const
 
 ResourceData ResourceManager::loadFile(const std::string& path, size_t size) const
 {
-#if defined(_WIN32)
-	std::ifstream stream(Utils::String::convertToWideString(path), std::ios::binary);
-#else
-	std::ifstream stream(path, std::ios::binary);
-#endif
+	std::ifstream stream(WINSTRINGW(path), std::ios::binary);
 
 	if (size == 0 || size == SIZE_MAX)
 	{

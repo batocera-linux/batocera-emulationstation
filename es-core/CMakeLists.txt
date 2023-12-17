@@ -72,6 +72,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollableContainer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SliderComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RectangleComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SwitchComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextEditComponent.h
@@ -179,7 +180,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncNotificationComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryIndicatorComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryIconComponent.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryTextComponent.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryTextComponent.cpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/NetworkIconComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/PostProcessShaderComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/StackPanelComponent.cpp
@@ -200,6 +201,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollableContainer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SliderComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RectangleComponent.cpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SwitchComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextEditComponent.cpp

@@ -379,3 +379,9 @@ const Vector2f TextureResource::getPhysicalSize() const
 	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
 	return data ? data->getPhysicalSize() : mPhysicalSize; 
 }
+
+size_t TextureResource::getEstimatedVRAMUsage()
+{
+	auto data = mTextureData ? mTextureData : sTextureDataManager.get(this, TextureDataManager::TextureLoadMode::DISABLED);
+	return data ? data->getEstimatedVRAMUsage() : 0;
+}

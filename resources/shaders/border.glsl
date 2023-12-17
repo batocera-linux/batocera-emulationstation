@@ -35,13 +35,24 @@ void main(void)
 #elif defined(FRAGMENT)
 			
 #if __VERSION__ >= 130
-#define COMPAT_VARYING out
-#define COMPAT_ATTRIBUTE in
+#define COMPAT_VARYING in
 #define COMPAT_TEXTURE texture
+out vec4 FragColor;
 #else
-#define COMPAT_VARYING varying 
-#define COMPAT_ATTRIBUTE attribute 
+#define COMPAT_VARYING varying
+#define FragColor gl_FragColor
 #define COMPAT_TEXTURE texture2D
+#endif
+
+#ifdef GL_ES
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+#define COMPAT_PRECISION mediump
+#else
+#define COMPAT_PRECISION
 #endif
 			
 COMPAT_VARYING   vec4      v_col;
@@ -96,19 +107,19 @@ void main(void)
 	// Don't perform bordering if bottom/right pixel is transparent
 	vec2 bottomRight = vec2(1.0, 1.0);
 	if (sampleTexture(u_tex, bottomRight).a < 0.3) {
-		gl_FragColor = sampleTexture(u_tex, v_tex);
+		FragColor = sampleTexture(u_tex, v_tex);
 		return;
 	}
 	
 	vec2 topLeft = vec2(0.0, 0.0);
 	if (sampleTexture(u_tex, topLeft).a < 0.3) {
-		gl_FragColor = sampleTexture(u_tex, v_tex);
+		FragColor = sampleTexture(u_tex, v_tex);
 		return;
 	}
 		
 	// Apply border padding
 	vec2 decal = vec2((outerBorder/2.0+outerShadow) / abs(outputSize.x), (outerBorder/2.0+outerShadow) / abs(outputSize.y));	
-	vec2 v_padtex = vec2(v_tex.x / (1.0 - 2 * decal.x) - decal.x, v_tex.y * (1.0 + 2 * decal.y) - decal.y);
+	vec2 v_padtex = vec2(v_tex.x / (1.0 - 2.0 * decal.x) - decal.x, v_tex.y * (1.0 + 2.0 * decal.y) - decal.y);
 
 	// read texture
 	vec4 sampledColor = sampleTexture(u_tex, v_padtex);
@@ -143,6 +154,8 @@ void main(void)
 		sampledColor = vec4(blend, sampledColor.a);
 	}
 				
+	sampledColor *= v_col;
+				 
 	vec2 middle = vec2(abs(outputSize.x), abs(outputSize.y)) / 2.0;
 	vec2 center = abs(v_pos - outputOffset - middle);
 	vec2 q = center - middle + cornerSize;
@@ -155,10 +168,11 @@ void main(void)
 				
 		if (outerShadow != 0.0 && distance > -outerShadow) {
 			sampledColor = outerShadowColor;
-			sampledColor.a = outerShadowColor.a * (1.0 - (outerShadow + distance) / (outerShadow));
+			sampledColor.a = outerShadowColor.a * (1.0 - (outerShadow + distance) / (outerShadow)) * v_col.a;			
 		}		
 		else if (distance > -(outerBorder + outerShadow)) {
 			sampledColor = borderColor;
+			sampledColor.a *= v_col.a;
 		}
 		else if (innerShadow != 0.0) {		
 			float val = abs(outerBorder + outerShadow + distance) / innerShadow;
@@ -172,6 +186,7 @@ void main(void)
 		sampledColor.rgb *= pixelValue;
 	}
 	
-	gl_FragColor = sampledColor * v_col;
+	
+	FragColor = sampledColor;
 }
 #endif

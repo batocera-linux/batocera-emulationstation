@@ -7,6 +7,7 @@
 #include "LocaleES.h"
 #include "InputManager.h"
 #include "Window.h"
+#include "Log.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
@@ -981,6 +982,60 @@ void CarouselItemTemplate::updateBindings(IBindable* bindable)
 			delete bindable;
 	}
 	else
-		GuiComponent::updateBindings(bindable);
+	{
+		GridTemplateBinding localBinding(this, mName, nullptr);
+		GuiComponent::updateBindings(&localBinding);
+	}
 }
+
+void CarouselItemTemplate::loadFromString(const std::string& xml, std::map<std::string, std::string>* map)
+{
+	std::map<std::string, std::string> defMap;	
+	std::map<std::string, std::string>* mapPtr = map ? map : &defMap;
+
+	std::string dataXML = R"=====(
+			<theme>
+				<formatVersion>7</formatVersion>
+				<view name="basic">
+					<container name="default" extra="true">
+			)=====" + 
+			xml + 
+			R"=====(</container>
+				</view>
+			</theme>
+			)=====";
+
+	auto theme = ThemeData::getMenuTheme();
 	
+	(*mapPtr)["menu.text.color"] = Utils::String::toHexString(theme->Text.color);
+	(*mapPtr)["menu.text.selectedcolor"] = Utils::String::toHexString(theme->Text.selectedColor);
+	(*mapPtr)["menu.text.font.path"] = theme->Text.font->getPath();
+	(*mapPtr)["menu.text.font.size"] = std::to_string(theme->Text.font->getSize() / ((float)Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth())));
+	(*mapPtr)["menu.textsmall.color"] = Utils::String::toHexString(theme->TextSmall.color);
+	(*mapPtr)["menu.textsmall.font.path"] = theme->TextSmall.font->getPath();
+	(*mapPtr)["menu.textsmall.font.size"] = std::to_string(theme->TextSmall.font->getSize() / ((float)Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth())));
+	(*mapPtr)["menu.textsmall.selectedcolor"] = Utils::String::toHexString(theme->TextSmall.selectedColor);
+
+	try
+	{
+		ThemeData themeData(true);
+		themeData.loadFile("default", *mapPtr, dataXML, false);
+		auto elem = themeData.getElement("basic", "default", "container");
+		if (elem)
+			loadTemplatedChildren(elem);
+	}
+	catch (...)
+	{
+		LOG(LogError) << "CarouselItemTemplate::loadFromString failed";
+
+	}
+}
+
+void CarouselItemTemplate::playDefaultActivationStoryboard(bool activation)
+{
+	if (selectStoryboard(activation ? "activate" : "deactivate") || selectStoryboard())
+	{
+		startStoryboard();
+		update(0);
+	}
+}

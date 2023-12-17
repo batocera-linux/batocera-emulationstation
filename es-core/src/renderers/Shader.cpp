@@ -49,7 +49,7 @@ namespace Renderer
 
 			GL_CHECK_ERROR(glGetShaderInfoLog(id, maxLength, &maxLength, infoLog));
 
-			std::string shaderType = (type == GL_FRAGMENT_SHADER) ? "Vertex" : "Fragment";
+			std::string shaderType = (type == GL_FRAGMENT_SHADER) ? "Fragment" : "Vertex";
 
 			if (isCompiled == GL_FALSE)
 			{
@@ -124,12 +124,18 @@ namespace Renderer
 		std::string versionString = SHADER_VERSION_STRING;
 
 		Shader vertex = Shader::createShader(GL_VERTEX_SHADER, versionString + "#define VERTEX\n" + shaderCode);
-		if (vertex.id < 0)
+		if (!vertex.compileStatus)
+		{
+			LOG(LogError) << "Failed to compile GLSL VERTEX shader : " << path;
 			return false;
+		}
 
 		Shader fragment = Shader::createShader(GL_FRAGMENT_SHADER, versionString + "#define FRAGMENT\n" + shaderCode);
-		if (fragment.id < 0)
+		if (!fragment.compileStatus)
+		{
+			LOG(LogError) << "Failed to compile GLSL FRAGMENT shader : " << path;
 			return false;
+		}
 
 		return createShaderProgram(vertex, fragment);
 	}

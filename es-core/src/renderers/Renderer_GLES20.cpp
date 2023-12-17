@@ -203,7 +203,11 @@ namespace Renderer
 #else 
 		SHADER_VERSION_STRING = "#version 120\n";
 
-		const std::string shaders = glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "";
+		std::string shaders = Utils::String::trim(glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "");
+
+		auto sep = shaders.find_first_of(" -");
+		if (sep != std::string::npos)
+			shaders = shaders.substr(0, sep);
 
 		if (shaders.find("1.0") != std::string::npos)
 			SHADER_VERSION_STRING = "#version 100\n";
@@ -237,6 +241,7 @@ namespace Renderer
 			#endif
 
 			varying   vec4  v_col;   
+
 			void main(void)          
 			{                        
 			    gl_FragColor = v_col;
@@ -286,7 +291,6 @@ namespace Renderer
 			uniform   sampler2D u_tex;
 			uniform   vec2      outputSize;
 			uniform   vec2      outputOffset;
-			uniform   vec2      textureSize;
 			uniform   float		saturation;
 			uniform   float     es_cornerRadius;
 
@@ -818,6 +822,55 @@ namespace Renderer
 	} // drawLines
 
 //////////////////////////////////////////////////////////////////////////
+	void GLES20Renderer::drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth, float cornerRadius)
+	{
+		if (cornerRadius == 0.0f)
+		{
+			if (_fillColor != 0)
+				drawRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, _fillColor);
+
+			if (_borderColor != 0 && borderWidth > 0)
+			{
+				drawRect(_x, _y, _w, borderWidth, _borderColor);
+				drawRect(_x + _w - borderWidth, _y + borderWidth, borderWidth, _h - borderWidth, _borderColor);
+				drawRect(_x, _y + _h - borderWidth, _w - borderWidth, borderWidth, _borderColor);
+				drawRect(_x, _y + borderWidth, borderWidth, _h - borderWidth - borderWidth, _borderColor);
+			}
+			return;
+		}
+
+		bindTexture(0);
+		useProgram(&shaderProgramColorNoTexture);
+
+		GL_CHECK_ERROR(glEnable(GL_BLEND));
+		glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
+
+		auto inner = createRoundRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, cornerRadius, _fillColor);
+
+		if ((_fillColor) & 0xFF)
+		{
+			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * inner.size(), inner.data(), GL_DYNAMIC_DRAW));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, inner.size()));
+		}
+
+		if ((_borderColor) & 0xFF && borderWidth > 0)
+		{
+			auto outer = createRoundRect(_x, _y, _w, _h, cornerRadius, _borderColor);
+
+			setStencil(inner.data(), inner.size());
+			glStencilFunc(GL_NOTEQUAL, 1, ~0);
+
+			glEnable(GL_BLEND);
+			glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
+
+			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * outer.size(), outer.data(), GL_DYNAMIC_DRAW));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, outer.size()));
+			
+			disableStencil();
+		}
+
+		GL_CHECK_ERROR(glDisable(GL_BLEND));
+	}
 
 	void GLES20Renderer::drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor, bool verticesChanged)
 	{
@@ -891,6 +944,7 @@ namespace Renderer
 			GL_CHECK_ERROR(glDisable(GL_BLEND));
 			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
 		}
+
 	} // drawTriangleStrips
 
 //////////////////////////////////////////////////////////////////////////

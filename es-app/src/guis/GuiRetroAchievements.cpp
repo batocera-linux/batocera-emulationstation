@@ -40,7 +40,8 @@ void GuiRetroAchievements::show(Window* window)
 		}));
 }
 
-RetroAchievementProgress::RetroAchievementProgress(Window* window, int value, int max, const std::string& label) : GuiComponent(window), mValue(value), mMax(max)
+RetroAchievementProgress::RetroAchievementProgress(Window* window, int valueSoftcore, int valueHardcore, int max, const std::string& label) : GuiComponent(window), 
+	mValueSoftCore(valueSoftcore), mValueHardCore(valueHardcore), mMax(max)
 { 
 	auto theme = ThemeData::getMenuTheme();
 
@@ -85,19 +86,30 @@ void RetroAchievementProgress::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
-			// Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0x0000FF32, 0x0000FF32);
-
-
 	Renderer::drawRect(padding, y, w, height, 0x00000032, 0x00000032);
 
 	if (mMax > 0)
 	{
-		int cur = (w * mValue) / mMax;
-		Renderer::drawRect(padding, y, cur, height, 0xFFFF00C0, 0xFFFF00C0);
+		if (mValueSoftCore > 0 && mValueSoftCore > mValueHardCore)
+		{
+			int cur = (w * mValueSoftCore) / mMax;
+			Renderer::drawRect(padding, y, cur, height, 0x0B71C1FF);
+		}
+
+		if (mValueHardCore > 0)
+		{
+			int cur = (w * mValueHardCore) / mMax;
+			Renderer::drawRect(padding, y, cur, height, 0xCC9900FF);
+		}
 	}
-		
+
 	mText->render(trans);
 }	
+
+#include <iostream>
+#include <string>
+#include "components/CarouselComponent.h"
+#include "ThemeData.h"
 
 class RetroAchievementEntry : public ComponentGrid
 {
@@ -105,35 +117,99 @@ public:
 	RetroAchievementEntry(Window* window, RetroAchievementGame& ra) :
 		ComponentGrid(window, Vector2i(4, 4))
 	{
+		mSelected = false;
 		mGameInfo = ra;
+		mFileData = GuiRetroAchievements::getFileData(mGameInfo.id);
 
 		auto theme = ThemeData::getMenuTheme();
+		
+		std::map<std::string, std::string> sysMap;
+		sysMap["name"] = mFileData ? mFileData->getName() : mGameInfo.name;
+		sysMap["consoleName"] = mFileData ? mFileData->getSourceFileData()->getSystem()->getFullName() : mGameInfo.consoleName;		
+		sysMap["badge"] = mGameInfo.badge.empty() ? ":/cartridge.svg" : mGameInfo.badge;
+		sysMap["wonAchievementsSoftcore"] = std::to_string(mGameInfo.wonAchievementsSoftcore);
+		sysMap["wonAchievementsHardcore"] = std::to_string(mGameInfo.wonAchievementsHardcore);
+		sysMap["totalAchievements"] = std::to_string(mGameInfo.totalAchievements);
+		sysMap["activeOpacity"] = mFileData == nullptr ? "0.6" : "1";
+		sysMap["extraOpacity"] = mFileData == nullptr ? "0.3" : "0.7";
+
+		auto templ = new CarouselItemTemplate("template", mWindow);
+		templ->loadFromString(R"=====(
+			<stackpanel size="1">
+				<separator>8</separator>				
+				<text multiline="false" linespacing="1" verticalAlignment="center" size="0 1">
+					<text>${name}</text>
+					<fontPath>${menu.text.font.path}</fontPath>
+					<fontSize>${menu.text.font.size}</fontSize>
+					<color>${menu.text.color}</color>
+					<opacity>${activeOpacity}</opacity>
+			  		<storyboard event="activate">
+						<animation property="color" to="${menu.text.selectedcolor}"/>
+					</storyboard>
+					<storyboard event="deactivate">
+						<animation property="color" to="${menu.text.color}"/>
+					</storyboard>
+				</text>			
+				<text multiline="false" linespacing="1" verticalAlignment="center" size="0 1">
+					<text>[${consoleName}]</text>
+					<fontPath>${menu.textsmall.font.path}</fontPath>
+					<fontSize>${menu.textsmall.font.size}</fontSize>
+					<color>${menu.text.color}</color>
+					<opacity>${extraOpacity}</opacity>
+					<padding>0 2 0 0</padding> 
+					<storyboard event="activate">
+						<animation property="color" to="${menu.text.selectedcolor}"/>
+					</storyboard>
+					<storyboard event="deactivate">
+						<animation property="color" to="${menu.text.color}"/>
+					</storyboard>
+				</text>
+			</stackpanel>
+			)=====", &sysMap);
+		
+		mItemTemplate = std::shared_ptr<CarouselItemTemplate>(templ);
+		mItemTemplate->updateBindings(nullptr);
 
 		mImage = std::make_shared<WebImageComponent>(mWindow);
 		setEntry(mImage, Vector2i(0, 0), false, false, Vector2i(1, 4));
+		
+		std::string desc; // = mGameInfo.points + " points";
+		
+		if (mGameInfo.scoreHardcore != mGameInfo.scoreSoftcore || mGameInfo.scoreHardcore == 0)
+			desc = Utils::String::format(_("%d of %d softcore points").c_str(), mGameInfo.scoreSoftcore, mGameInfo.possibleScore);
 
-		mText = std::make_shared<TextComponent>(mWindow, mGameInfo.name.c_str(), theme->Text.font, theme->Text.color);
-		mText->setVerticalAlignment(ALIGN_TOP);
+		if (mGameInfo.scoreHardcore != 0)
+		{
+			if (!desc.empty())
+				desc = desc + " - ";
 
-		mSubstring = std::make_shared<TextComponent>(mWindow, mGameInfo.points + " points", theme->TextSmall.font, theme->Text.color);
+			desc = desc + Utils::String::format(_("%d of %d hardcore points").c_str(), mGameInfo.scoreHardcore, mGameInfo.possibleScore);
+		}
+
+		// "42 of 75 softcore points"
+		
+	//	desc = mFileData ? mFileData->getSourceFileData()->getSystem()->getFullName() : mGameInfo.consoleName;
+
+		mSubstring = std::make_shared<TextComponent>(mWindow, desc, theme->TextSmall.font, theme->Text.color);
 		mSubstring->setOpacity(192);
 
-		setEntry(mText, Vector2i(2, 1), false, true);
+		setEntry(mItemTemplate, Vector2i(2, 1), false, true); // mText
 		setEntry(mSubstring, Vector2i(2, 2), false, true);
 
-		int percent = mGameInfo.totalAchievements == 0 ? 0 : Math::round(mGameInfo.wonAchievements * 100.0f / mGameInfo.totalAchievements);
+		int percent = mGameInfo.totalAchievements == 0 ? 0 : Math::round(mGameInfo.wonAchievementsSoftcore * 100.0f / mGameInfo.totalAchievements);
 		
 		char trstring[256];
-		snprintf(trstring, 256, _("%d%% (%d of %d)").c_str(), percent, mGameInfo.wonAchievements, mGameInfo.totalAchievements);		
-		mProgress = std::make_shared<RetroAchievementProgress>(mWindow, mGameInfo.wonAchievements, mGameInfo.totalAchievements, Utils::String::trim(trstring));
+		snprintf(trstring, 256, _("%d%% (%d of %d)").c_str(), percent, mGameInfo.wonAchievementsSoftcore, mGameInfo.totalAchievements);
+		mProgress = std::make_shared<RetroAchievementProgress>(mWindow, mGameInfo.wonAchievementsSoftcore, mGameInfo.wonAchievementsHardcore, mGameInfo.totalAchievements, Utils::String::trim(trstring));
 
 		setEntry(mProgress, Vector2i(3, 0), false, true, Vector2i(1, 4));
 
-		int height = Math::max(IMAGESIZE + IMAGESPACER, mText->getSize().y() + mSubstring->getSize().y());
+		float textHeight = theme->Text.font->getHeight();
+		int height = Math::max(IMAGESIZE + IMAGESPACER, textHeight + mSubstring->getSize().y());
 
-		float hTxt = mText->getSize().y() / height;
+		float hTxt = textHeight / height;
 		float hSub = mSubstring->getSize().y() / height;		
-		float topPadding = Math::max(0.0f, (height - mText->getSize().y() - mSubstring->getSize().y()) / height / 2.0f);
+		float topPadding = Math::max(0.0f, (height - textHeight - mSubstring->getSize().y()) / height / 2.0f);
 
 		setRowHeightPerc(0, topPadding);
 		setRowHeightPerc(1, hTxt);
@@ -147,12 +223,11 @@ public:
 		mImage->setMaxSize(height - IMAGESPACER, height - IMAGESPACER);
 		mImage->setImage(ra.badge.empty() ? ":/cartridge.svg" : ra.badge);
 
-		mFileData = GuiRetroAchievements::getFileData(mGameInfo.id);
+		
 		if (mFileData == nullptr)
 		{
 			mImage->setColorShift(0x80808080);
 			mImage->setOpacity(120);
-			mText->setOpacity(150);
 			mSubstring->setOpacity(120);
 			mProgress->setOpacity(120);
 		}
@@ -160,10 +235,26 @@ public:
 		setSize(0, height);
 	}
 
+	virtual void onFocusGained() 
+	{ 
+		if (mSelected)
+			return;
+
+		mSelected = true;
+		mItemTemplate->playDefaultActivationStoryboard(mSelected);
+	}
+
+	virtual void	onFocusLost() 
+	{ 
+		if (!mSelected)
+			return;
+
+		mSelected = false;
+		mItemTemplate->playDefaultActivationStoryboard(mSelected);
+	}
 
 	virtual void setColor(unsigned int color)
 	{
-		mText->setColor(color);
 		mSubstring->setColor(color);
 		mProgress->setColor(color);
 	}
@@ -177,13 +268,14 @@ public:
 	}
 
 private:
+	bool mSelected;
 	FileData* mFileData;
-	std::shared_ptr<TextComponent> mText;
 	std::shared_ptr<TextComponent> mSubstring;
 	std::shared_ptr<RetroAchievementProgress> mProgress;
 
 	std::shared_ptr<WebImageComponent> mImage;
-	
+	std::shared_ptr<CarouselItemTemplate> mItemTemplate;
+		
 	RetroAchievementGame mGameInfo;
 };
 
@@ -199,7 +291,12 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 		return;
 	}
 
-	setSubTitle(_("Points (hardcore)") + ":\t" + ra.points + "\r\n" + _("Softcore points") + ":\t" + ra.softpoints + "\r\n" + _("Rank") + ":\t" + ra.rank);
+	auto txt = _("Softcore points") + ":\t" + ra.softpoints; 
+	txt += "\r\n" + _("Points (hardcore)") + ":\t" + ra.points;
+	if (!ra.rank.empty())
+		txt += "\r\n" + _("Rank") + ":\t" + ra.rank;
+
+	setSubTitle(txt);
 
 	if (!ra.userpic.empty())
 	{
@@ -212,8 +309,8 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 	{
 		ComponentListRow row;
 
-		auto itstring = std::make_shared<RetroAchievementEntry>(mWindow, game);
-		if (!game.points.empty())
+		auto itstring = std::make_shared<RetroAchievementEntry>(mWindow, game);		
+		if (!game.id.empty())
 		{			
 			int gameId = Utils::String::toInteger(game.id);
 			row.makeAcceptInputHandler([this, gameId] { GuiGameAchievements::show(mWindow, gameId); });
@@ -231,8 +328,6 @@ GuiRetroAchievements::GuiRetroAchievements(Window* window, RetroAchievementInfo 
 
 	centerWindow();
 }
-
-
 
 void GuiRetroAchievements::centerWindow()
 {

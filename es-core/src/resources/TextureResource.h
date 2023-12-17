@@ -32,6 +32,8 @@ public:
 	const Vector2i getSize() const;
 	const Vector2f getPhysicalSize() const;
 
+	size_t getEstimatedVRAMUsage();
+
 	virtual ~TextureResource();
 
 	bool isLoaded() const;

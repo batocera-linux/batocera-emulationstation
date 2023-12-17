@@ -30,6 +30,7 @@ class VideoComponent : public GuiComponent
 		unsigned						startDelay;
 		bool							showSnapshotNoVideo;
 		bool							showSnapshotDelay;
+		bool							scaleSnapshot;
 		ImageSource						snapshotSource;
 		std::string						defaultVideoPath;
 	};

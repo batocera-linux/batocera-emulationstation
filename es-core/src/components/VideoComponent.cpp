@@ -85,6 +85,7 @@ VideoComponent::VideoComponent(Window* window) :
 	mConfig.showSnapshotNoVideo		= false;
 	mConfig.snapshotSource = IMAGE;
 	mConfig.startDelay				= 0;
+	mConfig.scaleSnapshot = true;
 
 	if (mWindow->getGuiStackSize() > 1)
 		topWindow(false);
@@ -233,7 +234,7 @@ void VideoComponent::renderSnapshot(const Transform4x4f& parentTrans)
 
 			if (!currentStoryBoardHasProperty("scale") && getScale() == 1.0f)
 			{
-				if (mIsPlaying)
+				if (mIsPlaying && mConfig.scaleSnapshot)
 					mStaticImage.setScale(t / 255.0);
 				else
 					mStaticImage.setScale(getScale());

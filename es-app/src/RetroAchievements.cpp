@@ -144,7 +144,7 @@ std::string GameInfoAndUserProgress::getImageUrl(const std::string image)
 
 std::string Achievement::getBadgeUrl()
 {
-	if (!DateEarned.empty())
+	if (!DateEarned.empty() || !DateEarnedHardcore.empty())
 		return "http://i.retroachievements.org/Badge/" + BadgeName + ".png";
 
 	return "http://i.retroachievements.org/Badge/" + BadgeName + "_lock.png";
@@ -187,6 +187,9 @@ bool sortAchievements(const Achievement& sys1, const Achievement& sys2)
 {
 	if (sys1.DateEarned.empty() != sys2.DateEarned.empty())
 		return !sys1.DateEarned.empty() && sys2.DateEarned.empty();
+
+	if (sys1.DateEarnedHardcore.empty() != sys2.DateEarnedHardcore.empty())
+		return !sys1.DateEarnedHardcore.empty() && sys2.DateEarnedHardcore.empty();
 
 	return sys1.DisplayOrder < sys2.DisplayOrder;
 }
@@ -255,6 +258,8 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 				item.BadgeName = jsonString(recent, "BadgeName");
 				item.DisplayOrder = jsonInt(recent, "DisplayOrder");
 				item.DateEarned = jsonString(recent, "DateEarned");
+				item.DateEarnedHardcore = jsonString(recent, "DateEarnedHardcore");
+				
 				ret.Achievements.push_back(item);
 			}
 		}
@@ -295,7 +300,8 @@ UserSummary RetroAchievements::getUserSummary(const std::string userName, int ga
 		ret.LastGameID = jsonString(doc, "LastGameID");
 		ret.ContribCount = jsonString(doc, "ContribCount");
 		ret.ContribYield = jsonString(doc, "ContribYield");
-		ret.TotalTruePoints = jsonString(doc, "TotalTruePoints");
+		ret.TotalTruePoints = jsonString(doc, "TotalTruePoints"); // 
+		ret.TotalSoftcorePoints = jsonString(doc, "TotalSoftcorePoints"); // 		
 		ret.TotalPoints = jsonString(doc, "TotalPoints");
 		ret.Permissions = jsonString(doc, "Permissions");
 		ret.Untracked = jsonString(doc, "Untracked");
@@ -391,12 +397,17 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 	info.userpic = "https://retroachievements.org" + ret.UserPic;
 	info.rank = ret.Rank;
 
-	if (!ret.TotalRanked.empty())
+	if (!ret.TotalRanked.empty() && !ret.Rank.empty())
 		info.rank = ret.Rank + " / " + ret.TotalRanked;
 
 	info.points = ret.TotalPoints;
 	info.totalpoints = ret.TotalTruePoints;
-	info.softpoints = std::to_string(Utils::String::toInteger(info.totalpoints) - Utils::String::toInteger(info.points));
+
+	if (!ret.TotalSoftcorePoints.empty())
+		info.softpoints = std::to_string(Utils::String::toInteger(ret.TotalSoftcorePoints));
+	else
+		info.softpoints = std::to_string(Utils::String::toInteger(info.totalpoints) - Utils::String::toInteger(info.points));
+
 	info.username = ret.Username;
 	info.registered = ret.MemberSince;
 
@@ -408,7 +419,8 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 		if (!played.ImageIcon.empty())
 			rg.badge = "http://i.retroachievements.org" + played.ImageIcon;
 
-		rg.name = played.Title + " [" + played.ConsoleName + "]";
+		rg.name = played.Title; // +" [" + played.ConsoleName + "]";
+		rg.consoleName = played.ConsoleName;
 		rg.lastplayed = played.LastPlayed;
 
 		auto aw = ret.Awarded.find(played.GameID);
@@ -417,11 +429,15 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 			if (aw->second.NumAchieved == 0 && aw->second.ScoreAchieved == 0)
 				continue;
 
-			rg.wonAchievements = aw->second.NumAchieved;
+			rg.wonAchievementsSoftcore = aw->second.NumAchieved;
+			rg.wonAchievementsHardcore = aw->second.NumAchievedHardcore;
 			rg.totalAchievements = aw->second.NumPossibleAchievements;
 
 			rg.achievements = std::to_string(aw->second.NumAchieved) + " of " + std::to_string(aw->second.NumPossibleAchievements);
-			rg.points = std::to_string(aw->second.ScoreAchieved) + "/" + std::to_string(aw->second.PossibleScore);						
+
+			rg.scoreSoftcore = aw->second.ScoreAchieved;
+			rg.scoreHardcore = aw->second.ScoreAchievedHardcore;
+			rg.possibleScore = aw->second.PossibleScore;
 		}
 
 		info.games.push_back(rg);

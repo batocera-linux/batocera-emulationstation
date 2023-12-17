@@ -32,14 +32,34 @@ void main(void)
 
 #elif defined(FRAGMENT)
 			
-varying   vec4      v_col;
-varying   vec2      v_tex;
+#if __VERSION__ >= 130
+#define COMPAT_VARYING in
+#define COMPAT_TEXTURE texture
+out vec4 FragColor;
+#else
+#define COMPAT_VARYING varying
+#define FragColor gl_FragColor
+#define COMPAT_TEXTURE texture2D
+#endif
+
+#ifdef GL_ES
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+#define COMPAT_PRECISION mediump
+#else
+#define COMPAT_PRECISION
+#endif
+
+COMPAT_VARYING   vec4      v_col;
+COMPAT_VARYING   vec2      v_tex;
 
 uniform   sampler2D u_tex;
-uniform   vec2      resolution;
-uniform   vec2      textureSize;
-
-uniform   float      blur;
+uniform   COMPAT_PRECISION vec2      resolution;
+uniform   COMPAT_PRECISION vec2      textureSize;
+uniform   COMPAT_PRECISION float     blur;
 
 void main(void)                                    
 {         
@@ -51,7 +71,7 @@ void main(void)
 	int numSamples = int(blurSize * 1.4);
 	
 	// Initialize a color accumulator
-	vec4 blurColor = texture2D(u_tex, v_tex) * numSamples;
+	vec4 blurColor = COMPAT_TEXTURE(u_tex, v_tex) * float(numSamples);
 
 	// Calculate the step size for sampling the scene texture
 	vec2 step = 1.0 / textureSize;
@@ -60,8 +80,8 @@ void main(void)
 	
 	for (int i = 0; i < numSamples; i++) {
 		vec2 offset = vec2(cos(float(i) * 3.14159 * 2.0 / float(numSamples)), sin(float(i) * 3.14159 * 2.0 / float(numSamples)));		
-	    for (int b = 1; b < blurSize; b++) {	    
-			blurColor += texture2D(u_tex, v_tex + offset * b * step);	
+	    for (int b = 1; b < int(blurSize); b++) {	    
+			blurColor += COMPAT_TEXTURE(u_tex, v_tex + offset * float(b) * step);	
 			total++;
 		}
 	}
@@ -70,6 +90,6 @@ void main(void)
 	blurColor /= float(total);
 
 	// Output the final blurred color
-	gl_FragColor = blurColor * v_col;
+	FragColor = blurColor * v_col;
 }
 #endif

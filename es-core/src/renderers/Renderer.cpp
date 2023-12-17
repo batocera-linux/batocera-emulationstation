@@ -863,6 +863,11 @@ namespace Renderer
 		Instance()->drawTriangleStrips(_vertices, _numVertices, _srcBlendFactor, _dstBlendFactor, verticesChanged);
 	}
 
+	void drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth, float cornerRadius)
+	{
+		Instance()->drawSolidRectangle(_x, _y, _w, _h, _fillColor, _borderColor, borderWidth, cornerRadius);
+	}
+
 	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		Instance()->drawTriangleFan(_vertices, _numVertices, _srcBlendFactor, _dstBlendFactor);
@@ -871,6 +876,11 @@ namespace Renderer
 	bool shaderSupportsCornerSize(const std::string& shader)
 	{
 		return Instance()->shaderSupportsCornerSize(shader);
+	}
+
+	bool supportShaders()
+	{
+		return Instance()->supportShaders();
 	}
 
 	void setProjection(const Transform4x4f& _projection)

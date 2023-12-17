@@ -110,6 +110,9 @@ void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData
 	// make background extras
 	e.data.backgroundExtras = ThemeData::makeExtras(system->getTheme(), "system", mWindow);
 
+	size_t vram = Settings::getInstance()->getInt("MaxVRAM") * 1024 * 1024;
+	size_t size = TextureResource::getTotalMemUsage();
+
 	for (auto extra : e.data.backgroundExtras)
 	{
 		if (extra->isKindOf<VideoComponent>())
@@ -122,6 +125,18 @@ void SystemView::loadExtras(SystemData* system, IList<SystemViewData, SystemData
 		}
 		else if (extra->isKindOf<ImageComponent>())
 		{
+			// Preload image if there's enough VRAM space				
+			auto tex = ((ImageComponent*)extra)->getTexture();
+			if (tex && !tex->isLoaded())
+			{
+				auto texSize = tex->getEstimatedVRAMUsage();
+				if (size + texSize < vram)
+				{
+					tex->reload();
+					size += texSize;
+				}
+			}			
+
 			auto elem = system->getTheme()->getElement("system", extra->getTag(), "image");
 			if (elem != nullptr && elem->has("path") && Utils::String::startsWith(elem->get<std::string>("path"), "{random"))
 			{

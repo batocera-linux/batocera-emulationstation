@@ -78,31 +78,28 @@ public:
 	ComponentBinding(GuiComponent* comp, IBindable* parent);
 
 	BindableProperty getProperty(const std::string& name) override;
-	std::string getBindableTypeName() override { return mName; }
+	std::string getBindableTypeName() override { return mTypeName; }
 	IBindable* getBindableParent() override { return mParent; };
 
-private:
+protected:
 	IBindable*    mParent;
-	std::string   mName;
+	std::string   mTypeName;
 	GuiComponent* mComponent;
 };
 
 /// <summary>
 /// Class for ItemTemplate roots, that exposes {grid:XXX} properties to binding. {grid:label} is exposed though name parameter
 /// </summary>
-class GridTemplateBinding : public IBindable
+class GridTemplateBinding : public ComponentBinding
 {
 public:
-	GridTemplateBinding(GuiComponent* tile, const std::string& name, IBindable* parent);
+	GridTemplateBinding(GuiComponent* comp, const std::string& label, IBindable* parent);
 	BindableProperty getProperty(const std::string& name) override;
 
 	std::string getBindableTypeName() override { return "grid"; }
-	IBindable* getBindableParent() override { return mParent; };
 
-private:
-	IBindable* mParent;
-	std::string mName;
-	GuiComponent* mComponent;
+protected:
+	std::string   mLabel;
 };
 
 class BindingManager

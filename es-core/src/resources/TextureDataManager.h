@@ -30,6 +30,8 @@ public:
 
 	static bool paused;
 
+	std::mutex& Mutex() { return mLoaderLock; }
+
 private:	
 	void threadProc();
 
@@ -102,7 +104,7 @@ private:
 
 	std::shared_ptr<TextureData> getBlankTexture();
 
-	std::mutex					mMutex;
+	std::recursive_mutex					mMutex;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
 	std::unordered_map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;

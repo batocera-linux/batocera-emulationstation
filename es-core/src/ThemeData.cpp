@@ -12,6 +12,7 @@
 #include "components/BatteryTextComponent.h"
 #include "components/WebImageComponent.h"
 #include "components/RatingComponent.h"
+#include "components/RectangleComponent.h"
 
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
@@ -30,12 +31,14 @@ std::set<std::string> ThemeData::sSupportedItemTemplate { "imagegrid", "carousel
 std::set<std::string> ThemeData::sSupportedViews        { "system", "basic", "detailed", "grid", "video", "gamecarousel", "menu", "screen", "splash" };
 std::set<std::string> ThemeData::sSupportedFeatures     { "video", "carousel", "gamecarousel", "z-index", "visible", "manufacturer" };
 
+static std::set<std::string> _autoExtraTypes            { "stackpanel", "container", "screenshader", "clock", "networkIcon", "webimage", "batteryText", "batteryIcon", "rectangle" };
+
 std::map<std::string, std::string> ThemeData::sBaseClasses {	
 	{ "clock", "text" },
 	{ "batteryText", "text" },
 	{ "batteryIcon", "image" },
 	{ "networkIcon", "image" },
-	{ "webImage", "image" }
+	{ "webimage", "image" }
 };
 
 std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> ThemeData::sElementMap {
@@ -78,6 +81,23 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "separator", FLOAT },
 		{ "opacity", FLOAT },
 		{ "visible", BOOLEAN },
+		{ "clipChildren", BOOLEAN },
+		{ "zIndex", FLOAT } } },
+
+	{ "rectangle", {
+		{ "pos", NORMALIZED_PAIR },
+		{ "size", NORMALIZED_PAIR },
+		{ "x", FLOAT },
+		{ "y", FLOAT },
+		{ "h", FLOAT },
+		{ "w", FLOAT },
+		{ "color", COLOR },
+		{ "borderColor", COLOR },
+		{ "borderSize", FLOAT },
+		{ "roundCorners", FLOAT },
+		{ "opacity", FLOAT },
+		{ "visible", BOOLEAN },
+		{ "padding", NORMALIZED_RECT },
 		{ "clipChildren", BOOLEAN },
 		{ "zIndex", FLOAT } } },
 
@@ -189,7 +209,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "networkIcon", PATH },
 		{ "planemodeIcon", PATH } } },
 
-	{ "webImage", {  // Inherits image
+	{ "webimage", {  // Inherits image
 		{ "path", STRING } } },
 
 	{ "batteryText", {} }, // Inherits text	
@@ -678,7 +698,7 @@ ThemeData::ThemeData(bool temporary)
 	mLanguage = Utils::String::toLower(language);
 }
 
-void ThemeData::loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path, bool fromFile)
+void ThemeData::loadFile(const std::string& system, const std::map<std::string, std::string>& sysDataMap, const std::string& path, bool fromFile)
 {
 	mPaths.push_back(path);
 
@@ -698,6 +718,8 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 
 	mVariables["lang"] = mLanguage;
 	mVariables["global.language"] = mLangAndRegion;
+	mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
+	mVariables["themePath"] = Utils::FileSystem::getParent(mPaths.back());
 
 	for (auto var : mVariables)
 	{
@@ -745,7 +767,7 @@ void ThemeData::loadFile(const std::string system, std::map<std::string, std::st
 		}
 	}
 
-	if (system != "splash" && system != "imageviewer")
+	if (system != "splash" && system != "imageviewer" && system != "default")
 	{
 		mMenuTheme = nullptr;
 		mDefaultTheme = this;
@@ -1449,6 +1471,7 @@ void ThemeData::parseCustomView(const pugi::xml_node& node, const pugi::xml_node
 	parseView(node, view);
 }
 
+
 void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool overwriteElements)
 {
 	// ThemeException error;
@@ -1457,12 +1480,23 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool over
 	if (!parseFilterAttributes(root))
 		return;
 
-	for(pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
+	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
-		if(!node.attribute("name"))
+		if (!node.attribute("name"))
 		{		
-			LOG(LogWarning) << "Element of type \"" << node.name() << "\" missing \"name\" attribute!";
-			continue;
+			//if (_autoExtraTypes.find(node.name()) == _autoExtraTypes.cend())
+			{
+				LOG(LogWarning) << "Element of type \"" << node.name() << "\" missing \"name\" attribute!";
+				continue;
+			}
+			/*else
+			{
+				static int _nExtraNameIndex = 0;
+
+				// If it's an automatic extra, then add fake temporary name
+				auto idx = _nExtraNameIndex++;
+				node.append_attribute("name").set_value(("extra" + std::to_string(idx)).c_str());				
+			}*/
 		}		
 
 		auto elemTypeIt = sElementMap.find(node.name());
@@ -1708,12 +1742,8 @@ bool ThemeData::findPropertyFromBaseClass(const std::string& typeName, const std
 
 	return findPropertyFromBaseClass(baseClassIt->second, propertyName, type);
 }
-/*
-static std::set<std::string> _autoExtraTypes =
-{
-	"image", "text", "stackpanel", "shader", "clock", "networkIcon", "webImage", "batteryText", "batteryIcon", "ninepatch", "video"
-};
 
+/*
 static std::set<std::string> _reservedNames =
 {
 	"clock", "folderpath",
@@ -1742,18 +1772,19 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 		if (element.extra && mPerGameOverrideTmp)
 			element.extra = 3; // Set as "Per-game" Extra
-	}
-	/*
+	}	
 	else if (element.extra == 0 && _autoExtraTypes.find(element.type) != _autoExtraTypes.cend())
 	{
+		element.extra = 1;
+		/*
 		// Automatically Set as extra if it's not a reserved name
 		std::string name = root.attribute("name").as_string();
 		if (_reservedNames.find(name) == _reservedNames.cend() && !Utils::String::startsWith(name, "md_") && !Utils::String::startsWith(name, "gridtile") && name.find(",") == std::string::npos)
 		{
 			element.extra = 1;
-		}
+		}*/
 	}
-	*/
+	
 
 	// Import properties from another control
 	if (root.attribute("importProperties"))
@@ -2073,10 +2104,12 @@ GuiComponent* ThemeData::createExtraComponent(Window* window, const ThemeElement
 		comp = new BatteryIconComponent(window);
 	else if (elem.type == "batteryText")
 		comp = new BatteryTextComponent(window);
-	else if (elem.type == "webImage")
+	else if (elem.type == "webimage")
 		comp = new WebImageComponent(window);
 	else if (elem.type == "rating")
 		comp = new RatingComponent(window);
+	else if (elem.type == "rectangle")
+		comp = new RectangleComponent(window);
 
 	if (comp != nullptr)
 	{
@@ -2522,12 +2555,17 @@ std::shared_ptr<ThemeData> ThemeData::clone(const std::string& viewName)
 bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 {
 	mPaths.push_back(path);
+	mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
 
 	pugi::xml_document includeDoc;
 	pugi::xml_parse_result result = includeDoc.load_file(WINSTRINGW(path).c_str());
 	if (!result)
 	{
 		mPaths.pop_back();
+
+		if (mPaths.size())
+			mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
+
 		LOG(LogWarning) << "Error parsing file: \n    " << result.description() << "    from included file \"" << path << "\":\n    ";
 		return false;
 	}
@@ -2536,6 +2574,10 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 	if (!theme)
 	{
 		mPaths.pop_back();
+
+		if (mPaths.size())
+			mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
+
 		LOG(LogWarning) << "Missing <theme> tag!" << "    from included file \"" << path << "\":\n    ";
 		return false;
 	}
@@ -2548,6 +2590,9 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 	mPerGameOverrideTmp = false;
 
 	mPaths.pop_back();
+
+	if (mPaths.size())
+		mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
 
 	return true;
 }

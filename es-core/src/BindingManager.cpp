@@ -72,6 +72,10 @@ class GlobalBinding : public IBindable
 
 static GlobalBinding globalBinding;
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+// BindingManager
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 void BindingManager::bindValues(IBindable* current, std::string& xp, bool showDefaultText, std::string& evaluableExpression)
 {
 	std::string typeName = current->getBindableTypeName();
@@ -329,36 +333,12 @@ void BindingManager::updateBindings(GuiComponent* comp, IBindable* bindable, boo
 		StackPanelComponent* stack = dynamic_cast<StackPanelComponent*>(comp);
 		if (stack != nullptr)
 			stack->onSizeChanged();
-	}
-
-	
+	}		
 }
 
-ComponentBinding::ComponentBinding(GuiComponent* comp, IBindable* parent)
-{
-	mParent = parent;
-	mComponent = comp;
-	mName = mComponent->getTag();
-}
-
-BindableProperty ComponentBinding::getProperty(const std::string& name)
-{
-	auto prop = mComponent->getProperty(name);
-
-	switch (prop.type)
-	{
-	case ThemeData::ThemeElement::Property::PropertyType::String:
-		return prop.s;
-	case ThemeData::ThemeElement::Property::PropertyType::Int:
-		return (int)prop.i;
-	case ThemeData::ThemeElement::Property::PropertyType::Bool:
-		return prop.b;
-	case ThemeData::ThemeElement::Property::PropertyType::Float:
-		return prop.f;
-	}
-
-	return BindableProperty::Null;
-}
+/////////////////////////////////////////////////////////////////////////////////////////////
+// BindableProperty
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 std::string BindableProperty::toString()
 {
@@ -434,20 +414,49 @@ int BindableProperty::toFloat()
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+// ComponentBinding
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+ComponentBinding::ComponentBinding(GuiComponent* comp, IBindable* parent)
+{
+	mParent = parent;
+	mComponent = comp;
+	mTypeName = mComponent->getTag();
+}
+
+BindableProperty ComponentBinding::getProperty(const std::string& name)
+{
+	auto prop = mComponent->getProperty(name);
+
+	switch (prop.type)
+	{
+	case ThemeData::ThemeElement::Property::PropertyType::String:
+		return prop.s;
+	case ThemeData::ThemeElement::Property::PropertyType::Int:
+		return (int)prop.i;
+	case ThemeData::ThemeElement::Property::PropertyType::Bool:
+		return prop.b;
+	case ThemeData::ThemeElement::Property::PropertyType::Float:
+		return prop.f;
+	}
+
+	return BindableProperty::Null;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 // GridTemplateBinding
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-GridTemplateBinding::GridTemplateBinding(GuiComponent* tile, const std::string& name, IBindable* parent)
+GridTemplateBinding::GridTemplateBinding(GuiComponent* comp, const std::string& label, IBindable* parent)
+	: ComponentBinding(comp, parent)
 {
-	mName = name;
-	mParent = parent;
-	mComponent = tile;
+	mLabel = label;
 }
 
 BindableProperty GridTemplateBinding::getProperty(const std::string& name)
 {
 	if (name == "label")
-		return mName;
+		return mLabel;
 
 	if (name == "h")
 	{
@@ -467,8 +476,5 @@ BindableProperty GridTemplateBinding::getProperty(const std::string& name)
 		return 1.0f;
 	}
 
-	if (name == "w" || name == "h")
-		return mComponent->getProperty(name).f;
-
-	return BindableProperty::Null;
+	return ComponentBinding::getProperty(name);
 }

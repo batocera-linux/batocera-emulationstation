@@ -51,18 +51,34 @@ void StoryboardAnimator::reset(int atTime, bool resetInitialProperties)
 	if (atTime > 0)
 	{
 		for (auto anim : mStoryBoard->animations)
-			if (anim->enabled && anim->begin + anim->duration <= atTime)
+			if (anim->enabled && (anim->begin + anim->duration <= atTime))
 				_finishedStories.push_back(new StoryAnimation(anim));
 
 		addNewAnimations();
 	}
 	else
 	{
+		mComponent->setProperty("sound", std::string()); // Make sure sound is always reset
+
 		if (mHasInitialProperties && resetInitialProperties)
 		{
 			for (auto prop : mInitialProperties)
-				if (mDisabledProperties.find(prop.first) == mDisabledProperties.cend())
+			{
+				if (mDisabledProperties.find(prop.first) != mDisabledProperties.cend())
+					continue;
+
+				bool hasAssignationAtZero = false;
+
+				if (atTime == 0)
+				{
+					for (auto anim : mStoryBoard->animations)
+						if (anim->enabled && anim->begin == 0 && anim->propertyName == prop.first)
+							hasAssignationAtZero = true;
+				}
+
+				if (!hasAssignationAtZero)
 					mComponent->setProperty(prop.first, prop.second);
+			}
 		}
 
 		for (auto anim : mStoryBoard->animations)
@@ -135,7 +151,7 @@ bool StoryboardAnimator::update(int elapsed)
 		mHasInitialProperties = true;
 
 		for (auto anim : mStoryBoard->animations)
-			if (anim->enabled)
+			if (anim->enabled && anim->propertyName != "sound") // Sound is always initially empty
 				mInitialProperties[anim->propertyName] = mComponent->getProperty(anim->propertyName);
 
 		for (auto anim : mStoryBoard->animations)
@@ -143,9 +159,9 @@ bool StoryboardAnimator::update(int elapsed)
 			if (anim->begin == 0 && anim->enabled)
 			{
 				if (anim->to.type == ThemeData::ThemeElement::Property::Unknown)
-					anim->to = mComponent->getProperty(anim->propertyName);
+					anim->to = anim->propertyName == "sound" ? std::string() : mComponent->getProperty(anim->propertyName);
 				if (anim->from.type == ThemeData::ThemeElement::Property::Unknown)
-					anim->from = mComponent->getProperty(anim->propertyName);
+					anim->from = anim->propertyName == "sound" ? std::string() : mComponent->getProperty(anim->propertyName);
 				else if (mDisabledProperties.find(anim->propertyName) == mDisabledProperties.cend())
 					mComponent->setProperty(anim->propertyName, anim->from);
 			}
@@ -166,6 +182,9 @@ bool StoryboardAnimator::update(int elapsed)
 
 		if (ended)
 		{
+			if (story->animation->propertyName == "sound")
+				mComponent->setProperty("sound", std::string());
+
 			_finishedStories.push_back(story);
 
 			auto it = _currentStories.begin();
@@ -194,7 +213,7 @@ bool StoryboardAnimator::update(int elapsed)
 			}
 		}
 
-		reset(mStoryBoard->repeatAt, false); // it's a repeat
+		reset(mStoryBoard->repeatAt, mStoryBoard->repeatAt == 0); // it's a repeat
 		return true;
 	}
 

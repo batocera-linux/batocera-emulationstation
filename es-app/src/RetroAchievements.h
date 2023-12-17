@@ -27,6 +27,7 @@ struct Achievement
 	int DisplayOrder;
 	std::string MemAddr;
 	std::string DateEarned;
+	std::string DateEarnedHardcore;
 
 	std::string getBadgeUrl();
 };
@@ -101,8 +102,9 @@ struct Award
 	int NumPossibleAchievements;
 	int PossibleScore;
 	int NumAchieved;
-	int ScoreAchieved;
 	int NumAchievedHardcore;
+
+	int ScoreAchieved;	
 	int ScoreAchievedHardcore;
 };
 
@@ -135,6 +137,10 @@ struct UserSummary
 {
 	std::string Username;
 
+	std::string getBadge() {
+		return "https://retroachievements.org" + UserPic;
+	}
+
 	int RecentlyPlayedCount;
 	std::vector<RecentGame> RecentlyPlayed;
 	std::string MemberSince;
@@ -146,6 +152,7 @@ struct UserSummary
 	std::string ContribYield;
 	std::string TotalPoints;
 	std::string TotalTruePoints;
+	std::string TotalSoftcorePoints;
 	std::string Permissions;
 	std::string Untracked;
 	std::string ID;
@@ -165,13 +172,17 @@ struct RetroAchievementGame
 {
 	std::string id;
 	std::string name;
-	std::string achievements;
-	std::string points;
-	std::string totalTruePoints;
+	std::string consoleName;
+	std::string achievements;		
 	std::string lastplayed;
 	std::string badge;
 
-	int wonAchievements;
+	int scoreSoftcore;
+	int scoreHardcore;
+	int possibleScore;
+
+	int wonAchievementsSoftcore;
+	int wonAchievementsHardcore;
 	int totalAchievements;
 };
 
