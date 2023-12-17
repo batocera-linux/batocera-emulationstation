@@ -1027,6 +1027,8 @@ ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string 
 		return mRoundCorners;
 	else if (name == "path")
 		return mPath;
+	else if (name == "default")
+		return mDefaultPath;
 	else if (name == "saturation")
 		return mSaturation;
 	else if (Utils::String::startsWith(name, "shader."))
@@ -1081,6 +1083,16 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 		mReflection = value.v;
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "roundCorners")
 		setRoundCorners(value.f);
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::String && name == "default")
+	{
+		if (mDefaultPath != value.s && !value.s.empty() && Utils::FileSystem::exists(value.s) && mPath.empty())
+		{
+			setDefaultImage(value.s);
+			setImage("");
+		}
+		else
+			mDefaultPath = value.s;
+	}
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::String && name == "path")
 		setImage(value.s); // , false, getMaxSizeInfo()
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "saturation")

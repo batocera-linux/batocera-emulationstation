@@ -230,6 +230,76 @@ namespace Renderer
 		glDisable(GL_BLEND);
 
 	} // drawTriangleStrips
+	
+	void GLES10Renderer::drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth, float cornerRadius)
+	{
+		if (cornerRadius == 0.0f)
+		{
+			if (_fillColor != 0)
+				drawRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, _fillColor);
+
+			if (_borderColor != 0 && borderWidth > 0)
+			{
+				drawRect(_x, _y, _w, borderWidth, _borderColor);
+				drawRect(_x + _w - borderWidth, _y + borderWidth, borderWidth, _h - borderWidth, _borderColor);
+				drawRect(_x, _y + _h - borderWidth, _w - borderWidth, borderWidth, _borderColor);
+				drawRect(_x, _y + borderWidth, borderWidth, _h - borderWidth - borderWidth, _borderColor);
+			}
+			return;
+		}
+
+		auto setColor = [](const unsigned int argb)
+		{
+			float a = static_cast<float>((argb >> 24) & 0xFF) / 255.0f;
+			float b = static_cast<float>((argb >> 16) & 0xFF) / 255.0f;
+			float g = static_cast<float>((argb >> 8) & 0xFF) / 255.0f;
+			float r = static_cast<float>(argb & 0xFF) / 255.0f;
+			glColor4f(r, g, b, a);
+		};
+
+		bindTexture(0);
+
+		glEnable(GL_BLEND);
+		glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
+
+		auto inner = createRoundRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, cornerRadius, _fillColor);
+
+		if ((_fillColor) & 0xFF)
+		{
+			setColor(convertColor(_fillColor));
+			glBegin(GL_TRIANGLE_FAN);
+
+			for (Vertex& v : inner)
+				glVertex2f(v.pos.x(), v.pos.y());
+
+			glEnd();
+
+		}
+
+		if ((_borderColor) & 0xFF && borderWidth > 0)
+		{
+			auto outer = createRoundRect(_x, _y, _w, _h, cornerRadius, _borderColor);
+
+			setStencil(inner.data(), inner.size());
+			glStencilFunc(GL_NOTEQUAL, 1, ~0);
+
+			glEnable(GL_BLEND);
+			glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
+
+			setColor(convertColor(_borderColor));
+
+			glBegin(GL_TRIANGLE_FAN);
+
+			for (Vertex& v : outer)
+				glVertex2f(v.pos.x(), v.pos.y());
+
+			glEnd();
+
+			disableStencil();
+		}
+
+		glDisable(GL_BLEND);
+	}
 
 	void GLES10Renderer::setProjection(const Transform4x4f& _projection)
 	{

@@ -39,7 +39,8 @@ using namespace Utils::Platform;
 static std::map<std::string, std::function<BindableProperty(FileData*)>> properties =
 {
 	{ "name",				[](FileData* file) { return file->getName(); } },
-	{ "rom",				[](FileData* file) { return BindableProperty(Utils::FileSystem::getFileName(file->getPath()), BindablePropertyType::Path); } },
+	{ "rom",				[](FileData* file) { return BindableProperty(Utils::FileSystem::getFileName(file->getPath()), BindablePropertyType::String); } },
+	{ "stem",				[](FileData* file) { return BindableProperty(Utils::FileSystem::getStem(file->getPath()), BindablePropertyType::String); } },
 	{ "path",				[](FileData* file) { return BindableProperty(file->getPath(), BindablePropertyType::Path); } },
 	{ "image",				[](FileData* file) { return BindableProperty(file->getImagePath(), BindablePropertyType::Path); } },
 	{ "thumbnail",			[](FileData* file) { return BindableProperty(file->getThumbnailPath(false), BindablePropertyType::Path); } },
@@ -52,6 +53,7 @@ static std::map<std::string, std::function<BindableProperty(FileData*)>> propert
 	{ "wheelGame",			[](FileData* file) { return file->isWheelGame(); } },
 	{ "cheevos",			[](FileData* file) { return file->hasCheevos(); } },
 	{ "genre",			    [](FileData* file) { return file->getGenre(); } },
+	{ "hasKeyboardMapping", [](FileData* file) { return file->hasKeyboardMapping(); } },	
 	{ "systemName",			[](FileData* file) { return file->getSourceFileData()->getSystem()->getFullName(); } },
 };
 
@@ -1903,7 +1905,7 @@ BindableProperty FileData::getProperty(const std::string& name)
 	if (name == "placeHolder" || name == "isPlaceHolder" || name == "placeholder")
 		return getType() == PLACEHOLDER;
 
-	if (name == "playerCount")
+	if (name == "playerCount" || name == "playercount")
 	{
 		std::string value = getMetadata().get("players");
 		auto split = value.rfind("+");
@@ -1917,7 +1919,7 @@ BindableProperty FileData::getProperty(const std::string& name)
 		return (int) Math::clamp(Utils::String::toInteger(value), 1, 9);
 	}
 
-	if (name == "hasManual")
+	if (name == "hasManual" || name == "hasmanual")
 	{
 		if (Settings::getInstance()->getBool("PreloadMedias"))
 			return !getMetadata(MetaDataId::Manual).empty() || !getMetadata(MetaDataId::Magazine).empty(); // ? _("YES") : _("NO");
@@ -1925,32 +1927,18 @@ BindableProperty FileData::getProperty(const std::string& name)
 		return Utils::FileSystem::exists(getMetadata(MetaDataId::Manual)) || Utils::FileSystem::exists(getMetadata(MetaDataId::Magazine)); // ? _("YES") : _("NO");
 	}
 
-	if (name == "hasSaveState" || name == "savestate")
+	if (name == "hasSaveState" || name == "hassavestate" || name == "savestate")
 	{
 		bool hasSaveState = SaveStateRepository::isEnabled(this) && getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(this);
 		return hasSaveState;
 	}
 
-	if (name == "gameTime" || name == "gametime")
+	if (name == "releaseyear" || name == "releaseYear")
 	{
-		int seconds = Utils::String::toInteger(getMetadata(MetaDataId::GameTime));
-		if (seconds == 0)
-			return "";
-		
-		int d = 0, h = 0, m = 0, s = 0;
-		d = seconds / 86400;
-		h = (seconds / 3600) % 24;
-		m = (seconds / 60) % 60;
-		s = seconds % 60;
-		
-		if (d > 0)
-			return Utils::String::format("%02d %02d:%02d:%02d", d, h, m, s);
-		else if (h > 0)
-			return Utils::String::format("%02d:%02d:%02d", h, m, s);
-
-		return Utils::String::format("%02d:%02d", m, s);		
+		Utils::Time::DateTime date = getMetadata(MetaDataId::ReleaseDate);
+		return Utils::Time::timeToString(date.getTime(), "%Y");
 	}
-	
+
 	MetaDataList& md = getMetadata();
 
 	if (!md.exists(name))
@@ -1970,6 +1958,9 @@ BindableProperty FileData::getProperty(const std::string& name)
 		return Utils::String::toFloat(finalValue);
 	case MetaDataType::MD_BOOL:
 		return finalValue == "1" || finalValue == "true";
+	case MetaDataType::MD_DATE:
+	case MetaDataType::MD_TIME:
+		return finalValue.empty() ? "" : Utils::Time::timeToString(Utils::Time::DateTime(finalValue).getTime(), Utils::Time::getSystemDateFormat());
 	}
 
 	return finalValue;

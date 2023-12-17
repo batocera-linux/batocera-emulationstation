@@ -437,13 +437,11 @@ void launchStartupGame()
 	}	
 }
 
-// #include "BindingManager.h"
-// #include "utils/MathExpr.h"
+#include "utils/MathExpr.h"
 
 int main(int argc, char* argv[])
 {	
-//	Utils::MathExpr evaluator;
-//	auto ret = evaluator.eval("empty(\"Alien Syndrome\") ? upper(\"test\") : \"\"");
+	Utils::MathExpr::performUnitTests();
 
 	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);

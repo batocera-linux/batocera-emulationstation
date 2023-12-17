@@ -141,10 +141,8 @@ vec3 mask(float p)
     return Mask;
 }
 
-
 //SIMPLE AND FAST SATURATION
 vec3 saturation (vec3 textureColor)
-
 {
     vec3 luminanceWeighting = vec3(0.3, 0.6, 0.1);
     float luminance = dot(textureColor.rgb, luminanceWeighting);
@@ -153,7 +151,6 @@ vec3 saturation (vec3 textureColor)
     vec3 res = vec3(mix(greyScaleColor, textureColor.rgb, SATURATION));
     return res;
 }
-
 
 void main()
 {
@@ -175,7 +172,7 @@ void main()
     pixelColor*= mask(gl_FragCoord.x);
 
     pixelColor = pow(pixelColor,vec3(GAMMA));
-    pixelColor= saturation(pixelColor);
+    pixelColor = saturation(pixelColor);
     FragColor = vec4(pixelColor, 1.0);
 } 
 #endif

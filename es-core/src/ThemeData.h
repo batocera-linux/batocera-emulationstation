@@ -300,7 +300,7 @@ public:
 	ThemeData(bool temporary = false);
 
 	// throws ThemeException
-	void loadFile(const std::string system, std::map<std::string, std::string> sysDataMap, const std::string& path, bool fromFile = true);
+	void loadFile(const std::string& system, const std::map<std::string, std::string>& sysDataMap, const std::string& path, bool fromFile = true);
 
 	enum ElementPropertyType
 	{

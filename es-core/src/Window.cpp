@@ -706,7 +706,7 @@ void Window::render()
 	if (Settings::DrawFramerate() && mFrameDataText)
 	{
 		Renderer::setMatrix(transform);
-		Renderer::drawRect(45.f, 50.f, mFrameDataText->metrics.size.x(), mFrameDataText->metrics.size.y(), 0x00000080);
+		Renderer::drawSolidRectangle(40.f, 45.f, mFrameDataText->metrics.size.x() + 10.f, mFrameDataText->metrics.size.y() + 10.f, 0x00000080, 0xFFFFFF30, 2.0f, 3.0f);
 
 		auto trans = transform;
 		trans.translate(1, 1);

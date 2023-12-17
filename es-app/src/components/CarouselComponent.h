@@ -25,12 +25,15 @@ class CarouselItemTemplate : public GuiComponent
 public:
 	CarouselItemTemplate(const std::string& name, Window* window);
 
+	void loadFromString(const std::string& xml, std::map<std::string, std::string>* map = nullptr);
 	void loadTemplatedChildren(const ThemeData::ThemeElement* elem);
 
 	bool selectStoryboard(const std::string& name = "") override;
 	void deselectStoryboard(bool restoreinitialProperties = true) override;
 	void startStoryboard() override;
 	bool storyBoardExists(const std::string& name = "", const std::string& propertyName = "");
+
+	void playDefaultActivationStoryboard(bool activation);
 
 	void updateBindings(IBindable* bindable) override;
 

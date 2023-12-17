@@ -37,6 +37,7 @@ namespace Renderer
 		void         drawLines(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA) override;
 		void         drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA, bool verticesChanged = true) override;
 		void		 drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA) override;
+		void		 drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth = 1, float cornerRadius = 0) override;
 
 		void         setProjection(const Transform4x4f& _projection) override;
 		void         setMatrix(const Transform4x4f& _matrix) override;
@@ -53,6 +54,7 @@ namespace Renderer
 
 		size_t		 getTotalMemUsage() override;
 
+		bool		 supportShaders() { return true; }
 		bool		 shaderSupportsCornerSize(const std::string& shader) override;
 
 	private:

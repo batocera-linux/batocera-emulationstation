@@ -19,6 +19,7 @@ public:
 
 	void onSizeChanged() override;
 	void update(int deltaTime) override;
+	void setSize(float w, float h);
 
 	void recalcLayout() override;
 
@@ -29,6 +30,8 @@ private:
 	bool mReverse;
 
 	float mSeparator;
+
+	Vector2f mLastSize;
 };
 
 #endif // ES_CORE_COMPONENTS_STACK_COMPONENT_H

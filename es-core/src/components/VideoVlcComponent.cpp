@@ -909,6 +909,8 @@ void VideoVlcComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 			mEffect = VideoVlcFlags::VideoVlcEffect::BUMP;
 		else
 			mEffect = VideoVlcFlags::VideoVlcEffect::NONE;
+
+		mConfig.scaleSnapshot = (mEffect != VideoVlcFlags::VideoVlcEffect::NONE);
 	}
 
 	if (elem && elem->has("roundCorners"))

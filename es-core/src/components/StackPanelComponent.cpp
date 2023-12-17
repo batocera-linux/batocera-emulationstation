@@ -63,15 +63,25 @@ void StackPanelComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, co
 	performLayout();
 }
 
-void StackPanelComponent::onSizeChanged()
-{
-	GuiComponent::onSizeChanged();
-	performLayout();
-}
 
 void StackPanelComponent::recalcLayout()
 {
 	GuiComponent::recalcLayout();
+	performLayout();
+}
+
+void StackPanelComponent::setSize(float w, float h)
+{
+	auto size = Vector2f(w, h);
+	if (size == mSize)
+		return;
+
+	mSize = size;
+	onSizeChanged();	
+}
+
+void StackPanelComponent::onSizeChanged()
+{
 	performLayout();
 }
 

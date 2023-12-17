@@ -32,16 +32,37 @@ void main(void)
 
 #elif defined(FRAGMENT)
 			
-varying   vec4      v_col;
-varying   vec2      v_tex;
+#if __VERSION__ >= 130
+#define COMPAT_VARYING in
+#define COMPAT_TEXTURE texture
+out vec4 FragColor;
+#else
+#define COMPAT_VARYING varying
+#define FragColor gl_FragColor
+#define COMPAT_TEXTURE texture2D
+#endif
+
+#ifdef GL_ES
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+#define COMPAT_PRECISION mediump
+#else
+#define COMPAT_PRECISION
+#endif
+			
+COMPAT_VARYING   vec4      v_col;
+COMPAT_VARYING   vec2      v_tex;
 
 uniform   sampler2D u_tex;
-uniform   vec2      resolution;
-uniform   vec2      textureSize;
-uniform   vec2      outputSize;
+uniform   COMPAT_PRECISION vec2      resolution;
+uniform   COMPAT_PRECISION vec2      textureSize;
+uniform   COMPAT_PRECISION vec2      outputSize;
 
-uniform   float      pixelSize;
-uniform   vec2       u_resolution;
+uniform   COMPAT_PRECISION float      pixelSize;
+uniform   COMPAT_PRECISION vec2       u_resolution;
 
 void main(void)                                    
 {         
@@ -49,7 +70,7 @@ void main(void)
 	
 	float pixels = pixelSize;
 	if (pixels == 0.0) {
-		gl_FragColor = texture2D(u_tex, v_tex);
+		FragColor = COMPAT_TEXTURE(u_tex, v_tex);
 	}
 	else {
 		// Calculate pixel size in normalized device coordinates
@@ -59,7 +80,7 @@ void main(void)
 		p.x = floor(p.x / pixelSizeNDC.x) * pixelSizeNDC.x;
 		p.y = floor(p.y / pixelSizeNDC.y) * pixelSizeNDC.y;
 
-		gl_FragColor = texture2D(u_tex, p);
+		FragColor = COMPAT_TEXTURE(u_tex, p);
 	}
 }
 #endif

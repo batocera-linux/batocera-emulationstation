@@ -11,6 +11,8 @@ template <typename T>
 class ConcurrentVector 
 {
 public:
+    void clear();
+
     void push_back(const T& value);
     size_t size() const;
     std::vector<T> toVector() const;
@@ -21,6 +23,13 @@ private:
     std::vector<T> vector_;
     mutable std::shared_timed_mutex mutex_;
 };
+
+template <typename T>
+void ConcurrentVector<T>::clear()
+{
+    std::unique_lock<std::shared_timed_mutex> lock(mutex_);
+    vector_.clear();
+}
 
 template <typename T>
 void ConcurrentVector<T>::push_back(const T& value)
@@ -55,6 +64,12 @@ bool ConcurrentVector<T>::contains(const T& value) const
 template <typename Key, typename Value>
 class ConcurrentMap {
 public:
+    void clear()
+    {
+        std::unique_lock< std::shared_timed_mutex> lock(mutex_);
+        map_.clear();
+    }
+
     void insert(const Key& key, const Value& value) 
     {
         std::unique_lock< std::shared_timed_mutex> lock(mutex_);
