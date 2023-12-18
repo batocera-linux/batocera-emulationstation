@@ -256,7 +256,7 @@ namespace Renderer
 			texUniform = glGetUniformLocation(mId, "Texture");
 		
 		GLint numUniforms = 0;
-		glGetProgramiv(mId, GL_ACTIVE_UNIFORMS, &numUniforms);
+		GL_CHECK_ERROR(glGetProgramiv(mId, GL_ACTIVE_UNIFORMS, &numUniforms));
 
 		for (int i = 0; i < numUniforms; ++i) 
 		{
@@ -265,14 +265,14 @@ namespace Renderer
 			GLint size;
 
 			char buffer[256];
-			glGetActiveUniform(mId, i, (GLsizei)sizeof(buffer), &length, &size, &type, buffer);			
+			GL_CHECK_ERROR(glGetActiveUniform(mId, i, (GLsizei)sizeof(buffer), &length, &size, &type, buffer));
 
 			std::string uniformName = buffer;
 			if (builtInUniforms.find(uniformName) != builtInUniforms.cend())
 				continue;
 
 			UniformInfo info;
-			info.location = i;
+			info.location = glGetUniformLocation(mId, uniformName.c_str());
 			info.type = type;
 
 			mCustomUniforms[uniformName] = info;
@@ -344,19 +344,19 @@ namespace Renderer
 			switch (item.second.type)
 			{
 			case GL_INT:
-				glUniform1i(item.second.location, 0);
+				GL_CHECK_ERROR(glUniform1i(item.second.location, 0));
 				break;
 			case GL_FLOAT:
-				glUniform1f(item.second.location, 0.0f);
+				GL_CHECK_ERROR(glUniform1f(item.second.location, 0.0f));
 				break;
 			case GL_FLOAT_VEC2:
-				glUniform2f(item.second.location, 0.0f, 0.0f);
+				GL_CHECK_ERROR(glUniform2f(item.second.location, 0.0f, 0.0f));
 				break;
 			case GL_FLOAT_VEC4:
-				glUniform4f(item.second.location, 0.0f, 0.0f, 0.0f, 0.0f);
+				GL_CHECK_ERROR(glUniform4f(item.second.location, 0.0f, 0.0f, 0.0f, 0.0f));
 				break;
 			case GL_BOOL:
-				glUniform1i(item.second.location, GL_FALSE);
+				GL_CHECK_ERROR(glUniform1i(item.second.location, GL_FALSE));
 				break;
 			default:
 				break;
@@ -378,18 +378,18 @@ namespace Renderer
 		switch (it->second.type)
 		{
 		case GL_INT:
-			glUniform1i(location, Utils::String::toInteger(value));
+			GL_CHECK_ERROR(glUniform1i(location, Utils::String::toInteger(value)));
 			break;
 		case GL_FLOAT:
-			glUniform1f(location, Utils::String::toFloat(value));
+			GL_CHECK_ERROR(glUniform1f(location, Utils::String::toFloat(value)));
 			break;
 		case GL_BOOL:
-			glUniform1i(location, Utils::String::toBoolean(value) ? GL_TRUE : GL_FALSE);
+			GL_CHECK_ERROR(glUniform1i(location, Utils::String::toBoolean(value) ? GL_TRUE : GL_FALSE));
 			break;
 		case GL_FLOAT_VEC2:
 			{
 				auto size = Vector2f::parseString(value);
-				glUniform2f(location, size.x(), size.y());
+				GL_CHECK_ERROR(glUniform2f(location, size.x(), size.y()));
 			}
 			break;
 		case GL_FLOAT_VEC4:
@@ -404,13 +404,13 @@ namespace Renderer
 				unsigned char blue = (clr >> 8) & 0xFF;
 				unsigned char alpha = clr & 0xFF;
 
-				glUniform4f(location, red / 255.0f, green / 255.0f, blue / 255.0f, alpha / 255.0f);
+				GL_CHECK_ERROR(glUniform4f(location, red / 255.0f, green / 255.0f, blue / 255.0f, alpha / 255.0f));
 			}
 			else 
 			{
 				// Coordinates
 				auto size = Vector4f::parseString(value);
-				glUniform4f(location, size.x(), size.y(), size.z(), size.w());
+				GL_CHECK_ERROR(glUniform4f(location, size.x(), size.y(), size.z(), size.w()));
 			}
 
 		}

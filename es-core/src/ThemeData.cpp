@@ -2433,7 +2433,7 @@ std::vector<std::pair<std::string, std::string>> ThemeData::getViewsOfTheme()
 	std::vector<std::pair<std::string, std::string>> ret;
 	for (auto it = mViews.cbegin(); it != mViews.cend(); ++it)
 	{
-		if (it->first == "menu" || it->first == "system" || it->first == "screen")
+		if (it->first == "menu" || it->first == "system" || it->first == "screen" || it->first == "splash")
 			continue;
 
 		ret.push_back(std::pair<std::string, std::string>(it->first, it->second.displayName.empty() ? it->first : it->second.displayName));

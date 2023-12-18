@@ -30,7 +30,7 @@ namespace glext
 	PFNGLACTIVETEXTUREPROC glActiveTexture_ = nullptr;
 	PFNGLUNIFORM1FPROC glUniform1f = nullptr;
 	PFNGLUNIFORM2FPROC glUniform2f = nullptr;
-	PFNGLUNIFORM4FPROC glUniform4f = nullptr;
+	PFNGLUNIFORM4FPROC glUniform4f = nullptr;	
 	PFNGLDELETEPROGRAMPROC glDeleteProgram = nullptr;
 	PFNGLDELETESHADERPROC glDeleteShader = nullptr;
 
@@ -39,7 +39,6 @@ namespace glext
 	PFNGLBLITFRAMEBUFFERPROC glBlitFramebuffer = nullptr;
 	PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers = nullptr;
 	PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers = nullptr;
-	PFNGLCOPYIMAGESUBDATAPROC glCopyImageSubData = nullptr;
 
 	PFNGLGETACTIVEUNIFORMPROC glGetActiveUniform = nullptr;
 
@@ -103,7 +102,7 @@ namespace glext
 		glActiveTexture_ = (PFNGLACTIVETEXTUREPROC)_glProcAddress("glActiveTexture");
 		glUniform1f = (PFNGLUNIFORM1FPROC)_glProcAddress("glUniform1f");
 		glUniform2f = (PFNGLUNIFORM2FPROC)_glProcAddress("glUniform2f");		
-		glUniform4f = (PFNGLUNIFORM4FPROC)_glProcAddress("glUniform4f");		
+		glUniform4f = (PFNGLUNIFORM4FPROC)_glProcAddress("glUniform4f");				
 		glDeleteProgram = (PFNGLDELETEPROGRAMPROC)_glProcAddress("glDeleteProgram");
 		glDeleteShader = (PFNGLDELETESHADERPROC)_glProcAddress("glDeleteShader");
 
@@ -112,7 +111,6 @@ namespace glext
 		glBlitFramebuffer = (PFNGLBLITFRAMEBUFFERPROC)_glProcAddress("glBlitFramebuffer");
 		glGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC)_glProcAddress("glGenFramebuffers");
 		glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC)_glProcAddress("glDeleteFramebuffers");		
-		glCopyImageSubData = (PFNGLCOPYIMAGESUBDATAPROC)_glProcAddress("glCopyImageSubData");
 
 		glGetActiveUniform = (PFNGLGETACTIVEUNIFORMPROC)_glProcAddress("glGetActiveUniform");
 
@@ -127,14 +125,16 @@ namespace glext
 }
 #endif
 
-#if defined(_DEBUG)
 #include "Log.h"
 
-void _GLCheckError(const char* _funcName)
+bool _GLCheckError(const char* _funcName)
 {
 	const GLenum errorCode = glGetError();
-
 	if (errorCode != GL_NO_ERROR)
+	{
 		LOG(LogError) << "GL error: " << _funcName << " failed with error code: " << errorCode;
+		return false;
+	}
+
+	return true;
 }
-#endif

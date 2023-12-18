@@ -612,7 +612,7 @@ namespace Renderer
 
 		if (mFrameBuffer != -1)
 		{
-			glDeleteFramebuffers(1, &mFrameBuffer);
+			GL_CHECK_ERROR(glDeleteFramebuffers(1, &mFrameBuffer));
 			mFrameBuffer = -1;
 		}
 	}
@@ -633,7 +633,7 @@ namespace Renderer
 		const GLenum type = convertTextureType(_type);
 
 		unsigned int texture = -1;
-		glGenTextures(1, &texture);
+		GL_CHECK_ERROR(glGenTextures(1, &texture));
 
 		if (texture == -1)
 		{
@@ -664,6 +664,8 @@ namespace Renderer
 					la_data[(i * 2) + 1] = a_data[i];
 			}
 
+		//	while (glGetError() != GL_NO_ERROR);
+
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
 			delete[] la_data;
 
@@ -676,6 +678,8 @@ namespace Renderer
 		}
 		else
 		{
+		//	while (glGetError() != GL_NO_ERROR);
+
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
 			if (glGetError() != GL_NO_ERROR)
 			{
@@ -843,7 +847,7 @@ namespace Renderer
 		useProgram(&shaderProgramColorNoTexture);
 
 		GL_CHECK_ERROR(glEnable(GL_BLEND));
-		glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
+		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
 
 		auto inner = createRoundRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, cornerRadius, _fillColor);
 
@@ -858,10 +862,10 @@ namespace Renderer
 			auto outer = createRoundRect(_x, _y, _w, _h, cornerRadius, _borderColor);
 
 			setStencil(inner.data(), inner.size());
-			glStencilFunc(GL_NOTEQUAL, 1, ~0);
+			GL_CHECK_ERROR(glStencilFunc(GL_NOTEQUAL, 1, ~0));
 
-			glEnable(GL_BLEND);
-			glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA));
+			GL_CHECK_ERROR(glEnable(GL_BLEND));
+			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
 
 			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * outer.size(), outer.data(), GL_DYNAMIC_DRAW));
 			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, outer.size()));
@@ -1125,7 +1129,7 @@ namespace Renderer
 	void GLES20Renderer::postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data)
 	{
 #if OPENGL_EXTENSIONS
-		if (glBlitFramebuffer == nullptr)
+		if (glBlitFramebuffer == nullptr || glFramebufferTexture2D == nullptr)
 			return;
 
 		if (getScreenRotate() != 0 && getScreenRotate() != 2)
@@ -1136,7 +1140,7 @@ namespace Renderer
 			return;
 
 		if (mFrameBuffer == -1)
-			glGenFramebuffers(1, &mFrameBuffer);
+			GL_CHECK_ERROR(glGenFramebuffers(1, &mFrameBuffer));
 
 		if (mFrameBuffer == -1)
 			return;
@@ -1197,8 +1201,8 @@ namespace Renderer
 			auto oldMatrix = worldViewMatrix;
 
 			GLboolean oldCissors;
-			glGetBooleanv(GL_SCISSOR_TEST, &oldCissors);
-			glDisable(GL_SCISSOR_TEST);
+			GL_CHECK_ERROR(glGetBooleanv(GL_SCISSOR_TEST, &oldCissors));
+			GL_CHECK_ERROR(glDisable(GL_SCISSOR_TEST));
 
 			setMatrix(Transform4x4f::Identity());
 
@@ -1231,9 +1235,9 @@ namespace Renderer
 			for (int i = 0; i < 4; ++i)
 				vertices[i].pos.round();
 
-			glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW);
+			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW));
 
-			for (int i = 0 ; i < shaderBatch->size() ; i++)
+			for (int i = 0; i < shaderBatch->size(); i++)
 			{
 				auto customShader = shaderBatch->at(i);
 
@@ -1241,28 +1245,28 @@ namespace Renderer
 				{
 					bindTexture(nTextureID);
 
-					glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer);
-					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0);
+					GL_CHECK_ERROR(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer));
+					GL_CHECK_ERROR(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0));
 
 					if (getScreenRotate() == 2)
-						glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR);
+						GL_CHECK_ERROR(glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR));
 					else
-						glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR);
+						GL_CHECK_ERROR(glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR));
 
 					if (shaderBatch->size() == 1 && data == nullptr)
-						glBindFramebuffer(GL_FRAMEBUFFER, 0);
+						GL_CHECK_ERROR(glBindFramebuffer(GL_FRAMEBUFFER, 0));
 					else
 					{
-						glBindFramebuffer(GL_DRAW_FRAMEBUFFER, nFrameBuffer2);
-						glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTexture2, 0);
+						GL_CHECK_ERROR(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, nFrameBuffer2));
+						GL_CHECK_ERROR(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTexture2, 0));
 					}
 				}
 				else
-				{					
-					bindTexture(i % 2 == 1 ? nTexture2 : nTextureID );
-					
+				{
+					bindTexture(i % 2 == 1 ? nTexture2 : nTextureID);
+
 					if (i == shaderBatch->size() - 1 && data == nullptr)
-					{						
+					{
 						// This is the last shader in the batch. 
 						vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
 						vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
@@ -1279,12 +1283,12 @@ namespace Renderer
 
 						for (int i = 0; i < 4; ++i) vertices[i].pos.round();
 
-						glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW);
-						
-						glBindFramebuffer(GL_FRAMEBUFFER, 0);
+						GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW));
+
+						GL_CHECK_ERROR(glBindFramebuffer(GL_FRAMEBUFFER, 0));
 					}
 					else
-						glBindFramebuffer(GL_DRAW_FRAMEBUFFER, i % 2 == 1 ? mFrameBuffer : nFrameBuffer2);
+						GL_CHECK_ERROR(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, i % 2 == 1 ? mFrameBuffer : nFrameBuffer2));
 				}
 
 				useProgram(customShader);
@@ -1303,26 +1307,17 @@ namespace Renderer
 				// Parameters in the theme
 				for (const auto& entry : parameters)
 					params[entry.first] = entry.second;
-				
+
 				customShader->setCustomUniformsParameters(params);
 
-				glEnable(GL_BLEND);
-				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-				glDisable(GL_BLEND);
+				GL_CHECK_ERROR(glDisable(GL_BLEND));
+				GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, 4));
 			}
-
-			bindTexture(0);
-			useProgram(oldProgram);
-			setMatrix(oldMatrix);
-
-			if (oldCissors)
-				glEnable(GL_SCISSOR_TEST);
 
 			if (data != nullptr)
 			{				
-				glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0); // Detach
-				glBindFramebuffer(GL_FRAMEBUFFER, 0);
+				GL_CHECK_ERROR(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0)); // Detach
+				GL_CHECK_ERROR(glBindFramebuffer(GL_FRAMEBUFFER, 0));
 
 				bool takeFirst = (shaderBatch->size() - 1) % 2 == 1;
 				*data = takeFirst ? nTextureID : nTexture2;
@@ -1330,6 +1325,13 @@ namespace Renderer
 			}
 			else
 			{
+				bindTexture(0);
+				useProgram(oldProgram);
+				setMatrix(oldMatrix);
+
+				if (oldCissors)
+					GL_CHECK_ERROR(glEnable(GL_SCISSOR_TEST));
+
 				destroyTexture(nTextureID);
 
 				if (nTexture2 != -1)
@@ -1337,7 +1339,7 @@ namespace Renderer
 			}
 
 			if (nFrameBuffer2 != -1)
-				glDeleteFramebuffers(1, &nFrameBuffer2);
+				GL_CHECK_ERROR(glDeleteFramebuffers(1, &nFrameBuffer2));
 		}		
 #endif
 	}
