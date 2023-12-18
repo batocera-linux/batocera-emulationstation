@@ -591,14 +591,22 @@ msgid "PLEASE WAIT"
 msgstr "お待ちください"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中の %d)"
 
-msgid "Points (hardcore)"
-msgstr "ポイント (ハードコア)"
-
 msgid "Softcore points"
 msgstr "ソフトコア ポイント"
+
+msgid "Points (hardcore)"
+msgstr "ポイント (ハードコア)"
 
 msgid "Rank"
 msgstr "ランク"
@@ -1385,8 +1393,11 @@ msgstr "ロック解除"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "このゲームにはまだアチーブメントがありません"
 
-msgid "Achievements won"
-msgstr "アチーブメント達成"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3265,6 +3276,30 @@ msgstr "編集"
 msgid "ENABLED"
 msgstr "有効"
 
+msgid "WORKING..."
+msgstr "処理中..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d 日"
+
+#, c-format
+msgid "%d h"
+msgstr "%d 時"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d 分"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d 秒"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3285,30 +3320,14 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
 
-msgid "WORKING..."
-msgstr "処理中..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d 日"
-
-#, c-format
-msgid "%d h"
-msgstr "%d 時"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d 分"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d 秒"
-
 msgid "SCREEN READER ENABLED"
 msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "Achievements won"
+#~ msgstr "アチーブメント達成"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "テーマファイルからコレクションを作成"

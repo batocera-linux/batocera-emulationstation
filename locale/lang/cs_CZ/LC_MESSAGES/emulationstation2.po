@@ -591,14 +591,22 @@ msgid "PLEASE WAIT"
 msgstr "PROSÍM, ČEKEJTE"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points (hardcore)"
-msgstr "Body (hardcore)"
-
 msgid "Softcore points"
 msgstr "Body Softcore"
+
+msgid "Points (hardcore)"
+msgstr "Body (hardcore)"
 
 msgid "Rank"
 msgstr "Hodnost"
@@ -1380,8 +1388,11 @@ msgstr "Odblokovano"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "TATO HRA ZATÍM NEMÁ ŽÁDNÉ ÚSPĚCHY"
 
-msgid "Achievements won"
-msgstr "Získané úspěchy"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3280,6 +3291,32 @@ msgstr "UPRAVIT"
 msgid "ENABLED"
 msgstr "ZAPNUTO"
 
+msgid "WORKING..."
+msgstr "PRACUJI..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d mn"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sec"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3308,30 +3345,14 @@ msgstr[0] "%d před sekundou"
 msgstr[1] "%d před sekundami"
 msgstr[2] "%d před sekundami"
 
-msgid "WORKING..."
-msgstr "PRACUJI..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d d"
-
-#, c-format
-msgid "%d h"
-msgstr "%d h"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d mn"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d sec"
-
 msgid "SCREEN READER ENABLED"
 msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "Achievements won"
+#~ msgstr "Získané úspěchy"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "VYTVOŘIT NOVOU VLASTNÍ SBÍRKU Z TÉMATU"

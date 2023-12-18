@@ -586,13 +586,21 @@ msgid "PLEASE WAIT"
 msgstr "ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr ""
 
-msgid "Points (hardcore)"
+msgid "Softcore points"
 msgstr ""
 
-msgid "Softcore points"
+msgid "Points (hardcore)"
 msgstr ""
 
 msgid "Rank"
@@ -1365,8 +1373,11 @@ msgstr "Ξεκλειδωμένο σε"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ΑΥΤΟ ΤΟ ΠΑΙΧΝΙΔΙ ΔΕΝ ΕΧΕΙ «ΚΑΤΟΡΘΩΜΑ» ΑΚΟΜΗ"
 
-msgid "Achievements won"
-msgstr "«ΚΑΤΟΡΘΩΜΑΤΑ» ΕΠΕΤΕΥΧΘΗΣΑΝ"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3223,6 +3234,31 @@ msgstr "ΕΠΕΞΕΡΓΑΣΙΑ"
 msgid "ENABLED"
 msgstr "ΕΝΕΡΓΟΠΟΙΗΜΕΝΟ"
 
+msgid "WORKING..."
+msgstr "ΔΟΥΛΕΥΕΙ..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr ""
+
+#, c-format
+msgid "%d mn"
+msgstr ""
+
+#, c-format
+msgid "%d sec"
+msgstr ""
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3247,30 +3283,14 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d δευτερόπλεπτο πριν"
 msgstr[1] "%d δευτερόλεπτα πριν"
 
-msgid "WORKING..."
-msgstr "ΔΟΥΛΕΥΕΙ..."
-
-#, c-format
-msgid "%d d"
-msgstr ""
-
-#, c-format
-msgid "%d h"
-msgstr ""
-
-#, c-format
-msgid "%d mn"
-msgstr ""
-
-#, c-format
-msgid "%d sec"
-msgstr ""
-
 msgid "SCREEN READER ENABLED"
 msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "Achievements won"
+#~ msgstr "«ΚΑΤΟΡΘΩΜΑΤΑ» ΕΠΕΤΕΥΧΘΗΣΑΝ"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "ΔΗΜΙΟΥΡΓΙΑ ΝΕΑΣ ΕΞΑΤΟΜΙΚΕΥΜΕΝΗΣ ΣΥΛΛΟΓΗΣ ΑΠΟ ΤΟ ΘΕΜΑ"

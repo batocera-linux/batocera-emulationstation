@@ -591,14 +591,22 @@ msgid "PLEASE WAIT"
 msgstr "ITXARON MESEDEZ"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d %d-tik)"
 
-msgid "Points (hardcore)"
-msgstr "Puntuaketa (amorratu modua)"
-
 msgid "Softcore points"
 msgstr "Ez amorratu moduko puntuaketa"
+
+msgid "Points (hardcore)"
+msgstr "Puntuaketa (amorratu modua)"
 
 msgid "Rank"
 msgstr "Maila"
@@ -1380,8 +1388,11 @@ msgstr "Desklokeatuta hemen"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "JOKO HONEK EZ DU LORPENIK ORAINDIK"
 
-msgid "Achievements won"
-msgstr "Lorpenak irabazita"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3277,6 +3288,31 @@ msgstr "EDITATU"
 msgid "ENABLED"
 msgstr "GAITUTA"
 
+msgid "WORKING..."
+msgstr "LANEAN..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d ordu"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d min"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d seg"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3301,30 +3337,14 @@ msgid_plural "%d seconds ago"
 msgstr[0] "duela segundu %d"
 msgstr[1] "duela %d segundu"
 
-msgid "WORKING..."
-msgstr "LANEAN..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d d"
-
-#, c-format
-msgid "%d h"
-msgstr "%d ordu"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d min"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d seg"
-
 msgid "SCREEN READER ENABLED"
 msgstr "PANTAILA IRAKURLEA GAITUTA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "PANTAILA IRAKURLEA EZGAITUTA"
+
+#~ msgid "Achievements won"
+#~ msgstr "Lorpenak irabazita"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "SORTU NEURRIRA EGINDAKO KOLEKZIOA GAITIK"

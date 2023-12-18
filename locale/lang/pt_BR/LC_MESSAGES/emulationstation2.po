@@ -600,14 +600,22 @@ msgid "PLEASE WAIT"
 msgstr "POR FAVOR, AGUARDE"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "Points (hardcore)"
-msgstr "Pontos (modo restrito)"
-
 msgid "Softcore points"
 msgstr "Pontos livres"
+
+msgid "Points (hardcore)"
+msgstr "Pontos (modo restrito)"
 
 msgid "Rank"
 msgstr "Placar"
@@ -1392,8 +1400,11 @@ msgstr "Desbloqueado em"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JOGO NÃO POSSUI CONQUISTAS"
 
-msgid "Achievements won"
-msgstr "Conquistas alcançadas"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3295,6 +3306,31 @@ msgstr "EDITAR"
 msgid "ENABLED"
 msgstr "ATIVADO"
 
+msgid "WORKING..."
+msgstr "EM PROGRESSO..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d min"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d seg"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3319,30 +3355,14 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d segundo atrás"
 msgstr[1] "%d segundos atrás"
 
-msgid "WORKING..."
-msgstr "EM PROGRESSO..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d d"
-
-#, c-format
-msgid "%d h"
-msgstr "%d h"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d min"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d seg"
-
 msgid "SCREEN READER ENABLED"
 msgstr "LEITOR DE TELA ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE TELA DESATIVADO"
+
+#~ msgid "Achievements won"
+#~ msgstr "Conquistas alcançadas"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "CRIAR NOVA COLEÇÃO PERSONALIZADA DO TEMA"

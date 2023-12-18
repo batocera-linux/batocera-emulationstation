@@ -592,13 +592,21 @@ msgid "PLEASE WAIT"
 msgstr "נא להמתין"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d מתוך %d)"
 
-msgid "Points (hardcore)"
+msgid "Softcore points"
 msgstr ""
 
-msgid "Softcore points"
+msgid "Points (hardcore)"
 msgstr ""
 
 msgid "Rank"
@@ -1369,8 +1377,11 @@ msgstr "נעילה בוטלה"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr ""
 
-msgid "Achievements won"
-msgstr "זכייה בהישגים"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3233,6 +3244,33 @@ msgstr ""
 msgid "ENABLED"
 msgstr ""
 
+msgid "WORKING..."
+msgstr ""
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr ""
+
+#, c-format
+msgid "%d mn"
+msgstr ""
+
+#, c-format
+msgid "%d sec"
+msgstr ""
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3265,30 +3303,14 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-msgid "WORKING..."
-msgstr ""
-
-#, c-format
-msgid "%d d"
-msgstr ""
-
-#, c-format
-msgid "%d h"
-msgstr ""
-
-#, c-format
-msgid "%d mn"
-msgstr ""
-
-#, c-format
-msgid "%d sec"
-msgstr ""
-
 msgid "SCREEN READER ENABLED"
 msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "Achievements won"
+#~ msgstr "זכייה בהישגים"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "יצירת אוסף מותאם אישית מערכת נושא"

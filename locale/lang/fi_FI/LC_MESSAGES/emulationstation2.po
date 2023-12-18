@@ -596,13 +596,21 @@ msgid "PLEASE WAIT"
 msgstr "ODOTA HETKI"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr ""
 
-msgid "Points (hardcore)"
+msgid "Softcore points"
 msgstr ""
 
-msgid "Softcore points"
+msgid "Points (hardcore)"
 msgstr ""
 
 msgid "Rank"
@@ -1380,7 +1388,10 @@ msgstr ""
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "TÄLLÄ PELILLÄ EI OLE SAAVUTUKSIA VIELÄ"
 
-msgid "Achievements won"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
 msgstr ""
 
 #, c-format
@@ -3260,6 +3271,31 @@ msgstr ""
 msgid "ENABLED"
 msgstr ""
 
+msgid "WORKING..."
+msgstr ""
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr "%d t"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d mn"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sek"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3283,25 +3319,6 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d sekuntti sitten"
 msgstr[1] "%d sekunttia sitten"
-
-msgid "WORKING..."
-msgstr ""
-
-#, c-format
-msgid "%d d"
-msgstr ""
-
-#, c-format
-msgid "%d h"
-msgstr "%d t"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d mn"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d sek"
 
 msgid "SCREEN READER ENABLED"
 msgstr "NÄYTÖNSÄÄSTÄJÄ OTETTU KÄYTTÖÖN"

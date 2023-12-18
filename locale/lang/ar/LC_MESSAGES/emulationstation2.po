@@ -627,14 +627,22 @@ msgid "PLEASE WAIT"
 msgstr "المرجو الإنتظار"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d من %d)"
 
-msgid "Points (hardcore)"
-msgstr "النقاط (هاردكور)"
-
 msgid "Softcore points"
 msgstr "نقاط سوفتكور"
+
+msgid "Points (hardcore)"
+msgstr "النقاط (هاردكور)"
 
 msgid "Rank"
 msgstr "الرتبة"
@@ -1415,8 +1423,11 @@ msgstr "التفكيك مفعل"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "هذه اللعبة ليست لديها أي إنجازات بعد"
 
-msgid "Achievements won"
-msgstr "الإنجازات المكتسبة"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3319,6 +3330,35 @@ msgstr "تعديل"
 msgid "ENABLED"
 msgstr "مفعّل"
 
+msgid "WORKING..."
+msgstr "جار التحقق من التحديثات..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d ي"
+
+#, c-format
+msgid "%d h"
+msgstr "%d س"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d د"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d ث"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3359,30 +3399,14 @@ msgstr[3] "منذ %d ثوانٍ"
 msgstr[4] "منذ %d ثانية"
 msgstr[5] "منذ %d ثانية"
 
-msgid "WORKING..."
-msgstr "جار التحقق من التحديثات..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d ي"
-
-#, c-format
-msgid "%d h"
-msgstr "%d س"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d د"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d ث"
-
 msgid "SCREEN READER ENABLED"
 msgstr "قارئ الشاشة مفعل"
 
 msgid "SCREEN READER DISABLED"
 msgstr "قارئ الشاشة معطل"
+
+#~ msgid "Achievements won"
+#~ msgstr "الإنجازات المكتسبة"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "إنشاء مجموعة مخصصه جديدة من السمة"

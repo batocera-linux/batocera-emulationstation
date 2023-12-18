@@ -594,14 +594,22 @@ msgid "PLEASE WAIT"
 msgstr "LÜTFEN BEKLEYİN"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d da %d)"
 
-msgid "Points (hardcore)"
-msgstr "Puanlar (hardcore)"
-
 msgid "Softcore points"
 msgstr "Softcore puanlar"
+
+msgid "Points (hardcore)"
+msgstr "Puanlar (hardcore)"
 
 msgid "Rank"
 msgstr "Rütbe"
@@ -1382,8 +1390,11 @@ msgstr "Kilit Açıldı"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "BU OYUNDA HENÜZ BAŞARIM YOK"
 
-msgid "Achievements won"
-msgstr "Kazanılan başarımlar"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3280,6 +3291,31 @@ msgstr "DÜZENLE"
 msgid "ENABLED"
 msgstr "AKTİF"
 
+msgid "WORKING..."
+msgstr "ÇALIŞIYOR..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d s"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d dk"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sn"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3304,30 +3340,14 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d saniye önce"
 msgstr[1] "%d saniye önce"
 
-msgid "WORKING..."
-msgstr "ÇALIŞIYOR..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d d"
-
-#, c-format
-msgid "%d h"
-msgstr "%d s"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d dk"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d sn"
-
 msgid "SCREEN READER ENABLED"
 msgstr "EKRAN OKUYUCUSU AKTİF EDİLDİ"
 
 msgid "SCREEN READER DISABLED"
 msgstr "EKRAN OKUYUCUSU PASİF EDİLDİ"
+
+#~ msgid "Achievements won"
+#~ msgstr "Kazanılan başarımlar"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "TEMA İLE YENİ ÖZEL KOLEKSİYON OLUŞTUR"

@@ -591,14 +591,22 @@ msgid "PLEASE WAIT"
 msgstr "VENNLIGST VENT"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d av %d)"
 
-msgid "Points (hardcore)"
-msgstr "Poeng (hardcore)"
-
 msgid "Softcore points"
 msgstr "Softcore poeng"
+
+msgid "Points (hardcore)"
+msgstr "Poeng (hardcore)"
 
 msgid "Rank"
 msgstr "Rang"
@@ -1376,8 +1384,11 @@ msgstr "Låst opp på"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "DETTE SPILLET HAR INGEN PRESTASJONER ENDA"
 
-msgid "Achievements won"
-msgstr "Prestasjoner vunnet"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3251,6 +3262,31 @@ msgstr "ENDRE"
 msgid "ENABLED"
 msgstr "AKTIVERT"
 
+msgid "WORKING..."
+msgstr "ARBEIDER..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr "%d t"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d min"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sek"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3275,30 +3311,14 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d sekund siden"
 msgstr[1] "%d sekunder siden"
 
-msgid "WORKING..."
-msgstr "ARBEIDER..."
-
-#, c-format
-msgid "%d d"
-msgstr ""
-
-#, c-format
-msgid "%d h"
-msgstr "%d t"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d min"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d sek"
-
 msgid "SCREEN READER ENABLED"
 msgstr "SKJERMLESER AKTIVERT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SKJERMLESER DEAKTIVERT"
+
+#~ msgid "Achievements won"
+#~ msgstr "Prestasjoner vunnet"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "LAG NY EGENDEFINERT SAMLING FRA TEMA"

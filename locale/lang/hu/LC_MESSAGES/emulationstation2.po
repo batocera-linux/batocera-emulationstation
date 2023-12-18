@@ -594,14 +594,22 @@ msgid "PLEASE WAIT"
 msgstr "KÉRLEK VÁRJ"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d  %d -ból)"
 
-msgid "Points (hardcore)"
-msgstr "Pont (haladó)"
-
 msgid "Softcore points"
 msgstr "Softcore pont"
+
+msgid "Points (hardcore)"
+msgstr "Pont (haladó)"
 
 msgid "Rank"
 msgstr "Rang"
@@ -1383,8 +1391,11 @@ msgstr "Kiniytva"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "EBBEN A JÁTÉKBAN MÉG  NINCS ACHIEVEMENT"
 
-msgid "Achievements won"
-msgstr "Elért achivementek"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3290,6 +3301,31 @@ msgstr "SZERKESZT"
 msgid "ENABLED"
 msgstr "ENGEDÉLYEZVE"
 
+msgid "WORKING..."
+msgstr "DOLGOZOM..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d n"
+
+#, c-format
+msgid "%d h"
+msgstr "%d ó"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d p"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d mp"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3314,30 +3350,14 @@ msgid_plural "%d seconds ago"
 msgstr[0] "%d másodperce"
 msgstr[1] "%d másodperce"
 
-msgid "WORKING..."
-msgstr "DOLGOZOM..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d n"
-
-#, c-format
-msgid "%d h"
-msgstr "%d ó"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d p"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d mp"
-
 msgid "SCREEN READER ENABLED"
 msgstr "KÉPERNYŐOLVASÓ ENGEDÉLYEZVE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "A KÉPERNYŐOLVASÓ LE VAN TILTVA"
+
+#~ msgid "Achievements won"
+#~ msgstr "Elért achivementek"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "ÚJ EGYEDI GYŰJTEMÉNY KÉSZÍTÉSE A TÉMÁBÓL"

@@ -594,13 +594,21 @@ msgid "PLEASE WAIT"
 msgstr "ARHOSWCH OS GWELWCH YN DDA"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points (hardcore)"
+msgid "Softcore points"
 msgstr ""
 
-msgid "Softcore points"
+msgid "Points (hardcore)"
 msgstr ""
 
 msgid "Rank"
@@ -1373,8 +1381,11 @@ msgstr "Datgloi ar"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "NID OES CYFLAWNIAD AR Y GÊM YMA ETO"
 
-msgid "Achievements won"
-msgstr "Cyflawniadau a enillwyd"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3252,6 +3263,35 @@ msgstr "GOLYGU"
 msgid "ENABLED"
 msgstr ""
 
+msgid "WORKING..."
+msgstr "YN GWEITHIO..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr "%d a"
+
+#, c-format
+msgid "%d mn"
+msgstr ""
+
+#, c-format
+msgid "%d sec"
+msgstr ""
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3292,30 +3332,14 @@ msgstr[3] "%d eiliadau yn ôl"
 msgstr[4] "%d eiliadau yn ôl"
 msgstr[5] "%d eiliadau yn ôl"
 
-msgid "WORKING..."
-msgstr "YN GWEITHIO..."
-
-#, c-format
-msgid "%d d"
-msgstr ""
-
-#, c-format
-msgid "%d h"
-msgstr "%d a"
-
-#, c-format
-msgid "%d mn"
-msgstr ""
-
-#, c-format
-msgid "%d sec"
-msgstr ""
-
 msgid "SCREEN READER ENABLED"
 msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "Achievements won"
+#~ msgstr "Cyflawniadau a enillwyd"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "CREU CASGLIAD NEWYDD WEDI'I ADDASU O THEMA"

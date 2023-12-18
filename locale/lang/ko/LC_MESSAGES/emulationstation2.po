@@ -588,14 +588,22 @@ msgid "PLEASE WAIT"
 msgstr "잠시만 기다려주세요"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points (hardcore)"
-msgstr "포인트 (하드코어 모드)"
-
 msgid "Softcore points"
 msgstr "소프트코어 포인트"
+
+msgid "Points (hardcore)"
+msgstr "포인트 (하드코어 모드)"
 
 msgid "Rank"
 msgstr "랭크"
@@ -1376,8 +1384,11 @@ msgstr "잠금 해제"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "현재 게임은 도전과제가 아직 없습니다"
 
-msgid "Achievements won"
-msgstr "획득한 도전과제"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3241,6 +3252,30 @@ msgstr "편집"
 msgid "ENABLED"
 msgstr "사용"
 
+msgid "WORKING..."
+msgstr "작업 중..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr "%d 시간"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d 분"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d 초"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3261,30 +3296,14 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 초 전"
 
-msgid "WORKING..."
-msgstr "작업 중..."
-
-#, c-format
-msgid "%d d"
-msgstr ""
-
-#, c-format
-msgid "%d h"
-msgstr "%d 시간"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d 분"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d 초"
-
 msgid "SCREEN READER ENABLED"
 msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#~ msgid "Achievements won"
+#~ msgstr "획득한 도전과제"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "테마에서 새 사용자 컬렉션 만들기"

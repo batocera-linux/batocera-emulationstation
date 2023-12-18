@@ -588,14 +588,22 @@ msgid "PLEASE WAIT"
 msgstr "请稍后"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中的 %d)"
 
-msgid "Points (hardcore)"
-msgstr "得分 (硬核模式)"
-
 msgid "Softcore points"
 msgstr "软核分数"
+
+msgid "Points (hardcore)"
+msgstr "得分 (硬核模式)"
 
 msgid "Rank"
 msgstr "评价等级"
@@ -1375,8 +1383,11 @@ msgstr "解锁"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "这个游戏还没有取得任何成就"
 
-msgid "Achievements won"
-msgstr "已取得成就"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3235,6 +3246,30 @@ msgstr "编辑"
 msgid "ENABLED"
 msgstr "打开"
 
+msgid "WORKING..."
+msgstr "进行中..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d 天"
+
+#, c-format
+msgid "%d h"
+msgstr "%d 小时"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d 分钟"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d 秒"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3255,30 +3290,14 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
 
-msgid "WORKING..."
-msgstr "进行中..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d 天"
-
-#, c-format
-msgid "%d h"
-msgstr "%d 小时"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d 分钟"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d 秒"
-
 msgid "SCREEN READER ENABLED"
 msgstr "屏幕阅读器已启用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "屏幕阅读器已关闭"
+
+#~ msgid "Achievements won"
+#~ msgstr "已取得成就"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "从主题创建新的自定义专辑"

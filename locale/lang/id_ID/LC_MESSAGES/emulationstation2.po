@@ -592,14 +592,22 @@ msgid "PLEASE WAIT"
 msgstr "MOHON TUNGGU"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points (hardcore)"
-msgstr "Poin (hardcore)"
-
 msgid "Softcore points"
 msgstr "Poin softcore"
+
+msgid "Points (hardcore)"
+msgstr "Poin (hardcore)"
 
 msgid "Rank"
 msgstr "Peringkat"
@@ -1381,8 +1389,11 @@ msgstr "Tidak terkunci"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "GAME INI BELUM MEMILIKI PRESTASI"
 
-msgid "Achievements won"
-msgstr "Prestasi dimenangkan"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3261,6 +3272,30 @@ msgstr "UBAH"
 msgid "ENABLED"
 msgstr "AKTIFKAN"
 
+msgid "WORKING..."
+msgstr "MEMPROSES..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d jam"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d menit"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d detik"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3281,30 +3316,14 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "sedetik lalu"
 
-msgid "WORKING..."
-msgstr "MEMPROSES..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d d"
-
-#, c-format
-msgid "%d h"
-msgstr "%d jam"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d menit"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d detik"
-
 msgid "SCREEN READER ENABLED"
 msgstr "PEMBACA LAYAR DIAKTIFKAN"
 
 msgid "SCREEN READER DISABLED"
 msgstr "PEMBACA LAYAR DIMATIKAN"
+
+#~ msgid "Achievements won"
+#~ msgstr "Prestasi dimenangkan"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "BUAT KOLEKSI KUSTOM BARU DARI TEMA"

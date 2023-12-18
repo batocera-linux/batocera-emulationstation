@@ -595,14 +595,22 @@ msgid "PLEASE WAIT"
 msgstr "ПОДОЖДИТЕ"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d из %d)"
 
-msgid "Points (hardcore)"
-msgstr "Очки (хардкор)"
-
 msgid "Softcore points"
 msgstr "Очки (софткор)"
+
+msgid "Points (hardcore)"
+msgstr "Очки (хардкор)"
 
 msgid "Rank"
 msgstr "Ранг"
@@ -1383,8 +1391,11 @@ msgstr "Получено"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ИГРА НЕ ИМЕЕТ ДОСТИЖЕНИЙ"
 
-msgid "Achievements won"
-msgstr "Достижений получено"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3276,6 +3287,32 @@ msgstr "РЕДАКТИРОВАТЬ"
 msgid "ENABLED"
 msgstr "ВКЛЮЧЕНО"
 
+msgid "WORKING..."
+msgstr "ОБРАБОТКА..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d д"
+
+#, c-format
+msgid "%d h"
+msgstr "%d ч"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d мин"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d сек"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3304,30 +3341,14 @@ msgstr[0] "%d секунду назад"
 msgstr[1] "%d секунды назад"
 msgstr[2] "%d секунд назад"
 
-msgid "WORKING..."
-msgstr "ОБРАБОТКА..."
-
-#, c-format
-msgid "%d d"
-msgstr "%d д"
-
-#, c-format
-msgid "%d h"
-msgstr "%d ч"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d мин"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d сек"
-
 msgid "SCREEN READER ENABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "Achievements won"
+#~ msgstr "Достижений получено"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "СОЗДАТЬ КОЛЛЕКЦИЮ ИЗ ТЕМЫ"

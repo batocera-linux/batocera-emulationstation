@@ -599,14 +599,22 @@ msgid "PLEASE WAIT"
 msgstr "ESPERI SI US PLAU"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
-msgid "Points (hardcore)"
-msgstr "Punts (hardcore)"
-
 msgid "Softcore points"
 msgstr "Punts (softcore)"
+
+msgid "Points (hardcore)"
+msgstr "Punts (hardcore)"
 
 msgid "Rank"
 msgstr "Posició"
@@ -1388,8 +1396,11 @@ msgstr "Desbloquejat el"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ENCARA NO TENS TROFEUS EN AQUEST JOC"
 
-msgid "Achievements won"
-msgstr "Trofeus guanyats"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -3289,6 +3300,31 @@ msgstr "EDITA"
 msgid "ENABLED"
 msgstr "HABILITAT"
 
+msgid "WORKING..."
+msgstr "S'ESTÀ TREBALLANT…"
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d min"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d seg"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3313,30 +3349,14 @@ msgid_plural "%d seconds ago"
 msgstr[0] "fa %d segon"
 msgstr[1] "fa %d segons"
 
-msgid "WORKING..."
-msgstr "S'ESTÀ TREBALLANT…"
-
-#, c-format
-msgid "%d d"
-msgstr "%d d"
-
-#, c-format
-msgid "%d h"
-msgstr "%d h"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d min"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d seg"
-
 msgid "SCREEN READER ENABLED"
 msgstr "LECTOR DE PANTALLA HABILITAT"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTOR DE PANTALLA DESHABILITAT"
+
+#~ msgid "Achievements won"
+#~ msgstr "Trofeus guanyats"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "CREAR NOVA COL·LECCIÓ PERSONALITZADA A PARTIR DEL TEMA"
