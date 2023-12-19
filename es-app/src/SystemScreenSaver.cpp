@@ -70,15 +70,15 @@ bool SystemScreenSaver::isScreenSaverActive()
 
 void SystemScreenSaver::startScreenSaver()
 {
+	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
+
 	bool loadingNext = mLoadingNext;
 
-	if(mState == STATE_INACTIVE) {
-	  Scripting::fireEvent("screensaver-start");
-	}
+	if (mState == STATE_INACTIVE)
+		Scripting::fireEvent("screensaver-start", screensaver_behavior);
 
 	stopScreenSaver();
 
-	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
 
 	if (screensaver_behavior == "suspend")
 	{
