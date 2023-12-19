@@ -221,7 +221,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		}
 		else if (config->isMappedLike("up", input)) 
 		{
-			mGrid.moveCursor(Vector2i(0, kbUs.size() / 2));
+			mGrid.setCursorTo(mKeyboardGrid);
 			return true;
 		}
 		else if (config->isMappedLike("left", input))
