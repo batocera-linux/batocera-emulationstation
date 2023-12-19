@@ -49,6 +49,7 @@ CarouselComponent::CarouselComponent(Window* window) :
 	mDefaultTransition = "";
 	mTransitionSpeed = 500;
 	mMinLogoOpacity = 0.5f;
+	mScaledSpacing = 0.0f;
 
 	mAnyLogoHasScaleStoryboard = false;
 	mAnyLogoHasOpacityStoryboard = false;
@@ -436,7 +437,20 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 			index += (int)mEntries.size();
 
 		Transform4x4f logoTrans = carouselTrans;
-		logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
+
+		if (mType == HORIZONTAL && mLogoScale != 1.0f && mScaledSpacing != 0.0f)
+		{
+			auto logoDiffX = ((logoSpacing[0] * mLogoScale) - logoSpacing[0]) / 2.0f * mScaledSpacing;
+
+			if (index == mCursor)
+				logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
+			else if (i < mCursor || (mCursor == 0 && index > mMaxLogoCount))
+				logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff - logoDiffX, i * logoSpacing[1] + yOff, 0));
+			else
+				logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff + logoDiffX, i * logoSpacing[1] + yOff, 0));
+		}
+		else
+			logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
 
 		float distance = i - mCamOffset;
 
@@ -536,6 +550,9 @@ void CarouselComponent::getCarouselFromTheme(const ThemeData::ThemeElement* elem
 	if (elem->has("minLogoOpacity"))
 		mMinLogoOpacity = elem->get<float>("minLogoOpacity");
 	
+	if (elem->has("scaledLogoSpacing"))
+		mScaledSpacing = elem->get<float>("scaledLogoSpacing");	
+
 	if (elem->has("imageSource"))
 	{
 		auto direction = elem->get<std::string>("imageSource");

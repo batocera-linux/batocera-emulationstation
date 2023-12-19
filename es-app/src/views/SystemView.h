@@ -55,6 +55,8 @@ struct SystemViewCarousel
 
 	bool anyLogoHasOpacityStoryboard;
 	bool anyLogoHasScaleStoryboard;
+
+	float			scaledSpacing;
 };
 
 class SystemView : public IList<SystemViewData, SystemData*>

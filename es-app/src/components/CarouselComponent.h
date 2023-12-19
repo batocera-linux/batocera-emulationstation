@@ -156,9 +156,12 @@ private:
 	bool			mAnyLogoHasScaleStoryboard;
 	bool			mAnyLogoHasOpacityStoryboard;
 
+	float			mScaledSpacing;
+
 	// Mouse support
 	int				mPressedCursor;
 	Vector2i		mPressedPoint;	
+
 
 public:
 	bool isHorizontalCarousel() { return mType == HORIZONTAL || mType == HORIZONTAL_WHEEL; }
