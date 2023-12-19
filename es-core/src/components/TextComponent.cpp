@@ -757,6 +757,8 @@ ThemeData::ThemeElement::Property TextComponent::getProperty(const std::string n
 		return mText;
 	else if (name == "fontPath")
 		return mFont ? mFont->getPath() : std::string();
+	else if (name == "fontSize")
+		return mFont ? mFont->getSize() / ((float)Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth())) : 0.0f;
 	else if (name == "value")
 		return mText;
 	else if (name == "autoScroll")
@@ -791,7 +793,11 @@ void TextComponent::setProperty(const std::string name, const ThemeData::ThemeEl
 {
 	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 	
-	if (value.type == ThemeData::ThemeElement::Property::PropertyType::String && name == "multiLine")
+	if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "fontSize")
+		setFont("", value.f * (float)Math::min(Renderer::getScreenHeight(), Renderer::getScreenWidth()));
+	if (value.type == ThemeData::ThemeElement::Property::PropertyType::String && name == "fontPath")
+		setFont(value.s, 0);
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::String && name == "multiLine")
 	{
 		if (value.s == "true")
 			setAutoScroll(MultiLineType::MULTILINE);
