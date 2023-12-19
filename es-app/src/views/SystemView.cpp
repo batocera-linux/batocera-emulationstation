@@ -1121,6 +1121,8 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 	mViewNeedsReload = false;
 }
 
+#include "Log.h"
+
 //  Render system carousel
 void SystemView::renderCarousel(const Transform4x4f& trans)
 {
@@ -1212,7 +1214,20 @@ void SystemView::renderCarousel(const Transform4x4f& trans)
 			index += (int)mEntries.size();
 
 		Transform4x4f logoTrans = carouselTrans;
-		logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
+
+		if (mCarousel.type == HORIZONTAL && mCarousel.logoScale != 1.0f && mCarousel.scaledSpacing != 0.0f)
+		{
+			auto logoDiffX = ((logoSpacing[0] * mCarousel.logoScale) - logoSpacing[0]) / 2.0f * mCarousel.scaledSpacing;
+
+			if (index == mCursor)
+				logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
+			else if (i < mCursor || (mCursor == 0 && index > mCarousel.maxLogoCount))
+				logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff - logoDiffX, i * logoSpacing[1] + yOff, 0));
+			else 
+				logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff + logoDiffX, i * logoSpacing[1] + yOff, 0));
+		}
+		else
+			logoTrans.translate(Vector3f(i * logoSpacing[0] + xOff, i * logoSpacing[1] + yOff, 0));
 
 		float distance = i - mCamOffset;
 
@@ -1613,6 +1628,7 @@ void  SystemView::getDefaultElements(void)
 	mCarousel.logoSize.y() = 0.155f * mSize.y();
 	mCarousel.logoPos = Vector2f(-1, -1);
 	mCarousel.maxLogoCount = 3;
+	mCarousel.scaledSpacing = 0.0f;
 	mCarousel.zIndex = 40;
 	mCarousel.systemInfoDelay = 2000;
 	mCarousel.systemInfoCountOnly = false;
@@ -1673,6 +1689,8 @@ void SystemView::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 		mCarousel.logoPos = elem->get<Vector2f>("logoPos") * mSize;
 	if (elem->has("maxLogoCount"))
 		mCarousel.maxLogoCount = (int)Math::round(elem->get<float>("maxLogoCount"));
+	if (elem->has("scaledLogoSpacing"))
+		mCarousel.scaledSpacing = elem->get<float>("scaledLogoSpacing");	
 	if (elem->has("zIndex"))
 		mCarousel.zIndex = elem->get<float>("zIndex");
 	if (elem->has("logoRotation"))

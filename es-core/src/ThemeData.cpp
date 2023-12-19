@@ -571,6 +571,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "defaultTransition", STRING },		// auto, instant, fade, slide, fade & slide
 		{ "minLogoOpacity", FLOAT },
 		{ "transitionSpeed", FLOAT },
+		{ "scaledLogoSpacing", FLOAT },
 		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },
 
@@ -590,6 +591,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "defaultTransition", STRING },	// auto, instant, fade, slide, fade & slide
 		{ "minLogoOpacity", FLOAT },
 		{ "transitionSpeed", FLOAT },
+		{ "scaledLogoSpacing", FLOAT },
 		{ "scrollSound", PATH },
 		{ "zIndex", FLOAT } } },
 
