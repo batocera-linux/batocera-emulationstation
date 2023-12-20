@@ -80,19 +80,12 @@ namespace Renderer
 	}
 
 	ShaderProgram::ShaderProgram() :
-		mPositionAttribute(-1),
-		mColorAttribute(-1),
-		mTexCoordAttribute(-1),
-		mvpUniform(-1),
-		mSaturation(-1),
-		mCornerRadius(-1),
-		linkStatus(false),
 		mId(-1),
-		mOutputSize(-1),
-		mOutputOffset(-1),
-		mInputSize(-1),
-		mTextureSize(-1),
-		mResolution(-1)
+		mPositionAttribute(-1), mColorAttribute(-1), mTexCoordAttribute(-1), mvpUniform(-1),
+		linkStatus(false),
+		mOutputSize(-1), mOutputOffset(-1), mInputSize(-1), mTextureSize(-1), mResolution(-1),
+		mSaturation(-1), mCornerRadius(-1),
+		mFrameCount(-1), mFrameDirection(-1)
 	{
 	}
 
@@ -204,6 +197,7 @@ namespace Renderer
 		"InputSize", "inputSize", 
 		"Resolution", "resolution", 
 		"saturation", "es_cornerRadius",
+		"FrameCount", "FrameDirection",
 		"u_tex", "textureSampler", "Texture"
 	};
 
@@ -245,7 +239,7 @@ namespace Renderer
 		mResolution = glGetUniformLocation(mId, "Resolution");
 		if (mResolution == -1)
 			mResolution = glGetUniformLocation(mId, "resolution");
-		
+
 		mSaturation = glGetUniformLocation(mId, "saturation");
 		mCornerRadius = glGetUniformLocation(mId, "es_cornerRadius");
 
@@ -255,6 +249,9 @@ namespace Renderer
 		if (texUniform == -1)
 			texUniform = glGetUniformLocation(mId, "Texture");
 		
+		mFrameCount = glGetUniformLocation(mId, "FrameCount");
+		mFrameDirection = glGetUniformLocation(mId, "FrameDirection");
+
 		GLint numUniforms = 0;
 		GL_CHECK_ERROR(glGetProgramiv(mId, GL_ACTIVE_UNIFORMS, &numUniforms));
 
@@ -331,6 +328,15 @@ namespace Renderer
 	{
 		if (mResolution != -1)
 			GL_CHECK_ERROR(glUniform2f(mResolution, getScreenWidth(), getScreenHeight()));
+	}
+
+	void ShaderProgram::setFrameCount(int frame)
+	{
+		if (mFrameDirection != -1)
+			GL_CHECK_ERROR(glUniform1i(mFrameCount, 1));
+
+		if (mFrameCount != -1)
+			GL_CHECK_ERROR(glUniform1i(mFrameCount, frame));
 	}
 
 	void ShaderProgram::setCustomUniformsParameters(const std::map<std::string, std::string>& parameters)

@@ -53,6 +53,7 @@ namespace Renderer
 		void setOutputOffset(const Vector2f& size);
 		void setCornerRadius(GLfloat radius);
 		void setResolution();
+		void setFrameCount(int frame);
 
 		void setCustomUniformsParameters(const std::map<std::string, std::string>& parameters);
 
@@ -78,6 +79,8 @@ namespace Renderer
 		GLint mInputSize;
 		GLint mResolution;
 		GLint mCornerRadius;
+		GLint mFrameCount;
+		GLint mFrameDirection;
 		
 		struct UniformInfo
 		{

@@ -224,6 +224,8 @@ namespace Renderer
 
 	Vector2i	setScreenMargin(int marginX, int marginY);
 
+	int         getCurrentFrame();
+
 } // Renderer::
 
 #endif // ES_CORE_RENDERER_RENDERER_H
