@@ -904,6 +904,7 @@ namespace Renderer
 				shader->setSaturation(_vertices->saturation);
 				shader->setCornerRadius(_vertices->cornerRadius);
 				shader->setResolution();
+				shader->setFrameCount(Renderer::getCurrentFrame());
 
 				if (shader->supportsTextureSize() && it != _textures.cend() && it->second != nullptr)
 				{
@@ -1300,6 +1301,7 @@ namespace Renderer
 				customShader->setOutputSize(vertices[3].pos);
 				customShader->setOutputOffset(vertices[0].pos);
 				customShader->setResolution();
+				customShader->setFrameCount(Renderer::getCurrentFrame());
 
 				// Parameters in the glslp
 				std::map<std::string, std::string> params = shaderBatch->parameters;

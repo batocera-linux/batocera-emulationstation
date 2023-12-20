@@ -38,6 +38,10 @@ namespace Renderer
 
 	static Vector2i			sdlWindowPosition = Vector2i(SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED);
 
+	static int              currentFrame = 0;
+
+	int  getCurrentFrame() { return currentFrame; }
+
 	static Rect screenToviewport(const Rect& rect)
 	{
 		Rect rc = rect;
@@ -938,6 +942,7 @@ namespace Renderer
 
 	void swapBuffers() 
 	{
+		currentFrame++;
 		Instance()->swapBuffers();
 	}
 
