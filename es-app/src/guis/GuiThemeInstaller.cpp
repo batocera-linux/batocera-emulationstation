@@ -27,6 +27,7 @@ GuiThemeInstaller::GuiThemeInstaller(Window* window)
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 
 	// Title
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
@@ -437,7 +438,7 @@ GuiBatoceraThemeEntry::GuiBatoceraThemeEntry(Window* window, BatoceraTheme& entr
 		mPreviewImage = std::make_shared<WebImageComponent>(window, 600); // image expire after 10 minutes
 		mPreviewImage->setImage(mEntry.image, false, maxSize);		
 		mPreviewImage->setMaxSize(maxSize);
-		// mPreviewImage->setRoundCorners(0.02);
+		mPreviewImage->setRoundCorners(0.03f);
 
 		setEntry(mPreviewImage, Vector2i(4, 0), false, false, Vector2i(1, 4));
 	}

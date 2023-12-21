@@ -55,6 +55,7 @@ public:
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 
+	void setPostProcessShader(const Renderer::ShaderInfo& shader, bool cacheable = true);
 
 private:
 	void buildVertices();
@@ -70,10 +71,15 @@ private:
 	
 	Vector2f mPreviousSize;
 
+	bool mCustomShaderIsPostProcess;
+	bool mCustomShaderIsCacheable;
+	Renderer::ShaderInfo mCustomShader;
 
 	float mTimer;
 	float mAnimateTiming;
 	unsigned int mAnimateColor;		
+
+	unsigned int mPostProcessTextureId;
 };
 
 #endif // ES_CORE_COMPONENTS_NINE_PATCH_COMPONENT_H

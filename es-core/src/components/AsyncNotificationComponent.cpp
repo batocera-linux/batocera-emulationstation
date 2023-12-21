@@ -40,6 +40,7 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
 	mFrame->setEdgeColor(theme->Background.color);
 	mFrame->setCenterColor(theme->Background.centerColor);
 	mFrame->setCornerSize(theme->Background.cornerSize);
+	mFrame->setPostProcessShader(theme->Background.menuShader, false);
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
 

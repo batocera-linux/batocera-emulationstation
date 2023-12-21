@@ -27,6 +27,7 @@ MenuComponent::MenuComponent(Window* window,
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 	mBackground.setZIndex(2);
 
 	// set up title

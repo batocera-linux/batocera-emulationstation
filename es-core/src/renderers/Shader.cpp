@@ -103,6 +103,22 @@ namespace Renderer
 		}
 	}
 
+	static std::string appendVersionAndType(const std::string& shaderCode, const std::string& customDefines)
+	{
+		auto pos = shaderCode.find("#version");
+		if (pos != std::string::npos)
+		{
+			auto next = shaderCode.find("\n");
+			if (next != std::string::npos && next + 1 < shaderCode.length())
+			{
+				std::string ret = shaderCode.substr(0, next + 1) + customDefines + "\n" + shaderCode.substr(next + 1);
+				return ret;
+			}
+		}
+
+		return SHADER_VERSION_STRING + customDefines + "\n" + shaderCode;
+	}
+
 	bool ShaderProgram::loadFromFile(const std::string& path)
 	{
 		if (!ResourceManager::getInstance()->fileExists(path))
@@ -116,14 +132,14 @@ namespace Renderer
 
 		std::string versionString = SHADER_VERSION_STRING;
 
-		Shader vertex = Shader::createShader(GL_VERTEX_SHADER, versionString + "#define VERTEX\n" + shaderCode);
+		Shader vertex = Shader::createShader(GL_VERTEX_SHADER, appendVersionAndType(shaderCode, "#define VERTEX"));
 		if (!vertex.compileStatus)
 		{
 			LOG(LogError) << "Failed to compile GLSL VERTEX shader : " << path;
 			return false;
 		}
 
-		Shader fragment = Shader::createShader(GL_FRAGMENT_SHADER, versionString + "#define FRAGMENT\n" + shaderCode);
+		Shader fragment = Shader::createShader(GL_FRAGMENT_SHADER, appendVersionAndType(shaderCode, "#define FRAGMENT"));
 		if (!fragment.compileStatus)
 		{
 			LOG(LogError) << "Failed to compile GLSL FRAGMENT shader : " << path;

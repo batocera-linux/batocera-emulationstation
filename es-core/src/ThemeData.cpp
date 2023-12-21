@@ -106,6 +106,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "pos", NORMALIZED_PAIR },
 		{ "size", NORMALIZED_PAIR },		
 		{ "visible", BOOLEAN },
+		{ "clipRect", NORMALIZED_RECT },
 		{ "zIndex", FLOAT } } },
 
 	{ "shader", {} },
@@ -1908,7 +1909,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				type = PATH;
 			else if (name == "animate" && std::string(root.name()) == "imagegrid")
 				node.set_name("animateSelection");
-			else if (element.type == "shader" || element.type == "screenshader")
+			else if (element.type == "shader" || element.type == "screenshader" || element.type == "menuShader" || element.type == "fadeShader")
 			{
 				// Child properties of shaders are to be added dynamically. They can't be described here as they are used for uniforms arguments
 				type = STRING;
@@ -1928,7 +1929,7 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 
 				continue;
 			}
-			else if (name == "shader")
+			else if (name == "shader" || ((name == "menuShader" || name == "fadeShader") && std::string(root.name()) == "menuBackground"))
 			{
 				element.children.push_back(std::pair<std::string, ThemeElement>(name, ThemeElement()));
 				std::pair<std::string, ThemeElement>& item = element.children.back();
@@ -1937,12 +1938,12 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				std::string text = node.text().as_string();
 				if (!text.empty())
 				{
-					item.second.type = "shader";
+					item.second.type = name;
 					processElement(root, item.second, "path", text, PATH);					
 				}
 				else
 				{
-					auto elemTypeIt = sElementMap.find(name);
+					auto elemTypeIt = sElementMap.find("shader");
 					if (elemTypeIt != sElementMap.cend())
 						parseElement(node, elemTypeIt->second, item.second, view, overwrite);
 				}
@@ -2273,7 +2274,8 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 		if (elem->has("scrollbarAlignment"))
 			Background.scrollbarAlignment = elem->get<std::string>("scrollbarAlignment");
 
-		ThemeData::parseCustomShader(elem, &Background.shader);
+		ThemeData::parseCustomShader(elem, &Background.shader, "fadeShader");
+		ThemeData::parseCustomShader(elem, &Background.menuShader, "menuShader");
 	}
 
 	elem = theme->getElement("menu", "menutitle", "menuText");
@@ -2599,7 +2601,7 @@ bool ThemeData::appendFile(const std::string& path, bool perGameOverride)
 	return true;
 }
 
-bool ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader)
+bool ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader, const std::string& type)
 {
 	if (pShader == nullptr)
 		return false;
@@ -2609,7 +2611,7 @@ bool ThemeData::parseCustomShader(const ThemeData::ThemeElement* elem, Renderer:
 
 	for (auto child : elem->children)
 	{
-		if (child.second.type == "shader" && child.second.has("path"))
+		if (child.second.type == type && child.second.has("path"))
 		{
 			auto path = child.second.get<std::string>("path");
 			if (!path.empty()) //ResourceManager::getInstance()->fileExists(path))

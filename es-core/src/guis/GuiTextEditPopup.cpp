@@ -16,6 +16,7 @@ GuiTextEditPopup::GuiTextEditPopup(Window* window, const std::string& title, con
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 
 	addChild(&mBackground);
 	addChild(&mGrid);
