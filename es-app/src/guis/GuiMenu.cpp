@@ -2913,6 +2913,34 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 					themeconfig->setVariable("reloadAll", true);
 			});
 
+		// Show gun icons
+		auto defGI = Settings::getInstance()->getBool("ShowGunIconOnGames") ? _("YES") : _("NO");
+		auto curGI = Settings::getInstance()->getString(system->getName() + ".ShowGunIconOnGames");
+		auto showGun = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW GUN ICON"), false);
+		showGun->add(_("AUTO"), "", curGI == "" || curGI == "auto");
+		showGun->add(_("YES"), "1", curGI == "1");
+		showGun->add(_("NO"), "0", curGI == "0");
+		themeconfig->addWithDescription(_("SHOW GUN ICON"), _("DEFAULT VALUE") + " : " + defGI, showGun);
+		themeconfig->addSaveFunc([themeconfig, showGun, system]
+			{
+				if (Settings::getInstance()->setString(system->getName() + ".ShowGunIconOnGames", showGun->getSelected()))
+					themeconfig->setVariable("reloadAll", true);
+			});
+
+		// Show wheel icons
+		auto defWI = Settings::getInstance()->getBool("ShowWheelIconOnGames") ? _("YES") : _("NO");
+		auto curWI = Settings::getInstance()->getString(system->getName() + ".ShowWheelIconOnGames");
+		auto showWheel = std::make_shared<OptionListComponent<std::string>>(mWindow, _("SHOW WHEEL ICON"), false);
+		showWheel->add(_("AUTO"), "", curWI == "" || curWI == "auto");
+		showWheel->add(_("YES"), "1", curWI == "1");
+		showWheel->add(_("NO"), "0", curWI == "0");
+		themeconfig->addWithDescription(_("SHOW WHEEL ICON"), _("DEFAULT VALUE") + " : " + defWI, showWheel);
+		themeconfig->addSaveFunc([themeconfig, showWheel, system]
+			{
+				if (Settings::getInstance()->setString(system->getName() + ".ShowWheelIconOnGames", showWheel->getSelected()))
+					themeconfig->setVariable("reloadAll", true);
+			});
+
 		// Show filenames
 		auto defFn = Settings::getInstance()->getBool("ShowFilenames") ? _("YES") : _("NO");
 		auto curFn = Settings::getInstance()->getString(system->getName() + ".ShowFilenames");
@@ -3251,6 +3279,8 @@ void GuiMenu::openUISettings()
 	s->addSwitch(_("SHOW SAVESTATE ICON"), "ShowSaveStates", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW MANUAL ICON"), "ShowManualIcon", true, [s] { s->setVariable("reloadAll", true); });	
 	s->addSwitch(_("SHOW RETROACHIEVEMENTS ICON"), "ShowCheevosIcon", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW GUN ICON"), "ShowGunIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
+	s->addSwitch(_("SHOW WHEEL ICON"), "ShowWheelIconOnGames", true, [s] { s->setVariable("reloadAll", true); });
 	s->addSwitch(_("SHOW FILENAMES INSTEAD"), "ShowFilenames", true, [s] 
 		{
 			SystemData::resetSettings();
