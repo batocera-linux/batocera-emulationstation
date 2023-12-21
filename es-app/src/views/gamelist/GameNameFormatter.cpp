@@ -69,8 +69,8 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 	mShowManualIcon = system->getBoolSetting("ShowManualIcon");
 	mShowSaveStates = system->getBoolSetting("ShowSaveStates");
 
-	mShowGunIcon = system->getName() != "lightgun";
-	mShowWheelIcon = system->getName() != "wheel";
+	mShowGunIcon = system->getName() != "lightgun" && system->getBoolSetting("ShowGunIconOnGames");
+	mShowWheelIcon = system->getName() != "wheel" && system->getBoolSetting("ShowWheelIconOnGames");
 
 	mShowFlags = system->getShowFlags();
 

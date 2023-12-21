@@ -240,6 +240,9 @@ void Settings::setDefaults()
 
 	mBoolMap["ShowCheevosIcon"] = true;
 
+	mBoolMap["ShowWheelIconOnGames"] = true;
+	mBoolMap["ShowGunIconOnGames"] = true;
+
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
 	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";
 	mBoolMap["SlideshowScreenSaverVideoRecurse"] = false;
