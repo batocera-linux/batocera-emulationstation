@@ -938,10 +938,10 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		{
 			auto padding = (yTop / 4.0f);
 
-			MaxSizeInfo mx(yBot - (2.0f * padding), yBot - (2.0f * padding));
+			//MaxSizeInfo mx(yBot - (2.0f * padding), yBot - (2.0f * padding));
 
 			TextImageSubstitute is;
-			is.texture = TextureResource::get(it->second, true, true, true, false, true, &mx);
+			is.texture = TextureResource::get(it->second, true, true, true, false, true/*, &mx*/);
 			if (is.texture != nullptr)
 			{
 				Renderer::Rect rect(

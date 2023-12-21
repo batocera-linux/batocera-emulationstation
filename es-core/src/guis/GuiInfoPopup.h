@@ -26,8 +26,7 @@ private:
 
 	int                 mStartTime;
 	int                 mDuration;
-	bool                mRunning;
-	unsigned int        mBackColor;
+	bool                mRunning;	
 
 	float				mFadeOut;
 

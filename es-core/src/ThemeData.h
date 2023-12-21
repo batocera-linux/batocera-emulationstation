@@ -138,6 +138,7 @@ struct MenuBackground
 	std::string		scrollbarAlignment;
 
 	Renderer::ShaderInfo shader;
+	Renderer::ShaderInfo menuShader;
 };
 
 struct MenuGroupElement
@@ -370,7 +371,7 @@ public:
 	std::shared_ptr<ThemeData> clone(const std::string& viewName);
 	bool appendFile(const std::string& path, bool perGameOverride = false);
 
-	static bool parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader);
+	static bool parseCustomShader(const ThemeData::ThemeElement* elem, Renderer::ShaderInfo* pShader, const std::string& type = "shader");
 
 private:
 	static std::map< std::string, std::map<std::string, ElementPropertyType> > sElementMap;

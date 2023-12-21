@@ -26,6 +26,7 @@ GuiSaveState::GuiSaveState(Window* window, FileData* game, const std::function<v
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 
 	mTitle = std::make_shared<TextComponent>(mWindow, _("SAVESTATE MANAGER"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	mLayout.setEntry(mTitle, Vector2i(1, 1), false, true);

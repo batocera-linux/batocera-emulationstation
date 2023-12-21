@@ -26,7 +26,8 @@ BusyComponent::BusyComponent(Window* window, const std::string& text) : GuiCompo
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
-    
+	mBackground.setPostProcessShader(theme->Background.menuShader, false);
+
 	mutex = SDL_CreateMutex();
 	mAnimation = std::make_shared<AnimatedImageComponent>(mWindow);
 	mAnimation->load(&BUSY_ANIMATION_DEF);

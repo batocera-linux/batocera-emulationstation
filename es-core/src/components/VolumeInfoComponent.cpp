@@ -12,8 +12,7 @@
 #define PADDING_BAR			(Renderer::isSmallScreen() ? Renderer::getScreenWidth()*0.02 : Renderer::getScreenWidth()*0.006)
 
 #define VISIBLE_TIME		2650
-#define FADE_TIME			350
-#define BASEOPACITY			200
+#define FADE_TIME			250
 #define CHECKVOLUMEDELAY	40
 
 VolumeInfoComponent::VolumeInfoComponent(Window* window, bool actionLine)
@@ -42,9 +41,9 @@ VolumeInfoComponent::VolumeInfoComponent(Window* window, bool actionLine)
 	mFrame->setEdgeColor(theme->Background.color);
 	mFrame->setCenterColor(theme->Background.centerColor);
 	mFrame->setCornerSize(theme->Background.cornerSize);
+	mFrame->setPostProcessShader(theme->Background.menuShader, false);
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
-
 
 	mLabel = new TextComponent(mWindow, "", font, theme->Text.color, ALIGN_CENTER);
 	
@@ -53,13 +52,11 @@ VolumeInfoComponent::VolumeInfoComponent(Window* window, bool actionLine)
 	mLabel->setSize(fullSize.x(), h);
 	addChild(mLabel);
 
-
 	// FCA TopLeft
 	float posX = Renderer::getScreenWidth() * 0.02f;
 	float posY = Renderer::getScreenHeight() * 0.04f;
 
 	setPosition(posX, posY, 0);
-	setOpacity(BASEOPACITY);
 }
 
 VolumeInfoComponent::~VolumeInfoComponent()
@@ -123,8 +120,11 @@ void VolumeInfoComponent::render(const Transform4x4f& parentTrans)
 	if (!mVisible || mDisplayTime < 0)
 		return;
 
-	int opacity = BASEOPACITY - Math::max(0, (mDisplayTime - VISIBLE_TIME) * BASEOPACITY / FADE_TIME);
+	auto theme = ThemeData::getMenuTheme();
+
+	int opacity = 255 - Math::max(0, (mDisplayTime - VISIBLE_TIME) * 255 / FADE_TIME);
 	setOpacity(opacity);
+	setScale(opacity / 255.0f);
 
 	GuiComponent::render(parentTrans);
 
@@ -136,8 +136,6 @@ void VolumeInfoComponent::render(const Transform4x4f& parentTrans)
 	float w = getSize().x() - 2 * PADDING_PX - 2 * PADDING_BAR;
 	float h = getSize().y() - mLabel->getSize().y() - PADDING_PX - PADDING_PX;
 	
-	auto theme = ThemeData::getMenuTheme();
-
 	Renderer::drawRect(x, y, w, h, (theme->Text.color & 0xFFFFFF00) | (opacity / 2));
 
 	float px = (h*mVolume) / 100;

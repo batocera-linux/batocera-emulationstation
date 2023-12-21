@@ -24,7 +24,37 @@ void PostProcessShaderComponent::render(const Transform4x4f& parentTrans)
 		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), 0xFF00FF50, 0xFF00FF50);
 	}
 
-	Renderer::postProcessShader(mShaderPath, rect.x, rect.y, rect.w, rect.h, mParameters);
+	if (!getClipRect().empty() && !GuiComponent::isLaunchTransitionRunning)
+	{		
+		unsigned int textureId = (unsigned int)-1;
+		Renderer::postProcessShader(mShaderPath, rect.x, rect.y, rect.w, rect.h, mParameters, &textureId);
+		if (textureId != (unsigned int)-1)
+		{			
+			Renderer::Vertex vertices[4];
+			vertices[0] = { { (float)rect.x         , (float)rect.y            }, { 0.0f,  1.0f }, 0xFFFFFFFF };
+			vertices[1] = { { (float)rect.x         , (float)rect.y + rect.h   }, { 0.0f,  0.0f }, 0xFFFFFFFF };
+			vertices[2] = { { (float)rect.x + rect.w, (float)rect.y            }, { 1.0f, 1.0f  }, 0xFFFFFFFF };
+			vertices[3] = { { (float)rect.x + rect.w, (float)rect.y + rect.h   }, { 1.0f, 0.0f  }, 0xFFFFFFFF };
+
+			Renderer::setMatrix(Transform4x4f::Identity());
+			Renderer::bindTexture(textureId);
+
+			beginCustomClipRect();
+			Renderer::drawTriangleStrips(&vertices[0], 4);
+			GuiComponent::renderChildren(trans);
+			endCustomClipRect();
+
+			Renderer::destroyTexture(textureId);
+		}
+		else
+		{
+			beginCustomClipRect();
+			GuiComponent::renderChildren(trans);
+			endCustomClipRect();
+		}
+	}
+	else 
+		Renderer::postProcessShader(mShaderPath, rect.x, rect.y, rect.w, rect.h, mParameters);
 }
 
 void PostProcessShaderComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
