@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-09-26 15:01+0800\n"
+"PO-Revision-Date: 2023-12-21 00:38+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二\n"
 "Language: zh_CN\n"
@@ -495,10 +495,10 @@ msgid "New Collection Name"
 msgstr "新合辑名称"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "输入名称"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "根据主题创建"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "新建可编辑专辑"
@@ -540,10 +540,10 @@ msgid "START ON GAMELIST"
 msgstr "启动到游戏列表"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "对自定义集合进行分组"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "暂停"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合辑中显示系统名称"
@@ -589,11 +589,11 @@ msgstr "请稍后"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d 个中的 %d 软核积分"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d 个中的 %d 硬核积分"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1384,10 +1384,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "这个游戏还没有取得任何成就"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "成就(软核)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "成就(硬核)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1451,13 +1451,13 @@ msgid "MARQUEE"
 msgstr "蒙版"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "首选区域"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "覆盖描述"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "覆盖媒体"
 
 msgid "SCRAPE FOR"
 msgstr "抓取数据"
@@ -1490,7 +1490,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "按键设置"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "帐户"
 
 msgid "SCRAPER"
 msgstr "抓取元数据"
@@ -1801,22 +1801,22 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "清除游戏列表并删除未使用的媒体(视频,图片)"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "删除未使用的条目, 并清除对丢失媒体的引用."
 
 msgid "Cleaning"
 msgstr "清理中"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "重置游戏列表使用数据"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "重置GameTime、PlayCount和LastPlayed元数据的值."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "重置文件扩展"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "将自定义的文件扩展名筛选器重置为默认值."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "重新查询游戏的 语言/区域"
@@ -2194,10 +2194,10 @@ msgid "Current setting"
 msgstr "当前设置"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "账户"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "BIOS设置"
 
 msgid "SAVESTATES"
 msgstr "存档槽"
@@ -2405,7 +2405,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "显示自定义图标"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "显示追溯成就图标"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在列表中显示文件名"
@@ -2456,7 +2456,7 @@ msgid "ICON AND TEXT"
 msgstr "图标和文字"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "首先显示文件夹"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "排序时忽略前导"
@@ -2794,7 +2794,7 @@ msgstr "加入收藏夹"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "返回到 %s"
 
 msgid "No Entries Found"
 msgstr "找不到条目"
@@ -3004,10 +3004,10 @@ msgid "STEERING WHEEL"
 msgstr "方向盘"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "拥有媒体"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "缺少媒体"
 
 msgid "SCRAPING"
 msgstr "抓取"
@@ -3203,10 +3203,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住控制器上的任意按键以继续配置。"
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "按ESC取消."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "按ESC或热键取消."
 
 msgid "DISCARD CHANGES"
 msgstr "放弃更改"
@@ -3268,7 +3268,7 @@ msgstr "%d 秒"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
+msgstr[0] "%d 年前"
 
 #, c-format
 msgid "%d day ago"

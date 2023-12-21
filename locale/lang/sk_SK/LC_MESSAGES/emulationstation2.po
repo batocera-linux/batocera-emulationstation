@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2023-12-18 13:23+0100\n"
+"PO-Revision-Date: 2023-12-20 13:12+0100\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -595,11 +595,11 @@ msgstr "Prosím čakajte"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d z %d softcore bodov"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d z %d hardcore bodov"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1391,10 +1391,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "Táto hra ešte nemá žiadne úspechy"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Úspechy (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Úspechy (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -3311,9 +3311,9 @@ msgstr "%d sek"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "pred %d rokom"
+msgstr[1] "pred %d rokmi"
+msgstr[2] "pred %d rokmi"
 
 #, c-format
 msgid "%d day ago"

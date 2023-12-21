@@ -597,11 +597,11 @@ msgstr "POR FAVOR, AGUARDE"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d de %d pontos softcore"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d de %d pontos hardcore"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1395,10 +1395,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JOGO AINDA NÃO TEM CONQUISTAS"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Conquistas (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Conquistas (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -2837,7 +2837,7 @@ msgstr "FAVORITO"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Voltar para %s"
 
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
@@ -3313,8 +3313,8 @@ msgstr "%d sec"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ano atrás"
+msgstr[1] "%d anos atrás"
 
 #, c-format
 msgid "%d day ago"
