@@ -1159,6 +1159,11 @@ const MaxSizeInfo ImageComponent::getMaxSizeInfo()
 		if (mTargetSize.empty())
 		{
 			auto size = mSize - mPadding.xy() - mPadding.zw();
+
+			// Make sure it's not bigger that screen res
+			if (size.x() > Renderer::getScreenWidth() || size.y() > Renderer::getScreenHeight())
+				size = ImageIO::adjustPictureSizeF(size, Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()), mTargetIsMin);
+
 			if (size.x() > 32 && size.y() > 32)
 				return MaxSizeInfo(size, mTargetIsMin);
 
@@ -1166,6 +1171,11 @@ const MaxSizeInfo ImageComponent::getMaxSizeInfo()
 		}
 
 		auto targetSize = mTargetSize - mPadding.xy() - mPadding.zw();
+
+		// Make sure it's not bigger that screen res
+		if (targetSize.x() > Renderer::getScreenWidth() || targetSize.y() > Renderer::getScreenHeight())
+			targetSize = ImageIO::adjustPictureSizeF(targetSize, Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight()), mTargetIsMin);
+
 		if (targetSize.x() > 32 && targetSize.y() > 32)
 			return MaxSizeInfo(targetSize, mTargetIsMin);
 	}
