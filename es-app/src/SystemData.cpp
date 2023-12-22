@@ -47,6 +47,8 @@ static std::map<std::string, std::function<BindableProperty(SystemData*)>> prope
 	{ "showCheevos",        [] (SystemData* sys) { return sys->getShowCheevosIcon() && sys->getBoolSetting("ShowCheevosIcon"); } },
 	{ "showFlags",          [] (SystemData* sys) { return sys->getShowFlags(); } },
 	{ "showFavorites",      [] (SystemData* sys) { return sys->getShowFavoritesIcon(); } },
+	{ "showGun",            [] (SystemData* sys) { return sys->getBoolSetting("ShowGunIconOnGames"); } },
+	{ "showWheel",          [] (SystemData* sys) { return sys->getBoolSetting("ShowWheelIconOnGames"); } },
 	{ "showParentFolder",   [] (SystemData* sys) { return sys->getShowParentFolder(); } },
 	{ "hasKeyboardMapping", [] (SystemData* sys) { return sys->hasKeyboardMapping(); } },
 	{ "isCheevosSupported", [] (SystemData* sys) { return sys->isCheevosSupported(); } },
