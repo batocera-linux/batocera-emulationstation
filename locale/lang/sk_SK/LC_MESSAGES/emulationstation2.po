@@ -2433,6 +2433,12 @@ msgstr "Zobraziť ručnú ikonu"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "Zobraziť ikonu retroachievements"
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "Zobraziť názvy súborov"
 

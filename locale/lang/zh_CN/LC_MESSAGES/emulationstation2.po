@@ -2407,6 +2407,12 @@ msgstr "显示自定义图标"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "显示追溯成就图标"
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在列表中显示文件名"
 

@@ -2417,6 +2417,12 @@ msgstr "VIS MANUAL IKON"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr ""
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VIS FILNAVN ISTEDET"
 

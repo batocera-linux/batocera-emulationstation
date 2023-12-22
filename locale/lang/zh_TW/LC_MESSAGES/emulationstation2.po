@@ -2408,6 +2408,12 @@ msgstr "在清單中顯示手冊圖示"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr ""
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在清單中顯示檔案名稱"
 

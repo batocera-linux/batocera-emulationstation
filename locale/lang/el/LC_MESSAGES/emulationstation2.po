@@ -2394,6 +2394,12 @@ msgstr "ΕΜΦΑΝΙΣΗ ΕΙΚΟΝΙΔΙΟΥ ΕΓΧΕΙΡΙΔΙΟΥ ΣΤΙΣ Λ
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr ""
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ΕΜΦΑΝΙΣΗ ΟΝΟΜΑΤΩΝ ΑΡΧΕΙΩΝ ΣΤΙΣ ΛΙΣΤΕΣ"
 

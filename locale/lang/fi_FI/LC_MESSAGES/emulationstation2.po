@@ -2424,6 +2424,12 @@ msgstr "NÄYTÄ OHJEKIRJAN KUVAKE"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr ""
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "NÄYTÄ TIEDOSTONIMET MIELUUMMIN"
 

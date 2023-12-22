@@ -2441,6 +2441,12 @@ msgstr "LİSTEDE KLAVUZ SİMGELERİNİ GÖSTER"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "RETROARŞİV SİMGESİNİ GÖSTER"
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "LİSTEDE DOSYA İSİMLERİNİ GÖSTER"
 

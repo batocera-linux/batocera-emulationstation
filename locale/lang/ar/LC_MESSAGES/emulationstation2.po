@@ -2456,6 +2456,12 @@ msgstr "إظهار أيقونة دليل الاستخدام"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr ""
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "عرض اسم الملف في القائمة"
 

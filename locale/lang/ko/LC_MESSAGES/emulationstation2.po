@@ -2412,6 +2412,12 @@ msgstr "목록에 매뉴얼 아이콘 표시"
 msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr ""
 
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "목록에 파일이름 표시"
 
