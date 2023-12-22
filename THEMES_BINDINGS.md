@@ -49,6 +49,8 @@ showCheevos                 bool
 showFlags                   bool
 showFavorites               bool
 showParentFolder            bool
+showGun                     bool
+showWheel                   bool
 hasKeyboardMapping          bool
 isCheevosSupported          bool
 isNetplaySupported          bool
