@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v39b(2023/12/08)\n"
+"Project-Id-Version: batocera-es v39b(2023/12/22)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-08 23:30+0900\n"
+"PO-Revision-Date: 2023-12-22 17:21+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.4.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "更新可能"
@@ -468,7 +468,7 @@ msgid "FIND GAMES"
 msgstr "ゲームを検索"
 
 msgid "Unknown"
-msgstr " "
+msgstr "---"
 
 msgid "YES"
 msgstr "はい"
@@ -591,12 +591,14 @@ msgid "PLEASE WAIT"
 msgstr "お待ちください"
 
 #, c-format
+#| msgid "Softcore points"
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d / %d ソフトコア ポイント"
 
 #, c-format
+#| msgid "Softcore points"
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d / %d ハードコア ポイント"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1393,11 +1395,12 @@ msgstr "ロック解除"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "このゲームにはまだアチーブメントがありません"
 
+#| msgid "Achievements won"
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Achievements (ソフトコア)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Achievements (ハードコア)"
 
 #, c-format
 msgid "%d%% complete"
@@ -2823,7 +2826,7 @@ msgstr "お気に入り"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "%s に戻る"
 
 msgid "No Entries Found"
 msgstr "該当データがありません"
@@ -3298,7 +3301,7 @@ msgstr "%d 秒"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
+msgstr[0] "%d 年前"
 
 #, c-format
 msgid "%d day ago"
@@ -3325,9 +3328,6 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
-
-#~ msgid "Achievements won"
-#~ msgstr "アチーブメント達成"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "テーマファイルからコレクションを作成"
