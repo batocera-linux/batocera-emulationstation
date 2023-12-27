@@ -40,7 +40,7 @@ void PostProcessShaderComponent::render(const Transform4x4f& parentTrans)
 			Renderer::bindTexture(textureId);
 
 			beginCustomClipRect();
-			Renderer::drawTriangleStrips(&vertices[0], 4);
+			Renderer::drawTriangleStrips(&vertices[0], 4, Renderer::Blend::ONE, Renderer::Blend::ONE);
 			GuiComponent::renderChildren(trans);
 			endCustomClipRect();
 

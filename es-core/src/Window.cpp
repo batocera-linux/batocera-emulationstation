@@ -630,7 +630,7 @@ void Window::renderMenuBackgroundShader()
 			vertices[2] = { { (float)0 + w, (float)0       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
 			vertices[3] = { { (float)0 + w, (float)0 + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
 
-			Renderer::drawTriangleStrips(&vertices[0], 4);
+			Renderer::drawTriangleStrips(&vertices[0], 4, Renderer::Blend::ONE, Renderer::Blend::ONE);
 			Renderer::bindTexture(0);
 		}
 	}
@@ -661,7 +661,10 @@ void Window::render()
 
 		auto menuBackground = ThemeData::getMenuTheme()->Background;
 
-		bottom->render(transform);
+		// Don't render bottom if we have a MenuBackgroundShaderTextureCache
+		if (mMenuBackgroundShaderTextureCache == -1)
+			bottom->render(transform);
+
 		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
