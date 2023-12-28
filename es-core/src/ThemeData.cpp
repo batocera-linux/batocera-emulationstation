@@ -150,6 +150,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "saturation", FLOAT },
 		{ "flipX", BOOLEAN },
 		{ "flipY", BOOLEAN },
+		{ "autoFade", BOOLEAN },               // fades when the image is loaded
 		{ "onclick", STRING },
 		{ "linearSmooth", BOOLEAN },
 		{ "zIndex", FLOAT } } },

@@ -479,6 +479,8 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 					officialGames[gameId] = std::to_string(it->value.GetInt());
 			}
 		}
+		else if (officialGamesList.status() != HttpReq::REQ_SUCCESS)
+			throw std::domain_error("Error while accessing retroachievements official games list :\n" + officialGamesList.getErrorMsg());
 
 		// Hash library
 		if (hashLibrary.wait())
@@ -507,6 +509,12 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 				ret[name] = std::to_string(gameId);
 			}
 		}
+		else if (hashLibrary.status() != HttpReq::REQ_SUCCESS)
+			throw std::domain_error("Error while accessing retroachievements hashlibrary :\n" + hashLibrary.getErrorMsg());
+	}
+	catch (const std::exception& e)
+	{
+		throw e;
 	}
 	catch (...)
 	{

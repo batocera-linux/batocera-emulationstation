@@ -873,6 +873,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	if (properties & ThemeFlags::ROTATION && elem->has("flipY"))
 		setFlipY(elem->get<bool>("flipY"));
 
+	if (elem->has("autoFade"))
+		setAllowFading(elem->get<bool>("autoFade"));
+
 	if (properties & ALIGNMENT && elem->has("horizontalAlignment"))
 	{
 		std::string str = elem->get<std::string>("horizontalAlignment");
@@ -1031,6 +1034,8 @@ ThemeData::ThemeElement::Property ImageComponent::getProperty(const std::string 
 		return mDefaultPath;
 	else if (name == "saturation")
 		return mSaturation;
+	else if (name == "autoFade")
+		return mAllowFading;
 	else if (Utils::String::startsWith(name, "shader."))
 	{
 		auto prop = name.substr(7);
@@ -1077,6 +1082,8 @@ void ImageComponent::setProperty(const std::string name, const ThemeData::ThemeE
 			updateColors();
 		}
 	}
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Bool && name == "autoFade")
+		setAllowFading(value.b);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "colorEnd")
 		setColorShiftEnd(value.i);
 	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Pair && name == "reflexion")
