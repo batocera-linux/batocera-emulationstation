@@ -14,6 +14,7 @@
 #include <libcheevos/cheevos.h>
 
 #include "LocaleES.h"
+#include "EmulationStation.h"
 
 using namespace PlatformIds;
 
@@ -125,7 +126,18 @@ const std::set<unsigned short> consolesWithmd5hashes
 };
 
 // Use empty UserAgent with doRequest.php calls
-#define DOREQUEST_USERAGENT ""
+static HttpReqOptions getHttpOptions()
+{
+	HttpReqOptions options;
+
+#ifdef CHEEVOS_DEV_LOGIN
+	std::string ret = Utils::String::extractString(CHEEVOS_DEV_LOGIN, "z=", "&");
+	ret =  ret + "/" + Utils::String::replace(RESOURCE_VERSION_STRING, ",", ".");		 
+	options.userAgent = ret;
+#endif	
+
+	return options;
+}
 
 std::string RetroAchievements::getApiUrl(const std::string method, const std::string parameters)
 {
@@ -210,7 +222,8 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 	return ret;
 #endif
 
-	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)));
+	auto options = getHttpOptions();
+	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)), &options);
 	if (httpreq.wait())
 	{
 		rapidjson::Document doc;
@@ -285,7 +298,8 @@ UserSummary RetroAchievements::getUserSummary(const std::string userName, int ga
 
 	std::string count = std::to_string(gameCount);
 
-	HttpReq httpreq(getApiUrl("API_GetUserSummary", "u="+ HttpReq::urlEncode(usrName) +"&g="+ count +"&a="+ count));
+	auto options = getHttpOptions();
+	HttpReq httpreq(getApiUrl("API_GetUserSummary", "u="+ HttpReq::urlEncode(usrName) +"&g="+ count +"&a="+ count), &options);
 	if (httpreq.wait())
 	{
 		rapidjson::Document doc;
@@ -457,8 +471,7 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 	{
 		std::map<int, std::string> officialGames;
 
-		HttpReqOptions options;
-		options.userAgent = DOREQUEST_USERAGENT;
+		auto options = getHttpOptions();
 
 		HttpReq hashLibrary("https://retroachievements.org/dorequest.php?r=hashlibrary", &options);
 		HttpReq officialGamesList("https://retroachievements.org/dorequest.php?r=officialgameslist", &options);
@@ -618,8 +631,7 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 
 	try
 	{
-		HttpReqOptions options;
-		options.userAgent = DOREQUEST_USERAGENT;
+		auto options = getHttpOptions();
 
 		HttpReq request("https://retroachievements.org/dorequest.php?r=login&u=" + HttpReq::urlEncode(username) + "&p=" + HttpReq::urlEncode(password), &options);
 		if (!request.wait())
