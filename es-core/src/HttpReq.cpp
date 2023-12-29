@@ -152,15 +152,6 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 
 		curl_easy_setopt(mHandle, CURLOPT_HTTPHEADER, hs);
 	}
-	/*
-	struct curl_slist *hs = NULL;
-	hs = curl_slist_append(hs, "Content-Type: application/json");
-	curl_easy_setopt(mHandle, CURLOPT_HTTPHEADER, hs);
-
-	curl_easy_setopt(mHandle, CURLOPT_POST, 1L);
-	curl_easy_setopt(mHandle, CURLOPT_POSTFIELDS, "postvar1=value1&postvar2=value2&postvar3=value3");
-	curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-	*/
 
 	//set curl to handle redirects
 	err = curl_easy_setopt(mHandle, CURLOPT_FOLLOWLOCATION, 1L);
@@ -219,13 +210,17 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 		return;
 	}
 
-	// Set fake user agent
-	err = curl_easy_setopt(mHandle, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT x.y; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0");
-	if (err != CURLE_OK)
+	// Set user agent
+	std::string userAgent = options ? options->userAgent : HTTP_REQ_USERAGENT;
+	if (!userAgent.empty())
 	{
-		mStatus = REQ_IO_ERROR;
-		onError(curl_easy_strerror(err));
-		return;
+		err = curl_easy_setopt(mHandle, CURLOPT_USERAGENT, userAgent.c_str());
+		if (err != CURLE_OK)
+		{
+			mStatus = REQ_IO_ERROR;
+			onError(curl_easy_strerror(err));
+			return;
+		}
 	}
 
 	curl_easy_setopt(mHandle, CURLOPT_HEADERFUNCTION, &HttpReq::header_callback);
