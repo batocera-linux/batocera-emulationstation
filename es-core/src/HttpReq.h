@@ -27,18 +27,26 @@
  * //process contents...
 */
 
+#define HTTP_REQ_USERAGENT "Mozilla/5.0 (Windows NT x.y; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0"
+
 class HttpReqOptions
 {
 public:
-	HttpReqOptions() {}
-	HttpReqOptions(const std::string& filename) 
+	HttpReqOptions() 
+	{
+		userAgent = HTTP_REQ_USERAGENT;
+	}
+
+	HttpReqOptions(const std::string& filename)
 	{
 		outputFilename = filename;
+		userAgent = HTTP_REQ_USERAGENT;
 	}
 
 	std::string outputFilename;
 	std::vector<std::string> customHeaders;
 	std::string dataToPost;
+	std::string userAgent;
 };
 
 class HttpReq
