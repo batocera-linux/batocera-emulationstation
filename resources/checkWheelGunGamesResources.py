@@ -28,7 +28,7 @@ def checkSystemGames(system, games):
                 hasError = True
     return hasError
 
-for file in ["gungames.xml", "wheelgames.xml"]:
+for file in ["resources/gungames.xml", "resources/wheelgames.xml"]:
     systems = xml2systemsArrays(file)
     hasError = False
     for system in systems:
