@@ -1935,7 +1935,14 @@ BindableProperty FileData::getProperty(const std::string& name)
 
 	if (name == "releaseyear" || name == "releaseYear")
 	{
-		Utils::Time::DateTime date = getMetadata(MetaDataId::ReleaseDate);
+		std::string releaseDateMeta = getMetadata(MetaDataId::ReleaseDate);
+		if (releaseDateMeta.empty())
+			return releaseDateMeta;
+
+		Utils::Time::DateTime date = releaseDateMeta;
+		if (!date.isValid())
+			return std::string();
+
 		return Utils::Time::timeToString(date.getTime(), "%Y");
 	}
 
