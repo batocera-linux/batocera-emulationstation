@@ -158,6 +158,11 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 
 DetailedContainer::~DetailedContainer()
 {
+	for (auto extra : mThemeExtras)
+		delete extra;
+
+	mThemeExtras.clear();
+
 	if (mFolderView != nullptr)
 		delete mFolderView;
 
@@ -489,7 +494,10 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	// Add new theme extras
 	for (auto extra : mThemeExtras)
+	{
 		removeChild(extra);
+		delete extra;
+	}
 
 	mThemeExtras.clear();
 	mThemeExtras = ThemeData::makeExtras(theme, viewName, mWindow, false, (ThemeData::ExtraImportType) (ThemeData::ExtraImportType::WITH_ACTIVATESTORYBOARD | ThemeData::ExtraImportType::PERGAMEEXTRAS));
