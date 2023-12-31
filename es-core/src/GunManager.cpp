@@ -654,6 +654,8 @@ void GunManager::updateGuns(Window* window)
 		}
 		else if (!hasPhysicalGuns && mMessageHookRegistered)
 			enableRawInputCapture(false);
+
+		delete[] deviceList;
 	}
 #endif
 
