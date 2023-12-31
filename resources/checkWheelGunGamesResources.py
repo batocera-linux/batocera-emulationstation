@@ -28,9 +28,10 @@ def checkSystemGames(system, games):
                 hasError = True
     return hasError
 
+hasError = False
+
 for file in ["gungames.xml", "wheelgames.xml"]:
     systems = xml2systemsArrays(file)
-    hasError = False
     for system in systems:
         if checkSystemGames(system, systems[system]) == False:
             hasError = True
