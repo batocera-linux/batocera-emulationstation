@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <systems>
   <system name="3do">
-    <game>needforspeed</game>
+    <game wheel_rotation="270">needforspeed</game>
   </system>
   <system name="atari2600">
     <game>indy500</game>
     <game>nightdriver</game>
+    <game>streetracer</game>
     <game>race</game>
     <game>racingpak</game>
     <game>speedwayii</game>
-    <game>streetracer</game>
   </system>
   <system name="atari5200">
     <game>poleposition</game>
@@ -24,19 +24,19 @@
     <game>turbo</game>
     <game>zippyrace</game>
   </system>
-  <system name="dreamcast" wheel="joystick1left" accelerate="rt" brake="lt">
+  <system name="dreamcast" wheel_rotation="270" wheel="joystick1left" accelerate="rt" brake="lt">
     <game>18wheeler</game>
     <game>4x4evolution</game>
     <game>alienfrontonline</game>
-    <game>crazytaxi</game>
+    <game>buggyheat</game>
     <game>crazytaxi2</game>
+    <game>crazytaxi</game>
     <game>daytonusa</game>
     <game>demolitionracer</game>
-    <game>crazytaxi</game>
     <game>exhibitionofspeed</game>
     <game>f1racingchampionship</game>
-    <game>f1worldgrandprix</game>
     <game>f1worldgrandprixii</game>
+    <game>f1worldgrandprix</game>
     <game>f355challenge</game>
     <game>flagtoflag</game>
     <game>lemans24hours</game>
@@ -44,16 +44,18 @@
     <game>magforceracing</game>
     <game>metropolisstreetracer</game>
     <game>monacograndprix</game>
-    <game>pod2</game>
+    <game>podspeedzone</game>
     <game>racingsimulation2</game>
     <game>roadsters</game>
     <game>segagt</game>
     <game>segarally2</game>
-    <game>speeddevils</game>
     <game>speeddevilsonlineracing</game>
+    <game>speeddevils</game>
     <game>spiritofspeed1937</game>
     <game>superrunabout</game>
     <game>taxi2</game>
+    <game>testdrivelemans</game>
+    <game>testdrivevrally</game>
     <game>testdrive6</game>
     <game>tokyoxtremeracer</game>
     <game>toyracer</game>
@@ -63,11 +65,10 @@
     <game>waltdisneyworldquest</game>
     <game>yusuzukigameworks</game>
   </system>
-  <system name="gamecube" wheel="joystick1left" accelerate="a" brake="b">
+  <system name="gamecube" wheel_rotation="200" wheel="joystick1left" accelerate="a" brake="b">
     <game>18wheeler</game>
     <game>4x4evo2</game>
     <game>americanchopper2</game>
-    <game accelerate="rt" brake="lt">needforspeedunderground2</game>
     <game>atvquadpowerracing2</game>
     <game>automodellista</game>
     <game>bigmuthatruckers</game>
@@ -93,6 +94,7 @@
     <game>lotuschallenge</game>
     <game>mariokartdoubledash</game>
     <game>nascar</game>
+    <game accelerate="rt" brake="lt">needforspeedunderground2</game>
     <game>needforspeed</game>
     <game>pacmanworldrally</game>
     <game>prorally</game>
@@ -114,8 +116,8 @@
   </system>
   <system name="mastersystem">
     <game>bmxtrial</game>
-    <game>outrun</game>
     <game>outrun3d</game>
+    <game>outrun</game>
     <game>superracing</game>
   </system>
   <system name="megadrive">
@@ -125,7 +127,7 @@
   <system name="msx">
     <game>a1spirit</game>
   </system>
-  <system name="n64" wheel="joystick1left" accelerate="a" brake="b">
+  <system name="n64" wheel="joystick1left" wheel_rotation="150" accelerate="a" brake="b">
     <game>aerogauge</game>
     <game>automobililamborghini</game>
     <game>bettleadventureracing</game>
@@ -169,38 +171,39 @@
     <game>worlddriverchampionship</game>
   </system>
   <system name="ps2">
-    <game wheel_type="DrivingForce">18wheeler</game>
-    <game>4x4evo</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">18wheeler</game>
     <game wheel_type="DrivingForce">4x4evo2</game>
+    <game>4x4evo</game>
     <game>alarmforcobra11</game>
     <game>alfaromeoracing</game>
-    <game wheel_type="GTForce">automodellista</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270" wheel_midzone="5">automodellista</game>
     <game>bombermankart</game>
-    <game>burnout</game>
-    <game wheel_type="DrivingForce">burnout2</game>
-    <game wheel_type="DrivingForcePro">burnout3</game>
-    <game>burnoutdominator</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">burnoutdominator</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">burnoutrevenge</game>
+    <game wheel_type="GTForce" wheel_rotation="200">burnout2</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">burnout3</game>
+    <game wheel_type="GTForce" wheel_rotation="200">burnout</game>
     <game>choroq</game>
     <game wheel_type="DrivingForce">cityracer</game>
-    <game>colinmcraerally</game>
-    <game>colinmcraerally2</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270">colinmcraerally2005</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270">colinmcraerally04</game>
     <game wheel_type="DrivingForce">colinmcraerally3</game>
-    <game wheel_type="DrivingForce">colinmcraerally04</game>
-    <game wheel_type="DrivingForcePro">colinmcraerally2005</game>
-    <game wheel_type="DrivingForce">corvette</game>
+    <game>colinmcraerally2</game>
+    <game>colinmcraerally</game>
     <game wheel_type="DrivingForcePro">corvetteevolutionGT</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">corvette</game>
     <game>crashed</game>
     <game>crashnitrokart</game>
     <game>crazytaxi</game>
     <game wheel_type="DrivingForcePro">criticalvelocity</game>
-    <game wheel_type="DrivingForce">dakar2</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">dakar2</game>
     <game>destructionderby</game>
     <game>dirttrackdevils</game>
     <game>disneypixarcars</game>
     <game>downforce</game>
-    <game wheel_type="DrivingForce">downtownrun</game>
-    <game wheel_type="DrivingForcePro">dromeracers</game>
-    <game>driven</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200" wheel_deadzone="15">downtownrun</game>
+    <game>dromeracers</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">driven</game>
     <game>dtcarnage</game>
     <game>dtracer</game>
     <game wheel_type="DrivingForce">eighteenwheeler</game>
@@ -208,120 +211,132 @@
     <game wheel_type="DrivingForcePro">evolutiongt</game>
     <game wheel_type="DrivingForcePro">f106</game>
     <game>f12001</game>
-    <game wheel_type="DrivingForcePro">f12002</game>
-    <game wheel_type="DrivingForcePro">f1careerchallenge</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">f12002</game>
+    <game wheel_type="DrivingForce" controller="1">f1careerchallenge</game>
     <game>f1championship</game>
     <game>f1racingchampionship</game>
     <game wheel_type="DrivingForce">f355challenge</game>
-    <game wheel_type="DrivingForce">ferrarichallenge</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270" wheel_deadzone="15">ferrarichallenge</game>
+    <game wheel_type="DrivingForcePro" controller="1">flatout2</game>
     <game wheel_type="DrivingForcePro">flatout</game>
-    <game wheel_type="DrivingForcePro">flatout2</game>
-    <game wheel_type="DrivingForcePro">fordboldmovesstreetracing</game>
-    <game wheel_type="DrivingForcePro">>fordmustang</game>
+    <game wheel_type="DrivingForcePro" wheel_rotation="270">fordboldmovesstreetracing</game>
+    <game>fordmustang</game>
     <game wheel_type="DrivingForce">fordracing2</game>
-    <game wheel_type="DrivingForcePro">fordracing3</game>
-    <game wheel_type="DrivingForcePro">fordvschevy</game>
+    <game wheel_type="DrivingForcePro" controller="1">fordracing3</game>
+    <game wheel_type="DrivingForcePro" wheel_rotation="360">fordvschevy</game>
     <game>formulachallenge</game>
-    <game wheel_type="DrivingForce">formulaone2001</game>
-    <game wheel_type="DrivingForce">formulaone2002</game>
-    <game wheel_type="DrivingForce">formulaone2003</game>
-    <game wheel_type="DrivingForce">formulaone2004</game>
-    <game wheel_type="DrivingForcePro">formulaone2005</game>
-    <game wheel_type="DrivingForce">granturismo3</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">formulaone2001</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">formulaone2002</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">formulaone2003</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">formulaone04</game>
+    <game wheel_type="DrivingForcePro">formulaone05</game>
+    <game wheel_type="DrivingForcePro">formulaone06</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270">granturismo3</game>
     <game wheel_type="DrivingForcePro">granturismo4</game>
     <game>grandprixchallenge</game>
     <game>gtcafrica</game>
-    <game wheel_type="DrivingForcePro">hummerbandlands</game>
+    <game wheel_type="DrivingForcePro">hummerbadlands</game>
     <game>ihradragracing</game>
     <game>ihraprofessionaldragracing</game>	
     <game>italianjob</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">indycarseries2005</game>
     <game>indycarseries</game>
-    <game wheel_type="DrivingForce">indycarseries2005</game>
-    <game wheel_type="GTForce">initiald</game>
-    <game wheel_type="GTForce">juiced</game>
-    <game wheel_type="DrivingForce">juiced2</game>
-    <game wheel_type="DrivingForce">kaidoracer</game>
+    <game wheel_type="DrivingForce" wheel_rotation="360">initiald</game>
+    <game wheel_type="DrivingForcePro">juiced2</game>
+    <game wheel_type="DrivingForcePro">juiced</game>
     <game wheel_type="DrivingForcePro">kaidoracer2</game>
-    <game wheel_type="DrivingForcePro">kaidoutougenodensetsu</game>
-    <game wheel_type="GTForce">kaidoubattle</game>
-    <game wheel_type="DrivingForce">kartracer</game>
-    <game wheel_type="DrivingForce">kingofroute66</game>
-    <game wheel_type="DrivingForce">knightrider</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270">kaidoracer</game>
+    <game wheel_type="DrivingForce">kaidoutougenodensetsu</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">kaidoubattle</game>
+    <game>kartracer</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">kingofroute66</game>
+    <game>knightrider2</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">knightrider</game>
     <game>lemans24hours</game>
     <game>legoracers2</game>
     <game>londonracer</game>
     <game>looneytunesspacerace</game>
-    <game wheel_type="GTForce">lotuschallenge</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">lotuschallenge</game>
     <game>masterrallye</game>
     <game>megarace3</game>
-    <game>midnightclub</game>
     <game wheel_type="DrivingForce">midnightclubii</game>
     <game wheel_type="DrivingForcePro">midnightclub3</game>
+    <game>midnightclub</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nascar06totalcontrol</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nascarheat2002</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nascarheat2003</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nascarheat2004</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nascar07</game>
+    <game wheel_type="DrivingForcePro" wheel_rotation="360">nascar08</game>
+    <game wheel_type="DrivingForcePro" wheel_rotation="360">nascar09</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nascar2005</game>
     <game wheel_type="DrivingForce">nascar</game>
-    <game wheel_type="DrivingForcePro">needforspeedcarbon</game>
-    <game wheel_type="DrivingForce">needforspeedhotpursuit</game>
+    <game wheel_type="DrivingForcePro" wheel_rotation="360">needforspeedcarbon</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">needforspeedhotpursuit2</game>
     <game wheel_type="DrivingForcePro">needforspeedmostwanted</game>
-    <game wheel_type="DrivingForcePro">needforspeedprostreet</game>
+    <game wheel_type="DrivingForcePro" wheel_rotation="360">needforspeedprostreet</game>
     <game wheel_type="DrivingForcePro">needforspeedundercover</game>
-    <game wheel_type="DrivingForce">needforspeedunderground</game>
     <game wheel_type="DrivingForcePro">needforspeedunderground2</game>
-    <game wheel_type="DrivingForcePro">nhracountdown</game>
-    <game wheel_type="DrivingForcePro">nhadragracing</game>
-    <game wheel_type="DrivingForcePro">outrun2</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">needforspeedunderground</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nhrachampionshipcountdown</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">nhradragracing</game>
     <game>outrun2006</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">outrun2</game>
     <game>parisdakar</game>
     <game>parismarseille</game>
     <game wheel_type="DrivingForcePro">professionaldriftd1grandprixseries</game>
-    <game wheel_type="DrivingForce">proracedriver</game>
+    <game wheel_type="DrivingForce" controller="1">proracedriver</game>
     <game>prorally</game>
-    <game wheel_type="DrivingForce">racingsimulation</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">racingsimulation</game>
     <game wheel_type="DrivingForce">rracing</game>
-    <game wheel_type="DrivingForce">rallychampionship</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200" controller="1">wrcworldrallychampionship</game>
+    <game wheel_type="GTForce">worldrallychampionship</game>
+    <game wheel_type="DrivingForcePro" wheel_rotation="270">segarallychampionship</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">rallychampionship</game>
     <game wheel_type="DrivingForcePro" controller="1">richardburnsrally</game>
     <game>ridgeracerv</game>
     <game>roadrage3</game>
     <game>rpmtuning</game>
-    <game wheel_type="DrivingForce">saturdaynightspeedway</game>
-    <game wheel_type="DrivingForcePro">segarally</game>
-    <game wheel_type="DrivingForce" controller="1">shox</game>
+    <game wheel_type="DrivingForce" controller="1">saturdaynightspeedway</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">segarally</game>
+    <game wheel_type="DrivingForce">shoxrallyreinvented</game>
+    <game wheel_type="DrivingForce" controller="1" wheel_rotation="200">shox</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270">simpsonsthehitrun</game>
+    <game>simpsonsroadrage</game>
     <game>smashcars</game>
     <game>speedchallenge</game>
     <game>sprintcars</game>
     <game>spyhunter</game>
-    <game wheel_type="DrivingForce">starskyhutch</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">srsstreetracingsyndicate</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">streetracingsyndicate</game>
+    <game wheel_type="DrivingForce" controller="1">starskyhutch</game>
     <game>stuntgp</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">stuntmanignition</game>
     <game>stuntman</game>
-    <game wheel_type="DrivingForce">stuntmanignition</game>
     <game>supertrucks</game>
-    <game wheel_type="DrivingForce">testdrive</game>
-    <game wheel_type="DrivingForcePro">testdriveeveofdestruction</game>=
-    <game wheel_type="DrivingForce">simpsonshitandrun</game>
-    <game wheel_type="DrivingForce" controller="1">simpsonsroadrage</game>
-    <game wheel_type="DrivingForcePro">srsstreetracingsyndicate</game>
-    <game wheel_type="DrivingForcePro">streetracingsyndicate</game>
-    <game wheel_type="DrivingForce">tocaracedriver</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270">testdriveeveofdestruction</game>
+    <game wheel_type="DrivingForce" wheel_rotation="270">testdrive</game>
     <game wheel_type="DrivingForcePro">tocaracedriver2</game>
     <game wheel_type="DrivingForcePro">tocaracedriver3</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">tocaracedriver</game>
     <game>tokyobusguide</game>
     <game>tokyoroadrace</game>
-    <game wheel_type="DrivingForcePro">tokyoxtremeracer3</game>
-    <game wheel_type="DrivingForce">tokyoxtremeracerdrift</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">tokyoxtremeracer3</game>
     <game wheel_type="DrivingForcePro">tokyoxtremeracerdrift2</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">tokyoxtremeracerdrift</game>
     <game>tokyoxtremeracerzero</game>
-    <game wheel_type="GTForce" controller="1">tokyoxtremeracer3</game>
     <game>topgear</game>
-    <game wheel_type="DrivingForce" port1="2">totalimmersionracing</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200" port1="2">totalimmersionracing</game>
     <game>twistedmetalblack</game>
-    <game wheel_type="DrivingForce" controller="1" port1="2">vrally3</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200" controller="1" port1="2">vrally3</game>
     <game>wackyraces</game>
-    <game wheel_type="DrivingForce">wanganmidnight</game>
-    <game wheel_type="DrivingForce" port1="2">worldofoutlaws</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">wanganmidnight</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200" port1="2">worldofoutlaws</game>
     <game>worldracing</game>
-    <game wheel_type="GTForce">worldrallychampionship</game>
-    <game wheel_type="DrivingForce">wrcii</game>
-    <game wheel_type="DrivingForce">wrc3</game>
-    <game wheel_type="DrivingForcePro">wrc3</game>
     <game wheel_type="DrivingForcePro">wrcrallyevolved</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">wrcii</game>
+    <game wheel_type="DrivingForce" wheel_rotation="200">wrc3</game>
+    <game wheel_type="DrivingForcePro">wrc4</game>
   </system>
   <system name="ps3">
     <game>alfaromeoracing</game>
@@ -370,9 +385,9 @@
     <game>f1championship</game>
     <game>f1racingchampionship</game>
     <game type="negcon">fordracing</game>
-    <game>formula1</game>
-    <game>formula198</game>
     <game>formula1championship</game>
+    <game>formula198</game>
+    <game>formula1</game>
     <game type="negcon">formulakarts</game>
     <game type="negcon">formulaone</game>
     <game type="negcon">granturismo</game>
@@ -393,7 +408,6 @@
     <game>nascar2000</game>
     <game>nascar2001</game>
     <game>nascar98</game>
-    <game>nascar99</game>
     <game>nascarheat</game>
     <game>nascarracing</game>
     <game type="negcon">nascarrumble</game>
@@ -430,15 +444,15 @@
     <game>warmup</game>
     <game type="negcon">wipeout</game>
   </system>
-  <system name="saturn">
+  <system name="saturn" wheel_rotation="180" wheel="joystick1left" accelerate="b" brake="y">
     <game>andrettiracing</game>
     <game>chronoqpark</game>
     <game>coder</game>
     <game>crimewave</game>
     <game>cyberspeedway</game>
-    <game>daytonausa</game>
-    <game>daytonausacircuit</game>
     <game>daytonausachampionship</game>
+    <game>daytonausacircuit</game>
+    <game>daytonausa</game>
     <game>destructionderby</game>
     <game>f1challenge</game>
     <game>galeracer</game>
@@ -450,24 +464,26 @@
     <game>initiald</game>
     <game>manxttsuperbike</game>
     <game>nissanpresentsoverdrivin</game>
+    <game>segaagesoutrun</game>
     <game>outrun</game>
     <game>racedrivin</game>
     <game>roadtrackpresentstheneedforspeed</game>
-    <game>segaagesoutrun</game>
     <game>segaagespowerdrift</game>
-    <game>segarallychampionship</game>
     <game>segarallychampionshipplus</game>
+    <game>segarallychampionship</game>
     <game>segatouringcarchampionship</game>
     <game>shutokoubattle97</game>
     <game>taitochasehq</game>
-    <game>timewarnerinteractivesvrvirtuaracing</game>
+    <game>tnnmotorsportshardcore</game>
     <game>tougekingthespirits2</game>
+    <game>tougekingthespirits</game>
     <game>vatlva</game>
     <game>virtuaracing</game>
+    <game>wangandeadheatrealarrange</game>
     <game>wangandeadheat</game>
     <game>wangantriallove</game>
-    <game>wipeout</game>
     <game>wipeout2097</game>
+    <game>wipeout</game>
   </system>
   <system name="sg1000">
     <game>monacogp</game>
@@ -498,8 +514,8 @@
     <game>driverparallellines</game>
     <game>driversanfrancisco</game>
     <game>excitetruck</game>
-    <game>fzero</game>
     <game>fzerox</game>
+    <game>fzero</game>
     <game>f12009</game>
     <game>ferrarichallenge</game>
     <game>flatout</game>
@@ -530,10 +546,10 @@
     <game>nascar</game>
     <game>needforspeed</game>
     <game>sonicandsegaallstarsracing</game>
-    <game>speed</game>
-    <game>speed2</game>
     <game>speedracer</game>
     <game>speedzone</game>
+    <game>speed2</game>
+    <game>speed</game>
     <game>spogsracing</game>
     <game>sprintcarchallenge</game>
     <game>superpickups</game>
@@ -599,17 +615,18 @@
     <game>burnoutparadise</game>
     <game>crashtimeii</game>
     <game>crazytaxi</game>
-    <game>dirt</game>
-    <game>dirt2</game>
-    <game>dirt3</game>
     <game>dirt3completeedition</game>
+    <game>dirt3</game>
+    <game>dirt2</game>
     <game>dirtshowdown</game>
+    <game>dirt</game>
     <game>disneypixarcars</game>
     <game>f12010</game>
     <game>f12012</game>
     <game>f12013</game>
     <game>flatoutultimatecarnage</game>
     <game>forzahorizon</game>
+    <game>marvelultimateallianceforzamotorsport2</game>
     <game>forzamotorsport</game>
     <game>fuel</game>
     <game>gearsofwarprojectgothamracing4</game>
@@ -617,7 +634,6 @@
     <game>hypercrash</game>
     <game>importtunerchallenge</game>
     <game>juiced2</game>
-    <game>marvelultimateallianceforzamotorsport2</game>
     <game>midnightclub</game>
     <game>nascar08</game>
     <game>needforspeed</game>
@@ -629,8 +645,8 @@
     <game>splitsecond</game>
     <game>stuntman</game>
     <game>superstarsv8</game>
-    <game>testdriveunlimited</game>
     <game>testdriveunlimited2</game>
+    <game>testdriveunlimited</game>
     <game>wrcfiaworldrallychampionship</game>
   </system>
   <system name="wiiu">
