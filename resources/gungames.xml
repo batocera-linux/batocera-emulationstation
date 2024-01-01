@@ -109,20 +109,10 @@
   <system name="megadrive">
     <game>bodycount</game>
     <game gun="justifier">gunfight3in1</game>
-    <game gun="justifier">lethalenforcers</game>
     <game gun="justifier">lethalenforcersii</game>
-    <game>gunfight3in1</game>
+    <game gun="justifier">lethalenforcers</game>
     <game>menacer6gamecartridge</game>
     <game>t2thearcadegame</game>
-  </system>
-  <system name="segacd">
-    <game>corpsekiller</game>
-    <game>crimepatrol</game>
-    <game gun="justifier">lethalenforcers</game>
-    <game gun="justifier">lethalenforcersii</game>
-    <game>maddogmccree</game>
-    <game>maddogii</game>
-    <game>whoshotjohnnyrock</game> 
   </system>
   <system name="nes">
     <game>3in1supergun</game>
@@ -144,12 +134,12 @@
     <game>mastershooter</game>
     <game>mechanizedattack</game>
     <game>operationwolf</game>
+    <game>superrussianroulette</game>
     <game>russianroulette</game>
     <game>shootthegoof</game>
     <game>shootingrange</game>
     <game>spaceshadow</game>
     <game>strikewolf</game>
-    <game>superrussianroulette</game>
     <game>tophunter</game>
     <game>totheearth</game>
     <game>wildgunman</game>
@@ -204,28 +194,28 @@
     <game>judgedredd</game>
     <game gun="justifier">lethalenforcers</game>
     <game gun="justifier">maximumforce</game>
-    <game>mightyhits</game>
     <game gun="justifier">mightyhitsspecial</game>
+    <game>mightyhits</game>
     <game>moorhen3chickenchase</game>
     <game>moorhuhn</game>
-    <game>pointblank</game>
-    <game>pointblank2</game>
     <game>pointblank3</game>
+    <game>pointblank2</game>
+    <game>pointblank</game>
     <game gun="justifier">projecthornedowl</game>
     <game>puffynopsiloveyou</game>
     <game>rescueshot</game>
-    <game>thegunshooting</game>
     <game>thegunshooting2</game>
-    <game>timecrisis</game>
+    <game>thegunshooting</game>
     <game>timecrisisprojecttitan</game>
+    <game>timecrisis</game>
   </system>
   <system name="pygame">
     <game>pygun</game>
   </system>
   <system name="saturn">
     <game>area51</game>
-    <game>chaoscontrol</game>
     <game>chaoscontrolremix</game>
+    <game>chaoscontrol</game>
     <game>crimepatrol</game>
     <game>cryptkiller</game>
     <game>deathcrimson</game>
@@ -234,8 +224,17 @@
     <game>mechanicalviolatorhakaider</game>
     <game>mightyhits</game>
     <game>scudthedisposableassassin</game>
-    <game>virtuacop</game>
     <game>virtuacop2</game>
+    <game>virtuacop</game>
+  </system>
+  <system name="segacd">
+    <game>corpsekiller</game>
+    <game>crimepatrol</game>
+    <game gun="justifier">lethalenforcersii</game>
+    <game gun="justifier">lethalenforcers</game>
+    <game>maddogmccree</game>
+    <game>maddogii</game>
+    <game>whoshotjohnnyrock</game> 
   </system>
   <system name="snes">
     <game>battleclash</game>
@@ -275,8 +274,8 @@
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedead2and3</game>
     <game vertical_offset="15" yaw="18.8" pitch="19" ir_down="`Axis 1+`/1.02">maddogmccreegunslingerpack</game>
     <game vertical_offset="14.7" yaw="19" pitch="19">martianpanic</game>
-    <game vertical_offset="15" yaw="18.6" pitch="18.9">nerfnstrike</game>
     <game vertical_offset="21.3" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)">nerfnstrikeelite</game>
+    <game vertical_offset="15" yaw="18.6" pitch="18.9">nerfnstrike</game>
     <game vertical_offset="14.9" yaw="18.6" pitch="18.7">pheasantsforeverwingshooter</game>
     <game vertical_offset="14.6" yaw="19" pitch="19">pirateblast</game>
     <game vertical_offset="15" yaw="18.75" pitch="18.75">reload</game>
