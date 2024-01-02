@@ -3956,6 +3956,22 @@ void GuiMenu::openThemeConfiguration(Window* mWindow, GuiComponent* s, std::shar
 				themeconfig->setVariable("reloadAll", true);
 		});
 
+#ifdef _ENABLEEMUELEC
+	auto enable_hideSortName = std::make_shared<SwitchComponent>(window);
+	bool hideSortNameEnabled = SystemConf::getInstance()->get(system->getName() + ".hideSortNames") == "1";
+	enable_hideSortName->setState(hideSortNameEnabled);
+	themeconfig->addWithLabel(_("HIDE SORTNAMES IN GAMELIST"), enable_hideSortName);
+
+	themeconfig->addSaveFunc([enable_hideSortName, mWindow, system, themeconfig] {
+		bool hideSortNameEnabled = enable_hideSortName->getState();
+		bool hideSortNameEnabled2 = SystemConf::getInstance()->get(system->getName() + ".hideSortNames") == "1";
+		if (hideSortNameEnabled != hideSortNameEnabled2)
+			themeconfig->setVariable("reloadAll", true);
+
+		SystemConf::getInstance()->set(system->getName() + ".hideSortNames", hideSortNameEnabled ? "1" : "");
+	});
+#endif
+
 		// Show filenames
 		auto defFn = Settings::getInstance()->getBool("ShowFilenames") ? _("YES") : _("NO");
 		auto curFn = Settings::getInstance()->getString(system->getName() + ".ShowFilenames");

@@ -10,6 +10,10 @@
 #include "SaveStateRepository.h"
 #include "CollectionSystemManager.h"
 
+#ifdef _ENABLEEMUELEC
+	#include "SystemConf.h"
+#endif
+
 #define FOLDERICON	 _U("\uF07C ")
 #define FAVORITEICON _U("\uF006 ")
 
@@ -118,8 +122,11 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 {
 	std::string name = fd->getName();
 #ifdef _ENABLEEMUELEC
-	if ((mSortId == FileSorts::SORTNAME_ASCENDING || mSortId == FileSorts::SORTNAME_DESCENDING) && !fd->getSortName().empty())
-		name = fd->getSortName();
+	std::string hideSortNames = SystemConf::getInstance()->get(fd->getSystem()->getName() + ".hideSortNames");
+	if (hideSortNames.empty()) {
+		if ((mSortId == FileSorts::SORTNAME_ASCENDING || mSortId == FileSorts::SORTNAME_DESCENDING) && !fd->getSortName().empty())
+			name = fd->getSortName();
+	}
 #endif
 
 	bool showSystemNameByFile = (fd->getType() == GAME || fd->getParent() == nullptr || fd->getParent()->getName() != "collections");
