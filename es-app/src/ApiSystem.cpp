@@ -917,8 +917,8 @@ bool ApiSystem::isThemeInstalled(const std::string& themeName, const std::string
 	return false;
 }
 
-extern std::string jsonString(const rapidjson::Value& val, const std::string name);
-extern int jsonInt(const rapidjson::Value& val, const std::string name);
+extern std::string jsonString(const rapidjson::Value& val, const std::string& name);
+extern int jsonInt(const rapidjson::Value& val, const std::string& name);
 
 std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
 {

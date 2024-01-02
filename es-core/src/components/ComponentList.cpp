@@ -695,7 +695,7 @@ void ComponentList::onMouseMove(int x, int y)
 	}
 }
 
-void ComponentList::onMouseWheel(int delta)
+bool ComponentList::onMouseWheel(int delta)
 {
 	int newCursor = mCursor - delta;
 	
@@ -713,5 +713,7 @@ void ComponentList::onMouseWheel(int delta)
 		mCursor = newCursor;
 		onCursorChanged(CURSOR_STOPPED);
 	}
+
+	return true;
 }
 

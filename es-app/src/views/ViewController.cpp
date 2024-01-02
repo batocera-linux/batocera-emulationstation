@@ -1087,7 +1087,9 @@ void ViewController::reloadGameListView(IGameListView* view)
 	// Redisplay the current view
 	if (mCurrentView)
 	{
-		mCurrentView->onShow();
+		if (isCurrent)
+			mCurrentView->onShow();
+
 		updateHelpPrompts();
 	}
 }

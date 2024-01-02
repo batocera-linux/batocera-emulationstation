@@ -436,11 +436,11 @@ void CollectionSystemManager::refreshCollectionSystems(FileData* file)
 	allCollections.insert(mAutoCollectionSystemsData.cbegin(), mAutoCollectionSystemsData.cend());
 	allCollections.insert(mCustomCollectionSystemsData.cbegin(), mCustomCollectionSystemsData.cend());
 
-	for (auto sysDataIt = allCollections.cbegin(); sysDataIt != allCollections.cend(); sysDataIt++)
-		updateCollectionSystem(file, sysDataIt->second);
+	for (auto sys : allCollections)
+		updateCollectionSystem(file, sys.second);
 }
 
-void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionSystemData sysData)
+void CollectionSystemManager::updateCollectionSystem(FileData* file, const CollectionSystemData& sysData)
 {
 	if (!sysData.isPopulated)
 		return;
@@ -449,10 +449,11 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 	std::string key = file->getFullPath();
 
 	SystemData* curSys = sysData.system;
-	FileData* collectionEntry = curSys->getRootFolder()->FindByPath(key);
+	FileData*   collectionEntry = curSys->getRootFolder()->FindByPath(key);
 	FolderData* rootFolder = curSys->getRootFolder();
-
 	std::string name = curSys->getName();
+
+	auto view = ViewController::get()->getGameListView(curSys, false);
 
 	if (collectionEntry != nullptr)
 	{
@@ -462,21 +463,17 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 		// found and we are removing
 		if (name == "favorites" && !file->getFavorite())
 		{
-			// need to check if still marked as favorite, if not remove
-			auto view = ViewController::get()->getGameListView(curSys, false);
 			if (view != nullptr)
 				view.get()->remove(collectionEntry);
 			else
 				delete collectionEntry;
 
-			// Send an event when removing from favorites
-			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
+			collectionEntry = nullptr;
 		}
 		else
 		{
 			// re-index with new metadata
 			curSys->addToIndex(collectionEntry);
-			ViewController::get()->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
 		}
 	}
 	else
@@ -485,10 +482,9 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 		if (name == "recent" && file->getMetadata(MetaDataId::PlayCount) > "0" && includeFileInAutoCollections(file) ||
 			name == "favorites" && file->getFavorite())
 		{
-			CollectionFileData* newGame = new CollectionFileData(file, curSys);
+			auto newGame = new CollectionFileData(file, curSys);
 			rootFolder->addChild(newGame);
 			curSys->addToIndex(newGame);
-			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
 		}
 	}
 
@@ -498,10 +494,10 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 	{
 		sortLastPlayed(curSys);
 		trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
-		ViewController::get()->onFileChanged(rootFolder, FILE_METADATA_CHANGED);
 	}
-	else
-		ViewController::get()->onFileChanged(rootFolder, FILE_SORTED);
+	
+	if (view != nullptr)
+		view->onFileChanged(rootFolder, name == "recent" || collectionEntry == nullptr ? FILE_METADATA_CHANGED : FILE_SORTED);
 }
 
 void CollectionSystemManager::sortLastPlayed(SystemData* system)
@@ -643,7 +639,7 @@ bool CollectionSystemManager::inInCustomCollection(FileData* file, const std::st
 }
 
 // Adds or removes a game from a specific collection
-bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::string collectionName)
+bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::string& collectionName)
 {
 	if (file->getType() != GAME)
 		return false;
@@ -672,7 +668,9 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::
 		saveToGamelistRecovery(sourceFile);
 		refreshCollectionSystems(sourceFile);
 
-		ViewController::get()->onFileChanged(sourceFile, FILE_METADATA_CHANGED);
+		auto view = ViewController::get()->getGameListView(sourceSystem, false);
+		if (view != nullptr && view->hasFileDataEntry(sourceFile))
+			view->onFileChanged(sourceFile, FILE_METADATA_CHANGED);
 	}
 	else
 	{

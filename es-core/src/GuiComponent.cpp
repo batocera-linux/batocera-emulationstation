@@ -1380,9 +1380,9 @@ void GuiComponent::onMouseMove(int x, int y)
 
 }
 
-void GuiComponent::onMouseWheel(int delta)
+bool GuiComponent::onMouseWheel(int delta)
 {
-
+	return false;
 }
 
 bool GuiComponent::onAction(const std::string& action)

@@ -3,20 +3,20 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-12-21 14:37+0000\n"
+"PO-Revision-Date: 2024-01-11 12:23+0000\n"
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: nl_NL\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Parser: loco_parse_po\n"
+"X-Loco-Parser: loco_parse_po"
 
 msgid "UPDATE AVAILABLE"
-msgstr "UPDATE IS BESCHIKBAAR"
+msgstr "EEN UPDATE IS BESCHIKBAAR"
 
 msgid "Name"
 msgstr "Naam"
@@ -121,10 +121,10 @@ msgid "enter path to box background"
 msgstr "voer pad naar achterkant doos in"
 
 msgid "Wheel"
-msgstr "Wiel"
+msgstr "Stuurwiel"
 
 msgid "enter path to wheel"
-msgstr "voer pad naar wiel in"
+msgstr "voer pad naar stuurwiel in"
 
 msgid "Mix"
 msgstr "Mix"
@@ -139,7 +139,7 @@ msgid "enter rating"
 msgstr "voer beoordeling in"
 
 msgid "Release date"
-msgstr "Release datum"
+msgstr "Releasedatum"
 
 msgid "enter release date"
 msgstr "voer pad naar releasedatum in"
@@ -253,7 +253,7 @@ msgid "Cheevos checksum"
 msgstr "Cheevos checksum"
 
 msgid "Cheevos Game ID"
-msgstr "Cheevos Game ID"
+msgstr "Cheevos Spel ID"
 
 msgid "Screenscraper Game ID"
 msgstr "Screenscraper Spel ID"
@@ -364,7 +364,7 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "PAKKET SUCCESVOL GEDEINSTALLEERD"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROPRESTATIES INSTELLINGEN"
+msgstr "RETROPRESTATIE INSTELLINGEN"
 
 msgid "SETTINGS"
 msgstr "INSTELLINGEN"
@@ -522,7 +522,7 @@ msgid "ALPHABETICALLY"
 msgstr "ALFABETISCH"
 
 msgid "BY MANUFACTURER"
-msgstr "OP PRODUCENT"
+msgstr "OP FABRIKANT"
 
 msgid "BY HARDWARE TYPE"
 msgstr "OP HARDWARE TYPE"
@@ -564,7 +564,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "TOON LEGE SYSTEMEN"
 
 msgid "UPDATE GAMELISTS"
-msgstr "UPDATE SPELLIJSTEN"
+msgstr "UPDATE DE SPELLIJSTEN"
 
 msgid "Loading..."
 msgstr "Laden..."
@@ -711,7 +711,7 @@ msgid "RESET FILTERS"
 msgstr "RESET FILTERS"
 
 msgid "FILTER GAMES BY TEXT"
-msgstr "FILTER SPELLEN OP TEXT"
+msgstr "FILTER SPELLEN OP TEKST"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "DEZE FUNCTIE IS UITGESCHAKELD ALS DE SCRAPER BEZIG IS"
@@ -851,8 +851,8 @@ msgstr "CONTROLLER MAPPING"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON."
+" PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "JE GAAT EEN CONTROLLER MAPPEN. MAP GEBASEERD OP DE POSITIE VAN DE KNOP, NIET "
 "OP HET FYSIEKE LABEL. ALS U GEEN SPECIALE KNOP VOOR SNELTOETS HEBT, GEBRUIK "
@@ -948,7 +948,7 @@ msgid "Dim Display/Evening (60)"
 msgstr "Dim Display / Avond (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr "CAMERAHELDERHEID"
+msgstr "CAMERA HELDERHEID"
 
 msgid "Daytime/Bright Sunlight (80)"
 msgstr "Overdag / Helder zonlicht (80)"
@@ -993,7 +993,7 @@ msgid "QUIET GUN"
 msgstr "STILLE GUN"
 
 msgid "QUIET MACHINE GUN"
-msgstr "STILLE MACHINE GUN"
+msgstr "STILLE MACHINEGEWEER"
 
 msgid "MODE"
 msgstr "MODUS"
@@ -1046,13 +1046,13 @@ msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "MOMENTEEL IN DOWNLOAD WACHTRIJ"
 
 msgid "NO MISSING BIOS FILES"
-msgstr "GEEN MISSENDE BIOS BESTANDEN"
+msgstr "GEEN ONTBREKENDE BIOS BESTANDEN"
 
 msgid "MISSING BIOS CHECK"
-msgstr "MISSENDE BIOS CHECK"
+msgstr "CHECK ONTBREKENDE BIOS"
 
 msgid "NO MISSING BIOS"
-msgstr "GEEN MISSENDE BIOS"
+msgstr "GEEN ONTBREKENDE BIOS"
 
 msgid "dim"
 msgstr "dim"
@@ -1215,7 +1215,7 @@ msgid "UPDATE IS READY"
 msgstr "DE UPDATE IS KLAAR"
 
 msgid "REBOOT TO APPLY"
-msgstr "HERSTART OM TOE TE PASSEN"
+msgstr "HERSTART OM DIT TOE TE PASSEN"
 
 msgid "REALLY UPDATE?"
 msgstr "WILT U ECHT UPDATEN?"
@@ -1275,7 +1275,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "BEKIJK VIDEO OP VOLLEDIG SCHERM"
 
 msgid "VIEW GAME MEDIA"
-msgstr "BEKIJK GAME MEDIA"
+msgstr "BEKIJK SPEL MEDIA"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "HUIDIGE CORE IS NIET COMPATIBEL"
@@ -1328,7 +1328,7 @@ msgstr "VERWIJDER SPEL"
 msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
-msgstr "DIT ZAL DE SPELBESTANDEN ECHT VERWIJDEREN! WEET U HET ZEKER?"
+msgstr "DIT ZAL DE BESTANDEN VAN HET SPEL VERWIJDEREN! WEET U HET ZEKER?"
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIES"
@@ -1454,7 +1454,7 @@ msgid "LOGO SOURCE"
 msgstr "LOGO BRON"
 
 msgid "WHEEL"
-msgstr "WIEL"
+msgstr "STUURWIEL"
 
 msgid "MARQUEE"
 msgstr "MARQUEE"
@@ -1714,7 +1714,7 @@ msgid "NETWORK SETTINGS"
 msgstr "NETWERK INSTELLINGEN"
 
 msgid "CONFIGURE INPUT"
-msgstr "INVOER CONFIGUREREN"
+msgstr "CONFIGUREER INVOER"
 
 msgid "EMULATOR SETTINGS"
 msgstr "EMULATOR INSTELLINGEN"
@@ -1830,7 +1830,7 @@ msgstr ""
 "metadata."
 
 msgid "RESET FILE EXTENSIONS"
-msgstr "RESET FILTER EXTENSIES"
+msgstr "RESET FILTEREXTENSIES"
 
 msgid "Reset customized file extensions filters to default."
 msgstr ""
@@ -1838,7 +1838,7 @@ msgstr ""
 "standaardwaarden."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "HERDEDECTEER TAAL/REGIO VAN ALLE SPELLEN"
+msgstr "OPNIEUW TAAL/REGIO VAN ALLE SPELLEN DETECTEREN"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "VIND ALLE SPELLEN MET NETPLAY/PRESTATIES"
@@ -1898,7 +1898,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "SNELLE SYSTEEMSELECTIE"
 
 msgid "ON-SCREEN KEYBOARD"
-msgstr "TOETSENBORD OP SCHERM"
+msgstr "ON-SCREEN TOETSENBORD"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr "EMULATIONSTATION VERBERGEN TIJDENS EEN SPEL"
@@ -1929,7 +1929,7 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "BESTUUR EMULATIONSTATION ALLEEN MET DE EERSTE JOYSTICK"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr "GUN MOVE TOLERANTIE"
+msgstr "GUN BEWEGING TOLERANTIE"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "INSCHAKELEN VAN HID-JOYSTICK DRIVERS"
@@ -1938,7 +1938,7 @@ msgid "SHOW NETWORK INDICATOR"
 msgstr "TOON NETWERKINDICATOR"
 
 msgid "OPTIMIZATIONS"
-msgstr "OPTIMALIZATIES"
+msgstr "OPTIMALISATIES"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
 msgstr "GEBRUIKERSINTERFACE ELEMENTEN VOORLADEN BIJ OPSTARTEN"
@@ -1966,10 +1966,10 @@ msgid "ASYNC IMAGE LOADING"
 msgstr "ASYNC LADEN AFBEELDINGEN"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "OPTIMALIZEER GEBRUIK VRAM GEBRUIK AFBEELDINGEN"
+msgstr "OPTIMALISEER GEBRUIK VRAM GEBRUIK AFBEELDINGEN"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
-msgstr "OPTIMALIZEER GEBRUIK VIDEO VRAM"
+msgstr "OPTIMALISEER GEBRUIK VIDEO VRAM"
 
 msgid "DOWNLOADS"
 msgstr "DOWNLOADS"
@@ -2034,8 +2034,8 @@ msgstr "GEBRUIKSINTERFACE MODUS"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
-"Vergrendel bepaalde configuratiemenu's voor gebruik door gastgebruikers/"
-"kinderen."
+"Vergrendel bepaalde configuratiemenu's voor gebruik door "
+"gastgebruikers/kinderen."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -2225,8 +2225,8 @@ msgstr "VARIABELE REFRESH RATE"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI "
-"2.1 VRR."
+"Wijk niet af van de door de core gevraagde timing. G-Sync, FreeSync, HDMI 2."
+"1 VRR."
 
 msgid "DECORATION SET"
 msgstr "DECORATIESET"
@@ -2341,16 +2341,16 @@ msgid "TATTOO CORNER"
 msgstr "TATTOO HOEK"
 
 msgid "NORTH WEST"
-msgstr "NOORD WEST"
+msgstr "NOORDWEST"
 
 msgid "NORTH EAST"
-msgstr "NOORD OOST"
+msgstr "NOORDOOST"
 
 msgid "SOUTH EAST"
-msgstr "ZUID OOST"
+msgstr "ZUIDOOST"
 
 msgid "SOUTH WEST"
-msgstr "ZUID WEST"
+msgstr "ZUIDWEST"
 
 msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "AANGEPASTE .PNG IMAGE PAD"
@@ -2362,7 +2362,7 @@ msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr "Krimp/rek tattoo om binnen de rand van de omlijsting te passen."
 
 msgid "AI GAME TRANSLATION"
-msgstr "AI SPEL VERTALING"
+msgstr "AI SPELVERTALING"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
 msgstr "AI VERTALINGSSERVICE INSCHAKELEN"
@@ -2392,8 +2392,7 @@ msgid "REALLY UPDATE GAMELISTS?"
 msgstr "WILT U ECHT DE SPELLIJSTEN UPDATEN?"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
-msgstr ""
-"HET THEMA DIENT TOEGEPAST TE WORDEN VOOR DE CONFIGURATIE BEWERKT KAN WORDEN"
+msgstr "U MOET HET THEMA TOEPASSEN VOORDAT DE CONFIGURATIE KAN WORDEN BEWERKT"
 
 msgid "THEME CONFIGURATION"
 msgstr "THEMA CONFIGURATIE"
@@ -2456,10 +2455,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "TOON RETROPRESTATIE ICOON"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "TOON GUN ICOON"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "TOON STUURWIEL ICOON"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "TOON BESTANDNAMEN IN DE PLAATS VAN TITEL"
@@ -2492,7 +2491,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "SPEL START TRANSITIE"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr "SPEL MEDIAS TIJDENS SNEL SCROLLEN"
+msgstr "SPELMEDIAS TIJDENS SNEL SCROLLEN"
 
 msgid "SHOW CLOCK"
 msgstr "TOON KLOK"
@@ -2582,10 +2581,10 @@ msgid "WIFI KEY"
 msgstr "WIFI KEY"
 
 msgid "WIFI ENABLED"
-msgstr "WIFI INGESCHAKELD"
+msgstr "WIFI IS INGESCHAKELD"
 
 msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI CONFIGURATIE FOUT"
+msgstr "WIFI CONFIGURATIEFOUT"
 
 msgid "QUICK ACCESS"
 msgstr "SNELLE TOEGANG"
@@ -2600,7 +2599,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "START DE SCHERMBEVEILIGING"
 
 msgid "VIEW USER MANUAL"
-msgstr "BEKIJK HANDLEIDING"
+msgstr "BEKIJK GEBRUIKERSHANDLEIDING"
 
 msgid "DISABLE PLANE MODE"
 msgstr "VLIEGTUIGMODUS UITSCHAKELEN"
@@ -2656,7 +2655,7 @@ msgid "CUSTOM .PNG IMAGE"
 msgstr "AANGEPASTE .PNG IMAGE"
 
 msgid "OVERLAY CORNER"
-msgstr "OVERLAAG HOEK"
+msgstr "OVERLAY HOEK"
 
 msgid "COLORIZATION"
 msgstr "COLORISATIE"
@@ -2732,7 +2731,7 @@ msgid "GAMES TO INDEX"
 msgstr "TE INDEXEREN SPELLEN"
 
 msgid "ONLY MISSING"
-msgstr "ALLEEN MISSENDE"
+msgstr "ALLEEN ONTBREKENDE"
 
 msgid "SYSTEM INFO"
 msgstr "SYSTEEMINFORMATIE"
@@ -2747,7 +2746,7 @@ msgid "GO TO LETTER"
 msgstr "GA NAAR LETTER"
 
 msgid "GO TO MANUFACTURER"
-msgstr "GA NAAR PRODUCENT"
+msgstr "GA NAAR FABRIKANT"
 
 msgid "GO TO HARDWARE"
 msgstr "GA NAAR HARDWARE"
@@ -2865,11 +2864,11 @@ msgid "INVALID CONTENT"
 msgstr "ONGELDIGE INHOUD"
 
 msgid ""
-"A valid account is required. Please register an account on https://"
-"retroachievements.org"
+"A valid account is required. Please register an account on https:"
+"//retroachievements.org"
 msgstr ""
-"Een geldig account is vereist. Gelieve een account te registreren op https://"
-"retroachievements.org"
+"Een geldig account is vereist. Gelieve een account te registreren op https:"
+"//retroachievements.org"
 
 msgid "Searching"
 msgstr "Zoeken"
@@ -2935,10 +2934,10 @@ msgid "NUMBER PLAYERS, DESCENDING"
 msgstr "AANTAL SPELERS, AFLOPEND"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr "UITGAVEDATUM, OPLOPEND"
+msgstr "RELEASEDATUM, OPLOPEND"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr "UITGAVEDATUM, AFLOPEND"
+msgstr "RELEASEDATUM, AFLOPEND"
 
 msgid "GENRE, ASCENDING"
 msgstr "GENRE, OPLOPEND"
@@ -2983,10 +2982,10 @@ msgid "SYSTEM, RELEASE YEAR, DESCENDING"
 msgstr "SYSTEEM, UITGAVE JAAR, AFLOPEND"
 
 msgid "RELEASE YEAR, SYSTEM, ASCENDING"
-msgstr "UITGAVEJAAR, SYSTEEM, OPLOPEND"
+msgstr "RELEASEJAAR, SYSTEEM, OPLOPEND"
 
 msgid "RELEASE YEAR, SYSTEM, DESCENDING"
-msgstr "UITGAVEJAAR, SYSTEEM, AFLOPEND"
+msgstr "RELEASEJAAR, SYSTEEM, AFLOPEND"
 
 msgid "A,AN,THE"
 msgstr "EEN,HET,DE"
@@ -3004,7 +3003,7 @@ msgid "INDEXING COMPLETED"
 msgstr "INDEXERING COMPLEET"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "UPDATE SPELLIJSTEN OM VERANDERINGEN TOE TE PASSEN."
+msgstr "UPDATE DE SPELLIJSTEN OM VERANDERINGEN TOE TE PASSEN."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "DE EMULATOR IS ONVERWACHT AFGESLOTEN"
@@ -3301,7 +3300,7 @@ msgstr[0] "%i GESELECTEERD"
 msgstr[1] "%i GESELECTEERD"
 
 msgid "CHANGE"
-msgstr "VERANDEREN"
+msgstr "WIJZIGEN"
 
 msgid "MOVE CURSOR"
 msgstr "BEWEEG CURSOR"

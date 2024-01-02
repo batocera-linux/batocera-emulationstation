@@ -74,7 +74,7 @@ public:
 	void updateSystemsList();
 
 	void refreshCollectionSystems(FileData* file);
-	void updateCollectionSystem(FileData* file, CollectionSystemData sysData);
+	void updateCollectionSystem(FileData* file, const CollectionSystemData& sysData);
 	void deleteCollectionFiles(FileData* file);
 
 	inline std::map<std::string, CollectionSystemData>& getAutoCollectionSystems() { return mAutoCollectionSystemsData; };
@@ -85,7 +85,7 @@ public:
 
 	std::string getValidNewCollectionName(std::string name, int index = 0);
 			
-	bool toggleGameInCollection(FileData* file, const std::string collectionName = "");
+	bool toggleGameInCollection(FileData* file, const std::string& collectionName = "");
 
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v39b(2023/12/22)\n"
+"Project-Id-Version: batocera-es v39b(2023/12/23)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-22 17:21+0900\n"
+"PO-Revision-Date: 2023-12-23 15:10+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -603,7 +603,7 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中の %d)"
 
 msgid "Softcore points"
-msgstr "ソフトコア ポイント"
+msgstr "ポイント (ソフトコア)"
 
 msgid "Points (hardcore)"
 msgstr "ポイント (ハードコア)"
@@ -2433,10 +2433,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "RetroAchievements アイコンを表示"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "銃 アイコンを表示"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "ホイール(車)アイコンを表示"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "リストにファイル名を表示"
@@ -2863,7 +2863,7 @@ msgid "SEARCH FOR"
 msgstr "検索"
 
 msgid "ACCEPT RESULT"
-msgstr "結果を確認"
+msgstr "結果を適用"
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."

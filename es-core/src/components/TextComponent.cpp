@@ -520,7 +520,7 @@ void TextComponent::onShow()
 	mMarqueeOffset = 0;
 	mMarqueeOffset2 = 0;
 
-	if (mAutoScroll == AutoScrollType::VERTICAL)
+	if (mAutoScroll != AutoScrollType::NONE && !mText.empty())
 		mMarqueeTime = -mAutoScrollDelay + mAutoScrollSpeed;
 	else
 		mMarqueeTime = 0;

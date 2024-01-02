@@ -1345,7 +1345,8 @@ void Window::processMouseWheel(int delta)
 		std::reverse(hits.begin(), hits.end());
 
 		for (auto hit : hits)
-			hit->onMouseWheel(delta);
+			if (hit->onMouseWheel(delta))
+				break;
 
 		hitTest(mLastMousePoint.x(), mLastMousePoint.y());
 	}
