@@ -8,11 +8,70 @@
 #include <thread>
 #include <set>
 #include <map>
+#include <mutex>
 
 using namespace Utils::Platform;
 
 namespace Scripting
 {
+#if WIN32
+    static std::thread*                 mThread = nullptr;
+    static std::list<std::string>       mScriptQueue;
+    static std::mutex			        mLoaderLock;
+    static std::condition_variable		mEvent;
+    static bool                         mExit = false;
+
+    static void executeCommandsThread()
+    {
+        while (true)
+        {
+            // Wait for an event to say there is something in the queue
+            std::unique_lock<std::mutex> lock(mLoaderLock);
+            mEvent.wait(lock, []() { return mExit || !mScriptQueue.empty(); });
+
+            if (mExit)
+                break;
+
+            if (!mScriptQueue.empty())
+            {
+                auto command = mScriptQueue.front();
+                mScriptQueue.pop_front();
+
+                lock.unlock();
+                std::this_thread::yield();
+
+                ProcessStartInfo psi;
+                psi.command = command;
+                psi.waitForExit = false;
+                psi.showWindow = false;
+                psi.run();
+                
+                std::this_thread::yield();
+            }
+        }
+    }
+
+    static void pushCommand(const std::string& command)
+    {
+        std::unique_lock<std::mutex> lock(mLoaderLock);
+
+        if (mThread == nullptr)
+            mThread = new std::thread(&executeCommandsThread);
+       
+        mScriptQueue.push_back(command);
+        mEvent.notify_one();
+    }
+#endif
+
+    void exitScriptingEngine()
+    {
+#if WIN32
+        std::unique_lock<std::mutex> lock(mLoaderLock);
+        mExit = true;
+        mEvent.notify_one();
+#endif
+    }
+
     static void executeScript(const std::string& script, const std::string& eventName, const std::string& arg1, const std::string& arg2, const std::string& arg3)
     {
         std::string command = script;
@@ -31,18 +90,31 @@ namespace Scripting
 #if WIN32
         LOG(LogDebug) << "  executing: " << script;
 
-        // Start using a thread to avoid lags
-
-        auto runScript = [command, eventName]() {
+        if (eventName == "quit")
+        {
             ProcessStartInfo psi;
             psi.command = command;
-            psi.waitForExit = (eventName == "quit");
+            psi.waitForExit = true;
             psi.showWindow = false;
             psi.run();
-        };
+        }
+        else
+        {
+            pushCommand(command);
+            /*
+            // Start using a thread to avoid lags
+            auto runScript = [command, eventName]()
+            {
+                ProcessStartInfo psi;
+                psi.command = command;
+                psi.waitForExit = false;
+                psi.showWindow = false;
+                psi.run();
+            };
 
-        std::thread runThread(runScript);
-        runThread.detach();
+            std::thread runThread(runScript);
+            runThread.detach();            */
+        }
 #else            
         LOG(LogDebug) << "  executing: " << script;
 

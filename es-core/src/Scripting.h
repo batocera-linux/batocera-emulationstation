@@ -7,6 +7,7 @@
 namespace Scripting
 {
 	void fireEvent(const std::string& eventName, const std::string& arg1="", const std::string& arg2="", const std::string& arg3="");
+	void exitScriptingEngine();
 } // Scripting::
 
 #endif //ES_CORE_SCRIPTING_H
