@@ -752,6 +752,7 @@ int main(int argc, char* argv[])
 	ViewController::saveState();
 	CollectionSystemManager::deinit();
 	SystemData::deleteSystems();
+	Scripting::exitScriptingEngine();
 
 	// call this ONLY when linking with FreeImage as a static library
 #ifdef FREEIMAGE_LIB
