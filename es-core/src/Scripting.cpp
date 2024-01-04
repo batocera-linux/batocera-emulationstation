@@ -15,21 +15,21 @@ using namespace Utils::Platform;
 namespace Scripting
 {
 #if WIN32
-    static std::thread*                 mThread = nullptr;
+    static std::thread*                 mScriptQueueThread = nullptr;
     static std::list<std::string>       mScriptQueue;
-    static std::mutex			        mLoaderLock;
-    static std::condition_variable		mEvent;
-    static bool                         mExit = false;
+    static std::mutex			        mScriptQueueLock;
+    static std::condition_variable		mScriptQueueEvent;
+    static bool                         mExitScriptQueue = false;
 
     static void executeCommandsThread()
     {
         while (true)
         {
             // Wait for an event to say there is something in the queue
-            std::unique_lock<std::mutex> lock(mLoaderLock);
-            mEvent.wait(lock, []() { return mExit || !mScriptQueue.empty(); });
+            std::unique_lock<std::mutex> lock(mScriptQueueLock);
+            mScriptQueueEvent.wait(lock, []() { return mExitScriptQueue || !mScriptQueue.empty(); });
 
-            if (mExit)
+            if (mExitScriptQueue)
                 break;
 
             if (!mScriptQueue.empty())
@@ -51,24 +51,31 @@ namespace Scripting
         }
     }
 
+    static std::string _lastCommand;
+
     static void pushCommand(const std::string& command)
     {
-        std::unique_lock<std::mutex> lock(mLoaderLock);
+        std::unique_lock<std::mutex> lock(mScriptQueueLock);
 
-        if (mThread == nullptr)
-            mThread = new std::thread(&executeCommandsThread);
-       
+        if (command == _lastCommand)
+            return;
+
+        _lastCommand = command;
+
+        if (mScriptQueueThread == nullptr)
+            mScriptQueueThread = new std::thread(&executeCommandsThread);
+
         mScriptQueue.push_back(command);
-        mEvent.notify_one();
+        mScriptQueueEvent.notify_one();
     }
 #endif
 
     void exitScriptingEngine()
     {
 #if WIN32
-        std::unique_lock<std::mutex> lock(mLoaderLock);
-        mExit = true;
-        mEvent.notify_one();
+        std::unique_lock<std::mutex> lock(mScriptQueueLock);
+        mExitScriptQueue = true;
+        mScriptQueueEvent.notify_one();
 #endif
     }
 
@@ -100,20 +107,8 @@ namespace Scripting
         }
         else
         {
-            pushCommand(command);
-            /*
             // Start using a thread to avoid lags
-            auto runScript = [command, eventName]()
-            {
-                ProcessStartInfo psi;
-                psi.command = command;
-                psi.waitForExit = false;
-                psi.showWindow = false;
-                psi.run();
-            };
-
-            std::thread runThread(runScript);
-            runThread.detach();            */
+            pushCommand(command);
         }
 #else            
         LOG(LogDebug) << "  executing: " << script;

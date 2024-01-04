@@ -9,14 +9,34 @@
 #include <memory>
 #include <functional>
 
-class FileData;
-class FolderData;
 class ThemeData;
+class IBindable;
 
 struct CarouselComponentData
 {
 	std::shared_ptr<GuiComponent> logo;
-	// std::vector<GuiComponent*> backgroundExtras;
+};
+
+enum class CarouselImageSource
+{
+	TEXT,
+	THUMBNAIL,
+	IMAGE,
+	MARQUEE,
+	FANART,
+	TITLESHOT,
+	BOXART,
+	CARTRIDGE,
+	BOXBACK,
+	MIX
+};
+
+enum class CarouselType : unsigned int
+{
+	HORIZONTAL = 0,
+	VERTICAL = 1,
+	VERTICAL_WHEEL = 2,
+	HORIZONTAL_WHEEL = 3
 };
 
 
@@ -41,19 +61,23 @@ private:
 	std::string mName;
 };
 
-class CarouselComponent : public IList<CarouselComponentData, FileData*>
+class CarouselComponent : public IList<CarouselComponentData, IBindable*>
 {
 public:
 	CarouselComponent(Window* window);
 	~CarouselComponent();
 
-	void setThemedContext(const std::string& logoName, const std::string& logoTextName, const std::string& elementName, const std::string& className)
+	void setThemedContext(const std::string& logoName, const std::string& logoTextName, const std::string& elementName, const std::string& className, CarouselType type, CarouselImageSource source)
 	{
 		mThemeLogoName = logoName;
 		mThemeLogoTextName = logoTextName;
 		mThemeElementName = elementName;
 		mThemeClass = className;
+		mType = type;
+		mImageSource = source;
 	}
+
+	void setDefaultBackground(unsigned int color, unsigned int colorEnd, bool gradientHorizontal);
 
 	std::string getThemeTypeName() override { return mThemeClass; }
 
@@ -66,8 +90,8 @@ public:
 
 	std::vector<HelpPrompt> getHelpPrompts() override;
 
-	void		add(const std::string& name, FileData* obj);
-	FileData*	getActiveFileData();
+	void		add(const std::string& name, IBindable* obj, bool preloadLogo = false);
+	IBindable*	getActiveObject();
 
 	inline void setCursorChangedCallback(const std::function<void(CursorState state)>& func) { mCursorChangedCallback = func; }
 	void	applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
@@ -77,7 +101,14 @@ public:
 
 	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
 	virtual void onMouseMove(int x, int y) override;
-	virtual void onMouseWheel(int delta) override;
+	virtual bool onMouseWheel(int delta) override;
+
+	std::string getDefaultTransition() { return mDefaultTransition; }
+	float getTransitionSpeed() { return mTransitionSpeed; }
+
+	void moveSelectionBy(int count);
+
+	std::shared_ptr<GuiComponent> getLogo(int index);
 
 protected:
 	void onCursorChanged(const CursorState& state) override;
@@ -94,7 +125,7 @@ private:
 	void getCarouselFromTheme(const ThemeData::ThemeElement* elem);
 
 	void renderCarousel(const Transform4x4f& parentTrans);	
-	void ensureLogo(IList<CarouselComponentData, FileData*>::Entry& entry);
+	void ensureLogo(IList<CarouselComponentData, IBindable*>::Entry& entry);
 
 	// unit is list index
 	float mCamOffset;
@@ -116,30 +147,8 @@ private:
 
 	int mLastCursor;	
 
-	enum ImageSource
-	{
-		TEXT,
-		THUMBNAIL,
-		IMAGE,
-		MARQUEE,
-		FANART,
-		TITLESHOT,
-		BOXART,
-		CARTRIDGE,
-		BOXBACK,
-		MIX
-	};
-
-	enum CarouselType : unsigned int
-	{
-		HORIZONTAL = 0,
-		VERTICAL = 1,
-		VERTICAL_WHEEL = 2,
-		HORIZONTAL_WHEEL = 3
-	};
-
-	CarouselType mType;
-	ImageSource mImageSource;
+	CarouselType			mType;
+	CarouselImageSource		mImageSource;
 
 	float			mLogoScale;
 	float			mLogoRotation;
@@ -162,9 +171,12 @@ private:
 	int				mPressedCursor;
 	Vector2i		mPressedPoint;	
 
+	unsigned int	mColor;
+	unsigned int    mColorEnd;
+	bool			mColorGradientHorizontal;
 
 public:
-	bool isHorizontalCarousel() { return mType == HORIZONTAL || mType == HORIZONTAL_WHEEL; }
+	bool isHorizontalCarousel() { return mType == CarouselType::HORIZONTAL || mType == CarouselType::HORIZONTAL_WHEEL; }
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

@@ -206,7 +206,7 @@ public:
 		return true;
 	}
 
-	void onMouseWheel(int delta)
+	bool onMouseWheel(int delta)
 	{
 		auto scale = getScale();
 		float zoomSpeed = 0.1f;
@@ -216,6 +216,7 @@ public:
 			scale = 0.01;
 
 		setScale(scale);
+		return true;
 	}
 
 	void onMouseMove(int x, int y)

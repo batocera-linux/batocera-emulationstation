@@ -337,3 +337,8 @@ void GridGameListView::onLongMouseClick(GuiComponent* component)
 	else
 		showSelectedGameOptions();
 }
+
+bool GridGameListView::onMouseWheel(int delta)
+{
+	return mGrid.onMouseWheel(delta);
+}

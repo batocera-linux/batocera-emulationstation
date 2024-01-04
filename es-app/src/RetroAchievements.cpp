@@ -139,7 +139,7 @@ static HttpReqOptions getHttpOptions()
 	return options;
 }
 
-std::string RetroAchievements::getApiUrl(const std::string method, const std::string parameters)
+std::string RetroAchievements::getApiUrl(const std::string& method, const std::string& parameters)
 {
 #ifdef CHEEVOS_DEV_LOGIN
 	auto options = std::string(CHEEVOS_DEV_LOGIN);
@@ -149,7 +149,7 @@ std::string RetroAchievements::getApiUrl(const std::string method, const std::st
 #endif
 }
 
-std::string GameInfoAndUserProgress::getImageUrl(const std::string image)
+std::string GameInfoAndUserProgress::getImageUrl(const std::string& image)
 {
 	if (image.empty())
 		return "http://i.retroachievements.org" + ImageIcon;
@@ -166,7 +166,7 @@ std::string Achievement::getBadgeUrl()
 }
 
 
-int jsonInt(const rapidjson::Value& val, const std::string name)
+int jsonInt(const rapidjson::Value& val, const std::string& name)
 {
 	if (!val.HasMember(name.c_str()))
 		return 0;
@@ -182,7 +182,7 @@ int jsonInt(const rapidjson::Value& val, const std::string name)
 	return 0;
 }
 
-std::string jsonString(const rapidjson::Value& val, const std::string name)
+std::string jsonString(const rapidjson::Value& val, const std::string& name)
 {
 	if (!val.HasMember(name.c_str()))
 		return "";
@@ -198,7 +198,7 @@ std::string jsonString(const rapidjson::Value& val, const std::string name)
 	return "";
 }
 
-bool sortAchievements(const Achievement& sys1, const Achievement& sys2)
+static bool sortAchievements(const Achievement& sys1, const Achievement& sys2)
 {
 	if (sys1.DateEarned.empty() != sys2.DateEarned.empty())
 		return !sys1.DateEarned.empty() && sys2.DateEarned.empty();
@@ -209,7 +209,7 @@ bool sortAchievements(const Achievement& sys1, const Achievement& sys2)
 	return sys1.DisplayOrder < sys2.DisplayOrder;
 }
 
-GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId, const std::string userName)
+GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId, const std::string& userName)
 {
 	auto usrName = userName;
 	if (usrName.empty())
@@ -288,7 +288,7 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 	return ret;
 }
 
-UserSummary RetroAchievements::getUserSummary(const std::string userName, int gameCount)
+UserSummary RetroAchievements::getUserSummary(const std::string& userName, int gameCount)
 {
 	auto usrName = userName;
 	if (usrName.empty())
@@ -400,6 +400,34 @@ UserSummary RetroAchievements::getUserSummary(const std::string userName, int ga
 	return ret;
 }
 
+UserRankAndScore RetroAchievements::getUserRankAndScore(const std::string& userName)
+{
+	auto usrName = userName;
+	if (usrName.empty())
+		usrName = SystemConf::getInstance()->get("global.retroachievements.username");
+
+	UserRankAndScore ret;
+
+	auto options = getHttpOptions();
+
+	HttpReq request(getApiUrl("API_GetUserRankAndScore", "u=" + HttpReq::urlEncode(usrName)), &options);
+	if (request.wait())
+	{
+		rapidjson::Document doc;
+		doc.Parse(request.getContent().c_str());
+		if (doc.HasParseError())
+			throw std::domain_error("Error while parsing API GetUserRankAndScore response");
+
+		ret.Score = jsonInt(doc, "Score");
+		ret.SoftcoreScore = jsonInt(doc, "SoftcoreScore");
+		ret.Rank = jsonString(doc, "Rank");
+		ret.TotalRanked = jsonInt(doc, "TotalRanked");
+	}
+	else
+		throw std::domain_error("Error while accessing API GetUserRankAndScore :\n" + request.getErrorMsg());
+
+	return ret;
+}
 
 RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 {
@@ -543,7 +571,7 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 	return ret;
 }
 
-std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string fileName)
+std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string& fileName)
 {
 	LOG(LogDebug) << "getCheevosHashFromFile : " << fileName;
 
@@ -561,7 +589,7 @@ std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::
 	return "00000000000000000000000000000000";	
 }
 
-std::string RetroAchievements::getCheevosHash( SystemData* system, const std::string fileName)
+std::string RetroAchievements::getCheevosHash( SystemData* system, const std::string& fileName)
 {
 	bool fromZipContents = system->shouldExtractHashesFromArchives();
 

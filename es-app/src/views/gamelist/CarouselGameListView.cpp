@@ -48,7 +48,7 @@ void CarouselGameListView::updateInfoPanel()
 	
 	updateThemeExtrasBindings();
 
-	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
+	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : getCursor();
 	bool isClearing = mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0;
 	mDetails.updateControls(file, isClearing, mList.getCursorIndex() - mList.getLastCursor());
 }
@@ -102,7 +102,7 @@ FileData* CarouselGameListView::getCursor()
 	if (mList.size() == 0)
 		return nullptr;
 
-	return mList.getSelected();
+	return dynamic_cast<FileData*>(mList.getSelected());	
 }
 
 void CarouselGameListView::resetLastCursor()
@@ -158,7 +158,7 @@ void CarouselGameListView::remove(FileData *game)
 	FolderData* parent = game->getParent();
 	if (getCursor() == game)                     // Select next element in list, or prev if none
 	{
-		std::vector<FileData*> siblings = mList.getObjects();
+		std::vector<FileData*> siblings = getFileDataEntries();
 
 		int gamePos = getCursorIndex();
 		if ((gamePos + 1) < (int)siblings.size())
@@ -188,11 +188,25 @@ int CarouselGameListView::getCursorIndex()
 
 std::vector<FileData*> CarouselGameListView::getFileDataEntries()
 {
-	return mList.getObjects();	
+	std::vector<FileData*> ret;
+
+	for (auto item : mList.getObjects())
+	{
+		FileData* data = dynamic_cast<FileData*>(item);
+		if (data != nullptr)
+			ret.push_back(data);
+	}
+
+	return ret;
 }
 
 void CarouselGameListView::update(int deltaTime)
 {
 	mDetails.update(deltaTime);
 	ISimpleGameListView::update(deltaTime);
+}
+
+bool CarouselGameListView::onMouseWheel(int delta)
+{
+	return mList.onMouseWheel(delta);
 }

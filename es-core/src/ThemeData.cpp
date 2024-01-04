@@ -554,35 +554,13 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "showSnapshotDelay", BOOLEAN } } },
 
 	{ "carousel", {
-		{ "type", STRING },						// horizontal, vertical, horizontal_wheel, vertical_wheel
+		{ "type", STRING },					// horizontal, vertical, horizontal_wheel, vertical_wheel
 		{ "size", NORMALIZED_PAIR },
 		{ "pos", NORMALIZED_PAIR },
 		{ "origin", NORMALIZED_PAIR },
 		{ "color", COLOR },
 		{ "colorEnd", COLOR },
 		{ "gradientType", STRING },				// horizontal, vertical
-		{ "logoScale", FLOAT },
-		{ "logoRotation", FLOAT },
-		{ "logoRotationOrigin", NORMALIZED_PAIR },
-		{ "logoSize", NORMALIZED_PAIR },
-		{ "logoPos", NORMALIZED_PAIR },
-		{ "logoAlignment", STRING },			// left, top, right, bottom, center
-		{ "maxLogoCount", FLOAT },
-		{ "systemInfoDelay", FLOAT },	
-		{ "systemInfoCountOnly", BOOLEAN },		
-		{ "defaultTransition", STRING },		// auto, instant, fade, slide, fade & slide
-		{ "minLogoOpacity", FLOAT },
-		{ "transitionSpeed", FLOAT },
-		{ "scaledLogoSpacing", FLOAT },
-		{ "scrollSound", PATH },
-		{ "zIndex", FLOAT } } },
-
-	{ "gamecarousel",{
-		{ "type", STRING },					// horizontal, vertical, horizontal_wheel, vertical_wheel
-		{ "size", NORMALIZED_PAIR },
-		{ "pos", NORMALIZED_PAIR },
-		{ "origin", NORMALIZED_PAIR },
-		{ "imageSource", STRING },			// image, thumbnail, marquee
 		{ "logoScale", FLOAT },
 		{ "logoRotation", FLOAT },
 		{ "logoRotationOrigin", NORMALIZED_PAIR },
@@ -595,7 +573,32 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "transitionSpeed", FLOAT },
 		{ "scaledLogoSpacing", FLOAT },
 		{ "scrollSound", PATH },
-		{ "zIndex", FLOAT } } },
+		{ "zIndex", FLOAT },
+		{ "systemInfoDelay", FLOAT },
+		{ "systemInfoCountOnly", BOOLEAN } } },
+
+	{ "gamecarousel",{
+		{ "type", STRING },					// horizontal, vertical, horizontal_wheel, vertical_wheel
+		{ "size", NORMALIZED_PAIR },
+		{ "pos", NORMALIZED_PAIR },
+		{ "origin", NORMALIZED_PAIR },
+		{ "color", COLOR },
+		{ "colorEnd", COLOR },
+		{ "gradientType", STRING },				// horizontal, vertical
+		{ "logoScale", FLOAT },
+		{ "logoRotation", FLOAT },
+		{ "logoRotationOrigin", NORMALIZED_PAIR },
+		{ "logoSize", NORMALIZED_PAIR },
+		{ "logoPos", NORMALIZED_PAIR },
+		{ "logoAlignment", STRING },		// left, top, right, bottom, center
+		{ "maxLogoCount", FLOAT },
+		{ "defaultTransition", STRING },	// auto, instant, fade, slide, fade & slide
+		{ "minLogoOpacity", FLOAT },
+		{ "transitionSpeed", FLOAT },
+		{ "scaledLogoSpacing", FLOAT },
+		{ "scrollSound", PATH },
+		{ "zIndex", FLOAT },
+		{ "imageSource", STRING } } },			// image, thumbnail, marquee
 
 	{ "menuText", {
 		{ "fontPath", PATH },

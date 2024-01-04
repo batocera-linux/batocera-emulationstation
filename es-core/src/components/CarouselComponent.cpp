@@ -1,5 +1,4 @@
 #include "CarouselComponent.h"
-#include "FileData.h"
 #include "Settings.h"
 #include "Log.h"
 #include "animations/LambdaAnimation.h"
@@ -8,14 +7,18 @@
 #include "InputManager.h"
 #include "Window.h"
 #include "Log.h"
+#include "BindingManager.h"
 
 // buffer values for scrolling velocity (left, stopped, right)
 const int logoBuffersLeft[] = { -5, -2, -1 };
 const int logoBuffersRight[] = { 1, 2, 5 };
 
 CarouselComponent::CarouselComponent(Window* window) :
-	IList<CarouselComponentData, FileData*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP)
+	IList<CarouselComponentData, IBindable*>(window, LIST_SCROLL_STYLE_SLOW, LIST_ALWAYS_LOOP)
 {
+	mColor = mColorEnd = 0;
+	mColorGradientHorizontal = false;
+
 	mThemeViewName = "gamecarousel";
 	mThemeLogoName = "gamecarouselLogo";
 	mThemeLogoTextName = "gamecarouselLogoText";
@@ -35,7 +38,7 @@ CarouselComponent::CarouselComponent(Window* window) :
 	
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
 
-	mType = VERTICAL;
+	mType = CarouselType::VERTICAL;
 	mLogoAlignment = ALIGN_CENTER;
 	mLogoScale = 1.2f;
 	mLogoRotation = 7.5;
@@ -49,7 +52,8 @@ CarouselComponent::CarouselComponent(Window* window) :
 	mDefaultTransition = "";
 	mTransitionSpeed = 500;
 	mMinLogoOpacity = 0.5f;
-	mScaledSpacing = 0.0f;
+	mScaledSpacing = 0.0f;	
+	mImageSource = CarouselImageSource::THUMBNAIL;
 
 	mAnyLogoHasScaleStoryboard = false;
 	mAnyLogoHasOpacityStoryboard = false;
@@ -90,8 +94,8 @@ bool CarouselComponent::input(InputConfig* config, Input input)
 	{	
 		switch (mType)
 		{
-		case VERTICAL:
-		case VERTICAL_WHEEL:
+		case CarouselType::VERTICAL:
+		case CarouselType::VERTICAL_WHEEL:
 			if (config->isMappedLike("up", input) || config->isMappedLike("l2", input))
 			{
 				listInput(-1);
@@ -116,8 +120,8 @@ bool CarouselComponent::input(InputConfig* config, Input input)
 			}
 
 			break;
-		case HORIZONTAL:
-		case HORIZONTAL_WHEEL:
+		case CarouselType::HORIZONTAL:
+		case CarouselType::HORIZONTAL_WHEEL:
 		default:
 			if (config->isMappedLike("left", input) || config->isMappedLike("l2", input))
 			{
@@ -345,12 +349,19 @@ std::vector<HelpPrompt> CarouselComponent::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts;
 
-	if (mType == VERTICAL || mType == VERTICAL_WHEEL)
+	if (mType == CarouselType::VERTICAL || mType == CarouselType::VERTICAL_WHEEL)
 		prompts.push_back(HelpPrompt("up/down", _("CHOOSE")));
 	else
 		prompts.push_back(HelpPrompt("left/right", _("CHOOSE")));
 
 	return prompts;
+}
+
+void CarouselComponent::setDefaultBackground(unsigned int color, unsigned int colorEnd, bool gradientHorizontal)
+{
+	mColor = color;
+	mColorEnd = colorEnd;
+	mColorGradientHorizontal = gradientHorizontal;
 }
 
 //  Render system carousel
@@ -360,6 +371,9 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 	
 	Renderer::setMatrix(carouselTrans);
 
+	if (mColor != 0 || mColorEnd != 0)
+		Renderer::drawRect(0.0f, 0.0f, mSize.x(), mSize.y(), mColor, mColorEnd, mColorGradientHorizontal);
+
 	// draw logos
 	Vector2f logoSpacing(0.0, 0.0); // NB: logoSpacing will include the size of the logo itself as well!
 	float xOff = 0.0;
@@ -367,7 +381,7 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 
 	switch (mType)
 	{
-		case VERTICAL_WHEEL:
+		case CarouselType::VERTICAL_WHEEL:
 			yOff = (mSize.y() - mLogoSize.y()) / 2.f - (mCamOffset * logoSpacing[1]);
 			if (mLogoAlignment == ALIGN_LEFT)
 				xOff = mLogoSize.x() / 10.f;
@@ -376,7 +390,7 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 			else
 				xOff = (mSize.x() - mLogoSize.x()) / 2.f;
 			break;
-		case VERTICAL:
+		case CarouselType::VERTICAL:
 			logoSpacing[1] = ((mSize.y() - (mLogoSize.y() * mMaxLogoCount)) / (mMaxLogoCount)) + mLogoSize.y();
 			yOff = (mSize.y() - mLogoSize.y()) / 2.f - (mCamOffset * logoSpacing[1]);
 
@@ -387,7 +401,7 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 			else
 				xOff = (mSize.x() - mLogoSize.x()) / 2;
 			break;
-		case HORIZONTAL_WHEEL:
+		case CarouselType::HORIZONTAL_WHEEL:
 			xOff = (mSize.x() - mLogoSize.x()) / 2 - (mCamOffset * logoSpacing[1]);
 			if (mLogoAlignment == ALIGN_TOP)
 				yOff = mLogoSize.y() / 10;
@@ -396,7 +410,7 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 			else
 				yOff = (mSize.y() - mLogoSize.y()) / 2;
 			break;
-		case HORIZONTAL:
+		case CarouselType::HORIZONTAL:
 		default:
 			logoSpacing[0] = ((mSize.x() - (mLogoSize.x() * mMaxLogoCount)) / (mMaxLogoCount)) + mLogoSize.x();
 			xOff = (mSize.x() - mLogoSize.x()) / 2.f - (mCamOffset * logoSpacing[0]);
@@ -411,10 +425,10 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 	}
 
 	if (mLogoPos.x() >= 0)
-		xOff = mLogoPos.x() - (mType == HORIZONTAL ? (mCamOffset * logoSpacing[0]) : 0);
+		xOff = mLogoPos.x() - (mType == CarouselType::HORIZONTAL ? (mCamOffset * logoSpacing[0]) : 0);
 
 	if (mLogoPos.y() >= 0)
-		yOff = mLogoPos.y() - (mType == VERTICAL ? (mCamOffset * logoSpacing[1]) : 0);
+		yOff = mLogoPos.y() - (mType == CarouselType::VERTICAL ? (mCamOffset * logoSpacing[1]) : 0);
 
 	int center = (int)(mCamOffset);
 	int logoCount = Math::min(mMaxLogoCount, (int)mEntries.size());
@@ -438,7 +452,7 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 
 		Transform4x4f logoTrans = carouselTrans;
 
-		if (mType == HORIZONTAL && mLogoScale != 1.0f && mScaledSpacing != 0.0f)
+		if (mType == CarouselType::HORIZONTAL && mLogoScale != 1.0f && mScaledSpacing != 0.0f)
 		{
 			auto logoDiffX = ((logoSpacing[0] * mLogoScale) - logoSpacing[0]) / 2.0f * mScaledSpacing;
 
@@ -466,7 +480,7 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 		ensureLogo(mEntries.at(index));
 
 		const std::shared_ptr<GuiComponent> &comp = mEntries.at(index).data.logo;
-		if (mType == VERTICAL_WHEEL || mType == HORIZONTAL_WHEEL) 
+		if (mType == CarouselType::VERTICAL_WHEEL || mType == CarouselType::HORIZONTAL_WHEEL)
 		{
 			comp->setRotationDegrees(mLogoRotation * distance);
 			comp->setRotationOrigin(mLogoRotationOrigin);
@@ -501,23 +515,27 @@ void CarouselComponent::renderCarousel(const Transform4x4f& trans)
 
 void CarouselComponent::getCarouselFromTheme(const ThemeData::ThemeElement* elem)
 {
+	Vector2f size = mThemeViewName == "gamecarousel" ? 
+		mSize :
+		Vector2f(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+
 	if (elem->has("type"))
 	{
 		if (!(elem->get<std::string>("type").compare("vertical")))
-			mType = VERTICAL;
+			mType = CarouselType::VERTICAL;
 		else if (!(elem->get<std::string>("type").compare("vertical_wheel")))
-			mType = VERTICAL_WHEEL;
+			mType = CarouselType::VERTICAL_WHEEL;
 		else if (!(elem->get<std::string>("type").compare("horizontal_wheel")))
-			mType = HORIZONTAL_WHEEL;
+			mType = CarouselType::HORIZONTAL_WHEEL;
 		else
-			mType = HORIZONTAL;
+			mType = CarouselType::HORIZONTAL;
 	}
 	if (elem->has("logoScale"))
 		mLogoScale = elem->get<float>("logoScale");
 	if (elem->has("logoSize"))
-		mLogoSize = elem->get<Vector2f>("logoSize") * mSize;
+		mLogoSize = elem->get<Vector2f>("logoSize") * size;
 	if (elem->has("logoPos"))
-		mLogoPos = elem->get<Vector2f>("logoPos") * mSize;
+		mLogoPos = elem->get<Vector2f>("logoPos") * size;
 	if (elem->has("maxLogoCount"))
 		mMaxLogoCount = (int)Math::round(elem->get<float>("maxLogoCount"));
 	if (elem->has("logoRotation"))
@@ -538,6 +556,13 @@ void CarouselComponent::getCarouselFromTheme(const ThemeData::ThemeElement* elem
 			mLogoAlignment = ALIGN_CENTER;
 	}
 
+	if (elem->has("color"))
+		mColor = mColorEnd = elem->get<unsigned int>("color");
+	if (elem->has("colorEnd"))
+		mColorEnd = elem->get<unsigned int>("colorEnd");
+	if (elem->has("gradientType"))
+		mColorGradientHorizontal = elem->get<std::string>("gradientType").compare("horizontal");
+
 	if (elem->has("scrollSound"))
 		mScrollSound = elem->get<std::string>("scrollSound");
 
@@ -557,29 +582,26 @@ void CarouselComponent::getCarouselFromTheme(const ThemeData::ThemeElement* elem
 	{
 		auto direction = elem->get<std::string>("imageSource");
 		if (direction == "text")
-			mImageSource = TEXT;
+			mImageSource = CarouselImageSource::TEXT;
 		else if (direction == "image")
-			mImageSource = IMAGE;
+			mImageSource = CarouselImageSource::IMAGE;
 		else if (direction == "marquee")
-			mImageSource = MARQUEE;
+			mImageSource = CarouselImageSource::MARQUEE;
 		else if (direction == "fanart")
-			mImageSource = FANART;
+			mImageSource = CarouselImageSource::FANART;
 		else if (direction == "titleshot")
-			mImageSource = TITLESHOT;
+			mImageSource = CarouselImageSource::TITLESHOT;
 		else if (direction == "boxart")
-			mImageSource = BOXART;
+			mImageSource = CarouselImageSource::BOXART;
 		else if (direction == "cartridge")
-			mImageSource = CARTRIDGE;
+			mImageSource = CarouselImageSource::CARTRIDGE;
 		else if (direction == "boxback")
-			mImageSource = BOXBACK;
+			mImageSource = CarouselImageSource::BOXBACK;
 		else if (direction == "mix")
-			mImageSource = MIX;
+			mImageSource = CarouselImageSource::MIX;
 		else
-			mImageSource = THUMBNAIL;
+			mImageSource = CarouselImageSource::THUMBNAIL;
 	}
-	else
-		mImageSource = THUMBNAIL;
-
 }
 
 void CarouselComponent::onShow()
@@ -659,7 +681,7 @@ void CarouselComponent::topWindow(bool isTop)
 	mDisable = !isTop;
 }
 
-FileData* CarouselComponent::getActiveFileData()
+IBindable* CarouselComponent::getActiveObject()
 {
 	if (mCursor < 0 || mCursor >= mEntries.size())
 		return nullptr;
@@ -667,7 +689,7 @@ FileData* CarouselComponent::getActiveFileData()
 	return mEntries[mCursor].object;
 }
 
-void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entry& entry)
+void CarouselComponent::ensureLogo(IList<CarouselComponentData, IBindable*>::Entry& entry)
 {
 	if (entry.data.logo != nullptr)
 		return;
@@ -690,34 +712,36 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 
 	if (!entry.data.logo)
 	{
-		std::string marqueePath;
+		std::string mediaName = "marquee";
 
-		if (mImageSource == TITLESHOT && !entry.object->getMetadata(MetaDataId::TitleShot).empty())
-			marqueePath = entry.object->getMetadata(MetaDataId::TitleShot);
-		else if (mImageSource == BOXART && !entry.object->getMetadata(MetaDataId::BoxArt).empty())
-			marqueePath = entry.object->getMetadata(MetaDataId::BoxArt);
-		else if (mImageSource == MARQUEE && !entry.object->getMarqueePath().empty())
-			marqueePath = entry.object->getMarqueePath();
-		else if ((mImageSource == THUMBNAIL || mImageSource == BOXART) && !entry.object->getThumbnailPath().empty())
-			marqueePath = entry.object->getThumbnailPath();
-		else if ((mImageSource == IMAGE || mImageSource == TITLESHOT) && !entry.object->getImagePath().empty())
-			marqueePath = entry.object->getImagePath();
-		else if (mImageSource == FANART && !entry.object->getMetadata(MetaDataId::FanArt).empty())
-			marqueePath = entry.object->getMetadata(MetaDataId::FanArt);
-		else if (mImageSource == CARTRIDGE && !entry.object->getMetadata(MetaDataId::Cartridge).empty())
-			marqueePath = entry.object->getMetadata(MetaDataId::Cartridge);
-		else if (mImageSource == MIX && !entry.object->getMetadata(MetaDataId::Mix).empty())
-			marqueePath = entry.object->getMetadata(MetaDataId::Mix);
-		else
-			marqueePath = entry.object->getMarqueePath();
+		switch (mImageSource)
+		{
+		case CarouselImageSource::IMAGE:     mediaName = "image";     break;
+		case CarouselImageSource::THUMBNAIL: mediaName = "thumbnail"; break;
+		case CarouselImageSource::TITLESHOT: mediaName = "titleshot"; break;
+		case CarouselImageSource::BOXART:    mediaName = "boxart";    break;
+		case CarouselImageSource::BOXBACK:   mediaName = "boxback";   break;
+		case CarouselImageSource::MARQUEE:   mediaName = "marquee";   break;
+		case CarouselImageSource::FANART:    mediaName = "fanart";    break;
+		case CarouselImageSource::CARTRIDGE: mediaName = "cartridge"; break;
+		case CarouselImageSource::MIX:       mediaName = "mix";       break;
+		}
 
-		if (mImageSource != TEXT && Utils::FileSystem::exists(marqueePath))
+		std::string marqueePath = entry.object->getProperty(mediaName).toString();
+
+		if (mImageSource != CarouselImageSource::TEXT && !marqueePath.empty() && Utils::FileSystem::exists(marqueePath))
 		{
 			ImageComponent* logo = new ImageComponent(mWindow, false, true);
 			logo->setMaxSize(mLogoSize * mLogoScale);
-			logo->setIsLinear(true);
+
+			if (mImageSource == CarouselImageSource::IMAGE) // If it's of type image, it's probably the systemview
+				logo->setIsLinear(true);
+
 			logo->applyTheme(mTheme, mThemeViewName, mThemeLogoName, ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE); //  ThemeFlags::PATH | 
-			logo->setImage(marqueePath, false, MaxSizeInfo(mLogoSize * mLogoScale));
+			logo->setImage(marqueePath, false, MaxSizeInfo(mLogoSize * mLogoScale), false);
+
+			if (mImageSource == CarouselImageSource::IMAGE && mSize.x() != mLogoSize.x() && mSize.y() != mLogoSize.y())
+				logo->setRotateByTargetSize(true);
 
 			entry.data.logo = std::shared_ptr<GuiComponent>(logo);
 		}
@@ -728,7 +752,7 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 			text->setSize(mLogoSize * mLogoScale);
 			text->applyTheme(mTheme, mThemeViewName, mThemeLogoTextName, ThemeFlags::FONT_PATH | ThemeFlags::FONT_SIZE | ThemeFlags::COLOR | ThemeFlags::FORCE_UPPERCASE | ThemeFlags::LINE_SPACING | ThemeFlags::TEXT);
 
-			if (mType == VERTICAL || mType == VERTICAL_WHEEL)
+			if (mType == CarouselType::VERTICAL || mType == CarouselType::VERTICAL_WHEEL)
 			{
 				text->setHorizontalAlignment(mLogoAlignment);
 				text->setVerticalAlignment(ALIGN_CENTER);
@@ -745,7 +769,7 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 
 	entry.data.logo->updateBindings(entry.object);
 
-	if (mType == VERTICAL || mType == VERTICAL_WHEEL)
+	if (mType == CarouselType::VERTICAL || mType == CarouselType::VERTICAL_WHEEL)
 	{
 		if (mLogoAlignment == ALIGN_LEFT)
 			entry.data.logo->setOrigin(0, 0.5);
@@ -782,14 +806,17 @@ void CarouselComponent::ensureLogo(IList<CarouselComponentData, FileData*>::Entr
 		entry.data.logo->deselectStoryboard();
 }
 
-void CarouselComponent::add(const std::string& name, FileData* obj)
+void CarouselComponent::add(const std::string& name, IBindable* obj, bool preloadLogo)
 {
-	typename IList<CarouselComponentData, FileData*>::Entry entry;
+	typename IList<CarouselComponentData, IBindable*>::Entry entry;
 	entry.name = name;
 	entry.object = obj;	
 	entry.data.logo = nullptr;
 
-	static_cast<IList<CarouselComponentData, FileData*>*>(this)->add(entry);
+	static_cast<IList<CarouselComponentData, IBindable*>*>(this)->add(entry);
+
+	if (preloadLogo)
+		ensureLogo(mEntries.at(mEntries.size() - 1));
 }
 
 void CarouselComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
@@ -797,9 +824,9 @@ void CarouselComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 	mTheme = theme;
 	mThemeViewName = view;
 
-	IList<CarouselComponentData, FileData*>::applyTheme(theme, view, element, properties);
+	IList<CarouselComponentData, IBindable*>::applyTheme(theme, view, element, properties);
 
-	const ThemeData::ThemeElement* carouselElem = theme->getElement(view, mThemeElementName, getThemeTypeName());
+	const ThemeData::ThemeElement* carouselElem = theme->getElement(view, element, getThemeTypeName());
 	if (carouselElem)
 		getCarouselFromTheme(carouselElem);
 }
@@ -848,7 +875,7 @@ void CarouselComponent::onMouseMove(int x, int y)
 			if (mMaxLogoCount > 1)
 				speed = mSize.x() / mMaxLogoCount;
 
-			if (mType == HORIZONTAL_WHEEL)
+			if (mType == CarouselType::HORIZONTAL_WHEEL)
 				speed *= 2;
 
 			mCamOffset += (mPressedPoint.x() - x) / speed;
@@ -859,7 +886,7 @@ void CarouselComponent::onMouseMove(int x, int y)
 			if (mMaxLogoCount > 1)
 				speed = mSize.y() / mMaxLogoCount;
 
-			if (mType == VERTICAL_WHEEL)
+			if (mType == CarouselType::VERTICAL_WHEEL)
 				speed *= 2;
 
 			mCamOffset += (mPressedPoint.y() - y) / speed;
@@ -898,10 +925,25 @@ void CarouselComponent::onMouseMove(int x, int y)
 	}
 }
 
-void CarouselComponent::onMouseWheel(int delta)
+bool CarouselComponent::onMouseWheel(int delta)
 {
 	listInput(-delta);
 	mScrollVelocity = 0;
+	return true;
+}
+
+
+void CarouselComponent::moveSelectionBy(int count)
+{
+	listInput(count);
+}
+
+std::shared_ptr<GuiComponent> CarouselComponent::getLogo(int index)
+{
+	if (index >= 0 && index < mEntries.size())
+		return mEntries.at(index).data.logo;
+
+	return nullptr;
 }
 
 

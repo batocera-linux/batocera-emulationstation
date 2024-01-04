@@ -211,7 +211,7 @@ public:
 	virtual void	onMouseEnter();
 	virtual void	onPaddingChanged();
 	virtual void	onMouseMove(int x, int y);
-	virtual void	onMouseWheel(int delta);
+	virtual bool	onMouseWheel(int delta);
 	virtual bool	onMouseClick(int button, bool pressed, int x, int y);
 	virtual bool	onAction(const std::string& action);
 

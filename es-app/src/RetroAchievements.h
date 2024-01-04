@@ -59,7 +59,7 @@ struct GameInfoAndUserProgress
 	std::string UserCompletion;
 	std::string UserCompletionHardcore;
 
-	std::string getImageUrl(const std::string image = "");
+	std::string getImageUrl(const std::string& image = "");
 };
 
 
@@ -167,6 +167,14 @@ struct UserSummary
 	std::string Status;
 };
 
+struct UserRankAndScore
+{
+	int Score;
+	int SoftcoreScore;
+	std::string Rank;
+	int TotalRanked;
+};
+
 // toRetroAchivementInfo
 struct RetroAchievementGame
 {
@@ -202,16 +210,18 @@ struct RetroAchievementInfo
 class RetroAchievements
 {
 public:
-	static std::string				getApiUrl(const std::string method, const std::string parameters);
-	static UserSummary				getUserSummary(const std::string userName = "", int gameCount = 100);
-	static GameInfoAndUserProgress	getGameInfoAndUserProgress(int gameId, const std::string userName = "");
+	static std::string				getApiUrl(const std::string& method, const std::string& parameters);
+	static UserSummary				getUserSummary(const std::string& userName = "", int gameCount = 100);
+	static GameInfoAndUserProgress	getGameInfoAndUserProgress(int gameId, const std::string& userName = "");
+	static UserRankAndScore         getUserRankAndScore(const std::string& userName);
+
 	static RetroAchievementInfo		toRetroAchivementInfo(UserSummary& ret);
 
 	static std::map<std::string, std::string>	getCheevosHashes();
 
-	static std::string				getCheevosHash(SystemData* pSystem, const std::string fileName);
+	static std::string				getCheevosHash(SystemData* pSystem, const std::string& fileName);
 	static bool						testAccount(const std::string& username, const std::string& password, std::string& tokenOrError);
 
 private:
-	static std::string				getCheevosHashFromFile(int consoleId, const std::string fileName);
+	static std::string				getCheevosHashFromFile(int consoleId, const std::string& fileName);
 };
