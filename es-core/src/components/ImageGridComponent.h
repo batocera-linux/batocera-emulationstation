@@ -121,7 +121,7 @@ public:
 
 	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
 	virtual void onMouseMove(int x, int y) override;
-	virtual void onMouseWheel(int delta) override;
+	virtual bool onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
 	Vector3f getCameraOffset() 
@@ -1415,7 +1415,7 @@ bool ImageGridComponent<T>::hitTest(int x, int y, Transform4x4f& parentTransform
 }
 
 template<typename T>
-void ImageGridComponent<T>::onMouseWheel(int delta)
+bool ImageGridComponent<T>::onMouseWheel(int delta)
 {
 	float dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
 
@@ -1446,6 +1446,8 @@ void ImageGridComponent<T>::onMouseWheel(int delta)
 		mCursor = newCursor;
 		onCursorChanged(CURSOR_STOPPED);
 	}
+
+	return true;
 }
 
 

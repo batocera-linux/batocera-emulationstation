@@ -218,3 +218,8 @@ void BasicGameListView::onLongMouseClick(GuiComponent* component)
 	else
 		showSelectedGameOptions();
 }
+
+bool BasicGameListView::onMouseWheel(int delta)
+{
+	return mList.onMouseWheel(delta);
+}

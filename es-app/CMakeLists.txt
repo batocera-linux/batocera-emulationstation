@@ -29,11 +29,8 @@ set(ES_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateConfigFile.h    
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.h
 
-    # GuiComponents
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h    
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextListComponent.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.h
+    # GuiComponents    
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.h    
 
     # Guis    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.h
@@ -136,10 +133,8 @@ set(ES_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateConfigFile.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.cpp	
 
-    # GuiComponents
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp    
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.cpp
+    # GuiComponents    
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.cpp	
 
     # Guis    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.cpp

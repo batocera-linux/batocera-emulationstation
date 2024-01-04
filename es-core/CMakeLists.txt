@@ -84,6 +84,8 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollbarComponent.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentTab.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/WebImageComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextListComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.h
 
 	# Guis
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.h
@@ -213,6 +215,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/MultiLineMenuEntry.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentTab.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/WebImageComponent.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.cpp
 
 	# Guis
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.cpp

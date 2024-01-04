@@ -118,7 +118,7 @@ public:
 
 	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
 	virtual void onMouseMove(int x, int y) override;
-	virtual void onMouseWheel(int delta) override;
+	virtual bool onMouseWheel(int delta) override;
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 
 	Delegate<ILongMouseClickEvent> longMouseClick;
@@ -914,12 +914,13 @@ void TextListComponent<T>::onMouseMove(int x, int y)
 }
 
 template <typename T>
-void TextListComponent<T>::onMouseWheel(int delta)
+bool TextListComponent<T>::onMouseWheel(int delta)
 {
 	listInput(-delta);
 	mScrollVelocity = 0;
 	mTimeHoldingButton = -1;
 	mHotRow = -1;
+	return true;
 }
 
 template<typename T>
