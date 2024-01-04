@@ -17,7 +17,7 @@ def xml2systemsArrays(path):
     return res
 
 def checkSystemGames(system, games):
-    hasError = False
+    success = True
     for x in range(len(games)): # for each game, we check it is not a part of the next ones
         for y in range(x+1, len(games)):
             if games[x] in games[y]:
@@ -25,8 +25,8 @@ def checkSystemGames(system, games):
                     print("system {} failed : duplicated game {}".format(system, games[x]))
                 else:
                     print("system {} failed : game {} should be before game {} in the list".format(system, games[y], games[x]))
-                hasError = True
-    return hasError
+                success = False
+    return success
 
 hasError = False
 
