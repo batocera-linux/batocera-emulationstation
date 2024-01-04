@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-13 14:22+0100\n"
+"PO-Revision-Date: 2024-01-02 18:19+0100\n"
 "Last-Translator: pajarorrojo\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -409,7 +409,7 @@ msgid "ENCORE MODE"
 msgstr "MODO BIS"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "Puedes hacer de nuevo los logros que ya hayas desbloqueado"
+msgstr "Puedes hacer de nuevo los logros que ya hayas desbloqueado."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "CAPTURA DE PANTALLA AUTOMÁTICA"
@@ -598,11 +598,11 @@ msgstr "ESPERA POR FAVOR"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d de %d puntos (normal)"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d de %d puntos (hardcore)"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1395,10 +1395,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JUEGO AÚN NO DISPONE DE TROFEOS"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Logros (Normal)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Logros (Hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1774,7 +1774,7 @@ msgid "VIDEO MODE"
 msgstr "MODO DE VÍDEO"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr "Ajusta la resolución de pantalla en emulationstation."
+msgstr "Ajusta la resolución de pantalla de la interfaz (emulationstation)."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
@@ -2448,10 +2448,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "MOSTRAR ICONO DE TROFEOS"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "MOSTRAR ICONO DE PISTOLA"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "MOSTRAR ICONO DE VOLANTE"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOMBRES DE ARCHIVO EN LAS LISTAS"
@@ -2848,7 +2848,7 @@ msgstr "FAVORITO"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Volver a %s"
 
 msgid "No Entries Found"
 msgstr "No se han encontrado entradas"
@@ -3260,10 +3260,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MANTÉN PULSADO CUALQUIER BOTÓN DEL MANDO PARA CONFIGURARLO."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr "PULSA ESC PARA CANCELAR"
+msgstr "PULSA ESC PARA CANCELAR."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "PULSA ESC O HOTKEY PARA CANCELAR"
+msgstr "PULSA ESC O HOTKEY PARA CANCELAR."
 
 msgid "DISCARD CHANGES"
 msgstr "DESCARTAR CAMBIOS"
@@ -3326,8 +3326,8 @@ msgstr "%d seg"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hace %d año"
+msgstr[1] "hace %d años"
 
 #, c-format
 msgid "%d day ago"

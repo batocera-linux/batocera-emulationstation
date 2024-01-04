@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2022-01-16 20:38+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2024-01-04 15:02+0100\n"
+"Last-Translator: A.H.\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.4\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPPDATERING TILLGÄNGLIG"
@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "lightgun-spel"
 
 msgid "wheel games"
-msgstr ""
+msgstr "Rattspel"
 
 msgid "collections"
 msgstr "samlingar"
@@ -498,10 +498,10 @@ msgid "New Collection Name"
 msgstr "Namn på ny samling"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "SKRIV IN NAMN"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "SKAPA FRÅN TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "SKAPA NY REDIGERBAR SAMLING"
@@ -546,7 +546,7 @@ msgid "GROUP CUSTOM COLLECTIONS"
 msgstr ""
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "OTEMAT"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "VISA SYSTEMNAMN I SAMLINGAR"
@@ -555,7 +555,7 @@ msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
 msgstr "VISA SPEL FRÅN DOLDA SYSTEM I SAMLINGAR"
 
 msgid "SHOW EMPTY SYSTEMS"
-msgstr ""
+msgstr "VISA TOMMA SYSTEM"
 
 msgid "UPDATE GAMELISTS"
 msgstr "UPPDATERA SPELLISTAN"
@@ -606,7 +606,7 @@ msgid "Softcore points"
 msgstr ""
 
 msgid "Points (hardcore)"
-msgstr ""
+msgstr "Poäng (hardcore)"
 
 msgid "Rank"
 msgstr "Rank"
@@ -799,7 +799,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "PARA EN BLUETOOTH-ENHET"
 
 msgid "PAIR"
-msgstr ""
+msgstr "PARA"
 
 msgid "FILE BROWSER"
 msgstr "FILHANTERARE"
@@ -850,22 +850,22 @@ msgid ""
 msgstr ""
 
 msgid "SINDEN GUN SETTINGS"
-msgstr ""
+msgstr "SINDENPISTOLINSTÄLLNINGAR"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
+msgstr "WIIMOTEPISTOLINSTÄLLNINGAR"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr ""
+msgstr "STEAMDECK-MUS/PISTOLINSTÄLLNINGAR"
 
 msgid "BLUETOOTH"
-msgstr ""
+msgstr "BLÅTAND"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
+msgstr "PARA BLÅTANDSKONTROLLER AUTOMATISKT"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
+msgstr "PARA EN BLÅTANDSENHET MANUELLT"
 
 msgid "DISPLAY OPTIONS"
 msgstr "VISNINGSALTERNATIV"
@@ -889,13 +889,13 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "THIN"
-msgstr ""
+msgstr "TUNN"
 
 msgid "MEDIUM"
-msgstr ""
+msgstr "MEDEL"
 
 msgid "BIG"
-msgstr ""
+msgstr "STOR"
 
 msgid "BORDER MODE"
 msgstr ""
@@ -907,22 +907,22 @@ msgid "IN GAME ONLY"
 msgstr ""
 
 msgid "HIDDEN"
-msgstr ""
+msgstr "DOLD"
 
 msgid "BORDER COLOR"
 msgstr ""
 
 msgid "WHITE"
-msgstr ""
+msgstr "VIT"
 
 msgid "RED"
-msgstr ""
+msgstr "RÖD"
 
 msgid "GREEN"
-msgstr ""
+msgstr "GRÖN"
 
 msgid "BLUE"
-msgstr ""
+msgstr "BLÅ"
 
 msgid "CAMERA CONTRAST"
 msgstr ""
@@ -967,34 +967,34 @@ msgid "Other (-9)"
 msgstr ""
 
 msgid "RECOIL"
-msgstr ""
+msgstr "REKYL"
 
 msgid "DISABLED"
 msgstr "INAKTIVERAD"
 
 msgid "GUN"
-msgstr ""
+msgstr "PISTOL"
 
 msgid "MACHINE GUN"
-msgstr ""
+msgstr "MASKINGEVÄR"
 
 msgid "QUIET GUN"
-msgstr ""
+msgstr "TYST PISTOL"
 
 msgid "QUIET MACHINE GUN"
-msgstr ""
+msgstr "TYST MASKINGEVÄR"
 
 msgid "MODE"
-msgstr ""
+msgstr "LÄGE"
 
 msgid "JOYSTICK"
-msgstr ""
+msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr ""
+msgstr "ENDAST MUS"
 
 msgid "HAND"
-msgstr ""
+msgstr "HAND"
 
 msgid "LEFT"
 msgstr "VÄNSTER"
@@ -1360,13 +1360,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VÄLJ TEMAN ATT INSTALLERA/TA BORT"
 
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 msgid "Installed"
-msgstr ""
+msgstr "Installerade"
 
 msgid "Available"
-msgstr ""
+msgstr "Tillgängliga"
 
 msgid "CURRENT THEME"
 msgstr "AKTUELLT TEMA"
@@ -1457,37 +1457,37 @@ msgid "OVERWRITE MEDIAS"
 msgstr ""
 
 msgid "SCRAPE FOR"
-msgstr ""
+msgstr "SKRAPA EFTER"
 
 msgid "SHORT NAME"
-msgstr ""
+msgstr "KORT NAMN"
 
 msgid "COMMUNITY RATING"
-msgstr ""
+msgstr "ANVÄNDARBETYG"
 
 msgid "VIDEO"
-msgstr ""
+msgstr "VIDEO"
 
 msgid "FANART"
 msgstr ""
 
 msgid "BEZEL (16:9)"
-msgstr ""
+msgstr "INFATTNING (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr ""
+msgstr "FODRALBAKSIDA"
 
 msgid "MAP"
-msgstr ""
+msgstr "KARTA"
 
 msgid "MANUAL"
-msgstr ""
+msgstr "MANUAL"
 
 msgid "PADTOKEY SETTINGS"
 msgstr ""
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "KONTO"
 
 msgid "SCRAPER"
 msgstr "SKRAPNING"
@@ -1678,10 +1678,10 @@ msgid "ANY EXTERNAL"
 msgstr ""
 
 msgid "maximum 1920x1080"
-msgstr ""
+msgstr "maximalt 1920x1080"
 
 msgid "maximum 640x480"
-msgstr ""
+msgstr "maximalt 640x480"
 
 msgid "MAIN MENU"
 msgstr "HUVUDMENY"
@@ -1693,7 +1693,7 @@ msgid "GAME SETTINGS"
 msgstr "SPELINSTÄLLNINGAR"
 
 msgid "USER INTERFACE SETTINGS"
-msgstr ""
+msgstr "ANVÄNDARGRÄNSSNITTINSTÄLLNINGAR"
 
 msgid "SOUND SETTINGS"
 msgstr "LJUDINSTÄLLNINGAR"
@@ -1714,7 +1714,7 @@ msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
 
 msgid "UNLOCK USER INTERFACE MODE"
-msgstr ""
+msgstr "LÅS UPP ANVÄNDARGRÄNSNITTSSLÄGE"
 
 msgid "QUIT"
 msgstr "AVSLUTA"
@@ -1729,7 +1729,7 @@ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr ""
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr ""
+msgstr "SKRIV IN KODEN FÖR ATT LÅSA UPP"
 
 msgid "SERVICES"
 msgstr ""
@@ -1862,7 +1862,7 @@ msgid ""
 msgstr ""
 
 msgid "USER INTERFACE"
-msgstr ""
+msgstr "ANVÄNDARGRÄNSNITT"
 
 msgid "CAROUSEL TRANSITIONS"
 msgstr "KARUSELLÖVERGÅNGAR"
@@ -1972,7 +1972,7 @@ msgid "LANGUAGE"
 msgstr "SPRÅK"
 
 msgid "LANGUAGE (REGION)"
-msgstr ""
+msgstr "SPRÅK (REGION)"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "VÄLJ DIN TIDSZON"
@@ -2194,13 +2194,13 @@ msgid "DECORATION SET"
 msgstr "DEKORATIONSUPPSÄTTNING"
 
 msgid "Current setting"
-msgstr ""
+msgstr "Nuvarande inställning"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "KONTON"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "BIOS-INSTÄLLNINGAR"
 
 msgid "SAVESTATES"
 msgstr "SAVESTATES"
@@ -2273,7 +2273,7 @@ msgid "SHADER SET"
 msgstr "SHADERS-UPPSÄTTNING"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "VIDEOFILTER"
 
 msgid "DECORATIONS"
 msgstr "DEKORATIONER"
@@ -2411,10 +2411,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr ""
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "VISA PISTOLIKON"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "VISA HJULIKON"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VISA FILNAMN ISTÄLLET"
@@ -2465,7 +2465,7 @@ msgid "ICON AND TEXT"
 msgstr "IKON OCH TEXT"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "VISA MAPPAR FÖRST"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORERA LEDANDE ARTIKLAR VID SORTERING"
@@ -2555,7 +2555,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
 
 msgid "VIEW USER MANUAL"
-msgstr ""
+msgstr "VISA ANVÄNDARMANUAL"
 
 msgid "DISABLE PLANE MODE"
 msgstr ""
@@ -3014,10 +3014,10 @@ msgid "VERTICAL"
 msgstr "VERTIKALA"
 
 msgid "LIGHTGUN"
-msgstr ""
+msgstr "LJUSPISTOL"
 
 msgid "STEERING WHEEL"
-msgstr ""
+msgstr "RATT"
 
 msgid "HAVING MEDIAS"
 msgstr ""
@@ -3038,6 +3038,8 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+"KALIBRERAR PISTOL\n"
+"Skjut på mål för att kalibera"
 
 #, c-format
 msgid "%s connected"
@@ -3061,19 +3063,19 @@ msgstr "BLANKSTEG"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr ""
+msgstr "NORR"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr ""
+msgstr "SYD"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr ""
+msgstr "ÖST"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr ""
+msgstr "VÄST"
 
 msgctxt "joystick"
 msgid "START"
@@ -3219,7 +3221,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HÅLL EN KNAPP NEDTRYCKT PÅ DIN ENHET FÖR ATT KONFIGURERA DEN."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "TRYCK ESC FÖR ATT AVBRYTA"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
 msgstr ""
@@ -3268,7 +3270,7 @@ msgstr "ARBETAR..."
 
 #, c-format
 msgid "%d d"
-msgstr ""
+msgstr "%d dagar"
 
 #, c-format
 msgid "%d h"
@@ -3276,17 +3278,17 @@ msgstr "%d h"
 
 #, c-format
 msgid "%d mn"
-msgstr ""
+msgstr "%d min"
 
 #, c-format
 msgid "%d sec"
-msgstr ""
+msgstr "%d sek"
 
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d år sedan"
+msgstr[1] "%d år sedan"
 
 #, c-format
 msgid "%d day ago"
