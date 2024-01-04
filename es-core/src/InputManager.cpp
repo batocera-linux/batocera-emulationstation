@@ -618,7 +618,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 				addedDeviceName = SDL_JoystickNameForIndex(ev.jdevice.which);
 
 #ifdef HAVE_UDEV
-#if BATOCERA
+#ifdef SDL_JoystickDevicePathById
                         SDL_Joystick* joy = SDL_JoystickOpen(ev.jdevice.which);
 		        if (joy != nullptr) {
                           SDL_JoystickID joyId = SDL_JoystickInstanceID(joy);
