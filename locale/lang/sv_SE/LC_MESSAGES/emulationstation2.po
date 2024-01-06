@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-01-04 21:21+0100\n"
+"PO-Revision-Date: 2024-01-06 13:58+0100\n"
 "Last-Translator: A.H.\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -543,7 +543,7 @@ msgid "START ON GAMELIST"
 msgstr "STARTA I SPELLISTAN"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "GRUPPERA ANPASSADE SAMLINGAR"
 
 msgid "UNTHEMED"
 msgstr "OTEMAT"
@@ -592,18 +592,18 @@ msgstr "VÄNLIGEN VÄNTA"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d av %d softcorepoäng"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d av %d hardcorepoäng"
 
 #, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d av %d)"
 
 msgid "Softcore points"
-msgstr ""
+msgstr "Softcorepoäng"
 
 msgid "Points (hardcore)"
 msgstr "Poäng (hardcore)"
@@ -678,7 +678,7 @@ msgid "DYNAMIC COLLECTION"
 msgstr ""
 
 msgid "CUSTOM COLLECTION"
-msgstr ""
+msgstr "ANPASSAD SAMLING"
 
 msgid "DELETE COLLECTION"
 msgstr "RADERA SAMLING"
@@ -826,14 +826,14 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLLER- & BLUETOOTH-INSTÄLLNINGAR"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr ""
+msgstr "SPELKONTROLLPRIORITET"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr ""
 
 #, c-format
 msgid "CONTROLLER #%i"
-msgstr ""
+msgstr "SPELKONTROLL #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
@@ -883,7 +883,7 @@ msgid "NOT CONNECTED"
 msgstr "INTE ANSLUTEN"
 
 msgid "BORDER SIZE"
-msgstr ""
+msgstr "RAMSTORLEK"
 
 msgid "AUTO"
 msgstr "AUTO"
@@ -898,19 +898,19 @@ msgid "BIG"
 msgstr "STOR"
 
 msgid "BORDER MODE"
-msgstr ""
+msgstr "RAMLÄGE"
 
 msgid "NORMAL"
 msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
-msgstr ""
+msgstr "ENDAST I SPEL"
 
 msgid "HIDDEN"
 msgstr "DOLD"
 
 msgid "BORDER COLOR"
-msgstr ""
+msgstr "RAMFÄRG"
 
 msgid "WHITE"
 msgstr "VIT"
@@ -925,7 +925,7 @@ msgid "BLUE"
 msgstr "BLÅ"
 
 msgid "CAMERA CONTRAST"
-msgstr ""
+msgstr "KAMERAKONTRAST"
 
 msgid "Daytime/Bright Sunlight (40)"
 msgstr "Dagtid/Starkt Solljus (40)"
@@ -1231,7 +1231,7 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "INGEN UPPDATERING TILLGÄNGLIG"
 
 msgid "INSTALL ON A NEW DISK"
-msgstr ""
+msgstr "INSTALLERA PÅ EN NY DISK"
 
 msgid "TARGET DEVICE"
 msgstr "MÅLENHET"
@@ -1381,10 +1381,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "DETTA SPEL HAR INGA PRESTATIONER ÄN"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Prestationer (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Prestationer (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -2408,7 +2408,7 @@ msgid "SHOW MANUAL ICON"
 msgstr "VISA IKON FÖR MANUAL"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "VISA RETROPRESTATIONERS IKON"
 
 msgid "SHOW GUN ICON"
 msgstr "VISA PISTOLIKON"
@@ -2471,7 +2471,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORERA LEDANDE ARTIKLAR VID SORTERING"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr ""
+msgstr "Ignorera 'The' och 'A' om det finns i början."
 
 msgid "VOLUME"
 msgstr "VOLYM"
