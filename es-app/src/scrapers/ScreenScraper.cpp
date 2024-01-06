@@ -1,3 +1,4 @@
+#include "utils/Uri.h"
 #include "scrapers/ScreenScraper.h"
 
 #include "utils/TimeUtil.h"
@@ -23,13 +24,6 @@
 using namespace PlatformIds;
 
 #if defined(SCREENSCRAPER_DEV_LOGIN)
-
-std::string ScreenScraperRequest::ensureUrl(const std::string url)
-{
-	return Utils::String::replace(
-		Utils::String::replace(url, " ", "%20") ,
-		"#screenscraperserveur#", "https://www.screenscraper.fr/");
-}
 
 /**
 	List of systems and thein IDs from
@@ -261,10 +255,14 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 		auto length = Utils::FileSystem::getFileSize(fileNameToHash);
 
 		if (length > 1024 * 1024 && !params.game->getMetadata(MetaDataId::Md5).empty()) // 1Mb
-			path += "&md5=" + params.game->getMetadata(MetaDataId::Md5);
+		{
+			path += "&md5=" + Utils::String::toUpper(params.game->getMetadata(MetaDataId::Md5));
+
+			if (!params.game->getMetadata(MetaDataId::Crc32).empty())
+				path += "&crc=" + Utils::String::toUpper(params.game->getMetadata(MetaDataId::Crc32));
+		}
 		else
 		{
-
 			if (params.game->hasContentFiles() && Utils::String::toLower(Utils::FileSystem::getExtension(fileNameToHash)) == ".m3u")
 			{
 				auto content = params.game->getContentFiles();
@@ -278,18 +276,20 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 			// Use md5 to search scrapped game
 			if (length > 0 && length <= 131072 * 1024) // 128 Mb max
 			{		
-				std::string val = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
-				if (!val.empty())
+				std::string md5 = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
+				if (!md5.empty())
 				{
-					params.game->setMetadata(MetaDataId::Md5, val);
-					path += "&md5=" + val;
+					params.game->setMetadata(MetaDataId::Md5, md5);
+					path += "&md5=" + Utils::String::toUpper(md5);
+
+					std::string crc = params.game->getMetadata(MetaDataId::Crc32);
+					if (!crc.empty())
+						path += "&crc=" + Utils::String::toUpper(params.game->getMetadata(MetaDataId::Crc32));
 				}
-				else
-					path += "&romtaille=" + std::to_string(length);
 			}
-			else
-				path += "&romtaille=" + std::to_string(length);
-		}
+		}	
+		
+		path += "&romtaille=" + std::to_string(length);
 	}
 	else
 	{
@@ -298,7 +298,7 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 
 		path = ssConfig.getGameSearchUrl(name, true);
 	}
-	
+
 	auto& platforms = params.system->getPlatformIds();
 	std::vector<unsigned short> p_ids;
 
@@ -864,6 +864,37 @@ std::string ScreenScraperRequest::ScreenScraperConfig::getUserInfoUrl() const
 
 	if (!user.empty() && !pass.empty())
 		ret = ret + "&ssid=" + HttpReq::urlEncode(user) + "&sspassword=" + HttpReq::urlEncode(pass);
+
+	return ret;
+}
+
+
+std::string ScreenScraperRequest::ensureUrl(const std::string& url)
+{
+	std::string ret = Utils::String::replace(
+		Utils::String::replace(url, " ", "%20"),
+		"#screenscraperserveur#", "https://www.screenscraper.fr/");
+
+	if (Settings::getInstance()->getBool("FastScrap"))
+	{
+		Utils::Uri uri(url);
+
+		auto gameid = uri.arguments["jeuid"];
+		auto systemeid = uri.arguments["systemeid"];
+		auto media = uri.arguments["media"];
+
+		if (!gameid.empty() && !systemeid.empty() && !media.empty())
+		{
+			auto region = Utils::String::extractString(media, "(", ")", true);
+			media = Utils::String::replace(media, region, "");
+			region = Utils::String::extractString(region, "(", ")", false);
+
+			if (media == "video" || media == "video-normalized")
+				ret = "https://www.screenscraper.fr/medias/" + systemeid + "/" + gameid + "/" + media + ".mp4";
+			else if (media != "manuel" && media != "map")
+				ret = "https://www.screenscraper.fr/image.php?gameid=" + gameid + "&media=" + media + "&hd=0&region=" + region + "&num=&version=&maxwidth=1920&maxheight=1080";
+		}
+	}
 
 	return ret;
 }
