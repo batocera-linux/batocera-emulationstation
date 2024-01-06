@@ -254,26 +254,13 @@ void GridGameListView::launch(FileData* game)
 
 void GridGameListView::remove(FileData *game)
 {
-	FolderData* parent = game->getParent();
-	if (getCursor() == game)                     // Select next element in list, or prev if none
-	{		
-		std::vector<FileData*> siblings = mGrid.getObjects();
-
-		int gamePos = getCursorIndex();
-		if ((gamePos + 1) < (int)siblings.size())
-			setCursor(siblings.at(gamePos + 1));
-		else if ((gamePos - 1) > 0)
-			setCursor(siblings.at(gamePos - 1));			
-	}
-
 	mGrid.remove(game);
-	if(mGrid.size() == 0)
-		addPlaceholder();
 
 	mRoot->removeFromVirtualFolders(game);
 	delete game;                                 // remove before repopulating (removes from parent)
 
-	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
+	if (mGrid.size() == 0)
+		addPlaceholder();
 }
 
 void GridGameListView::onFileChanged(FileData* file, FileChangeType change)

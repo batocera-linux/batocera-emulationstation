@@ -155,25 +155,12 @@ void CarouselGameListView::launch(FileData* game)
 
 void CarouselGameListView::remove(FileData *game)
 {
-	FolderData* parent = game->getParent();
-	if (getCursor() == game)                     // Select next element in list, or prev if none
-	{
-		std::vector<FileData*> siblings = getFileDataEntries();
-
-		int gamePos = getCursorIndex();
-		if ((gamePos + 1) < (int)siblings.size())
-			setCursor(siblings.at(gamePos + 1));
-		else if ((gamePos - 1) > 0)
-			setCursor(siblings.at(gamePos - 1));
-	}
-
 	mList.remove(game);
-	if(mList.size() == 0)
-		addPlaceholder();
-
 	mRoot->removeFromVirtualFolders(game);
-	delete game;                                 // remove before repopulating (removes from parent)
-	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
+	delete game;
+
+	if (mList.size() == 0)
+		addPlaceholder();
 }
 
 void CarouselGameListView::setCursorIndex(int cursor)
