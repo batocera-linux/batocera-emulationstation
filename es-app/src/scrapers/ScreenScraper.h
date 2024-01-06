@@ -80,7 +80,7 @@ public:
 
 protected:
 	bool process(HttpReq* request, std::vector<ScraperSearchResult>& results) override;
-	std::string ensureUrl(const std::string url);
+	std::string ensureUrl(const std::string& url);
 	
 	void processGame(const pugi::xml_document& xmldoc, std::vector<ScraperSearchResult>& results);
 	bool isGameRequest() { return !mRequestQueue; }

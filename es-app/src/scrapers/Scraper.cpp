@@ -14,6 +14,7 @@
 #include <thread>
 #include <SDL_timer.h>
 #include "HfsDBScraper.h"
+#include "utils/Uri.h"
 
 #define OVERQUOTA_RETRY_DELAY 15000
 #define OVERQUOTA_RETRY_COUNT 5
@@ -503,19 +504,35 @@ ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::stri
 	mOverQuotaRetryDelay = OVERQUOTA_RETRY_DELAY;
 	mOverQuotaRetryCount = OVERQUOTA_RETRY_COUNT;
 
+	HttpReqOptions options;
+	options.outputFilename = path;
+
+	if (url.find("screenscraper") != std::string::npos && url.find("/medias/") != std::string::npos)
+	{
+		auto splits = Utils::String::split(url, '/', true);
+		if (splits.size() > 1)
+			options.customHeaders.push_back("Referer: https://" + splits[1] + "/gameinfos.php?gameid=" + splits[splits.size() - 2] + "&action=onglet&zone=gameinfosmedias");
+	}
+
 	if (url.find("screenscraper") != std::string::npos && (path.find(".jpg") != std::string::npos || path.find(".png") != std::string::npos) && url.find("media=map") == std::string::npos)
 	{
-		if (maxWidth > 0 && maxHeight > 0)
-			mRequest = new HttpReq(url + "&maxwidth=" + std::to_string(maxWidth), path);
-		else if (maxWidth > 0)
-			mRequest = new HttpReq(url + "&maxwidth=" + std::to_string(maxWidth), path);
+		Utils::Uri uri(url);
+
+		if (maxWidth > 0)
+		{
+			uri.arguments.set("maxwidth", std::to_string(maxWidth));
+			uri.arguments.set("maxheight", std::to_string(maxWidth));
+		}
 		else if (maxHeight > 0)
-			mRequest = new HttpReq(url + "&maxheight=" + std::to_string(maxHeight), path);
-		else 
-			mRequest = new HttpReq(url, path);
+		{
+			uri.arguments.set("maxwidth", std::to_string(maxHeight));
+			uri.arguments.set("maxheight", std::to_string(maxHeight));
+		}
+
+		mRequest = new HttpReq(uri.toString(), &options);
 	}
 	else
-		mRequest = new HttpReq(url, path);
+		mRequest = new HttpReq(url, &options);
 }
 
 ImageDownloadHandle::~ImageDownloadHandle()
