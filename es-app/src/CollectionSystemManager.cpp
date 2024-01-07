@@ -639,7 +639,7 @@ bool CollectionSystemManager::inInCustomCollection(FileData* file, const std::st
 }
 
 // Adds or removes a game from a specific collection
-bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::string collectionName)
+bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::string& collectionName)
 {
 	if (file->getType() != GAME)
 		return false;
@@ -668,7 +668,9 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::
 		saveToGamelistRecovery(sourceFile);
 		refreshCollectionSystems(sourceFile);
 
-		// ViewController::get()->onFileChanged(sourceFile, FILE_METADATA_CHANGED);
+		auto view = ViewController::get()->getGameListView(sourceSystem, false);
+		if (view != nullptr && view->hasFileDataEntry(sourceFile))
+			view->onFileChanged(sourceFile, FILE_METADATA_CHANGED);
 	}
 	else
 	{

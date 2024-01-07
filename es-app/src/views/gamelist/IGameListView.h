@@ -44,6 +44,7 @@ public:
 
 	virtual std::vector<std::string> getEntriesLetters() = 0;
 	virtual std::vector<FileData*> getFileDataEntries() = 0;
+	bool hasFileDataEntry(FileData* file);
 
 	virtual void repopulate() = 0;
 

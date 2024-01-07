@@ -36,3 +36,14 @@ void IGameListView::setThemeName(std::string name)
 {
 	mCustomThemeName = name;
 }
+
+bool IGameListView::hasFileDataEntry(FileData* file)
+{
+	std::string path = file->getPath();
+
+	for (auto item : getFileDataEntries())
+		if (item->getPath() == path)
+			return true;
+
+	return false;
+}
