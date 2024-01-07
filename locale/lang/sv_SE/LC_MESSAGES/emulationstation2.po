@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-01-06 13:58+0100\n"
+"PO-Revision-Date: 2024-01-07 15:31+0100\n"
 "Last-Translator: A.H.\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -389,7 +389,7 @@ msgid "LEADERBOARDS"
 msgstr "TOPPLISTOR"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr ""
+msgstr "Tävla i poängställning och bästa tidstopplistor (kräver hardcore)"
 
 msgid "VERBOSE MODE"
 msgstr "MÅNGSIDIGT LÄGE"
@@ -675,7 +675,7 @@ msgid "SORT GAMES BY"
 msgstr "SORTERA SPEL EFTER"
 
 msgid "DYNAMIC COLLECTION"
-msgstr ""
+msgstr "DYNAMISK SAMLING"
 
 msgid "CUSTOM COLLECTION"
 msgstr "ANPASSAD SAMLING"
@@ -1726,7 +1726,7 @@ msgid "CHOOSE"
 msgstr "NAVIGERA"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
-msgstr ""
+msgstr "ANVÄNDARGRÄNSNITTSLÄGET ÄR NU OLÅST"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "SKRIV IN KODEN FÖR ATT LÅSA UPP"
@@ -1805,7 +1805,7 @@ msgid "Cleaning"
 msgstr "Rensar"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "ÅTERSTÄLL SPELLISTORS ANVÄNDARDATA"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
@@ -1838,7 +1838,7 @@ msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "IGNORERA DISKINNEHÅLL MED FLERA FILER (CUE/GDI/CCD/M3U)"
 
 msgid "ENABLE GAME FILTERING"
-msgstr ""
+msgstr "AKTIVERA SPELFILTRERING"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
@@ -2143,7 +2143,7 @@ msgid "ENFORCE SECURITY"
 msgstr "UPPRÄTTHÅLL SÄKERHETEN"
 
 msgid "Require a password for accessing the network share."
-msgstr ""
+msgstr "Kräv ett lösenord för tillgång till nätverksdelning."
 
 msgid "ROOT PASSWORD"
 msgstr "ROTLÖSENORD"
@@ -2230,7 +2230,7 @@ msgid "DO NOT INCREMENT"
 msgstr ""
 
 msgid "Use current slot on a new game."
-msgstr ""
+msgstr "Används nuvarande plats för ett nytt spel."
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr ""
@@ -2809,7 +2809,7 @@ msgstr "FAVORIT"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Tillbaka till %s"
 
 msgid "No Entries Found"
 msgstr "Inga poster hittades"
