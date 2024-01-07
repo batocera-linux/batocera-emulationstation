@@ -85,7 +85,7 @@ public:
 
 	std::string getValidNewCollectionName(std::string name, int index = 0);
 			
-	bool toggleGameInCollection(FileData* file, const std::string collectionName = "");
+	bool toggleGameInCollection(FileData* file, const std::string& collectionName = "");
 
 	SystemData* getSystemToView(SystemData* sys);
 	void updateCollectionFolderMetadata(SystemData* sys);
