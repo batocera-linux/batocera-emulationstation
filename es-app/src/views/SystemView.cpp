@@ -809,10 +809,10 @@ void SystemView::render(const Transform4x4f& parentTrans)
 	if (!Renderer::isVisibleOnScreen(rect))
 		return;
 
-	auto carouselZindex = mSystemInfo.getZIndex();
+	auto carouselZindex = mCarousel.getZIndex();
 	auto systemInfoZIndex = mSystemInfo.getZIndex();
 	auto minMax = std::minmax(carouselZindex, systemInfoZIndex);
-
+	
 	renderExtras(trans, INT16_MIN, minMax.first);
 
 	for (auto sb : mStaticBackgrounds)
