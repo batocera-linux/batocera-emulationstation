@@ -71,7 +71,7 @@ public:
 		std::string getUserInfoUrl() const;
 
 		// Access to the API
-		const std::string API_URL_BASE = "https://www.screenscraper.fr/api2";
+		const std::string API_URL_BASE = "https://api.screenscraper.fr/api2";
 		std::string region = "US";
 
 	} configuration;
