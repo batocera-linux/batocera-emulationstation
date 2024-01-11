@@ -803,7 +803,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 #ifndef _ENABLEEMUELEC // EmuELEC has its own error checking
 	if (exitCode >= 200 && exitCode <= 300)
 		window->pushGui(new GuiMsgBox(window, _("AN ERROR OCCURRED") + ":\r\n" + getMessageFromExitCode(exitCode), _("OK"), nullptr, GuiMsgBoxIcon::ICON_ERROR));
-
+#endif
 	return exitCode == 0;
 }
 

@@ -63,6 +63,9 @@ namespace Utils
 
 		std::string queryIPAdress();
 		std::string getArchString();
+        #ifdef _ENABLEEMUELEC
+            std::string getShOutput(const std::string& mStr); /* < emuelec */
+        #endif
 	}
 }
 

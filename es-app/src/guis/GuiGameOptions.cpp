@@ -29,7 +29,7 @@
 
 #ifdef _ENABLEEMUELEC
 #include <regex>
-#include "platform.h"
+#include "utils/Platform.h"
 #endif
 
 GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(window),
@@ -569,7 +569,7 @@ void GuiGameOptions::createMultidisc(FileData* file)
 	std::string args = "createMultidisc \""+sourceFile->getPath()+"\"";
 	args="(/usr/bin/emuelec-utils "+args+")";
 	LOG(LogInfo) << "createMultidisc:" << args;
-	std::stringstream ss(getShOutput(args));
+	std::stringstream ss(Utils::Platform::getShOutput(args));
 	std::string newFileName;
 	getline(ss, newFileName);
 

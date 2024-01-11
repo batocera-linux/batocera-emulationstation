@@ -591,7 +591,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		/* use the POWER KEY to turn off EmuELEC, specially useful for GTKING-PRO and Odroid Go Advance*/
         if(ev.key.keysym.sym == SDLK_POWER) {
 			Scripting::fireEvent("quit", "shutdown");
-			quitES(QuitMode::SHUTDOWN);
+			Utils::Platform::quitES(Utils::Platform::QuitMode::SHUTDOWN);
 			/*LOG(LogError) << "no quit?";*/
 			return false;
 		}

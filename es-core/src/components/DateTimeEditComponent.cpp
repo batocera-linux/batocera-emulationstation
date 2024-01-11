@@ -123,6 +123,7 @@ bool DateTimeEditComponent::input(InputConfig* config, Input input)
 		if (config->isMappedLike("up", input) || config->isMappedTo("pageup", input))
 			incDir = 1;
 		else if (config->isMappedLike("down", input) || config->isMappedTo("pagedown", input))
+#endif
 			incDir = -1;
 
 		if (incDir != 0)

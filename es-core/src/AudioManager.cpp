@@ -13,7 +13,7 @@
 #include "Paths.h"
 
 #ifdef _ENABLEEMUELEC
-#include "platform.h"
+#include "utils/Platform.h"
 #endif
 
 #ifdef WIN32
@@ -114,7 +114,7 @@ void AudioManager::deinit()
 
 #ifdef _ENABLEEMUELEC	
 	LOG(LogInfo) << "Attempting to close SDL AUDIO";
-	runSystemCommand("/usr/bin/emuelec-utils audio alsa", "", nullptr); 
+    Utils::Platform::ProcessStartInfo("/usr/bin/emuelec-utils audio alsa").run();	
 #endif
 
 	//completely tear down SDL audio. else SDL hogs audio resources and emulators might fail to start...
