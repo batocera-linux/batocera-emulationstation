@@ -7,8 +7,8 @@
 #include "InputManager.h"
 #include "EmulationStation.h"
 #include "SystemConf.h"
-#include "platform.h"
 #include "Sound.h"
+#include "utils/Platform.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
 #include "utils/ThreadPool.h"
@@ -83,11 +83,15 @@ ApiSystem* ApiSystem::instance = nullptr;
 ApiSystem *ApiSystem::getInstance() 
 {
 	if (ApiSystem::instance == nullptr)
+	{
 #if WIN32
 		ApiSystem::instance = new Win32ApiSystem();
 #else
 		ApiSystem::instance = new ApiSystem();
 #endif
+		
+		IExternalActivity::Instance = ApiSystem::instance;
+	}
 
 	return ApiSystem::instance;
 }
@@ -381,13 +385,13 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 bool ApiSystem::ping() 
 {
 	// ping Google, if it fails then move on, if succeeds exit loop and return "true"
-	if (!executeScript("timeout 1 ping -c 1 -t 1000 google.com"))
+	if (!executeScript("timeout 1 ping -c 1 -t 255 google.com"))
 	{
 		// ping Google DNS
-		if (!executeScript("timeout 1 ping -c 1 -t 1000 8.8.8.8"))
+		if (!executeScript("timeout 1 ping -c 1 -t 255 8.8.8.8"))
 		{
 			// ping Google secondary DNS & give 2 seconds, return this one's status
-			return executeScript("timeout 2 ping -c 1 -t 2000 8.8.4.4");
+			return executeScript("timeout 2 ping -c 1 -t 255 8.8.4.4");
 		}
 	}
 
@@ -474,11 +478,11 @@ bool ApiSystem::launchKodi(Window *window)
 	switch (exitCode) 
 	{
 	case 10: // reboot code
-		quitES(QuitMode::REBOOT);		
+		Utils::Platform::quitES(Utils::Platform::QuitMode::REBOOT);
 		return true;
 		
 	case 11: // shutdown code
-		quitES(QuitMode::SHUTDOWN);		
+		Utils::Platform::quitES(Utils::Platform::QuitMode::SHUTDOWN);
 		return true;
 	}
 
@@ -541,7 +545,7 @@ std::string ApiSystem::getIpAdress()
 {
 	LOG(LogDebug) << "ApiSystem::getIpAdress";
 	
-	std::string result = queryIPAdress(); // platform.h
+	std::string result = Utils::Platform::queryIPAdress(); // platform.h
 	if (result.empty())
 		return "NOT CONNECTED";
 
@@ -897,12 +901,12 @@ std::string ApiSystem::getGitRepositoryDefaultBranch(const std::string& url)
 	return ret;
 }
 
-bool ApiSystem::downloadGitRepository(const std::string& url, const std::string& branch, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, long defaultDownloadSize)
+bool ApiSystem::downloadGitRepository(const std::string& url, const std::string& branch, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, int64_t defaultDownloadSize)
 {
 	if (func != nullptr)
 		func("Downloading " + label);
 
-	long downloadSize = defaultDownloadSize;
+	int64_t downloadSize = defaultDownloadSize;
 	if (downloadSize == 0)
 	{
 		std::string statUrl = Utils::String::replace(url, "https://github.com/", "https://api.github.com/repos/");
@@ -917,7 +921,7 @@ bool ApiSystem::downloadGitRepository(const std::string& url, const std::string&
 				{
 					auto end = content.find(",", pos);
 					if (end != std::string::npos)
-						downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024;
+						downloadSize = atoi(content.substr(pos + 8, end - pos - 8).c_str()) * 1024LL;
 				}
 			}
 		}
@@ -930,12 +934,12 @@ bool ApiSystem::downloadGitRepository(const std::string& url, const std::string&
 	{
 		if (downloadSize > 0)
 		{
-			double pos = httpreq.getPosition();
+			int64_t pos = httpreq.getPosition();
 			if (pos > 0 && curPos != pos)
 			{
 				if (func != nullptr)
 				{
-					std::string pc = std::to_string((int)(pos * 100.0 / downloadSize));
+					std::string pc = std::to_string((int)(pos * 100LL / downloadSize));
 					func(std::string("Downloading " + label + " >>> " + pc + " %"));
 				}
 
@@ -984,8 +988,8 @@ bool ApiSystem::isThemeInstalled(const std::string& themeName, const std::string
 	return false;
 }
 
-extern std::string jsonString(const rapidjson::Value& val, const std::string name);
-extern int jsonInt(const rapidjson::Value& val, const std::string name);
+extern std::string jsonString(const rapidjson::Value& val, const std::string& name);
+extern int jsonInt(const rapidjson::Value& val, const std::string& name);
 
 std::vector<BatoceraTheme> ApiSystem::getBatoceraThemesList()
 {
@@ -1050,7 +1054,7 @@ std::pair<std::string, int> ApiSystem::installBatoceraTheme(std::string thname, 
 		
 		std::string branch = getGitRepositoryDefaultBranch(theme.url);
 
-		if (downloadGitRepository(theme.url, branch, zipFile, thname, func, theme.size * 1024 * 1024))
+		if (downloadGitRepository(theme.url, branch, zipFile, thname, func, theme.size * 1024LL * 1024))
 		{
 			if (func != nullptr)
 				func(_("Extracting") + " " + thname);
@@ -1543,9 +1547,16 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 #endif
 		break;
 	case ApiSystem::SUSPEND:
-		return Utils::FileSystem::exists("/usr/sbin/pm-suspend");
+		return (Utils::FileSystem::exists("/usr/sbin/pm-suspend") && Utils::FileSystem::exists("/usr/bin/pm-is-supported") && executeScript("/usr/bin/pm-is-supported --suspend"));
 	case ApiSystem::VERSIONINFO:
 		executables.push_back("batocera-version");
+		break;
+	case ApiSystem::READPLANEMODE:
+	case ApiSystem::WRITEPLANEMODE:
+		executables.push_back("batocera-planemode");
+		break;
+	case ApiSystem::SERVICES:
+		executables.push_back("batocera-services");
 		break;
 	}
 
@@ -1606,8 +1617,8 @@ std::vector<std::string> ApiSystem::getFormatDiskList()
 {
 #if WIN32 && _DEBUG
 	std::vector<std::string> ret;
-	ret.push_back("d:\ DRIVE D:");
-	ret.push_back("e:\ DRIVE Z:");
+	ret.push_back("d:\\ DRIVE D:");
+	ret.push_back("e:\\ DRIVE Z:");
 	return ret;
 #endif
 	return executeEnumerationScript("batocera-format listDisks");
@@ -1800,6 +1811,8 @@ std::vector<PacmanPackage> ApiSystem::getBatoceraStorePackages()
 				package.download_size = node.text().as_llong();
 			if (tag == "installed_size")
 				package.installed_size = node.text().as_llong();
+			if (tag == "preview_url")
+				package.preview_url = node.text().get();
 		}
 
 		if (!package.name.empty())
@@ -1861,6 +1874,30 @@ std::vector<std::string> ApiSystem::getShaderList(const std::string& systemName,
 	return ret;
 }
 
+std::vector<std::string> ApiSystem::getVideoFilterList(const std::string& systemName, const std::string& emulator, const std::string& core)
+{
+	Utils::FileSystem::FileSystemCacheActivator fsc;
+
+	std::vector<std::string> ret;
+
+	LOG(LogDebug) << "ApiSystem::getVideoFilterList";
+
+	for (auto folder : { Paths::getUserVideoFilters(), Paths::getVideoFilters() })
+	{
+		for (auto file : Utils::FileSystem::getDirContent(folder, false))
+		{
+			auto videofilter = Utils::FileSystem::getFileName(file);
+			if (videofilter.substr(videofilter.find_last_of('.') + 1) == "filt")
+			{
+				if (std::find(ret.cbegin(), ret.cend(), videofilter) == ret.cend())
+					ret.push_back(videofilter.substr(0, videofilter.find_last_of('.')));
+			}
+		}
+	}
+
+	std::sort(ret.begin(), ret.end());
+	return ret;
+}
 
 std::vector<std::string> ApiSystem::getRetroachievementsSoundsList()
 {
@@ -2005,6 +2042,15 @@ std::string ApiSystem::getRunningArchitecture()
 	return "";
 }
 
+std::string ApiSystem::getRunningBoard()
+{
+	auto res = executeEnumerationScript("cat /boot/boot/batocera.board");
+	if (res.size() > 0)
+		return res[0];
+
+	return "";
+}
+
 std::string ApiSystem::getHostsName()
 {
 	auto hostName = SystemConf::getInstance()->get("system.hostname");
@@ -2017,7 +2063,6 @@ std::string ApiSystem::getHostsName()
 bool ApiSystem::emuKill()
 {
 	LOG(LogDebug) << "ApiSystem::emuKill";
-
 	return executeScript("batocera-es-swissknife --emukill");
 }
 
@@ -2027,12 +2072,77 @@ void ApiSystem::suspend()
 	executeScript("/usr/sbin/pm-suspend");
 }
 
-void ApiSystem::replugControllers_sindenguns() {
-  LOG(LogDebug) << "ApiSystem::replugControllers_sindenguns";
-  executeScript("/usr/bin/virtual-sindenlightgun-remap");
+void ApiSystem::replugControllers_sindenguns()
+{
+	LOG(LogDebug) << "ApiSystem::replugControllers_sindenguns";
+	executeScript("/usr/bin/virtual-sindenlightgun-remap");
 }
 
-void ApiSystem::replugControllers_wiimotes() {
-  LOG(LogDebug) << "ApiSystem::replugControllers_wiimotes";
-  executeScript("/usr/bin/virtual-wii-mouse-bar-remap");
+void ApiSystem::replugControllers_wiimotes()
+{
+	LOG(LogDebug) << "ApiSystem::replugControllers_wiimotes";
+	executeScript("/usr/bin/virtual-wii-mouse-bar-remap");
+}
+
+void ApiSystem::replugControllers_steamdeckguns()
+{
+	LOG(LogDebug) << "ApiSystem::replugControllers_steamdeckguns";
+	executeScript("/usr/bin/steamdeckgun-remap");
+}
+
+bool ApiSystem::isPlaneMode()
+{
+	auto res = executeEnumerationScript("batocera-planemode status");
+	if (res.size() > 0)
+		return res[0] == "on";
+
+	return false;
+}
+
+bool ApiSystem::isReadPlaneModeSupported()
+{
+	return isScriptingSupported(READPLANEMODE);
+}
+
+bool ApiSystem::setPlaneMode(bool enable)
+{
+	LOG(LogDebug) << "ApiSystem::setPlaneMode";
+	return executeScript("batocera-planemode " + std::string(enable ? "enable" : "disable"));
+}
+
+std::vector<Service> ApiSystem::getServices()
+{
+	std::vector<Service> services;
+
+	LOG(LogDebug) << "ApiSystem::getServices";
+
+	auto slines = executeEnumerationScript("batocera-services list");
+
+	for (auto sline : slines) 
+	{
+		auto splits = Utils::String::split(sline, ';', true);
+		if (splits.size() == 2) 
+		{
+			Service s;
+			s.name = splits[0];
+			s.enabled = (splits[1] == "*");
+			services.push_back(s);
+		}
+	}
+	return services;
+}
+
+bool ApiSystem::enableService(std::string name, bool enable) 
+{
+	std::string serviceName = name;
+	if (serviceName.find(" ") != std::string::npos)
+		serviceName = "\"" + serviceName + "\"";
+
+	LOG(LogDebug) << "ApiSystem::enableService " << serviceName;
+
+	bool res = executeScript("batocera-services " + std::string(enable ? "enable" : "disable") + " " + serviceName);
+	if (res)
+		res = executeScript("batocera-services " + std::string(enable ? "start" : "stop") + " " + serviceName);
+	
+	return res;
 }

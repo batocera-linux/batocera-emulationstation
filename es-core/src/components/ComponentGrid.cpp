@@ -14,63 +14,77 @@ ComponentGrid::ComponentGrid(Window* window, const Vector2i& gridDimensions) : G
 	mSeparatorColor = ThemeData::getMenuTheme()->Text.separatorColor;
 	mCells.reserve(gridDimensions.x() * gridDimensions.y());
 
-	mColWidths = new float[gridDimensions.x()];
-	mRowHeights = new float[gridDimensions.y()];
 	for(int x = 0; x < gridDimensions.x(); x++)
-		mColWidths[x] = 0;
-	for(int y = 0; y < gridDimensions.y(); y++)
-		mRowHeights[y] = 0;
+		mColWidths.push_back(new GridSizeInfo());
+
+	for (int y = 0; y < gridDimensions.y(); y++)
+		mRowHeights.push_back(new GridSizeInfo());
 }
 
 ComponentGrid::~ComponentGrid()
 {
-	delete[] mRowHeights;
-	delete[] mColWidths;
+	for (auto ptr : mRowHeights)
+		delete ptr;
+
+	for (auto ptr : mColWidths)
+		delete ptr;	
 }
 
 float ComponentGrid::getColWidth(int col)
 {
-	if(mColWidths[col] != 0)
-		return mColWidths[col] * mSize.x();
+	if (col < 0 || col >= mColWidths.size())
+		return 0;
+
+	if (mColWidths[col]->value != 0 || mColWidths[col]->absolute)
+		return mColWidths[col]->compute(mSize.x());
 
 	// calculate automatic width
-	float freeWidthPerc = 1;
-	int between = 0;
-	for(int x = 0; x < mGridSize.x(); x++)
+	float freeWidth = mSize.x();
+
+	int autoSizeCols = 0;
+	for (int x = 0; x < mGridSize.x(); x++)
 	{
-		freeWidthPerc -= mColWidths[x]; // if it's 0 it won't do anything
-		if(mColWidths[x] == 0)
-			between++;
+		if (mColWidths[x]->value == 0 && !mColWidths[x]->absolute)
+			autoSizeCols++;
+		else
+			freeWidth -= mColWidths[x]->compute(mSize.x());
 	}
-	
-	return (freeWidthPerc * mSize.x()) / between;
+
+	return freeWidth / (float)std::max(1, autoSizeCols);
 }
 
 float ComponentGrid::getRowHeight(int row)
 {
-	if(mRowHeights[row] != 0)
-		return mRowHeights[row] * mSize.y();
+	if (row < 0 || row >= mRowHeights.size())
+		return 0;
+
+	if (mRowHeights[row]->value != 0 || mRowHeights[row]->absolute)
+		return mRowHeights[row]->compute(mSize.y());
 
 	// calculate automatic height
-	float freeHeightPerc = 1;
-	int between = 0;
-	for(int y = 0; y < mGridSize.y(); y++)
+	float freeHeight = mSize.y();
+
+	int autoSizeRows = 0;
+	for (int y = 0; y < mGridSize.y(); y++)
 	{
-		freeHeightPerc -= mRowHeights[y]; // if it's 0 it won't do anything
-		if(mRowHeights[y] == 0)
-			between++;
+		if (mRowHeights[y]->value == 0 && !mRowHeights[y]->absolute)
+			autoSizeRows++;
+		else
+			freeHeight -= mRowHeights[y]->compute(mSize.y());
 	}
-	
-	return (freeHeightPerc * mSize.y()) / between;
+
+	return freeHeight / (float) std::max(1, autoSizeRows);
 }
 
 void ComponentGrid::setColWidthPerc(int col, float width, bool update)
 {
 	assert(width >= 0 && width <= 1);
 	assert(col >= 0 && col < mGridSize.x());
-	mColWidths[col] = width;
 
-	if(update)
+	mColWidths[col]->value = width;
+	mColWidths[col]->absolute = false;
+
+	if (update)
 		onSizeChanged();
 }
 
@@ -78,9 +92,35 @@ void ComponentGrid::setRowHeightPerc(int row, float height, bool update)
 {
 	assert(height >= 0 && height <= 1);
 	assert(row >= 0 && row < mGridSize.y());
-	mRowHeights[row] = height;
 
-	if(update)
+	mRowHeights[row]->value = height;
+	mRowHeights[row]->absolute = false;
+
+	if (update)
+		onSizeChanged();
+}
+
+void ComponentGrid::setColWidth(int col, float width, bool update)
+{
+//	assert(width >= 0 && width <= 1);
+	assert(col >= 0 && col < mGridSize.x());
+
+	mColWidths[col]->value = width;
+	mColWidths[col]->absolute = true;
+
+	if (update)
+		onSizeChanged();
+}
+
+void ComponentGrid::setRowHeight(int row, float height, bool update)
+{
+//	assert(height >= 0 && height <= 1);
+	assert(row >= 0 && row < mGridSize.y());
+
+	mRowHeights[row]->value = height;
+	mRowHeights[row]->absolute = true;
+
+	if (update)
 		onSizeChanged();
 }
 
@@ -143,8 +183,17 @@ void ComponentGrid::updateCellComponent(const GridEntry& cell)
 		pos[1] += getRowHeight(y);
 
 	// center component
-	pos[0] = pos.x() + (size.x() - cell.component->getSize().x()) / 2;
-	pos[1] = pos.y() + (size.y() - cell.component->getSize().y()) / 2;
+
+	if (cell.component->getThemeTypeName() == "image")
+	{
+		pos[0] = pos.x() + size.x() * cell.component->getOrigin().x();
+		pos[1] = pos.y() + size.y() * cell.component->getOrigin().y();
+	}
+	else
+	{
+		pos[0] = pos.x() + (size.x() - cell.component->getSize().x()) / 2;
+		pos[1] = pos.y() + (size.y() - cell.component->getSize().y()) / 2;
+	}
 	
 	cell.component->setPosition(pos);
 }

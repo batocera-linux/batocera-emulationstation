@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "components/BusyComponent.h"
 #include "resources/TextureData.h"
+#include "components/IExternalActivity.h"
 
 struct BiosFile 
 {
@@ -61,6 +62,8 @@ struct PacmanPackage
 	size_t download_size;
 	size_t installed_size;
 
+	std::string preview_url;
+
 	std::string group;
 	std::vector<std::string> licenses;	
 
@@ -79,7 +82,13 @@ struct PadInfo
 	int battery;
 };
 
-class ApiSystem : public IPdfHandler
+struct Service
+{
+  std::string name;
+  bool enabled;
+};
+
+class ApiSystem : public IPdfHandler, public IExternalActivity
 {
 public:
 	enum ScriptId : unsigned int
@@ -110,7 +119,11 @@ public:
 		SUPPORTFILE = 23,
 		UPGRADE = 24,
 		SUSPEND = 25,
-		VERSIONINFO = 26
+		VERSIONINFO = 26,
+		VIDEOFILTERS = 27,
+		SERVICES = 28,
+		READPLANEMODE = 29,
+		WRITEPLANEMODE = 30,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -217,6 +230,7 @@ public:
 	virtual std::vector<std::string> extractPdfImages(const std::string& fileName, int pageIndex = -1, int pageCount = 1, int quality = 0);
 
 	virtual std::string getRunningArchitecture();
+	virtual std::string getRunningBoard();
 
 	std::vector<PacmanPackage> getBatoceraStorePackages();
 	std::pair<std::string, int> installBatoceraStorePackage(std::string name, const std::function<void(const std::string)>& func = nullptr);
@@ -240,6 +254,7 @@ public:
 
 
 	virtual std::vector<std::string> getRetroachievementsSoundsList();
+	virtual std::vector<std::string> getVideoFilterList(const std::string& systemName, const std::string& emulator, const std::string& core);
 	virtual std::vector<std::string> getShaderList(const std::string& systemName, const std::string& emulator, const std::string& core);
 	virtual std::string getSevenZipCommand() { return "7zr"; }
 
@@ -253,15 +268,23 @@ public:
 	virtual void suspend();
 
   	virtual void replugControllers_sindenguns();
-    	virtual void replugControllers_wiimotes();
-	
+    virtual void replugControllers_wiimotes();
+    virtual void replugControllers_steamdeckguns();
+
+    virtual bool isPlaneMode();
+    virtual bool setPlaneMode(bool enable);
+	virtual bool isReadPlaneModeSupported();
+
+    virtual std::vector<Service> getServices();
+    virtual bool enableService(std::string name, bool enable);
+
 protected:
 	ApiSystem();
 
 	virtual bool executeScript(const std::string command);  
 	virtual std::pair<std::string, int> executeScript(const std::string command, const std::function<void(const std::string)>& func);
 	virtual std::vector<std::string> executeEnumerationScript(const std::string command);
-	virtual bool downloadGitRepository(const std::string& url, const std::string& branch, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, long defaultDownloadSize = 0);
+	virtual bool downloadGitRepository(const std::string& url, const std::string& branch, const std::string& fileName, const std::string& label, const std::function<void(const std::string)>& func, int64_t defaultDownloadSize = 0);
 	virtual std::string getGitRepositoryDefaultBranch(const std::string& url);
 		
 	virtual std::string getUpdateUrl();

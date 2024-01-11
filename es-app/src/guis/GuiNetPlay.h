@@ -31,6 +31,7 @@ struct LobbyAppEntry
 	bool		has_spectate_password;
 	std::string core_name;
 	int         mitm_port;
+	std::string mitm_session;
 	bool		fixed;
 	std::string retroarch_version;
 	int         port;

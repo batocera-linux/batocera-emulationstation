@@ -14,6 +14,7 @@
 #include <thread>
 #include <SDL_timer.h>
 #include "HfsDBScraper.h"
+#include "utils/Uri.h"
 
 #define OVERQUOTA_RETRY_DELAY 15000
 #define OVERQUOTA_RETRY_COUNT 5
@@ -308,20 +309,27 @@ void ScraperHttpRequest::update()
 	if (status == HttpReq::REQ_429_TOOMANYREQUESTS)
 	{
 		mRetryCount++;
-		if (mRetryCount >= mOverQuotaRetryCount/* || !retryOn249()*/)
+		if (mRetryCount >= mOverQuotaRetryCount)
 		{
 			setStatus(ASYNC_DONE); // Ignore error
 			return;
 		}
 
-		setStatus(ASYNC_IN_PROGRESS);
 
 		auto retryDelay = mRequest->getResponseHeader("Retry-After");
 		if (!retryDelay.empty())
 		{
 			mOverQuotaRetryCount = 1;
 			mOverQuotaRetryDelay = Utils::String::toInteger(retryDelay) * 1000;
+
+			if (!retryOn249() && mOverQuotaRetryDelay > 5000)
+			{
+				setStatus(ASYNC_DONE); // Ignore error if delay > 5 seconds
+				return;
+			}
 		}
+
+		setStatus(ASYNC_IN_PROGRESS);
 
 		mOverQuotaPendingTime = SDL_GetTicks();
 		LOG(LogDebug) << "REQ_429_TOOMANYREQUESTS : Retrying in " << mOverQuotaRetryDelay << " seconds";
@@ -357,14 +365,19 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 {
 	mPercent = -1;
 
+	bool overWriteMedias = Settings::getInstance()->getBool("ScrapeOverWrite") && search.overWriteMedias;
+
 	for (auto& url : result.urls)
 	{
 		if (url.second.url.empty())
 			continue;
-		
-		if (!search.overWriteMedias && Utils::FileSystem::exists(search.game->getMetadata(url.first)))
+
+		if (!overWriteMedias && Utils::FileSystem::exists(search.game->getMetadata(url.first)))
 		{
 			mResult.mdl.set(url.first, search.game->getMetadata(url.first));
+			if (mResult.urls.find(url.first) != mResult.urls.cend())
+				mResult.urls[url.first].url = "";
+
 			continue;
 		}
 
@@ -392,31 +405,31 @@ MDResolveHandle::MDResolveHandle(const ScraperSearchResult& result, const Scrape
 
 		std::string resourcePath = Scraper::getSaveAsPath(search.game, url.first, ext);
 
-		if (!search.overWriteMedias && Utils::FileSystem::exists(resourcePath))
+		if (!overWriteMedias && Utils::FileSystem::exists(resourcePath))
 		{
 			mResult.mdl.set(url.first, resourcePath);
 			if (mResult.urls.find(url.first) != mResult.urls.cend())
 				mResult.urls[url.first].url = "";
-		}
-		else
-		{
-			mFuncs.push_back(new ResolvePair(
-				[this, url, resourcePath, resize] 
-				{ 
-					return downloadImageAsync(url.second.url, resourcePath, resize); 
-				},
-				[this, url](ImageDownloadHandle* result)
-				{
-					auto finalFile = result->getImageFileName();
 
-					if (Utils::FileSystem::getFileSize(finalFile) > 0)
-						mResult.mdl.set(url.first, finalFile);
-
-					if (mResult.urls.find(url.first) != mResult.urls.cend())
-						mResult.urls[url.first].url = "";
-				},
-				suffix, result.mdl.getName()));
+			continue;
 		}
+
+		mFuncs.push_back(new ResolvePair(
+			[this, url, resourcePath, resize] 
+			{ 
+				return downloadImageAsync(url.second.url, resourcePath, resize); 
+			},
+			[this, url](ImageDownloadHandle* result)
+			{
+				auto finalFile = result->getImageFileName();
+
+				if (Utils::FileSystem::getFileSize(finalFile) > 0)
+					mResult.mdl.set(url.first, finalFile);
+
+				if (mResult.urls.find(url.first) != mResult.urls.cend())
+					mResult.urls[url.first].url = "";
+			},
+			suffix, result.mdl.getName()));
 	}
 
 	auto it = mFuncs.cbegin();
@@ -491,19 +504,35 @@ ImageDownloadHandle::ImageDownloadHandle(const std::string& url, const std::stri
 	mOverQuotaRetryDelay = OVERQUOTA_RETRY_DELAY;
 	mOverQuotaRetryCount = OVERQUOTA_RETRY_COUNT;
 
+	HttpReqOptions options;
+	options.outputFilename = path;
+
+	if (url.find("screenscraper") != std::string::npos && url.find("/medias/") != std::string::npos)
+	{
+		auto splits = Utils::String::split(url, '/', true);
+		if (splits.size() > 1)
+			options.customHeaders.push_back("Referer: https://" + splits[1] + "/gameinfos.php?gameid=" + splits[splits.size() - 2] + "&action=onglet&zone=gameinfosmedias");
+	}
+
 	if (url.find("screenscraper") != std::string::npos && (path.find(".jpg") != std::string::npos || path.find(".png") != std::string::npos) && url.find("media=map") == std::string::npos)
 	{
-		if (maxWidth > 0 && maxHeight > 0)
-			mRequest = new HttpReq(url + "&maxwidth=" + std::to_string(maxWidth), path);
-		else if (maxWidth > 0)
-			mRequest = new HttpReq(url + "&maxwidth=" + std::to_string(maxWidth), path);
+		Utils::Uri uri(url);
+
+		if (maxWidth > 0)
+		{
+			uri.arguments.set("maxwidth", std::to_string(maxWidth));
+			uri.arguments.set("maxheight", std::to_string(maxWidth));
+		}
 		else if (maxHeight > 0)
-			mRequest = new HttpReq(url + "&maxheight=" + std::to_string(maxHeight), path);
-		else 
-			mRequest = new HttpReq(url, path);
+		{
+			uri.arguments.set("maxwidth", std::to_string(maxHeight));
+			uri.arguments.set("maxheight", std::to_string(maxHeight));
+		}
+
+		mRequest = new HttpReq(uri.toString(), &options);
 	}
 	else
-		mRequest = new HttpReq(url, path);
+		mRequest = new HttpReq(url, &options);
 }
 
 ImageDownloadHandle::~ImageDownloadHandle()
@@ -638,9 +667,15 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 	FIBITMAP* image = NULL;
 	
 	//detect the filetype
+#if WIN32
+	format = FreeImage_GetFileTypeU(Utils::String::convertToWideString(path).c_str(), 0);
+	if(format == FIF_UNKNOWN)
+		format = FreeImage_GetFIFFromFilenameU(Utils::String::convertToWideString(path).c_str());
+#else
 	format = FreeImage_GetFileType(path.c_str(), 0);
 	if(format == FIF_UNKNOWN)
 		format = FreeImage_GetFIFFromFilename(path.c_str());
+#endif
 	if(format == FIF_UNKNOWN)
 	{
 		LOG(LogError) << "Error - could not detect filetype for image \"" << path << "\"!";
@@ -650,7 +685,11 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 	//make sure we can read this filetype first, then load it
 	if(FreeImage_FIFSupportsReading(format))
 	{
+#if WIN32
+		image = FreeImage_LoadU(format, Utils::String::convertToWideString(path).c_str());
+#else
 		image = FreeImage_Load(format, path.c_str());
+#endif
 	}else{
 		LOG(LogError) << "Error - file format reading not supported for image \"" << path << "\"!";
 		return false;
@@ -689,7 +728,11 @@ bool resizeImage(const std::string& path, int maxWidth, int maxHeight)
 	
 	try
 	{
+#if WIN32
+		saved = (FreeImage_SaveU(format, imageRescaled, Utils::String::convertToWideString(path).c_str()) != 0);
+#else
 		saved = (FreeImage_Save(format, imageRescaled, path.c_str()) != 0);
+#endif
 	}
 	catch(...) { }
 

@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2023-03-23 10:21+0100\n"
+"PO-Revision-Date: 2023-03-23 10:21+0100\n"
+"Last-Translator: rizzie Kim\n"
+"Language-Team: Dodam Enterprise\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "업데이트 이용가능"
@@ -286,6 +286,9 @@ msgstr "세로 아케이드"
 msgid "lightgun games"
 msgstr "라이트건 게임"
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "컬렉션"
 
@@ -339,7 +342,7 @@ msgstr "다운로드 중"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "테마가 성공적으로 설치됨"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "오류가 발생되었습니다"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
@@ -447,7 +450,7 @@ msgid "OK"
 msgstr "확인"
 
 msgid "FILTER GAMELIST BY"
-msgstr "게임 목록 필터 :"
+msgstr "게임 목록 필터링 기준"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "다이나믹 컬렉션 필터 편집"
@@ -488,17 +491,17 @@ msgstr "시스템 그룹"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "사용자 컬렉션 만들기"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "테마에서 새 사용자 컬렉션 만들기"
+msgid "New Collection Name"
+msgstr "새 컬렉션 이름"
 
-msgid "SELECT THEME FOLDER"
-msgstr "테마 폴더 선택"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "새 편집가능 컬렉션 만들기"
-
-msgid "New Collection Name"
-msgstr "새 컬렉션 이름"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "새 다이나믹 컬렉션 만들기"
@@ -516,7 +519,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "하드웨어 종류 순"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "제조업체 및 유형별"
 
 msgid "BY RELEASE YEAR"
 msgstr "출시 년도 순"
@@ -536,8 +539,11 @@ msgstr "최근 선택 복구"
 msgid "START ON GAMELIST"
 msgstr "시작 게임 목록"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "테마가 없는 커스텀 컬렉션을 그룹"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "컬렉션에서 시스템 이름 표시"
@@ -582,14 +588,22 @@ msgid "PLEASE WAIT"
 msgstr "잠시만 기다려주세요"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points (hardcore)"
-msgstr "포인트 (하드코어 모드)"
-
 msgid "Softcore points"
 msgstr "소프트코어 포인트"
+
+msgid "Points (hardcore)"
+msgstr "포인트 (하드코어 모드)"
 
 msgid "Rank"
 msgstr "랭크"
@@ -716,7 +730,7 @@ msgstr "블루투스 장치가 삭제되었습니다."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
+msgstr "'%s'을 제거하시겠습니까?"
 
 msgid "INPUT"
 msgstr "입력"
@@ -782,7 +796,7 @@ msgid "PAIR A BLUETOOTH DEVICE"
 msgstr "블루투스 장치 페어링"
 
 msgid "PAIR"
-msgstr ""
+msgstr "쌍"
 
 msgid "FILE BROWSER"
 msgstr "파일 탐색기"
@@ -801,6 +815,193 @@ msgstr "선택"
 
 msgid "ADD COMBINATION KEY"
 msgstr "콤보 키 추가"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "컨트롤러 설정"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "컨트롤러 및 블루투스 설정"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "플레이어 배정"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "P%i 컨트롤러"
+
+msgid "CONTROLLER MAPPING"
+msgstr "컨트롤러 맵핑"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"컨트롤러를 매핑하려고 합니다. 물리적 레이블이 아닌 단추의 위치를 기준으로 매"
+"핑합니다. 단축키에 대한 특수 버튼이 없으면 선택 버튼을 사용하십시오. 아무 버"
+"튼이나 누르고 있으면 가지고 있지 않은 모든 버튼/스틱을 건너뜁니다. 남쪽 버튼"
+"을 눌러 완료되면 확인합니다."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "SINDEN 건 설정"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "위리모트 건 설정"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "스팀덱 마우스/건 설정"
+
+msgid "BLUETOOTH"
+msgstr "블루투스"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "블루투스 패드를 자동으로 페어링"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "수동으로 블루투스 장치 페어링"
+
+msgid "DISPLAY OPTIONS"
+msgstr "표시 옵션"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "활성 컨트롤러 보이기"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "컨트롤러 배터리 상태 보이기"
+
+msgid "default"
+msgstr "기본"
+
+msgid "NOT CONNECTED"
+msgstr "연결되지 않음"
+
+msgid "BORDER SIZE"
+msgstr "테두리 크기"
+
+msgid "AUTO"
+msgstr "자동"
+
+msgid "THIN"
+msgstr "얇게"
+
+msgid "MEDIUM"
+msgstr "중간"
+
+msgid "BIG"
+msgstr "크게"
+
+msgid "BORDER MODE"
+msgstr "테두리 모드"
+
+msgid "NORMAL"
+msgstr "표준"
+
+msgid "IN GAME ONLY"
+msgstr "게임 내 전용"
+
+msgid "HIDDEN"
+msgstr "숨김"
+
+msgid "BORDER COLOR"
+msgstr "테두리 색상"
+
+msgid "WHITE"
+msgstr "하얀색"
+
+msgid "RED"
+msgstr "빨간색"
+
+msgid "GREEN"
+msgstr "초록색"
+
+msgid "BLUE"
+msgstr "파란색"
+
+msgid "CAMERA CONTRAST"
+msgstr "카메라 대비"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "오후/밝은 일광 (40)"
+
+msgid "Default (50)"
+msgstr "기본 (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "저녁/흐린 시야 (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "카메라 밝기"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "오후/밝은 일광 (80)"
+
+msgid "Default (100)"
+msgstr "기본 (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "저녁/흐린 시야 (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "카메라 노출"
+
+msgid "Projector/CRT (-5)"
+msgstr "프로젝터/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "프로젝터/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "기본 (-7)"
+
+msgid "Other (-8)"
+msgstr "기타 (-8)"
+
+msgid "Other (-9)"
+msgstr "기타 (-9)"
+
+msgid "RECOIL"
+msgstr "리코일"
+
+msgid "DISABLED"
+msgstr "사용안함"
+
+msgid "GUN"
+msgstr "총"
+
+msgid "MACHINE GUN"
+msgstr "기관총"
+
+msgid "QUIET GUN"
+msgstr "조용한 총"
+
+msgid "QUIET MACHINE GUN"
+msgstr "조용한 기관총"
+
+msgid "MODE"
+msgstr "모드"
+
+msgid "JOYSTICK"
+msgstr "조이스틱"
+
+msgid "MOUSE ONLY"
+msgstr "마우스만"
+
+msgid "HAND"
+msgstr "손"
+
+msgid "LEFT"
+msgstr "왼쪽"
+
+msgid "RIGHT"
+msgstr "오른쪽"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "컨텐츠 다운로더"
@@ -1004,7 +1205,7 @@ msgid "UPDATE IS READY"
 msgstr "업데이트가 준비되었습니다"
 
 msgid "REBOOT TO APPLY"
-msgstr ""
+msgstr "적용하려면 재부팅"
 
 msgid "REALLY UPDATE?"
 msgstr "정말로 업데이트 하시겠습니까?"
@@ -1023,6 +1224,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"비공식 시스템 수정이 감지되었습니다.\n"
+"업그레이드하면 시스템이 손상될 수 있습니다.\n"
+"버전 %s로 업데이트하시겠습니까?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "인터넷 연결이 필요합니다"
@@ -1160,13 +1364,13 @@ msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "설치/제거 할 테마 선택"
 
 msgid "All"
-msgstr ""
+msgstr "모두"
 
 msgid "Installed"
-msgstr ""
+msgstr "설치됨"
 
 msgid "Available"
-msgstr ""
+msgstr "사용 가능"
 
 msgid "CURRENT THEME"
 msgstr "현재 테마"
@@ -1180,8 +1384,11 @@ msgstr "잠금 해제"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "현재 게임은 도전과제가 아직 없습니다"
 
-msgid "Achievements won"
-msgstr "획득한 도전과제"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -1244,8 +1451,17 @@ msgstr "휠"
 msgid "MARQUEE"
 msgstr "마키"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
-msgstr "스크랩 : "
+msgstr "스크랩"
 
 msgid "SHORT NAME"
 msgstr "단축 이름"
@@ -1273,6 +1489,9 @@ msgstr "매뉴얼"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "패드키 설정"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "스크랩"
@@ -1456,12 +1675,6 @@ msgstr "렌더러"
 msgid "SHADERS"
 msgstr "셰이더"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "컨트롤러 설정"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "컨트롤러 및 블루투스 설정"
-
 msgid "INTERNAL"
 msgstr "내부"
 
@@ -1522,6 +1735,9 @@ msgstr "사용자 인터페이스 모드가 사용해제되었습니다"
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "해제 코드 입력"
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "프론트엔드 개발자 옵션"
 
@@ -1542,6 +1758,12 @@ msgstr "수직 동기화"
 
 msgid "OVERSCAN"
 msgstr "오버스캔"
+
+msgid "VIDEO MODE"
+msgstr "비디오 모드"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX 플레이어 사용 (하드웨어 가속)"
@@ -1580,8 +1802,29 @@ msgstr "디스크 포맷"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "게임 목록 정리 & 미사용 미디어 삭제"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "정리 중"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "파일 확장자 초기화"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "게임 언어/지역 재감지"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "넷플레이/도전과제가 있는 모든 게임 검색"
 
 msgid "CLEAR CACHES"
 msgstr "캐시 비우기"
@@ -1591,15 +1834,6 @@ msgstr "이미지 캐시 생성"
 
 msgid "Building image cache"
 msgstr "이미지 캐시 생성중"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "파일 확장자 초기화"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "게임 언어/지역 재감지"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "넷플레이/도전과제가 있는 모든 게임 검색"
 
 msgid "DATA MANAGEMENT"
 msgstr "데이터 관리"
@@ -1653,11 +1887,11 @@ msgstr "종료 메뉴"
 msgid "RETROARCH MENU DRIVER"
 msgstr "레트로아크 메뉴 드라이버"
 
-msgid "AUTO"
-msgstr "자동"
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr "EMEMULATIONSTATION에서 확인 및 취소 버튼 전환"
 
-msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "에뮬레이션스테이션에서 A/B 버튼 교체"
+msgid "Switches the South and East buttons' functionality"
+msgstr "남쪽 및 동쪽 버튼의 기능을 전환합니다"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "위쪽 버튼으로 게임 옵션 열기"
@@ -1671,10 +1905,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "첫 번째 조이스틱으로만 에뮬레이션스테이션 제어"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "총기 이동 허용 오차"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "HID 조이스틱 드라이버 사용"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "네트워크 아이콘 표시"
@@ -1751,9 +1985,6 @@ msgstr "시간을 12시간 형식으로 표시"
 
 msgid "POWER SAVING MODE"
 msgstr "절전모드"
-
-msgid "DISABLED"
-msgstr "사용안함"
 
 msgid "DEFAULT"
 msgstr "기본"
@@ -1967,17 +2198,62 @@ msgstr "데코레이션 셋"
 msgid "Current setting"
 msgstr "현재 설정"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "상태저장"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "자동 세이브/로드"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "게임 실행시 상태저장 파일을 불러오고 종료시 상태저장합니다."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "증가하는 상태저장"
+
+msgid "INCREMENT PER SAVE"
+msgstr "저장 마다 증가"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "지난 상태저장을 덮어씌우지 않고 항상 새 저장을 만듭니다."
+
+msgid "INCREMENT SLOT"
+msgstr "슬롯 추가"
+
+msgid "Increment slot on a new game."
+msgstr "새 게임마다 슬롯을 추가합니다."
+
+msgid "DO NOT INCREMENT"
+msgstr "추가 안함"
+
+msgid "Use current slot on a new game."
+msgstr "새 게임에 현재 슬롯을 사용합니다."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "상태저장 매니저 보이기"
+
+msgid "ALWAYS"
+msgstr "항상"
+
+msgid "IF NOT EMPTY"
+msgstr "비어있지 않은 경우"
+
+msgid "Display savestate manager before launching a game."
+msgstr "게임 실행전 상태저장 매니저를 보입니다."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "기본 글로벌 설정"
 
 msgid "GAME ASPECT RATIO"
-msgstr "게임 애스펙트 레이쇼"
+msgstr "게임 화면 비율"
 
 msgid "Force the game to render in this aspect ratio."
 msgstr "게임을 다음 화면 비율로 강제 렌더링 합니다."
-
-msgid "VIDEO MODE"
-msgstr "비디오 모드"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
@@ -1997,6 +2273,9 @@ msgstr "정수단위 해상도 조정 (픽셀 일치)"
 
 msgid "SHADER SET"
 msgstr "셰이더 설정"
+
+msgid "VIDEO FILTER"
+msgstr ""
 
 msgid "DECORATIONS"
 msgstr "꾸미기"
@@ -2058,48 +2337,6 @@ msgstr "번역화면 일시정지"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "컨트롤러 자동설정"
 
-msgid "SAVESTATES"
-msgstr "상태저장"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "자동 세이브/로드"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "게임 실행시 상태저장 파일을 불러오고 종료시 상태저장합니다."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "증가하는 상태저장"
-
-msgid "INCREMENT PER SAVE"
-msgstr "저장 마다 증가"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "지난 상태저장을 덮어씌우지 않고 항상 새 저장을 만듭니다."
-
-msgid "INCREMENT SLOT"
-msgstr "슬롯 추가"
-
-msgid "Increment slot on a new game."
-msgstr "새 게임마다 슬롯을 추가합니다."
-
-msgid "DO NOT INCREMENT"
-msgstr "추가 안함"
-
-msgid "Use current slot on a new game."
-msgstr "새 게임에 현재 슬롯을 사용합니다."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "상태저장 매니저 보이기"
-
-msgid "ALWAYS"
-msgstr "항상"
-
-msgid "IF NOT EMPTY"
-msgstr "비어있지 않은 경우"
-
-msgid "Display savestate manager before launching a game."
-msgstr "게임 실행전 상태저장 매니저를 보입니다."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "시스템 고급 환경설정"
 
@@ -2111,100 +2348,6 @@ msgstr "게임 해시 구성이 실행 중입니다. 중지 하시겠습니까?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "정말로 게임리스트를 업데이트 하시겠습니까?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "컨트롤러 맵핑"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
-"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
-"CONFIRM WHEN DONE."
-msgstr ""
-"컨트롤러 맵을 작성합니다. 맵은 물리적 라벨이 아닌SNES 컨트롤러에서 해당 버튼"
-"과 관련된 버튼 위치를 기반으로 한 맵입니다핫키를 위한 스페셜 키가 없다면, 셀"
-"렉트 버튼을 사용하십시오키를 누르지 않고 있는 모든 버튼/스틱을 건너뜁니다. 완"
-"료 확인을 위해남쪽 버튼 누르세요."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN 건 설정"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "위리모트 건 설정"
-
-msgid "BLUETOOTH"
-msgstr ""
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
-
-msgid "DISPLAY OPTIONS"
-msgstr "표시 옵션"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "활성 컨트롤러 보이기"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "컨트롤러 배터리 상태 보이기"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr ""
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "P%i 컨트롤러"
-
-msgid "default"
-msgstr "기본"
-
-msgid "BORDER SIZE"
-msgstr "테두리 크기"
-
-msgid "THIN"
-msgstr "얇게"
-
-msgid "MEDIUM"
-msgstr "중간"
-
-msgid "BIG"
-msgstr "크게"
-
-msgid "BORDER MODE"
-msgstr ""
-
-msgid "NORMAL"
-msgstr ""
-
-msgid "IN GAME ONLY"
-msgstr ""
-
-msgid "HIDDEN"
-msgstr ""
-
-msgid "RECOIL"
-msgstr "리코일"
-
-msgid "GUN"
-msgstr "총"
-
-msgid "MACHINE GUN"
-msgstr "기관총"
-
-msgid "QUIET GUN"
-msgstr "조용한 총"
-
-msgid "QUIET MACHINE GUN"
-msgstr "조용한 기관총"
-
-msgid "MODE"
-msgstr "모드"
-
-msgid "JOYSTICK"
-msgstr "조이스틱"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "테마 설정을 편집하기 전에 테마를 적용해야합니다"
@@ -2266,6 +2409,15 @@ msgstr "목록에 상태저장 플래그 표시"
 msgid "SHOW MANUAL ICON"
 msgstr "목록에 매뉴얼 아이콘 표시"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "목록에 파일이름 표시"
 
@@ -2296,6 +2448,9 @@ msgstr "자동"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "게임 실행 전환"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "시계 표시"
 
@@ -2310,6 +2465,9 @@ msgstr "아이콘"
 
 msgid "ICON AND TEXT"
 msgstr "아이콘 및 텍스트"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "정렬할 때 선행 조항 무시"
@@ -2365,9 +2523,6 @@ msgstr "IP 주소"
 msgid "CONNECTED"
 msgstr "연결됨"
 
-msgid "NOT CONNECTED"
-msgstr "연결되지 않음"
-
 msgid "INTERNET STATUS"
 msgstr "인터넷 상태"
 
@@ -2403,6 +2558,12 @@ msgstr "화면보호기 실행"
 
 msgid "VIEW USER MANUAL"
 msgstr "사용자 매뉴얼 보기"
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
+msgstr ""
 
 msgid "RESTART SYSTEM"
 msgstr "시스템 다시 시작"
@@ -2628,9 +2789,6 @@ msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "현재 폴더에 %i개의 개임이 있습니다, 다음 게임 포함:%s"
 
-msgid "No Entries Found"
-msgstr "항목을 찾지 못했습니다"
-
 msgid "Games similar to"
 msgstr "다음과 비슷한 게임"
 
@@ -2645,6 +2803,16 @@ msgstr "게임 옵션"
 
 msgid "FAVORITE"
 msgstr "즐겨찾기"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "항목을 찾지 못했습니다"
+
+msgid "INVALID CONTENT"
+msgstr ""
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2785,7 +2953,7 @@ msgid "INDEXING COMPLETED"
 msgstr "인덱싱 완료"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
-msgstr "변경 사항 적용하기 위해 게임 리스트 업데이트"
+msgstr "변경 사항 적용하기 위해 게임 리스트 업데이트."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "에뮬레이터가 예기치 않게 종료됨"
@@ -2844,8 +3012,14 @@ msgstr "세로"
 msgid "LIGHTGUN"
 msgstr "라이트건"
 
-msgid "HAS MEDIAS"
-msgstr "미디어 있음"
+msgid "STEERING WHEEL"
+msgstr ""
+
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "스크랩 중"
@@ -2884,20 +3058,20 @@ msgid "SPACE"
 msgstr "스페이스"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "위"
+msgid "NORTH"
+msgstr "북 (Y버튼)"
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "아래"
+msgid "SOUTH"
+msgstr "남 (B버튼)"
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "왼쪽"
+msgid "EAST"
+msgstr "동 (A버튼)"
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "오른쪽"
+msgid "WEST"
+msgstr "서 (Y버튼)"
 
 msgctxt "joystick"
 msgid "START"
@@ -2906,6 +3080,22 @@ msgstr "시작"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "선택"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr "방향 패드 위"
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr "방향 패드 아래"
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr "방향 패드 왼쪽"
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr "방향 패드 오른쪽"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2938,6 +3128,30 @@ msgstr "오른쪽 아날로그 왼쪽"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "오른쪽 아날로그 오른쪽"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr "왼쪽 상단(LS)"
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr "오른쪽 상단(RS)"
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr "왼쪽 트리거(LT)"
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr "오른쪽 트리거(RT)"
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr "왼쪽 스틱 누름"
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr "오른쪽 스틱 누르"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3000,6 +3214,12 @@ msgstr "검색된 게임패드 없음"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "설정 하려면 장치의 버튼을 길게 누르세요."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "변경 취소"
 
@@ -3038,6 +3258,30 @@ msgstr "편집"
 msgid "ENABLED"
 msgstr "사용"
 
+msgid "WORKING..."
+msgstr "작업 중..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr "%d 시간"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d 분"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d 초"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3058,23 +3302,54 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 초 전"
 
-msgid "WORKING..."
-msgstr "작업 중..."
-
-#, c-format
-msgid "%d h"
-msgstr "%d 시간"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d 분"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d 초"
-
 msgid "SCREEN READER ENABLED"
 msgstr "스크린 리더 활성"
 
 msgid "SCREEN READER DISABLED"
 msgstr "스크린 리더 비활성"
+
+#~ msgid "Achievements won"
+#~ msgstr "획득한 도전과제"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "테마에서 새 사용자 컬렉션 만들기"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "테마 폴더 선택"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "테마가 없는 커스텀 컬렉션을 그룹"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "미디어 있음"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "위"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "아래"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "왼쪽"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "오른쪽"
+
+#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
+#~ msgstr "에뮬레이션스테이션에서 A/B 버튼 교체"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
+#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
+#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
+#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
+#~ "BUTTON TO CONFIRM WHEN DONE."
+#~ msgstr ""
+#~ "컨트롤러 맵을 작성합니다. 맵은 물리적 라벨이 아닌SNES 컨트롤러에서 해당 버"
+#~ "튼과 관련된 버튼 위치를 기반으로 한 맵입니다핫키를 위한 스페셜 키가 없다"
+#~ "면, 셀렉트 버튼을 사용하십시오키를 누르지 않고 있는 모든 버튼/스틱을 건너"
+#~ "뜁니다. 완료 확인을 위해남쪽 버튼 누르세요."

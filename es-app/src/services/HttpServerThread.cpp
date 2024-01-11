@@ -6,7 +6,7 @@
 #include <Windows.h>
 #endif
 
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Gamelist.h"
 #include "SystemData.h"
 #include "FileData.h"
@@ -29,6 +29,7 @@
 
 Misc APIS
 -----------------
+GET  /caps                                                      -> capability info
 GET  /restart
 GET  /quit
 GET  /emukill
@@ -219,7 +220,7 @@ void HttpServerThread::run()
 		if (req.has_param("confirm") && req.get_param_value("confirm") == "switchscreen") 
 		{
 			Window* win = mWindow;
-			mWindow->postToUiThread([win]() { win->pushGui(new GuiMsgBox(win, _("DO YOU WANT TO SWITCH THE SCREEN ?"), _("YES"), [] { quitES(); }, _("NO"), nullptr)); });			
+			mWindow->postToUiThread([win]() { win->pushGui(new GuiMsgBox(win, _("DO YOU WANT TO SWITCH THE SCREEN ?"), _("YES"), [] { Utils::Platform::quitES(); }, _("NO"), nullptr)); });
 			return;
 		}
 #endif
@@ -231,7 +232,7 @@ void HttpServerThread::run()
 			return;
 		}
 
-		quitES();		
+		Utils::Platform::quitES();
 	});
 
 	mHttpServer->Get("/restart", [](const httplib::Request& req, httplib::Response& res)
@@ -239,7 +240,7 @@ void HttpServerThread::run()
 		if (!isAllowed(req, res))
 			return;
 
-		quitES(QuitMode::REBOOT);
+		Utils::Platform::quitES(Utils::Platform::QuitMode::REBOOT);
 	});
 
 	mHttpServer->Get("/emukill", [](const httplib::Request& req, httplib::Response& res)
@@ -248,6 +249,14 @@ void HttpServerThread::run()
 			return;
 
 		ApiSystem::getInstance()->emuKill();
+	});
+
+	mHttpServer->Get("/caps", [](const httplib::Request& req, httplib::Response& res)
+	{
+		if (!isAllowed(req, res))
+			return;
+
+		res.set_content(HttpApi::getCaps(), "application/json");
 	});
 
 	mHttpServer->Get("/systems", [](const httplib::Request& req, httplib::Response& res)
@@ -266,7 +275,7 @@ void HttpServerThread::run()
 		std::string ret = HttpApi::getRunnningGameInfo();
 		if (ret.empty())
 		{
-			res.set_content("201 NO GAME RUNNING", "text/html");
+			res.set_content("{\"msg\":\"NO GAME RUNNING\"}", "application/json");
 			res.status = 201;
 		}
 		else
@@ -478,7 +487,8 @@ void HttpServerThread::run()
 			auto game = HttpApi::findFileData(system, gameId);
 			if (game != nullptr)
 			{
-				res.set_content(HttpApi::ToJson(game), "application/json");
+				bool localpaths = req.has_param("localpaths") && req.get_param_value("localpaths") == "true";
+				res.set_content(HttpApi::ToJson(game, localpaths), "application/json");
 				return;
 			}
 		}
@@ -496,7 +506,8 @@ void HttpServerThread::run()
 		SystemData* system = SystemData::getSystem(systemName);
 		if (system != nullptr)
 		{
-			res.set_content(HttpApi::ToJson(system), "application/json");
+			bool localpaths = req.has_param("localpaths") && req.get_param_value("localpaths") == "true";
+			res.set_content(HttpApi::ToJson(system, localpaths), "application/json");
 			return;
 		}
 

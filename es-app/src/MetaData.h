@@ -167,6 +167,8 @@ public:
 	static const std::vector<MetaDataDecl>& getMDD() { return mMetaDataDecls; }
 	inline const std::string& getName() const { return mName; }
 	
+	const bool exists(const std::string& key) const;
+
 	void importScrappedMetadata(const MetaDataList& source);
 
 	std::string getRelativeRootPath();

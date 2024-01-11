@@ -7,6 +7,7 @@
 #include "TextComponent.h"
 #include "ThemeData.h"
 #include "resources/TextureResource.h"
+#include "renderers/Renderer.h"
 
 class VideoComponent;
 
@@ -49,6 +50,7 @@ public:
 		image->setColorShiftEnd(colorEnd);
 		image->setMirroring(reflexion);
 		image->setRoundCorners(roundCorners);
+		image->setCustomShader(customShader);
 	}
 
 	bool Loaded;
@@ -63,6 +65,8 @@ public:
 	unsigned int colorEnd;
 
 	std::string  sizeMode;
+
+	Renderer::ShaderInfo customShader;
 
 	float roundCorners;
 };
@@ -198,6 +202,8 @@ public:
 	GridTileComponent(Window* window);
 	~GridTileComponent();
 
+	std::string getThemeTypeName() override { return "gridtile"; }
+
 	void render(const Transform4x4f& parentTrans) override;
 
 	virtual void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties);
@@ -218,7 +224,7 @@ public:
 	
 	void setFavorite(bool favorite);
 	void setCheevos(bool favorite);
-	bool hasFavoriteMedia() { return mFavorite != nullptr; }
+	bool hasFavoriteMedia();
 
 	void setSelected(bool selected, bool allowAnimation = true, Vector3f* pPosition = NULL, bool force = false, bool startsVideo = true);
 
@@ -249,7 +255,11 @@ public:
 
 	void	startVideo();
 
+	void	updateBindings(IBindable* bindable) override;
+	bool    hasItemTemplate() { return mHasItemTemplate; }
+
 private:
+	void	handleStoryBoard(bool activate);
 	void	resetProperties();
 	void	createVideo();
 	void	createMarquee();
@@ -298,6 +308,7 @@ private:
 
 	bool mVideoPlaying;	
 	bool mHasStandardMarquee;
+	bool mHasItemTemplate;
 };
 
 #endif // ES_CORE_COMPONENTS_GRID_TILE_COMPONENT_H

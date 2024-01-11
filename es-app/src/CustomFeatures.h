@@ -89,12 +89,14 @@ public:
 		padTokeyboard = 65536,
 		cheevos = 131072,
 		autocontrollers = 262144,
+		videofilters = 524288,
+
 #ifdef _ENABLEEMUELEC
-    vertical = 524288,
-		nativevideo = 1048576,
-		hlebios = 2097152,
-    joybtnremap = 4194304,
-		cloudsave = 8388608,
+    vertical = 1048576,
+		nativevideo = 2097152,
+		hlebios = 4194304,
+    joybtnremap = 8388608,
+		cloudsave = 16777216,
 #endif
 		all = 0x0FFFFFFF
 	};

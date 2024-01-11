@@ -5,22 +5,26 @@
 #include "renderers/Renderer.h"
 #include "GuiComponent.h"
 #include "resources/Font.h"
-#include "platform.h"
+#include "utils/Platform.h"
+#include "watchers/WatchersManager.h"
 
 class TextureResource;
 
-class ControllerActivityComponent : public GuiComponent
+class ControllerActivityComponent : public GuiComponent, IWatcherNotify
 {
 public:
 	enum ActivityView : unsigned int
 	{
 		CONTROLLERS = 1,
 		BATTERY = 2,
-		NETWORK = 4
+		NETWORK = 4,
+		PLANEMODE = 8
 	};
 
-
 	ControllerActivityComponent(Window* window);
+	~ControllerActivityComponent();
+
+	std::string getThemeTypeName() override { return "controllerActivity"; }
 
 	void onSizeChanged() override;
 	void onPositionChanged() override;
@@ -42,6 +46,8 @@ public:
 	
 	bool hasBattery() { return mBatteryInfo.hasBattery; }
 
+	void OnWatcherChanged(IWatcher* component) override;
+
 protected:
 	virtual void	init();
 
@@ -62,6 +68,7 @@ protected:
 	// Pads
 	std::shared_ptr<TextureResource> mPadTexture;	
 	std::shared_ptr<TextureResource> mGunTexture;
+  	std::shared_ptr<TextureResource> mWheelTexture;
 
 	class PlayerPad
 	{
@@ -72,6 +79,7 @@ protected:
 		}
 	
 		int  index;
+		bool isWheel;
 		int  batteryLevel;
 		int  keyState;
 		int  timeOut;
@@ -84,6 +92,7 @@ protected:
 		void reset()
 		{
 			index = -1;
+			isWheel = false;
 			batteryLevel = -1;
 			keyState = 0;
 			timeOut = 0;
@@ -94,17 +103,18 @@ protected:
 
 protected:
 	// Network info
-	void updateNetworkInfo();
-	std::shared_ptr<TextureResource> mNetworkImage;
+	std::shared_ptr<TextureResource> mNetworkImage;	
+    std::shared_ptr<TextureResource> mPlanemodeImage;
 	bool mNetworkConnected;
-	int mNetworkCheckTime;
+  	bool mPlanemodeEnabled;
 
 protected:
 	// Battery info
-	int mBatteryCheckTime;
 	int mBatteryTextX;
 
-	BatteryInformation mBatteryInfo;
+	Utils::Platform::BatteryInformation mBatteryInfo;
+	Utils::Platform::BatteryInformation mWatchedBatteryInfo;
+	bool mBatteryInfoChanged;
 
 	std::shared_ptr<TextureResource> mBatteryImage;
 	std::shared_ptr<Font>			 mBatteryFont;

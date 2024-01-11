@@ -365,15 +365,17 @@ You can now change the order in which elements are rendered by setting `zIndex` 
 	* `text name="logoText"`
 	* `image name="logo"`
 
-### Theme variables
+### Theme static variables
 
-Theme variables can be used to simplify theme construction.  There are 2 types of variables available.
+Theme variables can be used to simplify theme construction.  
+They must be used surrounded by ${ and }. ( ex : ${global.clock} }
+There are 3 types of variables available.
 * System Variables
 * Theme Defined Variables
 
-#### System Variables
+#### Built-in static variables
 
-System variables can be used with variables, text bindings & if conditions.
+System variables can be used with variables, elements & if conditions.
 
 * system.name
 * system.fullName
@@ -405,6 +407,8 @@ System variables can be used with variables, text bindings & if conditions.
 * system.command
 * cheevos.username
 * `lang`  ** Batocera 5.24
+* themePath                 (string)          root folder of the theme (not ending with /)             ** Batocera 5.39
+* currentPath               (string)          folder of current  theme xml file (not ending with /)    ** Batocera 5.39 
 
 #### Theme Defined Variables
 Variables can also be defined in the theme.
@@ -502,7 +506,9 @@ Variables can be used to specify the value of a theme property:
 
 or to specify only a portion of the value of a theme property:
 
+### Theme dynamic variables
 
+See THEMES_BINDINGS.md for dynamic variables documentation
 
 Reference
 =========

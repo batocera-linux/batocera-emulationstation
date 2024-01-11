@@ -19,6 +19,7 @@ GuiGameScraper::GuiGameScraper(Window* window, ScraperSearchParams params, std::
 	mBox.setEdgeColor(theme->Background.color);
 	mBox.setCenterColor(theme->Background.centerColor);
 	mBox.setCornerSize(theme->Background.cornerSize);
+	mBox.setPostProcessShader(theme->Background.menuShader);
 
 	PowerSaver::pause();
 	addChild(&mBox);

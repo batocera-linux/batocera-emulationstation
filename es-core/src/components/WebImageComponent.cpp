@@ -46,7 +46,7 @@ public:
 // keepInCacheDuration = 86400 -> image expire in 24 hours ( 60*60*10 )
 
 WebImageComponent::WebImageComponent(Window* window, double keepInCacheDuration) : ImageComponent(window, false), 
-	mRequest(nullptr), mKeepInCacheDuration(keepInCacheDuration),
+	mRequest(nullptr), mKeepInCacheDuration(keepInCacheDuration), mMaxSize(MaxSizeInfo::Empty),
 	mBusyAnim(nullptr)
 {
 	mWaitLoaded = false;
@@ -92,7 +92,7 @@ WebImageComponent::~WebImageComponent()
 	}
 }
 
-void WebImageComponent::setImage(const std::string& path, bool tile, MaxSizeInfo maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
+void WebImageComponent::setImage(const std::string& path, bool tile, const MaxSizeInfo& maxSize, bool checkFileExists, bool allowMultiImagePlaylist)
 {
 	if (mRequest != nullptr)
 	{

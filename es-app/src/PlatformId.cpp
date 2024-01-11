@@ -23,7 +23,8 @@ namespace PlatformIds
 		{ "jaguar",					ATARI_JAGUAR },
 		{ "atarijaguar",			ATARI_JAGUAR },
 		{ "atarijaguarcd",			ATARI_JAGUAR_CD },
-		{ "atarixe",				ATARI_XE },
+		{ "xegs",				    ATARI_XE },
+		{ "bbc",					BBC_MICRO},
 		{ "colecovision",			COLECOVISION },
 		{ "c64",					COMMODORE_64 },
 		{ "vic20",				COMMODORE_VIC20 },
@@ -33,6 +34,9 @@ namespace PlatformIds
 		{ "xbox",					XBOX },
 		{ "xbox360",				XBOX_360 },
 		{ "msx",					MSX },
+		{ "msx2",					MSX2 },
+		{ "msx2+",					MSX2_PLUS },
+		{ "msx2turbor",				MSX_TURBO_R },
 		{ "neogeo",					NEOGEO },
 		{ "ngp",					NEOGEO_POCKET },
 		{ "ngpc",					NEOGEO_POCKET_COLOR },
@@ -61,6 +65,7 @@ namespace PlatformIds
 		{ "genesis",				SEGA_GENESIS },
 		{ "mastersystem",			SEGA_MASTER_SYSTEM },
 		{ "megadrive",				SEGA_MEGA_DRIVE },
+		{ "pico",				    SEGA_PICO },
 		{ "saturn",					SEGA_SATURN },
 		{ "sg-1000",				SEGA_SG1000 },
 		{ "psx",					PLAYSTATION },
@@ -99,6 +104,7 @@ namespace PlatformIds
 		{ "sufami",					SUFAMITURBO },
 		{ "zx81",					ZX81 },
 		{ "tic80",					TIC80 },
+		{ "gp32",					GP32 },
 
 		// batocera specific names
 		{ "gb2players",				GAME_BOY },
@@ -109,8 +115,10 @@ namespace PlatformIds
 		{ "oricatmos",				ORICATMOS },
 		{ "tyrquake",				QUAKE },
 		{ "mrboom",					MRBOOM },
-		{ "sonicretro",					SONIC },
-		{ "cannonball",					CANNONBALL },
+		{ "sonicretro",				SONIC },
+		{ "cannonball",				CANNONBALL },
+		{ "multivision",			SEGA_SG1000 },
+		{ "socrates",			    VTECH_SOCRATES },
 
 		// windows specific systems & names
 		{ "windows",				MOONLIGHT },
@@ -149,6 +157,7 @@ namespace PlatformIds
 		{ "easyrpg",				EASYRPG },			
 		{ "pet",					COMMODORE_PET },
 		{ "cpet",					COMMODORE_PET },
+		{ "cplus4",					COMMODORE_PLUS4 },
 		{ "atom",					ACORN_ATOM },
 		{ "bbcmicro",				ACORN_BBC_MICRO },
 		{ "bbc",					ACORN_BBC_MICRO },
@@ -183,6 +192,10 @@ namespace PlatformIds
 		{ "camplynx",				CAMPUTER_LYNX },
 		{ "gamepock",				EPOCH_GAMEPOCKET },	
 		{ "wasm4",					WASM4 },
+		{ "vis",					TANDY_VIS },
+			
+		{ "pcarcade",				TEKNOPARROT },
+		{ "teknoparrot",			TEKNOPARROT },
 
 		{ "ignore",					PLATFORM_IGNORE },
 		{ "invalid",				PLATFORM_COUNT }

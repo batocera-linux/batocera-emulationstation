@@ -68,32 +68,12 @@ void BasicGameListView::populateList(const std::vector<FileData*>& files)
 	{
 		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 		if (showParentFolder && mCursorStack.size())
-		{
-			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-			mList.add(". .", placeholder, true);
-		}
+			mList.add(". .", createParentFolderData(), true);
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();
-		if (favoritesFirst)
-		{			
-			for (auto file : files)
-			{
-				if (!file->getFavorite())
-					continue;
-						
-				mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
-			}
-		}
-
 		for (auto file : files)		
-		{
-			if (favoritesFirst && file->getFavorite())
-				continue;
-				
 			mList.add(formatter.getDisplayName(file), file, file->getType() == FOLDER);
-		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mList.size() > 1 && mList.getCursorIndex() == 0)
@@ -170,7 +150,7 @@ void BasicGameListView::setCursor(FileData* cursor)
 void BasicGameListView::addPlaceholder()
 {
 	// empty list - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());	
+	FileData* placeholder = createNoEntriesPlaceholder();
 	mList.add(placeholder->getName(), placeholder, true);
 }
 
@@ -191,25 +171,13 @@ void BasicGameListView::launch(FileData* game)
 
 void BasicGameListView::remove(FileData *game)
 {
-	FolderData* parent = game->getParent();
-	if (getCursor() == game)                     // Select next element in list, or prev if none
-	{
-		std::vector<FileData*> siblings = mList.getObjects();
-
-		int gamePos = getCursorIndex();
-		if ((gamePos + 1) < (int)siblings.size())
-			setCursor(siblings.at(gamePos + 1));
-		else if ((gamePos - 1) > 0)
-			setCursor(siblings.at(gamePos - 1));
-	}
-
 	mList.remove(game);
-	if(mList.size() == 0)
-		addPlaceholder();
 
 	mRoot->removeFromVirtualFolders(game);
 	delete game;                                 // remove before repopulating (removes from parent)
-	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
+
+	if (mList.size() == 0)
+		addPlaceholder();
 }
 
 void BasicGameListView::setCursorIndex(int cursor)
@@ -237,4 +205,9 @@ void BasicGameListView::onLongMouseClick(GuiComponent* component)
 		showSelectedGameSaveSnapshots();
 	else
 		showSelectedGameOptions();
+}
+
+bool BasicGameListView::onMouseWheel(int delta)
+{
+	return mList.onMouseWheel(delta);
 }

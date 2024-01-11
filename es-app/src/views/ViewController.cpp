@@ -947,17 +947,13 @@ void ViewController::update(int deltaTime)
 
 	if (mDeferPlayViewTransitionTo != nullptr)
 	{
-		auto destView = mDeferPlayViewTransitionTo;
-		mDeferPlayViewTransitionTo.reset();
-		
-		mWindow->postToUiThread([this, destView]() 
-		{ 
-			if (mCurrentView)
-				mCurrentView->onHide();
+		if (mCurrentView)
+			mCurrentView->onHide();
 
-			mCurrentView = destView;
-			playViewTransition(false); 
-		});
+		mCurrentView = mDeferPlayViewTransitionTo;
+		mDeferPlayViewTransitionTo = nullptr;
+
+		playViewTransition(false); 
 	}
 }
 
@@ -1112,7 +1108,9 @@ void ViewController::reloadGameListView(IGameListView* view)
 	// Redisplay the current view
 	if (mCurrentView)
 	{
-		mCurrentView->onShow();
+		if (isCurrent)
+			mCurrentView->onShow();
+
 		updateHelpPrompts();
 	}
 }
@@ -1402,7 +1400,14 @@ bool ViewController::hitTest(int x, int y, Transform4x4f& parentTransform, std::
 //  Skip ViewController rect
 
 	for (int i = 0; i < getChildCount(); i++)
-		ret |= getChild(i)->hitTest(x, y, trans, pResult);
+	{
+		auto child = getChild(i);
+		if (mCurrentView == nullptr || child != mCurrentView.get())
+			ret |= getChild(i)->hitTest(x, y, trans, pResult);
+	}
+
+	if (mCurrentView != nullptr)
+		mCurrentView->hitTest(x, y, trans, pResult);
 
 	return ret;
 }

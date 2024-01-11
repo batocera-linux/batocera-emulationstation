@@ -4,7 +4,7 @@
 #include "resources/ResourceManager.h"
 #include "Log.h"
 
-AnimatedImageComponent::AnimatedImageComponent(Window* window) : GuiComponent(window), mEnabled(false)
+AnimatedImageComponent::AnimatedImageComponent(Window* window) : GuiComponent(window), mEnabled(false), mCurrentFrame(0), mFrameAccumulator(0), mLoop(true)
 {
 }
 
@@ -14,18 +14,18 @@ void AnimatedImageComponent::load(const AnimationDef* def)
 
 	assert(def->frameCount >= 1);
 
-	for(size_t i = 0; i < def->frameCount; i++)
+	for (size_t i = 0; i < def->frameCount; i++)
 	{
-		if(def->frames[i].path != NULL && !ResourceManager::getInstance()->fileExists(def->frames[i].path))
+		if (def->frames[i].path.empty() || !ResourceManager::getInstance()->fileExists(def->frames[i].path))
 		{
 			LOG(LogError) << "Missing animation frame " << i << " (\"" << def->frames[i].path << "\")";
 			continue;
 		}
 
 		auto img = std::unique_ptr<ImageComponent>(new ImageComponent(mWindow));
-		img->setResize(mSize.x(), mSize.y());
-		img->setImage(std::string(def->frames[i].path), false);
-		
+		img->setMaxSize(mSize.x(), mSize.y());
+		img->setImage(def->frames[i].path, false);
+
 		mFrames.push_back(ImageFrame(std::move(img), def->frames[i].time));
 	}
 
@@ -47,7 +47,7 @@ void AnimatedImageComponent::onSizeChanged()
 	GuiComponent::onSizeChanged();
 
 	for(auto it = mFrames.cbegin(); it != mFrames.cend(); it++)
-		it->first->setResize(mSize.x(), mSize.y());
+		it->first->setMaxSize(mSize.x(), mSize.y());
 }
 
 void AnimatedImageComponent::update(int deltaTime)

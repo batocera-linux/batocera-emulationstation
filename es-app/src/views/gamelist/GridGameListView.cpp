@@ -147,11 +147,6 @@ const std::string GridGameListView::getImagePath(FileData* file)
 	return file->getThumbnailPath();
 }
 
-const bool GridGameListView::isVirtualFolder(FileData* file)
-{
-	return file->getType() == FOLDER && ((FolderData*)file)->isVirtualFolderDisplay();
-}
-
 void GridGameListView::populateList(const std::vector<FileData*>& files)
 {
 	updateHeaderLogoAndText();
@@ -164,13 +159,12 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 	{
 		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 
-		if (mCursorStack.size())
+		if (mCursorStack.size() && showParentFolder)
 		{
 			auto top = mCursorStack.top();
 
 			std::string imagePath;
-			bool displayAsVirtualFolder = true;
-
+		
 			// Find logo image from original system
 			if (mCursorStack.size() == 1 && top->getSystem()->isGroupChildSystem())
 			{
@@ -192,44 +186,20 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 					{
 						if (child->getPath() == startPath)
 						{
-							if (child->getType() == FOLDER)
-								displayAsVirtualFolder = ((FolderData*)child)->isVirtualFolderDisplayEnabled();
-
 							imagePath = child->getMetadata(MetaDataId::Image);
 							break;
 						}
 					}
 				}				
 			}
-
-			if (showParentFolder)
-			{
-				FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-				mGrid.add(". .", imagePath, "", "", false, true, false, displayAsVirtualFolder && !imagePath.empty(), placeholder);
-			}
+			
+			mGrid.add(". .", imagePath, createParentFolderData());
 		}
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();
-		if (favoritesFirst)
-		{
-			for (auto file : files)
-			{
-				if (!file->getFavorite())
-					continue;
-
-				mGrid.add(formatter.getDisplayName(file, file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file))), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->hasCheevos(), file->getType() != GAME, isVirtualFolder(file), file);
-			}
-		}
-
 		for (auto file : files)
-		{
-			if (file->getFavorite() && favoritesFirst)
-				continue;
-
-			mGrid.add(formatter.getDisplayName(file, file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file))), getImagePath(file), file->getVideoPath(), file->getMarqueePath(), file->getFavorite(), file->hasCheevos(), file->getType() != GAME, isVirtualFolder(file), file);
-		}
+			mGrid.add(formatter.getDisplayName(file, file->getType() == FOLDER && Utils::FileSystem::exists(getImagePath(file))), getImagePath(file), file);
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mGrid.size() > 1 && mGrid.getCursorIndex() == 0)
@@ -239,6 +209,8 @@ void GridGameListView::populateList(const std::vector<FileData*>& files)
 		addPlaceholder();
 
 	updateFolderPath();
+
+	mGrid.update(0);
 
 	if (mShowing)
 		onShow();
@@ -271,8 +243,8 @@ void GridGameListView::updateInfoPanel()
 void GridGameListView::addPlaceholder()
 {
 	// empty grid - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());
-	mGrid.add(placeholder->getName(), "", "", "", false, false,false,false, placeholder);
+	FileData* placeholder = createNoEntriesPlaceholder();
+	mGrid.add(placeholder->getName(), "", placeholder);
 }
 
 void GridGameListView::launch(FileData* game)
@@ -290,26 +262,13 @@ void GridGameListView::launch(FileData* game)
 
 void GridGameListView::remove(FileData *game)
 {
-	FolderData* parent = game->getParent();
-	if (getCursor() == game)                     // Select next element in list, or prev if none
-	{		
-		std::vector<FileData*> siblings = mGrid.getObjects();
-
-		int gamePos = getCursorIndex();
-		if ((gamePos + 1) < (int)siblings.size())
-			setCursor(siblings.at(gamePos + 1));
-		else if ((gamePos - 1) > 0)
-			setCursor(siblings.at(gamePos - 1));			
-	}
-
 	mGrid.remove(game);
-	if(mGrid.size() == 0)
-		addPlaceholder();
 
 	mRoot->removeFromVirtualFolders(game);
 	delete game;                                 // remove before repopulating (removes from parent)
 
-	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
+	if (mGrid.size() == 0)
+		addPlaceholder();
 }
 
 void GridGameListView::onFileChanged(FileData* file, FileChangeType change)
@@ -372,4 +331,9 @@ void GridGameListView::onLongMouseClick(GuiComponent* component)
 		showSelectedGameSaveSnapshots();
 	else
 		showSelectedGameOptions();
+}
+
+bool GridGameListView::onMouseWheel(int delta)
+{
+	return mGrid.onMouseWheel(delta);
 }

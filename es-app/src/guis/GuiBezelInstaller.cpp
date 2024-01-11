@@ -157,7 +157,7 @@ void GuiBezelInstaller::processBezel(BatoceraBezel bezel)
 				mWindow->displayNotificationMessage(_U("\uF019 ") + bezel.name + " : " + _("BEZELS UNINSTALLED SUCCESSFULLY"));
 			else
 			{
-				std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+				std::string error = _("AN ERROR OCCURRED") + std::string(": ") + updateStatus.first;
 				mWindow->displayNotificationMessage(_U("\uF019 ") + error);
 			}
 

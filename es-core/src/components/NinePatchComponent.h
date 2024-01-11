@@ -24,6 +24,8 @@ public:
 	NinePatchComponent(Window* window, const std::string& path = "", unsigned int edgeColor = 0xFFFFFFFF, unsigned int centerColor = 0xFFFFFFFF);
 	virtual ~NinePatchComponent();
 
+	std::string getThemeTypeName() override { return "ninepatch"; }
+
 	void render(const Transform4x4f& parentTrans) override;
 	void update(int deltaTime) override;
 
@@ -41,19 +43,19 @@ public:
 	void setCornerSize(float sizeX, float sizeY);
 	inline void setCornerSize(const Vector2f& size) { setCornerSize(size.x(), size.y()); }
 
-	virtual void setOpacity(unsigned char opacity);
+	void onOpacityChanged() override;
 
 	void setAnimateColor(unsigned int color) { mAnimateColor = color; };
 	void setAnimateTiming(float timing) { mAnimateTiming = timing; };
 
-	virtual void onShow() override;
-	virtual void onHide() override;
+	void onShow() override;
+	void onHide() override;
+	void onPaddingChanged() override;
 
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 
-	Vector4f getPadding() { return mPadding; }
-	void setPadding(const Vector4f padding);
+	void setPostProcessShader(const Renderer::ShaderInfo& shader, bool cacheable = true);
 
 private:
 	void buildVertices();
@@ -69,11 +71,15 @@ private:
 	
 	Vector2f mPreviousSize;
 
+	bool mCustomShaderIsPostProcess;
+	bool mCustomShaderIsCacheable;
+	Renderer::ShaderInfo mCustomShader;
 
 	float mTimer;
 	float mAnimateTiming;
-	unsigned int mAnimateColor;	
-	Vector4f	 mPadding;
+	unsigned int mAnimateColor;		
+
+	unsigned int mPostProcessTextureId;
 };
 
 #endif // ES_CORE_COMPONENTS_NINE_PATCH_COMPONENT_H

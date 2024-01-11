@@ -20,7 +20,7 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
-	, filterByLightGun(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false)
+	, filterByLightGun(false), filterByWheel(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -40,7 +40,9 @@ FileFilterIndex::FileFilterIndex()
 		{ CHEEVOS_FILTER, 	&cheevosIndexAllKeys,   &filterByCheevos,	&cheevosIndexFilteredKeys, 	"cheevos",		false,				"",				_("HAS ACHIEVEMENTS") },
 		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") },
 		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") },
-		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAS MEDIAS") }
+		{ WHEEL_FILTER, 	&wheelIndexAllKeys,     &filterByWheel,	    &wheelIndexFilteredKeys,    "wheel",		false,				"",				_("STEERING WHEEL") },
+		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAVING MEDIAS") },
+		{ MISSING_MEDIA_FILTER, &missingMediasIndexAllKeys, &filterByMissingMedia, &missingMediaIndexFilteredKeys, "missingMedia",		false,				"",				_("MISSING MEDIAS") }
 	};
 
 	std::vector<FilterDataDecl> filterDataDecl = std::vector<FilterDataDecl>(filterDecls, filterDecls + sizeof(filterDecls) / sizeof(filterDecls[0]));
@@ -113,7 +115,9 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &verticalIndexAllKeys, &(indexToImport->verticalIndexAllKeys) },
 		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) },
 		{ &lightGunIndexAllKeys, &(indexToImport->lightGunIndexAllKeys) },
-		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) }
+		{ &wheelIndexAllKeys, &(indexToImport->wheelIndexAllKeys) },
+		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) },
+		{ &missingMediasIndexAllKeys, &(indexToImport->missingMediasIndexAllKeys) }
 	};
 
 	std::vector<IndexImportStructure> indexImportDecl = std::vector<IndexImportStructure>(indexStructDecls, indexStructDecls + sizeof(indexStructDecls) / sizeof(indexStructDecls[0]));
@@ -156,7 +160,9 @@ void FileFilterIndex::resetIndex()
 	clearIndex(cheevosIndexAllKeys);
 	clearIndex(verticalIndexAllKeys);
 	clearIndex(lightGunIndexAllKeys);
+	clearIndex(wheelIndexAllKeys);
 	clearIndex(hasMediasIndexAllKeys);
+	clearIndex(missingMediasIndexAllKeys);
 
 	manageIndexEntry(&favoritesIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&favoritesIndexAllKeys, "TRUE", false);
@@ -176,9 +182,43 @@ void FileFilterIndex::resetIndex()
 	manageIndexEntry(&lightGunIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&lightGunIndexAllKeys, "TRUE", false);
 
-	manageIndexEntry(&hasMediasIndexAllKeys, "FALSE", false);
-	manageIndexEntry(&hasMediasIndexAllKeys, "TRUE", false);
+	manageIndexEntry(&wheelIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&wheelIndexAllKeys, "TRUE", false);
 	
+//	manageIndexEntry(&hasMediasIndexAllKeys, "any", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "image", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "video", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "marquee", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "thumbnail", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "fanart", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "titleshot", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "manual", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "magazine", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "map", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "bezel", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "cartridge", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "boxart", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "boxback", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "wheel", false);
+	manageIndexEntry(&hasMediasIndexAllKeys, "mix", false);
+	
+//	manageIndexEntry(&missingMediasIndexAllKeys, "all", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "image", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "video", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "marquee", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "thumbnail", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "fanart", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "titleshot", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "manual", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "magazine", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "map", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "bezel", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "cartridge", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "boxart", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "boxback", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "wheel", false);
+	manageIndexEntry(&missingMediasIndexAllKeys, "mix", false);
+
 	manageIndexEntry(&ratingsIndexAllKeys, "1 STAR", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "2 STARS", false);
 	manageIndexEntry(&ratingsIndexAllKeys, "3 STARS", false);
@@ -309,7 +349,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 
 		return game->hasCheevos() ? "TRUE" : "FALSE";		
 	}
-
+/*
 	case HASMEDIA_FILTER:
 	{
 		if (getSecondary)
@@ -319,7 +359,7 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->hasAnyMedia() ? "TRUE" : "FALSE";
-	}
+	}*/
 
 	case LIGHTGUN_FILTER:
 	{
@@ -330,6 +370,17 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->isLightGunGame() ? "TRUE" : "FALSE";
+	}
+
+	case WHEEL_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		return game->isWheelGame() ? "TRUE" : "FALSE";
 	}
 
 	case VERTICAL_FILTER:
@@ -739,7 +790,59 @@ int FileFilterIndex::showFile(FileData* game)
 
 		bool filterValid = false;
 
-		if (filterData.type == GENRE_FILTER)
+		if (filterData.type == HASMEDIA_FILTER)
+		{
+			auto it = mFilterDecl.find(HASMEDIA_FILTER);
+			if (it == mFilterDecl.cend())
+				break;
+
+			auto keys = it->second.currentFilteredKeys;
+			if (keys == nullptr)
+				break;
+
+			for (auto it : *keys)			
+			{
+				if (it == "FALSE" || it == "TRUE") // Here for Retrocompatibility
+				{
+					if (game->hasAnyMedia() == (it == "TRUE"))
+					{
+						filterValid = true;
+						break;
+					}
+				}				
+				else 
+				{
+					std::string path = game->getMetadata().get(it);
+					if (!path.empty() && Utils::FileSystem::exists(path))
+					{
+						filterValid = true;
+						break;
+					}
+				}
+
+			}
+		}
+		else if (filterData.type == MISSING_MEDIA_FILTER)
+		{
+			auto it = mFilterDecl.find(MISSING_MEDIA_FILTER);
+			if (it == mFilterDecl.cend())
+				break;
+
+			auto keys = it->second.currentFilteredKeys;
+			if (keys == nullptr)
+				break;
+
+			for (auto it : *keys)
+			{
+				std::string path = game->getMetadata().get(it);
+				if (path.empty() || !Utils::FileSystem::exists(path))
+				{
+					filterValid = true;
+					break;
+				}
+			}
+		}
+		else if (filterData.type == GENRE_FILTER)
 		{
 			for (auto val : Genres::getGenreFiltersNames(&game->getMetadata()))
 			{
@@ -749,6 +852,33 @@ int FileFilterIndex::showFile(FileData* game)
 					break;
 				}
 			}
+		}
+		else if (filterData.type == PLAYER_FILTER)
+		{
+			auto range = game->parsePlayersRange();
+
+			if (range.first <= 0 && range.second > 0)
+				filterValid = isKeyBeingFilteredBy(std::to_string(range.second), filterData.type);
+			else if (range.second > 0)
+			{
+				auto it = mFilterDecl.find(PLAYER_FILTER);
+				if (it != mFilterDecl.cend())
+				{
+					auto fltKeys = it->second.currentFilteredKeys;					
+					if (fltKeys != nullptr)
+					{
+						for (auto flt : *fltKeys)
+						{
+							int val = Utils::String::toInteger(flt);
+							if (range.first <= val && val <= range.second)
+							{
+								filterValid = true;
+								break;
+							}
+						}
+					}
+				}
+			}			
 		}
 		else
 		{
@@ -833,40 +963,15 @@ void FileFilterIndex::manageGenreEntryInIndex(FileData* game, bool remove)
 {
 	for (auto key : Genres::getGenreFiltersNames(&game->getMetadata()))
 		manageIndexEntry(&genreIndexAllKeys, key, remove);
-
-	/*
-
-	std::string key = getIndexableKey(game, GENRE_FILTER, false);
-
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-
-	// only add unknown in pubdev IF both dev and pub are empty
-	if (!includeUnknown && (key == UNKNOWN_LABEL || key == "BIOS"))		
-		return;	 // no valid genre info found
-
-	manageIndexEntry(&genreIndexAllKeys, key, remove);
-
-	auto subkey = getIndexableKey(game, GENRE_FILTER, true);
-	if (!includeUnknown && (subkey == UNKNOWN_LABEL || subkey == "BIOS"))
-		return;	 // no valid genre info found
-
-	manageIndexEntry(&genreIndexAllKeys, subkey, remove);*/
 }
 
 void FileFilterIndex::managePlayerEntryInIndex(FileData* game, bool remove)
 {
-	// flag for including unknowns
-	bool includeUnknown = INCLUDE_UNKNOWN;
-	std::string key = getIndexableKey(game, PLAYER_FILTER, false);
-
-	// only add unknown in pubdev IF both dev and pub are empty
-	if (!includeUnknown && key == UNKNOWN_LABEL) {
-		// no valid player info found
+	if (remove || !playersIndexAllKeys.empty())
 		return;
-	}
 
-	manageIndexEntry(&playersIndexAllKeys, key, remove);
+	for (int i = 1; i < 10; i++)
+		playersIndexAllKeys.insert(std::pair<std::string, int>(std::to_string(i), 1));
 }
 
 void FileFilterIndex::managePubDevEntryInIndex(FileData* game, bool remove)
@@ -993,7 +1098,7 @@ bool CollectionFilter::load(const std::string file)
 	mPath = file;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(file.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(file).c_str());
 
 	if (!res)
 	{
@@ -1055,8 +1160,12 @@ bool CollectionFilter::load(const std::string file)
 			verticalIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "lightgun")
 			lightGunIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "wheel")
+			wheelIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "hasMedia")
 			hasMediaIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "missingMedia")
+			missingMediaIndexFilteredKeys.insert(node.text().as_string());
 	}
 
 	for (auto& it : mFilterDecl)
@@ -1126,10 +1235,16 @@ bool CollectionFilter::save()
 	for (auto key : lightGunIndexFilteredKeys)
 		root.append_child("lightgun").text().set(key.c_str());
 
+	for (auto key : wheelIndexFilteredKeys)
+		root.append_child("wheel").text().set(key.c_str());
+
 	for (auto key : hasMediaIndexFilteredKeys)
 		root.append_child("hasMedia").text().set(key.c_str());
 		
-	if (!doc.save_file(mPath.c_str()))
+	for (auto key : missingMediaIndexFilteredKeys)
+		root.append_child("missingMedia").text().set(key.c_str());
+
+	if (!doc.save_file(WINSTRINGW(mPath).c_str()))
 	{
 		LOG(LogError) << "Error saving CollectionFilter to \"" << mPath << "\" !";
 		return false;

@@ -1,6 +1,6 @@
 #include "GunManager.h"
 #include "Log.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Window.h"
 #include <SDL.h>
 #include <iostream>
@@ -9,6 +9,7 @@
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
 #include "renderers/Renderer.h"
+#include "InputManager.h"
 
 #ifdef HAVE_UDEV
 #include <poll.h>
@@ -17,9 +18,97 @@
 #include <linux/input.h>
 #include <unistd.h>
 #define test_bit(array, bit)    (array[bit/8] & (1<<(bit%8)))
-#else
-// Uncomment for testing purpose to fake guns using the mouse
-// #define FAKE_GUNS 1
+#elif WIN32
+
+#include <set>
+#include <SDL_syswm.h>
+#include <hidsdi.h>
+#pragma comment(lib, "Hid.lib")
+
+#define WIIMOTE_GUN "Wiimote Gun"
+
+// Uncomment FORCE_REPLACEMOUSE to force using the mouse with GunManager ( for testing purpose )
+// #define FORCE_REPLACEMOUSE 1
+
+// Warning : never call SDL_SetRelativeMouseMode(true) with Windows or RAWINPUT will be managed by SDL
+
+enum class LightGunType
+{
+	Mouse,
+	SindenLightgun,
+	Gun4Ir,
+	MayFlashWiimote
+};
+
+class RawInputManager
+{
+public:
+	static LightGunType getLightGunType(HANDLE hDevice)
+	{
+		std::string name = GetRawInputDevicePath(hDevice);
+
+		std::string sindenDeviceIds[] = { "VID_16C0&PID_0F01", "VID_16C0&PID_0F02", "VID_16C0&PID_0F38", "VID_16C0&PID_0F39" };
+		for (auto id : sindenDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::SindenLightgun;
+
+		std::string gun4irDeviceIds[] = { "VID_2341&PID_8042", "VID_2341&PID_8043", "VID_2341&PID_8044", "VID_2341&PID_8045" };
+		for (auto id : gun4irDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::Gun4Ir;
+
+		std::string mayFlashWiimoteIds[] = { "VID_0079&PID_1802" };  // Mayflash Wiimote, using mode 1
+		for (auto id : mayFlashWiimoteIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::MayFlashWiimote;
+
+		return LightGunType::Mouse;
+	}
+
+	static std::string GetRawInputDevicePath(HANDLE hDevice)
+	{
+		UINT bufferSize = 0;
+
+		// Get the required buffer size for the device name
+		if (GetRawInputDeviceInfoA(hDevice, RIDI_DEVICENAME, nullptr, &bufferSize) != 0) {
+			return "";
+		}
+
+		// Allocate memory for the device name
+		char* lpDeviceName = new char[bufferSize];
+		if (lpDeviceName == nullptr)
+			return "";
+
+		// Get the device name
+		if (GetRawInputDeviceInfoA(hDevice, RIDI_DEVICENAME, lpDeviceName, &bufferSize) == -1) {
+			delete[] lpDeviceName;
+			return "";
+		}
+
+		std::string deviceName(lpDeviceName);
+		delete[] lpDeviceName;
+		return deviceName;
+	}
+
+	static std::string GetRawInputDeviceName(HANDLE hDevice)
+	{
+		std::string path = GetRawInputDevicePath(hDevice);
+
+		std::string ret;
+
+		HANDLE hhid = CreateFileA(path.c_str(), 0, 3, nullptr, 3, 0x00000080, nullptr);
+		if (hhid != INVALID_HANDLE_VALUE)
+		{
+			wchar_t buf[255];
+			if (HidD_GetProductString(hhid, &buf[0], 255))
+				ret = Utils::String::convertFromWideString(buf);
+
+			CloseHandle(hhid);
+		}
+
+		return ret;
+	}
+};
 #endif
 
 GunManager::GunManager()
@@ -58,6 +147,8 @@ GunManager::~GunManager()
 		
 		udev_unref(udev);
 	}
+#elif WIN32
+	enableRawInputCapture(false);
 #endif
 }
 
@@ -71,14 +162,19 @@ int GunManager::readGunEvents(Gun* gun)
 	  for (unsigned i = 0; i<len/sizeof(input_event); i++) {
 			if (input_events[i].type == EV_KEY) {
 				//printf("key, code=%i, value=%i\n", input_events[i].code, input_events[i].value);
-				switch (input_events[i].code) {
+				gun->m_lastTick = SDL_GetTicks();
+
+				switch (input_events[i].code) 
+				{
 				case KEY_CONFIG:
 					if (input_events[i].value == 1) {
 						// starting calibration
+						gun->mIsCalibrating = true;
 						return 1;
 					}
 					else {
 						// stopping calibration
+						gun->mIsCalibrating = false;
 						return 2;
 					}
 					break;
@@ -87,6 +183,24 @@ int GunManager::readGunEvents(Gun* gun)
 					break;
 				case BTN_RIGHT:
 					gun->mRButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_MIDDLE:
+					gun->mStartButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_1:
+					gun->mSelectButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_5:
+					gun->mDPadUpButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_6:
+					gun->mDPadDownButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_7:
+					gun->mDPadLeftButtonDown = (input_events[i].value != 0);
+					break;
+				case BTN_8:
+					gun->mDPadRightButtonDown = (input_events[i].value != 0);
 					break;
 				}
 			}
@@ -97,8 +211,257 @@ int GunManager::readGunEvents(Gun* gun)
 	return 0;
 }
 
-void GunManager::updateGuns(Window* window)
+class Stabilizer
 {
+public:
+	Stabilizer()
+	{
+		mWindowSize = 6;
+		mBuffer.resize(mWindowSize);
+	}
+
+	void add(float x, float y)
+	{
+		mBuffer.push_back({ x, y });
+		if (mBuffer.size() > mWindowSize)
+			mBuffer.pop_front();
+	}
+
+	std::pair<float, float> getStabilizedPosition()
+	{
+		if (mBuffer.empty())
+			return { 0.0f, 0.0f };
+
+		float sumX = 0.0f, sumY = 0.0f;
+		for (const auto& pos : mBuffer)
+		{
+			sumX += pos.first;
+			sumY += pos.second;
+		}
+
+		return { sumX / (float)mBuffer.size(), sumY / (float)mBuffer.size() };
+	}
+
+private:
+	int mWindowSize;
+	std::deque<std::pair<float, float>> mBuffer;
+};
+
+Stabilizer* Gun::getStabilizer()
+{
+	if (m_pStabilizer == nullptr)
+		m_pStabilizer = new Stabilizer();
+
+	return m_pStabilizer;
+}
+
+bool Gun::isLastTickElapsed()
+{
+#ifdef HAVE_UDEV
+	if (mIsCalibrating)
+		return false;
+#endif
+
+	return m_lastTick == 0 || (SDL_GetTicks() - m_lastTick) > 5000;
+}
+
+#if WIN32
+
+bool GunManager::mMessageHookRegistered = false;
+
+
+
+void GunManager::enableRawInputCapture(bool enable)
+{
+	if (mMessageHookRegistered == enable)
+		return;
+
+	// Register to receive raw input from mice
+	RAWINPUTDEVICE rid[1];
+	rid[0].usUsagePage = HID_USAGE_PAGE_GENERIC;
+	rid[0].usUsage = HID_USAGE_GENERIC_MOUSE;
+	rid[0].dwFlags = enable ? 0 : RIDEV_REMOVE;
+	rid[0].hwndTarget = NULL;
+
+	if (enable)
+	{
+		SDL_SysWMinfo wmInfo;
+		SDL_VERSION(&wmInfo.version);
+		if (SDL_GetWindowWMInfo(Renderer::getSDLWindow(), &wmInfo))
+		{
+			rid[0].dwFlags = RIDEV_INPUTSINK;
+			rid[0].hwndTarget = (HWND)wmInfo.info.win.window;
+		}
+	}
+
+	RegisterRawInputDevices(rid, 1, sizeof(RAWINPUTDEVICE));
+
+	if (enable)
+		SDL_SetWindowsMessageHook(&GunManager::WindowsMessageHook, this);
+	else 
+		SDL_SetWindowsMessageHook(nullptr, nullptr);
+
+	mMessageHookRegistered = enable;
+}
+
+static bool _isScreenPointOverWindow(HWND hWnd, int x, int y)
+{
+	POINT cursorPos{ x, y };
+	if (x == -9999 && y == -9999)
+		GetCursorPos(&cursorPos);
+
+	// Get the client rectangle of the window
+	RECT rc;
+	GetClientRect(hWnd, &rc);
+	ClientToScreen(hWnd, reinterpret_cast<POINT*>(&rc.left)); // convert top-left
+	ClientToScreen(hWnd, reinterpret_cast<POINT*>(&rc.right));
+
+	// Check if the cursor is within the client area
+	return PtInRect(&rc, cursorPos);
+}
+
+void GunManager::WindowsMessageHook(void* userdata, void* hWnd, unsigned int message, Uint64 wParam, Sint64 lParam)
+{
+	if (message != WM_INPUT || userdata == nullptr)
+		return;
+
+	RAWINPUT rawInput;
+	UINT size = sizeof(RAWINPUT);
+	UINT ret = GetRawInputData(reinterpret_cast<HRAWINPUT>(lParam), RID_INPUT, &rawInput, &size, sizeof(RAWINPUTHEADER));
+	if (ret == (UINT)-1)
+		return;
+
+	if (rawInput.header.dwType != RIM_TYPEMOUSE)
+		return;
+
+	GunManager* mgr = (GunManager*)userdata;
+
+	auto path = RawInputManager::GetRawInputDevicePath(rawInput.header.hDevice);	
+	auto it = std::find_if(mgr->mGuns.cbegin(), mgr->mGuns.cend(), [path](Gun* pGun) { return pGun->mPath == path; });
+	if (it == mgr->mGuns.cend())
+		return;
+
+	Gun* gun = *it;
+
+	if (gun->m_isMouse)
+	{
+		auto itFirstMouse = std::find_if(mgr->mGuns.cbegin(), mgr->mGuns.cend(), [path](Gun* pGun) { return pGun->m_isMouse; });
+		if (itFirstMouse != mgr->mGuns.cend())
+			gun = *itFirstMouse;
+	}
+
+	// Handle mouse input
+	RAWMOUSE& rawMouse = rawInput.data.mouse;
+
+	RECT rect;
+	::GetWindowRect((HWND)hWnd, &rect);
+	RECT rectClient;
+	::GetClientRect((HWND)hWnd, &rectClient);
+
+	if (gun->m_isMouse)
+	{
+		POINT cursorPos;
+		GetCursorPos(&cursorPos);		
+		ScreenToClient((HWND)hWnd, &cursorPos);
+
+		if (gun->m_internalX != cursorPos.x || gun->m_internalY != cursorPos.y)
+		{
+			gun->m_internalX = cursorPos.x;
+			gun->m_internalY = cursorPos.y;
+			gun->m_lastTick = SDL_GetTicks();
+		}
+	}
+	else if (rawMouse.lLastX != 0 && rawMouse.lLastY != 0)
+	{
+		if ((rawMouse.usFlags & 0x01) == MOUSE_MOVE_ABSOLUTE)
+		{
+			bool isVirtualDesktop = (rawMouse.usFlags & MOUSE_VIRTUAL_DESKTOP) == MOUSE_VIRTUAL_DESKTOP;
+
+			int width = GetSystemMetrics(isVirtualDesktop ? SM_CXVIRTUALSCREEN : SM_CXSCREEN);
+			int height = GetSystemMetrics(isVirtualDesktop ? SM_CYVIRTUALSCREEN : SM_CYSCREEN);
+
+			POINT cursorPos;
+			cursorPos.x = int((rawMouse.lLastX / 65535.0f) * width);
+			cursorPos.y = int((rawMouse.lLastY / 65535.0f) * height);
+			ScreenToClient((HWND)hWnd, &cursorPos);
+
+			gun->getStabilizer()->add(cursorPos.x, cursorPos.y);
+
+			auto stabilizedPos = gun->getStabilizer()->getStabilizedPosition();
+
+			if (gun->m_internalX != stabilizedPos.first || gun->m_internalY != stabilizedPos.second)
+			{
+				gun->m_internalX = stabilizedPos.first;
+				gun->m_internalY = stabilizedPos.second;
+				gun->m_lastTick = SDL_GetTicks();
+			}
+		}
+		else if ((rawMouse.usFlags & 0x01) == MOUSE_MOVE_RELATIVE)
+		{
+			gun->m_internalX = Math::clamp(gun->mX + rawMouse.lLastX, -1, rectClient.right - rectClient.left + 1);
+			gun->m_internalY = Math::clamp(gun->mY + rawMouse.lLastY, -1, rectClient.bottom - rectClient.top + 1);
+			gun->m_lastTick = SDL_GetTicks();
+		}
+	}
+
+	// https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-rawmouse
+	if (rawMouse.usButtonFlags)
+	{
+		bool clickEnabled = true;
+
+		if (GetActiveWindow() != hWnd)
+			clickEnabled = false;
+		else
+		{
+			POINT ptScreen{ gun->m_internalX, gun->m_internalY };
+			ClientToScreen((HWND)hWnd, &ptScreen);
+			clickEnabled = _isScreenPointOverWindow((HWND)hWnd, ptScreen.x, ptScreen.y) && ::WindowFromPoint(ptScreen) == (HWND)hWnd;
+		}
+
+		int	buttonState = gun->m_internalButtonState;
+
+		// Check the button flags
+		if (rawMouse.usButtonFlags & RI_MOUSE_LEFT_BUTTON_DOWN && clickEnabled)
+			buttonState |= 1;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_LEFT_BUTTON_UP)
+			buttonState &= ~1;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_RIGHT_BUTTON_DOWN && clickEnabled)
+			buttonState |= 2;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_RIGHT_BUTTON_UP)
+			buttonState &= ~2;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_MIDDLE_BUTTON_DOWN && clickEnabled)
+			buttonState |= 4;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_MIDDLE_BUTTON_UP)
+			buttonState &= ~4;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_4_DOWN && clickEnabled)
+			buttonState |= 8;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_4_UP)
+			buttonState &= ~8;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_5_DOWN && clickEnabled)
+			buttonState |= 16;
+
+		if (rawMouse.usButtonFlags & RI_MOUSE_BUTTON_5_UP)
+			buttonState &= ~16;
+
+		if (buttonState != gun->m_internalButtonState)
+		{
+			gun->m_internalButtonState = buttonState;
+			gun->m_lastTick = SDL_GetTicks();
+		}
+	}
+}
+#endif
+
+void GunManager::updateGuns(Window* window)
+{	
 #ifdef HAVE_UDEV
 	const char* val_gun;
 	const char* val_gunborder;
@@ -139,61 +502,261 @@ void GunManager::updateGuns(Window* window)
 				udev_device_unref(dev); // not handled, clean it
 		}
 	}
-#elif FAKE_GUNS
-	if (mGuns.size() == 0)
-	{
-		Gun* newgun = new Gun();
-		newgun->mIndex = mGuns.size();
-		newgun->mName = "Mouse";
-		newgun->mNeedBorders = false;
-		mGuns.push_back(newgun);
-	}
 #elif WIN32
-	bool hasGun = false;
 
-	HWND hWndWiimoteGun = FindWindow("WiimoteGun", NULL);
-	if (hWndWiimoteGun)
-	{
-		int mode = (int) GetProp(hWndWiimoteGun, "mode");
-		hasGun = (mode == 1);
-	}
+	static int updateGunCheck = 0;
 
-	if (hasGun && mGuns.size() == 0)
+	// Check gun changed every 10 times it's called
+	if (updateGunCheck++ > 10)
 	{
-		Gun* newgun = new Gun();
-		newgun->mIndex = mGuns.size();
-		newgun->mName = "Wiimote Gun";
-		mGuns.push_back(newgun);
-	}
-	else if (!hasGun && mGuns.size())
-	{
-		for (auto gun : mGuns)
-			delete gun;
+		updateGunCheck = 0;
 
-		mGuns.clear();
+		// Get the number of raw input devices
+		UINT numDevices;
+		if (GetRawInputDeviceList(NULL, &numDevices, sizeof(RAWINPUTDEVICELIST)) == -1)
+			return;
+
+		// Allocate memory for the device list
+		RAWINPUTDEVICELIST* deviceList = new RAWINPUTDEVICELIST[numDevices];
+		if (deviceList == nullptr)
+			return;
+
+		// Get the raw input device list
+		if (GetRawInputDeviceList(deviceList, &numDevices, sizeof(RAWINPUTDEVICELIST)) == -1)
+			delete[] deviceList;
+
+		// Enumerate and print information about connected mice
+
+		std::set<std::string> knownPaths;
+
+		bool hasPhysicalGuns = false;
+
+#if FORCE_REPLACEMOUSE
+		hasPhysicalGuns = true;
+#else
+		for (UINT i = 0; i < numDevices; i++)
+		{
+			std::string devicePath = RawInputManager::GetRawInputDevicePath(deviceList[i].hDevice);
+			if (deviceList[i].dwType != RIM_TYPEMOUSE && RawInputManager::getLightGunType(deviceList[i].hDevice) != LightGunType::Mouse)
+			{
+				hasPhysicalGuns = true;
+				break;
+			}
+		}
+#endif
+		bool hasWiimoteGun = false;
+
+		HWND hWndWiimoteGun = FindWindow("WiimoteGun", NULL);
+		if (hWndWiimoteGun)
+		{
+			int mode = (int)GetProp(hWndWiimoteGun, "mode");
+			hasWiimoteGun = (mode == 1);
+		}
+
+		if (hasPhysicalGuns || hasWiimoteGun)
+		{
+			for (UINT i = 0; i < numDevices; i++)
+			{
+				if (deviceList[i].dwType != RIM_TYPEMOUSE)
+					continue;
+
+				HANDLE hDevice = deviceList[i].hDevice;
+
+				auto gunType = RawInputManager::getLightGunType(hDevice);
+				if (hasWiimoteGun && gunType == LightGunType::Mouse)
+					continue;
+
+				std::string devicePath = RawInputManager::GetRawInputDevicePath(hDevice);
+				knownPaths.insert(devicePath);
+
+				if (std::any_of(mGuns.cbegin(), mGuns.cend(), [devicePath](Gun* pGun) { return pGun->mPath == devicePath; }))
+					continue;
+
+				Gun* newgun = new Gun();
+				newgun->mIndex = mGuns.size();
+				newgun->mName = RawInputManager::GetRawInputDeviceName(hDevice);
+				newgun->mPath = devicePath;
+				newgun->mNeedBorders = gunType == LightGunType::SindenLightgun;
+				newgun->m_isMouse = gunType == LightGunType::Mouse;
+				newgun->m_lastTick = SDL_GetTicks();
+
+				if (newgun->m_isMouse)
+				{
+					int x, y;
+					auto buttons = SDL_GetMouseState(&x, &y);
+					newgun->mX = newgun->m_internalX = x;
+					newgun->mY = newgun->m_internalY = y;
+				}
+				else if (window != NULL && !newgun->mName.empty())
+					window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
+
+				mGuns.push_back(newgun);
+			}
+		}
+
+		// Remove guns
+		auto iter = mGuns.cbegin();
+		while (iter != mGuns.cend())
+		{
+			Gun* gun = *iter;
+
+			if (gun->mName == WIIMOTE_GUN || knownPaths.find(gun->mPath) != knownPaths.cend())
+				iter++;
+			else
+			{
+				if (window != NULL && !gun->m_isMouse)
+					window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
+
+				LOG(LogInfo) << "Gun removed found at " << gun->mPath;
+
+				iter = mGuns.erase(iter);
+				delete gun;
+				renumberGuns();
+			}
+		}
+
+		if (hasWiimoteGun && !std::any_of(mGuns.cbegin(), mGuns.cend(), [](Gun* pGun) { return pGun->mName == WIIMOTE_GUN; }))
+		{
+			Gun* newgun = new Gun();
+			newgun->mIndex = mGuns.size();
+			newgun->mName = WIIMOTE_GUN;
+			newgun->m_isMouse = false;
+			newgun->m_lastTick = SDL_GetTicks();
+
+			mGuns.push_back(newgun);
+
+			if (window != NULL)
+				window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
+		}
+		else if (!hasWiimoteGun && mGuns.size())
+		{
+			for (auto it = mGuns.cbegin(); it != mGuns.cend(); it++)
+			{
+				Gun* gun = *it;
+				if (gun->mName == WIIMOTE_GUN)
+				{
+					if (window != NULL)
+						window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(gun->mName).c_str()));
+
+					mGuns.erase(it);
+					delete gun;
+
+					renumberGuns();
+					break;
+				}
+			}
+		}
+
+		if (hasPhysicalGuns && !mMessageHookRegistered)
+		{
+			SDL_ShowCursor(0);
+			enableRawInputCapture(true);			
+		}
+		else if (!hasPhysicalGuns && mMessageHookRegistered)
+			enableRawInputCapture(false);
+
+		delete[] deviceList;
 	}
 #endif
 
-	float gunMoveTolerence = Settings::getInstance()->getFloat("GunMoveTolerence")/100.0;
+	float gunMoveTolerence = Settings::getInstance()->getFloat("GunMoveTolerence") / 100.0;
 
 	int gunEvent = 0;
 	for (Gun* gun : mGuns)
 	{
-		Gun oldGun = *gun;
+		GunData* data = gun;
+		GunData oldGun = *data;
 
 		int evt = readGunEvents(gun);
 		if (evt != 0)
 			gunEvent = evt;
 
 		updateGunPosition(gun);
+		
+		if (fabsf(oldGun.mX - gun->mX) > gunMoveTolerence || fabsf(oldGun.mY - gun->mY) > gunMoveTolerence)		
+			window->processMouseMove(gun->x(), gun->y(), true);
+		
+#ifdef HAVE_UDEV
+		// gun pads
+		if(gun->isDPadUpButtonDown() != oldGun.isDPadUpButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_5, gun->isDPadUpButtonDown() ? 1 : 0, true));
 
-		if(fabsf(oldGun.mX - gun->mX) > gunMoveTolerence || fabsf(oldGun.mY - gun->mY) > gunMoveTolerence) {
-		  window->processMouseMove(gun->x(), gun->y(), true);
+		if(gun->isDPadDownButtonDown() != oldGun.isDPadDownButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_6, gun->isDPadDownButtonDown() ? 1 : 0, true));
+
+		if(gun->isDPadLeftButtonDown() != oldGun.isDPadLeftButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_7, gun->isDPadLeftButtonDown() ? 1 : 0, true));
+
+		if(gun->isDPadRightButtonDown() != oldGun.isDPadRightButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_8, gun->isDPadRightButtonDown() ? 1 : 0, true));
+
+		// start / select
+		if(gun->isStartButtonDown() != oldGun.isStartButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_MIDDLE, gun->isStartButtonDown() ? 1 : 0, true));
+
+		if(gun->isSelectButtonDown() != oldGun.isSelectButtonDown())
+		  window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_GUN), Input(DEVICE_GUN, TYPE_BUTTON, BTN_1, gun->isSelectButtonDown() ? 1 : 0, true));
+#elif WIN32
+		// gun pads
+		if (gun->isLButtonDown() != oldGun.isLButtonDown())
+		{
+			if (!window->processMouseButton(1, gun->isLButtonDown(), gun->x(), gun->y()))
+				window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, 1, gun->isLButtonDown() ? 1 : 0, false));
 		}
+
+		if (gun->isRButtonDown() != oldGun.isRButtonDown())
+		{
+			if (!window->processMouseButton(3, gun->isRButtonDown(), gun->x(), gun->y()))
+				window->input(InputManager::getInstance()->getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, 3, gun->isRButtonDown() ? 1 : 0, false));
+		}
+
+		if (gun->isMButtonDown() != oldGun.isMButtonDown())
+		{
+			auto config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+
+			Input input;
+			if (config->getInputByName(BUTTON_OK, &input))
+				window->input(config, Input(input.device, input.type, input.id, gun->isMButtonDown() ? 1 : 0, true));
+		}
+
+		if (gun->isStartButtonDown() != oldGun.isStartButtonDown())
+		{
+			auto config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+
+			Input input;
+			if (config->getInputByName("start", &input))
+				window->input(config, Input(input.device, input.type, input.id, gun->isStartButtonDown() ? 1 : 0, true));
+		}
+
+		if (gun->isSelectButtonDown() != oldGun.isSelectButtonDown())
+		{
+			auto config = InputManager::getInstance()->getInputConfigByDevice(DEVICE_KEYBOARD);
+
+			Input input;
+			if (config->getInputByName("select", &input))
+				window->input(config, Input(input.device, input.type, input.id, gun->isSelectButtonDown() ? 1 : 0, true));
+		}
+#endif
 	}
 
 	if (gunEvent == 1 || gunEvent == 2)
 		window->setGunCalibrationState(gunEvent == 1);
+}
+
+void GunManager::renumberGuns()
+{
+	// Renumber guns
+	int idx = 0;
+	for (Gun* gun : mGuns) 
+		gun->mIndex = idx++;	
+}
+
+bool GunManager::isReplacingMouse()
+{
+#if WIN32
+	return mGuns.size();
+#endif
+	return false;
 }
 
 bool GunManager::updateGunPosition(Gun* gun) 
@@ -201,29 +764,50 @@ bool GunManager::updateGunPosition(Gun* gun)
 #ifdef HAVE_UDEV
 	struct input_absinfo absinfo;
 
+	float x = gun->mX;
+	float y = gun->mY;
+
 	if (ioctl(gun->fd, EVIOCGABS(ABS_X), &absinfo) == -1) 
 		return false;
 
-	gun->mX = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
+	x = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
 
 	if (ioctl(gun->fd, EVIOCGABS(ABS_Y), &absinfo) == -1) 
 		return false;
 
-	gun->mY = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
+	y = ((float)(absinfo.value - absinfo.minimum)) / ((float)(absinfo.maximum - absinfo.minimum));
+
+	if (x != gun->mX || y != gun->mY)
+	{
+		gun->mX = x;
+		gun->mY = y;
+		gun->m_lastTick = SDL_GetTicks();
+	}
 
 	return true;
 #else
-	int x, y;
-	auto buttons = SDL_GetMouseState(&x, &y);
-	gun->mX = x;
-	gun->mY = y;
-	gun->mLButtonDown = (buttons & SDL_BUTTON_LMASK) != 0;
-	gun->mRButtonDown = (buttons & SDL_BUTTON_RMASK) != 0;
-	return true;	
+	if (gun->mName == WIIMOTE_GUN)
+	{
+		int x, y;
+		auto buttons = SDL_GetMouseState(&x, &y);
+		gun->mX = x;
+		gun->mY = y;
+		gun->mLButtonDown = (buttons & SDL_BUTTON_LMASK) != 0;
+		gun->mRButtonDown = (buttons & SDL_BUTTON_RMASK) != 0;
+		gun->mMButtonDown = (buttons & SDL_BUTTON_MMASK) != 0;
+		return true;
+	}
+
+	gun->mX = gun->m_internalX;
+	gun->mY = gun->m_internalY;
+	gun->mLButtonDown = (gun->m_internalButtonState & 1) == 1;
+	gun->mRButtonDown = (gun->m_internalButtonState & 2) == 2;
+	gun->mMButtonDown = (gun->m_internalButtonState & 4) == 4;
+	gun->mStartButtonDown = (gun->m_internalButtonState & 8) == 8;
+	gun->mSelectButtonDown = (gun->m_internalButtonState & 16) == 16;	
 #endif	
 	return false;
 }
-
 
 #ifdef HAVE_UDEV
 // function from retroarch
@@ -304,6 +888,7 @@ bool GunManager::udev_addGun(struct udev_device *dev, Window* window, bool needG
 	newgun->dev = dev;
 	newgun->fd = fd;
 	newgun->mNeedBorders = needGunBorder;
+	newgun->m_lastTick = SDL_GetTicks();
 
 	if (!newgun->mName.empty() && window != NULL)
 		window->displayNotificationMessage(_U("\uF05B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(newgun->mName).c_str()));
@@ -339,18 +924,24 @@ bool GunManager::udev_removeGun(struct udev_device *dev, Window* window)
 			delete *iter;
 			mGuns.erase(iter);
 
-			// Renumber guns
-			int idx = 0;
-			for (Gun* gun : mGuns) gun->mIndex = idx++;
-
+			renumberGuns();
 			return true;
 		}
 	}
 	return false;
 }
-float Gun::x() { return mX * Renderer::getScreenWidth(); }
-float Gun::y() { return mY * Renderer::getScreenHeight(); }
+float GunData::x() { return mX * Renderer::getScreenWidth(); }
+float GunData::y() { return mY * Renderer::getScreenHeight(); }
 #else 
-float Gun::x() { return mX; }
-float Gun::y() { return mY; }
+float GunData::x() { return mX; }
+float GunData::y() { return mY; }
 #endif
+
+Gun::~Gun()
+{
+	if (m_pStabilizer != nullptr)
+	{
+		delete m_pStabilizer;
+		m_pStabilizer = nullptr;
+	}
+}

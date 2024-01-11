@@ -70,6 +70,12 @@ public:
 	inline       Vector3f& v3()       { return *(Vector3f*)this; }
 	inline const Vector3f& v3() const { return *(Vector3f*)this; }
 
+	inline       Vector2f& xy()		  { return *(Vector2f*)&mX; }
+	inline const Vector2f& xy() const { return *(Vector2f*)&mX; }
+
+	inline       Vector2f& zw()		  { return *(Vector2f*)&mZ; }
+	inline const Vector2f& zw() const { return *(Vector2f*)&mZ; }
+
 	Vector4f& round();
 	Vector4f& lerp (const Vector4f& _start, const Vector4f& _end, const float _fraction);
 

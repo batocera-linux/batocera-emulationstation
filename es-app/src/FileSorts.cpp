@@ -126,54 +126,17 @@ namespace FileSorts
 	//returns if file1 should come before file2
 	bool compareName(const FileData* file1, const FileData* file2)
 	{
-		if (file1->getType() != file2->getType())
-		{
-			return file1->getType() == FOLDER;
-		}
-
 		// we compare the actual metadata name, as collection files have the system appended which messes up the order
-		const std::string name1 = ((FileData *) file1)->getName();
-		const std::string name2 = ((FileData *) file2)->getName();
-
-		if (_digitPrefixLength(name1) || _digitPrefixLength(name2))
-			return _comparePrefixDigits(name1, name2);
-		
-		return _compareNames(name1, name2);
-	}
-
-	bool compareSortName(const FileData* file1, const FileData* file2)
-	{
-		if (file1->getType() != file2->getType())
-		{
-			return file1->getType() == FOLDER;
-		}
-
-    std::string name1 = (std::string) ((FileData *) file1)->getSortOrName();
-    std::string name2 = (std::string) ((FileData *) file2)->getSortOrName();
-
-		if (_digitPrefixLength(name1) || _digitPrefixLength(name2))
-			return _comparePrefixDigits(name1, name2);
-
-		return _compareNames(name1, name2);
-	}
-
-#else
-	bool compareName(const FileData* file1, const FileData* file2)
-	{
-		if (file1->getType() != file2->getType())
-		{
-			return file1->getType() == FOLDER;
-
-		}
-		// we compare the actual metadata name, as collection files have the system appended which messes up the order
-		auto name1 = ((FileData *) file1)->getName();
-		auto name2 = ((FileData *) file2)->getName();
+		const std::string& name1 = ((FileData *) file1)->getName();
+		const std::string& name2 = ((FileData *) file2)->getName();
 
 		if (Settings::IgnoreLeadingArticles())
 		{
 			static auto articles = Utils::String::commaStringToVector(_("A,AN,THE"));
-			name1 = stripLeadingArticle(name1, articles);
-			name2 = stripLeadingArticle(name2, articles);
+			auto name1a = stripLeadingArticle(name1, articles);
+			auto name2a = stripLeadingArticle(name2, articles);
+
+			return Utils::String::compareIgnoreCase(name1a, name2a) < 0;
 		}
 
 		return Utils::String::compareIgnoreCase(name1, name2) < 0;

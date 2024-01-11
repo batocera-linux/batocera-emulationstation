@@ -91,6 +91,7 @@ GuiKeyMappingEditor::GuiKeyMappingEditor(Window* window, IKeyboardMapContainer* 
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 
 	// Title
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
@@ -177,18 +178,18 @@ void GuiKeyMappingEditor::onSizeChanged()
 	const float subtitleHeight = mSubtitle->getFont()->getLetterHeight();
 	const float titleSubtitleSpacing = mSize.y() * 0.03f;
 
-	mGrid.setRowHeightPerc(0, (titleHeight + titleSubtitleSpacing + subtitleHeight + TITLE_VERT_PADDING) / mSize.y());
+	mGrid.setRowHeight(0, titleHeight + titleSubtitleSpacing + subtitleHeight + TITLE_VERT_PADDING);
 
 	if (mTabs->size() == 0)
-		mGrid.setRowHeightPerc(1, 0.00001f);
+		mGrid.setRowHeight(1, 0.00001f);
 	else 
-		mGrid.setRowHeightPerc(1, (titleHeight + titleSubtitleSpacing) / mSize.y());
+		mGrid.setRowHeight(1, titleHeight + titleSubtitleSpacing);
 
-	mGrid.setRowHeightPerc(3, mButtonGrid->getSize().y() / mSize.y());
+	mGrid.setRowHeight(3, mButtonGrid->getSize().y());
 
-	mHeaderGrid->setRowHeightPerc(1, titleHeight / mHeaderGrid->getSize().y());
-	mHeaderGrid->setRowHeightPerc(2, titleSubtitleSpacing / mHeaderGrid->getSize().y());
-	mHeaderGrid->setRowHeightPerc(3, subtitleHeight / mHeaderGrid->getSize().y());
+	mHeaderGrid->setRowHeight(1, titleHeight);
+	mHeaderGrid->setRowHeight(2, titleSubtitleSpacing);
+	mHeaderGrid->setRowHeight(3, subtitleHeight);
 }
 
 void GuiKeyMappingEditor::centerWindow()
@@ -559,7 +560,7 @@ GuiKeyMappingEditorEntry::GuiKeyMappingEditorEntry(Window* window, MappingInfo& 
 //	if (!target.description.empty())
 //		mTargetText->setText(mTarget.toTargetString() + _U("      \uF05A ") + target.description);
 
-	mDescription = std::make_shared<TextComponent>(mWindow, mTarget.description.empty() ? "" : _U("\uF05A  ") + mTarget.description, theme->Text.font, theme->Text.color);
+	mDescription = std::make_shared<TextComponent>(mWindow, mTarget.description.empty() ? "" : std::string(_U("\uF05A  ")) + pgettext("keys_files", mTarget.description.c_str()), theme->Text.font, theme->Text.color);
 	mDescription->setLineSpacing(1.5);
 
 	setEntry(mImage, Vector2i(0, 0), false, true);

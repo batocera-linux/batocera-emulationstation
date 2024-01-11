@@ -27,6 +27,7 @@ public:
 		begin = 0;
 		autoReverse = false;
 		easingMode = EasingMode::Linear;
+		enabled = true;
 
 		from.type = ThemeData::ThemeElement::Property::PropertyType::Unknown;
 		to.type = ThemeData::ThemeElement::Property::PropertyType::Unknown;
@@ -38,6 +39,10 @@ public:
 	bool autoReverse;	
 	int repeat; // 0 = forever
 	EasingMode easingMode;
+
+	bool enabled;
+
+	std::string enabledExpression;
 
 	ThemeData::ThemeElement::Property from;
 	ThemeData::ThemeElement::Property to;
@@ -115,6 +120,19 @@ class ThemePathAnimation : public ThemeAnimation
 		return from.s;
 	}
 };
+
+
+class ThemeBoolAnimation : public ThemeAnimation
+{
+	ThemeData::ThemeElement::Property computeValue(float value) override
+	{
+		if (value >= 0.9999)
+			return to.b;
+
+		return from.b;
+	}
+};
+
 
 class ThemeSoundAnimation : public ThemeAnimation
 {

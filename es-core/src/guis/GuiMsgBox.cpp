@@ -34,6 +34,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 
 	float width = Renderer::getScreenWidth() * 0.6f; // max width
 	float minWidth = Renderer::getScreenWidth() * 0.3f; // minimum width
@@ -77,6 +78,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 		mImage->setImage(imageFile);
 		mImage->setIsLinear(true);
 		mImage->setColorShift(theme->Text.color);
+		mImage->setOrigin(0.5f, 0.5f);
 		mImage->setMaxSize(theme->Text.font->getLetterHeight() * 2.0f, theme->Text.font->getLetterHeight() * 2.0f);		
 
 		mGrid.setEntry(mImage, Vector2i(0, 0), false, false);
@@ -90,7 +92,7 @@ GuiMsgBox::GuiMsgBox(Window* window, const std::string& text,
 	// create the buttons
 	mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, name1, name1, std::bind(&GuiMsgBox::deleteMeAndCall, this, func1)));
 	if(!name2.empty())
-		mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, name2, name3, std::bind(&GuiMsgBox::deleteMeAndCall, this, func2)));
+		mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, name2, name2, std::bind(&GuiMsgBox::deleteMeAndCall, this, func2)));
 	if(!name3.empty())
 		mButtons.push_back(std::make_shared<ButtonComponent>(mWindow, name3, name3, std::bind(&GuiMsgBox::deleteMeAndCall, this, func3)));
 

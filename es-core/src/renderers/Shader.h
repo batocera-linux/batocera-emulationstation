@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 namespace Renderer
 {
@@ -47,13 +48,23 @@ namespace Renderer
 		void setMatrix(Transform4x4f& mvpMatrix);
 		void setSaturation(GLfloat saturation);
 		void setTextureSize(const Vector2f& size);
+		void setInputSize(const Vector2f& size);
 		void setOutputSize(const Vector2f& size);
+		void setOutputOffset(const Vector2f& size);
+		void setCornerRadius(GLfloat radius);
+		void setResolution();
+		void setFrameCount(int frame);
+
+		void setCustomUniformsParameters(const std::map<std::string, std::string>& parameters);
 
 		bool supportsTextureSize() { return mTextureSize != -1; }
+		bool supportsCornerRadius() { return mCornerRadius != -1; }
 
 		void deleteProgram();
 
 	private:
+		void setUniformEx(const std::string& name, const std::string value);
+
 		GLuint mId;
 		bool linkStatus;
 		GLint mPositionAttribute;
@@ -64,7 +75,20 @@ namespace Renderer
 		GLint mSaturation;		
 		GLint mTextureSize;
 		GLint mOutputSize;
+		GLint mOutputOffset;
+		GLint mInputSize;
+		GLint mResolution;
+		GLint mCornerRadius;
+		GLint mFrameCount;
+		GLint mFrameDirection;
+		
+		struct UniformInfo
+		{
+			GLint location;
+			GLenum type;			
+		};
 
+		std::map<std::string, UniformInfo> mCustomUniforms;
 		std::vector<Shader> mAttachedShaders;
 
 	private:

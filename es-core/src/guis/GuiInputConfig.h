@@ -65,7 +65,7 @@ private:
 
 	BusyComponent mBusyAnim;	
 
-	void initInputConfigStructure();
+	void initInputConfigStructure(InputConfig* target);
 	std::vector<InputConfigStructure> GUI_INPUT_CONFIG_LIST;
 };
 

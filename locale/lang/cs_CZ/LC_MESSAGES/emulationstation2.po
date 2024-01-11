@@ -286,6 +286,9 @@ msgstr "vertikální arkáda"
 msgid "lightgun games"
 msgstr "hry se světelnou pistolí"
 
+msgid "wheel games"
+msgstr "kolové hry"
+
 msgid "collections"
 msgstr "sbírky"
 
@@ -341,7 +344,7 @@ msgstr "STAHOVÁNÍ"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TÉMA ÚSPĚŠNĚ NAINSTALOVÁNO"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "DOŠLO K CHYBĚ"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
@@ -491,17 +494,17 @@ msgstr "SESKUPENÉ SYSTÉMY"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "VYTVOŘIT VLASTNÍ SBÍRKU"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "VYTVOŘIT NOVOU VLASTNÍ SBÍRKU Z TÉMATU"
+msgid "New Collection Name"
+msgstr "Název nové sbírky"
 
-msgid "SELECT THEME FOLDER"
-msgstr "VYBRAT SLOŽKU TÉMAT"
+msgid "ENTER NAME"
+msgstr "VLOŽIT JMÉNO"
+
+msgid "CREATE FROM THEME"
+msgstr "VYTVOŘIT Z TÉMATU"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "VYTVOŘIT NOVOU UPRAVITELNOU SBÍRKU"
-
-msgid "New Collection Name"
-msgstr "Název nové sbírky"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "VYTVOŘIT NOVOU DYNAMICKOU SBÍRKU"
@@ -539,8 +542,11 @@ msgstr "OBNOVIT POSLEDNÍ VYBRANÉ"
 msgid "START ON GAMELIST"
 msgstr "ZAČÍT NA SEZNAMU HER"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "SKUPINA VLASTNÍCH SBÍREK BEZ TÉMATU"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr "SKUPINOVÉ VLASTNÍ SBÍRKY"
+
+msgid "UNTHEMED"
+msgstr "NEZAMĚŘENÉ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ZOBRAZIT NÁZEV SYSTÉMU VE SBÍRKÁCH"
@@ -585,14 +591,22 @@ msgid "PLEASE WAIT"
 msgstr "PROSÍM, ČEKEJTE"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points (hardcore)"
-msgstr "Body (hardcore)"
-
 msgid "Softcore points"
 msgstr "Body Softcore"
+
+msgid "Points (hardcore)"
+msgstr "Body (hardcore)"
 
 msgid "Rank"
 msgstr "Hodnost"
@@ -804,6 +818,194 @@ msgstr "VÝBĚR"
 
 msgid "ADD COMBINATION KEY"
 msgstr "PŘIDAT KOMBINAČNÍ KLÍČ"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "NASTAVENÍ OVLADAČE"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "NASTAVENÍ HER.OVLADAČE A BLUETOOTH"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "PRIORITA OVLADAČŮ"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "PŘIDĚLENÍ HRÁČŮ"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "OVLADAČ #%i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "P%i'S HER.OVLADAČ"
+
+msgid "CONTROLLER MAPPING"
+msgstr "MAPOVÁNÍ HER. OVLADAČE"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"BUDETE MAPOVAT OVLADAČ. MAPOVAT NA ZÁKLADĚ POZICE TLAČÍTKA, NIKOLI JEHO "
+"FYZICKÉHO OZNAČENÍ. POKUD NEMÁTE SPECIÁLNÍ TLAČÍTKO PRO KLÁVESOVOU ZKRATKU, "
+"POUŽIJTE TLAČÍTKO VÝBĚRU. PODRŽENÍM LIBOVOLNÉHO TLAČÍTKA PŘESKOČTE VŠECHNA "
+"TLAČÍTKA/KLÁVESY, KTERÉ NEMÁTE. PO DOKONČENÍ STISKNĚTE JIŽNÍ TLAČÍTKO PRO "
+"POTVRZENÍ."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "NASTAVENÍ ZBRANĚ SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "NASTAVENÍ MYŠI/PISTOLE STEAMDECK"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "AUTOMATICKÉ PÁROVÁNÍ BLUETOOTH PADU"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "RUČNÍ SPÁROVÁNÍ ZAŘÍZENÍ BLUETOOTH"
+
+msgid "DISPLAY OPTIONS"
+msgstr "MOŽNOSTI DISPLEJE"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
+
+msgid "default"
+msgstr "výchozí"
+
+msgid "NOT CONNECTED"
+msgstr "NEPŘIPOJEN"
+
+msgid "BORDER SIZE"
+msgstr "VELIKOST OHRANIČENÍ"
+
+msgid "AUTO"
+msgstr "AUTOMATICKY"
+
+msgid "THIN"
+msgstr "TENKÁ"
+
+msgid "MEDIUM"
+msgstr "STŘEDNÍ"
+
+msgid "BIG"
+msgstr "VELKÁ"
+
+msgid "BORDER MODE"
+msgstr "HRANIČNÍ REŽIM"
+
+msgid "NORMAL"
+msgstr "NORMÁLNÍ"
+
+msgid "IN GAME ONLY"
+msgstr "POUZE VE HŘE"
+
+msgid "HIDDEN"
+msgstr "SKRYTÝ"
+
+msgid "BORDER COLOR"
+msgstr "BARVA HRANICE"
+
+msgid "WHITE"
+msgstr "BÍLÁ"
+
+msgid "RED"
+msgstr "ČERVENÁ"
+
+msgid "GREEN"
+msgstr "ZELENÁ"
+
+msgid "BLUE"
+msgstr "MODRÁ"
+
+msgid "CAMERA CONTRAST"
+msgstr "KONTRAST KAMERY"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Denní/jasné sluneční světlo (40)"
+
+msgid "Default (50)"
+msgstr "Výchozí (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Stmívání displeje/večer (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "JAS KAMERY"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Denní/jasné sluneční světlo (80)"
+
+msgid "Default (100)"
+msgstr "Výchozí (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Stmívání displeje/večer (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "EXPOZICE KAMERY"
+
+msgid "Projector/CRT (-5)"
+msgstr "Projektor/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Projektor/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Výchozí (-7)"
+
+msgid "Other (-8)"
+msgstr "Ostatní (-8)"
+
+msgid "Other (-9)"
+msgstr "Ostatní (-9)"
+
+msgid "RECOIL"
+msgstr "ZÁKLUZ"
+
+msgid "DISABLED"
+msgstr "VYPNUTO"
+
+msgid "GUN"
+msgstr "PISTOLE"
+
+msgid "MACHINE GUN"
+msgstr "AUTOMATICKÁ ZBRAŇ"
+
+msgid "QUIET GUN"
+msgstr "TICHÁ ZBRAŇ"
+
+msgid "QUIET MACHINE GUN"
+msgstr "TICHÁ AUTOMATICKÁ ZBRAŇ"
+
+msgid "MODE"
+msgstr "MÓD"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr "POUZE MYŠ"
+
+msgid "HAND"
+msgstr "RUČNÍ"
+
+msgid "LEFT"
+msgstr "LEVÁ"
+
+msgid "RIGHT"
+msgstr "PRAVÁ"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "STAHOVÁNÍ OBSAHU"
@@ -1186,8 +1388,11 @@ msgstr "Odblokovano"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "TATO HRA ZATÍM NEMÁ ŽÁDNÉ ÚSPĚCHY"
 
-msgid "Achievements won"
-msgstr "Získané úspěchy"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -1250,6 +1455,15 @@ msgstr "KOLO"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "PREFERED REGION"
+msgstr "PREFEROVANÁ OBLAST"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "PŘEPSAT POPISY"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "PŘEPSAT MÉDIA"
+
 msgid "SCRAPE FOR"
 msgstr "VYHLEDAT PRO"
 
@@ -1279,6 +1493,9 @@ msgstr "MANUÁL"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "NASTAVENÍ KLÁVES OVLADAČE"
+
+msgid "ACCOUNT"
+msgstr "ÚČET"
 
 msgid "SCRAPER"
 msgstr "VYHLEDÁVAČ"
@@ -1462,12 +1679,6 @@ msgstr "VYKRESLOVAČ"
 msgid "SHADERS"
 msgstr "SHADERY"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "NASTAVENÍ OVLADAČE"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "NASTAVENÍ HER.OVLADAČE A BLUETOOTH"
-
 msgid "INTERNAL"
 msgstr "VNITŘNÍ"
 
@@ -1528,6 +1739,9 @@ msgstr "REŽIM UŽIVATELSKÉHO ROZHRANÍ JE NYNÍ ODEMČENÝ"
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ZADEJTE KÓD A ODEMKNĚTE"
 
+msgid "SERVICES"
+msgstr "SLUŽBY"
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "MOŽNOSTI FRONTENDOVÉHO VÝVOJÁŘE"
 
@@ -1548,6 +1762,12 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
+
+msgid "VIDEO MODE"
+msgstr "REŽIM VIDEA"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Nastaví rozlišení displeje pro emulační stanici."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "POUŽITÍ PŘEHRÁVAČE OMX (HARDWAROVÁ AKCELERACE)"
@@ -1586,8 +1806,29 @@ msgstr "VYMAZAT DISK"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "VYČISTIT SEZNAMY HER A ODSTRANIT NEPOUŽÍVANÁ MÉDIA"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr "Odstraňte nepoužívané položky a vyčistěte odkazy na chybějící média."
+
 msgid "Cleaning"
 msgstr "Čištění"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr "RESETOVÁNÍ ÚDAJŮ O POUŽÍVÁNÍ SEZNAMŮ HER"
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr "Obnovení hodnot metadat Herní čas, Počet přehrání a Naposledy hrané."
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "RESET SOUBORU ROZŠÍŘENÍ"
+
+msgid "Reset customized file extensions filters to default."
+msgstr "Obnovení výchozího nastavení filtrů přizpůsobených přípon souborů."
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "ZNOVU ZJISTIT JAZYK/OBLAST VŠECH HER"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "NAJÍT VŠECHNY HRY Z NETPLAY/ÚSPĚCHY"
 
 msgid "CLEAR CACHES"
 msgstr "VYČISTIT MEZIPAMĚŤ"
@@ -1597,15 +1838,6 @@ msgstr "VYTVOŘIT MEZIPAMĚŤ OBRÁZKU"
 
 msgid "Building image cache"
 msgstr "Vytváření mezipaměti pro obrázek"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "RESET SOUBORU ROZŠÍŘENÍ"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "ZNOVU ZJISTIT JAZYK/OBLAST VŠECH HER"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "NAJÍT VŠECHNY HRY Z NETPLAY/ÚSPĚCHY"
 
 msgid "DATA MANAGEMENT"
 msgstr "SPRÁVA DAT"
@@ -1664,11 +1896,11 @@ msgstr "ÚPLNÉ MENU UKONČENÍ"
 msgid "RETROARCH MENU DRIVER"
 msgstr "MENU OVLÁDAČŮ RETROARCH"
 
-msgid "AUTO"
-msgstr "AUTOMATICKY"
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr "PŘEPÍNÁNÍ TLAČÍTEK POTVRZENÍ A ZRUŠENÍ V EMULATIONSTATION"
 
-msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "PŘEPÍNACÍ TLAČÍTKA A/B V EMULÁTORU"
+msgid "Switches the South and East buttons' functionality"
+msgstr "Přepíná funkce tlačítek Jih a Východ"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "PŘÍSTUP K MOŽNOSTEM HRY POMOCÍ HORNÍHO TLAČÍTKA"
@@ -1765,9 +1997,6 @@ msgstr "ZOBRAZIT HODINY VE 12 HODINOVÉM FORMÁTU"
 
 msgid "POWER SAVING MODE"
 msgstr "ÚSPORNÝ REŽIM"
-
-msgid "DISABLED"
-msgstr "VYPNUTO"
 
 msgid "DEFAULT"
 msgstr "VÝCHOZÍ"
@@ -1988,6 +2217,54 @@ msgstr "SADA DEKORACÍ"
 msgid "Current setting"
 msgstr "Aktuální nastavení"
 
+msgid "ACCOUNTS"
+msgstr "ÚČTY"
+
+msgid "BIOS SETTINGS"
+msgstr "NASTAVENÍ BIOSU"
+
+msgid "SAVESTATES"
+msgstr "ULOŽENÉ POZICE"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "Načíst nejnovější uložení při spuštění hry a uložení při ukončení hry."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
+
+msgid "INCREMENT PER SAVE"
+msgstr "PŘÍRŮSTEK NA ULOŽENÍ"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Nikdy nepřepisovat staré uložené pozice, vždy vytvářet nové."
+
+msgid "INCREMENT SLOT"
+msgstr "ZVYŠENÍ SLOTU"
+
+msgid "Increment slot on a new game."
+msgstr "Zvýšení počtu slotů v nové hře."
+
+msgid "DO NOT INCREMENT"
+msgstr "NEZVYŠOVAT"
+
+msgid "Use current slot on a new game."
+msgstr "Používat aktuální slot na novou hru."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ZOBRAZIT SPRÁVCE ULOŽENÍ"
+
+msgid "ALWAYS"
+msgstr "VŽDY"
+
+msgid "IF NOT EMPTY"
+msgstr "POKUD NENÍ PRÁZDNÝ"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Před spuštěním hry zobrazte správce stavu uložení."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "VÝCHOZÍ CELKOVÉ NASTAVENÍ"
 
@@ -1996,9 +2273,6 @@ msgstr "POMĚR STRAN VE HŘE"
 
 msgid "Force the game to render in this aspect ratio."
 msgstr "Vynutí vykreslování hry v tomto poměru stran."
-
-msgid "VIDEO MODE"
-msgstr "REŽIM VIDEA"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
@@ -2020,6 +2294,9 @@ msgstr "CELOČÍSELNÉ ŠKÁLOVÁNÍ (PERFEKTNÍ PIXEL)"
 
 msgid "SHADER SET"
 msgstr "SADA SHADERU"
+
+msgid "VIDEO FILTER"
+msgstr "FILTR VIDEA"
 
 msgid "DECORATIONS"
 msgstr "DEKORACE"
@@ -2081,48 +2358,6 @@ msgstr "PAUZA NA PŘELOŽENÉ OBRAZOVCE"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AUTO.NASTAVENÍ HER.OVLADAČE"
 
-msgid "SAVESTATES"
-msgstr "ULOŽENÉ POZICE"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "AUTOMATICKY ULOŽIT/NAČÍST"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "Načíst nejnovější uložení při spuštění hry a uložení při ukončení hry."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "PŘÍRUSTKY ULOŽENÝCH POZIC"
-
-msgid "INCREMENT PER SAVE"
-msgstr "PŘÍRŮSTEK NA ULOŽENÍ"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Nikdy nepřepisovat staré uložené pozice, vždy vytvářet nové."
-
-msgid "INCREMENT SLOT"
-msgstr "ZVYŠENÍ SLOTU"
-
-msgid "Increment slot on a new game."
-msgstr "Zvýšení počtu slotů v nové hře."
-
-msgid "DO NOT INCREMENT"
-msgstr "NEZVYŠOVAT"
-
-msgid "Use current slot on a new game."
-msgstr "Používat aktuální slot na novou hru."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "ZOBRAZIT SPRÁVCE ULOŽENÍ"
-
-msgid "ALWAYS"
-msgstr "VŽDY"
-
-msgid "IF NOT EMPTY"
-msgstr "POKUD NENÍ PRÁZDNÝ"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Před spuštěním hry zobrazte správce stavu uložení."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "POKROČILÁ KONFIGURACE SYSTÉMU"
 
@@ -2134,101 +2369,6 @@ msgstr "HERNÍ HASHING JE SPUŠTĚN.  CHCETE HO ZASTAVIT?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "OPRAVDU AKTUALIZOVAT SEZNAMY HER?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "MAPOVÁNÍ HER. OVLADAČE"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
-"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
-"CONFIRM WHEN DONE."
-msgstr ""
-"BUDETE MAPOVAT OVLADAČ. MAPOVAT NA ZÁKLADĚ POLOHY TLAČÍTKA VZHLEDEM K JEHO "
-"EKVIVALENTU NA OVLADAČI SNES, NIKOLIV NA ZÁKLADĚ JEHO FYZICKÉHO OZNAČENÍ. "
-"POKUD NEMÁTE SPECIÁLNÍ KLÁVESU PRO KLÁVESOVOU ZKRATKU, POUŽIJTE TLAČÍTKO "
-"SELECT. PŘESKOČTE VŠECHNA TLAČÍTKA/KLÁVESY, KTERÉ NEMÁTE, PODRŽENÍM "
-"LIBOVOLNÉ KLÁVESY. PO DOKONČENÍ STISKNĚTE JIŽNÍ TLAČÍTKO PRO POTVRZENÍ."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "NASTAVENÍ ZBRANĚ SINDEN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "NASTAVENÍ ZBRANĚ WIIMOTE"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "AUTOMATICKÉ PÁROVÁNÍ BLUETOOTH PADU"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "RUČNÍ SPÁROVÁNÍ ZAŘÍZENÍ BLUETOOTH"
-
-msgid "DISPLAY OPTIONS"
-msgstr "MOŽNOSTI DISPLEJE"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "PŘIDĚLENÍ HRÁČŮ"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "P%i'S HER.OVLADAČ"
-
-msgid "default"
-msgstr "výchozí"
-
-msgid "BORDER SIZE"
-msgstr "VELIKOST OHRANIČENÍ"
-
-msgid "THIN"
-msgstr "TENKÁ"
-
-msgid "MEDIUM"
-msgstr "STŘEDNÍ"
-
-msgid "BIG"
-msgstr "VELKÁ"
-
-msgid "BORDER MODE"
-msgstr "HRANIČNÍ REŽIM"
-
-msgid "NORMAL"
-msgstr "NORMÁLNÍ"
-
-msgid "IN GAME ONLY"
-msgstr "POUZE VE HŘE"
-
-msgid "HIDDEN"
-msgstr "SKRYTÝ"
-
-msgid "RECOIL"
-msgstr "ZÁKLUZ"
-
-msgid "GUN"
-msgstr "PISTOLE"
-
-msgid "MACHINE GUN"
-msgstr "AUTOMATICKÁ ZBRAŇ"
-
-msgid "QUIET GUN"
-msgstr "TICHÁ ZBRAŇ"
-
-msgid "QUIET MACHINE GUN"
-msgstr "TICHÁ AUTOMATICKÁ ZBRAŇ"
-
-msgid "MODE"
-msgstr "MÓD"
-
-msgid "JOYSTICK"
-msgstr "JOYSTICK"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "PŘED ÚPRAVOU KONFIGURACE JE NUTNÉ POUŽÍT MOTIV"
@@ -2290,6 +2430,15 @@ msgstr "ZOBRAZIT ZNAK ULOŽENÉ POZICE V SEZNAMECH"
 msgid "SHOW MANUAL ICON"
 msgstr "ZOBRAZIT IKONU MANUÁLU V SEZNAMECH"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr "ZOBRAZIT IKONU RETROÚSPĚCHŮ"
+
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ZOBRAZIT NÁZVY SOUBORŮ V SEZNAMECH"
 
@@ -2320,6 +2469,9 @@ msgstr "automaticky"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "PŘECHOD PO SPUŠTĚNÍ HRY"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr "HERNÍ MÉDIA PŘI RYCHLÉM POSOUVÁNÍ"
+
 msgid "SHOW CLOCK"
 msgstr "ZOBRAZIT HODINY"
 
@@ -2334,6 +2486,9 @@ msgstr "IKONA"
 
 msgid "ICON AND TEXT"
 msgstr "IKONA A TEXT"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr "ZOBRAZIT SLOŽKY JAKO PRVNÍ"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "PŘI ŘAZENÍ IGNOROVAT ÚVODNÍ ČLÁNKY"
@@ -2389,9 +2544,6 @@ msgstr "IP ADRESA"
 msgid "CONNECTED"
 msgstr "PŘIPOJEN"
 
-msgid "NOT CONNECTED"
-msgstr "NEPŘIPOJEN"
-
 msgid "INTERNET STATUS"
 msgstr "STAV INTERNETU"
 
@@ -2427,6 +2579,12 @@ msgstr "SPUSTIT SPOŘIČ OBRAZOVKY"
 
 msgid "VIEW USER MANUAL"
 msgstr "ZOBRAZIT UŽIVATELSKÝ MANUÁL"
+
+msgid "DISABLE PLANE MODE"
+msgstr "ZAKÁZAT REŽIM LETADLA"
+
+msgid "ENABLE PLANE MODE"
+msgstr "POVOLIT REŽIM LETADLA"
 
 msgid "RESTART SYSTEM"
 msgstr "RESTARTOVAT"
@@ -2663,9 +2821,6 @@ msgstr[0] "Tato složka obsahuje %i hra, včetně: %s"
 msgstr[1] "Tato složka obsahuje %i hry, včetně: %s"
 msgstr[2] "Tato složka obsahuje %i her, včetně: %s"
 
-msgid "No Entries Found"
-msgstr "Nebyly nalezeny žádné záznamy"
-
 msgid "Games similar to"
 msgstr "Podobné hry jako"
 
@@ -2680,6 +2835,16 @@ msgstr "HERNÍ MOŽNOSTI"
 
 msgid "FAVORITE"
 msgstr "OBLÍBENÉ"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Nebyly nalezeny žádné záznamy"
+
+msgid "INVALID CONTENT"
+msgstr "NEPLATNÝ OBSAH"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2880,8 +3045,14 @@ msgstr "VERTIKÁLNĚ"
 msgid "LIGHTGUN"
 msgstr "SVĚTELNÁ ZBRAŇ"
 
-msgid "HAS MEDIAS"
-msgstr "MOJE MÉDIA"
+msgid "STEERING WHEEL"
+msgstr "ŘÍDICÍ KOLO"
+
+msgid "HAVING MEDIAS"
+msgstr "MAJÍCÍ MÉDIA"
+
+msgid "MISSING MEDIAS"
+msgstr "CHYBĚJÍCÍ MÉDIA"
 
 msgid "SCRAPING"
 msgstr "VYHLEDÁVÁNÍ"
@@ -2920,20 +3091,20 @@ msgid "SPACE"
 msgstr "SPACE"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "NAHORU"
+msgid "NORTH"
+msgstr "SEVER"
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "DOLŮ"
+msgid "SOUTH"
+msgstr "JIH"
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "VLEVO"
+msgid "EAST"
+msgstr "VÝCHOD"
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "VPRAVO"
+msgid "WEST"
+msgstr "ZÁPAD"
 
 msgctxt "joystick"
 msgid "START"
@@ -2942,6 +3113,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr "D-PAD NAHORU"
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr "D-PAD DOLŮ"
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr "D-PAD VLEVO"
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr "D-PAD VPRAVO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2974,6 +3161,30 @@ msgstr "PRAVÝ ANALOG VLEVO"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "PRAVÝ ANALOG VPRAVO"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr "LEVÁ PÁČKA VLEVO"
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr "LEVÁ PÁČKA VPRAVO"
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr "PRAVÁ PÁČKA VLEVO"
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr "PRAVÁ PÁČKA VPRAVO"
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr "STISKNOUT LEVOU PÁČKU"
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr "STISKNOUT PRAVOU PÁČKU"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3040,6 +3251,12 @@ msgstr "NEBYLY ZJIŠTĚNY ŽÁDNÉ GAMEPADY"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PODRŽENÍM TLAČÍTKA NA ZAŘÍZENÍ JEJ NAKONFIGURUJETE."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr "STISKNĚTE ESC PRO ZRUŠENÍ."
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr "STISKNĚTE ESC NEBO HOTKEY PRO ZRUŠENÍ."
+
 msgid "DISCARD CHANGES"
 msgstr "ZAHODIT ZMĚNY"
 
@@ -3080,6 +3297,32 @@ msgstr "UPRAVIT"
 msgid "ENABLED"
 msgstr "ZAPNUTO"
 
+msgid "WORKING..."
+msgstr "PRACUJI..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d mn"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sec"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3108,26 +3351,59 @@ msgstr[0] "%d před sekundou"
 msgstr[1] "%d před sekundami"
 msgstr[2] "%d před sekundami"
 
-msgid "WORKING..."
-msgstr "PRACUJI..."
-
-#, c-format
-msgid "%d h"
-msgstr "%d h"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d mn"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d sec"
-
 msgid "SCREEN READER ENABLED"
 msgstr "POVOLENÁ ČTEČKA OBRAZOVKY"
 
 msgid "SCREEN READER DISABLED"
 msgstr "VYPNUTÁ ČTEČKA OBRAZOVKY"
+
+#~ msgid "Achievements won"
+#~ msgstr "Získané úspěchy"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "VYTVOŘIT NOVOU VLASTNÍ SBÍRKU Z TÉMATU"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "VYBRAT SLOŽKU TÉMAT"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "SKUPINA VLASTNÍCH SBÍREK BEZ TÉMATU"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "MOJE MÉDIA"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "NAHORU"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "DOLŮ"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "VLEVO"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "VPRAVO"
+
+#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
+#~ msgstr "PŘEPÍNACÍ TLAČÍTKA A/B V EMULÁTORU"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
+#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
+#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
+#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
+#~ "BUTTON TO CONFIRM WHEN DONE."
+#~ msgstr ""
+#~ "BUDETE MAPOVAT OVLADAČ. MAPOVAT NA ZÁKLADĚ POLOHY TLAČÍTKA VZHLEDEM K "
+#~ "JEHO EKVIVALENTU NA OVLADAČI SNES, NIKOLIV NA ZÁKLADĚ JEHO FYZICKÉHO "
+#~ "OZNAČENÍ. POKUD NEMÁTE SPECIÁLNÍ KLÁVESU PRO KLÁVESOVOU ZKRATKU, POUŽIJTE "
+#~ "TLAČÍTKO SELECT. PŘESKOČTE VŠECHNA TLAČÍTKA/KLÁVESY, KTERÉ NEMÁTE, "
+#~ "PODRŽENÍM LIBOVOLNÉ KLÁVESY. PO DOKONČENÍ STISKNĚTE JIŽNÍ TLAČÍTKO PRO "
+#~ "POTVRZENÍ."
 
 #~ msgid "SINDEN GUNS"
 #~ msgstr "SINDEN GUNS"

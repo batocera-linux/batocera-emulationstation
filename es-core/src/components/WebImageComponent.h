@@ -11,7 +11,9 @@ public:
 	WebImageComponent(Window* window, double keepInCacheDuration = -1);
 	virtual ~WebImageComponent();
 
-	void setImage(const std::string& path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo(), bool checkFileExists = true, bool allowMultiImagePlaylist = false) override;
+	std::string getThemeTypeName() override { return "webimage"; }
+
+	void setImage(const std::string& path, bool tile = false, const MaxSizeInfo& maxSize = MaxSizeInfo::Empty, bool checkFileExists = true, bool allowMultiImagePlaylist = false) override;
 
 	void update(int deltaTime) override;
 	void render(const Transform4x4f& parentTrans) override;

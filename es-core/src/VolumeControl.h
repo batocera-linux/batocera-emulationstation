@@ -35,17 +35,14 @@ class VolumeControl
 	MIXERCONTROL mixerControl;
 	IAudioEndpointVolume * endpointVolume;
 #endif
-
-	int originalVolume;
+	
 	int internalVolume;
 
 	static std::weak_ptr<VolumeControl> sInstance;
 
 	VolumeControl();
 	VolumeControl(const VolumeControl & right);
-    VolumeControl & operator=(const VolumeControl & right);
-
-	
+    VolumeControl & operator=(const VolumeControl & right);	
 
 public:
 	static std::shared_ptr<VolumeControl> & getInstance();

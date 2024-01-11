@@ -14,6 +14,7 @@
 #include <libcheevos/cheevos.h>
 
 #include "LocaleES.h"
+#include "EmulationStation.h"
 
 using namespace PlatformIds;
 
@@ -90,20 +91,11 @@ const std::map<PlatformId, unsigned short> cheevosConsoleID
 	{ TIC80, RC_CONSOLE_TIC80 },
 	{ THOMSON_TO_MO, RC_CONSOLE_THOMSONTO8 },
 	{ ARDUBOY, RC_CONSOLE_ARDUBOY },
-
 	{ SUPER_NINTENDO_MSU1, RC_CONSOLE_SUPER_NINTENDO },
-
 	{ EMERSON_ARCADIA_2001, RC_CONSOLE_ARCADIA_2001 },
 	{ ATARI_JAGUAR_CD, RC_CONSOLE_ATARI_JAGUAR_CD },
 	{ TURBOGRAFX_CD, RC_CONSOLE_PC_ENGINE_CD },
-
-	/*	
-	RC_CONSOLE_ELEKTOR_TV_GAMES_COMPUTER
-	RC_CONSOLE_INTERTON_VC_4000
-	RC_CONSOLE_ATARI_JAGUAR_CD
-	RC_CONSOLE_PC_ENGINE_CD
-	RC_CONSOLE_CASSETTEVISION
-	*/	
+	{ UZEBOX, RC_CONSOLE_UZEBOX }
 };
 
 const std::set<unsigned short> consolesWithmd5hashes 
@@ -133,7 +125,21 @@ const std::set<unsigned short> consolesWithmd5hashes
 	RC_CONSOLE_SUPERVISION
 };
 
-std::string RetroAchievements::getApiUrl(const std::string method, const std::string parameters)
+// Use empty UserAgent with doRequest.php calls
+static HttpReqOptions getHttpOptions()
+{
+	HttpReqOptions options;
+
+#ifdef CHEEVOS_DEV_LOGIN
+	std::string ret = Utils::String::extractString(CHEEVOS_DEV_LOGIN, "z=", "&");
+	ret =  ret + "/" + Utils::String::replace(RESOURCE_VERSION_STRING, ",", ".");		 
+	options.userAgent = ret;
+#endif	
+
+	return options;
+}
+
+std::string RetroAchievements::getApiUrl(const std::string& method, const std::string& parameters)
 {
 #ifdef CHEEVOS_DEV_LOGIN
 	auto options = std::string(CHEEVOS_DEV_LOGIN);
@@ -143,7 +149,7 @@ std::string RetroAchievements::getApiUrl(const std::string method, const std::st
 #endif
 }
 
-std::string GameInfoAndUserProgress::getImageUrl(const std::string image)
+std::string GameInfoAndUserProgress::getImageUrl(const std::string& image)
 {
 	if (image.empty())
 		return "http://i.retroachievements.org" + ImageIcon;
@@ -153,14 +159,14 @@ std::string GameInfoAndUserProgress::getImageUrl(const std::string image)
 
 std::string Achievement::getBadgeUrl()
 {
-	if (!DateEarned.empty())
+	if (!DateEarned.empty() || !DateEarnedHardcore.empty())
 		return "http://i.retroachievements.org/Badge/" + BadgeName + ".png";
 
 	return "http://i.retroachievements.org/Badge/" + BadgeName + "_lock.png";
 }
 
 
-int jsonInt(const rapidjson::Value& val, const std::string name)
+int jsonInt(const rapidjson::Value& val, const std::string& name)
 {
 	if (!val.HasMember(name.c_str()))
 		return 0;
@@ -176,7 +182,7 @@ int jsonInt(const rapidjson::Value& val, const std::string name)
 	return 0;
 }
 
-std::string jsonString(const rapidjson::Value& val, const std::string name)
+std::string jsonString(const rapidjson::Value& val, const std::string& name)
 {
 	if (!val.HasMember(name.c_str()))
 		return "";
@@ -192,15 +198,18 @@ std::string jsonString(const rapidjson::Value& val, const std::string name)
 	return "";
 }
 
-bool sortAchievements(const Achievement& sys1, const Achievement& sys2)
+static bool sortAchievements(const Achievement& sys1, const Achievement& sys2)
 {
 	if (sys1.DateEarned.empty() != sys2.DateEarned.empty())
 		return !sys1.DateEarned.empty() && sys2.DateEarned.empty();
 
+	if (sys1.DateEarnedHardcore.empty() != sys2.DateEarnedHardcore.empty())
+		return !sys1.DateEarnedHardcore.empty() && sys2.DateEarnedHardcore.empty();
+
 	return sys1.DisplayOrder < sys2.DisplayOrder;
 }
 
-GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId, const std::string userName)
+GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId, const std::string& userName)
 {
 	auto usrName = userName;
 	if (usrName.empty())
@@ -213,67 +222,73 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 	return ret;
 #endif
 
-	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)));
-	httpreq.wait();
-
-	rapidjson::Document doc;
-	doc.Parse(httpreq.getContent().c_str());
-	if (doc.HasParseError())
-		return ret;
-
-	ret.ID = jsonInt(doc, "ID");
-	ret.Title = jsonString(doc, "Title");
-	ret.ConsoleID = jsonInt(doc, "ConsoleID");
-	ret.ForumTopicID = jsonInt(doc, "ForumTopicID");
-	ret.Flags = jsonInt(doc, "Flags");
-	ret.ImageIcon = jsonString(doc, "ImageIcon");
-	ret.ImageTitle = jsonString(doc, "ImageTitle");
-	ret.ImageIngame = jsonString(doc, "ImageIngame");
-	ret.ImageBoxArt = jsonString(doc, "ImageBoxArt");
-	ret.Publisher = jsonString(doc, "Publisher");
-	ret.Developer = jsonString(doc, "Developer");
-	ret.Genre = jsonString(doc, "Genre");
-	ret.Released = jsonString(doc, "Released");
-	ret.ConsoleName = jsonString(doc, "ConsoleName");
-	ret.NumDistinctPlayersCasual = jsonString(doc, "NumDistinctPlayersCasual");
-	ret.NumDistinctPlayersHardcore = jsonString(doc, "NumDistinctPlayersHardcore");
-	ret.NumAchievements = jsonInt(doc, "NumAchievements");
-	ret.NumAwardedToUser = jsonInt(doc, "NumAwardedToUser");
-	ret.NumAwardedToUserHardcore = jsonInt(doc, "NumAwardedToUserHardcore");
-	ret.UserCompletion = jsonString(doc, "UserCompletion");
-	ret.UserCompletionHardcore = jsonString(doc, "UserCompletionHardcore");
-
-	if (doc.HasMember("Achievements"))
+	auto options = getHttpOptions();
+	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)), &options);
+	if (httpreq.wait())
 	{
-		const rapidjson::Value& ra = doc["Achievements"];
-		for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
-		{
-			auto& recent = achivId->value;
-						
-			Achievement item;
-			item.ID = jsonString(recent, "ID");
-			item.NumAwarded = jsonString(recent, "NumAwarded");
-			item.NumAwardedHardcore = jsonString(recent, "NumAwardedHardcore");
-			item.Title = jsonString(recent, "Title");
-			item.Description = jsonString(recent, "Description");
-			item.Points = jsonString(recent, "Points");
-			item.TrueRatio = jsonString(recent, "TrueRatio");
-			item.Author = jsonString(recent, "Author");
-			item.DateModified = jsonString(recent, "DateModified");
-			item.DateCreated = jsonString(recent, "DateCreated");
-			item.BadgeName = jsonString(recent, "BadgeName");
-			item.DisplayOrder = jsonInt(recent, "DisplayOrder");
-			item.DateEarned = jsonString(recent, "DateEarned");
-			ret.Achievements.push_back(item);
-		}
-	}
+		rapidjson::Document doc;
+		doc.Parse(httpreq.getContent().c_str());
+		if (doc.HasParseError())
+			return ret;
 
-	std::sort(ret.Achievements.begin(), ret.Achievements.end(), sortAchievements);
+		ret.ID = jsonInt(doc, "ID");
+		ret.Title = jsonString(doc, "Title");
+		ret.ConsoleID = jsonInt(doc, "ConsoleID");
+		ret.ForumTopicID = jsonInt(doc, "ForumTopicID");
+		ret.Flags = jsonInt(doc, "Flags");
+		ret.ImageIcon = jsonString(doc, "ImageIcon");
+		ret.ImageTitle = jsonString(doc, "ImageTitle");
+		ret.ImageIngame = jsonString(doc, "ImageIngame");
+		ret.ImageBoxArt = jsonString(doc, "ImageBoxArt");
+		ret.Publisher = jsonString(doc, "Publisher");
+		ret.Developer = jsonString(doc, "Developer");
+		ret.Genre = jsonString(doc, "Genre");
+		ret.Released = jsonString(doc, "Released");
+		ret.ConsoleName = jsonString(doc, "ConsoleName");
+		ret.NumDistinctPlayersCasual = jsonString(doc, "NumDistinctPlayersCasual");
+		ret.NumDistinctPlayersHardcore = jsonString(doc, "NumDistinctPlayersHardcore");
+		ret.NumAchievements = jsonInt(doc, "NumAchievements");
+		ret.NumAwardedToUser = jsonInt(doc, "NumAwardedToUser");
+		ret.NumAwardedToUserHardcore = jsonInt(doc, "NumAwardedToUserHardcore");
+		ret.UserCompletion = jsonString(doc, "UserCompletion");
+		ret.UserCompletionHardcore = jsonString(doc, "UserCompletionHardcore");
+
+		if (doc.HasMember("Achievements"))
+		{
+			const rapidjson::Value& ra = doc["Achievements"];
+			for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+			{
+				auto& recent = achivId->value;
+
+				Achievement item;
+				item.ID = jsonString(recent, "ID");
+				item.NumAwarded = jsonString(recent, "NumAwarded");
+				item.NumAwardedHardcore = jsonString(recent, "NumAwardedHardcore");
+				item.Title = jsonString(recent, "Title");
+				item.Description = jsonString(recent, "Description");
+				item.Points = jsonString(recent, "Points");
+				item.TrueRatio = jsonString(recent, "TrueRatio");
+				item.Author = jsonString(recent, "Author");
+				item.DateModified = jsonString(recent, "DateModified");
+				item.DateCreated = jsonString(recent, "DateCreated");
+				item.BadgeName = jsonString(recent, "BadgeName");
+				item.DisplayOrder = jsonInt(recent, "DisplayOrder");
+				item.DateEarned = jsonString(recent, "DateEarned");
+				item.DateEarnedHardcore = jsonString(recent, "DateEarnedHardcore");
+				
+				ret.Achievements.push_back(item);
+			}
+		}
+
+		std::sort(ret.Achievements.begin(), ret.Achievements.end(), sortAchievements);
+	}
+	else
+		ret.Title = httpreq.getErrorMsg();
 
 	return ret;
 }
 
-UserSummary RetroAchievements::getUserSummary(const std::string userName, int gameCount)
+UserSummary RetroAchievements::getUserSummary(const std::string& userName, int gameCount)
 {
 	auto usrName = userName;
 	if (usrName.empty())
@@ -283,114 +298,161 @@ UserSummary RetroAchievements::getUserSummary(const std::string userName, int ga
 
 	std::string count = std::to_string(gameCount);
 
-	HttpReq httpreq(getApiUrl("API_GetUserSummary", "u="+ HttpReq::urlEncode(usrName) +"&g="+ count +"&a="+ count));
-	httpreq.wait();
-
-	rapidjson::Document doc;
-	doc.Parse(httpreq.getContent().c_str());
-	if (doc.HasParseError())
-		return ret;
-
-	ret.Username = usrName;
-	ret.RecentlyPlayedCount = jsonInt(doc, "RecentlyPlayedCount");
-	ret.MemberSince = jsonString(doc, "MemberSince");
-	ret.RichPresenceMsg = jsonString(doc, "RichPresenceMsg");
-	ret.LastGameID = jsonString(doc, "LastGameID");
-	ret.ContribCount = jsonString(doc, "ContribCount");
-	ret.ContribYield = jsonString(doc, "ContribYield");
-	ret.TotalTruePoints = jsonString(doc, "TotalTruePoints");
-	ret.TotalPoints = jsonString(doc, "TotalPoints");
-	ret.Permissions = jsonString(doc, "Permissions");
-	ret.Untracked = jsonString(doc, "Untracked");
-	ret.ID = jsonString(doc, "ID");
-	ret.UserWallActive = jsonString(doc, "UserWallActive");
-	ret.Motto = jsonString(doc, "Motto");
-	ret.Rank = jsonString(doc, "Rank");
-	ret.TotalRanked = jsonString(doc, "TotalRanked");
-	ret.Points = jsonString(doc, "Points");
-	ret.UserPic = jsonString(doc, "UserPic");
-	ret.Status = jsonString(doc, "Status");
-
-	if (doc.HasMember("RecentlyPlayed"))
+	auto options = getHttpOptions();
+	HttpReq httpreq(getApiUrl("API_GetUserSummary", "u="+ HttpReq::urlEncode(usrName) +"&g="+ count +"&a="+ count), &options);
+	if (httpreq.wait())
 	{
-		for (auto& recent : doc["RecentlyPlayed"].GetArray())
+		rapidjson::Document doc;
+		doc.Parse(httpreq.getContent().c_str());
+		if (doc.HasParseError())
 		{
-			RecentGame item;
-			item.GameID = jsonString(recent, "GameID");
-			item.ConsoleID = jsonString(recent, "ConsoleID");
-			item.ConsoleName = jsonString(recent, "ConsoleName");
-			item.Title = jsonString(recent, "Title");
-			item.ImageIcon = jsonString(recent, "ImageIcon");
-			item.LastPlayed = jsonString(recent, "LastPlayed");
-			item.MyVote = jsonString(recent, "MyVote");
-
-			ret.RecentlyPlayed.push_back(item);
+			ret.Status = _("INVALID CONTENT");
+			return ret;
 		}
-	}
 
-	if (doc.HasMember("Awarded"))
-	{
-		const rapidjson::Value& ra = doc["Awarded"];
-		for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+		ret.Username = usrName;
+		ret.RecentlyPlayedCount = jsonInt(doc, "RecentlyPlayedCount");
+		ret.MemberSince = jsonString(doc, "MemberSince");
+		ret.RichPresenceMsg = jsonString(doc, "RichPresenceMsg");
+		ret.LastGameID = jsonString(doc, "LastGameID");
+		ret.ContribCount = jsonString(doc, "ContribCount");
+		ret.ContribYield = jsonString(doc, "ContribYield");
+		ret.TotalTruePoints = jsonString(doc, "TotalTruePoints"); // 
+		ret.TotalSoftcorePoints = jsonString(doc, "TotalSoftcorePoints"); // 		
+		ret.TotalPoints = jsonString(doc, "TotalPoints");
+		ret.Permissions = jsonString(doc, "Permissions");
+		ret.Untracked = jsonString(doc, "Untracked");
+		ret.ID = jsonString(doc, "ID");
+		ret.UserWallActive = jsonString(doc, "UserWallActive");
+		ret.Motto = jsonString(doc, "Motto");
+		ret.Rank = jsonString(doc, "Rank");
+		ret.TotalRanked = jsonString(doc, "TotalRanked");
+		ret.Points = jsonString(doc, "Points");
+		ret.UserPic = jsonString(doc, "UserPic");
+		ret.Status = jsonString(doc, "Status");
+
+		if (doc.HasMember("RecentlyPlayed"))
 		{
-			std::string gameID = achivId->name.GetString();
-			auto& recent = achivId->value;
-
-			Award item;
-			item.NumPossibleAchievements = jsonInt(recent, "NumPossibleAchievements");
-			item.PossibleScore = jsonInt(recent, "PossibleScore");
-			item.NumAchieved = jsonInt(recent, "NumAchieved");
-			item.ScoreAchieved = jsonInt(recent, "ScoreAchieved");
-			item.NumAchievedHardcore = jsonInt(recent, "NumAchievedHardcore");
-			item.ScoreAchievedHardcore = jsonInt(recent, "ScoreAchievedHardcore");
-
-			ret.Awarded[gameID] = item;
-		}
-	}
-
-	if (doc.HasMember("RecentAchievements"))
-	{
-		const rapidjson::Value& ra = doc["RecentAchievements"];		
-		for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
-		{			
-			std::string gameID = achivId->name.GetString();
-
-			for (auto itrc = achivId->value.MemberBegin(); itrc != achivId->value.MemberEnd(); ++itrc)
+			for (auto& recent : doc["RecentlyPlayed"].GetArray())
 			{
-				auto& recent = itrc->value;
-				RecentAchievement item;
-
-				item.ID = jsonString(recent, "ID");
+				RecentGame item;
 				item.GameID = jsonString(recent, "GameID");
-				item.GameTitle = jsonString(recent, "GameTitle");
-				item.Description = jsonString(recent, "Description");
-				item.Points = jsonString(recent, "Points");
-				item.BadgeName = jsonString(recent, "BadgeName");
-				item.IsAwarded = jsonString(recent, "IsAwarded");
-				item.DateAwarded = jsonString(recent, "DateAwarded");
-				item.HardcoreAchieved = jsonString(recent, "HardcoreAchieved");
-				ret.RecentAchievements[gameID].push_back(item);
-			}			
+				item.ConsoleID = jsonString(recent, "ConsoleID");
+				item.ConsoleName = jsonString(recent, "ConsoleName");
+				item.Title = jsonString(recent, "Title");
+				item.ImageIcon = jsonString(recent, "ImageIcon");
+				item.LastPlayed = jsonString(recent, "LastPlayed");
+				item.MyVote = jsonString(recent, "MyVote");
+
+				ret.RecentlyPlayed.push_back(item);
+			}
+		}
+
+		if (doc.HasMember("Awarded"))
+		{
+			const rapidjson::Value& ra = doc["Awarded"];
+			for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+			{
+				std::string gameID = achivId->name.GetString();
+				auto& recent = achivId->value;
+
+				Award item;
+				item.NumPossibleAchievements = jsonInt(recent, "NumPossibleAchievements");
+				item.PossibleScore = jsonInt(recent, "PossibleScore");
+				item.NumAchieved = jsonInt(recent, "NumAchieved");
+				item.ScoreAchieved = jsonInt(recent, "ScoreAchieved");
+				item.NumAchievedHardcore = jsonInt(recent, "NumAchievedHardcore");
+				item.ScoreAchievedHardcore = jsonInt(recent, "ScoreAchievedHardcore");
+
+				ret.Awarded[gameID] = item;
+			}
+		}
+
+		if (doc.HasMember("RecentAchievements"))
+		{
+			const rapidjson::Value& ra = doc["RecentAchievements"];
+			for (auto achivId = ra.MemberBegin(); achivId != ra.MemberEnd(); ++achivId)
+			{
+				std::string gameID = achivId->name.GetString();
+
+				for (auto itrc = achivId->value.MemberBegin(); itrc != achivId->value.MemberEnd(); ++itrc)
+				{
+					auto& recent = itrc->value;
+					RecentAchievement item;
+
+					item.ID = jsonString(recent, "ID");
+					item.GameID = jsonString(recent, "GameID");
+					item.GameTitle = jsonString(recent, "GameTitle");
+					item.Description = jsonString(recent, "Description");
+					item.Points = jsonString(recent, "Points");
+					item.BadgeName = jsonString(recent, "BadgeName");
+					item.IsAwarded = jsonString(recent, "IsAwarded");
+					item.DateAwarded = jsonString(recent, "DateAwarded");
+					item.HardcoreAchieved = jsonString(recent, "HardcoreAchieved");
+					ret.RecentAchievements[gameID].push_back(item);
+				}
+			}
 		}
 	}
+	else
+		ret.Status = httpreq.getErrorMsg();
 
 	return ret;
 }
 
+UserRankAndScore RetroAchievements::getUserRankAndScore(const std::string& userName)
+{
+	auto usrName = userName;
+	if (usrName.empty())
+		usrName = SystemConf::getInstance()->get("global.retroachievements.username");
+
+	UserRankAndScore ret;
+
+	auto options = getHttpOptions();
+
+	HttpReq request(getApiUrl("API_GetUserRankAndScore", "u=" + HttpReq::urlEncode(usrName)), &options);
+	if (request.wait())
+	{
+		rapidjson::Document doc;
+		doc.Parse(request.getContent().c_str());
+		if (doc.HasParseError())
+			throw std::domain_error("Error while parsing API GetUserRankAndScore response");
+
+		ret.Score = jsonInt(doc, "Score");
+		ret.SoftcoreScore = jsonInt(doc, "SoftcoreScore");
+		ret.Rank = jsonString(doc, "Rank");
+		ret.TotalRanked = jsonInt(doc, "TotalRanked");
+	}
+	else
+		throw std::domain_error("Error while accessing API GetUserRankAndScore :\n" + request.getErrorMsg());
+
+	return ret;
+}
 
 RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 {
 	RetroAchievementInfo info;
 
+	if (ret.Username.empty() && !ret.Status.empty())
+	{
+		info.error = ret.Status;
+		return info;
+	}
+
 	info.userpic = "https://retroachievements.org" + ret.UserPic;
 	info.rank = ret.Rank;
 
-	if (!ret.TotalRanked.empty())
+	if (!ret.TotalRanked.empty() && !ret.Rank.empty())
 		info.rank = ret.Rank + " / " + ret.TotalRanked;
 
 	info.points = ret.TotalPoints;
 	info.totalpoints = ret.TotalTruePoints;
-	info.softpoints = std::to_string(std::stoi(info.totalpoints) - std::stoi(info.points));
+
+	if (!ret.TotalSoftcorePoints.empty())
+		info.softpoints = std::to_string(Utils::String::toInteger(ret.TotalSoftcorePoints));
+	else
+		info.softpoints = std::to_string(Utils::String::toInteger(info.totalpoints) - Utils::String::toInteger(info.points));
+
 	info.username = ret.Username;
 	info.registered = ret.MemberSince;
 
@@ -402,7 +464,8 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 		if (!played.ImageIcon.empty())
 			rg.badge = "http://i.retroachievements.org" + played.ImageIcon;
 
-		rg.name = played.Title + " [" + played.ConsoleName + "]";
+		rg.name = played.Title; // +" [" + played.ConsoleName + "]";
+		rg.consoleName = played.ConsoleName;
 		rg.lastplayed = played.LastPlayed;
 
 		auto aw = ret.Awarded.find(played.GameID);
@@ -411,11 +474,15 @@ RetroAchievementInfo RetroAchievements::toRetroAchivementInfo(UserSummary& ret)
 			if (aw->second.NumAchieved == 0 && aw->second.ScoreAchieved == 0)
 				continue;
 
-			rg.wonAchievements = aw->second.NumAchieved;
+			rg.wonAchievementsSoftcore = aw->second.NumAchieved;
+			rg.wonAchievementsHardcore = aw->second.NumAchievedHardcore;
 			rg.totalAchievements = aw->second.NumPossibleAchievements;
 
 			rg.achievements = std::to_string(aw->second.NumAchieved) + " of " + std::to_string(aw->second.NumPossibleAchievements);
-			rg.points = std::to_string(aw->second.ScoreAchieved) + "/" + std::to_string(aw->second.PossibleScore);						
+
+			rg.scoreSoftcore = aw->second.ScoreAchieved;
+			rg.scoreHardcore = aw->second.ScoreAchievedHardcore;
+			rg.possibleScore = aw->second.PossibleScore;
 		}
 
 		info.games.push_back(rg);
@@ -430,59 +497,71 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 
 	try
 	{
-		HttpReq hashLibrary("https://retroachievements.org/dorequest.php?r=hashlibrary");
-		HttpReq officialGamesList("https://retroachievements.org/dorequest.php?r=officialgameslist");
-
-		// Official games
-		officialGamesList.wait();
-
-		rapidjson::Document ogdoc;
-		ogdoc.Parse(officialGamesList.getContent().c_str());
-		if (ogdoc.HasParseError())
-			return ret;
-
-		if (!ogdoc.HasMember("Response"))
-			return ret;
-
 		std::map<int, std::string> officialGames;
 
-		const rapidjson::Value& response = ogdoc["Response"];
-		for (auto it = response.MemberBegin(); it != response.MemberEnd(); ++it)
-		{
-			int gameId = Utils::String::toInteger(it->name.GetString());
+		auto options = getHttpOptions();
 
-			if (it->value.GetType() == rapidjson::Type::kStringType)
-				officialGames[gameId] = it->value.GetString();
-			else if (it->value.GetType() == rapidjson::Type::kNumberType)
-				officialGames[gameId] = std::to_string(it->value.GetInt());
+		HttpReq hashLibrary("https://retroachievements.org/dorequest.php?r=hashlibrary", &options);
+		HttpReq officialGamesList("https://retroachievements.org/dorequest.php?r=officialgameslist", &options);
+
+		// Official games
+		if (officialGamesList.wait())
+		{
+			rapidjson::Document ogdoc;
+			ogdoc.Parse(officialGamesList.getContent().c_str());
+			if (ogdoc.HasParseError())
+				return ret;
+
+			if (!ogdoc.HasMember("Response"))
+				return ret;
+
+			const rapidjson::Value& response = ogdoc["Response"];
+			for (auto it = response.MemberBegin(); it != response.MemberEnd(); ++it)
+			{
+				int gameId = Utils::String::toInteger(it->name.GetString());
+
+				if (it->value.GetType() == rapidjson::Type::kStringType)
+					officialGames[gameId] = it->value.GetString();
+				else if (it->value.GetType() == rapidjson::Type::kNumberType)
+					officialGames[gameId] = std::to_string(it->value.GetInt());
+			}
 		}
+		else if (officialGamesList.status() != HttpReq::REQ_SUCCESS)
+			throw std::domain_error("Error while accessing retroachievements official games list :\n" + officialGamesList.getErrorMsg());
 
 		// Hash library
-		hashLibrary.wait();
-
-		rapidjson::Document doc;
-		doc.Parse(hashLibrary.getContent().c_str());
-		if (doc.HasParseError())
-			return ret;
-
-		if (!doc.HasMember("MD5List"))
-			return ret;
-
-		const rapidjson::Value& mdlist = doc["MD5List"];
-		for (auto it = mdlist.MemberBegin(); it != mdlist.MemberEnd(); ++it)
+		if (hashLibrary.wait())
 		{
-			std::string name = Utils::String::toUpper(it->name.GetString());
+			rapidjson::Document doc;
+			doc.Parse(hashLibrary.getContent().c_str());
+			if (doc.HasParseError())
+				return ret;
 
-			if (!it->value.IsInt())
-				continue;
-			
-			int gameId = it->value.GetInt();
+			if (!doc.HasMember("MD5List"))
+				return ret;
 
-			if (officialGames.find(gameId) == officialGames.cend())
-				continue;
+			const rapidjson::Value& mdlist = doc["MD5List"];
+			for (auto it = mdlist.MemberBegin(); it != mdlist.MemberEnd(); ++it)
+			{
+				std::string name = Utils::String::toUpper(it->name.GetString());
 
-			ret[name] = std::to_string(gameId);			
+				if (!it->value.IsInt())
+					continue;
+
+				int gameId = it->value.GetInt();
+
+				if (officialGames.find(gameId) == officialGames.cend())
+					continue;
+
+				ret[name] = std::to_string(gameId);
+			}
 		}
+		else if (hashLibrary.status() != HttpReq::REQ_SUCCESS)
+			throw std::domain_error("Error while accessing retroachievements hashlibrary :\n" + hashLibrary.getErrorMsg());
+	}
+	catch (const std::exception& e)
+	{
+		throw e;
 	}
 	catch (...)
 	{
@@ -492,7 +571,7 @@ std::map<std::string, std::string> RetroAchievements::getCheevosHashes()
 	return ret;
 }
 
-std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string fileName)
+std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::string& fileName)
 {
 	LOG(LogDebug) << "getCheevosHashFromFile : " << fileName;
 
@@ -510,7 +589,7 @@ std::string RetroAchievements::getCheevosHashFromFile(int consoleId, const std::
 	return "00000000000000000000000000000000";	
 }
 
-std::string RetroAchievements::getCheevosHash( SystemData* system, const std::string fileName)
+std::string RetroAchievements::getCheevosHash( SystemData* system, const std::string& fileName)
 {
 	bool fromZipContents = system->shouldExtractHashesFromArchives();
 
@@ -580,7 +659,9 @@ bool RetroAchievements::testAccount(const std::string& username, const std::stri
 
 	try
 	{
-		HttpReq request("https://retroachievements.org/dorequest.php?r=login&u=" + HttpReq::urlEncode(username) + "&p=" + HttpReq::urlEncode(password));
+		auto options = getHttpOptions();
+
+		HttpReq request("https://retroachievements.org/dorequest.php?r=login&u=" + HttpReq::urlEncode(username) + "&p=" + HttpReq::urlEncode(password), &options);
 		if (!request.wait())
 		{						
 			tokenOrError = request.getErrorMsg();

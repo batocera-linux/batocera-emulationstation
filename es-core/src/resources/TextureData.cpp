@@ -24,9 +24,9 @@
 
 IPdfHandler* TextureData::PdfHandler = nullptr;
 
-TextureData::TextureData(bool tile, bool linear) : mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false),
-									  mWidth(0), mHeight(0), mSourceWidth(0.0f), mSourceHeight(0.0f),
-									  mPackedSize(Vector2i(0, 0)), mBaseSize(Vector2i(0, 0))
+TextureData::TextureData(bool tile, bool linear) : 
+	mTile(tile), mLinear(linear), mTextureID(0), mDataRGBA(nullptr), mScalable(false), mDynamic(true), mReloadable(false),	
+	mSize(Vector2i::Zero()), mPhysicalSize(Vector2f::Zero()), mMaxSize(MaxSizeInfo::Empty)
 {
 	mIsExternalDataRGBA = false;
 	mRequired = false;
@@ -45,6 +45,7 @@ void TextureData::initFromPath(const std::string& path)
 	// Only textures with paths are reloadable
 	mReloadable = true;
 }
+
 
 bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length)
 {
@@ -72,82 +73,84 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 	if (svgImage->width == 0 || svgImage->height == 0)
 		return false;
 
-	// We want to rasterise this texture at a specific resolution. If the source size
-	// variables are set then use them otherwise set them from the parsed file
-	if ((mSourceWidth == 0.0f) && (mSourceHeight == 0.0f))
-	{
-		mSourceWidth = svgImage->width;
-		mSourceHeight = svgImage->height;
+	float sourceWidth = svgImage->width;
+	float sourceHeight = svgImage->height;
 
-		if (!mMaxSize.empty() && mSourceWidth < mMaxSize.x() && mSourceHeight < mMaxSize.y())
+	if (mScalableMinimumSize.empty())
+	{
+		sourceWidth = svgImage->width;
+		sourceHeight = svgImage->height;
+		
+		if (!mMaxSize.empty() && sourceWidth < mMaxSize.x() && sourceHeight < mMaxSize.y())
 		{
-			auto sz = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(mMaxSize.x(), mMaxSize.y()));
-			mSourceWidth = sz.x();
-			mSourceHeight = sz.y();
+			auto sz = ImageIO::adjustPictureSizeF(sourceWidth, sourceHeight, mMaxSize.x(), mMaxSize.y(), mMaxSize.externalZoom());
+			sourceHeight = sz.y();
+			sourceWidth = (sourceHeight * svgImage->width) / svgImage->height; // FCA : Always compute width using source aspect ratio
 		}
 	}
 	else
-		mSourceWidth = (mSourceHeight * svgImage->width) / svgImage->height; // FCA : Always compute width using source aspect ratio
+	{
+		sourceHeight = mScalableMinimumSize.y();
+		sourceWidth = (sourceHeight * svgImage->width) / svgImage->height; // FCA : Always compute width using source aspect ratio
+	}
 
+	mScalableMinimumSize = Vector2f(sourceWidth, sourceHeight);
+	mPhysicalSize = Vector2f(sourceWidth, sourceHeight);
 
-	mWidth = (size_t)Math::round(mSourceWidth);
-	mHeight = (size_t)Math::round(mSourceHeight);
+	size_t width = (size_t)Math::round(sourceWidth);
+	size_t height = (size_t)Math::round(sourceHeight);
 
-	if (mWidth == 0)
+	if (width == 0)
 	{
 		// auto scale width to keep aspect
-		mWidth = (size_t)Math::round(((float)mHeight / svgImage->height) * svgImage->width);
+		width = (size_t)Math::round(((float)height / svgImage->height) * svgImage->width);
 	}
-	else if (mHeight == 0)
+	else if (height == 0)
 	{
 		// auto scale height to keep aspect
-		mHeight = (size_t)Math::round(((float)mWidth / svgImage->width) * svgImage->height);
+		height = (size_t)Math::round(((float)width / svgImage->width) * svgImage->height);
 	}
 
-	mBaseSize = Vector2i(mWidth, mHeight);
 
-	if (OPTIMIZEVRAM && !mMaxSize.empty())
+	if (OPTIMIZEVRAM && !mMaxSize.empty() && (width > mMaxSize.x() || height > mMaxSize.y()))
 	{
-		if (mHeight < mMaxSize.y() && mWidth < mMaxSize.x()) // FCATMP
-		{
-			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
-			mHeight = sz.y();
-			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
-		}
+		auto imageSize = Vector2i(width, height);
+		auto displaySize = Vector2i((int)Math::round(mMaxSize.x()), (int)Math::round(mMaxSize.y()));
 
-		if (!mMaxSize.empty() && (mWidth > mMaxSize.x() || mHeight > mMaxSize.y()))
+		Vector2i sz = ImageIO::adjustPictureSize(imageSize, displaySize, mMaxSize.externalZoom());
+		if (sz.x() == displaySize.x())
 		{
-			Vector2i sz = ImageIO::adjustPictureSize(Vector2i(mWidth, mHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
-			mHeight = sz.y();
-			mWidth = Math::round((mHeight * svgImage->width) / svgImage->height);
-			
-			mPackedSize = Vector2i(mWidth, mHeight);
+			width = sz.x();
+			height = Math::round((width * svgImage->height) / svgImage->width);
 		}
 		else
-			mPackedSize = Vector2i(0, 0);
+		{
+			height = sz.y();
+			width = Math::round((height * svgImage->width) / svgImage->height);
+		}
 	}
-	else
-		mPackedSize = Vector2i(0, 0);
+	
+	mSize = Vector2i(width, height);
 
-	if (mWidth * mHeight <= 0)
+	if (width * height <= 0)
 	{
 		LOG(LogError) << "Error parsing SVG image size.";
 		return false;
 	}
 
-	unsigned char* dataRGBA = new unsigned char[mWidth * mHeight * 4];
+	unsigned char* dataRGBA = new unsigned char[width * height * 4];
 
-	double scale = ((float)((int)mHeight)) / svgImage->height;
-	double scaleV = ((float)((int)mWidth)) / svgImage->width;
+	double scale = ((float)((int)height)) / svgImage->height;
+	double scaleV = ((float)((int)width)) / svgImage->width;
 	if (scaleV < scale)
 		scale = scaleV;
 
 	NSVGrasterizer* rast = nsvgCreateRasterizer();
-	nsvgRasterize(rast, svgImage, 0, 0, scale, dataRGBA, (int)mWidth, (int)mHeight, (int)mWidth * 4);
+	nsvgRasterize(rast, svgImage, 0, 0, scale, dataRGBA, (int)width, (int)height, (int)width * 4);
 	nsvgDeleteRasterizer(rast);
 	nsvgDelete(svgImage);
 
-	ImageIO::flipPixelsVert(dataRGBA, mWidth, mHeight);
+	ImageIO::flipPixelsVert(dataRGBA, width, height);
 
 	mDataRGBA = dataRGBA;
 
@@ -156,35 +159,31 @@ bool TextureData::initSVGFromMemory(const unsigned char* fileData, size_t length
 
 bool TextureData::initImageFromMemory(const unsigned char* fileData, size_t length, int subImageIndex)
 {
-	size_t width, height;
-
 	// If already initialised then don't read again
-	{
-		std::unique_lock<std::mutex> lock(mMutex);
-		if (mDataRGBA || (mTextureID != 0))
-			return true;
-	}
+	if (isLoaded())
+		return true;
 
+	// Don't load images greater than screen resolution
 	MaxSizeInfo maxSize(Renderer::getScreenWidth(), Renderer::getScreenHeight(), false);
-	if (!mMaxSize.empty())
+	if (!mMaxSize.empty() && mMaxSize.x() < maxSize.x() && mMaxSize.y() < maxSize.y())
 		maxSize = mMaxSize;
+		
+	auto oldSize = mSize;
+
+	size_t width, height;
+	Vector2i size;
+	Vector2i physicalSize;
+	unsigned char* imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &physicalSize, &size, subImageIndex);
 	
-	unsigned char* imageRGBA = nullptr;
-	
-	if (subImageIndex >= 0)
-		imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize, subImageIndex);
-	else
-		imageRGBA = ImageIO::loadFromMemoryRGBA32((const unsigned char*)(fileData), length, width, height, &maxSize, &mBaseSize, &mPackedSize);
+	mPhysicalSize = Vector2f(physicalSize.x(), physicalSize.y());
+	mSize = size.empty() ? physicalSize : size;
+	mScalable = false;
 
 	if (imageRGBA == nullptr)
 	{
 		LOG(LogError) << "Could not initialize texture from memory, invalid data!  (file path: " << mPath << ", data ptr: " << (size_t)fileData << ", reported size: " << length << ")";
 		return false;
 	}
-
-	mSourceWidth = (float) width;
-	mSourceHeight = (float) height;
-	mScalable = false;
 
 	return initFromRGBA(imageRGBA, width, height, false);
 }
@@ -212,8 +211,11 @@ bool TextureData::initFromRGBA(unsigned char* dataRGBA, size_t width, size_t hei
 	else
 		mDataRGBA = dataRGBA;
 
-	mWidth = width;
-	mHeight = height;
+	mSize = Vector2i(width, height);
+
+	if (copyData)
+		mPhysicalSize = Vector2f(mSize.x(), mSize.y());
+
 	return true;
 }
 
@@ -227,11 +229,12 @@ bool TextureData::updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, 
 
 	mIsExternalDataRGBA = true;
 	mDataRGBA = dataRGBA;
-	mWidth = width;
-	mHeight = height;
+
+	mSize = Vector2i(width, height);
+	mPhysicalSize = Vector2f(width, height);
 
 	if (mTextureID != 0)
-		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, mWidth, mHeight, mDataRGBA);
+		Renderer::updateTexture(mTextureID, Renderer::Texture::RGBA, 0, 0, width, height, mDataRGBA);
 
 	return true;
 }
@@ -335,7 +338,7 @@ bool TextureData::loadFromVideo()
 
 		if (initImageFromMemory((const unsigned char*)data.ptr.get(), data.length))
 		{
-			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
+			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), Math::round((int)mPhysicalSize.x()), Math::round((int)mPhysicalSize.y()));
 			return true;
 		}
 	}
@@ -343,7 +346,7 @@ bool TextureData::loadFromVideo()
 	return false;
 }
 
-bool TextureData::loadFromPdf()
+bool TextureData::loadFromPdf(int pageIndex)
 {
 	if (PdfHandler == nullptr)
 		return false;
@@ -357,7 +360,7 @@ bool TextureData::loadFromPdf()
 	if (!mMaxSize.empty())
 		dpi = (int) Math::clamp(mMaxSize.y() / 6, 32, 300);
 
-	auto files = PdfHandler->extractPdfImages(mPath, 1, 1, dpi);
+	auto files = PdfHandler->extractPdfImages(mPath, pageIndex, pageIndex, dpi);
 	if (files.size() > 0)
 	{
 		std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
@@ -367,7 +370,7 @@ bool TextureData::loadFromPdf()
 		retval = initImageFromMemory((const unsigned char*)data.ptr.get(), data.length);
 
 		if (retval)
-			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
+			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), Math::round((int)mPhysicalSize.x()), Math::round((int)mPhysicalSize.y()));
 	}
 
 	return retval;
@@ -419,7 +422,7 @@ bool TextureData::loadFromCbz()
 		retval = initImageFromMemory(buffer, size);
 
 		if (retval)
-			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), mBaseSize.x(), mBaseSize.y());
+			ImageIO::updateImageCache(mPath, Utils::FileSystem::getFileSize(mPath), Math::round((int)mPhysicalSize.x()), Math::round((int)mPhysicalSize.y()));
 	}
 
 	return retval;
@@ -427,48 +430,47 @@ bool TextureData::loadFromCbz()
 
 bool TextureData::load(bool updateCache)
 {
-	bool retval = false;
-
 	// Need to load. See if there is a file
-	if (!mPath.empty())
+	if (mPath.empty())
+		return false;
+
+	LOG(LogDebug) << "TextureData::load " << mPath;
+	mScalable = false;
+
+	std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mPath));
+
+	if (ext == ".cbz")
+		return loadFromCbz();
+
+	if (ext == ".pdf")
+		return PdfHandler != nullptr ? loadFromPdf() : false;
+
+	if (Utils::FileSystem::isVideo(mPath))
+		return loadFromVideo();
+
+	std::string path = mPath;
+	int subImageIndex = -1;
+
+	if (ext.find(',') != std::string::npos)
 	{
-		LOG(LogDebug) << "TextureData::load " << mPath;
-
-		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(mPath));
-
-		if (ext == ".cbz")
-			return loadFromCbz();
-
-		if (PdfHandler != nullptr && ext == ".pdf")
-			return loadFromPdf();
-
-		if (Utils::FileSystem::isVideo(mPath))
-			return loadFromVideo();
-		
-		std::string path = mPath;
-		int subImageIndex = -1;
-
-		if (Utils::FileSystem::getExtension(mPath).find(",") != std::string::npos)
-		{
-			auto idx = path.rfind(',');
-			subImageIndex = Utils::String::toInteger(mPath.substr(idx+1));
-			path = mPath.substr(0, idx);			
-		}
-
-		std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
-		const ResourceData& data = rm->getFileData(path);
-		// is it an SVG?
-		if (mPath.substr(mPath.size() - 4, std::string::npos) == ".svg")
-		{
-			mScalable = true;
-			retval = initSVGFromMemory((const unsigned char*)data.ptr.get(), data.length);
-		}
-		else
-			retval = initImageFromMemory((const unsigned char*)data.ptr.get(), data.length, subImageIndex);
-
-		if (updateCache && retval)
-			ImageIO::updateImageCache(mPath, data.length, mBaseSize.x(), mBaseSize.y());
+		auto idx = path.rfind(',');
+		subImageIndex = Utils::String::toInteger(mPath.substr(idx + 1));
+		path = mPath.substr(0, idx);
 	}
+
+	const ResourceData& data = ResourceManager::getInstance()->getFileData(path);
+
+	// is it an SVG?
+	if (ext == ".svg")
+	{
+		mScalable = true;
+		return initSVGFromMemory((const unsigned char*)data.ptr.get(), data.length);
+	}
+
+	bool retval = initImageFromMemory((const unsigned char*)data.ptr.get(), data.length, subImageIndex);
+
+	if (updateCache && retval)
+		ImageIO::updateImageCache(mPath, data.length, Math::round((int)mPhysicalSize.x()), Math::round((int)mPhysicalSize.y()));
 
 	return retval;
 }
@@ -478,6 +480,7 @@ bool TextureData::isLoaded()
 	std::unique_lock<std::mutex> lock(mMutex);
 	if (mDataRGBA || (mTextureID != 0))
 		return true;
+
 	return false;
 }
 
@@ -491,14 +494,14 @@ bool TextureData::uploadAndBind()
 	else
 	{
 		// Make sure we're ready to upload
-		if (mWidth == 0 || mHeight == 0 || mDataRGBA == nullptr)
+		if (mSize.empty() || mDataRGBA == nullptr)
 		{
 			Renderer::bindTexture(mTextureID);
 			return false;
 		}
 
 		// Upload texture
-		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mWidth, mHeight, mDataRGBA);
+		mTextureID = Renderer::createTexture(Renderer::Texture::RGBA, mLinear, mTile, mSize.x(), mSize.y(), mDataRGBA);
 		if (mTextureID == 0)
 			return false;
 
@@ -531,78 +534,24 @@ void TextureData::releaseRAM()
 	mDataRGBA = 0;
 }
 
-size_t TextureData::width()
+void TextureData::setStoredSize(float width, float height)
 {
-	if (mWidth == 0)
-		load();
-	return mWidth;
+	mSize = Vector2i(width, height);
 }
 
-size_t TextureData::height()
+void TextureData::setMaxSize(const MaxSizeInfo& maxSize)
 {
-	if (mHeight == 0)
-		load();
-	return mHeight;
-}
-
-float TextureData::sourceWidth()
-{
-	if (mSourceWidth == 0)
-		load();
-	return mSourceWidth;
-}
-
-float TextureData::sourceHeight()
-{
-	if (mSourceHeight == 0)
-		load();
-	return mSourceHeight;
-}
-
-void TextureData::setTemporarySize(float width, float height)
-{
-	mWidth = width;
-	mHeight = height;
-	mSourceWidth = width;
-	mSourceHeight = height;
-}
-
-void TextureData::setSourceSize(float width, float height)
-{
-	if (mScalable)
-	{
-		if ((int) mSourceHeight < (int) height && (int) mSourceWidth != (int) width)
-		{
-			LOG(LogDebug) << "Requested scalable image size too small. Reloading image from (" << mSourceWidth << ", " << mSourceHeight << ") to (" << width << ", " << height << ")";
-
-			mSourceWidth = width;
-			mSourceHeight = height;
-			releaseVRAM();
-			releaseRAM();
-			load();
-		}
-	}
-}
-
-size_t TextureData::getVRAMUsage()
-{
-	if ((mTextureID != 0) || (mDataRGBA != nullptr))
-		return mWidth * mHeight * 4;
-	else
-		return 0;
-}
-
-void TextureData::setMaxSize(MaxSizeInfo maxSize)
-{
-	if (!Settings::getInstance()->getBool("OptimizeVRAM"))
+	if (!OPTIMIZEVRAM)
 		return;
 
-	if (mSourceWidth == 0 || mSourceHeight == 0)
+	if (mPhysicalSize.empty())
 		mMaxSize = maxSize;
 	else
 	{
-		Vector2i value = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
-		Vector2i newVal = ImageIO::adjustPictureSize(Vector2i(mSourceWidth, mSourceHeight), Vector2i(maxSize.x(), maxSize.y()), mMaxSize.externalZoom());
+		auto imageSize = Vector2i((int)Math::round(mPhysicalSize.x()), Math::round(mPhysicalSize.y()));
+
+		Vector2i value = ImageIO::adjustPictureSize(imageSize, Vector2i(mMaxSize.x(), mMaxSize.y()), mMaxSize.externalZoom());
+		Vector2i newVal = ImageIO::adjustPictureSize(imageSize, Vector2i(maxSize.x(), maxSize.y()), mMaxSize.externalZoom());
 
 		if (newVal.x() > value.x() || newVal.y() > value.y())
 			mMaxSize = maxSize;
@@ -614,20 +563,69 @@ bool TextureData::isMaxSizeValid()
 	if (!OPTIMIZEVRAM)
 		return true;
 
-	if (mPackedSize == Vector2i(0, 0))
-		return true;
-
-	if (mBaseSize == Vector2i(0, 0))
+	if (mSize.empty() || mPhysicalSize.empty())
 		return true;
 
 	if (mMaxSize.empty())
 		return true;
 
-	if ((int)mMaxSize.x() <= mPackedSize.x() || (int)mMaxSize.y() <= mPackedSize.y())
+	if ((int) Math::round(mPhysicalSize.x()) == mSize.x() && (int)Math::round(mPhysicalSize.y()) == mSize.y())
 		return true;
 
-	if (mBaseSize.x() <= mPackedSize.x() || mBaseSize.y() <= mPackedSize.y())
+	if ((int)mMaxSize.x() <= mSize.x() || (int)mMaxSize.y() <= mSize.y())
 		return true;
+
+	if (mPhysicalSize.x() <= mSize.x() || mPhysicalSize.y() <= mSize.y())
+		return true;
+
+	return false;
+}
+
+bool TextureData::rasterizeAt(float width, float height)
+{
+	if (mSize.empty())
+		return false;
+
+	int h = (int)Math::round(height);
+	int w = (int)Math::round(width);
+
+	if (mScalable)
+	{
+		if ((int)Math::round(mScalableMinimumSize.y()) < h && (int)Math::round(mScalableMinimumSize.x()) != w)
+		{
+			LOG(LogDebug) << "Requested SVG image size too small. Reloading image from (" << mScalableMinimumSize.x() << ", " << mScalableMinimumSize.y() << ") to (" << width << ", " << height << ")";
+
+			mScalableMinimumSize.x() = width;
+			mScalableMinimumSize.y() = height;
+
+			if (!isLoaded())
+				return true;
+
+			releaseVRAM();
+			releaseRAM();
+			load();
+
+			return isLoaded();
+		}
+	}
+	else if (!mMaxSize.empty() && h < Renderer::getScreenHeight() && w < Renderer::getScreenWidth() && OPTIMIZEVRAM)
+	{
+		if (mSize.y() < h && mSize.x() < w && (int)Math::round(mPhysicalSize.y()) >= h && (int)Math::round(mPhysicalSize.x()) > w)
+		{
+			LOG(LogDebug) << "Requested PNG/JPG image size too small. Reloading image from (" << mSize.x() << ", " << mSize.y() << ") to (" << width << ", " << height << ")";
+
+			mMaxSize = MaxSizeInfo(w, h, mMaxSize.externalZoom());
+
+			if (!isLoaded())
+				return true;
+
+			releaseVRAM();
+			releaseRAM();
+			load();
+
+			return isLoaded();
+		}
+	}
 
 	return false;
 }

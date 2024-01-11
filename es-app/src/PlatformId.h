@@ -25,6 +25,7 @@ namespace PlatformIds
 		ATARI_JAGUAR,
 		ATARI_JAGUAR_CD,
 		ATARI_XE,
+		BBC_MICRO,
 		COLECOVISION,
 		COMMODORE_64,
 		COMMODORE_VIC20,
@@ -34,6 +35,9 @@ namespace PlatformIds
 		XBOX,
 		XBOX_360,
 		MSX,
+		MSX2,
+		MSX2_PLUS,
+		MSX_TURBO_R,
 		NEOGEO,
 		NEOGEO_POCKET,
 		NEOGEO_POCKET_COLOR,
@@ -63,6 +67,7 @@ namespace PlatformIds
 		SEGA_GENESIS,
 		SEGA_MASTER_SYSTEM,
 		SEGA_MEGA_DRIVE,
+		SEGA_PICO,
 		SEGA_SATURN,
 		SEGA_SG1000,
 		PLAYSTATION,
@@ -107,6 +112,8 @@ namespace PlatformIds
 		TIC80,
 		MODEL3,
 		IMAGEVIEWER,
+		GP32,
+		VTECH_SOCRATES,
 
 		// Windows Specific
 		VISUALPINBALL,
@@ -132,6 +139,7 @@ namespace PlatformIds
 		SUPER_CASSETTE_VISION,
 		EASYRPG,
 		COMMODORE_PET,
+		COMMODORE_PLUS4,
 		ACORN_ATOM,
 		ACORN_BBC_MICRO,
 		ACORN_ELECTRON,		
@@ -161,6 +169,9 @@ namespace PlatformIds
 		CAMPUTER_LYNX,
 		EPOCH_GAMEPOCKET,
 		WASM4,
+		TANDY_VIS,
+
+		TEKNOPARROT,
 
 		PLATFORM_IGNORE, // do not allow scraping for this system
 		PLATFORM_COUNT

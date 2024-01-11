@@ -20,6 +20,7 @@ public:
 	virtual int getCursorIndex() override;
 	virtual void setCursorIndex(int index) override;
 	virtual void resetLastCursor() override;
+	virtual bool onMouseWheel(int delta) override;
 
 	virtual const char* getName() const override
 	{

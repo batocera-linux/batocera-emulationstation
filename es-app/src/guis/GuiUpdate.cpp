@@ -5,7 +5,7 @@
 #include "Log.h"
 #include "Settings.h"
 #include "ApiSystem.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "LocaleES.h"
 #include "components/AsyncNotificationComponent.h"
 
@@ -75,7 +75,7 @@ public:
 		{
 			GuiUpdate::state = GuiUpdateState::State::NO_UPDATE;
 
-			std::string error = _("AN ERROR OCCURED") + std::string(": ") + updateStatus.first;
+			std::string error = _("AN ERROR OCCURRED") + std::string(": ") + updateStatus.first;
 			mWindow->displayNotificationMessage(error);
 		}
 

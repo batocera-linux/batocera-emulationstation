@@ -9,6 +9,8 @@
 #include <mutex>
 #include <thread>
 #include <vector>
+#include <set>
+#include <unordered_map>
 
 class TextureDataManager;
 class TextureData;
@@ -28,11 +30,14 @@ public:
 
 	static bool paused;
 
+	std::mutex& Mutex() { return mLoaderLock; }
+
 private:	
 	void threadProc();
 
-	std::list<std::shared_ptr<TextureData>> 										mProcessingTextureDataQ;
+	std::set<std::shared_ptr<TextureData>> 											mProcessingTextureDataQ;
 	std::list<std::shared_ptr<TextureData>> 										mTextureDataQ;
+	std::set<std::shared_ptr<TextureData>> 											mTextureDataQSet;
 
 	std::vector<std::thread>	mThreads;
 	std::mutex					mLoaderLock;
@@ -92,14 +97,17 @@ public:
 	void load(std::shared_ptr<TextureData> tex, bool block = false);
 
 	void clearQueue();
-
-	void onTextureLoaded(std::shared_ptr<TextureData> tex);
+	
+	void cleanupVRAM(std::shared_ptr<TextureData> exclude = nullptr);
 
 private:
-	std::mutex					mMutex;
+
+	std::shared_ptr<TextureData> getBlankTexture();
+
+	std::recursive_mutex					mMutex;
 
 	std::list<std::shared_ptr<TextureData> >												mTextures;
-	std::map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;
+	std::unordered_map<const TextureResource*, std::list<std::shared_ptr<TextureData> >::const_iterator > 	mTextureLookup;
 	std::shared_ptr<TextureData>															mBlank;
 	TextureLoader*																			mLoader;
 };

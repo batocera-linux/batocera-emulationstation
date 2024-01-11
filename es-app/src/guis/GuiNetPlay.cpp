@@ -21,6 +21,8 @@
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/pointer.h>
 
+#include "animations/LambdaAnimation.h"
+
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
 // http://lobby.libretro.com/list/
@@ -161,6 +163,7 @@ GuiNetPlay::GuiNetPlay(Window* window)
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 
 	// Title
 
@@ -220,19 +223,19 @@ void GuiNetPlay::onSizeChanged()
 	GuiComponent::onSizeChanged();
 
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
-
+	
 	mGrid.setSize(mSize);
 	
 	const float titleHeight = mTitle->getFont()->getLetterHeight();
 	const float subtitleHeight = mSubtitle->getFont()->getLetterHeight();
 	const float titleSubtitleSpacing = mSize.y() * 0.03f;
 
-	mGrid.setRowHeightPerc(0, (titleHeight + titleSubtitleSpacing + subtitleHeight + TITLE_VERT_PADDING) / mSize.y());
-	mGrid.setRowHeightPerc(2, mButtonGrid->getSize().y() / mSize.y());
+	mGrid.setRowHeight(0, (titleHeight + titleSubtitleSpacing + subtitleHeight + TITLE_VERT_PADDING));
+	mGrid.setRowHeight(2, mButtonGrid->getSize().y());
 
-	mHeaderGrid->setRowHeightPerc(1, titleHeight / mHeaderGrid->getSize().y());
-	mHeaderGrid->setRowHeightPerc(2, titleSubtitleSpacing / mHeaderGrid->getSize().y());
-	mHeaderGrid->setRowHeightPerc(3, subtitleHeight / mHeaderGrid->getSize().y());
+	mHeaderGrid->setRowHeight(1, titleHeight);
+	mHeaderGrid->setRowHeight(2, titleSubtitleSpacing);
+	mHeaderGrid->setRowHeight(3, subtitleHeight);
 }
 
 void GuiNetPlay::startRequest()
@@ -257,11 +260,11 @@ void GuiNetPlay::update(int deltaTime)
 	{
 		auto status = mLobbyRequest->status();
 		if (status != HttpReq::REQ_IN_PROGRESS)
-		{			
+		{
 			if (status == HttpReq::REQ_SUCCESS)
 				populateFromJson(mLobbyRequest->getContent());
 			else
-			  mWindow->pushGui(new GuiMsgBox(mWindow, _("FAILED") + std::string(" : ") + mLobbyRequest->getErrorMsg()));
+				mWindow->pushGui(new GuiMsgBox(mWindow, _("FAILED") + std::string(" : ") + mLobbyRequest->getErrorMsg()));
 
 			mLobbyRequest.reset();
 		}
@@ -368,14 +371,7 @@ public:
 		auto theme = ThemeData::getMenuTheme();
 
 		mImage = std::make_shared<ImageComponent>(mWindow);
-		mImage->setIsLinear(true);
-
-		if (entry.fileData == nullptr)
-			mImage->setImage(":/cartridge.svg");
-		else
-			mImage->setImage(entry.fileData->getImagePath());		
-
-		//mImage->setRoundCorners(0.27);
+		// mImage->setIsLinear(true);
 
 		std::string name = entry.fileData == nullptr ? entry.game_name : entry.fileData->getMetadata(MetaDataId::Name) + " [" + entry.fileData->getSystemName() + "]";
 
@@ -426,14 +422,16 @@ public:
 		setEntry(mDetails, Vector2i(2, 2), false, true);
 		
 		if (mLockInfo != nullptr)
-			setEntry(mLockInfo, Vector2i(3, 0), false, true, Vector2i(1, 3));
+			setEntry(mLockInfo, Vector2i(3, 0), false, true, Vector2i(1, 3));		
 		
-		float h = mText->getSize().y() * 1.1f + mSubstring->getSize().y() + mDetails->getSize().y();
+		float rowHeight = mText->getSize().y() * 1.1f + mSubstring->getSize().y() + mDetails->getSize().y();
+		float imageColWidth = rowHeight * 1.15f;
 
 		float sw = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
-
-		mImage->setMaxSize(h * 1.15f, h * 0.85f);
-		mImage->setPadding(Vector4f(8, 8, 8, 8));
+		
+		mImage->setOrigin(0.5f, 0.5f);
+		mImage->setMaxSize(imageColWidth, rowHeight);
+		mImage->setPadding(Vector4f(4.0f));
 
 		if (entry.fileData == nullptr)
 		{
@@ -444,19 +442,23 @@ public:
 			mDetails->setOpacity(120);
 		}
 
-		setColWidthPerc(0, h * 1.15f / sw, false);
+		setColWidth(0, imageColWidth, false);
 		setColWidthPerc(1, 0.015f, false);
+		setColWidthPerc(3, mLockInfo != nullptr ? 0.055f : 0.002f, false); // cf FONT_SIZE_LARGE
 
-		if (mLockInfo != nullptr)
-			setColWidthPerc(3, 0.055f, false); // cf FONT_SIZE_LARGE
-		else 
-			setColWidthPerc(3, 0.002f, false);
+		setRowHeight(0, mText->getSize().y(), false);
+		setRowHeight(1, mSubstring->getSize().y(), false);
+		setRowHeight(2, mDetails->getSize().y(), false);
 
-		setRowHeightPerc(0, mText->getSize().y() / h, false);
-		setRowHeightPerc(1, mSubstring->getSize().y() / h, false);
-		setRowHeightPerc(2, mDetails->getSize().y() / h, false);
+		setSize(Vector2f(0, rowHeight));
 
-		setSize(Vector2f(0, h));
+		if (entry.fileData == nullptr || !Utils::FileSystem::exists(entry.fileData->getImagePath()))
+			mImage->setImage(":/cartridge.svg");
+		else
+		{
+			mImage->setRoundCorners(0.08f);
+			mImage->setImage(entry.fileData->getImagePath());
+		}
 	}
 
 	LobbyAppEntry& getEntry() {
@@ -577,6 +579,9 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("mitm_port") && fields["mitm_port"].IsInt())
 			game.mitm_port = fields["mitm_port"].GetInt();
 
+		if (fields.HasMember("mitm_session") && fields["mitm_session"].IsInt())
+			game.mitm_session = fields["mitm_session"].GetString();
+		
 		if (fields.HasMember("fixed") && fields["fixed"].IsBool())
 			game.fixed = fields["fixed"].GetBool();
 
@@ -684,6 +689,7 @@ void GuiNetPlay::launchGame(LobbyAppEntry entry)
 	{
 		options.ip = entry.mitm_ip;
 		options.port = entry.mitm_port;
+		options.session = entry.mitm_session;
 	}
 	else
 	{

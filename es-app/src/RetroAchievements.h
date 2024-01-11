@@ -27,6 +27,7 @@ struct Achievement
 	int DisplayOrder;
 	std::string MemAddr;
 	std::string DateEarned;
+	std::string DateEarnedHardcore;
 
 	std::string getBadgeUrl();
 };
@@ -58,7 +59,7 @@ struct GameInfoAndUserProgress
 	std::string UserCompletion;
 	std::string UserCompletionHardcore;
 
-	std::string getImageUrl(const std::string image = "");
+	std::string getImageUrl(const std::string& image = "");
 };
 
 
@@ -101,8 +102,9 @@ struct Award
 	int NumPossibleAchievements;
 	int PossibleScore;
 	int NumAchieved;
-	int ScoreAchieved;
 	int NumAchievedHardcore;
+
+	int ScoreAchieved;	
 	int ScoreAchievedHardcore;
 };
 
@@ -135,6 +137,10 @@ struct UserSummary
 {
 	std::string Username;
 
+	std::string getBadge() {
+		return "https://retroachievements.org" + UserPic;
+	}
+
 	int RecentlyPlayedCount;
 	std::vector<RecentGame> RecentlyPlayed;
 	std::string MemberSince;
@@ -146,6 +152,7 @@ struct UserSummary
 	std::string ContribYield;
 	std::string TotalPoints;
 	std::string TotalTruePoints;
+	std::string TotalSoftcorePoints;
 	std::string Permissions;
 	std::string Untracked;
 	std::string ID;
@@ -160,18 +167,30 @@ struct UserSummary
 	std::string Status;
 };
 
+struct UserRankAndScore
+{
+	int Score;
+	int SoftcoreScore;
+	std::string Rank;
+	int TotalRanked;
+};
+
 // toRetroAchivementInfo
 struct RetroAchievementGame
 {
 	std::string id;
 	std::string name;
-	std::string achievements;
-	std::string points;
-	std::string totalTruePoints;
+	std::string consoleName;
+	std::string achievements;		
 	std::string lastplayed;
 	std::string badge;
 
-	int wonAchievements;
+	int scoreSoftcore;
+	int scoreHardcore;
+	int possibleScore;
+
+	int wonAchievementsSoftcore;
+	int wonAchievementsHardcore;
 	int totalAchievements;
 };
 
@@ -191,16 +210,18 @@ struct RetroAchievementInfo
 class RetroAchievements
 {
 public:
-	static std::string				getApiUrl(const std::string method, const std::string parameters);
-	static UserSummary				getUserSummary(const std::string userName = "", int gameCount = 500);
-	static GameInfoAndUserProgress	getGameInfoAndUserProgress(int gameId, const std::string userName = "");
+	static std::string				getApiUrl(const std::string& method, const std::string& parameters);
+	static UserSummary				getUserSummary(const std::string& userName = "", int gameCount = 100);
+	static GameInfoAndUserProgress	getGameInfoAndUserProgress(int gameId, const std::string& userName = "");
+	static UserRankAndScore         getUserRankAndScore(const std::string& userName);
+
 	static RetroAchievementInfo		toRetroAchivementInfo(UserSummary& ret);
 
 	static std::map<std::string, std::string>	getCheevosHashes();
 
-	static std::string				getCheevosHash(SystemData* pSystem, const std::string fileName);
+	static std::string				getCheevosHash(SystemData* pSystem, const std::string& fileName);
 	static bool						testAccount(const std::string& username, const std::string& password, std::string& tokenOrError);
 
 private:
-	static std::string				getCheevosHashFromFile(int consoleId, const std::string fileName);
+	static std::string				getCheevosHashFromFile(int consoleId, const std::string& fileName);
 };

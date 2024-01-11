@@ -41,6 +41,7 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "rewind") ret = ret | EmulatorFeatures::Features::rewind;
 		if (trim == "smooth") ret = ret | EmulatorFeatures::Features::smooth;
 		if (trim == "shaders") ret = ret | EmulatorFeatures::Features::shaders;
+		if (trim == "videofilters") ret = ret | EmulatorFeatures::Features::videofilters;
 		if (trim == "pixel_perfect") ret = ret | EmulatorFeatures::Features::pixel_perfect;
 		if (trim == "decoration") ret = ret | EmulatorFeatures::Features::decoration;
 		if (trim == "latency_reduction") ret = ret | EmulatorFeatures::Features::latency_reduction;
@@ -107,7 +108,7 @@ void CustomFeatures::loadAdditionnalFeatures(pugi::xml_node& srcSystems)
 				continue;
 
 			pugi::xml_document doc;
-			pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+			pugi::xml_parse_result res = doc.load_file(WINSTRINGW(customPath).c_str());
 			if (!res)
 			{
 				LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
@@ -154,7 +155,7 @@ void CustomFeatures::loadAdditionnalFeatures(pugi::xml_node& srcSystems)
 	/* Uncomment to see final XML result
 	std::string fileName = "c:\\temp\\test.xml";
 	Utils::FileSystem::removeFile(fileName);
-	doc.save_file(fileName.c_str());
+	doc.save_file(WINSTRINGW(fileName).c_str());
 	*/
 }
 
@@ -174,7 +175,7 @@ bool CustomFeatures::loadEsFeaturesFile()
 		return false;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if (!res)
 	{

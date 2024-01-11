@@ -109,20 +109,10 @@
   <system name="megadrive">
     <game>bodycount</game>
     <game gun="justifier">gunfight3in1</game>
-    <game gun="justifier">lethalenforcers</game>
     <game gun="justifier">lethalenforcersii</game>
-    <game>gunfight3in1</game>
+    <game gun="justifier">lethalenforcers</game>
     <game>menacer6gamecartridge</game>
     <game>t2thearcadegame</game>
-  </system>
-  <system name="segacd">
-    <game>corpsekiller</game>
-    <game>crimepatrol</game>
-    <game gun="justifier">lethalenforcers</game>
-    <game gun="justifier">lethalenforcersii</game>
-    <game>maddogmccree</game>
-    <game>maddogii</game>
-    <game>whoshotjohnnyrock</game> 
   </system>
   <system name="nes">
     <game>3in1supergun</game>
@@ -144,30 +134,32 @@
     <game>mastershooter</game>
     <game>mechanizedattack</game>
     <game>operationwolf</game>
+    <game>superrussianroulette</game>
     <game>russianroulette</game>
     <game>shootthegoof</game>
     <game>shootingrange</game>
     <game>spaceshadow</game>
     <game>strikewolf</game>
-    <game>superrussianroulette</game>
     <game>tophunter</game>
     <game>totheearth</game>
     <game>wildgunman</game>
     <game>zombiezap</game>
   </system>
   <system name="ps2">
-    <game>endgame</game>
+    <game>cocotofunfair</game>
+    <game>deathcrimsonox</game>
+    <game gun1port="2">endgame</game>
     <game>guncom2</game>
-    <game>gunfighter2jessejames</game>
+    <game>gunfighter</game>
     <game>gunvaricollection</game>
     <game>ninjaassault</game>
     <game>timecrisisii</game>
     <game>timecrisis2</game>
     <game>timecrisis3</game>
-    <game>crisiszone</game>
     <game>timecrisiscrisiszone</game>
+    <game>crisiszone</game>
     <game>vampirenight</game>
-    <game>virtuacopeliteedition</game>
+    <game>virtuacop</game>
   </system>
   <system name="ps3">
     <game>childofeden</game>
@@ -191,8 +183,8 @@
     <game>wickedmonstersblast</game>
   </system>
   <system name="psx">
-    <game>area51</game>
-    <game>cryptkiller</game>
+    <game gun="justifier">area51</game>
+    <game gun="justifier">cryptkiller</game>
     <game>elementalgearbolt</game>
     <game>extremeghostbuster</game>
     <game>ghoulpanic</game>
@@ -200,30 +192,30 @@
     <game>guntuwesternfrontjune</game>
     <game>gunfighter</game>
     <game>judgedredd</game>
-    <game>lethalenforcers</game>
-    <game>maximumforce</game>
+    <game gun="justifier">lethalenforcers</game>
+    <game gun="justifier">maximumforce</game>
+    <game gun="justifier">mightyhitsspecial</game>
     <game>mightyhits</game>
-    <game>mightyhitsspecial</game>
     <game>moorhen3chickenchase</game>
     <game>moorhuhn</game>
-    <game>pointblank</game>
-    <game>pointblank2</game>
     <game>pointblank3</game>
-    <game>projecthornedowl</game>
+    <game>pointblank2</game>
+    <game>pointblank</game>
+    <game gun="justifier">projecthornedowl</game>
     <game>puffynopsiloveyou</game>
     <game>rescueshot</game>
-    <game>thegunshooting</game>
     <game>thegunshooting2</game>
-    <game>timecrisis</game>
+    <game>thegunshooting</game>
     <game>timecrisisprojecttitan</game>
+    <game>timecrisis</game>
   </system>
   <system name="pygame">
     <game>pygun</game>
   </system>
   <system name="saturn">
     <game>area51</game>
-    <game>chaoscontrol</game>
     <game>chaoscontrolremix</game>
+    <game>chaoscontrol</game>
     <game>crimepatrol</game>
     <game>cryptkiller</game>
     <game>deathcrimson</game>
@@ -232,8 +224,17 @@
     <game>mechanicalviolatorhakaider</game>
     <game>mightyhits</game>
     <game>scudthedisposableassassin</game>
-    <game>virtuacop</game>
     <game>virtuacop2</game>
+    <game>virtuacop</game>
+  </system>
+  <system name="segacd">
+    <game>corpsekiller</game>
+    <game>crimepatrol</game>
+    <game gun="justifier">lethalenforcersii</game>
+    <game gun="justifier">lethalenforcers</game>
+    <game>maddogmccree</game>
+    <game>maddogii</game>
+    <game>whoshotjohnnyrock</game> 
   </system>
   <system name="snes">
     <game>battleclash</game>
@@ -251,45 +252,44 @@
     <game>yoshissafari</game>
   </system>
   <system name="wii">
-    <game vertical_offset="15" yaw="18.7" pitch="18.8">arcadeshootinggallery</game>
-    <game vertical_offset="15" yaw="19" pitch="19">attackofthemovies3d</game>
+    <game vertical_offset="15" yaw="18.7" pitch="18.8" action="z">arcadeshootinggallery</game>
+    <game vertical_offset="15" yaw="19" pitch="19" action="shake" start="a">attackofthemovies3d</game>
     <game vertical_offset="7" yaw="18.7" pitch="18.9">bigbuckhunterpro</game>
-    <game vertical_offset="15" yaw="18.7" pitch="19">chickenblaster</game>
+    <game vertical_offset="15" yaw="18.7" pitch="19" action="z">chickenblaster</game>
     <game vertical_offset="14.70" yaw="18.9" pitch="19.3">chickenriot</game>
     <game vertical_offset="0" yaw="41.3" pitch="31.6">chickenshoot</game>
     <game vertical_offset="14" yaw="18.6" pitch="18.4">cocotofestival</game>
     <game vertical_offset="15.3" yaw="18.5" pitch="18.69" ir_right="(`Axis 0+`+0.01)">cocotomagiccircus</game>
-    <game vertical_offset="14.5" yaw="18.3" pitch="19.15">deadspaceextraction</game>
+    <game vertical_offset="14.5" yaw="18.3" pitch="19.15" action="z,shake" start="tiltleft" select="a" sub1="+">deadspaceextraction</game>
     <game vertical_offset="15" yaw="18.9" pitch="18.9">dinostrike</game>
-    <game vertical_offset="14.9" yaw="18.8" pitch="18.8">fastdrawshowdown</game>
+    <game vertical_offset="14.9" yaw="18.8" pitch="18.8" action="tiltforward" select="a">fastdrawshowdown</game>
     <game vertical_offset="15" yaw="18.7" pitch="19">ghostsquad</game>
     <game vertical_offset="15.2" yaw="18.6" pitch="18.9">gunbladenyandlamachineguns</game>
     <game vertical_offset="15" yaw="18.7" pitch="12">gunslingers</game>
-    <game vertical_offset="15" yaw="18.7" pitch="19" ir_down="`Axis 1+`/1.03">heavyfireafghanistan</game>
-    <game vertical_offset="14.5" yaw="22" pitch="22">heavyfireblackarms</game>
-    <game vertical_offset="14.5" yaw="22" pitch="22">heavyfirespecialoperations</game>
+    <game vertical_offset="15" yaw="18.7" pitch="19" ir_down="`Axis 1+`/1.03" action="c" start="z" select="+">heavyfireafghanistan</game>
+    <game vertical_offset="14.5" yaw="22" pitch="22" action="shake">heavyfireblackarms</game>
+    <game vertical_offset="14.5" yaw="22" pitch="22" action="shake">heavyfirespecialoperations</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedeadoverkill</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedeadtheoverkill</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedead2and3</game>
-    <game vertical_offset="15" yaw="18.8" pitch="19" ir_down="`Axis 1+`/1.02">maddogmccreegunslingerpack</game>
+    <game vertical_offset="15" yaw="18.8" pitch="19" ir_down="`Axis 1+`/1.02" action="tiltbackward">maddogmccreegunslingerpack</game>
     <game vertical_offset="14.7" yaw="19" pitch="19">martianpanic</game>
+    <game vertical_offset="21.3" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+">nerfnstrikeelite</game>
     <game vertical_offset="15" yaw="18.6" pitch="18.9">nerfnstrike</game>
-    <game vertical_offset="21.3" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)">nerfnstrikeelite</game>
-    <game vertical_offset="14.9" yaw="18.6" pitch="18.7">pheasantsforeverwingshooter</game>
-    <game vertical_offset="14.6" yaw="19" pitch="19">pirateblast</game>
-    <game vertical_offset="15" yaw="18.75" pitch="18.75">reload</game>
+    <game vertical_offset="14.9" yaw="18.6" pitch="18.7" action="z" start="a" select="c" sub1="+">pheasantsforeverwingshooter</game>
+    <game vertical_offset="14.6" yaw="19" pitch="19" action="z" start="a" select="c">pirateblast</game>
+    <game vertical_offset="15" yaw="18.75" pitch="18.75" start="1">reload</game>
     <game vertical_offset="14.7" yaw="18.6" pitch="18.8" ir_right="(`Axis 0+`+0.02)">remingtongreatamericanbirdhunt</game>
     <game vertical_offset="14.6" yaw="30.7" pitch="18.9" ir_left="`Axis 0-`/1.22" ir_right="(`Axis 0+`+0.25)/1.23">remingtonsuperslamhuntingafrica</game>
     <game vertical_offset="14.6" yaw="30.7" pitch="18.9" ir_left="`Axis 0-`/1.22" ir_right="(`Axis 0+`+0.25)/1.23">remingtonsuperslamhuntingalaska</game>
     <game vertical_offset="14.7" yaw="18.6" pitch="18.8" ir_right="(`Axis 0+`+0.015)">remingtonsuperslamhuntingnorthamerica</game>
-    <game vertical_offset="0" yaw="20.6" pitch="15.75">residentevilthedarksidechronicles</game>
-    <game vertical_offset="15.2" yaw="15.3" pitch="11.7">residenteviltheumbrellachronicles</game>
-    <game vertical_offset="15.15" yaw="19.1" pitch="19.4">targetterror</game>
-    <game vertical_offset="14.8" yaw="16.9" pitch="17">tomclancysghostrecon</game>
-    <game vertical_offset="15" yaw="24.7" pitch="19">topshotarcade</game>
-    <game vertical_offset="15.3" yaw="18.8" pitch="19.2">topshotdinosaurhunter</game>
+    <game vertical_offset="0" yaw="20.6" pitch="15.75" action="shake" start="a" select="+" sub1="1">residentevilthedarksidechronicles</game>
+    <game vertical_offset="15.2" yaw="15.3" pitch="11.7" action="shake" start="a" select="+" sub1="-">residenteviltheumbrellachronicles</game>
+    <game vertical_offset="15.15" yaw="19.1" pitch="19.4" action="shake" start="a" select="1">targetterror</game>
+    <game vertical_offset="14.8" yaw="16.9" pitch="17" sub1="z">tomclancysghostrecon</game>
+    <game vertical_offset="15" yaw="24.7" pitch="19" trigger="z" action="b">topshotarcade</game>
     <game vertical_offset="15" yaw="18.3" pitch="18">wickedmonstersblast</game>
-    <game vertical_offset="14.7" yaw="18.9" pitch="19">wildwestguns</game>
+    <game vertical_offset="14.7" yaw="18.9" pitch="19" action="z">wildwestguns</game>
     <game vertical_offset="15" yaw="18.8" pitch="19">wildwestshootout</game>
   </system>
 </systems>

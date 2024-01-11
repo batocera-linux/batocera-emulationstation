@@ -25,6 +25,7 @@ namespace httplib { namespace detail { extern std::string base64_encode(const st
 const std::map<PlatformId, std::string> hfsdb_platformids
 { 
 	{ ARCADE, "29794" }, // Has special filtering
+	{ TEKNOPARROT, "29794" },
 
 	{ THREEDO, "82826" },
 	{ NINTENDO_3DS, "148845" },
@@ -46,9 +47,11 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ ATARI_JAGUAR_CD, "84220" },
 	{ ATARI_LYNX, "33756" },
 	{ ATARI_ST, "82160" },
+	{ ATARI_XE, "240841" },
 	{ ATOMISWAVE, "29731" },
 	{ ACORN_ATOM, "138925" },
 	{ ACORN_BBC_MICRO, "190502" },
+	{ ACORN_ELECTRON, "124274"},
 	{ VIC20, "174662" },
 	{ COMMODORE_64, "168000" },
 	{ CAVESTORY, "75768" },
@@ -71,6 +74,7 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ GX4000, "30250" },
 	{ INTELLIVISION, "84444" },
 	{ SEGA_MASTER_SYSTEM, "82166" },
+	{ SEGA_PICO, "175183" },
 	{ THOMSON_TO_MO, "183673" },
 	{ MSX, "113089" },
 	{ NOKIA_NGAGE, "128704" },
@@ -90,6 +94,7 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ TURBOGRAFX_16, "30273" },
 	{ TURBOGRAFX_CD, "138489" },
 	{ COMMODORE_PET, "240850" },
+	{ COMMODORE_PLUS4, "240851" },
 	{ PLAYSTATION_3, "91841" },
 	{ PLAYSTATION_2, "83494" },
 	{ PLAYSTATION_VITA, "91844" },
@@ -136,7 +141,9 @@ const std::map<PlatformId, std::string> hfsdb_platformids
 	{ TOMY_TUTOR, "240926" },
 	{ APF_MP_1000, "139722" },
 	{ CAMPUTER_LYNX, "240842" },
-	{ EPOCH_GAMEPOCKET, "190501" }
+	{ EPOCH_GAMEPOCKET, "190501" },
+	{ GP32, "240869"},
+	{ VTECH_SOCRATES, "240929"}
 };
 
 const std::set<Scraper::ScraperMediaSource>& HfsDBScraper::getSupportedMedias()
@@ -208,29 +215,37 @@ void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queu
 	std::vector<std::string> urls;
 	
 	bool useMd5 = false;
-	/*
+
 	if (params.nameOverride.length() == 0)
 	{	
-		std::string fileNameToHash = params.game->getFullPath();
-		auto length = Utils::FileSystem::getFileSize(fileNameToHash);
-
-		if (length > 1024 * 1024 && !params.game->getMetadata(MetaDataId::Md5).empty()) // 1Mb
+		if (params.system->hasPlatformId(PlatformIds::ARCADE))
 		{
-			useMd5 = true;				
-			urls.push_back(path + "games?medias__md5=" + params.game->getMetadata(MetaDataId::Md5));
+			urls.push_back(path + "games?medias__description=" + HttpReq::urlEncode(cleanName) + "&system_id=29794");
+			useMd5 = true;
 		}
-		else if (length > 0 && length <= 131072 * 1024) // 128 Mb max
+		/*else
 		{
-			std::string val = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
-			if (!val.empty())
+			std::string fileNameToHash = params.game->getFullPath();
+			auto length = Utils::FileSystem::getFileSize(fileNameToHash);
+
+			if (length > 1024 * 1024 && !params.game->getMetadata(MetaDataId::Md5).empty()) // 1Mb
 			{
 				useMd5 = true;
-				params.game->setMetadata(MetaDataId::Md5, val);
-				urls.push_back(path + "games?medias__md5=" + val);
+				urls.push_back(path + "games?medias__md5=" + params.game->getMetadata(MetaDataId::Md5));
 			}
-		}
+			else if (length > 0 && length <= 131072 * 1024) // 128 Mb max
+			{
+				std::string val = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
+				if (!val.empty())
+				{
+					useMd5 = true;
+					params.game->setMetadata(MetaDataId::Md5, val);
+					urls.push_back(path + "games?medias__md5=" + val);
+				}
+			}
+		}*/
 	}
-	*/
+
 	if (!useMd5)
 	{
 		if (!params.system->hasPlatformId(PlatformIds::ARCADE)) // Do special post-processing for arcade systems
@@ -253,12 +268,12 @@ void HfsDBScraper::generateRequests(const ScraperSearchParams& params, std::queu
 		if (urls.size() == 0)
 			urls.push_back(path + "games?search=" + HttpReq::urlEncode(cleanName) + "&limit=5");
 	}
-
+	
 	HttpReqOptions tokenAuth;
 	tokenAuth.customHeaders.push_back("Authorization: Token " + mToken);
 	
 	for (auto url : urls)
-		requests.push(std::unique_ptr<ScraperRequest>(new HfsDBRequest(results, url, &tokenAuth, params.system->hasPlatformId(PlatformIds::ARCADE))));
+		requests.push(std::unique_ptr<ScraperRequest>(new HfsDBRequest(results, url, &tokenAuth, params.system->hasPlatformId(PlatformIds::ARCADE), params.isManualScrape)));
 }
 
 bool HfsDBScraper::isSupportedPlatform(SystemData* system)
@@ -284,7 +299,7 @@ static std::vector<std::string> getMediaTagNames(std::string imageSource)
 		return { "screenshot/title",  "screenshot/in game", "screenshot" };
 
 	if (imageSource == "box-2D")
-		return { "cover2d/front", "cover2d", "cover3d" }; 
+		return { "cover2d/front", "cover2d", "artwork/Flyer", "cover3d" }; 
 	
 	if (imageSource == "box-3D")
 		return{ "cover3d", "cover2d/front" };
@@ -293,7 +308,7 @@ static std::vector<std::string> getMediaTagNames(std::string imageSource)
 		return { "logo" };
 
 	if (imageSource == "marquee")
-		return { "wheel" };
+		return { "wheel", "artwork/Marquee" };
 
 	if (imageSource == "video")
 		return { "video" };
@@ -355,6 +370,13 @@ static std::string findMedia(const Value& v, std::string scrapeSource)
 						if ((name == tagName + "type") && value == tagType)
 							return media["file"].GetString();
 					}
+				}
+				
+				if (media.HasMember("description") && media["description"].IsString())
+				{
+					auto desc = media["description"].GetString();
+					if (desc == tagType)
+						return media["file"].GetString();
 				}
 
 				continue;
@@ -443,6 +465,8 @@ static void processGame(const Value& game, std::vector<ScraperSearchResult>& res
 			{
 				value = Utils::String::replace(value, " joueurs", "");
 				value = Utils::String::replace(value, " joueur", "");
+				value = Utils::String::replace(value, "+ de ", "");
+
 				result.mdl.set(MetaDataId::Players, value);
 			}
 			else if (name == "editor")
@@ -577,6 +601,9 @@ bool HfsDBRequest::process(HttpReq* request, std::vector<ScraperSearchResult>& r
 		try
 		{
 			processGame(v, results, mIsArcade);
+
+			if (request->getUrl().find("medias__description=") != std::string::npos)
+				break;
 		}
 		catch (std::runtime_error& e)
 		{

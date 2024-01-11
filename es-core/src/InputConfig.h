@@ -18,6 +18,7 @@ namespace pugi { class xml_node; }
 #define DEVICE_KEYBOARD -1
 #define DEVICE_CEC      -2
 #define DEVICE_MOUSE	-3
+#define DEVICE_GUN      -4
 
 #define MAX_PLAYERS 8
 
@@ -116,11 +117,13 @@ public:
         
 	inline int getDeviceIndex() const { return mDeviceIndex; }; 
 	inline const std::string& getDeviceName() { return mDeviceName; }
+	inline const std::string& getDeviceParentSysPath() { return mDeviceParentSysPath; }
 	inline const std::string& getDeviceGUIDString() { return mDeviceGUID; }
 	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; 
 	inline int getDeviceNbHats() const { return mDeviceNbHats; }; 
 	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; 
-	inline int getBatteryLevel() const { return mBatteryLevel; }; 
+	inline int getBatteryLevel() const { return mBatteryLevel; };
+  	inline int isWheel()         const { return mIsWheel;      };
 	inline const std::string& getDevicePath() { return mDevicePath; };
 
 	std::string getSortDevicePath();
@@ -152,6 +155,7 @@ private:
 	const int mDeviceId;
 	const int mDeviceIndex; 
 	const std::string mDeviceName;
+	std::string mDeviceParentSysPath;
 	const std::string mDeviceGUID;
 	const int mDeviceNbButtons; // number of buttons of the device 
 	const int mDeviceNbHats;    // number of hats    of the device 
@@ -159,9 +163,14 @@ private:
 	std::string mDevicePath;
 
 	int mBatteryLevel;
+	bool mIsWheel;
 
 public:
 	static void AssignActionButtons();
+#ifdef HAVE_UDEV
+	static bool isWheel(const std::string path);
+#endif
+
 };
 
 #endif // ES_CORE_INPUT_CONFIG_H

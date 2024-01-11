@@ -22,11 +22,13 @@ struct ScraperSearchParams
 	ScraperSearchParams()
 	{ 
 		overWriteMedias = true; 
+		isManualScrape = false;
 	}
 
 	SystemData* system;
 	FileData* game;
 
+	bool isManualScrape;
 	bool overWriteMedias;
 	std::string nameOverride;
 
@@ -229,7 +231,8 @@ public:
 		PadToKey = 15,
 		Ratings = 16,
 		Bezel_16_9 = 17,
-		ShortTitle = 18
+		ShortTitle = 18,
+		Region = 19
 	};
 
 	static std::vector<std::pair<std::string, Scraper*>> scrapers;

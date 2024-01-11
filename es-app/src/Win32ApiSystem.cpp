@@ -4,7 +4,7 @@
 #include "Log.h"
 #include "utils/FileSystemUtil.h"
 #include "utils/StringUtil.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "EmulationStation.h"
 #include "HttpReq.h"
 #include <Windows.h>
@@ -13,9 +13,14 @@
 #include <thread>
 #include <direct.h>
 #include <algorithm>
+#include <SDL.h>
 #include "LocaleES.h"
 #include "Paths.h"
 #include "utils/VectorEx.h"
+
+#include <powerbase.h>
+#include <powrprof.h>
+#pragma comment(lib, "Powrprof.lib")
 
 #pragma comment(lib, "shell32.lib")
 #pragma comment(lib, "comsuppw.lib" ) // link with "comsuppw.lib" (or debug version: "comsuppwd.lib")
@@ -83,6 +88,9 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 
 	switch (script)
 	{
+	case ApiSystem::SUSPEND:
+		return canSuspend();
+	
 	case ApiSystem::WIFI:
 		executables.push_back("batocera-wifi");
 		break;
@@ -120,10 +128,26 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 		executables.push_back("emulatorLauncher");
 		break;
 	case ApiSystem::PADSINFO:
-		executables.push_back("batocera-padsinfo");
+		{
+			SDL_version ver;
+			SDL_GetVersion(&ver);
+			if (ver.major >= 2 && ver.minor >= 24)
+			{
+				// PADSINFO is managed with SDL_JOYBATTERYUPDATED event starting with SDL 2.24+
+				return true;
+			}
+			else
+				executables.push_back("batocera-padsinfo");
+		}
 		break;
 	case ApiSystem::UPGRADE:
 		return true;
+
+	case ApiSystem::SERVICES:
+		executables.push_back("batocera-services");
+		break;
+	 case ApiSystem::READPLANEMODE:
+		return true;	 
 	}
 
 	if (executables.size() == 0)
@@ -144,6 +168,22 @@ bool Win32ApiSystem::isScriptingSupported(ScriptId script)
 	}
 
 	return true;
+}
+
+bool Win32ApiSystem::canSuspend()
+{
+	SYSTEM_POWER_CAPABILITIES cap;
+	NTSTATUS status = ::CallNtPowerInformation(SystemPowerCapabilities, NULL, 0, &cap, sizeof(cap));
+	return (status == 0 && cap.HiberFilePresent);
+}
+
+void Win32ApiSystem::suspend()
+{	
+	if (!canSuspend())
+		return;
+
+	LOG(LogDebug) << "Win32ApiSystem::suspend";
+	::SetSuspendState(TRUE, FALSE, FALSE);
 }
 
 int Win32ApiSystem::executeCMD(const char* lpCommandLine, std::string& output, const char* lpCurrentDirectory, const std::function<void(const std::string)>& func)
@@ -740,7 +780,7 @@ std::pair<std::string, int> Win32ApiSystem::updateSystem(const std::function<voi
 			if (lines.size() > 0)
 			{			
 				std::string lastLine = Utils::String::trim(Utils::String::replace(lines[lines.size() - 1], "\f", ""));
-				if (!lastLine.find(".zip") != std::string::npos && Utils::FileSystem::exists(lastLine))
+				if (lastLine.find(".zip") != std::string::npos && Utils::FileSystem::exists(lastLine))
 				{
 					if (func != nullptr)
 						func(std::string("Updating EmulationStation"));
@@ -895,40 +935,17 @@ bool Win32ApiSystem::canUpdate(std::vector<std::string>& output)
 
 bool Win32ApiSystem::launchKodi(Window *window)
 {
-	std::string args;
-	
 	std::string command = Paths::getKodiPath();
 	if (!Utils::FileSystem::exists(command))
 		return false;
-
+		
 	if (!Utils::String::startsWith(command, "C:\\Program Files"))
-		args = "-p";
+		command = "\"" + command + "\" -p";
+	else 
+		command = "\"" + command + "\"";
 
 	ApiSystem::launchExternalWindow_before(window);
-
-	std::wstring wexe = Utils::String::convertToWideString(command);
-	std::wstring wargs = Utils::String::convertToWideString(args);
-
-	SHELLEXECUTEINFOW lpExecInfo;
-	lpExecInfo.cbSize = sizeof(SHELLEXECUTEINFOW);
-	lpExecInfo.lpFile = wexe.c_str();
-	lpExecInfo.lpDirectory = NULL;
-	lpExecInfo.fMask = SEE_MASK_DOENVSUBST | SEE_MASK_NOCLOSEPROCESS;
-	lpExecInfo.hwnd = NULL;
-	lpExecInfo.nShow = SW_SHOW;  // show command prompt with normal window size 
-	lpExecInfo.hInstApp = (HINSTANCE)SE_ERR_DDEFAIL;   //WINSHELLAPI BOOL WINAPI result;
-	lpExecInfo.lpVerb = L"open";
-	lpExecInfo.lpParameters = wargs.c_str();
-
-	ShellExecuteExW(&lpExecInfo);
-
-	bool ret = lpExecInfo.hProcess != NULL;
-	if (lpExecInfo.hProcess != NULL)
-	{
-		WaitForSingleObject(lpExecInfo.hProcess, INFINITE);
-		CloseHandle(lpExecInfo.hProcess);
-	}
-
+	int ret = Utils::Platform::ProcessStartInfo(command).run();
 	ApiSystem::launchExternalWindow_after(window);
 
 	return ret;
@@ -1120,5 +1137,34 @@ std::string Win32ApiSystem::getHostsName()
 
 	return "127.0.0.1";
 }
+
+
+bool Win32ApiSystem::isPlaneMode()
+{
+	HKEY hSubKey;
+	LONG nRet = ::RegOpenKeyEx(HKEY_LOCAL_MACHINE, "SYSTEM\\CurrentControlSet\\Control\\RadioManagement\\SystemRadioState", 0L, KEY_QUERY_VALUE, &hSubKey);
+	if (nRet == ERROR_SUCCESS)
+	{
+		DWORD dwBufferSize(sizeof(DWORD));
+		DWORD nResult(0);
+
+		nRet = ::RegQueryValueExA(hSubKey, "", 0, NULL, reinterpret_cast<LPBYTE>(&nResult), &dwBufferSize);
+		::RegCloseKey(hSubKey);
+
+		if (nRet == ERROR_SUCCESS)
+			return nResult;
+	}
+
+	return false;
+}
+
+bool Win32ApiSystem::setPlaneMode(bool enable)
+{
+	return false;
+}
+
+
+
 #endif
+
 

@@ -53,6 +53,9 @@ public:
 	void setColWidthPerc(int col, float width, bool update = true); // if update is false, will not call an onSizeChanged() which triggers a (potentially costly) repositioning + resizing of every element
 	void setRowHeightPerc(int row, float height, bool update = true); // if update is false, will not call an onSizeChanged() which triggers a (potentially costly) repositioning + resizing of every element
 
+	void setColWidth(int col, float width, bool update = true); // if update is false, will not call an onSizeChanged() which triggers a (potentially costly) repositioning + resizing of every element
+	void setRowHeight(int row, float height, bool update = true); // if update is false, will not call an onSizeChanged() which triggers a (potentially costly) repositioning + resizing of every element
+
 	bool moveCursor(Vector2i dir);
 	void setCursorTo(const std::shared_ptr<GuiComponent>& comp);
 	bool isCursorTo(const std::shared_ptr<GuiComponent>& comp);
@@ -100,8 +103,23 @@ private:
 		}
 	};
 
-	float* mRowHeights;
-	float* mColWidths;
+	class GridSizeInfo
+	{
+	public:
+		GridSizeInfo()
+		{
+			value = 0.f;
+			absolute = false;
+		}
+
+		float value;
+		bool absolute;
+
+		float compute(const float& size) { return absolute ? value : value * size; }
+	};
+
+	std::vector<GridSizeInfo*> mRowHeights;
+	std::vector<GridSizeInfo*> mColWidths;
 	
 	std::vector<Renderer::Vertex> mLines;
 

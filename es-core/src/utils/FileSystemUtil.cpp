@@ -32,6 +32,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <unordered_map>
 
 #include "Paths.h"
 
@@ -144,15 +145,18 @@ namespace Utils
 
 				std::unique_lock<std::mutex> lock(mFileCacheMutex);
 
-				auto it = mFileCache.find(key);
-				if (it != mFileCache.cend())
-					return &it->second;
-
-				it = mFileCache.find(Utils::FileSystem::getParent(key) + "/*");
-				if (it != mFileCache.cend())
+				if (mFileCache.size())
 				{
-					mFileCache[key] = FileCache(false, false);
-					return &mFileCache[key];
+					auto it = mFileCache.find(key);
+					if (it != mFileCache.cend())
+						return &it->second;
+
+					it = mFileCache.find(Utils::FileSystem::getParent(key) + "/*");
+					if (it != mFileCache.cend())
+					{
+						mFileCache[key] = FileCache(false, false);
+						return &mFileCache[key];
+					}
 				}
 
 				return nullptr;
@@ -169,12 +173,12 @@ namespace Utils
 			static inline bool isEnabled() { return mEnabled; }
 
 		private:
-			static std::map<std::string, FileCache> mFileCache;
+			static std::unordered_map<std::string, FileCache> mFileCache;
 			static std::mutex mFileCacheMutex;
 			static bool mEnabled;
 		};
 
-		std::map<std::string, FileCache> FileCache::mFileCache;
+		std::unordered_map<std::string, FileCache> FileCache::mFileCache;
 		std::mutex FileCache::mFileCacheMutex;
 		bool FileCache::mEnabled = false;
 
@@ -1206,9 +1210,41 @@ namespace Utils
 			return Utils::Time::DateTime();
 		}
 
-		std::string	readAllText(const std::string fileName)
+		static void skipUtf8Bom(std::ifstream& file) 
+		{
+			if (!file.is_open())
+				return;
+
+			char bom[3];
+			if (file.read(bom, 3) && bom[0] == '\xEF' && bom[1] == '\xBB' && bom[2] == '\xBF')			
+				return;
+			
+			file.seekg(0);
+		}
+
+		std::list<std::string> readAllLines(const std::string& fileName)
+		{
+			std::list<std::string> lines;
+
+			std::ifstream file(WINSTRINGW(fileName));
+			if (!file.is_open()) 
+				return lines;
+
+			skipUtf8Bom(file);
+
+			std::string line;
+			while (std::getline(file, line))
+				lines.push_back(line);
+
+			file.close();
+			return lines;
+		}
+
+		std::string	readAllText(const std::string& fileName)
 		{
 			std::ifstream t(WINSTRINGW(fileName));
+
+			skipUtf8Bom(t);
 
 			std::stringstream buffer;
 			buffer << t.rdbuf();
@@ -1481,6 +1517,11 @@ namespace Utils
 		static std::set<std::string> _videoExtensions = { ".mp4", ".avi", ".mkv", ".webm" };
 		static std::set<std::string> _audioExtensions = { ".mp3", ".wav", ".ogg", ".flac", ".mod", ".xm", ".stm", ".s3m", ".far", ".it", ".669", ".mtm" };
 
+		bool isSVG(const std::string& _path)
+		{
+			return Utils::String::toLower(Utils::FileSystem::getExtension(_path)) == ".svg";
+		}
+
 		bool isImage(const std::string& _path)
 		{
 			return _imageExtensions.find(Utils::String::toLower(Utils::FileSystem::getExtension(_path))) != _imageExtensions.cend();
@@ -1532,6 +1573,45 @@ namespace Utils
 			}
 		}
 #endif
+		void preloadFileSystemCache(const std::string& path, bool trySaveStates)
+		{
+#if WIN32		
+			if (path.empty())
+				return;
+
+			static std::set<std::string> preloaded;
+
+			if (preloaded.find(path) != preloaded.cend())
+				return;
+
+			preloaded.insert(path);
+
+			auto doWork = [&](std::string* path)
+			{
+				if (trySaveStates)
+				{
+					std::string systemName = Utils::FileSystem::getFileName(*path);
+					for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(Paths::getSavesPath(), systemName)))
+						Utils::FileSystem::exists(file);
+				}
+
+				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/images")))
+					Utils::FileSystem::exists(file);
+
+				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/videos")))
+					Utils::FileSystem::exists(file);
+
+				for (auto file : Utils::FileSystem::getDirContent(Utils::FileSystem::combine(*path, "/manuals")))
+					Utils::FileSystem::exists(file);
+
+				delete path;
+			};
+
+			std::thread thread(doWork, new std::string(path));
+			::SetThreadPriority(thread.native_handle(), THREAD_PRIORITY_LOWEST);
+			thread.detach();
+#endif
+		}
 
 	} // FileSystem::
 

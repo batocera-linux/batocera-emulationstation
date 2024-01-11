@@ -15,6 +15,7 @@ public:
 	bool input(InputConfig* config, Input input) override;
 	void render(const Transform4x4f& parentTrans) override;
 	void onSizeChanged() override;
+	void onOpacityChanged();
 
 	bool getState() const;
 	void setState(bool state);

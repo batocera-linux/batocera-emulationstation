@@ -11,7 +11,7 @@
 class MaxSizeInfo
 {
 public:
-	MaxSizeInfo() : mSize(Vector2f(0, 0)), mExternalZoom(false) {}
+	static const MaxSizeInfo Empty;
 
 	MaxSizeInfo(float x, float y) : mSize(Vector2f(x, y)), mExternalZoom(false), mExternalZoomKnown(false) { }
 	MaxSizeInfo(Vector2f size) : mSize(size), mExternalZoom(false), mExternalZoomKnown(false) { }
@@ -19,22 +19,18 @@ public:
 	MaxSizeInfo(float x, float y, bool externalZoom) : mSize(Vector2f(x, y)), mExternalZoom(externalZoom), mExternalZoomKnown(true) { }
 	MaxSizeInfo(Vector2f size, bool externalZoom) : mSize(size), mExternalZoom(externalZoom), mExternalZoomKnown(true) { }
 
-	bool empty() { return mSize.x() <= 1 && mSize.y() <= 1; }
+	const bool empty() const { return mSize.x() <= 1 && mSize.y() <= 1; }
 
-	float x() { return mSize.x(); }
-	float y() { return mSize.y(); }
+	const float x() const { return mSize.x(); }
+	const float y() const { return mSize.y(); }
+	const Vector2f& size() const { return mSize; }
 
-	bool externalZoom()
-	{
-		return mExternalZoom;
-	}
-
-	bool isExternalZoomKnown()
-	{
-		return mExternalZoomKnown;
-	}
+	const bool externalZoom() const { return mExternalZoom; }
+	const bool isExternalZoomKnown() const { return mExternalZoomKnown; }
 
 private:
+	MaxSizeInfo() : mSize(Vector2f(0, 0)), mExternalZoom(false), mExternalZoomKnown(false) { }
+
 	Vector2f mSize;
 	bool	 mExternalZoom;
 	bool	 mExternalZoomKnown;
@@ -47,7 +43,12 @@ public:
 	static void flipPixelsVert(unsigned char* imagePx, const size_t& width, const size_t& height);
 	
 	static Vector2f getPictureMinSize(Vector2f imageSize, Vector2f maxSize);
+	
 	static Vector2i adjustPictureSize(Vector2i imageSize, Vector2i maxSize, bool externSize = false);
+	
+	static Vector2f adjustPictureSizeF(float cxDIB, float cyDIB, float iMaxX, float iMaxY, bool externSize = false);
+	static Vector2f adjustPictureSizeF(Vector2f imageSize, Vector2f maxSize, bool externSize = false);
+
 	static bool		loadImageSize(const std::string& fn, unsigned int *x, unsigned int *y);
 
 	static void		removeImageCache(const std::string& fn);

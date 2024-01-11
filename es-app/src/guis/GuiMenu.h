@@ -10,21 +10,6 @@
 #include "KeyboardMapping.h"
 #include "utils/VectorEx.h"
 
-class StrInputConfig
-{
-public:
-	StrInputConfig(const std::string& ideviceName, const std::string& ideviceGUIDString, const std::string& idevicePath)
-	{
-		deviceName = ideviceName;
-		deviceGUIDString = ideviceGUIDString;
-		devicePath = idevicePath;
-	}
-
-	std::string deviceName;
-	std::string deviceGUIDString;
-	std::string devicePath;
-};
-
 struct DecorationSetInfo
 {
 	DecorationSetInfo() {}
@@ -59,7 +44,6 @@ class GuiMenu : public GuiComponent
 {
 public:
 	GuiMenu(Window* window, bool animate = true);
-	~GuiMenu();
 
 	bool input(InputConfig* config, Input input) override;
 	void onSizeChanged() override;
@@ -75,7 +59,7 @@ public:
 	static void editKeyboardMappings(Window *window, IKeyboardMapContainer* mapping, bool editable);
 
 private:
-	void addEntry(std::string name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
+	void addEntry(const std::string& name, bool add_arrow, const std::function<void()>& func, const std::string iconName = "");
 	void addVersionInfo();
 	void openCollectionSystemSettings();
 	void openConfigInput();	
@@ -93,13 +77,11 @@ private:
 #endif
 
 	void openSystemSettings();
-	void openGamesSettings();
-	void openControllersSettings(int autoSel = 0);
-  	void openControllersSpecificSettings_sindengun();
-    	void openControllersSpecificSettings_wiigun();
+	void openGamesSettings();	
 	void openNetworkSettings(bool selectWifiEnable = false);	
 	void openQuitMenu();
 	void openSystemInformations();
+	void openServicesSettings();
 	void openDeveloperSettings();
 	void openNetplaySettings(); 
 	void openRetroachievementsSettings();
@@ -117,6 +99,7 @@ private:
 	TextComponent mVersion;
 
 	static std::shared_ptr<OptionListComponent<std::string>> createRatioOptionList(Window *window, std::string configname);
+	static std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname, std::string configoptname = "videomode");
 #ifdef _ENABLEEMUELEC
   static std::shared_ptr<OptionListComponent<std::string>> createNativeVideoResolutionModeOptionList(Window *window, std::string configname);
 
@@ -131,13 +114,9 @@ private:
   static void removeJoyBtnEntry(int index);
   static void addJoyBtnEntry(std::string name, std::string val);
 #endif
-	static std::shared_ptr<OptionListComponent<std::string>> createVideoResolutionModeOptionList(Window *window, std::string configname);
 	static void popSpecificConfigurationGui(Window* mWindow, std::string title, std::string configName, SystemData *systemData, FileData* fileData, bool selectCoreLine = false);
 
 	static void openLatencyReductionConfiguration(Window* mWindow, std::string configName);
-
-	std::vector<StrInputConfig*> mLoadedInput; // used to keep information about loaded devices in case there are unpluged between device window load and save
-	void clearLoadedInput();
 
 	static void addDecorationSetOptionListComponent(Window* window, GuiSettings* parentWindow, const std::vector<DecorationSetInfo>& sets, const std::string& configName = "global");
 	static void createDecorationItemTemplate(Window* window, std::vector<DecorationSetInfo> sets, std::string data, ComponentListRow& row);

@@ -30,6 +30,8 @@ Font::FontFace::FontFace(ResourceData&& d, int size) : data(d)
 	int err = FT_New_Memory_Face(sLibrary, data.ptr.get(), (FT_Long)data.length, 0, &face);
 	if (!err)
 		FT_Set_Pixel_Sizes(face, 0, size);
+	else
+		face = nullptr;
 }
 
 Font::FontFace::~FontFace()
@@ -278,7 +280,7 @@ std::vector<std::string> getFallbackFontPaths()
 		":/fontawesome-webfont.ttf",
 		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
 		":/NanumMyeongjo.ttf", // korean font		
-		":/Cairo.ttf", // arabic
+		":/Vazirmatn-Regular.ttf", // arabic
 		":/Rubik-Regular.ttf" // hebrew (https://fontmeme.com/polices/police-rubik-hebrew public domain)
 	};
 
@@ -291,6 +293,10 @@ std::vector<std::string> getFallbackFontPaths()
 	paths.shrink_to_fit();
 	return paths;
 }
+
+#if defined(WIN32) || defined(X86) || defined(X86_64)
+static std::map<std::string, ResourceData> globalTTFCache;
+#endif
 
 FT_Face Font::getFaceForChar(unsigned int id)
 {
@@ -306,8 +312,24 @@ FT_Face Font::getFaceForChar(unsigned int id)
 			// i == 0 -> mPath
 			// otherwise, take from fallbackFonts
 			const std::string& path = (i == 0 ? mPath : fallbackFonts.at(i - 1));
+
+#if defined(WIN32) || defined(X86) || defined(X86_64)
+			auto itCache = globalTTFCache.find(path);
+			if (itCache == globalTTFCache.cend())
+			{
+				ResourceData dataX = ResourceManager::getInstance()->getFileData(path);
+				globalTTFCache.insert(std::pair<std::string, ResourceData>(path, dataX));
+				itCache = globalTTFCache.find(path);
+			}
+						
+			if (itCache == globalTTFCache.cend())
+				continue;
+
+			mFaceCache[i] = std::unique_ptr<FontFace>(new FontFace(std::move(itCache->second), mSize));
+#else
 			ResourceData data = ResourceManager::getInstance()->getFileData(path);
 			mFaceCache[i] = std::unique_ptr<FontFace>(new FontFace(std::move(data), mSize));
+#endif
 			fit = mFaceCache.find(i);
 		}
 
@@ -386,8 +408,8 @@ Font::Glyph* Font::getGlyph(unsigned int id)
 	if (glyphSize.x() > 0 && glyphSize.y() > 0)
 		Renderer::updateTexture(tex->textureId, Renderer::Texture::ALPHA, cursor.x(), cursor.y(), glyphSize.x(), glyphSize.y(), g->bitmap.buffer);
 
-	// update max glyph height
-	if(glyphSize.y() > mMaxGlyphHeight)
+	// update max glyph height - Limit to ascii table. If we don't it can take in the fallback fonts
+	if (glyphSize.y() > mMaxGlyphHeight && id >= 32 && id < 128)
 		mMaxGlyphHeight = glyphSize.y();
 
 	mGlyphMap[id] = pGlyph;
@@ -429,6 +451,7 @@ void Font::renderSingleGlow(TextCache* cache, const Transform4x4f& parentTrans, 
 {
 	Transform4x4f trans = parentTrans;
 	trans.translate(x, y);
+	trans.round();
 	Renderer::setMatrix(trans);
 	renderTextCache(cache, verticesChanged);
 }
@@ -439,6 +462,7 @@ void Font::renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans,
 	{
 		Transform4x4f glowTrans = parentTrans;
 		glowTrans.translate(mGlowOffset.x(), mGlowOffset.y());
+		glowTrans.round();
 		Renderer::setMatrix(glowTrans);
 
 		auto copy = cache->vertexLists;
@@ -481,7 +505,9 @@ void Font::renderTextCacheEx(TextCache* cache, const Transform4x4f& parentTrans,
 		cache->vertexLists = copy;
 	}
 
-	Renderer::setMatrix(parentTrans);
+	auto trans = parentTrans;
+	trans.round();
+	Renderer::setMatrix(trans);
 	renderTextCache(cache);
 }
 
@@ -507,7 +533,11 @@ void Font::renderTextCache(TextCache* cache, bool verticesChanged)
 		}
 
 		if (tex != 0)
+		{
+			vertex.verts[0].customShader = cache->customShader.path.empty() ? nullptr : &cache->customShader;
 			Renderer::drawTriangleStrips(&vertex.verts[0], vertex.verts.size(), Renderer::Blend::SRC_ALPHA, Renderer::Blend::ONE_MINUS_SRC_ALPHA, cache->vertexLists.size() > 1 || verticesChanged);
+			vertex.verts[0].customShader = nullptr;
+		}
 	}
 
 	if (cache->renderingGlow || !verticesChanged)
@@ -833,7 +863,8 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 {
 	float x = offset[0] + (xLen != 0 ? getNewlineStartOffset(_text, 0, xLen, alignment) : 0);
 	
-	float yTop = getGlyph('S')->bearing.y();
+	auto glyph = getGlyph('S');
+	float yTop = glyph ? glyph->bearing.y() : 35;
 	float yBot = getHeight(lineSpacing);
 	float yDecal = (yBot + yTop) / 2.0f;
 	float y = offset[1] + (yBot + yTop)/2.0f;
@@ -907,10 +938,10 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 		{
 			auto padding = (yTop / 4.0f);
 
-			MaxSizeInfo mx(yBot - (2.0f * padding), yBot - (2.0f * padding));
+			//MaxSizeInfo mx(yBot - (2.0f * padding), yBot - (2.0f * padding));
 
 			TextImageSubstitute is;
-			is.texture = TextureResource::get(it->second, true, true, true, false, true, &mx);
+			is.texture = TextureResource::get(it->second, true, true, true, false, true/*, &mx*/);
 			if (is.texture != nullptr)
 			{
 				Renderer::Rect rect(
@@ -919,7 +950,7 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 					yBot - (2.0f * padding),
 					yBot - padding);
 
-				auto imgSize = is.texture->getSourceImageSize();
+				auto imgSize = is.texture->getPhysicalSize();
 				auto sz = ImageIO::adjustPictureSize(Vector2i(imgSize.x(), imgSize.y()), Vector2i(rect.w, rect.h));
 
 				Renderer::Rect rc(
@@ -928,10 +959,12 @@ TextCache* Font::buildTextCache(const std::string& _text, Vector2f offset, unsig
 					sz.x(),
 					sz.y());
 				
-				is.vertex[0] = { { (float) rc.x			, (float) rc.y + rc.h }	, { 0.0f, 0.0f }, 0xFFFFFFFF };
-				is.vertex[1] = { { (float) rc.x			, (float) rc.y }		, { 0.0f, 1.0f }, 0xFFFFFFFF };
-				is.vertex[2] = { { (float) rc.x + rc.w  , (float) rc.y + rc.h }	, { 1.0f, 0.0f }, 0xFFFFFFFF };
-				is.vertex[3] = { { (float) rc.x + rc.w  , (float) rc.y }		, { 1.0f, 1.0f }, 0xFFFFFFFF };
+				unsigned int vertexColor = Renderer::convertColor(0xFFFFFF00 | (color & 0xFF));
+				
+				is.vertex[0] = { { (float) rc.x			, (float) rc.y + rc.h }	, { 0.0f, 0.0f }, vertexColor };
+				is.vertex[1] = { { (float) rc.x			, (float) rc.y }		, { 0.0f, 1.0f }, vertexColor };
+				is.vertex[2] = { { (float) rc.x + rc.w  , (float) rc.y + rc.h }	, { 1.0f, 0.0f }, vertexColor };
+				is.vertex[3] = { { (float) rc.x + rc.w  , (float) rc.y }		, { 1.0f, 1.0f }, vertexColor };
 
 				imageSubstitutes.push_back(is);
 
@@ -1059,6 +1092,15 @@ void TextCache::setColors(unsigned int color, unsigned int extraColor)
 				it2->col = convertedColor;
 		}
 	}
+
+	if (renderingGlow)
+		return;
+
+	unsigned int substitColor = Renderer::convertColor(0xFFFFFF00 | (color & 0xFF));
+
+	for (TextImageSubstitute& it : imageSubstitutes)
+		for (int i = 0; i < 4; i++)
+			it.vertex[i].col = substitColor;
 }
 
 void TextCache::setColor(unsigned int color)
@@ -1068,6 +1110,15 @@ void TextCache::setColor(unsigned int color)
 	for (auto it = vertexLists.begin(); it != vertexLists.end(); it++)
 		for (auto it2 = it->verts.begin(); it2 != it->verts.end(); it2++)
 				it2->col = convertedColor;
+	
+	if (renderingGlow)
+		return;
+
+	unsigned int substitColor = Renderer::convertColor(0xFFFFFF00 | (color & 0xFF));
+
+	for (TextImageSubstitute& it : imageSubstitutes)
+		for (int i = 0; i < 4; i++)
+			it.vertex[i].col = substitColor;
 }
 
 std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig)

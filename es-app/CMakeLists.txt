@@ -26,15 +26,12 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveState.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateRepository.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateConfigFile.h    
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CloudSaves.h
 
-    # GuiComponents
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextListComponent.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.h
+    # GuiComponents    
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.h    
 
     # Guis    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.h
@@ -71,6 +68,7 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiImageViewer.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBatoceraStore.h # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBios.h # batocera	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControllersSettings.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameAchievements.h		
@@ -96,7 +94,6 @@ set(ES_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/GameNameFormatter.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/SystemView.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/views/Binding.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.h
 
@@ -134,14 +131,12 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/RetroAchievements.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveState.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateRepository.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SaveStateConfigFile.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/CustomFeatures.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CloudSaves.cpp
 
-    # GuiComponents
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncReqComponent.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.cpp
+    # GuiComponents    
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScraperSearchComponent.cpp	
 
     # Guis    
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiMetaDataEd.cpp
@@ -174,6 +169,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiImageViewer.cpp # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBatoceraStore.cpp # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiBios.cpp # batocera	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiControllersSettings.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyMappingEditor.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiKeyboardLayout.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiGameAchievements.cpp
@@ -199,8 +195,7 @@ set(ES_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/DetailedContainer.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/views/gamelist/GameNameFormatter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/SystemView.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/views/Binding.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/views/ViewController.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/views/UIModeController.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ApiSystem.cpp # batocera

@@ -28,9 +28,9 @@ namespace Utils
 		};
 		struct Value
 		{
-			Value() :type(UNDEFINED) {};
-			Value(std::string str, ValueType t) :type(t), string(str) {};
-			Value(std::string str) :type(STRING), string(str) {};
+			Value() :type(UNDEFINED), number(0) {};
+			Value(std::string str, ValueType t) :type(t), string(str), number(0) {};
+			Value(std::string str) :type(STRING), string(str), number(0) {};
 			Value(float n) :type(NUMBER), number(n) {};
 			Value& operator=(std::string str) {
 				type = STRING;
@@ -61,14 +61,14 @@ namespace Utils
 		typedef std::map<std::string, int> IntMap;
 
 	public:
-		MathExpr();
-
-		MathExpr::Value eval(const char* expr, ValueMap* vars = 0);
+		static MathExpr::Value evaluate(const char* expr, ValueMap* vars = 0);
+		static void performUnitTests();
 
 	private:
-		static ValuePtrQueue toRPN(const char* expr, ValueMap* vars, IntMap opPrecedence);
+		MathExpr() { };
 
-		IntMap opPrecedence;
+		static ValuePtrQueue toRPN(const char* expr, ValueMap* vars);
+		static std::string	 evaluateMethods(const std::string& expr, ValueMap* vars);		
 	};
 }
 

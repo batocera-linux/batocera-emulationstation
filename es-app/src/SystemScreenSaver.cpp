@@ -70,11 +70,15 @@ bool SystemScreenSaver::isScreenSaverActive()
 
 void SystemScreenSaver::startScreenSaver()
 {
+	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
+
 	bool loadingNext = mLoadingNext;
+
+	if (mState == STATE_INACTIVE)
+		Scripting::fireEvent("screensaver-start", screensaver_behavior);
 
 	stopScreenSaver();
 
-	std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
 
 	if (screensaver_behavior == "suspend")
 	{
@@ -212,6 +216,10 @@ void SystemScreenSaver::stopScreenSaver()
 
 	mVideoScreensaver = nullptr;
 	mImageScreensaver = nullptr;
+
+	if(isExitingScreenSaver && mState != STATE_INACTIVE) {
+	  Scripting::fireEvent("screensaver-stop");
+	}
 
 	// we need this to loop through different videos
 	mState = STATE_INACTIVE;
@@ -688,11 +696,14 @@ void GameScreenSaverBase::setGame(FileData* game)
 				}
 			}
 
-			mDecoration = new ImageComponent(mWindow, true);
-			mDecoration->setImage(sets[setId].imageUrl);
-			mDecoration->setOrigin(0.5f, 0.5f);
-			mDecoration->setPosition(Renderer::getScreenWidth() / 2.0f, (float)Renderer::getScreenHeight() / 2.0f);
-			mDecoration->setMaxSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+			if (!Renderer::isVerticalScreen())
+			{
+				mDecoration = new ImageComponent(mWindow, true);
+				mDecoration->setImage(sets[setId].imageUrl);
+				mDecoration->setOrigin(0.5f, 0.5f);
+				mDecoration->setPosition(Renderer::getScreenWidth() / 2.0f, (float)Renderer::getScreenHeight() / 2.0f);
+				mDecoration->setMaxSize((float)Renderer::getScreenWidth() * Renderer::getScreenProportion(), (float)Renderer::getScreenHeight());
+			}
 		}
 	}
 
