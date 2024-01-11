@@ -269,8 +269,8 @@
     <game vertical_offset="15" yaw="18.7" pitch="19" ir_down="`Axis 1+`/1.03" action="c" start="z" select="+">heavyfireafghanistan</game>
     <game vertical_offset="14.5" yaw="22" pitch="22" action="shake">heavyfireblackarms</game>
     <game vertical_offset="14.5" yaw="22" pitch="22" action="shake">heavyfirespecialoperations</game>
-    <game vertical_offset="15" yaw="19" pitch="19">houseofthedeadoverkill</game>
-    <game vertical_offset="15" yaw="19" pitch="19">houseofthedeadtheoverkill</game>
+    <game vertical_offset="15" yaw="19" pitch="19" action="shake,a">houseofthedeadoverkill</game>
+    <game vertical_offset="15" yaw="19" pitch="19" action="shake,a">houseofthedeadtheoverkill</game>
     <game vertical_offset="15" yaw="19" pitch="19">houseofthedead2and3</game>
     <game vertical_offset="15" yaw="18.8" pitch="19" ir_down="`Axis 1+`/1.02" action="tiltbackward">maddogmccreegunslingerpack</game>
     <game vertical_offset="14.7" yaw="19" pitch="19">martianpanic</game>
