@@ -5,7 +5,7 @@
 #include "guis/GuiMsgBox.h"
 #include "guis/GuiSaveState.h"
 #include "SaveStateRepository.h"
-#include "platform.h"
+#include "utils/Platform.h"
 
 void guiSaveStateLoad(Window* window, FileData* game)
 {
@@ -27,7 +27,7 @@ void CloudSaves::load(Window* window, FileData *game, GuiComponent* guiComp, con
 	auto loading = new GuiLoading<bool>(window, _("LOADING PLEASE WAIT"),
 	[this, window, game, guiComp, callback](auto gui) {
 		std::string sysName = game->getSourceFileData()->getSystem()->getName();
-		int exitCode = runSystemCommand("ra_rclone.sh get \""+sysName+"\" \""+game->getPath()+"\"", "", nullptr);
+		int exitCode = Utils::Platform::ProcessStartInfo("ra_rclone.sh get \""+sysName+"\" \""+game->getPath()+"\"").run();
 		if (exitCode != 0)
 			window->pushGui(new GuiMsgBox(window, _("ERROR LOADING FROM CLOUD"), _("OK")));
     guiComp->setVisible(true);
@@ -42,7 +42,7 @@ void CloudSaves::save(Window* window, FileData* game)
 	auto loading = new GuiLoading<bool>(window, _("SAVING PLEASE WAIT"),
 	[this, window, game](auto gui) {
 		std::string sysName = game->getSourceFileData()->getSystem()->getName();
-		int exitCode = runSystemCommand("ra_rclone.sh set \""+sysName+"\" \""+game->getPath()+"\"", "", nullptr);
+		int exitCode = Utils::Platform::ProcessStartInfo("ra_rclone.sh set \""+sysName+"\" \""+game->getPath()+"\"").run();
 		if (exitCode != 0)
 			window->pushGui(new GuiMsgBox(window, _("ERROR SAVING TO CLOUD"), _("OK")));
 		else

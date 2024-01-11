@@ -340,7 +340,7 @@ void GuiMenu::openEmuELECSettings()
 		videomode.push_back("576cvbs");
 		videomode.push_back("Custom");
 		videomode.push_back("-- AUTO-DETECTED RESOLUTIONS --");
-   for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, a, ','); ) {
+   for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, a, ','); ) {
         videomode.push_back(a);
 	}
 		for (auto it = videomode.cbegin(); it != videomode.cend(); it++) {
@@ -360,30 +360,30 @@ void GuiMenu::openEmuELECSettings()
 		
 			window->pushGui(new GuiMsgBox(window, msg,
 				_("YES"), [selectedVideoMode] {
-					runSystemCommand("echo "+selectedVideoMode+" > /sys/class/display/mode", "", nullptr);
+					Utils::Platform::ProcessStartInfo("echo "+selectedVideoMode+" > /sys/class/display/mode").run();
 					SystemConf::getInstance()->set("ee_videomode", selectedVideoMode);
 					LOG(LogInfo) << "Setting video to " << selectedVideoMode;
-					runSystemCommand("/usr/bin/setres.sh", "", nullptr);
+					Utils::Platform::ProcessStartInfo("/usr/bin/setres.sh").run();
 					SystemConf::getInstance()->saveSystemConf();
 				//	v_need_reboot = true;
 				}, _("NO"),nullptr));
 		
 		} else { 
 			if(Utils::FileSystem::exists("/storage/.config/EE_VIDEO_MODE")) {
-				runSystemCommand("echo $(cat /storage/.config/EE_VIDEO_MODE) > /sys/class/display/mode", "", nullptr);
-				LOG(LogInfo) << "Setting custom video mode from /storage/.config/EE_VIDEO_MODE to " << runSystemCommand("cat /storage/.config/EE_VIDEO_MODE", "", nullptr);
+				Utils::Platform::ProcessStartInfo("echo $(cat /storage/.config/EE_VIDEO_MODE) > /sys/class/display/mode").run();
+				LOG(LogInfo) << "Setting custom video mode from /storage/.config/EE_VIDEO_MODE to " << Utils::Platform::ProcessStartInfo("cat /storage/.config/EE_VIDEO_MODE").run();
 				SystemConf::getInstance()->set("ee_videomode", selectedVideoMode);
 				SystemConf::getInstance()->saveSystemConf();
 				//v_need_reboot = true;
 			} else { 
 				if(Utils::FileSystem::exists("/flash/EE_VIDEO_MODE")) {
-				runSystemCommand("echo $(cat /flash/EE_VIDEO_MODE) > /sys/class/display/mode", "", nullptr);
-				LOG(LogInfo) << "Setting custom video mode from /flash/EE_VIDEO_MODE to " << runSystemCommand("cat /flash/EE_VIDEO_MODE", "", nullptr);
+				Utils::Platform::ProcessStartInfo("echo $(cat /flash/EE_VIDEO_MODE) > /sys/class/display/mode").run();
+				LOG(LogInfo) << "Setting custom video mode from /flash/EE_VIDEO_MODE to " << Utils::Platform::ProcessStartInfo("cat /flash/EE_VIDEO_MODE").run();
 				SystemConf::getInstance()->set("ee_videomode", selectedVideoMode);
 				SystemConf::getInstance()->saveSystemConf();
 				//v_need_reboot = true;
 					} else {
-					runSystemCommand("echo " + SystemConf::getInstance()->get("ee_videomode")+ " > /sys/class/display/mode", "", nullptr);
+					Utils::Platform::ProcessStartInfo("echo " + SystemConf::getInstance()->get("ee_videomode")+ " > /sys/class/display/mode").run();
 					std::string msg = "/storage/.config/EE_VIDEO_MODE or /flash/EE_VIDEO_MODE not found";
 					window->pushGui(new GuiMsgBox(window, msg,
 				"OK", [selectedVideoMode] {
@@ -421,7 +421,7 @@ void GuiMenu::openEmuELECSettings()
 		s->addSaveFunc([emuelec_blrgboptions_def] {
 			if (emuelec_blrgboptions_def->changed()) {
 				std::string selectedblrgb = emuelec_blrgboptions_def->getSelected();
-                runSystemCommand("/usr/bin/odroidgoa_utils.sh bl " +selectedblrgb, "", nullptr);
+                Utils::Platform::ProcessStartInfo("/usr/bin/odroidgoa_utils.sh bl " +selectedblrgb).run();
 				SystemConf::getInstance()->set("bl_rgb", selectedblrgb);
                 SystemConf::getInstance()->saveSystemConf();
 			}
@@ -444,7 +444,7 @@ void GuiMenu::openEmuELECSettings()
 		s->addSaveFunc([emuelec_powerled_def] {
 			if (emuelec_powerled_def->changed()) {
 				std::string selectedpowerled = emuelec_powerled_def->getSelected();
-                runSystemCommand("/usr/bin/odroidgoa_utils.sh pl " +selectedpowerled, "", nullptr);
+                Utils::Platform::ProcessStartInfo("/usr/bin/odroidgoa_utils.sh pl " +selectedpowerled).run();
 				SystemConf::getInstance()->set("gf_statusled", selectedpowerled);
                 SystemConf::getInstance()->saveSystemConf();
 			}
@@ -472,7 +472,7 @@ void GuiMenu::openEmuELECSettings()
             if (SystemConf::getInstance()->set("ee_audio_device", name)) 
                 SystemConf::getInstance()->saveSystemConf();
                 std::string selectedaudio = emuelec_audiodev_def->getSelected();
-                runSystemCommand("/usr/bin/emuelec-utils setauddev " +selectedaudio, "", nullptr);
+                Utils::Platform::ProcessStartInfo("/usr/bin/emuelec-utils setauddev " +selectedaudio).run();
             });
 #endif
         auto bluetoothd_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -482,12 +482,12 @@ void GuiMenu::openEmuELECSettings()
 		s->addSaveFunc([bluetoothd_enabled] {
 			if (bluetoothd_enabled->changed()) {
 			if (bluetoothd_enabled->getState() == false) {
-				runSystemCommand("systemctl stop bluetooth", "", nullptr); 
-				runSystemCommand("rm /storage/.cache/services/bluez.conf", "", nullptr); 
+				Utils::Platform::ProcessStartInfo("systemctl stop bluetooth").run();
+				Utils::Platform::ProcessStartInfo("rm /storage/.cache/services/bluez.conf").run();
 			} else { 
-				runSystemCommand("mkdir -p /storage/.cache/services/", "", nullptr);
-				runSystemCommand("touch /storage/.cache/services/bluez.conf", "", nullptr);
-				runSystemCommand("systemctl start bluetooth", "", nullptr);
+				Utils::Platform::ProcessStartInfo("mkdir -p /storage/.cache/services/").run();
+				Utils::Platform::ProcessStartInfo("touch /storage/.cache/services/bluez.conf").run();
+				Utils::Platform::ProcessStartInfo("systemctl start bluetooth").run();
 			}
                 bool bluetoothenabled = bluetoothd_enabled->getState();
                 SystemConf::getInstance()->set("ee_bluetooth.enabled", bluetoothenabled ? "1" : "0");
@@ -502,12 +502,12 @@ void GuiMenu::openEmuELECSettings()
 		s->addSaveFunc([sshd_enabled] {
 			if (sshd_enabled->changed()) {
 			if (sshd_enabled->getState() == false) {
-				runSystemCommand("systemctl stop sshd", "", nullptr); 
-				runSystemCommand("rm /storage/.cache/services/sshd.conf", "", nullptr); 
+				Utils::Platform::ProcessStartInfo("systemctl stop sshd").run();
+				Utils::Platform::ProcessStartInfo("rm /storage/.cache/services/sshd.conf").run();
 			} else { 
-				runSystemCommand("mkdir -p /storage/.cache/services/", "", nullptr);
-				runSystemCommand("touch /storage/.cache/services/sshd.conf", "", nullptr);
-				runSystemCommand("systemctl start sshd", "", nullptr);
+				Utils::Platform::ProcessStartInfo("mkdir -p /storage/.cache/services/").run();
+				Utils::Platform::ProcessStartInfo("touch /storage/.cache/services/sshd.conf").run();
+				Utils::Platform::ProcessStartInfo("systemctl start sshd").run();
 			}
                 bool sshenabled = sshd_enabled->getState();
                 SystemConf::getInstance()->set("ee_ssh.enabled", sshenabled ? "1" : "0");
@@ -586,7 +586,6 @@ void GuiMenu::openEmuELECSettings()
 
 	s->addInputTextRow(_("DEFAULT YOUTUBE SEARCH WORD"), "youtube.searchword", false);
 
-#ifdef _ENABLEEMUELEC
 	auto theme = ThemeData::getMenuTheme();
 
 	ComponentListRow row;
@@ -598,7 +597,6 @@ void GuiMenu::openEmuELECSettings()
 		GuiMenu::createGamepadConfig(window, s);
 	});
 	s->addRow(row);
-#endif
 
 		auto emuelec_retroarch_menu_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "RETROARCH MENU", false);
 		std::vector<std::string> ramenuoptions;
@@ -634,8 +632,6 @@ if (UIModeController::getInstance()->isUIModeFull())
 
     mWindow->pushGui(s);
 }
-
-#ifdef _ENABLEEMUELEC
 
 void GuiMenu::createGamepadConfig(Window* window, GuiSettings* systemConfiguration)
 {
@@ -728,7 +724,6 @@ void GuiMenu::createGamepadConfig(Window* window, GuiSettings* systemConfigurati
 	window->pushGui(gamepadConfiguration);
 }
 
-#endif
 
 void GuiMenu::openExternalMounts(Window* mWindow, std::string configName)
 {
@@ -739,7 +734,7 @@ void GuiMenu::openExternalMounts(Window* mWindow, std::string configName)
 		auto emuelec_external_device_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "EXTERNAL DEVICE", false);
 		std::vector<std::string> extdevoptions;
 		extdevoptions.push_back("auto");
-		  for(std::stringstream ss(getShOutput(R"(find /var/media/ -type d -maxdepth 1 -mindepth 1 -name EEROMS -prune -o -exec basename {} \; | sed "s/$/,/g")")); getline(ss, a, ','); ) {
+		  for(std::stringstream ss(Utils::Platform::getShOutput(R"(find /var/media/ -type d -maxdepth 1 -mindepth 1 -name EEROMS -prune -o -exec basename {} \; | sed "s/$/,/g")")); getline(ss, a, ','); ) {
             extdevoptions.push_back(a);
 	    }
 		// use script to get entries
@@ -790,11 +785,11 @@ void GuiMenu::openExternalMounts(Window* mWindow, std::string configName)
                 
                 auto mountH = SystemConf::getInstance()->get("ee_mount.handler");
                 if (mountH == "eemount" || mountH.empty()) {
-                   runSystemCommand("eemount --esrestart " + selectedExternalDrive, "", nullptr);
+                   Utils::Platform::ProcessStartInfo("eemount --esrestart " + selectedExternalDrive).run();
                 } else if (mountH == "mount_romfs.sh") {
-                   runSystemCommand("mount_romfs.sh yes " + selectedExternalDrive, "", nullptr);
+                   Utils::Platform::ProcessStartInfo("mount_romfs.sh yes " + selectedExternalDrive).run();
                 } else {
-                   runSystemCommand(mountH + selectedExternalDrive, "", nullptr);
+                   Utils::Platform::ProcessStartInfo(mountH + selectedExternalDrive).run();
                 }
 				
                 }, _("NO"), nullptr));
@@ -803,7 +798,7 @@ void GuiMenu::openExternalMounts(Window* mWindow, std::string configName)
 mWindow->pushGui(externalMounts);
 }
 
-#ifdef _ENABLEEMUELEC
+
 void GuiMenu::addFrameBufferOptions(Window* mWindow, GuiSettings* guiSettings, std::string configName, std::string header)
 {
 	if (!configName.empty())
@@ -813,14 +808,14 @@ void GuiMenu::addFrameBufferOptions(Window* mWindow, GuiSettings* guiSettings, s
 		std::string ee_videomode = SystemConf::getInstance()->get("ee_videomode");
 
 		if (Utils::FileSystem::exists("/storage/.config/EE_VIDEO_MODE"))
-			ee_videomode = getShOutput(R"(cat /storage/.config/EE_VIDEO_MODE)");
+			ee_videomode = Utils::Platform::getShOutput(R"(cat /storage/.config/EE_VIDEO_MODE)");
 
 		if (configName != "ee_es.") {
 			ee_videomode = SystemConf::getInstance()->get(configName+"nativevideo");
 		}
 
 		if (ee_videomode.empty() || ee_videomode == "auto")
-			ee_videomode = getShOutput(R"(cat /sys/class/display/mode)");
+			ee_videomode = Utils::Platform::getShOutput(R"(cat /sys/class/display/mode)");
 
 		return ee_videomode;
 	};
@@ -834,7 +829,7 @@ void GuiMenu::addFrameBufferOptions(Window* mWindow, GuiSettings* guiSettings, s
 
 	std::vector<std::string> reslist;
 	std::string def_dimensions;
-	for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils dimensions)")); getline(ss, def_dimensions, ','); ) {
+	for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils dimensions)")); getline(ss, def_dimensions, ','); ) {
 		reslist.push_back(def_dimensions.replace(def_dimensions.find("x"),1," "));
 	}
 	
@@ -875,7 +870,7 @@ void GuiMenu::addFrameBufferOptions(Window* mWindow, GuiSettings* guiSettings, s
 
 		if (configName == "ee_es.") {
 			Scripting::fireEvent("quit", "restart");
-			quitES(QuitMode::QUIT);
+			Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 		}
 			//mWindow->displayNotificationMessage(_U("\uF011  ") + _("A REBOOT OF THE SYSTEM IS REQUIRED TO APPLY THE NEW CONFIGURATION"));
 	};
@@ -979,7 +974,6 @@ void GuiMenu::addFrameBufferOptions(Window* mWindow, GuiSettings* guiSettings, s
 
 }
 
-#endif
 
 void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
 {
@@ -996,7 +990,7 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
  auto setOverclock = [emuelec_oga_overclock](const std::string& value)
         {
             LOG(LogInfo) << "Setting OGA_OC to " + value;
-            runSystemCommand("/usr/bin/odroidgoa_utils.sh oga_oc " + value, "", nullptr);
+            Utils::Platform::ProcessStartInfo("/usr/bin/odroidgoa_utils.sh oga_oc " + value).run();
             SystemConf::getInstance()->set("ee_oga_oc", value);
             SystemConf::getInstance()->saveSystemConf();
         };
@@ -1020,52 +1014,49 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
 
          });
 #endif
-
-#ifdef _ENABLEEMUELEC
-
 		addFrameBufferOptions(mWindow, dangerZone, "ee_es", "ES");
 		addFrameBufferOptions(mWindow, dangerZone, "", "EMU");
-#endif
+
 
     dangerZone->addEntry(_("CLOUD BACKUP SETTINGS AND GAME SAVES"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nThis will backup your game saves, savestates and emuelec configs to the cloud service configured on rclone.conf\n\nBACKUP TO CLOUD AND RESTART?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /usr/bin/emuelec-utils ee_cloud_backup backup", "", nullptr);
+				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils ee_cloud_backup backup").run();
 				}, _("NO"), nullptr));
      });
 
     dangerZone->addEntry(_("CLOUD RESTORE SETTINGS AND GAME SAVES"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nThis will restore your game saves, savestates and emuelec configs from the cloud service configured on rclone.conf, it will overwrite any existing file!!\n\nRESTORE FROM CLOUD AND RESTART?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /usr/bin/emuelec-utils ee_cloud_backup restore", "", nullptr);
+				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils ee_cloud_backup restore").run();
 				}, _("NO"), nullptr));
      });
 
     dangerZone->addEntry(_("LOCAL BACKUP EMUELEC CONFIGS"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING THIS WILL RESTART EMULATIONSTATION!\n\nAFTER THE SCRIPT IS DONE REMEMBER TO COPY THE FILE /storage/roms/backup/ee_backup_config.tar.gz TO SOME PLACE!\n\nBACKUP CURRENT CONFIG AND RESTART?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /usr/bin/emuelec-utils ee_backup backup", "", nullptr);
+				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils ee_backup backup").run();
 				}, _("NO"), nullptr));
      });
 
     dangerZone->addEntry(_("RESET EMUELEC SCRIPTS AND BINARIES TO DEFAULT"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: SYSTEM WILL RESET SCRIPTS AND BINARIES !\nUPDATE, DOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\nRESET SCRIPTS AND BINARIES TO DEFAULT AND RESTART?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /usr/bin/emuelec-utils clearconfig EMUS", "", nullptr);
+				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils clearconfig EMUS").run();
 				}, _("NO"), nullptr));
      });
      
     dangerZone->addEntry(_("RESET RETROARCH CONFIG TO DEFAULT"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: RETROARCH CONFIG WILL RESET TO DEFAULT\n\nPER-CORE CONFIGURATIONS WILL NOT BE AFFECTED BUT NO BACKUP WILL BE CREATED!\n\nRESET RETROARCH CONFIG TO DEFAULT?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /usr/bin/emuelec-utils clearconfig retroarch", "", nullptr);
+				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils clearconfig retroarch").run();
 				}, _("NO"), nullptr));
      });
      
     dangerZone->addEntry(_("RESET SYSTEM TO DEFAULT CONFIG"), true, [mWindow] { 
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: ALL CONFIGURATIONS WILL BE RESET AND NO BACKUP WILL BE CREATED!\n\nIF YOU WANT TO KEEP YOUR SETTINGS MAKE A BACKUP AND SAVE IT ON AN EXTERNAL DRIVE BEFORE RUNING THIS OPTION!\n\nRESET SYSTEM TO DEFAULT CONFIG AND RESTART?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /usr/bin/emuelec-utils clearconfig ALL", "", nullptr);
+				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/emuelec-utils clearconfig ALL").run();
 				}, _("NO"), nullptr));
      });
     dangerZone->addEntry(_("FORCE UPDATE"), true, [mWindow] { 
@@ -1078,7 +1069,7 @@ void GuiMenu::openDangerZone(Window* mWindow, std::string configName)
         
     mWindow->pushGui(new GuiMsgBox(mWindow, _("WARNING: A FORCE UPDATE WILL DOWNLOAD WHATEVER VERSION IS AVAILABLE FOR UPDATE REGARDLESS OF VERSION BASED ON THE TYPE YOU HAVE SELECTED IN THE UPDATE & DOWNLOADS (beta or stable)\n\nSYSTEM WILL RESET SCRIPTS AND BINARIES !\nDOWNLOADS, THEMES, BLUETOOTH PAIRINGS AND ROMS FOLDER WILL NOT BE AFFECTED.\n\nCONTINUE WITH FORCE UPDATE?"), _("YES"),
 				[] { 
-				runSystemCommand("systemd-run /usr/bin/updatecheck.sh forceupdate", "", nullptr);
+				Utils::Platform::ProcessStartInfo("systemd-run /usr/bin/updatecheck.sh forceupdate").run();
 				}, _("NO"), nullptr));
      });
 
@@ -1123,7 +1114,7 @@ void GuiMenu::addVersionInfo()
 		else
 		{
 #ifdef _ENABLEEMUELEC	
-		label = "EMUELEC ES V" + ApiSystem::getInstance()->getVersion() + buildDate + " IP:" + getShOutput(R"(/usr/bin/emuelec-utils getip)");
+		label = "EMUELEC ES V" + ApiSystem::getInstance()->getVersion() + buildDate + " IP:" + Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils getip)");
 #else
 			std::string aboutInfo = ApiSystem::getInstance()->getApplicationName() + " V" + ApiSystem::getInstance()->getVersion();
 			label = aboutInfo + buildDate;
@@ -1856,19 +1847,19 @@ void GuiMenu::openSystemSettings()
 #ifdef _ENABLEEMUELEC
 	auto emuelec_timezones = std::make_shared<OptionListComponent<std::string> >(mWindow, _("TIMEZONE"), false);
 	std::string currentTimezone = SystemConf::getInstance()->get("system.timezone");
-	std::string test_shell = getShOutput(R"(/usr/bin/emuelec-utils test)");
+	std::string test_shell = Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils test)");
 	if (!test_shell.compare("success")) {
 		if (currentTimezone.empty())
-			currentTimezone = std::string(getShOutput(R"(/usr/bin/emuelec-utils current_timezone)"));
+			currentTimezone = std::string(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils current_timezone)"));
 		std::string a;
-		for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils timezones)")); getline(ss, a, ','); ) {
+		for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils timezones)")); getline(ss, a, ','); ) {
 			emuelec_timezones->add(a, a, currentTimezone == a); // emuelec
 		}
 		s->addWithLabel(_("TIMEZONE"), emuelec_timezones);
 		s->addSaveFunc([emuelec_timezones] {
 			if (emuelec_timezones->changed()) {
 				std::string selectedTimezone = emuelec_timezones->getSelected();
-				runSystemCommand("ln -sf /usr/share/zoneinfo/" + selectedTimezone + " $(readlink /etc/localtime)", "", nullptr);
+				Utils::Platform::ProcessStartInfo("ln -sf /usr/share/zoneinfo/" + selectedTimezone + " $(readlink /etc/localtime)").run();
 			}
 			SystemConf::getInstance()->set("system.timezone", emuelec_timezones->getSelected());
 		});
@@ -2040,13 +2031,13 @@ void GuiMenu::openSystemSettings()
 	int brighness;
 	if (ApiSystem::getInstance()->getBrightness(brighness))
 	{
-		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 1.f, 100.f, 5.f, "%");
+		auto brightnessComponent = std::make_shared<SliderComponent>(mWindow, 1.f, 100.f, 1.f, "%");
 		brightnessComponent->setValue(brighness);
 		brightnessComponent->setOnValueChanged([](const float &newVal)
 		{
 #ifdef _ENABLEEMUELEC
             auto thebright = std::to_string((int)Math::round(newVal));
-            runSystemCommand("/usr/bin/odroidgoa_utils.sh bright " + thebright, "", nullptr);
+            Utils::Platform::ProcessStartInfo("/usr/bin/odroidgoa_utils.sh bright " + thebright).run();
 #else
 			ApiSystem::getInstance()->setBrightness((int)Math::round(newVal));
 #if !WIN32
@@ -3063,13 +3054,13 @@ void GuiMenu::openGamesSettings()
 		s->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 		s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
 	}
-
+#ifdef _ENABLEEMUELEC
 	// Integer scale overscale
 	auto integerscaleoverscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (OVERSCALE)"));
 	integerscaleoverscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF") , "0" } }, SystemConf::getInstance()->get("global.integerscaleoverscale"));
 	s->addWithLabel(_("INTEGER SCALING (OVERSCALE)"), integerscaleoverscale_enabled);
 	s->addSaveFunc([integerscaleoverscale_enabled] { SystemConf::getInstance()->set("global.integerscaleoverscale", integerscaleoverscale_enabled->getSelected()); });
-
+#endif
 	// Shaders preset
 #ifndef _ENABLEEMUELEC	
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) && !hasGlobalFeature("shaderset"))
@@ -3086,7 +3077,7 @@ void GuiMenu::openGamesSettings()
 
 #ifdef _ENABLEEMUELEC	
 	std::string a;
-	for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils getshaders)")); getline(ss, a, ','); )
+	for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils getshaders)")); getline(ss, a, ','); )
 		shaders_choices->add(a, a, currentShader == a); // emuelec
 #else
 			for (auto shader : installedShaders)
@@ -4541,9 +4532,9 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	s->addEntry(_("RESTART EMULATIONSTATION"), false, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY RESTART EMULATIONSTATION?"), _("YES"),
 			[] {
-    		   /*runSystemCommand("systemctl restart emustation.service", "", nullptr);*/
+    		   /*Utils::Platform::ProcessStartInfo("systemctl restart emustation.service", "", nullptr);*/
     		   Scripting::fireEvent("quit", "restart");
-			   quitES(QuitMode::QUIT);
+			   Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 		}, _("NO"), nullptr));
 	}, "iconRestart");
 
@@ -4554,10 +4545,10 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			window->pushGui(new GuiMsgBox(window, _("REALLY START RETROARCH?"), _("YES"),
 				[] {
 				remove("/var/lock/start.games");
-				runSystemCommand("touch /var/lock/start.retro", "", nullptr);
-				runSystemCommand("systemctl start retroarch.service", "", nullptr);
+				Utils::Platform::ProcessStartInfo("touch /var/lock/start.retro").run();
+				Utils::Platform::ProcessStartInfo("systemctl start retroarch.service").run();
 				Scripting::fireEvent("quit", "retroarch");
-				quitES(QuitMode::QUIT);
+				Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 			}, _("NO"), nullptr));
 		}, "iconControllers");
 		
@@ -4565,10 +4556,10 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			window->pushGui(new GuiMsgBox(window, _("REALLY REBOOT FROM NAND?"), _("YES"),
 				[] {
 				Scripting::fireEvent("quit", "nand");
-				runSystemCommand("rebootfromnand", "", nullptr);
-				runSystemCommand("sync", "", nullptr);
-				runSystemCommand("systemctl reboot", "", nullptr);
-				quitES(QuitMode::QUIT);
+				Utils::Platform::ProcessStartInfo("rebootfromnand").run();
+				Utils::Platform::ProcessStartInfo("sync").run();
+				Utils::Platform::ProcessStartInfo("systemctl reboot").run();
+				Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 			}, _("NO"), nullptr));
 		}, "iconAdvanced");
 	}
@@ -4689,6 +4680,7 @@ void GuiMenu::popGameConfigurationGui(Window* mWindow, FileData* fileData)
 // TODO 
 
 #ifdef _ENABLEEMUELEC
+// WTF is this? 
 
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::btn_choice = nullptr;
 std::shared_ptr<OptionListComponent<std::string>> GuiMenu::del_choice = nullptr;
@@ -5158,7 +5150,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			if (video_choice == "auto")
 				safe_video = true;
 			else {
-				for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, def_video, ','); ) {
+				for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, def_video, ','); ) {
 					if (video_choice == def_video) {
 						safe_video = true;
 						break;
@@ -5314,9 +5306,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			SystemConf::getInstance()->saveSystemConf();
 		});
 	}
-#endif
-	
-#ifdef _ENABLEEMUELEC
+
 	// Shaders preset
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::SHADERS) &&
 		systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::shaders))
@@ -5330,7 +5320,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 		shaders_choices->add(_("AUTO"), "auto", currentShader == "auto");
 		shaders_choices->add(_("NONE"), "none", currentShader == "none");
-		for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils getshaders)")); getline(ss, a, ','); )
+		for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils getshaders)")); getline(ss, a, ','); )
 		shaders_choices->add(a, a, currentShader == a); // emuelec
 		systemConfiguration->addWithLabel(_("SHADERS SET"), shaders_choices);
 		systemConfiguration->addSaveFunc([shaders_choices, configName] { SystemConf::getInstance()->set(configName + ".shaderset", shaders_choices->getSelected()); });
@@ -5418,13 +5408,13 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 		integerscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".integerscale"));
 		systemConfiguration->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 		systemConfiguration->addSaveFunc([integerscale_enabled, configName] { SystemConf::getInstance()->set(configName + ".integerscale", integerscale_enabled->getSelected()); });
-		
+#ifdef _ENABLEEMUELEC		
         auto integerscaleoverscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (OVERSCALE)"));
 		integerscaleoverscale_enabled->addRange({ { _("AUTO"), "auto" },{ _("ON") , "1" },{ _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".integerscaleoverscale"));
 		systemConfiguration->addWithLabel(_("INTEGER SCALING (OVERSCALE)"), integerscaleoverscale_enabled);
 		systemConfiguration->addSaveFunc([integerscaleoverscale_enabled, configName] { SystemConf::getInstance()->set(configName + ".integerscaleoverscale", integerscaleoverscale_enabled->getSelected()); });
 	}
-#ifdef _ENABLEEMUELEC
+
 	// bezel
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::decoration))
 	{
@@ -5860,7 +5850,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createNativeVideoReso
 	videomode.push_back("1080p60hz");
 
 	std::string def_video;
-	for(std::stringstream ss(getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, def_video, ','); ) {
+	for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils resolutions)")); getline(ss, def_video, ','); ) {
 		if (!std::count(videomode.begin(), videomode.end(), def_video)) {
 			 videomode.push_back(def_video);
 		}
@@ -5883,7 +5873,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createNativeVideoReso
 #endif 
 
 
-std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window, std::string configname)
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window, std::string configname, std::string configoptname) 
 {
 	auto videoResolutionMode_choice = std::make_shared<OptionListComponent<std::string> >(window, _("VIDEO MODE"), false);
 

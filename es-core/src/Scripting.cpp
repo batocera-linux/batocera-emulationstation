@@ -154,8 +154,13 @@ namespace Scripting
         // Process single scripts. This type of scripts are called with the event name as 1st arg
         std::vector<std::string> paths =
         {
+#ifdef _ENABLEEMUELEC
+            Paths::getUserEmulationStationPath() + "/scripts/combined",
+            Paths::getEmulationStationPath() + "/scripts/combined",
+#else
             Paths::getUserEmulationStationPath() + "/scripts",
             Paths::getEmulationStationPath() + "/scripts",
+#endif
 #ifndef WIN32
             "/var/run/emulationstation/scripts"
 #endif
