@@ -436,7 +436,7 @@ msgid "UNLOCK SOUND"
 msgstr "DŹWIĘK ODBLOKOWANIA"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "POKAŻ WPIS RETROACHIEVEMENT W MENU GŁÓWNYM"
+msgstr "POKAŻ WPIS RETROOSIĄGNIĘĆ W MENU GŁÓWNYM"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
@@ -452,7 +452,7 @@ msgid "INDEX GAMES"
 msgstr "INDEKSUJ GRY"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "NIE MOŻNA AKTYWOWAĆ RETROACHIEVEMENTS:"
+msgstr "NIE MOŻNA AKTYWOWAĆ RETROOSIĄGNIĘĆ:"
 
 msgid "OK"
 msgstr "OK"
@@ -503,10 +503,10 @@ msgid "New Collection Name"
 msgstr "Nazwa nowej kolekcji"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "WPISZ NAZWĘ"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "STWÓRZ Z MOTYWU"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "STWÓRZ NOWĄ KOLEKCJĘ DO EDYCJI"
@@ -548,10 +548,10 @@ msgid "START ON GAMELIST"
 msgstr "URUCHOM Z LISTĄ GIER"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "GRUPUJ KOLEKCJE NIESTANDARDOWE"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "BEZ MOTYWU"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "POKAŻ NAZWĘ SYSTEMU W KOLEKCJACH"
@@ -597,11 +597,11 @@ msgstr "PROSZĘ CZEKAĆ"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d z %d punktów softcore"
 
 #, c-format
-msgid "%d of %d hardcore points"
-msgstr ""
+msgid "%d z %d hardcore points"
+msgstr "%d z %d punktów hardcore"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1394,10 +1394,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "TA GRA NIE MA JESZCZE ŻADNEGO OSIĄGNIĘCIA"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Osiągnięcia (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Osiągnięcia (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1461,13 +1461,13 @@ msgid "MARQUEE"
 msgstr "MARQUEE"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "PREFEROWANY REGION"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "ZASTĄP OPISY"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "ZASTĄP MEDIA"
 
 msgid "SCRAPE FOR"
 msgstr "SCRAPE'UJ DLA"
@@ -1500,7 +1500,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "USTAWIENIA PADTOKEY"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "KONTO"
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1814,22 +1814,22 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "CZYŚĆ LISTY GIER I USUŃ NIEUŻYWANE MEDIA"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Usuń nieużywane wpisy i wyczyść odniesienia do brakujących mediów."
 
 msgid "Cleaning"
 msgstr "Czyszczenie"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "ZRESETUJ DANE DOTYCZĄCE LIST GIER"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "Resetuje niestandardowe filtry rozszerzeń plików do ustawień domyślnych."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "WYKRYJ JĘZYK/REGION GIER"
@@ -2226,10 +2226,10 @@ msgid "Current setting"
 msgstr "Aktualne ustawienie"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "KONTA"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA BIOSU"
 
 msgid "SAVESTATES"
 msgstr "ZAPISANE STANY GRY"
@@ -2442,13 +2442,13 @@ msgid "SHOW MANUAL ICON"
 msgstr "POKAŻ IKONĘ PODRĘCZNIKA"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "POKAŻ IKONĘ RETROOSIĄGNIĘĆ"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "POKAŻ IKONĘ PISTOLETU"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "POKAŻ IKONĘ KIEROWNICY"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "POKAŻ NAZWY PLIKÓW"
@@ -2499,7 +2499,7 @@ msgid "ICON AND TEXT"
 msgstr "IKONA I TEKST"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "POKAŻ NAJPIERW FOLDERY"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORUJ WIODĄCE PRZEDIMKI PODCZAS SORTOWANIA"
@@ -2847,7 +2847,7 @@ msgstr "ULUBIONE"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Wróć do %s"
 
 msgid "No Entries Found"
 msgstr "Nie znaleziono wpisów"
@@ -2985,7 +2985,7 @@ msgid "Extracting"
 msgstr "Rozpakowywanie"
 
 msgid "SEARCHING RETROACHIEVEMENTS"
-msgstr "WYSZUKIWANIE RETROACHIEVEMENTS"
+msgstr "WYSZUKIWANIE RETROOSIĄGNIĘĆ"
 
 msgid "SEARCHING NETPLAY GAMES"
 msgstr "WYSZUKIWANIE GIER NETPLAY"
@@ -3057,10 +3057,10 @@ msgid "STEERING WHEEL"
 msgstr "KIEROWNICA"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "POSIADA MEDIA"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "BRAK MEDIÓW"
 
 msgid "SCRAPING"
 msgstr "SCRAPE'OWANIE"
@@ -3260,10 +3260,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRZYTRZYMAJ PRZYCISK NA KONTROLERZE ABY GO SKONFIGUROWAĆ."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "NACIŚNIJ ESC, ABY ANULOWAĆ."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "NACIŚNIJ ESC LUB HOTKEY, ABY ANULOWAĆ."
 
 msgid "DISCARD CHANGES"
 msgstr "PORZUĆ ZMIANY"
@@ -3327,9 +3327,9 @@ msgstr "%d sek"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d rok temu"
+msgstr[1] "%d lata temu"
+msgstr[2] "%d lat temu"
 
 #, c-format
 msgid "%d day ago"
