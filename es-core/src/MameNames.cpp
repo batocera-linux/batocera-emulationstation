@@ -129,7 +129,7 @@ MameNames::MameNames()
 	}
 
 	// Read gun games for non arcade systems
-	xmlpath = ResourceManager::getInstance()->getResourcePath(":/gungames.xml");
+	xmlpath = ResourceManager::getInstance()->getResourcePath(":/gamesdb.xml");
 	if (Utils::FileSystem::exists(xmlpath))
 	{
 		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
@@ -138,7 +138,7 @@ MameNames::MameNames()
 			pugi::xml_node systems = doc.child("systems");
 			if (systems)
 			{
-				LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
+				LOG(LogInfo) << "Parsing XML file \"" << xmlpath;
 
 				for (pugi::xml_node systemNode = systems.child("system"); systemNode; systemNode = systemNode.next_sibling("system"))
 				{
@@ -148,17 +148,30 @@ MameNames::MameNames()
 					std::string systemNames = systemNode.attribute("name").value();
 					for (auto systemName : Utils::String::split(systemNames, ','))
 					{
-						std::unordered_set<std::string> games;
+						std::unordered_set<std::string> gunGames;
+						std::unordered_set<std::string> wheelGames;
 
 						for (pugi::xml_node gameNode = systemNode.child("game"); gameNode; gameNode = gameNode.next_sibling("game"))
 						{
-							std::string device = gameNode.text().get();
-							if (!device.empty())
-								games.insert(device);
+							if (!gameNode.attribute("name"))
+								continue;
+
+							std::string gameName = gameNode.attribute("name").value();
+							if (gameName.empty())
+								continue;
+								
+							if (gameNode.child("gun"))
+								gunGames.insert(gameName);
+
+							if (gameNode.child("wheel"))
+								wheelGames.insert(gameName);
 						}
 
-						if (games.size())
-							mNonArcadeGunGames[Utils::String::trim(systemName)] = games;
+						if (gunGames.size())
+							mNonArcadeGunGames[Utils::String::trim(systemName)] = gunGames;
+
+						if (wheelGames.size())
+							mNonArcadeWheelGames[Utils::String::trim(systemName)] = wheelGames;
 					}	
 				}
 			}
@@ -168,48 +181,7 @@ MameNames::MameNames()
 		else
 			LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\"!\n	" << result.description();
 	}
-
-	// Read wheel games
-	xmlpath = ResourceManager::getInstance()->getResourcePath(":/wheelgames.xml");
-	if (Utils::FileSystem::exists(xmlpath))
-	{
-		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
-		if (result)
-		{
-			pugi::xml_node systems = doc.child("systems");
-			if (systems)
-			{
-				LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
-
-				for (pugi::xml_node systemNode = systems.child("system"); systemNode; systemNode = systemNode.next_sibling("system"))
-				{
-					if (!systemNode.attribute("name"))
-						continue;
-
-					std::string systemNames = systemNode.attribute("name").value();
-					for (auto systemName : Utils::String::split(systemNames, ','))
-					{
-						std::unordered_set<std::string> games;
-
-						for (pugi::xml_node gameNode = systemNode.child("game"); gameNode; gameNode = gameNode.next_sibling("game"))
-						{
-							std::string device = gameNode.text().get();
-							if (!device.empty())
-								games.insert(device);
-						}
-
-						if (games.size())
-							mNonArcadeWheelGames[Utils::String::trim(systemName)] = games;
-					}	
-				}
-			}
-			else 
-				LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\" <systems> root is missing !";
-		}
-		else
-			LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\"!\n	" << result.description();
-	}
-
+	
 } // MameNames
 
 MameNames::~MameNames()
