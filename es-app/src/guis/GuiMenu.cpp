@@ -649,6 +649,17 @@ void GuiMenu::createGamepadConfig(Window* window, GuiSettings* systemConfigurati
 		SystemConf::getInstance()->saveSystemConf();
 	});
 
+	auto enable_advmameia = std::make_shared<SwitchComponent>(window);
+	bool adviaEnabled = SystemConf::getInstance()->get("advmame_invert_axis") == "1";
+	enable_advmameia->setState(adviaEnabled);
+	gamepadConfiguration->addWithLabel(_("INVERT AXIS FOR ADVANCEMAME "), enable_advmameia);
+
+	gamepadConfiguration->addSaveFunc([enable_advmameia, window] {
+		bool advmameiaenabled = enable_advmameia->getState();
+		SystemConf::getInstance()->set("advmame_invert_axis", advmameiaenabled ? "1" : "0");
+		SystemConf::getInstance()->saveSystemConf();
+	});
+
 	// Dolphin Gamepad
 	auto enable_dolphingp = std::make_shared<SwitchComponent>(window);
 	bool dolphingpEnabled = SystemConf::getInstance()->get("dolphin_auto_gamepad") == "1";
