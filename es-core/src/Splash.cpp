@@ -92,7 +92,7 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	else
 		mText.setColor(0xFFFFFFFF);
 #ifdef _ENABLEEMUELEC
-		mText.setColor(0x51468700);
+		mText.setColor(0x514687D0);
 #endif
 	mText.setHorizontalAlignment(ALIGN_CENTER);
 	mText.setFont(font);
