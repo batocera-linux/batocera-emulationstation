@@ -3,6 +3,8 @@
 #define ES_CORE_RENDERER_RENDERER_H
 
 #include <vector>
+#include <map>
+#include <cstring>
 #include "math/Vector2f.h"
 #include "math/Vector3f.h"
 
@@ -56,11 +58,20 @@ namespace Renderer
 
 	}; // Rect
 
+	struct ShaderInfo
+	{
+		std::string path;
+		std::map<std::string, std::string> parameters;
+	};
+
 	struct Vertex
 	{
 		Vertex() 
-			: saturation(1.0f), customShader(nullptr)
-		{ 
+			: col(0)			
+			, saturation(1.0f)
+			, cornerRadius(0.0f)
+			, customShader(nullptr)
+		{
 
 		}
 
@@ -69,6 +80,7 @@ namespace Renderer
 			, tex(_tex)
 			, col(_col) 
 			, saturation(1.0f)
+			, cornerRadius(0.0f)
 			, customShader(nullptr)
 		{ 
 
@@ -79,7 +91,8 @@ namespace Renderer
 		unsigned int col;
 
 		float saturation;
-		char* customShader;
+		float cornerRadius;
+		ShaderInfo* customShader;
 
 	}; // Vertex
 
@@ -107,6 +120,8 @@ namespace Renderer
 		virtual void         drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA, bool verticesChanged = true) = 0;
 		virtual void		 drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA) = 0;
 
+		virtual void		 drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth = 1, float cornerRadius = 0) = 0;
+
 		virtual void         setProjection(const Transform4x4f& _projection) = 0;
 		virtual void         setMatrix(const Transform4x4f& _matrix) = 0;
 		virtual void         setViewport(const Rect& _viewport) = 0;
@@ -117,8 +132,13 @@ namespace Renderer
 
 		virtual void         setSwapInterval() = 0;
 		virtual void         swapBuffers() = 0;
+		
+		virtual void		 postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data = nullptr) { };
 
 		virtual size_t		 getTotalMemUsage() { return (size_t) -1; };
+
+		virtual bool		 supportShaders() { return false; }
+		virtual bool		 shaderSupportsCornerSize(const std::string& shader) { return false; };
 	};
 	
 	std::vector<std::string> getRendererNames();
@@ -161,6 +181,7 @@ namespace Renderer
 	void         bindTexture       (const unsigned int _texture);
 	void         drawLines         (const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA);
 	void         drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor = Blend::SRC_ALPHA, const Blend::Factor _dstBlendFactor = Blend::ONE_MINUS_SRC_ALPHA, bool verticesChanged = true);
+	void		 drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth = 1, float cornerRadius = 0);
 	void         setProjection     (const Transform4x4f& _projection);
 	void         setMatrix         (const Transform4x4f& _matrix);
 	void         setViewport       (const Rect& _viewport);
@@ -169,7 +190,13 @@ namespace Renderer
 	void         setSwapInterval   ();
 	void         swapBuffers       ();
 
+	void		 blurBehind		   (const float _x, const float _y, const float _w, const float _h, const float blurSize = 4.0f);
+	void		 postProcessShader (const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data = nullptr);
+
 	size_t		 getTotalMemUsage  ();
+
+	bool		 supportShaders();
+	bool		 shaderSupportsCornerSize(const std::string& shader);
 
 	std::string  getDriverName();
 	std::vector<std::pair<std::string, std::string>> getDriverInformation();
@@ -196,6 +223,8 @@ namespace Renderer
 	void		activateWindow();
 
 	Vector2i	setScreenMargin(int marginX, int marginY);
+
+	int         getCurrentFrame();
 
 } // Renderer::
 

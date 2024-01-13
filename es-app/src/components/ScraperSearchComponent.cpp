@@ -254,7 +254,8 @@ void ScraperSearchComponent::search(const ScraperSearchParams& params)
 			ScraperSearch* ss = new ScraperSearch();
 			ss->name = scraperName;
 			ss->params = params;
-			ss->searchHandle = scraper->search(params);
+			ss->params.isManualScrape = true;
+			ss->searchHandle = scraper->search(ss->params);
 			mScrapEngines.push_back(ss);
 		}
 	}
@@ -392,7 +393,7 @@ void ScraperSearchComponent::onSearchError(const std::string& error)
 {
 	LOG(LogInfo) << "ScraperSearchComponent search error: " << error;
 
-	mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURED") + ":\n" + Utils::String::toUpper(error),
+	mWindow->pushGui(new GuiMsgBox(mWindow, _("AN ERROR OCCURRED") + ":\n" + Utils::String::toUpper(error),
 		_("RETRY"), std::bind(&ScraperSearchComponent::search, this, mInitialSearch),
 		_("SKIP"), mSkipCallback,
 		_("CANCEL"), mCancelCallback, ICON_ERROR)); 

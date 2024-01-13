@@ -31,14 +31,35 @@ void main(void)
 
 #elif defined(FRAGMENT)
 			
-varying   vec4      v_col;
-varying   vec2      v_tex;
+#if __VERSION__ >= 130
+#define COMPAT_VARYING in
+#define COMPAT_TEXTURE texture
+out vec4 FragColor;
+#else
+#define COMPAT_VARYING varying
+#define FragColor gl_FragColor
+#define COMPAT_TEXTURE texture2D
+#endif
+
+#ifdef GL_ES
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+#define COMPAT_PRECISION mediump
+#else
+#define COMPAT_PRECISION
+#endif
+			
+COMPAT_VARYING   vec4      v_col;
+COMPAT_VARYING   vec2      v_tex;
 uniform   sampler2D u_tex;
-uniform   float saturation;
+uniform   COMPAT_PRECISION float saturation;
 
 void main(void)                                    
 {                                                  
-	vec4 clr = texture2D(u_tex, v_tex) * v_col;
+	vec4 clr = COMPAT_TEXTURE(u_tex, v_tex) * v_col;
 	
 	if (mod(gl_FragCoord.y, 2.0) < 1.0) {
 		clr = vec4(clr.rgb / 2.0, clr.a);
@@ -50,6 +71,6 @@ void main(void)
 		clr = vec4(blend, clr.a);
 	}
 
-	gl_FragColor = clr;
+	FragColor = clr;
 }
 #endif

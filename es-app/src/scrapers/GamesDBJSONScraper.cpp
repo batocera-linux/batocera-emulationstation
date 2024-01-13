@@ -38,10 +38,12 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ ATARI_LYNX, "4924" },
 	{ ATARI_ST, "4937" },
 	{ ATARI_XE, "30" },
+	{ BBC_MICRO, "5013"},
 	{ COLECOVISION, "31" },	
 	{ COMMODORE_64, "40" },
 	{ COMMODORE_VIC20, "4945" },
-	{ COMMODORE_PLUS4, "5006" },
+	{ COMMODORE_PET, "5008" },
+	{ COMMODORE_PLUS4, "5007" },
 	{ INTELLIVISION, "32" },
 	{ MAC_OS, "37" },
 	{ XBOX, "14" },
@@ -70,6 +72,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ SEGA_GENESIS, "18" },
 	{ SEGA_MASTER_SYSTEM, "35" },
 	{ SEGA_MEGA_DRIVE, "36" },
+	{ SEGA_PICO, "4958" },
 	{ SEGA_SATURN, "17" },
 	{ SEGA_SG1000, "4949" },
 	{ PLAYSTATION, "10" },
@@ -112,6 +115,8 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ PHILIPS_CDI, "4917" },
 	{ WATARA_SUPERVISION, "4959" },
 	{ SONIC, "36,21" }, // Sega Mega Drive & Sega CD
+	{ GP32, "5015"},
+	{ VTECH_SOCRATES, "4998" },
 
 	// 1 = PC
 	{ PC, "1" },
@@ -124,6 +129,7 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ NAOMI, "23" },
 	{ ATOMISWAVE, "23" },
 	{ DAPHNE, "23" },
+	{ TEKNOPARROT, "23" },
 
 	{ SUPER_NINTENDO_MSU1, "6" },
 	{ LCD_GAMES, "4951" },
@@ -138,7 +144,8 @@ const std::map<PlatformId, std::string> gamesdb_new_platformid_map{
 	{ GAMATE, "5004" },
 	{ CREATONIC_MEGA_DUCK, "4948" },
 	{ TOMY_TUTOR, "4960" },
-	{ APF_MP_1000, "4969" }
+	{ APF_MP_1000, "4969" },
+	{ TANDY_VIS, "4982" }
 		
 	/* Non existing systems
 	{ AMIGACDTV, "129" },

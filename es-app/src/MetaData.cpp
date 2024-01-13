@@ -78,7 +78,7 @@ void MetaDataList::initMetadata()
 
 		{ ArcadeSystemName, "arcadesystemname",  MD_STRING,        "",                 false,      _("Arcade system"),        _("this game's arcade system"), false },
 
-		{ Players,          "players",     MD_INT,                 "",                false,       _("Players"),              _("this game's number of players"),	false },
+		{ Players,          "players",     MD_STRING,              "",                false,       _("Players"),              _("this game's number of players"),	false },
 		{ Favorite,         "favorite",    MD_BOOL,                "false",            false,      _("Favorite"),             _("enter favorite"),			false },
 		{ Hidden,           "hidden",      MD_BOOL,                "false",            false,      _("Hidden"),               _("enter hidden"),			true },
 		{ KidGame,          "kidgame",     MD_BOOL,                "false",            false,      _("Kidgame"),              _("enter kidgame"),			false },
@@ -223,8 +223,8 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 			continue;
 		
 		// Players -> remove "1-"
-		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
-			value = Utils::String::replace(value, "1-", "");
+		// if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
+		// 	value = Utils::String::replace(value, "1-", "");
 
 		set(mdd.id, value);
 	}
@@ -255,8 +255,8 @@ void MetaDataList::loadFromXML(MetaDataListType type, pugi::xml_node& node, Syst
 			value = Utils::String::toLower(value);
 
 		// Players -> remove "1-"
-		if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
-			value = Utils::String::replace(value, "1-", "");
+		// if (type == GAME_METADATA && mdd.id == MetaDataId::Players && Utils::String::startsWith(value, "1-"))
+		// 	value = Utils::String::replace(value, "1-", "");
 
 		if (mdd.id == MetaDataId::Name)
 			mName = value;
@@ -364,11 +364,11 @@ void MetaDataList::set(MetaDataId id, const std::string& value)
 	}
 
 	// Players -> remove "1-"
-	if (mType == GAME_METADATA && id == MetaDataId::Players && Utils::String::startsWith(value, "1-")) // "players"
-	{
-		mMap[id] = Utils::String::replace(value, "1-", "");
-		return;
-	}
+	// if (mType == GAME_METADATA && id == 12 && Utils::String::startsWith(value, "1-")) // "players"
+	// {
+	// 	mMap[id] = Utils::String::replace(value, "1-", "");
+	// 	return;
+	// }
 
 	auto prev = mMap.find(id);
 	if (prev != mMap.cend() && prev->second == value)
@@ -405,6 +405,11 @@ void MetaDataList::set(const std::string& key, const std::string& value)
 		return;
 
 	set(getId(key), value);
+}
+
+const bool MetaDataList::exists(const std::string& key) const
+{
+	return mGameIdMap.find(key) != mGameIdMap.cend();
 }
 
 const std::string MetaDataList::get(const std::string& key, bool resolveRelativePaths) const
@@ -472,6 +477,8 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 			type &= ~MetaDataImportType::Types::CARTRIDGE;		
 	}
 
+	bool scrapeDescription = Settings::getInstance()->getBool("ScrapeDescription");
+
 	for (auto mdd : getMDD())
 	{
 		if (mdd.isStatistic && mdd.id != MetaDataId::ScraperId)
@@ -479,6 +486,12 @@ void MetaDataList::importScrappedMetadata(const MetaDataList& source)
 
 		if (mdd.id == MetaDataId::KidGame) // Not scrapped yet
 			continue;
+
+		if (mdd.id == MetaDataId::Desc && !scrapeDescription)
+		{
+			if (!get(mdd.id).empty())
+				continue;
+		}
 
 		if (mdd.id == MetaDataId::Region || mdd.id == MetaDataId::Language) // Not scrapped
 			continue;

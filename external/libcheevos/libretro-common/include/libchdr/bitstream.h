@@ -39,4 +39,5 @@ uint32_t 			bitstream_peek(struct bitstream* bitstream, int numbits);
 void 				bitstream_remove(struct bitstream* bitstream, int numbits);
 uint32_t 			bitstream_flush(struct bitstream* bitstream);
 
+
 #endif

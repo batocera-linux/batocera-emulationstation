@@ -23,12 +23,12 @@
 #include "guis/GuiGamelistOptions.h"
 #include "BasicGameListView.h"
 #include "utils/Randomizer.h"
-#include "views/Binding.h"
+#include "BindingManager.h"
 #include "guis/GuiImageViewer.h"
 #include "guis/GuiGameAchievements.h"
 
 ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool temporary) : IGameListView(window, root),
-	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr),
+	mHeaderText(window), mHeaderImage(window), mBackground(window), mFolderPath(window), mOnExitPopup(nullptr), mLastParentFolderData(nullptr),
 	mYButton("y"), mXButton("x"), mOKButton("OK"), mSelectButton("select")
 {
 	mExtraMode = ThemeData::ExtraImportType::ALL_EXTRAS;
@@ -60,6 +60,11 @@ ISimpleGameListView::ISimpleGameListView(Window* window, FolderData* root, bool 
 
 ISimpleGameListView::~ISimpleGameListView()
 {
+	if (mLastParentFolderData != nullptr)
+	{
+		delete mLastParentFolderData;
+		mLastParentFolderData = nullptr;
+	}
 	for (auto extra : mThemeExtras)
 		delete extra;
 }
@@ -361,7 +366,7 @@ void ISimpleGameListView::showSelectedGameSaveSnapshots()
 	{
 		Sound::getFromTheme(mTheme, getName(), "menuOpen")->play();
 
-		mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
+		mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState* state)
 		{
 			Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 
@@ -385,7 +390,7 @@ void ISimpleGameListView::launchSelectedGame()
 	FileData* cursor = getCursor();
 	FolderData* folder = NULL;
 
-	if (mCursorStack.size() && cursor->getType() == PLACEHOLDER && cursor->getPath() == "..")
+	if (mCursorStack.size() && (cursor->getType() == PLACEHOLDER || cursor->getType() == FOLDER) && cursor->getPath() == "..")
 	{
 		auto top = mCursorStack.top();
 		mCursorStack.pop();
@@ -405,7 +410,7 @@ void ISimpleGameListView::launchSelectedGame()
 			if (SaveStateRepository::isEnabled(cursor) &&
 				(cursor->getCurrentGameSetting("savestates") == "1" || (cursor->getCurrentGameSetting("savestates") == "2" && cursor->getSourceFileData()->getSystem()->getSaveStateRepository()->hasSaveStates(cursor))))
 			{
-				mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState state)
+				mWindow->pushGui(new GuiSaveState(mWindow, cursor, [this, cursor](SaveState* state)
 				{
 					Sound::getFromTheme(getTheme(), getName(), "launch")->play();
 
@@ -618,13 +623,7 @@ void ISimpleGameListView::updateThemeExtrasBindings()
 	auto system = file->getSystem();
 
 	for (auto extra : mThemeExtras)
-	{
-		TextComponent* text = dynamic_cast<TextComponent*>(extra);
-		if (text != nullptr)
-			Binding::updateBindings(text, system);
-
-		Binding::updateBindings(extra, file);
-	}
+		BindingManager::updateBindings(extra, file);
 }
 
 bool ISimpleGameListView::onAction(const std::string& action)
@@ -741,4 +740,60 @@ bool ISimpleGameListView::onAction(const std::string& action)
 
 	
 	return false;
+}
+
+FolderData* ISimpleGameListView::createParentFolderData()
+{
+	SystemData* system = mCursorStack.size() ? mCursorStack.top()->getSystem() : mRoot->getSystem();
+	auto folder = new FolderData("..", system);
+	folder->setMetadata(MetaDataId::Name, ". .");
+
+	std::string dest = mRoot->getSystem()->getName();
+
+	if (mCursorStack.size() > 1)
+	{
+		std::stack<FileData*> tempStack = mCursorStack;
+		tempStack.pop();
+
+		FileData* top = tempStack.top();
+		
+		dest = top->getName();
+		folder->setMetadata(MetaDataId::Image, top->getMetadata(MetaDataId::Image));
+		folder->setMetadata(MetaDataId::Thumbnail, top->getMetadata(MetaDataId::Thumbnail));
+		folder->setMetadata(MetaDataId::Marquee, top->getMetadata(MetaDataId::Marquee));
+	}
+
+	auto backTo = Utils::String::format(_("Back to %s").c_str(), dest.c_str());
+	folder->setMetadata(MetaDataId::Desc, backTo); // _("Parent folder")
+
+	if (mCursorStack.size() <= 1)
+	{
+		auto logo = mRoot->getSystem()->getProperty("logo");
+		if (Utils::FileSystem::exists(logo.toString()))
+		{
+			folder->setMetadata(MetaDataId::Image, logo.toString());
+			folder->setMetadata(MetaDataId::Marquee, logo.toString());
+		}
+	}
+
+	if (mLastParentFolderData != nullptr)
+		delete mLastParentFolderData;
+
+	mLastParentFolderData = folder;
+
+	return folder;
+}
+
+
+FileData* ISimpleGameListView::createNoEntriesPlaceholder()
+{
+	// empty grid - add a placeholder
+	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());
+
+	if (mLastParentFolderData != nullptr)
+		delete mLastParentFolderData;
+
+	mLastParentFolderData = placeholder;
+
+	return placeholder;
 }

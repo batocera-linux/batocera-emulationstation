@@ -8,6 +8,7 @@
 #include <map>
 
 #define GENRE_LIGHTGUN 32
+#define GENRE_WHEEL    33
 #define GENRE_ADULT 413
 
 class MetaDataList;
@@ -29,6 +30,7 @@ struct GameGenre
 	std::string nom_de;
 	std::string nom_es;
 	std::string nom_pt;
+	std::string nom_ja;
 	std::vector<std::string> altNames;
 
 	std::string& getLocalizedName();

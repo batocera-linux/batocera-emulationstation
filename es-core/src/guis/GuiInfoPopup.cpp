@@ -13,8 +13,6 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 
 	TextToSpeech::getInstance()->say(message, true);
 
-	mBackColor = theme->Background.color;
-
 	mFrame = new NinePatchComponent(window);
 	float maxWidth = Renderer::getScreenWidth() * 0.9f;
 	float maxHeight = Renderer::getScreenHeight() * 0.2f;
@@ -52,9 +50,10 @@ GuiInfoPopup::GuiInfoPopup(Window* window, std::string message, int duration) :
 	setPosition(posX, posY, 0);
 
 	mFrame->setImagePath(theme->Background.path);
-	mFrame->setCenterColor(mBackColor);
-	mFrame->setEdgeColor(mBackColor);
+	mFrame->setEdgeColor(theme->Background.color);
+	mFrame->setCenterColor(theme->Background.centerColor);
 	mFrame->setCornerSize(theme->Background.cornerSize);
+	mFrame->setPostProcessShader(theme->Background.menuShader, false);
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
 
@@ -96,23 +95,21 @@ void GuiInfoPopup::update(int deltaTime)
 		return;
 	}
 
+	#define FADE_DURATION 250
+
 	// compute fade in effect
 	int alpha = 255;
 
-	if (curTime - mStartTime <= 500)
-		alpha = ((curTime - mStartTime)*255/500);
-	else if (curTime - mStartTime >= mDuration - 500)
+	if (curTime - mStartTime <= FADE_DURATION)
+		alpha = ((curTime - mStartTime) * 255 / FADE_DURATION);
+	else if (curTime - mStartTime >= mDuration - FADE_DURATION)
 	{
-		alpha = ((-(curTime - mStartTime - mDuration) * 255) / 500);
+		alpha = ((-(curTime - mStartTime - mDuration) * 255) / FADE_DURATION);
 		mFadeOut = (float) (255 - alpha) / 255.0;
 	}
 
-	if (alpha > mBackColor & 0xff)
-		alpha = mBackColor & 0xff;
+	alpha = (int) (Math::easeOutCubic(alpha / 255.0f) * 255.0f);
 
-	mGrid->setOpacity((unsigned char)alpha);
-
-	// apply fade in effect to popup frame
-	mFrame->setEdgeColor((mBackColor & 0xffffff00) | (unsigned char)(alpha));
-	mFrame->setCenterColor((mBackColor & 0xffffff00) | (unsigned char)(alpha));
+	setOpacity((unsigned char)alpha);
+	setScale(alpha / 255.0f);
 }

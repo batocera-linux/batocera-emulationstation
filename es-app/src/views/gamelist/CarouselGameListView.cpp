@@ -46,7 +46,9 @@ void CarouselGameListView::updateInfoPanel()
 	if (mRoot->getSystem()->isCollection())
 		updateHelpPrompts();
 	
-	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : mList.getSelected();
+	updateThemeExtrasBindings();
+
+	FileData* file = (mList.size() == 0 || mList.isScrolling()) ? NULL : getCursor();
 	bool isClearing = mList.getObjects().size() == 0 && mList.getCursorIndex() == 0 && mList.getScrollingVelocity() == 0;
 	mDetails.updateControls(file, isClearing, mList.getCursorIndex() - mList.getLastCursor());
 }
@@ -73,32 +75,12 @@ void CarouselGameListView::populateList(const std::vector<FileData*>& files)
 	{
 		bool showParentFolder = mRoot->getSystem()->getShowParentFolder();
 		if (showParentFolder && mCursorStack.size())
-		{
-			FileData* placeholder = new FileData(PLACEHOLDER, "..", this->mRoot->getSystem());
-			mList.add(". .", placeholder);
-		}
+			mList.add(". .", createParentFolderData());
 
 		GameNameFormatter formatter(mRoot->getSystem());
 
-		bool favoritesFirst = mRoot->getSystem()->getShowFavoritesFirst();		
-		if (favoritesFirst)
-		{
-			for (auto file : files)
-			{
-				if (!file->getFavorite())
-					continue;
-				
-				mList.add(formatter.getDisplayName(file), file);
-			}
-		}
-
 		for (auto file : files)		
-		{
-			if (file->getFavorite() && favoritesFirst)
-				continue;
-
 			mList.add(formatter.getDisplayName(file), file);
-		}
 
 		// if we have the ".." PLACEHOLDER, then select the first game instead of the placeholder
 		if (showParentFolder && mCursorStack.size() && mList.size() > 1 && mList.getCursorIndex() == 0)
@@ -120,7 +102,7 @@ FileData* CarouselGameListView::getCursor()
 	if (mList.size() == 0)
 		return nullptr;
 
-	return mList.getSelected();
+	return dynamic_cast<FileData*>(mList.getSelected());	
 }
 
 void CarouselGameListView::resetLastCursor()
@@ -146,7 +128,7 @@ void CarouselGameListView::setCursor(FileData* cursor)
 void CarouselGameListView::addPlaceholder()
 {
 	// empty list - add a placeholder
-	FileData* placeholder = new FileData(PLACEHOLDER, "<" + _("No Entries Found") + ">", mRoot->getSystem());	
+	FileData* placeholder = createNoEntriesPlaceholder();
 	mList.add(placeholder->getName(), placeholder);
 }
 
@@ -173,25 +155,12 @@ void CarouselGameListView::launch(FileData* game)
 
 void CarouselGameListView::remove(FileData *game)
 {
-	FolderData* parent = game->getParent();
-	if (getCursor() == game)                     // Select next element in list, or prev if none
-	{
-		std::vector<FileData*> siblings = mList.getObjects();
-
-		int gamePos = getCursorIndex();
-		if ((gamePos + 1) < (int)siblings.size())
-			setCursor(siblings.at(gamePos + 1));
-		else if ((gamePos - 1) > 0)
-			setCursor(siblings.at(gamePos - 1));
-	}
-
 	mList.remove(game);
-	if(mList.size() == 0)
-		addPlaceholder();
-
 	mRoot->removeFromVirtualFolders(game);
-	delete game;                                 // remove before repopulating (removes from parent)
-	onFileChanged(parent, FILE_REMOVED);           // update the view, with game removed
+	delete game;
+
+	if (mList.size() == 0)
+		addPlaceholder();
 }
 
 void CarouselGameListView::setCursorIndex(int cursor)
@@ -206,11 +175,25 @@ int CarouselGameListView::getCursorIndex()
 
 std::vector<FileData*> CarouselGameListView::getFileDataEntries()
 {
-	return mList.getObjects();	
+	std::vector<FileData*> ret;
+
+	for (auto item : mList.getObjects())
+	{
+		FileData* data = dynamic_cast<FileData*>(item);
+		if (data != nullptr)
+			ret.push_back(data);
+	}
+
+	return ret;
 }
 
 void CarouselGameListView::update(int deltaTime)
 {
 	mDetails.update(deltaTime);
 	ISimpleGameListView::update(deltaTime);
+}
+
+bool CarouselGameListView::onMouseWheel(int delta)
+{
+	return mList.onMouseWheel(delta);
 }

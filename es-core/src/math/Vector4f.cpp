@@ -24,23 +24,80 @@ Vector4f& Vector4f::lerp(const Vector4f& _start, const Vector4f& _end, const flo
 
 } // lerp
 
-const Vector4f Vector4f::parseString(const std::string& _input)
+static float parseNextFloat(const char*& str)
 {
-	auto splits = Utils::String::split(_input, ' ');
-	if (splits.size() == 4)
-		return Vector4f(Utils::String::toFloat(splits[0]), Utils::String::toFloat(splits[1]), Utils::String::toFloat(splits[2]), Utils::String::toFloat(splits[3]));
+	while (*str == ' ')
+		str++;
 
-	Vector4f ret = Vector4f(0, 0, 0, 0);
-
-	if (splits.size() == 1)
-		ret.z() = ret.x() = ret.w() = ret.y() = Utils::String::toFloat(splits[0]);
-	else if (splits.size() == 2)
+	bool neg = false;
+	if (*str == '-')
 	{
-		ret.z() = ret.x() = Utils::String::toFloat(splits[0]);
-		ret.w() = ret.y() = Utils::String::toFloat(splits[1]);
+		neg = true;
+		++str;
+	}
+	else if (*str == '+')
+		++str;
+
+	int64_t value = 0;
+	for (; *str && *str != '.' && *str != ' '; str++)
+	{
+		if (*str < '0' || *str > '9')
+			return 0;
+
+		value *= 10;
+		value += *str - '0';
 	}
 
-	return ret;
+	if (*str == '.')
+	{
+		str++;
+
+		int64_t decimal = 0, weight = 1;
+
+		for (; *str && *str != ' '; str++)
+		{
+			if (*str < '0' || *str > '9')
+				return 0;
+
+			decimal *= 10;
+			decimal += *str - '0';
+			weight *= 10;
+		}
+
+		float ret = value + (decimal / (float)weight);
+		return neg ? -ret : ret;
+	}
+
+	return neg ? -value : value;
+}
+
+const Vector4f Vector4f::parseString(const std::string& _input)
+{
+	const char* str = _input.c_str();
+
+	int count = 0;
+
+	float arr[4];
+	for (int i = 0; i < 4; i++) 
+	{
+		while (*str == ' ') str++;
+		if (*str == '\0') 
+			break;
+		
+		arr[i] = parseNextFloat(str);
+		count++;
+	}
+
+	if (count == 4)
+		return Vector4f(arr[0], arr[1], arr[2], arr[3]);
+	
+	if (count == 1)
+		return Vector4f(arr[0], arr[0], arr[0], arr[0]);
+	
+	if (count == 2)
+		return Vector4f(arr[0], arr[1], arr[0], arr[1]);
+
+	return Vector4f(0, 0, 0, 0);
 }
 
 Vector4f& Vector4f::operator*=(const Vector2f& _other)

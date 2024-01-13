@@ -6,26 +6,31 @@
 #include "components/TextComponent.h"
 #include "resources/Font.h"
 #include "GuiComponent.h"
+#include "MultiStateInput.h"
+#include "components/CarouselComponent.h"
+
 #include <memory>
 #include <functional>
-#include "MultiStateInput.h"
+#include <map>
+#include <unordered_set>
 
 class AnimatedImageComponent;
 class SystemData;
 class VideoVlcComponent;
 
+struct SystemViewData
+{
+	SystemData* object;
+	std::vector<GuiComponent*> backgroundExtras;
+};
+
+/*
 enum CarouselType : unsigned int
 {
 	HORIZONTAL = 0,
 	VERTICAL = 1,
 	VERTICAL_WHEEL = 2,
 	HORIZONTAL_WHEEL = 3
-};
-
-struct SystemViewData
-{
-	std::shared_ptr<GuiComponent> logo;
-	std::vector<GuiComponent*> backgroundExtras;
 };
 
 struct SystemViewCarousel
@@ -55,9 +60,11 @@ struct SystemViewCarousel
 
 	bool anyLogoHasOpacityStoryboard;
 	bool anyLogoHasScaleStoryboard;
-};
 
-class SystemView : public IList<SystemViewData, SystemData*>
+	float			scaledSpacing;
+};
+*/
+class SystemView : public GuiComponent
 {
 public:
 	SystemView(Window* window);
@@ -88,24 +95,30 @@ public:
 	// Mouse support
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 	virtual void onMouseMove(int x, int y) override;
-	virtual void onMouseWheel(int delta) override;
+	virtual bool onMouseWheel(int delta) override;
 	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
 
 	virtual bool onAction(const std::string& action) override;
 
+	int getCursorIndex();
+	std::vector<SystemData*> getObjects();
+
 protected:
-	virtual void onCursorChanged(const CursorState& state) override;
+	//virtual void onCursorChanged(const CursorState& state) override;
+	void onCursorChanged(const CursorState& state);
+	SystemData* getSelected();
 
 private:
-	inline bool isHorizontalCarousel() { return mCarousel.type == HORIZONTAL || mCarousel.type == HORIZONTAL_WHEEL; }
+	inline bool isHorizontalCarousel() { return mCarousel.isHorizontalCarousel(); }
+	
+	void	 loadExtras(SystemData* system);
+	void	 ensureTexture(GuiComponent* extra, bool reload);
 
-	void	 ensureLogo(IList<SystemViewData, SystemData*>::Entry& entry);
-	void	 loadExtras(SystemData* system, IList<SystemViewData, SystemData*>::Entry& e);
 	void	 updateExtraTextBinding();
 	void	 showQuickSearch();
 
 	void	 preloadExtraNeighbours(int cursor);
-	void	 setExtraRequired(int cursor, bool required);
+	void	 setExtraRequired(SystemViewData& data, bool required);
 
 	void	 activateExtras(int cursor, bool activate = true);	
 	void	 updateExtras(const std::function<void(GuiComponent*)>& func);
@@ -126,10 +139,11 @@ private:
 	void	 renderExtras(const Transform4x4f& parentTrans, float lower, float upper);
 	void	 renderInfoBar(const Transform4x4f& trans);
 	
-	SystemViewCarousel					mCarousel;
+	CarouselComponent					mCarousel;
 	TextComponent						mSystemInfo;
+
 	std::vector<GuiComponent*>			mStaticBackgrounds;
-	//std::vector<VideoVlcComponent*>		mStaticVideoBackgrounds;
+	std::vector<SystemViewData>			mEntries;
 
 	float			mCamOffset;
 	float			mExtrasCamOffset;
@@ -150,6 +164,10 @@ private:
 	Vector2i		mPressedPoint;
 	bool			mLockCamOffsetChanges;
 	bool			mLockExtraChanges;
+
+
+	float			mSystemInfoDelay;
+	bool			mSystemInfoCountOnly;
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

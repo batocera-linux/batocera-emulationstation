@@ -49,6 +49,8 @@ public:
 	static const Vector2i UnitX() { return { 1, 0 }; }
 	static const Vector2i UnitY() { return { 0, 1 }; }
 
+	inline bool empty() { return mX == 0 && mY == 0; }
+
 private:
 
 	int mX;

@@ -3,7 +3,7 @@
 #include "utils/FileSystemUtil.h"
 #include "CECInput.h"
 #include "Log.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Scripting.h"
 #include "Window.h"
 #include <pugixml/src/pugixml.hpp>
@@ -19,8 +19,17 @@
 #include "GunManager.h"
 #include "renderers/Renderer.h"
 
+#ifdef HAVE_UDEV
+#include <libudev.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#include <linux/input.h>
+#include <unistd.h>
+#endif
+
 #define KEYBOARD_GUID_STRING "-1"
 #define CEC_GUID_STRING      "-2"
+#define GUN_GUID_STRING      "-4"
 
 // SO HEY POTENTIAL POOR SAP WHO IS TRYING TO MAKE SENSE OF ALL THIS (by which I mean my future self)
 // There are like four distinct IDs used for joysticks (crazy, right?)
@@ -42,7 +51,7 @@ static std::mutex mJoysticksLock;
 InputManager* InputManager::mInstance = NULL;
 Delegate<IJoystickChangedEvent> InputManager::joystickChanged;
 
-InputManager::InputManager() : mKeyboardInputConfig(NULL), mMouseButtonsInputConfig(NULL), mCECInputConfig(NULL)
+InputManager::InputManager() : mKeyboardInputConfig(nullptr), mMouseButtonsInputConfig(nullptr), mCECInputConfig(nullptr), mGunInputConfig(nullptr), mGunManager(nullptr)
 {
 
 }
@@ -60,15 +69,16 @@ InputManager* InputManager::getInstance()
 	return mInstance;
 }
 
+
 void InputManager::init()
 {
 	if (initialized())
 		deinit();
 
-	rebuildAllJoysticks(false);
-
 	mKeyboardInputConfig = new InputConfig(DEVICE_KEYBOARD, -1, "Keyboard", KEYBOARD_GUID_STRING, 0, 0, 0); 
 	loadInputConfig(mKeyboardInputConfig);
+
+  rebuildAllJoysticks(false);
 
 #ifdef HAVE_LIBCEC
 	SDL_USER_CECBUTTONDOWN = SDL_RegisterEvents(2);
@@ -80,6 +90,9 @@ void InputManager::init()
 	mCECInputConfig = nullptr;
 #endif
 
+	mGunInputConfig = new InputConfig(DEVICE_GUN, -1, "Gun", GUN_GUID_STRING, 0, 0, 0);
+	loadDefaultGunConfig();
+
 	// Mouse input, hardcoded not configurable with es_input.cfg
 	mMouseButtonsInputConfig = new InputConfig(DEVICE_MOUSE, -1, "Mouse", CEC_GUID_STRING, 0, 0, 0);
 	mMouseButtonsInputConfig->mapInput(BUTTON_OK, Input(DEVICE_MOUSE, TYPE_BUTTON, 1, 1, true));
@@ -87,6 +100,50 @@ void InputManager::init()
 
 	mGunManager = new GunManager();
 }
+
+std::vector<std::string> InputManager::getMice() {
+  std::vector<std::string> mice;
+
+  #ifdef HAVE_UDEV
+  struct udev *udev;
+  struct udev_list_entry *devs = NULL;
+  struct udev_list_entry *item = NULL;
+  char ident[256];
+
+  udev = udev_new();
+  if (udev != NULL)
+    {
+      struct udev_enumerate *enumerate = udev_enumerate_new(udev);
+      udev_enumerate_add_match_property(enumerate, "ID_INPUT_MOUSE", "1");
+      udev_enumerate_add_match_subsystem(enumerate, "input");
+      udev_enumerate_scan_devices(enumerate);
+      devs = udev_enumerate_get_list_entry(enumerate);
+
+      for (item = devs; item; item = udev_list_entry_get_next(item))
+	{
+	  const char *name = udev_list_entry_get_name(item);
+	  struct udev_device *dev = udev_device_new_from_syspath(udev, name);
+
+	  const char* devnode;
+	  devnode = udev_device_get_devnode(dev);
+	  if (devnode != NULL) {
+	    int fd = open(devnode, O_RDONLY | O_NONBLOCK);
+	    if (fd >= 0) {
+	      if (ioctl(fd, EVIOCGNAME(sizeof(ident)), ident) > 0) {
+		mice.push_back(std::string(ident));
+	      }
+	      close(fd);
+	    }
+	  }
+	  udev_device_unref(dev);
+	}
+
+      udev_unref(udev);
+    }
+  #endif
+  return mice;
+}
+
 
 void InputManager::deinit()
 {
@@ -111,6 +168,12 @@ void InputManager::deinit()
 	{
 		delete mMouseButtonsInputConfig;
 		mMouseButtonsInputConfig = NULL;
+	}
+
+	if(mGunInputConfig != NULL)
+	{
+		delete mGunInputConfig;
+		mGunInputConfig = NULL;
 	}
 
 #ifdef HAVE_LIBCEC
@@ -143,6 +206,9 @@ InputConfig* InputManager::getInputConfigByDevice(int device)
 
 	if(device == DEVICE_MOUSE)
 		return mMouseButtonsInputConfig;
+
+	if(device == DEVICE_GUN)
+		return mGunInputConfig;
 	
 	return mInputConfigs[device];
 }
@@ -284,8 +350,10 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 #if WIN32
 	if (!Settings::getInstance()->getBool("HidJoysticks"))
 		SDL_SetHint(SDL_HINT_JOYSTICK_HIDAPI, "0");
-#endif
 
+	SDL_SetHint("SDL_JOYSTICK_HIDAPI_WII", "0");
+#endif
+			
 	SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, Settings::getInstance()->getBool("BackgroundJoystickInput") ? "1" : "0");
 	SDL_InitSubSystem(SDL_INIT_JOYSTICK);	
 
@@ -339,7 +407,22 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 		mInputConfigs[joyId] = new InputConfig(joyId, idx, SDL_JoystickName(joy), guid, SDL_JoystickNumButtons(joy), SDL_JoystickNumHats(joy), SDL_JoystickNumAxes(joy), devicePath);
 
 		if (!loadInputConfig(mInputConfigs[joyId]))
-			LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+		{
+#if !BATOCERA
+			std::string mappingString;
+			
+			if (SDL_IsGameController(idx))
+				mappingString = SDL_GameControllerMappingForDeviceIndex(idx);
+			
+			if (!mappingString.empty() && loadFromSdlMapping(mInputConfigs[joyId], mappingString))
+			{
+				InputManager::getInstance()->writeDeviceConfig(mInputConfigs[joyId]); // save
+				LOG(LogInfo) << "Creating joystick from SDL Game Controller mapping " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+			}
+			else
+#endif
+				LOG(LogInfo) << "Added unconfigured joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
+		}
 		else
 			LOG(LogInfo) << "Added known joystick " << SDL_JoystickName(joy) << " (GUID: " << guid << ", instance ID: " << joyId << ", device index: " << idx << ", device path : " << devicePath << ").";
 
@@ -360,11 +443,59 @@ void InputManager::rebuildAllJoysticks(bool deinit)
 	SDL_JoystickEventState(SDL_ENABLE);
 }
 
+#if WIN32
+// Retrocompatible declaration for SDL_JoyBatteryEvent
+typedef struct SDL_JoyBatteryEventX
+{
+	Uint32 type;        
+	Uint32 timestamp;   
+	SDL_JoystickID which; 
+	SDL_JoystickPowerLevel level;
+} SDL_JoyBatteryEventX;
+#endif
+
 bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 {
 	bool causedEvent = false;
+
 	switch (ev.type)
 	{
+#if WIN32
+	case 1543: // SDL_JOYBATTERYUPDATED, new event with SDL 2.24+
+	{
+		SDL_JoyBatteryEventX* jbattery = (SDL_JoyBatteryEventX*)&ev;
+
+		auto inputConfig = mInputConfigs.find(jbattery->which);
+		if (inputConfig != mInputConfigs.cend() && inputConfig->second->isConfigured() && jbattery->level != SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_UNKNOWN)
+		{
+			int level = 0;
+
+			switch (jbattery->level)
+			{
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_LOW:
+				level = 25;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_MEDIUM:
+				level = 50;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_MAX:
+				level = 75;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_FULL:
+				level = 100;
+				break;
+			case SDL_JoystickPowerLevel::SDL_JOYSTICK_POWER_WIRED:
+				level = -1;
+				break;
+			}
+
+			inputConfig->second->updateBatteryLevel(level);
+			computeLastKnownPlayersDeviceIndexes();
+		}
+	}
+	break;
+#endif
+
 	case SDL_JOYAXISMOTION:
 	{		
 	// some axes are "full" : from -32000 to +32000
@@ -424,23 +555,18 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	
 	case SDL_MOUSEBUTTONDOWN:        
 	case SDL_MOUSEBUTTONUP:
-		if (!window->processMouseButton(ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, ev.button.x, ev.button.y))
-			window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
+		if (!getGunManager()->isReplacingMouse())
+			if (!window->processMouseButton(ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, ev.button.x, ev.button.y))
+				window->input(getInputConfigByDevice(DEVICE_MOUSE), Input(DEVICE_MOUSE, TYPE_BUTTON, ev.button.button, ev.type == SDL_MOUSEBUTTONDOWN, false));
 
 		return true;
-		/*
-	case SDL_FINGERMOTION:
-		window->processMouseMove(ev.tfinger.x * Renderer::getScreenWidth(), ev.tfinger.y * Renderer::getScreenHeight());
 
-		LOG(LogDebug) << "Touch motion: " << ev.tfinger.x * Renderer::getScreenWidth() << ", " << ev.tfinger.y* Renderer::getScreenHeight();
-
-		return true;
-		*/
 	case SDL_MOUSEMOTION:
 #if !WIN32
 	  if (ev.motion.which == SDL_TOUCH_MOUSEID)
 #endif
-		window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
+		if (!getGunManager()->isReplacingMouse())
+			window->processMouseMove(ev.motion.x, ev.motion.y, ev.motion.which == SDL_TOUCH_MOUSEID);
 
 		return true;
 
@@ -465,7 +591,7 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 		/* use the POWER KEY to turn off EmuELEC, specially useful for GTKING-PRO and Odroid Go Advance*/
         if(ev.key.keysym.sym == SDLK_POWER) {
 			Scripting::fireEvent("quit", "shutdown");
-			quitES(QuitMode::SHUTDOWN);
+			Utils::Platform::quitES(Utils::Platform::QuitMode::SHUTDOWN);
 			/*LOG(LogError) << "no quit?";*/
 			return false;
 		}
@@ -495,23 +621,44 @@ bool InputManager::parseEvent(const SDL_Event& ev, Window* window)
 	case SDL_JOYDEVICEADDED:
 		{
 			std::string addedDeviceName;
+			bool isWheel = false;
 			auto id = SDL_JoystickGetDeviceInstanceID(ev.jdevice.which);
 			auto it = std::find_if(mInputConfigs.cbegin(), mInputConfigs.cend(), [id](const std::pair<SDL_JoystickID, InputConfig*> & t) { return t.second != nullptr && t.second->getDeviceId() == id; });
 			if (it == mInputConfigs.cend())
 				addedDeviceName = SDL_JoystickNameForIndex(ev.jdevice.which);
-			
+
+#ifdef HAVE_UDEV
+#ifdef SDL_JoystickDevicePathById
+                        SDL_Joystick* joy = SDL_JoystickOpen(ev.jdevice.which);
+		        if (joy != nullptr) {
+                          SDL_JoystickID joyId = SDL_JoystickInstanceID(joy);
+                          isWheel = InputConfig::isWheel(SDL_JoystickDevicePathById(joyId));
+                          SDL_JoystickClose(joy);
+			}
+#endif
+#endif
 			rebuildAllJoysticks();
 
-			if (!addedDeviceName.empty())
-				window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(addedDeviceName).c_str()));
+			if (!addedDeviceName.empty()) {
+			  if(isWheel) {
+			    window->displayNotificationMessage(_U("\uF1B9 ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(addedDeviceName).c_str()));
+			  } else {
+			    window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s connected").c_str(), Utils::String::trim(addedDeviceName).c_str()));
+			  }
+			}
 		}
 		return true;
 
 	case SDL_JOYDEVICEREMOVED:
 		{
 			auto it = mInputConfigs.find(ev.jdevice.which);
-			if (it != mInputConfigs.cend() && it->second != nullptr)
-				window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(it->second->getDeviceName()).c_str()));
+			if (it != mInputConfigs.cend() && it->second != nullptr) {
+			  if(it->second->isWheel()) {
+			    window->displayNotificationMessage(_U("\uF1B9 ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(it->second->getDeviceName()).c_str()));
+			  } else {
+			    window->displayNotificationMessage(_U("\uF11B ") + Utils::String::format(_("%s disconnected").c_str(), Utils::String::trim(it->second->getDeviceName()).c_str()));
+			  }
+			}
 	
 			rebuildAllJoysticks();
 		}
@@ -535,7 +682,7 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 		return false;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if (!res)
 	{
@@ -612,6 +759,134 @@ bool InputManager::tryLoadInputConfig(std::string path, InputConfig* config, boo
 	return true;
 }
 
+static std::map<std::string, std::string> _sdlToEsMapping =
+{
+#ifdef INVERTEDINPUTCONFIG
+   { "a",             "a" },
+   { "b",             "b" },
+#else
+   { "a",             "b" },
+   { "b",             "a" },
+#endif
+   { "x",             "y" },
+   { "y",             "x" },
+   { "back",          "select" },
+   { "start",         "start" },
+   { "leftshoulder",  "pageup" },
+   { "rightshoulder", "pagedown" },
+   { "dpup",          "up" },
+   { "dpright",       "right" },
+   { "dpdown",        "down" },
+   { "dpleft",        "left" },
+   { "leftx",         "joystick1left" },
+   { "lefty",         "joystick1up" },
+   { "rightx",        "joystick2left" },
+   { "righty",        "joystick2up" },
+   { "lefttrigger",   "l2" },
+   { "righttrigger",  "r2" },
+   { "leftstick",     "l3" },
+   { "rightstick",    "r3" }
+   // { "guide",         "hotkey" } // Better take select for hotkey ?
+};
+
+bool InputManager::loadFromSdlMapping(InputConfig* config, const std::string& mapping)
+{	
+	bool isConfigured = false;
+
+	auto mapArray = Utils::String::split(mapping, ',', true);
+	for (auto tt : mapArray)
+	{
+		size_t pos = tt.find(':');
+		if (pos == std::string::npos) 
+			continue;
+
+		std::string key = tt.substr(0, pos);
+		std::string value = tt.substr(pos + 1);
+
+		auto inputName = _sdlToEsMapping.find(key);
+		if (inputName == _sdlToEsMapping.cend())
+		{
+			LOG(LogError) << "[InputDevice] Unknown mapping: " << key;
+			continue;
+		}
+
+		int valueSign = 1;
+		int idx = 0;
+				
+		switch (value[idx])
+		{
+		case '-': 
+			valueSign = -1;
+			idx++;
+			break;
+		case '+': 
+			idx++;
+			break;
+		}
+
+		Input input;
+		input.device = config->getDeviceId();
+		input.type = InputType::TYPE_COUNT;
+		input.configured = false;		
+
+		switch (value[idx])
+		{
+		case 'a':
+			{
+				input.type = InputType::TYPE_AXIS;
+				input.id = Utils::String::toInteger(value.substr(idx + 1));				
+				input.value = 1 * valueSign;
+				input.configured = true;
+
+				// Invert directions for these mappings
+				if (inputName->second == "joystick1up" || inputName->second == "joystick1left" || inputName->second == "joystick2up" || inputName->second == "joystick2left")
+					input.value *= -1;
+			}
+			break;
+		case 'b':
+			{
+				input.type = InputType::TYPE_BUTTON;
+				input.id = Utils::String::toInteger(value.substr(idx + 1));
+				input.value = 1;
+				input.configured = true;
+			}
+			break;
+		case 'h':
+			{
+				auto hatIds = Utils::String::split(value.substr(idx + 1), '.', true);
+				if (hatIds.size() > 1)
+				{
+					input.type = InputType::TYPE_HAT;
+					input.id = Utils::String::toInteger(hatIds[0]);
+					input.value = Utils::String::toInteger(hatIds[1]);
+					input.configured = true;
+				}
+			}
+			break;
+		}
+
+		if (input.configured)
+		{
+			// BATOCERA : Uncomment the next line using a patch to compute the code
+			// input.computeCode();
+			
+			config->mapInput(inputName->second, input);
+			isConfigured = true;
+		}
+	}
+
+	if (isConfigured)
+	{
+		// Use select button if hotkey is undefined
+		Input tmp;
+		if (!config->getInputByName("hotkey", &tmp))
+			if (config->getInputByName("select", &tmp))
+				config->mapInput("hotkey", tmp);
+	}
+
+	return isConfigured;
+}
+
 bool InputManager::loadInputConfig(InputConfig* config)
 {
 	std::string path = getConfigPath();
@@ -667,6 +942,21 @@ void InputManager::loadDefaultKBConfig()
 #endif
 }
 
+void InputManager::loadDefaultGunConfig()
+{
+#ifdef HAVE_UDEV
+	InputConfig* cfg = getInputConfigByDevice(DEVICE_GUN);
+
+	cfg->clear();
+	cfg->mapInput("up",    Input(DEVICE_GUN, TYPE_BUTTON, BTN_5, 1, true));
+	cfg->mapInput("down",  Input(DEVICE_GUN, TYPE_BUTTON, BTN_6, 1, true));
+	cfg->mapInput("left",  Input(DEVICE_GUN, TYPE_BUTTON, BTN_7, 1, true));
+	cfg->mapInput("right", Input(DEVICE_GUN, TYPE_BUTTON, BTN_8, 1, true));
+	cfg->mapInput("start",  Input(DEVICE_GUN, TYPE_BUTTON, BTN_MIDDLE, 1, true));
+	cfg->mapInput("select", Input(DEVICE_GUN, TYPE_BUTTON, BTN_1, 1, true));
+#endif
+}
+
 void InputManager::writeDeviceConfig(InputConfig* config)
 {
 	assert(initialized());
@@ -678,7 +968,7 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 	if (Utils::FileSystem::exists(path))
 	{
 		// merge files
-		pugi::xml_parse_result result = doc.load_file(path.c_str());
+		pugi::xml_parse_result result = doc.load_file(WINSTRINGW(path).c_str());
 		if (!result)
 		{
 			LOG(LogError) << "Error parsing input config: " << result.description();
@@ -713,14 +1003,14 @@ void InputManager::writeDeviceConfig(InputConfig* config)
 		root = doc.append_child("inputList");
 
 	config->writeToXML(root);
-	doc.save_file(path.c_str());
+	doc.save_file(WINSTRINGW(path).c_str());
         
 	/* create a es_last_input.cfg so that people can easily share their config */
 	pugi::xml_document lastdoc;
 	pugi::xml_node lastroot = lastdoc.append_child("inputList");
 	config->writeToXML(lastroot);
 	std::string lastpath = getTemporaryConfigPath();
-	lastdoc.save_file(lastpath.c_str());
+	lastdoc.save_file(WINSTRINGW(lastpath).c_str());
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("controls-changed");
@@ -740,7 +1030,7 @@ void InputManager::doOnFinish()
 
 	if(Utils::FileSystem::exists(path))
 	{
-		pugi::xml_parse_result result = doc.load_file(path.c_str());
+		pugi::xml_parse_result result = doc.load_file(WINSTRINGW(path).c_str());
 		if(!result)
 		{
 			LOG(LogError) << "Error parsing input config: " << result.description();
@@ -759,8 +1049,8 @@ void InputManager::doOnFinish()
 						std::string tocall = command.text().get();
 
 						LOG(LogInfo) << "	" << tocall;
-						std::cout << "==============================================\ninput config finish command:\n";
-						int exitCode = runSystemCommand(tocall, "", nullptr);
+						std::cout << "==============================================\ninput config finish command:\n";						
+						int exitCode = Utils::Platform::ProcessStartInfo(tocall).run();
 						std::cout << "==============================================\n";
 
 						if(exitCode != 0)
@@ -808,6 +1098,7 @@ int InputManager::getNumConfiguredDevices()
 		num++;
 
 	// Mouse input is hardcoded & not configurable with es_input.cfg
+	// Gun input is hardcoded & not configurable with es_input.cfg
 
 	return num;
 }
@@ -825,6 +1116,7 @@ void InputManager::computeLastKnownPlayersDeviceIndexes()
 			PlayerDeviceInfo dev;
 			dev.index = playerJoystick->getDeviceIndex();
 			dev.batteryLevel = playerJoystick->getBatteryLevel();
+			dev.isWheel = playerJoystick->isWheel();
 
 			m_lastKnownPlayersDeviceIndexes[player] = dev;
 		}
@@ -842,11 +1134,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 			availableConfigured.push_back(conf.second);
 
 	// sort available configs
-#if WIN32
 	std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getSortDevicePath() < b->getSortDevicePath(); });
-#else
-	std::sort(availableConfigured.begin(), availableConfigured.end(), [](InputConfig * a, InputConfig * b) -> bool { return a->getDeviceIndex() < b->getDeviceIndex(); });
-#endif
 
 	// 2. Pour chaque joueur verifier si il y a un configurated
 	// associer le input au joueur

@@ -30,6 +30,7 @@ class VideoComponent : public GuiComponent
 		unsigned						startDelay;
 		bool							showSnapshotNoVideo;
 		bool							showSnapshotDelay;
+		bool							scaleSnapshot;
 		ImageSource						snapshotSource;
 		std::string						defaultVideoPath;
 	};
@@ -46,10 +47,12 @@ public:
 		return mVideoPath;		
 	}
 
+	std::string getThemeTypeName() override { return "video"; }
+
 	// Loads the video at the given filepath
 	bool setVideo(std::string path, bool checkFileExists = true);
 	// Loads a static image that is displayed if the video cannot be played
-	void setImage(std::string path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo());
+	void setImage(std::string path, bool tile = false, const MaxSizeInfo& maxSize = MaxSizeInfo::Empty);
 
 	// Configures the component to show the default video
 	void setDefaultVideo();
@@ -67,7 +70,8 @@ public:
 
 	void onOriginChanged() override;
 	void onSizeChanged() override;
-	void setOpacity(unsigned char opacity) override;
+	void onOpacityChanged() override;
+
 	void setScale(float scale) override;
 
 	void render(const Transform4x4f& parentTrans) override;
@@ -122,7 +126,7 @@ public:
 	}
 
 	float getRoundCorners() { return mRoundCorners; }
-	void setRoundCorners(float value);
+	virtual void setRoundCorners(float value);
 	
 	bool isFading() {
 		return mIsPlaying && mFadeIn < 1.0;
@@ -150,6 +154,7 @@ public:
 	bool getPlayAudio() { return mPlayAudio; }
 	void setPlayAudio(bool value) { mPlayAudio = value; }
 
+	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 
 	virtual void setClipRect(const Vector4f& vec);
@@ -158,11 +163,7 @@ public:
 
 	bool showSnapshots();
 
-	std::string getOriginalThemePath() { return mSourceThemePath; }
-
 protected:
-	std::string mSourceThemePath;
-
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::function<bool()> mVideoEnded;
 
@@ -178,6 +179,8 @@ protected:
 
 	// Start the video after any configured delay
 	void startVideoWithDelay();
+
+	void	recalcLayout() override;
 
 private:
 	// Handle looping the video. Must be called periodically
@@ -201,16 +204,21 @@ protected:
 
 	std::string						mVideoPath;
 	std::string						mPlayingVideoPath;
+
+	std::string						mThemedPath;
+
 	bool							mStartDelayed;
 	unsigned						mStartTime;
-	bool							mIsPlaying;	
-	bool							mDisable;
+	bool							mIsPlaying;		
 	bool							mScreensaverActive;
 	bool							mScreensaverMode;
 	bool							mTargetIsMax;
 	bool							mTargetIsMin;
 
 	bool							mIsWaitingForVideoToStart;
+
+	bool							mIsTopWindow;
+	bool							mEnabled;
 
 	float							mRoundCorners;
 

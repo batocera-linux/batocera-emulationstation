@@ -18,7 +18,7 @@
  * //once one of those completes, the request is ready
  * if(myRequest.status() != REQ_SUCCESS)
  * {
- *    //an error occured
+ *    //an error occurred
  *    LOG(LogError) << "HTTP request error - " << myRequest.getErrorMessage();
  *    return;
  * }
@@ -27,18 +27,26 @@
  * //process contents...
 */
 
+#define HTTP_REQ_USERAGENT "Mozilla/5.0 (Windows NT x.y; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0"
+
 class HttpReqOptions
 {
 public:
-	HttpReqOptions() {}
-	HttpReqOptions(const std::string& filename) 
+	HttpReqOptions() 
+	{
+		userAgent = HTTP_REQ_USERAGENT;
+	}
+
+	HttpReqOptions(const std::string& filename)
 	{
 		outputFilename = filename;
+		userAgent = HTTP_REQ_USERAGENT;
 	}
 
 	std::string outputFilename;
 	std::vector<std::string> customHeaders;
 	std::string dataToPost;
+	std::string userAgent;
 };
 
 class HttpReq
@@ -82,7 +90,7 @@ public:
 	static bool isUrl(const std::string& s);
 
 	int getPercent() { return mPercent; }
-	int getPosition() { return mPosition; }
+	int64_t getPosition() { return mPosition; }
 
 	std::string getUrl() { return mUrl; }
 	std::string getFilePath() { return mFilePath; }	
@@ -124,7 +132,7 @@ private:
 	std::string mUrl;
 
 	int mPercent;
-	double mPosition;
+	int64_t mPosition;
 
 	std::map<std::string, std::string> mResponseHeaders;	
 };

@@ -40,6 +40,7 @@ AsyncNotificationComponent::AsyncNotificationComponent(Window* window, bool acti
 	mFrame->setEdgeColor(theme->Background.color);
 	mFrame->setCenterColor(theme->Background.centerColor);
 	mFrame->setCornerSize(theme->Background.cornerSize);
+	mFrame->setPostProcessShader(theme->Background.menuShader, false);
 	mFrame->fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 	addChild(mFrame);
 
@@ -139,7 +140,7 @@ void AsyncNotificationComponent::render(const Transform4x4f& parentTrans)
 			percent = 1;
 
 		auto theme = ThemeData::getMenuTheme();
-		auto color = theme->Text.color & 0xFFFFFF00 | (unsigned char)((theme->Text.color & 0xFF) * (mOpacity / 255.0));
+		auto color = theme->Text.color & 0xFFFFFF00 | (unsigned char)((theme->Text.color & 0xFF) * (getOpacity() / 255.0));
 		Renderer::drawRect(x, y, (w*percent), h, color);
 	}
 

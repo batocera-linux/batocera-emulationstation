@@ -44,7 +44,7 @@ public:
 private:
 	std::shared_ptr<Font> getFont() const;
 
-	std::string getDisplayString(DisplayMode mode) const;
+	std::string getDisplayString() const;
 	DisplayMode getCurrentDisplayMode() const;
 	
 	void updateTextCache();
@@ -66,6 +66,12 @@ private:
 	bool mUppercase;
 
 	bool mAutoSize;
+
+	std::string mDateFormat;
+	int			mDayIndex;
+	int			mMonthIndex;
+	int			mYearIndex;
+
 };
 
 #endif // ES_CORE_COMPONENTS_DATE_TIME_COMPONENT_H

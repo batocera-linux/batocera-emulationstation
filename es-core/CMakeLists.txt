@@ -1,8 +1,9 @@
 project("core")
 
-set(CORE_HEADERS
+set(CORE_HEADERS	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AsyncHandle.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AudioManager.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/BindingManager.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CECInput.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/GuiComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/HelpStyle.h
@@ -15,13 +16,13 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/gettext.h # batocera
 	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.h # batocera
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera
-	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/SystemConf.h # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Settings.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Sound.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Splash.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeData.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeVariables.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MultiStateInput.h
@@ -46,9 +47,16 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/AnimatedImageComponent.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncNotificationComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryIndicatorComponent.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryIconComponent.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryTextComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/NetworkIconComponent.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/PostProcessShaderComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/StackPanelComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BusyComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ButtonComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ClockComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ControllerActivityComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/IExternalActivity.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentGrid.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentList.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/DateTimeComponent.h
@@ -63,6 +71,8 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/OptionListComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollableContainer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SliderComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RectangleComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SwitchComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextComponent.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextEditComponent.h
@@ -74,6 +84,8 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollbarComponent.h	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentTab.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/WebImageComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextListComponent.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.h
 
 	# Guis
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.h
@@ -111,6 +123,7 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringListLock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Platform.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/zip_file.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ZipFile.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.h
@@ -119,10 +132,16 @@ set(CORE_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Randomizer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/VectorEx.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/HtmlColor.h
+
+	# Watchers
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/WatchersManager.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/BatteryLevelWatcher.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/NetworkStateWatcher.h
 )
 
-set(CORE_SOURCES
+set(CORE_SOURCES	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/AudioManager.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/BindingManager.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/CECInput.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/GuiComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/HelpStyle.cpp
@@ -133,14 +152,14 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/GunManager.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Log.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MameNames.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.cpp # batocera
-	${CMAKE_CURRENT_SOURCE_DIR}/src/platform.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LocaleES.cpp # batocera	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PowerSaver.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Scripting.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Settings.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Sound.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Splash.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeData.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/ThemeVariables.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/VolumeControl.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Window.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/MultiStateInput.cpp
@@ -162,9 +181,16 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/AnimatedImageComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/AsyncNotificationComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryIndicatorComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryIconComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BatteryTextComponent.cpp		
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/NetworkIconComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/PostProcessShaderComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/StackPanelComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/BusyComponent.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ButtonComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ButtonComponent.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ClockComponent.cpp	
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ControllerActivityComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/IExternalActivity.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentGrid.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentList.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/DateTimeComponent.cpp
@@ -176,6 +202,8 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/NinePatchComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ScrollableContainer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SliderComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RatingComponent.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/RectangleComponent.cpp		
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/SwitchComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextComponent.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/TextEditComponent.cpp
@@ -187,6 +215,7 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/MultiLineMenuEntry.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/ComponentTab.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/components/WebImageComponent.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/components/CarouselComponent.cpp
 
 	# Guis
 	${CMAKE_CURRENT_SOURCE_DIR}/src/guis/GuiDetectDevice.cpp
@@ -226,11 +255,17 @@ set(CORE_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/StringListLock.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/TimeUtil.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ThreadPool.cpp	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Platform.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/MathExpr.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/ZipFile.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/md5.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/Randomizer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/utils/HtmlColor.cpp
+
+	# Watchers
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/WatchersManager.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/BatteryLevelWatcher.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/watchers/NetworkStateWatcher.cpp
 )
 
 # Keep Directory structure in Visual Studio

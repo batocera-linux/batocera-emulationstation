@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ThemeAnimation.h"
+#include "ThemeVariables.h"
 #include <pugixml/src/pugixml.hpp>
 #include <vector>
 
@@ -23,5 +24,5 @@ public:
 
 	std::vector<ThemeAnimation*> animations;
 
-	bool fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap, const std::string& relativePath);
+	bool fromXmlNode(const pugi::xml_node& root, const std::map<std::string, ThemeData::ElementPropertyType>& typeMap, const std::string& relativePath, const ThemeVariables& variables);
 };

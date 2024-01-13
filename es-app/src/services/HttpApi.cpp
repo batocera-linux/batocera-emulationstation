@@ -4,7 +4,8 @@
 #include <Windows.h>
 #endif
 
-#include "platform.h"
+#include "utils/Platform.h"
+#include "ApiSystem.h"
 #include "Gamelist.h"
 #include "SystemData.h"
 #include "FileData.h"
@@ -16,7 +17,7 @@
 #include "scrapers/Scraper.h"
 #include <unordered_map>
 
-void HttpApi::getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, SystemData* sys)
+void HttpApi::getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, SystemData* sys, bool localpaths)
 {
 	writer.StartObject();
 	writer.Key("name"); writer.String(sys->getName().c_str());
@@ -72,7 +73,11 @@ void HttpApi::getSystemDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>
 	{
 		const ThemeData::ThemeElement* elem = theme->getElement("system", "logo", "image");
 		if (elem && elem->has("path")) {
-			writer.Key("logo"); writer.String(("/systems/" + sys->getName() + "/logo").c_str());
+		  if(localpaths) {
+		    writer.Key("logo"); writer.String(elem->get<std::string>("path").c_str());
+		  } else {
+		    writer.Key("logo"); writer.String(("/systems/" + sys->getName() + "/logo").c_str());
+		  }
 		}
 	}
 
@@ -124,7 +129,7 @@ FileData* HttpApi::findFileData(SystemData* system, const std::string& id)
 	return nullptr;
 }
 
-void HttpApi::getFileDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, FileData* game)
+void HttpApi::getFileDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& writer, FileData* game, bool localpaths)
 {
 	if (game->getType() != GAME)
 		return;
@@ -147,7 +152,7 @@ void HttpApi::getFileDataJson(rapidjson::PrettyWriter<rapidjson::StringBuffer>& 
 		std::string value = game->getMetadata(mdd.id);
 		if (!value.empty())
 		{
-			if (meta.getType(mdd.id) == MD_PATH)
+			if (meta.getType(mdd.id) == MD_PATH && localpaths == false)
 				value = "/systems/" + game->getSourceFileData()->getSystemName() + "/games/" + id + "/media/" + mdd.key;
 
 			if (mdd.id == MetaDataId::ScraperId)
@@ -227,7 +232,7 @@ bool HttpApi::ImportMedia(FileData* file, const std::string& mediaType, const st
 
 	for (auto mdd : MetaDataList::getMDD())
 	{
-		if (mdd.key != mediaType && mdd.type != MD_PATH)
+		if (mdd.key != mediaType || mdd.type != MD_PATH)
 			continue;
 
 		if (mdd.id == MetaDataId::Video)
@@ -259,19 +264,19 @@ bool HttpApi::ImportMedia(FileData* file, const std::string& mediaType, const st
 	return false;
 }
 
-std::string HttpApi::ToJson(FileData* file)
+std::string HttpApi::ToJson(FileData* file, bool localpaths)
 {
 	rapidjson::StringBuffer s;
 	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
-	getFileDataJson(writer, file);
+	getFileDataJson(writer, file, localpaths);
 	return s.GetString();
 }
 
-std::string HttpApi::ToJson(SystemData* system)
+std::string HttpApi::ToJson(SystemData* system, bool localpaths)
 {
 	rapidjson::StringBuffer s;
 	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
-	getSystemDataJson(writer, system);
+	getSystemDataJson(writer, system, localpaths);
 	return s.GetString();
 }
 
@@ -317,3 +322,23 @@ std::string HttpApi::getRunnningGameInfo()
 	return ToJson(file);
 }
 
+std::string HttpApi::getCaps()
+{
+	rapidjson::StringBuffer s;
+	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
+
+	writer.StartObject();
+
+	writer.Key("Version"); writer.String(ApiSystem::getInstance()->getVersion().c_str());
+
+	// MetaDataId::SortName is disabled in this EmulationStation 
+	writer.Key("SortName"); writer.Bool(false);
+
+	//	:
+	// add capability info for web client 
+	//	:
+
+	writer.EndObject();
+
+	return s.GetString();
+}

@@ -7,7 +7,7 @@
 NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, unsigned int edgeColor, unsigned int centerColor) : GuiComponent(window),
 	mCornerSize(16, 16),
 	mEdgeColor(edgeColor), mCenterColor(centerColor),
-	mVertices(NULL), mPadding(Vector4f(0, 0, 0, 0))
+	mVertices(NULL), mCustomShaderIsPostProcess(false), mCustomShaderIsCacheable(true), mPostProcessTextureId(-1)
 {
 	mTimer = 0;
 	mAnimateTiming = 0;
@@ -17,22 +17,24 @@ NinePatchComponent::NinePatchComponent(Window* window, const std::string& path, 
 	setImagePath(path);
 }
 
-void NinePatchComponent::setOpacity(unsigned char opacity)
-{
-	if (mOpacity == opacity)
-		return;
-
-	mOpacity = opacity;
-	updateColors();
-}
-
 NinePatchComponent::~NinePatchComponent()
 {
+	if (mPostProcessTextureId != -1)
+	{
+		Renderer::destroyTexture(mPostProcessTextureId);
+		mPostProcessTextureId = -1;
+	}
+
 	if (mTexture != nullptr)
 		mTexture->setRequired(false);
 
 	if (mVertices != NULL)
 		delete[] mVertices;
+}
+
+void NinePatchComponent::onOpacityChanged()
+{
+	updateColors();
 }
 
 void NinePatchComponent::update(int deltaTime)
@@ -49,10 +51,16 @@ void NinePatchComponent::update(int deltaTime)
 
 void NinePatchComponent::updateColors()
 {
+	if (mPostProcessTextureId != -1)
+	{
+		Renderer::destroyTexture(mPostProcessTextureId);
+		mPostProcessTextureId = -1;
+	}
+
 	if (mVertices == nullptr)
 		return;
 
-	float opacity = mOpacity / 255.0;
+	float opacity = getOpacity() / 255.0;
 
 	unsigned int e = mEdgeColor;
 	unsigned int c = mCenterColor;
@@ -122,8 +130,8 @@ void NinePatchComponent::buildVertices()
 		mVertices[v + 4] = { { imgPos.x() + imgSize.x(), imgPos.y() + imgSize.y() }, { texPos.x() + texSize.x(), texPos.y() + texSize.y() }, 0 };
 
 		// round vertices
-		for(int i = 1; i < 5; ++i)
-			mVertices[v + i].pos.round();
+		// for(int i = 1; i < 5; ++i)
+		//	mVertices[v + i].pos.round();
 
 		// make duplicates of first and last vertex so this can be rendered as a triangle strip
 		mVertices[v + 0] = mVertices[v + 1];
@@ -143,13 +151,70 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	Transform4x4f trans = parentTrans * getTransform();
 
 	auto rect = Renderer::getScreenRect(trans, mSize);
-	if (!Renderer::isVisibleOnScreen(rect))
+	if (mRotation == 0 && trans.r0().y() == 0 && !Renderer::isVisibleOnScreen(rect))
 		return;
+
+	if (!mCustomShader.path.empty() && mCustomShaderIsPostProcess)
+	{
+		int margin = 50; // Apply pixel margin for postProcessShader
+
+		int x = Math::max(0.0f, rect.x + mCornerSize.x() / 2.0f - margin);
+		int y = Math::max(0.0f, rect.y + mCornerSize.y() / 2.0f - margin);
+		int w = Math::min((float) Renderer::getScreenWidth(), rect.w - mCornerSize.x() + 2 * margin);
+		int h = Math::min((float) Renderer::getScreenHeight(), rect.h - mCornerSize.y() + 2 * margin);
+
+		if (Renderer::getScreenRotate() == 0)
+		{
+			if (mPostProcessTextureId == (unsigned int)-1)
+				Renderer::postProcessShader(mCustomShader.path, x, y, w, h, mCustomShader.parameters, &mPostProcessTextureId);
+			
+			if (mPostProcessTextureId != (unsigned int) -1)
+			{
+				float xM = 0.0f;
+				float yM = 0.0f;
+
+				unsigned int color = 0xFFFFFF00 | getOpacity();
+
+				Renderer::Vertex vertices[4];
+				vertices[0] = { { (float)x    , (float)y       }, { xM,        1.0f - yM }, color };
+				vertices[1] = { { (float)x    , (float)y + h   }, { xM,        yM        }, color };
+				vertices[2] = { { (float)x + w, (float)y       }, { 1.0f - xM, 1.0f - yM }, color };
+				vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f - xM, yM        }, color };
+
+				Renderer::setMatrix(Transform4x4f::Identity());
+				Renderer::bindTexture(mPostProcessTextureId);
+
+				x = rect.x + mCornerSize.x() / 2.0f;
+				y = rect.y + mCornerSize.y() / 2.0f;
+				w = rect.w - mCornerSize.x();
+				h = rect.h - mCornerSize.y();
+
+				Renderer::pushClipRect(x, y, w, h);
+				Renderer::drawTriangleStrips(&vertices[0], 4);
+				Renderer::popClipRect();			
+
+				if (!mCustomShaderIsCacheable)
+				{
+					Renderer::destroyTexture(mPostProcessTextureId);
+					mPostProcessTextureId = (unsigned int)-1;
+				}
+			}
+		}
+		else
+		{
+			Renderer::postProcessShader(mCustomShader.path,
+				rect.x + mCornerSize.x() / 2.0f,
+				rect.y + mCornerSize.y() / 2.0f,
+				rect.w - mCornerSize.x(),
+				rect.h - mCornerSize.y(),
+				mCustomShader.parameters);
+		}
+	}
 
 	// Apply cornersize < 0 only with default ":/frame.png" image, not with customized ones
 	if (mCornerSize.x() <= 1 && mCornerSize.y() <= 1 && mCornerSize.x() == mCornerSize.y() && mPath == ":/frame.png")
 	{
-		float opacity = mOpacity / 255.0;
+		float opacity = getOpacity() / 255.0;
 
 		unsigned int e = mEdgeColor;
 
@@ -175,7 +240,7 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	{
 		if (mAnimateTiming > 0)
 		{
-			float opacity = mOpacity / 255.0;
+			float opacity = getOpacity() / 255.0;
 
 			unsigned int e = mEdgeColor;
 			unsigned int c = mCenterColor;
@@ -202,17 +267,6 @@ void NinePatchComponent::render(const Transform4x4f& parentTrans)
 	}
 
 	renderChildren(trans);
-}
-
-void NinePatchComponent::onSizeChanged()
-{
-	GuiComponent::onSizeChanged();
-
-	if (mPreviousSize == mSize)
-		return;
-
-	mPreviousSize = mSize;
-	buildVertices();
 }
 
 const Vector2f& NinePatchComponent::getCornerSize() const
@@ -315,7 +369,16 @@ void NinePatchComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, con
 		setAnimateTiming(elem->get<float>("animateColorTime"));
 
 	if (elem->has("padding"))
-		setPadding(elem->get<Vector4f>("padding"));
+	{
+		Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
+
+		auto padding = elem->get<Vector4f>("padding");
+		if (abs(padding.x()) < 1 && abs(padding.y()) < 1 && abs(padding.z()) < 1 && abs(padding.w()) < 1)
+			setPadding(padding * Vector4f(scale.x(), scale.y(), scale.x(), scale.y()));
+		else
+			setPadding(padding); // Pixel size
+	}
+	//	setPadding(elem->get<Vector4f>("padding"));
 }
 
 void NinePatchComponent::onShow()
@@ -336,28 +399,29 @@ void NinePatchComponent::onHide()
 
 ThemeData::ThemeElement::Property NinePatchComponent::getProperty(const std::string name)
 {
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
 	if (name == "color")
 		return mCenterColor;
-	else if (name == "centerColor")
+	
+	if (name == "centerColor")
 		return mCenterColor;
-	else if (name == "edgeColor")
+	
+	if (name == "edgeColor")
 		return mEdgeColor;
-	else if (name == "cornerSize")
+	
+	if (name == "cornerSize")
 		return mCornerSize;
-	else if (name == "animateColor")
+	
+	if (name == "animateColor")
 		return mAnimateColor;
-	else if (name == "padding")
-		return mPadding;
+	
+	if (name == "path")
+		return mPath;
 
 	return GuiComponent::getProperty(name);
 }
 
 void NinePatchComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
 {
-	Vector2f scale = getParent() ? getParent()->getSize() : Vector2f((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
 	if (name == "color" && value.type == ThemeData::ThemeElement::Property::PropertyType::Int)
 	{
 		setCenterColor(value.i);
@@ -371,17 +435,31 @@ void NinePatchComponent::setProperty(const std::string name, const ThemeData::Th
 		setAnimateColor(value.i);
 	else if (name == "cornerSize" && value.type == ThemeData::ThemeElement::Property::PropertyType::Pair)
 		setCornerSize(value.v);
-	else if (name == "padding" && value.type == ThemeData::ThemeElement::Property::PropertyType::Rect)
-		setPadding(value.r);
+	else if (name == "path" && value.type == ThemeData::ThemeElement::Property::PropertyType::String)
+		setImagePath(value.s);
 	else
 		GuiComponent::setProperty(name, value);
 }
 
-void NinePatchComponent::setPadding(const Vector4f padding) 
-{ 
-	if (mPadding == padding)
+void NinePatchComponent::onSizeChanged()
+{
+	GuiComponent::onSizeChanged();
+
+	if (mPreviousSize == mSize)
 		return;
 
-	mPadding = padding; 
+	mPreviousSize = mSize;
 	buildVertices();
+}
+
+void NinePatchComponent::onPaddingChanged() 
+{ 
+	buildVertices();
+}
+
+void NinePatchComponent::setPostProcessShader(const Renderer::ShaderInfo& shader, bool cacheable)
+{
+	mCustomShader = shader;
+	mCustomShaderIsCacheable = cacheable;
+	mCustomShaderIsPostProcess = true;
 }

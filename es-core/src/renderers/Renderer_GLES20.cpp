@@ -5,14 +5,19 @@
 #include "Renderer_GLES20.h"
 #include "renderers/Renderer.h"
 #include "math/Transform4x4f.h"
+#include "utils/StringUtil.h"
+#include "utils/FileSystemUtil.h"
 #include "Log.h"
 #include "Settings.h"
 
 #include <vector>
 #include <set>
+#include <fstream>
 
 #include "GlExtensions.h"
 #include "Shader.h"
+
+#include "resources/ResourceManager.h"
 
 namespace Renderer
 {
@@ -69,15 +74,15 @@ namespace Renderer
 		}
 	}
 
-	static std::map<std::string, ShaderProgram*> customShaders;
+	static std::map<std::string, ShaderProgram*> _customShaders;
 
-	static ShaderProgram* getShaderProgram(char* shaderFile)
+	static ShaderProgram* getShaderProgram(const char* shaderFile)
 	{
-		if (shaderFile == nullptr)
+		if (shaderFile == nullptr || strlen(shaderFile) == 0)
 			return nullptr;
 
-		auto it = customShaders.find(shaderFile);
-		if (it != customShaders.cend())
+		auto it = _customShaders.find(shaderFile);
+		if (it != _customShaders.cend())
 			return it->second;
 
 		ShaderProgram* customShader = new ShaderProgram();
@@ -87,10 +92,107 @@ namespace Renderer
 			customShader = nullptr;
 		}
 
-		customShaders[shaderFile] = customShader;
+		_customShaders[shaderFile] = customShader;
 
 		return customShader;	
 	}
+
+
+	class ShaderBatch : public std::vector<ShaderProgram*>
+	{
+	public:
+		static ShaderBatch* getShaderBatch(const char* shaderFile);
+
+		std::map<std::string, std::string> parameters;
+	};
+
+	static std::map<std::string, ShaderBatch*> _customShaderBatch;
+
+	ShaderBatch* ShaderBatch::getShaderBatch(const char* shaderFile)
+	{
+		if (shaderFile == nullptr)
+			return nullptr;
+
+		auto it = _customShaderBatch.find(shaderFile);
+		if (it != _customShaderBatch.cend())
+			return it->second;
+
+		std::string fullPath = ResourceManager::getInstance()->getResourcePath(shaderFile);
+
+		ShaderBatch* ret = new ShaderBatch();
+
+		std::string ext = Utils::String::toLower(Utils::FileSystem::getExtension(fullPath));
+		if (ext == ".glslp")
+		{
+			std::string path = Utils::FileSystem::getParent(fullPath);
+
+			std::map<std::string, std::string> confMap;
+
+			std::string line;
+			std::ifstream systemConf(fullPath);
+			if (systemConf && systemConf.is_open())
+			{
+				while (std::getline(systemConf, line))
+				{
+					int idx = line.find("=");
+					if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
+						continue;
+
+					std::string key = Utils::String::trim(line.substr(0, idx));
+					std::string value = Utils::String::trim(Utils::String::replace(line.substr(idx + 1), "\"", ""));
+					if (!key.empty() && !value.empty())
+						confMap[key] = value;
+
+				}
+				systemConf.close();
+			}
+
+			int count = 0;
+
+			auto it = confMap.find("shaders");
+			if (it != confMap.cend())
+				count = Utils::String::toInteger(it->second);
+
+			for (int i = 0; i < count; i++)
+			{
+				auto name = "shader" + std::to_string(i);
+
+				it = confMap.find(name);
+				if (it == confMap.cend())
+					continue;
+
+				std::string relative = it->second;
+				if (!Utils::String::startsWith(relative, ":") && !Utils::String::startsWith(relative, "/") && !Utils::String::startsWith(relative, "."))
+					relative = "./" + relative;
+
+				std::string full = Utils::FileSystem::resolveRelativePath(relative, path, true);
+
+				ShaderProgram* customShader = getShaderProgram(full.c_str());
+				if (customShader != nullptr)
+					ret->push_back(customShader);
+			}
+
+			it = confMap.find("parameters");
+			if (it != confMap.cend())
+			{
+				for (auto prm : Utils::String::split(it->second, ';', true))
+				{
+					it = confMap.find(prm);
+					if (it != confMap.cend())
+						ret->parameters[prm] = it->second;
+				}
+			}
+		}
+		else
+		{
+			ShaderProgram* customShader = getShaderProgram(fullPath.c_str());
+			if (customShader != nullptr)
+				ret->push_back(customShader);
+		}
+
+		_customShaderBatch[shaderFile] = ret;
+		return ret;
+	};
 
 	static int getAvailableVideoMemory();
 
@@ -101,7 +203,11 @@ namespace Renderer
 #else 
 		SHADER_VERSION_STRING = "#version 120\n";
 
-		const std::string shaders = glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "";
+		std::string shaders = Utils::String::trim(glGetString(GL_SHADING_LANGUAGE_VERSION) ? (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION) : "");
+
+		auto sep = shaders.find_first_of(" -");
+		if (sep != std::string::npos)
+			shaders = shaders.substr(0, sep);
 
 		if (shaders.find("1.0") != std::string::npos)
 			SHADER_VERSION_STRING = "#version 100\n";
@@ -135,6 +241,7 @@ namespace Renderer
 			#endif
 
 			varying   vec4  v_col;   
+
 			void main(void)          
 			{                        
 			    gl_FragColor = v_col;
@@ -157,11 +264,14 @@ namespace Renderer
 			attribute vec4 COLOR;
 			varying   vec2 v_tex;
 			varying   vec4 v_col;
+			varying   vec2 v_pos;
+
 			void main(void)                                    
 			{                                                  
 			    gl_Position = MVPMatrix * vec4(VertexCoord.xy, 0.0, 1.0);
 			    v_tex       = TexCoord;                           
-			    v_col       = COLOR;                           
+			    v_col       = COLOR;  
+				v_pos       = VertexCoord;                         
 			}
 			)=====";
 
@@ -176,19 +286,43 @@ namespace Renderer
 
 			varying   vec4      v_col;
 			varying   vec2      v_tex;
+			varying   vec2      v_pos;
+
 			uniform   sampler2D u_tex;
-			uniform   float saturation;
+			uniform   vec2      outputSize;
+			uniform   vec2      outputOffset;
+			uniform   float		saturation;
+			uniform   float     es_cornerRadius;
+
 			void main(void)                                    
 			{                                                  
-			    vec4 clr = texture2D(u_tex, v_tex) * v_col;
+			    vec4 clr = texture2D(u_tex, v_tex);
 		
 			    if (saturation != 1.0) {
 			    	vec3 gray = vec3(dot(clr.rgb, vec3(0.34, 0.55, 0.11)));
 			    	vec3 blend = mix(gray, clr.rgb, saturation);
 			    	clr = vec4(blend, clr.a);
 			    }
+
+				if (es_cornerRadius != 0.0) {
+
+					vec2 pos = abs(v_pos - outputOffset);
+					vec2 middle = vec2(abs(outputSize.x), abs(outputSize.y)) / 2.0;
+					vec2 center = abs(v_pos - outputOffset - middle);
+					vec2 q = center - middle + es_cornerRadius;
+					float distance = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - es_cornerRadius;	
+
+					if (distance > 0.0) {
+						discard;
+					} 
+					else if (pos.x >= 1.0 && pos.y >= 1.0 && pos.x <= outputSize.x - 1.0 && pos.y <= outputSize.y - 1.0)
+					{
+						float pixelValue = 1.0 - smoothstep(-0.75, 0.5, distance);
+						clr.a *= pixelValue;						
+					}
+				}
 			
-			    gl_FragColor = clr;
+			    gl_FragColor = clr * v_col;
 			}
 			)=====";
 
@@ -209,6 +343,7 @@ namespace Renderer
 			varying   vec4      v_col;
 			varying   vec2      v_tex;
 			uniform   sampler2D u_tex;
+
 			void main(void)           
 			{                         
 			    vec4 a = vec4(1.0, 1.0, 1.0, texture2D(u_tex, v_tex).a);
@@ -327,6 +462,10 @@ namespace Renderer
 	}
 
 //////////////////////////////////////////////////////////////////////////
+	GLES20Renderer::GLES20Renderer() : mFrameBuffer(-1)
+	{
+
+	}
 
 	unsigned int GLES20Renderer::getWindowFlags()
 	{
@@ -341,8 +480,8 @@ namespace Renderer
 #if OPENGL_EXTENSIONS
 		SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
 
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
 
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 #else
@@ -366,7 +505,7 @@ namespace Renderer
 	std::string GLES20Renderer::getDriverName()
 	{
 #if OPENGL_EXTENSIONS
-		return "OPENGL 2.1 / GLSL";
+		return "OPENGL 3.0 / GLSL";
 #else 
 		return "OPENGL ES 2.0";
 #endif
@@ -449,11 +588,33 @@ namespace Renderer
 	{
 		bindTexture(0);
 
-		for (auto customShader : customShaders)
+		for (auto customShader : _customShaderBatch)
+		{
 			if (customShader.second != nullptr)
-				customShader.second->deleteProgram();
+			{
+				customShader.second->clear();
+				delete customShader.second;
+			}
+		}
 
-		customShaders.clear();
+		_customShaderBatch.clear();
+
+		for (auto customShader : _customShaders)
+		{
+			if (customShader.second != nullptr)
+			{
+				customShader.second->deleteProgram();
+				delete customShader.second;
+			}
+		}
+
+		_customShaders.clear();
+
+		if (mFrameBuffer != -1)
+		{
+			GL_CHECK_ERROR(glDeleteFramebuffers(1, &mFrameBuffer));
+			mFrameBuffer = -1;
+		}
 	}
 
 	void GLES20Renderer::destroyContext()
@@ -472,7 +633,7 @@ namespace Renderer
 		const GLenum type = convertTextureType(_type);
 
 		unsigned int texture = -1;
-		glGenTextures(1, &texture);
+		GL_CHECK_ERROR(glGenTextures(1, &texture));
 
 		if (texture == -1)
 		{
@@ -503,6 +664,8 @@ namespace Renderer
 					la_data[(i * 2) + 1] = a_data[i];
 			}
 
+		//	while (glGetError() != GL_NO_ERROR);
+
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
 			delete[] la_data;
 
@@ -515,6 +678,8 @@ namespace Renderer
 		}
 		else
 		{
+		//	while (glGetError() != GL_NO_ERROR);
+
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
 			if (glGetError() != GL_NO_ERROR)
 			{
@@ -661,6 +826,55 @@ namespace Renderer
 	} // drawLines
 
 //////////////////////////////////////////////////////////////////////////
+	void GLES20Renderer::drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth, float cornerRadius)
+	{
+		if (cornerRadius == 0.0f)
+		{
+			if (_fillColor != 0)
+				drawRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, _fillColor);
+
+			if (_borderColor != 0 && borderWidth > 0)
+			{
+				drawRect(_x, _y, _w, borderWidth, _borderColor);
+				drawRect(_x + _w - borderWidth, _y + borderWidth, borderWidth, _h - borderWidth, _borderColor);
+				drawRect(_x, _y + _h - borderWidth, _w - borderWidth, borderWidth, _borderColor);
+				drawRect(_x, _y + borderWidth, borderWidth, _h - borderWidth - borderWidth, _borderColor);
+			}
+			return;
+		}
+
+		bindTexture(0);
+		useProgram(&shaderProgramColorNoTexture);
+
+		GL_CHECK_ERROR(glEnable(GL_BLEND));
+		GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
+
+		auto inner = createRoundRect(_x + borderWidth, _y + borderWidth, _w - borderWidth - borderWidth, _h - borderWidth - borderWidth, cornerRadius, _fillColor);
+
+		if ((_fillColor) & 0xFF)
+		{
+			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * inner.size(), inner.data(), GL_DYNAMIC_DRAW));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, inner.size()));
+		}
+
+		if ((_borderColor) & 0xFF && borderWidth > 0)
+		{
+			auto outer = createRoundRect(_x, _y, _w, _h, cornerRadius, _borderColor);
+
+			setStencil(inner.data(), inner.size());
+			GL_CHECK_ERROR(glStencilFunc(GL_NOTEQUAL, 1, ~0));
+
+			GL_CHECK_ERROR(glEnable(GL_BLEND));
+			GL_CHECK_ERROR(glBlendFunc(convertBlendFactor(Blend::SRC_ALPHA), convertBlendFactor(Blend::ONE_MINUS_SRC_ALPHA)));
+
+			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * outer.size(), outer.data(), GL_DYNAMIC_DRAW));
+			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_FAN, 0, outer.size()));
+			
+			disableStencil();
+		}
+
+		GL_CHECK_ERROR(glDisable(GL_BLEND));
+	}
 
 	void GLES20Renderer::drawTriangleStrips(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor, bool verticesChanged)
 	{
@@ -677,24 +891,46 @@ namespace Renderer
 			{
 				ShaderProgram* shader = &shaderProgramColorTexture;
 
-				if (_vertices->customShader != nullptr)
+				if (_vertices->customShader != nullptr && !_vertices->customShader->path.empty())
 				{
-					ShaderProgram* customShader = getShaderProgram(_vertices->customShader);
+					ShaderProgram* customShader = getShaderProgram(_vertices->customShader->path.c_str());
 					if (customShader != nullptr)
 						shader = customShader;
 				}
 
 				useProgram(shader);
 
-				// Update Shader Uniforms
-
+				// Update Shader Uniforms				
 				shader->setSaturation(_vertices->saturation);
-				
+				shader->setCornerRadius(_vertices->cornerRadius);
+				shader->setResolution();
+				shader->setFrameCount(Renderer::getCurrentFrame());
+
 				if (shader->supportsTextureSize() && it != _textures.cend() && it->second != nullptr)
+				{
+					shader->setInputSize(it->second->size);
 					shader->setTextureSize(it->second->size);
+				}
 				
 				if (_numVertices > 0)
-					shader->setOutputSize(_vertices[_numVertices-1].pos);
+				{
+					Vector2f vec = _vertices[_numVertices - 1].pos;
+					if (_numVertices == 4)
+					{
+						vec.x() -= _vertices[0].pos.x();
+						vec.y() -= _vertices[0].pos.y();
+					}
+
+					// Inverted rendering
+					if (_vertices[_numVertices - 1].tex.y() == 1 && _vertices[0].tex.y() == 0)
+						vec.y() = -vec.y();
+
+					shader->setOutputSize(vec);						
+					shader->setOutputOffset(_vertices[0].pos);
+				}
+
+				if (_vertices->customShader != nullptr && !_vertices->customShader->path.empty())
+					shader->setCustomUniformsParameters(_vertices->customShader->parameters);
 			}
 		}
 		else
@@ -713,6 +949,7 @@ namespace Renderer
 			GL_CHECK_ERROR(glDisable(GL_BLEND));
 			GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, _numVertices));
 		}
+
 	} // drawTriangleStrips
 
 //////////////////////////////////////////////////////////////////////////
@@ -728,7 +965,7 @@ namespace Renderer
 	void GLES20Renderer::setMatrix(const Transform4x4f& _matrix)
 	{
 		worldViewMatrix = _matrix;
-		worldViewMatrix.round();
+		// worldViewMatrix.round();
 		mvpMatrix = projectionMatrix * worldViewMatrix;
 	} // setMatrix
 
@@ -771,7 +1008,7 @@ namespace Renderer
 			// SDL_GL_SetSwapInterval returns 0 on success, -1 on error.
 			// if vsync is requested, try normal vsync; if that doesn't work, try late swap tearing
 			// if that doesn't work, report an error
-			if(SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
+			if (SDL_GL_SetSwapInterval(1) != 0 && SDL_GL_SetSwapInterval(-1) != 0)
 				LOG(LogWarning) << "Tried to enable vsync, but failed! (" << SDL_GetError() << ")";
 		}
 		else
@@ -784,6 +1021,12 @@ namespace Renderer
 	void GLES20Renderer::swapBuffers()
 	{
 		useProgram(nullptr);
+
+#ifdef WIN32		
+		glFlush();
+		glFinish();
+		Sleep(0);
+#endif
 		SDL_GL_SwapWindow(getSDLWindow());
 		GL_CHECK_ERROR(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 	} // swapBuffers
@@ -805,6 +1048,7 @@ namespace Renderer
 			{
 				useProgram(&shaderProgramColorTexture);
 				shaderProgramColorTexture.setSaturation(_vertices->saturation);
+				shaderProgramColorTexture.setCornerRadius(0.0f);
 			}
 		}
 		else
@@ -873,6 +1117,235 @@ namespace Renderer
 
 		return total;
 	}
+
+	bool GLES20Renderer::shaderSupportsCornerSize(const std::string& shader)
+	{
+		ShaderProgram* customShader = getShaderProgram(shader.c_str());
+		if (customShader == nullptr)
+			customShader = &shaderProgramColorTexture;
+			
+		return customShader->supportsCornerRadius();
+	}
+
+	void GLES20Renderer::postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data)
+	{
+#if OPENGL_EXTENSIONS
+		if (glBlitFramebuffer == nullptr || glFramebufferTexture2D == nullptr)
+			return;
+
+		if (getScreenRotate() != 0 && getScreenRotate() != 2)
+			return;
+
+		ShaderBatch* shaderBatch = ShaderBatch::getShaderBatch(path.c_str());
+		if (shaderBatch == nullptr || shaderBatch->size() == 0)
+			return;
+
+		if (mFrameBuffer == -1)
+			GL_CHECK_ERROR(glGenFramebuffers(1, &mFrameBuffer));
+
+		if (mFrameBuffer == -1)
+			return;
+
+		float textureScale = 1.0f;
+		
+		// Special hack for single-pass blur shader -> Texture downscaling
+		if (path == ":/shaders/blur.glsl" && data == nullptr)
+		{
+			auto it = parameters.find("blur");
+			if (it != parameters.cend())
+			{
+				float blurSize = Utils::String::toFloat(it->second);
+
+				textureScale = blurSize / 5.0f;
+				if (textureScale < 1.0f)
+					textureScale = 1.0f;
+			}
+		}
+
+
+		int x = _x; int y = _y; int w = _w; int h = _h;
+
+		if (y < 0) 
+		{
+			h += y; y = 0;
+			if (h <= 0)
+				return;
+		}
+
+		if (x < 0)
+		{
+			w += x; x = 0;
+			if (w <= 0) 
+				return;
+		}
+
+		int tw = w / textureScale;
+		int th = h / textureScale;
+
+		auto nTextureID = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+		if (nTextureID > 0)
+		{
+			int width = getScreenWidth();
+			int height = getScreenHeight();
+
+			unsigned int nFrameBuffer2 = -1;
+			unsigned int nTexture2 = -1;
+
+			if (shaderBatch->size() > 1 || data != nullptr)
+			{
+				// Multiple passes ? We need another framebuffer + another texture
+				glGenFramebuffers(1, &nFrameBuffer2);
+				nTexture2 = createTexture(Renderer::Texture::RGBA, true, false, tw, th, nullptr);
+			}
+
+			auto oldProgram = currentProgram;
+			auto oldMatrix = worldViewMatrix;
+
+			GLboolean oldCissors;
+			GL_CHECK_ERROR(glGetBooleanv(GL_SCISSOR_TEST, &oldCissors));
+			GL_CHECK_ERROR(glDisable(GL_SCISSOR_TEST));
+
+			setMatrix(Transform4x4f::Identity());
+
+			Vertex vertices[4];
+				
+			if (shaderBatch->size() == 1 && data == nullptr)
+			{
+				vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+				vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+				vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+				vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+				if (getScreenRotate() == 2)
+				{
+					vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+					vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+					vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+					vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+				}
+			}
+			else
+			{			
+				vertices[0] = { { (float)0    , (float)height - h }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+				vertices[1] = { { (float)0    , (float)height },     { 0.0f, 0.0f }, 0xFFFFFFFF };
+				vertices[2] = { { (float)0 + w, (float)height - h }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+				vertices[3] = { { (float)0 + w, (float)height  },    { 1.0f, 0.0f }, 0xFFFFFFFF };
+			}
+			
+			// round vertices
+			for (int i = 0; i < 4; ++i)
+				vertices[i].pos.round();
+
+			GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW));
+
+			for (int i = 0; i < shaderBatch->size(); i++)
+			{
+				auto customShader = shaderBatch->at(i);
+
+				if (i == 0)
+				{
+					bindTexture(nTextureID);
+
+					GL_CHECK_ERROR(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mFrameBuffer));
+					GL_CHECK_ERROR(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTextureID, 0));
+
+					if (getScreenRotate() == 2)
+						GL_CHECK_ERROR(glBlitFramebuffer(x, y, x + w, y + h, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR));
+					else
+						GL_CHECK_ERROR(glBlitFramebuffer(x, height - y - h, x + w, height - y, 0, 0, tw, th, GL_COLOR_BUFFER_BIT, GL_LINEAR));
+
+					if (shaderBatch->size() == 1 && data == nullptr)
+						GL_CHECK_ERROR(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+					else
+					{
+						GL_CHECK_ERROR(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, nFrameBuffer2));
+						GL_CHECK_ERROR(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, nTexture2, 0));
+					}
+				}
+				else
+				{
+					bindTexture(i % 2 == 1 ? nTexture2 : nTextureID);
+
+					if (i == shaderBatch->size() - 1 && data == nullptr)
+					{
+						// This is the last shader in the batch. 
+						vertices[0] = { { (float)x    , (float)y       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+						vertices[1] = { { (float)x    , (float)y + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+						vertices[2] = { { (float)x + w, (float)y       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+						vertices[3] = { { (float)x + w, (float)y + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+						if (getScreenRotate() == 2)
+						{
+							vertices[0] = { { (float)x    , (float)y       }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+							vertices[1] = { { (float)x    , (float)y + h   }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+							vertices[2] = { { (float)x + w, (float)y       }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+							vertices[3] = { { (float)x + w, (float)y + h   }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+						}
+
+						for (int i = 0; i < 4; ++i) vertices[i].pos.round();
+
+						GL_CHECK_ERROR(glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 4, &vertices, GL_DYNAMIC_DRAW));
+
+						GL_CHECK_ERROR(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+					}
+					else
+						GL_CHECK_ERROR(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, i % 2 == 1 ? mFrameBuffer : nFrameBuffer2));
+				}
+
+				useProgram(customShader);
+
+				customShader->setSaturation(1.0f);
+				customShader->setCornerRadius(0.0f);
+				customShader->setTextureSize(Vector2f(tw, th));
+				customShader->setInputSize(Vector2f(tw, th));
+				customShader->setOutputSize(vertices[3].pos);
+				customShader->setOutputOffset(vertices[0].pos);
+				customShader->setResolution();
+				customShader->setFrameCount(Renderer::getCurrentFrame());
+
+				// Parameters in the glslp
+				std::map<std::string, std::string> params = shaderBatch->parameters;
+
+				// Parameters in the theme
+				for (const auto& entry : parameters)
+					params[entry.first] = entry.second;
+
+				customShader->setCustomUniformsParameters(params);
+
+				GL_CHECK_ERROR(glDisable(GL_BLEND));
+				GL_CHECK_ERROR(glDrawArrays(GL_TRIANGLE_STRIP, 0, 4));
+			}
+
+			if (data != nullptr)
+			{				
+				GL_CHECK_ERROR(glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, 0, 0)); // Detach
+				GL_CHECK_ERROR(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+
+				bool takeFirst = (shaderBatch->size() - 1) % 2 == 1;
+				*data = takeFirst ? nTextureID : nTexture2;
+				destroyTexture(takeFirst ? nTexture2 : nTextureID);
+			}
+			else
+			{
+				bindTexture(0);
+				useProgram(oldProgram);
+				setMatrix(oldMatrix);
+
+				if (oldCissors)
+					GL_CHECK_ERROR(glEnable(GL_SCISSOR_TEST));
+
+				destroyTexture(nTextureID);
+
+				if (nTexture2 != -1)
+					destroyTexture(nTexture2);
+			}
+
+			if (nFrameBuffer2 != -1)
+				GL_CHECK_ERROR(glDeleteFramebuffers(1, &nFrameBuffer2));
+		}		
+#endif
+	}
+	
 } // Renderer::
 
 #endif // USE_OPENGLES_20

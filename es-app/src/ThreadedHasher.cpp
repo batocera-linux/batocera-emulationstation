@@ -33,15 +33,23 @@ ThreadedHasher::ThreadedHasher(Window* window, HasherType type, std::queue<FileD
 	mSearchQueue = searchQueue;
 	mTotal = mSearchQueue.size();
 
-	mWndNotification = mWindow->createAsyncNotificationComponent();
-
 	if ((mType & HASH_CHEEVOS_MD5) == HASH_CHEEVOS_MD5)
 	{
-		mCheevosHashes = RetroAchievements::getCheevosHashes();
-		if (mCheevosHashes.size() == 0)
-			while (!mSearchQueue.empty())
-				mSearchQueue.pop();
+		try
+		{
+			mCheevosHashes = RetroAchievements::getCheevosHashes();
+			if (mCheevosHashes.size() == 0)
+				while (!mSearchQueue.empty())
+					mSearchQueue.pop();
+		}
+		catch (const std::exception& e)
+		{
+			mType = (HasherType)0;
+			throw e;
+		}
 	}
+
+	mWndNotification = mWindow->createAsyncNotificationComponent();
 
 	if (mType == HASH_CHEEVOS_MD5)
 		mWndNotification->updateTitle(ICONINDEX + _("SEARCHING RETROACHIEVEMENTS"));
@@ -223,7 +231,17 @@ void ThreadedHasher::start(Window* window, HasherType type, bool forceAllGames, 
 		return;
 	}
 
-	ThreadedHasher::mInstance = new ThreadedHasher(window, type, searchQueue, forceAllGames);
+	try
+	{
+		ThreadedHasher::mInstance = new ThreadedHasher(window, type, searchQueue, forceAllGames);
+	}
+	catch (const std::exception& e)
+	{
+		LOG(LogError) << "Game Hash failed : " << e.what();
+
+		if (!silent)
+			window->pushGui(new GuiMsgBox(window, e.what()));
+	}	
 }
 
 void ThreadedHasher::stop()

@@ -25,7 +25,7 @@ void Genres::init()
 	LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(xmlpath.c_str());
+	pugi::xml_parse_result result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 
 	if (!result)
 	{
@@ -65,6 +65,8 @@ void Genres::init()
 				g->nom_es = value;
 			else if (name == "nom_pt")
 				g->nom_pt = value;
+			else if (name == "nom_ja")
+				g->nom_ja = value;
 			else if (name == "altname")
 				g->altNames.push_back(value);
 		}
@@ -121,6 +123,9 @@ void Genres::init()
 
 			if (!genre->nom_pt.empty())
 				mAllGenresNames[Utils::String::toUpper(genre->parent->nom_pt) + " / " + Utils::String::toUpper(genre->nom_pt)] = genre->id;
+
+			if (!genre->nom_ja.empty())
+				mAllGenresNames[Utils::String::toUpper(genre->parent->nom_ja) + " / " + Utils::String::toUpper(genre->nom_ja)] = genre->id;
 		
 
 			for (auto altName : genre->altNames)
@@ -142,6 +147,9 @@ void Genres::init()
 
 			if (!genre->nom_pt.empty())
 				mAllGenresNames[Utils::String::toUpper(genre->nom_pt)] = genre->id;
+
+			if (!genre->nom_ja.empty())
+				mAllGenresNames[Utils::String::toUpper(genre->nom_ja)] = genre->id;
 
 			for (auto altName : genre->altNames)
 				mAllGenresNames[Utils::String::toUpper(altName)] = genre->id;
@@ -167,6 +175,9 @@ void Genres::init()
 
 			if (!genre->nom_pt.empty() && mAllGenresNames.find(Utils::String::toUpper(genre->nom_pt)) == mAllGenresNames.cend())
 				mAllGenresNames[Utils::String::toUpper(genre->nom_pt)] = genre->id;
+
+			if (!genre->nom_ja.empty() && mAllGenresNames.find(Utils::String::toUpper(genre->nom_ja)) == mAllGenresNames.cend())
+				mAllGenresNames[Utils::String::toUpper(genre->nom_ja)] = genre->id;
 		}
 	}
 }
@@ -196,6 +207,8 @@ std::string& GameGenre::getLocalizedName()
 			locale = 3;
 		else if (lang == "es")
 			locale = 4;
+		else if (lang == "ja")
+			locale = 5;
 		else
 			locale = 0;
 	}
@@ -211,6 +224,9 @@ std::string& GameGenre::getLocalizedName()
 
 	if (locale == 4 && !nom_es.empty())
 		return nom_es;
+
+	if (locale == 5 && !nom_ja.empty())
+		return nom_ja;
 
 	return nom_en;
 }

@@ -161,7 +161,7 @@ namespace Utils
 
 		unsigned int parse(const std::string& str)
 		{
-			if (str.empty())
+			if (str.empty() || str == "transparent")
 				return 0;
 
 			if (str[0] >= 'a' && str[0] <= 'z')
@@ -199,5 +199,16 @@ namespace Utils
 
 			return val;
 		}
+
+		unsigned int applyColorOpacity(unsigned int color, unsigned char opacity)
+		{
+			unsigned char red = (color >> 24) & 0xFF;
+			unsigned char green = (color >> 16) & 0xFF;
+			unsigned char blue = (color >> 8) & 0xFF;
+			unsigned char alpha = color & 0xFF;
+
+			return (red << 24) | (green << 16) | (blue << 8) | ((alpha * opacity) / 255);
+		}
+
 	}
 }

@@ -40,7 +40,11 @@ public:
 
 	// Shaders
 	static std::string& getShadersPath() { return getInstance()->mShadersPath; } 
-	static std::string& getUserShadersPath() { return getInstance()->mUserShadersPath; } 
+	static std::string& getUserShadersPath() { return getInstance()->mUserShadersPath; }
+
+	// Video Filters
+	static std::string& getVideoFilters() { return getInstance()->mVideoFiltersPath; }
+	static std::string& getUserVideoFilters() { return getInstance()->mUserVideoFiltersPath; }
 																						
 	// Retroachivement sounds
 	static std::string& getRetroachivementSounds() { return getInstance()->mRetroachivementSounds; } 
@@ -93,6 +97,8 @@ private:
 	std::string mUserDecorationsPath;
 	std::string mShadersPath;
 	std::string mUserShadersPath;
+	std::string mVideoFiltersPath;
+	std::string mUserVideoFiltersPath;
 	std::string mEmulationStationPath;
 	std::string mUserEmulationStationPath;
 

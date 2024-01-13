@@ -98,7 +98,7 @@ void GuiInstall::onInstallError(std::pair<std::string, int> result)
     mLoading = false;
     mState = 3;
     mResult = result;
-    mResult.first = _("AN ERROR OCCURED") + std::string(": check the system/logs directory");
+    mResult.first = _("AN ERROR OCCURRED") + std::string(": check the system/logs directory");
 }
 
 void GuiInstall::onInstallOk()

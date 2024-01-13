@@ -37,8 +37,17 @@ namespace glext
 	extern PFNGLACTIVETEXTUREPROC glActiveTexture_;
 	extern PFNGLUNIFORM1FPROC glUniform1f;
 	extern PFNGLUNIFORM2FPROC glUniform2f;
+	extern PFNGLUNIFORM4FPROC glUniform4f;	
 	extern PFNGLDELETEPROGRAMPROC glDeleteProgram;
 	extern PFNGLDELETESHADERPROC glDeleteShader;
+
+	extern PFNGLFRAMEBUFFERTEXTURE2DPROC glFramebufferTexture2D;
+	extern PFNGLBINDFRAMEBUFFEREXTPROC glBindFramebuffer;
+	extern PFNGLBLITFRAMEBUFFERPROC glBlitFramebuffer;
+	extern PFNGLGENFRAMEBUFFERSPROC glGenFramebuffers;
+	extern PFNGLDELETEFRAMEBUFFERSPROC glDeleteFramebuffers;		
+
+	extern PFNGLGETACTIVEUNIFORMPROC glGetActiveUniform;
 };
 
 using namespace glext;
@@ -47,9 +56,5 @@ using namespace glext;
 
 #endif
 
-#if defined(_DEBUG)
 #define GL_CHECK_ERROR(Function) (Function, _GLCheckError(#Function))
-void _GLCheckError(const char* _funcName);
-#else
-#define GL_CHECK_ERROR(Function) (Function)
-#endif
+bool _GLCheckError(const char* _funcName);

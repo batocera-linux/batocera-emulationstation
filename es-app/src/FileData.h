@@ -11,6 +11,7 @@
 #include "KeyboardMapping.h"
 #include "SystemData.h"
 #include "SaveState.h"
+#include "BindingManager.h"
 
 class Window;
 struct SystemEnvironmentData;
@@ -48,22 +49,30 @@ struct GetFileContext
 
 struct LaunchGameOptions
 {
-	LaunchGameOptions() { netPlayMode = NetPlayMode::DISABLED; }
+	LaunchGameOptions() 
+	{ 
+		netPlayMode = NetPlayMode::DISABLED; 
+		port = 0;
+		saveStateInfo = nullptr; 
+		isSaveStateInfoTemporary = false; 		  
+	}
 
 	int netPlayMode;
 	std::string ip;
 	int port;
+	std::string session;
 
 	std::string core;
 	std::string netplayClientPassword;
 
-	SaveState	saveStateInfo;
+	SaveState*	saveStateInfo;
+	bool isSaveStateInfoTemporary;
 };
 
 class FolderData;
 
 // A tree node that holds information for a file.
-class FileData : public IKeyboardMapContainer
+class FileData : public IKeyboardMapContainer, public IBindable
 {
 public:
 	FileData(FileType type, const std::string& path, SystemData* system);
@@ -89,7 +98,7 @@ public:
 
 	virtual SystemEnvironmentData* getSystemEnvData() const;
 
-	virtual const std::string getThumbnailPath();
+	virtual const std::string getThumbnailPath(bool fallbackWithImage = true);
 	virtual const std::string getVideoPath();
 	virtual const std::string getMarqueePath();
 	virtual const std::string getImagePath();
@@ -102,9 +111,9 @@ public:
 	void setCore(const std::string value);
 	void setEmulator(const std::string value);
 
-	virtual const bool getHidden();
-	virtual const bool getFavorite();
-	virtual const bool getKidGame();
+	virtual const bool getHidden() const;
+	virtual const bool getFavorite() const;
+	virtual const bool getKidGame() const;
 	virtual const bool hasCheevos();
 
 	bool hasAnyMedia();
@@ -118,6 +127,7 @@ public:
 	const bool isArcadeAsset();
 	const bool isVerticalArcadeGame();
 	const bool isLightGunGame();
+  	const bool isWheelGame();
 	inline std::string getFullPath() { return getPath(); };
 	inline std::string getFileName() { return Utils::FileSystem::getFileName(getPath()); };
 	virtual FileData* getSourceFileData();
@@ -141,7 +151,7 @@ public:
 
 	void setMetadata(MetaDataList value) { getMetadata() = value; } 
 	
-	std::string getMetadata(MetaDataId key) { return getMetadata().get(key); }
+	std::string getMetadata(MetaDataId key) const { return getMetadata().get(key); }
 	void setMetadata(MetaDataId key, const std::string& value) { return getMetadata().set(key, value); }
 
 	void detectLanguageAndRegion(bool overWrite);
@@ -168,8 +178,14 @@ public:
 
 	void setSelectedGame();
 
+	std::pair<int, int> parsePlayersRange();
 
-	std::string getProperty(const std::string& name);
+	// IBindable
+	BindableProperty getProperty(const std::string& name) override;
+	std::string getBindableTypeName()  override { return "game"; }
+	IBindable*  getBindableParent() override;
+
+	std::string getGenre();
 
 private:
 	std::string getKeyboardMappingFilePath();

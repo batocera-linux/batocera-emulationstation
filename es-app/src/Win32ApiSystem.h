@@ -42,6 +42,12 @@ public:
 	virtual std::string getSevenZipCommand() override;
 	virtual std::string getHostsName() override;
 
+	bool canSuspend();
+	virtual void suspend() override;
+
+	virtual bool isPlaneMode() override;
+	virtual bool setPlaneMode(bool enable) override;
+
 protected:
 
 	bool executeScript(const std::string command) override;

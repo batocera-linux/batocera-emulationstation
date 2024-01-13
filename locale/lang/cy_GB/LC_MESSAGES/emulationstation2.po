@@ -287,6 +287,9 @@ msgstr ""
 msgid "lightgun games"
 msgstr ""
 
+msgid "wheel games"
+msgstr ""
+
 msgid "collections"
 msgstr "casgliadau"
 
@@ -345,7 +348,7 @@ msgstr "LAWRLWYTHO"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "THEMA WEDI'I OSOD YN LLWYDDIANNUS"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "DIGWYDDODD GWALL"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
@@ -494,17 +497,17 @@ msgstr "SYSTEMAU GRWPEDIG"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "CREU CASGLIAD WEDI'I ADDASU"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "CREU CASGLIAD NEWYDD WEDI'I ADDASU O THEMA"
+msgid "New Collection Name"
+msgstr "Enw Casgliad Newydd"
 
-msgid "SELECT THEME FOLDER"
-msgstr "DEWIS FFOLDER THEMA"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CREU CASGLIAD NEWYDD SYDD GALLU CAEL EI GOLYGU"
-
-msgid "New Collection Name"
-msgstr "Enw Casgliad Newydd"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "CREU CASGLIAD DYNAMIG NEWYDD"
@@ -542,8 +545,11 @@ msgstr "ADFER DEWIS DIWETHAF"
 msgid "START ON GAMELIST"
 msgstr "DECHRAU AR RHESTR GEMAU"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "GRWPIO CASGLIADAU WEDI'I ADDASU DI-THEMA"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "DANGOS ENW'R SYSTEM MEWN CASGLIADAU"
@@ -588,13 +594,21 @@ msgid "PLEASE WAIT"
 msgstr "ARHOSWCH OS GWELWCH YN DDA"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
-msgid "Points (hardcore)"
+msgid "Softcore points"
 msgstr ""
 
-msgid "Softcore points"
+msgid "Points (hardcore)"
 msgstr ""
 
 msgid "Rank"
@@ -807,6 +821,189 @@ msgstr "DETHOL"
 
 msgid "ADD COMBINATION KEY"
 msgstr "YCHWANEGU ALLWEDD CYFUNO"
+
+msgid "CONTROLLER SETTINGS"
+msgstr ""
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "GOSODIADAU RHEOLYDDION"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr ""
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr ""
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr ""
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr ""
+
+msgid "CONTROLLER MAPPING"
+msgstr ""
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+
+msgid "SINDEN GUN SETTINGS"
+msgstr ""
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr ""
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr ""
+
+msgid "BLUETOOTH"
+msgstr ""
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr ""
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr ""
+
+msgid "DISPLAY OPTIONS"
+msgstr "ARDDANGOS OPSIYNAU"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "default"
+msgstr "rhagosodiad"
+
+msgid "NOT CONNECTED"
+msgstr "HEB EI GYSYLLTU"
+
+msgid "BORDER SIZE"
+msgstr ""
+
+msgid "AUTO"
+msgstr "AWTO"
+
+msgid "THIN"
+msgstr ""
+
+msgid "MEDIUM"
+msgstr ""
+
+msgid "BIG"
+msgstr ""
+
+msgid "BORDER MODE"
+msgstr ""
+
+msgid "NORMAL"
+msgstr ""
+
+msgid "IN GAME ONLY"
+msgstr ""
+
+msgid "HIDDEN"
+msgstr ""
+
+msgid "BORDER COLOR"
+msgstr ""
+
+msgid "WHITE"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "GREEN"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
+msgid "CAMERA CONTRAST"
+msgstr ""
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr ""
+
+msgid "Default (50)"
+msgstr ""
+
+msgid "Dim Display/Evening (60)"
+msgstr ""
+
+msgid "CAMERA BRIGHTNESS"
+msgstr ""
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr ""
+
+msgid "Default (100)"
+msgstr ""
+
+msgid "Dim Display/Evening (120)"
+msgstr ""
+
+msgid "CAMERA EXPOSURE"
+msgstr ""
+
+msgid "Projector/CRT (-5)"
+msgstr ""
+
+msgid "Projector/CRT (-6)"
+msgstr ""
+
+msgid "Default (-7)"
+msgstr ""
+
+msgid "Other (-8)"
+msgstr ""
+
+msgid "Other (-9)"
+msgstr ""
+
+msgid "RECOIL"
+msgstr ""
+
+msgid "DISABLED"
+msgstr ""
+
+msgid "GUN"
+msgstr ""
+
+msgid "MACHINE GUN"
+msgstr ""
+
+msgid "QUIET GUN"
+msgstr ""
+
+msgid "QUIET MACHINE GUN"
+msgstr ""
+
+msgid "MODE"
+msgstr ""
+
+msgid "JOYSTICK"
+msgstr ""
+
+msgid "MOUSE ONLY"
+msgstr ""
+
+msgid "HAND"
+msgstr ""
+
+msgid "LEFT"
+msgstr "CHWITH"
+
+msgid "RIGHT"
+msgstr "DDE"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "LAWRLWYTHWR CYNNWYS"
@@ -1184,8 +1381,11 @@ msgstr "Datgloi ar"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "NID OES CYFLAWNIAD AR Y GÊM YMA ETO"
 
-msgid "Achievements won"
-msgstr "Cyflawniadau a enillwyd"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -1248,6 +1448,15 @@ msgstr "OLWYN"
 msgid "MARQUEE"
 msgstr "MARQUEE"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr ""
 
@@ -1276,6 +1485,9 @@ msgid "MANUAL"
 msgstr ""
 
 msgid "PADTOKEY SETTINGS"
+msgstr ""
+
+msgid "ACCOUNT"
 msgstr ""
 
 msgid "SCRAPER"
@@ -1457,12 +1669,6 @@ msgstr ""
 msgid "SHADERS"
 msgstr ""
 
-msgid "CONTROLLER SETTINGS"
-msgstr ""
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "GOSODIADAU RHEOLYDDION"
-
 msgid "INTERNAL"
 msgstr ""
 
@@ -1523,6 +1729,9 @@ msgstr ""
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr ""
 
+msgid "SERVICES"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr ""
 
@@ -1543,6 +1752,12 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
+
+msgid "VIDEO MODE"
+msgstr "MODD FIDEO"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
@@ -1581,8 +1796,29 @@ msgstr "FFORMATIO DISG"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "GLANHAU RHESTR GEMAU & DIDDYMU CYFRYNGAU HEB EI DDEFNYDDIO"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Yn glanhau "
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "AILOSOD ESTYNIADAU FFEIL"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "AIL-GANFOD RHANBARTH/IEITHOEDD GEMAU"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "DOD O HYD I BOB GEM GYDA RHWYDWAITH / CYFLAWNIADAU"
 
 msgid "CLEAR CACHES"
 msgstr "CLIRIO COF DROS DRO"
@@ -1592,15 +1828,6 @@ msgstr "ADEILADU DELWEDD COF DROS DRO"
 
 msgid "Building image cache"
 msgstr "Adeiladu delwedd cof dros dro"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "AILOSOD ESTYNIADAU FFEIL"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "AIL-GANFOD RHANBARTH/IEITHOEDD GEMAU"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "DOD O HYD I BOB GEM GYDA RHWYDWAITH / CYFLAWNIADAU"
 
 msgid "DATA MANAGEMENT"
 msgstr "RHEOLI DATA"
@@ -1653,11 +1880,11 @@ msgstr "DEWISLEN GADAEL TERFYNOL"
 msgid "RETROARCH MENU DRIVER"
 msgstr ""
 
-msgid "AUTO"
-msgstr "AWTO"
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr ""
 
-msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "CYFNEWID BOTYMAU A/B YN EMULATIONSTATION"
+msgid "Switches the South and East buttons' functionality"
+msgstr ""
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr ""
@@ -1749,9 +1976,6 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr ""
 
 msgid "POWER SAVING MODE"
-msgstr ""
-
-msgid "DISABLED"
 msgstr ""
 
 msgid "DEFAULT"
@@ -1961,6 +2185,54 @@ msgstr ""
 msgid "Current setting"
 msgstr ""
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr ""
+
+msgid "AUTO SAVE/LOAD"
+msgstr ""
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr ""
+
+msgid "INCREMENT PER SAVE"
+msgstr ""
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+
+msgid "INCREMENT SLOT"
+msgstr ""
+
+msgid "Increment slot on a new game."
+msgstr ""
+
+msgid "DO NOT INCREMENT"
+msgstr ""
+
+msgid "Use current slot on a new game."
+msgstr ""
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr ""
+
+msgid "ALWAYS"
+msgstr ""
+
+msgid "IF NOT EMPTY"
+msgstr ""
+
+msgid "Display savestate manager before launching a game."
+msgstr ""
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr ""
 
@@ -1969,9 +2241,6 @@ msgstr ""
 
 msgid "Force the game to render in this aspect ratio."
 msgstr ""
-
-msgid "VIDEO MODE"
-msgstr "MODD FIDEO"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
@@ -1991,6 +2260,9 @@ msgstr "GRADDFA CYFANRIF (PIXEL PERFFAITH)"
 
 msgid "SHADER SET"
 msgstr "SET CYSGODYDD"
+
+msgid "VIDEO FILTER"
+msgstr ""
 
 msgid "DECORATIONS"
 msgstr "ADDURNIADAU"
@@ -2052,48 +2324,6 @@ msgstr "SAIB AR SGRIN CYFIEITHU"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "AWTO-TRAWSWEDDU RHEOLYDDION"
 
-msgid "SAVESTATES"
-msgstr ""
-
-msgid "AUTO SAVE/LOAD"
-msgstr ""
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr ""
-
-msgid "INCREMENT PER SAVE"
-msgstr ""
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
-
-msgid "INCREMENT SLOT"
-msgstr ""
-
-msgid "Increment slot on a new game."
-msgstr ""
-
-msgid "DO NOT INCREMENT"
-msgstr ""
-
-msgid "Use current slot on a new game."
-msgstr ""
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
-
-msgid "ALWAYS"
-msgstr ""
-
-msgid "IF NOT EMPTY"
-msgstr ""
-
-msgid "Display savestate manager before launching a game."
-msgstr ""
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "FFURFWEDDU UWCH I BOB SYSTEM"
 
@@ -2104,96 +2334,6 @@ msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "HASHIO GÊM YN RHEDEG. A YDYCH AM EI STOPIO?"
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr ""
-
-msgid "CONTROLLER MAPPING"
-msgstr ""
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
-"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
-"CONFIRM WHEN DONE."
-msgstr ""
-
-msgid "SINDEN GUN SETTINGS"
-msgstr ""
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr ""
-
-msgid "BLUETOOTH"
-msgstr ""
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr ""
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr ""
-
-msgid "DISPLAY OPTIONS"
-msgstr "ARDDANGOS OPSIYNAU"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr ""
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr ""
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr ""
-
-msgid "default"
-msgstr "rhagosodiad"
-
-msgid "BORDER SIZE"
-msgstr ""
-
-msgid "THIN"
-msgstr ""
-
-msgid "MEDIUM"
-msgstr ""
-
-msgid "BIG"
-msgstr ""
-
-msgid "BORDER MODE"
-msgstr ""
-
-msgid "NORMAL"
-msgstr ""
-
-msgid "IN GAME ONLY"
-msgstr ""
-
-msgid "HIDDEN"
-msgstr ""
-
-msgid "RECOIL"
-msgstr ""
-
-msgid "GUN"
-msgstr ""
-
-msgid "MACHINE GUN"
-msgstr ""
-
-msgid "QUIET GUN"
-msgstr ""
-
-msgid "QUIET MACHINE GUN"
-msgstr ""
-
-msgid "MODE"
-msgstr ""
-
-msgid "JOYSTICK"
 msgstr ""
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
@@ -2256,6 +2396,15 @@ msgstr ""
 msgid "SHOW MANUAL ICON"
 msgstr ""
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "DANGOS ENWAU FFEILIAU MEWN RHESTR"
 
@@ -2286,6 +2435,9 @@ msgstr ""
 msgid "GAME LAUNCH TRANSITION"
 msgstr "TRAWSNEWIDIAD LANSIO GÊM"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr ""
+
 msgid "SHOW CLOCK"
 msgstr "DANGOS CLOC"
 
@@ -2300,6 +2452,9 @@ msgstr "EICON"
 
 msgid "ICON AND TEXT"
 msgstr "EICON A THESTUN"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr ""
@@ -2355,9 +2510,6 @@ msgstr "CYFEIRIAD IP"
 msgid "CONNECTED"
 msgstr "WEDI CYSYLLTU"
 
-msgid "NOT CONNECTED"
-msgstr "HEB EI GYSYLLTU"
-
 msgid "INTERNET STATUS"
 msgstr "STATWS RHYNGRWYD"
 
@@ -2392,6 +2544,12 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "LANSIO ARBEDYDD SGRIN"
 
 msgid "VIEW USER MANUAL"
+msgstr ""
+
+msgid "DISABLE PLANE MODE"
+msgstr ""
+
+msgid "ENABLE PLANE MODE"
 msgstr ""
 
 msgid "RESTART SYSTEM"
@@ -2631,9 +2789,6 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-msgid "No Entries Found"
-msgstr "Ni ddarganfuwyd unrhyw gofnodion"
-
 msgid "Games similar to"
 msgstr "Gemau tebyg i"
 
@@ -2647,6 +2802,16 @@ msgid "GAME OPTIONS"
 msgstr "OPSIYNAU GÊM"
 
 msgid "FAVORITE"
+msgstr ""
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Ni ddarganfuwyd unrhyw gofnodion"
+
+msgid "INVALID CONTENT"
 msgstr ""
 
 msgid ""
@@ -2847,7 +3012,13 @@ msgstr ""
 msgid "LIGHTGUN"
 msgstr ""
 
-msgid "HAS MEDIAS"
+msgid "STEERING WHEEL"
+msgstr ""
+
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
 msgstr ""
 
 msgid "SCRAPING"
@@ -2885,19 +3056,19 @@ msgid "SPACE"
 msgstr "GOFOD"
 
 msgctxt "joystick"
-msgid "UP"
+msgid "NORTH"
 msgstr ""
 
 msgctxt "joystick"
-msgid "DOWN"
+msgid "SOUTH"
 msgstr ""
 
 msgctxt "joystick"
-msgid "LEFT"
+msgid "EAST"
 msgstr ""
 
 msgctxt "joystick"
-msgid "RIGHT"
+msgid "WEST"
 msgstr ""
 
 msgctxt "joystick"
@@ -2906,6 +3077,22 @@ msgstr ""
 
 msgctxt "joystick"
 msgid "SELECT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
 msgstr ""
 
 msgctxt "joystick"
@@ -2938,6 +3125,30 @@ msgstr ""
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr ""
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr ""
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
 msgstr ""
 
 msgctxt "joystick"
@@ -3009,6 +3220,12 @@ msgstr "DIM PADIAU-GÊM WEDI CANFOD"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "DALWCH BOTWM AR EICH DYFAIS I'W GADARNHAU."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "TAFLU NEWIDIADAU"
 
@@ -3052,6 +3269,35 @@ msgstr "GOLYGU"
 msgid "ENABLED"
 msgstr ""
 
+msgid "WORKING..."
+msgstr "YN GWEITHIO..."
+
+#, c-format
+msgid "%d d"
+msgstr ""
+
+#, c-format
+msgid "%d h"
+msgstr "%d a"
+
+#, c-format
+msgid "%d mn"
+msgstr ""
+
+#, c-format
+msgid "%d sec"
+msgstr ""
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3092,26 +3338,26 @@ msgstr[3] "%d eiliadau yn ôl"
 msgstr[4] "%d eiliadau yn ôl"
 msgstr[5] "%d eiliadau yn ôl"
 
-msgid "WORKING..."
-msgstr "YN GWEITHIO..."
-
-#, c-format
-msgid "%d h"
-msgstr "%d a"
-
-#, c-format
-msgid "%d mn"
-msgstr ""
-
-#, c-format
-msgid "%d sec"
-msgstr ""
-
 msgid "SCREEN READER ENABLED"
 msgstr ""
 
 msgid "SCREEN READER DISABLED"
 msgstr ""
+
+#~ msgid "Achievements won"
+#~ msgstr "Cyflawniadau a enillwyd"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "CREU CASGLIAD NEWYDD WEDI'I ADDASU O THEMA"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "DEWIS FFOLDER THEMA"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "GRWPIO CASGLIADAU WEDI'I ADDASU DI-THEMA"
+
+#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
+#~ msgstr "CYFNEWID BOTYMAU A/B YN EMULATIONSTATION"
 
 #, c-format
 #~ msgid "%d m"
@@ -3228,12 +3474,6 @@ msgstr ""
 
 #~ msgid "DOWN"
 #~ msgstr "LAWR"
-
-#~ msgid "LEFT"
-#~ msgstr "CHWITH"
-
-#~ msgid "RIGHT"
-#~ msgstr "DDE"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "FFON ANALOG LAN"

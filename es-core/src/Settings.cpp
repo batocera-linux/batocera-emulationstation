@@ -3,7 +3,7 @@
 #include "utils/FileSystemUtil.h"
 #include "Log.h"
 #include "Scripting.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include <pugixml/src/pugixml.hpp>
 #include <algorithm>
 #include <vector>
@@ -28,6 +28,8 @@ IMPLEMENT_STATIC_BOOL_SETTING(BackgroundMusic, true)
 IMPLEMENT_STATIC_BOOL_SETTING(VSync, true)
 IMPLEMENT_STATIC_BOOL_SETTING(PreloadMedias, false)
 IMPLEMENT_STATIC_BOOL_SETTING(IgnoreLeadingArticles, false)
+IMPLEMENT_STATIC_BOOL_SETTING(ShowFoldersFirst, true)
+IMPLEMENT_STATIC_BOOL_SETTING(ScrollLoadMedias, false)
 IMPLEMENT_STATIC_INT_SETTING(ScreenSaverTime, 5 * 60 * 1000)
 
 #if WIN32
@@ -49,10 +51,12 @@ void Settings::updateCachedSetting(const std::string& name)
 	UPDATE_STATIC_BOOL_SETTING(DrawClock)
 	UPDATE_STATIC_BOOL_SETTING(ClockMode12)
 	UPDATE_STATIC_BOOL_SETTING(DrawFramerate)
+	UPDATE_STATIC_BOOL_SETTING(ScrollLoadMedias)
 	UPDATE_STATIC_BOOL_SETTING(VolumePopup)
 	UPDATE_STATIC_BOOL_SETTING(VSync)
 	UPDATE_STATIC_BOOL_SETTING(PreloadMedias)
 	UPDATE_STATIC_BOOL_SETTING(IgnoreLeadingArticles)		
+	UPDATE_STATIC_BOOL_SETTING(ShowFoldersFirst)
 	UPDATE_STATIC_INT_SETTING(ScreenSaverTime)
 
 	if (mLoaded)
@@ -117,7 +121,9 @@ void Settings::setDefaults()
 	mBoolMap["ShowHiddenFiles"] = false;
 	mBoolMap["ShowParentFolder"] = true;
 	mBoolMap["IgnoreLeadingArticles"] = Settings::_IgnoreLeadingArticles;
+	mBoolMap["ShowFoldersFirst"] = Settings::_ShowFoldersFirst;
 	mBoolMap["DrawFramerate"] = false;
+	mBoolMap["ScrollLoadMedias"] = false;	
 	mBoolMap["ShowExit"] = true;
 	mBoolMap["ExitOnRebootRequired"] = false;
 	mBoolMap["Windowed"] = false;
@@ -166,7 +172,9 @@ void Settings::setDefaults()
 #endif
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;
+	mBoolMap["ScrapeDescription"] = true;	
 	mBoolMap["ScrapePadToKey"] = true;
+	mBoolMap["ScrapeOverWrite"] = true;	
 	mBoolMap["IgnoreGamelist"] = false;
 	mBoolMap["HideConsole"] = true;
 	mBoolMap["QuickSystemSelect"] = true;
@@ -242,6 +250,10 @@ void Settings::setDefaults()
 	mBoolMap["SlideshowScreenSaverGameName"] = true;
 	mStringMap["ScreenSaverDecorations"] = "systems";
 
+	mBoolMap["ShowCheevosIcon"] = true;
+
+	mBoolMap["ShowWheelIconOnGames"] = true;
+	mBoolMap["ShowGunIconOnGames"] = true;
 
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
 #ifdef _ENABLEEMUELEC
@@ -279,8 +291,9 @@ void Settings::setDefaults()
 	mStringMap["CollectionSystemsCustom"] = "";
 	mBoolMap["SortAllSystems"] = true; 
 	mStringMap["SortSystems"] = "manufacturer";
-	mBoolMap["UseCustomCollectionsSystem"] = true;
-
+	
+	mStringMap["UseCustomCollectionsSystemEx"] = "";
+	
 	mBoolMap["HiddenSystemsShowGames"] = true;
 	mBoolMap["CollectionShowSystemInfo"] = true;
 	mBoolMap["FavoritesFirst"] = false;
@@ -340,6 +353,9 @@ void Settings::setDefaults()
 	mStringMap["INPUT P3NAME"] = "DEFAULT";
 	mStringMap["INPUT P4NAME"] = "DEFAULT";
 	mStringMap["INPUT P5NAME"] = "DEFAULT";
+	mStringMap["INPUT P6NAME"] = "DEFAULT";
+	mStringMap["INPUT P7NAME"] = "DEFAULT";
+	mStringMap["INPUT P8NAME"] = "DEFAULT";
 #ifdef _ENABLEEMUELEC
 	mStringMap["LogPath"] = ""; /*emuelec */
 #endif
@@ -446,7 +462,7 @@ bool Settings::saveFile()
 		node.append_attribute("value").set_value(iter->second.c_str());
 	}
 
-	doc.save_file(path.c_str());
+	doc.save_file(WINSTRINGW(path).c_str());
 
 	Scripting::fireEvent("config-changed");
 	Scripting::fireEvent("settings-changed");
@@ -461,7 +477,7 @@ void Settings::loadFile()
 		return;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(path.c_str());
+	pugi::xml_parse_result result = doc.load_file(WINSTRINGW(path).c_str());
 	if(!result)
 	{
 		LOG(LogError) << "Could not parse Settings file!\n   " << result.description();
@@ -482,6 +498,16 @@ void Settings::loadFile()
 		setFloat(node.attribute("name").as_string(), node.attribute("value").as_float());
 	for(pugi::xml_node node = root.child("string"); node; node = node.next_sibling("string"))
 		setString(node.attribute("name").as_string(), node.attribute("value").as_string());
+	
+	// Migrate old preferences
+	auto it = mBoolMap.find("UseCustomCollectionsSystem");
+	if (it != mBoolMap.cend())
+	{
+		if (it->second == false)
+			mStringMap["UseCustomCollectionsSystemEx"] = "false";
+
+		mBoolMap.erase(it);
+	}
 
 	mWasChanged = false;
 }

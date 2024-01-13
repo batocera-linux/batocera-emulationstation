@@ -25,12 +25,14 @@ public:
 	ImageComponent(Window* window, bool forceLoad = false, bool dynamic = true);
 	virtual ~ImageComponent();
 
+	std::string getThemeTypeName() override { return "image"; }
+
 	std::string getValue() const override { return mPath; }
 
 	void setDefaultImage(std::string path);
 
 	//Loads the image at the given filepath. Will tile if tile is true (retrieves texture as tiling, creates vertices accordingly).
-	virtual void setImage(const std::string& path, bool tile = false, MaxSizeInfo maxSize = MaxSizeInfo(), bool checkFileExists = true, bool allowMultiImagePlaylist = true);
+	virtual void setImage(const std::string& path, bool tile = false, const MaxSizeInfo& maxSize = MaxSizeInfo::Empty, bool checkFileExists = true, bool allowMultiImagePlaylist = true);
 
 	//Loads an image from memory.
 	void setImage(const char* image, size_t length, bool tile = false);
@@ -38,7 +40,7 @@ public:
 	void setImage(const std::shared_ptr<TextureResource>& texture);
 
 	void onSizeChanged() override;
-	void setOpacity(unsigned char opacity) override;
+	void onOpacityChanged() override;
 
 	// Resize the image to fit this size. If one axis is zero, scale that axis to maintain aspect ratio.
 	// If both are non-zero, potentially break the aspect ratio.  If both are zero, no resizing.
@@ -82,6 +84,8 @@ public:
 	Vector2i getTextureSize() const;
 
 	Vector2f getSize() const override;
+	void	 setSize(float w, float h) override;
+	void	 setSize(const Vector2f& size) override { setSize(size.x(), size.y()); }
 
 	bool hasImage();
 
@@ -96,26 +100,17 @@ public:
 
 	std::shared_ptr<TextureResource> getTexture() { return mTexture; };
 
-	const MaxSizeInfo getMaxSizeInfo()
-	{
-		if (mTargetSize == Vector2f(0, 0))
-			return MaxSizeInfo(mSize, mTargetIsMax);
-
-		return MaxSizeInfo(mTargetSize, mTargetIsMax);
-	};
-
-	Vector4f getPadding() { return mPadding; }
-	void setPadding(const Vector4f padding);
-
+	const MaxSizeInfo getMaxSizeInfo();
 	void setHorizontalAlignment(Alignment align) { mHorizontalAlignment = align; }
 	void setVerticalAlignment(Alignment align) { mVerticalAlignment = align; }
 
 	float getRoundCorners() { return mRoundCorners; }
 	void setRoundCorners(float value);
 
-	virtual void onShow() override;
-	virtual void onHide() override;
-	virtual void update(int deltaTime);
+	void onShow() override;
+	void onHide() override;
+	void update(int deltaTime) override;
+	void onPaddingChanged() override;
 
 	void setPlaylist(std::shared_ptr<IPlaylist> playList);
 
@@ -128,11 +123,12 @@ public:
 	ThemeData::ThemeElement::Property getProperty(const std::string name) override;
 	void setProperty(const std::string name, const ThemeData::ThemeElement::Property& value) override;
 	void setTargetIsMax() { mTargetIsMax = true; }
+	bool getTargetIsMax() { return mTargetIsMax; }
 
 	void setSaturation(float saturation);
-	void setCustomShader(const std::string& customShader) { mCustomShader = customShader; }
+	void setCustomShader(const Renderer::ShaderInfo& customShader);
 
-	std::string getOriginalThemePath() { return mSourceThemePath; }
+	Vector2f& getTargetSize() { return mTargetSize; }
 
 protected:
 	std::shared_ptr<TextureResource> mTexture;
@@ -140,9 +136,9 @@ protected:
 
 	Vector2f mTargetSize;
 
-private:
-	std::string mSourceThemePath;
+	void	recalcLayout() override;
 
+private:
 	bool mFlipX, mFlipY, mTargetIsMax, mTargetIsMin;
 
 	// Calculates the correct mSize from our resizing information (set by setResize/setMaxSize).
@@ -178,16 +174,14 @@ private:
 
 	std::string mPath;
 
-	Vector4f	mPadding;
-
 	Alignment mHorizontalAlignment;
 	Alignment mVerticalAlignment;
 
 	float mRoundCorners;
 	float mSaturation;
 
-	std::string mCustomShader;
-
+	Renderer::ShaderInfo mCustomShader;
+	
 	std::shared_ptr<IPlaylist> mPlaylist;
 	std::map<std::string, std::shared_ptr<TextureResource>> mPlaylistCache;
 

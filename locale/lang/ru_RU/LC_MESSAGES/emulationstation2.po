@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "ДОСТУПНО ОБНОВЛЕНИЕ"
@@ -287,6 +287,9 @@ msgstr "вертикальные акрады"
 msgid "lightgun games"
 msgstr "световой пистолет"
 
+msgid "wheel games"
+msgstr "игры с рулём"
+
 msgid "collections"
 msgstr "коллекции"
 
@@ -342,7 +345,7 @@ msgstr "ЗАГРУЗКА"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "ТЕМА УСПЕШНО УСТАНОВЛЕНА"
 
-msgid "AN ERROR OCCURED"
+msgid "AN ERROR OCCURRED"
 msgstr "ОШИБКА"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
@@ -400,7 +403,7 @@ msgid "Show achievement progression on game launch and other notifications."
 msgstr "Показать прогресс достижений при запуске игры и в других уведомлениях."
 
 msgid "RICH PRESENCE"
-msgstr "БОГАТОЕ ПРИСУТСТВИЕ"
+msgstr "ТЕКУЩАЯ АКТИВНОСТЬ (RICH PRESENCE)"
 
 msgid "ENCORE MODE"
 msgstr "РЕЖИМ ЭНКОРА"
@@ -495,17 +498,17 @@ msgstr "СГРУППИРОВАННЫЕ СИСТЕМЫ"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "СОЗДАТЬ СВОЮ КОЛЛЕКЦИЮ"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "СОЗДАТЬ КОЛЛЕКЦИЮ ИЗ ТЕМЫ"
+msgid "New Collection Name"
+msgstr "Название новой коллекции"
 
-msgid "SELECT THEME FOLDER"
-msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
+msgid "ENTER NAME"
+msgstr ""
+
+msgid "CREATE FROM THEME"
+msgstr ""
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ"
-
-msgid "New Collection Name"
-msgstr "Название новой коллекции"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "СОЗДАТЬ ДИНАМИЧЕСКУЮ КОЛЛЕКЦИЮ"
@@ -543,8 +546,11 @@ msgstr "ЗАПОМНИТЬ ПОСЛЕДНЮЮ"
 msgid "START ON GAMELIST"
 msgstr "НАЧИНАТЬ СО СПИСКА ИГР"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr ""
+
+msgid "UNTHEMED"
+msgstr ""
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
@@ -589,14 +595,22 @@ msgid "PLEASE WAIT"
 msgstr "ПОДОЖДИТЕ"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr ""
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr ""
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d из %d)"
 
-msgid "Points (hardcore)"
-msgstr "Очки (хардкор)"
-
 msgid "Softcore points"
 msgstr "Очки (софткор)"
+
+msgid "Points (hardcore)"
+msgstr "Очки (хардкор)"
 
 msgid "Rank"
 msgstr "Ранг"
@@ -808,6 +822,193 @@ msgstr "ВЫБОР"
 
 msgid "ADD COMBINATION KEY"
 msgstr "ДОБАВИТЬ КОМБИНАЦИЮ"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРА"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "ПРИОРИТЕТ КОНТРОЛЛЕРОВ"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "НАЗНАЧЕНИЯ ИГРОКА"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "КОНТРОЛЛЕР #%i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "P%i КОНТРОЛЛЕР"
+
+msgid "CONTROLLER MAPPING"
+msgstr "НАСТРОЙКА КОНТРОЛЛЕРА"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ СВЕТА "
+"(СЕВЕР, ЮГ, ЗАПАД, ВОСТОК). ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНОЙ КНОПКИ ДЛЯ "
+"ХОТКЕЯ, ИСПОЛЬЗУЙТЕ КНОПКУ SELECT. ПРОПУСТИТЕ ВСЕ КНОПКИ/СТИКИ, КОТОРЫХ У "
+"ВАС НЕТ, УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "НАСТРОЙКИ SINDEN GUN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "НАСТРОЙКИ WIIMOTE GUN"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "STEAMDECK МЫШЬ/НАСТРОЙКИ ПИСТОЛЕТА"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "АВТОМАТИЧЕСКОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "РУЧНОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
+
+msgid "DISPLAY OPTIONS"
+msgstr "НАСТРОЙКИ ЭКРАНА"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
+
+msgid "default"
+msgstr "по умолчанию"
+
+msgid "NOT CONNECTED"
+msgstr "НЕ ПОДКЛЮЧЕНО"
+
+msgid "BORDER SIZE"
+msgstr "РАЗМЕР РАМКИ"
+
+msgid "AUTO"
+msgstr "АВТО"
+
+msgid "THIN"
+msgstr "ТОНКИЙ"
+
+msgid "MEDIUM"
+msgstr "СРЕДНИЙ"
+
+msgid "BIG"
+msgstr "БОЛЬШОЙ"
+
+msgid "BORDER MODE"
+msgstr "РЕЖИМ ГРАНИЦ"
+
+msgid "NORMAL"
+msgstr "НОРМАЛЬНЫЙ"
+
+msgid "IN GAME ONLY"
+msgstr "ТОЛЬКО В ИГРЕ"
+
+msgid "HIDDEN"
+msgstr "СКРЫТЫЙ"
+
+msgid "BORDER COLOR"
+msgstr "ЦВЕТ РАМКИ"
+
+msgid "WHITE"
+msgstr "БЕЛЫЙ"
+
+msgid "RED"
+msgstr "КРАСНЫЙ"
+
+msgid "GREEN"
+msgstr "ЗЕЛЁНЫЙ"
+
+msgid "BLUE"
+msgstr "СИНИЙ"
+
+msgid "CAMERA CONTRAST"
+msgstr "КОНТРАСТ КАМЕРЫ"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Дневное время/яркий солнечный свет (40)"
+
+msgid "Default (50)"
+msgstr "По умолчанию (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Тусклый дисплей/вечер (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "ЯРКОСТЬ КАМЕРЫ"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Дневное время/яркий солнечный свет (80)"
+
+msgid "Default (100)"
+msgstr "По умолчанию (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Тусклый дисплей/вечер (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "ЭКСПОЗИЦИЯ КАМЕРЫ"
+
+msgid "Projector/CRT (-5)"
+msgstr "Проектор/ЭЛТ (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Проектор/ЭЛТ (-6)"
+
+msgid "Default (-7)"
+msgstr "По умолчанию (-7)"
+
+msgid "Other (-8)"
+msgstr "Другой (-8)"
+
+msgid "Other (-9)"
+msgstr "Другой (-9)"
+
+msgid "RECOIL"
+msgstr "RECOIL"
+
+msgid "DISABLED"
+msgstr "ОТКЛЮЧЕНО"
+
+msgid "GUN"
+msgstr "GUN"
+
+msgid "MACHINE GUN"
+msgstr "MACHINE GUN"
+
+msgid "QUIET GUN"
+msgstr "QUIET GUN"
+
+msgid "QUIET MACHINE GUN"
+msgstr "QUIET MACHINE GUN"
+
+msgid "MODE"
+msgstr "РЕЖИМ"
+
+msgid "JOYSTICK"
+msgstr "ДЖОЙСТИК"
+
+msgid "MOUSE ONLY"
+msgstr "ТОЛЬКО МЫШЬ"
+
+msgid "HAND"
+msgstr "РУКА"
+
+msgid "LEFT"
+msgstr "ВЛЕВО"
+
+msgid "RIGHT"
+msgstr "ВПРАВО"
 
 msgid "CONTENT DOWNLOADER"
 msgstr "ЗАГРУЗКА КОНТЕНТА"
@@ -1190,8 +1391,11 @@ msgstr "Получено"
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ИГРА НЕ ИМЕЕТ ДОСТИЖЕНИЙ"
 
-msgid "Achievements won"
-msgstr "Достижений получено"
+msgid "Achievements (softcore)"
+msgstr ""
+
+msgid "Achievements (hardcore)"
+msgstr ""
 
 #, c-format
 msgid "%d%% complete"
@@ -1254,6 +1458,15 @@ msgstr "КОЛЕСО"
 msgid "MARQUEE"
 msgstr "БАНЕР"
 
+msgid "PREFERED REGION"
+msgstr ""
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr ""
+
+msgid "OVERWRITE MEDIAS"
+msgstr ""
+
 msgid "SCRAPE FOR"
 msgstr "ЗАГРУЗКА ДЛЯ"
 
@@ -1283,6 +1496,9 @@ msgstr "РУКОВОДСТВО"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "НАСТРОЙКИ PADTOKEY"
+
+msgid "ACCOUNT"
+msgstr ""
 
 msgid "SCRAPER"
 msgstr "СКРАПЕР"
@@ -1466,12 +1682,6 @@ msgstr "РЕНДЕР"
 msgid "SHADERS"
 msgstr "ШЕЙДЕРЫ"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "НАСТРОЙКИ КОНТРОЛЛЕРА"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "НАСТРОЙКИ КОНТРОЛЛЕРОВ И УСТРОЙСТВ"
-
 msgid "INTERNAL"
 msgstr "ВНУТРЕННИЙ"
 
@@ -1532,6 +1742,9 @@ msgstr "ИНТЕРФЕЙС РАЗБЛОКИРОВАН"
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ВВЕДИТЕ КОД ДЛЯ РАЗБЛОКИРОВКИ"
 
+msgid "SERVICES"
+msgstr "СЕРВИСЫ"
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "НАСТРОЙКИ РАЗРАБОТЧИКА"
 
@@ -1552,6 +1765,12 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
+
+msgid "VIDEO MODE"
+msgstr "РАЗРЕШЕНИЕ"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Устанавливает разрешение экрана для emulationstation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "ИСП. OMX ПЛЕЕР (АППАРАТНОЕ УСКОРЕНИЕ)"
@@ -1591,8 +1810,29 @@ msgstr "ФОРМАТИРОВАТЬ"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТЬ СПИСОК ИГР И УДАЛИТЬ НЕ ИСПОЛЬЗУЕМЫЕ МЕДИА"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+
 msgid "Cleaning"
 msgstr "Очистка"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr ""
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "НАЙТИ ВСЕ ИГРЫ С NETPLAY/ДОСТИЖЕНИЯМИ"
 
 msgid "CLEAR CACHES"
 msgstr "ОЧИСТИТЬ КЭШ"
@@ -1602,15 +1842,6 @@ msgstr "СОЗДАТЬ КЭШ ИЗОБРАЖЕНИЙ"
 
 msgid "Building image cache"
 msgstr "Создание кэша изображений"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "НАЙТИ ВСЕ ИГРЫ С NETPLAY/ДОСТИЖЕНИЯМИ"
 
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
@@ -1669,11 +1900,11 @@ msgstr "ПОДРОБНОЕ МЕНЮ ВЫХОДА"
 msgid "RETROARCH MENU DRIVER"
 msgstr "МЕНЮ RETROARCH"
 
-msgid "AUTO"
-msgstr "АВТО"
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr "ПЕРЕКЛЮЧЕНИЕ КНОПОК ПОДТВЕРЖДЕНИЯ И ОТМЕНЫ В EMULATIONSTATION"
 
-msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
+msgid "Switches the South and East buttons' functionality"
+msgstr "Меняет местами функции \"Южной\" и \"Восточной\" кнопки"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ДОСТУП К ПАРАМЕТРАМ ИГРЫ СЕВЕРНОЙ КНОПКОЙ"
@@ -1769,9 +2000,6 @@ msgstr "ПОКАЗАТЬ ЧАСЫ В 12-ЧАСОВОМ ФОРМАТЕ"
 
 msgid "POWER SAVING MODE"
 msgstr "РЕЖИМ ЭНЕРГОСБЕРЕЖЕНИЯ"
-
-msgid "DISABLED"
-msgstr "ОТКЛЮЧЕНО"
 
 msgid "DEFAULT"
 msgstr "ПО УМОЛЧАНИЮ"
@@ -1986,6 +2214,55 @@ msgstr "НАБОР РАМОК (ОВЕРЛЕЕВ)"
 msgid "Current setting"
 msgstr "Текущая настройка"
 
+msgid "ACCOUNTS"
+msgstr ""
+
+msgid "BIOS SETTINGS"
+msgstr ""
+
+msgid "SAVESTATES"
+msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
+
+msgid "INCREMENT PER SAVE"
+msgstr "УВЕЛИЧЕНИЕ СОХРАНЕНИЙ"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "Никогда не перезаписывает старые сохранения, всегда создаёт новые."
+
+msgid "INCREMENT SLOT"
+msgstr "УВЕЛИЧЕНИЕ СЛОТА"
+
+msgid "Increment slot on a new game."
+msgstr "Увеличение слота в новой игре."
+
+msgid "DO NOT INCREMENT"
+msgstr "НЕ УВЕЛИЧИВАТЬ"
+
+msgid "Use current slot on a new game."
+msgstr "Использовать текущий слот в новой игре."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
+
+msgid "ALWAYS"
+msgstr "ВСЕГДА"
+
+msgid "IF NOT EMPTY"
+msgstr "ЕСЛИ ИМЕЕТСЯ"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "СТАНДАРТНЫЕ ГЛОБАЛЬНЫЕ НАСТРОЙКИ"
 
@@ -1994,9 +2271,6 @@ msgstr "СООТНОШЕНИЕ СТОРОН"
 
 msgid "Force the game to render in this aspect ratio."
 msgstr "Принудительно рендерить игру в данном соотношении сторон."
-
-msgid "VIDEO MODE"
-msgstr "РАЗРЕШЕНИЕ"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
@@ -2018,6 +2292,9 @@ msgstr "ЦЕЛОЧИСЛЕННОЕ МАСШТАБИРОВАНИЕ (PP)"
 
 msgid "SHADER SET"
 msgstr "ШЕЙДЕРЫ"
+
+msgid "VIDEO FILTER"
+msgstr "ВИДЕО ФИЛЬТР"
 
 msgid "DECORATIONS"
 msgstr "РАМКИ (ОВЕРЛЕИ)"
@@ -2079,49 +2356,6 @@ msgstr "ПАУЗА В ОКНЕ ПЕРЕВОДА"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "АВТОКОНФИГУРАЦИЯ КОНТРОЛЛЕРОВ"
 
-msgid "SAVESTATES"
-msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "АВТО СОХРАНЕНИЕ/ЗАГРУЗКА"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr ""
-"Загрузка последнего сохранения при запуске и сохранение при выходе из игры."
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ДОПОЛНИТЕЛЬНЫЕ БЫСТРЫЕ СОХРАНЕНИЯ"
-
-msgid "INCREMENT PER SAVE"
-msgstr "УВЕЛИЧЕНИЕ СОХРАНЕНИЙ"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "Никогда не перезаписывает старые сохранения, всегда создаёт новые."
-
-msgid "INCREMENT SLOT"
-msgstr "УВЕЛИЧЕНИЕ СЛОТА"
-
-msgid "Increment slot on a new game."
-msgstr "Увеличение слота в новой игре."
-
-msgid "DO NOT INCREMENT"
-msgstr "НЕ УВЕЛИЧИВАТЬ"
-
-msgid "Use current slot on a new game."
-msgstr "Использовать текущий слот в новой игре."
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "ПОКАЗАТЬ МЕНЕДЖЕР БЫСТРЫХ СОХРАНЕНИЙ"
-
-msgid "ALWAYS"
-msgstr "ВСЕГДА"
-
-msgid "IF NOT EMPTY"
-msgstr "ЕСЛИ ИМЕЕТСЯ"
-
-msgid "Display savestate manager before launching a game."
-msgstr "Показывать менеджер быстрых сохранений перед запуском игры."
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ СИСТЕМЫ"
 
@@ -2133,102 +2367,6 @@ msgstr "ЗАПУЩЕНО ХЕШИРОВАНИЕ ИГР. ОСТАНОВИТЬ?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "ТОЧНО ОБНОВИТЬ СПИСОК ИГР?"
-
-msgid "CONTROLLER MAPPING"
-msgstr "НАСТРОЙКА КОНТРОЛЛЕРА"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
-"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
-"CONFIRM WHEN DONE."
-msgstr ""
-"ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ СВЕТА, "
-"ОТНОСИТЕЛЬНО КНОПОК НА SNES ГЕЙМПАДЕ, СЕВЕР - ВВЕРХУ, ЮГ - ВНИЗУ, ЗАПАД - "
-"СЛЕВА, ВОСТОК - СПРАВА. ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНЫЙ ХОТКЕЙ, ТО "
-"ИСПОЛЬЗУЙТЕ КНОПКУ SELECT. ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС НЕТ, "
-"НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ. КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ КНОПКУ ДЛЯ "
-"ПОДТВЕРЖДЕНИЯ."
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "НАСТРОЙКИ SINDEN GUN"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "НАСТРОЙКИ WIIMOTE GUN"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "АВТОМАТИЧЕСКОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "РУЧНОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
-
-msgid "DISPLAY OPTIONS"
-msgstr "НАСТРОЙКИ ЭКРАНА"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "НАЗНАЧЕНИЯ ИГРОКА"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "P%i КОНТРОЛЛЕР"
-
-msgid "default"
-msgstr "по умолчанию"
-
-msgid "BORDER SIZE"
-msgstr "РАЗМЕР РАМКИ"
-
-msgid "THIN"
-msgstr "ТОНКИЙ"
-
-msgid "MEDIUM"
-msgstr "СРЕДНИЙ"
-
-msgid "BIG"
-msgstr "БОЛЬШОЙ"
-
-msgid "BORDER MODE"
-msgstr "РЕЖИМ ГРАНИЦ"
-
-msgid "NORMAL"
-msgstr "НОРМАЛЬНЫЙ"
-
-msgid "IN GAME ONLY"
-msgstr "ТОЛЬКО В ИГРЕ"
-
-msgid "HIDDEN"
-msgstr "СКРЫТЫЙ"
-
-msgid "RECOIL"
-msgstr "RECOIL"
-
-msgid "GUN"
-msgstr "GUN"
-
-msgid "MACHINE GUN"
-msgstr "MACHINE GUN"
-
-msgid "QUIET GUN"
-msgstr "QUIET GUN"
-
-msgid "QUIET MACHINE GUN"
-msgstr "QUIET MACHINE GUN"
-
-msgid "MODE"
-msgstr "РЕЖИМ"
-
-msgid "JOYSTICK"
-msgstr "ДЖОЙСТИК"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "ВЫ ДОЛЖНЫ ПРИМЕНИТЬ ТЕМУ ПЕРЕД ИЗМЕНЕНИЕМ НАСТРОЕК"
@@ -2290,6 +2428,15 @@ msgstr "ПОКАЗАТЬ ИКОНКУ СОХРАНЕНИЙ В СПИСКАХ"
 msgid "SHOW MANUAL ICON"
 msgstr "ПОКАЗАТЬ ИКОНКУ РУКОВОДСТВА В СПИСКАХ"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr ""
+
+msgid "SHOW GUN ICON"
+msgstr ""
+
+msgid "SHOW WHEEL ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
 
@@ -2320,6 +2467,9 @@ msgstr "авто"
 msgid "GAME LAUNCH TRANSITION"
 msgstr "АНИМАЦИЯ ЗАПУСКА ИГРЫ"
 
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr "ИГРОВЫЕ МЕДИА ВО ВРЕМЯ БЫСТРОЙ ПРОКРУТКИ"
+
 msgid "SHOW CLOCK"
 msgstr "ПОКАЗАТЬ ЧАСЫ"
 
@@ -2334,6 +2484,9 @@ msgstr "ИКОНКА"
 
 msgid "ICON AND TEXT"
 msgstr "ИКОНКА И ТЕКСТ"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr ""
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКИ"
@@ -2389,9 +2542,6 @@ msgstr "IP АДРЕС"
 msgid "CONNECTED"
 msgstr "ПОДКЛЮЧЕНО"
 
-msgid "NOT CONNECTED"
-msgstr "НЕ ПОДКЛЮЧЕНО"
-
 msgid "INTERNET STATUS"
 msgstr "СТАТУС СЕТИ"
 
@@ -2428,6 +2578,12 @@ msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 msgid "VIEW USER MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
+msgid "DISABLE PLANE MODE"
+msgstr "ОТКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
+
+msgid "ENABLE PLANE MODE"
+msgstr "ВКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
+
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
@@ -2435,10 +2591,10 @@ msgid "REALLY RESTART?"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "ПРИОСТАНОВЛЕННАЯ СИСТЕМА"
+msgstr "СПЯЩИЙ РЕЖИМ"
 
 msgid "REALLY SUSPEND ?"
-msgstr "ПРИОСТАНОВИТЬ?"
+msgstr "ПЕРЕЙТИ В СПЯЩИЙ РЕЖИМ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ВЫКЛЮЧИТЬ СИСТЕМУ"
@@ -2661,9 +2817,6 @@ msgstr[0] "Папка содержит %i игру, включая :%s"
 msgstr[1] "Папка содержит %i игры, включая :%s"
 msgstr[2] "Папка содержит %i игр, включая :%s"
 
-msgid "No Entries Found"
-msgstr "Игр не найдено"
-
 msgid "Games similar to"
 msgstr "Игры похожие на"
 
@@ -2678,6 +2831,16 @@ msgstr "ПАРАМЕТРЫ"
 
 msgid "FAVORITE"
 msgstr "ИЗБРАННОЕ"
+
+#, c-format
+msgid "Back to %s"
+msgstr ""
+
+msgid "No Entries Found"
+msgstr "Игр не найдено"
+
+msgid "INVALID CONTENT"
+msgstr "НЕДОПУСТИМОЕ СОДЕРЖАНИЕ"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2878,8 +3041,14 @@ msgstr "ВЕРТИКАЛЬНО"
 msgid "LIGHTGUN"
 msgstr "СВЕТОВОЙ ПИСТОЛЕТ"
 
-msgid "HAS MEDIAS"
-msgstr "С МЕДИА"
+msgid "STEERING WHEEL"
+msgstr "РУЛЬ"
+
+msgid "HAVING MEDIAS"
+msgstr ""
+
+msgid "MISSING MEDIAS"
+msgstr ""
 
 msgid "SCRAPING"
 msgstr "ЗАГРУЗКА"
@@ -2918,20 +3087,20 @@ msgid "SPACE"
 msgstr "ПРОБЕЛ"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "ВВЕРХ"
+msgid "NORTH"
+msgstr "СЕВЕР (СВЕРХУ)"
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "ВНИЗ"
+msgid "SOUTH"
+msgstr "ЮГ (СНИЗУ)"
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "ВЛЕВО"
+msgid "EAST"
+msgstr "ВОСТОК (СПРАВА)"
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "ВПРАВО"
+msgid "WEST"
+msgstr "ЗАПАД (СЛЕВА)"
 
 msgctxt "joystick"
 msgid "START"
@@ -2940,6 +3109,22 @@ msgstr "START"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr "КРЕСТОВИНА - ВВЕРХ"
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr "КРЕСТОВИНА - ВНИЗ"
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr "КРЕСТОВИНА - ВЛЕВО"
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr "КРЕСТОВИНА - ВПРАВО"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2972,6 +3157,30 @@ msgstr "ПРАВЫЙ АНАЛОГ ВЛЕВО"
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
 msgstr "ПРАВЫЙ АНАЛОГ ВПРАВО"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr "ЛЕВЫЙ БАМПЕР"
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr "ПРАВЫЙ БАМПЕР"
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr "ЛЕВЫЙ ТРИГГЕР"
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr "ПРАВЫЙ ТРИГГЕР"
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr "НАЖАТИЕ НА ЛЕВЫЙ СТИК"
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr "НАЖАТИЕ НА ПРАВЫЙ СТИК"
 
 msgctxt "joystick"
 msgid "HOTKEY"
@@ -3038,6 +3247,12 @@ msgstr "КОНТРОЛЛЕРЫ НЕ ОБНАРУЖЕНЫ"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ НАСТРОЙКИ."
 
+msgid "PRESS ESC TO CANCEL."
+msgstr ""
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr ""
+
 msgid "DISCARD CHANGES"
 msgstr "ОТМЕНИТЬ ИЗМЕНЕНИЯ"
 
@@ -3078,6 +3293,32 @@ msgstr "РЕДАКТИРОВАТЬ"
 msgid "ENABLED"
 msgstr "ВКЛЮЧЕНО"
 
+msgid "WORKING..."
+msgstr "ОБРАБОТКА..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d д"
+
+#, c-format
+msgid "%d h"
+msgstr "%d ч"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d мин"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d сек"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3106,26 +3347,59 @@ msgstr[0] "%d секунду назад"
 msgstr[1] "%d секунды назад"
 msgstr[2] "%d секунд назад"
 
-msgid "WORKING..."
-msgstr "ОБРАБОТКА..."
-
-#, c-format
-msgid "%d h"
-msgstr "%d ч"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d мин"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d сек"
-
 msgid "SCREEN READER ENABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВКЛЮЧЕН"
 
 msgid "SCREEN READER DISABLED"
 msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
+
+#~ msgid "Achievements won"
+#~ msgstr "Достижений получено"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "СОЗДАТЬ КОЛЛЕКЦИЮ ИЗ ТЕМЫ"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "ВЫБЕРИТЕ ПАПКУ ТЕМЫ"
+
+#~ msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
+#~ msgstr "СГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
+
+#~ msgid "HAS MEDIAS"
+#~ msgstr "С МЕДИА"
+
+#~ msgctxt "joystick"
+#~ msgid "UP"
+#~ msgstr "ВВЕРХ"
+
+#~ msgctxt "joystick"
+#~ msgid "DOWN"
+#~ msgstr "ВНИЗ"
+
+#~ msgctxt "joystick"
+#~ msgid "LEFT"
+#~ msgstr "ВЛЕВО"
+
+#~ msgctxt "joystick"
+#~ msgid "RIGHT"
+#~ msgstr "ВПРАВО"
+
+#~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
+#~ msgstr "ПОМЕНЯТЬ КНОПКИ A/B В EMULATIONSTATION"
+
+#~ msgid ""
+#~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
+#~ "RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. "
+#~ "IF YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP "
+#~ "ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH "
+#~ "BUTTON TO CONFIRM WHEN DONE."
+#~ msgstr ""
+#~ "ВЫ СОБИРАЕТЕСЬ НАСТРОИТЬ КОНТРОЛЛЕР. РАСКЛАДКА ОСНОВАНА НА СТОРОНАХ "
+#~ "СВЕТА, ОТНОСИТЕЛЬНО КНОПОК НА SNES ГЕЙМПАДЕ, СЕВЕР - ВВЕРХУ, ЮГ - ВНИЗУ, "
+#~ "ЗАПАД - СЛЕВА, ВОСТОК - СПРАВА. ЕСЛИ У ВАС ОТСУТСТВУЕТ ОТДЕЛЬНЫЙ ХОТКЕЙ, "
+#~ "ТО ИСПОЛЬЗУЙТЕ КНОПКУ SELECT. ПРОПУСКАЙТЕ ВСЕ КНОПКИ/СТИКИ КОТОРЫХ У ВАС "
+#~ "НЕТ, НАЖАВ И УДЕРЖИВАЯ ЛЮБУЮ КНОПКУ. КОГДА ЗАКОНЧИТЕ, НАЖМИТЕ ЮЖНУЮ "
+#~ "КНОПКУ ДЛЯ ПОДТВЕРЖДЕНИЯ."
 
 #~ msgid "Force the emulator to run at this resolution."
 #~ msgstr "Принудительно запускать эмулятор с этим разрешением."
@@ -3342,12 +3616,6 @@ msgstr "ЭКРАННЫЙ ДИКТОР ВЫКЛЮЧЕН"
 
 #~ msgid "DOWN"
 #~ msgstr "ВНИЗ"
-
-#~ msgid "LEFT"
-#~ msgstr "ВЛЕВО"
-
-#~ msgid "RIGHT"
-#~ msgstr "ВПРАВО"
 
 #~ msgid "LEFT ANALOG UP"
 #~ msgstr "ЛЕВЫЙ СТИК ВВЕРХ"

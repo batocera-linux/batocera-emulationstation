@@ -14,6 +14,11 @@
 #include <SDL.h>
 #include <stack>
 
+#if WIN32
+#include <Windows.h>
+#include <SDL_syswm.h>
+#endif
+
 namespace Renderer
 {
 	static std::stack<Rect> clipStack;
@@ -32,6 +37,10 @@ namespace Renderer
 	static Rect				viewPort;
 
 	static Vector2i			sdlWindowPosition = Vector2i(SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED);
+
+	static int              currentFrame = 0;
+
+	int  getCurrentFrame() { return currentFrame; }
 
 	static Rect screenToviewport(const Rect& rect)
 	{
@@ -57,10 +66,10 @@ namespace Renderer
 	Rect		getScreenRect(const Transform4x4f& transform, const Vector2f& size, bool viewPort)
 	{
 		auto rc = Rect(
-			transform.translation().x(),
-			transform.translation().y(),
-			size.x() * transform.r0().x(),
-			size.y() * transform.r1().y());
+			(int)Math::round(transform.translation().x()),
+			(int)Math::round(transform.translation().y()),
+			(int)Math::round(size.x() * transform.r0().x()),
+			(int)Math::round(size.y() * transform.r1().y()));
 
 		if (viewPort && screenMargin.x() != 0 && screenMargin.y() != 0)
 			return screenToviewport(rc);
@@ -222,11 +231,37 @@ namespace Renderer
 
 #if WIN32
 		if (windowFlags & SDL_WINDOW_BORDERLESS)
-		{			
-			// If we don't do that, with some machines, the screen stays black... (Ambernic Win600)
+		{
+			int x;
+			int y;
+			SDL_GetWindowPosition(sdlWindow, &x, &y);
+
 			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_TRUE);
-			SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_FALSE);
-			SDL_SetWindowPosition(sdlWindow, sdlWindowPosition.x(), sdlWindowPosition.y());
+			
+			SDL_SysWMinfo wmInfo;
+			SDL_VERSION(&wmInfo.version);
+			SDL_GetWindowWMInfo(sdlWindow, &wmInfo);
+			HWND hWnd = wmInfo.info.win.window;
+			if (hWnd != NULL)
+			{
+				LONG lStyle = GetWindowLong(hWnd, GWL_STYLE);
+				lStyle &= ~(WS_CAPTION | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_SYSMENU);
+				SetWindowLong(hWnd, GWL_STYLE, lStyle);
+
+				LONG lExStyle = GetWindowLong(hWnd, GWL_EXSTYLE);
+				lExStyle &= ~(WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE | WS_EX_STATICEDGE);
+				SetWindowLong(hWnd, GWL_EXSTYLE, lExStyle);
+
+				SetWindowPos(hWnd, NULL,
+					x, y,
+					windowWidth, windowHeight,
+					SWP_FRAMECHANGED | SWP_NOZORDER | SWP_NOOWNERZORDER);
+			}
+			else
+			{
+				SDL_SetWindowBordered(sdlWindow, SDL_bool::SDL_FALSE);
+				SDL_SetWindowPosition(sdlWindow, x, y);
+			}
 		}
 #endif
 
@@ -476,8 +511,8 @@ namespace Renderer
 		vertices[3] = { { _x + _w,_y + _h }, { 0.0f, 0.0f }, colorEnd };
 
 		// round vertices
-		for(int i = 0; i < 4; ++i)
-			vertices[i].pos.round();
+		//for(int i = 0; i < 4; ++i)
+		//	vertices[i].pos.round();
 
 		bindTexture(0);
 		drawTriangleStrips(vertices, 4, _srcBlendFactor, _dstBlendFactor);
@@ -832,9 +867,24 @@ namespace Renderer
 		Instance()->drawTriangleStrips(_vertices, _numVertices, _srcBlendFactor, _dstBlendFactor, verticesChanged);
 	}
 
+	void drawSolidRectangle(const float _x, const float _y, const float _w, const float _h, const unsigned int _fillColor, const unsigned int _borderColor, float borderWidth, float cornerRadius)
+	{
+		Instance()->drawSolidRectangle(_x, _y, _w, _h, _fillColor, _borderColor, borderWidth, cornerRadius);
+	}
+
 	void drawTriangleFan(const Vertex* _vertices, const unsigned int _numVertices, const Blend::Factor _srcBlendFactor, const Blend::Factor _dstBlendFactor)
 	{
 		Instance()->drawTriangleFan(_vertices, _numVertices, _srcBlendFactor, _dstBlendFactor);
+	}
+
+	bool shaderSupportsCornerSize(const std::string& shader)
+	{
+		return Instance()->shaderSupportsCornerSize(shader);
+	}
+
+	bool supportShaders()
+	{
+		return Instance()->supportShaders();
 	}
 
 	void setProjection(const Transform4x4f& _projection)
@@ -845,6 +895,18 @@ namespace Renderer
 	void setMatrix(const Transform4x4f& _matrix)
 	{
 		Instance()->setMatrix(_matrix);
+	}
+
+	void blurBehind(const float _x, const float _y, const float _w, const float _h, const float blurSize)
+	{
+		std::map<std::string, std::string> map;
+		map["blur"] = std::to_string(blurSize);
+		Instance()->postProcessShader(":/shaders/blur.glsl", _x, _y, _w, _h, map);		
+	}
+
+	void postProcessShader(const std::string& path, const float _x, const float _y, const float _w, const float _h, const std::map<std::string, std::string>& parameters, unsigned int* data)
+	{
+		Instance()->postProcessShader(path, _x, _y, _w, _h, parameters, data);
 	}
 
 	Rect& getViewport()
@@ -880,6 +942,7 @@ namespace Renderer
 
 	void swapBuffers() 
 	{
+		currentFrame++;
 		Instance()->swapBuffers();
 	}
 

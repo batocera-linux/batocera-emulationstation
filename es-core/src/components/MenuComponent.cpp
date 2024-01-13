@@ -27,6 +27,7 @@ MenuComponent::MenuComponent(Window* window,
 	mBackground.setEdgeColor(theme->Background.color);
 	mBackground.setCenterColor(theme->Background.centerColor);
 	mBackground.setCornerSize(theme->Background.cornerSize);
+	mBackground.setPostProcessShader(theme->Background.menuShader);
 	mBackground.setZIndex(2);
 
 	// set up title
@@ -145,7 +146,8 @@ void MenuComponent::addWithLabel(const std::string& label, const std::shared_ptr
 	if (EsLocale::isRTL())
 		text->setHorizontalAlignment(Alignment::ALIGN_RIGHT);
 
-	row.addElement(comp, false);
+	if (comp != nullptr)
+		row.addElement(comp, false);
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
@@ -176,6 +178,7 @@ void MenuComponent::addWithDescription(const std::string& label, const std::stri
 
 	if (func != nullptr)
 		row.makeAcceptInputHandler(func);
+
 
 	addRow(row, setCursorHere, doUpdateSize, userData);
 }
@@ -242,7 +245,7 @@ void MenuComponent::setTitleImage(std::shared_ptr<ImageComponent> titleImage, bo
 	
 	if (replaceTitle)
 	{		
-		mTitleImage->setMaxSize(mSize.x() * 0.7f, TITLE_HEIGHT);
+		mTitleImage->setMaxSize(mSize.x() * 0.85f, TITLE_HEIGHT);
 
 		mHeaderGrid->setColWidthPerc(0, 0);
 		mHeaderGrid->setColWidthPerc(1, 1);
@@ -379,22 +382,18 @@ void MenuComponent::onSizeChanged()
 	mBackground.fitTo(mSize, Vector3f::Zero(), Vector2f(-32, -32));
 
 	// update grid row/col sizes
-	mGrid.setRowHeightPerc(0, TITLE_HEIGHT / mSize.y(), false);
-	mGrid.setRowHeightPerc(2, getButtonGridHeight() / mSize.y(), false);
+	mGrid.setRowHeight(0, TITLE_HEIGHT, false);
+	mGrid.setRowHeight(2, getButtonGridHeight(), false);
 
 	mGrid.setSize(mSize);
-	/*
-	if (mTitleImage != nullptr)
-	{
-		mTitleImage->setMaxSize(mSize.x() * 0.80, TITLE_HEIGHT * 0.85); // replaceTitle
 
-		if (mTitle != nullptr && mTitle->isVisible())
-		{
-			float iw = mTitleImage->getSize().x() / mSize.x();
-			mHeaderGrid->setColWidthPerc(0, 1 - iw);
-			mHeaderGrid->setColWidthPerc(1, iw);
-		}
-	}*/
+	// Fix size if the Title Image replaces the title
+	if (mTitleImage != nullptr && (mTitle == nullptr || !mTitle->isVisible()))
+	{		
+		mTitleImage->setOrigin(0.5f, 0.5f);
+		mTitleImage->setPosition(getPosition().x() + mSize.x() / 2.0f, getPosition().y() + TITLE_HEIGHT / 2.0f);
+		mTitleImage->setMaxSize(mSize.x() * 0.85f, TITLE_HEIGHT);
+	}
 }
 
 void MenuComponent::clearButtons()

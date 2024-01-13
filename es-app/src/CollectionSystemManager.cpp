@@ -33,23 +33,25 @@ CollectionSystemManager* CollectionSystemManager::sInstance = NULL;
 
 std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 {
-	CollectionSystemDecl systemDecls[] = {
-		//type                name            long name                 default sort					  theme folder               isCustom     displayIfEmpty
-		{ AUTO_ALL_GAMES,       "all",          _("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false,       true },
-		{ AUTO_LAST_PLAYED,     "recent",       _("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false,       true },
-		{ AUTO_FAVORITES,       "favorites",    _("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false,       true },
-		{ AUTO_AT2PLAYERS,      "2players",	    _("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, 
-		{ AUTO_AT4PLAYERS,      "4players",     _("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, 
-		{ AUTO_NEVER_PLAYED,    "neverplayed",  _("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, 
-		{ AUTO_RETROACHIEVEMENTS,"retroachievements",  _("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
+	CollectionSystemDecl systemDecls[] = 
+	{
+		//type						name            long name                 default sort					  theme folder               isCustom     displayIfEmpty
+		{ AUTO_ALL_GAMES,			"all",				_("all games"),         FileSorts::FILENAME_ASCENDING,    "auto-allgames",           false,       true },
+		{ AUTO_LAST_PLAYED,			"recent",			_("last played"),       FileSorts::LASTPLAYED_ASCENDING,  "auto-lastplayed",         false,       true },
+		{ AUTO_FAVORITES,			"favorites",		_("favorites"),         FileSorts::FILENAME_ASCENDING,    "auto-favorites",          false,       true },
+		{ AUTO_AT2PLAYERS,			"2players",			_("2 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at2players",         false,       true }, 
+		{ AUTO_AT4PLAYERS,			"4players",			_("4 players"),         FileSorts::FILENAME_ASCENDING,    "auto-at4players",         false,       true }, 
+		{ AUTO_NEVER_PLAYED,		"neverplayed",		_("never played"),      FileSorts::FILENAME_ASCENDING,    "auto-neverplayed",        false,       true }, 
+		{ AUTO_RETROACHIEVEMENTS,	"retroachievements",_("retroachievements"),  FileSorts::FILENAME_ASCENDING,    "auto-retroachievements",        false,       true }, 
 
 		// Arcade meta 
-		{ AUTO_ARCADE,           "arcade",       _("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, 
-		{ AUTO_VERTICALARCADE,   "vertical",     _("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, 
-		{ AUTO_LIGHTGUN,		 "lightgun",     _("lightgun games"),    FileSorts::FILENAME_ASCENDING,    "auto-lightgun",           false,       true }, 
+		{ AUTO_ARCADE,				 "arcade",			_("arcade"),            FileSorts::FILENAME_ASCENDING,    "arcade",				     false,       true }, 
+		{ AUTO_VERTICALARCADE,		 "vertical",		_("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, 
+		{ AUTO_LIGHTGUN,			 "lightgun",		_("lightgun games"),    FileSorts::FILENAME_ASCENDING,    "auto-lightgun",           false,       true },
+		{ AUTO_WHEEL,				 "wheel",			_("wheel games"),    FileSorts::FILENAME_ASCENDING,    "auto-wheel",           false,       true }, 
 
 		// Custom collection
-		{ CUSTOM_COLLECTION,    myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
+		{ CUSTOM_COLLECTION,		myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
 	};
 
 	auto ret = std::vector<CollectionSystemDecl>(systemDecls, systemDecls + sizeof(systemDecls) / sizeof(systemDecls[0]));
@@ -61,6 +63,9 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 			continue;
 
 		if (genre->id == GENRE_LIGHTGUN) // see AUTO_LIGHTGUN instead
+			continue;
+
+		if (genre->id == GENRE_WHEEL) // see AUTO_WHEEL instead
 			continue;
 
 		std::string shortName = genre->parent == nullptr ? genre->nom_en : genre->parent->nom_en + "_" + genre->nom_en;
@@ -156,14 +161,14 @@ CollectionSystemManager::~CollectionSystemManager()
 	sInstance = NULL;
 }
 
-bool systemByAlphaSort(SystemData* sys1, SystemData* sys2)
+static bool systemByAlphaSort(SystemData* sys1, SystemData* sys2)
 {
 	std::string name1 = Utils::String::toUpper(sys1->getFullName());
 	std::string name2 = Utils::String::toUpper(sys2->getFullName());
 	return name1.compare(name2) < 0;
 }
 
-bool systemByManufacurerSort(SystemData* sys1, SystemData* sys2)
+static bool systemByManufacurerSort(SystemData* sys1, SystemData* sys2)
 {	
 	// Move collection at End
 	if (sys1->isCollection() != sys2->isCollection())
@@ -198,7 +203,7 @@ bool systemByManufacurerSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
-bool systemBySubgroupSort(SystemData* sys1, SystemData* sys2)
+static bool systemBySubgroupSort(SystemData* sys1, SystemData* sys2)
 {	
 	// Move collection at End
 	if (sys1->isCollection() != sys2->isCollection())
@@ -242,7 +247,7 @@ bool systemBySubgroupSort(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
-bool systemByReleaseDate(SystemData* sys1, SystemData* sys2)
+static bool systemByReleaseDate(SystemData* sys1, SystemData* sys2)
 {
 	// Order by hardware
 	int mf1 = sys1->getSystemMetadata().releaseYear;
@@ -260,7 +265,7 @@ bool systemByReleaseDate(SystemData* sys1, SystemData* sys2)
 	return name1.compare(name2) < 0;
 }
 
-bool systemByHardwareSort(SystemData* sys1, SystemData* sys2)
+static bool systemByHardwareSort(SystemData* sys1, SystemData* sys2)
 {
 	// Move collection at End
 	if (sys1->isCollection() != sys2->isCollection())
@@ -342,7 +347,7 @@ void CollectionSystemManager::loadCollectionSystems()
 	mCustomCollectionsBundle = createNewCollectionEntry(decl.name, decl, false);
 
 	initCustomCollectionSystems();
-	loadEnabledListFromSettings();
+	loadEnabledListFromSettings();	
 }
 
 // loads settings
@@ -366,6 +371,8 @@ void CollectionSystemManager::loadEnabledListFromSettings()
 // updates enabled system list in System View
 void CollectionSystemManager::updateSystemsList()
 {
+	updateSystemsFromTheme();
+
 	auto sortMode = Settings::getInstance()->getString("SortSystems");
 	bool sortByManufacturer = SystemData::IsManufacturerSupported && sortMode == "manufacturer";
 	bool sortByHardware = SystemData::IsManufacturerSupported && sortMode == "hardware";
@@ -429,11 +436,11 @@ void CollectionSystemManager::refreshCollectionSystems(FileData* file)
 	allCollections.insert(mAutoCollectionSystemsData.cbegin(), mAutoCollectionSystemsData.cend());
 	allCollections.insert(mCustomCollectionSystemsData.cbegin(), mCustomCollectionSystemsData.cend());
 
-	for (auto sysDataIt = allCollections.cbegin(); sysDataIt != allCollections.cend(); sysDataIt++)
-		updateCollectionSystem(file, sysDataIt->second);
+	for (auto sys : allCollections)
+		updateCollectionSystem(file, sys.second);
 }
 
-void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionSystemData sysData)
+void CollectionSystemManager::updateCollectionSystem(FileData* file, const CollectionSystemData& sysData)
 {
 	if (!sysData.isPopulated)
 		return;
@@ -442,10 +449,11 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 	std::string key = file->getFullPath();
 
 	SystemData* curSys = sysData.system;
-	FileData* collectionEntry = curSys->getRootFolder()->FindByPath(key);
+	FileData*   collectionEntry = curSys->getRootFolder()->FindByPath(key);
 	FolderData* rootFolder = curSys->getRootFolder();
-
 	std::string name = curSys->getName();
+
+	auto view = ViewController::get()->getGameListView(curSys, false);
 
 	if (collectionEntry != nullptr)
 	{
@@ -455,21 +463,17 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 		// found and we are removing
 		if (name == "favorites" && !file->getFavorite())
 		{
-			// need to check if still marked as favorite, if not remove
-			auto view = ViewController::get()->getGameListView(curSys, false);
 			if (view != nullptr)
 				view.get()->remove(collectionEntry);
 			else
 				delete collectionEntry;
 
-			// Send an event when removing from favorites
-			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
+			collectionEntry = nullptr;
 		}
 		else
 		{
 			// re-index with new metadata
 			curSys->addToIndex(collectionEntry);
-			ViewController::get()->onFileChanged(collectionEntry, FILE_METADATA_CHANGED);
 		}
 	}
 	else
@@ -478,10 +482,9 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 		if (name == "recent" && file->getMetadata(MetaDataId::PlayCount) > "0" && includeFileInAutoCollections(file) ||
 			name == "favorites" && file->getFavorite())
 		{
-			CollectionFileData* newGame = new CollectionFileData(file, curSys);
+			auto newGame = new CollectionFileData(file, curSys);
 			rootFolder->addChild(newGame);
 			curSys->addToIndex(newGame);
-			ViewController::get()->onFileChanged(file, FILE_METADATA_CHANGED);
 		}
 	}
 
@@ -491,10 +494,10 @@ void CollectionSystemManager::updateCollectionSystem(FileData* file, CollectionS
 	{
 		sortLastPlayed(curSys);
 		trimCollectionCount(rootFolder, LAST_PLAYED_MAX);
-		ViewController::get()->onFileChanged(rootFolder, FILE_METADATA_CHANGED);
 	}
-	else
-		ViewController::get()->onFileChanged(rootFolder, FILE_SORTED);
+	
+	if (view != nullptr)
+		view->onFileChanged(rootFolder, name == "recent" || collectionEntry == nullptr ? FILE_METADATA_CHANGED : FILE_SORTED);
 }
 
 void CollectionSystemManager::sortLastPlayed(SystemData* system)
@@ -561,43 +564,6 @@ void CollectionSystemManager::deleteCollectionFiles(FileData* file)
 		else
 			delete collectionEntry;		
 	}
-}
-
-// returns whether the current theme is compatible with Automatic or Custom Collections
-bool CollectionSystemManager::isThemeGenericCollectionCompatible(bool genericCustomCollections)
-{
-	std::vector<std::string> cfgSys = getCollectionThemeFolders(genericCustomCollections);
-	for(auto sysIt = cfgSys.cbegin(); sysIt != cfgSys.cend(); sysIt++)
-	{
-		if(!themeFolderExists(*sysIt))
-			return false;
-	}
-	return true;
-}
-
-bool CollectionSystemManager::isThemeCustomCollectionCompatible(std::vector<std::string> stringVector)
-{
-	if (isThemeGenericCollectionCompatible(true))
-		return true;
-
-	// get theme path
-	auto themeSets = ThemeData::getThemeSets();
-	auto set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
-	if(set != themeSets.cend())
-	{
-		std::string defaultThemeFilePath = set->second.path + "/theme.xml";
-		if (Utils::FileSystem::exists(defaultThemeFilePath))
-		{
-			return true;
-		}
-	}
-
-	for(auto sysIt = stringVector.cbegin(); sysIt != stringVector.cend(); sysIt++)
-	{
-		if(!themeFolderExists(*sysIt))
-			return false;
-	}
-	return true;
 }
 
 std::string CollectionSystemManager::getValidNewCollectionName(std::string inName, int index)
@@ -673,7 +639,7 @@ bool CollectionSystemManager::inInCustomCollection(FileData* file, const std::st
 }
 
 // Adds or removes a game from a specific collection
-bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::string collectionName)
+bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::string& collectionName)
 {
 	if (file->getType() != GAME)
 		return false;
@@ -702,7 +668,9 @@ bool CollectionSystemManager::toggleGameInCollection(FileData* file, const std::
 		saveToGamelistRecovery(sourceFile);
 		refreshCollectionSystems(sourceFile);
 
-		ViewController::get()->onFileChanged(sourceFile, FILE_METADATA_CHANGED);
+		auto view = ViewController::get()->getGameListView(sourceSystem, false);
+		if (view != nullptr && view->hasFileDataEntry(sourceFile))
+			view->onFileChanged(sourceFile, FILE_METADATA_CHANGED);
 	}
 	else
 	{
@@ -786,14 +754,9 @@ SystemData* CollectionSystemManager::getSystemToView(SystemData* sys)
 // loads Automatic Collection systems (All, Favorites, Last Played)
 void CollectionSystemManager::initAutoCollectionSystems()
 {
-	for(std::map<std::string, CollectionSystemDecl>::const_iterator it = mCollectionSystemDeclsIndex.cbegin() ; it != mCollectionSystemDeclsIndex.cend() ; it++ )
-	{
-		CollectionSystemDecl sysDecl = it->second;
-		if (!sysDecl.isCustom)
-		{
-			createNewCollectionEntry(sysDecl.name, sysDecl);
-		}
-	}
+	for (auto item : mCollectionSystemDeclsIndex)
+		if (!item.second.isCustom)
+			createNewCollectionEntry(item.second.name, item.second);
 }
 
 // this may come in handy if at any point in time in the future we want to
@@ -808,9 +771,10 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	std::string releasedate = "N/A";
 	std::string developer = _("None");
 	std::string genre = _("None");
-	std::string video = "";
-	std::string thumbnail = "";
-	std::string image = "";
+	std::string video;
+	std::string thumbnail;
+	std::string image;
+	std::string marquee;
 
 	auto games = rootFolder->getChildren();
 	char trstring[1024];
@@ -866,6 +830,7 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 			video = randomGame->getVideoPath();
 			thumbnail = randomGame->getThumbnailPath();
 			image = randomGame->getImagePath();
+			marquee = randomGame->getMarqueePath();
 		}
 	}
 	
@@ -878,9 +843,23 @@ void CollectionSystemManager::updateCollectionFolderMetadata(SystemData* sys)
 	rootFolder->setMetadata(MetaDataId::Video, video);
 	rootFolder->setMetadata(MetaDataId::Thumbnail, thumbnail);
 	rootFolder->setMetadata(MetaDataId::Image, image);
+	rootFolder->setMetadata(MetaDataId::Marquee, marquee);
+	rootFolder->setMetadata(MetaDataId::Wheel, marquee);
 	rootFolder->setMetadata(MetaDataId::KidGame, "false");
 	rootFolder->setMetadata(MetaDataId::Hidden, "false");
 	rootFolder->setMetadata(MetaDataId::Favorite, "false");
+
+	auto theme = sys->getTheme();
+	if (theme)
+	{
+		const ThemeData::ThemeElement* logoElem = theme->getElement("system", "logo", "image");
+		if (logoElem && logoElem->has("path"))
+		{
+			std::string path = logoElem->get<std::string>("path");
+			rootFolder->setMetadata(MetaDataId::Marquee, path);
+			rootFolder->setMetadata(MetaDataId::Wheel, path);		
+		}
+	}
 
 	rootFolder->getMetadata().resetChangedFlag();
 }
@@ -934,7 +913,7 @@ SystemData* CollectionSystemManager::createNewCollectionEntry(std::string name, 
 	bool loadThemeIfEnabled = (name == myCollectionsName || (std::find(selected.cbegin(), selected.cend(), name) != selected.cend()));
 
 	SystemData* newSys = new SystemData(md, mCollectionEnvData, NULL, true, false, loadThemeIfEnabled); 
-
+		
 	CollectionSystemData newCollectionData;
 	newCollectionData.system = newSys;
 	newCollectionData.decl = sysDecl;
@@ -1020,6 +999,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 			case AUTO_LIGHTGUN:
 				include = game->isLightGunGame();
 				break;
+			case AUTO_WHEEL:
+				include = game->isWheelGame();
+				break;
 			case AUTO_RETROACHIEVEMENTS:
 				include = game->hasCheevos();
 				break;
@@ -1044,22 +1026,10 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 					include = false;
 				else
 				{
-					int min = -1;
+					auto range = game->parsePlayersRange();
 
-					auto split = players.rfind("+");
-					if (split != std::string::npos)
-						players = Utils::String::replace(players, "+", "-999");
-
-					split = players.rfind("-");
-					if (split != std::string::npos)
-					{
-						min = atoi(players.substr(0, split).c_str());
-						players = players.substr(split + 1);
-					}
-
-					int max = atoi(players.c_str());
 					int val = (sysDecl.type == AUTO_AT2PLAYERS ? 2 : 4);
-					include = min <= 0 ? (val == max) : (min <= val && val <= max);
+					include = range.first <= 0 ? (val == range.second) : (range.first <= val && val <= range.second);
 				}
 			}
 			break;
@@ -1279,8 +1249,11 @@ void CollectionSystemManager::addEnabledCollectionsToDisplayedSystems(std::map<s
 			}
 		}
 
+		auto useCustomCollectionsSystemEx = Settings::getInstance()->getString("UseCustomCollectionsSystemEx");
+		bool addToSystemVector = useCustomCollectionsSystemEx == "false" || (useCustomCollectionsSystemEx != "true" && themeFolderExists(it->first));
+
 		// check if it has its own view
-		if (!groupableCollection || themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem")) 
+		if (!groupableCollection || addToSystemVector) // themeFolderExists(it->first) || !Settings::getInstance()->getBool("UseCustomCollectionsSystem"))
 		{
 			if (it->second.decl.displayIfEmpty || it->second.system->getRootFolder()->getChildren().size() > 0)
 			{
@@ -1314,7 +1287,7 @@ std::vector<std::string> CollectionSystemManager::getSystemsFromConfig()
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if(!res)
 	{
@@ -1340,15 +1313,15 @@ std::vector<std::string> CollectionSystemManager::getSystemsFromConfig()
 }
 
 // gets all folders from the current theme path
-std::vector<std::string> CollectionSystemManager::getSystemsFromTheme()
-{
+void CollectionSystemManager::updateSystemsFromTheme()
+{	
 	std::vector<std::string> systems;
 
 	auto themeSets = ThemeData::getThemeSets();
-	if(themeSets.empty())
+	if (themeSets.empty())
 	{
-		// no theme sets available
-		return systems;
+		mSystemsFromTheme = systems;
+		return;
 	}
 
 	std::map<std::string, ThemeSet>::const_iterator set = themeSets.find(Settings::getInstance()->getString("ThemeSet"));
@@ -1360,28 +1333,36 @@ std::vector<std::string> CollectionSystemManager::getSystemsFromTheme()
 	}
 
 	std::string themePath = set->second.path;
-
 	if (Utils::FileSystem::exists(themePath))
-	{
-		Utils::FileSystem::stringList dirContent = Utils::FileSystem::getDirContent(themePath);
-
-		for (Utils::FileSystem::stringList::const_iterator it = dirContent.cbegin(); it != dirContent.cend(); ++it)
+	{		
+		// Read supported custom collections names from 'collections.info' file
+		if (Utils::FileSystem::exists(themePath + "/collections.info"))
 		{
-			if (Utils::FileSystem::isDirectory(*it))
+			for (auto line : Utils::FileSystem::readAllLines(themePath + "/collections.info"))
 			{
-				//... here you have a directory
-				std::string folder = *it;
-				folder = folder.substr(themePath.size()+1);
+				if (line.empty() || line.find("#") == 0 || line.find(";") == 0 || line.find("/") == 0)
+					continue;
 
-				if(Utils::FileSystem::exists(set->second.getThemePath(folder)))
-				{
-					systems.push_back(folder);
-				}
+				systems.push_back(line);
 			}
 		}
+
+		auto dirContent = Utils::FileSystem::getDirContent(themePath);	
+		for (auto file : dirContent)
+		{
+			if (!Utils::FileSystem::isDirectory(file))
+				continue;
+
+			//... here you have a directory
+			std::string folder = Utils::FileSystem::getFileName(file);				
+			if (Utils::FileSystem::exists(set->second.getThemePath(folder)))
+				systems.push_back(folder);						
+		}
+
+		std::sort(systems.begin(), systems.end());
 	}
-	std::sort(systems.begin(), systems.end());
-	return systems;
+	
+	mSystemsFromTheme = systems;
 }
 
 // returns the unused folders from current theme path
@@ -1390,7 +1371,7 @@ std::vector<std::string> CollectionSystemManager::getUnusedSystemsFromTheme()
 	// get used systems in es_systems.cfg
 	std::vector<std::string> systemsInUse = getSystemsFromConfig();
 	// get available folders in theme
-	std::vector<std::string> themeSys = getSystemsFromTheme();
+	std::vector<std::string> themeSys = mSystemsFromTheme;
 	// get folders assigned to custom collections
 	std::vector<std::string> autoSys = getCollectionThemeFolders(false);
 	// get folder assigned to custom collections
@@ -1455,14 +1436,11 @@ std::vector<std::string> CollectionSystemManager::getCollectionsFromConfigFolder
 std::vector<std::string> CollectionSystemManager::getCollectionThemeFolders(bool custom)
 {
 	std::vector<std::string> systems;
-	for(std::map<std::string, CollectionSystemDecl>::const_iterator it = mCollectionSystemDeclsIndex.cbegin() ; it != mCollectionSystemDeclsIndex.cend() ; it++ )
-	{
-		CollectionSystemDecl sysDecl = it->second;
-		if (sysDecl.isCustom == custom)
-		{
-			systems.push_back(sysDecl.themeFolder);
-		}
-	}
+
+	for (auto& item : mCollectionSystemDeclsIndex)
+		if (item.second.isCustom == custom)
+			systems.push_back(item.second.themeFolder);
+
 	return systems;
 }
 
@@ -1480,8 +1458,7 @@ std::vector<std::string> CollectionSystemManager::getUserCollectionThemeFolders(
 // returns whether a specific folder exists in the theme
 bool CollectionSystemManager::themeFolderExists(std::string folder)
 {
-	std::vector<std::string> themeSys = getSystemsFromTheme();
-	return std::find(themeSys.cbegin(), themeSys.cend(), folder) != themeSys.cend();
+	return std::find(mSystemsFromTheme.cbegin(), mSystemsFromTheme.cend(), folder) != mSystemsFromTheme.cend();
 }
 
 bool CollectionSystemManager::includeFileInAutoCollections(FileData* file)

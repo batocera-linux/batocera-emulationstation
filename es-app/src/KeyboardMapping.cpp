@@ -674,7 +674,7 @@ void KeyMappingFile::clearAnalogJoysticksMappings(int player, const std::string&
 
 			if (it->triggers.size() == 0)
 			{
-				pm.mappings.erase(it);
+				it = pm.mappings.erase(it);
 				continue;
 			}
 		}

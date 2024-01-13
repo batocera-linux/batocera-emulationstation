@@ -16,6 +16,7 @@ mMenu(window, _("INSTALL ON A NEW DISK").c_str())
 
 	std::vector<std::string> availableStorage = ApiSystem::getInstance()->getAvailableInstallDevices();
 	std::vector<std::string> availableArchitecture = ApiSystem::getInstance()->getAvailableInstallArchitectures();
+	std::string runningBoard = ApiSystem::getInstance()->getRunningBoard();
 
 	bool installationPossible = (availableArchitecture.size() != 0);
 
@@ -44,11 +45,13 @@ mMenu(window, _("INSTALL ON A NEW DISK").c_str())
 	
 		// available install architecture
 		moptionsArchitecture = std::make_shared<OptionListComponent<std::string> >(window, _("TARGET ARCHITECTURE"), false);
-		moptionsArchitecture->add(_("SELECT"), "", true);
+		moptionsArchitecture->add(_("SELECT"), "", false);
 
 		for (auto it = availableArchitecture.begin(); it != availableArchitecture.end(); it++)
-			moptionsArchitecture->add((*it), (*it), false);
-		
+			moptionsArchitecture->add(*it, *it, *it == runningBoard);
+		if (!(moptionsArchitecture->hasSelection()))
+			moptionsArchitecture->selectFirstItem();
+
 		mMenu.addWithLabel(_("TARGET ARCHITECTURE"), moptionsArchitecture);
 
 		moptionsValidation = std::make_shared<SwitchComponent>(mWindow);

@@ -8,7 +8,7 @@
 #include "FileSorts.h"
 #include "Gamelist.h"
 #include "Log.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "Settings.h"
 #include "ThemeData.h"
 #include "views/UIModeController.h"
@@ -31,16 +31,30 @@
 
 using namespace Utils;
 
-static std::map<std::string, std::function<std::string(SystemData*)>> properties =
+static std::map<std::string, std::function<BindableProperty(SystemData*)>> properties =
 {
-	{ "name",			[] (SystemData* sys) { return sys->getName(); } },
-	{ "fullName",		[] (SystemData* sys) { return sys->getFullName(); } },
-	{ "manufacturer",	[] (SystemData* sys) { return sys->getSystemMetadata().manufacturer; } },
-	{ "theme",			[] (SystemData* sys) { return sys->getThemeFolder(); } },
-	{ "releaseYear",	[] (SystemData* sys) { return std::to_string(sys->getSystemMetadata().releaseYear); } },
-	{ "hardwareType",	[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType; } },
-	{ "command",		[] (SystemData* sys) { return sys->getSystemEnvData()->mLaunchCommand; } },
-	{ "group",			[] (SystemData* sys) { return sys->getSystemEnvData()->mGroup; } },	
+	{ "name",				[] (SystemData* sys) { return sys->getName(); } },
+	{ "fullName",			[] (SystemData* sys) { return sys->getFullName(); } },
+	{ "manufacturer",		[] (SystemData* sys) { return sys->getSystemMetadata().manufacturer; } },
+	{ "theme",				[] (SystemData* sys) { return sys->getThemeFolder(); } },
+	{ "releaseYear",		[] (SystemData* sys) { return std::to_string(sys->getSystemMetadata().releaseYear); } },
+	{ "hardwareType",		[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType; } },
+	{ "command",			[] (SystemData* sys) { return sys->getSystemEnvData()->mLaunchCommand; } },
+	{ "group",				[] (SystemData* sys) { return sys->getSystemEnvData()->mGroup; } },		
+	{ "collection",			[] (SystemData* sys) { return sys->isCollection(); } },		
+	{ "showManual",         [] (SystemData* sys) { return sys->getBoolSetting("ShowManualIcon"); } },
+	{ "showSaveStates",     [] (SystemData* sys) { return sys->getBoolSetting("ShowSaveStates"); } },
+	{ "showCheevos",        [] (SystemData* sys) { return sys->getShowCheevosIcon() && sys->getBoolSetting("ShowCheevosIcon"); } },
+	{ "showFlags",          [] (SystemData* sys) { return sys->getShowFlags(); } },
+	{ "showFavorites",      [] (SystemData* sys) { return sys->getShowFavoritesIcon(); } },
+	{ "showGun",            [] (SystemData* sys) { return sys->getBoolSetting("ShowGunIconOnGames"); } },
+	{ "showWheel",          [] (SystemData* sys) { return sys->getBoolSetting("ShowWheelIconOnGames"); } },
+	{ "showParentFolder",   [] (SystemData* sys) { return sys->getShowParentFolder(); } },
+	{ "hasKeyboardMapping", [] (SystemData* sys) { return sys->hasKeyboardMapping(); } },
+	{ "isCheevosSupported", [] (SystemData* sys) { return sys->isCheevosSupported(); } },
+	{ "isNetplaySupported", [] (SystemData* sys) { return sys->isNetplaySupported(); } },
+	{ "hasfilter",			[] (SystemData* sys) { auto idx = sys->getIndex(false); return idx != nullptr && idx->isFiltered(); } },
+	{ "filter",				[] (SystemData* sys) { auto idx = sys->getIndex(false); return (idx != nullptr && idx->isFiltered() ? idx->getDisplayLabel(true) : BindableProperty::EmptyString); } },
 };
 
 VectorEx<SystemData*> SystemData::sSystemVector;
@@ -450,12 +464,39 @@ void SystemData::createGroupedSystems()
 
 		for (auto childSystem : item.second)
 		{
-
 			auto children = childSystem->getRootFolder()->getChildren();
 			if (children.size() > 0)
 			{
 				auto folder = new FolderData(childSystem->getRootFolder()->getPath(), childSystem, false);
 				folder->setMetadata(childSystem->getRootFolder()->getMetadata());
+				
+				if (folder->getMetadata(MetaDataId::Desc).empty())
+				{
+					char trstring[1024];
+
+					std::string games_list;
+
+					int games_counter = 0;
+					auto games = childSystem->getRootFolder()->getFilesRecursive(GAME, true);
+					for (auto game : games)
+					{
+						games_counter++;
+						if (games_counter == 3)
+							break;
+
+						games_list += "\n";
+						games_list += "- " + game->getName();
+					}
+
+					games_counter = childSystem->getGameCountInfo()->totalGames;
+
+					snprintf(trstring, 1024, ngettext(
+						"This collection contains %i game:%s",
+						"This collection contains %i games, including:%s", games_counter), games_counter, games_list.c_str());
+
+					folder->setMetadata(MetaDataId::Desc, std::string(trstring));
+				}
+
 				root->addChild(folder);
 
 				if (folder->getMetadata(MetaDataId::Image).empty())
@@ -668,7 +709,7 @@ void SystemData::loadAdditionnalConfig(pugi::xml_node& srcSystems)
 				continue;
 
 			pugi::xml_document doc;
-			pugi::xml_parse_result res = doc.load_file(customPath.c_str());
+			pugi::xml_parse_result res = doc.load_file(WINSTRINGW(customPath).c_str());
 			if (!res)
 			{
 				LOG(LogError) << "Could not parse " << Utils::FileSystem::getFileName(customPath) << " file!";
@@ -745,7 +786,7 @@ bool SystemData::loadConfig(Window* window)
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 
 	if (!res)
 	{
@@ -910,7 +951,7 @@ SystemData* SystemData::loadSystem(std::string systemName, bool fullMode)
 		return nullptr;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 	if (!res)
 		return nullptr;
 
@@ -940,7 +981,7 @@ std::map<std::string, std::string> SystemData::getKnownSystemNames()
 		return ret;
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result res = doc.load_file(path.c_str());
+	pugi::xml_parse_result res = doc.load_file(WINSTRINGW(path).c_str());
 	if (!res)
 		return ret;
 
@@ -1427,7 +1468,7 @@ void SystemData::loadTheme()
 		// Global variables
 		sysData["global.help"] = Settings::getInstance()->getBool("ShowHelpPrompts") ? "true" : "false";
 		sysData["global.clock"] = Settings::DrawClock() ? "true" : "false";
-		sysData["global.architecture"] = getArchString();
+		sysData["global.architecture"] = Utils::Platform::getArchString();
 
 		sysData["global.cheevos"] = SystemConf::getInstance()->getBool("global.retroachievements") ? "true" : "false";
 		sysData["global.cheevos.username"] = SystemConf::getInstance()->getBool("global.retroachievements") ? SystemConf::getInstance()->get("global.retroachievements.username") : "";
@@ -1454,6 +1495,12 @@ void SystemData::loadTheme()
 		else
 			sysData["system.sortedBy"] = getSystemMetadata().manufacturer;
 
+		auto showSystemName = (!isGameSystem() || isCollection()) && Settings::getInstance()->getBool("CollectionShowSystemInfo");
+		if (showSystemName && !isGameSystem() && getFolderViewMode() != "never")
+			showSystemName = false;
+
+		sysData["system.showSystemName"] = showSystemName ? "true" : "false";
+
 		if (getSystemMetadata().releaseYear > 0)
 		{
 			sysData["system.releaseYearOrNull"] = std::to_string(getSystemMetadata().releaseYear);
@@ -1466,7 +1513,7 @@ void SystemData::loadTheme()
 		{
 			auto name = "system." + property.first;
 			if (sysData.find(name) == sysData.cend())
-				sysData.insert(std::pair<std::string, std::string>("system." + property.first, property.second(this)));
+				sysData.insert(std::pair<std::string, std::string>("system." + property.first, property.second(this).toString()));
 		}
 
 		// Variables 
@@ -1617,7 +1664,7 @@ bool SystemData::isCheevosSupported()
 				"atarilynx", "lynx", "ngp", "gamegear", "pokemini", "atari2600", "fbneo", "fbn", "virtualboy", "pcfx", "tg16", "famicom", "msx1",
 				"psx", "sg-1000", "sg1000", "coleco", "colecovision", "atari7800", "wonderswan", "pc88", "saturn", "3do", "apple2", "neogeo", "arcade", "mame",
 				"nds", "arcade", "megadrive-japan", "pcenginecd", "supergrafx", "supervision", "snes-msu1", "amstradcpc",
-				"dreamcast", "psp", "jaguar", "intellivision", "vectrex", "megaduck", "arduboy", "wasm4"
+				"dreamcast", "psp", "jaguar", "intellivision", "vectrex", "megaduck", "arduboy", "wasm4", "ps2"
 #ifdef _ENABLEEMUELEC 
                 ,"genesis", "msx", "sfc"
 #endif
@@ -1951,6 +1998,9 @@ bool SystemData::getShowParentFolder()
 
 std::string SystemData::getFolderViewMode()
 {
+	if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
+		return "always";
+
 	std::string showFoldersMode = Settings::getInstance()->getString("FolderViewMode");
 
 	auto fvm = Settings::getInstance()->getString(getName() + ".FolderViewMode");
@@ -2003,45 +2053,56 @@ int SystemData::getShowFlags()
 	return Utils::String::toInteger(spf);
 }
 
-std::string SystemData::getProperty(const std::string& name)
+BindableProperty SystemData::getProperty(const std::string& name)
 {
 	auto it = properties.find(name);
 	if (it != properties.cend())
 		return it->second(this);
 
-	// Statistics
+	if (name == "image" || name == "logo")
+	{
+		if (mTheme != nullptr)
+		{
+			const ThemeData::ThemeElement* logoElem = mTheme->getElement("system", "logo", "image");
+			if (logoElem && logoElem->has("path"))
+				return BindableProperty(logoElem->get<std::string>("path"), BindablePropertyType::Path);
 
-	GameCountInfo* info = getGameCountInfo();
-	if (info == nullptr)
-		return "";
+			return BindableProperty("", BindablePropertyType::Path);
+		}
+	}
 
 	if (name == "subSystems")
 	{
 		if (this == CollectionSystemManager::get()->getCustomCollectionsBundle())
-			return std::to_string(getRootFolder()->getChildren().size());
+			return (int)getRootFolder()->getChildren().size();
 
-		return std::to_string(Math::max(1, getGroupChildSystemNames(getName()).size()));
+		return Math::max(1, getGroupChildSystemNames(getName()).size());
 	}
+
+	// Statistics
+	GameCountInfo* info = getGameCountInfo();
+	if (info == nullptr)
+		return BindableProperty::Null;
 
 	if (name == "total")
 	{
 		if (info->totalGames != info->visibleGames)
 			return std::to_string(info->visibleGames) + " / " + std::to_string(info->totalGames);
 
-		return std::to_string(info->totalGames);
+		return info->totalGames;
 	}
 
 	if (name == "played")
-		return std::to_string(info->playCount);
+		return info->playCount;
 
 	if (name == "favorites")
-		return std::to_string(info->favoriteCount);
+		return info->favoriteCount;
 
 	if (name == "hidden")
-		return std::to_string(info->hiddenCount);
+		return info->hiddenCount;
 
 	if (name == "gamesPlayed")
-		return std::to_string(info->gamesPlayed);
+		return info->gamesPlayed;
 
 	if (name == "mostPlayed")
 		return info->mostPlayed;
@@ -2050,13 +2111,16 @@ std::string SystemData::getProperty(const std::string& name)
 	{
 		auto seconds = info->playTime;
 
-		int h = 0, m = 0, s = 0;
+		int d = 0, h = 0, m = 0, s = 0;
+		d = seconds / 86400;
 		h = (seconds / 3600) % 24;
 		m = (seconds / 60) % 60;
 		s = seconds % 60;
 
 		std::string timeText;
-		if (h > 0)
+		if (d > 0)
+			timeText = Utils::String::format("%02d:%02d:%02d:%02d", d, h, m, s);
+		else if (h > 0)
 			timeText = Utils::String::format("%02d:%02d:%02d", h, m, s);
 		else
 			timeText = Utils::String::format("%02d:%02d", m, s);
@@ -2075,9 +2139,11 @@ std::string SystemData::getProperty(const std::string& name)
 			char       clockBuf[256];
 			strftime(clockBuf, sizeof(clockBuf), "%x", &clockTstruct);
 			
-			return clockBuf;
+			return BindableProperty(clockBuf, BindablePropertyType::String);
 		}
+
+		return BindableProperty::EmptyString;
 	}
 
-	return "";
+	return BindableProperty::Null;
 }

@@ -46,7 +46,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/mamenames.xml");
 	if (Utils::FileSystem::exists(xmlpath))
 	{		
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
@@ -68,6 +68,9 @@ MameNames::MameNames()
 
 				if (gameNode.attribute("gun") && gameNode.attribute("gun").value() == sTrue)
 					mArcadeLightGunGames.insert(namePair.mameName);
+
+				if (gameNode.attribute("wheel") && gameNode.attribute("wheel").value() == sTrue)
+					mArcadeWheelGames.insert(namePair.mameName);
 			}
 		}
 		else
@@ -78,7 +81,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/mamebioses.xml"); 	
 	if (Utils::FileSystem::exists(xmlpath))
 	{
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
@@ -104,7 +107,7 @@ MameNames::MameNames()
 	xmlpath = ResourceManager::getInstance()->getResourcePath(":/mamedevices.xml"); 	
 	if (Utils::FileSystem::exists(xmlpath))
 	{
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
@@ -126,16 +129,16 @@ MameNames::MameNames()
 	}
 
 	// Read gun games for non arcade systems
-	xmlpath = ResourceManager::getInstance()->getResourcePath(":/gungames.xml");
+	xmlpath = ResourceManager::getInstance()->getResourcePath(":/gamesdb.xml");
 	if (Utils::FileSystem::exists(xmlpath))
 	{
-		result = doc.load_file(xmlpath.c_str());
+		result = doc.load_file(WINSTRINGW(xmlpath).c_str());
 		if (result)
 		{
 			pugi::xml_node systems = doc.child("systems");
 			if (systems)
 			{
-				LOG(LogInfo) << "Parsing XML file \"" << xmlpath << "\"...";
+				LOG(LogInfo) << "Parsing XML file \"" << xmlpath;
 
 				for (pugi::xml_node systemNode = systems.child("system"); systemNode; systemNode = systemNode.next_sibling("system"))
 				{
@@ -145,17 +148,30 @@ MameNames::MameNames()
 					std::string systemNames = systemNode.attribute("name").value();
 					for (auto systemName : Utils::String::split(systemNames, ','))
 					{
-						std::unordered_set<std::string> games;
+						std::unordered_set<std::string> gunGames;
+						std::unordered_set<std::string> wheelGames;
 
 						for (pugi::xml_node gameNode = systemNode.child("game"); gameNode; gameNode = gameNode.next_sibling("game"))
 						{
-							std::string device = gameNode.text().get();
-							if (!device.empty())
-								games.insert(device);
+							if (!gameNode.attribute("name"))
+								continue;
+
+							std::string gameName = gameNode.attribute("name").value();
+							if (gameName.empty())
+								continue;
+								
+							if (gameNode.child("gun"))
+								gunGames.insert(gameName);
+
+							if (gameNode.child("wheel"))
+								wheelGames.insert(gameName);
 						}
 
-						if (games.size())
-							mNonArcadeGunGames[Utils::String::trim(systemName)] = games;
+						if (gunGames.size())
+							mNonArcadeGunGames[Utils::String::trim(systemName)] = gunGames;
+
+						if (wheelGames.size())
+							mNonArcadeWheelGames[Utils::String::trim(systemName)] = wheelGames;
 					}	
 				}
 			}
@@ -165,7 +181,7 @@ MameNames::MameNames()
 		else
 			LOG(LogError) << "Error parsing XML file \"" << xmlpath << "\"!\n	" << result.description();
 	}
-
+	
 } // MameNames
 
 MameNames::~MameNames()
@@ -234,6 +250,29 @@ const bool MameNames::isLightgun(const std::string& _nameName, const std::string
 
 	auto it = mNonArcadeGunGames.find(systemName);
 	if (it == mNonArcadeGunGames.cend())
+		return false;
+
+	std::string indexedName = getIndexedName(_nameName);
+
+	// Exact match ?
+	if (it->second.find(indexedName) != it->second.cend())
+		return true;
+
+	// name contains ?
+	for (auto gameName : it->second)
+		if (indexedName.find(gameName) != std::string::npos)
+			return true;
+
+	return false;
+}
+
+const bool MameNames::isWheel(const std::string& _nameName, const std::string& systemName, bool isArcade)
+{
+	if (isArcade)
+		return mArcadeWheelGames.find(_nameName) != mArcadeWheelGames.cend();
+
+	auto it = mNonArcadeWheelGames.find(systemName);
+	if (it == mNonArcadeWheelGames.cend())
 		return false;
 
 	std::string indexedName = getIndexedName(_nameName);

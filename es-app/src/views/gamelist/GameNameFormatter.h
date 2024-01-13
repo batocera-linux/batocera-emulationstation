@@ -15,8 +15,7 @@ public:
 private:
 	unsigned int mSortId;
 	bool mShowCheevosIcon;
-	bool mShowFavoriteIcon;
-	bool mShowFilenames;
+	bool mShowFavoriteIcon;	
 
 	bool mShowSystemName;
 	bool mShowYear;
@@ -28,6 +27,7 @@ private:
 	bool mShowSaveStates;
 
 	bool mShowGunIcon;
+  	bool mShowWheelIcon;
 
 	int mShowFlags;
 };

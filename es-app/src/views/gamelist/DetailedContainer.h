@@ -77,6 +77,8 @@ protected:
 	bool anyComponentHasStoryBoard();
 	bool anyComponentHasStoryBoardRunning();
 
+	void handleStoryBoard(GuiComponent* comp, bool activate, int moveBy, bool recursive = true);
+
 	ISimpleGameListView* mParent;
 	GuiComponent* mList;
 	Window* mWindow;
@@ -111,6 +113,9 @@ protected:
 	ImageComponent* mCheevos;
 	ImageComponent* mNotCheevos;
 
+	ImageComponent* mNetplay;
+	ImageComponent* mNotNetplay;
+
 	ImageComponent* mManual;
 	ImageComponent* mNoManual;
 
@@ -122,6 +127,9 @@ protected:
 
 	ImageComponent* mGunGame;
 	ImageComponent* mNotGunGame;
+
+  	ImageComponent* mWheelGame;
+	ImageComponent* mNotWheelGame;
 
 	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblGameTime, mLblFavorite;
 	TextComponent mDeveloper, mPublisher, mGenre, mPlayers, mPlayCount, mName, mGameTime, mTextFavorite;

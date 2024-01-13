@@ -6,14 +6,14 @@
 #include "LocaleES.h"
 
 DateTimeComponent::DateTimeComponent(Window* window) : TextComponent(window), mDisplayRelative(false)
-{
-	setFormat("%m/%d/%Y");
+{	
+	setFormat(Utils::Time::getSystemDateFormat());
 }
 
 DateTimeComponent::DateTimeComponent(Window* window, const std::string& text, const std::shared_ptr<Font>& font, unsigned int color, Alignment align,
 	Vector3f pos, Vector2f size, unsigned int bgcolor) : TextComponent(window, text, font, color, align, pos, size, bgcolor), mDisplayRelative(false)
 {
-	setFormat("%m/%d/%Y");
+	setFormat(Utils::Time::getSystemDateFormat());
 }
 
 void DateTimeComponent::setValue(const std::string& val)
@@ -49,29 +49,9 @@ void DateTimeComponent::onTextChanged()
 std::string DateTimeComponent::getDisplayString() const
 {
 	if (mDisplayRelative) 
-	{
-		//relative time
-		if(mTime.getTime() == 0)
-			return _("never");
+		return Utils::Time::getElapsedSinceString(mTime.getTime());
 
-		Utils::Time::DateTime now(Utils::Time::now());
-		Utils::Time::Duration dur(now.getTime() - mTime.getTime());
-
-		char buf[256];
-
-		if(dur.getDays() > 0)
-			snprintf(buf, 256, ngettext("%d day ago", "%d days ago", dur.getDays()), dur.getDays());
-		else if(dur.getHours() > 0)
-			snprintf(buf, 256, ngettext("%d hour ago", "%d hours ago", dur.getHours()), dur.getHours());
-		else if(dur.getMinutes() > 0)
-			snprintf(buf, 256, ngettext("%d minute ago", "%d minutes ago", dur.getMinutes()), dur.getMinutes());
-		else
-			snprintf(buf, 256, ngettext("%d second ago", "%d seconds ago", dur.getSeconds()), dur.getSeconds());
-
-		return std::string(buf);
-	}
-
-	if(mTime.getTime() == 0)
+	if (mTime.getTime() == 0)
 		return _("Unknown");
 
 	return Utils::Time::timeToString(mTime.getTime(), mFormat);
@@ -81,7 +61,6 @@ void DateTimeComponent::render(const Transform4x4f& parentTrans)
 {
 	TextComponent::render(parentTrans);
 }
-
 
 void DateTimeComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view, const std::string& element, unsigned int properties)
 {

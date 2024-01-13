@@ -35,7 +35,7 @@ public:
 	virtual void launch(FileData* game) = 0;
 	
 	virtual std::vector<std::string> getEntriesLetters() override;
-	virtual std::vector<FileData*> getFileDataEntries() = 0;
+	// virtual std::vector<FileData*> getFileDataEntries() = 0;
 
 	void	moveToFolder(FolderData* folder);
 	FolderData*		getCurrentFolder();
@@ -58,6 +58,10 @@ public:
 	virtual bool onAction(const std::string& action) override;
 
 protected:	
+	FolderData* createParentFolderData();
+	FileData*   createNoEntriesPlaceholder();
+	FileData*   mLastParentFolderData;
+
 	void	  updateThemeExtrasBindings();
 
 	void	  updateFolderPath();

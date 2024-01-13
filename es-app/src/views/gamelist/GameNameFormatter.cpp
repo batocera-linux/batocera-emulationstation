@@ -22,6 +22,7 @@
 #define MANUAL		_U("\uF02D")
 
 #define GUN			_U("\uF05B")
+#define WHEEL			_U("\uF1B9")
 
 #define RATINGSTAR _U("\uF005")
 #define SEPARATOR_BEFORE "["
@@ -66,13 +67,14 @@ GameNameFormatter::GameNameFormatter(SystemData* system)
 {
 	mSortId = system->getSortId();
 
-	mShowCheevosIcon = system->getShowCheevosIcon();
+	mShowCheevosIcon = system->getShowCheevosIcon() && system->getBoolSetting("ShowCheevosIcon");
 	mShowFavoriteIcon = system->getShowFavoritesIcon();
 
 	mShowManualIcon = system->getBoolSetting("ShowManualIcon");
 	mShowSaveStates = system->getBoolSetting("ShowSaveStates");
 
-	mShowGunIcon = system->getName() != "lightgun";
+	mShowGunIcon = system->getName() != "lightgun" && system->getBoolSetting("ShowGunIconOnGames");
+	mShowWheelIcon = system->getName() != "wheel" && system->getBoolSetting("ShowWheelIconOnGames");
 
 	mShowFlags = system->getShowFlags();
 
@@ -209,6 +211,9 @@ std::string GameNameFormatter::getDisplayName(FileData* fd, bool showFolderIcon)
 
 	if (mShowGunIcon && fd->getSourceFileData()->isLightGunGame())
 		after.push_back(GUN);
+
+	if (mShowWheelIcon && fd->getSourceFileData()->isWheelGame())
+		after.push_back(WHEEL);
 
 	if (mShowCheevosIcon && fd->hasCheevos())
 		after.push_back(CHEEVOSICON);

@@ -35,7 +35,7 @@ public:
 	// Read the data into memory if necessary
 	bool load(bool updateCache = false);
 	bool loadFromCbz();
-	bool loadFromPdf();
+	bool loadFromPdf(int pageIndex = 1);
 	bool loadFromVideo();
 
 	bool isLoaded();
@@ -51,13 +51,18 @@ public:
 	void releaseRAM();
 
 	// Get the amount of VRAM currenty used by this texture
-	size_t getVRAMUsage();
+	inline size_t getEstimatedVRAMUsage() { return mSize.x() * mSize.y() * 4; }
+	inline size_t getVRAMUsage() { return mTextureID != 0 || mDataRGBA != nullptr ? mSize.x() * mSize.y() * 4 : 0; }
 
+	const 	Vector2i& getSize() const { return mSize; }
+	const 	Vector2f& getPhysicalSize() const { return mPhysicalSize; }
+	/*
 	size_t width();
 	size_t height();
 	float sourceWidth();
-	float sourceHeight();
-	void setSourceSize(float width, float height);
+	float sourceHeight();*/
+
+	bool rasterizeAt(float width, float height);
 
 	bool tiled() { return mTile; }
 
@@ -65,17 +70,27 @@ public:
 		return mDataRGBA;
 	}
 
-	void setMaxSize(MaxSizeInfo maxSize);
+	void setStoredSize(float width, float height);
+	void setPhysicalSize(int width, int height) { mPhysicalSize.x() = width; mPhysicalSize.y() = height; }
+
+	void setMaxSize(const MaxSizeInfo& maxSize);
 	bool isMaxSizeValid();
 
-	void setTemporarySize(float width, float height);
 
 	inline const std::string& getPath() { return mPath; };
 
 	bool updateFromExternalRGBA(unsigned char* dataRGBA, size_t width, size_t height);
 
-	bool isRequired() { return mRequired; };
+	inline bool isRequired() { return mRequired; };
 	void setRequired(bool value) { mRequired = value; };
+
+	inline bool isDynamic() { return mDynamic; };
+	void setDynamic(bool value) { mDynamic = value; };
+
+	inline bool isReloadable() { return mReloadable; };
+	
+	inline bool isScalable() { return mScalable; }
+	void setScalable(bool value) { mScalable = value; };
 
 private:
 	bool			mRequired;
@@ -86,16 +101,22 @@ private:
 	std::string		mPath;
 	unsigned int	mTextureID;
 	unsigned char*	mDataRGBA;
+	bool			mReloadable;
+	bool			mDynamic;
+
+	MaxSizeInfo		mMaxSize;
+
+	Vector2i		mSize;
+	Vector2f		mPhysicalSize;
+
+	bool			mScalable;
+	Vector2f		mScalableMinimumSize;
+/*
 	size_t			mWidth;
 	size_t			mHeight;
 	float			mSourceWidth;
 	float			mSourceHeight;
-	bool			mScalable;
-	bool			mReloadable;
-
-	MaxSizeInfo		mMaxSize;
-	Vector2i		mPackedSize;
-	Vector2i		mBaseSize;
+*/
 
 	bool			mIsExternalDataRGBA;
 };

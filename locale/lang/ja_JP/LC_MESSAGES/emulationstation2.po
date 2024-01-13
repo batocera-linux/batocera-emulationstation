@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v36beta(2022/01/16)\n"
+"Project-Id-Version: batocera-es v39b(2023/12/23)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2023-01-21 18:22+0900\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2023-12-23 15:10+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -11,22 +11,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.4.1\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "更新可能"
 
 msgid "Name"
-msgstr "名前"
+msgstr "ゲーム名"
 
 msgid "this game's name"
-msgstr "ゲーム名"
+msgstr "このゲーム名を入力"
 
 msgid "Description"
 msgstr "説明"
 
 msgid "this game's description"
-msgstr "ゲームの説明"
+msgstr "このゲームの説明を入力"
 
 msgid "Emulator"
 msgstr "エミュレータ"
@@ -41,28 +41,28 @@ msgid "core"
 msgstr "コア"
 
 msgid "Image"
-msgstr "画像"
+msgstr "イメージ画像"
 
 msgid "enter path to image"
-msgstr "画像のパスを入力"
+msgstr "イメージ画像のパスを入力"
 
 msgid "Video"
-msgstr "動画"
+msgstr "デモ動画"
 
 msgid "enter path to video"
-msgstr "動画のパスを入力"
+msgstr "デモ動画のパスを入力"
 
 msgid "Logo"
-msgstr "ロゴ"
+msgstr "ロゴ(マーキー)"
 
 msgid "enter path to logo"
-msgstr "ロゴのパスを入力"
+msgstr "ロゴ(マーキー)のパスを入力"
 
 msgid "Box"
-msgstr "ボックス"
+msgstr "サムネイル画像(ボックス)"
 
 msgid "enter path to box"
-msgstr "ボックスのパスを入力"
+msgstr "サムネイル画像のパスを入力"
 
 msgid "Fan art"
 msgstr "ファンアート"
@@ -215,7 +215,7 @@ msgid "enter last played date"
 msgstr "最後にプレイした日時を入力"
 
 msgid "Crc32"
-msgstr "Crc32 チェックサム"
+msgstr "Crc32"
 
 msgid "Crc32 checksum"
 msgstr "Crc32 チェックサム"
@@ -286,6 +286,9 @@ msgstr "縦表示アーケード"
 msgid "lightgun games"
 msgstr "ガンコントローラ ゲーム"
 
+msgid "wheel games"
+msgstr "ステアリング　ゲーム"
+
 msgid "collections"
 msgstr "コレクション"
 
@@ -341,8 +344,8 @@ msgstr "ダウンロード中"
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "テーマは正常にインストールされました"
 
-msgid "AN ERROR OCCURED"
-msgstr "エラーが発生しました"
+msgid "AN ERROR OCCURRED"
+msgstr "エラーが発生"
 
 msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "テーマは正常にアンインストールされました"
@@ -366,7 +369,7 @@ msgid "SETTINGS"
 msgstr "設定"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RetroAchievements 使用"
+msgstr "RetroAchievements 表示"
 
 msgid "USERNAME"
 msgstr "ユーザー名"
@@ -420,13 +423,13 @@ msgid ""
 msgstr "対象となるアチーブメントを獲得できる場合、右下隅にアイコンを表示します"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
-msgstr "RETROACHIEVEMENTサウンドのロック解除"
+msgstr "RETROACHIEVEMENTロック解除効果音"
 
 msgid "none"
 msgstr "無し"
 
 msgid "UNLOCK SOUND"
-msgstr "サウンドのロック解除"
+msgstr "ロック解除効果音"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "メインメニューにRETROACHIEVEMENTSエントリを表示"
@@ -465,7 +468,7 @@ msgid "FIND GAMES"
 msgstr "ゲームを検索"
 
 msgid "Unknown"
-msgstr "不明"
+msgstr "---"
 
 msgid "YES"
 msgstr "はい"
@@ -491,17 +494,17 @@ msgstr "システムのグループ化"
 msgid "CREATE CUSTOM COLLECTION"
 msgstr "コレクション作成"
 
-msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-msgstr "テーマファイルからコレクションを作成"
+msgid "New Collection Name"
+msgstr "新規コレクション名"
 
-msgid "SELECT THEME FOLDER"
-msgstr "追加するコレクションを選択"
+msgid "ENTER NAME"
+msgstr "コレクション名 登録"
+
+msgid "CREATE FROM THEME"
+msgstr "テーマから作成（テーマで用意されたコレクション）"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "コレクションを作成"
-
-msgid "New Collection Name"
-msgstr "新規コレクション名"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "システム・項目別コレクションを作成"
@@ -539,8 +542,11 @@ msgstr "最終選択を復元"
 msgid "START ON GAMELIST"
 msgstr "起動時にゲームリストを表示"
 
-msgid "GROUP UNTHEMED CUSTOM COLLECTIONS"
-msgstr "マイコレクションをグループ化"
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr "カスタムコレクションのグループ化"
+
+msgid "UNTHEMED"
+msgstr "テーマに無い"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "コレクションにシステム名を表示"
@@ -585,14 +591,22 @@ msgid "PLEASE WAIT"
 msgstr "お待ちください"
 
 #, c-format
+msgid "%d of %d softcore points"
+msgstr "%d / %d ソフトコア ポイント"
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr "%d / %d ハードコア ポイント"
+
+#, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d 中の %d)"
 
+msgid "Softcore points"
+msgstr "ポイント (ソフトコア)"
+
 msgid "Points (hardcore)"
 msgstr "ポイント (ハードコア)"
-
-msgid "Softcore points"
-msgstr "ソフトコア ポイント"
 
 msgid "Rank"
 msgstr "ランク"
@@ -601,7 +615,7 @@ msgid "VIEW DETAILS"
 msgstr "詳細を表示"
 
 msgid "LAUNCH"
-msgstr "開始"
+msgstr "ゲームを始める"
 
 msgid "NETPLAY SETTINGS"
 msgstr "ネットプレイ設定"
@@ -682,7 +696,7 @@ msgid "VIEW CUSTOMIZATION"
 msgstr "表示のカスタマイズ"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "パッドからキーボード情報を表示"
+msgstr "パッドキー設定情報を表示"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "システム詳細設定"
@@ -805,6 +819,194 @@ msgstr "セレクト(選択)"
 msgid "ADD COMBINATION KEY"
 msgstr "同時押しキーを追加"
 
+msgid "CONTROLLER SETTINGS"
+msgstr "コントローラー 設定"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "コントローラー＆BLUETOOTH 設定"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "コントローラーの優先順位"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "プレイヤーの割当"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "コントローラー #%i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "プレイヤー %i コントローラー"
+
+msgid "CONTROLLER MAPPING"
+msgstr "ボタン設定"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"コントローラーのボタン設定を行います。 このコントローラのボタンのラベル通りで"
+"はなく、システムで 使用するボタン位置に基づいて設定します。（A,B,X,Yの位置）"
+"ホットキー用の特別なボタン（PSやHOME）がない場合は、 「セレクト」ボタンを使用"
+"してください。 ボタンを長押しで、割り当てられないボタン/スティックを スキップ"
+"します。 完了したら、決定（下）ボタンを押して確認します。"
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "シンデン ライトガン 設定"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "wii リモコン 用途設定"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "STEAMDECK マウス/銃 設定"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "BLUETOOTH コントローラーをペアリング"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "BLUETOOTH デバイスをペアリング"
+
+msgid "DISPLAY OPTIONS"
+msgstr "表示設定"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "コントローラーアクティビティを表示"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "コントローラーバッテリーレベルを表示"
+
+msgid "default"
+msgstr "標準"
+
+msgid "NOT CONNECTED"
+msgstr "未接続"
+
+msgid "BORDER SIZE"
+msgstr "境界サイズ"
+
+msgid "AUTO"
+msgstr "自動"
+
+msgid "THIN"
+msgstr "超極細"
+
+msgid "MEDIUM"
+msgstr "中"
+
+msgid "BIG"
+msgstr "大"
+
+msgid "BORDER MODE"
+msgstr "境界モード"
+
+msgid "NORMAL"
+msgstr "標準"
+
+msgid "IN GAME ONLY"
+msgstr "ゲーム内のみ"
+
+msgid "HIDDEN"
+msgstr "非表示"
+
+msgid "BORDER COLOR"
+msgstr "境界色"
+
+msgid "WHITE"
+msgstr "白"
+
+msgid "RED"
+msgstr "赤"
+
+msgid "GREEN"
+msgstr "緑"
+
+msgid "BLUE"
+msgstr "青"
+
+msgid "CAMERA CONTRAST"
+msgstr "カメラ コントラスト"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "昼間/明るい日差し (40)"
+
+msgid "Default (50)"
+msgstr "標準 (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "薄暗い表示/夜 (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "カメラ 明るさ"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "昼間/明るい日差し (80)"
+
+msgid "Default (100)"
+msgstr "標準 (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "薄暗い表示/夜 (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "カメラ 露出"
+
+msgid "Projector/CRT (-5)"
+msgstr "プロジェクター/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "プロジェクター/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "標準 (-7)"
+
+msgid "Other (-8)"
+msgstr "その他 (-8)"
+
+msgid "Other (-9)"
+msgstr "その他 (-9)"
+
+msgid "RECOIL"
+msgstr "トリガーの反動"
+
+msgid "DISABLED"
+msgstr "無効"
+
+msgid "GUN"
+msgstr "ガンコン"
+
+msgid "MACHINE GUN"
+msgstr "マシンガン"
+
+msgid "QUIET GUN"
+msgstr "サイレントガン(弱反動)"
+
+msgid "QUIET MACHINE GUN"
+msgstr "サイレントマシンガン(弱反動)"
+
+msgid "MODE"
+msgstr "モード選択"
+
+msgid "JOYSTICK"
+msgstr "ゲームパッド"
+
+msgid "MOUSE ONLY"
+msgstr "マウスのみ"
+
+msgid "HAND"
+msgstr "ハンドモード"
+
+msgid "LEFT"
+msgstr "左"
+
+msgid "RIGHT"
+msgstr "右"
+
 msgid "CONTENT DOWNLOADER"
 msgstr "コンテンツダウンローダー"
 
@@ -913,7 +1115,7 @@ msgid "MUTE VIDEO AUDIO"
 msgstr "動画音声をミュート"
 
 msgid "SCREENSAVER CONTROLS"
-msgstr "スクリーンセーバー操作"
+msgstr "スクリーンセーバー操作(スタートでそのゲームを開始)"
 
 msgid "USE CUSTOM VIDEOS"
 msgstr "カスタム動画を使用"
@@ -949,12 +1151,12 @@ msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "カスタム画像ファイル拡張子"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
-msgstr "キーボードキーをパッドに割り当てる設定"
+msgstr "パッドキー設定(キーボードをパッドに割り当てる)"
 
 msgid "SELECT ACTIONS TO CHANGE"
 msgstr ""
-"ボタン、キーを選択（決定はB、同時押しはXで次のキーを選択、最後のキーの決定を"
-"B、キャンセルはYかA）"
+"ボタン、キーを選択（決定はS、[同時押し]はNで決定だと次のキーを選択できる、最"
+"後のキー決定をS、キャンセルはWかE）"
 
 msgid "SAVE"
 msgstr "保存"
@@ -1069,7 +1271,7 @@ msgid "VIEW GAME MAP"
 msgstr "ゲームマップを表示"
 
 msgid "VIEW FULLSCREEN VIDEO"
-msgstr "ゲームイメージビデオを表示"
+msgstr "ゲームイメージ動画を表示"
 
 msgid "VIEW GAME MEDIA"
 msgstr "ゲームメディアを表示"
@@ -1081,13 +1283,13 @@ msgid "COMPATIBLE CORE(S)"
 msgstr "互換性のあるコア"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
-msgstr "このゲームのACHIEVEMENTSを表示"
+msgstr "このゲームのアチーブメントを表示"
 
 msgid "GAME"
 msgstr "ゲーム"
 
 msgid "SAVE STATES"
-msgstr "セーブマネージャ"
+msgstr "セーブデータ"
 
 msgid "OPEN"
 msgstr "開く"
@@ -1150,10 +1352,10 @@ msgid "SCRAPE"
 msgstr "スクレイプ"
 
 msgid "EDIT PADTOKEY PROFILE"
-msgstr "パッドキープロファイルの編集"
+msgstr "パッドキー設定の編集"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr "パッドキープロファイルの作成"
+msgstr "パッドキー設定の作成"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "このゲームの詳細設定"
@@ -1189,10 +1391,13 @@ msgid "Unlocked on"
 msgstr "ロック解除"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "このゲームにはまだACHIEVEMENTSがありません"
+msgstr "このゲームにはまだアチーブメントがありません"
 
-msgid "Achievements won"
-msgstr "ACHIEVEMENTS達成"
+msgid "Achievements (softcore)"
+msgstr "Achievements (ソフトコア)"
+
+msgid "Achievements (hardcore)"
+msgstr "Achievements (ハードコア)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1223,67 +1428,79 @@ msgid "IMAGE SOURCE"
 msgstr "イメージ ソース元"
 
 msgid "SCREENSHOT"
-msgstr "スクリーンショット"
+msgstr "スクリーンショット<image>"
 
 msgid "TITLE SCREENSHOT"
-msgstr "タイトルスクリーンショット"
+msgstr "タイトルスクリーンショット<image>"
 
 msgid "MIX V1"
-msgstr "MIX V1"
+msgstr "MIX V1<image>"
 
 msgid "MIX V2"
-msgstr "MIX V2"
+msgstr "MIX V2<image>"
 
 msgid "BOX 2D"
-msgstr "2D ボックス"
+msgstr "2D ボックス<thumbnail>"
 
 msgid "BOX 3D"
-msgstr "3D ボックス"
+msgstr "3D ボックス<thumbnail>"
 
 msgid "FAN ART"
-msgstr "ファンアート"
+msgstr "ファンアート<fanart>"
 
 msgid "BOX SOURCE"
 msgstr "ボックス ソース元"
 
 msgid "LOGO SOURCE"
-msgstr "ロゴ ソース元"
+msgstr "ロゴ(マーキー) ソース元"
 
 msgid "WHEEL"
-msgstr "ホイール"
+msgstr "ホイール<marquee>"
 
 msgid "MARQUEE"
-msgstr "マーキー"
+msgstr "マーキー<marquee>"
+
+msgid "PREFERED REGION"
+msgstr "ゲーム優先リージョン<region>"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "説明を上書き"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "メディアを上書き"
 
 msgid "SCRAPE FOR"
-msgstr "スクレイプ"
+msgstr "スクレイプ <gamelist項目>"
 
 msgid "SHORT NAME"
 msgstr "短名"
 
 msgid "COMMUNITY RATING"
-msgstr "コミュニティの評価"
+msgstr "コミュニティの評価<rating>"
 
 msgid "VIDEO"
-msgstr "動画"
+msgstr "デモ動画<video>"
 
 msgid "FANART"
-msgstr "ファンアート画像"
+msgstr "ファンアート画像<fanart>"
 
 msgid "BEZEL (16:9)"
-msgstr "ベゼル(16:9)"
+msgstr "ベゼル(16:9)<bezel>(decorationsフォルダにコピー)"
 
 msgid "BOX BACKSIDE"
-msgstr "ボックス背景"
+msgstr "ボックス背景<boxback>"
 
 msgid "MAP"
-msgstr "マップ"
+msgstr "マップ<map>"
 
 msgid "MANUAL"
-msgstr "手動設定"
+msgstr "マニュアル<manual>"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "パッドキー設定"
+
+msgid "ACCOUNT"
+msgstr "アカウント(SCREENSCRAPER)"
 
 msgid "SCRAPER"
 msgstr "スクレイプ"
@@ -1373,7 +1590,7 @@ msgid "SYSTEM"
 msgstr "システム"
 
 msgid "VIDEO DRIVER"
-msgstr "ビデオドライバ"
+msgstr "ビデオ ドライバ"
 
 msgid "THE BEZEL PROJECT"
 msgstr "ベゼルプロジェクト"
@@ -1467,12 +1684,6 @@ msgstr "レンダラー"
 msgid "SHADERS"
 msgstr "シェーダー"
 
-msgid "CONTROLLER SETTINGS"
-msgstr "コントローラー 設定"
-
-msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "コントローラー＆BLUETOOTH 設定"
-
 msgid "INTERNAL"
 msgstr "システムと同ストレージ(通常)"
 
@@ -1533,6 +1744,9 @@ msgstr "ユーザーインターフェイスモードのロックを解除しま
 msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "ロック解除(ボタンを順に押す)"
 
+msgid "SERVICES"
+msgstr "サービス(その他の機能)"
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "開発者オプション"
 
@@ -1540,7 +1754,7 @@ msgid "VIDEO OPTIONS"
 msgstr "映像設定"
 
 msgid "VRAM LIMIT"
-msgstr "VRAM上限"
+msgstr "VRAM 制限(ESテーマ用)"
 
 msgid "SHOW FRAMERATE"
 msgstr "フレームレート表示"
@@ -1553,6 +1767,12 @@ msgstr "VSYNC(垂直同期)有効"
 
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
+
+msgid "VIDEO MODE"
+msgstr "映像解像度"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "エミュレーションステーションで表示する解像度を設定します"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
@@ -1595,8 +1815,30 @@ msgstr "データストレージのファイルシステムの変更"
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ゲームリストの整理と未使用のメディアを削除"
 
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr "使用していない項目データや、メディアが無い参照リンクを削除します"
+
 msgid "Cleaning"
 msgstr "クリーニング"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr "ゲームリストの使用データをリセット"
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+"プレイ時間, プレイ回数, 最後にプレイしたゲーム名 のデータ値を初期化します"
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "ファイル表示拡張子設定をリセット"
+
+msgid "Reset customized file extensions filters to default."
+msgstr "カスタマイズしたファイル拡張子フィルタを初期化します"
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "すべてのゲームの言語/地域を再検出"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "ネットプレイ/アチーブメント ですべてのゲームを検索"
 
 msgid "CLEAR CACHES"
 msgstr "キャッシュをクリア"
@@ -1606,15 +1848,6 @@ msgstr "イメージキャッシュのビルド"
 
 msgid "Building image cache"
 msgstr "イメージキャッシュのビルド中"
-
-msgid "RESET FILE EXTENSIONS"
-msgstr "ファイル表示拡張子設定をリセット"
-
-msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "すべてのゲームの言語/地域を再検出"
-
-msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "ネットプレイ/ACHIEVEMENTS ですべてのゲームを検索"
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
@@ -1647,7 +1880,7 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"ゲームリストに画像が指定されてない場合は、同じファイル名のメディアを検索しま"
+"ゲームリストにイメージ画像の指定が無い場合は、同じファイル名の画像を検索しま"
 "す"
 
 msgid "USER INTERFACE"
@@ -1663,7 +1896,7 @@ msgid "ON-SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
 
 msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
-msgstr "ゲーム開始時の画像、ゲーム名を非表示"
+msgstr "ゲーム開始時のイメージ画、ゲーム名を非表示"
 
 msgid "COMPLETE QUIT MENU"
 msgstr "完全終了メニュー"
@@ -1671,19 +1904,20 @@ msgstr "完全終了メニュー"
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCH メニュードライバー"
 
-msgid "AUTO"
-msgstr "自動"
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr "ESメニューの 決定 とキャンセル のボタン入れ替え"
 
-msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
-msgstr "ESメニューでの AとB ボタンの入れ替え"
+msgid "Switches the South and East buttons' functionality"
+msgstr "emulationstationで、南(下)と東(右)のボタンの機能を入れ替えます"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "△(上)ボタン長押しでゲーム設定を開く"
+msgstr "上(北)ボタン長押しでゲーム設定を開く"
 
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
-msgstr "△(上)短押(ステートセーブ)、×(下)長押(ゲーム設定)を反転します"
+msgstr ""
+"上(北)ボタン短押(ステートセーブ)、下(南)ボタン長押(ゲーム設定)を入れ替えます"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "最初のコントローラだけでESメニューを操作する"
@@ -1701,7 +1935,7 @@ msgid "OPTIMIZATIONS"
 msgstr "最適化"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "起動時にUI部を先読みする"
+msgstr "起動時にUI要素を先読みする"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
@@ -1717,10 +1951,10 @@ msgstr ""
 "スクレイプ済みゲームリストのスクロール時のラグを減少(起動時間が長くなります)"
 
 msgid "THREADED LOADING"
-msgstr "スレッド読み込み"
+msgstr "スレッド読み込み(CPUコアが複数ある場合)"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "イメージの非同期読み込み"
+msgstr "画像の非同期読み込み(画像を並行して読み込む)"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "画像表示にVRAMを使用"
@@ -1770,9 +2004,6 @@ msgstr "時計を12時間形式で表示"
 msgid "POWER SAVING MODE"
 msgstr "省電力モード(小型マシン用)"
 
-msgid "DISABLED"
-msgstr "無効"
-
 msgid "DEFAULT"
 msgstr "標準"
 
@@ -1792,7 +2023,7 @@ msgid "USER INTERFACE MODE"
 msgstr "ユーザーインターフェイス モード"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr "ゲストユーザー/子供で使用するために特定の設定メニューをロックします"
+msgstr "ゲストユーザー/子供が使用するために特定の設定メニューをロックします"
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1838,7 +2069,7 @@ msgid "SCREEN ROTATION"
 msgstr "画面の回転"
 
 msgid "0 DEGREES"
-msgstr "0 度"
+msgstr "回転しない"
 
 msgid "90 DEGREES"
 msgstr "右90度回転"
@@ -1946,7 +2177,7 @@ msgid "LATENCY REDUCTION"
 msgstr "ちらつき軽減"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "先行フレーム"
+msgstr "フレーム先読み"
 
 msgid "High numbers can result in visible jitter."
 msgstr "数値が大きいと、目に見えるジッターが発生する可能性があります"
@@ -1958,7 +2189,7 @@ msgid "Can prevent audio skips on button presses."
 msgstr "先読み使用でボタンを押したときの音声の途切れを防ぎます"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr "自動フレーム遅延"
+msgstr "自動フレームディレイ"
 
 msgid "AUTO FRAME DELAY"
 msgstr "自動フレーム遅延"
@@ -1986,6 +2217,54 @@ msgstr "ベゼルを選択"
 msgid "Current setting"
 msgstr "現在の設定"
 
+msgid "ACCOUNTS"
+msgstr "アカウント"
+
+msgid "BIOS SETTINGS"
+msgstr "BIOS 設定"
+
+msgid "SAVESTATES"
+msgstr "ステートセーブ"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "自動ステート読込み"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ステートセーブ保存方法"
+
+msgid "INCREMENT PER SAVE"
+msgstr "常に別スロットにセーブ"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr "古いセーブに上書きせず、常に新しくセーブを保存"
+
+msgid "INCREMENT SLOT"
+msgstr "ゲームごとに別にセーブ"
+
+msgid "Increment slot on a new game."
+msgstr "別の違うゲームの場合は、新しくセーブを保存"
+
+msgid "DO NOT INCREMENT"
+msgstr "同一スロットにセーブ"
+
+msgid "Use current slot on a new game."
+msgstr "選択スロットにセーブを上書き保存"
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ステートセーブマネージャーの表示"
+
+msgid "ALWAYS"
+msgstr "常に"
+
+msgid "IF NOT EMPTY"
+msgstr "セーブがある場合"
+
+msgid "Display savestate manager before launching a game."
+msgstr "ゲーム起動前にステートセーブマネージャを表示します"
+
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "グローバル基本設定"
 
@@ -1995,15 +2274,12 @@ msgstr "ゲーム画面比率"
 msgid "Force the game to render in this aspect ratio."
 msgstr "ゲームを指定アスペクト比でレンダリングします"
 
-msgid "VIDEO MODE"
-msgstr "ゲーム画面解像度"
-
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "ディスプレイの解像度を設定します。レンダリング解像度には影響しません"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "バイリニアフィルタリング"
+msgstr "スムーズゲーム（バイリニアフィルタリング）"
 
 msgid "REWIND"
 msgstr "巻き戻し"
@@ -2017,6 +2293,9 @@ msgstr "整数スケール (ピクセルを正方形表示)"
 
 msgid "SHADER SET"
 msgstr "シェーダー設定"
+
+msgid "VIDEO FILTER"
+msgstr "ビデオ フィルタ"
 
 msgid "DECORATIONS"
 msgstr "ベゼル(ゲーム画面外装飾表示)"
@@ -2078,48 +2357,6 @@ msgstr "翻訳画面で一時停止"
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自動コントローラー設定"
 
-msgid "SAVESTATES"
-msgstr "ステートセーブ"
-
-msgid "AUTO SAVE/LOAD"
-msgstr "自動ステート読込み"
-
-msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
-
-msgid "INCREMENTAL SAVESTATES"
-msgstr "ステートセーブ保存方法"
-
-msgid "INCREMENT PER SAVE"
-msgstr "常に別スロットにセーブ"
-
-msgid "Never overwrite old savestates, always make new ones."
-msgstr "古いセーブに上書きせず、常に新しくセーブを保存"
-
-msgid "INCREMENT SLOT"
-msgstr "ゲームごとに別にセーブ"
-
-msgid "Increment slot on a new game."
-msgstr "別の違うゲームの場合は、新しくセーブを保存"
-
-msgid "DO NOT INCREMENT"
-msgstr "同一スロットにセーブ"
-
-msgid "Use current slot on a new game."
-msgstr "選択スロットにセーブを上書き保存"
-
-msgid "SHOW SAVESTATE MANAGER"
-msgstr "ステートセーブマネージャーの表示"
-
-msgid "ALWAYS"
-msgstr "常に"
-
-msgid "IF NOT EMPTY"
-msgstr "セーブがある場合"
-
-msgid "Display savestate manager before launching a game."
-msgstr "ゲーム起動前にステートセーブマネージャを表示します"
-
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "システム別詳細設定"
 
@@ -2131,101 +2368,6 @@ msgstr "ゲームのハッシュ化が実行されています。 中止しま�
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "ゲームリストを更新しますか？"
-
-msgid "CONTROLLER MAPPING"
-msgstr "ボタン設定"
-
-msgid ""
-"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
-"RELATIVE TO ITS EQUIVALENT ON A SNES CONTROLLER, NOT ITS PHYSICAL LABEL. IF "
-"YOU DO NOT HAVE A SPECIAL KEY FOR HOTKEY, USE THE SELECT BUTTON. SKIP ALL "
-"BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY KEY. PRESS THE SOUTH BUTTON TO "
-"CONFIRM WHEN DONE."
-msgstr ""
-"コントローラーのボタン設定を行います。 物理的なものではなく、スーファミコント"
-"ローラー上の 同等のボタンに対するボタン位置に基づいて設定します。 ホットキー"
-"用の特別なボタンがない場合は、 「セレクト」ボタンを使用してください。 ボタン"
-"を長押しで、割り当てられない ボタン/スティックをスキップします。 完了したら、"
-"下（決定）ボタンを押して確認します。"
-
-msgid "SINDEN GUN SETTINGS"
-msgstr "シンデン ライトガンの設定"
-
-msgid "WIIMOTE GUN SETTINGS"
-msgstr "wii リモコンの用途設定"
-
-msgid "BLUETOOTH"
-msgstr "BLUETOOTH"
-
-msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "BLUETOOTH コントローラーをペアリング"
-
-msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "BLUETOOTH デバイスをペアリング"
-
-msgid "DISPLAY OPTIONS"
-msgstr "表示設定"
-
-msgid "SHOW CONTROLLER ACTIVITY"
-msgstr "コントローラーアクティビティを表示"
-
-msgid "SHOW CONTROLLER BATTERY LEVEL"
-msgstr "コントローラーバッテリーレベルを表示"
-
-msgid "PLAYER ASSIGNMENTS"
-msgstr "プレイヤーの割当"
-
-#, c-format
-msgid "P%i'S CONTROLLER"
-msgstr "プレイヤー %i コントローラー"
-
-msgid "default"
-msgstr "標準"
-
-msgid "BORDER SIZE"
-msgstr "境界サイズ"
-
-msgid "THIN"
-msgstr "超極細"
-
-msgid "MEDIUM"
-msgstr "中"
-
-msgid "BIG"
-msgstr "大"
-
-msgid "BORDER MODE"
-msgstr "境界モード"
-
-msgid "NORMAL"
-msgstr "標準"
-
-msgid "IN GAME ONLY"
-msgstr "ゲーム内のみ"
-
-msgid "HIDDEN"
-msgstr "非表示"
-
-msgid "RECOIL"
-msgstr "トリガーの反動"
-
-msgid "GUN"
-msgstr "ガンコン"
-
-msgid "MACHINE GUN"
-msgstr "マシンガン"
-
-msgid "QUIET GUN"
-msgstr "サイレントガン(弱反動)"
-
-msgid "QUIET MACHINE GUN"
-msgstr "サイレントマシンガン(弱反動)"
-
-msgid "MODE"
-msgstr "モード選択"
-
-msgid "JOYSTICK"
-msgstr "ゲームパッド"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "設定を編集する前にテーマを適用する必要があります"
@@ -2264,10 +2406,10 @@ msgid "SHOW HIDDEN FILES"
 msgstr "非表示設定ファイルを表示"
 
 msgid "SHOW FOLDERS"
-msgstr "romsサブフォルダの表示"
+msgstr "romサブフォルダの表示"
 
 msgid "having multiple games"
-msgstr "ゲームがあるフォルダ"
+msgstr "2個以上romがあるフォルダ"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "親フォルダ'..'を表示"
@@ -2287,6 +2429,15 @@ msgstr "ステートセーブアイコンを表示"
 msgid "SHOW MANUAL ICON"
 msgstr "マニュアルアイコンを表示"
 
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr "RetroAchievements アイコンを表示"
+
+msgid "SHOW GUN ICON"
+msgstr "銃 アイコンを表示"
+
+msgid "SHOW WHEEL ICON"
+msgstr "ホイール(車)アイコンを表示"
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "リストにファイル名を表示"
 
@@ -2302,9 +2453,8 @@ msgstr "外観"
 msgid "THEME SET"
 msgstr "テーマ"
 
-# Not reflected
 msgid "video"
-msgstr "ビデオ"
+msgstr "イメージ動画"
 
 msgid "grid"
 msgstr "グリッド"
@@ -2317,6 +2467,9 @@ msgstr "自動"
 
 msgid "GAME LAUNCH TRANSITION"
 msgstr "ゲーム開始の画面遷移"
+
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr "ゲームメディアの高速スクロール表示"
 
 msgid "SHOW CLOCK"
 msgstr "時間を表示"
@@ -2332,6 +2485,9 @@ msgstr "アイコン"
 
 msgid "ICON AND TEXT"
 msgstr "アイコンと文字"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr "サブフォルダを最初に表示"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ソート時に「The,a,an」を無視"
@@ -2373,22 +2529,19 @@ msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "動画再生時は音量を下げる"
 
 msgid "SOUNDS"
-msgstr "音声"
+msgstr "音響"
 
 msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ナビゲーションサウンドを有効"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr "デモ動画の音声を有効"
+msgstr "デモ動画のBGMを有効"
 
 msgid "IP ADDRESS"
 msgstr "IP アドレス"
 
 msgid "CONNECTED"
 msgstr "接続中"
-
-msgid "NOT CONNECTED"
-msgstr "未接続"
 
 msgid "INTERNET STATUS"
 msgstr "接続状態"
@@ -2426,6 +2579,12 @@ msgstr "スクリーンセーバーを起動"
 msgid "VIEW USER MANUAL"
 msgstr "ユーザーズマニュアルを表示"
 
+msgid "DISABLE PLANE MODE"
+msgstr "機内モード 無効"
+
+msgid "ENABLE PLANE MODE"
+msgstr "機内モード 有効"
+
 msgid "RESTART SYSTEM"
 msgstr "システムを再起動"
 
@@ -2448,7 +2607,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "システムを高速にシャットダウン"
 
 msgid "Shutdown without saving metadata."
-msgstr "メタデータを保存せずにシャットダウンします"
+msgstr "メタ情報を保存せずにシャットダウンします"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "メタ情報を保存せずに シャットダウンしますか？"
@@ -2526,9 +2685,9 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"ゲームリストがあるフォルダ外のファイルを選択しています\n"
-"関連ファイルをゲームリストがある指定フォルダにコピーして\n"
-"使用しますか？(いいえ、はコピーせずパス指定のみ)"
+"ゲームリストのフォルダ外のファイルを選択しています\n"
+"関連ファイルを指定フォルダ（rom/[system]/images等）に\n"
+"コピーしますか？(いいえ、はコピーせずパス指定のみ)"
 
 msgid "NO DEVICE FOUND"
 msgstr "デバイスが見つかりません"
@@ -2649,10 +2808,9 @@ msgstr "プレイ回数"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "このフォルダには、%i種のゲームがあります。%sフォルダ"
-
-msgid "No Entries Found"
-msgstr "エントリが見つかりません"
+msgstr[0] ""
+"このフォルダには、\n"
+"%i種類のゲームがあります%s"
 
 msgid "Games similar to"
 msgstr "類似ゲーム→"
@@ -2667,7 +2825,17 @@ msgid "GAME OPTIONS"
 msgstr "ゲーム設定"
 
 msgid "FAVORITE"
-msgstr "気に入り"
+msgstr "お気に入り"
+
+#, c-format
+msgid "Back to %s"
+msgstr "%s に戻る"
+
+msgid "No Entries Found"
+msgstr "該当データがありません"
+
+msgid "INVALID CONTENT"
+msgstr "無効なコンテンツ"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -2695,7 +2863,7 @@ msgid "SEARCH FOR"
 msgstr "検索"
 
 msgid "ACCEPT RESULT"
-msgstr "結果を確認"
+msgstr "結果を適用"
 
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
@@ -2812,7 +2980,7 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "「ゲームリストを更新」で変更を適用します"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
-msgstr "エミュレータが予期せず興奮しました"
+msgstr "エミュレータが予期せず終了しました"
 
 msgid "BAD COMMAND LINE ARGUMENTS"
 msgstr "コマンドライン引数が違います"
@@ -2860,7 +3028,7 @@ msgid "ALREADY PLAYED"
 msgstr "プレイ済み"
 
 msgid "HAS ACHIEVEMENTS"
-msgstr "ACHIEVEMENTSがある"
+msgstr "アチーブメントがある"
 
 msgid "VERTICAL"
 msgstr "縦表示"
@@ -2868,8 +3036,14 @@ msgstr "縦表示"
 msgid "LIGHTGUN"
 msgstr "ライトガン(ガンコン)対応"
 
-msgid "HAS MEDIAS"
+msgid "STEERING WHEEL"
+msgstr "ステアリングホイール (ハンコン)"
+
+msgid "HAVING MEDIAS"
 msgstr "メディア有り"
+
+msgid "MISSING MEDIAS"
+msgstr "メディア無し"
 
 msgid "SCRAPING"
 msgstr "情報を取得中"
@@ -2908,20 +3082,20 @@ msgid "SPACE"
 msgstr "空白"
 
 msgctxt "joystick"
-msgid "UP"
-msgstr "上"
+msgid "NORTH"
+msgstr "N ボタン / 上位置"
 
 msgctxt "joystick"
-msgid "DOWN"
-msgstr "下"
+msgid "SOUTH"
+msgstr "S ボタン / 下位置"
 
 msgctxt "joystick"
-msgid "LEFT"
-msgstr "左"
+msgid "EAST"
+msgstr "E ボタン / 右位置"
 
 msgctxt "joystick"
-msgid "RIGHT"
-msgstr "右"
+msgid "WEST"
+msgstr "W ボタン / 左位置"
 
 msgctxt "joystick"
 msgid "START"
@@ -2930,6 +3104,22 @@ msgstr "スタート"
 msgctxt "joystick"
 msgid "SELECT"
 msgstr "セレクト"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr "十字キー上"
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr "十字キー下"
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr "十字キー左"
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr "十字キー右"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
@@ -2964,6 +3154,30 @@ msgid "RIGHT ANALOG RIGHT"
 msgstr "右アナログST 右"
 
 msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr "左 ショルダー(L1)"
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr "右 ショルダー(R1)"
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr "左 トリガー(L2)"
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr "右 トリガー(R2)"
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr "左 アナログST押(L3)"
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr "右 アナログST押(R3)"
+
+msgctxt "joystick"
 msgid "HOTKEY"
 msgstr "ホットキー"
 
@@ -2981,7 +3195,7 @@ msgid "GAMEPAD %i"
 msgstr "ゲームパッド %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "何かのボタンを押し続けるとスキップ"
+msgstr "キー/ボタンを押し続けるとスキップ"
 
 msgid "-NOT DEFINED-"
 msgstr "-未割当-"
@@ -3024,6 +3238,12 @@ msgstr "ゲームパッドが検出されませんでした"
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "ボタンを押し続けると、 コントローラーの設定をします"
 
+msgid "PRESS ESC TO CANCEL."
+msgstr "ESCキーでキャンセルします"
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr "ESC またはホットキーを押すと、キャンセルします"
+
 msgid "DISCARD CHANGES"
 msgstr "変更をしない"
 
@@ -3062,6 +3282,30 @@ msgstr "編集"
 msgid "ENABLED"
 msgstr "有効"
 
+msgid "WORKING..."
+msgstr "処理中..."
+
+#, c-format
+msgid "%d d"
+msgstr "%d 日"
+
+#, c-format
+msgid "%d h"
+msgstr "%d 時"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d 分"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d 秒"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d 年前"
+
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -3082,23 +3326,14 @@ msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 秒前"
 
-msgid "WORKING..."
-msgstr "処理中..."
-
-#, c-format
-msgid "%d h"
-msgstr "%d 時"
-
-#, c-format
-msgid "%d mn"
-msgstr "%d 分"
-
-#, c-format
-msgid "%d sec"
-msgstr "%d 秒"
-
 msgid "SCREEN READER ENABLED"
 msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
+#~ msgstr "テーマファイルからコレクションを作成"
+
+#~ msgid "SELECT THEME FOLDER"
+#~ msgstr "追加するコレクションを選択"

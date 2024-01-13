@@ -7,6 +7,7 @@
 #include "resources/Font.h"
 #include "PowerSaver.h"
 #include "ThemeData.h"
+#include "Settings.h"
 #include <vector>
 
 enum CursorState
@@ -105,11 +106,17 @@ public:
 
 	bool isScrolling() const
 	{
+		if (Settings::ScrollLoadMedias())
+			return false;
+
 		return (mScrollVelocity != 0 && mScrollTier > 0);
 	}
 
 	int getScrollingVelocity() 
 	{
+		if (Settings::ScrollLoadMedias())
+			return 0;
+
 		return mScrollVelocity;
 	}
 
@@ -237,13 +244,17 @@ public:
 protected:
 	void remove(typename std::vector<Entry>::const_iterator& it)
 	{
-		if(mCursor > 0 && it - mEntries.cbegin() <= mCursor)
-		{
-			mCursor--;
-			onCursorChanged(CURSOR_STOPPED);
-		}
+		int index = it - mEntries.cbegin();
 
 		mEntries.erase(it);
+
+		if (mEntries.size() > 0 && (index <= mCursor || mCursor >= mEntries.size()))
+		{
+			if (index < mCursor || mCursor >= mEntries.size())
+				mCursor--;
+
+			onCursorChanged(CURSOR_STOPPED);
+		}
 	}
 
 
@@ -395,7 +406,11 @@ protected:
 			onScroll(absAmt);
 
 		mCursor = cursor;
-		onCursorChanged((mScrollTier > 0) ? CURSOR_SCROLLING : CURSOR_STOPPED);
+
+		if (Settings::ScrollLoadMedias())
+			onCursorChanged(CURSOR_STOPPED);
+		else
+			onCursorChanged((mScrollTier > 0) ? CURSOR_SCROLLING : CURSOR_STOPPED);
 	}
 
 

@@ -5,6 +5,7 @@
 #include "components/MenuComponent.h"
 #include "components/ComponentGrid.h"
 #include "components/TextComponent.h"
+#include "components/ImageComponent.h"
 #include "ApiSystem.h"
 #include "ContentInstaller.h"
 #include "components/ComponentTab.h"
@@ -15,16 +16,20 @@ class OptionListComponent;
 class GuiBatoceraStoreEntry : public ComponentGrid
 {
 public:
-	GuiBatoceraStoreEntry(Window* window, PacmanPackage& entry);
+	GuiBatoceraStoreEntry(Window* window, PacmanPackage& entry, bool withPreviewImage);
 
 	bool isInstallPending() { return mIsPending; }
 	PacmanPackage& getEntry() { return mEntry; }
 	virtual void setColor(unsigned int color);
 
+	void update(int deltaTime) override;
+
 private:
 	std::shared_ptr<TextComponent>  mImage;
 	std::shared_ptr<TextComponent>  mText;
 	std::shared_ptr<TextComponent>  mSubstring;
+
+	std::shared_ptr<ImageComponent>  mPreviewImage;
 
 	PacmanPackage mEntry;
 	bool mIsPending;

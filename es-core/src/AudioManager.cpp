@@ -13,7 +13,7 @@
 #include "Paths.h"
 
 #ifdef _ENABLEEMUELEC
-#include "platform.h"
+#include "utils/Platform.h"
 #endif
 
 #ifdef WIN32
@@ -62,7 +62,6 @@ void AudioManager::init()
 		return;
 	
 	mSongNameChanged = false;
-	mMusicVolume = 0;
 	mPlayingSystemThemeSong = "none";
 	std::deque<std::string> mLastPlayed;
 
@@ -74,7 +73,10 @@ void AudioManager::init()
 
 	// Open the audio device and pause
 	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) < 0)
+	{
+		mMusicVolume = 0;
 		LOG(LogError) << "MUSIC Error - Unable to open SDLMixer audio: " << SDL_GetError() << std::endl;
+	}
 	else
 	{
 		LOG(LogInfo) << "SDL AUDIO Initialized";
@@ -83,8 +85,12 @@ void AudioManager::init()
 		// Reload known sounds
 		for (unsigned int i = 0; i < sSoundVector.size(); i++)
 			sSoundVector[i]->init();
+
+		mMusicVolume = getMaxMusicVolume();
+		Mix_VolumeMusic(mMusicVolume);
 	}
 }
+
 
 void AudioManager::deinit()
 {
@@ -108,7 +114,7 @@ void AudioManager::deinit()
 
 #ifdef _ENABLEEMUELEC	
 	LOG(LogInfo) << "Attempting to close SDL AUDIO";
-	runSystemCommand("/usr/bin/emuelec-utils audio alsa", "", nullptr); 
+    Utils::Platform::ProcessStartInfo("/usr/bin/emuelec-utils audio alsa").run();	
 #endif
 
 	//completely tear down SDL audio. else SDL hogs audio resources and emulators might fail to start...
@@ -552,7 +558,9 @@ void AudioManager::setVideoPlaying(bool state)
 
 int AudioManager::getMaxMusicVolume()
 {
-	int ret = (Settings::getInstance()->getInt("MusicVolume") * MIX_MAX_VOLUME) / 100;
+	int linearVolume = Settings::getInstance()->getInt("MusicVolume");
+	double logarithmicVolume = (linearVolume == 0) ? 0 : std::pow(10.0, (linearVolume - 100) / 40.0) * MIX_MAX_VOLUME;
+	int ret = static_cast<int>(logarithmicVolume);
 	if (ret > MIX_MAX_VOLUME)
 		return MIX_MAX_VOLUME;
 

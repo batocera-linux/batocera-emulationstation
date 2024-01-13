@@ -116,6 +116,22 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 		addSaveFunc([logoSource] { Settings::getInstance()->setString("ScrapperLogoSrc", logoSource->getSelected()); });
 	}
 
+	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Region))
+	{
+		std::string region = Settings::getInstance()->getString("ScraperRegion");
+		auto regionCtrl = std::make_shared< OptionListComponent<std::string> >(mWindow, _("PREFERED REGION"), false);
+		regionCtrl->addRange({ { _("AUTO"), "" }, { "EUROPE", "eu" },  { "USA", "us" }, { "JAPAN", "jp" } , { "WORLD", "wor" } }, region);
+
+		if (!regionCtrl->hasSelection())
+			regionCtrl->selectFirstItem();
+
+		addWithLabel(_("PREFERED REGION"), regionCtrl);
+		addSaveFunc([regionCtrl] { Settings::getInstance()->setString("ScraperRegion", regionCtrl->getSelected()); });
+	}
+
+	addSwitch(_("OVERWRITE DESCRIPTIONS"), "ScrapeDescription", true);
+	addSwitch(_("OVERWRITE MEDIAS"), "ScrapeOverWrite", true);
+
 	addGroup(_("SCRAPE FOR"));
 
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::ShortTitle))
@@ -139,6 +155,7 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::Map))
 		addSwitch(_("MAP"), "ScrapeMap", true);
 
+
 	/*
 	if (scrap->isMediaSupported(Scraper::ScraperMediaSource::TitleShot))
 	addSwitch(_("SCRAPE TITLESHOT"), "ScrapeTitleShot", true);
@@ -156,6 +173,7 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 	// ScreenScraper Account		
 	if (scraper == "ScreenScraper")
 	{
+		addGroup(_("ACCOUNT"));
 		addInputTextRow(_("USERNAME"), "ScreenScraperUser", false, true);
 		addInputTextRow(_("PASSWORD"), "ScreenScraperPass", true, true);
 	}

@@ -129,6 +129,12 @@ static const rc_disallowed_setting_t _rc_disallowed_snes9x_settings[] = {
   { NULL, NULL }
 };
 
+static const rc_disallowed_setting_t _rc_disallowed_vice_settings[] = {
+  { "vice_autostart", "disabled" }, /* autostart dictates initial load and reset from menu */
+  { "vice_reset", "!autostart" }, /* reset dictates behavior when pressing reset button (END) */
+  { NULL, NULL }
+};
+
 static const rc_disallowed_setting_t _rc_disallowed_virtual_jaguar_settings[] = {
   { "virtualjaguar_pal", "enabled" },
   { NULL, NULL }
@@ -152,6 +158,7 @@ static const rc_disallowed_core_settings_t rc_disallowed_core_settings[] = {
   { "QUASI88", _rc_disallowed_quasi88_settings },
   { "SMS Plus GX", _rc_disallowed_smsplus_settings },
   { "Snes9x", _rc_disallowed_snes9x_settings },
+  { "VICE x64", _rc_disallowed_vice_settings },
   { "Virtual Jaguar", _rc_disallowed_virtual_jaguar_settings },
   { NULL, NULL }
 };
@@ -281,7 +288,7 @@ int rc_libretro_is_system_allowed(const char* library_name, int console_id) {
   return 1;
 }
 
-unsigned char* rc_libretro_memory_find(const rc_libretro_memory_regions_t* regions, unsigned address) {
+unsigned char* rc_libretro_memory_find_avail(const rc_libretro_memory_regions_t* regions, unsigned address, unsigned* avail) {
   unsigned i;
 
   for (i = 0; i < regions->count; ++i) {
@@ -290,13 +297,23 @@ unsigned char* rc_libretro_memory_find(const rc_libretro_memory_regions_t* regio
       if (regions->data[i] == NULL)
         break;
 
+      if (avail)
+        *avail = (unsigned)(size - address);
+
       return &regions->data[i][address];
     }
 
     address -= (unsigned)size;
   }
 
+  if (avail)
+    *avail = 0;
+
   return NULL;
+}
+
+unsigned char* rc_libretro_memory_find(const rc_libretro_memory_regions_t* regions, unsigned address) {
+  return rc_libretro_memory_find_avail(regions, address, NULL);
 }
 
 void rc_libretro_init_verbose_message_callback(rc_libretro_message_callback callback) {
@@ -613,7 +630,7 @@ void rc_libretro_hash_set_init(struct rc_libretro_hash_set_t* hash_set,
   char image_path[1024];
   char* m3u_contents;
   char* ptr;
-  size_t file_len;
+  int64_t file_len;
   void* file_handle;
   int index = 0;
 

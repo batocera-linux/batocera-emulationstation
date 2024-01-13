@@ -12,7 +12,7 @@
 #include "Log.h"
 #include "MameNames.h"
 #include "Genres.h"
-#include "platform.h"
+#include "utils/Platform.h"
 #include "PowerSaver.h"
 #include "Settings.h"
 #include "SystemData.h"
@@ -38,6 +38,8 @@
 #include "TextToSpeech.h"
 #include "Paths.h"
 #include "resources/TextureData.h"
+#include "Scripting.h"
+#include "watchers/WatchersManager.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -441,12 +443,16 @@ void launchStartupGame()
 	{
 		InputManager::getInstance()->init();
 		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", InputManager::getInstance()->configureEmulators());
-		runSystemCommand(command, gamePath, nullptr);
+		Utils::Platform::ProcessStartInfo(command).run();		
 	}	
 }
 
+#include "utils/MathExpr.h"
+
 int main(int argc, char* argv[])
 {	
+	Utils::MathExpr::performUnitTests();
+
 	// signal(SIGABRT, signalHandler);
 	signal(SIGFPE, signalHandler);
 	signal(SIGILL, signalHandler);
@@ -527,13 +533,14 @@ int main(int argc, char* argv[])
 	}
 #endif
 
+	Scripting::fireEvent("start");
+
 	// metadata init
 	Genres::init();
 	MetaDataList::initMetadata();
 
 	Window window;
 	SystemScreenSaver screensaver(&window);
-	PowerSaver::init();
 	ViewController::init(&window);
 	CollectionSystemManager::init(&window);
 	VideoVlcComponent::init();
@@ -544,6 +551,8 @@ int main(int argc, char* argv[])
 		LOG(LogError) << "Window failed to initialize!";
 		return 1;
 	}
+
+	PowerSaver::init();
 
 	bool splashScreen = Settings::getInstance()->getBool("SplashScreen");
 	bool splashScreenProgress = Settings::getInstance()->getBool("SplashScreenProgress");
@@ -572,7 +581,7 @@ int main(int argc, char* argv[])
 		}
 
 		// we can't handle es_systems.cfg file problems inside ES itself, so display the error message then quit
-		window.pushGui(new GuiMsgBox(&window, errorMsg, _("QUIT"), [] { quitES(); }));
+		window.pushGui(new GuiMsgBox(&window, errorMsg, _("QUIT"), [] { Utils::Platform::quitES(); }));
 	}
 
 	SystemConf* systemConf = SystemConf::getInstance();
@@ -612,7 +621,7 @@ int main(int argc, char* argv[])
 
 	// tts
 	TextToSpeech::getInstance()->enable(Settings::getInstance()->getBool("TTS"), false);
-
+	
 	if (errorMsg == NULL)
 		ViewController::get()->goToStart(true);
 
@@ -716,6 +725,7 @@ int main(int argc, char* argv[])
 		TRYCATCH("Window.update" ,window.update(deltaTime))	
 		TRYCATCH("Window.render", window.render())
 
+/*
 #ifdef WIN32		
 		int processDuration = SDL_GetTicks() - processStart;
 		if (processDuration < timeLimit)
@@ -725,21 +735,23 @@ int main(int argc, char* argv[])
 				Sleep(timeToWait);
 		}
 #endif
+*/
 
 		Renderer::swapBuffers();
 
 		Log::flush();
 	}
 
-	if (isFastShutdown())
+	if (Utils::Platform::isFastShutdown())
 		Settings::getInstance()->setBool("IgnoreGamelist", true);
 
+	WatchersManager::stop();
 	ThreadedHasher::stop();
 	ThreadedScraper::stop();
 
 	ApiSystem::getInstance()->deinit();
 
-	while(window.peekGui() != ViewController::get())
+	while (window.peekGui() != ViewController::get())
 		delete window.peekGui();
 
 	if (SystemData::hasDirtySystems())
@@ -750,15 +762,20 @@ int main(int argc, char* argv[])
 	ViewController::saveState();
 	CollectionSystemManager::deinit();
 	SystemData::deleteSystems();
+	Scripting::exitScriptingEngine();
 
 	// call this ONLY when linking with FreeImage as a static library
 #ifdef FREEIMAGE_LIB
 	FreeImage_DeInitialise();
 #endif
+	
+	// Delete ViewController
+	while (window.peekGui() != nullptr)
+		delete window.peekGui();
 
 	window.deinit();
 
-	processQuitMode();
+	Utils::Platform::processQuitMode();
 
 	LOG(LogInfo) << "EmulationStation cleanly shutting down.";
 

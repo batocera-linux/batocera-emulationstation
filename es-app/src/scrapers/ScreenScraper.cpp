@@ -1,3 +1,4 @@
+#include "utils/Uri.h"
 #include "scrapers/ScreenScraper.h"
 
 #include "utils/TimeUtil.h"
@@ -24,13 +25,6 @@ using namespace PlatformIds;
 
 #if defined(SCREENSCRAPER_DEV_LOGIN)
 
-std::string ScreenScraperRequest::ensureUrl(const std::string url)
-{
-	return Utils::String::replace(
-		Utils::String::replace(url, " ", "%20") ,
-		"#screenscraperserveur#", "https://www.screenscraper.fr/");
-}
-
 /**
 	List of systems and thein IDs from
 	https://www.screenscraper.fr/api/systemesListe.php?devid=xxx&devpassword=yyy&softname=zzz&output=XML
@@ -51,6 +45,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ ATARI_LYNX, 28 },
 	{ ATARI_ST, 42},
 	// missing Atari XE ?
+	{ BBC_MICRO, 37 },
 	{ COLECOVISION, 48 },
 	{ COMMODORE_64, 66 },
 	{ COMMODORE_VIC20, 73 },
@@ -60,6 +55,9 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ XBOX, 32 },
 	{ XBOX_360, 33 },
 	{ MSX, 113 },
+	{ MSX2, 116 },
+	{ MSX2_PLUS, 117 },
+	{ MSX_TURBO_R, 118 },
 	{ NEOGEO, 142 },
 	{ NEOGEO_POCKET, 25},
 	{ NEOGEO_POCKET_COLOR, 82 },
@@ -89,6 +87,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ SEGA_GENESIS, 1 },
 	{ SEGA_MASTER_SYSTEM, 2 },
 	{ SEGA_MEGA_DRIVE, 1 },
+	{ SEGA_PICO, 250 },
 	{ SEGA_SATURN, 22 },
 	{ SEGA_SG1000, 109 },
 	{ SHARP_X1, 220 },
@@ -110,6 +109,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ TRS80_COLOR_COMPUTER, 144 },
 	{ TANDY, 144 },
 	{ SUPERGRAFX, 105 },
+	{ GP32, 101},
 
 	{ AMIGACD32, 130 },
 	{ AMIGACDTV, 129 },
@@ -135,6 +135,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VISUALPINBALL, 198 },
 	{ FUTUREPINBALL, 199 },
 	
+	{ TEKNOPARROT, 138 }, // Use "PC Windows", as it's the nearest
+
 	// Misc
 	{ VIC20, 73 },
 	{ ORICATMOS, 131 },
@@ -155,6 +157,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ QUAKE, 135 }, // DOS PC
 	{ SUPER_GAME_BOY, 127 },
 	{ COMMODORE_PET, 240 },
+	{ COMMODORE_PLUS4, 99 },
 	{ ACORN_ATOM, 36 },
 	{ NOKIA_NGAGE, 30 },
 	{ ACORN_BBC_MICRO, 37 },
@@ -176,7 +179,10 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ CREATONIC_MEGA_DUCK, 90 },
 	{ FUNTECH_SUPER_A_CAN, 100 },
 	{ CAMPUTER_LYNX, 88 },
-	{ EPOCH_GAMEPOCKET, 95 }
+	{ EPOCH_GAMEPOCKET, 95 },
+	{ WASM4, 262 },
+	{ GAMATE, 266 },
+	{ ARDUBOY, 263 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()
@@ -199,7 +205,8 @@ const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedM
 		ScraperMediaSource::Manual,
 		ScraperMediaSource::Ratings,
 		ScraperMediaSource::PadToKey,
-		ScraperMediaSource::Bezel_16_9
+		ScraperMediaSource::Bezel_16_9,
+		ScraperMediaSource::Region
 	};
 
 	return mdds;
@@ -250,10 +257,14 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 		auto length = Utils::FileSystem::getFileSize(fileNameToHash);
 
 		if (length > 1024 * 1024 && !params.game->getMetadata(MetaDataId::Md5).empty()) // 1Mb
-			path += "&md5=" + params.game->getMetadata(MetaDataId::Md5);
+		{
+			path += "&md5=" + Utils::String::toUpper(params.game->getMetadata(MetaDataId::Md5));
+
+			if (!params.game->getMetadata(MetaDataId::Crc32).empty())
+				path += "&crc=" + Utils::String::toUpper(params.game->getMetadata(MetaDataId::Crc32));
+		}
 		else
 		{
-
 			if (params.game->hasContentFiles() && Utils::String::toLower(Utils::FileSystem::getExtension(fileNameToHash)) == ".m3u")
 			{
 				auto content = params.game->getContentFiles();
@@ -267,18 +278,20 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 			// Use md5 to search scrapped game
 			if (length > 0 && length <= 131072 * 1024) // 128 Mb max
 			{		
-				std::string val = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
-				if (!val.empty())
+				std::string md5 = ApiSystem::getInstance()->getMD5(fileNameToHash, params.system->shouldExtractHashesFromArchives());
+				if (!md5.empty())
 				{
-					params.game->setMetadata(MetaDataId::Md5, val);
-					path += "&md5=" + val;
+					params.game->setMetadata(MetaDataId::Md5, md5);
+					path += "&md5=" + Utils::String::toUpper(md5);
+
+					std::string crc = params.game->getMetadata(MetaDataId::Crc32);
+					if (!crc.empty())
+						path += "&crc=" + Utils::String::toUpper(params.game->getMetadata(MetaDataId::Crc32));
 				}
-				else
-					path += "&romtaille=" + std::to_string(length);
 			}
-			else
-				path += "&romtaille=" + std::to_string(length);
-		}
+		}	
+		
+		path += "&romtaille=" + std::to_string(length);
 	}
 	else
 	{
@@ -287,7 +300,7 @@ void ScreenScraperScraper::generateRequests(const ScraperSearchParams& params,
 
 		path = ssConfig.getGameSearchUrl(name, true);
 	}
-	
+
 	auto& platforms = params.system->getPlatformIds();
 	std::vector<unsigned short> p_ids;
 
@@ -644,7 +657,7 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
             if(arcadeSystem != ArcadeSystems.cend())
                 result.mdl.set(MetaDataId::ArcadeSystemName, arcadeSystem->second.first);
 		}
-
+		
         // TODO: Validate rating
 		if (Settings::getInstance()->getBool("ScrapeRatings") && game.child("note"))
 		{
@@ -664,6 +677,14 @@ void ScreenScraperRequest::processGame(const pugi::xml_document& xmldoc, std::ve
 
 		if (media_list)
 		{
+			// ScraperRegion applies only to medias -> Import into romlang during findMedia(), as it's searched first
+			std::string regionOverride = Settings::getInstance()->getString("ScraperRegion");
+			if (!regionOverride.empty())
+			{
+				region = romlang;
+				romlang = regionOverride;
+			}
+
 			std::vector<std::string> ripList = getRipList(Settings::getInstance()->getString("ScrapperImageSrc"));
 			if (!ripList.empty())
 			{
@@ -845,6 +866,37 @@ std::string ScreenScraperRequest::ScreenScraperConfig::getUserInfoUrl() const
 
 	if (!user.empty() && !pass.empty())
 		ret = ret + "&ssid=" + HttpReq::urlEncode(user) + "&sspassword=" + HttpReq::urlEncode(pass);
+
+	return ret;
+}
+
+
+std::string ScreenScraperRequest::ensureUrl(const std::string& url)
+{
+	std::string ret = Utils::String::replace(
+		Utils::String::replace(url, " ", "%20"),
+		"#screenscraperserveur#", "https://www.screenscraper.fr/");
+
+	if (Settings::getInstance()->getBool("FastScrap"))
+	{
+		Utils::Uri uri(url);
+
+		auto gameid = uri.arguments["jeuid"];
+		auto systemeid = uri.arguments["systemeid"];
+		auto media = uri.arguments["media"];
+
+		if (!gameid.empty() && !systemeid.empty() && !media.empty())
+		{
+			auto region = Utils::String::extractString(media, "(", ")", true);
+			media = Utils::String::replace(media, region, "");
+			region = Utils::String::extractString(region, "(", ")", false);
+
+			if (media == "video" || media == "video-normalized")
+				ret = "https://www.screenscraper.fr/medias/" + systemeid + "/" + gameid + "/" + media + ".mp4";
+			else if (media != "manuel" && media != "map")
+				ret = "https://www.screenscraper.fr/image.php?gameid=" + gameid + "&media=" + media + "&hd=0&region=" + region + "&num=&version=&maxwidth=1920&maxheight=1080";
+		}
+	}
 
 	return ret;
 }

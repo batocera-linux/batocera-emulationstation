@@ -24,12 +24,17 @@
 #include "components/VolumeInfoComponent.h"
 #include "Splash.h"
 #include "PowerSaver.h"
+#include "renderers/Renderer.h"
 #ifdef _ENABLEEMUELEC
 #include "utils/FileSystemUtil.h"
 #endif
 
+#if WIN32
+#include <SDL_syswm.h>
+#endif
+
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
-  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr)
+  mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr), mMenuBackgroundShaderTextureCache(-1)
 {			
 	mTransitionOffset = 0;
 
@@ -43,6 +48,8 @@ Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCoun
 
 Window::~Window()
 {
+	resetMenuBackgroundShader();
+
 	for (auto extra : mScreenExtras)
 		delete extra;
 
@@ -57,6 +64,8 @@ Window::~Window()
 
 void Window::pushGui(GuiComponent* gui)
 {
+	resetMenuBackgroundShader();
+
 	if (mGuiStack.size() > 0)
 	{
 		auto& top = mGuiStack.back();
@@ -72,6 +81,8 @@ void Window::pushGui(GuiComponent* gui)
 
 void Window::removeGui(GuiComponent* gui)
 {
+	resetMenuBackgroundShader();
+
 	if (mMouseCapture == gui)
 		mMouseCapture = nullptr;
 
@@ -184,6 +195,8 @@ void Window::reactivateGui()
 
 void Window::deinit(bool deinitRenderer)
 {
+	resetMenuBackgroundShader();
+
 	for (auto extra : mScreenExtras)
 		extra->onHide();
 
@@ -448,6 +461,9 @@ void Window::update(int deltaTime)
 			deltaTime = mAverageDeltaTime;
 	}
 
+	for (auto extra : mScreenExtras)
+		extra->update(deltaTime);
+
 	if (mVolumeInfo)
 		mVolumeInfo->update(deltaTime);
 
@@ -466,11 +482,12 @@ void Window::update(int deltaTime)
 			ss << std::fixed << std::setprecision(2) << ((float)mFrameTimeElapsed / (float)mFrameCountElapsed) << "ms";
 
 			// vram
-			float textureVramUsageMb = TextureResource::getTotalMemUsage() / 1000.0f / 1000.0f;
-			float textureTotalUsageMb = TextureResource::getTotalTextureSize() / 1000.0f / 1000.0f;
-			float fontVramUsageMb = Font::getTotalMemUsage() / 1000.0f / 1000.0f;
+			float textureVramUsageMb = TextureResource::getTotalMemUsage(false) / 1024.0f / 1024.0f;
+			float textureTotalUsageMb = TextureResource::getTotalTextureSize() / 1024.0f / 1024.0f;
+			float fontVramUsageMb = Font::getTotalMemUsage() / 1024.0f / 1024.0f;
+			size_t max_texture = Settings::getInstance()->getInt("MaxVRAM");
 
-			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Tex Max: " << textureTotalUsageMb;
+			ss << "\nFont VRAM: " << fontVramUsageMb << " Tex VRAM: " << textureVramUsageMb << " Known Tex: " << textureTotalUsageMb << " Max VRAM: " << max_texture;
 
 			mFrameDataText = std::unique_ptr<TextCache>(mDefaultFonts.at(0)->buildTextCache(ss.str(), Vector2f(50.f, 50.f), 0xFFFF40FF, 0.0f, ALIGN_LEFT, 1.2f));			
 		}
@@ -574,7 +591,13 @@ void Window::renderSindenBorders()
 		Renderer::setMatrix(Transform4x4f::Identity());
 
 		const unsigned int outerBorderColor = 0x000000FF;
-		const unsigned int innerBorderColor = 0xFFFFFFFF;
+		unsigned int innerBorderColor = 0xFFFFFFFF;
+
+		auto bordersColor = SystemConf::getInstance()->get("controllers.guns.borderscolor");
+		if (bordersColor == "red")   innerBorderColor = 0xFF0000FF;
+		if (bordersColor == "green") innerBorderColor = 0x00FF00FF;
+		if (bordersColor == "blue")  innerBorderColor = 0x0000FFFF;
+		if (bordersColor == "white") innerBorderColor = 0xFFFFFFFF;
 
 		// outer border
 		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
@@ -595,24 +618,71 @@ void Window::renderSindenBorders()
 		Renderer::setScreenMargin(0, 0);
 }
 
+void Window::renderMenuBackgroundShader()
+{
+	auto menuBackground = ThemeData::getMenuTheme()->Background;
+
+	const Renderer::ShaderInfo& info = menuBackground.shader;
+	if (!info.path.empty())
+	{
+		if (mMenuBackgroundShaderTextureCache == -1)
+			Renderer::postProcessShader(info.path, 0, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), info.parameters, &mMenuBackgroundShaderTextureCache);
+
+		if (mMenuBackgroundShaderTextureCache != -1)
+		{
+			Renderer::bindTexture(mMenuBackgroundShaderTextureCache);
+			Renderer::setMatrix(Transform4x4f::Identity());
+
+			int w = Renderer::getScreenWidth();
+			int h = Renderer::getScreenHeight();
+
+			Renderer::Vertex vertices[4];
+			vertices[0] = { { (float)0    , (float)0       }, { 0.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[1] = { { (float)0    , (float)0 + h   }, { 0.0f, 0.0f }, 0xFFFFFFFF };
+			vertices[2] = { { (float)0 + w, (float)0       }, { 1.0f, 1.0f }, 0xFFFFFFFF };
+			vertices[3] = { { (float)0 + w, (float)0 + h   }, { 1.0f, 0.0f }, 0xFFFFFFFF };
+
+			Renderer::drawTriangleStrips(&vertices[0], 4, Renderer::Blend::ONE, Renderer::Blend::ONE);
+			Renderer::bindTexture(0);
+		}
+	}
+	else
+		resetMenuBackgroundShader();
+}
+
+void Window::resetMenuBackgroundShader()
+{
+	if (mMenuBackgroundShaderTextureCache != -1)
+	{
+		Renderer::destroyTexture(mMenuBackgroundShaderTextureCache);
+		mMenuBackgroundShaderTextureCache = -1;
+	}
+}
+
 void Window::render()
 {
 	Transform4x4f transform = Transform4x4f::Identity();
 
 	mRenderedHelpPrompts = false;
-
+	
 	// draw only bottom and top of GuiStack (if they are different)
 	if (mGuiStack.size())
 	{
 		auto& bottom = mGuiStack.front();
 		auto& top = mGuiStack.back();
 
-		bottom->render(transform);
+		auto menuBackground = ThemeData::getMenuTheme()->Background;
+
+		// Don't render bottom if we have a MenuBackgroundShaderTextureCache
+		if (mMenuBackgroundShaderTextureCache == -1)
+			bottom->render(transform);
+
 		if (bottom != top)
 		{
 			if ((top->getTag() == "GuiLoading") && mGuiStack.size() > 2)
 			{
 				mBackgroundOverlay->render(transform);
+				renderMenuBackgroundShader();
 
 				auto& middle = mGuiStack.at(mGuiStack.size() - 2);
 				if (middle != bottom)
@@ -630,10 +700,16 @@ void Window::render()
 				}
 
 				mBackgroundOverlay->render(transform);
+				renderMenuBackgroundShader();
+
 				top->render(transform);
 			}
 		}
+		else  
+			resetMenuBackgroundShader();
 	}
+	else 
+		resetMenuBackgroundShader();
 
 	renderSindenBorders();
 
@@ -645,7 +721,7 @@ void Window::render()
 	if (Settings::DrawFramerate() && mFrameDataText)
 	{
 		Renderer::setMatrix(transform);
-		Renderer::drawRect(45.f, 50.f, mFrameDataText->metrics.size.x(), mFrameDataText->metrics.size.y(), 0x00000080);
+		Renderer::drawSolidRectangle(40.f, 45.f, mFrameDataText->metrics.size.x() + 10.f, mFrameDataText->metrics.size.y() + 10.f, 0x00000080, 0xFFFFFF30, 2.0f, 3.0f);
 
 		auto trans = transform;
 		trans.translate(1, 1);
@@ -688,8 +764,11 @@ void Window::render()
 	// or not because it may perform a fade on transition
 	renderScreenSaver();
 
-	for (auto extra : mScreenExtras)
-		extra->render(transform);
+	if (!mRenderScreenSaver)
+	{
+		for (auto extra : mScreenExtras)
+			extra->render(transform);
+	}
 
 	if (mVolumeInfo && Settings::VolumePopup())
 		mVolumeInfo->render(transform);
@@ -716,10 +795,12 @@ void Window::render()
 
 	// Render guns aims
 	auto guns = InputManager::getInstance()->getGuns();
-	if (guns.size())
+	if (!mRenderScreenSaver && guns.size())
 	{
 		auto margin = Renderer::setScreenMargin(0, 0);
 		Renderer::setMatrix(Transform4x4f::Identity());
+
+		bool hasMousePointer = false;
 
 		if (mGunAimTexture == nullptr)
 			mGunAimTexture = TextureResource::get(":/gun.png", false, false, true, false);
@@ -728,6 +809,15 @@ void Window::render()
 		{
 			for (auto gun : guns)
 			{
+				if (gun->isMouse())
+				{
+					hasMousePointer = true;
+					continue;
+				}
+
+				if (gun->isLastTickElapsed())
+					continue;
+
 				int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 32;
 
 				Vector2f topLeft = { gun->x() - pointerSize, gun->y() - pointerSize };
@@ -751,7 +841,69 @@ void Window::render()
 
 				Renderer::drawTriangleStrips(&vertices[0], 4);
 			}
+		}	
+
+#if WIN32
+		if (hasMousePointer)
+		{
+			if (mMouseCursorTexture == nullptr)
+				mMouseCursorTexture = TextureResource::get(":/cursor.png", false, true, true, false);
+
+			if (mMouseCursorTexture->bind())
+			{
+				for (auto gun : guns)
+				{
+					if (!gun->isMouse())
+						continue;
+
+					if (gun->isLastTickElapsed())
+						break;
+
+					SDL_SysWMinfo wmInfo;
+					SDL_VERSION(&wmInfo.version);
+					if (SDL_GetWindowWMInfo(Renderer::getSDLWindow(), &wmInfo))
+					{
+						HWND hWnd = wmInfo.info.win.window;
+
+						POINT cursorPos;
+						GetCursorPos(&cursorPos);
+
+						// Convert screen coordinates to client coordinates
+						ScreenToClient(hWnd, &cursorPos);
+
+						// Get the client rectangle of the window
+						RECT clientRect;
+						GetClientRect(hWnd, &clientRect);
+
+						// Check if the cursor is within the client area
+						if (!PtInRect(&clientRect, cursorPos))
+							continue;
+					}					
+
+					int pointerSize = (Renderer::isVerticalScreen() ? Renderer::getScreenWidth() : Renderer::getScreenHeight()) / 38;
+					
+					Vector2i sz = ImageIO::adjustPictureSize(mMouseCursorTexture->getSize(), Vector2i(pointerSize, pointerSize));
+
+					Vector2f topLeft = { gun->x(), gun->y() };
+					Vector2f bottomRight = { gun->x() + sz.x(), gun->y() + sz.y() };
+
+					auto aimColor = 0xFFFFFFFF;
+					
+					if (gun->isLButtonDown() || gun->isRButtonDown())
+						aimColor = 0xC0FAFAFF;
+
+					Renderer::Vertex vertices[4];
+					vertices[0] = { { topLeft.x() ,     topLeft.y() }, { 0.0f,          1.0f }, aimColor };
+					vertices[1] = { { topLeft.x() ,     bottomRight.y() }, { 0.0f,          0.0f }, aimColor };
+					vertices[2] = { { bottomRight.x(), topLeft.y() }, { 1.0f, 1.0f }, aimColor };
+					vertices[3] = { { bottomRight.x(), bottomRight.y() }, { 1.0f, 0.0f }, aimColor };
+
+					Renderer::drawTriangleStrips(&vertices[0], 4);
+					break;
+				}
+			}
 		}
+#endif
 
 		Renderer::setScreenMargin(margin.x(), margin.y());
 	}
@@ -1103,7 +1255,7 @@ void Window::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	mScreenExtras.clear();
 	mScreenExtras = ThemeData::makeExtras(theme, "screen", this);
-
+	
 	std::stable_sort(mScreenExtras.begin(), mScreenExtras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });
 
 	if (mBackgroundOverlay)
@@ -1205,7 +1357,8 @@ void Window::processMouseWheel(int delta)
 		std::reverse(hits.begin(), hits.end());
 
 		for (auto hit : hits)
-			hit->onMouseWheel(delta);
+			if (hit->onMouseWheel(delta))
+				break;
 
 		hitTest(mLastMousePoint.x(), mLastMousePoint.y());
 	}

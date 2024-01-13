@@ -1,10 +1,91 @@
 #include "utils/TimeUtil.h"
+#include "utils/StringUtil.h"
 #include "LocaleES.h"
+
+#if WIN32
+#include <Windows.h>
+#elif defined(__linux__)
+#include <langinfo.h>
+#endif
 
 namespace Utils
 {
 	namespace Time
 	{
+		std::string getSystemDateFormat()
+		{
+			static std::string value;
+			if (!value.empty())
+				return value;
+
+			std::string ret;
+
+#if WIN32
+			int bufferSize = GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SSHORTDATE, nullptr, 0);
+			if (bufferSize > 0)
+			{
+				// Allocate a buffer to store the short date format
+				char* buffer = new char[bufferSize];
+
+				char dateTimeStr[64];
+				SYSTEMTIME st;
+				GetDateFormatA(LOCALE_USER_DEFAULT, DATE_SHORTDATE, NULL, NULL, dateTimeStr, sizeof(dateTimeStr));
+
+				// Get the short date format
+				if (GetLocaleInfoA(LOCALE_USER_DEFAULT, LOCALE_SSHORTDATE, buffer, bufferSize) > 0)
+				{
+					ret = buffer;
+
+					if (ret.find("yyyy") != std::string::npos)
+						ret = Utils::String::replace(ret, "yyyy", "%Y");
+					else
+						ret = Utils::String::replace(ret, "yy", "%y");
+
+					if (ret.find("MM") != std::string::npos)
+						ret = Utils::String::replace(ret, "MM", "%m");
+					else
+						ret = Utils::String::replace(ret, "M", "%m"); // %#m
+
+					if (ret.find("dd") != std::string::npos)
+						ret = Utils::String::replace(ret, "dd", "%d");
+					else
+						ret = Utils::String::replace(ret, "d", "%d");
+
+					if (ret.find("tt") != std::string::npos)
+						ret = Utils::String::replace(ret, "tt", "%p");
+					else
+						ret = Utils::String::replace(ret, "t", "%p");
+
+					if (ret.find("HH") != std::string::npos)
+						ret = Utils::String::replace(ret, "HH", "%H");
+					else
+						ret = Utils::String::replace(ret, "H", "%H");
+
+					if (ret.find("hh") != std::string::npos)
+						ret = Utils::String::replace(ret, "hh", "%I");
+					else
+						ret = Utils::String::replace(ret, "h", "%I");
+
+					ret = Utils::String::replace(ret, "mm", "%M");
+					ret = Utils::String::replace(ret, "ss", "%S");
+				}
+
+
+				delete[] buffer;
+			}
+#elif defined(__linux__)
+			char* date = nl_langinfo(D_FMT);
+			if (date)
+				ret = date;
+#endif
+
+			if (ret.empty())
+				ret = "%m/%d/%Y";
+
+			value = ret;
+			return ret;
+		}
+
 		DateTime DateTime::now()
 		{
 			return Utils::Time::DateTime(Utils::Time::now());
@@ -84,7 +165,6 @@ namespace Utils
 			return clockBuf;
 		}
 
-
 		Duration::Duration(const time_t& _time)
 		{
 			mTotalSeconds = (unsigned int)_time;
@@ -139,6 +219,20 @@ namespace Utils
 							}
 
 							parsedChars += 4;
+						}
+						break;
+
+						case 'y': // The year [1970,xxxx]
+						{
+							if ((parsedChars + 2) <= _string.length())
+							{
+								timeStruct.tm_year = (*s++ - '0') * 10;
+								timeStruct.tm_year += (*s++ - '0');								
+								if (timeStruct.tm_year < 50)
+									timeStruct.tm_year += 100;
+							}
+
+							parsedChars += 2;
 						}
 						break;
 
@@ -241,6 +335,14 @@ namespace Utils
 						}
 						break;
 
+						case 'y': // The year, without the century
+						{
+							const int year = timeStruct.tm_year + 1900;
+							*s++ = (char)(((year % 100) - (year % 10)) / 10) + '0';
+							*s++ = (char)(year % 10) + '0';
+						}
+						break;
+
 						case 'm': // The month number [00,11]
 						{
 							const int mon = timeStruct.tm_mon + 1;
@@ -311,18 +413,50 @@ namespace Utils
 		} // timeToString
 
 		  // transforms a number of seconds into a human readable string
-		std::string secondsToString(const long seconds)
+		std::string secondsToString(const long seconds, bool asTime)
 		{
 			if (seconds == 0)
 				return _("never");
 
+			if (asTime)
+			{
+				int d = 0, h = 0, m = 0, s = 0;
+				d = seconds / 86400;
+				h = (seconds / 3600) % 24;
+				m = (seconds / 60) % 60;
+				s = seconds % 60;
+
+				if (d > 0)
+					return Utils::String::format("%02d %02d:%02d:%02d", d, h, m, s);
+				else if (h > 0)
+					return Utils::String::format("%02d:%02d:%02d", h, m, s);
+
+				return Utils::String::format("%02d:%02d", m, s);
+			}
+
 			char buf[256];
 
-			int h = 0, m = 0, s = 0;
+			int d =0, h = 0, m = 0, s = 0;
+			d = seconds / 86400;
 			h = (seconds / 3600) % 24;
 			m = (seconds / 60) % 60;
 			s = seconds % 60;
-			
+			if (d > 0)
+			{
+				snprintf(buf, 256, _("%d d").c_str(), d);
+				if (h > 0)
+				{
+					std::string days(buf);
+					snprintf(buf, 256, _("%d h").c_str(), h);
+					if(m > 0)
+					{
+						std::string hours(buf);
+						snprintf(buf, 256, _("%d mn").c_str(), m);
+						return days + " " + hours + " " + std::string(buf);
+					}
+					return days + " " + std::string(buf);
+				}
+			}
 			if (h > 0)
 			{
 				snprintf(buf, 256, _("%d h").c_str(), h);
@@ -339,6 +473,35 @@ namespace Utils
 				snprintf(buf, 256, _("%d sec").c_str(), s);
 
 			return std::string(buf);	
+		}
+
+		std::string getElapsedSinceString(const time_t& _time)
+		{			
+			if (_time == 0 || _time == -1)
+				return _("never");
+
+			Utils::Time::DateTime now(Utils::Time::now());
+			Utils::Time::Duration dur(now.getTime() - _time);
+
+			char buf[256];
+
+			if (dur.getDays() > 365)
+			{
+				unsigned int years = dur.getDays() / 365;
+				snprintf(buf, 256, ngettext("%d year ago", "%d years ago", years), years);
+			}
+			else if (dur.getDays() > 0)
+				snprintf(buf, 256, ngettext("%d day ago", "%d days ago", dur.getDays()), dur.getDays());
+			else if (dur.getDays() > 0)
+				snprintf(buf, 256, ngettext("%d day ago", "%d days ago", dur.getDays()), dur.getDays());
+			else if (dur.getHours() > 0)
+				snprintf(buf, 256, ngettext("%d hour ago", "%d hours ago", dur.getHours()), dur.getHours());
+			else if (dur.getMinutes() > 0)
+				snprintf(buf, 256, ngettext("%d minute ago", "%d minutes ago", dur.getMinutes()), dur.getMinutes());
+			else
+				snprintf(buf, 256, ngettext("%d second ago", "%d seconds ago", dur.getSeconds()), dur.getSeconds());
+
+			return std::string(buf);
 		}
 
 		int daysInMonth(const int _year, const int _month)

@@ -197,6 +197,7 @@ void TextToSpeech::setLanguage(const std::string language)
 	if (language_part1 == "pt_BR") voice = "brazil";
 	if (language_part1 == "pt_PT") voice = "portugal";
 	if (language_part1 == "ru_RU") voice = "russian";
+	//if (language_part1 == "sk_SK") voice = "";
 	if (language_part1 == "sv_SE") voice = "swedish";
 	if (language_part1 == "tr_TR") voice = "turkish";
 	//if(language_part1 == "uk_UA") voice = "";

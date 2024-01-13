@@ -137,9 +137,9 @@ static void* rc_hash_handle_chd_open_track(const char* path, uint32_t track)
 			return file;
 
 		CHEEVOS_FREE(file);
+		cdfs_close_track(cdfs_track); /* ASSERT: this free()s cdfs_track */
 	}
-
-	cdfs_close_track(cdfs_track); /* ASSERT: this free()s cdfs_track */
+	
 	return NULL;
 }
 #endif
