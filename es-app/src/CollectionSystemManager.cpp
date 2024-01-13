@@ -992,7 +992,7 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 #ifdef _ENABLEEMUELEC
 				include = !(game->getSystemName() == "setup") && !(game->getSystemName() == "imageviewer") && !(game->getSystemName() == "mediaplayer");
 #endif
-            break;
+				break;
 			case AUTO_VERTICALARCADE:
 				include = game->isVerticalArcadeGame();
 				break;
@@ -1091,8 +1091,8 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 			for (auto game : games)
 			{
                 if (game->getSystemName() != "mplayer") { //emuelec
-                    if (sysData->filteredIndex->isSystemSelected(game->getSystemName()))
-                        sysData->filteredIndex->addToIndex(game);
+				if (sysData->filteredIndex->isSystemSelected(game->getSystemName()))
+					sysData->filteredIndex->addToIndex(game);
 
 				if (sysData->filteredIndex->showFile(game))
 				{
@@ -1105,6 +1105,7 @@ void CollectionSystemManager::populateCustomCollection(CollectionSystemData* sys
 			}
 		}
     }
+
 		updateCollectionFolderMetadata(newSys);
 		return;
 	}

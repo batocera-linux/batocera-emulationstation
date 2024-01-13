@@ -68,6 +68,7 @@ private:
 	void openSoundSettings();
 	void openUISettings();
 	void openUpdatesSettings();
+	
 #ifdef _ENABLEEMUELEC
 	void openEmuELECSettings(); /* < emuelec */
     static void openDangerZone(Window* mWindow, std::string configName);
@@ -131,6 +132,7 @@ private:
 
 public:
 	static std::vector<DecorationSetInfo> getDecorationsSets(SystemData* system = nullptr);
+
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 	virtual bool onMouseClick(int button, bool pressed, int x, int y);
 #ifdef _ENABLEEMUELEC

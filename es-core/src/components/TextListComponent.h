@@ -480,6 +480,7 @@ bool TextListComponent<T>::input(InputConfig* config, Input input)
 				listInput(10);
 				return true;
 			}
+
 #ifdef _ENABLEEMUELEC
 			if(config->isMappedTo("lefttrigger", input))
 #else	

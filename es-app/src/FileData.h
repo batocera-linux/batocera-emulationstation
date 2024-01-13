@@ -212,7 +212,7 @@ class CollectionFileData : public FileData
 public:
 	CollectionFileData(FileData* file, SystemData* system);
 	~CollectionFileData();
-	const std::string& getName();
+	const std::string& getName();	
 	FileData* getSourceFileData();
 	std::string getKey();
 	virtual const std::string getPath() const;

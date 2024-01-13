@@ -193,12 +193,12 @@ std::string ApiSystem::getVersion(bool extra)
 	if (!Utils::FileSystem::exists(localVersionFile))
 		localVersionFile = Paths::findEmulationStationFile("version.info");
 
-	  if (Utils::FileSystem::exists(localVersionFile))
-	    {
-	      std::string localVersion = Utils::FileSystem::readAllText(localVersionFile);
-	      localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
-	      return localVersion;
-	    }        
+	if (Utils::FileSystem::exists(localVersionFile))
+	{
+		std::string localVersion = Utils::FileSystem::readAllText(localVersionFile);
+		localVersion = Utils::String::replace(Utils::String::replace(localVersion, "\r", ""), "\n", "");
+		return localVersion;
+	}
 
 	return PROGRAM_VERSION_STRING;	
 }
@@ -358,7 +358,9 @@ std::pair<std::string, int> ApiSystem::scrape(BusyComponent* ui)
 	FILE* pipe = popen("batocera-scraper", "r");
 	if (pipe == nullptr)
 		return std::pair<std::string, int>(std::string("Cannot call scrape command"), -1);
+
 	char line[1024] = "";
+
 #ifdef _ENABLEEMUELEC
 	FILE* flog = fopen(Utils::FileSystem::combine(Paths::getLogPath(), "emuelec-scraper.log").c_str(), "w");
 #else	
@@ -494,23 +496,6 @@ bool ApiSystem::launchFileManager(Window *window)
 	LOG(LogDebug) << "ApiSystem::launchFileManager";
 
 	std::string command = "/usr/bin/emuelec-utils filemanager";
-
-	ApiSystem::launchExternalWindow_before(window);
-
-	int exitCode = system(command.c_str());
-	if (WIFEXITED(exitCode))
-		exitCode = WEXITSTATUS(exitCode);
-
-	ApiSystem::launchExternalWindow_after(window);
-
-	return exitCode == 0;
-}
-
-bool ApiSystem::launchErrorWindow(Window *window) 
-{
-	LOG(LogDebug) << "ApiSystem::launchErrorWindow";
-
-	std::string command = "/usr/bin/emuelec-utils error";
 
 	ApiSystem::launchExternalWindow_before(window);
 
@@ -852,7 +837,7 @@ bool ApiSystem::setAudioOutputProfile(std::string selected)
 
 std::string ApiSystem::getUpdateUrl()
 {
-    auto systemsetting = SystemConf::getInstance()->get("global.updates.url");
+	auto systemsetting = SystemConf::getInstance()->get("global.updates.url");
 	if (!systemsetting.empty())
 		return systemsetting;
 

@@ -3065,6 +3065,7 @@ void GuiMenu::openGamesSettings()
 		s->addWithLabel(_("INTEGER SCALING (PIXEL PERFECT)"), integerscale_enabled);
 		s->addSaveFunc([integerscale_enabled] { SystemConf::getInstance()->set("global.integerscale", integerscale_enabled->getSelected()); });
 	}
+
 #ifdef _ENABLEEMUELEC
 	// Integer scale overscale
 	auto integerscaleoverscale_enabled = std::make_shared<OptionListComponent<std::string>>(mWindow, _("INTEGER SCALING (OVERSCALE)"));
@@ -3101,7 +3102,7 @@ void GuiMenu::openGamesSettings()
 			s->addWithLabel(_("SHADER SET"), shaders_choices);
 			s->addSaveFunc([shaders_choices] { SystemConf::getInstance()->set("global.shaderset", shaders_choices->getSelected()); });
 #ifndef _ENABLEEMUELEC			
-        }
+		}
 	}
 #endif
 

@@ -1,4 +1,3 @@
-#include "LocaleES.h"
 #include "guis/GuiThemeInstaller.h"
 
 #include "ApiSystem.h"

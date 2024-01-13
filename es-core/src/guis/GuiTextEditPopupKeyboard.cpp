@@ -353,6 +353,7 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 		if (!editing)
 			mText->stopEditing();
 	}
+
 #endif 
 	// For Shifting (Y)
 	if (config->isMappedTo("y", input) && input.value) 

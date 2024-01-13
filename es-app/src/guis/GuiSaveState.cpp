@@ -127,7 +127,7 @@ void GuiSaveState::loadGrid()
 
 			return file1->slot < file2->slot; 
 		});
-/* needs fixing */
+
 #ifdef _ENABLEEMUELEC
 	if (CloudSaves::getInstance().isSupported(mGame)) {
 		auto tmpItem = SaveStateItem(mRepository->getEmptySaveState());

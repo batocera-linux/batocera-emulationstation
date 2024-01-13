@@ -184,10 +184,11 @@ public:
 				mMoving.y() = 0;
 				return true;
 			}
+			
 #ifdef _ENABLEEMUELEC
 			if (config->isMappedLike("lefttrigger", input) || config->isMappedLike("righttrigger", input))
 #else
-            if (config->isMappedLike("pagedown", input) || config->isMappedLike("pageup", input))
+			if (config->isMappedLike("pagedown", input) || config->isMappedLike("pageup", input))
 #endif
 			{
 				mZooming = 0;

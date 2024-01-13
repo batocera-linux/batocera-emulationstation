@@ -791,7 +791,6 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	} else {
 		// show emuelec error message
 		LOG(LogWarning) << "...Show Error message! exit code " << exitCode << "!";
-        // ApiSystem::getInstance()->launchErrorWindow(window);
 	}
 
 	window->reactivateGui();
@@ -968,7 +967,7 @@ CollectionFileData::CollectionFileData(FileData* file, SystemData* system)
 	: FileData(file->getSourceFileData()->getType(), "", system)
 {
 	mSourceFileData = file->getSourceFileData();
-	mParent = NULL; 
+	mParent = NULL;	
 }
 
 SystemEnvironmentData* CollectionFileData::getSystemEnvData() const
@@ -1389,7 +1388,7 @@ const std::string FileData::getCore(bool resolveDefault)
 #if WIN32 && !_DEBUG
 	std::string core = getMetadata(MetaDataId::Core);
 #else
-	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core"); 
+	std::string core = SystemConf::getInstance()->get(getConfigurationName() + ".core");	
 #endif
 
 	if (core == "auto")

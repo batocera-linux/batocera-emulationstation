@@ -177,7 +177,7 @@ bool Window::init(bool initRenderer, bool initInputManager)
 	  }
   }
 #endif
-	peekGui()->updateHelpPrompts();
+		peekGui()->updateHelpPrompts();
 	return true;
 }
 
