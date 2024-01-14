@@ -133,3 +133,34 @@ void RectangleComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, con
 	GuiComponent::applyTheme(theme, view, element, properties);
 }
 
+ThemeData::ThemeElement::Property RectangleComponent::getProperty(const std::string name)
+{
+	if (name == "color")
+		return mColor;
+
+	if (name == "borderColor")
+		return mBorderColor;
+
+	if (name == "borderSize")
+		return mBorderSize;
+
+	if (name == "roundCorners")
+		return mRoundCorners;
+
+
+	return GuiComponent::getProperty(name);
+}
+
+void RectangleComponent::setProperty(const std::string name, const ThemeData::ThemeElement::Property& value)
+{
+	if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "color")
+		mColor = value.i;
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Int && name == "borderColor")
+		mBorderColor = value.i;
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "borderSize")
+		mBorderSize = value.f;
+	else if (value.type == ThemeData::ThemeElement::Property::PropertyType::Float && name == "roundCorners")
+		mRoundCorners = value.f;
+	else
+		GuiComponent::setProperty(name, value);
+}

@@ -106,8 +106,6 @@ public:
 	std::string getDefaultTransition() { return mDefaultTransition; }
 	float getTransitionSpeed() { return mTransitionSpeed; }
 
-	void moveSelectionBy(int count);
-
 	std::shared_ptr<GuiComponent> getLogo(int index);
 
 protected:

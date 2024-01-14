@@ -281,11 +281,15 @@ private:
 	class ThemeView
 	{
 	public:
-		ThemeView() { isCustomView = false; }
+		ThemeView() { isCustomView = false; extraTransitionSpeed = -1.0f; }
 
 		std::map<std::string, ThemeElement> elements;
 		std::vector<std::string> orderedKeys;
 		std::string baseType;
+
+		std::string extraTransition;
+		std::string extraTransitionDirection;
+		float       extraTransitionSpeed;
 
 		std::vector<std::string> baseTypes;
 
@@ -315,6 +319,7 @@ public:
 	};
 
 	bool hasView(const std::string& view);
+	ThemeView* getView(const std::string& view);
 
 	bool isCustomView(const std::string& view);
 	std::string getCustomViewBaseType(const std::string& view);

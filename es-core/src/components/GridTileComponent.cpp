@@ -741,7 +741,7 @@ void GridTileComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, cons
 
 	resetProperties();
 
-	const ThemeData::ThemeElement* grid = theme->getElement(view, "gamegrid", "imagegrid");
+	const ThemeData::ThemeElement* grid = theme->getElement(view, view == "system" ? "imagegrid" : "gamegrid", "imagegrid");
 	if (grid)
 	{
 		auto itemTemplate = std::find_if(grid->children.cbegin(), grid->children.cend(), [](const std::pair<std::string, ThemeData::ThemeElement> ss) { return ss.first == "itemTemplate"; });
