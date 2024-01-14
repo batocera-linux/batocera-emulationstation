@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="systems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="system" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="system">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="game" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="game">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="gun" minOccurs="0"/>
+        <xs:element ref="video" minOccurs="0"/>
+        <xs:element ref="controller" minOccurs="0"/>
+        <xs:element ref="wheel" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gun">
+    <xs:complexType>
+      <xs:attribute name="action" type="xs:string"/>
+      <xs:attribute name="gun1port" type="xs:string"/>
+      <xs:attribute name="ir_down" type="xs:string"/>
+      <xs:attribute name="ir_left" type="xs:string"/>
+      <xs:attribute name="ir_right" type="xs:string"/>
+      <xs:attribute name="pitch" type="xs:string"/>
+      <xs:attribute name="reversedbuttons" type="xs:string"/>
+      <xs:attribute name="select" type="xs:string"/>
+      <xs:attribute name="start" type="xs:string"/>
+      <xs:attribute name="sub1" type="xs:string"/>
+      <xs:attribute name="trigger" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="vertical_offset" type="xs:string"/>
+      <xs:attribute name="yaw" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="wheel">
+    <xs:complexType>
+      <xs:attribute name="accelerate" type="xs:string"/>
+      <xs:attribute name="brake" type="xs:string"/>
+      <xs:attribute name="controller" type="xs:string"/>
+      <xs:attribute name="port1" type="xs:string"/>
+      <xs:attribute name="rotation" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="wheel" type="xs:string"/>
+      <xs:attribute name="wheel_deadzone" type="xs:string"/>
+      <xs:attribute name="wheel_midzone" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="controller">
+    <xs:complexType>
+      <xs:attribute name="rumble" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="video">
+    <xs:complexType>
+      <xs:attribute name="widescreen" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
