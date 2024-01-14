@@ -932,12 +932,6 @@ bool CarouselComponent::onMouseWheel(int delta)
 	return true;
 }
 
-
-void CarouselComponent::moveSelectionBy(int count)
-{
-	listInput(count);
-}
-
 std::shared_ptr<GuiComponent> CarouselComponent::getLogo(int index)
 {
 	if (index >= 0 && index < mEntries.size())
