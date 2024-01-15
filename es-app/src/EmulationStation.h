@@ -15,7 +15,15 @@
 #define RESOURCE_VERSION PROGRAM_VERSION_MAJOR,PROGRAM_VERSION_MINOR,PROGRAM_VERSION_MAINTENANCE
 
 #ifndef SCREENSCRAPER_SOFTNAME
+
+#if BATOCERA
+#define SCREENSCRAPER_SOFTNAME			"Batocera-Emulationstation"
+#elif RETROBAT
+#define SCREENSCRAPER_SOFTNAME			"Retrobat-Emulationstation"
+#else
 #define SCREENSCRAPER_SOFTNAME			"Emulationstation"
+#endif
+
 #endif
 
 #endif // ES_APP_EMULATION_STATION_H
