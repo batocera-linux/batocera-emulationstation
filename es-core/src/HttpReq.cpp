@@ -7,6 +7,7 @@
 #include <thread>
 
 #include <SDL.h>
+#include "Paths.h"
 
 #ifdef WIN32
 #include <time.h>
@@ -91,6 +92,21 @@ static std::string _regGetString(HKEY hKey, const std::string &strPath, const st
 	return ret;
 }
 #endif
+
+static std::string getCookiesContainerPath(bool createDirectory = true)
+{	
+	std::string cookiesPath = Utils::FileSystem::getGenericPath(Paths::getUserEmulationStationPath() + std::string("/tmp"));
+	if (createDirectory)
+		Utils::FileSystem::createDirectory(cookiesPath);
+
+	return Utils::FileSystem::getGenericPath(Utils::FileSystem::combine(cookiesPath, "cookies.txt"));
+}
+
+void HttpReq::resetCookies()
+{
+	auto path = getCookiesContainerPath(false);
+	Utils::FileSystem::removeFile(path);
+}
 
 HttpReq::HttpReq(const std::string& url, const std::string& outputFilename) 
 	: mStatus(REQ_IN_PROGRESS), mHandle(NULL), mFile(NULL)
@@ -221,6 +237,14 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 			onError(curl_easy_strerror(err));
 			return;
 		}
+	}
+
+	if (options == nullptr || options->useCookieManager)
+	{
+		std::string cookiesFile = getCookiesContainerPath(); 
+
+		curl_easy_setopt(mHandle, CURLOPT_COOKIEFILE, cookiesFile.c_str());
+		curl_easy_setopt(mHandle, CURLOPT_COOKIEJAR, cookiesFile.c_str());
 	}
 
 	curl_easy_setopt(mHandle, CURLOPT_HEADERFUNCTION, &HttpReq::header_callback);

@@ -296,7 +296,6 @@ namespace Renderer
 	{		
 #ifdef WIN32		
 		glFlush();
-		glFinish();
 		Sleep(0);
 #endif
 

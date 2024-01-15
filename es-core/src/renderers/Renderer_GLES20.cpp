@@ -1024,7 +1024,6 @@ namespace Renderer
 
 #ifdef WIN32		
 		glFlush();
-		glFinish();
 		Sleep(0);
 #endif
 		SDL_GL_SwapWindow(getSDLWindow());
