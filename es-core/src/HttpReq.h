@@ -29,24 +29,41 @@
 
 #define HTTP_REQ_USERAGENT "Mozilla/5.0 (Windows NT x.y; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0"
 
+class HttpCookie
+{
+public:
+	std::string name;
+	std::string value;
+};
+
+class HttpCookieContainer
+{
+public:
+	std::vector<HttpCookie> cookies;
+};
+
 class HttpReqOptions
 {
 public:
 	HttpReqOptions() 
 	{
 		userAgent = HTTP_REQ_USERAGENT;
+		useCookieManager = true;
 	}
 
 	HttpReqOptions(const std::string& filename)
 	{
 		outputFilename = filename;
 		userAgent = HTTP_REQ_USERAGENT;
+		useCookieManager = true;
 	}
 
 	std::string outputFilename;
 	std::vector<std::string> customHeaders;
 	std::string dataToPost;
 	std::string userAgent;
+
+	bool useCookieManager;
 };
 
 class HttpReq
@@ -98,6 +115,8 @@ public:
 	std::string getResponseHeader(const std::string& header);
 
 	bool wait();
+
+	static void resetCookies();
 
 private:
 	void performRequest(const std::string& url, HttpReqOptions* options);
