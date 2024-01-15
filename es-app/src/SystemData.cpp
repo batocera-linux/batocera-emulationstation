@@ -37,7 +37,7 @@ static std::map<std::string, std::function<BindableProperty(SystemData*)>> prope
 	{ "fullName",			[] (SystemData* sys) { return sys->getFullName(); } },
 	{ "manufacturer",		[] (SystemData* sys) { return sys->getSystemMetadata().manufacturer; } },
 	{ "theme",				[] (SystemData* sys) { return sys->getThemeFolder(); } },
-	{ "releaseYear",		[] (SystemData* sys) { return std::to_string(sys->getSystemMetadata().releaseYear); } },
+	{ "releaseYear",		[] (SystemData* sys) { return sys->getSystemMetadata().releaseYear <= 0 ? std::string() : std::to_string(sys->getSystemMetadata().releaseYear); } },
 	{ "hardwareType",		[] (SystemData* sys) { return sys->getSystemMetadata().hardwareType; } },
 	{ "command",			[] (SystemData* sys) { return sys->getSystemEnvData()->mLaunchCommand; } },
 	{ "group",				[] (SystemData* sys) { return sys->getSystemEnvData()->mGroup; } },		

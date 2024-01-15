@@ -1487,6 +1487,15 @@ void ThemeData::parseView(const pugi::xml_node& root, ThemeView& view, bool over
 	if (!parseFilterAttributes(root))
 		return;
 
+	if (root.attribute("extraTransition"))
+		view.extraTransition = root.attribute("extraTransition").as_string();
+
+	if (root.attribute("extraTransitionSpeed"))
+		view.extraTransitionSpeed = Utils::String::toFloat(root.attribute("extraTransitionSpeed").as_string());
+
+	if (root.attribute("extraTransitionDirection"))
+		view.extraTransitionDirection = root.attribute("extraTransitionDirection").as_string();
+
 	for (pugi::xml_node node = root.first_child(); node; node = node.next_sibling())
 	{
 		if (!node.attribute("name"))
@@ -1705,6 +1714,12 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 
 			if (ResourceManager::getInstance()->fileExists(path))
 			{
+				if (Utils::FileSystem::isImage(path) && Settings::getInstance()->getBool("AsyncImages"))
+				{
+					unsigned int x, y;
+					ImageIO::loadImageSize(path, &x, &y);
+				}
+
 				element.properties[name] = path;
 				break;
 			}
@@ -1713,6 +1728,12 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 				std::string rootPath = Utils::FileSystem::resolveRelativePath(str, Utils::FileSystem::getParent(mPaths.front()), true);
 				if (rootPath != path && ResourceManager::getInstance()->fileExists(rootPath))
 				{
+					if (Utils::FileSystem::isImage(path) && Settings::getInstance()->getBool("AsyncImages"))
+					{
+						unsigned int x, y;
+						ImageIO::loadImageSize(rootPath, &x, &y);
+					}
+
 					element.properties[name] = rootPath;
 					break;
 				}
@@ -2024,6 +2045,15 @@ bool ThemeData::hasView(const std::string& view)
 {
 	auto viewIt = mViews.find(view);
 	return (viewIt != mViews.cend());
+}
+
+ThemeData::ThemeView* ThemeData::getView(const std::string& view)
+{
+	auto viewIt = mViews.find(view);
+	if (viewIt == mViews.cend())
+		return nullptr;
+
+	return &viewIt->second;
 }
 
 const ThemeData::ThemeElement* ThemeData::getElement(const std::string& view, const std::string& element, const std::string& expectedType) const

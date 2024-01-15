@@ -241,6 +241,11 @@ public:
 		return objects;
 	}
 
+	void moveSelectionBy(int count)
+	{
+		listInput(count);
+	}
+
 protected:
 	void remove(typename std::vector<Entry>::const_iterator& it)
 	{

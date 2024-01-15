@@ -7,12 +7,17 @@
 #include "resources/Font.h"
 #include "GuiComponent.h"
 #include "MultiStateInput.h"
+
 #include "components/CarouselComponent.h"
+#include "components/TextListComponent.h"
+#include "components/ImageGridComponent.h"
 
 #include <memory>
 #include <functional>
 #include <map>
 #include <unordered_set>
+
+#include "SystemViewControlWrapper.h"
 
 class AnimatedImageComponent;
 class SystemData;
@@ -24,46 +29,7 @@ struct SystemViewData
 	std::vector<GuiComponent*> backgroundExtras;
 };
 
-/*
-enum CarouselType : unsigned int
-{
-	HORIZONTAL = 0,
-	VERTICAL = 1,
-	VERTICAL_WHEEL = 2,
-	HORIZONTAL_WHEEL = 3
-};
 
-struct SystemViewCarousel
-{
-	CarouselType type;
-	Vector2f pos;
-	Vector2f size;
-	Vector2f origin;
-	float logoScale;
-	float logoRotation;
-	Vector2f logoRotationOrigin;
-	Alignment logoAlignment;
-	unsigned int color;
-	unsigned int colorEnd;
-	bool colorGradientHorizontal;
-	int maxLogoCount; // number of logos shown on the carousel
-	Vector2f logoSize;
-	Vector2f logoPos;
-	float zIndex;
-	float systemInfoDelay;
-	bool  systemInfoCountOnly;
-
-	float			minLogoOpacity;
-	float			transitionSpeed;
-	std::string		defaultTransition;
-	std::string		scrollSound;
-
-	bool anyLogoHasOpacityStoryboard;
-	bool anyLogoHasScaleStoryboard;
-
-	float			scaledSpacing;
-};
-*/
 class SystemView : public GuiComponent
 {
 public:
@@ -109,8 +75,6 @@ protected:
 	SystemData* getSelected();
 
 private:
-	inline bool isHorizontalCarousel() { return mCarousel.isHorizontalCarousel(); }
-	
 	void	 loadExtras(SystemData* system);
 	void	 ensureTexture(GuiComponent* extra, bool reload);
 
@@ -139,7 +103,8 @@ private:
 	void	 renderExtras(const Transform4x4f& parentTrans, float lower, float upper);
 	void	 renderInfoBar(const Transform4x4f& trans);
 	
-	CarouselComponent					mCarousel;
+	ControlWrapper						mCarousel;
+
 	TextComponent						mSystemInfo;
 
 	std::vector<GuiComponent*>			mStaticBackgrounds;
@@ -168,6 +133,10 @@ private:
 
 	float			mSystemInfoDelay;
 	bool			mSystemInfoCountOnly;
+
+	std::string		mExtraTransitionType;
+	float			mExtraTransitionSpeed;
+	bool			mExtraTransitionHorizontal;
 };
 
 #endif // ES_APP_VIEWS_SYSTEM_VIEW_H

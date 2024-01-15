@@ -30,9 +30,12 @@
 #include "components/CarouselComponent.h"
 
 SystemView::SystemView(Window* window) : GuiComponent(window),
-	mViewNeedsReload(true), mCarousel(window),
+	mViewNeedsReload(true),
 	mSystemInfo(window, _("SYSTEM INFO"), Font::get(FONT_SIZE_SMALL), 0x33333300, ALIGN_CENTER), mYButton("y")
 {
+	mExtraTransitionSpeed = 500.0f;
+	mExtraTransitionHorizontal = false;
+
 	mCamOffset = 0;
 	mExtrasCamOffset = 0;
 	mExtrasFadeOpacity = 0.0f;
@@ -51,48 +54,13 @@ SystemView::SystemView(Window* window) : GuiComponent(window),
 	mPressedPoint = Vector2i(-1, -1);
 
 	setSize((float)Renderer::getScreenWidth(), (float)Renderer::getScreenHeight());
-
-	mCarousel.setZIndex(40);
-	mCarousel.setDefaultZIndex(40);
-	mCarousel.setDefaultBackground(0xFFFFFFD8, 0xFFFFFFD8, true);
-	mCarousel.setThemedContext("logo", "logoText", "systemcarousel", "carousel", CarouselType::HORIZONTAL, CarouselImageSource::IMAGE);
-	mCarousel.setCursorChangedCallback([this](CursorState state) { onCursorChanged(state); });
-
 	populate();
 }
-/*
-class Wrapper
-{
-	void init();
-	int getCursorIndex();
-	void reloadTheme(SystemData* system);
-	void add(const std::string& name, IBindable* obj, bool preloadLogo);
-	void setCursor(SystemData* system);
-	void finishAnimations();
-	SystemData* getSelected();
-	void stopScrolling();
-	void moveSelectionBy();
-	getHelpPrompts;
 
-	std::string getDefaultTransition();
-	float getTransitionSpeed();
-	void getZIndex();
-
-	bool input(InputConfig* config, Input input);
-	void update(int deltaTime);
-	void render(const Transform4x4f& trans)
-		.onShow();
-	onHide();
-	onMouseClick
-		onMouseMove
-		onMouseWheel
-	void applyTheme(theme, "system", "systemcarousel", ThemeFlags::ALL);
-	void getScrollingVelocity(); // preloadExtraNeighbours ?
-	void isHorizontalCarousel(); // mouvements des extras ?
-};
-*/
 SystemView::~SystemView()
 {
+	mCarousel.attach(nullptr);
+
 	for (auto sb : mStaticBackgrounds)
 		delete sb;
 
@@ -113,10 +81,23 @@ void SystemView::clearEntries()
 	}
 
 	mEntries.clear();
+	mCarousel.clear();
 }
 
 void SystemView::reloadTheme(SystemData* system)
 {
+	auto carousel = mCarousel.asCarousel();
+	if (carousel == nullptr)
+	{
+		mCarousel.attach(nullptr);
+
+		mViewNeedsReload = true;
+		populate();
+
+		goToSystem(system, false);
+		return;
+	}
+
 	const std::shared_ptr<ThemeData>& theme = system->getTheme();
 	getViewElements(theme);
 
@@ -133,7 +114,7 @@ void SystemView::reloadTheme(SystemData* system)
 	if (idx < 0)
 		return;
 
-	auto logo = mCarousel.getLogo(idx);
+	auto logo = carousel->getLogo(idx);
 	if (logo != nullptr)
 	{
 		if (logo->isKindOf<TextComponent>())
@@ -142,7 +123,7 @@ void SystemView::reloadTheme(SystemData* system)
 			logo->applyTheme(theme, "system", "logo", ThemeFlags::COLOR | ThemeFlags::ALIGNMENT | ThemeFlags::VISIBLE);
 	}
 
-	loadExtras(system);
+	loadExtras(system);	
 }
 
 void SystemView::loadExtras(SystemData* system)
@@ -247,9 +228,13 @@ void SystemView::populate()
 			mCarousel.add(system->getName(), system, true);
 			loadExtras(system);
 
-			auto logo = mCarousel.getLogo(mCarousel.size() - 1);
-			if (logo)
-				ensureTexture(logo.get(), true);
+			auto carousel = mCarousel.asCarousel();
+			if (carousel)
+			{
+				auto logo = carousel->getLogo(mCarousel.size() - 1);
+				if (logo)
+					ensureTexture(logo.get(), true);
+			}
 		}
 	}
 	
@@ -388,7 +373,8 @@ void SystemView::showNetplay()
 
 SystemData* SystemView::getSelected()
 {
-	return dynamic_cast<SystemData*>(mCarousel.getActiveObject());
+	return mCarousel.getSelected();
+	//return dynamic_cast<SystemData*>(mCarousel.getActiveObject());
 }
 
 bool SystemView::input(InputConfig* config, Input input)
@@ -589,6 +575,9 @@ void SystemView::updateExtraTextBinding()
 
 void SystemView::onCursorChanged(const CursorState& state)
 {
+	if (mCarousel.size() == 0)
+		return;
+
 	int mCursor = mCarousel.getCursorIndex();
 
 	if (AudioManager::isInitialized())
@@ -619,9 +608,8 @@ void SystemView::onCursorChanged(const CursorState& state)
 	cancelAnimation(1);
 	cancelAnimation(2);
 
-	std::string defaultTransition = mCarousel.getDefaultTransition();
-	float transitionSpeed = mCarousel.getTransitionSpeed();
-
+	std::string defaultTransition = mExtraTransitionType;
+	float transitionSpeed = mExtraTransitionSpeed;
 
 	std::string transition_style = Settings::TransitionStyle();
 	if (transition_style == "auto")
@@ -890,16 +878,79 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 {
 	LOG(LogDebug) << "SystemView::getViewElements()";
 
-	getDefaultElements();
-
 	if (!theme->hasView("system"))
 		return;
 
-	mCarousel.applyTheme(theme, "system", "systemcarousel", ThemeFlags::ALL);
+	const ThemeData::ThemeElement* textListElem = theme->getElement("system", "textlist", "textlist");
+	if (textListElem)
+	{
+		if (!mCarousel.isTextList())
+		{
+			auto textListNative = new TextListComponent<SystemData*>(mWindow);
+			textListNative->setCursorChangedCallback([this](CursorState state) { onCursorChanged(state); });
+			mCarousel.attach(textListNative);
+		}
+		
+		getDefaultElements();
+		mCarousel.applyTheme(theme, "system", "textlist", ThemeFlags::ALL);
+	}
+	else
+	{
+		const ThemeData::ThemeElement* imageGridElem = theme->getElement("system", "imagegrid", "imagegrid");
+		if (imageGridElem)
+		{
+			if (!mCarousel.isGrid())
+			{
+				auto imageGridNative = new ImageGridComponent<SystemData*>(mWindow);
+				imageGridNative->setThemeName("system");
+				imageGridNative->setCursorChangedCallback([this](CursorState state) { onCursorChanged(state); });
+				mCarousel.attach(imageGridNative);				
+			}
 
-	const ThemeData::ThemeElement* carouselElem = theme->getElement("system", "systemcarousel", "carousel");
-	if (carouselElem)
-		getCarouselFromTheme(carouselElem);
+			getDefaultElements();
+
+			mCarousel.applyTheme(theme, "system", "imagegrid", ThemeFlags::ALL);
+		}
+		else
+		{
+			if (!mCarousel.isCarousel())
+			{
+				auto carouselNative = new CarouselComponent(mWindow);
+				carouselNative->setDefaultBackground(0xFFFFFFD8, 0xFFFFFFD8, true);
+				carouselNative->setThemedContext("logo", "logoText", "systemcarousel", "carousel", CarouselType::HORIZONTAL, CarouselImageSource::IMAGE);
+				carouselNative->setCursorChangedCallback([this](CursorState state) { onCursorChanged(state); });
+				
+				mCarousel.attach(carouselNative);
+			}
+						
+			getDefaultElements();
+
+			mCarousel.applyTheme(theme, "system", "systemcarousel", ThemeFlags::ALL);
+
+			const ThemeData::ThemeElement* carouselElem = theme->getElement("system", "systemcarousel", "carousel");
+			if (carouselElem)
+				getCarouselFromTheme(carouselElem);
+		}
+	}
+
+	// load <system name="system" extraTransition="" extraTransitionSpeed="" extraTransitionHorizontal=""> attributes overrides
+	auto carousel = mCarousel.asCarousel();
+	mExtraTransitionType = carousel ? carousel->getDefaultTransition() : "fade";
+	mExtraTransitionSpeed = carousel ? carousel->getTransitionSpeed() : 350.0f;
+	mExtraTransitionHorizontal = carousel ? carousel->isHorizontalCarousel() : false;
+	
+	auto view = theme->getView("system");
+	if (view != nullptr)
+	{
+		if (!view->extraTransition.empty())
+			mExtraTransitionType = view->extraTransition;
+
+		if (view->extraTransitionSpeed >= 0.0f)
+			mExtraTransitionSpeed = view->extraTransitionSpeed;
+
+		if (!view->extraTransitionDirection.empty())
+			mExtraTransitionHorizontal = view->extraTransitionDirection != "vertical";
+	}
 
 	const ThemeData::ThemeElement* sysInfoElem = theme->getElement("system", "systemInfo", "text");
 	if (sysInfoElem)
@@ -1023,10 +1074,14 @@ void SystemView::preloadExtraNeighbours(int cursor)
 
 		SystemViewData& entry = mEntries.at(index);
 
-		auto logo = mCarousel.getLogo(dx);		
-		if (logo)
-			ensureTexture(logo.get(), dx > 1);
-		
+		auto carousel = mCarousel.asCarousel();
+		if (carousel)
+		{
+			auto logo = carousel->getLogo(dx);
+			if (logo)
+				ensureTexture(logo.get(), dx > 1);
+		}
+
 		for (auto extra : entry.backgroundExtras)
 			ensureTexture(extra, dx > 1);
 	}
@@ -1150,7 +1205,7 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 		Vector2i size = Vector2i(Math::round(mSize.x()), Math::round(mSize.y()));
 
 		Transform4x4f extrasTrans = trans;
-		if (mCarousel.isHorizontalCarousel()) //.type == HORIZONTAL || mCarousel.type == HORIZONTAL_WHEEL)
+		if (mExtraTransitionHorizontal) //.type == HORIZONTAL || mCarousel.type == HORIZONTAL_WHEEL)
 		{
 			extrasTrans.translate(Vector3f((i - mExtrasCamOffset) * mSize.x(), 0, 0));
 
@@ -1189,7 +1244,7 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 				{
 					float mvs = 48.0f;
 
-					if (mCarousel.isHorizontalCarousel())
+					if (mExtraTransitionHorizontal)
 					{
 						if ((mExtrasFadeOldCursor < mCursor && !(mExtrasFadeOldCursor == 0 && mCursor == mEntries.size() - 1)) ||
 							(mCursor == 0 && mExtrasFadeOldCursor == mEntries.size() - 1))
@@ -1282,12 +1337,20 @@ void SystemView::renderExtras(const Transform4x4f& trans, float lower, float upp
 // Populate the system carousel with the legacy values
 void SystemView::getDefaultElements()
 {
+	// Transitions
+	mExtraTransitionType = "";
+	mExtraTransitionSpeed = 500.0f;
+	mExtraTransitionHorizontal = true;
+
 	// Carousel
 	mCarousel.setZIndex(40);
 	mCarousel.setDefaultZIndex(40);
-	mCarousel.setDefaultBackground(0xFFFFFFD8, 0xFFFFFFD8, true);
 	mCarousel.setSize(mSize.x(), 0.2325f * mSize.y());
 	mCarousel.setPosition(0.0f, 0.5f * (mSize.y() - mCarousel.getSize().y()));
+
+	auto carousel = mCarousel.asCarousel();
+	if (carousel)
+		carousel->setDefaultBackground(0xFFFFFFD8, 0xFFFFFFD8, true);
 
 	// System Info Bar
 	mSystemInfo.setSize(mSize.x(), mSystemInfo.getFont()->getLetterHeight() * 2.2f);
@@ -1421,6 +1484,8 @@ bool SystemView::hitTest(int x, int y, Transform4x4f& parentTransform, std::vect
 	for (auto extra : mEntries[mCursor].backgroundExtras)
 		ret |= extra->hitTest(x, y, trans, pResult);
 
+	ret |= mCarousel.hitTest(x, y, trans, pResult);
+	
 	return ret;
 }
 
@@ -1515,14 +1580,5 @@ int SystemView::getCursorIndex()
 
 std::vector<SystemData*> SystemView::getObjects()
 {
-	std::vector<SystemData*> ret;
-
-	for (auto item : mCarousel.getObjects())
-	{
-		SystemData* data = dynamic_cast<SystemData*>(item);
-		if (data != nullptr)
-			ret.push_back(data);
-	}
-
-	return ret;
+	return mCarousel.getObjects();
 }

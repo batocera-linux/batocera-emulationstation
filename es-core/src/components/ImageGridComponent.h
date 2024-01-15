@@ -798,10 +798,22 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 	if (elem)
 	{
 		if (elem->has("margin"))
-			mMargin = elem->get<Vector2f>("margin") * screen;
+		{
+			auto margin = elem->get<Vector2f>("margin");
+			if (abs(margin.x()) < 1 && abs(margin.y()) < 1)
+				mMargin = margin * screen;
+			else
+				mMargin = margin; // Pixel size
+		}
 
 		if (elem->has("padding"))
-			mPadding = elem->get<Vector4f>("padding") * Vector4f(screen.x(), screen.y(), screen.x(), screen.y());
+		{
+			auto padding = elem->get<Vector4f>("padding");
+			if (abs(padding.x()) < 1 && abs(padding.y()) < 1 && abs(padding.z()) < 1 && abs(padding.w()) < 1)
+				mPadding = padding * Vector4f(screen.x(), screen.y(), screen.x(), screen.y());
+			else 
+				mPadding = padding; // Pixel size
+		}
 
 		if (elem->has("autoLayout"))
 		{
@@ -994,6 +1006,15 @@ void ImageGridComponent<T>::applyTheme(const std::shared_ptr<ThemeData>& theme, 
 
 	// Trigger the call manually if the theme have no "imagegrid" element
 	resetGrid();
+
+	if (mEntries.size())
+	{
+		for (auto& entry : mEntries)
+		{
+			if (entry.data.tile != nullptr && entry.data.tile->isVisible())
+				mVisibleTiles.push_back(entry.data.tile);
+		}
+	}
 }
 
 template<typename T>
