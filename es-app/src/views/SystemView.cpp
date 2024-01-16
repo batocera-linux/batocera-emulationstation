@@ -237,7 +237,7 @@ void SystemView::populate()
 			}
 		}
 	}
-	
+
 	TextureLoader::paused = false;
 
 	if (mEntries.size() == 0)
@@ -257,7 +257,13 @@ void SystemView::populate()
 			populate();
 			mWindow->pushGui(new GuiMsgBox(mWindow, _("ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"), _("OK"), nullptr));
 		}
+
+		return;
 	}
+
+	auto grid = mCarousel.asGrid();
+	if (grid)
+		grid->preloadTiles();
 }
 
 void SystemView::goToSystem(SystemData* system, bool animate)

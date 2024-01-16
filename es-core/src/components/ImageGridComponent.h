@@ -134,6 +134,8 @@ public:
 
 	Delegate<ILongMouseClickEvent> longMouseClick;
 
+	void		preloadTiles();
+
 protected:
 	virtual void onCursorChanged(const CursorState& state) override;
 	virtual void onScroll(int /*amt*/) { if (!mScrollSound.empty()) Sound::get(mScrollSound)->play(); }
@@ -141,7 +143,7 @@ protected:
 private:
 	void		resetGrid();
 	void		calcGridDimension();
-
+	
 	void		ensureVisibleTileExist();
 	Vector2i	getVisibleRange();
 	void		loadTile(std::shared_ptr<GridTileComponent> tile, typename IList<ImageGridData, T>::Entry& entry);
@@ -270,6 +272,31 @@ std::shared_ptr<GridTileComponent> ImageGridComponent<T>::createTile(int i, int 
 		tile->forceSize(mTileSize, mAutoLayoutZoom);
 
 	return tile;
+}
+
+template<typename T>
+void ImageGridComponent<T>::preloadTiles()
+{
+	int dimOpposite = Math::max(1, isVertical() ? mGridDimension.x() : mGridDimension.y());
+
+	Vector2f startPosition = mTileSize / 2;
+	startPosition += Vector2f(mPadding.x(), mPadding.y());
+
+	Vector2f tileDistance = mTileSize + mMargin;
+
+	for (int i = 0; i < mEntries.size(); i++)
+	{
+		typename IList<ImageGridData, T>::Entry& entry = mEntries[i];
+		if (entry.data.tile != nullptr)
+			continue;
+
+		auto tile = createTile(i, dimOpposite, tileDistance, startPosition);
+		tile->setVisible(false);
+
+		loadTile(tile, entry);
+		
+		entry.data.tile = tile;
+	}
 }
 
 template<typename T>

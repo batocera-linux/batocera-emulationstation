@@ -41,6 +41,11 @@ public:
 		return mCarousel;
 	}
 
+	ImageGridComponent<SystemData*>* asGrid()
+	{
+		return mGrid;
+	}
+
 	void setCursorChangedCallback(const std::function<void(CursorState state)>& func)
 	{
 		if (mText) mText->setCursorChangedCallback(func);
