@@ -277,9 +277,11 @@
     </game>
     <game name="vrally2">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+	  <video widescreen="true"/>
     </game>
     <game name="toyracer">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+	  <video widescreen="true"/>
     </game>
     <game name="18wheeler">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
@@ -313,6 +315,7 @@
     </game>
     <game name="wackyraces">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+	  <video widescreen="true"/>
     </game>
     <game name="looneytunes">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
@@ -331,6 +334,7 @@
     </game>
     <game name="f355challenge">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+	  <video widescreen="true"/>
     </game>
     <game name="lemans24hours">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
@@ -361,6 +365,7 @@
     </game>
     <game name="testdrivevrally">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+	  <video widescreen="true"/>
     </game>
     <game name="alienfrontonline">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
@@ -370,6 +375,10 @@
     </game>
     <game name="tokyoxtremeracer">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+    </game>
+	<game name="tokyoxtremeracer2">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+	  <video widescreen="true"/>
     </game>
     <game name="exhibitionofspeed">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
@@ -400,6 +409,24 @@
     </game>
     <game name="speeddevilsonlineracing">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+    </game>
+	<game name="donaldduck">
+      <video widescreen="true"/>
+    </game>
+	<game name="starlancer">
+      <video widescreen="true"/>
+    </game>
+	<game name="toycommander">
+      <video widescreen="true"/>
+    </game>
+	<game name="uefadreamsoccer">
+      <video widescreen="true"/>
+    </game>
+	<game name="rayman2">
+      <video widescreen="true"/>
+    </game>
+	<game name="trickstyle">
+      <video widescreen="true"/>
     </game>
   </system>
   <system name="gamecube">
@@ -2526,6 +2553,7 @@
     </game>
     <game name="highvelocity">
       <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+	  <video widescreen="true"/>
     </game>
     <game name="taitochasehq">
       <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
@@ -2605,6 +2633,17 @@
     <game name="roadtrackpresentstheneedforspeed">
       <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
     </game>
+	<game name="nightsintodreams">
+	  <video widescreen="true"/>
+	</game>
+	<game name="panzerdragooniizwei">
+	  <video widescreen="true"/>
+	</game>
+  </system>
+  <system name="sega32x">
+	<game name="virtuafighter">
+	  <video widescreen="true"/>
+	</game>  
   </system>
   <system name="segacd">
     <game name="maddogii">

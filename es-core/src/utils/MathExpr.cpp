@@ -73,10 +73,10 @@ namespace Utils
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::timeToString(time, "%d")); } },
 		{ { "elapsed", 1 },       [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
 														 return addStringQuotes(time <= 0 ? "" : Utils::Time::getElapsedSinceString(time)); } },
-		{ { "expandseconds", 1 }, [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
-														 return addStringQuotes(time == 0 ? "" : Utils::Time::secondsToString(time)); } },
-		{ { "formatseconds", 1 }, [](const Args& args) { auto time = Utils::Time::stringToTime(removeStringQuotes(args[0]), Utils::Time::getSystemDateFormat()); 
-														 return addStringQuotes(time == 0 ? "" : Utils::Time::secondsToString(time, true)); } },
+		{ { "expandseconds", 1 }, [](const Args& args) { auto seconds = Utils::String::toInteger(removeStringQuotes(args[0])); 
+														 return addStringQuotes(seconds == 0 ? "" : Utils::Time::secondsToString(seconds)); } },
+		{ { "formatseconds", 1 }, [](const Args& args) { auto seconds = Utils::String::toInteger(removeStringQuotes(args[0]));
+														 return addStringQuotes(seconds == 0 ? "" : Utils::Time::secondsToString(seconds, true)); } },
 	};
 
 	static std::map<std::string, int> opPrecedence =
