@@ -360,11 +360,13 @@ void GuiMenu::openEmuELECSettings()
 		
 			window->pushGui(new GuiMsgBox(window, msg,
 				_("YES"), [selectedVideoMode] {
-					Utils::Platform::ProcessStartInfo("echo "+selectedVideoMode+" > /sys/class/display/mode").run();
+					//Utils::Platform::ProcessStartInfo("echo "+selectedVideoMode+" > /sys/class/display/mode").run();
 					SystemConf::getInstance()->set("ee_videomode", selectedVideoMode);
 					LOG(LogInfo) << "Setting video to " << selectedVideoMode;
-					Utils::Platform::ProcessStartInfo("/usr/bin/setres.sh").run();
+					//Utils::Platform::ProcessStartInfo("/usr/bin/setres.sh").run();
 					SystemConf::getInstance()->saveSystemConf();
+					Scripting::fireEvent("quit", "restart");
+					Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
 				//	v_need_reboot = true;
 				}, _("NO"),nullptr));
 		
