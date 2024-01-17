@@ -269,6 +269,8 @@ void GridGameListView::remove(FileData *game)
 
 	if (mGrid.size() == 0)
 		addPlaceholder();
+
+	ViewController::get()->reloadGameListView(this);
 }
 
 void GridGameListView::onFileChanged(FileData* file, FileChangeType change)

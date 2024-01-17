@@ -161,6 +161,8 @@ void CarouselGameListView::remove(FileData *game)
 
 	if (mList.size() == 0)
 		addPlaceholder();
+
+	ViewController::get()->reloadGameListView(this);
 }
 
 void CarouselGameListView::setCursorIndex(int cursor)
