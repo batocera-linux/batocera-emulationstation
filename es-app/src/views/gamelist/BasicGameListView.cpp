@@ -178,6 +178,8 @@ void BasicGameListView::remove(FileData *game)
 
 	if (mList.size() == 0)
 		addPlaceholder();
+
+	ViewController::get()->reloadGameListView(this);
 }
 
 void BasicGameListView::setCursorIndex(int cursor)
