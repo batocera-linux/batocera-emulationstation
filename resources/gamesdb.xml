@@ -373,12 +373,12 @@
     <game name="f1worldgrandprix">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
-    <game name="tokyoxtremeracer">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
 	<game name="tokyoxtremeracer2">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
 	  <video widescreen="true"/>
+    </game>
+    <game name="tokyoxtremeracer">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="exhibitionofspeed">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
