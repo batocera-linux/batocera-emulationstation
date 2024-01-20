@@ -30,7 +30,7 @@ def checkSystemGames(system, games):
 
 hasError = False
 
-for file in ["gungames.xml", "wheelgames.xml"]:
+for file in ["resources/gungames.xml", "resources/wheelgames.xml"]:
     systems = xml2systemsArrays(file)
     for system in systems:
         if checkSystemGames(system, systems[system]) == False:
