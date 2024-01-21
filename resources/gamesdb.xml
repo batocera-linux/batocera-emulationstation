@@ -2968,7 +2968,7 @@
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
     <game name="houseofthedeadoverkill">
-      <gun vertical_offset="15" yaw="19" pitch="19"/>
+      <gun vertical_offset="15" yaw="19" pitch="19" action="shake,a"/>
     </game>
     <game name="bigfootcollisioncourse">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
@@ -2992,7 +2992,7 @@
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
     <game name="houseofthedeadtheoverkill">
-      <gun vertical_offset="15" yaw="19" pitch="19"/>
+      <gun vertical_offset="15" yaw="19" pitch="19" action="shake,a"/>
     </game>
     <game name="classicbritishmotorracing">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
