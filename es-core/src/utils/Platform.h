@@ -39,6 +39,10 @@ namespace Utils
 			bool waitForExit;
 			bool showWindow;
 			Window* window;
+#ifndef WIN32
+			std::string stderrFilename;
+			std::string stdoutFilename;
+#endif
 		};
 
 		int quitES(QuitMode mode = QuitMode::QUIT);
