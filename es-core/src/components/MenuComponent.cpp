@@ -334,7 +334,7 @@ float MenuComponent::getButtonGridHeight() const
 void MenuComponent::updateSize()
 {
 	// GPI
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 	{
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 		return;

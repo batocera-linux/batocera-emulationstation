@@ -473,6 +473,51 @@ namespace Utils
 			return ret;
 		}
 
+#if WIN32
+		static bool _getWindowsVersion(WORD& major, WORD& minor, WORD& build, WORD& revision)
+		{
+			// Use product version in kernel32.dll to have real Windows version as we don't have a compatibility manifest (GetVersion is limited to 6.2)
+			HMODULE kernel32Module = GetModuleHandle("kernel32.dll");
+			if (kernel32Module != nullptr)
+			{
+				wchar_t filePath[MAX_PATH];
+				DWORD length = GetModuleFileNameW(kernel32Module, filePath, MAX_PATH);
+				if (length > 0)
+				{
+					DWORD dummy;
+					DWORD versionSize = GetFileVersionInfoSizeW(filePath, &dummy);
+
+					std::vector<char> versionData(versionSize);
+					if (GetFileVersionInfoW(filePath, 0, versionSize, versionData.data()))
+					{
+						VS_FIXEDFILEINFO* fileInfo;
+						UINT fileInfoSize;
+
+						if (VerQueryValueW(versionData.data(), L"\\", reinterpret_cast<void**>(&fileInfo), &fileInfoSize))
+						{
+						    major = HIWORD(fileInfo->dwProductVersionMS);
+							minor = LOWORD(fileInfo->dwProductVersionMS);
+							build = HIWORD(fileInfo->dwProductVersionLS);
+							revision = LOWORD(fileInfo->dwProductVersionLS);
+
+							return true;
+						}
+					}
+				}
+			}
+
+			return false;
+		}
+
+		bool isWindows11()
+		{
+			WORD major, minor, build, revision;
+			if (_getWindowsVersion(major, minor, build, revision))
+				return major > 10 || (major == 10 && (minor > 0 || build >= 22000));
+
+			return false;
+		}
+#endif
 
 		std::string getArchString()
 		{

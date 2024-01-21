@@ -22,7 +22,7 @@ GuiBluetoothPair::GuiBluetoothPair(Window* window)
 		
 	addButton(_("CANCEL"), "back", [&] { delete this; });
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 	{
 		setPosition((Renderer::getScreenWidth() - getSize().x()) / 2, (Renderer::getScreenHeight() - getSize().y()) / 2);
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());

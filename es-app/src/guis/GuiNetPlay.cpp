@@ -205,7 +205,7 @@ GuiNetPlay::GuiNetPlay(Window* window)
 	float width = (float)Math::min((int)Renderer::getScreenHeight(), (int)(Renderer::getScreenWidth() * 0.90f));
 
 	// Position & Size
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
 		setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.90f);

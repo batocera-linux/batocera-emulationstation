@@ -97,8 +97,19 @@ TextureResource::~TextureResource()
 	}
 }
 
+void TextureResource::cleanupTextureResourceCache()
+{
+	std::vector<TextureKeyType> toRemove;
 
-std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool linear, bool forceLoad, bool dynamic, bool asReloadable, const MaxSizeInfo* maxSize)
+	for (auto item : sTextureMap)
+		if (item.second.expired())
+			toRemove.push_back(item.first);
+
+	for (auto tmp : toRemove)
+		sTextureMap.erase(tmp);
+}
+
+std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, bool tile, bool linear, bool forceLoad, bool dynamic, bool asReloadable, const MaxSizeInfo* maxSize, const std::string& shareId)
 {
 	std::shared_ptr<ResourceManager>& rm = ResourceManager::getInstance();
 
@@ -114,7 +125,9 @@ std::shared_ptr<TextureResource> TextureResource::get(const std::string& path, b
 	if (canonicalPath.length() > 0 && canonicalPath[0] == ':')
 		dynamic = false;
 
-	TextureKeyType key(canonicalPath, tile, linear);
+	TextureKeyType key(canonicalPath, tile, linear, shareId);
+
+	//TextureKeyType key(canonicalPath, tile, linear);
 	auto foundTexture = sTextureMap.find(key);
 	if (foundTexture != sTextureMap.cend())
 	{

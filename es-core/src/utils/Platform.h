@@ -67,6 +67,10 @@ namespace Utils
 
 		std::string queryIPAdress();
 		std::string getArchString();
+
+#if WIN32
+		bool isWindows11();
+#endif
 	}
 }
 

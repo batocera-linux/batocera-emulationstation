@@ -137,7 +137,7 @@ void GuiFileBrowser::navigateTo(const std::string path)
 
 void GuiFileBrowser::centerWindow()
 {
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
 	{

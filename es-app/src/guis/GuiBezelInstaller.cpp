@@ -118,7 +118,7 @@ void GuiBezelInstaller::loadBezelsAsync()
 
 void GuiBezelInstaller::centerWindow()
 {
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		mMenu.setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
 		mMenu.setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.875f);

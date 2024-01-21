@@ -203,14 +203,14 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 
 	if (animate)
 	{
-		if (Renderer::isSmallScreen())
+		if (Renderer::ScreenSettings::fullScreenMenus())
 			animateTo(Vector2f((Renderer::getScreenWidth() - getSize().x()) / 2, (Renderer::getScreenHeight() - getSize().y()) / 2));
 		else
 			animateTo(Vector2f((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f));
 	}
 	else
 	{
-		if (Renderer::isSmallScreen())
+		if (Renderer::ScreenSettings::fullScreenMenus())
 			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, (Renderer::getScreenHeight() - mSize.y()) / 2);
 		else
 			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f);
@@ -257,7 +257,7 @@ void GuiMenu::addVersionInfo()
 		
 	if (!label.empty())
 	{
-		if (Renderer::isSmallScreen())
+		if (Renderer::ScreenSettings::fullScreenMenus())
 		{
 			mMenu.setSubTitle(label);
 			mMenu.addButton(_("BACK"), _("go back"), [&] { delete this; });
@@ -673,6 +673,32 @@ void GuiMenu::openDeveloperSettings()
 			mWindow->closeSplashScreen();
 		});
 
+	s->addGroup(_("DISPLAY SETTINGS"));
+
+	auto menuFontScale = std::make_shared< OptionListComponent<std::string> >(mWindow, _("MENU FONT SCALE"), false);
+	menuFontScale->addRange({ { _("AUTO"), "" },{ "100%", "1.0" },{ "110%", "1.1" },{ "125%", "1.25" },{ "133%", "1.31" },{ "150%", "1.5" },{ "175%", "1.75" },{ "200%", "2" },{ "75%", "0.75" } ,{ "50%", "0.5" } },
+		Settings::getInstance()->getString("MenuFontScale"));
+	s->addWithLabel(_("MENU FONT SCALE"), menuFontScale);
+	s->addSaveFunc([s, menuFontScale] { if (Settings::getInstance()->setString("MenuFontScale", menuFontScale->getSelected())) s->setVariable("reboot", true); });
+
+	auto fontScale = std::make_shared< OptionListComponent<std::string> >(mWindow, _("FONT SCALE"), false);
+	fontScale->addRange({ { _("AUTO"), "" },{ "100%", "1.0" },{ "110%", "1.1" },{ "125%", "1.25" },{ "133%", "1.31" },{ "150%", "1.5" },{ "175%", "1.75" },{ "200%", "2" },{ "75%", "0.75" } ,{ "50%", "0.5" } },
+		Settings::getInstance()->getString("FontScale"));
+	s->addWithLabel(_("THEME FONT SCALE"), fontScale);
+	s->addSaveFunc([s, fontScale] { if (Settings::getInstance()->setString("FontScale", fontScale->getSelected())) s->setVariable("reboot", true); });
+
+	auto fullScreenMenus = std::make_shared< OptionListComponent<std::string> >(mWindow, _("FULL SCREEN MENUS"), false);
+	fullScreenMenus->addRange({ { _("AUTO"), "" },{ "YES", "true" },{ "NO", "false" } }, Settings::getInstance()->getString("FullScreenMenu"));
+	s->addWithLabel(_("FULL SCREEN MENUS"), fullScreenMenus);
+	s->addSaveFunc([s, fullScreenMenus] { if (Settings::getInstance()->setString("FullScreenMenu", fullScreenMenus->getSelected())) s->setVariable("reboot", true); });
+
+	auto isSmallScreen = std::make_shared< OptionListComponent<std::string> >(mWindow, _("FORCE SMALL SCREEN THEMING"), false);
+	isSmallScreen->addRange({ { _("AUTO"), "" },{ "YES", "true" },{ "NO", "false" } }, Settings::getInstance()->getString("ForceSmallScreen"));
+	s->addWithLabel(_("FORCE SMALL SCREEN THEMING"), isSmallScreen);
+	s->addSaveFunc([s, isSmallScreen] { if (Settings::getInstance()->setString("ForceSmallScreen", isSmallScreen->getSelected())) s->setVariable("reboot", true); });
+
+
+
 	s->addGroup(_("DATA MANAGEMENT"));
 
 	// ExcludeMultiDiskContent
@@ -842,7 +868,10 @@ void GuiMenu::openDeveloperSettings()
 	s->addSaveFunc([optimizeVideo] { Settings::getInstance()->setBool("OptimizeVideo", optimizeVideo->getState()); });
 	
 	s->onFinalize([s, window]
-	{
+	{					
+		if (s->getVariable("reboot"))
+			window->displayNotificationMessage(_U("\uF011  ") + _("REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"));
+
 		if (s->getVariable("reloadAll"))
 		{
 			ViewController::get()->reloadAll(window);
