@@ -33,6 +33,10 @@ namespace Utils
 			window = nullptr; 
 			waitForExit = true;
 			showWindow = true;
+#ifndef WIN32
+			stderrFilename = "es_launch_stderr.log";
+			stdoutFilename = "es_launch_stdout.log";
+#endif
 		}
 
 		ProcessStartInfo::ProcessStartInfo(const std::string& cmd)
@@ -41,6 +45,10 @@ namespace Utils
 			window = nullptr; 
 			waitForExit = true;
 			showWindow = true;
+#ifndef WIN32
+			stderrFilename = "es_launch_stderr.log";
+			stdoutFilename = "es_launch_stdout.log";
+#endif
 		}
 
 		int ProcessStartInfo::run() const
@@ -134,7 +142,7 @@ namespace Utils
 
 			return 1;
 #else
-			std::string cmdOutput = " 2> " + Utils::FileSystem::combine(Paths::getLogPath(), "es_launch_stderr.log") + " | head -300 > " + Utils::FileSystem::combine(Paths::getLogPath(), "es_launch_stdout.log");
+			std::string cmdOutput = " 2> " + Utils::FileSystem::combine(Paths::getLogPath(), stderrFilename) + " | head -300 > " + Utils::FileSystem::combine(Paths::getLogPath(), stdoutFilename);
 			if (!Log::enabled())
 				cmdOutput = " 2> /dev/null | head -300 > /dev/null";
 

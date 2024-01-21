@@ -117,6 +117,9 @@ namespace Scripting
         psi.command = command;
         psi.waitForExit = (eventName == "quit");
         psi.showWindow = false;
+        // Don't clobber game logs when running scripts
+        psi.stderrFilename = "es_script_stderr.log";
+        psi.stdoutFilename = "es_script_stdout.log";
         psi.run();
 #endif
     }
