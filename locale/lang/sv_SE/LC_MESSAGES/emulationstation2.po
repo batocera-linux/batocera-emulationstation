@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-01-11 17:01+0100\n"
+"PO-Revision-Date: 2024-01-19 14:47+0100\n"
 "Last-Translator: A.H.\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -59,10 +59,10 @@ msgid "enter path to logo"
 msgstr "ange sökväg till logga"
 
 msgid "Box"
-msgstr "Box"
+msgstr "Fodral"
 
 msgid "enter path to box"
-msgstr "ange sökväg till box"
+msgstr "ange sökväg till fodral"
 
 msgid "Fan art"
 msgstr "Entusiastkonst"
@@ -107,16 +107,16 @@ msgid "enter path to cartridge"
 msgstr "ange sökväg till kassett"
 
 msgid "Alt BoxArt"
-msgstr "Alt boxkonst"
+msgstr "Alt. fodralkonst"
 
 msgid "enter path to alt boxart"
-msgstr "ange sökväg till alt boxkonst"
+msgstr "ange sökväg till alt. fodralkonst"
 
 msgid "Box backside"
-msgstr "Boxbaksida"
+msgstr "Fodralbaksida"
 
 msgid "enter path to box background"
-msgstr "ange sökväg till boxbaksida"
+msgstr "ange sökväg till fodralbaksida"
 
 msgid "Wheel"
 msgstr "Hjul"

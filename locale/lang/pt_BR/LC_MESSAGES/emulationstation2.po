@@ -416,7 +416,7 @@ msgstr "CAPTURA DE TELA AUTOMÁTICO"
 
 msgid "Automatically take a screenshot when an achievement is earned."
 msgstr ""
-"Automaticamente captura uma imagem da tela quando uma conquista retrô é "
+"Captura uma imagem da tela automaticamente quando uma conquista retrô é "
 "conquistada."
 
 msgid "CHALLENGE INDICATORS"
@@ -492,7 +492,7 @@ msgid "GAME COLLECTION SETTINGS"
 msgstr "AJUSTES DA COLEÇÃO DE JOGOS"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr "COLEÇÕES A EXIBIR"
+msgstr "COLEÇÕES A SEREM EXIBIDAS"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "SISTEMAS EXIBIDOS"
@@ -507,10 +507,10 @@ msgid "New Collection Name"
 msgstr "Novo Nome da Coleção"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "INSIRA O NOME DO TEMA"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "CRIAR COLEÇÃO A PARTIR DE UM TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CRIAR NOVA COLEÇÃO EDITÁVEL"
@@ -552,10 +552,10 @@ msgid "START ON GAMELIST"
 msgstr "INICIAR NA LISTA DE JOGOS"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "AGRUPAR TEMAS PERSONALIZADOS"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "SEM TEMA"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "EXIBIR NOME DO SISTEMA NAS COLEÇÕES"
@@ -567,7 +567,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "EXIBIR SISTEMAS VAZIOS"
 
 msgid "UPDATE GAMELISTS"
-msgstr "ATUALIZAR LISTA DE JOGOS"
+msgstr "ATUALIZAR A LISTA DE JOGOS"
 
 msgid "Loading..."
 msgstr "Carregando..."
@@ -601,11 +601,11 @@ msgstr "POR FAVOR, AGUARDE"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d de %d pontos livres"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d de %d pontos restritos"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -627,7 +627,7 @@ msgid "LAUNCH"
 msgstr "INICIAR JOGO"
 
 msgid "NETPLAY SETTINGS"
-msgstr "AJUSTES DE JOGO EM REDE"
+msgstr "AJUSTES DOS JOGOS EM REDE"
 
 msgid "ENABLE NETPLAY"
 msgstr "ATIVAR JOGOS EM REDE"
@@ -1020,10 +1020,10 @@ msgid "RIGHT"
 msgstr "DIREITA"
 
 msgid "CONTENT DOWNLOADER"
-msgstr "GERENCIADOR DE CONTEÚDO"
+msgstr "GERENCIAR CONTEÚDO"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "SELCIONE O CONTEÚDO A SER INSTALADO/REMOVIDO"
+msgstr "SELECIONE QUAIS CONTEÚDOS INSTALAR/REMOVER"
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "ATUALIZAR CONTEÚDO INSTALADO"
@@ -1097,19 +1097,19 @@ msgid "START SCREENSAVER AFTER"
 msgstr "ATIVAR APÓS (MIN)"
 
 msgid "SCREENSAVER TYPE"
-msgstr "TIPO"
+msgstr "TIPO DE PROTEÇÃO DE TELA"
 
 msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "INTERROMPER MÚSICA"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "AJUSTES DE VÍDEO ALEATÓRIO NA PROTEÇÃO DE TELA"
+msgstr "AJUSTES DE VÍDEO ALEATÓRIO PARA A PROTEÇÃO DE TELA"
 
 msgid "VIDEO DURATION (SECS)"
 msgstr "TROCAR VÍDEO APÓS (SEG)"
 
 msgid "USE OMX PLAYER FOR SCREENSAVER"
-msgstr "USAR O LEITOR OMX PARA NA PROTEÇÃO DE TELA"
+msgstr "USAR O LEITOR OMX PARA A PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO"
 msgstr "EXIBIR INFORMAÇÃO DO JOGO"
@@ -1142,7 +1142,7 @@ msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr "EXTENSÕES DE ARQUIVOS DE VÍDEO PERSONALIZADOS"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "AJUSTES DE PROTEÇÃO DE TELA EM ESLAIDES"
+msgstr "AJUSTES DE ESLAIDES PARA A PROTEÇÃO DE TELA"
 
 msgid "IMAGE DURATION (SECS)"
 msgstr "TROCAR IMAGEM APÓS (SEG)"
@@ -1269,13 +1269,13 @@ msgid "GAME MEDIA"
 msgstr "MÍDIA DE JOGO"
 
 msgid "VIEW GAME MANUAL"
-msgstr "VER MANUAL DO JOGO"
+msgstr "VER MANUAL DE INSTRUÇÕES DO JOGO"
 
 msgid "VIEW GAME MAGAZINE"
 msgstr "VER REVISTA DO JOGO"
 
 msgid "VIEW GAME MAP"
-msgstr "VER MAPA DO JOGO"
+msgstr "VISUALIZAR MAPA DO JOGO"
 
 msgid "VIEW FULLSCREEN VIDEO"
 msgstr "VISUALIZAR VÍDEO EM TELA CHEIA"
@@ -1377,16 +1377,16 @@ msgid "THEMES DOWNLOADER"
 msgstr "GERENCIADOR DE TEMAS"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "SELECIONAR TEMAS PARA INSTALAR/REMOVER"
+msgstr "SELECIONAR QUAIS TEMAS INSTALAR/REMOVER"
 
 msgid "All"
 msgstr "Todos"
 
 msgid "Installed"
-msgstr "Instalado"
+msgstr "Instalado(s)"
 
 msgid "Available"
-msgstr "Disponível"
+msgstr "Disponível(eis)"
 
 msgid "CURRENT THEME"
 msgstr "TEMA ATUAL"
@@ -1401,10 +1401,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ESTE JOGO NÃO POSSUI CONQUISTAS"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Conquistas (modo livre)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Conquistas (modo restrito)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1429,7 +1429,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "COPIAR PARA UM ESPAÇO LIVRE"
 
 msgid "SCRAPER SETTINGS"
-msgstr "AJUSTES (SCRAPER)"
+msgstr "AJUSTES DO SCRAPER"
 
 msgid "IMAGE SOURCE"
 msgstr "FONTE DA MÍDIA DE IMAGEM"
@@ -1468,16 +1468,16 @@ msgid "MARQUEE"
 msgstr "LETREIRO"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "PRIORIZAR REGIÃO"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "SOBRESCREVER DESCRIÇÕES"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "SOBRESCREVER MÍDIAS"
 
 msgid "SCRAPE FOR"
-msgstr "OBTER MÍDIA PARA"
+msgstr "OBTER MÍDIAS PARA"
 
 msgid "SHORT NAME"
 msgstr "NOME ABREVIADO"
@@ -1498,16 +1498,16 @@ msgid "BOX BACKSIDE"
 msgstr "PARTE DE TRÁS DA CAIXA"
 
 msgid "MAP"
-msgstr "MAPA"
+msgstr "MAPA DO JOGO"
 
 msgid "MANUAL"
-msgstr "MANUAL"
+msgstr "MANUAL DE INSTRUÇÕES"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTES DE CONTROLE PARA TECLADO (PADTOKEY)"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "CONTA"
 
 msgid "SCRAPER"
 msgstr "PROCURAR MÍDIAS DE JOGO"
@@ -1519,7 +1519,7 @@ msgid "SOURCE"
 msgstr "FONTE"
 
 msgid "SCRAPE FROM"
-msgstr "OBTER MÍDIA DE"
+msgstr "OBTER MÍDIAS DE"
 
 msgid "FILTERS"
 msgstr "FILTROS"
@@ -1603,7 +1603,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "PROJETO BEZEL (MOLDURAS)"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "SELECIONE MOLDURAS PARA INSTALAR/REMOVER"
+msgstr "SELECIONAR QUAIS MOLDURAS INSTALAR/REMOVER"
 
 msgid "fade"
 msgstr "escurecer"
@@ -1823,21 +1823,26 @@ msgstr "LIMPAR LISTA DE JOGOS AUSENTES & REMOVER MÍDIAS NÃO UTILIZADAS"
 
 msgid "Remove unused entries, and clean references to missing medias."
 msgstr ""
+"Remove entradas ausentes da lista de jogos e apaga arquivos de mídia não "
+"referenciados."
 
 msgid "Cleaning"
 msgstr "Apagando"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "REDEFINIR DADOS DE USO DAS LISTAS DE JOGOS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
+"Reestabelecer os valores das informações sobre: Tempo de Jogo, Número de Partidas, e Últma Vez Jogado."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REESTABELECER EXTENSÕES DE ARQUIVO"
 
 msgid "Reset customized file extensions filters to default."
 msgstr ""
+"Reestabelecer os filtros de extensões de arquivos personalizados para o "
+"padrão."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "REDESCOBRIR IDIOMA/REGIÃO DE TODOS OS JOGOS"
@@ -2214,7 +2219,7 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Diminue automaticamente o atraso de quadros temporariamente para evitar "
+"Diminui automaticamente o atraso de quadros temporariamente para evitar "
 "quedas na taxa de quadros. Pode acontecer engasgos."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -2236,10 +2241,10 @@ msgid "Current setting"
 msgstr "Ajuste atual"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "CONTAS"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "AJUSTES DA BIOS"
 
 msgid "SAVESTATES"
 msgstr "ESTADOS DE SALVAMENTO"
@@ -2409,7 +2414,7 @@ msgid "DEFAULT GRID SIZE"
 msgstr "TAMANHO PADRÃO DA GRADE"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr "OPÇÕES DE TEMAS DA LISTA DE JOGOS"
+msgstr "OPÇÕES DE TEMA PARA A LISTA DE JOGOS"
 
 msgid "THEME OPTIONS"
 msgstr "OPÇÕES DE TEMA"
@@ -2445,19 +2450,19 @@ msgid "SHOW REGION FLAG"
 msgstr "EXIBIR ÍCONE DA BANDEIRA DO IDIOMA"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "EXIBIR ÍCONE DE ESTADOS DE SALVAMENTO"
+msgstr "EXIBIR ÍCONE DE ESTADO DE SALVAMENTO"
 
 msgid "SHOW MANUAL ICON"
-msgstr "EXIBIR ÍCONE DE MANUAL"
+msgstr "EXIBIR ÍCONE DE MANUAL DE INSTRUÇÕES"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "EXIBIR ÍCONE DE CONQUISTAS"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "EXIBIR ÍCONE DE PISTOLA"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "EXIBIR ÍCONE DE VOLANTE"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "EXIBIR NOMES DOS ARQUIVOS"
@@ -2508,7 +2513,7 @@ msgid "ICON AND TEXT"
 msgstr "ÍCONE E TEXTO"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "EXIBIR PASTAS PRIMEIRO"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORAR ARTIGOS DEFINIDOS E INDEFINIDOS AO ORDENAR"
@@ -2855,7 +2860,7 @@ msgstr "FAVORITO"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Voltar para %s"
 
 msgid "No Entries Found"
 msgstr "Nenhuma Entrada Encontrada"
@@ -2867,7 +2872,7 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"É necessáriO uma conta válida. Registre uma conta em https://"
+"É necessário uma conta válida. Registre uma conta em https://"
 "retroachievements.org"
 
 msgid "Searching"
@@ -3066,10 +3071,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "SE HOUVER MÍDIAS"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "MÍDIAS AUSENTES"
 
 msgid "SCRAPING"
 msgstr "PROCURANDO MÍDIAS"
@@ -3268,10 +3273,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "PRESSIONE E SEGURE UM BOTÃO QUALQUER DO CONTROLE PARA CONFIGURÁ-LO."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "PRESSIONAR TECLA ESC PARA CANCELAR"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "PRESSIONAR TECLA ESC OU TECLA DE ATALHO (HOTKEY) PARA CANCELAR"
 
 msgid "DISCARD CHANGES"
 msgstr "DESCARTAR MODIFICAÇÕES"
@@ -3334,8 +3339,8 @@ msgstr "%d seg"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ano atrás"
+msgstr[1] "%d anos atrás"
 
 #, c-format
 msgid "%d day ago"
