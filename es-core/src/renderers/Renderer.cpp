@@ -10,6 +10,7 @@
 #include "ImageIO.h"
 #include "Log.h"
 #include "Settings.h"
+#include "utils/StringUtil.h"
 
 #include <SDL.h>
 #include <stack>
@@ -17,6 +18,11 @@
 #if WIN32
 #include <Windows.h>
 #include <SDL_syswm.h>
+
+#include <dwmapi.h>
+#pragma comment(lib, "Dwmapi.lib")
+
+#include "utils/Platform.h"
 #endif
 
 namespace Renderer
@@ -251,6 +257,18 @@ namespace Renderer
 				LONG lExStyle = GetWindowLong(hWnd, GWL_EXSTYLE);
 				lExStyle &= ~(WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE | WS_EX_STATICEDGE);
 				SetWindowLong(hWnd, GWL_EXSTYLE, lExStyle);
+
+				// Check if the major and minor versions indicate Windows 11 or newer
+				if (Utils::Platform::IsWindows11()) 
+				{
+					BOOL isComposited;
+					HRESULT result = ::DwmIsCompositionEnabled(&isComposited);
+					if (SUCCEEDED(result) && isComposited)
+					{
+						int preference = 1; // DWM_WINDOW_CORNER_PREFERENCE::DWMWCP_DONOTROUND;
+						HRESULT ret = ::DwmSetWindowAttribute(hWnd, 33, &preference, sizeof(preference)); // DWMWA_WINDOW_CORNER_PREFERENCE
+					}
+				}
 
 				SetWindowPos(hWnd, NULL,
 					x, y,
@@ -581,9 +599,11 @@ namespace Renderer
 		return nearName;
 	}
 
+
 	bool        isSmallScreen()    
 	{ 		
-		return screenWidth <= 480 || screenHeight <= 480; 
+		return ScreenSettings::isSmallScreen();
+		//return screenWidth <= 480 || screenHeight <= 480; 
 	};
 
 	bool isClippingEnabled() { return !clipStack.empty(); }
@@ -950,5 +970,67 @@ namespace Renderer
 	{
 		return Instance()->getTotalMemUsage();
 	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	bool  ScreenSettings::isSmallScreen()
+	{
+		auto menus = Settings::getInstance()->getString("ForceSmallScreen");
+		if (!menus.empty())
+			return menus == "true";
+
+		return screenWidth <= 480 || screenHeight <= 480;
+	}
+
+	bool  ScreenSettings::fullScreenMenus()
+	{
+		auto menus = Settings::getInstance()->getString("FullScreenMenu");
+		if (!menus.empty())
+			return menus == "true";
+
+		//return true;
+		return isSmallScreen();
+	}
+
+	float ScreenSettings::menuFontScale()
+	{
+		auto scale = Settings::getInstance()->getString("MenuFontScale");
+		if (!scale.empty())
+		{
+			auto val = Utils::String::toFloat(scale);
+			if (val > 0 && val < 4)
+				return val;
+		}
+
+		float sz = Math::min(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		if (sz < 320)
+			return 1.5f;  // GPI 320x240
+
+		if (sz >= 320 && sz < 720) // ODROID 480x320;
+			return 1.31f;
+
+		return 1.0f;
+	}
+
+	float ScreenSettings::fontScale()
+	{
+		auto scale = Settings::getInstance()->getString("FontScale");
+		if (!scale.empty())
+		{
+			auto val = Utils::String::toFloat(scale);
+			if (val > 0 && val < 4)
+				return val;
+		}
+
+		float sz = Math::min(Renderer::getScreenWidth(), Renderer::getScreenHeight());
+		if (sz < 320) 
+			return 1.5f;  // GPI 320x240
+
+		if (sz >= 320 && sz < 720) // ODROID 480x320;
+			return 1.31f;
+
+		return 1.0f;
+	}
+
 
 } // Renderer::

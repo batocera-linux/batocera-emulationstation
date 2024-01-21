@@ -44,7 +44,7 @@ class Font : public IReloadable
 public:
 	static void initLibrary();
 
-	static std::shared_ptr<Font> get(int size, const std::string& path = getDefaultPath());
+	static std::shared_ptr<Font> get(int size, const std::string& path = getDefaultPath(), bool menuScaling = false);
 	static void OnThemeChanged();
 
 	virtual ~Font();
@@ -73,7 +73,7 @@ public:
 
 	inline static const char* getDefaultPath() { return FONT_PATH_REGULAR; }
 
-	static std::shared_ptr<Font> getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig);
+	static std::shared_ptr<Font> getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig, bool menu = false);
 
 	size_t getMemUsage() const; // returns an approximation of VRAM used by this font's texture (in bytes)
 	static size_t getTotalMemUsage(); // returns an approximation of total VRAM used by font textures (in bytes)
@@ -84,7 +84,7 @@ private:
 	static FT_Library sLibrary;
 	static std::map< std::pair<std::string, int>, std::weak_ptr<Font> > sFontMap;
 
-	Font(int size, const std::string& path);
+	Font(int size, const std::string& path, bool menuScaling = false);
 
 	class FontTexture
 	{

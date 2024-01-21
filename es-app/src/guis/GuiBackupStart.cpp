@@ -43,7 +43,7 @@ GuiBackupStart::GuiBackupStart(Window* window) : GuiComponent(window), mMenu(win
 	mMenu.addButton(_("START"), "start", std::bind(&GuiBackupStart::start, this));
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 	else
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.1f);

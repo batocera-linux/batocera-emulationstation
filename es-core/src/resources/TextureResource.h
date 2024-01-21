@@ -20,7 +20,8 @@ public:
 
 public:
 	static void cancelAsync(std::shared_ptr<TextureResource> texture);
-	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool linear = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, const MaxSizeInfo* maxSize = nullptr);
+	static std::shared_ptr<TextureResource> get(const std::string& path, bool tile = false, bool linear = false, bool forceLoad = false, bool dynamic = true, bool asReloadable = true, const MaxSizeInfo* maxSize = nullptr, const std::string& shareId = "");
+	static void cleanupTextureResourceCache();
 	
 	void initFromPixels(unsigned char* dataRGBA, size_t width, size_t height);
 	void updateFromExternalPixels(unsigned char* dataRGBA, size_t width, size_t height);
@@ -64,7 +65,7 @@ private:
 	Vector2f						mPhysicalSize;
 	bool							mForceLoad;
 
-	typedef std::tuple<std::string, bool, bool> TextureKeyType;
+	typedef std::tuple<std::string, bool, bool, std::string> TextureKeyType;
 	static std::map< TextureKeyType, std::weak_ptr<TextureResource> > sTextureMap; // map of textures, used to prevent duplicate textures
 	static std::set<TextureResource*> 	sNonDynamicTextureResources;
 };

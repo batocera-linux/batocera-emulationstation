@@ -33,7 +33,7 @@ GuiWifi::GuiWifi(Window* window, const std::string title, std::string data, cons
 	mMenu.addButton(_("INPUT MANUALLY"), "manual input", [&] { onManualInput(); });
 	mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 	else
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
@@ -53,7 +53,7 @@ void GuiWifi::load(std::vector<std::string> ssids)
 
 	mMenu.updateSize();
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 
 	mWaitingLoad = false;

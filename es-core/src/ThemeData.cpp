@@ -153,6 +153,7 @@ std::map<std::string, std::map<std::string, ThemeData::ElementPropertyType>> The
 		{ "autoFade", BOOLEAN },               // fades when the image is loaded
 		{ "onclick", STRING },
 		{ "linearSmooth", BOOLEAN },
+		{ "shared", BOOLEAN },                 // Tells if the image can be reused by other image components -> A shared image is stored to the size of the biggest one.
 		{ "zIndex", FLOAT } } },
 
 	{ "imagegrid", {
@@ -2265,11 +2266,11 @@ std::string ThemeData::getThemeFromCurrentSet(const std::string& system)
 
 ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 {
-	Title.font = Font::get(FONT_SIZE_LARGE);
-	Footer.font = Font::get(FONT_SIZE_SMALL);
-	Text.font = Font::get(FONT_SIZE_MEDIUM);
-	TextSmall.font = Font::get(FONT_SIZE_SMALL);
-	Group.font = Font::get(FONT_SIZE_SMALL);
+	Title.font = Font::get(FONT_SIZE_LARGE, Font::getDefaultPath(), true);
+	Footer.font = Font::get(FONT_SIZE_SMALL, Font::getDefaultPath(), true);
+	Text.font = Font::get(FONT_SIZE_MEDIUM, Font::getDefaultPath(), true);
+	TextSmall.font = Font::get(FONT_SIZE_SMALL, Font::getDefaultPath(), true);
+	Group.font = Font::get(FONT_SIZE_SMALL, Font::getDefaultPath(), true);
 
 	auto elem = theme->getElement("menu", "menubg", "menuBackground");
 	if (elem)
@@ -2316,7 +2317,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 	if (elem)
 	{
 		if (elem->has("fontPath") || elem->has("fontSize"))
-			Title.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_LARGE));
+			Title.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_LARGE), true);
 		if (elem->has("color"))
 			Title.color = elem->get<unsigned int>("color");
 		if (elem->has("selectorColor"))
@@ -2327,7 +2328,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 	if (elem)
 	{
 		if (elem->has("fontPath") || elem->has("fontSize"))
-			Footer.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
+			Footer.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL), true);
 		if (elem->has("color"))
 			Footer.color = elem->get<unsigned int>("color");
 		if (elem->has("selectorColor"))
@@ -2341,7 +2342,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 
 		if (elem->has("fontPath") || elem->has("fontSize"))
 		{
-			TextSmall.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
+			TextSmall.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL), true);
 			Group.font = TextSmall.font;
 		}
 
@@ -2361,7 +2362,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 	if (elem)
 	{
 		if (elem->has("fontPath") || elem->has("fontSize"))
-			Text.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_MEDIUM));
+			Text.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_MEDIUM), true);
 
 		if (elem->has("color"))
 			Text.color = elem->get<unsigned int>("color");
@@ -2390,7 +2391,7 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 		Group.visible = true;
 
 		if (elem->has("fontPath") || elem->has("fontSize"))
-			Group.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL));
+			Group.font = Font::getFromTheme(elem, ThemeFlags::ALL, Font::get(FONT_SIZE_SMALL), "true");
 		if (elem->has("color"))
 			Group.color = elem->get<unsigned int>("color");
 		if (elem->has("backgroundColor"))

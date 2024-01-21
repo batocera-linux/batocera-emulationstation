@@ -162,6 +162,7 @@ void Settings::setDefaults()
 	mStringMap["FolderViewMode"] = "never";
 	mStringMap["HiddenSystems"] = "";
 
+	mBoolMap["PublicWebAccess"] = false;	
 	mBoolMap["FirstJoystickOnly"] = false;
     mBoolMap["EnableSounds"] = false;
 	mBoolMap["ShowHelpPrompts"] = true;

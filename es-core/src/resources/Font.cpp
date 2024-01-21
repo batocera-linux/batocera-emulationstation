@@ -85,20 +85,15 @@ size_t Font::getTotalMemUsage()
 	return total;
 }
 
-Font::Font(int size, const std::string& path) : mSize(size), mPath(path)
+Font::Font(int size, const std::string& path, bool menuScaling) : mSize(size), mPath(path)
 {
 	mSize = size;
 	//if(mSize > 160) mSize = 160; // maximize the font size while it is causing issues on linux
 
 	// GPI
-	if (Renderer::isSmallScreen())
-	{
-		float sz = Math::min(Renderer::getScreenWidth(), Renderer::getScreenHeight());
-		if (sz >= 320) // ODROID 480x320;
-			mSize = size * 1.31;
-		else // GPI 320x240
-			mSize = size * 1.5;
-	}
+	float scale = menuScaling ? Renderer::ScreenSettings::menuFontScale() : Renderer::ScreenSettings::fontScale();
+	if (scale > 0.0f && scale != 1.0f)
+		mSize = size * scale;
 
 	if (mSize == 0)
 		mSize = 2;
@@ -158,11 +153,14 @@ bool Font::unload()
 	return false;
 }
 
-std::shared_ptr<Font> Font::get(int size, const std::string& path)
+std::shared_ptr<Font> Font::get(int size, const std::string& path, bool menuScaling)
 {
 	const std::string canonicalPath = Utils::FileSystem::getCanonicalPath(path);
 
-	std::pair<std::string, int> def(canonicalPath.empty() ? getDefaultPath() : canonicalPath, size);
+	float scale = menuScaling ? Renderer::ScreenSettings::menuFontScale() : Renderer::ScreenSettings::fontScale();
+	int scaledSize = size * scale;
+
+	std::pair<std::string, int> def(canonicalPath.empty() ? getDefaultPath() : canonicalPath, scaledSize);
 	auto foundFont = sFontMap.find(def);
 	if(foundFont != sFontMap.cend())
 	{
@@ -170,7 +168,7 @@ std::shared_ptr<Font> Font::get(int size, const std::string& path)
 			return foundFont->second.lock();
 	}
 
-	std::shared_ptr<Font> font = std::shared_ptr<Font>(new Font(def.second, def.first));
+	std::shared_ptr<Font> font = std::shared_ptr<Font>(new Font(size, def.first, menuScaling));
 	sFontMap[def] = std::weak_ptr<Font>(font);
 	ResourceManager::getInstance()->addReloadable(font);
 	return font;
@@ -1121,7 +1119,7 @@ void TextCache::setColor(unsigned int color)
 			it.vertex[i].col = substitColor;
 }
 
-std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig)
+std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, unsigned int properties, const std::shared_ptr<Font>& orig, bool menu)
 {
 	using namespace ThemeFlags;
 	if(!(properties & FONT_PATH) && !(properties & FONT_SIZE))
@@ -1145,7 +1143,7 @@ std::shared_ptr<Font> Font::getFromTheme(const ThemeData::ThemeElement* elem, un
 			path = tmppath;
 	}
 
-	return get(size, path);
+	return get(size, path, menu);
 }
 
 void Font::OnThemeChanged()

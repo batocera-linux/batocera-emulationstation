@@ -141,6 +141,16 @@ namespace Renderer
 		virtual bool		 shaderSupportsCornerSize(const std::string& shader) { return false; };
 	};
 	
+	class ScreenSettings
+	{
+	public:
+		static bool  isSmallScreen();
+		static bool  fullScreenMenus();
+		static float fontScale();
+		static float menuFontScale();
+	};
+
+
 	std::vector<std::string> getRendererNames();
 
  	bool        init            ();
