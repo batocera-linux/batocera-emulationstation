@@ -37,7 +37,7 @@ ImageComponent::ImageComponent(Window* window, bool forceLoad, bool dynamic) : G
 	mTargetIsMax(false), mTargetIsMin(false), mFlipX(false), mFlipY(false), mTargetSize(0, 0), mColorShift(0xFFFFFFFF),
 	mColorShiftEnd(0xFFFFFFFF), mColorGradientHorizontal(true), mForceLoad(forceLoad), mDynamic(dynamic),
 	mFadeOpacity(0), mFading(false), mRotateByTargetSize(false), mTopLeftCrop(0.0f, 0.0f), mBottomRightCrop(1.0f, 1.0f),
-	mReflection(0.0f, 0.0f)
+	mReflection(0.0f, 0.0f), mSharedTexture(true)
 {
 	mSaturation = 1.0f;
 	mScaleOrigin = Vector2f::Zero();
@@ -341,12 +341,22 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		pDefaultMaxSize = defMaxSize.empty() ? nullptr : &defMaxSize;
 	}
 
+	std::string shareId;
+
+	if (!mSharedTexture)
+	{
+		shareId = getTag(); // Use tag ( element name ) as the share id -> It can be shared only with elements with same exact name
+
+		if (shareId.empty())
+			shareId = std::to_string((int)this);
+	}
+
 	if (mPath.empty() || (checkFileExists && !ResourceManager::getInstance()->fileExists(mPath)))
 	{
 		if (mDefaultPath.empty() || !ResourceManager::getInstance()->fileExists(mDefaultPath))
 			mTexture.reset();
 		else
-			mTexture = TextureResource::get(mDefaultPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? pDefaultMaxSize : &maxSize);
+			mTexture = TextureResource::get(mDefaultPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? pDefaultMaxSize : &maxSize, shareId);
 	} 
 	else
 	{
@@ -354,7 +364,7 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 			mTexture = mPlaylistCache[mPath];
 		else
 		{
-			std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? pDefaultMaxSize : &maxSize);
+			std::shared_ptr<TextureResource> texture = TextureResource::get(mPath, tile, mLinear, mForceLoad, mDynamic, true, maxSize.empty() ? pDefaultMaxSize : &maxSize, shareId);
 
 			if (mPlaylist != nullptr)
 				mPlaylistCache[mPath] = texture;
@@ -867,6 +877,9 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 			updateRoundCorners();
 	}
 
+	if (elem->has("shared"))
+		mSharedTexture = elem->get<bool>("shared");
+
 	if (properties & ThemeFlags::ROTATION && elem->has("flipX"))
 		setFlipX(elem->get<bool>("flipX"));
 
@@ -906,20 +919,25 @@ void ImageComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	if (elem->has("default"))
 		setDefaultImage(elem->get<std::string>("default"));
 
-	if (properties & PATH && elem->has("path"))
+	if (properties & PATH)
 	{
-		auto path = elem->get<std::string>("path");
-
-		if (!path.empty() && path[0] != '{')
+		if (elem->has("path"))
 		{
-			mPath = "";
+			auto path = elem->get<std::string>("path");
 
-			if (mPlaylist == nullptr)
+			if (!path.empty() && path[0] != '{')
 			{
-				bool tile = (elem->has("tile") && elem->get<bool>("tile"));
-				setImage(path, tile); // , tile ? MaxSizeInfo::Empty : getMaxSizeInfo(), false);
+				mPath = "";
+
+				if (mPlaylist == nullptr)
+				{
+					bool tile = (elem->has("tile") && elem->get<bool>("tile"));
+					setImage(path, tile);
+				}
 			}
-		}
+		}		
+		else if (!mDefaultPath.empty() && mPlaylist == nullptr)
+			setImage("");
 	}
 }
 
@@ -939,7 +957,9 @@ void ImageComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 
 	auto image = mPlaylist->getNextItem();
 	if (!image.empty())
-		setImage(image); // , false, getMaxSizeInfo(), true, false);
+		setImage(image);
+	else if (!mDefaultPath.empty())
+		setImage("");
 }
 
 void ImageComponent::onShow()
@@ -1163,9 +1183,54 @@ const MaxSizeInfo ImageComponent::getMaxSizeInfo()
 {
 	if (!mSize.empty())
 	{
+		float maxScale = 1.0f;
+
+		/*
+		float maxScale = Math::max(1.0f, mScale);
+
+		GuiComponent* comp = this;
+		while (comp != nullptr)
+		{
+			for (auto storyBoard : comp->getStoryBoards())
+			{
+				if (storyBoard.second == nullptr)
+					continue;
+
+				for (auto anim : storyBoard.second->animations)
+				{
+					if (anim->propertyName != "scale")
+						continue;
+
+					if (comp == this)
+					{
+						if (anim->from.type == ThemeData::ThemeElement::Property::PropertyType::Float && anim->from.f > maxScale)
+							maxScale = anim->from.f;
+
+						if (anim->to.type == ThemeData::ThemeElement::Property::PropertyType::Float && anim->to.f > maxScale)
+							maxScale = anim->to.f;
+					}
+					else
+					{
+						float localScale = 1.0f;
+
+						if (anim->from.type == ThemeData::ThemeElement::Property::PropertyType::Float && anim->from.f > localScale)
+							localScale = anim->from.f;
+
+						if (anim->to.type == ThemeData::ThemeElement::Property::PropertyType::Float && anim->to.f > localScale)
+							localScale = anim->to.f;
+
+						maxScale *= localScale;
+					}
+				}
+			}
+
+			comp = comp->getParent();
+		}
+		*/
 		if (mTargetSize.empty())
 		{
 			auto size = mSize - mPadding.xy() - mPadding.zw();
+			size *= maxScale;
 
 			// Make sure it's not bigger that screen res
 			if (size.x() > Renderer::getScreenWidth() || size.y() > Renderer::getScreenHeight())
@@ -1178,6 +1243,7 @@ const MaxSizeInfo ImageComponent::getMaxSizeInfo()
 		}
 
 		auto targetSize = mTargetSize - mPadding.xy() - mPadding.zw();
+		targetSize *= maxScale;
 
 		// Make sure it's not bigger that screen res
 		if (targetSize.x() > Renderer::getScreenWidth() || targetSize.y() > Renderer::getScreenHeight())

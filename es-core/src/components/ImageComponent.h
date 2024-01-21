@@ -27,7 +27,7 @@ public:
 
 	std::string getThemeTypeName() override { return "image"; }
 
-	std::string getValue() const override { return mPath; }
+	std::string getValue() const override { return mPath.empty() ? mDefaultPath : mPath; }
 
 	void setDefaultImage(std::string path);
 
@@ -169,7 +169,7 @@ private:
 
 	Vector2f mReflection;
 	bool     mReflectOnBorders;
-
+	bool	 mSharedTexture;
 	bool mAllowFading;
 
 	std::string mPath;
