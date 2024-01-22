@@ -3308,91 +3308,91 @@
   </system>
   <system name="arcade">
     <game name="18wheelro">
-      <wheel wheel_rotation_angle="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
     </game>
     <game name="18wheelrt">
-      <wheel wheel_rotation_angle="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
     </game>
     <game name="18wheelr">
-      <wheel wheel_rotation_angle="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
     </game>
     <game name="18wheels">
-      <wheel wheel_rotation_angle="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
     </game>
     <game name="18wheelu">
-      <wheel wheel_rotation_angle="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
     </game>
     <game name="crzytaxi">
-      <wheel wheel_rotation_angle="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up" />
     </game>
     <game name="f355twinp">
-      <wheel wheel_rotation_angle="270" />
+      <wheel rotation="270" />
     </game>
     <game name="f355twin">
-      <wheel wheel_rotation_angle="270" />
+      <wheel rotation="270" />
     </game>
     <game name="f355twn2">
-      <wheel wheel_rotation_angle="270" />
+      <wheel rotation="270" />
     </game>
     <game name="f355">
-      <wheel wheel_rotation_angle="270" />
+      <wheel rotation="270" />
     </game>
     <game name="ftspeed">
-      <wheel wheel_rotation_angle="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up" />
     </game>
     <game name="inidv3ca">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="inidv3cy">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdexpo">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdexp">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdo">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdv2e">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdv2ja">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdv2jo">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdv2j">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdv3e">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdv3jb">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initdv3j">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initiad4c">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initiad4">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="initd">
-      <wheel wheel_rotation_angle="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
     </game>
     <game name="jambo">
-      <wheel wheel_rotation_angle="270" downshift="b" upshift="a" />
+      <wheel rotation="270" downshift="b" upshift="a" />
     </game>
     <game name="maxspeed">
-      <wheel wheel_rotation_angle="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up" />
     </game>
     <game name="wldrider">
-      <wheel wheel_rotation_angle="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up" />
     </game>
   </system>
 </systems>
