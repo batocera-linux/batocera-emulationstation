@@ -259,7 +259,7 @@ namespace Renderer
 				SetWindowLong(hWnd, GWL_EXSTYLE, lExStyle);
 
 				// Check if the major and minor versions indicate Windows 11 or newer
-				if (Utils::Platform::IsWindows11()) 
+				if (Utils::Platform::isWindows11()) 
 				{
 					BOOL isComposited;
 					HRESULT result = ::DwmIsCompositionEnabled(&isComposited);
