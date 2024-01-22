@@ -268,7 +268,11 @@ void SystemView::populate()
 
 void SystemView::goToSystem(SystemData* system, bool animate)
 {
+	mLastCursor = -1;
 	mCarousel.setCursor(system);
+
+	if (mLastCursor == -1)
+		onCursorChanged(CURSOR_STOPPED);
 
 	if (!animate)
 	{
