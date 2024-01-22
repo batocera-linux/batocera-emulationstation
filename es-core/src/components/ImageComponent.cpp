@@ -348,7 +348,10 @@ void ImageComponent::setImage(const std::string&  path, bool tile, const MaxSize
 		shareId = getTag(); // Use tag ( element name ) as the share id -> It can be shared only with elements with same exact name
 
 		if (shareId.empty())
-			shareId = std::to_string((int)this);
+		{
+			uintptr_t intAddress = reinterpret_cast<uintptr_t>(this);
+			shareId = std::to_string(intAddress);
+		}
 	}
 
 	if (mPath.empty() || (checkFileExists && !ResourceManager::getInstance()->fileExists(mPath)))
