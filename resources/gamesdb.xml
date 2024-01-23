@@ -269,6 +269,9 @@
     </game>
   </system>
   <system name="dreamcast">
+    <game name="default">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" />
+    </game>
     <game name="4x4evo">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="50"/>
     </game>
@@ -409,6 +412,9 @@
     </game>
   </system>
   <system name="gamecube">
+    <game name="default">
+      <wheel rotation="180" />
+    </game>
     <game name="dakar2">
       <wheel rotation="180"/>
     </game>
@@ -644,6 +650,9 @@
     </game>
   </system>
   <system name="n64">
+    <game name="default">
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" />
+    </game>
     <game name="nhl99">
       <controller rumble="true"/>
     </game>
@@ -2165,6 +2174,9 @@
     </game>
   </system>
   <system name="psx">
+    <game name="default">
+      <wheel wheel="joystick1left" accelerate="cross" brake="square" />
+    </game>
     <game name="taxi2">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
@@ -2460,6 +2472,9 @@
     </game>
   </system>
   <system name="saturn">
+    <game name="default">
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r"/>
+    </game>
     <game name="gt24">
       <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
@@ -2699,6 +2714,9 @@
     </game>
   </system>
   <system name="wii">
+    <game name="default">
+      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
+    </game>
     <game name="dirt2">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
@@ -3045,6 +3063,9 @@
     </game>
   </system>
   <system name="xbox">
+    <game name="default">
+      <wheel wheel="joystick1left" accelerate="lt" brake="rt"/>
+    </game>
     <game name="apex">
       <wheel wheel="joystick1left" accelerate="lt" brake="rt"/>
     </game>
