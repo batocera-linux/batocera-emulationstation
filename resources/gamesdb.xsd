@@ -30,6 +30,7 @@
     <xs:complexType>
       <xs:attribute name="action" type="xs:string"/>
       <xs:attribute name="gun1port" type="xs:string"/>
+      <xs:attribute name="ir_up" type="xs:string"/>
       <xs:attribute name="ir_down" type="xs:string"/>
       <xs:attribute name="ir_left" type="xs:string"/>
       <xs:attribute name="ir_right" type="xs:string"/>
