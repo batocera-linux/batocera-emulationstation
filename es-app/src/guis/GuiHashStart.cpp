@@ -65,7 +65,7 @@ GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : Gu
 	mMenu.addButton(_("START"), _("START"), std::bind(&GuiHashStart::start, this));
 	mMenu.addButton(_("BACK"), _("BACK"), [&] { delete this; });
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
 	else
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);

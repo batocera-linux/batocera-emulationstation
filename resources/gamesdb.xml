@@ -107,9 +107,6 @@
     </game>
   </system>
   <system name="atari2600">
-    <game name="race">
-      <wheel/>
-    </game>
     <game name="indy500">
       <wheel/>
     </game>
@@ -133,6 +130,9 @@
     </game>
     <game name="shootingarcade">
       <gun/>
+    </game>
+    <game name="race">
+      <wheel/>
     </game>
   </system>
   <system name="atari5200">
@@ -269,19 +269,20 @@
     </game>
   </system>
   <system name="dreamcast">
-    <game name="taxi2">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+    <game name="4x4evo">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="50"/>
     </game>
     <game name="segagt">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
-    <game name="vrally2">
+    <game name="stuntgp">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-	  <video widescreen="true"/>
+    </game>
+    <game name="vrally2">
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="5"/>
     </game>
     <game name="toyracer">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-	  <video widescreen="true"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="18wheeler">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
@@ -289,14 +290,8 @@
     <game name="buggyheat">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
-    <game name="crazytaxi">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
-    <game name="daytonusa">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
     <game name="roadsters">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="25"/>
     </game>
     <game name="virtuacop2">
       <gun/>
@@ -304,27 +299,29 @@
     <game name="crazytaxi2">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
+    <game name="taxi2">
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
+    </game>
+    <game name="crazytaxi">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="10"/>
+    </game>
+    <game name="daytonausa">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="5"/>
+    </game>
     <game name="flagtoflag">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="segarally2">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="5"/>
     </game>
     <game name="testdrive6">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="wackyraces">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-	  <video widescreen="true"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="15"/>
     </game>
     <game name="looneytunes">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
-    <game name="speeddevils">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
-    <game name="4x4evolution">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="25"/>
     </game>
     <game name="podspeedzone">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
@@ -334,242 +331,224 @@
     </game>
     <game name="f355challenge">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-	  <video widescreen="true"/>
     </game>
     <game name="lemans24hours">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="superrunabout">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="15"/>
     </game>
     <game name="deathcrimsonox">
       <gun/>
     </game>
     <game name="magforceracing">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="25"/>
     </game>
     <game name="vanishingpoint">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="40"/>
     </game>
     <game name="houseofthedead2">
       <gun/>
     </game>
     <game name="demolitionracer">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
-    <game name="monacograndprix">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="45"/>
     </game>
     <game name="testdrivelemans">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="testdrivevrally">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-	  <video widescreen="true"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="15"/>
     </game>
     <game name="alienfrontonline">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
-    <game name="f1worldgrandprix">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
-	<game name="tokyoxtremeracer2">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-	  <video widescreen="true"/>
-    </game>
     <game name="tokyoxtremeracer">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="5"/>
     </game>
     <game name="exhibitionofspeed">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
-    </game>
-    <game name="racingsimulation2">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="50"/>
     </game>
     <game name="spiritofspeed1937">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="yusuzukigameworks">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="f1worldgrandprixii">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
+    </game>
+    <game name="f1worldgrandprix">
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="confidentialmission">
       <gun/>
     </game>
     <game name="f1racingchampionship">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="200" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="waltdisneyworldquest">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="metropolisstreetracer">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="speeddevilsonlineracing">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
-	<game name="donaldduck">
-      <video widescreen="true"/>
+    <game name="speeddevils">
+      <wheel rotation="180" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
-	<game name="starlancer">
-      <video widescreen="true"/>
+    <game name="monacograndprixracingsimulation2">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" controller="1" port1="2"/>
     </game>
-	<game name="toycommander">
-      <video widescreen="true"/>
+    <game name="monacograndprix">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" controller="1" port1="2"/>
     </game>
-	<game name="uefadreamsoccer">
-      <video widescreen="true"/>
-    </game>
-	<game name="rayman2">
-      <video widescreen="true"/>
-    </game>
-	<game name="trickstyle">
-      <video widescreen="true"/>
+    <game name="racingsimulation2">
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" controller="1" port1="2"/>
     </game>
   </system>
   <system name="gamecube">
     <game name="dakar2">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="driven">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="f12002">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="nascar">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="4x4evo2">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="burnout">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="fzerogx">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="vrally3">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="prorally">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="18wheeler">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="cityracer">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="crazytaxi">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="hotwheels">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="spyhunter">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="italianjob">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="dromeracers">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="grooverider">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="gtproseries">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="sonicriders">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="worldracing">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="charinkohero">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
-    </game>
-    <game name="needforspeed">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="smashingdrive">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="automodellista">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="crashnitrokart">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="lotuschallenge">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="cocotokartracer">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="disneypixarcars">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="starskyandhutch">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="americanchopper2">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="bigmuthatruckers">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="buttuglymartians">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="pacmanworldrally">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="rracingevolution">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="simpsonsroadrage">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="f1careerchallenge">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="rallychampionship">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="crashtagteamracing">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="atvquadpowerracing2">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="mariokartdoubledash">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="xgiiiextremegracing">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="shreksmashncrashracing">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="needforspeedunderground2">
-      <wheel rotation="200" wheel="joystick1left" accelerate="rt" brake="lt"/>
+      <wheel rotation="180" accelerate="rt" brake="lt"/>
+    </game>
+    <game name="needforspeed">
+      <wheel rotation="180"/>
     </game>
     <game name="roadtripthearcadeedition">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="srsstreetracingsyndicate">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="xgraextremegracingassociation">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
     <game name="speedchallengejacquesvilleneuve">
-      <wheel rotation="200" wheel="joystick1left" accelerate="a" brake="b"/>
+      <wheel rotation="180"/>
     </game>
   </system>
   <system name="gx4000">
@@ -584,9 +563,6 @@
     <game name="wanted">
       <gun/>
     </game>
-    <game name="outrun">
-      <wheel/>
-    </game>
     <game name="ramboiii">
       <gun/>
     </game>
@@ -597,6 +573,9 @@
       <wheel/>
     </game>
     <game name="outrun3d">
+      <wheel/>
+    </game>
+    <game name="outrun">
       <wheel/>
     </game>
     <game name="laserghost">
@@ -646,13 +625,13 @@
     <game name="supermonacogp">
       <wheel type="xe1ap"/>
     </game>
-    <game name="lethalenforcers">
-      <gun type="justifier"/>
-    </game>
     <game name="t2thearcadegame">
       <gun/>
     </game>
     <game name="lethalenforcersii">
+      <gun type="justifier"/>
+    </game>
+    <game name="lethalenforcers">
       <gun type="justifier"/>
     </game>
     <game name="menacer6gamecartridge">
@@ -670,24 +649,18 @@
     </game>
     <game name="scars">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="240" accelerate="a" brake="b"/>
     </game>
     <game name="fzerox">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="cdown" a="b"/>
     </game>
     <game name="revolt">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="240" accelerate="a" brake="b" deadzone="30" midzone="2"/>
     </game>
     <game name="tarzan">
       <controller rumble="true"/>
-    </game>
-    <game name="nascar">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="vrally">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
     </game>
     <game name="quake64">
       <controller rumble="true"/>
@@ -695,15 +668,9 @@
     <game name="quakeii">
       <controller rumble="true"/>
     </game>
-    <game name="extremeg">
-      <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
     <game name="nascar99">
       <controller rumble="true"/>
-    </game>
-    <game name="nflblitz">
-      <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" downshift="l" deadzone="5"/>
     </game>
     <game name="paperboy">
       <controller rumble="true"/>
@@ -734,12 +701,9 @@
     </game>
     <game name="roadsters">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="240" accelerate="a" brake="b" deadzone="10"/>
     </game>
     <game name="shadowman">
-      <controller rumble="true"/>
-    </game>
-    <game name="southpark">
       <controller rumble="true"/>
     </game>
     <game name="spiderman">
@@ -756,25 +720,16 @@
     </game>
     <game name="wipeout64">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="aerogauge">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="choroq642">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="10"/>
     </game>
     <game name="cruisnusa">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="hotwheels">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="z" brake="l" downshift="cdown" upshift="cup"/>
     </game>
     <game name="banjotooie">
       <video widescreen="true"/>
-      <controller rumble="true"/>
-    </game>
-    <game name="battletanx">
       <controller rumble="true"/>
     </game>
     <game name="buckbumble">
@@ -791,13 +746,11 @@
     </game>
     <game name="legoracers">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="marioparty">
-      <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="15" midzone="2"/>
     </game>
     <game name="nascar2000">
       <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" downshift="l" deadzone="5"/>
     </game>
     <game name="nbajam2000">
       <controller rumble="true"/>
@@ -807,6 +760,7 @@
     </game>
     <game name="roadrash64">
       <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="robotron64">
       <controller rumble="true"/>
@@ -832,7 +786,7 @@
     </game>
     <game name="cruisnworld">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="dukenukem64">
       <controller rumble="true"/>
@@ -847,6 +801,9 @@
       <controller rumble="true"/>
     </game>
     <game name="marioparty3">
+      <controller rumble="true"/>
+    </game>
+    <game name="marioparty">
       <controller rumble="true"/>
     </game>
     <game name="mariotennis">
@@ -871,11 +828,18 @@
     <game name="dawnanddusk">
       <controller rumble="true"/>
     </game>
+    <game name="extremegxg2">
+      <wheel wheel="joystick1left" rotation="180" accelerate="z" brake="b" downshift="a"/>
+    </game>
+    <game name="extremeg">
+      <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="z" brake="b" downshift="a"/>
+    </game>
     <game name="mariokart64">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="200" accelerate="a" brake="b" deadzone="25" midzone="1"/>
     </game>
     <game name="pennyracers">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="banjokazooie">
       <controller rumble="true"/>
@@ -920,34 +884,28 @@
     </game>
     <game name="ridgeracer64">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="50"/>
     </game>
     <game name="stuntracer64">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" downshift="cdown" upshift="z" b="l"/>
     </game>
     <game name="superbowling">
       <controller rumble="true"/>
-    </game>
-    <game name="topgearrally">
-      <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="carmageddon2">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
     </game>
     <game name="bombermanhero">
       <controller rumble="true"/>
     </game>
     <game name="carmageddon64">
       <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="chopperattack">
       <controller rumble="true"/>
     </game>
     <game name="cruisnexotica">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" downshift="cdown" upshift="cup" x="z" y="r" deadzone="5"/>
     </game>
     <game name="maddennfl2000">
       <controller rumble="true"/>
@@ -967,14 +925,15 @@
     <game name="residentevil2">
       <controller rumble="true"/>
     </game>
-    <game name="snowboardkids">
-      <controller rumble="true"/>
-    </game>
     <game name="spaceinvaders">
       <controller rumble="true"/>
     </game>
     <game name="topgearrally2">
       <controller rumble="true"/>
+    </game>
+    <game name="topgearrally">
+      <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="turokragewars">
       <controller rumble="true"/>
@@ -988,7 +947,7 @@
     </game>
     <game name="indyracing2000">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="10"/>
     </game>
     <game name="jetforcegemini">
       <controller rumble="true"/>
@@ -1008,9 +967,15 @@
     <game name="snowboardkids2">
       <controller rumble="true"/>
     </game>
+    <game name="snowboardkids">
+      <controller rumble="true"/>
+    </game>
     <game name="southparkrally">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="10"/>
+    </game>
+    <game name="southpark">
+      <controller rumble="true"/>
     </game>
     <game name="supersmashbros">
       <controller rumble="true"/>
@@ -1025,7 +990,7 @@
       <controller rumble="true"/>
     </game>
     <game name="f1poleposition">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="10" midzone="2"/>
     </game>
     <game name="bassmasters2000">
       <controller rumble="true"/>
@@ -1035,17 +1000,14 @@
     </game>
     <game name="californiaspeed">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="chameleontwist2">
       <controller rumble="true"/>
     </game>
     <game name="diddykongracing">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="fightersdestiny">
-      <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="fightingforce64">
       <controller rumble="true"/>
@@ -1059,9 +1021,6 @@
     <game name="milosastrolanes">
       <controller rumble="true"/>
     </game>
-    <game name="monacograndprix">
-      <controller rumble="true"/>
-    </game>
     <game name="nuclearstrike64">
       <controller rumble="true"/>
     </game>
@@ -1073,6 +1032,7 @@
     </game>
     <game name="vrallyedition99">
       <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="200" accelerate="a" brake="b" deadzone="30"/>
     </game>
     <game name="1080snowboarding">
       <controller rumble="true"/>
@@ -1086,11 +1046,10 @@
     <game name="conkersbadfurday">
       <controller rumble="true"/>
     </game>
-    <game name="f1worldgrandprix">
-      <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
     <game name="fightersdestiny2">
+      <controller rumble="true"/>
+    </game>
+    <game name="fightersdestiny">
       <controller rumble="true"/>
     </game>
     <game name="iggysreckinballs">
@@ -1104,7 +1063,7 @@
     </game>
     <game name="offroadchallenge">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" downshift="cdown" b="z" deadzone="30" midzone="1"/>
     </game>
     <game name="operationwinback">
       <controller rumble="true"/>
@@ -1120,10 +1079,7 @@
     </game>
     <game name="topgearoverdrive">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="sanfranciscorush">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="allstarbaseball99">
       <controller rumble="true"/>
@@ -1152,17 +1108,21 @@
     </game>
     <game name="destructionderby64">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="50"/>
     </game>
     <game name="f1worldgrandprixii">
       <controller rumble="true"/>
+    </game>
+    <game name="f1worldgrandprix">
+      <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="5"/>
     </game>
     <game name="gex3deepcovergecko">
       <controller rumble="true"/>
     </game>
     <game name="mickeysspeedwayusa">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="nhlbladesofsteel99">
       <controller rumble="true"/>
@@ -1173,15 +1133,6 @@
     <game name="rallychallenge2000">
       <controller rumble="true"/>
     </game>
-    <game name="ready2rumbleboxing">
-      <controller rumble="true"/>
-    </game>
-    <game name="tonyhawksproskater">
-      <controller rumble="true"/>
-    </game>
-    <game name="rush2extremeracing">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
     <game name="aerofightersassault">
       <controller rumble="true"/>
     </game>
@@ -1191,13 +1142,7 @@
     <game name="allstarbaseball2001">
       <controller rumble="true"/>
     </game>
-    <game name="armymensargesheroes">
-      <controller rumble="true"/>
-    </game>
     <game name="knifeedgenosegunner">
-      <controller rumble="true"/>
-    </game>
-    <game name="monstertruckmadness">
       <controller rumble="true"/>
     </game>
     <game name="mspacmanmazemadness">
@@ -1212,6 +1157,9 @@
     <game name="tonyhawksproskater3">
       <controller rumble="true"/>
     </game>
+    <game name="tonyhawksproskater">
+      <controller rumble="true"/>
+    </game>
     <game name="wcwbackstageassault">
       <controller rumble="true"/>
     </game>
@@ -1221,8 +1169,14 @@
     <game name="armymensargesheroes2">
       <controller rumble="true"/>
     </game>
+    <game name="armymensargesheroes">
+      <controller rumble="true"/>
+    </game>
     <game name="hotwheelsturboracing">
       <controller rumble="true"/>
+    </game>
+    <game name="hotwheels">
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="20"/>
     </game>
     <game name="micromachines64turbo">
       <controller rumble="true"/>
@@ -1238,19 +1192,20 @@
     </game>
     <game name="sanfranciscorush2049">
       <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" downshift="cdown" b="z" deadzone="20"/>
     </game>
     <game name="tomclancysrainbowsix">
       <controller rumble="true"/>
     </game>
     <game name="f1racingchampionship">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="5"/>
     </game>
     <game name="armorinesprojectswarm">
       <controller rumble="true"/>
     </game>
     <game name="automobililamborghini">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="240" accelerate="a" brake="b" downshift="cdown" deadzone="10"/>
     </game>
     <game name="beetleadventureracing">
       <controller rumble="true"/>
@@ -1276,6 +1231,9 @@
     <game name="rush2extremeracingusa">
       <controller rumble="true"/>
     </game>
+    <game name="rush2extremeracing">
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="15"/>
+    </game>
     <game name="starwarsepisode1racer">
       <controller rumble="true"/>
     </game>
@@ -1283,16 +1241,16 @@
       <controller rumble="true"/>
     </game>
     <game name="bettleadventureracing">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
-    </game>
-    <game name="monacograndprixracing">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="monstertruckmadness64">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="10"/>
+    </game>
+    <game name="monstertruckmadness">
+      <controller rumble="true"/>
     </game>
     <game name="starwarsepisodeiracer">
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="200" accelerate="a" brake="b" deadzone="45"/>
     </game>
     <game name="007theworldisnotenough">
       <video widescreen="true"/>
@@ -1307,10 +1265,16 @@
     <game name="nflblitzspecialedition">
       <controller rumble="true"/>
     </game>
+    <game name="nflblitz">
+      <controller rumble="true"/>
+    </game>
     <game name="turok3shadowofoblivion">
       <controller rumble="true"/>
     </game>
     <game name="battletanxglobalassault">
+      <controller rumble="true"/>
+    </game>
+    <game name="battletanx">
       <controller rumble="true"/>
     </game>
     <game name="gt64championshipedition">
@@ -1324,9 +1288,12 @@
     </game>
     <game name="worlddriverchampionship">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="ready2rumbleboxinground2">
+      <controller rumble="true"/>
+    </game>
+    <game name="ready2rumbleboxing">
       <controller rumble="true"/>
     </game>
     <game name="starshotspacecircusfever">
@@ -1346,7 +1313,10 @@
     </game>
     <game name="mrcmultiracingchampionship">
       <controller rumble="true"/>
-      <wheel wheel="joystick1left" rotation="150" accelerate="a" brake="b"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" downshift="l"/>
+    </game>
+    <game name="mickeynoracingchallengeusa">
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="jeremymcgrathsupercross2000">
       <controller rumble="true"/>
@@ -1365,6 +1335,7 @@
     </game>
     <game name="sanfranciscorushextremeracing">
       <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="20"/>
     </game>
     <game name="internationaltrackandfield2000">
       <controller rumble="true"/>
@@ -1383,6 +1354,19 @@
     </game>
     <game name="transformersbeastwarstransmetals">
       <controller rumble="true"/>
+    </game>
+    <game name="choroq642hachamechagrandprixrace">
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
+    </game>
+    <game name="choroq64">
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
+    </game>
+    <game name="monacograndprixracingsimulation2">
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="5"/>
+    </game>
+    <game name="monacograndprix">
+      <controller rumble="true"/>
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" deadzone="5"/>
     </game>
     <game name="indianajonesandtheinfernalmachine">
       <controller rumble="true"/>
@@ -1470,9 +1454,6 @@
     <game name="bloodofjurassic">
       <gun/>
     </game>
-    <game name="russianroulette">
-      <gun/>
-    </game>
     <game name="lightgungame2in1">
       <gun/>
     </game>
@@ -1480,6 +1461,9 @@
       <gun/>
     </game>
     <game name="superrussianroulette">
+      <gun/>
+    </game>
+    <game name="russianroulette">
       <gun/>
     </game>
     <game name="barkerbillstrickshooting">
@@ -1490,9 +1474,6 @@
     <game name="f106">
       <wheel type="DrivingForcePro"/>
     </game>
-    <game name="shox">
-      <wheel type="DrivingForce" controller="1" rotation="200"/>
-    </game>
     <game name="wrc3">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
@@ -1501,9 +1482,6 @@
     </game>
     <game name="wrcii">
       <wheel type="DrivingForce" rotation="200"/>
-    </game>
-    <game name="4x4evo">
-      <wheel/>
     </game>
     <game name="choroq">
       <wheel/>
@@ -1520,12 +1498,6 @@
     <game name="f12002">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
-    <game name="juiced">
-      <wheel type="DrivingForcePro"/>
-    </game>
-    <game name="nascar">
-      <wheel type="DrivingForce"/>
-    </game>
     <game name="endgame">
       <gun gun1port="2"/>
     </game>
@@ -1535,8 +1507,8 @@
     <game name="4x4evo2">
       <wheel type="DrivingForce"/>
     </game>
-    <game name="burnout">
-      <wheel type="GTForce" rotation="200"/>
+    <game name="4x4evo">
+      <wheel/>
     </game>
     <game name="crashed">
       <wheel/>
@@ -1544,14 +1516,11 @@
     <game name="dtracer">
       <wheel/>
     </game>
-    <game name="flatout">
-      <wheel type="DrivingForcePro"/>
-    </game>
     <game name="juiced2">
       <wheel type="DrivingForcePro"/>
     </game>
-    <game name="outrun2">
-      <wheel type="DrivingForce" rotation="200"/>
+    <game name="juiced">
+      <wheel type="DrivingForcePro"/>
     </game>
     <game name="rracing">
       <wheel type="DrivingForce"/>
@@ -1571,14 +1540,14 @@
     <game name="burnout3">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
-    <game name="corvette">
-      <wheel type="DrivingForce" rotation="200"/>
-    </game>
     <game name="enthusia">
       <wheel type="DrivingForcePro"/>
     </game>
     <game name="flatout2">
       <wheel type="DrivingForcePro" controller="1"/>
+    </game>
+    <game name="flatout">
+      <wheel type="DrivingForcePro"/>
     </game>
     <game name="initiald">
       <wheel type="DrivingForce" rotation="360"/>
@@ -1593,9 +1562,6 @@
       <wheel type="DrivingForcePro" rotation="360"/>
     </game>
     <game name="prorally">
-      <wheel/>
-    </game>
-    <game name="stuntman">
       <wheel/>
     </game>
     <game name="virtuacop">
@@ -1631,35 +1597,26 @@
     <game name="rpmtuning">
       <wheel/>
     </game>
-    <game name="segarally">
-      <wheel type="DrivingForce" rotation="200"/>
-    </game>
     <game name="smashcars">
       <wheel/>
     </game>
     <game name="spyhunter">
       <wheel/>
     </game>
-    <game name="testdrive">
-      <wheel type="DrivingForce" rotation="270"/>
-    </game>
     <game name="gunfighter">
-      <gun/>
-    </game>
-    <game name="crisiszone">
       <gun/>
     </game>
     <game name="italianjob">
       <wheel/>
-    </game>
-    <game name="kaidoracer">
-      <wheel type="DrivingForce" rotation="270"/>
     </game>
     <game name="nascar2005">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
     <game name="outrun2006">
       <wheel/>
+    </game>
+    <game name="outrun2">
+      <wheel type="DrivingForce" rotation="200"/>
     </game>
     <game name="parisdakar">
       <wheel/>
@@ -1677,7 +1634,7 @@
       <gun/>
     </game>
     <game name="downtownrun">
-      <wheel type="DrivingForce" rotation="200" wheel_deadzone="15"/>
+      <wheel type="DrivingForce" rotation="200" deadzone="15"/>
     </game>
     <game name="dromeracers">
       <wheel/>
@@ -1700,8 +1657,8 @@
     <game name="kaidoracer2">
       <wheel type="DrivingForcePro"/>
     </game>
-    <game name="knightrider">
-      <wheel type="DrivingForce" rotation="200"/>
+    <game name="kaidoracer">
+      <wheel type="DrivingForce" rotation="270"/>
     </game>
     <game name="legoracers2">
       <wheel/>
@@ -1751,9 +1708,6 @@
     <game name="masterrallye">
       <wheel/>
     </game>
-    <game name="midnightclub">
-      <wheel/>
-    </game>
     <game name="starskyhutch">
       <wheel type="DrivingForce" controller="1"/>
     </game>
@@ -1765,9 +1719,6 @@
     </game>
     <game name="f355challenge">
       <wheel type="DrivingForce"/>
-    </game>
-    <game name="indycarseries">
-      <wheel/>
     </game>
     <game name="kingofroute66">
       <wheel type="DrivingForce" rotation="200"/>
@@ -1791,7 +1742,7 @@
       <gun/>
     </game>
     <game name="automodellista">
-      <wheel type="DrivingForce" rotation="270" wheel_midzone="5"/>
+      <wheel type="DrivingForce" rotation="270" midzone="5"/>
     </game>
     <game name="burnoutrevenge">
       <wheel type="DrivingForce" rotation="200"/>
@@ -1841,9 +1792,6 @@
     <game name="speedchallenge">
       <wheel/>
     </game>
-    <game name="tocaracedriver">
-      <wheel type="DrivingForce" rotation="200"/>
-    </game>
     <game name="wanganmidnight">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
@@ -1856,9 +1804,6 @@
     <game name="alfaromeoracing">
       <wheel/>
     </game>
-    <game name="colinmcraerally">
-      <wheel/>
-    </game>
     <game name="dirttrackdevils">
       <wheel/>
     </game>
@@ -1866,7 +1811,7 @@
       <wheel/>
     </game>
     <game name="eighteenwheeler">
-      <wheel type="DrivingForce"/>
+      <wheel type="DrivingForce" rotation="200"/>
     </game>
     <game name="tocaracedriver2">
       <wheel type="DrivingForcePro"/>
@@ -1874,17 +1819,20 @@
     <game name="tocaracedriver3">
       <wheel type="DrivingForcePro"/>
     </game>
+    <game name="tocaracedriver">
+      <wheel type="DrivingForce" rotation="200"/>
+    </game>
     <game name="wrcrallyevolved">
       <wheel type="DrivingForcePro"/>
     </game>
     <game name="burnoutdominator">
-      <wheel type="DrivingForce" rotation="200"/>
+      <wheel/>
+    </game>
+    <game name="burnout">
+      <wheel type="GTForce" rotation="200"/>
     </game>
     <game name="colinmcraerally3">
       <wheel type="DrivingForce"/>
-    </game>
-    <game name="colinmcraerally2">
-      <wheel/>
     </game>
     <game name="criticalvelocity">
       <wheel type="DrivingForcePro"/>
@@ -1893,7 +1841,7 @@
       <wheel/>
     </game>
     <game name="ferrarichallenge">
-      <wheel type="DrivingForce" rotation="270" wheel_deadzone="15"/>
+      <wheel type="DrivingForce" rotation="270" deadzone="15"/>
     </game>
     <game name="formulachallenge">
       <wheel/>
@@ -1907,6 +1855,9 @@
     <game name="stuntmanignition">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
+    <game name="stuntman">
+      <wheel/>
+    </game>
     <game name="gunvaricollection">
       <gun/>
     </game>
@@ -1919,8 +1870,8 @@
     <game name="indycarseries2005">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
-    <game name="rallychampionship">
-      <wheel type="DrivingForce" rotation="200"/>
+    <game name="indycarseries">
+      <wheel/>
     </game>
     <game name="richardburnsrally">
       <wheel type="DrivingForcePro" controller="1"/>
@@ -1946,10 +1897,19 @@
     <game name="corvetteevolutionGT">
       <wheel type="DrivingForcePro"/>
     </game>
+    <game name="corvette">
+      <wheel type="DrivingForce" rotation="200"/>
+    </game>
     <game name="shoxrallyreinvented">
       <wheel type="DrivingForce"/>
     </game>
+    <game name="shox">
+      <wheel type="DrivingForce" controller="1" rotation="200"/>
+    </game>
     <game name="timecrisiscrisiszone">
+      <gun/>
+    </game>
+    <game name="crisiszone">
       <gun/>
     </game>
     <game name="f1racingchampionship">
@@ -1960,6 +1920,9 @@
     </game>
     <game name="nascar06totalcontrol">
       <wheel type="DrivingForce" rotation="200"/>
+    </game>
+    <game name="nascar">
+      <wheel type="DrivingForce"/>
     </game>
     <game name="tokyoxtremeracerzero">
       <wheel/>
@@ -1976,14 +1939,11 @@
     <game name="segarallychampionship">
       <wheel type="DrivingForcePro" rotation="270"/>
     </game>
+    <game name="segarally">
+      <wheel type="DrivingForce" rotation="200"/>
+    </game>
     <game name="saturdaynightspeedway">
       <wheel type="DrivingForce" controller="1"/>
-    </game>
-    <game name="streetracingsyndicate">
-      <wheel type="DrivingForce" rotation="200"/>
-    </game>
-    <game name="tokyoxtremeracerdrift">
-      <wheel type="DrivingForce" rotation="200"/>
     </game>
     <game name="needforspeedmostwanted">
       <wheel type="DrivingForcePro"/>
@@ -1991,22 +1951,25 @@
     <game name="needforspeedundercover">
       <wheel type="DrivingForcePro"/>
     </game>
-    <game name="worldrallychampionship">
-      <wheel type="GTForce"/>
-    </game>
     <game name="tokyoxtremeracerdrift2">
       <wheel type="DrivingForcePro"/>
     </game>
-    <game name="needforspeedhotpursuit2">
+    <game name="tokyoxtremeracerdrift">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
-    <game name="needforspeedunderground">
+    <game name="needforspeedhotpursuit2">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
     <game name="needforspeedunderground2">
       <wheel type="DrivingForcePro"/>
     </game>
+    <game name="needforspeedunderground">
+      <wheel type="DrivingForce" rotation="200"/>
+    </game>
     <game name="srsstreetracingsyndicate">
+      <wheel type="DrivingForce" rotation="200"/>
+    </game>
+    <game name="streetracingsyndicate">
       <wheel type="DrivingForce" rotation="200"/>
     </game>
     <game name="fordboldmovesstreetracing">
@@ -2018,7 +1981,13 @@
     <game name="wrcworldrallychampionship">
       <wheel type="DrivingForce" rotation="200" controller="1"/>
     </game>
+    <game name="worldrallychampionship">
+      <wheel type="GTForce"/>
+    </game>
     <game name="testdriveeveofdestruction">
+      <wheel type="DrivingForce" rotation="270"/>
+    </game>
+    <game name="testdrive">
       <wheel type="DrivingForce" rotation="270"/>
     </game>
     <game name="ihraprofessionaldragracing">
@@ -2026,6 +1995,21 @@
     </game>
     <game name="professionaldriftd1grandprixseries">
       <wheel type="DrivingForcePro"/>
+    </game>
+    <game name="rallychampionship">
+      <wheel type="DrivingForce" rotation="200"/>
+    </game>
+    <game name="colinmcraerally2">
+      <wheel/>
+    </game>
+    <game name="colinmcraerally">
+      <wheel/>
+    </game>
+    <game name="midnightclub">
+      <wheel/>
+    </game>
+    <game name="knightrider">
+      <wheel type="DrivingForce" rotation="200"/>
     </game>
   </system>
   <system name="ps3">
@@ -2214,9 +2198,6 @@
     <game name="moorhuhn">
       <gun/>
     </game>
-    <game name="formula1">
-      <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
-    </game>
     <game name="nascar99">
       <wheel wheel="joystick1left" accelerate="cross" brake="square" type="negcon"/>
     </game>
@@ -2259,16 +2240,7 @@
     <game name="judgedredd">
       <gun/>
     </game>
-    <game name="mightyhits">
-      <gun/>
-    </game>
-    <game name="pointblank">
-      <gun/>
-    </game>
     <game name="rescueshot">
-      <gun/>
-    </game>
-    <game name="timecrisis">
       <gun/>
     </game>
     <game name="battlegear">
@@ -2304,9 +2276,6 @@
     <game name="raytracers">
       <wheel wheel="joystick1left" accelerate="cross" brake="square" type="negcon"/>
     </game>
-    <game name="ridgeracer">
-      <wheel wheel="joystick1left" accelerate="cross" brake="square" type="negcon"/>
-    </game>
     <game name="cryptkiller">
       <gun type="justifier"/>
     </game>
@@ -2314,6 +2283,9 @@
       <gun/>
     </game>
     <game name="pointblank2">
+      <gun/>
+    </game>
+    <game name="pointblank">
       <gun/>
     </game>
     <game name="granturismo">
@@ -2346,6 +2318,9 @@
     <game name="r4ridgeracer">
       <wheel wheel="joystick1left" accelerate="cross" brake="square" type="negcon"/>
     </game>
+    <game name="ridgeracer">
+      <wheel wheel="joystick1left" accelerate="cross" brake="square" type="negcon"/>
+    </game>
     <game name="nascarthunder">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
@@ -2354,6 +2329,9 @@
     </game>
     <game name="rallydeeurope">
       <wheel wheel="joystick1left" accelerate="cross" brake="square" type="negcon"/>
+    </game>
+    <game name="thegunshooting2">
+      <gun/>
     </game>
     <game name="thegunshooting">
       <gun/>
@@ -2372,9 +2350,6 @@
     </game>
     <game name="lethalenforcers">
       <gun type="justifier"/>
-    </game>
-    <game name="thegunshooting2">
-      <gun/>
     </game>
     <game name="colinmcraerally">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -2409,6 +2384,9 @@
     <game name="mightyhitsspecial">
       <gun type="justifier"/>
     </game>
+    <game name="mightyhits">
+      <gun/>
+    </game>
     <game name="puffynopsiloveyou">
       <gun/>
     </game>
@@ -2433,6 +2411,9 @@
     <game name="formula1championship">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
+    <game name="formula1">
+      <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
+    </game>
     <game name="michelinrallymasters">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
@@ -2449,6 +2430,9 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="timecrisisprojecttitan">
+      <gun/>
+    </game>
+    <game name="timecrisis">
       <gun/>
     </game>
     <game name="tnnmotorsportshardcore">
@@ -2477,37 +2461,31 @@
   </system>
   <system name="saturn">
     <game name="gt24">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
     <game name="coder">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z"/>
     </game>
     <game name="area51">
       <gun/>
     </game>
-    <game name="outrun">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
-    </game>
     <game name="vatlva">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
-    </game>
-    <game name="wipeout">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r"/>
     </game>
     <game name="hangongp">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="b" brake="a" a="c" b="z"/>
     </game>
     <game name="initiald">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="200" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z"/>
     </game>
-    <game name="virtuacop">
-      <gun/>
+    <game name="nascar98">
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b"/>
     </game>
     <game name="crimewave">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
     <game name="galeracer">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="b" brake="c"/>
     </game>
     <game name="mightyhits">
       <gun/>
@@ -2515,11 +2493,14 @@
     <game name="virtuacop2">
       <gun/>
     </game>
-    <game name="daytonausa">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+    <game name="virtuacop">
+      <gun/>
+    </game>
+    <game name="choroqpark">
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="b" brake="a" deadzone="20"/>
     </game>
     <game name="racedrivin">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="a" brake="b" y="c"/>
     </game>
     <game name="crimepatrol">
       <gun/>
@@ -2527,23 +2508,20 @@
     <game name="cryptkiller">
       <gun/>
     </game>
-    <game name="chronoqpark">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
-    </game>
     <game name="f1challenge">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="b" brake="c" a="z" midzone="1"/>
     </game>
     <game name="hardcore4x4">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
     <game name="highway2000">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="200" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="x" y="z"/>
     </game>
     <game name="wipeout2097">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="x" upshift="a" accelerate="b" a="c" b="z"/>
     </game>
-    <game name="chaoscontrol">
-      <gun/>
+    <game name="wipeout">
+      <wheel rotation="180" wheel="joystick1left" downshift="x" upshift="a" accelerate="b" a="c"/>
     </game>
     <game name="deathcrimson">
       <gun/>
@@ -2552,98 +2530,92 @@
       <gun/>
     </game>
     <game name="highvelocity">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
-	  <video widescreen="true"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
     <game name="taitochasehq">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="a" brake="b"/>
     </game>
     <game name="virtuaracing">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="200" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b"/>
     </game>
     <game name="cyberspeedway">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="b" brake="a" a="c" b="z"/>
     </game>
     <game name="houseofthedead">
       <gun/>
     </game>
     <game name="andrettiracing">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z"/>
     </game>
     <game name="segaagesoutrun">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
-    </game>
-    <game name="wangandeadheat">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="b" brake="c"/>
     </game>
     <game name="manxttsuperbike">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z"/>
     </game>
     <game name="wangantriallove">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r"/>
     </game>
     <game name="destructionderby">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="270" wheel="joystick1left" downshift="l" upshift="r" accelerate="b" brake="c" a="z"/>
     </game>
     <game name="shutokoubattle97">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="a" brake="b"/>
     </game>
     <game name="chaoscontrolremix">
       <gun/>
     </game>
+    <game name="chaoscontrol">
+      <gun/>
+    </game>
     <game name="daytonausacircuit">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z" deadzone="5" midzone="1"/>
     </game>
     <game name="segaagespowerdrift">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
-    </game>
-    <game name="tougekingthespirits">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="x"/>
     </game>
     <game name="tougekingthespirits2">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
-    <game name="segarallychampionship">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+    <game name="tougekingthespirits">
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
     <game name="daytonausachampionship">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z" deadzone="5" midzone="1"/>
+    </game>
+    <game name="daytonausa">
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z" deadzone="5" midzone="1"/>
     </game>
     <game name="tnnmotorsportshardcore">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
     <game name="nissanpresentsoverdrivin">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
     <game name="scudthedisposableassassin">
       <gun/>
     </game>
     <game name="segarallychampionshipplus">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="270" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z" midzone="2"/>
+    </game>
+    <game name="segarallychampionship">
+      <wheel rotation="270" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z" midzone="2"/>
     </game>
     <game name="wangandeadheatrealarrange">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z"/>
+    </game>
+    <game name="wangandeadheat">
+      <wheel rotation="240" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z"/>
     </game>
     <game name="mechanicalviolatorhakaider">
       <gun/>
     </game>
     <game name="segatouringcarchampionship">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="270" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="z" midzone="1"/>
     </game>
     <game name="roadtrackpresentstheneedforspeed">
-      <wheel rotation="180" wheel="joystick1left" accelerate="b" brake="y"/>
+      <wheel rotation="180" wheel="joystick1left" downshift="l" upshift="r" accelerate="c" brake="b" a="z"/>
     </game>
-	<game name="nightsintodreams">
-	  <video widescreen="true"/>
-	</game>
-	<game name="panzerdragooniizwei">
-	  <video widescreen="true"/>
-	</game>
-  </system>
-  <system name="sega32x">
-	<game name="virtuafighter">
-	  <video widescreen="true"/>
-	</game>  
   </system>
   <system name="segacd">
     <game name="maddogii">
@@ -2658,10 +2630,10 @@
     <game name="maddogmccree">
       <gun/>
     </game>
-    <game name="lethalenforcers">
+    <game name="lethalenforcersii">
       <gun type="justifier"/>
     </game>
-    <game name="lethalenforcersii">
+    <game name="lethalenforcers">
       <gun type="justifier"/>
     </game>
     <game name="whoshotjohnnyrock">
@@ -2730,12 +2702,6 @@
     <game name="dirt2">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
-    <game name="fzero">
-      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
-    </game>
-    <game name="speed">
-      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
-    </game>
     <game name="reload">
       <gun vertical_offset="15" yaw="18.75" pitch="18.75" start="1"/>
     </game>
@@ -2764,9 +2730,6 @@
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
     <game name="hotwheels">
-      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
-    </game>
-    <game name="kartracer">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
     <game name="madtracks">
@@ -2799,9 +2762,6 @@
     <game name="trackmania">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
-    <game name="truckracer">
-      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
-    </game>
     <game name="wackyraces">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
@@ -2810,9 +2770,6 @@
     </game>
     <game name="gunslingers">
       <gun vertical_offset="15" yaw="18.7" pitch="12"/>
-    </game>
-    <game name="nerfnstrike">
-      <gun vertical_offset="15" yaw="18.6" pitch="18.9"/>
     </game>
     <game name="pirateblast">
       <gun vertical_offset="14.6" yaw="19" pitch="19" action="z" start="a" select="c"/>
@@ -2883,6 +2840,9 @@
     <game name="cocotokartracer">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
+    <game name="kartracer">
+      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
+    </game>
     <game name="disneypixarcars">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
@@ -2900,6 +2860,9 @@
     </game>
     <game name="nerfnstrikeelite">
       <gun vertical_offset="21.3" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+    </game>
+    <game name="nerfnstrike">
+      <gun vertical_offset="15" yaw="18.6" pitch="18.9"/>
     </game>
     <game name="wildwestshootout">
       <gun vertical_offset="15" yaw="18.8" pitch="19"/>
@@ -2968,7 +2931,7 @@
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
     <game name="houseofthedeadoverkill">
-      <gun vertical_offset="15" yaw="19" pitch="19"/>
+      <gun vertical_offset="15" yaw="19" pitch="19" action="shake,a"/>
     </game>
     <game name="bigfootcollisioncourse">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
@@ -2992,7 +2955,7 @@
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
     <game name="houseofthedeadtheoverkill">
-      <gun vertical_offset="15" yaw="19" pitch="19"/>
+      <gun vertical_offset="15" yaw="19" pitch="19" action="shake,a"/>
     </game>
     <game name="classicbritishmotorracing">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
@@ -3013,6 +2976,9 @@
       <gun vertical_offset="14.9" yaw="18.6" pitch="18.7" action="z" start="a" select="c" sub1="+"/>
     </game>
     <game name="maximumracingsupertruckracer">
+      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
+    </game>
+    <game name="truckracer">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
     <game name="remingtongreatamericanbirdhunt">
@@ -3037,6 +3003,12 @@
       <gun vertical_offset="14.7" yaw="18.6" pitch="18.8" ir_right="(`Axis 0+`+0.015)"/>
     </game>
     <game name="calvintuckersredneckfarmanimalsracingtournament">
+      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
+    </game>
+    <game name="fzero">
+      <wheel wheel="joystick1left" accelerate="a" brake="b"/>
+    </game>
+    <game name="speed">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
     </game>
   </system>
@@ -3219,19 +3191,10 @@
     </game>
   </system>
   <system name="xbox360">
-    <game name="dirt">
-      <wheel/>
-    </game>
     <game name="fuel">
       <wheel/>
     </game>
     <game name="grid">
-      <wheel/>
-    </game>
-    <game name="dirt3">
-      <wheel/>
-    </game>
-    <game name="dirt2">
       <wheel/>
     </game>
     <game name="f12010">
@@ -3300,19 +3263,13 @@
     <game name="disneypixarcars">
       <wheel/>
     </game>
-    <game name="forzamotorsport">
-      <wheel/>
-    </game>
     <game name="bajaedgeofcontrol">
       <wheel/>
     </game>
-    <game name="testdriveunlimited">
-      <wheel/>
-    </game>
-    <game name="projectgothamracing">
-      <wheel/>
-    </game>
     <game name="testdriveunlimited2">
+      <wheel/>
+    </game>
+    <game name="testdriveunlimited">
       <wheel/>
     </game>
     <game name="dirt3completeedition">
@@ -3330,8 +3287,112 @@
     <game name="gearsofwarprojectgothamracing4">
       <wheel/>
     </game>
+    <game name="projectgothamracing">
+      <wheel/>
+    </game>
     <game name="marvelultimateallianceforzamotorsport2">
       <wheel/>
+    </game>
+    <game name="forzamotorsport">
+      <wheel/>
+    </game>
+    <game name="dirt3">
+      <wheel/>
+    </game>
+    <game name="dirt2">
+      <wheel/>
+    </game>
+    <game name="dirt">
+      <wheel/>
+    </game>
+  </system>
+  <system name="arcade">
+    <game name="18wheelro">
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+    </game>
+    <game name="18wheelrt">
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+    </game>
+    <game name="18wheelr">
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+    </game>
+    <game name="18wheels">
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+    </game>
+    <game name="18wheelu">
+      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+    </game>
+    <game name="crzytaxi">
+      <wheel rotation="270" downshift="down" upshift="up" />
+    </game>
+    <game name="f355twinp">
+      <wheel rotation="270" />
+    </game>
+    <game name="f355twin">
+      <wheel rotation="270" />
+    </game>
+    <game name="f355twn2">
+      <wheel rotation="270" />
+    </game>
+    <game name="f355">
+      <wheel rotation="270" />
+    </game>
+    <game name="ftspeed">
+      <wheel rotation="270" downshift="down" upshift="up" />
+    </game>
+    <game name="inidv3ca">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="inidv3cy">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdexpo">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdexp">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdo">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdv2e">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdv2ja">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdv2jo">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdv2j">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdv3e">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdv3jb">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initdv3j">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initiad4c">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initiad4">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="initd">
+      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+    </game>
+    <game name="jambo">
+      <wheel rotation="270" downshift="b" upshift="a" />
+    </game>
+    <game name="maxspeed">
+      <wheel rotation="270" downshift="down" upshift="up" />
+    </game>
+    <game name="wldrider">
+      <wheel rotation="270" downshift="down" upshift="up" />
     </game>
   </system>
 </systems>

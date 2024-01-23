@@ -713,7 +713,7 @@ void Window::render()
 
 	renderSindenBorders();
 
-	if (mGuiStack.size() < 2 || !Renderer::isSmallScreen())
+	if (mGuiStack.size() < 2 || !Renderer::ScreenSettings::fullScreenMenus())
 		if (!mRenderedHelpPrompts)
 			mHelp->render(transform);
 
@@ -736,13 +736,13 @@ void Window::render()
 	}
 
 	// clock 
-	if (Settings::DrawClock() && mClock && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
+	if (Settings::DrawClock() && mClock && (mGuiStack.size() < 2 || !Renderer::ScreenSettings::fullScreenMenus()))
 		mClock->render(transform);
 
 	if (Settings::ShowControllerActivity() && mControllerActivity != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
 		mControllerActivity->render(transform);
 
-	if (mBatteryIndicator != nullptr && (mGuiStack.size() < 2 || !Renderer::isSmallScreen()))
+	if (mBatteryIndicator != nullptr && (mGuiStack.size() < 2 || !Renderer::ScreenSettings::fullScreenMenus()))
 		mBatteryIndicator->render(transform);
 
 	Renderer::setMatrix(transform);

@@ -164,6 +164,7 @@ void Settings::setDefaults()
 	mStringMap["FolderViewMode"] = "never";
 	mStringMap["HiddenSystems"] = "";
 
+	mBoolMap["PublicWebAccess"] = false;	
 	mBoolMap["FirstJoystickOnly"] = false;
 #ifdef _ENABLEEMUELEC
     mBoolMap["EnableSounds"] = true;

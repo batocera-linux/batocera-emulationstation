@@ -39,6 +39,10 @@ namespace Utils
 			bool waitForExit;
 			bool showWindow;
 			Window* window;
+#ifndef WIN32
+			std::string stderrFilename;
+			std::string stdoutFilename;
+#endif
 		};
 
 		int quitES(QuitMode mode = QuitMode::QUIT);
@@ -63,6 +67,10 @@ namespace Utils
 
 		std::string queryIPAdress();
 		std::string getArchString();
+
+#if WIN32
+		bool isWindows11();
+#endif
         #ifdef _ENABLEEMUELEC
             std::string getShOutput(const std::string& mStr); /* < emuelec */
         #endif

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 
 import xml.etree.ElementTree as ET
 
@@ -13,7 +14,7 @@ def xml2systemsArrays(path):
             raise Exception("duplicated system found")
         res[system] = []
         for nodegame in nodesystem:
-            res[system].append(nodegame.text)
+            res[system].append(nodegame.get("name"))
     return res
 
 def checkSystemGames(system, games):
@@ -30,7 +31,7 @@ def checkSystemGames(system, games):
 
 hasError = False
 
-for file in ["gungames.xml", "wheelgames.xml"]:
+for file in ["gamesdb.xml"]:
     systems = xml2systemsArrays(file)
     for system in systems:
         if checkSystemGames(system, systems[system]) == False:

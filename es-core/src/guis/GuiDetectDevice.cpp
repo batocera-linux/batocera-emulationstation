@@ -63,7 +63,7 @@ GuiDetectDevice::GuiDetectDevice(Window* window, bool firstRun, const std::funct
 	mDeviceHeld = std::make_shared<TextComponent>(mWindow, "", theme->Text.font, theme->Text.selectedColor, ALIGN_CENTER);
 	mGrid.setEntry(mDeviceHeld, Vector2i(0, 4), false, true);
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
 		setSize(Renderer::getScreenWidth() * 0.6f, Renderer::getScreenHeight() * 0.5f);

@@ -126,10 +126,10 @@ msgid "enter path to wheel"
 msgstr "wprowadź ścieżkę do koła"
 
 msgid "Mix"
-msgstr "Wymieszanie"
+msgstr "Mieszanka"
 
 msgid "enter path to mix"
-msgstr "wprowadź ścieżkę do wymieszania"
+msgstr "wprowadź ścieżkę do mieszanki"
 
 msgid "Rating"
 msgstr "Ocena"
@@ -288,7 +288,7 @@ msgid "lightgun games"
 msgstr "gry z pistoletem"
 
 msgid "wheel games"
-msgstr "gry z kierownicą"
+msgstr "gry na kierownicę"
 
 msgid "collections"
 msgstr "kolekcje"

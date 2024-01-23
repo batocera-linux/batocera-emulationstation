@@ -278,9 +278,6 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 	if (elem->has("enabled"))
 		mEnabled = elem->get<bool>("enabled");
 
-	if (elem->has("default"))
-		mConfig.defaultVideoPath = elem->get<std::string>("default");
-
 	if ((properties & ThemeFlags::DELAY) && elem->has("delay"))
 		mConfig.startDelay = (unsigned)(elem->get<float>("delay") * 1000.0f);
 
@@ -318,16 +315,27 @@ void VideoComponent::applyTheme(const std::shared_ptr<ThemeData>& theme, const s
 
 	GuiComponent::applyTheme(theme, view, element, properties & ~ThemeFlags::SIZE);
 
-	if (elem->has("path"))
+	if (properties & PATH)
 	{
-		auto path = elem->get<std::string>("path");
+		if (elem->has("default"))
+			mConfig.defaultVideoPath = elem->get<std::string>("default");
 
-		if (path[0] == '{' || Utils::FileSystem::exists(path))
-			mVideoPath = path;
-		else
+		if (elem->has("path"))
+		{
+			auto path = elem->get<std::string>("path");
+
+			if (path[0] == '{' || Utils::FileSystem::exists(path))
+				mVideoPath = path;
+			else
+				mVideoPath = mConfig.defaultVideoPath;
+
+			mThemedPath = mVideoPath;
+		}
+		else if (!mConfig.defaultVideoPath.empty())
+		{
 			mVideoPath = mConfig.defaultVideoPath;
-
-		mThemedPath = mVideoPath;
+			mThemedPath = mVideoPath;
+		}
 	}
 
 	if (elem->has("defaultSnapshot"))
@@ -549,6 +557,8 @@ void VideoComponent::setPlaylist(std::shared_ptr<IPlaylist> playList)
 	auto video = mPlaylist->getNextItem();
 	if (!video.empty())
 		setVideo(video);
+	else if (!mConfig.defaultVideoPath.empty())
+		setVideo(mConfig.defaultVideoPath);
 }
 
 void VideoComponent::setRoundCorners(float value) 

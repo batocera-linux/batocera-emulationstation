@@ -1173,6 +1173,10 @@ void ViewController::reloadAll(Window* window, bool reloadTheme)
 	
 	if (reloadTheme && cursorMap.size() > 0)
 	{
+		mCurrentView.reset();
+		mSystemListView.reset();
+		TextureResource::cleanupTextureResourceCache();
+
 		int processedSystem = 0;
 		int systemCount = cursorMap.size();
 

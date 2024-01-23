@@ -15,7 +15,7 @@ void BatteryIndicatorComponent::init()
 
 	mHorizontalAlignment = ALIGN_RIGHT;
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::isSmallScreen())
 	{
 		setPosition(Renderer::getScreenWidth() * 0.915, Renderer::getScreenHeight() * 0.013);
 		setSize(Renderer::getScreenWidth() * 0.07, Renderer::getScreenHeight() * 0.07);

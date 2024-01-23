@@ -53,8 +53,14 @@
       <xs:attribute name="rotation" type="xs:string"/>
       <xs:attribute name="type" type="xs:string"/>
       <xs:attribute name="wheel" type="xs:string"/>
-      <xs:attribute name="wheel_deadzone" type="xs:string"/>
-      <xs:attribute name="wheel_midzone" type="xs:string"/>
+      <xs:attribute name="deadzone" type="xs:string"/>
+      <xs:attribute name="midzone" type="xs:string"/>
+      <xs:attribute name="upshift" type="xs:string"/>      
+      <xs:attribute name="downshift" type="xs:string"/>      
+      <xs:attribute name="a" type="xs:string"/>
+      <xs:attribute name="b" type="xs:string"/>
+      <xs:attribute name="x" type="xs:string"/>
+      <xs:attribute name="y" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="controller">

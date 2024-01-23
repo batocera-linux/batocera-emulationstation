@@ -222,6 +222,8 @@ public:
 
 	void			setAmbientOpacity(unsigned char opacity);
 
+	std::map<std::string, ThemeStoryboard*>& getStoryBoards() { return mStoryBoards; };
+
 protected:
 	void			beginCustomClipRect();
 	void			endCustomClipRect();

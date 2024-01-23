@@ -146,7 +146,7 @@ void GuiBatoceraStore::onSizeChanged()
 
 void GuiBatoceraStore::centerWindow()
 {
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 		setSize(Renderer::getScreenWidth(), Renderer::getScreenHeight());
 	else
 		setSize(WINDOW_WIDTH, Renderer::getScreenHeight() * 0.875f);

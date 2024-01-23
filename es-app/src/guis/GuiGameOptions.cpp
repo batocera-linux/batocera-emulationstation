@@ -460,7 +460,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		});
 	}
 
-	if (Renderer::isSmallScreen())
+	if (Renderer::ScreenSettings::fullScreenMenus())
 	{	
 		mMenu.addButton(_("BACK"), _("go back"), [this] { close(); });
 

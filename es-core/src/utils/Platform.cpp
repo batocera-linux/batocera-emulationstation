@@ -33,6 +33,10 @@ namespace Utils
 			window = nullptr; 
 			waitForExit = true;
 			showWindow = true;
+#ifndef WIN32
+			stderrFilename = "es_launch_stderr.log";
+			stdoutFilename = "es_launch_stdout.log";
+#endif
 		}
 
 		ProcessStartInfo::ProcessStartInfo(const std::string& cmd)
@@ -41,6 +45,10 @@ namespace Utils
 			window = nullptr; 
 			waitForExit = true;
 			showWindow = true;
+#ifndef WIN32
+			stderrFilename = "es_launch_stderr.log";
+			stdoutFilename = "es_launch_stdout.log";
+#endif
 		}
 
 		int ProcessStartInfo::run() const
@@ -134,7 +142,7 @@ namespace Utils
 
 			return 1;
 #else
-			std::string cmdOutput = " 2> " + Utils::FileSystem::combine(Paths::getLogPath(), "es_launch_stderr.log") + " | head -300 > " + Utils::FileSystem::combine(Paths::getLogPath(), "es_launch_stdout.log");
+			std::string cmdOutput = " 2> " + Utils::FileSystem::combine(Paths::getLogPath(), stderrFilename) + " | head -300 > " + Utils::FileSystem::combine(Paths::getLogPath(), stdoutFilename);
 			if (!Log::enabled())
 				cmdOutput = " 2> /dev/null | head -300 > /dev/null";
 
@@ -465,8 +473,53 @@ namespace Utils
 			return ret;
 		}
 
-#ifdef _ENABLEEMUELEC
+#if WIN32
+		static bool _getWindowsVersion(WORD& major, WORD& minor, WORD& build, WORD& revision)
+		{
+			// Use product version in kernel32.dll to have real Windows version as we don't have a compatibility manifest (GetVersion is limited to 6.2)
+			HMODULE kernel32Module = GetModuleHandle("kernel32.dll");
+			if (kernel32Module != nullptr)
+			{
+				wchar_t filePath[MAX_PATH];
+				DWORD length = GetModuleFileNameW(kernel32Module, filePath, MAX_PATH);
+				if (length > 0)
+				{
+					DWORD dummy;
+					DWORD versionSize = GetFileVersionInfoSizeW(filePath, &dummy);
 
+					std::vector<char> versionData(versionSize);
+					if (GetFileVersionInfoW(filePath, 0, versionSize, versionData.data()))
+					{
+						VS_FIXEDFILEINFO* fileInfo;
+						UINT fileInfoSize;
+
+						if (VerQueryValueW(versionData.data(), L"\\", reinterpret_cast<void**>(&fileInfo), &fileInfoSize))
+						{
+						    major = HIWORD(fileInfo->dwProductVersionMS);
+							minor = LOWORD(fileInfo->dwProductVersionMS);
+							build = HIWORD(fileInfo->dwProductVersionLS);
+							revision = LOWORD(fileInfo->dwProductVersionLS);
+
+							return true;
+						}
+					}
+				}
+			}
+
+			return false;
+		}
+
+		bool isWindows11()
+		{
+			WORD major, minor, build, revision;
+			if (_getWindowsVersion(major, minor, build, revision))
+				return major > 10 || (major == 10 && (minor > 0 || build >= 22000));
+
+			return false;
+		}
+#endif
+
+#ifdef _ENABLEEMUELEC
 /* < emuelec */
 std::string getShOutput(const std::string& mStr)
 {
