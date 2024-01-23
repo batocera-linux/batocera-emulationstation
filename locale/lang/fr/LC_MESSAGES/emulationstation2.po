@@ -2219,10 +2219,10 @@ msgid "Current setting"
 msgstr "Paramètre actuel"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "COMPTE"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "RÉGLAGES DU BIOS"
 
 msgid "SAVESTATES"
 msgstr "SAUVEGARDES"
@@ -2436,13 +2436,13 @@ msgid "SHOW MANUAL ICON"
 msgstr "AFFICHER L’ICÔNE MANUEL DANS LES LISTES"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "AFFICHER L’ICÔNE RETROACHIEVEMENTS"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "AFFICHER L’ICÔNE PISTOLET"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "AFFICHER L'ICÔNE ROUE"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
@@ -2493,7 +2493,7 @@ msgid "ICON AND TEXT"
 msgstr "ICÔNE ET TEXTE"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "AFFICHER LES DOSSIERS EN PREMIER"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LES ARTICLES LORS DU TRI"
@@ -2839,7 +2839,7 @@ msgstr "FAVORIS"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Retourner vers %s"
 
 msgid "No Entries Found"
 msgstr "Aucune Entrée Trouvée"
@@ -3050,10 +3050,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLANT"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "AYANT DES MÉDIAS"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "MEDIAS MANQUANTS"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -3251,10 +3251,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR LA CONFIGURER."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "APPUYEZ SUR ESC POUR ANNULER."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "APPUYEZ SUR ESC OU SUR UNE TOUCHE DE RACCOURCI POUR ANNULER."
 
 msgid "DISCARD CHANGES"
 msgstr "ANNULER LES CHANGEMENTS"
