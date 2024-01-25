@@ -101,11 +101,11 @@ MameNames::MameNames()
 					if (gameNode.attribute("vert") && gameNode.attribute("vert").value() == sTrue)
 						rom.type |= ArcadeRomType::VERTICAL;
 
-					if (gameNode.attribute("gun") && gameNode.attribute("gun").value() == sTrue)
-						rom.type |= ArcadeRomType::LIGHTGUN;
+					//if (gameNode.attribute("gun") && gameNode.attribute("gun").value() == sTrue)
+					//	rom.type |= ArcadeRomType::LIGHTGUN;
 
-					if (gameNode.attribute("wheel") && gameNode.attribute("wheel").value() == sTrue)
-						rom.type |= ArcadeRomType::WHEEL;
+					//if (gameNode.attribute("wheel") && gameNode.attribute("wheel").value() == sTrue)
+					//	rom.type |= ArcadeRomType::WHEEL;
 
 					mArcadeRoms[name] = rom;
 				}
@@ -181,7 +181,7 @@ MameNames::MameNames()
 						{
 							if (systemNames == "arcade")
 							{
-								for (auto game : gunGames)
+								for (auto game : wheelGames)
 								{
 									auto it = mArcadeRoms.find(game);
 									if (it == mArcadeRoms.cend())
