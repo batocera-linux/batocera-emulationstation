@@ -520,6 +520,7 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 	if (input.value != 0)
 	{
 		int idx = isVertical() ? 0 : 1;
+		float dimScrollable = isVertical() ? mGridDimension.y() - 2 * EXTRAITEMS : mGridDimension.x() - 2 * EXTRAITEMS;
 
 		Vector2i dir = Vector2i::Zero();
 
@@ -534,16 +535,16 @@ bool ImageGridComponent<T>::input(InputConfig* config, Input input)
 		else  if (config->isMappedTo("pageup", input))
 		{
 			if (isVertical())
-				dir[1 ^ idx] = -10;
+				dir[1 ^ idx] = -dimScrollable;
 			else
-				dir[0 ^ idx] = -10;
+				dir[0 ^ idx] = -dimScrollable;
 		}
 		else if (config->isMappedTo("pagedown", input))
 		{
 			if (isVertical())
-				dir[1 ^ idx] = 10;
+				dir[1 ^ idx] = dimScrollable;
 			else
-				dir[0 ^ idx] = 10;
+				dir[0 ^ idx] = dimScrollable;
 		}
 
 		if (dir != Vector2i::Zero())
