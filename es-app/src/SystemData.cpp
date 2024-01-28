@@ -24,6 +24,7 @@
 #include <functional>
 #include "SaveStateRepository.h"
 #include "Paths.h"
+#include "SystemRandomPlaylist.h"
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -63,6 +64,7 @@ bool SystemData::IsManufacturerSupported = false;
 SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envData, std::vector<EmulatorData>* pEmulators, bool CollectionSystem, bool groupedSystem, bool withTheme, bool loadThemeOnlyIfElements) :
 	mMetadata(meta), mEnvData(envData), mIsCollectionSystem(CollectionSystem), mIsGameSystem(true)
 {
+	mBindableRandom = nullptr;
 	mSaveRepository = nullptr;
 	mIsCheevosSupported = -1;
 	mIsGroupSystem = groupedSystem;
@@ -136,6 +138,9 @@ SystemData::SystemData(const SystemMetadata& meta, SystemEnvironmentData* envDat
 
 SystemData::~SystemData()
 {
+	if (mBindableRandom)
+		delete mBindableRandom;
+
 	if (mRootFolder)
 		delete mRootFolder;
 
@@ -2048,11 +2053,57 @@ int SystemData::getShowFlags()
 	return Utils::String::toInteger(spf);
 }
 
+BindableRandom::BindableRandom(SystemData* system)
+{
+	mSystem = system;
+}
+
+BindableProperty BindableRandom::getProperty(const std::string& name)
+{
+	if (mRandom.empty())
+	{
+		SystemRandomPlaylist::PlaylistType type = SystemRandomPlaylist::IMAGE;
+
+		if (name == "thumbnail")
+			type = SystemRandomPlaylist::THUMBNAIL;
+		else if (name == "marquee")
+			type = SystemRandomPlaylist::MARQUEE;
+		else if (name == "fanart")
+			type = SystemRandomPlaylist::FANART;
+		else if (name == "titleshot")
+			type = SystemRandomPlaylist::TITLESHOT;
+		else if (name == "video")
+			type = SystemRandomPlaylist::VIDEO;		
+
+		SystemRandomPlaylist rand(mSystem, type);
+
+		mRandom = rand.getNextItem();
+		if (mRandom.empty())
+			mRandom = "--empty--";
+	}
+
+	if (mRandom == "--empty--")
+		return std::string();
+
+	return mRandom;
+}
+
 BindableProperty SystemData::getProperty(const std::string& name)
 {
 	auto it = properties.find(name);
 	if (it != properties.cend())
 		return it->second(this);
+
+	if (name == "ascollection" || name == "asCollection")
+		return isCollection() ? BindableProperty(this) : BindableProperty::Null;
+
+	if (name == "random")
+	{
+		if (mBindableRandom == nullptr)
+			mBindableRandom = new BindableRandom(this);
+
+		return BindableProperty(mBindableRandom);		
+	}
 
 	if (name == "image" || name == "logo")
 	{
