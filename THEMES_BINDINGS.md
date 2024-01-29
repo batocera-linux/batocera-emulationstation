@@ -180,6 +180,7 @@ directory(path)             string                extract the directory from a p
 filesize(path)              long                  gets the file size in bytes
 filesizekb(path)            long                  gets a string with file size, formatted with kilobytes
 filesizemb(path)            long                  gets a string with file size, formatted with megabytes
+firstfile(path, path...)    string                returns the first path that exists. unlimited number of arguments.
 
 String methods :
 ----------------

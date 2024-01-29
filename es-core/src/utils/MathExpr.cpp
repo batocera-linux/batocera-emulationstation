@@ -30,6 +30,15 @@ namespace Utils
 	typedef std::vector<std::string> Args;
 	typedef std::tuple<std::string, int> MethodSignature; // Name, then argument count
 
+	static std::string firstFile(const Args& args)
+	{
+		for (auto arg : args)
+			if (Utils::FileSystem::exists(removeStringQuotes(arg)))
+				return arg;
+
+		return addStringQuotes("");
+	}
+
 	static std::map<MethodSignature, std::function<std::string(const Args&)>> _methods
 	{
 		// File / Path
@@ -42,6 +51,7 @@ namespace Utils
 		{ { "filesize", 1 },	  [](const Args& args) { return std::to_string(Utils::FileSystem::getFileSize(removeStringQuotes(args[0]))); } },
 		{ { "filesizekb", 1 },	  [](const Args& args) { return addStringQuotes(Utils::FileSystem::kiloBytesToString(Utils::FileSystem::getFileSize(removeStringQuotes(args[0])) / 1024)); } },
 		{ { "filesizemb", 1 },	  [](const Args& args) { return addStringQuotes(Utils::FileSystem::megaBytesToString(Utils::FileSystem::getFileSize(removeStringQuotes(args[0])) / 1024 / 1024)); } },
+		{ { "firstfile", -1 },	  [](const Args& args) { return firstFile(args); } },
 
 		// String
 		{ { "empty", 1 },         [](const Args& args) { return removeStringQuotes(args[0]).empty() ? "1" : "0"; } },
@@ -485,6 +495,12 @@ namespace Utils
 
 			MethodSignature key(method.name, method.arguments.size());
 			auto it = _methods.find(key);
+			if (it == _methods.cend())
+			{
+				key = MethodSignature(method.name, -1);
+				it = _methods.find(key);
+			}
+
 			if (it != _methods.cend())
 			{
 				auto result = it->second(method.arguments);
