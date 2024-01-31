@@ -105,7 +105,10 @@ void main(void)
 	for (int i = 0; i < numSamples; i++) {
 		vec2 offset = vec2(cos(float(i) * 3.14159 * 2.0 / float(numSamples)), sin(float(i) * 3.14159 * 2.0 / float(numSamples)));		
 		for (int b = 1; b < numSamples; b++) {	    
-			blurColor += sampleTexture(u_tex, v_padtex + (offset * float(b) * step) + decal);	
+			vec4 sampled = sampleTexture(u_tex, v_padtex + (offset * float(b) * step) + decal);	
+			if (sampled.a > 0) {
+				blurColor += sampled;
+			}
 			total++;
 		}
 	}
@@ -117,8 +120,16 @@ void main(void)
 	blurColor.b = 0.0;
 	blurColor.a *= 0.5;
 	
-	// Output the final blurred color
-	FragColor = (sampleTexture(u_tex, v_padtex) + blurColor) * v_col;
+	// Output the final blurred color	
+
+	vec4 texColor = sampleTexture(u_tex, v_padtex);
+	
+	if (texColor.a == 0.0)	{
+		FragColor = blurColor * v_col;
+	}
+	else {
+		FragColor = (texColor + blurColor) * v_col;
+	}
 
 }
 #endif

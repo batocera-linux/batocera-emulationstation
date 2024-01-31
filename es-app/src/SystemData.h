@@ -62,6 +62,23 @@ struct SystemEnvironmentData
 	}
 };
 
+class SystemData;
+
+class BindableRandom : public IBindable
+{
+public:
+	BindableRandom(SystemData* system);
+
+	BindableProperty getProperty(const std::string& name) override;
+
+	std::string getBindableTypeName() override { return "random"; }
+	IBindable* getBindableParent() override { return nullptr; };
+
+private:
+	SystemData* mSystem;
+	std::string mRandom;
+};
+
 class SystemData : public IKeyboardMapContainer, public IBindable
 {
 public:
@@ -242,6 +259,7 @@ private:
 	FileFilterIndex* mFilterIndex;
 
 	FolderData* mRootFolder;
+	BindableRandom* mBindableRandom;
 
 	std::vector<EmulatorData> mEmulators;
 	
