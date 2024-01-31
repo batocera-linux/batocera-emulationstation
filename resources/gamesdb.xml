@@ -1703,7 +1703,7 @@
       <wheel type="DrivingForcePro"/>
     </game>
     <game name="granturismo3">
-      <wheel type="DrivingForce" rotation="270"/>
+      <wheel type="GTForce" rotation="270"/>
     </game>
     <game name="granturismo4">
       <wheel type="DrivingForcePro"/>
