@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-01-19 14:47+0100\n"
+"PO-Revision-Date: 2024-01-29 15:29+0100\n"
 "Last-Translator: A.H.\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPPDATERING TILLGÄNGLIG"
@@ -435,7 +435,7 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "VISA RETROPRESTATIONSPOSTER I HUVUDMENYN"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr ""
+msgstr "Visa dina RetroAchivmentsuppgifter direkt från huvudmenyn!"
 
 msgid "GAME INDEXES"
 msgstr "SPELINDEX"
@@ -522,7 +522,7 @@ msgid "BY HARDWARE TYPE"
 msgstr "EFTER HÅRDVARUTYP"
 
 msgid "BY MANUFACTURER AND TYPE"
-msgstr ""
+msgstr "EFTER TILLVERKARE OCH TYP"
 
 msgid "BY RELEASE YEAR"
 msgstr "EFTER UTGIVNINGSÅR"
@@ -1391,7 +1391,7 @@ msgid "%d%% complete"
 msgstr "%d%% slutfört"
 
 msgid "SAVESTATE MANAGER"
-msgstr ""
+msgstr "SPARLÄGESHANTERARE"
 
 msgid "START NEW GAME"
 msgstr "STARTA NYTT SPEL"
@@ -1484,7 +1484,7 @@ msgid "MANUAL"
 msgstr "MANUAL"
 
 msgid "PADTOKEY SETTINGS"
-msgstr ""
+msgstr "PADTOKEYINSTÄLLNINGAR"
 
 msgid "ACCOUNT"
 msgstr "KONTO"
@@ -1672,10 +1672,10 @@ msgid "SHADERS"
 msgstr "SHADERS"
 
 msgid "INTERNAL"
-msgstr ""
+msgstr "INTERN"
 
 msgid "ANY EXTERNAL"
-msgstr ""
+msgstr "NÅGON EXTERN"
 
 msgid "maximum 1920x1080"
 msgstr "maximalt 1920x1080"
@@ -1732,10 +1732,10 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "SKRIV IN KODEN FÖR ATT LÅSA UPP"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "TJÄNSTER"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr ""
+msgstr "FRONTEND UTVECKLARALTERNATIV"
 
 msgid "VIDEO OPTIONS"
 msgstr "VIDEOALTERNATIV"
@@ -1747,7 +1747,7 @@ msgid "SHOW FRAMERATE"
 msgstr "VISA FPS"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
+msgstr "Aktivera också emulatorns egna bildfrekvensräknare om tillgänglig"
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1759,7 +1759,7 @@ msgid "VIDEO MODE"
 msgstr "VIDEOLÄGE"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "Väljer skärmens upplösning för emulationstation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "ANVÄND OMX-SPELARE (HÅRDVARUACCELERERAD)"
@@ -1771,7 +1771,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "SLUTA ATT STARTA DETTA SPEL VID UPPSTART"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr ""
+msgstr "AKTIVERA PUBLIK WEBBAPI-TILLGÅNG"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1784,7 +1784,7 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "SKAPA EN SUPPORTFIL"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr ""
+msgstr "SKAPA EN SUPPORTFIL? DETTA INNEHÅLLER ALL DATA I DIN SYSTEMMAPP."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "SUPPORTFIL SKAPAD I MAPPEN SAVES"
@@ -1902,10 +1902,10 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROLLERA EMULATIONSTATION ENDAST MED FÖRSTA JOYSTICK"
 
 msgid "GUN MOVE TOLERENCE"
-msgstr ""
+msgstr "PISTOLRÖRELSETOLERANS"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr ""
+msgstr "AKTIVERA HID-JOYSTICK-DRIVRUTINER"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "VISA NÄTVERKSINDIKATOR"
@@ -1984,7 +1984,7 @@ msgid "SHOW CLOCK IN 12-HOUR FORMAT"
 msgstr "VISA KLOCKAN I 12-TIMMARSFORMAT"
 
 msgid "POWER SAVING MODE"
-msgstr ""
+msgstr "ENERGISPARLÄGE"
 
 msgid "DEFAULT"
 msgstr "STANDARD"
@@ -2002,7 +2002,7 @@ msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SKÄRMLÄSARE (TEXT TILL TAL)"
 
 msgid "USER INTERFACE MODE"
-msgstr ""
+msgstr "ANVÄNDARGRÄNSSNITTSLÄGE"
 
 msgid "Lock down certain config menus for use with guest users/kids."
 msgstr ""
@@ -2233,7 +2233,7 @@ msgid "Use current slot on a new game."
 msgstr "Används nuvarande plats för ett nytt spel."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr ""
+msgstr "VISA SPARLÄGESHANTERARE"
 
 msgid "ALWAYS"
 msgstr "ALLTID"
@@ -2447,7 +2447,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "ÖVERGÅNG VID SPELSTART"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr ""
+msgstr "SPELMEDIER VID SNABBSKROLLNING"
 
 msgid "SHOW CLOCK"
 msgstr "VISA KLOCKA"
@@ -2558,10 +2558,10 @@ msgid "VIEW USER MANUAL"
 msgstr "VISA ANVÄNDARMANUAL"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "INAKTIVERA FLYGPLANSLÄGE"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "AKTIVERA FLYGPLANSLÄGE"
 
 msgid "RESTART SYSTEM"
 msgstr "STARTA OM SYSTEMET"
@@ -3020,10 +3020,10 @@ msgid "STEERING WHEEL"
 msgstr "RATT"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "HAR MEDIER"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "SAKNAR MEDIER"
 
 msgid "SCRAPING"
 msgstr "SKRAPAR"
