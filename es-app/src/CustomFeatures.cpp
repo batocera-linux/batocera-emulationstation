@@ -59,6 +59,7 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "joybtnremap") ret = ret | EmulatorFeatures::Features::joybtnremap;
 		if (trim == "hlebios") ret = ret | EmulatorFeatures::Features::hlebios;
 		if (trim == "cloudsave") ret = ret | EmulatorFeatures::Features::cloudsave;
+		if (trim == "gptokeyb") ret = ret | EmulatorFeatures::Features::gptokeyb;
 #endif
 	}
 

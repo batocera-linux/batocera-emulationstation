@@ -97,6 +97,7 @@ public:
 		hlebios = 4194304,
     joybtnremap = 8388608,
 		cloudsave = 16777216,
+		gptokeyb = 33554432,
 #endif
 		all = 0x0FFFFFFF
 	};

@@ -5158,6 +5158,42 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	auto customFeatures = systemData->getCustomFeatures(currentEmulator, currentCore);
 
 #ifdef _ENABLEEMUELEC
+		// Conf gptokeyb.
+		if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::gptokeyb) || currentEmulator == "ports")
+		{
+			auto emuelec_virtual_kb = std::make_shared< OptionListComponent<std::string> >(mWindow, "Virtual Keyboard", false);
+			std::vector<std::string> virtual_kb;
+
+			std::string def_vkb;
+			for(std::stringstream ss(Utils::Platform::getShOutput(R"(/usr/bin/emuelec-utils get_filenames_no_ext /emuelec/configs/gptokeyb)")); getline(ss, def_vkb, ','); ) {
+				if (!std::count(virtual_kb.begin(), virtual_kb.end(), def_vkb)) {
+					 virtual_kb.push_back(def_vkb);
+				}
+			}
+
+			std::string index = SystemConf::getInstance()->get(configName + ".gptokeyb");
+			if (index.empty())
+				index = "auto";
+
+			emuelec_virtual_kb->add(_("AUTO"), "auto", index == "auto");
+			for (auto it = virtual_kb.cbegin(); it != virtual_kb.cend(); it++) {
+				emuelec_virtual_kb->add(*it, *it, index == *it);
+			}
+		
+			systemConfiguration->addWithLabel(_("VIRTUAL KEYBOARD"), emuelec_virtual_kb);
+
+			systemConfiguration->addSaveFunc([mWindow, configName, emuelec_virtual_kb] {
+				std::string vkb_choice = emuelec_virtual_kb->getSelected();
+
+				if (vkb_choice == "auto")
+					vkb_choice = "";
+
+				SystemConf::getInstance()->set(configName + ".gptokeyb", vkb_choice);
+			});
+		}
+#endif
+
+#ifdef _ENABLEEMUELEC
 	// NATIVE VIDEO.
 
 	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::nativevideo))
