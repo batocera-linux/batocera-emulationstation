@@ -56,6 +56,8 @@ isCheevosSupported          bool
 isNetplaySupported          bool
 hasfilter                   bool
 filter                      string
+ascollection                system                 Returns current system only if it's a collection, otherwise null
+random                      random                 Return a systemrandom object 
 ```
 
 **collection:**
@@ -141,6 +143,18 @@ screenRatio                 string
 vertical                    bool
 ```	
 
+**systemrandom:**
+systemrandom class is only accessible with {system:random} or {system:ascollection:random}
+It can be used to find a random media from the system's games
+```
+image                       string
+marquee                     string
+thumbnail                   string
+fanart                      string
+titleshot                   string
+video                       string
+```
+
 Methods & expressions
 =====================
 
@@ -166,6 +180,7 @@ directory(path)             string                extract the directory from a p
 filesize(path)              long                  gets the file size in bytes
 filesizekb(path)            long                  gets a string with file size, formatted with kilobytes
 filesizemb(path)            long                  gets a string with file size, formatted with megabytes
+firstfile(path, path...)    string                returns the first path that exists. unlimited number of arguments.
 
 String methods :
 ----------------

@@ -447,7 +447,7 @@ const bool FileData::isArcadeAsset()
 	if (mSystem && (mSystem->hasPlatformId(PlatformIds::ARCADE) || mSystem->hasPlatformId(PlatformIds::NEOGEO)))
 	{	
 		const std::string stem = Utils::FileSystem::getStem(getPath());
-		return MameNames::getInstance()->isBios(stem) || MameNames::getInstance()->isDevice(stem);		
+		return MameNames::getInstance()->isBiosOrDevice(stem);		
 	}
 
 	return false;

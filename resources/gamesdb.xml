@@ -1,5 +1,3352 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <systems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gamesdb.xsd">
+  <system name="arcade">
+    <game name="18wheelr">
+      <wheel/>
+    </game>
+    <game name="18wheelro">
+      <wheel/>
+    </game>
+    <game name="18wheelrt">
+      <wheel/>
+    </game>
+    <game name="18wheels">
+      <wheel/>
+    </game>
+    <game name="18wheelu">
+      <wheel/>
+    </game>
+    <game name="2spicy">
+      <gun/>
+    </game>
+    <game name="38ambushalley">
+      <gun/>
+    </game>
+    <game name="500gp">
+      <wheel/>
+    </game>
+    <game name="a51mxr3k">
+      <gun/>
+    </game>
+    <game name="a51mxr3ka">
+      <gun/>
+    </game>
+    <game name="a51site4">
+      <gun/>
+    </game>
+    <game name="a51site4a">
+      <gun/>
+    </game>
+    <game name="abcop">
+      <wheel/>
+    </game>
+    <game name="abcopd">
+      <wheel/>
+    </game>
+    <game name="abcopj">
+      <wheel/>
+    </game>
+    <game name="abcopjd">
+      <wheel/>
+    </game>
+    <game name="acedriv3">
+      <wheel/>
+    </game>
+    <game name="acedrive">
+      <wheel/>
+    </game>
+    <game name="acedrvrw">
+      <wheel/>
+    </game>
+    <game name="alien3">
+      <gun/>
+    </game>
+    <game name="alien3j">
+      <gun/>
+    </game>
+    <game name="alien3u">
+      <gun/>
+    </game>
+    <game name="amspdwy">
+      <wheel/>
+    </game>
+    <game name="amspdwya">
+      <wheel/>
+    </game>
+    <game name="apb">
+      <wheel/>
+    </game>
+    <game name="apb1">
+      <wheel/>
+    </game>
+    <game name="apb2">
+      <wheel/>
+    </game>
+    <game name="apb3">
+      <wheel/>
+    </game>
+    <game name="apb4">
+      <wheel/>
+    </game>
+    <game name="apb5">
+      <wheel/>
+    </game>
+    <game name="apb6">
+      <wheel/>
+    </game>
+    <game name="apbf">
+      <wheel/>
+    </game>
+    <game name="apbg">
+      <wheel/>
+    </game>
+    <game name="aplatoon">
+      <gun/>
+    </game>
+    <game name="area51">
+      <gun/>
+    </game>
+    <game name="area51a">
+      <gun/>
+    </game>
+    <game name="area51mx">
+      <gun/>
+    </game>
+    <game name="area51t">
+      <gun/>
+    </game>
+    <game name="area51ta">
+      <gun/>
+    </game>
+    <game name="badlands">
+      <wheel/>
+    </game>
+    <game name="bang">
+      <gun/>
+    </game>
+    <game name="bangj">
+      <gun/>
+    </game>
+    <game name="batlgear">
+      <wheel/>
+    </game>
+    <game name="batlgr2">
+      <wheel/>
+    </game>
+    <game name="batlgr2a">
+      <wheel/>
+    </game>
+    <game name="bazooka">
+      <gun/>
+    </game>
+    <game name="bazookabr">
+      <gun/>
+    </game>
+    <game name="bbh">
+      <gun/>
+    </game>
+    <game name="bbh_140">
+      <gun/>
+    </game>
+    <game name="bbh_150">
+      <gun/>
+    </game>
+    <game name="bbh_160">
+      <gun/>
+    </game>
+    <game name="bbh2sp">
+      <gun/>
+    </game>
+    <game name="bbh2spa">
+      <gun/>
+    </game>
+    <game name="bbh2spb">
+      <gun/>
+    </game>
+    <game name="bbhcotw">
+      <gun/>
+    </game>
+    <game name="bbhsc">
+      <gun/>
+    </game>
+    <game name="bbhsca">
+      <gun/>
+    </game>
+    <game name="bbust2">
+      <gun/>
+    </game>
+    <game name="bbusters">
+      <gun/>
+    </game>
+    <game name="bbustersj">
+      <gun/>
+    </game>
+    <game name="bbustersja">
+      <gun/>
+    </game>
+    <game name="bbustersu">
+      <gun/>
+    </game>
+    <game name="bbustersua">
+      <gun/>
+    </game>
+    <game name="bel">
+      <gun/>
+    </game>
+    <game name="bigrun">
+      <wheel/>
+    </game>
+    <game name="bluethunder">
+      <gun/>
+    </game>
+    <game name="borntofi">
+      <gun/>
+    </game>
+    <game name="braveff">
+      <gun/>
+    </game>
+    <game name="bronx">
+      <gun/>
+    </game>
+    <game name="bubbletr">
+      <gun/>
+    </game>
+    <game name="bubbletrj">
+      <gun/>
+    </game>
+    <game name="buggyboy">
+      <wheel/>
+    </game>
+    <game name="buggyboyjr">
+      <wheel/>
+    </game>
+    <game name="calspeed">
+      <wheel/>
+    </game>
+    <game name="calspeeda">
+      <wheel/>
+    </game>
+    <game name="calspeedb">
+      <wheel/>
+    </game>
+    <game name="carnevil">
+      <gun/>
+    </game>
+    <game name="carnevil1">
+      <gun/>
+    </game>
+    <game name="carnking">
+      <gun/>
+    </game>
+    <game name="cartfury">
+      <wheel/>
+    </game>
+    <game name="catch22">
+      <gun/>
+    </game>
+    <game name="changela">
+      <wheel/>
+    </game>
+    <game name="chasehq">
+      <wheel/>
+    </game>
+    <game name="chasehq2">
+      <wheel/>
+    </game>
+    <game name="chasehqj">
+      <wheel/>
+    </game>
+    <game name="chasehqju">
+      <wheel/>
+    </game>
+    <game name="chasehqu">
+      <wheel/>
+    </game>
+    <game name="cheyenne">
+      <gun/>
+    </game>
+    <game name="chiller">
+      <gun/>
+    </game>
+    <game name="chqflag">
+      <wheel/>
+    </game>
+    <game name="chqflagj">
+      <wheel/>
+    </game>
+    <game name="cischeat">
+      <wheel/>
+    </game>
+    <game name="claybust">
+      <gun/>
+    </game>
+    <game name="claychal">
+      <gun/>
+    </game>
+    <game name="claypign">
+      <gun/>
+    </game>
+    <game name="clubk2k3">
+      <wheel/>
+    </game>
+    <game name="clubk2kf">
+      <wheel/>
+    </game>
+    <game name="clubk2kp">
+      <wheel/>
+    </game>
+    <game name="clubkcyc">
+      <wheel/>
+    </game>
+    <game name="clubkcyco">
+      <wheel/>
+    </game>
+    <game name="clubkprz">
+      <wheel/>
+    </game>
+    <game name="clubkpzb">
+      <wheel/>
+    </game>
+    <game name="clubkrt">
+      <wheel/>
+    </game>
+    <game name="clubkrta">
+      <wheel/>
+    </game>
+    <game name="clubkrtc">
+      <wheel/>
+    </game>
+    <game name="clubkrtd">
+      <wheel/>
+    </game>
+    <game name="clubkrte">
+      <wheel/>
+    </game>
+    <game name="clubkrto">
+      <wheel/>
+    </game>
+    <game name="cobrata">
+      <gun/>
+    </game>
+    <game name="colt">
+      <gun/>
+    </game>
+    <game name="combat">
+      <gun/>
+    </game>
+    <game name="combh">
+      <gun/>
+    </game>
+    <game name="confmiss">
+      <gun/>
+    </game>
+    <game name="contcirc">
+      <wheel/>
+    </game>
+    <game name="contcircj">
+      <wheel/>
+    </game>
+    <game name="contcircu">
+      <wheel/>
+    </game>
+    <game name="contcircua">
+      <wheel/>
+    </game>
+    <game name="contcrcu">
+      <wheel/>
+    </game>
+    <game name="coolridr">
+      <wheel/>
+    </game>
+    <game name="cops">
+      <gun/>
+      <wheel/>
+    </game>
+    <game name="copsuk">
+      <gun/>
+      <wheel/>
+    </game>
+    <game name="cracksht">
+      <gun/>
+    </game>
+    <game name="crimep2">
+      <gun/>
+    </game>
+    <game name="crimep2_11">
+      <gun/>
+    </game>
+    <game name="crimepat">
+      <gun/>
+    </game>
+    <game name="crimepatrol-hd">
+      <gun/>
+    </game>
+    <game name="crimepat_12">
+      <gun/>
+    </game>
+    <game name="crimepat_14">
+      <gun/>
+    </game>
+    <game name="critcrsh">
+      <gun/>
+    </game>
+    <game name="crossbow">
+      <gun/>
+    </game>
+    <game name="crszone">
+      <gun/>
+    </game>
+    <game name="crszonev2a">
+      <gun/>
+    </game>
+    <game name="crszonev3a">
+      <gun/>
+    </game>
+    <game name="crszonev3b">
+      <gun/>
+    </game>
+    <game name="crszonev3b2">
+      <gun/>
+    </game>
+    <game name="crszonev4a">
+      <gun/>
+    </game>
+    <game name="crtaxihr">
+      <wheel/>
+    </game>
+    <game name="crusnexo">
+      <wheel/>
+    </game>
+    <game name="crusnexoa">
+      <wheel/>
+    </game>
+    <game name="crusnexob">
+      <wheel/>
+    </game>
+    <game name="crusnexoc">
+      <wheel/>
+    </game>
+    <game name="crusnexod">
+      <wheel/>
+    </game>
+    <game name="crusnu21">
+      <wheel/>
+    </game>
+    <game name="crusnu40">
+      <wheel/>
+    </game>
+    <game name="crusnusa">
+      <wheel/>
+    </game>
+    <game name="crusnusa21">
+      <wheel/>
+    </game>
+    <game name="crusnusa40">
+      <wheel/>
+    </game>
+    <game name="crusnw13">
+      <wheel/>
+    </game>
+    <game name="crusnw20">
+      <wheel/>
+    </game>
+    <game name="crusnwld">
+      <wheel/>
+    </game>
+    <game name="crusnwld13">
+      <wheel/>
+    </game>
+    <game name="crusnwld17">
+      <wheel/>
+    </game>
+    <game name="crusnwld19">
+      <wheel/>
+    </game>
+    <game name="crusnwld20">
+      <wheel/>
+    </game>
+    <game name="crusnwld23">
+      <wheel/>
+    </game>
+    <game name="crusnwld24">
+      <wheel/>
+    </game>
+    <game name="cryptklr">
+      <gun/>
+    </game>
+    <game name="crzytaxi">
+      <wheel/>
+    </game>
+    <game name="cspring1">
+      <wheel/>
+    </game>
+    <game name="csprins1">
+      <wheel/>
+    </game>
+    <game name="csprint">
+      <wheel/>
+    </game>
+    <game name="csprint1">
+      <wheel/>
+    </game>
+    <game name="csprint2">
+      <wheel/>
+    </game>
+    <game name="csprintf">
+      <wheel/>
+    </game>
+    <game name="csprintg">
+      <wheel/>
+    </game>
+    <game name="csprintg1">
+      <wheel/>
+    </game>
+    <game name="csprints">
+      <wheel/>
+    </game>
+    <game name="csprints1">
+      <wheel/>
+    </game>
+    <game name="cswat">
+      <gun/>
+    </game>
+    <game name="cybrcycc">
+      <wheel/>
+    </game>
+    <game name="cybrcyccj">
+      <wheel/>
+    </game>
+    <game name="cyclshtg">
+      <gun/>
+    </game>
+    <game name="dangcurv">
+      <wheel/>
+    </game>
+    <game name="dangcurvj">
+      <wheel/>
+    </game>
+    <game name="dayto2pe">
+      <wheel/>
+    </game>
+    <game name="daytona">
+      <wheel/>
+    </game>
+    <game name="daytona2">
+      <wheel/>
+    </game>
+    <game name="daytona93">
+      <wheel/>
+    </game>
+    <game name="daytonagtx">
+      <wheel/>
+    </game>
+    <game name="daytonam">
+      <wheel/>
+    </game>
+    <game name="daytonas">
+      <wheel/>
+    </game>
+    <game name="daytonase">
+      <wheel/>
+    </game>
+    <game name="daytonat">
+      <wheel/>
+    </game>
+    <game name="daytonata">
+      <wheel/>
+    </game>
+    <game name="dblaxle">
+      <wheel/>
+    </game>
+    <game name="dblaxleu">
+      <wheel/>
+    </game>
+    <game name="dblaxleul">
+      <wheel/>
+    </game>
+    <game name="dday">
+      <gun/>
+    </game>
+    <game name="deathcox">
+      <gun/>
+    </game>
+    <game name="deathcoxo">
+      <gun/>
+    </game>
+    <game name="deerhunt">
+      <gun/>
+    </game>
+    <game name="deerhunta">
+      <gun/>
+    </game>
+    <game name="deerhuntb">
+      <gun/>
+    </game>
+    <game name="deerhuntc">
+      <gun/>
+    </game>
+    <game name="deerhuntd">
+      <gun/>
+    </game>
+    <game name="deerhunte">
+      <gun/>
+    </game>
+    <game name="deerhuntj">
+      <gun/>
+    </game>
+    <game name="demoderb">
+      <wheel/>
+    </game>
+    <game name="demoderbc">
+      <wheel/>
+    </game>
+    <game name="demoderm">
+      <wheel/>
+    </game>
+    <game name="desertgu">
+      <gun/>
+    </game>
+    <game name="destderb">
+      <wheel/>
+    </game>
+    <game name="destderm">
+      <wheel/>
+    </game>
+    <game name="dirtdash">
+      <wheel/>
+    </game>
+    <game name="dirtdasha">
+      <wheel/>
+    </game>
+    <game name="dirtdvls">
+      <wheel/>
+    </game>
+    <game name="dirtdvlsa">
+      <wheel/>
+    </game>
+    <game name="dirtdvlsg">
+      <wheel/>
+    </game>
+    <game name="dirtdvlsj">
+      <wheel/>
+    </game>
+    <game name="dirtfoxj">
+      <wheel/>
+    </game>
+    <game name="dmodrbcc">
+      <wheel/>
+    </game>
+    <game name="dpatrol">
+      <gun/>
+    </game>
+    <game name="dpatrola">
+      <gun/>
+    </game>
+    <game name="dragngun">
+      <gun/>
+    </game>
+    <game name="dragngunj">
+      <gun/>
+    </game>
+    <game name="drivedge">
+      <wheel/>
+    </game>
+    <game name="driveyes">
+      <wheel/>
+    </game>
+    <game name="drugwars-hd">
+      <gun/>
+    </game>
+    <game name="duckhunt">
+      <gun/>
+    </game>
+    <game name="eca">
+      <wheel/>
+    </game>
+    <game name="ecaj">
+      <wheel/>
+    </game>
+    <game name="ecap">
+      <wheel/>
+    </game>
+    <game name="ecau">
+      <wheel/>
+    </game>
+    <game name="ecax">
+      <wheel/>
+    </game>
+    <game name="eggventr">
+      <gun/>
+    </game>
+    <game name="eggventr2">
+      <gun/>
+    </game>
+    <game name="eggventr7">
+      <gun/>
+    </game>
+    <game name="eggventr8">
+      <gun/>
+    </game>
+    <game name="eggventra">
+      <gun/>
+    </game>
+    <game name="eggventrd">
+      <gun/>
+    </game>
+    <game name="eggvntdx">
+      <gun/>
+    </game>
+    <game name="endurob2">
+      <wheel/>
+    </game>
+    <game name="endurobl">
+      <wheel/>
+    </game>
+    <game name="enduror">
+      <wheel/>
+    </game>
+    <game name="enduror1">
+      <wheel/>
+    </game>
+    <game name="enduror1d">
+      <wheel/>
+    </game>
+    <game name="endurora">
+      <wheel/>
+    </game>
+    <game name="endurord">
+      <wheel/>
+    </game>
+    <game name="evilngt">
+      <gun/>
+    </game>
+    <game name="evilngte">
+      <gun/>
+    </game>
+    <game name="f1en">
+      <wheel/>
+    </game>
+    <game name="f1enj">
+      <wheel/>
+    </game>
+    <game name="f1enu">
+      <wheel/>
+    </game>
+    <game name="f1gpstar">
+      <wheel/>
+    </game>
+    <game name="f1gpstar2">
+      <wheel/>
+    </game>
+    <game name="f1gpstar3">
+      <wheel/>
+    </game>
+    <game name="f1gpstr2">
+      <wheel/>
+    </game>
+    <game name="f1lap">
+      <wheel/>
+    </game>
+    <game name="f1lapj">
+      <wheel/>
+    </game>
+    <game name="f1lapt">
+      <wheel/>
+    </game>
+    <game name="f1superb">
+      <wheel/>
+    </game>
+    <game name="f355">
+      <wheel/>
+    </game>
+    <game name="f355twin">
+      <wheel/>
+    </game>
+    <game name="f355twinp">
+      <wheel/>
+    </game>
+    <game name="f355twn2">
+      <wheel/>
+    </game>
+    <game name="fastdraw">
+      <gun/>
+    </game>
+    <game name="fastdraw_130">
+      <gun/>
+    </game>
+    <game name="finalap2">
+      <wheel/>
+    </game>
+    <game name="finalap2j">
+      <wheel/>
+    </game>
+    <game name="finalap3">
+      <wheel/>
+    </game>
+    <game name="finalap3a">
+      <wheel/>
+    </game>
+    <game name="finalap3bl">
+      <wheel/>
+    </game>
+    <game name="finalap3j">
+      <wheel/>
+    </game>
+    <game name="finalap3jc">
+      <wheel/>
+    </game>
+    <game name="finalapc">
+      <wheel/>
+    </game>
+    <game name="finalapd">
+      <wheel/>
+    </game>
+    <game name="finalapr">
+      <wheel/>
+    </game>
+    <game name="finalaprj">
+      <wheel/>
+    </game>
+    <game name="finalapro">
+      <wheel/>
+    </game>
+    <game name="finallap">
+      <wheel/>
+    </game>
+    <game name="finallapc">
+      <wheel/>
+    </game>
+    <game name="finallapd">
+      <wheel/>
+    </game>
+    <game name="finallapjb">
+      <wheel/>
+    </game>
+    <game name="finallapjc">
+      <wheel/>
+    </game>
+    <game name="finalp2j">
+      <wheel/>
+    </game>
+    <game name="finalp3a">
+      <wheel/>
+    </game>
+    <game name="firetrk">
+      <wheel/>
+    </game>
+    <game name="firetrka">
+      <wheel/>
+    </game>
+    <game name="fourtrax">
+      <wheel/>
+    </game>
+    <game name="fourtraxa">
+      <wheel/>
+    </game>
+    <game name="fourtraxj">
+      <wheel/>
+    </game>
+    <game name="freedomfighter">
+      <gun/>
+    </game>
+    <game name="ftspeed">
+      <wheel/>
+    </game>
+    <game name="fullthrl">
+      <wheel/>
+    </game>
+    <game name="g13jnc">
+      <gun/>
+    </game>
+    <game name="g13knd">
+      <gun/>
+    </game>
+    <game name="gallgall">
+      <gun/>
+    </game>
+    <game name="gallgall_21">
+      <gun/>
+    </game>
+    <game name="gametree">
+      <gun/>
+    </game>
+    <game name="gdfs">
+      <gun/>
+    </game>
+    <game name="ghlpanic">
+      <gun/>
+    </game>
+    <game name="ghoshunt">
+      <gun/>
+    </game>
+    <game name="ghostsev">
+      <gun/>
+    </game>
+    <game name="ghostsqo">
+      <gun/>
+    </game>
+    <game name="ghostsqu">
+      <gun/>
+    </game>
+    <game name="gmsshoot">
+      <gun/>
+    </game>
+    <game name="golgo13">
+      <gun/>
+    </game>
+    <game name="gollygho">
+      <gun/>
+    </game>
+    <game name="gprider">
+      <wheel/>
+    </game>
+    <game name="gprider1">
+      <wheel/>
+    </game>
+    <game name="gpriderj">
+      <wheel/>
+    </game>
+    <game name="gpriderjs">
+      <wheel/>
+    </game>
+    <game name="gpriders">
+      <wheel/>
+    </game>
+    <game name="gprideru">
+      <wheel/>
+    </game>
+    <game name="gpriderus">
+      <wheel/>
+    </game>
+    <game name="gpworld">
+      <wheel/>
+    </game>
+    <game name="grally">
+      <wheel/>
+    </game>
+    <game name="grchamp">
+      <wheel/>
+    </game>
+    <game name="grchampa">
+      <wheel/>
+    </game>
+    <game name="grchampb">
+      <wheel/>
+    </game>
+    <game name="greatgun">
+      <gun/>
+    </game>
+    <game name="grmatch">
+      <wheel/>
+    </game>
+    <game name="grudge">
+      <wheel/>
+    </game>
+    <game name="grudgep">
+      <wheel/>
+    </game>
+    <game name="gticlub">
+      <wheel/>
+    </game>
+    <game name="gticlub2">
+      <wheel/>
+    </game>
+    <game name="gticlub2ea">
+      <wheel/>
+    </game>
+    <game name="gticluba">
+      <wheel/>
+    </game>
+    <game name="gticlubj">
+      <wheel/>
+    </game>
+    <game name="gticlubu">
+      <wheel/>
+    </game>
+    <game name="gtmr2">
+      <wheel/>
+    </game>
+    <game name="gtmr2a">
+      <wheel/>
+    </game>
+    <game name="gtmr2u">
+      <wheel/>
+    </game>
+    <game name="gtmra">
+      <wheel/>
+    </game>
+    <game name="gtmrb">
+      <wheel/>
+    </game>
+    <game name="gtmre">
+      <wheel/>
+    </game>
+    <game name="gtmro">
+      <wheel/>
+    </game>
+    <game name="gtmrusa">
+      <wheel/>
+    </game>
+    <game name="gunbalina">
+      <gun/>
+    </game>
+    <game name="gunbarl">
+      <gun/>
+    </game>
+    <game name="gunblade">
+      <gun/>
+    </game>
+    <game name="gunbulet">
+      <gun/>
+    </game>
+    <game name="gunbuletj">
+      <gun/>
+    </game>
+    <game name="gunbuletw">
+      <gun/>
+    </game>
+    <game name="gunbustr">
+      <gun/>
+    </game>
+    <game name="gunbustrj">
+      <gun/>
+    </game>
+    <game name="gunbustru">
+      <gun/>
+    </game>
+    <game name="gunchamp">
+      <gun/>
+    </game>
+    <game name="gunchamps">
+      <gun/>
+    </game>
+    <game name="gunhard">
+      <gun/>
+    </game>
+    <game name="gunmania">
+      <gun/>
+    </game>
+    <game name="gunsur2">
+      <gun/>
+    </game>
+    <game name="gunsur2e">
+      <gun/>
+    </game>
+    <game name="gunsur2j">
+      <gun/>
+    </game>
+    <game name="hangon">
+      <wheel/>
+    </game>
+    <game name="hangon1">
+      <wheel/>
+    </game>
+    <game name="hangon2">
+      <wheel/>
+    </game>
+    <game name="hangonjr">
+      <wheel/>
+    </game>
+    <game name="harddrb5">
+      <wheel/>
+    </game>
+    <game name="harddrb6">
+      <wheel/>
+    </game>
+    <game name="harddrc1">
+      <wheel/>
+    </game>
+    <game name="harddrcb">
+      <wheel/>
+    </game>
+    <game name="harddrcg">
+      <wheel/>
+    </game>
+    <game name="harddrg4">
+      <wheel/>
+    </game>
+    <game name="harddriv">
+      <wheel/>
+    </game>
+    <game name="harddriv1">
+      <wheel/>
+    </game>
+    <game name="harddriv2">
+      <wheel/>
+    </game>
+    <game name="harddriv3">
+      <wheel/>
+    </game>
+    <game name="harddrivb">
+      <wheel/>
+    </game>
+    <game name="harddrivb5">
+      <wheel/>
+    </game>
+    <game name="harddrivb6">
+      <wheel/>
+    </game>
+    <game name="harddrivc">
+      <wheel/>
+    </game>
+    <game name="harddrivc1">
+      <wheel/>
+    </game>
+    <game name="harddrivcb">
+      <wheel/>
+    </game>
+    <game name="harddrivcg">
+      <wheel/>
+    </game>
+    <game name="harddrivg">
+      <wheel/>
+    </game>
+    <game name="harddrivg4">
+      <wheel/>
+    </game>
+    <game name="harddrivj">
+      <wheel/>
+    </game>
+    <game name="harddrivj6">
+      <wheel/>
+    </game>
+    <game name="harddrj6">
+      <wheel/>
+    </game>
+    <game name="harddrv1">
+      <wheel/>
+    </game>
+    <game name="harddrv2">
+      <wheel/>
+    </game>
+    <game name="harddrv3">
+      <wheel/>
+    </game>
+    <game name="harddrvb">
+      <wheel/>
+    </game>
+    <game name="harddrvc">
+      <wheel/>
+    </game>
+    <game name="harddrvg">
+      <wheel/>
+    </game>
+    <game name="harddrvj">
+      <wheel/>
+    </game>
+    <game name="harley">
+      <wheel/>
+    </game>
+    <game name="harleya">
+      <wheel/>
+    </game>
+    <game name="hcrash">
+      <wheel/>
+    </game>
+    <game name="hcrashc">
+      <wheel/>
+    </game>
+    <game name="hdrivaip">
+      <wheel/>
+    </game>
+    <game name="hdrivair">
+      <wheel/>
+    </game>
+    <game name="hdrivairp">
+      <wheel/>
+    </game>
+    <game name="hellngt">
+      <gun/>
+    </game>
+    <game name="hitnmis2">
+      <gun/>
+    </game>
+    <game name="hitnmiss">
+      <gun/>
+    </game>
+    <game name="hitnmiss2">
+      <gun/>
+    </game>
+    <game name="hndlchmp">
+      <wheel/>
+    </game>
+    <game name="hndlchmpj">
+      <wheel/>
+    </game>
+    <game name="hogalley">
+      <gun/>
+    </game>
+    <game name="hostinv">
+      <gun/>
+    </game>
+    <game name="hotchase">
+      <wheel/>
+    </game>
+    <game name="hotchasea">
+      <wheel/>
+    </game>
+    <game name="hotd">
+      <gun/>
+    </game>
+    <game name="hotd2">
+      <gun/>
+    </game>
+    <game name="hotd2e">
+      <gun/>
+    </game>
+    <game name="hotd2o">
+      <gun/>
+    </game>
+    <game name="hotd2p">
+      <gun/>
+    </game>
+    <game name="hotd3">
+      <gun/>
+    </game>
+    <game name="hotd4">
+      <gun/>
+    </game>
+    <game name="hotd4a">
+      <gun/>
+    </game>
+    <game name="hotdex">
+      <gun/>
+    </game>
+    <game name="hotdp">
+      <gun/>
+    </game>
+    <game name="hotrod">
+      <wheel/>
+    </game>
+    <game name="hotroda">
+      <wheel/>
+    </game>
+    <game name="hotrodj">
+      <wheel/>
+    </game>
+    <game name="hotrodja">
+      <wheel/>
+    </game>
+    <game name="hydrosub2021">
+      <gun/>
+    </game>
+    <game name="imolagp">
+      <wheel/>
+    </game>
+    <game name="imolagpo">
+      <wheel/>
+    </game>
+    <game name="indy500">
+      <wheel/>
+    </game>
+    <game name="indy500d">
+      <wheel/>
+    </game>
+    <game name="indy500to">
+      <wheel/>
+    </game>
+    <game name="indyheat">
+      <wheel/>
+    </game>
+    <game name="inidv3ca">
+      <wheel/>
+    </game>
+    <game name="inidv3cy">
+      <wheel/>
+    </game>
+    <game name="initd">
+      <wheel/>
+    </game>
+    <game name="initdexp">
+      <wheel/>
+    </game>
+    <game name="initdexpo">
+      <wheel/>
+    </game>
+    <game name="initdo">
+      <wheel/>
+    </game>
+    <game name="initdv2e">
+      <wheel/>
+    </game>
+    <game name="initdv2j">
+      <wheel/>
+    </game>
+    <game name="initdv2ja">
+      <wheel/>
+    </game>
+    <game name="initdv2jo">
+      <wheel/>
+    </game>
+    <game name="initdv3e">
+      <wheel/>
+    </game>
+    <game name="initdv3j">
+      <wheel/>
+    </game>
+    <game name="initdv3jb">
+      <wheel/>
+    </game>
+    <game name="initiad4">
+      <wheel/>
+    </game>
+    <game name="initiad4c">
+      <wheel/>
+    </game>
+    <game name="invasnab">
+      <gun/>
+    </game>
+    <game name="invasnab3">
+      <gun/>
+    </game>
+    <game name="invasnab4">
+      <gun/>
+    </game>
+    <game name="invasnv4">
+      <gun/>
+    </game>
+    <game name="jambo">
+      <wheel/>
+    </game>
+    <game name="jdredd">
+      <gun/>
+    </game>
+    <game name="jdreddb">
+      <gun/>
+    </game>
+    <game name="jnero">
+      <gun/>
+    </game>
+    <game name="johnnyrock-hd">
+      <gun/>
+    </game>
+    <game name="johnnyrocknoir">
+      <gun/>
+    </game>
+    <game name="jpark">
+      <gun/>
+    </game>
+    <game name="jpark3">
+      <gun/>
+    </game>
+    <game name="jpark3u">
+      <gun/>
+    </game>
+    <game name="jparkj">
+      <gun/>
+    </game>
+    <game name="jparkja">
+      <gun/>
+    </game>
+    <game name="jparkjc">
+      <gun/>
+    </game>
+    <game name="jparkmb">
+      <gun/>
+    </game>
+    <game name="jupk_501">
+      <gun/>
+    </game>
+    <game name="jupk_513">
+      <gun/>
+    </game>
+    <game name="jupk_g51">
+      <gun/>
+    </game>
+    <game name="kdeadeye">
+      <gun/>
+    </game>
+    <game name="kingrt66">
+      <wheel/>
+    </game>
+    <game name="kingrt66p">
+      <wheel/>
+    </game>
+    <game name="konamigt">
+      <wheel/>
+    </game>
+    <game name="lagunar">
+      <wheel/>
+    </game>
+    <game name="lamachin">
+      <gun/>
+    </game>
+    <game name="lastbh">
+      <gun/>
+    </game>
+    <game name="lbh">
+      <gun/>
+    </game>
+    <game name="lbh-hd">
+      <gun/>
+    </game>
+    <game name="lastbh_006">
+      <gun/>
+    </game>
+    <game name="lbeach">
+      <wheel/>
+    </game>
+    <game name="le2">
+      <gun/>
+    </game>
+    <game name="le2j">
+      <gun/>
+    </game>
+    <game name="le2u">
+      <gun/>
+    </game>
+    <game name="lemans">
+      <wheel/>
+    </game>
+    <game name="lemans24">
+      <wheel/>
+    </game>
+    <game name="lethalen">
+      <gun/>
+    </game>
+    <game name="lethaleneaa">
+      <gun/>
+    </game>
+    <game name="lethaleneab">
+      <gun/>
+    </game>
+    <game name="lethalenead">
+      <gun/>
+    </game>
+    <game name="lethaleneae">
+      <gun/>
+    </game>
+    <game name="lethalenj">
+      <gun/>
+    </game>
+    <game name="lethalenua">
+      <gun/>
+    </game>
+    <game name="lethalenub">
+      <gun/>
+    </game>
+    <game name="lethalenux">
+      <gun/>
+    </game>
+    <game name="lethalj">
+      <gun/>
+    </game>
+    <game name="letsgoju">
+      <gun/>
+    </game>
+    <game name="lghost">
+      <gun/>
+    </game>
+    <game name="lghostd">
+      <gun/>
+    </game>
+    <game name="lghostj">
+      <gun/>
+    </game>
+    <game name="lghostu">
+      <gun/>
+    </game>
+    <game name="lghostud">
+      <gun/>
+    </game>
+    <game name="lockload">
+      <gun/>
+    </game>
+    <game name="lockloadu">
+      <gun/>
+    </game>
+    <game name="loffire">
+      <gun/>
+    </game>
+    <game name="loffired">
+      <gun/>
+    </game>
+    <game name="loffirej">
+      <gun/>
+    </game>
+    <game name="loffirejd">
+      <gun/>
+    </game>
+    <game name="loffireu">
+      <gun/>
+    </game>
+    <game name="loffireud">
+      <gun/>
+    </game>
+    <game name="lordgun">
+      <gun/>
+    </game>
+    <game name="lostwsga">
+      <gun/>
+    </game>
+    <game name="lostwsgp">
+      <gun/>
+    </game>
+    <game name="luckywld">
+      <gun/>
+      <wheel/>
+    </game>
+    <game name="luckywldj">
+      <gun/>
+      <wheel/>
+    </game>
+    <game name="lupinsho">
+      <gun/>
+    </game>
+    <game name="lupinshoo">
+      <gun/>
+    </game>
+    <game name="maddog">
+      <gun/>
+    </game>
+    <game name="maddog-hd">
+      <gun/>
+    </game>
+    <game name="maddog_202">
+      <gun/>
+    </game>
+    <game name="maddog2">
+      <gun/>
+    </game>
+    <game name="maddog2-hd">
+      <gun/>
+    </game>
+    <game name="maddog2_100">
+      <gun/>
+    </game>
+    <game name="maddog2_110">
+      <gun/>
+    </game>
+    <game name="maddog2_202">
+      <gun/>
+    </game>
+    <game name="maddoga">
+      <gun/>
+    </game>
+    <game name="maletmad">
+      <gun/>
+    </game>
+    <game name="manicpnc">
+      <gun/>
+    </game>
+    <game name="manxtt">
+      <wheel/>
+    </game>
+    <game name="manxttc">
+      <wheel/>
+    </game>
+    <game name="manxttdx">
+      <wheel/>
+    </game>
+    <game name="maxf_102">
+      <gun/>
+    </game>
+    <game name="maxf_ng">
+      <gun/>
+    </game>
+    <game name="maxforce">
+      <gun/>
+    </game>
+    <game name="maxrpm">
+      <wheel/>
+    </game>
+    <game name="maxspeed">
+      <wheel/>
+    </game>
+    <game name="mechatt">
+      <gun/>
+    </game>
+    <game name="mechattj">
+      <gun/>
+    </game>
+    <game name="mechattu">
+      <gun/>
+    </game>
+    <game name="mechattu1">
+      <gun/>
+    </game>
+    <game name="midnrun">
+      <wheel/>
+    </game>
+    <game name="midnruna">
+      <wheel/>
+    </game>
+    <game name="midnrunj">
+      <wheel/>
+    </game>
+    <game name="midnruna2">
+      <wheel/>
+    </game>
+    <game name="mok">
+      <gun/>
+    </game>
+    <game name="montecar">
+      <wheel/>
+    </game>
+    <game name="motofren">
+      <wheel/>
+    </game>
+    <game name="motofrenft">
+      <wheel/>
+    </game>
+    <game name="motofrenmd">
+      <wheel/>
+    </game>
+    <game name="motofrenmf">
+      <wheel/>
+    </game>
+    <game name="motoraid">
+      <wheel/>
+    </game>
+    <game name="motoraiddx">
+      <wheel/>
+    </game>
+    <game name="ninjaslt">
+      <gun/>
+    </game>
+    <game name="ninjaslt1">
+      <gun/>
+    </game>
+    <game name="ninjaslt2">
+      <gun/>
+    </game>
+    <game name="ninjaslt4">
+      <gun/>
+    </game>
+    <game name="ninjaslta">
+      <gun/>
+    </game>
+    <game name="ninjasltj">
+      <gun/>
+    </game>
+    <game name="ninjasltu">
+      <gun/>
+    </game>
+    <game name="nitedrvr">
+      <wheel/>
+    </game>
+    <game name="nstocker">
+      <gun/>
+      <wheel/>
+    </game>
+    <game name="nstocker2">
+      <gun/>
+      <wheel/>
+    </game>
+    <game name="nycaptor">
+      <gun/>
+    </game>
+    <game name="oceanhun">
+      <gun/>
+    </game>
+    <game name="offroad">
+      <wheel/>
+    </game>
+    <game name="offroad3">
+      <wheel/>
+    </game>
+    <game name="offroadc">
+      <wheel/>
+    </game>
+    <game name="offroadc1">
+      <wheel/>
+    </game>
+    <game name="offroadc3">
+      <wheel/>
+    </game>
+    <game name="offroadc4">
+      <wheel/>
+    </game>
+    <game name="offroadc5">
+      <wheel/>
+    </game>
+    <game name="offroadt">
+      <wheel/>
+    </game>
+    <game name="offroadt2p">
+      <wheel/>
+    </game>
+    <game name="ohbakyuun">
+      <gun/>
+    </game>
+    <game name="oneshot">
+      <gun/>
+    </game>
+    <game name="optiger">
+      <gun/>
+    </game>
+    <game name="opwolf">
+      <gun/>
+    </game>
+    <game name="opwolf3">
+      <gun/>
+    </game>
+    <game name="opwolf3u">
+      <gun/>
+    </game>
+    <game name="opwolfa">
+      <gun/>
+    </game>
+    <game name="opwolfb">
+      <gun/>
+    </game>
+    <game name="opwolfj">
+      <gun/>
+    </game>
+    <game name="opwolfjsc">
+      <gun/>
+    </game>
+    <game name="opwolfp">
+      <gun/>
+    </game>
+    <game name="opwolfu">
+      <gun/>
+    </game>
+    <game name="orunners">
+      <wheel/>
+    </game>
+    <game name="orunnersj">
+      <wheel/>
+    </game>
+    <game name="orunnersu">
+      <wheel/>
+    </game>
+    <game name="othunder">
+      <gun/>
+    </game>
+    <game name="othunderj">
+      <gun/>
+    </game>
+    <game name="othunderjsc">
+      <gun/>
+    </game>
+    <game name="othundero">
+      <gun/>
+    </game>
+    <game name="othunderu">
+      <gun/>
+    </game>
+    <game name="othunderuo">
+      <gun/>
+    </game>
+    <game name="othundu">
+      <gun/>
+    </game>
+    <game name="outr2">
+      <wheel/>
+    </game>
+    <game name="outr2sdx">
+      <wheel/>
+    </game>
+    <game name="outr2st">
+      <wheel/>
+    </game>
+    <game name="outr2stj">
+      <wheel/>
+    </game>
+    <game name="outr2stjo">
+      <wheel/>
+    </game>
+    <game name="outr2sto">
+      <wheel/>
+    </game>
+    <game name="outrun">
+      <wheel/>
+    </game>
+    <game name="outruna">
+      <wheel/>
+    </game>
+    <game name="outrunb">
+      <wheel/>
+    </game>
+    <game name="outrundx">
+      <wheel/>
+    </game>
+    <game name="outrundxa">
+      <wheel/>
+    </game>
+    <game name="outrundxeh">
+      <wheel/>
+    </game>
+    <game name="outrundxj">
+      <wheel/>
+    </game>
+    <game name="outruneh">
+      <wheel/>
+    </game>
+    <game name="outrunen">
+      <wheel/>
+    </game>
+    <game name="outrunen0">
+      <wheel/>
+    </game>
+    <game name="outrunen1">
+      <wheel/>
+    </game>
+    <game name="outrunen2">
+      <wheel/>
+    </game>
+    <game name="outrunm">
+      <wheel/>
+    </game>
+    <game name="outruno">
+      <wheel/>
+    </game>
+    <game name="outrunra">
+      <wheel/>
+    </game>
+    <game name="overdriv">
+      <wheel/>
+    </game>
+    <game name="overdriva">
+      <wheel/>
+    </game>
+    <game name="overdrivb">
+      <wheel/>
+    </game>
+    <game name="overrev">
+      <wheel/>
+    </game>
+    <game name="overrevb">
+      <wheel/>
+    </game>
+    <game name="overrevba">
+      <wheel/>
+    </game>
+    <game name="p911">
+      <gun/>
+    </game>
+    <game name="p9112">
+      <gun/>
+    </game>
+    <game name="p911e">
+      <gun/>
+    </game>
+    <game name="p911ea">
+      <gun/>
+    </game>
+    <game name="p911j">
+      <gun/>
+    </game>
+    <game name="p911kc">
+      <gun/>
+    </game>
+    <game name="p911uc">
+      <gun/>
+    </game>
+    <game name="pc_duckh">
+      <gun/>
+    </game>
+    <game name="pc_hgaly">
+      <gun/>
+    </game>
+    <game name="pc_wgnmn">
+      <gun/>
+    </game>
+    <game name="pdrift">
+      <wheel/>
+    </game>
+    <game name="pdrifta">
+      <wheel/>
+    </game>
+    <game name="pdrifte">
+      <wheel/>
+    </game>
+    <game name="pdriftj">
+      <wheel/>
+    </game>
+    <game name="pdriftl">
+      <wheel/>
+    </game>
+    <game name="plctr13b">
+      <gun/>
+    </game>
+    <game name="pocketrc">
+      <wheel/>
+    </game>
+    <game name="pokasuka">
+      <gun/>
+    </game>
+    <game name="polepos">
+      <wheel/>
+    </game>
+    <game name="polepos_sound">
+      <wheel/>
+    </game>
+    <game name="polepos1">
+      <wheel/>
+    </game>
+    <game name="polepos2">
+      <wheel/>
+    </game>
+    <game name="polepos2a">
+      <wheel/>
+    </game>
+    <game name="polepos2b">
+      <wheel/>
+    </game>
+    <game name="polepos2bi">
+      <wheel/>
+    </game>
+    <game name="polepos2bs">
+      <wheel/>
+    </game>
+    <game name="poleposa">
+      <wheel/>
+    </game>
+    <game name="poleposa1">
+      <wheel/>
+    </game>
+    <game name="poleposa2">
+      <wheel/>
+    </game>
+    <game name="poleposj">
+      <wheel/>
+    </game>
+    <game name="poleposn">
+      <wheel/>
+    </game>
+    <game name="poleps2a">
+      <wheel/>
+    </game>
+    <game name="poleps2b">
+      <wheel/>
+    </game>
+    <game name="poleps2c">
+      <wheel/>
+    </game>
+    <game name="policet2">
+      <gun/>
+    </game>
+    <game name="policeto">
+      <gun/>
+    </game>
+    <game name="policetr">
+      <gun/>
+    </game>
+    <game name="policetr10">
+      <gun/>
+    </game>
+    <game name="policetr11">
+      <gun/>
+    </game>
+    <game name="policetr13a">
+      <gun/>
+    </game>
+    <game name="policetr13b">
+      <gun/>
+    </game>
+    <game name="popsghostly">
+      <gun/>
+    </game>
+    <game name="popshot">
+      <gun/>
+    </game>
+    <game name="powsled">
+      <wheel/>
+    </game>
+    <game name="powsledm">
+      <wheel/>
+    </game>
+    <game name="powsledr">
+      <wheel/>
+    </game>
+    <game name="ppspeed">
+      <wheel/>
+    </game>
+    <game name="primevah">
+      <gun/>
+    </game>
+    <game name="psattack">
+      <gun/>
+    </game>
+    <game name="ptblank">
+      <gun/>
+    </game>
+    <game name="ptblank2">
+      <gun/>
+    </game>
+    <game name="ptblank2a">
+      <gun/>
+    </game>
+    <game name="ptblank2b">
+      <gun/>
+    </game>
+    <game name="ptblank2ua">
+      <gun/>
+    </game>
+    <game name="ptblank3">
+      <gun/>
+    </game>
+    <game name="ptblanka">
+      <gun/>
+    </game>
+    <game name="ptblnk2a">
+      <gun/>
+    </game>
+    <game name="pwheelsj">
+      <wheel/>
+    </game>
+    <game name="racedcb4">
+      <wheel/>
+    </game>
+    <game name="racedcg4">
+      <wheel/>
+    </game>
+    <game name="racedrb1">
+      <wheel/>
+    </game>
+    <game name="racedrb4">
+      <wheel/>
+    </game>
+    <game name="racedrc1">
+      <wheel/>
+    </game>
+    <game name="racedrc2">
+      <wheel/>
+    </game>
+    <game name="racedrc4">
+      <wheel/>
+    </game>
+    <game name="racedrcb">
+      <wheel/>
+    </game>
+    <game name="racedrcg">
+      <wheel/>
+    </game>
+    <game name="racedrg1">
+      <wheel/>
+    </game>
+    <game name="racedrg4">
+      <wheel/>
+    </game>
+    <game name="racedriv">
+      <wheel/>
+    </game>
+    <game name="racedriv1">
+      <wheel/>
+    </game>
+    <game name="racedriv2">
+      <wheel/>
+    </game>
+    <game name="racedriv3">
+      <wheel/>
+    </game>
+    <game name="racedriv4">
+      <wheel/>
+    </game>
+    <game name="racedrivb">
+      <wheel/>
+    </game>
+    <game name="racedrivb1">
+      <wheel/>
+    </game>
+    <game name="racedrivb4">
+      <wheel/>
+    </game>
+    <game name="racedrivc">
+      <wheel/>
+    </game>
+    <game name="racedrivc1">
+      <wheel/>
+    </game>
+    <game name="racedrivc2">
+      <wheel/>
+    </game>
+    <game name="racedrivc4">
+      <wheel/>
+    </game>
+    <game name="racedrivcb">
+      <wheel/>
+    </game>
+    <game name="racedrivcb4">
+      <wheel/>
+    </game>
+    <game name="racedrivcg">
+      <wheel/>
+    </game>
+    <game name="racedrivcg4">
+      <wheel/>
+    </game>
+    <game name="racedrivg">
+      <wheel/>
+    </game>
+    <game name="racedrivg1">
+      <wheel/>
+    </game>
+    <game name="racedrivg4">
+      <wheel/>
+    </game>
+    <game name="racedrivpan">
+      <wheel/>
+    </game>
+    <game name="racedrv1">
+      <wheel/>
+    </game>
+    <game name="racedrv2">
+      <wheel/>
+    </game>
+    <game name="racedrv3">
+      <wheel/>
+    </game>
+    <game name="racedrv4">
+      <wheel/>
+    </game>
+    <game name="racedrvb">
+      <wheel/>
+    </game>
+    <game name="racedrvc">
+      <wheel/>
+    </game>
+    <game name="racedrvg">
+      <wheel/>
+    </game>
+    <game name="racinfrc">
+      <wheel/>
+    </game>
+    <game name="racinfrcu">
+      <wheel/>
+    </game>
+    <game name="racingb">
+      <wheel/>
+    </game>
+    <game name="racingbj">
+      <wheel/>
+    </game>
+    <game name="racingj">
+      <wheel/>
+    </game>
+    <game name="racingj2">
+      <wheel/>
+    </game>
+    <game name="racingj2j">
+      <wheel/>
+    </game>
+    <game name="racjamdx">
+      <wheel/>
+    </game>
+    <game name="radikalb">
+      <wheel/>
+    </game>
+    <game name="radikalba">
+      <wheel/>
+    </game>
+    <game name="radm">
+      <wheel/>
+    </game>
+    <game name="radmu">
+      <wheel/>
+    </game>
+    <game name="radr">
+      <wheel/>
+    </game>
+    <game name="radrj">
+      <wheel/>
+    </game>
+    <game name="radru">
+      <wheel/>
+    </game>
+    <game name="rambo">
+      <gun/>
+    </game>
+    <game name="rangrmsn">
+      <gun/>
+    </game>
+    <game name="rapidfip">
+      <gun/>
+    </game>
+    <game name="rapidfir">
+      <gun/>
+    </game>
+    <game name="rapidfira">
+      <gun/>
+    </game>
+    <game name="rapidfire">
+      <gun/>
+    </game>
+    <game name="raveracj">
+      <wheel/>
+    </game>
+    <game name="raveracja">
+      <wheel/>
+    </game>
+    <game name="raveracw">
+      <wheel/>
+    </game>
+    <game name="rchase">
+      <gun/>
+    </game>
+    <game name="rchase2">
+      <gun/>
+    </game>
+    <game name="rchasej">
+      <gun/>
+    </game>
+    <game name="redlin2p">
+      <wheel/>
+    </game>
+    <game name="revx">
+      <gun/>
+    </game>
+    <game name="revxp5">
+      <gun/>
+    </game>
+    <game name="rf2">
+      <wheel/>
+    </game>
+    <game name="ridger2j">
+      <wheel/>
+    </game>
+    <game name="ridgera2">
+      <wheel/>
+    </game>
+    <game name="ridgera2j">
+      <wheel/>
+    </game>
+    <game name="ridgera2ja">
+      <wheel/>
+    </game>
+    <game name="ridgerac">
+      <wheel/>
+    </game>
+    <game name="ridgerac3">
+      <wheel/>
+    </game>
+    <game name="ridgeracb">
+      <wheel/>
+    </game>
+    <game name="ridgeracf">
+      <wheel/>
+    </game>
+    <game name="ridgeracj">
+      <wheel/>
+    </game>
+    <game name="ridgeraj">
+      <wheel/>
+    </game>
+    <game name="roadblc1">
+      <wheel/>
+    </game>
+    <game name="roadblcg">
+      <wheel/>
+    </game>
+    <game name="roadblg1">
+      <wheel/>
+    </game>
+    <game name="roadblg2">
+      <wheel/>
+    </game>
+    <game name="roadbls1">
+      <wheel/>
+    </game>
+    <game name="roadbls2">
+      <wheel/>
+    </game>
+    <game name="roadbls3">
+      <wheel/>
+    </game>
+    <game name="roadblsc">
+      <wheel/>
+    </game>
+    <game name="roadblsg">
+      <wheel/>
+    </game>
+    <game name="roadblst">
+      <wheel/>
+    </game>
+    <game name="roadblst1">
+      <wheel/>
+    </game>
+    <game name="roadblst2">
+      <wheel/>
+    </game>
+    <game name="roadblst3">
+      <wheel/>
+    </game>
+    <game name="roadblstc">
+      <wheel/>
+    </game>
+    <game name="roadblstc1">
+      <wheel/>
+    </game>
+    <game name="roadblstcg">
+      <wheel/>
+    </game>
+    <game name="roadblstg">
+      <wheel/>
+    </game>
+    <game name="roadblstg1">
+      <wheel/>
+    </game>
+    <game name="roadblstg2">
+      <wheel/>
+    </game>
+    <game name="roadblstgu">
+      <wheel/>
+    </game>
+    <game name="roadburn">
+      <wheel/>
+    </game>
+    <game name="roadburn1">
+      <wheel/>
+    </game>
+    <game name="roadedge">
+      <wheel/>
+    </game>
+    <game name="roadriot">
+      <wheel/>
+    </game>
+    <game name="roadriota">
+      <wheel/>
+    </game>
+    <game name="roadriotb">
+      <wheel/>
+    </game>
+    <game name="roadrioto">
+      <wheel/>
+    </game>
+    <game name="roadrunm">
+      <gun/>
+    </game>
+    <game name="rrreveng">
+      <wheel/>
+    </game>
+    <game name="rrrevenga">
+      <wheel/>
+    </game>
+    <game name="rrrevengb">
+      <wheel/>
+    </game>
+    <game name="rrrevenp">
+      <wheel/>
+    </game>
+    <game name="rrvac">
+      <wheel/>
+    </game>
+    <game name="rrvac1">
+      <wheel/>
+    </game>
+    <game name="rrvac2">
+      <wheel/>
+    </game>
+    <game name="sc5sharp">
+      <gun/>
+    </game>
+    <game name="sc5sharpa">
+      <gun/>
+    </game>
+    <game name="sci">
+      <wheel/>
+    </game>
+    <game name="scia">
+      <wheel/>
+    </game>
+    <game name="scij">
+      <wheel/>
+    </game>
+    <game name="scin">
+      <wheel/>
+    </game>
+    <game name="scinegro">
+      <wheel/>
+    </game>
+    <game name="scross">
+      <wheel/>
+    </game>
+    <game name="scrossa">
+      <wheel/>
+    </game>
+    <game name="scrossu">
+      <wheel/>
+    </game>
+    <game name="scud">
+      <wheel/>
+    </game>
+    <game name="scuda">
+      <wheel/>
+    </game>
+    <game name="scudj">
+      <wheel/>
+    </game>
+    <game name="scudp">
+      <wheel/>
+    </game>
+    <game name="scudplus">
+      <wheel/>
+    </game>
+    <game name="scudplusa">
+      <wheel/>
+    </game>
+    <game name="sf2049">
+      <wheel/>
+    </game>
+    <game name="sf2049se">
+      <wheel/>
+    </game>
+    <game name="sf2049te">
+      <wheel/>
+    </game>
+    <game name="sf2049tea">
+      <wheel/>
+    </game>
+    <game name="sfrush">
+      <wheel/>
+    </game>
+    <game name="sfrusha">
+      <wheel/>
+    </game>
+    <game name="sfrushrk">
+      <wheel/>
+    </game>
+    <game name="sfrushrkw">
+      <wheel/>
+    </game>
+    <game name="sfrushrkwo">
+      <wheel/>
+    </game>
+    <game name="sgt24h">
+      <wheel/>
+    </game>
+    <game name="sgunner">
+      <gun/>
+    </game>
+    <game name="sgunner2">
+      <gun/>
+    </game>
+    <game name="sgunner2j">
+      <gun/>
+    </game>
+    <game name="sgunnerj">
+      <gun/>
+    </game>
+    <game name="sgunnr2j">
+      <gun/>
+    </game>
+    <game name="shangon">
+      <wheel/>
+    </game>
+    <game name="shangon1">
+      <wheel/>
+    </game>
+    <game name="shangon2">
+      <wheel/>
+    </game>
+    <game name="shangon3">
+      <wheel/>
+    </game>
+    <game name="shangon3d">
+      <wheel/>
+    </game>
+    <game name="shangonb">
+      <wheel/>
+    </game>
+    <game name="shangoneh">
+      <wheel/>
+    </game>
+    <game name="shangonho">
+      <wheel/>
+    </game>
+    <game name="shangonle">
+      <wheel/>
+    </game>
+    <game name="shangonleeh">
+      <wheel/>
+    </game>
+    <game name="shangonrb">
+      <wheel/>
+    </game>
+    <game name="shangonrb2">
+      <wheel/>
+    </game>
+    <game name="shangonro">
+      <wheel/>
+    </game>
+    <game name="shootgal">
+      <gun/>
+    </game>
+    <game name="showdown">
+      <gun/>
+    </game>
+    <game name="showdown4">
+      <gun/>
+    </game>
+    <game name="shtngmst">
+      <gun/>
+    </game>
+    <game name="shtngmste">
+      <gun/>
+    </game>
+    <game name="sidebs">
+      <wheel/>
+    </game>
+    <game name="sidebs2">
+      <wheel/>
+    </game>
+    <game name="sidebs2j">
+      <wheel/>
+    </game>
+    <game name="sidebs2ja">
+      <wheel/>
+    </game>
+    <game name="sidebs2u">
+      <wheel/>
+    </game>
+    <game name="sidebsja">
+      <wheel/>
+    </game>
+    <game name="sidebsjb">
+      <wheel/>
+    </game>
+    <game name="skeetsht">
+      <gun/>
+    </game>
+    <game name="slipstrm">
+      <wheel/>
+    </game>
+    <game name="slipstrmh">
+      <wheel/>
+    </game>
+    <game name="smgp">
+      <wheel/>
+    </game>
+    <game name="smgp5">
+      <wheel/>
+    </game>
+    <game name="smgp5d">
+      <wheel/>
+    </game>
+    <game name="smgp6">
+      <wheel/>
+    </game>
+    <game name="smgp6d">
+      <wheel/>
+    </game>
+    <game name="smgpd">
+      <wheel/>
+    </game>
+    <game name="smgpj">
+      <wheel/>
+    </game>
+    <game name="smgpja">
+      <wheel/>
+    </game>
+    <game name="smgpjd">
+      <wheel/>
+    </game>
+    <game name="smgpu">
+      <wheel/>
+    </game>
+    <game name="smgpu1">
+      <wheel/>
+    </game>
+    <game name="smgpu1d">
+      <wheel/>
+    </game>
+    <game name="smgpu2">
+      <wheel/>
+    </game>
+    <game name="smgpu2d">
+      <wheel/>
+    </game>
+    <game name="smgpu3">
+      <wheel/>
+    </game>
+    <game name="smgpud">
+      <wheel/>
+    </game>
+    <game name="sogeki">
+      <gun/>
+    </game>
+    <game name="sonicfury">
+      <gun/>
+    </game>
+    <game name="spacegun">
+      <gun/>
+    </game>
+    <game name="spacegunj">
+      <gun/>
+    </game>
+    <game name="spacegunu">
+      <gun/>
+    </game>
+    <game name="spacepir">
+      <gun/>
+    </game>
+    <game name="spacepirates-hd">
+      <gun/>
+    </game>
+    <game name="spacepir_14">
+      <gun/>
+    </game>
+    <game name="specfrce">
+      <gun/>
+    </game>
+    <game name="speedfrk">
+      <wheel/>
+    </game>
+    <game name="speedrcr">
+      <wheel/>
+    </game>
+    <game name="speedup">
+      <wheel/>
+    </game>
+    <game name="speedup10">
+      <wheel/>
+    </game>
+    <game name="sprint1">
+      <wheel/>
+    </game>
+    <game name="sprint2">
+      <wheel/>
+    </game>
+    <game name="sprint2a">
+      <wheel/>
+    </game>
+    <game name="sprint2h">
+      <wheel/>
+    </game>
+    <game name="sprint4">
+      <wheel/>
+    </game>
+    <game name="sprint4a">
+      <wheel/>
+    </game>
+    <game name="sprint8">
+      <wheel/>
+    </game>
+    <game name="sprint8a">
+      <wheel/>
+    </game>
+    <game name="sprtshot">
+      <gun/>
+    </game>
+    <game name="spyhnt2a">
+      <wheel/>
+    </game>
+    <game name="spyhunt">
+      <wheel/>
+    </game>
+    <game name="spyhunt2">
+      <wheel/>
+    </game>
+    <game name="spyhunt2a">
+      <wheel/>
+    </game>
+    <game name="spyhuntp">
+      <wheel/>
+    </game>
+    <game name="spyhuntpr">
+      <wheel/>
+    </game>
+    <game name="spyhuntr">
+      <wheel/>
+    </game>
+    <game name="spyhuntsp">
+      <wheel/>
+    </game>
+    <game name="srally2">
+      <wheel/>
+    </game>
+    <game name="srally2p">
+      <wheel/>
+    </game>
+    <game name="srally2pa">
+      <wheel/>
+    </game>
+    <game name="srally2x">
+      <wheel/>
+    </game>
+    <game name="srallyc">
+      <wheel/>
+    </game>
+    <game name="srallyca">
+      <wheel/>
+    </game>
+    <game name="srallycb">
+      <wheel/>
+    </game>
+    <game name="srallycc">
+      <wheel/>
+    </game>
+    <game name="srallycdx">
+      <wheel/>
+    </game>
+    <game name="srallycdxa">
+      <wheel/>
+    </game>
+    <game name="srallyp">
+      <wheel/>
+    </game>
+    <game name="sscope">
+      <gun/>
+    </game>
+    <game name="sscope2">
+      <gun/>
+    </game>
+    <game name="sscopea">
+      <gun/>
+    </game>
+    <game name="sscopeb">
+      <gun/>
+    </game>
+    <game name="sscopec">
+      <gun/>
+    </game>
+    <game name="sscopefh">
+      <gun/>
+    </game>
+    <game name="sscopex">
+      <gun/>
+    </game>
+    <game name="sshootep">
+      <gun/>
+    </game>
+    <game name="sshooter">
+      <gun/>
+    </game>
+    <game name="sshooter11">
+      <gun/>
+    </game>
+    <game name="sshooter12">
+      <gun/>
+    </game>
+    <game name="sshooter17">
+      <gun/>
+    </game>
+    <game name="sshootr2">
+      <gun/>
+    </game>
+    <game name="sspring1">
+      <wheel/>
+    </game>
+    <game name="ssprint">
+      <wheel/>
+    </game>
+    <game name="ssprint1">
+      <wheel/>
+    </game>
+    <game name="ssprint3">
+      <wheel/>
+    </game>
+    <game name="ssprintf">
+      <wheel/>
+    </game>
+    <game name="ssprintg">
+      <wheel/>
+    </game>
+    <game name="ssprintg1">
+      <wheel/>
+    </game>
+    <game name="ssprints">
+      <wheel/>
+    </game>
+    <game name="ssrj">
+      <wheel/>
+    </game>
+    <game name="stcc">
+      <wheel/>
+    </game>
+    <game name="stcca">
+      <wheel/>
+    </game>
+    <game name="stccb">
+      <wheel/>
+    </game>
+    <game name="stocker">
+      <wheel/>
+    </game>
+    <game name="strtdriv">
+      <wheel/>
+    </game>
+    <game name="strtheat">
+      <wheel/>
+    </game>
+    <game name="strtheata">
+      <wheel/>
+    </game>
+    <game name="styphp">
+      <wheel/>
+    </game>
+    <game name="superbug">
+      <wheel/>
+    </game>
+    <game name="superchs">
+      <wheel/>
+    </game>
+    <game name="superchsj">
+      <wheel/>
+    </game>
+    <game name="superchsp">
+      <wheel/>
+    </game>
+    <game name="superchsp2">
+      <wheel/>
+    </game>
+    <game name="superchsu">
+      <wheel/>
+    </game>
+    <game name="suzuk8h2">
+      <wheel/>
+    </game>
+    <game name="suzuk8h2j">
+      <wheel/>
+    </game>
+    <game name="suzuk8hj">
+      <wheel/>
+    </game>
+    <game name="suzuka8h">
+      <wheel/>
+    </game>
+    <game name="suzuka8hj">
+      <wheel/>
+    </game>
+    <game name="swtrilgy">
+      <gun/>
+    </game>
+    <game name="t2_l2">
+      <gun/>
+    </game>
+    <game name="t2_l3">
+      <gun/>
+    </game>
+    <game name="t2_l4">
+      <gun/>
+    </game>
+    <game name="t2_l6">
+      <gun/>
+    </game>
+    <game name="t2_l8">
+      <gun/>
+    </game>
+    <game name="t2_p2f">
+      <gun/>
+    </game>
+    <game name="targeth">
+      <gun/>
+    </game>
+    <game name="targeth10">
+      <gun/>
+    </game>
+    <game name="targetha">
+      <gun/>
+    </game>
+    <game name="tceptor2">
+      <wheel/>
+    </game>
+    <game name="technodr">
+      <wheel/>
+    </game>
+    <game name="terabrst">
+      <gun/>
+    </game>
+    <game name="terabrsta">
+      <gun/>
+    </game>
+    <game name="term2">
+      <gun/>
+    </game>
+    <game name="term2la1">
+      <gun/>
+    </game>
+    <game name="term2la2">
+      <gun/>
+    </game>
+    <game name="term2la3">
+      <gun/>
+    </game>
+    <game name="term2lg1">
+      <gun/>
+    </game>
+    <game name="term2pa2">
+      <gun/>
+    </game>
+    <game name="thrild2">
+      <wheel/>
+    </game>
+    <game name="thrild2a">
+      <wheel/>
+    </game>
+    <game name="thrild2ab">
+      <wheel/>
+    </game>
+    <game name="thrild2ac">
+      <wheel/>
+    </game>
+    <game name="thrild2c">
+      <wheel/>
+    </game>
+    <game name="thrild2j">
+      <wheel/>
+    </game>
+    <game name="thrilld">
+      <wheel/>
+    </game>
+    <game name="thrilldae">
+      <wheel/>
+    </game>
+    <game name="thrilldb">
+      <wheel/>
+    </game>
+    <game name="thunderh">
+      <gun/>
+    </game>
+    <game name="thunderhu">
+      <gun/>
+    </game>
+    <game name="tickee">
+      <gun/>
+    </game>
+    <game name="timecris">
+      <gun/>
+    </game>
+    <game name="timecrisa">
+      <gun/>
+    </game>
+    <game name="timecrs2">
+      <gun/>
+    </game>
+    <game name="timecrs2b">
+      <gun/>
+    </game>
+    <game name="timecrs2c">
+      <gun/>
+    </game>
+    <game name="timecrs2v1b">
+      <gun/>
+    </game>
+    <game name="timecrs2v2b">
+      <gun/>
+    </game>
+    <game name="timecrs2v4a">
+      <gun/>
+    </game>
+    <game name="timecrs2v5a">
+      <gun/>
+    </game>
+    <game name="timecrs3">
+      <gun/>
+    </game>
+    <game name="timecrs3e">
+      <gun/>
+    </game>
+    <game name="timecrs4">
+      <gun/>
+    </game>
+    <game name="timecrsa">
+      <gun/>
+    </game>
+    <game name="tjpark">
+      <gun/>
+    </game>
+    <game name="tokyobus">
+      <wheel/>
+    </game>
+    <game name="topracer">
+      <wheel/>
+    </game>
+    <game name="topracera">
+      <wheel/>
+    </game>
+    <game name="topracern">
+      <wheel/>
+    </game>
+    <game name="topsecex">
+      <wheel/>
+    </game>
+    <game name="topspeed">
+      <wheel/>
+    </game>
+    <game name="topspeedu">
+      <wheel/>
+    </game>
+    <game name="totd">
+      <gun/>
+    </game>
+    <game name="totdo">
+      <gun/>
+    </game>
+    <game name="totlvica">
+      <gun/>
+    </game>
+    <game name="totlvice">
+      <gun/>
+    </game>
+    <game name="totlvicj">
+      <gun/>
+    </game>
+    <game name="totlvicu">
+      <gun/>
+    </game>
+    <game name="toutrun">
+      <wheel/>
+    </game>
+    <game name="toutrun1">
+      <wheel/>
+    </game>
+    <game name="toutrun2">
+      <wheel/>
+    </game>
+    <game name="toutrun2d">
+      <wheel/>
+    </game>
+    <game name="toutrun3">
+      <wheel/>
+    </game>
+    <game name="toutrun3d">
+      <wheel/>
+    </game>
+    <game name="toutruna">
+      <wheel/>
+    </game>
+    <game name="toutrund">
+      <wheel/>
+    </game>
+    <game name="toutrunj">
+      <wheel/>
+    </game>
+    <game name="toutrunj1">
+      <wheel/>
+    </game>
+    <game name="toutrunj1d">
+      <wheel/>
+    </game>
+    <game name="toutrunjd">
+      <wheel/>
+    </game>
+    <game name="triplhnt">
+      <gun/>
+    </game>
+    <game name="trophyh">
+      <gun/>
+    </game>
+    <game name="trophyht">
+      <gun/>
+    </game>
+    <game name="tshoot">
+      <gun/>
+    </game>
+    <game name="turboa">
+      <wheel/>
+    </game>
+    <game name="turbob">
+      <wheel/>
+    </game>
+    <game name="turbobl">
+      <wheel/>
+    </game>
+    <game name="turboc">
+      <wheel/>
+    </game>
+    <game name="turbod">
+      <wheel/>
+    </game>
+    <game name="turbotag">
+      <wheel/>
+    </game>
+    <game name="turkhunt">
+      <gun/>
+    </game>
+    <game name="tutstomb">
+      <gun/>
+    </game>
+    <game name="tvsci">
+      <wheel/>
+    </game>
+    <game name="tx1">
+      <wheel/>
+    </game>
+    <game name="tx1_sound">
+      <wheel/>
+    </game>
+    <game name="tx1a">
+      <wheel/>
+    </game>
+    <game name="tx1jb">
+      <wheel/>
+    </game>
+    <game name="tx1jc">
+      <wheel/>
+    </game>
+    <game name="undrfire">
+      <gun/>
+    </game>
+    <game name="undrfirej">
+      <gun/>
+    </game>
+    <game name="undrfireu">
+      <gun/>
+    </game>
+    <game name="undrfirj">
+      <gun/>
+    </game>
+    <game name="undrfiru">
+      <gun/>
+    </game>
+    <game name="vcombat">
+      <gun/>
+    </game>
+    <game name="vcop">
+      <gun/>
+    </game>
+    <game name="vcop2">
+      <gun/>
+    </game>
+    <game name="vcop3">
+      <gun/>
+    </game>
+    <game name="vcop3a">
+      <gun/>
+    </game>
+    <game name="vcopa">
+      <gun/>
+    </game>
+    <game name="vformula">
+      <wheel/>
+    </game>
+    <game name="victlap">
+      <wheel/>
+    </game>
+    <game name="victlapa">
+      <wheel/>
+    </game>
+    <game name="victlapj">
+      <wheel/>
+    </game>
+    <game name="victlapw">
+      <wheel/>
+    </game>
+    <game name="vnight">
+      <gun/>
+    </game>
+    <game name="voyager">
+      <gun/>
+    </game>
+    <game name="vr">
+      <wheel/>
+    </game>
+    <game name="vsfdf">
+      <gun/>
+    </game>
+    <game name="vsgshoe">
+      <gun/>
+    </game>
+    <game name="wanganmd">
+      <wheel/>
+    </game>
+    <game name="wanganmr">
+      <wheel/>
+    </game>
+    <game name="wangmd2b">
+      <wheel/>
+    </game>
+    <game name="wangmid">
+      <wheel/>
+    </game>
+    <game name="wangmid2">
+      <wheel/>
+    </game>
+    <game name="wangmid2j">
+      <wheel/>
+    </game>
+    <game name="wangmid2ja">
+      <wheel/>
+    </game>
+    <game name="wangmid2o">
+      <wheel/>
+    </game>
+    <game name="wangmidj">
+      <wheel/>
+    </game>
+    <game name="wcombat">
+      <gun/>
+    </game>
+    <game name="wcombatb">
+      <gun/>
+    </game>
+    <game name="wcombatj">
+      <gun/>
+    </game>
+    <game name="wcombatk">
+      <gun/>
+    </game>
+    <game name="wcombatu">
+      <gun/>
+    </game>
+    <game name="wecleman">
+      <wheel/>
+    </game>
+    <game name="wecleman2">
+      <wheel/>
+    </game>
+    <game name="weclemana">
+      <wheel/>
+    </game>
+    <game name="weclemanb">
+      <wheel/>
+    </game>
+    <game name="weclemanc">
+      <wheel/>
+    </game>
+    <game name="wheelfir">
+      <wheel/>
+    </game>
+    <game name="wheelrun">
+      <wheel/>
+    </game>
+    <game name="whodunit">
+      <gun/>
+    </game>
+    <game name="whodunit8">
+      <gun/>
+    </game>
+    <game name="wildplt">
+      <gun/>
+    </game>
+    <game name="windheat">
+      <wheel/>
+    </game>
+    <game name="windheata">
+      <wheel/>
+    </game>
+    <game name="windheatj">
+      <wheel/>
+    </game>
+    <game name="windheatu">
+      <wheel/>
+    </game>
+    <game name="winrun">
+      <wheel/>
+    </game>
+    <game name="winrun91">
+      <wheel/>
+    </game>
+    <game name="winrungp">
+      <wheel/>
+    </game>
+    <game name="wldrider">
+      <wheel/>
+    </game>
+    <game name="wrally">
+      <wheel/>
+    </game>
+    <game name="wrally2">
+      <wheel/>
+    </game>
+    <game name="wrally2a">
+      <wheel/>
+    </game>
+    <game name="wrallya">
+      <wheel/>
+    </game>
+    <game name="wrallyat">
+      <wheel/>
+    </game>
+    <game name="wrallyb">
+      <wheel/>
+    </game>
+    <game name="wschamp">
+      <gun/>
+    </game>
+    <game name="wschampa">
+      <gun/>
+    </game>
+    <game name="wschampb">
+      <gun/>
+    </game>
+    <game name="wsjr">
+      <gun/>
+    </game>
+    <game name="wsjr_15">
+      <gun/>
+    </game>
+    <game name="xrally">
+      <wheel/>
+    </game>
+    <game name="xtrmhnt2">
+      <gun/>
+    </game>
+    <game name="xtrmhunt">
+      <gun/>
+    </game>
+    <game name="zeropnt">
+      <gun/>
+    </game>
+    <game name="zeropnt2">
+      <gun/>
+    </game>
+    <game name="zeropnta">
+      <gun/>
+    </game>
+    <game name="zeropntj">
+      <gun/>
+    </game>
+    <game name="zombraid">
+      <gun/>
+    </game>
+    <game name="zombraidp">
+      <gun/>
+    </game>
+    <game name="zombraidpj">
+      <gun/>
+    </game>
+    <game name="zortonbr">
+      <gun/>
+    </game>
+    <game name="bigrunu">
+      <wheel/>
+    </game>
+    <game name="buggyboyb">
+      <wheel/>
+    </game>
+    <game name="dirtdashj">
+      <wheel/>
+    </game>
+    <game name="dirtdvlsau">
+      <wheel/>
+    </game>
+    <game name="dirtdvlsu">
+      <wheel/>
+    </game>
+    <game name="endurorb">
+      <wheel/>
+    </game>
+    <game name="finalapr1">
+      <wheel/>
+    </game>
+    <game name="finalaprj1">
+      <wheel/>
+    </game>
+    <game name="getaway">
+      <wheel/>
+    </game>
+    <game name="scudau">
+      <wheel/>
+    </game>
+    <game name="scuddx">
+      <wheel/>
+    </game>
+    <game name="shoottv">
+      <gun/>
+    </game>
+    <game name="spdheat">
+      <wheel/>
+    </game>
+    <game name="spdheatj">
+      <wheel/>
+    </game>
+    <game name="speedrs">
+      <wheel/>
+    </game>
+    <game name="speedup12">
+      <wheel/>
+    </game>
+    <game name="srally2dx">
+      <wheel/>
+    </game>
+    <game name="thrilldbe">
+      <wheel/>
+    </game>
+  </system>
   <system name="3do">
     <game name="drugwars">
       <gun/>
@@ -270,7 +3617,7 @@
   </system>
   <system name="dreamcast">
     <game name="default">
-      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" />
+      <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt"/>
     </game>
     <game name="4x4evo">
       <wheel rotation="270" wheel="joystick1left" accelerate="rt" brake="lt" deadzone="50"/>
@@ -413,7 +3760,7 @@
   </system>
   <system name="gamecube">
     <game name="default">
-      <wheel rotation="180" />
+      <wheel rotation="180"/>
     </game>
     <game name="dakar2">
       <wheel rotation="180"/>
@@ -651,7 +3998,7 @@
   </system>
   <system name="n64">
     <game name="default">
-      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b" />
+      <wheel wheel="joystick1left" rotation="180" accelerate="a" brake="b"/>
     </game>
     <game name="nhl99">
       <controller rumble="true"/>
@@ -1703,7 +5050,7 @@
       <wheel type="DrivingForcePro"/>
     </game>
     <game name="granturismo3">
-      <wheel type="DrivingForce" rotation="270"/>
+      <wheel type="GTForce" rotation="270"/>
     </game>
     <game name="granturismo4">
       <wheel type="DrivingForcePro"/>
@@ -2175,7 +5522,7 @@
   </system>
   <system name="psx">
     <game name="default">
-      <wheel wheel="joystick1left" accelerate="cross" brake="square" />
+      <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="taxi2">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -3329,91 +6676,91 @@
   </system>
   <system name="arcade">
     <game name="18wheelro">
-      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelrt">
-      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelr">
-      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheels">
-      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelu">
-      <wheel rotation="270" downshift="y" upshift="x" y="down" />
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="crzytaxi">
-      <wheel rotation="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="f355twinp">
-      <wheel rotation="270" />
+      <wheel rotation="270"/>
     </game>
     <game name="f355twin">
-      <wheel rotation="270" />
+      <wheel rotation="270"/>
     </game>
     <game name="f355twn2">
-      <wheel rotation="270" />
+      <wheel rotation="270"/>
     </game>
     <game name="f355">
-      <wheel rotation="270" />
+      <wheel rotation="270"/>
     </game>
     <game name="ftspeed">
-      <wheel rotation="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="inidv3ca">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="inidv3cy">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdexpo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdexp">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2ja">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2jo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3jb">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initiad4c">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initiad4">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initd">
-      <wheel rotation="270" downshift="a" upshift="b" b="down" />
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="jambo">
-      <wheel rotation="270" downshift="b" upshift="a" />
+      <wheel rotation="270" downshift="b" upshift="a"/>
     </game>
     <game name="maxspeed">
-      <wheel rotation="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="wldrider">
-      <wheel rotation="270" downshift="down" upshift="up" />
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
   </system>
 </systems>

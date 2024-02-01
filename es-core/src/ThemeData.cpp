@@ -728,7 +728,8 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	mVariables["global.language"] = mLangAndRegion;
 	mVariables["currentPath"] = Utils::FileSystem::getParent(mPaths.back());
 	mVariables["themePath"] = Utils::FileSystem::getParent(mPaths.back());
-
+	mVariables["region"] = mRegion;
+	
 	for (auto var : mVariables)
 	{
 		if (var.first == "screen.height" || var.first == "screen.width")
