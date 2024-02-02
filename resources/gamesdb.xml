@@ -3763,145 +3763,145 @@
       <wheel rotation="180"/>
     </game>
     <game name="dakar2">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="driven">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="f12002">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="nascar">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="4x4evo2">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="burnout">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="fzerogx">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="vrally3">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="prorally">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="18wheeler">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="cityracer">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="crazytaxi">
-      <wheel rotation="180"/>
-    </game>
-    <game name="hotwheels">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="spyhunter">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="italianjob">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="dromeracers">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="grooverider">
-      <wheel rotation="180"/>
-    </game>
-    <game name="gtproseries">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="sonicriders">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="worldracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="charinkohero">
-      <wheel rotation="180"/>
-    </game>
-    <game name="smashingdrive">
-      <wheel rotation="180"/>
-    </game>
-    <game name="automodellista">
-      <wheel rotation="180"/>
-    </game>
-    <game name="crashnitrokart">
-      <wheel rotation="180"/>
-    </game>
-    <game name="lotuschallenge">
-      <wheel rotation="180"/>
-    </game>
-    <game name="cocotokartracer">
-      <wheel rotation="180"/>
-    </game>
-    <game name="disneypixarcars">
-      <wheel rotation="180"/>
-    </game>
-    <game name="starskyandhutch">
-      <wheel rotation="180"/>
-    </game>
-    <game name="americanchopper2">
-      <wheel rotation="180"/>
-    </game>
-    <game name="bigmuthatruckers">
-      <wheel rotation="180"/>
-    </game>
-    <game name="buttuglymartians">
-      <wheel rotation="180"/>
-    </game>
-    <game name="pacmanworldrally">
-      <wheel rotation="180"/>
-    </game>
-    <game name="rracingevolution">
-      <wheel rotation="180"/>
-    </game>
-    <game name="simpsonsroadrage">
-      <wheel rotation="180"/>
-    </game>
-    <game name="f1careerchallenge">
-      <wheel rotation="180"/>
-    </game>
-    <game name="rallychampionship">
-      <wheel rotation="180"/>
-    </game>
-    <game name="crashtagteamracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="atvquadpowerracing2">
-      <wheel rotation="180"/>
-    </game>
-    <game name="mariokartdoubledash">
-      <wheel rotation="180"/>
-    </game>
-    <game name="xgiiiextremegracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="shreksmashncrashracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="needforspeedunderground2">
-      <wheel rotation="180" accelerate="rt" brake="lt"/>
+      <wheel/>
     </game>
     <game name="needforspeed">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="charinkohero">
+      <wheel/>
+    </game>
+    <game name="smashingdrive">
+      <wheel/>
+    </game>
+    <game name="automodellista">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="crashnitrokart">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="lotuschallenge">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="cocotokartracer">
+      <wheel/>
+    </game>
+    <game name="simpsonshitnrun">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="disneypixarcars">
+      <wheel/>
+    </game>
+    <game name="starskyandhutch">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="americanchopper2">
+      <wheel/>
+    </game>
+    <game name="bigmuthatruckers">
+      <wheel/>
+    </game>
+    <game name="buttuglymartians">
+      <wheel/>
+    </game>
+    <game name="pacmanworldrally">
+      <wheel/>
+    </game>
+    <game name="rracingevolution">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="simpsonsroadrage">
+      <wheel/>
+    </game>
+    <game name="f1careerchallenge">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="rallychampionship">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="crashtagteamracing">
+      <wheel/>
+    </game>
+    <game name="hotwheelsvelocityx">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="hotwheelsworldrace">
+      <wheel/>
+    </game>
+    <game name="atvquadpowerracing2">
+      <wheel/>
+    </game>
+    <game name="mariokartdoubledash">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="xgiiiextremegracing">
+      <wheel/>
+    </game>
+    <game name="shreksmashncrashracing">
+      <wheel/>
     </game>
     <game name="roadtripthearcadeedition">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="srsstreetracingsyndicate">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="xgraextremegracingassociation">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="speedchallengejacquesvilleneuve">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
   </system>
   <system name="gx4000">
