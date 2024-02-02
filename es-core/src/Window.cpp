@@ -167,16 +167,6 @@ bool Window::init(bool initRenderer, bool initInputManager)
 
 	// update our help because font sizes probably changed
 	if (peekGui())
-#ifdef _ENABLEEMUELEC	
-		// emuelec
-      if(Utils::FileSystem::exists("/usr/bin/fbfix")) {
-      system("/usr/bin/fbfix");      
-  } else { 
-	  if(Utils::FileSystem::exists("/storage/.kodi/addons/script.emuelec.Amlogic-ng.launcher/bin/fbfix")) {
-	   system("/storage/.kodi/addons/script.emuelec.Amlogic-ng.launcher/bin/fbfix");
-	  }
-  }
-#endif
 		peekGui()->updateHelpPrompts();
 	return true;
 }
