@@ -1046,6 +1046,15 @@ msgstr "TIDAK ADA FILE BIOS YANG HILANG"
 msgid "MISSING BIOS CHECK"
 msgstr "PERIKSA BIOS HILANG"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "SEMUA"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "TIDAK ADA BIOS YANG HILANG"
 
@@ -1367,9 +1376,6 @@ msgstr "PENGUNDUH TEMA"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "PILIH TEMA YANG AKAN DIPASANG/HAPUS"
-
-msgid "All"
-msgstr "SEMUA"
 
 msgid "Installed"
 msgstr "Terpasang"
@@ -1840,6 +1846,24 @@ msgstr "BUAT CACHE IMAGE"
 msgid "Building image cache"
 msgstr "Membuat chace image"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "MANAJEMEN DATA"
 
@@ -1957,6 +1981,9 @@ msgstr "OPTIMALKAN PENGGUNAAN IMAGE VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMALKAN PENGGUNAAN VIDEO VRAM"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "REBOOT DIPERLUKAN UNTUK MENERAPKAN KONFIGURASI BARU"
 
 msgid "DOWNLOADS"
 msgstr "UNDUHAN"
@@ -2166,9 +2193,6 @@ msgstr "Memerlukan sandi untuk mengakses jaringan share."
 
 msgid "ROOT PASSWORD"
 msgstr "SANDI ROOT"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "REBOOT DIPERLUKAN UNTUK MENERAPKAN KONFIGURASI BARU"
 
 msgid "LATENCY REDUCTION"
 msgstr "KURANGI LATENSI"

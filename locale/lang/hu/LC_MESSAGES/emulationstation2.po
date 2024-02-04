@@ -1048,6 +1048,15 @@ msgstr "NINCSENEK HIÁNYZÓ BIOS FÁJLOK"
 msgid "MISSING BIOS CHECK"
 msgstr "HIÁNYZÓ BIOS"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Összes"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "NINCS HIÁNYZÓ BIOS"
 
@@ -1369,9 +1378,6 @@ msgstr "TÉMA LETÖLTŐ"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VÁLASSZA KI A TELEPÍTENDŐ/ELTÁVOLÍTANDÓ TÉMÁKAT"
-
-msgid "All"
-msgstr "Összes"
 
 msgid "Installed"
 msgstr "Telepített"
@@ -1848,6 +1854,24 @@ msgstr "KÉP CACHE FELÉPÍTÉSE"
 msgid "Building image cache"
 msgstr "Kép cache építése"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "ADAT MENEDZSMENT"
 
@@ -1966,6 +1990,9 @@ msgstr "VRAM HASZNÁLAT OPTIMIZÁLÁSA"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VIDEO VRAM HASZNÁLAT OPTIMIZÁLÁSA"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "AZ ÚJ KONFIGURÁCIÓ ÉRVÉNYESÍTÉSÉHEZ ÚJRAINDÍTÁS SZÜKSÉGES"
 
 msgid "DOWNLOADS"
 msgstr "LETÖLTÉSEK"
@@ -2180,9 +2207,6 @@ msgstr "Jelszó kérése a hálózati megosztás eléréséhez."
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT JELSZÓ"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "AZ ÚJ KONFIGURÁCIÓ ÉRVÉNYESÍTÉSÉHEZ ÚJRAINDÍTÁS SZÜKSÉGES"
 
 msgid "LATENCY REDUCTION"
 msgstr "KÉSLELTETÉS CSÖKKENTÉSE"

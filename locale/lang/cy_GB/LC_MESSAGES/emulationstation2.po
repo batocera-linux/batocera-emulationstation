@@ -1043,6 +1043,15 @@ msgstr ""
 msgid "MISSING BIOS CHECK"
 msgstr "BIOS AR GOLL"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "DIM BIOS AR GOLL"
 
@@ -1358,9 +1367,6 @@ msgid "THEMES DOWNLOADER"
 msgstr "LAWRLWYTHWR THEMAU"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "All"
 msgstr ""
 
 msgid "Installed"
@@ -1829,6 +1835,24 @@ msgstr "ADEILADU DELWEDD COF DROS DRO"
 msgid "Building image cache"
 msgstr "Adeiladu delwedd cof dros dro"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "RHEOLI DATA"
 
@@ -1935,6 +1959,9 @@ msgstr "OPTIMEIDDIO DELWEDDAU MAE VRAM YN DEFNYDDIO"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMEIDDIO FIDEOS MAE VRAM YN DEFNYDDIO"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "GOFYNNIR I AILGYCHWYN Y SYSTEM I GADARNHAU'R FFURFWEDD NEWYDD"
 
 msgid "DOWNLOADS"
 msgstr "LAWRLWYTHIADAU"
@@ -2139,9 +2166,6 @@ msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "CYFINAIR GWREIDDIO"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "GOFYNNIR I AILGYCHWYN Y SYSTEM I GADARNHAU'R FFURFWEDD NEWYDD"
 
 msgid "LATENCY REDUCTION"
 msgstr "LLEIHAU HWYRNI"

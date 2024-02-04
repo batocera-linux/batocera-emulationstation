@@ -1040,6 +1040,15 @@ msgstr "未丢bios文件"
 msgid "MISSING BIOS CHECK"
 msgstr "检查缺失的bios"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "所有"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "未缺bios"
 
@@ -1361,9 +1370,6 @@ msgstr "主题下载"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "选择要安装/删除的主题"
-
-msgid "All"
-msgstr "所有"
 
 msgid "Installed"
 msgstr "安装"
@@ -1833,6 +1839,24 @@ msgstr "建立图片缓存"
 msgid "Building image cache"
 msgstr "正在建立图片缓存"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "数据管理"
 
@@ -1939,6 +1963,9 @@ msgstr "优化图像VRAM使用"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "优化视频VRAM的使用"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "需要重新启动系统才能应用新配置"
 
 msgid "DOWNLOADS"
 msgstr "下载项"
@@ -2146,9 +2173,6 @@ msgstr "访问网络共享需要密码."
 
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要重新启动系统才能应用新配置"
 
 msgid "LATENCY REDUCTION"
 msgstr "减少延迟"

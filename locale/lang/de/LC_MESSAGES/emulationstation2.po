@@ -1050,6 +1050,15 @@ msgstr "KEINE FEHLENDEN BIOS-DATEIEN"
 msgid "MISSING BIOS CHECK"
 msgstr "PRÜFUNG FEHLENDER BIOS-DATEIEN"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Alle"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "KEIN FEHLENDES BIOS"
 
@@ -1371,9 +1380,6 @@ msgstr "THEMES-DOWNLOADER"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "THEMES ZUM INSTALLIEREN/ENTFERNEN AUSWÄHLEN"
-
-msgid "All"
-msgstr "Alle"
 
 msgid "Installed"
 msgstr "Installiert"
@@ -1852,6 +1858,24 @@ msgstr "BILD-CACHE ERSTELLEN"
 msgid "Building image cache"
 msgstr "Erstellung des Bild-Cache"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "DATENVERWALTUNG"
 
@@ -1970,6 +1994,9 @@ msgstr "BILDER VRAM-NUTZUNG OPTIMIEREN"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VIDEO VRAM-NUTZUNG OPTIMIEREN"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "NEUSTART ERFORDERLICH, UM DIE NEUE KONFIGURATION ANZUWENDEN"
 
 msgid "DOWNLOADS"
 msgstr "DOWNLOADS"
@@ -2181,9 +2208,6 @@ msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASSWORT"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "NEUSTART ERFORDERLICH, UM DIE NEUE KONFIGURATION ANZUWENDEN"
 
 msgid "LATENCY REDUCTION"
 msgstr "LATENZREDUKTION"

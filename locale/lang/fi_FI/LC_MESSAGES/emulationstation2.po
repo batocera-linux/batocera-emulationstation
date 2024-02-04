@@ -1045,6 +1045,15 @@ msgstr "EI PUUTTUVIA BIOS-TIEDOSTOJA"
 msgid "MISSING BIOS CHECK"
 msgstr "TARKISTA PUUTTUVAT BIOS-TIEDOSTOT**"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Kaikki"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "EI PUUTTUVAA BIOS:TA"
 
@@ -1366,9 +1375,6 @@ msgstr "TEEMOJEN LATAAJA"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VALITSE TEEMAT ASENNETTAVAKSI/POISTETTAVAKSI"
-
-msgid "All"
-msgstr "Kaikki"
 
 msgid "Installed"
 msgstr "Asennetut"
@@ -1838,6 +1844,24 @@ msgstr "LUO KUVAVÄLIMUISTI"
 msgid "Building image cache"
 msgstr "Luodaan kuvavälimuistia"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr ""
 
@@ -1947,6 +1971,9 @@ msgstr "OPTIMOI KUVIEN VIDEOMUISTIN KÄYTÖN"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMOI VIDEOIDEN VIDEOMUISTIN KÄYTÖN"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "UUDELLEEN KÄYNNISTYS VAADITAAN UUDEN KOKOONPANON KÄYTTÖÖN OTTAMISEKSI"
 
 msgid "DOWNLOADS"
 msgstr "LATAUKSET"
@@ -2158,9 +2185,6 @@ msgstr "Vaadi salasana verkkojaon käyttämiseen."
 
 msgid "ROOT PASSWORD"
 msgstr "PÄÄKÄYTTÄJÄN SALASANA"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "UUDELLEEN KÄYNNISTYS VAADITAAN UUDEN KOKOONPANON KÄYTTÖÖN OTTAMISEKSI"
 
 msgid "LATENCY REDUCTION"
 msgstr "VIIVEEN VÄHENTÄMINEN"

@@ -1041,6 +1041,15 @@ msgstr "누락 바이오스 파일 없음"
 msgid "MISSING BIOS CHECK"
 msgstr "누락 바이오스"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "모두"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "바이오스가 모두 구성됨"
 
@@ -1362,9 +1371,6 @@ msgstr "테마 다운로더"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "설치/제거 할 테마 선택"
-
-msgid "All"
-msgstr "모두"
 
 msgid "Installed"
 msgstr "설치됨"
@@ -1835,6 +1841,24 @@ msgstr "이미지 캐시 생성"
 msgid "Building image cache"
 msgstr "이미지 캐시 생성중"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "데이터 관리"
 
@@ -1943,6 +1967,9 @@ msgstr "이미지 VRAM 사용 최적화"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "비디오 VRAM 사용 최적화"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재시작이 필요합니다"
 
 msgid "DOWNLOADS"
 msgstr "다운로드"
@@ -2150,9 +2177,6 @@ msgstr "네트워크 공유를 접속을 위해선 비밀번호가 필요합니�
 
 msgid "ROOT PASSWORD"
 msgstr "관리자 비밀번호"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "새로운 환경설정을 적용하기 위해서는 시스템 재시작이 필요합니다"
 
 msgid "LATENCY REDUCTION"
 msgstr "입력지연 줄이기"

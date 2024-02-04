@@ -1045,6 +1045,15 @@ msgstr "BIOSファイルは全てあります"
 msgid "MISSING BIOS CHECK"
 msgstr "不足BIOSの確認"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "すべて"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
 
@@ -1371,9 +1380,6 @@ msgstr "テーマダウンローダー"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "インストール/削除するテーマを選択"
-
-msgid "All"
-msgstr "すべて"
 
 msgid "Installed"
 msgstr "インストール済"
@@ -1849,6 +1855,24 @@ msgstr "イメージキャッシュのビルド"
 msgid "Building image cache"
 msgstr "イメージキャッシュのビルド中"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
 
@@ -1961,6 +1985,9 @@ msgstr "画像表示にVRAMを使用"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "動画再生にVRAMを使用"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "新しい構成を適用するには、再起動が必要です"
 
 msgid "DOWNLOADS"
 msgstr "ダウンロード"
@@ -2169,9 +2196,6 @@ msgstr "ネットワーク共有にアクセスするにはパスワードが必
 
 msgid "ROOT PASSWORD"
 msgstr "ルートパスワード"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "新しい構成を適用するには、再起動が必要です"
 
 msgid "LATENCY REDUCTION"
 msgstr "ちらつき軽減"

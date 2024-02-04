@@ -1050,6 +1050,15 @@ msgstr "AUCUN BIOS MANQUANT"
 msgid "MISSING BIOS CHECK"
 msgstr "VÉRIFIER LES BIOS MANQUANTS"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Tous"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "AUCUN BIOS MANQUANT"
 
@@ -1371,9 +1380,6 @@ msgstr "TÉLÉCHARGEMENT DE THÈMES"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SÉLECTIONNEZ LES THÈMES À INSTALLER / SUPPRIMER"
-
-msgid "All"
-msgstr "Tous"
 
 msgid "Installed"
 msgstr "Installé"
@@ -1812,7 +1818,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "NETTOYER LES LISTES DE JEUX ET LES MÉDIAS INUTILISÉS"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr "Supprimer les entrées inutilisées et nettoyer les références aux médias manquants."
+msgstr ""
+"Supprimer les entrées inutilisées et nettoyer les références aux médias "
+"manquants."
 
 msgid "Cleaning"
 msgstr "Nettoyage"
@@ -1821,7 +1829,8 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RÉINITIALISER LES DONNÉES D'UTILISATION DES LISTES DE JEUX"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Réinitialiser les valeurs : temps de jeu, nombre de parties et dernière jouée"
+msgstr ""
+"Réinitialiser les valeurs : temps de jeu, nombre de parties et dernière jouée"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RAZ DES EXTENSIONS DE FICHIER"
@@ -1843,6 +1852,24 @@ msgstr "GÉNÉRER LE CACHE D’IMAGES"
 
 msgid "Building image cache"
 msgstr "Génération du cache d’images"
+
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
@@ -1961,6 +1988,9 @@ msgstr "OPTIMISER LA MÉMOIRE POUR LES IMAGES"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMISER LA MÉMOIRE POUR LES VIDÉOS"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
 
 msgid "DOWNLOADS"
 msgstr "TÉLÉCHARGEMENTS"
@@ -2168,9 +2198,6 @@ msgstr "Mot de passe requis pour accéder aux partages réseaux."
 
 msgid "ROOT PASSWORD"
 msgstr "MOT DE PASSE ROOT"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "UN REDÉMARRAGE EST NÉCESSAIRE POUR APPLIQUER LA NOUVELLE CONFIGURATION"
 
 msgid "LATENCY REDUCTION"
 msgstr "RÉDUCTION DE LA LATENCE"

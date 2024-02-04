@@ -1040,6 +1040,15 @@ msgstr ""
 msgid "MISSING BIOS CHECK"
 msgstr "ВІДСУТНІ БІОСИ"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "НЕМАЄ БРАКУЮЧОГО BIOS"
 
@@ -1355,9 +1364,6 @@ msgid "THEMES DOWNLOADER"
 msgstr "ЗАВАНТАЖУВАЧ ТЕМ"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "All"
 msgstr ""
 
 msgid "Installed"
@@ -1826,6 +1832,24 @@ msgstr ""
 msgid "Building image cache"
 msgstr ""
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr ""
 
@@ -1932,6 +1956,9 @@ msgstr "ОПТИМІЗАЦІЯ ЗОБРАЖЕНЬ ДЛЯ VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "ОПТИМІЗАЦІЯ ВІДЕО ДЛЯ VRAM"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ДЛЯ ЗАСТОСУВАННЯ НАЛАШТУВАНЬ ПОТРІБНО ПЕРЕЗАПУСТИТИ СИСТЕМУ"
 
 msgid "DOWNLOADS"
 msgstr "ЗАВАНТАЖЕННЯ"
@@ -2136,9 +2163,6 @@ msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНІСТРАТОРА"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "ДЛЯ ЗАСТОСУВАННЯ НАЛАШТУВАНЬ ПОТРІБНО ПЕРЕЗАПУСТИТИ СИСТЕМУ"
 
 msgid "LATENCY REDUCTION"
 msgstr "ЗМЕНШЕННЯ ЗАТРИМКИ"

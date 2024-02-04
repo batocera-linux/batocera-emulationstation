@@ -1053,6 +1053,15 @@ msgstr "NO FALTEN ARXIUS DE BIOS"
 msgid "MISSING BIOS CHECK"
 msgstr "BIOS QUE FALTEN"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Tots"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "NO FALTEN BIOS"
 
@@ -1374,9 +1383,6 @@ msgstr "GESTOR DE TEMES"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECCIONAR TEMES A INSTAL·LAR/ELIMINAR"
-
-msgid "All"
-msgstr "Tots"
 
 msgid "Installed"
 msgstr "Instal·lat"
@@ -1849,6 +1855,24 @@ msgstr "CONSTRUIR MEMÒRIA CAU D'IMATGES"
 msgid "Building image cache"
 msgstr "Construïnt memòria cau d'imatges"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "ADMINISTRADOR DE DADES"
 
@@ -1967,6 +1991,9 @@ msgstr "OPTIMITZAR L'ÚS DE LA VRAM PER IMATGES"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMIZAR L'ÚS DE LA VRAM PER A VIDEO"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "PER A APLICAR LA NOVA CONFIGURACIÓ ES REQUEREIX REINICIAR"
 
 msgid "DOWNLOADS"
 msgstr "DESCÀRREGUES"
@@ -2180,9 +2207,6 @@ msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "CONTRASENYA DE ROOT"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "PER A APLICAR LA NOVA CONFIGURACIÓ ES REQUEREIX REINICIAR"
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUCCIÓ DE LATÈNCIA"

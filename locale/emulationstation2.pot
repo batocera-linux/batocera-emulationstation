@@ -1042,6 +1042,15 @@ msgstr ""
 msgid "MISSING BIOS CHECK"
 msgstr ""
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr ""
 
@@ -1355,9 +1364,6 @@ msgid "THEMES DOWNLOADER"
 msgstr ""
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "All"
 msgstr ""
 
 msgid "Installed"
@@ -1826,6 +1832,24 @@ msgstr ""
 msgid "Building image cache"
 msgstr ""
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr ""
 
@@ -1931,6 +1955,9 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr ""
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
+msgstr ""
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
 msgid "DOWNLOADS"
@@ -2135,9 +2162,6 @@ msgid "Require a password for accessing the network share."
 msgstr ""
 
 msgid "ROOT PASSWORD"
-msgstr ""
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
 msgid "LATENCY REDUCTION"

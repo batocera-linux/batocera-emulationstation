@@ -1044,6 +1044,15 @@ msgstr "INGEN MANGLENDE BIOS FILER"
 msgid "MISSING BIOS CHECK"
 msgstr "MANGLENDE BIOS-KONTROLL"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Alle"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "INGEN MANGLENDE BIOS"
 
@@ -1362,9 +1371,6 @@ msgstr "TEMANEDLASTER"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VELG TEMAER SOM SKAL INSTALLERES/FJERNES"
-
-msgid "All"
-msgstr "Alle"
 
 msgid "Installed"
 msgstr "Installert"
@@ -1835,6 +1841,24 @@ msgstr ""
 msgid "Building image cache"
 msgstr ""
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "DATASTYRING"
 
@@ -1944,6 +1968,9 @@ msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMALISER  BILDER VRAM BRUK"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
+msgstr ""
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr ""
 
 msgid "DOWNLOADS"
@@ -2154,9 +2181,6 @@ msgstr "Krev et passord for å få tilgang til nettverksdelingen."
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASSORD"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
 
 msgid "LATENCY REDUCTION"
 msgstr "LATENCY REDUKSJON"

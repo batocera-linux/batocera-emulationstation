@@ -1051,6 +1051,15 @@ msgstr "NENHUM FICHEIRO DE BIOS EM FALTA"
 msgid "MISSING BIOS CHECK"
 msgstr "VERIFICAR BIOS EM FALTA"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Todos"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "SEM BIOS EM FALTA"
 
@@ -1372,9 +1381,6 @@ msgstr "TRANSFERÊNCIA DE TEMAS"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECIONE TEMAS PARA INSTALAR/REMOVER"
-
-msgid "All"
-msgstr "Todos"
 
 msgid "Installed"
 msgstr "Instalado"
@@ -1846,6 +1852,24 @@ msgstr "CONSTRUIR MEMÓRIA CACHE DE IMAGENS"
 msgid "Building image cache"
 msgstr "A criar memória cache de imagens"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "GESTÃO DE DADOS"
 
@@ -1964,6 +1988,9 @@ msgstr "OTIMIZAR UTLIZAÇÃO DE RAM POR IMAGENS"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OTIMIZAR UTILIZAÇÃO DE RAM GRÁFICA"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "DOWNLOADS"
 msgstr "TRANSFERÊNCIAS"
@@ -2175,9 +2202,6 @@ msgstr "Requer uma password para aceder à partilha de rede."
 
 msgid "ROOT PASSWORD"
 msgstr "PASSWORD DE ROOT"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "É NECESSÁRIO REINICIAR O SISTEMA PARA APLICAR A CONFIGURAÇÃO"
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
