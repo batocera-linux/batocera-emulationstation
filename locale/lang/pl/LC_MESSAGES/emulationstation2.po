@@ -601,7 +601,7 @@ msgstr "%d z %d punktów softcore"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d z %d punktów hardcore"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1051,19 +1051,19 @@ msgid "MISSING BIOS CHECK"
 msgstr "KONTROLA BRAKUJĄCYCH BIOS'ÓW"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Zainstalowane systemy"
 
 msgid "All"
 msgstr "Wszystko"
 
 msgid "refresh"
-msgstr ""
+msgstr "odśwież"
 
 msgid "NO MISSING BIOS"
 msgstr "BIOS'Y NA MIEJSCU"
 
 msgid "dim"
-msgstr "przyciemniony"
+msgstr "przyciemnij"
 
 msgid "black"
 msgstr "czarny"
@@ -1090,7 +1090,7 @@ msgid "systems"
 msgstr "systemy"
 
 msgid "random"
-msgstr "losowy"
+msgstr "losowo"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "USTAWIENIA WYGASZACZA"
@@ -1854,22 +1854,22 @@ msgid "Building image cache"
 msgstr "Tworzenie pamięci podręcznej obrazów"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "USTAWIENIA EKRANU"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "SKALA CZCIONKI MENU"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "SKALA CZCIONKI"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "SKALA CZCIONKI MOTYWU"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "MENU PEŁNOEKRANOWE"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "WYMUŚ MOTYWY MAŁEGO EKRANU"
 
 msgid "DATA MANAGEMENT"
 msgstr "ZARZĄDZANIE DANYMI"

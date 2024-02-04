@@ -1051,13 +1051,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "PRÜFUNG FEHLENDER BIOS-DATEIEN"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Installierte Systeme"
 
 msgid "All"
 msgstr "Alle"
 
 msgid "refresh"
-msgstr ""
+msgstr "aktualisieren"
 
 msgid "NO MISSING BIOS"
 msgstr "KEIN FEHLENDES BIOS"
@@ -1859,22 +1859,22 @@ msgid "Building image cache"
 msgstr "Erstellung des Bild-Cache"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "DISPLAY EINSTELLUNGEN"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "MENÜ SCHRIFTGRÖSSE"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "SCHRIFT SKALIERUNG"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "THEME SCHRIFTGRÖSSE"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "VOLLBILDMENÜS"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "ERZWINGE KLEINE BILDSCHIRM THEME"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATENVERWALTUNG"
@@ -3296,7 +3296,7 @@ msgid "PRESS ESC TO CANCEL."
 msgstr "DRÜCKE ESC ZUM ABBRECHEN"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "DRÜCKE ESC ODER DEN HOTKEY ZUM ABBRECHEN"
+msgstr "DRÜCKE ESC ODER DEN HOTKEY ZUM ABBRECHEN."
 
 msgid "DISCARD CHANGES"
 msgstr "ÄNDERUNGEN VERWERFEN"
