@@ -2,19 +2,19 @@
 <systems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gamesdb.xsd">
   <system name="arcade">
     <game name="18wheelr">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelro">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelrt">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheels">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelu">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="2spicy">
       <gun/>
@@ -475,7 +475,7 @@
       <gun/>
     </game>
     <game name="crzytaxi">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="cspring1">
       <wheel/>
@@ -757,16 +757,16 @@
       <wheel/>
     </game>
     <game name="f355">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f355twin">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f355twinp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f355twn2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="fastdraw">
       <gun/>
@@ -850,7 +850,7 @@
       <gun/>
     </game>
     <game name="ftspeed">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="fullthrl">
       <wheel/>
@@ -1249,49 +1249,49 @@
       <wheel/>
     </game>
     <game name="inidv3ca">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="inidv3cy">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initd">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdexp">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdexpo">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdo">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2e">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2j">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2ja">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2jo">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3e">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3j">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3jb">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initiad4">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initiad4c">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="invasnab">
       <gun/>
@@ -1306,7 +1306,7 @@
       <gun/>
     </game>
     <game name="jambo">
-      <wheel/>
+      <wheel rotation="270" downshift="b" upshift="a"/>
     </game>
     <game name="jdredd">
       <gun/>
@@ -1551,7 +1551,7 @@
       <wheel/>
     </game>
     <game name="maxspeed">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="mechatt">
       <gun/>
@@ -3224,7 +3224,7 @@
       <wheel/>
     </game>
     <game name="wldrider">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="wrally">
       <wheel/>
@@ -6672,95 +6672,6 @@
     </game>
     <game name="dirt">
       <wheel/>
-    </game>
-  </system>
-  <system name="arcade">
-    <game name="18wheelro">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheelrt">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheelr">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheels">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheelu">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="crzytaxi">
-      <wheel rotation="270" downshift="down" upshift="up"/>
-    </game>
-    <game name="f355twinp">
-      <wheel rotation="270"/>
-    </game>
-    <game name="f355twin">
-      <wheel rotation="270"/>
-    </game>
-    <game name="f355twn2">
-      <wheel rotation="270"/>
-    </game>
-    <game name="f355">
-      <wheel rotation="270"/>
-    </game>
-    <game name="ftspeed">
-      <wheel rotation="270" downshift="down" upshift="up"/>
-    </game>
-    <game name="inidv3ca">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="inidv3cy">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdexpo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdexp">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2ja">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2jo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv3e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv3jb">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv3j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initiad4c">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initiad4">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initd">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="jambo">
-      <wheel rotation="270" downshift="b" upshift="a"/>
-    </game>
-    <game name="maxspeed">
-      <wheel rotation="270" downshift="down" upshift="up"/>
-    </game>
-    <game name="wldrider">
-      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
   </system>
 </systems>
