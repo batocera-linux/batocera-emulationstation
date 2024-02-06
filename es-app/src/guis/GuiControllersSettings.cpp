@@ -89,6 +89,48 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	{
 		addGroup(_("BLUETOOTH"));
 
+#if defined(BATOCERA)
+		// Bluetooth enable
+		bool baseBtEnabled = SystemConf::getInstance()->getBool("controllers.bluetooth.enabled");
+		auto enable_bt = std::make_shared<SwitchComponent>(mWindow);
+		enable_bt->setState(baseBtEnabled);
+		addWithLabel(_("ENABLE BLUETOOTH"), enable_bt, autoSel == 2);
+		enable_bt->setOnChangedCallback([this, window, enable_bt, baseBtEnabled]
+		{
+			bool btEnabled = enable_bt->getState();
+			if (btEnabled != baseBtEnabled)
+			{
+				SystemConf::getInstance()->setBool("controllers.bluetooth.enabled", btEnabled);
+				SystemConf::getInstance()->saveSystemConf();
+				if (btEnabled)
+					ApiSystem::getInstance()->enableBluetooth();
+				else
+					ApiSystem::getInstance()->disableBluetooth();
+
+				Window* parent = window;
+				delete this;
+				openControllersSettings(parent, 2);
+			}
+		});
+
+		addSaveFunc([enable_bt]
+		{
+			bool btEnabled = enable_bt->getState();
+			if (btEnabled != SystemConf::getInstance()->getBool("controllers.bluetooth.enabled"))
+			{
+				SystemConf::getInstance()->setBool("controllers.bluetooth.enabled", btEnabled);
+				SystemConf::getInstance()->saveSystemConf();
+				if (btEnabled)
+					ApiSystem::getInstance()->enableBluetooth();
+				else
+					ApiSystem::getInstance()->disableBluetooth();
+			}
+		});
+
+		if (baseBtEnabled)
+		{
+#endif
+
 		// PAIR A BLUETOOTH CONTROLLER
 		addEntry(_("PAIR BLUETOOTH PADS AUTOMATICALLY"), false, [window] { ThreadedBluetooth::start(window); });
 
@@ -104,6 +146,10 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 #endif
 		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
 		addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window] { window->pushGui(new GuiBluetoothForget(window)); });
+
+#if defined(BATOCERA)
+		}
+#endif
 	}
 
 	addGroup(_("DISPLAY OPTIONS"));

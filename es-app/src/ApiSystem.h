@@ -167,6 +167,8 @@ public:
 
 	virtual std::string getIpAdress();
 
+	bool enableBluetooth();
+	bool disableBluetooth();
 	void startBluetoothLiveDevices(const std::function<void(const std::string)>& func);
 	void stopBluetoothLiveDevices();
 	bool pairBluetoothDevice(const std::string& deviceName);
