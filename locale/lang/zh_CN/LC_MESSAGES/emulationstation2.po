@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-23 20:20+0800\n"
+"PO-Revision-Date: 2024-02-06 23:23+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二\n"
 "Language: zh_CN\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "发现可用更新"
@@ -1041,13 +1041,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "检查缺失的bios"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "安装系统"
 
 msgid "All"
 msgstr "所有"
 
 msgid "refresh"
-msgstr ""
+msgstr "恢复"
 
 msgid "NO MISSING BIOS"
 msgstr "未缺bios"
@@ -1840,22 +1840,22 @@ msgid "Building image cache"
 msgstr "正在建立图片缓存"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "显示设置"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "菜单字体比例"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "字体比例"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "主题字体比例"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "全屏菜单"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "强制小屏幕主题化"
 
 msgid "DATA MANAGEMENT"
 msgstr "数据管理"

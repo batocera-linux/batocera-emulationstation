@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v39b(2023/12/23)\n"
+"Project-Id-Version: batocera-es v39b(2024/02/04)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-23 15:10+0900\n"
+"PO-Revision-Date: 2024-02-07 08:11+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "更新可能"
@@ -95,7 +95,7 @@ msgid "enter path to map"
 msgstr "マップのパスを入力"
 
 msgid "Bezel (16:9)"
-msgstr "ベゼル(16:9)"
+msgstr "ベゼル(16:9)(確認のみ)"
 
 msgid "enter path to bezel (16:9)"
 msgstr "ベゼル(16:9)のパスを入力"
@@ -1046,13 +1046,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "不足BIOSの確認"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "導入済みシステム"
 
 msgid "All"
 msgstr "すべて"
 
 msgid "refresh"
-msgstr ""
+msgstr "リフレッシュ更新"
 
 msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
@@ -1419,7 +1419,7 @@ msgid "START NEW AUTO SAVE"
 msgstr "新しくオートセーブで開始"
 
 msgid "AUTO SAVE"
-msgstr "セーブ場所から開始"
+msgstr "オートセーブから開始"
 
 msgid "SLOT"
 msgstr "スロット"
@@ -1778,7 +1778,7 @@ msgid "VIDEO MODE"
 msgstr "映像解像度"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr "エミュレーションステーションで表示する解像度を設定します"
+msgstr "Emulationstationで表示する解像度を設定します"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
@@ -1847,31 +1847,31 @@ msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "ネットプレイ/アチーブメント ですべてのゲームを検索"
 
 msgid "CLEAR CACHES"
-msgstr "キャッシュをクリア"
+msgstr "キャッシュ(一時保存データ)をクリア"
 
 msgid "BUILD IMAGE CACHE"
-msgstr "イメージキャッシュのビルド"
+msgstr "追加したメタ情報ファイルを保存"
 
 msgid "Building image cache"
-msgstr "イメージキャッシュのビルド中"
+msgstr "メタ情報ファイルを保存中"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "メニューなどの文字設定"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "メニューフォントの大きさ"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "フォントの大きさ"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "テーマフォントの大きさ"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "メニューを全画面表示"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "小型画面用テーマを強制する"
 
 msgid "DATA MANAGEMENT"
 msgstr "データ管理"
@@ -1932,7 +1932,7 @@ msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "ESメニューの 決定 とキャンセル のボタン入れ替え"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr "emulationstationで、南(下)と東(右)のボタンの機能を入れ替えます"
+msgstr "Emulationstationで、南(下)と東(右)のボタンの機能を入れ替えます"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "上(北)ボタン長押しでゲーム設定を開く"
