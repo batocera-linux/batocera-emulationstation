@@ -207,7 +207,7 @@ if(NOT WIN32)
 	
 	if(ENABLE_TTS)
 	  MESSAGE("tts enabled")
-	  find_library(LIBESPEAK_LIBRARIES NAMES espeak REQUIRED)
+	  find_library(LIBESPEAK_LIBRARIES NAMES espeak espeak-ng REQUIRED)
 	  if("${LIBESPEAK_LIBRARIES}" STREQUAL "LIBESPEAK_LIBRARIES-NOTFOUND")
 		MESSAGE(FATAL_ERROR "espeak not found")
 	  endif()
