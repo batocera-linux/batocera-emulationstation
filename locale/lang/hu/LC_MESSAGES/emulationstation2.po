@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-15 10:08+0100\n"
+"PO-Revision-Date: 2024-02-03 16:14+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "FRISSÍTÉS ELÉRHETŐ"
@@ -546,7 +546,7 @@ msgid "START ON GAMELIST"
 msgstr "INDÍTÁSI JÁTÉKLISTA"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr " EGYEDI GYŰJTEMÉNYEK CSOPORTJA"
+msgstr "EGYEDI GYŰJTEMÉNYEK CSOPORTJA"
 
 msgid "UNTHEMED"
 msgstr "TÉMÁZATLAN"
@@ -595,11 +595,11 @@ msgstr "KÉRLEK VÁRJ"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d a %d softcore pontból"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d a %d hardcore pontból"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1048,6 +1048,15 @@ msgstr "NINCSENEK HIÁNYZÓ BIOS FÁJLOK"
 msgid "MISSING BIOS CHECK"
 msgstr "HIÁNYZÓ BIOS"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Összes"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "NINCS HIÁNYZÓ BIOS"
 
@@ -1370,9 +1379,6 @@ msgstr "TÉMA LETÖLTŐ"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VÁLASSZA KI A TELEPÍTENDŐ/ELTÁVOLÍTANDÓ TÉMÁKAT"
 
-msgid "All"
-msgstr "Összes"
-
 msgid "Installed"
 msgstr "Telepített"
 
@@ -1392,10 +1398,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "EBBEN A JÁTÉKBAN MÉG  NINCS ACHIEVEMENT"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Eredmények (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Eredmények (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1848,6 +1854,24 @@ msgstr "KÉP CACHE FELÉPÍTÉSE"
 msgid "Building image cache"
 msgstr "Kép cache építése"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "ADAT MENEDZSMENT"
 
@@ -1966,6 +1990,9 @@ msgstr "VRAM HASZNÁLAT OPTIMIZÁLÁSA"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VIDEO VRAM HASZNÁLAT OPTIMIZÁLÁSA"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "AZ ÚJ KONFIGURÁCIÓ ÉRVÉNYESÍTÉSÉHEZ ÚJRAINDÍTÁS SZÜKSÉGES"
 
 msgid "DOWNLOADS"
 msgstr "LETÖLTÉSEK"
@@ -2180,9 +2207,6 @@ msgstr "Jelszó kérése a hálózati megosztás eléréséhez."
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT JELSZÓ"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "AZ ÚJ KONFIGURÁCIÓ ÉRVÉNYESÍTÉSÉHEZ ÚJRAINDÍTÁS SZÜKSÉGES"
 
 msgid "LATENCY REDUCTION"
 msgstr "KÉSLELTETÉS CSÖKKENTÉSE"
@@ -2450,10 +2474,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "RETROACHIEVEMENTS IKON MUTATÁSA"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "FEGYVER IKON MEGJELENÍTÉSE"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "KORMÁNY IKON MEGJELENÍTÉSE"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "FÁJLNEVEK MEGJELENÍTÉSE A LISTÁKBAN"
@@ -2850,7 +2874,7 @@ msgstr "KEDVENC"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Vissza a %s -ba"
 
 msgid "No Entries Found"
 msgstr "Nem található elem"
@@ -3329,8 +3353,8 @@ msgstr "%d mp"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d éve"
+msgstr[1] "%d évvel ezelőtt"
 
 #, c-format
 msgid "%d day ago"

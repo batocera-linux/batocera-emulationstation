@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "UPDATE VERFÜGBAR"
@@ -501,10 +501,10 @@ msgid "New Collection Name"
 msgstr "Name der neuen Sammlung"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "NAME EINGEBEN"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "VOM THEMA ERSTELLEN"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "NEUE KONFIGURIERBARE SAMMLUNG ERSTELLEN"
@@ -546,10 +546,10 @@ msgid "START ON GAMELIST"
 msgstr "STARTE BEI SPIELELISTE"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "GRUPPIERE BENUTZERDEFINIERTE SAMMLUNGEN"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "OHNE THEMA"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "SYSTEMNAME IN SAMMLUNGEN ANZEIGEN"
@@ -595,11 +595,11 @@ msgstr "BITTE WARTEN"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d of %d Softcore-Punkte"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d of %d Hardcore-Punkte"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1050,6 +1050,15 @@ msgstr "KEINE FEHLENDEN BIOS-DATEIEN"
 msgid "MISSING BIOS CHECK"
 msgstr "PRÜFUNG FEHLENDER BIOS-DATEIEN"
 
+msgid "Installed systems"
+msgstr "Installierte Systeme"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "refresh"
+msgstr "aktualisieren"
+
 msgid "NO MISSING BIOS"
 msgstr "KEIN FEHLENDES BIOS"
 
@@ -1372,9 +1381,6 @@ msgstr "THEMES-DOWNLOADER"
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "THEMES ZUM INSTALLIEREN/ENTFERNEN AUSWÄHLEN"
 
-msgid "All"
-msgstr "Alle"
-
 msgid "Installed"
 msgstr "Installiert"
 
@@ -1394,10 +1400,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "DIESES SPIEL HAT NOCH KEINE ERRUNGENSCHAFTEN"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Erfolge (Softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Erfolge (Hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1461,13 +1467,13 @@ msgid "MARQUEE"
 msgstr "BANNER"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "BEVORZUGTE REGION"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "ÜBERSCHREIBE BESCHREIBUNGEN"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "ÜBERSCHREIBE MEDIEN"
 
 msgid "SCRAPE FOR"
 msgstr "SCRAPEN FÜR"
@@ -1500,7 +1506,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "PADTOKEY EINSTELLUNGEN"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "KONTO"
 
 msgid "SCRAPER"
 msgstr "SCRAPER"
@@ -1815,21 +1821,27 @@ msgstr "SPIELLISTEN BEREINIGEN & UNBENUTZTE MEDIEN ENTFERNEN"
 
 msgid "Remove unused entries, and clean references to missing medias."
 msgstr ""
+"Nicht verwendete Einträge entfernen und Verweise auf fehlende Medien "
+"bereinigen."
 
 msgid "Cleaning"
 msgstr "Bereinige"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "NUTZUNGSDATEN DER SPIELELISTEN ZURÜCKSETZEN"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
+"Zurücksetzen der Werte der Metadaten Spieldauer, Spielezähler und Zuletzt "
+"gespielt."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DATEIERWEITERUNGEN ZURÜCKSETZEN"
 
 msgid "Reset customized file extensions filters to default."
 msgstr ""
+"Benutzerdefinierte Dateierweiterungsfilter auf die Standardeinstellungen "
+"zurücksetzen."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "SPRACHE/REGION ALLER SPIELE NEU ERMITTELN"
@@ -1845,6 +1857,24 @@ msgstr "BILD-CACHE ERSTELLEN"
 
 msgid "Building image cache"
 msgstr "Erstellung des Bild-Cache"
+
+msgid "DISPLAY SETTINGS"
+msgstr "DISPLAY EINSTELLUNGEN"
+
+msgid "MENU FONT SCALE"
+msgstr "MENÜ SCHRIFTGRÖSSE"
+
+msgid "FONT SCALE"
+msgstr "SCHRIFT SKALIERUNG"
+
+msgid "THEME FONT SCALE"
+msgstr "THEME SCHRIFTGRÖSSE"
+
+msgid "FULL SCREEN MENUS"
+msgstr "VOLLBILDMENÜS"
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr "ERZWINGE KLEINE BILDSCHIRM THEME"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATENVERWALTUNG"
@@ -1964,6 +1994,9 @@ msgstr "BILDER VRAM-NUTZUNG OPTIMIEREN"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VIDEO VRAM-NUTZUNG OPTIMIEREN"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "NEUSTART ERFORDERLICH, UM DIE NEUE KONFIGURATION ANZUWENDEN"
 
 msgid "DOWNLOADS"
 msgstr "DOWNLOADS"
@@ -2176,9 +2209,6 @@ msgstr ""
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASSWORT"
 
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "NEUSTART ERFORDERLICH, UM DIE NEUE KONFIGURATION ANZUWENDEN"
-
 msgid "LATENCY REDUCTION"
 msgstr "LATENZREDUKTION"
 
@@ -2225,10 +2255,10 @@ msgid "Current setting"
 msgstr "Aktuelle Einstellung"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "KONTEN"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "BIOS EINSTELLUNGEN"
 
 msgid "SAVESTATES"
 msgstr "SPEICHERSTÄNDE"
@@ -2445,13 +2475,13 @@ msgid "SHOW MANUAL ICON"
 msgstr "HANDBUCH-SYMBOL IN LISTEN ANZEIGEN"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "RETROACHIEVEMENTS SYMBOL ANZEIGEN"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "WAFFEN SYMBOL ANZEIGEN"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "RAD SYMBOL ANZEIGEN"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
@@ -2502,7 +2532,7 @@ msgid "ICON AND TEXT"
 msgstr "ICON UND TEXT"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "ORDNER ZUERST ANZEIGEN"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "VORANSTEHENDE ARTIKEL BEI DER SORTIERUNG IGNORIEREN"
@@ -2849,7 +2879,7 @@ msgstr "FAVORIT"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Zurück zu %s"
 
 msgid "No Entries Found"
 msgstr "Keine Einträge gefunden"
@@ -3060,10 +3090,10 @@ msgid "STEERING WHEEL"
 msgstr "LENKRAD"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "VORHANDENE MEDIEN"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "VERMISSTE MEDIEN"
 
 msgid "SCRAPING"
 msgstr "SCRAPEN"
@@ -3263,10 +3293,10 @@ msgstr ""
 "BELIEBIGE TASTE AM CONTROLLER GEDRÜCKT HALTEN, UM DIESEN ZU KONFIGURIEREN."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "DRÜCKE ESC ZUM ABBRECHEN"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "DRÜCKE ESC ODER DEN HOTKEY ZUM ABBRECHEN."
 
 msgid "DISCARD CHANGES"
 msgstr "ÄNDERUNGEN VERWERFEN"
@@ -3329,8 +3359,8 @@ msgstr "%d Sek"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Jahr her"
+msgstr[1] "%d Jahre her"
 
 #, c-format
 msgid "%d day ago"

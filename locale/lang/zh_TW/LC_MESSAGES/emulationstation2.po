@@ -1042,6 +1042,15 @@ msgstr "沒有缺少的 BIOS 檔案"
 msgid "MISSING BIOS CHECK"
 msgstr "缺少的 BIOS"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "全部"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "沒有缺少 BIOS"
 
@@ -1363,9 +1372,6 @@ msgstr "佈景主題下載器"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "選擇要安裝或移除的佈景主題"
-
-msgid "All"
-msgstr "全部"
 
 msgid "Installed"
 msgstr "已安裝"
@@ -1835,6 +1841,24 @@ msgstr "建立圖片快取"
 msgid "Building image cache"
 msgstr "正在建立圖片快取"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "資料管理"
 
@@ -1941,6 +1965,9 @@ msgstr "最佳化圖片的 VRAM 使用"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "最佳化影像的 VRAM 使用"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "需要重新啟動系統才可以套用新的設定"
 
 msgid "DOWNLOADS"
 msgstr "下載"
@@ -2148,9 +2175,6 @@ msgstr "需要一組密碼來存取網路共享。"
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT 密碼"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "需要重新啟動系統才可以套用新的設定"
 
 msgid "LATENCY REDUCTION"
 msgstr "降低延遲"

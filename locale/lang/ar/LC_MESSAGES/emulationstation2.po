@@ -1080,6 +1080,15 @@ msgstr "لا يوجد أي ملف بايوس مفقود"
 msgid "MISSING BIOS CHECK"
 msgstr "البايوس المفقودة"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "الكل"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "لا يوجد BIOS مفقود"
 
@@ -1401,9 +1410,6 @@ msgstr "تنزيل السمات"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "اختر السمات المراد تثبيتها/إزالتها"
-
-msgid "All"
-msgstr "الكل"
 
 msgid "Installed"
 msgstr "المثبتة"
@@ -1874,6 +1880,24 @@ msgstr "بناء  التخزين المؤقت للصور"
 msgid "Building image cache"
 msgstr "بناء التخزين المؤقت للصور"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "تسيير البيانات"
 
@@ -1985,6 +2009,9 @@ msgstr "تحسين الصور باستخدام ذاكرة الفيديو"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "تحسين الفيديو باستخدام ذاكرة الفيديو"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "يرجى إعادة تشغيل النظام لتطبيق الإعدادات الجديدة"
 
 msgid "DOWNLOADS"
 msgstr "تنزيل"
@@ -2193,9 +2220,6 @@ msgstr "بحاجة إلى كلمة سر لولوج شبكة مشاركة الم�
 
 msgid "ROOT PASSWORD"
 msgstr "كلمة مرور الجذر"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "يرجى إعادة تشغيل النظام لتطبيق الإعدادات الجديدة"
 
 msgid "LATENCY REDUCTION"
 msgstr "خفض الاستجابة"

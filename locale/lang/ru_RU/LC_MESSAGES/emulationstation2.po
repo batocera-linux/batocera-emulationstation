@@ -1048,6 +1048,15 @@ msgstr "НЕТ ОТСУТСТВУЮЩИХ БИОСОВ"
 msgid "MISSING BIOS CHECK"
 msgstr "ОТСУТСТВУЮЩИЕ БИОСЫ"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Все"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "НЕТ ОТСУТСТВУЮЩИХ БИОСОВ"
 
@@ -1369,9 +1378,6 @@ msgstr "ЗАГРУЗКА ТЕМ"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "ВЫБЕРИТЕ ТЕМЫ ДЛЯ УСТАНОВКИ/УДАЛЕНИЯ"
-
-msgid "All"
-msgstr "Все"
 
 msgid "Installed"
 msgstr "Установлено"
@@ -1843,6 +1849,24 @@ msgstr "СОЗДАТЬ КЭШ ИЗОБРАЖЕНИЙ"
 msgid "Building image cache"
 msgstr "Создание кэша изображений"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
 
@@ -1958,6 +1982,9 @@ msgstr "ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ ДЛЯ VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "ОПТИМИЗАЦИЯ ВИДЕО ДЛЯ VRAM"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "DOWNLOADS"
 msgstr "ЗАГРУЗКИ"
@@ -2166,9 +2193,6 @@ msgstr "Требовать пароль для доступа к сетевой 
 
 msgid "ROOT PASSWORD"
 msgstr "ПАРОЛЬ АДМИНИСТРАТОРА"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "ДЛЯ ПРИМЕНЕНИЯ НАСТРОЕК ТРЕБУЕТСЯ ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
 
 msgid "LATENCY REDUCTION"
 msgstr "УМЕНЬШЕНИЕ ЗАДЕРЖКИ"

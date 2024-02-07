@@ -1035,6 +1035,15 @@ msgstr ""
 msgid "MISSING BIOS CHECK"
 msgstr "ΛΕΙΠΟΥΝ BIOS ΑΡΧΕΙΑ"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "ΔΕΝ ΛΕΙΠΟΥΝ BIOS ΑΡΧΕΙΑ"
 
@@ -1350,9 +1359,6 @@ msgid "THEMES DOWNLOADER"
 msgstr "DOWNLOADER ΘΕΜΑΤΩΝ"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr ""
-
-msgid "All"
 msgstr ""
 
 msgid "Installed"
@@ -1821,6 +1827,24 @@ msgstr "ΔΗΜΙΟΥΡΓΙΑ ΚΡΥΦΗΣ ΜΝΗΜΗΣ ΕΙΚΟΝΑΣ"
 msgid "Building image cache"
 msgstr "ΔΗΜΙΟΥΡΓΕΙΤΑΙ ΚΡΥΦΗ ΜΝΗΜΗ ΕΙΚΟΝΑΣ"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "ΔΙΑΧΕΙΡΙΣΗ ΔΕΔΟΜΕΝΩΝ"
 
@@ -1929,6 +1953,10 @@ msgstr "ΒΕΛΣΤΙΠΟΙΗΣΗ ΧΡΗΣΗΣ VRAM ΕΙΚΟΝΩΝ"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "ΒΕΛΣΤΙΠΟΙΗΣΗ ΧΡΗΣΗΣ VRAM ΒΙΝΤΕΟ"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"ΑΠΑΙΤΕΙΤΑΙ Η ΕΠΑΝΕΚΚΙΝΗΣΗ ΤΟΥ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΕΦΑΡΜΟΓΗ ΤΗΣ ΝΕΑΣ ΡΥΘΜΙΣΗΣ"
 
 msgid "DOWNLOADS"
 msgstr "ΛΗΨΕΙΣ"
@@ -2133,10 +2161,6 @@ msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "ΚΩΔΙΚΟΣ ΔΙΑΧΕΙΡΙΣΤΗ"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"ΑΠΑΙΤΕΙΤΑΙ Η ΕΠΑΝΕΚΚΙΝΗΣΗ ΤΟΥ ΣΥΣΤΗΜΑΤΟΣ ΓΙΑ ΕΦΑΡΜΟΓΗ ΤΗΣ ΝΕΑΣ ΡΥΘΜΙΣΗΣ"
 
 msgid "LATENCY REDUCTION"
 msgstr "ΜΕΙΩΣΗ LATENCY"

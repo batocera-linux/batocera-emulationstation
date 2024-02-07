@@ -1047,6 +1047,15 @@ msgstr "EKSİK BIOS DOSYASI YOK"
 msgid "MISSING BIOS CHECK"
 msgstr "EKSİK BIOS"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Hepsi"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "EKSİK BIOS YOK"
 
@@ -1368,9 +1377,6 @@ msgstr "TEMA İNDİRİCİ"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "YÜKLE/KALDIR İÇİN TEMALARI SEÇ"
-
-msgid "All"
-msgstr "Hepsi"
 
 msgid "Installed"
 msgstr "Yüklü"
@@ -1845,6 +1851,24 @@ msgstr "GÖRÜNTÜ ÖNBELLEĞİ OLUŞTUR"
 msgid "Building image cache"
 msgstr "Görüntü önbelleği oluşturuluyor"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "VERİ YÖNETİMİ"
 
@@ -1963,6 +1987,10 @@ msgstr "VRAM KULLANIMINA GÖRE İMAJLARI OPTİMİZE ET"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "VRAM KULLANIMINA GÖRE VİDEOLARI OPTİMİZE ET"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAŞLATILMASI GEREKİR"
 
 msgid "DOWNLOADS"
 msgstr "İNDİRMELER"
@@ -2174,10 +2202,6 @@ msgstr "Ağ paylaşımına erişmek için bir parola isteyin."
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT PAROLASI"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"YENİ YAPILANDIRMANIN UYGULANMASI İÇİN SİSTEMİN TEKRAR BAŞLATILMASI GEREKİR"
 
 msgid "LATENCY REDUCTION"
 msgstr "GECİKME AZALTMA"

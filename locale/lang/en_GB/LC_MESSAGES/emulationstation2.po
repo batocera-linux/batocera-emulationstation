@@ -1044,6 +1044,15 @@ msgstr "NO MISSING BIOS FILES"
 msgid "MISSING BIOS CHECK"
 msgstr "MISSING BIOS CHECK"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "ALL"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "NO MISSING BIOS"
 
@@ -1365,9 +1374,6 @@ msgstr "THEMES DOWNLOADER"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECT THEMES TO INSTALL/REMOVE"
-
-msgid "All"
-msgstr "ALL"
 
 msgid "Installed"
 msgstr "Installed"
@@ -1835,6 +1841,24 @@ msgstr ""
 msgid "Building image cache"
 msgstr ""
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr ""
 
@@ -1941,6 +1965,9 @@ msgstr "OPTIMISE IMAGES VRAM USE"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMISE VIDEO VRAM USAGE"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
 
 msgid "DOWNLOADS"
 msgstr ""
@@ -2148,9 +2175,6 @@ msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASSWORD"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
 
 msgid "LATENCY REDUCTION"
 msgstr ""

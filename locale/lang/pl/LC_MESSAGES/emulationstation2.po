@@ -600,7 +600,7 @@ msgid "%d of %d softcore points"
 msgstr "%d z %d punktów softcore"
 
 #, c-format
-msgid "%d z %d hardcore points"
+msgid "%d of %d hardcore points"
 msgstr "%d z %d punktów hardcore"
 
 #, c-format
@@ -1050,11 +1050,20 @@ msgstr "PLIKI BIOS'ÓW NA MIEJSCU"
 msgid "MISSING BIOS CHECK"
 msgstr "KONTROLA BRAKUJĄCYCH BIOS'ÓW"
 
+msgid "Installed systems"
+msgstr "Zainstalowane systemy"
+
+msgid "All"
+msgstr "Wszystko"
+
+msgid "refresh"
+msgstr "odśwież"
+
 msgid "NO MISSING BIOS"
 msgstr "BIOS'Y NA MIEJSCU"
 
 msgid "dim"
-msgstr "przyciemniony"
+msgstr "przyciemnij"
 
 msgid "black"
 msgstr "czarny"
@@ -1081,7 +1090,7 @@ msgid "systems"
 msgstr "systemy"
 
 msgid "random"
-msgstr "losowy"
+msgstr "losowo"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "USTAWIENIA WYGASZACZA"
@@ -1371,9 +1380,6 @@ msgstr "POBIERACZ MOTYWÓW"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "WYBIERZ MOTYWY DO INSTALACJI/USUNIĘCIA"
-
-msgid "All"
-msgstr "Wszystko"
 
 msgid "Installed"
 msgstr "Zainstalowane"
@@ -1829,7 +1835,8 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
 
 msgid "Reset customized file extensions filters to default."
-msgstr "Resetuje niestandardowe filtry rozszerzeń plików do ustawień domyślnych."
+msgstr ""
+"Resetuje niestandardowe filtry rozszerzeń plików do ustawień domyślnych."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "WYKRYJ JĘZYK/REGION GIER"
@@ -1845,6 +1852,24 @@ msgstr "STWÓRZ PAMIĘĆ PODRĘCZNĄ OBRAZÓW"
 
 msgid "Building image cache"
 msgstr "Tworzenie pamięci podręcznej obrazów"
+
+msgid "DISPLAY SETTINGS"
+msgstr "USTAWIENIA EKRANU"
+
+msgid "MENU FONT SCALE"
+msgstr "SKALA CZCIONKI MENU"
+
+msgid "FONT SCALE"
+msgstr "SKALA CZCIONKI"
+
+msgid "THEME FONT SCALE"
+msgstr "SKALA CZCIONKI MOTYWU"
+
+msgid "FULL SCREEN MENUS"
+msgstr "MENU PEŁNOEKRANOWE"
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr "WYMUŚ MOTYWY MAŁEGO EKRANU"
 
 msgid "DATA MANAGEMENT"
 msgstr "ZARZĄDZANIE DANYMI"
@@ -1964,6 +1989,10 @@ msgstr "OPTYMALIZUJ OBRAZY DLA VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTYMALIZUJ WIDEO DLA VRAM"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr ""
+"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "DOWNLOADS"
 msgstr "DO ŚCIĄGNIĘCIA"
@@ -2176,10 +2205,6 @@ msgstr "Wymagaj hasła dostępu do udziału sieciowego."
 
 msgid "ROOT PASSWORD"
 msgstr "HASŁO ADMINISTRATORA"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr ""
-"DO ZASTOSOWANIA NOWEJ KONFIGURACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUKCJA OPÓŹNIEŃ"
@@ -3364,6 +3389,10 @@ msgstr "WŁĄCZONY CZYTNIK EKRANU"
 
 msgid "SCREEN READER DISABLED"
 msgstr "WYŁĄCZONY CZYTNIK EKRANU"
+
+#, c-format
+#~ msgid "%d z %d hardcore points"
+#~ msgstr "%d z %d punktów hardcore"
 
 #~ msgid "Achievements won"
 #~ msgstr "Zdobyte osiągnięcia"

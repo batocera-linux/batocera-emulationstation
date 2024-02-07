@@ -1040,6 +1040,15 @@ msgstr "INGA BIOS-FILER SAKNAS"
 msgid "MISSING BIOS CHECK"
 msgstr "KONTROLL AV SAKNAD BIOS"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Alla"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "INGA BIOS SAKNAS"
 
@@ -1358,9 +1367,6 @@ msgstr "TEMANEDLADDARE"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VÄLJ TEMAN ATT INSTALLERA/TA BORT"
-
-msgid "All"
-msgstr "Alla"
 
 msgid "Installed"
 msgstr "Installerade"
@@ -1831,6 +1837,24 @@ msgstr "BYGG BILDCACHE"
 msgid "Building image cache"
 msgstr "Bygger bildcache"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "DATAHANTERING"
 
@@ -1943,6 +1967,9 @@ msgstr "OPTIMERA BILDERS VRAM-ANVÄNDNING"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMERA VIDEORS VRAM-ANVÄNDNING"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "OMSTART KRÄVS FÖR ATT VERKSTÄLLA DE NYA INSTÄLLNINGARNA"
 
 msgid "DOWNLOADS"
 msgstr "NEDLADDNINGAR"
@@ -2147,9 +2174,6 @@ msgstr "Kräv ett lösenord för tillgång till nätverksdelning."
 
 msgid "ROOT PASSWORD"
 msgstr "ROTLÖSENORD"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "OMSTART KRÄVS FÖR ATT VERKSTÄLLA DE NYA INSTÄLLNINGARNA"
 
 msgid "LATENCY REDUCTION"
 msgstr "LATENSREDUKTION"

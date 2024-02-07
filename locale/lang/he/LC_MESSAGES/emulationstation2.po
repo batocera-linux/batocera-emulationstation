@@ -1041,6 +1041,15 @@ msgstr ""
 msgid "MISSING BIOS CHECK"
 msgstr ""
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "הכל"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "אין חוסר BIOS"
 
@@ -1355,9 +1364,6 @@ msgstr "מוריד ערכות הנושא"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr ""
-
-msgid "All"
-msgstr "הכל"
 
 msgid "Installed"
 msgstr "מותקן"
@@ -1825,6 +1831,24 @@ msgstr "בניית תמונת CACHES"
 msgid "Building image cache"
 msgstr "בניית תמונת CACHES מתבצעת"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "ניהול DATA"
 
@@ -1931,6 +1955,9 @@ msgstr "התאם ליעילות מלאה שימוש תמונה ב VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr ""
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "דרושה הפעלה מחדש בכדי להחיל את ההגדרות"
 
 msgid "DOWNLOADS"
 msgstr "הורדות"
@@ -2135,9 +2162,6 @@ msgstr ""
 
 msgid "ROOT PASSWORD"
 msgstr "סיסמת שורש ROOT PASSWORD"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "דרושה הפעלה מחדש בכדי להחיל את ההגדרות"
 
 msgid "LATENCY REDUCTION"
 msgstr "הפחתת השהייה"
@@ -3835,6 +3859,3 @@ msgstr ""
 
 #~ msgid "REALLY SHUTDOWN WITHOUT SAVING METADATAS?"
 #~ msgstr "בטוח לכבות בלי לשמור METADATA"
-
-#~ msgid "AN UPDATE IS AVAILABLE FOR BATOCERA.LINUX"
-#~ msgstr ""

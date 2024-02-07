@@ -1045,6 +1045,15 @@ msgstr "NECHYBÍ ŽÁDNÉ SOUBORY BIOSU"
 msgid "MISSING BIOS CHECK"
 msgstr "CHYBĚJÍCÍ BIOS"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Všechno"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "NECHYBÍ ŽÁDNÝ BIOS"
 
@@ -1366,9 +1375,6 @@ msgstr "STAHOVAČ TÉMAT"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VYBRAT MOTIVY K INSTALACI/ODSTRANIT"
-
-msgid "All"
-msgstr "Všechno"
 
 msgid "Installed"
 msgstr "Nainstalováno"
@@ -1839,6 +1845,24 @@ msgstr "VYTVOŘIT MEZIPAMĚŤ OBRÁZKU"
 msgid "Building image cache"
 msgstr "Vytváření mezipaměti pro obrázek"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "SPRÁVA DAT"
 
@@ -1955,6 +1979,9 @@ msgstr "OPTIMALIZOVAT OBRÁZKY POUŽÍTÉ VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMALIZACE VYUŽITÍ VIDEOPAMĚTI"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "RESTARTOVÁNÍ NUTNÉ PRO POUŽITÍ NOVÉ KONFIGURACE"
 
 msgid "DOWNLOADS"
 msgstr "ULOŽENÉ"
@@ -2167,9 +2194,6 @@ msgstr "Vyžadovat heslo pro přístup ke sdílené síťové složce."
 
 msgid "ROOT PASSWORD"
 msgstr "HESLO ADMINISTRÁTORA"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "RESTARTOVÁNÍ NUTNÉ PRO POUŽITÍ NOVÉ KONFIGURACE"
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUKCE SPOŽDĚNÍ"

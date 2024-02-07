@@ -1047,6 +1047,15 @@ msgstr "Žiadne chýbajúce BIOS súbory"
 msgid "MISSING BIOS CHECK"
 msgstr "Kontrola chýbajúceho BIOSu"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Všetko"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "Žiadny chýbajúci BIOS"
 
@@ -1368,9 +1377,6 @@ msgstr "Sťahovač tém"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "Vyberte témy na inštaláciu/odstránenie"
-
-msgid "All"
-msgstr "Všetko"
 
 msgid "Installed"
 msgstr "Nainštalované"
@@ -1843,6 +1849,24 @@ msgstr "Vytvoriť pamäť obrázkov"
 msgid "Building image cache"
 msgstr "Vytváram pamäť obrázkov"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "Správa údajov"
 
@@ -1959,6 +1983,9 @@ msgstr "Optimalizovať využitie obrazovej VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "Optimalizovať využitie video VRAM"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "Na použitie zmien je potrebný reštart"
 
 msgid "DOWNLOADS"
 msgstr "Preberania"
@@ -2166,9 +2193,6 @@ msgstr "Vyžadovať heslo na prístup k sieťovému zdieľaniu."
 
 msgid "ROOT PASSWORD"
 msgstr "Heslo roota"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "Na použitie zmien je potrebný reštart"
 
 msgid "LATENCY REDUCTION"
 msgstr "Redukcia latencie"

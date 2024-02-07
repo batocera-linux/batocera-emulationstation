@@ -1053,6 +1053,15 @@ msgstr "NO FALTAN ARCHIVOS BIOS"
 msgid "MISSING BIOS CHECK"
 msgstr "COMPROBACIÓN DE BIOS AUSENTES"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Todo"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "NO FALTAN BIOS"
 
@@ -1374,9 +1383,6 @@ msgstr "GESTOR DE TEMAS"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELECCIONA TEMAS A INSTALAR, ACTUALIZAR O ELIMINAR"
-
-msgid "All"
-msgstr "Todo"
 
 msgid "Installed"
 msgstr "Instalado"
@@ -1850,6 +1856,24 @@ msgstr "CONSTRUIR CACHÉ DE IMÁGENES"
 msgid "Building image cache"
 msgstr "CONSTRUYENDO CACHÉ DE IMÁGENES"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "MANEJO DE DATOS"
 
@@ -1968,6 +1992,9 @@ msgstr "OPTIMIZAR EL USO DE VRAM EN IMÁGENES"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMIZAR EL USO DE VRAM EN VÍDEOS"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
 
 msgid "DOWNLOADS"
 msgstr "DESCARGAS"
@@ -2177,9 +2204,6 @@ msgstr "Requerir una contraseña para acceder al recurso compartido de red."
 
 msgid "ROOT PASSWORD"
 msgstr "CONTRASEÑA ROOT"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "ES NECESARIO REINICIAR PARA APLICAR LA NUEVA CONFIGURACIÓN"
 
 msgid "LATENCY REDUCTION"
 msgstr "REDUCCIÓN DE LA LATENCIA"

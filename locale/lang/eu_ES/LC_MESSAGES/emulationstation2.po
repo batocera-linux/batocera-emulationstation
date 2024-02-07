@@ -1045,6 +1045,15 @@ msgstr "EZ DA BIOS FITXATEGIRIK FALTA"
 msgid "MISSING BIOS CHECK"
 msgstr "FALTAN DAUDEN BIOS-EN KONPROBAKETA"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Denak"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "EZ DA BIOS-IK FALTA"
 
@@ -1366,9 +1375,6 @@ msgstr "GAI DESKARGATZAILEA"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "AUKERATU INSTALATU/KENDU NAHI DUZUN GAIA"
-
-msgid "All"
-msgstr "Denak"
 
 msgid "Installed"
 msgstr "Instalatuta"
@@ -1841,6 +1847,24 @@ msgstr "ERAIKI IRUDI KATXEA"
 msgid "Building image cache"
 msgstr "IRUDI KATXEA ERAIKITZEN"
 
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
+
 msgid "DATA MANAGEMENT"
 msgstr "DATU KUDEAKETA"
 
@@ -1958,6 +1982,9 @@ msgstr "IRUDIEN VRAM ERABILERA OPTIMIZATU"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "BIDEO VRAM ERABILERA OPTIMIZATU"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "BERABIARAZPENA BEHARREZKOA DA KONFIGURAZIO BERRIA EZARTZEKO"
 
 msgid "DOWNLOADS"
 msgstr "DESKARGAK"
@@ -2168,9 +2195,6 @@ msgstr "Eskatu pasahitz bat sarean konpartitutakoa atzitzeko"
 
 msgid "ROOT PASSWORD"
 msgstr "ROOT PASAHITZA"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "BERABIARAZPENA BEHARREZKOA DA KONFIGURAZIO BERRIA EZARTZEKO"
 
 msgid "LATENCY REDUCTION"
 msgstr "LATENTZI GUTXITZEA"

@@ -2,19 +2,19 @@
 <systems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gamesdb.xsd">
   <system name="arcade">
     <game name="18wheelr">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelro">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelrt">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheels">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="18wheelu">
-      <wheel/>
+      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
     </game>
     <game name="2spicy">
       <gun/>
@@ -475,7 +475,7 @@
       <gun/>
     </game>
     <game name="crzytaxi">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="cspring1">
       <wheel/>
@@ -757,16 +757,16 @@
       <wheel/>
     </game>
     <game name="f355">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f355twin">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f355twinp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f355twn2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="fastdraw">
       <gun/>
@@ -850,7 +850,7 @@
       <gun/>
     </game>
     <game name="ftspeed">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="fullthrl">
       <wheel/>
@@ -1249,49 +1249,49 @@
       <wheel/>
     </game>
     <game name="inidv3ca">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="inidv3cy">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initd">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdexp">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdexpo">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdo">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2e">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2j">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2ja">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv2jo">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3e">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3j">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initdv3jb">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initiad4">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="initiad4c">
-      <wheel/>
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
     <game name="invasnab">
       <gun/>
@@ -1306,7 +1306,7 @@
       <gun/>
     </game>
     <game name="jambo">
-      <wheel/>
+      <wheel rotation="270" downshift="b" upshift="a"/>
     </game>
     <game name="jdredd">
       <gun/>
@@ -1551,7 +1551,7 @@
       <wheel/>
     </game>
     <game name="maxspeed">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="mechatt">
       <gun/>
@@ -3224,7 +3224,7 @@
       <wheel/>
     </game>
     <game name="wldrider">
-      <wheel/>
+      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="wrally">
       <wheel/>
@@ -3763,145 +3763,145 @@
       <wheel rotation="180"/>
     </game>
     <game name="dakar2">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="driven">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="f12002">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="nascar">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="4x4evo2">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="burnout">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="fzerogx">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="vrally3">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="prorally">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="18wheeler">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="cityracer">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="crazytaxi">
-      <wheel rotation="180"/>
-    </game>
-    <game name="hotwheels">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="spyhunter">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="italianjob">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="dromeracers">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="grooverider">
-      <wheel rotation="180"/>
-    </game>
-    <game name="gtproseries">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="sonicriders">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="worldracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="charinkohero">
-      <wheel rotation="180"/>
-    </game>
-    <game name="smashingdrive">
-      <wheel rotation="180"/>
-    </game>
-    <game name="automodellista">
-      <wheel rotation="180"/>
-    </game>
-    <game name="crashnitrokart">
-      <wheel rotation="180"/>
-    </game>
-    <game name="lotuschallenge">
-      <wheel rotation="180"/>
-    </game>
-    <game name="cocotokartracer">
-      <wheel rotation="180"/>
-    </game>
-    <game name="disneypixarcars">
-      <wheel rotation="180"/>
-    </game>
-    <game name="starskyandhutch">
-      <wheel rotation="180"/>
-    </game>
-    <game name="americanchopper2">
-      <wheel rotation="180"/>
-    </game>
-    <game name="bigmuthatruckers">
-      <wheel rotation="180"/>
-    </game>
-    <game name="buttuglymartians">
-      <wheel rotation="180"/>
-    </game>
-    <game name="pacmanworldrally">
-      <wheel rotation="180"/>
-    </game>
-    <game name="rracingevolution">
-      <wheel rotation="180"/>
-    </game>
-    <game name="simpsonsroadrage">
-      <wheel rotation="180"/>
-    </game>
-    <game name="f1careerchallenge">
-      <wheel rotation="180"/>
-    </game>
-    <game name="rallychampionship">
-      <wheel rotation="180"/>
-    </game>
-    <game name="crashtagteamracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="atvquadpowerracing2">
-      <wheel rotation="180"/>
-    </game>
-    <game name="mariokartdoubledash">
-      <wheel rotation="180"/>
-    </game>
-    <game name="xgiiiextremegracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="shreksmashncrashracing">
-      <wheel rotation="180"/>
-    </game>
-    <game name="needforspeedunderground2">
-      <wheel rotation="180" accelerate="rt" brake="lt"/>
+      <wheel/>
     </game>
     <game name="needforspeed">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="charinkohero">
+      <wheel/>
+    </game>
+    <game name="smashingdrive">
+      <wheel/>
+    </game>
+    <game name="automodellista">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="crashnitrokart">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="lotuschallenge">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="cocotokartracer">
+      <wheel/>
+    </game>
+    <game name="simpsonshitnrun">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="disneypixarcars">
+      <wheel/>
+    </game>
+    <game name="starskyandhutch">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="americanchopper2">
+      <wheel/>
+    </game>
+    <game name="bigmuthatruckers">
+      <wheel/>
+    </game>
+    <game name="buttuglymartians">
+      <wheel/>
+    </game>
+    <game name="pacmanworldrally">
+      <wheel/>
+    </game>
+    <game name="rracingevolution">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="simpsonsroadrage">
+      <wheel/>
+    </game>
+    <game name="f1careerchallenge">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="rallychampionship">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="crashtagteamracing">
+      <wheel/>
+    </game>
+    <game name="hotwheelsvelocityx">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="hotwheelsworldrace">
+      <wheel/>
+    </game>
+    <game name="atvquadpowerracing2">
+      <wheel/>
+    </game>
+    <game name="mariokartdoubledash">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
+    <game name="xgiiiextremegracing">
+      <wheel/>
+    </game>
+    <game name="shreksmashncrashracing">
+      <wheel/>
     </game>
     <game name="roadtripthearcadeedition">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="srsstreetracingsyndicate">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="xgraextremegracingassociation">
-      <wheel rotation="180"/>
+      <wheel/>
     </game>
     <game name="speedchallengejacquesvilleneuve">
-      <wheel rotation="180"/>
+      <wheel type="Steering Wheel" rotation="180"/>
     </game>
   </system>
   <system name="gx4000">
@@ -6672,95 +6672,6 @@
     </game>
     <game name="dirt">
       <wheel/>
-    </game>
-  </system>
-  <system name="arcade">
-    <game name="18wheelro">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheelrt">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheelr">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheels">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="18wheelu">
-      <wheel rotation="270" downshift="y" upshift="x" y="down"/>
-    </game>
-    <game name="crzytaxi">
-      <wheel rotation="270" downshift="down" upshift="up"/>
-    </game>
-    <game name="f355twinp">
-      <wheel rotation="270"/>
-    </game>
-    <game name="f355twin">
-      <wheel rotation="270"/>
-    </game>
-    <game name="f355twn2">
-      <wheel rotation="270"/>
-    </game>
-    <game name="f355">
-      <wheel rotation="270"/>
-    </game>
-    <game name="ftspeed">
-      <wheel rotation="270" downshift="down" upshift="up"/>
-    </game>
-    <game name="inidv3ca">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="inidv3cy">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdexpo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdexp">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2ja">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2jo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv2j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv3e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv3jb">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initdv3j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initiad4c">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initiad4">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="initd">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
-    </game>
-    <game name="jambo">
-      <wheel rotation="270" downshift="b" upshift="a"/>
-    </game>
-    <game name="maxspeed">
-      <wheel rotation="270" downshift="down" upshift="up"/>
-    </game>
-    <game name="wldrider">
-      <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
   </system>
 </systems>

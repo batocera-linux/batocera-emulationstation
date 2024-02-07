@@ -1044,6 +1044,15 @@ msgstr "NESSUN BIOS MANCANTE"
 msgid "MISSING BIOS CHECK"
 msgstr "BIOS MANCANTI"
 
+msgid "Installed systems"
+msgstr ""
+
+msgid "All"
+msgstr "Tutti"
+
+msgid "refresh"
+msgstr ""
+
 msgid "NO MISSING BIOS"
 msgstr "NESSUN BIOS MANCANTE"
 
@@ -1365,9 +1374,6 @@ msgstr "DOWNLOADER TEMI"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "SELEZIONA IL TEMA DA INSTALLARE/RIMUOVERE"
-
-msgid "All"
-msgstr "Tutti"
 
 msgid "Installed"
 msgstr "Installato"
@@ -1808,7 +1814,8 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "PULISCI LISTE GIOCHI & RIMUOVI MEDIA INUTILIZZATI"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr "Rimuovi i non-utilizzati, e cancella le preferenze per i media mancanti."
+msgstr ""
+"Rimuovi i non-utilizzati, e cancella le preferenze per i media mancanti."
 
 msgid "Cleaning"
 msgstr "Pulizia"
@@ -1839,6 +1846,24 @@ msgstr "COSTRUISCI CACHE IMMAGINI"
 
 msgid "Building image cache"
 msgstr "Creazione cache immagini"
+
+msgid "DISPLAY SETTINGS"
+msgstr ""
+
+msgid "MENU FONT SCALE"
+msgstr ""
+
+msgid "FONT SCALE"
+msgstr ""
+
+msgid "THEME FONT SCALE"
+msgstr ""
+
+msgid "FULL SCREEN MENUS"
+msgstr ""
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr ""
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIONE DEI DATI"
@@ -1956,6 +1981,9 @@ msgstr "OTTIMIZZAZIONE IMMAGINI IN VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OTTIMIZZAZIONE VIDEO IN VRAM"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
 
 msgid "DOWNLOADS"
 msgstr "DOWNLOADS"
@@ -2165,9 +2193,6 @@ msgstr "Richiedi una password per accedere alla rete condivisa."
 
 msgid "ROOT PASSWORD"
 msgstr "PASSWORD DI ROOT"
-
-msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "RIAVVIO DEL SISTEMA NECESSARIO PER APPLICARE LA NUOVA CONFIGURAZIONE"
 
 msgid "LATENCY REDUCTION"
 msgstr "RIDUZIONE LATENZA"
