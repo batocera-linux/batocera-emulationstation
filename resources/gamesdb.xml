@@ -3786,6 +3786,9 @@
     <game name="vrally3">
       <wheel/>
     </game>
+    <game name="burnout2">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
     <game name="prorally">
       <wheel type="Steering Wheel" rotation="180"/>
     </game>
