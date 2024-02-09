@@ -12,6 +12,7 @@ namespace PlatformIds
 		PLATFORM_UNKNOWN = 0,
 
 		THREEDO, // name can't start with a constant
+		ACTIONMAX,
 		AMIGA,
 		AMSTRAD_CPC,
 		APPLE_II,
