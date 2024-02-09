@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2024-01-29 13:13+0100\n"
+"PO-Revision-Date: 2024-02-08 18:37+0100\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -1048,13 +1048,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "Kontrola chýbajúceho BIOSu"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Nainštalované systémy"
 
 msgid "All"
 msgstr "Všetko"
 
 msgid "refresh"
-msgstr ""
+msgstr "obnoviť"
 
 msgid "NO MISSING BIOS"
 msgstr "Žiadny chýbajúci BIOS"
@@ -1850,22 +1850,22 @@ msgid "Building image cache"
 msgstr "Vytváram pamäť obrázkov"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "Nastavenie zobrazenia"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "Mierka písma ponuky"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "Mierka písma"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "Mierka písma témy"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "Celoobrazovkové ponuky"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "Vynútiť tému pre malé obrazovky"
 
 msgid "DATA MANAGEMENT"
 msgstr "Správa údajov"
