@@ -1145,6 +1145,9 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// First loop, search for GUID + NAME. High Priority
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
+		if (playerJoysticks.find(player) != playerJoysticks.cend())
+			continue;
+
 		std::string playerConfigName = Settings::getInstance()->getString(Utils::String::format("INPUT P%iNAME", player + 1));
 		std::string playerConfigGuid = Settings::getInstance()->getString(Utils::String::format("INPUT P%iGUID", player + 1));
 
@@ -1163,7 +1166,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// Second loop, search for NAME. Low Priority
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		if (playerJoysticks[player] != nullptr)
+		if (playerJoysticks.find(player) != playerJoysticks.cend())
 			continue;
 
 		std::string playerConfigName = Settings::getInstance()->getString(Utils::String::format("INPUT P%dNAME", player + 1));
@@ -1183,7 +1186,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// Last loop, search for free controllers for remaining players.
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		if (playerJoysticks[player] != nullptr)
+		if (playerJoysticks.find(player) != playerJoysticks.cend())
 			continue;
 
 		// si aucune config a été trouvé pour le joueur, on essaie de lui filer un libre
@@ -1198,7 +1201,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 	// in case of hole (player 1 missing, but player 4 set, fill the holes with last players joysticks)
 	for (int player = 0; player < MAX_PLAYERS; player++) 
 	{
-		if (playerJoysticks[player] != nullptr)
+		if (playerJoysticks.find(player) != playerJoysticks.cend())
 			continue;
 
 		for (int repplayer = MAX_PLAYERS; repplayer > player; repplayer--) 
@@ -1213,7 +1216,7 @@ std::map<int, InputConfig*> InputManager::computePlayersConfigs()
 
 	for (int player = 0; player < MAX_PLAYERS; player++)
 	{
-		if (playerJoysticks[player] == nullptr)
+		if (playerJoysticks.find(player) != playerJoysticks.cend())
 			continue;
 
 		LOG(LogInfo) << "computePlayersConfigs : Player " << player << " => " << playerJoysticks[player]->getDevicePath();
