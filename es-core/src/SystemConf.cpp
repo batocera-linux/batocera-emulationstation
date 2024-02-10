@@ -69,7 +69,7 @@ bool SystemConf::loadSystemConf()
 	if (mSystemConfFile.empty())
 		return true;
 
-	mWasChanged = false;
+	changedConf.clear();
 
 	std::string line;
 	std::ifstream systemConf(mSystemConfFile);
@@ -104,7 +104,7 @@ bool SystemConf::saveSystemConf()
 	if (mSystemConfFile.empty())
 		return Settings::getInstance()->saveFile();	
 
-	if (!mWasChanged)
+	if (changedConf.empty())
 		return false;
 
 	std::ifstream filein(mSystemConfFile); //File to read from
@@ -134,9 +134,9 @@ bool SystemConf::saveSystemConf()
 	int lastTime = SDL_GetTicks();
 
 	/* Save new value if exists */
-	for (auto& it : confMap)
+	for (auto& it : changedConf)
 	{
-		std::string key = it.first + "=";		
+		std::string key = it + "=";
 		char key0 = key[0];
 
 		bool lineFound = false;
@@ -156,8 +156,8 @@ bool SystemConf::saveSystemConf()
 
 			if (idx == 0 || (idx == 1 && (fc == ';' || fc == '#')))
 			{
-				std::string val = it.second;
-				if ((!val.empty() && val != "auto") || dontRemoveValue.find(it.first) != dontRemoveValue.cend())
+				std::string val = confMap[it];
+				if ((!val.empty() && val != "auto") || dontRemoveValue.find(it) != dontRemoveValue.cend())
 				{
 					auto defaultValue = defaults.find(key);
 					if (defaultValue != defaults.cend() && defaultValue->second == val)
@@ -174,7 +174,7 @@ bool SystemConf::saveSystemConf()
 
 		if (!lineFound)
 		{
-			std::string val = it.second;
+			std::string val = confMap[it];
 			if (!val.empty() && val != "auto")
 				fileLines.push_back(key + val);
 		}
@@ -203,7 +203,7 @@ bool SystemConf::saveSystemConf()
 	dst << src.rdbuf();
 
 	remove(mSystemConfFileTmp.c_str());
-	mWasChanged = false;
+	changedConf.clear();
 
 	return true;
 }
@@ -232,7 +232,7 @@ bool SystemConf::set(const std::string &name, const std::string &value)
 	if (confMap.count(name) == 0 || confMap[name] != value)
 	{
 		confMap[name] = value;
-		mWasChanged = true;
+		changedConf.insert(name);
 		return true;
 	}
 

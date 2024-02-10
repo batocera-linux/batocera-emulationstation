@@ -4,6 +4,7 @@
 
 #include <string>
 #include <map>
+#include <set>
 
 class SystemConf 
 {
@@ -27,7 +28,7 @@ private:
 	static SystemConf* sInstance;
 
 	std::map<std::string, std::string> confMap;
-	bool mWasChanged;
+	std::set<std::string> changedConf;
 
 
 	std::string mSystemConfFile;
