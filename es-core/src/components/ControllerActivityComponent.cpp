@@ -262,14 +262,17 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 				itemsWidth += szW + mSpacing;
 	}
 
-	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
-		itemsWidth += szW + mSpacing; // getTextureSize(mPlanemodeImage).x()
-	else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
-		itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
+	if (Settings::ShowNetworkIndicator())
+	{
+		if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
+			itemsWidth += szW + mSpacing; // getTextureSize(mPlanemodeImage).x()
+		else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
+			itemsWidth += szW + mSpacing; // getTextureSize(mNetworkImage).x()
+	}
 
 	auto batteryText = std::to_string(mBatteryInfo.level) + "%";
 	
-	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
+	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr && !Settings::getInstance()->getString("ShowBattery").empty())
 	{
 		itemsWidth += szW + mSpacing;
 		//itemsWidth += getTextureSize(mBatteryImage).x() + mSpacing;
@@ -354,12 +357,15 @@ void ControllerActivityComponent::render(const Transform4x4f& parentTrans)
 		}
 	}
 	
-	if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
-		x += renderTexture(x, szW, mPlanemodeImage, mColorShift);
-	else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
-		x += renderTexture(x, szW, mNetworkImage, mColorShift);
+	if (Settings::ShowNetworkIndicator())
+	{
+		if ((mView & PLANEMODE) && mPlanemodeEnabled && mPlanemodeImage != nullptr)
+			x += renderTexture(x, szW, mPlanemodeImage, mColorShift);
+		else if ((mView & NETWORK) && mNetworkConnected && mNetworkImage != nullptr)
+			x += renderTexture(x, szW, mNetworkImage, mColorShift);
+	}
 
-	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr)
+	if ((mView & BATTERY) && mBatteryInfo.hasBattery && mBatteryImage != nullptr && !Settings::getInstance()->getString("ShowBattery").empty())
 	{
 		x += renderTexture(x, szW, mBatteryImage, mColorShift);
 
@@ -489,7 +495,7 @@ void ControllerActivityComponent::updateBatteryInfo()
 {
 	mBatteryInfoChanged = false;
 
-	if (Settings::getInstance()->getString("ShowBattery").empty() || (mView & BATTERY) == 0)
+	if ((mView & BATTERY) == 0)
 	{
 		mBatteryInfo.hasBattery = false;
 		return;
