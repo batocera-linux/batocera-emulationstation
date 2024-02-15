@@ -4,6 +4,7 @@
 #include "SystemData.h"
 #include "FileData.h"
 #include "SystemConf.h"
+#include "guis/GuiSettings.h"
 #include "MameNames.h"
 #include <algorithm>
 
@@ -27,6 +28,25 @@ std::string LangInfo::getLanguageString()
 	}
 
 	return data;
+}
+
+std::string getSystemRegion(std::string locale)
+{
+	if (locale == "en_US" || locale == "en")
+		return "us";
+	else if (locale == "en_GB")
+		return "eu";
+	else if (locale == "eu_ES")
+		return "eu";
+	else if (locale == "ja_JP")
+		return "jp";
+	else if (locale == "ko_KR" || locale == "ko")
+		return "kr";
+	else if (locale == "pt_BR")
+		return "br";
+	else if (locale == "pt_PT")
+		return "eu";
+	return std::string();
 }
 
 void LangInfo::extractLang(std::string val)
@@ -73,6 +93,18 @@ void LangInfo::extractLang(std::string val)
 		"kr", "korea"
 	};
 
+    std::string locale = SystemConf::getInstance()->get("system.language");
+	std::string systemLang;
+	if (locale.empty())
+		systemLang = "en";
+	else
+	{
+		auto shortNameDivider = locale.find("_");
+		if (shortNameDivider != std::string::npos)
+			systemLang = Utils::String::toLower(locale.substr(0, shortNameDivider));
+	}
+	std::string systemRegion = getSystemRegion(locale);
+
 	for (auto s : Utils::String::splitAny(val, "_, "))
 	{
 		bool clearLang = s.find("t-") != std::string::npos;
@@ -93,10 +125,25 @@ void LangInfo::extractLang(std::string val)
 					languages.insert(langData.lang);
 				}
 
-				if (!langData.region.empty() && !mHardRegion)
+				if (!langData.region.empty())
 				{
-					region = langData.region;
-					mHardRegion = hardRegions.find(s) != hardRegions.cend();
+					bool newHardRegion = hardRegions.find(s) != hardRegions.cend();;
+					if (!mHardRegion)
+					{
+						region = langData.region;
+						mHardRegion = newHardRegion;
+					}
+					else if (newHardRegion)
+					{
+						if ((region != systemRegion) && langData.region == systemRegion)
+						{
+							region = langData.region;
+							}
+						else if (((region != systemRegion) || systemRegion.empty()) && (langData.lang == systemLang))
+						{
+							region = langData.region;
+						}
+					}				
 				}
 			}
 		}
