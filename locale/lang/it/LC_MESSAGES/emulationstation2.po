@@ -1045,13 +1045,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "BIOS MANCANTI"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Sistemi installati"
 
 msgid "All"
 msgstr "Tutti"
 
 msgid "refresh"
-msgstr ""
+msgstr "aggiorna"
 
 msgid "NO MISSING BIOS"
 msgstr "NESSUN BIOS MANCANTE"
@@ -1848,22 +1848,22 @@ msgid "Building image cache"
 msgstr "Creazione cache immagini"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "IMPOSTAZIONI SCHERMO"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "SCALA CARATTERI MENU"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "SCALA CARATTERI"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "SCALA CARATTERI DEL TEMA"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "MENU A TUTTO SCHERMO"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "FORZA TEMA PER SCHERMO PICCOLO"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTIONE DEI DATI"
