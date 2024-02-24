@@ -441,7 +441,7 @@ namespace Utils
 			h = (seconds / 3600) % 24;
 			m = (seconds / 60) % 60;
 			s = seconds % 60;
-			if (d > 0)
+			if (d > 1)
 			{
 				snprintf(buf, 256, _("%d d").c_str(), d);
 				if (h > 0)
@@ -456,9 +456,18 @@ namespace Utils
 					}
 					return days + " " + std::string(buf);
 				}
+				else if (m > 0)
+				{
+					std::string days(buf);
+					snprintf(buf, 256, _("%d mn").c_str(), m);
+					return days + " " + std::string(buf);
+				}
 			}
-			if (h > 0)
+			else if (h > 0 || d > 0)
 			{
+				if (d > 0)
+					h += d * 24;
+
 				snprintf(buf, 256, _("%d h").c_str(), h);
 				if (m > 0)
 				{
