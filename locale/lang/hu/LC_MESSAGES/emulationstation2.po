@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-02-03 16:14+0100\n"
+"PO-Revision-Date: 2024-02-04 17:23+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -1049,13 +1049,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "HIÁNYZÓ BIOS"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Telepített rendszerek"
 
 msgid "All"
 msgstr "Összes"
 
 msgid "refresh"
-msgstr ""
+msgstr "frissítés"
 
 msgid "NO MISSING BIOS"
 msgstr "NINCS HIÁNYZÓ BIOS"
@@ -1855,22 +1855,22 @@ msgid "Building image cache"
 msgstr "Kép cache építése"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "MEGJELENÍTÉSI BEÁLLÍTÁSOK"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "MENÜ BETŰMÉRETE"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "BETŰMÉRET"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "TÉMA BETŰTÍPUS SKÁLA"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "TELJES KÉPERNYŐS MENÜK"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "KIS KÉPERNYŐS TÉMÁK KÉNYSZERÍTÉSE"
 
 msgid "DATA MANAGEMENT"
 msgstr "ADAT MENEDZSMENT"

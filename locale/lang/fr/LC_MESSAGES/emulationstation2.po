@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "MISE À JOUR DISPONIBLE"
@@ -1051,13 +1051,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "VÉRIFIER LES BIOS MANQUANTS"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Systèmes installés"
 
 msgid "All"
 msgstr "Tous"
 
 msgid "refresh"
-msgstr ""
+msgstr "rafraîchir"
 
 msgid "NO MISSING BIOS"
 msgstr "AUCUN BIOS MANQUANT"
@@ -1854,22 +1854,22 @@ msgid "Building image cache"
 msgstr "Génération du cache d’images"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "RÉGLAGES D'AFFICHAGE"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "ÉCHELLE DE POLICE DU MENU"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "ÉCHELLE DE POLICE"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "ÉCHELLE DE POLICE DU THÈME"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "MENUS PLEIN ÉCRAN"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "FORCER THEME POUR PETIT ÉCRAN"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
@@ -3344,8 +3344,8 @@ msgstr "%d sec"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Il y a %d an"
+msgstr[1] "Il y a %d ans"
 
 #, c-format
 msgid "%d day ago"
