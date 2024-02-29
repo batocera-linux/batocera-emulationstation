@@ -462,9 +462,12 @@ namespace Utils
 				// If reading from fuel gauge, we have to calculate remaining charge
 				if (batteryCapacityPath.length() <= 1)
 				{
-					float now = std::stof(Utils::FileSystem::readAllText(batteryCurrChargePath).c_str());
-					float full = std::stof(Utils::FileSystem::readAllText(batteryMaxChargePath).c_str());
-					ret.level = int(round((now / full) * 100));
+					if ((!batteryCurrChargePath.empty()) && (!batteryMaxChargePath.empty()))
+					{
+						float now = std::stof(Utils::FileSystem::readAllText(batteryCurrChargePath).c_str());
+						float full = std::stof(Utils::FileSystem::readAllText(batteryMaxChargePath).c_str());
+						ret.level = int(round((now / full) * 100));
+					}
 				}
 				else
 					ret.level = Utils::String::toInteger(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
