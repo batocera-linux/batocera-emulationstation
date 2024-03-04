@@ -872,6 +872,9 @@ msgstr ""
 msgid "DISPLAY OPTIONS"
 msgstr ""
 
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
+
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
