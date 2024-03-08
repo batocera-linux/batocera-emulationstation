@@ -35,10 +35,10 @@ msgid "emulator"
 msgstr "émulateur"
 
 msgid "Core"
-msgstr "Coeur"
+msgstr "Cœur"
 
 msgid "core"
-msgstr "coeur"
+msgstr "cœur"
 
 msgid "Image"
 msgstr "Image"
@@ -98,7 +98,7 @@ msgid "Bezel (16:9)"
 msgstr "Décoration (16/9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "entrez le chemin pour la décoration (16/9)"
+msgstr "entrer le chemin pour la décoration (16/9)"
 
 msgid "Cartridge"
 msgstr "Cartouche"
@@ -230,7 +230,7 @@ msgid "Game time"
 msgstr "Temps de jeu"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "entrez le temps de jeu"
+msgstr "entrer le temps de jeu"
 
 msgid "Languages"
 msgstr "Langue"
@@ -245,16 +245,16 @@ msgid "this game's region"
 msgstr "région du jeu"
 
 msgid "Cheevos Hash"
-msgstr "Cheevos Hash"
+msgstr "Hash Cheevos"
 
 msgid "Cheevos checksum"
-msgstr "Cheevos checksum"
+msgstr "Checksum Cheevos"
 
 msgid "Cheevos Game ID"
-msgstr "Cheevos Game ID"
+msgstr "Game ID Cheevos"
 
 msgid "Screenscraper Game ID"
-msgstr "Screenscraper Game ID"
+msgstr "Game ID Screenscraper"
 
 msgid "all games"
 msgstr "tous les jeux"
@@ -317,13 +317,13 @@ msgstr[0] "Cette collection contient %i jeu : %s"
 msgstr[1] "Cette collection contient %i jeux : %s"
 
 msgid "SCANNING BLUETOOTH"
-msgstr "ANALYSE BLUETOOTH"
+msgstr "DÉCOUVERTE BLUETOOTH"
 
 msgid "Searching for devices..."
 msgstr "Recherche de manettes..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "ANALYSE BLUETOOTH DÉJÀ EN COURS."
+msgstr "DÉCOUVERTE BLUETOOTH DÉJÀ EN COURS."
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATAGE DU PÉRIPHÉRIQUE"
@@ -350,16 +350,16 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "THÈME DÉSINSTALLÉ AVEC SUCCÈS"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "BEZELS INSTALLÉS AVEC SUCCÈS"
+msgstr "DÉCORATIONS INSTALLÉES AVEC SUCCÈS"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "BEZELS DÉSINSTALLÉS AVEC SUCCÈS"
+msgstr "DÉCORATIONS DÉSINSTALLÉES AVEC SUCCÈS"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
-msgstr "PACKAGE INSTALLÉ AVEC SUCCÈS"
+msgstr "PAQUET INSTALLÉ AVEC SUCCÈS"
 
 msgid "PACKAGE REMOVED SUCCESSFULLY"
-msgstr "PACKAGE SUPPRIMÉ AVEC SUCCÈS"
+msgstr "PAQUET SUPPRIMÉ AVEC SUCCÈS"
 
 msgid "RETROACHIEVEMENT SETTINGS"
 msgstr "PARAMÈTRES DES SUCCÈS RÉTRO"
@@ -403,10 +403,10 @@ msgstr ""
 "notifications."
 
 msgid "RICH PRESENCE"
-msgstr "RICH PRESENCE"
+msgstr "PRÉSENCE RICHE"
 
 msgid "ENCORE MODE"
-msgstr "ENCORE MODE"
+msgstr "MODE ENCORE"
 
 msgid "Unlocked achievements can be earned again."
 msgstr "Les succès débloqués peuvent de nouveau être gagnés."
@@ -503,7 +503,7 @@ msgid "New Collection Name"
 msgstr "Nom de la collection"
 
 msgid "ENTER NAME"
-msgstr "ENTREZ LE NOM"
+msgstr "ENTRER LE NOM"
 
 msgid "CREATE FROM THEME"
 msgstr "CREE DEPUIS LE THEME"
@@ -701,7 +701,7 @@ msgid "VIEW CUSTOMIZATION"
 msgstr "PERSONNALISER LA VUE"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "VOIR LE PROFIL PADTOKEY"
+msgstr "VOIR LE PROFIL MANETTE À CLAVIER"
 
 msgid "ADVANCED SYSTEM OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU SYSTÈME"
@@ -738,7 +738,7 @@ msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ÊTES VOUS SÛR DE VOULOIR SUPPRIMER '%s' ?"
+msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER '%s' ?"
 
 msgid "INPUT"
 msgstr "ÉDITER"
@@ -753,7 +753,7 @@ msgid "CONNECT TO NETPLAY"
 msgstr "REJOINDRE UNE PARTIE EN RÉSEAU"
 
 msgid "Select a game lobby to join"
-msgstr "Choisissez la partie à rejoindre"
+msgstr "Choisir la partie à rejoindre"
 
 msgid "REFRESH"
 msgstr "RAFRAICHIR"
@@ -771,7 +771,7 @@ msgid "SAME ROM"
 msgstr "ROM IDENTIQUE"
 
 msgid "UNAVAILABLE CORE"
-msgstr "COEUR NON DISPONIBLE"
+msgstr "CŒUR NON DISPONIBLE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"
@@ -1016,7 +1016,7 @@ msgid "CONTENT DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE CONTENU"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
-msgstr "SÉLECTIONNEZ LE CONTENU À INSTALLER / SUPPRIMER"
+msgstr "SÉLECTIONNER LE CONTENU À INSTALLER / SUPPRIMER"
 
 msgid "UPDATE INSTALLED CONTENT"
 msgstr "MAJ CONTENU INSTALLÉ"
@@ -1168,7 +1168,7 @@ msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PROFIL PADTOKEY"
 
 msgid "SELECT ACTIONS TO CHANGE"
-msgstr "SÉLECTIONNEZ LES ACTIONS À MODIFIER"
+msgstr "SÉLECTIONNER LES ACTIONS À MODIFIER"
 
 msgid "SAVE"
 msgstr "SAUVEGARDER"
@@ -1286,10 +1286,10 @@ msgid "VIEW GAME MEDIA"
 msgstr "VOIR LES MÉDIAS DU JEU"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "COEUR ACTUEL NON COMPATIBLE"
+msgstr "CŒUR ACTUEL NON COMPATIBLE"
 
 msgid "COMPATIBLE CORE(S)"
-msgstr "COEUR(S) COMPATIBLE(S)"
+msgstr "CŒUR(S) COMPATIBLE(S)"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr "VOIR LES SUCCÈS DU JEU"
@@ -1379,7 +1379,7 @@ msgid "THEMES DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE THÈMES"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "SÉLECTIONNEZ LES THÈMES À INSTALLER / SUPPRIMER"
+msgstr "SÉLECTIONNER LES THÈMES À INSTALLER / SUPPRIMER"
 
 msgid "Installed"
 msgstr "Installé"
@@ -1570,7 +1570,7 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"ATTENTION: CERTAINS DE VOS SYSTÈMES N’ONT PAS DE PLATEFORME DÉFINIE. LES "
+"ATTENTION : CERTAINS DE VOS SYSTÈMES N’ONT PAS DE PLATEFORME DÉFINIE. LES "
 "RÉSULTATS POURRAIENT ÊTRE INATTENDUS !\n"
 "CONTINUER QUAND MÊME ?"
 
@@ -1602,7 +1602,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "LE BEZEL PROJECT"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "SÉLECTIONNEZ LES BEZELS À INSTALLER / SUPPRIMER"
+msgstr "SÉLECTIONNER LES DÉCORATIONS À INSTALLER / SUPPRIMER"
 
 msgid "fade"
 msgstr "fondu"
@@ -1748,7 +1748,7 @@ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr "L'INTERFACE A ETE DEVERROUILLÉE"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr "SAISISSEZ LE CODE DE DÉVERROUILLAGE"
+msgstr "SAISISSER LE CODE DE DÉVERROUILLAGE"
 
 msgid "SERVICES"
 msgstr "SERVICES"
@@ -1790,7 +1790,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "ARRÊTER DE LANCER CE JEU AU DÉMARRAGE"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr "API WEB PUBLIQUE"
+msgstr "ACTIVER L’ACCÈS PUBLIC À L’API WEB"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1803,7 +1803,9 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "CRÉER UN FICHIER DE SUPPORT"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr "VOULEZ-VOUS CRÉER UN FICHIER DE SUPPORT ?"
+msgstr ""
+"CRÉER UN FICHIER DE SUPPORT ? CELA COMPREND TOUTES LES DONNEES DE VOTRE "
+"DOSSIER SYSTÈME."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
 msgstr "FICHIER DE SUPPORT CRÉE DANS LE DOSSIER SAVES"
@@ -1830,7 +1832,8 @@ msgstr "RÉINITIALISER LES DONNÉES D'UTILISATION DES LISTES DE JEUX"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
-"Réinitialiser les valeurs : temps de jeu, nombre de parties et dernière jouée"
+"Réinitialiser les valeurs du temps de jeu, du nombre de parties et des "
+"dernières jouées."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RAZ DES EXTENSIONS DE FICHIER"
@@ -1891,6 +1894,7 @@ msgstr "SAUVEGARDER LES MÉTADONNÉES EN QUITTANT"
 msgid "PARSE GAMELISTS ONLY"
 msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
 
+#, fuzzy
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
 "Debug: Ne pas vérifier si les ROMs existent. Peut causer des problèmes!"
@@ -1944,7 +1948,7 @@ msgstr ""
 "(options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "CONTROLER EMULATIONSTATION AVEC LA 1ÈRE MANETTE UNIQUEMENT"
+msgstr "CONTRÔLER EMULATIONSTATION AVEC LA 1ÈRE MANETTE UNIQUEMENT"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLÉRANCE DE MOUVEMENT DES PISTOLETS"
@@ -2020,10 +2024,10 @@ msgid "LANGUAGE"
 msgstr "LANGUE"
 
 msgid "LANGUAGE (REGION)"
-msgstr "LANGUE"
+msgstr "LANGUE (RÉGION)"
 
 msgid "SELECT YOUR TIME ZONE"
-msgstr "SÉLECTIONNEZ VOTRE FUSEAU HORAIRE"
+msgstr "SÉLECTIONNER VOTRE FUSEAU HORAIRE"
 
 msgid "TIME ZONE"
 msgstr "FUSEAU HORAIRE"
@@ -2062,7 +2066,7 @@ msgid ""
 msgstr ""
 "Vous allez passer à une interface plus restreinte:\n"
 "Cela cachera la plupart des options pouvant modifier le système.\n"
-"Pour revenir à l'interface complète, utilisez ce code:"
+"Pour revenir à l'interface complète, utilisez ce code :"
 
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous continuer ?"
@@ -2167,7 +2171,7 @@ msgid "POWER LED COLOR"
 msgstr "COULEUR LED D’ALIMENTATION"
 
 msgid "heartbeat"
-msgstr "battements de coeur"
+msgstr "battements de cœur"
 
 msgid "on"
 msgstr "allumé"
@@ -2333,7 +2337,7 @@ msgid "DECORATIONS"
 msgstr "DÉCORATIONS"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "ETIRER LES DÉCORATIONS (4K ET ULTRAWIDE)"
+msgstr "ÉTIRER LES DÉCORATIONS (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
 msgstr "AFFICHER LE TATOUAGE"
@@ -2683,7 +2687,7 @@ msgid "LARGE SCREEN"
 msgstr "GRAND ÉCRAN"
 
 msgid "SIDE BY SIDE"
-msgstr "COTE À COTE"
+msgstr "CÔTE À CÔTE"
 
 msgid "INTERNAL RESOLUTION"
 msgstr "RÉSOLUTION INTERNE"
@@ -2800,7 +2804,7 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"ATTENTION : L’ÉMULATEUR/COEUR ACTUEL NE SUPPORTE PAS LE FORMAT DE FICHIER DE "
+"ATTENTION : L’ÉMULATEUR/CŒUR ACTUEL NE SUPPORTE PAS LE FORMAT DE FICHIER DE "
 "CE JEU.\n"
 "VOULEZ-VOUS LE LANCER QUAND MÊME ?"
 
@@ -2906,7 +2910,7 @@ msgid "Loading system config..."
 msgstr "Chargement de la configuration système..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTEZ..."
+msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
@@ -3013,6 +3017,7 @@ msgstr "RECHERCHE DES PARTIES EN RÉSEAU"
 msgid "INDEXING COMPLETED"
 msgstr "INDEXATION TERMINÉE"
 
+#, fuzzy
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 
@@ -3032,7 +3037,7 @@ msgid "EMULATOR IS MISSING"
 msgstr "L’ÉMULATEUR EST MANQUANT"
 
 msgid "CORE IS MISSING"
-msgstr "LE COEUR EST MANQUANT"
+msgstr "LE CŒUR EST MANQUANT"
 
 msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
@@ -3062,7 +3067,7 @@ msgid "KIDGAME"
 msgstr "JEU ENFANT"
 
 msgid "ALREADY PLAYED"
-msgstr "DÉJA JOUÉ"
+msgstr "DÉJÀ JOUÉ"
 
 msgid "HAS ACHIEVEMENTS"
 msgstr "AVEC SUCCÈS RÉTRO"
@@ -3086,7 +3091,7 @@ msgid "SCRAPING"
 msgstr "SCRAPE"
 
 msgid "SCRAPE FAILED"
-msgstr "ECHEC DU SCRAPE"
+msgstr "ÉCHEC DU SCRAPE"
 
 msgid "SCRAPING FINISHED"
 msgstr "SCRAPE TERMINÉ"
@@ -3232,7 +3237,7 @@ msgid "GAMEPAD %i"
 msgstr "MANETTE %i"
 
 msgid "HOLD ANY BUTTON TO SKIP"
-msgstr "RESTEZ APPUYÉ SUR UN BOUTON POUR PASSER"
+msgstr "RESTER APPUYÉ SUR UN BOUTON POUR PASSER"
 
 msgid "-NOT DEFINED-"
 msgstr "-NON CONFIGURÉ-"
@@ -3253,14 +3258,14 @@ msgstr "NE PAS ASSIGNER DE HOTKEY"
 #, c-format
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
-msgstr[0] "APPUYEZ PENDANT %iS POUR PASSER"
+msgstr[0] "APPUYER PENDANT %iS POUR PASSER"
 msgstr[1] "APPUYEZ PENDANT %iS POUR PASSER"
 
 msgid "PRESS ANYTHING"
 msgstr "APPUYEZ SUR UN BOUTON"
 
 msgid "ALREADY TAKEN"
-msgstr "DÉJA UTILISÉ"
+msgstr "DÉJÀ UTILISÉ"
 
 msgid "WELCOME"
 msgstr "BIENVENUE"
@@ -3317,7 +3322,7 @@ msgid "MOVE CURSOR"
 msgstr "DÉPLACER LE CURSEUR"
 
 msgid "EDIT"
-msgstr "EDITER"
+msgstr "ÉDITER"
 
 msgid "ENABLED"
 msgstr "ACTIVÉ"
