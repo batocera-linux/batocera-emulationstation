@@ -10,6 +10,7 @@ namespace PlatformIds
 	{
 		{ "unknown",				PLATFORM_UNKNOWN },
 		{ "3do",					THREEDO },
+		{ "actionmax",				ACTIONMAX },
 		{ "amiga",					AMIGA },
 		{ "amstradcpc",				AMSTRAD_CPC },
 		{ "apple2",					APPLE_II },

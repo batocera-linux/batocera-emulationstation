@@ -31,6 +31,7 @@ using namespace PlatformIds;
 **/
 const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ THREEDO, 29 },
+	{ ACTIONMAX, 81 },
 	{ AMIGA, 64 },
 	{ AMSTRAD_CPC, 65 },
 	{ APPLE_II, 86 },
