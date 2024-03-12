@@ -26,6 +26,7 @@ struct HelpStyle
 	
 	HelpStyle(); // default values
 	void applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view);
+	auto applyDynamicHelpSystem(const std::shared_ptr<ThemeData>& theme, const std::string& view);
 };
 
 #endif // ES_CORE_HELP_STYLE_H

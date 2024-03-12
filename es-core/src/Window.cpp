@@ -30,6 +30,10 @@
 #include <SDL_syswm.h>
 #endif
 
+std::string activeControllerName="";
+int activeControllerVID=-1;
+int activeControllerPID=-1;
+
 Window::Window() : mNormalizeNextUpdate(false), mFrameTimeElapsed(0), mFrameCountElapsed(0), mAverageDeltaTime(10),
   mAllowSleep(true), mSleeping(false), mTimeSinceLastInput(0), mScreenSaver(NULL), mRenderScreenSaver(false), mClockElapsed(0), mMouseCapture(nullptr), mMenuBackgroundShaderTextureCache(-1)
 {			
@@ -278,7 +282,26 @@ void Window::input(InputConfig* config, Input input)
 	else
 	{
 		if (mControllerActivity != nullptr)
-			mControllerActivity->input(config, input);
+		{
+			if (Settings::getInstance()->getString("subset.dynamichelpsystem") == "yes")
+			{
+				int newActiveControllerVID = InputManager::getInstance()->getDeviceVID(config->getDeviceIndex());
+				int newActiveControllerPID = InputManager::getInstance()->getDevicePID(config->getDeviceIndex());
+				std::string newActiveControllerName = config->getDeviceName();
+				std::replace(newActiveControllerName.begin(), newActiveControllerName.end(), ' ', '_');
+				if (activeControllerName != newActiveControllerName || activeControllerVID != newActiveControllerVID || activeControllerPID != newActiveControllerPID)
+				{
+					activeControllerName = newActiveControllerName;
+					activeControllerVID = newActiveControllerVID;
+					activeControllerPID = newActiveControllerPID;
+					std::vector<HelpPrompt> prompts = peekGui()->getHelpPrompts();
+					HelpStyle style = peekGui()->getHelpStyle();
+					setHelpPrompts(prompts, style);
+				}
+			}
+				
+			mControllerActivity->input(config, input);	
+		}
 
 		if (peekGui())
 			peekGui()->input(config, input); // this is where the majority of inputs will be consumed: the GuiComponent Stack

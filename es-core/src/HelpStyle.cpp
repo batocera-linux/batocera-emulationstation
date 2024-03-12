@@ -1,6 +1,11 @@
 #include "HelpStyle.h"
 
 #include "resources/Font.h"
+#include "Settings.h"
+
+extern std::string activeControllerName;
+extern int activeControllerVID;
+extern int activeControllerPID;
 
 HelpStyle::HelpStyle()
 {
@@ -15,6 +20,49 @@ HelpStyle::HelpStyle()
 
 	if (FONT_SIZE_SMALL != 0)
 		font = Font::get(FONT_SIZE_SMALL);
+}
+
+auto HelpStyle::applyDynamicHelpSystem(const std::shared_ptr<ThemeData>& theme, const std::string& view)
+{
+
+		std::string activeControllerVIDString = "";
+
+		switch(activeControllerVID)
+		{
+			case 1406:
+				activeControllerVIDString = "Nintendo";
+				break;
+			case 1356:
+				activeControllerVIDString = "Sony";
+				break;
+			case 1118:
+				activeControllerVIDString = "Microsoft";
+				break;
+		}
+
+		//try Vendor/Name, example, Nintendo/SNES_Controller
+		auto elem = theme->getElement(view, activeControllerVIDString+"/"+activeControllerName, "helpsystem");
+		if (elem)
+			return elem;
+		
+		//try VID/Name, example, 1406/SNES_Controller
+		activeControllerVIDString = std::to_string(activeControllerVID);
+		elem = theme->getElement(view, activeControllerVIDString+"/"+activeControllerName, "helpsystem");
+		if (elem)
+			return elem;
+
+		std::string activeControllerPIDString = "";
+		activeControllerPIDString = std::to_string(activeControllerPID);
+		
+		//try VID/PID, example, 1406/8215
+		elem = theme->getElement(view, activeControllerVIDString+"/"+activeControllerPIDString, "helpsystem");
+		if (elem)
+			return elem;
+
+		//try deviceName only, example, SNES_Controller
+		elem = theme->getElement(view, activeControllerName, "helpsystem");
+
+		return elem;
 }
 
 void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view)
@@ -47,6 +95,13 @@ void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::s
 
 		if (elem->has("fontPath") || elem->has("fontSize"))
 			font = Font::getFromTheme(elem, ThemeFlags::ALL, font);
+
+		if (Settings::getInstance()->getString("subset.dynamichelpsystem") == "yes")
+		{
+			auto elem2 = applyDynamicHelpSystem(theme, view);
+			if (elem2)
+				elem = elem2;
+		}
 
 		if (elem->has("iconUpDown"))
 			iconMap["up/down"] = elem->get<std::string>("iconUpDown");
