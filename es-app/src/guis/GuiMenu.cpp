@@ -815,6 +815,23 @@ void GuiMenu::openDeveloperSettings()
 	}
 //#endif
 
+#if defined(BATOCERA)
+	// PS3 controller enable
+	auto enable_ps3 = std::make_shared<SwitchComponent>(mWindow);
+	enable_ps3->setState(SystemConf::getInstance()->getBool("controllers.ps3.enabled"));
+	s->addWithDescription(_("ENABLE PS3 CONTROLLER SUPPORT"), _("Might have negative impact on security."), enable_ps3);
+	s->addSaveFunc([enable_ps3] {
+		bool ps3Enabled = enable_ps3->getState();
+		if (ps3Enabled != SystemConf::getInstance()->getBool("controllers.ps3.enabled"))
+		{
+			SystemConf::getInstance()->setBool("controllers.ps3.enabled", ps3Enabled);
+			SystemConf::getInstance()->saveSystemConf();
+			if(SystemConf::getInstance()->getBool("controllers.bluetooth.enabled"))
+				ApiSystem::getInstance()->enableBluetooth();
+		}
+	});
+#endif
+
 #if defined(WIN32)
 
 	auto hidJoysticks = std::make_shared<SwitchComponent>(mWindow);

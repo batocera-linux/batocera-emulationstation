@@ -490,6 +490,16 @@ std::string ApiSystem::getIpAdress()
 	return result;
 }
 
+bool ApiSystem::enableBluetooth()
+{
+	return executeScript("batocera-bluetooth enable 2>&1 >/dev/null");
+}
+
+bool ApiSystem::disableBluetooth()
+{
+	return executeScript("batocera-bluetooth disable");
+}
+
 void ApiSystem::startBluetoothLiveDevices(const std::function<void(const std::string)>& func)
 {
 	executeScript("batocera-bluetooth live_devices", func);
