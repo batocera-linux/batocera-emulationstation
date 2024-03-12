@@ -45,7 +45,9 @@ namespace Scripting
                 psi.waitForExit = false;
                 psi.showWindow = false;
                 psi.run();
-                
+
+                LOG(LogDebug) << "  executing: " << command;
+
                 std::this_thread::yield();
             }
         }
@@ -95,10 +97,13 @@ namespace Scripting
         }
 
 #if WIN32
-        LOG(LogDebug) << "  executing: " << script;
+        if (Utils::FileSystem::getExtension(script) == ".ps1")
+            command = "powershell " + command;
 
         if (eventName == "quit")
         {
+            LOG(LogDebug) << "  executing: " << command;
+
             ProcessStartInfo psi;
             psi.command = command;
             psi.waitForExit = true;
@@ -107,6 +112,8 @@ namespace Scripting
         }
         else
         {
+            LOG(LogDebug) << "  queuing: " << command;
+
             // Start using a thread to avoid lags
             pushCommand(command);
         }
