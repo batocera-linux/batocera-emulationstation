@@ -1462,7 +1462,7 @@ msgid "PREFERED REGION"
 msgstr ""
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "覆寫描述"
 
 msgid "OVERWRITE MEDIAS"
 msgstr ""
@@ -1742,7 +1742,7 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "現在輸入代碼來解鎖"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "服務"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "前端開發人員選項"
@@ -1769,7 +1769,7 @@ msgid "VIDEO MODE"
 msgstr "影像模式"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr ""
+msgstr "設定模擬器的顯示器像素"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "使用 OMX 播放器（硬體加速）"
@@ -1815,7 +1815,7 @@ msgid "Cleaning"
 msgstr "清理中"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "重設遊戲清單使用記錄"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
@@ -1842,19 +1842,19 @@ msgid "Building image cache"
 msgstr "正在建立圖片快取"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "顯示器設定"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "選單字體比例"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "字體比例"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "主題字體比例"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "全螢幕選單"
 
 msgid "FORCE SMALL SCREEN THEMING"
 msgstr ""
@@ -2219,10 +2219,10 @@ msgid "Current setting"
 msgstr "目前設定"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "帳戶"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "BIOS 設定"
 
 msgid "SAVESTATES"
 msgstr "即時存檔"
@@ -2295,7 +2295,7 @@ msgid "SHADER SET"
 msgstr "著色器設定集"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "影片篩選"
 
 msgid "DECORATIONS"
 msgstr "裝飾框"
@@ -2580,10 +2580,10 @@ msgid "VIEW USER MANUAL"
 msgstr "檢視使用者手冊"
 
 msgid "DISABLE PLANE MODE"
-msgstr ""
+msgstr "停用飛行模式"
 
 msgid "ENABLE PLANE MODE"
-msgstr ""
+msgstr "啟用飛行模式"
 
 msgid "RESTART SYSTEM"
 msgstr "重新啟動系統"
@@ -2831,7 +2831,7 @@ msgid "No Entries Found"
 msgstr "沒有找到項目"
 
 msgid "INVALID CONTENT"
-msgstr ""
+msgstr "無效的內容"
 
 msgid ""
 "A valid account is required. Please register an account on https://"
@@ -3233,10 +3233,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "長按您要設定的控制器上的任一按鈕。"
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "按 ESC 鍵來取消"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "按 ESC鍵 或 熱鍵 來取消"
 
 msgid "DISCARD CHANGES"
 msgstr "放棄修改"

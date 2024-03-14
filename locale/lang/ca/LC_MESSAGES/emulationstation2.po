@@ -506,10 +506,10 @@ msgid "New Collection Name"
 msgstr "Nom de la nova col·lecció"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "INTRODUEIXI EL NOM"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "CREAR A PARTIR DEL TEMA"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "CREAR NOVA COL·LECCIÓ EDITABLE"
@@ -551,10 +551,10 @@ msgid "START ON GAMELIST"
 msgstr "INICIAR A LA GAMELIST"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "COL·LECCIONS PERSONALITZADES GRUP"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "SENS TEMÀTICA"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "MOSTRAR EL NOM DEL SISTEMA A LES COL·LECCIONS"
@@ -600,11 +600,11 @@ msgstr "ESPERI SI US PLAU"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d de %d punts (softcore)"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d de %d punts (hardcore)"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -1054,13 +1054,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "BIOS QUE FALTEN"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Sistemes instal·lats"
 
 msgid "All"
 msgstr "Tots"
 
 msgid "refresh"
-msgstr ""
+msgstr "actualitzar"
 
 msgid "NO MISSING BIOS"
 msgstr "NO FALTEN BIOS"
@@ -1403,10 +1403,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ENCARA NO TENS TROFEUS EN AQUEST JOC"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Assoliments (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Assoliments (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1470,13 +1470,13 @@ msgid "MARQUEE"
 msgstr "MARQUESINA"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "REGIÓ PREFERENT"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "SOBREESCRIURE DESCRIPCIONS"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "SOBREESCRIURE ELS MITJANS"
 
 msgid "SCRAPE FOR"
 msgstr "OBTENIR MULTIMÈDIA DE"
@@ -1509,7 +1509,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "AJUSTOS PAD-A-TECLA"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "COMPTE"
 
 msgid "SCRAPER"
 msgstr "RASPADOR"
@@ -1823,16 +1823,16 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "NETEJAR GAMELISTS I ELIMINAR CONTINGUTS NO USATS"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Elimineu les entrades no utilitzades i netegeu les referències als mitjans que falten."
 
 msgid "Cleaning"
 msgstr "Netejant"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "RESTABLEIX LES DADES D'ÚS DE LES LISTES DE JOCS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSIONS D'ARXIU"
