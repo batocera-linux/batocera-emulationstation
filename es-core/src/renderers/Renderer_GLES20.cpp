@@ -546,6 +546,24 @@ namespace Renderer
 	void GLES20Renderer::createContext()
 	{
 		sdlContext = SDL_GL_CreateContext(getSDLWindow());
+		
+#if OPENGL_EXTENSIONS
+		if (sdlContext == nullptr)
+		{
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+
+			sdlContext = SDL_GL_CreateContext(getSDLWindow());
+			if (sdlContext == nullptr)
+			{
+				SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+				SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+
+				sdlContext = SDL_GL_CreateContext(getSDLWindow());
+			}
+		}
+#endif
+
 		SDL_GL_MakeCurrent(getSDLWindow(), sdlContext);
 
 		const std::string vendor     = glGetString(GL_VENDOR)     ? (const char*)glGetString(GL_VENDOR)     : "";
