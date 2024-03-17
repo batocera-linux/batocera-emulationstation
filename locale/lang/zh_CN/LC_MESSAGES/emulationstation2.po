@@ -861,6 +861,9 @@ msgstr "STEAMDECK鼠标/枪设置"
 msgid "BLUETOOTH"
 msgstr "蓝牙"
 
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "自动配对蓝牙键盘"
 
@@ -869,6 +872,9 @@ msgstr "手动配对蓝牙设备"
 
 msgid "DISPLAY OPTIONS"
 msgstr "视图画面选项"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "显示控制器活动"
@@ -1927,6 +1933,12 @@ msgstr "仅使用第一个手柄控制主界面"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "枪支移动容忍度"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr ""
+
+msgid "Might have negative impact on security."
+msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "启用HID手柄驱动程序"

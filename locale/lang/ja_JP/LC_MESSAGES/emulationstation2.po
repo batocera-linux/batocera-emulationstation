@@ -866,6 +866,9 @@ msgstr "STEAMDECK マウス/銃 設定"
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "BLUETOOTH コントローラーをペアリング"
 
@@ -874,6 +877,9 @@ msgstr "BLUETOOTH デバイスをペアリング"
 
 msgid "DISPLAY OPTIONS"
 msgstr "表示設定"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"
@@ -1948,6 +1954,12 @@ msgstr "最初のコントローラだけでESメニューを操作する"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "ガンコン移動公差(許容誤差範囲)"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr ""
+
+msgid "Might have negative impact on security."
+msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "HID ジョイスティック ドライバーを有効にする"

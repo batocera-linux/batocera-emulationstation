@@ -872,6 +872,9 @@ msgstr "CÀI ĐẶT CHUỘT/SÚNG STEAMDECK"
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "KẾT NỐI BLUETOOTH PADS TỰ ĐỘNG"
 
@@ -880,6 +883,9 @@ msgstr "KẾT NỐI THIẾT BỊ BLUETOOTH THỦ CÔNG"
 
 msgid "DISPLAY OPTIONS"
 msgstr "TÙY CHỌN HIỂN THỊ"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "HIỂN THỊ HOẠT ĐỘNG CỦA BỘ ĐIỀU KHIỂN"
@@ -1948,6 +1954,12 @@ msgstr "ĐIỀU KHIỂN TRÌNH GIẢ LẬP CHỈ VỚI JOYSTICK ĐẦU TIÊN"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "KHẢ NĂNG DI CHUYỂN SÚNG"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr ""
+
+msgid "Might have negative impact on security."
+msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "BẬT TRÌNH ĐIỀU KHIỂN JOYSTICK HID"

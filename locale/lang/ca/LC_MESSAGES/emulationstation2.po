@@ -874,6 +874,9 @@ msgstr "STEAMDECK CONFIGURACIÓ RATOLÍ/PISTOLA"
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "ENLLAÇAR COMANDAMENTS BLUETOOTH AUTOMÀTICAMENT"
 
@@ -882,6 +885,9 @@ msgstr "ENLLAÇAR UN DISPOSITIU BLUETOOTH MANUALMENT"
 
 msgid "DISPLAY OPTIONS"
 msgstr "OPCIONS DE VISUALITZACIÓ"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR L'ACTIVITAT DEL COMANDAMENT"
@@ -1823,7 +1829,9 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "NETEJAR GAMELISTS I ELIMINAR CONTINGUTS NO USATS"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr "Elimineu les entrades no utilitzades i netegeu les referències als mitjans que falten."
+msgstr ""
+"Elimineu les entrades no utilitzades i netegeu les referències als mitjans "
+"que falten."
 
 msgid "Cleaning"
 msgstr "Netejant"
@@ -1832,7 +1840,8 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESTABLEIX LES DADES D'ÚS DE LES LISTES DE JOCS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
+msgstr ""
+"Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSIONS D'ARXIU"
@@ -1951,6 +1960,12 @@ msgstr "CONTROLAR EMULATIONSTATION NOMÉS AMB EL PRIMER COMANDAMENT"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERÀNCIA DE MOVIMENT DE LA PISTOLA"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr ""
+
+msgid "Might have negative impact on security."
+msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "HABILITAR CONTROLADORS DE PALANCA HID"

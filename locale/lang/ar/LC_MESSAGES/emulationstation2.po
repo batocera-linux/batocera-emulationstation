@@ -901,6 +901,9 @@ msgstr "جهاز ستيم/إعدادات المسدس"
 msgid "BLUETOOTH"
 msgstr "بلوتوث"
 
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "اقتران البلوتوث بذراع التحكم تِلقائيا"
 
@@ -909,6 +912,9 @@ msgstr "اقتران بلوتوث يدوي"
 
 msgid "DISPLAY OPTIONS"
 msgstr "خيارات العرض"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "عرض نشاط وحدة التحكم"
@@ -1971,6 +1977,12 @@ msgstr "التحكم بـِEMULATIONSTATION بذراع التحكم الأولى
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "حساسية حركة المسدس"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr ""
+
+msgid "Might have negative impact on security."
+msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "تفعيل برامج التعريف HID لذراع التحكم"

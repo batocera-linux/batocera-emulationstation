@@ -866,6 +866,9 @@ msgstr ""
 msgid "BLUETOOTH"
 msgstr ""
 
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr ""
 
@@ -874,6 +877,9 @@ msgstr ""
 
 msgid "DISPLAY OPTIONS"
 msgstr "OPCIONS D'AFICHATGE"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
@@ -1922,6 +1928,12 @@ msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr ""
 
 msgid "GUN MOVE TOLERENCE"
+msgstr ""
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr ""
+
+msgid "Might have negative impact on security."
 msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"

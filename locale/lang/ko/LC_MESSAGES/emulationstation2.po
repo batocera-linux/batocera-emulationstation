@@ -862,6 +862,9 @@ msgstr "스팀덱 마우스/건 설정"
 msgid "BLUETOOTH"
 msgstr "블루투스"
 
+msgid "ENABLE BLUETOOTH"
+msgstr ""
+
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "블루투스 패드를 자동으로 페어링"
 
@@ -870,6 +873,9 @@ msgstr "수동으로 블루투스 장치 페어링"
 
 msgid "DISPLAY OPTIONS"
 msgstr "표시 옵션"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr ""
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "활성 컨트롤러 보이기"
@@ -1930,6 +1936,12 @@ msgstr "첫 번째 조이스틱으로만 에뮬레이션스테이션 제어"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "총기 이동 허용 오차"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr ""
+
+msgid "Might have negative impact on security."
+msgstr ""
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "HID 조이스틱 드라이버 사용"
