@@ -196,16 +196,6 @@ int InputManager::getNumJoysticks()
 	return (int)mJoysticks.size(); 
 }
 
-int InputManager::getDeviceVID(int device_index)
-{ 
-	return SDL_JoystickGetDeviceVendor(device_index);
-}
-
-int InputManager::getDevicePID(int device_index)
-{ 
-	return SDL_JoystickGetDeviceProduct(device_index);
-}
-
 InputConfig* InputManager::getInputConfigByDevice(int device)
 {
 	if(device == DEVICE_KEYBOARD)

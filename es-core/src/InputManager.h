@@ -71,9 +71,6 @@ public:
 	void sendMouseClick(Window* window, int button);
 	InputConfig* getInputConfigByDevice(int deviceId);
 
-	int getDeviceVID(int device_index);
-	int getDevicePID(int device_index);
-
 private:
 	InputManager();
 

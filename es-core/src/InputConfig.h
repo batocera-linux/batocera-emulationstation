@@ -119,6 +119,32 @@ public:
 	inline const std::string& getDeviceName() { return mDeviceName; }
 	inline const std::string& getDeviceParentSysPath() { return mDeviceParentSysPath; }
 	inline const std::string& getDeviceGUIDString() { return mDeviceGUID; }
+	inline int getDevicePID() 
+	{
+		char temp[5];
+		temp[0] = mDeviceGUID[18];
+		temp[1] = mDeviceGUID[19];
+		temp[2] = mDeviceGUID[16];
+		temp[3] = mDeviceGUID[17];
+		temp[4] = '\0';
+		
+		int x;
+		sscanf(temp, "%x", &x);
+		return x;
+	}
+	inline int getDeviceVID() 
+	{ 
+		char temp[5];
+		temp[0] = mDeviceGUID[10];
+		temp[1] = mDeviceGUID[11];
+		temp[2] = mDeviceGUID[8];
+		temp[3] = mDeviceGUID[9];
+		temp[4] = '\0';
+
+		int x;
+		sscanf(temp, "%x", &x);
+		return x;		
+	}
 	inline int getDeviceNbButtons() const { return mDeviceNbButtons; }; 
 	inline int getDeviceNbHats() const { return mDeviceNbHats; }; 
 	inline int getDeviceNbAxes() const { return mDeviceNbAxes; }; 

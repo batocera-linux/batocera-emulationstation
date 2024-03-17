@@ -68,6 +68,13 @@ auto HelpStyle::applyDynamicHelpSystem(const std::shared_ptr<ThemeData>& theme, 
 void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::string& view)
 {
 	auto elem = theme->getElement(view, "help", "helpsystem");
+	if (Settings::getInstance()->getString("subset.dynamichelpsystem") == "yes")
+	{
+		auto elem2 = applyDynamicHelpSystem(theme, view);
+		if (elem2)
+			elem = elem2;
+	}
+
 	if (elem)
 	{
 		if (elem->has("pos"))
@@ -95,13 +102,6 @@ void HelpStyle::applyTheme(const std::shared_ptr<ThemeData>& theme, const std::s
 
 		if (elem->has("fontPath") || elem->has("fontSize"))
 			font = Font::getFromTheme(elem, ThemeFlags::ALL, font);
-
-		if (Settings::getInstance()->getString("subset.dynamichelpsystem") == "yes")
-		{
-			auto elem2 = applyDynamicHelpSystem(theme, view);
-			if (elem2)
-				elem = elem2;
-		}
 
 		if (elem->has("iconUpDown"))
 			iconMap["up/down"] = elem->get<std::string>("iconUpDown");

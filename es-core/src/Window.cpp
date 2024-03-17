@@ -285,8 +285,8 @@ void Window::input(InputConfig* config, Input input)
 		{
 			if (Settings::getInstance()->getString("subset.dynamichelpsystem") == "yes")
 			{
-				int newActiveControllerVID = InputManager::getInstance()->getDeviceVID(config->getDeviceIndex());
-				int newActiveControllerPID = InputManager::getInstance()->getDevicePID(config->getDeviceIndex());
+				int newActiveControllerVID = config->getDeviceVID();
+				int newActiveControllerPID = config->getDevicePID();
 				std::string newActiveControllerName = config->getDeviceName();
 				std::replace(newActiveControllerName.begin(), newActiveControllerName.end(), ' ', '_');
 				if (activeControllerName != newActiveControllerName || activeControllerVID != newActiveControllerVID || activeControllerPID != newActiveControllerPID)
