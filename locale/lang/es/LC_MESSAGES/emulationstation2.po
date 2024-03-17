@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-03-01 00:00+1\n"
-"Last-Translator: roliverosc, 2024\n"
+"PO-Revision-Date: 2024-03-14 00:00+1\n"
+"Last-Translator: roliverosc <roliveros@hotmail.com>, 2024\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
@@ -592,9 +592,11 @@ msgstr "COLECCIONES DE JUEGOS PERSONALIZADAS"
 
 msgid "PLEASE WAIT"
 msgstr "POR FAVOR, ESPERE..."
+
 #, c-format
 msgid "%d of %d softcore points"
-msgstr "%d de %d puntos (normal)"		   
+msgstr "%d de %d puntos (normal)"
+
 #, c-format
 msgid "%d of %d hardcore points"
 msgstr "%d de %d puntos (hardcore)"								 
@@ -608,6 +610,7 @@ msgstr "Puntos (Modo normal)"
 
 msgid "Points (hardcore)"
 msgstr "Puntos (Modo hardcore)"
+
 msgid "Rank"
 msgstr "Posición"
 
@@ -848,7 +851,7 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
-"VAS A CONFIGURAR UN MANDO. LA CONFIGURACIÓN SE BASA EN LA POSICIÓN DEL BOTÓN. "
+"VA A CONFIGURAR UN MANDO. LA CONFIGURACIÓN SE BASA EN LA POSICIÓN DEL BOTÓN. "
 "NO EN SU ETIQUETA FÍSICA. SI NO TIENE UN BOTÓN ESPECIAL PARA EL BOTÓN HOTKEY "
 "UTILICE EL BOTÓN SELECT. SALTE TODOS LOS BOTONES QUE NO TENGA MANTENIENDO "
 "CUALQUIER BOTÓN PRESIONADO. PRESIONE EL BOTÓN SUR PARA CONFIRMAR CUANDO TERMINE."
@@ -873,6 +876,8 @@ msgstr "EMPAREJAR DISPOSITIVO BLUETOOTH MANUALMENTE"
 
 msgid "DISPLAY OPTIONS"
 msgstr "OPCIONES DE PANTALLA"
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr "MOSTRAR NOTIFICACIONES DEL MANDO"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ACTIVIDAD DEL MANDO EN PANTALLA"
@@ -1863,14 +1868,14 @@ msgid "FONT SCALE"
 msgstr "ESCALADO DE FUENTE"
 
 msgid "THEME FONT SCALE"
-msgstr "ESCALADO DE UENTE DEL TEMA"
+msgstr "ESCALADO DE FUENTE DEL TEMA"
 
 msgid "FULL SCREEN MENUS"
 msgstr "MENÚS EN PANTALLA COMPLETA"
 
 msgid "FORCE SMALL SCREEN THEMING"
 msgstr "FORZAR TEMA EN PANTALLA PEQUEÑA"
- 
+
 msgid "DATA MANAGEMENT"
 msgstr "GESTIÓN DE DATOS"
 

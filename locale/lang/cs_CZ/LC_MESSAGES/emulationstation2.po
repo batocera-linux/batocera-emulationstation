@@ -592,18 +592,18 @@ msgstr "PROSÍM, ČEKEJTE"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d z %d softcore bodů"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d z %d hardcore bodů"
 
 #, c-format
 msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d of %d)"
 
 msgid "Softcore points"
-msgstr "Body Softcore"
+msgstr "Softcore body"
 
 msgid "Points (hardcore)"
 msgstr "Body (hardcore)"
@@ -723,7 +723,7 @@ msgid "REMOVE ALL"
 msgstr "VŠE ODSTRANIT"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH NENALEZEN"
+msgstr "NEBYLO NALEZENO ŽÁDNÉ ZAŘÍZENÍ BLUETOOTH"
 
 msgid "REMOVE"
 msgstr "ODSTRANIT"
@@ -1046,13 +1046,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "CHYBĚJÍCÍ BIOS"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Instalované systémy"
 
 msgid "All"
 msgstr "Všechno"
 
 msgid "refresh"
-msgstr ""
+msgstr "obnovit"
 
 msgid "NO MISSING BIOS"
 msgstr "NECHYBÍ ŽÁDNÝ BIOS"
@@ -1395,10 +1395,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "TATO HRA ZATÍM NEMÁ ŽÁDNÉ ÚSPĚCHY"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Úspěchy (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Úspěchy (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1846,22 +1846,22 @@ msgid "Building image cache"
 msgstr "Vytváření mezipaměti pro obrázek"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "NASTAVENÍ DISPLEJE"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "STUPNICE PÍSMA MENU"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "STUPNICE PÍSMA"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "STUPNICE PÍSMA TÉMATU"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "MENU PŘES CELOU OBRAZOVKU"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "VYNUTIT TÉMA MALÉ OBRAZOVKY"
 
 msgid "DATA MANAGEMENT"
 msgstr "SPRÁVA DAT"
@@ -2115,7 +2115,7 @@ msgid "SILENT VIDEO/USER SET SPLASH"
 msgstr "TICHÉ VIDEO/UŽIVATELSKÉ"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOCERA UVÍTACÍ OBRAZ"
+msgstr "UVÍTACÍ OBRÁZEK BATOCERY"
 
 msgid "SPLASH SETTING"
 msgstr "UVÍTACÍ NASTAVENÍ"
@@ -2458,10 +2458,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "ZOBRAZIT IKONU RETROÚSPĚCHŮ"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "ZOBRAZIT IKONU ZBRANĚ"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "ZOBRAZIT IKONU KOLEČKA"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ZOBRAZIT NÁZVY SOUBORŮ V SEZNAMECH"
@@ -2862,7 +2862,7 @@ msgstr "OBLÍBENÉ"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Zpět na %s"
 
 msgid "No Entries Found"
 msgstr "Nebyly nalezeny žádné záznamy"
@@ -3343,9 +3343,9 @@ msgstr "%d sec"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "před %d rokem"
+msgstr[1] "před %d lety"
+msgstr[2] "před %d lety"
 
 #, c-format
 msgid "%d day ago"
