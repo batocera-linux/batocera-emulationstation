@@ -404,12 +404,9 @@ void GuiMenu::openServicesSettings()
 	  auto service_enabled = std::make_shared<SwitchComponent>(mWindow);
 	  service_enabled->setState(services[i].enabled);
 	  s->addWithLabel(services[i].name, service_enabled);
-	  s->addSaveFunc([services, i, service_enabled]
+	  service_enabled->setOnChangedCallback([services, i, service_enabled]()
 	  {
-	    if (services[i].enabled != service_enabled->getState())
-	      {
-		ApiSystem::getInstance()->enableService(services[i].name, service_enabled->getState());
-	      }
+	    ApiSystem::getInstance()->enableService(services[i].name, service_enabled->getState());
 	  });
 	}
 
