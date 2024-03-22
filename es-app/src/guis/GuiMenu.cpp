@@ -413,6 +413,105 @@ void GuiMenu::openServicesSettings()
 	mWindow->pushGui(s);
 }
 
+void GuiMenu::openDmdSettings()
+{
+	auto s = new GuiSettings(mWindow, _("DMD").c_str());
+	Window* window = mWindow;
+
+	// server
+	auto services = ApiSystem::getInstance()->getServices();
+	std::string current_server = "";
+	for(unsigned int i = 0; i < services.size(); i++) {
+	  if(services[i].enabled) {
+	    if(services[i].name == "dmd_real")      current_server = "dmd_real";
+	    if(services[i].name == "dmd_simulator") current_server = "dmd_simulator";
+	  }
+	}
+	auto server = std::make_shared< OptionListComponent<std::string> >(window, _("SERVER"), false);
+	server->addRange({ { _("DISABLED"), "" }, { _("DMDSERVER (for real dmd)"), "dmd_real" }, { _("SIMULATOR (for web dmd)"), "dmd_simulator" } }, current_server);
+	s->addWithDescription(_("SERVER"), _("dmd server"), server);
+
+	// format
+	auto format = std::make_shared< OptionListComponent<std::string> >(window, _("FORMAT"), false);
+	std::string current_format = SystemConf::getInstance()->get("dmd.format");
+	format->addRange({ { _("AUTO"), "" }, { "SD", "sd" }, { "HD", "hd" } }, current_format);
+	s->addWithDescription(_("FORMAT"), _("dmd matrix size"), format);
+
+	// matrix
+	auto matrix = std::make_shared< OptionListComponent<std::string> >(window, _("MATRIX"), false);
+	std::string current_matrix = SystemConf::getInstance()->get("dmd.matrix");
+	matrix->addRange({ { _("AUTO"), "" }, { "RGB", "rgb" }, { "RBG", "rbg" }, { "BRG", "brg" }, { "BGR", "bgr" }, { "GRB", "grb" }, { "GBR", "gbr" } }, current_matrix);
+	s->addWithDescription(_("MATRIX"), _("rgb dmd order"), matrix);
+
+	// brightness
+	auto brightness = std::make_shared<SliderComponent>(window, -10.f, 100.f, 10.f, "%");
+	std::string current_brightness = SystemConf::getInstance()->get("dmd.brightness");
+	if(current_brightness == "") {
+	  brightness->setValue(-10.f);
+	} else {
+	  brightness->setValue((float) Utils::String::toInteger(current_brightness));
+	}
+	s->addWithDescription(_("BRIGHTNESS"), _("-10 for auto"), brightness);
+
+	s->addSaveFunc([window, server, format, matrix, brightness, current_server, current_format, current_matrix, current_brightness] {
+	  bool needRestart = false;
+	  bool needSave    = false;
+
+	  if(current_format != format->getSelected()) {
+	    SystemConf::getInstance()->set("dmd.format", format->getSelected());
+	    needSave = true;
+	  }
+	  if(current_matrix != matrix->getSelected()) {
+	    SystemConf::getInstance()->set("dmd.matrix", matrix->getSelected());
+	    needRestart = true;
+	    needSave = true;
+	  }
+	  std::string value = "";
+	  if(brightness->getValue() >= 0.0) {
+	    value = std::to_string((int)brightness->getValue());
+	  }
+	  if(value != current_brightness) {
+	    SystemConf::getInstance()->set("dmd.brightness", value);
+	    needRestart = true;
+	    needSave = true;
+	  }
+
+	  if(server->getSelected() != current_server) {
+	    needRestart = true;
+	  }
+
+	  if(needSave) {
+	    SystemConf::getInstance()->saveSystemConf();
+	  }
+
+	  if(needRestart) {
+	    bool stopped = false;
+	    bool started = false;
+
+	    // stop the existing server
+	    if(current_server != "") {
+	      ApiSystem::getInstance()->enableService(current_server, false);
+	      stopped = true;
+	    }
+	    // start the new server
+	    if(server->getSelected() != "") {
+	      ApiSystem::getInstance()->enableService(server->getSelected(), true);
+	      started = true;
+	    }
+
+	    if(stopped && !started) {
+	      window->displayNotificationMessage(_U("\uF011  ") + _("DMDSERVER stopped"));
+	    } else if(stopped && started) {
+	      window->displayNotificationMessage(_U("\uF011  ") + _("DMDSERVER restarted"));
+	    } else if(!stopped && started) {
+	      window->displayNotificationMessage(_U("\uF011  ") + _("DMDSERVER started"));
+	    }
+	  }
+	});
+
+	window->pushGui(s);
+}
+
 void GuiMenu::openDeveloperSettings()
 {
 	Window *window = mWindow;
@@ -1506,6 +1605,10 @@ void GuiMenu::openSystemSettings()
 			}
 		});
 	}
+
+#ifdef BATOCERA
+	s->addEntry(_("DMD"), true, [this] { openDmdSettings(); });
+#endif
 
 #ifdef BATOCERA
 	s->addGroup(_("STORAGE"));
