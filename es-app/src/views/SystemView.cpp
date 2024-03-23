@@ -958,9 +958,6 @@ void  SystemView::getViewElements(const std::shared_ptr<ThemeData>& theme)
 {
 	LOG(LogDebug) << "SystemView::getViewElements()";
 
-	if (!theme->hasView("system"))
-		return;
-
 	const ThemeData::ThemeElement* textListElem = theme->getElement("system", "textlist", "textlist");
 	if (textListElem)
 	{
