@@ -579,7 +579,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("mitm_port") && fields["mitm_port"].IsInt())
 			game.mitm_port = fields["mitm_port"].GetInt();
 
-		if (fields.HasMember("mitm_session") && fields["mitm_session"].IsInt())
+		if (fields.HasMember("mitm_session") && fields["mitm_session"].IsString())
 			game.mitm_session = fields["mitm_session"].GetString();
 		
 		if (fields.HasMember("fixed") && fields["fixed"].IsBool())
