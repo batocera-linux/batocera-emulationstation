@@ -1750,6 +1750,48 @@ msgstr "現在輸入代碼來解鎖"
 msgid "SERVICES"
 msgstr "服務"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "亮度"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "前端開發人員選項"
 
@@ -2067,9 +2109,6 @@ msgstr "開機時啟動 KODI"
 
 msgid "HARDWARE"
 msgstr "硬體"
-
-msgid "BRIGHTNESS"
-msgstr "亮度"
 
 msgid "VIDEO OUTPUT"
 msgstr "影像輸出"

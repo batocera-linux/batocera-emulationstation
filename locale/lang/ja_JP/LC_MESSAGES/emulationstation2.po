@@ -1759,6 +1759,48 @@ msgstr "ロック解除(ボタンを順に押す)"
 msgid "SERVICES"
 msgstr "サービス(その他の機能)"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "明るさ"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "開発者オプション"
 
@@ -2088,9 +2130,6 @@ msgstr "起動時に KODI 実行"
 
 msgid "HARDWARE"
 msgstr "ハードウェア"
-
-msgid "BRIGHTNESS"
-msgstr "明るさ"
 
 msgid "VIDEO OUTPUT"
 msgstr "映像出力"

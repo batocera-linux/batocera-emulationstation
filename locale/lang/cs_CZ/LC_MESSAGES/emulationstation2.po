@@ -1754,6 +1754,48 @@ msgstr "ZADEJTE KÓD A ODEMKNĚTE"
 msgid "SERVICES"
 msgstr "SLUŽBY"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "JAS"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "MOŽNOSTI FRONTENDOVÉHO VÝVOJÁŘE"
 
@@ -2085,9 +2127,6 @@ msgstr "SPUŠTĚNÍ KODI PŘI STARTU"
 
 msgid "HARDWARE"
 msgstr "HARDWARE"
-
-msgid "BRIGHTNESS"
-msgstr "JAS"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEO VÝSTUP"

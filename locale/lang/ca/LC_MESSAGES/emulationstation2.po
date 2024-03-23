@@ -1762,6 +1762,48 @@ msgstr "INTRODUÏU EL CODI DE DESBLOQUEIG"
 msgid "SERVICES"
 msgstr "SERVEIS"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "LLUENTOR"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPCIONS DE DESENVOLUPADOR D'INTERFÍCIE"
 
@@ -2100,9 +2142,6 @@ msgstr "INICIAR KODI A L'INICIAR EL SISTEMA"
 
 msgid "HARDWARE"
 msgstr "MAQUINARI"
-
-msgid "BRIGHTNESS"
-msgstr "LLUENTOR"
 
 msgid "VIDEO OUTPUT"
 msgstr "SORTIDA DE VÍDEO"

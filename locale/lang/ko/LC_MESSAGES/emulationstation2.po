@@ -1750,6 +1750,48 @@ msgstr "해제 코드 입력"
 msgid "SERVICES"
 msgstr ""
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "화면밝기"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "프론트엔드 개발자 옵션"
 
@@ -2069,9 +2111,6 @@ msgstr "시작 시 KODI 실행"
 
 msgid "HARDWARE"
 msgstr "하드웨어"
-
-msgid "BRIGHTNESS"
-msgstr "화면밝기"
 
 msgid "VIDEO OUTPUT"
 msgstr "비디오 출력"

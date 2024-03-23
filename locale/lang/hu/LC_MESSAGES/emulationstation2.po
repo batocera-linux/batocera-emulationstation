@@ -1757,6 +1757,48 @@ msgstr "ÍRJA BE MOST A KÓDOT A FELOLDÁSHOZ"
 msgid "SERVICES"
 msgstr "SZOLGÁLTATÁSOK"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "FÉNYERŐ"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND FEJLESZTŐI BEÁLLÍTÁSOK"
 
@@ -2098,9 +2140,6 @@ msgstr "KODI INDULÁSKOR"
 
 msgid "HARDWARE"
 msgstr "HARDVER"
-
-msgid "BRIGHTNESS"
-msgstr "FÉNYERŐ"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEÓ KIMENET"

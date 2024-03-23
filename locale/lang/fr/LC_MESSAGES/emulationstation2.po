@@ -872,7 +872,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "ACTIVER LE BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "ASSOCIER LES JOYSTICKS BLUETOOTH AUTOMATIQUEMENT"
@@ -884,7 +884,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "OPTIONS D'AFFICHAGE"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "AFFICHER LES NOTIFICATIONS DES CONTRÔLEURS"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
@@ -1759,6 +1759,48 @@ msgstr "SAISISSER LE CODE DE DÉVERROUILLAGE"
 msgid "SERVICES"
 msgstr "SERVICES"
 
+msgid "DMD"
+msgstr "DMD"
+
+msgid "SERVER"
+msgstr "SERVEUR"
+
+msgid "DMDSERVER (for real dmd)"
+msgstr "DMDSERVEUR (pour les vrais dmds)"
+
+msgid "SIMULATOR (for web dmd)"
+msgstr "SIMULATEUR (pour un dmd web)"
+
+msgid "dmd server"
+msgstr "serveur dmd"
+
+msgid "FORMAT"
+msgstr "FORMAT"
+
+msgid "dmd matrix size"
+msgstr "taille de la matrice dmd"
+
+msgid "MATRIX"
+msgstr "MATRICE"
+
+msgid "rgb dmd order"
+msgstr "ordre des couleurs du dmd"
+
+msgid "BRIGHTNESS"
+msgstr "LUMINOSITÉ"
+
+msgid "-10 for auto"
+msgstr "-10 pour automatique"
+
+msgid "DMDSERVER stopped"
+msgstr "DMDSERVEUR stoppé"
+
+msgid "DMDSERVER restarted"
+msgstr "DMDSERVEUR redémarré"
+
+msgid "DMDSERVER started"
+msgstr "DMDSERVEUR démarré"
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPTION DEVELOPPEUR"
 
@@ -1960,10 +2002,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "TOLÉRANCE DE MOUVEMENT DES PISTOLETS"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "ACTIVER LE SUPPORT DU CONTRÔLEUR PS3"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Peut avoir un impact négatif sur la sécurité."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "ACTIVER LES DRIVERS DE MANETTE HID"
@@ -2094,9 +2136,6 @@ msgstr "LANCER KODI AU DÉMARRAGE"
 
 msgid "HARDWARE"
 msgstr "MATÉRIEL"
-
-msgid "BRIGHTNESS"
-msgstr "LUMINOSITÉ"
 
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDÉO"

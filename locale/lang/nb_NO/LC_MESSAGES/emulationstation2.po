@@ -1754,6 +1754,48 @@ msgstr "LEGG INN KODE NÅ FOR Å LÅSE OPP"
 msgid "SERVICES"
 msgstr "TJENESTER"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "LYSSTYRKE"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND UTVIKLER ALTERNATIVER"
 
@@ -2084,9 +2126,6 @@ msgstr "KODI VED OPPSTART"
 
 msgid "HARDWARE"
 msgstr "MASKINVARE"
-
-msgid "BRIGHTNESS"
-msgstr "LYSSTYRKE"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEOUTGANG"

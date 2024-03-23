@@ -1754,6 +1754,48 @@ msgstr "SARTU DESBLOKEATZEKO KODEA ORAIN"
 msgid "SERVICES"
 msgstr "ZERBITZUAK"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "DISTIRA"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "ERABILTZAILE INTERFAZEAREN GARATZAILE EZARPENAK"
 
@@ -2086,9 +2128,6 @@ msgstr "HASI KODI ABIARAZTEAN"
 
 msgid "HARDWARE"
 msgstr "HARDWARE-A"
-
-msgid "BRIGHTNESS"
-msgstr "DISTIRA"
 
 msgid "VIDEO OUTPUT"
 msgstr "BIDEO IRTEERA"

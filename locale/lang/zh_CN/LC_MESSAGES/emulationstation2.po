@@ -1748,6 +1748,48 @@ msgstr "请输入解锁密码"
 msgid "SERVICES"
 msgstr "服务"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "亮度"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "前端开发人员选项"
 
@@ -2065,9 +2107,6 @@ msgstr "开机时进入KODI媒体中心"
 
 msgid "HARDWARE"
 msgstr "硬件"
-
-msgid "BRIGHTNESS"
-msgstr "亮度"
 
 msgid "VIDEO OUTPUT"
 msgstr "视频输出"

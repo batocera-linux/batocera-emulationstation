@@ -1759,6 +1759,48 @@ msgstr "GEBEN SIE JETZT DEN CODE ZUM ENTSPERREN EIN"
 msgid "SERVICES"
 msgstr "SERVICES"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "HELLIGKEIT"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND ENTWICKLEROPTIONEN"
 
@@ -2098,9 +2140,6 @@ msgstr "KODI BEIM BOOTVORGANG STARTEN"
 
 msgid "HARDWARE"
 msgstr "HARDWARE"
-
-msgid "BRIGHTNESS"
-msgstr "HELLIGKEIT"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEOAUSGANG"

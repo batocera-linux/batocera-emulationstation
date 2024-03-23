@@ -1756,6 +1756,48 @@ msgstr "KİLİDİ AÇMAK İÇİN KODU GİRİN"
 msgid "SERVICES"
 msgstr "SERVİSLER"
 
+msgid "DMD"
+msgstr ""
+
+msgid "SERVER"
+msgstr ""
+
+msgid "DMDSERVER (for real dmd)"
+msgstr ""
+
+msgid "SIMULATOR (for web dmd)"
+msgstr ""
+
+msgid "dmd server"
+msgstr ""
+
+msgid "FORMAT"
+msgstr ""
+
+msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
+msgstr ""
+
+msgid "BRIGHTNESS"
+msgstr "PARLAKLIK"
+
+msgid "-10 for auto"
+msgstr ""
+
+msgid "DMDSERVER stopped"
+msgstr ""
+
+msgid "DMDSERVER restarted"
+msgstr ""
+
+msgid "DMDSERVER started"
+msgstr ""
+
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND GELİŞTİRİCİ AYARLARI"
 
@@ -2094,9 +2136,6 @@ msgstr "KODİ AÇILIŞTA BAŞLASIN"
 
 msgid "HARDWARE"
 msgstr "DONANIM"
-
-msgid "BRIGHTNESS"
-msgstr "PARLAKLIK"
 
 msgid "VIDEO OUTPUT"
 msgstr "VİDEO ÇIKIŞI"
