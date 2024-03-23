@@ -873,7 +873,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "LIGAR BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "EMPARELHAR COMANDOS BLUETOOTH AUTOMATICAMENTE"
@@ -885,7 +885,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "OPÇÕES DE EXIBIÇÃO"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "MOSTRAR NOTIFICAÇÕES DO COMANDO"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "MOSTRAR ATIVIDADE DO COMANDO"
@@ -1998,10 +1998,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERÂNCIA NO MOVIMENTO DA ARMA"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "ATIVAR SUPORTE COMANDO PS3"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Pode ter impacto negativo na segurança."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "ATIVAR DRIVERS HID DO COMANDO"

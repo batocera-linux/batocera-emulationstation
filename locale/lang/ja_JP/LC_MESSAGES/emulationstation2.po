@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v39b(2024/02/04)\n"
+"Project-Id-Version: batocera-es v40b(2024/03/20)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-02-07 08:11+0900\n"
+"PO-Revision-Date: 2024-03-20 13:23+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -867,7 +867,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH を有効"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "BLUETOOTH コントローラーをペアリング"
@@ -879,7 +879,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "表示設定"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "コントローラーからの通知を表示"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "コントローラーアクティビティを表示"
@@ -1304,7 +1304,7 @@ msgid "GAME"
 msgstr "ゲーム"
 
 msgid "SAVE STATES"
-msgstr "セーブデータ"
+msgstr "ステートセーブマネージャー"
 
 msgid "OPEN"
 msgstr "開く"
@@ -1416,7 +1416,7 @@ msgid "%d%% complete"
 msgstr "%d%% 完了"
 
 msgid "SAVESTATE MANAGER"
-msgstr "ステートセーブマネージャー"
+msgstr "ステートセーブステートセーブ(西＞削除、ファイル上で北＞コピー)"
 
 msgid "START NEW GAME"
 msgstr "最初から開始"
@@ -1703,10 +1703,10 @@ msgid "ANY EXTERNAL"
 msgstr "外付けストレージ(userdata分離)"
 
 msgid "maximum 1920x1080"
-msgstr "最大解像度 1920x1080"
+msgstr "(推奨最大) 1920x1080"
 
 msgid "maximum 640x480"
-msgstr "最小解像度 640x480"
+msgstr "(推奨最小) 640x480"
 
 msgid "MAIN MENU"
 msgstr "メインメニュー"
@@ -1826,7 +1826,9 @@ msgid "VIDEO MODE"
 msgstr "映像解像度"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr "Emulationstationで表示する解像度を設定します"
+msgstr ""
+"Emulationstationで表示する解像度を設定します(自動＝最大)\n"
+"動作に問題がある場合は1920x1080以下を試してください"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
@@ -1998,10 +2000,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "ガンコン移動公差(許容誤差範囲)"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "PS3コントローラーのサポートを有効"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "セキュリティに悪影響を及ぼす可能性があります"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "HID ジョイスティック ドライバーを有効にする"
@@ -2907,7 +2909,7 @@ msgid "Back to %s"
 msgstr "%s に戻る"
 
 msgid "No Entries Found"
-msgstr "該当データがありません"
+msgstr "ファイルがありません"
 
 msgid "INVALID CONTENT"
 msgstr "無効なコンテンツ"
