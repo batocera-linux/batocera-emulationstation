@@ -30,23 +30,32 @@ std::string LangInfo::getLanguageString()
 	return data;
 }
 
+std::string getSystemLang(std::string locale)
+{
+	if (locale.empty())
+		return "en";
+	else
+	{
+		auto shortNameDivider = locale.find("_");
+		if (shortNameDivider != std::string::npos)
+			return Utils::String::toLower(locale.substr(0, shortNameDivider));
+	}
+}
+
 std::string getSystemRegion(std::string locale)
 {
-	if (locale == "en_US" || locale == "en")
-		return "us";
-	else if (locale == "en_GB")
-		return "eu";
-	else if (locale == "eu_ES")
-		return "eu";
-	else if (locale == "ja_JP")
-		return "jp";
-	else if (locale == "ko_KR" || locale == "ko")
-		return "kr";
-	else if (locale == "pt_BR")
-		return "br";
-	else if (locale == "pt_PT")
-		return "eu";
-	return std::string();
+	std::string region = std::string();
+	if (!locale.empty())
+	{
+		auto shortNameDivider = locale.find("_");
+		if (shortNameDivider != std::string::npos)
+			region =  Utils::String::toLower(locale.substr(shortNameDivider));
+	}
+	if (region == "gb" || 
+		region == "pt" || 
+		region == "es")
+		region = "eu";
+	return region;
 }
 
 void LangInfo::extractLang(std::string val)
@@ -94,15 +103,7 @@ void LangInfo::extractLang(std::string val)
 	};
 
     std::string locale = SystemConf::getInstance()->get("system.language");
-	std::string systemLang;
-	if (locale.empty())
-		systemLang = "en";
-	else
-	{
-		auto shortNameDivider = locale.find("_");
-		if (shortNameDivider != std::string::npos)
-			systemLang = Utils::String::toLower(locale.substr(0, shortNameDivider));
-	}
+	std::string systemLang = getSystemLang(locale);
 	std::string systemRegion = getSystemRegion(locale);
 
 	for (auto s : Utils::String::splitAny(val, "_, "))
@@ -138,7 +139,7 @@ void LangInfo::extractLang(std::string val)
 						if ((region != systemRegion) && langData.region == systemRegion)
 						{
 							region = langData.region;
-							}
+						}
 						else if (((region != systemRegion) || systemRegion.empty()) && (langData.lang == systemLang))
 						{
 							region = langData.region;
