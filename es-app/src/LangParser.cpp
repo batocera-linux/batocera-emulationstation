@@ -50,11 +50,6 @@ std::string getSystemRegion(std::string locale)
 			region = Utils::String::toLower(locale.substr(shortNameDivider).substr(1));
 
 	}
-	if (region == "gb" || 
-		region == "pt" || 
-		region == "es")
-		region = "eu";
-
 	return region;
 }
 
@@ -67,7 +62,7 @@ void LangInfo::extractLang(std::string val)
 		{ { "europe", "eu", "e", "ue", "euro" }, "", "eu" },
 
 		{ { "w", "wor", "world" }, "en", "wr" },
-		{ { "uk" }, "en", "eu" },
+		{ { "uk", "gb"}, "en", "eu"},
 		{ { "es", "spain", "s" }, "es", "eu" },
 		{ { "fr", "france", "fre", "french", "f" }, "fr", "eu" },
 		{ { "de", "germany", "d" }, "de", "eu" },
@@ -106,6 +101,14 @@ void LangInfo::extractLang(std::string val)
 	std::string systemLang = getSystemLang(locale);
 	std::string systemRegion = getSystemRegion(locale);
 
+	for (auto langData : langDatas)
+	{
+		if (std::find(langData.value.cbegin(), langData.value.cend(), systemRegion) != langData.value.cend())
+		{
+			systemRegion = langData.region;
+		}
+	}
+
 	for (auto s : Utils::String::splitAny(val, "_, "))
 	{
 		bool clearLang = s.find("t-") != std::string::npos;
@@ -134,16 +137,10 @@ void LangInfo::extractLang(std::string val)
 						region = langData.region;
 						mHardRegion = newHardRegion;
 					}
-					else if (newHardRegion)
+					else if (newHardRegion && region != systemRegion)
 					{
-						if ((region != systemRegion) && langData.region == systemRegion)
-						{
-							region = langData.region;
-						}
-						else if (((region != systemRegion) || systemRegion.empty()) && (langData.lang == systemLang))
-						{
-							region = langData.region;
-						}
+						if (langData.region == systemRegion || langData.lang == systemLang)
+							region = langData.region;						
 					}				
 				}
 			}
