@@ -34,12 +34,10 @@ std::string getSystemLang(std::string locale)
 {
 	if (locale.empty())
 		return "en";
-	else
-	{
-		auto shortNameDivider = locale.find("_");
-		if (shortNameDivider != std::string::npos)
-			return Utils::String::toLower(locale.substr(0, shortNameDivider));
-	}
+	auto shortNameDivider = locale.find("_");
+	if (shortNameDivider != std::string::npos)
+		return Utils::String::toLower(locale.substr(0, shortNameDivider));
+	return std::string();
 }
 
 std::string getSystemRegion(std::string locale)
@@ -49,12 +47,14 @@ std::string getSystemRegion(std::string locale)
 	{
 		auto shortNameDivider = locale.find("_");
 		if (shortNameDivider != std::string::npos)
-			region =  Utils::String::toLower(locale.substr(shortNameDivider));
+			region = Utils::String::toLower(locale.substr(shortNameDivider).substr(1));
+
 	}
 	if (region == "gb" || 
 		region == "pt" || 
 		region == "es")
 		region = "eu";
+
 	return region;
 }
 
