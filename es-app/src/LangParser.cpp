@@ -80,9 +80,10 @@ void LangInfo::extractLang(std::string val)
 	std::string systemRegion = std::string();
 	auto shortNameDivider = locale.find("_");
 	if (shortNameDivider != std::string::npos)
+	{
 		systemLang = Utils::String::toLower(locale.substr(0, shortNameDivider));
-	if (shortNameDivider != std::string::npos)
 		systemRegion = Utils::String::toLower(locale.substr(shortNameDivider).substr(1));
+	}
 
 	for (auto langData : langDatas)
 	{
