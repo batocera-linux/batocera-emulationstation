@@ -83,13 +83,12 @@ void LangInfo::extractLang(std::string val)
 	{
 		systemLang = Utils::String::toLower(locale.substr(0, shortNameDivider));
 		systemRegion = Utils::String::toLower(locale.substr(shortNameDivider).substr(1));
-	}
-
-	for (auto langData : langDatas)
-	{
-		if (std::find(langData.value.cbegin(), langData.value.cend(), systemRegion) != langData.value.cend())
+		for (auto langData : langDatas)
 		{
-			systemRegion = langData.region;
+			if (std::find(langData.value.cbegin(), langData.value.cend(), systemRegion) != langData.value.cend())
+			{
+				systemRegion = langData.region;
+			}
 		}
 	}
 
