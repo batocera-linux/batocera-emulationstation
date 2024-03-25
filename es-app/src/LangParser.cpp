@@ -30,29 +30,6 @@ std::string LangInfo::getLanguageString()
 	return data;
 }
 
-std::string getSystemLang(std::string locale)
-{
-	if (locale.empty())
-		return "en";
-	auto shortNameDivider = locale.find("_");
-	if (shortNameDivider != std::string::npos)
-		return Utils::String::toLower(locale.substr(0, shortNameDivider));
-	return std::string();
-}
-
-std::string getSystemRegion(std::string locale)
-{
-	std::string region = std::string();
-	if (!locale.empty())
-	{
-		auto shortNameDivider = locale.find("_");
-		if (shortNameDivider != std::string::npos)
-			region = Utils::String::toLower(locale.substr(shortNameDivider).substr(1));
-
-	}
-	return region;
-}
-
 void LangInfo::extractLang(std::string val)
 {
 	static std::vector<LangData> langDatas =
@@ -98,8 +75,14 @@ void LangInfo::extractLang(std::string val)
 	};
 
     std::string locale = SystemConf::getInstance()->get("system.language");
-	std::string systemLang = getSystemLang(locale);
-	std::string systemRegion = getSystemRegion(locale);
+
+	std::string systemLang = "en";
+	std::string systemRegion = std::string();
+	auto shortNameDivider = locale.find("_");
+	if (shortNameDivider != std::string::npos)
+		systemLang = Utils::String::toLower(locale.substr(0, shortNameDivider));
+	if (shortNameDivider != std::string::npos)
+		systemRegion = Utils::String::toLower(locale.substr(shortNameDivider).substr(1));
 
 	for (auto langData : langDatas)
 	{
