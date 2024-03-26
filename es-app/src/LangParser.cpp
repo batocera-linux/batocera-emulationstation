@@ -4,6 +4,7 @@
 #include "SystemData.h"
 #include "FileData.h"
 #include "SystemConf.h"
+#include "guis/GuiSettings.h"
 #include "MameNames.h"
 #include <algorithm>
 
@@ -38,7 +39,7 @@ void LangInfo::extractLang(std::string val)
 		{ { "europe", "eu", "e", "ue", "euro" }, "", "eu" },
 
 		{ { "w", "wor", "world" }, "en", "wr" },
-		{ { "uk" }, "en", "eu" },
+		{ { "uk", "gb"}, "en", "eu"},
 		{ { "es", "spain", "s" }, "es", "eu" },
 		{ { "fr", "france", "fre", "french", "f" }, "fr", "eu" },
 		{ { "de", "germany", "d" }, "de", "eu" },
@@ -73,6 +74,24 @@ void LangInfo::extractLang(std::string val)
 		"kr", "korea"
 	};
 
+    std::string locale = SystemConf::getInstance()->get("system.language");
+
+	std::string systemLang = "en";
+	std::string systemRegion = std::string();
+	auto shortNameDivider = locale.find("_");
+	if (shortNameDivider != std::string::npos)
+	{
+		systemLang = Utils::String::toLower(locale.substr(0, shortNameDivider));
+		systemRegion = Utils::String::toLower(locale.substr(shortNameDivider).substr(1));
+		for (auto langData : langDatas)
+		{
+			if (std::find(langData.value.cbegin(), langData.value.cend(), systemRegion) != langData.value.cend())
+			{
+				systemRegion = langData.region;
+			}
+		}
+	}
+
 	for (auto s : Utils::String::splitAny(val, "_, "))
 	{
 		bool clearLang = s.find("t-") != std::string::npos;
@@ -93,10 +112,29 @@ void LangInfo::extractLang(std::string val)
 					languages.insert(langData.lang);
 				}
 
-				if (!langData.region.empty() && !mHardRegion)
+				if (!langData.region.empty())
 				{
-					region = langData.region;
-					mHardRegion = hardRegions.find(s) != hardRegions.cend();
+					bool newHardRegion = hardRegions.find(s) != hardRegions.cend();;
+					if (!mHardRegion)
+					{
+						region = langData.region;
+						mHardRegion = newHardRegion;
+					}
+					else if (newHardRegion && region != systemRegion)
+					{
+						if (langData.region == systemRegion || langData.lang == systemLang)
+							region = langData.region;		
+						else if (langData.lang.empty() && langData.region == "eu")
+						{
+							for (auto ld : langDatas)
+							{
+								if (ld.region == "eu" && ld.lang == systemLang)
+								{
+									region = ld.region;
+								}
+							}
+						}
+					}				
 				}
 			}
 		}
