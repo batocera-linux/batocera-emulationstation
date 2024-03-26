@@ -123,7 +123,17 @@ void LangInfo::extractLang(std::string val)
 					else if (newHardRegion && region != systemRegion)
 					{
 						if (langData.region == systemRegion || langData.lang == systemLang)
-							region = langData.region;						
+							region = langData.region;		
+						else if (langData.lang.empty() && langData.region == "eu")
+						{
+							for (auto ld : langDatas)
+							{
+								if (ld.region == "eu" && ld.lang == systemLang)
+								{
+									region = ld.region;
+								}
+							}
+						}
 					}				
 				}
 			}
