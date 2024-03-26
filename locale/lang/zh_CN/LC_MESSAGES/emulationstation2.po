@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-03-19 14:07+0800\n"
+"PO-Revision-Date: 2024-03-25 11:16+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二\n"
 "Language: zh_CN\n"
@@ -1749,46 +1749,46 @@ msgid "SERVICES"
 msgstr "服务"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "服务器"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMD服务器(用于真正的DMD)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "模拟器(用于网页DMD)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "DMD服务器"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "格式"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "dmd矩阵大小"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "矩阵"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "rgb dmd顺序"
 
 msgid "BRIGHTNESS"
 msgstr "亮度"
 
 msgid "-10 for auto"
-msgstr ""
+msgstr "自动为-10"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMD服务器已停止"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMD服务器已重启"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMD服务器已启动"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "前端开发人员选项"

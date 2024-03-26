@@ -872,7 +872,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "WŁĄCZ BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "SPARUJ AUTOMATYCZNIE PADY BLUETOOTH"
@@ -884,7 +884,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "OPCJE EKRANU"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "POKAŻ POWIADOMIENIA KONTROLERA"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "POKAŻ DZIAŁANIE KONTROLERA"
@@ -1760,46 +1760,46 @@ msgid "SERVICES"
 msgstr "USŁUGI"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "SERWER"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "SERWER DMD (dla prawdziwego dmd)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SYMULATOR (dla web dmd)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "serwer dmd"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "FORMAT"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "rozmiar matrycy dmd"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "MATRYCA"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "kolejność rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "JASNOŚĆ"
 
 msgid "-10 for auto"
-msgstr ""
+msgstr "-10 dla auto"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "SERWER DMD zatrzymany"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "SERWER DMD zrestartowany"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "SERWER DMD uruchomiony"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPCJE DEWELOPERA INTERFEJSU"
@@ -1999,10 +1999,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCJA RUCHU PISTOLETU"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "WŁĄCZ OBSŁUGĘ KONTROLERA PS3"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Może to mieć negatywny wpływ na bezpieczeństwo."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "WŁĄCZ STEROWNIKI UKRYTYCH JOYSTICKÓW"

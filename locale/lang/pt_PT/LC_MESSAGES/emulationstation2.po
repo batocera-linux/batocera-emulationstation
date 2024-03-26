@@ -1761,46 +1761,46 @@ msgid "SERVICES"
 msgstr "SERVIÇOS"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "SERVIDOR"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDSERVER (para dmd real)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SIMULADOR (para web dmd)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "servidor dmd"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "FORMATO"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "tamanho da matriz dmd"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "MATRIZ"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "ordem rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
 
 msgid "-10 for auto"
-msgstr ""
+msgstr "-10 para automático"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMDSERVER parou"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMDSERVER reiniciado"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMDSERVER iniciado"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPÇÕES DE INTERFACE DO DESENVOLVEDOR"
