@@ -1997,6 +1997,16 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 			item->add(_(vname.c_str()), tokens.at(0), storedValue == tokens.at(0));
 		}
 	}
+	else if (feat.preset == "runners")
+	{
+		item->add(_("AUTO"), "auto", storedValue.empty() || storedValue == "auto");
+
+		auto runners = ApiSystem::getInstance()->getCustomRunners();
+		for (auto customRunner : runners)
+		{
+			item->add(_(customRunner.c_str()), customRunner, storedValue == customRunner);
+		}
+	}
 	else
 	{
 		item->add(_("AUTO"), "", storedValue.empty() || storedValue == "auto");

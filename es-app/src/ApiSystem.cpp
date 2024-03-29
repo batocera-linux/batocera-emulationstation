@@ -541,6 +541,11 @@ std::vector<std::string> ApiSystem::getVideoModes()
 	return executeEnumerationScript("batocera-resolution listModes");
 }
 
+std::vector<std::string> ApiSystem::getCustomRunners() 
+{
+	return executeEnumerationScript("batocera-wine-runners");
+}
+
 std::vector<std::string> ApiSystem::getAvailableBackupDevices() 
 {
 	return executeEnumerationScript("batocera-sync list");
