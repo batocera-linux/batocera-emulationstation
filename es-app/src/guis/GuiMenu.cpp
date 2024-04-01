@@ -512,6 +512,171 @@ void GuiMenu::openDmdSettings()
 	window->pushGui(s);
 }
 
+void GuiMenu::openMultiScreensSettings()
+{
+	auto s = new GuiSettings(mWindow, _("MULTISCREENS").c_str());
+	Window* window = mWindow;
+
+#ifdef BATOCERA
+	s->addGroup(_("BACKGLASS / INFORMATION SCREEN"));
+
+	// video device2
+	std::vector<std::string> availableVideo2 = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
+	if (availableVideo2.size())
+	{
+		auto optionsVideo2 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
+		std::string currentDevice2 = SystemConf::getInstance()->get("global.videooutput2");
+		std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
+		if (currentDevice2.empty()) currentDevice2 = "auto";
+
+		bool vfound = false;
+		for (auto it = availableVideo2.begin(); it != availableVideo2.end(); it++)
+		{
+		        if(currentDevice == (*it)) continue; // ignore the device of the first screen
+			optionsVideo2->add((*it), (*it), currentDevice2 == (*it));
+			if (currentDevice2 == (*it))
+				vfound = true;
+		}
+
+		if (!vfound)
+			optionsVideo2->add(currentDevice2, currentDevice2, true);
+
+		s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo2);
+		s->addSaveFunc([this, optionsVideo2, currentDevice2, s] 
+		{
+			if (optionsVideo2->changed()) 
+			{
+				SystemConf::getInstance()->set("global.videooutput2", optionsVideo2->getSelected());
+				SystemConf::getInstance()->saveSystemConf();
+				s->setVariable("exitreboot", true);
+			}
+		});
+	}
+
+	// video resolution2
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION)) {
+	  auto videoModeOptionList2 = createVideoResolutionModeOptionList(mWindow, "es", "resolution2");
+	  s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution."), videoModeOptionList2);
+	  s->addSaveFunc([this, videoModeOptionList2, s] {
+	    if(videoModeOptionList2->changed()) {
+	      SystemConf::getInstance()->set("es.resolution2", videoModeOptionList2->getSelected());
+	      SystemConf::getInstance()->saveSystemConf();
+	      s->setVariable("exitreboot", true);
+	    }
+	  });
+	}
+
+	// video rotation2
+	auto optionsRotation2 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("ROTATION"), false);
+
+	std::string selectedRotation2 = SystemConf::getInstance()->get("display.rotate2");
+	if (selectedRotation2.empty())
+		selectedRotation2 = "auto";
+
+	optionsRotation2->add(_("AUTO"),          "auto", selectedRotation2 == "auto");
+	optionsRotation2->add(_("0 DEGREES"),        "0", selectedRotation2 == "0");
+	optionsRotation2->add(_("90 DEGREES"),       "1", selectedRotation2 == "1");
+	optionsRotation2->add(_("180 DEGREES"),      "2", selectedRotation2 == "2");
+	optionsRotation2->add(_("270 DEGREES"),      "3", selectedRotation2 == "3");
+
+	s->addWithLabel(_("SCREEN ROTATION"), optionsRotation2);
+
+	s->addSaveFunc([this, optionsRotation2, selectedRotation2, s]
+	{
+	  if (optionsRotation2->changed()) {
+	    SystemConf::getInstance()->set("display.rotate2", optionsRotation2->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    s->setVariable("exitreboot", true);
+	  }
+	});
+
+	s->addGroup(_("DMD SCREEN"));
+
+	// video device3
+	std::vector<std::string> availableVideo3 = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
+	if (availableVideo3.size())
+	{
+		auto optionsVideo3 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
+		std::string currentDevice3 = SystemConf::getInstance()->get("global.videooutput3");
+		std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");
+		if (currentDevice3.empty()) currentDevice3 = "auto";
+
+		bool vfound = false;
+		for (auto it = availableVideo3.begin(); it != availableVideo3.end(); it++)
+		{
+		        if(currentDevice == (*it)) continue; // ignore the device of the first screen
+			optionsVideo3->add((*it), (*it), currentDevice3 == (*it));
+			if (currentDevice3 == (*it))
+				vfound = true;
+		}
+
+		if (!vfound)
+			optionsVideo3->add(currentDevice3, currentDevice3, true);
+
+		s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo3);
+		s->addSaveFunc([this, optionsVideo3, currentDevice3, s] 
+		{
+			if (optionsVideo3->changed()) 
+			{
+				SystemConf::getInstance()->set("global.videooutput3", optionsVideo3->getSelected());
+				SystemConf::getInstance()->saveSystemConf();
+				s->setVariable("exitreboot", true);
+			}
+		});
+	}
+
+	// video resolution3
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION)) {
+	  auto videoModeOptionList3 = createVideoResolutionModeOptionList(mWindow, "es", "resolution3");
+	  s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution."), videoModeOptionList3);
+	  s->addSaveFunc([this, videoModeOptionList3, s] {
+	    if(videoModeOptionList3->changed()) {
+	      SystemConf::getInstance()->set("es.resolution3", videoModeOptionList3->getSelected());
+	      SystemConf::getInstance()->saveSystemConf();
+	      s->setVariable("exitreboot", true);
+	    }
+	  });
+	}
+
+	// video rotation3
+	auto optionsRotation3 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("ROTATION"), false);
+
+	std::string selectedRotation3 = SystemConf::getInstance()->get("display.rotate3");
+	if (selectedRotation3.empty())
+		selectedRotation3 = "auto";
+
+	optionsRotation3->add(_("AUTO"),          "auto", selectedRotation3 == "auto");
+	optionsRotation3->add(_("0 DEGREES"),        "0", selectedRotation3 == "0");
+	optionsRotation3->add(_("90 DEGREES"),       "1", selectedRotation3 == "1");
+	optionsRotation3->add(_("180 DEGREES"),      "2", selectedRotation3 == "2");
+	optionsRotation3->add(_("270 DEGREES"),      "3", selectedRotation3 == "3");
+
+	s->addWithLabel(_("SCREEN ROTATION"), optionsRotation3);
+
+	s->addSaveFunc([this, optionsRotation3, selectedRotation3, s]
+	{
+	  if (optionsRotation3->changed()) 
+{
+	    SystemConf::getInstance()->set("display.rotate3", optionsRotation3->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+	    s->setVariable("exitreboot", true);
+	  }
+	});
+
+#endif
+
+	s->onFinalize([s, window]
+	{
+	  if (s->getVariable("exitreboot") && Settings::getInstance()->getBool("ExitOnRebootRequired"))
+	    {
+	      Utils::Platform::quitES(Utils::Platform::QuitMode::QUIT);
+	      return;
+	    }
+	});
+
+	window->pushGui(s);
+}
+
 void GuiMenu::openDeveloperSettings()
 {
 	Window *window = mWindow;
@@ -1608,6 +1773,12 @@ void GuiMenu::openSystemSettings()
 
 #ifdef BATOCERA
 	s->addEntry(_("DMD"), true, [this] { openDmdSettings(); });
+#endif
+
+#ifdef BATOCERA
+#ifdef X86_64
+        s->addEntry(_("MULTISCREENS"), true, [this] { openMultiScreensSettings(); });
+#endif
 #endif
 
 #ifdef BATOCERA
