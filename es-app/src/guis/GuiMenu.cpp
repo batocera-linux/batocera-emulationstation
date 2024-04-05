@@ -437,23 +437,29 @@ void GuiMenu::openDmdSettings()
 	format->addRange({ { _("AUTO"), "" }, { "SD", "sd" }, { "HD", "hd" } }, current_format);
 	s->addWithDescription(_("FORMAT"), _("dmd matrix size"), format);
 
-	// matrix
-	auto matrix = std::make_shared< OptionListComponent<std::string> >(window, _("MATRIX"), false);
-	std::string current_matrix = SystemConf::getInstance()->get("dmd.matrix");
-	matrix->addRange({ { _("AUTO"), "" }, { "RGB", "rgb" }, { "RBG", "rbg" }, { "BRG", "brg" }, { "BGR", "bgr" }, { "GRB", "grb" }, { "GBR", "gbr" } }, current_matrix);
-	s->addWithDescription(_("MATRIX"), _("rgb dmd order"), matrix);
+	s->addGroup("PIXELCADE");
 
-	// brightness
-	auto brightness = std::make_shared<SliderComponent>(window, -10.f, 100.f, 10.f, "%");
-	std::string current_brightness = SystemConf::getInstance()->get("dmd.brightness");
-	if(current_brightness == "") {
-	  brightness->setValue(-10.f);
-	} else {
-	  brightness->setValue((float) Utils::String::toInteger(current_brightness));
-	}
-	s->addWithDescription(_("BRIGHTNESS"), _("-10 for auto"), brightness);
+	// pixelcade.matrix
+	auto pixelcade_matrix = std::make_shared< OptionListComponent<std::string> >(window, _("MATRIX"), false);
+	std::string current_pixelcade_matrix = SystemConf::getInstance()->get("dmd.pixelcade.matrix");
+	pixelcade_matrix->addRange({ { _("AUTO"), "" }, { "RGB", "rgb" }, { "RBG", "rbg" } }, current_pixelcade_matrix);
+	s->addWithDescription(_("MATRIX"), _("rgb dmd order"), pixelcade_matrix);
 
-	s->addSaveFunc([window, server, format, matrix, brightness, current_server, current_format, current_matrix, current_brightness] {
+	s->addGroup("ZEDMD");
+
+	// zedmd.matrix
+	auto zedmd_matrix = std::make_shared< OptionListComponent<std::string> >(window, _("MATRIX"), false);
+	std::string current_zedmd_matrix = SystemConf::getInstance()->get("dmd.zedmd.matrix");
+	zedmd_matrix->addRange({ { _("AUTO"), "" }, { "RGB", "rgb" }, { "RBG", "rbg" }, { "BRG", "brg" }, { "BGR", "bgr" }, { "GRB", "grb" }, { "GBR", "gbr" } }, current_zedmd_matrix);
+	s->addWithDescription(_("MATRIX"), _("rgb dmd order"), zedmd_matrix);
+
+	// zedmd.brightness
+	auto zedmd_brightness = std::make_shared< OptionListComponent<std::string> >(window, _("BRIGHTNESS"), false);
+	std::string current_zedmd_brightness = SystemConf::getInstance()->get("dmd.zedmd.brightness");
+	zedmd_brightness->addRange({ { _("AUTO"), "" }, { "0", "0" }, { "1", "1" }, { "2", "2" }, { "3", "3" }, { "4", "4" }, { "5", "5" }, { "6", "6" }, { "7", "7" }, { "8", "8" }, { "9", "9" }, { "10", "10" }, { "11", "11" }, { "12", "12" }, { "13", "13" }, { "14", "14" }, { "15", "15" } }, current_zedmd_brightness);
+	s->addWithLabel(_("BRIGHTNESS"), zedmd_brightness);
+
+	s->addSaveFunc([window, server, format, pixelcade_matrix, zedmd_matrix, zedmd_brightness, current_server, current_format, current_pixelcade_matrix, current_zedmd_matrix, current_zedmd_brightness] {
 	  bool needRestart = false;
 	  bool needSave    = false;
 
@@ -461,17 +467,18 @@ void GuiMenu::openDmdSettings()
 	    SystemConf::getInstance()->set("dmd.format", format->getSelected());
 	    needSave = true;
 	  }
-	  if(current_matrix != matrix->getSelected()) {
-	    SystemConf::getInstance()->set("dmd.matrix", matrix->getSelected());
+	  if(current_pixelcade_matrix != pixelcade_matrix->getSelected()) {
+	    SystemConf::getInstance()->set("dmd.pixelcade.matrix", pixelcade_matrix->getSelected());
 	    needRestart = true;
 	    needSave = true;
 	  }
-	  std::string value = "";
-	  if(brightness->getValue() >= 0.0) {
-	    value = std::to_string((int)brightness->getValue());
+	  if(current_zedmd_matrix != zedmd_matrix->getSelected()) {
+	    SystemConf::getInstance()->set("dmd.zedmd.matrix", zedmd_matrix->getSelected());
+	    needRestart = true;
+	    needSave = true;
 	  }
-	  if(value != current_brightness) {
-	    SystemConf::getInstance()->set("dmd.brightness", value);
+	  if(current_zedmd_brightness != zedmd_brightness->getSelected()) {
+	    SystemConf::getInstance()->set("dmd.zedmd.brightness", zedmd_brightness->getSelected());
 	    needRestart = true;
 	    needSave = true;
 	  }
