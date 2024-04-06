@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v40b(2024/03/20)\n"
+"Project-Id-Version: batocera-es v40b(2024/03/24)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-03-20 13:23+0900\n"
+"PO-Revision-Date: 2024-03-24 06:07+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1760,43 +1760,43 @@ msgid "SERVICES"
 msgstr "サービス(その他の機能)"
 
 msgid "DMD"
-msgstr ""
+msgstr "ドットマトリクス表示(DMD)"
 
 msgid "SERVER"
-msgstr ""
+msgstr "サーバー"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDサーバー (実際の dmd)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "シミュレーター（web dmd）"
 
 msgid "dmd server"
-msgstr ""
+msgstr "DMDサーバー"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "フォーマット 開始"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "dmdマトリクスサイズ"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "マトリクス"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "RGB DMD順"
 
 msgid "BRIGHTNESS"
 msgstr "明るさ"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMDサーバーが停止しました"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMDサーバーが再起動されました"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMDサーバーが開始されました"
 
 msgid "MULTISCREENS"
 msgstr ""
@@ -3420,6 +3420,9 @@ msgstr "スクリーンリーダー有効"
 
 msgid "SCREEN READER DISABLED"
 msgstr "スクリーンリーダー無効"
+
+#~ msgid "-10 for auto"
+#~ msgstr "自動は -10"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "テーマファイルからコレクションを作成"

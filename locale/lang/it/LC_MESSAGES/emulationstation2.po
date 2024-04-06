@@ -1754,43 +1754,43 @@ msgid "SERVICES"
 msgstr "SERVIZI"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "SERVER"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDSERVER (per dmd reali)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SIMULATORE (per dmd web)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "server dmd"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "FORMATO"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "dimensioni matrice dmd"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "MATRICE"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "ordine rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÀ"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMDSERVER fermato"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMDSERVER riavviato"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMDSERVER avviato"
 
 msgid "MULTISCREENS"
 msgstr ""
@@ -3432,6 +3432,9 @@ msgstr "SINTESI VOCALE ATTIVATA"
 
 msgid "SCREEN READER DISABLED"
 msgstr "SINTESI VOCALE DISATTIVATA"
+
+#~ msgid "-10 for auto"
+#~ msgstr "-10 per automatico"
 
 #~ msgid "Achievements won"
 #~ msgstr "Trofei vinti"

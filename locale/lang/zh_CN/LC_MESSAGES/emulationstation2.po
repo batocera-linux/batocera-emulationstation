@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-03-25 11:16+0800\n"
+"PO-Revision-Date: 2024-03-27 20:21+0800\n"
 "Last-Translator: wanger\n"
-"Language-Team: mikakunin,王二\n"
+"Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,10 +71,10 @@ msgid "enter path to fanart"
 msgstr "输入同人作品路径"
 
 msgid "Title shot"
-msgstr "标题封面"
+msgstr "标题画面"
 
 msgid "enter path to title shot"
-msgstr "输入标题封面的路径"
+msgstr "输入标题画面路径"
 
 msgid "Manual"
 msgstr "手册"
@@ -83,10 +83,10 @@ msgid "enter path to manual"
 msgstr "输入手册路径"
 
 msgid "Magazine"
-msgstr "游戏攻略"
+msgstr "杂志"
 
 msgid "enter path to magazine"
-msgstr "输入游戏攻略路径"
+msgstr "输入杂志路径"
 
 msgid "Map"
 msgstr "地图"
@@ -95,34 +95,34 @@ msgid "enter path to map"
 msgstr "输入地图路径"
 
 msgid "Bezel (16:9)"
-msgstr "遮罩(16:9)"
+msgstr "遮罩（16:9）"
 
 msgid "enter path to bezel (16:9)"
-msgstr "输入框架(16:9)路径"
+msgstr "输入遮罩（16:9）路径"
 
 msgid "Cartridge"
-msgstr "存档器"
+msgstr "卡带"
 
 msgid "enter path to cartridge"
-msgstr "输入存档器路径"
+msgstr "输入卡带路径"
 
 msgid "Alt BoxArt"
-msgstr "包装盒封面"
+msgstr "替代包装盒封面"
 
 msgid "enter path to alt boxart"
-msgstr "输入包装盒封面路径"
+msgstr "输入替代包装盒封面路径"
 
 msgid "Box backside"
-msgstr "包装合背面"
+msgstr "包装盒背面"
 
 msgid "enter path to box background"
-msgstr "输入包装合背面路径"
+msgstr "输入包装盒背面路径"
 
 msgid "Wheel"
-msgstr "商标"
+msgstr "方向盘"
 
 msgid "enter path to wheel"
-msgstr "输入商标路径"
+msgstr "输入方向盘路径"
 
 msgid "Mix"
 msgstr "混合图"
@@ -245,16 +245,16 @@ msgid "this game's region"
 msgstr "本游戏发行区域"
 
 msgid "Cheevos Hash"
-msgstr "成就"
+msgstr "Cheevos哈希"
 
 msgid "Cheevos checksum"
-msgstr "成就检测"
+msgstr "Cheevos校验和"
 
 msgid "Cheevos Game ID"
-msgstr "成就游戏ID"
+msgstr "Cheevos游戏ID"
 
 msgid "Screenscraper Game ID"
-msgstr "屏幕截取器 游戏ID"
+msgstr "Screenscraper游戏ID"
 
 msgid "all games"
 msgstr "所有游戏"
@@ -275,7 +275,7 @@ msgid "never played"
 msgstr "从未玩过的"
 
 msgid "retroachievements"
-msgstr "retroarch成就"
+msgstr "RetroAchievement"
 
 msgid "arcade"
 msgstr "街机"
@@ -287,7 +287,7 @@ msgid "lightgun games"
 msgstr "光枪游戏"
 
 msgid "wheel games"
-msgstr "轮盘游戏"
+msgstr "方向盘游戏"
 
 msgid "collections"
 msgstr "合辑"
@@ -301,7 +301,7 @@ msgid "Removed '%s' from '%s'"
 msgstr "移除 '%s' 从 '%s'"
 
 msgid "This collection is empty."
-msgstr "此专辑为空."
+msgstr "此合辑为空。"
 
 #. TRANSLATION: number of developpers / various developpers
 msgid "None"
@@ -319,7 +319,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "正在扫描蓝牙设备"
 
 msgid "Searching for devices..."
-msgstr "正在搜索控制器..."
+msgstr "正在搜索设备..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "蓝牙扫描已在运行。"
@@ -334,7 +334,7 @@ msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
 msgstr "重启动以完成操作"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
-msgstr "磁盘格式化完成."
+msgstr "已经有一个磁盘正在进行格式化了。"
 
 msgid "DOWNLOADING"
 msgstr "正在下载"
@@ -361,13 +361,13 @@ msgid "PACKAGE REMOVED SUCCESSFULLY"
 msgstr "补丁包卸载成功"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RetroArch成就 设置"
+msgstr "RetroAchievement设置"
 
 msgid "SETTINGS"
 msgstr "设置"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RetroArch成就"
+msgstr "RetroAchievement"
 
 msgid "USERNAME"
 msgstr "用户名"
@@ -379,22 +379,22 @@ msgid "OPTIONS"
 msgstr "选项"
 
 msgid "HARDCORE MODE"
-msgstr "专家模式"
+msgstr "硬核模式"
 
 msgid "Disable loading states, rewind and cheats for more points."
-msgstr "禁用加载状态、倒带和作弊以获得更多点数."
+msgstr "禁用加载状态、倒带和作弊以获得更多点数。"
 
 msgid "LEADERBOARDS"
 msgstr "排行榜"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
-msgstr "在高分榜和最佳时间排行榜上竞争（需要硬核模式）."
+msgstr "在高分榜和最佳时间排行榜上竞争（需要硬核模式）。"
 
 msgid "VERBOSE MODE"
 msgstr "详细模式"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr "在游戏启动时显示成就进度和其他通知."
+msgstr "在游戏启动时显示成就进度和其他通知。"
 
 msgid "RICH PRESENCE"
 msgstr "详细在线状态"
@@ -403,21 +403,21 @@ msgid "ENCORE MODE"
 msgstr "安可模式"
 
 msgid "Unlocked achievements can be earned again."
-msgstr "解锁的成就可以再次获得."
+msgstr "解锁的成就可以再次获得。"
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "自动截图"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr "获得成就时自动截图."
+msgstr "获得成就时自动截图。"
 
 msgid "CHALLENGE INDICATORS"
-msgstr "挑战记录"
+msgstr "挑战标识"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
 "earned."
-msgstr "获得符合条件的成就时，在右下角显示图标。"
+msgstr "在可以获得符合条件的成就时，在右下角显示图标。"
 
 msgid "RETROACHIEVEMENT UNLOCK SOUND"
 msgstr "成就解锁声音"
@@ -432,19 +432,19 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "在主菜单中显示成就菜单项"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "从主菜单查看您的RetroAchievement统计数据!"
+msgstr "从主菜单查看您的RetroAchievement统计数据！"
 
 msgid "GAME INDEXES"
 msgstr "游戏索引"
 
 msgid "INDEX NEW GAMES AT STARTUP"
-msgstr "新游戏在启动时编制索引"
+msgstr "在启动时索引新游戏"
 
 msgid "INDEX GAMES"
 msgstr "游戏索引"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "无法激活追溯成就:"
+msgstr "无法激活RetroAchievement:"
 
 msgid "OK"
 msgstr "确定"
@@ -453,7 +453,7 @@ msgid "FILTER GAMELIST BY"
 msgstr "游戏列表筛选方式"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "编辑专辑"
+msgstr "编辑动态合辑筛选器"
 
 msgid "RESET ALL FILTERS"
 msgstr "重置所有筛选器"
@@ -465,7 +465,7 @@ msgid "FIND GAMES"
 msgstr "搜索游戏"
 
 msgid "Unknown"
-msgstr "未知的"
+msgstr "未知"
 
 msgid "YES"
 msgstr "是"
@@ -477,10 +477,10 @@ msgid "SYSTEMS"
 msgstr "游戏平台"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "游戏专辑设置"
+msgstr "游戏合辑设置"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr "要显示的专辑"
+msgstr "要显示的合辑"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "显示的游戏平台"
@@ -489,7 +489,7 @@ msgid "GROUPED SYSTEMS"
 msgstr "系统分组"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr "创建自定专辑"
+msgstr "创建自定合辑"
 
 msgid "New Collection Name"
 msgstr "新合辑名称"
@@ -501,10 +501,10 @@ msgid "CREATE FROM THEME"
 msgstr "根据主题创建"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "新建可编辑专辑"
+msgstr "新建可编辑合辑"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
-msgstr "新建动态专辑"
+msgstr "新建动态合辑"
 
 msgid "SORT COLLECTIONS AND SYSTEMS"
 msgstr "合辑和系统分类"
@@ -522,7 +522,7 @@ msgid "BY MANUFACTURER AND TYPE"
 msgstr "按制造商和类型"
 
 msgid "BY RELEASE YEAR"
-msgstr "按发布年"
+msgstr "按发布年份"
 
 msgid "SORT SYSTEMS"
 msgstr "系统分类"
@@ -540,10 +540,10 @@ msgid "START ON GAMELIST"
 msgstr "启动到游戏列表"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr "对自定义集合进行分组"
+msgstr "对自定义合辑进行分组"
 
 msgid "UNTHEMED"
-msgstr "暂停"
+msgstr "无主题"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "在合辑中显示系统名称"
@@ -555,7 +555,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "显示空系统"
 
 msgid "UPDATE GAMELISTS"
-msgstr "更新游戏列表(放入ROM或者安装程序后操作）"
+msgstr "更新游戏列表（放入ROM或者安装程序后操作）"
 
 msgid "Loading..."
 msgstr "载入中..."
@@ -564,46 +564,46 @@ msgid "SELECT COLLECTIONS"
 msgstr "选择合辑"
 
 msgid "AUTOMATIC COLLECTIONS"
-msgstr "自动归类专辑"
+msgstr "自动归类合辑"
 
 msgid "PER GENRE"
 msgstr "所有种类"
 
 msgid "ARCADE SYSTEMS"
-msgstr "游戏系统"
+msgstr "街机系统"
 
 msgid "AUTOMATIC GAME COLLECTIONS"
-msgstr "自动归类游戏专辑"
+msgstr "自动归类游戏合辑"
 
 msgid "EDITABLE COLLECTIONS"
-msgstr "自定义专辑"
+msgstr "自定义合辑"
 
 msgid "DYNAMIC COLLECTIONS"
-msgstr "动态专辑"
+msgstr "动态合辑"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr "自定游戏专辑"
+msgstr "自定游戏合辑"
 
 msgid "PLEASE WAIT"
 msgstr "请稍后"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr "%d 个中的 %d 软核积分"
+msgstr "%d / %d 软核分数"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr "%d 个中的 %d 硬核积分"
+msgstr "%d / %d 硬核分数"
 
 #, c-format
 msgid "%d%% (%d of %d)"
-msgstr "%d%% (%d 中的 %d)"
+msgstr "%d%%（%d / %d）"
 
 msgid "Softcore points"
 msgstr "软核分数"
 
 msgid "Points (hardcore)"
-msgstr "得分 (硬核模式)"
+msgstr "分数（硬核模式）"
 
 msgid "Rank"
 msgstr "评价等级"
@@ -630,7 +630,7 @@ msgid "USE RELAY SERVER"
 msgstr "使用中继服务"
 
 msgid "NEW YORK"
-msgstr "网络设置"
+msgstr "纽约"
 
 msgid "MADRID"
 msgstr "马德里"
@@ -645,7 +645,7 @@ msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
 
 msgid "Show rooms for games not present on this machine."
-msgstr "显示本机未安装的游戏的房间列表."
+msgstr "对于本机所没有的游戏，仍显示其游戏房间。"
 
 msgid "FINISHED"
 msgstr "完成"
@@ -672,16 +672,16 @@ msgid "SORT GAMES BY"
 msgstr "游戏排序方式"
 
 msgid "DYNAMIC COLLECTION"
-msgstr "动态专辑"
+msgstr "动态合辑"
 
 msgid "CUSTOM COLLECTION"
-msgstr "自定义专辑"
+msgstr "自定义合辑"
 
 msgid "DELETE COLLECTION"
-msgstr "删除专辑"
+msgstr "删除合辑"
 
 msgid "COLLECTION"
-msgstr "专辑"
+msgstr "合辑"
 
 msgid "GAMELIST VIEW STYLE"
 msgstr "游戏列表样式"
@@ -696,7 +696,7 @@ msgid "VIEW PAD TO KEYBOARD INFORMATION"
 msgstr "查看键盘映射信息"
 
 msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "高级系统(模拟器)设置选项"
+msgstr "高级系统（模拟器）设置选项"
 
 msgid "RESET FILTERS"
 msgstr "重置筛选"
@@ -705,13 +705,13 @@ msgid "FILTER GAMES BY TEXT"
 msgstr "用文本筛选游戏"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "截取过程此功能被禁用"
+msgstr "抓取器运行时此功能被禁用"
 
 msgid "CLOSE"
 msgstr "关闭"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "确定是否删除？"
+msgstr "是否确定删除？"
 
 msgid "FORGET A BLUETOOTH DEVICE"
 msgstr "解除配对的蓝牙设备"
@@ -723,14 +723,14 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "未发现蓝牙设备"
 
 msgid "REMOVE"
-msgstr "卸载"
+msgstr "移除"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "已解除蓝牙设备."
+msgstr "已删除蓝牙设备。"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "你确定要删除 '%s' 吗?"
+msgstr "你确定要移除 '%s' 吗?"
 
 msgid "INPUT"
 msgstr "名称编辑"
@@ -763,16 +763,16 @@ msgid "SAME ROM"
 msgstr "相同的ROM"
 
 msgid "UNAVAILABLE CORE"
-msgstr "核心无效"
+msgstr "核心不可用"
 
 msgid "AVAILABLE GAMES"
-msgstr "可运行的游戏"
+msgstr "可用的游戏"
 
 msgid "UNAVAILABLE GAMES"
-msgstr "无法运行的游戏"
+msgstr "不可用的游戏"
 
 msgid "NO GAMES FOUND"
-msgstr "找不到可用游戏服务"
+msgstr "找不到游戏"
 
 msgid "JOIN GAME"
 msgstr "加入游戏"
@@ -805,7 +805,7 @@ msgid "RESET"
 msgstr "重置"
 
 msgid "PARENT FOLDER"
-msgstr "主文件夹"
+msgstr "父文件夹"
 
 msgid "SCREENSHOTS FOLDER"
 msgstr "截图文件夹"
@@ -820,7 +820,7 @@ msgid "CONTROLLER SETTINGS"
 msgstr "手柄按键设置"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "手柄/蓝牙手柄设置"
+msgstr "手柄和蓝牙设置"
 
 msgid "CONTROLLERS PRIORITY"
 msgstr "控制器优先级"
@@ -837,7 +837,7 @@ msgid "P%i'S CONTROLLER"
 msgstr "玩家%i 控制器"
 
 msgid "CONTROLLER MAPPING"
-msgstr "手柄设置"
+msgstr "手柄按键映射"
 
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
@@ -845,9 +845,9 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
-"你即将映射一个手柄。基于按键的位置进行映射而不是其物理标签。\n"
+"即将开始映射一个手柄。请您基于按键的位置而不是其物理标签进行映射。\n"
 "如果没有专门用于热键的按键，请使用SELECT按键。\n"
-"通过长按任意键来跳过所有无法识别的按钮/摇杆。完成后请按南方向按键确认。"
+"遇到没有的按钮或摇杆时可以通过长按任意键来跳过。完成后请按南方向按键确认。"
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "SINDEN枪设置"
@@ -904,7 +904,7 @@ msgid "BIG"
 msgstr "大"
 
 msgid "BORDER MODE"
-msgstr "边界模式"
+msgstr "边框模式"
 
 msgid "NORMAL"
 msgstr "常规"
@@ -937,7 +937,7 @@ msgid "Daytime/Bright Sunlight (40)"
 msgstr "白天/明亮的阳光（40）"
 
 msgid "Default (50)"
-msgstr "默认 (50)"
+msgstr "默认（50）"
 
 msgid "Dim Display/Evening (60)"
 msgstr "昏暗的显示屏/夜间（60）"
@@ -949,10 +949,10 @@ msgid "Daytime/Bright Sunlight (80)"
 msgstr "白天/明亮的阳光（80）"
 
 msgid "Default (100)"
-msgstr "默认 (100)"
+msgstr "默认（100）"
 
 msgid "Dim Display/Evening (120)"
-msgstr "昏暗的显示屏/夜间 (120)"
+msgstr "昏暗的显示屏/夜间（120）"
 
 msgid "CAMERA EXPOSURE"
 msgstr "相机曝光"
@@ -961,16 +961,16 @@ msgid "Projector/CRT (-5)"
 msgstr "投影仪/CRT（-5）"
 
 msgid "Projector/CRT (-6)"
-msgstr "投影仪/CRT (-6)"
+msgstr "投影仪/CRT（-6）"
 
 msgid "Default (-7)"
-msgstr "默认 (-7)"
+msgstr "默认（-7）"
 
 msgid "Other (-8)"
-msgstr "其他 (-8)"
+msgstr "其他（-8）"
 
 msgid "Other (-9)"
-msgstr "其他 (-9)"
+msgstr "其他（-9）"
 
 msgid "RECOIL"
 msgstr "后坐力"
@@ -1041,22 +1041,22 @@ msgid "CURRENTLY IN DOWNLOAD QUEUE"
 msgstr "当前下载排队"
 
 msgid "NO MISSING BIOS FILES"
-msgstr "未丢bios文件"
+msgstr "无缺失的BIOS文件"
 
 msgid "MISSING BIOS CHECK"
-msgstr "检查缺失的bios"
+msgstr "检查缺失的BIOS"
 
 msgid "Installed systems"
-msgstr "安装系统"
+msgstr "已安装的系统"
 
 msgid "All"
 msgstr "所有"
 
 msgid "refresh"
-msgstr "恢复"
+msgstr "刷新"
 
 msgid "NO MISSING BIOS"
-msgstr "未缺bios"
+msgstr "未缺BIOS"
 
 msgid "dim"
 msgstr "暗灰"
@@ -1068,7 +1068,7 @@ msgid "random video"
 msgstr "随机视频"
 
 msgid "slideshow"
-msgstr "片段展示"
+msgstr "幻灯片"
 
 msgid "suspend"
 msgstr "暂停"
@@ -1080,7 +1080,7 @@ msgid "start & end"
 msgstr "开始和结束"
 
 msgid "never"
-msgstr "从未"
+msgstr "从不"
 
 msgid "systems"
 msgstr "系统"
@@ -1098,7 +1098,7 @@ msgid "SCREENSAVER TYPE"
 msgstr "屏保样式"
 
 msgid "STOP MUSIC ON SCREENSAVER"
-msgstr "录屏时停止音乐"
+msgstr "屏保启动时停止音乐"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
 msgstr "屏保-随机视频设置"
@@ -1134,7 +1134,7 @@ msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "自定视频路径"
 
 msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "在自定义目录的子文件夹中使用视频"
+msgstr "使用自定义目录的子目录中的视频"
 
 msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr "自定义视频文件扩展名"
@@ -1143,7 +1143,7 @@ msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "屏保-幻灯片设置"
 
 msgid "IMAGE DURATION (SECS)"
-msgstr "图像替换 (SECS)"
+msgstr "图像持续时间（秒）"
 
 msgid "STRETCH IMAGES"
 msgstr "拉伸图像"
@@ -1155,7 +1155,7 @@ msgid "CUSTOM IMAGE DIRECTORY"
 msgstr "自定图像目录"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "在自定义目录的子文件夹中使用图片"
+msgstr "使用自定义目录的子目录中的图片"
 
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
 msgstr "自定义图片文件扩展名"
@@ -1191,10 +1191,10 @@ msgid "MOUSE CURSOR"
 msgstr "鼠标光标"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr "仿真鼠标光标"
+msgstr "模拟鼠标光标"
 
 msgid "LEFT ANALOG STICK"
-msgstr "手柄左摇杆"
+msgstr "左摇杆"
 
 msgid "RIGHT ANALOG STICK"
 msgstr "右摇杆"
@@ -1203,7 +1203,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "编辑描述"
 
 msgid "DELETE MAPPING"
-msgstr "删除（按键/设备）适配"
+msgstr "删除（按键/设备）映射"
 
 msgid "SAVE CHANGES?"
 msgstr "是否保存更改?"
@@ -1230,7 +1230,7 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 "当前版本 %s\n"
-"是否更新到版本 %s?(汉化版升级将导致汉化失效）"
+"是否更新到版本 %s?（汉化版升级将导致汉化失效）"
 
 #, c-format
 msgid ""
@@ -1238,8 +1238,8 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"检测到此版本为非官方系统.\n"
-"升级可能会破坏您的系统.\n"
+"检测到此版本为非官方系统。\n"
+"升级可能会破坏您的系统。\n"
 "您想把版本更新到 %s 吗?"
 
 msgid "NETWORK CONNECTION NEEDED"
@@ -1270,7 +1270,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "阅读游戏手册"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr "阅读游戏攻略"
+msgstr "阅读游戏杂志"
 
 msgid "VIEW GAME MAP"
 msgstr "阅读游戏地图"
@@ -1309,22 +1309,22 @@ msgid "START GAME"
 msgstr "开始游戏"
 
 msgid "HOST A NETPLAY GAME"
-msgstr "开启网络游戏服务"
+msgstr "建立联网主机"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "公开的游戏"
 
 msgid "PLAYER PASSWORD"
-msgstr "玩家登陆口令"
+msgstr "玩家口令"
 
 msgid "VIEWER PASSWORD"
-msgstr "围观者口令"
+msgstr "观众口令"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "寻找类似游戏..."
 
 msgid "DELETE ITEM"
-msgstr "删除房间"
+msgstr "删除项目"
 
 msgid "DELETE GAME"
 msgstr "删除游戏"
@@ -1333,11 +1333,11 @@ msgid ""
 "THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
 "ARE YOU SURE?"
 msgstr ""
-"这将删除实际的游戏文件!\n"
-"确定执行吗?"
+"这个操作会删除实际的游戏文件!\n"
+"确定要执行吗?"
 
 msgid "COLLECTIONS"
-msgstr "所有专辑"
+msgstr "所有合辑"
 
 #, c-format
 msgid "REMOVE FROM %s"
@@ -1351,7 +1351,7 @@ msgid "FAVORITES"
 msgstr "收藏"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "添加到自定义专辑..."
+msgstr "添加到自定义合辑..."
 
 msgid "SCRAPE"
 msgstr "抓取封面元数据"
@@ -1360,28 +1360,28 @@ msgid "EDIT PADTOKEY PROFILE"
 msgstr "编辑映射键盘文件"
 
 msgid "CREATE PADTOKEY PROFILE"
-msgstr "创建映射键盘文件(手柄映射键鼠）"
+msgstr "创建映射键盘文件（手柄映射键鼠）"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "高级游戏设置选项"
 
 msgid "EDIT FOLDER METADATA"
-msgstr "编辑文件夹的信息"
+msgstr "编辑文件夹元数据"
 
 msgid "EDIT THIS GAME'S METADATA"
-msgstr "编辑此游戏的信息"
+msgstr "编辑此游戏元数据"
 
 msgid "THEMES DOWNLOADER"
 msgstr "主题下载"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
-msgstr "选择要安装/删除的主题"
+msgstr "选择要安装或删除的主题"
 
 msgid "Installed"
 msgstr "安装"
 
 msgid "Available"
-msgstr "现有"
+msgstr "可用"
 
 msgid "CURRENT THEME"
 msgstr "当前主题"
@@ -1396,10 +1396,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "这个游戏还没有取得任何成就"
 
 msgid "Achievements (softcore)"
-msgstr "成就(软核)"
+msgstr "成就（软核）"
 
 msgid "Achievements (hardcore)"
-msgstr "成就(硬核)"
+msgstr "成就（硬核）"
 
 #, c-format
 msgid "%d%% complete"
@@ -1433,7 +1433,7 @@ msgid "SCREENSHOT"
 msgstr "截图"
 
 msgid "TITLE SCREENSHOT"
-msgstr "标题截图"
+msgstr "标题画面截图"
 
 msgid "MIX V1"
 msgstr "V1 MIX"
@@ -1457,10 +1457,10 @@ msgid "LOGO SOURCE"
 msgstr "LOGO数据"
 
 msgid "WHEEL"
-msgstr "旋转"
+msgstr "方向盘"
 
 msgid "MARQUEE"
-msgstr "蒙版"
+msgstr "广告牌（marquee）"
 
 msgid "PREFERED REGION"
 msgstr "首选区域"
@@ -1475,7 +1475,7 @@ msgid "SCRAPE FOR"
 msgstr "抓取数据"
 
 msgid "SHORT NAME"
-msgstr "抓取名称"
+msgstr "短名称"
 
 msgid "COMMUNITY RATING"
 msgstr "社区评级"
@@ -1487,7 +1487,7 @@ msgid "FANART"
 msgstr "同人"
 
 msgid "BEZEL (16:9)"
-msgstr "挡板 (16:9)"
+msgstr "遮罩（16:9）"
 
 msgid "BOX BACKSIDE"
 msgstr "盒子背面"
@@ -1496,7 +1496,7 @@ msgid "MAP"
 msgstr "地图"
 
 msgid "MANUAL"
-msgstr "说明书"
+msgstr "手册"
 
 msgid "PADTOKEY SETTINGS"
 msgstr "按键设置"
@@ -1511,28 +1511,28 @@ msgid "SCRAPING DATABASE"
 msgstr "抓取数据库"
 
 msgid "SOURCE"
-msgstr "高分"
+msgstr "来源"
 
 msgid "SCRAPE FROM"
 msgstr "游戏数据来源网站"
 
 msgid "FILTERS"
-msgstr "过滤器"
+msgstr "筛选器"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "为游戏抓取"
+msgstr "要抓取的游戏"
 
 msgid "ALL"
 msgstr "所有数据"
 
 msgid "GAMES MISSING ANY MEDIA"
-msgstr "游戏丢失一些媒体"
+msgstr "缺失部分媒体的游戏"
 
 msgid "GAMES MISSING ALL MEDIA"
-msgstr "游戏丢失所有媒体"
+msgstr "缺失所有媒体的游戏"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "忽略最近被删掉的游戏"
+msgstr "忽略最近已抓取过的游戏"
 
 msgid "LAST DAY"
 msgstr "最近一天"
@@ -1567,10 +1567,10 @@ msgid ""
 "CONTINUE ANYWAY?"
 msgstr ""
 "警告：您选择的某些系统没有平台集。结果可能适用于不同的系统！\n"
-"继续吗？"
+"仍要继续吗？"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "正在获取数据.要停止吗？"
+msgstr "正在进行数据抓取。是否停止？"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "没有匹配的游戏。"
@@ -1582,7 +1582,7 @@ msgid "VERSION"
 msgstr "版本"
 
 msgid "USER DISK USAGE"
-msgstr "用户磁盘使用状态"
+msgstr "用户磁盘使用"
 
 msgid "SYSTEM DISK USAGE"
 msgstr "系统磁盘使用"
@@ -1594,10 +1594,10 @@ msgid "VIDEO DRIVER"
 msgstr "显卡驱动"
 
 msgid "THE BEZEL PROJECT"
-msgstr "框架项目"
+msgstr "The Bezel Project"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "选择要安装/卸下的框架"
+msgstr "选择要安装或卸载的遮罩"
 
 msgid "fade"
 msgstr "淡出"
@@ -1615,7 +1615,7 @@ msgid "System"
 msgstr "系统"
 
 msgid "Architecture"
-msgstr "结构"
+msgstr "架构"
 
 msgid "Disk format"
 msgstr "磁盘格式"
@@ -1646,19 +1646,19 @@ msgstr "CPU 特征"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr "夏普 双线性-简单"
+msgstr "锐利-双线性-简单"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "扫描线滤镜"
+msgstr "扫描线"
 
 msgctxt "game_options"
 msgid "RETRO"
-msgstr "复古类"
+msgstr "复古"
 
 msgctxt "game_options"
 msgid "ENHANCED"
-msgstr "画质增强"
+msgstr "增强"
 
 msgctxt "game_options"
 msgid "CURVATURE"
@@ -1695,7 +1695,7 @@ msgid "maximum 1920x1080"
 msgstr "最大1920X1080"
 
 msgid "maximum 640x480"
-msgstr "最小640X480"
+msgstr "最大640X480"
 
 msgid "MAIN MENU"
 msgstr "主菜单"
@@ -1722,7 +1722,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "模拟器设置"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "更新文件和下载文件"
+msgstr "更新和下载"
 
 msgid "SYSTEM SETTINGS"
 msgstr "系统设置"
@@ -1836,7 +1836,7 @@ msgid "SHOW FRAMERATE"
 msgstr "显示帧率"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "如果可用，将会打开模拟器自带FPS计数器."
+msgstr "如果可用，将会打开模拟器自带FPS计数器。"
 
 msgid "VSYNC"
 msgstr "垂直同步"
@@ -1845,7 +1845,7 @@ msgid "OVERSCAN"
 msgstr "过扫描"
 
 msgid "Sets the display's resolution for emulationstation."
-msgstr "设置用于模拟的显示器分辨率."
+msgstr "为EmulationStation设置显示器分辨率。"
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "使用OMX播放器（硬件加速）"
@@ -1854,14 +1854,14 @@ msgid "TOOLS"
 msgstr "工具"
 
 msgid "STOP LAUNCHING THIS GAME AT STARTUP"
-msgstr "关闭在启动时启动此游戏"
+msgstr "停止在启动时启动此游戏"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
 msgstr "启用公共WEB API访问"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "允许使用%s访问公共页面 API(内网登陆操作)"
+msgstr "允许使用%s访问公共页面 API（内网登陆操作）"
 
 msgid "LOG LEVEL"
 msgstr "日志级别"
@@ -1870,10 +1870,10 @@ msgid "CREATE A SUPPORT FILE"
 msgstr "创建支持文件"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
-msgstr "创建一个支持文件？这将包括系统文件夹中的所有数据."
+msgstr "是否创建一个支持文件？这将包括系统文件夹中的所有数据。"
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
-msgstr "在“saves”文件夹中创建的支持文件"
+msgstr "已在“saves”文件夹中创建支持文件"
 
 msgid "SUPPORT FILE CREATION FAILED"
 msgstr "支持文件创建失败"
@@ -1882,10 +1882,10 @@ msgid "FORMAT A DISK"
 msgstr "格式化磁盘"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
-msgstr "清除游戏列表并删除未使用的媒体(视频,图片)"
+msgstr "清除游戏列表并删除未使用的媒体"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr "删除未使用的条目, 并清除对丢失媒体的引用."
+msgstr "删除未使用的条目， 并清除对缺失媒体的引用。"
 
 msgid "Cleaning"
 msgstr "清理中"
@@ -1894,19 +1894,19 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "重置游戏列表使用数据"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "重置GameTime、PlayCount和LastPlayed元数据的值."
+msgstr "重置游玩时间、游玩次数和上次游玩时间元数据的值。"
 
 msgid "RESET FILE EXTENSIONS"
-msgstr "重置文件扩展"
+msgstr "重置文件扩展名"
 
 msgid "Reset customized file extensions filters to default."
-msgstr "将自定义的文件扩展名筛选器重置为默认值."
+msgstr "将自定义的文件扩展名筛选器重置为默认值。"
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "重新查询游戏的 语言/区域"
+msgstr "重新检测所有游戏的语言和区域"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
-msgstr "在联网及成就中查找所有游戏"
+msgstr "查找所有可联网或有成就的游戏"
 
 msgid "CLEAR CACHES"
 msgstr "清除缓存"
@@ -1946,24 +1946,24 @@ msgstr "启用游戏筛选"
 
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
-msgstr "在视图选项中显示还是隐藏与游戏筛选相关的设置."
+msgstr "在视图选项中显示还是隐藏与游戏筛选相关的设置。"
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "退出时保存元数据"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr "仅分析游戏列表"
+msgstr "仅解析游戏列表"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr "调试工具：不检查ROM是否真的存在。这可能会造成问题！"
+msgstr "调试工具：不要检查ROM是否真的存在。可能会导致一些问题！"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr "打开在磁盘上查找预览图"
+msgstr "在磁盘上查找预览图"
 
 msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
-msgstr "如果游戏列表中没有指定图像，请尝试查找具有相同文件名的媒体."
+msgstr "如果游戏列表中没有指定图像，尝试查找具有相同文件名的媒体。"
 
 msgid "USER INTERFACE"
 msgstr "用户界面"
@@ -1981,24 +1981,24 @@ msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
 msgstr "运行游戏时隐藏界面"
 
 msgid "COMPLETE QUIT MENU"
-msgstr "完成并退出菜单"
+msgstr "完全退出菜单"
 
 msgid "RETROARCH MENU DRIVER"
 msgstr "RETROARCH菜单驱动"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "在EmulationStation 中调整确认和取消按键的位置"
+msgstr "在EmulationStation中将确认键和取消键互换"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr "切换南部和东部按钮的功能"
+msgstr "切换南按键和东按键的功能"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "使用Y键/三角键(北键)访问游戏设置选项"
+msgstr "使用北按键访问游戏设置选项"
 
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
-msgstr "切换到短按Y键保存状态，长按A键保存游戏选项"
+msgstr "切换为短按北按键呼出存档，长按南按键呼出游戏选项"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "仅使用第一个手柄控制主界面"
@@ -2010,7 +2010,7 @@ msgid "ENABLE PS3 CONTROLLER SUPPORT"
 msgstr "启用PS3控制器支持"
 
 msgid "Might have negative impact on security."
-msgstr "可能会对安全性产生负面影响."
+msgstr "可能会对安全性产生负面影响。"
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "启用HID手柄驱动程序"
@@ -2067,7 +2067,7 @@ msgid "UPDATE TYPE"
 msgstr "更新类型"
 
 msgid "APPLY UPDATE"
-msgstr "确认更新"
+msgstr "应用更新"
 
 msgid "START UPDATE"
 msgstr "开始更新"
@@ -2079,7 +2079,7 @@ msgid "LANGUAGE"
 msgstr "语言"
 
 msgid "LANGUAGE (REGION)"
-msgstr "语言 (地区)"
+msgstr "语言（地区）"
 
 msgid "SELECT YOUR TIME ZONE"
 msgstr "选择你的时区"
@@ -2097,13 +2097,13 @@ msgid "DEFAULT"
 msgstr "默认"
 
 msgid "ENHANCED"
-msgstr "画质增强"
+msgstr "增强"
 
 msgid "INSTANT"
 msgstr "瞬间"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
-msgstr "减少空闲时的功耗（对移动设备很有用）."
+msgstr "减少空闲时的功耗（对移动设备很有用）。"
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "屏幕阅读器（文本到语音）"
@@ -2112,16 +2112,16 @@ msgid "USER INTERFACE MODE"
 msgstr "用户界面模式"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr "锁定某些配置菜单以供客人和小孩使用."
+msgstr "锁定某些配置菜单以供客人和小孩使用。"
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"您正在将用户界面更改为受限制的模式:\n"
-"这将隐藏大多数菜单设置，以防止系统设置被更改.\n"
-"要解锁并返回完整的用户界面，请输入以下密码:"
+"您正在将用户界面更改为受限制的模式：\n"
+"这将隐藏大多数菜单设置，以防止系统设置被更改。\n"
+"要解锁并返回完整的用户界面，请输入以下密码："
 
 msgid "Do you want to proceed?"
 msgstr "是否继续?"
@@ -2130,7 +2130,7 @@ msgid "KODI SETTINGS"
 msgstr "KODI 设置"
 
 msgid "ENABLE KODI"
-msgstr "启用 KODI多媒体中心"
+msgstr "启用KODI多媒体中心"
 
 msgid "LAUNCH KODI AT BOOT"
 msgstr "开机时进入KODI媒体中心"
@@ -2142,25 +2142,25 @@ msgid "AUDIO OUTPUT"
 msgstr "音频输出"
 
 msgid "AUDIO PROFILE"
-msgstr "音频输出端口"
+msgstr "音频输出配置文件"
 
 msgid "Available options can change depending on current audio output."
-msgstr "可用选项会根据当前音频输出而改变."
+msgstr "可用选项会根据当前音频输出而改变。"
 
 msgid "BOOT SPLASH"
-msgstr "启动界面"
+msgstr "开机画面"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "默认开机视频/用户设置的随机开机视频"
+msgstr "默认开机视频/用户设置的开机画面"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "无声视频/用户设置启动"
+msgstr "无声视频/用户设置的开机画面"
 
 msgid "BATOCERA SPLASH IMAGE"
-msgstr "BATOCERA启动图"
+msgstr "BATOCERA开机图"
 
 msgid "SPLASH SETTING"
-msgstr "启动画面设置"
+msgstr "开机画面设置"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
 msgstr "在启动游戏前检查BIOS"
@@ -2169,10 +2169,10 @@ msgid "MULTIMEDIA KEYS"
 msgstr "多媒体功能键"
 
 msgid "ON"
-msgstr "打开"
+msgstr "开启"
 
 msgid "OFF"
-msgstr "关"
+msgstr "关闭"
 
 msgid "BUTTON LED COLOR"
 msgstr "按键灯颜色"
@@ -2232,7 +2232,7 @@ msgid "ENFORCE SECURITY"
 msgstr "强制安全性保护"
 
 msgid "Require a password for accessing the network share."
-msgstr "访问网络共享需要密码."
+msgstr "访问网络共享需要密码。"
 
 msgid "ROOT PASSWORD"
 msgstr "管理员密码"
@@ -2241,19 +2241,19 @@ msgid "LATENCY REDUCTION"
 msgstr "减少延迟"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "RUN-AHEAD 框架"
+msgstr "RUN-AHEAD 帧"
 
 msgid "High numbers can result in visible jitter."
-msgstr "高频率可能会导致可见抖动(闪屏)"
+msgstr "若设成一个较大的数字可能会导致可见抖动（闪屏）"
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "为RUN-AHEAD使用第二个实例"
 
 msgid "Can prevent audio skips on button presses."
-msgstr "可以防止按键时的音频卡顿."
+msgstr "可以防止按键时的音频卡顿。"
 
 msgid "AUTOMATIC FRAME DELAY"
-msgstr "自动跳帧"
+msgstr "自动帧延迟"
 
 msgid "AUTO FRAME DELAY"
 msgstr "自动帧延迟"
@@ -2261,7 +2261,7 @@ msgstr "自动帧延迟"
 msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
-msgstr "自动暂时减少帧延迟以防止帧丢失导致卡卡顿."
+msgstr "自动暂时减少帧延迟以防止丢帧，可能导致卡顿。"
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "可变刷新率（G-SYNC、FREESYNC）"
@@ -2272,7 +2272,7 @@ msgstr "可变刷新率"
 msgid ""
 "Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
 msgstr ""
-"不要设置过高的响应时间（分辨率及刷新率），G-Sync、FreeSync、HDMI 2.1 VRR."
+"不要设置过高的响应时间（分辨率及刷新率），G-Sync、FreeSync、HDMI 2.1 VRR。"
 
 msgid "DECORATION SET"
 msgstr "装饰框设置"
@@ -2293,40 +2293,40 @@ msgid "AUTO SAVE/LOAD"
 msgstr "自动存档/读取"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "在游戏启动时加载最新的存档，在退出游戏时保存存档."
+msgstr "在游戏启动时加载最新的存档，在退出游戏时保存存档。"
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "增量存档状态"
+msgstr "递增存档"
 
 msgid "INCREMENT PER SAVE"
-msgstr "增量保存"
+msgstr "每次保存都递增"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "永远不覆盖旧存档，而是创建新的存档."
+msgstr "永远不覆盖旧存档，总是创建新的存档。"
 
 msgid "INCREMENT SLOT"
-msgstr "增量存档槽"
+msgstr "递增存档槽位"
 
 msgid "Increment slot on a new game."
-msgstr "增加新游戏的插槽."
+msgstr "开始新游戏时递增存档槽。"
 
 msgid "DO NOT INCREMENT"
 msgstr "不递增"
 
 msgid "Use current slot on a new game."
-msgstr "在新游戏中使用当前存档槽位."
+msgstr "开始新游戏时仍使用当前存档槽位。"
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "显示存档管理器"
 
 msgid "ALWAYS"
-msgstr "一直保持不变"
+msgstr "总是"
 
 msgid "IF NOT EMPTY"
-msgstr "如果已被使用"
+msgstr "不为空时"
 
 msgid "Display savestate manager before launching a game."
-msgstr "在启动游戏之前显示存档管理器."
+msgstr "在启动游戏之前显示存档管理器。"
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "默认全局设置"
@@ -2335,32 +2335,32 @@ msgid "GAME ASPECT RATIO"
 msgstr "游戏画面纵横比"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr "强制游戏按此纵横比进行渲染."
+msgstr "强制游戏按此纵横比进行渲染。"
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
-msgstr "设置显示器的分辨率。不会影响游戏渲染分辨率."
+msgstr "设置显示器的分辨率。不会影响游戏渲染分辨率。"
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "平滑游戏（双线性过滤）"
 
 msgid "REWIND"
-msgstr "回放功能"
+msgstr "倒带功能"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "如果核心支持，即可把之前的存档用于实时倒带."
+msgstr "如果核心支持，将过去的状态存储起来用于实时倒带。"
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "整数缩放 (像素完美显示)"
+msgstr "整数缩放（像素完美显示）"
 
 msgid "SHADER SET"
-msgstr "着色器设置"
+msgstr "着色器集"
 
 msgid "VIDEO FILTER"
 msgstr "视频滤镜"
 
 msgid "DECORATIONS"
-msgstr "装饰框(复古游戏边框）"
+msgstr "装饰框（复古游戏边框）"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "弹性挡板（4K和超宽）"
@@ -2375,16 +2375,16 @@ msgid "CUSTOM IMAGE"
 msgstr "自定义图片"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "显示覆盖在挡板顶部的图像."
+msgstr "显示覆盖在挡板顶部的图像。"
 
 msgid "TATTOO CORNER"
-msgstr "花纹角"
+msgstr "花纹显示位置"
 
 msgid "NORTH WEST"
-msgstr "西北"
+msgstr "左上"
 
 msgid "NORTH EAST"
-msgstr "东北"
+msgstr "右上"
 
 msgid "SOUTH EAST"
 msgstr "右下"
@@ -2393,13 +2393,13 @@ msgid "SOUTH WEST"
 msgstr "左下"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "自宝义.png 图片路径"
+msgstr "自定义.png图片路径"
 
 msgid "RESIZE TATTOO"
 msgstr "调整花纹大小"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "收缩/扩展花纹，使其适合嵌框的边框。"
+msgstr "缩小或放大花纹，使其适合嵌框的边框。"
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI游戏翻译"
@@ -2414,19 +2414,19 @@ msgid "AI TRANSLATION SERVICE URL"
 msgstr "AI智能翻译服务地址"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr "翻译时暂停"
+msgstr "翻译时暂停游戏"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "自动配置控制器"
 
 msgid "PER SYSTEM ADVANCED CONFIGURATION"
-msgstr "按系统(模拟器)配置"
+msgstr "按系统（模拟器）配置"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "抓取工具正在运行，是否停止？"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "正在效验游戏.是否停止?"
+msgstr "正在效验游戏。是否停止?"
 
 msgid "REALLY UPDATE GAMELISTS?"
 msgstr "确定更新游戏列表吗?"
@@ -2468,13 +2468,13 @@ msgid "SHOW HIDDEN FILES"
 msgstr "显示隐藏文件"
 
 msgid "SHOW FOLDERS"
-msgstr "显示文件夹(ROM目录下子文件夹)"
+msgstr "显示文件夹（ROM目录下子文件夹）"
 
 msgid "having multiple games"
 msgstr "有多个游戏"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "显示 '..' 父文件夹(上级）"
+msgstr "显示 '..' 父文件夹（上级）"
 
 msgid "BEFORE NAME"
 msgstr "游戏名前"
@@ -2486,13 +2486,13 @@ msgid "SHOW REGION FLAG"
 msgstr "显示区域标识"
 
 msgid "SHOW SAVESTATE ICON"
-msgstr "显示保存槽图标"
+msgstr "显示存档图标"
 
 msgid "SHOW MANUAL ICON"
-msgstr "显示自定义图标"
+msgstr "显示手册图标"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr "显示追溯成就图标"
+msgstr "显示RetroAchievement图标"
 
 msgid "SHOW GUN ICON"
 msgstr "显示光枪图标"
@@ -2513,7 +2513,7 @@ msgid "APPEARANCE"
 msgstr "外观"
 
 msgid "THEME SET"
-msgstr "选择主题"
+msgstr "主题集"
 
 msgid "video"
 msgstr "游戏视频"
@@ -2522,13 +2522,13 @@ msgid "grid"
 msgstr "网格列表"
 
 msgid "LIST TRANSITION"
-msgstr "列表转换"
+msgstr "列表过渡动画"
 
 msgid "auto"
 msgstr "自动"
 
 msgid "GAME LAUNCH TRANSITION"
-msgstr "游戏启动过程"
+msgstr "游戏启动过渡动画"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
 msgstr "快速滚动时的游戏媒体"
@@ -2555,7 +2555,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "排序时忽略前导"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "忽略开头的“The”和“A”."
+msgstr "忽略开头的“The”和“A”。"
 
 msgid "VOLUME"
 msgstr "音量"
@@ -2579,13 +2579,13 @@ msgid "DISPLAY SONG TITLES"
 msgstr "显示歌曲名称"
 
 msgid "SONG TITLE DISPLAY DURATION"
-msgstr "歌曲的秒数"
+msgstr "歌曲标题显示时长"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "仅播放指定游戏平台中的音乐"
+msgstr "仅播放特定于系统的音乐文件夹"
 
 msgid "PLAY SYSTEM-SPECIFIC MUSIC"
-msgstr "播放主题音乐"
+msgstr "播放特定于系统的音乐"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
 msgstr "播放视频时降低音乐音量"
@@ -2597,10 +2597,10 @@ msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "启用导航声音"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr "启用视频音频"
+msgstr "启用视频预览声音"
 
 msgid "IP ADDRESS"
-msgstr "IP地址(IPV4)"
+msgstr "IP地址（IPV4）"
 
 msgid "CONNECTED"
 msgstr "已连接"
@@ -2642,10 +2642,10 @@ msgid "VIEW USER MANUAL"
 msgstr "查看用户手册"
 
 msgid "DISABLE PLANE MODE"
-msgstr "禁用平面模式"
+msgstr "禁用飞行模式"
 
 msgid "ENABLE PLANE MODE"
-msgstr "启用平面模式"
+msgstr "启用飞行模式"
 
 msgid "RESTART SYSTEM"
 msgstr "重启"
@@ -2654,10 +2654,10 @@ msgid "REALLY RESTART?"
 msgstr "是否重新启动?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "暂停"
+msgstr "挂起"
 
 msgid "REALLY SUSPEND ?"
-msgstr "暂停系统吗？"
+msgstr "挂起系统吗？"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "关机"
@@ -2669,7 +2669,7 @@ msgid "FAST SHUTDOWN SYSTEM"
 msgstr "快速关机"
 
 msgid "Shutdown without saving metadata."
-msgstr "关闭而不保存数据."
+msgstr "关闭之前不保存元数据。"
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
 msgstr "是否不保存元数据并直接关机?"
@@ -2741,7 +2741,7 @@ msgid "EDIT METADATA"
 msgstr "编辑元数据"
 
 msgid "GENRES"
-msgstr "所有边角"
+msgstr "所有类型"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
@@ -2766,31 +2766,31 @@ msgid "ZOOM"
 msgstr "縮放"
 
 msgid "GAMES TO INDEX"
-msgstr "游戏索引"
+msgstr "要索引的游戏"
 
 msgid "ONLY MISSING"
-msgstr "仅丢失"
+msgstr "仅缺失的"
 
 msgid "SYSTEM INFO"
 msgstr "系统信息"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "错误：每个系统都被隐藏，现在重新显示"
+msgstr "错误：所有系统都被隐藏了，现在将会重新显示"
 
 msgid "QUICK SEARCH"
-msgstr "迅速搜"
+msgstr "快捷搜索"
 
 msgid "GO TO LETTER"
-msgstr "访问信息"
+msgstr "跳转至首字母"
 
 msgid "GO TO MANUFACTURER"
-msgstr "访问制造商"
+msgstr "跳转至制造商"
 
 msgid "GO TO HARDWARE"
-msgstr "访问硬件商"
+msgstr "跳转至硬件"
 
 msgid "GO TO DECADE"
-msgstr "访问新版"
+msgstr "跳转至年代"
 
 msgid "CONFIGURATION"
 msgstr "配置"
@@ -2798,7 +2798,7 @@ msgstr "配置"
 #, c-format
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
-msgstr[0] "游戏专辑共有 %i 个"
+msgstr[0] "%i 个合辑"
 
 #, c-format
 msgid "%i ITEM"
@@ -2808,7 +2808,7 @@ msgstr[0] "%i 个项目"
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
-msgstr[0] "有 %i 个游戏"
+msgstr[0] "%i 个游戏"
 
 msgid "RANDOM"
 msgstr "随机"
@@ -2825,7 +2825,7 @@ msgid ""
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 "警告：当前设置的 模拟器/核心 不支持此游戏的文件格式。\n"
-"你还是想启动它吗？"
+"仍要启动它吗？"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
@@ -2833,7 +2833,7 @@ msgid ""
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
 "警告：系统缺少BIOS文件，游戏可能无法正常运行。\n"
-"你还是想启动它吗？"
+"仍要启动它吗？"
 
 msgid "Preloading UI"
 msgstr "预加载 UI"
@@ -2848,10 +2848,10 @@ msgid "MENU"
 msgstr "菜单"
 
 msgid "Full"
-msgstr "全局"
+msgstr "完整"
 
 msgid "Kiosk"
-msgstr "大厅"
+msgstr "信息亭"
 
 msgid "Kid"
 msgstr "儿童"
@@ -2868,19 +2868,19 @@ msgstr "游玩次数"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "此文件夹中有 %i 游戏。包含有 %s 子文件夹"
+msgstr[0] "此文件夹中有 %i 游戏，其中包含：%s"
 
 msgid "Games similar to"
 msgstr "类似游戏"
 
 msgid "SAVE STATES (HOLD)"
-msgstr "保存（按住）"
+msgstr "存档（按住）"
 
 msgid "GAME OPTIONS (HOLD)"
 msgstr "游戏设置（按住）"
 
 msgid "GAME OPTIONS"
-msgstr "游戏及模拟器设置菜单"
+msgstr "游戏设置"
 
 msgid "FAVORITE"
 msgstr "加入收藏夹"
@@ -2890,7 +2890,7 @@ msgid "Back to %s"
 msgstr "返回到 %s"
 
 msgid "No Entries Found"
-msgstr "找不到条目"
+msgstr "找不到任何条目"
 
 msgid "INVALID CONTENT"
 msgstr "无效内容"
@@ -2899,7 +2899,7 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"需要一个有效的帐户，可以登陆这个网址注册帐户https://retroachievements.org"
+"需要一个有效的帐户，请访问 https://retroachievements.org 来注册一个帐户"
 
 msgid "Searching"
 msgstr "搜索中"
@@ -2926,73 +2926,73 @@ msgid "Loading system config..."
 msgstr "正在载入系统配置..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "正在保存游戏数据。请稍候..."
+msgstr "正在保存元数据。请稍候..."
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "你想切换屏幕吗？"
 
 msgid "Collections"
-msgstr "所有游戏"
+msgstr "合辑"
 
 msgid "FILENAME, ASCENDING"
-msgstr "游戏名 (升序)"
+msgstr "文件名（升序）"
 
 msgid "FILENAME, DESCENDING"
-msgstr "游戏名 (降序)"
+msgstr "文件名（降序）"
 
 msgid "RATING, ASCENDING"
-msgstr "评分 (升序)"
+msgstr "评分（升序）"
 
 msgid "RATING, DESCENDING"
-msgstr "评分 (降序)"
+msgstr "评分（降序）"
 
 msgid "TIMES PLAYED, ASCENDING"
-msgstr "游玩次数 (升序)"
+msgstr "游玩次数（升序）"
 
 msgid "TIMES PLAYED, DESCENDING"
-msgstr "游玩次数 (降序)"
+msgstr "游玩次数（降序）"
 
 msgid "LAST PLAYED, ASCENDING"
-msgstr "最后游玩时间 (升序)"
+msgstr "最后游玩时间（升序）"
 
 msgid "LAST PLAYED, DESCENDING"
-msgstr "最后游玩时间 (降序)"
+msgstr "最后游玩时间（降序）"
 
 msgid "NUMBER PLAYERS, ASCENDING"
-msgstr "玩家数量 (升序)"
+msgstr "玩家数量（升序）"
 
 msgid "NUMBER PLAYERS, DESCENDING"
-msgstr "玩家数量 (降序)"
+msgstr "玩家数量（降序）"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr "游戏发行日期 (升序)"
+msgstr "发行日期（升序）"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr "游戏发行日期 (降序)"
+msgstr "发行日期（降序）"
 
 msgid "GENRE, ASCENDING"
-msgstr "游戏的类型 (升序)"
+msgstr "类型（升序）"
 
 msgid "GENRE, DESCENDING"
-msgstr "游戏的类型 (降序)"
+msgstr "类型（降序）"
 
 msgid "DEVELOPER, ASCENDING"
-msgstr "游戏开发公司 (升序)"
+msgstr "开发商（升序）"
 
 msgid "DEVELOPER, DESCENDING"
-msgstr "游戏开发公司 (降序)"
+msgstr "开发商（降序）"
 
 msgid "PUBLISHER, ASCENDING"
-msgstr "游戏发行公司 (升序)"
+msgstr "发行商（升序）"
 
 msgid "PUBLISHER, DESCENDING"
-msgstr "游戏发行公司 (降序)"
+msgstr "发行商（降序）"
 
 msgid "SYSTEM, ASCENDING"
-msgstr "系统 (升序)"
+msgstr "系统（升序）"
 
 msgid "SYSTEM, DESCENDING"
-msgstr "系统 (降序)"
+msgstr "系统（降序）"
 
 msgid "FILE CREATION DATE, ASCENDING"
 msgstr "文件创建日期，升序"
@@ -3001,10 +3001,10 @@ msgid "FILE CREATION DATE, DESCENDING"
 msgstr "文件创建日期，降序"
 
 msgid "GAME TIME, ASCENDING"
-msgstr "游戏时间，升序"
+msgstr "游玩时长，升序"
 
 msgid "GAME TIME, DESCENDING"
-msgstr "游戏时间，降序"
+msgstr "游玩时长，降序"
 
 msgid "SYSTEM, RELEASE YEAR, ASCENDING"
 msgstr "游戏系统，发布年份，升序"
@@ -3019,7 +3019,7 @@ msgid "RELEASE YEAR, SYSTEM, DESCENDING"
 msgstr "发布年份、游戏系统、降序"
 
 msgid "A,AN,THE"
-msgstr "A,AN,THE(英文单位）"
+msgstr "A，AN，THE（英文单词）"
 
 msgid "Extracting"
 msgstr "提取中"
@@ -3049,10 +3049,10 @@ msgid "UNKNOWN EMULATOR"
 msgstr "未知模拟器"
 
 msgid "EMULATOR IS MISSING"
-msgstr "模拟器丢失"
+msgstr "模拟器缺失"
 
 msgid "CORE IS MISSING"
-msgstr "核心丢失"
+msgstr "核心缺失"
 
 msgid "UKNOWN ERROR"
 msgstr "未知错误"
@@ -3116,15 +3116,15 @@ msgid ""
 "Fire on targets to calibrate"
 msgstr ""
 "校准枪\n"
-"向目标开火进行校准"
+"对准目标射击以进行校准"
 
 #, c-format
 msgid "%s connected"
-msgstr "%s 正在连接"
+msgstr "%s 已连接"
 
 #, c-format
 msgid "%s disconnected"
-msgstr "%s 关闭连接"
+msgstr "%s 已断开连接"
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT键可切换大小写或特殊字符"
@@ -3212,11 +3212,11 @@ msgstr "右摇杆右"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr "键肩L1"
+msgstr "肩键L1"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr "键肩R1"
+msgstr "肩键R1"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
@@ -3261,8 +3261,8 @@ msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"温馨提示：没有指定热键按钮,这是使用手柄器退出游戏必用按键，是否要使用“选择”按"
-"钮作为热键？"
+"温馨提示：您没有为热键分配按钮。如果不分配热键，您将无法使用手柄退出游戏。是"
+"否要使用“选择”按钮作为热键？"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "设置选择键为热键"
@@ -3296,10 +3296,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "请按住控制器上的任意按键以继续配置。"
 
 msgid "PRESS ESC TO CANCEL."
-msgstr "按ESC取消."
+msgstr "按ESC取消。"
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "按ESC或热键取消."
+msgstr "按ESC或热键取消。"
 
 msgid "DISCARD CHANGES"
 msgstr "放弃更改"

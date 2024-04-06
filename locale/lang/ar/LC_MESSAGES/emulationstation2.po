@@ -24,14 +24,14 @@
 # 9.
 #
 # 10.
-#
+# Ahmed Essam <Ahmed4Communication@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-07-12 10:15+0300\n"
+"PO-Revision-Date: 2024-04-06 08:43+0300\n"
 "Last-Translator: Ahmed Essam <Ahmed4Communication@gmail.com>\n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
 "&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
 "X-Loco-Source-Locale: en\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Gtranslator 3.36.0\n"
 "X-Loco-Project-Id: 90894\n"
 "X-Loco-Api-Version: 1.0.24 20200519-1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -534,10 +534,10 @@ msgid "New Collection Name"
 msgstr "اسم جديد للمجموعة"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "أدخل الاسم"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "إنشاء من الموضوع"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "إنشاء مجموعة جديدة قابلة للتعديل"
@@ -579,10 +579,10 @@ msgid "START ON GAMELIST"
 msgstr "بدء مع قائمة الألعاب"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "مجموعات مخصصة للمجموعة"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "بدون عنوان"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "عرض اسم النظام في المجموعات"
@@ -628,11 +628,11 @@ msgstr "المرجو الإنتظار"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d من %d نقاط سوفت كور"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d من %d نقاط وحدة التخزين كور"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -902,7 +902,7 @@ msgid "BLUETOOTH"
 msgstr "بلوتوث"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "تمكين البلوتوث"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "اقتران البلوتوث بذراع التحكم تِلقائيا"
@@ -914,7 +914,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "خيارات العرض"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "عرض إشعارات وحدة التحكم"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "عرض نشاط وحدة التحكم"
@@ -1087,13 +1087,13 @@ msgid "MISSING BIOS CHECK"
 msgstr "البايوس المفقودة"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "الأنظمة المثبتة"
 
 msgid "All"
 msgstr "الكل"
 
 msgid "refresh"
-msgstr ""
+msgstr "تحديث"
 
 msgid "NO MISSING BIOS"
 msgstr "لا يوجد BIOS مفقود"
@@ -1436,10 +1436,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "هذه اللعبة ليست لديها أي إنجازات بعد"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "الإنجازات (النواة اﻷساسية)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "الإنجازات (النواة الصلبة)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1503,13 +1503,13 @@ msgid "MARQUEE"
 msgstr "شاشة أسمية"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "المنطقة المفضلة"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "الكتابة فوق الأوصاف"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "الكتابة فوق الوسائط"
 
 msgid "SCRAPE FOR"
 msgstr "جلب لـِ"
@@ -1542,7 +1542,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "إعدادات وحدة التحكم إلى لوحة المفاتيح"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "حساب"
 
 msgid "SCRAPER"
 msgstr "الجالِب"
@@ -1787,46 +1787,46 @@ msgid "ENTER THE CODE NOW TO UNLOCK"
 msgstr "أدخل الكود الآن لكي تكسب"
 
 msgid "SERVICES"
-msgstr ""
+msgstr "خدمات"
 
 msgid "DMD"
-msgstr ""
+msgstr "دي ام دي"
 
 msgid "SERVER"
-msgstr ""
+msgstr "الخادم"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "خادم دي ام دي (لـ دي ام دي الحقيقي)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "محاكي (للويب دي ام دي)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "خادم دي ام دي"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "تهيئة (مسح)"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "حجم مصفوفة دي ام دي"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "مصفوفة"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "طلب RGB دي ام دي"
 
 msgid "BRIGHTNESS"
 msgstr "الوضوح"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "توقف خادم دي ام دي"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "إعادة تشغيل خادم دي ام دي"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "بدء تشغيل خادم دي ام دي"
 
 msgid "MULTISCREENS"
 msgstr ""
@@ -1926,22 +1926,24 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "تنقية قائمة الألعاب وإزالة الوسائط الغير مستعملة"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "إزالة الإدخالات غير المستخدمة وتنظيف المراجع إلى الوسائط المفقودة."
 
 msgid "Cleaning"
 msgstr "تنظيف"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "إعادة تعيين بيانات استخدام قوائم الألعاب"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
+"إعادة تعيين قيم وقت اللعبة وعدد مرات اللعب والبيانات الوصفية لآخر مرة تم "
+"تشغيلها."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "اعادة تعيين امتدادات الملف"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "إعادة تعيين مرشحات امتدادات الملفات المخصصة إلى الوضع الافتراضي."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "إعادة اكتشاف لغة و منطقة الألعاب"
@@ -1959,22 +1961,22 @@ msgid "Building image cache"
 msgstr "بناء التخزين المؤقت للصور"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "اعدادات العرض"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "مقياس خط القائمة"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "مقياس الخط"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "مقياس خط السمة"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "قوائم ملء الشاشة"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "فرض سمة الشاشة الصغيرة"
 
 msgid "DATA MANAGEMENT"
 msgstr "تسيير البيانات"
@@ -2051,10 +2053,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "حساسية حركة المسدس"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "تمكين دعم وحدة تحكم بلاي ستيشن 3"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "قد يكون لها تأثير سلبي على الأمن."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "تفعيل برامج التعريف HID لذراع التحكم"
@@ -2329,10 +2331,10 @@ msgid "Current setting"
 msgstr "الإعدادات الحالية"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "حسابات"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "إعدادات النظام الأساسي والإخراج"
 
 msgid "SAVESTATES"
 msgstr "حالات الحفظ"
@@ -2406,7 +2408,7 @@ msgid "SHADER SET"
 msgstr "مظللات الفيديو"
 
 msgid "VIDEO FILTER"
-msgstr ""
+msgstr "مرشح الفيديو"
 
 msgid "DECORATIONS"
 msgstr "التزيينات"
@@ -2541,13 +2543,13 @@ msgid "SHOW MANUAL ICON"
 msgstr "إظهار أيقونة دليل الاستخدام"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "إظهار أيقونة RETROACHIEVEMENTS"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "إظهار أيقونة GUN"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "إظهار أيقونة WHEEL"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "عرض اسم الملف في القائمة"
@@ -2598,7 +2600,7 @@ msgid "ICON AND TEXT"
 msgstr "أيقونة ونَص"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "إظهار المجلدات أولاً"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "تجاهل الأغراض الرئيسية عند الفرز"
@@ -2956,7 +2958,7 @@ msgstr "المفضلة"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "ارجع إلى %s"
 
 msgid "No Entries Found"
 msgstr "لم يتم العثور على مدخلات"
@@ -3166,10 +3168,10 @@ msgid "STEERING WHEEL"
 msgstr "عجلة القيادة"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "الوسائط الموجودة"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "الوسائط المفقودة"
 
 msgid "SCRAPING"
 msgstr "جلب"
@@ -3375,10 +3377,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "اختر زر من لوحة المفاتيح أو ذراع التحكم وابقى ضاغطا عليه للتعديل."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "اضغط على (ESC) خروج للإلغاء."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "اضغط على (ESC) خروج أو مفتاح الاختصار للإلغاء."
 
 msgid "DISCARD CHANGES"
 msgstr "تجاهل التغييرات"
@@ -3445,12 +3447,12 @@ msgstr "%d ث"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "‫%d منذ سنة"
+msgstr[1] "سنة %d مضت"
+msgstr[2] "سنتين %d مَاضِيَتيْن"
+msgstr[3] "‫%d سنين مضت"
+msgstr[4] "‫%d سنين مضت"
+msgstr[5] "‫%d سنين مضت"
 
 #, c-format
 msgid "%d day ago"
@@ -3497,6 +3499,9 @@ msgstr "قارئ الشاشة مفعل"
 
 msgid "SCREEN READER DISABLED"
 msgstr "قارئ الشاشة معطل"
+
+#~ msgid "-10 for auto"
+#~ msgstr "-10 تلقائي"
 
 #~ msgid "Achievements won"
 #~ msgstr "الإنجازات المكتسبة"
