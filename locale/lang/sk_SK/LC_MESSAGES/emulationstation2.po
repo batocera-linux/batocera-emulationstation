@@ -1786,9 +1786,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "Jas"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1796,6 +1793,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "Video výstup"
+
+msgid "VIDEO MODE"
+msgstr "Režim videa"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 stupňov"
+
+msgid "90 DEGREES"
+msgstr "90 stupňov"
+
+msgid "180 DEGREES"
+msgstr "180 stupňov"
+
+msgid "270 DEGREES"
+msgstr "270 stupňov"
+
+msgid "SCREEN ROTATION"
+msgstr "Otočenie obrazovky"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1818,9 +1851,6 @@ msgstr "Vsync"
 
 msgid "OVERSCAN"
 msgstr "Overscan"
-
-msgid "VIDEO MODE"
-msgstr "Režim videa"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Nastaví predvolené rozlíšenie pre EmulationStation."
@@ -2128,9 +2158,6 @@ msgstr "Spustiť KODI pri štarte"
 msgid "HARDWARE"
 msgstr "Hardvér"
 
-msgid "VIDEO OUTPUT"
-msgstr "Video výstup"
-
 msgid "AUDIO OUTPUT"
 msgstr "Zvukový výstup"
 
@@ -2139,21 +2166,6 @@ msgstr "Zvukový profil"
 
 msgid "Available options can change depending on current audio output."
 msgstr "Dostupné voľby sa môžu zmeniť podľa aktuálneho audio výstupu."
-
-msgid "SCREEN ROTATION"
-msgstr "Otočenie obrazovky"
-
-msgid "0 DEGREES"
-msgstr "0 stupňov"
-
-msgid "90 DEGREES"
-msgstr "90 stupňov"
-
-msgid "180 DEGREES"
-msgstr "180 stupňov"
-
-msgid "270 DEGREES"
-msgstr "270 stupňov"
 
 msgid "BOOT SPLASH"
 msgstr "Obrázok pri spustení"

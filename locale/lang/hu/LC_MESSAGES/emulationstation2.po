@@ -1787,9 +1787,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "FÉNYERŐ"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1797,6 +1794,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VIDEÓ KIMENET"
+
+msgid "VIDEO MODE"
+msgstr "VIDEO MÓD"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 FOK"
+
+msgid "90 DEGREES"
+msgstr "90 FOK"
+
+msgid "180 DEGREES"
+msgstr "180 FOK"
+
+msgid "270 DEGREES"
+msgstr "270 FOK"
+
+msgid "SCREEN ROTATION"
+msgstr "KÉPERNYŐ ELFORGATÁSA"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1819,9 +1852,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "VIDEO MÓD"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Kijelző felbontás beállítása az emulációhoz."
@@ -2141,9 +2171,6 @@ msgstr "KODI INDULÁSKOR"
 msgid "HARDWARE"
 msgstr "HARDVER"
 
-msgid "VIDEO OUTPUT"
-msgstr "VIDEÓ KIMENET"
-
 msgid "AUDIO OUTPUT"
 msgstr "HANG KIMENET"
 
@@ -2153,21 +2180,6 @@ msgstr "HANGPROFIL"
 msgid "Available options can change depending on current audio output."
 msgstr ""
 "Az elérhető beállítások az aktuális hangkimenettől függően változhatnak."
-
-msgid "SCREEN ROTATION"
-msgstr "KÉPERNYŐ ELFORGATÁSA"
-
-msgid "0 DEGREES"
-msgstr "0 FOK"
-
-msgid "90 DEGREES"
-msgstr "90 FOK"
-
-msgid "180 DEGREES"
-msgstr "180 FOK"
-
-msgid "270 DEGREES"
-msgstr "270 FOK"
 
 msgid "BOOT SPLASH"
 msgstr "RENDSZERINDÍTÁS KEZDŐKÉP"

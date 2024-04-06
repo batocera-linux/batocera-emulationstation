@@ -1778,9 +1778,6 @@ msgstr "rgb dmd顺序"
 msgid "BRIGHTNESS"
 msgstr "亮度"
 
-msgid "-10 for auto"
-msgstr "自动为-10"
-
 msgid "DMDSERVER stopped"
 msgstr "DMD服务器已停止"
 
@@ -1789,6 +1786,42 @@ msgstr "DMD服务器已重启"
 
 msgid "DMDSERVER started"
 msgstr "DMD服务器已启动"
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "视频输出"
+
+msgid "VIDEO MODE"
+msgstr "视频模式"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0度"
+
+msgid "90 DEGREES"
+msgstr "90度"
+
+msgid "180 DEGREES"
+msgstr "180度"
+
+msgid "270 DEGREES"
+msgstr "270度"
+
+msgid "SCREEN ROTATION"
+msgstr "屏幕旋转"
+
+msgid "DMD SCREEN"
+msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "前端开发人员选项"
@@ -1810,9 +1843,6 @@ msgstr "垂直同步"
 
 msgid "OVERSCAN"
 msgstr "过扫描"
-
-msgid "VIDEO MODE"
-msgstr "视频模式"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "设置用于模拟的显示器分辨率."
@@ -2108,9 +2138,6 @@ msgstr "开机时进入KODI媒体中心"
 msgid "HARDWARE"
 msgstr "硬件"
 
-msgid "VIDEO OUTPUT"
-msgstr "视频输出"
-
 msgid "AUDIO OUTPUT"
 msgstr "音频输出"
 
@@ -2119,21 +2146,6 @@ msgstr "音频输出端口"
 
 msgid "Available options can change depending on current audio output."
 msgstr "可用选项会根据当前音频输出而改变."
-
-msgid "SCREEN ROTATION"
-msgstr "屏幕旋转"
-
-msgid "0 DEGREES"
-msgstr "0度"
-
-msgid "90 DEGREES"
-msgstr "90度"
-
-msgid "180 DEGREES"
-msgstr "180度"
-
-msgid "270 DEGREES"
-msgstr "270度"
 
 msgid "BOOT SPLASH"
 msgstr "启动界面"
@@ -3376,6 +3388,9 @@ msgstr "屏幕阅读器已启用"
 
 msgid "SCREEN READER DISABLED"
 msgstr "屏幕阅读器已关闭"
+
+#~ msgid "-10 for auto"
+#~ msgstr "自动为-10"
 
 #~ msgid "Achievements won"
 #~ msgstr "已取得成就"

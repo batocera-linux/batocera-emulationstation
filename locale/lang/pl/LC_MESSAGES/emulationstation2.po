@@ -1789,9 +1789,6 @@ msgstr "kolejność rgb dmd"
 msgid "BRIGHTNESS"
 msgstr "JASNOŚĆ"
 
-msgid "-10 for auto"
-msgstr "-10 dla auto"
-
 msgid "DMDSERVER stopped"
 msgstr "SERWER DMD zatrzymany"
 
@@ -1800,6 +1797,42 @@ msgstr "SERWER DMD zrestartowany"
 
 msgid "DMDSERVER started"
 msgstr "SERWER DMD uruchomiony"
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "WYJŚCIE WIDEO"
+
+msgid "VIDEO MODE"
+msgstr "TRYB WIDEO"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 STOPNI"
+
+msgid "90 DEGREES"
+msgstr "90 STOPNI"
+
+msgid "180 DEGREES"
+msgstr "180 STOPNI"
+
+msgid "270 DEGREES"
+msgstr "270 STOPNI"
+
+msgid "SCREEN ROTATION"
+msgstr "OBRÓT EKRANU"
+
+msgid "DMD SCREEN"
+msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPCJE DEWELOPERA INTERFEJSU"
@@ -1821,9 +1854,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "PRZESKALOWANIE"
-
-msgid "VIDEO MODE"
-msgstr "TRYB WIDEO"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Ustawia rozdzielczość ekranu dla EmulationStation."
@@ -2139,9 +2169,6 @@ msgstr "KODI PRZY STARCIE"
 msgid "HARDWARE"
 msgstr "SPRZĘT"
 
-msgid "VIDEO OUTPUT"
-msgstr "WYJŚCIE WIDEO"
-
 msgid "AUDIO OUTPUT"
 msgstr "WYJŚCIE AUDIO"
 
@@ -2151,21 +2178,6 @@ msgstr "PROFIL AUDIO"
 msgid "Available options can change depending on current audio output."
 msgstr ""
 "Dostępne opcje mogą się zmieniać w zależności od bieżącego wyjścia audio."
-
-msgid "SCREEN ROTATION"
-msgstr "OBRÓT EKRANU"
-
-msgid "0 DEGREES"
-msgstr "0 STOPNI"
-
-msgid "90 DEGREES"
-msgstr "90 STOPNI"
-
-msgid "180 DEGREES"
-msgstr "180 STOPNI"
-
-msgid "270 DEGREES"
-msgstr "270 STOPNI"
 
 msgid "BOOT SPLASH"
 msgstr "EKRAN STARTOWY"
@@ -3440,6 +3452,9 @@ msgstr "WŁĄCZONY CZYTNIK EKRANU"
 
 msgid "SCREEN READER DISABLED"
 msgstr "WYŁĄCZONY CZYTNIK EKRANU"
+
+#~ msgid "-10 for auto"
+#~ msgstr "-10 dla auto"
 
 #, c-format
 #~ msgid "%d z %d hardcore points"

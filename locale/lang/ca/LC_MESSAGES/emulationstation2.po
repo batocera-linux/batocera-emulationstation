@@ -1792,9 +1792,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "LLUENTOR"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1802,6 +1799,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "SORTIDA DE VÍDEO"
+
+msgid "VIDEO MODE"
+msgstr "MODE DE VÍDEO"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 GRAUS"
+
+msgid "90 DEGREES"
+msgstr "90 GRAUS"
+
+msgid "180 DEGREES"
+msgstr "180 GRAUS"
+
+msgid "270 DEGREES"
+msgstr "270 GRAUS"
+
+msgid "SCREEN ROTATION"
+msgstr "ROTACIÓ DE LA PANTALLA"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1824,9 +1857,6 @@ msgstr "SINCRONITZACIÓ VERTICAL"
 
 msgid "OVERSCAN"
 msgstr "SOBRE-EXPLORACIÓ"
-
-msgid "VIDEO MODE"
-msgstr "MODE DE VÍDEO"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Estableix la resolució de pantalla per emulestation"
@@ -2143,9 +2173,6 @@ msgstr "INICIAR KODI A L'INICIAR EL SISTEMA"
 msgid "HARDWARE"
 msgstr "MAQUINARI"
 
-msgid "VIDEO OUTPUT"
-msgstr "SORTIDA DE VÍDEO"
-
 msgid "AUDIO OUTPUT"
 msgstr "SORTIDA D'ÀUDIO"
 
@@ -2155,21 +2182,6 @@ msgstr "PERFIL D'ÀUDIO"
 msgid "Available options can change depending on current audio output."
 msgstr ""
 "Les opcions disponibles poden canviar depenent de la sortida d'àudio actual."
-
-msgid "SCREEN ROTATION"
-msgstr "ROTACIÓ DE LA PANTALLA"
-
-msgid "0 DEGREES"
-msgstr "0 GRAUS"
-
-msgid "90 DEGREES"
-msgstr "90 GRAUS"
-
-msgid "180 DEGREES"
-msgstr "180 GRAUS"
-
-msgid "270 DEGREES"
-msgstr "270 GRAUS"
 
 msgid "BOOT SPLASH"
 msgstr "PANTALLA DE PRESENTACIÓ"

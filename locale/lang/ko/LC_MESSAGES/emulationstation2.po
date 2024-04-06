@@ -1780,9 +1780,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "화면밝기"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1790,6 +1787,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "비디오 출력"
+
+msgid "VIDEO MODE"
+msgstr "비디오 모드"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 도"
+
+msgid "90 DEGREES"
+msgstr "90 도"
+
+msgid "180 DEGREES"
+msgstr "180 도"
+
+msgid "270 DEGREES"
+msgstr "270 도"
+
+msgid "SCREEN ROTATION"
+msgstr "화면 회전"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1812,9 +1845,6 @@ msgstr "수직 동기화"
 
 msgid "OVERSCAN"
 msgstr "오버스캔"
-
-msgid "VIDEO MODE"
-msgstr "비디오 모드"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr ""
@@ -2112,9 +2142,6 @@ msgstr "시작 시 KODI 실행"
 msgid "HARDWARE"
 msgstr "하드웨어"
 
-msgid "VIDEO OUTPUT"
-msgstr "비디오 출력"
-
 msgid "AUDIO OUTPUT"
 msgstr "오디오 출력"
 
@@ -2123,21 +2150,6 @@ msgstr "오디오 프로필"
 
 msgid "Available options can change depending on current audio output."
 msgstr "현재의 오디오 출력에 따라 사용가능한 옵션이 변경될 수 있습니다."
-
-msgid "SCREEN ROTATION"
-msgstr "화면 회전"
-
-msgid "0 DEGREES"
-msgstr "0 도"
-
-msgid "90 DEGREES"
-msgstr "90 도"
-
-msgid "180 DEGREES"
-msgstr "180 도"
-
-msgid "270 DEGREES"
-msgstr "270 도"
 
 msgid "BOOT SPLASH"
 msgstr "부트 스플래시"

@@ -1780,9 +1780,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "亮度"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1790,6 +1787,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "影像輸出"
+
+msgid "VIDEO MODE"
+msgstr "影像模式"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 度"
+
+msgid "90 DEGREES"
+msgstr "90 度"
+
+msgid "180 DEGREES"
+msgstr "180 度"
+
+msgid "270 DEGREES"
+msgstr "270 度"
+
+msgid "SCREEN ROTATION"
+msgstr "螢幕旋轉"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1812,9 +1845,6 @@ msgstr "垂直同步"
 
 msgid "OVERSCAN"
 msgstr "過掃瞄 (OVERSCAN)"
-
-msgid "VIDEO MODE"
-msgstr "影像模式"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "設定模擬器的顯示器像素"
@@ -2110,9 +2140,6 @@ msgstr "開機時啟動 KODI"
 msgid "HARDWARE"
 msgstr "硬體"
 
-msgid "VIDEO OUTPUT"
-msgstr "影像輸出"
-
 msgid "AUDIO OUTPUT"
 msgstr "聲音輸出"
 
@@ -2121,21 +2148,6 @@ msgstr "音訊設定檔"
 
 msgid "Available options can change depending on current audio output."
 msgstr "可用的選項會依目前的音訊輸出而改變。"
-
-msgid "SCREEN ROTATION"
-msgstr "螢幕旋轉"
-
-msgid "0 DEGREES"
-msgstr "0 度"
-
-msgid "90 DEGREES"
-msgstr "90 度"
-
-msgid "180 DEGREES"
-msgstr "180 度"
-
-msgid "270 DEGREES"
-msgstr "270 度"
 
 msgid "BOOT SPLASH"
 msgstr "開機畫面"

@@ -1784,9 +1784,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "LYSSTYRKE"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1794,6 +1791,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VIDEOUTGANG"
+
+msgid "VIDEO MODE"
+msgstr "VIDEO MODUS"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 GRADER"
+
+msgid "90 DEGREES"
+msgstr "90 GRADER"
+
+msgid "180 DEGREES"
+msgstr "180 GRADER"
+
+msgid "270 DEGREES"
+msgstr "270 GRADER"
+
+msgid "SCREEN ROTATION"
+msgstr "SKJERM ROTASJON"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1816,9 +1849,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSKANN"
-
-msgid "VIDEO MODE"
-msgstr "VIDEO MODUS"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Stiller inn skjermens oppløsning for EmulationStation"
@@ -2127,9 +2157,6 @@ msgstr "KODI VED OPPSTART"
 msgid "HARDWARE"
 msgstr "MASKINVARE"
 
-msgid "VIDEO OUTPUT"
-msgstr "VIDEOUTGANG"
-
 msgid "AUDIO OUTPUT"
 msgstr "LYDUTGANG"
 
@@ -2138,21 +2165,6 @@ msgstr "LYDPROFIL"
 
 msgid "Available options can change depending on current audio output."
 msgstr "Tilgjengelige alternativer kan endres avhengig av gjeldende lydutgang."
-
-msgid "SCREEN ROTATION"
-msgstr "SKJERM ROTASJON"
-
-msgid "0 DEGREES"
-msgstr "0 GRADER"
-
-msgid "90 DEGREES"
-msgstr "90 GRADER"
-
-msgid "180 DEGREES"
-msgstr "180 GRADER"
-
-msgid "270 DEGREES"
-msgstr "270 GRADER"
 
 msgid "BOOT SPLASH"
 msgstr "OPPSTART SPLASH"

@@ -1781,9 +1781,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "KIRKKAUS"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1791,6 +1788,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VIDEON ULOSTULO"
+
+msgid "VIDEO MODE"
+msgstr "RESOLUUTIO"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 ASTETTA"
+
+msgid "90 DEGREES"
+msgstr "90 ASTETTA"
+
+msgid "180 DEGREES"
+msgstr "180 ASTETTA"
+
+msgid "270 DEGREES"
+msgstr "270 ASTETTA"
+
+msgid "SCREEN ROTATION"
+msgstr "NÄYTÖN KIERTO"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1814,9 +1847,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "YLISKANNAUS"
-
-msgid "VIDEO MODE"
-msgstr "RESOLUUTIO"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr ""
@@ -2118,9 +2148,6 @@ msgstr "KÄYNNISTÄ KODI KÄYNNISTYESSÄ"
 msgid "HARDWARE"
 msgstr "LAITTEISTO"
 
-msgid "VIDEO OUTPUT"
-msgstr "VIDEON ULOSTULO"
-
 msgid "AUDIO OUTPUT"
 msgstr "ÄÄNEN ULOSTULO"
 
@@ -2131,21 +2158,6 @@ msgid "Available options can change depending on current audio output."
 msgstr ""
 "Saatavilla olevat asetukset voivat muuttua riippuen nykyisestä äänen "
 "ulostulosta."
-
-msgid "SCREEN ROTATION"
-msgstr "NÄYTÖN KIERTO"
-
-msgid "0 DEGREES"
-msgstr "0 ASTETTA"
-
-msgid "90 DEGREES"
-msgstr "90 ASTETTA"
-
-msgid "180 DEGREES"
-msgstr "180 ASTETTA"
-
-msgid "270 DEGREES"
-msgstr "270 ASTETTA"
 
 msgid "BOOT SPLASH"
 msgstr "KÄYNNISTYKSEN ANIMAATIO"

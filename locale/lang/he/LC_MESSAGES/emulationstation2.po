@@ -1770,9 +1770,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "בהירות"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1780,6 +1777,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "פלט וידאו"
+
+msgid "VIDEO MODE"
+msgstr "מצד וידאו"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 מעלות"
+
+msgid "90 DEGREES"
+msgstr "90 מעלות"
+
+msgid "180 DEGREES"
+msgstr "180 מעלות"
+
+msgid "270 DEGREES"
+msgstr "270 מעלות"
+
+msgid "SCREEN ROTATION"
+msgstr "סיבוב מסך"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1802,9 +1835,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "מצד וידאו"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr ""
@@ -2097,9 +2127,6 @@ msgstr "הפעל את קודי בהפעלה"
 msgid "HARDWARE"
 msgstr "חומרה"
 
-msgid "VIDEO OUTPUT"
-msgstr "פלט וידאו"
-
 msgid "AUDIO OUTPUT"
 msgstr "פלט שמע"
 
@@ -2108,21 +2135,6 @@ msgstr "פרופיל שמע"
 
 msgid "Available options can change depending on current audio output."
 msgstr ""
-
-msgid "SCREEN ROTATION"
-msgstr "סיבוב מסך"
-
-msgid "0 DEGREES"
-msgstr "0 מעלות"
-
-msgid "90 DEGREES"
-msgstr "90 מעלות"
-
-msgid "180 DEGREES"
-msgstr "180 מעלות"
-
-msgid "270 DEGREES"
-msgstr "270 מעלות"
 
 msgid "BOOT SPLASH"
 msgstr "אנימציית פתיח"

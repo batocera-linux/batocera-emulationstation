@@ -1784,9 +1784,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "DISTIRA"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1794,6 +1791,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "BIDEO IRTEERA"
+
+msgid "VIDEO MODE"
+msgstr "BIDEO MODUA"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 GRADU"
+
+msgid "90 DEGREES"
+msgstr "90 GRADU"
+
+msgid "180 DEGREES"
+msgstr "180 GRADU"
+
+msgid "270 DEGREES"
+msgstr "270 GRADU"
+
+msgid "SCREEN ROTATION"
+msgstr "PANTAILA BIRAKETA"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1816,9 +1849,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "BIDEO MODUA"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Pantailaren bereizmena ezartzen du emulationstation-entzat"
@@ -2129,9 +2159,6 @@ msgstr "HASI KODI ABIARAZTEAN"
 msgid "HARDWARE"
 msgstr "HARDWARE-A"
 
-msgid "VIDEO OUTPUT"
-msgstr "BIDEO IRTEERA"
-
 msgid "AUDIO OUTPUT"
 msgstr "AUDIO IRTEERA"
 
@@ -2141,21 +2168,6 @@ msgstr "AUDIO PROFILA"
 msgid "Available options can change depending on current audio output."
 msgstr ""
 "Aukeragarri dauden ezarpenak aldatu daitezke uneko audio irteeraren arabera."
-
-msgid "SCREEN ROTATION"
-msgstr "PANTAILA BIRAKETA"
-
-msgid "0 DEGREES"
-msgstr "0 GRADU"
-
-msgid "90 DEGREES"
-msgstr "90 GRADU"
-
-msgid "180 DEGREES"
-msgstr "180 GRADU"
-
-msgid "270 DEGREES"
-msgstr "270 GRADU"
 
 msgid "BOOT SPLASH"
 msgstr "ABIARAZTE PANTAILA"

@@ -1786,9 +1786,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "PARLAKLIK"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1796,6 +1793,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VİDEO ÇIKIŞI"
+
+msgid "VIDEO MODE"
+msgstr "VİDEO MODU"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 DERECE"
+
+msgid "90 DEGREES"
+msgstr "90 DERECE"
+
+msgid "180 DEGREES"
+msgstr "180 DERECE"
+
+msgid "270 DEGREES"
+msgstr "270 DERECE"
+
+msgid "SCREEN ROTATION"
+msgstr "EKRAN DÖNDÜRME"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1818,9 +1851,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "VİDEO MODU"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Emulationstation için ekran çözünürlüğünü ayarlar."
@@ -2137,9 +2167,6 @@ msgstr "KODİ AÇILIŞTA BAŞLASIN"
 msgid "HARDWARE"
 msgstr "DONANIM"
 
-msgid "VIDEO OUTPUT"
-msgstr "VİDEO ÇIKIŞI"
-
 msgid "AUDIO OUTPUT"
 msgstr "SES ÇIKIŞI"
 
@@ -2148,21 +2175,6 @@ msgstr "SES PROFİLİ"
 
 msgid "Available options can change depending on current audio output."
 msgstr "Mevcut seçenekler mevcut ses çıkışına bağlı olarak değişebilir."
-
-msgid "SCREEN ROTATION"
-msgstr "EKRAN DÖNDÜRME"
-
-msgid "0 DEGREES"
-msgstr "0 DERECE"
-
-msgid "90 DEGREES"
-msgstr "90 DERECE"
-
-msgid "180 DEGREES"
-msgstr "180 DERECE"
-
-msgid "270 DEGREES"
-msgstr "270 DERECE"
 
 msgid "BOOT SPLASH"
 msgstr "AÇILIŞ GÖRSELİ"

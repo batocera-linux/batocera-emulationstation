@@ -1776,9 +1776,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "LJUSSTYRKA"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1786,6 +1783,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VIDEOUTGÅNG"
+
+msgid "VIDEO MODE"
+msgstr "VIDEOLÄGE"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 GRADER"
+
+msgid "90 DEGREES"
+msgstr "90 GRADER"
+
+msgid "180 DEGREES"
+msgstr "180 GRADER"
+
+msgid "270 DEGREES"
+msgstr "270 GRADER"
+
+msgid "SCREEN ROTATION"
+msgstr "SKÄRMROTATION"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1808,9 +1841,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "VIDEOLÄGE"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Väljer skärmens upplösning för emulationstation."
@@ -2109,9 +2139,6 @@ msgstr "STARTA KODI VID UPPSTART"
 msgid "HARDWARE"
 msgstr "HÅRDVARA"
 
-msgid "VIDEO OUTPUT"
-msgstr "VIDEOUTGÅNG"
-
 msgid "AUDIO OUTPUT"
 msgstr "LJUDUTGÅNG"
 
@@ -2120,21 +2147,6 @@ msgstr "LJUDPROFIL"
 
 msgid "Available options can change depending on current audio output."
 msgstr ""
-
-msgid "SCREEN ROTATION"
-msgstr "SKÄRMROTATION"
-
-msgid "0 DEGREES"
-msgstr "0 GRADER"
-
-msgid "90 DEGREES"
-msgstr "90 GRADER"
-
-msgid "180 DEGREES"
-msgstr "180 GRADER"
-
-msgid "270 DEGREES"
-msgstr "270 GRADER"
 
 msgid "BOOT SPLASH"
 msgstr "UPPSTARTSBILD"

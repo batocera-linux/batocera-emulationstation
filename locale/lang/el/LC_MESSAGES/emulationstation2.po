@@ -1766,9 +1766,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "ΦΩΤΕΙΝΟΤΗΤΑ"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1776,6 +1773,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "ΕΞΟΔΟΣ ΒΙΝΤΕΟ"
+
+msgid "VIDEO MODE"
+msgstr "ΛΕΙΤΟΥΡΓΙΑ ΒΙΝΤΕΟ"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr ""
+
+msgid "90 DEGREES"
+msgstr ""
+
+msgid "180 DEGREES"
+msgstr ""
+
+msgid "270 DEGREES"
+msgstr ""
+
+msgid "SCREEN ROTATION"
+msgstr "ΠΕΡΙΣΤΡΟΦΗ ΟΘΟΝΗΣ"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1798,9 +1831,6 @@ msgstr ""
 
 msgid "OVERSCAN"
 msgstr ""
-
-msgid "VIDEO MODE"
-msgstr "ΛΕΙΤΟΥΡΓΙΑ ΒΙΝΤΕΟ"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr ""
@@ -2096,9 +2126,6 @@ msgstr "KODI KATA THN EKKINΗΣΗ"
 msgid "HARDWARE"
 msgstr "ΥΛΙΚΟ"
 
-msgid "VIDEO OUTPUT"
-msgstr "ΕΞΟΔΟΣ ΒΙΝΤΕΟ"
-
 msgid "AUDIO OUTPUT"
 msgstr "ΕΞΟΔΟΣ ΗΧΟΥ"
 
@@ -2106,21 +2133,6 @@ msgid "AUDIO PROFILE"
 msgstr "ΠΡΟΦΙΛ ΗΧΟΥ"
 
 msgid "Available options can change depending on current audio output."
-msgstr ""
-
-msgid "SCREEN ROTATION"
-msgstr "ΠΕΡΙΣΤΡΟΦΗ ΟΘΟΝΗΣ"
-
-msgid "0 DEGREES"
-msgstr ""
-
-msgid "90 DEGREES"
-msgstr ""
-
-msgid "180 DEGREES"
-msgstr ""
-
-msgid "270 DEGREES"
 msgstr ""
 
 msgid "BOOT SPLASH"

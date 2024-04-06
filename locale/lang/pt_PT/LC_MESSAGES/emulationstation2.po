@@ -1790,9 +1790,6 @@ msgstr "ordem rgb dmd"
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
 
-msgid "-10 for auto"
-msgstr "-10 para automático"
-
 msgid "DMDSERVER stopped"
 msgstr "DMDSERVER parou"
 
@@ -1801,6 +1798,42 @@ msgstr "DMDSERVER reiniciado"
 
 msgid "DMDSERVER started"
 msgstr "DMDSERVER iniciado"
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "SAÍDA DE VÍDEO"
+
+msgid "VIDEO MODE"
+msgstr "MODO DE VÍDEO"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 GRAUS"
+
+msgid "90 DEGREES"
+msgstr "90 GRAUS"
+
+msgid "180 DEGREES"
+msgstr "180 GRAUS"
+
+msgid "270 DEGREES"
+msgstr "270 GRAUS"
+
+msgid "SCREEN ROTATION"
+msgstr "ROTAÇÃO DO ECRÃ"
+
+msgid "DMD SCREEN"
+msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPÇÕES DE INTERFACE DO DESENVOLVEDOR"
@@ -1822,9 +1855,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "MODO DE VÍDEO"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Defina a resolução do monitor para o emulationstation."
@@ -2137,9 +2167,6 @@ msgstr "ABRIR KODI NA INICIALIZAÇÃO"
 msgid "HARDWARE"
 msgstr "HARDWARE"
 
-msgid "VIDEO OUTPUT"
-msgstr "SAÍDA DE VÍDEO"
-
 msgid "AUDIO OUTPUT"
 msgstr "SAÍDA DE ÁUDIO"
 
@@ -2148,21 +2175,6 @@ msgstr "PERFIL DE ÁUDIO"
 
 msgid "Available options can change depending on current audio output."
 msgstr "Opções disponíveis podem mudar dependendo da saída de áudio atual."
-
-msgid "SCREEN ROTATION"
-msgstr "ROTAÇÃO DO ECRÃ"
-
-msgid "0 DEGREES"
-msgstr "0 GRAUS"
-
-msgid "90 DEGREES"
-msgstr "90 GRAUS"
-
-msgid "180 DEGREES"
-msgstr "180 GRAUS"
-
-msgid "270 DEGREES"
-msgstr "270 GRAUS"
 
 msgid "BOOT SPLASH"
 msgstr "ECRÃ DE ABERTURA"
@@ -3426,6 +3438,9 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
+
+#~ msgid "-10 for auto"
+#~ msgstr "-10 para automático"
 
 #~ msgid "Achievements won"
 #~ msgstr "Conquistas alcançadas"

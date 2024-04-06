@@ -1792,9 +1792,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "BRILLO"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1802,6 +1799,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "SALIDA DE VÍDEO"
+
+msgid "VIDEO MODE"
+msgstr "MODO DE VÍDEO"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 GRADOS"
+
+msgid "90 DEGREES"
+msgstr "90 GRADOS"
+
+msgid "180 DEGREES"
+msgstr "180 GRADOS"
+
+msgid "270 DEGREES"
+msgstr "270 GRADOS"
+
+msgid "SCREEN ROTATION"
+msgstr "ROTACIÓN DE LA PANTALLA"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1825,9 +1858,6 @@ msgstr "SINCRONIZACIÓN VERTICAL (VSYNC)"
 
 msgid "OVERSCAN"
 msgstr "SOBREESCALADO (OVERSCAN)"
-
-msgid "VIDEO MODE"
-msgstr "MODO DE VÍDEO"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Establece la resolución de pantalla para emulationstation."
@@ -2138,9 +2168,6 @@ msgstr "INICIAR KODI AL ARRANCAR EL SISTEMA"
 msgid "HARDWARE"
 msgstr "HARDWARE"
 
-msgid "VIDEO OUTPUT"
-msgstr "SALIDA DE VÍDEO"
-
 msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"
 
@@ -2150,21 +2177,6 @@ msgstr "PERFIL DE AUDIO"
 msgid "Available options can change depending on current audio output."
 msgstr ""
 "Las opciones disponibles pueden cambiar según la salida de audio actual."
-
-msgid "SCREEN ROTATION"
-msgstr "ROTACIÓN DE LA PANTALLA"
-
-msgid "0 DEGREES"
-msgstr "0 GRADOS"
-
-msgid "90 DEGREES"
-msgstr "90 GRADOS"
-
-msgid "180 DEGREES"
-msgstr "180 GRADOS"
-
-msgid "270 DEGREES"
-msgstr "270 GRADOS"
 
 msgid "BOOT SPLASH"
 msgstr "PANTALLA DE ARRANQUE"

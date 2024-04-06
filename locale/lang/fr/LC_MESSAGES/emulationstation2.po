@@ -1789,9 +1789,6 @@ msgstr "ordre des couleurs du dmd"
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÉ"
 
-msgid "-10 for auto"
-msgstr "-10 pour automatique"
-
 msgid "DMDSERVER stopped"
 msgstr "DMDSERVEUR stoppé"
 
@@ -1800,6 +1797,42 @@ msgstr "DMDSERVEUR redémarré"
 
 msgid "DMDSERVER started"
 msgstr "DMDSERVEUR démarré"
+
+msgid "MULTISCREENS"
+msgstr "ÉCRANS MULTIPLES"
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr "PLATEAU / ÉCRAN D'INFORMATION"
+
+msgid "VIDEO OUTPUT"
+msgstr "SORTIE VIDÉO"
+
+msgid "VIDEO MODE"
+msgstr "MODE VIDÉO"
+
+msgid "Sets the display's resolution."
+msgstr "Résolution de l'écran"
+
+msgid "ROTATION"
+msgstr "ROTATION"
+
+msgid "0 DEGREES"
+msgstr "0 DEGRÉE"
+
+msgid "90 DEGREES"
+msgstr "90 DEGRÉES"
+
+msgid "180 DEGREES"
+msgstr "180 DEGRÉES"
+
+msgid "270 DEGREES"
+msgstr "270 DEGRÉES"
+
+msgid "SCREEN ROTATION"
+msgstr "ROTATION DE L’ÉCRAN"
+
+msgid "DMD SCREEN"
+msgstr "ÉCRAN DMD"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPTION DEVELOPPEUR"
@@ -1821,9 +1854,6 @@ msgstr "SYNCHRONISATION VERTICALE"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "MODE VIDÉO"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Définir la résolution d'écran pour EmulationStation."
@@ -2137,9 +2167,6 @@ msgstr "LANCER KODI AU DÉMARRAGE"
 msgid "HARDWARE"
 msgstr "MATÉRIEL"
 
-msgid "VIDEO OUTPUT"
-msgstr "SORTIE VIDÉO"
-
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
 
@@ -2148,21 +2175,6 @@ msgstr "PROFIL AUDIO"
 
 msgid "Available options can change depending on current audio output."
 msgstr "Les options disponibles dépendent de la sortie audio sélectionnée."
-
-msgid "SCREEN ROTATION"
-msgstr "ROTATION DE L’ÉCRAN"
-
-msgid "0 DEGREES"
-msgstr "0 DEGRÉE"
-
-msgid "90 DEGREES"
-msgstr "90 DEGRÉES"
-
-msgid "180 DEGREES"
-msgstr "180 DEGRÉES"
-
-msgid "270 DEGREES"
-msgstr "270 DEGRÉES"
 
 msgid "BOOT SPLASH"
 msgstr "SPLASH AU DÉMARRAGE"
@@ -3432,6 +3444,9 @@ msgstr "LECTURE À L’ÉCRAN ACTIVÉE"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LECTURE À L’ÉCRAN DÉSACTIVÉE"
+
+#~ msgid "-10 for auto"
+#~ msgstr "-10 pour automatique"
 
 #~ msgid "Achievements won"
 #~ msgstr "Succès gagnés"

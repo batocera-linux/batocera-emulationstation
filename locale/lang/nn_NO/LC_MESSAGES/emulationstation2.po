@@ -1764,9 +1764,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr ""
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1774,6 +1771,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr ""
+
+msgid "VIDEO MODE"
+msgstr ""
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr ""
+
+msgid "90 DEGREES"
+msgstr ""
+
+msgid "180 DEGREES"
+msgstr ""
+
+msgid "270 DEGREES"
+msgstr ""
+
+msgid "SCREEN ROTATION"
+msgstr ""
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1796,9 +1829,6 @@ msgstr ""
 
 msgid "OVERSCAN"
 msgstr "OVERSKANN"
-
-msgid "VIDEO MODE"
-msgstr ""
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr ""
@@ -2091,9 +2121,6 @@ msgstr "KODI VED OPPSTART"
 msgid "HARDWARE"
 msgstr ""
 
-msgid "VIDEO OUTPUT"
-msgstr ""
-
 msgid "AUDIO OUTPUT"
 msgstr ""
 
@@ -2101,21 +2128,6 @@ msgid "AUDIO PROFILE"
 msgstr ""
 
 msgid "Available options can change depending on current audio output."
-msgstr ""
-
-msgid "SCREEN ROTATION"
-msgstr ""
-
-msgid "0 DEGREES"
-msgstr ""
-
-msgid "90 DEGREES"
-msgstr ""
-
-msgid "180 DEGREES"
-msgstr ""
-
-msgid "270 DEGREES"
 msgstr ""
 
 msgid "BOOT SPLASH"

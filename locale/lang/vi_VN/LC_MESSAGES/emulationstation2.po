@@ -1790,9 +1790,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "ĐỘ SÁNG"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1800,6 +1797,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "NGÕ RA VIDEO"
+
+msgid "VIDEO MODE"
+msgstr "CHẾ ĐỘ VIDEO"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 ĐỘ"
+
+msgid "90 DEGREES"
+msgstr "90 ĐỘ"
+
+msgid "180 DEGREES"
+msgstr "180 ĐỘ"
+
+msgid "270 DEGREES"
+msgstr "270 ĐỘ"
+
+msgid "SCREEN ROTATION"
+msgstr "XOAY MÀN HÌNH"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1822,9 +1855,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "CHẾ ĐỘ VIDEO"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Đặt độ phân giải của màn hình cho trình giả lập."
@@ -2137,9 +2167,6 @@ msgstr "KHỞI CHẠY KODI KHI KHỞI ĐỘNG MÁY"
 msgid "HARDWARE"
 msgstr "PHẦN CỨNG"
 
-msgid "VIDEO OUTPUT"
-msgstr "NGÕ RA VIDEO"
-
 msgid "AUDIO OUTPUT"
 msgstr "NGÕ RA ÂM THANH"
 
@@ -2149,21 +2176,6 @@ msgstr "HỒ SƠ ÂM THANH"
 msgid "Available options can change depending on current audio output."
 msgstr ""
 "Các tùy chọn khả dụng có thể thay đổi tùy thuộc vào đầu ra âm thanh hiện tại."
-
-msgid "SCREEN ROTATION"
-msgstr "XOAY MÀN HÌNH"
-
-msgid "0 DEGREES"
-msgstr "0 ĐỘ"
-
-msgid "90 DEGREES"
-msgstr "90 ĐỘ"
-
-msgid "180 DEGREES"
-msgstr "180 ĐỘ"
-
-msgid "270 DEGREES"
-msgstr "270 ĐỘ"
 
 msgid "BOOT SPLASH"
 msgstr "KHỞI ĐỘNG NHANH"

@@ -1819,9 +1819,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "الوضوح"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1829,6 +1826,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "مخرج الفيديو"
+
+msgid "VIDEO MODE"
+msgstr "وضع الفيديو"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "٠ درجة"
+
+msgid "90 DEGREES"
+msgstr "٩٠ درجة"
+
+msgid "180 DEGREES"
+msgstr "١٨٠ درجة"
+
+msgid "270 DEGREES"
+msgstr "٢٧٠ درجة"
+
+msgid "SCREEN ROTATION"
+msgstr "تدوير الشاشة"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1851,9 +1884,6 @@ msgstr "التزامن العمودي Vsync"
 
 msgid "OVERSCAN"
 msgstr "فائض الشاشة"
-
-msgid "VIDEO MODE"
-msgstr "وضع الفيديو"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "يضبط دقة العرض لمحطة المحاكاة"
@@ -2155,9 +2185,6 @@ msgstr "تشغيل كودي خلال الإقلاع"
 msgid "HARDWARE"
 msgstr "العتاد"
 
-msgid "VIDEO OUTPUT"
-msgstr "مخرج الفيديو"
-
 msgid "AUDIO OUTPUT"
 msgstr "مخرج الصوت"
 
@@ -2166,21 +2193,6 @@ msgstr "وضع الصوت"
 
 msgid "Available options can change depending on current audio output."
 msgstr "بعض الميزات تظهر حسب مخرج الصوت الحالي."
-
-msgid "SCREEN ROTATION"
-msgstr "تدوير الشاشة"
-
-msgid "0 DEGREES"
-msgstr "٠ درجة"
-
-msgid "90 DEGREES"
-msgstr "٩٠ درجة"
-
-msgid "180 DEGREES"
-msgstr "١٨٠ درجة"
-
-msgid "270 DEGREES"
-msgstr "٢٧٠ درجة"
 
 msgid "BOOT SPLASH"
 msgstr "شاشة الافتتاحية"

@@ -1788,9 +1788,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "HELDERHEID"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1798,6 +1795,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VIDEO OUTPUT"
+
+msgid "VIDEO MODE"
+msgstr "VIDEO MODUS"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 GRADEN"
+
+msgid "90 DEGREES"
+msgstr "90 GRADEN"
+
+msgid "180 DEGREES"
+msgstr "180 GRADEN"
+
+msgid "270 DEGREES"
+msgstr "270 GRADEN"
+
+msgid "SCREEN ROTATION"
+msgstr "SCHERMROTATIE"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1821,9 +1854,6 @@ msgstr "V-SYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "VIDEO MODUS"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Stelt de schermresolutie voor emulationstation in."
@@ -2144,9 +2174,6 @@ msgstr "START KODI BIJ HET OPSTARTEN"
 msgid "HARDWARE"
 msgstr "HARDWARE"
 
-msgid "VIDEO OUTPUT"
-msgstr "VIDEO OUTPUT"
-
 msgid "AUDIO OUTPUT"
 msgstr "AUDIO UITVOER"
 
@@ -2157,21 +2184,6 @@ msgid "Available options can change depending on current audio output."
 msgstr ""
 "Beschikbare opties kunnen veranderen afhankelijk van de huidige audio-"
 "uitvoer."
-
-msgid "SCREEN ROTATION"
-msgstr "SCHERMROTATIE"
-
-msgid "0 DEGREES"
-msgstr "0 GRADEN"
-
-msgid "90 DEGREES"
-msgstr "90 GRADEN"
-
-msgid "180 DEGREES"
-msgstr "180 GRADEN"
-
-msgid "270 DEGREES"
-msgstr "270 GRADEN"
 
 msgid "BOOT SPLASH"
 msgstr "OPSTART SPLASH"

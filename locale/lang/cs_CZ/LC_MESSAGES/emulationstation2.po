@@ -1784,9 +1784,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "JAS"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1794,6 +1791,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "VIDEO VÝSTUP"
+
+msgid "VIDEO MODE"
+msgstr "REŽIM VIDEA"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 STUPŇŮ"
+
+msgid "90 DEGREES"
+msgstr "90 STUPŇŮ"
+
+msgid "180 DEGREES"
+msgstr "180 STUPŇŮ"
+
+msgid "270 DEGREES"
+msgstr "270 STUPŇŮ"
+
+msgid "SCREEN ROTATION"
+msgstr "OTOČENÍ OBRAZOVKY"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1816,9 +1849,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
-
-msgid "VIDEO MODE"
-msgstr "REŽIM VIDEA"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Nastaví rozlišení displeje pro emulační stanici."
@@ -2128,9 +2158,6 @@ msgstr "SPUŠTĚNÍ KODI PŘI STARTU"
 msgid "HARDWARE"
 msgstr "HARDWARE"
 
-msgid "VIDEO OUTPUT"
-msgstr "VIDEO VÝSTUP"
-
 msgid "AUDIO OUTPUT"
 msgstr "AUDIO VÝSTUP"
 
@@ -2140,21 +2167,6 @@ msgstr "AUDIO PROFIL"
 msgid "Available options can change depending on current audio output."
 msgstr ""
 "Dostupné možnosti se mohou měnit v závislosti na aktuálním zvukovém výstupu."
-
-msgid "SCREEN ROTATION"
-msgstr "OTOČENÍ OBRAZOVKY"
-
-msgid "0 DEGREES"
-msgstr "0 STUPŇŮ"
-
-msgid "90 DEGREES"
-msgstr "90 STUPŇŮ"
-
-msgid "180 DEGREES"
-msgstr "180 STUPŇŮ"
-
-msgid "270 DEGREES"
-msgstr "270 STUPŇŮ"
 
 msgid "BOOT SPLASH"
 msgstr "UVÍTÁNÍ"

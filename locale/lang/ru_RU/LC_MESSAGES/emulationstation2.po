@@ -1787,9 +1787,6 @@ msgstr ""
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
 
-msgid "-10 for auto"
-msgstr ""
-
 msgid "DMDSERVER stopped"
 msgstr ""
 
@@ -1797,6 +1794,42 @@ msgid "DMDSERVER restarted"
 msgstr ""
 
 msgid "DMDSERVER started"
+msgstr ""
+
+msgid "MULTISCREENS"
+msgstr ""
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr ""
+
+msgid "VIDEO OUTPUT"
+msgstr "ВИДЕО ВЫХОД"
+
+msgid "VIDEO MODE"
+msgstr "РАЗРЕШЕНИЕ"
+
+msgid "Sets the display's resolution."
+msgstr ""
+
+msgid "ROTATION"
+msgstr ""
+
+msgid "0 DEGREES"
+msgstr "0 ГРАДУСОВ"
+
+msgid "90 DEGREES"
+msgstr "90 ГРАДУСОВ"
+
+msgid "180 DEGREES"
+msgstr "180 ГРАДУСОВ"
+
+msgid "270 DEGREES"
+msgstr "270 ГРАДУСОВ"
+
+msgid "SCREEN ROTATION"
+msgstr "ПОВОРОТ ЭКРАНА"
+
+msgid "DMD SCREEN"
 msgstr ""
 
 msgid "FRONTEND DEVELOPER OPTIONS"
@@ -1819,9 +1852,6 @@ msgstr "VSYNC"
 
 msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
-
-msgid "VIDEO MODE"
-msgstr "РАЗРЕШЕНИЕ"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Устанавливает разрешение экрана для emulationstation."
@@ -2128,9 +2158,6 @@ msgstr "АВТОЗАПУСК KODI"
 msgid "HARDWARE"
 msgstr "ЖЕЛЕЗО"
 
-msgid "VIDEO OUTPUT"
-msgstr "ВИДЕО ВЫХОД"
-
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"
 
@@ -2139,21 +2166,6 @@ msgstr "АУДИО ПРОФИЛЬ"
 
 msgid "Available options can change depending on current audio output."
 msgstr "Доступные опции могут меняться в зависимости от текущего аудио выхода."
-
-msgid "SCREEN ROTATION"
-msgstr "ПОВОРОТ ЭКРАНА"
-
-msgid "0 DEGREES"
-msgstr "0 ГРАДУСОВ"
-
-msgid "90 DEGREES"
-msgstr "90 ГРАДУСОВ"
-
-msgid "180 DEGREES"
-msgstr "180 ГРАДУСОВ"
-
-msgid "270 DEGREES"
-msgstr "270 ГРАДУСОВ"
 
 msgid "BOOT SPLASH"
 msgstr "ВСТУПИТЕЛЬНОЕ ИНТРО"
