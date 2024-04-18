@@ -1800,10 +1800,10 @@ msgid "DMDSERVER started"
 msgstr "DMDSERVER iniciado"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "MÚLTIPLOS ECRÃS"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "BACKGLASS / ECRÃ DE INFORMAÇÕES"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAÍDA DE VÍDEO"
@@ -1812,10 +1812,10 @@ msgid "VIDEO MODE"
 msgstr "MODO DE VÍDEO"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Define a resolução do ecrã."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "ROTAÇÃO"
 
 msgid "0 DEGREES"
 msgstr "0 GRAUS"
@@ -1833,7 +1833,7 @@ msgid "SCREEN ROTATION"
 msgstr "ROTAÇÃO DO ECRÃ"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "ECRÃ DMD"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPÇÕES DE INTERFACE DO DESENVOLVEDOR"
@@ -3439,11 +3439,6 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
 
-#~ msgid "-10 for auto"
-#~ msgstr "-10 para automático"
-
-#~ msgid "Achievements won"
-#~ msgstr "Conquistas alcançadas"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v40b(2024/03/24)\n"
+"Project-Id-Version: batocera-es v40b(2024/04/07)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-03-24 06:07+0900\n"
+"PO-Revision-Date: 2024-04-07 21:31+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -948,7 +948,7 @@ msgid "Dim Display/Evening (60)"
 msgstr "薄暗い表示/夜 (60)"
 
 msgid "CAMERA BRIGHTNESS"
-msgstr "カメラ 明るさ"
+msgstr "カメラ 輝度"
 
 msgid "Daytime/Bright Sunlight (80)"
 msgstr "昼間/明るい日差し (80)"
@@ -1416,7 +1416,7 @@ msgid "%d%% complete"
 msgstr "%d%% 完了"
 
 msgid "SAVESTATE MANAGER"
-msgstr "ステートセーブステートセーブ(西＞削除、ファイル上で北＞コピー)"
+msgstr "ステートセーブマネージャー (西＞削除、ファイル上で北＞コピー)"
 
 msgid "START NEW GAME"
 msgstr "最初から開始"
@@ -1787,7 +1787,7 @@ msgid "rgb dmd order"
 msgstr "RGB DMD順"
 
 msgid "BRIGHTNESS"
-msgstr "明るさ"
+msgstr "輝度"
 
 msgid "DMDSERVER stopped"
 msgstr "DMDサーバーが停止しました"
@@ -1799,10 +1799,10 @@ msgid "DMDSERVER started"
 msgstr "DMDサーバーが開始されました"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "マルチスクリーン"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "バックガラス / 情報画面"
 
 msgid "VIDEO OUTPUT"
 msgstr "映像出力"
@@ -1811,10 +1811,10 @@ msgid "VIDEO MODE"
 msgstr "映像解像度"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "ディスプレイの解像度を設定します"
 
 msgid "ROTATION"
-msgstr ""
+msgstr "画面の回転"
 
 msgid "0 DEGREES"
 msgstr "回転しない"
@@ -1832,7 +1832,7 @@ msgid "SCREEN ROTATION"
 msgstr "画面の回転"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD スクリーン"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "開発者オプション"

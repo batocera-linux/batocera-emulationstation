@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-04-04 17:38+0200\n"
+"PO-Revision-Date: 2024-04-12 16:18+0200\n"
 "Last-Translator: Svein Jakobsen <svein.jakobsen@gmail.com>\n"
 "Language-Team: Bokmål\n"
 "Language: nb\n"
@@ -1794,10 +1794,10 @@ msgid "DMDSERVER started"
 msgstr "DMDSERVER startet"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "FLERSKJERM"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "BAKGLASS / INFORMASJONS-SKJERM"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEOUTGANG"
@@ -1806,10 +1806,10 @@ msgid "VIDEO MODE"
 msgstr "VIDEO MODUS"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Stiller inn skjermens oppløsning."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "ROTASJON"
 
 msgid "0 DEGREES"
 msgstr "0 GRADER"
@@ -1827,7 +1827,7 @@ msgid "SCREEN ROTATION"
 msgstr "SKJERM ROTASJON"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD SKJERM"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND UTVIKLER ALTERNATIVER"
@@ -2022,7 +2022,7 @@ msgid "ENABLE PS3 CONTROLLER SUPPORT"
 msgstr "AKTIVER STØTTE FOR PS3 KONTROLLER"
 
 msgid "Might have negative impact on security."
-msgstr "Kan ha negativ effekt på sikkerheten"
+msgstr "Kan ha negativ effekt på sikkerheten."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "AKTIVER HID JOYSTICK DRIVERE"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2023-12-18 00:23+0300\n"
+"PO-Revision-Date: 2024-04-17 15:42+0300\n"
 "Last-Translator: Sawex\n"
 "Language-Team: \n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 2.2\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "GÜNCELLEME MEVCUT"
@@ -41,10 +41,10 @@ msgid "core"
 msgstr "çekirdek"
 
 msgid "Image"
-msgstr "İmaj"
+msgstr "Görüntü"
 
 msgid "enter path to image"
-msgstr "imaj adresini girin"
+msgstr "görüntü adresini girin"
 
 msgid "Video"
 msgstr "Video"
@@ -540,7 +540,7 @@ msgid "NONE"
 msgstr "YOK"
 
 msgid "RESTORE LAST SELECTED"
-msgstr "SON SEÇİLENİ GERİ GETİR"
+msgstr "SON SEÇİLENİ GERİ YÜKLE"
 
 msgid "START ON GAMELIST"
 msgstr "OYUN LİSTESİNDE BAŞLAT"
@@ -595,11 +595,11 @@ msgstr "LÜTFEN BEKLEYİN"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d - %d softcore puanı"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d - %d hardcore puanı"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -829,7 +829,7 @@ msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "KONTROLCÜ VE BLUETOOTH AYARLARI"
 
 msgid "CONTROLLERS PRIORITY"
-msgstr "ÖNCELİKLİ KONTROLCÜ "
+msgstr "ÖNCELİKLİ KONTROLCÜ"
 
 msgid "PLAYER ASSIGNMENTS"
 msgstr "OYUNCU GÖREVLERİ"
@@ -869,7 +869,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH'U ETKİNLEŞTİR"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "BLUETOOTH PADLERİ OTOMATİK EŞLE"
@@ -881,7 +881,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "KONTROL AYGITI BİLDİRİMLERİNİ GÖSTER"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROL AYGITI AKTİVİTELERİNİ GÖSTER"
@@ -1051,16 +1051,16 @@ msgid "NO MISSING BIOS FILES"
 msgstr "EKSİK BIOS DOSYASI YOK"
 
 msgid "MISSING BIOS CHECK"
-msgstr "EKSİK BIOS"
+msgstr "EKSİK BIOS KONTROLÜ"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Kurulu sistemler"
 
 msgid "All"
 msgstr "Hepsi"
 
 msgid "refresh"
-msgstr ""
+msgstr "yenileme"
 
 msgid "NO MISSING BIOS"
 msgstr "EKSİK BIOS YOK"
@@ -1403,10 +1403,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "BU OYUNDA HENÜZ BAŞARIM YOK"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Başarılar (softcore)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Başarılar (hardcore)"
 
 #, c-format
 msgid "%d%% complete"
@@ -1658,7 +1658,7 @@ msgstr "KESKİN-BILINEAR-BASİT"
 
 msgctxt "game_options"
 msgid "SCANLINES"
-msgstr "TARAMA HATLARI"
+msgstr "TARAMA ÇİZGİLERİ"
 
 msgctxt "game_options"
 msgid "RETRO"
@@ -1757,49 +1757,49 @@ msgid "SERVICES"
 msgstr "SERVİSLER"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "SUNUCU"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDSERVER (gerçek dmd için)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SİMULATÖR (web dmd için)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "dmd sunucu"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "BİÇİM"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "dmd matris boyutu"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "MATRİS"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "rgb dmd order"
 
 msgid "BRIGHTNESS"
 msgstr "PARLAKLIK"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMDSERVER durduruldu"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMDSERVER yeniden başlatıldı"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMDSERVER başlatıldı"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "ÇOKLU EKRAN"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "ARKA CAM / BİLGİ EKRANI"
 
 msgid "VIDEO OUTPUT"
 msgstr "VİDEO ÇIKIŞI"
@@ -1808,10 +1808,10 @@ msgid "VIDEO MODE"
 msgstr "VİDEO MODU"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Ekranın çözünürlüğünü ayarlar."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "DÖNDÜRME"
 
 msgid "0 DEGREES"
 msgstr "0 DERECE"
@@ -1829,7 +1829,7 @@ msgid "SCREEN ROTATION"
 msgstr "EKRAN DÖNDÜRME"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD EKRANI"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND GELİŞTİRİCİ AYARLARI"
@@ -1895,7 +1895,7 @@ msgstr "OYUN LİSTESİNİ TEMİZLE & KULLANILMAYAN MEDYALARI KALDIR"
 msgid "Remove unused entries, and clean references to missing medias."
 msgstr ""
 "Kullanılmayan girişleri kaldırın ve eksik ortamlara yönelik referansları "
-"temizleyin"
+"temizleyin."
 
 msgid "Cleaning"
 msgstr "Temizleniyor"
@@ -1906,13 +1906,13 @@ msgstr "OYUN KULLANIM LİSTESİNİ SIFIRLA"
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
 "Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini "
-"sıfırlayın"
+"sıfırlayın."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DOSYA UZANTILARINI RESETLE"
 
 msgid "Reset customized file extensions filters to default."
-msgstr "Özelleştirilmiş dosya uzantısı filtrelerini varsayılana sıfırla"
+msgstr "Özelleştirilmiş dosya uzantısı filtrelerini varsayılana sıfırlayın."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "OYUNLARIN DİL/BÖLGE SİNİ TEKRAR ALGILA"
@@ -1930,22 +1930,22 @@ msgid "Building image cache"
 msgstr "Görüntü önbelleği oluşturuluyor"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "GÖRÜNTÜ AYARLARI"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "MENÜ YAZI TİPİ ÖLÇEĞİ"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "YAZI TİPİ ÖLÇEĞİ"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "TEMA YAZI TİPİ ÖLÇEĞİ"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "TAM EKRAN MENULER"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "KÜÇÜK EKRAN TEMASINI ZORLA"
 
 msgid "DATA MANAGEMENT"
 msgstr "VERİ YÖNETİMİ"
@@ -2027,10 +2027,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "SİLAH HAREKET TÖLERANSI"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "PS3 KONTROLCÜ DESTEĞİNİ ETKİNLEŞTİR"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Güvenliği olumsuz yönde etkileyebilir."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "HID OYUNKOLU SÜRÜCÜLERİNİ AÇ"
@@ -2529,10 +2529,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "RETROARŞİV SİMGESİNİ GÖSTER"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "SİLAH SİMGESİNİ GÖSTER"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "TEKERLEK SİMGESİNİ GÖSTER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "LİSTEDE DOSYA İSİMLERİNİ GÖSTER"
@@ -3340,10 +3340,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "CİHAZI YAPILANDIRMAK İÇİN BİR TUŞA BASILI TUT."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr "İPTAL ETMEK İÇİN ESC BAS"
+msgstr "İPTAL ETMEK İÇİN ESC BASIN."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr "İPTAL ETMEK İÇİN ESC VEYA KISAYOLA BAS"
+msgstr "İPTAL ETMEK İÇİN ESC VEYA KISAYOLA BASIN."
 
 msgid "DISCARD CHANGES"
 msgstr "DEĞİŞİKLİKLERİ KAYDETME"
@@ -3389,7 +3389,7 @@ msgstr "ÇALIŞIYOR..."
 
 #, c-format
 msgid "%d d"
-msgstr "%d d"
+msgstr "%d g"
 
 #, c-format
 msgid "%d h"
@@ -3406,8 +3406,8 @@ msgstr "%d sn"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d yıl önce"
+msgstr[1] "%d yıl önce"
 
 #, c-format
 msgid "%d day ago"
@@ -3457,11 +3457,9 @@ msgstr "EKRAN OKUYUCUSU PASİF EDİLDİ"
 #~ msgid "SWITCH A & B BUTTONS IN EMULATIONSTATION"
 #~ msgstr "EMULATIONSTATION DA A/B BUTONLARIN YERİNİ DEĞİŞTİR"
 
-#, c-format
 #~ msgid "%d m"
 #~ msgstr "%d d"
 
-#, c-format
 #~ msgid "%d s"
 #~ msgstr "%d sn"
 
@@ -4005,8 +4003,8 @@ msgstr "EKRAN OKUYUCUSU PASİF EDİLDİ"
 #~ "THE \"RANDOM VIDEO\" SCREENSAVER SHOWS VIDEOS FROM YOUR GAMELIST.\n"
 #~ "IF YOU DON'T HAVE VIDEOS, OR IF NONE OF THEM CAN BE PLAYED AFTER A FEW "
 #~ "ATTEMPTS, IT WILL DEFAULT TO \"BLACK\".\n"
-#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER "
-#~ "SETTINGS\" MENU."
+#~ "MORE OPTIONS IN THE \"UI SETTINGS\" -> \"RANDOM VIDEO SCREENSAVER SETTINGS"
+#~ "\" MENU."
 #~ msgstr ""
 #~ "THE \"RASGELE VIDEO \" EKRAN KORUYUCU VİDEOLARI OYUN LİSTESİNDEN "
 #~ "GÖSTERİR.\n"

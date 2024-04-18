@@ -1793,10 +1793,10 @@ msgid "DMDSERVER started"
 msgstr "DMDSERVER avviato"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "MULTISCHERMI"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "VETRO POSTERIORE / SCHERMO INFORMAZIONI"
 
 msgid "VIDEO OUTPUT"
 msgstr "USCITA VIDEO"
@@ -1805,10 +1805,10 @@ msgid "VIDEO MODE"
 msgstr "MODALITÀ VIDEO"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Imposta la risoluzione schermo."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "ROTAZIONE"
 
 msgid "0 DEGREES"
 msgstr "0 GRADI"
@@ -1826,7 +1826,7 @@ msgid "SCREEN ROTATION"
 msgstr "ROTAZIONE SCHERMO"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "SCHERMO DMD"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPZIONI PER GLI SVILUPPATORI FRONTEND"
