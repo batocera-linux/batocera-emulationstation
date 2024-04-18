@@ -23,7 +23,7 @@
       <gun/>
     </game>
     <game name="500gp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="a51mxr3k">
       <gun/>
@@ -38,25 +38,25 @@
       <gun/>
     </game>
     <game name="abcop">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="abcopd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="abcopj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="abcopjd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="acedriv3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="acedrive">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="acedrvrw">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="alien3">
       <gun/>
@@ -68,37 +68,37 @@
       <gun/>
     </game>
     <game name="amspdwy">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="amspdwya">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apb">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apb1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apb2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apb3">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apb4">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apb5">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apb6">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apbf">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="apbg">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="aplatoon">
       <gun/>
@@ -119,7 +119,7 @@
       <gun/>
     </game>
     <game name="badlands">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="bang">
       <gun/>
@@ -128,13 +128,13 @@
       <gun/>
     </game>
     <game name="batlgear">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="batlgr2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="batlgr2a">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="bazooka">
       <gun/>
@@ -194,7 +194,7 @@
       <gun/>
     </game>
     <game name="bigrun">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="bluethunder">
       <gun/>
@@ -215,19 +215,19 @@
       <gun/>
     </game>
     <game name="buggyboy">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="buggyboyjr">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="calspeed">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="calspeeda">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="calspeedb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="carnevil">
       <gun/>
@@ -239,28 +239,28 @@
       <gun/>
     </game>
     <game name="cartfury">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="catch22">
       <gun/>
     </game>
     <game name="changela">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="chasehq">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="chasehq2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="chasehqj">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="chasehqju">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="chasehqu">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="cheyenne">
       <gun/>
@@ -269,13 +269,13 @@
       <gun/>
     </game>
     <game name="chqflag">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="chqflagj">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="cischeat">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="claybust">
       <gun/>
@@ -287,43 +287,43 @@
       <gun/>
     </game>
     <game name="clubk2k3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubk2kf">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubk2kp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkcyc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkcyco">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkprz">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkpzb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkrt">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkrta">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkrtc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkrtd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkrte">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="clubkrto">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="cobrata">
       <gun/>
@@ -341,30 +341,30 @@
       <gun/>
     </game>
     <game name="contcirc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="contcircj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="contcircu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="contcircua">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="contcrcu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="coolridr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="cops">
       <gun/>
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="copsuk">
       <gun/>
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="cracksht">
       <gun/>
@@ -412,64 +412,64 @@
       <gun/>
     </game>
     <game name="crtaxihr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnexo">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnexoa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnexob">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnexoc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnexod">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnu21">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnu40">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnusa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnusa21">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnusa40">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnw13">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnw20">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnwld">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnwld13">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnwld17">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnwld19">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnwld20">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnwld23">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="crusnwld24">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="cryptklr">
       <gun/>
@@ -478,91 +478,91 @@
       <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="cspring1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprins1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprint">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprint1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprint2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprintf">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprintg">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprintg1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprints">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="csprints1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="cswat">
       <gun/>
     </game>
     <game name="cybrcycc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="cybrcyccj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="cyclshtg">
       <gun/>
     </game>
     <game name="dangcurv">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dangcurvj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dayto2pe">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytona">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytona2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytona93">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytonagtx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytonam">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytonas">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytonase">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytonat">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="daytonata">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dblaxle">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dblaxleu">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dblaxleul">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dday">
       <gun/>
@@ -595,46 +595,46 @@
       <gun/>
     </game>
     <game name="demoderb">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="demoderbc">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="demoderm">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="desertgu">
       <gun/>
     </game>
     <game name="destderb">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="destderm">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dirtdash">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dirtdasha">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dirtdvls">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dirtdvlsa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dirtdvlsg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dirtdvlsj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dirtfoxj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="dmodrbcc">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dpatrol">
       <gun/>
@@ -649,10 +649,10 @@
       <gun/>
     </game>
     <game name="drivedge">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="driveyes">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="drugwars-hd">
       <gun/>
@@ -667,13 +667,13 @@
       <wheel/>
     </game>
     <game name="ecap">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ecau">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ecax">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="eggventr">
       <gun/>
@@ -697,25 +697,25 @@
       <gun/>
     </game>
     <game name="endurob2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="endurobl">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="enduror">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="enduror1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="enduror1d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="endurora">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="endurord">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="evilngt">
       <gun/>
@@ -724,37 +724,37 @@
       <gun/>
     </game>
     <game name="f1en">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1enj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1enu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1gpstar">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1gpstar2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1gpstar3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1gpstr2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1lap">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1lapj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1lapt">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f1superb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="f355">
       <wheel rotation="270"/>
@@ -775,76 +775,76 @@
       <gun/>
     </game>
     <game name="finalap2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalap2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalap3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalap3a">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalap3bl">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalap3j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalap3jc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalapc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalapd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalapr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalaprj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalapro">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finallap">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finallapc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finallapd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finallapjb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finallapjc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalp2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalp3a">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="firetrk">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="firetrka">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="fourtrax">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="fourtraxa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="fourtraxj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="freedomfighter">
       <gun/>
@@ -853,7 +853,7 @@
       <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="fullthrl">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="g13jnc">
       <gun/>
@@ -898,94 +898,91 @@
       <gun/>
     </game>
     <game name="gprider">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gprider1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gpriderj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gpriderjs">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gpriders">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gprideru">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gpriderus">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gpworld">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="grally">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="grchamp">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="grchampa">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="grchampb">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="greatgun">
       <gun/>
     </game>
-    <game name="grmatch">
-      <wheel/>
-    </game>
     <game name="grudge">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="grudgep">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gticlub">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gticlub2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gticlub2ea">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gticluba">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gticlubj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gticlubu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="gtmr2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gtmr2a">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gtmr2u">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gtmra">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gtmrb">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gtmre">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gtmro">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gtmrusa">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="gunbalina">
       <gun/>
@@ -1036,124 +1033,124 @@
       <gun/>
     </game>
     <game name="hangon">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hangon1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hangon2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hangonjr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrb5">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrb6">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrc1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrcb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrcg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrg4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddriv">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddriv1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddriv2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddriv3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivb5">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivb6">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivc1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivcb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivcg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivg">
-      <wheel/>
+      <whee rotation="270"/>
     </game>
     <game name="harddrivg4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrivj6">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrj6">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrv1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrv2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrv3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrvb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrvc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrvg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harddrvj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harley">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="harleya">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hcrash">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hcrashc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hdrivaip">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hdrivair">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hdrivairp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hellngt">
       <gun/>
@@ -1168,10 +1165,10 @@
       <gun/>
     </game>
     <game name="hndlchmp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hndlchmpj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hogalley">
       <gun/>
@@ -1180,10 +1177,10 @@
       <gun/>
     </game>
     <game name="hotchase">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hotchasea">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="hotd">
       <gun/>
@@ -1216,37 +1213,37 @@
       <gun/>
     </game>
     <game name="hotrod">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="hotroda">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="hotrodj">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="hotrodja">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="hydrosub2021">
       <gun/>
     </game>
     <game name="imolagp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="imolagpo">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="indy500">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="indy500d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="indy500to">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="indyheat">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="inidv3ca">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
@@ -1357,16 +1354,16 @@
       <gun/>
     </game>
     <game name="kingrt66">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="kingrt66p">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="konamigt">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="lagunar">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="lamachin">
       <gun/>
@@ -1384,7 +1381,7 @@
       <gun/>
     </game>
     <game name="lbeach">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="le2">
       <gun/>
@@ -1396,10 +1393,10 @@
       <gun/>
     </game>
     <game name="lemans">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="lemans24">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="lethalen">
       <gun/>
@@ -1484,11 +1481,11 @@
     </game>
     <game name="luckywld">
       <gun/>
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="luckywldj">
       <gun/>
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="lupinsho">
       <gun/>
@@ -1530,13 +1527,13 @@
       <gun/>
     </game>
     <game name="manxtt">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="manxttc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="manxttdx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="maxf_102">
       <gun/>
@@ -1548,7 +1545,7 @@
       <gun/>
     </game>
     <game name="maxrpm">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="maxspeed">
       <wheel rotation="270" downshift="down" upshift="up"/>
@@ -1566,40 +1563,40 @@
       <gun/>
     </game>
     <game name="midnrun">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="midnruna">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="midnrunj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="midnruna2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="mok">
       <gun/>
     </game>
     <game name="montecar">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="motofren">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="motofrenft">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="motofrenmd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="motofrenmf">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="motoraid">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="motoraiddx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ninjaslt">
       <gun/>
@@ -1623,15 +1620,15 @@
       <gun/>
     </game>
     <game name="nitedrvr">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="nstocker">
       <gun/>
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="nstocker2">
       <gun/>
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="nycaptor">
       <gun/>
@@ -1640,31 +1637,31 @@
       <gun/>
     </game>
     <game name="offroad">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="offroad3">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="offroadc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="offroadc1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="offroadc3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="offroadc4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="offroadc5">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="offroadt">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="offroadt2p">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ohbakyuun">
       <gun/>
@@ -1703,13 +1700,13 @@
       <gun/>
     </game>
     <game name="orunners">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="orunnersj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="orunnersu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="othunder">
       <gun/>
@@ -1733,85 +1730,85 @@
       <gun/>
     </game>
     <game name="outr2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outr2sdx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outr2st">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outr2stj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outr2stjo">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outr2sto">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrun">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outruna">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrunb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrundx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrundxa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrundxeh">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrundxj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outruneh">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrunen">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrunen0">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrunen1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrunen2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrunm">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outruno">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="outrunra">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="overdriv">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="overdriva">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="overdrivb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="overrev">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="overrevb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="overrevba">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="p911">
       <gun/>
@@ -1844,76 +1841,73 @@
       <gun/>
     </game>
     <game name="pdrift">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="pdrifta">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="pdrifte">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="pdriftj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="pdriftl">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="plctr13b">
       <gun/>
     </game>
     <game name="pocketrc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="pokasuka">
       <gun/>
     </game>
     <game name="polepos">
-      <wheel/>
-    </game>
-    <game name="polepos_sound">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="polepos1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="polepos2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="polepos2a">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="polepos2b">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="polepos2bi">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="polepos2bs">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleposa">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleposa1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleposa2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleposj">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleposn">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleps2a">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleps2b">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="poleps2c">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="policet2">
       <gun/>
@@ -1943,16 +1937,16 @@
       <gun/>
     </game>
     <game name="powsled">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="powsledm">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="powsledr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ppspeed">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="primevah">
       <gun/>
@@ -1985,166 +1979,166 @@
       <gun/>
     </game>
     <game name="pwheelsj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedcb4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedcg4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrb1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrb4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrc1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrc2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrc4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrcb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrcg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrg1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrg4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedriv">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedriv1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedriv2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedriv3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedriv4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivb1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivb4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivc1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivc2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivc4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivcb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivcb4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivcg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivcg4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivg1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivg4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrivpan">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrv1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrv2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrv3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrv4">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrvb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrvc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racedrvg">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racinfrc">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="racinfrcu">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="racingb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racingbj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racingj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racingj2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racingj2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="racjamdx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="radikalb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="radikalba">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="radm">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="radmu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="radr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="radrj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="radru">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rambo">
       <gun/>
@@ -2165,13 +2159,13 @@
       <gun/>
     </game>
     <game name="raveracj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="raveracja">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="raveracw">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rchase">
       <gun/>
@@ -2183,7 +2177,7 @@
       <gun/>
     </game>
     <game name="redlin2p">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="revx">
       <gun/>
@@ -2192,142 +2186,142 @@
       <gun/>
     </game>
     <game name="rf2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ridger2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgera2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgera2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgera2ja">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgerac">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgerac3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgeracb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgeracf">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgeracj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="ridgeraj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadblc1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblcg">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblg1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblg2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadbls1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadbls2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadbls3">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblsc">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblsg">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblst">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblst1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblst2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblst3">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblstc">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblstc1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblstcg">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblstg">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblstg1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblstg2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadblstgu">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="roadburn">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadburn1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadedge">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadriot">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadriota">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadriotb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadrioto">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="roadrunm">
       <gun/>
     </game>
     <game name="rrreveng">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rrrevenga">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rrrevengb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rrrevenp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rrvac">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rrvac1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="rrvac2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sc5sharp">
       <gun/>
@@ -2336,76 +2330,76 @@
       <gun/>
     </game>
     <game name="sci">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="scia">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="scij">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="scin">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="scinegro">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="scross">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scrossa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scrossu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scud">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scuda">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scudj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scudp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scudplus">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scudplusa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sf2049">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sf2049se">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sf2049te">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sf2049tea">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sfrush">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sfrusha">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sfrushrk">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sfrushrkw">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sfrushrkwo">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sgt24h">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sgunner">
       <gun/>
@@ -2423,43 +2417,43 @@
       <gun/>
     </game>
     <game name="shangon">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangon1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangon2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangon3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangon3d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangonb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangoneh">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangonho">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangonle">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangonleeh">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangonrb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangonrb2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shangonro">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shootgal">
       <gun/>
@@ -2477,82 +2471,82 @@
       <gun/>
     </game>
     <game name="sidebs">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sidebs2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sidebs2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sidebs2ja">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sidebs2u">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sidebsja">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sidebsjb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="skeetsht">
       <gun/>
     </game>
     <game name="slipstrm">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="slipstrmh">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgp5">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgp5d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgp6">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgp6d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpja">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpjd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpu1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpu1d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpu2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpu2d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpu3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="smgpud">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sogeki">
       <gun/>
@@ -2582,100 +2576,100 @@
       <gun/>
     </game>
     <game name="speedfrk">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="speedrcr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="speedup">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="speedup10">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sprint1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprint2">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprint2a">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprint2h">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprint4">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprint4a">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprint8">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprint8a">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="sprtshot">
       <gun/>
     </game>
     <game name="spyhnt2a">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="spyhunt">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="spyhunt2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="spyhunt2a">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="spyhuntp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="spyhuntpr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="spyhuntr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="spyhuntsp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srally2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srally2p">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srally2pa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srally2x">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srallyc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srallyca">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srallycb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srallycc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srallycdx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srallycdxa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srallyp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sscope">
       <gun/>
@@ -2717,88 +2711,88 @@
       <gun/>
     </game>
     <game name="sspring1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssprint">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssprint1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssprint3">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssprintf">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssprintg">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssprintg1">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssprints">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="ssrj">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="stcc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="stcca">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="stccb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="stocker">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="strtdriv">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="strtheat">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="strtheata">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="styphp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="superbug">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="superchs">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="superchsj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="superchsp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="superchsp2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="superchsu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="suzuk8h2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="suzuk8h2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="suzuk8hj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="suzuka8h">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="suzuka8hj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="swtrilgy">
       <gun/>
@@ -2831,10 +2825,10 @@
       <gun/>
     </game>
     <game name="tceptor2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="technodr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="terabrst">
       <gun/>
@@ -2861,31 +2855,31 @@
       <gun/>
     </game>
     <game name="thrild2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrild2a">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrild2ab">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrild2ac">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrild2c">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrild2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrilld">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrilldae">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrilldb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thunderh">
       <gun/>
@@ -2939,25 +2933,25 @@
       <gun/>
     </game>
     <game name="tokyobus">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="topracer">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="topracera">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="topracern">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="topsecex">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="topspeed">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="topspeedu">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="totd">
       <gun/>
@@ -2978,40 +2972,40 @@
       <gun/>
     </game>
     <game name="toutrun">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrun1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrun2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrun2d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrun3">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrun3d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutruna">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrund">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrunj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrunj1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrunj1d">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="toutrunjd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="triplhnt">
       <gun/>
@@ -3026,22 +3020,22 @@
       <gun/>
     </game>
     <game name="turboa">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="turbob">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="turbobl">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="turboc">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="turbod">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="turbotag">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="turkhunt">
       <gun/>
@@ -3050,22 +3044,19 @@
       <gun/>
     </game>
     <game name="tvsci">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="tx1">
-      <wheel/>
-    </game>
-    <game name="tx1_sound">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="tx1a">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="tx1jb">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="tx1jc">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="undrfire">
       <gun/>
@@ -3101,19 +3092,19 @@
       <gun/>
     </game>
     <game name="vformula">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="victlap">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="victlapa">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="victlapj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="victlapw">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="vnight">
       <gun/>
@@ -3122,7 +3113,7 @@
       <gun/>
     </game>
     <game name="vr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="vsfdf">
       <gun/>
@@ -3131,31 +3122,31 @@
       <gun/>
     </game>
     <game name="wanganmd">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wanganmr">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wangmd2b">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wangmid">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wangmid2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wangmid2j">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wangmid2ja">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wangmid2o">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wangmidj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wcombat">
       <gun/>
@@ -3173,25 +3164,25 @@
       <gun/>
     </game>
     <game name="wecleman">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wecleman2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="weclemana">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="weclemanb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="weclemanc">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wheelfir">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wheelrun">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="whodunit">
       <gun/>
@@ -3203,46 +3194,46 @@
       <gun/>
     </game>
     <game name="windheat">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="windheata">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="windheatj">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="windheatu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="winrun">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="winrun91">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="winrungp">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wldrider">
       <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
     <game name="wrally">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wrally2">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wrally2a">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wrallya">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wrallyat">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wrallyb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="wschamp">
       <gun/>
@@ -3260,7 +3251,7 @@
       <gun/>
     </game>
     <game name="xrally">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="xtrmhnt2">
       <gun/>
@@ -3293,58 +3284,58 @@
       <gun/>
     </game>
     <game name="bigrunu">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="buggyboyb">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dirtdashj">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dirtdvlsau">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="dirtdvlsu">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="endurorb">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalapr1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="finalaprj1">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="getaway">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="scudau">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="scuddx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="shoottv">
       <gun/>
     </game>
     <game name="spdheat">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="spdheatj">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="speedrs">
-      <wheel/>
+      <wheel rotation="360"/>
     </game>
     <game name="speedup12">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="srally2dx">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="thrilldbe">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
   </system>
   <system name="3do">
@@ -5191,7 +5182,7 @@
       <wheel type="GTForce" rotation="200"/>
     </game>
     <game name="colinmcraerally3">
-      <wheel type="DrivingForce"/>
+      <wheel type="DrivingForce" rotation="270"/>
     </game>
     <game name="criticalvelocity">
       <wheel type="DrivingForcePro"/>
