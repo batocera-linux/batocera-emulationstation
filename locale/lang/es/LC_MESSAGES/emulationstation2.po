@@ -2272,7 +2272,7 @@ msgid "LATENCY REDUCTION"
 msgstr "REDUCCIÓN DE LATENCIA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "FOTOGRAMAS RUN-AHEAD"
+msgstr "ANTICIPACIÓN DE FRAMES (RUN-AHEAD)"
 
 msgid "High numbers can result in visible jitter."
 msgstr "Unos números altos pueden dar lugar a temblores visibles."
