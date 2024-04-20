@@ -5537,7 +5537,7 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="vrally">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="warmup">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -5546,13 +5546,13 @@
       <gun/>
     </game>
     <game name="wipeout">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="moorhuhn">
       <gun/>
     </game>
     <game name="nascar99">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="nascar98">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -5570,10 +5570,10 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="rageracer">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="rcrevenge">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="roadsters">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -5582,7 +5582,7 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="tougemaxg">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="ghoulpanic">
       <gun/>
@@ -5597,16 +5597,16 @@
       <gun/>
     </game>
     <game name="battlegear">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="fordracing">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="formula198">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="formulaone">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="italianjob">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -5624,10 +5624,10 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="rallycross">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="raytracers">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="cryptkiller">
       <gun type="justifier"/>
@@ -5642,46 +5642,46 @@
       <gun/>
     </game>
     <game name="granturismo">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="hardcore4x4">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="londonracer">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="millemigila">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="maximumforce">
       <gun type="justifier"/>
     </game>
     <game name="formulakarts">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="nascarracing">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="nascarrumble">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="needforspeed">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="r4ridgeracer">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="ridgeracer">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="nascarthunder">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="rallydeafrica">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="rallydeeurope">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="thegunshooting2">
       <gun/>
@@ -5708,22 +5708,22 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="crashteamracing">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="demolitionracer">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="peakperformance">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="twistedmetaliii">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="projecthornedowl">
       <gun type="justifier"/>
     </game>
     <game name="destructionderby">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="newmanhaasracing">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -5744,13 +5744,13 @@
       <gun/>
     </game>
     <game name="sidebysidespecial">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="extremeghostbuster">
       <gun/>
     </game>
     <game name="motortoongrandprix">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="tokyohighwaybattle">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
@@ -5795,7 +5795,7 @@
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
     </game>
     <game name="tocatouringcarchampionship">
-      <wheel type="negcon"/>
+      <wheel rotation="360" type="negcon"/>
     </game>
     <game name="michaelschumacherracingworld">
       <wheel wheel="joystick1left" accelerate="cross" brake="square"/>
