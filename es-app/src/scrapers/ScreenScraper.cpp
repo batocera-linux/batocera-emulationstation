@@ -134,7 +134,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VISUALPINBALL, 198 },
 	{ FUTUREPINBALL, 199 },
 	
-	{ TEKNOPARROT, 138 }, // Use "PC Windows", as it's the nearest
+	{ TEKNOPARROT, 269 }, // Screenscraper now has Teknoparrot platform
 
 	// Misc
 	{ VIC20, 73 },
