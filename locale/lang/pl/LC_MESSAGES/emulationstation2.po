@@ -1799,10 +1799,10 @@ msgid "DMDSERVER started"
 msgstr "SERWER DMD uruchomiony"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "MULTIEKRANY"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "BACKGLASS / EKRAN INFORMACJI"
 
 msgid "VIDEO OUTPUT"
 msgstr "WYJŚCIE WIDEO"
@@ -1814,7 +1814,7 @@ msgid "Sets the display's resolution."
 msgstr ""
 
 msgid "ROTATION"
-msgstr ""
+msgstr "OBRÓT"
 
 msgid "0 DEGREES"
 msgstr "0 STOPNI"
@@ -1832,7 +1832,7 @@ msgid "SCREEN ROTATION"
 msgstr "OBRÓT EKRANU"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "EKRAN DMD"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPCJE DEWELOPERA INTERFEJSU"
