@@ -168,7 +168,8 @@ void Settings::setDefaults()
     mBoolMap["EnableSounds"] = false;
 	mBoolMap["ShowHelpPrompts"] = true;
 	mBoolMap["ScrapeRatings"] = true;
-	mBoolMap["ScrapeDescription"] = true;	
+	mBoolMap["ScrapeNames"] = true;	
+	mBoolMap["ScrapeDescription"] = true;
 	mBoolMap["ScrapePadToKey"] = true;
 	mBoolMap["ScrapeOverWrite"] = true;	
 	mBoolMap["IgnoreGamelist"] = false;
