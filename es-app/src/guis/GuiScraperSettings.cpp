@@ -129,6 +129,7 @@ GuiScraperSettings::GuiScraperSettings(Window* window) : GuiSettings(window, _("
 		addSaveFunc([regionCtrl] { Settings::getInstance()->setString("ScraperRegion", regionCtrl->getSelected()); });
 	}
 
+	addSwitch(_("OVERWRITE NAMES"), "ScrapeNames", true);
 	addSwitch(_("OVERWRITE DESCRIPTIONS"), "ScrapeDescription", true);
 	addSwitch(_("OVERWRITE MEDIAS"), "ScrapeOverWrite", true);
 
