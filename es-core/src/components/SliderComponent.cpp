@@ -142,10 +142,7 @@ float SliderComponent::getValue()
 void SliderComponent::onSizeChanged()
 {
 	GuiComponent::onSizeChanged();
-
-	if(!mSuffix.empty())
-		mFont = Font::get((int)(mSize.y()), FONT_PATH_LIGHT);
-	
+	mFont = Font::get((int)(mSize.y()), FONT_PATH_LIGHT);
 	onValueChanged();
 }
 
@@ -156,7 +153,11 @@ void SliderComponent::onValueChanged()
 	{
 		std::stringstream ss;
 		ss << std::fixed;
-		ss.precision(0);
+		if(mSingleIncrement < 1) {
+		  ss.precision(1);
+		} else {
+		  ss.precision(0);
+		}
 		ss << mValue;
 		ss << mSuffix;
 		const std::string val = ss.str();
@@ -164,7 +165,11 @@ void SliderComponent::onValueChanged()
 		ss.str("");
 		ss.clear();
 		ss << std::fixed;
-		ss.precision(0);
+		if(mSingleIncrement < 1) {
+		  ss.precision(1);
+		} else {
+		  ss.precision(0);
+		}
 		ss << mMax;
 		ss << mSuffix;
 		const std::string max = ss.str();
@@ -177,7 +182,7 @@ void SliderComponent::onValueChanged()
 	// update knob position/size
 	mKnob.setResize(0, mSize.y() * 0.7f);
 	float lineLength = mSize.x() - mKnob.getSize().x() - (mValueCache ? mValueCache->metrics.size.x() + 4 : 0);
-	mKnob.setPosition(((mValue + mMin) / mMax) * lineLength /*+ mKnob.getSize().x()/2*/, mSize.y() / 2);
+	mKnob.setPosition(((mValue-mMin)/(mMax-mMin)) * lineLength /*+ mKnob.getSize().x()/2*/, mSize.y() / 2);
 
 }
 

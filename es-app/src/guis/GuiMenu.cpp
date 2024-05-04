@@ -2110,6 +2110,38 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		return;
 	}
 
+	if (feat.preset == "slider")
+	{
+		std::vector<std::string> tokens = Utils::String::split(feat.preset_parameters, ' ');
+
+		float slider_from    =   0.0f;
+		float slider_to      = 100.0f;
+		float slider_step    =   1.0f;
+		float slider_default =   0.0f;
+		std::string slider_suffix = "";
+
+		if (tokens.size() >= 1) slider_from    = Utils::String::toFloat(tokens.at(0));
+		if (tokens.size() >= 2) slider_to      = Utils::String::toFloat(tokens.at(1));
+		if (tokens.size() >= 3) slider_step    = Utils::String::toFloat(tokens.at(2));
+		if (tokens.size() >= 4) slider_default = Utils::String::toFloat(tokens.at(3));
+		if (tokens.size() >= 5) slider_suffix  = tokens.at(4);
+
+		auto sliderComponent = std::make_shared<SliderComponent>(window, slider_from, slider_to, slider_step, slider_suffix);
+		if(storedValue == "") {
+		  sliderComponent->setValue(slider_default);
+		} else {
+		  sliderComponent->setValue(Utils::String::toFloat(storedValue));
+		}
+
+		if (!feat.description.empty())
+			settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), sliderComponent);
+		else
+			settings->addWithLabel(pgettext("game_options", feat.name.c_str()), sliderComponent);
+
+		settings->addSaveFunc([storageName, sliderComponent] { SystemConf::getInstance()->set(storageName, std::to_string(sliderComponent->getValue())); });
+		return;
+	}
+
 	auto item = std::make_shared<OptionListComponent<std::string>>(window, pgettext("game_options", feat.name.c_str()));
 
 	if (feat.preset == "shaders" || feat.preset == "shaderset")
