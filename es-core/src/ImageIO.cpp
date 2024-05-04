@@ -525,6 +525,16 @@ static bool extractSvgSize(const std::string& svgFilePath, float& width, float& 
 	return width > 0 && height > 0;
 }
 
+static int get16bit(const uint8_t* data, int index) 
+{
+	return (data[index] & 0xFF) | ((data[index + 1] & 0xFF) << 8);
+}
+
+static int get24bit(const uint8_t* data, int index)
+{
+	return get16bit(data, index) | ((data[index + 2] & 0xFF) << 16);
+}
+
 bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int *y)
 {
 	{
@@ -570,7 +580,7 @@ bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int
 		return false;
 	}
 	
-	if (ext != ".jpg" && ext != ".png" && ext != ".jpeg" && ext != ".gif")
+	if (ext != ".jpg" && ext != ".png" && ext != ".jpeg" && ext != ".gif" && ext != ".webp")
 	{
 		LOG(LogWarning) << "ImageIO::loadImageSize\tUnknown file type";
 		return false;
@@ -596,9 +606,46 @@ bool ImageIO::loadImageSize(const std::string& fn, unsigned int *x, unsigned int
 	// reading PNG dimensions requires the first 24 bytes of the file
 	// reading JPEG dimensions requires scanning through jpeg chunks
 	// In all formats, the file is at least 24 bytes big, so we'll read that always
-	unsigned char buf[24]; 
-	if (fread(buf, 1, 24, f) != 24)
+
+	// We need 30 bytes to read WebP dimensions
+#define BUFSIZE 30
+
+	unsigned char buf[BUFSIZE];
+	if (fread(buf, 1, BUFSIZE, f) != BUFSIZE)
 	{
+		updateImageCache(fn, -1, -1, -1);
+		return false;
+	}
+
+	// WebP file
+	if (buf[0] == 'R' && buf[1] == 'I' && buf[2] == 'F' && buf[3] == 'F' && buf[12] == 'V' && buf[13] == 'P' && buf[14] == '8')
+	{
+		switch (buf[15])
+		{
+		case ' ':			
+			*x = get16bit(buf, 26) & 0x3FFF;
+			*y = get16bit(buf, 28) & 0x3FFF;
+			updateImageCache(fn, size, *x, *y);
+			return true;			
+		case 'X':
+			*x = 1 + (get24bit(buf, 24));
+			*y = 1 + (get24bit(buf, 27));
+			updateImageCache(fn, size, *x, *y);
+			return true;
+		case 'L':
+			{
+				int firstBytes = get16bit(buf, 21);
+				int width = 1 + (firstBytes & 0x3FFF);
+				int lastTwoDigits = (firstBytes & 0xC000) >> 14;
+				int height = 1 + (((get16bit(buf, 23) & 0xFFF) << 2) | lastTwoDigits);
+
+				*y = height;
+				*x = width;
+				updateImageCache(fn, size, *x, *y);
+				return true;
+			}
+		}
+
 		updateImageCache(fn, -1, -1, -1);
 		return false;
 	}

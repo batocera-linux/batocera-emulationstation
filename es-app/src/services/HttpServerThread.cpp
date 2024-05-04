@@ -99,6 +99,7 @@ static std::map<std::string, std::string> mimeTypes =
 	{ "jpg", "image/jpg" },
 	{ "png", "image/png" },
 	{ "gif", "image/gif" },
+	{ "webp", "image/webp" },
 	{ "svg", "image/svg+xml" },
 	{ "ico", "image/x-icon" },
 	{ "json", "application/json" },
