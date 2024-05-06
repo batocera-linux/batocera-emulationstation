@@ -30,6 +30,7 @@ struct CustomFeature
 	std::string description;
 	std::string submenu;
 	std::string preset;
+	std::string preset_parameters;
 
 	std::string group;
 	int order;

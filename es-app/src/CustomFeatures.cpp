@@ -445,6 +445,9 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 				if (featureNode.attribute("preset"))
 					cs.preset = featureNode.attribute("preset").value();
 
+				if (featureNode.attribute("preset-parameters"))
+					cs.preset_parameters = featureNode.attribute("preset-parameters").value();
+
 				if (featureNode.attribute("group"))
 					cs.group = featureNode.attribute("group").value();
 
@@ -471,6 +474,9 @@ CustomFeatures CustomFeatures::loadCustomFeatures(pugi::xml_node node)
 
 		if (featureNode.attribute("preset"))
 			feat.preset = featureNode.attribute("preset").value();
+
+		if (featureNode.attribute("preset-parameters"))
+			feat.preset_parameters = featureNode.attribute("preset-parameters").value();
 
 		if (featureNode.attribute("group"))
 			feat.group = featureNode.attribute("group").value();
