@@ -171,6 +171,7 @@ namespace PlatformIds
 		{ "cdi",					PHILIPS_CDI },			
 		{ "fm7",					FUJITSU_FM7 },
 		{ "pv1000",					CASIO_PV1000 },
+		{ "loopy",					CASIO_LOOPY },
 		{ "gamecom",				TIGER_GAMECOM },
 		{ "advision",				ENTEX_ADVENTURE_VISION },			
 		{ "arcadia",				EMERSON_ARCADIA_2001 },
