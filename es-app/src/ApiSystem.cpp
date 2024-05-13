@@ -1350,6 +1350,191 @@ void ApiSystem::setBrightness(int value)
 	Utils::FileSystem::writeAllText(BACKLIGHT_BRIGHTNESS_NAME, content);
 }
 
+static std::string LED_COLOUR_NAME;
+static std::string LED_BRIGHTNESS_VALUE;
+static std::string LED_MAX_BRIGHTNESS_VALUE;
+
+bool ApiSystem::getLED(int& red, int& green, int& blue)
+{	
+	#if WIN32
+	return false;
+	#endif
+
+	if (LED_COLOUR_NAME == "notfound")
+		return false;
+
+	if (LED_COLOUR_NAME.empty())
+	{
+		auto directories = Utils::FileSystem::getDirContent("/sys/class/leds");
+
+        for (const auto& directory : directories)
+        {
+            if (directory.find("multicolor") != std::string::npos)
+            {
+				std::string ledColourPath = directory + "/multi_intensity";
+				
+				if (Utils::FileSystem::exists(ledColourPath))
+				{
+					LED_COLOUR_NAME = ledColourPath;
+
+					LOG(LogInfo) << "ApiSystem::getLED > LED path resolved to " << directory;
+					break;
+				}
+			}
+		}
+	}
+
+	if (LED_COLOUR_NAME.empty())
+	{
+		LOG(LogInfo) << "ApiSystem::getLED > LED path is not resolved";
+
+		LED_COLOUR_NAME = "notfound";
+		return false;
+	}
+
+    if (Utils::FileSystem::exists(LED_COLOUR_NAME)) {
+        std::string colourValue = Utils::FileSystem::readAllText(LED_COLOUR_NAME);
+        std::stringstream ss(colourValue);
+        std::string token;
+
+        // Extract red value
+        std::getline(ss, token, ' ');
+        red = std::stoi(token);
+
+        // Extract green value
+        std::getline(ss, token, ' ');
+        green = std::stoi(token);
+
+        // Extract blue value
+        std::getline(ss, token);
+        blue = std::stoi(token);
+
+		LOG(LogInfo) << "ApiSystem::getLED > LED colours are:" << red << " " << green << " " << blue;
+
+        return true;
+    }
+}
+
+void ApiSystem::getLEDColours(int& red, int& green, int& blue)
+{
+	if (Utils::FileSystem::exists(LED_COLOUR_NAME)) {
+        std::string colourValue = Utils::FileSystem::readAllText(LED_COLOUR_NAME);
+        std::stringstream ss(colourValue);
+        std::string token;
+
+        // Extract red value
+        std::getline(ss, token, ' ');
+        red = std::stoi(token);
+
+        // Extract green value
+        std::getline(ss, token, ' ');
+        green = std::stoi(token);
+
+        // Extract blue value
+        std::getline(ss, token);
+        blue = std::stoi(token);
+
+		LOG(LogInfo) << "ApiSystem::getLEDColours > LED colours are: " << red << " " << green << " " << blue;
+    }
+}
+
+void ApiSystem::setLEDColours(int red, int green, int blue)
+{
+#if WIN32    
+    return;
+#endif 
+
+    if (LED_COLOUR_NAME.empty() || LED_COLOUR_NAME == "notfound")
+        return;
+
+    // Ensure RGB values are within valid range
+	if (red < 0) red = 0;
+    if (red > 255) red = 255;
+    if (green < 0) green = 0;
+    if (green > 255) green = 255;
+    if (blue < 0) blue = 0;
+    if (blue > 255) blue = 255;
+
+    std::string content = std::to_string(red) + " " + std::to_string(green) + " " + std::to_string(blue);
+
+    // Write LED color values to file
+    Utils::FileSystem::writeAllText(LED_COLOUR_NAME, content);
+}
+
+bool ApiSystem::getLEDBrightness(int& value)
+{   
+    #if WIN32
+    return false;
+    #endif
+
+    if (LED_BRIGHTNESS_VALUE == "notfound")
+        return false;
+
+    if (LED_BRIGHTNESS_VALUE.empty() || LED_MAX_BRIGHTNESS_VALUE.empty())
+    {
+        auto directories = Utils::FileSystem::getDirContent("/sys/class/leds");
+
+        for (const auto& directory : directories)
+        {
+            if (directory.find("multicolor") != std::string::npos)
+            {
+                std::string ledBrightnessPath = directory + "/brightness";
+                std::string ledMaxBrightnessPath = directory + "/max_brightness";
+
+                if (Utils::FileSystem::exists(ledBrightnessPath) && Utils::FileSystem::exists(ledMaxBrightnessPath))
+                {
+                    LED_BRIGHTNESS_VALUE = ledBrightnessPath;
+                    LED_MAX_BRIGHTNESS_VALUE = ledMaxBrightnessPath;
+
+                    LOG(LogInfo) << "ApiSystem::getLEDBrightness > LED brightness path resolved to " << directory;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (LED_BRIGHTNESS_VALUE.empty() || LED_MAX_BRIGHTNESS_VALUE.empty())
+    {
+        LOG(LogInfo) << "ApiSystem::getLEDBrightness > LED brightness path is not resolved";
+
+        LED_BRIGHTNESS_VALUE = "notfound";
+        return false;
+    }
+
+    value = 0;
+
+    int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
+    if (max == 0)
+        return false;
+
+    if (Utils::FileSystem::exists(LED_BRIGHTNESS_VALUE))
+        value = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_BRIGHTNESS_VALUE));
+
+    value = (uint32_t) ((value / (float)max * 100.0f) + 0.5f);
+    return true;
+}
+
+void ApiSystem::setLEDBrightness(int value) {
+#if WIN32
+    return;
+#endif
+
+    if (LED_BRIGHTNESS_VALUE.empty() || LED_BRIGHTNESS_VALUE == "notfound")
+        return;
+
+    if (value < 0) value = 0;
+	if (value > 100) value = 100;
+
+    int max = Utils::String::toInteger(Utils::FileSystem::readAllText(LED_MAX_BRIGHTNESS_VALUE));
+    if (max == 0)
+        return;
+
+    float percent = static_cast<float>(value) / 100.0f;
+	int brightnessValue = static_cast<int>(percent * max + 0.5f);
+    std::string content = std::to_string(brightnessValue) + "\n";
+    Utils::FileSystem::writeAllText(LED_BRIGHTNESS_VALUE, content);
+}
+
 std::vector<std::string> ApiSystem::getWifiNetworks(bool scan)
 {
 	return executeEnumerationScript(scan ? "batocera-wifi scanlist" : "batocera-wifi list");

@@ -245,6 +245,15 @@ public:
 	bool	getBrightness(int& value);
 	void	setBrightness(int value);
 
+	// LED RGB sliders
+	bool getLED(int& red, int& green, int& blue);
+	void getLEDColours(int& red, int& green, int& blue);
+	void setLEDColours(int red, int green, int blue);
+
+	// LED Brightness
+	bool getLEDBrightness(int& value);
+	void setLEDBrightness(int value);
+
 	std::vector<std::string> getWifiNetworks(bool scan = false);
 
 	bool downloadFile(const std::string url, const std::string fileName, const std::string label = "", const std::function<void(const std::string)>& func = nullptr);
