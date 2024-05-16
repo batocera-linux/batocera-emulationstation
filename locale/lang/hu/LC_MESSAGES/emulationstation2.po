@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-02-04 17:23+0100\n"
+"PO-Revision-Date: 2024-05-10 15:17+0200\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 msgid "UPDATE AVAILABLE"
 msgstr "FRISSÍTÉS ELÉRHETŐ"
@@ -870,7 +870,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "BLUETOOTH ENGEDÉLYEZÉSE"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "BLUETOOTH-PADOK AUTOMATIKUS PÁROSÍTÁSA"
@@ -882,7 +882,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "BEÁLLÍTÁSOK MEGJELENÍTÉSE"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "MUTASSA A VEZÉRLŐ ÉRTESÍTÉSÉT"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
@@ -1758,49 +1758,49 @@ msgid "SERVICES"
 msgstr "SZOLGÁLTATÁSOK"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "SZERVER"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDSERVER (valódi dmd-hez)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SZIMULÁTOR (web dmd-hez)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "dmd szerver"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "FORMÁTUM"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "dmd mátrix méret"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "MÁTRIX"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "rgb dmd sorrend"
 
 msgid "BRIGHTNESS"
 msgstr "FÉNYERŐ"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "A DMDSERVER leállt"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "A DMDSERVER újraindult"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "A DMDSERVER elindult"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "TÖBBKÉPERNYŐK"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "HÁTTÉRÜVEG / INFORMÁCIÓS KÉPERNYŐ"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEÓ KIMENET"
@@ -1809,10 +1809,10 @@ msgid "VIDEO MODE"
 msgstr "VIDEO MÓD"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Beállítja a kijelző felbontását."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "ELFORGATÁS"
 
 msgid "0 DEGREES"
 msgstr "0 FOK"
@@ -1830,7 +1830,7 @@ msgid "SCREEN ROTATION"
 msgstr "KÉPERNYŐ ELFORGATÁSA"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD KÉPERNYŐ"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND FEJLESZTŐI BEÁLLÍTÁSOK"
@@ -2030,10 +2030,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "FEGYVERMOZGÁS TŰRÉSHATÁR"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "PS3 VEZÉRLŐ TÁMOGATÁS ENGEDÉLYEZÉSE"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Negatív hatással lehet a biztonságra."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "ENGEDÉLYEZZE A HID JOYSTICK-ILLESZTŐPROGRAMOKAT"
