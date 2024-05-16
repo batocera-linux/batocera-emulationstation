@@ -1475,6 +1475,9 @@ msgstr "BANNER"
 msgid "PREFERED REGION"
 msgstr "BEVORZUGTE REGION"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "ÜBERSCHREIBE BESCHREIBUNGEN"
 
@@ -2246,6 +2249,12 @@ msgstr "an"
 
 msgid "OVERCLOCK"
 msgstr "ÜBERTAKTEN"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "DATENSPEICHER"

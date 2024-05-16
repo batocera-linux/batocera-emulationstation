@@ -1478,6 +1478,9 @@ msgstr "MARQUESINA"
 msgid "PREFERED REGION"
 msgstr "REGIÓ PREFERENT"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "SOBREESCRIURE DESCRIPCIONS"
 
@@ -2248,6 +2251,12 @@ msgstr "actiu"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "EMMAGATZEMATGE"

@@ -1470,6 +1470,9 @@ msgstr ""
 msgid "PREFERED REGION"
 msgstr ""
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr ""
 
@@ -2224,6 +2227,12 @@ msgstr "päällä"
 
 msgid "OVERCLOCK"
 msgstr "YLIKELLOTUS"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "TALLENUSTILA"

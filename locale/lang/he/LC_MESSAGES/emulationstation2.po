@@ -1459,6 +1459,9 @@ msgstr "דגל"
 msgid "PREFERED REGION"
 msgstr "איזור מועדף"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr ""
 
@@ -2201,6 +2204,12 @@ msgstr "פעיל"
 
 msgid "OVERCLOCK"
 msgstr "המהרה OVERCLOCK"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "איחסון"

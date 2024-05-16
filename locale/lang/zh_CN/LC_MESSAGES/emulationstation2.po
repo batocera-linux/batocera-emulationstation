@@ -1465,6 +1465,9 @@ msgstr "广告牌（marquee）"
 msgid "PREFERED REGION"
 msgstr "首选区域"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "覆盖描述"
 
@@ -2212,6 +2215,12 @@ msgstr "打开"
 
 msgid "OVERCLOCK"
 msgstr "超频"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "存储"

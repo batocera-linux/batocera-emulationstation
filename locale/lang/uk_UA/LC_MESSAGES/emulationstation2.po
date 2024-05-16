@@ -1460,6 +1460,9 @@ msgstr "БАНЕР"
 msgid "PREFERED REGION"
 msgstr ""
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr ""
 
@@ -2202,6 +2205,12 @@ msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "РОЗГІН"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "МІСЦЕ ЗБЕРЕЖЕННЯ"

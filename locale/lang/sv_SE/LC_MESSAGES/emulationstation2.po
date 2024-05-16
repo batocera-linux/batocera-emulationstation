@@ -1462,6 +1462,9 @@ msgstr "MARQUEE"
 msgid "PREFERED REGION"
 msgstr "FÖREDRAGEN REGION"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "SKRIV ÖVER BESKRIVNINGAR"
 
@@ -2213,6 +2216,12 @@ msgstr "på"
 
 msgid "OVERCLOCK"
 msgstr "ÖVERKLOCKNING"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "LAGRING"

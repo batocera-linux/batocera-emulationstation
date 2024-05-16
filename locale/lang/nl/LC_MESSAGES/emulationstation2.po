@@ -1474,6 +1474,9 @@ msgstr "MARQUEE"
 msgid "PREFERED REGION"
 msgstr "VOORKEURSREGIO"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "OVERSCHRIJF OMSCHRIJVINGEN"
 
@@ -2250,6 +2253,12 @@ msgstr "aan"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "OPSLAG"

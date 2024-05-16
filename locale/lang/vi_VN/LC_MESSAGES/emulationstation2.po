@@ -1476,6 +1476,9 @@ msgstr "LỀU BẠT"
 msgid "PREFERED REGION"
 msgstr "KHU VỰC ƯU TIÊN"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "GHI ĐÈ MÔ TẢ"
 
@@ -2242,6 +2245,12 @@ msgstr "bật"
 
 msgid "OVERCLOCK"
 msgstr "ÉP XUNG"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "LƯU TRỮ"

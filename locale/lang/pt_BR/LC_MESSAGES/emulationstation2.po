@@ -1482,6 +1482,9 @@ msgstr "LETREIRO"
 msgid "PREFERED REGION"
 msgstr "PRIORIZAR REGIÃO"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "SOBRESCREVER DESCRIÇÕES"
 
@@ -2257,6 +2260,12 @@ msgstr "ligado"
 
 msgid "OVERCLOCK"
 msgstr "FORÇAR O PROCESSADOR"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "ARMAZENAMENTO"

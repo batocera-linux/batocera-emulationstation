@@ -1475,6 +1475,9 @@ msgstr "マーキー<marquee>"
 msgid "PREFERED REGION"
 msgstr "ゲーム優先リージョン<region>"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "説明を上書き"
 
@@ -2237,6 +2240,12 @@ msgstr "オン"
 
 msgid "OVERCLOCK"
 msgstr "オーバークロック"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "ストレージ"

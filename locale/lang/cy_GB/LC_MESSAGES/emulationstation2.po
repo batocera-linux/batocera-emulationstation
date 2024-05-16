@@ -1463,6 +1463,9 @@ msgstr "MARQUEE"
 msgid "PREFERED REGION"
 msgstr ""
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr ""
 
@@ -2205,6 +2208,12 @@ msgstr ""
 
 msgid "OVERCLOCK"
 msgstr "TROSGLOCIO"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "STORFA"

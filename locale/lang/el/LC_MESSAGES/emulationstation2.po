@@ -1455,6 +1455,9 @@ msgstr "ΛΟΓΟΤΥΠΟ"
 msgid "PREFERED REGION"
 msgstr ""
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr ""
 
@@ -2200,6 +2203,12 @@ msgstr "ενεργό"
 
 msgid "OVERCLOCK"
 msgstr "ΥΠΕΡΧΡΟΝΙΣΜΟΣ"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "ΑΠΟΘΗΚΕΥΣΗ"

@@ -1505,6 +1505,9 @@ msgstr "شاشة أسمية"
 msgid "PREFERED REGION"
 msgstr "المنطقة المفضلة"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "الكتابة فوق الأوصاف"
 
@@ -2261,6 +2264,12 @@ msgstr "مفعل"
 
 msgid "OVERCLOCK"
 msgstr "كسر السرعة"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "التخزين"

@@ -1472,6 +1472,9 @@ msgstr "Markíza"
 msgid "PREFERED REGION"
 msgstr "Preferovaný región"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "Prepísať popisy"
 
@@ -2232,6 +2235,12 @@ msgstr "zapnuté"
 
 msgid "OVERCLOCK"
 msgstr "Pretaktovanie"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "Úložisko"

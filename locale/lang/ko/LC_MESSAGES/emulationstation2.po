@@ -1466,6 +1466,9 @@ msgstr "마키"
 msgid "PREFERED REGION"
 msgstr ""
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr ""
 
@@ -2216,6 +2219,12 @@ msgstr "켜짐"
 
 msgid "OVERCLOCK"
 msgstr "오버클럭"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "저장소"

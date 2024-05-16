@@ -1469,6 +1469,9 @@ msgstr "MARQUEE"
 msgid "PREFERED REGION"
 msgstr "PREFERED REGION"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "OVERWRITE DESCRIPTIONS"
 
@@ -1961,7 +1964,8 @@ msgid "PARSE GAMELISTS ONLY"
 msgstr "PARSE GAMELISTS ONLY"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
-msgstr "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
+"Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SEARCH FOR LOCAL ART"
@@ -2225,6 +2229,12 @@ msgstr "on"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "STORAGE"
@@ -2700,7 +2710,8 @@ msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "AUTO SAVE/LOAD ON GAME LAUNCH"
 
 msgid "Load latest save state on game launch and save state when exiting game."
-msgstr "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Load latest save state on game launch and save state when exiting game."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "SHOW CONTROLLER OVERLAYS"

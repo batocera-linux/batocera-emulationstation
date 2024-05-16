@@ -1473,6 +1473,9 @@ msgstr "MARQUEE"
 msgid "PREFERED REGION"
 msgstr "ELŐNYBEN RÉSZESÍTETT RÉGIÓ"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "A LEÍRÁSOK FELÜLÍRÁSA"
 
@@ -2246,6 +2249,12 @@ msgstr "be"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "TÁROLÓ"

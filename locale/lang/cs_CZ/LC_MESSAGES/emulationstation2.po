@@ -1470,6 +1470,9 @@ msgstr "MARQUEE"
 msgid "PREFERED REGION"
 msgstr "PREFEROVANÁ OBLAST"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "PŘEPSAT POPISY"
 
@@ -2233,6 +2236,12 @@ msgstr "zapnout"
 
 msgid "OVERCLOCK"
 msgstr "PŘETAKTOVÁNÍ"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "ULOŽIŠTĚ"

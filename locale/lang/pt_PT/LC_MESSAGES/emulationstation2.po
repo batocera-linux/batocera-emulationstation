@@ -1476,6 +1476,9 @@ msgstr "LETREIRO"
 msgid "PREFERED REGION"
 msgstr "REGIÃO PREFERIDA"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "SUBSTITUIR DESCRIÇÕES"
 
@@ -2241,6 +2244,12 @@ msgstr "ligado"
 
 msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "ARMAZENAMENTO"
@@ -3438,7 +3447,6 @@ msgstr "LEITOR DE ECRÃ ATIVADO"
 
 msgid "SCREEN READER DISABLED"
 msgstr "LEITOR DE ECRÃ DESATIVADO"
-
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

@@ -1475,6 +1475,9 @@ msgstr "MARQUEE"
 msgid "PREFERED REGION"
 msgstr "PREFEROWANY REGION"
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "ZASTĄP OPISY"
 
@@ -2244,6 +2247,12 @@ msgstr "wł."
 
 msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "PRZECHOWYWANIE DANYCH"

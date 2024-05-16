@@ -1467,6 +1467,9 @@ msgstr "跑馬燈"
 msgid "PREFERED REGION"
 msgstr ""
 
+msgid "OVERWRITE NAMES"
+msgstr ""
+
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "覆寫描述"
 
@@ -2214,6 +2217,12 @@ msgstr "開啟"
 
 msgid "OVERCLOCK"
 msgstr "超頻"
+
+msgid "LED HARDWARE"
+msgstr ""
+
+msgid "LED BRIGHTNESS"
+msgstr ""
 
 msgid "STORAGE"
 msgstr "儲存"
