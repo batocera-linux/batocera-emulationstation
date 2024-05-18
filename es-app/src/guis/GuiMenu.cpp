@@ -437,14 +437,6 @@ void GuiMenu::openDmdSettings()
 	format->addRange({ { _("AUTO"), "" }, { "SD", "sd" }, { "HD", "hd" } }, current_format);
 	s->addWithDescription(_("FORMAT"), _("dmd matrix size"), format);
 
-	s->addGroup("PIXELCADE");
-
-	// pixelcade.matrix
-	auto pixelcade_matrix = std::make_shared< OptionListComponent<std::string> >(window, _("MATRIX"), false);
-	std::string current_pixelcade_matrix = SystemConf::getInstance()->get("dmd.pixelcade.matrix");
-	pixelcade_matrix->addRange({ { _("AUTO"), "" }, { "RGB", "rgb" }, { "RBG", "rbg" } }, current_pixelcade_matrix);
-	s->addWithDescription(_("MATRIX"), _("rgb dmd order"), pixelcade_matrix);
-
 	s->addGroup("ZEDMD");
 
 	// zedmd.matrix
@@ -459,17 +451,12 @@ void GuiMenu::openDmdSettings()
 	zedmd_brightness->addRange({ { _("AUTO"), "" }, { "0", "0" }, { "1", "1" }, { "2", "2" }, { "3", "3" }, { "4", "4" }, { "5", "5" }, { "6", "6" }, { "7", "7" }, { "8", "8" }, { "9", "9" }, { "10", "10" }, { "11", "11" }, { "12", "12" }, { "13", "13" }, { "14", "14" }, { "15", "15" } }, current_zedmd_brightness);
 	s->addWithLabel(_("BRIGHTNESS"), zedmd_brightness);
 
-	s->addSaveFunc([window, server, format, pixelcade_matrix, zedmd_matrix, zedmd_brightness, current_server, current_format, current_pixelcade_matrix, current_zedmd_matrix, current_zedmd_brightness] {
+	s->addSaveFunc([window, server, format, zedmd_matrix, zedmd_brightness, current_server, current_format, current_zedmd_matrix, current_zedmd_brightness] {
 	  bool needRestart = false;
 	  bool needSave    = false;
 
 	  if(current_format != format->getSelected()) {
 	    SystemConf::getInstance()->set("dmd.format", format->getSelected());
-	    needSave = true;
-	  }
-	  if(current_pixelcade_matrix != pixelcade_matrix->getSelected()) {
-	    SystemConf::getInstance()->set("dmd.pixelcade.matrix", pixelcade_matrix->getSelected());
-	    needRestart = true;
 	    needSave = true;
 	  }
 	  if(current_zedmd_matrix != zedmd_matrix->getSelected()) {
