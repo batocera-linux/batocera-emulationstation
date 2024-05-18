@@ -1476,7 +1476,7 @@ msgid "PREFERED REGION"
 msgstr "RÉGION PRÉFÉRÉE"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "ÉCRASER LES NOMS"
 
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "ÉCRASER LES DESCRIPTIONS"
@@ -1975,7 +1975,6 @@ msgstr "SAUVEGARDER LES MÉTADONNÉES EN QUITTANT"
 msgid "PARSE GAMELISTS ONLY"
 msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
 
-#, fuzzy
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
 "Debug: Ne pas vérifier si les ROMs existent. Peut causer des problèmes!"
@@ -2246,10 +2245,10 @@ msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "LEDS"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "LUMINOSITÉ DES LEDS"
 
 msgid "STORAGE"
 msgstr "STOCKAGE"
@@ -3089,7 +3088,6 @@ msgstr "RECHERCHE DES PARTIES EN RÉSEAU"
 msgid "INDEXING COMPLETED"
 msgstr "INDEXATION TERMINÉE"
 
-#, fuzzy
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 
