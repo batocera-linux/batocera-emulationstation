@@ -1477,7 +1477,7 @@ msgid "PREFERED REGION"
 msgstr "REGIÃO PREFERIDA"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "SUBSTITUIR NOMES"
 
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "SUBSTITUIR DESCRIÇÕES"
@@ -2246,10 +2246,10 @@ msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "LED HARDWARE"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "BRILHO DO LED"
 
 msgid "STORAGE"
 msgstr "ARMAZENAMENTO"
