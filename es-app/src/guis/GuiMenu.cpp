@@ -545,44 +545,44 @@ void GuiMenu::openMultiScreensSettings()
 				s->setVariable("exitreboot", true);
 			}
 		});
+
+		// video resolution2
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION)) {
+		  auto videoModeOptionList2 = createVideoResolutionModeOptionList(mWindow, "es", "resolution2", optionsVideo2->getSelected() == "auto" ? "none" : optionsVideo2->getSelected());
+		  s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution."), videoModeOptionList2);
+		  s->addSaveFunc([this, videoModeOptionList2, s] {
+		    if(videoModeOptionList2->changed()) {
+		      SystemConf::getInstance()->set("es.resolution2", videoModeOptionList2->getSelected());
+		      SystemConf::getInstance()->saveSystemConf();
+		      s->setVariable("exitreboot", true);
+		    }
+		  });
+		}
+
+		// video rotation2
+		auto optionsRotation2 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("ROTATION"), false);
+
+		std::string selectedRotation2 = SystemConf::getInstance()->get("display.rotate2");
+		if (selectedRotation2.empty())
+		  selectedRotation2 = "auto";
+
+		optionsRotation2->add(_("AUTO"),          "auto", selectedRotation2 == "auto");
+		optionsRotation2->add(_("0 DEGREES"),        "0", selectedRotation2 == "0");
+		optionsRotation2->add(_("90 DEGREES"),       "1", selectedRotation2 == "1");
+		optionsRotation2->add(_("180 DEGREES"),      "2", selectedRotation2 == "2");
+		optionsRotation2->add(_("270 DEGREES"),      "3", selectedRotation2 == "3");
+
+		s->addWithLabel(_("SCREEN ROTATION"), optionsRotation2);
+
+		s->addSaveFunc([this, optionsRotation2, selectedRotation2, s]
+		{
+		  if (optionsRotation2->changed()) {
+		    SystemConf::getInstance()->set("display.rotate2", optionsRotation2->getSelected());
+		    SystemConf::getInstance()->saveSystemConf();
+		    s->setVariable("exitreboot", true);
+		  }
+		});
 	}
-
-	// video resolution2
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION)) {
-	  auto videoModeOptionList2 = createVideoResolutionModeOptionList(mWindow, "es", "resolution2");
-	  s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution."), videoModeOptionList2);
-	  s->addSaveFunc([this, videoModeOptionList2, s] {
-	    if(videoModeOptionList2->changed()) {
-	      SystemConf::getInstance()->set("es.resolution2", videoModeOptionList2->getSelected());
-	      SystemConf::getInstance()->saveSystemConf();
-	      s->setVariable("exitreboot", true);
-	    }
-	  });
-	}
-
-	// video rotation2
-	auto optionsRotation2 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("ROTATION"), false);
-
-	std::string selectedRotation2 = SystemConf::getInstance()->get("display.rotate2");
-	if (selectedRotation2.empty())
-		selectedRotation2 = "auto";
-
-	optionsRotation2->add(_("AUTO"),          "auto", selectedRotation2 == "auto");
-	optionsRotation2->add(_("0 DEGREES"),        "0", selectedRotation2 == "0");
-	optionsRotation2->add(_("90 DEGREES"),       "1", selectedRotation2 == "1");
-	optionsRotation2->add(_("180 DEGREES"),      "2", selectedRotation2 == "2");
-	optionsRotation2->add(_("270 DEGREES"),      "3", selectedRotation2 == "3");
-
-	s->addWithLabel(_("SCREEN ROTATION"), optionsRotation2);
-
-	s->addSaveFunc([this, optionsRotation2, selectedRotation2, s]
-	{
-	  if (optionsRotation2->changed()) {
-	    SystemConf::getInstance()->set("display.rotate2", optionsRotation2->getSelected());
-	    SystemConf::getInstance()->saveSystemConf();
-	    s->setVariable("exitreboot", true);
-	  }
-	});
 
 	s->addGroup(_("DMD SCREEN"));
 
@@ -617,46 +617,45 @@ void GuiMenu::openMultiScreensSettings()
 				s->setVariable("exitreboot", true);
 			}
 		});
+
+		// video resolution3
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION)) {
+		  auto videoModeOptionList3 = createVideoResolutionModeOptionList(mWindow, "es", "resolution3", optionsVideo3->getSelected() == "auto" ? "none" : optionsVideo3->getSelected());
+		  s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution."), videoModeOptionList3);
+		  s->addSaveFunc([this, videoModeOptionList3, s] {
+		    if(videoModeOptionList3->changed()) {
+		      SystemConf::getInstance()->set("es.resolution3", videoModeOptionList3->getSelected());
+		      SystemConf::getInstance()->saveSystemConf();
+		      s->setVariable("exitreboot", true);
+		    }
+		  });
+		}
+
+		// video rotation3
+		auto optionsRotation3 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("ROTATION"), false);
+
+		std::string selectedRotation3 = SystemConf::getInstance()->get("display.rotate3");
+		if (selectedRotation3.empty())
+		  selectedRotation3 = "auto";
+
+		optionsRotation3->add(_("AUTO"),          "auto", selectedRotation3 == "auto");
+		optionsRotation3->add(_("0 DEGREES"),        "0", selectedRotation3 == "0");
+		optionsRotation3->add(_("90 DEGREES"),       "1", selectedRotation3 == "1");
+		optionsRotation3->add(_("180 DEGREES"),      "2", selectedRotation3 == "2");
+		optionsRotation3->add(_("270 DEGREES"),      "3", selectedRotation3 == "3");
+
+		s->addWithLabel(_("SCREEN ROTATION"), optionsRotation3);
+
+		s->addSaveFunc([this, optionsRotation3, selectedRotation3, s]
+		{
+		  if (optionsRotation3->changed()) 
+		    {
+		      SystemConf::getInstance()->set("display.rotate3", optionsRotation3->getSelected());
+		      SystemConf::getInstance()->saveSystemConf();
+		      s->setVariable("exitreboot", true);
+		    }
+		});
 	}
-
-	// video resolution3
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION)) {
-	  auto videoModeOptionList3 = createVideoResolutionModeOptionList(mWindow, "es", "resolution3");
-	  s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution."), videoModeOptionList3);
-	  s->addSaveFunc([this, videoModeOptionList3, s] {
-	    if(videoModeOptionList3->changed()) {
-	      SystemConf::getInstance()->set("es.resolution3", videoModeOptionList3->getSelected());
-	      SystemConf::getInstance()->saveSystemConf();
-	      s->setVariable("exitreboot", true);
-	    }
-	  });
-	}
-
-	// video rotation3
-	auto optionsRotation3 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("ROTATION"), false);
-
-	std::string selectedRotation3 = SystemConf::getInstance()->get("display.rotate3");
-	if (selectedRotation3.empty())
-		selectedRotation3 = "auto";
-
-	optionsRotation3->add(_("AUTO"),          "auto", selectedRotation3 == "auto");
-	optionsRotation3->add(_("0 DEGREES"),        "0", selectedRotation3 == "0");
-	optionsRotation3->add(_("90 DEGREES"),       "1", selectedRotation3 == "1");
-	optionsRotation3->add(_("180 DEGREES"),      "2", selectedRotation3 == "2");
-	optionsRotation3->add(_("270 DEGREES"),      "3", selectedRotation3 == "3");
-
-	s->addWithLabel(_("SCREEN ROTATION"), optionsRotation3);
-
-	s->addSaveFunc([this, optionsRotation3, selectedRotation3, s]
-	{
-	  if (optionsRotation3->changed()) 
-{
-	    SystemConf::getInstance()->set("display.rotate3", optionsRotation3->getSelected());
-	    SystemConf::getInstance()->saveSystemConf();
-	    s->setVariable("exitreboot", true);
-	  }
-	});
-
 #endif
 
 	s->onFinalize([s, window]
@@ -4599,7 +4598,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createRatioOptionList
 	return ratio_choice;
 }
 
-std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window, std::string configname, std::string configoptname) 
+std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolutionModeOptionList(Window *window, std::string configname, std::string configoptname, const std::string output) 
 {
 	auto videoResolutionMode_choice = std::make_shared<OptionListComponent<std::string> >(window, _("VIDEO MODE"), false);
 
@@ -4607,7 +4606,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiMenu::createVideoResolution
 	if (currentVideoMode.empty())
 		currentVideoMode = std::string("auto");
 	
-	std::vector<std::string> videoResolutionModeMap = ApiSystem::getInstance()->getVideoModes();
+	std::vector<std::string> videoResolutionModeMap = ApiSystem::getInstance()->getVideoModes(output);
 	videoResolutionMode_choice->add(_("AUTO"), "auto", currentVideoMode == "auto");
 	for (auto videoMode = videoResolutionModeMap.begin(); videoMode != videoResolutionModeMap.end(); videoMode++)
 	{
