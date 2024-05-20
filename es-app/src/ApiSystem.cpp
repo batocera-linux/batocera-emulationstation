@@ -1687,6 +1687,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::SERVICES:
 		executables.push_back("batocera-services");
 		break;
+	case ApiSystem::BACKGLASS:
+		executables.push_back("batocera-backglass");
+		break;
 	}
 
 	if (executables.size() == 0)
@@ -2254,6 +2257,25 @@ std::vector<Service> ApiSystem::getServices()
 		}
 	}
 	return services;
+}
+
+std::vector<std::string> ApiSystem::backglassThemes() {
+  std::vector<std::string> themes;
+
+  LOG(LogDebug) << "ApiSystem::backglassThemes";
+
+  auto slines = executeEnumerationScript("batocera-backglass list-themes");
+
+  for (auto sline : slines) 
+    {
+      themes.push_back(sline);
+    }
+  return themes;
+}
+
+void ApiSystem::restartBackglass() {
+  LOG(LogDebug) << "ApiSystem::restartBackglass";
+  executeScript("/usr/bin/batocera-backglass restart");
 }
 
 bool ApiSystem::enableService(std::string name, bool enable) 
