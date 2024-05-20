@@ -976,7 +976,7 @@ bool Win32ApiSystem::isReadyFlagSet()
 	return Utils::FileSystem::exists(Paths::getUserEmulationStationPath() + "/tmp/emulationstation.ready");
 }
 
-std::vector<std::string> Win32ApiSystem::getVideoModes()
+std::vector<std::string> Win32ApiSystem::getVideoModes(const std::string output)
 {
 	std::vector<std::string> ret;
 

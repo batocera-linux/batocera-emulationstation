@@ -536,9 +536,13 @@ std::vector<std::string> ApiSystem::getAvailableStorageDevices()
 	return executeEnumerationScript("batocera-config storage list");
 }
 
-std::vector<std::string> ApiSystem::getVideoModes() 
+std::vector<std::string> ApiSystem::getVideoModes(const std::string output)
 {
-	return executeEnumerationScript("batocera-resolution listModes");
+  if(output == "") {
+    return executeEnumerationScript("batocera-resolution listModes");
+  } else {
+    return executeEnumerationScript("batocera-resolution --screen \"" + output + "\" listModes");
+  }
 }
 
 std::vector<std::string> ApiSystem::getCustomRunners() 
