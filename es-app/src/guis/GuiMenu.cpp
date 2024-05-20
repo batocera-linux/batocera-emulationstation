@@ -513,11 +513,38 @@ void GuiMenu::openMultiScreensSettings()
 
 #ifdef BATOCERA
 	s->addGroup(_("BACKGLASS / INFORMATION SCREEN"));
-
+	
 	// video device2
 	std::vector<std::string> availableVideo2 = ApiSystem::getInstance()->getAvailableVideoOutputDevices();
 	if (availableVideo2.size())
 	{
+	        if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BACKGLASS)) {
+			// theme
+			auto themes = ApiSystem::getInstance()->backglassThemes();
+			auto selectedTheme = SystemConf::getInstance()->get("backglass.theme");
+			auto theme = std::make_shared<OptionListComponent<std::string> >(mWindow, _("THEME"), false);
+			
+			std::vector<std::string> themeList;
+			for (auto it = themes.begin(); it != themes.end(); it++)
+			  themeList.push_back(*it);
+			std::sort(themeList.begin(), themeList.end(), [](const std::string& a, const std::string& b) -> bool { return Utils::String::toLower(a).compare(Utils::String::toLower(b)) < 0; });
+
+			theme->add(_("AUTO"), "auto", selectedTheme == "" || selectedTheme == "auto");
+			for (auto themeName : themeList)
+			  theme->add(themeName, themeName, themeName == selectedTheme);
+			
+			s->addWithLabel(_("THEME"), theme);
+			s->addSaveFunc([theme]
+			{
+			  std::string oldTheme = SystemConf::getInstance()->get("backglass.theme");
+			  if (oldTheme != theme->getSelected()) {
+			    SystemConf::getInstance()->set("backglass.theme", theme->getSelected());
+			    SystemConf::getInstance()->saveSystemConf();
+			    ApiSystem::getInstance()->restartBackglass();
+			  }
+			});
+		}
+
 		auto optionsVideo2 = std::make_shared<OptionListComponent<std::string> >(mWindow, _("VIDEO OUTPUT"), false);
 		std::string currentDevice2 = SystemConf::getInstance()->get("global.videooutput2");
 		std::string currentDevice = SystemConf::getInstance()->get("global.videooutput");

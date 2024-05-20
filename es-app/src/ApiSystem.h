@@ -124,6 +124,7 @@ public:
 		SERVICES = 28,
 		READPLANEMODE = 29,
 		WRITEPLANEMODE = 30,
+		BACKGLASS = 31,
 	};
 
 	virtual bool isScriptingSupported(ScriptId script);
@@ -279,15 +280,18 @@ public:
 	virtual void suspend();
 
   	virtual void replugControllers_sindenguns();
-    virtual void replugControllers_wiimotes();
-    virtual void replugControllers_steamdeckguns();
+	virtual void replugControllers_wiimotes();
+	virtual void replugControllers_steamdeckguns();
 
-    virtual bool isPlaneMode();
-    virtual bool setPlaneMode(bool enable);
+	virtual bool isPlaneMode();
+	virtual bool setPlaneMode(bool enable);
 	virtual bool isReadPlaneModeSupported();
 
-    virtual std::vector<Service> getServices();
-    virtual bool enableService(std::string name, bool enable);
+	virtual std::vector<Service> getServices();
+	virtual bool enableService(std::string name, bool enable);
+
+	virtual std::vector<std::string> backglassThemes();
+	virtual void restartBackglass();
 
 protected:
 	ApiSystem();
