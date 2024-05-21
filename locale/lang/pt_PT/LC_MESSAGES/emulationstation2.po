@@ -993,7 +993,7 @@ msgid "BACKGLASS / INFORMATION SCREEN"
 msgstr "BACKGLASS / ECRÃ DE INFORMAÇÕES"
 
 msgid "THEME"
-msgstr ""
+msgstr "TEMA"
 
 msgid "VIDEO OUTPUT"
 msgstr "SAÍDA DE VÍDEO"
