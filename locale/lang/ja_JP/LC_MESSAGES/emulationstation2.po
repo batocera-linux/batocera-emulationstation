@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v40b(2024/04/07)\n"
+"Project-Id-Version: batocera-es v40b(2024/05/17)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-04-07 21:31+0900\n"
+"PO-Revision-Date: 2024-05-17 20:42+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH 検出中"
@@ -958,13 +958,13 @@ msgid "dmd server"
 msgstr "DMDサーバー"
 
 msgid "FORMAT"
-msgstr "フォーマット 開始"
+msgstr "DMD 形式"
 
 msgid "AUTO"
 msgstr "自動"
 
 msgid "dmd matrix size"
-msgstr "dmdマトリクスサイズ"
+msgstr "DMDマトリクスサイズ"
 
 msgid "MATRIX"
 msgstr "マトリクス"
@@ -1437,7 +1437,7 @@ msgid "OVERCLOCK"
 msgstr "オーバークロック"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "LED ハードウェア"
 
 msgid "RED"
 msgstr "赤"
@@ -1449,7 +1449,7 @@ msgid "BLUE"
 msgstr "青"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "LED 輝度"
 
 msgid "STORAGE"
 msgstr "ストレージ"
@@ -2189,7 +2189,7 @@ msgid "PREFERED REGION"
 msgstr "ゲーム優先リージョン<region>"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "名前を上書き"
 
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "説明を上書き"
@@ -3432,12 +3432,3 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
-
-#~ msgid "-10 for auto"
-#~ msgstr "自動は -10"
-
-#~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
-#~ msgstr "テーマファイルからコレクションを作成"
-
-#~ msgid "SELECT THEME FOLDER"
-#~ msgstr "追加するコレクションを選択"
