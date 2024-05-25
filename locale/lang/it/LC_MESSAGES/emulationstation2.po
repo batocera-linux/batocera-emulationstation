@@ -987,7 +987,7 @@ msgid "BACKGLASS / INFORMATION SCREEN"
 msgstr "VETRO POSTERIORE / SCHERMO INFORMAZIONI"
 
 msgid "THEME"
-msgstr ""
+msgstr "TEMA"
 
 msgid "VIDEO OUTPUT"
 msgstr "USCITA VIDEO"
@@ -1434,7 +1434,7 @@ msgid "OVERCLOCK"
 msgstr "OVERCLOCK"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "HARDWARE LED"
 
 msgid "RED"
 msgstr "ROSSO"
@@ -1446,7 +1446,7 @@ msgid "BLUE"
 msgstr "BLU"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "LUMINOSITA' LED"
 
 msgid "STORAGE"
 msgstr "ARCHIVIO"
@@ -2192,7 +2192,7 @@ msgid "PREFERED REGION"
 msgstr "REGIONE PREFERITA"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "SOVRASCRIVI NOMI"
 
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "SOVRASCRIVI DESCRIZIONI"
