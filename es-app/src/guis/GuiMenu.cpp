@@ -559,8 +559,10 @@ void GuiMenu::openMultiScreensSettings()
 				vfound = true;
 		}
 
-		if (!vfound)
+		if (!vfound && currentDevice2 != "none")
 			optionsVideo2->add(currentDevice2, currentDevice2, true);
+		// add the none value
+		optionsVideo2->add(_("NONE"), "none", currentDevice2 == "none");
 
 		s->addWithLabel(_("VIDEO OUTPUT"), optionsVideo2);
 		s->addSaveFunc([this, optionsVideo2, currentDevice2, s] 
