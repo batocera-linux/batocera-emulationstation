@@ -991,7 +991,7 @@ msgid "BACKGLASS / INFORMATION SCREEN"
 msgstr "BACKGLASS / EKRAN INFORMACJI"
 
 msgid "THEME"
-msgstr ""
+msgstr "MOTYW"
 
 msgid "VIDEO OUTPUT"
 msgstr "WYJŚCIE WIDEO"
@@ -1000,7 +1000,7 @@ msgid "VIDEO MODE"
 msgstr "TRYB WIDEO"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Ustawia rozdzielczość wyświetlacza."
 
 msgid "ROTATION"
 msgstr "OBRÓT"
@@ -1444,7 +1444,7 @@ msgid "OVERCLOCK"
 msgstr "PRZETAKTOWANIE"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "TWORZYWO DIODY"
 
 msgid "RED"
 msgstr "CZERWONY"
@@ -1456,7 +1456,7 @@ msgid "BLUE"
 msgstr "NIEBIESKI"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "JASNOŚĆ DIODY"
 
 msgid "STORAGE"
 msgstr "PRZECHOWYWANIE DANYCH"
@@ -2202,7 +2202,7 @@ msgid "PREFERED REGION"
 msgstr "PREFEROWANY REGION"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "ZASTĄP NAZWY"
 
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "ZASTĄP OPISY"
