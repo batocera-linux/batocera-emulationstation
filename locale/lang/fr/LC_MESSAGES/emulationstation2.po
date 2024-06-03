@@ -991,7 +991,7 @@ msgid "BACKGLASS / INFORMATION SCREEN"
 msgstr "PLATEAU / ÉCRAN D'INFORMATION"
 
 msgid "THEME"
-msgstr ""
+msgstr "THÈME"
 
 msgid "VIDEO OUTPUT"
 msgstr "SORTIE VIDÉO"
