@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.4\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНИРОВАНИЕ"
@@ -544,11 +544,11 @@ msgstr "ПОИСК"
 
 #, c-format
 msgid "%d of %d softcore points"
-msgstr ""
+msgstr "%d из %d очков софткора"
 
 #, c-format
 msgid "%d of %d hardcore points"
-msgstr ""
+msgstr "%d из %d очков хардкора"
 
 #, c-format
 msgid "%d%% (%d of %d)"
@@ -939,58 +939,58 @@ msgid "SERVICES"
 msgstr "СЕРВИСЫ"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "СЕРВЕР"
 
 msgid "DISABLED"
 msgstr "ОТКЛЮЧЕНО"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDSERVER (для настоящего dmd)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SIMULATOR (для web dmd)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "dmd сервер"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "ФОРМАТ"
 
 msgid "AUTO"
 msgstr "АВТО"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "dmd размер матрицы"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "МАТРИЦА"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "порядок rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMDSERVER остановлен"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMDSERVER перезапущен"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMDSERVER запущен"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "МУЛЬТИЭКРАНЫ"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "ЗАДНЕЕ СТЕКЛО / ЭКРАН ИНФОРМАЦИИ"
 
 msgid "THEME"
-msgstr ""
+msgstr "ТЕМА"
 
 msgid "VIDEO OUTPUT"
 msgstr "ВИДЕО ВЫХОД"
@@ -999,10 +999,10 @@ msgid "VIDEO MODE"
 msgstr "РАЗРЕШЕНИЕ"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Устанавливает разрешение экрана."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "ПОВОРОТ"
 
 msgid "0 DEGREES"
 msgstr "0 ГРАДУСОВ"
@@ -1020,7 +1020,7 @@ msgid "SCREEN ROTATION"
 msgstr "ПОВОРОТ ЭКРАНА"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD ЭКРАН"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "НАСТРОЙКИ РАЗРАБОТЧИКА"
@@ -1085,22 +1085,24 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "ОЧИСТИТЬ СПИСОК ИГР И УДАЛИТЬ НЕ ИСПОЛЬЗУЕМЫЕ МЕДИА"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Удаляет неиспользуемые записи и очищает ссылки на отсутствующие медиа."
 
 msgid "Cleaning"
 msgstr "Очистка"
 
 msgid "RESET GAMELISTS USAGE DATA"
-msgstr ""
+msgstr "СБРОС СТАТИСТИКИ ИСП. ГЕЙМЛИСТОВ"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
+"Сбросить значения о времени игры, кол-ве запусков и дате посл. запуска "
+"(GameTime, PlayCount, LastPlayed)."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "Сбросить настроенные фильтры расширений файлов по умолчанию."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "ПЕРЕОПРЕДЕЛИТЬ ЯЗЫК/РЕГИОН ИГР"
@@ -1118,22 +1120,22 @@ msgid "Building image cache"
 msgstr "Создание кэша изображений"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ ЭКРАНА"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "МАСШТАБ ШРИФТОВ МЕНЮ"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "МАСШТАБ ШРИФТОВ"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "МАСШТАБ ШРИФТОВ ТЕМЫ"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "ПОЛНОЭКРАННОЕ МЕНЮ"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "ПРИНУДИТЕЛЬНО МАЛЕНЬКИЙ ЭКРАН ТЕМЫ"
 
 msgid "DATA MANAGEMENT"
 msgstr "УПРАВЛЕНИЕ ДАННЫМИ"
@@ -1215,10 +1217,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "ДОПУСТИМОСТЬ ПЕРЕМЕЩЕНИЯ ПИСТОЛЕТА"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ ПОДДЕРЖКУ PS3 КОНТРОЛЛЕРА"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Может оказать негативное влияние на безопасность."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "ВКЛЮЧИТЬ HID ДРАЙВЕРЫ ДЖОЙСТИКОВ"
@@ -1433,7 +1435,7 @@ msgid "OVERCLOCK"
 msgstr "РАЗГОН"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "LED HARDWARE"
 
 msgid "RED"
 msgstr "КРАСНЫЙ"
@@ -1445,7 +1447,7 @@ msgid "BLUE"
 msgstr "СИНИЙ"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "LED ЯРКОСТЬ"
 
 msgid "STORAGE"
 msgstr "МЕСТО ХРАНЕНИЯ"
@@ -1519,10 +1521,10 @@ msgid "UPDATE GAMELISTS"
 msgstr "ОБНОВИТЬ СПИСОК ИГР"
 
 msgid "ACCOUNTS"
-msgstr ""
+msgstr "АККАУНТЫ"
 
 msgid "BIOS SETTINGS"
-msgstr ""
+msgstr "НАСТРОЙКИ BIOS"
 
 msgid "SAVESTATES"
 msgstr "БЫСТРЫЕ СОХРАНЕНИЯ"
@@ -1748,13 +1750,13 @@ msgid "SHOW MANUAL ICON"
 msgstr "ПОКАЗАТЬ ИКОНКУ РУКОВОДСТВА В СПИСКАХ"
 
 msgid "SHOW RETROACHIEVEMENTS ICON"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИКОНКУ РЕТРОДОСТИЖЕНИЙ"
 
 msgid "SHOW GUN ICON"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИКОНКУ ПИСТОЛЕТА"
 
 msgid "SHOW WHEEL ICON"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИКОНКУ РУЛЯ"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
@@ -1811,7 +1813,7 @@ msgid "ICON AND TEXT"
 msgstr "ИКОНКА И ТЕКСТ"
 
 msgid "SHOW FOLDERS FIRST"
-msgstr ""
+msgstr "ПОКАЗЫВАТЬ ПАПКИ ПЕРВЫМИ"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКИ"
@@ -2020,10 +2022,10 @@ msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "ИГРА НЕ ИМЕЕТ ДОСТИЖЕНИЙ"
 
 msgid "Achievements (softcore)"
-msgstr ""
+msgstr "Достижения (софткор)"
 
 msgid "Achievements (hardcore)"
-msgstr ""
+msgstr "Достижения (хардкор)"
 
 #, c-format
 msgid "%d%% complete"
@@ -2186,16 +2188,16 @@ msgid "MARQUEE"
 msgstr "БАНЕР"
 
 msgid "PREFERED REGION"
-msgstr ""
+msgstr "ПРЕДПОЧИТАЕМЫЙ РЕГИОН"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "ПЕРЕЗАПИСЫВАТЬ НАЗВАНИЯ"
 
 msgid "OVERWRITE DESCRIPTIONS"
-msgstr ""
+msgstr "ПЕРЕЗАПИСЫВАТЬ ОПИСАНИЯ"
 
 msgid "OVERWRITE MEDIAS"
-msgstr ""
+msgstr "ПЕРЕЗАПИСЫВАТЬ МЕДИА"
 
 msgid "SCRAPE FOR"
 msgstr "ЗАГРУЗКА ДЛЯ"
@@ -2228,7 +2230,7 @@ msgid "PADTOKEY SETTINGS"
 msgstr "НАСТРОЙКИ PADTOKEY"
 
 msgid "ACCOUNT"
-msgstr ""
+msgstr "АККАУНТ"
 
 msgid "NO DEVICE FOUND"
 msgstr "УСТРОЙСТВО НЕ НАЙДЕНО"
@@ -2249,10 +2251,10 @@ msgid "New Collection Name"
 msgstr "Название новой коллекции"
 
 msgid "ENTER NAME"
-msgstr ""
+msgstr "ВВЕДИТЕ ИМЯ"
 
 msgid "CREATE FROM THEME"
-msgstr ""
+msgstr "СОЗДАТЬ ИЗ ТЕМЫ"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
 msgstr "СОЗДАТЬ НОВУЮ КОЛЛЕКЦИЮ"
@@ -2291,10 +2293,10 @@ msgid "START ON GAMELIST"
 msgstr "НАЧИНАТЬ СО СПИСКА ИГР"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr ""
+msgstr "ГРУППИРОВАТЬ СВОИ КОЛЛЕКЦИИ"
 
 msgid "UNTHEMED"
-msgstr ""
+msgstr "БЕЗ ТЕМЫ"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "ОТОБРАЖАТЬ СИСТЕМУ В НАЗВАНИИ"
@@ -2411,10 +2413,10 @@ msgid "NO MISSING BIOS FILES"
 msgstr "НЕТ ОТСУТСТВУЮЩИХ БИОСОВ"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Установленные системы"
 
 msgid "refresh"
-msgstr ""
+msgstr "обновить"
 
 msgid "NO MISSING BIOS"
 msgstr "НЕТ ОТСУТСТВУЮЩИХ БИОСОВ"
@@ -2543,7 +2545,7 @@ msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "ВКЛЮЧИТЬ BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "АВТОМАТИЧЕСКОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
@@ -2552,7 +2554,7 @@ msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr "РУЧНОЕ СОПРЯЖЕНИЕ BLUETOOTH УСТРОЙСТВ"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "ПОКАЗЫВАТЬ УВЕДОМЛЕНИЯ КОНТРОЛЛЕРА"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
@@ -2824,7 +2826,7 @@ msgstr "СЛУЧАЙНО"
 
 #, c-format
 msgid "Back to %s"
-msgstr ""
+msgstr "Назад к %s"
 
 msgid "No Entries Found"
 msgstr "Игр не найдено"
@@ -2958,10 +2960,10 @@ msgid "STEERING WHEEL"
 msgstr "РУЛЬ"
 
 msgid "HAVING MEDIAS"
-msgstr ""
+msgstr "ИМЕЮЩИЕ МЕДИА"
 
 msgid "MISSING MEDIAS"
-msgstr ""
+msgstr "ОТСУТСТВУЮЩИЕ МЕДИА"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "ВЫ ХОТИТЕ ПЕРЕКЛЮЧИТЬ ЭКРАН?"
@@ -3185,9 +3187,9 @@ msgstr "%d сек"
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d год назад"
+msgstr[1] "%d года назад"
+msgstr[2] "%d лет назад"
 
 #, c-format
 msgid "%d day ago"
@@ -3250,7 +3252,7 @@ msgstr "снять выбор"
 #, c-format
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
-msgstr[0] "%i ВЫБРАНА"
+msgstr[0] "%i ВЫБРАН"
 msgstr[1] "%i ВЫБРАНО"
 msgstr[2] "%i ВЫБРАНО"
 
@@ -3277,10 +3279,10 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "УДЕРЖИВАЙТЕ КНОПКУ НА УСТРОЙСТВЕ ДЛЯ НАСТРОЙКИ."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr ""
+msgstr "НАЖМИТЕ ESC ДЛЯ ОТМЕНЫ."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
-msgstr ""
+msgstr "НАЖМИТЕ ESC ИЛИ ХОТКЕЙ ДЛЯ ОТМЕНЫ."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
 msgstr "SHIFT ДЛЯ РЕГИСТРА И СИМВОЛОВ"
