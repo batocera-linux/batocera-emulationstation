@@ -6054,6 +6054,128 @@
       <gun/>
     </game>
   </system>
+  <system name="teknoparrot">
+    <game name="aliensextermination">
+      <gun/>
+    </game>
+    <game name="blockking">
+      <gun/>
+    </game>
+    <game name="castlevania">
+      <gun/>
+    </game>
+    <game name="elevatoraction">
+      <gun/>
+    </game>
+    <game name="elevatoractioninvasion">
+      <gun/>
+    </game>
+    <game name="farcryparadiselost">
+      <gun/>
+    </game>
+    <game name="friction">
+      <gun/>
+    </game>
+    <game name="gaiaattack4">
+      <gun/>
+    </game>
+    <game name="hauntedmuseum">
+      <gun/>
+    </game>
+    <game name="hauntedmuseumii">
+      <gun/>
+    </game>
+    <game name="hotd4">
+      <gun/>
+    </game>
+    <game name="hotd4elf2">
+      <gun/>
+    </game>
+    <game name="hotd4sp">
+      <gun/>
+    </game>
+    <game name="hotd4spelf2">
+      <gun/>
+    </game>
+    <game name="hotdex">
+      <gun/>
+    </game>
+    <game name="hotdsd">
+      <gun/>
+    </game>
+    <game name="lgi">
+      <gun/>
+    </game>
+    <game name="lgi3d">
+      <gun/>
+    </game>
+    <game name="lgj">
+      <gun/>
+    </game>
+    <game name="lgjs">
+      <gun/>
+    </game>
+    <game name="lethalenforcers3">
+      <gun/>
+    </game>
+    <game name="lostland">
+      <gun/>
+    </game>
+    <game name="luigismansion">
+      <gun/>
+    </game>
+    <game name="gundamspiritsofzeon">
+      <gun/>
+    </game>
+    <game name="musicgungun2">
+      <gun/>
+    </game>
+    <game name="og">
+      <gun/>
+    </game>
+    <game name="rabbidshollywood">
+      <gun/>
+    </game>
+    <game name="rambo">
+      <gun/>
+    </game>
+    <game name="silenthill">
+      <gun/>
+    </game>
+    <game name="startrekvoyager">
+      <gun/>
+    </game>
+    <game name="tc5">
+      <gun/>
+    </game>
+    <game name="tombraider">
+      <gun/>
+    </game>
+    <game name="transformers">
+      <gun/>
+    </game>
+    <game name="wartrantroopers">
+      <gun/>
+    </game>
+    <game name="aliensarmageddon">
+      <gun/>
+    </game>
+    <game name="aaa">
+      <gun/>
+    </game>
+    <game name="bbhhome">
+      <gun/>
+    </game>
+    <game name="bbhpro">
+      <gun/>
+    </game>
+    <game name="gsevo">
+      <gun/>
+    </game>
+    <game name="primevil">
+      <gun/>
+    </game>
+  </system>
   <system name="wii">
     <game name="default">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
@@ -6550,6 +6672,15 @@
     </game>
     <game name="ihraprofessionaldragracing">
       <wheel wheel="joystick1left" accelerate="lt" brake="rt"/>
+    </game>
+    <game name="silentscopecomplete">
+      <gun/>
+    </game>
+    <game name="starskyandhutch">
+      <gun/>
+    </game>
+    <game name="thehouseofthedeadiii">
+      <gun/>
     </game>
   </system>
   <system name="xbox360">
