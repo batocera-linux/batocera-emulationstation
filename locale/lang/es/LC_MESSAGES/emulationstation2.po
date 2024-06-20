@@ -552,7 +552,7 @@ msgid "%d%% (%d of %d)"
 msgstr "%d%% (%d de %d)"
 
 msgid "RETROACHIEVEMENTS"
-msgstr "RETROLOGROS (RETROACHIEVEMENTS)
+msgstr "RETROLOGROS (RETROACHIEVEMENTS)"
 
 msgid "Softcore points"
 msgstr "Puntos (Modo normal)"
@@ -3055,7 +3055,7 @@ msgstr "colecciones"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "Agregado '%s' a '%s'""
+msgstr "Agregado '%s' a '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
