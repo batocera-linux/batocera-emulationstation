@@ -1,0 +1,3467 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2024-06-06 11:01+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+msgid "SCANNING BLUETOOTH"
+msgstr "BUSCA BLUETOOTH"
+
+msgid "Searching for devices..."
+msgstr "Procurando Dispositivos..."
+
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
+msgstr "A BUSCA BLUETOOTH TASE EXECUTANDO."
+
+msgid "FORMATTING DEVICE"
+msgstr "FORMATANDO DISPOSITIVO"
+
+msgid "Formatting"
+msgstr "Formatando"
+
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr "E PRECISO REINICIAR PRA COMPLETAR A OPERACIÓN"
+
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr "XA SE ESTÁ FORMATANDO UNHA UNIDADE."
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "this game's name"
+msgstr "o nome deste xogo"
+
+msgid "Description"
+msgstr "Descrición"
+
+msgid "this game's description"
+msgstr "descrición deste xogo"
+
+msgid "Emulator"
+msgstr "Emulador"
+
+msgid "emulator"
+msgstr "emulador"
+
+msgid "Core"
+msgstr "Núcleo"
+
+msgid "core"
+msgstr "núcleo"
+
+msgid "Image"
+msgstr "Imaxe"
+
+msgid "enter path to image"
+msgstr "introduce o camiño da imaxe"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "enter path to video"
+msgstr "introduce o camiño ao vídeo"
+
+msgid "Logo"
+msgstr "Logotipo"
+
+msgid "enter path to logo"
+msgstr "introduza o camiño ao logotipo"
+
+msgid "Box"
+msgstr "Caixa"
+
+msgid "enter path to box"
+msgstr "introduza o camiño da Caixa"
+
+msgid "Fan art"
+msgstr "Arte dos Fans"
+
+msgid "enter path to fanart"
+msgstr "introduce o camiño ao arte dos fans"
+
+msgid "Title shot"
+msgstr "Captura do Titulo"
+
+msgid "enter path to title shot"
+msgstr "introduza o camiño da captura do titulo"
+
+msgid "Manual"
+msgstr "Manual"
+
+msgid "enter path to manual"
+msgstr "introduza o camiño ao manual"
+
+msgid "Magazine"
+msgstr "Revista"
+
+msgid "enter path to magazine"
+msgstr "introduce o camiño da revista"
+
+msgid "Map"
+msgstr "Mapa"
+
+msgid "enter path to map"
+msgstr "introduza o camiño ao mapa"
+
+msgid "Bezel (16:9)"
+msgstr "Bisel (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "entrar no camiño do bisel (16:9)"
+
+msgid "Cartridge"
+msgstr "Cartucho"
+
+msgid "enter path to cartridge"
+msgstr "entra en Camiño ao Cartucho"
+
+msgid "Alt BoxArt"
+msgstr "Caixa Alternativa de Arte"
+
+msgid "enter path to alt boxart"
+msgstr "entra en Camiño a Caixa Alternativa de Arte"
+
+msgid "Box backside"
+msgstr "Costas da Caixa"
+
+msgid "enter path to box background"
+msgstr "introduza o camiño cara ao fondo da caixa"
+
+msgid "Wheel"
+msgstr "Roda"
+
+msgid "enter path to wheel"
+msgstr "entrar o camiño a roda"
+
+msgid "Mix"
+msgstr "Mesturar"
+
+msgid "enter path to mix"
+msgstr "entra en camiño para mesturar"
+
+msgid "Rating"
+msgstr "Clasificación"
+
+msgid "enter rating"
+msgstr "escribe clasificación"
+
+msgid "Release date"
+msgstr "Data de lanzamento"
+
+msgid "enter release date"
+msgstr "introduza a data de lanzamento"
+
+msgid "Developer"
+msgstr "Desenvolvedor"
+
+msgid "this game's developer"
+msgstr "desenvolvedor deste xogo"
+
+msgid "Publisher"
+msgstr "Editor"
+
+msgid "this game's publisher"
+msgstr "editor deste xogo"
+
+msgid "Genre"
+msgstr "Xénero"
+
+msgid "enter game genre"
+msgstr "entrar no xénero do xogo"
+
+msgid "Game family"
+msgstr "Familia do xogo"
+
+msgid "this game's game family"
+msgstr "familia do xogo deste xogo"
+
+msgid "Genres"
+msgstr "Xéneros"
+
+msgid "enter game genres"
+msgstr "entrar en xéneros de xogo"
+
+msgid "Arcade system"
+msgstr "Sistema Arcade"
+
+msgid "this game's arcade system"
+msgstr "sistema arcade deste xogo"
+
+msgid "Players"
+msgstr "Xogadores"
+
+msgid "this game's number of players"
+msgstr "o número de xogadores deste xogo"
+
+msgid "Favorite"
+msgstr "Favoritos"
+
+msgid "enter favorite"
+msgstr "escribe favorito"
+
+msgid "Hidden"
+msgstr "Oculto"
+
+msgid "enter hidden"
+msgstr "entrar oculto"
+
+msgid "Kidgame"
+msgstr "Xogo infantil"
+
+msgid "enter kidgame"
+msgstr "entrar no xogo infantil"
+
+msgid "Play count"
+msgstr "Conta de xogos"
+
+msgid "enter number of times played"
+msgstr "introduza o número de veces que se reproduciu"
+
+msgid "Last played"
+msgstr "Última xogada"
+
+msgid "enter last played date"
+msgstr "introduce a data da última reprodución"
+
+msgid "Crc32"
+msgstr "Crc32"
+
+msgid "Crc32 checksum"
+msgstr "Suma de comprobación Crc32"
+
+msgid "Md5"
+msgstr "Md5"
+
+msgid "Md5 checksum"
+msgstr "Suma de comprobación MD5"
+
+msgid "Game time"
+msgstr "Tempo xogo"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "canto tempo se xogou o xogo en total (segundos)"
+
+msgid "Languages"
+msgstr "Linguas"
+
+msgid "this game's languages"
+msgstr "as linguas deste xogo"
+
+msgid "Region"
+msgstr "Rexión"
+
+msgid "this game's region"
+msgstr "a rexión deste xogo"
+
+msgid "Cheevos Hash"
+msgstr "Cheevos Hash"
+
+msgid "Cheevos checksum"
+msgstr "Cheevos checksum"
+
+msgid "Cheevos Game ID"
+msgstr "ID do xogo Cheevos"
+
+msgid "Screenscraper Game ID"
+msgstr "ID do xogo rascapantallas"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] "Esta colección contén %i xogo:%s"
+msgstr[1] "Esta colección contén %i xogo:%s"
+
+msgid "Collections"
+msgstr "Coleccións"
+
+msgid "Unknown"
+msgstr "Descoñecido"
+
+msgid "Extracting"
+msgstr "Extraendo"
+
+msgid "DOWNLOADING"
+msgstr "DESCARGANDO"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA INSTALADO CON ÉXITO"
+
+msgid "AN ERROR OCCURRED"
+msgstr "HOUBO UN ERRO"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "TEMA DESINSTALADO CON ÉXITO"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "BISELOS INSTALADOS CON ÉXITO"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "BISELOS DESINSTALADO CON ÉXITO"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "PAQUETE INSTALADO CON ÉXITO"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "O PAQUETE ELIMINOUSE CON EXITO"
+
+msgid "Searching"
+msgstr "Buscando"
+
+msgid "Released"
+msgstr "Lanzamento"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NON SE ATOPARON XOGOS - SALTAR"
+
+msgid "RETRY"
+msgstr "REINTENTAR"
+
+msgid "SKIP"
+msgstr "OMITIR"
+
+msgid "CANCEL"
+msgstr "CANCELAR"
+
+msgid "Downloading"
+msgstr "Descargando"
+
+msgid "SEARCH FOR"
+msgstr "BUSCAR POR"
+
+msgid "ACCEPT RESULT"
+msgstr "ACEPTAR RESULTADO"
+
+msgid "THEMES DOWNLOADER"
+msgstr "XESTOR DE TEMAS"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "ESCOLLE TEMAS A INSTALALAR/ELIMINAR"
+
+msgid "All"
+msgstr "Todo"
+
+msgid "Installed"
+msgstr "Instalado"
+
+msgid "Available"
+msgstr "Dispoñible"
+
+msgid "BACK"
+msgstr "VOLTAR"
+
+msgid "No items"
+msgstr "Sen elementos"
+
+msgid "PLEASE WAIT"
+msgstr "AGARDA"
+
+msgid "UPDATE"
+msgstr "ACTUALIZAR"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' ENGADIDO A COLA DE DESCARGAS"
+
+msgid "REMOVE"
+msgstr "DESINSTALAR"
+
+msgid "INSTALL"
+msgstr "INSTALAR"
+
+msgid "CLOSE"
+msgstr "PECHAR"
+
+msgid "CURRENT THEME"
+msgstr "TEMA ACTUAL"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "ACTUALMENTE NA COLA DE DESCARGAS"
+
+msgid "FINISHED"
+msgstr "REMATADO"
+
+msgid "OK"
+msgstr "DACORDO"
+
+msgid "REFRESH"
+msgstr "ACTUALIZAR"
+
+msgid "INPUT MANUALLY"
+msgstr "ENTRADA MANUAL"
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "NON SE ATOPARON REDES WI-FI"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "BUSCA DE REDES WI-FI"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr "CONFIGURACIÓN DE PAD A TECLADO"
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr "SELECCIONAR ACCIÓNS PARA CAMBIAR"
+
+msgid "SAVE"
+msgstr "GARDAR"
+
+msgid "DELETE"
+msgstr "ELIMINAR"
+
+msgid "PLAYER 1"
+msgstr "XOGADOR 1"
+
+msgid "PLAYER 2"
+msgstr "XOGADOR 2"
+
+msgid "PLAYER 3"
+msgstr "XOGADOR 3"
+
+msgid "PLAYER 4"
+msgstr "XOGADOR 4"
+
+msgid "COMBINATIONS"
+msgstr "COMBINACIONS"
+
+msgid "MOUSE CURSOR"
+msgstr "CURSOR DO RATO"
+
+msgid "EMULATE MOUSE CURSOR"
+msgstr "EMULAR O CURSOR DO RATO"
+
+msgid "NO"
+msgstr "NON"
+
+msgid "LEFT ANALOG STICK"
+msgstr "PAU ANALOXICO ESQUERDO"
+
+msgid "RIGHT ANALOG STICK"
+msgstr "PAU ANALOXICO DEREITO"
+
+msgid "EDIT DESCRIPTION"
+msgstr "EDITAR DESCRICIÓN"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "¿ESTÁS CERTO DE QUE QUERES ELIMINAR ESTE ELEMENTO?"
+
+msgid "YES"
+msgstr "SI"
+
+msgid "DELETE MAPPING"
+msgstr "ELIMINAR A CARTOGRAFÍA"
+
+msgid "SAVE CHANGES?"
+msgstr "¿GARDAR TROCOS?"
+
+msgid "ARE YOU SURE?"
+msgstr "¿ESTAS CERTO?"
+
+msgid "INFORMATION"
+msgstr "INFORMACION"
+
+msgid "VERSION"
+msgstr "VERSION"
+
+msgid "USER DISK USAGE"
+msgstr "USO DO DISCO POLO USUARIO"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "USO DO DISCO POLO SISTEMA"
+
+msgid "SYSTEM"
+msgstr "SISTEMA"
+
+msgid "VIDEO DRIVER"
+msgstr "CONTROLADOR DO VIDEO"
+
+msgid "NETPLAY SETTINGS"
+msgstr "AXUSTES XOGO EN LIÑA"
+
+msgid "SETTINGS"
+msgstr "AXUSTES"
+
+msgid "ENABLE NETPLAY"
+msgstr "ACTIVAR XOGO EN LIÑA"
+
+msgid "NICKNAME"
+msgstr "ALCUME"
+
+msgid "OPTIONS"
+msgstr "OPCIONS"
+
+msgid "PORT"
+msgstr "PORTO"
+
+msgid "USE RELAY SERVER"
+msgstr "USAR SERVIDOR DE RETRANSMISION"
+
+msgid "NONE"
+msgstr "NINGUN"
+
+msgid "NEW YORK"
+msgstr "NOVA YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SÃO PAULO"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "AMOSAR XOGOS NON DISPOÑIBLES"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "Amosa salas con xogos non presentes nesta maquina."
+
+msgid "GAME INDEXES"
+msgstr "INDEXES DE XOGOS"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXAR XOGOS NOVOS O ARRANCAR"
+
+msgid "INDEX GAMES"
+msgstr "ÍNDICE XOGOS"
+
+msgid "INPUT"
+msgstr "ENTRADA"
+
+msgid "SEARCH"
+msgstr "BUSCAR"
+
+#, c-format
+msgid "%d of %d softcore points"
+msgstr "%d de %d puntos softcore"
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr "%d de %d puntos duros"
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d de %d)"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROLOGROS"
+
+msgid "Softcore points"
+msgstr "Puntos softcore"
+
+msgid "Points (hardcore)"
+msgstr "Puntos (hardcore)"
+
+msgid "Rank"
+msgstr "Rango"
+
+msgid "VIEW DETAILS"
+msgstr "VER DETALLES"
+
+msgid "LAUNCH"
+msgstr "LANZAMIENTO"
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "CONFIGURACIÓN DE RETROLOGRO"
+
+msgid "USERNAME"
+msgstr "NOME DE USUARIO"
+
+msgid "PASSWORD"
+msgstr "CONTRASINAL"
+
+msgid "HARDCORE MODE"
+msgstr "MODO HARDCORE"
+
+msgid "Disable loading states, rewind and cheats for more points."
+msgstr ""
+"Desactiva os estados de carga, rebobina e fai trampas para obter máis puntos."
+
+msgid "LEADERBOARDS"
+msgstr "CLASIFICACIÓNS"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
+"Compite nas táboas de clasificación con puntuación alta e mellor tempo "
+"(require hardcore)."
+
+msgid "VERBOSE MODE"
+msgstr "MODO VERBOSO"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
+"Mostra a progresión de logros no lanzamento do xogo e outras notificacións."
+
+msgid "RICH PRESENCE"
+msgstr "RICA PRESENCIA"
+
+msgid "ENCORE MODE"
+msgstr "AÍNDA MODA"
+
+msgid "Unlocked achievements can be earned again."
+msgstr "Os logros desbloqueados pódense volver conseguir."
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "CAPTURA DE PANTALLA AUTOMÁTICA"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr "Fai automaticamente unha captura de pantalla cando se consiga un logro."
+
+msgid "CHALLENGE INDICATORS"
+msgstr "INDICADORES DE DESAFÍO"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Mostra iconas na esquina inferior dereita cando se poden conseguir logros "
+"aptos."
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "SON DE DESBLOQUEO DE RETROLOGO"
+
+msgid "none"
+msgstr "ningún"
+
+msgid "UNLOCK SOUND"
+msgstr "DESBLOQUEAR SON"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "MOSTRAR A ENTRADA DE RETROLOGROS NO MENÚ PRINCIPAL"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr ""
+"¡Consulta as túas estatísticas de RetroAchievement directamente desde o menú "
+"principal!"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "NON SE PODEN ACTIVAR RETROLOGROS:"
+
+msgid "THE BEZEL PROJECT"
+msgstr "O PROXECTO BEZEL"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr "SELECCIONE BISELOS PARA INSTALAR/ELIMINAR"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "ACTUALIZANDO %s"
+
+msgid "UPDATE IS READY"
+msgstr "A ACTUALIZACIÓN ESTÁ LISTO"
+
+msgid "REBOOT TO APPLY"
+msgstr "REINICIAR PARA SOLICITAR"
+
+msgid "REALLY UPDATE?"
+msgstr "¿REALMENTE ACTUALIZAR?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"ESTÁS UTILIZANDO A VERSIÓN %s\n"
+"QUERES ACTUALIZAR Á VERSIÓN %s?"
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"DETECTADAS MODIFICACIÓNS NON OFICIAIS DO SISTEMA.\n"
+"A ACTUALIZACIÓN PODERÍA ROMPER O SEU SISTEMA.\n"
+"QUERES ACTUALIZAR Á VERSIÓN %s?"
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "NECESARIA CONEXIÓN A REDE"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "SEN ACTUALIZACIÓN DISPONIBLE"
+
+msgid "SCRAPER"
+msgstr "RASCADOR"
+
+msgid "SCRAPING DATABASE"
+msgstr "BASE DE DATOS SCRAPING"
+
+msgid "SOURCE"
+msgstr "FONTE"
+
+msgid "SCRAPE FROM"
+msgstr "RASPAR DE"
+
+msgid "SCRAPER SETTINGS"
+msgstr "CONFIGURACIÓN DO RASCADOR"
+
+msgid "FILTERS"
+msgstr "FILTROS"
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr "XOGOS PARA RASPAR"
+
+msgid "ALL"
+msgstr "TODO"
+
+msgid "GAMES MISSING ANY MEDIA"
+msgstr "OS XOGOS FALTAN ALGÚN MEDIO"
+
+msgid "GAMES MISSING ALL MEDIA"
+msgstr "XOGOS FALTAN TODOS OS MEDIOS"
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr "IGNORAR OS XOGOS SCRAPED RECEN"
+
+msgid "LAST DAY"
+msgstr "DERRADEIRO DIA"
+
+msgid "LAST WEEK"
+msgstr "DERRADEIRA SEMANA"
+
+msgid "LAST 15 DAYS"
+msgstr "DERRADEIROS 15 DIAS"
+
+msgid "LAST MONTH"
+msgstr "DERRADEIRO MES"
+
+msgid "LAST 3 MONTHS"
+msgstr "DERRADEIROS 3 MESES"
+
+msgid "LAST YEAR"
+msgstr "DERRADEIRO ANO"
+
+msgid "SYSTEMS INCLUDED"
+msgstr "SISTEMAS INCLUIDOS"
+
+msgid "SCRAPE NOW"
+msgstr "RASPA AGORA"
+
+msgid "START"
+msgstr "COMEZAR"
+
+msgid "go back"
+msgstr "volver atrás"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+"ADVERTENCIA: ALGÚNS DOS SEUS SISTEMAS SELECCIONADOS NON TEÑEN UN CONXUNTO DE "
+"PLATAFORMAS. OS RESULTADOS PODEN SER PARA DISTINTOS SISTEMAS!\n"
+"SEGUIR DE CALQUERA?"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "O RASPADO ESTÁ A CORRER. QUERES PARALO?"
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "NINGÚN XOGOS SE ADAPTEN A ESES CRITERIOS."
+
+msgid "INSTALL ON A NEW DISK"
+msgstr "INSTALAR NUN NOVO DISCO"
+
+msgid "TARGET DEVICE"
+msgstr "DISPOSITIVO OBXECTIVO"
+
+msgid "SELECT"
+msgstr "SELECCIONAR"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "ARQUITECTURA OBXECTIVO"
+
+msgid "NETWORK REQUIRED"
+msgstr "NECESARIA REDE"
+
+msgid "INVALID PARAMETERS"
+msgstr "PARÁMETROS NON VÁLIDOS"
+
+msgid "fade"
+msgstr "esvaecer"
+
+msgid "slide"
+msgstr "diapositiva"
+
+msgid "instant"
+msgstr "instantánea"
+
+msgid "fade & slide"
+msgstr "desvanecerse e deslizarse"
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "Architecture"
+msgstr "Arquitectura"
+
+msgid "Disk format"
+msgstr "Formato de disco"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "Available memory"
+msgstr "Memoria dispoñible"
+
+msgid "Battery"
+msgstr "Batería"
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "Cpu model"
+msgstr "Modelo de CPU"
+
+msgid "Cpu number"
+msgstr "Número de CPU"
+
+msgid "Cpu max frequency"
+msgstr "Frecuencia máxima da CPU"
+
+msgid "Cpu feature"
+msgstr "Función da CPU"
+
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "SHARP-BILINEAL-SIMPLE"
+
+msgctxt "game_options"
+msgid "SCANLINES"
+msgstr "SCANLINES"
+
+msgctxt "game_options"
+msgid "RETRO"
+msgstr "RETRO"
+
+msgctxt "game_options"
+msgid "ENHANCED"
+msgstr "MELLORADO"
+
+msgctxt "game_options"
+msgid "CURVATURE"
+msgstr "CURVATURA"
+
+msgctxt "game_options"
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgctxt "game_options"
+msgid "FLATTEN-GLOW"
+msgstr "APLANAR-BRILLO"
+
+msgctxt "game_options"
+msgid "RGA SCALING"
+msgstr "ESCALADO RGA"
+
+msgid "VENDOR"
+msgstr "VENDEDOR"
+
+msgid "RENDERER"
+msgstr "RENDERADOR"
+
+msgid "SHADERS"
+msgstr "SOMBRADORES"
+
+msgid "INTERNAL"
+msgstr "INTERNO"
+
+msgid "ANY EXTERNAL"
+msgstr "CALQUERA EXTERNA"
+
+msgid "maximum 1920x1080"
+msgstr "máximo 1920 x 1080"
+
+msgid "maximum 640x480"
+msgstr "máximo 640x480"
+
+msgid "MAIN MENU"
+msgstr "MENÚ PRINCIPAL"
+
+msgid "KODI MEDIA CENTER"
+msgstr "KODI CENTRO MULTIMEDIA"
+
+msgid "GAME SETTINGS"
+msgstr "CONFIGURACIÓN DO XOGO"
+
+msgid "USER INTERFACE SETTINGS"
+msgstr "CONFIGURACIÓN DA INTERFAZ DE USUARIO"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "CONFIGURACIÓN DA COLECCIÓN DE XOGOS"
+
+msgid "SOUND SETTINGS"
+msgstr "CONFIGURACIÓN DE SON"
+
+msgid "NETWORK SETTINGS"
+msgstr "CONFIGURACIÓN DA REDE"
+
+msgid "CONFIGURE INPUT"
+msgstr "CONFIGURAR ENTRADA"
+
+msgid "EMULATOR SETTINGS"
+msgstr "CONFIGURACIÓN DO EMULADOR"
+
+msgid "UPDATES & DOWNLOADS"
+msgstr "ACTUALIZACIÓNS E DESCARGAS"
+
+msgid "SYSTEM SETTINGS"
+msgstr "CONFIGURACIÓN DO SISTEMA"
+
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr "DESBLOQUEAR O MODO DE INTERFAZ DE USUARIO"
+
+msgid "QUIT"
+msgstr "SAÍR"
+
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
+msgstr "¿ESTÁS SEGURO DE QUE QUERES CONFIGURAR A ENTRADA?"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "ESTA FUNCIÓN ESTÁ DESACTIVADA MENTRES O RASCADOR ESTÁ FUNCIONANDO"
+
+msgid "CHOOSE"
+msgstr "ESCOLLE"
+
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr "O MODO DE INTERFAZ DE USUARIO ESTÁ DESBLOQUEADO AGORA"
+
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr "INTRODUCE O CÓDIGO AGORA PARA DESBLOQUEAR"
+
+msgid "SERVICES"
+msgstr "SERVIZOS"
+
+msgid "DMD"
+msgstr "DMD"
+
+msgid "SERVER"
+msgstr "SERVIDOR"
+
+msgid "DISABLED"
+msgstr "DESACTIVADO"
+
+msgid "DMDSERVER (for real dmd)"
+msgstr "DMDSERVER (para dmd real)"
+
+msgid "SIMULATOR (for web dmd)"
+msgstr "SIMULADOR (para web dmd)"
+
+msgid "dmd server"
+msgstr "servidor dmd"
+
+msgid "FORMAT"
+msgstr "FORMATO"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "dmd matrix size"
+msgstr "tamaño da matriz dmd"
+
+msgid "MATRIX"
+msgstr "MATRIZ"
+
+msgid "rgb dmd order"
+msgstr "Orde rgb dmd."
+
+msgid "BRIGHTNESS"
+msgstr "BRILLO"
+
+msgid "DMDSERVER stopped"
+msgstr "DMDSERVER detívose"
+
+msgid "DMDSERVER restarted"
+msgstr "DMDSERVER reiniciouse"
+
+msgid "DMDSERVER started"
+msgstr "DMDSERVER iniciouse"
+
+msgid "MULTISCREENS"
+msgstr "MULTISPANTALLAS"
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr "FONDO / PANTALLA INFORMATIVA"
+
+msgid "THEME"
+msgstr "TEMA"
+
+msgid "VIDEO OUTPUT"
+msgstr "SAÍDA DE VIDEO"
+
+msgid "VIDEO MODE"
+msgstr "MODO VIDEO"
+
+msgid "Sets the display's resolution."
+msgstr "Establece a resolución da pantalla."
+
+msgid "ROTATION"
+msgstr "ROTACIÓN"
+
+msgid "0 DEGREES"
+msgstr "0 GRAOS"
+
+msgid "90 DEGREES"
+msgstr "90 GRAOS"
+
+msgid "180 DEGREES"
+msgstr "180 GRAOS"
+
+msgid "270 DEGREES"
+msgstr "270 GRAOS"
+
+msgid "SCREEN ROTATION"
+msgstr "ROTACIÓN DA PANTALLA"
+
+msgid "DMD SCREEN"
+msgstr "PANTALLA DMD"
+
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr "OPCIÓNS DO DESARROLLADOR FRONTEND"
+
+msgid "VIDEO OPTIONS"
+msgstr "OPCIÓNS DE VIDEO"
+
+msgid "VRAM LIMIT"
+msgstr "LÍMITE DE VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "SHOW FRAMERATE"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr "Tamén activa o contador FPS nativo do emulador, se está dispoñible."
+
+msgid "VSYNC"
+msgstr "VSYNC"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Establece a resolución da pantalla para a estación de emulación."
+
+msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
+msgstr "UTILIZAR O REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
+
+msgid "TOOLS"
+msgstr "FERRAMENTAS"
+
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr "DEIXA DE LANZAR ESTE XOGO NO INICIO"
+
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr "HABILITA O ACCESO A API WEB PÚBLICA"
+
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr "Permitir a API de acceso web público usando %s"
+
+msgid "LOG LEVEL"
+msgstr "NIVEL DE REGISTRO"
+
+msgid "CREATE A SUPPORT FILE"
+msgstr "CREAR UN ARQUIVO DE SOPORTE"
+
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
+"CREAR UN FICHEIRO DE SOPORTE? ESTO INCLÚE TODOS OS DATOS DO SEU CARPETA DO "
+"SISTEMA."
+
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
+msgstr "FICHEIRO DE SOPORTE CREADO NO CARPETA DE GARDAR"
+
+msgid "SUPPORT FILE CREATION FAILED"
+msgstr "FALLO NA CREACIÓN DO FICHEIRO DE SOPORTE"
+
+msgid "FORMAT A DISK"
+msgstr "FORMATEAR UN DISCO"
+
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
+msgstr "LIMPA AS LISTAS DE XOGOS e ELIMINA OS MEDIOS NON UTILIZADOS"
+
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr ""
+"Elimina entradas non utilizadas e limpa as referencias aos medios que faltan."
+
+msgid "Cleaning"
+msgstr "Limpando"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr "RESTABLECER OS DATOS DE USO DA LISTA DE XOGOS"
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr "Restablece os valores dos metadatos GameTime, PlayCount e LastPlayed."
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "RESTABLECER AS EXTENSIÓNS DE FICHEIRO"
+
+msgid "Reset customized file extensions filters to default."
+msgstr ""
+"Restablece os filtros de extensións de ficheiros personalizados aos "
+"predeterminados."
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "DETECTA O PAÍS/REXION DE TODOS OS XOGOS"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "ATOPA TODOS OS XOGOS CON NETPLAY/LOGROS"
+
+msgid "CLEAR CACHES"
+msgstr "BORRAR CACHES"
+
+msgid "BUILD IMAGE CACHE"
+msgstr "CONSTRUIR CACHE DE IMAXE"
+
+msgid "Building image cache"
+msgstr "Construíndo caché de imaxes"
+
+msgid "DISPLAY SETTINGS"
+msgstr "CONFIGURACIÓN DE VISUALIZACIÓN"
+
+msgid "MENU FONT SCALE"
+msgstr "ESCALA DE TIPOS DE MENÚ"
+
+msgid "FONT SCALE"
+msgstr "ESCALA DE TIPOS"
+
+msgid "THEME FONT SCALE"
+msgstr "ESCALA FONTE DO TEMA"
+
+msgid "FULL SCREEN MENUS"
+msgstr "MENÚS DE PANTALLA COMPLETA"
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr "FORZA A TEMATIZACIÓN DA PANTALLA PEQUENA"
+
+msgid "DATA MANAGEMENT"
+msgstr "XESTIÓN DE DATOS"
+
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr "IGNORAR O CONTIDO DO DISCO DE VARIOS FICHEROS (CUE/GDI/CCD/M3U)"
+
+msgid "ENABLE GAME FILTERING"
+msgstr "ACTIVAR O FILTRADO DE XOGO"
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
+"Indica se mostrar ou ocultar a configuración relacionada co filtrado do xogo "
+"nas opcións de visualización."
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "GARDAR METADATOS Á SAÍDA"
+
+msgid "PARSE GAMELISTS ONLY"
+msgstr "SÓ PARSE GAMELISTS"
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
+"Ferramenta de depuración: non comprobe se as ROM realmente existen. ¡Pode "
+"causar problemas!"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "BUSCA DE ARTE LOCAL"
+
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+"Se non se especifica ningunha imaxe na lista de xogos, tenta buscar medios co "
+"mesmo nome de ficheiro para usar."
+
+msgid "USER INTERFACE"
+msgstr "INTERFACE DE USUARIO"
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "TRANSICIÓNS DE CARRUSEL"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SELECCIÓN RÁPIDA DO SISTEMA"
+
+msgid "ON-SCREEN KEYBOARD"
+msgstr "TECLADO EN PANTALLA"
+
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
+msgstr "OCULTAR A EMULACIÓN AO EXECUTAR UN XOGO"
+
+msgid "COMPLETE QUIT MENU"
+msgstr "COMPLETE O MENÚ SAÍR"
+
+msgid "RETROARCH MENU DRIVER"
+msgstr "CONDUCTOR DE MENÚ RETROARCH"
+
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr "SWITCH CONFIRM E CANCELAR BOTÓNS EN EMULATIONSTATION"
+
+msgid "Switches the South and East buttons' functionality"
+msgstr "Cambia a funcionalidade dos botóns Sur e Este"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr "ACCEDE ÁS OPCIÓNS DO XOGO CO BOTÓN NORTE"
+
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
+msgstr ""
+"Cambia a pulsar brevemente o norte para os estados de salvación e a pulsación "
+"prolongada no botón sur para as opcións de xogo"
+
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
+msgstr "CONTROLAR A EMULACIÓNS SÓ CO PRIMEIRO JOYSTICK"
+
+msgid "GUN MOVE TOLERENCE"
+msgstr "TOLERANCIA DO MOVEMENTO DA ARMA"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr "HABILITAR A SOPORTE DO CONTROLADOR PS3"
+
+msgid "Might have negative impact on security."
+msgstr "Pode ter un impacto negativo na seguridade."
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr "ACTIVAR OS CONTROLADORES DE JOYSTICK HID"
+
+msgid "SHOW NETWORK INDICATOR"
+msgstr "MOSTRAR INDICADOR DE REDE"
+
+msgid "OPTIMIZATIONS"
+msgstr "OPTIMIZACIÓNS"
+
+msgid "PRELOAD UI ELEMENTS ON BOOT"
+msgstr "PRECARGA ELEMENTOS DA IU NO ARRANQUE"
+
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
+msgstr ""
+"Reduce o atraso ao introducir listas de xogos desde o menú do sistema, "
+"aumenta o tempo de arranque"
+
+msgid "PRELOAD METADATA MEDIA ON BOOT"
+msgstr "PRECARGA MEDIOS DE METADATOS NO ARRANQUE"
+
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
+msgstr ""
+"Reduce o atraso ao desprazarse por unha lista de xogos totalmente raspada, "
+"aumenta o tempo de inicio"
+
+msgid "THREADED LOADING"
+msgstr "CARGA ROSCA"
+
+msgid "ASYNC IMAGE LOADING"
+msgstr "CARGA DE IMAXE ASYNC"
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "OPTIMIZAR O USO DA VRAM DE IMAXES"
+
+msgid "OPTIMIZE VIDEO VRAM USAGE"
+msgstr "OPTIMIZA O USO DA VRAM DE VIDEO"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "O REINICIO NECESARIO PARA APLICAR A NOVA CONFIGURACIÓN"
+
+msgid "DOWNLOADS"
+msgstr "DESCARGAS"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "DESCARGADOR DE CONTIDOS"
+
+msgid "THEMES"
+msgstr "TEMAS"
+
+msgid "SOFTWARE UPDATES"
+msgstr "ACTUALIZACIÓNS DE SOFTWARE"
+
+msgid "CHECK FOR UPDATES"
+msgstr "VERIFICAR ACTUALIZACIÓNS"
+
+msgid "UPDATE TYPE"
+msgstr "TIPO DE ACTUALIZACIÓN"
+
+msgid "APPLY UPDATE"
+msgstr "APLICAR ACTUALIZACIÓN"
+
+msgid "START UPDATE"
+msgstr "INICIO ACTUALIZACIÓN"
+
+msgid "UPDATER IS ALREADY RUNNING"
+msgstr "A ACTUALIZACIÓN XA ESTÁ FUNCIONANDO"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "A ACTUALIZACIÓN XA ESTÁ FUNCIONANDO"
+
+msgid "LANGUAGE"
+msgstr "IDIOMA"
+
+msgid "LANGUAGE (REGION)"
+msgstr "IDIOMA (REXION)"
+
+msgid "SELECT YOUR TIME ZONE"
+msgstr "SELECCIONE A SÚA FUSA HORARIA"
+
+msgid "TIME ZONE"
+msgstr "FRANXA HORARIA"
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr "MOSTRAR O RELOXO EN FORMATO DE 12 HORAS"
+
+msgid "POWER SAVING MODE"
+msgstr "MODO DE AFORRO DE ENERXÍA"
+
+msgid "DEFAULT"
+msgstr "PREDETERMINADO"
+
+msgid "ENHANCED"
+msgstr "MELLORADO"
+
+msgid "INSTANT"
+msgstr "INSTANTÁNEA"
+
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+"Reduce o consumo de enerxía cando está inactivo (útil para dispositivos "
+"portátiles)."
+
+msgid "SCREEN READER (TEXT TO SPEECH)"
+msgstr "LECTOR DE PANTALLA (TEXTO A VOZ)"
+
+msgid "USER INTERFACE MODE"
+msgstr "MODO DE INTERFAZ DE USUARIO"
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
+"Bloquear certos menús de configuración para usar con usuarios/nenos "
+"convidados."
+
+msgid ""
+"You are changing the user interface to a restricted mode:\n"
+"This will hide most menu options to prevent changes to the system.\n"
+"To unlock and return to the full user interface, enter this code:"
+msgstr ""
+"Estás cambiando a interface de usuario a un modo restrinxido:\n"
+"Isto ocultará a maioría das opcións do menú para evitar cambios no sistema.\n"
+"Para desbloquear e volver á interface de usuario completa, introduce este "
+"código:"
+
+msgid "Do you want to proceed?"
+msgstr "¿Queres continuar?"
+
+msgid "KODI SETTINGS"
+msgstr "KODI AXUSTES"
+
+msgid "ENABLE KODI"
+msgstr "ACTIVAR KODI"
+
+msgid "LAUNCH KODI AT BOOT"
+msgstr "LANZAR KODI NO ARRANQUE"
+
+msgid "HARDWARE"
+msgstr "HARDWARE"
+
+msgid "AUDIO OUTPUT"
+msgstr "SAÍDA DE AUDIO"
+
+msgid "AUDIO PROFILE"
+msgstr "PERFIL DE AUDIO"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
+"As opcións dispoñibles poden cambiar dependendo da saída de audio actual."
+
+msgid "BOOT SPLASH"
+msgstr "BOOT SPLASH"
+
+msgid "DEFAULT VIDEO/USER SET SPLASH"
+msgstr "SPLASH DE VIDEO/USUARIO PREDETERMINADO"
+
+msgid "SILENT VIDEO/USER SET SPLASH"
+msgstr "VÍDEO SILENCIOSO/AJUSTE DE USUARIO SPLASH"
+
+msgid "BATOCERA SPLASH IMAGE"
+msgstr "IMAXE SPLASH DE BATOCERA"
+
+msgid "SPLASH SETTING"
+msgstr "CONFIGURACIÓN DE SPLASH"
+
+msgid "MISSING BIOS CHECK"
+msgstr "FALTA VERIFICACIÓN DA BIOS"
+
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
+msgstr "COMPROBA OS ARQUIVOS DA BIOS ANTES DE EXECUTAR UN XOGO"
+
+msgid "MULTIMEDIA KEYS"
+msgstr "CLAVES MULTIMEDIA"
+
+msgid "ON"
+msgstr "ACTIVADO"
+
+msgid "OFF"
+msgstr "DESACTIVADO"
+
+msgid "BUTTON LED COLOR"
+msgstr "BOTÓN DE COR LED"
+
+msgid "off"
+msgstr "apagado"
+
+msgid "red"
+msgstr "vermello"
+
+msgid "green"
+msgstr "verde"
+
+msgid "blue"
+msgstr "azul"
+
+msgid "white"
+msgstr "branco"
+
+msgid "purple"
+msgstr "purpura"
+
+msgid "yellow"
+msgstr "amarelo"
+
+msgid "cyan"
+msgstr "cian"
+
+msgid "POWER LED COLOR"
+msgstr "COR LED DE ALIMENTACIÓN"
+
+msgid "heartbeat"
+msgstr "latexo do corazón"
+
+msgid "on"
+msgstr "activado"
+
+msgid "OVERCLOCK"
+msgstr "OVERCLOQUEO"
+
+msgid "LED HARDWARE"
+msgstr "HARDWARE LED"
+
+msgid "RED"
+msgstr "VERMELLO"
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "BLUE"
+msgstr "AZUL"
+
+msgid "LED BRIGHTNESS"
+msgstr "BRILLO LED"
+
+msgid "STORAGE"
+msgstr "ALMACENAMENTO"
+
+msgid "STORAGE DEVICE"
+msgstr "DISPOSITIVO DE ALMACENAMIENTO"
+
+msgid "BACKUP USER DATA"
+msgstr "COPIA DE SEGURIDAD DE DATOS DE USUARIO"
+
+msgid "ADVANCED"
+msgstr "AVANZADO"
+
+msgid "SECURITY"
+msgstr "SEGURIDADE"
+
+msgid "ENFORCE SECURITY"
+msgstr "APLICAR A SEGURIDADE"
+
+msgid "Require a password for accessing the network share."
+msgstr "Require un contrasinal para acceder ao recurso compartido de rede."
+
+msgid "ROOT PASSWORD"
+msgstr "CONTRASEÑA RAÍZ"
+
+msgid "LATENCY REDUCTION"
+msgstr "REDUCIÓN DA LATENCIA"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr "CADROS RUN-AHEAD"
+
+msgid "High numbers can result in visible jitter."
+msgstr "Uns números altos poden provocar unha inestabilidade visible."
+
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "UTILICE A SEGUNDA INSTANCIA PARA O RUN-AHEAD"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Pode evitar os saltos de audio ao premer os botóns."
+
+msgid "AUTOMATIC FRAME DELAY"
+msgstr "RETRASO AUTOMÁTICO DE CADROS"
+
+msgid "AUTO FRAME DELAY"
+msgstr "RETRASO AUTOMÁTICO DE CADRO"
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr ""
+"Reduce automaticamente o atraso de fotogramas temporalmente para evitar "
+"caídas de fotogramas. Pode introducir tartamudeo."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "FRECUENCIA DE ACTUALIZACIÓN VARIABLE (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "TASA DE ACTUALIZACIÓN VARIABLE"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Non te desvíes do horario principal solicitado. G-Sync, FreeSync, HDMI 2.1 "
+"VRR."
+
+msgid "DECORATION SET"
+msgstr "SET DE DECORACIÓN"
+
+msgid "Current setting"
+msgstr "Configuración actual"
+
+msgid "UPDATE GAMELISTS"
+msgstr "ACTUALIZAR LISTAS DE XOGOS"
+
+msgid "ACCOUNTS"
+msgstr "CONTAS"
+
+msgid "BIOS SETTINGS"
+msgstr "CONFIGURACIÓN DA BIOS"
+
+msgid "SAVESTATES"
+msgstr "SALVAR ESTADOS"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "CARGA/GARDAR AUTOMÁTICO"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Carga o estado de salvación máis recente ao iniciar o xogo e o estado de "
+"salvación ao saír do xogo."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "ESTADO DE SALVAMENTO INCREMENTAL"
+
+msgid "INCREMENT PER SAVE"
+msgstr "INCREMENTO POR AHORRO"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+"Nunca sobrescriba os estados de salvación antigos, crea sempre outros novos."
+
+msgid "INCREMENT SLOT"
+msgstr "RANURA DE INCREMENTO"
+
+msgid "Increment slot on a new game."
+msgstr "Incrementa o slot nun xogo novo."
+
+msgid "DO NOT INCREMENT"
+msgstr "NON AUMENTA"
+
+msgid "Use current slot on a new game."
+msgstr "Usa o slot actual nun xogo novo."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "MOSTRAR SAVESTATE MANAGER"
+
+msgid "ALWAYS"
+msgstr "SEMPRE"
+
+msgid "IF NOT EMPTY"
+msgstr "SE NON ESTÁ BALEIRO"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Mostra o xestor de estado de salvación antes de iniciar un xogo."
+
+msgid "DEFAULT GLOBAL SETTINGS"
+msgstr "CONFIGURACIÓN GLOBAL PREDETERMINADA"
+
+msgid "GAME ASPECT RATIO"
+msgstr "RELACIÓN DE ASPECTO DO XOGO"
+
+msgid "Force the game to render in this aspect ratio."
+msgstr "Forzar que o xogo se renderice nesta relación de aspecto."
+
+msgid "Sets the display's resolution. Does not affect the rendering resolution."
+msgstr ""
+"Establece a resolución da pantalla. Non afecta a resolución de renderizado."
+
+msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+msgstr "SOOTH GAMES (FILTRADO BILINEAL)"
+
+msgid "REWIND"
+msgstr "REBOBINAR"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
+"Almacena estados pasados ​​para rebobinar en tempo real, se o núcleo o admite."
+
+msgid "INTEGER SCALING (PIXEL PERFECT)"
+msgstr "ESCALADO ENTERO (PIXEL PERFECT)"
+
+msgid "SHADER SET"
+msgstr "CONXUNTO DE SHADER"
+
+msgid "VIDEO FILTER"
+msgstr "FILTRO DE VIDEO"
+
+msgid "DECORATIONS"
+msgstr "DECORACIÓNS"
+
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr "BISEL ELÁSTICO (4K E ULTRAANCHO)"
+
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr "MOSTRA TATUAXE SOBRE O BISEL"
+
+msgid "SYSTEM CONTROLLERS"
+msgstr "CONTROLADORES DE SISTEMA"
+
+msgid "CUSTOM IMAGE"
+msgstr "IMAXE PERSONALIZADA"
+
+msgid "Show an image overlaid on top of the bezel."
+msgstr "Mostra unha imaxe superposta na parte superior do bisel."
+
+msgid "TATTOO CORNER"
+msgstr "RECUNCHO DA TATUAXE"
+
+msgid "NORTH WEST"
+msgstr "NOROESTE"
+
+msgid "NORTH EAST"
+msgstr "NORESTE"
+
+msgid "SOUTH EAST"
+msgstr "SURESTE"
+
+msgid "SOUTH WEST"
+msgstr "SUR OESTE"
+
+msgid "CUSTOM .PNG IMAGE PATH"
+msgstr "RUTA DA IMAXE .PNG PERSONALIZADA"
+
+msgid "RESIZE TATTOO"
+msgstr "CAMBIAR TATUAXE"
+
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr "Reducir/expandir a tatuaxe para encaixar dentro do bordo do bisel."
+
+msgid "AI GAME TRANSLATION"
+msgstr "AI GAME TRADUCCIÓN"
+
+msgid "ENABLE AI TRANSLATION SERVICE"
+msgstr "ACTIVAR O SERVIZO DE TRADUCIÓN DE AI"
+
+msgid "TARGET LANGUAGE"
+msgstr "LINGUA OBXECTIVO"
+
+msgid "AI TRANSLATION SERVICE URL"
+msgstr "URL do SERVIZO DE TRADUCIÓN DE AI"
+
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr "PAUSA NA PANTALLA TRADUCIDA"
+
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "AUTOCONFIGURACIÓN DE CONTROLADORES"
+
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
+msgstr "CONFIGURACIÓN AVANZADA POR SISTEMA"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "SRACPER ESTÁ FUNCIONANDO. ¿QUERES PARALO?"
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "O HASHING DO XOGO ESTÁ A EXECUTAR. ¿QUERES PARALO?"
+
+msgid "REALLY UPDATE GAMELISTS?"
+msgstr "¿REALMENTE ACTUALIZAR AS LISTAS DE XOGOS?"
+
+msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
+msgstr "DEBE APLICAR O TEMA ANTES DE EDITAR A SÚA CONFIGURACIÓN"
+
+msgid "THEME CONFIGURATION"
+msgstr "CONFIGURACIÓN TEMÁTICA"
+
+msgid "VIEW CUSTOMIZATION"
+msgstr "VER PERSONALIZACIÓN"
+
+msgid "GAMELIST STYLE"
+msgstr "ESTILO LISTA XOGO"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "ESTILO DE VISTA DA LISTA DE XOGO"
+
+msgid "automatic"
+msgstr "automático"
+
+msgid "basic"
+msgstr "básico"
+
+msgid "detailed"
+msgstr "detallado"
+
+msgid "DEFAULT GRID SIZE"
+msgstr "TAMAÑO PREDETERMINADO DA GRILLA"
+
+msgid "GAMELIST THEME OPTIONS"
+msgstr "OPCIÓNS DO TEMÁTICO DA LISTA DE XOGOS"
+
+msgid "THEME OPTIONS"
+msgstr "OPCIÓNS TEMÁTICAS"
+
+msgid "DEFAULT VALUE"
+msgstr "VALOR PREDETERMINADO"
+
+msgid "GAMELIST OPTIONS"
+msgstr "OPCIÓNS DA LISTA DE XOGOS"
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr "MOSTRAR OS FAVORITOS NA ARRIBA"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "MOSTRAR FICHEROS OCULTOS"
+
+msgid "SHOW FOLDERS"
+msgstr "AMOSAR CARPETAS"
+
+msgid "always"
+msgstr "sempre"
+
+msgid "never"
+msgstr "nunca"
+
+msgid "having multiple games"
+msgstr "tendo varios xogos"
+
+msgid "SHOW '..' PARENT FOLDER"
+msgstr "MOSTRAR '..' CARTAFOL PRINCIPAL"
+
+msgid "BEFORE NAME"
+msgstr "ANTES DO NOME"
+
+msgid "AFTER NAME"
+msgstr "DESPOIS DO NOME"
+
+msgid "SHOW REGION FLAG"
+msgstr "MOSTRAR BANDEIRO DA REXION"
+
+msgid "SHOW SAVESTATE ICON"
+msgstr "MOSTRAR A ICONA SAVESTATE"
+
+msgid "SHOW MANUAL ICON"
+msgstr "AMOSAR ICONA DO MANUAL"
+
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr "AMOSAR ICONA DE RETROLOGROS"
+
+msgid "SHOW GUN ICON"
+msgstr "MOSTRA A ICONA DA ARMA"
+
+msgid "SHOW WHEEL ICON"
+msgstr "AMOSAR ICONA DA RODA"
+
+msgid "SHOW FILENAMES INSTEAD"
+msgstr "MOSTRA OS NOMES DE FICHEIRO"
+
+msgid "FILE EXTENSIONS"
+msgstr "EXTENSIÓNS DE ARQUIVO"
+
+msgid "RESET CUSTOMIZATIONS"
+msgstr "RESTABLECER PERSONALIZACIÓNS"
+
+msgid "APPEARANCE"
+msgstr "APARIENCIA"
+
+msgid "THEME SET"
+msgstr "CONXUNTO DE TEMAS"
+
+msgid "video"
+msgstr "video"
+
+msgid "grid"
+msgstr "reixa"
+
+msgid "DISPLAY OPTIONS"
+msgstr "OPCIÓNS DE VISUALIZACIÓN"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "CONFIGURACIÓN DO SALVAPANTALLA"
+
+msgid "LIST TRANSITION"
+msgstr "TRANSICIÓN DA LISTA"
+
+msgid "auto"
+msgstr "auto"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr "TRANSICIÓN DE LANZAMENTO DO XOGO"
+
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr "MEDIOS DE XOGO DURANTE O DESPLAZAMENTO RÁPIDO"
+
+msgid "SHOW CLOCK"
+msgstr "MOSTRAR RELOXO"
+
+msgid "ON-SCREEN HELP"
+msgstr "AXUDA EN PANTALLA"
+
+msgid "SHOW BATTERY STATUS"
+msgstr "MOSTRAR ESTADO DA BATERÍA"
+
+msgid "ICON"
+msgstr "ÍCONA"
+
+msgid "ICON AND TEXT"
+msgstr "ICONA E TEXTO"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr "AMOSAR PRIMEIRO OS CARTAFOLES"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr "IGNORAR OS ARTIGOS PRINCIPAIS AO CLASIFICAR"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr "Ignora \"O\" e \"A\" se ao principio."
+
+msgid "VOLUME"
+msgstr "VOLUME"
+
+msgid "SYSTEM VOLUME"
+msgstr "VOLUME DO SISTEMA"
+
+msgid "MUSIC VOLUME"
+msgstr "VOLUME DA MUSICA"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr "MOSTRAR SUPERPOSICIÓN CANDO CAMBIA O VOLUME"
+
+msgid "MUSIC"
+msgstr "MUSICA"
+
+msgid "FRONTEND MUSIC"
+msgstr "MÚSICA FRONTEND"
+
+msgid "DISPLAY SONG TITLES"
+msgstr "MOSTRA OS TÍTULOS DE CANCIÓNS"
+
+msgid "SONG TITLE DISPLAY DURATION"
+msgstr "DURACIÓN DE VISUALIZACIÓN DO TÍTULO DA CANCIÓN"
+
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr "REPRODUCE SÓ CARPETA DE MÚSICA ESPECÍFICA DO SISTEMA"
+
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
+msgstr "MÚSICA ESPECÍFICA DO SISTEMA DE REPRODUCCIÓN"
+
+msgid "LOWER MUSIC WHEN PLAYING VIDEO"
+msgstr "BAIXA A MÚSICA AO REPRODUCIR VÍDEO"
+
+msgid "SOUNDS"
+msgstr "SONS"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "ACTIVAR SONS DE NAVEGACIÓN"
+
+msgid "ENABLE VIDEO PREVIEW AUDIO"
+msgstr "ACTIVAR O AUDIO DE VISTA PREVIA DE VÍDEO"
+
+msgid "IP ADDRESS"
+msgstr "DIRECCIÓN IP"
+
+msgid "CONNECTED"
+msgstr "CONECTADO"
+
+msgid "NOT CONNECTED"
+msgstr "NON CONECTADO"
+
+msgid "INTERNET STATUS"
+msgstr "ESTADO DE INTERNET"
+
+msgid "HOSTNAME"
+msgstr "HOSTNAME"
+
+msgid "ENABLE WIFI"
+msgstr "PERMITIR WIFI"
+
+msgid "WIFI SSID"
+msgstr "SSID WIFI"
+
+msgid "WIFI KEY"
+msgstr "CLAVE WIFI"
+
+msgid "WIFI ENABLED"
+msgstr "WIFI PERMITIDO"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "ERRO CONFIGURACION WIFI"
+
+msgid "QUICK ACCESS"
+msgstr "ACCESO RAPIDO"
+
+msgid "SKIP TO THE NEXT SONG"
+msgstr "PASA Á SEGUINTE CANCIÓN"
+
+msgid "NOW PLAYING"
+msgstr "AGORA XOGANDO"
+
+msgid "LAUNCH SCREENSAVER"
+msgstr "LANZAR O SALVAPANTALLA"
+
+msgid "VIEW USER MANUAL"
+msgstr "VER MANUAL DE USUARIO"
+
+msgid "DISABLE PLANE MODE"
+msgstr "DESACTIVAR O MODO AVIÓN"
+
+msgid "ENABLE PLANE MODE"
+msgstr "ACTIVAR O MODO AVION"
+
+msgid "RESTART SYSTEM"
+msgstr "REINICIAR SISTEMA"
+
+msgid "REALLY RESTART?"
+msgstr "¿REALMENTE RECOMEZAR?"
+
+msgid "SUSPEND SYSTEM"
+msgstr "SUSPENDER SISTEMA"
+
+msgid "REALLY SUSPEND ?"
+msgstr "¿SUSPENDER REALMENTE?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "APAGAR SISTEMA"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "¿REALMENTE APAGAR?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "SISTEMA DE APAGADO RÁPIDO"
+
+msgid "Shutdown without saving metadata."
+msgstr "Apague sen gardar metadatos."
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "¿REALMENTE APAGAR SEN GARDAR METADATOS?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr "SALIR DE EMULATIONSSTATION"
+
+msgid "REALLY QUIT?"
+msgstr "¿DEIXAR REALMENTE?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "GARDAR/CARGAR AUTOMÁTICO NO LANZAMIENTO DO XOGO"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Carga o estado de gardado máis recente ao iniciar o xogo e garda o estado ao "
+"saír do xogo."
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "MOSTRAR SUPERPOSICIÓNS DO CONTROLADOR"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "IMAXE .PNG PERSONALIZADA"
+
+msgid "OVERLAY CORNER"
+msgstr "RECUNCHO SUPERPOSITIVO"
+
+msgid "COLORIZATION"
+msgstr "COLORIZACIÓN"
+
+msgid "FULL BOOT"
+msgstr "REINICIO COMPLETA"
+
+msgid "EMULATED WIIMOTES"
+msgstr "WIIMOTES EMULADO"
+
+msgid "CHANGE SCREEN LAYOUT"
+msgstr "CAMBIAR A DISPOSICIÓN DA PANTALLA"
+
+msgid "LARGE SCREEN"
+msgstr "PANTALLA GRANDE"
+
+msgid "SIDE BY SIDE"
+msgstr "CODO CON CODO"
+
+msgid "INTERNAL RESOLUTION"
+msgstr "RESOLUCIÓN INTERNA"
+
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "EDITAR PERFIL PADTOKEY"
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "CREAR PERFIL PADTOKEY"
+
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr "LANZA ESTE XOGO NO INICIO"
+
+msgid "FORMAT DEVICE"
+msgstr "FORMATO DISPOSITIVO"
+
+msgid "DEVICE TO FORMAT"
+msgstr "DISPOSITIVO PARA FORMATEAR"
+
+msgid "FILE SYSTEM"
+msgstr "SISTEMA DE FICHEROS"
+
+msgid "FORMAT NOW"
+msgstr "FORMATO AGORA"
+
+msgid "SELECTED OPTIONS ARE INVALID"
+msgstr "AS OPCIÓNS SELECCIONADAS NON SON VÁLIDAS"
+
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
+msgstr "¿ESTÁS SEGURO DE QUE QUERES FORMATEAR ESTA UNIDADE?"
+
+msgid "Points"
+msgstr "Puntos"
+
+msgid "Unlocked on"
+msgstr "Desbloqueado"
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "ESTE XOGO AÍNDA NON TEN LOGROS"
+
+msgid "Achievements (softcore)"
+msgstr "Logros (softcore)"
+
+msgid "Achievements (hardcore)"
+msgstr "Logros (hardcore)"
+
+#, c-format
+msgid "%d%% complete"
+msgstr "%d%% completado"
+
+msgid "GAME MEDIA"
+msgstr "MEDIOS DE XOGO"
+
+msgid "VIEW GAME MANUAL"
+msgstr "VER MANUAL DO XOGO"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr "VER A REVISTA DO XOGO"
+
+msgid "VIEW GAME MAP"
+msgstr "VER MAPA DO XOGO"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr "VER VIDEO A PANTALLA COMPLETA"
+
+msgid "VIEW GAME MEDIA"
+msgstr "VER MEDIOS DO XOGO"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "O NÚCLEO ACTUAL NON É COMPATIBLE"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr "NÚCLEO(S) COMPATIBLE(S)"
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr "VER OS LOGROS DESTE XOGO"
+
+msgid "GAME"
+msgstr "XOGO"
+
+msgid "SAVE STATES"
+msgstr "SALVAR ESTADOS"
+
+msgid "OPEN"
+msgstr "ABRIR"
+
+msgid "START A NETPLAY GAME"
+msgstr "COMEZA UN XOGO EN REDE"
+
+msgid "NETPLAY"
+msgstr "XOGO EN REDE"
+
+msgid "START GAME"
+msgstr "COMEZAR XOGO"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "ALOXAR UN XOGO EN REDE"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIO PÚBLICO DO XOGO"
+
+msgid "PLAYER PASSWORD"
+msgstr "CONTRASINAL XOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "CONTRASEÑA DE VISOR"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "BUSCAR XOGOS SIMILARES..."
+
+msgid "DELETE ITEM"
+msgstr "ELIMINAR ELEMENTO"
+
+msgid "DELETE GAME"
+msgstr "BORRAR XOGO"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ESTO ELIMINARÁ O(S) FICHEIRO(S) REAL DO XOGO!\n"
+"¿ESTÁS SEGURO?"
+
+msgid "COLLECTIONS"
+msgstr "COLECCIÓNS"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "ELIMINAR DE %s"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "ENGADIR A %s"
+
+msgid "FAVORITES"
+msgstr "FAVORITOS"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "ENGADIR Á COLECCIÓN PERSONALIZADA..."
+
+msgid "DELETE COLLECTION"
+msgstr "ELIMINAR COLECCIÓN"
+
+msgid "SCRAPE"
+msgstr "RASCAR"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "OPCIÓNS AVANZADAS DE XOGO"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "EDITAR METADATOS DA CARPETA"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDITAR OS METADATOS DESTE XOGO"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VER A INFORMACIÓN DO TECLADO"
+
+msgid "RESET"
+msgstr "RESET"
+
+msgid "ADD COMBINATION KEY"
+msgstr "ENGADIR CLAVE DE COMBINACIÓN"
+
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "VINCULAR UN DISPOSITIVO BLUETOOTH"
+
+msgid "PAIR"
+msgstr "PAR"
+
+msgid "IMAGE SOURCE"
+msgstr "FONTE DA IMAXE"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURA DE PANTALLA"
+
+msgid "TITLE SCREENSHOT"
+msgstr "CAPTURA DE PANTALLA DO TÍTULO"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "BOX 2D"
+
+msgid "BOX 3D"
+msgstr "BOX 3D"
+
+msgid "FAN ART"
+msgstr "DO ART"
+
+msgid "BOX SOURCE"
+msgstr "FONTE DA CAIXA"
+
+msgid "LOGO SOURCE"
+msgstr "FONTE DO LOGO"
+
+msgid "WHEEL"
+msgstr "RODA"
+
+msgid "MARQUEE"
+msgstr "MARCA"
+
+msgid "PREFERED REGION"
+msgstr "REXION PREFERENTE"
+
+msgid "OVERWRITE NAMES"
+msgstr "SOBREESCRIBE OS NOMES"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SOBREESCRIBIR DESCRICIÓNS"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SOBREESCRIBIR MEDIOS"
+
+msgid "SCRAPE FOR"
+msgstr "RASCAR PARA"
+
+msgid "SHORT NAME"
+msgstr "NOME BREVE"
+
+msgid "COMMUNITY RATING"
+msgstr "VALORACIÓN COMUNITARIA"
+
+msgid "VIDEO"
+msgstr "VIDEO"
+
+msgid "FANART"
+msgstr "FANART"
+
+msgid "BEZEL (16:9)"
+msgstr "BISEL (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "CAIXA TRASERA"
+
+msgid "MAP"
+msgstr "MAPA"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "CONFIGURACIÓN DO PADTOKEY"
+
+msgid "ACCOUNT"
+msgstr "CONTA"
+
+msgid "NO DEVICE FOUND"
+msgstr "NON SE Atopou ningún dispositivo"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "COLECCIÓNS PARA EXPOSIR"
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "SISTEMAS VISUALIZADOS"
+
+msgid "GROUPED SYSTEMS"
+msgstr "SISTEMAS AGRUPADOS"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "CREAR COLECCIÓN PERSONALIZADA"
+
+msgid "New Collection Name"
+msgstr "Nome da nova colección"
+
+msgid "ENTER NAME"
+msgstr "INTRODUCE O NOME"
+
+msgid "CREATE FROM THEME"
+msgstr "CREAR A PARTIR DO TEMA"
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr "CREAR NOVA COLECCIÓN EDITABLE"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "CREAR NOVA COLECCIÓN DINÁMICA"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr "CLASIFICACIÓN DE COLECCIÓNS E SISTEMAS"
+
+msgid "ALPHABETICALLY"
+msgstr "ALFABÉTICAMENTE"
+
+msgid "BY MANUFACTURER"
+msgstr "POR FABRICANTE"
+
+msgid "BY HARDWARE TYPE"
+msgstr "POR TIPO DE HARDWARE"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr "POR FABRICANTE E TIPO"
+
+msgid "BY RELEASE YEAR"
+msgstr "POR ANO DE LANZAMIENTO"
+
+msgid "SORT SYSTEMS"
+msgstr "SISTEMAS DE CLASIFICACIÓN"
+
+msgid "START ON SYSTEM"
+msgstr "INICIO NO SISTEMA"
+
+msgid "RESTORE LAST SELECTED"
+msgstr "RESTAURAR ÚLTIMO SELECCIONADO"
+
+msgid "START ON GAMELIST"
+msgstr ""
+
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr "COLECCIÓNS PERSONALIZADAS EN GRUPO"
+
+msgid "UNTHEMED"
+msgstr "SIN TEMÁTICA"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "MOSTRAR NOME DO SISTEMA NAS COLECCIÓNS"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "MOSTRAR XOGOS DE SISTEMAS OCULTOS NAS COLECCIÓNS"
+
+msgid "SHOW EMPTY SYSTEMS"
+msgstr "MOSTRAR SISTEMAS BALEIROS"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "SELECT COLLECTIONS"
+msgstr "SELECCIONAR COLECCIÓNS"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr "COLECCIÓNS AUTOMÁTICAS"
+
+msgid "PER GENRE"
+msgstr "POR XÉNERO"
+
+msgid "ARCADE SYSTEMS"
+msgstr "SISTEMAS ARCADE"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "COLECCIÓNS AUTOMÁTICAS DE XOGOS"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr "COLECCIÓNS EDITABLES"
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr "COLECCIÓNS DINÁMICAS"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "COLECCIÓNS DE XOGOS PERSONALIZADOS"
+
+msgid "GAMES TO INDEX"
+msgstr "XOGOS PARA INDICE"
+
+msgid "ONLY MISSING"
+msgstr "SOLO FALTA"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "SELECCIONAR O CONTIDO PARA INSTALAR/ELIMINAR"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "ACTUALIZAR O CONTIDO INSTALADO"
+
+msgid "MISC"
+msgstr "MISC"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "A DESINSTALACIÓN ENGADIUSE Á FILA"
+
+msgid "SAVESTATE MANAGER"
+msgstr "SAVESTATE GERENTE"
+
+msgid "START NEW GAME"
+msgstr "COMEZA UN NOVO XOGO"
+
+msgid "START NEW AUTO SAVE"
+msgstr "INICIA UN NOVO GARDO AUTOMÁTICO"
+
+msgid "AUTO SAVE"
+msgstr "GARDAR AUTOMÁTICO"
+
+msgid "SLOT"
+msgstr "RANURA"
+
+msgid "COPY TO FREE SLOT"
+msgstr "COPIAR AO LUGAR LIBRE"
+
+msgid "VIEW OPTIONS"
+msgstr "VER OPCIÓNS"
+
+msgid "NAVIGATION"
+msgstr "NAVEGACIÓN"
+
+msgid "OTHER FILTERS"
+msgstr "OUTROS FILTROS"
+
+msgid "SELECT RANDOM GAME"
+msgstr "SELECCIONAR XOGO ALEATORIO"
+
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "SALTAR AO XOGO COMEZANDO POLA LETRA"
+
+msgid "SORT GAMES BY"
+msgstr "CLASIFICAR XOGOS POR"
+
+msgid "DYNAMIC COLLECTION"
+msgstr "COLECCIÓN DINÁMICA"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "EDITAR FILTROS DE COLECCIÓN DINÁMICA"
+
+msgid "CUSTOM COLLECTION"
+msgstr "COLECCIÓN PERSONALIZADA"
+
+msgid "COLLECTION"
+msgstr "COLECCIÓN"
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr "OPCIÓNS AVANZADAS DO SISTEMA"
+
+msgid "RESET FILTERS"
+msgstr "RESTABLECER FILTROS"
+
+msgid "FILTER GAMES BY TEXT"
+msgstr "FILTRAR XOGOS POR TEXTO"
+
+msgid "NO MISSING BIOS FILES"
+msgstr "NON FALTAN FICHEIROS DA BIOS"
+
+msgid "Installed systems"
+msgstr "Sistemas instalados"
+
+msgid "refresh"
+msgstr "refrescar"
+
+msgid "NO MISSING BIOS"
+msgstr "NON FALTAN BIOS"
+
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "ESQUENCER O DISPOSITIVO BLUETOOTH"
+
+msgid "REMOVE ALL"
+msgstr "DESVINCULAR TODO"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NON SE ATOPARON DISPOSITIVOS BLUETOOTH"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "OS DISPOSITIVOS BLUETOOTH FORON ELIMINADOS."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "¿ESTAS CERTO QUE QUERES ELIMINAR '%s' ?"
+
+msgid "ZOOM OUT"
+msgstr "ALONXAR"
+
+msgid "ZOOM IN"
+msgstr "ACERCAR"
+
+msgid "MOVE"
+msgstr "MOVER"
+
+msgid "ZOOM"
+msgstr "ZOOM"
+
+msgid "EDIT METADATA"
+msgstr "EDITAR DATOS DESCRIPTIVOS"
+
+msgid "GENRES"
+msgstr "XÉNEROS"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+"ALGÚNS FICHEIROS QUE LIGAS ESTÁN UBICADOS FÓRA DO CAMINO DA LISTA DE XOGOS.\n"
+"QUERES UTILIZAR UNHA COPIA DESTES ARQUIVOS RELATIVOS A LISTA DE XOGOS ACTUAL?"
+
+msgid "CONNECT TO NETPLAY"
+msgstr "CONECTAR A XOGO EN LIÑA"
+
+msgid "Select a game lobby to join"
+msgstr "Escolle unha sala de xogo para unirte"
+
+msgid "FAILED"
+msgstr "FALLOU"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "VERSION DE ROM DESCOÑECIDA"
+
+msgid "DIFFERENT ROM"
+msgstr "A ROM E DIFERENTE"
+
+msgid "SAME ROM"
+msgstr "A ROM E A MESMA"
+
+msgid "UNAVAILABLE CORE"
+msgstr "NUCLEO NON DISPOÑIBLE"
+
+msgid "AVAILABLE GAMES"
+msgstr "XOGOS DIPOÑIBLES"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "XOGOS NON DISPOÑIBLES"
+
+msgid "NO GAMES FOUND"
+msgstr "NON SE ATOPARON XOGOS"
+
+msgid "JOIN GAME"
+msgstr "UNIRSE A PARTIDA"
+
+msgid "WATCH GAME"
+msgstr "OLLAR PARTIDA"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "AXUSTES DO MANDO"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "AXUSTES MANDO E BLUETOOTH"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "PRIORIDADE MANDOS"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "ASIGNACION DE MANDOS"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "MANDO #%i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "P%i'S MANDO"
+
+msgid "CONTROLLER MAPPING"
+msgstr "CONFIGURAR MANDO"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. "
+"PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"VAS A MAPA UN CONTROLADOR. MAPA BASEADO NA POSICIÓN DO BOTÓN, NON NA SÚA "
+"ETIQUETA FÍSICA. SE NON TEN UN BOTÓN ESPECIAL PARA A TECLA DE ACCESORIOS, "
+"UTILICE O BOTÓN DE SELECCIÓN. SALTAR TODOS OS BOTÓNS/PAS QUE NON TEÑAS "
+"SENTIDO NINGÚN BOTÓN. PREME O BOTÓN SUR PARA CONFIRMAR CANDO REALIZADO."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "CONFIGURACIÓN DE ARMAS SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "CONFIGURACIÓN DA PISTOLA WIIMOTE"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "CONFIGURACIÓN DE RATO/PISTOLA STEAMDECK"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "ENABLE BLUETOOTH"
+msgstr "ACTIVAR BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "VINCULAR ALMOHADILLAS BLUETOOTH AUTOMÁTICAMENTE"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "VINCULAR UN DISPOSITIVO BLUETOOTH MANUALMENTE"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr "AMOSAR NOTIFICACIONS DO MANDO"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "AMOSAR ACTIVIDADE DO MANDO"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "AMOSAR A PORCENTAXE DE BATERIA DO MANDO"
+
+msgid "default"
+msgstr "por defecto"
+
+msgid "BORDER SIZE"
+msgstr "TAMAÑO DE BORDE"
+
+msgid "THIN"
+msgstr "DELGADO"
+
+msgid "MEDIUM"
+msgstr "MEDIO"
+
+msgid "BIG"
+msgstr "GRANDE"
+
+msgid "BORDER MODE"
+msgstr "MODO DE FRONTEIRAS"
+
+msgid "NORMAL"
+msgstr "NORMAL"
+
+msgid "IN GAME ONLY"
+msgstr "SÓ EN XOGO"
+
+msgid "HIDDEN"
+msgstr "OCULTO"
+
+msgid "BORDER COLOR"
+msgstr "COR DE BORDE"
+
+msgid "WHITE"
+msgstr "BRANCO"
+
+msgid "CAMERA CONTRAST"
+msgstr "CONTRASTE DA CÁMARA"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Día/Luz solar brillante (40)"
+
+msgid "Default (50)"
+msgstr "Por defecto (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Pantalla atenuada/Noite (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "BRILLO DA CÁMARA"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Día/Luz solar brillante (80)"
+
+msgid "Default (100)"
+msgstr "Por defecto (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Pantalla atenuada/Noite (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "EXPOSICIÓN DA CÁMARA"
+
+msgid "Projector/CRT (-5)"
+msgstr "Proxector/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Proxector/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Predeterminado (-7)"
+
+msgid "Other (-8)"
+msgstr "Outros (-8)"
+
+msgid "Other (-9)"
+msgstr "Outros (-9)"
+
+msgid "RECOIL"
+msgstr "RETROCESO"
+
+msgid "GUN"
+msgstr "PISTOLA"
+
+msgid "MACHINE GUN"
+msgstr "AMETRALLADORA"
+
+msgid "QUIET GUN"
+msgstr "PISTOLA SILENCIOSA"
+
+msgid "QUIET MACHINE GUN"
+msgstr "ARMALLADORA SILENCIOSA"
+
+msgid "MODE"
+msgstr "MODO"
+
+msgid "JOYSTICK"
+msgstr "MODO"
+
+msgid "MOUSE ONLY"
+msgstr "SÓ RATO"
+
+msgid "HAND"
+msgstr "MAN"
+
+msgid "LEFT"
+msgstr "ESQUERDO"
+
+msgid "RIGHT"
+msgstr "DEREITO"
+
+msgid "FILTER GAMELIST BY"
+msgstr "FILTRAR LISTA DE XOGOS POR"
+
+msgid "RESET ALL FILTERS"
+msgstr "RESTABLECER TODOS OS FILTROS"
+
+msgid "FIND GAMES"
+msgstr "BUSCAR XOGOS"
+
+msgid "SYSTEMS"
+msgstr "SISTEMAS"
+
+msgid "FILE BROWSER"
+msgstr "NAVEGADOR DE FICHEROS"
+
+msgid "PARENT FOLDER"
+msgstr "CARPETA PAIS"
+
+msgid "SCREENSHOTS FOLDER"
+msgstr "CARPETA DE CAPTURAS DE PANTALLA"
+
+msgid "dim"
+msgstr "dim"
+
+msgid "black"
+msgstr "negro"
+
+msgid "random video"
+msgstr "vídeo aleatorio"
+
+msgid "slideshow"
+msgstr "presentación de diapositivas"
+
+msgid "suspend"
+msgstr "suspender"
+
+msgid "start & end"
+msgstr "inicio e fin"
+
+msgid "systems"
+msgstr "sistemas"
+
+msgid "random"
+msgstr "o chou"
+
+msgid "START SCREENSAVER AFTER"
+msgstr "INICIA O SALVAPANTALLA DESPOIS"
+
+msgid "SCREENSAVER TYPE"
+msgstr "TIPO DE SALVAPANTALLA"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "PARAR A MÚSICA NO SALVAPANTALLA"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "CONFIGURACIÓN ALEATORIA DO SALVAPANTALLA DE VÍDEO"
+
+msgid "VIDEO DURATION (SECS)"
+msgstr "DURACIÓN DO VÍDEO (SEG.)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "USE O REPRODUCTOR OMX PARA O SALVAPANTALLA"
+
+msgid "SHOW GAME INFO"
+msgstr "AMOSAR INFORMACIÓN DO XOGO"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "UTILIZA A MARQUETA COMO INFORMACIÓN DO XOGO"
+
+msgid "DECORATION SET USED"
+msgstr "SET DE DECORACIÓN UTILIZADO"
+
+msgid "STRETCH VIDEOS"
+msgstr "ESTIRAR VÍDEOS"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "MUTE VIDEO AUDIO"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "CONTROIS DO SALVAPANTALLA"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "USE CUSTOM VIDEOS"
+
+msgid "CUSTOM VIDEO DIRECTORY"
+msgstr "DIRECTORIO DE VIDEOS PERSONALIZADOS"
+
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "UTILICE VÍDEOS NAS SUBCAPETAS DO DIRECTORIO PERSONALIZADO"
+
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr "EXTENSIÓNS DE ARQUIVO DE VÍDEO PERSONALIZADO"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "CONFIGURACIÓN DO SALVAPANTALLA DE PRESENTACIÓN DE DIAPOSITIVAS"
+
+msgid "IMAGE DURATION (SECS)"
+msgstr "DURACIÓN DA IMAXE (SEG.)"
+
+msgid "STRETCH IMAGES"
+msgstr "ESTIRAR IMAXES"
+
+msgid "USE CUSTOM IMAGES"
+msgstr "USE IMAXES PERSONALIZADAS"
+
+msgid "CUSTOM IMAGE DIRECTORY"
+msgstr "DIRECTORIO DE IMAXE PERSONALIZADO"
+
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "UTILIZAR IMAXES NAS SUBCAPETAS DO DIRECTORIO PERSONALIZADO"
+
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr "EXTENSIÓNS DE FICHEROS DE IMAXE PERSONALIZADAS"
+
+msgid "INVALID CONTENT"
+msgstr "CONTIDO NON VÁLIDO"
+
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"Requírese unha conta válida. Rexistra unha conta en https://retroachievements."
+"org"
+
+msgid "Full"
+msgstr "Cheo"
+
+msgid "Kiosk"
+msgstr "Quiosco"
+
+msgid "Kid"
+msgstr "Neno"
+
+msgid "Basic"
+msgstr "Básico"
+
+msgid "Games similar to"
+msgstr "Xogos similares a"
+
+msgid "SAVE STATES (HOLD)"
+msgstr "GARDAR ESTADOS (MANTER)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "OPCIÓNS DO XOGO (MANTER)"
+
+msgid "GAME OPTIONS"
+msgstr "OPCIÓNS DO XOGO"
+
+msgid "FAVORITE"
+msgstr "FAVORITO"
+
+msgid "RANDOM"
+msgstr "O CHOU"
+
+#, c-format
+msgid "Back to %s"
+msgstr "Volver a %s"
+
+msgid "No Entries Found"
+msgstr "Non se atoparon entradas"
+
+msgid "Times played"
+msgstr "Tempos xogados"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "Este cartafol contén %i xogo, incluíndo :%s"
+msgstr[1] "Este cartafol contén %i xogos, incluíndo :%s"
+
+msgid "SYSTEM INFO"
+msgstr "INFORMACIÓN DO SISTEMA"
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr "ERRO: TODOS OS SISTEMA ESTÁN OCULTOS, VOLVER A MOSTRALOS TODOS AGORA"
+
+msgid "QUICK SEARCH"
+msgstr "BUSCA RÁPIDA"
+
+msgid "GO TO LETTER"
+msgstr "IR Á CARTA"
+
+msgid "GO TO MANUFACTURER"
+msgstr "IR AO FABRICANTE"
+
+msgid "GO TO HARDWARE"
+msgstr "IR A HARDWARE"
+
+msgid "GO TO DECADE"
+msgstr "IR Á DÉCADA"
+
+msgid "CONFIGURATION"
+msgstr "CONFIGURACIÓN"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "%i COLECCION"
+msgstr[1] "%i COLECCIONS"
+
+#, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i OBXETO"
+msgstr[1] "%i OBXETO"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i XOGO"
+msgstr[1] "%i XOGOS"
+
+msgid "NAVIGATION BAR"
+msgstr "BARRA DE NAVEGACIÓN"
+
+msgid "FILES"
+msgstr "ARQUIVOS"
+
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"ADVERTENCIA: O EMULADOR/NÚCLEO CONXUNTO ACTUALMENTE NON SOPORTE O FORMATO DE "
+"FICHEIRO DESTE XOGO.\n"
+"QUERES LANZALO DE TODA FORMAS?"
+
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"ADVERTENCIA: O SISTEMA FALTAN FICHEIROS DA BIOS E É posible que O XOGO NON "
+"FUNCIONE CORRECTAMENTE.\n"
+"QUERES LANZALO DE TODA FORMA?"
+
+msgid "Preloading UI"
+msgstr "UI de precarga"
+
+msgid "Loading theme"
+msgstr "Cargando tema"
+
+msgid "Loading gamelists"
+msgstr "Cargando listas de xogos"
+
+msgid "MENU"
+msgstr "MENÚ"
+
+msgid "GENRE"
+msgstr "XÉNERO"
+
+msgid "FAMILY"
+msgstr "FAMILIA"
+
+msgid "PLAYERS"
+msgstr "XOGADORES"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr "EDITOR/DESENORADOR"
+
+msgid "RATING"
+msgstr "VALORACIÓN"
+
+msgid "YEAR"
+msgstr "ANO"
+
+msgid "REGION"
+msgstr "REXION"
+
+msgid "KIDGAME"
+msgstr "XOGO INFANTIL"
+
+msgid "ALREADY PLAYED"
+msgstr "XA XOGADO"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "TEN LOGROS"
+
+msgid "VERTICAL"
+msgstr "VERTICAIS"
+
+msgid "LIGHTGUN"
+msgstr "PISTOLA DE LUZ"
+
+msgid "STEERING WHEEL"
+msgstr "VOLANTE"
+
+msgid "HAVING MEDIAS"
+msgstr "TER MEDIOS"
+
+msgid "MISSING MEDIAS"
+msgstr "FALTAN MEDIOS"
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "¿QUERES CAMBIAR A PANTALLA?"
+
+msgid "SCRAPING"
+msgstr "EXTRACCION DE DATOS"
+
+msgid "SCRAPE FAILED"
+msgstr "A EXTRACION DE DATOS FALLOU"
+
+msgid "SCRAPING FINISHED"
+msgstr "A EXTRACION DE DATOS REMATOU"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "ACTUALIZAR A LISTA DE XOGOS PARA APLICAR OS TROCOS."
+
+msgid "Loading system config..."
+msgstr "Cargando a configuración do sistema..."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "GARDANDO OS DATOS DESCRIPTIVOS, AGARDA..."
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "O EMULADOR SAÍU INESPERADO"
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "ARGUMENTOS DE LIÑA DE COMANDOS INCORRECTOS"
+
+msgid "INVALID CONFIGURATION"
+msgstr "CONFIGURACION NON VALIDA"
+
+msgid "UNKNOWN EMULATOR"
+msgstr "EMULADOR DESCOÑECIDO"
+
+msgid "EMULATOR IS MISSING"
+msgstr "FALTA O EMULADOR"
+
+msgid "CORE IS MISSING"
+msgstr "FALTA O NUCLEO"
+
+msgid "UKNOWN ERROR"
+msgstr "ERRO DESCOÑECIDO"
+
+msgid "all games"
+msgstr "todos os xogos"
+
+msgid "last played"
+msgstr "derradeiros xogados"
+
+msgid "favorites"
+msgstr "favoritos"
+
+msgid "2 players"
+msgstr "2 xogadores"
+
+msgid "4 players"
+msgstr "4 xogadores"
+
+msgid "never played"
+msgstr "xamais xogados"
+
+msgid "retroachievements"
+msgstr "trofeos (retraarchievements)"
+
+msgid "arcade"
+msgstr "arcade"
+
+msgid "vertical arcade"
+msgstr "arcada vertical"
+
+msgid "lightgun games"
+msgstr "xogos compatibles pistola óptica"
+
+msgid "wheel games"
+msgstr "xogos compatibles co volante"
+
+msgid "collections"
+msgstr "coleccións"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "Engadido '%s' a '%s'"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "Eliminado '%s' de '%s'"
+
+msgid "This collection is empty."
+msgstr "Esta colección está valeira."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Ningún"
+
+msgid "Various"
+msgstr "Varios"
+
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "BUSCA DE RETROLOGROS"
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "BUSCANDO XOGOS NETPLAY"
+
+msgid "INDEXING COMPLETED"
+msgstr "INDEXACIÓN COMPLETADA"
+
+msgid "FILENAME, ASCENDING"
+msgstr "NOME DO FICHEIRO, ASCENDENTE"
+
+msgid "FILENAME, DESCENDING"
+msgstr "NOME DO FICHEIRO, DECENDENTE"
+
+msgid "RATING, ASCENDING"
+msgstr "VALORACIÓN, ASCENDENTE"
+
+msgid "RATING, DESCENDING"
+msgstr "VALORACIÓN, DESCENDENTE"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "VECES XOGADO, ASCENDENTE"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "TEMPOS XOGADO, DESCENDENTE"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "ÚLTIMO XOGADO, ASCENDENTE"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "ÚLTIMA XOGADA, DESCENDENTE"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "NÚMERO DE XOGADORES, ASCENDENTE"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "NÚMERO DE XOGADORES, DECENDENTE"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "DATA DE LANZAMIENTO, ASCENDENTE"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "DATA DE LANZAMIENTO, DESCENDENTE"
+
+msgid "GENRE, ASCENDING"
+msgstr "XÉNERO, ASCENDENTE"
+
+msgid "GENRE, DESCENDING"
+msgstr "XÉNERO, DESCENDENTE"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "DESENROLADOR, ASCENDENTE"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "DESENROLADOR, DESCENDENTE"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "EDITORA, ASCENDENTE"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "EDITOR, DESCENDENTE"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "SISTEMA, ASCENDENTE"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "SISTEMA, DESCENDENTE"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "DATA DE CREACIÓN DO FICHEIRO, ASCENDENTE"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "DATA DE CREACIÓN DO FICHEIRO, DESCENDENTE"
+
+msgid "GAME TIME, ASCENDING"
+msgstr "TEMPO DE XOGO, ASCENDENTE"
+
+msgid "GAME TIME, DESCENDING"
+msgstr "TEMPO DE XOGO, DESCENDENTE"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "SISTEMA, ANO DE LANZAMIENTO, ASCENDENTE"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "SISTEMA, ANO DE LANZAMIENTO, DESCENDENTE"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "ANO DE LANZAMIENTO, SISTEMA, ASCENDENTE"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "ANO DE LANZAMIENTO, SISTEMA, DESCENDENTE"
+
+msgid "A,AN,THE"
+msgstr "A, UN, O"
+
+msgid "UPDATE AVAILABLE"
+msgstr "ACTUALIZACIÓN DISPOÑIBLE"
+
+#, c-format
+msgid "%s connected"
+msgstr "%s conectado"
+
+#, c-format
+msgid "%s disconnected"
+msgstr "%s desconectado"
+
+#, c-format
+msgid "%d d"
+msgstr "%d d"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d mn"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d seg"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d ano"
+msgstr[1] "%d anos"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d día"
+msgstr[1] "%d días"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "%d hora"
+msgstr[1] "%d horas"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "%d minuto"
+msgstr[1] "%d minutos"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "%d segundo"
+msgstr[1] "%d segundos"
+
+msgid "MOVE CURSOR"
+msgstr "MOVER CURSOR"
+
+msgid "EDIT"
+msgstr "EDITAR"
+
+msgid "CHANGE"
+msgstr "TROCAR"
+
+msgid "WORKING..."
+msgstr "EN CURSO..."
+
+msgid "up/down"
+msgstr "arriba/abaixo"
+
+msgid "accept"
+msgstr "aceptar"
+
+msgid "SELECT ALL"
+msgstr "TODOS"
+
+msgid "select all"
+msgstr "todos"
+
+msgid "SELECT NONE"
+msgstr "NINGUN"
+
+msgid "select none"
+msgstr "ningún"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i ESCOLLIDO"
+msgstr[1] "%i ESCOLLIDOS"
+
+msgid "ENABLED"
+msgstr "ACTIVADO"
+
+msgid "DISCARD CHANGES"
+msgstr "DESCARTAR TROCOS"
+
+msgid "WELCOME"
+msgstr "BENVIDO"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i MANDO ATOPADO"
+msgstr[1] "%i MANDOS ATOPADOS"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "NINGUN MANDO ATOPADO"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "MANTEN PREMIDO UN BOTON NO TEU DISPOSITIVO PARA CONFIGURALO."
+
+msgid "PRESS ESC TO CANCEL."
+msgstr "PREME EC PARA CANCELAR."
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr "PREME ESC OU ATALLO PARA CANCELAR."
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "MAIUS PARA MAIUSCULAS, MINUSCULAS, E ESPECIAIS"
+
+msgid "ALT GR"
+msgstr "ALT GR"
+
+msgid "SHIFT"
+msgstr "MAIUSCULA"
+
+msgid "SPACE"
+msgstr "BARRA ESPACIADORA"
+
+msgctxt "joystick"
+msgid "NORTH"
+msgstr "NORTE"
+
+msgctxt "joystick"
+msgid "SOUTH"
+msgstr "SUR"
+
+msgctxt "joystick"
+msgid "EAST"
+msgstr "ESTE"
+
+msgctxt "joystick"
+msgid "WEST"
+msgstr "OESTE"
+
+msgctxt "joystick"
+msgid "START"
+msgstr "START"
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr "CRUCETA ARRIBA"
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr "CRUCETA ABAIXO"
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr "CRUCETA ESQUERDA"
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr "CRUCETA DEREITA"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG UP"
+msgstr "ANALOXICO ESQUERDO ARRIBA"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG DOWN"
+msgstr "ANALOXICO ESQUERDO ABAIXO"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG LEFT"
+msgstr "ANALOXICO ESQUERDO ESQUERDA"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG RIGHT"
+msgstr "ANALOXICO ESQUERDO DEREITA"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG UP"
+msgstr "ANALOXICO DEREITO ARRIBA"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG DOWN"
+msgstr "ANALOXICO DEREITO ABAIXO"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG LEFT"
+msgstr "ANALOXICO DEREITO ESQUERDA"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG RIGHT"
+msgstr "ANALOXICO DEREITO DEREITA"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr "OMBRO ESQUERDO"
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr "OMBRO DEREITO"
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr "GATILLO ESQUERDO"
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr "GATILLO DEREITO"
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr "PAU ESQUERDO PREMER"
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr "PAU DEREITO PREMER"
+
+msgctxt "joystick"
+msgid "HOTKEY"
+msgstr "ATALLO"
+
+msgid "CONFIGURING"
+msgstr "CONFIGURANDO"
+
+msgid "KEYBOARD"
+msgstr "TECLADO"
+
+msgid "CEC"
+msgstr "CEC"
+
+#, c-format
+msgid "GAMEPAD %i"
+msgstr "MANDO DE XOGO %i"
+
+msgid "HOLD ANY BUTTON TO SKIP"
+msgstr "MANTEN CALQUERA BOTÓN PARA SALTAR"
+
+msgid "-NOT DEFINED-"
+msgstr "-NON DEFINIDO-"
+
+msgid ""
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A "
+"CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+"NON SE ASIGNOU NINGÚN BOTÓN DE TECLAS DE ACCESORIOS. É REQUERIDO PARA SAÍR DE "
+"XOGOS CUN CONTROLADOR. QUERES UTILIZAR O BOTÓN SELECCIONAR COMO A SÚA TECLA "
+"DE ACCIÓN?"
+
+msgid "SET SELECT AS HOTKEY"
+msgstr "ESTABLECER SELECCIONAR COMO TECLA DE ACCESORIOS"
+
+msgid "DO NOT ASSIGN HOTKEY"
+msgstr "NON ASIGNA A TECLA DE ACTUACIÓN"
+
+#, c-format
+msgid "HOLD FOR %iS TO SKIP"
+msgid_plural "HOLD FOR %iS TO SKIP"
+msgstr[0] "MANTEN PREMIDO %iS PARA SALTAR"
+msgstr[1] "MANTER PREMIDOS %iS PARA SALTAR"
+
+msgid "PRESS ANYTHING"
+msgstr "PRESIONA CALQUERA COUSA"
+
+msgid "ALREADY TAKEN"
+msgstr "XA COLLIDOS"
+
+msgid "SCREEN READER ENABLED"
+msgstr "LECTOR DE PANTALLA ACTIVADO"
+
+msgid "SCREEN READER DISABLED"
+msgstr "LECTOR DE PANTALLA DESACTIVADO"
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
+"PISTOLA CALIBRADORA\n"
+"Dispara os obxectivos para calibrar"
