@@ -729,14 +729,6 @@ void GuiMenu::openDeveloperSettings()
 			ApiSystem::getInstance()->setOverscan(overscan_enabled->getState());
 		}
 	});
-
-	// es resolution
-	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
-	  {
-	    auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "es", "resolution");
-	    s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution for emulationstation."), videoModeOptionList);
-	    s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("es.resolution", videoModeOptionList->getSelected()); });
-	  }
 #endif
 
 #ifdef _RPI_
@@ -1508,6 +1500,13 @@ void GuiMenu::openSystemSettings()
 				s->setVariable("exitreboot", true);
 			}
 		});
+	}
+	// es resolution
+	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RESOLUTION))
+	{
+	    auto videoModeOptionList = createVideoResolutionModeOptionList(mWindow, "es", "resolution");
+	    s->addWithDescription(_("VIDEO MODE"), _("Sets the display's resolution for emulationstation."), videoModeOptionList);
+	    s->addSaveFunc([this, videoModeOptionList] { SystemConf::getInstance()->set("es.resolution", videoModeOptionList->getSelected()); });
 	}
 #endif
 
