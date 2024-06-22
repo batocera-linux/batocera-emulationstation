@@ -104,6 +104,7 @@ namespace PlatformIds
 		{ "zx81",					ZX81 },
 		{ "tic80",					TIC80 },
 		{ "gp32",					GP32 },
+		{ "chihiro",				SEGA_CHIHIRO },
 
 		// batocera specific names
 		{ "gb2players",				GAME_BOY },

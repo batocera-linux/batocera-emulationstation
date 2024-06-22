@@ -61,6 +61,7 @@ namespace PlatformIds
 		PC_98,
 		SEGA_32X,
 		SEGA_CD,
+		SEGA_CHIHIRO,
 		SEGA_DREAMCAST,
 		SEGA_GAME_GEAR,
 		SEGA_GENESIS,
