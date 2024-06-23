@@ -785,7 +785,9 @@ bool GunManager::updateGunPosition(Gun* gun)
 	}
 
 	return true;
-#else
+#endif
+
+#ifdef WIN32
 	if (gun->mName == WIIMOTE_GUN)
 	{
 		int x, y;
@@ -805,7 +807,8 @@ bool GunManager::updateGunPosition(Gun* gun)
 	gun->mMButtonDown = (gun->m_internalButtonState & 4) == 4;
 	gun->mStartButtonDown = (gun->m_internalButtonState & 8) == 8;
 	gun->mSelectButtonDown = (gun->m_internalButtonState & 16) == 16;	
-#endif	
+#endif
+
 	return false;
 }
 
