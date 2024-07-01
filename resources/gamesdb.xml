@@ -366,6 +366,12 @@
       <gun/>
       <wheel rotation="270"/>
     </game>
+    <game name="CP_HD">
+      <gun/>
+    </game>
+    <game name="CP2DW_HD">
+      <gun/>
+    </game>
     <game name="cracksht">
       <gun/>
     </game>
@@ -376,6 +382,9 @@
       <gun/>
     </game>
     <game name="crimepat">
+      <gun/>
+    </game>
+    <game name="crimepatrol">
       <gun/>
     </game>
     <game name="crimepatrol-hd">
@@ -653,6 +662,9 @@
     </game>
     <game name="driveyes">
       <wheel rotation="270"/>
+    </game>
+    <game name="drugwars">
+      <gun/>
     </game>
     <game name="drugwars-hd">
       <gun/>
@@ -1314,6 +1326,9 @@
     <game name="jnero">
       <gun/>
     </game>
+    <game name="johnnyrock">
+      <gun/>
+    </game>
     <game name="johnnyrock-hd">
       <gun/>
     </game>
@@ -1375,6 +1390,9 @@
       <gun/>
     </game>
     <game name="lbh-hd">
+      <gun/>
+    </game>
+    <game name="LBH_HD">
       <gun/>
     </game>
     <game name="lastbh_006">
@@ -1499,6 +1517,9 @@
     <game name="maddog-hd">
       <gun/>
     </game>
+    <game name="Maddog_HD">
+      <gun/>
+    </game>
     <game name="maddog_202">
       <gun/>
     </game>
@@ -1506,6 +1527,9 @@
       <gun/>
     </game>
     <game name="maddog2-hd">
+      <gun/>
+    </game>
+    <game name="Maddog2_HD">
       <gun/>
     </game>
     <game name="maddog2_100">
@@ -2566,7 +2590,13 @@
     <game name="spacepir">
       <gun/>
     </game>
+    <game name="spacepirates">
+      <gun/>
+    </game>
     <game name="spacepirates-hd">
+      <gun/>
+    </game>
+    <game name="Space_Pirates_HD">
       <gun/>
     </game>
     <game name="spacepir_14">
@@ -3245,6 +3275,9 @@
       <gun/>
     </game>
     <game name="wsjr">
+      <gun/>
+    </game>
+    <game name="WSJR_HD">
       <gun/>
     </game>
     <game name="wsjr_15">
