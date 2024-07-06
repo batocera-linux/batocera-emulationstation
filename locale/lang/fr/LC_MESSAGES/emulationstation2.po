@@ -17,7 +17,7 @@ msgid "SCANNING BLUETOOTH"
 msgstr "DÉCOUVERTE BLUETOOTH"
 
 msgid "Searching for devices..."
-msgstr "Recherche de manettes…"
+msgstr "Recherche de périphériques..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
 msgstr "DÉCOUVERTE BLUETOOTH DÉJÀ EN COURS."
@@ -53,10 +53,10 @@ msgid "emulator"
 msgstr "émulateur"
 
 msgid "Core"
-msgstr "Cœur"
+msgstr "Coeur"
 
 msgid "core"
-msgstr "cœur"
+msgstr "coeur"
 
 msgid "Image"
 msgstr "Image"
@@ -92,7 +92,7 @@ msgid "Title shot"
 msgstr "Image avec titre"
 
 msgid "enter path to title shot"
-msgstr "entrer le chemin vers l’image avec titre"
+msgstr "entrer le chemin vers l’image titre"
 
 msgid "Manual"
 msgstr "Manuel"
@@ -116,7 +116,7 @@ msgid "Bezel (16:9)"
 msgstr "Décoration (16/9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "entrer le chemin pour la décoration (16/9)"
+msgstr "entrer le chemin vers la décoration (16/9)"
 
 msgid "Cartridge"
 msgstr "Cartouche"
@@ -254,13 +254,13 @@ msgid "Languages"
 msgstr "Langues"
 
 msgid "this game's languages"
-msgstr "les langues du jeu"
+msgstr "langues du jeu"
 
 msgid "Region"
 msgstr "Région"
 
 msgid "this game's region"
-msgstr "la région du jeu"
+msgstr "région du jeu"
 
 msgid "Cheevos Hash"
 msgstr "Hachage Cheevos"
@@ -269,10 +269,10 @@ msgid "Cheevos checksum"
 msgstr "Somme de contrôle Cheevos"
 
 msgid "Cheevos Game ID"
-msgstr "Game ID Cheevos"
+msgstr "ID Cheevos"
 
 msgid "Screenscraper Game ID"
-msgstr "Game ID Screenscraper"
+msgstr "ID Screenscraper"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -350,16 +350,16 @@ msgid "All"
 msgstr "Tous"
 
 msgid "Installed"
-msgstr "Installés"
+msgstr "Installé(s)"
 
 msgid "Available"
-msgstr "Disponibles"
+msgstr "Disponible(s)"
 
 msgid "BACK"
 msgstr "RETOUR"
 
 msgid "No items"
-msgstr "Il n’y a pas d’éléments dans cette vue"
+msgstr "Aucun élément"
 
 msgid "PLEASE WAIT"
 msgstr "VEUILLEZ PATIENTER"
@@ -442,13 +442,13 @@ msgid "NO"
 msgstr "NON"
 
 msgid "LEFT ANALOG STICK"
-msgstr "MANCHE DE GAUCHE"
+msgstr "STICK DE GAUCHE"
 
 msgid "RIGHT ANALOG STICK"
-msgstr "MANCHE DE DROITE"
+msgstr "STICK DE DROITE"
 
 msgid "EDIT DESCRIPTION"
-msgstr "ÉDITER LA DESCRIPTION"
+msgstr "MODIFIER LA DESCRIPTION"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER CET ÉLÉMENT ?"
@@ -472,10 +472,10 @@ msgid "VERSION"
 msgstr "VERSION"
 
 msgid "USER DISK USAGE"
-msgstr "USAGE DU DISQUE UTILISATEUR"
+msgstr "UTILISATION DU DISQUE UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
-msgstr "USAGE DU DISQUE SYSTÈME"
+msgstr "UTILISATION DU DISQUE SYSTÈME"
 
 msgid "SYSTEM"
 msgstr "SYSTÈME"
@@ -603,7 +603,7 @@ msgstr ""
 "notifications."
 
 msgid "RICH PRESENCE"
-msgstr "PRÉSENCE RICHE"
+msgstr "RICH PRESENCE"
 
 msgid "ENCORE MODE"
 msgstr "MODE ENCORE"
@@ -689,25 +689,25 @@ msgid "NO UPDATE AVAILABLE"
 msgstr "PAS DE MISE À JOUR DISPONIBLE"
 
 msgid "SCRAPER"
-msgstr "MOISSONNEUR"
+msgstr "SCRAPEUR"
 
 msgid "SCRAPING DATABASE"
-msgstr "BASE DE DONNÉES DU MOISSONNAGE"
+msgstr "BASE DE DONNÉES DE SCRAPE"
 
 msgid "SOURCE"
 msgstr "SOURCE"
 
 msgid "SCRAPE FROM"
-msgstr "MOISSONNÉ DEPUIS"
+msgstr "SCRAPÉ DE"
 
 msgid "SCRAPER SETTINGS"
-msgstr "OPTIONS DU MOISSONNEUR"
+msgstr "OPTIONS DU SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTRES"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "JEUX À MOISSONNER"
+msgstr "SCRAPER LES JEUX"
 
 msgid "ALL"
 msgstr "TOUS"
@@ -719,7 +719,7 @@ msgid "GAMES MISSING ALL MEDIA"
 msgstr "JEUX DONT TOUS LES MÉDIAS SONT MANQUANTS"
 
 msgid "IGNORE RECENTLY SCRAPED GAMES"
-msgstr "IGNORER LES JEUX MOISSONNÉS RÉCEMMENT"
+msgstr "IGNORER LES JEUX SCRAPÉS RÉCEMMENT"
 
 msgid "LAST DAY"
 msgstr "LE JOUR DERNIER"
@@ -743,7 +743,7 @@ msgid "SYSTEMS INCLUDED"
 msgstr "SYSTÈMES INCLUS"
 
 msgid "SCRAPE NOW"
-msgstr "MOISSONNER MAINTENANT"
+msgstr "SCRAPER MAINTENANT"
 
 msgid "START"
 msgstr "DÉMARRER"
@@ -761,7 +761,7 @@ msgstr ""
 "CONTINUER QUAND MÊME ?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "UN MOISSONNAGE EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
+msgstr "UN SCRAPE EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "NO GAMES FIT THAT CRITERIA."
 msgstr "AUCUN JEU NE CORRESPOND."
@@ -824,14 +824,14 @@ msgid "Cpu number"
 msgstr "Nombre de processeurs"
 
 msgid "Cpu max frequency"
-msgstr "Fréquence max de processeur"
+msgstr "Fréquence max du processeur"
 
 msgid "Cpu feature"
-msgstr "Caractéristiques de processeur"
+msgstr "Caractéristiques du processeur"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
-msgstr "NETTETÉ BILINÉAIRE"
+msgstr "SHARP-BILINEAR-SIMPLE"
 
 msgctxt "game_options"
 msgid "SCANLINES"
@@ -859,7 +859,7 @@ msgstr "APPLATI ET BRILLANT"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "ECHELLE RVB"
+msgstr "MISE À L'ÉCHELLE RGA"
 
 msgid "VENDOR"
 msgstr "FABRICANT"
@@ -886,7 +886,7 @@ msgid "MAIN MENU"
 msgstr "MENU PRINCIPAL"
 
 msgid "KODI MEDIA CENTER"
-msgstr "CENTRE MULTIMÉDIA KODI"
+msgstr "KODI MEDIA CENTER"
 
 msgid "GAME SETTINGS"
 msgstr "PARAMÈTRES DES JEUX"
@@ -925,7 +925,7 @@ msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
 msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR CONFIGURER LA MANETTE ?"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
-msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQU'UN MOISSONNAGE EST EN COURS"
+msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQU'UN SCRAPE EST EN COURS"
 
 msgid "CHOOSE"
 msgstr "CHOISIR"
@@ -934,13 +934,13 @@ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr "L'INTERFACE A ETE DEVERROUILLÉE"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr "SAISISSER LE CODE DE DÉVERROUILLAGE"
+msgstr "SAISIR LE CODE DE DÉVERROUILLAGE"
 
 msgid "SERVICES"
 msgstr "SERVICES"
 
 msgid "DMD"
-msgstr "Écran DMD"
+msgstr "DMD"
 
 msgid "SERVER"
 msgstr "SERVEUR"
@@ -1000,7 +1000,7 @@ msgid "VIDEO MODE"
 msgstr "MODE VIDÉO"
 
 msgid "Sets the display's resolution."
-msgstr "Paramétrer la résolution de l'écran."
+msgstr "Résolution de l'écran."
 
 msgid "ROTATION"
 msgstr "ROTATION"
@@ -1024,7 +1024,7 @@ msgid "DMD SCREEN"
 msgstr "ÉCRAN DMD"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr "OPTIONS DEVELOPPEUR"
+msgstr "OPTIONS DÉVELOPPEUR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPTIONS VIDÉO"
@@ -1033,11 +1033,11 @@ msgid "VRAM LIMIT"
 msgstr "LIMITE MÉMOIRE VIDÉO"
 
 msgid "SHOW FRAMERATE"
-msgstr "AFFICHER LE NOMBRE DE TRAMES/SEC"
+msgstr "AFFICHER LE NOMBRE D'IMAGES/SEC"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr ""
-"Active également le compteur natif de FPS si disponible dans l’émulateur."
+"Active également le compteur de FPS de l'émulateur, si disponible."
 
 msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
@@ -1058,7 +1058,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "ARRÊTER DE LANCER CE JEU AU DÉMARRAGE"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr "ACTIVER L’ACCÈS PUBLIC À L’API WEB"
+msgstr "ACTIVER L’API WEB PUBLIQUE"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1072,7 +1072,7 @@ msgstr "CRÉER UN FICHIER DE SUPPORT"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
-"CRÉER UN FICHIER DE SUPPORT ? CELA COMPREND TOUTES LES DONNÉES DE VOTRE "
+"CRÉER UN FICHIER DE SUPPORT ? CELA INCLUT TOUTES LES DONNÉES DE VOTRE "
 "DOSSIER SYSTÈME."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
@@ -1085,7 +1085,7 @@ msgid "FORMAT A DISK"
 msgstr "FORMATER UN DISQUE"
 
 msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
-msgstr "NETTOYER LES LISTES DE JEUX & EFFACER LES MÉDIAS INUTILISÉS"
+msgstr "NETTOYER LES LISTES DE JEUX & SUPPRIMER LES MÉDIAS INUTILISÉS"
 
 msgid "Remove unused entries, and clean references to missing medias."
 msgstr ""
@@ -1100,8 +1100,7 @@ msgstr "RÉINITIALISER LES DONNÉES D'UTILISATION DES LISTES DE JEUX"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 msgstr ""
-"Réinitialiser les valeurs du temps de jeu, du nombre de parties et des "
-"dernières jouées."
+"Réinitialiser les valeurs : temps de jeu, nombre de parties et dernière jouée"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RAZ DES EXTENSIONS DE FICHIER"
@@ -1211,8 +1210,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Intervertit le bouton Nord pression brève pour les Sauvegardes de jeu & et "
-"le bouton Sud pression longue pour les Options du jeu"
+"Intervertit l'appui court sur le bouton Nord (Sauvegardes de jeu) avec "
+"l'appui long sur le bouton Sud (Options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTRÔLER EMULATIONSTATION AVEC LA 1ÈRE MANETTE UNIQUEMENT"
@@ -1251,7 +1250,7 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-"Réduit les saccades en naviguant dans les listes de jeux moissonnés, "
+"Réduit les saccades en naviguant dans les listes de jeux, "
 "augmente le temps de démarrage"
 
 msgid "THREADED LOADING"
@@ -1432,7 +1431,7 @@ msgid "POWER LED COLOR"
 msgstr "COULEUR LED D’ALIMENTATION"
 
 msgid "heartbeat"
-msgstr "battements de cœur"
+msgstr "battements de coeur"
 
 msgid "on"
 msgstr "allumé"
@@ -1677,7 +1676,7 @@ msgid "PER SYSTEM ADVANCED CONFIGURATION"
 msgstr "CONFIGURATION AVANCÉE PAR SYSTÈME"
 
 msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "UN MOISSONNAGE EST EN COURS. VOULEZ-VOUS L’INTERROMPRE ?"
+msgstr "UN SCRAPE EST EN COURS. VOULEZ-VOUS L’INTERROMPRE ?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "L'INDEXATION DES JEUX EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
@@ -1830,7 +1829,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LES ARTICLES LORS DU TRI"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Ignore les articles 'Le, La, De…'."
+msgstr "Ignore les articles 'Le, La, De...'."
 
 msgid "VOLUME"
 msgstr "VOLUME"
@@ -2060,10 +2059,10 @@ msgid "VIEW GAME MEDIA"
 msgstr "VOIR LES MÉDIAS DU JEU"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
-msgstr "CŒUR ACTUEL NON COMPATIBLE"
+msgstr "COEUR ACTUEL NON COMPATIBLE"
 
 msgid "COMPATIBLE CORE(S)"
-msgstr "CŒUR(S) COMPATIBLE(S)"
+msgstr "COEUR(S) COMPATIBLE(S)"
 
 msgid "VIEW THIS GAME'S ACHIEVEMENTS"
 msgstr "VOIR LES SUCCÈS DU JEU"
@@ -2099,7 +2098,7 @@ msgid "VIEWER PASSWORD"
 msgstr "MOT DE PASSE SPECTATEUR"
 
 msgid "FIND SIMILAR GAMES..."
-msgstr "TROUVER LES JEUX SIMILAIRES…"
+msgstr "TROUVER LES JEUX SIMILAIRES..."
 
 msgid "DELETE ITEM"
 msgstr "SUPPRIMER L'ÉLÉMENT"
@@ -2129,13 +2128,13 @@ msgid "FAVORITES"
 msgstr "FAVORIS"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "AJOUTER À UNE COLLECTION…"
+msgstr "AJOUTER À UNE COLLECTION..."
 
 msgid "DELETE COLLECTION"
 msgstr "SUPPRIMER LA COLLECTION"
 
 msgid "SCRAPE"
-msgstr "MOISSONNER"
+msgstr "SCRAPER"
 
 msgid "ADVANCED GAME OPTIONS"
 msgstr "CONFIGURATION AVANCÉE DU JEU"
@@ -2147,7 +2146,7 @@ msgid "EDIT THIS GAME'S METADATA"
 msgstr "ÉDITER LES MÉTADONNÉES DU JEU"
 
 msgid "VIEW PAD TO KEYBOARD INFORMATION"
-msgstr "VOIR LE PROFIL MANETTE À CLAVIER"
+msgstr "VOIR LE PROFIL PADTOKEY"
 
 msgid "RESET"
 msgstr "RAZ"
@@ -2210,7 +2209,7 @@ msgid "OVERWRITE MEDIAS"
 msgstr "ÉCRASER LES MÉDIAS"
 
 msgid "SCRAPE FOR"
-msgstr "MOISSONNER POUR"
+msgstr "SCRAPER"
 
 msgid "SHORT NAME"
 msgstr "NOM COURT"
@@ -2318,7 +2317,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "AFFICHER LES SYSTÈMES SANS JEU"
 
 msgid "Loading..."
-msgstr "Chargement…"
+msgstr "Chargement..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "CHOISIR LES COLLECTIONS"
@@ -2491,7 +2490,7 @@ msgid "SAME ROM"
 msgstr "ROM IDENTIQUE"
 
 msgid "UNAVAILABLE CORE"
-msgstr "CŒUR NON DISPONIBLE"
+msgstr "COEUR NON DISPONIBLE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"
@@ -2905,7 +2904,7 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"ATTENTION : L’ÉMULATEUR/CŒUR ACTUEL NE SUPPORTE PAS LE FORMAT DE FICHIER DE "
+"ATTENTION : L’ÉMULATEUR/COEUR ACTUEL NE SUPPORTE PAS LE FORMAT DE FICHIER DE "
 "CE JEU.\n"
 "VOULEZ-VOUS LE LANCER QUAND MÊME ?"
 
@@ -2979,22 +2978,22 @@ msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
 msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
 
 msgid "SCRAPING"
-msgstr "MOISSONNAGE"
+msgstr "SCRAPE"
 
 msgid "SCRAPE FAILED"
-msgstr "ÉCHEC DU MOISSONNAGE"
+msgstr "ÉCHEC DU SCRAPE"
 
 msgid "SCRAPING FINISHED"
-msgstr "MOISSONNAGE TERMINÉ"
+msgstr "SCRAPE TERMINÉ"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 
 msgid "Loading system config..."
-msgstr "Chargement de la configuration système…"
+msgstr "Chargement de la configuration système..."
 
 msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
+msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "L’ÉMULATEUR A QUITTÉ DE MANIÈRE INATTENDUE"
@@ -3012,7 +3011,7 @@ msgid "EMULATOR IS MISSING"
 msgstr "L’ÉMULATEUR EST MANQUANT"
 
 msgid "CORE IS MISSING"
-msgstr "LE CŒUR EST MANQUANT"
+msgstr "LE COEUR EST MANQUANT"
 
 msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
@@ -3234,7 +3233,7 @@ msgid "CHANGE"
 msgstr "CHANGER"
 
 msgid "WORKING..."
-msgstr "EN COURS…"
+msgstr "EN COURS..."
 
 msgid "up/down"
 msgstr "haut/bas"
