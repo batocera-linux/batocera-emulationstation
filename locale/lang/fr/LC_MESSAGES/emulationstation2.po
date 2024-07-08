@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Chipsum\n"
 "Language-Team: Batocera official\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "DÉCOUVERTE BLUETOOTH"
@@ -77,10 +77,10 @@ msgid "enter path to logo"
 msgstr "entrer le chemin vers le logo"
 
 msgid "Box"
-msgstr "Boîte"
+msgstr "Boite"
 
 msgid "enter path to box"
-msgstr "entrer le chemin vers la boîte"
+msgstr "entrer le chemin vers la boite"
 
 msgid "Fan art"
 msgstr "Fanart"
@@ -125,16 +125,16 @@ msgid "enter path to cartridge"
 msgstr "entrer le chemin vers la cartouche"
 
 msgid "Alt BoxArt"
-msgstr "Boîte (Alt)"
+msgstr "Boite (Alt)"
 
 msgid "enter path to alt boxart"
-msgstr "entrer le chemin vers la boîte (Alt)"
+msgstr "entrer le chemin vers la boite (Alt)"
 
 msgid "Box backside"
-msgstr "Dos de la boîte"
+msgstr "Dos de la boite"
 
 msgid "enter path to box background"
-msgstr "entrer le chemin vers le dos de la boîte"
+msgstr "entrer le chemin vers le dos de la boite"
 
 msgid "Wheel"
 msgstr "Logo"
@@ -236,22 +236,22 @@ msgid "Crc32"
 msgstr "Crc32"
 
 msgid "Crc32 checksum"
-msgstr "Somme de contrôle CRC32"
+msgstr "Checksum CRC32"
 
 msgid "Md5"
 msgstr "Md5"
 
 msgid "Md5 checksum"
-msgstr "Somme de contrôle MD5"
+msgstr "Checksum MD5"
 
 msgid "Game time"
 msgstr "Temps de jeu"
 
 msgid "how long the game has been played in total (seconds)"
-msgstr "durée totale de jeu (en secondes)"
+msgstr "entrer le temps de jeu"
 
 msgid "Languages"
-msgstr "Langues"
+msgstr "Langue"
 
 msgid "this game's languages"
 msgstr "langues du jeu"
@@ -263,10 +263,10 @@ msgid "this game's region"
 msgstr "région du jeu"
 
 msgid "Cheevos Hash"
-msgstr "Hachage Cheevos"
+msgstr "Hash Cheevos"
 
 msgid "Cheevos checksum"
-msgstr "Somme de contrôle Cheevos"
+msgstr "Checksum Cheevos"
 
 msgid "Cheevos Game ID"
 msgstr "ID Cheevos"
@@ -436,22 +436,22 @@ msgid "MOUSE CURSOR"
 msgstr "POINTEUR DE SOURIS"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr "ÉMULER LE POINTEUR DE SOURIS"
+msgstr "EMULER LE POINTEUR DE SOURIS"
 
 msgid "NO"
 msgstr "NON"
 
 msgid "LEFT ANALOG STICK"
-msgstr "STICK DE GAUCHE"
+msgstr "PAD DE GAUCHE"
 
 msgid "RIGHT ANALOG STICK"
-msgstr "STICK DE DROITE"
+msgstr "PAD DE DROITE"
 
 msgid "EDIT DESCRIPTION"
 msgstr "MODIFIER LA DESCRIPTION"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER CET ÉLÉMENT ?"
+msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER CET ÉLÉMENT ?"
 
 msgid "YES"
 msgstr "OUI"
@@ -460,10 +460,10 @@ msgid "DELETE MAPPING"
 msgstr "SUPPRIMER LA COMBINAISON"
 
 msgid "SAVE CHANGES?"
-msgstr "SAUVEGARDER LES CHANGEMENTS ?"
+msgstr "SAUVEGARDER LES CHANGEMENTS ?"
 
 msgid "ARE YOU SURE?"
-msgstr "ÊTES-VOUS SÛR(E) ?"
+msgstr "ÊTES-VOUS SÛR(E) ?"
 
 msgid "INFORMATION"
 msgstr "INFORMATIONS"
@@ -472,10 +472,10 @@ msgid "VERSION"
 msgstr "VERSION"
 
 msgid "USER DISK USAGE"
-msgstr "UTILISATION DU DISQUE UTILISATEUR"
+msgstr "DISQUE UTILISATEUR"
 
 msgid "SYSTEM DISK USAGE"
-msgstr "UTILISATION DU DISQUE SYSTÈME"
+msgstr "DISQUE SYSTÈME"
 
 msgid "SYSTEM"
 msgstr "SYSTÈME"
@@ -591,8 +591,8 @@ msgstr "TABLEAU DES SCORES"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
-"Participer aux classements des meilleurs scores et des meilleurs temps (mode "
-"difficile requis)."
+"Avoir ses meilleurs temps et scores dans le classement (mode difficile "
+"requis)."
 
 msgid "VERBOSE MODE"
 msgstr "MODE VERBEUX"
@@ -640,13 +640,13 @@ msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
 msgstr "AFFICHER DANS LE MENU PRINCIPAL"
 
 msgid "View your RetroAchievement stats right from the main menu!"
-msgstr "Accéder aux stats RetroAchievement depuis le menu principal !"
+msgstr "Accéder aux stats RetroAchievement depuis le menu principal!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
-msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO :"
+msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO :"
 
 msgid "THE BEZEL PROJECT"
-msgstr "LE PROJET BEZEL"
+msgstr "LE BEZEL PROJECT"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
 msgstr "SÉLECTIONNER LES DÉCORATIONS À INSTALLER / SUPPRIMER"
@@ -662,7 +662,7 @@ msgid "REBOOT TO APPLY"
 msgstr "REDÉMARRER POUR APPLIQUER"
 
 msgid "REALLY UPDATE?"
-msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR ?"
+msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR ?"
 
 #, c-format
 msgid ""
@@ -670,7 +670,7 @@ msgid ""
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
 "VOUS UTILISEZ ACTUELLEMENT LA VERSION %s\n"
-"VOULEZ-VOUS METTRE À JOUR EN VERSION %s ?"
+"VOULEZ-VOUS METTRE À JOUR EN VERSION %s ?"
 
 #, c-format
 msgid ""
@@ -680,7 +680,7 @@ msgid ""
 msgstr ""
 "MODIFICATIONS NON OFFICIELLES DÉTECTÉES.\n"
 "METTRE À JOUR PEUT CASSER LE SYSTÈME.\n"
-"VOULEZ-VOUS METTRE À JOUR EN VERSION %s ?"
+"VOULEZ-VOUS METTRE À JOUR EN VERSION %s ?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "CONNEXION RÉSEAU NÉCESSAIRE"
@@ -698,10 +698,10 @@ msgid "SOURCE"
 msgstr "SOURCE"
 
 msgid "SCRAPE FROM"
-msgstr "SCRAPÉ DE"
+msgstr "SCRAPER DE"
 
 msgid "SCRAPER SETTINGS"
-msgstr "OPTIONS DU SCRAPER"
+msgstr "OPTIONS DU SCRAPEUR"
 
 msgid "FILTERS"
 msgstr "FILTRES"
@@ -740,7 +740,7 @@ msgid "LAST YEAR"
 msgstr "L’ANNÉE DERNIÈRE"
 
 msgid "SYSTEMS INCLUDED"
-msgstr "SYSTÈMES INCLUS"
+msgstr "SYSTÈMES"
 
 msgid "SCRAPE NOW"
 msgstr "SCRAPER MAINTENANT"
@@ -756,9 +756,9 @@ msgid ""
 "MAY BE FOR DIFFERENT SYSTEMS!\n"
 "CONTINUE ANYWAY?"
 msgstr ""
-"ATTENTION : CERTAINS DE VOS SYSTÈMES N’ONT PAS DE PLATEFORME DÉFINIE. LES "
-"RÉSULTATS POURRAIENT ÊTRE INATTENDUS !\n"
-"CONTINUER QUAND MÊME ?"
+"ATTENTION : CERTAINS DE VOS SYSTÈMES N’ONT PAS DE PLATEFORME DÉFINIE. LES "
+"RÉSULTATS POURRAIENT ÊTRE INATTENDUS !\n"
+"CONTINUER QUAND MÊME ?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "UN SCRAPE EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
@@ -794,7 +794,7 @@ msgid "instant"
 msgstr "instantané"
 
 msgid "fade & slide"
-msgstr "fondu & glissement"
+msgstr "fondu et glissement"
 
 msgid "System"
 msgstr "Système"
@@ -910,7 +910,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "PARAMÈTRES DES EMULATEURS"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "MISES À JOUR & TÉLÉCHARGEMENTS"
+msgstr "MISES À JOUR ET TÉLÉCHARGEMENTS"
 
 msgid "SYSTEM SETTINGS"
 msgstr "PARAMÈTRES SYSTÈME"
@@ -922,7 +922,7 @@ msgid "QUIT"
 msgstr "QUITTER"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR CONFIGURER LA MANETTE ?"
+msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR CONFIGURER LA MANETTE ?"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "CETTE FONCTION EST DÉSACTIVÉE LORSQU'UN SCRAPE EST EN COURS"
@@ -949,13 +949,13 @@ msgid "DISABLED"
 msgstr "DÉSACTIVÉ"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr "SERVEUR DMD (pour les vrais DMD)"
+msgstr "DMDSERVEUR (pour les vrais dmds)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr "SIMULATEUR (pour un DMD web)"
+msgstr "SIMULATEUR (pour un dmd web)"
 
 msgid "dmd server"
-msgstr "serveur DMD"
+msgstr "serveur dmd"
 
 msgid "FORMAT"
 msgstr "FORMAT"
@@ -964,25 +964,25 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "dmd matrix size"
-msgstr "taille de la matrice DMD"
+msgstr "taille de la matrice dmd"
 
 msgid "MATRIX"
 msgstr "MATRICE"
 
 msgid "rgb dmd order"
-msgstr "ordre RVB du DMD"
+msgstr "ordre des couleurs du dmd"
 
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÉ"
 
 msgid "DMDSERVER stopped"
-msgstr "SERVEUR DMD stoppé"
+msgstr "DMDSERVEUR stoppé"
 
 msgid "DMDSERVER restarted"
-msgstr "SERVEUR DMD redémarré"
+msgstr "DMDSERVEUR redémarré"
 
 msgid "DMDSERVER started"
-msgstr "SERVEUR DMD démarré"
+msgstr "DMDSERVEUR démarré"
 
 msgid "MULTISCREENS"
 msgstr "ÉCRANS MULTIPLES"
@@ -1036,20 +1036,19 @@ msgid "SHOW FRAMERATE"
 msgstr "AFFICHER LE NOMBRE D'IMAGES/SEC"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr ""
-"Active également le compteur de FPS de l'émulateur, si disponible."
+msgstr "Active également le compteur de FPS de l'émulateur, si disponible."
 
 msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
 
 msgid "OVERSCAN"
-msgstr "SURBALAYAGE"
+msgstr "OVERSCAN"
 
 msgid "Sets the display's resolution for emulationstation."
 msgstr "Définir la résolution d'écran pour EmulationStation."
 
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
-msgstr "UTILISER LE LECTEUR OMX (ACCÉLÉRATION MATÉRIELLE)"
+msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION MATÉRIELLE)"
 
 msgid "TOOLS"
 msgstr "OUTILS"
@@ -1163,10 +1162,10 @@ msgstr "ANALYSER SEULEMENT LES LISTES DE JEUX"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
-"Debug : Ne pas vérifier si les ROMs existent. Peut causer des problèmes !"
+"Debug: Ne pas vérifier si les ROMs existent. Peut causer des problèmes!"
 
 msgid "SEARCH FOR LOCAL ART"
-msgstr "RECHERCHER DES VISUELS LOCAUX"
+msgstr "RECHERCHER DES VISUELS COMPLÉMENTAIRES"
 
 msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
@@ -1342,12 +1341,12 @@ msgid ""
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
-"Vous allez passer à une interface plus restreinte :\n"
+"Vous allez passer à une interface plus restreinte:\n"
 "Cela cachera la plupart des options pouvant modifier le système.\n"
-"Pour revenir à l'interface complète, utilisez ce code :"
+"Pour revenir à l'interface complète, utilisez ce code :"
 
 msgid "Do you want to proceed?"
-msgstr "Voulez-vous continuer ?"
+msgstr "Voulez-vous continuer ?"
 
 msgid "KODI SETTINGS"
 msgstr "PARAMÈTRES KODI"
@@ -1446,7 +1445,7 @@ msgid "RED"
 msgstr "ROUGE"
 
 msgid "GREEN"
-msgstr "VERT"
+msgstr "VERTE"
 
 msgid "BLUE"
 msgstr "BLEU"
@@ -1528,7 +1527,7 @@ msgid "UPDATE GAMELISTS"
 msgstr "METTRE À JOUR LES LISTES DE JEUX"
 
 msgid "ACCOUNTS"
-msgstr "COMPTES"
+msgstr "COMPTE"
 
 msgid "BIOS SETTINGS"
 msgstr "RÉGLAGES DU BIOS"
@@ -1548,7 +1547,7 @@ msgid "INCREMENTAL SAVESTATES"
 msgstr "SAUVEGARDES INCRÉMENTALES"
 
 msgid "INCREMENT PER SAVE"
-msgstr "À CHAQUE SAUVEGARDE"
+msgstr "A CHAQUE SAUVEGARDE"
 
 msgid "Never overwrite old savestates, always make new ones."
 msgstr "Crée un nouvel emplacement de sauvegarde à chaque sauvegarde."
@@ -1603,7 +1602,7 @@ msgstr ""
 "permet."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "ÉCHELLE ENTIÈRE (PIXEL PARFAIT)"
+msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
 
 msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
@@ -1679,10 +1678,10 @@ msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "UN SCRAPE EST EN COURS. VOULEZ-VOUS L’INTERROMPRE ?"
 
 msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
-msgstr "L'INDEXATION DES JEUX EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
+msgstr "L'INDEXATION DES JEUX EST EN COURS. VOULEZ-VOUS L'INTERROMPRE ?"
 
 msgid "REALLY UPDATE GAMELISTS?"
-msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR LES LISTES DE JEUX ?"
+msgstr "VOULEZ-VOUS VRAIMENT METTRE À JOUR LES LISTES DE JEUX ?"
 
 msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
 msgstr "VOUS DEVEZ APPLIQUER LE THÈME AVANT D’ÉDITER SA CONFIGURATION"
@@ -1910,7 +1909,7 @@ msgid "SKIP TO THE NEXT SONG"
 msgstr "PASSER A LA MUSIQUE SUIVANTE"
 
 msgid "NOW PLAYING"
-msgstr "À L’ÉCOUTE"
+msgstr "A L’ÉCOUTE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCONOMISEUR D'ÉCRAN"
@@ -1928,19 +1927,19 @@ msgid "RESTART SYSTEM"
 msgstr "REDÉMARRER"
 
 msgid "REALLY RESTART?"
-msgstr "VOULEZ-VOUS VRAIMENT REDÉMARRER ?"
+msgstr "VOULEZ-VOUS VRAIMENT REDÉMARRER ?"
 
 msgid "SUSPEND SYSTEM"
 msgstr "METTRE EN VEILLE"
 
 msgid "REALLY SUSPEND ?"
-msgstr "VRAIMENT METTRE EN VEILLE ?"
+msgstr "VRAIMENT METTRE EN VEILLE ?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "ÉTEINDRE"
 
 msgid "REALLY SHUTDOWN?"
-msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE ?"
+msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE ?"
 
 msgid "FAST SHUTDOWN SYSTEM"
 msgstr "EXTINCTION RAPIDE"
@@ -1949,13 +1948,13 @@ msgid "Shutdown without saving metadata."
 msgstr "Éteindre sans sauvegarder les métadonnées."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES MÉTADONNÉES ?"
+msgstr "VOULEZ-VOUS VRAIMENT ÉTEINDRE SANS SAUVEGARDER LES MÉTADONNÉES ?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "QUITTER EMULATIONSTATION"
 
 msgid "REALLY QUIT?"
-msgstr "VOULEZ-VOUS VRAIMENT QUITTER ?"
+msgstr "VOULEZ-VOUS VRAIMENT QUITTER ?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
 msgstr "SAUV./CHARG. AUTO AU LANCEMENT"
@@ -2019,7 +2018,7 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "LES OPTIONS SÉLECTIONNÉES SONT INVALIDES"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "VOUS ALLEZ FORMATER CE DISQUE. ÊTES-VOUS SÛR(E) ?"
+msgstr "VOUS ALLEZ FORMATER CE DISQUE. ÊTES-VOUS SÛR(E) ?"
 
 msgid "Points"
 msgstr "Points"
@@ -2111,7 +2110,7 @@ msgid ""
 "ARE YOU SURE?"
 msgstr ""
 "VOUS ALLEZ SUPPRIMER LE(S) FICHIER(S) DE JEU ACTUEL.\n"
-"ÊTES-VOUS SÛR(E) ?"
+"ÊTES-VOUS SÛR(E) ?"
 
 msgid "COLLECTIONS"
 msgstr "COLLECTIONS"
@@ -2176,16 +2175,16 @@ msgid "MIX V2"
 msgstr "MIX D'IMAGES V2"
 
 msgid "BOX 2D"
-msgstr "BOÎTE 2D"
+msgstr "BOITE 2D"
 
 msgid "BOX 3D"
-msgstr "BOÎTE 3D"
+msgstr "BOITE 3D"
 
 msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BOX SOURCE"
-msgstr "BOÎTE SOURCE"
+msgstr "BOITE SOURCE"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO SOURCE"
@@ -2227,7 +2226,7 @@ msgid "BEZEL (16:9)"
 msgstr "DÉCORATION (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr "ARRIÈRE DES BOÎTES"
+msgstr "ARRIÈRE DES BOITES"
 
 msgid "MAP"
 msgstr "CARTE"
@@ -2263,10 +2262,10 @@ msgid "ENTER NAME"
 msgstr "ENTRER LE NOM"
 
 msgid "CREATE FROM THEME"
-msgstr "CRÉER DEPUIS LE THEME"
+msgstr "CREE DEPUIS LE THEME"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "NOUVELLE COLLECTION ÉDITABLE"
+msgstr "NOUVELLE COLLECTION EDITABLE"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "NOUVELLE COLLECTION DYNAMIQUE"
@@ -2444,7 +2443,7 @@ msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER '%s' ?"
+msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER '%s' ?"
 
 msgid "ZOOM OUT"
 msgstr "ZOOM ARRIÈRE"
@@ -2469,7 +2468,7 @@ msgid ""
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 "CERTAINS FICHIERS LIÉS SONT SITUÉS EN DEHORS DU CHEMIN DE LA LISTE DE JEUX.\n"
-"VOULEZ-VOUS UTILISER UNE COPIE DE CES FICHIERS RELATIFS À LA LISTE DE JEUX ?"
+"VOULEZ-VOUS UTILISER UNE COPIE DE CES FICHIERS RELATIFS À LA LISTE DE JEUX ?"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "REJOINDRE UNE PARTIE EN RÉSEAU"
@@ -2558,7 +2557,7 @@ msgid "ENABLE BLUETOOTH"
 msgstr "ACTIVER LE BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "ASSOCIER LES MANETTES BLUETOOTH AUTOMATIQUEMENT"
+msgstr "ASSOCIER LES JOYSTICKS BLUETOOTH AUTOMATIQUEMENT"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr "ASSOCIER UN PÉRIPHÉRIQUE BLUETOOTH MANUELLEMENT"
@@ -2855,7 +2854,7 @@ msgstr "INFO SYSTÈME"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
 msgstr ""
-"ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, RÉ-AFFICHAGE DE TOUS DÈS MAINTENANT"
+"ERREUR : TOUS LES SYSTÈMES SONT CACHÉS, RÉ-AFFICHAGE DE TOUS DÈS MAINTENANT"
 
 msgid "QUICK SEARCH"
 msgstr "RECHERCHE RAPIDE"
@@ -2906,16 +2905,16 @@ msgid ""
 msgstr ""
 "ATTENTION : L’ÉMULATEUR/COEUR ACTUEL NE SUPPORTE PAS LE FORMAT DE FICHIER DE "
 "CE JEU.\n"
-"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
+"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"ATTENTION : LE SYSTÈME A UN BIOS MANQUANT ET LE JEU PEUT NE PAS FONCTIONNER "
+"ATTENTION : LE SYSTÈME A UN BIOS MANQUANT ET LE JEU PEUT NE PAS FONCTIONNER "
 "CORRECTEMENT.\n"
-"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
+"VOULEZ-VOUS LE LANCER QUAND MÊME ?"
 
 msgid "Preloading UI"
 msgstr "Préchargement de l'interface"
@@ -2975,7 +2974,7 @@ msgid "MISSING MEDIAS"
 msgstr "MEDIAS MANQUANTS"
 
 msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
-msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
+msgstr "VOULEZ-VOUS CHANGER D'ÉCRAN ?"
 
 msgid "SCRAPING"
 msgstr "SCRAPE"
@@ -3422,7 +3421,7 @@ msgid ""
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "VOUS N’AVEZ PAS ASSIGNÉ DE BOUTON HOTKEY. CECI EST NÉCESSAIRE POUR QUITTER "
-"UN JEU AVEC UNE MANETTE. VOULEZ-VOUS ASSIGNER LE BOUTON SELECT À HOTKEY ?"
+"UN JEU AVEC UNE MANETTE. VOULEZ-VOUS ASSIGNER LE BOUTON SELECT À HOTKEY ?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "ASSIGNER SELECT À HOTKEY"
