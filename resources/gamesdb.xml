@@ -37,6 +37,9 @@
     <game name="a51site4a">
       <gun/>
     </game>
+    <game name="aaa">
+      <gun/>
+    </game>
     <game name="abcop">
       <wheel rotation="270"/>
     </game>
@@ -65,6 +68,12 @@
       <gun/>
     </game>
     <game name="alien3u">
+      <gun/>
+    </game>
+    <game name="aliensarmageddon">
+      <gun/>
+    </game>
+    <game name="aliensextermination">
       <gun/>
     </game>
     <game name="amspdwy">
@@ -166,6 +175,12 @@
     <game name="bbhcotw">
       <gun/>
     </game>
+    <game name="bbhhome">
+      <gun/>
+    </game>
+    <game name="bbhpro">
+      <gun/>
+    </game>
     <game name="bbhsc">
       <gun/>
     </game>
@@ -195,6 +210,9 @@
     </game>
     <game name="bigrun">
       <wheel rotation="270"/>
+    </game>
+    <game name="blockking">
+      <gun/>
     </game>
     <game name="bluethunder">
       <gun/>
@@ -240,6 +258,9 @@
     </game>
     <game name="cartfury">
       <wheel rotation="270"/>
+    </game>
+    <game name="castlevania">
+      <gun/>
     </game>
     <game name="catch22">
       <gun/>
@@ -708,6 +729,12 @@
     <game name="eggvntdx">
       <gun/>
     </game>
+    <game name="elevatoraction">
+      <gun/>
+    </game>
+    <game name="elevatoractioninvasion">
+      <gun/>
+    </game>
     <game name="endurob2">
       <wheel rotation="270"/>
     </game>
@@ -779,6 +806,9 @@
     </game>
     <game name="f355twn2">
       <wheel rotation="270"/>
+    </game>
+    <game name="farcryparadiselost">
+      <gun/>
     </game>
     <game name="fastdraw">
       <gun/>
@@ -861,6 +891,9 @@
     <game name="freedomfighter">
       <gun/>
     </game>
+    <game name="friction">
+      <gun/>
+    </game>
     <game name="ftspeed">
       <wheel rotation="270" downshift="down" upshift="up"/>
     </game>
@@ -871,6 +904,9 @@
       <gun/>
     </game>
     <game name="g13knd">
+      <gun/>
+    </game>
+    <game name="gaiaattack4">
       <gun/>
     </game>
     <game name="gallgall">
@@ -954,6 +990,9 @@
     <game name="grudgep">
       <wheel rotation="360"/>
     </game>
+    <game name="gsevo">
+      <gun/>
+    </game>
     <game name="gticlub">
       <wheel rotation="270"/>
     </game>
@@ -1027,6 +1066,9 @@
       <gun/>
     </game>
     <game name="gunchamps">
+      <gun/>
+    </game>
+    <game name="gundamspiritsofzeon">
       <gun/>
     </game>
     <game name="gunhard">
@@ -1149,6 +1191,12 @@
     <game name="harleya">
       <wheel rotation="270"/>
     </game>
+    <game name="hauntedmuseum">
+      <gun/>
+    </game>
+    <game name="hauntedmuseumii">
+      <gun/>
+    </game>
     <game name="hcrash">
       <wheel rotation="270"/>
     </game>
@@ -1218,10 +1266,22 @@
     <game name="hotd4a">
       <gun/>
     </game>
+    <game name="hotd4elf2">
+      <gun/>
+    </game>
+    <game name="hotd4sp">
+      <gun/>
+    </game>
+    <game name="hotd4spelf2">
+      <gun/>
+    </game>
     <game name="hotdex">
       <gun/>
     </game>
     <game name="hotdp">
+      <gun/>
+    </game>
+    <game name="hotdsd">
       <gun/>
     </game>
     <game name="hotrod">
@@ -1431,6 +1491,9 @@
     <game name="lethaleneae">
       <gun/>
     </game>
+    <game name="lethalenforcers3">
+      <gun/>
+    </game>
     <game name="lethalenj">
       <gun/>
     </game>
@@ -1464,6 +1527,18 @@
     <game name="lghostud">
       <gun/>
     </game>
+    <game name="lgi">
+      <gun/>
+    </game>
+    <game name="lgi3d">
+      <gun/>
+    </game>
+    <game name="lgj">
+      <gun/>
+    </game>
+    <game name="lgjs">
+      <gun/>
+    </game>
     <game name="lockload">
       <gun/>
     </game>
@@ -1491,6 +1566,9 @@
     <game name="lordgun">
       <gun/>
     </game>
+    <game name="lostland">
+      <gun/>
+    </game>
     <game name="lostwsga">
       <gun/>
     </game>
@@ -1504,6 +1582,9 @@
     <game name="luckywldj">
       <gun/>
       <wheel rotation="270"/>
+    </game>
+    <game name="luigismansion">
+      <gun/>
     </game>
     <game name="lupinsho">
       <gun/>
@@ -1622,6 +1703,9 @@
     <game name="motoraiddx">
       <wheel rotation="270"/>
     </game>
+    <game name="musicgungun2">
+      <gun/>
+    </game>
     <game name="ninjaslt">
       <gun/>
     </game>
@@ -1686,6 +1770,9 @@
     </game>
     <game name="offroadt2p">
       <wheel rotation="360"/>
+    </game>
+    <game name="og">
+      <gun/>
     </game>
     <game name="ohbakyuun">
       <gun/>
@@ -1975,6 +2062,9 @@
     <game name="primevah">
       <gun/>
     </game>
+    <game name="primevil">
+      <gun/>
+    </game>
     <game name="psattack">
       <gun/>
     </game>
@@ -2004,6 +2094,9 @@
     </game>
     <game name="pwheelsj">
       <wheel rotation="270"/>
+    </game>
+    <game name="rabbidshollywood">
+      <gun/>
     </game>
     <game name="racedcb4">
       <wheel rotation="270"/>
@@ -2515,6 +2608,9 @@
     <game name="sidebsjb">
       <wheel rotation="270"/>
     </game>
+    <game name="silenthill">
+      <gun/>
+    </game>
     <game name="skeetsht">
       <gun/>
     </game>
@@ -2767,6 +2863,9 @@
     <game name="ssrj">
       <wheel rotation="360"/>
     </game>
+    <game name="startrekvoyager">
+      <gun/>
+    </game>
     <game name="stcc">
       <wheel rotation="270"/>
     </game>
@@ -2852,6 +2951,9 @@
       <gun/>
     </game>
     <game name="targetha">
+      <gun/>
+    </game>
+    <game name="tc5">
       <gun/>
     </game>
     <game name="tceptor2">
@@ -2965,6 +3067,9 @@
     <game name="tokyobus">
       <wheel rotation="270"/>
     </game>
+    <game name="tombraider">
+      <gun/>
+    </game>
     <game name="topracer">
       <wheel rotation="360"/>
     </game>
@@ -3036,6 +3141,9 @@
     </game>
     <game name="toutrunjd">
       <wheel rotation="270"/>
+    </game>
+    <game name="transformers">
+      <gun/>
     </game>
     <game name="triplhnt">
       <gun/>
@@ -3177,6 +3285,9 @@
     </game>
     <game name="wangmidj">
       <wheel rotation="270"/>
+    </game>
+    <game name="wartrantroopers">
+      <gun/>
     </game>
     <game name="wcombat">
       <gun/>
@@ -6084,128 +6195,6 @@
       <gun/>
     </game>
     <game name="macsbasicriflemarksmanship">
-      <gun/>
-    </game>
-  </system>
-  <system name="teknoparrot">
-    <game name="aliensextermination">
-      <gun/>
-    </game>
-    <game name="blockking">
-      <gun/>
-    </game>
-    <game name="castlevania">
-      <gun/>
-    </game>
-    <game name="elevatoraction">
-      <gun/>
-    </game>
-    <game name="elevatoractioninvasion">
-      <gun/>
-    </game>
-    <game name="farcryparadiselost">
-      <gun/>
-    </game>
-    <game name="friction">
-      <gun/>
-    </game>
-    <game name="gaiaattack4">
-      <gun/>
-    </game>
-    <game name="hauntedmuseum">
-      <gun/>
-    </game>
-    <game name="hauntedmuseumii">
-      <gun/>
-    </game>
-    <game name="hotd4">
-      <gun/>
-    </game>
-    <game name="hotd4elf2">
-      <gun/>
-    </game>
-    <game name="hotd4sp">
-      <gun/>
-    </game>
-    <game name="hotd4spelf2">
-      <gun/>
-    </game>
-    <game name="hotdex">
-      <gun/>
-    </game>
-    <game name="hotdsd">
-      <gun/>
-    </game>
-    <game name="lgi">
-      <gun/>
-    </game>
-    <game name="lgi3d">
-      <gun/>
-    </game>
-    <game name="lgj">
-      <gun/>
-    </game>
-    <game name="lgjs">
-      <gun/>
-    </game>
-    <game name="lethalenforcers3">
-      <gun/>
-    </game>
-    <game name="lostland">
-      <gun/>
-    </game>
-    <game name="luigismansion">
-      <gun/>
-    </game>
-    <game name="gundamspiritsofzeon">
-      <gun/>
-    </game>
-    <game name="musicgungun2">
-      <gun/>
-    </game>
-    <game name="og">
-      <gun/>
-    </game>
-    <game name="rabbidshollywood">
-      <gun/>
-    </game>
-    <game name="rambo">
-      <gun/>
-    </game>
-    <game name="silenthill">
-      <gun/>
-    </game>
-    <game name="startrekvoyager">
-      <gun/>
-    </game>
-    <game name="tc5">
-      <gun/>
-    </game>
-    <game name="tombraider">
-      <gun/>
-    </game>
-    <game name="transformers">
-      <gun/>
-    </game>
-    <game name="wartrantroopers">
-      <gun/>
-    </game>
-    <game name="aliensarmageddon">
-      <gun/>
-    </game>
-    <game name="aaa">
-      <gun/>
-    </game>
-    <game name="bbhhome">
-      <gun/>
-    </game>
-    <game name="bbhpro">
-      <gun/>
-    </game>
-    <game name="gsevo">
-      <gun/>
-    </game>
-    <game name="primevil">
       <gun/>
     </game>
   </system>
