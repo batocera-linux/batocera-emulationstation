@@ -1327,6 +1327,7 @@ void GuiMenu::openSystemSettings()
 	language_choice->add("POLISH",               "pl_PL", language == "pl_PL");
 	language_choice->add("PORTUGUÊS BRASILEIRO", "pt_BR", language == "pt_BR");
 	language_choice->add("PORTUGUÊS PORTUGAL",   "pt_PT", language == "pt_PT");
+	language_choice->add("ROMÂNĂ",               "ro_RO", language == "ro_RO");
 	language_choice->add("РУССКИЙ",              "ru_RU", language == "ru_RU");
 	language_choice->add("SLOVENČINA", 	     "sk_SK", language == "sk_SK");
 	language_choice->add("SVENSKA", 	     "sv_SE", language == "sv_SE");
