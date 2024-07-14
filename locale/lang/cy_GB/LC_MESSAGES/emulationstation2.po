@@ -1034,9 +1034,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
 
@@ -1330,6 +1327,9 @@ msgstr "KODI AR DDECHRAU"
 
 msgid "HARDWARE"
 msgstr "CALEDWEDD"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "ALLBWN SAIN"

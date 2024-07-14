@@ -1033,9 +1033,6 @@ msgstr ""
 msgid "OVERSCAN"
 msgstr ""
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
 
@@ -1328,6 +1325,9 @@ msgid "LAUNCH KODI AT BOOT"
 msgstr ""
 
 msgid "HARDWARE"
+msgstr ""
+
+msgid "Sets the display's resolution for emulationstation."
 msgstr ""
 
 msgid "AUDIO OUTPUT"

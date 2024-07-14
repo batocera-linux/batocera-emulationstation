@@ -1042,9 +1042,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Kijelző felbontás beállítása az emulációhoz."
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYER HASZNÁLATA (HARDVERESEN GYORSÍTOTT)"
 
@@ -1365,6 +1362,9 @@ msgstr "KODI INDULÁSKOR"
 
 msgid "HARDWARE"
 msgstr "HARDVER"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Kijelző felbontás beállítása az emulációhoz."
 
 msgid "AUDIO OUTPUT"
 msgstr "HANG KIMENET"

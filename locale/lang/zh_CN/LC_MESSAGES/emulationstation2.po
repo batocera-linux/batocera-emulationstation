@@ -1035,9 +1035,6 @@ msgstr "垂直同步"
 msgid "OVERSCAN"
 msgstr "过扫描"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "为EmulationStation设置显示器分辨率。"
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "使用OMX播放器（硬件加速）"
 
@@ -1334,6 +1331,9 @@ msgstr "开机时进入KODI媒体中心"
 
 msgid "HARDWARE"
 msgstr "硬件"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "为EmulationStation设置显示器分辨率。"
 
 msgid "AUDIO OUTPUT"
 msgstr "音频输出"

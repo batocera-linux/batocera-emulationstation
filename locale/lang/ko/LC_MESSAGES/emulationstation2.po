@@ -1036,9 +1036,6 @@ msgstr "수직 동기화"
 msgid "OVERSCAN"
 msgstr "오버스캔"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX 플레이어 사용 (하드웨어 가속)"
 
@@ -1337,6 +1334,9 @@ msgstr "시작 시 KODI 실행"
 
 msgid "HARDWARE"
 msgstr "하드웨어"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "오디오 출력"

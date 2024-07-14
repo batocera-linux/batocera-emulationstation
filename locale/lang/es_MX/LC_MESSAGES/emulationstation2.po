@@ -1048,9 +1048,6 @@ msgstr "SINCRONIZACIÓN VERTICAL (VSYNC)"
 msgid "OVERSCAN"
 msgstr "SOBREESCALADO (OVERSCAN)"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Establece la resolución de pantalla para emulationstation."
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR REPRODUCTOR OMX (ACELERADO POR HARDWARE)"
 
@@ -1362,6 +1359,9 @@ msgstr "INICIAR KODI AL ARRANCAR EL SISTEMA"
 
 msgid "HARDWARE"
 msgstr "HARDWARE"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Establece la resolución de pantalla para emulationstation."
 
 msgid "AUDIO OUTPUT"
 msgstr "SALIDA DE AUDIO"

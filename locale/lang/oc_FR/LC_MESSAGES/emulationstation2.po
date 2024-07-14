@@ -1036,9 +1036,6 @@ msgstr ""
 msgid "OVERSCAN"
 msgstr ""
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
 
@@ -1332,6 +1329,9 @@ msgstr "KODI A L’AVIADA"
 
 msgid "HARDWARE"
 msgstr "MATERIAL"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIDA ÀUDIO"

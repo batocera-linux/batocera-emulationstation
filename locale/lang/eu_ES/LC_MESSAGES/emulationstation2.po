@@ -1039,9 +1039,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Pantailaren bereizmena ezartzen du emulationstation-entzat"
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "ERABILI OMX IKARKURLERA (HADRWARE BIDEZKO AZELERAZIOAREKIN)"
 
@@ -1353,6 +1350,9 @@ msgstr "HASI KODI ABIARAZTEAN"
 
 msgid "HARDWARE"
 msgstr "HARDWARE-A"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Pantailaren bereizmena ezartzen du emulationstation-entzat"
 
 msgid "AUDIO OUTPUT"
 msgstr "AUDIO IRTEERA"

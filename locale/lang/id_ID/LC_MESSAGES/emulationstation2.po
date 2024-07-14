@@ -1040,9 +1040,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "GUNAKAN OMX PLAYER (HARDWARE DIPERCEPAT)"
 
@@ -1351,6 +1348,9 @@ msgstr "LUNCURKAN KODI SAAT BOOT"
 
 msgid "HARDWARE"
 msgstr "HARDWARE"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "KELUARAN AUDIO"

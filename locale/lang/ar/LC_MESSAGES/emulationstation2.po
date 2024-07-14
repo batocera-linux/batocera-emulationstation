@@ -1075,9 +1075,6 @@ msgstr "التزامن العمودي Vsync"
 msgid "OVERSCAN"
 msgstr "فائض الشاشة"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "يضبط دقة العرض لمحطة المحاكاة"
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "استعمال القارئ أوه أم أكس (يستعمل الجهاز للتسريع)"
 
@@ -1382,6 +1379,9 @@ msgstr "تشغيل كودي خلال الإقلاع"
 
 msgid "HARDWARE"
 msgstr "العتاد"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "يضبط دقة العرض لمحطة المحاكاة"
 
 msgid "AUDIO OUTPUT"
 msgstr "مخرج الصوت"

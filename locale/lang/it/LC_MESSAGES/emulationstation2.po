@@ -1040,9 +1040,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Imposta la risuluzione schermo per emulationstation."
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USA OMX PLAYER (ACCELERAZIONE HARDWARE)"
 
@@ -1353,6 +1350,9 @@ msgstr "KODI ALL’AVVIO"
 
 msgid "HARDWARE"
 msgstr "HARDWARE"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Imposta la risuluzione schermo per emulationstation."
 
 msgid "AUDIO OUTPUT"
 msgstr "USCITA AUDIO"

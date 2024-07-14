@@ -1,0 +1,3475 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2024-07-08 10:42+0300\n"
+"Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
+"Language-Team: \n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
+"n%100<=19) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+msgid "SCANNING BLUETOOTH"
+msgstr "SE SCANEAZĂ BLUETOOTH"
+
+msgid "Searching for devices..."
+msgstr "Se caută dispozitive..."
+
+msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
+msgstr "SCANAREA BLUETOOTH RULEAZĂ DEJA."
+
+msgid "FORMATTING DEVICE"
+msgstr "SE FORMATEAZĂ DISPOZITIVUL"
+
+msgid "Formatting"
+msgstr "Se formatează"
+
+msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
+msgstr "ESTE NECESARĂ O REPORNIRE PENTRU A FINALIZA OPERAȚIA"
+
+msgid "A DRIVE IS ALREADY BEING FORMATTED."
+msgstr "O UNITATE ESTE DEJA ÎN CURS DE FORMATARE."
+
+msgid "Name"
+msgstr "Nume"
+
+msgid "this game's name"
+msgstr "numele jocului"
+
+msgid "Description"
+msgstr "Descriere"
+
+msgid "this game's description"
+msgstr "descrierea jocului"
+
+msgid "Emulator"
+msgstr "Emulator"
+
+msgid "emulator"
+msgstr "emulator"
+
+msgid "Core"
+msgstr "Nucleu"
+
+msgid "core"
+msgstr "nucleu"
+
+msgid "Image"
+msgstr "Imagine"
+
+msgid "enter path to image"
+msgstr "introdu calea către imagine"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "enter path to video"
+msgstr "introdu calea către video"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "enter path to logo"
+msgstr "introdu calea către logo"
+
+msgid "Box"
+msgstr "Cutie"
+
+msgid "enter path to box"
+msgstr "introdu calea către cutie"
+
+msgid "Fan art"
+msgstr "Desenul fanilor"
+
+msgid "enter path to fanart"
+msgstr "introdu calea către desenul fanilor"
+
+msgid "Title shot"
+msgstr "Captură meniu"
+
+msgid "enter path to title shot"
+msgstr "introdu calea către captura de meniu"
+
+msgid "Manual"
+msgstr "Manual"
+
+msgid "enter path to manual"
+msgstr "introdu calea către manual"
+
+msgid "Magazine"
+msgstr "Revistă"
+
+msgid "enter path to magazine"
+msgstr "introdu calea către revistă"
+
+msgid "Map"
+msgstr "Hartă"
+
+msgid "enter path to map"
+msgstr "introdu calea către hartă"
+
+msgid "Bezel (16:9)"
+msgstr "Ramă (16:9)"
+
+msgid "enter path to bezel (16:9)"
+msgstr "introdu calea către ramă (16:9)"
+
+msgid "Cartridge"
+msgstr "Cartelă"
+
+msgid "enter path to cartridge"
+msgstr "introdu calea către cartelă"
+
+msgid "Alt BoxArt"
+msgstr "Cutie alternativă"
+
+msgid "enter path to alt boxart"
+msgstr "introdu calea către cutia alternativă"
+
+msgid "Box backside"
+msgstr "Spatele cutiei"
+
+msgid "enter path to box background"
+msgstr "introdu calea către spatele cutiei"
+
+msgid "Wheel"
+msgstr "Roată"
+
+msgid "enter path to wheel"
+msgstr "introdu calea către roată"
+
+msgid "Mix"
+msgstr "Mix"
+
+msgid "enter path to mix"
+msgstr "introdu calea către mix"
+
+msgid "Rating"
+msgstr "Scor"
+
+msgid "enter rating"
+msgstr "introdu scor"
+
+msgid "Release date"
+msgstr "Data lansării"
+
+msgid "enter release date"
+msgstr "introdu data lansării"
+
+msgid "Developer"
+msgstr "Dezvoltator"
+
+msgid "this game's developer"
+msgstr "dezvoltatorul jocului"
+
+msgid "Publisher"
+msgstr "Editor"
+
+msgid "this game's publisher"
+msgstr "editorul jocului"
+
+msgid "Genre"
+msgstr "Gen"
+
+msgid "enter game genre"
+msgstr "introdu genul jocului"
+
+msgid "Game family"
+msgstr "Familia jocului"
+
+msgid "this game's game family"
+msgstr "familia acestui joc"
+
+msgid "Genres"
+msgstr "Genuri"
+
+msgid "enter game genres"
+msgstr "introdu genurile jocului"
+
+msgid "Arcade system"
+msgstr "Sistem arcade"
+
+msgid "this game's arcade system"
+msgstr "sistemul arcade al acestui joc"
+
+msgid "Players"
+msgstr "Jucători"
+
+msgid "this game's number of players"
+msgstr "numărul de jucători al acestui joc"
+
+msgid "Favorite"
+msgstr "Favorite"
+
+msgid "enter favorite"
+msgstr "introdu favorite"
+
+msgid "Hidden"
+msgstr "Ascuns"
+
+msgid "enter hidden"
+msgstr "introdu ascuns"
+
+msgid "Kidgame"
+msgstr "Joc pentru copii"
+
+msgid "enter kidgame"
+msgstr "introdu joc pentru copii"
+
+msgid "Play count"
+msgstr "Număr de jucări"
+
+msgid "enter number of times played"
+msgstr "introdu numărul de jucări"
+
+msgid "Last played"
+msgstr "Jucat ultima dată"
+
+msgid "enter last played date"
+msgstr "introdu data ultimei jucări"
+
+msgid "Crc32"
+msgstr "CRC32"
+
+msgid "Crc32 checksum"
+msgstr "Suma de control CRC32"
+
+msgid "Md5"
+msgstr "MD5"
+
+msgid "Md5 checksum"
+msgstr "Suma de control MD5"
+
+msgid "Game time"
+msgstr "Timpul în joc"
+
+msgid "how long the game has been played in total (seconds)"
+msgstr "cât de mult a fost jucat jocul în total (în secunde)"
+
+msgid "Languages"
+msgstr "Limbi"
+
+msgid "this game's languages"
+msgstr "limbile acestui joc"
+
+msgid "Region"
+msgstr "Regiune"
+
+msgid "this game's region"
+msgstr "regiunea acestui joc"
+
+msgid "Cheevos Hash"
+msgstr "Hash Cheevos"
+
+msgid "Cheevos checksum"
+msgstr "Sumă de control Cheevos"
+
+msgid "Cheevos Game ID"
+msgstr "ID joc Cheevos"
+
+msgid "Screenscraper Game ID"
+msgstr "ID joc Screenscraper"
+
+#, c-format
+msgid "This collection contains %i game:%s"
+msgid_plural "This collection contains %i games, including:%s"
+msgstr[0] "Această colecție conține %i joc: %s"
+msgstr[1] "Această colecție conține %i jocuri, incluzând: %s"
+msgstr[2] "Această colecție conține %i de jocuri, incluzând: %s"
+
+msgid "Collections"
+msgstr "Colecții"
+
+msgid "Unknown"
+msgstr "Necunoscut"
+
+msgid "Extracting"
+msgstr "Se extrage"
+
+msgid "DOWNLOADING"
+msgstr "SE DESCARCĂ"
+
+msgid "THEME INSTALLED SUCCESSFULLY"
+msgstr "TEMA A FOST INSTALATĂ CU SUCCES"
+
+msgid "AN ERROR OCCURRED"
+msgstr "A APĂRUT O EROARE"
+
+msgid "THEME UNINSTALLED SUCCESSFULLY"
+msgstr "TEMA A FOST DEZINSTALATĂ CU SUCCES"
+
+msgid "BEZELS INSTALLED SUCCESSFULLY"
+msgstr "RAMELE AU FOST INSTALATE CU SUCCES"
+
+msgid "BEZELS UNINSTALLED SUCCESSFULLY"
+msgstr "RAMELE AU FOST DEZINSTALATE CU SUCCES"
+
+msgid "PACKAGE INSTALLED SUCCESSFULLY"
+msgstr "PACHETUL A FOST INSTALAT CU SUCCES"
+
+msgid "PACKAGE REMOVED SUCCESSFULLY"
+msgstr "PACHETUL A FOST DEZINSTALAT CU SUCCES"
+
+msgid "Searching"
+msgstr "Se caută"
+
+msgid "Released"
+msgstr "Lansat"
+
+msgid "NO GAMES FOUND - SKIP"
+msgstr "NU S-AU GĂSIT JOCURI - OMITE"
+
+msgid "RETRY"
+msgstr "REÎNCEARCĂ"
+
+msgid "SKIP"
+msgstr "OMITE"
+
+msgid "CANCEL"
+msgstr "ANULEAZĂ"
+
+msgid "Downloading"
+msgstr "Se descarcă"
+
+msgid "SEARCH FOR"
+msgstr "CAUTĂ DUPĂ"
+
+msgid "ACCEPT RESULT"
+msgstr "ACCEPTĂ REZULTATUL"
+
+msgid "THEMES DOWNLOADER"
+msgstr "TEME"
+
+msgid "SELECT THEMES TO INSTALL/REMOVE"
+msgstr "ALEGE TEMELE PENTRU INSTALARE/ELIMINARE"
+
+msgid "All"
+msgstr "Toate"
+
+msgid "Installed"
+msgstr "Instalate"
+
+msgid "Available"
+msgstr "Disponibile"
+
+msgid "BACK"
+msgstr "ÎNAPOI"
+
+msgid "No items"
+msgstr "Fără elemente"
+
+msgid "PLEASE WAIT"
+msgstr "TE ROG AȘTEAPTĂ"
+
+msgid "UPDATE"
+msgstr "ACTUALIZEAZĂ"
+
+#, c-format
+msgid "'%s' ADDED TO DOWNLOAD QUEUE"
+msgstr "'%s' A FOST ADĂUGAT ÎN COADA DE DESCĂRCARE"
+
+msgid "REMOVE"
+msgstr "ELIMINĂ"
+
+msgid "INSTALL"
+msgstr "INSTALEAZĂ"
+
+msgid "CLOSE"
+msgstr "ÎNCHIDE"
+
+msgid "CURRENT THEME"
+msgstr "TEMA CURENTĂ"
+
+#, c-format
+msgid "CURRENTLY IN DOWNLOAD QUEUE"
+msgstr "ÎN COADA DE DESCĂRCARE"
+
+msgid "FINISHED"
+msgstr "FINALIZAT"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "REFRESH"
+msgstr "REÎMPROSPĂTEAZĂ"
+
+msgid "INPUT MANUALLY"
+msgstr "INTRODU MANUAL"
+
+msgid "NO WI-FI NETWORKS FOUND"
+msgstr "NU S-AU GĂSIT REȚELE WI-FI"
+
+msgid "SEARCHING WI-FI NETWORKS"
+msgstr "SE CAUTĂ REȚELE WI-FI"
+
+msgid "PAD TO KEYBOARD CONFIGURATION"
+msgstr "CONFIGURARE PADTOKEY"
+
+msgid "SELECT ACTIONS TO CHANGE"
+msgstr "ALEGE ACȚIUNILE DE SCHIMBAT"
+
+msgid "SAVE"
+msgstr "SALVEAZĂ"
+
+msgid "DELETE"
+msgstr "ȘTERGE"
+
+msgid "PLAYER 1"
+msgstr "JUCĂTOR 1"
+
+msgid "PLAYER 2"
+msgstr "JUCĂTOR 2"
+
+msgid "PLAYER 3"
+msgstr "JUCĂTOR 3"
+
+msgid "PLAYER 4"
+msgstr "JUCĂTOR 4"
+
+msgid "COMBINATIONS"
+msgstr "COMBINAȚII"
+
+msgid "MOUSE CURSOR"
+msgstr "CURSOR MAUS"
+
+msgid "EMULATE MOUSE CURSOR"
+msgstr "EMULEAZĂ CURSORUL MAUSULUI"
+
+msgid "NO"
+msgstr "NU"
+
+msgid "LEFT ANALOG STICK"
+msgstr "MANETA ANALOGICĂ STÂNGĂ"
+
+msgid "RIGHT ANALOG STICK"
+msgstr "MANETA ANALOGICĂ DREAPTĂ"
+
+msgid "EDIT DESCRIPTION"
+msgstr "EDITEAZĂ DESCRIEREA"
+
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
+msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ ȘTERGI ACEST ELEMENT?"
+
+msgid "YES"
+msgstr "DA"
+
+msgid "DELETE MAPPING"
+msgstr "ȘTERGE ASOCIEREA"
+
+msgid "SAVE CHANGES?"
+msgstr "SALVEZI MODIFICĂRILE?"
+
+msgid "ARE YOU SURE?"
+msgstr "EȘTI SIGUR?"
+
+msgid "INFORMATION"
+msgstr "CARACTERISTICI"
+
+msgid "VERSION"
+msgstr "VERSIUNE"
+
+msgid "USER DISK USAGE"
+msgstr "OCUPAREA DISCULUI UTILIZATOR"
+
+msgid "SYSTEM DISK USAGE"
+msgstr "OCUPAREA DISCULUI SISTEM"
+
+msgid "SYSTEM"
+msgstr "SISTEM"
+
+msgid "VIDEO DRIVER"
+msgstr "DRIVER VIDEO"
+
+msgid "NETPLAY SETTINGS"
+msgstr "SETĂRI NETPLAY"
+
+msgid "SETTINGS"
+msgstr "SETĂRI"
+
+msgid "ENABLE NETPLAY"
+msgstr "ACTIVEAZĂ NETPLAY"
+
+msgid "NICKNAME"
+msgstr "PORECLĂ"
+
+msgid "OPTIONS"
+msgstr "OPȚIUNI"
+
+msgid "PORT"
+msgstr "PORT"
+
+msgid "USE RELAY SERVER"
+msgstr "FOLOSEȘTE SERVER DE RETRANSLAȚIE"
+
+msgid "NONE"
+msgstr "FĂRĂ"
+
+msgid "NEW YORK"
+msgstr "NEW YORK"
+
+msgid "MADRID"
+msgstr "MADRID"
+
+msgid "MONTREAL"
+msgstr "MONTREAL"
+
+msgid "SAO PAULO"
+msgstr "SAO PAULO"
+
+msgid "SHOW UNAVAILABLE GAMES"
+msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
+
+msgid "Show rooms for games not present on this machine."
+msgstr "Afișează camerele jocurilor care nu sunt prezente pe acest dispozitiv."
+
+msgid "GAME INDEXES"
+msgstr "INDEXĂRI JOCURI"
+
+msgid "INDEX NEW GAMES AT STARTUP"
+msgstr "INDEXEAZĂ NOILE JOCURI LA PORNIRE"
+
+msgid "INDEX GAMES"
+msgstr "INDEXEAZĂ JOCURILE"
+
+msgid "INPUT"
+msgstr "INTRARE"
+
+msgid "SEARCH"
+msgstr "CAUTĂ"
+
+#, c-format
+msgid "%d of %d softcore points"
+msgstr "%d din %d puncte softcore"
+
+#, c-format
+msgid "%d of %d hardcore points"
+msgstr "%d din %d puncte hardcore"
+
+#, c-format
+msgid "%d%% (%d of %d)"
+msgstr "%d%% (%d din %d)"
+
+msgid "RETROACHIEVEMENTS"
+msgstr "RETROREALIZĂRI"
+
+msgid "Softcore points"
+msgstr "Puncte (softcore)"
+
+msgid "Points (hardcore)"
+msgstr "Puncte (hardcore)"
+
+msgid "Rank"
+msgstr "Rang"
+
+msgid "VIEW DETAILS"
+msgstr "VEZI DETALII"
+
+msgid "LAUNCH"
+msgstr "LANSEAZĂ"
+
+msgid "RETROACHIEVEMENT SETTINGS"
+msgstr "SETĂRI RETROREALIZĂRI"
+
+msgid "USERNAME"
+msgstr "NUME UTILIZATOR"
+
+msgid "PASSWORD"
+msgstr "PAROLĂ"
+
+msgid "HARDCORE MODE"
+msgstr "MOD HARDCORE"
+
+msgid "Disable loading states, rewind and cheats for more points."
+msgstr ""
+"Dezactivează încărcarea stărilor, derularea și trișările pentru mai multe "
+"puncte."
+
+msgid "LEADERBOARDS"
+msgstr "CLASAMENTE"
+
+msgid "Compete in high-score and best time leaderboards (requires hardcore)."
+msgstr ""
+"Concurează pentru clasamente cu scorul cel mai mare și cel mai bun timp "
+"(necesită hardcore)."
+
+msgid "VERBOSE MODE"
+msgstr "MOD DETALIAT"
+
+msgid "Show achievement progression on game launch and other notifications."
+msgstr ""
+"Afișează progresul realizărilor la lansarea jocului și alte notificări."
+
+msgid "RICH PRESENCE"
+msgstr "ACTIVITATE CURENTĂ (RICH PRESENCE)"
+
+msgid "ENCORE MODE"
+msgstr "MOD ENCORE"
+
+msgid "Unlocked achievements can be earned again."
+msgstr "Realizările deja deblocate pot fi dobândite din nou."
+
+msgid "AUTOMATIC SCREENSHOT"
+msgstr "CAPTURĂ DE ECRAN AUTOMATĂ"
+
+msgid "Automatically take a screenshot when an achievement is earned."
+msgstr "Realizează o captură de ecran automat când o realizare este dobândită."
+
+msgid "CHALLENGE INDICATORS"
+msgstr "INDICATORI DE PROVOCĂRI"
+
+msgid ""
+"Shows icons in the bottom right corner when eligible achievements can be "
+"earned."
+msgstr ""
+"Afișează pictograme in colțul din dreapta jos când realizări eligibile pot "
+"fi dobândite."
+
+msgid "RETROACHIEVEMENT UNLOCK SOUND"
+msgstr "SUNET DEBLOCARE RETROREALIZARE"
+
+msgid "none"
+msgstr "fără"
+
+msgid "UNLOCK SOUND"
+msgstr "SUNET DEBLOCARE"
+
+msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
+msgstr "AFIȘEAZĂ INTRARE RETROREALIZĂRI ÎN MENIUL PRINCIPAL"
+
+msgid "View your RetroAchievement stats right from the main menu!"
+msgstr "Vezi statisticile RetroRealizări direct din meniul principal!"
+
+msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr "NU S-AU PUTUT ACTIVA RETROREALIZĂRILE:"
+
+msgid "THE BEZEL PROJECT"
+msgstr "RAME"
+
+msgid "SELECT BEZELS TO INSTALL/REMOVE"
+msgstr "SELECTEAZĂ RAMELE PENTRU A FI INSTALATE/ELIMINATE"
+
+#, c-format
+msgid "UPDATING %s"
+msgstr "SE ACTUALIZEAZĂ %s"
+
+msgid "UPDATE IS READY"
+msgstr "ACTUALIZAREA ESTE PREGĂTITĂ"
+
+msgid "REBOOT TO APPLY"
+msgstr "REPORNEȘTE PENTRU A APLICA"
+
+msgid "REALLY UPDATE?"
+msgstr "SIGUR ACTUALIZEZI?"
+
+#, c-format
+msgid ""
+"YOU ARE CURRENTLY USING VERSION %s\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"ACUM FOLOSEȘTI VERSIUNEA %s\n"
+"DOREȘTI SĂ ACTUALIZEZI LA VERSIUNEA %s?"
+
+#, c-format
+msgid ""
+"UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
+"UPGRADING COULD BREAK YOUR SYSTEM.\n"
+"DO YOU WANT TO UPDATE TO VERSION %s?"
+msgstr ""
+"AU FOST DETECTATE MODIFICĂRI NEOFICIALE ALE SISTEMULUI.\n"
+"ACTUALIZAREA POATE FACE SISTEMUL NEFUNCȚIONAL.\n"
+"DOREȘTI SĂ ACTUALIZEZI LA VERSIUNEA %s ORICUM?"
+
+msgid "NETWORK CONNECTION NEEDED"
+msgstr "O CONEXIUNE LA REȚEA ESTE NECESARĂ"
+
+msgid "NO UPDATE AVAILABLE"
+msgstr "NICIO ACTUALIZARE DISPONIBILĂ"
+
+msgid "SCRAPER"
+msgstr "PRELUARE INFORMAȚII"
+
+msgid "SCRAPING DATABASE"
+msgstr "BAZA DE DATE PENTRU INFORMAȚII"
+
+msgid "SOURCE"
+msgstr "SURSĂ"
+
+msgid "SCRAPE FROM"
+msgstr "PREIA INFORMAȚIILE DIN"
+
+msgid "SCRAPER SETTINGS"
+msgstr "SETĂRI PRELUARE INFORMAȚII"
+
+msgid "FILTERS"
+msgstr "FILTRE"
+
+msgid "GAMES TO SCRAPE FOR"
+msgstr "JOCURILE PENTRU CARE SE CAUTĂ"
+
+msgid "ALL"
+msgstr "TOATE"
+
+msgid "GAMES MISSING ANY MEDIA"
+msgstr "JOCURI CU ORICE INFORMAȚIE LIPSĂ"
+
+msgid "GAMES MISSING ALL MEDIA"
+msgstr "JOCURI CU TOATE INFORMAȚIILE LIPSĂ"
+
+msgid "IGNORE RECENTLY SCRAPED GAMES"
+msgstr "IGNORĂ JOCURILE RECENT CĂUTATE"
+
+msgid "LAST DAY"
+msgstr "ULTIMA ZI"
+
+msgid "LAST WEEK"
+msgstr "ULTIMA SĂPTĂMÂNĂ"
+
+msgid "LAST 15 DAYS"
+msgstr "ULTIMELE 15 ZILE"
+
+msgid "LAST MONTH"
+msgstr "ULTIMA LUNĂ"
+
+msgid "LAST 3 MONTHS"
+msgstr "ULTIMELE 3 LUNI"
+
+msgid "LAST YEAR"
+msgstr "ULTIMUL AN"
+
+msgid "SYSTEMS INCLUDED"
+msgstr "SISTEME INCLUSE"
+
+msgid "SCRAPE NOW"
+msgstr "PREIA ACUM"
+
+msgid "START"
+msgstr "ÎNCEPE"
+
+msgid "go back"
+msgstr "mergi înapoi"
+
+msgid ""
+"WARNING: SOME OF YOUR SELECTED SYSTEMS DO NOT HAVE A PLATFORM SET. RESULTS "
+"MAY BE FOR DIFFERENT SYSTEMS!\n"
+"CONTINUE ANYWAY?"
+msgstr ""
+"ATENȚIE: UNELE DIN SISTEMELE SELECTATE NU AU SETATĂ O PLATFORMĂ. REZULTATELE "
+"POT FI PENTRU SISTEME DIFERITE!\n"
+"CONTINUI ORICUM?"
+
+msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "PRELUAREA INFORMAȚIILOR ESTE ÎN CURS. DOREȘTI SĂ O OPREȘTI?"
+
+msgid "NO GAMES FIT THAT CRITERIA."
+msgstr "NICIUN JOC NU SE POTRIVEȘTE CU CRITERIUL."
+
+msgid "INSTALL ON A NEW DISK"
+msgstr "INSTALEAZĂ PE UN DISC NOU"
+
+msgid "TARGET DEVICE"
+msgstr "DISPOZITIV ȚINTĂ"
+
+msgid "SELECT"
+msgstr "SELECTEAZĂ"
+
+msgid "TARGET ARCHITECTURE"
+msgstr "ARHITECTURĂ ȚINTĂ"
+
+msgid "NETWORK REQUIRED"
+msgstr "REȚEA NECESARĂ"
+
+msgid "INVALID PARAMETERS"
+msgstr "PARAMETRII INVALIZI"
+
+msgid "fade"
+msgstr "atenuează"
+
+msgid "slide"
+msgstr "glisează"
+
+msgid "instant"
+msgstr "instant"
+
+msgid "fade & slide"
+msgstr "atenuează și glisează"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "Architecture"
+msgstr "Arhitectură"
+
+msgid "Disk format"
+msgstr "Format disc"
+
+msgid "Temperature"
+msgstr "Temperatură"
+
+msgid "Available memory"
+msgstr "Memorie disponibilă"
+
+msgid "Battery"
+msgstr "Baterie"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Cpu model"
+msgstr "Model CPU"
+
+msgid "Cpu number"
+msgstr "Număr CPU"
+
+msgid "Cpu max frequency"
+msgstr "Frecvența maximă CPU"
+
+msgid "Cpu feature"
+msgstr "Caracteristică CPU"
+
+msgctxt "game_options"
+msgid "SHARP-BILINEAR-SIMPLE"
+msgstr "ASCUȚIT-BILINEAR-SIMPLU"
+
+msgctxt "game_options"
+msgid "SCANLINES"
+msgstr "LINII DE SCANARE"
+
+msgctxt "game_options"
+msgid "RETRO"
+msgstr "RETRO"
+
+msgctxt "game_options"
+msgid "ENHANCED"
+msgstr "ÎMBUNĂTĂȚIT"
+
+msgctxt "game_options"
+msgid "CURVATURE"
+msgstr "CURBAT"
+
+msgctxt "game_options"
+msgid "ZFAST"
+msgstr "ZFAST"
+
+msgctxt "game_options"
+msgid "FLATTEN-GLOW"
+msgstr "APLATIZAT-STRĂLUCITOR"
+
+msgctxt "game_options"
+msgid "RGA SCALING"
+msgstr "SCALARE RGA"
+
+msgid "VENDOR"
+msgstr "PRODUCĂTOR"
+
+msgid "RENDERER"
+msgstr "RANDARE"
+
+msgid "SHADERS"
+msgstr "SHADER-URI"
+
+msgid "INTERNAL"
+msgstr "INTERN"
+
+msgid "ANY EXTERNAL"
+msgstr "ORICE EXTERN"
+
+msgid "maximum 1920x1080"
+msgstr "maximum 1920x1080"
+
+msgid "maximum 640x480"
+msgstr "maximum 640x480"
+
+msgid "MAIN MENU"
+msgstr "MENIU PRINCIPAL"
+
+msgid "KODI MEDIA CENTER"
+msgstr "CENTRU MEDIA KODI"
+
+msgid "GAME SETTINGS"
+msgstr "SETĂRI JOCURI"
+
+msgid "USER INTERFACE SETTINGS"
+msgstr "SETĂRI INTERFAȚĂ"
+
+msgid "GAME COLLECTION SETTINGS"
+msgstr "SETĂRI COLECȚIE JOCURI"
+
+msgid "SOUND SETTINGS"
+msgstr "SETĂRI SUNET"
+
+msgid "NETWORK SETTINGS"
+msgstr "SETĂRI REȚEA"
+
+msgid "CONFIGURE INPUT"
+msgstr "CONFIGUREAZĂ INTRARE"
+
+msgid "EMULATOR SETTINGS"
+msgstr "SETĂRI EMULATOR"
+
+msgid "UPDATES & DOWNLOADS"
+msgstr "ACTUALIZĂRI ȘI DESCĂRCĂRI"
+
+msgid "SYSTEM SETTINGS"
+msgstr "SETĂRI SISTEM"
+
+msgid "UNLOCK USER INTERFACE MODE"
+msgstr "DEBLOCHEAZĂ INTERFAȚA"
+
+msgid "QUIT"
+msgstr "IEȘIRE"
+
+msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
+msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ CONFIGUREZI INTRAREA?"
+
+msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
+msgstr "ACEASTĂ FUNCȚIE ESTE DEZACTIVATĂ CÂT TIMP SE PREIAU INFORMAȚII"
+
+msgid "CHOOSE"
+msgstr "ALEGE"
+
+msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
+msgstr "INTERFAȚA ESTE ACUM DEBLOCATĂ"
+
+msgid "ENTER THE CODE NOW TO UNLOCK"
+msgstr "INTRODU CODUL PENTRU DEBLOCARE"
+
+msgid "SERVICES"
+msgstr "SERVICII"
+
+msgid "DMD"
+msgstr "DMD"
+
+msgid "SERVER"
+msgstr "SERVER"
+
+msgid "DISABLED"
+msgstr "DEZACTIVAT"
+
+msgid "DMDSERVER (for real dmd)"
+msgstr "DMDSERVER (pentru dmd real)"
+
+msgid "SIMULATOR (for web dmd)"
+msgstr "SIMULATOR (pentru dmd web)"
+
+msgid "dmd server"
+msgstr "server dmd"
+
+msgid "FORMAT"
+msgstr "FORMAT"
+
+msgid "AUTO"
+msgstr "AUTO"
+
+msgid "dmd matrix size"
+msgstr "mărime matrice dmd"
+
+msgid "MATRIX"
+msgstr "MATRICE"
+
+msgid "rgb dmd order"
+msgstr "ordine dmd rgb"
+
+msgid "BRIGHTNESS"
+msgstr "LUMINOZITATE"
+
+msgid "DMDSERVER stopped"
+msgstr "DMDSERVER a fost oprit"
+
+msgid "DMDSERVER restarted"
+msgstr "DMDSERVER a fost repornit"
+
+msgid "DMDSERVER started"
+msgstr "DMDSERVER a fost pornit"
+
+msgid "MULTISCREENS"
+msgstr "MULTIECRAN"
+
+msgid "BACKGLASS / INFORMATION SCREEN"
+msgstr "STICLĂ DE FUNDAL / ECRAN DE INFORMAȚII"
+
+msgid "THEME"
+msgstr "TEMĂ"
+
+msgid "VIDEO OUTPUT"
+msgstr "IEȘIRE VIDEO"
+
+msgid "VIDEO MODE"
+msgstr "MOD VIDEO"
+
+msgid "Sets the display's resolution."
+msgstr "Setează rezoluția ecranului."
+
+msgid "ROTATION"
+msgstr "ROTAȚIE"
+
+msgid "0 DEGREES"
+msgstr "0 GRADE"
+
+msgid "90 DEGREES"
+msgstr "90 DE GRADE"
+
+msgid "180 DEGREES"
+msgstr "180 DE GRADE"
+
+msgid "270 DEGREES"
+msgstr "270 DE GRADE"
+
+msgid "SCREEN ROTATION"
+msgstr "ROTAȚIE ECRAN"
+
+msgid "DMD SCREEN"
+msgstr "ECRAN DMD"
+
+msgid "FRONTEND DEVELOPER OPTIONS"
+msgstr "OPȚIUNI DEZVOLTATOR"
+
+msgid "VIDEO OPTIONS"
+msgstr "OPȚIUNI VIDEO"
+
+msgid "VRAM LIMIT"
+msgstr "LIMITĂ VRAM"
+
+msgid "SHOW FRAMERATE"
+msgstr "AFIȘEAZĂ RATA DE CADRE"
+
+msgid "Also turns on the emulator's native FPS counter, if available."
+msgstr ""
+"De asemenea afișează numărătorul FPS nativ al emulatorului dacă este "
+"disponibil."
+
+msgid "VSYNC"
+msgstr "VSYNC"
+
+msgid "OVERSCAN"
+msgstr "OVERSCAN"
+
+msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
+msgstr "FOLOSEȘTE OMX PLAYER (CU ACCELERARE HARDWARE)"
+
+msgid "TOOLS"
+msgstr "UNELTE"
+
+msgid "STOP LAUNCHING THIS GAME AT STARTUP"
+msgstr "NU MAI LANSA ACEST JOC LA PORNIRE"
+
+msgid "ENABLE PUBLIC WEB API ACCESS"
+msgstr "ACTIVEAZĂ ACCES API WEB PUBLIC"
+
+#, c-format
+msgid "Allow public web access API using %s"
+msgstr "Permite acces web public prin API folosind %s"
+
+msgid "LOG LEVEL"
+msgstr "NIVEL JURNALIZARE"
+
+msgid "CREATE A SUPPORT FILE"
+msgstr "CREEAZĂ UN FIȘIER DE SUPORT"
+
+msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
+msgstr ""
+"CREEZI UN FIȘIER DE SUPORT? ACESTA INCLUDE TOATE DATELE DIN DOSARUL SISTEM."
+
+msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
+msgstr "FIȘIERUL DE SUPORT A FOST CREAT ÎN DOSARUL DE SALVĂRI"
+
+msgid "SUPPORT FILE CREATION FAILED"
+msgstr "FIȘIERUL DE SUPORT NU A PUTUT FI CREAT"
+
+msgid "FORMAT A DISK"
+msgstr "FORMATEAZĂ UN DISC"
+
+msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
+msgstr "CURĂȚĂ LISTELE DE JOCURI ȘI ȘTERGE FIȘIERELE MEDIA NEFOLOSITE"
+
+msgid "Remove unused entries, and clean references to missing medias."
+msgstr "Elimină intrările nefolosite și referințele la fișierele media lipsă."
+
+msgid "Cleaning"
+msgstr "Se curăță"
+
+msgid "RESET GAMELISTS USAGE DATA"
+msgstr "RESETEAZĂ DATELE STATISTICE DIN LISTELE DE JOCURI"
+
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgstr ""
+"Resetează valorile pentru metadatele timpului de joc, numărul de jocuri și "
+"jucat ultima dată."
+
+msgid "RESET FILE EXTENSIONS"
+msgstr "RESETEAZĂ EXTENSIILE FIȘIERELOR"
+
+msgid "Reset customized file extensions filters to default."
+msgstr "Resetează extensile de fișiere particularizate la implicite."
+
+msgid "REDETECT ALL GAMES' LANG/REGION"
+msgstr "DETECTEAZĂ DIN NOU LIMBA/REGIUNEA TUTUROR JOCURILOR"
+
+msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
+msgstr "GĂSEȘTE TOATE JOCURILE CU NETPLAY/REALIZĂRI"
+
+msgid "CLEAR CACHES"
+msgstr "GOLEȘTE CACHE-URILE"
+
+msgid "BUILD IMAGE CACHE"
+msgstr "CONSTRUIEȘTE CACHE-UL DE IMAGINI"
+
+msgid "Building image cache"
+msgstr "Se construiește cache-ul de imagini"
+
+msgid "DISPLAY SETTINGS"
+msgstr "SETĂRI DISPLAY"
+
+msgid "MENU FONT SCALE"
+msgstr "SCALARE FONT MENIU"
+
+msgid "FONT SCALE"
+msgstr "SCALARE FONT"
+
+msgid "THEME FONT SCALE"
+msgstr "SCALARE FONT TEMĂ"
+
+msgid "FULL SCREEN MENUS"
+msgstr "MENIURI PE ÎNTREG ECRANUL"
+
+msgid "FORCE SMALL SCREEN THEMING"
+msgstr "FORȚEAZĂ APLICAREA TEMEI PE ECRAN MIC"
+
+msgid "DATA MANAGEMENT"
+msgstr "MANAGEMENT DATE"
+
+msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
+msgstr "IGNORĂ DISCURILE CU MAI MULTE FIȘIERE (CUE/GDI/CCD/M3U)"
+
+msgid "ENABLE GAME FILTERING"
+msgstr "ACTIVEAZĂ FILTRAREA JOCURILOR"
+
+msgid ""
+"Whether to show or hide game filtering related settings in the view options."
+msgstr ""
+"Dacă se afișează sau se ascund setările de filtrare a jocurilor în opțiunile "
+"de vizualizare."
+
+msgid "SAVE METADATA ON EXIT"
+msgstr "SALVEAZĂ METADATELE LA IEȘIRE"
+
+msgid "PARSE GAMELISTS ONLY"
+msgstr "PARCURGE DOAR LISTELE DE JOCURI"
+
+msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
+msgstr ""
+"Unealtă de depanare: Nu verifica dacă ROM-urile chiar există. Poate cauza "
+"probleme!"
+
+msgid "SEARCH FOR LOCAL ART"
+msgstr "CAUTĂ FIȘERE DE ARTĂ LOCALE"
+
+msgid ""
+"If no image is specified in the gamelist, try to find media with the same "
+"filename to use."
+msgstr ""
+"Dacă nicio imagine nu este specificată în lista de jocuri, încearcă să "
+"găsească fișiere media cu același nume pentru a le folosi."
+
+msgid "USER INTERFACE"
+msgstr "INTERFAȚĂ"
+
+msgid "CAROUSEL TRANSITIONS"
+msgstr "TRANZIȚII CARUSEL"
+
+msgid "QUICK SYSTEM SELECT"
+msgstr "SELECȚIA RAPIDĂ A SISTEMULUI"
+
+msgid "ON-SCREEN KEYBOARD"
+msgstr "TASTATURĂ PE ECRAN"
+
+msgid "HIDE EMULATIONSTATION WHEN RUNNING A GAME"
+msgstr "ASCUNDE EMULATIONSTATION CÂND SE RULEAZĂ UN JOC"
+
+msgid "COMPLETE QUIT MENU"
+msgstr "MENIU IEȘIRE DETALIAT"
+
+msgid "RETROARCH MENU DRIVER"
+msgstr "DRIVER MENIU RETROARCH"
+
+msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
+msgstr "ÎNVERSEAZĂ BUTOANELE „CONFIRMĂ” ȘI „ANULEAZĂ” ÎN EMULATIONSTATION"
+
+msgid "Switches the South and East buttons' functionality"
+msgstr "Inversează funcționalitatea butoanelor din sud și est"
+
+msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
+msgstr "ACCESEAZĂ OPȚIUNILE JOCULUI CU BUTONUL DIN NORD"
+
+msgid ""
+"Switches to short-press North for Savestates & long-press South button for "
+"Game Options"
+msgstr ""
+"Comută la apăsarea scurtă pe butonul din nord pentru stările salvate și "
+"apăsarea lungă pe butonul din sud pentru opțiunile jocului"
+
+msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
+msgstr "CONTROLEAZĂ EMULATIONSTATION DOAR CU PRIMUL JOYSTICK"
+
+msgid "GUN MOVE TOLERENCE"
+msgstr "TOLERANȚA LA MIȘCAREA PUȘTII"
+
+msgid "ENABLE PS3 CONTROLLER SUPPORT"
+msgstr "ACTIVEAZĂ SUPORTUL PENTRU CONTROLLER-UL DE PS3"
+
+msgid "Might have negative impact on security."
+msgstr "Poate avea un impact negativ legat de securitate."
+
+msgid "ENABLE HID JOYSTICK DRIVERS"
+msgstr "ACTIVEAZĂ DRIVER-E HID PENTRU JOYSTICK"
+
+msgid "SHOW NETWORK INDICATOR"
+msgstr "AFIȘEAZĂ INDICATOR PENTRU REȚEA"
+
+msgid "OPTIMIZATIONS"
+msgstr "OPTIMIZĂRI"
+
+msgid "PRELOAD UI ELEMENTS ON BOOT"
+msgstr "ÎNCARCĂ ÎN AVANS ELEMENTELE INTERFEȚEI LA PORNIRE"
+
+msgid ""
+"Reduces lag when entering gamelists from the system menu, increases boot time"
+msgstr ""
+"Micșorează latența când se intră în listele de jocuri din meniul de sistem, "
+"dar mărește timpul de boot"
+
+msgid "PRELOAD METADATA MEDIA ON BOOT"
+msgstr "ÎNCARCĂ ÎN AVANS METADATELE MEDIA LA PORNIRE"
+
+msgid ""
+"Reduces lag when scrolling through a fully scraped gamelist, increases boot "
+"time"
+msgstr ""
+"Micșorează latența când se derulează o listă de jocuri completă cu metadate, "
+"dar mărește timpul de boot"
+
+msgid "THREADED LOADING"
+msgstr "ÎNCĂRCARE PE FIRE DE EXECUȚIE"
+
+msgid "ASYNC IMAGE LOADING"
+msgstr "ÎNCĂRCAREA IMAGINILOR ASINCRONĂ"
+
+msgid "OPTIMIZE IMAGES VRAM USE"
+msgstr "OPTIMIZEAZĂ NECESARUL DE VRAM PENTRU IMAGINI"
+
+msgid "OPTIMIZE VIDEO VRAM USAGE"
+msgstr "OPTIMIZEAZĂ NECESARUL DE VRAM PENTRU VIDEO"
+
+msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
+msgstr "ESTE NECESARĂ O REPORNIRE PENTRU A APLICA NOUA CONFIGURAȚIE"
+
+msgid "DOWNLOADS"
+msgstr "DESCĂRCĂRI"
+
+msgid "CONTENT DOWNLOADER"
+msgstr "CONȚINUT"
+
+msgid "THEMES"
+msgstr "TEME"
+
+msgid "SOFTWARE UPDATES"
+msgstr "ACTUALIZĂRI SOFTWARE"
+
+msgid "CHECK FOR UPDATES"
+msgstr "VERIFICĂ PENTRU ACTUALIZĂRI"
+
+msgid "UPDATE TYPE"
+msgstr "TIP ACTUALIZARE"
+
+msgid "APPLY UPDATE"
+msgstr "APLICĂ ACTUALIZARE"
+
+msgid "START UPDATE"
+msgstr "ÎNCEPE ACTUALIZARE"
+
+msgid "UPDATER IS ALREADY RUNNING"
+msgstr "ACTUALIZATORUL DEJA RULEAZĂ"
+
+msgid "YOU ARE NOT CONNECTED TO A NETWORK"
+msgstr "NU EȘTI CONECTAT LA NICIO REȚEA"
+
+msgid "LANGUAGE"
+msgstr "LIMBĂ"
+
+msgid "LANGUAGE (REGION)"
+msgstr "LIMBĂ (REGIUNE)"
+
+msgid "SELECT YOUR TIME ZONE"
+msgstr "ALEGE FUSUL TĂU ORAR"
+
+msgid "TIME ZONE"
+msgstr "FUS ORAR"
+
+msgid "SHOW CLOCK IN 12-HOUR FORMAT"
+msgstr "ARATĂ CEASUL ÎN FORMAT 12 ORE"
+
+msgid "POWER SAVING MODE"
+msgstr "MOD ECONOMIC"
+
+msgid "DEFAULT"
+msgstr "IMPLICIT"
+
+msgid "ENHANCED"
+msgstr "ÎMBUNĂTĂȚIT"
+
+msgid "INSTANT"
+msgstr "INSTANT"
+
+msgid "Reduces power consumption when idle (useful for handhelds)."
+msgstr ""
+"Reduce consumul de energie când este inactiv (util pentru dispozitive "
+"portabile)."
+
+msgid "SCREEN READER (TEXT TO SPEECH)"
+msgstr "CITITOR ECRAN (TEXT VORBIT)"
+
+msgid "USER INTERFACE MODE"
+msgstr "MOD INTERFAȚĂ"
+
+msgid "Lock down certain config menus for use with guest users/kids."
+msgstr ""
+"Blochează anumite meniuri de configurare pentru utilizarea cu invitați sau "
+"copii."
+
+msgid ""
+"You are changing the user interface to a restricted mode:\n"
+"This will hide most menu options to prevent changes to the system.\n"
+"To unlock and return to the full user interface, enter this code:"
+msgstr ""
+"Vei schimba interfața cu un mod restricționat:\n"
+"Acest lucru va ascunde majoritatea opțiunilor din meniu pentru a preveni "
+"modificări ale sistemului.\n"
+"Pentru a debloca și a te întoarce la interfața completă, introdu acest cod:"
+
+msgid "Do you want to proceed?"
+msgstr "Dorești să continui?"
+
+msgid "KODI SETTINGS"
+msgstr "SETĂRI KODI"
+
+msgid "ENABLE KODI"
+msgstr "ACTIVEAZĂ KODI"
+
+msgid "LAUNCH KODI AT BOOT"
+msgstr "LANSEAZĂ KODI LA PORNIRE"
+
+msgid "HARDWARE"
+msgstr "HARDWARE"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Setează rezoluția ecranului pentru emulationstation."
+
+msgid "AUDIO OUTPUT"
+msgstr "IEȘIRE AUDIO"
+
+msgid "AUDIO PROFILE"
+msgstr "PROFIL AUDIO"
+
+msgid "Available options can change depending on current audio output."
+msgstr ""
+"Opțiunile disponibile se pot schimba în funcție de ieșirea audio curentă."
+
+msgid "BOOT SPLASH"
+msgstr "ECRAN DE PORNIRE"
+
+msgid "DEFAULT VIDEO/USER SET SPLASH"
+msgstr "VIDEO IMPLICIT/SETAT DE UTILIZATOR"
+
+msgid "SILENT VIDEO/USER SET SPLASH"
+msgstr "VIDEO FĂRĂ SUNET/SETAT DE UTILIZATOR"
+
+msgid "BATOCERA SPLASH IMAGE"
+msgstr "IMAGINE BATOCERA"
+
+msgid "SPLASH SETTING"
+msgstr "SETĂRI ECRAN DE PORNIRE"
+
+msgid "MISSING BIOS CHECK"
+msgstr "VERIFICARE BIOS LIPSĂ"
+
+msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
+msgstr "VERIFICĂ FIȘIERELE BIOS ÎNAINTE DE A RULA UN JOC"
+
+msgid "MULTIMEDIA KEYS"
+msgstr "TASTE MULTIMEDIA"
+
+msgid "ON"
+msgstr "PORNIT"
+
+msgid "OFF"
+msgstr "OPRIT"
+
+msgid "BUTTON LED COLOR"
+msgstr "CULOARE LED BUTON"
+
+msgid "off"
+msgstr "fără"
+
+msgid "red"
+msgstr "roșu"
+
+msgid "green"
+msgstr "verde"
+
+msgid "blue"
+msgstr "albastru"
+
+msgid "white"
+msgstr "alb"
+
+msgid "purple"
+msgstr "mov"
+
+msgid "yellow"
+msgstr "galben"
+
+msgid "cyan"
+msgstr "albastru-verzui"
+
+msgid "POWER LED COLOR"
+msgstr "CULOARE LED PORNIRE"
+
+msgid "heartbeat"
+msgstr "pulsație"
+
+msgid "on"
+msgstr "pornit"
+
+msgid "OVERCLOCK"
+msgstr "OVERCLOCK"
+
+msgid "LED HARDWARE"
+msgstr "LED HARDWARE"
+
+msgid "RED"
+msgstr "ROȘU"
+
+msgid "GREEN"
+msgstr "VERDE"
+
+msgid "BLUE"
+msgstr "ALBASTRU"
+
+msgid "LED BRIGHTNESS"
+msgstr "LUMINOZITATE LED"
+
+msgid "STORAGE"
+msgstr "STOCARE"
+
+msgid "STORAGE DEVICE"
+msgstr "DISPOZITIV DE STOCARE"
+
+msgid "BACKUP USER DATA"
+msgstr "COPIAZĂ DATELE UTILIZATORULUI"
+
+msgid "ADVANCED"
+msgstr "AVANSAT"
+
+msgid "SECURITY"
+msgstr "SECURITATE"
+
+msgid "ENFORCE SECURITY"
+msgstr "IMPUNE SECURITATE"
+
+msgid "Require a password for accessing the network share."
+msgstr "Necesită o parolă pentru a accesa datele din rețea."
+
+msgid "ROOT PASSWORD"
+msgstr "PAROLĂ ROOT"
+
+msgid "LATENCY REDUCTION"
+msgstr "REDUCEREA LATENȚEI"
+
+msgid "RUN-AHEAD FRAMES"
+msgstr "PRE-RULEAZĂ CADRELE"
+
+msgid "High numbers can result in visible jitter."
+msgstr "Valorile ridicate pot duce la fluctuații."
+
+msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
+msgstr "FOLOSEȘTE O A DOUA INSTANȚĂ PENTRU PRE-RULARE"
+
+msgid "Can prevent audio skips on button presses."
+msgstr "Poate preveni omiterile de sunet la apăsarea pe butoane."
+
+msgid "AUTOMATIC FRAME DELAY"
+msgstr "ÎNTÂRZIEREA AUTOMATĂ A CADRELOR"
+
+msgid "AUTO FRAME DELAY"
+msgstr "AUTO-ÎNTÂRZIERE CADRE"
+
+msgid ""
+"Automatically decrease frame delay temporarily to prevent frame drops. Can "
+"introduce stuttering."
+msgstr ""
+"Scade automat întârzierea cadrelor temporar pentru a preveni pierderile de "
+"cadre. Poate introduce bâlbâială."
+
+msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
+msgstr "RATĂ DE REÎMPROSPĂTARE VARIABILĂ (G-SYNC, FREESYNC)"
+
+msgid "VARIABLE REFRESH RATE"
+msgstr "RATĂ DE REÎMPROSPĂTARE VARIABILĂ"
+
+msgid ""
+"Don't deviate from core requested timing. G-Sync, FreeSync, HDMI 2.1 VRR."
+msgstr ""
+"Nu devia de la temporizarea cerută de nucleu. G-Sync, FreeSync, HDMI 2.1 VRR."
+
+msgid "DECORATION SET"
+msgstr "PACHET DE RAME"
+
+msgid "Current setting"
+msgstr "Setare curentă"
+
+msgid "UPDATE GAMELISTS"
+msgstr "ACTUALIZEAZĂ LISTELE DE JOCURI"
+
+msgid "ACCOUNTS"
+msgstr "CONTURI"
+
+msgid "BIOS SETTINGS"
+msgstr "SETĂRI BIOS"
+
+msgid "SAVESTATES"
+msgstr "STĂRI SALVATE"
+
+msgid "AUTO SAVE/LOAD"
+msgstr "SALVEAZĂ/ÎNCARCĂ AUTOMAT"
+
+msgid "Load latest savestate on game launch and savestate when exiting game."
+msgstr ""
+"Încarcă ultima stare salvată la lansarea jocului și salvează starea la "
+"închiderea lui."
+
+msgid "INCREMENTAL SAVESTATES"
+msgstr "STĂRI SALVATE INCREMENTAL"
+
+msgid "INCREMENT PER SAVE"
+msgstr "INCREMENTEAZĂ PER SALVARE"
+
+msgid "Never overwrite old savestates, always make new ones."
+msgstr ""
+"Nu suprascrie niciodată stările salvate anterior, creează mereu unele noi."
+
+msgid "INCREMENT SLOT"
+msgstr "INCREMENTEAZĂ SLOTUL"
+
+msgid "Increment slot on a new game."
+msgstr "Incrementează slotul la o sesiune de joc nouă."
+
+msgid "DO NOT INCREMENT"
+msgstr "NU INCREMENTA"
+
+msgid "Use current slot on a new game."
+msgstr "Folosește slotul curent la o sesiune de joc nouă."
+
+msgid "SHOW SAVESTATE MANAGER"
+msgstr "ARATĂ MANAGERUL DE STĂRI SALVATE"
+
+msgid "ALWAYS"
+msgstr "MEREU"
+
+msgid "IF NOT EMPTY"
+msgstr "DACĂ NU ESTE GOL"
+
+msgid "Display savestate manager before launching a game."
+msgstr "Arată managerul de stări salvate înainte de lansarea unui joc."
+
+msgid "DEFAULT GLOBAL SETTINGS"
+msgstr "SETĂRI GLOBALE IMPLICITE"
+
+msgid "GAME ASPECT RATIO"
+msgstr "RAPORT ASPECT JOC"
+
+msgid "Force the game to render in this aspect ratio."
+msgstr "Forțează jocul să fie redat în acest raport de aspect."
+
+msgid ""
+"Sets the display's resolution. Does not affect the rendering resolution."
+msgstr "Setează rezoluția ecranului. Nu afectează rezoluția de redare."
+
+msgid "SMOOTH GAMES (BILINEAR FILTERING)"
+msgstr "NETEZEȘTE JOCURILE (FILTRARE BILINEARĂ)"
+
+msgid "REWIND"
+msgstr "REVENIRE"
+
+msgid "Store past states to rewind to in realtime, if the core supports it."
+msgstr ""
+"Stochează stările trecute pentru a te putea întoarce în trecut în timp real, "
+"dacă este suportat de nucleu."
+
+msgid "INTEGER SCALING (PIXEL PERFECT)"
+msgstr "SCALARE ÎNTREAGĂ (POTRIVIRE PERFECTĂ)"
+
+msgid "SHADER SET"
+msgstr "PACHET SHADERE"
+
+msgid "VIDEO FILTER"
+msgstr "FILTRU VIDEO"
+
+msgid "DECORATIONS"
+msgstr "RAME"
+
+msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
+msgstr "ÎNTINDE RAMELE (4K ȘI ULTRAWIDE)"
+
+msgid "SHOW TATTOO OVER BEZEL"
+msgstr "AFIȘEAZĂ TATUAJ PESTE RAMĂ"
+
+msgid "SYSTEM CONTROLLERS"
+msgstr "CONTROLERE SISTEM"
+
+msgid "CUSTOM IMAGE"
+msgstr "IMAGINE PARTICULARIZATĂ"
+
+msgid "Show an image overlaid on top of the bezel."
+msgstr "Afișează o imagine suprapusă peste ramă."
+
+msgid "TATTOO CORNER"
+msgstr "POZIȚIA TATUAJELOR"
+
+msgid "NORTH WEST"
+msgstr "NORD VEST"
+
+msgid "NORTH EAST"
+msgstr "NORD EST"
+
+msgid "SOUTH EAST"
+msgstr "SUD EST"
+
+msgid "SOUTH WEST"
+msgstr "SUD VEST"
+
+msgid "CUSTOM .PNG IMAGE PATH"
+msgstr "CALE IMAGINE PARTICULARIZATĂ .PNG"
+
+msgid "RESIZE TATTOO"
+msgstr "REDIMENSIONEAZĂ TATUAJUL"
+
+msgid "Shrink/expand tattoo to fit within the bezel's border."
+msgstr "Micșorează/mărește tatuajul pentru a se potrivi pe marginea ramei."
+
+msgid "AI GAME TRANSLATION"
+msgstr "TRADUCERE JOC CU IA"
+
+msgid "ENABLE AI TRANSLATION SERVICE"
+msgstr "ACTIVEAZĂ SERVICIUL DE TRADUCERE CU IA"
+
+msgid "TARGET LANGUAGE"
+msgstr "LIMBĂ ȚINTĂ"
+
+msgid "AI TRANSLATION SERVICE URL"
+msgstr "URL SERVICIU DE TRADUCERE IA"
+
+msgid "PAUSE ON TRANSLATED SCREEN"
+msgstr "FĂ O PAUZĂ PE ECRANUL TRADUS"
+
+msgid "AUTOCONFIGURE CONTROLLERS"
+msgstr "AUTOCONFIGUREAZĂ CONTROLERELE"
+
+msgid "PER SYSTEM ADVANCED CONFIGURATION"
+msgstr "CONFIGURĂRI AVANSATE PER SISTEM"
+
+msgid "SCRAPER IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "PRELUAREA INFORMAȚIILOR ESTE ÎN CURS. DOREȘTI SĂ O OPREȘTI?"
+
+msgid "GAME HASHING IS RUNNING. DO YOU WANT TO STOP IT?"
+msgstr "SE CALCULEAZĂ HASH-URILE JOCURILOR. DOREȘTI SĂ OPREȘTI PROCESUL?"
+
+msgid "REALLY UPDATE GAMELISTS?"
+msgstr "CHIAR DOREȘTI ACTUALIZAREA LISTELOR DE JOCURI?"
+
+msgid "YOU MUST APPLY THE THEME BEFORE EDITING ITS CONFIGURATION"
+msgstr "TREBUIE SĂ APLICI TEMA ÎNAINTE DE A-I EDITA CONFIGURAȚIA"
+
+msgid "THEME CONFIGURATION"
+msgstr "CONFIGURARE TEMĂ"
+
+msgid "VIEW CUSTOMIZATION"
+msgstr "PARTICULARIZARE AFIȘARE"
+
+msgid "GAMELIST STYLE"
+msgstr "STIL LISTĂ DE JOCURI"
+
+msgid "GAMELIST VIEW STYLE"
+msgstr "STIL AFIȘARE LISTĂ DE JOCURI"
+
+msgid "automatic"
+msgstr "automat"
+
+msgid "basic"
+msgstr "de bază"
+
+msgid "detailed"
+msgstr "detaliat"
+
+msgid "DEFAULT GRID SIZE"
+msgstr "MĂRIME IMPLICITĂ GRILĂ"
+
+msgid "GAMELIST THEME OPTIONS"
+msgstr "OPȚIUNI TEMĂ LISTĂ DE JOCURI"
+
+msgid "THEME OPTIONS"
+msgstr "OPȚIUNI TEMĂ"
+
+msgid "DEFAULT VALUE"
+msgstr "VALOARE IMPLICITĂ"
+
+msgid "GAMELIST OPTIONS"
+msgstr "OPȚIUNI LISTĂ DE JOCURI"
+
+msgid "SHOW FAVORITES ON TOP"
+msgstr "ARATĂ JOCURILE FAVORITE LA ÎNCEPUT"
+
+msgid "SHOW HIDDEN FILES"
+msgstr "ARATĂ FIȘIERELE ASCUNSE"
+
+msgid "SHOW FOLDERS"
+msgstr "ARATĂ DOSARELE"
+
+msgid "always"
+msgstr "mereu"
+
+msgid "never"
+msgstr "niciodată"
+
+msgid "having multiple games"
+msgstr "când conțin mai multe jocuri"
+
+msgid "SHOW '..' PARENT FOLDER"
+msgstr "ARATĂ DOSARUL PĂRINTE „..”"
+
+msgid "BEFORE NAME"
+msgstr "ÎNAINTEA NUMELUI"
+
+msgid "AFTER NAME"
+msgstr "DUPĂ NUME"
+
+msgid "SHOW REGION FLAG"
+msgstr "ARATĂ STEAGUL REGIUNII"
+
+msgid "SHOW SAVESTATE ICON"
+msgstr "ARATĂ PICTOGRAMĂ STARE SALVATĂ"
+
+msgid "SHOW MANUAL ICON"
+msgstr "ARATĂ PICTOGRAMĂ MANUAL"
+
+msgid "SHOW RETROACHIEVEMENTS ICON"
+msgstr "ARATĂ PICTOGRAMĂ RETROREALIZĂRI"
+
+msgid "SHOW GUN ICON"
+msgstr "ARATĂ PICTOGRAMĂ PISTOL"
+
+msgid "SHOW WHEEL ICON"
+msgstr "ARATĂ PICTOGRAMĂ VOLAN"
+
+msgid "SHOW FILENAMES INSTEAD"
+msgstr "ARATĂ NUMELE DE FIȘIERE ÎN LOC"
+
+msgid "FILE EXTENSIONS"
+msgstr "EXTENSII FIȘIERE"
+
+msgid "RESET CUSTOMIZATIONS"
+msgstr "RESETEAZĂ SETĂRILE"
+
+msgid "APPEARANCE"
+msgstr "ASPECT"
+
+msgid "THEME SET"
+msgstr "PACHET TEMATIC"
+
+msgid "video"
+msgstr "video"
+
+msgid "grid"
+msgstr "grilă"
+
+msgid "DISPLAY OPTIONS"
+msgstr "OPȚIUNI AFIȘARE"
+
+msgid "SCREENSAVER SETTINGS"
+msgstr "SETĂRI ECONOMIZOR DE ECRAN"
+
+msgid "LIST TRANSITION"
+msgstr "TRANZIȚIE LISTĂ"
+
+msgid "auto"
+msgstr "auto"
+
+msgid "GAME LAUNCH TRANSITION"
+msgstr "TRANZIȚIE LANSARE JOC"
+
+msgid "GAME MEDIAS DURING FAST SCROLLING"
+msgstr "MEDII JOC ÎN TIMPUL DERULĂRII RAPIDE"
+
+msgid "SHOW CLOCK"
+msgstr "AFIȘEAZĂ CEASUL"
+
+msgid "ON-SCREEN HELP"
+msgstr "AJUTOR PE ECRAN"
+
+msgid "SHOW BATTERY STATUS"
+msgstr "AFIȘEAZĂ STAREA BATERIEI"
+
+msgid "ICON"
+msgstr "PICTOGRAMĂ"
+
+msgid "ICON AND TEXT"
+msgstr "PICTOGRAMĂ ȘI TEXT"
+
+msgid "SHOW FOLDERS FIRST"
+msgstr "ARATĂ DOSARELE LA ÎNCEPUT"
+
+msgid "IGNORE LEADING ARTICLES WHEN SORTING"
+msgstr "IGNORĂ ARTICOLELE PREPUSE ÎN SORTARE"
+
+msgid "Ignore 'The' and 'A' if at the start."
+msgstr "Ignoră „The” și „A” dacă sunt la începutul numelui."
+
+msgid "VOLUME"
+msgstr "VOLUM"
+
+msgid "SYSTEM VOLUME"
+msgstr "VOLUM SISTEM"
+
+msgid "MUSIC VOLUME"
+msgstr "VOLUM MUZICĂ"
+
+msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
+msgstr "ARATĂ PE ECRAN CÂND VOLUMUL SE MODIFICĂ"
+
+msgid "MUSIC"
+msgstr "MUZICĂ"
+
+msgid "FRONTEND MUSIC"
+msgstr "MUZICĂ DE FUNDAL"
+
+msgid "DISPLAY SONG TITLES"
+msgstr "AFIȘEAZĂ TITLUL PIESEI"
+
+msgid "SONG TITLE DISPLAY DURATION"
+msgstr "DURATA AFIȘĂRII TITLULUI PIESEI"
+
+msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
+msgstr "REDĂ DOAR MUZICĂ SPECIFICĂ SISTEMULUI"
+
+msgid "PLAY SYSTEM-SPECIFIC MUSIC"
+msgstr "REDĂ MUZICĂ SPECIFICĂ SISTEMULUI"
+
+msgid "LOWER MUSIC WHEN PLAYING VIDEO"
+msgstr "REDU VOLUMUL MUZICII ÎN TIMPUL REDĂRII UNUI VIDEOCLIP"
+
+msgid "SOUNDS"
+msgstr "SUNETE"
+
+msgid "ENABLE NAVIGATION SOUNDS"
+msgstr "ACTIVEAZĂ SUNETELE ÎN NAVIGARE"
+
+msgid "ENABLE VIDEO PREVIEW AUDIO"
+msgstr "ACTIVEAZĂ PREVIZUALIZAREA VIDEOCLIPULUI CU SUNET"
+
+msgid "IP ADDRESS"
+msgstr "ADRESĂ IP"
+
+msgid "CONNECTED"
+msgstr "CONECTAT"
+
+msgid "NOT CONNECTED"
+msgstr "DECONECTAT"
+
+msgid "INTERNET STATUS"
+msgstr "STARE INTERNET"
+
+msgid "HOSTNAME"
+msgstr "NUME SISTEM"
+
+msgid "ENABLE WIFI"
+msgstr "ACTIVEAZĂ WIFI"
+
+msgid "WIFI SSID"
+msgstr "SSID WIFI"
+
+msgid "WIFI KEY"
+msgstr "CHEIE WIFI"
+
+msgid "WIFI ENABLED"
+msgstr "WIFI ACTIVAT"
+
+msgid "WIFI CONFIGURATION ERROR"
+msgstr "EROARE DE CONFIGURARE WIFI"
+
+msgid "QUICK ACCESS"
+msgstr "ACCES RAPID"
+
+msgid "SKIP TO THE NEXT SONG"
+msgstr "TRECI LA URMĂTORUL CÂNTEC"
+
+msgid "NOW PLAYING"
+msgstr "ACUM SE REDĂ"
+
+msgid "LAUNCH SCREENSAVER"
+msgstr "LANSEAZĂ ECONOMIZORUL DE ECRAN"
+
+msgid "VIEW USER MANUAL"
+msgstr "VEZI MANUALUL"
+
+msgid "DISABLE PLANE MODE"
+msgstr "DEZACTIVEAZĂ MODUL AVION"
+
+msgid "ENABLE PLANE MODE"
+msgstr "ACTIVEAZĂ MODUL AVION"
+
+msgid "RESTART SYSTEM"
+msgstr "REPORNEȘTE SISTEMUL"
+
+msgid "REALLY RESTART?"
+msgstr "CHIAR REPORNEȘTI?"
+
+msgid "SUSPEND SYSTEM"
+msgstr "SUSPENDĂ SISTEMUL"
+
+msgid "REALLY SUSPEND ?"
+msgstr "CHIAR SUSPENZI?"
+
+msgid "SHUTDOWN SYSTEM"
+msgstr "ÎNCHIDE SISTEMUL"
+
+msgid "REALLY SHUTDOWN?"
+msgstr "CHIAR ÎNCHIZI?"
+
+msgid "FAST SHUTDOWN SYSTEM"
+msgstr "ÎNCHIDE SISTEMUL RAPID"
+
+msgid "Shutdown without saving metadata."
+msgstr "Închide fără să salvezi metadatele."
+
+msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
+msgstr "CHIAR ÎNCHIZI FĂRĂ SĂ SALVEZI METADATELE?"
+
+msgid "QUIT EMULATIONSTATION"
+msgstr "ÎNCHIDE EMULATIONSTATION"
+
+msgid "REALLY QUIT?"
+msgstr "CHIAR ÎNCHIZI?"
+
+msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
+msgstr "SALVEAZĂ/ÎNCARCĂ AUTOMAT LA LANSAREA JOCULUI"
+
+msgid "Load latest save state on game launch and save state when exiting game."
+msgstr ""
+"Încarcă ultima stare salvată la lansarea jocului și salvează starea la "
+"închiderea acestuia."
+
+msgid "SHOW CONTROLLER OVERLAYS"
+msgstr "AFIȘEAZĂ GHIDUL CONTROLERULUI"
+
+msgid "CUSTOM .PNG IMAGE"
+msgstr "IMAGINE PARTICULARIZATĂ .PNG"
+
+msgid "OVERLAY CORNER"
+msgstr "COLȚUL RAMELOR"
+
+msgid "COLORIZATION"
+msgstr "COLORIZARE"
+
+msgid "FULL BOOT"
+msgstr "BOOT-ARE COMPLETĂ"
+
+msgid "EMULATED WIIMOTES"
+msgstr "TELECOMENZI WII EMULATE"
+
+msgid "CHANGE SCREEN LAYOUT"
+msgstr "SCHIMBĂ DISPUNEREA ECRANULUI"
+
+msgid "LARGE SCREEN"
+msgstr "ECRAN MARE"
+
+msgid "SIDE BY SIDE"
+msgstr "UNUL LÂNGĂ ALTUL"
+
+msgid "INTERNAL RESOLUTION"
+msgstr "REZOLUȚIA INTERNĂ"
+
+msgid "EDIT PADTOKEY PROFILE"
+msgstr "EDITEAZĂ PROFILUL PADTOKEY"
+
+msgid "CREATE PADTOKEY PROFILE"
+msgstr "CREEAZĂ UN PROFIL PADTOKEY"
+
+msgid "LAUNCH THIS GAME AT STARTUP"
+msgstr "LANSEAZĂ ACEST JOC LA PORNIRE"
+
+msgid "FORMAT DEVICE"
+msgstr "FORMATEAZĂ DISPOZITIVUL"
+
+msgid "DEVICE TO FORMAT"
+msgstr "DISPOZITIVUL DE FORMATAT"
+
+msgid "FILE SYSTEM"
+msgstr "SISTEM DE FIȘIERE"
+
+msgid "FORMAT NOW"
+msgstr "FORMATEAZĂ ACUM"
+
+msgid "SELECTED OPTIONS ARE INVALID"
+msgstr "OPȚIUNILE SELECTATE SUNT INVALIDE"
+
+msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
+msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ FORMATEZI ACEST DISPOZITIV?"
+
+msgid "Points"
+msgstr "Puncte"
+
+msgid "Unlocked on"
+msgstr "Deblocat la"
+
+msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
+msgstr "ACEST JOC ÎNCĂ NU ARE REALIZĂRI"
+
+msgid "Achievements (softcore)"
+msgstr "Realizări (softcore)"
+
+msgid "Achievements (hardcore)"
+msgstr "Realizări (hardcore)"
+
+#, c-format
+msgid "%d%% complete"
+msgstr "%d%% complet"
+
+msgid "GAME MEDIA"
+msgstr "FIȘIERE MEDIA JOCURI"
+
+msgid "VIEW GAME MANUAL"
+msgstr "VEZI MANUALUL JOCULUI"
+
+msgid "VIEW GAME MAGAZINE"
+msgstr "VEZI REVISTA JOCULUI"
+
+msgid "VIEW GAME MAP"
+msgstr "VEZI HARTA JOCULUI"
+
+msgid "VIEW FULLSCREEN VIDEO"
+msgstr "VEZI VIDEOCLIP PE TOT ECRANUL"
+
+msgid "VIEW GAME MEDIA"
+msgstr "VEZI FIȘIERELE MEDIA"
+
+msgid "CURRENT CORE IS NOT COMPATIBLE"
+msgstr "NUCLEUL CURENT NU ESTE COMPATIBIL"
+
+msgid "COMPATIBLE CORE(S)"
+msgstr "NUCLEE COMPATIBILE"
+
+msgid "VIEW THIS GAME'S ACHIEVEMENTS"
+msgstr "VEZI REALIZĂRILE ACESTUI JOC"
+
+msgid "GAME"
+msgstr "JOC"
+
+msgid "SAVE STATES"
+msgstr "STĂRI SALVATE"
+
+msgid "OPEN"
+msgstr "DESCHIDE"
+
+msgid "START A NETPLAY GAME"
+msgstr "PORNEȘTE UN JOC NETPLAY"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "ÎNCEPE JOCUL"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "GĂZDUIEȘTE UN JOC NETPLAY"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNȚĂ PUBLIC JOCUL"
+
+msgid "PLAYER PASSWORD"
+msgstr "PAROLĂ JUCĂTORI"
+
+msgid "VIEWER PASSWORD"
+msgstr "PAROLĂ SPECTATORI"
+
+msgid "FIND SIMILAR GAMES..."
+msgstr "GĂSEȘTE JOCURI SIMILARE..."
+
+msgid "DELETE ITEM"
+msgstr "ȘTERGE ELEMENT"
+
+msgid "DELETE GAME"
+msgstr "ȘTERGE JOCUL"
+
+msgid ""
+"THIS WILL DELETE THE ACTUAL GAME FILE(S)!\n"
+"ARE YOU SURE?"
+msgstr ""
+"ACEST LUCRU VA ȘTERGE FIȘIERUL JOCULUI!\n"
+"EȘTI SIGUR?"
+
+msgid "COLLECTIONS"
+msgstr "COLECȚII"
+
+#, c-format
+msgid "REMOVE FROM %s"
+msgstr "ȘTERGE DIN %s"
+
+#, c-format
+msgid "ADD TO %s"
+msgstr "ADAUGĂ LA %s"
+
+msgid "FAVORITES"
+msgstr "FAVORITE"
+
+msgid "ADD TO CUSTOM COLLECTION..."
+msgstr "ADAUGĂ LA O COLECȚIE PARTICULARIZATĂ..."
+
+msgid "DELETE COLLECTION"
+msgstr "ȘTERGE COLECȚIA"
+
+msgid "SCRAPE"
+msgstr "PREIA DATE"
+
+msgid "ADVANCED GAME OPTIONS"
+msgstr "OPȚIUNI AVANSATE JOC"
+
+msgid "EDIT FOLDER METADATA"
+msgstr "EDITEAZĂ METADATELE DOSARULUI"
+
+msgid "EDIT THIS GAME'S METADATA"
+msgstr "EDITEAZĂ METADATELE ACESTUI JOC"
+
+msgid "VIEW PAD TO KEYBOARD INFORMATION"
+msgstr "VEZI INFORMAȚIA PADTOKEY"
+
+msgid "RESET"
+msgstr "RESETEAZĂ"
+
+msgid "ADD COMBINATION KEY"
+msgstr "ADAUGĂ O TASTĂ DE COMBINAȚIE"
+
+msgid "PAIR A BLUETOOTH DEVICE"
+msgstr "ÎMPERECHEAZĂ UN DISPOZITIV BLUETOOTH"
+
+msgid "PAIR"
+msgstr "ÎMPERECHEAZĂ"
+
+msgid "IMAGE SOURCE"
+msgstr "SURSĂ IMAGINE"
+
+msgid "SCREENSHOT"
+msgstr "CAPTURĂ DE ECRAN"
+
+msgid "TITLE SCREENSHOT"
+msgstr "CAPTURĂ ECRAN TITLU"
+
+msgid "MIX V1"
+msgstr "MIX V1"
+
+msgid "MIX V2"
+msgstr "MIX V2"
+
+msgid "BOX 2D"
+msgstr "CUTIE 2D"
+
+msgid "BOX 3D"
+msgstr "CUTIE 3D"
+
+msgid "FAN ART"
+msgstr "ARTA FANILOR"
+
+msgid "BOX SOURCE"
+msgstr "SURSĂ CUTIE"
+
+msgid "LOGO SOURCE"
+msgstr "SURSĂ LOGO"
+
+msgid "WHEEL"
+msgstr "ROATĂ"
+
+msgid "MARQUEE"
+msgstr "BANNER"
+
+msgid "PREFERED REGION"
+msgstr "REGIUNEA PREFERATĂ"
+
+msgid "OVERWRITE NAMES"
+msgstr "SUPRASCRIE NUMELE"
+
+msgid "OVERWRITE DESCRIPTIONS"
+msgstr "SUPRASCRIE DESCRIERILE"
+
+msgid "OVERWRITE MEDIAS"
+msgstr "SUPRASCRIE FIȘIERELE MEDIA"
+
+msgid "SCRAPE FOR"
+msgstr "PREIA DATE PENTRU"
+
+msgid "SHORT NAME"
+msgstr "NUME SCURT"
+
+msgid "COMMUNITY RATING"
+msgstr "SCORUL COMUNITĂȚII"
+
+msgid "VIDEO"
+msgstr "VIDEOCLIP"
+
+msgid "FANART"
+msgstr "ARTA FANILOR"
+
+msgid "BEZEL (16:9)"
+msgstr "RAMĂ (16:9)"
+
+msgid "BOX BACKSIDE"
+msgstr "SPATELE CUTIEI"
+
+msgid "MAP"
+msgstr "HARTĂ"
+
+msgid "MANUAL"
+msgstr "MANUAL"
+
+msgid "PADTOKEY SETTINGS"
+msgstr "SETĂRI PADTOKEY"
+
+msgid "ACCOUNT"
+msgstr "CONT"
+
+msgid "NO DEVICE FOUND"
+msgstr "NICIUN DISPOZITIV GĂSIT"
+
+msgid "COLLECTIONS TO DISPLAY"
+msgstr "COLECȚII AFIȘATE"
+
+msgid "SYSTEMS DISPLAYED"
+msgstr "SISTEME AFIȘATE"
+
+msgid "GROUPED SYSTEMS"
+msgstr "SISTEME GRUPATE"
+
+msgid "CREATE CUSTOM COLLECTION"
+msgstr "CREEAZĂ O COLECȚIE PARTICULARIZATĂ"
+
+msgid "New Collection Name"
+msgstr "Nume colecție nouă"
+
+msgid "ENTER NAME"
+msgstr "INTRODU UN NUME"
+
+msgid "CREATE FROM THEME"
+msgstr "CREEAZĂ DIN TEMĂ"
+
+msgid "CREATE NEW EDITABLE COLLECTION"
+msgstr "CREEAZĂ O NOUĂ COLECȚIE EDITABILĂ"
+
+msgid "CREATE NEW DYNAMIC COLLECTION"
+msgstr "CREEAZĂ O NOUĂ COLECȚIE DINAMICĂ"
+
+msgid "SORT COLLECTIONS AND SYSTEMS"
+msgstr "SORTEAZĂ COLECȚIILE ȘI SISTEMELE"
+
+msgid "ALPHABETICALLY"
+msgstr "ALFABETIC"
+
+msgid "BY MANUFACTURER"
+msgstr "DUPĂ PRODUCĂTOR"
+
+msgid "BY HARDWARE TYPE"
+msgstr "DUPĂ TIPUL DE HARDWARE"
+
+msgid "BY MANUFACTURER AND TYPE"
+msgstr "DUPĂ PRODUCĂTOR ȘI TIP"
+
+msgid "BY RELEASE YEAR"
+msgstr "DUPĂ ANUL LANSĂRII"
+
+msgid "SORT SYSTEMS"
+msgstr "SORTEAZĂ SISTEMELE"
+
+msgid "START ON SYSTEM"
+msgstr "PORNEȘTE CU SISTEMUL"
+
+msgid "RESTORE LAST SELECTED"
+msgstr "RESTAUREAZĂ ULTIMA SELECȚIE"
+
+msgid "START ON GAMELIST"
+msgstr "PORNEȘTE CU LISTA DE JOCURI"
+
+msgid "GROUP CUSTOM COLLECTIONS"
+msgstr "GRUPEAZĂ COLECȚIILE PARTICULARIZATE"
+
+msgid "UNTHEMED"
+msgstr "FĂRĂ TEMĂ"
+
+msgid "SHOW SYSTEM NAME IN COLLECTIONS"
+msgstr "ARATĂ NUMELE SISTEMULUI ÎN COLECȚII"
+
+msgid "SHOW GAMES OF HIDDEN SYSTEMS IN COLLECTIONS"
+msgstr "ARATĂ JOCURILE SISTEMELOR ASCUNSE ÎN COLECȚII"
+
+msgid "SHOW EMPTY SYSTEMS"
+msgstr "ARATĂ SISTEMELE GOALE"
+
+msgid "Loading..."
+msgstr "Se încarcă..."
+
+msgid "SELECT COLLECTIONS"
+msgstr "SELECTEAZĂ COLECȚIILE"
+
+msgid "AUTOMATIC COLLECTIONS"
+msgstr "COLECȚII AUTOMATE"
+
+msgid "PER GENRE"
+msgstr "DUPĂ GEN"
+
+msgid "ARCADE SYSTEMS"
+msgstr "SISTEME ARCADE"
+
+msgid "AUTOMATIC GAME COLLECTIONS"
+msgstr "COLECȚII DE JOCURI AUTOMATE"
+
+msgid "EDITABLE COLLECTIONS"
+msgstr "COLECȚII EDITABILE"
+
+msgid "DYNAMIC COLLECTIONS"
+msgstr "COLECȚII DINAMICE"
+
+msgid "CUSTOM GAME COLLECTIONS"
+msgstr "COLECȚII DE JOCURI PARTICULARIZATE"
+
+msgid "GAMES TO INDEX"
+msgstr "JOCURI PENTRU INDEXARE"
+
+msgid "ONLY MISSING"
+msgstr "DOAR CELE LIPSĂ"
+
+msgid "SELECT CONTENT TO INSTALL/REMOVE"
+msgstr "SELECTEAZĂ CONȚINUTUL PENTRU INSTALARE/ELIMINARE"
+
+msgid "UPDATE INSTALLED CONTENT"
+msgstr "ACTUALIZEAZĂ CONȚINUTUL INSTALAT"
+
+msgid "MISC"
+msgstr "DIVERSE"
+
+msgid "UNINSTALLATION ADDED TO QUEUE"
+msgstr "DEZINSTALAREA A FOST ADĂUGATĂ ÎN COADĂ"
+
+msgid "SAVESTATE MANAGER"
+msgstr "MANAGER STĂRI SALVATE"
+
+msgid "START NEW GAME"
+msgstr "ÎNCEPE UN NOU JOC"
+
+msgid "START NEW AUTO SAVE"
+msgstr "ÎNCEPE O NOUĂ STARE SALVATĂ AUTOMAT"
+
+msgid "AUTO SAVE"
+msgstr "AUTO SALVARE"
+
+msgid "SLOT"
+msgstr "SLOT"
+
+msgid "COPY TO FREE SLOT"
+msgstr "COPIAZĂ ÎNTR-UN SLOT LIBER"
+
+msgid "VIEW OPTIONS"
+msgstr "SETĂRI VIZUALIZARE"
+
+msgid "NAVIGATION"
+msgstr "NAVIGARE"
+
+msgid "OTHER FILTERS"
+msgstr "ALTE FILTRE"
+
+msgid "SELECT RANDOM GAME"
+msgstr "SELECTEAZĂ UN JOC ALEATOR"
+
+msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
+msgstr "SARI LA JOCURILE CARE ÎNCEP CU LITERA"
+
+msgid "SORT GAMES BY"
+msgstr "SORTEAZĂ JOCURILE DUPĂ"
+
+msgid "DYNAMIC COLLECTION"
+msgstr "COLECȚIE DINAMICĂ"
+
+msgid "EDIT DYNAMIC COLLECTION FILTERS"
+msgstr "EDITEAZĂ FILTRELE COLECȚIEI DINAMICE"
+
+msgid "CUSTOM COLLECTION"
+msgstr "COLECȚIE PARTICULARIZATĂ"
+
+msgid "COLLECTION"
+msgstr "COLECȚIE"
+
+msgid "ADVANCED SYSTEM OPTIONS"
+msgstr "OPȚIUNI DE SISTEM AVANSATE"
+
+msgid "RESET FILTERS"
+msgstr "RESETEAZĂ FILTRELE"
+
+msgid "FILTER GAMES BY TEXT"
+msgstr "FILTREAZĂ JOCURILE DUPĂ TEXT"
+
+msgid "NO MISSING BIOS FILES"
+msgstr "NICIUN FIȘIER BIOS LIPSĂ"
+
+msgid "Installed systems"
+msgstr "Sisteme instalate"
+
+msgid "refresh"
+msgstr "reîmprospătează"
+
+msgid "NO MISSING BIOS"
+msgstr "NICIUN BIOS LIPSĂ"
+
+msgid "FORGET A BLUETOOTH DEVICE"
+msgstr "UITĂ UN DISPOZITIV BLUETOOTH"
+
+msgid "REMOVE ALL"
+msgstr "ELIMINĂ-LE PE TOATE"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NU S-A GĂSIT NICIUN DISPOZITIV BLUETOOTH"
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "DISPOZITIVELE BLUETOOTH AU FOST ȘTERSE."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ ELIMINI „%s”?"
+
+msgid "ZOOM OUT"
+msgstr "MICȘOREAZĂ"
+
+msgid "ZOOM IN"
+msgstr "MĂREȘTE"
+
+msgid "MOVE"
+msgstr "MUTĂ"
+
+msgid "ZOOM"
+msgstr "MĂRIRE"
+
+msgid "EDIT METADATA"
+msgstr "EDITEAZĂ METADATELE"
+
+msgid "GENRES"
+msgstr "GENURI"
+
+msgid ""
+"SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
+"DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
+msgstr ""
+"UNELE FIȘIERE PE CARE LE-AI INDICAT SE AFLĂ ÎN AFARA CĂII LISTEI DE JOCURI.\n"
+"DOREȘTI SĂ FOLOSEȘTI O COPIE A ACESTOR FIȘIERE RELATIVĂ LA LISTA DE JOCURI?"
+
+msgid "CONNECT TO NETPLAY"
+msgstr "CONECTEAZĂ-TE LA NETPLAY"
+
+msgid "Select a game lobby to join"
+msgstr "Alege o sală pentru te alătura"
+
+msgid "FAILED"
+msgstr "EȘUAT"
+
+msgid "UNKNOWN ROM VERSION"
+msgstr "VERSIUNE ROM NECUNOSCUTĂ"
+
+msgid "DIFFERENT ROM"
+msgstr "ROM DIFERIT"
+
+msgid "SAME ROM"
+msgstr "ACELAȘI ROM"
+
+msgid "UNAVAILABLE CORE"
+msgstr "NUCLEU INDISPONIBIL"
+
+msgid "AVAILABLE GAMES"
+msgstr "JOCURI DISPONIBILE"
+
+msgid "UNAVAILABLE GAMES"
+msgstr "JOCURI INDISPONIBILE"
+
+msgid "NO GAMES FOUND"
+msgstr "NU S-AU GĂSIT JOCURI"
+
+msgid "JOIN GAME"
+msgstr "ALĂTURĂ-TE JOCULUI"
+
+msgid "WATCH GAME"
+msgstr "PRIVEȘTE JOCUL"
+
+msgid "CONTROLLER SETTINGS"
+msgstr "SETĂRI CONTROLER"
+
+msgid "CONTROLLER & BLUETOOTH SETTINGS"
+msgstr "SETĂRI CONTROLER ȘI BLUETOOTH"
+
+msgid "CONTROLLERS PRIORITY"
+msgstr "PRIORITĂȚI CONTROLERE"
+
+msgid "PLAYER ASSIGNMENTS"
+msgstr "ASOCIERI JUCĂTORI"
+
+#, c-format
+msgid "CONTROLLER #%i"
+msgstr "CONTROLER #%i"
+
+#, c-format
+msgid "P%i'S CONTROLLER"
+msgstr "CONTROLERUL JUCĂTORULUI %i"
+
+msgid "CONTROLLER MAPPING"
+msgstr "ASOCIAZĂ BUTOANELE CONTROLERULUI"
+
+msgid ""
+"YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
+"ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
+"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+msgstr ""
+"EȘTI PE CALE DE A CREA ASOCIERILE PENTRU UN CONTROLER. REALIZEAZĂ ASOCIEREA "
+"PE BAZA POZIȚIEI BUTOANELOR, NU A ETICHETELOR FIZICE. DACĂ NU AI UN BUTON "
+"DEDICAT PENTRU TASTA RAPIDĂ, FOLOSEȘTE BUTONUL SELECT. OMITE TOATE BUTOANELE/"
+"MANETELE PE CARE NU LE AI ȚINÂND APĂSAT ORICE BUTON. APASĂ BUNTONUL DIN SUD "
+"PENTRU A CONFIRMA DUPĂ CE AI TERMINAT."
+
+msgid "SINDEN GUN SETTINGS"
+msgstr "SETĂRI PISTOL SINDEN"
+
+msgid "WIIMOTE GUN SETTINGS"
+msgstr "SETĂRI PISTOL WII"
+
+msgid "STEAMDECK MOUSE/GUN SETTINGS"
+msgstr "SETĂRI MAUS/PISTOL STEAMDECK"
+
+msgid "BLUETOOTH"
+msgstr "BLUETOOTH"
+
+msgid "ENABLE BLUETOOTH"
+msgstr "ACTIVEAZĂ BLUETOOTH"
+
+msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
+msgstr "ÎMPERECHEAZĂ CONTROLERELE BLUETOOTH AUTOMAT"
+
+msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
+msgstr "ÎMPERECHEAZĂ UN DISPOZITIV BLUETOOTH MANUAL"
+
+msgid "SHOW CONTROLLER NOTIFICATIONS"
+msgstr "AFIȘEAZĂ NOTIFICĂRILE CONTROLERELOR"
+
+msgid "SHOW CONTROLLER ACTIVITY"
+msgstr "AFIȘEAZĂ ACTIVITATEA CONTROLERELOR"
+
+msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr "AFIȘEAZĂ NIVELUL BATERIEI CONTROLERELOR"
+
+msgid "default"
+msgstr "implicit"
+
+msgid "BORDER SIZE"
+msgstr "MĂRIME CHENAR"
+
+msgid "THIN"
+msgstr "SUBȚIRE"
+
+msgid "MEDIUM"
+msgstr "MEDIE"
+
+msgid "BIG"
+msgstr "MARE"
+
+msgid "BORDER MODE"
+msgstr "MOD CHENAR"
+
+msgid "NORMAL"
+msgstr "NORMAL"
+
+msgid "IN GAME ONLY"
+msgstr "DOAR ÎN JOC"
+
+msgid "HIDDEN"
+msgstr "ASCUNSĂ"
+
+msgid "BORDER COLOR"
+msgstr "CULOARE CHENAR"
+
+msgid "WHITE"
+msgstr "ALBĂ"
+
+msgid "CAMERA CONTRAST"
+msgstr "CONTRAST CAMERĂ"
+
+msgid "Daytime/Bright Sunlight (40)"
+msgstr "Timp de zi/Soare puternic (40)"
+
+msgid "Default (50)"
+msgstr "Implicit (50)"
+
+msgid "Dim Display/Evening (60)"
+msgstr "Iluminare slabă/Seară (60)"
+
+msgid "CAMERA BRIGHTNESS"
+msgstr "LUMINOZITATE CAMERĂ"
+
+msgid "Daytime/Bright Sunlight (80)"
+msgstr "Timp de zi/Soare puternic (80)"
+
+msgid "Default (100)"
+msgstr "Implicit (100)"
+
+msgid "Dim Display/Evening (120)"
+msgstr "Iluminare slabă/Seară (120)"
+
+msgid "CAMERA EXPOSURE"
+msgstr "EXPUNERE CAMERĂ"
+
+msgid "Projector/CRT (-5)"
+msgstr "Proiector/CRT (-5)"
+
+msgid "Projector/CRT (-6)"
+msgstr "Proiector/CRT (-6)"
+
+msgid "Default (-7)"
+msgstr "Implicit (-7)"
+
+msgid "Other (-8)"
+msgstr "Alta (-8)"
+
+msgid "Other (-9)"
+msgstr "Alta (-9)"
+
+msgid "RECOIL"
+msgstr "RECUL"
+
+msgid "GUN"
+msgstr "PISTOL"
+
+msgid "MACHINE GUN"
+msgstr "MITRALIERĂ"
+
+msgid "QUIET GUN"
+msgstr "PISTOL SILENȚIOS"
+
+msgid "QUIET MACHINE GUN"
+msgstr "MITRALIERĂ SILENȚIOASĂ"
+
+msgid "MODE"
+msgstr "MOD"
+
+msgid "JOYSTICK"
+msgstr "JOYSTICK"
+
+msgid "MOUSE ONLY"
+msgstr "DOAR MAUS"
+
+msgid "HAND"
+msgstr "MÂNĂ"
+
+msgid "LEFT"
+msgstr "STÂNGA"
+
+msgid "RIGHT"
+msgstr "DREAPTA"
+
+msgid "FILTER GAMELIST BY"
+msgstr "FILTREAZĂ LISTA DE JOCURI DUPĂ"
+
+msgid "RESET ALL FILTERS"
+msgstr "RESETEAZĂ TOATE FILTRELE"
+
+msgid "FIND GAMES"
+msgstr "GĂSEȘTE JOCURI"
+
+msgid "SYSTEMS"
+msgstr "SISTEME"
+
+msgid "FILE BROWSER"
+msgstr "NAVIGATOR FIȘIERE"
+
+msgid "PARENT FOLDER"
+msgstr "DOSAR PĂRINTE"
+
+msgid "SCREENSHOTS FOLDER"
+msgstr "DOSAR CAPTURI DE ECRAN"
+
+msgid "dim"
+msgstr "întunecat"
+
+msgid "black"
+msgstr "negru"
+
+msgid "random video"
+msgstr "videoclip aleator"
+
+msgid "slideshow"
+msgstr "prezentare diapozitive"
+
+msgid "suspend"
+msgstr "suspendă"
+
+msgid "start & end"
+msgstr "început și sfârșit"
+
+msgid "systems"
+msgstr "sisteme"
+
+msgid "random"
+msgstr "aleator"
+
+msgid "START SCREENSAVER AFTER"
+msgstr "AFIȘEAZĂ ECONOMIZORUL DE ECRAN DUPĂ"
+
+msgid "SCREENSAVER TYPE"
+msgstr "TIP ECONOMIZOR DE ECRAN"
+
+msgid "STOP MUSIC ON SCREENSAVER"
+msgstr "OPREȘTE MUZICA LA APARIȚIA ECONOMIZORULUI DE ECRAN"
+
+msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
+msgstr "SETĂRI VIDEOCLIP ALEATOR ECONOMIZOR DE ECRAN"
+
+msgid "VIDEO DURATION (SECS)"
+msgstr "DURATĂ VIDEOCLIP (SEC)"
+
+msgid "USE OMX PLAYER FOR SCREENSAVER"
+msgstr "FOLOSEȘTE OMX PLAYER PENTRU ECONOMIZORUL DE ECRAN"
+
+msgid "SHOW GAME INFO"
+msgstr "AFIȘEAZĂ INFORMAȚII JOC"
+
+msgid "USE MARQUEE AS GAME INFO"
+msgstr "FOLOSEȘTE BANNER CA INFORMAȚII JOC"
+
+msgid "DECORATION SET USED"
+msgstr "PACHET DE RAME UTILIZAT"
+
+msgid "STRETCH VIDEOS"
+msgstr "ÎNTINDE VIDEOCLIPURILE"
+
+msgid "MUTE VIDEO AUDIO"
+msgstr "OPREȘTE SONORUL VIDEOCLIPURILOR"
+
+msgid "SCREENSAVER CONTROLS"
+msgstr "CONTROALE ECONOMIZOR DE ECRAN"
+
+msgid "USE CUSTOM VIDEOS"
+msgstr "FOLOSEȘTE VIDEOCLIPURI PARTICULARIZATE"
+
+msgid "CUSTOM VIDEO DIRECTORY"
+msgstr "DOSARUL VIDOCLIPURILOR PARTICULARIZATE"
+
+msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "FOLOSEȘTE VIDEOCLIPURILE DIN SUBDOSARELE DOSARULUI PARTICULARIZAT"
+
+msgid "CUSTOM VIDEO FILE EXTENSIONS"
+msgstr "EXTENSIA FIȘIERELOR VIDEO PARTICULARIZATE"
+
+msgid "SLIDESHOW SCREENSAVER SETTINGS"
+msgstr "SETĂRI PREZENTARE DIAPOZITIVE ECONOMIZOR DE ECRAN"
+
+msgid "IMAGE DURATION (SECS)"
+msgstr "DURATĂ IMAGINI (SEC)"
+
+msgid "STRETCH IMAGES"
+msgstr "ÎNTINDE IMAGINILE"
+
+msgid "USE CUSTOM IMAGES"
+msgstr "FOLOSEȘTE IMAGINI PARTICULARIZATE"
+
+msgid "CUSTOM IMAGE DIRECTORY"
+msgstr "DOSAR IMAGINI PARTICULARIZATE"
+
+msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
+msgstr "FOLOSEȘTE IMAGINILE DIN SUBDOSARELE DOSARULUI PARTICULARIZAT"
+
+msgid "CUSTOM IMAGE FILE EXTENSIONS"
+msgstr "EXTENSIA FIȘIERELOR IMAGINE PARTICULARIZATE"
+
+msgid "INVALID CONTENT"
+msgstr "CONȚINUT INVALID"
+
+msgid ""
+"A valid account is required. Please register an account on https://"
+"retroachievements.org"
+msgstr ""
+"Un cont valid este necesar. Te rog creează-ți un cont pe https://"
+"retroachievements.org"
+
+msgid "Full"
+msgstr "Complet"
+
+msgid "Kiosk"
+msgstr "Chioșc"
+
+msgid "Kid"
+msgstr "Copil"
+
+msgid "Basic"
+msgstr "De bază"
+
+msgid "Games similar to"
+msgstr "Jocuri similare cu"
+
+msgid "SAVE STATES (HOLD)"
+msgstr "STĂRI SALVATE (ȚINE APĂSAT)"
+
+msgid "GAME OPTIONS (HOLD)"
+msgstr "OPȚIUNI JOC (ȚINE APĂSAT)"
+
+msgid "GAME OPTIONS"
+msgstr "OPȚIUNI JOC"
+
+msgid "FAVORITE"
+msgstr "FAVORITE"
+
+msgid "RANDOM"
+msgstr "ALEATOR"
+
+#, c-format
+msgid "Back to %s"
+msgstr "Înapoi la %s"
+
+msgid "No Entries Found"
+msgstr "Nu s-au găsit intrări"
+
+msgid "Times played"
+msgstr "Număr de jucări"
+
+#, c-format
+msgid "This folder contains %i game, including :%s"
+msgid_plural "This folder contains %i games, including :%s"
+msgstr[0] "Acest dosar conține %i joc, incluzând: %s"
+msgstr[1] "Acest dosar conține %i jocuri, incluzând: %s"
+msgstr[2] "Acest dosar conține %i de jocuri, incluzând: %s"
+
+msgid "SYSTEM INFO"
+msgstr "INFORMAȚII SISTEM"
+
+msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
+msgstr "EROARE: TOATE SISTEMELE SUNT ASCUNSE, SE VOR REAFIȘA TOATE ACUM"
+
+msgid "QUICK SEARCH"
+msgstr "CĂUTARE RAPIDĂ"
+
+msgid "GO TO LETTER"
+msgstr "SALT LA LITERĂ"
+
+msgid "GO TO MANUFACTURER"
+msgstr "SALT LA PRODUCĂTOR"
+
+msgid "GO TO HARDWARE"
+msgstr "SALT LA HARDWARE"
+
+msgid "GO TO DECADE"
+msgstr "SALT LA DECENIU"
+
+msgid "CONFIGURATION"
+msgstr "CONFIGURARE"
+
+#, c-format
+msgid "%i COLLECTION"
+msgid_plural "%i COLLECTIONS"
+msgstr[0] "%i COLECȚIE"
+msgstr[1] "%i COLECȚII"
+msgstr[2] "%i DE COLECȚII"
+
+#, c-format
+msgid "%i ITEM"
+msgid_plural "%i ITEMS"
+msgstr[0] "%i ELEMENT"
+msgstr[1] "%i ELEMENTE"
+msgstr[2] "%i DE ELEMENTE"
+
+#, c-format
+msgid "%i GAME"
+msgid_plural "%i GAMES"
+msgstr[0] "%i JOC"
+msgstr[1] "%i JOCURI"
+msgstr[2] "%i DE JOCURI"
+
+msgid "NAVIGATION BAR"
+msgstr "BARĂ DE NAVIGAȚIE"
+
+msgid "FILES"
+msgstr "FIȘIERE"
+
+msgid ""
+"WARNING: THE EMULATOR/CORE CURRENTLY SET DOES NOT SUPPORT THIS GAME'S FILE "
+"FORMAT.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"ATENȚIE: EMULATORUL/NUCLEUL SETAT NU SUPORTĂ FORMATUL FIȘIERULUI ACESTUI "
+"JOC.\n"
+"DOREȘTI SĂ-L LANSEZI ORICUM?"
+
+msgid ""
+"WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
+"CORRECTLY.\n"
+"DO YOU WANT TO LAUNCH IT ANYWAY?"
+msgstr ""
+"ATENȚIE: SISTEMUL ARE FIȘIERE BIOS LIPSĂ ȘI JOCUL POATE SĂ NU FUNCȚIONEZE "
+"CORECT.\n"
+"DOREȘTI SĂ-L LANSEZI ORICUM?"
+
+msgid "Preloading UI"
+msgstr "Se încarcă interfața în avans"
+
+msgid "Loading theme"
+msgstr "Se încarcă tema"
+
+msgid "Loading gamelists"
+msgstr "Se încarcă listele de jocuri"
+
+msgid "MENU"
+msgstr "MENIU"
+
+msgid "GENRE"
+msgstr "GEN"
+
+msgid "FAMILY"
+msgstr "FAMILIE"
+
+msgid "PLAYERS"
+msgstr "JUCĂTORI"
+
+msgid "PUBLISHER/DEVELOPER"
+msgstr "EDITOR/DEZVOLTATOR"
+
+msgid "RATING"
+msgstr "SCOR"
+
+msgid "YEAR"
+msgstr "AN"
+
+msgid "REGION"
+msgstr "REGIUNE"
+
+msgid "KIDGAME"
+msgstr "JOC PENTRU COPII"
+
+msgid "ALREADY PLAYED"
+msgstr "DEJA JUCAT"
+
+msgid "HAS ACHIEVEMENTS"
+msgstr "ARE RETROREALIZĂRI"
+
+msgid "VERTICAL"
+msgstr "VERTICAL"
+
+msgid "LIGHTGUN"
+msgstr "PISTOL LUMINOS"
+
+msgid "STEERING WHEEL"
+msgstr "VOLAN"
+
+msgid "HAVING MEDIAS"
+msgstr "ARE FIȘIERE MEDIA"
+
+msgid "MISSING MEDIAS"
+msgstr "FIȘIERE MEDIA LIPSĂ"
+
+msgid "DO YOU WANT TO SWITCH THE SCREEN ?"
+msgstr "DOREȘTI SĂ COMUȚI ECRANUL?"
+
+msgid "SCRAPING"
+msgstr "PRELUARE DATE"
+
+msgid "SCRAPE FAILED"
+msgstr "PRELUAREA A EȘUAT"
+
+msgid "SCRAPING FINISHED"
+msgstr "PRELUAREA S-A TERMINAT"
+
+msgid "UPDATE GAMELISTS TO APPLY CHANGES."
+msgstr "ACTUALIZEAZĂ LISTELE DE JOCURI PENTRU A APLICA MODIFICĂRILE."
+
+msgid "Loading system config..."
+msgstr "Se încarcă configurația de sistem..."
+
+msgid "SAVING METADATAS. PLEASE WAIT..."
+msgstr "SE SALVEAZĂ METADATELE. TE ROG AȘTEAPTĂ..."
+
+msgid "THE EMULATOR EXITED UNEXPECTEDLY"
+msgstr "EMULATORUL S-A ÎNCHIS NEAȘTEPTAT"
+
+msgid "BAD COMMAND LINE ARGUMENTS"
+msgstr "ARGUMENTE GREȘITE ÎN LINIA DE COMANDĂ"
+
+msgid "INVALID CONFIGURATION"
+msgstr "CONFIGURAȚIE INVALIDĂ"
+
+msgid "UNKNOWN EMULATOR"
+msgstr "EMULATOR NECUNOSCUT"
+
+msgid "EMULATOR IS MISSING"
+msgstr "EMULATORUL LIPSEȘTE"
+
+msgid "CORE IS MISSING"
+msgstr "NUCLEUL LIPSEȘTE"
+
+msgid "UKNOWN ERROR"
+msgstr "EROARE NECUNOSCUTĂ"
+
+msgid "all games"
+msgstr "toate jocurile"
+
+msgid "last played"
+msgstr "jucat ultima dată"
+
+msgid "favorites"
+msgstr "favorite"
+
+msgid "2 players"
+msgstr "2 jucători"
+
+msgid "4 players"
+msgstr "4 jucători"
+
+msgid "never played"
+msgstr "jucat niciodată"
+
+msgid "retroachievements"
+msgstr "retrorealizări"
+
+msgid "arcade"
+msgstr "arcade"
+
+msgid "vertical arcade"
+msgstr "arcade vertical"
+
+msgid "lightgun games"
+msgstr "jocuri cu pistolul luminos"
+
+msgid "wheel games"
+msgstr "jocuri cu volanul"
+
+msgid "collections"
+msgstr "colecții"
+
+#, c-format
+msgid "Added '%s' to '%s'"
+msgstr "S-a adăugat „%s” la „%s”"
+
+#, c-format
+msgid "Removed '%s' from '%s'"
+msgstr "S-a eliminat „%s” din „%s”"
+
+msgid "This collection is empty."
+msgstr "Această colecție este goală."
+
+#. TRANSLATION: number of developpers / various developpers
+msgid "None"
+msgstr "Nimic"
+
+msgid "Various"
+msgstr "Diverse"
+
+msgid "SEARCHING RETROACHIEVEMENTS"
+msgstr "SE CAUTĂ RETROREALIZĂRI"
+
+msgid "SEARCHING NETPLAY GAMES"
+msgstr "SE CAUTĂ JOCURI NETPLAY"
+
+msgid "INDEXING COMPLETED"
+msgstr "S-A TERMINAT INDEXAREA"
+
+msgid "FILENAME, ASCENDING"
+msgstr "NUMELE DE FIȘIER, CRESCĂTOR"
+
+msgid "FILENAME, DESCENDING"
+msgstr "NUMELE DE FIȘIER, DESCRESCĂTOR"
+
+msgid "RATING, ASCENDING"
+msgstr "SCOR, CRESCĂTOR"
+
+msgid "RATING, DESCENDING"
+msgstr "SCOR, DESCRESCĂTOR"
+
+msgid "TIMES PLAYED, ASCENDING"
+msgstr "NUMĂR JUCĂRI, CRESCĂTOR"
+
+msgid "TIMES PLAYED, DESCENDING"
+msgstr "NUMĂR JUCĂRI, DESCRESCĂTOR"
+
+msgid "LAST PLAYED, ASCENDING"
+msgstr "JUCAT ULTIMA DATĂ, CRESCĂTOR"
+
+msgid "LAST PLAYED, DESCENDING"
+msgstr "JUCAT ULTIMA DATĂ, DESCRESCĂTOR"
+
+msgid "NUMBER PLAYERS, ASCENDING"
+msgstr "NUMĂRUL DE JUCĂTORI, CRESCĂTOR"
+
+msgid "NUMBER PLAYERS, DESCENDING"
+msgstr "NUMĂRUL DE JUCĂTORI, DESCRESCĂTOR"
+
+msgid "RELEASE DATE, ASCENDING"
+msgstr "DATA LANSĂRII, CRESCĂTOR"
+
+msgid "RELEASE DATE, DESCENDING"
+msgstr "DATA LANSĂRII, DESCRESCĂTOR"
+
+msgid "GENRE, ASCENDING"
+msgstr "GEN, CRESCĂTOR"
+
+msgid "GENRE, DESCENDING"
+msgstr "GEN, DESCRESCĂTOR"
+
+msgid "DEVELOPER, ASCENDING"
+msgstr "DEZVOLTATOR, CRESCĂTOR"
+
+msgid "DEVELOPER, DESCENDING"
+msgstr "DEZVOLTATOR, DESCRESCĂTOR"
+
+msgid "PUBLISHER, ASCENDING"
+msgstr "EDITOR, CRESCĂTOR"
+
+msgid "PUBLISHER, DESCENDING"
+msgstr "EDITOR, DESCRESCĂTOR"
+
+msgid "SYSTEM, ASCENDING"
+msgstr "SISTEM, CRESCĂTOR"
+
+msgid "SYSTEM, DESCENDING"
+msgstr "SISTEM, DESCRESCĂTOR"
+
+msgid "FILE CREATION DATE, ASCENDING"
+msgstr "DATA CREĂRII FIȘIERULUI, CRESCĂTOR"
+
+msgid "FILE CREATION DATE, DESCENDING"
+msgstr "DATA CREĂRII FIȘIERULUI, DESCRESCĂTOR"
+
+msgid "GAME TIME, ASCENDING"
+msgstr "TIMPUL ÎN JOC, CRESCĂTOR"
+
+msgid "GAME TIME, DESCENDING"
+msgstr "TIMPUL ÎN JOC, DESCRESCĂTOR"
+
+msgid "SYSTEM, RELEASE YEAR, ASCENDING"
+msgstr "SISTEM, ANUL LANSĂRII, CRESCĂTOR"
+
+msgid "SYSTEM, RELEASE YEAR, DESCENDING"
+msgstr "SISTEM, ANUL LANSĂRII, DESCRESCĂTOR"
+
+msgid "RELEASE YEAR, SYSTEM, ASCENDING"
+msgstr "ANUL LANSĂRII, SISTEM, CRESCĂTOR"
+
+msgid "RELEASE YEAR, SYSTEM, DESCENDING"
+msgstr "ANUL LANSĂRII, SISTEM, DESCRESCĂTOR"
+
+msgid "A,AN,THE"
+msgstr "A,AN,THE"
+
+msgid "UPDATE AVAILABLE"
+msgstr "ACTUALIZARE DISPONIBILĂ"
+
+#, c-format
+msgid "%s connected"
+msgstr "%s conectat"
+
+#, c-format
+msgid "%s disconnected"
+msgstr "%s deconectat"
+
+#, c-format
+msgid "%d d"
+msgstr "%d z"
+
+#, c-format
+msgid "%d h"
+msgstr "%d h"
+
+#, c-format
+msgid "%d mn"
+msgstr "%d min"
+
+#, c-format
+msgid "%d sec"
+msgstr "%d sec"
+
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "acum %d an"
+msgstr[1] "acum %d ani"
+msgstr[2] "acum %d de ani"
+
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "acum %d zi"
+msgstr[1] "acum %d zile"
+msgstr[2] "acum %d de zile"
+
+#, c-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] "acum %d oră"
+msgstr[1] "acum %d ore"
+msgstr[2] "acum %d de ore"
+
+#, c-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] "acum %d minut"
+msgstr[1] "acum %d minute"
+msgstr[2] "acum %d de minute"
+
+#, c-format
+msgid "%d second ago"
+msgid_plural "%d seconds ago"
+msgstr[0] "acum %d secundă"
+msgstr[1] "acum %d secunde"
+msgstr[2] "acum %d de secunde"
+
+msgid "MOVE CURSOR"
+msgstr "MUTĂ CURSORUL"
+
+msgid "EDIT"
+msgstr "EDITEAZĂ"
+
+msgid "CHANGE"
+msgstr "SCHIMBĂ"
+
+msgid "WORKING..."
+msgstr "SE LUCREAZĂ..."
+
+msgid "up/down"
+msgstr "sus/jos"
+
+msgid "accept"
+msgstr "accept"
+
+msgid "SELECT ALL"
+msgstr "SELECTEAZĂ TOT"
+
+msgid "select all"
+msgstr "selectează tot"
+
+msgid "SELECT NONE"
+msgstr "NU SELECTA NIMIC"
+
+msgid "select none"
+msgstr "nu selecta nimic"
+
+#, c-format
+msgid "%i SELECTED"
+msgid_plural "%i SELECTED"
+msgstr[0] "%i SELECTAT"
+msgstr[1] "%i SELECTATE"
+msgstr[2] "%i SELECTATE"
+
+msgid "ENABLED"
+msgstr "ACTIVAT"
+
+msgid "DISCARD CHANGES"
+msgstr "ANULEAZĂ MODIFICĂRILE"
+
+msgid "WELCOME"
+msgstr "BUN VENIT"
+
+#, c-format
+msgid "%i GAMEPAD DETECTED"
+msgid_plural "%i GAMEPADS DETECTED"
+msgstr[0] "%i GAMEPAD DETECTAT"
+msgstr[1] "%i GAMEPAD-URI DETECTATE"
+msgstr[2] "%i DE GAMEPAD-URI DETECTATE"
+
+msgid "NO GAMEPADS DETECTED"
+msgstr "NICIUN GAMEPAD DETECTAT"
+
+msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
+msgstr "ȚINE APĂSAT UN BUTON PE DISPOZITIVUL TĂU PENTRU A-L CONFIGURA."
+
+msgid "PRESS ESC TO CANCEL."
+msgstr "APASĂ ESC PENTRU A ANULA."
+
+msgid "PRESS ESC OR A HOTKEY TO CANCEL."
+msgstr "APASĂ ESC SAU O TASTĂ RAPIDĂ PENTRU A ANULA."
+
+msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
+msgstr "SHIFT PENTRU MAJUSCULE, MINUSCULE ȘI SPECIALE"
+
+msgid "ALT GR"
+msgstr "ALT GR"
+
+msgid "SHIFT"
+msgstr "SHIFT"
+
+msgid "SPACE"
+msgstr "SPAȚIU"
+
+msgctxt "joystick"
+msgid "NORTH"
+msgstr "NORD"
+
+msgctxt "joystick"
+msgid "SOUTH"
+msgstr "SUD"
+
+msgctxt "joystick"
+msgid "EAST"
+msgstr "EST"
+
+msgctxt "joystick"
+msgid "WEST"
+msgstr "VEST"
+
+msgctxt "joystick"
+msgid "START"
+msgstr "START"
+
+msgctxt "joystick"
+msgid "SELECT"
+msgstr "SELECT"
+
+msgctxt "joystick"
+msgid "D-PAD UP"
+msgstr "D-PAD SUS"
+
+msgctxt "joystick"
+msgid "D-PAD DOWN"
+msgstr "D-PAD JOS"
+
+msgctxt "joystick"
+msgid "D-PAD LEFT"
+msgstr "D-PAD STÂNGA"
+
+msgctxt "joystick"
+msgid "D-PAD RIGHT"
+msgstr "D-PAD DREAPTA"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG UP"
+msgstr "MANETĂ ANALOGICĂ STÂNGĂ SUS"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG DOWN"
+msgstr "MANETĂ ANALOGICĂ STÂNGĂ JOS"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG LEFT"
+msgstr "MANETĂ ANALOGICĂ STÂNGĂ STÂNGA"
+
+msgctxt "joystick"
+msgid "LEFT ANALOG RIGHT"
+msgstr "MANETĂ ANALOGICĂ STÂNGĂ DREAPTA"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG UP"
+msgstr "MANETĂ ANALOGICĂ DREAPTĂ SUS"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG DOWN"
+msgstr "MANETĂ ANALOGICĂ DREAPTĂ JOS"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG LEFT"
+msgstr "MANETĂ ANALOGICĂ DREAPTĂ STÂNGA"
+
+msgctxt "joystick"
+msgid "RIGHT ANALOG RIGHT"
+msgstr "MANETĂ ANALOGICĂ DREAPTĂ DREAPTA"
+
+msgctxt "joystick"
+msgid "LEFT SHOULDER"
+msgstr "UMĂR STÂNG"
+
+msgctxt "joystick"
+msgid "RIGHT SHOULDER"
+msgstr "UMĂR DREPT"
+
+msgctxt "joystick"
+msgid "LEFT TRIGGER"
+msgstr "TRĂGACI STÂNG"
+
+msgctxt "joystick"
+msgid "RIGHT TRIGGER"
+msgstr "TRĂGACI DREPT"
+
+msgctxt "joystick"
+msgid "LEFT STICK PRESS"
+msgstr "MANETĂ ANALOGICĂ STÂNGĂ APĂSAT"
+
+msgctxt "joystick"
+msgid "RIGHT STICK PRESS"
+msgstr "MANETĂ ANALOGICĂ DREAPTĂ APĂSAT"
+
+msgctxt "joystick"
+msgid "HOTKEY"
+msgstr "BUTON RAPID"
+
+msgid "CONFIGURING"
+msgstr "SE CONFIGUREAZĂ"
+
+msgid "KEYBOARD"
+msgstr "TASTATURĂ"
+
+msgid "CEC"
+msgstr "CEC"
+
+#, c-format
+msgid "GAMEPAD %i"
+msgstr "GAMEPAD %i"
+
+msgid "HOLD ANY BUTTON TO SKIP"
+msgstr "ȚINE APĂSAT ORICE BUTON PENTRU A OMITE"
+
+msgid "-NOT DEFINED-"
+msgstr "-NEDEFINIT-"
+
+msgid ""
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
+"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+msgstr ""
+"NU S-A DEFINIT NICIUN BUTON RAPID. ACEST LUCRU ESTE NECESAR PENTRU A PUTEA "
+"ÎNCHIDE JOCURILE CU UN CONTROLER. DOREȘTI SĂ FOLOSEȘTI BUTONUL SELECT CA "
+"BUTON RAPID?"
+
+msgid "SET SELECT AS HOTKEY"
+msgstr "SETEAZĂ SELECT CA BUTON RAPID"
+
+msgid "DO NOT ASSIGN HOTKEY"
+msgstr "NU ASOCIA UN BUTON RAPID"
+
+#, c-format
+msgid "HOLD FOR %iS TO SKIP"
+msgid_plural "HOLD FOR %iS TO SKIP"
+msgstr[0] "ȚINE APĂSAT %iS PENTRU A OMITE"
+msgstr[1] "ȚINE APĂSAT %iS PENTRU A OMITE"
+msgstr[2] "ȚINE APĂSAT %iS PENTRU A OMITE"
+
+msgid "PRESS ANYTHING"
+msgstr "APASĂ ORICE"
+
+msgid "ALREADY TAKEN"
+msgstr "DEJA FOLOSIT"
+
+msgid "SCREEN READER ENABLED"
+msgstr "CITITOR DE ECRAN ACTIVAT"
+
+msgid "SCREEN READER DISABLED"
+msgstr "CITITOR DE ECRAN DEZACTIVAT"
+
+msgid ""
+"CALIBRATING GUN\n"
+"Fire on targets to calibrate"
+msgstr ""
+"SE CALIBREAZĂ PISTOLUL\n"
+"Trage în ținte pentru a-l calibra"

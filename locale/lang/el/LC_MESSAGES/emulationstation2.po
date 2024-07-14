@@ -1026,9 +1026,6 @@ msgstr ""
 msgid "OVERSCAN"
 msgstr ""
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr ""
 
@@ -1325,6 +1322,9 @@ msgstr "KODI KATA THN EKKINΗΣΗ"
 
 msgid "HARDWARE"
 msgstr "ΥΛΙΚΟ"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "ΕΞΟΔΟΣ ΗΧΟΥ"

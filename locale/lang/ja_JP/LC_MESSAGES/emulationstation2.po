@@ -1044,11 +1044,6 @@ msgstr "VSYNC(垂直同期)有効"
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-"Emulationstationで表示する解像度を設定します(自動＝最大)\n"
-"動作に問題がある場合は1920x1080以下を試してください"
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
 
@@ -1357,6 +1352,11 @@ msgstr "起動時に KODI 実行"
 
 msgid "HARDWARE"
 msgstr "ハードウェア"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
+"Emulationstationで表示する解像度を設定します(自動＝最大)\n"
+"動作に問題がある場合は1920x1080以下を試してください"
 
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"

@@ -1042,9 +1042,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "YLISKANNAUS"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "KÄYTÄ OMX-SOITINTA (LAITTEISTO KIIHDYTETTY)"
 
@@ -1347,6 +1344,9 @@ msgstr "KÄYNNISTÄ KODI KÄYNNISTYESSÄ"
 
 msgid "HARDWARE"
 msgstr "LAITTEISTO"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
 
 msgid "AUDIO OUTPUT"
 msgstr "ÄÄNEN ULOSTULO"

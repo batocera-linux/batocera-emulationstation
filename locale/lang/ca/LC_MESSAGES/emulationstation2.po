@@ -1046,9 +1046,6 @@ msgstr "SINCRONITZACIÓ VERTICAL"
 msgid "OVERSCAN"
 msgstr "SOBRE-EXPLORACIÓ"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Estableix la resolució de pantalla per emulestation"
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "USAR REPRODUCTOR OMX (ACCELERAT PER MAQUINARI)"
 
@@ -1366,6 +1363,9 @@ msgstr "INICIAR KODI A L'INICIAR EL SISTEMA"
 
 msgid "HARDWARE"
 msgstr "MAQUINARI"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Estableix la resolució de pantalla per emulestation"
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIDA D'ÀUDIO"

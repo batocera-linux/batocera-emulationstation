@@ -1043,9 +1043,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "ВЫЛЕТЫ РАЗВЁРТКИ"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Устанавливает разрешение экрана для emulationstation."
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "ИСП. OMX ПЛЕЕР (АППАРАТНОЕ УСКОРЕНИЕ)"
 
@@ -1355,6 +1352,9 @@ msgstr "АВТОЗАПУСК KODI"
 
 msgid "HARDWARE"
 msgstr "ЖЕЛЕЗО"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Устанавливает разрешение экрана для emulationstation."
 
 msgid "AUDIO OUTPUT"
 msgstr "АУДИО ВЫХОД"

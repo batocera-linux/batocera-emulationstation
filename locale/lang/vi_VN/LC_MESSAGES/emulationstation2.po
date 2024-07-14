@@ -1046,9 +1046,6 @@ msgstr "VSYNC"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Đặt độ phân giải của màn hình cho trình giả lập."
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "SỬ DỤNG OMX PLAYER (TĂNG TỐC PHẦN CỨNG)"
 
@@ -1362,6 +1359,9 @@ msgstr "KHỞI CHẠY KODI KHI KHỞI ĐỘNG MÁY"
 
 msgid "HARDWARE"
 msgstr "PHẦN CỨNG"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Đặt độ phân giải của màn hình cho trình giả lập."
 
 msgid "AUDIO OUTPUT"
 msgstr "NGÕ RA ÂM THANH"

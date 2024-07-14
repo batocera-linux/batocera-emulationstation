@@ -1042,9 +1042,6 @@ msgstr "Vsync"
 msgid "OVERSCAN"
 msgstr "Overscan"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Nastaví predvolené rozlíšenie pre EmulationStation."
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "Použiť OMX prehrávač (hardvérovo akcelerovaný)"
 
@@ -1353,6 +1350,9 @@ msgstr "Spustiť KODI pri štarte"
 
 msgid "HARDWARE"
 msgstr "Hardvér"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Nastaví predvolené rozlíšenie pre EmulationStation."
 
 msgid "AUDIO OUTPUT"
 msgstr "Zvukový výstup"

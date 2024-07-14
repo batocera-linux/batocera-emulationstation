@@ -1044,9 +1044,6 @@ msgstr "SYNCHRONISATION VERTICALE"
 msgid "OVERSCAN"
 msgstr "OVERSCAN"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr "Définir la résolution d'écran pour EmulationStation."
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "UTILISER OMX PLAYER (ACCÉLÉRATION MATÉRIELLE)"
 
@@ -1360,6 +1357,9 @@ msgstr "LANCER KODI AU DÉMARRAGE"
 
 msgid "HARDWARE"
 msgstr "MATÉRIEL"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr "Définir la résolution d'écran pour EmulationStation."
 
 msgid "AUDIO OUTPUT"
 msgstr "SORTIE AUDIO"
