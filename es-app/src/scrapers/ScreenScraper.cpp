@@ -182,7 +182,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ EPOCH_GAMEPOCKET, 95 },
 	{ WASM4, 262 },
 	{ GAMATE, 266 },
-	{ ARDUBOY, 263 }
+	{ ARDUBOY, 263 },
+	{ LOWRESNX, 244 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()
