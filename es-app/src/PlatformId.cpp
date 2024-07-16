@@ -138,7 +138,7 @@ namespace PlatformIds
 		{ "palm",					PALMOS },
 		{ "daphne",					DAPHNE },
 		{ "solarus",				SOLARUS },
-
+		{ "lowresnx",				LOWRESNX },
 		{ "vic20",					VIC20 },
 		{ "c20",					VIC20 },
 		{ "ti99",					TI99 },

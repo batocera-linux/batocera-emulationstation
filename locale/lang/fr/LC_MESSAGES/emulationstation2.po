@@ -80,7 +80,7 @@ msgid "Box"
 msgstr "Boite"
 
 msgid "enter path to box"
-msgstr "entrer le chemin vers la boite"
+msgstr "entrer le chemin vers la boîte"
 
 msgid "Fan art"
 msgstr "Fanart"
@@ -92,7 +92,7 @@ msgid "Title shot"
 msgstr "Image avec titre"
 
 msgid "enter path to title shot"
-msgstr "entrer le chemin vers l’image avec titre"
+msgstr "entrer le chemin vers l’image titre"
 
 msgid "Manual"
 msgstr "Manuel"
@@ -116,7 +116,7 @@ msgid "Bezel (16:9)"
 msgstr "Décoration (16/9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "entrer le chemin pour la décoration (16/9)"
+msgstr "entrer le chemin vers la décoration (16/9)"
 
 msgid "Cartridge"
 msgstr "Cartouche"
@@ -125,16 +125,16 @@ msgid "enter path to cartridge"
 msgstr "entrer le chemin vers la cartouche"
 
 msgid "Alt BoxArt"
-msgstr "Boite (Alt)"
+msgstr "Boîte (Alt)"
 
 msgid "enter path to alt boxart"
-msgstr "entrer le chemin vers la boite (Alt)"
+msgstr "entrer le chemin vers la boîte (Alt)"
 
 msgid "Box backside"
-msgstr "Dos de la boite"
+msgstr "Dos de la boîte"
 
 msgid "enter path to box background"
-msgstr "entrer le chemin vers le dos de la boite"
+msgstr "entrer le chemin vers le dos de la boîte"
 
 msgid "Wheel"
 msgstr "Logo"
@@ -146,7 +146,7 @@ msgid "Mix"
 msgstr "Mix d’images"
 
 msgid "enter path to mix"
-msgstr "entrer le chemin vers le mix d’image"
+msgstr "entrer le chemin vers le mix d’images"
 
 msgid "Rating"
 msgstr "Notation"
@@ -188,13 +188,13 @@ msgid "Genres"
 msgstr "Genres"
 
 msgid "enter game genres"
-msgstr "entrer les genres du jeu"
+msgstr "entrer le(s) genre(s) du jeu"
 
 msgid "Arcade system"
-msgstr "Système d'arcade"
+msgstr "Système arcade"
 
 msgid "this game's arcade system"
-msgstr "système d’arcade du jeu"
+msgstr "système arcade du jeu"
 
 msgid "Players"
 msgstr "Joueurs"
@@ -251,10 +251,10 @@ msgid "how long the game has been played in total (seconds)"
 msgstr "entrer le temps de jeu"
 
 msgid "Languages"
-msgstr "Langue"
+msgstr "Langues"
 
 msgid "this game's languages"
-msgstr "langue du jeu"
+msgstr "langues du jeu"
 
 msgid "Region"
 msgstr "Région"
@@ -338,7 +338,7 @@ msgid "SEARCH FOR"
 msgstr "CHERCHER POUR"
 
 msgid "ACCEPT RESULT"
-msgstr "ACCEPTER LE RESULTAT"
+msgstr "ACCEPTER LE RÉSULTAT"
 
 msgid "THEMES DOWNLOADER"
 msgstr "TÉLÉCHARGEMENT DE THÈMES"
@@ -394,13 +394,13 @@ msgid "OK"
 msgstr "OK"
 
 msgid "REFRESH"
-msgstr "RAFRAICHIR"
+msgstr "RAFRAÎCHIR"
 
 msgid "INPUT MANUALLY"
 msgstr "SAISIE MANUELLE"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "PAS DE RÉSEAUX WIFI TROUVÉS"
+msgstr "AUCUN RÉSEAU WIFI TROUVÉ"
 
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
@@ -436,22 +436,22 @@ msgid "MOUSE CURSOR"
 msgstr "POINTEUR DE SOURIS"
 
 msgid "EMULATE MOUSE CURSOR"
-msgstr "EMULER LE POINTEUR DE SOURIS"
+msgstr "ÉMULER LE POINTEUR DE SOURIS"
 
 msgid "NO"
 msgstr "NON"
 
 msgid "LEFT ANALOG STICK"
-msgstr "PAD DE GAUCHE"
+msgstr "STICK DE GAUCHE"
 
 msgid "RIGHT ANALOG STICK"
-msgstr "PAD DE DROITE"
+msgstr "STICK DE DROITE"
 
 msgid "EDIT DESCRIPTION"
-msgstr "EDITER LA DESCRIPTION"
+msgstr "ÉDITER LA DESCRIPTION"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER CET ÉLÉMENT ?"
+msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR SUPPRIMER CET ÉLÉMENT ?"
 
 msgid "YES"
 msgstr "OUI"
@@ -460,7 +460,7 @@ msgid "DELETE MAPPING"
 msgstr "SUPPRIMER LA COMBINAISON"
 
 msgid "SAVE CHANGES?"
-msgstr "SAUVEGARDER LES CHANGEMENTS ?"
+msgstr "SAUVEGARDER LES MODIFICATIONS ?"
 
 msgid "ARE YOU SURE?"
 msgstr "ÊTES-VOUS SÛR(E) ?"
@@ -584,7 +584,8 @@ msgstr "MODE DIFFICILE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Désactiver les chargement d'état, rembobinage et codes pour plus de points."
+"Désactiver les chargements d'état, le rembobinage et les codes "
+"pour plus de points."
 
 msgid "LEADERBOARDS"
 msgstr "TABLEAU DES SCORES"
@@ -603,7 +604,7 @@ msgstr ""
 "notifications."
 
 msgid "RICH PRESENCE"
-msgstr "PRÉSENCE RICHE"
+msgstr "RICH PRESENCE (DISCORD)"
 
 msgid "ENCORE MODE"
 msgstr "MODE ENCORE"
@@ -722,7 +723,7 @@ msgid "IGNORE RECENTLY SCRAPED GAMES"
 msgstr "IGNORER LES JEUX SCRAPÉS RÉCEMMENT"
 
 msgid "LAST DAY"
-msgstr "LE JOUR DERNIER"
+msgstr "LE JOUR PRÉCÉDENT"
 
 msgid "LAST WEEK"
 msgstr "LA SEMAINE DERNIÈRE"
@@ -859,7 +860,7 @@ msgstr "APPLATI ET BRILLANT"
 
 msgctxt "game_options"
 msgid "RGA SCALING"
-msgstr "ECHELLE RGA"
+msgstr "MISE À L'ÉCHELLE RGA"
 
 msgid "VENDOR"
 msgstr "FABRICANT"
@@ -934,7 +935,7 @@ msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr "L'INTERFACE A ETE DEVERROUILLÉE"
 
 msgid "ENTER THE CODE NOW TO UNLOCK"
-msgstr "SAISISSER LE CODE DE DÉVERROUILLAGE"
+msgstr "SAISIR LE CODE DE DÉVERROUILLAGE"
 
 msgid "SERVICES"
 msgstr "SERVICES"
@@ -949,10 +950,10 @@ msgid "DISABLED"
 msgstr "DÉSACTIVÉ"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr "DMDSERVEUR (pour les vrais dmds)"
+msgstr "SERVEUR DMD (pour les vrais dmds)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr "SIMULATEUR (pour un dmd web)"
+msgstr "SIMULATEUR (pour les dmds web)"
 
 msgid "dmd server"
 msgstr "serveur dmd"
@@ -976,13 +977,13 @@ msgid "BRIGHTNESS"
 msgstr "LUMINOSITÉ"
 
 msgid "DMDSERVER stopped"
-msgstr "DMDSERVEUR stoppé"
+msgstr "SERVEUR DMD stoppé"
 
 msgid "DMDSERVER restarted"
-msgstr "DMDSERVEUR redémarré"
+msgstr "SERVEUR DMD redémarré"
 
 msgid "DMDSERVER started"
-msgstr "DMDSERVEUR démarré"
+msgstr "SERVEUR DMD démarré"
 
 msgid "MULTISCREENS"
 msgstr "ÉCRANS MULTIPLES"
@@ -1006,16 +1007,16 @@ msgid "ROTATION"
 msgstr "ROTATION"
 
 msgid "0 DEGREES"
-msgstr "0 DEGRÉE"
+msgstr "0 DEGRÉ"
 
 msgid "90 DEGREES"
-msgstr "90 DEGRÉES"
+msgstr "90 DEGRÉS"
 
 msgid "180 DEGREES"
-msgstr "180 DEGRÉES"
+msgstr "180 DEGRÉS"
 
 msgid "270 DEGREES"
-msgstr "270 DEGRÉES"
+msgstr "270 DEGRÉS"
 
 msgid "SCREEN ROTATION"
 msgstr "ROTATION DE L’ÉCRAN"
@@ -1024,7 +1025,7 @@ msgid "DMD SCREEN"
 msgstr "ÉCRAN DMD"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr "OPTION DEVELOPPEUR"
+msgstr "OPTIONS DÉVELOPPEUR"
 
 msgid "VIDEO OPTIONS"
 msgstr "OPTIONS VIDÉO"
@@ -1036,7 +1037,7 @@ msgid "SHOW FRAMERATE"
 msgstr "AFFICHER LE NOMBRE D'IMAGES/SEC"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "Active également le fps en jeu si disponible."
+msgstr "Active également le compteur fps de l'émulateur si disponible."
 
 msgid "VSYNC"
 msgstr "SYNCHRONISATION VERTICALE"
@@ -1068,7 +1069,7 @@ msgstr "CRÉER UN FICHIER DE SUPPORT"
 
 msgid "CREATE A SUPPORT FILE? THIS INCLUDES ALL DATA IN YOUR SYSTEM FOLDER."
 msgstr ""
-"CRÉER UN FICHIER DE SUPPORT ? CELA COMPREND TOUTES LES DONNÉES DE VOTRE "
+"CRÉER UN FICHIER DE SUPPORT ? CELA CONTIENT TOUTES LES DONNÉES DE VOTRE "
 "DOSSIER SYSTÈME."
 
 msgid "SUPPORT FILE CREATED IN SAVES FOLDER"
@@ -1136,7 +1137,7 @@ msgid "FULL SCREEN MENUS"
 msgstr "MENUS PLEIN ÉCRAN"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr "FORCER THEME POUR PETIT ÉCRAN"
+msgstr "FORCER THÈME POUR PETIT ÉCRAN"
 
 msgid "DATA MANAGEMENT"
 msgstr "GESTION DES DONNÉES"
@@ -1207,8 +1208,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Intervertit le bouton nord (sauvegardes de jeu) et sud pression longue "
-"(options du jeu)"
+"Intervertit le bouton nord (sauvegardes de jeu) et "
+"la pression longue sur le bouton sud (options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTRÔLER EMULATIONSTATION AVEC LA 1ÈRE MANETTE UNIQUEMENT"
@@ -1223,7 +1224,7 @@ msgid "Might have negative impact on security."
 msgstr "Peut avoir un impact négatif sur la sécurité."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
-msgstr "ACTIVER LES DRIVERS DE MANETTE HID"
+msgstr "ACTIVER LE DRIVER DE MANETTES HID"
 
 msgid "SHOW NETWORK INDICATOR"
 msgstr "AFFICHER L’INDICATEUR RÉSEAU"
@@ -1254,7 +1255,7 @@ msgid "THREADED LOADING"
 msgstr "CHARGEMENT EN PARALLÈLE"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "CHARGEMENT DES IMAGES ASYNCHRONE"
+msgstr "CHARGEMENT ASYNCHRONE DES IMAGES"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMISER LA MÉMOIRE POUR LES IMAGES"
@@ -1548,7 +1549,7 @@ msgid "INCREMENTAL SAVESTATES"
 msgstr "SAUVEGARDES INCRÉMENTALES"
 
 msgid "INCREMENT PER SAVE"
-msgstr "A CHAQUE SAUVEGARDE"
+msgstr "À CHAQUE SAUVEGARDE"
 
 msgid "Never overwrite old savestates, always make new ones."
 msgstr "Crée un nouvel emplacement de sauvegarde à chaque sauvegarde."
@@ -1603,7 +1604,7 @@ msgstr ""
 "permet."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
-msgstr "ECHELLE ENTIÈRE (PIXEL PARFAIT)"
+msgstr "ÉCHELLE ENTIÈRE (PIXEL PARFAIT)"
 
 msgid "SHADER SET"
 msgstr "PACK DE FILTRES VIDÉOS"
@@ -1621,7 +1622,7 @@ msgid "SHOW TATTOO OVER BEZEL"
 msgstr "AFFICHER LE TATOUAGE"
 
 msgid "SYSTEM CONTROLLERS"
-msgstr "MANETTE DU SYSTÈME"
+msgstr "MANETTES DU SYSTÈME"
 
 msgid "CUSTOM IMAGE"
 msgstr "IMAGE PERSONNALISÉE"
@@ -2176,16 +2177,16 @@ msgid "MIX V2"
 msgstr "MIX D'IMAGES V2"
 
 msgid "BOX 2D"
-msgstr "BOITE 2D"
+msgstr "BOÎTE 2D"
 
 msgid "BOX 3D"
-msgstr "BOITE 3D"
+msgstr "BOÎTE 3D"
 
 msgid "FAN ART"
 msgstr "FANART"
 
 msgid "BOX SOURCE"
-msgstr "BOITE SOURCE"
+msgstr "BOÎTE SOURCE"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO SOURCE"
@@ -2227,7 +2228,7 @@ msgid "BEZEL (16:9)"
 msgstr "DÉCORATION (16:9)"
 
 msgid "BOX BACKSIDE"
-msgstr "ARRIÈRE DES BOITES"
+msgstr "ARRIÈRE DES BOÎTES"
 
 msgid "MAP"
 msgstr "CARTE"
@@ -2245,7 +2246,7 @@ msgid "NO DEVICE FOUND"
 msgstr "PAS DE PÉRIPHÉRIQUE TROUVÉ"
 
 msgid "COLLECTIONS TO DISPLAY"
-msgstr "COLLECTIONS A AFFICHER"
+msgstr "COLLECTIONS À AFFICHER"
 
 msgid "SYSTEMS DISPLAYED"
 msgstr "SYSTÈMES AFFICHÉS"
@@ -2254,7 +2255,7 @@ msgid "GROUPED SYSTEMS"
 msgstr "SYSTÈMES GROUPÉS"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr "CREER UNE COLLECTION PERSONNALISÉE"
+msgstr "CRÉER UNE COLLECTION PERSONNALISÉE"
 
 msgid "New Collection Name"
 msgstr "Nom de la collection"
@@ -2263,10 +2264,10 @@ msgid "ENTER NAME"
 msgstr "ENTRER LE NOM"
 
 msgid "CREATE FROM THEME"
-msgstr "CREE DEPUIS LE THEME"
+msgstr "CRÉER DEPUIS LE THÈME"
 
 msgid "CREATE NEW EDITABLE COLLECTION"
-msgstr "NOUVELLE COLLECTION EDITABLE"
+msgstr "NOUVELLE COLLECTION ÉDITABLE"
 
 msgid "CREATE NEW DYNAMIC COLLECTION"
 msgstr "NOUVELLE COLLECTION DYNAMIQUE"
@@ -2305,7 +2306,7 @@ msgid "GROUP CUSTOM COLLECTIONS"
 msgstr "REGROUPER LES COLLECTIONS PERSONNALISÉES"
 
 msgid "UNTHEMED"
-msgstr "SANS THEME"
+msgstr "SANS THÈME"
 
 msgid "SHOW SYSTEM NAME IN COLLECTIONS"
 msgstr "AFFICHER LE NOM DU SYSTÈME DANS LES COLLECTIONS"
@@ -2392,7 +2393,7 @@ msgid "SELECT RANDOM GAME"
 msgstr "SÉLECTIONNER UN JEU ALÉATOIREMENT"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "ALLER A LA LETTRE"
+msgstr "ALLER À LA LETTRE"
 
 msgid "SORT GAMES BY"
 msgstr "TRIER PAR"
@@ -2401,7 +2402,7 @@ msgid "DYNAMIC COLLECTION"
 msgstr "COLLECTION DYNAMIQUE"
 
 msgid "EDIT DYNAMIC COLLECTION FILTERS"
-msgstr "EDITER LES FILTRES DE LA COLLECTION"
+msgstr "ÉDITER LES FILTRES DE LA COLLECTION"
 
 msgid "CUSTOM COLLECTION"
 msgstr "COLLECTION PERSONNALISÉE"
@@ -2437,14 +2438,14 @@ msgid "REMOVE ALL"
 msgstr "TOUT SUPPRIMER"
 
 msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "PAS DE PERIPHERIQUES BLUETOOTH TROUVÉS"
+msgstr "AUCUN PERIPHÉRIQUE BLUETOOTH TROUVÉ"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ÊTES-VOUS SÛR DE VOULOIR SUPPRIMER '%s' ?"
+msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR SUPPRIMER '%s' ?"
 
 msgid "ZOOM OUT"
 msgstr "ZOOM ARRIÈRE"
@@ -2517,7 +2518,7 @@ msgid "CONTROLLERS PRIORITY"
 msgstr "ORDRE DES MANETTES"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr "AFFECTATIONS DES JOUEURS"
+msgstr "AFFECTATION DES JOUEURS"
 
 #, c-format
 msgid "CONTROLLER #%i"
@@ -2538,8 +2539,8 @@ msgid ""
 msgstr ""
 "VOUS ALLEZ CONFIGURER UNE MANETTE. CECI EST BASÉ SUR LA POSITION RELATIVE "
 "DES BOUTONS ET NON SUR LEURS LIBELLÉS. SI VOUS N’AVEZ PAS DE TOUCHE SPÉCIALE "
-"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / PADS QUE "
-"VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ.APPUYEZ SUR "
+"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / STICKS QUE "
+"VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. APPUYEZ SUR "
 "LE BOUTON SUD POUR CONFIRMER UNE FOIS TERMINÉ."
 
 msgid "SINDEN GUN SETTINGS"
@@ -2839,7 +2840,7 @@ msgid "Back to %s"
 msgstr "Retourner vers %s"
 
 msgid "No Entries Found"
-msgstr "Aucune Entrée Trouvée"
+msgstr "Aucune entrée trouvée"
 
 msgid "Times played"
 msgstr "Nombre de parties"
@@ -3278,7 +3279,7 @@ msgid "NO GAMEPADS DETECTED"
 msgstr "AUCUNE MANETTE DÉTECTÉE"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "MAINTENEZ UN BOUTON SUR VOTRE MANETTE POUR LA CONFIGURER."
+msgstr "MAINTENEZ UN BOUTON DE VOTRE MANETTE POUR LA CONFIGURER."
 
 msgid "PRESS ESC TO CANCEL."
 msgstr "APPUYEZ SUR ESC POUR ANNULER."
@@ -3287,7 +3288,7 @@ msgid "PRESS ESC OR A HOTKEY TO CANCEL."
 msgstr "APPUYEZ SUR ESC OU SUR UNE TOUCHE DE RACCOURCI POUR ANNULER."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPECIAL"
+msgstr "MAJ POUR MAJUSCULE, MINUSCULE ET SPÉCIAL"
 
 msgid "ALT GR"
 msgstr "ALT GR"
