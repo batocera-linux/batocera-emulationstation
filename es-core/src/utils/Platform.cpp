@@ -21,6 +21,8 @@
 #include "Log.h"
 #include "Scripting.h"
 #include "Paths.h"
+#include <fstream>
+#include <string>
 
 // #define DEVTEST
 
@@ -470,7 +472,27 @@ namespace Utils
 					}
 				}
 				else
-					ret.level = Utils::String::toInteger(Utils::FileSystem::readAllText(batteryCapacityPath).c_str());
+				{
+					std::ifstream file(batteryCapacityPath);
+					if (file.is_open())
+					{
+						std::string buffer;
+						std::getline(file, buffer);
+						file.close();
+						if (!buffer.empty())
+						{
+							ret.level = Utils::String::toInteger(buffer);
+						}
+						else
+						{
+							LOG(LogError) << "Error reading: " << batteryCapacityPath;
+						}
+					}
+					else
+					{
+						LOG(LogError) << "Error opening: " << batteryCapacityPath;
+					}
+				}
 			}
 
 			return ret;
