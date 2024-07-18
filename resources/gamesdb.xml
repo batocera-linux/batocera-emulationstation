@@ -61,6 +61,9 @@
     <game name="acedrvrw">
       <wheel rotation="270"/>
     </game>
+    <game name="Akuma">
+      <gun/>
+    </game>
     <game name="alien3">
       <gun/>
     </game>
@@ -232,11 +235,17 @@
     <game name="bubbletrj">
       <gun/>
     </game>
+    <game name="BugBusters">
+      <gun/>
+    </game>
     <game name="buggyboy">
       <wheel rotation="360"/>
     </game>
     <game name="buggyboyjr">
       <wheel rotation="360"/>
+    </game>
+    <game name="ByonByon">
+      <gun/>
     </game>
     <game name="calspeed">
       <wheel rotation="270"/>
@@ -693,6 +702,9 @@
     <game name="duckhunt">
       <gun/>
     </game>
+    <game name="EADP">
+      <gun/>
+    </game>
     <game name="eca">
       <wheel/>
     </game>
@@ -921,10 +933,16 @@
     <game name="gdfs">
       <gun/>
     </game>
+    <game name="GG">
+      <gun/>
+    </game>
     <game name="ghlpanic">
       <gun/>
     </game>
     <game name="ghoshunt">
+      <gun/>
+    </game>
+    <game name="GhostBusters">
       <gun/>
     </game>
     <game name="ghostsev">
@@ -1429,6 +1447,9 @@
       <gun/>
     </game>
     <game name="jupk_g51">
+      <gun/>
+    </game>
+    <game name="JurassicPark">
       <gun/>
     </game>
     <game name="kdeadeye">
@@ -1978,6 +1999,9 @@
     <game name="pocketrc">
       <wheel rotation="270"/>
     </game>
+    <game name="PointBlankX">
+      <gun/>
+    </game>
     <game name="pokasuka">
       <gun/>
     </game>
@@ -2494,6 +2518,9 @@
     <game name="scudplusa">
       <wheel rotation="270"/>
     </game>
+    <game name="SDR">
+      <gun/>
+    </game>
     <game name="sf2049">
       <wheel rotation="270"/>
     </game>
@@ -2959,6 +2986,9 @@
     <game name="targetha">
       <gun/>
     </game>
+    <game name="TargetTerrorGold">
+      <gun/>
+    </game>
     <game name="TC5">
       <gun/>
     </game>
@@ -2990,6 +3020,9 @@
       <gun/>
     </game>
     <game name="term2pa2">
+      <gun/>
+    </game>
+    <game name="Terminator">
       <gun/>
     </game>
     <game name="thrild2">
@@ -3151,6 +3184,9 @@
     <game name="Transformers">
       <gun/>
     </game>
+    <game name="TransformersShadowsRising">
+      <gun/>
+    </game>
     <game name="triplhnt">
       <gun/>
     </game>
@@ -3263,6 +3299,9 @@
       <gun/>
     </game>
     <game name="vsgshoe">
+      <gun/>
+    </game>
+    <game name="WalkingDead">
       <gun/>
     </game>
     <game name="wanganmd">
