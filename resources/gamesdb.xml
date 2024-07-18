@@ -19,6 +19,9 @@
     <game name="2spicy">
       <gun/>
     </game>
+    <game name="2Spicy">
+      <gun/>
+    </game>
     <game name="38ambushalley">
       <gun/>
     </game>
@@ -2339,6 +2342,9 @@
       <wheel rotation="270"/>
     </game>
     <game name="rambo">
+      <gun/>
+    </game>
+    <game name="Rambo">
       <gun/>
     </game>
     <game name="rangrmsn">
