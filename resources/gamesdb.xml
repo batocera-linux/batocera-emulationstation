@@ -573,6 +573,12 @@
     <game name="daytona2">
       <wheel rotation="270"/>
     </game>
+    <game name="Daytona3">
+      <wheel/>
+    </game>
+    <game name="Daytona3NSE">
+      <wheel/>
+    </game>
     <game name="daytona93">
       <wheel rotation="270"/>
     </game>
@@ -1104,6 +1110,9 @@
     <game name="gunsur2j">
       <gun/>
     </game>
+    <game name="H2Overdrive">
+      <wheel/>
+    </game>
     <game name="hangon">
       <wheel rotation="270"/>
     </game>
@@ -1322,6 +1331,36 @@
     </game>
     <game name="hydrosub2021">
       <gun/>
+    </game>
+    <game name="ID4Exp">
+      <wheel/>
+    </game>
+    <game name="ID4Jap">
+      <wheel/>
+    </game>
+    <game name="ID5">
+      <wheel/>
+    </game>
+    <game name="ID6">
+      <wheel/>
+    </game>
+    <game name="ID7">
+      <wheel/>
+    </game>
+    <game name="ID8">
+      <wheel/>
+    </game>
+    <game name="IDZ">
+      <wheel/>
+    </game>
+    <game name="IDZTP">
+      <wheel/>
+    </game>
+    <game name="IDZv2">
+      <wheel/>
+    </game>
+    <game name="IDZv2TP">
+      <wheel/>
     </game>
     <game name="imolagp">
       <wheel rotation="270"/>
@@ -1706,6 +1745,15 @@
     <game name="midnruna2">
       <wheel rotation="270"/>
     </game>
+    <game name="MKDX">
+      <wheel/>
+    </game>
+    <game name="MKDX118">
+      <wheel/>
+    </game>
+    <game name="MKDXUSA">
+      <wheel/>
+    </game>
     <game name="mok">
       <gun/>
     </game>
@@ -1836,6 +1884,9 @@
     </game>
     <game name="opwolfu">
       <gun/>
+    </game>
+    <game name="or2spdlx">
+      <wheel/>
     </game>
     <game name="orunners">
       <wheel rotation="270"/>
@@ -2829,6 +2880,15 @@
     </game>
     <game name="srallyp">
       <wheel rotation="270"/>
+    </game>
+    <game name="SR3">
+      <wheel/>
+    </game>
+    <game name="SRC">
+      <wheel/>
+    </game>
+    <game name="SRG">
+      <wheel/>
     </game>
     <game name="sscope">
       <gun/>
