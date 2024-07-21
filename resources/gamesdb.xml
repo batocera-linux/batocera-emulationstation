@@ -118,6 +118,9 @@
     <game name="aplatoon">
       <gun/>
     </game>
+    <game name="ArcticThunder">
+      <wheel/>
+    </game>
     <game name="area51">
       <gun/>
     </game>
@@ -136,6 +139,9 @@
     <game name="badlands">
       <wheel rotation="360"/>
     </game>
+    <game name="Ballistics">
+      <wheel/>
+    </game>
     <game name="bang">
       <gun/>
     </game>
@@ -150,6 +156,15 @@
     </game>
     <game name="batlgr2a">
       <wheel rotation="270"/>
+    </game>
+    <game name="Batman">
+      <wheel/>
+    </game>
+    <game name="BattleGear4">
+      <wheel/>
+    </game>
+    <game name="BattleGear4Tuned">
+      <wheel/>
     </game>
     <game name="bazooka">
       <gun/>
@@ -268,6 +283,9 @@
     <game name="carnking">
       <gun/>
     </game>
+    <game name="Cars">
+      <wheel/>
+    </game>
     <game name="cartfury">
       <wheel rotation="270"/>
     </game>
@@ -285,6 +303,9 @@
     </game>
     <game name="chasehq2">
       <wheel rotation="360"/>
+    </game>
+    <game name="ChaseHQ2">
+      <wheel/>
     </game>
     <game name="chasehqj">
       <wheel rotation="360"/>
@@ -408,6 +429,9 @@
     <game name="cracksht">
       <gun/>
     </game>
+    <game name="CrazyRide">
+      <wheel/>
+    </game>
     <game name="crimep2">
       <gun/>
     </game>
@@ -455,6 +479,9 @@
     </game>
     <game name="crtaxihr">
       <wheel rotation="270"/>
+    </game>
+    <game name="CruisnBlast">
+      <wheel/>
     </game>
     <game name="crusnexo">
       <wheel rotation="270"/>
@@ -561,6 +588,9 @@
     <game name="cyclshtg">
       <gun/>
     </game>
+    <game name="D1GP">
+      <wheel/>
+    </game>
     <game name="dangcurv">
       <wheel rotation="270"/>
     </game>
@@ -615,6 +645,9 @@
     <game name="dday">
       <gun/>
     </game>
+    <game name="DeadHeat">
+      <wheel/>
+    </game>
     <game name="deathcox">
       <gun/>
     </game>
@@ -651,6 +684,12 @@
     <game name="demoderm">
       <wheel rotation="360"/>
     </game>
+    <game name="DenshaDeGo">
+      <wheel/>
+    </game>
+    <game name="DenshaDeGoRetro">
+      <wheel/>
+    </game>
     <game name="desertgu">
       <gun/>
     </game>
@@ -680,6 +719,9 @@
     </game>
     <game name="dirtfoxj">
       <wheel rotation="270"/>
+    </game>
+    <game name="DirtyDrivin">
+      <wheel/>
     </game>
     <game name="dmodrbcc">
       <wheel rotation="360"/>
@@ -837,6 +879,21 @@
     <game name="fastdraw_130">
       <gun/>
     </game>
+    <game name="FNF">
+      <wheel/>
+    </game>
+    <game name="FNFDrift">
+      <wheel/>
+    </game>
+    <game name="FNFSB">
+      <wheel/>
+    </game>
+    <game name="FNFSB2">
+      <wheel/>
+    </game>
+    <game name="FNFSC">
+      <wheel/>
+    </game>
     <game name="finalap2">
       <wheel rotation="270"/>
     </game>
@@ -909,8 +966,14 @@
     <game name="fourtraxj">
       <wheel rotation="270"/>
     </game>
+    <game name="FR">
+      <wheel/>
+    </game>
     <game name="freedomfighter">
       <gun/>
+    </game>
+    <game name="FrenzyExpress">
+      <wheel/>
     </game>
     <game name="Friction">
       <gun/>
@@ -926,6 +989,9 @@
     </game>
     <game name="g13knd">
       <gun/>
+    </game>
+    <game name="GaelcoChampionshipTuningRace">
+      <wheel/>
     </game>
     <game name="GaiaAttack4">
       <gun/>
@@ -1011,6 +1077,9 @@
     <game name="greatgun">
       <gun/>
     </game>
+    <game name="GRID">
+      <wheel/>
+    </game>
     <game name="grudge">
       <wheel rotation="360"/>
     </game>
@@ -1025,6 +1094,9 @@
     </game>
     <game name="gticlub2">
       <wheel rotation="270"/>
+    </game>
+    <game name="GtiClub3">
+      <wheel/>
     </game>
     <game name="gticlub2ea">
       <wheel rotation="270"/>
@@ -1332,6 +1404,12 @@
     <game name="hotrodja">
       <wheel rotation="360"/>
     </game>
+    <game name="HotWheels">
+      <wheel/>
+    </game>
+    <game name="hummerextreme">
+      <wheel/>
+    </game>
     <game name="hydrosub2021">
       <gun/>
     </game>
@@ -1503,6 +1581,9 @@
     <game name="kingrt66p">
       <wheel rotation="270"/>
     </game>
+    <game name="KODrive">
+      <wheel/>
+    </game>
     <game name="konamigt">
       <wheel rotation="360"/>
     </game>
@@ -1529,6 +1610,9 @@
     </game>
     <game name="lbeach">
       <wheel rotation="360"/>
+    </game>
+    <game name="LGS">
+      <wheel/>
     </game>
     <game name="le2">
       <gun/>
@@ -1718,6 +1802,9 @@
     <game name="maxforce">
       <gun/>
     </game>
+    <game name="MaximumHeat">
+      <wheel/>
+    </game>
     <game name="maxrpm">
       <wheel rotation="270"/>
     </game>
@@ -1775,6 +1862,9 @@
     <game name="motofrenmf">
       <wheel rotation="270"/>
     </game>
+    <game name="MotoGP">
+      <wheel/>
+    </game>
     <game name="motoraid">
       <wheel rotation="270"/>
     </game>
@@ -1783,6 +1873,9 @@
     </game>
     <game name="MusicGunGun2">
       <gun/>
+    </game>
+    <game name="NicktoonsNitro">
+      <wheel/>
     </game>
     <game name="ninjaslt">
       <gun/>
@@ -1804,6 +1897,9 @@
     </game>
     <game name="ninjasltu">
       <gun/>
+    </game>
+    <game name="Nirin">
+      <wheel/>
     </game>
     <game name="nitedrvr">
       <wheel rotation="360"/>
@@ -2326,6 +2422,9 @@
     <game name="radikalba">
       <wheel rotation="270"/>
     </game>
+    <game name="RadikalBikers">
+      <wheel/>
+    </game>
     <game name="radm">
       <wheel rotation="270"/>
     </game>
@@ -2421,6 +2520,9 @@
     </game>
     <game name="ridgeraj">
       <wheel rotation="270"/>
+    </game>
+    <game name="RingRiders">
+      <wheel/>
     </game>
     <game name="roadblc1">
       <wheel rotation="360"/>
@@ -2527,6 +2629,9 @@
     <game name="rrvac2">
       <wheel rotation="270"/>
     </game>
+    <game name="R-Tuned">
+      <wheel/>
+    </game>
     <game name="sc5sharp">
       <gun/>
     </game>
@@ -2577,6 +2682,9 @@
     </game>
     <game name="SDR">
       <gun/>
+    </game>
+    <game name="segartv">
+      <wheel/>
     </game>
     <game name="sf2049">
       <wheel rotation="270"/>
@@ -2668,6 +2776,9 @@
     <game name="showdown">
       <gun/>
     </game>
+    <game name="Showdown">
+      <wheel/>
+    </game>
     <game name="showdown4">
       <gun/>
     </game>
@@ -2757,6 +2868,9 @@
     </game>
     <game name="smgpud">
       <wheel rotation="270"/>
+    </game>
+    <game name="SnoCross ">
+      <wheel/>
     </game>
     <game name="sogeki">
       <gun/>
@@ -2896,6 +3010,9 @@
     <game name="SRG">
       <wheel/>
     </game>
+    <game name="SSASR">
+      <wheel/>
+    </game>
     <game name="sscope">
       <gun/>
     </game>
@@ -2977,6 +3094,9 @@
     <game name="stocker">
       <wheel rotation="360"/>
     </game>
+    <game name="StormRider">
+      <wheel/>
+    </game>
     <game name="strtdriv">
       <wheel rotation="270"/>
     </game>
@@ -3021,6 +3141,9 @@
     </game>
     <game name="suzuka8hj">
       <wheel rotation="270"/>
+    </game>
+    <game name="SWDC">
+      <wheel/>
     </game>
     <game name="swtrilgy">
       <gun/>
@@ -3171,6 +3294,9 @@
     </game>
     <game name="tokyobus">
       <wheel rotation="270"/>
+    </game>
+    <game name="TokyoCop">
+      <wheel/>
     </game>
     <game name="TombRaider">
       <gun/>
@@ -3352,6 +3478,9 @@
     <game name="victlapw">
       <wheel rotation="270"/>
     </game>
+    <game name="VirtuaRLimit">
+      <wheel/>
+    </game>
     <game name="vnight">
       <gun/>
     </game>
@@ -3366,6 +3495,9 @@
     </game>
     <game name="vsgshoe">
       <gun/>
+    </game>
+    <game name="WackyRaces">
+      <wheel/>
     </game>
     <game name="WalkingDead">
       <gun/>
@@ -3399,6 +3531,9 @@
     </game>
     <game name="WartranTroopers">
       <gun/>
+    </game>
+    <game name="WastelandRacers">
+      <wheel/>
     </game>
     <game name="wcombat">
       <gun/>
@@ -3468,6 +3603,27 @@
     </game>
     <game name="wldrider">
       <wheel rotation="270" downshift="down" upshift="up"/>
+    </game>
+    <game name="WMMT3">
+      <wheel/>
+    </game>
+    <game name="WMMT3DXP">
+      <wheel/>
+    </game>
+    <game name="WMMT5">
+      <wheel/>
+    </game>
+    <game name="WMMT5DX">
+      <wheel/>
+    </game>
+    <game name="WMMT5DXPlus">
+      <wheel/>
+    </game>
+    <game name="WMMT6">
+      <wheel/>
+    </game>
+    <game name="WMMT6R">
+      <wheel/>
     </game>
     <game name="wrally">
       <wheel rotation="270"/>
