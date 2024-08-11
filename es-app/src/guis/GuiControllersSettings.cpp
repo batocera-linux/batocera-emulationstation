@@ -6,7 +6,7 @@
 #include "guis/GuiDetectDevice.h"
 #include "guis/GuiBluetoothPair.h"
 #include "ThreadedBluetooth.h"
-#include "guis/GuiBluetoothForget.h"
+#include "guis/GuiBluetoothDevices.h"
 
 #include "guis/GuiMsgBox.h"
 #include "InputManager.h"
@@ -145,7 +145,7 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 		});
 #endif
 		// FORGET BLUETOOTH CONTROLLERS OR BT AUDIO DEVICES
-		addEntry(_("FORGET A BLUETOOTH DEVICE"), false, [window] { window->pushGui(new GuiBluetoothForget(window)); });
+		addEntry(_("BLUETOOTH DEVICE LIST"), false, [window] { window->pushGui(new GuiBluetoothDevices(window)); });
 
 #if defined(BATOCERA)
 		}

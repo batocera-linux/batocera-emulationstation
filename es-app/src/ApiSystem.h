@@ -173,6 +173,8 @@ public:
 	void startBluetoothLiveDevices(const std::function<void(const std::string)>& func);
 	void stopBluetoothLiveDevices();
 	bool pairBluetoothDevice(const std::string& deviceName);
+	bool connectBluetoothDevice(const std::string& deviceName);
+	bool disconnectBluetoothDevice(const std::string& deviceName);
 	bool removeBluetoothDevice(const std::string& deviceName);
 
 	std::vector<std::string> getPairedBluetoothDeviceList();
