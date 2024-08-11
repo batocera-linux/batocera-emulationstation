@@ -45,7 +45,7 @@
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiWifi.h"
 #include "guis/GuiBluetoothPair.h"
-#include "guis/GuiBluetoothForget.h"
+#include "guis/GuiBluetoothDevices.h"
 #include "scrapers/ThreadedScraper.h"
 #include "FileSorts.h"
 #include "ThreadedHasher.h"

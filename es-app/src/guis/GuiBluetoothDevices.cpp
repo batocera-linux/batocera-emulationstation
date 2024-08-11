@@ -6,13 +6,14 @@
 #include "Settings.h"
 #include "ApiSystem.h"
 #include "LocaleES.h"
-#include "GuiBluetoothForget.h"
+#include "GuiBluetoothDevices.h"
 #include "guis/GuiTextEditPopup.h"
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "GuiLoading.h"
+#include "GuiBluetoothDeviceOptions.h"
 
-GuiBluetoothForget::GuiBluetoothForget(Window* window)
-	: GuiComponent(window), mMenu(window, _("FORGET A BLUETOOTH DEVICE").c_str())
+GuiBluetoothDevices::GuiBluetoothDevices(Window* window)
+	: GuiComponent(window), mMenu(window, _("BLUETOOTH DEVICE LIST").c_str())
 {
 	mWaitingLoad = false;
 
@@ -31,7 +32,7 @@ GuiBluetoothForget::GuiBluetoothForget(Window* window)
 		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, Renderer::getScreenHeight() * 0.15f);
 }
 
-bool GuiBluetoothForget::load()
+bool GuiBluetoothDevices::load()
 {
 	std::vector<std::string> ssids = ApiSystem::getInstance()->getPairedBluetoothDeviceList();
 
@@ -40,35 +41,40 @@ bool GuiBluetoothForget::load()
 	if (ssids.size() == 0)
 		mMenu.addEntry(_("NO BLUETOOTH DEVICES FOUND"), false);
 	else
-	{
+    {
 		for (auto ssid : ssids)
 		{
 			if (ssid.empty())
 				continue;
-
+			
 			if (Utils::String::startsWith(ssid, "<device "))
 			{
 				auto id = Utils::String::extractString(ssid, "id=\"", "\"", false);
 				auto name = Utils::String::extractString(ssid, "name=\"", "\"", false);
 				auto type = Utils::String::extractString(ssid, "type=\"", "\"", false);
+				auto connected = Utils::String::extractString(ssid, "connected=\"", "\"", false);
 
 				std::string icon = type.empty() ? "unknown" : type;
-				mMenu.addWithDescription(name, id, nullptr, [this, id, name]() { GuiBluetoothForget::onRemoveDevice(id, name); }, icon);
+				std::string status = (connected == "yes") ? _(" (Connected)") : "";
+
+				mMenu.addWithDescription(name + status, id, nullptr, [this, id, name, connected]() {
+					mWindow->pushGui(new GuiBluetoothDeviceOptions(mWindow, id, name, connected == "yes", [this]() { load(); }));
+				}, icon);
 			}
 			else
-				mMenu.addEntry(ssid, false, [this, ssid]() { GuiBluetoothForget::onRemoveDevice(ssid, ""); });
+				mMenu.addEntry(ssid, false, [this, ssid]() { GuiBluetoothDevices::onRemoveDevice(ssid, ""); });
 		}
 	}
 
 	mMenu.updateSize();
 
 	if (Renderer::ScreenSettings::fullScreenMenus())
-		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);	
-
+		mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
+	
 	return ssids.size() > 0;
 }
 
-bool GuiBluetoothForget::input(InputConfig* config, Input input)
+bool GuiBluetoothDevices::input(InputConfig* config, Input input)
 {
 	if (GuiComponent::input(config, input))
 		return true;
@@ -84,7 +90,7 @@ bool GuiBluetoothForget::input(InputConfig* config, Input input)
 	return false;
 }
 
-std::vector<HelpPrompt> GuiBluetoothForget::getHelpPrompts()
+std::vector<HelpPrompt> GuiBluetoothDevices::getHelpPrompts()
 {
 	std::vector<HelpPrompt> prompts = mMenu.getHelpPrompts();
 	prompts.push_back(HelpPrompt(BUTTON_BACK, _("BACK")));
@@ -92,7 +98,7 @@ std::vector<HelpPrompt> GuiBluetoothForget::getHelpPrompts()
 	return prompts;
 }
 
-void GuiBluetoothForget::onRemoveAll()
+void GuiBluetoothDevices::onRemoveAll()
 {
 	if (mWaitingLoad)
 		return;
@@ -116,7 +122,7 @@ void GuiBluetoothForget::onRemoveAll()
 		}));	
 }
 
-void GuiBluetoothForget::onRemoveDevice(const std::string& id, const std::string& name)
+void GuiBluetoothDevices::onRemoveDevice(const std::string& id, const std::string& name)
 {
 	if (mWaitingLoad)
 		return;

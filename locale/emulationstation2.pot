@@ -2386,7 +2386,7 @@ msgstr ""
 msgid "NO MISSING BIOS"
 msgstr ""
 
-msgid "FORGET A BLUETOOTH DEVICE"
+msgid "BLUETOOTH DEVICE LIST"
 msgstr ""
 
 msgid "REMOVE ALL"
