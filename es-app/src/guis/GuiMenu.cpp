@@ -1580,14 +1580,27 @@ void GuiMenu::openSystemSettings()
 				if (selectedAudioProfile == tokens.at(0))
 					afound = true;
 
+				std::string vname = "";
 				if (tokens.size() >= 2)
 				{
-					// concatenat the ending words
-					std::string vname = "";
-					for (unsigned int i = 1; i < tokens.size(); i++)
+					// Check if the profile contains "bluez_card" and remove it from the display name
+					if (tokens.at(1).find("bluez_card") != std::string::npos)
 					{
-						if (i > 2) vname += " ";
-						vname += tokens.at(i);
+						// Skip the "bluez_card" token and use the remaining tokens for the display name
+						for (unsigned int i = 2; i < tokens.size(); i++)
+						{
+							if (i > 2) vname += " ";
+							vname += tokens.at(i);
+						}
+					}
+					else
+					{
+						// Normal concatenation for other profiles
+						for (unsigned int i = 1; i < tokens.size(); i++)
+						{
+							if (i > 1) vname += " ";
+							vname += tokens.at(i);
+						}
 					}
 					optionsAudioProfile->add(vname, tokens.at(0), selectedAudioProfile == tokens.at(0));
 				}
