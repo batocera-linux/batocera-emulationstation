@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v40b(2024/05/23)\n"
+"Project-Id-Version: batocera-es v40b(2024/07/31)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-05-23 18:58+0900\n"
+"PO-Revision-Date: 2024-07-31 13:04+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -1044,6 +1044,11 @@ msgstr "VSYNC(垂直同期)有効"
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
 
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
+"Emulationstationで表示する解像度を設定します(自動＝最大)\n"
+"動作に問題がある場合は1920x1080以下を試してください"
+
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
 
@@ -1353,11 +1358,6 @@ msgstr "起動時に KODI 実行"
 msgid "HARDWARE"
 msgstr "ハードウェア"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-"Emulationstationで表示する解像度を設定します(自動＝最大)\n"
-"動作に問題がある場合は1920x1080以下を試してください"
-
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"
 
@@ -1648,13 +1648,13 @@ msgid "AI GAME TRANSLATION"
 msgstr "AIゲーム翻訳"
 
 msgid "ENABLE AI TRANSLATION SERVICE"
-msgstr "AIゲーム翻訳サービスを有効"
+msgstr "AI 翻訳サービスを有効"
 
 msgid "TARGET LANGUAGE"
-msgstr "対象言語"
+msgstr "翻訳表示言語"
 
 msgid "AI TRANSLATION SERVICE URL"
-msgstr "AIゲーム翻訳サービス URL"
+msgstr "AI 翻訳サービス URL"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
 msgstr "翻訳画面で一時停止"

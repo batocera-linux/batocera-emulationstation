@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-07-08 10:42+0300\n"
+"PO-Revision-Date: 2024-08-01 22:03+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -84,10 +84,10 @@ msgid "enter path to box"
 msgstr "introdu calea către cutie"
 
 msgid "Fan art"
-msgstr "Desenul fanilor"
+msgstr "Fan art"
 
 msgid "enter path to fanart"
-msgstr "introdu calea către desenul fanilor"
+msgstr "introdu calea către fanart"
 
 msgid "Title shot"
 msgstr "Captură meniu"
@@ -222,16 +222,16 @@ msgid "enter kidgame"
 msgstr "introdu joc pentru copii"
 
 msgid "Play count"
-msgstr "Număr de jucări"
+msgstr "Număr de partide jucate"
 
 msgid "enter number of times played"
-msgstr "introdu numărul de jucări"
+msgstr "introdu număr de partide"
 
 msgid "Last played"
 msgstr "Jucat ultima dată"
 
 msgid "enter last played date"
-msgstr "introdu data ultimei jucări"
+msgstr "introdu data ultimei partide"
 
 msgid "Crc32"
 msgstr "CRC32"
@@ -639,7 +639,7 @@ msgid "UNLOCK SOUND"
 msgstr "SUNET DEBLOCARE"
 
 msgid "SHOW RETROACHIEVEMENTS ENTRY IN MAIN MENU"
-msgstr "AFIȘEAZĂ INTRARE RETROREALIZĂRI ÎN MENIUL PRINCIPAL"
+msgstr "AFIȘEAZĂ RETROREALIZĂRI ÎN MENIUL PRINCIPAL"
 
 msgid "View your RetroAchievement stats right from the main menu!"
 msgstr "Vezi statisticile RetroRealizări direct din meniul principal!"
@@ -709,10 +709,10 @@ msgid "FILTERS"
 msgstr "FILTRE"
 
 msgid "GAMES TO SCRAPE FOR"
-msgstr "JOCURILE PENTRU CARE SE CAUTĂ"
+msgstr "PREIA PENTRU"
 
 msgid "ALL"
-msgstr "TOATE"
+msgstr "TOATE JOCURILE"
 
 msgid "GAMES MISSING ANY MEDIA"
 msgstr "JOCURI CU ORICE INFORMAȚIE LIPSĂ"
@@ -727,7 +727,7 @@ msgid "LAST DAY"
 msgstr "ULTIMA ZI"
 
 msgid "LAST WEEK"
-msgstr "ULTIMA SĂPTĂMÂNĂ"
+msgstr "ULTIMELE 7 ZILE"
 
 msgid "LAST 15 DAYS"
 msgstr "ULTIMELE 15 ZILE"
@@ -1104,10 +1104,10 @@ msgid "RESET FILE EXTENSIONS"
 msgstr "RESETEAZĂ EXTENSIILE FIȘIERELOR"
 
 msgid "Reset customized file extensions filters to default."
-msgstr "Resetează extensile de fișiere particularizate la implicite."
+msgstr "Resetează extensile de fișiere personalizate la implicite."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "DETECTEAZĂ DIN NOU LIMBA/REGIUNEA TUTUROR JOCURILOR"
+msgstr "DETECTEAZĂ LIMBA/REGIUNEA TUTUROR JOCURILOR"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "GĂSEȘTE TOATE JOCURILE CU NETPLAY/REALIZĂRI"
@@ -1197,13 +1197,13 @@ msgid "RETROARCH MENU DRIVER"
 msgstr "DRIVER MENIU RETROARCH"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr "ÎNVERSEAZĂ BUTOANELE „CONFIRMĂ” ȘI „ANULEAZĂ” ÎN EMULATIONSTATION"
+msgstr "SCHIMBĂ BUTOANELE „CONFIRMĂ” ȘI „ANULEAZĂ”"
 
 msgid "Switches the South and East buttons' functionality"
 msgstr "Inversează funcționalitatea butoanelor din sud și est"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "ACCESEAZĂ OPȚIUNILE JOCULUI CU BUTONUL DIN NORD"
+msgstr "ACCESEAZĂ OPȚIUNI JOC CU BUTONUL DIN NORD"
 
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
@@ -1213,13 +1213,13 @@ msgstr ""
 "apăsarea lungă pe butonul din sud pentru opțiunile jocului"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "CONTROLEAZĂ EMULATIONSTATION DOAR CU PRIMUL JOYSTICK"
+msgstr "CONTROLEAZĂ ES DOAR CU PRIMUL JOYSTICK"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANȚA LA MIȘCAREA PUȘTII"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr "ACTIVEAZĂ SUPORTUL PENTRU CONTROLLER-UL DE PS3"
+msgstr "ACTIVEAZĂ SUPORT PENTRU CONTROLER PS3"
 
 msgid "Might have negative impact on security."
 msgstr "Poate avea un impact negativ legat de securitate."
@@ -1234,7 +1234,7 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMIZĂRI"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "ÎNCARCĂ ÎN AVANS ELEMENTELE INTERFEȚEI LA PORNIRE"
+msgstr "ÎNCARCĂ ÎN AVANS ELEMENTE INTERFAȚĂ LA PORNIRE"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
@@ -1286,10 +1286,10 @@ msgid "UPDATE TYPE"
 msgstr "TIP ACTUALIZARE"
 
 msgid "APPLY UPDATE"
-msgstr "APLICĂ ACTUALIZARE"
+msgstr "APLICĂ ACTUALIZAREA"
 
 msgid "START UPDATE"
-msgstr "ÎNCEPE ACTUALIZARE"
+msgstr "ÎNCEPE ACTUALIZAREA"
 
 msgid "UPDATER IS ALREADY RUNNING"
 msgstr "ACTUALIZATORUL DEJA RULEAZĂ"
@@ -1382,10 +1382,10 @@ msgid "BOOT SPLASH"
 msgstr "ECRAN DE PORNIRE"
 
 msgid "DEFAULT VIDEO/USER SET SPLASH"
-msgstr "VIDEO IMPLICIT/SETAT DE UTILIZATOR"
+msgstr "VIDEO IMPLICIT/SETAT"
 
 msgid "SILENT VIDEO/USER SET SPLASH"
-msgstr "VIDEO FĂRĂ SUNET/SETAT DE UTILIZATOR"
+msgstr "VIDEO FĂRĂ SUNET"
 
 msgid "BATOCERA SPLASH IMAGE"
 msgstr "IMAGINE BATOCERA"
@@ -1496,7 +1496,7 @@ msgid "High numbers can result in visible jitter."
 msgstr "Valorile ridicate pot duce la fluctuații."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
-msgstr "FOLOSEȘTE O A DOUA INSTANȚĂ PENTRU PRE-RULARE"
+msgstr "FOLOSEȘTE A DOUA INSTANȚĂ DE PRE-RULARE"
 
 msgid "Can prevent audio skips on button presses."
 msgstr "Poate preveni omiterile de sunet la apăsarea pe butoane."
@@ -1552,29 +1552,29 @@ msgstr ""
 "închiderea lui."
 
 msgid "INCREMENTAL SAVESTATES"
-msgstr "STĂRI SALVATE INCREMENTAL"
+msgstr "INCREMENTARE"
 
 msgid "INCREMENT PER SAVE"
-msgstr "INCREMENTEAZĂ PER SALVARE"
+msgstr "LA FIECARE SALVARE"
 
 msgid "Never overwrite old savestates, always make new ones."
 msgstr ""
 "Nu suprascrie niciodată stările salvate anterior, creează mereu unele noi."
 
 msgid "INCREMENT SLOT"
-msgstr "INCREMENTEAZĂ SLOTUL"
+msgstr "PER SESIUNE"
 
 msgid "Increment slot on a new game."
 msgstr "Incrementează slotul la o sesiune de joc nouă."
 
 msgid "DO NOT INCREMENT"
-msgstr "NU INCREMENTA"
+msgstr "FĂRĂ INCREMENTARE"
 
 msgid "Use current slot on a new game."
 msgstr "Folosește slotul curent la o sesiune de joc nouă."
 
 msgid "SHOW SAVESTATE MANAGER"
-msgstr "ARATĂ MANAGERUL DE STĂRI SALVATE"
+msgstr "ARATĂ MANAGERUL DE SALVĂRI"
 
 msgid "ALWAYS"
 msgstr "MEREU"
@@ -1631,7 +1631,7 @@ msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLERE SISTEM"
 
 msgid "CUSTOM IMAGE"
-msgstr "IMAGINE PARTICULARIZATĂ"
+msgstr "IMAGINE PERSONALIZATĂ"
 
 msgid "Show an image overlaid on top of the bezel."
 msgstr "Afișează o imagine suprapusă peste ramă."
@@ -1652,7 +1652,7 @@ msgid "SOUTH WEST"
 msgstr "SUD VEST"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "CALE IMAGINE PARTICULARIZATĂ .PNG"
+msgstr "CALE IMAGINE PERSONALIZATĂ .PNG"
 
 msgid "RESIZE TATTOO"
 msgstr "REDIMENSIONEAZĂ TATUAJUL"
@@ -1697,7 +1697,7 @@ msgid "THEME CONFIGURATION"
 msgstr "CONFIGURARE TEMĂ"
 
 msgid "VIEW CUSTOMIZATION"
-msgstr "PARTICULARIZARE AFIȘARE"
+msgstr "PERSONALIZARE AFIȘARE"
 
 msgid "GAMELIST STYLE"
 msgstr "STIL LISTĂ DE JOCURI"
@@ -1739,13 +1739,13 @@ msgid "SHOW FOLDERS"
 msgstr "ARATĂ DOSARELE"
 
 msgid "always"
-msgstr "mereu"
+msgstr "MEREU"
 
 msgid "never"
-msgstr "niciodată"
+msgstr "NICIODATĂ"
 
 msgid "having multiple games"
-msgstr "când conțin mai multe jocuri"
+msgstr "CÂND CONȚIN MAI MULTE JOCURI"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ARATĂ DOSARUL PĂRINTE „..”"
@@ -1868,7 +1868,7 @@ msgid "PLAY SYSTEM-SPECIFIC MUSIC"
 msgstr "REDĂ MUZICĂ SPECIFICĂ SISTEMULUI"
 
 msgid "LOWER MUSIC WHEN PLAYING VIDEO"
-msgstr "REDU VOLUMUL MUZICII ÎN TIMPUL REDĂRII UNUI VIDEOCLIP"
+msgstr "REDU VOLUMUL MUZICII LA REDAREA UNUI VIDEO"
 
 msgid "SOUNDS"
 msgstr "SUNETE"
@@ -1877,7 +1877,7 @@ msgid "ENABLE NAVIGATION SOUNDS"
 msgstr "ACTIVEAZĂ SUNETELE ÎN NAVIGARE"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
-msgstr "ACTIVEAZĂ PREVIZUALIZAREA VIDEOCLIPULUI CU SUNET"
+msgstr "ACTIVEAZĂ PREVIZUALIZARE VIDEO CU SUNET"
 
 msgid "IP ADDRESS"
 msgstr "ADRESĂ IP"
@@ -1964,7 +1964,7 @@ msgid "REALLY QUIT?"
 msgstr "CHIAR ÎNCHIZI?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SALVEAZĂ/ÎNCARCĂ AUTOMAT LA LANSAREA JOCULUI"
+msgstr "SALVEAZĂ/ÎNCARCĂ AUTOMAT LA LANSARE"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
@@ -1975,7 +1975,7 @@ msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "AFIȘEAZĂ GHIDUL CONTROLERULUI"
 
 msgid "CUSTOM .PNG IMAGE"
-msgstr "IMAGINE PARTICULARIZATĂ .PNG"
+msgstr "IMAGINE PERSONALIZATĂ .PNG"
 
 msgid "OVERLAY CORNER"
 msgstr "COLȚUL RAMELOR"
@@ -2135,7 +2135,7 @@ msgid "FAVORITES"
 msgstr "FAVORITE"
 
 msgid "ADD TO CUSTOM COLLECTION..."
-msgstr "ADAUGĂ LA O COLECȚIE PARTICULARIZATĂ..."
+msgstr "ADAUGĂ LA O COLECȚIE PERSONALIZATĂ..."
 
 msgid "DELETE COLLECTION"
 msgstr "ȘTERGE COLECȚIA"
@@ -2162,10 +2162,10 @@ msgid "ADD COMBINATION KEY"
 msgstr "ADAUGĂ O TASTĂ DE COMBINAȚIE"
 
 msgid "PAIR A BLUETOOTH DEVICE"
-msgstr "ÎMPERECHEAZĂ UN DISPOZITIV BLUETOOTH"
+msgstr "CONECTEAZĂ UN DISPOZITIV BLUETOOTH"
 
 msgid "PAIR"
-msgstr "ÎMPERECHEAZĂ"
+msgstr "CONECTEAZĂ"
 
 msgid "IMAGE SOURCE"
 msgstr "SURSĂ IMAGINE"
@@ -2189,7 +2189,7 @@ msgid "BOX 3D"
 msgstr "CUTIE 3D"
 
 msgid "FAN ART"
-msgstr "ARTA FANILOR"
+msgstr "FAN ART"
 
 msgid "BOX SOURCE"
 msgstr "SURSĂ CUTIE"
@@ -2228,7 +2228,7 @@ msgid "VIDEO"
 msgstr "VIDEOCLIP"
 
 msgid "FANART"
-msgstr "ARTA FANILOR"
+msgstr "FANART"
 
 msgid "BEZEL (16:9)"
 msgstr "RAMĂ (16:9)"
@@ -2261,7 +2261,7 @@ msgid "GROUPED SYSTEMS"
 msgstr "SISTEME GRUPATE"
 
 msgid "CREATE CUSTOM COLLECTION"
-msgstr "CREEAZĂ O COLECȚIE PARTICULARIZATĂ"
+msgstr "CREEAZĂ O COLECȚIE PERSONALIZATĂ"
 
 msgid "New Collection Name"
 msgstr "Nume colecție nouă"
@@ -2303,13 +2303,13 @@ msgid "START ON SYSTEM"
 msgstr "PORNEȘTE CU SISTEMUL"
 
 msgid "RESTORE LAST SELECTED"
-msgstr "RESTAUREAZĂ ULTIMA SELECȚIE"
+msgstr "ULTIMUL SELECTAT"
 
 msgid "START ON GAMELIST"
 msgstr "PORNEȘTE CU LISTA DE JOCURI"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr "GRUPEAZĂ COLECȚIILE PARTICULARIZATE"
+msgstr "GRUPEAZĂ COLECȚIILE PERSONALIZATE"
 
 msgid "UNTHEMED"
 msgstr "FĂRĂ TEMĂ"
@@ -2348,10 +2348,10 @@ msgid "DYNAMIC COLLECTIONS"
 msgstr "COLECȚII DINAMICE"
 
 msgid "CUSTOM GAME COLLECTIONS"
-msgstr "COLECȚII DE JOCURI PARTICULARIZATE"
+msgstr "COLECȚII DE JOCURI PERSONALIZATE"
 
 msgid "GAMES TO INDEX"
-msgstr "JOCURI PENTRU INDEXARE"
+msgstr "JOCURI DE INDEXAT"
 
 msgid "ONLY MISSING"
 msgstr "DOAR CELE LIPSĂ"
@@ -2411,7 +2411,7 @@ msgid "EDIT DYNAMIC COLLECTION FILTERS"
 msgstr "EDITEAZĂ FILTRELE COLECȚIEI DINAMICE"
 
 msgid "CUSTOM COLLECTION"
-msgstr "COLECȚIE PARTICULARIZATĂ"
+msgstr "COLECȚIE PERSONALIZATĂ"
 
 msgid "COLLECTION"
 msgstr "COLECȚIE"
@@ -2438,7 +2438,7 @@ msgid "NO MISSING BIOS"
 msgstr "NICIUN BIOS LIPSĂ"
 
 msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "UITĂ UN DISPOZITIV BLUETOOTH"
+msgstr "ELIMINĂ UN DISPOZITIV BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "ELIMINĂ-LE PE TOATE"
@@ -2565,10 +2565,10 @@ msgid "ENABLE BLUETOOTH"
 msgstr "ACTIVEAZĂ BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "ÎMPERECHEAZĂ CONTROLERELE BLUETOOTH AUTOMAT"
+msgstr "CONECTEAZĂ CONTROLERELE BLUETOOTH AUTOMAT"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "ÎMPERECHEAZĂ UN DISPOZITIV BLUETOOTH MANUAL"
+msgstr "CONECTEAZĂ UN DISPOZITIV BLUETOOTH MANUAL"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
 msgstr "AFIȘEAZĂ NOTIFICĂRILE CONTROLERELOR"
@@ -2733,7 +2733,7 @@ msgid "random"
 msgstr "aleator"
 
 msgid "START SCREENSAVER AFTER"
-msgstr "AFIȘEAZĂ ECONOMIZORUL DE ECRAN DUPĂ"
+msgstr "AFIȘEAZĂ ECONOMIZOR DE ECRAN DUPĂ"
 
 msgid "SCREENSAVER TYPE"
 msgstr "TIP ECONOMIZOR DE ECRAN"
@@ -2769,16 +2769,16 @@ msgid "SCREENSAVER CONTROLS"
 msgstr "CONTROALE ECONOMIZOR DE ECRAN"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr "FOLOSEȘTE VIDEOCLIPURI PARTICULARIZATE"
+msgstr "FOLOSEȘTE VIDEOCLIPURI PERSONALIZATE"
 
 msgid "CUSTOM VIDEO DIRECTORY"
-msgstr "DOSARUL VIDOCLIPURILOR PARTICULARIZATE"
+msgstr "DOSARUL VIDOCLIPURILOR PERSONALIZATE"
 
 msgid "USE VIDEOS IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "FOLOSEȘTE VIDEOCLIPURILE DIN SUBDOSARELE DOSARULUI PARTICULARIZAT"
+msgstr "FOLOSEȘTE VIDEOCLIPURILE DIN SUBDOSARELE DOSARULUI PERSONALIZAT"
 
 msgid "CUSTOM VIDEO FILE EXTENSIONS"
-msgstr "EXTENSIA FIȘIERELOR VIDEO PARTICULARIZATE"
+msgstr "EXTENSIA FIȘIERELOR VIDEO PERSONALIZATE"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
 msgstr "SETĂRI PREZENTARE DIAPOZITIVE ECONOMIZOR DE ECRAN"
@@ -2790,16 +2790,16 @@ msgid "STRETCH IMAGES"
 msgstr "ÎNTINDE IMAGINILE"
 
 msgid "USE CUSTOM IMAGES"
-msgstr "FOLOSEȘTE IMAGINI PARTICULARIZATE"
+msgstr "FOLOSEȘTE IMAGINI PERSONALIZATE"
 
 msgid "CUSTOM IMAGE DIRECTORY"
-msgstr "DOSAR IMAGINI PARTICULARIZATE"
+msgstr "DOSAR IMAGINI PERSONALIZATE"
 
 msgid "USE IMAGES IN SUBFOLDERS OF CUSTOM DIRECTORY"
-msgstr "FOLOSEȘTE IMAGINILE DIN SUBDOSARELE DOSARULUI PARTICULARIZAT"
+msgstr "FOLOSEȘTE IMAGINILE DIN SUBDOSARELE DOSARULUI PERSONALIZAT"
 
 msgid "CUSTOM IMAGE FILE EXTENSIONS"
-msgstr "EXTENSIA FIȘIERELOR IMAGINE PARTICULARIZATE"
+msgstr "EXTENSIA FIȘIERELOR IMAGINE PERSONALIZATE"
 
 msgid "INVALID CONTENT"
 msgstr "CONȚINUT INVALID"
@@ -2849,7 +2849,7 @@ msgid "No Entries Found"
 msgstr "Nu s-au găsit intrări"
 
 msgid "Times played"
-msgstr "Număr de jucări"
+msgstr "Număr partide jucate"
 
 #, c-format
 msgid "This folder contains %i game, including :%s"
@@ -2979,7 +2979,7 @@ msgid "STEERING WHEEL"
 msgstr "VOLAN"
 
 msgid "HAVING MEDIAS"
-msgstr "ARE FIȘIERE MEDIA"
+msgstr "CU FIȘIERE MEDIA"
 
 msgid "MISSING MEDIAS"
 msgstr "FIȘIERE MEDIA LIPSĂ"
@@ -3102,10 +3102,10 @@ msgid "RATING, DESCENDING"
 msgstr "SCOR, DESCRESCĂTOR"
 
 msgid "TIMES PLAYED, ASCENDING"
-msgstr "NUMĂR JUCĂRI, CRESCĂTOR"
+msgstr "NUMĂR PARTIDE, CRESCĂTOR"
 
 msgid "TIMES PLAYED, DESCENDING"
-msgstr "NUMĂR JUCĂRI, DESCRESCĂTOR"
+msgstr "NUMĂR PARTIDE, DESCRESCĂTOR"
 
 msgid "LAST PLAYED, ASCENDING"
 msgstr "JUCAT ULTIMA DATĂ, CRESCĂTOR"
@@ -3357,35 +3357,35 @@ msgstr "D-PAD DREAPTA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "MANETĂ ANALOGICĂ STÂNGĂ SUS"
+msgstr "MANETA STÂNGĂ SUS"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "MANETĂ ANALOGICĂ STÂNGĂ JOS"
+msgstr "MANETA STÂNGĂ JOS"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "MANETĂ ANALOGICĂ STÂNGĂ STÂNGA"
+msgstr "MANETA STÂNGĂ STÂNGA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "MANETĂ ANALOGICĂ STÂNGĂ DREAPTA"
+msgstr "MANETA STÂNGĂ DREAPTA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "MANETĂ ANALOGICĂ DREAPTĂ SUS"
+msgstr "MANETA DREAPTĂ SUS"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "MANETĂ ANALOGICĂ DREAPTĂ JOS"
+msgstr "MANETA DREAPTĂ JOS"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "MANETĂ ANALOGICĂ DREAPTĂ STÂNGA"
+msgstr "MANETA DREAPTĂ STÂNGA"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "MANETĂ ANALOGICĂ DREAPTĂ DREAPTA"
+msgstr "MANETA DREAPTĂ DREAPTA"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
