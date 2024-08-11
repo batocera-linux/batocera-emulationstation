@@ -8,7 +8,8 @@ GuiBluetoothDeviceOptions::GuiBluetoothDeviceOptions(Window* window, const std::
 {
     addChild(&mMenu);
 
-    mMenu.addButton(_("FORGET"), "forget", [&] { onForgetDevice(); });
+    mMenu.setSubTitle(name);
+
     if (mIsConnected)
     {
         mMenu.addButton(_("DISCONNECT"), "disconnect", [&] { onDisconnectDevice(); });
@@ -17,6 +18,7 @@ GuiBluetoothDeviceOptions::GuiBluetoothDeviceOptions(Window* window, const std::
     {
         mMenu.addButton(_("CONNECT"), "connect", [&] { onConnectDevice(); });
     }
+    mMenu.addButton(_("FORGET"), "forget", [&] { onForgetDevice(); });
     mMenu.addButton(_("BACK"), "back", [&] { delete this; });
 
     mMenu.setPosition((Renderer::getScreenWidth() - mMenu.getSize().x()) / 2, (Renderer::getScreenHeight() - mMenu.getSize().y()) / 2);
