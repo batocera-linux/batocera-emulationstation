@@ -405,6 +405,36 @@ msgstr "AUCUN RÉSEAU WIFI TROUVÉ"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "OUI"
+
+msgid "NO"
+msgstr "NON"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PROFIL PADTOKEY"
 
@@ -438,9 +468,6 @@ msgstr "POINTEUR DE SOURIS"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "ÉMULER LE POINTEUR DE SOURIS"
 
-msgid "NO"
-msgstr "NON"
-
 msgid "LEFT ANALOG STICK"
 msgstr "STICK DE GAUCHE"
 
@@ -452,9 +479,6 @@ msgstr "ÉDITER LA DESCRIPTION"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR SUPPRIMER CET ÉLÉMENT ?"
-
-msgid "YES"
-msgstr "OUI"
 
 msgid "DELETE MAPPING"
 msgstr "SUPPRIMER LA COMBINAISON"
@@ -584,8 +608,8 @@ msgstr "MODE DIFFICILE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Désactiver les chargements d'état, le rembobinage et les codes "
-"pour plus de points."
+"Désactiver les chargements d'état, le rembobinage et les codes pour plus de "
+"points."
 
 msgid "LEADERBOARDS"
 msgstr "TABLEAU DES SCORES"
@@ -645,6 +669,25 @@ msgstr "Accéder aux stats RetroAchievement depuis le menu principal!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO :"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "TOUT SUPPRIMER"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "AUCUN PERIPHÉRIQUE BLUETOOTH TROUVÉ"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR SUPPRIMER '%s' ?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "LE BEZEL PROJECT"
@@ -1208,8 +1251,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Intervertit le bouton nord (sauvegardes de jeu) et "
-"la pression longue sur le bouton sud (options du jeu)"
+"Intervertit le bouton nord (sauvegardes de jeu) et la pression longue sur le "
+"bouton sud (options du jeu)"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTRÔLER EMULATIONSTATION AVEC LA 1ÈRE MANETTE UNIQUEMENT"
@@ -2431,22 +2474,6 @@ msgstr "rafraîchir"
 msgid "NO MISSING BIOS"
 msgstr "AUCUN BIOS MANQUANT"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "OUBLIER UN PÉRIPHÉRIQUE BLUETOOTH"
-
-msgid "REMOVE ALL"
-msgstr "TOUT SUPPRIMER"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "AUCUN PERIPHÉRIQUE BLUETOOTH TROUVÉ"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ÊTES-VOUS SÛR(E) DE VOULOIR SUPPRIMER '%s' ?"
-
 msgid "ZOOM OUT"
 msgstr "ZOOM ARRIÈRE"
 
@@ -2539,9 +2566,9 @@ msgid ""
 msgstr ""
 "VOUS ALLEZ CONFIGURER UNE MANETTE. CECI EST BASÉ SUR LA POSITION RELATIVE "
 "DES BOUTONS ET NON SUR LEURS LIBELLÉS. SI VOUS N’AVEZ PAS DE TOUCHE SPÉCIALE "
-"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / STICKS QUE "
-"VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. APPUYEZ SUR "
-"LE BOUTON SUD POUR CONFIRMER UNE FOIS TERMINÉ."
+"POUR HOTKEY, UTILISEZ LE BOUTON SELECT. IGNOREZ TOUS LES BOUTONS / STICKS "
+"QUE VOUS N’AVEZ PAS EN RESTANT APPUYÉ SUR UN BOUTON DÉJÀ CONFIGURÉ. APPUYEZ "
+"SUR LE BOUTON SUD POUR CONFIRMER UNE FOIS TERMINÉ."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "PARAMÈTRES DES PISTOLETS SINDEN"
@@ -3455,6 +3482,9 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "OUBLIER UN PÉRIPHÉRIQUE BLUETOOTH"
 
 #~ msgid "-10 for auto"
 #~ msgstr "-10 pour automatique"

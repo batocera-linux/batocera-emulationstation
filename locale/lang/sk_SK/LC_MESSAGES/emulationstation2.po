@@ -410,6 +410,36 @@ msgstr "Nenašli sa žiadne Wi-Fi siete"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "Hľadám Wi-Fi siete"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "Áno"
+
+msgid "NO"
+msgstr "Nie"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "Nastavenie tlačidla na klávesnicu"
 
@@ -443,9 +473,6 @@ msgstr "Kurzor myši"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "Emulovať kurzor myši"
 
-msgid "NO"
-msgstr "Nie"
-
 msgid "LEFT ANALOG STICK"
 msgstr "Ľavá analógová páčka"
 
@@ -457,9 +484,6 @@ msgstr "Upraviť popis"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "Určite chcete vymazať túto položku?"
-
-msgid "YES"
-msgstr "Áno"
 
 msgid "DELETE MAPPING"
 msgstr "Vymazať mapovanie"
@@ -642,6 +666,25 @@ msgstr "Zobraziť vaše RetroAchievement štatistiky z hlavnej ponuky!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "Nemôžem aktivovať RetroAchievementy:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "Odstrániť všetko"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "Nenašli sa bluetooth zariadenia"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "Bluetooth zariadenia boli vymazané."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "Určite chcete odstrániť '%s' ?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "Projekt Bezel"
@@ -2420,22 +2463,6 @@ msgstr "obnoviť"
 msgid "NO MISSING BIOS"
 msgstr "Žiadny chýbajúci BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "Zabudnúť bluetooth zariadenie"
-
-msgid "REMOVE ALL"
-msgstr "Odstrániť všetko"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "Nenašli sa bluetooth zariadenia"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "Bluetooth zariadenia boli vymazané."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "Určite chcete odstrániť '%s' ?"
-
 msgid "ZOOM OUT"
 msgstr "Oddialiť"
 
@@ -3453,6 +3480,9 @@ msgid ""
 msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "Zabudnúť bluetooth zariadenie"
 
 #~ msgid "Achievements won"
 #~ msgstr "Úspechy vyhrané"

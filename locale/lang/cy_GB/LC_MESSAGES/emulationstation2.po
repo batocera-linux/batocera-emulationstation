@@ -410,6 +410,36 @@ msgstr "HEB FFEINDIO RHWYDWEITHIAU WIFI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "CHWILIO RHWYDWEITHIAU WIFI"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "IE"
+
+msgid "NO"
+msgstr "NA"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "FFURFWEDDIAD PAD I ALWEDDFWRDD"
 
@@ -443,9 +473,6 @@ msgstr "CYRCHWR LLYGODEN"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EFELYCHU CYRCHWR LLYGODEN"
 
-msgid "NO"
-msgstr "NA"
-
 msgid "LEFT ANALOG STICK"
 msgstr "FFON ANALOG CHWITH"
 
@@ -457,9 +484,6 @@ msgstr "GOLYGU DISGRIFIAD"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "A YDYCH CHI'N SIWR CHI EISIAU DILEU'R EITEM HON ?"
-
-msgid "YES"
-msgstr "IE"
 
 msgid "DELETE MAPPING"
 msgstr "DILEU MAPIO"
@@ -641,6 +665,25 @@ msgid "View your RetroAchievement stats right from the main menu!"
 msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+msgstr ""
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "DIDDYMU POPETH"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "HEB FFEINDIO DYFEISIAU BLUETOOTH"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr ""
 
 msgid "THE BEZEL PROJECT"
@@ -2388,22 +2431,6 @@ msgstr ""
 
 msgid "NO MISSING BIOS"
 msgstr "DIM BIOS AR GOLL"
-
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr ""
-
-msgid "REMOVE ALL"
-msgstr "DIDDYMU POPETH"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "HEB FFEINDIO DYFEISIAU BLUETOOTH"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr ""
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr ""
 
 msgid "ZOOM OUT"
 msgstr ""

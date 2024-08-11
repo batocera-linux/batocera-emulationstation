@@ -407,6 +407,36 @@ msgstr "INGEN WI-FI-NETTVERK FUNNET"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SØKER WI-FI-NETTVERK"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "JA"
+
+msgid "NO"
+msgstr "NEI"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD TIL TASTATUR KONFIGURASJON"
 
@@ -440,9 +470,6 @@ msgstr "MUSEPEKER"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULER MUSEPEKER"
 
-msgid "NO"
-msgstr "NEI"
-
 msgid "LEFT ANALOG STICK"
 msgstr "VENSTRE ANALOG PINNE"
 
@@ -454,9 +481,6 @@ msgstr "REDIGER BESKRIVELSE"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "ER DU SIKKER PÅ AT DU VIL SLETTE DENNE ?"
-
-msgid "YES"
-msgstr "JA"
 
 msgid "DELETE MAPPING"
 msgstr "SLETT KARTLEGGING"
@@ -640,6 +664,25 @@ msgstr "Se RetroAchievement-statistikken din rett fra hovedmenyen!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "KUNNE IKKE AKTIVERE RETROACHIEVEMENTS:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "FJERN ALL"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "INGEN BLUETOOTH ENHETER FUNNET"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH ENHETER HAR BLITT SLETTET."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "ER DU SIKKER PÅ AT DU VIL SLETTE '%s'?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "RAMME PROSJEKTET"
@@ -2421,22 +2464,6 @@ msgstr "oppdater"
 msgid "NO MISSING BIOS"
 msgstr "INGEN MANGLENDE BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "GLØM BLUETOOTH ENHET"
-
-msgid "REMOVE ALL"
-msgstr "FJERN ALL"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "INGEN BLUETOOTH ENHETER FUNNET"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH ENHETER HAR BLITT SLETTET."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ER DU SIKKER PÅ AT DU VIL SLETTE '%s'?"
-
 msgid "ZOOM OUT"
 msgstr "ZOOM OUT"
 
@@ -3443,6 +3470,9 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "GLØM BLUETOOTH ENHET"
 
 #~ msgid "-10 for auto"
 #~ msgstr "-10 for auto"

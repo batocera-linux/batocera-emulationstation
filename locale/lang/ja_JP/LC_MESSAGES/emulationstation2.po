@@ -406,6 +406,36 @@ msgstr "WI-FI ネットワークが見つかりません"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "はい"
+
+msgid "NO"
+msgstr "いいえ"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "パッドキー設定(キーボードをパッドに割り当てる)"
 
@@ -441,9 +471,6 @@ msgstr "マウスカーソル"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "マウスカーソルをエミュレート"
 
-msgid "NO"
-msgstr "いいえ"
-
 msgid "LEFT ANALOG STICK"
 msgstr "左アナログスティック"
 
@@ -455,9 +482,6 @@ msgstr "説明を編集"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "この項目を削除してもよろしいですか？"
-
-msgid "YES"
-msgstr "はい"
 
 msgid "DELETE MAPPING"
 msgstr "パッドキー設定を削除"
@@ -641,6 +665,25 @@ msgstr "メインメニューにRETROACHIEVEMENTSの統計を表示します!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "RETROACHIEVEMENTSを有効にできません:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "すべて削除"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "ペアリングしていません"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH デバイスを削除しました"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "'%s' を削除してもよろしいですか？"
 
 msgid "THE BEZEL PROJECT"
 msgstr "ベゼルプロジェクト"
@@ -1044,11 +1087,6 @@ msgstr "VSYNC(垂直同期)有効"
 msgid "OVERSCAN"
 msgstr "オーバースキャン"
 
-msgid "Sets the display's resolution for emulationstation."
-msgstr ""
-"Emulationstationで表示する解像度を設定します(自動＝最大)\n"
-"動作に問題がある場合は1920x1080以下を試してください"
-
 msgid "USE OMX PLAYER (HARDWARE ACCELERATED)"
 msgstr "OMX PLAYERを使用(ハードウェア)"
 
@@ -1357,6 +1395,11 @@ msgstr "起動時に KODI 実行"
 
 msgid "HARDWARE"
 msgstr "ハードウェア"
+
+msgid "Sets the display's resolution for emulationstation."
+msgstr ""
+"Emulationstationで表示する解像度を設定します(自動＝最大)\n"
+"動作に問題がある場合は1920x1080以下を試してください"
 
 msgid "AUDIO OUTPUT"
 msgstr "音声出力"
@@ -2419,22 +2462,6 @@ msgstr "リフレッシュ更新"
 msgid "NO MISSING BIOS"
 msgstr "BIOSは全てあります"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH デバイスの削除"
-
-msgid "REMOVE ALL"
-msgstr "すべて削除"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "ペアリングしていません"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH デバイスを削除しました"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "'%s' を削除してもよろしいですか？"
-
 msgid "ZOOM OUT"
 msgstr "縮小-"
 
@@ -3432,3 +3459,6 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "BLUETOOTH デバイスの削除"

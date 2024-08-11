@@ -407,6 +407,36 @@ msgstr "GEEN WI-FI NETWERKEN GEVONDEN"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WI-FI NETWERKEN ZOEKEN"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "JA"
+
+msgid "NO"
+msgstr "NEE"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD-TO-KEY CONFIGURATIE"
 
@@ -440,9 +470,6 @@ msgstr "MUISAANWIJZER"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULEER MUISAANWIJZER"
 
-msgid "NO"
-msgstr "NEE"
-
 msgid "LEFT ANALOG STICK"
 msgstr "LINKER ANALOGE STICK"
 
@@ -454,9 +481,6 @@ msgstr "WIJZIG BESCHRIJVING"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "WEET U ZEKER DAT U DIT ITEM WIL VERWIJDEREN?"
-
-msgid "YES"
-msgstr "JA"
 
 msgid "DELETE MAPPING"
 msgstr "VERWIJDER MAPPING"
@@ -645,6 +669,25 @@ msgstr "Bekijk je Retroprestaties statistieken direct vanuit het hoofdmenu!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "KAN RETROPRESTATIES NIET ACTIVEREN:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "VERWIJDER ALLES"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "GEEN BLUETOOTH APPARATEN GEVONDEN"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH APPARATEN ZIJN VERWIJDERD."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "WEET U ZEKER DAT U '%s' WILT VERWIJDEREN?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "HET OMLIJSTING PROJECT"
@@ -2441,22 +2484,6 @@ msgstr "vernieuw"
 msgid "NO MISSING BIOS"
 msgstr "GEEN ONTBREKENDE BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "VERGEET EEN BLUETOOTH APPARAAT"
-
-msgid "REMOVE ALL"
-msgstr "VERWIJDER ALLES"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "GEEN BLUETOOTH APPARATEN GEVONDEN"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH APPARATEN ZIJN VERWIJDERD."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "WEET U ZEKER DAT U '%s' WILT VERWIJDEREN?"
-
 msgid "ZOOM OUT"
 msgstr "ZOOM UIT"
 
@@ -3464,3 +3491,6 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "VERGEET EEN BLUETOOTH APPARAAT"

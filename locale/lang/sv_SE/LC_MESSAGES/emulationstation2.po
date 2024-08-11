@@ -405,6 +405,36 @@ msgstr "INGA TRÅDLÖSA NÄTVERK HITTADES"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SÖKER EFTER TRÅDLÖSA NÄTVERK"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "JA"
+
+msgid "NO"
+msgstr "NEJ"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "KONFIGURATION FÖR 'PAD TO KEYBOARD'"
 
@@ -438,9 +468,6 @@ msgstr "MUSPEKARE"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULERA MUSPEKARE"
 
-msgid "NO"
-msgstr "NEJ"
-
 msgid "LEFT ANALOG STICK"
 msgstr "VÄNSTRA ANALOGA SPAKEN"
 
@@ -452,9 +479,6 @@ msgstr "REDIGERA BESKRIVNING"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "ÄR DU SÄKER PÅ ATT DU VILL RADERA DETTA OBJEKT?"
-
-msgid "YES"
-msgstr "JA"
 
 msgid "DELETE MAPPING"
 msgstr "RADERA MAPPNING"
@@ -639,6 +663,25 @@ msgstr "Visa dina RetroAchivmentsuppgifter direkt från huvudmenyn!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "KUNDE INTE AKTIVERA RETROPRESTATIONER:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "TA BORT ALLA"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "INGEN BLUETOOTH-ENHET HITTADES"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH-ENHETER HAR RADERATS."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL TA BORT '%s'?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "RAMPROJEKTET"
@@ -2400,22 +2443,6 @@ msgstr ""
 msgid "NO MISSING BIOS"
 msgstr "INGA BIOS SAKNAS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "GLÖM EN BLUETOOTH-ENHET"
-
-msgid "REMOVE ALL"
-msgstr "TA BORT ALLA"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "INGEN BLUETOOTH-ENHET HITTADES"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH-ENHETER HAR RADERATS."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ÄR DU SÄKER PÅ ATT DU VILL TA BORT '%s'?"
-
 msgid "ZOOM OUT"
 msgstr "ZOOMA UT"
 
@@ -3418,6 +3445,9 @@ msgid ""
 msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "GLÖM EN BLUETOOTH-ENHET"
 
 #~ msgid "Achievements won"
 #~ msgstr "Vunna prestationer"

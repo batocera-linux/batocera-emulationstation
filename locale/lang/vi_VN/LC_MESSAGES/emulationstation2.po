@@ -409,6 +409,36 @@ msgstr "KHÔNG TÌM THẤY MẠNG WI-FI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "TÌM KIẾM MẠNG WI-FI"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "CÓ"
+
+msgid "NO"
+msgstr "KHÔNG"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CẤU HÌNH PAD VÀO BÀN PHÍM"
 
@@ -442,9 +472,6 @@ msgstr "CON TRỎ CHUỘT"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "CON TRỎ CHUỘT GIẢ LẬP"
 
-msgid "NO"
-msgstr "KHÔNG"
-
 msgid "LEFT ANALOG STICK"
 msgstr "STICK ANALOG TRÁI"
 
@@ -456,9 +483,6 @@ msgstr "CHỈNH SỬA MÔ TẢ"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "BẠN CÓ CHẮC CHẮN MUỐN XÓA MỤC NÀY KHÔNG?"
-
-msgid "YES"
-msgstr "CÓ"
 
 msgid "DELETE MAPPING"
 msgstr "XÓA BẢN ĐỒ PHÍM"
@@ -646,6 +670,25 @@ msgstr "Xem số liệu thống kê RetroAchievement của bạn ngay từ menu 
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "KHÔNG THỂ KÍCH HOẠT RETROACHIEVEMENTS:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "XOÁ TẤT CẢ"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "KHÔNG TÌM THẤY THIẾT BỊ BLUETOOTH"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "CÁC THIẾT BỊ BLUETOOTH ĐÃ BỊ XÓA."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "BẠN CÓ CHẮC MUỐN XOÁ '%s' KHÔNG?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "DỰ ÁN BEZEL"
@@ -2433,22 +2476,6 @@ msgstr ""
 msgid "NO MISSING BIOS"
 msgstr "THIẾU BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "QUÊN THIẾT BỊ BLUETOOTH"
-
-msgid "REMOVE ALL"
-msgstr "XOÁ TẤT CẢ"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "KHÔNG TÌM THẤY THIẾT BỊ BLUETOOTH"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "CÁC THIẾT BỊ BLUETOOTH ĐÃ BỊ XÓA."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "BẠN CÓ CHẮC MUỐN XOÁ '%s' KHÔNG?"
-
 msgid "ZOOM OUT"
 msgstr "PHÓNG TO"
 
@@ -3456,6 +3483,9 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "QUÊN THIẾT BỊ BLUETOOTH"
 
 #~ msgid "model"
 #~ msgstr "Model"

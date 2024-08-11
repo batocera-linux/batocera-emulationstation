@@ -443,6 +443,36 @@ msgstr "لم يتم العثور على شبكة وايفاي"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "جارِ البحث عن شبكة WIFI"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "نعم"
+
+msgid "NO"
+msgstr "لا"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "إعدادات لوحة تحكم إلى لوحة مفاتيح"
 
@@ -476,9 +506,6 @@ msgstr "مؤشر الفأرة"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "محاكاة مؤشر الفأرة"
 
-msgid "NO"
-msgstr "لا"
-
 msgid "LEFT ANALOG STICK"
 msgstr "عصا الأنالوج اليسرى"
 
@@ -490,9 +517,6 @@ msgstr "تعديل التفاصيل"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "أمتأكد أنك ترغب في حذف هذا العنصر ؟"
-
-msgid "YES"
-msgstr "نعم"
 
 msgid "DELETE MAPPING"
 msgstr "إزالة ضبط الأزرار"
@@ -675,6 +699,25 @@ msgstr "عرض إحصائيات إنجازاتك للريترو من القائ�
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "تعثر تفعيل انجازات الريترو:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "إزالة الكل"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "لا توجد أي أجهزة بلوتوث"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "تمت إزالة أجهزة البلوتوث."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "أترغب حقا في إزالة '%s' ؟"
 
 msgid "THE BEZEL PROJECT"
 msgstr "مشروع حواف الشاشة"
@@ -2444,22 +2487,6 @@ msgstr "تحديث"
 msgid "NO MISSING BIOS"
 msgstr "لا يوجد BIOS مفقود"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "نسيان جهاز بلوتوث"
-
-msgid "REMOVE ALL"
-msgstr "إزالة الكل"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "لا توجد أي أجهزة بلوتوث"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "تمت إزالة أجهزة البلوتوث."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "أترغب حقا في إزالة '%s' ؟"
-
 msgid "ZOOM OUT"
 msgstr "تصغير"
 
@@ -3511,6 +3538,9 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "نسيان جهاز بلوتوث"
 
 #~ msgid "-10 for auto"
 #~ msgstr "-10 تلقائي"

@@ -404,6 +404,36 @@ msgstr "와이파이를 찾지 못했습니다"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "와이파이를 검색 중입니다"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "예"
+
+msgid "NO"
+msgstr "아니요"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "패드 키보드 변환 설정"
 
@@ -437,9 +467,6 @@ msgstr "마우스 커서"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "마우스 커서 에뮬"
 
-msgid "NO"
-msgstr "아니요"
-
 msgid "LEFT ANALOG STICK"
 msgstr "왼쪽 아날로그 스틱"
 
@@ -451,9 +478,6 @@ msgstr "설명 수정"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "정말로 이 아이템을 삭제하시겠습니까?"
-
-msgid "YES"
-msgstr "예"
 
 msgid "DELETE MAPPING"
 msgstr "맵핑 삭제"
@@ -636,6 +660,25 @@ msgstr "메인 메뉴에서 레트로 도전과제 상태를 바로 확인합니
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "레트로 도전과제를 활성화할 수 없음:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "모두 제거"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "발견된 블루투스 장치가 없습니다"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "블루투스 장치가 삭제되었습니다."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "'%s'을 제거하시겠습니까?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "베젤 프로젝트"
@@ -2398,22 +2441,6 @@ msgstr ""
 msgid "NO MISSING BIOS"
 msgstr "바이오스가 모두 구성됨"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "블루투스 장치 제거"
-
-msgid "REMOVE ALL"
-msgstr "모두 제거"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "발견된 블루투스 장치가 없습니다"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "블루투스 장치가 삭제되었습니다."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "'%s'을 제거하시겠습니까?"
-
 msgid "ZOOM OUT"
 msgstr "줌 아웃"
 
@@ -3406,6 +3433,9 @@ msgid ""
 msgstr ""
 "라이트컨 보정\n"
 "보정하려면 타겟을 쏘세요"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "블루투스 장치 제거"
 
 #~ msgid "Achievements won"
 #~ msgstr "획득한 도전과제"

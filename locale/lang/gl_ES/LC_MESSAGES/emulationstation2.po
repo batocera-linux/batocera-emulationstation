@@ -411,6 +411,36 @@ msgstr "NON SE ATOPARON REDES SEN FIOS"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "BUSCANDO REDES SEN FIOS"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "SI"
+
+msgid "NO"
+msgstr "NON"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
 
@@ -444,9 +474,6 @@ msgstr "CURSOR DO RATO"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULAR O CURSOR DO RATO"
 
-msgid "NO"
-msgstr "NON"
-
 msgid "LEFT ANALOG STICK"
 msgstr "PAU ANALOXICO ESQUERDO"
 
@@ -458,9 +485,6 @@ msgstr "EDITAR DESCRICIÓN"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "¿ESTÁS CERTO DE QUE QUERES ELIMINAR ESTE ELEMENTO?"
-
-msgid "YES"
-msgstr "SI"
 
 msgid "DELETE MAPPING"
 msgstr "ELIMINAR A ASIGNACIÖN"
@@ -653,6 +677,25 @@ msgstr ""
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NON SE PODEN ACTIVAR RETROLOGROS:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "DESVINCULAR TODO"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NON SE ATOPARON DISPOSITIVOS BLUETOOTH"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "OS DISPOSITIVOS BLUETOOTH FORON ELIMINADOS."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "¿ESTAS CERTO QUE QUERES BORRAR '%s' ?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "O PROXECTO BISEL"
@@ -2443,22 +2486,6 @@ msgstr "refrescar"
 msgid "NO MISSING BIOS"
 msgstr "NON FALTAN BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "ESQUENCER DISPOSITIVO BLUETOOTH"
-
-msgid "REMOVE ALL"
-msgstr "DESVINCULAR TODO"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NON SE ATOPARON DISPOSITIVOS BLUETOOTH"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "OS DISPOSITIVOS BLUETOOTH FORON ELIMINADOS."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "¿ESTAS CERTO QUE QUERES BORRAR '%s' ?"
-
 msgid "ZOOM OUT"
 msgstr "ALONXAR"
 
@@ -3466,3 +3493,6 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara os obxectivos para calibrar"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "ESQUENCER DISPOSITIVO BLUETOOTH"

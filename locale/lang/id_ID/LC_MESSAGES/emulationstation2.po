@@ -406,6 +406,36 @@ msgstr "TIDAK DITEMUKAN JARINGAN WI-FI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "MENCARI JARINGAN WI-FI"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "YA"
+
+msgid "NO"
+msgstr "TIDAK"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "KONFIGURASI PAD KE KEYBOARD"
 
@@ -439,9 +469,6 @@ msgstr "KURSOR MOUSE"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "MENGEMULASI KURSOR MOUSE"
 
-msgid "NO"
-msgstr "TIDAK"
-
 msgid "LEFT ANALOG STICK"
 msgstr "STIK ANALOG KIRI"
 
@@ -453,9 +480,6 @@ msgstr "EDIT DESKRIPSI"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "ANDA YAKIN INGIN MENGHAPUS ITEM INI?"
-
-msgid "YES"
-msgstr "YA"
 
 msgid "DELETE MAPPING"
 msgstr "HAPUS PEMETAAN"
@@ -640,6 +664,25 @@ msgstr "Lihat statistik RetroAchievement Anda langsung dari menu utama!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "TIDAK DAPAT MENGAKTIFKAN PENCAPAIAN:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "HAPUS SEMUA"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "TIDAK DITEMUKAN PERANGKAT BLUETOOTH"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "PERANGKAT BLUETOOTH TERHAPUS"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "'%s' ANDA YAKIN INGIN MENGHAPUS?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "PROYEK BEZEL"
@@ -2416,22 +2459,6 @@ msgstr ""
 msgid "NO MISSING BIOS"
 msgstr "TIDAK ADA BIOS YANG HILANG"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "LUPAKAN PERANGKAT BLUETOOTH"
-
-msgid "REMOVE ALL"
-msgstr "HAPUS SEMUA"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "TIDAK DITEMUKAN PERANGKAT BLUETOOTH"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "PERANGKAT BLUETOOTH TERHAPUS"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "'%s' ANDA YAKIN INGIN MENGHAPUS?"
-
 msgid "ZOOM OUT"
 msgstr "PERKECIL"
 
@@ -3426,6 +3453,9 @@ msgid ""
 msgstr ""
 "KALIBER SENJATA\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "LUPAKAN PERANGKAT BLUETOOTH"
 
 #~ msgid "Achievements won"
 #~ msgstr "Prestasi dimenangkan"

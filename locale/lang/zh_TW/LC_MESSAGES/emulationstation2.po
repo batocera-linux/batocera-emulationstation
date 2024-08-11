@@ -406,6 +406,36 @@ msgstr "沒有找到 WI-FI 網路"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "搜尋 WI-FI 網路"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "是"
+
+msgid "NO"
+msgstr "否"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "手把轉鍵盤設定"
 
@@ -439,9 +469,6 @@ msgstr "滑鼠游標"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "模擬滑鼠游標"
 
-msgid "NO"
-msgstr "否"
-
 msgid "LEFT ANALOG STICK"
 msgstr "左類比搖桿"
 
@@ -453,9 +480,6 @@ msgstr "編輯簡介"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "您確定要刪除這個項目嗎？"
-
-msgid "YES"
-msgstr "是"
 
 msgid "DELETE MAPPING"
 msgstr "刪除映射"
@@ -638,6 +662,25 @@ msgstr "從主選單直接檢視您的 RetroAchievement 狀態！"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "無法啟用 RETROACHIEVEMENTS："
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "移除全部"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "沒有發現藍牙裝置"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "藍牙裝置已被刪除。"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "您確定要移除「%s」嗎？"
 
 msgid "THE BEZEL PROJECT"
 msgstr "框體專案"
@@ -2395,22 +2438,6 @@ msgstr ""
 msgid "NO MISSING BIOS"
 msgstr "沒有缺少 BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "忘記藍牙裝置"
-
-msgid "REMOVE ALL"
-msgstr "移除全部"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "沒有發現藍牙裝置"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "藍牙裝置已被刪除。"
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "您確定要移除「%s」嗎？"
-
 msgid "ZOOM OUT"
 msgstr "縮小"
 
@@ -3400,6 +3427,9 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "忘記藍牙裝置"
 
 #~ msgid "Achievements won"
 #~ msgstr "贏得成就"

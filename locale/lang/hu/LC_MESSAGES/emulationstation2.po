@@ -405,6 +405,36 @@ msgstr "NINCS WIFI HÁLÓZAT"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFI HÁLÓZAT KERESÉSE"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "IGEN"
+
+msgid "NO"
+msgstr "NEM"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD2KEY BEÁLLÍTÁSOK"
 
@@ -438,9 +468,6 @@ msgstr "EGÉR KURZOR"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EGÉR KURZOR EMULÁLÁSA"
 
-msgid "NO"
-msgstr "NEM"
-
 msgid "LEFT ANALOG STICK"
 msgstr "BAL ANALÓG KAR"
 
@@ -452,9 +479,6 @@ msgstr "LEÍRÁS SZERKESZTÉSE"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "BIZTOSAN TÖRÖLNI SZERETNÉD?"
-
-msgid "YES"
-msgstr "IGEN"
 
 msgid "DELETE MAPPING"
 msgstr "MEGFELELTETÉS TÖRLÉSE"
@@ -642,6 +666,25 @@ msgstr "Tekintse meg RetroAchievement statisztikáit közvetlenül a főmenübő
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NEM LEHET AKTIVÁLNI A RETROACHIEVEMENTS-EKET:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "MINDET ELTÁVOLÍT"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "A BLUETOOTH-ESZKÖZÖK TÖRÖLVE LETTEK."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "BIZTOSAN EL AKARJA TÁVOLÍTANI A '%s' -OKAT?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "KERET PROJEKT"
@@ -2436,22 +2479,6 @@ msgstr "frissítés"
 msgid "NO MISSING BIOS"
 msgstr "NINCS HIÁNYZÓ BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"
-
-msgid "REMOVE ALL"
-msgstr "MINDET ELTÁVOLÍT"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "A BLUETOOTH-ESZKÖZÖK TÖRÖLVE LETTEK."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "BIZTOSAN EL AKARJA TÁVOLÍTANI A '%s' -OKAT?"
-
 msgid "ZOOM OUT"
 msgstr "KICSINYÍTÉS"
 
@@ -3460,6 +3487,9 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"
 
 #~ msgid "Achievements won"
 #~ msgstr "Elért achivementek"

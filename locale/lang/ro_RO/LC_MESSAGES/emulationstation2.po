@@ -407,6 +407,36 @@ msgstr "NU S-AU GĂSIT REȚELE WI-FI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SE CAUTĂ REȚELE WI-FI"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "DA"
+
+msgid "NO"
+msgstr "NU"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURARE PADTOKEY"
 
@@ -440,9 +470,6 @@ msgstr "CURSOR MAUS"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULEAZĂ CURSORUL MAUSULUI"
 
-msgid "NO"
-msgstr "NU"
-
 msgid "LEFT ANALOG STICK"
 msgstr "MANETA ANALOGICĂ STÂNGĂ"
 
@@ -454,9 +481,6 @@ msgstr "EDITEAZĂ DESCRIEREA"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ ȘTERGI ACEST ELEMENT?"
-
-msgid "YES"
-msgstr "DA"
 
 msgid "DELETE MAPPING"
 msgstr "ȘTERGE ASOCIEREA"
@@ -646,6 +670,25 @@ msgstr "Vezi statisticile RetroRealizări direct din meniul principal!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NU S-AU PUTUT ACTIVA RETROREALIZĂRILE:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "ELIMINĂ-LE PE TOATE"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NU S-A GĂSIT NICIUN DISPOZITIV BLUETOOTH"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "DISPOZITIVELE BLUETOOTH AU FOST ȘTERSE."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ ELIMINI „%s”?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "RAME"
@@ -2437,22 +2480,6 @@ msgstr "reîmprospătează"
 msgid "NO MISSING BIOS"
 msgstr "NICIUN BIOS LIPSĂ"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "ELIMINĂ UN DISPOZITIV BLUETOOTH"
-
-msgid "REMOVE ALL"
-msgstr "ELIMINĂ-LE PE TOATE"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NU S-A GĂSIT NICIUN DISPOZITIV BLUETOOTH"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "DISPOZITIVELE BLUETOOTH AU FOST ȘTERSE."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "EȘTI SIGUR CĂ DOREȘTI SĂ ELIMINI „%s”?"
-
 msgid "ZOOM OUT"
 msgstr "MICȘOREAZĂ"
 
@@ -3473,3 +3500,6 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "ELIMINĂ UN DISPOZITIV BLUETOOTH"

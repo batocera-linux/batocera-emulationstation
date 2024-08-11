@@ -405,6 +405,36 @@ msgstr "NO WI-FI NETWORKS FOUND"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SEARCHING WI-FI NETWORKS"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "YES"
+
+msgid "NO"
+msgstr "NO"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD TO KEYBOARD CONFIGURATION"
 
@@ -438,9 +468,6 @@ msgstr "MOUSE CURSOR"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "EMULATE MOUSE CURSOR"
 
-msgid "NO"
-msgstr "NO"
-
 msgid "LEFT ANALOG STICK"
 msgstr "LEFT ANALOQUE STICK"
 
@@ -452,9 +479,6 @@ msgstr "EDIT DESCRIPTION"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-
-msgid "YES"
-msgstr "YES"
 
 msgid "DELETE MAPPING"
 msgstr "DELETE MAPPING"
@@ -639,6 +663,25 @@ msgstr "View your RetroAchievement stats right from the main menu!"
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "REMOVE ALL"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "NO BLUETOOTH DEVICES FOUND"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH DEVICES HAVE BEEN DELETED."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "THE BEZEL PROJECT"
@@ -2411,22 +2454,6 @@ msgstr "refresh"
 msgid "NO MISSING BIOS"
 msgstr "NO MISSING BIOS"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "FORGET A BLUETOOTH DEVICE"
-
-msgid "REMOVE ALL"
-msgstr "REMOVE ALL"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "NO BLUETOOTH DEVICES FOUND"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH DEVICES HAVE BEEN DELETED."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-
 msgid "ZOOM OUT"
 msgstr "ZOOM OUT"
 
@@ -3433,6 +3460,9 @@ msgid ""
 msgstr ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "FORGET A BLUETOOTH DEVICE"
 
 #~ msgid "Achievements won"
 #~ msgstr "Achievements won"

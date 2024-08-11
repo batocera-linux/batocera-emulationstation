@@ -405,6 +405,36 @@ msgstr "WIFI AĞI BULUNAMADI"
 msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFI AĞLARI TARANIYOR"
 
+msgid "DEVICE OPTIONS"
+msgstr ""
+
+msgid "FORGET"
+msgstr ""
+
+msgid "DISCONNECT"
+msgstr ""
+
+msgid "CONNECT"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
+msgstr ""
+
+msgid "YES"
+msgstr "EVET"
+
+msgid "NO"
+msgstr "HAYIR"
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
+msgstr ""
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
+msgstr ""
+
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD TO KEYBOARD AYARLARI"
 
@@ -438,9 +468,6 @@ msgstr "FARE İMLECİ"
 msgid "EMULATE MOUSE CURSOR"
 msgstr "FARE İMLECİ EMULASYONU"
 
-msgid "NO"
-msgstr "HAYIR"
-
 msgid "LEFT ANALOG STICK"
 msgstr "SOL ANALOG"
 
@@ -452,9 +479,6 @@ msgstr "AÇIKLAMAYI DÜZENLE"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
 msgstr "BUNU SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?"
-
-msgid "YES"
-msgstr "EVET"
 
 msgid "DELETE MAPPING"
 msgstr "EŞLEMEYİ SİL"
@@ -642,6 +666,25 @@ msgstr "RetroBaşarım istatistiklerinizi doğrudan ana menüden görüntüleyin
 
 msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "RETROBAŞARIMLAR AKTİVE EDİLEMİYOR:"
+
+msgid "BLUETOOTH DEVICE LIST"
+msgstr ""
+
+msgid "REMOVE ALL"
+msgstr "HEPSİNİ SİL"
+
+msgid "NO BLUETOOTH DEVICES FOUND"
+msgstr "BLUETOOTH CİHAZI BULUNAMADI"
+
+msgid " (Connected)"
+msgstr ""
+
+msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
+msgstr "BLUETOOTH CİHAZLARI SİLİNDİ."
+
+#, c-format
+msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
+msgstr "BUNU SİLMEK İSTEDİĞİNİZE EMİN MİSİNİZ '%s' ?"
 
 msgid "THE BEZEL PROJECT"
 msgstr "ÇERÇEVE PROJESİ"
@@ -2429,22 +2472,6 @@ msgstr "yenileme"
 msgid "NO MISSING BIOS"
 msgstr "EKSİK BIOS YOK"
 
-msgid "FORGET A BLUETOOTH DEVICE"
-msgstr "BLUETOOTH CİHAZI UNUT"
-
-msgid "REMOVE ALL"
-msgstr "HEPSİNİ SİL"
-
-msgid "NO BLUETOOTH DEVICES FOUND"
-msgstr "BLUETOOTH CİHAZI BULUNAMADI"
-
-msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "BLUETOOTH CİHAZLARI SİLİNDİ."
-
-#, c-format
-msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
-msgstr "BUNU SİLMEK İSTEDİĞİNİZE EMİN MİSİNİZ '%s' ?"
-
 msgid "ZOOM OUT"
 msgstr "UZAKLAŞ"
 
@@ -3450,6 +3477,9 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "FORGET A BLUETOOTH DEVICE"
+#~ msgstr "BLUETOOTH CİHAZI UNUT"
 
 #~ msgid "Achievements won"
 #~ msgstr "Kazanılan başarımlar"
