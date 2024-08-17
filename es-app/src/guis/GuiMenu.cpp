@@ -828,6 +828,18 @@ void GuiMenu::openDeveloperSettings()
 				_("NO"), nullptr));
 		});
 	}
+	
+#ifdef BATOCERA
+    s->addEntry(_("RESET SYSTEM CONFIGS"), true, [window] 
+	{
+		window->pushGui(new GuiMsgBox(window, _("DO YOU WANT TO RETURN SYSTEM CONFIGS TO DEFAULTS AND RESTART ?"), _("YES"),
+			[window] 
+			{
+				system("/usr/bin/batocera-resetsystem");
+			},
+			_("NO"), nullptr));
+	});
+#endif
 
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DISKFORMAT))
 		s->addEntry(_("FORMAT A DISK"), true, [this] { openFormatDriveSettings(); });
