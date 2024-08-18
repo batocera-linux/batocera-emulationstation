@@ -1660,7 +1660,8 @@ void GuiMenu::openSystemSettings()
 	if(enabledSplash == "0")      selectedSplash = "nosplash";
 	else if(soundSplash   == "0") selectedSplash = "silentsplash";
 
-	optionsSplash->add(_("DEFAULT VIDEO/USER SET SPLASH"),          "auto", selectedSplash == "auto");
+	optionsSplash->add(_("AUTO"), "auto", selectedSplash == "auto");
+	optionsSplash->add(_("DEFAULT VIDEO/USER SET SPLASH"),          "splash", selectedSplash == "splash");
 	optionsSplash->add(_("SILENT VIDEO/USER SET SPLASH"), "silentsplash", selectedSplash == "silentsplash");
 	optionsSplash->add(_("BATOCERA SPLASH IMAGE"),     "nosplash", selectedSplash == "nosplash");
 
@@ -1669,14 +1670,18 @@ void GuiMenu::openSystemSettings()
 	s->addSaveFunc([this, optionsSplash, selectedSplash]
 	{
 	  if (optionsSplash->changed()) {
-	    if(optionsSplash->getSelected() == "nosplash") {
-	      SystemConf::getInstance()->set("splash.screen.enabled", "0");
+	    if(optionsSplash->getSelected() == "auto") {
+	      SystemConf::getInstance()->set("splash.screen.enabled", "");
 	    } else {
-	      SystemConf::getInstance()->set("splash.screen.enabled", "1");
-	      if(optionsSplash->getSelected() == "silentsplash") {
-		SystemConf::getInstance()->set("splash.screen.sound", "0");
+	      if(optionsSplash->getSelected() == "nosplash") {
+		SystemConf::getInstance()->set("splash.screen.enabled", "0");
 	      } else {
-		SystemConf::getInstance()->set("splash.screen.sound", "1");
+		SystemConf::getInstance()->set("splash.screen.enabled", "1");
+		if(optionsSplash->getSelected() == "silentsplash") {
+		  SystemConf::getInstance()->set("splash.screen.sound", "0");
+		} else {
+		  SystemConf::getInstance()->set("splash.screen.sound", "1");
+		}
 	      }
 	    }
 	    SystemConf::getInstance()->saveSystemConf();
