@@ -497,7 +497,7 @@ void GuiMenu::openEmuELECSettings()
 			}
 		});
 
-       auto sshd_enabled = std::make_shared<SwitchComponent>(mWindow);
+  	auto sshd_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool baseEnabled = SystemConf::getInstance()->get("ee_ssh.enabled") == "1";
 		sshd_enabled->setState(baseEnabled);
 		s->addWithLabel(_("ENABLE SSH"), sshd_enabled);
