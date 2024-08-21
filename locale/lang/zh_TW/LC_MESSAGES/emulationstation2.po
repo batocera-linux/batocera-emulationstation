@@ -409,13 +409,13 @@ msgstr "搜尋 WI-FI 網路"
 msgid "DEVICE OPTIONS"
 msgstr ""
 
-msgid "FORGET"
-msgstr ""
-
 msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
+msgstr ""
+
+msgid "FORGET"
 msgstr ""
 
 #, c-format

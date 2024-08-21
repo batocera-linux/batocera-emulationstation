@@ -407,14 +407,14 @@ msgstr "正在查询WIFI网络"
 msgid "DEVICE OPTIONS"
 msgstr "设备选项"
 
-msgid "FORGET"
-msgstr "忘记"
-
 msgid "DISCONNECT"
 msgstr "断开连接"
 
 msgid "CONNECT"
 msgstr "连接"
+
+msgid "FORGET"
+msgstr "忘记"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"

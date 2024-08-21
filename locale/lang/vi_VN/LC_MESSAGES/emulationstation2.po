@@ -412,13 +412,13 @@ msgstr "TÌM KIẾM MẠNG WI-FI"
 msgid "DEVICE OPTIONS"
 msgstr ""
 
-msgid "FORGET"
-msgstr ""
-
 msgid "DISCONNECT"
 msgstr ""
 
 msgid "CONNECT"
+msgstr ""
+
+msgid "FORGET"
 msgstr ""
 
 #, c-format

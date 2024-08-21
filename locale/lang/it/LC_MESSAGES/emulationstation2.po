@@ -409,14 +409,14 @@ msgstr "RICERCA RETI WIFI"
 msgid "DEVICE OPTIONS"
 msgstr "OPZIONI DISPOSITIVO"
 
-msgid "FORGET"
-msgstr "DIMENTICA"
-
 msgid "DISCONNECT"
 msgstr "DISCONNETTI"
 
 msgid "CONNECT"
 msgstr "CONNETTI"
+
+msgid "FORGET"
+msgstr "DIMENTICA"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"

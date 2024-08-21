@@ -410,14 +410,14 @@ msgstr "WYSZUKIWANIE SIECI WIFI"
 msgid "DEVICE OPTIONS"
 msgstr "OPCJE URZĄDZEŃ"
 
-msgid "FORGET"
-msgstr "ZAPOMNIJ"
-
 msgid "DISCONNECT"
 msgstr "ROZŁĄCZ"
 
 msgid "CONNECT"
 msgstr "POŁĄCZ"
+
+msgid "FORGET"
+msgstr "ZAPOMNIJ"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
