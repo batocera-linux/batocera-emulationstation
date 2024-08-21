@@ -407,20 +407,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "RICERCA RETI WIFI"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "OPZIONI DISPOSITIVO"
 
 msgid "FORGET"
-msgstr ""
+msgstr "DIMENTICA"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "DISCONNETTI"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "CONNETTI"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "SEI SICURO DI VOLER RIMUOVERE '%s' ?"
 
 msgid "YES"
 msgstr "SI"
@@ -430,11 +430,11 @@ msgstr "NO"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "SEI SICURO DI VOLER CONNETTERE '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "SEI SICURO DI VOLER DISCONNETTERE '%s' ?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURAZIONE PAD2KEY"
@@ -666,7 +666,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "IMPOSSIBILE ATTIVARE I TROFEI:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "LISTA DISPOSITIVI BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "RIMUOVI TUTTO"
@@ -675,7 +675,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NESSUN DISPOSITIVO BLUETOOTH TROVATO"
 
 msgid " (Connected)"
-msgstr ""
+msgstr " (Connesso)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "I DISPOSITIVI BLUETOOTH SONO STATI ELIMINATI"

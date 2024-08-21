@@ -30,7 +30,7 @@ msgid "Formatting"
 msgstr "Formatowanie"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "DO UKOŃCZENIA OPERACJI WYMAGANE JEST PONOWNE URUCHOMIENIE SYSTEMU"
+msgstr "DO UKOŃCZENIA OPERACJI WYMAGANE JEST PONOWNE URUCHOMIENIE "
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "DYSK JEST JUŻ FORMATOWANY."
@@ -408,20 +408,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WYSZUKIWANIE SIECI WIFI"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "OPCJE URZĄDZEŃ"
 
 msgid "FORGET"
-msgstr ""
+msgstr "ZAPOMNIJ"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "ROZŁĄCZ"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "POŁĄCZ"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "CZY NA PEWNO ZAPOMNIEĆ '%s'?"
 
 msgid "YES"
 msgstr "TAK"
@@ -431,11 +431,11 @@ msgstr "NIE"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "CZY NA PEWNO POŁĄCZYĆ '%s'?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "CZY NA PEWNO ROZŁĄCZYĆ '%s'?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "KONFIGURACJA KLAWIATURY NA KONTROLERZE"
@@ -670,7 +670,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NIE MOŻNA AKTYWOWAĆ RETROOSIĄGNIĘĆ:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "LISTA URZĄDZEŃ BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "USUŃ WSZYSTKO"
@@ -679,7 +679,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NIE ZNALEZIONO ŻADNEGO URZĄDZENIA"
 
 msgid " (Connected)"
-msgstr ""
+msgstr "(Połączone)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "URZĄDZENIA BLUETOOTH ZOSTAŁY USUNIĘTE."
@@ -1957,7 +1957,7 @@ msgid "NOW PLAYING"
 msgstr "ODTWARZANE OBECNIE"
 
 msgid "LAUNCH SCREENSAVER"
-msgstr "URUCHOM WYGASZACZ EKRANU"
+msgstr "URUCHOM WYGASZACZ"
 
 msgid "VIEW USER MANUAL"
 msgstr "ZOBACZ PODRĘCZNIK"
