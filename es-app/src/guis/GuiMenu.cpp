@@ -880,6 +880,7 @@ void GuiMenu::addFrameBufferOptions(Window* mWindow, GuiSettings* guiSettings, s
 			cfgName = configName+cfgName;
 
 		SystemConf::getInstance()->set(cfgName, selectedFB);
+		SystemConf::getInstance()->saveSystemConf();
 
 		if (configName == "ee_es.") {
 			Scripting::fireEvent("quit", "restart");
@@ -980,6 +981,8 @@ void GuiMenu::addFrameBufferOptions(Window* mWindow, GuiSettings* guiSettings, s
 
 			std::string cfgName = "framebuffer_border."+ee_videomode;
 			SystemConf::getInstance()->set(configName+cfgName, result);
+			SystemConf::getInstance()->saveSystemConf();
+
 		});
 
 		mWindow->pushGui(bordersConfig);
