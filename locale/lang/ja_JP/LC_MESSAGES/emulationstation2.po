@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v40b(2024/07/31)\n"
+"Project-Id-Version: batocera-es v40b(2024/08/12)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-07-31 13:04+0900\n"
+"PO-Revision-Date: 2024-08-12 19:05+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -407,20 +407,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFIネットワークの検索"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
-
-msgid "DISCONNECT"
-msgstr ""
-
-msgid "CONNECT"
-msgstr ""
+msgstr "デバイスオプション"
 
 msgid "FORGET"
-msgstr ""
+msgstr "削除"
+
+msgid "DISCONNECT"
+msgstr "接続解除"
+
+msgid "CONNECT"
+msgstr "接続"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "'%s' を削除しますか？"
 
 msgid "YES"
 msgstr "はい"
@@ -430,11 +430,11 @@ msgstr "いいえ"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "'%s'に接続しますか?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "'%s'を接続解除しますか?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "パッドキー設定(キーボードをパッドに割り当てる)"
@@ -667,7 +667,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "RETROACHIEVEMENTSを有効にできません:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "BLUETOOTH デバイスリスト"
 
 msgid "REMOVE ALL"
 msgstr "すべて削除"
@@ -676,7 +676,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "ペアリングしていません"
 
 msgid " (Connected)"
-msgstr ""
+msgstr "(接続中）"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH デバイスを削除しました"
@@ -1369,7 +1369,7 @@ msgid "USER INTERFACE MODE"
 msgstr "ユーザーインターフェイス モード"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr "ゲストユーザー/子供が使用するために特定の設定メニューをロックします"
+msgstr "ゲストユーザー/子供用に特定の設定メニューをロックします"
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
@@ -1575,10 +1575,12 @@ msgid "SAVESTATES"
 msgstr "ステートセーブ"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "自動ステート読込み"
+msgstr "自動ステート保存/読込み"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
-msgstr "ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします"
+msgstr ""
+"ゲーム開始時に最新ステートを読込み、ゲーム終了時にステートセーブします\n"
+"(ステートセーブ保存方法 －「ゲームごとにセーブ」を選択してください)"
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "ステートセーブ保存方法"
@@ -1587,19 +1589,19 @@ msgid "INCREMENT PER SAVE"
 msgstr "常に別スロットにセーブ"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr "古いセーブに上書きせず、常に新しくセーブを保存"
+msgstr "古いセーブに上書きせず、常に新しくセーブをします"
 
 msgid "INCREMENT SLOT"
-msgstr "ゲームごとに別にセーブ"
+msgstr "ゲームごとにセーブ"
 
 msgid "Increment slot on a new game."
-msgstr "別の違うゲームの場合は、新しくセーブを保存"
+msgstr "違うゲームは、新しくセーブをします"
 
 msgid "DO NOT INCREMENT"
 msgstr "同一スロットにセーブ"
 
 msgid "Use current slot on a new game."
-msgstr "選択スロットにセーブを上書き保存"
+msgstr "選択スロットに上書きセーブをします"
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "ステートセーブマネージャーの表示"
