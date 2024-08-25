@@ -409,14 +409,14 @@ msgstr "WIFIネットワークの検索"
 msgid "DEVICE OPTIONS"
 msgstr "デバイスオプション"
 
-msgid "FORGET"
-msgstr "削除"
-
 msgid "DISCONNECT"
 msgstr "接続解除"
 
 msgid "CONNECT"
 msgstr "接続"
+
+msgid "FORGET"
+msgstr "削除"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
