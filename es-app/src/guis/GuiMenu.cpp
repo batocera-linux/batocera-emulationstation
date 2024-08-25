@@ -2025,11 +2025,11 @@ void GuiMenu::openLatencyReductionConfiguration(Window* mWindow, std::string con
 	guiLatency->addWithDescription(_("RUN-AHEAD FRAMES"), _("High numbers can result in visible jitter."), runahead_enabled);
 	guiLatency->addSaveFunc([configName, runahead_enabled] { SystemConf::getInstance()->set(configName + ".runahead", runahead_enabled->getSelected()); });
 
-	// second instance
-	auto secondinstance = std::make_shared<OptionListComponent<std::string>>(mWindow, _("USE SECOND INSTANCE FOR RUN-AHEAD"));
-	secondinstance->addRange({ { _("AUTO"), "" }, { _("ON"), "1" }, { _("OFF"), "0" } }, SystemConf::getInstance()->get(configName + ".secondinstance"));
-	guiLatency->addWithDescription(_("USE SECOND INSTANCE FOR RUN-AHEAD"), _("Can prevent audio skips on button presses."), secondinstance);
-	guiLatency->addSaveFunc([configName, secondinstance] { SystemConf::getInstance()->set(configName + ".secondinstance", secondinstance->getSelected()); });
+	// type of runahead
+	auto runaheadtype = std::make_shared<OptionListComponent<std::string>>(mWindow, _("TYPE OF RUN-AHEAD"));
+	runaheadtype->addRange({ { _("AUTO"), "" }, { _("SECOND INSTANCE"), "2" },  { _("PREEMPTIVE"), "1" }, { _("DEFAULT"), "0" } }, SystemConf::getInstance()->get(configName + ".runaheadtype"));
+	guiLatency->addWithDescription(_("TYPE OF RUN-AHEAD"), _("Can prevent audio skips on button presses. SECOND INSTANCE is runaheadtype more intensive but has less issues. PREEMPTIVE is lighter on resources but might have more issues."), runaheadtype);
+	guiLatency->addSaveFunc([configName, runaheadtype] { SystemConf::getInstance()->set(configName + ".runaheadtype", runaheadtype->getSelected()); });
 
 	// auto frame delay
 	auto video_frame_delay_auto = std::make_shared<OptionListComponent<std::string>>(mWindow, _("AUTOMATIC FRAME DELAY"));
