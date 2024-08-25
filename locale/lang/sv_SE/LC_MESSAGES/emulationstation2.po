@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-01-29 15:29+0100\n"
+"PO-Revision-Date: 2024-08-24 21:57+0200\n"
 "Last-Translator: A.H.\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SKANNAR BLUETOOTH"
@@ -1056,7 +1056,7 @@ msgid "SCREEN ROTATION"
 msgstr "SKÄRMROTATION"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD-skärm"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "FRONTEND UTVECKLARALTERNATIV"
@@ -1071,7 +1071,7 @@ msgid "SHOW FRAMERATE"
 msgstr "VISA FPS"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "Aktivera också emulatorns egna bildfrekvensräknare om tillgänglig"
+msgstr "Aktivera också emulatorns egna bildfrekvensräknare om tillgänglig."
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1117,7 +1117,7 @@ msgid "CLEAN GAMELISTS & REMOVE UNUSED MEDIA"
 msgstr "RENSA SPELLISTOR & TA BORT OANVÄND MEDIA"
 
 msgid "Remove unused entries, and clean references to missing medias."
-msgstr ""
+msgstr "Ta bort oanvända poster och städa upp hänvisningar till saknade media."
 
 msgid "Cleaning"
 msgstr "Rensar"
@@ -1126,13 +1126,13 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "ÅTERSTÄLL SPELLISTORS ANVÄNDARDATA"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr ""
+msgstr "Nollställ värden för metadata av GameTime, PlayCount och LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ÅTERSTÄLL FILÄNDELSER"
 
 msgid "Reset customized file extensions filters to default."
-msgstr ""
+msgstr "Nollställ anpassade sökfilter för filändelser till standard."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
 msgstr "ÅTERUPPTÄCK SPRÅK/REGION FÖR ALLA SPEL"
@@ -1150,22 +1150,22 @@ msgid "Building image cache"
 msgstr "Bygger bildcache"
 
 msgid "DISPLAY SETTINGS"
-msgstr ""
+msgstr "VISNINGSINSTÄLLNINGAR"
 
 msgid "MENU FONT SCALE"
-msgstr ""
+msgstr "SKALA FÖR MENYTYPSNITT"
 
 msgid "FONT SCALE"
-msgstr ""
+msgstr "TYPSNITTSSKALA"
 
 msgid "THEME FONT SCALE"
-msgstr ""
+msgstr "TYPSNITTSSKALA FÖR TEMA"
 
 msgid "FULL SCREEN MENUS"
-msgstr ""
+msgstr "FULLSKÄRMSMENYER"
 
 msgid "FORCE SMALL SCREEN THEMING"
-msgstr ""
+msgstr "TVINGA TEMA FÖR LITEN SKÄRM"
 
 msgid "DATA MANAGEMENT"
 msgstr "DATAHANTERING"
@@ -1179,15 +1179,18 @@ msgstr "AKTIVERA SPELFILTRERING"
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
+"Om spelfiltreringsinställningar ska visas eller ej i visningsalternativen."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "SPARA METADATA VID AVSLUT"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr ""
+msgstr "ANALYSERA ENDAST SPELLISTOR"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
+"Felsökningsverktyg: Kontrollera inte om ROM:ar faktiskt existerar. Kan "
+"orsaka problem!"
 
 msgid "SEARCH FOR LOCAL ART"
 msgstr "SÖK EFTER LOKAL KONST"
@@ -1196,6 +1199,8 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
+"Om ingen bild anges i spellistan, försök hitta media med samma filnamn för "
+"att använda."
 
 msgid "USER INTERFACE"
 msgstr "ANVÄNDARGRÄNSNITT"
@@ -1219,7 +1224,7 @@ msgid "RETROARCH MENU DRIVER"
 msgstr "DRIVRUTINER FÖR RETROARCH-MENY"
 
 msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
-msgstr ""
+msgstr "VÄXLA BEKRÄFTA- & AVBRYTKNAPPARNA I EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
 msgstr ""
@@ -3272,7 +3277,7 @@ msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
 msgstr "HÅLL EN KNAPP NEDTRYCKT PÅ DIN ENHET FÖR ATT KONFIGURERA DEN."
 
 msgid "PRESS ESC TO CANCEL."
-msgstr "TRYCK ESC FÖR ATT AVBRYTA"
+msgstr "TRYCK ESC FÖR ATT AVBRYTA."
 
 msgid "PRESS ESC OR A HOTKEY TO CANCEL."
 msgstr "TRYCK ESC ELLER EN SNABBTANGENT FÖR ATT AVBRYTA."
