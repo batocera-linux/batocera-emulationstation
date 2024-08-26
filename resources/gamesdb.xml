@@ -6934,6 +6934,7 @@
     </game>
     <game name="starskyandhutch">
       <wheel wheel="joystick1left" accelerate="lt" brake="rt"/>
+      <gun />
     </game>
     <game name="rracingevolution">
       <wheel wheel="joystick1left" accelerate="lt" brake="rt"/>
