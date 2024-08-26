@@ -24,14 +24,16 @@ def checkSystemGames(system, games):
             if games[x] in games[y]:
                 if games[x] == games[y]:
                     print("system {} failed : duplicated game {}".format(system, games[x]))
+                    success = False
                 else:
-                    print("system {} failed : game {} should be before game {} in the list".format(system, games[y], games[x]))
-                success = False
+                    if system not in ["arcade"]: # arcade has exact matching, no need to sort them
+                        print("system {} failed : game {} should be before game {} in the list".format(system, games[y], games[x]))
+                        success = False
     return success
 
 hasError = False
 
-for file in ["gamesdb.xml"]:
+for file in ["resources/gamesdb.xml"]:
     systems = xml2systemsArrays(file)
     for system in systems:
         if checkSystemGames(system, systems[system]) == False:
