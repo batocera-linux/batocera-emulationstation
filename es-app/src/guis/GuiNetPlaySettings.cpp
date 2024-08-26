@@ -20,7 +20,8 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window) : GuiSettings(window, _("
 	addGroup(_("OPTIONS"));
 
 	addInputTextRow(_("PORT"), "global.netplay.port", false);
-	addOptionList(_("USE RELAY SERVER"), { { _("NONE"), "" },{ _("NEW YORK") , "nyc" },{ _("MADRID") , "madrid" },{ _("MONTREAL") , "montreal" },{ _("SAO PAULO") , "saopaulo" } }, "global.netplay.relay", false);
+	addOptionList(_("USE RELAY SERVER"), { { _("NONE"), "" },{ _("NEW YORK") , "nyc" },{ _("MADRID") , "madrid" },{ _("MONTREAL") , "montreal" },{ _("SAO PAULO") , "saopaulo" },{ _("CUSTOM") , "custom" } }, "global.netplay.relay", false);
+	addInputTextRow(_("CUSTOM RELAY SERVER"), "global.netplay.customserver", false);
 	addSwitch(_("SHOW UNAVAILABLE GAMES"), _("Show rooms for games not present on this machine."), "NetPlayShowMissingGames", true, nullptr);
 
 	addGroup(_("GAME INDEXES"));
