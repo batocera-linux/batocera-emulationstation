@@ -546,6 +546,12 @@ msgstr ""
 msgid "SAO PAULO"
 msgstr ""
 
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "הצג משחקים לא זמינים"
 

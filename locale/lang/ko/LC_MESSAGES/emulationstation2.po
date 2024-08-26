@@ -542,6 +542,12 @@ msgstr "몬트리올"
 msgid "SAO PAULO"
 msgstr "상파울루"
 
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "실행할 수 없는 게임 표시"
 

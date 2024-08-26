@@ -545,6 +545,12 @@ msgstr "MONTREAL"
 msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
 

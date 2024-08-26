@@ -542,6 +542,12 @@ msgstr "蒙特利尔"
 msgid "SAO PAULO"
 msgstr "圣保罗"
 
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
 

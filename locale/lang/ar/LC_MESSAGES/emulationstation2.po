@@ -581,6 +581,12 @@ msgstr "مونريال"
 msgid "SAO PAULO"
 msgstr "ساو باولو"
 
+msgid "CUSTOM"
+msgstr ""
+
+msgid "CUSTOM RELAY SERVER"
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "عرض الألعاب الغير موجودة"
 
