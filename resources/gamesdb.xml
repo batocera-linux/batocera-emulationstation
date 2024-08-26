@@ -4179,6 +4179,9 @@
     <game name="4x4evo2">
       <wheel type="Steering Wheel" rotation="180"/>
     </game>
+    <game name="burnout2">
+      <wheel type="Steering Wheel" rotation="180"/>
+    </game>
     <game name="burnout">
       <wheel/>
     </game>
@@ -4187,9 +4190,6 @@
     </game>
     <game name="vrally3">
       <wheel/>
-    </game>
-    <game name="burnout2">
-      <wheel type="Steering Wheel" rotation="180"/>
     </game>
     <game name="prorally">
       <wheel type="Steering Wheel" rotation="180"/>
@@ -6963,9 +6963,6 @@
       <wheel wheel="joystick1left" accelerate="lt" brake="rt"/>
     </game>
     <game name="silentscopecomplete">
-      <gun/>
-    </game>
-    <game name="starskyandhutch">
       <gun/>
     </game>
     <game name="houseofthedeadiii">
