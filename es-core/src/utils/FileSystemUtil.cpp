@@ -1515,7 +1515,7 @@ namespace Utils
 
 		static std::set<std::string> _imageExtensions = { ".jpg", ".png", ".jpeg", ".gif", ".webp" };
 		static std::set<std::string> _videoExtensions = { ".mp4", ".avi", ".mkv", ".webm" };
-		static std::set<std::string> _audioExtensions = { ".mp3", ".wav", ".ogg", ".flac", ".mod", ".xm", ".stm", ".s3m", ".far", ".it", ".669", ".mtm" };
+		static std::set<std::string> _audioExtensions = { ".mp3", ".wav", ".ogg", ".flac", ".mod", ".xm", ".stm", ".s3m", ".far", ".it", ".669", ".mtm", ".opus" };
 
 		bool isSVG(const std::string& _path)
 		{
