@@ -532,7 +532,7 @@ void GuiMenu::openEmuELECSettings()
 			}
 		});
 
-       auto fps_enabled = std::make_shared<SwitchComponent>(mWindow);
+    auto fps_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool fpsEnabled = SystemConf::getInstance()->get("global.showFPS") == "1";
 		fps_enabled->setState(fpsEnabled);
 		s->addWithLabel(_("SHOW RETROARCH FPS"), fps_enabled);
@@ -5837,6 +5837,39 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 
 #ifdef _ENABLEEMUELEC
 	addFrameBufferOptions(mWindow, systemConfiguration, configName, "EMU");
+#endif
+
+#ifdef _ENABLEEMUELEC
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::midi))
+	{
+		auto ra_midi_def = std::make_shared< OptionListComponent<std::string> >(mWindow, "RETROARCH MIDI", false);
+
+		std::vector<std::string> midi_output;
+		std::string def_midi;
+		std::string midi_cmd = "emuelec-utils midi_output "+currentEmulator+" "+currentCore;
+		for(std::stringstream ss(Utils::Platform::getShOutput(midi_cmd.c_str())); getline(ss, def_midi, ','); ) {
+			if (!std::count(midi_output.begin(), midi_output.end(), def_midi)) {
+				 midi_output.push_back(def_midi);
+			}
+		}
+		//midi_output.push_back("timidity");
+		//midi_output.push_back("mt32d");
+		//midi_output.push_back("fluidsynth");
+		std::string saved_midi = SystemConf::getInstance()->get(configName+".ra_midi_output");
+		ra_midi_def->add("none", "none", saved_midi.empty());
+		for (auto it = midi_output.cbegin(); it != midi_output.cend(); it++)
+			ra_midi_def->add(*it, *it, saved_midi == *it);
+		systemConfiguration->addWithLabel(_("RETROARCH MIDI"), ra_midi_def);
+		systemConfiguration->addSaveFunc([ra_midi_def, configName] {
+			if (ra_midi_def->changed()) {
+				std::string selectedMidiOutput = ra_midi_def->getSelected();
+				if (selectedMidiOutput == "none")
+					selectedMidiOutput="";
+				SystemConf::getInstance()->set(configName+".ra_midi_output", selectedMidiOutput);
+				SystemConf::getInstance()->saveSystemConf();
+			}
+		});
+	}
 #endif
 
 	mWindow->pushGui(systemConfiguration);
