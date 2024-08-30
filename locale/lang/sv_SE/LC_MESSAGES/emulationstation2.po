@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-08-24 21:57+0200\n"
-"Last-Translator: A.H.\n"
+"PO-Revision-Date: 2024-08-26 19:39+0200\n"
+"Last-Translator: iBibicus\n"
 "Language-Team: \n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -406,20 +406,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SÖKER EFTER TRÅDLÖSA NÄTVERK"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "ALTERNATIV FÖR ENHET"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "KOPPLA IFRÅN"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "ANSLUT"
 
 msgid "FORGET"
-msgstr ""
+msgstr "GLÖM"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL GLÖMMA \"%s\"?"
 
 msgid "YES"
 msgstr "JA"
@@ -429,11 +429,11 @@ msgstr "NEJ"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL ANSLUTA TILL %s?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "ÄR DU SÄKER PÅ ATT DU VILL KOPPLA FRÅN \"%s\"?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "KONFIGURATION FÖR 'PAD TO KEYBOARD'"
@@ -544,16 +544,16 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "ANPASSAD"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "ANPASSAD RELÄSERVER"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VISA OTILLGÄNGLIGA SPEL"
 
 msgid "Show rooms for games not present on this machine."
-msgstr ""
+msgstr "Visa rum för spel som inte finns på den här maskinen."
 
 msgid "GAME INDEXES"
 msgstr "SPELINDEX"
@@ -614,6 +614,7 @@ msgstr "HARDCORE-LÄGE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
+"Inaktivera laddningstillstånd, spola tillbaka och fuska för fler poäng."
 
 msgid "LEADERBOARDS"
 msgstr "TOPPLISTOR"
@@ -625,22 +626,22 @@ msgid "VERBOSE MODE"
 msgstr "MÅNGSIDIGT LÄGE"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
+msgstr "Visa framsteg för prestationer vid spelstart och andra meddelanden."
 
 msgid "RICH PRESENCE"
-msgstr ""
+msgstr "RIK NÄRVARO"
 
 msgid "ENCORE MODE"
-msgstr ""
+msgstr "ENCORE-LÄGE"
 
 msgid "Unlocked achievements can be earned again."
-msgstr ""
+msgstr "Upplåsta prestationer kan tjänas in igen."
 
 msgid "AUTOMATIC SCREENSHOT"
 msgstr "AUTOMATISK SKÄRMDUMP"
 
 msgid "Automatically take a screenshot when an achievement is earned."
-msgstr ""
+msgstr "Ta automatiskt en skärmdump när du har tjänat in en prestation."
 
 msgid "CHALLENGE INDICATORS"
 msgstr "UTMANINGSINDIKATORER"
@@ -671,7 +672,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "KUNDE INTE AKTIVERA RETROPRESTATIONER:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "LISTA ÖVER BLUETOOTH-ENHETER"
 
 msgid "REMOVE ALL"
 msgstr "TA BORT ALLA"
@@ -680,7 +681,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "INGEN BLUETOOTH-ENHET HITTADES"
 
 msgid " (Connected)"
-msgstr ""
+msgstr " (Ansluten)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH-ENHETER HAR RADERATS."
@@ -722,6 +723,9 @@ msgid ""
 "UPGRADING COULD BREAK YOUR SYSTEM.\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
+"INOFFICIELLA SYSTEMÄNDRINGAR HAR UPPTÄCKTS.\n"
+"UPPGRADERING KAN FÖRSTÖRA DITT SYSTEM.\n"
+"VILL DU UPPDATERA TILL VERSION %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NÄTVERKSANSLUTNING BEHÖVS"
@@ -981,58 +985,58 @@ msgid "SERVICES"
 msgstr "TJÄNSTER"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "SERVER"
 
 msgid "DISABLED"
 msgstr "INAKTIVERAD"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDSERVER (för riktig dmd)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SIMULATOR (för webb-dmd)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "DMD-server"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "FORMAT"
 
 msgid "AUTO"
 msgstr "AUTO"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "DMD-matris storlek"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "MATRIS"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "RGB-DMD-ordning"
 
 msgid "BRIGHTNESS"
 msgstr "LJUSSTYRKA"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMDSERVER har stoppats"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMDSERVER har startats om"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMDSERVER startad"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "FLERA SKÄRMAR"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "BAKGLAS / INFORMATIONSSKÄRM"
 
 msgid "THEME"
-msgstr ""
+msgstr "TEMA"
 
 msgid "VIDEO OUTPUT"
 msgstr "VIDEOUTGÅNG"
@@ -1041,10 +1045,10 @@ msgid "VIDEO MODE"
 msgstr "VIDEOLÄGE"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Ställer in skärmens upplösning."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "ROTATION"
 
 msgid "0 DEGREES"
 msgstr "0 GRADER"
@@ -1233,7 +1237,7 @@ msgid "SWITCH CONFIRM & CANCEL BUTTONS IN EMULATIONSTATION"
 msgstr "VÄXLA BEKRÄFTA- & AVBRYTKNAPPARNA I EMULATIONSTATION"
 
 msgid "Switches the South and East buttons' functionality"
-msgstr ""
+msgstr "Växlar funktionaliteten för den södra och östra knappen"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
 msgstr "ÅTKOMST TILL SPELALTERNATIV MED NORRA KNAPPEN"
@@ -1252,10 +1256,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "PISTOLRÖRELSETOLERANS"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "AKTIVERA STÖD FÖR PS3-KONTROLLER"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Kan ha negativ inverkan på säkerheten."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "AKTIVERA HID-JOYSTICK-DRIVRUTINER"
@@ -1359,6 +1363,7 @@ msgstr "DIREKT"
 
 msgid "Reduces power consumption when idle (useful for handhelds)."
 msgstr ""
+"Minskar strömförbrukningen när den är inaktiv (användbart för handdatorer)."
 
 msgid "SCREEN READER (TEXT TO SPEECH)"
 msgstr "SKÄRMLÄSARE (TEXT TILL TAL)"
@@ -1367,13 +1372,18 @@ msgid "USER INTERFACE MODE"
 msgstr "ANVÄNDARGRÄNSSNITTSLÄGE"
 
 msgid "Lock down certain config menus for use with guest users/kids."
-msgstr ""
+msgstr "Lås vissa konfigurationsmenyer för användning med gästanvändare/barn."
 
 msgid ""
 "You are changing the user interface to a restricted mode:\n"
 "This will hide most menu options to prevent changes to the system.\n"
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
+"Du ändrar användargränssnittet till ett begränsat läge:\n"
+"Detta kommer att dölja de flesta menyalternativ för att förhindra ändringar "
+"i systemet.\n"
+"För att låsa upp och återgå till det fullständiga användargränssnittet, ange "
+"den här koden:"
 
 msgid "Do you want to proceed?"
 msgstr "Vill du fortsätta?"
@@ -1400,7 +1410,7 @@ msgid "AUDIO PROFILE"
 msgstr "LJUDPROFIL"
 
 msgid "Available options can change depending on current audio output."
-msgstr ""
+msgstr "Tillgängliga alternativ kan ändras beroende på aktuell ljudutgång."
 
 msgid "BOOT SPLASH"
 msgstr "UPPSTARTSBILD"
@@ -1472,7 +1482,7 @@ msgid "OVERCLOCK"
 msgstr "ÖVERKLOCKNING"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "LED-HÅRDVARA"
 
 msgid "RED"
 msgstr "RÖD"
@@ -1484,7 +1494,7 @@ msgid "BLUE"
 msgstr "BLÅ"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "LED-LJUSSTYRKA"
 
 msgid "STORAGE"
 msgstr "LAGRING"
@@ -1572,24 +1582,25 @@ msgstr "SPARA/LADDA AUTOMATISKT"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
+"Ladda senaste sparläge vid spelstart och sparläge när du avslutar spelet."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLA SAVE STATES"
 
 msgid "INCREMENT PER SAVE"
-msgstr ""
+msgstr "ÖKA FÖR VARJE GÅNG DU SPARAR"
 
 msgid "Never overwrite old savestates, always make new ones."
-msgstr ""
+msgstr "Skriv aldrig över gamla sparlägen, skapa alltid nya."
 
 msgid "INCREMENT SLOT"
-msgstr ""
+msgstr "ÖKA SPARNUMMER"
 
 msgid "Increment slot on a new game."
-msgstr ""
+msgstr "Öka sparnummer vid nytt spel."
 
 msgid "DO NOT INCREMENT"
-msgstr ""
+msgstr "ÖKA INTE"
 
 msgid "Use current slot on a new game."
 msgstr "Används nuvarande plats för ett nytt spel."
@@ -1604,7 +1615,7 @@ msgid "IF NOT EMPTY"
 msgstr "OM EJ TOM"
 
 msgid "Display savestate manager before launching a game."
-msgstr ""
+msgstr "Visa sparlägeshanteraren innan du startar ett spel."
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "GLOBALA STANDARDINSTÄLLNINGAR"
@@ -1613,11 +1624,12 @@ msgid "GAME ASPECT RATIO"
 msgstr "SPELBILDFÖRHÅLLANDEN"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr ""
+msgstr "Tvinga spelet att renderas i detta bildförhållande."
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
+"Ställer in skärmens upplösning. Påverkar inte återgivningsupplösningen."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
 msgstr "UTJÄMNING I SPEL (BILINJÄR FILTRERING)"
@@ -1627,6 +1639,8 @@ msgstr "TILLBAKASPOLNING"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
 msgstr ""
+"Lagra tidigare tillstånd för att spola tillbaka till i realtid, om kärnan "
+"stöder det."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "HELHETSSKALNING (PIXEL PERFECT)"
@@ -1821,7 +1835,7 @@ msgid "SCREENSAVER SETTINGS"
 msgstr "SKÄRMSLÄCKARINSTÄLLNINGAR"
 
 msgid "LIST TRANSITION"
-msgstr ""
+msgstr "ÖVERGÅNG TILL LISTA"
 
 msgid "auto"
 msgstr "auto"
@@ -1956,10 +1970,10 @@ msgid "REALLY RESTART?"
 msgstr "VILL DU VERKLIGEN STARTA OM?"
 
 msgid "SUSPEND SYSTEM"
-msgstr ""
+msgstr "AVBRYT SYSTEMET"
 
 msgid "REALLY SUSPEND ?"
-msgstr ""
+msgstr "VERKLIGEN AVBRYTA?"
 
 msgid "SHUTDOWN SYSTEM"
 msgstr "STÄNG AV SYSTEMET"
@@ -1987,6 +2001,7 @@ msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
+"Ladda senaste sparläge vid spelstart och spara läge när du avslutar spelet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA SPELKONTROLLOVERLAYS"
@@ -2224,7 +2239,7 @@ msgid "PREFERED REGION"
 msgstr "FÖREDRAGEN REGION"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "SKRIVA ÖVER NAMN"
 
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "SKRIV ÖVER BESKRIVNINGAR"
@@ -2446,10 +2461,10 @@ msgid "NO MISSING BIOS FILES"
 msgstr "INGA BIOS-FILER SAKNAS"
 
 msgid "Installed systems"
-msgstr ""
+msgstr "Installerade system"
 
 msgid "refresh"
-msgstr ""
+msgstr "uppdatera"
 
 msgid "NO MISSING BIOS"
 msgstr "INGA BIOS SAKNAS"
@@ -2525,7 +2540,7 @@ msgid "CONTROLLERS PRIORITY"
 msgstr "SPELKONTROLLPRIORITET"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr ""
+msgstr "SPELARANGIVELSE"
 
 #, c-format
 msgid "CONTROLLER #%i"
@@ -2544,6 +2559,10 @@ msgid ""
 "SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
 "BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
+"DU SKA KARTLÄGGA EN STYRENHET. BASERAT PÅ KNAPPENS POSITION, INTE PÅ DESS "
+"FYSISKA ETIKETT. OM DU INTE HAR EN SPECIELL KNAPP FÖR SNABBTANGENT, ANVÄND "
+"SELECT-KNAPPEN. HOPPA ÖVER ALLA KNAPPAR/SPAKAR DU INTE HAR GENOM ATT HÅLLA "
+"IN NÅGON KNAPP. TRYCK PÅ DEN SÖDRA KNAPPEN FÖR ATT BEKRÄFTA NÄR DU ÄR KLAR."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "SINDENPISTOLINSTÄLLNINGAR"
@@ -2558,7 +2577,7 @@ msgid "BLUETOOTH"
 msgstr "BLÅTAND"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "AKTIVERA BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "PARA BLÅTANDSKONTROLLER AUTOMATISKT"
@@ -2567,7 +2586,7 @@ msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr "PARA EN BLÅTANDSENHET MANUELLT"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "VISA HANDKONTROLLSAVISERINGAR"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "VISA KONTROLLAKTIVITET"
@@ -2618,7 +2637,7 @@ msgid "Default (50)"
 msgstr "Standard (40)"
 
 msgid "Dim Display/Evening (60)"
-msgstr ""
+msgstr "Dämpa display/kväll (60)"
 
 msgid "CAMERA BRIGHTNESS"
 msgstr "KAMERASTYRKA"
@@ -2630,7 +2649,7 @@ msgid "Default (100)"
 msgstr "Standard (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr ""
+msgstr "Dämpa display/kväll (120)"
 
 msgid "CAMERA EXPOSURE"
 msgstr "KAMERAEXPONERING"
@@ -2717,7 +2736,7 @@ msgid "slideshow"
 msgstr "bildspel"
 
 msgid "suspend"
-msgstr ""
+msgstr "avbryt"
 
 msgid "start & end"
 msgstr "början & slut"
@@ -2817,16 +2836,16 @@ msgid "Kid"
 msgstr "Barn"
 
 msgid "Basic"
-msgstr ""
+msgstr "Grundläggande"
 
 msgid "Games similar to"
 msgstr "Spel som liknar"
 
 msgid "SAVE STATES (HOLD)"
-msgstr ""
+msgstr "SPARLÄGEN (HÅLL INNE)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr ""
+msgstr "SPELALTERNATIV (HÅLL INNE)"
 
 msgid "GAME OPTIONS"
 msgstr "SPELALTERNATIV"
@@ -2896,7 +2915,7 @@ msgstr[0] "%i SPEL"
 msgstr[1] "%i SPEL"
 
 msgid "NAVIGATION BAR"
-msgstr ""
+msgstr "NAVIGERINGSFÄLT"
 
 msgid "FILES"
 msgstr "FILER"
@@ -3049,7 +3068,7 @@ msgid "lightgun games"
 msgstr "lightgun-spel"
 
 msgid "wheel games"
-msgstr "Rattspel"
+msgstr "rattspel"
 
 msgid "collections"
 msgstr "samlingar"

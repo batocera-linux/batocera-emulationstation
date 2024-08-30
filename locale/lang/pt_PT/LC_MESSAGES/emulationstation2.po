@@ -406,20 +406,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "A PROCURA DE REDES WIFI"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "OPÇÕES DE DISPOSITIVO"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "DESCONECTAR"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "CONECTAR"
 
 msgid "FORGET"
-msgstr ""
+msgstr "ESQUECER"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "VOCÊ TEM A CERTEZA QUE QUER ESQUECER '%s' ?"
 
 msgid "YES"
 msgstr "SIM"
@@ -429,11 +429,11 @@ msgstr "NÃO"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "VOCÊ TEM A CERTEZA QUE DESEJA SE CONECTAR A '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "VOCÊ TEM A CERTEZA QUE QUER DESCONECTAR '%s' ?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "AJUSTE DE PAD2KEY"
@@ -544,10 +544,10 @@ msgid "SAO PAULO"
 msgstr "SÃO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "PERSONALIZADO"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "SERVIDOR DE RELÉ PERSONALIZADO"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOGOS INDISPONÍVEIS"
@@ -676,7 +676,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "INCAPAZ DE ATIVAR RETROACHIEVEMENTS:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "LISTA DE DISPOSITIVOS BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "REMOVER TODOS"
@@ -684,8 +684,8 @@ msgstr "REMOVER TODOS"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 
-msgid " (Connected)"
-msgstr ""
+msgid "(Connected)"
+msgstr "(Conectado)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM ELIMINADOS."
@@ -3484,8 +3484,6 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
-#~ msgid "FORGET A BLUETOOTH DEVICE"
-#~ msgstr "DESEMPARELHAR DISPOSITIVO BLUETOOTH"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
