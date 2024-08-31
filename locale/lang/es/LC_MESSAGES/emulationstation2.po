@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2024-06-02 00:00+0100\n"
+"PO-Revision-Date: 2024-08-31 00:00+0100\n"
 "Last-Translator: roliverosc <roliverosc@hotmail.com>, 2024\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -408,17 +408,17 @@ msgid "DEVICE OPTIONS"
 msgstr "OPCIONES DEL DISPOSITIVO"
 
 msgid "DISCONNECT"
-msgstr "DESCONECTADO"
+msgstr "DESCONECTAR"
 
 msgid "CONNECT"
-msgstr "CONECTADO"
+msgstr "CONECTAR"
 
 msgid "FORGET"
 msgstr "OLVIDAR"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr "¿ESTAS SEGURO QUE QUIERES OLVIDAR ´%s' ?"
+msgstr "¿ESTÁS SEGURO QUE QUIERES OLVIDAR '%s' ?"
 
 msgid "YES"
 msgstr "SÍ"
@@ -428,11 +428,11 @@ msgstr "NO"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr "¿ESTAS SEGURO QUE QUIERES CONECTAR A '%s' ?"
+msgstr "¿ESTÁS SEGURO QUE QUIERES CONECTARTE A '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr "¿ESTAS SEGURO QUE QUIERES DESCONECTAR '&s' ?"
+msgstr "¿ESTÁS SEGURO QUE QUIERES DESCONECTAR '%s' ?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURACIÓN DE MANDO A TECLADO"
@@ -543,10 +543,10 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "PERSONALIZAR"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "PERSONALIZAR SERVIDOR DE RETRANSMISIÓN"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
@@ -1263,7 +1263,7 @@ msgid ""
 "Game Options"
 msgstr ""
 "Cambia pulsación corta de botón Norte para Partidas guardadas y pulsación "
-"larga botón sur para Opciones de juego"
+"larga botón Sur para Opciones de juego"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLAR SISTEMA SOLO CON EL MANDO PRINCIPAL"
@@ -1540,7 +1540,7 @@ msgid "LATENCY REDUCTION"
 msgstr "REDUCCIÓN DE LATENCIA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "ANTICIPACIÓN DE FRAMES (RUN-AHEAD)"
+msgstr "ANTICIPACIÓN DE FOTOGRAMAS (RUN-AHEAD)"
 
 msgid "High numbers can result in visible jitter."
 msgstr "Números altos pueden dar lugar a temblores visibles."
@@ -1782,7 +1782,7 @@ msgid "GAMELIST OPTIONS"
 msgstr "OPCIONES DE LA LISTA DE JUEGOS"
 
 msgid "SHOW FAVORITES ON TOP"
-msgstr "MOSTRAR FAVORITOS EN LA PARTE SUPERIOR"
+msgstr "MOSTRAR FAVORITOS PRIMERO"
 
 msgid "SHOW HIDDEN FILES"
 msgstr "MOSTRAR ARCHIVOS OCULTOS"
@@ -1809,7 +1809,7 @@ msgid "AFTER NAME"
 msgstr "DESPUÉS DEL NOMBRE"
 
 msgid "SHOW REGION FLAG"
-msgstr "MOSTRAR BANDERAS DE REGIÓN"
+msgstr "MOSTRAR BANDERA DE REGIÓN"
 
 msgid "SHOW SAVESTATE ICON"
 msgstr "MOSTRAR ICONO DE PARTIDA GUARDADA"
@@ -1897,7 +1897,7 @@ msgid "SYSTEM VOLUME"
 msgstr "VOLUMEN DEL SISTEMA"
 
 msgid "MUSIC VOLUME"
-msgstr "VOLUMEN DE MÚSICA"
+msgstr "VOLUMEN DE LA MÚSICA"
 
 msgid "SHOW OVERLAY WHEN VOLUME CHANGES"
 msgstr "MOSTRAR BARRA DE VOLUMEN AL CAMBIAR EL VOLUMEN"
@@ -2295,7 +2295,7 @@ msgid "MANUAL"
 msgstr "MANUAL DE INSTRUCCIONES"
 
 msgid "PADTOKEY SETTINGS"
-msgstr "AJUSTES PADTOKEY (MANDO A TECLAS)"
+msgstr "AJUSTES DE MANDO A TECLAS (PADTOKEY)"
 
 msgid "ACCOUNT"
 msgstr "CUENTA"
@@ -2552,7 +2552,7 @@ msgid "WATCH GAME"
 msgstr "UNIRSE COMO ESPECTADOR"
 
 msgid "CONTROLLER SETTINGS"
-msgstr "AJUSTES DEL MANDO"
+msgstr "AJUSTES DE MANDOS"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
 msgstr "AJUSTES DE MANDOS Y DISPOSITIVOS BLUETOOTH"
@@ -2569,7 +2569,7 @@ msgstr "MANDO #%i"
 
 #, c-format
 msgid "P%i'S CONTROLLER"
-msgstr "MANDO DEL JUGADOR %i"
+msgstr "MANDO DE JUGADOR %i"
 
 msgid "CONTROLLER MAPPING"
 msgstr "CONFIGURAR UN MANDO"
@@ -2638,7 +2638,7 @@ msgid "NORMAL"
 msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
-msgstr "SÓLO EN EL JUEGO"
+msgstr "SOLO EN EL JUEGO"
 
 msgid "HIDDEN"
 msgstr "OCULTO"
@@ -2947,17 +2947,17 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PRECAUCIÓN: EL EMULADOR/NÚCLEO SELECCIONADO NO SOPORTA ESTE JUEGO \n"
-"¿DESEAS INICIARLO DE TODAS FORMAS?"
+"ADVERTENCIA: EL EMULADOR/NÚCLEO CONFIGURADO ACTUALMETE NO ES COMPATIBLE CON EL "
+"FORMATO DE ARCHIVO DE ESTE JUEGO.\n¿QUIERES INICIARLO DE TODOS MODOS?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PRECAUCIÓN: AL SISTEMA LE FALTAN ARCHIVOS BIOS Y ES POSIBLE QUE EL JUEGO NO "
+"ADVERTENCIA: AL SISTEMA LE FALTAN ARCHIVOS BIOS Y ES POSIBLE QUE EL JUEGO NO "
 "FUNCIONE CORRECTAMENTE.\n"
-"¿DESEAS INICIARLO DE TODAS FORMAS?"
+"¿QUIERES INICIARLO DE TODOS MODOS?"
 
 msgid "Preloading UI"
 msgstr "Precargando interfaz"
@@ -3096,11 +3096,11 @@ msgstr "colecciones"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "Agregado '%s' a '%s'"
+msgstr "Añadido '%s' a '%s'"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "Eliminado '%s' de '%s'"
+msgstr "Borrado '%s' de '%s'"
 
 msgid "This collection is empty."
 msgstr "Esta colección está vacía."
@@ -3152,10 +3152,10 @@ msgid "NUMBER PLAYERS, DESCENDING"
 msgstr "NÚMERO DE JUGADORES, DESCENDENTE"
 
 msgid "RELEASE DATE, ASCENDING"
-msgstr "LANZAMIENTO, ASCENDENTE"
+msgstr "FECHA DE LANZAMIENTO, ASCENDENTE"
 
 msgid "RELEASE DATE, DESCENDING"
-msgstr "LANZAMIENTO, DESCENDENTE"
+msgstr "FECHA DE LANZAMIENTO, DESCENDENTE"
 
 msgid "GENRE, ASCENDING"
 msgstr "GÉNERO, ASCENDENTE"
@@ -3313,14 +3313,14 @@ msgstr "BIENVENIDO"
 #, c-format
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
-msgstr[0] "%i MANDO DETECTADO"
-msgstr[1] "%i MANDOS DETECTADOS"
+msgstr[0] "MANDO %i DETECTADO"
+msgstr[1] "MANDOS %i DETECTADOS"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "NO SE DETECTARON MANDOS"
 
 msgid "HOLD A BUTTON ON YOUR DEVICE TO CONFIGURE IT."
-msgstr "MANTENGA PULSADO UN BOTÓN DEL MANDO PARA CONFIGURARLO."
+msgstr "MANTENGA PRESIONADO UN BOTÓN EN SU DISPOSITIVO PARA CONFIGURARLO."
 
 msgid "PRESS ESC TO CANCEL."
 msgstr "PRESIONAR ESC PARA CANCELAR"
@@ -3342,19 +3342,19 @@ msgstr "ESPACIO"
 
 msgctxt "joystick"
 msgid "NORTH"
-msgstr "ARRIBA"
+msgstr "NORTE"
 
 msgctxt "joystick"
 msgid "SOUTH"
-msgstr "ABAJO"
+msgstr "SUR"
 
 msgctxt "joystick"
 msgid "EAST"
-msgstr "IZQUIEDA"
+msgstr "ESTE"
 
 msgctxt "joystick"
 msgid "WEST"
-msgstr "DERECHA"
+msgstr "OESTE"
 
 msgctxt "joystick"
 msgid "START"
@@ -3382,51 +3382,51 @@ msgstr "D-PAD DERECHA"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG UP"
-msgstr "ANALÓGICO IZQUIERDO: ARRIBA"
+msgstr "ARRIBA ANALÓGICO IZQUIERDO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG DOWN"
-msgstr "ANALÓGICO IZQUIERDO: ABAJO"
+msgstr "ABAJO ANALÓGICO IZQUIERDO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG LEFT"
-msgstr "ANALÓGICO IZQUIERDO: IZQUIERDA"
+msgstr "IZQUIERDA ANALÓGICO IZQUIERDO"
 
 msgctxt "joystick"
 msgid "LEFT ANALOG RIGHT"
-msgstr "ANALÓGICO IZQUIERDO: DERECHA"
+msgstr "DERECHA ANALÓGICO IZQUIERDO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG UP"
-msgstr "ANALÓGICO DERECHO: ARRIBA"
+msgstr "ARRIBA ANALÓGICO DERECHO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG DOWN"
-msgstr "ANALÓGICO DERECHO: ABAJO"
+msgstr "ABAJO ANALÓGICO DERECHO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG LEFT"
-msgstr "ANALÓGICO DERECHO: IZQUIERDA"
+msgstr "IZQUIERDA ANALÓGICO DERECHO"
 
 msgctxt "joystick"
 msgid "RIGHT ANALOG RIGHT"
-msgstr "ANALÓGICO DERECHO: DERECHA"
+msgstr "DERECHA ANALÓGICO DERECHO"
 
 msgctxt "joystick"
 msgid "LEFT SHOULDER"
-msgstr "SHOULDER IZQUIERDO: L1"
+msgstr "L1 (SHOULDER IZQUIERDO)"
 
 msgctxt "joystick"
 msgid "RIGHT SHOULDER"
-msgstr "SHOULDER DERECHO: R1"
+msgstr "R1 (SHOULDER DERECHO)"
 
 msgctxt "joystick"
 msgid "LEFT TRIGGER"
-msgstr "TRIGGER IZQUIERDO: L2"
+msgstr "L2 (TRIGGER IZQUIERDO)"
 
 msgctxt "joystick"
 msgid "RIGHT TRIGGER"
-msgstr "TRIGGER DERECHO: R2"
+msgstr "R2 (TRIGGER DERECHO)"
 
 msgctxt "joystick"
 msgid "LEFT STICK PRESS"
@@ -3464,7 +3464,7 @@ msgid ""
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "NO SE HA ASIGNADO NINGÚN BOTÓN 'HOTKEY'. ESTO ES NECESARIO PARA SALIR DE LOS "
-"JUEGOS CON UN MANDO. ¿QUIERES ASIGNAR EL BOTÓN SELECT COMO HOTKEY?"
+"JUEGOS CON UN MANDO. ¿QUIERES USAR EL BOTÓN SELECT COMO HOTKEY?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "ASIGNAR SELECT COMO HOTKEY"
@@ -3479,7 +3479,7 @@ msgstr[0] "MANTÉN PULSADO %iS PARA SALTAR"
 msgstr[1] "MANTÉN PULSADOS %iS PARA SALTAR"
 
 msgid "PRESS ANYTHING"
-msgstr "PULSA CUALQUIER BOTÓN"
+msgstr "PRESIONAR CUALQUIER BOTÓN"
 
 msgid "ALREADY TAKEN"
 msgstr "EN USO"
@@ -3496,6 +3496,3 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
-
-#~ msgid "FORGET A BLUETOOTH DEVICE"
-#~ msgstr "DESVINCULAR DISPOSITIVO BLUETOOTH"
