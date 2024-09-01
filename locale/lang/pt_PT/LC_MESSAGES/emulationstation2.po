@@ -684,8 +684,8 @@ msgstr "REMOVER TODOS"
 msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 
-msgid "(Connected)"
-msgstr "(Conectado)"
+msgid " (Connected)"
+msgstr ""
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM ELIMINADOS."
@@ -877,6 +877,39 @@ msgstr "Frequência máxima de CPU"
 
 msgid "Cpu feature"
 msgstr "Características de CPU"
+
+msgid "Available Memory"
+msgstr ""
+
+msgid "Display Resolution"
+msgstr ""
+
+msgid "Display Refresh Rate"
+msgstr ""
+
+msgid "OpenGL Driver Version"
+msgstr ""
+
+msgid "Vulkan Driver Name"
+msgstr ""
+
+msgid "Vulkan Driver Version"
+msgstr ""
+
+msgid "Data Partition Format"
+msgstr ""
+
+msgid "Data Partition Available Space"
+msgstr ""
+
+msgid "Network IP Address"
+msgstr ""
+
+msgid "UEFI Boot"
+msgstr ""
+
+msgid "Secure Boot"
+msgstr ""
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -3484,6 +3517,8 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
+#~ msgid "(Connected)"
+#~ msgstr "(Conectado)"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

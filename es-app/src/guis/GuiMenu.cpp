@@ -81,6 +81,18 @@
 #define fake_gettext_cpu_frequency _("Cpu max frequency")
 #define fake_gettext_cpu_feature  _("Cpu feature")
 
+#define fake_gettext_cpu_feature  _("Available Memory")
+#define fake_gettext_cpu_feature  _("Display Resolution")
+#define fake_gettext_cpu_feature  _("Display Refresh Rate")
+#define fake_gettext_cpu_feature  _("OpenGL Driver Version")
+#define fake_gettext_cpu_feature  _("Vulkan Driver Name")
+#define fake_gettext_cpu_feature  _("Vulkan Driver Version")
+#define fake_gettext_cpu_feature  _("Data Partition Format")
+#define fake_gettext_cpu_feature  _("Data Partition Available Space")
+#define fake_gettext_cpu_feature  _("Network IP Address")
+#define fake_gettext_cpu_feature  _("UEFI Boot")
+#define fake_gettext_cpu_feature  _("Secure Boot")
+
 #define fake_gettext_simple_bilinear_simple	pgettext("game_options", "SHARP-BILINEAR-SIMPLE")
 #define fake_gettext_scanlines				pgettext("game_options", "SCANLINES")
 #define fake_gettext_retro					pgettext("game_options", "RETRO")

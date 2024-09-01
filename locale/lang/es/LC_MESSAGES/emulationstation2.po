@@ -879,6 +879,39 @@ msgstr "Frecuencia máxima del procesador"
 msgid "Cpu feature"
 msgstr "Característica del procesador"
 
+msgid "Available Memory"
+msgstr ""
+
+msgid "Display Resolution"
+msgstr ""
+
+msgid "Display Refresh Rate"
+msgstr ""
+
+msgid "OpenGL Driver Version"
+msgstr ""
+
+msgid "Vulkan Driver Name"
+msgstr ""
+
+msgid "Vulkan Driver Version"
+msgstr ""
+
+msgid "Data Partition Format"
+msgstr ""
+
+msgid "Data Partition Available Space"
+msgstr ""
+
+msgid "Network IP Address"
+msgstr ""
+
+msgid "UEFI Boot"
+msgstr ""
+
+msgid "Secure Boot"
+msgstr ""
+
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
 msgstr "NÍTIDO-BILINEAL-SIMPLE"
@@ -2947,8 +2980,9 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"ADVERTENCIA: EL EMULADOR/NÚCLEO CONFIGURADO ACTUALMETE NO ES COMPATIBLE CON EL "
-"FORMATO DE ARCHIVO DE ESTE JUEGO.\n¿QUIERES INICIARLO DE TODOS MODOS?"
+"ADVERTENCIA: EL EMULADOR/NÚCLEO CONFIGURADO ACTUALMETE NO ES COMPATIBLE CON "
+"EL FORMATO DE ARCHIVO DE ESTE JUEGO.\n"
+"¿QUIERES INICIARLO DE TODOS MODOS?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "

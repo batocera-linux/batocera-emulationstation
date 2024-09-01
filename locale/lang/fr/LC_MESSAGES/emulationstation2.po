@@ -406,20 +406,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "RECHERCHE DE RÉSEAUX WIFI"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "OPTIONS DU PÉRIPHÉRIQUE"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "DÉCONNECTER"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "CONNECTER"
 
 msgid "FORGET"
-msgstr ""
+msgstr "OUBLIER"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "ÊTES VOUS SÛR DE VOULOIR OUBLIER '%s' ?"
 
 msgid "YES"
 msgstr "OUI"
@@ -429,11 +429,11 @@ msgstr "NON"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "ÊTES VOUS SÛR DE VOULOIR CONNECTER '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "ÊTES VOUS SÛR DE VOULOIR DÉCONNECTER '%s' ?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PROFIL PADTOKEY"
@@ -544,10 +544,10 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "PERSONNALISÉ"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "SERVEUR RELAI PERSONNALISÉ"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFFICHER LES JEUX NON DISPONIBLES"
@@ -677,7 +677,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "IMPOSSIBLE D’ACTIVER LES SUCCÈS RÉTRO :"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "LISTE DES PÉRIPHÉRIQUES BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "TOUT SUPPRIMER"
@@ -686,7 +686,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "AUCUN PERIPHÉRIQUE BLUETOOTH TROUVÉ"
 
 msgid " (Connected)"
-msgstr ""
+msgstr " (Connecté)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "LES PÉRIPHÉRIQUES BLUETOOTH ONT ÉTÉ SUPPRIMÉS."
@@ -878,6 +878,39 @@ msgstr "Fréquence max processeur"
 
 msgid "Cpu feature"
 msgstr "Caractéristiques processeur"
+
+msgid "Available Memory"
+msgstr "Mémoire disponible"
+
+msgid "Display Resolution"
+msgstr "Résolution de l'écran"
+
+msgid "Display Refresh Rate"
+msgstr "Taux de raffraîchissemenet de l'écran"
+
+msgid "OpenGL Driver Version"
+msgstr "Version du driver OpenGL"
+
+msgid "Vulkan Driver Name"
+msgstr "Nom du driver Vulkan"
+
+msgid "Vulkan Driver Version"
+msgstr "Version du driver Vulkan"
+
+msgid "Data Partition Format"
+msgstr "Format de la partition de données"
+
+msgid "Data Partition Available Space"
+msgstr "Espace disponible sur la partition de données"
+
+msgid "Network IP Address"
+msgstr "Adresse IP"
+
+msgid "UEFI Boot"
+msgstr "Boot UEFI"
+
+msgid "Secure Boot"
+msgstr "Secure Boot"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"

@@ -873,6 +873,39 @@ msgstr "Cpu max frekvence"
 msgid "Cpu feature"
 msgstr "Funkce Cpu"
 
+msgid "Available Memory"
+msgstr ""
+
+msgid "Display Resolution"
+msgstr ""
+
+msgid "Display Refresh Rate"
+msgstr ""
+
+msgid "OpenGL Driver Version"
+msgstr ""
+
+msgid "Vulkan Driver Name"
+msgstr ""
+
+msgid "Vulkan Driver Version"
+msgstr ""
+
+msgid "Data Partition Format"
+msgstr ""
+
+msgid "Data Partition Available Space"
+msgstr ""
+
+msgid "Network IP Address"
+msgstr ""
+
+msgid "UEFI Boot"
+msgstr ""
+
+msgid "Secure Boot"
+msgstr ""
+
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
 msgstr "SHARP-BILINEAR-SIMPLE"
