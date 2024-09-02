@@ -880,37 +880,37 @@ msgid "Cpu feature"
 msgstr "Característica del procesador"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Memoria Disponible"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Resolución de pantalla"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Frecuencia de actualización de la pantalla"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "Versión del controlador OpenGL"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Nombre del controlador Vulkan"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Versión del controlador Vulkan"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Formato de partición de datos"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Espacio disponible en la partición de datos"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Dirección IP de red"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "Arranque UEFI"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Arranque seguro"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -2980,8 +2980,8 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"ADVERTENCIA: EL EMULADOR/NÚCLEO CONFIGURADO ACTUALMETE NO ES COMPATIBLE CON "
-"EL FORMATO DE ARCHIVO DE ESTE JUEGO.\n"
+"ADVERTENCIA: EL EMULADOR/NÚCLEO CONFIGURADO ACTUALMETE NO ES COMPATIBLE CON EL "
+"FORMATO DE ARCHIVO DE ESTE JUEGO.\n"
 "¿QUIERES INICIARLO DE TODOS MODOS?"
 
 msgid ""
