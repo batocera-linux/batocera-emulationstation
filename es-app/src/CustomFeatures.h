@@ -99,6 +99,7 @@ public:
 		cloudsave = 16777216,
 		gptokeyb = 33554432,
 		midi = 67108864,
+		rotation = 134217728,
 #endif
 		all = 0x0FFFFFFF
 	};

@@ -61,6 +61,7 @@ EmulatorFeatures::Features EmulatorFeatures::parseFeatures(const std::string fea
 		if (trim == "cloudsave") ret = ret | EmulatorFeatures::Features::cloudsave;
 		if (trim == "gptokeyb") ret = ret | EmulatorFeatures::Features::gptokeyb;
 		if (trim == "midi") ret = ret | EmulatorFeatures::Features::midi;
+		if (trim == "rotation") ret = ret | EmulatorFeatures::Features::rotation;
 #endif
 	}
 

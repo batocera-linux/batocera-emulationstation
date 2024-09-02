@@ -5872,6 +5872,40 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 	}
 #endif
 
+#ifdef _ENABLEEMUELEC
+	if (systemData->isFeatureSupported(currentEmulator, currentCore, EmulatorFeatures::rotation))
+	{
+		auto ra_rotation_def = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SCREEN ROTATION"), false);
+
+		std::vector<std::string> rotation_output;
+		std::string def_rotation;
+		std::string rotation_cmd = "emuelec-utils rotation_output "+currentEmulator+" "+currentCore;
+		for(std::stringstream ss(Utils::Platform::getShOutput(rotation_cmd.c_str())); getline(ss, def_rotation, ','); ) {
+			if (!std::count(rotation_output.begin(), rotation_output.end(), def_rotation)) {
+				 rotation_output.push_back(def_rotation);
+			}
+		}
+		std::string saved_rotation = SystemConf::getInstance()->get(configName+".rotation_output");
+		ra_rotation_def->add("none", "none", saved_rotation.empty());
+		
+		int rotate_index = 1;
+		for (auto it = rotation_output.cbegin(); it != rotation_output.cend(); it++) {
+			ra_rotation_def->add(*it, std::to_string(rotate_index), atoi(saved_rotation.c_str()) == rotate_index);
+			rotate_index++;
+		}
+		systemConfiguration->addWithLabel(_("SCREEN ROTATION"), ra_rotation_def);
+		systemConfiguration->addSaveFunc([ra_rotation_def, configName] {
+			if (ra_rotation_def->changed()) {
+				std::string selectedRotationOutput = ra_rotation_def->getSelected();
+				if (selectedRotationOutput == "none")
+					selectedRotationOutput="";
+				SystemConf::getInstance()->set(configName+".rotation_output", selectedRotationOutput);
+				SystemConf::getInstance()->saveSystemConf();
+			}
+		});
+	}
+#endif
+
 	mWindow->pushGui(systemConfiguration);
 
 }
