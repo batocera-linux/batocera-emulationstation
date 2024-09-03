@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-06-14 10:16+0200\n"
+"PO-Revision-Date: 2024-09-02 22:02+0200\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -406,20 +406,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "WIFI HÁLÓZAT KERESÉSE"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "ESZKÖZ OPCIÓK"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "SZÉTKAPCSOL"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "KAPCSOLAT"
 
 msgid "FORGET"
-msgstr ""
+msgstr "ELFELEJT"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "BIZTOS, HOGY EL AKAROD FELEJTENI A '%s' -T?"
 
 msgid "YES"
 msgstr "IGEN"
@@ -429,11 +429,11 @@ msgstr "NEM"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "BIZTOS, HOGY A '%s'-HOZ AKARSZ CSATLAKOZNI?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "BIZTOS VAGY BENNE, HOGY A '%s'-T LE AKAROD VÁLASZTANI?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD2KEY BEÁLLÍTÁSOK"
@@ -544,10 +544,10 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "EGYEDI"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "EGYÉNI RELAY SZERVER"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK MEGJELENÍTÉSE"
@@ -674,7 +674,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NEM LEHET AKTIVÁLNI A RETROACHIEVEMENTS-EKET:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "BLUETOOTH ESZKÖZÖK LISTÁJA"
 
 msgid "REMOVE ALL"
 msgstr "MINDET ELTÁVOLÍT"
@@ -683,7 +683,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NEM TALÁLHATÓ BLUETOOTH ESZKÖZ"
 
 msgid " (Connected)"
-msgstr ""
+msgstr " (Csatlakoztatva)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "A BLUETOOTH-ESZKÖZÖK TÖRÖLVE LETTEK."
@@ -877,37 +877,37 @@ msgid "Cpu feature"
 msgstr "Cpu jellemző"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Rendelkezésre álló memória"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Kijelző felbontása"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Kijelző frissítési gyakorisága"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "OpenGL illesztőprogram verziója"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Vulkan illesztőprogram neve"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Vulkan illesztőprogram verziója"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Adatpartíció formátuma"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Adatpartíció rendelkezésre álló hely"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Hálózati IP-cím"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI-indítás"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Biztonságos indítás"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"

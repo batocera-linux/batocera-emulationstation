@@ -685,7 +685,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NENHUM DISPOSITIVO BLUETOOTH ENCONTRADO"
 
 msgid " (Connected)"
-msgstr ""
+msgstr "Conectado"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "TODOS OS DISPOSITIVOS BLUETOOTH FORAM ELIMINADOS."
@@ -879,37 +879,37 @@ msgid "Cpu feature"
 msgstr "Características de CPU"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Memória Disponível"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Resolução do Ecrã"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Taxa de Atualização do Ecrã"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "Versão do driver OpenGL"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Nome do driver Vulkan"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Versão do driver Vulkan"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Formato da partição de dados"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Espaço Disponível para Partição de Dados"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Endereço IP da rede"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "Inicialização UEFI"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Inicialização segura"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
