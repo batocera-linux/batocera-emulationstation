@@ -1244,7 +1244,7 @@ msgid "SAVE METADATA ON EXIT"
 msgstr "GUARDAR METADATOS AL SALIR"
 
 msgid "PARSE GAMELISTS ONLY"
-msgstr "ANALIZAR SOLO LISTAS DE JUEGOS"
+msgstr "ANALIZAR SÓLO LISTAS DE JUEGOS"
 
 msgid "Debug tool: Don't check if the ROMs actually exist. Can cause problems!"
 msgstr ""
@@ -1299,7 +1299,7 @@ msgstr ""
 "larga botón Sur para Opciones de juego"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
-msgstr "CONTROLAR SISTEMA SOLO CON EL MANDO PRINCIPAL"
+msgstr "CONTROLAR SISTEMA SÓLO CON EL MANDO PRINCIPAL"
 
 msgid "GUN MOVE TOLERENCE"
 msgstr "TOLERANCIA AL MOVIMIENTO DEL ARMA"
@@ -1594,7 +1594,7 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"Disminuye automáticamente la caida de fotogramas temporalmente para evitar "
+"Disminuye automáticamente la caída de fotogramas temporalmente para evitar "
 "caídas de fotogramas. Puede presentar tartamudeos."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
@@ -1948,7 +1948,7 @@ msgid "SONG TITLE DISPLAY DURATION"
 msgstr "TIEMPO EN PANTALLA DEL TÍTULO DE LA CANCIÓN"
 
 msgid "ONLY PLAY SYSTEM-SPECIFIC MUSIC FOLDER"
-msgstr "REPRODUCIR SOLO CARPETA DE MÚSICA ESPECÍFICA DEL SISTEMA"
+msgstr "REPRODUCIR SÓLO CARPETA DE MÚSICA ESPECÍFICA DEL SISTEMA"
 
 msgid "PLAY SYSTEM-SPECIFIC MUSIC"
 msgstr "REPRODUCIR MÚSICA ESPECÍFICA DEL SISTEMA"
@@ -2439,7 +2439,7 @@ msgid "GAMES TO INDEX"
 msgstr "JUEGOS A INDEXAR"
 
 msgid "ONLY MISSING"
-msgstr "SOLO CONTENIDO AUSENTE"
+msgstr "SÓLO CONTENIDO AUSENTE"
 
 msgid "SELECT CONTENT TO INSTALL/REMOVE"
 msgstr "SELECCIONA EL CONTENIDO A INSTALAR/ELIMINAR"
@@ -2671,7 +2671,7 @@ msgid "NORMAL"
 msgstr "NORMAL"
 
 msgid "IN GAME ONLY"
-msgstr "SOLO EN EL JUEGO"
+msgstr "SÓLO EN EL JUEGO"
 
 msgid "HIDDEN"
 msgstr "OCULTO"
@@ -2746,7 +2746,7 @@ msgid "JOYSTICK"
 msgstr "JOYSTICK"
 
 msgid "MOUSE ONLY"
-msgstr "SOLO RATÓN"
+msgstr "SÓLO RATÓN"
 
 msgid "HAND"
 msgstr "MANO"
