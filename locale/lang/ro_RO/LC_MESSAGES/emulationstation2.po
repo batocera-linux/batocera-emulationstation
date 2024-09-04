@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-08-01 22:03+0300\n"
+"PO-Revision-Date: 2024-09-04 12:09+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
 "n%100<=19) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SE SCANEAZĂ BLUETOOTH"
@@ -408,20 +408,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SE CAUTĂ REȚELE WI-FI"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "OPȚIUNI DISPOZITIV"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "DECONECTEAZĂ"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "CONECTEAZĂ"
 
 msgid "FORGET"
-msgstr ""
+msgstr "UITĂ"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "EȘTI SIGUR CĂ VREI SĂ UIȚI „%s”?"
 
 msgid "YES"
 msgstr "DA"
@@ -431,11 +431,11 @@ msgstr "NU"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "EȘTI SIGUR CĂ VREI SĂ TE CONECTEZI LA „%s”?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "EȘTI SIGUR CĂ VREI SĂ TE DECONECTEZI DE LA „%s”?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "CONFIGURARE PADTOKEY"
@@ -492,7 +492,7 @@ msgid "ARE YOU SURE?"
 msgstr "EȘTI SIGUR?"
 
 msgid "INFORMATION"
-msgstr "CARACTERISTICI"
+msgstr "INFORMAȚII"
 
 msgid "VERSION"
 msgstr "VERSIUNE"
@@ -528,7 +528,7 @@ msgid "PORT"
 msgstr "PORT"
 
 msgid "USE RELAY SERVER"
-msgstr "FOLOSEȘTE SERVER DE RETRANSLAȚIE"
+msgstr "FOLOSEȘTE SERVER RETRANSLAȚIE"
 
 msgid "NONE"
 msgstr "FĂRĂ"
@@ -546,10 +546,10 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "PERSONALIZAT"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
@@ -678,7 +678,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "NU S-AU PUTUT ACTIVA RETROREALIZĂRILE:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "LISTĂ DISPOZITIVE BLUETOOTH"
 
 msgid "REMOVE ALL"
 msgstr "ELIMINĂ-LE PE TOATE"
@@ -687,7 +687,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "NU S-A GĂSIT NICIUN DISPOZITIV BLUETOOTH"
 
 msgid " (Connected)"
-msgstr ""
+msgstr " (Conectat)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "DISPOZITIVELE BLUETOOTH AU FOST ȘTERSE."
@@ -881,37 +881,37 @@ msgid "Cpu feature"
 msgstr "Caracteristică CPU"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Memorie disponibilă"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Rezoluție ecran"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Rată reîmprospătare ecran"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "Versiune driver OpenGL"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Nume driver Vulkan"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Versiune driver Vulkan"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Format partiție date"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Spațiu disponibil partiție date"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Adresă IP rețea"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "Boot UEFI"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Secure Boot"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
