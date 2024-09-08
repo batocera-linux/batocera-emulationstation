@@ -2361,7 +2361,7 @@ msgid "START ON GAMELIST"
 msgstr "게임목록에서 시작"
 
 msgid "GROUP CUSTOM COLLECTIONS"
-msgstr "그룹 커스텀 컬렉션""
+msgstr "그룹 커스텀 컬렉션"
 
 msgid "UNTHEMED"
 msgstr "테마 없음"
