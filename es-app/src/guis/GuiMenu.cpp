@@ -2180,7 +2180,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		}
 	}
 
-	if (feat.preset == "switch")
+	if (feat.preset == "switch" || feat.preset == "switch_default_off")
 	{
 		auto switchComponent = std::make_shared<SwitchComponent>(window);
 		switchComponent->setState(storedValue == "1");
@@ -2194,7 +2194,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		return;
 	}
 
-	if (feat.preset == "switchon")
+	if (feat.preset == "switchon" || feat.preset == "switch_default_on")
 	{
 		auto switchComponent = std::make_shared<SwitchComponent>(window);
 		switchComponent->setState(storedValue != "0");
@@ -2208,7 +2208,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		return;
 	}
 
-	if (feat.preset == "switchoff")
+	if (feat.preset == "switchoff" || feat.preset == "switch_default_off_reverse_value")
 	{
 		auto switchComponent = std::make_shared<SwitchComponent>(window);
 		switchComponent->setState(storedValue != "1");
