@@ -1004,7 +1004,7 @@ msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "스크레퍼가 실행되는 동안에는 이 기능이 비활성화됩니다"
 
 msgid "CHOOSE"
-msgstr "선택"
+msgstr "이동"
 
 msgid "THE USER INTERFACE MODE IS NOW UNLOCKED"
 msgstr "사용자 인터페이스 모드가 사용 해제됨"
