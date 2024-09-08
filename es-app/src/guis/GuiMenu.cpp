@@ -2197,10 +2197,7 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	if (feat.preset == "switchon")
 	{
 		auto switchComponent = std::make_shared<SwitchComponent>(window);
-		if (storedValue == "0")
-		    switchComponent->setState(false);
-		else
-		    switchComponent->setState(true);
+		switchComponent->setState(storedValue != "0");
 
 		if (!feat.description.empty())
 			settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), switchComponent);
@@ -2214,17 +2211,14 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	if (feat.preset == "switchoff")
 	{
 		auto switchComponent = std::make_shared<SwitchComponent>(window);
-		if (storedValue == "1")
-		    switchComponent->setState(true);
-		else
-		    switchComponent->setState(false);
+		switchComponent->setState(storedValue != "1");
 
 		if (!feat.description.empty())
 			settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), switchComponent);
 		else
 			settings->addWithLabel(pgettext("game_options", feat.name.c_str()), switchComponent);
 
-		settings->addSaveFunc([storageName, switchComponent] { SystemConf::getInstance()->set(storageName, switchComponent->getState() ? "1" : ""); });
+		settings->addSaveFunc([storageName, switchComponent] { SystemConf::getInstance()->set(storageName, switchComponent->getState() ? "" : "1"); });
 		return;
 	}
 
