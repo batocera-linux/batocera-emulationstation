@@ -2231,24 +2231,31 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 	if (feat.preset == "slider")
 	{
 		std::vector<std::string> tokens = Utils::String::split(feat.preset_parameters, ' ');
-
-		float slider_from    =   0.0f;
-		float slider_to      = 100.0f;
-		float slider_step    =   1.0f;
-		float slider_default =   0.0f;
+		float slider_from = 0.0f;
+		float slider_to = 100.0f;
+		float slider_step = 1.0f;
+		float slider_default = -1.0f;  // Default to AUTO
 		std::string slider_suffix = "";
 
-		if (tokens.size() >= 1) slider_from    = Utils::String::toFloat(tokens.at(0));
-		if (tokens.size() >= 2) slider_to      = Utils::String::toFloat(tokens.at(1));
-		if (tokens.size() >= 3) slider_step    = Utils::String::toFloat(tokens.at(2));
+		if (tokens.size() >= 1) slider_from = Utils::String::toFloat(tokens.at(0));
+		if (tokens.size() >= 2) slider_to = Utils::String::toFloat(tokens.at(1));
+		if (tokens.size() >= 3) slider_step = Utils::String::toFloat(tokens.at(2));
 		if (tokens.size() >= 4) slider_default = Utils::String::toFloat(tokens.at(3));
-		if (tokens.size() >= 5) slider_suffix  = tokens.at(4);
+		if (tokens.size() >= 5) slider_suffix = tokens.at(4);
+
+		float auto_position = -1.0f;  // AUTO position
 
 		auto sliderComponent = std::make_shared<SliderComponent>(window, slider_from, slider_to, slider_step, slider_suffix);
-		if(storedValue == "") {
-		  sliderComponent->setValue(slider_default);
-		} else {
-		  sliderComponent->setValue(Utils::String::toFloat(storedValue));
+
+		// Load value from storage
+		std::string savedValue = SystemConf::getInstance()->get(storageName);
+		if (savedValue.empty())
+		{
+			sliderComponent->setValue(auto_position);  // Set to AUTO as default if saved value is empty
+		}
+		else
+		{
+			sliderComponent->setValue(Utils::String::toFloat(savedValue));
 		}
 
 		if (!feat.description.empty())
@@ -2256,7 +2263,21 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		else
 			settings->addWithLabel(pgettext("game_options", feat.name.c_str()), sliderComponent);
 
-		settings->addSaveFunc([storageName, sliderComponent] { SystemConf::getInstance()->set(storageName, std::to_string(sliderComponent->getValue())); });
+		settings->addSaveFunc([storageName, sliderComponent, auto_position] {
+			float value = sliderComponent->getValue();
+
+			// Save empty string for AUTO
+			if (value == auto_position)
+			{
+				SystemConf::getInstance()->set(storageName, "");  // Save empty string for AUTO
+			}
+			else
+			{
+				// Save the slider's value
+				SystemConf::getInstance()->set(storageName, std::to_string(value));
+			}
+			});
+
 		return;
 	}
 

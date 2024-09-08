@@ -9,7 +9,7 @@
 #define MOVE_REPEAT_RATE 40
 
 SliderComponent::SliderComponent(Window* window, float min, float max, float increment, const std::string& suffix) : GuiComponent(window),
-	mMin(min), mMax(max), mSingleIncrement(increment), mMoveRate(0), mKnob(window), mSuffix(suffix), mMoveAccumulator(0)
+mMin(min), mMax(max), mSingleIncrement(increment), mMoveRate(0), mKnob(window), mSuffix(suffix), mMoveAccumulator(0)
 {
 	assert((min - max) != 0);
 
@@ -19,13 +19,13 @@ SliderComponent::SliderComponent(Window* window, float min, float max, float inc
 	mScreenX = -1;
 	mIsKnobHot = false;
 
-	// some sane default value
-	mValue = (max + min) / 2;
+	// Default value is AUTO (which is one step below the minimum)
+	mValue = min - increment;
 
 	mKnob.setOrigin(0.5f, 0.5f);
 	mKnob.setImage(ThemeData::getMenuTheme()->Icons.knob);
 	mKnob.setColorShift(mColor);
-	
+
 	if (Renderer::isSmallScreen())
 		setSize(Renderer::getScreenWidth() * 0.25f, menuTheme->Text.font->getLetterHeight());
 	else
@@ -54,19 +54,52 @@ void SliderComponent::setColor(unsigned int color)
 
 bool SliderComponent::input(InputConfig* config, Input input)
 {
-	if(config->isMappedLike("left", input))
+	if (config->isMappedLike("left", input))
 	{
-		if(input.value)
-			setValue(mValue - mSingleIncrement);
+		if (input.value)
+		{
+			if (mValue == -1.0f)
+			{
+				// If currently at AUTO, do nothing
+				return true;
+			}
+			else if (mValue <= mMin)
+			{
+				// If currently at min or below, move to AUTO
+				setValue(-1.0f);
+			}
+			else
+			{
+				// Move left, decrease the value
+				float newValue = mValue - mSingleIncrement;
+				if (newValue < mMin)
+				{
+					newValue = mMin;
+				}
+				setValue(newValue);
+			}
+		}
 
 		mMoveRate = input.value ? -mSingleIncrement : 0;
 		mMoveAccumulator = -MOVE_REPEAT_DELAY;
 		return input.value;
 	}
-	if(config->isMappedLike("right", input))
+
+	if (config->isMappedLike("right", input))
 	{
-		if(input.value)
-			setValue(mValue + mSingleIncrement);
+		if (input.value)
+		{
+			if (mValue == -1.0f)
+			{
+				// If currently at AUTO, move to min
+				setValue(mMin);
+			}
+			else
+			{
+				// Move right, increase the value
+				setValue(mValue + mSingleIncrement);
+			}
+		}
 
 		mMoveRate = input.value ? mSingleIncrement : 0;
 		mMoveAccumulator = -MOVE_REPEAT_DELAY;
@@ -101,32 +134,43 @@ void SliderComponent::render(const Transform4x4f& parentTrans)
 
 	Renderer::setMatrix(trans);
 
-	// render suffix
-	if(mValueCache)
+	// Render suffix
+	if (mValueCache)
 		mFont->renderTextCache(mValueCache.get());
 
 	float width = mSize.x() - mKnob.getSize().x() - (mValueCache ? mValueCache->metrics.size.x() + 4 : 0);
 
-	//render line
+	// Render line
 	const float lineWidth = 2;
-	Renderer::drawRect(mKnob.getSize().x() / 2, mSize.y() / 2 - lineWidth / 2, width, lineWidth, getCurColor());
+	unsigned int lineColor = getCurColor();
+	Renderer::drawRect(mKnob.getSize().x() / 2, mSize.y() / 2 - lineWidth / 2, width, lineWidth, lineColor);
 
-	//render knob
+	// Render knob
+	mKnob.setColorShift(getCurColor());
 	mKnob.render(trans);
-	
+
 	GuiComponent::renderChildren(trans);
 }
 
 void SliderComponent::setValue(float value)
 {
-	if (mValue == value)
+	if (value == mValue)
 		return;
 
-	mValue = value;
-	if(mValue < mMin)
-		mValue = mMin;
-	else if(mValue > mMax)
-		mValue = mMax;
+	// Handle AUTO position
+	if (value == -1.0f)
+	{
+		mValue = -1.0f;  // AUTO
+	}
+	else
+	{
+		if (value < mMin)
+			mValue = mMin;
+		else if (value > mMax)
+			mValue = mMax;
+		else
+			mValue = value;
+	}
 
 	onValueChanged();
 
@@ -148,27 +192,37 @@ void SliderComponent::onSizeChanged()
 
 void SliderComponent::onValueChanged()
 {
-	// update suffix textcache
-	if(mFont)
+	if (mFont)
 	{
 		std::stringstream ss;
-		ss << std::fixed;
-		if(mSingleIncrement < 1) {
-		  ss.precision(1);
-		} else {
-		  ss.precision(0);
+
+		if (mValue == -1.0f)
+		{
+			ss << "AUTO";  // Display "AUTO"
 		}
-		ss << mValue;
-		ss << mSuffix;
+		else
+		{
+			ss << std::fixed;
+			if (mSingleIncrement < 1) {
+				ss.precision(1);
+			}
+			else {
+				ss.precision(0);
+			}
+			ss << mValue;
+			ss << mSuffix;
+		}
+
 		const std::string val = ss.str();
 
 		ss.str("");
 		ss.clear();
 		ss << std::fixed;
-		if(mSingleIncrement < 1) {
-		  ss.precision(1);
-		} else {
-		  ss.precision(0);
+		if (mSingleIncrement < 1) {
+			ss.precision(1);
+		}
+		else {
+			ss.precision(0);
 		}
 		ss << mMax;
 		ss << mSuffix;
@@ -179,11 +233,18 @@ void SliderComponent::onValueChanged()
 		mValueCache->metrics.size[0] = textSize.x(); // fudge the width
 	}
 
-	// update knob position/size
 	mKnob.setResize(0, mSize.y() * 0.7f);
 	float lineLength = mSize.x() - mKnob.getSize().x() - (mValueCache ? mValueCache->metrics.size.x() + 4 : 0);
-	mKnob.setPosition(((mValue-mMin)/(mMax-mMin)) * lineLength /*+ mKnob.getSize().x()/2*/, mSize.y() / 2);
 
+	if (mValue == -1.0f)
+	{
+		// Position knob off-screen or handle AUTO specially
+		mKnob.setPosition(-mKnob.getSize().x(), mSize.y() / 2); // Adjust as needed
+	}
+	else
+	{
+		mKnob.setPosition(((mValue - mMin) / (mMax - mMin)) * lineLength, mSize.y() / 2);
+	}
 }
 
 std::vector<HelpPrompt> SliderComponent::getHelpPrompts()
@@ -234,7 +295,7 @@ void SliderComponent::onMouseMove(int x, int y)
 {
 	if (!mWindow->hasMouseCapture(this))
 		return;
-	
+
 	float lineLength = mSize.x() - mKnob.getSize().x() - (mValueCache ? mValueCache->metrics.size.x() + 4 : 0);
 	if (lineLength == 0)
 		return;
@@ -245,8 +306,17 @@ void SliderComponent::onMouseMove(int x, int y)
 	else if (pos >= lineLength)
 		pos = lineLength;
 
+	// Determine value based on position
 	float value = (float)pos / lineLength;
-	value = mMin + (value) * mMax;
+	value = mMin + (value) * (mMax - mMin);
 
-	setValue(value);	
+	if (pos == 0)
+	{
+		// Special case for AUTO
+		setValue(-1.0f);  // AUTO
+	}
+	else
+	{
+		setValue(value);
+	}
 }
