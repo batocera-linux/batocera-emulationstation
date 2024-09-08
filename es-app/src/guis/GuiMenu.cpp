@@ -2194,6 +2194,22 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		return;
 	}
 
+	if (feat.preset == "switchauto")
+	{
+		auto switchComponent = std::make_shared<SwitchComponent>(window);
+		switchComponent->setHasAuto(true);
+		switchComponent->setAutoState(storedValue == "");
+		switchComponent->setState(storedValue == "1");
+
+		if (!feat.description.empty())
+			settings->addWithDescription(pgettext("game_options", feat.name.c_str()), pgettext("game_options", feat.description.c_str()), switchComponent);
+		else
+			settings->addWithLabel(pgettext("game_options", feat.name.c_str()), switchComponent);
+
+		settings->addSaveFunc([storageName, switchComponent] { SystemConf::getInstance()->set(storageName, switchComponent->getAutoState() ? "" : (switchComponent->getState() ? "1" : "0")); });
+		return;
+	}
+
 	if (feat.preset == "switchon" || feat.preset == "switch_default_on")
 	{
 		auto switchComponent = std::make_shared<SwitchComponent>(window);

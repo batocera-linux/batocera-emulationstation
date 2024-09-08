@@ -21,7 +21,12 @@ public:
 	void setState(bool state);
 	std::string getValue() const;
 	void setValue(const std::string& statestring) override;
-	bool changed(); 
+	bool changed();
+
+	bool hasAuto() const;
+	void setHasAuto(bool hasAuto);
+	bool getAutoState() const;
+	void setAutoState(bool bAuto);
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 

@@ -127,6 +127,22 @@ void SwitchComponent::setValue(const std::string& statestring)
 	onStateChanged();
 }
 
+bool SwitchComponent::hasAuto() const {
+     return mHasAuto;
+}
+
+void SwitchComponent::setHasAuto(bool hasAuto) {
+     mHasAuto = hasAuto;
+}
+
+bool SwitchComponent::getAutoState() const {
+     return mAutoState;
+}
+
+void SwitchComponent::setAutoState(bool bAuto) {
+     mAutoState = bAuto;
+}
+
 void SwitchComponent::onStateChanged()
 {
 	auto theme = ThemeData::getMenuTheme();
