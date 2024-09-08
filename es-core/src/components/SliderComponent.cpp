@@ -89,7 +89,7 @@ bool SliderComponent::input(InputConfig* config, Input input)
             if (getAuto())
             {
                 // If currently at AUTO, do nothing
-                return true;
+                return input.value;
             }
             else if (mValue <= mMin)
             {
@@ -99,11 +99,12 @@ bool SliderComponent::input(InputConfig* config, Input input)
             else
             {
                 // Move left, decrease the value
+                setValue(mValue - mSingleIncrement);
                 mMoveRate = -mSingleIncrement;
+                mMoveAccumulator = -MOVE_REPEAT_DELAY;
             }
 
-            mMoveAccumulator = 0;  // Reset the accumulator
-            return true;
+            return input.value;
         }
         else
         {
@@ -123,11 +124,12 @@ bool SliderComponent::input(InputConfig* config, Input input)
             else
             {
                 // Move right, increase the value
+                setValue(mValue + mSingleIncrement);
                 mMoveRate = mSingleIncrement;
+                mMoveAccumulator = -MOVE_REPEAT_DELAY;
             }
 
-            mMoveAccumulator = 0;  // Reset the accumulator
-            return true;
+            return input.value;
         }
         else
         {
