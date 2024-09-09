@@ -157,6 +157,7 @@ struct IconElement
 {
 	std::string on;
 	std::string off;
+	std::string onoffauto;
 	std::string option_arrow;
 	std::string arrow;
 	std::string knob;
@@ -187,7 +188,7 @@ public:
 		MenuElement TextSmall{ 0x777777FF, 0xFFFFFFFF, 0x878787FF, 0xC6C7C6FF, 0x878787FF, true, "", nullptr };
 		MenuElement Footer{ 0xC6C6C6FF, 0xC6C6C6FF, 0xC6C6C6FF, 0xFFFFFFFF, 0xC6C6C6FF, true, "", nullptr };
 		MenuGroupElement Group{ 0x777777FF, 0x00000010, 0xC6C7C6FF, 2.0, "", nullptr, 0 /*ALIGN_LEFT*/, false };
-		IconElement Icons { ":/on.svg", ":/off.svg", ":/option_arrow.svg", ":/arrow.svg", ":/slider_knob.svg", ":/textinput_ninepatch.png", ":/textinput_ninepatch_active.png" };
+		IconElement Icons { ":/on.svg", ":/off.svg", ":/auto.svg", ":/option_arrow.svg", ":/arrow.svg", ":/slider_knob.svg", ":/textinput_ninepatch.png", ":/textinput_ninepatch_active.png" };
 		ButtonElement Button { ":/button.png", ":/button_filled.png", Vector2f(16,16) };
 
 		std::string getMenuIcon(const std::string name)

@@ -3,7 +3,7 @@
 #include "resources/Font.h"
 #include "LocaleES.h"
 
-SwitchComponent::SwitchComponent(Window* window, bool state) : GuiComponent(window), mImage(window), mState(state), mInitialState(state)
+SwitchComponent::SwitchComponent(Window* window, bool state, bool hasAuto, bool autoState) : GuiComponent(window), mImage(window), mState(state), mInitialState(state), mHasAuto(hasAuto), mAutoState(autoState), mInitialAutoState(autoState)
 {
 	float height = Font::get(FONT_SIZE_MEDIUM)->getLetterHeight();
 
@@ -41,21 +41,42 @@ bool SwitchComponent::input(InputConfig* config, Input input)
 {
 	if(config->isMappedTo(BUTTON_OK, input) && input.value)
 	{
-		mState = !mState;
+		if(mHasAuto) {
+			if(mAutoState) {
+				mAutoState = false;
+				mState     = true;
+			} else if(mState) {
+			       mState = false;
+			} else {
+			       mAutoState = true;
+			}
+		} else {
+			mState = !mState;
+		}
 		onStateChanged();
 		return true;
 	}
 
-	if (config->isMappedLike("left", input) && input.value && mState)
+	if (config->isMappedLike("left", input) && input.value && (mState || (mHasAuto && mAutoState)))
 	{
-		mState = false;
+		if(mHasAuto && !mAutoState) {
+			mAutoState = true;
+		} else {
+			mAutoState = false;
+			mState = false;
+		}
 		onStateChanged();
 		return true;
 	}
 
-	if (config->isMappedLike("right", input) && input.value && !mState)
+	if (config->isMappedLike("right", input) && input.value && (!mState || (mHasAuto && mAutoState)))
 	{
-		mState = true;
+		if(mHasAuto && !mAutoState) {
+			mAutoState = true;
+		} else {
+			mAutoState = false;
+			mState = true;
+		}
 		onStateChanged();
 		return true;
 	}
@@ -86,25 +107,46 @@ void SwitchComponent::setState(bool state)
 
 std::string SwitchComponent::getValue() const
 {
+	if(mHasAuto && mAutoState) return "auto";
 	return mState ?  "true" : "false";
 }
 
 void SwitchComponent::setValue(const std::string& statestring)
 {
-	if (statestring == "true")
-	{
-		mState = true;
-	}else
-	{
-		mState = false;
+	if(mHasAuto && statestring == "auto") {
+		mAutoState = true;
+	} else {
+		if (statestring == "true")
+		{
+			mState = true;
+		}else
+		{
+			mState = false;
+		}
 	}
 	onStateChanged();
+}
+
+bool SwitchComponent::hasAuto() const {
+     return mHasAuto;
+}
+
+void SwitchComponent::setHasAuto(bool hasAuto) {
+     mHasAuto = hasAuto;
+}
+
+bool SwitchComponent::getAutoState() const {
+     return mAutoState;
+}
+
+void SwitchComponent::setAutoState(bool bAuto) {
+     mAutoState = bAuto;
 }
 
 void SwitchComponent::onStateChanged()
 {
 	auto theme = ThemeData::getMenuTheme();
-	mImage.setImage(mState ? theme->Icons.on : theme->Icons.off);
+	mImage.setImage((mHasAuto && mAutoState) ? theme->Icons.onoffauto : (mState ? theme->Icons.on : theme->Icons.off));
 
 	if (mOnChangedCallback != nullptr)
 		mOnChangedCallback();
@@ -119,5 +161,5 @@ std::vector<HelpPrompt> SwitchComponent::getHelpPrompts()
 
 bool SwitchComponent::changed() 
 {
-	return mInitialState != mState;
+	return mInitialState != mState || (mHasAuto && mInitialAutoState != mAutoState);
 }
