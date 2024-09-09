@@ -5,8 +5,9 @@
 
 #include <algorithm>
 #include <SDL_events.h>
+#include "BindingManager.h"
 
-Splash::Splash(Window* window, const std::string image, bool fullScreenBackGround) :
+Splash::Splash(Window* window, const std::string image, bool fullScreenBackGround, IBindable* bindable) :
 	mBackground(window),
 	mText(window),
 	mInactiveProgressbar(window),
@@ -47,8 +48,12 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	std::string imagePath = image;
 
 	auto backGroundImageTheme = theme->getElement("splash", "background", "image");
-	if (backGroundImageTheme && backGroundImageTheme->has("path") && Utils::FileSystem::exists(backGroundImageTheme->get<std::string>("path")))
-		imagePath = backGroundImageTheme->get<std::string>("path");
+	if (backGroundImageTheme && backGroundImageTheme->has("path"))
+	{
+		std::string tmp = backGroundImageTheme->get<std::string>("path");
+		if (ResourceManager::getInstance()->fileExists(backGroundImageTheme->get<std::string>("path")) || tmp.find("{game:") != std::string::npos || tmp.find("{system:") != std::string::npos || tmp.find("{binding:") != std::string::npos)
+			imagePath = tmp;
+	}
 
 	bool linearSmooth = false;
 	if (backGroundImageTheme && backGroundImageTheme->has("linearSmooth"))
@@ -108,13 +113,15 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 	if (backGroundImageTheme)
 		mBackground.applyTheme(theme, "splash", "background", ThemeFlags::ALL ^ (ThemeFlags::PATH));
 
-	auto maxSize = mBackground.getMaxSizeInfo();
-	mTexture = TextureResource::get(imagePath, false, linearSmooth, true, false, false, &maxSize);
+	if (ResourceManager::getInstance()->fileExists(imagePath))
+	{
+		auto maxSize = mBackground.getMaxSizeInfo();
+		mTexture = TextureResource::get(imagePath, false, linearSmooth, true, false, false, &maxSize);
+		mBackground.setImage(mTexture);
 
-	if (!fullScreenBackGround)
-		ResourceManager::getInstance()->removeReloadable(mTexture);
-
-	mBackground.setImage(mTexture);
+		if (!fullScreenBackGround)
+			ResourceManager::getInstance()->removeReloadable(mTexture);
+	}
 
 	if (theme->getElement("splash", "label", "text"))
 		mText.applyTheme(theme, "splash", "label", ThemeFlags::ALL ^ (ThemeFlags::TEXT));
@@ -185,8 +192,22 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 
 	mExtras = ThemeData::makeExtras(theme, "splash", window, true);
 
+	if (bindable != nullptr && !fullScreenBackGround)
+	{
+		mBackground.setExtraType(ExtraType::EXTRA); // Enable binding
+		BindingManager::updateBindings(&mBackground, bindable);
+
+		mText.setExtraType(ExtraType::EXTRA); // Enable binding
+		BindingManager::updateBindings(&mText, bindable);
+		
+		for (auto extra : mExtras)
+			BindingManager::updateBindings(extra, bindable);
+	}
+
 	if (!fullScreenBackGround)
 	{
+		ResourceManager::getInstance()->removeReloadable(mBackground.getTexture());
+
 		for (auto im : mExtras)
 			if (im->isKindOf<ImageComponent>())
 				ResourceManager::getInstance()->removeReloadable(((ImageComponent*)im)->getTexture());

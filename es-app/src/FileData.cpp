@@ -722,7 +722,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 		ResourceManager::getInstance()->reloadAll();
 		window->deinit();
 		window->init();
-		window->setCustomSplashScreen(gameToUpdate->getImagePath(), gameToUpdate->getName());
+		window->setCustomSplashScreen(gameToUpdate->getImagePath(), gameToUpdate->getName(), gameToUpdate);
 	}
 	else
 		window->init(hideWindow);
