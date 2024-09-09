@@ -919,15 +919,15 @@ std::string Window::getCustomSplashScreenImage() {
   return DEFAULT_SPLASH_IMAGE;
 }
 
-void Window::setCustomSplashScreen(std::string imagePath, std::string customText)
+void Window::setCustomSplashScreen(std::string imagePath, std::string customText, IBindable* bindable)
 {
 	if (Settings::getInstance()->getBool("HideWindow"))
 		return;
 
 	if (!Utils::FileSystem::exists(imagePath))
-		mSplash = std::make_shared<Splash>(this, getCustomSplashScreenImage(), false);
+		mSplash = std::make_shared<Splash>(this, getCustomSplashScreenImage(), false, bindable);
 	else
-		mSplash = std::make_shared<Splash>(this, imagePath, false);
+		mSplash = std::make_shared<Splash>(this, imagePath, false, bindable);
 
 	mSplash->update(customText);
 }

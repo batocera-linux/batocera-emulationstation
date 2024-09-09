@@ -18,7 +18,7 @@ class TextureResource;
 class Splash
 {
 public:
-	Splash(Window* window, const std::string image, bool fullScreenBackGround = true);
+	Splash(Window* window, const std::string image, bool fullScreenBackGround = true, IBindable* bindable = nullptr);
 	~Splash();
 
 	void update(std::string text, float percent = -1);

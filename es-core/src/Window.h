@@ -28,6 +28,7 @@ class ControllerActivityComponent;
 class VolumeInfoComponent;
 class BatteryIndicatorComponent;
 class Splash;
+class IBindable;
 
 class Window
 {
@@ -71,7 +72,7 @@ public:
 	
 	// Splash screen
 	std::string getCustomSplashScreenImage();
-	void setCustomSplashScreen(std::string imagePath, std::string customText);
+	void setCustomSplashScreen(std::string imagePath, std::string customText, IBindable* bindable = nullptr);
 	void renderSplashScreen(std::string text, float percent = -1, float opacity = 1);
 	void renderSplashScreen(float opacity = 1, bool swapBuffers = true);
 	void closeSplashScreen();

@@ -563,7 +563,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	GuiComponent::isLaunchTransitionRunning = true;
 		
 	if (!Settings::getInstance()->getBool("HideWindow"))
-		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName());
+		mWindow->setCustomSplashScreen(game->getImagePath(), game->getName(), game);
 
 	std::string transition_style = Settings::GameTransitionStyle();
 	if (transition_style.empty() || transition_style == "auto")
