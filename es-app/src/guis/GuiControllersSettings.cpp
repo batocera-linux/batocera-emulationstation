@@ -374,6 +374,12 @@ void GuiControllersSettings::openControllersSpecificSettings_sindengun()
 	borderssize_set->add(_("BIG"), "BIG", "BIG" == selectedBordersSize);
 	s->addOptionList(_("BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
+	std::string selectedBordersRatio = SystemConf::getInstance()->get("controllers.guns.bordersratio");
+	auto bordersratio_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER RATIO"), false);
+	bordersratio_set->add(_("AUTO"), "", "" == selectedBordersRatio);
+	bordersratio_set->add("4:3", "4:3", "4:3" == selectedBordersRatio);
+	s->addOptionList(_("BORDER RATIO"), { { _("AUTO"), "auto" },{ "4:3", "4:3" } }, "controllers.guns.bordersratio", false);
+
 	std::string selectedBordersMode = SystemConf::getInstance()->get("controllers.guns.bordersmode");
 	auto bordersmode_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER MODE"), false);
 	bordersmode_set->add(_("AUTO"), "", "" == selectedBordersMode);
