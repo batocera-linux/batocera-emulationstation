@@ -2242,20 +2242,17 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		if (tokens.size() >= 3) slider_step = Utils::String::toFloat(tokens.at(2));
 		if (tokens.size() >= 4) slider_suffix = tokens.at(3);
 
-		// Create the slider component
 		auto sliderComponent = std::make_shared<SliderComponent>(window, slider_from, slider_to, slider_step, slider_suffix);
 
-		// Load value from storage
-		std::string savedValue = SystemConf::getInstance()->get(storageName);
-		if (savedValue.empty())
+		if (storedValue.empty())
 		{
 			// Set to AUTO if no saved value exists
 			sliderComponent->setAuto(true);
 		}
 		else
 		{
-			// Set to the saved value
-			sliderComponent->setValue(Utils::String::toFloat(savedValue));
+			// Set to the stored value
+			sliderComponent->setValue(Utils::String::toFloat(storedValue));
 		}
 
 		// Add the slider to the settings menu

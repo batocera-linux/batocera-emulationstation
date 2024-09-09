@@ -104,11 +104,15 @@ bool SliderComponent::input(InputConfig* config, Input input)
                 mMoveAccumulator = -MOVE_REPEAT_DELAY;
             }
 
+            mMoveRate = -mSingleIncrement;
+            mMoveAccumulator = -MOVE_REPEAT_DELAY;
             return input.value;
         }
         else
         {
             mMoveRate = 0;
+            mMoveAccumulator = -MOVE_REPEAT_DELAY;
+            return input.value;
         }
     }
 
@@ -129,11 +133,15 @@ bool SliderComponent::input(InputConfig* config, Input input)
                 mMoveAccumulator = -MOVE_REPEAT_DELAY;
             }
 
+            mMoveRate = mSingleIncrement;
+            mMoveAccumulator = -MOVE_REPEAT_DELAY;
             return input.value;
         }
         else
         {
             mMoveRate = 0;
+            mMoveAccumulator = -MOVE_REPEAT_DELAY;
+            return input.value;
         }
     }
 
