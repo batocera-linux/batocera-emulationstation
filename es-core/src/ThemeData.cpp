@@ -2460,6 +2460,12 @@ ThemeData::ThemeMenu::ThemeMenu(ThemeData* theme)
 				mMenuIcons[prop.first] = path;
 		}
 	}
+
+	// switch auto
+	std::string language = SystemConf::getInstance()->get("system.language");
+	std::string auto_lang = ":/auto_" + language + ".svg";
+	if(ResourceManager::getInstance()->fileExists(auto_lang))
+	  Icons.onoffauto = auto_lang;
 }
 
 void ThemeData::setDefaultTheme(ThemeData* theme) 

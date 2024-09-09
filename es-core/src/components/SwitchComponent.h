@@ -10,7 +10,7 @@
 class SwitchComponent : public GuiComponent
 {
 public:
-	SwitchComponent(Window* window, bool state = false);
+	SwitchComponent(Window* window, bool state = false, bool hasAuto = false, bool autoState = false);
 
 	bool input(InputConfig* config, Input input) override;
 	void render(const Transform4x4f& parentTrans) override;
@@ -21,7 +21,12 @@ public:
 	void setState(bool state);
 	std::string getValue() const;
 	void setValue(const std::string& statestring) override;
-	bool changed(); 
+	bool changed();
+
+	bool hasAuto() const;
+	void setHasAuto(bool hasAuto);
+	bool getAutoState() const;
+	void setAutoState(bool bAuto);
 
 	virtual std::vector<HelpPrompt> getHelpPrompts() override;
 
@@ -36,7 +41,10 @@ private:
 
 	ImageComponent mImage;
 	bool mState;
-	bool mInitialState; 
+	bool mInitialState;
+	bool mHasAuto;
+	bool mAutoState;
+	bool mInitialAutoState;
 
 	std::function<void()> mOnChangedCallback; 
 };
