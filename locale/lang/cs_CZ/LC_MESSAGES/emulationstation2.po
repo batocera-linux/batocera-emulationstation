@@ -2644,6 +2644,9 @@ msgstr "STŘEDNÍ"
 msgid "BIG"
 msgstr "VELKÁ"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "HRANIČNÍ REŽIM"
 

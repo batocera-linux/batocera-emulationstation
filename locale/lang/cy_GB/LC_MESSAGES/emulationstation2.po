@@ -2605,6 +2605,9 @@ msgstr ""
 msgid "BIG"
 msgstr ""
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr ""
 

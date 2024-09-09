@@ -2633,6 +2633,9 @@ msgstr "MEDIUM"
 msgid "BIG"
 msgstr "BIG"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "BORDER MODE"
 

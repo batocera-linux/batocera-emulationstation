@@ -2654,6 +2654,9 @@ msgstr "MOYEN"
 msgid "BIG"
 msgstr "GROS"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "MODE DES BORDURES"
 

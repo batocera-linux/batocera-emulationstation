@@ -2651,6 +2651,9 @@ msgstr "ORTA"
 msgid "BIG"
 msgstr "BÜYÜK"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "ÇERÇEVE MODU"
 

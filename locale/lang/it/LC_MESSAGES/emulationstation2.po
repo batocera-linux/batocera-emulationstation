@@ -2644,6 +2644,9 @@ msgstr "MEDIO"
 msgid "BIG"
 msgstr "GRANDE"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "MODALITÀ BORDO"
 

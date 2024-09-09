@@ -2643,6 +2643,9 @@ msgstr "Stredné"
 msgid "BIG"
 msgstr "Veľký"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "Režim okrajov"
 

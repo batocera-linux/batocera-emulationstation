@@ -2607,6 +2607,9 @@ msgstr "СЕРЕДНЯ"
 msgid "BIG"
 msgstr "ВЕЛИКА"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "РЕЖИМ РАМКИ"
 

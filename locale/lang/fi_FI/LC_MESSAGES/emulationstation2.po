@@ -2635,6 +2635,9 @@ msgstr "KESKIKOKOINEN"
 msgid "BIG"
 msgstr "ISO"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr ""
 

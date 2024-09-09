@@ -2666,6 +2666,9 @@ msgstr "متوسط"
 msgid "BIG"
 msgstr "ثخين"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "نمط الإطار"
 

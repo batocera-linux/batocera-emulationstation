@@ -2662,6 +2662,9 @@ msgstr "MITJÀ"
 msgid "BIG"
 msgstr "GRAN"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "MODE DE VORES"
 

@@ -2642,6 +2642,9 @@ msgstr "MEDEL"
 msgid "BIG"
 msgstr "STOR"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "RAMLÄGE"
 

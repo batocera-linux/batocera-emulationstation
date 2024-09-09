@@ -2666,6 +2666,9 @@ msgstr "MITTEL"
 msgid "BIG"
 msgstr "GROSS"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "RAHMENMODUS"
 

@@ -2659,6 +2659,9 @@ msgstr "KÖZEPES"
 msgid "BIG"
 msgstr "NAGY"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "SZEGÉLY MÓD"
 

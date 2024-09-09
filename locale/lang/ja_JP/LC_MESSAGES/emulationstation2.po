@@ -2645,6 +2645,9 @@ msgstr "中"
 msgid "BIG"
 msgstr "大"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "境界モード"
 

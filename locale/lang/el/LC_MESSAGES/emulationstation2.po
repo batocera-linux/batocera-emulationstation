@@ -2626,6 +2626,9 @@ msgstr "ΜΕΣΑΙΟ"
 msgid "BIG"
 msgstr "ΜΕΓΑΛΟ"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr ""
 

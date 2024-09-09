@@ -2660,6 +2660,9 @@ msgstr "MEDIE"
 msgid "BIG"
 msgstr "MARE"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "MOD CHENAR"
 

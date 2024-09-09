@@ -2649,6 +2649,9 @@ msgstr "ERTAINA"
 msgid "BIG"
 msgstr "ZABALA"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr "ERTZ MODUA"
 

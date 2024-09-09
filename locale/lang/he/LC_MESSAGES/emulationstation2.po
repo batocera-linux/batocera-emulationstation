@@ -2601,6 +2601,9 @@ msgstr "בינוני"
 msgid "BIG"
 msgstr "גדול"
 
+msgid "BORDER RATIO"
+msgstr ""
+
 msgid "BORDER MODE"
 msgstr ""
 
