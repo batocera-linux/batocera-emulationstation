@@ -374,12 +374,6 @@ void GuiControllersSettings::openControllersSpecificSettings_sindengun()
 	borderssize_set->add(_("BIG"), "BIG", "BIG" == selectedBordersSize);
 	s->addOptionList(_("BORDER SIZE"), { { _("AUTO"), "auto" },{ _("THIN") , "thin" },{ _("MEDIUM"), "medium" },{ _("BIG"), "big" } }, "controllers.guns.borderssize", false);
 
-	std::string selectedBordersRatio = SystemConf::getInstance()->get("controllers.guns.bordersratio");
-	auto bordersratio_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER RATIO"), false);
-	bordersratio_set->add(_("AUTO"), "", "" == selectedBordersRatio);
-	bordersratio_set->add("4:3", "4:3", "4:3" == selectedBordersRatio);
-	s->addOptionList(_("BORDER RATIO"), { { _("AUTO"), "auto" },{ "4:3", "4:3" } }, "controllers.guns.bordersratio", false);
-
 	std::string selectedBordersMode = SystemConf::getInstance()->get("controllers.guns.bordersmode");
 	auto bordersmode_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER MODE"), false);
 	bordersmode_set->add(_("AUTO"), "", "" == selectedBordersMode);
@@ -398,6 +392,12 @@ void GuiControllersSettings::openControllersSpecificSettings_sindengun()
 	s->addOptionList(_("BORDER COLOR"), { { _("AUTO"), "auto" },{ _("WHITE") , "white" },{ _("RED") , "red" },{ _("GREEN"), "green" },{ _("BLUE"), "blue" } }, "controllers.guns.borderscolor", false);
 
 #if BATOCERA
+	std::string selectedBordersRatio = SystemConf::getInstance()->get("controllers.guns.bordersratio");
+	auto bordersratio_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BORDER RATIO"), false);
+	bordersratio_set->add(_("AUTO"), "", "" == selectedBordersRatio);
+	bordersratio_set->add("4:3", "4:3", "4:3" == selectedBordersRatio);
+	s->addWithLabel(_("BORDER RATIO"), bordersratio_set);
+
 	std::string selectedCameraContrast = SystemConf::getInstance()->get("controllers.guns.sinden.contrast");
 	auto cameracontrast_set = std::make_shared<OptionListComponent<std::string> >(mWindow, _("CAMERA CONTRAST"), false);
 	cameracontrast_set->add(_("AUTO"), "", "" == selectedCameraContrast);
@@ -434,13 +434,15 @@ void GuiControllersSettings::openControllersSpecificSettings_sindengun()
 	sindenmode_choices->add(_("QUIET MACHINE GUN"), "machinegun-quiet", baseMode == "machinegun-quiet");
 	s->addWithLabel(_("RECOIL"), sindenmode_choices);
 
-	s->addSaveFunc([sindenmode_choices, cameracontrast_set, camerabrightness_set, cameraexposure_set] {
+	s->addSaveFunc([sindenmode_choices, selectedBordersRatio_set, cameracontrast_set, camerabrightness_set, cameraexposure_set] {
 		if (sindenmode_choices->getSelected() != SystemConf::getInstance()->get("controllers.guns.recoil") ||
+		        selectedBordersRatio_set->getSelected() != SystemConf::getInstance()->get("controllers.guns.bordersratio") ||
 			cameracontrast_set->getSelected() != SystemConf::getInstance()->get("controllers.guns.sinden.contrast") ||
 			camerabrightness_set->getSelected() != SystemConf::getInstance()->get("controllers.guns.sinden.brightness") ||
 			cameraexposure_set->getSelected() != SystemConf::getInstance()->get("controllers.guns.sinden.exposure")
 			) {
 			SystemConf::getInstance()->set("controllers.guns.recoil", sindenmode_choices->getSelected());
+			SystemConf::getInstance()->set("controllers.guns.bordersratio", selectedBordersRatio_set->getSelected());
 			SystemConf::getInstance()->set("controllers.guns.sinden.contrast", cameracontrast_set->getSelected());
 			SystemConf::getInstance()->set("controllers.guns.sinden.brightness", camerabrightness_set->getSelected());
 			SystemConf::getInstance()->set("controllers.guns.sinden.exposure", cameraexposure_set->getSelected());
