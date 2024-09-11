@@ -2643,9 +2643,6 @@ msgstr "MEDIUM"
 msgid "BIG"
 msgstr "STOR"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "KANT MODUS"
 
@@ -2663,6 +2660,9 @@ msgstr "RAMME FARGE"
 
 msgid "WHITE"
 msgstr "HVIT"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "KAMERA KONTRAST"

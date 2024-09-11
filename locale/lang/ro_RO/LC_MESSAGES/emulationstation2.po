@@ -2660,9 +2660,6 @@ msgstr "MEDIE"
 msgid "BIG"
 msgstr "MARE"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "MOD CHENAR"
 
@@ -2680,6 +2677,9 @@ msgstr "CULOARE CHENAR"
 
 msgid "WHITE"
 msgstr "ALBĂ"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "CONTRAST CAMERĂ"

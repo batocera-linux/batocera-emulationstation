@@ -2662,9 +2662,6 @@ msgstr "MITJÀ"
 msgid "BIG"
 msgstr "GRAN"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "MODE DE VORES"
 
@@ -2682,6 +2679,9 @@ msgstr "COLOR DE LES VORES"
 
 msgid "WHITE"
 msgstr "BLANC"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "CONTRAST DE CÀMERA"

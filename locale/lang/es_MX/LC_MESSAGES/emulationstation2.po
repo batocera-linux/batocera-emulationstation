@@ -2655,9 +2655,6 @@ msgstr "MEDIANO"
 msgid "BIG"
 msgstr "GRANDE"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "MODO DE BORDE"
 
@@ -2675,6 +2672,9 @@ msgstr "COLOR DE BORDE"
 
 msgid "WHITE"
 msgstr "BLANCO"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "CONTRASTE DE CÁMARA"

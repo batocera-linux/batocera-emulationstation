@@ -2666,9 +2666,6 @@ msgstr "متوسط"
 msgid "BIG"
 msgstr "ثخين"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "نمط الإطار"
 
@@ -2686,6 +2683,9 @@ msgstr "لون الإطار"
 
 msgid "WHITE"
 msgstr "أبيض"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "تباين الكاميرا"

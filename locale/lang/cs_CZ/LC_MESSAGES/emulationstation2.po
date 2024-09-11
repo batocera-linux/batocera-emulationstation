@@ -2644,9 +2644,6 @@ msgstr "STŘEDNÍ"
 msgid "BIG"
 msgstr "VELKÁ"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "HRANIČNÍ REŽIM"
 
@@ -2664,6 +2661,9 @@ msgstr "BARVA HRANICE"
 
 msgid "WHITE"
 msgstr "BÍLÁ"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "KONTRAST KAMERY"

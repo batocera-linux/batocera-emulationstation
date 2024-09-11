@@ -2664,9 +2664,6 @@ msgstr "MEDIUM"
 msgid "BIG"
 msgstr "GROOT"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "RAND MODUS"
 
@@ -2684,6 +2681,9 @@ msgstr "RAND KLEUR"
 
 msgid "WHITE"
 msgstr "WIT"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "CAMERA CONTRAST"

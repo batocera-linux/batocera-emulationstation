@@ -2645,9 +2645,6 @@ msgstr "中"
 msgid "BIG"
 msgstr "大"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "境界モード"
 
@@ -2665,6 +2662,9 @@ msgstr "境界色"
 
 msgid "WHITE"
 msgstr "白"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "カメラ コントラスト"

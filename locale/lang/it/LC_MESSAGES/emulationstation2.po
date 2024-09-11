@@ -2644,9 +2644,6 @@ msgstr "MEDIO"
 msgid "BIG"
 msgstr "GRANDE"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "MODALITÀ BORDO"
 
@@ -2664,6 +2661,9 @@ msgstr "COLORE BORDO"
 
 msgid "WHITE"
 msgstr "BIANCO"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "CONTRASTO CINEPRESA"

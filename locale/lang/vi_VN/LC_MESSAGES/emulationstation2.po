@@ -2656,9 +2656,6 @@ msgstr "VỪA"
 msgid "BIG"
 msgstr "LỚN"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "CHẾ ĐỘ VIỀN"
 
@@ -2676,6 +2673,9 @@ msgstr "MÀU VIỀN"
 
 msgid "WHITE"
 msgstr "TRẮNG"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "TƯƠNG PHẢN CAMERA"

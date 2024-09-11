@@ -2629,9 +2629,6 @@ msgstr "중간"
 msgid "BIG"
 msgstr "크게"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "테두리 모드"
 
@@ -2649,6 +2646,9 @@ msgstr "테두리 색상"
 
 msgid "WHITE"
 msgstr "하양"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "카메라 대비"

@@ -2626,9 +2626,6 @@ msgstr "ΜΕΣΑΙΟ"
 msgid "BIG"
 msgstr "ΜΕΓΑΛΟ"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr ""
 
@@ -2646,6 +2643,9 @@ msgstr "ΧΡΩΜΑ ΠΕΡΙΓΡΑΜΜΑΤΟΣ"
 
 msgid "WHITE"
 msgstr "ΑΣΠΡΟ"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr ""

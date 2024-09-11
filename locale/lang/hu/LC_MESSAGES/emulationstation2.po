@@ -2659,9 +2659,6 @@ msgstr "KÖZEPES"
 msgid "BIG"
 msgstr "NAGY"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "SZEGÉLY MÓD"
 
@@ -2679,6 +2676,9 @@ msgstr "SZEGÉLY SZÍNE"
 
 msgid "WHITE"
 msgstr "FEHÉR"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "KAMERA KONTRASZTJA"

@@ -2651,9 +2651,6 @@ msgstr "ORTA"
 msgid "BIG"
 msgstr "BÜYÜK"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "ÇERÇEVE MODU"
 
@@ -2671,6 +2668,9 @@ msgstr "ÇERÇEVE RENGİ"
 
 msgid "WHITE"
 msgstr "BEYAZ"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "KAMERA KONTRASTI"

@@ -2649,9 +2649,6 @@ msgstr "ERTAINA"
 msgid "BIG"
 msgstr "ZABALA"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "ERTZ MODUA"
 
@@ -2669,6 +2666,9 @@ msgstr "ERTZ KOLOREA"
 
 msgid "WHITE"
 msgstr "ZURIA"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "KAMERAREN KONTRASTEA"

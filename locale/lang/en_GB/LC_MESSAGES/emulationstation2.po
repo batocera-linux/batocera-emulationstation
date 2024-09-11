@@ -2633,9 +2633,6 @@ msgstr "MEDIUM"
 msgid "BIG"
 msgstr "BIG"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "BORDER MODE"
 
@@ -2653,6 +2650,9 @@ msgstr "BORDER COLOUR"
 
 msgid "WHITE"
 msgstr "WHITE"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "CAMERA CONTRAST"

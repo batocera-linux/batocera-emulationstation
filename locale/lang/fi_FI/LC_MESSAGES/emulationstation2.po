@@ -2635,9 +2635,6 @@ msgstr "KESKIKOKOINEN"
 msgid "BIG"
 msgstr "ISO"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr ""
 
@@ -2655,6 +2652,9 @@ msgstr ""
 
 msgid "WHITE"
 msgstr "VALKOINEN"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "KAMERAN KONTRASTI"

@@ -2639,9 +2639,6 @@ msgstr "SEDANG"
 msgid "BIG"
 msgstr "BESAR"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "MODE UKURAN"
 
@@ -2659,6 +2656,9 @@ msgstr "WARNA BORDER"
 
 msgid "WHITE"
 msgstr "PUTIH"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "KONTRAS KAMERA"

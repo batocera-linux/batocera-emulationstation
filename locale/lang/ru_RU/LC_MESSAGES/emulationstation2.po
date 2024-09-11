@@ -2643,9 +2643,6 @@ msgstr "СРЕДНИЙ"
 msgid "BIG"
 msgstr "БОЛЬШОЙ"
 
-msgid "BORDER RATIO"
-msgstr ""
-
 msgid "BORDER MODE"
 msgstr "РЕЖИМ ГРАНИЦ"
 
@@ -2663,6 +2660,9 @@ msgstr "ЦВЕТ РАМКИ"
 
 msgid "WHITE"
 msgstr "БЕЛЫЙ"
+
+msgid "BORDER RATIO"
+msgstr ""
 
 msgid "CAMERA CONTRAST"
 msgstr "КОНТРАСТ КАМЕРЫ"
