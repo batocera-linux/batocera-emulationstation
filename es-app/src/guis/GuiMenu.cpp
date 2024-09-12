@@ -532,6 +532,18 @@ void GuiMenu::openEmuELECSettings()
 			}
 		});
 
+#ifdef _ENABLEEMUELEC
+		auto ra_logging_enabled = std::make_shared<SwitchComponent>(mWindow);
+		bool raLogging = SystemConf::getInstance()->get("global.retroarchLogging") != "0";
+		ra_logging_enabled->setState(raLogging);
+		s->addWithLabel(_("RETROARCH LOGGING"), ra_logging_enabled);
+		s->addSaveFunc([ra_logging_enabled] {
+				bool logging_enabled = ra_logging_enabled->getState();
+				SystemConf::getInstance()->set("global.retroarchLogging", logging_enabled ? "1" : "0");
+				SystemConf::getInstance()->saveSystemConf();
+			});
+#endif
+
     auto fps_enabled = std::make_shared<SwitchComponent>(mWindow);
 		bool fpsEnabled = SystemConf::getInstance()->get("global.showFPS") == "1";
 		fps_enabled->setState(fpsEnabled);
