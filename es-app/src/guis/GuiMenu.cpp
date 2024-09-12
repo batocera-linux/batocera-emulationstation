@@ -5885,7 +5885,7 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 				 rotation_output.push_back(def_rotation);
 			}
 		}
-		std::string saved_rotation = SystemConf::getInstance()->get(configName+".rotation_output");
+		std::string saved_rotation = SystemConf::getInstance()->get(configName+"."+currentEmulator+".rotation_output");
 		ra_rotation_def->add("none", "none", saved_rotation.empty());
 		
 		int rotate_index = 1;
@@ -5894,12 +5894,12 @@ void GuiMenu::popSpecificConfigurationGui(Window* mWindow, std::string title, st
 			rotate_index++;
 		}
 		systemConfiguration->addWithLabel(_("SCREEN ROTATION"), ra_rotation_def);
-		systemConfiguration->addSaveFunc([ra_rotation_def, configName] {
+		systemConfiguration->addSaveFunc([ra_rotation_def, configName, currentEmulator] {
 			if (ra_rotation_def->changed()) {
 				std::string selectedRotationOutput = ra_rotation_def->getSelected();
 				if (selectedRotationOutput == "none")
 					selectedRotationOutput="";
-				SystemConf::getInstance()->set(configName+".rotation_output", selectedRotationOutput);
+				SystemConf::getInstance()->set(configName+"."+currentEmulator+".rotation_output", selectedRotationOutput);
 				SystemConf::getInstance()->saveSystemConf();
 			}
 		});
