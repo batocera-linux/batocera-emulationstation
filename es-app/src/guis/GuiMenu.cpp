@@ -1833,9 +1833,7 @@ void GuiMenu::openSystemSettings()
 #endif
 
 #ifdef BATOCERA
-#ifdef X86_64
         s->addEntry(_("MULTISCREENS"), true, [this] { openMultiScreensSettings(); });
-#endif
 #endif
 
 #ifdef BATOCERA
