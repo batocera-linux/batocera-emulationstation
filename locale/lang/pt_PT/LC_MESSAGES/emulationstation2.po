@@ -2671,7 +2671,7 @@ msgid "WHITE"
 msgstr "BRANCO"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "PROPORÇÃO DA BORDA"
 
 msgid "CAMERA CONTRAST"
 msgstr "CONTRASTE DA CÂMARA"
@@ -3520,8 +3520,6 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
-#~ msgid "(Connected)"
-#~ msgstr "(Conectado)"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
