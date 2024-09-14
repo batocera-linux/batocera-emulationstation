@@ -587,17 +587,29 @@ void Window::renderSindenBorders()
 		if (bordersColor == "blue")  innerBorderColor = 0x0000FFFF;
 		if (bordersColor == "white") innerBorderColor = 0xFFFFFFFF;
 
+		int borderWidth = 0;
+		int borderOffset = 0;
+
+		std::string bordersRatio = SystemConf::getInstance()->get("controllers.guns.bordersratio");
+		if(bordersRatio == "4:3") {
+		  borderWidth = Renderer::getScreenHeight() / 3 * 4;
+		  borderOffset = (Renderer::getScreenWidth() - borderWidth) / 2;
+		} else {
+		  borderWidth = Renderer::getScreenWidth();
+		  borderOffset = 0;
+		}
+
 		// outer border
-		Renderer::drawRect(0, 0, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
-		Renderer::drawRect(Renderer::getScreenWidth() - outerBorderWidth, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
-		Renderer::drawRect(0, Renderer::getScreenHeight() - outerBorderWidth, Renderer::getScreenWidth(), outerBorderWidth, outerBorderColor);
-		Renderer::drawRect(0, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
+		Renderer::drawRect(borderOffset, 0, borderWidth, outerBorderWidth, outerBorderColor);
+		Renderer::drawRect(borderOffset + borderWidth - outerBorderWidth, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
+		Renderer::drawRect(borderOffset, Renderer::getScreenHeight() - outerBorderWidth, borderWidth, outerBorderWidth, outerBorderColor);
+		Renderer::drawRect(borderOffset, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
 
 		// inner border
-		Renderer::drawRect(outerBorderWidth, outerBorderWidth, Renderer::getScreenWidth() - outerBorderWidth * 2, innerBorderWidth, innerBorderColor);
-		Renderer::drawRect(Renderer::getScreenWidth() - outerBorderWidth - innerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth * 2, innerBorderColor);
-		Renderer::drawRect(outerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth - innerBorderWidth, Renderer::getScreenWidth() - outerBorderWidth * 2, innerBorderWidth, innerBorderColor);
-		Renderer::drawRect(outerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth * 2, innerBorderColor);
+		Renderer::drawRect(borderOffset + outerBorderWidth, outerBorderWidth, borderWidth - outerBorderWidth * 2, innerBorderWidth, innerBorderColor);
+		Renderer::drawRect(borderOffset + borderWidth - outerBorderWidth - innerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth * 2, innerBorderColor);
+		Renderer::drawRect(borderOffset + outerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth - innerBorderWidth, borderWidth - outerBorderWidth * 2, innerBorderWidth, innerBorderColor);
+		Renderer::drawRect(borderOffset + outerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth * 2, innerBorderColor);
 
 		Renderer::setScreenMargin(outerBorderWidth + innerBorderWidth, outerBorderWidth + innerBorderWidth);
 		Renderer::setMatrix(Transform4x4f::Identity());
