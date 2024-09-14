@@ -2648,7 +2648,7 @@ msgid "WHITE"
 msgstr "하양"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "테두리 비율"
 
 msgid "CAMERA CONTRAST"
 msgstr "카메라 대비"
