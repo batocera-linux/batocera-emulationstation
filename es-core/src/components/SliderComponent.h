@@ -13,10 +13,11 @@ class SliderComponent : public GuiComponent
 {
 public:
 	//Minimum value (far left of the slider), maximum value (far right of the slider), increment size (how much just pressing L/R moves by), unit to display (optional).
-	SliderComponent(Window* window, float min, float max, float increment, const std::string& suffix = "");
+	SliderComponent(Window* window, float min, float max, float increment, const std::string& suffix = "", bool isAuto = false);
 
 	void setValue(float val);
 	float getValue();
+	void setAutoMode(bool isAuto);
 	std::string getSuffix() {return mSuffix; }
 
 	bool input(InputConfig* config, Input input) override;
@@ -34,6 +35,10 @@ public:
 	virtual bool hitTest(int x, int y, Transform4x4f& parentTransform, std::vector<GuiComponent*>* pResult = nullptr) override;
 	virtual bool onMouseClick(int button, bool pressed, int x, int y) override;
 	virtual void onMouseMove(int x, int y) override;
+
+	// Public methods to handle AUTO state
+	void setAuto(bool autoMode);
+	bool getAuto() const;
 
 private:
 	void onValueChanged();
@@ -54,6 +59,7 @@ private:
 
 	std::function<void(const float&)> mValueChanged;
 
+	bool mIsAutoMode;
 	bool	mIsKnobHot;
 	int     mScreenX;
 };

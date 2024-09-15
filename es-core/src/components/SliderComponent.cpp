@@ -8,8 +8,17 @@
 #define MOVE_REPEAT_DELAY 500
 #define MOVE_REPEAT_RATE 40
 
-SliderComponent::SliderComponent(Window* window, float min, float max, float increment, const std::string& suffix) : GuiComponent(window),
-	mMin(min), mMax(max), mSingleIncrement(increment), mMoveRate(0), mKnob(window), mSuffix(suffix), mMoveAccumulator(0)
+SliderComponent::SliderComponent(Window* window, float min, float max, float increment, const std::string& suffix, bool isAuto)
+	: GuiComponent(window),
+	mMin(min),
+	mMax(max),
+	mSingleIncrement(increment),
+	mValue(isAuto ? min - increment : (max + min) / 2),
+	mSuffix(suffix),
+	mIsAutoMode(isAuto),
+	mMoveRate(0),
+	mMoveAccumulator(0),
+	mKnob(window)
 {
 	assert((min - max) != 0);
 
@@ -30,6 +39,43 @@ SliderComponent::SliderComponent(Window* window, float min, float max, float inc
 		setSize(Renderer::getScreenWidth() * 0.25f, menuTheme->Text.font->getLetterHeight());
 	else
 		setSize(Renderer::getScreenWidth() * 0.15f, menuTheme->Text.font->getLetterHeight());
+}
+
+void SliderComponent::setAutoMode(bool isAuto)
+{
+	mIsAutoMode = isAuto;
+	if (isAuto)
+	{
+		if (mValue < mMin)
+			mValue = mMin - mSingleIncrement;  // Set to AUTO mode value
+	}
+	else
+	{
+		if (mValue == mMin - mSingleIncrement)
+			mValue = mMin;  // Exit AUTO mode
+	}
+	onValueChanged();
+}
+
+void SliderComponent::setAuto(bool autoMode)
+{
+	if (autoMode)
+	{
+		// Set AUTO value to one step below the minimum
+		mValue = mMin - mSingleIncrement;
+	}
+	else
+	{
+		// Ensure AUTO mode is properly exited
+		if (mValue == (mMin - mSingleIncrement))
+			mValue = mMin; // Optionally set to min or another default value
+	}
+}
+
+bool SliderComponent::getAuto() const
+{
+	// Check if the slider is in AUTO mode
+	return mValue == (mMin - mSingleIncrement);
 }
 
 void SliderComponent::onOpacityChanged()
@@ -56,21 +102,64 @@ bool SliderComponent::input(InputConfig* config, Input input)
 {
 	if(config->isMappedLike("left", input))
 	{
-		if(input.value)
-			setValue(mValue - mSingleIncrement);
+		if (input.value)
+		{
+			if (mIsAutoMode && getAuto())
+			{
+				// If currently at AUTO, do nothing
+				return input.value;
+			}
+			else if (mIsAutoMode && mValue <= mMin)
+			{
+				// If at or below the min, move to AUTO
+				setAuto(true);
+			}
+			else
+			{
+				// Move left, decrease the value
+				setValue(mValue - mSingleIncrement);
+				mMoveRate = -mSingleIncrement;
+				mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			}
 
-		mMoveRate = input.value ? -mSingleIncrement : 0;
-		mMoveAccumulator = -MOVE_REPEAT_DELAY;
-		return input.value;
+			mMoveRate = -mSingleIncrement;
+			mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			return input.value;
+		}
+		else
+		{
+			mMoveRate = 0;
+			mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			return input.value;
+		}
 	}
 	if(config->isMappedLike("right", input))
 	{
-		if(input.value)
-			setValue(mValue + mSingleIncrement);
+		if (input.value)
+		{
+			if (mIsAutoMode && getAuto())
+			{
+				// If at AUTO, move to min
+				setValue(mMin);
+			}
+			else
+			{
+				// Move right, increase the value
+				setValue(mValue + mSingleIncrement);
+				mMoveRate = mSingleIncrement;
+				mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			}
 
-		mMoveRate = input.value ? mSingleIncrement : 0;
-		mMoveAccumulator = -MOVE_REPEAT_DELAY;
-		return input.value;
+			mMoveRate = mSingleIncrement;
+			mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			return input.value;
+		}
+		else
+		{
+			mMoveRate = 0;
+			mMoveAccumulator = -MOVE_REPEAT_DELAY;
+			return input.value;
+		}
 	}
 
 	return GuiComponent::input(config, input);
@@ -81,9 +170,17 @@ void SliderComponent::update(int deltaTime)
 	if(mMoveRate != 0)
 	{
 		mMoveAccumulator += deltaTime;
-		while(mMoveAccumulator >= MOVE_REPEAT_RATE)
+		while (mMoveAccumulator >= MOVE_REPEAT_RATE)
 		{
-			setValue(mValue + mMoveRate);
+			// Increment the value based on the move rate
+			float newValue = mValue + mMoveRate;
+			if (newValue < mMin)
+				newValue = mMin;
+			else if (newValue > mMax)
+				newValue = mMax;
+
+			setValue(newValue);
+
 			mMoveAccumulator -= MOVE_REPEAT_RATE;
 		}
 	}
@@ -122,11 +219,19 @@ void SliderComponent::setValue(float value)
 	if (mValue == value)
 		return;
 
-	mValue = value;
-	if(mValue < mMin)
-		mValue = mMin;
-	else if(mValue > mMax)
-		mValue = mMax;
+	if (mIsAutoMode && value == (mMin - mSingleIncrement))
+	{
+		mValue = mMin - mSingleIncrement;  // AUTO
+	}
+	else
+	{
+		if (value < mMin)
+			mValue = mMin;
+		else if (value > mMax)
+			mValue = mMax;
+		else
+			mValue = value;
+	}
 
 	onValueChanged();
 
@@ -149,26 +254,41 @@ void SliderComponent::onSizeChanged()
 void SliderComponent::onValueChanged()
 {
 	// update suffix textcache
-	if(mFont)
+	if (mFont)
 	{
 		std::stringstream ss;
-		ss << std::fixed;
-		if(mSingleIncrement < 1) {
-		  ss.precision(1);
-		} else {
-		  ss.precision(0);
+
+		if (mIsAutoMode && getAuto())
+		{
+			ss << "AUTO";  // Display "AUTO"
 		}
-		ss << mValue;
-		ss << mSuffix;
+		else
+		{
+			ss << std::fixed;
+			if (mSingleIncrement < 1)
+			{
+				ss.precision(1);
+			}
+			else
+			{
+				ss.precision(0);
+			}
+			ss << mValue;
+			ss << mSuffix;
+		}
+
 		const std::string val = ss.str();
 
 		ss.str("");
 		ss.clear();
 		ss << std::fixed;
-		if(mSingleIncrement < 1) {
-		  ss.precision(1);
-		} else {
-		  ss.precision(0);
+		if (mSingleIncrement < 1)
+		{
+			ss.precision(1);
+		}
+		else
+		{
+			ss.precision(0);
 		}
 		ss << mMax;
 		ss << mSuffix;
@@ -179,10 +299,19 @@ void SliderComponent::onValueChanged()
 		mValueCache->metrics.size[0] = textSize.x(); // fudge the width
 	}
 
-	// update knob position/size
 	mKnob.setResize(0, mSize.y() * 0.7f);
 	float lineLength = mSize.x() - mKnob.getSize().x() - (mValueCache ? mValueCache->metrics.size.x() + 4 : 0);
-	mKnob.setPosition(((mValue-mMin)/(mMax-mMin)) * lineLength /*+ mKnob.getSize().x()/2*/, mSize.y() / 2);
+
+	if (mIsAutoMode && getAuto())
+	{
+		mKnob.setOpacity(0.0f);
+		mKnob.setPosition(-mKnob.getSize().x(), mSize.y() / 2);
+	}
+	else
+	{
+		mKnob.setOpacity(getOpacity());
+		mKnob.setPosition(((mValue - mMin) / (mMax - mMin)) * lineLength, mSize.y() / 2);
+	}
 
 }
 
@@ -248,5 +377,13 @@ void SliderComponent::onMouseMove(int x, int y)
 	float value = (float)pos / lineLength;
 	value = mMin + (value) * mMax;
 
-	setValue(value);	
+	// Special case for AUTO: If the position is at the extreme left, set to AUTO
+	if (mIsAutoMode && pos == 0)
+	{
+		setAuto(true);  // Set to AUTO mode dynamically
+	}
+	else
+	{
+		setValue(value);
+	}
 }
