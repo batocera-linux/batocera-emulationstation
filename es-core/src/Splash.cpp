@@ -2,7 +2,7 @@
 #include "ThemeData.h"
 #include "Window.h"
 #include "resources/TextureResource.h"
-
+#include "components/NinePatchComponent.h"
 #include <algorithm>
 #include <SDL_events.h>
 #include "BindingManager.h"
@@ -206,11 +206,27 @@ Splash::Splash(Window* window, const std::string image, bool fullScreenBackGroun
 
 	if (!fullScreenBackGround)
 	{
-		ResourceManager::getInstance()->removeReloadable(mBackground.getTexture());
+		auto removeReloadable = [](GuiComponent* p)
+		{
+			if (p->isKindOf<TextComponent>())
+				ResourceManager::getInstance()->removeReloadable(((TextComponent*)p)->getFont());
 
-		for (auto im : mExtras)
-			if (im->isKindOf<ImageComponent>())
-				ResourceManager::getInstance()->removeReloadable(((ImageComponent*)im)->getTexture());
+			if (p->isKindOf<ImageComponent>())
+				ResourceManager::getInstance()->removeReloadable(((ImageComponent*)p)->getTexture());
+
+			if (p->isKindOf<NinePatchComponent>())
+				ResourceManager::getInstance()->removeReloadable(((NinePatchComponent*)p)->getTexture());
+		};
+
+		removeReloadable(&mText);
+		removeReloadable(&mBackground);
+
+		for (auto extra : mExtras)
+		{			
+			removeReloadable(extra);
+			for (auto im : extra->enumerateExtraChildrens())
+				removeReloadable(im);
+		}
 	}
 
 	std::stable_sort(mExtras.begin(), mExtras.end(), [](GuiComponent* a, GuiComponent* b) { return b->getZIndex() > a->getZIndex(); });

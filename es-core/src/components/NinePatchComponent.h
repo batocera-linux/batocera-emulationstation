@@ -57,6 +57,8 @@ public:
 
 	void setPostProcessShader(const Renderer::ShaderInfo& shader, bool cacheable = true);
 
+	std::shared_ptr<TextureResource> getTexture() { return mTexture; };
+
 private:
 	void buildVertices();
 	void updateColors();
