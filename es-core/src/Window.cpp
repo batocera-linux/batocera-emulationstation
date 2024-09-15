@@ -580,6 +580,7 @@ void Window::renderSindenBorders()
 
 		const unsigned int outerBorderColor = 0x000000FF;
 		unsigned int innerBorderColor = 0xFFFFFFFF;
+		unsigned int externalBorderColor = 0x000000CC;
 
 		auto bordersColor = SystemConf::getInstance()->get("controllers.guns.borderscolor");
 		if (bordersColor == "red")   innerBorderColor = 0xFF0000FF;
@@ -597,6 +598,12 @@ void Window::renderSindenBorders()
 		} else {
 		  borderWidth = Renderer::getScreenWidth();
 		  borderOffset = 0;
+		}
+
+		// out of border for 4:3
+		if(borderOffset > 0) {
+		  Renderer::drawRect(0, 0, borderOffset, Renderer::getScreenHeight(), externalBorderColor);
+		  Renderer::drawRect(Renderer::getScreenWidth() - borderOffset, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), externalBorderColor);
 		}
 
 		// outer border
