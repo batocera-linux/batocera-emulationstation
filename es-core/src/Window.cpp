@@ -557,7 +557,7 @@ void Window::renderSindenBorders()
 	    // SETTING FOR DEBUGGING BORDERS
 	    drawGunBorders = true;
 
-	if (drawGunBorders)
+	if (drawGunBorders && !mRenderScreenSaver)
 	{
 		int outerBorderWidth = ceil(Renderer::getScreenWidth() * 0.00f);
 		int innerBorderWidth = ceil(Renderer::getScreenWidth() * 0.02f);
@@ -600,12 +600,6 @@ void Window::renderSindenBorders()
 		  borderOffset = 0;
 		}
 
-		// out of border for 4:3
-		if(borderOffset > 0) {
-		  Renderer::drawRect(0, 0, borderOffset, Renderer::getScreenHeight(), externalBorderColor);
-		  Renderer::drawRect(Renderer::getScreenWidth() - borderOffset, 0, Renderer::getScreenWidth(), Renderer::getScreenHeight(), externalBorderColor);
-		}
-
 		// outer border
 		Renderer::drawRect(borderOffset, 0, borderWidth, outerBorderWidth, outerBorderColor);
 		Renderer::drawRect(borderOffset + borderWidth - outerBorderWidth, 0, outerBorderWidth, Renderer::getScreenHeight(), outerBorderColor);
@@ -618,7 +612,7 @@ void Window::renderSindenBorders()
 		Renderer::drawRect(borderOffset + outerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth - innerBorderWidth, borderWidth - outerBorderWidth * 2, innerBorderWidth, innerBorderColor);
 		Renderer::drawRect(borderOffset + outerBorderWidth, outerBorderWidth, innerBorderWidth, Renderer::getScreenHeight() - outerBorderWidth * 2, innerBorderColor);
 
-		Renderer::setScreenMargin(outerBorderWidth + innerBorderWidth, outerBorderWidth + innerBorderWidth);
+		Renderer::setScreenMargin(borderOffset + outerBorderWidth + innerBorderWidth, outerBorderWidth + innerBorderWidth);
 		Renderer::setMatrix(Transform4x4f::Identity());
 	}
 	else
