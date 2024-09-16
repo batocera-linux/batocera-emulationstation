@@ -543,10 +543,10 @@ msgid "SAO PAULO"
 msgstr "圣保罗"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "定制"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "定制中继服务器"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
@@ -870,37 +870,37 @@ msgid "Cpu feature"
 msgstr "CPU 特征"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "可用内存"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "显示分辨率"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "显示刷新率"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "OpenGL驱动版本"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Vulkan驱动名称"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Vulkan驱动版本"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "数据分区格式"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "数据分区可用空间"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "网络IP地址"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI启动"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "安全启动"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -2634,7 +2634,7 @@ msgid "WHITE"
 msgstr "白色"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "边框比率"
 
 msgid "CAMERA CONTRAST"
 msgstr "相机对比度"
