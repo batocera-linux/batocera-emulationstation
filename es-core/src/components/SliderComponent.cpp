@@ -43,15 +43,19 @@ SliderComponent::SliderComponent(Window* window, float min, float max, float inc
 
 int calculatePrecision(float step)
 {
-	int precision = 0;
+	std::string stepStr = std::to_string(step); // Convert the float to string to inspect its representation
+	size_t decimalPointPos = stepStr.find('.'); // Find the position of the decimal point
 
-	if (step < 1.0f)
-	{
-		// This will calculate the number of decimal places based on step value
-		precision = std::abs(static_cast<int>(std::floor(std::log10(step))));
+	if (decimalPointPos == std::string::npos) {
+		// No decimal point found, return 0 (no decimals)
+		return 0;
 	}
 
-	return precision;
+	// Remove trailing zeros by trimming the string from the right
+	stepStr.erase(stepStr.find_last_not_of('0') + 1, std::string::npos);
+
+	// The number of decimal places is the number of characters after the decimal point
+	return stepStr.length() - decimalPointPos - 1;
 }
 
 void SliderComponent::setAutoMode(bool isAuto)
