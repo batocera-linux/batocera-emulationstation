@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-07-18 11:15+0200\n"
+"PO-Revision-Date: 2024-09-24 10:35+0200\n"
 "Last-Translator: Svein Jakobsen <svein.jakobsen@gmail.com>\n"
 "Language-Team: Bokmål\n"
 "Language: nb\n"
@@ -22,7 +22,7 @@ msgid "Searching for devices..."
 msgstr "Søker etter enheter..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "BLUETOOTH SCANNING PÅGÅR ALLEREDE."
+msgstr "BLUETOOTH SKANNING PÅGÅR ALLEREDE."
 
 msgid "FORMATTING DEVICE"
 msgstr "FORMATERER ENHET"
@@ -408,20 +408,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "SØKER WI-FI-NETTVERK"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "ENHETSVALG"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "FRAKOBLE"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "TILKOBLE"
 
 msgid "FORGET"
-msgstr ""
+msgstr "GLEM"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "ER DU SIKKER PÅ AT DU VIL GLEMME '%s' ?"
 
 msgid "YES"
 msgstr "JA"
@@ -431,11 +431,11 @@ msgstr "NEI"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "ER DU SIKKER PÅ AT DU VIL KOBLE TIL '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "ER DU SIKKER PÅ AT DU VIL KOBLE FRA '%s' ?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "PAD TIL TASTATUR KONFIGURASJON"
@@ -546,10 +546,10 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "EGENDEFINERT"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "EGENDEFINERT RELAY SERVER"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VIS UTILGJENGELIGE SPILL"
@@ -672,7 +672,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "KUNNE IKKE AKTIVERE RETROACHIEVEMENTS:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "BLUETOOTH ENHETSLISTE"
 
 msgid "REMOVE ALL"
 msgstr "FJERN ALL"
@@ -681,7 +681,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "INGEN BLUETOOTH ENHETER FUNNET"
 
 msgid " (Connected)"
-msgstr ""
+msgstr "(Tilkoblet)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH ENHETER HAR BLITT SLETTET."
@@ -875,37 +875,37 @@ msgid "Cpu feature"
 msgstr "CPU egenskaper"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Tilgjengelig Minne"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Skjermoppløsning"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Oppdateringsfrekvens"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "OpenGL Driver Versjon"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Vulkan Driver Navn"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Vulkan Driver Versjon"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Datapartisjon Formater"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Datapartisjon tilgjengelig plass"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Nettverk IP Addresse"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI Boot"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Secure Boot"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -1102,10 +1102,10 @@ msgid "DMD SCREEN"
 msgstr "DMD SKJERM"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
-msgstr "FRONTEND UTVIKLER ALTERNATIVER"
+msgstr "FRONTEND UTVIKLER-VALG"
 
 msgid "VIDEO OPTIONS"
-msgstr "VIDEO ALTERNATIV"
+msgstr "VIDEO-VALG"
 
 msgid "VRAM LIMIT"
 msgstr "VRAM GRENSE"
@@ -1223,7 +1223,7 @@ msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
 "Om du vil vise eller skjule spillfiltreringsrelaterte innstillinger i "
-"visningsalternativene."
+"visningsvalg."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "LAGRE METADATA VED AVSLUTT"
@@ -1272,14 +1272,13 @@ msgid "Switches the South and East buttons' functionality"
 msgstr "Bytter Sør og Øst-knappenes funksjoner"
 
 msgid "ACCESS GAME OPTIONS WITH NORTH BUTTON"
-msgstr "FÅ TILGANG TIL SPILL VALG MED NORD-KNAPPEN"
+msgstr "FÅ TILGANG TIL SPILL-VALG MED NORD-KNAPPEN"
 
 msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Bytter til kort-trykk Nord for Savestates & lang-trykk Sør for Spill-"
-"innstillinger"
+"Bytter til kort-trykk Nord for Savestates & lang-trykk Sør for Spill-valg"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "KONTROLLER EMULATIONSTATION KUN MED FØRSTE JOYSTICK"
@@ -1412,8 +1411,7 @@ msgid ""
 "To unlock and return to the full user interface, enter this code:"
 msgstr ""
 "Du endrer brukergrensesnittet til en begrenset modus:\n"
-"Dette vil skjule de fleste menyalternativer for å forhindre endringer i "
-"systemet.\n"
+"Dette vil skjule de fleste menyvalg for å forhindre endringer i systemet.\n"
 "For å låse opp og gå tilbake til hele brukergrensesnittet, skriv inn denne "
 "koden:"
 
@@ -1442,7 +1440,7 @@ msgid "AUDIO PROFILE"
 msgstr "LYDPROFIL"
 
 msgid "Available options can change depending on current audio output."
-msgstr "Tilgjengelige alternativer kan endres avhengig av gjeldende lydutgang."
+msgstr "Tilgjengelige valg kan endres avhengig av gjeldende lydutgang."
 
 msgid "BOOT SPLASH"
 msgstr "OPPSTART SPLASH"
@@ -1784,16 +1782,16 @@ msgid "DEFAULT GRID SIZE"
 msgstr "STANDARD RUTENETTSTØRRELSE"
 
 msgid "GAMELIST THEME OPTIONS"
-msgstr "SPILLELISTE TEMA ALTERNATIVER"
+msgstr "SPILLELISTE TEMAVALG"
 
 msgid "THEME OPTIONS"
-msgstr "TEMA ALTERNATIV"
+msgstr "TEMAVALG"
 
 msgid "DEFAULT VALUE"
 msgstr "STANDARDVERDI"
 
 msgid "GAMELIST OPTIONS"
-msgstr "SPILLELISTE ALTERNATIVER"
+msgstr "SPILLELISTE-VALG"
 
 msgid "SHOW FAVORITES ON TOP"
 msgstr "VIS FAVORITTER PÅ TOPPEN"
@@ -1862,7 +1860,7 @@ msgid "grid"
 msgstr "rutenett"
 
 msgid "DISPLAY OPTIONS"
-msgstr "Visningsalternativer"
+msgstr "VISNINGSVALG"
 
 msgid "SCREENSAVER SETTINGS"
 msgstr "SKJERMSPARERINNSTILLINGER"
@@ -2089,7 +2087,7 @@ msgid "FORMAT NOW"
 msgstr "FORMATER NÅ"
 
 msgid "SELECTED OPTIONS ARE INVALID"
-msgstr "VALGTE ALTERNATIVER ER UGYLDIGE"
+msgstr "VALGENE ER UGYLDIGE"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
 msgstr "ER DU SIKKER PÅ AT DU VIL FORMATERE DENNE DISKEN?"
@@ -2210,7 +2208,7 @@ msgid "SCRAPE"
 msgstr "SØK"
 
 msgid "ADVANCED GAME OPTIONS"
-msgstr "AVANSERTE SPILL VALG"
+msgstr "AVANSERTE SPILLVALG"
 
 msgid "EDIT FOLDER METADATA"
 msgstr "REDIGER MAPPE METADATA"
@@ -2453,7 +2451,7 @@ msgid "COPY TO FREE SLOT"
 msgstr "KOPIER TIL LEDIG PLASS"
 
 msgid "VIEW OPTIONS"
-msgstr "VIS ALTERNATIVER"
+msgstr "VIS VALG"
 
 msgid "NAVIGATION"
 msgstr "NAVIGASJON"
@@ -2483,7 +2481,7 @@ msgid "COLLECTION"
 msgstr "SAMLING"
 
 msgid "ADVANCED SYSTEM OPTIONS"
-msgstr "AVANSERTE SYSTEMALTERNATIVER"
+msgstr "AVANSERTE SYSTEMVALG"
 
 msgid "RESET FILTERS"
 msgstr "NULLSTILL FILTRE"
@@ -2662,7 +2660,7 @@ msgid "WHITE"
 msgstr "HVIT"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "KANTFORHOLD"
 
 msgid "CAMERA CONTRAST"
 msgstr "KAMERA KONTRAST"
@@ -2821,7 +2819,7 @@ msgid "SCREENSAVER CONTROLS"
 msgstr "SKJERMSPARER KONTROLL"
 
 msgid "USE CUSTOM VIDEOS"
-msgstr "BRUKE EGENDEFINERTE VIDEOER"
+msgstr "BRUK EGENDEFINERTE VIDEOER"
 
 msgid "CUSTOM VIDEO DIRECTORY"
 msgstr "EGENDEFINERT VIDEO MAPPE"
@@ -2882,10 +2880,10 @@ msgid "SAVE STATES (HOLD)"
 msgstr "LAGRINGSTILSTAND (HOLD)"
 
 msgid "GAME OPTIONS (HOLD)"
-msgstr "SPILLALTERNATIVER (HOLD)"
+msgstr "SPILLVALG (HOLD)"
 
 msgid "GAME OPTIONS"
-msgstr "SPILLALTERNATIVER"
+msgstr "SPILLVALG"
 
 msgid "FAVORITE"
 msgstr "FAVORITT"
