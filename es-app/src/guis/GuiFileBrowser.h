@@ -14,8 +14,9 @@ public:
 	{
 		IMAGES = 1,
 		MANUALS = 2,
-		VIDEO = 3,
-		DIRECTORY = 4,
+		VIDEO = 4,
+		DIRECTORY = 8,
+		FILES = 16,
 
 		ALL = 255
 	};

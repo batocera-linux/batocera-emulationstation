@@ -2138,6 +2138,12 @@ void GuiMenu::addFeatureItem(Window* window, GuiSettings* settings, const Custom
 		return;
 	}
 
+	if (feat.preset == "files")
+	{
+		settings->addFileBrowser(pgettext("game_options", feat.name.c_str()), storageName, GuiFileBrowser::FILES);
+		return;
+	}
+
 	std::string storedValue = SystemConf::getInstance()->get(storageName);
 	
 	std::string inheritedValue;

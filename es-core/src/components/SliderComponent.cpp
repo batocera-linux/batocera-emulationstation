@@ -41,6 +41,23 @@ SliderComponent::SliderComponent(Window* window, float min, float max, float inc
 		setSize(Renderer::getScreenWidth() * 0.15f, menuTheme->Text.font->getLetterHeight());
 }
 
+int calculatePrecision(float step)
+{
+	std::string stepStr = std::to_string(step); // Convert the float to string to inspect its representation
+	size_t decimalPointPos = stepStr.find('.'); // Find the position of the decimal point
+
+	if (decimalPointPos == std::string::npos) {
+		// No decimal point found, return 0 (no decimals)
+		return 0;
+	}
+
+	// Remove trailing zeros by trimming the string from the right
+	stepStr.erase(stepStr.find_last_not_of('0') + 1, std::string::npos);
+
+	// The number of decimal places is the number of characters after the decimal point
+	return stepStr.length() - decimalPointPos - 1;
+}
+
 void SliderComponent::setAutoMode(bool isAuto)
 {
 	mIsAutoMode = isAuto;
@@ -258,16 +275,18 @@ void SliderComponent::onValueChanged()
 	{
 		std::stringstream ss;
 
+		int precision = calculatePrecision(mSingleIncrement);
+
 		if (mIsAutoMode && getAuto())
 		{
-			ss << "AUTO";  // Display "AUTO"
+			ss << "Auto";  // Display "AUTO"
 		}
 		else
 		{
 			ss << std::fixed;
 			if (mSingleIncrement < 1)
 			{
-				ss.precision(1);
+				ss.precision(precision);
 			}
 			else
 			{
@@ -284,7 +303,7 @@ void SliderComponent::onValueChanged()
 		ss << std::fixed;
 		if (mSingleIncrement < 1)
 		{
-			ss.precision(1);
+			ss.precision(precision);
 		}
 		else
 		{
