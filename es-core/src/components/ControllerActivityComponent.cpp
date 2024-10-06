@@ -52,7 +52,7 @@ void ControllerActivityComponent::init()
 	mView = CONTROLLERS;
 
 	mColorShift = 0xFFFFFF99;
-	mActivityColor = 0xFF000066;
+	mActivityColor = 0xFF3675CA;
 	mHotkeyColor = 0x0000FF66;
 
 	mPadTexture = nullptr;
