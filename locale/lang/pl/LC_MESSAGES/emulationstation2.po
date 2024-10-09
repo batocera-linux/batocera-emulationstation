@@ -546,10 +546,10 @@ msgid "SAO PAULO"
 msgstr "SAN PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "WŁASNY"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "WŁASNY SERWER PRZEKAZUJĄCY"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "POKAŻ NIEDOSTĘPNE GRY"
@@ -879,37 +879,37 @@ msgid "Cpu feature"
 msgstr "Funkcje procesora"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Dostępna Pamięć"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Rozdzielczość Ekranu"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Częstotliwość Odświeżania Ekranu"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "Wersja Sterownika OpenGL"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Nazwa Sterownika Vulkan"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Wersja Sterownika Vulkan"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Format Partycji Danych"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Dostępne Miejsce na Partycji Danych"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Sieciowy Adres IP"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI Boot"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Secure Boot"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -2674,7 +2674,7 @@ msgid "WHITE"
 msgstr "BIAŁY"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "PROPORCJE OBRAMOWANIA"
 
 msgid "CAMERA CONTRAST"
 msgstr "KONTRAST KAMERY"
