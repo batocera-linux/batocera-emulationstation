@@ -165,45 +165,6 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			});
 		}
 
-		if (game->isNetplaySupported())
-		{
-			mMenu.addEntry(_("START A NETPLAY GAME"), false, [window, game, this]
-			{
-				GuiSettings* msgBox = new GuiSettings(mWindow, _("NETPLAY"));
-				msgBox->setSubTitle(game->getName());
-				msgBox->addGroup(_("START GAME"));
-
-				msgBox->addEntry(_U("\uF144 ") + _("HOST A NETPLAY GAME"), false, [window, msgBox, game]
-				{
-					if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
-					{
-						window->pushGui(new GuiMsgBox(window, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
-						return;
-					}
-
-					LaunchGameOptions options;
-					options.netPlayMode = SERVER;
-					ViewController::get()->launch(game, options);
-					msgBox->close();
-				});
-
-				msgBox->addGroup(_("OPTIONS"));
-
-				// pubic announce
-				auto public_announce = std::make_shared<SwitchComponent>(mWindow);
-				public_announce->setState(SystemConf::getInstance()->getBool("global.netplay_public_announce"));
-				msgBox->addWithLabel(_("PUBLICLY ANNOUNCE GAME"), public_announce);
-				msgBox->addSaveFunc([public_announce] { SystemConf::getInstance()->setBool("global.netplay_public_announce", public_announce->getState()); });
-						
-				// passwords
-				msgBox->addInputTextRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
-				msgBox->addInputTextRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
-
-				mWindow->pushGui(msgBox);
-				close();
-			});
-		}
-
 		SystemData* all = SystemData::getSystem("all");
 		if (all != nullptr && game != nullptr && game->getType() != FOLDER && !isImageViewer)
 		{
