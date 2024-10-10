@@ -839,14 +839,20 @@ msgstr "VALORES NO VÁLIDOS"
 msgid "fade"
 msgstr "fundido"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "deslizar"
 
-msgid "instant"
-msgstr "instantáneo"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "fundido y deslizar"
+
+msgid "instant"
+msgstr "instantáneo"
 
 msgid "System"
 msgstr "Sistema"

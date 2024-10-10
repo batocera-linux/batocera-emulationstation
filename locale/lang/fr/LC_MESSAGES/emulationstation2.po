@@ -837,14 +837,20 @@ msgstr "PARAMÈTRES INVALIDES"
 msgid "fade"
 msgstr "fondu"
 
+msgid "fast fade"
+msgstr "fondu rapide"
+
 msgid "slide"
 msgstr "glissement"
 
-msgid "instant"
-msgstr "instantané"
+msgid "fast slide"
+msgstr "glissement rapide"
 
 msgid "fade & slide"
 msgstr "fondu et glissement"
+
+msgid "instant"
+msgstr "instantané"
 
 msgid "System"
 msgstr "Système"

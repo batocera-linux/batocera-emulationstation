@@ -831,14 +831,20 @@ msgstr "NEPLATNÉ PARAMETRY"
 msgid "fade"
 msgstr "zanikavý"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "posunutý"
 
-msgid "instant"
-msgstr "okamžitý"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "zanikavý a posunutý"
+
+msgid "instant"
+msgstr "okamžitý"
 
 msgid "System"
 msgstr "Systém"

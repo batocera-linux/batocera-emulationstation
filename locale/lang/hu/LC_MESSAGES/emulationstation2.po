@@ -834,14 +834,20 @@ msgstr "HIBÁS PARAMÉTER"
 msgid "fade"
 msgstr "eltűnik"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "csúsztat"
 
-msgid "instant"
-msgstr "állandó"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "eltűnik és csúsztat"
+
+msgid "instant"
+msgstr "állandó"
 
 msgid "System"
 msgstr "Rendszer"

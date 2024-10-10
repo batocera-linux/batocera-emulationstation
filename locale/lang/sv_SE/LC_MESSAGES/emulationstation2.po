@@ -832,14 +832,20 @@ msgstr "OGILTIGA PARAMETRAR"
 msgid "fade"
 msgstr "tona"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "glid"
 
-msgid "instant"
-msgstr "direkt"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "tona & glid"
+
+msgid "instant"
+msgstr "direkt"
 
 msgid "System"
 msgstr "System"

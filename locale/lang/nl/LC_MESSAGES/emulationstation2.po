@@ -837,14 +837,20 @@ msgstr "ONGELDIGE PARAMETERS"
 msgid "fade"
 msgstr "vervagen"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "schuiven"
 
-msgid "instant"
-msgstr "direct"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "vervagen en schuiven"
+
+msgid "instant"
+msgstr "direct"
 
 msgid "System"
 msgstr "Systeem"

@@ -835,14 +835,20 @@ msgstr "НЕВЕРНЫЕ ПАРАМЕТРЫ"
 msgid "fade"
 msgstr "затухание"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "слайд"
 
-msgid "instant"
-msgstr "мгновенно"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "затухание и слайд"
+
+msgid "instant"
+msgstr "мгновенно"
 
 msgid "System"
 msgstr "Система"

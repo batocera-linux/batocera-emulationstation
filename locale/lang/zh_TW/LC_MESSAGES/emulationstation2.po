@@ -829,14 +829,20 @@ msgstr "無效的參數"
 msgid "fade"
 msgstr "淡化"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "滑動"
 
-msgid "instant"
-msgstr "瞬間"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "淡出 & 滑動"
+
+msgid "instant"
+msgstr "瞬間"
 
 msgid "System"
 msgstr "系統"

@@ -833,14 +833,20 @@ msgstr "VIRHEELLISET ARVOT"
 msgid "fade"
 msgstr "häivytä"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "liu'uta"
 
-msgid "instant"
-msgstr "välittömästi"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "häivytä ja liu'uta"
+
+msgid "instant"
+msgstr "välittömästi"
 
 msgid "System"
 msgstr "Järjestelmä"

@@ -824,14 +824,20 @@ msgstr "ערכים לא חוקיים"
 msgid "fade"
 msgstr "עמעום"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "מעבר"
 
-msgid "instant"
-msgstr "מיידי"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "עמעום ומעבר"
+
+msgid "instant"
+msgstr "מיידי"
 
 msgid "System"
 msgstr "מערכת"

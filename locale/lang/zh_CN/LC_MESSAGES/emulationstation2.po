@@ -827,14 +827,20 @@ msgstr "参数无效"
 msgid "fade"
 msgstr "淡出"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "滑动"
 
-msgid "instant"
-msgstr "闪现"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "淡入和滑动"
+
+msgid "instant"
+msgstr "闪现"
 
 msgid "System"
 msgstr "系统"

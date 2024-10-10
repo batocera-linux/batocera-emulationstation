@@ -836,14 +836,20 @@ msgstr "無効なパラメーター"
 msgid "fade"
 msgstr "フェード"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "横"
 
-msgid "instant"
-msgstr "瞬時"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "フェード & 横"
+
+msgid "instant"
+msgstr "瞬時"
 
 msgid "System"
 msgstr "システム"

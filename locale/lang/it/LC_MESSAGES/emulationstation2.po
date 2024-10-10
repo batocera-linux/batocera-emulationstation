@@ -832,14 +832,20 @@ msgstr "PARAMETRI NON VALIDI"
 msgid "fade"
 msgstr "dissolvenza"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "scorrimento"
 
-msgid "instant"
-msgstr "istantaneo"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "dissolvenza & scorrimento"
+
+msgid "instant"
+msgstr "istantaneo"
 
 msgid "System"
 msgstr "Sistema"

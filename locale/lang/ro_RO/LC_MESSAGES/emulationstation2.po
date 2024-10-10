@@ -838,14 +838,20 @@ msgstr "PARAMETRII INVALIZI"
 msgid "fade"
 msgstr "atenuează"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "glisează"
 
-msgid "instant"
-msgstr "instant"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "atenuează și glisează"
+
+msgid "instant"
+msgstr "instant"
 
 msgid "System"
 msgstr "Sistem"

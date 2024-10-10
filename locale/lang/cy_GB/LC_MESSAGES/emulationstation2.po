@@ -826,14 +826,20 @@ msgstr "PARAMEDRWYR ANNILYS"
 msgid "fade"
 msgstr "pylu"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "sleid"
 
-msgid "instant"
-msgstr "amrantiad"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "pylu a llithro"
+
+msgid "instant"
+msgstr "amrantiad"
 
 msgid "System"
 msgstr "System"

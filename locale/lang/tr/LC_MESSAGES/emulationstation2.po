@@ -834,14 +834,20 @@ msgstr "GEÇERSİZ PARAMETRELER"
 msgid "fade"
 msgstr "soldur"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "kaydır"
 
-msgid "instant"
-msgstr "anında"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "soldur & kaydır"
+
+msgid "instant"
+msgstr "anında"
 
 msgid "System"
 msgstr "Sistem"

@@ -833,14 +833,20 @@ msgstr "ΜΗ ΕΓΚΥΡΟΙ ΠΑΡΑΜΕΤΡΟΙ"
 msgid "fade"
 msgstr "με εξασθενηση"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "με ολισθηση"
 
-msgid "instant"
-msgstr "αμεσα"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "με εξασθενηση & ολισθηση"
+
+msgid "instant"
+msgstr "αμεσα"
 
 msgid "System"
 msgstr "Συστημα"

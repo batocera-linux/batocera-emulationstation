@@ -832,14 +832,20 @@ msgstr "UGYLDIGE PARAMETRE"
 msgid "fade"
 msgstr "falme"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "lysbilde"
 
-msgid "instant"
-msgstr "øyeblikk"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "falme & glid"
+
+msgid "instant"
+msgstr "øyeblikk"
 
 msgid "System"
 msgstr "System"

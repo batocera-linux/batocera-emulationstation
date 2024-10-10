@@ -831,14 +831,20 @@ msgstr "PARAMETRO EZEGOKIAK"
 msgid "fade"
 msgstr "ahuldu"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "irristatu"
 
-msgid "instant"
-msgstr "unea"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "ahuldu eta irristatu"
+
+msgid "instant"
+msgstr "unea"
 
 msgid "System"
 msgstr "Sistema"

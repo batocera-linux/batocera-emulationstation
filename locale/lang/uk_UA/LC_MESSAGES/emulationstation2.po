@@ -828,14 +828,20 @@ msgstr "НЕ ВІРНІ ПАРАМЕТРИ"
 msgid "fade"
 msgstr "затухання"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "розмиття"
 
-msgid "instant"
-msgstr "миттєво"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "затухання та розмиття"
+
+msgid "instant"
+msgstr "миттєво"
 
 msgid "System"
 msgstr "Система"

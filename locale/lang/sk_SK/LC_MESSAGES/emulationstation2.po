@@ -834,14 +834,20 @@ msgstr "Neplatné parametre"
 msgid "fade"
 msgstr "vytratenie"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "posun"
 
-msgid "instant"
-msgstr "okamžité"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "vytratenie a posun"
+
+msgid "instant"
+msgstr "okamžité"
 
 msgid "System"
 msgstr "Systém"

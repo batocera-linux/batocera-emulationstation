@@ -830,14 +830,20 @@ msgstr "잘못된 매개변수"
 msgid "fade"
 msgstr "희미해짐"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "슬라이드"
 
-msgid "instant"
-msgstr "즉시"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "희미해짐 & 슬라이드"
+
+msgid "instant"
+msgstr "즉시"
 
 msgid "System"
 msgstr "시스템"

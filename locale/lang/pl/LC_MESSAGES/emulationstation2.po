@@ -836,14 +836,20 @@ msgstr "NIEPRAWIDŁOWE PARAMETRY"
 msgid "fade"
 msgstr "zanikanie"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "przesunięcie"
 
-msgid "instant"
-msgstr "natychmiastowo"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "zanikanie i przesunięcie"
+
+msgid "instant"
+msgstr "natychmiastowo"
 
 msgid "System"
 msgstr "System"

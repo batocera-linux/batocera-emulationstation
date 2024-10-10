@@ -836,14 +836,20 @@ msgstr "PARÂMETROS INVÁLIDOS"
 msgid "fade"
 msgstr "escurecer"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "deslizar"
 
-msgid "instant"
-msgstr "instantâneo"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "escurecer & deslizar"
+
+msgid "instant"
+msgstr "instantâneo"
 
 msgid "System"
 msgstr "Sistema"
@@ -3519,7 +3525,6 @@ msgid ""
 msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
-
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

@@ -837,14 +837,20 @@ msgstr "UNGÜLTIGE PARAMETER"
 msgid "fade"
 msgstr "Überblenden"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "Gleiten"
 
-msgid "instant"
-msgstr "Sofort"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "Überblenden & Gleiten"
+
+msgid "instant"
+msgstr "Sofort"
 
 msgid "System"
 msgstr "System"

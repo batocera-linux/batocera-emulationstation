@@ -867,14 +867,20 @@ msgstr "معلمات غير صالحة"
 msgid "fade"
 msgstr "تلاشي"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "شريحة"
 
-msgid "instant"
-msgstr "فوري"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "تلاشي وانزلاق"
+
+msgid "instant"
+msgstr "فوري"
 
 msgid "System"
 msgstr "النظام"

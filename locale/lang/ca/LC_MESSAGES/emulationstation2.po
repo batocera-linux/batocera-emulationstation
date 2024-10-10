@@ -838,14 +838,20 @@ msgstr "VALORS NO VÀLIDS"
 msgid "fade"
 msgstr "esvair"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "lliscar"
 
-msgid "instant"
-msgstr "instantani"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "esvair i lliscar"
+
+msgid "instant"
+msgstr "instantani"
 
 msgid "System"
 msgstr "Sistema"

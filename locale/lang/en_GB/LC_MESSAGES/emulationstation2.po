@@ -831,14 +831,20 @@ msgstr "INVALID PARAMETERS"
 msgid "fade"
 msgstr "fade"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "slide"
 
-msgid "instant"
-msgstr "instant"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "fade & slide"
+
+msgid "instant"
+msgstr "instant"
 
 msgid "System"
 msgstr "System"

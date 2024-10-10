@@ -825,13 +825,19 @@ msgstr ""
 msgid "fade"
 msgstr ""
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr ""
 
-msgid "instant"
+msgid "fast slide"
 msgstr ""
 
 msgid "fade & slide"
+msgstr ""
+
+msgid "instant"
 msgstr ""
 
 msgid "System"

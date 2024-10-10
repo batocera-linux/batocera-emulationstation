@@ -838,14 +838,20 @@ msgstr "THÔNG SỐ KHÔNG HỢP LỆ"
 msgid "fade"
 msgstr "mờ dần"
 
+msgid "fast fade"
+msgstr ""
+
 msgid "slide"
 msgstr "trượt"
 
-msgid "instant"
-msgstr "tức thì"
+msgid "fast slide"
+msgstr ""
 
 msgid "fade & slide"
 msgstr "mờ dần & trượt"
+
+msgid "instant"
+msgstr "tức thì"
 
 msgid "System"
 msgstr "Hệ thống"
