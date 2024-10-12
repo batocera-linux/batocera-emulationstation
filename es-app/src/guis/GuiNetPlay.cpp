@@ -320,9 +320,6 @@ FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc, std::string co
 	std::string normalizedName = normalizeName(gameInfo);
 	for (auto sys : SystemData::sSystemVector)
 	{
-		if (!sys->isNetplaySupported())
-			continue;
-
 		if (!crc)
 		{
 			bool coreExists = false;
@@ -506,6 +503,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 	std::vector<LobbyAppEntry> entries;
 	const std::string targetCRC = mTargetGame == nullptr ? "" : mTargetGame->getMetadata(MetaDataId::Crc32);
+	bool netPlayShowOnlyRelayServerGames = Settings::NetPlayShowOnlyRelayServerGames();
 
 	for (auto& item : doc.GetArray())
 	{
@@ -575,6 +573,9 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 		if (fields.HasMember("host_method") && fields["host_method"].IsInt())
 			game.host_method = fields["host_method"].GetInt();
+
+		if (netPlayShowOnlyRelayServerGames && game.host_method != 3)
+			continue;
 
 		if (fields.HasMember("has_password") && fields["has_password"].IsBool())
 			game.has_password = fields["has_password"].GetBool();
