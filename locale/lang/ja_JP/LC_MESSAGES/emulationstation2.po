@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v41b(2024/09/11)\n"
+"Project-Id-Version: batocera-es v41b(2024/10/11)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-09-11 23:03+0900\n"
+"PO-Revision-Date: 2024-10-12 06:32+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -837,13 +837,13 @@ msgid "fade"
 msgstr "フェード"
 
 msgid "fast fade"
-msgstr ""
+msgstr "高速フェード"
 
 msgid "slide"
 msgstr "横"
 
 msgid "fast slide"
-msgstr ""
+msgstr "高速スライド"
 
 msgid "fade & slide"
 msgstr "フェード & 横"
