@@ -837,13 +837,13 @@ msgid "fade"
 msgstr "escurecer"
 
 msgid "fast fade"
-msgstr ""
+msgstr "escurecimento rápido"
 
 msgid "slide"
 msgstr "deslizar"
 
 msgid "fast slide"
-msgstr ""
+msgstr "deslizamento rápido"
 
 msgid "fade & slide"
 msgstr "escurecer & deslizar"

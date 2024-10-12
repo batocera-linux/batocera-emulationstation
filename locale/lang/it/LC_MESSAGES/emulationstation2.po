@@ -1,4 +1,5 @@
 # Davide Notaristefano <davide.notaristefano@gmail.com>, 2024.
+# AntonyBel <antolanzi@proton.me>, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
@@ -833,13 +834,13 @@ msgid "fade"
 msgstr "dissolvenza"
 
 msgid "fast fade"
-msgstr ""
+msgstr "dissolvenza rapida"
 
 msgid "slide"
 msgstr "scorrimento"
 
 msgid "fast slide"
-msgstr ""
+msgstr "scorrimento rapido"
 
 msgid "fade & slide"
 msgstr "dissolvenza & scorrimento"
