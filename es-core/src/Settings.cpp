@@ -245,6 +245,7 @@ void Settings::setDefaults()
 
 	mBoolMap["ShowWheelIconOnGames"] = true;
 	mBoolMap["ShowGunIconOnGames"] = true;
+	mBoolMap["ShowTrackballIconOnGames"] = true;
 
 	mBoolMap["SlideshowScreenSaverCustomVideoSource"] = false;
 	mStringMap["SlideshowScreenSaverVideoFilter"] = ".mp4,.avi";

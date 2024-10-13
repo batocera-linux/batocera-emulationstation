@@ -131,6 +131,9 @@ protected:
   	ImageComponent* mWheelGame;
 	ImageComponent* mNotWheelGame;
 
+  	ImageComponent* mTrackballGame;
+	ImageComponent* mNotTrackballGame;
+
 	TextComponent mLblRating, mLblReleaseDate, mLblDeveloper, mLblPublisher, mLblGenre, mLblPlayers, mLblLastPlayed, mLblPlayCount, mLblGameTime, mLblFavorite;
 	TextComponent mDeveloper, mPublisher, mGenre, mPlayers, mPlayCount, mName, mGameTime, mTextFavorite;
 

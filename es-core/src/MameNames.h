@@ -17,7 +17,8 @@ enum class ArcadeRomType
 	LIGHTGUN = 2,
 	WHEEL = 4,
 	BIOS = 8,
-	DEVICE = 16
+	DEVICE = 16,
+	TRACKBALL = 32,
 };
 
 struct ArcadeRom
@@ -39,6 +40,7 @@ public:
 	const bool        isVertical(const std::string& _nameName);
 	const bool		  isLightgun(const std::string& _nameName, const std::string& systemName, bool isArcade);
   	const bool		  isWheel(const std::string& _nameName, const std::string& systemName, bool isArcade);
+    	const bool		  isTrackball(const std::string& _nameName, const std::string& systemName, bool isArcade);
 
 private:
 	 MameNames();
@@ -50,6 +52,7 @@ private:
 
 	std::unordered_map<std::string, std::unordered_set<std::string>> mNonArcadeGunGames;
   	std::unordered_map<std::string, std::unordered_set<std::string>> mNonArcadeWheelGames;
+    	std::unordered_map<std::string, std::unordered_set<std::string>> mNonArcadeTrackballGames;
 
 }; // MameNames
 
