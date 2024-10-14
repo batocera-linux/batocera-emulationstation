@@ -415,6 +415,10 @@ namespace Utils
 					if ((Utils::String::toLower(file).find("/bat") != std::string::npos) && (batteryRootPath.empty()))
 						batteryRootPath = file;
 
+					// Qualcomm devices use "qcom-battery"
+					if ((Utils::String::toLower(file).find("/qcom-battery") != std::string::npos) && (batteryRootPath.empty()))
+						batteryRootPath = file;
+
 					if ((Utils::String::toLower(file).find("fuel") != std::string::npos) && (fuelgaugeRootPath.empty()))
 						fuelgaugeRootPath = file;
 
