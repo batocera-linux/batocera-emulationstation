@@ -837,13 +837,13 @@ msgid "fade"
 msgstr "zanikanie"
 
 msgid "fast fade"
-msgstr ""
+msgstr "szybkie zanikanie"
 
 msgid "slide"
 msgstr "przesunięcie"
 
 msgid "fast slide"
-msgstr ""
+msgstr "szybkie przesunięcie"
 
 msgid "fade & slide"
 msgstr "zanikanie i przesunięcie"
