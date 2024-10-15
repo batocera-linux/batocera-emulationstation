@@ -181,6 +181,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ CAMPUTER_LYNX, 88 },
 	{ EPOCH_GAMEPOCKET, 95 },
 	{ WASM4, 262 },
+	{ VIRCON32, 272 },
 	{ GAMATE, 266 },
 	{ ARDUBOY, 263 },
 	{ LOWRESNX, 244 }
