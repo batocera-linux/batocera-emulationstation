@@ -170,6 +170,7 @@ namespace PlatformIds
 		CAMPUTER_LYNX,
 		EPOCH_GAMEPOCKET,
 		WASM4,
+		VIRCON32,
 		TANDY_VIS,
 		LOWRESNX,
 
