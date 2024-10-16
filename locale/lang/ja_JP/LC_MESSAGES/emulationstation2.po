@@ -1847,6 +1847,12 @@ msgstr "銃 アイコンを表示"
 msgid "SHOW WHEEL ICON"
 msgstr "ホイール(車)アイコンを表示"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "リストにファイル名を表示"
 
@@ -3030,6 +3036,12 @@ msgstr "ライトガン(ガンコン)対応"
 msgid "STEERING WHEEL"
 msgstr "ステアリングホイール (ハンコン)"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "メディア有り"
 
@@ -3110,6 +3122,12 @@ msgstr "ガンコントローラ ゲーム"
 
 msgid "wheel games"
 msgstr "ステアリング　ゲーム"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "コレクション"

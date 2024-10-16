@@ -1837,6 +1837,12 @@ msgstr "SHOW GUN ICON"
 msgid "SHOW WHEEL ICON"
 msgstr "SHOW WHEEL ICON"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "SHOW FILENAMES INSTEAD"
 
@@ -3022,6 +3028,12 @@ msgstr "LIGHTGUN"
 msgid "STEERING WHEEL"
 msgstr "STEERING WHEEL"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "HAVING MEDIAS"
 
@@ -3102,6 +3114,12 @@ msgstr "lightgun games"
 
 msgid "wheel games"
 msgstr "wheel games"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "collections"

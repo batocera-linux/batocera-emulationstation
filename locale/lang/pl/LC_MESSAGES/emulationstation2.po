@@ -1857,6 +1857,12 @@ msgstr "POKAŻ IKONĘ PISTOLETU"
 msgid "SHOW WHEEL ICON"
 msgstr "POKAŻ IKONĘ KIEROWNICY"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "POKAŻ NAZWY PLIKÓW"
 
@@ -3045,6 +3051,12 @@ msgstr "PISTOLET ŚWIETLNY"
 msgid "STEERING WHEEL"
 msgstr "KIEROWNICA"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "POSIADA MEDIA"
 
@@ -3125,6 +3137,12 @@ msgstr "gry z pistoletem"
 
 msgid "wheel games"
 msgstr "gry na kierownicę"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "kolekcje"

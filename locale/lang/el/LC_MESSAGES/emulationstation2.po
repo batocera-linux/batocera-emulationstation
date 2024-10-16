@@ -1834,6 +1834,12 @@ msgstr ""
 msgid "SHOW WHEEL ICON"
 msgstr "ΠΡΟΒΟΛΗ ΕΙΚΟΝΙΔΙΟΥ ΤΡΟΧΟΥ"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ΕΜΦΑΝΙΣΗ ΟΝΟΜΑΤΩΝ ΑΡΧΕΙΩΝ ΣΤΙΣ ΛΙΣΤΕΣ"
 
@@ -3015,6 +3021,12 @@ msgstr ""
 msgid "STEERING WHEEL"
 msgstr ""
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "MEDIA ΠΟΥ ΥΠΑΡΧΟΥΝ"
 
@@ -3094,6 +3106,12 @@ msgid "lightgun games"
 msgstr "lightgun παιχνιδια"
 
 msgid "wheel games"
+msgstr ""
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
 msgstr ""
 
 msgid "collections"

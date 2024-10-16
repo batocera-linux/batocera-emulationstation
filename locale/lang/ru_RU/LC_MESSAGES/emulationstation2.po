@@ -1846,6 +1846,12 @@ msgstr "ПОКАЗАТЬ ИКОНКУ ПИСТОЛЕТА"
 msgid "SHOW WHEEL ICON"
 msgstr "ПОКАЗАТЬ ИКОНКУ РУЛЯ"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
 
@@ -3034,6 +3040,12 @@ msgstr "СВЕТОВОЙ ПИСТОЛЕТ"
 msgid "STEERING WHEEL"
 msgstr "РУЛЬ"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "ИМЕЮЩИЕ МЕДИА"
 
@@ -3114,6 +3126,12 @@ msgstr "световой пистолет"
 
 msgid "wheel games"
 msgstr "игры с рулём"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "коллекции"

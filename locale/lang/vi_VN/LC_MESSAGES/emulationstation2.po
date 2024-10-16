@@ -1858,6 +1858,12 @@ msgstr "HIỂN THỊ BIỂU TƯỢNG SÚNG"
 msgid "SHOW WHEEL ICON"
 msgstr "HIỂN THỊ BIỂU TƯỢNG BÁNH XE"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "HIỂN THỊ TÊN TỆP THAY THẾ"
 
@@ -3045,6 +3051,12 @@ msgstr "SÚNG NHẸ"
 msgid "STEERING WHEEL"
 msgstr "VÔ LĂNG"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "CÓ PHƯƠNG TIỆN"
 
@@ -3125,6 +3137,12 @@ msgstr "trò chơi súng nhẹ"
 
 msgid "wheel games"
 msgstr "trò chơi bánh xe"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "bộ sưu tập"

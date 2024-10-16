@@ -1854,6 +1854,12 @@ msgstr "SİLAH SİMGESİNİ GÖSTER"
 msgid "SHOW WHEEL ICON"
 msgstr "TEKERLEK SİMGESİNİ GÖSTER"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "LİSTEDE DOSYA İSİMLERİNİ GÖSTER"
 
@@ -3039,6 +3045,12 @@ msgstr "LIGHTGUN"
 msgid "STEERING WHEEL"
 msgstr "DİREKSİYON"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "MEDYALARINIZ"
 
@@ -3119,6 +3131,12 @@ msgstr "silah oyunları"
 
 msgid "wheel games"
 msgstr "çark oyunları"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "koleksiyonlar"

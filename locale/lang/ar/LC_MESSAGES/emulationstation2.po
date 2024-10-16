@@ -1871,6 +1871,12 @@ msgstr "إظهار أيقونة GUN"
 msgid "SHOW WHEEL ICON"
 msgstr "إظهار أيقونة WHEEL"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "عرض اسم الملف في القائمة"
 
@@ -3068,6 +3074,12 @@ msgstr "المسدس"
 msgid "STEERING WHEEL"
 msgstr "عجلة القيادة"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "الوسائط الموجودة"
 
@@ -3148,6 +3160,12 @@ msgstr "ألعاب المسدس الضوئي"
 
 msgid "wheel games"
 msgstr "العاب سيارات"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "مجموعات"

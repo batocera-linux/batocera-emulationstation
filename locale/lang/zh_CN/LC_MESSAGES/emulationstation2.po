@@ -1821,6 +1821,12 @@ msgstr "显示光枪图标"
 msgid "SHOW WHEEL ICON"
 msgstr "显示方向盘图标"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在列表中显示文件名"
 
@@ -2997,6 +3003,12 @@ msgstr "光枪"
 msgid "STEERING WHEEL"
 msgstr "方向盘"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "拥有媒体"
 
@@ -3077,6 +3089,12 @@ msgstr "光枪游戏"
 
 msgid "wheel games"
 msgstr "方向盘游戏"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "合辑"

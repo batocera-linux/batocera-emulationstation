@@ -1849,6 +1849,12 @@ msgstr "MOSTRA ICONA PISTOLA"
 msgid "SHOW WHEEL ICON"
 msgstr "MOSTRA ICONA MANUBRIO"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VISUALIZZA NOME FILE NELLE LISTE"
 
@@ -3034,6 +3040,12 @@ msgstr "PISTOLA"
 msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "MEDIAS PRESENTI"
 
@@ -3114,6 +3126,12 @@ msgstr "giochi lightgun"
 
 msgid "wheel games"
 msgstr "giochi con volante"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "collezione"

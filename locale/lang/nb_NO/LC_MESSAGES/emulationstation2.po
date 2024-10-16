@@ -1844,6 +1844,12 @@ msgstr "VIS PISTOL IKON"
 msgid "SHOW WHEEL ICON"
 msgstr "VIS WHEEL ICON"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VIS FILNAVN ISTEDET"
 
@@ -3030,6 +3036,12 @@ msgstr "LYSVÅPEN"
 msgid "STEERING WHEEL"
 msgstr "RATT"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "HAR MEDIA"
 
@@ -3110,6 +3122,12 @@ msgstr "lysvåpen spill"
 
 msgid "wheel games"
 msgstr "rattspill"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "samlinger"

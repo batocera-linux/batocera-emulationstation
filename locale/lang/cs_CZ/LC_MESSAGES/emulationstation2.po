@@ -1845,6 +1845,12 @@ msgstr "ZOBRAZIT IKONU ZBRANĚ"
 msgid "SHOW WHEEL ICON"
 msgstr "ZOBRAZIT IKONU KOLEČKA"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ZOBRAZIT NÁZVY SOUBORŮ V SEZNAMECH"
 
@@ -3036,6 +3042,12 @@ msgstr "SVĚTELNÁ ZBRAŇ"
 msgid "STEERING WHEEL"
 msgstr "ŘÍDICÍ KOLO"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "MAJÍCÍ MÉDIA"
 
@@ -3116,6 +3128,12 @@ msgstr "hry se světelnou pistolí"
 
 msgid "wheel games"
 msgstr "kolové hry"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "sbírky"

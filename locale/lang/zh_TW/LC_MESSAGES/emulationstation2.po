@@ -1822,6 +1822,12 @@ msgstr ""
 msgid "SHOW WHEEL ICON"
 msgstr ""
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "在清單中顯示檔案名稱"
 
@@ -2997,6 +3003,12 @@ msgstr "光線槍"
 msgid "STEERING WHEEL"
 msgstr ""
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr ""
 
@@ -3076,6 +3088,12 @@ msgid "lightgun games"
 msgstr "光線槍遊戲"
 
 msgid "wheel games"
+msgstr ""
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
 msgstr ""
 
 msgid "collections"

@@ -1834,6 +1834,12 @@ msgstr "건 아이콘 표시"
 msgid "SHOW WHEEL ICON"
 msgstr "휠 아이콘 표시"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "목록에 파일이름 표시"
 
@@ -3018,6 +3024,12 @@ msgstr "라이트건"
 msgid "STEERING WHEEL"
 msgstr "스티어링 휠"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr "미디어 있음"
 
@@ -3098,6 +3110,12 @@ msgstr "라이트건 게임"
 
 msgid "wheel games"
 msgstr "휠 게임"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "컬렉션"

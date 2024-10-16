@@ -1857,6 +1857,12 @@ msgstr "AFFICHER L’ICÔNE PISTOLET"
 msgid "SHOW WHEEL ICON"
 msgstr "AFFICHER L'ICÔNE ROUE"
 
+msgid "SHOW TRACKBALL ICON"
+msgstr "AFFICHER L'ICÔNE TRACKBALL"
+
+msgid "SHOW SPINNER ICON"
+msgstr "AFFICHER L'ICÔNE SPINNER"
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "AFFICHER LE NOM DES ROMS DANS LES LISTES"
 
@@ -3044,6 +3050,12 @@ msgstr "PISTOLET"
 msgid "STEERING WHEEL"
 msgstr "VOLANT"
 
+msgid "TRACKBALL"
+msgstr "TRACKBALL"
+
+msgid "SPINNER"
+msgstr "SPINNER"
+
 msgid "HAVING MEDIAS"
 msgstr "AYANT DES MÉDIAS"
 
@@ -3124,6 +3136,12 @@ msgstr "jeux au pistolet"
 
 msgid "wheel games"
 msgstr "jeux au volant"
+
+msgid "trackball games"
+msgstr "jeux au trackball"
+
+msgid "spinner games"
+msgstr "jeux au spinner"
 
 msgid "collections"
 msgstr "collections"

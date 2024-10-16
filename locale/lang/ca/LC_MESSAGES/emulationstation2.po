@@ -1864,6 +1864,12 @@ msgstr ""
 msgid "SHOW WHEEL ICON"
 msgstr ""
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOM D’ARXIU ENLLOC DEL NOM DEL JOC"
 
@@ -3050,6 +3056,12 @@ msgstr "PISTOLA DE LLUM"
 msgid "STEERING WHEEL"
 msgstr "VOLANT"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr ""
 
@@ -3131,6 +3143,12 @@ msgstr "jocs de pistola lightgun"
 # Maybe Wheel is like "roulette"?
 msgid "wheel games"
 msgstr "jocs de conducció"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "col·leccions"

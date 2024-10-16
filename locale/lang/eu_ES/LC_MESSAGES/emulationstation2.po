@@ -1850,6 +1850,12 @@ msgstr ""
 msgid "SHOW WHEEL ICON"
 msgstr ""
 
+msgid "SHOW TRACKBALL ICON"
+msgstr ""
+
+msgid "SHOW SPINNER ICON"
+msgstr ""
+
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ERAKUTSI FITXATEGI IZENAK HORREN ORDEZ"
 
@@ -3038,6 +3044,12 @@ msgstr "ARGIZKO PISTOLA"
 msgid "STEERING WHEEL"
 msgstr "BOLANTEA"
 
+msgid "TRACKBALL"
+msgstr ""
+
+msgid "SPINNER"
+msgstr ""
+
 msgid "HAVING MEDIAS"
 msgstr ""
 
@@ -3118,6 +3130,12 @@ msgstr "argizko pistola jokoak"
 
 msgid "wheel games"
 msgstr "gurpil jokoak"
+
+msgid "trackball games"
+msgstr ""
+
+msgid "spinner games"
+msgstr ""
 
 msgid "collections"
 msgstr "kolekzioak"
