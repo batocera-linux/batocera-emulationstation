@@ -110,6 +110,9 @@ MameNames::MameNames()
 					//if (gameNode.attribute("trackball") && gameNode.attribute("trackball").value() == sTrue)
 					//	rom.type |= ArcadeRomType::TRACKBALL;
 
+					//if (gameNode.attribute("spinner") && gameNode.attribute("spinner").value() == sTrue)
+					//	rom.type |= ArcadeRomType::SPINNER;
+
 					mArcadeRoms[name] = rom;
 				}
 			}
@@ -143,6 +146,7 @@ MameNames::MameNames()
 						std::unordered_set<std::string> gunGames;
 						std::unordered_set<std::string> wheelGames;
 						std::unordered_set<std::string> trackballGames;
+						std::unordered_set<std::string> spinnerGames;
 
 						for (pugi::xml_node gameNode = systemNode.child("game"); gameNode; gameNode = gameNode.next_sibling("game"))
 						{
@@ -161,6 +165,9 @@ MameNames::MameNames()
 
 							if (gameNode.child("trackball"))
 								trackballGames.insert(gameName);
+
+							if (gameNode.child("spinner"))
+								spinnerGames.insert(gameName);
 						}
 
 						if (gunGames.size())
@@ -224,6 +231,27 @@ MameNames::MameNames()
 							}
 							else
 								mNonArcadeTrackballGames[Utils::String::trim(systemName)] = trackballGames;
+						}
+
+						if (spinnerGames.size())
+						{
+							if (systemNames == "arcade")
+							{
+								for (auto game : spinnerGames)
+								{
+									auto it = mArcadeRoms.find(game);
+									if (it == mArcadeRoms.cend())
+									{
+										ArcadeRom rom;
+										rom.type |= ArcadeRomType::SPINNER;
+										mArcadeRoms[game] = rom;
+									}
+									else
+										it->second.type |= ArcadeRomType::SPINNER;
+								}
+							}
+							else
+								mNonArcadeSpinnerGames[Utils::String::trim(systemName)] = spinnerGames;
 						}
 					}	
 				}
@@ -361,6 +389,35 @@ const bool MameNames::isTrackball(const std::string& _nameName, const std::strin
 
 	auto it = mNonArcadeTrackballGames.find(systemName);
 	if (it == mNonArcadeTrackballGames.cend())
+		return false;
+
+	std::string indexedName = getIndexedName(_nameName);
+
+	// Exact match ?
+	if (it->second.find(indexedName) != it->second.cend())
+		return true;
+
+	// name contains ?
+	for (auto gameName : it->second)
+		if (indexedName.find(gameName) != std::string::npos)
+			return true;
+
+	return false;
+}
+
+const bool MameNames::isSpinner(const std::string& _nameName, const std::string& systemName, bool isArcade)
+{
+	if (isArcade)
+	{
+		auto it = mArcadeRoms.find(_nameName);
+		if (it != mArcadeRoms.cend())
+			return hasFlag(it->second.type, ArcadeRomType::SPINNER);
+
+		return false;
+	}
+
+	auto it = mNonArcadeSpinnerGames.find(systemName);
+	if (it == mNonArcadeSpinnerGames.cend())
 		return false;
 
 	std::string indexedName = getIndexedName(_nameName);

@@ -27,6 +27,7 @@ DetailedContainer::DetailedContainer(ISimpleGameListView* parent, GuiComponent* 
 	mGunGame(nullptr), mNotGunGame(nullptr),
 	mWheelGame(nullptr), mNotWheelGame(nullptr),
 	mTrackballGame(nullptr), mNotTrackballGame(nullptr),
+	mSpinnerGame(nullptr), mNotSpinnerGame(nullptr),
 	mFavorite(nullptr), mNotFavorite(nullptr),
 	mManual(nullptr), mNoManual(nullptr), 
 	mMap(nullptr), mNoMap(nullptr),
@@ -226,6 +227,12 @@ DetailedContainer::~DetailedContainer()
 
 	if (mNotTrackballGame != nullptr)
 		delete mNotTrackballGame;
+
+	if (mSpinnerGame != nullptr)
+		delete mSpinnerGame;
+
+	if (mNotSpinnerGame != nullptr)
+		delete mNotSpinnerGame;
 
 	if (mCheevos != nullptr)
 		delete mCheevos;
@@ -461,6 +468,9 @@ void DetailedContainer::onThemeChanged(const std::shared_ptr<ThemeData>& theme)
 
 	loadIfThemed(&mTrackballGame, theme, "md_trackballgame", false, true);
 	loadIfThemed(&mNotTrackballGame, theme, "md_nottrackballgame", false, true);
+
+	loadIfThemed(&mSpinnerGame, theme, "md_spinnergame", false, true);
+	loadIfThemed(&mNotSpinnerGame, theme, "md_notspinnergame", false, true);
 
 	loadIfThemed(&mCheevos, theme, "md_cheevos", false, true);
 	loadIfThemed(&mNotCheevos, theme, "md_notcheevos", false, true);
@@ -924,6 +934,13 @@ void DetailedContainer::updateControls(FileData* file, bool isClearing, int move
 		if (mNotTrackballGame != nullptr)
 			mNotTrackballGame->setVisible(!file->isTrackballGame());
 
+		// Spinner game
+		if (mSpinnerGame != nullptr)
+			mSpinnerGame->setVisible(file->isSpinnerGame());
+
+		if (mNotSpinnerGame != nullptr)
+			mNotSpinnerGame->setVisible(!file->isSpinnerGame());
+
 		bool systemHasCheevos = 
 			SystemConf::getInstance()->getBool("global.retroachievements") && (
 			file->getSourceFileData()->getSystem()->isCheevosSupported() || 
@@ -1204,6 +1221,8 @@ void DetailedContainer::disableComponent(GuiComponent* comp)
 	if (mNotWheelGame == comp) mNotWheelGame->setVisible(false);
 	if (mTrackballGame == comp) mTrackballGame->setVisible(false);
 	if (mNotTrackballGame == comp) mNotTrackballGame->setVisible(false);
+	if (mSpinnerGame == comp) mSpinnerGame->setVisible(false);
+	if (mNotSpinnerGame == comp) mNotSpinnerGame->setVisible(false);
 	if (mCheevos == comp) mCheevos->setVisible(false);
 	if (mNotCheevos == comp) mNotCheevos->setVisible(false);
 	if (mNetplay == comp) mNetplay->setVisible(false);
@@ -1243,6 +1262,8 @@ std::vector<GuiComponent*>  DetailedContainer::getComponents()
 	if (mNotWheelGame != nullptr) comps.push_back(mNotWheelGame);
 	if (mTrackballGame != nullptr) comps.push_back(mTrackballGame);
 	if (mNotTrackballGame != nullptr) comps.push_back(mNotTrackballGame);
+	if (mSpinnerGame != nullptr) comps.push_back(mSpinnerGame);
+	if (mNotSpinnerGame != nullptr) comps.push_back(mNotSpinnerGame);
 	if (mCheevos != nullptr) comps.push_back(mCheevos);
 	if (mNotCheevos != nullptr) comps.push_back(mNotCheevos);
 	if (mNetplay != nullptr) comps.push_back(mNetplay);
