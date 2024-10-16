@@ -6019,9 +6019,6 @@
     <game name="barroomshootout">
       <gun/>
     </game>
-    <game name="russianroulette">
-      <gun/>
-    </game>
     <game name="bloodofjurassic">
       <gun/>
     </game>
@@ -6035,6 +6032,9 @@
       <trackball/>
     </game>
     <game name="superrussianroulette">
+      <gun/>
+    </game>
+    <game name="russianroulette">
       <gun/>
     </game>
     <game name="barkerbillstrickshooting">
