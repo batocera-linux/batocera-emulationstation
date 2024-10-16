@@ -124,6 +124,7 @@ public:
 	const bool isVerticalArcadeGame();
 	const bool isLightGunGame();
   	const bool isWheelGame();
+    	const bool isTrackballGame();
 	inline std::string getFullPath() { return getPath(); };
 	inline std::string getFileName() { return Utils::FileSystem::getFileName(getPath()); };
 	virtual FileData* getSourceFileData();

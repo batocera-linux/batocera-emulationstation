@@ -20,7 +20,7 @@
 
 FileFilterIndex::FileFilterIndex()
 	: filterByFavorites(false), filterByGenre(false), filterByKidGame(false), filterByPlayers(false), filterByPubDev(false), filterByRatings(false), filterByYear(false)
-	, filterByLightGun(false), filterByWheel(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false)
+	, filterByLightGun(false), filterByWheel(false), filterByTrackball(false), filterByVertical(false), filterByCheevos(false), filterByPlayed(false), filterByRegion(false), filterByLang(false), filterByFamily(false), filterByHasMedia(false), filterByMissingMedia(false)
 {
 	clearAllFilters();
 	FilterDataDecl filterDecls[] = 
@@ -41,6 +41,7 @@ FileFilterIndex::FileFilterIndex()
 		{ VERTICAL_FILTER, 	&verticalIndexAllKeys,  &filterByVertical,	&verticalIndexFilteredKeys, "vertical",		false,				"",				_("VERTICAL") },
 		{ LIGHTGUN_FILTER, 	&lightGunIndexAllKeys,  &filterByLightGun,	&lightGunIndexFilteredKeys, "lightgun",		false,				"",				_("LIGHTGUN") },
 		{ WHEEL_FILTER, 	&wheelIndexAllKeys,     &filterByWheel,	    &wheelIndexFilteredKeys,    "wheel",		false,				"",				_("STEERING WHEEL") },
+		{ TRACKBALL_FILTER, 	&trackballIndexAllKeys,     &filterByTrackball,	    &trackballIndexFilteredKeys,    "trackball",		false,				"",				_("TRACKBALL") },
 		{ HASMEDIA_FILTER, 	&hasMediasIndexAllKeys, &filterByHasMedia,	&hasMediaIndexFilteredKeys, "hasMedia",		false,				"",				_("HAVING MEDIAS") },
 		{ MISSING_MEDIA_FILTER, &missingMediasIndexAllKeys, &filterByMissingMedia, &missingMediaIndexFilteredKeys, "missingMedia",		false,				"",				_("MISSING MEDIAS") }
 	};
@@ -116,6 +117,7 @@ void FileFilterIndex::importIndex(FileFilterIndex* indexToImport)
 		{ &playedIndexAllKeys, &(indexToImport->playedIndexAllKeys) },
 		{ &lightGunIndexAllKeys, &(indexToImport->lightGunIndexAllKeys) },
 		{ &wheelIndexAllKeys, &(indexToImport->wheelIndexAllKeys) },
+		{ &trackballIndexAllKeys, &(indexToImport->trackballIndexAllKeys) },
 		{ &hasMediasIndexAllKeys, &(indexToImport->hasMediasIndexAllKeys) },
 		{ &missingMediasIndexAllKeys, &(indexToImport->missingMediasIndexAllKeys) }
 	};
@@ -161,6 +163,7 @@ void FileFilterIndex::resetIndex()
 	clearIndex(verticalIndexAllKeys);
 	clearIndex(lightGunIndexAllKeys);
 	clearIndex(wheelIndexAllKeys);
+	clearIndex(trackballIndexAllKeys);
 	clearIndex(hasMediasIndexAllKeys);
 	clearIndex(missingMediasIndexAllKeys);
 
@@ -184,6 +187,9 @@ void FileFilterIndex::resetIndex()
 
 	manageIndexEntry(&wheelIndexAllKeys, "FALSE", false);
 	manageIndexEntry(&wheelIndexAllKeys, "TRUE", false);
+
+	manageIndexEntry(&trackballIndexAllKeys, "FALSE", false);
+	manageIndexEntry(&trackballIndexAllKeys, "TRUE", false);
 	
 //	manageIndexEntry(&hasMediasIndexAllKeys, "any", false);
 	manageIndexEntry(&hasMediasIndexAllKeys, "image", false);
@@ -381,6 +387,17 @@ std::string FileFilterIndex::getIndexableKey(FileData* game, FilterIndexType typ
 			return "FALSE";
 
 		return game->isWheelGame() ? "TRUE" : "FALSE";
+	}
+
+	case TRACKBALL_FILTER:
+	{
+		if (getSecondary)
+			break;
+
+		if (game->getType() != GAME)
+			return "FALSE";
+
+		return game->isTrackballGame() ? "TRUE" : "FALSE";
 	}
 
 	case VERTICAL_FILTER:
@@ -1162,6 +1179,8 @@ bool CollectionFilter::load(const std::string file)
 			lightGunIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "wheel")
 			wheelIndexFilteredKeys.insert(node.text().as_string());
+		else if (name == "trackball")
+			trackballIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "hasMedia")
 			hasMediaIndexFilteredKeys.insert(node.text().as_string());
 		else if (name == "missingMedia")
@@ -1237,6 +1256,9 @@ bool CollectionFilter::save()
 
 	for (auto key : wheelIndexFilteredKeys)
 		root.append_child("wheel").text().set(key.c_str());
+
+	for (auto key : trackballIndexFilteredKeys)
+		root.append_child("trackball").text().set(key.c_str());
 
 	for (auto key : hasMediaIndexFilteredKeys)
 		root.append_child("hasMedia").text().set(key.c_str());

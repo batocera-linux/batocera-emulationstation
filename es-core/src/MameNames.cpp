@@ -107,6 +107,9 @@ MameNames::MameNames()
 					//if (gameNode.attribute("wheel") && gameNode.attribute("wheel").value() == sTrue)
 					//	rom.type |= ArcadeRomType::WHEEL;
 
+					//if (gameNode.attribute("trackball") && gameNode.attribute("trackball").value() == sTrue)
+					//	rom.type |= ArcadeRomType::TRACKBALL;
+
 					mArcadeRoms[name] = rom;
 				}
 			}
@@ -139,6 +142,7 @@ MameNames::MameNames()
 					{
 						std::unordered_set<std::string> gunGames;
 						std::unordered_set<std::string> wheelGames;
+						std::unordered_set<std::string> trackballGames;
 
 						for (pugi::xml_node gameNode = systemNode.child("game"); gameNode; gameNode = gameNode.next_sibling("game"))
 						{
@@ -154,6 +158,9 @@ MameNames::MameNames()
 
 							if (gameNode.child("wheel"))
 								wheelGames.insert(gameName);
+
+							if (gameNode.child("trackball"))
+								trackballGames.insert(gameName);
 						}
 
 						if (gunGames.size())
@@ -196,6 +203,27 @@ MameNames::MameNames()
 							}
 							else
 								mNonArcadeWheelGames[Utils::String::trim(systemName)] = wheelGames;
+						}
+
+						if (trackballGames.size())
+						{
+							if (systemNames == "arcade")
+							{
+								for (auto game : trackballGames)
+								{
+									auto it = mArcadeRoms.find(game);
+									if (it == mArcadeRoms.cend())
+									{
+										ArcadeRom rom;
+										rom.type |= ArcadeRomType::TRACKBALL;
+										mArcadeRoms[game] = rom;
+									}
+									else
+										it->second.type |= ArcadeRomType::TRACKBALL;
+								}
+							}
+							else
+								mNonArcadeTrackballGames[Utils::String::trim(systemName)] = trackballGames;
 						}
 					}	
 				}
@@ -304,6 +332,35 @@ const bool MameNames::isWheel(const std::string& _nameName, const std::string& s
 
 	auto it = mNonArcadeWheelGames.find(systemName);
 	if (it == mNonArcadeWheelGames.cend())
+		return false;
+
+	std::string indexedName = getIndexedName(_nameName);
+
+	// Exact match ?
+	if (it->second.find(indexedName) != it->second.cend())
+		return true;
+
+	// name contains ?
+	for (auto gameName : it->second)
+		if (indexedName.find(gameName) != std::string::npos)
+			return true;
+
+	return false;
+}
+
+const bool MameNames::isTrackball(const std::string& _nameName, const std::string& systemName, bool isArcade)
+{
+	if (isArcade)
+	{
+		auto it = mArcadeRoms.find(_nameName);
+		if (it != mArcadeRoms.cend())
+			return hasFlag(it->second.type, ArcadeRomType::TRACKBALL);
+
+		return false;
+	}
+
+	auto it = mNonArcadeTrackballGames.find(systemName);
+	if (it == mNonArcadeTrackballGames.cend())
 		return false;
 
 	std::string indexedName = getIndexedName(_nameName);
