@@ -49,7 +49,8 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 		{ AUTO_VERTICALARCADE,		 "vertical",		_("vertical arcade"),   FileSorts::FILENAME_ASCENDING,    "auto-verticalarcade",     false,       true }, 
 		{ AUTO_LIGHTGUN,			 "lightgun",		_("lightgun games"),    FileSorts::FILENAME_ASCENDING,    "auto-lightgun",           false,       true },
 		{ AUTO_WHEEL,				 "wheel",			_("wheel games"),    FileSorts::FILENAME_ASCENDING,    "auto-wheel",           false,       true },
-		{ AUTO_TRACKBALL,			 "trackball",			_("trackball games"),    FileSorts::FILENAME_ASCENDING,    "auto-trackball",           false,       true }, 
+		{ AUTO_TRACKBALL,			 "trackball",			_("trackball games"),    FileSorts::FILENAME_ASCENDING,    "auto-trackball",           false,       true },
+		{ AUTO_SPINNER,			 "spinner",			_("spinner games"),    FileSorts::FILENAME_ASCENDING,    "auto-spinner",           false,       true }, 
 
 		// Custom collection
 		{ CUSTOM_COLLECTION,		myCollectionsName,  _("collections"),   FileSorts::FILENAME_ASCENDING,    "custom-collections",      true,        true }
@@ -70,6 +71,9 @@ std::vector<CollectionSystemDecl> CollectionSystemManager::getSystemDecls()
 			continue;
 
 		if (genre->id == GENRE_TRACKBALL) // see AUTO_TRACKBALL instead
+			continue;
+
+		if (genre->id == GENRE_SPINNER) // see AUTO_SPINNER instead
 			continue;
 
 		std::string shortName = genre->parent == nullptr ? genre->nom_en : genre->parent->nom_en + "_" + genre->nom_en;
@@ -1005,6 +1009,9 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 				break;
 			case AUTO_TRACKBALL:
 				include = game->isTrackballGame();
+				break;
+			case AUTO_SPINNER:
+				include = game->isSpinnerGame();
 				break;
 			case AUTO_RETROACHIEVEMENTS:
 				include = game->hasCheevos();
