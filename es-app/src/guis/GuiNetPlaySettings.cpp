@@ -22,6 +22,16 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window) : GuiSettings(window, _("
 	addInputTextRow(_("PORT"), "global.netplay.port", false);
 	addOptionList(_("USE RELAY SERVER"), { { _("NONE"), "" },{ _("NEW YORK") , "nyc" },{ _("MADRID") , "madrid" },{ _("MONTREAL") , "montreal" },{ _("SAO PAULO") , "saopaulo" },{ _("CUSTOM") , "custom" } }, "global.netplay.relay", false);
 	addInputTextRow(_("CUSTOM RELAY SERVER"), "global.netplay.customserver", false);
+
+	auto public_announce = std::make_shared<SwitchComponent>(mWindow);
+	public_announce->setState(SystemConf::getInstance()->getBool("global.netplay_public_announce"));
+	addWithLabel(_("PUBLICLY ANNOUNCE GAME"), public_announce);
+	addSaveFunc([public_announce] { SystemConf::getInstance()->setBool("global.netplay_public_announce", public_announce->getState()); });
+
+	addInputTextRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
+	addInputTextRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
+
+	addSwitch(_("SHOW RELAY SERVER GAMES ONLY"), _("Relay server games have a higher chance of successful entry."), "NetPlayShowOnlyRelayServerGames", true, nullptr);
 	addSwitch(_("SHOW UNAVAILABLE GAMES"), _("Show rooms for games not present on this machine."), "NetPlayShowMissingGames", true, nullptr);
 
 	addGroup(_("GAME INDEXES"));

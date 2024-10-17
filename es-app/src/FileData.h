@@ -37,7 +37,8 @@ enum NetPlayMode
 	DISABLED,
 	CLIENT,
 	SERVER,	
-	SPECTATOR
+	SPECTATOR,
+	OFFLINE,
 };
 
 struct GetFileContext
