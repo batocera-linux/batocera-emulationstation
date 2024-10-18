@@ -1855,10 +1855,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "MOSTRAR ÍCONE DA RODA"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "MOSTRAR ÍCONE DO TRACKBALL"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "MOSTRAR ÍCONE GIRATÓRIO"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOMES DE FICHEIROS"
@@ -3046,10 +3046,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "GIRATÓRIO"
 
 msgid "HAVING MEDIAS"
 msgstr "TER MEDIA"
@@ -3133,10 +3133,10 @@ msgid "wheel games"
 msgstr "jogos de volante"
 
 msgid "trackball games"
-msgstr ""
+msgstr "jogos de trackball"
 
 msgid "spinner games"
-msgstr ""
+msgstr "jogos giratórios"
 
 msgid "collections"
 msgstr "coleções"
