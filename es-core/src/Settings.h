@@ -95,6 +95,7 @@ public:
 	DEFINE_BOOL_SETTING(ThreadedLoading)
 	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
+	DEFINE_BOOL_SETTING(NetPlayShowOnlyRelayServerGames)
 	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)			
 	DEFINE_BOOL_SETTING(LoadEmptySystems)		
 	DEFINE_STRING_SETTING(HiddenSystems)
