@@ -225,7 +225,7 @@ void Settings::setDefaults()
 	mBoolMap["ScrapeShortTitle"] = false;
 	
 	mBoolMap["ScreenSaverMarquee"] = true;
-	mBoolMap["ScreenSaverControls"] = true;
+	mBoolMap["ScreenSaverControls"] = false;
 	mStringMap["ScreenSaverGameInfo"] = "never";
 	mBoolMap["StretchVideoOnScreenSaver"] = false;
 	mStringMap["PowerSaverMode"] = "default"; 
