@@ -5188,29 +5188,147 @@
     </game>
   </system>
   <system name="atari800">
+    <game name="pad">
+      <spinner/>
+    </game>
+    <game name="ping">
+      <spinner/>
+    </game>
+    <game name="pong">
+      <spinner/>
+    </game>
+    <game name="pong2">
+      <spinner/>
+    </game>
+    <game name="aliens">
+      <spinner/>
+    </game>
+    <game name="bomber">
+      <spinner/>
+    </game>
     <game name="catch88">
       <trackball/>
+    </game>
+    <game name="burgers">
+      <spinner/>
+    </game>
+    <game name="chicken">
+      <spinner/>
     </game>
     <game name="bughunt">
       <gun/>
     </game>
+    <game name="juggler">
+      <spinner/>
+    </game>
+    <game name="kabooom">
+      <spinner/>
+    </game>
+    <game name="popcorn">
+      <spinner/>
+    </game>
+    <game name="livewire">
+      <spinner/>
+    </game>
+    <game name="chiseler">
+      <spinner/>
+    </game>
     <game name="crossbow">
       <gun/>
+    </game>
+    <game name="superski">
+      <spinner/>
+    </game>
+    <game name="arkanoid">
+      <spinner/>
+    </game>
+    <game name="breakout">
+      <spinner/>
+    </game>
+    <game name="nineball">
+      <spinner/>
+    </game>
+    <game name="warlords">
+      <spinner/>
+    </game>
+    <game name="wavynavy">
+      <spinner/>
+    </game>
+    <game name="superball">
+      <spinner/>
+    </game>
+    <game name="telespiel">
+      <spinner/>
+    </game>
+    <game name="livewire2">
+      <spinner/>
     </game>
     <game name="millipede">
       <trackball/>
     </game>
+    <game name="spaceeggs">
+      <spinner/>
+    </game>
+    <game name="avalanche">
+      <spinner/>
+    </game>
+    <game name="superball3">
+      <spinner/>
+    </game>
+    <game name="superball4">
+      <spinner/>
+    </game>
+    <game name="arkanoidii">
+      <spinner/>
+    </game>
+    <game name="prisonball">
+      <spinner/>
+    </game>
+    <game name="spysdemise">
+      <spinner/>
+    </game>
     <game name="cementerio">
       <gun/>
+    </game>
+    <game name="lostinspace">
+      <spinner/>
+    </game>
+    <game name="nightdriver">
+      <spinner/>
+      <wheel/>
+    </game>
+    <game name="arkanoidiii">
+      <spinner/>
+    </game>
+    <game name="asteraxis2k">
+      <spinner/>
     </game>
     <game name="crimebuster">
       <gun/>
     </game>
+    <game name="anotherpong">
+      <spinner/>
+    </game>
+    <game name="castlecrisis">
+      <spinner/>
+    </game>
+    <game name="plattermania">
+      <spinner/>
+    </game>
+    <game name="flopsuperball">
+      <spinner/>
+    </game>
     <game name="gangsterville">
       <gun/>
     </game>
+    <game name="clownsballons">
+      <spinner/>
+    </game>
     <game name="crystalcastles">
       <trackball/>
+    </game>
+    <game name="junkyardracing">
+      <spinner/>
     </game>
     <game name="missilecommand">
       <trackball/>
