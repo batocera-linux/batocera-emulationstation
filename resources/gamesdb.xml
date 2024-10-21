@@ -28,6 +28,9 @@
     <game name="500gp">
       <wheel rotation="270"/>
     </game>
+    <game name="720">
+      <spinner/>
+    </game>
     <game name="a51mxr3k">
       <gun/>
     </game>
@@ -103,6 +106,12 @@
     <game name="AliensExtermination">
       <gun/>
     </game>
+    <game name="alphaone">
+      <spinner/>
+    </game>
+    <game name="alphaonea">
+      <spinner/>
+    </game>
     <game name="amerdart">
       <trackball/>
     </game>
@@ -175,6 +184,90 @@
     <game name="argusg">
       <trackball/>
     </game>
+    <game name="ark1ball">
+      <spinner/>
+    </game>
+    <game name="arkangc">
+      <spinner/>
+    </game>
+    <game name="arkangc2">
+      <spinner/>
+    </game>
+    <game name="arkanoid">
+      <spinner/>
+    </game>
+    <game name="arkanoid2">
+      <spinner/>
+    </game>
+    <game name="arkanoid2b">
+      <spinner/>
+    </game>
+    <game name="arkanoid2j">
+      <spinner/>
+    </game>
+    <game name="arkanoid2u">
+      <spinner/>
+    </game>
+    <game name="arkanoidj">
+      <spinner/>
+    </game>
+    <game name="arkanoidja">
+      <spinner/>
+    </game>
+    <game name="arkanoidjb">
+      <spinner/>
+    </game>
+    <game name="arkanoidjbl">
+      <spinner/>
+    </game>
+    <game name="arkanoidjbl2">
+      <spinner/>
+    </game>
+    <game name="arkanoidpe">
+      <spinner/>
+    </game>
+    <game name="arkanoidu">
+      <spinner/>
+    </game>
+    <game name="arkanoiduo">
+      <spinner/>
+    </game>
+    <game name="arkatayt">
+      <spinner/>
+    </game>
+    <game name="arkatour">
+      <spinner/>
+    </game>
+    <game name="arkatour2">
+      <spinner/>
+    </game>
+    <game name="arkbloc2">
+      <spinner/>
+    </game>
+    <game name="arkbloc3">
+      <spinner/>
+    </game>
+    <game name="arkblock">
+      <spinner/>
+    </game>
+    <game name="arkgcbl">
+      <spinner/>
+    </game>
+    <game name="arkgcbla">
+      <spinner/>
+    </game>
+    <game name="arkretrn">
+      <spinner/>
+    </game>
+    <game name="arkretrnj">
+      <spinner/>
+    </game>
+    <game name="arkretrnu">
+      <spinner/>
+    </game>
+    <game name="arktayt2">
+      <spinner/>
+    </game>
     <game name="atarifb">
       <trackball/>
     </game>
@@ -186,6 +279,12 @@
     </game>
     <game name="atarifb4">
       <trackball/>
+    </game>
+    <game name="avalnche">
+      <spinner/>
+    </game>
+    <game name="aztarac">
+      <spinner/>
     </game>
     <game name="badlands">
       <wheel rotation="360"/>
@@ -280,6 +379,9 @@
     <game name="bbustersua">
       <gun/>
     </game>
+    <game name="beaminv">
+      <spinner/>
+    </game>
     <game name="beezer">
       <trackball/>
     </game>
@@ -325,11 +427,44 @@
     <game name="bladestll">
       <trackball/>
     </game>
+    <game name="block">
+      <spinner/>
+    </game>
+    <game name="blockbl">
+      <spinner/>
+    </game>
+    <game name="blockj">
+      <spinner/>
+    </game>
+    <game name="blockr2">
+      <spinner/>
+    </game>
     <game name="BlockKing">
       <gun/>
     </game>
     <game name="bluethunder">
       <gun/>
+    </game>
+    <game name="blstroid">
+      <spinner/>
+    </game>
+    <game name="blstroid2">
+      <spinner/>
+    </game>
+    <game name="blstroid3">
+      <spinner/>
+    </game>
+    <game name="blstroidg">
+      <spinner/>
+    </game>
+    <game name="blstroidh">
+      <spinner/>
+    </game>
+    <game name="bombbee">
+      <spinner/>
+    </game>
+    <game name="boxingb">
+      <spinner/>
     </game>
     <game name="borntofi">
       <gun/>
@@ -400,6 +535,18 @@
     <game name="calspeedb">
       <wheel rotation="270"/>
     </game>
+    <game name="cameltry">
+      <spinner/>
+    </game>
+    <game name="cameltrya">
+      <spinner/>
+    </game>
+    <game name="cameltryau">
+      <spinner/>
+    </game>
+    <game name="cameltryj">
+      <spinner/>
+    </game>
     <game name="capbowl">
       <trackball/>
     </game>
@@ -454,6 +601,12 @@
     <game name="ccastles3">
       <trackball/>
     </game>
+    <game name="cchasm">
+      <spinner/>
+    </game>
+    <game name="cchasm1">
+      <spinner/>
+    </game>
     <game name="centiped">
       <trackball/>
     </game>
@@ -468,6 +621,9 @@
     </game>
     <game name="centiped3">
       <trackball/>
+    </game>
+    <game name="cerberus">
+      <spinner/>
     </game>
     <game name="changela">
       <wheel rotation="360"/>
@@ -508,6 +664,12 @@
     <game name="chqflagj">
       <wheel rotation="360"/>
     </game>
+    <game name="circus">
+      <spinner/>
+    </game>
+    <game name="circuso">
+      <spinner/>
+    </game>
     <game name="cischeat">
       <wheel rotation="270"/>
     </game>
@@ -522,6 +684,12 @@
     </game>
     <game name="clbowl">
       <trackball/>
+    </game>
+    <game name="clowns">
+      <spinner/>
+    </game>
+    <game name="clowns1">
+      <spinner/>
     </game>
     <game name="cloud9">
       <trackball/>
@@ -626,6 +794,9 @@
     </game>
     <game name="cracksht">
       <gun/>
+    </game>
+    <game name="crater">
+      <spinner/>
     </game>
     <game name="CrazyRide">
       <wheel/>
@@ -783,6 +954,9 @@
     <game name="cubeqsta">
       <trackball/>
     </game>
+    <game name="cutieq">
+      <spinner/>
+    </game>
     <game name="cybrcycc">
       <wheel rotation="270"/>
     </game>
@@ -800,6 +974,9 @@
     </game>
     <game name="dangcurvj">
       <wheel rotation="270"/>
+    </game>
+    <game name="darkplnt">
+      <spinner/>
     </game>
     <game name="dayto2pe">
       <wheel rotation="270"/>
@@ -847,7 +1024,10 @@
       <wheel rotation="360"/>
     </game>
     <game name="dday">
-      <gun/>
+      <spinner/>
+    </game>
+    <game name="ddayc">
+      <spinner/>
     </game>
     <game name="DeadHeat">
       <wheel/>
@@ -878,6 +1058,9 @@
     </game>
     <game name="deerhuntj">
       <gun/>
+    </game>
+    <game name="deltrace">
+      <spinner/>
     </game>
     <game name="demoderb">
       <wheel rotation="360"/>
@@ -1278,11 +1461,35 @@
     <game name="ghostsqu">
       <gun/>
     </game>
+    <game name="ghox">
+      <spinner/>
+    </game>
+    <game name="gigas">
+      <spinner/>
+    </game>
+    <game name="gigasb">
+      <spinner/>
+    </game>
+    <game name="gigasm2">
+      <spinner/>
+    </game>
+    <game name="gigasm2b">
+      <spinner/>
+    </game>
     <game name="gimeabrk">
       <trackball/>
     </game>
     <game name="gmsshoot">
       <gun/>
+    </game>
+    <game name="goindol">
+      <spinner/>
+    </game>
+    <game name="goindolj">
+      <spinner/>
+    </game>
+    <game name="goindolu">
+      <spinner/>
     </game>
     <game name="golgo13">
       <gun/>
@@ -1758,6 +1965,9 @@
     <game name="hogalley">
       <gun/>
     </game>
+    <game name="homo">
+      <spinner/>
+    </game>
     <game name="hostinv">
       <gun/>
     </game>
@@ -1944,6 +2154,9 @@
     <game name="irrmaze">
       <trackball/>
     </game>
+    <game name="ixion">
+      <spinner/>
+    </game>
     <game name="jambo">
       <wheel rotation="270" downshift="b" upshift="a"/>
     </game>
@@ -2001,6 +2214,15 @@
     <game name="kdeadeye">
       <gun/>
     </game>
+    <game name="kick">
+      <trackball/>
+    </game>
+    <game name="kickc">
+      <trackball/>
+    </game>
+    <game name="kickman">
+      <trackball/>
+    </game>
     <game name="kingrt66">
       <wheel rotation="270"/>
     </game>
@@ -2012,6 +2234,9 @@
     </game>
     <game name="konamigt">
       <wheel rotation="360"/>
+    </game>
+    <game name="kroozr">
+      <spinner/>
     </game>
     <game name="krzybowl">
       <trackball/>
@@ -2282,6 +2507,18 @@
     <game name="mechattu1">
       <gun/>
     </game>
+    <game name="mhavoc">
+      <spinner/>
+    </game>
+    <game name="mhavoc2">
+      <spinner/>
+    </game>
+    <game name="mhavocp">
+      <spinner/>
+    </game>
+    <game name="mhavocrv">
+      <spinner/>
+    </game>
     <game name="midnrun">
       <wheel rotation="270"/>
     </game>
@@ -2324,6 +2561,12 @@
     <game name="missile2a">
       <trackball/>
     </game>
+    <game name="moonwar">
+      <spinner/>
+    </game>
+    <game name="moonwara">
+      <spinner/>
+    </game>
     <game name="multiped">
       <trackball/>
     </game>
@@ -2365,6 +2608,12 @@
     </game>
     <game name="motoraiddx">
       <wheel rotation="270"/>
+    </game>
+    <game name="mplanets">
+      <spinner/>
+    </game>
+    <game name="mplanetsuk">
+      <spinner/>
     </game>
     <game name="MusicGunGun2">
       <gun/>
@@ -2440,11 +2689,29 @@
     <game name="offroadt2p">
       <wheel rotation="360"/>
     </game>
+    <game name="offtwall">
+      <spinner/>
+    </game>
+    <game name="offtwallc">
+      <spinner/>
+    </game>
     <game name="OG">
       <gun/>
     </game>
     <game name="ohbakyuun">
       <gun/>
+    </game>
+    <game name="oigas">
+      <spinner/>
+    </game>
+    <game name="omegrace">
+      <spinner/>
+    </game>
+    <game name="omegrace2">
+      <spinner/>
+    </game>
+    <game name="omegrace3">
+      <spinner/>
     </game>
     <game name="oneshot">
       <gun/>
@@ -2511,6 +2778,9 @@
     </game>
     <game name="othundu">
       <gun/>
+    </game>
+    <game name="otwalls">
+      <spinner/>
     </game>
     <game name="outr2">
       <wheel rotation="270"/>
@@ -2638,8 +2908,20 @@
     <game name="pdriftl">
       <wheel rotation="270"/>
     </game>
+    <game name="peekaboo">
+      <spinner/>
+    </game>
+    <game name="peekaboou">
+      <spinner/>
+    </game>
+    <game name="pegglet">
+      <trackball/>
+    </game>
     <game name="plctr13b">
       <gun/>
+    </game>
+    <game name="plumppop">
+      <spinner/>
     </game>
     <game name="pocketrc">
       <wheel rotation="270"/>
@@ -2719,6 +3001,9 @@
     <game name="popsghostly">
       <gun/>
     </game>
+    <game name="pong">
+      <spinner/>
+    </game>
     <game name="popshot">
       <gun/>
     </game>
@@ -2745,6 +3030,12 @@
     </game>
     <game name="primevah">
       <gun/>
+    </game>
+    <game name="pbillian">
+      <spinner/>
+    </game>
+    <game name="pbillianb">
+      <spinner/>
     </game>
     <game name="Primevil">
       <gun/>
@@ -2776,6 +3067,15 @@
     <game name="ptblnk2a">
       <gun/>
     </game>
+    <game name="puchicar">
+      <spinner/>
+    </game>
+    <game name="puchicarj">
+      <spinner/>
+    </game>
+    <game name="puchicaru">
+      <spinner/>
+    </game>
     <game name="pwheelsj">
       <wheel rotation="270"/>
     </game>
@@ -2787,6 +3087,12 @@
     </game>
     <game name="quantump">
       <trackball/>
+    </game>
+    <game name="quester">
+      <spinner/>
+    </game>
+    <game name="questers">
+      <spinner/>
     </game>
     <game name="RabbidsHollywood">
       <gun/>
@@ -2986,6 +3292,9 @@
     <game name="raveracw">
       <wheel rotation="270"/>
     </game>
+    <game name="razmataz">
+      <spinner/>
+    </game>
     <game name="rchase">
       <gun/>
     </game>
@@ -3040,8 +3349,14 @@
     <game name="ridgeraj">
       <wheel rotation="270"/>
     </game>
+    <game name="ridleofp">
+      <spinner/>
+    </game>
     <game name="RingRiders">
       <wheel/>
+    </game>
+    <game name="ripcord">
+      <spinner/>
     </game>
     <game name="roadblc1">
       <wheel rotation="360"/>
@@ -3151,8 +3466,23 @@
     <game name="R-Tuned">
       <wheel/>
     </game>
+    <game name="sarukani">
+      <spinner/>
+    </game>
     <game name="sbowling">
       <trackball/>
+    </game>
+    <game name="sbrkout">
+      <spinner/>
+    </game>
+    <game name="sbrkout3">
+      <spinner/>
+    </game>
+    <game name="sbrkoutc">
+      <spinner/>
+    </game>
+    <game name="sbrkoutct">
+      <spinner/>
     </game>
     <game name="sc5sharp">
       <gun/>
@@ -3219,6 +3549,15 @@
     </game>
     <game name="sf2049tea">
       <wheel rotation="270"/>
+    </game>
+    <game name="sfkick">
+      <spinner/>
+    </game>
+    <game name="sfkicka">
+      <spinner/>
+    </game>
+    <game name="sflush">
+      <spinner/>
     </game>
     <game name="sfrush">
       <wheel rotation="270"/>
@@ -3502,6 +3841,12 @@
     <game name="spikerb">
       <trackball/>
     </game>
+    <game name="springbd">
+      <spinner/>
+    </game>
+    <game name="spinkick">
+      <spinner/>
+    </game>
     <game name="sprint1">
       <wheel rotation="360"/>
     </game>
@@ -3664,6 +4009,9 @@
     <game name="ssrj">
       <wheel rotation="360"/>
     </game>
+    <game name="startrek">
+      <spinner/>
+    </game>
     <game name="StarTrekVoyager">
       <gun/>
     </game>
@@ -3781,6 +4129,9 @@
     <game name="t2_p2f">
       <gun/>
     </game>
+    <game name="tacscan">
+      <spinner/>
+    </game>
     <game name="targeth">
       <gun/>
     </game>
@@ -3799,6 +4150,18 @@
     <game name="tceptor2">
       <wheel rotation="270"/>
     </game>
+    <game name="tdfever">
+      <spinner/>
+    </game>
+    <game name="tdfeverj">
+      <spinner/>
+    </game>
+    <game name="tdfever2">
+      <spinner/>
+    </game>
+    <game name="tdfever2b">
+      <spinner/>
+    </game>
     <game name="techbowl">
       <trackball/>
     </game>
@@ -3810,6 +4173,9 @@
     </game>
     <game name="tedoffj">
       <trackball/>
+    </game>
+    <game name="teetert">
+      <spinner/>
     </game>
     <game name="tehkanwc">
       <trackball/>
@@ -3825,6 +4191,24 @@
     </game>
     <game name="tehkanwch">
       <trackball/>
+    </game>
+    <game name="tempest">
+      <spinner/>
+    </game>
+    <game name="tempest1">
+      <spinner/>
+    </game>
+    <game name="tempest1r">
+      <spinner/>
+    </game>
+    <game name="tempest2">
+      <spinner/>
+    </game>
+    <game name="tempest3">
+      <spinner/>
+    </game>
+    <game name="temptube">
+      <spinner/>
     </game>
     <game name="terabrst">
       <gun/>
@@ -4060,6 +4444,12 @@
     <game name="tvsci">
       <wheel rotation="360"/>
     </game>
+    <game name="twinsqua">
+      <spinner/>
+    </game>
+    <game name="twotigerc">
+      <spinner/>
+    </game>
     <game name="tx1">
       <wheel rotation="360"/>
     </game>
@@ -4126,6 +4516,12 @@
     <game name="v4cmazedat">
       <trackball/>
     </game>
+    <game name="vblokbrk">
+      <spinner/>
+    </game>
+    <game name="vblokbrka">
+      <spinner/>
+    </game>
     <game name="vbowl">
       <trackball/>
     </game>
@@ -4164,6 +4560,12 @@
     </game>
     <game name="victlapw">
       <wheel rotation="270"/>
+    </game>
+    <game name="victorba">
+      <spinner/>
+    </game>
+    <game name="victory">
+      <spinner/>
     </game>
     <game name="virtpool">
       <trackball/>
@@ -4221,6 +4623,9 @@
     </game>
     <game name="wangmidj">
       <wheel rotation="270"/>
+    </game>
+    <game name="warlords">
+      <spinner/>
     </game>
     <game name="WartranTroopers">
       <gun/>
@@ -4306,6 +4711,9 @@
     <game name="wheelrun">
       <wheel rotation="360"/>
     </game>
+    <game name="wfortune">
+      <spinner/>
+    </game>
     <game name="whodunit">
       <gun/>
     </game>
@@ -4335,6 +4743,9 @@
     </game>
     <game name="winrungp">
       <wheel rotation="270"/>
+    </game>
+    <game name="wizwarz">
+      <spinner/>
     </game>
     <game name="wldrider">
       <wheel rotation="270" downshift="down" upshift="up"/>
@@ -4407,6 +4818,9 @@
     </game>
     <game name="xtrmhunt">
       <gun/>
+    </game>
+    <game name="zektor">
+      <spinner/>
     </game>
     <game name="zeropnt">
       <gun/>
@@ -4594,32 +5008,125 @@
     </game>
   </system>
   <system name="atari2600">
+    <game name="actionmanactionforce">
+      <spinner/>
+    </game>
+    <game name="astroblast">
+      <spinner/>
+    </game>
+    <game name="bachelorparty">
+      <spinner/>
+    </game>
+    <game name="birthdaymania">
+      <spinner/>
+    </game>
+    <game name="bobbyneedsfood">
+      <gun/>
+    </game>
+    <game name="breakawayiv">
+      <spinner/>
+    </game>
+    <game name="breakout">
+      <spinner/>
+    </game>
+    <game name="bugs">
+      <spinner/>
+    </game>
+    <game name="bumperbash">
+      <spinner/>
+    </game>
+    <game name="circus">
+      <spinner/>
+    </game>
+    <game name="circusatari">
+      <spinner/>
+    </game>
+    <game name="demonstodiamonds">
+      <spinner/>
+    </game>
+    <game name="eggomania">
+      <spinner/>
+    </game>
+    <game name="fireball">
+      <spinner/>
+    </game>
+    <game name="gijoecobrastrike">
+      <spinner/>
+    </game>
+    <game name="guardian">
+      <spinner/>
+    </game>
     <game name="indy500">
       <wheel/>
     </game>
-    <game name="sentinel">
-      <gun/>
-    </game>
-    <game name="racingpak">
-      <wheel/>
-    </game>
-    <game name="speedwayii">
-      <wheel/>
+    <game name="kaboom">
+      <spinner/>
     </game>
     <game name="nightdriver">
       <wheel/>
     </game>
-    <game name="streetracer">
+    <game name="picnic">
+      <spinner/>
+    </game>
+    <game name="pieceocake">
+      <spinner/>
+    </game>
+    <game name="pongsports">
+      <spinner/>
+    </game>
+    <game name="race">
       <wheel/>
     </game>
-    <game name="bobbyneedsfood">
+    <game name="racingpak">
+      <wheel/>
+    </game>
+    <game name="scsicide">
+      <spinner/>
+    </game>
+    <game name="secretagent">
+      <spinner/>
+    </game>
+    <game name="sentinel">
       <gun/>
     </game>
     <game name="shootingarcade">
       <gun/>
     </game>
-    <game name="race">
+    <game name="solarstorm">
+      <spinner/>
+    </game>
+    <game name="speedwayii">
       <wheel/>
+    </game>
+    <game name="starwarsjediarena">
+      <spinner/>
+    </game>
+    <game name="streetracer">
+      <wheel/>
+    </game>
+    <game name="superberakout">
+      <spinner/>
+    </game>
+    <game name="tacscan">
+      <spinner/>
+    </game>
+    <game name="themusicmachine">
+      <spinner/>
+    </game>
+    <game name="videoolympics">
+      <spinner/>
+    </game>
+    <game name="warlords">
+      <spinner/>
+    </game>
+    <game name="warplock">
+      <spinner/>
+    </game>
+    <game name="swoops">
+      <spinner/>
+    </game>
+    <game name="ultrascsicide">
+      <spinner/>
     </game>
   </system>
   <system name="atari5200">
@@ -4681,29 +5188,147 @@
     </game>
   </system>
   <system name="atari800">
+    <game name="pad">
+      <spinner/>
+    </game>
+    <game name="ping">
+      <spinner/>
+    </game>
+    <game name="pong">
+      <spinner/>
+    </game>
+    <game name="pong2">
+      <spinner/>
+    </game>
+    <game name="aliens">
+      <spinner/>
+    </game>
+    <game name="bomber">
+      <spinner/>
+    </game>
     <game name="catch88">
       <trackball/>
+    </game>
+    <game name="burgers">
+      <spinner/>
+    </game>
+    <game name="chicken">
+      <spinner/>
     </game>
     <game name="bughunt">
       <gun/>
     </game>
+    <game name="juggler">
+      <spinner/>
+    </game>
+    <game name="kabooom">
+      <spinner/>
+    </game>
+    <game name="popcorn">
+      <spinner/>
+    </game>
+    <game name="livewire">
+      <spinner/>
+    </game>
+    <game name="chiseler">
+      <spinner/>
+    </game>
     <game name="crossbow">
       <gun/>
+    </game>
+    <game name="superski">
+      <spinner/>
+    </game>
+    <game name="arkanoid">
+      <spinner/>
+    </game>
+    <game name="breakout">
+      <spinner/>
+    </game>
+    <game name="nineball">
+      <spinner/>
+    </game>
+    <game name="warlords">
+      <spinner/>
+    </game>
+    <game name="wavynavy">
+      <spinner/>
+    </game>
+    <game name="superball">
+      <spinner/>
+    </game>
+    <game name="telespiel">
+      <spinner/>
+    </game>
+    <game name="livewire2">
+      <spinner/>
     </game>
     <game name="millipede">
       <trackball/>
     </game>
+    <game name="spaceeggs">
+      <spinner/>
+    </game>
+    <game name="avalanche">
+      <spinner/>
+    </game>
+    <game name="superball3">
+      <spinner/>
+    </game>
+    <game name="superball4">
+      <spinner/>
+    </game>
+    <game name="arkanoidii">
+      <spinner/>
+    </game>
+    <game name="prisonball">
+      <spinner/>
+    </game>
+    <game name="spysdemise">
+      <spinner/>
+    </game>
     <game name="cementerio">
       <gun/>
+    </game>
+    <game name="lostinspace">
+      <spinner/>
+    </game>
+    <game name="nightdriver">
+      <spinner/>
+      <wheel/>
+    </game>
+    <game name="arkanoidiii">
+      <spinner/>
+    </game>
+    <game name="asteraxis2k">
+      <spinner/>
     </game>
     <game name="crimebuster">
       <gun/>
     </game>
+    <game name="anotherpong">
+      <spinner/>
+    </game>
+    <game name="castlecrisis">
+      <spinner/>
+    </game>
+    <game name="plattermania">
+      <spinner/>
+    </game>
+    <game name="flopsuperball">
+      <spinner/>
+    </game>
     <game name="gangsterville">
       <gun/>
     </game>
+    <game name="clownsballons">
+      <spinner/>
+    </game>
     <game name="crystalcastles">
       <trackball/>
+    </game>
+    <game name="junkyardracing">
+      <spinner/>
     </game>
     <game name="missilecommand">
       <trackball/>
