@@ -5035,10 +5035,10 @@
     <game name="bumperbash">
       <spinner/>
     </game>
-    <game name="circus">
+    <game name="circusatari">
       <spinner/>
     </game>
-    <game name="circusatari">
+    <game name="circus">
       <spinner/>
     </game>
     <game name="demonstodiamonds">
@@ -5074,14 +5074,8 @@
     <game name="pongsports">
       <spinner/>
     </game>
-    <game name="race">
-      <wheel/>
-    </game>
     <game name="racingpak">
       <wheel/>
-    </game>
-    <game name="scsicide">
-      <spinner/>
     </game>
     <game name="secretagent">
       <spinner/>
@@ -5102,6 +5096,9 @@
       <spinner/>
     </game>
     <game name="streetracer">
+      <wheel/>
+    </game>
+    <game name="race">
       <wheel/>
     </game>
     <game name="superberakout">
@@ -5126,6 +5123,9 @@
       <spinner/>
     </game>
     <game name="ultrascsicide">
+      <spinner/>
+    </game>
+    <game name="scsicide">
       <spinner/>
     </game>
   </system>
@@ -5194,10 +5194,13 @@
     <game name="ping">
       <spinner/>
     </game>
-    <game name="pong">
+    <game name="pong2">
       <spinner/>
     </game>
-    <game name="pong2">
+    <game name="anotherpong">
+      <spinner/>
+    </game>
+    <game name="pong">
       <spinner/>
     </game>
     <game name="aliens">
@@ -5227,6 +5230,9 @@
     <game name="popcorn">
       <spinner/>
     </game>
+    <game name="livewire2">
+      <spinner/>
+    </game>
     <game name="livewire">
       <spinner/>
     </game>
@@ -5237,9 +5243,6 @@
       <gun/>
     </game>
     <game name="superski">
-      <spinner/>
-    </game>
-    <game name="arkanoid">
       <spinner/>
     </game>
     <game name="breakout">
@@ -5254,13 +5257,7 @@
     <game name="wavynavy">
       <spinner/>
     </game>
-    <game name="superball">
-      <spinner/>
-    </game>
     <game name="telespiel">
-      <spinner/>
-    </game>
-    <game name="livewire2">
       <spinner/>
     </game>
     <game name="millipede">
@@ -5276,9 +5273,6 @@
       <spinner/>
     </game>
     <game name="superball4">
-      <spinner/>
-    </game>
-    <game name="arkanoidii">
       <spinner/>
     </game>
     <game name="prisonball">
@@ -5300,14 +5294,17 @@
     <game name="arkanoidiii">
       <spinner/>
     </game>
+    <game name="arkanoidii">
+      <spinner/>
+    </game>
+    <game name="arkanoid">
+      <spinner/>
+    </game>
     <game name="asteraxis2k">
       <spinner/>
     </game>
     <game name="crimebuster">
       <gun/>
-    </game>
-    <game name="anotherpong">
-      <spinner/>
     </game>
     <game name="castlecrisis">
       <spinner/>
@@ -5316,6 +5313,9 @@
       <spinner/>
     </game>
     <game name="flopsuperball">
+      <spinner/>
+    </game>
+    <game name="superball">
       <spinner/>
     </game>
     <game name="gangsterville">
