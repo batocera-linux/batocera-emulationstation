@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-11 23:27+0200\n"
+"PO-Revision-Date: 2024-10-21 11:40+0200\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -1877,10 +1877,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "KORMÁNY IKON MEGJELENÍTÉSE"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "A HANYATTEGÉR IKONJÁNAK MEGJELENÍTÉSE"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "PÖRGETTYŰ IKON MEGJELENÍTÉSE"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "FÁJLNEVEK MEGJELENÍTÉSE A LISTÁKBAN"
@@ -3064,10 +3064,10 @@ msgid "STEERING WHEEL"
 msgstr "KORMÁNYOS JÁTÉKOK"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "HANYATTEGÉR"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "PÖRGETTYŰ"
 
 msgid "HAVING MEDIAS"
 msgstr "MEGLÉVŐ MÉDIÁK"
@@ -3151,10 +3151,10 @@ msgid "wheel games"
 msgstr "kormányos játékok"
 
 msgid "trackball games"
-msgstr ""
+msgstr "hanyattegér játékok"
 
 msgid "spinner games"
-msgstr ""
+msgstr "pörgettyűs játékok"
 
 msgid "collections"
 msgstr "gyűjtemények"

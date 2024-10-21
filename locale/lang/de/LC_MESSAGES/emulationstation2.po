@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-10-12 18:00+0000\n"
+"PO-Revision-Date: 2024-10-18 20:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -1882,10 +1882,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "RAD SYMBOL ANZEIGEN"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "TRACKBALL-SYMBOL ANZEIGEN"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "SPINNER-SYMBOL ANZEIGEN"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "DATEINAMEN IN LISTEN ANZEIGEN"
@@ -3071,10 +3071,10 @@ msgid "STEERING WHEEL"
 msgstr "LENKRAD"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "VORHANDENE MEDIEN"
@@ -3158,10 +3158,10 @@ msgid "wheel games"
 msgstr "Lenkrad-Spiele"
 
 msgid "trackball games"
-msgstr ""
+msgstr "Trackball-Spiele"
 
 msgid "spinner games"
-msgstr ""
+msgstr "Spinner-Spiele"
 
 msgid "collections"
 msgstr "Sammlungen"

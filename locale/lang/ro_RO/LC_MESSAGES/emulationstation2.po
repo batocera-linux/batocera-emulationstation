@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-09-04 12:09+0300\n"
+"PO-Revision-Date: 2024-10-21 11:58+0300\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -854,13 +854,13 @@ msgid "fade"
 msgstr "atenuează"
 
 msgid "fast fade"
-msgstr ""
+msgstr "atenuează rapid"
 
 msgid "slide"
 msgstr "glisează"
 
 msgid "fast slide"
-msgstr ""
+msgstr "glisează rapid"
 
 msgid "fade & slide"
 msgstr "atenuează și glisează"
@@ -1210,7 +1210,7 @@ msgid "Reset customized file extensions filters to default."
 msgstr "Resetează extensile de fișiere personalizate la implicite."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "DETECTEAZĂ LIMBA/REGIUNEA TUTUROR JOCURILOR"
+msgstr "REDETECTEAZĂ LIMBA/REGIUNEA JOCURILOR"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "GĂSEȘTE TOATE JOCURILE CU NETPLAY/REALIZĂRI"
@@ -1878,10 +1878,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "ARATĂ PICTOGRAMĂ VOLAN"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "ARATĂ PICROGRAMĂ TRACKBALL"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "ARATĂ PICROGRAMĂ SPINNER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ARATĂ NUMELE DE FIȘIERE ÎN LOC"
@@ -2697,7 +2697,7 @@ msgid "WHITE"
 msgstr "ALBĂ"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "RAPORT CHENAR"
 
 msgid "CAMERA CONTRAST"
 msgstr "CONTRAST CAMERĂ"
@@ -3069,10 +3069,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLAN"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "CU FIȘIERE MEDIA"
@@ -3156,10 +3156,10 @@ msgid "wheel games"
 msgstr "jocuri cu volanul"
 
 msgid "trackball games"
-msgstr ""
+msgstr "jocuri cu trackball"
 
 msgid "spinner games"
-msgstr ""
+msgstr "jocuri cu spinner"
 
 msgid "collections"
 msgstr "colecții"

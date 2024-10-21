@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2024-10-12 00:00+0100\n"
+"PO-Revision-Date: 2024-10-20 00:00+0100\n"
 "Last-Translator: roliverosc <roliverosc@hotmail.com>, 2024\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -58,7 +58,7 @@ msgid "core"
 msgstr "núcleo"
 
 msgid "Image"
-msgstr "Imagen principal <image>"
+msgstr "Imagen principal"
 
 msgid "enter path to image"
 msgstr "introduzca ruta de la imagen"
@@ -88,7 +88,7 @@ msgid "enter path to fanart"
 msgstr "introduzca ruta del Fanart"
 
 msgid "Title shot"
-msgstr "Captura de título <titleshot>"
+msgstr "Captura de título"
 
 msgid "enter path to title shot"
 msgstr "introduce ruta de la captura del título"
@@ -187,7 +187,7 @@ msgid "Genres"
 msgstr "Géneros"
 
 msgid "enter game genres"
-msgstr "introduzca los géneros del juego"
+msgstr "introduzca géneros para el juego"
 
 msgid "Arcade system"
 msgstr "Sistema arcade"
@@ -636,8 +636,8 @@ msgstr "CLASIFICACIONES"
 
 msgid "Compete in high-score and best time leaderboards (requires hardcore)."
 msgstr ""
-"Compite en clasificaciones de puntaje más alto y mejor tiempo (requiere modo "
-"hardcore)."
+"Compite en clasificaciones de puntuación más alta y mejores tiempos "
+"(requiere modo hardcore)."
 
 msgid "VERBOSE MODE"
 msgstr "MODO DETALLADO"
@@ -823,7 +823,7 @@ msgid ""
 msgstr ""
 "ADVERTENCIA: ALGUNOS DE LOS SISTEMAS SELECCIONADOS NO TIENEN UNA PLATAFORMA "
 "DEFINIDA. ¡LOS RESULTADOS PODRÍAN SER DE DIFERENTES SISTEMAS!\n"
-"¿DESEA CONTINUAR DE TODAS FORMAS?"
+"¿DESEAS CONTINUAR DE TODAS FORMAS?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
 msgstr "OBTENCIÓN DE INFORMACIÓN EN CURSO, ¿QUIERES DETENERLO?"
@@ -895,7 +895,7 @@ msgid "Cpu number"
 msgstr "Núcleos del procesador"
 
 msgid "Cpu max frequency"
-msgstr "Frecuencia máxima del procesador"
+msgstr "Frec. máxima del procesador"
 
 msgid "Cpu feature"
 msgstr "Característica del procesador"
@@ -1653,7 +1653,8 @@ msgstr "CARGAR/GUARDAR AUTOMÁTICAMENTE"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Carga la partida guardada más reciente al iniciar el juego y guarda al salir."
+"Carga la partida guardada más reciente al iniciar un juego y la guarda al "
+"salir."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "GUARDADO DE PARTIDAS INCREMENTALES"
@@ -1675,7 +1676,7 @@ msgid "DO NOT INCREMENT"
 msgstr "NO INCREMENTAR"
 
 msgid "Use current slot on a new game."
-msgstr "Usa slot actual en una nueva partida."
+msgstr "Usa el slot actual en una nueva partida."
 
 msgid "SHOW SAVESTATE MANAGER"
 msgstr "MOSTRAR GESTOR DE PARTIDAS"
@@ -1881,10 +1882,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "MOSTRAR ICONO DE VOLANTE"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "MOSTRAR ICONO DE TRACKBALL"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "MOSTRAR ICONO DE SPINNER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "MOSTRAR NOMBRES DE ARCHIVOS"
@@ -2047,7 +2048,7 @@ msgid "RESTART SYSTEM"
 msgstr "REINICIAR SISTEMA"
 
 msgid "REALLY RESTART?"
-msgstr "¿SEGURO QUE QUIERES REINICIAR?"
+msgstr "¿SEGURO QUE QUIERES REINICIAR EL SISTEMA?"
 
 msgid "SUSPEND SYSTEM"
 msgstr "SUSPENDER SISTEMA"
@@ -2068,7 +2069,7 @@ msgid "Shutdown without saving metadata."
 msgstr "Apaga el sistema sin guardar metadatos."
 
 msgid "REALLY SHUTDOWN WITHOUT SAVING METADATA?"
-msgstr "¿REALMENTE QUIERES APAGAR SIN GUARDAR LOS METADATOS?"
+msgstr "¿SEGURO QUE QUIERES APAGAR SIN GUARDAR LOS METADATOS?"
 
 msgid "QUIT EMULATIONSTATION"
 msgstr "SALIR"
@@ -2077,7 +2078,7 @@ msgid "REALLY QUIT?"
 msgstr "¿REALMENTE QUIERES SALIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTO GUARDAR/CARGAR PARTIDAS"
+msgstr "CARGAR/GUARDAR AUTOMÁTICAMENTE AL INICIAR JUEGO"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
@@ -2147,7 +2148,7 @@ msgid "Unlocked on"
 msgstr "Desbloqueado el"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "ESTE JUEGO NO TIENE LOGROS TODAVÍA"
+msgstr "ESTE JUEGO NO TIENE LOGROS AÚN"
 
 msgid "Achievements (softcore)"
 msgstr "Logros (normal)"
@@ -2490,7 +2491,7 @@ msgid "SELECT RANDOM GAME"
 msgstr "SELECCIONAR JUEGO ALEATORIO"
 
 msgid "JUMP TO GAME BEGINNING WITH THE LETTER"
-msgstr "SALTAR A JUEGO CON LA LETRA"
+msgstr "SALTAR AL JUEGO CON LA LETRA"
 
 msgid "SORT GAMES BY"
 msgstr "ORDENAR JUEGOS POR"
@@ -2550,7 +2551,7 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"ALGUNOS ARCHIVOS QUE HA VINCULADO SE ENCUENTRAN FUERA DE LA RUTA DE ACCESO "
+"ALGUNOS ARCHIVOS QUE HAS VINCULADO SE ENCUENTRAN FUERA DE LA RUTA DE ACCESO "
 "DE LA LISTA DE JUEGOS.\n"
 "¿DESEAS USAR UNA COPIA DE ESTOS ARCHIVOS RELATIVOS A LA LISTA DE JUEGOS?"
 
@@ -2835,7 +2836,7 @@ msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "DETENER MÚSICA EN SALVAPANTALLAS"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "CONFIGURAR SALVAPANTALLAS DE VÍDEO ALEATORIO"
+msgstr "AJUSTES DE SALVAPANTALLAS DE VÍDEO ALEATORIO"
 
 msgid "VIDEO DURATION (SECS)"
 msgstr "DURACIÓN DEL VÍDEO (SEGS)"
@@ -3071,10 +3072,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "RULETA"
 
 msgid "HAVING MEDIAS"
 msgstr "TIENE MEDIOS"
@@ -3158,10 +3159,10 @@ msgid "wheel games"
 msgstr "juegos compatibles con volante"
 
 msgid "trackball games"
-msgstr ""
+msgstr "juegos compatibles con trackball"
 
 msgid "spinner games"
-msgstr ""
+msgstr "juegos compatibles con spinner"
 
 msgid "collections"
 msgstr "colecciones"
