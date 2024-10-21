@@ -553,6 +553,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "CÔNG BỐ TRÒ CHƠI"
+
+msgid "PLAYER PASSWORD"
+msgstr "MẬT KHẨU NGƯỜI CHƠI"
+
+msgid "VIEWER PASSWORD"
+msgstr "MẬT KHẨU NGƯỜI XEM"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "HIỂN THỊ CÁC TRÒ CHƠI KHÔNG CÓ SẴN"
 
@@ -2173,27 +2188,6 @@ msgstr "ĐIỂM LƯU"
 msgid "OPEN"
 msgstr "MỞ"
 
-msgid "START A NETPLAY GAME"
-msgstr "BẮT ĐẦU TRÒ CHƠI NETPLAY"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "BẮT ĐẦU TRÒ CHƠI"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "TỔ CHỨC TRÒ CHƠI NETPLAY"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "CÔNG BỐ TRÒ CHƠI"
-
-msgid "PLAYER PASSWORD"
-msgstr "MẬT KHẨU NGƯỜI CHƠI"
-
-msgid "VIEWER PASSWORD"
-msgstr "MẬT KHẨU NGƯỜI XEM"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "TÌM TRÒ CHƠI TƯƠNG TỰ..."
 
@@ -2559,6 +2553,9 @@ msgstr "KẾT NỐI ĐẾN NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Chọn sảnh trò chơi để tham gia"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "LỖI"
 
@@ -2573,6 +2570,15 @@ msgstr "CÙNG ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "LÕI KHÔNG KHẢ DỤNG"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "TRÒ CHƠI CÓ SẴN"
@@ -2975,6 +2981,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i TRÒ CHƠI"
 msgstr[1] "%i TRÒ CHƠI"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "THANH ĐIỀU HƯỚNG"
@@ -3549,6 +3558,15 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "BẮT ĐẦU TRÒ CHƠI NETPLAY"
+
+#~ msgid "START GAME"
+#~ msgstr "BẮT ĐẦU TRÒ CHƠI"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "TỔ CHỨC TRÒ CHƠI NETPLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "QUÊN THIẾT BỊ BLUETOOTH"

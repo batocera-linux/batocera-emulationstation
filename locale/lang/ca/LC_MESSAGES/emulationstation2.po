@@ -551,6 +551,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "MOSTRAR COM PARTIDA PÚBLICA"
+
+msgid "PLAYER PASSWORD"
+msgstr "CONTRASENYA DEL JUGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "CONTRASENYA PER ESPECTADORS"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOCS NO DISPONIBLES"
 
@@ -2178,27 +2193,6 @@ msgstr "ESTATS DESATS"
 msgid "OPEN"
 msgstr "OBRIR"
 
-msgid "START A NETPLAY GAME"
-msgstr "COMENÇAR UN JOC NETPLAY"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "INICIAR JOC"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "ALLOTJAR UN JOC NETGAME"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "MOSTRAR COM PARTIDA PÚBLICA"
-
-msgid "PLAYER PASSWORD"
-msgstr "CONTRASENYA DEL JUGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "CONTRASENYA PER ESPECTADORS"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCAR JOCS SIMILARS…"
 
@@ -2564,6 +2558,9 @@ msgstr "CONNECTAR A NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Seleccionar una sala de joc per unir-se"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "HA FALLAT"
 
@@ -2578,6 +2575,15 @@ msgstr "LA ROM ÉS IGUAL"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NUCLI NO DISPONIBLE"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "JOCS DISPONIBLES"
@@ -2981,6 +2987,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i JOC"
 msgstr[1] "%i JOCS"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓ"
@@ -3555,6 +3564,15 @@ msgid ""
 msgstr ""
 "CALIBRANT PISTOLA\n"
 "Dispari als objectius per a calibrar"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "COMENÇAR UN JOC NETPLAY"
+
+#~ msgid "START GAME"
+#~ msgstr "INICIAR JOC"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "ALLOTJAR UN JOC NETGAME"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR UN DISPOSITIU BLUETOOTH"

@@ -551,6 +551,21 @@ msgstr "WŁASNY"
 msgid "CUSTOM RELAY SERVER"
 msgstr "WŁASNY SERWER PRZEKAZUJĄCY"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "OGŁOŚ GRĘ PUBLICZNIE"
+
+msgid "PLAYER PASSWORD"
+msgstr "HASŁO GRACZA"
+
+msgid "VIEWER PASSWORD"
+msgstr "HASŁO WIDZA"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "POKAŻ NIEDOSTĘPNE GRY"
 
@@ -2172,27 +2187,6 @@ msgstr "ZAPISANE STANY GRY"
 msgid "OPEN"
 msgstr "OTWÓRZ"
 
-msgid "START A NETPLAY GAME"
-msgstr "ROZPOCZNIJ GRĘ NETPLAY"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "ROZPOCZNIJ GRĘ"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "HOSTUJ GRĘ NETPLAY"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "OGŁOŚ GRĘ PUBLICZNIE"
-
-msgid "PLAYER PASSWORD"
-msgstr "HASŁO GRACZA"
-
-msgid "VIEWER PASSWORD"
-msgstr "HASŁO WIDZA"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY..."
 
@@ -2557,6 +2551,9 @@ msgstr "POŁĄCZ Z NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Wybierz lobby gry do której chcesz dołączyć"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "NIE POWIODŁO SIĘ"
 
@@ -2571,6 +2568,15 @@ msgstr "TEN SAM ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NIEDOSTĘPNE JĄDRO EMULATORA"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -2977,6 +2983,9 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i GRA"
 msgstr[1] "%i GRY"
 msgstr[2] "%i GIER"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "PASEK NAWIGACJI"
@@ -3557,6 +3566,15 @@ msgid ""
 msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "ROZPOCZNIJ GRĘ NETPLAY"
+
+#~ msgid "START GAME"
+#~ msgstr "ROZPOCZNIJ GRĘ"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "HOSTUJ GRĘ NETPLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "USUŃ URZĄDZENIE BLUETOOTH"

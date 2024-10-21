@@ -550,6 +550,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "UMUMKAN GAME SECARA PUBLIK"
+
+msgid "PLAYER PASSWORD"
+msgstr "PASSWORD PEMAIN"
+
+msgid "VIEWER PASSWORD"
+msgstr "PASSWOR PENONTON"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "TAMPILKAN GAME YANG TIDAK TERSEDIA"
 
@@ -2156,27 +2171,6 @@ msgstr "SIMPAN STATUS"
 msgid "OPEN"
 msgstr "BUKA"
 
-msgid "START A NETPLAY GAME"
-msgstr "MULAI GAME NETPLAY"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "MULAI GAME"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "HOST GAME NETPLAY"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "UMUMKAN GAME SECARA PUBLIK"
-
-msgid "PLAYER PASSWORD"
-msgstr "PASSWORD PEMAIN"
-
-msgid "VIEWER PASSWORD"
-msgstr "PASSWOR PENONTON"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "TEMUKAN GAME SERUPA..."
 
@@ -2541,6 +2535,9 @@ msgstr "HUBUNGKAN KE NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Pilih lobi permainan untuk bergabung"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "GAGAL"
 
@@ -2555,6 +2552,15 @@ msgstr "ROM SAMA"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CORE TIDAK TERSEDIA"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "GAME TERSEDIA"
@@ -2954,6 +2960,9 @@ msgstr[0] "ITEM %i"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "GAME %i"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "BAR NAVIGASI"
@@ -3519,6 +3528,15 @@ msgid ""
 msgstr ""
 "KALIBER SENJATA\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "MULAI GAME NETPLAY"
+
+#~ msgid "START GAME"
+#~ msgstr "MULAI GAME"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "HOST GAME NETPLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "LUPAKAN PERANGKAT BLUETOOTH"

@@ -551,6 +551,21 @@ msgstr "EGENDEFINERT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGENDEFINERT RELAY SERVER"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "OFFENTLIG KUNNGJØR SPILLET"
+
+msgid "PLAYER PASSWORD"
+msgstr "SPILLER PASSORD"
+
+msgid "VIEWER PASSWORD"
+msgstr "SEERPASSORD"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VIS UTILGJENGELIGE SPILL"
 
@@ -2159,27 +2174,6 @@ msgstr "LAGRE TILSTAND"
 msgid "OPEN"
 msgstr "ÅPNE"
 
-msgid "START A NETPLAY GAME"
-msgstr "START ET NETPLAY-SPILL"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "START SPILL"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "VERT ET NETPLAY SPILL"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "OFFENTLIG KUNNGJØR SPILLET"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPILLER PASSORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "SEERPASSORD"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "FINN LIGNENDE SPILL..."
 
@@ -2544,6 +2538,9 @@ msgstr "KOBLE TIL NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Velg en spilllobby å bli med"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "FEILET"
 
@@ -2558,6 +2555,15 @@ msgstr "SAMME ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "UTILGJENGELIG KJERNE"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "TILGJENGELIGE SPILL"
@@ -2960,6 +2966,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i SPILL"
 msgstr[1] "%i SPILL"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGASJONSBAR"
@@ -3534,6 +3543,15 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "START ET NETPLAY-SPILL"
+
+#~ msgid "START GAME"
+#~ msgstr "START SPILL"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "VERT ET NETPLAY SPILL"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "GLØM BLUETOOTH ENHET"

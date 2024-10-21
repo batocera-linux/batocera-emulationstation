@@ -554,6 +554,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "Verejne oznámiť hru"
+
+msgid "PLAYER PASSWORD"
+msgstr "Heslo hráča"
+
+msgid "VIEWER PASSWORD"
+msgstr "Heslo prezerača"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "Zobraziť nedostupné hry"
 
@@ -2160,27 +2175,6 @@ msgstr "Uložené pozície"
 msgid "OPEN"
 msgstr "Otvoriť"
 
-msgid "START A NETPLAY GAME"
-msgstr "Spustiť sieťovú hru"
-
-msgid "NETPLAY"
-msgstr "Sieťová hra"
-
-msgid "START GAME"
-msgstr "Spustiť hru"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "Hostovať sieťovú hru"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "Verejne oznámiť hru"
-
-msgid "PLAYER PASSWORD"
-msgstr "Heslo hráča"
-
-msgid "VIEWER PASSWORD"
-msgstr "Heslo prezerača"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "Nájsť podobné hry..."
 
@@ -2546,6 +2540,9 @@ msgstr "Pripojiť k sieťovej hre"
 msgid "Select a game lobby to join"
 msgstr "Vyberte hernú miestnosť na pripojenie"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "Zlyhalo"
 
@@ -2560,6 +2557,15 @@ msgstr "Rovnaký ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "Nedostupné jadro"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "Dostupné hry"
@@ -2966,6 +2972,9 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i hra"
 msgstr[1] "%i hry"
 msgstr[2] "%i hier"
+
+msgid "NETPLAY"
+msgstr "Sieťová hra"
 
 msgid "NAVIGATION BAR"
 msgstr "Navigačná lišta"
@@ -3546,6 +3555,15 @@ msgid ""
 msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "Spustiť sieťovú hru"
+
+#~ msgid "START GAME"
+#~ msgstr "Spustiť hru"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "Hostovať sieťovú hru"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "Zabudnúť bluetooth zariadenie"

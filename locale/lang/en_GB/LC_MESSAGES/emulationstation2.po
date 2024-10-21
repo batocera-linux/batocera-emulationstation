@@ -549,6 +549,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "PUBLICLY ANNOUNCE GAME"
+
+msgid "PLAYER PASSWORD"
+msgstr "PLAYER PASSWORD"
+
+msgid "VIEWER PASSWORD"
+msgstr "VIEWER PASSWORD"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "SHOW UNAVAILABLE GAMES"
 
@@ -2151,27 +2166,6 @@ msgstr "SAVE STATES"
 msgid "OPEN"
 msgstr "OPEN"
 
-msgid "START A NETPLAY GAME"
-msgstr "START A NETPLAY GAME"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "START GAME"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "HOST A NETPLAY GAME"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "PUBLICLY ANNOUNCE GAME"
-
-msgid "PLAYER PASSWORD"
-msgstr "PLAYER PASSWORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "VIEWER PASSWORD"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "FIND SIMILAR GAMES..."
 
@@ -2536,6 +2530,9 @@ msgstr "CONNECT TO NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Select a game lobby to join"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "FAILED"
 
@@ -2550,6 +2547,15 @@ msgstr "SAME ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "UNAVAILABLE CORE"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "AVAILABLE GAMES"
@@ -2952,6 +2958,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i GAME"
 msgstr[1] "%i GAMES"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGATION BAR"
@@ -3526,6 +3535,15 @@ msgid ""
 msgstr ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "START A NETPLAY GAME"
+
+#~ msgid "START GAME"
+#~ msgstr "START GAME"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "HOST A NETPLAY GAME"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "FORGET A BLUETOOTH DEVICE"

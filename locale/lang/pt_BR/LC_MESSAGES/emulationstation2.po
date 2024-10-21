@@ -549,6 +549,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+
+msgid "PLAYER PASSWORD"
+msgstr "SENHA DO JOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "SENHA DE ESPECTADOR"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "EXIBIR JOGOS INDISPONÍVEIS"
 
@@ -2185,27 +2200,6 @@ msgstr "ESTADOS DE SALVAMENTO"
 msgid "OPEN"
 msgstr "ABRIR"
 
-msgid "START A NETPLAY GAME"
-msgstr "INICIAR JOGO EM REDE"
-
-msgid "NETPLAY"
-msgstr "JOGOS EM REDE"
-
-msgid "START GAME"
-msgstr "INICIAR JOGO"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "ORGANIZAR JOGO EM REDE"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
-
-msgid "PLAYER PASSWORD"
-msgstr "SENHA DO JOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "SENHA DE ESPECTADOR"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "JOGOS SEMELHANTES..."
 
@@ -2571,6 +2565,9 @@ msgstr "CONECTE-SE AOS JOGOS EM REDE"
 msgid "Select a game lobby to join"
 msgstr "Seleciona uma sala de jogo para juntar-se"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "FALHOU"
 
@@ -2585,6 +2582,15 @@ msgstr "MESMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -2989,6 +2995,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i JOGO"
 msgstr[1] "%i JOGOS"
+
+msgid "NETPLAY"
+msgstr "JOGOS EM REDE"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGAÇÃO"
@@ -3564,6 +3573,15 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "INICIAR JOGO EM REDE"
+
+#~ msgid "START GAME"
+#~ msgstr "INICIAR JOGO"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "ORGANIZAR JOGO EM REDE"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "REMOVER UM DISPOSITIVO BLUETOOTH"

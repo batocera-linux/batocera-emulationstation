@@ -551,6 +551,21 @@ msgstr "PERSONALIZAT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNȚĂ PUBLIC JOCUL"
+
+msgid "PLAYER PASSWORD"
+msgstr "PAROLĂ JUCĂTORI"
+
+msgid "VIEWER PASSWORD"
+msgstr "PAROLĂ SPECTATORI"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
 
@@ -2177,27 +2192,6 @@ msgstr "STĂRI SALVATE"
 msgid "OPEN"
 msgstr "DESCHIDE"
 
-msgid "START A NETPLAY GAME"
-msgstr "PORNEȘTE UN JOC NETPLAY"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "ÎNCEPE JOCUL"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "GĂZDUIEȘTE UN JOC NETPLAY"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNȚĂ PUBLIC JOCUL"
-
-msgid "PLAYER PASSWORD"
-msgstr "PAROLĂ JUCĂTORI"
-
-msgid "VIEWER PASSWORD"
-msgstr "PAROLĂ SPECTATORI"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "GĂSEȘTE JOCURI SIMILARE..."
 
@@ -2562,6 +2556,9 @@ msgstr "CONECTEAZĂ-TE LA NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Alege o sală pentru te alătura"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "EȘUAT"
 
@@ -2576,6 +2573,15 @@ msgstr "ACELAȘI ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NUCLEU INDISPONIBIL"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "JOCURI DISPONIBILE"
@@ -2983,6 +2989,9 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i JOC"
 msgstr[1] "%i JOCURI"
 msgstr[2] "%i DE JOCURI"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "BARĂ DE NAVIGAȚIE"
@@ -3566,6 +3575,15 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "PORNEȘTE UN JOC NETPLAY"
+
+#~ msgid "START GAME"
+#~ msgstr "ÎNCEPE JOCUL"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "GĂZDUIEȘTE UN JOC NETPLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ELIMINĂ UN DISPOZITIV BLUETOOTH"

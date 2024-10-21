@@ -550,6 +550,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "公開的遊戲"
+
+msgid "PLAYER PASSWORD"
+msgstr "玩家密碼"
+
+msgid "VIEWER PASSWORD"
+msgstr "觀眾密碼"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "顯示無法使用的遊戲"
 
@@ -2135,27 +2150,6 @@ msgstr "即時存檔"
 msgid "OPEN"
 msgstr "開啟"
 
-msgid "START A NETPLAY GAME"
-msgstr "開始一場連線遊戲"
-
-msgid "NETPLAY"
-msgstr "多人遊戲"
-
-msgid "START GAME"
-msgstr "開始遊戲"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "主持一場連線遊戲"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公開的遊戲"
-
-msgid "PLAYER PASSWORD"
-msgstr "玩家密碼"
-
-msgid "VIEWER PASSWORD"
-msgstr "觀眾密碼"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
 
@@ -2520,6 +2514,9 @@ msgstr "連線到多人遊戲"
 msgid "Select a game lobby to join"
 msgstr "選擇您要加入的遊戲大廳"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "失敗"
 
@@ -2534,6 +2531,15 @@ msgstr "相同的 ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "無法使用的核心"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "可以執行的遊戲"
@@ -2929,6 +2935,9 @@ msgstr[0] "%i 個項目"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 個遊戲"
+
+msgid "NETPLAY"
+msgstr "多人遊戲"
 
 msgid "NAVIGATION BAR"
 msgstr "導航列"
@@ -3493,6 +3502,15 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "開始一場連線遊戲"
+
+#~ msgid "START GAME"
+#~ msgstr "開始遊戲"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "主持一場連線遊戲"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "忘記藍牙裝置"

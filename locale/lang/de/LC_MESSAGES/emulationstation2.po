@@ -551,6 +551,21 @@ msgstr "BENUTZERDEFINIERT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "BENUTZERDEFINIERTER RELAY-SERVER"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "SPIEL ÖFFENTLICH ANKÜNDIGEN"
+
+msgid "PLAYER PASSWORD"
+msgstr "SPIELER-PASSWORT"
+
+msgid "VIEWER PASSWORD"
+msgstr "ZUSCHAUER-PASSWORT"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NICHT VERFÜGBARE SPIELE ANZEIGEN"
 
@@ -2181,27 +2196,6 @@ msgstr "SPEICHERSTÄNDE"
 msgid "OPEN"
 msgstr "ÖFFNEN"
 
-msgid "START A NETPLAY GAME"
-msgstr "NETPLAY-SPIEL STARTEN"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "SPIEL STARTEN"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "NEUES NETPLAY-SPIEL HOSTEN"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "SPIEL ÖFFENTLICH ANKÜNDIGEN"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPIELER-PASSWORT"
-
-msgid "VIEWER PASSWORD"
-msgstr "ZUSCHAUER-PASSWORT"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "ÄHNLICHE SPIELE FINDEN..."
 
@@ -2567,6 +2561,9 @@ msgstr "MIT NETPLAY VERBINDEN"
 msgid "Select a game lobby to join"
 msgstr "Eine Spiel-Lobby zum Beitreten auswählen"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "FEHLGESCHLAGEN"
 
@@ -2581,6 +2578,15 @@ msgstr "GLEICHE ROM-DATEI"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NICHT VERFÜGBARER CORE"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "VERFÜGBARE SPIELE"
@@ -2985,6 +2991,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i SPIEL"
 msgstr[1] "%i SPIELE"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGATIONSLEISTE"
@@ -3561,3 +3570,12 @@ msgid ""
 msgstr ""
 "KALIBRIERE PISTOLE\n"
 "Zur Kalibration auf Ziele schießen"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "NETPLAY-SPIEL STARTEN"
+
+#~ msgid "START GAME"
+#~ msgstr "SPIEL STARTEN"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "NEUES NETPLAY-SPIEL HOSTEN"

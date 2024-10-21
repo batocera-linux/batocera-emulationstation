@@ -551,6 +551,21 @@ msgstr "PERSONALIZZATO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "RELAY SERVER PERSONALIZZATO"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANNUNCIA PUBBLICAMENTE LA PARTITA"
+
+msgid "PLAYER PASSWORD"
+msgstr "PASSWORD GIOCATORE"
+
+msgid "VIEWER PASSWORD"
+msgstr "PASSWORD SPETTATORE"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRA GIOCHI NON DISPONIBILI"
 
@@ -2163,27 +2178,6 @@ msgstr "SALVATAGGI ISTANTANEI"
 msgid "OPEN"
 msgstr "APRI"
 
-msgid "START A NETPLAY GAME"
-msgstr "INIZIA UNA PARTITA NETPLAY"
-
-msgid "NETPLAY"
-msgstr "NEPLAY"
-
-msgid "START GAME"
-msgstr "INIZIA LA PARTITA"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "OSPITA UNA PARTITA NETPLAY"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANNUNCIA PUBBLICAMENTE LA PARTITA"
-
-msgid "PLAYER PASSWORD"
-msgstr "PASSWORD GIOCATORE"
-
-msgid "VIEWER PASSWORD"
-msgstr "PASSWORD SPETTATORE"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCA GIOCHI SIMILI..."
 
@@ -2548,6 +2542,9 @@ msgstr "COLLEGATI SU NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Seleziona una stanza di gioco a cui unirti"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "FALLITO"
 
@@ -2562,6 +2559,15 @@ msgstr "ROM UGUALE"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CORE NON DISPONIBILE"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "GIOCHI DISPONIBILI"
@@ -2964,6 +2970,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i GIOCO"
 msgstr[1] "%i GIOCHI"
+
+msgid "NETPLAY"
+msgstr "NEPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DI NAVIGAZIONE"
@@ -3539,6 +3548,15 @@ msgid ""
 msgstr ""
 "CALIBRAZIONE PISTOLA\n"
 "Spara sui bersagli per calibrare"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "INIZIA UNA PARTITA NETPLAY"
+
+#~ msgid "START GAME"
+#~ msgstr "INIZIA LA PARTITA"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "OSPITA UNA PARTITA NETPLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ELIMINA UN DISPOSITIVO BLUETOOTH"

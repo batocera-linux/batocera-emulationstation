@@ -587,6 +587,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "الإعلان عن اللعبة للجماهير"
+
+msgid "PLAYER PASSWORD"
+msgstr "كلمة سر اللاعب"
+
+msgid "VIEWER PASSWORD"
+msgstr "كلمة سر المتفرج"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "عرض الألعاب الغير موجودة"
 
@@ -2184,27 +2199,6 @@ msgstr "حالات الحفظ"
 msgid "OPEN"
 msgstr "فتح"
 
-msgid "START A NETPLAY GAME"
-msgstr "ابدأ اللعب عبر النت"
-
-msgid "NETPLAY"
-msgstr "لعب نت"
-
-msgid "START GAME"
-msgstr "بدئ اللعبة"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "استضف اللعب عبر النت"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "الإعلان عن اللعبة للجماهير"
-
-msgid "PLAYER PASSWORD"
-msgstr "كلمة سر اللاعب"
-
-msgid "VIEWER PASSWORD"
-msgstr "كلمة سر المتفرج"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "أوجد ألعاب مماثلة..."
 
@@ -2569,6 +2563,9 @@ msgstr "الإتصال بـ لعبة نت"
 msgid "Select a game lobby to join"
 msgstr "اختر حُجرَة اللعبة للانضمام"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "فشل"
 
@@ -2583,6 +2580,15 @@ msgstr "نفس الروم"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CORE غير متوفر"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "ألعاب متوفرة"
@@ -3000,6 +3006,9 @@ msgstr[2] "%i لعبتين"
 msgstr[3] "%i ألعاب"
 msgstr[4] "%i لعبة"
 msgstr[5] "%i لعبة"
+
+msgid "NETPLAY"
+msgstr "لعب نت"
 
 msgid "NAVIGATION BAR"
 msgstr "شريط التنقل"
@@ -3604,6 +3613,15 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "ابدأ اللعب عبر النت"
+
+#~ msgid "START GAME"
+#~ msgstr "بدئ اللعبة"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "استضف اللعب عبر النت"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "نسيان جهاز بلوتوث"

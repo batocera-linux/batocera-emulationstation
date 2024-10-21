@@ -548,6 +548,21 @@ msgstr "定制"
 msgid "CUSTOM RELAY SERVER"
 msgstr "定制中继服务器"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "公开的游戏"
+
+msgid "PLAYER PASSWORD"
+msgstr "玩家口令"
+
+msgid "VIEWER PASSWORD"
+msgstr "观众口令"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
 
@@ -2134,27 +2149,6 @@ msgstr "存档槽"
 msgid "OPEN"
 msgstr "打开"
 
-msgid "START A NETPLAY GAME"
-msgstr "开始联网游戏"
-
-msgid "NETPLAY"
-msgstr "联网游戏"
-
-msgid "START GAME"
-msgstr "开始游戏"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "建立联网主机"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公开的游戏"
-
-msgid "PLAYER PASSWORD"
-msgstr "玩家口令"
-
-msgid "VIEWER PASSWORD"
-msgstr "观众口令"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "寻找类似游戏..."
 
@@ -2519,6 +2513,9 @@ msgstr "进行联网游戏"
 msgid "Select a game lobby to join"
 msgstr "选择要加入的游戏大厅"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "失败"
 
@@ -2533,6 +2530,15 @@ msgstr "相同的ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "核心不可用"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "可用的游戏"
@@ -2929,6 +2935,9 @@ msgstr[0] "%i 个项目"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 个游戏"
+
+msgid "NETPLAY"
+msgstr "联网游戏"
 
 msgid "NAVIGATION BAR"
 msgstr "导航栏"
@@ -3493,6 +3502,15 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "开始联网游戏"
+
+#~ msgid "START GAME"
+#~ msgstr "开始游戏"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "建立联网主机"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "解除配对的蓝牙设备"

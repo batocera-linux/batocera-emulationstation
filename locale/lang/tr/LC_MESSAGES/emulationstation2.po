@@ -549,6 +549,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "AÇIK YAYINLANMIŞ OYUN"
+
+msgid "PLAYER PASSWORD"
+msgstr "OYUNCU ŞİFRESİ"
+
+msgid "VIEWER PASSWORD"
+msgstr "İZLEYİCİ ŞİFRESİ"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLARI GÖSTER"
 
@@ -2169,27 +2184,6 @@ msgstr "KAYIT NOKTALARI"
 msgid "OPEN"
 msgstr "AÇ"
 
-msgid "START A NETPLAY GAME"
-msgstr "BİR NETPLAY OYUNUNA BAŞLA"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "OYUNU BAŞLAT"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "NETPLAY OYUNUNA EVSAHİBİ OL"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "AÇIK YAYINLANMIŞ OYUN"
-
-msgid "PLAYER PASSWORD"
-msgstr "OYUNCU ŞİFRESİ"
-
-msgid "VIEWER PASSWORD"
-msgstr "İZLEYİCİ ŞİFRESİ"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "BENZER OYUNLARI BUL..."
 
@@ -2554,6 +2548,9 @@ msgstr "NETPLAY'E BAĞLAN"
 msgid "Select a game lobby to join"
 msgstr "Katılmak için oyun lobisi seç"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "BAŞARISIZ"
 
@@ -2568,6 +2565,15 @@ msgstr "AYNI ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "MEVCUT OLMAYAN ÇEKİRDEK"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "MEVCUT OYUNLAR"
@@ -2970,6 +2976,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i OYUN"
 msgstr[1] "%i OYUNLARI"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "GEZİNTİ ÇUBUĞU"
@@ -3543,6 +3552,15 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "BİR NETPLAY OYUNUNA BAŞLA"
+
+#~ msgid "START GAME"
+#~ msgstr "OYUNU BAŞLAT"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "NETPLAY OYUNUNA EVSAHİBİ OL"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH CİHAZI UNUT"

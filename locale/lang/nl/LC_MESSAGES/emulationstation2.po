@@ -551,6 +551,21 @@ msgstr "AANGEPAST"
 msgid "CUSTOM RELAY SERVER"
 msgstr "AANGEPASTE RELAY SERVER"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "EEN SPEL PUBLIEKELIJK AANKONDIGEN"
+
+msgid "PLAYER PASSWORD"
+msgstr "SPELER WACHTWOORD"
+
+msgid "VIEWER PASSWORD"
+msgstr "TOESCHOUWER WACHTWOORD"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "TOON NIET-BESCHIKBARE SPELLEN"
 
@@ -2183,27 +2198,6 @@ msgstr "SAVESTATES"
 msgid "OPEN"
 msgstr "OPEN"
 
-msgid "START A NETPLAY GAME"
-msgstr "START EEN NETPLAY SPEL"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "START SPEL"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "HOST EEN NETPLAY SPEL"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "EEN SPEL PUBLIEKELIJK AANKONDIGEN"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPELER WACHTWOORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "TOESCHOUWER WACHTWOORD"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "VIND SOORTGELIJKE SPELLEN..."
 
@@ -2566,6 +2560,9 @@ msgstr "VERBIND MET NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Selecteer een spel lobby voor deelname"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "MISLUKT"
 
@@ -2580,6 +2577,15 @@ msgstr "DEZELFDE ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NIET-BESCHIKBARE CORE"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "BESCHIKBARE SPELLEN"
@@ -2983,6 +2989,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i SPEL"
 msgstr[1] "%i SPELLEN"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGATIEBALK"
@@ -3557,3 +3566,12 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "START EEN NETPLAY SPEL"
+
+#~ msgid "START GAME"
+#~ msgstr "START SPEL"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "HOST EEN NETPLAY SPEL"

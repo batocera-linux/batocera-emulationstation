@@ -552,6 +552,21 @@ msgstr "カスタム"
 msgid "CUSTOM RELAY SERVER"
 msgstr "カスタムリレーサーバー"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "プレイ状況を公開する"
+
+msgid "PLAYER PASSWORD"
+msgstr "プレーヤーパスワード"
+
+msgid "VIEWER PASSWORD"
+msgstr "ウォッチパスワード"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "利用不可ゲームを表示"
 
@@ -2160,27 +2175,6 @@ msgstr "ステートマネージャ"
 msgid "OPEN"
 msgstr "開く"
 
-msgid "START A NETPLAY GAME"
-msgstr "ネットプレイを開始"
-
-msgid "NETPLAY"
-msgstr "ネットプレイ"
-
-msgid "START GAME"
-msgstr "ゲームを開始"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "ネットプレイ(ホストで)を開始"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "プレイ状況を公開する"
-
-msgid "PLAYER PASSWORD"
-msgstr "プレーヤーパスワード"
-
-msgid "VIEWER PASSWORD"
-msgstr "ウォッチパスワード"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "類似のゲームを探す..."
 
@@ -2546,6 +2540,9 @@ msgstr "ネットプレイの接続"
 msgid "Select a game lobby to join"
 msgstr "参加したいゲームロビーを選択"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "失敗"
 
@@ -2560,6 +2557,15 @@ msgstr "同じROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "利用できないコア"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "参加可能なゲーム"
@@ -2961,6 +2967,9 @@ msgstr[0] "%i 項目"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "ゲーム数 :%i"
+
+msgid "NETPLAY"
+msgstr "ネットプレイ"
 
 msgid "NAVIGATION BAR"
 msgstr "操作バー"
@@ -3526,6 +3535,15 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "ネットプレイを開始"
+
+#~ msgid "START GAME"
+#~ msgstr "ゲームを開始"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "ネットプレイ(ホストで)を開始"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH デバイスの削除"

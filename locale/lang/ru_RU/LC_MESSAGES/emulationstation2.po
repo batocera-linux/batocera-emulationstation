@@ -551,6 +551,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
+
+msgid "PLAYER PASSWORD"
+msgstr "ПАРОЛЬ ИГРОКА"
+
+msgid "VIEWER PASSWORD"
+msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
 
@@ -2161,27 +2176,6 @@ msgstr "БЫСТРОЕ СОХРАНЕНИЕ"
 msgid "OPEN"
 msgstr "ОТКРЫТЬ"
 
-msgid "START A NETPLAY GAME"
-msgstr "НАЧАТЬ NETPLAY ИГРУ"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "НАЧАТЬ ИГРУ"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "ХОСТ NETPLAY ИГРЫ"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
-
-msgid "PLAYER PASSWORD"
-msgstr "ПАРОЛЬ ИГРОКА"
-
-msgid "VIEWER PASSWORD"
-msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
 
@@ -2546,6 +2540,9 @@ msgstr "ПОДКЛЮЧИТЬСЯ К NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Выберите лобби для присоединения"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
 
@@ -2560,6 +2557,15 @@ msgstr "ОДИНАКОВЫЙ ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "ДОСТУПНЫЕ ИГРЫ"
@@ -2966,6 +2972,9 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i ИГРА"
 msgstr[1] "%i ИГРЫ"
 msgstr[2] "%i ИГР"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "ПАНЕЛЬ НАВИГАЦИИ"
@@ -3546,6 +3555,15 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "НАЧАТЬ NETPLAY ИГРУ"
+
+#~ msgid "START GAME"
+#~ msgstr "НАЧАТЬ ИГРУ"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "ХОСТ NETPLAY ИГРЫ"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"

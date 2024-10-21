@@ -552,6 +552,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "הכרז ציבורית על משחק"
+
+msgid "PLAYER PASSWORD"
+msgstr "סיסמת שחקן"
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "הצג משחקים לא זמינים"
 
@@ -2127,27 +2142,6 @@ msgstr "שמור סטטיסטיקות"
 msgid "OPEN"
 msgstr "פתיחה"
 
-msgid "START A NETPLAY GAME"
-msgstr ""
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
-msgid "START GAME"
-msgstr "התחל משחק"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "ארח משחק רשת"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "הכרז ציבורית על משחק"
-
-msgid "PLAYER PASSWORD"
-msgstr "סיסמת שחקן"
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "מציאת משחקים דומים..."
 
@@ -2508,6 +2502,9 @@ msgstr "התחברות לרשת NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "בחר לובי משחק בכדי להתחבר"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "נכשל"
 
@@ -2522,6 +2519,15 @@ msgstr "אותו ה ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "ליבה לא זמינה"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "משחקים זמנים"
@@ -2926,6 +2932,9 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr ""
@@ -3506,6 +3515,12 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "START GAME"
+#~ msgstr "התחל משחק"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "ארח משחק רשת"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "שכח התקן בלו-טות'"

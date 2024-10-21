@@ -555,6 +555,21 @@ msgstr "PERSONALIZADO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR DE RETRANSMISIÓN PERSONALIZADO"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIO PÚBLICO DO XOGO"
+
+msgid "PLAYER PASSWORD"
+msgstr "CONTRASINAL XOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "CONTRASINAL ESPECTADORES"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AMOSAR XOGOS NON DISPOÑIBLES"
 
@@ -2182,27 +2197,6 @@ msgstr "PARTIDAS GARDADAS"
 msgid "OPEN"
 msgstr "ABRIR"
 
-msgid "START A NETPLAY GAME"
-msgstr "COMEZA UN XOGO EN REDE"
-
-msgid "NETPLAY"
-msgstr "XOGO EN REDE"
-
-msgid "START GAME"
-msgstr "COMEZAR XOGO"
-
-msgid "HOST A NETPLAY GAME"
-msgstr "ALOXAR UN XOGO EN REDE"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIO PÚBLICO DO XOGO"
-
-msgid "PLAYER PASSWORD"
-msgstr "CONTRASINAL XOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "CONTRASINAL ESPECTADORES"
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "BUSCAR XOGOS SEMELLANTES..."
 
@@ -2568,6 +2562,9 @@ msgstr "CONECTAR A XOGO EN LIÑA"
 msgid "Select a game lobby to join"
 msgstr "Escolle unha sala de xogo para unirte"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "FALLOU"
 
@@ -2582,6 +2579,15 @@ msgstr "A ROM E A MESMA"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NON DISPOÑIBLE"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "XOGOS DIPOÑIBLES"
@@ -2984,6 +2990,9 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i XOGO"
 msgstr[1] "%i XOGOS"
+
+msgid "NETPLAY"
+msgstr "XOGO EN REDE"
 
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓN"
@@ -3558,6 +3567,15 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara os obxectivos para calibrar"
+
+#~ msgid "START A NETPLAY GAME"
+#~ msgstr "COMEZA UN XOGO EN REDE"
+
+#~ msgid "START GAME"
+#~ msgstr "COMEZAR XOGO"
+
+#~ msgid "HOST A NETPLAY GAME"
+#~ msgstr "ALOXAR UN XOGO EN REDE"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ESQUENCER DISPOSITIVO BLUETOOTH"

@@ -551,6 +551,21 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТИ НЕДОСТУПНІ ІГРИ"
 
@@ -2131,27 +2146,6 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
-msgid "START A NETPLAY GAME"
-msgstr ""
-
-msgid "NETPLAY"
-msgstr ""
-
-msgid "START GAME"
-msgstr ""
-
-msgid "HOST A NETPLAY GAME"
-msgstr ""
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
 msgid "FIND SIMILAR GAMES..."
 msgstr "ЗНАЙТИ СХОЖІ ІГРИ..."
 
@@ -2514,6 +2508,9 @@ msgstr "ПІД'ЄДНАТИСЬ ДО NETPLAY"
 msgid "Select a game lobby to join"
 msgstr ""
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "ПОМИЛКА"
 
@@ -2528,6 +2525,15 @@ msgstr "ТА Ж САМА ГРА"
 
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНЕ ЯДРО"
+
+msgid "PLAY ONLINE AS HOST"
+msgstr ""
+
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "ДОСТУПНІ ІГРИ"
@@ -2928,6 +2934,9 @@ msgid_plural "%i GAMES"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+msgid "NETPLAY"
+msgstr ""
 
 msgid "NAVIGATION BAR"
 msgstr ""
