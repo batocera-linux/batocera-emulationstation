@@ -282,14 +282,6 @@ void SystemScreenSaver::renderScreenSaver()
 			}
 		}
 	}
-	else if (mState != STATE_INACTIVE)
-	{
-		std::string screensaver_behavior = Settings::getInstance()->getString("ScreenSaverBehavior");
-
-		Renderer::setMatrix(Transform4x4f::Identity());
-		unsigned char color = screensaver_behavior == "dim" ? 0x000000A0 : 0x000000FF;
-		Renderer::drawRect(0.0f, 0.0f, Renderer::getScreenWidth(), Renderer::getScreenHeight(), color, color);
-	}
 }
 
 unsigned long SystemScreenSaver::countGameListNodes(bool video)
