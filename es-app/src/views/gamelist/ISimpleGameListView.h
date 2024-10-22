@@ -46,6 +46,9 @@ public:
 	void closePopupContext();
 	
 	virtual void moveToRandomGame();
+	virtual bool moveToLetter(char letter);
+	virtual void moveToNextLetter();
+	virtual void moveToPreviousLetter();
 
 	void showQuickSearch();
 	void launchSelectedGame();
