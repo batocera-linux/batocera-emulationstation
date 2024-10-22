@@ -112,7 +112,13 @@ const std::string FileData::getBreadCrumbPath()
 
 const std::string FileData::getConfigurationName()
 {
-	std::string gameConf = Utils::FileSystem::getFileName(getPath());
+	// "EDIT METADATA" displays subtitle: `cas/zonx.zip` (code from guis/GuiMetaDataEd.cpp near verbatim)
+	std::string gameConf = Utils::FileSystem::createRelativePath(getPath(), getSourceFileData()->getSystem()->getRootFolder()->getPath(), true);
+	if (Utils::String::startsWith(gameConf, "./"))
+		gameConf = gameConf.substr(2);
+	else
+		gameConf = Utils::FileSystem::getFileName(getPath());
+
 	gameConf = Utils::String::replace(gameConf, "=", "");
 	gameConf = Utils::String::replace(gameConf, "#", "");
 	gameConf = getSourceFileData()->getSystem()->getName() + std::string("[\"") + gameConf + std::string("\"]");
