@@ -792,6 +792,21 @@
     <game name="CP2DW_HD">
       <gun/>
     </game>
+    <game name="cpower1">
+      <gun/>
+    </game>
+    <game name="cpower2">
+      <gun/>
+    </game>
+    <game name="cpower3">
+      <gun/>
+    </game>
+    <game name="cpower4">
+      <gun/>
+    </game>
+    <game name="cpowergh">
+      <gun/>
+    </game>
     <game name="cracksht">
       <gun/>
     </game>
