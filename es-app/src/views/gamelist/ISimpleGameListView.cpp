@@ -298,7 +298,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 		goBack();
 		return true;
 	}
-	else if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectRightButton(), input)) || config->isMappedLike("r2", input))
+	else if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectRightButton(), input)) || (!Settings::getInstance()->getBool("QuickJumpLetter") && config->isMappedLike("r2", input)))
 	{
 		if (!mPopupSelfReference)
 		{
@@ -308,7 +308,7 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 		return true;
 	}
-	else if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectLeftButton(), input)) || config->isMappedLike("l2", input))
+	else if ((Settings::getInstance()->getBool("QuickSystemSelect") && config->isMappedLike(getQuickSystemSelectLeftButton(), input)) || (!Settings::getInstance()->getBool("QuickJumpLetter") && config->isMappedLike("l2", input)))
 	{
 		if (!mPopupSelfReference)
 		{
@@ -318,7 +318,16 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 
 		return true;
 	}
-
+	else if (Settings::getInstance()->getBool("QuickJumpLetter") && config->isMappedLike("l2", input))
+	{
+		moveToPreviousLetter();
+		return true;
+	}
+	else if (Settings::getInstance()->getBool("QuickJumpLetter") && config->isMappedLike("r2", input))
+	{
+		moveToNextLetter();
+		return true;
+	}
 	return IGameListView::input(config, input);
 }
 
@@ -470,6 +479,86 @@ void ISimpleGameListView::moveToRandomGame()
 	int target = Randomizer::random(total); // (int)Math::round((std::rand() / (float)RAND_MAX) * (total - 1));
 	if (target >= 0 && target < total)
 		setCursor(list.at(target));
+}
+
+bool ISimpleGameListView::moveToLetter(char letter)
+{
+
+	auto files = getFileDataEntries();
+        long letterIndex = -1;
+
+	for (int i = files.size() - 1; i >= 0; i--)
+        {
+                auto name = files.at(i)->getName();
+                if (name.empty())
+                        continue;
+
+                char checkLetter = (char)toupper(name[0]);
+                if (letterIndex >= 0 && checkLetter != letter)
+                        break;
+
+                if (checkLetter == letter)
+                        letterIndex = i;
+        }
+
+        if (letterIndex >= 0) {
+                setCursor(files.at(letterIndex));
+		return 1;
+	}
+
+	return 0;
+}
+
+void ISimpleGameListView::moveToNextLetter()
+{
+        std::vector<std::string> letters = getEntriesLetters();
+        if (letters.empty())
+		return;
+
+	FileData* game = getCursor();
+	if (game == nullptr) {
+		return;
+	}
+
+	auto namecurrent = game->getName();
+	char curChar = (char)toupper(namecurrent[0]);
+
+        auto it = std::find(letters.begin(), letters.end(), std::string(1, curChar));
+	if (it != letters.end()) {
+		int index = it - letters.begin();
+		index++;
+		if (index >= letters.size())
+			index = 0;
+		char letter = letters.at(index)[0];
+		moveToLetter(letter);
+	}
+}
+
+void ISimpleGameListView::moveToPreviousLetter()
+{
+
+        std::vector<std::string> letters = getEntriesLetters();
+        if (letters.empty())
+		return;
+
+	FileData* game = getCursor();
+	if (game == nullptr) {
+		return;
+	}
+
+	auto namecurrent = game->getName();
+	char curChar = (char)toupper(namecurrent[0]);
+
+        auto it = std::find(letters.begin(), letters.end(), std::string(1, curChar));
+	if (it != letters.end()) {
+		int index = it - letters.begin();
+		index--;
+		if (index < 0)
+			index = letters.size()-1;
+
+		char letter = letters.at(index)[0];
+		moveToLetter(letter);
+	}
 }
 
 std::vector<std::string> ISimpleGameListView::getEntriesLetters()

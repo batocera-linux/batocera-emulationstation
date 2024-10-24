@@ -1037,6 +1037,12 @@ void GuiMenu::openDeveloperSettings()
 	s->addWithLabel(_("QUICK SYSTEM SELECT"), quick_sys_select);
 	s->addSaveFunc([quick_sys_select] { Settings::getInstance()->setBool("QuickSystemSelect", quick_sys_select->getState()); });
 
+	// quick jump next letter (R2/L2 in game list view)
+	auto quick_jump_letter = std::make_shared<SwitchComponent>(mWindow);
+	quick_jump_letter->setState(Settings::getInstance()->getBool("QuickJumpLetter"));
+	s->addWithLabel(_("QUICK JUMP LETTER"), quick_jump_letter);
+	s->addSaveFunc([quick_jump_letter] { Settings::getInstance()->setBool("QuickJumpLetter", quick_jump_letter->getState()); });
+
 	// Enable OSK (On-Screen-Keyboard)
 	auto osk_enable = std::make_shared<SwitchComponent>(mWindow);
 	osk_enable->setState(Settings::getInstance()->getBool("UseOSK"));
