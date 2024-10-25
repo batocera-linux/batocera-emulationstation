@@ -419,6 +419,10 @@ namespace Utils
 					if ((Utils::String::toLower(file).find("/qcom-battery") != std::string::npos) && (batteryRootPath.empty()))
 						batteryRootPath = file;
 
+					// Allwinner H700 devices use "axp2202-battery"
+					if ((Utils::String::toLower(file).find("/axp2202-battery") != std::string::npos) && (batteryRootPath.empty()))
+						batteryRootPath = file;
+
 					if ((Utils::String::toLower(file).find("fuel") != std::string::npos) && (fuelgaugeRootPath.empty()))
 						fuelgaugeRootPath = file;
 
