@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-19 14:08+0800\n"
+"PO-Revision-Date: 2024-10-24 18:23+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -558,10 +558,10 @@ msgid "VIEWER PASSWORD"
 msgstr "观众口令"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "仅显示中继服务器游戏"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "中继服务器游戏有更高机会成功进入."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
@@ -2514,7 +2514,7 @@ msgid "Select a game lobby to join"
 msgstr "选择要加入的游戏大厅"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "选择要创建或加入的游戏大厅"
 
 msgid "FAILED"
 msgstr "失败"
@@ -2532,13 +2532,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "核心不可用"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "以主机身份在线玩游戏"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "离线游玩"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "加入现有游戏"
 
 msgid "AVAILABLE GAMES"
 msgstr "可用的游戏"

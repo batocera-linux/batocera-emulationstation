@@ -561,10 +561,10 @@ msgid "VIEWER PASSWORD"
 msgstr "PASSWORD SPETTATORE"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "MOSTRA SOLO I GIOCHI RELAY SERVER"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "I giochi relay server hanno migliori chance di successo."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRA GIOCHI NON DISPONIBILI"
@@ -1865,10 +1865,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "MOSTRA ICONA MANUBRIO"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "MOSTRA ICONA TRACKBALL"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "MOSTRA ICONA SPINNER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VISUALIZZA NOME FILE NELLE LISTE"
@@ -2543,7 +2543,7 @@ msgid "Select a game lobby to join"
 msgstr "Seleziona una stanza di gioco a cui unirti"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Scegli una lobby gioco da creare o entrare"
 
 msgid "FAILED"
 msgstr "FALLITO"
@@ -2561,13 +2561,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "CORE NON DISPONIBILE"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "GIOCA ONLINE COME HOST"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "GIOCA OFFLINE"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "UNISCITI A GIOCO ESISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "GIOCHI DISPONIBILI"
@@ -3050,10 +3050,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "MEDIAS PRESENTI"
@@ -3137,10 +3137,10 @@ msgid "wheel games"
 msgstr "giochi con volante"
 
 msgid "trackball games"
-msgstr ""
+msgstr "giochi trackball"
 
 msgid "spinner games"
-msgstr ""
+msgstr "giochi spinner"
 
 msgid "collections"
 msgstr "collezione"

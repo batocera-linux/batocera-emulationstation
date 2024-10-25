@@ -559,10 +559,10 @@ msgid "VIEWER PASSWORD"
 msgstr "PASSWORD DO ESPECTADOR"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR RELAY"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Os jogos de servidor relay têm uma maior probabilidade de entrada bem-sucedida."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOGOS INDISPONÍVEIS"
@@ -2550,7 +2550,7 @@ msgid "Select a game lobby to join"
 msgstr "Selecione uma sala de jogo para se juntar"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Selecione um lobby de jogo para criar ou participar"
 
 msgid "FAILED"
 msgstr "FALHOU"
@@ -2568,13 +2568,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "CORE INDISPONÍVEL"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "JOGAR ONLINE COMO HOST"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "JOGAR OFFLINE"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "JUNTAR-SE AO JOGO EXISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"

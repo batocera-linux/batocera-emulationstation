@@ -528,7 +528,7 @@ msgid "PORT"
 msgstr "PORT"
 
 msgid "USE RELAY SERVER"
-msgstr "UŻYJ SERWERA PRZEKAZUJĄCEGO"
+msgstr "UŻYWAĆ SERWERA POŚREDNICZĄCEGO"
 
 msgid "NONE"
 msgstr "BRAK"
@@ -549,7 +549,7 @@ msgid "CUSTOM"
 msgstr "WŁASNY"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr "WŁASNY SERWER PRZEKAZUJĄCY"
+msgstr "WŁASNY SERWER POŚREDNICZĄCY"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "OGŁOŚ GRĘ PUBLICZNIE"
@@ -561,10 +561,10 @@ msgid "VIEWER PASSWORD"
 msgstr "HASŁO WIDZA"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Gry z serwerem pośredniczącym mają większą szansę na udane wejście."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "POKAŻ NIEDOSTĘPNE GRY"
@@ -1873,10 +1873,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "POKAŻ IKONĘ KIEROWNICY"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "POKAŻ IKONĘ TRACKBALL'A"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "POKAŻ IKONĘ SPINNER'A"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "POKAŻ NAZWY PLIKÓW"
@@ -2552,7 +2552,7 @@ msgid "Select a game lobby to join"
 msgstr "Wybierz lobby gry do której chcesz dołączyć"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Wybierz lobby gry aby stworzyć lub dołączyć"
 
 msgid "FAILED"
 msgstr "NIE POWIODŁO SIĘ"
@@ -2570,13 +2570,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "NIEDOSTĘPNE JĄDRO EMULATORA"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "GRAJ ONLINE JAKO HOST"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "GRAJ OFFLINE"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "DOŁĄCZ DO ISTNIEJĄCEJ GRY"
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -3061,10 +3061,10 @@ msgid "STEERING WHEEL"
 msgstr "KIEROWNICA"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "POSIADA MEDIA"
@@ -3148,10 +3148,10 @@ msgid "wheel games"
 msgstr "gry na kierownicę"
 
 msgid "trackball games"
-msgstr ""
+msgstr "gry z trackball'em"
 
 msgid "spinner games"
-msgstr ""
+msgstr "gry na spinner"
 
 msgid "collections"
 msgstr "kolekcje"
