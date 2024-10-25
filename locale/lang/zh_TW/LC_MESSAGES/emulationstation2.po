@@ -1267,6 +1267,9 @@ msgstr "循環轉場效果"
 msgid "QUICK SYSTEM SELECT"
 msgstr "快速遊戲平台選擇"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "螢幕虛擬鍵盤"
 

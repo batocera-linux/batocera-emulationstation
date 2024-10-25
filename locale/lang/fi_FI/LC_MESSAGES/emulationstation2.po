@@ -1274,6 +1274,9 @@ msgstr "KARUSELLI SIIRTYMÄT"
 msgid "QUICK SYSTEM SELECT"
 msgstr ""
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "NÄYTTÖNÄPPÄIMISTÖ"
 

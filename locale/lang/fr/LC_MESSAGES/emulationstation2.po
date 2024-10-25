@@ -559,10 +559,10 @@ msgid "VIEWER PASSWORD"
 msgstr "MOT DE PASSE SPECTATEUR"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "AFFICHER SEUELEMENT LE SERVEUR RELAIS DES JEUX"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Le serveur de relais des jeux à généralement davantage d'entrées."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFFICHER LES JEUX NON DISPONIBLES"
@@ -1284,6 +1284,9 @@ msgstr "TRANSITION DU CARROUSEL"
 
 msgid "QUICK SYSTEM SELECT"
 msgstr "SÉLECTION RAPIDE DU SYSTÈME"
+
+msgid "QUICK JUMP LETTER"
+msgstr "SAUT RAPIDE PAR LETTRE"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "CLAVIER VIRTUEL"
@@ -2551,7 +2554,7 @@ msgid "Select a game lobby to join"
 msgstr "Choisir la partie à rejoindre"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Choisir la partie à créer ou rejoindre"
 
 msgid "FAILED"
 msgstr "ÉCHEC"
@@ -2569,13 +2572,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "CŒUR NON DISPONIBLE"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "JOUER EN LIGNE EN HÔTE"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "JOUER HORS LIGNE"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "REJOINDRE UNE PARTIE EXISTANTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"

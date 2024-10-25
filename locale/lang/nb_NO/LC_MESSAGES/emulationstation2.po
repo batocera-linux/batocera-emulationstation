@@ -1274,6 +1274,9 @@ msgstr "Karusell overganger"
 msgid "QUICK SYSTEM SELECT"
 msgstr "RASKT PLATTFORM VALG"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "Tastatur (På Skjermen)"
 

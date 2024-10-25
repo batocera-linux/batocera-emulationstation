@@ -1278,6 +1278,9 @@ msgstr "Kolotočové prechody"
 msgid "QUICK SYSTEM SELECT"
 msgstr "Rýchly výber systému"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "Klávesnica na obrazovke"
 

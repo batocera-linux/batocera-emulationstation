@@ -1308,6 +1308,9 @@ msgstr "تنقل دائري"
 msgid "QUICK SYSTEM SELECT"
 msgstr "تحديد نظام سريع"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "لوحة مفاتيح على الشاشة"
 

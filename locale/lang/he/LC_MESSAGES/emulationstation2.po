@@ -1262,6 +1262,9 @@ msgstr "מעברי קרוסלה"
 msgid "QUICK SYSTEM SELECT"
 msgstr "בחירת מערכת מהירה"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr ""
 

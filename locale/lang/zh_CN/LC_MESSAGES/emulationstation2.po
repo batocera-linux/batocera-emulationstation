@@ -1265,6 +1265,9 @@ msgstr "循环画面转场"
 msgid "QUICK SYSTEM SELECT"
 msgstr "快速系统选择"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "虚拟键盘"
 

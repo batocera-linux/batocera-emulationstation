@@ -1282,6 +1282,9 @@ msgstr "KARUSEL ÇEVİRİLER"
 msgid "QUICK SYSTEM SELECT"
 msgstr "HIZLI SİSTEM SEÇİMİ"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "EKRAN KLAVYESİ"
 

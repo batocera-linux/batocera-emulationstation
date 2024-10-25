@@ -1275,6 +1275,9 @@ msgstr "ΤΥΠΟΣ ΜΕΤΑΒΑΣΕΩΝ ΚΑΡΟΥΖΕΛ"
 msgid "QUICK SYSTEM SELECT"
 msgstr "ΓΡΗΓΟΡΗ ΕΠΙΛΟΓΗ ΣΥΣΤΗΜΑΤΟΣ"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "ΠΛΗΚΤΡΟΛΟΓΙΟ ΟΘΟΝΗΣ"
 

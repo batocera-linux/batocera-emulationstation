@@ -1282,6 +1282,9 @@ msgstr "メニュー回転(カルーセル)効果"
 msgid "QUICK SYSTEM SELECT"
 msgstr "クイックシステム選択"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
 

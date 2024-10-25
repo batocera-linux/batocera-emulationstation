@@ -1283,6 +1283,9 @@ msgstr "CHUYỂN ĐỔI CAROUSEL"
 msgid "QUICK SYSTEM SELECT"
 msgstr "CHỌN HỆ THỐNG NHANH"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "BÀN PHÍM TRÊN MÀN HÌNH"
 

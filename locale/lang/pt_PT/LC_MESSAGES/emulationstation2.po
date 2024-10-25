@@ -562,7 +562,9 @@ msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR RELAY"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "Os jogos de servidor relay têm uma maior probabilidade de entrada bem-sucedida."
+msgstr ""
+"Os jogos de servidor relay têm uma maior probabilidade de entrada bem-"
+"sucedida."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOGOS INDISPONÍVEIS"
@@ -1282,6 +1284,9 @@ msgstr "ANIMAÇÃO DE TRANSIÇÃO CARROSSEL"
 
 msgid "QUICK SYSTEM SELECT"
 msgstr "MENU DE SELEÇÃO RÁPIDA DO SISTEMA"
+
+msgid "QUICK JUMP LETTER"
+msgstr ""
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLADO NO ECRÃ"

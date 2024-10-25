@@ -1272,6 +1272,9 @@ msgstr "회전메뉴 화면전환"
 msgid "QUICK SYSTEM SELECT"
 msgstr "빠른 시스템 선택"
 
+msgid "QUICK JUMP LETTER"
+msgstr ""
+
 msgid "ON-SCREEN KEYBOARD"
 msgstr "화상 키보드"
 
