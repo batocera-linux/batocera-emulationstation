@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v41b(2024/10/17)\n"
+"Project-Id-Version: batocera-es v41b(2024/10/25)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-17 19:17+0900\n"
+"PO-Revision-Date: 2024-10-25 20:46+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -562,10 +562,10 @@ msgid "VIEWER PASSWORD"
 msgstr "ウォッチパスワード"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "リレーサーバーゲームのみを表示"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "リレーサーバーゲームは参加に成功する可能性が高くなります"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "利用不可ゲームを表示"
@@ -1283,7 +1283,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "クイックシステム選択"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "前後の英数字に移動"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "スクリーンキーボードを使用"
@@ -2544,7 +2544,7 @@ msgid "Select a game lobby to join"
 msgstr "参加したいゲームロビーを選択"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "作成または参加するゲーム ロビーを選択"
 
 msgid "FAILED"
 msgstr "失敗"
@@ -2562,13 +2562,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "利用できないコア"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "ホストとしてオンラインでプレイ"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "オフラインでプレイ"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "既存のゲームに参加"
 
 msgid "AVAILABLE GAMES"
 msgstr "参加可能なゲーム"

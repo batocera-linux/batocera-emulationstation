@@ -559,10 +559,10 @@ msgid "VIEWER PASSWORD"
 msgstr "NÉZŐ JELSZAVA"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK MEGJELENÍTÉSE"
@@ -1285,7 +1285,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "GYORS RENDSZERVÁLTÁS"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "GYORS BETŰHÖZ UGRÁS"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "KÉPERNYŐ BILLENTYŰZET"
@@ -2559,7 +2559,7 @@ msgid "Select a game lobby to join"
 msgstr "Válassza ki azt a játéklobbyt, amelyhez csatlakozni szeretne"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez csatlakozni szeretne"
 
 msgid "FAILED"
 msgstr "SIKERTELEN"
@@ -2577,13 +2577,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "NEM ELÉRHETŐ CORE"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "ONLINE JÁTÉK HOSTKÉNT"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "OFFLINE JÁTÉK"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "MEGLÉVŐ JÁTÉKHOZ CSATLAKOZÁS"
 
 msgid "AVAILABLE GAMES"
 msgstr "ELÉRHETŐ JÁTÉKOK"
