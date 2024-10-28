@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-21 11:40+0200\n"
+"PO-Revision-Date: 2024-10-27 18:00+0200\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -104,7 +104,7 @@ msgid "Magazine"
 msgstr "Magazine"
 
 msgid "enter path to magazine"
-msgstr "magazine elérési útja"
+msgstr "magazin elérési útja"
 
 msgid "Map"
 msgstr "Térkép"
@@ -182,7 +182,7 @@ msgid "Game family"
 msgstr "Játék típus"
 
 msgid "this game's game family"
-msgstr "játék tipusa"
+msgstr "játék típusa"
 
 msgid "Genres"
 msgstr "Műfaj"
@@ -277,8 +277,8 @@ msgstr "Screenscaper játék ID"
 #, c-format
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
-msgstr[0] "Ez a gyűjtemény tartalmazza %i játék:%s"
-msgstr[1] "Ez a gyűjtemény %i játékokat tartalmaz, többek között:%s"
+msgstr[0] "Ez a gyűjtemény %i játékot tartalmaz:%s"
+msgstr[1] "Ez a gyűjtemény %i játékot tartalmaz, többek között:%s"
 
 msgid "Collections"
 msgstr "Gyűjtemények"
@@ -385,7 +385,7 @@ msgstr "JELENLEGI TÉMA"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "ÉPPEN A LETÖLTSÉI SORBAN"
+msgstr "ÉPPEN A LETÖLTÉSI SORBAN"
 
 msgid "FINISHED"
 msgstr "BEFEJEZVE"
@@ -1159,7 +1159,7 @@ msgstr "NYILVÁNOS WEBES API-HOZZÁFÉRÉS ENGEDÉLYEZÉSE"
 
 #, c-format
 msgid "Allow public web access API using %s"
-msgstr "Publikus web hozzáférési API engedélyezve %s hansználatával"
+msgstr "Publikus web hozzáférési API engedélyezve %s használatával"
 
 msgid "LOG LEVEL"
 msgstr "NAPLÓZÁSI SZINT"
@@ -1844,7 +1844,7 @@ msgid "SHOW FOLDERS"
 msgstr "KÖNYVTÁRAK MEGJELENÍTÉSE"
 
 msgid "always"
-msgstr "mindíg"
+msgstr "mindig"
 
 msgid "never"
 msgstr "soha"
@@ -1943,10 +1943,10 @@ msgid "SHOW FOLDERS FIRST"
 msgstr "ELŐSZÖR MUTASD MEG A MAPPÁKAT"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "VEZETŐ CIKKEK FIGYELMEN KÍVÜL HAGYÁSA RENDEZÉSKOR"
+msgstr "VEZETŐ NÉVELŐK FIGYELMEN KÍVÜL HAGYÁSA RENDEZÉSKOR"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Hagyja figyelmen kívül az \"The\" és az \"A\" betűt, ha az elején van."
+msgstr "Hagyja figyelmen kívül a \"The\" és az \"A\" névelőt, ha az elején van."
 
 msgid "VOLUME"
 msgstr "HANGERŐ"
@@ -2143,10 +2143,10 @@ msgid "Points"
 msgstr "Pontok"
 
 msgid "Unlocked on"
-msgstr "Kiniytva"
+msgstr "Feloldva"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
-msgstr "EBBEN A JÁTÉKBAN MÉG  NINCS ACHIEVEMENT"
+msgstr "EBBEN A JÁTÉKBAN MÉG NINCS ACHIEVEMENT"
 
 msgid "Achievements (softcore)"
 msgstr "Eredmények (softcore)"
@@ -2165,7 +2165,7 @@ msgid "VIEW GAME MANUAL"
 msgstr "JÁTÉK KÉZIKÖNYV MEGJELENÍTÉSE"
 
 msgid "VIEW GAME MAGAZINE"
-msgstr "JÁTÉK MAGAZINE MEGJELENÍTÉSE"
+msgstr "JÁTÉK MAGAZIN MEGJELENÍTÉSE"
 
 msgid "VIEW GAME MAP"
 msgstr "JÁTÉK TÉRKÉP MEGJELENÍTÉSE"
@@ -2282,7 +2282,7 @@ msgid "FAN ART"
 msgstr "RAJONGÓI KÉP"
 
 msgid "BOX SOURCE"
-msgstr "DOBOS FORRÁSA"
+msgstr "DOBOZ FORRÁSA"
 
 msgid "LOGO SOURCE"
 msgstr "LOGO FORRÁSA"
@@ -2357,7 +2357,7 @@ msgid "New Collection Name"
 msgstr "Új gyűjtemény neve"
 
 msgid "ENTER NAME"
-msgstr "IRJA BE A NEVET"
+msgstr "ÍRJA BE A NEVET"
 
 msgid "CREATE FROM THEME"
 msgstr "LÉTREHOZÁS A TÉMÁBÓL"
@@ -2543,14 +2543,14 @@ msgid "EDIT METADATA"
 msgstr "META SZERKESZTÉSE"
 
 msgid "GENRES"
-msgstr "ZSÁNER"
+msgstr "MŰFAJ"
 
 msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
 "NÉHÁNY FÁJL A JÁTÉLKLISTA ELÉRHETŐSÉGI ÚTJÁN KÍVÜL TALÁLHATÓ MAG.\n"
-"AKARSZ EZEKBŐL MÁSOLATOT HASZNÁLNI AMI A RELATÍV A JÁTÉKLISTÁHOZ KÉPEST?"
+"AKARSZ EZEKBŐL MÁSOLATOT HASZNÁLNI, AMI RELATÍV A JÁTÉKLISTÁHOZ KÉPEST?"
 
 msgid "CONNECT TO NETPLAY"
 msgstr "CSATLAKOZÁS NETPLAY-HEZ"
@@ -2744,7 +2744,7 @@ msgid "Other (-9)"
 msgstr "Egyéb (-9)"
 
 msgid "RECOIL"
-msgstr "VISSZARUGÁS"
+msgstr "VISSZARÚGÁS"
 
 msgid "GUN"
 msgstr "FEGYVER"
@@ -2897,7 +2897,7 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Regisztáció szükséges! Kérlek készíts egyet itt: https://retroachievements."
+"Regisztráció szükséges! Kérlek készíts egyet itt: https://retroachievements."
 "org"
 
 msgid "Full"
@@ -2913,7 +2913,7 @@ msgid "Basic"
 msgstr "Alapvető"
 
 msgid "Games similar to"
-msgstr "Játék ami hasonló"
+msgstr "Játék, ami hasonló"
 
 msgid "SAVE STATES (HOLD)"
 msgstr "JÁTÉKÁLLÁS MENTÉSE (TARTÁS)"
@@ -2980,13 +2980,13 @@ msgstr[1] "%i GYŰJTEMÉNYEK"
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
 msgstr[0] "%i ESZKÖZ"
-msgstr[1] "%i ESZKÖZÖK"
+msgstr[1] "%i ESZKÖZ"
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i JÁTÉK"
-msgstr[1] "%i JÁTÉKOK"
+msgstr[1] "%i JÁTÉK"
 
 msgid "NETPLAY"
 msgstr "NETPLAY"
@@ -3061,7 +3061,7 @@ msgid "VERTICAL"
 msgstr "VERTIKÁLIS"
 
 msgid "LIGHTGUN"
-msgstr "FÉNYPUSKA"
+msgstr "FÉNYPISZTOLY"
 
 msgid "STEERING WHEEL"
 msgstr "KORMÁNYOS JÁTÉKOK"
@@ -3118,7 +3118,7 @@ msgid "CORE IS MISSING"
 msgstr "A MAG HIÁNYZIK"
 
 msgid "UKNOWN ERROR"
-msgstr "ISMERT HIBA"
+msgstr "ISMERETLEN HIBA"
 
 msgid "all games"
 msgstr "minden játék"
@@ -3536,7 +3536,7 @@ msgstr ""
 "GYORSBILLENTYŰKÉNT HASZNÁLNI?"
 
 msgid "SET SELECT AS HOTKEY"
-msgstr "KIVÁLASZTÁS GOMB BEÁLLÍTASA  GYORSBILLENTYŰNEK"
+msgstr "KIVÁLASZTÁS GOMB BEÁLLÍTÁSA GYORSBILLENTYŰNEK"
 
 msgid "DO NOT ASSIGN HOTKEY"
 msgstr "NE RENDELJEN HOZZÁ GYORSBILLENTYŰT"
@@ -3579,7 +3579,7 @@ msgstr ""
 #~ msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"
 
 #~ msgid "Achievements won"
-#~ msgstr "Elért achivementek"
+#~ msgstr "Elért achievementek"
 
 #~ msgid "CREATE NEW CUSTOM COLLECTION FROM THEME"
 #~ msgstr "ÚJ EGYEDI GYŰJTEMÉNY KÉSZÍTÉSE A TÉMÁBÓL"
