@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2023-03-23 10:21+0100\n"
+"PO-Revision-Date: 2024-10-29 20:45+0900\n"
 "Last-Translator: rizzie Kim, DDinghoya\n"
 "Language-Team: Dodam Enterprise, DDinghoya\n"
 "Language: ko\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "블루투스 검색"
@@ -278,7 +278,6 @@ msgstr "스크린스크래퍼 게임 아이디"
 msgid "This collection contains %i game:%s"
 msgid_plural "This collection contains %i games, including:%s"
 msgstr[0] "현재 컬렉션에는 %i 개의 게임이 포함되어 있음:%s"
-msgstr[1] "현재 컬렉션에는 다음을 포함한 %i 개의 게임이 포함되어 있음:%s"
 
 msgid "Collections"
 msgstr "컬렉션"
@@ -305,7 +304,7 @@ msgid "BEZELS INSTALLED SUCCESSFULLY"
 msgstr "베젤이 성공적으로 설치됨"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "베젤이 성공적으로 설치 제거됨"
+msgstr "베젤이 성공적으로 제거됨"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr "패키지가 성공적으로 설치됨"
@@ -559,10 +558,10 @@ msgid "VIEWER PASSWORD"
 msgstr "관전자 비밀번호"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "릴레이 서버 게임만 표시"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "릴레이 서버 게임은 성공적으로 진입할 확률이 더 높습니다."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "실행할 수 없는 게임 표시"
@@ -658,7 +657,7 @@ msgid "Automatically take a screenshot when an achievement is earned."
 msgstr "도전과제 획득시 스크린샷을 자동으로 저장합니다."
 
 msgid "CHALLENGE INDICATORS"
-msgstr "도전 아이콘 "
+msgstr "도전 아이콘"
 
 msgid ""
 "Shows icons in the bottom right corner when eligible achievements can be "
@@ -846,13 +845,13 @@ msgid "fade"
 msgstr "희미해짐"
 
 msgid "fast fade"
-msgstr ""
+msgstr "빠르게 희미해지"
 
 msgid "slide"
 msgstr "슬라이드"
 
 msgid "fast slide"
-msgstr ""
+msgstr "빠르게 슬라이드"
 
 msgid "fade & slide"
 msgstr "희미해짐 & 슬라이드"
@@ -1273,7 +1272,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "빠른 시스템 선택"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "빠른 점프 문자"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "화상 키보드"
@@ -1853,10 +1852,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "휠 아이콘 표시"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "트랙볼 아이콘 표시"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "스피너 아이콘 표시"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "목록에 파일이름 표시"
@@ -2530,7 +2529,7 @@ msgid "Select a game lobby to join"
 msgstr "참가할 게임 로비 선택"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "만들거나 참여할 게임 로비를 선택"
 
 msgid "FAILED"
 msgstr "실패함"
@@ -2548,13 +2547,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "사용할 수 없는 코어"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "호스트로서 온라인 플레이"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "오프라인 플레이"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "기존 게임에 참여"
 
 msgid "AVAILABLE GAMES"
 msgstr "실행 가능한 게임"
@@ -2866,9 +2865,7 @@ msgstr "잘못된 콘텐츠"
 msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
-msgstr ""
-"유효한 계정이 필요합니다.https://retroachievements.org 에서 계정을 등록하세"
-"요."
+msgstr "유효한 계정이 필요합니다. https://retroachievements.org 에서 계정 등록"
 
 msgid "Full"
 msgstr "전체"
@@ -2914,7 +2911,6 @@ msgstr "실행 횟수"
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
 msgstr[0] "현재 폴더에는 %i 개의 게임이 포함되며, 다음 게임 포함 :%s"
-msgstr[1] "현재 폴더에는 %i 개의 게임이 포함되며, 다음 게임 포함 :%s"
 
 msgid "SYSTEM INFO"
 msgstr "시스템 정보"
@@ -2944,19 +2940,16 @@ msgstr "구성"
 msgid "%i COLLECTION"
 msgid_plural "%i COLLECTIONS"
 msgstr[0] "%i 개의 컬렉션"
-msgstr[1] "%i 개의 컬렉션"
 
 #, c-format
 msgid "%i ITEM"
 msgid_plural "%i ITEMS"
 msgstr[0] "%i 개의 아이템"
-msgstr[1] "%i 개의 아이템"
 
 #, c-format
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 개의 게임"
-msgstr[1] "%i 개의 게임"
 
 msgid "NETPLAY"
 msgstr "넷플레이"
@@ -3037,10 +3030,10 @@ msgid "STEERING WHEEL"
 msgstr "스티어링 휠"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "트랙볼"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "스피너"
 
 msgid "HAVING MEDIAS"
 msgstr "미디어 있음"
@@ -3124,21 +3117,21 @@ msgid "wheel games"
 msgstr "휠 게임"
 
 msgid "trackball games"
-msgstr ""
+msgstr "트랙볼 게임"
 
 msgid "spinner games"
-msgstr ""
+msgstr "스피너 게임"
 
 msgid "collections"
 msgstr "컬렉션"
 
 #, c-format
 msgid "Added '%s' to '%s'"
-msgstr "'%s'를 '%s'에 추가함"
+msgstr "'%s'을(를) '%s'에 추가함"
 
 #, c-format
 msgid "Removed '%s' from '%s'"
-msgstr "'%s'에서 '%s'를 제거함"
+msgstr "'%s'에서 '%s'을(를) 제거함"
 
 msgid "This collection is empty."
 msgstr "현재 컬렉션은 비어 있습니다."
@@ -3277,31 +3270,26 @@ msgstr "%d 초"
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d 년 전"
-msgstr[1] "%d 년 전"
 
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d 일 전"
-msgstr[1] "%d 일 전"
 
 #, c-format
 msgid "%d hour ago"
 msgid_plural "%d hours ago"
 msgstr[0] "%d 시간 전"
-msgstr[1] "%d 시간 전"
 
 #, c-format
 msgid "%d minute ago"
 msgid_plural "%d minutes ago"
 msgstr[0] "%d 분 전"
-msgstr[1] "%d 분 전"
 
 #, c-format
 msgid "%d second ago"
 msgid_plural "%d seconds ago"
 msgstr[0] "%d 초 전"
-msgstr[1] "%d 초 전"
 
 msgid "MOVE CURSOR"
 msgstr "커서 이동"
@@ -3337,7 +3325,6 @@ msgstr "선택 해제"
 msgid "%i SELECTED"
 msgid_plural "%i SELECTED"
 msgstr[0] "%i 개 선택됨"
-msgstr[1] "%i 개 선택됨"
 
 msgid "ENABLED"
 msgstr "활성화"
@@ -3352,7 +3339,6 @@ msgstr "환영합니다"
 msgid "%i GAMEPAD DETECTED"
 msgid_plural "%i GAMEPADS DETECTED"
 msgstr[0] "%i 개의 게임패드 감지됨"
-msgstr[1] "%i 개의 게임패드 감지됨"
 
 msgid "NO GAMEPADS DETECTED"
 msgstr "감지된 게임패드 없음"
@@ -3367,16 +3353,16 @@ msgid "PRESS ESC OR A HOTKEY TO CANCEL."
 msgstr "취소하려면 ESC 또는 단축키를 누르세요."
 
 msgid "SHIFTS FOR UPPER,LOWER, AND SPECIAL"
-msgstr "대문자, 소문자, 특수문자를 위한 시프트"
+msgstr "대문자, 소문자, 특수문자를 위한 시프트 키"
 
 msgid "ALT GR"
-msgstr "ALT GR키"
+msgstr "알트 GR 키"
 
 msgid "SHIFT"
-msgstr "시프트"
+msgstr "시프트 키"
 
 msgid "SPACE"
-msgstr "스페이스"
+msgstr "스페이스 키"
 
 msgctxt "joystick"
 msgid "NORTH"
@@ -3485,7 +3471,7 @@ msgid "KEYBOARD"
 msgstr "키보드"
 
 msgid "CEC"
-msgstr "CEC"
+msgstr "CEC (Consumer Electronics Control)"
 
 #, c-format
 msgid "GAMEPAD %i"
@@ -3514,7 +3500,6 @@ msgstr "단축키 할당하지 않음"
 msgid "HOLD FOR %iS TO SKIP"
 msgid_plural "HOLD FOR %iS TO SKIP"
 msgstr[0] "건너뛰려면 %i 초 동안 누름"
-msgstr[1] "건너뛰려면 %i 초 동안 누름"
 
 msgid "PRESS ANYTHING"
 msgstr "아무 버튼이나 누름"

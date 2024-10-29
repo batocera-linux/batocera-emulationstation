@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-21 11:58+0300\n"
+"PO-Revision-Date: 2024-10-29 10:09+0200\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -561,10 +561,12 @@ msgid "VIEWER PASSWORD"
 msgstr "PAROLĂ SPECTATORI"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
 
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
+"Jocurile cu server de retranslație au o șansă mai mare de a permite "
+"alăturarea cu succes."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
@@ -1288,7 +1290,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "SELECȚIA RAPIDĂ A SISTEMULUI"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "SALT RAPID LITERĂ"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "TASTATURĂ PE ECRAN"
@@ -2560,7 +2562,7 @@ msgid "Select a game lobby to join"
 msgstr "Alege o sală pentru te alătura"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Alege o sală pentru a crea sau a te alătura"
 
 msgid "FAILED"
 msgstr "EȘUAT"
@@ -2578,13 +2580,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "NUCLEU INDISPONIBIL"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "JOACĂ ONLINE CA GAZDĂ"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "JOACĂ OFFLINE"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "ALĂTURĂ-TE LA UN JOC EXISTENT"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOCURI DISPONIBILE"
