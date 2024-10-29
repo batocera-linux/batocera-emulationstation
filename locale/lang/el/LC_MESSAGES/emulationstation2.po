@@ -558,6 +558,12 @@ msgstr "ΚΩΔΙΚΟΣ ΠΑΙΚΤΗ"
 msgid "VIEWER PASSWORD"
 msgstr "ΚΩΔΙΚΟΣ ΘΕΑΤΗ"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2165,6 +2171,18 @@ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΚΑΤΑΣΤΑΣΗΣ"
 msgid "OPEN"
 msgstr "ΑΝΟΙΓΜΑ"
 
+msgid "START A NETPLAY GAME"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr ""
+
+msgid "START GAME"
+msgstr "ΕΚΚΙΝΗΣΗ ΠΑΙΧΝΙΔΙΟΥ"
+
+msgid "HOST A NETPLAY GAME"
+msgstr ""
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "ΒΡΕΙΤΕ ΠΑΡΟΜΟΙΑ ΠΑΙΧΝΙΔΙΑ..."
 
@@ -2955,9 +2973,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i ΠΑΙΧΝΙΔΙ"
 msgstr[1] "%i ΠΑΙΧΝΙΔΙΑ"
 
-msgid "NETPLAY"
-msgstr ""
-
 msgid "NAVIGATION BAR"
 msgstr ""
 
@@ -3532,9 +3547,6 @@ msgid ""
 msgstr ""
 "ΒΑΘΜΟΝΟΜΗΣΗ ΟΠΛΟΥ\n"
 "Πυροβοληστε σε στοχο για βαθμονομηση"
-
-#~ msgid "START GAME"
-#~ msgstr "ΕΚΚΙΝΗΣΗ ΠΑΙΧΝΙΔΙΟΥ"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ΞΕΧΝΑ ΜΙΑ ΣΥΣΚΕΥΗ BLUETOOTH"

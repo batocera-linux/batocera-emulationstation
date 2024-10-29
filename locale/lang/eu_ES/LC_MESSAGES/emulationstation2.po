@@ -555,6 +555,12 @@ msgstr "JOKALARI PASAHITZA"
 msgid "VIEWER PASSWORD"
 msgstr "IKUSI PASAHITZA"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2182,6 +2188,18 @@ msgstr "GORDETAKO EGOERAK"
 msgid "OPEN"
 msgstr "IREKI"
 
+msgid "START A NETPLAY GAME"
+msgstr "HASI SARE JOKO BERRI BAT"
+
+msgid "NETPLAY"
+msgstr "SARE JOKOA"
+
+msgid "START GAME"
+msgstr "HASI JOKOA"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "SARE JOKO BATEN ANFITRIOIA IZAN"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "AURKITU ANTZEKO JOKOAK..."
 
@@ -2979,9 +2997,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i JOKOA"
 msgstr[1] "%i JOKOAK"
 
-msgid "NETPLAY"
-msgstr "SARE JOKOA"
-
 msgid "NAVIGATION BAR"
 msgstr "NABIGAZIO BARRA"
 
@@ -3552,15 +3567,6 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr "PISTOLA KALIBRATZENItuei tiro egin kalibratzeko"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "HASI SARE JOKO BERRI BAT"
-
-#~ msgid "START GAME"
-#~ msgstr "HASI JOKOA"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "SARE JOKO BATEN ANFITRIOIA IZAN"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "AHAZTU BLUETOOTH GAILUA"

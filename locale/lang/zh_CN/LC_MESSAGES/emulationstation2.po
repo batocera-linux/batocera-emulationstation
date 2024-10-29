@@ -557,6 +557,12 @@ msgstr "玩家口令"
 msgid "VIEWER PASSWORD"
 msgstr "观众口令"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "仅显示中继服务器游戏"
 
@@ -2152,6 +2158,18 @@ msgstr "存档槽"
 msgid "OPEN"
 msgstr "打开"
 
+msgid "START A NETPLAY GAME"
+msgstr "开始联网游戏"
+
+msgid "NETPLAY"
+msgstr "联网游戏"
+
+msgid "START GAME"
+msgstr "开始游戏"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "建立联网主机"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "寻找类似游戏..."
 
@@ -2939,9 +2957,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 个游戏"
 
-msgid "NETPLAY"
-msgstr "联网游戏"
-
 msgid "NAVIGATION BAR"
 msgstr "导航栏"
 
@@ -3505,15 +3520,6 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "开始联网游戏"
-
-#~ msgid "START GAME"
-#~ msgstr "开始游戏"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "建立联网主机"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "解除配对的蓝牙设备"

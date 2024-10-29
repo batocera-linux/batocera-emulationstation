@@ -560,6 +560,12 @@ msgstr "SPILLER PASSORD"
 msgid "VIEWER PASSWORD"
 msgstr "SEERPASSORD"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2177,6 +2183,18 @@ msgstr "LAGRE TILSTAND"
 msgid "OPEN"
 msgstr "ÅPNE"
 
+msgid "START A NETPLAY GAME"
+msgstr "START ET NETPLAY-SPILL"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "START SPILL"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "VERT ET NETPLAY SPILL"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "FINN LIGNENDE SPILL..."
 
@@ -2970,9 +2988,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i SPILL"
 msgstr[1] "%i SPILL"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "NAVIGASJONSBAR"
 
@@ -3546,15 +3561,6 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "START ET NETPLAY-SPILL"
-
-#~ msgid "START GAME"
-#~ msgstr "START SPILL"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "VERT ET NETPLAY SPILL"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "GLØM BLUETOOTH ENHET"

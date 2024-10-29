@@ -558,6 +558,12 @@ msgstr "JÁTÉKOS JELSZAVA"
 msgid "VIEWER PASSWORD"
 msgstr "NÉZŐ JELSZAVA"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
 
@@ -1946,7 +1952,8 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "VEZETŐ NÉVELŐK FIGYELMEN KÍVÜL HAGYÁSA RENDEZÉSKOR"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Hagyja figyelmen kívül a \"The\" és az \"A\" névelőt, ha az elején van."
+msgstr ""
+"Hagyja figyelmen kívül a \"The\" és az \"A\" névelőt, ha az elején van."
 
 msgid "VOLUME"
 msgstr "HANGERŐ"
@@ -2193,6 +2200,18 @@ msgstr "ÁLLAPOTOK MENTÉSE"
 
 msgid "OPEN"
 msgstr "MEGNYITÁS"
+
+msgid "START A NETPLAY GAME"
+msgstr "NETPLAY JÁTÉK INDÍTÁSA"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "JÁTÉK INDÍTÁS"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HÁZIGAZDA NETES JÁTÉK"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "HASONLÓ JÁTÉKOK KERESÉSE..."
@@ -2559,7 +2578,9 @@ msgid "Select a game lobby to join"
 msgstr "Válassza ki azt a játéklobbyt, amelyhez csatlakozni szeretne"
 
 msgid "Select a game lobby to create or join"
-msgstr "Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez csatlakozni szeretne"
+msgstr ""
+"Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez "
+"csatlakozni szeretne"
 
 msgid "FAILED"
 msgstr "SIKERTELEN"
@@ -2987,9 +3008,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i JÁTÉK"
 msgstr[1] "%i JÁTÉK"
-
-msgid "NETPLAY"
-msgstr "NETPLAY"
 
 msgid "NAVIGATION BAR"
 msgstr "NAVIGÁCIÓS SÁV"
@@ -3565,15 +3583,6 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "NETPLAY JÁTÉK INDÍTÁSA"
-
-#~ msgid "START GAME"
-#~ msgstr "JÁTÉK INDÍTÁS"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "HÁZIGAZDA NETES JÁTÉK"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"

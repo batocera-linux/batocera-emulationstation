@@ -560,6 +560,12 @@ msgstr "CONTRASENYA DEL JUGADOR"
 msgid "VIEWER PASSWORD"
 msgstr "CONTRASENYA PER ESPECTADORS"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2196,6 +2202,18 @@ msgstr "ESTATS DESATS"
 msgid "OPEN"
 msgstr "OBRIR"
 
+msgid "START A NETPLAY GAME"
+msgstr "COMENÇAR UN JOC NETPLAY"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "INICIAR JOC"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "ALLOTJAR UN JOC NETGAME"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCAR JOCS SIMILARS…"
 
@@ -2991,9 +3009,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i JOC"
 msgstr[1] "%i JOCS"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓ"
 
@@ -3567,15 +3582,6 @@ msgid ""
 msgstr ""
 "CALIBRANT PISTOLA\n"
 "Dispari als objectius per a calibrar"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "COMENÇAR UN JOC NETPLAY"
-
-#~ msgid "START GAME"
-#~ msgstr "INICIAR JOC"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "ALLOTJAR UN JOC NETGAME"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR UN DISPOSITIU BLUETOOTH"

@@ -596,6 +596,12 @@ msgstr "كلمة سر اللاعب"
 msgid "VIEWER PASSWORD"
 msgstr "كلمة سر المتفرج"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2202,6 +2208,18 @@ msgstr "حالات الحفظ"
 msgid "OPEN"
 msgstr "فتح"
 
+msgid "START A NETPLAY GAME"
+msgstr "ابدأ اللعب عبر النت"
+
+msgid "NETPLAY"
+msgstr "لعب نت"
+
+msgid "START GAME"
+msgstr "بدئ اللعبة"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "استضف اللعب عبر النت"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "أوجد ألعاب مماثلة..."
 
@@ -3010,9 +3028,6 @@ msgstr[3] "%i ألعاب"
 msgstr[4] "%i لعبة"
 msgstr[5] "%i لعبة"
 
-msgid "NETPLAY"
-msgstr "لعب نت"
-
 msgid "NAVIGATION BAR"
 msgstr "شريط التنقل"
 
@@ -3616,15 +3631,6 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "ابدأ اللعب عبر النت"
-
-#~ msgid "START GAME"
-#~ msgstr "بدئ اللعبة"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "استضف اللعب عبر النت"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "نسيان جهاز بلوتوث"

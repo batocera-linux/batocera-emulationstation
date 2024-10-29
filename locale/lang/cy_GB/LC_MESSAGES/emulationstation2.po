@@ -563,6 +563,12 @@ msgstr ""
 msgid "VIEWER PASSWORD"
 msgstr ""
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2147,6 +2153,18 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
+msgid "START A NETPLAY GAME"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "DECHRAU GAME"
+
+msgid "HOST A NETPLAY GAME"
+msgstr ""
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "DOD O HYD I GEMAU TEBYG ..."
 
@@ -2949,9 +2967,6 @@ msgstr[3] "%i GEMAU"
 msgstr[4] "%i GEMAU"
 msgstr[5] "%i GEMAU"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr ""
 
@@ -3547,9 +3562,6 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
-
-#~ msgid "START GAME"
-#~ msgstr "DECHRAU GAME"
 
 #~ msgid "Achievements won"
 #~ msgstr "Cyflawniadau a enillwyd"

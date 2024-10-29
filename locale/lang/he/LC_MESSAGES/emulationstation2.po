@@ -561,6 +561,12 @@ msgstr "סיסמת שחקן"
 msgid "VIEWER PASSWORD"
 msgstr ""
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2145,6 +2151,18 @@ msgstr "שמור סטטיסטיקות"
 msgid "OPEN"
 msgstr "פתיחה"
 
+msgid "START A NETPLAY GAME"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "התחל משחק"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "ארח משחק רשת"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "מציאת משחקים דומים..."
 
@@ -2936,9 +2954,6 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr ""
 
@@ -3518,12 +3533,6 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
-
-#~ msgid "START GAME"
-#~ msgstr "התחל משחק"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "ארח משחק רשת"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "שכח התקן בלו-טות'"

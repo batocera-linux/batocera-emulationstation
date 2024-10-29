@@ -558,6 +558,12 @@ msgstr "LÖSENORD FÖR SPELARE"
 msgid "VIEWER PASSWORD"
 msgstr "LÖSENORD FÖR ÅSKÅDARE"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2178,6 +2184,18 @@ msgstr "SAVE STATES"
 msgid "OPEN"
 msgstr "ÖPPNA"
 
+msgid "START A NETPLAY GAME"
+msgstr "STARTA ETT NETPLAY-SPEL"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "STARTA SPEL"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "ARRANGERA ETT NETPLAY-SPEL"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "HITTA LIKNANDE SPEL..."
 
@@ -2971,9 +2989,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i SPEL"
 msgstr[1] "%i SPEL"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "NAVIGERINGSFÄLT"
 
@@ -3547,15 +3562,6 @@ msgid ""
 msgstr ""
 "KALIBRERAR PISTOL\n"
 "Skjut på mål för att kalibera"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "STARTA ETT NETPLAY-SPEL"
-
-#~ msgid "START GAME"
-#~ msgstr "STARTA SPEL"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "ARRANGERA ETT NETPLAY-SPEL"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "GLÖM EN BLUETOOTH-ENHET"

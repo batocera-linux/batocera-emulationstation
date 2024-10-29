@@ -559,6 +559,12 @@ msgstr "玩家密碼"
 msgid "VIEWER PASSWORD"
 msgstr "觀眾密碼"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2153,6 +2159,18 @@ msgstr "即時存檔"
 msgid "OPEN"
 msgstr "開啟"
 
+msgid "START A NETPLAY GAME"
+msgstr "開始一場連線遊戲"
+
+msgid "NETPLAY"
+msgstr "多人遊戲"
+
+msgid "START GAME"
+msgstr "開始遊戲"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "主持一場連線遊戲"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
 
@@ -2939,9 +2957,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i 個遊戲"
 
-msgid "NETPLAY"
-msgstr "多人遊戲"
-
 msgid "NAVIGATION BAR"
 msgstr "導航列"
 
@@ -3505,15 +3520,6 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "開始一場連線遊戲"
-
-#~ msgid "START GAME"
-#~ msgstr "開始遊戲"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "主持一場連線遊戲"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "忘記藍牙裝置"

@@ -560,6 +560,12 @@ msgstr "CONTRASEÑA PARA JUGADORES"
 msgid "VIEWER PASSWORD"
 msgstr "CONTRASEÑA PARA ESPECTADORES"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2189,6 +2195,18 @@ msgstr "PARTIDAS GUARDADAS"
 msgid "OPEN"
 msgstr "ABRIR"
 
+msgid "START A NETPLAY GAME"
+msgstr "INICIAR PARTIDA EN NETPLAY"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "INICIAR JUEGO"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HOSPEDAR PARTIDA EN NET PLAY"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "BUSCAR JUEGOS SIMILARES..."
 
@@ -2984,9 +3002,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i JUEGO"
 msgstr[1] "%i JUEGOS"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓN"
 
@@ -3559,15 +3574,6 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "INICIAR PARTIDA EN NETPLAY"
-
-#~ msgid "START GAME"
-#~ msgstr "INICIAR JUEGO"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "HOSPEDAR PARTIDA EN NET PLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "DESVINCULAR UN DISPOSITIVO BLUETOOTH"

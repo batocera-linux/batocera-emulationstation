@@ -564,6 +564,12 @@ msgstr "CONTRASINAL XOGADOR"
 msgid "VIEWER PASSWORD"
 msgstr "CONTRASINAL ESPECTADORES"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2200,6 +2206,18 @@ msgstr "PARTIDAS GARDADAS"
 msgid "OPEN"
 msgstr "ABRIR"
 
+msgid "START A NETPLAY GAME"
+msgstr "COMEZA UN XOGO EN REDE"
+
+msgid "NETPLAY"
+msgstr "XOGO EN REDE"
+
+msgid "START GAME"
+msgstr "COMEZAR XOGO"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "ALOXAR UN XOGO EN REDE"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "BUSCAR XOGOS SEMELLANTES..."
 
@@ -2994,9 +3012,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i XOGO"
 msgstr[1] "%i XOGOS"
 
-msgid "NETPLAY"
-msgstr "XOGO EN REDE"
-
 msgid "NAVIGATION BAR"
 msgstr "BARRA DE NAVEGACIÓN"
 
@@ -3570,15 +3585,6 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara os obxectivos para calibrar"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "COMEZA UN XOGO EN REDE"
-
-#~ msgid "START GAME"
-#~ msgstr "COMEZAR XOGO"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "ALOXAR UN XOGO EN REDE"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ESQUENCER DISPOSITIVO BLUETOOTH"

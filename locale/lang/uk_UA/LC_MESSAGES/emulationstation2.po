@@ -560,6 +560,12 @@ msgstr ""
 msgid "VIEWER PASSWORD"
 msgstr ""
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2149,6 +2155,18 @@ msgstr ""
 msgid "OPEN"
 msgstr ""
 
+msgid "START A NETPLAY GAME"
+msgstr ""
+
+msgid "NETPLAY"
+msgstr ""
+
+msgid "START GAME"
+msgstr ""
+
+msgid "HOST A NETPLAY GAME"
+msgstr ""
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "ЗНАЙТИ СХОЖІ ІГРИ..."
 
@@ -2937,9 +2955,6 @@ msgid_plural "%i GAMES"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-msgid "NETPLAY"
-msgstr ""
 
 msgid "NAVIGATION BAR"
 msgstr ""

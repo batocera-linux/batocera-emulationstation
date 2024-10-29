@@ -559,6 +559,12 @@ msgstr "PASSWORD PEMAIN"
 msgid "VIEWER PASSWORD"
 msgstr "PASSWOR PENONTON"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2174,6 +2180,18 @@ msgstr "SIMPAN STATUS"
 msgid "OPEN"
 msgstr "BUKA"
 
+msgid "START A NETPLAY GAME"
+msgstr "MULAI GAME NETPLAY"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "MULAI GAME"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HOST GAME NETPLAY"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "TEMUKAN GAME SERUPA..."
 
@@ -2964,9 +2982,6 @@ msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "GAME %i"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "BAR NAVIGASI"
 
@@ -3531,15 +3546,6 @@ msgid ""
 msgstr ""
 "KALIBER SENJATA\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "MULAI GAME NETPLAY"
-
-#~ msgid "START GAME"
-#~ msgstr "MULAI GAME"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "HOST GAME NETPLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "LUPAKAN PERANGKAT BLUETOOTH"

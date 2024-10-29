@@ -560,6 +560,12 @@ msgstr "HASŁO GRACZA"
 msgid "VIEWER PASSWORD"
 msgstr "HASŁO WIDZA"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"
 
@@ -2190,6 +2196,18 @@ msgstr "ZAPISANE STANY GRY"
 msgid "OPEN"
 msgstr "OTWÓRZ"
 
+msgid "START A NETPLAY GAME"
+msgstr "ROZPOCZNIJ GRĘ NETPLAY"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "ROZPOCZNIJ GRĘ"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HOSTUJ GRĘ NETPLAY"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "ZNAJDŹ PODOBNE GRY..."
 
@@ -2987,9 +3005,6 @@ msgstr[0] "%i GRA"
 msgstr[1] "%i GRY"
 msgstr[2] "%i GIER"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "PASEK NAWIGACJI"
 
@@ -3569,15 +3584,6 @@ msgid ""
 msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "ROZPOCZNIJ GRĘ NETPLAY"
-
-#~ msgid "START GAME"
-#~ msgstr "ROZPOCZNIJ GRĘ"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "HOSTUJ GRĘ NETPLAY"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "USUŃ URZĄDZENIE BLUETOOTH"

@@ -560,6 +560,12 @@ msgstr "SPELER WACHTWOORD"
 msgid "VIEWER PASSWORD"
 msgstr "TOESCHOUWER WACHTWOORD"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2201,6 +2207,18 @@ msgstr "SAVESTATES"
 msgid "OPEN"
 msgstr "OPEN"
 
+msgid "START A NETPLAY GAME"
+msgstr "START EEN NETPLAY SPEL"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "START SPEL"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HOST EEN NETPLAY SPEL"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "VIND SOORTGELIJKE SPELLEN..."
 
@@ -2993,9 +3011,6 @@ msgid_plural "%i GAMES"
 msgstr[0] "%i SPEL"
 msgstr[1] "%i SPELLEN"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "NAVIGATIEBALK"
 
@@ -3569,12 +3584,3 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "START EEN NETPLAY SPEL"
-
-#~ msgid "START GAME"
-#~ msgstr "START SPEL"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "HOST EEN NETPLAY SPEL"

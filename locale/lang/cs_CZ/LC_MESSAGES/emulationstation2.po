@@ -559,6 +559,12 @@ msgstr "HESLO HRÁČE"
 msgid "VIEWER PASSWORD"
 msgstr "HESLO PROHLÍŽEČE"
 
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr ""
 
@@ -2178,6 +2184,18 @@ msgstr "ULOŽENÉ"
 msgid "OPEN"
 msgstr "OTEVŘÍT"
 
+msgid "START A NETPLAY GAME"
+msgstr "SPUSTIT HRU PO SÍTI"
+
+msgid "NETPLAY"
+msgstr "NETPLAY"
+
+msgid "START GAME"
+msgstr "START HRY"
+
+msgid "HOST A NETPLAY GAME"
+msgstr "HOSTIT NETPLAY HRU"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "NAJÍT PODOBNÉ HRY..."
 
@@ -2977,9 +2995,6 @@ msgstr[0] "%i HRA"
 msgstr[1] "%i HRY"
 msgstr[2] "%i HER"
 
-msgid "NETPLAY"
-msgstr "NETPLAY"
-
 msgid "NAVIGATION BAR"
 msgstr "NAVIGAČNÍ LIŠTA"
 
@@ -3560,15 +3575,6 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
-
-#~ msgid "START A NETPLAY GAME"
-#~ msgstr "SPUSTIT HRU PO SÍTI"
-
-#~ msgid "START GAME"
-#~ msgstr "START HRY"
-
-#~ msgid "HOST A NETPLAY GAME"
-#~ msgstr "HOSTIT NETPLAY HRU"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ZAPOMENOUT NA ZAŘÍZENÍ BLUETOOTH"
