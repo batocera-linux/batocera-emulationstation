@@ -52,7 +52,7 @@ GuiHashStart::GuiHashStart(Window* window, ThreadedHasher::HasherType type) : Gu
 		if (!sys->isGameSystem())
 			continue;
 
-		bool takeNetplay = ((type & ThreadedHasher::HASH_NETPLAY_CRC) == ThreadedHasher::HASH_NETPLAY_CRC);
+		bool takeNetplay = ((type & ThreadedHasher::HASH_NETPLAY_CRC) == ThreadedHasher::HASH_NETPLAY_CRC) && sys->isNetplaySupported();
 		bool takeCheevos = ((type & ThreadedHasher::HASH_CHEEVOS_MD5) == ThreadedHasher::HASH_CHEEVOS_MD5) && sys->isCheevosSupported();
 		if (!takeNetplay && !takeCheevos)
 			continue;
