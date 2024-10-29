@@ -31,6 +31,7 @@ GuiNetPlaySettings::GuiNetPlaySettings(Window* window) : GuiSettings(window, _("
 	addInputTextRow(_("PLAYER PASSWORD"), "global.netplay.password", false);
 	addInputTextRow(_("VIEWER PASSWORD"), "global.netplay.spectatepassword", false);
 
+	addSwitch(_("SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"), _("Allows choice of online, offline, or joining another game."), "NetPlayShowOptionsWhenLaunchingGames", true, nullptr);
 	addSwitch(_("SHOW RELAY SERVER GAMES ONLY"), _("Relay server games have a higher chance of successful entry."), "NetPlayShowOnlyRelayServerGames", true, nullptr);
 	addSwitch(_("SHOW UNAVAILABLE GAMES"), _("Show rooms for games not present on this machine."), "NetPlayShowMissingGames", true, nullptr);
 
