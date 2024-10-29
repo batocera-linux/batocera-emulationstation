@@ -556,7 +556,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	{
 		options.netPlayMode = DISABLED;
 	}
-	else if (options.netPlayMode == DISABLED)
+	else if (options.netPlayMode == DISABLED && Settings::getInstance()->getBool("NetPlayShowOptionsWhenLaunchingGames"))
 	{
 		mWindow->pushGui(new GuiNetPlay(mWindow, game));
 		return;
