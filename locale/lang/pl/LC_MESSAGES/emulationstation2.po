@@ -561,10 +561,10 @@ msgid "VIEWER PASSWORD"
 msgstr "HASŁO WIDZA"
 
 msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
+msgstr "POKAŻ OPCJE GRY SIECIOWEJ PRZY URUCHAMIANIU GRY"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
+msgstr "Umożliwia wybór trybu online, offline lub dołączenie do innej gry."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"
@@ -1290,7 +1290,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "SZYBKI WYBÓR SYSTEMU"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "LITERA SZYBKIEGO WYBORU"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "KLAWIATURA EKRANOWA"

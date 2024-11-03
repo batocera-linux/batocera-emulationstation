@@ -561,10 +561,10 @@ msgid "VIEWER PASSWORD"
 msgstr "PASSWORD SPETTATORE"
 
 msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
+msgstr "MOSTRA OPZIONI NETPLAY QUANDO LANCI IL GIOCO"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
+msgstr "Permette di scegliere se online, offline o partecipare ad un altro gioco."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRA SOLO I GIOCHI RELAY SERVER"

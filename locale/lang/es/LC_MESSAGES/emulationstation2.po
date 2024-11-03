@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2024-10-25 00:00+0100\n"
+"PO-Revision-Date: 2024-11-01 00:00+0100\n"
 "Last-Translator: roliverosc <roliverosc@hotmail.com>, 2024\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -558,18 +558,19 @@ msgid "VIEWER PASSWORD"
 msgstr "CONTRASEÑA PARA ESPECTADORES"
 
 msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
+msgstr "MOSTRAR OPCIONES DE NETPLAY AL INICIAR EL JUEGO"
 
 msgid "Allows choice of online, offline, or joining another game."
 msgstr ""
+"Permite elegir entre jugar online, offline o unirse a otro juego."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRAR SÓLO JUEGOS DE SERVIDOR DE RETRANSMISIÓN"
 
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
-"Los juegos con servidores de retransmisión tienen mayores posibilidades de "
-"acceso con éxito."
+"Los juegos con servidores de retransmisión tienen mayores "
+"posibilidades de acceso con éxito."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
@@ -1168,7 +1169,7 @@ msgid "STOP LAUNCHING THIS GAME AT STARTUP"
 msgstr "DEJAR DE INICIAR ESTE JUEGO AL ARRANCAR EL SISTEMA"
 
 msgid "ENABLE PUBLIC WEB API ACCESS"
-msgstr "ACTIVAR ACCESO A LA API WEB PÚBLICA"
+msgstr "ACTIVAR ACCESO A LA WEB PÚBLICA"
 
 #, c-format
 msgid "Allow public web access API using %s"
@@ -1705,7 +1706,7 @@ msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "AJUSTES GLOBALES POR DEFECTO"
 
 msgid "GAME ASPECT RATIO"
-msgstr "RELACIÓN DE ASPECTO"
+msgstr "RELACIÓN DE ASPECTO DEL JUEGO"
 
 msgid "Force the game to render in this aspect ratio."
 msgstr "Obliga al juego a renderizar en esta relación de aspecto."
@@ -2236,7 +2237,7 @@ msgstr ""
 "¿ESTÁS SEGURO?"
 
 msgid "COLLECTIONS"
-msgstr "AJUSTES DE COLECCIONES"
+msgstr "COLECCIONES"
 
 #, c-format
 msgid "REMOVE FROM %s"
@@ -2574,8 +2575,8 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"ALGUNOS ARCHIVOS QUE HAS VINCULADO SE ENCUENTRAN FUERA DE LA RUTA DE ACCESO "
-"DE LA LISTA DE JUEGOS.\n"
+"ALGUNOS ARCHIVOS QUE HAS VINCULADO SE ENCUENTRAN FUERA DE LA RUTA DE "
+"ACCESO DE LA LISTA DE JUEGOS.\n"
 "¿DESEAS USAR UNA COPIA DE ESTOS ARCHIVOS RELATIVOS A LA LISTA DE JUEGOS?"
 
 msgid "CONNECT TO NETPLAY"
