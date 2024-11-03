@@ -214,7 +214,7 @@ void Settings::setDefaults()
 	mStringMap["GameTransitionStyle"] = "auto";
 
 	mStringMap["ThemeSet"] = "";
-	mStringMap["ScreenSaverBehavior"] = "dim";
+	mStringMap["ScreenSaverBehavior"] = "slideshow";
 	mStringMap["GamelistViewStyle"] = "automatic";
 
 	mStringMap["Scraper"] = "ScreenScraper";
@@ -239,7 +239,7 @@ void Settings::setDefaults()
 	mStringMap["SlideshowScreenSaverImageFilter"] = ".png,.jpg";
 	mBoolMap["SlideshowScreenSaverRecurse"] = false;
 	mBoolMap["SlideshowScreenSaverGameName"] = true;
-	mStringMap["ScreenSaverDecorations"] = "systems";
+	mStringMap["ScreenSaverDecorations"] = "none";
 
 	mBoolMap["ShowCheevosIcon"] = true;
 
