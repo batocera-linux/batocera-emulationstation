@@ -224,9 +224,10 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 	GameInfoAndUserProgress ret;
 	ret.ID = 0;
 
-#ifndef CHEEVOS_DEV_LOGIN
-	return ret;
-#endif
+	std::string webApiKey = SystemConf::getInstance()->get("global.retroachievements.webapikey");
+	if (webApiKey.empty()) {
+		return ret;
+	}
 
 	auto options = getHttpOptions();
 	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)), &options);
