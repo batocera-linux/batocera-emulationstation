@@ -16,6 +16,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	bool retroachievementsEnabled = SystemConf::getInstance()->getBool("global.retroachievements");
 	std::string username = SystemConf::getInstance()->get("global.retroachievements.username");
 	std::string password = SystemConf::getInstance()->get("global.retroachievements.password");
+	std::string webApiKey = SystemConf::getInstance()->get("global.retroachievements.webapikey");
 
 	// retroachievements_enable
 	auto retroachievements_enabled = std::make_shared<SwitchComponent>(mWindow);
@@ -25,6 +26,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 	// retroachievements, username, password
 	addInputTextRow(_("USERNAME"), "global.retroachievements.username", false);
 	addInputTextRow(_("PASSWORD"), "global.retroachievements.password", true);
+	addInputTextRow(_("API KEY"), "global.retroachievements.webapikey", true);
 
 	addGroup(_("OPTIONS"));
 
@@ -71,6 +73,7 @@ GuiRetroAchievementsSettings::GuiRetroAchievementsSettings(Window* window) : Gui
 		bool newState = retroachievements_enabled->getState();
 		std::string newUsername = SystemConf::getInstance()->get("global.retroachievements.username");
 		std::string newPassword = SystemConf::getInstance()->get("global.retroachievements.password");
+		std::string newWebApiKey = SystemConf::getInstance()->get("global.retroachievements.webapikey");
 		std::string token = SystemConf::getInstance()->get("global.retroachievements.token");
 
 		if (newState && (!retroachievementsEnabled || username != newUsername || password != newPassword || token.empty()))
