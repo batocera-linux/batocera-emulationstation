@@ -130,23 +130,29 @@ static HttpReqOptions getHttpOptions()
 {
 	HttpReqOptions options;
 
-#ifdef CHEEVOS_DEV_LOGIN
-	std::string ret = Utils::String::extractString(CHEEVOS_DEV_LOGIN, "z=", "&");
-	ret =  ret + "/" + Utils::String::replace(RESOURCE_VERSION_STRING, ",", ".");		 
-	options.userAgent = ret;
-#endif	
+	std::string userName = SystemConf::getInstance()->get("global.retroachievements.username");
+	if (!userName.empty()) {
+		std::string ret = userName;
+		ret =  ret + "/" + Utils::String::replace(RESOURCE_VERSION_STRING, ",", ".");
+		options.userAgent = ret;
+	}
 
 	return options;
 }
 
 std::string RetroAchievements::getApiUrl(const std::string& method, const std::string& parameters)
 {
-#ifdef CHEEVOS_DEV_LOGIN
-	auto options = std::string(CHEEVOS_DEV_LOGIN);
-	return "https://retroachievements.org/API/"+ method +".php?"+ options +"&" + parameters;
-#else 
-	return "https://retroachievements.org/API/" + method + ".php?" + parameters;
-#endif
+	std::string userName = SystemConf::getInstance()->get("global.retroachievements.username");
+	std::string webApiKey = SystemConf::getInstance()->get("global.retroachievements.webapikey");
+
+	if (!userName.empty() && !webApiKey.empty()) {
+		auto options = "z=" + userName + "&y=" + webApiKey;
+		return "https://retroachievements.org/API/"+ method +".php?"+ options +"&" + parameters;
+	}
+	else
+	{
+		return "https://retroachievements.org/API/" + method + ".php?" + parameters;
+	}
 }
 
 std::string GameInfoAndUserProgress::getImageUrl(const std::string& image)
@@ -218,9 +224,10 @@ GameInfoAndUserProgress RetroAchievements::getGameInfoAndUserProgress(int gameId
 	GameInfoAndUserProgress ret;
 	ret.ID = 0;
 
-#ifndef CHEEVOS_DEV_LOGIN
-	return ret;
-#endif
+	std::string webApiKey = SystemConf::getInstance()->get("global.retroachievements.webapikey");
+	if (webApiKey.empty()) {
+		return ret;
+	}
 
 	auto options = getHttpOptions();
 	HttpReq httpreq(getApiUrl("API_GetGameInfoAndUserProgress", "u=" + HttpReq::urlEncode(usrName) + "&g=" + std::to_string(gameId)), &options);
