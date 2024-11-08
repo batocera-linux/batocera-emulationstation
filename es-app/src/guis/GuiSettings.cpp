@@ -215,10 +215,14 @@ void GuiSettings::addInputTextRow(const std::string& title, const std::string& s
 	}; // ok callback (apply new value to ed)
 
 	bool localStoreInSettings = storeInSettings;
-	row.makeAcceptInputHandler([this, title, updateVal, localSettingsID, localStoreInSettings, customEditor]
+	row.makeAcceptInputHandler([this, title, updateVal, localSettingsID, localStoreInSettings, customEditor, password]
 	{
 		std::string data = localStoreInSettings ? Settings::getInstance()->getString(localSettingsID) : SystemConf::getInstance()->get(localSettingsID);
 
+#ifdef BATOCERA
+		if (password && (SystemConf::getInstance()->get("system.security.enabled") == "1"))
+			data.clear();
+#endif
 		if (customEditor != nullptr)
 			customEditor(mWindow, title, data, updateVal);
 		else if (Settings::getInstance()->getBool("UseOSK"))
