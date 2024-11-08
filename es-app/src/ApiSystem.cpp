@@ -1422,7 +1422,8 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
         std::getline(ss, token);
         blue = std::stoi(token);
 
-		LOG(LogInfo) << "ApiSystem::getLED > LED colours are:" << red << " " << green << " " << blue;
+        executeScript("batocera-led-handheld block_color_changes"); // temporarily prevent changes from external daemon
+        LOG(LogInfo) << "ApiSystem::getLED > LED colours are:" << red << " " << green << " " << blue;
 
         return true;
     }
