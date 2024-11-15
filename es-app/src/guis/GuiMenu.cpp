@@ -713,6 +713,58 @@ void GuiMenu::openMultiScreensSettings()
 	window->pushGui(s);
 }
 
+void GuiMenu::openPowerManagementSettings()
+{
+	Window *window = mWindow;
+
+	auto s = new GuiSettings(mWindow, _("POWER MANAGEMENT").c_str());
+
+	s->addGroup(_("BATTERY SAVING"));
+
+	// Battery save mode
+	auto optionsBatterySaveMode = std::make_shared<OptionListComponent<std::string> >(mWindow, _("BATTERY SAVE MODE"), false);
+
+	std::string selectedBatteryMode = SystemConf::getInstance()->get("system.batterysavermode");
+	if (selectedBatteryMode.empty())
+		selectedBatteryMode = "DIM";
+
+	optionsBatterySaveMode->add(_("DIM"),            "dim", selectedBatteryMode == "dim");
+	optionsBatterySaveMode->add(_("SUSPEND"),        "suspend", selectedBatteryMode == "suspend");
+	optionsBatterySaveMode->add(_("SHUTDOWN"),       "shutdown", selectedBatteryMode == "shutdown");
+
+	s->addWithLabel(_("BATTERY SAVE MODE"), optionsBatterySaveMode);
+
+	s->addSaveFunc([this, optionsBatterySaveMode, selectedBatteryMode, s]
+	{
+	  if (optionsBatterySaveMode->changed())
+	  {
+	    SystemConf::getInstance()->set("system.batterysavermode", optionsRotation->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+		s->setVariable("exitreboot", true);
+	  }
+	});
+
+	// Battery save mode timer (0-2 hours in 30 second steps)
+	auto sliderBatterySaverTime = std::make_shared<SliderComponent>(mWindow, 0.f, 7200.f, 30.f, "s");
+
+	int selectedBatterySaverTime = 120;
+	std::string configuredBatterySaverTime = SystemConf::getInstance()->get("system.batterysavermode");
+	if (!configuredBatterySaverTime.empty()) {
+		selectedBatterySaverTime = Utils::String::toInteger(configuredBatterySaverTime);
+	}
+	sliderBatterySaverTime->setValue((float)(selectedBatterySaverTime));
+	sliderBatterySaverTime->setOnValueChanged([](const float &newVal)
+	{
+		SystemConf::getInstance()->set("system.batterysavertimer", std::to_string((int)Math::round(newVal)));
+		SystemConf::getInstance()->saveSystemConf();
+		s->setVariable("exitreboot", true);
+	});
+	s->addWithLabel(_("BATTERY SAVING TIMER"), sliderBatterySaverTime);
+
+	mWindow->pushGui(s);
+
+}
+
 void GuiMenu::openDeveloperSettings()
 {
 	Window *window = mWindow;
@@ -2000,6 +2052,10 @@ void GuiMenu::openSystemSettings()
 			s->addEntry(_("SERVICES"), true, [this] { openServicesSettings(); });
 	}
 #endif
+
+	// Power management
+	if (isFullUI)
+		s->addEntry(_("POWER MANAGEMENT"), true, [this] { openPowerManagementSettings(); });
 	
 	// Developer options
 	if (isFullUI)
