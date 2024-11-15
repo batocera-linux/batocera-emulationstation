@@ -739,7 +739,7 @@ void GuiMenu::openPowerManagementSettings()
 	{
 	  if (optionsBatterySaveMode->changed())
 	  {
-	    SystemConf::getInstance()->set("system.batterysavermode", optionsRotation->getSelected());
+	    SystemConf::getInstance()->set("system.batterysavermode", optionsBatterySaveMode->getSelected());
 	    SystemConf::getInstance()->saveSystemConf();
 		s->setVariable("exitreboot", true);
 	  }
