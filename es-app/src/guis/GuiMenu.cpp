@@ -727,7 +727,7 @@ void GuiMenu::openPowerManagementSettings()
 
 	std::string selectedBatteryMode = SystemConf::getInstance()->get("system.batterysavermode");
 	if (selectedBatteryMode.empty())
-		selectedBatteryMode = "DIM";
+		selectedBatteryMode = "dim";
 
 	optionsBatterySaveMode->add(_("DIM"),            "dim", selectedBatteryMode == "dim");
 	optionsBatterySaveMode->add(_("SUSPEND"),        "suspend", selectedBatteryMode == "suspend");
