@@ -758,7 +758,6 @@ void GuiMenu::openPowerManagementSettings()
 	{
 		SystemConf::getInstance()->set("system.batterysavertimer", std::to_string((int)Math::round(newVal)));
 		SystemConf::getInstance()->saveSystemConf();
-		s->setVariable("exitreboot", true);
 	});
 	s->addWithLabel(_("BATTERY SAVING TIMER"), sliderBatterySaverTime);
 
