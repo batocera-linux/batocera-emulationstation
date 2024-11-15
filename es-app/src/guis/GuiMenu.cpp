@@ -749,7 +749,7 @@ void GuiMenu::openPowerManagementSettings()
 	auto sliderBatterySaverTime = std::make_shared<SliderComponent>(mWindow, 0.f, 7200.f, 30.f, "s");
 
 	int selectedBatterySaverTime = 120;
-	std::string configuredBatterySaverTime = SystemConf::getInstance()->get("system.batterysavermode");
+	std::string configuredBatterySaverTime = SystemConf::getInstance()->get("system.batterysavertimer");
 	if (!configuredBatterySaverTime.empty()) {
 		selectedBatterySaverTime = Utils::String::toInteger(configuredBatterySaverTime);
 	}
