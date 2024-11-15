@@ -146,7 +146,8 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::RETROACHIVEMENTS) &&
 		SystemConf::getInstance()->getBool("global.retroachievements") &&
 		Settings::getInstance()->getBool("RetroachievementsMenuitem") && 
-		SystemConf::getInstance()->get("global.retroachievements.username") != "")
+		SystemConf::getInstance()->get("global.retroachievements.username") != "" &&
+		SystemConf::getInstance()->get("global.retroachievements.webapikey") != "")
 		addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] {
 				if (!checkNetwork())
 					return;
@@ -2631,7 +2632,7 @@ void GuiMenu::openGamesSettings()
 	// Game List Update
 	s->addEntry(_("UPDATE GAMELISTS"), false, [this, window] { updateGameLists(window); });
 
-	if (SystemConf::getInstance()->getBool("global.retroachievements") && !Settings::getInstance()->getBool("RetroachievementsMenuitem") && SystemConf::getInstance()->get("global.retroachievements.username") != "")
+	if (SystemConf::getInstance()->getBool("global.retroachievements") && !Settings::getInstance()->getBool("RetroachievementsMenuitem") && SystemConf::getInstance()->get("global.retroachievements.username") != "" && SystemConf::getInstance()->get("global.retroachievements.webapikey") != "")
 	{
 		s->addEntry(_("RETROACHIEVEMENTS").c_str(), true, [this] 
 		{ 

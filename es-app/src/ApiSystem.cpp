@@ -1619,9 +1619,9 @@ bool ApiSystem::isScriptingSupported(ScriptId script)
 	case ApiSystem::THEMESDOWNLOADER:
 		return true;
 	case ApiSystem::RETROACHIVEMENTS:
-#ifdef CHEEVOS_DEV_LOGIN
-		return true;
-#endif
+		if (SystemConf::getInstance()->get("global.retroachievements.webapikey") != "") {
+			return true;
+		}
 		break;
 	case ApiSystem::KODI:
 		executables.push_back("kodi");
