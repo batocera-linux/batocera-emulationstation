@@ -714,6 +714,61 @@ void GuiMenu::openMultiScreensSettings()
 	window->pushGui(s);
 }
 
+void GuiMenu::openPowerManagementSettings()
+{
+	Window *window = mWindow;
+
+	auto s = new GuiSettings(mWindow, _("POWER MANAGEMENT").c_str());
+
+	s->addGroup(_("BATTERY SAVING"));
+
+	// Battery save mode
+	auto optionsBatterySaveMode = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MODE"), false);
+
+	std::string selectedBatteryMode = SystemConf::getInstance()->get("system.batterysavermode");
+	if (selectedBatteryMode.empty())
+		selectedBatteryMode = "dim";
+
+	optionsBatterySaveMode->add(_("DIM"),            "dim", selectedBatteryMode == "dim");
+	optionsBatterySaveMode->add(_("SUSPEND"),        "suspend", selectedBatteryMode == "suspend");
+	optionsBatterySaveMode->add(_("SHUTDOWN"),       "shutdown", selectedBatteryMode == "shutdown");
+
+	s->addWithLabel(_("MODE"), optionsBatterySaveMode);
+
+	s->addSaveFunc([this, optionsBatterySaveMode, selectedBatteryMode, s]
+	{
+	  if (optionsBatterySaveMode->changed())
+	  {
+	    SystemConf::getInstance()->set("system.batterysavermode", optionsBatterySaveMode->getSelected());
+	    SystemConf::getInstance()->saveSystemConf();
+		s->setVariable("exitreboot", true);
+	  }
+	});
+
+	// Battery save mode timer (1-120 minutes in 1 minute steps)
+	auto sliderBatterySaverTime = std::make_shared<SliderComponent>(mWindow, 1.f, 60.f, 1.f, "m");
+
+	float selectedBatterySaverTimeSeconds = 120.f;
+	std::string configuredBatterySaverTime = SystemConf::getInstance()->get("system.batterysavertimer");
+	if (!configuredBatterySaverTime.empty()) {
+		selectedBatterySaverTimeSeconds = Utils::String::toFloat(configuredBatterySaverTime);
+	}
+
+	int selectedBatterySaverTimeMinutes = (int)Math::round(selectedBatterySaverTimeSeconds/60.f);
+
+	sliderBatterySaverTime->setValue((float)(selectedBatterySaverTimeMinutes));
+	sliderBatterySaverTime->setOnValueChanged([s](const float &newVal)
+	{
+		SystemConf::getInstance()->set("system.batterysavertimer", std::to_string((int)Math::round(newVal*60.f)));
+		SystemConf::getInstance()->saveSystemConf();
+		s->setVariable("exitreboot", true);
+	});
+	s->addWithDescription(_("IDLE TIME"),_("Battery save mode is activated after idle time has passed without any input."), sliderBatterySaverTime);
+
+	mWindow->pushGui(s);
+
+}
+
 void GuiMenu::openDeveloperSettings()
 {
 	Window *window = mWindow;
@@ -2001,6 +2056,10 @@ void GuiMenu::openSystemSettings()
 			s->addEntry(_("SERVICES"), true, [this] { openServicesSettings(); });
 	}
 #endif
+
+	// Power management
+	if (isFullUI)
+		s->addEntry(_("POWER MANAGEMENT"), true, [this] { openPowerManagementSettings(); });
 	
 	// Developer options
 	if (isFullUI)
