@@ -145,7 +145,8 @@ void WatchersManager::run()
 		{
 			std::unique_lock<std::mutex> lock(mWatchersLock);
 
-			int ticks = SDL_GetTicks();
+			int ticks = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+
 			for (auto item : mWatchers)
 			{
 				if (!mRunning)
@@ -160,7 +161,8 @@ void WatchersManager::run()
 				if (item->component->check())
 					NotifyComponentChanged(item->component);
 
-				item->nextCheckTime = SDL_GetTicks() + item->component->updateTime();
+				item->nextCheckTime = ticks + item->component->updateTime();
+
 			}
 		}		
 	}
