@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Batocera\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-05 13:13+0100\n"
-"PO-Revision-Date: 2024-02-08 18:37+0100\n"
+"PO-Revision-Date: 2024-11-19 13:02+0100\n"
 "Last-Translator: Roman Paholík\n"
 "Language-Team: Slovak (Slovakia)\n"
 "Language: sk_SK\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
 "2;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Loco-Source-Locale: en\n"
 "X-Loco-Project-Id: 136009\n"
 "X-Loco-Api-Version: 1.0.27 20230201-1\n"
@@ -411,20 +411,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "Hľadám Wi-Fi siete"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "Voľby zariadenia"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "Odpojiť"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "Pripojiť"
 
 msgid "FORGET"
-msgstr ""
+msgstr "Zabudnúť"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "Určite chcete zabudnúť '%s' ?"
 
 msgid "YES"
 msgstr "Áno"
@@ -434,11 +434,11 @@ msgstr "Nie"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "Určite sa chcete pripojiť ku '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "Určite sa chcete odpojiť z '%s' ?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "Nastavenie tlačidla na klávesnicu"
@@ -549,10 +549,10 @@ msgid "SAO PAULO"
 msgstr "SAO PAULO"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "Vlastné"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "Vlastný relay server"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "Verejne oznámiť hru"
@@ -564,16 +564,16 @@ msgid "VIEWER PASSWORD"
 msgstr "Heslo prezerača"
 
 msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
+msgstr "Zobraziť voľby sieťovej hry pri spustení hry"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
+msgstr "Umožní vyber online, offline alebo pripojenie inej hry."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "Zobraziť iba hry cez relay server"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Hry cez relay server majú väčšiu šancu na pripojenie."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "Zobraziť nedostupné hry"
@@ -695,7 +695,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "Nemôžem aktivovať RetroAchievementy:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "Zoznam zariadení Bluetooth"
 
 msgid "REMOVE ALL"
 msgstr "Odstrániť všetko"
@@ -704,7 +704,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "Nenašli sa bluetooth zariadenia"
 
 msgid " (Connected)"
-msgstr ""
+msgstr " (Pripojené)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "Bluetooth zariadenia boli vymazané."
@@ -856,13 +856,13 @@ msgid "fade"
 msgstr "vytratenie"
 
 msgid "fast fade"
-msgstr ""
+msgstr "rýchle zmiznutie"
 
 msgid "slide"
 msgstr "posun"
 
 msgid "fast slide"
-msgstr ""
+msgstr "rýchle posunutie"
 
 msgid "fade & slide"
 msgstr "vytratenie a posun"
@@ -904,37 +904,37 @@ msgid "Cpu feature"
 msgstr "CPU funkcia"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Dostupná pamäť"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Rozlíšenie obrazovky"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Obnovovacia frekvencia obrazovky"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "Verzia ovládača OpenGL"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Názov ovládača Vulkan"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Verzia ovládača Vulkan"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Formát dátovej partácie"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Dostupné miesto dátovej partície"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Sieťová IP adresa"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI Boot"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Secure Boot"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -1047,58 +1047,58 @@ msgid "SERVICES"
 msgstr "Služby"
 
 msgid "DMD"
-msgstr ""
+msgstr "DMD"
 
 msgid "SERVER"
-msgstr ""
+msgstr "Server"
 
 msgid "DISABLED"
 msgstr "Zakázané"
 
 msgid "DMDSERVER (for real dmd)"
-msgstr ""
+msgstr "DMDSERVER (pre reálne dmd)"
 
 msgid "SIMULATOR (for web dmd)"
-msgstr ""
+msgstr "SIMULATOR (pre webové dmd)"
 
 msgid "dmd server"
-msgstr ""
+msgstr "dmd server"
 
 msgid "FORMAT"
-msgstr ""
+msgstr "Formát"
 
 msgid "AUTO"
 msgstr "Auto"
 
 msgid "dmd matrix size"
-msgstr ""
+msgstr "veľkosť matice dmd"
 
 msgid "MATRIX"
-msgstr ""
+msgstr "Matica"
 
 msgid "rgb dmd order"
-msgstr ""
+msgstr "poradie rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "Jas"
 
 msgid "DMDSERVER stopped"
-msgstr ""
+msgstr "DMDSERVER zastavený"
 
 msgid "DMDSERVER restarted"
-msgstr ""
+msgstr "DMDSERVER reštartovaný"
 
 msgid "DMDSERVER started"
-msgstr ""
+msgstr "DMDSERVER spustený"
 
 msgid "MULTISCREENS"
-msgstr ""
+msgstr "Viac obrazoviek"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
-msgstr ""
+msgstr "Informačná obrazovka"
 
 msgid "THEME"
-msgstr ""
+msgstr "Téma"
 
 msgid "VIDEO OUTPUT"
 msgstr "Video výstup"
@@ -1107,10 +1107,10 @@ msgid "VIDEO MODE"
 msgstr "Režim videa"
 
 msgid "Sets the display's resolution."
-msgstr ""
+msgstr "Nastaví rozlíšenie obrazovky."
 
 msgid "ROTATION"
-msgstr ""
+msgstr "Otočenie"
 
 msgid "0 DEGREES"
 msgstr "0 stupňov"
@@ -1128,7 +1128,7 @@ msgid "SCREEN ROTATION"
 msgstr "Otočenie obrazovky"
 
 msgid "DMD SCREEN"
-msgstr ""
+msgstr "DMD obrazovka"
 
 msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "Vývojárske voľby frontendu"
@@ -1285,7 +1285,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "Rýchly výber systému"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "Písmeno na rýchly skok"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "Klávesnica na obrazovke"
@@ -1322,10 +1322,10 @@ msgid "GUN MOVE TOLERENCE"
 msgstr "Tolerancia pohybu zbrane"
 
 msgid "ENABLE PS3 CONTROLLER SUPPORT"
-msgstr ""
+msgstr "Povoliť podporu ovládača PS3"
 
 msgid "Might have negative impact on security."
-msgstr ""
+msgstr "Môže mať nepriaznivý vplyv na bezpečnosť."
 
 msgid "ENABLE HID JOYSTICK DRIVERS"
 msgstr "Povoliť HID ovládače joysticku"
@@ -1545,7 +1545,7 @@ msgid "OVERCLOCK"
 msgstr "Pretaktovanie"
 
 msgid "LED HARDWARE"
-msgstr ""
+msgstr "LED hardvér"
 
 msgid "RED"
 msgstr "červená"
@@ -1557,7 +1557,7 @@ msgid "BLUE"
 msgstr "modrá"
 
 msgid "LED BRIGHTNESS"
-msgstr ""
+msgstr "LED jasnosť"
 
 msgid "STORAGE"
 msgstr "Úložisko"
@@ -1871,10 +1871,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "Zobraziť ikonu volantu"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "Zobraziť ikonu trackballu"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "Zobraziť ikonu spinnera"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "Zobraziť názvy súborov"
@@ -2299,7 +2299,7 @@ msgid "PREFERED REGION"
 msgstr "Preferovaný región"
 
 msgid "OVERWRITE NAMES"
-msgstr ""
+msgstr "Prepísať mená"
 
 msgid "OVERWRITE DESCRIPTIONS"
 msgstr "Prepísať popisy"
@@ -2562,7 +2562,7 @@ msgid "Select a game lobby to join"
 msgstr "Vyberte hernú miestnosť na pripojenie"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Vyberte herné lobby na vytvorenie alebo pripojenie"
 
 msgid "FAILED"
 msgstr "Zlyhalo"
@@ -2580,13 +2580,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "Nedostupné jadro"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "Hrať online ako hostiteľ"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "Hrať offline"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "Pripojiť sa k hre"
 
 msgid "AVAILABLE GAMES"
 msgstr "Dostupné hry"
@@ -2650,7 +2650,7 @@ msgid "BLUETOOTH"
 msgstr "Bluetooth"
 
 msgid "ENABLE BLUETOOTH"
-msgstr ""
+msgstr "Povoliť Bluetooth"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
 msgstr "Spárovať Bluetooth ovládače automaticky"
@@ -2659,7 +2659,7 @@ msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
 msgstr "Spárovať Bluetooth zariadenie ručne"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
-msgstr ""
+msgstr "Zobraziť upozornenia ovládačov"
 
 msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "Zobraziť aktivitu ovládača"
@@ -2701,7 +2701,7 @@ msgid "WHITE"
 msgstr "biela"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "Percento okraja"
 
 msgid "CAMERA CONTRAST"
 msgstr "Kontrast fotoaparátu"
@@ -3068,10 +3068,10 @@ msgid "STEERING WHEEL"
 msgstr "Volant"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "Trackball"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "Spinner"
 
 msgid "HAVING MEDIAS"
 msgstr "Majú médiá"
@@ -3155,10 +3155,10 @@ msgid "wheel games"
 msgstr "kolieskové hry"
 
 msgid "trackball games"
-msgstr ""
+msgstr "hry pre trackball"
 
 msgid "spinner games"
-msgstr ""
+msgstr "hry pre spinner"
 
 msgid "collections"
 msgstr "kolekcie"
