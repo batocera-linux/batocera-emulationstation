@@ -4,6 +4,7 @@
 #include "Log.h"
 #include "utils/StringUtil.h"
 #include "utils/FileSystemUtil.h"
+#include "Scripting.h"
 #include "Settings.h"
 #include "Paths.h"
 
@@ -129,7 +130,7 @@ bool SystemConf::saveSystemConf()
 		filein.close();
 	}
 
-	static std::string removeID = "$^é(p$^mpv$êrpver$^vper$vper$^vper$vper$vper$^vperv^pervncvizn";
+	static std::string removeID = "$^ï¿½(p$^mpv$ï¿½rpver$^vper$vper$^vper$vper$vper$^vperv^pervncvizn";
 
 	int lastTime = SDL_GetTicks();
 
@@ -204,6 +205,8 @@ bool SystemConf::saveSystemConf()
 
 	remove(mSystemConfFileTmp.c_str());
 	changedConf.clear();
+
+	Scripting::fireEvent("config-changed");
 
 	return true;
 }
