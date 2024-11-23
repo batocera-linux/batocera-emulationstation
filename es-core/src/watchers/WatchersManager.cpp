@@ -43,7 +43,7 @@ void WatchersManager::ResetComponent(IWatcher* instance)
 	{
 		if (comp->component == instance)
 		{
-			comp->nextCheckTime = std::chrono::system_clock::now();
+			comp->nextCheckTime = std::chrono::steady_clock::now();
 			return;
 		}
 	}
@@ -55,7 +55,7 @@ void WatchersManager::RegisterComponent(IWatcher* instance)
 
 	WatcherInfo* info = new WatcherInfo();
 	info->component = instance;
-	info->nextCheckTime = std::chrono::system_clock::now() + std::chrono::milliseconds(instance->initialUpdateTime());
+	info->nextCheckTime = std::chrono::steady_clock::now() + std::chrono::milliseconds(instance->initialUpdateTime());
 	mWatchers.push_back(info);
 }
 
@@ -145,7 +145,7 @@ void WatchersManager::run()
 		{
 			std::unique_lock<std::mutex> lock(mWatchersLock);
 
-			auto now = std::chrono::system_clock::now();
+			auto now = std::chrono::steady_clock::now();
 
 			for (auto item : mWatchers)
 			{

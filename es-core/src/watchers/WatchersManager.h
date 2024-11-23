@@ -64,10 +64,10 @@ private:
 
 	struct WatcherInfo
 	{
-		WatcherInfo() { component = nullptr; nextCheckTime = std::chrono::system_clock::now(); }
+		WatcherInfo() { component = nullptr; nextCheckTime = std::chrono::steady_clock::now(); }
 
 		IWatcher*	component;
-		std::chrono::time_point<std::chrono::system_clock>	nextCheckTime;
+		std::chrono::time_point<std::chrono::steady_clock>	nextCheckTime;
 	};
 
 	void NotifyComponentChanged(IWatcher* component);
