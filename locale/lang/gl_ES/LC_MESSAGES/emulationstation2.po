@@ -565,16 +565,16 @@ msgid "VIEWER PASSWORD"
 msgstr "CONTRASINAL ESPECTADORES"
 
 msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
+msgstr "AMOSAR OPCIÓNS DE XOGO EN REDE AO INICIAR O XOGO"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
+msgstr "Permite escoller entre xogar en liña, fóra de liña ou unirse a outra partida."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "AMOSAR SÓ SERVIDOR DE RETRANSMISIÓN DE XOGOS "
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Os servidores de retransmisión de xogos teñen máis probabilidades de conexión exitosa."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AMOSAR XOGOS NON DISPOÑIBLES"
@@ -866,13 +866,13 @@ msgid "fade"
 msgstr "esvaecer"
 
 msgid "fast fade"
-msgstr ""
+msgstr "esvaecemento rápido"
 
 msgid "slide"
 msgstr "escorregar"
 
 msgid "fast slide"
-msgstr ""
+msgstr "deslizamento rápido"
 
 msgid "fade & slide"
 msgstr "desvanecerse e escorregarse"
@@ -1302,7 +1302,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "SELECCIÓN RÁPIDA DO SISTEMA"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "SALTO RÁPIDO POR LETRA"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "TECLADO EN PANTALLA"
@@ -1893,10 +1893,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "AMOSAR ICONA DO VOLANTE"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "AMOSAR ICONA DE BÓLA DE SEGUIMENTO"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "AMOSAR ICONA DE SPINNER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "AMOSAR OS NOMES DE FICHEIRO"
@@ -2584,7 +2584,7 @@ msgid "Select a game lobby to join"
 msgstr "Escolle unha sala de xogo para unirte"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Escolle unha sala de xogo para crear ou unirte"
 
 msgid "FAILED"
 msgstr "FALLOU"
@@ -2602,13 +2602,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NON DISPOÑIBLE"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "XOGAR EN LIÑA COMO ANFITRIÓN"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "XOGAR FÓRA DE LIÑA"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "UNIRSE A UN XOGO EXISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "XOGOS DIPOÑIBLES"
@@ -3088,10 +3088,10 @@ msgid "STEERING WHEEL"
 msgstr "VOLANTE"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "BÓLA DE SEGUIMENTO"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "TEN MEDIOS"
@@ -3175,10 +3175,10 @@ msgid "wheel games"
 msgstr "xogos compatibles co volante"
 
 msgid "trackball games"
-msgstr ""
+msgstr "xogos de bóla de seguimento"
 
 msgid "spinner games"
-msgstr ""
+msgstr "Xogos de spinner"
 
 msgid "collections"
 msgstr "coleccións"
