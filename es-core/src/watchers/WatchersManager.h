@@ -4,6 +4,7 @@
 #include <condition_variable>
 #include <mutex>
 #include <list>
+#include <chrono>
 
 class WatchersManager;
 
@@ -63,10 +64,10 @@ private:
 
 	struct WatcherInfo
 	{
-		WatcherInfo() { component = nullptr; nextCheckTime = 0; }
+		WatcherInfo() { component = nullptr; nextCheckTime = std::chrono::steady_clock::now(); }
 
 		IWatcher*	component;
-		int			nextCheckTime;
+		std::chrono::time_point<std::chrono::steady_clock>	nextCheckTime;
 	};
 
 	void NotifyComponentChanged(IWatcher* component);
