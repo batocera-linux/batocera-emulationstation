@@ -265,7 +265,7 @@ void GuiMenu::addVersionInfo()
 			label = "BATOCERA.LINUX ES V" + ApiSystem::getInstance()->getVersion() + buildDate;
 		else
 		{
-			std::string aboutInfo = ApiSystem::getInstance()->getApplicationName() + " V" + ApiSystem::getInstance()->getVersion();
+			std::string aboutInfo = ApiSystem::getInstance()->getApplicationName() + " " + ApiSystem::getInstance()->getVersion();
 			label = aboutInfo + buildDate;
 		}		
 	}
