@@ -751,9 +751,11 @@ void GuiMenu::openPowerManagementSettings()
 
 	s->addSaveFunc([this, optionsBatterySaveMode, sliderBatterySaverTime, s]
 	{
-	  SystemConf::getInstance()->set("system.batterysavertimer", std::to_string((int)Math::round(sliderBatterySaverTime->getValue()*60.f)));
+	  int newBatterySaverTimeSeconds = (int)Math::round(sliderBatterySaverTime->getValue()*60.f);
+	  SystemConf::getInstance()->set("system.batterysavertimer", std::to_string(newBatterySaverTimeSeconds));
 	  SystemConf::getInstance()->set("system.batterysavermode", optionsBatterySaveMode->getSelected());
 	  SystemConf::getInstance()->saveSystemConf();
+	  Scripting::fireEvent("powermanagement-changed");
 	  s->setVariable("exitreboot", true);
 	});
 
