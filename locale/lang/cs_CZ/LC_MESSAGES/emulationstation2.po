@@ -179,7 +179,7 @@ msgid "enter game genre"
 msgstr "zadejte žánr hry"
 
 msgid "Game family"
-msgstr "Rodina hra"
+msgstr "Rodina hry"
 
 msgid "this game's game family"
 msgstr "herní rodina této hry"
