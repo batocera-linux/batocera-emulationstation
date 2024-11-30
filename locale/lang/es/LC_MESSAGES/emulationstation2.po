@@ -1744,7 +1744,7 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "AJUSTAR BISELES (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "MOSTRAR CALCO SOBRE EL BISEL"
+msgstr "MOSTRAR TATTOO SOBRE EL BISEL"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "CONTROLES DEL SISTEMA"
@@ -1756,7 +1756,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "Muestra una imagen superpuesta sobre el bisel."
 
 msgid "TATTOO CORNER"
-msgstr "ESQUINA DEL CALCO"
+msgstr "ESQUINA DEL TATTOO"
 
 msgid "NORTH WEST"
 msgstr "SUPERIOR IZQUIERDA"
@@ -1774,10 +1774,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "RUTA DE IMAGEN .PNG PERSONALIZADA"
 
 msgid "RESIZE TATTOO"
-msgstr "MODIFICAR EL TAMAÑO DEL CALCO"
+msgstr "MODIFICAR EL TAMAÑO DEL TATTOO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Reduzca/expanda el calco para que quepa dentro del borde del bisel."
+msgstr "Reduzca/expanda el tattoo para que quepa dentro del borde del bisel."
 
 msgid "AI GAME TRANSLATION"
 msgstr "TRADUCCIÓN DE JUEGO POR IA"
