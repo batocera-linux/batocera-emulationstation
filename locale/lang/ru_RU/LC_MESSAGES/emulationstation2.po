@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНИРОВАНИЕ"
@@ -408,20 +408,20 @@ msgid "SEARCHING WI-FI NETWORKS"
 msgstr "ПОИСК WIFI СЕТИ"
 
 msgid "DEVICE OPTIONS"
-msgstr ""
+msgstr "ОПЦИИ УСТРОЙСТВА"
 
 msgid "DISCONNECT"
-msgstr ""
+msgstr "ОТКЛЮЧИТЬ"
 
 msgid "CONNECT"
-msgstr ""
+msgstr "ПОДКЛЮЧИТЬ"
 
 msgid "FORGET"
-msgstr ""
+msgstr "ЗАБЫТЬ"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO FORGET '%s' ?"
-msgstr ""
+msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ЗАБЫТЬ '%s' ?"
 
 msgid "YES"
 msgstr "ДА"
@@ -431,11 +431,11 @@ msgstr "НЕТ"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO CONNECT TO '%s' ?"
-msgstr ""
+msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ПОДКЛЮЧИТЬ '%s' ?"
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO DISCONNECT '%s' ?"
-msgstr ""
+msgstr "ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ОТКЛЮЧИТЬ '%s' ?"
 
 msgid "PAD TO KEYBOARD CONFIGURATION"
 msgstr "НАСТРОЙКИ PADTOKEY"
@@ -528,7 +528,7 @@ msgid "PORT"
 msgstr "ПОРТ"
 
 msgid "USE RELAY SERVER"
-msgstr "ИСП. СЕРВЕР РЕТРАНСЛЯЦИИ"
+msgstr "ИСПОЛЬЗОВАТЬ RELAY-СЕРВЕР"
 
 msgid "NONE"
 msgstr "НЕТ"
@@ -546,10 +546,10 @@ msgid "SAO PAULO"
 msgstr "САН-ПАУЛУ"
 
 msgid "CUSTOM"
-msgstr ""
+msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ"
 
 msgid "CUSTOM RELAY SERVER"
-msgstr ""
+msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ RELAY-СЕРВЕР"
 
 msgid "PUBLICLY ANNOUNCE GAME"
 msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
@@ -561,16 +561,16 @@ msgid "VIEWER PASSWORD"
 msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
+msgstr "ПОКАЗЫВАТЬ NETPLAY ОПЦИИ ПРИ ЗАПУСКЕ ИГРЫ"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
+msgstr "Позволяет выбрать онлайн, офлайн или присоединиться к другой игре."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Игры на relay-серверах имеют больше шансов на успешное подключение."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
@@ -696,7 +696,7 @@ msgid "UNABLE TO ACTIVATE RETROACHIEVEMENTS:"
 msgstr "НЕВОЗМОЖНО АКТИВИРОВАТЬ РЕТРОДОСТИЖЕНИЯ:"
 
 msgid "BLUETOOTH DEVICE LIST"
-msgstr ""
+msgstr "СПИСОК BLUETOOTH УСТРОЙСТВ"
 
 msgid "REMOVE ALL"
 msgstr "УДАЛИТЬ ВСЕ"
@@ -705,7 +705,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "BLUETOOTH УСТРОЙСТВА НЕ НАЙДЕНЫ"
 
 msgid " (Connected)"
-msgstr ""
+msgstr " (Подключено)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH УСТРОЙСТВО УДАЛЕНО."
@@ -857,13 +857,13 @@ msgid "fade"
 msgstr "затухание"
 
 msgid "fast fade"
-msgstr ""
+msgstr "быстрое затухание"
 
 msgid "slide"
 msgstr "слайд"
 
 msgid "fast slide"
-msgstr ""
+msgstr "быстрое скольжение"
 
 msgid "fade & slide"
 msgstr "затухание и слайд"
@@ -905,37 +905,37 @@ msgid "Cpu feature"
 msgstr "Функции CPU"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Доступная память"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Разрешение экрана"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Частота обновления экрана"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "OpenGL версия драйвера"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Vulkan название драйвера"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Vulkan версия драйвера"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Формат раздела данных"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Доступное место раздела данных"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Сетевой IP-адрес"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI Boot"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Secure Boot"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -1289,7 +1289,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "БЫСТРОЕ ПЕРЕКЛЮЧЕНИЕ СИСТЕМ"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "QUICK JUMP LETTER"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "ЭКРАННАЯ КЛАВИАТУРА"
@@ -1871,10 +1871,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "ПОКАЗАТЬ ИКОНКУ РУЛЯ"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "ПОКАЗАТЬ ИКОНКУ ТРЕКБОЛА"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "ПОКАЗАТЬ ЗНАЧОК СПИННЕРА"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "ПОКАЗАТЬ НАСТОЯЩЕЕ НАЗВАНИЕ ФАЙЛА"
@@ -2562,7 +2562,7 @@ msgid "Select a game lobby to join"
 msgstr "Выберите лобби для присоединения"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Выберите игровое лобби, чтобы создать или присоединиться к нему"
 
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
@@ -2580,13 +2580,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "ИГРАТЬ ОНЛАЙН В КАЧЕСТВЕ ХОСТА"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "ИГРАТЬ ОФФЛАЙН"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "ПРИСОЕДИНИТЬСЯ К СУЩЕСТВУЮЩЕЙ ИГРЕ"
 
 msgid "AVAILABLE GAMES"
 msgstr "ДОСТУПНЫЕ ИГРЫ"
@@ -2701,7 +2701,7 @@ msgid "WHITE"
 msgstr "БЕЛЫЙ"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "СООТНОШЕНИЕ РАМКИ"
 
 msgid "CAMERA CONTRAST"
 msgstr "КОНТРАСТ КАМЕРЫ"
@@ -3068,10 +3068,10 @@ msgid "STEERING WHEEL"
 msgstr "РУЛЬ"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "ТРЕКБОЛ"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "СПИННЕР"
 
 msgid "HAVING MEDIAS"
 msgstr "ИМЕЮЩИЕ МЕДИА"
@@ -3155,10 +3155,10 @@ msgid "wheel games"
 msgstr "игры с рулём"
 
 msgid "trackball games"
-msgstr ""
+msgstr "трекбол игры"
 
 msgid "spinner games"
-msgstr ""
+msgstr "спиннер игры"
 
 msgid "collections"
 msgstr "коллекции"
