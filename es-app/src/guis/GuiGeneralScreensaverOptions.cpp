@@ -11,7 +11,6 @@
 #include "guis/GuiTextEditPopupKeyboard.h"
 #include "guis/GuiFileBrowser.h"
 
-#define fake_gettext_black			_("black")
 #define fake_gettext_randomvideo	_("random video")
 #define fake_gettext_slideshow		_("slideshow")
 
@@ -42,7 +41,7 @@ GuiGeneralScreensaverOptions::GuiGeneralScreensaverOptions(Window* window, int s
 	// Screensaver behavior
 	auto ctlBehavior = std::make_shared< OptionListComponent<std::string> >(mWindow, _("SCREENSAVER TYPE"), false);
 
-		ctlBehavior->addRange({ "slideshow", "random video", "black" }, ssBehavior);
+		ctlBehavior->addRange({ "slideshow", "random video"}, ssBehavior);
 
 	addWithLabel(_("SCREENSAVER TYPE"), ctlBehavior, selectItem == 1);
 	ctlBehavior->setSelectedChangedCallback([this](const std::string& name)
