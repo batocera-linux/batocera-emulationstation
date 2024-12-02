@@ -5841,6 +5841,36 @@
     <game name="a1spirit">
       <wheel/>
     </game>
+    <game name="colt36">
+      <gun/>
+    </game>
+    <game name="django">
+      <gun/>
+    </game>
+    <game name="duckhunt">
+      <gun/>
+    </game>
+    <game name="dungeonhunter">
+      <gun/>
+    </game>
+    <game name="karamaru">
+      <trackball/>
+    </game>
+    <game name="holeinone">
+      <trackball/>
+    </game>
+    <game name="shootingcollection">
+      <gun/>
+    </game>
+    <game name="spacemazeattack">
+      <trackball/>
+    </game>
+    <game name="spacetrouble">
+      <trackball/>
+    </game>
+    <game name="superbilliards">
+      <trackball/>
+    </game>
   </system>
   <system name="n64">
     <game name="default">
@@ -6596,8 +6626,14 @@
     <game name="duckhunt">
       <gun/>
     </game>
+    <game name="arkanoid">
+      <spinner type="arkanoid"/>
+    </game>
     <game name="gunsight">
       <gun/>
+    </game>
+    <game name="arkanoidii">
+      <spinner type="arkanoid"/>
     </game>
     <game name="hitmarmot">
       <gun/>
@@ -6642,7 +6678,7 @@
       <gun/>
     </game>
     <game name="puttputtgolf">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="mastershooter">
       <gun/>
@@ -6654,7 +6690,7 @@
       <gun/>
     </game>
     <game name="moeroprosoccer">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="barroomshootout">
       <gun/>
@@ -6669,7 +6705,7 @@
       <gun/>
     </game>
     <game name="uschampionshipvball">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="superrussianroulette">
       <gun/>
@@ -8534,6 +8570,20 @@
     </game>
     <game name="dirt">
       <wheel/>
+    </game>
+  </system>
+  <system name="x68000">
+    <game name="afterburner">
+      <trackball/>
+    </game>
+    <game name="arkanoidrevengeofdoh">
+      <trackball/>
+    </game>
+    <game name="marblemadness">
+      <trackball/>
+    </game>
+    <game name="syvalion">
+      <trackball/>
     </game>
   </system>
 </systems>
