@@ -180,17 +180,25 @@ namespace Utils
 		{
 #ifdef WIN32 // windows
 			return system("shutdown -s -t 0");
-#else // osx / linux	
-			return system("shutdown -h now");
+#else // osx / linux
+			if (Utils::FileSystem::exists("/usr/bin/poweroff.sh")) {
+					return system("/usr/bin/poweroff.sh");
+				} else {
+					return system("shutdown -Ph now");
+				}
 #endif
 		}
 
 		int runRestartCommand()
 		{
-#ifdef WIN32 // windows	
+#ifdef WIN32 // windows
 			return system("shutdown -r -t 0");
-#else // osx / linux	
-			return system("shutdown -r now");
+#else // osx / linux
+			if (Utils::FileSystem::exists("/usr/bin/reboot.sh")) {
+				return system("/usr/bin/reboot.sh");
+			} else {
+				return system("shutdown -r now");
+			}
 #endif
 		}
 
