@@ -320,6 +320,9 @@ FileData* GuiNetPlay::getFileData(std::string gameInfo, bool crc, std::string co
 	std::string normalizedName = normalizeName(gameInfo);
 	for (auto sys : SystemData::sSystemVector)
 	{
+		if (!sys->isNetplaySupported())
+			continue;
+
 		if (!crc)
 		{
 			bool coreExists = false;

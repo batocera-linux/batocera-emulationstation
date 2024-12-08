@@ -588,7 +588,7 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	if (includeControllers)
 		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", controllersConfig);
 
-	if (options.netPlayMode != DISABLED && command.find("%NETPLAY%") == std::string::npos)
+	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
 
 	if (options.netPlayMode == CLIENT || options.netPlayMode == SPECTATOR)
