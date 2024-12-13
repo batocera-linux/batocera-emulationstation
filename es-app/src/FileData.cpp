@@ -1313,20 +1313,38 @@ void FolderData::removeChild(FileData* file)
 	assert(file->getParent() == this);
 #endif
 
-	for (auto it = mChildren.cbegin(); it != mChildren.cend(); it++)
+	auto it = std::find(mChildren.begin(), mChildren.end(), file);
+	if (it != mChildren.end())
 	{
-		if (*it == file)
-		{
-			file->setParent(NULL);
-			mChildren.erase(it);
-			return;
-		}
+		file->setParent(nullptr);
+		std::iter_swap(it, mChildren.end() - 1);
+		mChildren.pop_back();
 	}
 
 	// File somehow wasn't in our children.
 #if DEBUG
 	assert(false);
 #endif
+}
+
+void FolderData::bulkRemoveChildren(std::vector<FileData*>& mChildren, const std::unordered_set<FileData*>& filesToRemove)
+{
+	mChildren.erase(
+		std::remove_if(
+			mChildren.begin(),
+			mChildren.end(),
+			[&filesToRemove](FileData* file)
+			{
+				if (filesToRemove.count(file))
+				{
+					file->setParent(nullptr);
+					return true;
+				}
+				return false;
+			}
+		),
+		mChildren.end()
+	);
 }
 
 FileData* FolderData::FindByPath(const std::string& path)
@@ -1506,23 +1524,26 @@ void FileData::detectLanguageAndRegion(bool overWrite)
 		mMetadata.set(MetaDataId::Region, info.region);
 }
 
-void FolderData::removeVirtualFolders()
-{
+void FolderData::removeVirtualFolders() {
 	if (!mOwnsChildrens)
 		return;
 
-	for (int i = mChildren.size() - 1; i >= 0; i--)
+	std::unordered_set<FileData*> filesToRemove;
+
+	for (auto file : mChildren)
 	{
-		auto file = mChildren.at(i);
 		if (file->getType() != FOLDER)
 			continue;
 
-		if (((FolderData*)file)->mOwnsChildrens)
-			continue;
-
-		removeChild(file);
-		delete file;
+		auto folder = static_cast<FolderData*>(file);
+		if (!folder->mOwnsChildrens)
+			filesToRemove.insert(file);
 	}
+
+	bulkRemoveChildren(mChildren, filesToRemove);
+
+	for (auto file : filesToRemove)
+		delete file;
 }
 
 void FileData::checkCrc32(bool force)
@@ -1726,14 +1747,13 @@ FolderData::~FolderData()
 	clear();
 }
 
-void FolderData::clear()
-{
+void FolderData::clear() {
 	if (mOwnsChildrens)
-	{
-		for (int i = mChildren.size() - 1; i >= 0; i--)
-			delete mChildren.at(i);
-	}
-
+		for (auto* child : mChildren)
+		{
+			child->setParent(nullptr); // prevent each child from inefficiently removing itself from our mChildren vector, since we're about to clear it anyway
+			delete child;
+		}
 	mChildren.clear();
 }
 
