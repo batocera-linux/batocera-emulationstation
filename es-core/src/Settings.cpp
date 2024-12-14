@@ -189,6 +189,7 @@ void Settings::setDefaults()
 
 	mBoolMap["GameOptionsAtNorth"] = false;
 	mBoolMap["LoadEmptySystems"] = false;
+	mBoolMap["HideUniqueGroups"] = true;	
 	
 	mIntMap["RecentlyScrappedFilter"] = 3;
 	

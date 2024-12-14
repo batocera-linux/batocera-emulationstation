@@ -404,6 +404,13 @@ void SystemData::createGroupedSystems()
 
 	for (auto item : map)
 	{	
+		// Don't group if system count is only 1 		
+		if (item.second.size() == 1 && Settings::getInstance()->HideUniqueGroups())
+		{
+			item.second[0]->getSystemEnvData()->mGroup = "";
+			continue;
+		}
+		
 		SystemData* system = nullptr;
 		bool existingSystem = false;
 

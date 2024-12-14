@@ -95,7 +95,22 @@ void GuiCollectionSystemsOptions::initializeMenu()
 
 		auto ungroupedSystems = std::make_shared<OptionListComponent<std::string>>(mWindow, _("GROUPED SYSTEMS"), true);
 		for (auto groupName : groupNames)
-		{			
+		{
+			std::vector<std::string> systemNames;
+			for (auto systemName : SystemData::getGroupChildSystemNames(groupName))
+				systemNames.push_back(systemName);
+
+			std::sort(systemNames.begin(), systemNames.end());
+
+			int count = 0;
+			for (auto systemName : systemNames)
+				if (systemName != groupName)
+					count++;
+	
+			// Don't group if system count is only 1
+			if (count == 1 && Settings::getInstance()->HideUniqueGroups())
+				continue;
+
 			SystemData* pSystem = SystemData::getSystem(groupName);
 			if (pSystem != nullptr)
 				ungroupedSystems->addGroup(Utils::String::toUpper(pSystem->getFullName()));
@@ -103,12 +118,6 @@ void GuiCollectionSystemsOptions::initializeMenu()
 				ungroupedSystems->addGroup(Utils::String::toUpper(groupName));
 
 			std::string description;
-
-			std::vector<std::string> systemNames;
-			for (auto systemName : SystemData::getGroupChildSystemNames(groupName))
-				systemNames.push_back(systemName);
-				
-			std::sort(systemNames.begin(), systemNames.end());
 
 			for (auto systemName : systemNames)
 			{
@@ -348,7 +357,8 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	});
 
 	addSwitch(_("SHOW EMPTY SYSTEMS"), "LoadEmptySystems", true, [&] { setVariable("reloadSystems", true); });
-	
+	addSwitch(_("DON'T SHOW GROUPS WITH ONY ONE SYSTEM"), "HideUniqueGroups", true, [&] { setVariable("reloadSystems", true); });
+		
 #if defined(WIN32) && !defined(_DEBUG)		
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
 		addEntry(_("UPDATE GAMELISTS"), false, [this] { GuiMenu::updateGameLists(mWindow); }); // Game List Update
