@@ -357,10 +357,10 @@ bool ApiSystem::ping()
 	if (!executeScript("timeout 1 ping -c 1 -t 255 google.com"))
 	{
 		// ping Google DNS
-		if (!executeScript("timeout 1 ping -c 1 -t 255 8.8.8.8"))
+		if (!executeScript("timeout 1 ping -c 1 -t 255 dns.google"))
 		{
-			// ping Google secondary DNS & give 2 seconds, return this one's status
-			return executeScript("timeout 2 ping -c 1 -t 255 8.8.4.4");
+			// ping Cloudflare DNS & give 2 seconds, return this one's status
+			return executeScript("timeout 2 ping -c 1 -t 255 one.one.one.one");
 		}
 	}
 
