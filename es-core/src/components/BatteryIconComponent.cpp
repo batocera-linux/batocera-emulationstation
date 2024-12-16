@@ -47,7 +47,7 @@ void BatteryIconComponent::update(int deltaTime)
 	else
 		mBatteryInfo = Utils::Platform::queryBatteryInformation();
 
-	setVisible(mBatteryInfo.hasBattery); // Settings::getInstance()->getBool("ShowNetworkIndicator") && !Utils::Platform::queryIPAdress().empty());
+	setVisible(mBatteryInfo.hasBattery); // Settings::getInstance()->getBool("ShowNetworkIndicator") && !Utils::Platform::queryIPAddress().empty());
 
 	if (mBatteryInfo.hasBattery)
 	{

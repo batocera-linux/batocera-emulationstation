@@ -597,7 +597,7 @@ int main(int argc, char* argv[])
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::PDFEXTRACTION))
 		TextureData::PdfHandler = ApiSystem::getInstance();
 
-	ApiSystem::getInstance()->getIpAdress();
+	ApiSystem::getInstance()->getIpAddress();
 
 	// preload what we can right away instead of waiting for the user to select it
 	// this makes for no delays when accessing content, but a longer startup time

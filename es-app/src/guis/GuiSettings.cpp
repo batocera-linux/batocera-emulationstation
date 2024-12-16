@@ -342,7 +342,7 @@ std::shared_ptr<OptionListComponent<std::string>> GuiSettings::addOptionList(con
 
 bool GuiSettings::checkNetwork()
 {
-	if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+	if (ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED")
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
 		return false;

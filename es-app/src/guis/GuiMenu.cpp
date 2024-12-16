@@ -1292,7 +1292,7 @@ void GuiMenu::openUpdatesSettings()
 
 bool GuiMenu::checkNetwork()
 {
-	if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+	if (ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED")
 	{
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
 		return false;
@@ -3990,7 +3990,7 @@ void GuiMenu::openNetworkSettings(bool selectWifiEnable)
 	auto s = new GuiSettings(mWindow, _("NETWORK SETTINGS").c_str());
 	s->addGroup(_("INFORMATION"));
 
-	auto ip = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getIpAdress(), font, color);
+	auto ip = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->getIpAddress(), font, color);
 	s->addWithLabel(_("IP ADDRESS"), ip);
 
 	auto status = std::make_shared<TextComponent>(mWindow, ApiSystem::getInstance()->ping() ? _("CONNECTED") : _("NOT CONNECTED"), font, color);

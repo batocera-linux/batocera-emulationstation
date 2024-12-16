@@ -479,11 +479,11 @@ bool ApiSystem::disableWifi()
 	return executeScript("batocera-wifi disable");
 }
 
-std::string ApiSystem::getIpAdress() 
+std::string ApiSystem::getIpAddress()
 {
-	LOG(LogDebug) << "ApiSystem::getIpAdress";
+	LOG(LogDebug) << "ApiSystem::getIpAddress";
 	
-	std::string result = Utils::Platform::queryIPAdress(); // platform.h
+	std::string result = Utils::Platform::queryIPAddress(); // platform.h
 	if (result.empty())
 		return "NOT CONNECTED";
 

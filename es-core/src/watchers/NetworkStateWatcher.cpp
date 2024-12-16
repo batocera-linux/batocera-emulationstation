@@ -9,7 +9,7 @@ NetworkStateWatcher::NetworkStateWatcher() : mIsConnected(false), mIsPlaneMode(f
 
 bool NetworkStateWatcher::check()
 {
-	bool networkConnected = !Utils::Platform::queryIPAdress().empty();
+	bool networkConnected = !Utils::Platform::queryIPAddress().empty();
 	bool planemodeEnabled = mIsPlaneModeSupported && IExternalActivity::Instance != nullptr && IExternalActivity::Instance->isPlaneMode();
 
 	bool changed = networkConnected != mIsConnected || mIsPlaneMode != planemodeEnabled;
