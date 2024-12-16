@@ -33,7 +33,13 @@ GuiSystemInformation::GuiSystemInformation(Window* window) : GuiSettings(window,
 				std::string vname;
 				for (unsigned int i = 1; i < tokens.size(); i++)
 				{
-					if (i > 1) vname += " ";
+					if (i > 1)
+					{
+						if (tokens.at(0).find("NETWORK IP ADDRESS"))
+							vname += ":";
+						else
+							vname += " ";
+					}
 					vname += tokens.at(i);
 				}
 
