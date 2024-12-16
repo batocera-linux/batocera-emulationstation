@@ -862,7 +862,7 @@ void GuiMenu::openDeveloperSettings()
 		}, _("NO"), nullptr));
 	});
 
-	s->addWithDescription(_("RESET GAMELISTS USAGE DATA"), _("Reset values of GameTime, PlayCount and LastPlayed metadatas."), nullptr, [this, s]
+	s->addWithDescription(_("RESET GAMELISTS USAGE DATA"), _("Reset values of GameTime, PlayCount and LastPlayed metadata."), nullptr, [this, s]
 		{
 			mWindow->pushGui(new GuiMsgBox(mWindow, _("ARE YOU SURE?"), _("YES"), [&]
 				{
