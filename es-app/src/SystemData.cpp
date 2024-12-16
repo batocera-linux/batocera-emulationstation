@@ -429,7 +429,7 @@ void SystemData::createGroupedSystems()
 			md.fullName = item.first;
 			md.themeFolder = item.first;
 
-			// Check if the system is described in es_systems but empty, to import metadatas )
+			// Check if the system is described in es_systems but empty, to import metadata )
 			auto sourceSystem = SystemData::loadSystem(item.first, false);
 			if (sourceSystem != nullptr)
 			{

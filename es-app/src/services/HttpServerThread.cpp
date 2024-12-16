@@ -46,7 +46,7 @@ GET  /systems
 GET  /systems/{systemName}
 GET  /systems/{systemName}/logo
 GET  /systems/{systemName}/games/{gameId}		
-POST /systems/{systemName}/games/{gameId}						-> body must contain the game metadatas to save as application/json
+POST /systems/{systemName}/games/{gameId}						-> body must contain the game metadata to save as application/json
 GET  /systems/{systemName}/games/{gameId}/media/{mediaType}
 POST /systems/{systemName}/games/{gameId}/media/{mediaType}		-> body must contain the file bytes to save. Content-type must be valid.
 

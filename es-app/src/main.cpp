@@ -747,7 +747,7 @@ int main(int argc, char* argv[])
 		delete window.peekGui();
 
 	if (SystemData::hasDirtySystems())
-		window.renderSplashScreen(_("SAVING METADATAS. PLEASE WAIT..."));
+		window.renderSplashScreen(_("SAVING METADATA. PLEASE WAIT..."));
 
 	ImageIO::saveImageCache();
 	MameNames::deinit();
