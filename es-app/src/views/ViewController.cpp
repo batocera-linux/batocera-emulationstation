@@ -553,7 +553,7 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 		return;
 	}
 
-	if (!SystemConf::getInstance()->getBool("global.netplay") || ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED" || !game->isNetplaySupported())
+	if (!SystemConf::getInstance()->getBool("global.netplay") || ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED" || !game->isNetplaySupported())
 	{
 		options.netPlayMode = DISABLED;
 	}

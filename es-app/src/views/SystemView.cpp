@@ -375,7 +375,7 @@ void SystemView::showNetplay()
 	if (!SystemData::isNetplayActivated() && SystemConf::getInstance()->getBool("global.netplay"))
 		return;
 
-	if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+	if (ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED")
 		mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
 	else
 		mWindow->pushGui(new GuiNetPlay(mWindow));
@@ -1638,7 +1638,7 @@ bool SystemView::onAction(const std::string& action)
 	{
 		if (SystemConf::getInstance()->getBool("global.retroachievements") && !Settings::getInstance()->getBool("RetroachievementsMenuitem") && SystemConf::getInstance()->get("global.retroachievements.username") != "")
 		{
-			if (ApiSystem::getInstance()->getIpAdress() == "NOT CONNECTED")
+			if (ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED")
 				mWindow->pushGui(new GuiMsgBox(mWindow, _("YOU ARE NOT CONNECTED TO A NETWORK"), _("OK"), nullptr));
 			else
 				GuiRetroAchievements::show(mWindow);

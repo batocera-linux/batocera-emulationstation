@@ -265,7 +265,7 @@ namespace Utils
 			return quitMode == QuitMode::FAST_REBOOT || quitMode == QuitMode::FAST_SHUTDOWN;
 		}
 
-		std::string queryIPAdress()
+		std::string queryIPAddress()
 		{
 #ifdef DEVTEST
 			return "127.0.0.1";

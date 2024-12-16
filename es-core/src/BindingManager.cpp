@@ -41,10 +41,10 @@ class GlobalBinding : public IBindable
 			return SystemConf::getInstance()->getBool("global.netplay") ? SystemConf::getInstance()->get("global.netplay.nickname") : "";
 
 		if (name == "ip")
-			return Utils::Platform::queryIPAdress();
+			return Utils::Platform::queryIPAddress();
 
 		if (name == "network")
-			return !Utils::Platform::queryIPAdress().empty();
+			return !Utils::Platform::queryIPAddress().empty();
 
 		if (name == "battery")
 			return Utils::Platform::queryBatteryInformation().hasBattery;

@@ -166,7 +166,7 @@ public:
     bool enableWifi(std::string ssid, std::string key);
     bool disableWifi();
 
-	virtual std::string getIpAdress();
+	virtual std::string getIpAddress();
 
 	bool enableBluetooth();
 	bool disableBluetooth();
