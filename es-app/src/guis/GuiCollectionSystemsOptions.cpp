@@ -357,7 +357,7 @@ void GuiCollectionSystemsOptions::initializeMenu()
 	});
 
 	addSwitch(_("SHOW EMPTY SYSTEMS"), "LoadEmptySystems", true, [&] { setVariable("reloadSystems", true); });
-	addSwitch(_("DON'T SHOW GROUPS WITH ONY ONE SYSTEM"), "HideUniqueGroups", true, [&] { setVariable("reloadSystems", true); });
+	addSwitch(_("DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"), "HideUniqueGroups", true, [&] { setVariable("reloadSystems", true); });
 		
 #if defined(WIN32) && !defined(_DEBUG)		
 	if (!ApiSystem::getInstance()->isScriptingSupported(ApiSystem::GAMESETTINGS))
