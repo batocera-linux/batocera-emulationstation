@@ -4,14 +4,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Chipsum\n"
+"Last-Translator: MrMeteo <meteosto@gmail.com>\n"
 "Language-Team: Batocera official\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "DÉCOUVERTE BLUETOOTH"
@@ -549,26 +549,17 @@ msgstr "PERSONNALISÉ"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVEUR RELAI PERSONNALISÉ"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANNONCER PUBLIQUEMENT LA PARTIE"
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CRÉER AUTOMATIQUEMENT UN LOBBY"
 
-msgid "PLAYER PASSWORD"
-msgstr "MOT DE PASSE JOUEUR"
-
-msgid "VIEWER PASSWORD"
-msgstr "MOT DE PASSE SPECTATEUR"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "OPTIONS DES PARTIES EN RÉSEAU AU LANCEMENT D'UN JEU"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permettre de choisir de jouer en ligne, hors ligne."
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Créer automatiquement un lobby Netplay au démarrage d’une partie."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "AFFICHER SEUELEMENT LE SERVEUR RELAIS DES JEUX"
+msgstr "AFFICHER UNIQUEMENT LES JEUX AVEC SERVEUR RELAIS"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "Le serveur de relais des jeux à généralement davantage d'entrées."
+msgstr "Les connections à des jeux sur serveur relais ont plus de chances d'aboutir."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFFICHER LES JEUX NON DISPONIBLES"
@@ -1076,12 +1067,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "taille de la matrice dmd"
 
-msgid "MATRIX"
-msgstr "MATRICE"
-
-msgid "rgb dmd order"
-msgstr "ordre des couleurs du dmd"
-
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÉ"
 
@@ -1110,7 +1095,7 @@ msgid "VIDEO MODE"
 msgstr "MODE VIDÉO"
 
 msgid "Sets the display's resolution."
-msgstr "Résolution de l'écran"
+msgstr "Définit la résolution de l'écran."
 
 msgid "ROTATION"
 msgstr "ROTATION"
@@ -1204,10 +1189,9 @@ msgstr "Nettoyage"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RÉINITIALISER LES DONNÉES D'UTILISATION DES LISTES DE JEUX"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Réinitialiser les valeurs du temps de jeu, du nombre de parties et des "
-"dernières jouées."
+"Réinitialise les valeurs des métadonnées GameTime, PlayCount et LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RAZ DES EXTENSIONS DE FICHIER"
@@ -2031,6 +2015,36 @@ msgstr "PASSER A LA MUSIQUE SUIVANTE"
 msgid "NOW PLAYING"
 msgstr "A L’ÉCOUTE"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ENREGISTRER DANS SA MUSIQUE PRÉFÉRÉE"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copier la chanson en cours dans le dossier favori"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILISER LE RÉPERTOIRE DES MUSIQUES PRÉFÉRÉES" 
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Utilisation du répertoire des musiques préférées"
+
+msgid "Song added to favorite list!"
+msgstr "Chanson ajoutée à la liste des favoris !"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erreur : Impossible d'ouvrir le fichier des favoris."
+
+msgid "No song is currently playing."
+msgstr "Aucune chanson n'est en cours de lecture."
+
+msgid "Favorite music directory activated!"
+msgstr "Répertoire de musique favorite activé !"
+
+msgid "Default music directory activated!"
+msgstr "Répertoire de musique par défaut activé !"
+
+msgid "This song is already in Favorites."  
+msgstr "Cette chanson est déjà dans les Favoris."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCONOMISEUR D'ÉCRAN"
 
@@ -2206,6 +2220,15 @@ msgstr "DÉMARRER LE JEU"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "HÉBERGER UNE PARTIE EN RÉSEAU"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANNONCER PUBLIQUEMENT LA PARTIE"
+
+msgid "PLAYER PASSWORD"
+msgstr "MOT DE PASSE JOUEUR"
+
+msgid "VIEWER PASSWORD"
+msgstr "MOT DE PASSE SPECTATEUR"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "TROUVER LES JEUX SIMILAIRES…"
@@ -2426,6 +2449,9 @@ msgstr "AFFICHER LES JEUX DES SYSTÈMES CACHÉS DANS LES COLLECTIONS"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "AFFICHER LES SYSTÈMES SANS JEU"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr "NE PAS AFFICHER LES GROUPES QUI N'ONT QU'UN SEUL SYSTÈME"
+
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -2571,9 +2597,6 @@ msgstr "REJOINDRE UNE PARTIE EN RÉSEAU"
 msgid "Select a game lobby to join"
 msgstr "Choisir la partie à rejoindre"
 
-msgid "Select a game lobby to create or join"
-msgstr "Choisir la partie à créer ou rejoindre"
-
 msgid "FAILED"
 msgstr "ÉCHEC"
 
@@ -2589,14 +2612,11 @@ msgstr "ROM IDENTIQUE"
 msgid "UNAVAILABLE CORE"
 msgstr "CŒUR NON DISPONIBLE"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr "JOUER EN LIGNE EN HÔTE"
+msgid "LAN GAMES"
+msgstr "JEUX EN RÉSEAU"
 
-msgid "PLAY OFFLINE"
-msgstr "JOUER HORS LIGNE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "REJOINDRE UNE PARTIE EXISTANTE"
+msgid "ONLINE GAMES"
+msgstr "JEUX EN LIGNE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"
@@ -2677,6 +2697,15 @@ msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr "DESSINER LA MIRE DU PISTOLET"
+
+msgid "BEHAVIOR"
+msgstr "COMPORTEMENT"
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr "RESTREINDRE LES HOTKEYS À EXIT"
 
 msgid "default"
 msgstr "par défaut"
@@ -2854,6 +2883,15 @@ msgstr "UTILISER OMX POUR L'ÉCRAN DE VEILLE"
 
 msgid "SHOW GAME INFO"
 msgstr "AFFICHER LES INFORMATIONS DU JEU"
+
+msgid "SHOW DATE TIME"
+msgstr "AFFICHE DATE HEURE"
+
+msgid "DATE FORMAT"
+msgstr "FORMAT DATE"
+
+msgid "TIME FORMAT"
+msgstr "FORMAT HEURE"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UTILISER LES LOGOS POUR LES INFOS JEU"
@@ -3107,8 +3145,8 @@ msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr "ENREGISTREMENT DES MÉTADONNÉES. VEUILLEZ PATIENTER..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "L’ÉMULATEUR A QUITTÉ DE MANIÈRE INATTENDUE"
@@ -3130,6 +3168,9 @@ msgstr "LE CŒUR EST MANQUANT"
 
 msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
+
+msgid "Interlaced"
+msgstr "Entrelacé"
 
 msgid "all games"
 msgstr "tous les jeux"
@@ -3575,6 +3616,38 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "OPTIONS DES PARTIES EN RÉSEAU AU LANCEMENT D'UN JEU"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Permettre de choisir de jouer en ligne, hors ligne."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Choisir la partie à créer ou rejoindre"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "JOUER EN LIGNE EN HÔTE"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "JOUER HORS LIGNE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "REJOINDRE UNE PARTIE EXISTANTE"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRICE"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordre des couleurs du dmd"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Réinitialiser les valeurs du temps de jeu, du nombre de parties et des "
+#~ "dernières jouées."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OUBLIER UN PÉRIPHÉRIQUE BLUETOOTH"

@@ -551,19 +551,10 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "MOSTRAR COM PARTIDA PÚBLICA"
-
-msgid "PLAYER PASSWORD"
-msgstr "CONTRASENYA DEL JUGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "CONTRASENYA PER ESPECTADORS"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
-msgid "Allows choice of online, offline, or joining another game."
+msgid "Automatically creates a Netplay lobby when starting a game."
 msgstr ""
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
@@ -1205,9 +1196,8 @@ msgstr "Netejant"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESTABLEIX LES DADES D'ÚS DE LES LISTES DE JOCS"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSIONS D'ARXIU"
@@ -2038,6 +2028,36 @@ msgstr "SALTAR A LA SEGÜENT CANÇÓ"
 msgid "NOW PLAYING"
 msgstr "REPRODUÏNT ARA"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "DESA A LA MÚSICA PREFERIDA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copia la cançó actual a la carpeta preferida"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILITZA EL DIRECTORI DE MÚSICA PREFERIDA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Activa o desactiva l'ús del directori de música preferida"
+
+msgid "Song added to favorite list!"
+msgstr "Cançó afegida a la llista de preferides!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: No s'ha pogut obrir el fitxer de preferits."
+
+msgid "No song is currently playing."
+msgstr "No hi ha cap cançó en reproducció."
+
+msgid "Favorite music directory activated!"
+msgstr "Directori de música preferida activat!"
+
+msgid "Default music directory activated!"
+msgstr "Directori de música per defecte activat!"
+
+msgid "This song is already in Favorites."
+msgstr "Aquesta cançó ja és a Preferits."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR ESTALVI DE PANTALLA"
 
@@ -2433,6 +2453,9 @@ msgstr "MOSTRAR JOCS OCULTS A COL·LECCIONS"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRAR SISTEMES BUITS"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Carregant..."
 
@@ -2685,6 +2708,9 @@ msgstr "MOSTRAR L'ACTIVITAT DEL COMANDAMENT"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVELL DE BATERIA DEL COMANDAMENT"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "per defecte"
@@ -3113,8 +3139,8 @@ msgstr "ACTUALITZI LES GAMELISTS PER A APLICAR ELS CANVIS."
 msgid "Loading system config..."
 msgstr "Carregant configuració de sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "DESANT METADADES. SI US PLAU ESPERI..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "LA EMULACIÓ S'HA INTERROMPUT DE MANERA INESPERADA"
@@ -3582,6 +3608,13 @@ msgid ""
 msgstr ""
 "CALIBRANT PISTOLA\n"
 "Dispari als objectius per a calibrar"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "DESANT METADADES. SI US PLAU ESPERI..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR UN DISPOSITIU BLUETOOTH"

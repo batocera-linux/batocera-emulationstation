@@ -4,14 +4,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: Killer\n"
+"Last-Translator: Leonardo Colman <dev@leonardo.colman.com.br>\n"
+"Language-Team: Killer, LeoColman\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -550,20 +550,11 @@ msgstr "PERSONALIZAR"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR PERSONALIZADO"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CRIAR LOBBY AUTOMATICAMENTE"
 
-msgid "PLAYER PASSWORD"
-msgstr "SENHA DO JOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "SENHA DE ESPECTADOR"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permite a escolha de jogar online, offline ou entrar em outro jogo."
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Automaticamente cria um lobby Netplay quando estiver começando um jogo"
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
@@ -1079,12 +1070,6 @@ msgstr "AUTOMÁTICO"
 msgid "dmd matrix size"
 msgstr "tamanho da matriz dmd"
 
-msgid "MATRIX"
-msgstr "MATRIZ"
-
-msgid "rgb dmd order"
-msgstr "ordem dmd rgb"
-
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
 
@@ -1098,7 +1083,7 @@ msgid "DMDSERVER started"
 msgstr "Servidor DMD iniciado"
 
 msgid "MULTISCREENS"
-msgstr "MULTITELA"
+msgstr "MULTITELAS"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
 msgstr "VIDRO TRASEIRO / TELA DE INFORMAÇÕES"
@@ -1131,7 +1116,7 @@ msgid "270 DEGREES"
 msgstr "270 GRAUS"
 
 msgid "SCREEN ROTATION"
-msgstr "ROTAÇÃO DE TELA"
+msgstr "ROTAÇÃO DA TELA"
 
 msgid "DMD SCREEN"
 msgstr "TELA DMD"
@@ -1152,7 +1137,7 @@ msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr "Também ativa o contador de FPS nativo do emulador, se disponível."
 
 msgid "VSYNC"
-msgstr "VSYNC (SINCRONIZAR TAXA DE QUADROS)"
+msgstr "SINCRONIZAÇÃO VERTICAL"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN (ULTRAPASSAR BORDAS DA TELA)"
@@ -1206,10 +1191,10 @@ msgstr "Apagando"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "REDEFINIR DADOS DE USO DAS LISTAS DE JOGOS"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Reestabelecer os valores das informações sobre: Tempo de Jogo, Número de "
-"Partidas, e Últma Vez Jogado."
+"Redefine os valores dos metadados Tempo de Jogo, Vezes Jogado e Jogado por "
+"Último."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REESTABELECER EXTENSÕES DE ARQUIVO"
@@ -1604,7 +1589,7 @@ msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "SALTAR QUADROS"
+msgstr "ANTECIPAR EXECUÇÃO DE QUADROS"
 
 msgid "High numbers can result in visible jitter."
 msgstr "Números altos podem resultar em instabilidade visível."
@@ -1706,7 +1691,7 @@ msgid "GAME ASPECT RATIO"
 msgstr "PROPORÇÃO DE ASPECTO DO JOGO"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr "Força o jogo a renderizar nesta proporção de aspecto."
+msgstr "Força o jogo a renderizar nesta proporção de tela."
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
@@ -1726,7 +1711,7 @@ msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA INTEIRA (PIXEL PERFEITO)"
 
 msgid "SHADER SET"
-msgstr "FILTROS DE IMAGEM"
+msgstr "CONJUNTO DE FILTROS"
 
 msgid "VIDEO FILTER"
 msgstr "FILTRO DE VÍDEO"
@@ -1750,7 +1735,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "Mostra uma imagem sobreposta sobre a moldura."
 
 msgid "TATTOO CORNER"
-msgstr "POSIÇÃO DO MAPEAMENTO"
+msgstr "POSIÇÃO DA SOBREPOSIÇÃO"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1768,7 +1753,7 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ARQUIVO .PNG PERSONALIZADO"
 
 msgid "RESIZE TATTOO"
-msgstr "REDIMENSIONAR MAPEAMENTO"
+msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
@@ -1786,7 +1771,7 @@ msgid "AI TRANSLATION SERVICE URL"
 msgstr "URL DO SERVIÇO"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr "PAUSA NA TELA TRADUZIDA"
+msgstr "PAUSAR NA TELA TRADUZIDA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "CONFIGURAR CONTROLES AUTOMATICAMENTE"
@@ -2038,6 +2023,36 @@ msgstr "PULE PARA A PRÓXIMA MÚSICA"
 msgid "NOW PLAYING"
 msgstr "REPRODUZINDO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SALVAR NA MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar a música atual para a pasta de favoritos"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR O DIRETÓRIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar o uso do diretório de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Música adicionada à lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erro: Não foi possível abrir o arquivo de favoritos."
+
+msgid "No song is currently playing."
+msgstr "Nenhuma música está tocando no momento."
+
+msgid "Favorite music directory activated!"
+msgstr "Diretório de músicas favoritas ativado!"
+
+msgid "Default music directory activated!"
+msgstr "Diretório de músicas padrão ativado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta música já está nos Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE TELA"
 
@@ -2084,7 +2099,7 @@ msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
+msgstr "CARREGAR/SALVAR AO INICIAR JOGO"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
@@ -2214,6 +2229,15 @@ msgstr "INICIAR JOGO"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "ORGANIZAR JOGO EM REDE"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+
+msgid "PLAYER PASSWORD"
+msgstr "SENHA DO JOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "SENHA DE ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "JOGOS SEMELHANTES..."
@@ -2434,6 +2458,9 @@ msgstr "EXIBIR JOGOS DE SISTEMAS OCULTOS NAS COLEÇÕES"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "EXIBIR SISTEMAS VAZIOS"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr "NÃO MOSTRAR GRUPOS COM APENAS UM SISTEMA"
+
 msgid "Loading..."
 msgstr "Carregando..."
 
@@ -2580,9 +2607,6 @@ msgstr "CONECTE-SE AOS JOGOS EM REDE"
 msgid "Select a game lobby to join"
 msgstr "Seleciona uma sala de jogo para juntar-se"
 
-msgid "Select a game lobby to create or join"
-msgstr "Selecione uma sala de jogo para criar ou entrar"
-
 msgid "FAILED"
 msgstr "FALHOU"
 
@@ -2598,14 +2622,11 @@ msgstr "MESMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr "JOGAR ONLINE COMO HOST"
+msgid "LAN GAMES"
+msgstr "JOGOS EM LAN"
 
-msgid "PLAY OFFLINE"
-msgstr "JOGAR OFFLINE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "ENTRAR NUM JOGO EXISTENTE"
+msgid "ONLINE GAMES"
+msgstr "JOGOS ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -2687,6 +2708,15 @@ msgstr "EXIBIR ATIVIDADE DO CONTROLE"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr "DESENHAR A MIRA DA ARMA"
+
+msgid "BEHAVIOR"
+msgstr "COMPORTAMENTO"
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr "RESTRINGIR ATALHOS PARA SAIR"
 
 msgid "default"
 msgstr "padrão"
@@ -2864,6 +2894,15 @@ msgstr "USAR O LEITOR OMX PARA A PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO"
 msgstr "EXIBIR INFORMAÇÃO DO JOGO"
+
+msgid "SHOW DATE TIME"
+msgstr "MOSTRAR RELÓGIO"
+
+msgid "DATE FORMAT"
+msgstr "FORMATO DE DATA"
+
+msgid "TIME FORMAT"
+msgstr "FORMATO DE TEMPO"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
@@ -3116,8 +3155,8 @@ msgstr "ATUALIZE A LISTA DE JOGOS PARA APLICAR AS MODIFICAÇÕES."
 msgid "Loading system config..."
 msgstr "Carregando a configuração do sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SALVANDO INFORMAÇÕES. POR FAVOR, AGUARDE..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr "SALVANDO METADADOS. POR FAVOR, AGUARDE..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "O EMULADOR SAIU INESPERADAMENTE"
@@ -3139,6 +3178,9 @@ msgstr "ESTÁ FALTANDO NÚCLEO"
 
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
+
+msgid "Interlaced"
+msgstr "Interlaced"
 
 msgid "all games"
 msgstr "todos os jogos"
@@ -3586,7 +3628,38 @@ msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
 
-#, c-format
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Permite a escolha de jogar online, offline ou entrar em outro jogo."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Selecione uma sala de jogo para criar ou entrar"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "JOGAR ONLINE COMO HOST"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "JOGAR OFFLINE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "ENTRAR NUM JOGO EXISTENTE"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRIZ"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordem dmd rgb"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Reestabelecer os valores das informações sobre: Tempo de Jogo, Número de "
+#~ "Partidas, e Últma Vez Jogado."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SALVANDO INFORMAÇÕES. POR FAVOR, AGUARDE..."
+
 #~ msgid ""
 #~ "YOU ARE CURRENTLY USING VERSION %s\n"
 #~ " DO YOU WANT TO UPDATE TO VERSION %s?"
@@ -3594,7 +3667,6 @@ msgstr ""
 #~ "ATUALMENTE VOCÊ ESTÁ UTILIZANDO A VERSÃO %s\n"
 #~ " GOSTARIA DE ATUALIZAR PARA A VERSÃO %s?"
 
-#, c-format
 #~ msgid ""
 #~ "UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
 #~ " UPGRADING COULD BREAK YOUR SYSTEM.\n"
@@ -3695,11 +3767,9 @@ msgstr ""
 #~ msgid "Reset achievements to be able to earn them again."
 #~ msgstr "Conquistas retrô desbloqueadas podem ser conquistadas novamente."
 
-#, c-format
 #~ msgid "%d m"
 #~ msgstr "%d m"
 
-#, c-format
 #~ msgid "%d s"
 #~ msgstr "%d s"
 

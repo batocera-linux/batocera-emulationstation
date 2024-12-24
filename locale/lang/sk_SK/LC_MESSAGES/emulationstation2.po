@@ -554,20 +554,11 @@ msgstr "Vlastné"
 msgid "CUSTOM RELAY SERVER"
 msgstr "Vlastný relay server"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "Verejne oznámiť hru"
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
 
-msgid "PLAYER PASSWORD"
-msgstr "Heslo hráča"
-
-msgid "VIEWER PASSWORD"
-msgstr "Heslo prezerača"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "Zobraziť voľby sieťovej hry pri spustení hry"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Umožní vyber online, offline alebo pripojenie inej hry."
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "Zobraziť iba hry cez relay server"
@@ -1073,12 +1064,6 @@ msgstr "Auto"
 msgid "dmd matrix size"
 msgstr "veľkosť matice dmd"
 
-msgid "MATRIX"
-msgstr "Matica"
-
-msgid "rgb dmd order"
-msgstr "poradie rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "Jas"
 
@@ -1199,8 +1184,8 @@ msgstr "Čistenie"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "Vynulovať údaje použitia zoznamov"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "Vynulovať koncovky súborov"
@@ -2014,11 +1999,38 @@ msgstr "Chyba konfigurácie Wi-Fi"
 msgid "QUICK ACCESS"
 msgstr "Rýchly prístup"
 
-msgid "SKIP TO THE NEXT SONG"
-msgstr "Preskočiť na ďalšiu skladbu"
-
 msgid "NOW PLAYING"
 msgstr "Teraz hrá"
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ULOŽIŤ DO OBĽÚBENEJ HUDBY"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopírovať aktuálnu skladbu do priečinka obľúbených"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "POUŽIŤ ADRESÁR OBĽÚBENEJ HUDBY"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Prepnúť používanie adresára obľúbenej hudby"
+
+msgid "Song added to favorite list!"
+msgstr "Pieseň pridaná do zoznamu obľúbených!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Chyba: Nepodarilo sa otvoriť súbor obľúbených."
+
+msgid "No song is currently playing."
+msgstr "Momentálne nehrá žiadna pieseň."
+
+msgid "Favorite music directory activated!"
+msgstr "Adresár obľúbenej hudby aktivovaný!"
+
+msgid "Default music directory activated!"
+msgstr "Predvolený adresár hudby aktivovaný!"
+
+msgid "This song is already in Favorites."
+msgstr "Táto skladba je už v obľúbených."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "Spustiť šetrič obrazovky"
@@ -2195,6 +2207,15 @@ msgstr "Spustiť hru"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "Hostovať sieťovú hru"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "Verejne oznámiť hru"
+
+msgid "PLAYER PASSWORD"
+msgstr "Heslo hráča"
+
+msgid "VIEWER PASSWORD"
+msgstr "Heslo prezerača"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "Nájsť podobné hry..."
@@ -2415,6 +2436,9 @@ msgstr "Zobraziť hry skrytých systémov vo všetkých kolekciách"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "Zobraziť prázdne systémy"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Načítavam..."
 
@@ -2561,9 +2585,6 @@ msgstr "Pripojiť k sieťovej hre"
 msgid "Select a game lobby to join"
 msgstr "Vyberte hernú miestnosť na pripojenie"
 
-msgid "Select a game lobby to create or join"
-msgstr "Vyberte herné lobby na vytvorenie alebo pripojenie"
-
 msgid "FAILED"
 msgstr "Zlyhalo"
 
@@ -2579,14 +2600,11 @@ msgstr "Rovnaký ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "Nedostupné jadro"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr "Hrať online ako hostiteľ"
+msgid "LAN GAMES"
+msgstr ""
 
-msgid "PLAY OFFLINE"
-msgstr "Hrať offline"
-
-msgid "JOIN EXISTING GAME"
-msgstr "Pripojiť sa k hre"
+msgid "ONLINE GAMES"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "Dostupné hry"
@@ -2666,6 +2684,15 @@ msgstr "Zobraziť aktivitu ovládača"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "Zobraziť úroveň batérie ovládača"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
 
 msgid "default"
 msgstr "predvolené"
@@ -2843,6 +2870,15 @@ msgstr "Použiť prehrávač OMX pre šetrič obrazovky"
 
 msgid "SHOW GAME INFO"
 msgstr "Zobraziť informácie o hre"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "Zobraziť markízu ako info o hre"
@@ -3097,8 +3133,8 @@ msgstr "Aktualizujte zoznamy hier na použitie zmien."
 msgid "Loading system config..."
 msgstr "Načítavam systémové nastavenie..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "Ukladanie metadát. Prosím, čakajte..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "Emulátor sa nečakane ukončil"
@@ -3120,6 +3156,9 @@ msgstr "Jadro chýba"
 
 msgid "UKNOWN ERROR"
 msgstr "Neznáma chyba"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "všetky hry"
@@ -3573,6 +3612,37 @@ msgid ""
 msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "Zobraziť voľby sieťovej hry pri spustení hry"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Umožní vyber online, offline alebo pripojenie inej hry."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Vyberte herné lobby na vytvorenie alebo pripojenie"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "Hrať online ako hostiteľ"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "Hrať offline"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "Pripojiť sa k hre"
+
+#~ msgid "MATRIX"
+#~ msgstr "Matica"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "poradie rgb dmd"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "Ukladanie metadát. Prosím, čakajte..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "Zabudnúť bluetooth zariadenie"

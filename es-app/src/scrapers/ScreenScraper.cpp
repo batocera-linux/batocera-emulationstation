@@ -94,7 +94,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ PLAYSTATION, 57 },
 	{ PLAYSTATION_2, 58 },
 	{ PLAYSTATION_3, 59 },
-	// missing Sony Playstation 4 ?
+	{ PLAYSTATION_4, 60 },
 	{ PLAYSTATION_VITA, 62 },
 	{ PLAYSTATION_PORTABLE, 61 },
 	{ SUPER_NINTENDO, 4 },

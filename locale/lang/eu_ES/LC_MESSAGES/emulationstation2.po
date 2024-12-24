@@ -546,19 +546,10 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "JOKOA PUBLIKOKI IRAGARRI"
-
-msgid "PLAYER PASSWORD"
-msgstr "JOKALARI PASAHITZA"
-
-msgid "VIEWER PASSWORD"
-msgstr "IKUSI PASAHITZA"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
-msgid "Allows choice of online, offline, or joining another game."
+msgid "Automatically creates a Netplay lobby when starting a game."
 msgstr ""
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
@@ -1196,7 +1187,7 @@ msgstr "Garbitzen"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2024,6 +2015,36 @@ msgstr "SALTATU HURRENGO ABESTIA"
 msgid "NOW PLAYING"
 msgstr "ORAIN ERREPRODUZITZEN"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GORDE GOGOKO MUSIKAN"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopiatu une honetako abestia gogoko karpetara"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ERABILI GOGOKO MUSIKAREN DIREKTORIOA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Ezkutatu gogoko musika direktorioaren erabilera"
+
+msgid "Song added to favorite list!"
+msgstr "Abestia gogokoen zerrendara gehitu da!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Errorea: Ezin izan da gogokoen fitxategia ireki."
+
+msgid "No song is currently playing."
+msgstr "Ez dago abestirik jotzen une honetan."
+
+msgid "Favorite music directory activated!"
+msgstr "Gogoko musikaren direktorioa aktibatuta!"
+
+msgid "Default music directory activated!"
+msgstr "Musika lehenetsitako direktorioa aktibatuta!"
+
+msgid "This song is already in Favorites."
+msgstr "Abesti hau dagoeneko Gogokoetan dago."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ABIARAZI PANTAILA BABESLEA"
 
@@ -2419,6 +2440,9 @@ msgstr "ERAKUTIS IKUSGAI EZ DIREN JOKOAK KOLEKZIOETAN "
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ERAKUTIS SISTEMA HUTSAK"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Kargatzen..."
 
@@ -2672,6 +2696,9 @@ msgstr "ERAKUTSI KONTROLATZAILE AKTIBITATEA"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ERAKUTSI KONTROLATZAILE BATERIA MAILA"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "defektuz"
@@ -3101,8 +3128,8 @@ msgstr "EGUNERATU JOKO LISTAK ALDAKETAK APLIKATZEKO."
 msgid "Loading system config..."
 msgstr "Kargatu sistemaren konfigurazioa..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULADOREA USTEKABEAK IRTEN DA"
@@ -3567,6 +3594,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr "PISTOLA KALIBRATZENItuei tiro egin kalibratzeko"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "METADATUAK GORDETZEN. ITXOIN PISKA BAT MESEDEZ...."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "AHAZTU BLUETOOTH GAILUA"

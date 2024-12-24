@@ -550,19 +550,10 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公開的遊戲"
-
-msgid "PLAYER PASSWORD"
-msgstr "玩家密碼"
-
-msgid "VIEWER PASSWORD"
-msgstr "觀眾密碼"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
-msgid "Allows choice of online, offline, or joining another game."
+msgid "Automatically creates a Netplay lobby when starting a game."
 msgstr ""
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
@@ -1192,7 +1183,7 @@ msgstr "清理中"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "重設遊戲清單使用記錄"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1996,6 +1987,36 @@ msgstr "跳至下一首歌"
 msgid "NOW PLAYING"
 msgstr "正在播放"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "保存到最愛音樂"
+
+msgid "Copy current song to favorite folder"
+msgstr "將當前歌曲複製到最愛資料夾"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "使用最愛音樂目錄"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "切換最愛音樂目錄的使用"
+
+msgid "Song added to favorite list!"
+msgstr "歌曲已添加到收藏列表！"
+
+msgid "Error: Could not open favorites file."
+msgstr "錯誤：無法打開收藏文件。"
+
+msgid "No song is currently playing."
+msgstr "當前沒有正在播放的歌曲。"
+
+msgid "Favorite music directory activated!"
+msgstr "已啟用收藏音樂目錄！"
+
+msgid "Default music directory activated!"
+msgstr "已啟用默認音樂目錄！"
+
+msgid "This song is already in Favorites."
+msgstr "這首歌已在收藏夾中。"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
 
@@ -2390,6 +2411,9 @@ msgstr "在合輯中顯示已隱藏的遊戲平台的遊戲"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "顯示空的遊戲平台"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -2639,6 +2663,9 @@ msgstr "顯示控制器活動狀態"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "預設值"
@@ -3060,8 +3087,8 @@ msgstr "更新遊戲清單來套用變更。"
 msgid "Loading system config..."
 msgstr "正在載入系統設定..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "正在儲存中繼資料。請稍後..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "模擬器未預期的退出了"
@@ -3520,6 +3547,9 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "正在儲存中繼資料。請稍後..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "忘記藍牙裝置"

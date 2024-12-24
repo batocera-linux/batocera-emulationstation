@@ -12,25 +12,31 @@
 #define OSK_PADDINGY (Renderer::getScreenWidth() * 0.01f)
 
 #define BUTTON_GRID_HORIZ_PADDING (Renderer::getScreenWidth()*0.0052083333)
+#define BUTTON_LAYER_SIZE (4)
 
 std::vector<std::vector<const char*>> kbUs {
 
 	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_", "+", "DEL" },
 	{ "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", "DEL" },
 	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_", "+", "DEL" },
+	{ "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", "DEL" },
 
 	{ "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}", "OK" },
 	{ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "OK" },
+	{ "à", "ä", "è", "ë", "ì", "ï", "ò", "ö", "ù", "ü", "¨", "¿", "OK" },
 	{ "à", "ä", "è", "ë", "ì", "ï", "ò", "ö", "ù", "ü", "¨", "¿", "OK" },
 
 	{ "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "\"", "|", "-rowspan-" },
 	{ "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "'", "\\", "-rowspan-" },
 	{ "á", "â", "é", "ê", "í", "î", "ó", "ô", "ú", "û", "ñ", "¡", "-rowspan-" },
+	{ "á", "â", "é", "ê", "í", "î", "ó", "ô", "ú", "û", "ñ", "¡", "-rowspan-" },
 
 	{ "~", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "ALT", "-colspan-" },
 	{ "`", "Z", "X", "C", "V", "B", "N", "M", "<", ">", "/", "ALT", "-colspan-" },
 	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
+	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
 
+	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" }
@@ -40,24 +46,55 @@ std::vector<std::vector<const char*>> kbFr {
 	{ "&", "é", "\"", "'", "(", "#", "è", "!", "ç", "à", ")", "-", "DEL" },
 	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "@", "_", "DEL" },
 	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "@", "_", "DEL" },
-	
+	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "@", "_", "DEL" },
+
 	{ "a", "z", "e", "r", "t", "y", "u", "i", "o", "p", "^", "$", "OK" },
 	{ "A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P", "¨", "*", "OK" },
+	{ "à", "ä", "ë", "ì", "ï", "ò", "ö", "ü", "\\", "|", "§", "°", "OK" },
 	{ "à", "ä", "ë", "ì", "ï", "ò", "ö", "ü", "\\", "|", "§", "°", "OK" },
 
 	{ "q", "s", "d", "f", "g", "h", "j", "k", "l", "m", "ù", "`", "-rowspan-" },
 	{ "Q", "S", "D", "F", "G", "H", "J", "K", "L", "M", "%", "£", "-rowspan-" },
 	{ "á", "â", "ê", "í", "î", "ó", "ô", "ú", "û", "ñ", "¡", "¿", "-rowspan-" },
+	{ "á", "â", "ê", "í", "î", "ó", "ô", "ú", "û", "ñ", "¡", "¿", "-rowspan-" },
 
 	{ "<", "w", "x", "c", "v", "b", "n", ",", ";", ":", "=", "ALT", "-colspan-" },
 	{ ">", "W", "X", "C", "V", "B", "N", "?", ".", "/", "+", "ALT", "-colspan-" },
 	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
+	{ "€", "", "", "", "", "", "", "", "", "", "", "ALT", "-colspan-" },
 
+	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
 	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" }
 };
 
+std::vector<std::vector<const char*>> kbKr{
+	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "DEL" },
+	{ "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "DEL" },
+	{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "DEL" },
+	{ "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "DEL" },
+
+	{ "ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ", "ㅛ", "ㅕ", "ㅑ", "ㅐ", "ㅔ", "[", "]", "OK" },
+	{ "ㅃ", "ㅉ", "ㄸ", "ㄲ", "ㅆ", "ㅛ", "ㅕ", "ㅑ", "ㅒ", "ㅖ", "{", "}", "OK" },
+	{ "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "OK" },
+	{ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "{", "}", "OK" },
+
+	{ "ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ", "ㅗ", "ㅓ", "ㅏ", "ㅣ", ";", "'", "\\", "-rowspan-" },
+	{ "ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ", "ㅗ", "ㅓ", "ㅏ", "ㅣ", ":", "\"", "|", "-rowspan-" },
+	{ "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\", "-rowspan-" },
+	{ "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "\"", "|", "-rowspan-" },
+
+	{ "ㅋ", "ㅌ", "ㅊ", "ㅍ", "ㅠ", "ㅜ", "ㅡ", ",", ".", "/", "`", "ALT", "-colspan-" },
+	{ "ㅋ", "ㅌ", "ㅊ", "ㅍ", "ㅠ", "ㅜ", "ㅡ", "<", ">", "?", "~", "ALT", "-colspan-" },
+	{ "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "`", "ALT", "-colspan-" },
+	{ "Z", "X", "C", "V", "B", "N", "M", "<", ">", "?", "~", "ALT", "-colspan-" },
+
+	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" },
+	{ "SHIFT", "-colspan-", "SPACE", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "-colspan-", "RESET", "-colspan-", "CANCEL", "-colspan-" }
+};
 
 GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::string& title, const std::string& initValue,
 	const std::function<void(const std::string&)>& okCallback, bool multiLine, const std::string acceptBtnText)
@@ -79,7 +116,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 
 	mTitle = std::make_shared<TextComponent>(mWindow, Utils::String::toUpper(title), theme->Title.font, theme->Title.color, ALIGN_CENTER);
 	
-	mKeyboardGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(kbUs[0].size(), kbUs.size() / 3));
+	mKeyboardGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(kbUs[0].size(), kbUs.size() / BUTTON_LAYER_SIZE));
 
 	mText = std::make_shared<TextEditComponent>(mWindow);
 	mText->setValue(initValue);
@@ -111,18 +148,21 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 
 		if (language == "fr")
 			layout = &kbFr;
+		else if (language == "ko")
+			layout = &kbKr;
 
-		for (unsigned int i = 0; i < layout->size() / 3; i++)
+		for (unsigned int i = 0; i < layout->size() / BUTTON_LAYER_SIZE; i++)
 		{			
 			std::vector<std::shared_ptr<ButtonComponent>> buttons;
 			for (unsigned int j = 0; j < (*layout)[i].size(); j++)
 			{
-				std::string lower = (*layout)[3 * i][j];
+				std::string lower = (*layout)[BUTTON_LAYER_SIZE * i][j];
 				if (lower.empty() || lower == "-rowspan-" || lower == "-colspan-")
 					continue;
 
-				std::string upper = (*layout)[3 * i + 1][j];
-				std::string alted = (*layout)[3 * i + 2][j];
+				std::string upper = (*layout)[BUTTON_LAYER_SIZE * i + 1][j];
+				std::string lowerAlted = (*layout)[BUTTON_LAYER_SIZE * i + 2][j];
+				std::string upperAlted = (*layout)[BUTTON_LAYER_SIZE * i + 3][j];
 
 				std::shared_ptr<ButtonComponent> button = nullptr;
 
@@ -130,7 +170,8 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 				{
 					lower = _U("\uF177");
 					upper = _U("\uF177");
-					alted = _U("\uF177");
+					lowerAlted = _U("\uF177");
+					upperAlted = _U("\uF177");
 				}
 				else if (lower == "OK")
 				{
@@ -139,12 +180,14 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 					if (mMultiLine)
 					{
 						upper = _U("\uF149");
-						alted = _U("\uF149");
+						lowerAlted = _U("\uF149");
+						upperAlted = _U("\uF149");
 					}
 					else
 					{
 						upper = _U("\uF058");
-						alted = _U("\uF058");
+						lowerAlted = _U("\uF058");
+						upperAlted = _U("\uF058");
 					}
 				}
 				else if (lower == "SPACE")
@@ -156,7 +199,8 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 				{
 					lower = _(lower.c_str());
 					upper = _(upper.c_str());
-					alted = _(alted.c_str());
+					lowerAlted = _(lowerAlted.c_str());
+					upperAlted = _(upperAlted.c_str());
 				}
 
 				if (lower == "SHIFT")
@@ -171,7 +215,7 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 					button = mAltButton;
 				}
 				else
-					button = makeButton(lower, upper, alted);
+					button = makeButton(lower, upper, lowerAlted, upperAlted);
 
 				button->setPadding(Vector4f(BUTTON_GRID_HORIZ_PADDING / 4.0f, BUTTON_GRID_HORIZ_PADDING / 4.0f, BUTTON_GRID_HORIZ_PADDING / 4.0f, BUTTON_GRID_HORIZ_PADDING / 4.0f));
 				button->setRenderNonFocusedBackground(false);
@@ -180,14 +224,14 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 				int colSpan = 1;
 				for (unsigned int cs = j + 1; cs < (*layout)[i].size(); cs++)
 				{
-					if (std::string((*layout)[3 * i][cs]) == "-colspan-")
+					if (std::string((*layout)[BUTTON_LAYER_SIZE * i][cs]) == "-colspan-")
 						colSpan++;
 					else
 						break;
 				}
 				
 				int rowSpan = 1;
-				for (unsigned int cs = (3 * i) + 3; cs < layout->size(); cs += 3)
+				for (unsigned int cs = (BUTTON_LAYER_SIZE * i) + BUTTON_LAYER_SIZE; cs < layout->size(); cs += BUTTON_LAYER_SIZE)
 				{
 					if (std::string((*layout)[cs][j]) == "-rowspan-")
 						rowSpan++;
@@ -229,7 +273,8 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		{		
 			if (mGrid.getSelectedComponent() == mKeyboardGrid)
 			{
-				mKeyboardGrid->moveCursor(Vector2i(kbUs[0].size() - 1, 0));
+				Vector2i curCursor = mKeyboardGrid->getCursor();
+				mKeyboardGrid->setCursorTo(Vector2i(kbUs[0].size() - 1, curCursor.y()));
 				return true;
 			}
 		}
@@ -237,7 +282,8 @@ GuiTextEditPopupKeyboard::GuiTextEditPopupKeyboard(Window* window, const std::st
 		{
 			if (mGrid.getSelectedComponent() == mKeyboardGrid)
 			{
-				mKeyboardGrid->moveCursor(Vector2i(-kbUs[0].size() + 1, 0));
+				Vector2i curCursor = mKeyboardGrid->getCursor();
+				mKeyboardGrid->setCursorTo(Vector2i(0, curCursor.y()));
 				return true;
 			}
 		}
@@ -353,59 +399,51 @@ bool GuiTextEditPopupKeyboard::input(InputConfig* config, Input input)
 	return false;
 }
 
-// Shifts the keys when user hits the shift button.
-void GuiTextEditPopupKeyboard::shiftKeys() 
+void GuiTextEditPopupKeyboard::toggleKeyState(bool& state, std::shared_ptr<ButtonComponent>& button)
 {
-	if (mAlt && !mShift)
-		altKeys();
+	state = !state;
 
-	mShift = !mShift;
-
-	if (mShift)
+	if (state)
 	{
-		mShiftButton->setRenderNonFocusedBackground(true);
-		mShiftButton->setColorShift(0xFF0000FF);
+		button->setRenderNonFocusedBackground(true);
+		button->setColorShift(0xFF0000FF);
 	}
 	else
 	{
-		mShiftButton->setRenderNonFocusedBackground(false);
-		mShiftButton->removeColorShift();
+		button->setRenderNonFocusedBackground(false);
+		button->removeColorShift();
 	}
 
-	for (auto & kb : keyboardButtons)
+	updateKeyboardButtons();
+}
+
+void GuiTextEditPopupKeyboard::updateKeyboardButtons()
+{
+	for (auto& kb : keyboardButtons)
 	{
-		const std::string& text = mShift ? kb.shiftedKey : kb.key;
+		const std::string& text = (mAlt && mShift) ? kb.altedShiftedKey
+			: (mAlt) ? kb.altedKey
+			: (mShift) ? kb.shiftedKey
+			: kb.key;
+
 		auto sz = kb.button->getSize();
 		kb.button->setText(text, text, false);
 		kb.button->setSize(sz);
 	}
 }
 
+// Shifts the keys when user hits the shift button.
+void GuiTextEditPopupKeyboard::shiftKeys() 
+{
+	toggleKeyState(mShift, mShiftButton);
+}
+
 void GuiTextEditPopupKeyboard::altKeys()
 {
-	if (mShift && !mAlt)
-		shiftKeys();
+	if (mShift)
+		toggleKeyState(mShift, mShiftButton);
 
-	mAlt = !mAlt;
-
-	if (mAlt)
-	{
-		mAltButton->setRenderNonFocusedBackground(true);
-		mAltButton->setColorShift(0xFF0000FF);
-	}
-	else
-	{
-		mAltButton->setRenderNonFocusedBackground(false);
-		mAltButton->removeColorShift();
-	}
-
-	for (auto & kb : keyboardButtons)
-	{
-		const std::string& text = mAlt ? kb.altedKey : kb.key;
-		auto sz = kb.button->getSize();
-		kb.button->setText(text, text, false);
-		kb.button->setSize(sz);
-	}
+	toggleKeyState(mAlt, mAltButton);
 }
 
 std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
@@ -423,9 +461,9 @@ std::vector<HelpPrompt> GuiTextEditPopupKeyboard::getHelpPrompts()
 	return prompts;
 }
 
-std::shared_ptr<ButtonComponent> GuiTextEditPopupKeyboard::makeButton(const std::string& key, const std::string& shiftedKey, const std::string& altedKey)
+std::shared_ptr<ButtonComponent> GuiTextEditPopupKeyboard::makeButton(const std::string& key, const std::string& shiftedKey, const std::string& altedKey, const std::string& altedShiftedKey)
 {
-	std::shared_ptr<ButtonComponent> button = std::make_shared<ButtonComponent>(mWindow, key, key, [this, key, shiftedKey, altedKey]
+	std::shared_ptr<ButtonComponent> button = std::make_shared<ButtonComponent>(mWindow, key, key, [this, key, shiftedKey, altedKey, altedShiftedKey]
 	{						
 		if (key == _U("\uF058") || key.find("OK") != std::string::npos)
 		{	
@@ -462,22 +500,34 @@ std::shared_ptr<ButtonComponent> GuiTextEditPopupKeyboard::makeButton(const std:
 			return;
 		}
 
-		if (mAlt && altedKey.empty())
-			return;
+		if (mAlt)
+		{
+			if (mShift && altedShiftedKey.empty())
+				return;
+			if (altedKey.empty())
+				return;
+		}
 
 		mText->startEditing();
 
-		if (mAlt)
-			mText->textInput(altedKey.c_str());
+		const char* text;
+		if (mAlt && mShift)
+			text = altedShiftedKey.c_str();
+		else if (mAlt)
+			text = altedKey.c_str();
 		else if (mShift)
-			mText->textInput(shiftedKey.c_str());
+			text = shiftedKey.c_str();
 		else
-			mText->textInput(key.c_str());
+			text = key.c_str();
+		mText->textInput(text);
 
 		mText->stopEditing();
+
+		if (Utils::String::isKorean(text) && mShift)
+			shiftKeys();
 	}, false);
 	
-	KeyboardButton kb(button, key, shiftedKey, altedKey);
+	KeyboardButton kb(button, key, shiftedKey, altedKey, altedShiftedKey);
 	keyboardButtons.push_back(kb);
 	return button;
 }

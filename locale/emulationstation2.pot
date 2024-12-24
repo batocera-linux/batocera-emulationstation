@@ -553,27 +553,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
@@ -1064,12 +1043,6 @@ msgstr ""
 msgid "dmd matrix size"
 msgstr ""
 
-msgid "MATRIX"
-msgstr ""
-
-msgid "rgb dmd order"
-msgstr ""
-
 msgid "BRIGHTNESS"
 msgstr ""
 
@@ -1188,7 +1161,7 @@ msgstr ""
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2164,6 +2137,15 @@ msgstr ""
 msgid "HOST A NETPLAY GAME"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
 msgid "FIND SIMILAR GAMES..."
 msgstr ""
 
@@ -2381,6 +2363,9 @@ msgstr ""
 msgid "SHOW EMPTY SYSTEMS"
 msgstr ""
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr ""
 
@@ -2524,9 +2509,6 @@ msgstr ""
 msgid "Select a game lobby to join"
 msgstr ""
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr ""
 
@@ -2542,13 +2524,10 @@ msgstr ""
 msgid "UNAVAILABLE CORE"
 msgstr ""
 
-msgid "PLAY ONLINE AS HOST"
+msgid "LAN GAMES"
 msgstr ""
 
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
+msgid "ONLINE GAMES"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2624,6 +2603,15 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2801,6 +2789,15 @@ msgid "USE OMX PLAYER FOR SCREENSAVER"
 msgstr ""
 
 msgid "SHOW GAME INFO"
+msgstr ""
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
 msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
@@ -3046,7 +3043,7 @@ msgstr ""
 msgid "Loading system config..."
 msgstr ""
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
@@ -3068,6 +3065,9 @@ msgid "CORE IS MISSING"
 msgstr ""
 
 msgid "UKNOWN ERROR"
+msgstr ""
+
+msgid "Interlaced"
 msgstr ""
 
 msgid "all games"

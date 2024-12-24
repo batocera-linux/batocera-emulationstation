@@ -554,19 +554,10 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
+msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
+msgid "Automatically creates a Netplay lobby when starting a game."
 msgstr ""
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
@@ -1189,7 +1180,7 @@ msgstr "Yn glanhau "
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1985,10 +1976,40 @@ msgid "QUICK ACCESS"
 msgstr "MYNEDIAD CYFLYM"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "NEIDIO I’R GÂN NESAF"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "YN CHWARAE NAWR"
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "CADW I GERDDORIAETH FFAVORIT"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copïo’r gân gyfredol i’r ffolder ffefryn"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "DEFNYDDIO CYFEIRLYFR CERDDORIAETH FFAVORIT"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Toglo defnydd o’r cyfeirlyfr cerddoriaeth ffefryn"
+
+msgid "Song added to favorite list!"
+msgstr "Ychwanegwyd cân at y rhestr ffefryn!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Gwall: Methu agor y ffeil ffefrynnau."
+
+msgid "No song is currently playing."
+msgstr "Nid oes cân yn chwarae ar hyn o bryd."
+
+msgid "Favorite music directory activated!"
+msgstr "Wedi actifadu cyfeirlyfr cerddoriaeth ffefryn!"
+
+msgid "Default music directory activated!"
+msgstr "Wedi actifadu cyfeirlyfr cerddoriaeth rhagosodedig!"
+
+msgid "This song is already in Favorites."
+msgstr "Mae'r gân hon eisoes yn y Ffefrynnau."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSIO ARBEDYDD SGRIN"
@@ -2384,6 +2405,9 @@ msgstr "DANGOS ENW'R SYSTEMAU CUDD MEWN CASGLIADAU"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr ""
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Llwytho..."
 
@@ -2627,6 +2651,9 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "DANGOS GWEITHGARWCH RHEOLYDD"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
 msgstr ""
 
 msgid "default"
@@ -3066,8 +3093,8 @@ msgstr ""
 msgid "Loading system config..."
 msgstr "Llwytho system ffurfweddu..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr ""
@@ -3562,6 +3589,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "ARBED METADATAS. ARHOSWCH OS GWELWCH YN DDA..."
 
 #~ msgid "Achievements won"
 #~ msgstr "Cyflawniadau a enillwyd"

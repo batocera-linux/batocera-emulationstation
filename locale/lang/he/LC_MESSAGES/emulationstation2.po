@@ -552,27 +552,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "הכרז ציבורית על משחק"
-
-msgid "PLAYER PASSWORD"
-msgstr "סיסמת שחקן"
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "הצג משחקים לא זמינים"
 
@@ -1063,12 +1042,6 @@ msgstr "אוטומטי"
 msgid "dmd matrix size"
 msgstr ""
 
-msgid "MATRIX"
-msgstr ""
-
-msgid "rgb dmd order"
-msgstr ""
-
 msgid "BRIGHTNESS"
 msgstr "בהירות"
 
@@ -1187,7 +1160,7 @@ msgstr "מנקה"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1988,6 +1961,36 @@ msgstr "דילוג על השיר הבא"
 msgid "NOW PLAYING"
 msgstr "מנגן"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "שמור במוזיקה המועדפת"
+
+msgid "Copy current song to favorite folder"
+msgstr "העתק את השיר הנוכחי לתיקיית המועדפים"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "השתמש בתיקיית המוזיקה המועדפת"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "הפעל או בטל את השימוש בתיקיית המוזיקה המועדפת"
+
+msgid "Song added to favorite list!"
+msgstr "השיר נוסף לרשימת המועדפים!"
+
+msgid "Error: Could not open favorites file."
+msgstr "שגיאה: לא ניתן לפתוח את קובץ המועדפים."
+
+msgid "No song is currently playing."
+msgstr "אין שיר שמתנגן כרגע."
+
+msgid "Favorite music directory activated!"
+msgstr "תיקיית המוזיקה המועדפת הופעלה!"
+
+msgid "Default music directory activated!"
+msgstr "תיקיית המוזיקה המוגדרת כברירת מחדל הופעלה!"
+
+msgid "This song is already in Favorites."
+msgstr "השיר הזה כבר נמצא במועדפים."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
 
@@ -2162,6 +2165,15 @@ msgstr "התחל משחק"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "ארח משחק רשת"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "הכרז ציבורית על משחק"
+
+msgid "PLAYER PASSWORD"
+msgstr "סיסמת שחקן"
+
+msgid "VIEWER PASSWORD"
+msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "מציאת משחקים דומים..."
@@ -2380,6 +2392,9 @@ msgstr "הצג משחקים של מערכות נסתרות באוספי משחק
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "הצג מערכות ללא משחקים"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "טוען..."
 
@@ -2523,11 +2538,11 @@ msgstr "התחברות לרשת NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "בחר לובי משחק בכדי להתחבר"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "נכשל"
+
+msgid "NO GAMES FOUND"
+msgstr "לא נמצאו משחקים"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "גרסה לא ידועה ROM"
@@ -2541,13 +2556,7 @@ msgstr "אותו ה ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "ליבה לא זמינה"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
+msgid "ONLINE GAMES"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2556,8 +2565,8 @@ msgstr "משחקים זמנים"
 msgid "UNAVAILABLE GAMES"
 msgstr "משחקים לא זמינים"
 
-msgid "NO GAMES FOUND"
-msgstr "לא נמצאו משחקים"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "הצטרפות למשחק"
@@ -2624,6 +2633,15 @@ msgstr "הצגת פעילות בקר"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "הצגת רמת סוללה לבקר"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
 
 msgid "default"
 msgstr "ברירת מחדל"
@@ -2801,6 +2819,15 @@ msgstr "שימוש בנגן OMX לשומר מסך"
 
 msgid "SHOW GAME INFO"
 msgstr "הצגת מידע על משחק"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "השתמש בדגל במידע על משחק"
@@ -3053,7 +3080,7 @@ msgstr ""
 msgid "Loading system config..."
 msgstr "טוען הגדרות מערכת"
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
@@ -3075,6 +3102,9 @@ msgid "CORE IS MISSING"
 msgstr ""
 
 msgid "UKNOWN ERROR"
+msgstr ""
+
+msgid "Interlaced"
 msgstr ""
 
 msgid "all games"

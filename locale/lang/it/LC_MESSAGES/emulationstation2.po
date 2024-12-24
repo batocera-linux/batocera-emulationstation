@@ -551,20 +551,11 @@ msgstr "PERSONALIZZATO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "RELAY SERVER PERSONALIZZATO"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANNUNCIA PUBBLICAMENTE LA PARTITA"
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
 
-msgid "PLAYER PASSWORD"
-msgstr "PASSWORD GIOCATORE"
-
-msgid "VIEWER PASSWORD"
-msgstr "PASSWORD SPETTATORE"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "MOSTRA OPZIONI NETPLAY QUANDO LANCI IL GIOCO"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permette di scegliere se online, offline o partecipare ad un altro gioco."
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRA SOLO I GIOCHI RELAY SERVER"
@@ -1072,12 +1063,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dimensioni matrice dmd"
 
-msgid "MATRIX"
-msgstr "MATRICE"
-
-msgid "rgb dmd order"
-msgstr "ordine rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÀ"
 
@@ -1199,8 +1184,8 @@ msgstr "Pulizia"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESETTA I DATI DI UTILIZZO GAMELISTS"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr "Resetta i valori metadata di GameTime, PlayCount e LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESETTA ESTENSIONI FILE"
@@ -2023,6 +2008,36 @@ msgstr "PASSA ALLA TRACCIA SUCCESSIVA"
 msgid "NOW PLAYING"
 msgstr "IN ASCOLTO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SALVA NELLA MUSICA PREFERITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copia la canzone attuale nella cartella preferita"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USA LA CARTELLA DELLA MUSICA PREFERITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Attiva o disattiva l'uso della cartella della musica preferita"
+
+msgid "Song added to favorite list!"
+msgstr "Canzone aggiunta alla lista dei preferiti!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Errore: impossibile aprire il file dei preferiti."
+
+msgid "No song is currently playing."
+msgstr "Nessuna canzone è in riproduzione."
+
+msgid "Favorite music directory activated!"
+msgstr "Cartella della musica preferita attivata!"
+
+msgid "Default music directory activated!"
+msgstr "Cartella della musica predefinita attivata!"
+
+msgid "This song is already in Favorites."
+msgstr "Questa canzone è già tra i Preferiti."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
 
@@ -2198,6 +2213,15 @@ msgstr "INIZIA LA PARTITA"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "OSPITA UNA PARTITA NETPLAY"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANNUNCIA PUBBLICAMENTE LA PARTITA"
+
+msgid "PLAYER PASSWORD"
+msgstr "PASSWORD GIOCATORE"
+
+msgid "VIEWER PASSWORD"
+msgstr "PASSWORD SPETTATORE"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCA GIOCHI SIMILI..."
@@ -2418,6 +2442,9 @@ msgstr "MOSTRA I GIOCHI DEI SISTEMI NASCOSTI NELLE COLLEZIONI"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRA SISTEMI VUOTI"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr "NON MOSTRARE GRUPPI CON UN SOLO SISTEMA"
+
 msgid "Loading..."
 msgstr "Caricamento..."
 
@@ -2563,9 +2590,6 @@ msgstr "COLLEGATI SU NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Seleziona una stanza di gioco a cui unirti"
 
-msgid "Select a game lobby to create or join"
-msgstr "Scegli una lobby gioco da creare o entrare"
-
 msgid "FAILED"
 msgstr "FALLITO"
 
@@ -2581,14 +2605,11 @@ msgstr "ROM UGUALE"
 msgid "UNAVAILABLE CORE"
 msgstr "CORE NON DISPONIBILE"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr "GIOCA ONLINE COME HOST"
+msgid "LAN GAMES"
+msgstr "GIOCHI LAN"
 
-msgid "PLAY OFFLINE"
-msgstr "GIOCA OFFLINE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "UNISCITI A GIOCO ESISTENTE"
+msgid "ONLINE GAMES"
+msgstr "GIOCHI ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "GIOCHI DISPONIBILI"
@@ -2668,6 +2689,15 @@ msgstr "MOSTRA ATTIVITÀ CONTROLLER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRA LIVELLO BATTERIA DEL CONTROLLER"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr "DISEGNA MIRINO"
+
+msgid "BEHAVIOR"
+msgstr "COMPORTAMENTO"
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr "LIMITA HOTKEYS ALL'USCITA"
 
 msgid "default"
 msgstr "default"
@@ -2845,6 +2875,15 @@ msgstr "UTILIZZA PLAYER OMX PER IL SALVASCHERMO"
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRA INFORMAZIONI DEL GIOCO"
+
+msgid "SHOW DATE TIME"
+msgstr "MOSTRA L'ORA"
+
+msgid "DATE FORMAT"
+msgstr "FORMATO DATA"
+
+msgid "TIME FORMAT"
+msgstr "FORMATO ORA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USA BANNER COME INFO DI GIOCO"
@@ -3097,8 +3136,8 @@ msgstr "AGGIORNA LISTE DEI GIOCHI PER APPLICARE I CAMBIAMENTI"
 msgid "Loading system config..."
 msgstr "Caricamento configurazione di sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr "SALVATAGGIO METADATA, ASPETTA..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "CHIUSURA INASPETTATA DELL'EMULATORE"
@@ -3120,6 +3159,9 @@ msgstr "CORE MANCANTE"
 
 msgid "UKNOWN ERROR"
 msgstr "ERRORE SCONOSCIUTO"
+
+msgid "Interlaced"
+msgstr "Interlacciato"
 
 msgid "all games"
 msgstr "tutti i giochi"
@@ -3566,6 +3608,37 @@ msgid ""
 msgstr ""
 "CALIBRAZIONE PISTOLA\n"
 "Spara sui bersagli per calibrare"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "MOSTRA OPZIONI NETPLAY QUANDO LANCI IL GIOCO"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr ""
+#~ "Permette di scegliere se online, offline o partecipare ad un altro gioco."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Scegli una lobby gioco da creare o entrare"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "GIOCA ONLINE COME HOST"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "GIOCA OFFLINE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "UNISCITI A GIOCO ESISTENTE"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRICE"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordine rgb dmd"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ELIMINA UN DISPOSITIVO BLUETOOTH"

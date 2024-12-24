@@ -43,14 +43,14 @@ void GuiCollectionSystemsOptions::initializeMenu()
 				man = system->getSystemMetadata().manufacturer;
 			}
 
-			displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());
+			displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend(), false);
 		}
 	}
 	else
 	{
 		for (auto system : SystemData::sSystemVector)
 			if (!system->isCollection()/* && !system->isGroupChildSystem()*/)
-				displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend());
+				displayedSystems->add(system->getFullName(), system, std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) == hiddenSystems.cend(), false);
 	}
 
 	addWithLabel(_("SYSTEMS DISPLAYED"), displayedSystems);

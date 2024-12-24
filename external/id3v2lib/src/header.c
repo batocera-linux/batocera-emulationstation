@@ -44,7 +44,14 @@ ID3v2_header* get_tag_header(const char* file_name)
         return NULL;
     }
 
-    fread(buffer, ID3_HEADER, 1, file);
+    size_t bytesRead = fread(buffer, ID3_HEADER, 1, file);
+    if (bytesRead != 1)
+    {
+        perror("Error reading file");
+        fclose(file);
+        return NULL;
+    }
+
     fclose(file);
     return get_tag_header_with_buffer(buffer, ID3_HEADER);
 }

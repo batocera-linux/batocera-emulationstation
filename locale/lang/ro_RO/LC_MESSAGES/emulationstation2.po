@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-11-25 23:59+0200\n"
+"PO-Revision-Date: 2025-03-01 22:07+0200\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -551,20 +551,11 @@ msgstr "PERSONALIZAT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNȚĂ PUBLIC JOCUL"
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CREEAZĂ O SALĂ AUTOMAT"
 
-msgid "PLAYER PASSWORD"
-msgstr "PAROLĂ JUCĂTORI"
-
-msgid "VIEWER PASSWORD"
-msgstr "PAROLĂ SPECTATORI"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "ARATĂ OPȚIUNILE NETPLAY LA LANSAREA JOCULUI"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permite alegerea online, offline sau alăturarea la un alt joc."
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Creează automat o sală Netplay la lansarea unui joc."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
@@ -1079,12 +1070,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "mărime matrice dmd"
 
-msgid "MATRIX"
-msgstr "MATRICE"
-
-msgid "rgb dmd order"
-msgstr "ordine dmd rgb"
-
 msgid "BRIGHTNESS"
 msgstr "LUMINOZITATE"
 
@@ -1206,10 +1191,10 @@ msgstr "Se curăță"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESETEAZĂ DATELE STATISTICE DIN LISTELE DE JOCURI"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Resetează valorile pentru metadatele timpului de joc, numărul de jocuri și "
-"jucat ultima dată."
+"Resetează valorile pentru metadatele: timpul în joc, numărul de partide și "
+"ultima dată jucat."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESETEAZĂ EXTENSIILE FIȘIERELOR"
@@ -2038,6 +2023,36 @@ msgstr "TRECI LA URMĂTORUL CÂNTEC"
 msgid "NOW PLAYING"
 msgstr "ACUM SE REDĂ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SALVEAZĂ ÎN MUZICA FAVORITĂ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiază melodia actuală în folderul favorit"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILIZEAZĂ DIRECTORUL DE MUZICĂ FAVORITĂ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Comută utilizarea directorului de muzică favorită"
+
+msgid "Song added to favorite list!"
+msgstr "Melodia a fost adăugată la lista de favorite!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Eroare: Nu s-a putut deschide fișierul de favorite."
+
+msgid "No song is currently playing."
+msgstr "Nicio melodie nu este redată în prezent."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorul de muzică preferat a fost activat!"
+
+msgid "Default music directory activated!"
+msgstr "Directorul de muzică implicit a fost activat!"
+
+msgid "This song is already in Favorites."
+msgstr "Această melodie este deja în Favorite."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSEAZĂ ECONOMIZORUL DE ECRAN"
 
@@ -2214,6 +2229,15 @@ msgstr "ÎNCEPE JOCUL"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "GĂZDUIEȘTE UN JOC NETPLAY"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNȚĂ PUBLIC JOCUL"
+
+msgid "PLAYER PASSWORD"
+msgstr "PAROLĂ JUCĂTORI"
+
+msgid "VIEWER PASSWORD"
+msgstr "PAROLĂ SPECTATORI"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "GĂSEȘTE JOCURI SIMILARE..."
@@ -2434,6 +2458,9 @@ msgstr "ARATĂ JOCURILE SISTEMELOR ASCUNSE ÎN COLECȚII"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ARATĂ SISTEMELE GOALE"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr "NU AFIȘA GRUPURI CARE CONȚIN UN SINGUR SISTEM"
+
 msgid "Loading..."
 msgstr "Se încarcă..."
 
@@ -2579,9 +2606,6 @@ msgstr "CONECTEAZĂ-TE LA NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Alege o sală pentru te alătura"
 
-msgid "Select a game lobby to create or join"
-msgstr "Alege o sală pentru a crea sau a te alătura"
-
 msgid "FAILED"
 msgstr "EȘUAT"
 
@@ -2597,14 +2621,11 @@ msgstr "ACELAȘI ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NUCLEU INDISPONIBIL"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr "JOACĂ ONLINE CA GAZDĂ"
+msgid "LAN GAMES"
+msgstr "JOCURI ÎN REȚEA"
 
-msgid "PLAY OFFLINE"
-msgstr "JOACĂ OFFLINE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "ALĂTURĂ-TE LA UN JOC EXISTENT"
+msgid "ONLINE GAMES"
+msgstr "JOCURI ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOCURI DISPONIBILE"
@@ -2685,6 +2706,15 @@ msgstr "AFIȘEAZĂ ACTIVITATEA CONTROLERELOR"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFIȘEAZĂ NIVELUL BATERIEI CONTROLERELOR"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr "DESENEAZĂ ȚINTĂ PISTOL"
+
+msgid "BEHAVIOR"
+msgstr "COMPORTAMENT"
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr "LIMITEAZĂ TASTELE RAPIDE DE IEȘIRE"
 
 msgid "default"
 msgstr "implicit"
@@ -2862,6 +2892,15 @@ msgstr "FOLOSEȘTE OMX PLAYER PENTRU ECONOMIZORUL DE ECRAN"
 
 msgid "SHOW GAME INFO"
 msgstr "AFIȘEAZĂ INFORMAȚII JOC"
+
+msgid "SHOW DATE TIME"
+msgstr "ARATĂ DATA ȘI ORA"
+
+msgid "DATE FORMAT"
+msgstr "FORMAT DATĂ"
+
+msgid "TIME FORMAT"
+msgstr "FORMAT ORĂ"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "FOLOSEȘTE BANNER CA INFORMAȚII JOC"
@@ -3118,7 +3157,7 @@ msgstr "ACTUALIZEAZĂ LISTELE DE JOCURI PENTRU A APLICA MODIFICĂRILE."
 msgid "Loading system config..."
 msgstr "Se încarcă configurația de sistem..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "SE SALVEAZĂ METADATELE. TE ROG AȘTEAPTĂ..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
@@ -3141,6 +3180,9 @@ msgstr "NUCLEUL LIPSEȘTE"
 
 msgid "UKNOWN ERROR"
 msgstr "EROARE NECUNOSCUTĂ"
+
+msgid "Interlaced"
+msgstr "Intercalat"
 
 msgid "all games"
 msgstr "toate jocurile"
@@ -3595,6 +3637,38 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "ARATĂ OPȚIUNILE NETPLAY LA LANSAREA JOCULUI"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Permite alegerea online, offline sau alăturarea la un alt joc."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Alege o sală pentru a crea sau a te alătura"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "JOACĂ ONLINE CA GAZDĂ"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "JOACĂ OFFLINE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "ALĂTURĂ-TE LA UN JOC EXISTENT"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRICE"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordine dmd rgb"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Resetează valorile pentru metadatele timpului de joc, numărul de jocuri "
+#~ "și jucat ultima dată."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SE SALVEAZĂ METADATELE. TE ROG AȘTEAPTĂ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ELIMINĂ UN DISPOZITIV BLUETOOTH"

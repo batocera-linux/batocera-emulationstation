@@ -67,20 +67,26 @@ std::string TextEditComponent::getValue() const
 
 void TextEditComponent::textInput(const char* text)
 {
-	if(mEditing)
+	if (mEditing)
 	{
 		mCursorRepeatDir = 0;
-		if(text[0] == '\b')
+		if (text[0] == '\b')
 		{
-			if(mCursor > 0)
+			if (mCursor > 0)
 			{
 				size_t newCursor = Utils::String::prevCursor(mText, mCursor);
 				mText.erase(mText.begin() + newCursor, mText.begin() + mCursor);
 				mCursor = (unsigned int)newCursor;
 			}
-		}else{
+		}
+		else if (mCursor > 2 && Utils::String::isKorean(text) && Utils::String::isKorean(mText.substr(mCursor - 3, 3).c_str()))
+		{
+			Utils::String::koreanTextInput(text, mText, mCursor);
+		}
+		else {
 			mText.insert(mCursor, text);
-			mCursor += (unsigned int)strlen(text);
+			size_t newCursor = Utils::String::nextCursor(mText, mCursor);
+			mCursor = (unsigned int)newCursor;
 		}
 	}
 

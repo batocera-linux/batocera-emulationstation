@@ -41,6 +41,7 @@
 #include "Scripting.h"
 #include "watchers/WatchersManager.h"
 #include "HttpReq.h"
+#include <thread>
 
 #ifdef WIN32
 #include <Windows.h>

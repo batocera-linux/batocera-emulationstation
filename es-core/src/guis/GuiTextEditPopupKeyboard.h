@@ -26,15 +26,18 @@ private:
 		const std::string key;
 		const std::string shiftedKey;
 		const std::string altedKey;
-		KeyboardButton(const std::shared_ptr<ButtonComponent> b, const std::string& k, const std::string& sk, const std::string& ak) : button(b), key(k), shiftedKey(sk), altedKey(ak) {};
+		const std::string altedShiftedKey;
+		KeyboardButton(const std::shared_ptr<ButtonComponent> b, const std::string& k, const std::string& sk, const std::string& ak, const std::string& ask) : button(b), key(k), shiftedKey(sk), altedKey(ak), altedShiftedKey(ask) {};
 	};
 	
-	std::shared_ptr<ButtonComponent> makeButton(const std::string& key, const std::string& shiftedKey, const std::string& altedKey);
+	std::shared_ptr<ButtonComponent> makeButton(const std::string& key, const std::string& shiftedKey, const std::string& altedKey, const std::string& altedShiftedKey);
 	std::vector<KeyboardButton> keyboardButtons;
 	
 	std::shared_ptr<ButtonComponent> mShiftButton;	
 	std::shared_ptr<ButtonComponent> mAltButton;
 
+	void toggleKeyState(bool& state, std::shared_ptr<ButtonComponent>& button);
+	void updateKeyboardButtons();
 	void shiftKeys();
 	void altKeys();
 

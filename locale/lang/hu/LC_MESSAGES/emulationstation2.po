@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-30 05:49+0100\n"
+"PO-Revision-Date: 2025-01-09 13:58+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -549,29 +549,6 @@ msgstr "EGYEDI"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGYÉNI RELAY SZERVER"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "JÁTÉK PUBLIKUS INDÍTÁSA"
-
-msgid "PLAYER PASSWORD"
-msgstr "JÁTÉKOS JELSZAVA"
-
-msgid "VIEWER PASSWORD"
-msgstr "NÉZŐ JELSZAVA"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "NETPLAY BEÁLLÍTÁSOK MEGJELENÍTÉSE JÁTÉK INDÍTÁSAKOR"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-"Lehetővé teszi az online és offline választást, vagy egy másik játékhoz való "
-"csatlakozást."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK MEGJELENÍTÉSE"
 
@@ -1075,12 +1052,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dmd mátrix méret"
 
-msgid "MATRIX"
-msgstr "MÁTRIX"
-
-msgid "rgb dmd order"
-msgstr "rgb dmd sorrend"
-
 msgid "BRIGHTNESS"
 msgstr "FÉNYERŐ"
 
@@ -1203,8 +1174,9 @@ msgstr "Tisztítás"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "A JÁTÉKLISTÁK HASZNÁLATI ADATAINAK VISSZAÁLLÍTÁSA"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
+"A GameTime, PlayCount és LastPlayed metaadatok értékeinek visszaállítása."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "FÁJL KITERJESZTÉSEK VISSZAÁLLÍTÁSA"
@@ -2038,6 +2010,36 @@ msgstr "UGRÁS A KÖVETKEZŐ DALRA"
 msgid "NOW PLAYING"
 msgstr "MOST JÁTSZOTT"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "MENTÉS A KEDVENC ZENÉK KÖZÉ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Másolja az aktuális dalt a kedvenc mappába"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "KEDVENC ZENE KÖNYVTÁR HASZNÁLATA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Kedvenc zene könyvtár használatának váltása"
+
+msgid "Song added to favorite list!"
+msgstr "A dal hozzáadva a kedvencek listájához!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Hiba: Nem sikerült megnyitni a kedvencek fájlt."
+
+msgid "No song is currently playing."
+msgstr "Jelenleg nem szól zene."
+
+msgid "Favorite music directory activated!"
+msgstr "Kedvenc zenei könyvtár aktiválva!"
+
+msgid "Default music directory activated!"
+msgstr "Alapértelmezett zenei könyvtár aktiválva!"
+
+msgid "This song is already in Favorites."
+msgstr "Ez a dal már a kedvencek között van."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "KÉPERNYŐVÉDŐ INDÍTÁSA"
 
@@ -2214,6 +2216,15 @@ msgstr "JÁTÉK INDÍTÁS"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "HÁZIGAZDA NETES JÁTÉK"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "JÁTÉK PUBLIKUS INDÍTÁSA"
+
+msgid "PLAYER PASSWORD"
+msgstr "JÁTÉKOS JELSZAVA"
+
+msgid "VIEWER PASSWORD"
+msgstr "NÉZŐ JELSZAVA"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "HASONLÓ JÁTÉKOK KERESÉSE..."
@@ -2434,6 +2445,10 @@ msgstr "ELREJTETT JÁTÉKOK MEGJELENÍTÉSE A GYŰJTEMÉNYEKBEN"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ÜRES RENDSZEREK MEGJELENÍTÉSE"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+"NE JELENÍTSE MEG AZOKAT A CSOPORTOKAT, AMELYEKBEN CSAK EGY RENDSZER VAN"
+
 msgid "Loading..."
 msgstr "Betöltés..."
 
@@ -2579,13 +2594,11 @@ msgstr "CSATLAKOZÁS NETPLAY-HEZ"
 msgid "Select a game lobby to join"
 msgstr "Válassza ki azt a játéklobbyt, amelyhez csatlakozni szeretne"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-"Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez "
-"csatlakozni szeretne"
-
 msgid "FAILED"
 msgstr "SIKERTELEN"
+
+msgid "NO GAMES FOUND"
+msgstr "NEM TALÁLHATÓ JÁTÉK"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "ISMERETLEN ROM VERZIÓ"
@@ -2599,14 +2612,8 @@ msgstr "AZONOS ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NEM ELÉRHETŐ CORE"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr "ONLINE JÁTÉK HOSTKÉNT"
-
-msgid "PLAY OFFLINE"
-msgstr "OFFLINE JÁTÉK"
-
-msgid "JOIN EXISTING GAME"
-msgstr "MEGLÉVŐ JÁTÉKHOZ CSATLAKOZÁS"
+msgid "ONLINE GAMES"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "ELÉRHETŐ JÁTÉKOK"
@@ -2614,8 +2621,8 @@ msgstr "ELÉRHETŐ JÁTÉKOK"
 msgid "UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK"
 
-msgid "NO GAMES FOUND"
-msgstr "NEM TALÁLHATÓ JÁTÉK"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "CSATLAKOZÁS JÁTÉKHOZ"
@@ -2687,6 +2694,15 @@ msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr "PISZTOLY CÉLKERESZTET RAJZOLÁS"
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
 
 msgid "default"
 msgstr "alap"
@@ -2864,6 +2880,15 @@ msgstr "OMX LEJÁTSZÓ HASZNÁLATA KÉPERNYŐVÉDŐNEK"
 
 msgid "SHOW GAME INFO"
 msgstr "JÁTÉK INFORMÁCIÓK MEGJELENÍTÉSE"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "MARQUEE HASZNÁLATA JÁTÉK INFORMÁCIÓKÉNT"
@@ -3116,8 +3141,8 @@ msgstr "FRISSÍTSE A JÁTÉKLISTÁKAT A MÓDOSÍTÁSOK ALKALMAZÁSÁHOZ."
 msgid "Loading system config..."
 msgstr "Rendszer konfiguráció betöltése..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "METAADAT MENTÉSE. VÁRJ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr "METAADATOK MENTÉSE. KÉRLEK VÁRJ..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "AZ EMULÁTOR VÁRATLANUL KILÉPETT"
@@ -3139,6 +3164,9 @@ msgstr "A MAG HIÁNYZIK"
 
 msgid "UKNOWN ERROR"
 msgstr "ISMERETLEN HIBA"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "minden játék"
@@ -3585,6 +3613,48 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "NETPLAY BEÁLLÍTÁSOK MEGJELENÍTÉSE JÁTÉK INDÍTÁSAKOR"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr ""
+#~ "Lehetővé teszi az online és offline választást, vagy egy másik játékhoz "
+#~ "való csatlakozást."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr ""
+#~ "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr ""
+#~ "Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez "
+#~ "csatlakozni szeretne"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "ONLINE JÁTÉK HOSTKÉNT"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "OFFLINE JÁTÉK"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "MEGLÉVŐ JÁTÉKHOZ CSATLAKOZÁS"
+
+#~ msgid "MATRIX"
+#~ msgstr "MÁTRIX"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "rgb dmd sorrend"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "METAADAT MENTÉSE. VÁRJ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"

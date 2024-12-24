@@ -85,6 +85,9 @@
     <game name="adillorj">
       <trackball/>
     </game>
+    <game name="AfterDark2">
+      <gun/>
+    </game>
     <game name="akkaarrh">
       <trackball/>
     </game>
@@ -353,6 +356,9 @@
       <gun/>
     </game>
     <game name="BBHPro">
+      <gun/>
+    </game>
+    <game name="BBHWorld">
       <gun/>
     </game>
     <game name="bbhsc">
@@ -840,6 +846,9 @@
     <game name="critcrsh">
       <gun/>
     </game>
+    <game name="CrossfirePaintball">
+      <gun/>
+    </game>
     <game name="crossbow">
       <gun/>
     </game>
@@ -1140,6 +1149,9 @@
     <game name="dragngunj">
       <gun/>
     </game>
+    <game name="Drakons">
+      <gun/>
+    </game>
     <game name="drivedge">
       <wheel rotation="270"/>
     </game>
@@ -1428,6 +1440,9 @@
     <game name="GaiaAttack4">
       <gun/>
     </game>
+	<game name="gallagher">
+      <gun/>
+    </game>
     <game name="gallgall">
       <gun/>
     </game>
@@ -1567,6 +1582,9 @@
       <wheel rotation="360"/>
     </game>
     <game name="GSEVO">
+      <gun/>
+    </game>
+    <game name="GSEVOELF2">
       <gun/>
     </game>
     <game name="gt2k">
@@ -1818,6 +1836,9 @@
     <game name="gunmania">
       <gun/>
     </game>
+    <game name="Gunslinger">
+      <gun/>
+    </game>
     <game name="gunsur2">
       <gun/>
     </game>
@@ -1947,6 +1968,9 @@
     <game name="hcrashc">
       <wheel rotation="270"/>
     </game>
+    <game name="hdkotr">
+      <wheel rotation="270"/>
+    </game>
     <game name="hdrivaip">
       <wheel rotation="270"/>
     </game>
@@ -2028,6 +2052,9 @@
     <game name="HOTD4SPELF2">
       <gun/>
     </game>
+    <game name="hotd4sp">
+      <gun/>
+    </game>
     <game name="hotdex">
       <gun/>
     </game>
@@ -2054,6 +2081,12 @@
     </game>
     <game name="HotWheels">
       <wheel/>
+    </game>
+    <game name="hummer">
+      <wheel rotation="270"/>
+    </game>
+    <game name="hummerxt">
+      <wheel rotation="270"/>
     </game>
     <game name="hummerextreme">
       <wheel/>
@@ -2151,8 +2184,35 @@
     <game name="initiad4">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
+    <game name="initiad4a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4b">
+      <wheel rotation="270"/>
+    </game>
     <game name="initiad4c">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+    </game>
+    <game name="initiad4ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exb">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exc">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5exa">
+      <wheel rotation="270"/>
     </game>
     <game name="invasnab">
       <gun/>
@@ -2340,6 +2400,9 @@
     <game name="letsgoju">
       <gun/>
     </game>
+    <game name="letsgojusp">
+      <gun/>
+    </game>
     <game name="lghost">
       <gun/>
     </game>
@@ -2418,6 +2481,9 @@
       <wheel rotation="270"/>
     </game>
     <game name="LuigisMansion">
+      <gun/>
+    </game>
+    <game name="Lupin3">
       <gun/>
     </game>
     <game name="lupinsho">
@@ -2520,6 +2586,9 @@
       <gun/>
     </game>
     <game name="mechattu1">
+      <gun/>
+    </game>
+    <game name="MedaruNoGunman">
       <gun/>
     </game>
     <game name="mhavoc">
@@ -2944,6 +3013,9 @@
     <game name="PointBlankX">
       <gun/>
     </game>
+    <game name="PoliceTrainer2">
+      <gun/>
+    </game>
     <game name="pokasuka">
       <gun/>
     </game>
@@ -3090,6 +3162,9 @@
     </game>
     <game name="puchicaru">
       <spinner/>
+    </game>
+    <game name="PullTheTrigger">
+      <gun/>
     </game>
     <game name="pwheelsj">
       <wheel rotation="270"/>
@@ -3249,6 +3324,9 @@
     </game>
     <game name="racjamdx">
       <wheel rotation="270"/>
+    </game>
+    <game name="RaccoonRampage">
+      <gun/>
     </game>
     <game name="radikalb">
       <wheel rotation="270"/>
@@ -3457,6 +3535,9 @@
     <game name="roadrunm">
       <gun/>
     </game>
+    <game name="RobinHood">
+      <gun/>
+    </game>
     <game name="rrreveng">
       <wheel rotation="270"/>
     </game>
@@ -3476,6 +3557,9 @@
       <wheel rotation="270"/>
     </game>
     <game name="rrvac2">
+      <wheel rotation="270"/>
+    </game>
+    <game name="rtuned">
       <wheel rotation="270"/>
     </game>
     <game name="R-Tuned">
@@ -3551,7 +3635,7 @@
       <gun/>
     </game>
     <game name="segartv">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sf2049">
       <wheel rotation="270"/>
@@ -5841,6 +5925,36 @@
     <game name="a1spirit">
       <wheel/>
     </game>
+    <game name="colt36">
+      <gun/>
+    </game>
+    <game name="django">
+      <gun/>
+    </game>
+    <game name="duckhunt">
+      <gun/>
+    </game>
+    <game name="dungeonhunter">
+      <gun/>
+    </game>
+    <game name="karamaru">
+      <trackball/>
+    </game>
+    <game name="holeinone">
+      <trackball/>
+    </game>
+    <game name="shootingcollection">
+      <gun/>
+    </game>
+    <game name="spacemazeattack">
+      <trackball/>
+    </game>
+    <game name="spacetrouble">
+      <trackball/>
+    </game>
+    <game name="superbilliards">
+      <trackball/>
+    </game>
   </system>
   <system name="n64">
     <game name="default">
@@ -6596,6 +6710,12 @@
     <game name="duckhunt">
       <gun/>
     </game>
+    <game name="arkanoidii">
+      <spinner type="arkanoid"/>
+    </game>
+    <game name="arkanoid">
+      <spinner type="arkanoid"/>
+    </game>
     <game name="gunsight">
       <gun/>
     </game>
@@ -6642,7 +6762,7 @@
       <gun/>
     </game>
     <game name="puttputtgolf">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="mastershooter">
       <gun/>
@@ -6654,7 +6774,7 @@
       <gun/>
     </game>
     <game name="moeroprosoccer">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="barroomshootout">
       <gun/>
@@ -6669,7 +6789,7 @@
       <gun/>
     </game>
     <game name="uschampionshipvball">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="superrussianroulette">
       <gun/>
@@ -7912,7 +8032,7 @@
       <gun/>
     </game>
     <game name="macsbasicriflemarksmanship">
-      <gun/>
+      <gun type="macsrifle"/>
     </game>
   </system>
   <system name="wii">
@@ -8078,8 +8198,11 @@
     <game name="fastdrawshowdown">
       <gun vertical_offset="14.9" yaw="18.8" pitch="18.8" action="tiltforward" select="a"/>
     </game>
+    <game name="nerfnstrikedoubleblast">
+      <gun vertical_offset="8.7" yaw="12.50" pitch="12.60" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+    </game>
     <game name="nerfnstrikeelite">
-      <gun vertical_offset="21.3" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+      <gun vertical_offset="8.7" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
     </game>
     <game name="nerfnstrike">
       <gun vertical_offset="15" yaw="18.6" pitch="18.9"/>
@@ -8534,6 +8657,20 @@
     </game>
     <game name="dirt">
       <wheel/>
+    </game>
+  </system>
+  <system name="x68000">
+    <game name="afterburner">
+      <trackball/>
+    </game>
+    <game name="arkanoidrevengeofdoh">
+      <trackball/>
+    </game>
+    <game name="marblemadness">
+      <trackball/>
+    </game>
+    <game name="syvalion">
+      <trackball/>
     </game>
   </system>
 </systems>

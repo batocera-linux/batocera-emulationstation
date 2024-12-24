@@ -184,6 +184,16 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
+	addSwitch(_("DRAW GUN CROSSHAIR"), "DrawGunCrosshair", true);
+
+#ifdef BATOCERA
+	addGroup(_("BEHAVIOR"));
+	auto restrictHotkeys = std::make_shared<SwitchComponent>(window);
+	restrictHotkeys->setState(SystemConf::getInstance()->getBool("global.exithotkeyonly"));
+	addWithLabel(_("RESTRICT HOTKEYS TO EXIT"), restrictHotkeys);
+	addSaveFunc([restrictHotkeys] { SystemConf::getInstance()->setBool("global.exithotkeyonly", restrictHotkeys->getState()); });
+#endif
+
 	addGroup(controllers_group_label);
 
 	// Here we go; for each player

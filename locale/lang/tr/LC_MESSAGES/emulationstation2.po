@@ -549,27 +549,6 @@ msgstr "ÖZEL"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ÖZEL RELAY SUNUCUSU"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "AÇIK YAYINLANMIŞ OYUN"
-
-msgid "PLAYER PASSWORD"
-msgstr "OYUNCU ŞİFRESİ"
-
-msgid "VIEWER PASSWORD"
-msgstr "İZLEYİCİ ŞİFRESİ"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLARI GÖSTER"
 
@@ -1073,12 +1052,6 @@ msgstr "OTOMATİK"
 msgid "dmd matrix size"
 msgstr "dmd matris boyutu"
 
-msgid "MATRIX"
-msgstr "MATRİS"
-
-msgid "rgb dmd order"
-msgstr "rgb dmd order"
-
 msgid "BRIGHTNESS"
 msgstr "PARLAKLIK"
 
@@ -1199,10 +1172,8 @@ msgstr "Temizleniyor"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "OYUN KULLANIM LİSTESİNİ SIFIRLA"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini "
-"sıfırlayın."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DOSYA UZANTILARINI RESETLE"
@@ -2028,6 +1999,36 @@ msgstr "SONRAKİ ŞARKIYA GEÇ"
 msgid "NOW PLAYING"
 msgstr "ŞİMDİ OYNANIYOR"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "FAVORİ MÜZİĞE KAYDET"
+
+msgid "Copy current song to favorite folder"
+msgstr "Geçerli şarkıyı favori klasörüne kopyala"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "FAVORİ MÜZİK DİZİNİNİ KULLAN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Favori müzik dizini kullanımını değiştir"
+
+msgid "Song added to favorite list!"
+msgstr "Şarkı favori listesine eklendi!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Hata: Favoriler dosyası açılamadı."
+
+msgid "No song is currently playing."
+msgstr "Şu anda çalan bir şarkı yok."
+
+msgid "Favorite music directory activated!"
+msgstr "Favori müzik dizini etkinleştirildi!"
+
+msgid "Default music directory activated!"
+msgstr "Varsayılan müzik dizini etkinleştirildi!"
+
+msgid "This song is already in Favorites."
+msgstr "Bu şarkı zaten Favorilerde."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"
 
@@ -2204,6 +2205,15 @@ msgstr "OYUNU BAŞLAT"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "NETPLAY OYUNUNA EVSAHİBİ OL"
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "AÇIK YAYINLANMIŞ OYUN"
+
+msgid "PLAYER PASSWORD"
+msgstr "OYUNCU ŞİFRESİ"
+
+msgid "VIEWER PASSWORD"
+msgstr "İZLEYİCİ ŞİFRESİ"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "BENZER OYUNLARI BUL..."
@@ -2424,6 +2434,9 @@ msgstr "SİSTEMİN İÇİNDE GİZLENMİŞ OYUNLARI GÖSTER"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "BOŞ SİSTEMLERİ GÖSTER"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
@@ -2569,11 +2582,11 @@ msgstr "NETPLAY'E BAĞLAN"
 msgid "Select a game lobby to join"
 msgstr "Katılmak için oyun lobisi seç"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "BAŞARISIZ"
+
+msgid "NO GAMES FOUND"
+msgstr "HİÇBİR OYUN BULUNAMADI"
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "BİLİNMEYEN ROM VERSİYONU"
@@ -2587,13 +2600,7 @@ msgstr "AYNI ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "MEVCUT OLMAYAN ÇEKİRDEK"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
+msgid "ONLINE GAMES"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2602,8 +2609,8 @@ msgstr "MEVCUT OYUNLAR"
 msgid "UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLAR"
 
-msgid "NO GAMES FOUND"
-msgstr "HİÇBİR OYUN BULUNAMADI"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "OYUNA KATIL"
@@ -2674,6 +2681,15 @@ msgstr "KONTROL AYGITI AKTİVİTELERİNİ GÖSTER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROL AYGITI PİL DÜZEYİNİ GÖSTER"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
 
 msgid "default"
 msgstr "varsayılan"
@@ -2851,6 +2867,15 @@ msgstr "EKRAN KORUYUCU İÇİN OMX PLAYER KULLANIN"
 
 msgid "SHOW GAME INFO"
 msgstr "OYUN BİLGİSİ GÖSTER"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "OYUN BİLGİSİ OLARAK KAYAN YAZI KULLANIN"
@@ -3102,8 +3127,8 @@ msgstr "DEĞİŞİKLİKLERİ UYGULAMAK İÇİN OYUN LİSTELERİNİ GÜNCELLE."
 msgid "Loading system config..."
 msgstr "Sistem yapılandırması yükleniyor..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATÖRDEN BEKLENMEDİK ŞEKİLDE ÇIKILDI"
@@ -3125,6 +3150,9 @@ msgstr "ÇEKİRDEK BULUNAMADI"
 
 msgid "UKNOWN ERROR"
 msgstr "BİLİNMEYEN HATA"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "tüm oyunlar"
@@ -3570,6 +3598,20 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRİS"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "rgb dmd order"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini "
+#~ "sıfırlayın."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH CİHAZI UNUT"

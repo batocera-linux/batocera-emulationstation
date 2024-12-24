@@ -483,11 +483,7 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	// must really;-) be done before window->deinit while it closes joysticks
 	std::string controllersConfig = InputManager::getInstance()->configureEmulators();
 
-#if WIN32
 	if (gameToUpdate->isLightGunGame())
-#else
-	if (InputManager::getInstance()->getGuns().size() && gameToUpdate->isLightGunGame())
-#endif
 		controllersConfig = controllersConfig + "-lightgun ";
 
         if (gameToUpdate->isWheelGame())
@@ -590,6 +586,12 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 
 	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
+
+	if (SystemConf::getInstance()->get("global.netplay.nickname").empty())
+	{
+		SystemConf::getInstance()->set("global.netplay.nickname", ApiSystem::getInstance()->getApplicationName() + " Player");
+		SystemConf::getInstance()->saveSystemConf();
+	}
 
 	if (options.netPlayMode == CLIENT || options.netPlayMode == SPECTATOR)
 	{

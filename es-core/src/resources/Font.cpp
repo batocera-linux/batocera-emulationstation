@@ -277,7 +277,7 @@ std::vector<std::string> getFallbackFontPaths()
 	{
 		":/fontawesome-webfont.ttf",
 		":/DroidSansFallbackFull.ttf",// japanese, chinese, present on Debian
-		":/NanumMyeongjo.ttf", // korean font		
+		":/NanumSquare_acB.ttf", // korean font		
 		":/Vazirmatn-Regular.ttf", // arabic
 		":/Rubik-Regular.ttf" // hebrew (https://fontmeme.com/polices/police-rubik-hebrew public domain)
 	};
@@ -330,6 +330,11 @@ FT_Face Font::getFaceForChar(unsigned int id)
 #endif
 			fit = mFaceCache.find(i);
 		}
+
+		// i == 2 -> DroidSansFallbackFull
+		// this font has a bug when handling Korean characters.
+		if (i == 2 && Utils::String::isKorean(id))
+			continue;
 
 		if(FT_Get_Char_Index(fit->second->face, id) != 0)
 			return fit->second->face;

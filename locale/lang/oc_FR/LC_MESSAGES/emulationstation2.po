@@ -556,27 +556,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
@@ -1067,12 +1046,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr ""
 
-msgid "MATRIX"
-msgstr ""
-
-msgid "rgb dmd order"
-msgstr ""
-
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITAT"
 
@@ -1191,7 +1164,7 @@ msgstr ""
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -1983,14 +1956,44 @@ msgstr "WIFI ACTIVAT"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR DE CONFIGURACION WIFI"
 
-msgid "QUICK ACCESS"
-msgstr ""
+msgid "QUICK ACCESS"  
+msgstr "ACCES RAPID"
 
-msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgid "SKIP TO THE NEXT SONG"  
+msgstr "PASSAR A LA CANÇON SEGUENTA"  
 
-msgid "NOW PLAYING"
-msgstr ""
+msgid "NOW PLAYING"  
+msgstr "EN REPRODUCCION ARA"  
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ENREGISTRAR DINS LA MUSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar la cançon actuala dins lo dorsièr favorit"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILIZAR LO REPERTÒRI DE MUSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar l’usatge del repertòri de musica favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Cançon aponduda a la lista dels preferits!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: Impossible d'obrir lo fichièr dels preferits."
+
+msgid "No song is currently playing."
+msgstr "Cap de cançon es pas en reproduccion actualament."
+
+msgid "Favorite music directory activated!"
+msgstr "Repertòri de musica preferida activat!"
+
+msgid "Default music directory activated!"
+msgstr "Repertòri de musica per defaut activat!"
+
+msgid "This song is already in Favorites."
+msgstr "Aquesta cançon es ja dins los Favorits."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVIAR L'ESTALVIADOR D'ECRAN"
@@ -2165,6 +2168,15 @@ msgid "START GAME"
 msgstr ""
 
 msgid "HOST A NETPLAY GAME"
+msgstr ""
+
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
@@ -2384,6 +2396,9 @@ msgstr "MOSTRAR LOS JÒCS DELS SISTÈMAS RESCONDUTS A LAS COLLECCIONS"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr ""
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Cargament..."
 
@@ -2527,11 +2542,11 @@ msgstr "SE CONNECTAR A NETPLAY"
 msgid "Select a game lobby to join"
 msgstr ""
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "FRACÀS"
+
+msgid "NO GAMES FOUND"
+msgstr ""
 
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSION DE ROM DESCONEGUDA"
@@ -2545,13 +2560,7 @@ msgstr "ROM IDENTICA"
 msgid "UNAVAILABLE CORE"
 msgstr "CÒS PAS DISPONIBLE"
 
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
+msgid "ONLINE GAMES"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2560,7 +2569,7 @@ msgstr "JÒCS DISPONIBLES"
 msgid "UNAVAILABLE GAMES"
 msgstr "JÒCS PAS DISPONIBLES"
 
-msgid "NO GAMES FOUND"
+msgid "LAN GAMES"
 msgstr ""
 
 msgid "JOIN GAME"
@@ -2627,6 +2636,15 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
+
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2805,6 +2823,15 @@ msgstr ""
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRAR LAS INFO DEL JÒC"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
@@ -3049,8 +3076,8 @@ msgstr ""
 msgid "Loading system config..."
 msgstr "Cargament conf. sistma..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr ""
@@ -3071,6 +3098,9 @@ msgid "CORE IS MISSING"
 msgstr ""
 
 msgid "UKNOWN ERROR"
+msgstr ""
+
+msgid "Interlaced"
 msgstr ""
 
 msgid "all games"
@@ -3513,6 +3543,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR LO PERIFERIC BLUETOOTH"
