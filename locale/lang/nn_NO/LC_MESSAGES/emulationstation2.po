@@ -546,6 +546,7 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
@@ -558,6 +559,8 @@ msgstr ""
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
@@ -1967,6 +1970,36 @@ msgstr ""
 msgid "NOW PLAYING"
 msgstr ""
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "LAGRE TIL FAVORITTMUSIKK"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopier den nåværende sangen til favorittmappen"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "BRUK FAVORITTMUSIKK-KATALOGEN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Veksle bruk av favorittmusikk-katalogen"
+
+msgid "Song added to favorite list!"
+msgstr "Sang lagt til i favorittlisten!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Feil: Kunne ikke åpne favorittfilen."
+
+msgid "No song is currently playing."
+msgstr "Ingen sang spilles for øyeblikket."
+
+msgid "Favorite music directory activated!"
+msgstr "Favorittmusikkmappen aktivert!"
+
+msgid "Default music directory activated!"
+msgstr "Standard musikkmappe aktivert!"
+
+msgid "This song is already in Favorites."
+msgstr "Denne sangen er allerede i Favoritter."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr ""
 
@@ -2515,6 +2548,12 @@ msgid "Select a game lobby to join"
 msgstr ""
 
 msgid "FAILED"
+<<<<<<< HEAD
+=======
+msgstr ""
+
+msgid "NO GAMES FOUND"
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgstr ""
 
 msgid "UNKNOWN ROM VERSION"
@@ -2529,9 +2568,12 @@ msgstr ""
 msgid "UNAVAILABLE CORE"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "LAN GAMES"
 msgstr ""
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2541,7 +2583,7 @@ msgstr ""
 msgid "UNAVAILABLE GAMES"
 msgstr ""
 
-msgid "NO GAMES FOUND"
+msgid "LAN GAMES"
 msgstr ""
 
 msgid "JOIN GAME"

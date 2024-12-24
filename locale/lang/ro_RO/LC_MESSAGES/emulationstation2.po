@@ -3,7 +3,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
+<<<<<<< HEAD
 "PO-Revision-Date: 2025-03-29 14:16+0200\n"
+=======
+"PO-Revision-Date: 2025-03-01 22:07+0200\n"
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -2022,6 +2026,36 @@ msgstr "TRECI LA URMĂTORUL CÂNTEC"
 
 msgid "NOW PLAYING"
 msgstr "ACUM SE REDĂ"
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SALVEAZĂ ÎN MUZICA FAVORITĂ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiază melodia actuală în folderul favorit"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILIZEAZĂ DIRECTORUL DE MUZICĂ FAVORITĂ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Comută utilizarea directorului de muzică favorită"
+
+msgid "Song added to favorite list!"
+msgstr "Melodia a fost adăugată la lista de favorite!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Eroare: Nu s-a putut deschide fișierul de favorite."
+
+msgid "No song is currently playing."
+msgstr "Nicio melodie nu este redată în prezent."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorul de muzică preferat a fost activat!"
+
+msgid "Default music directory activated!"
+msgstr "Directorul de muzică implicit a fost activat!"
+
+msgid "This song is already in Favorites."
+msgstr "Această melodie este deja în Favorite."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSEAZĂ ECONOMIZORUL DE ECRAN"

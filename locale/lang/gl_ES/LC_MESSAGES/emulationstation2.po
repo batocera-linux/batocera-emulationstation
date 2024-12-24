@@ -2023,6 +2023,36 @@ msgstr "SALTAR Á SEGUINTE CANCIÓN"
 msgid "NOW PLAYING"
 msgstr "REPRODUCINDO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GARDAR NA MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar a canción actual ao cartafol favorito"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR O DIRECTORIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar o uso do directorio de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Canción engadida á lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erro: Non se puido abrir o ficheiro de favoritos."
+
+msgid "No song is currently playing."
+msgstr "Non hai ningunha canción en reprodución."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorio de música favorita activado!"
+
+msgid "Default music directory activated!"
+msgstr "Directorio de música predeterminado activado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta canción xa está en Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
 

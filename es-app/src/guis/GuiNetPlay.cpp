@@ -768,8 +768,11 @@ bool GuiNetPlay::populateList()
 
 		mGrid.moveCursor(Vector2i(0, 1));
 	}
+<<<<<<< HEAD
 
 	return true;
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 }
 
 bool GuiNetPlay::populateFromJson(const std::string json)
@@ -784,7 +787,12 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		return false;
 	}
 
+<<<<<<< HEAD
 	bool netPlayShowOnlyRelayServerGames = Settings::NetPlayShowOnlyRelayServerGames();
+=======
+	std::vector<LobbyAppEntry> entries;
+	entries.reserve(doc.Size());
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 	std::vector<LobbyAppEntry> entries;
 	entries.reserve(doc.Size());
@@ -858,6 +866,12 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("country") && fields["country"].IsString())
 			game.country = fields["country"].GetString();
 
+<<<<<<< HEAD
+=======
+		if (fields.HasMember("host_method") && fields["host_method"].IsInt())
+			game.host_method = fields["host_method"].GetInt();
+
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 		if (fields.HasMember("has_password") && fields["has_password"].IsBool())
 			game.has_password = fields["has_password"].GetBool();
 

@@ -2000,6 +2000,36 @@ msgstr "HYPPÄÄ SEURAAVAAN KAPPALEESEEN"
 msgid "NOW PLAYING"
 msgstr "NYT SOITETAAN"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "TALLENNA SUOSIKKIMUSIIKKIIN"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopioi nykyinen kappale suosikkikansioon"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "KÄYTÄ SUOSIKKIMUSIIKIN HAKEMISTOA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Vaihda suosikkimusiikin hakemiston käyttöä"
+
+msgid "Song added to favorite list!"
+msgstr "Kappale lisätty suosikkilistalle!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Virhe: Suosikkitiedostoa ei voitu avata."
+
+msgid "No song is currently playing."
+msgstr "Mikään kappale ei soi tällä hetkellä."
+
+msgid "Favorite music directory activated!"
+msgstr "Suosikkimusiikkihakemisto aktivoitu!"
+
+msgid "Default music directory activated!"
+msgstr "Oletusmusiikkihakemisto aktivoitu!"
+
+msgid "This song is already in Favorites."
+msgstr "Tämä kappale on jo suosikeissa."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "KÄYNNISTÄ NÄYTÖNSÄÄSTÄJÄ"
 
@@ -2653,12 +2683,15 @@ msgstr "NÄYTÄ OHJAIMEN AKUNTASO"
 msgid "DRAW GUN CROSSHAIR"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "BEHAVIOR"
 msgstr ""
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "default"
 msgstr "oletus"
 

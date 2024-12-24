@@ -199,6 +199,7 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 		return;
 	}
 
+<<<<<<< HEAD
 	// set curl restrict redirect protocols
 #if WIN32
 	curl_version_info_data* version_info = curl_version_info(CURLVERSION_NOW);
@@ -214,6 +215,14 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
 #endif
 
+=======
+	//set curl restrict redirect protocols
+#if WIN32
+	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+#else 
+	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");
+#endif
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 	if(err != CURLE_OK)
 	{
 		mStatus = REQ_IO_ERROR;

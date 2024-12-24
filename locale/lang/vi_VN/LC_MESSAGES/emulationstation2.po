@@ -2013,6 +2013,36 @@ msgstr "CHUYỂN ĐẾN BÀI TIẾP THEO"
 msgid "NOW PLAYING"
 msgstr "ĐANG PHÁT"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "LƯU VÀO NHẠC YÊU THÍCH"
+
+msgid "Copy current song to favorite folder"
+msgstr "Sao chép bài hát hiện tại vào thư mục yêu thích"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "SỬ DỤNG THƯ MỤC NHẠC YÊU THÍCH"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Bật/tắt sử dụng thư mục nhạc yêu thích"
+
+msgid "Song added to favorite list!"
+msgstr "Bài hát đã được thêm vào danh sách yêu thích!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Lỗi: Không thể mở tệp yêu thích."
+
+msgid "No song is currently playing."
+msgstr "Hiện không có bài hát nào đang phát."
+
+msgid "Favorite music directory activated!"
+msgstr "Thư mục nhạc yêu thích đã được kích hoạt!"
+
+msgid "Default music directory activated!"
+msgstr "Thư mục nhạc mặc định đã được kích hoạt!"
+
+msgid "This song is already in Favorites."
+msgstr "Bài hát này đã có trong danh sách Yêu thích."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "KHỞI ĐỘNG BẢO VỆ MÀN HÌNH"
 

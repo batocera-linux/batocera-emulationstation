@@ -552,10 +552,17 @@ msgid "CUSTOM RELAY SERVER"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ RELAY-СЕРВЕР"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
+<<<<<<< HEAD
 msgstr "АВТОМАТИЧЕСКИ СОЗДАВАТЬ ЛОББИ"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
 msgstr "Автоматически создает лобби Netplay при начале игры."
+=======
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
@@ -2005,6 +2012,36 @@ msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "СОХРАНИТЬ В ИЗБРАННУЮ МУЗЫКУ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Копировать текущую песню в папку избранного"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ИСПОЛЬЗОВАТЬ КАТАЛОГ ИЗБРАННОЙ МУЗЫКИ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Переключить использование каталога избранной музыки"
+
+msgid "Song added to favorite list!"
+msgstr "Песня добавлена в список избранного!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Ошибка: Не удалось открыть файл избранного."
+
+msgid "No song is currently playing."
+msgstr "В данный момент музыка не играет."
+
+msgid "Favorite music directory activated!"
+msgstr "Каталог избранной музыки активирован!"
+
+msgid "Default music directory activated!"
+msgstr "Каталог музыки по умолчанию активирован!"
+
+msgid "This song is already in Favorites."
+msgstr "Эта песня уже в избранном."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 
@@ -2662,10 +2699,17 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "ОТОБРАЖАТЬ ПЕРЕКРЕСТИЕ ПИСТОЛЕТА"
 
 msgid "BEHAVIOR"
+<<<<<<< HEAD
 msgstr "ПОВЕДЕНИЕ"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЛЯ ВЫХОДА"
+=======
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "default"
 msgstr "по умолчанию"
@@ -3131,7 +3175,11 @@ msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "Interlaced"
+<<<<<<< HEAD
 msgstr "Чересстрочной"
+=======
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "all games"
 msgstr "все игры"

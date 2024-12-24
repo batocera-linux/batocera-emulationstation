@@ -357,8 +357,11 @@ void Settings::setDefaults()
 	mIntMap["audio.display_titles_time"] = 10;
 
 	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
+<<<<<<< HEAD
 	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
 	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 	mBoolMap["NetPlayShowMissingGames"] = false;
 	
 	mBoolMap["CheevosCheckIndexesAtStart"] = false;	

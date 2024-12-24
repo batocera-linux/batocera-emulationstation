@@ -551,6 +551,7 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
@@ -563,6 +564,8 @@ msgstr ""
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТИ НЕДОСТУПНІ ІГРИ"
 
@@ -1971,11 +1974,41 @@ msgstr "ПОМИЛКА КОНФІГУРАЦІЇ WI-FI"
 msgid "QUICK ACCESS"
 msgstr "ШВИДКИЙ ДОСТУП"
 
-msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgid "SKIP TO THE NEXT SONG"  
+msgstr "ПЕРЕЙТИ ДО НАСТУПНОЇ ПІСНІ"  
 
-msgid "NOW PLAYING"
-msgstr ""
+msgid "NOW PLAYING"  
+msgstr "ЗАРАЗ ВІДТВОРЮЄТЬСЯ" 
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ЗБЕРЕГТИ В УЛЮБЛЕНУ МУЗИКУ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Копіювати поточну пісню в папку улюблених"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ВИКОРИСТОВУВАТИ КАТАЛОГ УЛЮБЛЕНОЇ МУЗИКИ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Перемкнути використання каталогу улюбленої музики"
+
+msgid "Song added to favorite list!"
+msgstr "Пісня додана до списку улюблених!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Помилка: Не вдалося відкрити файл улюбленого."
+
+msgid "No song is currently playing."
+msgstr "Зараз не відтворюється жодна пісня."
+
+msgid "Favorite music directory activated!"
+msgstr "Каталог улюбленої музики активовано!"
+
+msgid "Default music directory activated!"
+msgstr "Каталог музики за замовчуванням активовано!"
+
+msgid "This song is already in Favorites."
+msgstr "Ця пісня вже в улюблених."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАСТАВКА"
@@ -2529,6 +2562,9 @@ msgstr ""
 msgid "FAILED"
 msgstr "ПОМИЛКА"
 
+msgid "NO GAMES FOUND"
+msgstr "НЕ ЗНАЙДЕНО ЖОДНОЇ ГРИ"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "НЕВІДОМА ВЕРСІЯ ГРИ"
 
@@ -2541,9 +2577,12 @@ msgstr "ТА Ж САМА ГРА"
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНЕ ЯДРО"
 
+<<<<<<< HEAD
 msgid "LAN GAMES"
 msgstr ""
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2553,8 +2592,8 @@ msgstr "ДОСТУПНІ ІГРИ"
 msgid "UNAVAILABLE GAMES"
 msgstr "НЕДОСТУПНІ ІГРИ"
 
-msgid "NO GAMES FOUND"
-msgstr "НЕ ЗНАЙДЕНО ЖОДНОЇ ГРИ"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "ПРИЄДНАТИСЬ ДО ГРИ"

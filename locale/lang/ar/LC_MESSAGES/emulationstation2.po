@@ -586,6 +586,7 @@ msgstr "مخصص"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "خادم التتابع المخصص"
+<<<<<<< HEAD
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -598,6 +599,8 @@ msgstr "عرض ألعاب خادم التتابع فقط"
 
 msgid "Relay server games have a higher chance of successful entry."
 msgstr "تتمتع ألعاب خادم التتابع بفرصة أعلى للدخول الناجح."
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "عرض الألعاب الغير موجودة"
@@ -2026,6 +2029,36 @@ msgstr "الموسيقى التالية"
 
 msgid "NOW PLAYING"
 msgstr "تشتغل حاليا"
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "حفظ في الموسيقى المفضلة"
+
+msgid "Copy current song to favorite folder"
+msgstr "نسخ الأغنية الحالية إلى المجلد المفضل"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "استخدام دليل الموسيقى المفضلة"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "تبديل استخدام دليل الموسيقى المفضلة"
+
+msgid "Song added to favorite list!"
+msgstr "تمت إضافة الأغنية إلى قائمة المفضلة!"
+
+msgid "Error: Could not open favorites file."
+msgstr "خطأ: تعذر فتح ملف المفضلات."
+
+msgid "No song is currently playing."
+msgstr "لا يتم تشغيل أي أغنية حالياً."
+
+msgid "Favorite music directory activated!"
+msgstr "تم تفعيل دليل الموسيقى المفضلة!"
+
+msgid "Default music directory activated!"
+msgstr "تم تفعيل دليل الموسيقى الافتراضي!"
+
+msgid "This song is already in Favorites."
+msgstr "هذه الأغنية موجودة بالفعل في المفضلة."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "بدء شاشة التوقف"
@@ -3649,6 +3682,15 @@ msgstr ""
 #~ "يسمح باختيار اللعب عبر الإنترنت، أو اللعب دون اتصال بالإنترنت، أو "
 #~ "الانضمام إلى لعبة أخرى."
 
+<<<<<<< HEAD
+=======
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "عرض ألعاب خادم التتابع فقط"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "تتمتع ألعاب خادم التتابع بفرصة أعلى للدخول الناجح."
+
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "حدد مجموعة ألعاب لإنشائها أو الانضمام إليها"
 

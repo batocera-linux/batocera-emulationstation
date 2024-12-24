@@ -93,10 +93,17 @@
     <game id="adillorj">
       <trackball/>
     </game>
+<<<<<<< HEAD
     <game id="AfterDark2">
       <gun/>
     </game>
     <game id="akkaarrh">
+=======
+    <game name="AfterDark2">
+      <gun/>
+    </game>
+    <game name="akkaarrh">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <trackball/>
     </game>
     <game id="Akuma">
@@ -366,7 +373,14 @@
     <game id="BBHPro">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="BBHWorld">
+=======
+    <game name="BBHWorld">
+      <gun/>
+    </game>
+    <game name="bbhsc">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="bbhsc">
@@ -854,7 +868,14 @@
     <game id="critcrsh">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="CrossfirePaintball">
+=======
+    <game name="CrossfirePaintball">
+      <gun/>
+    </game>
+    <game name="crossbow">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="crossbow">
@@ -1157,10 +1178,17 @@
     <game id="dragngunj">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="Drakons">
       <gun/>
     </game>
     <game id="drivedge">
+=======
+    <game name="Drakons">
+      <gun/>
+    </game>
+    <game name="drivedge">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <wheel rotation="270"/>
     </game>
     <game id="driveyes">
@@ -1448,7 +1476,14 @@
     <game id="GaiaAttack4">
       <gun/>
     </game>
+<<<<<<< HEAD
 	<game id="gallagher" name="Gallagher's Gallery">
+=======
+	<game name="gallagher">
+      <gun/>
+    </game>
+    <game name="gallgall">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="gallgall">
@@ -1592,10 +1627,17 @@
     <game id="GSEVO">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="GSEVOELF2">
       <gun/>
     </game>
     <game id="gt2k">
+=======
+    <game name="GSEVOELF2">
+      <gun/>
+    </game>
+    <game name="gt2k">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <trackball/>
     </game>
     <game id="gt2kp100">
@@ -1844,7 +1886,14 @@
     <game id="gunmania">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="Gunslinger">
+=======
+    <game name="Gunslinger">
+      <gun/>
+    </game>
+    <game name="gunsur2">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="gunsur2">
@@ -1976,7 +2025,14 @@
     <game id="hcrashc">
       <wheel rotation="270"/>
     </game>
+<<<<<<< HEAD
     <game id="hdkotr" name="Harley Davidson: King of the Road">
+=======
+    <game name="hdkotr">
+      <wheel rotation="270"/>
+    </game>
+    <game name="hdrivaip">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <wheel rotation="270"/>
     </game>
     <game id="hdrivaip">
@@ -2060,7 +2116,14 @@
     <game id="HOTD4SP">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="HOTD4SPELF2">
+=======
+    <game name="hotd4sp">
+      <gun/>
+    </game>
+    <game name="hotdex">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="hotd4sp" name="The House of the Dead 4 Special">
@@ -2096,6 +2159,7 @@
     <game id="HotWheels">
       <wheel/>
     </game>
+<<<<<<< HEAD
     <game id="hummer" name="Hummer">
       <wheel rotation="270"/>
     </game>
@@ -2109,6 +2173,15 @@
       <wheel rotation="270"/>
     </game>
     <game id="hummerextreme">
+=======
+    <game name="hummer">
+      <wheel rotation="270"/>
+    </game>
+    <game name="hummerxt">
+      <wheel rotation="270"/>
+    </game>
+    <game name="hummerextreme">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <wheel/>
     </game>
     <game id="hydrosub2021">
@@ -2204,6 +2277,7 @@
     <game id="initiad4" name="Initial D Arcade Stage 4 (Rev G)">
       <wheel rotation="270"/>
     </game>
+<<<<<<< HEAD
     <game id="initiad4a" name="Initial D Arcade Stage 4 (Rev A)">
       <wheel rotation="270"/>
     </game>
@@ -2241,6 +2315,39 @@
       <wheel rotation="270"/>
     </game>
     <game id="invasnab">
+=======
+    <game name="initiad4a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4b">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4c">
+      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+    </game>
+    <game name="initiad4ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exb">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exc">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5exa">
+      <wheel rotation="270"/>
+    </game>
+    <game name="invasnab">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="invasnab3">
@@ -2426,7 +2533,14 @@
     <game id="letsgoju" name="Let's Go Jungle!: Lost on the Island of Spice (Export)">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="letsgojua" name="Let's Go Jungle!: Lost on the Island of Spice (Export) (Rev A)">
+=======
+    <game name="letsgojusp">
+      <gun/>
+    </game>
+    <game name="lghost">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="letsgojusp" name="Let's Go Jungle! Special (Export)">
@@ -2512,7 +2626,14 @@
     <game id="LuigisMansion">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="Lupin3">
+=======
+    <game name="Lupin3">
+      <gun/>
+    </game>
+    <game name="lupinsho">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="lupinsho">
@@ -2617,10 +2738,17 @@
     <game id="mechattu1">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="MedaruNoGunman">
       <gun/>
     </game>
     <game id="mhavoc">
+=======
+    <game name="MedaruNoGunman">
+      <gun/>
+    </game>
+    <game name="mhavoc">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <spinner/>
     </game>
     <game id="mhavoc2">
@@ -3051,7 +3179,14 @@
     <game id="PointBlankX">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="PoliceTrainer2">
+=======
+    <game name="PoliceTrainer2">
+      <gun/>
+    </game>
+    <game name="pokasuka">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="pokasuka">
@@ -3201,10 +3336,17 @@
     <game id="puchicaru">
       <spinner/>
     </game>
+<<<<<<< HEAD
     <game id="PullTheTrigger">
       <gun/>
     </game>
     <game id="pwheelsj">
+=======
+    <game name="PullTheTrigger">
+      <gun/>
+    </game>
+    <game name="pwheelsj">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <wheel rotation="270"/>
     </game>
     <game id="quantum">
@@ -3363,10 +3505,17 @@
     <game id="racjamdx">
       <wheel rotation="270"/>
     </game>
+<<<<<<< HEAD
     <game id="RaccoonRampage">
       <gun/>
     </game>
     <game id="radikalb">
+=======
+    <game name="RaccoonRampage">
+      <gun/>
+    </game>
+    <game name="radikalb">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <wheel rotation="270"/>
     </game>
     <game id="radikalba">
@@ -3573,10 +3722,17 @@
     <game id="roadrunm">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="RobinHood">
       <gun/>
     </game>
     <game id="rrreveng">
+=======
+    <game name="RobinHood">
+      <gun/>
+    </game>
+    <game name="rrreveng">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <wheel rotation="270"/>
     </game>
     <game id="rrrevenga">
@@ -3597,10 +3753,17 @@
     <game id="rrvac2">
       <wheel rotation="270"/>
     </game>
+<<<<<<< HEAD
     <game id="rtuned" name="R-Tuned: Ultimate Street Racing">
       <wheel rotation="270"/>
     </game>
     <game id="R-Tuned">
+=======
+    <game name="rtuned">
+      <wheel rotation="270"/>
+    </game>
+    <game name="R-Tuned">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <wheel/>
     </game>
     <game id="sarukani">
@@ -3672,6 +3835,7 @@
     <game id="SDR">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="segartv" name="Sega Race-TV (Export)">
       <wheel rotation="270"/>
     </game>
@@ -3779,6 +3943,10 @@
     </game>
     <game id="Showdown">
       <wheel/>
+=======
+    <game name="segartv">
+      <wheel rotation="270"/>
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
     </game>
     <game id="showdown4">
       <gun/>
@@ -5991,6 +6159,7 @@
     <game id="a1spirit">
       <wheel/>
     </game>
+<<<<<<< HEAD
     <game id="colt36">
       <gun/>
     </game>
@@ -6019,6 +6188,36 @@
       <trackball/>
     </game>
     <game id="superbilliards">
+=======
+    <game name="colt36">
+      <gun/>
+    </game>
+    <game name="django">
+      <gun/>
+    </game>
+    <game name="duckhunt">
+      <gun/>
+    </game>
+    <game name="dungeonhunter">
+      <gun/>
+    </game>
+    <game name="karamaru">
+      <trackball/>
+    </game>
+    <game name="holeinone">
+      <trackball/>
+    </game>
+    <game name="shootingcollection">
+      <gun/>
+    </game>
+    <game name="spacemazeattack">
+      <trackball/>
+    </game>
+    <game name="spacetrouble">
+      <trackball/>
+    </game>
+    <game name="superbilliards">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <trackball/>
     </game>
   </system>
@@ -6776,6 +6975,7 @@
     <game id="duckhunt">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="arkanoidii">
       <spinner type="arkanoid"/>
     </game>
@@ -6783,6 +6983,15 @@
       <spinner type="arkanoid"/>
     </game>
     <game id="gunsight">
+=======
+    <game name="arkanoidii">
+      <spinner type="arkanoid"/>
+    </game>
+    <game name="arkanoid">
+      <spinner type="arkanoid"/>
+    </game>
+    <game name="gunsight">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun/>
     </game>
     <game id="hitmarmot">
@@ -6827,7 +7036,11 @@
     <game id="shootthegoof">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="puttputtgolf">
+=======
+    <game name="puttputtgolf">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <trackball type="horitrack"/>
     </game>
     <game id="mastershooter">
@@ -6839,7 +7052,11 @@
     <game id="shootingrange">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="moeroprosoccer">
+=======
+    <game name="moeroprosoccer">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <trackball type="horitrack"/>
     </game>
     <game id="barroomshootout">
@@ -6854,7 +7071,11 @@
     <game id="mechanizedattack">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="uschampionshipvball">
+=======
+    <game name="uschampionshipvball">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <trackball type="horitrack"/>
     </game>
     <game id="superrussianroulette">
@@ -8097,7 +8318,11 @@
     <game id="metalcombatfalconsrevenge">
       <gun/>
     </game>
+<<<<<<< HEAD
     <game id="macsbasicriflemarksmanship">
+=======
+    <game name="macsbasicriflemarksmanship">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <gun type="macsrifle"/>
     </game>
   </system>
@@ -8264,8 +8489,16 @@
     <game id="fastdrawshowdown">
       <gun vertical_offset="14.9" yaw="18.8" pitch="18.8" action="tiltforward" select="a"/>
     </game>
+<<<<<<< HEAD
     <game id="nerfnstrikedoubleblast">
       <gun vertical_offset="8.7" yaw="12.50" pitch="12.60" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+=======
+    <game name="nerfnstrikedoubleblast">
+      <gun vertical_offset="8.7" yaw="12.50" pitch="12.60" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+    </game>
+    <game name="nerfnstrikeelite">
+      <gun vertical_offset="8.7" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
     </game>
     <game id="nerfnstrikeelite">
       <gun vertical_offset="8.7" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
@@ -8725,6 +8958,7 @@
       <wheel/>
     </game>
   </system>
+<<<<<<< HEAD
   <system id="x68000">
     <game id="afterburner">
       <trackball/>
@@ -8736,6 +8970,19 @@
       <trackball/>
     </game>
     <game id="syvalion">
+=======
+  <system name="x68000">
+    <game name="afterburner">
+      <trackball/>
+    </game>
+    <game name="arkanoidrevengeofdoh">
+      <trackball/>
+    </game>
+    <game name="marblemadness">
+      <trackball/>
+    </game>
+    <game name="syvalion">
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
       <trackball/>
     </game>
   </system>

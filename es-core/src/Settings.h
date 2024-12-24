@@ -107,8 +107,11 @@ public:
 	DEFINE_BOOL_SETTING(ThreadedLoading)
 	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
+<<<<<<< HEAD
 	DEFINE_BOOL_SETTING(NetPlayAutomaticallyCreateLobby)
 	DEFINE_BOOL_SETTING(NetPlayShowOnlyRelayServerGames)
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)			
 	DEFINE_BOOL_SETTING(LoadEmptySystems)		
 	DEFINE_BOOL_SETTING(HideUniqueGroups)

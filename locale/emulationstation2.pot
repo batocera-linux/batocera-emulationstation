@@ -553,6 +553,7 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
@@ -565,6 +566,8 @@ msgstr ""
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 

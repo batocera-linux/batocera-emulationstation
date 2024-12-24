@@ -2013,6 +2013,36 @@ msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
 msgid "NOW PLAYING"
 msgstr "A REPRODUZIR"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GUARDAR NA MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar a música atual para a pasta de favoritos"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR O DIRETÓRIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar a utilização do diretório de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Música adicionada à lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erro: Não foi possível abrir o arquivo de favoritos."
+
+msgid "No song is currently playing."
+msgstr "Nenhuma música está tocando no momento."
+
+msgid "Favorite music directory activated!"
+msgstr "Diretório de músicas favoritas ativado!"
+
+msgid "Default music directory activated!"
+msgstr "Diretório de músicas padrão ativado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta música já está nos Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE ECRÃ"
 
@@ -2670,12 +2700,15 @@ msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR ARMA CROSSHAIR"
 
+<<<<<<< HEAD
 msgid "BEHAVIOR"
 msgstr "COMPORTAMENTO"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "RESTRINGIR TECLAS DE ATALHO PARA SAIR"
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "default"
 msgstr "predefinição"
 
@@ -3582,6 +3615,8 @@ msgid ""
 msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
+
+
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
