@@ -619,6 +619,31 @@ int main(int argc, char* argv[])
 
 	window.closeSplashScreen();
 
+	bool cheevosState = SystemConf::getInstance()->getBool("global.retroachievements");
+	std::string cheevosUsername = SystemConf::getInstance()->get("global.retroachievements.username");
+	std::string cheevosPassword = SystemConf::getInstance()->get("global.retroachievements.password");
+	if (cheevosState && !(cheevosUsername.empty() || cheevosPassword.empty()))
+	{
+		std::string tokenOrError;
+		if (RetroAchievements::testAccount(cheevosUsername, cheevosPassword, tokenOrError))
+		{
+			if (tokenOrError == SystemConf::getInstance()->get("global.retroachievements.token"))
+			{
+				LOG(LogInfo) << "Cheevos token is unchanged.";
+			}
+			else
+			{
+				LOG(LogInfo) << "Generated a new cheevos token, saving.";
+				SystemConf::getInstance()->set("global.retroachievements.token", tokenOrError);
+				SystemConf::getInstance()->saveSystemConf();
+			}
+		}
+                else
+		{
+			LOG(LogError) << "Failed to generate a new cheevos token: " << tokenOrError;
+		}
+	}
+
 	// Create a flag in  temporary directory to signal READY state
 	ApiSystem::getInstance()->setReadyFlag();
 
