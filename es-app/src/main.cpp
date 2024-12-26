@@ -41,6 +41,7 @@
 #include "Scripting.h"
 #include "watchers/WatchersManager.h"
 #include "HttpReq.h"
+#include <thread>
 
 #ifdef WIN32
 #include <Windows.h>
@@ -624,24 +625,27 @@ int main(int argc, char* argv[])
 	std::string cheevosPassword = SystemConf::getInstance()->get("global.retroachievements.password");
 	if (cheevosState && !(cheevosUsername.empty() || cheevosPassword.empty()))
 	{
-		std::string tokenOrError;
-		if (RetroAchievements::testAccount(cheevosUsername, cheevosPassword, tokenOrError))
-		{
-			if (tokenOrError == SystemConf::getInstance()->get("global.retroachievements.token"))
+		auto cheevosTokenThread = [cheevosUsername, cheevosPassword]() {
+			std::string tokenOrError;
+			if (RetroAchievements::testAccount(cheevosUsername, cheevosPassword, tokenOrError))
 			{
-				LOG(LogInfo) << "Cheevos token is unchanged.";
+				if (tokenOrError == SystemConf::getInstance()->get("global.retroachievements.token"))
+				{
+					LOG(LogInfo) << "Cheevos token is unchanged.";
+				}
+				else
+				{
+					LOG(LogInfo) << "Generated a new cheevos token, saving.";
+					SystemConf::getInstance()->set("global.retroachievements.token", tokenOrError);
+					SystemConf::getInstance()->saveSystemConf();
+				}
 			}
 			else
 			{
-				LOG(LogInfo) << "Generated a new cheevos token, saving.";
-				SystemConf::getInstance()->set("global.retroachievements.token", tokenOrError);
-				SystemConf::getInstance()->saveSystemConf();
+				LOG(LogError) << "Failed to generate a new cheevos token: " << tokenOrError;
 			}
-		}
-                else
-		{
-			LOG(LogError) << "Failed to generate a new cheevos token: " << tokenOrError;
-		}
+		};
+		std::thread(cheevosTokenThread).detach();
 	}
 
 	// Create a flag in  temporary directory to signal READY state
