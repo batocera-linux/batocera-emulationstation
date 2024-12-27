@@ -45,6 +45,21 @@ private:
 	bool mEnabled;
 };
 
+class CheckCheevosTokenComponent : public IWatcher
+{
+public:
+	std::string& getLastToken() { return mLastToken; }
+
+protected:
+	bool enabled() override;
+	int  updateTime() override { return 120 * 60 * 1000; } // 120 minutes
+	int  initialUpdateTime() override { return 100; } // 100ms
+	bool check() override;
+
+private:
+	std::string mLastToken;
+};
+
 class NetworkThread : public IJoystickChangedEvent, public IWatcherNotify
 {
 public:
@@ -58,7 +73,7 @@ private:
 
 	CheckPadsBatteryLevelComponent					mCheckPadsBatteryLevelComponent;
 	CheckUpdatesComponent							mCheckUpdatesComponent;
-
+	CheckCheevosTokenComponent						mCheckCheevosTokenComponent;
 	Window* mWindow;
 };
 
