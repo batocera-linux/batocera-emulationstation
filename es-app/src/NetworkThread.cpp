@@ -9,14 +9,16 @@
 
 #include "watchers/BatteryLevelWatcher.h"
 #include "watchers/NetworkStateWatcher.h"
+#include "RetroAchievements.h"
 
 NetworkThread::NetworkThread(Window* window) : mWindow(window)
 {
 	WatchersManager* mgr = WatchersManager::getInstance();
 
+	mgr->RegisterComponent(&mCheckCheevosTokenComponent);
 	mgr->RegisterComponent(new BatteryLevelWatcher());
 	mgr->RegisterComponent(new NetworkStateWatcher());
-	
+
 	if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
 		mgr->RegisterComponent(&mCheckUpdatesComponent);
 
@@ -68,7 +70,7 @@ bool CheckPadsBatteryLevelComponent::check()
 bool CheckUpdatesComponent::enabled()
 {
 	return mEnabled && SystemConf::getInstance()->getBool("updates.enabled") && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE);
-};
+}
 
 bool CheckUpdatesComponent::check()
 {
@@ -95,6 +97,45 @@ bool CheckUpdatesComponent::check()
 	return false;
 }
 
+bool CheckCheevosTokenComponent::enabled()
+{
+	return SystemConf::getInstance()->getBool("global.retroachievements");
+};
+
+bool CheckCheevosTokenComponent::check()
+{
+	if (!enabled())
+		return false;
+
+	std::string cheevosUsername = SystemConf::getInstance()->get("global.retroachievements.username");
+	std::string cheevosPassword = SystemConf::getInstance()->get("global.retroachievements.password");
+	
+	if (cheevosUsername.empty() || cheevosPassword.empty())
+		return false;
+
+	std::string tokenOrError;
+	if (RetroAchievements::testAccount(cheevosUsername, cheevosPassword, tokenOrError))
+	{
+		if (tokenOrError == SystemConf::getInstance()->get("global.retroachievements.token"))
+		{
+			LOG(LogInfo) << "[CheckCheevosTokenComponent] Cheevos token is unchanged.";
+		}
+		else
+		{
+			LOG(LogInfo) << "[CheckCheevosTokenComponent] Generated a new cheevos token, saving.";
+			mLastToken = tokenOrError;
+			return true;
+		}
+	}
+	else
+	{
+		LOG(LogError) << "[CheckCheevosTokenComponent] Failed to generate a new cheevos token: " << tokenOrError;		
+	}
+
+	return false;
+}
+
+
 void NetworkThread::onJoystickChanged()
 {
 	WatchersManager::getInstance()->ResetComponent(&mCheckPadsBatteryLevelComponent);
@@ -113,6 +154,19 @@ void NetworkThread::OnWatcherChanged(IWatcher* component)
 		auto pads = mCheckPadsBatteryLevelComponent.getPadsInfo();
 
 		mWindow->postToUiThread([pads]() { for (auto pad : pads) InputManager::getInstance()->updateBatteryLevel(pad.id, pad.device, pad.path, pad.battery); });
+		return;
+	}
+
+	if (component == &mCheckCheevosTokenComponent)
+	{
+		auto token = mCheckCheevosTokenComponent.getLastToken();
+
+		mWindow->postToUiThread([token]() 
+			{ 
+				SystemConf::getInstance()->set("global.retroachievements.token", token);
+				SystemConf::getInstance()->saveSystemConf();
+			});
+
 		return;
 	}
 }
