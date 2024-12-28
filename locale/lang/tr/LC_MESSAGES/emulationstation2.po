@@ -1199,10 +1199,8 @@ msgstr "Temizleniyor"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "OYUN KULLANIM LİSTESİNİ SIFIRLA"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini "
-"sıfırlayın."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "DOSYA UZANTILARINI RESETLE"
@@ -2424,6 +2422,9 @@ msgstr "SİSTEMİN İÇİNDE GİZLENMİŞ OYUNLARI GÖSTER"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "BOŞ SİSTEMLERİ GÖSTER"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
@@ -2674,6 +2675,9 @@ msgstr "KONTROL AYGITI AKTİVİTELERİNİ GÖSTER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "KONTROL AYGITI PİL DÜZEYİNİ GÖSTER"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "varsayılan"
@@ -3102,8 +3106,8 @@ msgstr "DEĞİŞİKLİKLERİ UYGULAMAK İÇİN OYUN LİSTELERİNİ GÜNCELLE."
 msgid "Loading system config..."
 msgstr "Sistem yapılandırması yükleniyor..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATÖRDEN BEKLENMEDİK ŞEKİLDE ÇIKILDI"
@@ -3570,6 +3574,14 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Oyun Süresi, Oynatma Sayısı ve Son Oynanan meta verilerinin değerlerini "
+#~ "sıfırlayın."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "METADATA LAR KAYDEDİLİYOR. LÜTFEN BEKLEYİNİZ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH CİHAZI UNUT"

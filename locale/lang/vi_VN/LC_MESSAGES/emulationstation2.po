@@ -1191,7 +1191,7 @@ msgstr ""
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2404,6 +2404,9 @@ msgstr "HIỂN THỊ TRÒ CHƠI CỦA CÁC HỆ THỐNG ẨN TRONG BỘ SƯU T�
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "HIỂN THỊ HỆ THỐNG TRỐNG"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Đang nạp dữ liệu..."
 
@@ -2655,6 +2658,9 @@ msgstr "HIỂN THỊ HOẠT ĐỘNG CỦA BỘ ĐIỀU KHIỂN"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "HIỂN THỊ MỨC PIN BỘ ĐIỀU KHIỂN"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "mặc định"
@@ -3084,8 +3090,8 @@ msgstr "CẬP NHẬT DANH SÁCH TRÒ CHƠI ĐỂ ÁP DỤNG CÁC THAY ĐỔI."
 msgid "Loading system config..."
 msgstr "Đang tải cấu hình hệ thống..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ĐANG LƯU SIÊU DỮ LIỆU. VUI LÒNG CHỜ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "TRÌNH GIẢ LẬP THOÁT ĐỘT NGỘT"
@@ -3552,6 +3558,9 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "ĐANG LƯU SIÊU DỮ LIỆU. VUI LÒNG CHỜ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "QUÊN THIẾT BỊ BLUETOOTH"

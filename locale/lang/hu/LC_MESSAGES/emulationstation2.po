@@ -1203,8 +1203,8 @@ msgstr "Tisztítás"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "A JÁTÉKLISTÁK HASZNÁLATI ADATAINAK VISSZAÁLLÍTÁSA"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "FÁJL KITERJESZTÉSEK VISSZAÁLLÍTÁSA"
@@ -2434,6 +2434,9 @@ msgstr "ELREJTETT JÁTÉKOK MEGJELENÍTÉSE A GYŰJTEMÉNYEKBEN"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ÜRES RENDSZEREK MEGJELENÍTÉSE"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Betöltés..."
 
@@ -2687,6 +2690,9 @@ msgstr "KONTROLLER AKTIVITÁS MEGJELENÍTÉSE"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "alap"
@@ -3116,8 +3122,8 @@ msgstr "FRISSÍTSE A JÁTÉKLISTÁKAT A MÓDOSÍTÁSOK ALKALMAZÁSÁHOZ."
 msgid "Loading system config..."
 msgstr "Rendszer konfiguráció betöltése..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "METAADAT MENTÉSE. VÁRJ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "AZ EMULÁTOR VÁRATLANUL KILÉPETT"
@@ -3585,6 +3591,13 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Állítsa vissza a GameTime, PlayCount és LastPlayed metaadatok értékét."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "METAADAT MENTÉSE. VÁRJ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH-ESZKÖZ ELFELEJTÉSE"

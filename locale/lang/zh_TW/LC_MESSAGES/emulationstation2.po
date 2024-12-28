@@ -1192,7 +1192,7 @@ msgstr "清理中"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "重設遊戲清單使用記錄"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2390,6 +2390,9 @@ msgstr "在合輯中顯示已隱藏的遊戲平台的遊戲"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "顯示空的遊戲平台"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -2639,6 +2642,9 @@ msgstr "顯示控制器活動狀態"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "預設值"
@@ -3060,8 +3066,8 @@ msgstr "更新遊戲清單來套用變更。"
 msgid "Loading system config..."
 msgstr "正在載入系統設定..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "正在儲存中繼資料。請稍後..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "模擬器未預期的退出了"
@@ -3520,6 +3526,9 @@ msgid ""
 msgstr ""
 "校準光線槍\n"
 "對準目標開火來校準"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "正在儲存中繼資料。請稍後..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "忘記藍牙裝置"

@@ -1204,10 +1204,8 @@ msgstr "Nettoyage"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RÉINITIALISER LES DONNÉES D'UTILISATION DES LISTES DE JEUX"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Réinitialiser les valeurs du temps de jeu, du nombre de parties et des "
-"dernières jouées."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RAZ DES EXTENSIONS DE FICHIER"
@@ -2426,6 +2424,9 @@ msgstr "AFFICHER LES JEUX DES SYSTÈMES CACHÉS DANS LES COLLECTIONS"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "AFFICHER LES SYSTÈMES SANS JEU"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -2677,6 +2678,9 @@ msgstr "AFFICHER L'ACTIVITÉ DES MANETTES"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFFICHER LE NIVEAU DE BATTERIE DES MANETTES"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "par défaut"
@@ -3107,8 +3111,8 @@ msgstr "METTEZ À JOUR LES LISTES DE JEUX POUR APPLIQUER LES MODIFICATIONS."
 msgid "Loading system config..."
 msgstr "Chargement de la configuration système..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "L’ÉMULATEUR A QUITTÉ DE MANIÈRE INATTENDUE"
@@ -3575,6 +3579,14 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Réinitialiser les valeurs du temps de jeu, du nombre de parties et des "
+#~ "dernières jouées."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SAUVEGARDE DES MÉTADONNÉES. VEUILLEZ PATIENTER…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OUBLIER UN PÉRIPHÉRIQUE BLUETOOTH"

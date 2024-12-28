@@ -1188,7 +1188,7 @@ msgstr ""
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2381,6 +2381,9 @@ msgstr ""
 msgid "SHOW EMPTY SYSTEMS"
 msgstr ""
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr ""
 
@@ -2624,6 +2627,9 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
 msgstr ""
 
 msgid "default"
@@ -3046,7 +3052,7 @@ msgstr ""
 msgid "Loading system config..."
 msgstr ""
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"

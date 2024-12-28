@@ -1199,10 +1199,8 @@ msgstr "Очистка"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "СБРОС СТАТИСТИКИ ИСП. ГЕЙМЛИСТОВ"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Сбросить значения о времени игры, кол-ве запусков и дате посл. запуска "
-"(GameTime, PlayCount, LastPlayed)."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
@@ -2416,6 +2414,9 @@ msgstr "ПОКАЗАТЬ ИГРЫ ИЗ СПРЯТАННЫХ СИСТЕМ В КО
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ОТОБРАЖАТЬ ПУСТЫЕ СИСТЕМЫ"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Загрузка..."
 
@@ -2666,6 +2667,9 @@ msgstr "ПОКАЗАТЬ АКТИВНОСТЬ КОНТРОЛЛЕРА"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "по умолчанию"
@@ -3097,8 +3101,8 @@ msgstr "ОБНОВИТЕ СПИСОК ИГР, ЧТОБЫ ПРИМЕНИТЬ ИЗ
 msgid "Loading system config..."
 msgstr "Загрузка системных настроек..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "ЭМУЛЯТОР НЕОЖИДАННО ПРЕКРАТИЛ РАБОТУ"
@@ -3573,6 +3577,14 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Сбросить значения о времени игры, кол-ве запусков и дате посл. запуска "
+#~ "(GameTime, PlayCount, LastPlayed)."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОЖАЛУЙСТА ПОДОЖДИТЕ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "УДАЛЕНИЕ BLUETOOTH УСТРОЙСТВ"

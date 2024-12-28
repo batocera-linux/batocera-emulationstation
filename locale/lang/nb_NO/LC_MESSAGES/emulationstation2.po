@@ -1195,8 +1195,8 @@ msgstr "Rengjør"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "TILBAKESTILL BRUKSDATA FOR SPILL-LISTER"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Tilbakestill verdiene for GameTime, PlayCount og LastPlayed metadata."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "NULLSTILL FILENDELSER"
@@ -2414,6 +2414,9 @@ msgstr "VIS SPILL FRA SKJULTE SYSTEM I SAMLINGER"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "VIS TOMME SPILLSYSTEM"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -2664,6 +2667,9 @@ msgstr "VIS KONTROLLER AKTIVITET"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VIS KONTROLLER BATTERYNIVÅ"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "standard"
@@ -3093,8 +3099,8 @@ msgstr "OPPDATER SPILLLISTE FOR Å BRUKE ENDRINGER."
 msgid "Loading system config..."
 msgstr "Laster systemkonfigurasjon..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "LAGRER METADATA. VENNLIGST VENT."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATOREN SLUTTET UVENTET"
@@ -3561,6 +3567,13 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Tilbakestill verdiene for GameTime, PlayCount og LastPlayed metadata."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "LAGRER METADATA. VENNLIGST VENT."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "GLØM BLUETOOTH ENHET"

@@ -1191,7 +1191,7 @@ msgstr ""
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2384,6 +2384,9 @@ msgstr "MOSTRAR LOS JÒCS DELS SISTÈMAS RESCONDUTS A LAS COLLECCIONS"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr ""
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Cargament..."
 
@@ -2627,6 +2630,9 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr ""
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
 msgstr ""
 
 msgid "default"
@@ -3049,8 +3055,8 @@ msgstr ""
 msgid "Loading system config..."
 msgstr "Cargament conf. sistma..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr ""
@@ -3513,6 +3519,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "ENREGISTRAMENT METADONADAS, ESPERATZ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR LO PERIFERIC BLUETOOTH"

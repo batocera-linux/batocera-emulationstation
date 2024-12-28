@@ -1205,9 +1205,8 @@ msgstr "Netejant"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESTABLEIX LES DADES D'ÚS DE LES LISTES DE JOCS"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REINICIAR EXTENSIONS D'ARXIU"
@@ -2433,6 +2432,9 @@ msgstr "MOSTRAR JOCS OCULTS A COL·LECCIONS"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRAR SISTEMES BUITS"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Carregant..."
 
@@ -2685,6 +2687,9 @@ msgstr "MOSTRAR L'ACTIVITAT DEL COMANDAMENT"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVELL DE BATERIA DEL COMANDAMENT"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "per defecte"
@@ -3113,8 +3118,8 @@ msgstr "ACTUALITZI LES GAMELISTS PER A APLICAR ELS CANVIS."
 msgid "Loading system config..."
 msgstr "Carregant configuració de sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "DESANT METADADES. SI US PLAU ESPERI..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "LA EMULACIÓ S'HA INTERROMPUT DE MANERA INESPERADA"
@@ -3582,6 +3587,13 @@ msgid ""
 msgstr ""
 "CALIBRANT PISTOLA\n"
 "Dispari als objectius per a calibrar"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Restableix els valors de les metadades GameTime, PlayCount i LastPlayed."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "DESANT METADADES. SI US PLAU ESPERI..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "OBLIDAR UN DISPOSITIU BLUETOOTH"

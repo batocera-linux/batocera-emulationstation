@@ -1192,8 +1192,8 @@ msgstr "지우기 중"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "게임목록 데이터 재설정"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "게임시간, 재생횟수, 마지막으로 재생한 메타데이터의 값을 재설정합니다."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "파일 확장자 재설정"
@@ -2401,6 +2401,9 @@ msgstr "컬렉션의 숨겨진 시스템 게임 표시"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "비어있는 시스템 표시"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "불러오는 중..."
 
@@ -2651,6 +2654,9 @@ msgstr "활성 컨트롤러 보이기"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "컨트롤러 배터리 상태 보이기"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "기본"
@@ -3074,8 +3080,8 @@ msgstr "변경 사항을 적용하려면 게임목록을 업데이트하세요."
 msgid "Loading system config..."
 msgstr "시스템 구성 불러오는 중..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "에뮬레이터가 예기치 않게 종료됨"
@@ -3534,3 +3540,10 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "게임시간, 재생횟수, 마지막으로 재생한 메타데이터의 값을 재설정합니다."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "메타데이터를 저장 중입니다. 잠시만 기다려 주세요..."

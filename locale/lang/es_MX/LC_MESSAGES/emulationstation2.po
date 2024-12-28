@@ -1205,7 +1205,7 @@ msgstr "Limpiando"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2426,6 +2426,9 @@ msgstr "MOSTRAR JUEGOS DE SISTEMAS OCULTOS EN COLECCIONES"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRAR SISTEMAS VACIOS (SIN JUEGOS)"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Cargando..."
 
@@ -2678,6 +2681,9 @@ msgstr "MOSTRAR ACTIVIDAD DEL MANDO EN PANTALLA"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVEL DE BATERÍA DEL MANDO"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "predeterminado"
@@ -3106,8 +3112,8 @@ msgstr "ACTUALIZAR LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS."
 msgid "Loading system config..."
 msgstr "Cargando la configuración del sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERA…"
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EL EMULADOR SE CERRÓ INESPERADAMENTE"
@@ -3574,6 +3580,9 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERA…"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "DESVINCULAR UN DISPOSITIVO BLUETOOTH"

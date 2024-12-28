@@ -1201,8 +1201,8 @@ msgstr "Czyszczenie"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "ZRESETUJ DANE DOTYCZĄCE LIST GIER"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
@@ -2427,6 +2427,9 @@ msgstr "POKAŻ GRY UKRYTYCH SYSTEMÓW W KOLEKCJACH"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "POKAŻ PUSTE SYSTEMY"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Wczytywanie..."
 
@@ -2678,6 +2681,9 @@ msgstr "POKAŻ DZIAŁANIE KONTROLERA"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "POKAŻ POZIOM BATERII KONTROLERA"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "domyślnie"
@@ -3108,8 +3114,8 @@ msgstr "ZAKTUALIZUJ LISTĘ GIER ABY ZASTOSOWAĆ ZMIANY"
 msgid "Loading system config..."
 msgstr "Wczytywanie konfiguracji systemowej..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATOR NIEOCZEKIWANIE ZAKOŃCZYŁ DZIAŁANIE"
@@ -3584,6 +3590,12 @@ msgid ""
 msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "USUŃ URZĄDZENIE BLUETOOTH"

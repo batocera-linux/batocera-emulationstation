@@ -1187,7 +1187,7 @@ msgstr "מנקה"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2380,6 +2380,9 @@ msgstr "הצג משחקים של מערכות נסתרות באוספי משחק
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "הצג מערכות ללא משחקים"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "טוען..."
 
@@ -2624,6 +2627,9 @@ msgstr "הצגת פעילות בקר"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "הצגת רמת סוללה לבקר"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "ברירת מחדל"
@@ -3053,7 +3059,7 @@ msgstr ""
 msgid "Loading system config..."
 msgstr "טוען הגדרות מערכת"
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"

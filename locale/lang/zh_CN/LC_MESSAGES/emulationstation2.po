@@ -1190,8 +1190,8 @@ msgstr "清理中"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "重置游戏列表使用数据"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "重置游玩时间、游玩次数和上次游玩时间元数据的值。"
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "重置文件扩展名"
@@ -2389,6 +2389,9 @@ msgstr "在合辑中显示隐藏游戏"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "显示空系统"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "载入中..."
 
@@ -2638,6 +2641,9 @@ msgstr "显示控制器活动"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "显示手柄电池电量"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "默认"
@@ -3060,8 +3066,8 @@ msgstr "更新游戏列表以应用更改。"
 msgid "Loading system config..."
 msgstr "正在载入系统配置..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "正在保存元数据。请稍候..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "模拟器意外退出"
@@ -3520,6 +3526,12 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr "重置游玩时间、游玩次数和上次游玩时间元数据的值。"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "正在保存元数据。请稍候..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "解除配对的蓝牙设备"

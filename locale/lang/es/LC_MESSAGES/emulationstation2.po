@@ -561,16 +561,15 @@ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 msgstr "MOSTRAR OPCIONES DE NETPLAY AL INICIAR EL JUEGO"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-"Permite elegir entre jugar online, offline o unirse a otro juego."
+msgstr "Permite elegir entre jugar online, offline o unirse a otro juego."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRAR SÓLO JUEGOS DE SERVIDOR DE RETRANSMISIÓN"
 
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
-"Los juegos con servidores de retransmisión tienen mayores "
-"posibilidades de acceso con éxito."
+"Los juegos con servidores de retransmisión tienen mayores posibilidades de "
+"acceso con éxito."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
@@ -1209,10 +1208,8 @@ msgstr "Limpiando"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESTABLECER DATOS DE USO DE LISTAS DE JUEGOS"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Restablece los valores de los metadatos GameTime (Tiempo de juego), "
-"PlayCount (Recuento de partidas) y LastPlayed (Jugado por última vez)."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESTABLECER EXTENSIONES DE ARCHIVOS"
@@ -2439,6 +2436,9 @@ msgstr "MOSTRAR SISTEMAS OCULTOS EN COLECCIONES"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRAR SISTEMAS VACIOS (SIN JUEGOS)"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Cargando..."
 
@@ -2575,8 +2575,8 @@ msgid ""
 "SOME FILES YOU LINKED ARE LOCATED OUTSIDE THE GAMELIST PATH.\n"
 "DO YOU WANT TO USE A COPY OF THESE FILES RELATIVE TO THE GAMELIST ?"
 msgstr ""
-"ALGUNOS ARCHIVOS QUE HAS VINCULADO SE ENCUENTRAN FUERA DE LA RUTA DE "
-"ACCESO DE LA LISTA DE JUEGOS.\n"
+"ALGUNOS ARCHIVOS QUE HAS VINCULADO SE ENCUENTRAN FUERA DE LA RUTA DE ACCESO "
+"DE LA LISTA DE JUEGOS.\n"
 "¿DESEAS USAR UNA COPIA DE ESTOS ARCHIVOS RELATIVOS A LA LISTA DE JUEGOS?"
 
 msgid "CONNECT TO NETPLAY"
@@ -2693,6 +2693,9 @@ msgstr "MOSTRAR ACTIVIDAD DEL MANDO EN PANTALLA"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR NIVEL DE BATERÍA"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "defecto"
@@ -3122,8 +3125,8 @@ msgstr "ACTUALIZAR LISTAS DE JUEGOS PARA APLICAR LOS CAMBIOS."
 msgid "Loading system config..."
 msgstr "Cargando configuración del sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERE..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EL EMULADOR SE CERRÓ INESPERADAMENTE"
@@ -3590,6 +3593,14 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Restablece los valores de los metadatos GameTime (Tiempo de juego), "
+#~ "PlayCount (Recuento de partidas) y LastPlayed (Jugado por última vez)."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "GUARDANDO METADATOS. POR FAVOR, ESPERE..."
 
 #~ msgid "NEVER"
 #~ msgstr "NUNCA"

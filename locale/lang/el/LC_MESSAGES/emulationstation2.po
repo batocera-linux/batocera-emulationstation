@@ -1200,7 +1200,7 @@ msgstr "Καθαρισμος"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "ΚΑΘΑΡΙΣΜΟΣ ΔΕΔΟΜΕΝΩΝ ΛΙΣΤΑΣ ΠΑΙΧΝΙΔΙΩΝ"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2402,6 +2402,9 @@ msgstr "ΕΜΦΑΝΙΣΗ ΠΑΙΧΝΙΔΩΝ ΚΡΥΜΜΕΝΩΝ ΣΥΣΤΗΜΑΤ�
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ΠΡΟΒΟΛΗ ΑΔΕΙΩΝ ΣΥΣΤΗΜΑΤΩΝ"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Φορτωση..."
 
@@ -2649,6 +2652,9 @@ msgstr "ΕΜΦΑΝΙΣΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ΕΜΦΑΝΙΣΗ ΕΠΙΠΕΔΟΥ ΜΠΑΤΑΡΙΑΣ ΧΕΙΡΙΣΤΗΡΙΟΥ"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "προεπιλεγμενο"
@@ -3078,8 +3084,8 @@ msgstr "ΕΝΗΜΕΡΩΣΤΕ ΤΗ ΛΙΣΤΑ ΠΑΙΧΝΙΔΙΩΝ ΓΙΑ ΝΑ Ε
 msgid "Loading system config..."
 msgstr "Φορτωση τροποποιησης συστηματος..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "Ο ΕΞΟΜΟΙΩΤΗΣ ΣΤΑΜΑΤΗΣΕ ΑΝΑΠΑΝΤΕΧΑ"
@@ -3547,6 +3553,9 @@ msgid ""
 msgstr ""
 "ΒΑΘΜΟΝΟΜΗΣΗ ΟΠΛΟΥ\n"
 "Πυροβοληστε σε στοχο για βαθμονομηση"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "ΑΠΟΘΗΚΕΥΣΗ ΜΕΤΑΔΕΔΟΜΕΝΩΝ. ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ΞΕΧΝΑ ΜΙΑ ΣΥΣΚΕΥΗ BLUETOOTH"

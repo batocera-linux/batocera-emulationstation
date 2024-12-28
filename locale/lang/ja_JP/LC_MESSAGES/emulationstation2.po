@@ -1203,8 +1203,8 @@ msgstr "クリーニング"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "ゲームリストの使用データをリセット"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "プレイ時間, プレイ回数, 最終プレイゲーム名 のデータ値を初期化します"
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ファイル表示拡張子設定をリセット"
@@ -2415,6 +2415,9 @@ msgstr "非表示システムにあるゲームをコレクションに表示"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "全てのシステムを表示"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "読み込み中…"
 
@@ -2667,6 +2670,9 @@ msgstr "コントローラーアクティビティを表示"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "コントローラーバッテリーレベルを表示"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "標準"
@@ -3093,8 +3099,8 @@ msgstr "「ゲームリストを更新」で変更を適用します"
 msgid "Loading system config..."
 msgstr "システム設定を読み込んでいます..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "メタ情報の保存中です。 お待ちください..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "エミュレータが予期せず終了しました"
@@ -3553,6 +3559,12 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr "プレイ時間, プレイ回数, 最終プレイゲーム名 のデータ値を初期化します"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "メタ情報の保存中です。 お待ちください..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH デバイスの削除"

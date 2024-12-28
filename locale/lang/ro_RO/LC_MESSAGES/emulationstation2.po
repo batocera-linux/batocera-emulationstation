@@ -1206,10 +1206,8 @@ msgstr "Se curăță"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESETEAZĂ DATELE STATISTICE DIN LISTELE DE JOCURI"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Resetează valorile pentru metadatele timpului de joc, numărul de jocuri și "
-"jucat ultima dată."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESETEAZĂ EXTENSIILE FIȘIERELOR"
@@ -2434,6 +2432,9 @@ msgstr "ARATĂ JOCURILE SISTEMELOR ASCUNSE ÎN COLECȚII"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ARATĂ SISTEMELE GOALE"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Se încarcă..."
 
@@ -2685,6 +2686,9 @@ msgstr "AFIȘEAZĂ ACTIVITATEA CONTROLERELOR"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AFIȘEAZĂ NIVELUL BATERIEI CONTROLERELOR"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "implicit"
@@ -3118,8 +3122,8 @@ msgstr "ACTUALIZEAZĂ LISTELE DE JOCURI PENTRU A APLICA MODIFICĂRILE."
 msgid "Loading system config..."
 msgstr "Se încarcă configurația de sistem..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SE SALVEAZĂ METADATELE. TE ROG AȘTEAPTĂ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATORUL S-A ÎNCHIS NEAȘTEPTAT"
@@ -3595,6 +3599,14 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Resetează valorile pentru metadatele timpului de joc, numărul de jocuri "
+#~ "și jucat ultima dată."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SE SALVEAZĂ METADATELE. TE ROG AȘTEAPTĂ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ELIMINĂ UN DISPOZITIV BLUETOOTH"

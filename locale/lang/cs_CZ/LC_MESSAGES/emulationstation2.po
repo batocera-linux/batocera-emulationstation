@@ -1194,8 +1194,8 @@ msgstr "Čištění"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESETOVÁNÍ ÚDAJŮ O POUŽÍVÁNÍ SEZNAMŮ HER"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Obnovení hodnot metadat Herní čas, Počet přehrání a Naposledy hrané."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESET SOUBORU ROZŠÍŘENÍ"
@@ -2415,6 +2415,9 @@ msgstr "ZOBRAZIT HRY SKRYTÝCH SYSTÉMŮ VE SBÍRKÁCH"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ZOBRAZIT PRÁZDNÉ SYSTÉMY"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Načítání..."
 
@@ -2667,6 +2670,9 @@ msgstr "ZOBRAZIT AKTIVITU HER. OVLADAČE"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "výchozí"
@@ -3099,8 +3105,8 @@ msgstr "AKTUALIZOVAT SEZNAMY HER A POUŽÍT ZMĚNY."
 msgid "Loading system config..."
 msgstr "Načítání konfigurace systému..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULÁTOR SE NEOČEKÁVANĚ UKONČIL"
@@ -3575,6 +3581,13 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Obnovení hodnot metadat Herní čas, Počet přehrání a Naposledy hrané."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "UKLÁDÁJÍ SE MATEDATA. PROSÍM ČEKEJ..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ZAPOMENOUT NA ZAŘÍZENÍ BLUETOOTH"

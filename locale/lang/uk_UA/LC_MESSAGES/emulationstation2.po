@@ -1191,7 +1191,7 @@ msgstr "Очищення"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2386,6 +2386,9 @@ msgstr "ВІДОБРАЖАТИ ІГРИ ПОРОЖНІХ СИСТЕМ В КОЛ�
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "ВІДОБРАЖАТИ ПОРОЖНІ СИСТЕМИ"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Завантаження..."
 
@@ -2629,6 +2632,9 @@ msgid "SHOW CONTROLLER ACTIVITY"
 msgstr "ПОКАЗАТИ АКТИВНІСТЬ КОНТРОЛЕРА"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
+msgstr ""
+
+msgid "DRAW GUN CROSSHAIR"
 msgstr ""
 
 msgid "default"
@@ -3055,8 +3061,8 @@ msgstr ""
 msgid "Loading system config..."
 msgstr "Завантаження системних налаштувань..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr ""
@@ -3527,6 +3533,9 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "ЗБЕРЕЖЕННЯ МЕТАДАННИХ. ЗАЧЕКАЙТЕ, БУДЬ ЛАСКА..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ЗАБУТИ BLUETOOTH ПРИСТРІЙ"

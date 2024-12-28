@@ -1195,7 +1195,7 @@ msgstr "Membersihkan"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2411,6 +2411,9 @@ msgstr "TAMPILKAN GAME SISTEM TERSEMBUNYI DALAM KOLEKSI"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "TAMPILKAN SISTEM KOSONG"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Memuat..."
 
@@ -2662,6 +2665,9 @@ msgstr "TAMPILKAN AKTIVITAS KONTROLER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "TAMPILKAN TINGKAT BATERAI KONTROLER"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "default"
@@ -3086,8 +3092,8 @@ msgstr "UPDATE LISTGAME UNTUK MENERAPKAN PERUBAHAN."
 msgid "Loading system config..."
 msgstr "Memuat konfigurasi sistem..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "MENYIMPAN METADATA. HARAP TUNGGU..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATOR KELUAR SECARA TIBA-TIBA"
@@ -3546,6 +3552,9 @@ msgid ""
 msgstr ""
 "KALIBER SENJATA\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "MENYIMPAN METADATA. HARAP TUNGGU..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "LUPAKAN PERANGKAT BLUETOOTH"

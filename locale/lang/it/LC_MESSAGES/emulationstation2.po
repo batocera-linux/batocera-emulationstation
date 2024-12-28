@@ -564,7 +564,8 @@ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 msgstr "MOSTRA OPZIONI NETPLAY QUANDO LANCI IL GIOCO"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permette di scegliere se online, offline o partecipare ad un altro gioco."
+msgstr ""
+"Permette di scegliere se online, offline o partecipare ad un altro gioco."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "MOSTRA SOLO I GIOCHI RELAY SERVER"
@@ -1199,8 +1200,8 @@ msgstr "Pulizia"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESETTA I DATI DI UTILIZZO GAMELISTS"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESETTA ESTENSIONI FILE"
@@ -2418,6 +2419,9 @@ msgstr "MOSTRA I GIOCHI DEI SISTEMI NASCOSTI NELLE COLLEZIONI"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRA SISTEMI VUOTI"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Caricamento..."
 
@@ -2668,6 +2672,9 @@ msgstr "MOSTRA ATTIVITÀ CONTROLLER"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRA LIVELLO BATTERIA DEL CONTROLLER"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "default"
@@ -3097,8 +3104,8 @@ msgstr "AGGIORNA LISTE DEI GIOCHI PER APPLICARE I CAMBIAMENTI"
 msgid "Loading system config..."
 msgstr "Caricamento configurazione di sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "CHIUSURA INASPETTATA DELL'EMULATORE"
@@ -3566,6 +3573,12 @@ msgid ""
 msgstr ""
 "CALIBRAZIONE PISTOLA\n"
 "Spara sui bersagli per calibrare"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "SALVATAGGIO INFORMAZIONI. ATTENDERE PREGO..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ELIMINA UN DISPOSITIVO BLUETOOTH"

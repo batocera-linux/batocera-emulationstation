@@ -1198,7 +1198,7 @@ msgstr "Siivotaan"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr ""
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
@@ -2411,6 +2411,9 @@ msgstr "NÄYTÄ PIILOTETTUJEN JÄRJESTELMIEN PELIT KOKOELMISSA"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "NÄYTÄ TYHJÄT JÄRJESTELMÄT"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Ladataan..."
 
@@ -2658,6 +2661,9 @@ msgstr "NÄYTÄ OHJAIMEN AKTIIVISUUS"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "NÄYTÄ OHJAIMEN AKUNTASO"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "oletus"
@@ -3086,7 +3092,7 @@ msgstr ""
 msgid "Loading system config..."
 msgstr ""
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
+msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"

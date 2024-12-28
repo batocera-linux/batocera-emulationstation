@@ -568,13 +568,16 @@ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
 msgstr "AMOSAR OPCIÓNS DE XOGO EN REDE AO INICIAR O XOGO"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permite escoller entre xogar en liña, fóra de liña ou unirse a outra partida."
+msgstr ""
+"Permite escoller entre xogar en liña, fóra de liña ou unirse a outra partida."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "AMOSAR SÓ SERVIDOR DE RETRANSMISIÓN DE XOGOS "
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "Os servidores de retransmisión de xogos teñen máis probabilidades de conexión exitosa."
+msgstr ""
+"Os servidores de retransmisión de xogos teñen máis probabilidades de "
+"conexión exitosa."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AMOSAR XOGOS NON DISPOÑIBLES"
@@ -1210,10 +1213,8 @@ msgstr "Limpando"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "RESTABLECER OS DATOS DE USO DA LISTA DE XOGOS"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Restablece os valores dos datos descriptivos, Tempo de Xogo, Reconto de "
-"Partidas e Último Xogado."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESTABLECER AS EXTENSIÓNS DE FICHEIRO"
@@ -2437,6 +2438,9 @@ msgstr "AMOSAR XOGOS DE SISTEMAS OCULTOS NAS COLECCIÓNS"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "AMOSAR SISTEMAS SEN XOGOS"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Cargando..."
 
@@ -2688,6 +2692,9 @@ msgstr "AMOSAR ACTIVIDADE DO MANDO"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "AMOSAR PORCENTAXE DE BATERIA DO MANDO"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "por defecto"
@@ -3117,8 +3124,8 @@ msgstr "ACTUALIZAR A LISTA DE XOGOS PARA APLICAR OS TROCOS."
 msgid "Loading system config..."
 msgstr "Cargando a configuración do sistema..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "GARDANDO OS DATOS DESCRIPTIVOS, AGARDA..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "O EMULADOR PECHOUSE INESPERADAMENTE"
@@ -3585,6 +3592,14 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara os obxectivos para calibrar"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Restablece os valores dos datos descriptivos, Tempo de Xogo, Reconto de "
+#~ "Partidas e Último Xogado."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "GARDANDO OS DATOS DESCRIPTIVOS, AGARDA..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "ESQUENCER DISPOSITIVO BLUETOOTH"

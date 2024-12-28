@@ -1199,8 +1199,8 @@ msgstr "Čistenie"
 msgid "RESET GAMELISTS USAGE DATA"
 msgstr "Vynulovať údaje použitia zoznamov"
 
-msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-msgstr "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
+msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
+msgstr ""
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "Vynulovať koncovky súborov"
@@ -2415,6 +2415,9 @@ msgstr "Zobraziť hry skrytých systémov vo všetkých kolekciách"
 msgid "SHOW EMPTY SYSTEMS"
 msgstr "Zobraziť prázdne systémy"
 
+msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
+msgstr ""
+
 msgid "Loading..."
 msgstr "Načítavam..."
 
@@ -2666,6 +2669,9 @@ msgstr "Zobraziť aktivitu ovládača"
 
 msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "Zobraziť úroveň batérie ovládača"
+
+msgid "DRAW GUN CROSSHAIR"
+msgstr ""
 
 msgid "default"
 msgstr "predvolené"
@@ -3097,8 +3103,8 @@ msgstr "Aktualizujte zoznamy hier na použitie zmien."
 msgid "Loading system config..."
 msgstr "Načítavam systémové nastavenie..."
 
-msgid "SAVING METADATAS. PLEASE WAIT..."
-msgstr "Ukladanie metadát. Prosím, čakajte..."
+msgid "SAVING METADATA. PLEASE WAIT..."
+msgstr ""
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "Emulátor sa nečakane ukončil"
@@ -3573,6 +3579,13 @@ msgid ""
 msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
+
+#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
+#~ msgstr ""
+#~ "Vynulovať hodnoty metadát hracieho času, počtu hraní a poslednej hry."
+
+#~ msgid "SAVING METADATAS. PLEASE WAIT..."
+#~ msgstr "Ukladanie metadát. Prosím, čakajte..."
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "Zabudnúť bluetooth zariadenie"
