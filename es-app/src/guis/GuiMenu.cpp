@@ -797,7 +797,7 @@ void GuiMenu::openPowerManagementSettings()
 
 	s->addWithLabel(_("LID CLOSE MODE"), optionsLidCloseMode);
 
-	s->addSaveFunc([this, optionsBatterySaveMode, sliderBatterySaverTime, optionsBatterySaveExtendedMode, sliderBatterySaverExtendedTime, aggressiveBatterySaveMode, s]
+	s->addSaveFunc([this, optionsBatterySaveMode, sliderBatterySaverTime, optionsBatterySaveExtendedMode, sliderBatterySaverExtendedTime, aggressiveBatterySaveMode, optionsLidCloseMode, s]
 	{
 		int newBatterySaverTimeSeconds = (int)Math::round(sliderBatterySaverTime->getValue()*60.f);
 		int newBatterySaverExtendedTimeSeconds = (int)Math::round(sliderBatterySaverExtendedTime->getValue()*60.f);
