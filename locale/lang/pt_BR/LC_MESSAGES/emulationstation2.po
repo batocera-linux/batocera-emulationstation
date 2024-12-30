@@ -4,14 +4,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: Killer\n"
+"Last-Translator: Leonardo Colman <dev@leonardo.colman.com.br>\n"
+"Language-Team: Killer, LeoColman\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -1208,6 +1208,8 @@ msgstr "REDEFINIR DADOS DE USO DAS LISTAS DE JOGOS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
+"Redefine os valores dos metadados Tempo de Jogo, Vezes Jogado e Jogado por "
+"Último."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REESTABELECER EXTENSÕES DE ARQUIVO"
@@ -2433,7 +2435,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "EXIBIR SISTEMAS VAZIOS"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "NÃO MOSTRAR GRUPOS COM APENAS UM SISTEMA"
 
 msgid "Loading..."
 msgstr "Carregando..."
@@ -2690,7 +2692,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "DESENHAR A MIRA DA ARMA"
 
 msgid "default"
 msgstr "padrão"
@@ -3121,7 +3123,7 @@ msgid "Loading system config..."
 msgstr "Carregando a configuração do sistema..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "SALVANDO METADADOS. POR FAVOR, AGUARDE..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "O EMULADOR SAIU INESPERADAMENTE"
@@ -3598,7 +3600,6 @@ msgstr ""
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "SALVANDO INFORMAÇÕES. POR FAVOR, AGUARDE..."
 
-#, c-format
 #~ msgid ""
 #~ "YOU ARE CURRENTLY USING VERSION %s\n"
 #~ " DO YOU WANT TO UPDATE TO VERSION %s?"
@@ -3606,7 +3607,6 @@ msgstr ""
 #~ "ATUALMENTE VOCÊ ESTÁ UTILIZANDO A VERSÃO %s\n"
 #~ " GOSTARIA DE ATUALIZAR PARA A VERSÃO %s?"
 
-#, c-format
 #~ msgid ""
 #~ "UNOFFICIAL SYSTEM MODIFICATIONS DETECTED.\n"
 #~ " UPGRADING COULD BREAK YOUR SYSTEM.\n"
@@ -3707,11 +3707,9 @@ msgstr ""
 #~ msgid "Reset achievements to be able to earn them again."
 #~ msgstr "Conquistas retrô desbloqueadas podem ser conquistadas novamente."
 
-#, c-format
 #~ msgid "%d m"
 #~ msgstr "%d m"
 
-#, c-format
 #~ msgid "%d s"
 #~ msgstr "%d s"
 

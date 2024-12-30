@@ -1204,7 +1204,7 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "REINICIAR DADOS DE USO DE LISTAS DE JOGOS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
-msgstr ""
+msgstr "Reponha os valores da informação GameTime, PlayCount e LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "REPOR EXTENSÕES DE FICHEIRO"
@@ -2427,7 +2427,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "MOSTRAR SISTEMAS VAZIOS"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "NÃO MOSTRAR GRUPOS COM APENAS UM SISTEMA"
 
 msgid "Loading..."
 msgstr "A Carregar..."
@@ -2682,7 +2682,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "DESENHAR ARMA CROSSHAIR"
 
 msgid "default"
 msgstr "predefinição"
@@ -3111,7 +3111,7 @@ msgid "Loading system config..."
 msgstr "A Carregar a configuração do sistema..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "A GUARDAR INFORMAÇÕES. POR FAVOR, AGUARDE..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "O EMULADOR SAIU INESPERADAMENTE"
@@ -3579,11 +3579,7 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
-#~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
-#~ msgstr "Redefina os valores dos metadados GameTime, PlayCount e LastPlayed."
 
-#~ msgid "SAVING METADATAS. PLEASE WAIT..."
-#~ msgstr "A GUARDAR AS INFORMAÇÕES. POR FAVOR, AGUARDE..."
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
