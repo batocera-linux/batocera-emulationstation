@@ -1201,6 +1201,8 @@ msgstr "СБРОС СТАТИСТИКИ ИСП. ГЕЙМЛИСТОВ"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
+"Сбросить значения метаданных о времени игры, кол-ве запусков и дате посл. "
+"запуска."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "СБРОСИТЬ РАСШИРЕНИЕ ФАЙЛОВ"
@@ -2415,7 +2417,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "ОТОБРАЖАТЬ ПУСТЫЕ СИСТЕМЫ"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "НЕ ПОКАЗЫВАТЬ ГРУППЫ С ОДНОЙ СИСТЕМОЙ"
 
 msgid "Loading..."
 msgstr "Загрузка..."
@@ -2669,7 +2671,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "ОТОБРАЖАТЬ ПЕРЕКРЕСТИЕ ПИСТОЛЕТА"
 
 msgid "default"
 msgstr "по умолчанию"
@@ -3102,7 +3104,7 @@ msgid "Loading system config..."
 msgstr "Загрузка системных настроек..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "СОХРАНЕНИЕ МЕТАДАННЫХ. ПОДОЖДИТЕ..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "ЭМУЛЯТОР НЕОЖИДАННО ПРЕКРАТИЛ РАБОТУ"
