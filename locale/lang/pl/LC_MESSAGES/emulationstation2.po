@@ -1202,7 +1202,7 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "ZRESETUJ DANE DOTYCZĄCE LIST GIER"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
-msgstr ""
+msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ZRESETUJ ROZSZERZENIA PLIKÓW"
@@ -2428,7 +2428,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "POKAŻ PUSTE SYSTEMY"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "NIE WYŚWIETLAJ GRUP Z JEDNYM SYSTEMEM"
 
 msgid "Loading..."
 msgstr "Wczytywanie..."
@@ -2683,7 +2683,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "POKAŻ POZIOM BATERII KONTROLERA"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "RYSUJ CELOWNIK BRONI"
 
 msgid "default"
 msgstr "domyślnie"
@@ -3115,7 +3115,7 @@ msgid "Loading system config..."
 msgstr "Wczytywanie konfiguracji systemowej..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "ZAPISYWANIE METADANYCH. CZEKAJ..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATOR NIEOCZEKIWANIE ZAKOŃCZYŁ DZIAŁANIE"
