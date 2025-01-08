@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: BATOCERA.LINUX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-12-24 09:52+0100\n"
+"PO-Revision-Date: 2025-01-06 14:53+0100\n"
 "Last-Translator: Ahmed Essam <Ahmed4Communication@gmail.com>\n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -147,10 +147,10 @@ msgid "enter path to map"
 msgstr "أدخل مسار الخريطة"
 
 msgid "Bezel (16:9)"
-msgstr "الحواف (٩:١٦)"
+msgstr "الإطار المحيط (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "أدخل مسار حواف (٩:١٦)"
+msgstr "أدخل مسار الاطار المحيط (16:9)"
 
 msgid "Cartridge"
 msgstr "خرطوشة"
@@ -486,16 +486,16 @@ msgid "DELETE"
 msgstr "حذف"
 
 msgid "PLAYER 1"
-msgstr "لاعب ١"
+msgstr "لاعب 1"
 
 msgid "PLAYER 2"
-msgstr "لاعب ٢"
+msgstr "لاعب 2"
 
 msgid "PLAYER 3"
-msgstr "لاعب ٣"
+msgstr "لاعب 3"
 
 msgid "PLAYER 4"
-msgstr "لاعب ٤"
+msgstr "لاعب 4"
 
 msgid "COMBINATIONS"
 msgstr "الأمزِجة"
@@ -831,13 +831,13 @@ msgid "LAST WEEK"
 msgstr "آخر أسبوع"
 
 msgid "LAST 15 DAYS"
-msgstr "آخر ١٥ يوما"
+msgstr "آخر 15 يوما"
 
 msgid "LAST MONTH"
 msgstr "آخر شهر"
 
 msgid "LAST 3 MONTHS"
-msgstr "آخر ٣ أشهر"
+msgstr "آخر 3 أشهر"
 
 msgid "LAST YEAR"
 msgstr "آخر سنة"
@@ -1019,10 +1019,10 @@ msgid "ANY EXTERNAL"
 msgstr "أي قرص خارجي"
 
 msgid "maximum 1920x1080"
-msgstr "أقصى ١٩٢٠x١٠٨٠"
+msgstr "أقصى 1920x1080"
 
 msgid "maximum 640x480"
-msgstr "أقصى ٦٤٠x٤٨٠"
+msgstr "أقصى 640x480"
 
 msgid "MAIN MENU"
 msgstr "القائمة الرئيسية"
@@ -1148,16 +1148,16 @@ msgid "ROTATION"
 msgstr "تناوب"
 
 msgid "0 DEGREES"
-msgstr "٠ درجة"
+msgstr "0 درجة"
 
 msgid "90 DEGREES"
-msgstr "٩٠ درجة"
+msgstr "90 درجة"
 
 msgid "180 DEGREES"
-msgstr "١٨٠ درجة"
+msgstr "180 درجة"
 
 msgid "270 DEGREES"
-msgstr "٢٧٠ درجة"
+msgstr "270 درجة"
 
 msgid "SCREEN ROTATION"
 msgstr "تدوير الشاشة"
@@ -1233,7 +1233,7 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "إعادة تعيين بيانات استخدام قوائم الألعاب"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
-msgstr ""
+msgstr "إعادة تعيين قيم بيانات وقت اللعب ،عدد اللاعبين وآخر مرة تم لعبها"
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "اعادة تعيين امتدادات الملف"
@@ -1371,8 +1371,7 @@ msgstr "التحميل المسبق لعناصر واجهة المستخدم خ�
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
-msgstr ""
-"تخفيض التباطؤ خلال دخول قائمة الألعاب من قائمة النظام، يزيد مدة الإقلاع"
+msgstr "تخفيض التباطؤ خلال دخول قائمة الألعاب من قائمة النظام، يزيد مدة الإقلاع"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "التحميل المسبق لبيانات الوسائط خلال الإقلاع"
@@ -1441,7 +1440,7 @@ msgid "TIME ZONE"
 msgstr "المنطقة الزمنية"
 
 msgid "SHOW CLOCK IN 12-HOUR FORMAT"
-msgstr "عرض الساعة بنمط ١٢ بدل ٢٤"
+msgstr "عرض الساعة بنمط 12 بدل 24"
 
 msgid "POWER SAVING MODE"
 msgstr "اقتصاد الطاقة"
@@ -1637,8 +1636,7 @@ msgid ""
 "Automatically decrease frame delay temporarily to prevent frame drops. Can "
 "introduce stuttering."
 msgstr ""
-"تنقيص تباطؤ الإطار تلقائياً موقتاً لمنع الدروب فريم(frame drops)، قد يسبب "
-"تقطيع."
+"تنقيص تباطؤ الإطار تلقائياً موقتاً لمنع الدروب فريم(frame drops)، قد يسبب تقطيع."
 
 msgid "VARIABLE REFRESH RATE (G-SYNC, FREESYNC)"
 msgstr "نسبة التحديث المتغيرة (G-SYNC, FREESYNC)"
@@ -1716,8 +1714,7 @@ msgstr "نسبة ارتفاع عرض الشاشة"
 msgid "Force the game to render in this aspect ratio."
 msgstr "إرغام اللعبة على الإشتغال بنسبة ارتفاع الشاشة هذه."
 
-msgid ""
-"Sets the display's resolution. Does not affect the rendering resolution."
+msgid "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr "تغيير دقة الشاشة.لن يؤثر على دقة شاشة التَّصيِيِر."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
@@ -1742,7 +1739,7 @@ msgid "DECORATIONS"
 msgstr "التزيينات"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "تمديد الحواف (جودة ٤K وَ ULTRAWIDE)"
+msgstr "تمديد الحواف (جودة 4K وَ ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
 msgstr "عرض الوشم على الحواف"
@@ -1889,10 +1886,10 @@ msgid "SHOW RETROACHIEVEMENTS ICON"
 msgstr "إظهار أيقونة RETROACHIEVEMENTS"
 
 msgid "SHOW GUN ICON"
-msgstr "إظهار أيقونة GUN"
+msgstr "إظهار أيقونة البندقية"
 
 msgid "SHOW WHEEL ICON"
-msgstr "إظهار أيقونة WHEEL"
+msgstr "إظهار أيقونة المِقْوَد"
 
 msgid "SHOW TRACKBALL ICON"
 msgstr "إظهار أيقونة كرة التتبع"
@@ -2223,7 +2220,7 @@ msgid "FIND SIMILAR GAMES..."
 msgstr "أوجد ألعاب مماثلة..."
 
 msgid "DELETE ITEM"
-msgstr "حذف الـ"
+msgstr "حذف العنصر"
 
 msgid "DELETE GAME"
 msgstr "حذف اللعبة"
@@ -2292,10 +2289,10 @@ msgid "TITLE SCREENSHOT"
 msgstr "عنوان لقطة شاشة"
 
 msgid "MIX V1"
-msgstr "مكس ١"
+msgstr "مكس 1"
 
 msgid "MIX V2"
-msgstr "مكس ٢"
+msgstr "مكس 2"
 
 msgid "BOX 2D"
 msgstr "صندوق ثنائي البعد"
@@ -2346,7 +2343,7 @@ msgid "FANART"
 msgstr "تصاميم الهواة"
 
 msgid "BEZEL (16:9)"
-msgstr "حواف (٩:١٦)"
+msgstr "الإطار المحيط (16:9)"
 
 msgid "BOX BACKSIDE"
 msgstr "الغلاف من الخلف"
@@ -2439,7 +2436,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "عرض الأنظمة الفارغة (بدون ألعاب)"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "لا تعرض المجموعات التي تستخدم نظامًا واحدًا فقط"
 
 msgid "Loading..."
 msgstr "جارِ التنزيل..."
@@ -2602,7 +2599,7 @@ msgid "SAME ROM"
 msgstr "نفس الروم"
 
 msgid "UNAVAILABLE CORE"
-msgstr "CORE غير متوفر"
+msgstr "النواة غير متوفرة"
 
 msgid "PLAY ONLINE AS HOST"
 msgstr "العب عبر الإنترنت كمضيف"
@@ -2654,13 +2651,13 @@ msgstr "ضبط أزرار وحدة التحكم"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. "
+"PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "ستقوم بتعديل لوحة التحكم. تلك التعديلات تعتمد على مكان الزر، ليس الاسم "
-"المكتوب عليه. إن لم يكن لديك زر خاص بالزر الساخن، استعمل الزر (SELECT). "
-"لتخطي (الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط "
-"على زر الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
+"المكتوب عليه. إن لم يكن لديك زر خاص بالزر الساخن، استعمل الزر (SELECT). لتخطي "
+"(الأزرار) / (عصيان اللعب) التي ليست لديك اضغط مطولاً على اي زر. اضغط على زر "
+"الأسفل (الجنوب) للتأكيد عندما تنتهي من التعديل."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "إعدادات مسدس سِينْدِن"
@@ -2693,7 +2690,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "عرض نسبة بطارية وحدة التحكم"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "رسم تصويب البندقية"
 
 msgid "default"
 msgstr "افتراضي"
@@ -2735,43 +2732,43 @@ msgid "CAMERA CONTRAST"
 msgstr "تباين الكاميرا"
 
 msgid "Daytime/Bright Sunlight (40)"
-msgstr "النّهار/سطوع (٤٠)"
+msgstr "النّهار/سطوع (40)"
 
 msgid "Default (50)"
-msgstr "الإفتراضي (٥٠)"
+msgstr "الإفتراضي (50)"
 
 msgid "Dim Display/Evening (60)"
-msgstr "تعتيم الشاشة/المساء (٦٠)"
+msgstr "تعتيم الشاشة/المساء (60)"
 
 msgid "CAMERA BRIGHTNESS"
 msgstr "سطوع الكاميرا"
 
 msgid "Daytime/Bright Sunlight (80)"
-msgstr "النّهار/سطوع (٨٠)"
+msgstr "النّهار/سطوع (80)"
 
 msgid "Default (100)"
-msgstr "الإفتراضي (١٠٠)"
+msgstr "افتراضي (100)"
 
 msgid "Dim Display/Evening (120)"
-msgstr "تعتيم الشاشة/المساء (١٢٠)"
+msgstr "تعتيم الشاشة/المساء (1)"
 
 msgid "CAMERA EXPOSURE"
 msgstr "تعرض الكاميرا للضوء"
 
 msgid "Projector/CRT (-5)"
-msgstr "جهاز العرض/تلفاز قديم (٥-)"
+msgstr "جهاز العرض/تلفاز قديم (5-)"
 
 msgid "Projector/CRT (-6)"
-msgstr "جهاز العرض/تلفاز قديم (٦-)"
+msgstr "جهاز العرض/تلفاز قديم (6-)"
 
 msgid "Default (-7)"
-msgstr "الإفتراضي (٧-)"
+msgstr "افتراضي (7-)"
 
 msgid "Other (-8)"
-msgstr "أخرى (٨-)"
+msgstr "أخرى (8-)"
 
 msgid "Other (-9)"
-msgstr "أخرى (٩-)"
+msgstr "أخرى (9-)"
 
 msgid "RECOIL"
 msgstr "ارتداد"
@@ -3596,8 +3593,8 @@ msgid "-NOT DEFINED-"
 msgstr "-غير محدد-"
 
 msgid ""
-"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
-"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A "
+"CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "لم تعين الزر الساخن.هذا هام جدا للخروج من الألعاب التي تشتغل بوحدة التحكم. "
 "أترغب في استعمال الزر سيليكت كالزر الساخن الخاص بك؟"
