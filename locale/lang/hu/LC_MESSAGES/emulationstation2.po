@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-30 05:49+0100\n"
+"PO-Revision-Date: 2025-01-09 13:58+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -1205,6 +1205,7 @@ msgstr "A JÁTÉKLISTÁK HASZNÁLATI ADATAINAK VISSZAÁLLÍTÁSA"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
+"A GameTime, PlayCount és LastPlayed metaadatok értékeinek visszaállítása."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "FÁJL KITERJESZTÉSEK VISSZAÁLLÍTÁSA"
@@ -2436,6 +2437,7 @@ msgstr "ÜRES RENDSZEREK MEGJELENÍTÉSE"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
 msgstr ""
+"NE JELENÍTSE MEG AZOKAT A CSOPORTOKAT, AMELYEKBEN CSAK EGY RENDSZER VAN"
 
 msgid "Loading..."
 msgstr "Betöltés..."
@@ -2692,7 +2694,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "PISZTOLY CÉLKERESZTET RAJZOLÁS"
 
 msgid "default"
 msgstr "alap"
@@ -3123,7 +3125,7 @@ msgid "Loading system config..."
 msgstr "Rendszer konfiguráció betöltése..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "METAADATOK MENTÉSE. KÉRLEK VÁRJ..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "AZ EMULÁTOR VÁRATLANUL KILÉPETT"
