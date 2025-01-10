@@ -1428,6 +1428,9 @@
     <game name="GaiaAttack4">
       <gun/>
     </game>
+	<game name="gallagher">
+      <gun/>
+    </game>
     <game name="gallgall">
       <gun/>
     </game>
@@ -5841,6 +5844,36 @@
     <game name="a1spirit">
       <wheel/>
     </game>
+    <game name="colt36">
+      <gun/>
+    </game>
+    <game name="django">
+      <gun/>
+    </game>
+    <game name="duckhunt">
+      <gun/>
+    </game>
+    <game name="dungeonhunter">
+      <gun/>
+    </game>
+    <game name="karamaru">
+      <trackball/>
+    </game>
+    <game name="holeinone">
+      <trackball/>
+    </game>
+    <game name="shootingcollection">
+      <gun/>
+    </game>
+    <game name="spacemazeattack">
+      <trackball/>
+    </game>
+    <game name="spacetrouble">
+      <trackball/>
+    </game>
+    <game name="superbilliards">
+      <trackball/>
+    </game>
   </system>
   <system name="n64">
     <game name="default">
@@ -6596,8 +6629,14 @@
     <game name="duckhunt">
       <gun/>
     </game>
+    <game name="arkanoid">
+      <spinner type="arkanoid"/>
+    </game>
     <game name="gunsight">
       <gun/>
+    </game>
+    <game name="arkanoidii">
+      <spinner type="arkanoid"/>
     </game>
     <game name="hitmarmot">
       <gun/>
@@ -6642,7 +6681,7 @@
       <gun/>
     </game>
     <game name="puttputtgolf">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="mastershooter">
       <gun/>
@@ -6654,7 +6693,7 @@
       <gun/>
     </game>
     <game name="moeroprosoccer">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="barroomshootout">
       <gun/>
@@ -6669,7 +6708,7 @@
       <gun/>
     </game>
     <game name="uschampionshipvball">
-      <trackball/>
+      <trackball type="horitrack"/>
     </game>
     <game name="superrussianroulette">
       <gun/>
@@ -7912,7 +7951,7 @@
       <gun/>
     </game>
     <game name="macsbasicriflemarksmanship">
-      <gun/>
+      <gun type="macsrifle"/>
     </game>
   </system>
   <system name="wii">
@@ -8078,8 +8117,11 @@
     <game name="fastdrawshowdown">
       <gun vertical_offset="14.9" yaw="18.8" pitch="18.8" action="tiltforward" select="a"/>
     </game>
+    <game name="nerfnstrikedoubleblast">
+      <gun vertical_offset="8.7" yaw="12.50" pitch="12.60" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+    </game>
     <game name="nerfnstrikeelite">
-      <gun vertical_offset="21.3" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
+      <gun vertical_offset="8.7" yaw="12.35" pitch="12.3" ir_down="(`Axis 1+`+0.01)" action="shake" start="a" select="+"/>
     </game>
     <game name="nerfnstrike">
       <gun vertical_offset="15" yaw="18.6" pitch="18.9"/>
@@ -8534,6 +8576,20 @@
     </game>
     <game name="dirt">
       <wheel/>
+    </game>
+  </system>
+  <system name="x68000">
+    <game name="afterburner">
+      <trackball/>
+    </game>
+    <game name="arkanoidrevengeofdoh">
+      <trackball/>
+    </game>
+    <game name="marblemadness">
+      <trackball/>
+    </game>
+    <game name="syvalion">
+      <trackball/>
     </game>
   </system>
 </systems>
