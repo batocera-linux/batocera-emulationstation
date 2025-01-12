@@ -1950,6 +1950,9 @@
     <game name="hcrashc">
       <wheel rotation="270"/>
     </game>
+    <game name="hdkotr">
+      <wheel rotation="270"/>
+    </game>
     <game name="hdrivaip">
       <wheel rotation="270"/>
     </game>
@@ -2031,6 +2034,9 @@
     <game name="HOTD4SPELF2">
       <gun/>
     </game>
+    <game name="hotd4sp">
+      <gun/>
+    </game>
     <game name="hotdex">
       <gun/>
     </game>
@@ -2057,6 +2063,12 @@
     </game>
     <game name="HotWheels">
       <wheel/>
+    </game>
+    <game name="hummer">
+      <wheel rotation="270"/>
+    </game>
+    <game name="hummerxt">
+      <wheel rotation="270"/>
     </game>
     <game name="hummerextreme">
       <wheel/>
@@ -2156,6 +2168,12 @@
     </game>
     <game name="initiad4c">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+    </game>
+    <game name="initiad4exp">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5">
+      <wheel rotation="270"/>
     </game>
     <game name="invasnab">
       <gun/>
@@ -2341,6 +2359,9 @@
       <gun/>
     </game>
     <game name="letsgoju">
+      <gun/>
+    </game>
+    <game name="letsgojusp">
       <gun/>
     </game>
     <game name="lghost">
@@ -3479,6 +3500,9 @@
       <wheel rotation="270"/>
     </game>
     <game name="rrvac2">
+      <wheel rotation="270"/>
+    </game>
+    <game name="rtuned">
       <wheel rotation="270"/>
     </game>
     <game name="R-Tuned">
