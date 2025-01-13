@@ -21,6 +21,7 @@
 #include "guis/GuiSystemInformation.h"
 #include "guis/GuiScraperSettings.h"
 #include "guis/GuiControllersSettings.h"
+#include "guis/knulli/GuiTools.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
@@ -192,7 +193,9 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 #endif
 
 		addEntry(_("SCRAPER").c_str(), true, [this] { openScraperSettings(); }, "iconScraper");
-
+		// Tools (Knulli-specific)
+		addEntry(_("TOOLS"), true, [this] { openTools(); }, "iconSystem");
+	
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERASTORE) || ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEMESDOWNLOADER) ||
 			(ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEBEZELPROJECT) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS)) ||
 			ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
@@ -714,106 +717,9 @@ void GuiMenu::openMultiScreensSettings()
 	window->pushGui(s);
 }
 
-void GuiMenu::openPowerManagementSettings()
+void GuiMenu::openTools()
 {
-	Window *window = mWindow;
-
-	auto s = new GuiSettings(mWindow, _("POWER MANAGEMENT").c_str());
-
-	s->addGroup(_("BATTERY SAVING"));
-
-	// Battery save mode
-	auto optionsBatterySaveMode = std::make_shared<OptionListComponent<std::string> >(mWindow, _("MODE"), false);
-
-	std::string selectedBatteryMode = SystemConf::getInstance()->get("system.batterysaver.mode");
-	if (selectedBatteryMode.empty())
-		selectedBatteryMode = "dim";
-
-	optionsBatterySaveMode->add(_("DIM"),            "dim", selectedBatteryMode == "dim");
-	optionsBatterySaveMode->add(_("DISPLAY OFF"),    "dispoff", selectedBatteryMode == "dispoff");
-	optionsBatterySaveMode->add(_("SUSPEND"),        "suspend", selectedBatteryMode == "suspend");
-	optionsBatterySaveMode->add(_("SHUTDOWN"),       "shutdown", selectedBatteryMode == "shutdown");
-	optionsBatterySaveMode->add(_("NONE"),           "none", selectedBatteryMode == "none");
-
-	s->addWithLabel(_("MODE"), optionsBatterySaveMode);
-
-	// Battery save mode timer (1-120 minutes in 1 minute steps)
-	auto sliderBatterySaverTime = std::make_shared<SliderComponent>(mWindow, 1.f, 60.f, 1.f, "m");
-
-	float selectedBatterySaverTimeSeconds = 120.f;
-	std::string configuredBatterySaverTime = SystemConf::getInstance()->get("system.batterysaver.timer");
-	if (!configuredBatterySaverTime.empty()) {
-		selectedBatterySaverTimeSeconds = Utils::String::toFloat(configuredBatterySaverTime);
-	}
-
-	int selectedBatterySaverTimeMinutes = (int)Math::round(selectedBatterySaverTimeSeconds/60.f);
-
-	sliderBatterySaverTime->setValue((float)(selectedBatterySaverTimeMinutes));
-	s->addWithDescription(_("IDLE TIME"),_("Battery save mode is activated after idle time has passed without any input."), sliderBatterySaverTime);
-
-	// Battery save extended mode
-	auto optionsBatterySaveExtendedMode = std::make_shared<OptionListComponent<std::string> >(mWindow, _("EXTENDED MODE"), false);
-
-	std::string selectedBatteryExtendedMode = SystemConf::getInstance()->get("system.batterysaver.extendedmode");
-	if (selectedBatteryExtendedMode.empty())
-		selectedBatteryExtendedMode = "suspend";
-
-	optionsBatterySaveExtendedMode->add(_("SUSPEND"),        "suspend", selectedBatteryExtendedMode == "suspend");
-	optionsBatterySaveExtendedMode->add(_("SHUTDOWN"),       "shutdown", selectedBatteryExtendedMode == "shutdown");
-	optionsBatterySaveExtendedMode->add(_("NONE"),           "none", selectedBatteryExtendedMode == "none");
-
-	s->addWithLabel(_("EXTENDED MODE"), optionsBatterySaveExtendedMode);
-
-	// Battery save extended mode timer (1-120 minutes in 1 minute steps)
-	auto sliderBatterySaverExtendedTime = std::make_shared<SliderComponent>(mWindow, 1.f, 60.f, 1.f, "m");
-
-	float selectedBatterySaverExtendedTimeSeconds = 120.f;
-	std::string configuredBatterySaverExtendedTime = SystemConf::getInstance()->get("system.batterysaver.extendedtimer");
-	if (!configuredBatterySaverExtendedTime.empty()) {
-		selectedBatterySaverExtendedTimeSeconds = Utils::String::toFloat(configuredBatterySaverExtendedTime);
-	}
-
-	int selectedBatterySaverExtendedTimeMinutes = (int)Math::round(selectedBatterySaverExtendedTimeSeconds/60.f);
-
-	sliderBatterySaverExtendedTime->setValue((float)(selectedBatterySaverExtendedTimeMinutes));
-	s->addWithDescription(_("EXTENDED IDLE TIME"),_("Secondary timer which starts after initial idle time has passed without any input."), sliderBatterySaverExtendedTime);
-
-	// Aggressive battery save mode toggle
-	auto aggressiveBatterySaveMode = std::make_shared<SwitchComponent>(mWindow);
-
-	aggressiveBatterySaveMode->setState(SystemConf::getInstance()->getBool("system.batterysaver.aggressive"));
-	s->addWithLabel(_("ENABLE AGGRESSIVE MODE"), aggressiveBatterySaveMode);
-
-	// Lid close mode
-	auto optionsLidCloseMode = std::make_shared<OptionListComponent<std::string> >(mWindow, _("LID CLOSE MODE"), false);
-
-	std::string selectedLidCloseMode = SystemConf::getInstance()->get("system.lid");
-	if (selectedLidCloseMode.empty())
-		selectedLidCloseMode = "suspend";
-
-	optionsLidCloseMode->add(_("DISPLAY OFF"),    "dispoff", selectedLidCloseMode == "dispoff");
-	optionsLidCloseMode->add(_("SUSPEND"),        "suspend", selectedLidCloseMode == "suspend");
-	optionsLidCloseMode->add(_("SHUTDOWN"),       "shutdown", selectedLidCloseMode == "shutdown");
-
-	s->addWithLabel(_("LID CLOSE MODE"), optionsLidCloseMode);
-
-	s->addSaveFunc([this, optionsBatterySaveMode, sliderBatterySaverTime, optionsBatterySaveExtendedMode, sliderBatterySaverExtendedTime, aggressiveBatterySaveMode, optionsLidCloseMode, s]
-	{
-		int newBatterySaverTimeSeconds = (int)Math::round(sliderBatterySaverTime->getValue()*60.f);
-		int newBatterySaverExtendedTimeSeconds = (int)Math::round(sliderBatterySaverExtendedTime->getValue()*60.f);
-		SystemConf::getInstance()->set("system.batterysaver.timer", std::to_string(newBatterySaverTimeSeconds));
-		SystemConf::getInstance()->set("system.batterysaver.mode", optionsBatterySaveMode->getSelected());
-		SystemConf::getInstance()->set("system.batterysaver.extendedtimer", std::to_string(newBatterySaverExtendedTimeSeconds));
-		SystemConf::getInstance()->set("system.batterysaver.extendedmode", optionsBatterySaveExtendedMode->getSelected());
-		SystemConf::getInstance()->setBool("system.batterysaver.aggressive", aggressiveBatterySaveMode->getState());
-		SystemConf::getInstance()->set("system.lid", optionsLidCloseMode->getSelected());
-		SystemConf::getInstance()->saveSystemConf();
-		Scripting::fireEvent("powermanagement-changed");
-		s->setVariable("exitreboot", true);
-	});
-
-	mWindow->pushGui(s);
-
+	mWindow->pushGui(new GuiTools(mWindow));
 }
 
 void GuiMenu::openDeveloperSettings()
@@ -2104,10 +2010,6 @@ void GuiMenu::openSystemSettings()
 	}
 #endif
 
-	// Power management
-	if (isFullUI)
-		s->addEntry(_("POWER MANAGEMENT"), true, [this] { openPowerManagementSettings(); });
-
 	// Developer options
 	if (isFullUI)
 		s->addEntry(_("FRONTEND DEVELOPER OPTIONS"), true, [this] { openDeveloperSettings(); });
@@ -2742,6 +2644,14 @@ void GuiMenu::openGamesSettings()
 	showSaveStates->addRange({ { _("NO"), "auto" },{ _("ALWAYS") , "1" },{ _("IF NOT EMPTY") , "2" } }, SystemConf::getInstance()->get("global.savestates"));
 	s->addWithDescription(_("SHOW SAVESTATE MANAGER"), _("Display savestate manager before launching a game."), showSaveStates);
 	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
+
+	// KNULLI - QUICK RESUME MODE >>>
+	// QUICK RESUME MODE
+	auto quickresume_enabled = std::make_shared<SwitchComponent>(mWindow);
+	quickresume_enabled->setState(SystemConf::getInstance()->get("global.quickresume") == "1");
+	s->addWithDescription(_("QUICK RESUME MODE"), _("If shutdown during gameplay, boots directly into game on next startup. Works with Auto Save/Load on supported emulators."), quickresume_enabled);
+	s->addSaveFunc([quickresume_enabled] { SystemConf::getInstance()->set("global.quickresume", quickresume_enabled->getState() ? "1" : ""); });
+	// KNULLI - QUICK RESUME MODE <<<
 
 	s->addGroup(_("DEFAULT GLOBAL SETTINGS"));
 
