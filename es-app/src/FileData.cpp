@@ -782,7 +782,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	}
 
 	// write out the debug log to assist with testing
-	Utils::FileSystem::writeAllText(quickResumeLog, logMessage);
+	Utils::FileSystem::writeAllText("/userdata/system/logs/quick-resume-testing.log", logMessage);
 	// KNULLI - QUICK RESUME MODE <<<
 
 	Scripting::fireEvent("game-end");
