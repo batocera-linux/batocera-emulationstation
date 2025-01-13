@@ -181,8 +181,8 @@ namespace Utils
 #ifdef WIN32 // windows
 			return system("shutdown -s -t 0");
 #else // osx / linux
-			if (Utils::FileSystem::exists("/usr/bin/poweroff.sh")) {
-					return system("/usr/bin/poweroff.sh");
+			if (Utils::FileSystem::exists("/usr/bin/knulli-shutdown")) {
+					return system("/usr/bin/knulli-shutdown -s");
 				} else {
 					return system("shutdown -Ph now");
 				}
@@ -194,8 +194,8 @@ namespace Utils
 #ifdef WIN32 // windows
 			return system("shutdown -r -t 0");
 #else // osx / linux
-			if (Utils::FileSystem::exists("/usr/bin/reboot.sh")) {
-				return system("/usr/bin/reboot.sh");
+			if (Utils::FileSystem::exists("/usr/bin/knulli-shutdown")) {
+				return system("/usr/bin/knulli-shutdown -r");
 			} else {
 				return system("shutdown -r now");
 			}
