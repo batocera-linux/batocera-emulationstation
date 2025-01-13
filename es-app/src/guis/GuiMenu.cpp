@@ -2743,6 +2743,14 @@ void GuiMenu::openGamesSettings()
 	s->addWithDescription(_("SHOW SAVESTATE MANAGER"), _("Display savestate manager before launching a game."), showSaveStates);
 	s->addSaveFunc([showSaveStates] { SystemConf::getInstance()->set("global.savestates", showSaveStates->getSelected()); });
 
+	// KNULLI - QUICK RESUME MODE >>>
+	// QUICK RESUME MODE
+	auto quickresume_enabled = std::make_shared<SwitchComponent>(mWindow);
+	quickresume_enabled->setState(SystemConf::getInstance()->get("global.quickresume") == "1");
+	s->addWithDescription(_("QUICK RESUME MODE"), _("If shutdown during gameplay, boots directly into game on next startup. Works with Auto Save/Load on supported emulators."), quickresume_enabled);
+	s->addSaveFunc([quickresume_enabled] { SystemConf::getInstance()->set("global.quickresume", quickresume_enabled->getState() ? "1" : ""); });
+	// KNULLI - QUICK RESUME MODE <<<
+
 	s->addGroup(_("DEFAULT GLOBAL SETTINGS"));
 
 	// Screen ratio choice
