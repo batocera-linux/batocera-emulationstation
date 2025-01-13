@@ -63,6 +63,7 @@ GuiRgbSettings::GuiRgbSettings(Window* window) : GuiSettings(window, _("RGB LED 
     sliderLedGreen->setValue(rgbValues[1]);
     sliderLedBlue = createSlider("BLUE", 0.f, 255.f, 1.f, "", "");
     sliderLedBlue->setValue(rgbValues[2]);
+    addEntry(_("RESTORE DEFAULT COLORS"), true, [this] { restoreDefaultColors(); });
 
     addGroup(_("BATTERY CHARGE INDICATION"));
 
@@ -75,6 +76,7 @@ GuiRgbSettings::GuiRgbSettings(Window* window) : GuiSettings(window, _("RGB LED 
     switchRetroAchievements = createSwitch("ACHIEVEMENT EFFECT", "led.retroachievements", "Honor your retro achievements with a LED effect.");
 
     initializeOnChangeListeners();
+    applyValues();
     addSaveFunc([this] {
         // Read all variables from the respective UI elements and set the respective values in batocera.conf
         SystemConf::getInstance()->set("led.mode", optionListMode->getSelected());
@@ -157,7 +159,7 @@ std::array<float, 3> GuiRgbSettings::getRgbValues()
 {
     std::string colour = SystemConf::getInstance()->get("led.colour");
     if (colour.empty()) {
-        return {0, 0, 0};
+        return {DEFAULT_COLOR_RED, DEFAULT_COLOR_GREEN, DEFAULT_COLOR_BLUE};
     }
 
     std::vector<std::string> rgbValues;
@@ -201,4 +203,12 @@ void GuiRgbSettings::applyValues()
     int selectedGreen = (int) sliderLedGreen->getValue();
     int selectedBlue = (int) sliderLedBlue->getValue();
     RgbService::setRgb(std::stoi(selectedMode), selectedBrightness, selectedSpeed, selectedRed, selectedGreen, selectedBlue);
+}
+
+void GuiRgbSettings::restoreDefaultColors()
+{
+    sliderLedRed->setValue(DEFAULT_COLOR_RED);
+    sliderLedGreen->setValue(DEFAULT_COLOR_GREEN);
+    sliderLedBlue->setValue(DEFAULT_COLOR_BLUE);
+    applyValues();
 }

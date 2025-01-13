@@ -21,7 +21,7 @@
 #include "guis/GuiSystemInformation.h"
 #include "guis/GuiScraperSettings.h"
 #include "guis/GuiControllersSettings.h"
-#include "guis/knulli/GuiTools.h"
+#include "guis/knulli/GuiDeviceSettings.h"
 #include "views/UIModeController.h"
 #include "views/ViewController.h"
 #include "CollectionSystemManager.h"
@@ -193,14 +193,14 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 #endif
 
 		addEntry(_("SCRAPER").c_str(), true, [this] { openScraperSettings(); }, "iconScraper");
-		// Tools (Knulli-specific)
-		addEntry(_("TOOLS"), true, [this] { openTools(); }, "iconSystem");
-	
+
 		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::BATOCERASTORE) || ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEMESDOWNLOADER) ||
 			(ApiSystem::getInstance()->isScriptingSupported(ApiSystem::THEBEZELPROJECT) && ApiSystem::getInstance()->isScriptingSupported(ApiSystem::DECORATIONS)) ||
 			ApiSystem::getInstance()->isScriptingSupported(ApiSystem::UPGRADE))
 			addEntry(_("UPDATES & DOWNLOADS"), true, [this] { openUpdatesSettings(); }, "iconUpdates");
 
+		// Tools (Knulli-specific)
+		addEntry(_("DEVICE SETTINGS"), true, [this] { openDeviceSettings(); }, "iconSystem");
 		addEntry(_("SYSTEM SETTINGS").c_str(), true, [this] { openSystemSettings(); }, "iconSystem");
 	}
 	else
@@ -717,9 +717,9 @@ void GuiMenu::openMultiScreensSettings()
 	window->pushGui(s);
 }
 
-void GuiMenu::openTools()
+void GuiMenu::openDeviceSettings()
 {
-	mWindow->pushGui(new GuiTools(mWindow));
+	mWindow->pushGui(new GuiDeviceSettings(mWindow));
 }
 
 void GuiMenu::openDeveloperSettings()

@@ -61,7 +61,7 @@ private:
         void openMultiScreensSettings();
         void openDmdSettings();
         void openDeveloperSettings();
-        void openTools();
+        void openDeviceSettings();
         void openNetplaySettings(); 
         void openRetroachievementsSettings();
         void openMissingBiosSettings();

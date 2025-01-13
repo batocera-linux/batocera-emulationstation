@@ -20,6 +20,7 @@ private:
     void setRgbValues(float red, float green, float blue);
     void initializeOnChangeListeners();
     void applyValues();
+    void restoreDefaultColors();
 
     std::shared_ptr<OptionListComponent<std::string>> optionListMode;
     std::shared_ptr<SliderComponent> sliderLedBrightness;

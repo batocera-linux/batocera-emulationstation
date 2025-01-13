@@ -77,7 +77,7 @@ set(ES_HEADERS
 	
     # Knulli-related GUIs
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/BoardCheck.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiTools.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiDeviceSettings.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiPowerManagementSettings.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiRgbSettings.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/Pico8Installer.h
@@ -186,7 +186,7 @@ set(ES_SOURCES
 	
     # Knulli-related GUIs
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/BoardCheck.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiTools.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiDeviceSettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiPowerManagementSettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/GuiRgbSettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/guis/knulli/Pico8Installer.cpp
