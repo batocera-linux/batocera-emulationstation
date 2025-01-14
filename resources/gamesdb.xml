@@ -6653,14 +6653,14 @@
     <game name="duckhunt">
       <gun/>
     </game>
+    <game name="arkanoidii">
+      <spinner type="arkanoid"/>
+    </game>
     <game name="arkanoid">
       <spinner type="arkanoid"/>
     </game>
     <game name="gunsight">
       <gun/>
-    </game>
-    <game name="arkanoidii">
-      <spinner type="arkanoid"/>
     </game>
     <game name="hitmarmot">
       <gun/>
