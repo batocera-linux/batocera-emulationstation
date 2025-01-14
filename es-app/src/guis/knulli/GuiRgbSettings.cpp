@@ -16,9 +16,12 @@
 #include <memory>
 #include <string>
 #include "RgbService.h"
+#include "BoardCheck.h"
 
 #include "Log.h"
 
+const std::vector<std::string> RGB_BOARDS_H700 = {"rg40xx-h", "rg40xx-v", "rg-cubexx"};
+const std::vector<std::string> RGB_BOARDS_A133 = {"trimui-smart-pro", "trimui-brick"};
 
 constexpr const char* MENU_EVENT_NAME = "rgb-changed";
 
@@ -39,41 +42,47 @@ GuiRgbSettings::GuiRgbSettings(Window* window) : GuiSettings(window, _("RGB LED 
     // Temporary disable RgbService to be able to interact with the RGB LEDs directly
     RgbService::stop();
 
+    // TODO: This should not be hard-coded, it should be read from a file or a service.
+    isH700 = BoardCheck::isBoard(RGB_BOARDS_H700);
+    isA133 = BoardCheck::isBoard(RGB_BOARDS_A133);
+
     addGroup(_("REGULAR LED MODE AND COLOR"));
 
     // LED Mode Options
     optionListMode = createModeOptionList();
 
     // LED Brightness Slider
-    sliderLedBrightness = createSlider("BRIGHTNESS", 0.f, 255.f, 1.f, "", "");    
+    sliderLedBrightness = createSlider("BRIGHTNESS", 0.f, 255.f, 1.f, "", "", (isH700 || isA133));    
     setConfigValueForSlider(sliderLedBrightness, DEFAULT_BRIGHTNESS, "led.brightness");
 
     // Adaptive Brightness switch
-    switchAdaptiveBrightness = createSwitch("ADAPTIVE BRIGHTNESS", "led.brightness.adaptive", "Automatically adapts LED brightness to screen brightness (based on the brightness setting above).");
+    switchAdaptiveBrightness = createSwitch("ADAPTIVE BRIGHTNESS", "led.brightness.adaptive", "Automatically adapts LED brightness to screen brightness (based on the brightness setting above).", (isH700 || isA133));
 
     // LED Speed Slider
-    sliderLedSpeed = createSlider("SPEED", 1.f, 255.f, 1.f, "", "Not applicable for all devices/modes. Warning: High speed may cause seizures for people with photosensitive epilepsy.");
+    sliderLedSpeed = createSlider("SPEED", 1.f, 255.f, 1.f, "", "Not applicable for all devices/modes. Warning: High speed may cause seizures for people with photosensitive epilepsy.", isH700);
     setConfigValueForSlider(sliderLedSpeed, DEFAULT_SPEED, "led.speed");
 
     // LED Colour Sliders
     std::array<float, 3> rgbValues = getRgbValues();
-    sliderLedRed = createSlider("RED", 0.f, 255.f, 1.f, "", "");
+    sliderLedRed = createSlider("RED", 0.f, 255.f, 1.f, "", "", (isH700 || isA133));
     sliderLedRed->setValue(rgbValues[0]);
-    sliderLedGreen = createSlider("GREEN", 0.f, 255.f, 1.f, "", "");
+    sliderLedGreen = createSlider("GREEN", 0.f, 255.f, 1.f, "", "", (isH700 || isA133));
     sliderLedGreen->setValue(rgbValues[1]);
-    sliderLedBlue = createSlider("BLUE", 0.f, 255.f, 1.f, "", "");
+    sliderLedBlue = createSlider("BLUE", 0.f, 255.f, 1.f, "", "", (isH700 || isA133));
     sliderLedBlue->setValue(rgbValues[2]);
     addEntry(_("RESTORE DEFAULT COLORS"), true, [this] { restoreDefaultColors(); });
 
     addGroup(_("BATTERY CHARGE INDICATION"));
 
     // Low battery threshold slider
-    sliderLowBatteryThreshold = createSlider("LOW BATTERY THRESHOLD", 1.f, 100.f, 5.f, "%", "Show yellow/red breathing when battery is below this threshold. Set to 0 to disable.");
+    sliderLowBatteryThreshold = createSlider("LOW BATTERY THRESHOLD", 1.f, 100.f, 5.f, "%", "Show yellow/red breathing when battery is below this threshold. Set to 0 to disable.", (isH700 || isA133));
     setConfigValueForSlider(sliderLowBatteryThreshold, DEFAULT_LOW_BATTERY_THRESHOLD, "led.battery.low");
-    switchBatteryCharging = createSwitch("BATTERY CHARGING", "led.battery.charging", "Show green breathing while device is charging.");
+    switchBatteryCharging = createSwitch("BATTERY CHARGING", "led.battery.charging", "Show green breathing while device is charging.", (isH700 || isA133));
 
-    addGroup(_("RETRO ACHIEVEMENT INDICATION"));
-    switchRetroAchievements = createSwitch("ACHIEVEMENT EFFECT", "led.retroachievements", "Honor your retro achievements with a LED effect.");
+    if (isH700) {
+        addGroup(_("RETRO ACHIEVEMENT INDICATION"));
+    }
+    switchRetroAchievements = createSwitch("ACHIEVEMENT EFFECT", "led.retroachievements", "Honor your retro achievements with a LED effect.", (isH700));
 
     initializeOnChangeListeners();
     applyValues();
@@ -81,7 +90,7 @@ GuiRgbSettings::GuiRgbSettings(Window* window) : GuiSettings(window, _("RGB LED 
         // Read all variables from the respective UI elements and set the respective values in batocera.conf
         SystemConf::getInstance()->set("led.mode", optionListMode->getSelected());
         SystemConf::getInstance()->set("led.brightness", std::to_string((int) sliderLedBrightness->getValue()));
-        //SystemConf::getInstance()->set("led.brightness.adaptive", (switchAdaptiveBrightness->getState() ? DEFAULT_SWITCH_ON : "0"));
+        SystemConf::getInstance()->set("led.brightness.adaptive", (switchAdaptiveBrightness->getState() ? DEFAULT_SWITCH_ON : "0"));
         SystemConf::getInstance()->set("led.speed", std::to_string((int) sliderLedSpeed->getValue()));
         setRgbValues(sliderLedRed->getValue(), sliderLedGreen->getValue(), sliderLedBlue->getValue());
         SystemConf::getInstance()->set("led.battery.low", std::to_string((int) sliderLowBatteryThreshold->getValue()));
@@ -105,23 +114,33 @@ std::shared_ptr<OptionListComponent<std::string>> GuiRgbSettings::createModeOpti
     if (selectedLedMode.empty())
         selectedLedMode = DEFAULT_LED_MODE;
 
-    // TODO: Retrieve board-specific mode list somehow
     optionsLedMode->add(_("NONE"), "0", selectedLedMode == "0");
-    optionsLedMode->add(_("STATIC"), "1", selectedLedMode == "1");
-    optionsLedMode->add(_("BREATHING (FAST)"), "2", selectedLedMode == "2");
-    optionsLedMode->add(_("BREATHING (MEDIUM)"), "3", selectedLedMode == "3");
-    optionsLedMode->add(_("BREATHING (SLOW)"), "4", selectedLedMode == "4");
-    optionsLedMode->add(_("SINGLE RAINBOW"), "5", selectedLedMode == "5");
-    optionsLedMode->add(_("MULTI RAINBOW"), "6", selectedLedMode == "6");
+    if (isH700 || isA133) {
+        optionsLedMode->add(_("STATIC"), "1", selectedLedMode == "1");
+    }
+    if (isH700) {
+        optionsLedMode->add(_("BREATHING (FAST)"), "2", selectedLedMode == "2");
+    }
+    if (isH700 || isA133) {
+        optionsLedMode->add(_("BREATHING (MEDIUM)"), "3", selectedLedMode == "3");
+    }
+    if (isH700) {
+        optionsLedMode->add(_("BREATHING (SLOW)"), "4", selectedLedMode == "4");
+        optionsLedMode->add(_("SINGLE RAINBOW"), "5", selectedLedMode == "5");
+        optionsLedMode->add(_("MULTI RAINBOW"), "6", selectedLedMode == "6");
+    }
 
-    addWithDescription(_("MODE"), _("Not every mode is available on every device."), optionsLedMode);
+    addWithDescription(_("MODE"), _("Set the default LED animation. (Not all of the settings below are applicable to every mode.)"), optionsLedMode);
     return optionsLedMode;
 }
 
 // Creates a new slider
-std::shared_ptr<SliderComponent> GuiRgbSettings::createSlider(std::string label, float min, float max, float step, std::string unit, std::string description)
+std::shared_ptr<SliderComponent> GuiRgbSettings::createSlider(std::string label, float min, float max, float step, std::string unit, std::string description, bool show)
 {
     std::shared_ptr<SliderComponent> slider = std::make_shared<SliderComponent>(mWindow, min, max, step, unit);
+    if (!show) { // TODO: Awful hack to hide the slider, find a better way to do this
+        return slider;
+    }
     if (description.empty()) {
         addWithLabel(label, slider);
     } else {
@@ -142,7 +161,7 @@ void GuiRgbSettings::setConfigValueForSlider(std::shared_ptr<SliderComponent> sl
 }
 
 // Creates a new switch
-std::shared_ptr<SwitchComponent> GuiRgbSettings::createSwitch(std::string label, std::string variable, std::string description)
+std::shared_ptr<SwitchComponent> GuiRgbSettings::createSwitch(std::string label, std::string variable, std::string description, bool show)
 {
     std::shared_ptr<SwitchComponent> switchComponent = std::make_shared<SwitchComponent>(mWindow);
     std::string selected = SystemConf::getInstance()->get(variable);
@@ -150,6 +169,9 @@ std::shared_ptr<SwitchComponent> GuiRgbSettings::createSwitch(std::string label,
         selected = DEFAULT_SWITCH_ON;
 
     switchComponent->setState(selected == DEFAULT_SWITCH_ON);
+    if (!show) { // TODO: Awful hack to hide the switch, find a better way to do this
+        return switchComponent;
+    }
     addWithDescription(label, description, switchComponent);
     return switchComponent;
 }
