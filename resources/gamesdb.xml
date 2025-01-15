@@ -364,9 +364,6 @@
     <game name="bbhsca">
       <gun/>
     </game>
-    <game name="BBHWorld">
-      <gun/>
-    </game>
     <game name="bbust2">
       <gun/>
     </game>
@@ -3064,9 +3061,6 @@
     <game name="policetr13b">
       <gun/>
     </game>
-    <game name="PoliceTrainer2">
-      <gun/>
-    </game>
     <game name="popsghostly">
       <gun/>
     </game>
@@ -3167,9 +3161,6 @@
       <spinner/>
     </game>
     <game name="RabbidsHollywood">
-      <gun/>
-    </game>
-    <game name="RaccoonRampage">
       <gun/>
     </game>
     <game name="racedcb4">
