@@ -85,6 +85,9 @@
     <game name="adillorj">
       <trackball/>
     </game>
+    <game name="AfterDark2">
+      <gun/>
+    </game>
     <game name="akkaarrh">
       <trackball/>
     </game>
@@ -359,6 +362,9 @@
       <gun/>
     </game>
     <game name="bbhsca">
+      <gun/>
+    </game>
+    <game name="BBHWorld">
       <gun/>
     </game>
     <game name="bbust2">
@@ -843,6 +849,9 @@
     <game name="crossbow">
       <gun/>
     </game>
+    <game name="CrossfirePaintball">
+      <gun/>
+    </game>
     <game name="crszone">
       <gun/>
     </game>
@@ -1138,6 +1147,9 @@
       <gun/>
     </game>
     <game name="dragngunj">
+      <gun/>
+    </game>
+    <game name="Drakons">
       <gun/>
     </game>
     <game name="drivedge">
@@ -1575,6 +1587,9 @@
     <game name="gsevo">
       <gun/>
     </game>
+    <game name="GSEVOELF2">
+      <gun/>
+    </game>
     <game name="gt2k">
       <trackball/>
     </game>
@@ -1831,6 +1846,9 @@
       <gun/>
     </game>
     <game name="gunsur2j">
+      <gun/>
+    </game>
+    <game name="Gunslinger">
       <gun/>
     </game>
     <game name="H2Overdrive">
@@ -2447,6 +2465,9 @@
     <game name="LuigisMansion">
       <gun/>
     </game>
+    <game name="Lupin3">
+      <gun/>
+    </game>
     <game name="lupinsho">
       <gun/>
     </game>
@@ -2547,6 +2568,9 @@
       <gun/>
     </game>
     <game name="mechattu1">
+      <gun/>
+    </game>
+    <game name="MedaruNoGunman">
       <gun/>
     </game>
     <game name="mhavoc">
@@ -3040,6 +3064,9 @@
     <game name="policetr13b">
       <gun/>
     </game>
+    <game name="PoliceTrainer2">
+      <gun/>
+    </game>
     <game name="popsghostly">
       <gun/>
     </game>
@@ -3118,6 +3145,9 @@
     <game name="puchicaru">
       <spinner/>
     </game>
+    <game name="PullTheTrigger">
+      <gun/>
+    </game>
     <game name="pwheelsj">
       <wheel rotation="270"/>
     </game>
@@ -3137,6 +3167,9 @@
       <spinner/>
     </game>
     <game name="RabbidsHollywood">
+      <gun/>
+    </game>
+    <game name="RaccoonRampage">
       <gun/>
     </game>
     <game name="racedcb4">
@@ -3482,6 +3515,9 @@
       <wheel rotation="270"/>
     </game>
     <game name="roadrunm">
+      <gun/>
+    </game>
+    <game name="RobinHood">
       <gun/>
     </game>
     <game name="rrreveng">
