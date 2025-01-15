@@ -21,7 +21,7 @@
 int Pico8Installer::install()
 {
 	if (hasInstaller()) {
-		int result = system("/usr/bin/install-pico8.sh");
+		int result = system("/usr/bin/knulli-install-pico8");
 		return WEXITSTATUS(result);
 	}
 	// Installer is missing

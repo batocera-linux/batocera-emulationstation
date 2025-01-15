@@ -7,8 +7,8 @@
 #include <sys/wait.h>
 #include <fstream>
 
-const std::string RGB_SERVICE_NAME = "/usr/bin/analog_stick_led_daemon.sh";
-const std::string RGB_COMMAND_NAME = "/usr/bin/analog_stick_led.sh";
+const std::string RGB_SERVICE_NAME = "/usr/bin/knulli-rgb-led-daemon";
+const std::string RGB_COMMAND_NAME = "/usr/bin/knulli-rgb-led";
 const std::string SEPARATOR = " ";
 const std::string START = "start clear";
 const std::string STOP = "stop";
