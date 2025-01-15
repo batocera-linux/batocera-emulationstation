@@ -1572,6 +1572,9 @@
     <game name="GSEVO">
       <gun/>
     </game>
+    <game name="gsevo">
+      <gun/>
+    </game>
     <game name="gt2k">
       <trackball/>
     </game>
