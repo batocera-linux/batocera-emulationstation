@@ -355,6 +355,9 @@
     <game name="BBHPro">
       <gun/>
     </game>
+    <game name="BBHWorld">
+      <gun/>
+    </game>
     <game name="bbhsc">
       <gun/>
     </game>
@@ -2971,6 +2974,9 @@
     <game name="PointBlankX">
       <gun/>
     </game>
+    <game name="PoliceTrainer2">
+      <gun/>
+    </game>
     <game name="pokasuka">
       <gun/>
     </game>
@@ -3276,6 +3282,9 @@
     </game>
     <game name="racjamdx">
       <wheel rotation="270"/>
+    </game>
+    <game name="RaccoonRampage">
+      <gun/>
     </game>
     <game name="radikalb">
       <wheel rotation="270"/>
