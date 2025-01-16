@@ -700,7 +700,7 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (command.empty())
 		return false;
 
-	// KNULLI - QUICK RESUME MODE - logging will be cleaned up after testing >>>>>
+	// KNULLI - QUICK RESUME MODE >>>>>
 	bool quickResume = SystemConf::getInstance()->getBool("global.quickresume") == true;
 	std::string quickResumeCommand = getlaunchCommand(false);
 	std::string quickResumePath = getFullPath();
@@ -753,40 +753,20 @@ bool FileData::launchGame(Window* window, LaunchGameOptions options)
 	if (!p2kConv.empty()) // delete .keys file if it has been converted from p2k
 		Utils::FileSystem::removeFile(p2kConv);
 
-	// KNULLI: QUICK RESUME MODE - logging will be cleaned up after testing >>>
-	std::string logMessage = "";
-	logMessage.append("\nnow exiting game. processing quick resume settings.");
+	Scripting::fireEvent("game-end");
+	
+	// KNULLI: QUICK RESUME MODE >>>>>
+	bool shutDownFlag = Utils::FileSystem::exists("/var/run/shutdown.flag");
 
-	if (!quickResume)
+	if (quickResume && !shutDownFlag)
 	{
-		// quick resume is not enabled, not preserving  batocera.conf settings
-		LOG(LogInfo) << "Quick resume not enabled. Ignoring global.bootgame settings in batoecera.conf.";
-		logMessage.append("\nQuick resume not enabled. Ignoring global.bootgame settings in batoecera.conf.");
-	}
-	else if (Utils::FileSystem::exists("/var/run/shutdown-ingame.flag"))
-	{
-		// exiting due to power event - preserving batocera.conf settings for global.bootgame command and path
-		LOG(LogInfo) << "Quick Resume enabled and shutting down in-game. Preserved global.bootgame settings in batocera.conf. ";
-		logMessage.append("\nQuick Resume enabled and shutting down in-game. Preserved global.bootgame settings in batocera.conf. ");
-	}
-	else
-	{
-		// exiting game normally, reset the batocera.conf settings for global.bootgame command and path
+		// exiting game normally, reset the batocera.conf settings for global.bootgame cmd, path
 		SystemConf::getInstance()->set("global.bootgame.path", "");
 		SystemConf::getInstance()->set("global.bootgame.cmd", "");
 		SystemConf::getInstance()->saveSystemConf();
-
-		// log the output
-		LOG(LogInfo) << "Quick resume enabled and not shutting down in-game. Cleared global.bootgame settings from batocera.conf. ";
-		logMessage.append("\nQuick resume enabled and not shutting down in-game. Cleared global.bootgame settings from batocera.conf. ");
 	}
+	// KNULLI - QUICK RESUME MODE <<<<<
 
-	// write out the debug log to assist with testing
-	Utils::FileSystem::writeAllText("/userdata/system/logs/quick-resume-testing.log", logMessage);
-	// KNULLI - QUICK RESUME MODE <<<
-
-	Scripting::fireEvent("game-end");
-	
 	if (!hideWindow && Settings::getInstance()->getBool("HideWindowFullReinit"))
 	{
 		ResourceManager::getInstance()->reloadAll();

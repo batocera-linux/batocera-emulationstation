@@ -434,8 +434,21 @@ void launchStartupGame()
 	{
 		InputManager::getInstance()->init();
 		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", InputManager::getInstance()->configureEmulators());
-		Utils::Platform::ProcessStartInfo(command).run();		
+		Utils::Platform::ProcessStartInfo(command).run();
 	}	
+}
+
+void postLaunchStartupGame()
+{
+	bool shutdownFlag = Utils::FileSystem::exists("/var/run/shutdown.flag");
+	bool quickResumeEnabled = SystemConf::getInstance()->getBool("global.quickresume") == true;
+
+	if (!shutdownFlag && quickResumeEnabled)
+	{
+		SystemConf::getInstance()->set("global.bootgame.path", "");
+		SystemConf::getInstance()->set("global.bootgame.cmd", "");
+		SystemConf::getInstance()->saveSystemConf();
+	}
 }
 
 #include "utils/MathExpr.h"
@@ -519,8 +532,9 @@ int main(int argc, char* argv[])
 
 #if !WIN32
 	if(enable_startup_game) {
-	  // Run boot game, before Window Create for linux
-	  launchStartupGame();
+	    // Run boot game, before Window Create for linux
+	    launchStartupGame();
+		postLaunchStartupGame();
 	}
 #endif
 
