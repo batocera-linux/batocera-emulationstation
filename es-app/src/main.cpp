@@ -532,8 +532,8 @@ int main(int argc, char* argv[])
 
 #if !WIN32
 	if(enable_startup_game) {
-	    // Run boot game, before Window Create for linux
-	    launchStartupGame();
+	    	// Run boot game, before Window Create for linux
+		launchStartupGame();
 		postLaunchStartupGame();
 	}
 #endif
