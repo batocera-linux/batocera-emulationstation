@@ -41,6 +41,7 @@
 #include "Scripting.h"
 #include "watchers/WatchersManager.h"
 #include "HttpReq.h"
+#include "QuickResume.h"
 
 #ifdef WIN32
 #include <Windows.h>
@@ -435,20 +436,10 @@ void launchStartupGame()
 		InputManager::getInstance()->init();
 		command = Utils::String::replace(command, "%CONTROLLERSCONFIG%", InputManager::getInstance()->configureEmulators());
 		Utils::Platform::ProcessStartInfo(command).run();
+		// KNULLI - QUICK RESUME MODE >>>>>
+		QuickResume::postLaunchConditionalClean();
+		// KNULLI - QUICK RESUME MODE <<<<<
 	}	
-}
-
-void postLaunchStartupGame()
-{
-	bool shutdownFlag = Utils::FileSystem::exists("/var/run/shutdown.flag");
-	bool quickResumeEnabled = SystemConf::getInstance()->getBool("global.quickresume") == true;
-
-	if (!shutdownFlag && quickResumeEnabled)
-	{
-		SystemConf::getInstance()->set("global.bootgame.path", "");
-		SystemConf::getInstance()->set("global.bootgame.cmd", "");
-		SystemConf::getInstance()->saveSystemConf();
-	}
 }
 
 #include "utils/MathExpr.h"
@@ -534,7 +525,6 @@ int main(int argc, char* argv[])
 	if(enable_startup_game) {
 	    	// Run boot game, before Window Create for linux
 		launchStartupGame();
-		postLaunchStartupGame();
 	}
 #endif
 
