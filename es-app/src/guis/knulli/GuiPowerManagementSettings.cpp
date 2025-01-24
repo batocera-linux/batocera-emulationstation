@@ -16,7 +16,7 @@
 #include "utils/Platform.h"
 #include "BoardCheck.h"
 
-const std::vector<std::string> SUPPORTED_LID_BOARDS = {"rg40xx-sp"};
+const std::vector<std::string> SUPPORTED_LID_BOARDS = {"rg35xx-sp"};
 
 GuiPowerManagementSettings::GuiPowerManagementSettings(Window* window) : GuiSettings(window, _("POWER MANAGEMENT").c_str())
 {
