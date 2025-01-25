@@ -483,11 +483,7 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	// must really;-) be done before window->deinit while it closes joysticks
 	std::string controllersConfig = InputManager::getInstance()->configureEmulators();
 
-#if WIN32
 	if (gameToUpdate->isLightGunGame())
-#else
-	if (InputManager::getInstance()->getGuns().size() && gameToUpdate->isLightGunGame())
-#endif
 		controllersConfig = controllersConfig + "-lightgun ";
 
         if (gameToUpdate->isWheelGame())
