@@ -481,100 +481,128 @@ void ISimpleGameListView::moveToRandomGame()
 		setCursor(list.at(target));
 }
 
-bool ISimpleGameListView::moveToLetter(char letter)
+bool ISimpleGameListView::moveToLetter(const std::string& letter)
 {
-
 	auto files = getFileDataEntries();
-        long letterIndex = -1;
+	long letterIndex = -1;
 
 	for (int i = files.size() - 1; i >= 0; i--)
-        {
-                auto name = files.at(i)->getName();
-                if (name.empty())
-                        continue;
+	{
+		const std::string& name = files.at(i)->getName();
+		if (name.empty())
+			continue;
 
-                char checkLetter = (char)toupper(name[0]);
-                if (letterIndex >= 0 && checkLetter != letter)
-                        break;
+		std::string checkLetter;
 
-                if (checkLetter == letter)
-                        letterIndex = i;
-        }
+		if (Utils::String::isKorean(name.c_str()))
+		{
+			const char* koreanLetter = nullptr;
 
-        if (letterIndex >= 0) {
-                setCursor(files.at(letterIndex));
-		return 1;
+			std::string nameChar = name.substr(0, 3);
+			if (!Utils::String::splitHangulSyllable(nameChar.c_str(), &koreanLetter) || !koreanLetter)
+				continue; // Korean supports chosung search only.
+			else
+				checkLetter = std::string(koreanLetter, 3);
+		}
+		else
+		{
+			checkLetter = std::string(1, toupper(name[0]));
+		}
+
+		if (letterIndex >= 0 && checkLetter != letter)
+			break;
+
+		if (checkLetter == letter)
+			letterIndex = i;
 	}
 
-	return 0;
+	if (letterIndex >= 0) {
+		setCursor(files.at(letterIndex));
+		return true;
+	}
+
+	return false;
+}
+
+void ISimpleGameListView::moveToLetterByOffset(int offset)
+{
+	std::vector<std::string> letters = getEntriesLetters();
+	if (letters.empty())
+		return;
+
+	FileData* game = getCursor();
+	if (game == nullptr)
+		return;
+
+	const std::string& namecurrent = game->getName();
+	std::string curLetter;
+
+	if (Utils::String::isKorean(namecurrent.c_str()))
+	{
+		const char* koreanLetter = nullptr;
+
+		std::string nameChar = namecurrent.substr(0, 3);
+		if (!Utils::String::splitHangulSyllable(nameChar.c_str(), &koreanLetter) || !koreanLetter)
+			curLetter = std::string(letters.at(0)); // Korean supports chosung search only. set default.
+		else
+			curLetter = std::string(koreanLetter, 3);
+	}
+	else
+	{
+		curLetter = std::string(1, toupper(namecurrent[0]));
+	}
+
+	auto it = std::find(letters.begin(), letters.end(), curLetter);
+	if (it != letters.end())
+	{
+		int index = std::distance(letters.begin(), it) + offset;
+		if (index < 0)
+			index = letters.size() - 1;
+		else if (index >= letters.size())
+			index = 0;
+
+		moveToLetter(letters.at(index));
+	}
 }
 
 void ISimpleGameListView::moveToNextLetter()
 {
-        std::vector<std::string> letters = getEntriesLetters();
-        if (letters.empty())
-		return;
-
-	FileData* game = getCursor();
-	if (game == nullptr) {
-		return;
-	}
-
-	auto namecurrent = game->getName();
-	char curChar = (char)toupper(namecurrent[0]);
-
-        auto it = std::find(letters.begin(), letters.end(), std::string(1, curChar));
-	if (it != letters.end()) {
-		int index = it - letters.begin();
-		index++;
-		if (index >= letters.size())
-			index = 0;
-		char letter = letters.at(index)[0];
-		moveToLetter(letter);
-	}
+	moveToLetterByOffset(1);
 }
 
 void ISimpleGameListView::moveToPreviousLetter()
 {
-
-        std::vector<std::string> letters = getEntriesLetters();
-        if (letters.empty())
-		return;
-
-	FileData* game = getCursor();
-	if (game == nullptr) {
-		return;
-	}
-
-	auto namecurrent = game->getName();
-	char curChar = (char)toupper(namecurrent[0]);
-
-        auto it = std::find(letters.begin(), letters.end(), std::string(1, curChar));
-	if (it != letters.end()) {
-		int index = it - letters.begin();
-		index--;
-		if (index < 0)
-			index = letters.size()-1;
-
-		char letter = letters.at(index)[0];
-		moveToLetter(letter);
-	}
+	moveToLetterByOffset(-1);
 }
 
 std::vector<std::string> ISimpleGameListView::getEntriesLetters()
 {	
 	std::set<std::string> setOfLetters;
 
-	for (auto file : getFileDataEntries()) 
-		if (file->getType() == GAME)
-			setOfLetters.insert(std::string(1, toupper(file->getName()[0])));
+	for (auto file : getFileDataEntries())
+	{
+		if (file->getType() != GAME)
+			continue;
 
-	std::vector<std::string> letters;
+		const std::string& name = file->getName();
 
-	for (const auto letter : setOfLetters)
-		letters.push_back(letter);
+		if (Utils::String::isKorean(name.c_str()))
+		{
+			const char* koreanLetter = nullptr;
 
-	std::sort(letters.begin(), letters.end());
+			std::string nameChar = name.substr(0, 3);
+			if (!Utils::String::splitHangulSyllable(nameChar.c_str(), &koreanLetter) || !koreanLetter)
+				continue;
+
+			setOfLetters.insert(std::string(koreanLetter, 3));
+		}
+		else
+		{
+			setOfLetters.insert(std::string(1, toupper(name[0])));
+		}
+	}
+
+	std::vector<std::string> letters(setOfLetters.begin(), setOfLetters.end());
 	return letters;
 }
 
