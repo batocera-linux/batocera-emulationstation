@@ -83,7 +83,7 @@ GuiPowerManagementSettings::GuiPowerManagementSettings(Window* window) : GuiSett
 	auto aggressiveBatterySaveMode = std::make_shared<SwitchComponent>(mWindow);
 
 	aggressiveBatterySaveMode->setState(SystemConf::getInstance()->getBool("system.batterysaver.aggressive"));
-	addWithLabel(_("ENABLE AGGRESSIVE MODE"), aggressiveBatterySaveMode);
+	addWithDescription(_("AGGRESSIVE BATTERY SAVER"),_("Optimizes battery life with extra power-saving measures during system idle."), aggressiveBatterySaveMode);
 
 	// Lid close mode
 	auto optionsLidCloseMode = std::make_shared<OptionListComponent<std::string> >(mWindow, _("LID CLOSE MODE"), false);
