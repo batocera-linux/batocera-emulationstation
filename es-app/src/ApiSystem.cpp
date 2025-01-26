@@ -1363,6 +1363,54 @@ void ApiSystem::setBrightness(int value)
 	Utils::FileSystem::writeAllText(BACKLIGHT_BRIGHTNESS_NAME, content);
 }
 
+static std::string RUMBLE_NAME;
+
+bool ApiSystem::getRumble()
+{
+	#if WIN32
+	return false;
+	#endif
+
+	if (RUMBLE_NAME == "notfound")
+		return false;
+
+	if (RUMBLE_NAME.empty()) {
+		for (auto file : Utils::FileSystem::getDirContent("/sys/devices/platform"))
+		{
+			std::string rumblePath = file + "/rumble_enable";
+
+			if (Utils::FileSystem::exists(rumblePath))
+			{
+				RUMBLE_NAME = rumblePath;
+
+				LOG(LogInfo) << "ApiSystem::getRumble > rumble path resolved to " << file;
+				break;
+			}
+		}
+	}
+
+	if (RUMBLE_NAME.empty()) {
+		LOG(LogInfo) << "ApiSystem::getRumble > rumble path is not resolved";
+
+		RUMBLE_NAME = "notfound";
+		return false;
+	}
+
+	return true;
+}
+
+void ApiSystem::setRumble(bool enable)
+{
+#if WIN32
+	return;
+#endif
+
+	if (RUMBLE_NAME.empty() || RUMBLE_NAME == "notfound")
+		return;
+
+	executeScript("echo " + std::string(enable ? "1" : "0") + " > " + RUMBLE_NAME);
+}
+
 static std::string LED_COLOUR_NAME;
 static std::string LED_BRIGHTNESS_VALUE;
 static std::string LED_MAX_BRIGHTNESS_VALUE;

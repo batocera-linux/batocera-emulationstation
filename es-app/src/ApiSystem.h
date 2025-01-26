@@ -247,6 +247,8 @@ public:
 
 	bool	getBrightness(int& value);
 	void	setBrightness(int value);
+	bool	getRumble();
+	void	setRumble(bool enable);
 
 	// LED RGB sliders
 	bool getLED(int& red, int& green, int& blue);

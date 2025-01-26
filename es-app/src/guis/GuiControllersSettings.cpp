@@ -59,6 +59,22 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 			GuiMsgBoxIcon::ICON_INFORMATION));
 	});
 
+#if !WIN32
+	if (ApiSystem::getInstance()->getRumble()) {
+		auto rumbleComponent = std::make_shared<SwitchComponent>(mWindow);
+		rumbleComponent->setState(Settings::getInstance()->getBool("RumbleEnabled"));
+		addWithLabel(_("ENABLE RUMBLE"), rumbleComponent);
+		rumbleComponent->setOnChangedCallback([rumbleComponent] {
+			if (rumbleComponent->getState() == true) {
+				ApiSystem::getInstance()->setRumble(true);
+			} else {
+				ApiSystem::getInstance()->setRumble(false);
+			}
+			Settings::getInstance()->setBool("RumbleEnabled", rumbleComponent->getState());
+		});
+	}
+#endif
+
 	bool sindenguns_menu = false;
 	bool wiiguns_menu = false;
 	bool steamdeckguns_menu = false;
