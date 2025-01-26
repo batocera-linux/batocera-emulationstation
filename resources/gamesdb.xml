@@ -1572,9 +1572,6 @@
     <game name="GSEVO">
       <gun/>
     </game>
-    <game name="gsevo">
-      <gun/>
-    </game>
     <game name="gt2k">
       <trackball/>
     </game>
@@ -2169,13 +2166,34 @@
     <game name="initiad4">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
+    <game name="initiad4a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4b">
+      <wheel rotation="270"/>
+    </game>
     <game name="initiad4c">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
-    <game name="initiad4exp">
+    <game name="initiad4ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exb">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exc">
       <wheel rotation="270"/>
     </game>
     <game name="initiad5">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5exa">
       <wheel rotation="270"/>
     </game>
     <game name="invasnab">
