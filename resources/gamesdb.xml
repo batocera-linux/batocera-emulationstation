@@ -358,6 +358,9 @@
     <game name="BBHPro">
       <gun/>
     </game>
+    <game name="BBHWorld">
+      <gun/>
+    </game>
     <game name="bbhsc">
       <gun/>
     </game>
@@ -2184,13 +2187,34 @@
     <game name="initiad4">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
+    <game name="initiad4a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4b">
+      <wheel rotation="270"/>
+    </game>
     <game name="initiad4c">
       <wheel rotation="270" downshift="a" upshift="b" b="down"/>
     </game>
-    <game name="initiad4exp">
+    <game name="initiad4ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exb">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad4exc">
       <wheel rotation="270"/>
     </game>
     <game name="initiad5">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5a">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5ex">
+      <wheel rotation="270"/>
+    </game>
+    <game name="initiad5exa">
       <wheel rotation="270"/>
     </game>
     <game name="invasnab">
@@ -2992,6 +3016,9 @@
     <game name="PointBlankX">
       <gun/>
     </game>
+    <game name="PoliceTrainer2">
+      <gun/>
+    </game>
     <game name="pokasuka">
       <gun/>
     </game>
@@ -3300,6 +3327,9 @@
     </game>
     <game name="racjamdx">
       <wheel rotation="270"/>
+    </game>
+    <game name="RaccoonRampage">
+      <gun/>
     </game>
     <game name="radikalb">
       <wheel rotation="270"/>
