@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-09-24 10:35+0200\n"
+"PO-Revision-Date: 2025-01-24 18:02+0100\n"
 "Last-Translator: Svein Jakobsen <svein.jakobsen@gmail.com>\n"
 "Language-Team: Bokmål\n"
 "Language: nb\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Loco-Source-Locale: nb_NO\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Loco-Parser: loco_parse_po\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -561,16 +561,16 @@ msgid "VIEWER PASSWORD"
 msgstr "SEERPASSORD"
 
 msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
+msgstr "VIS NETTSPILL-VALG VED OPPSTART AV SPILL"
 
 msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
+msgstr "Tillater valg av online, offline eller bli med i et annet spill."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
+msgstr "VIS KUN RELAY-SERVER SPILL"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
+msgstr "Relay-server-spill har tilgangen større sjanse for å lykkes."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VIS UTILGJENGELIGE SPILL"
@@ -702,7 +702,7 @@ msgid "NO BLUETOOTH DEVICES FOUND"
 msgstr "INGEN BLUETOOTH ENHETER FUNNET"
 
 msgid " (Connected)"
-msgstr "(Tilkoblet)"
+msgstr " (Tilkoblet)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
 msgstr "BLUETOOTH ENHETER HAR BLITT SLETTET."
@@ -854,13 +854,13 @@ msgid "fade"
 msgstr "falme"
 
 msgid "fast fade"
-msgstr ""
+msgstr "rask falming"
 
 msgid "slide"
 msgstr "lysbilde"
 
 msgid "fast slide"
-msgstr ""
+msgstr "raskt lysbilde"
 
 msgid "fade & slide"
 msgstr "falme & glid"
@@ -1196,7 +1196,7 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "TILBAKESTILL BRUKSDATA FOR SPILL-LISTER"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
-msgstr ""
+msgstr "Reset verdier for Spilletid, Ganger spilt og Sist spilt metadata."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "NULLSTILL FILENDELSER"
@@ -1281,7 +1281,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "RASKT PLATTFORM VALG"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "HURTIG-HOPP BOKSTAV"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "Tastatur (På Skjermen)"
@@ -1869,10 +1869,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "VIS WHEEL ICON"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "VIS TRACKBALL IKON"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "VIS SPINNER IKON"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VIS FILNAVN ISTEDET"
@@ -1935,7 +1935,7 @@ msgid "IGNORE LEADING ARTICLES WHEN SORTING"
 msgstr "IGNORER LEDENDE ARTIKLER VED SORTERING"
 
 msgid "Ignore 'The' and 'A' if at the start."
-msgstr "Ignorer 'The' og 'A' hvis i starten."
+msgstr "Ignorer 'The' og 'A' på starten."
 
 msgid "VOLUME"
 msgstr "VOLUM"
@@ -2132,7 +2132,7 @@ msgid "Points"
 msgstr "Poeng"
 
 msgid "Unlocked on"
-msgstr "Låst opp på"
+msgstr "Låst-opp på"
 
 msgid "THIS GAME HAS NO ACHIEVEMENTS YET"
 msgstr "DETTE SPILLET HAR INGEN PRESTASJONER ENDA"
@@ -2184,16 +2184,16 @@ msgid "OPEN"
 msgstr "ÅPNE"
 
 msgid "START A NETPLAY GAME"
-msgstr "START ET NETPLAY-SPILL"
+msgstr "START ET NETTSPILL"
 
 msgid "NETPLAY"
-msgstr "NETPLAY"
+msgstr "NETTSPILL"
 
 msgid "START GAME"
 msgstr "START SPILL"
 
 msgid "HOST A NETPLAY GAME"
-msgstr "VERT ET NETPLAY SPILL"
+msgstr "VERT ET NETTSPILL"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "FINN LIGNENDE SPILL..."
@@ -2212,7 +2212,7 @@ msgstr ""
 "ER DU SIKKER?"
 
 msgid "COLLECTIONS"
-msgstr "Samlinger"
+msgstr "SAMLINGER"
 
 #, c-format
 msgid "REMOVE FROM %s"
@@ -2415,7 +2415,7 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "VIS TOMME SPILLSYSTEM"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "IKKE VIS GRUPPER MED KUN ETT SYSTEM"
 
 msgid "Loading..."
 msgstr "Laster..."
@@ -2560,10 +2560,10 @@ msgid "CONNECT TO NETPLAY"
 msgstr "KOBLE TIL NETPLAY"
 
 msgid "Select a game lobby to join"
-msgstr "Velg en spilllobby å bli med"
+msgstr "Velg en spill-lobby å bli med i"
 
 msgid "Select a game lobby to create or join"
-msgstr ""
+msgstr "Velg en spill-lobby å lage eller bli med i"
 
 msgid "FAILED"
 msgstr "FEILET"
@@ -2581,13 +2581,13 @@ msgid "UNAVAILABLE CORE"
 msgstr "UTILGJENGELIG KJERNE"
 
 msgid "PLAY ONLINE AS HOST"
-msgstr ""
+msgstr "SPILL ONLINE SOM VERT"
 
 msgid "PLAY OFFLINE"
-msgstr ""
+msgstr "SPILL OFFLINE"
 
 msgid "JOIN EXISTING GAME"
-msgstr ""
+msgstr "BLI MED I EKSISTERENDE SPILL"
 
 msgid "AVAILABLE GAMES"
 msgstr "TILGJENGELIGE SPILL"
@@ -2669,7 +2669,7 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VIS KONTROLLER BATTERYNIVÅ"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "DRAW GUN CROSSHAIR"
 
 msgid "default"
 msgstr "standard"
@@ -3070,10 +3070,10 @@ msgid "STEERING WHEEL"
 msgstr "RATT"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "HAR MEDIA"
@@ -3100,7 +3100,7 @@ msgid "Loading system config..."
 msgstr "Laster systemkonfigurasjon..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "LAGRER METADATA. VENNLIGST VENT..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATOREN SLUTTET UVENTET"
@@ -3157,10 +3157,10 @@ msgid "wheel games"
 msgstr "rattspill"
 
 msgid "trackball games"
-msgstr ""
+msgstr "trackball-spill"
 
 msgid "spinner games"
-msgstr ""
+msgstr "spinner-spill"
 
 msgid "collections"
 msgstr "samlinger"
