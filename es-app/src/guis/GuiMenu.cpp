@@ -83,6 +83,7 @@
 #define fake_gettext_cpu_frequency _("Cpu max frequency")
 #define fake_gettext_cpu_feature  _("Cpu feature")
 
+/* This appears to be a typo.
 #define fake_gettext_cpu_feature  _("Available Memory")
 #define fake_gettext_cpu_feature  _("Display Resolution")
 #define fake_gettext_cpu_feature  _("Display Refresh Rate")
@@ -94,6 +95,7 @@
 #define fake_gettext_cpu_feature  _("Network IP Address")
 #define fake_gettext_cpu_feature  _("UEFI Boot")
 #define fake_gettext_cpu_feature  _("Secure Boot")
+*/
 
 #define fake_gettext_simple_bilinear_simple	pgettext("game_options", "SHARP-BILINEAR-SIMPLE")
 #define fake_gettext_scanlines				pgettext("game_options", "SCANLINES")
