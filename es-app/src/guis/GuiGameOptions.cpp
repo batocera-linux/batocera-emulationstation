@@ -165,7 +165,7 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 			});
 		}
 
-		if (game->isNetplaySupported() && !Settings::NetPlayShowOptionsWhenLaunchingGames())
+		if (game->isNetplaySupported())
 		{
 			mMenu.addEntry(_("START A NETPLAY GAME"), false, [window, game, this]
 				{
