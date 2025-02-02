@@ -3599,7 +3599,7 @@
       <gun/>
     </game>
     <game name="segartv">
-      <wheel/>
+      <wheel rotation="270"/>
     </game>
     <game name="sf2049">
       <wheel rotation="270"/>
