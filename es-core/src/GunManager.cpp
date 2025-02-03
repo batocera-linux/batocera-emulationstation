@@ -37,7 +37,11 @@ enum class LightGunType
 	Mouse,
 	SindenLightgun,
 	Gun4Ir,
-	MayFlashWiimote
+	MayFlashWiimote,
+	RetroShooter,
+	Blamcon,
+	Aimtrak,
+	AELightgun
 };
 
 class RawInputManager
@@ -52,7 +56,7 @@ public:
 			if (name.find(id) != std::string::npos)
 				return LightGunType::SindenLightgun;
 
-		std::string gun4irDeviceIds[] = { "VID_2341&PID_8042", "VID_2341&PID_8043", "VID_2341&PID_8044", "VID_2341&PID_8045" };
+		std::string gun4irDeviceIds[] = { "VID_2341&PID_8042", "VID_2341&PID_8043", "VID_2341&PID_8044", "VID_2341&PID_8045", "VID_2341&PID_8046", "VID_2341&PID_8047" };
 		for (auto id : gun4irDeviceIds)
 			if (name.find(id) != std::string::npos)
 				return LightGunType::Gun4Ir;
@@ -61,6 +65,26 @@ public:
 		for (auto id : mayFlashWiimoteIds)
 			if (name.find(id) != std::string::npos)
 				return LightGunType::MayFlashWiimote;
+
+		std::string rsDeviceIds[] = { "VID_0483&PID_5750", "VID_0483&PID_5751", "VID_0483&PID_5752", "VID_0483&PID_5753" };
+		for (auto id : rsDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::RetroShooter;
+
+		std::string blamconDeviceIds[] = { "VID_3673&PID_0100", "VID_3673&PID_0101", "VID_3673&PID_0102", "VID_3673&PID_0103", "VID_3673&PID_0104" };
+		for (auto id : blamconDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::Blamcon;
+
+		std::string aimtrakDeviceIds[] = { "VID_D209&PID_1601", "VID_D209&PID_1602", "VID_D209&PID_1603" };
+		for (auto id : aimtrakDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::Aimtrak;
+
+		std::string aeDeviceIds[] = { "VID_2341&PID_8037", "VID_2341&PID_8038" };
+		for (auto id : aeDeviceIds)
+			if (name.find(id) != std::string::npos)
+				return LightGunType::AELightgun;
 
 		return LightGunType::Mouse;
 	}
