@@ -1098,7 +1098,7 @@ msgid "DMDSERVER started"
 msgstr "Servidor DMD iniciado"
 
 msgid "MULTISCREENS"
-msgstr "MULTITELA"
+msgstr "MULTITELAS"
 
 msgid "BACKGLASS / INFORMATION SCREEN"
 msgstr "VIDRO TRASEIRO / TELA DE INFORMAÇÕES"
@@ -1131,7 +1131,7 @@ msgid "270 DEGREES"
 msgstr "270 GRAUS"
 
 msgid "SCREEN ROTATION"
-msgstr "ROTAÇÃO DE TELA"
+msgstr "ROTAÇÃO DA TELA"
 
 msgid "DMD SCREEN"
 msgstr "TELA DMD"
@@ -1152,7 +1152,7 @@ msgid "Also turns on the emulator's native FPS counter, if available."
 msgstr "Também ativa o contador de FPS nativo do emulador, se disponível."
 
 msgid "VSYNC"
-msgstr "VSYNC (SINCRONIZAR TAXA DE QUADROS)"
+msgstr "SINCRONIZAÇÃO VERTICAL"
 
 msgid "OVERSCAN"
 msgstr "OVERSCAN (ULTRAPASSAR BORDAS DA TELA)"
@@ -1604,7 +1604,7 @@ msgid "LATENCY REDUCTION"
 msgstr "REDUÇÃO DE LATÊNCIA"
 
 msgid "RUN-AHEAD FRAMES"
-msgstr "SALTAR QUADROS"
+msgstr "ANTECIPAR EXECUÇÃO DE QUADROS"
 
 msgid "High numbers can result in visible jitter."
 msgstr "Números altos podem resultar em instabilidade visível."
@@ -1706,7 +1706,7 @@ msgid "GAME ASPECT RATIO"
 msgstr "PROPORÇÃO DE ASPECTO DO JOGO"
 
 msgid "Force the game to render in this aspect ratio."
-msgstr "Força o jogo a renderizar nesta proporção de aspecto."
+msgstr "Força o jogo a renderizar nesta proporção de tela."
 
 msgid ""
 "Sets the display's resolution. Does not affect the rendering resolution."
@@ -1719,14 +1719,13 @@ msgid "REWIND"
 msgstr "REBOBINAR"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
-"Armazena estados passados para rebobinar em tempo real, se o núcleo suportar."
+msgstr "Armazena estados passados para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA INTEIRA (PIXEL PERFEITO)"
 
 msgid "SHADER SET"
-msgstr "FILTROS DE IMAGEM"
+msgstr "CONJUNTO DE FILTROS"
 
 msgid "VIDEO FILTER"
 msgstr "FILTRO DE VÍDEO"
@@ -1750,7 +1749,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "Mostra uma imagem sobreposta sobre a moldura."
 
 msgid "TATTOO CORNER"
-msgstr "POSIÇÃO DO MAPEAMENTO"
+msgstr "POSIÇÃO DA SOBREPOSIÇÃO"
 
 msgid "NORTH WEST"
 msgstr "NOROESTE"
@@ -1768,7 +1767,7 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "ARQUIVO .PNG PERSONALIZADO"
 
 msgid "RESIZE TATTOO"
-msgstr "REDIMENSIONAR MAPEAMENTO"
+msgstr "REDIMENSIONAR SOBREPOSIÇÃO"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
 msgstr "Reduz/expande a sobreposição para caber na borda da moldura."
@@ -1786,7 +1785,7 @@ msgid "AI TRANSLATION SERVICE URL"
 msgstr "URL DO SERVIÇO"
 
 msgid "PAUSE ON TRANSLATED SCREEN"
-msgstr "PAUSA NA TELA TRADUZIDA"
+msgstr "PAUSAR NA TELA TRADUZIDA"
 
 msgid "AUTOCONFIGURE CONTROLLERS"
 msgstr "CONFIGURAR CONTROLES AUTOMATICAMENTE"
@@ -2084,7 +2083,7 @@ msgid "REALLY QUIT?"
 msgstr "DESEJA SAIR?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "CARREGAR/SALVAR JOGO AO INICIAR"
+msgstr "CARREGAR/SALVAR AO INICIAR JOGO"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
