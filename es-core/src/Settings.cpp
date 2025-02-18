@@ -381,6 +381,8 @@ void Settings::setDefaults()
 
 	mFloatMap["GunMoveTolerence"] = 2.5;
 
+	mBoolMap["RumbleEnabled"] = true;
+
 	mDefaultBoolMap = mBoolMap;
 	mDefaultIntMap = mIntMap;
 	mDefaultFloatMap = mFloatMap;
