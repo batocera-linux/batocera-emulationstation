@@ -671,18 +671,25 @@ namespace Renderer
 		// Regular GL_ALPHA textures are black + alpha in shaders
 		// Create a GL_LUMINANCE_ALPHA texture instead so its white + alpha
 		
-		if (type == GL_LUMINANCE_ALPHA && _data != nullptr)
+		if (type == GL_LUMINANCE_ALPHA && _data == nullptr)
 		{
-			uint8_t* a_data  = (uint8_t*)_data;
+			uint8_t* la_data = new uint8_t[_width * _height * 2];
+			memset(la_data, 255, _width * _height * 2);
+			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
+			delete[] la_data;
+		}
+		else if (type == GL_LUMINANCE_ALPHA && _data != nullptr)
+		{
+			uint8_t* a_data = (uint8_t*)_data;
 			uint8_t* la_data = new uint8_t[_width * _height * 2];
 			memset(la_data, 255, _width * _height * 2);
 			if (a_data)
 			{
-				for(uint32_t i=0; i<(_width * _height); ++i)
+				for (uint32_t i = 0; i < (_width * _height); ++i)
 					la_data[(i * 2) + 1] = a_data[i];
 			}
 
-		//	while (glGetError() != GL_NO_ERROR);
+			//	while (glGetError() != GL_NO_ERROR);
 
 			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
 			delete[] la_data;
@@ -696,9 +703,17 @@ namespace Renderer
 		}
 		else
 		{
-		//	while (glGetError() != GL_NO_ERROR);
+			if (_data == nullptr) {
+				uint8_t* la_data = new uint8_t[_width * _height * 2];
+				memset(la_data, 0, _width * _height * 2);
+				glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, la_data);
+				delete[] la_data;
+			}
+			else {
+				//	while (glGetError() != GL_NO_ERROR);
+				glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
+			}
 
-			glTexImage2D(GL_TEXTURE_2D, 0, type, _width, _height, 0, type, GL_UNSIGNED_BYTE, _data);
 			if (glGetError() != GL_NO_ERROR)
 			{
 				LOG(LogError) << "CreateTexture error: glTexImage2D failed";
