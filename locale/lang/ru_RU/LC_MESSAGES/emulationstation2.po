@@ -1074,12 +1074,6 @@ msgstr "АВТО"
 msgid "dmd matrix size"
 msgstr "dmd размер матрицы"
 
-msgid "MATRIX"
-msgstr "МАТРИЦА"
-
-msgid "rgb dmd order"
-msgstr "порядок rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
 
@@ -3127,6 +3121,9 @@ msgstr "ЯДРО ОТСУТСТВУЕТ"
 msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "все игры"
 
@@ -3579,6 +3576,12 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
+
+#~ msgid "MATRIX"
+#~ msgstr "МАТРИЦА"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "порядок rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

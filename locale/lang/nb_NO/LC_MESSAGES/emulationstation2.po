@@ -1071,12 +1071,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dmd matrise størrelse"
 
-msgid "MATRIX"
-msgstr "MATRISE"
-
-msgid "rgb dmd order"
-msgstr "rgb dmd rekkefølge"
-
 msgid "BRIGHTNESS"
 msgstr "LYSSTYRKE"
 
@@ -3123,6 +3117,9 @@ msgstr "KJERNE MANGLER"
 msgid "UKNOWN ERROR"
 msgstr "Ukjent feil"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "alle spill"
 
@@ -3567,6 +3564,12 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRISE"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "rgb dmd rekkefølge"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

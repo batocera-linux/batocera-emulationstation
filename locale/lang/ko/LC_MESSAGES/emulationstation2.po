@@ -1068,12 +1068,6 @@ msgstr "자동"
 msgid "dmd matrix size"
 msgstr "dmd 매트릭스 크기"
 
-msgid "MATRIX"
-msgstr "매트릭스"
-
-msgid "rgb dmd order"
-msgstr "rgb dmd 순서"
-
 msgid "BRIGHTNESS"
 msgstr "밝기"
 
@@ -3104,6 +3098,9 @@ msgstr "코어 누락"
 msgid "UKNOWN ERROR"
 msgstr "알 수 없는 오류"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "모든 게임"
 
@@ -3540,6 +3537,12 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "MATRIX"
+#~ msgstr "매트릭스"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "rgb dmd 순서"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

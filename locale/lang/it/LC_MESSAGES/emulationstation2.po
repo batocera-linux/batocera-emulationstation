@@ -1073,12 +1073,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dimensioni matrice dmd"
 
-msgid "MATRIX"
-msgstr "MATRICE"
-
-msgid "rgb dmd order"
-msgstr "ordine rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÀ"
 
@@ -3128,6 +3122,9 @@ msgstr "CORE MANCANTE"
 msgid "UKNOWN ERROR"
 msgstr "ERRORE SCONOSCIUTO"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "tutti i giochi"
 
@@ -3573,6 +3570,12 @@ msgid ""
 msgstr ""
 "CALIBRAZIONE PISTOLA\n"
 "Spara sui bersagli per calibrare"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRICE"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordine rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"

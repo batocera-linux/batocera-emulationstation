@@ -796,7 +796,7 @@ void Window::render()
 
 	// Render guns aims
 	auto guns = InputManager::getInstance()->getGuns();
-	if (!mRenderScreenSaver && guns.size())
+	if (!mRenderScreenSaver && guns.size() && Settings::DrawGunCrosshair())
 	{
 		auto margin = Renderer::setScreenMargin(0, 0);
 		Renderer::setMatrix(Transform4x4f::Identity());

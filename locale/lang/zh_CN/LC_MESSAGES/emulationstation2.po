@@ -1066,12 +1066,6 @@ msgstr "自动"
 msgid "dmd matrix size"
 msgstr "dmd矩阵大小"
 
-msgid "MATRIX"
-msgstr "矩阵"
-
-msgid "rgb dmd order"
-msgstr "rgb dmd顺序"
-
 msgid "BRIGHTNESS"
 msgstr "亮度"
 
@@ -3090,6 +3084,9 @@ msgstr "核心缺失"
 msgid "UKNOWN ERROR"
 msgstr "未知错误"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "所有游戏"
 
@@ -3526,6 +3523,12 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "MATRIX"
+#~ msgstr "矩阵"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "rgb dmd顺序"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr "重置游玩时间、游玩次数和上次游玩时间元数据的值。"

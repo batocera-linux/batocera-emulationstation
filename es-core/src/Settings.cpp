@@ -189,7 +189,8 @@ void Settings::setDefaults()
 
 	mBoolMap["GameOptionsAtNorth"] = false;
 	mBoolMap["LoadEmptySystems"] = false;
-	mBoolMap["HideUniqueGroups"] = true;	
+	mBoolMap["HideUniqueGroups"] = true;
+	mBoolMap["DrawGunCrosshair"] = true;
 	
 	mIntMap["RecentlyScrappedFilter"] = 3;
 	
