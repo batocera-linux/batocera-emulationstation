@@ -1070,12 +1070,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr ""
 
-msgid "MATRIX"
-msgstr ""
-
-msgid "rgb dmd order"
-msgstr ""
-
 msgid "BRIGHTNESS"
 msgstr "DISTIRA"
 
@@ -3130,6 +3124,9 @@ msgstr "NUKLEOA EZ DAGO ESKURAGARRI"
 
 msgid "UKNOWN ERROR"
 msgstr "ERRORE EZEZAGUNA"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "joko guztiak"

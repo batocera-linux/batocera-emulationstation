@@ -1076,12 +1076,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "taille de la matrice dmd"
 
-msgid "MATRIX"
-msgstr "MATRICE"
-
-msgid "rgb dmd order"
-msgstr "ordre des couleurs du dmd"
-
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÉ"
 
@@ -3136,6 +3130,9 @@ msgstr "LE CŒUR EST MANQUANT"
 msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "tous les jeux"
 
@@ -3580,6 +3577,12 @@ msgid ""
 msgstr ""
 "CALIBRATION DU PISTOLET\n"
 "Tirer sur les cibles pour calibrer"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRICE"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordre des couleurs du dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

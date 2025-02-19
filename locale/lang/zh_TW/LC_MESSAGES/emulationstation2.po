@@ -1068,12 +1068,6 @@ msgstr "自動"
 msgid "dmd matrix size"
 msgstr ""
 
-msgid "MATRIX"
-msgstr ""
-
-msgid "rgb dmd order"
-msgstr ""
-
 msgid "BRIGHTNESS"
 msgstr "亮度"
 
@@ -3089,6 +3083,9 @@ msgstr "核心遺失"
 
 msgid "UKNOWN ERROR"
 msgstr "未知的錯誤"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "所有遊戲"

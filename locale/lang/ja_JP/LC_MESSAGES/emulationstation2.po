@@ -1075,12 +1075,6 @@ msgstr "自動"
 msgid "dmd matrix size"
 msgstr "DMDマトリクスサイズ"
 
-msgid "MATRIX"
-msgstr "マトリクス"
-
-msgid "rgb dmd order"
-msgstr "RGB DMD順"
-
 msgid "BRIGHTNESS"
 msgstr "輝度"
 
@@ -3123,6 +3117,9 @@ msgstr "コアがありません"
 msgid "UKNOWN ERROR"
 msgstr "不明なエラー"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "すべてのゲーム"
 
@@ -3559,6 +3556,12 @@ msgid ""
 msgstr ""
 "銃キャリブレーション\n"
 "ターゲットに発射して較正"
+
+#~ msgid "MATRIX"
+#~ msgstr "マトリクス"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "RGB DMD順"
 
 #~ msgid "FORGET A BLUETOOTH DEVICE"
 #~ msgstr "BLUETOOTH デバイスの削除"

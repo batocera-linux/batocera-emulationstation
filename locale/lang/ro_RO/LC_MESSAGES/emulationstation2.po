@@ -1079,12 +1079,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "mărime matrice dmd"
 
-msgid "MATRIX"
-msgstr "MATRICE"
-
-msgid "rgb dmd order"
-msgstr "ordine dmd rgb"
-
 msgid "BRIGHTNESS"
 msgstr "LUMINOZITATE"
 
@@ -3148,6 +3142,9 @@ msgstr "NUCLEUL LIPSEȘTE"
 msgid "UKNOWN ERROR"
 msgstr "EROARE NECUNOSCUTĂ"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "toate jocurile"
 
@@ -3601,6 +3598,12 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRICE"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordine dmd rgb"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

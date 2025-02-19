@@ -1078,12 +1078,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "tamaño de la matriz dmd"
 
-msgid "MATRIX"
-msgstr "MATRIZ"
-
-msgid "rgb dmd order"
-msgstr "orden rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "BRILLO"
 
@@ -3042,8 +3036,8 @@ msgid ""
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"ADVERTENCIA: EL SISTEMA TIENE ARCHIVOS BIOS AUSENTES Y ES POSIBLE QUE EL JUEGO NO "
-"FUNCIONE CORRECTAMENTE.\n"
+"ADVERTENCIA: EL SISTEMA TIENE ARCHIVOS BIOS AUSENTES Y ES POSIBLE QUE EL "
+"JUEGO NO FUNCIONE CORRECTAMENTE.\n"
 "¿QUIERES INICIARLO DE TODOS MODOS?"
 
 msgid "Preloading UI"
@@ -3150,6 +3144,9 @@ msgstr "FALTA EL NÚCLEO"
 
 msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONOCIDO"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "todos los juegos"
@@ -3595,6 +3592,12 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara a los objetivos para calibrar"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRIZ"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "orden rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

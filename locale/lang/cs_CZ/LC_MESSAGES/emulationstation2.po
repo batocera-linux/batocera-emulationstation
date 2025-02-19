@@ -1070,12 +1070,6 @@ msgstr "AUTOMATICKY"
 msgid "dmd matrix size"
 msgstr "velikost dmd matrix"
 
-msgid "MATRIX"
-msgstr "MATRIX"
-
-msgid "rgb dmd order"
-msgstr "pořadí rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "JAS"
 
@@ -3129,6 +3123,9 @@ msgstr "CHYBÍ JÁDRO"
 msgid "UKNOWN ERROR"
 msgstr "NEZNÁMA CHYBA"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "všechny hry"
 
@@ -3581,6 +3578,12 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRIX"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "pořadí rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

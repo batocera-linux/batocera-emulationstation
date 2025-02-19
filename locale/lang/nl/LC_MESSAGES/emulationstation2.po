@@ -1076,12 +1076,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dmd matrix grootte"
 
-msgid "MATRIX"
-msgstr "MATRIX"
-
-msgid "rgb dmd order"
-msgstr "RGB DMD volgorde"
-
 msgid "BRIGHTNESS"
 msgstr "HELDERHEID"
 
@@ -3146,6 +3140,9 @@ msgstr "CORE ONTBREEKT"
 msgid "UKNOWN ERROR"
 msgstr "ONBEKENDE FOUT"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "alle spellen"
 
@@ -3590,3 +3587,9 @@ msgid ""
 msgstr ""
 "KALIBREREN GUN\n"
 "Vuur op doelen om te kalibreren"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRIX"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "RGB DMD volgorde"

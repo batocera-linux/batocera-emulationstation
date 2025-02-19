@@ -1079,12 +1079,6 @@ msgstr "AUTOMÁTICO"
 msgid "dmd matrix size"
 msgstr "tamanho da matriz dmd"
 
-msgid "MATRIX"
-msgstr "MATRIZ"
-
-msgid "rgb dmd order"
-msgstr "ordem dmd rgb"
-
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
 
@@ -1719,7 +1713,8 @@ msgid "REWIND"
 msgstr "REBOBINAR"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr "Armazena estados passados para rebobinar em tempo real, se o núcleo suportar."
+msgstr ""
+"Armazena estados passados para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA INTEIRA (PIXEL PERFEITO)"
@@ -3145,6 +3140,9 @@ msgstr "ESTÁ FALTANDO NÚCLEO"
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "todos os jogos"
 
@@ -3590,6 +3588,12 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRIZ"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "ordem dmd rgb"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

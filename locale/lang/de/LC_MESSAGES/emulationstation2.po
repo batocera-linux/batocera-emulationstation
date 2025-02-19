@@ -1080,12 +1080,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "DMD-Matrix Größe"
 
-msgid "MATRIX"
-msgstr "MATRIX"
-
-msgid "rgb dmd order"
-msgstr "RGB DMD-Order"
-
 msgid "BRIGHTNESS"
 msgstr "HELLIGKEIT"
 
@@ -3153,6 +3147,9 @@ msgstr "CORE FEHLT"
 msgid "UKNOWN ERROR"
 msgstr "UNBEKANNTER FEHLER"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "alle Spiele"
 
@@ -3599,3 +3596,9 @@ msgid ""
 msgstr ""
 "KALIBRIERE PISTOLE\n"
 "Zur Kalibration auf Ziele schießen"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRIX"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "RGB DMD-Order"

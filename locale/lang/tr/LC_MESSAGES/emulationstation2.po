@@ -1073,12 +1073,6 @@ msgstr "OTOMATİK"
 msgid "dmd matrix size"
 msgstr "dmd matris boyutu"
 
-msgid "MATRIX"
-msgstr "MATRİS"
-
-msgid "rgb dmd order"
-msgstr "rgb dmd order"
-
 msgid "BRIGHTNESS"
 msgstr "PARLAKLIK"
 
@@ -3130,6 +3124,9 @@ msgstr "ÇEKİRDEK BULUNAMADI"
 msgid "UKNOWN ERROR"
 msgstr "BİLİNMEYEN HATA"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "tüm oyunlar"
 
@@ -3574,6 +3571,12 @@ msgid ""
 msgstr ""
 "SİLAH KALİBRE EDİLİYOR\n"
 "Kalibrasyon için hedeflere ateş et"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRİS"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "rgb dmd order"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

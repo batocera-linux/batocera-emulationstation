@@ -1079,12 +1079,6 @@ msgstr "AUTOMÁTICO"
 msgid "dmd matrix size"
 msgstr "tamanho da matriz dmd"
 
-msgid "MATRIX"
-msgstr "MATRIZ"
-
-msgid "rgb dmd order"
-msgstr "ordem rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
 
@@ -3134,6 +3128,9 @@ msgstr "O CORE ESTÁ EM FALTA"
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "todos os jogos"
 
@@ -3579,7 +3576,11 @@ msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
 
+#~ msgid "MATRIX"
+#~ msgstr "MATRIZ"
 
+#~ msgid "rgb dmd order"
+#~ msgstr "ordem rgb dmd"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

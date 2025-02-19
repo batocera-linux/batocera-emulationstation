@@ -1072,12 +1072,6 @@ msgstr "AUTOMAATTINEN"
 msgid "dmd matrix size"
 msgstr ""
 
-msgid "MATRIX"
-msgstr ""
-
-msgid "rgb dmd order"
-msgstr ""
-
 msgid "BRIGHTNESS"
 msgstr "KIRKKAUS"
 
@@ -3115,6 +3109,9 @@ msgstr "YDIN PUUTTUU"
 
 msgid "UKNOWN ERROR"
 msgstr "TUNTEMATON VIRHE"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "kaikki pelit"

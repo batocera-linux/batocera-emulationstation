@@ -1078,12 +1078,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr ""
 
-msgid "MATRIX"
-msgstr ""
-
-msgid "rgb dmd order"
-msgstr ""
-
 msgid "BRIGHTNESS"
 msgstr "BRILLO"
 
@@ -3135,6 +3129,9 @@ msgstr "FALTA EL NÚCLEO"
 
 msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONOCIDO"
+
+msgid "Interlaced"
+msgstr ""
 
 msgid "all games"
 msgstr "todos los juegos"

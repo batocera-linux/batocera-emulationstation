@@ -1075,12 +1075,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dmd mátrix méret"
 
-msgid "MATRIX"
-msgstr "MÁTRIX"
-
-msgid "rgb dmd order"
-msgstr "rgb dmd sorrend"
-
 msgid "BRIGHTNESS"
 msgstr "FÉNYERŐ"
 
@@ -3148,6 +3142,9 @@ msgstr "A MAG HIÁNYZIK"
 msgid "UKNOWN ERROR"
 msgstr "ISMERETLEN HIBA"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "minden játék"
 
@@ -3593,6 +3590,12 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "MATRIX"
+#~ msgstr "MÁTRIX"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "rgb dmd sorrend"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

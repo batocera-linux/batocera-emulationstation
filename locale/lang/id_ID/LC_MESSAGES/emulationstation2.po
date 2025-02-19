@@ -1072,12 +1072,6 @@ msgstr "OTOMATIS"
 msgid "dmd matrix size"
 msgstr "ukuran matrix dmd"
 
-msgid "MATRIX"
-msgstr "MATRIX"
-
-msgid "rgb dmd order"
-msgstr "urutan rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "KECERAHAN"
 
@@ -3119,6 +3113,9 @@ msgstr "CORE HILANG"
 msgid "UKNOWN ERROR"
 msgstr "ERROR TAK DIKETAHUI"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "semua game"
 
@@ -3555,6 +3552,12 @@ msgid ""
 msgstr ""
 "KALIBRASI SENJATA\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRIX"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "urutan rgb dmd"
 
 #~ msgid "SAVING METADATAS. PLEASE WAIT..."
 #~ msgstr "MENYIMPAN METADATA. HARAP TUNGGU..."

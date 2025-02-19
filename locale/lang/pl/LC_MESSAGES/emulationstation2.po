@@ -1075,12 +1075,6 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "rozmiar matrycy dmd"
 
-msgid "MATRIX"
-msgstr "MATRYCA"
-
-msgid "rgb dmd order"
-msgstr "kolejność rgb dmd"
-
 msgid "BRIGHTNESS"
 msgstr "JASNOŚĆ"
 
@@ -3138,6 +3132,9 @@ msgstr "BRAK JĄDRA EMULATORA"
 msgid "UKNOWN ERROR"
 msgstr "NIEZNANY BŁĄD"
 
+msgid "Interlaced"
+msgstr ""
+
 msgid "all games"
 msgstr "wszystkie gry"
 
@@ -3590,6 +3587,12 @@ msgid ""
 msgstr ""
 "KALIBRACJA PISTOLETU\n"
 "Strzelanie do celów w celu kalibracji"
+
+#~ msgid "MATRIX"
+#~ msgstr "MATRYCA"
+
+#~ msgid "rgb dmd order"
+#~ msgstr "kolejność rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr "Resetuje wartości metadanych GameTime, PlayCount i LastPlayed."

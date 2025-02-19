@@ -100,6 +100,7 @@ public:
 	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)			
 	DEFINE_BOOL_SETTING(LoadEmptySystems)		
 	DEFINE_BOOL_SETTING(HideUniqueGroups)
+	DEFINE_BOOL_SETTING(DrawGunCrosshair)
 	DEFINE_STRING_SETTING(HiddenSystems)
 	DEFINE_STRING_SETTING(TransitionStyle)
 	DEFINE_STRING_SETTING(GameTransitionStyle)		

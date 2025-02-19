@@ -184,6 +184,8 @@ GuiControllersSettings::GuiControllersSettings(Window* wnd, int autoSel) : GuiSe
 	if (Settings::getInstance()->getBool("ShowControllerActivity"))
 		addSwitch(_("SHOW CONTROLLER BATTERY LEVEL"), "ShowControllerBattery", true);
 
+	addSwitch(_("DRAW GUN CROSSHAIR"), "DrawGunCrosshair", true);
+
 	addGroup(controllers_group_label);
 
 	// Here we go; for each player
