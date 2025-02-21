@@ -1427,6 +1427,8 @@ bool ApiSystem::getLED(int& red, int& green, int& blue)
 
         return true;
     }
+
+	return false;
 }
 
 void ApiSystem::getLEDColours(int& red, int& green, int& blue)

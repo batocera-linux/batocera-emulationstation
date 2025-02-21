@@ -47,7 +47,7 @@ void rc_hash_handle_file_close(void* file_handle)
 	CHEEVOS_FREE(file_handle);
 }
 
-typedef struct cdreader_trackinfo
+struct cdreader_trackinfo
 {
 	cdreader_trackinfo(bool isChd, void* pointer) { chd = isChd; ptr = pointer; }
 
