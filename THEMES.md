@@ -959,6 +959,8 @@ Can be created as an extra.
     - BATOCERA 29 : Point around which the image scale will be applyed.
 * `storyboard' - type: STORYBOARD.    
     - BATOCERA 29 : See storyboard documentation.
+* `loops` - type: BOOLEAN
+	- Determines the number of loops the video is going to be repeated. 0 plays the video just once, 1 plays the video two times and so on.
 
 #### text
 
