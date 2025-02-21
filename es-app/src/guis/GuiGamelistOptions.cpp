@@ -100,18 +100,37 @@ GuiGamelistOptions::GuiGamelistOptions(Window* window, IGameListView* gamelist, 
 			{
 				mJumpToLetterList = std::make_shared<LetterList>(mWindow, _("JUMP TO GAME BEGINNING WITH THE LETTER"), false);
 
-				char curChar = (char)toupper(getGamelist()->getCursor()->getName()[0]);
+				
 #ifdef _ENABLEEMUELEC				
 				unsigned int sortId = system->getSortId();
-				if (sortId == FileSorts::SORTNAME_ASCENDING || sortId == FileSorts::SORTNAME_DESCENDING)
-					curChar = (char)toupper(getGamelist()->getCursor()->getSortOrName()[0]);
+				std::string cursorName = (sortId == FileSorts::SORTNAME_ASCENDING || sortId == FileSorts::SORTNAME_DESCENDING)
+					? getGamelist()->getCursor()->getSortOrName()
+					: getGamelist()->getCursor()->getName();
+#else 
+				const std::string& cursorName = getGamelist()->getCursor()->getName();
 #endif
+				std::string curChar;
 
-				if (std::find(letters.begin(), letters.end(), std::string(1, curChar)) == letters.end())
-					curChar = letters.at(0)[0];
+				if (Utils::String::isKorean(cursorName.c_str()))
+				{
+					const char* koreanLetter = nullptr;
 
-				for (auto letter : letters)
-					mJumpToLetterList->add(letter, letter[0], letter[0] == curChar);
+					std::string nameChar = cursorName.substr(0, 3);
+					if (!Utils::String::splitHangulSyllable(nameChar.c_str(), &koreanLetter) || !koreanLetter)
+						curChar = std::string(letters.at(0)); // Korean supports chosung search only. set default.
+					else
+						curChar = std::string(koreanLetter, 3);
+				}
+				else
+				{
+					curChar = std::string(1, toupper(cursorName[0]));
+				}
+
+				if (std::find(letters.begin(), letters.end(), curChar) == letters.end())
+					curChar = letters.at(0);
+
+				for (const auto& letter : letters)
+					mJumpToLetterList->add(letter, letter, letter == curChar);
 
 				row.addElement(std::make_shared<TextComponent>(mWindow, _("JUMP TO GAME BEGINNING WITH THE LETTER"), theme->Text.font, theme->Text.color), true);
 				row.addElement(mJumpToLetterList, false);
@@ -517,7 +536,7 @@ char getSortLetter(int sortId, FileData* fData) {
 
 void GuiGamelistOptions::jumpToLetter()
 {
-	char letter = mJumpToLetterList->getSelected();
+	std::string letter = mJumpToLetterList->getSelected();
 	IGameListView* gamelist = getGamelist();
 
 	if (mListSort->getSelected() != 0)
@@ -552,11 +571,27 @@ void GuiGamelistOptions::jumpToLetter()
 	auto files = gamelist->getFileDataEntries();
 	for (int i = files.size() - 1; i >= 0; i--)
 	{
-		auto name = files.at(i)->getName();
+		const std::string& name = files.at(i)->getName();
 		if (name.empty())
 			continue;
 
-		char checkLetter = (char)toupper(name[0]);
+		std::string checkLetter;
+
+		if (Utils::String::isKorean(name.c_str()))
+		{
+			const char* koreanLetter = nullptr;
+
+			std::string nameChar = name.substr(0, 3);
+			if (!Utils::String::splitHangulSyllable(nameChar.c_str(), &koreanLetter) || !koreanLetter)
+				continue;
+
+			checkLetter = std::string(koreanLetter, 3);
+		}
+		else
+		{
+			checkLetter = std::string(1, toupper(name[0]));
+		}
+
 		if (letterIndex >= 0 && checkLetter != letter)
 			break;
 
