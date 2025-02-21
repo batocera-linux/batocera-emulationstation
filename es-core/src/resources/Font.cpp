@@ -331,6 +331,11 @@ FT_Face Font::getFaceForChar(unsigned int id)
 			fit = mFaceCache.find(i);
 		}
 
+		// i == 2 -> DroidSansFallbackFull
+		// this font has a bug when handling Korean characters.
+		if (i == 2 && Utils::String::isKorean(id))
+			continue;
+
 		if(FT_Get_Char_Index(fit->second->face, id) != 0)
 			return fit->second->face;
 	}

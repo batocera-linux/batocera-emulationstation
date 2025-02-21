@@ -966,6 +966,285 @@ namespace Utils
 #endif
 		}
 
+		bool isKorean(const unsigned int uni)
+		{
+			return (uni >= 0x3131 && uni <= 0x3163) ||  // Unicode range for Hangul consonants and vowels (ㄱ to ㅣ)
+				(uni >= 0xAC00 && uni <= 0xD7A3);       // Unicode range for Hangul syllables (가 to 힣)
+		}
+
+		bool isKorean(const char* _string, bool checkFirstChar)
+		{
+			if (!_string)
+				return false;
+
+			size_t len = strlen(_string);
+			if (len < 3)
+				return false;
+
+			const char* target = _string;
+			if (!checkFirstChar)
+			{
+				const char* ptr = _string + len - 1;
+				while (ptr > _string && (*ptr & 0xC0) == 0x80)
+					ptr--;
+
+				target = ptr;
+			}
+
+			size_t cursor = 0;
+			unsigned int uni = chars2Unicode(std::string(target, 3), cursor);
+
+			return isKorean(uni);
+		} // isKorean
+
+		KoreanCharType getKoreanCharType(const char* _string)
+		{
+			if (!_string || strlen(_string) != 3)
+				return KoreanCharType::NONE;
+
+			size_t cursor = 0;
+			unsigned int uni = chars2Unicode(std::string(_string), cursor);
+
+			if (uni >= 0x3131 && uni <= 0x314E)
+				return KoreanCharType::JAEUM;
+
+			if (uni >= 0x314F && uni <= 0x3163)
+				return KoreanCharType::MOEUM;
+
+			return KoreanCharType::NONE;
+
+		} // getKoreanCharType
+
+		bool splitHangulSyllable(const char* input, const char** chosung, const char** joongsung, const char** jongsung)
+		{
+			if (!input)
+				return false;
+
+			size_t len = strlen(input);
+			if (len < 3)
+				return false;
+
+			switch (getKoreanCharType(input))
+			{
+			case KoreanCharType::JAEUM:
+				*chosung = input;
+				break;
+			case KoreanCharType::MOEUM:
+				if (joongsung) *joongsung = input;
+				break;
+			default:
+				size_t cursor = 0;
+				unsigned int unicode = chars2Unicode(input, cursor) - 0xAC00;
+
+				int chosungIdx = unicode / (28 * 21);
+				int joongsungIdx = (unicode / 28) % 21;
+				int jongsungIdx = unicode % 28;
+
+				*chosung = KOREAN_CHOSUNG_LIST.at(chosungIdx);
+				if (joongsung) *joongsung = KOREAN_JOONGSUNG_LIST.at(joongsungIdx);
+				if (jongsung) *jongsung = KOREAN_JONGSUNG_LIST.at(jongsungIdx);
+				break;
+			}
+
+			return true;
+		}
+
+		void koreanTextInput(const char* text, std::string& componentText, unsigned int& componentCursor)
+		{
+			if (!text)
+				return;
+
+			if (strlen(text) != 3)
+				return;
+
+			if (componentText.size() < 3)
+				return;
+
+			KoreanCharType charType = getKoreanCharType(text);
+
+			std::string lastCharString = componentText.substr(componentCursor - 3, 3);
+			const char* lastChar = lastCharString.c_str();
+
+			const char* chosung = "";
+			const char* joongsung = "";
+			const char* jongsung = "";
+			splitHangulSyllable(lastChar, &chosung, &joongsung, &jongsung);
+
+			auto eraseAndInsert = [&](const std::string& toInsert, bool moveCursorLeft = true)
+			{
+				size_t cursor = prevCursor(componentText, componentCursor);
+				componentText.erase(componentText.begin() + cursor, componentText.begin() + componentCursor);
+				componentText.insert(cursor, toInsert);
+				if (moveCursorLeft)
+					componentCursor -= 3;
+			};
+
+			auto makeHangul = [&](int chosungIdx, int joongsungIdx, int jongsungIdx) -> std::string
+			{
+				unsigned int code = ((chosungIdx * 21) + joongsungIdx) * 28 + jongsungIdx + 0xAC00;
+				return unicode2Chars(code);
+			};
+
+			auto findIndex = [&](const std::vector<const char*>& vec, const char* key) -> int 
+			{
+				auto it = std::find_if(vec.begin(), vec.end(), [&](const char* item)
+				{
+					return std::strcmp(item, key) == 0;
+				});
+
+				return (it != vec.end()) ? std::distance(vec.begin(), it) : -1;
+			};
+
+			if (!strcmp(lastChar, chosung) && charType == KoreanCharType::JAEUM)
+			{
+				std::string combine = std::string(chosung) + text;
+
+				int idx = findIndex(KOREAN_GYEOP_BATCHIM_COMBINATIONS, combine.c_str());
+				if (idx != -1)
+					eraseAndInsert(KOREAN_GYEOP_BATCHIM_LIST.at(idx));
+				else
+					componentText.insert(componentCursor, text);
+			}
+			else if (!strcmp(lastChar, chosung) && charType == KoreanCharType::MOEUM)
+			{
+				int joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, text);
+
+				int gyeopBatchimIdx = findIndex(KOREAN_GYEOP_BATCHIM_LIST, lastChar);
+				if (gyeopBatchimIdx != -1)
+				{
+					char jaeum1[4] = {};
+					strncpy(jaeum1, KOREAN_GYEOP_BATCHIM_COMBINATIONS.at(gyeopBatchimIdx), 3);
+					jaeum1[3] = '\0';
+
+					char jaeum2[4] = {};
+					strncpy(jaeum2, KOREAN_GYEOP_BATCHIM_COMBINATIONS.at(gyeopBatchimIdx) + 3, 3);
+					jaeum2[3] = '\0';
+
+					int chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, static_cast<const char*>(jaeum2));
+					std::string hangul = std::string(jaeum1) + makeHangul(chosungIdx, joongsungIdx, 0);
+
+					eraseAndInsert(hangul, false);
+				}
+				else
+				{
+					int chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, lastChar);
+					std::string hangul = makeHangul(chosungIdx, joongsungIdx, 0);
+
+					eraseAndInsert(hangul);
+				}
+			}
+			else if (!strcmp(lastChar, joongsung) && charType == KoreanCharType::JAEUM)
+			{
+				componentText.insert(componentCursor, text);
+			}
+			else if (!strcmp(lastChar, joongsung) && charType == KoreanCharType::MOEUM)
+			{
+				std::string combine = std::string(lastChar) + text;
+
+				int idx = findIndex(KOREAN_IJUNG_MOEUM_COMBINATIONS, combine.c_str());
+				if (idx != -1)
+					eraseAndInsert(KOREAN_IJUNG_MOEUM_LIST.at(idx));
+				else
+					componentText.insert(componentCursor, text);
+			}
+			else if (strcmp(jongsung, " ") && charType == KoreanCharType::JAEUM)
+			{
+				std::string combine = std::string(jongsung) + text;
+
+				int idx = findIndex(KOREAN_GYEOP_BATCHIM_COMBINATIONS, combine.c_str());
+
+				if (idx != -1)
+				{
+					int chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, chosung);
+					int joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, joongsung);
+					int jongsungIdx = findIndex(KOREAN_JONGSUNG_LIST, KOREAN_GYEOP_BATCHIM_LIST.at(idx));
+					std::string hangul = makeHangul(chosungIdx, joongsungIdx, jongsungIdx);
+
+					eraseAndInsert(hangul);
+				}
+				else
+				{
+					componentText.insert(componentCursor, text);
+				}
+			}
+			else if (strcmp(jongsung, " ") && charType == KoreanCharType::MOEUM)
+			{
+				int idx = findIndex(KOREAN_GYEOP_BATCHIM_LIST, jongsung);
+				if (idx != -1)
+				{
+					char jaeum1[4] = {};
+					strncpy(jaeum1, KOREAN_GYEOP_BATCHIM_COMBINATIONS.at(idx), 3);
+					jaeum1[3] = '\0';
+
+					char jaeum2[4] = {};
+					strncpy(jaeum2, KOREAN_GYEOP_BATCHIM_COMBINATIONS.at(idx) + 3, 3);
+					jaeum2[3] = '\0';
+
+					int chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, chosung);
+					int joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, joongsung);
+					int jongsungIdx = findIndex(KOREAN_JONGSUNG_LIST, static_cast<const char*>(jaeum1));
+					std::string hangul = makeHangul(chosungIdx, joongsungIdx, jongsungIdx);
+
+					chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, static_cast<const char*>(jaeum2));
+					joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, text);
+					hangul += makeHangul(chosungIdx, joongsungIdx, 0);
+
+					eraseAndInsert(hangul, false);
+				}
+				else
+				{
+					int chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, chosung);
+					int joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, joongsung);
+					std::string hangul = makeHangul(chosungIdx, joongsungIdx, 0);
+
+					chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, jongsung);
+					joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, text);
+					hangul += makeHangul(chosungIdx, joongsungIdx, 0);
+
+					eraseAndInsert(hangul, false);
+				}
+			}
+			else if (!strcmp(jongsung, " ") && charType == KoreanCharType::JAEUM)
+			{
+				int jongsungIdx = findIndex(KOREAN_JONGSUNG_LIST, text);
+
+				if (jongsungIdx != -1)
+				{
+					int chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, chosung);
+					int joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, joongsung);
+					std::string hangul = makeHangul(chosungIdx, joongsungIdx, jongsungIdx);
+
+					eraseAndInsert(hangul);
+				}
+				else
+				{
+					componentText.insert(componentCursor, text);
+				}
+			}
+			else if (!strcmp(jongsung, " ") && charType == KoreanCharType::MOEUM)
+			{
+				std::string combine = std::string(joongsung) + text;
+
+				int idx = findIndex(KOREAN_IJUNG_MOEUM_COMBINATIONS, combine.c_str());
+				if (idx != -1)
+				{
+					int chosungIdx = findIndex(KOREAN_CHOSUNG_LIST, chosung);
+					int joongsungIdx = findIndex(KOREAN_JOONGSUNG_LIST, KOREAN_IJUNG_MOEUM_LIST.at(idx));
+					std::string hangul = makeHangul(chosungIdx, joongsungIdx, 0);
+
+					eraseAndInsert(hangul);
+				}
+				else
+				{
+					componentText.insert(componentCursor, text);
+				}
+			}
+
+			size_t newCursor = nextCursor(componentText, componentCursor);
+			componentCursor = (unsigned int)newCursor;
+		}
+		// koreanTextInput
+
 #if defined(_WIN32)
 		const std::string convertFromWideString(const std::wstring wstring)
 		{
