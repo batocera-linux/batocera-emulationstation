@@ -587,6 +587,12 @@ std::string FileData::getlaunchCommand(LaunchGameOptions& options, bool includeC
 	if (options.netPlayMode != DISABLED && (forceCore || gameToUpdate->isNetplaySupported()) && command.find("%NETPLAY%") == std::string::npos)
 		command = command + " %NETPLAY%"; // Add command line parameter if the netplay option is defined at <core netplay="true"> level
 
+	if (SystemConf::getInstance()->get("global.netplay.nickname").empty())
+	{
+		SystemConf::getInstance()->set("global.netplay.nickname", ApiSystem::getInstance()->getApplicationName() + " Player");
+		SystemConf::getInstance()->saveSystemConf();
+	}
+
 	if (options.netPlayMode == CLIENT || options.netPlayMode == SPECTATOR)
 	{
 		std::string mode = (options.netPlayMode == SPECTATOR ? "spectator" : "client");
