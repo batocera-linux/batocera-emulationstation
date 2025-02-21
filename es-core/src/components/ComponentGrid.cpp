@@ -321,6 +321,11 @@ void ComponentGrid::resetCursor()
 	}
 }
 
+Vector2i ComponentGrid::getCursor()
+{
+	return mCursor;
+}
+
 bool ComponentGrid::moveCursor(Vector2i dir)
 {
 	assert(dir.x() || dir.y());
@@ -371,6 +376,16 @@ bool ComponentGrid::moveCursor(Vector2i dir)
 	//failed to find another focusable element in this direction
 	mCursor = origCursor;
 	return false;
+}
+
+void ComponentGrid::setCursorTo(Vector2i pos)
+{
+	assert(pos.x() >= 0 && pos.x() < mGridSize.x() && pos.y() >= 0 && pos.y() < mGridSize.y());
+
+	const Vector2i origCursor = mCursor;
+	mCursor = pos;
+
+	onCursorMoved(origCursor, pos);
 }
 
 void ComponentGrid::onFocusLost()

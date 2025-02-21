@@ -56,7 +56,9 @@ public:
 	void setColWidth(int col, float width, bool update = true); // if update is false, will not call an onSizeChanged() which triggers a (potentially costly) repositioning + resizing of every element
 	void setRowHeight(int row, float height, bool update = true); // if update is false, will not call an onSizeChanged() which triggers a (potentially costly) repositioning + resizing of every element
 
+	Vector2i getCursor();
 	bool moveCursor(Vector2i dir);
+	void setCursorTo(Vector2i pos);
 	void setCursorTo(const std::shared_ptr<GuiComponent>& comp);
 	bool isCursorTo(const std::shared_ptr<GuiComponent>& comp);
 
