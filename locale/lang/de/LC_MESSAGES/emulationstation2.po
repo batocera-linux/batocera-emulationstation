@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-12-30 08:55+0000\n"
+"PO-Revision-Date: 2025-02-20 17:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -2695,6 +2695,12 @@ msgstr "CONTROLLER AKKUSTAND ANZEIGEN"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "FADENKREUZ ANZEIGEN"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "Standard"
 
@@ -3148,7 +3154,7 @@ msgid "UKNOWN ERROR"
 msgstr "UNBEKANNTER FEHLER"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Interlaced"
 
 msgid "all games"
 msgstr "alle Spiele"
@@ -3596,9 +3602,3 @@ msgid ""
 msgstr ""
 "KALIBRIERE PISTOLE\n"
 "Zur Kalibration auf Ziele schießen"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRIX"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "RGB DMD-Order"

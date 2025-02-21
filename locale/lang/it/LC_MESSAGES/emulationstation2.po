@@ -2670,6 +2670,12 @@ msgstr "MOSTRA LIVELLO BATTERIA DEL CONTROLLER"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DISEGNA MIRINO"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "default"
 

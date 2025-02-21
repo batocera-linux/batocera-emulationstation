@@ -2640,6 +2640,12 @@ msgstr "顯示遊戲控制器的電池電量"
 msgid "DRAW GUN CROSSHAIR"
 msgstr ""
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "預設值"
 

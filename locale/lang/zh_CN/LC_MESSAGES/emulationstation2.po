@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-01-02 10:16+0800\n"
+"PO-Revision-Date: 2025-02-20 10:49+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -2639,6 +2639,12 @@ msgstr "显示手柄电池电量"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "绘制枪的准星"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "默认"
 
@@ -3085,7 +3091,7 @@ msgid "UKNOWN ERROR"
 msgstr "未知错误"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "隔行扫描"
 
 msgid "all games"
 msgstr "所有游戏"

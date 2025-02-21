@@ -2676,6 +2676,12 @@ msgstr "HIỂN THỊ MỨC PIN BỘ ĐIỀU KHIỂN"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "Hiện tâm súng"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "mặc định"
 

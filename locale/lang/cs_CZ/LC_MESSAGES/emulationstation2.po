@@ -2668,6 +2668,12 @@ msgstr "ZOBRAZIT ÚROVEŇ BATERIE HER. OVLADAČE"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "VYKRESLIT ZAMĚŘOVAČ ZBRANĚ"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "výchozí"
 

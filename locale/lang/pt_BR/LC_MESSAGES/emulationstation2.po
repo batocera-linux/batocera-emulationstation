@@ -2688,6 +2688,12 @@ msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR A MIRA DA ARMA"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "padrão"
 

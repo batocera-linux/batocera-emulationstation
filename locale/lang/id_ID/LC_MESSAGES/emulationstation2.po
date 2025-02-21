@@ -2665,6 +2665,12 @@ msgstr "TAMPILKAN TINGKAT BATERAI KONTROLER"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "GAMBARKAN CROSHAIR GUN"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "default"
 

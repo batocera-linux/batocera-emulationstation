@@ -2688,6 +2688,12 @@ msgstr "TOON BATTERIJNIVEAU CONTROLLER"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "TEKEN PISTOOL KRUIS"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "standaard"
 

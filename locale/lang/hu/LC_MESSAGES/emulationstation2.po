@@ -2690,6 +2690,12 @@ msgstr "VEZÉRLŐ TÖLTÖTTSÉGI ÁLLAPOT MEGJELENÍTÉSE"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "PISZTOLY CÉLKERESZTET RAJZOLÁS"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "alap"
 

@@ -2665,6 +2665,12 @@ msgstr "VIS KONTROLLER BATTERYNIVÅ"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DRAW GUN CROSSHAIR"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "standard"
 

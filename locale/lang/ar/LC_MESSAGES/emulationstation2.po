@@ -2689,6 +2689,12 @@ msgstr "عرض نسبة بطارية وحدة التحكم"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "رسم تصويب البندقية"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "افتراضي"
 

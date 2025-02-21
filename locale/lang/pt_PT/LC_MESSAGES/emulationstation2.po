@@ -2678,6 +2678,12 @@ msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR ARMA CROSSHAIR"
 
+msgid "BEHAVIOR"
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+
 msgid "default"
 msgstr "predefinição"
 
@@ -3129,7 +3135,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Entrelaçado"
 
 msgid "all games"
 msgstr "todos os jogos"
@@ -3575,12 +3581,6 @@ msgid ""
 msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRIZ"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "ordem rgb dmd"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "
