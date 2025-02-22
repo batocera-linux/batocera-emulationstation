@@ -836,6 +836,8 @@ void GameScreenSaverBase::render(const Transform4x4f& transform)
 
 void GameScreenSaverBase::update(int deltaTime)
 {
+	GuiComponent::update(deltaTime);
+
 	if (Settings::getInstance()->getBool("ScreenSaverDateTime"))
 	{
 		mDateTimeUpdateAccumulator += deltaTime;
