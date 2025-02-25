@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v41b(2025/02/16)\n"
+"Project-Id-Version: batocera-es v42b(2025/02/22)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-16 20:19+0900\n"
+"PO-Revision-Date: 2025-02-22 07:56+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -2669,10 +2669,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "銃のクロスへア(照準)表示"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "動作"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "ホットキーでの終了を制限"
 
 msgid "default"
 msgstr "標準"
@@ -3123,7 +3123,7 @@ msgid "UKNOWN ERROR"
 msgstr "不明なエラー"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "インターレース"
 
 msgid "all games"
 msgstr "すべてのゲーム"
