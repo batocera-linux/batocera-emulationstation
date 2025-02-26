@@ -549,27 +549,6 @@ msgstr "ÖZEL"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ÖZEL RELAY SUNUCUSU"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "AÇIK YAYINLANMIŞ OYUN"
-
-msgid "PLAYER PASSWORD"
-msgstr "OYUNCU ŞİFRESİ"
-
-msgid "VIEWER PASSWORD"
-msgstr "İZLEYİCİ ŞİFRESİ"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLARI GÖSTER"
 
@@ -2197,6 +2176,15 @@ msgstr "OYUNU BAŞLAT"
 msgid "HOST A NETPLAY GAME"
 msgstr "NETPLAY OYUNUNA EVSAHİBİ OL"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "AÇIK YAYINLANMIŞ OYUN"
+
+msgid "PLAYER PASSWORD"
+msgstr "OYUNCU ŞİFRESİ"
+
+msgid "VIEWER PASSWORD"
+msgstr "İZLEYİCİ ŞİFRESİ"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "BENZER OYUNLARI BUL..."
 
@@ -2564,9 +2552,6 @@ msgstr "NETPLAY'E BAĞLAN"
 msgid "Select a game lobby to join"
 msgstr "Katılmak için oyun lobisi seç"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "BAŞARISIZ"
 
@@ -2581,15 +2566,6 @@ msgstr "AYNI ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "MEVCUT OLMAYAN ÇEKİRDEK"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "MEVCUT OYUNLAR"
@@ -2855,6 +2831,15 @@ msgstr "EKRAN KORUYUCU İÇİN OMX PLAYER KULLANIN"
 
 msgid "SHOW GAME INFO"
 msgstr "OYUN BİLGİSİ GÖSTER"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "OYUN BİLGİSİ OLARAK KAYAN YAZI KULLANIN"

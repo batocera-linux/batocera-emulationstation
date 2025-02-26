@@ -550,27 +550,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公開的遊戲"
-
-msgid "PLAYER PASSWORD"
-msgstr "玩家密碼"
-
-msgid "VIEWER PASSWORD"
-msgstr "觀眾密碼"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "顯示無法使用的遊戲"
 
@@ -2165,6 +2144,15 @@ msgstr "開始遊戲"
 msgid "HOST A NETPLAY GAME"
 msgstr "主持一場連線遊戲"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "公開的遊戲"
+
+msgid "PLAYER PASSWORD"
+msgstr "玩家密碼"
+
+msgid "VIEWER PASSWORD"
+msgstr "觀眾密碼"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
 
@@ -2532,9 +2520,6 @@ msgstr "連線到多人遊戲"
 msgid "Select a game lobby to join"
 msgstr "選擇您要加入的遊戲大廳"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "失敗"
 
@@ -2549,15 +2534,6 @@ msgstr "相同的 ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "無法使用的核心"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "可以執行的遊戲"
@@ -2822,6 +2798,15 @@ msgstr "螢幕保護程式使用 OMX 播放器"
 
 msgid "SHOW GAME INFO"
 msgstr "顯示遊戲資訊"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用跑馬燈作為遊戲資訊"

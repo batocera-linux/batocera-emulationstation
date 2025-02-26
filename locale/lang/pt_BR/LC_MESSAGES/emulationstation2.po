@@ -550,27 +550,6 @@ msgstr "PERSONALIZAR"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR PERSONALIZADO"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
-
-msgid "PLAYER PASSWORD"
-msgstr "SENHA DO JOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "SENHA DE ESPECTADOR"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permite a escolha de jogar online, offline ou entrar em outro jogo."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Os jogos em servidor têm uma chance maior de entrada bem-sucedida."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "EXIBIR JOGOS INDISPONÍVEIS"
 
@@ -2209,6 +2188,15 @@ msgstr "INICIAR JOGO"
 msgid "HOST A NETPLAY GAME"
 msgstr "ORGANIZAR JOGO EM REDE"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+
+msgid "PLAYER PASSWORD"
+msgstr "SENHA DO JOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "SENHA DE ESPECTADOR"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "JOGOS SEMELHANTES..."
 
@@ -2577,9 +2565,6 @@ msgstr "CONECTE-SE AOS JOGOS EM REDE"
 msgid "Select a game lobby to join"
 msgstr "Seleciona uma sala de jogo para juntar-se"
 
-msgid "Select a game lobby to create or join"
-msgstr "Selecione uma sala de jogo para criar ou entrar"
-
 msgid "FAILED"
 msgstr "FALHOU"
 
@@ -2594,15 +2579,6 @@ msgstr "MESMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "JOGAR ONLINE COMO HOST"
-
-msgid "PLAY OFFLINE"
-msgstr "JOGAR OFFLINE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "ENTRAR NUM JOGO EXISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -2870,6 +2846,15 @@ msgstr "USAR O LEITOR OMX PARA A PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO"
 msgstr "EXIBIR INFORMAÇÃO DO JOGO"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
@@ -3594,6 +3579,30 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Permite a escolha de jogar online, offline ou entrar em outro jogo."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "Os jogos em servidor têm uma chance maior de entrada bem-sucedida."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Selecione uma sala de jogo para criar ou entrar"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "JOGAR ONLINE COMO HOST"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "JOGAR OFFLINE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "ENTRAR NUM JOGO EXISTENTE"
 
 #~ msgid "MATRIX"
 #~ msgstr "MATRIZ"

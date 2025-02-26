@@ -550,28 +550,6 @@ msgstr "KUSTOM"
 msgid "CUSTOM RELAY SERVER"
 msgstr "KUSTOM SERVER RELAY"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "UMUMKAN GAME SECARA PUBLIK"
-
-msgid "PLAYER PASSWORD"
-msgstr "PASSWORD PEMAIN"
-
-msgid "VIEWER PASSWORD"
-msgstr "PASSWOR PENONTON"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "TAMPILKAN OPSI NETPLAY SAAT MELUNCURKAN GAME"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Izinkan pilihan untuk daring, luring, atau gabung game lain."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "TAMPILKAN SERVER RELAY GAME SAJA"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-"Game di server relay memiliki peluang keberhasilan masuk yang lebih tinggi."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "TAMPILKAN GAME YANG TIDAK TERSEDIA"
 
@@ -2189,6 +2167,15 @@ msgstr "MULAI GAME"
 msgid "HOST A NETPLAY GAME"
 msgstr "HOST GAME NETPLAY"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "UMUMKAN GAME SECARA PUBLIK"
+
+msgid "PLAYER PASSWORD"
+msgstr "PASSWORD PEMAIN"
+
+msgid "VIEWER PASSWORD"
+msgstr "PASSWOR PENONTON"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "TEMUKAN GAME SERUPA..."
 
@@ -2556,9 +2543,6 @@ msgstr "HUBUNGKAN KE NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Pilih lobi permainan untuk bergabung"
 
-msgid "Select a game lobby to create or join"
-msgstr "Pilih lobi permainan untuk dibuat/bergabung"
-
 msgid "FAILED"
 msgstr "GAGAL"
 
@@ -2573,15 +2557,6 @@ msgstr "ROM SAMA"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CORE TIDAK TERSEDIA"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "MAINKAN DARING SEBAGAI HOST"
-
-msgid "PLAY OFFLINE"
-msgstr "MAINKAN LURING"
-
-msgid "JOIN EXISTING GAME"
-msgstr "GABUNG GAME YANG ADA"
 
 msgid "AVAILABLE GAMES"
 msgstr "GAME TERSEDIA"
@@ -2847,6 +2822,15 @@ msgstr "GUNAKAN OMX PLAYER UNTUK SCREENSAVER"
 
 msgid "SHOW GAME INFO"
 msgstr "TAMPILKAN INFORMASI GAME"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "GUNAKAN MARQUEE SEBAGAI INFO GAME"
@@ -3558,6 +3542,32 @@ msgid ""
 msgstr ""
 "KALIBRASI SENJATA\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "TAMPILKAN OPSI NETPLAY SAAT MELUNCURKAN GAME"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Izinkan pilihan untuk daring, luring, atau gabung game lain."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "TAMPILKAN SERVER RELAY GAME SAJA"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr ""
+#~ "Game di server relay memiliki peluang keberhasilan masuk yang lebih "
+#~ "tinggi."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Pilih lobi permainan untuk dibuat/bergabung"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "MAINKAN DARING SEBAGAI HOST"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "MAINKAN LURING"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "GABUNG GAME YANG ADA"
 
 #~ msgid "MATRIX"
 #~ msgstr "MATRIX"

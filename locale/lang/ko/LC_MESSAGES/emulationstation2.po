@@ -548,27 +548,6 @@ msgstr "커스텀"
 msgid "CUSTOM RELAY SERVER"
 msgstr "커스텀 중계 서버"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "공개 게임"
-
-msgid "PLAYER PASSWORD"
-msgstr "플레이어 비밀번호"
-
-msgid "VIEWER PASSWORD"
-msgstr "관전자 비밀번호"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "게임 시작 시 넷플레이 옵션 표시"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "온라인, 오프라인 또는 다른 게임에 참여할 수 있습니다."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "릴레이 서버 게임만 표시"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "릴레이 서버 게임은 성공적으로 진입할 확률이 더 높습니다."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "실행할 수 없는 게임 표시"
 
@@ -2176,6 +2155,15 @@ msgstr "게임 시작"
 msgid "HOST A NETPLAY GAME"
 msgstr "넷플레이 게임 호스트"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "공개 게임"
+
+msgid "PLAYER PASSWORD"
+msgstr "플레이어 비밀번호"
+
+msgid "VIEWER PASSWORD"
+msgstr "관전자 비밀번호"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "비슷한 게임 찾기..."
 
@@ -2543,9 +2531,6 @@ msgstr "넷플레이에 연결"
 msgid "Select a game lobby to join"
 msgstr "참가할 게임 로비 선택"
 
-msgid "Select a game lobby to create or join"
-msgstr "만들거나 참여할 게임 로비를 선택"
-
 msgid "FAILED"
 msgstr "실패함"
 
@@ -2560,15 +2545,6 @@ msgstr "동일 롬"
 
 msgid "UNAVAILABLE CORE"
 msgstr "사용할 수 없는 코어"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "호스트로서 온라인 플레이"
-
-msgid "PLAY OFFLINE"
-msgstr "오프라인 플레이"
-
-msgid "JOIN EXISTING GAME"
-msgstr "기존 게임에 참여"
 
 msgid "AVAILABLE GAMES"
 msgstr "실행 가능한 게임"
@@ -2834,6 +2810,15 @@ msgstr "화면 보호기용 OMX 플레이어 사용"
 
 msgid "SHOW GAME INFO"
 msgstr "게임 정보 표시"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "게임 정보로 마퀴 사용"
@@ -3543,6 +3528,30 @@ msgid ""
 msgstr ""
 "건 보정\n"
 "목표물을 쏘아 보정"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "게임 시작 시 넷플레이 옵션 표시"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "온라인, 오프라인 또는 다른 게임에 참여할 수 있습니다."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "릴레이 서버 게임만 표시"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "릴레이 서버 게임은 성공적으로 진입할 확률이 더 높습니다."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "만들거나 참여할 게임 로비를 선택"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "호스트로서 온라인 플레이"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "오프라인 플레이"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "기존 게임에 참여"
 
 #~ msgid "MATRIX"
 #~ msgstr "매트릭스"

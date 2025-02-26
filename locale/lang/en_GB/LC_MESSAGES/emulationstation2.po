@@ -549,27 +549,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "PUBLICLY ANNOUNCE GAME"
-
-msgid "PLAYER PASSWORD"
-msgstr "PLAYER PASSWORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "VIEWER PASSWORD"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "SHOW UNAVAILABLE GAMES"
 
@@ -2181,6 +2160,15 @@ msgstr "START GAME"
 msgid "HOST A NETPLAY GAME"
 msgstr "HOST A NETPLAY GAME"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "PUBLICLY ANNOUNCE GAME"
+
+msgid "PLAYER PASSWORD"
+msgstr "PLAYER PASSWORD"
+
+msgid "VIEWER PASSWORD"
+msgstr "VIEWER PASSWORD"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "FIND SIMILAR GAMES..."
 
@@ -2548,9 +2536,6 @@ msgstr "CONNECT TO NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Select a game lobby to join"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "FAILED"
 
@@ -2565,15 +2550,6 @@ msgstr "SAME ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "UNAVAILABLE CORE"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "AVAILABLE GAMES"
@@ -2839,6 +2815,15 @@ msgstr "USE OMX PLAYER FOR SCREENSAVER"
 
 msgid "SHOW GAME INFO"
 msgstr "SHOW GAME INFO"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USE MARQUEE AS GAME INFO"

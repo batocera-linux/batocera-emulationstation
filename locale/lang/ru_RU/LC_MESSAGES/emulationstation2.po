@@ -551,27 +551,6 @@ msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ RELAY-СЕРВЕР"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
-
-msgid "PLAYER PASSWORD"
-msgstr "ПАРОЛЬ ИГРОКА"
-
-msgid "VIEWER PASSWORD"
-msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "ПОКАЗЫВАТЬ NETPLAY ОПЦИИ ПРИ ЗАПУСКЕ ИГРЫ"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Позволяет выбрать онлайн, офлайн или присоединиться к другой игре."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Игры на relay-серверах имеют больше шансов на успешное подключение."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
 
@@ -2191,6 +2170,15 @@ msgstr "НАЧАТЬ ИГРУ"
 msgid "HOST A NETPLAY GAME"
 msgstr "ХОСТ NETPLAY ИГРЫ"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
+
+msgid "PLAYER PASSWORD"
+msgstr "ПАРОЛЬ ИГРОКА"
+
+msgid "VIEWER PASSWORD"
+msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
 
@@ -2558,9 +2546,6 @@ msgstr "ПОДКЛЮЧИТЬСЯ К NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Выберите лобби для присоединения"
 
-msgid "Select a game lobby to create or join"
-msgstr "Выберите игровое лобби, чтобы создать или присоединиться к нему"
-
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
 
@@ -2575,15 +2560,6 @@ msgstr "ОДИНАКОВЫЙ ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "ИГРАТЬ ОНЛАЙН В КАЧЕСТВЕ ХОСТА"
-
-msgid "PLAY OFFLINE"
-msgstr "ИГРАТЬ ОФФЛАЙН"
-
-msgid "JOIN EXISTING GAME"
-msgstr "ПРИСОЕДИНИТЬСЯ К СУЩЕСТВУЮЩЕЙ ИГРЕ"
 
 msgid "AVAILABLE GAMES"
 msgstr "ДОСТУПНЫЕ ИГРЫ"
@@ -2849,6 +2825,15 @@ msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР ДЛЯ ЗАСТАВКИ"
 
 msgid "SHOW GAME INFO"
 msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ИСПОЛЬЗОВАТЬ БАНЕР КАК ИНФОРМАЦИЮ О ИГРЕ"
@@ -3582,6 +3567,30 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "ПОКАЗЫВАТЬ NETPLAY ОПЦИИ ПРИ ЗАПУСКЕ ИГРЫ"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Позволяет выбрать онлайн, офлайн или присоединиться к другой игре."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "Игры на relay-серверах имеют больше шансов на успешное подключение."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Выберите игровое лобби, чтобы создать или присоединиться к нему"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "ИГРАТЬ ОНЛАЙН В КАЧЕСТВЕ ХОСТА"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "ИГРАТЬ ОФФЛАЙН"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "ПРИСОЕДИНИТЬСЯ К СУЩЕСТВУЮЩЕЙ ИГРЕ"
 
 #~ msgid "MATRIX"
 #~ msgstr "МАТРИЦА"

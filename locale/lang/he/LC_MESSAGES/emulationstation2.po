@@ -552,27 +552,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "הכרז ציבורית על משחק"
-
-msgid "PLAYER PASSWORD"
-msgstr "סיסמת שחקן"
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "הצג משחקים לא זמינים"
 
@@ -2157,6 +2136,15 @@ msgstr "התחל משחק"
 msgid "HOST A NETPLAY GAME"
 msgstr "ארח משחק רשת"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "הכרז ציבורית על משחק"
+
+msgid "PLAYER PASSWORD"
+msgstr "סיסמת שחקן"
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "מציאת משחקים דומים..."
 
@@ -2520,9 +2508,6 @@ msgstr "התחברות לרשת NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "בחר לובי משחק בכדי להתחבר"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "נכשל"
 
@@ -2537,15 +2522,6 @@ msgstr "אותו ה ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "ליבה לא זמינה"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "משחקים זמנים"
@@ -2807,6 +2783,15 @@ msgstr "שימוש בנגן OMX לשומר מסך"
 
 msgid "SHOW GAME INFO"
 msgstr "הצגת מידע על משחק"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "השתמש בדגל במידע על משחק"

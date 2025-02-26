@@ -587,29 +587,6 @@ msgstr "مخصص"
 msgid "CUSTOM RELAY SERVER"
 msgstr "خادم التتابع المخصص"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "الإعلان عن اللعبة للجماهير"
-
-msgid "PLAYER PASSWORD"
-msgstr "كلمة سر اللاعب"
-
-msgid "VIEWER PASSWORD"
-msgstr "كلمة سر المتفرج"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "إظهار خيارات نت بلاي عند تشغيل اللعبة"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-"يسمح باختيار اللعب عبر الإنترنت، أو اللعب دون اتصال بالإنترنت، أو الانضمام "
-"إلى لعبة أخرى."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "عرض ألعاب خادم التتابع فقط"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "تتمتع ألعاب خادم التتابع بفرصة أعلى للدخول الناجح."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "عرض الألعاب الغير موجودة"
 
@@ -2213,6 +2190,15 @@ msgstr "بدئ اللعبة"
 msgid "HOST A NETPLAY GAME"
 msgstr "استضف اللعب عبر النت"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "الإعلان عن اللعبة للجماهير"
+
+msgid "PLAYER PASSWORD"
+msgstr "كلمة سر اللاعب"
+
+msgid "VIEWER PASSWORD"
+msgstr "كلمة سر المتفرج"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "أوجد ألعاب مماثلة..."
 
@@ -2580,9 +2566,6 @@ msgstr "الإتصال بـ لعبة نت"
 msgid "Select a game lobby to join"
 msgstr "اختر حُجرَة اللعبة للانضمام"
 
-msgid "Select a game lobby to create or join"
-msgstr "حدد مجموعة ألعاب لإنشائها أو الانضمام إليها"
-
 msgid "FAILED"
 msgstr "فشل"
 
@@ -2597,15 +2580,6 @@ msgstr "نفس الروم"
 
 msgid "UNAVAILABLE CORE"
 msgstr "النواة غير متوفرة"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "العب عبر الإنترنت كمضيف"
-
-msgid "PLAY OFFLINE"
-msgstr "العب بلا اتصال بالإنترنت"
-
-msgid "JOIN EXISTING GAME"
-msgstr "انضم إلى اللعبة الحالية"
 
 msgid "AVAILABLE GAMES"
 msgstr "ألعاب متوفرة"
@@ -2871,6 +2845,15 @@ msgstr "استخدم مشغل OMX لشاشة التوقف"
 
 msgid "SHOW GAME INFO"
 msgstr "عرض معلومات اللعبة"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "استخدم الشاشة الأسمية  كمعلومات للعبة"
@@ -3639,6 +3622,32 @@ msgid ""
 msgstr ""
 "معايرة المسدس\n"
 "أطلق النار على الأهداف للمعايرة"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "إظهار خيارات نت بلاي عند تشغيل اللعبة"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr ""
+#~ "يسمح باختيار اللعب عبر الإنترنت، أو اللعب دون اتصال بالإنترنت، أو "
+#~ "الانضمام إلى لعبة أخرى."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "عرض ألعاب خادم التتابع فقط"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "تتمتع ألعاب خادم التتابع بفرصة أعلى للدخول الناجح."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "حدد مجموعة ألعاب لإنشائها أو الانضمام إليها"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "العب عبر الإنترنت كمضيف"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "العب بلا اتصال بالإنترنت"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "انضم إلى اللعبة الحالية"
 
 #~ msgid "MATRIX"
 #~ msgstr "مصفوفة"

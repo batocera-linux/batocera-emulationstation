@@ -555,28 +555,6 @@ msgstr "PERSONALIZADO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR CENTRAL PERSONALIZADO"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE A PARTIDA"
-
-msgid "PLAYER PASSWORD"
-msgstr "CONTRASINAL DO XOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "CONTRASINAL DO ESPECTADOR"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "AMOSAR OPCIÓNS DO XOGO EN REDE AO INICIAR O XOGO"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-"Permite escoller entre xogar en liña, desconectado ou unirse a outra partida."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Os xogos con servidor central teñen máis probabilidades de conexión."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AMOSAR XOGOS NON DISPOÑÍBEIS"
 
@@ -2209,6 +2187,15 @@ msgstr "COMEZAR XOGO"
 msgid "HOST A NETPLAY GAME"
 msgstr "HOSPEDAR XOGO EN REDE"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE A PARTIDA"
+
+msgid "PLAYER PASSWORD"
+msgstr "CONTRASINAL DO XOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "CONTRASINAL DO ESPECTADOR"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "ATOPAR XOGOS SIMILARES..."
 
@@ -2576,9 +2563,6 @@ msgstr "CONECTAR A XOGO EN REDE"
 msgid "Select a game lobby to join"
 msgstr "Selecciona una sala de xogo para unirte"
 
-msgid "Select a game lobby to create or join"
-msgstr "Selecciona una sala de xogo para crear ou unirte"
-
 msgid "FAILED"
 msgstr "FALLOU"
 
@@ -2593,15 +2577,6 @@ msgstr "MESMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NON DISPOÑÍBEL"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "XOGAR EN LIÑA COMO ANFITRIÓN"
-
-msgid "PLAY OFFLINE"
-msgstr "XOGAR DESCONECTADO"
-
-msgid "JOIN EXISTING GAME"
-msgstr "UNIRSE A PARTIDA EXISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "XOGOS DISPOÑÍBEIS"
@@ -2867,6 +2842,15 @@ msgstr "USAR REPRODUCTOR OMX PARA O SALVAPANTALLAS"
 
 msgid "SHOW GAME INFO"
 msgstr "AMOSAR INFO DO XOGO"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR MARQUESIÑA COMO INFO. DO XOGO"
@@ -3590,6 +3574,33 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara aos obxectivos para calibrar"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "AMOSAR OPCIÓNS DO XOGO EN REDE AO INICIAR O XOGO"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr ""
+#~ "Permite escoller entre xogar en liña, desconectado ou unirse a outra "
+#~ "partida."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr ""
+#~ "Os xogos con servidor central teñen máis probabilidades de conexión."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Selecciona una sala de xogo para crear ou unirte"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "XOGAR EN LIÑA COMO ANFITRIÓN"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "XOGAR DESCONECTADO"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "UNIRSE A PARTIDA EXISTENTE"
 
 #~ msgid "MATRIX"
 #~ msgstr "MATRIZ"

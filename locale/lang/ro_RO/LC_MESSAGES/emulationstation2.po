@@ -551,29 +551,6 @@ msgstr "PERSONALIZAT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNȚĂ PUBLIC JOCUL"
-
-msgid "PLAYER PASSWORD"
-msgstr "PAROLĂ JUCĂTORI"
-
-msgid "VIEWER PASSWORD"
-msgstr "PAROLĂ SPECTATORI"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "ARATĂ OPȚIUNILE NETPLAY LA LANSAREA JOCULUI"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Permite alegerea online, offline sau alăturarea la un alt joc."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-"Jocurile cu server de retranslație au o șansă mai mare de a permite "
-"alăturarea cu succes."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
 
@@ -2209,6 +2186,15 @@ msgstr "ÎNCEPE JOCUL"
 msgid "HOST A NETPLAY GAME"
 msgstr "GĂZDUIEȘTE UN JOC NETPLAY"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNȚĂ PUBLIC JOCUL"
+
+msgid "PLAYER PASSWORD"
+msgstr "PAROLĂ JUCĂTORI"
+
+msgid "VIEWER PASSWORD"
+msgstr "PAROLĂ SPECTATORI"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "GĂSEȘTE JOCURI SIMILARE..."
 
@@ -2576,9 +2562,6 @@ msgstr "CONECTEAZĂ-TE LA NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Alege o sală pentru te alătura"
 
-msgid "Select a game lobby to create or join"
-msgstr "Alege o sală pentru a crea sau a te alătura"
-
 msgid "FAILED"
 msgstr "EȘUAT"
 
@@ -2593,15 +2576,6 @@ msgstr "ACELAȘI ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NUCLEU INDISPONIBIL"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "JOACĂ ONLINE CA GAZDĂ"
-
-msgid "PLAY OFFLINE"
-msgstr "JOACĂ OFFLINE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "ALĂTURĂ-TE LA UN JOC EXISTENT"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOCURI DISPONIBILE"
@@ -2868,6 +2842,15 @@ msgstr "FOLOSEȘTE OMX PLAYER PENTRU ECONOMIZORUL DE ECRAN"
 
 msgid "SHOW GAME INFO"
 msgstr "AFIȘEAZĂ INFORMAȚII JOC"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "FOLOSEȘTE BANNER CA INFORMAȚII JOC"
@@ -3604,6 +3587,32 @@ msgid ""
 msgstr ""
 "SE CALIBREAZĂ PISTOLUL\n"
 "Trage în ținte pentru a-l calibra"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "ARATĂ OPȚIUNILE NETPLAY LA LANSAREA JOCULUI"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Permite alegerea online, offline sau alăturarea la un alt joc."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr ""
+#~ "Jocurile cu server de retranslație au o șansă mai mare de a permite "
+#~ "alăturarea cu succes."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Alege o sală pentru a crea sau a te alătura"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "JOACĂ ONLINE CA GAZDĂ"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "JOACĂ OFFLINE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "ALĂTURĂ-TE LA UN JOC EXISTENT"
 
 #~ msgid "MATRIX"
 #~ msgstr "MATRICE"

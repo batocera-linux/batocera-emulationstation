@@ -549,27 +549,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ΔΗΜΟΣΙΑ ΑΝΑΚΟΙΝΩΣΗ ΠΑΙΧΝΙΔΙΟΥ"
-
-msgid "PLAYER PASSWORD"
-msgstr "ΚΩΔΙΚΟΣ ΠΑΙΚΤΗ"
-
-msgid "VIEWER PASSWORD"
-msgstr "ΚΩΔΙΚΟΣ ΘΕΑΤΗ"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ΠΡΟΒΟΛΗ ΜΗ ΔΙΑΘΕΣΙΜΩΝ ΠΑΙΧΝΙΔΙΩΝ"
 
@@ -2177,6 +2156,15 @@ msgstr "ΕΚΚΙΝΗΣΗ ΠΑΙΧΝΙΔΙΟΥ"
 msgid "HOST A NETPLAY GAME"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ΔΗΜΟΣΙΑ ΑΝΑΚΟΙΝΩΣΗ ΠΑΙΧΝΙΔΙΟΥ"
+
+msgid "PLAYER PASSWORD"
+msgstr "ΚΩΔΙΚΟΣ ΠΑΙΚΤΗ"
+
+msgid "VIEWER PASSWORD"
+msgstr "ΚΩΔΙΚΟΣ ΘΕΑΤΗ"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "ΒΡΕΙΤΕ ΠΑΡΟΜΟΙΑ ΠΑΙΧΝΙΔΙΑ..."
 
@@ -2545,9 +2533,6 @@ msgstr "ΣΥΝΔΕΣΗ ΣΤΟ NETPLAY"
 msgid "Select a game lobby to join"
 msgstr ""
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "ΑΠΕΤΥΧΕ"
 
@@ -2562,15 +2547,6 @@ msgstr "ΙΔΙΟ ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "ΜΗ ΔΙΑΘΕΣΙΜΟΣ ΠYΡHΝΑΣ"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "ΔΙΑΘΕΣΙΜΑ ΠΑΙΧΝΙΔΙΑ"
@@ -2832,6 +2808,15 @@ msgstr "ΧΡΗΣΙΜΟΠΟΙΗΣΤΕ ΤΟΝ OMX PLAYER ΓΙΑ ΠΡΟΦΥΛΑΞΗ
 
 msgid "SHOW GAME INFO"
 msgstr "ΠΡΟΒΟΛΗ ΠΛΗΡΟΦΟΡΙΩΝ ΠΑΙΧΝΙΔΙΟΥ"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ΧΡΗΣΗ ΛΟΓΟΤΥΠΟΥ ΩΣ ΠΛΗΡΟΦΟΡΙΑ ΠΑΙΧΝΙΔΙΟΥ"

@@ -554,27 +554,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
-msgstr ""
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
@@ -2159,6 +2138,15 @@ msgstr "DECHRAU GAME"
 msgid "HOST A NETPLAY GAME"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "DOD O HYD I GEMAU TEBYG ..."
 
@@ -2524,9 +2512,6 @@ msgstr "CYSYLLTWCH Â RHWYDWAITH"
 msgid "Select a game lobby to join"
 msgstr ""
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "METHU"
 
@@ -2541,15 +2526,6 @@ msgstr "UN ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "CRAIDD ANNERBYNIOL"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "GEMAU AR GAEL"
@@ -2811,6 +2787,15 @@ msgstr "DEFNYDDIWCH CHWARAEWR OMX AM ARBEDYDD SGRIN"
 
 msgid "SHOW GAME INFO"
 msgstr "DANGOS GWYBODAETH GÊM"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "DEFNYDDIWCH MARQUEE FEL GWYBODAETH GÊM"

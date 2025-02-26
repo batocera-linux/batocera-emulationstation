@@ -548,27 +548,6 @@ msgstr "定制"
 msgid "CUSTOM RELAY SERVER"
 msgstr "定制中继服务器"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公开的游戏"
-
-msgid "PLAYER PASSWORD"
-msgstr "玩家口令"
-
-msgid "VIEWER PASSWORD"
-msgstr "观众口令"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "启动游戏时显示网络游戏选项"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "允许选择在线、离线或加入其他游戏."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "仅显示中继服务器游戏"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "中继服务器游戏有更高机会成功进入."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
 
@@ -2164,6 +2143,15 @@ msgstr "开始游戏"
 msgid "HOST A NETPLAY GAME"
 msgstr "建立联网主机"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "公开的游戏"
+
+msgid "PLAYER PASSWORD"
+msgstr "玩家口令"
+
+msgid "VIEWER PASSWORD"
+msgstr "观众口令"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "寻找类似游戏..."
 
@@ -2531,9 +2519,6 @@ msgstr "进行联网游戏"
 msgid "Select a game lobby to join"
 msgstr "选择要加入的游戏大厅"
 
-msgid "Select a game lobby to create or join"
-msgstr "选择要创建或加入的游戏大厅"
-
 msgid "FAILED"
 msgstr "失败"
 
@@ -2548,15 +2533,6 @@ msgstr "相同的ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "核心不可用"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "以主机身份在线玩游戏"
-
-msgid "PLAY OFFLINE"
-msgstr "离线游玩"
-
-msgid "JOIN EXISTING GAME"
-msgstr "加入现有游戏"
 
 msgid "AVAILABLE GAMES"
 msgstr "可用的游戏"
@@ -2821,6 +2797,15 @@ msgstr "屏保使用 OMX 播放器"
 
 msgid "SHOW GAME INFO"
 msgstr "显示游戏信息"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用悬浮蒙版图片作为游戏信息"
@@ -3529,6 +3514,30 @@ msgid ""
 msgstr ""
 "校准枪\n"
 "对准目标射击以进行校准"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "启动游戏时显示网络游戏选项"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "允许选择在线、离线或加入其他游戏."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "仅显示中继服务器游戏"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "中继服务器游戏有更高机会成功进入."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "选择要创建或加入的游戏大厅"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "以主机身份在线玩游戏"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "离线游玩"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "加入现有游戏"
 
 #~ msgid "MATRIX"
 #~ msgstr "矩阵"

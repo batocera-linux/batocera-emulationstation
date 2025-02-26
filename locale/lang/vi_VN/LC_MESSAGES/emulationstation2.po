@@ -554,27 +554,6 @@ msgstr "TÙY CHỈNH"
 msgid "CUSTOM RELAY SERVER"
 msgstr "TÙY CHỈNH MÁY CHỦ CHUYỂN TIẾP"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "PUBLICLY ANNOUNCE GAME"
-
-msgid "PLAYER PASSWORD"
-msgstr "MẬT KHẨU NGƯỜI CHƠI"
-
-msgid "VIEWER PASSWORD"
-msgstr "MẬT KHẨU NGƯỜI XEM"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "HIỂN THỊ TUỲ CHỌN NETPLAY KHI KHỞI CHẠY TRÒ CHƠI"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Cho phép chọn trực tuyến, ngoại tuyến, hoặc tham gia trò chơi khác."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "CHỈ HIỂN THỊ MÁY CHỦ TRÒ CHƠI CHUYỂN TIẾP"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Máy chủ trò chơi chuyển tiếp có cơ hội tham gia thành công cao hơn."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "HIỂN THỊ TRÒ CHƠI KHÔNG CÓ SẴN"
 
@@ -2199,6 +2178,15 @@ msgstr "BẮT ĐẦU TRÒ CHƠI"
 msgid "HOST A NETPLAY GAME"
 msgstr "TỔ CHỨC TRÒ CHƠI NETPLAY"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "PUBLICLY ANNOUNCE GAME"
+
+msgid "PLAYER PASSWORD"
+msgstr "MẬT KHẨU NGƯỜI CHƠI"
+
+msgid "VIEWER PASSWORD"
+msgstr "MẬT KHẨU NGƯỜI XEM"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "TÌM TRÒ CHƠI TƯƠNG TỰ..."
 
@@ -2567,9 +2555,6 @@ msgstr "KẾT NỐI ĐẾN NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Chọn sảnh trò chơi để tham gia"
 
-msgid "Select a game lobby to create or join"
-msgstr "Chọn một sảnh trò chơi để tạo hoặc tham gia"
-
 msgid "FAILED"
 msgstr "LỖI"
 
@@ -2584,15 +2569,6 @@ msgstr "CÙNG ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "LÕI KHÔNG KHẢ DỤNG"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "CHƠI TRỰC TUYẾN NHƯ CHỦ PHÒNG"
-
-msgid "PLAY OFFLINE"
-msgstr "CHƠI NGOẠI TUYẾN"
-
-msgid "JOIN EXISTING GAME"
-msgstr "THAM GIA TRÒ CHƠI HIỆN CÓ"
 
 msgid "AVAILABLE GAMES"
 msgstr "TRÒ CHƠI CÓ SẴN"
@@ -2858,6 +2834,15 @@ msgstr "SỬ DỤNG OMX PLAYER CHO BẢO VỆ MÀN HÌNH"
 
 msgid "SHOW GAME INFO"
 msgstr "HIỂN THỊ THÔNG TIN TRÒ CHƠI"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "SỬ DỤNG MARQUEE LÀM THÔNG TIN TRÒ CHƠI"
@@ -3569,6 +3554,30 @@ msgid ""
 msgstr ""
 "HIỆU CHỈNH SÚNG\n"
 "Bắn vào mục tiêu để hiệu chỉnh"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "HIỂN THỊ TUỲ CHỌN NETPLAY KHI KHỞI CHẠY TRÒ CHƠI"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Cho phép chọn trực tuyến, ngoại tuyến, hoặc tham gia trò chơi khác."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "CHỈ HIỂN THỊ MÁY CHỦ TRÒ CHƠI CHUYỂN TIẾP"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "Máy chủ trò chơi chuyển tiếp có cơ hội tham gia thành công cao hơn."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Chọn một sảnh trò chơi để tạo hoặc tham gia"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "CHƠI TRỰC TUYẾN NHƯ CHỦ PHÒNG"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "CHƠI NGOẠI TUYẾN"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "THAM GIA TRÒ CHƠI HIỆN CÓ"
 
 #~ msgid "MATRIX"
 #~ msgstr "MA TRẬN"

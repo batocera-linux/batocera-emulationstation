@@ -549,27 +549,6 @@ msgstr "ANPASSAD"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ANPASSAD RELÄSERVER"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANNONSERA SPELET OFFENTLIGT"
-
-msgid "PLAYER PASSWORD"
-msgstr "LÖSENORD FÖR SPELARE"
-
-msgid "VIEWER PASSWORD"
-msgstr "LÖSENORD FÖR ÅSKÅDARE"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VISA OTILLGÄNGLIGA SPEL"
 
@@ -2190,6 +2169,15 @@ msgstr "STARTA SPEL"
 msgid "HOST A NETPLAY GAME"
 msgstr "ARRANGERA ETT NETPLAY-SPEL"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANNONSERA SPELET OFFENTLIGT"
+
+msgid "PLAYER PASSWORD"
+msgstr "LÖSENORD FÖR SPELARE"
+
+msgid "VIEWER PASSWORD"
+msgstr "LÖSENORD FÖR ÅSKÅDARE"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "HITTA LIKNANDE SPEL..."
 
@@ -2557,9 +2545,6 @@ msgstr "ANSLUT TILL NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Välj en spellobby att ansluta till"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "MISSLYCKADES"
 
@@ -2574,15 +2559,6 @@ msgstr "SAMMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "OTILLGÄNGLIG KÄRNA"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "TILLGÄNGLIGA SPEL"
@@ -2848,6 +2824,15 @@ msgstr "ANVÄND OMX-SPELARE FÖR SKÄRMSLÄCKARE"
 
 msgid "SHOW GAME INFO"
 msgstr "VISA SPELINFORMATION"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ANVÄND MARQUEE SOM SPELINFORMATION"

@@ -554,27 +554,6 @@ msgstr "Vlastné"
 msgid "CUSTOM RELAY SERVER"
 msgstr "Vlastný relay server"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "Verejne oznámiť hru"
-
-msgid "PLAYER PASSWORD"
-msgstr "Heslo hráča"
-
-msgid "VIEWER PASSWORD"
-msgstr "Heslo prezerača"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "Zobraziť voľby sieťovej hry pri spustení hry"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Umožní vyber online, offline alebo pripojenie inej hry."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "Zobraziť iba hry cez relay server"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Hry cez relay server majú väčšiu šancu na pripojenie."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "Zobraziť nedostupné hry"
 
@@ -2190,6 +2169,15 @@ msgstr "Spustiť hru"
 msgid "HOST A NETPLAY GAME"
 msgstr "Hostovať sieťovú hru"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "Verejne oznámiť hru"
+
+msgid "PLAYER PASSWORD"
+msgstr "Heslo hráča"
+
+msgid "VIEWER PASSWORD"
+msgstr "Heslo prezerača"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "Nájsť podobné hry..."
 
@@ -2558,9 +2546,6 @@ msgstr "Pripojiť k sieťovej hre"
 msgid "Select a game lobby to join"
 msgstr "Vyberte hernú miestnosť na pripojenie"
 
-msgid "Select a game lobby to create or join"
-msgstr "Vyberte herné lobby na vytvorenie alebo pripojenie"
-
 msgid "FAILED"
 msgstr "Zlyhalo"
 
@@ -2575,15 +2560,6 @@ msgstr "Rovnaký ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "Nedostupné jadro"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "Hrať online ako hostiteľ"
-
-msgid "PLAY OFFLINE"
-msgstr "Hrať offline"
-
-msgid "JOIN EXISTING GAME"
-msgstr "Pripojiť sa k hre"
 
 msgid "AVAILABLE GAMES"
 msgstr "Dostupné hry"
@@ -2849,6 +2825,15 @@ msgstr "Použiť prehrávač OMX pre šetrič obrazovky"
 
 msgid "SHOW GAME INFO"
 msgstr "Zobraziť informácie o hre"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "Zobraziť markízu ako info o hre"
@@ -3582,6 +3567,30 @@ msgid ""
 msgstr ""
 "Kalibrácia zbrane\n"
 "Vystreľte na cieľ na kalibráciu"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "Zobraziť voľby sieťovej hry pri spustení hry"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Umožní vyber online, offline alebo pripojenie inej hry."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "Zobraziť iba hry cez relay server"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "Hry cez relay server majú väčšiu šancu na pripojenie."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Vyberte herné lobby na vytvorenie alebo pripojenie"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "Hrať online ako hostiteľ"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "Hrať offline"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "Pripojiť sa k hre"
 
 #~ msgid "MATRIX"
 #~ msgstr "Matica"

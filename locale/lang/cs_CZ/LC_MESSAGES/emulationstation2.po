@@ -550,27 +550,6 @@ msgstr "VLASTNÍ"
 msgid "CUSTOM RELAY SERVER"
 msgstr "VLASTNÍ RELAY SERVER"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "VEŘEJNĚ OZNÁMIT HRU"
-
-msgid "PLAYER PASSWORD"
-msgstr "HESLO HRÁČE"
-
-msgid "VIEWER PASSWORD"
-msgstr "HESLO PROHLÍŽEČE"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "ZOBRAZIT MOŽNOSTI NETPLAY PŘI SPUŠTĚNÍ HRY"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Umožňuje volbu online, offline nebo připojení k jiné hře."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ZOBRAZIT NEDOSTUPNÉ HRY"
 
@@ -2190,6 +2169,15 @@ msgstr "START HRY"
 msgid "HOST A NETPLAY GAME"
 msgstr "HOSTIT NETPLAY HRU"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "VEŘEJNĚ OZNÁMIT HRU"
+
+msgid "PLAYER PASSWORD"
+msgstr "HESLO HRÁČE"
+
+msgid "VIEWER PASSWORD"
+msgstr "HESLO PROHLÍŽEČE"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "NAJÍT PODOBNÉ HRY..."
 
@@ -2558,9 +2546,6 @@ msgstr "PŘIPOJIT SE K SÍTI"
 msgid "Select a game lobby to join"
 msgstr "Vyberte herní lobby, do které se chcete připojit"
 
-msgid "Select a game lobby to create or join"
-msgstr "Vyberte herní lobby, kterou chcete vytvořit nebo se k ní připojit"
-
 msgid "FAILED"
 msgstr "NEÚSPĚŠNÉ"
 
@@ -2575,15 +2560,6 @@ msgstr "STEJNÁ ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NEDOSTUPNÉ JÁDRO"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "HRÁT ONLINE JAKO HOST"
-
-msgid "PLAY OFFLINE"
-msgstr "HRÁT OFFLINE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "PŘIPOJIT SE K JIŽ EXISTUJÍCÍ HŘE"
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTUPNÉ HRY"
@@ -2850,6 +2826,15 @@ msgstr "POUŽITÍ PŘEHRÁVAČE OMX PRO SPOŘIČ OBRAZOVKY"
 
 msgid "SHOW GAME INFO"
 msgstr "ZOBRAZIT INFO O HŘE"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "POUŽIJ MARQUEE JAKO INFORMACE O HŘE"
@@ -3584,6 +3569,30 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "ZOBRAZIT MOŽNOSTI NETPLAY PŘI SPUŠTĚNÍ HRY"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Umožňuje volbu online, offline nebo připojení k jiné hře."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Vyberte herní lobby, kterou chcete vytvořit nebo se k ní připojit"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "HRÁT ONLINE JAKO HOST"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "HRÁT OFFLINE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "PŘIPOJIT SE K JIŽ EXISTUJÍCÍ HŘE"
 
 #~ msgid "MATRIX"
 #~ msgstr "MATRIX"

@@ -554,27 +554,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ILMOITA PELISTÄ JULKISESTI"
-
-msgid "PLAYER PASSWORD"
-msgstr "PELAAJAN SALASANA"
-
-msgid "VIEWER PASSWORD"
-msgstr "KATSELIJAN SALASANA"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NÄYTÄ EI SAATAVILLA OLEVAT PELIT"
 
@@ -2186,6 +2165,15 @@ msgstr "KÄYNNISTÄ PELI"
 msgid "HOST A NETPLAY GAME"
 msgstr "ISÄNNÖI VERKKOPELI"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ILMOITA PELISTÄ JULKISESTI"
+
+msgid "PLAYER PASSWORD"
+msgstr "PELAAJAN SALASANA"
+
+msgid "VIEWER PASSWORD"
+msgstr "KATSELIJAN SALASANA"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "ETSI SAMANKALTAISIA PELEJÄ..."
 
@@ -2554,9 +2542,6 @@ msgstr "YHDISTÄ VERKKOPELIIN"
 msgid "Select a game lobby to join"
 msgstr "Valitse pelialue johon liittyä"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "EPÄONNISTUI"
 
@@ -2571,15 +2556,6 @@ msgstr "SAMA ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "YDIN EI SAATAVILLA"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "SAATAVILLA OLEVAT PELIT"
@@ -2841,6 +2817,15 @@ msgstr ""
 
 msgid "SHOW GAME INFO"
 msgstr "NÄYTÄ PELIN TIEDOT"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""

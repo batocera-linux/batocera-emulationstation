@@ -549,29 +549,6 @@ msgstr "EGYEDI"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGYÉNI RELAY SZERVER"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "JÁTÉK PUBLIKUS INDÍTÁSA"
-
-msgid "PLAYER PASSWORD"
-msgstr "JÁTÉKOS JELSZAVA"
-
-msgid "VIEWER PASSWORD"
-msgstr "NÉZŐ JELSZAVA"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "NETPLAY BEÁLLÍTÁSOK MEGJELENÍTÉSE JÁTÉK INDÍTÁSAKOR"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-"Lehetővé teszi az online és offline választást, vagy egy másik játékhoz való "
-"csatlakozást."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK MEGJELENÍTÉSE"
 
@@ -2210,6 +2187,15 @@ msgstr "JÁTÉK INDÍTÁS"
 msgid "HOST A NETPLAY GAME"
 msgstr "HÁZIGAZDA NETES JÁTÉK"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "JÁTÉK PUBLIKUS INDÍTÁSA"
+
+msgid "PLAYER PASSWORD"
+msgstr "JÁTÉKOS JELSZAVA"
+
+msgid "VIEWER PASSWORD"
+msgstr "NÉZŐ JELSZAVA"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "HASONLÓ JÁTÉKOK KERESÉSE..."
 
@@ -2578,11 +2564,6 @@ msgstr "CSATLAKOZÁS NETPLAY-HEZ"
 msgid "Select a game lobby to join"
 msgstr "Válassza ki azt a játéklobbyt, amelyhez csatlakozni szeretne"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-"Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez "
-"csatlakozni szeretne"
-
 msgid "FAILED"
 msgstr "SIKERTELEN"
 
@@ -2597,15 +2578,6 @@ msgstr "AZONOS ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NEM ELÉRHETŐ CORE"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "ONLINE JÁTÉK HOSTKÉNT"
-
-msgid "PLAY OFFLINE"
-msgstr "OFFLINE JÁTÉK"
-
-msgid "JOIN EXISTING GAME"
-msgstr "MEGLÉVŐ JÁTÉKHOZ CSATLAKOZÁS"
 
 msgid "AVAILABLE GAMES"
 msgstr "ELÉRHETŐ JÁTÉKOK"
@@ -2872,6 +2844,15 @@ msgstr "OMX LEJÁTSZÓ HASZNÁLATA KÉPERNYŐVÉDŐNEK"
 
 msgid "SHOW GAME INFO"
 msgstr "JÁTÉK INFORMÁCIÓK MEGJELENÍTÉSE"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "MARQUEE HASZNÁLATA JÁTÉK INFORMÁCIÓKÉNT"
@@ -3596,6 +3577,35 @@ msgid ""
 msgstr ""
 "FEGYVER KALIBRÁCIÓ\n"
 "Tűz a kalibrálandó célpontokra"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "NETPLAY BEÁLLÍTÁSOK MEGJELENÍTÉSE JÁTÉK INDÍTÁSAKOR"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr ""
+#~ "Lehetővé teszi az online és offline választást, vagy egy másik játékhoz "
+#~ "való csatlakozást."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr ""
+#~ "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr ""
+#~ "Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez "
+#~ "csatlakozni szeretne"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "ONLINE JÁTÉK HOSTKÉNT"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "OFFLINE JÁTÉK"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "MEGLÉVŐ JÁTÉKHOZ CSATLAKOZÁS"
 
 #~ msgid "MATRIX"
 #~ msgstr "MÁTRIX"

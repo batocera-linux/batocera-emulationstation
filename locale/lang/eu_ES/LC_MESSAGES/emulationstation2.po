@@ -546,27 +546,6 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "JOKOA PUBLIKOKI IRAGARRI"
-
-msgid "PLAYER PASSWORD"
-msgstr "JOKALARI PASAHITZA"
-
-msgid "VIEWER PASSWORD"
-msgstr "IKUSI PASAHITZA"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr ""
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr ""
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr ""
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr ""
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ERAKUTSI ESKURAGARRI EZ DAUDEN JOKOAK"
 
@@ -2194,6 +2173,15 @@ msgstr "HASI JOKOA"
 msgid "HOST A NETPLAY GAME"
 msgstr "SARE JOKO BATEN ANFITRIOIA IZAN"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "JOKOA PUBLIKOKI IRAGARRI"
+
+msgid "PLAYER PASSWORD"
+msgstr "JOKALARI PASAHITZA"
+
+msgid "VIEWER PASSWORD"
+msgstr "IKUSI PASAHITZA"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "AURKITU ANTZEKO JOKOAK..."
 
@@ -2563,9 +2551,6 @@ msgstr "KONEKTATU SARE JOKORA"
 msgid "Select a game lobby to join"
 msgstr "Aukeratu zein joko gelara batu nahi duzun"
 
-msgid "Select a game lobby to create or join"
-msgstr ""
-
 msgid "FAILED"
 msgstr "HUTS EGIN DU"
 
@@ -2580,15 +2565,6 @@ msgstr "ROM BERDINA"
 
 msgid "UNAVAILABLE CORE"
 msgstr "NUKLEO ESKURAEZINA"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr ""
-
-msgid "PLAY OFFLINE"
-msgstr ""
-
-msgid "JOIN EXISTING GAME"
-msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "JOKO ESKURAGARRIAK"
@@ -2855,6 +2831,15 @@ msgstr "ERABILI OMX IRAKURGAILUA PANTAILA BABESLEARENTZAT"
 
 msgid "SHOW GAME INFO"
 msgstr "ERAKUTSI JOKO INFORMAZIOA"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ERABILI MARKESINA JOKO INFORMAZIO BEZALA"

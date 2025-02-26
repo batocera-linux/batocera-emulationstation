@@ -551,27 +551,6 @@ msgstr "EGENDEFINERT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGENDEFINERT RELAY SERVER"
 
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "OFFENTLIG KUNNGJØR SPILLET"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPILLER PASSORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "SEERPASSORD"
-
-msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-msgstr "VIS NETTSPILL-VALG VED OPPSTART AV SPILL"
-
-msgid "Allows choice of online, offline, or joining another game."
-msgstr "Tillater valg av online, offline eller bli med i et annet spill."
-
-msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "VIS KUN RELAY-SERVER SPILL"
-
-msgid "Relay server games have a higher chance of successful entry."
-msgstr "Relay-server-spill har tilgangen større sjanse for å lykkes."
-
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VIS UTILGJENGELIGE SPILL"
 
@@ -2189,6 +2168,15 @@ msgstr "START SPILL"
 msgid "HOST A NETPLAY GAME"
 msgstr "VERT ET NETTSPILL"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "OFFENTLIG KUNNGJØR SPILLET"
+
+msgid "PLAYER PASSWORD"
+msgstr "SPILLER PASSORD"
+
+msgid "VIEWER PASSWORD"
+msgstr "SEERPASSORD"
+
 msgid "FIND SIMILAR GAMES..."
 msgstr "FINN LIGNENDE SPILL..."
 
@@ -2556,9 +2544,6 @@ msgstr "KOBLE TIL NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Velg en spill-lobby å bli med i"
 
-msgid "Select a game lobby to create or join"
-msgstr "Velg en spill-lobby å lage eller bli med i"
-
 msgid "FAILED"
 msgstr "FEILET"
 
@@ -2573,15 +2558,6 @@ msgstr "SAMME ROM"
 
 msgid "UNAVAILABLE CORE"
 msgstr "UTILGJENGELIG KJERNE"
-
-msgid "PLAY ONLINE AS HOST"
-msgstr "SPILL ONLINE SOM VERT"
-
-msgid "PLAY OFFLINE"
-msgstr "SPILL OFFLINE"
-
-msgid "JOIN EXISTING GAME"
-msgstr "BLI MED I EKSISTERENDE SPILL"
 
 msgid "AVAILABLE GAMES"
 msgstr "TILGJENGELIGE SPILL"
@@ -2847,6 +2823,15 @@ msgstr "BRUK OMX SPILLER FOR SKJERMSPARER"
 
 msgid "SHOW GAME INFO"
 msgstr "VIS SPILL INFORMASJON"
+
+msgid "SHOW DATE TIME"
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "BRUK MARQUEE SOM SPILL INFO"
@@ -3570,6 +3555,30 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
+
+#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+#~ msgstr "VIS NETTSPILL-VALG VED OPPSTART AV SPILL"
+
+#~ msgid "Allows choice of online, offline, or joining another game."
+#~ msgstr "Tillater valg av online, offline eller bli med i et annet spill."
+
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "VIS KUN RELAY-SERVER SPILL"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "Relay-server-spill har tilgangen større sjanse for å lykkes."
+
+#~ msgid "Select a game lobby to create or join"
+#~ msgstr "Velg en spill-lobby å lage eller bli med i"
+
+#~ msgid "PLAY ONLINE AS HOST"
+#~ msgstr "SPILL ONLINE SOM VERT"
+
+#~ msgid "PLAY OFFLINE"
+#~ msgstr "SPILL OFFLINE"
+
+#~ msgid "JOIN EXISTING GAME"
+#~ msgstr "BLI MED I EKSISTERENDE SPILL"
 
 #~ msgid "MATRIX"
 #~ msgstr "MATRISE"
