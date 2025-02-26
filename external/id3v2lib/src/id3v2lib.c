@@ -43,7 +43,14 @@ ID3v2_tag* load_tag(const char* file_name)
         return NULL;
     }
     //fseek(file, 10, SEEK_SET);
-    fread(buffer, header_size+10, 1, file);
+    size_t bytesRead = fread(buffer, header_size+10, 1, file);
+    if (bytesRead != 1)
+    {
+        perror("Error reading file");
+        fclose(file);
+        return NULL;
+    }
+
     fclose(file);
 
 
@@ -537,6 +544,12 @@ void tag_set_composer(char* composer, char encoding, ID3v2_tag* tag)
 void tag_set_album_cover(const char* filename, ID3v2_tag* tag)
 {
     FILE* album_cover = fopen(filename, "rb");
+    if (album_cover == NULL)
+    {
+        perror("Error opening file");
+        return;
+    }
+
     char *album_cover_bytes;
     int image_size;
     char *mimetype;
@@ -545,8 +558,22 @@ void tag_set_album_cover(const char* filename, ID3v2_tag* tag)
     image_size = (int) ftell(album_cover);
     fseek(album_cover, 0, SEEK_SET);
 
-    album_cover_bytes = (char*) malloc(image_size * sizeof(char));
-    fread(album_cover_bytes, 1, image_size, album_cover);
+    album_cover_bytes = (char*)malloc(image_size);
+    if (album_cover_bytes == NULL)
+    {
+        perror("Memory allocation failed");
+        fclose(album_cover);
+        return;
+    }
+
+    size_t bytesRead = fread(album_cover_bytes, 1, image_size, album_cover);
+    if (bytesRead != image_size)
+    {
+        perror("Error reading file");
+        free(album_cover_bytes);
+        fclose(album_cover);
+        return;
+    }
 
     fclose(album_cover);
 
