@@ -12,6 +12,28 @@
 class HttpReq;
 class FileData;
 
+// from RetroArch network/netplay
+#define NETPLAY_NICK_LEN         32
+#define NETPLAY_HOST_STR_LEN     32
+#define NETPLAY_HOST_LONGSTR_LEN 256
+#define DISCOVERY_QUERY_MAGIC    0x52414E51 /* RANQ */
+#define DISCOVERY_RESPONSE_MAGIC 0x52414E53 /* RANS */
+
+struct ad_packet
+{
+	uint32_t header;
+	int32_t  content_crc;
+	int32_t  port;
+	uint32_t has_password;
+	char     nick[NETPLAY_NICK_LEN];
+	char     frontend[NETPLAY_HOST_STR_LEN];
+	char     core[NETPLAY_HOST_STR_LEN];
+	char     core_version[NETPLAY_HOST_STR_LEN];
+	char     retroarch_version[NETPLAY_HOST_STR_LEN];
+	char     content[NETPLAY_HOST_LONGSTR_LEN];
+	char     subsystem_name[NETPLAY_HOST_LONGSTR_LEN];
+};
+
 struct LobbyAppEntry
 {
 	FileData*   fileData;
@@ -45,6 +67,7 @@ class GuiNetPlay : public GuiComponent
 {
 public:
 	GuiNetPlay(Window* window);
+	~GuiNetPlay();
 
 	void update(int deltaTime) override;
 	void render(const Transform4x4f &parentTrans) override;
@@ -58,11 +81,14 @@ public:
 private:
 	void startRequest();
 	bool populateFromJson(const std::string json);
+	bool populateFromLan();
 	void launchGame(LobbyAppEntry entry);
+	void lanLobbyRequest();
 
 	FileData* getFileData(const std::string gameInfo, bool crc = true, std::string coreName = "");
 	bool coreExists(FileData* file, std::string core_name);
 
+	int								mLanLobbySocket;
 	NinePatchComponent				mBackground;
 	ComponentGrid					mGrid;
 
