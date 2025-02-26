@@ -148,13 +148,12 @@ static std::map<std::string, std::string> coreList =
 #endif
 };
 
-GuiNetPlay::GuiNetPlay(Window* window, FileData* targetGame)
+GuiNetPlay::GuiNetPlay(Window* window)
 	: GuiComponent(window), 
 	mBusyAnim(window),
 	mBackground(window, ":/frame.png"),
 	mGrid(window, Vector2i(1, 3)),
-	mList(nullptr),
-	mTargetGame(targetGame)
+	mList(nullptr)
 {	
 	addChild(&mBackground);
 	addChild(&mGrid);
@@ -172,10 +171,7 @@ GuiNetPlay::GuiNetPlay(Window* window, FileData* targetGame)
 	mHeaderGrid = std::make_shared<ComponentGrid>(mWindow, Vector2i(1, 5));
 
 	mTitle = std::make_shared<TextComponent>(mWindow, _("CONNECT TO NETPLAY"), theme->Title.font, theme->Title.color, ALIGN_CENTER);
-	if (mTargetGame == nullptr)
-		mSubtitle = std::make_shared<TextComponent>(mWindow, _("Select a game lobby to join"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
-	else
-		mSubtitle = std::make_shared<TextComponent>(mWindow, _("Select a game lobby to create or join"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
+	mSubtitle = std::make_shared<TextComponent>(mWindow, _("Select a game lobby to join"), theme->TextSmall.font, theme->TextSmall.color, ALIGN_CENTER);
 	
 	mHeaderGrid->setEntry(mTitle, Vector2i(0, 1), false, true);
 	mHeaderGrid->setEntry(mSubtitle, Vector2i(0, 3), false, true);
@@ -522,8 +518,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 	}
 
 	std::vector<LobbyAppEntry> entries;
-	const std::string targetCRC = mTargetGame == nullptr ? "" : mTargetGame->getMetadata(MetaDataId::Crc32);
-	bool netPlayShowOnlyRelayServerGames = Settings::NetPlayShowOnlyRelayServerGames();
+	entries.reserve(doc.Size());
 
 	for (auto& item : doc.GetArray())
 	{
@@ -560,9 +555,6 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("game_crc") && fields["game_crc"].IsString())
 			game.game_crc = fields["game_crc"].GetString();
 
-		if (!targetCRC.empty() && targetCRC != game.game_crc)
-			continue;
-
 		if (file != nullptr)
 		{
 			std::string fileCRC = file->getMetadata(MetaDataId::Crc32);
@@ -594,9 +586,6 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("host_method") && fields["host_method"].IsInt())
 			game.host_method = fields["host_method"].GetInt();
 
-		if (netPlayShowOnlyRelayServerGames && game.host_method != 3)
-			continue;
-
 		if (fields.HasMember("has_password") && fields["has_password"].IsBool())
 			game.has_password = fields["has_password"].GetBool();
 
@@ -623,49 +612,18 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 		game.coreExists = coreExists(file, game.core_name);
 
-		entries.push_back(game);
+		entries.push_back(std::move(game));
 	}	
-
-	auto theme = ThemeData::getMenuTheme();
 
 	bool groupAvailable = false;
 
-	struct { bool operator()(LobbyAppEntry& a, LobbyAppEntry& b) const 
-	{ 
-		if (a.isCrcValid == b.isCrcValid)
-			return a.coreExists && !b.coreExists;
-
-		return a.isCrcValid && !b.isCrcValid;
-	} } sortByValidCrc;
-
-	std::sort(entries.begin(), entries.end(), sortByValidCrc);
-
-	if (mTargetGame != nullptr)
-	{
-		auto addPlayOption = [this](const std::string& label, NetPlayMode mode) {
-			ComponentListRow row;
-			auto textComponent = std::make_shared<TextComponent>(mWindow);
-			textComponent->setText(label);
-			row.addElement(textComponent, true);
-
-			row.makeAcceptInputHandler([this, mode] {
-				LaunchGameOptions options;
-				options.netPlayMode = mode;
-				ViewController::get()->launch(mTargetGame, options);
-
-				delete this;
-			});
-
-			mList->addRow(row);
-		};
-
-		addPlayOption(_("PLAY ONLINE AS HOST"), SERVER);
-		addPlayOption(_("PLAY OFFLINE"), OFFLINE);
-	}
+	std::sort(entries.begin(), entries.end(), [](const LobbyAppEntry& a, const LobbyAppEntry& b) {
+		return a.isCrcValid ? !b.isCrcValid : (a.coreExists && !b.coreExists);
+	});
 
 	bool netPlayShowMissingGames = Settings::NetPlayShowMissingGames();
 
-	for (auto game : entries)
+	for (auto& game : entries)
 	{
 		if (game.fileData == nullptr)
 			continue;
@@ -675,11 +633,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 		if (netPlayShowMissingGames && !groupAvailable)
 		{			
-			if (mTargetGame != nullptr)
-				mList->addGroup(_("JOIN EXISTING GAME"), true);
-			else
-				mList->addGroup(_("AVAILABLE GAMES"), true);
-
+			mList->addGroup(_("AVAILABLE GAMES"), true);
 			groupAvailable = true;
 		}
 		
@@ -689,14 +643,14 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (game.fileData != nullptr)
 			row.makeAcceptInputHandler([this, game] { launchGame(game); });
 
-		mList->addRow(row);
+		mList->addRow(std::move(row));
 	}
 
 	if (netPlayShowMissingGames)
 	{
 		bool groupUnavailable = false;
 
-		for (auto game : entries)
+		for (auto& game : entries)
 		{
 			if (game.fileData != nullptr)
 				continue;
@@ -709,7 +663,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 			ComponentListRow row;
 			row.addElement(std::make_shared<NetPlayLobbyListEntry>(mWindow, game), true);
-			mList->addRow(row);
+			mList->addRow(std::move(row));
 		}
 	}
 
@@ -719,7 +673,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		auto empty = std::make_shared<TextComponent>(mWindow);
 		empty->setText(_("NO GAMES FOUND"));
 		row.addElement(empty, true);
-		mList->addRow(row);
+		mList->addRow(std::move(row));
 
 		mGrid.moveCursor(Vector2i(0, 1));
 	}

@@ -44,7 +44,7 @@ struct LobbyAppEntry
 class GuiNetPlay : public GuiComponent 
 {
 public:
-	GuiNetPlay(Window* window, FileData* targetGame = nullptr);
+	GuiNetPlay(Window* window);
 
 	void update(int deltaTime) override;
 	void render(const Transform4x4f &parentTrans) override;
@@ -77,6 +77,4 @@ private:
 	BusyComponent					mBusyAnim;
 
 	std::unique_ptr<HttpReq>		mLobbyRequest;
-
-	FileData*						mTargetGame;
 };
