@@ -46,7 +46,8 @@ public:
 	void closePopupContext();
 	
 	virtual void moveToRandomGame();
-	virtual bool moveToLetter(char letter);
+	virtual bool moveToLetter(const std::string& letter);
+	virtual void moveToLetterByOffset(int offset);
 	virtual void moveToNextLetter();
 	virtual void moveToPreviousLetter();
 
