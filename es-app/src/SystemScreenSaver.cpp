@@ -26,7 +26,8 @@
 #include "Paths.h"
 #include "ApiSystem.h"
 
-#define FADE_TIME 			500
+#define FADE_TIME					(500)
+#define DATE_TIME_UPDATE_INTERVAL	(100)
 
 SystemScreenSaver::SystemScreenSaver(Window* window) :
 	mVideoScreensaver(NULL),
@@ -532,6 +533,39 @@ GameScreenSaverBase::GameScreenSaverBase(Window* window) : GuiComponent(window),
 	mMarquee = nullptr;
 	mLabelGame = nullptr;
 	mLabelSystem = nullptr;
+	mLabelDate = nullptr;
+	mLabelTime = nullptr;
+	mDateTimeUpdateAccumulator = 0;
+	mDateTimeLastUpdate = 0;
+
+	if (Settings::getInstance()->getBool("ScreenSaverDateTime"))
+	{
+		auto ph = ThemeData::getMenuTheme()->Text.font->getPath();
+		auto sz = mViewport.h / 16.f;
+		auto margin = sz / 2.f;
+		auto font = Font::get(sz, ph);
+		int fh = font->getLetterHeight();
+
+		mLabelDate = new TextComponent(mWindow);
+		mLabelDate->setPosition(mViewport.x + margin, mViewport.y + margin);
+		mLabelDate->setSize(mViewport.w, sz * 0.66);
+		mLabelDate->setHorizontalAlignment(ALIGN_LEFT);
+		mLabelDate->setVerticalAlignment(ALIGN_CENTER);
+		mLabelDate->setColor(0xD0D0D0FF);
+		mLabelDate->setGlowColor(0x00000060);
+		mLabelDate->setGlowSize(2);
+		mLabelDate->setFont(ph, sz * 0.66);
+
+		mLabelTime = new TextComponent(mWindow);
+		mLabelTime->setPosition(mViewport.x + margin, mViewport.y + margin + mLabelDate->getSize().y() * 1.3f);
+		mLabelTime->setSize(mViewport.w, fh);
+		mLabelTime->setHorizontalAlignment(ALIGN_LEFT);
+		mLabelTime->setVerticalAlignment(ALIGN_CENTER);
+		mLabelTime->setColor(0xFFFFFFFF);
+		mLabelTime->setGlowColor(0x00000040);
+		mLabelTime->setGlowSize(3);
+		mLabelTime->setFont(font);
+	}
 }
 
 GameScreenSaverBase::~GameScreenSaverBase()
@@ -558,6 +592,18 @@ GameScreenSaverBase::~GameScreenSaverBase()
 	{
 		delete mLabelSystem;
 		mLabelSystem = nullptr;
+	}
+
+	if (mLabelDate != nullptr)
+	{
+		delete mLabelDate;
+		mLabelDate = nullptr;
+	}
+
+	if (mLabelTime != nullptr)
+	{
+		delete mLabelTime;
+		mLabelTime = nullptr;
 	}
 }
 
@@ -774,6 +820,68 @@ void GameScreenSaverBase::render(const Transform4x4f& transform)
 		mDecoration->setOpacity(mOpacity);
 		mDecoration->render(transform);
 	}
+
+	if (mLabelDate)
+	{
+		mLabelDate->setOpacity(255);
+		mLabelDate->render(transform);
+	}
+
+	if (mLabelTime)
+	{
+		mLabelTime->setOpacity(255);
+		mLabelTime->render(transform);
+	}
+}
+
+void GameScreenSaverBase::update(int deltaTime)
+{
+	GuiComponent::update(deltaTime);
+
+	if (Settings::getInstance()->getBool("ScreenSaverDateTime"))
+	{
+		mDateTimeUpdateAccumulator += deltaTime;
+		if (mDateTimeUpdateAccumulator >= DATE_TIME_UPDATE_INTERVAL)
+		{
+			mDateTimeUpdateAccumulator -= DATE_TIME_UPDATE_INTERVAL;
+
+			time_t now = time(NULL);
+			if (now != mDateTimeLastUpdate)
+			{
+				mDateTimeLastUpdate = now;
+
+				struct tm* timeinfo = localtime(&now);
+
+				const std::string& dateFormat = Settings::getInstance()->getString("ScreenSaverDateFormat");
+				const std::string& timeFormat = Settings::getInstance()->getString("ScreenSaverTimeFormat");
+				const std::string* dateFormatPtr = &dateFormat;
+
+				std::string modifiedDateFormat;
+				std::string language = SystemConf::getInstance()->get("system.language");
+				if (language == "ko_KR")	// fix Korean string
+				{
+					if (dateFormat == "%A, %B %d")
+						modifiedDateFormat = std::string("%A, %B %d일");
+					else if (dateFormat == "%b %d, %Y")
+						modifiedDateFormat = std::string("%b %d일, %Y년");
+				}
+				if (!modifiedDateFormat.empty()) {
+					dateFormatPtr = &modifiedDateFormat;
+				}
+
+				char dateBuffer[64];
+				char timeBuffer[64];
+				strftime(dateBuffer, sizeof(dateBuffer), dateFormatPtr->c_str(), timeinfo);
+				strftime(timeBuffer, sizeof(timeBuffer), timeFormat.c_str(), timeinfo);
+
+				if (mLabelDate)
+					mLabelDate->setText(std::string(dateBuffer));
+
+				if (mLabelTime)
+					mLabelTime->setText(std::string(timeBuffer));
+			}
+		}
+	}
 }
 
 void GameScreenSaverBase::setOpacity(unsigned char opacity)
@@ -940,13 +1048,25 @@ void VideoScreenSaver::render(const Transform4x4f& transform)
 		mDecoration->render(transform);		
 	}
 
+	if (mLabelDate)
+	{
+		mLabelDate->setOpacity(255);
+		mLabelDate->render(transform);
+	}
+
+	if (mLabelTime)
+	{
+		mLabelTime->setOpacity(255);
+		mLabelTime->render(transform);
+	}
+
 	if (Settings::DebugImage())
 		Renderer::drawRect(mViewport.x, mViewport.y, mViewport.w, mViewport.h, 0xFFFF0090, 0xFFFF0090);
 }
 
 void VideoScreenSaver::update(int deltaTime)
 {
-	GameScreenSaverBase::update(deltaTime);
+	GameScreenSaverBase::update(deltaTime); 
 
 	if (mVideo)
 	{
