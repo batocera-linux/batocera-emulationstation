@@ -344,6 +344,13 @@ void ViewController::goToGameList(SystemData* system, bool forceImmediate)
 		cancelAnimation(0);
 		mDeferPlayViewTransitionTo = view;
 	}
+	
+	// Call setSelectedGame() after setting the current view
+    FileData* selectedGame = view->getCursor();
+    if (selectedGame != nullptr)
+    {
+        selectedGame->setSelectedGame();
+    }
 }
 
 void ViewController::playViewTransition(bool forceImmediate)
