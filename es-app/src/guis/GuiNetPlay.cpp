@@ -25,10 +25,14 @@
 
 #include "animations/LambdaAnimation.h"
 
-#if !WIN32
+#if WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <iostream>
+#pragma comment(lib, "Ws2_32.lib")  // Link with Winsock library
+#else
 #include <arpa/inet.h>
 #include <unistd.h>
-#define LAN_LOBBIES
 #endif
 
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
@@ -230,13 +234,18 @@ GuiNetPlay::GuiNetPlay(Window* window)
 
 GuiNetPlay::~GuiNetPlay()
 {
-#if LAN_LOBBIES
 	if (mLanLobbySocket >= 0)
 	{
+
+#if WIN32
+		closesocket(mLanLobbySocket);
+		WSACleanup();
+#else
 		close(mLanLobbySocket);
+#endif
+
 		mLanLobbySocket = -1;
 	}
-#endif
 }
 
 void GuiNetPlay::onSizeChanged()
@@ -266,11 +275,12 @@ void GuiNetPlay::startRequest()
 
 	mList->clear();
 
+	lanLobbyRequest();
+
 	std::string netPlayLobby = SystemConf::getInstance()->get("global.netplay.lobby");
 	if (netPlayLobby.empty())
 		netPlayLobby = "http://lobby.libretro.com/list/";
 
-	lanLobbyRequest();
 	mLobbyRequest = std::unique_ptr<HttpReq>(new HttpReq(netPlayLobby));
 }
 
@@ -316,18 +326,36 @@ void GuiNetPlay::update(int deltaTime)
 
 void GuiNetPlay::lanLobbyRequest()
 {
-#if LAN_LOBBIES
 	if (mLanLobbySocket < 0)
 	{
+		WSADATA wsaData;
+		if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
+			std::cerr << "WSAStartup failed" << std::endl;
+			return;
+		}
+
 		mLanLobbySocket = socket(AF_INET, SOCK_DGRAM, 0);
 		if (mLanLobbySocket < 0)
 			return;
 
+#if WIN32
+		int broadcastEnable = 1;
+		setsockopt(mLanLobbySocket, SOL_SOCKET, SO_BROADCAST, (const char*)&broadcastEnable, sizeof(broadcastEnable));
+
+		u_long mode = 1;
+		if (ioctlsocket(mLanLobbySocket, FIONBIO, &mode) != 0) 
+		{		
+			closesocket(mLanLobbySocket);
+			WSACleanup();
+			return;
+		}
+#else 
 		int broadcastEnable = 1;
 		setsockopt(mLanLobbySocket, SOL_SOCKET, SO_BROADCAST, &broadcastEnable, sizeof(broadcastEnable));
 
 		int flags = fcntl(mLanLobbySocket, F_GETFL, 0);
 		fcntl(mLanLobbySocket, F_SETFL, flags | O_NONBLOCK);
+#endif
 	}
 
 	struct sockaddr_in broadcastAddr;
@@ -337,6 +365,10 @@ void GuiNetPlay::lanLobbyRequest()
 	broadcastAddr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
 
 	uint32_t query_magic = htonl(DISCOVERY_QUERY_MAGIC);
+
+#if WIN32
+	sendto(mLanLobbySocket, (const char*) &query_magic, sizeof(query_magic), 0, (struct sockaddr*)&broadcastAddr, sizeof(broadcastAddr));
+#else 
 	sendto(mLanLobbySocket, &query_magic, sizeof(query_magic), 0, (struct sockaddr*)&broadcastAddr, sizeof(broadcastAddr));
 #endif
 }
@@ -742,7 +774,6 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 bool GuiNetPlay::populateFromLan()
 {
-#if LAN_LOBBIES
 	if (mLanLobbySocket < 0)
 		return false;
 
@@ -753,10 +784,18 @@ bool GuiNetPlay::populateFromLan()
 	std::vector<LobbyAppEntry> entries;
 	while (true)
 	{
+#if WIN32
+		int received = recvfrom(mLanLobbySocket, (char*)&response, sizeof(response), 0, (struct sockaddr*)&serverAddr, &addrLen);
+		if (received < 0)
+			break;
+#else
 		ssize_t received = recvfrom(mLanLobbySocket, &response, sizeof(response), 0, (struct sockaddr*)&serverAddr, &addrLen);
 		if (received < 0)
+		{
 			if (errno == EWOULDBLOCK || errno == EAGAIN)
 				break;
+		}
+#endif
 
 		if (received != sizeof(response))
 			continue;
@@ -824,7 +863,6 @@ bool GuiNetPlay::populateFromLan()
 
 		mList->addRow(std::move(row));
 	}
-#endif
 
 	return true;
 }
