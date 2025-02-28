@@ -2,8 +2,6 @@
 #include "Window.h"
 #include <string>
 #include <future>
-#include <arpa/inet.h>
-#include <unistd.h>
 #include <fcntl.h>
 #include "Log.h"
 #include "Settings.h"
@@ -26,6 +24,12 @@
 #include <rapidjson/pointer.h>
 
 #include "animations/LambdaAnimation.h"
+
+#if !WIN32
+#include <arpa/inet.h>
+#include <unistd.h>
+#define LAN_LOBBIES
+#endif
 
 #define WINDOW_WIDTH (float)Math::min(Renderer::getScreenHeight() * 1.125f, Renderer::getScreenWidth() * 0.90f)
 
@@ -226,11 +230,13 @@ GuiNetPlay::GuiNetPlay(Window* window)
 
 GuiNetPlay::~GuiNetPlay()
 {
+#if LAN_LOBBIES
 	if (mLanLobbySocket >= 0)
 	{
 		close(mLanLobbySocket);
 		mLanLobbySocket = -1;
 	}
+#endif
 }
 
 void GuiNetPlay::onSizeChanged()
@@ -310,6 +316,7 @@ void GuiNetPlay::update(int deltaTime)
 
 void GuiNetPlay::lanLobbyRequest()
 {
+#if LAN_LOBBIES
 	if (mLanLobbySocket < 0)
 	{
 		mLanLobbySocket = socket(AF_INET, SOCK_DGRAM, 0);
@@ -331,6 +338,7 @@ void GuiNetPlay::lanLobbyRequest()
 
 	uint32_t query_magic = htonl(DISCOVERY_QUERY_MAGIC);
 	sendto(mLanLobbySocket, &query_magic, sizeof(query_magic), 0, (struct sockaddr*)&broadcastAddr, sizeof(broadcastAddr));
+#endif
 }
 
 bool GuiNetPlay::input(InputConfig* config, Input input)
@@ -734,6 +742,7 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 bool GuiNetPlay::populateFromLan()
 {
+#if LAN_LOBBIES
 	if (mLanLobbySocket < 0)
 		return false;
 
@@ -815,6 +824,7 @@ bool GuiNetPlay::populateFromLan()
 
 		mList->addRow(std::move(row));
 	}
+#endif
 
 	return true;
 }
