@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-02-22 18:57+0000\n"
+"PO-Revision-Date: 2025-02-26 19:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -2570,6 +2570,9 @@ msgstr "Eine Spiel-Lobby zum Beitreten auswählen"
 msgid "FAILED"
 msgstr "FEHLGESCHLAGEN"
 
+msgid "NO GAMES FOUND"
+msgstr "KEINE SPIELE GEFUNDEN"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "UNBEKANNTE ROM-VERSION"
 
@@ -2582,14 +2585,17 @@ msgstr "GLEICHE ROM-DATEI"
 msgid "UNAVAILABLE CORE"
 msgstr "NICHT VERFÜGBARER CORE"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "VERFÜGBARE SPIELE"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "NICHT VERFÜGBARE SPIELE"
 
-msgid "NO GAMES FOUND"
-msgstr "KEINE SPIELE GEFUNDEN"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "SPIEL BEITRETEN"
@@ -2850,13 +2856,13 @@ msgid "SHOW GAME INFO"
 msgstr "SPIELINFORMATIONEN ANZEIGEN"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "ZEIGE DATUM/UHRZEIT"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "DATUMSFORMAT"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "ZEITFORMAT"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "BANNER ALS SPIELINFO VERWENDEN"
@@ -3582,32 +3588,3 @@ msgid ""
 msgstr ""
 "KALIBRIERE PISTOLE\n"
 "Zur Kalibration auf Ziele schießen"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "NETPLAY-OPTIONEN BEIM SPIELSTART ANZEIGEN"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr ""
-#~ "Ermöglicht die Wahl zwischen Online, Offline oder der Teilnahme an einem "
-#~ "anderen Spiel."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "NUR RELAY-SERVER-SPIELE ANZEIGEN"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Bei Relay-Server-Spielen ist die Chance auf einen erfolgreichen Einstieg "
-#~ "höher."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr ""
-#~ "Wählen Sie eine Spiel-Lobby aus, die Sie erstellen oder beitreten möchten"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "ALS HOST ONLINE SPIELEN"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "OFFLINE SPIELEN"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "VORHANDENEM SPIEL BEITRETEN"

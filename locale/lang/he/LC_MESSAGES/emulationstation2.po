@@ -2511,6 +2511,9 @@ msgstr "בחר לובי משחק בכדי להתחבר"
 msgid "FAILED"
 msgstr "נכשל"
 
+msgid "NO GAMES FOUND"
+msgstr "לא נמצאו משחקים"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "גרסה לא ידועה ROM"
 
@@ -2523,14 +2526,17 @@ msgstr "אותו ה ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "ליבה לא זמינה"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "משחקים זמנים"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "משחקים לא זמינים"
 
-msgid "NO GAMES FOUND"
-msgstr "לא נמצאו משחקים"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "הצטרפות למשחק"

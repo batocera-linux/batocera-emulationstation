@@ -2545,6 +2545,9 @@ msgstr "Valitse pelialue johon liittyä"
 msgid "FAILED"
 msgstr "EPÄONNISTUI"
 
+msgid "NO GAMES FOUND"
+msgstr "PELEJÄ EI LÖYTYNYT"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "TUNTEMATON ROM-VERSIO"
 
@@ -2557,14 +2560,17 @@ msgstr "SAMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "YDIN EI SAATAVILLA"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "SAATAVILLA OLEVAT PELIT"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "EI SAATAVILLA OLEVAT PELIT"
 
-msgid "NO GAMES FOUND"
-msgstr "PELEJÄ EI LÖYTYNYT"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "LIITY PELIIN"

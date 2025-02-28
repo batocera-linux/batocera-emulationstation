@@ -2569,6 +2569,9 @@ msgstr "Selecteer een spel lobby voor deelname"
 msgid "FAILED"
 msgstr "MISLUKT"
 
+msgid "NO GAMES FOUND"
+msgstr "GEEN SPELLEN GEVONDEN"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "ONBEKENDE ROM VERSIE"
 
@@ -2581,14 +2584,17 @@ msgstr "DEZELFDE ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NIET-BESCHIKBARE CORE"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "BESCHIKBARE SPELLEN"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "NIET-BESCHIKBARE SPELLEN"
 
-msgid "NO GAMES FOUND"
-msgstr "GEEN SPELLEN GEVONDEN"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "DEELNEMEN AAN SPEL"

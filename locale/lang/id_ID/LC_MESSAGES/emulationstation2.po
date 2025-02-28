@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: batocera-es v35beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-23 13:22+0200\n"
-"PO-Revision-Date: 2024-12-31 23:14+0700\n"
-"Last-Translator: Retro-is-Kimochi aka vzulfikar97 <vzulfikar97@gmail.com>\n"
-"Language-Team: Batocera Indonesia Army ( Comunity )\n"
+"PO-Revision-Date: 2025-02-28 02:00+0700\n"
+"Last-Translator: cicag <riiiooooo13@gmail.com>\n"
+"Language-Team: -\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.4.2\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "MEMINDAI BLUETOOTH"
@@ -566,7 +566,7 @@ msgid "INDEX GAMES"
 msgstr "INDEK GAME"
 
 msgid "INPUT"
-msgstr "INPUT"
+msgstr "MASUKAN"
 
 msgid "SEARCH"
 msgstr "CARI"
@@ -684,7 +684,7 @@ msgid " (Connected)"
 msgstr " (Terhubung)"
 
 msgid "BLUETOOTH DEVICES HAVE BEEN DELETED."
-msgstr "PERANGKAT BLUETOOTH TERHAPUS."
+msgstr "PERANGKAT BLUETOOTH DIHAPUS."
 
 #, c-format
 msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
@@ -694,7 +694,7 @@ msgid "THE BEZEL PROJECT"
 msgstr "PROYEK BEZEL"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "PILIH BEZEL UNTUK DIINSTALL/DIHAPUS"
+msgstr "PILIH BEZEL UNTUK DIINSTALL/HAPUS"
 
 #, c-format
 msgid "UPDATING %s"
@@ -704,7 +704,7 @@ msgid "UPDATE IS READY"
 msgstr "PEMBARUAN SUDAH SIAP"
 
 msgid "REBOOT TO APPLY"
-msgstr "REBOOT UNTUK MENERAPKAN"
+msgstr "MULAI ULANG UNTUK MENERAPKAN"
 
 msgid "REALLY UPDATE?"
 msgstr "YAKIN MEMPERBARUI?"
@@ -802,7 +802,7 @@ msgid ""
 "CONTINUE ANYWAY?"
 msgstr ""
 "PERINGATAN: BEBERAPA SISTEM YANG ANDA PILIH TIDAK MEMILIKI SET PLATFORM. "
-"HASIL MUNGKIN KARENA MEMILIKI SISTEM YANG BERBEDA!\n"
+"HASIL MUNGKIN UNTUK SISTEM YANG BERBEDA!\n"
 "INGIN LANJUTKAN?"
 
 msgid "SCRAPING IS RUNNING. DO YOU WANT TO STOP IT?"
@@ -949,7 +949,7 @@ msgid "VENDOR"
 msgstr "VENDOR"
 
 msgid "RENDERER"
-msgstr "RENDERER"
+msgstr "PERENDER"
 
 msgid "SHADERS"
 msgstr "SHADERS"
@@ -1105,7 +1105,7 @@ msgid "FRONTEND DEVELOPER OPTIONS"
 msgstr "OPSI PENGEMBANG DEPAN"
 
 msgid "VIDEO OPTIONS"
-msgstr "PILIHAN VIDIO"
+msgstr "PILIHAN VIDEO"
 
 msgid "VRAM LIMIT"
 msgstr "BATAS VRAM"
@@ -1114,7 +1114,7 @@ msgid "SHOW FRAMERATE"
 msgstr "TAMPILKAN FRAMERATE"
 
 msgid "Also turns on the emulator's native FPS counter, if available."
-msgstr "Juga aktifkan penghitung FPS asli emulator, jika tersedia."
+msgstr "Aktifkan juga penghitung FPS asli emulator, jika tersedia."
 
 msgid "VSYNC"
 msgstr "VSYNC"
@@ -1244,8 +1244,8 @@ msgid ""
 "If no image is specified in the gamelist, try to find media with the same "
 "filename to use."
 msgstr ""
-"Jika tidak ada gambar yang ditentukan dalam daftar game, coba cari media "
-"yang sama untuk digunakan."
+"Jika tidak ada gambar tertentu dalam daftar game, coba cari media bernama "
+"sama untuk digunakan."
 
 msgid "USER INTERFACE"
 msgstr "ANTARMUKA PENGGUNA"
@@ -1334,10 +1334,10 @@ msgid "ASYNC IMAGE LOADING"
 msgstr "PEMUATAN GAMBAR ASYNC"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
-msgstr "OPTIMALKAN PENGGUNAAN IMAGE VRAM"
+msgstr "OPTIMALKAN GAMBAR UNTUK VRAM"
 
 msgid "OPTIMIZE VIDEO VRAM USAGE"
-msgstr "OPTIMALKAN PENGGUNAAN VIDEO VRAM"
+msgstr "OPTIMALKAN VIDEO UNTUK VRAM"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "REBOOT DIPERLUKAN UNTUK MENERAPKAN KONFIGURASI BARU"
@@ -1720,7 +1720,7 @@ msgid "SOUTH WEST"
 msgstr "BARAT DAYA"
 
 msgid "CUSTOM .PNG IMAGE PATH"
-msgstr "JALUR GAMBAR .PNG KUSTOM"
+msgstr "LOKASI GAMBAR KUSTOM .PNG"
 
 msgid "RESIZE TATTOO"
 msgstr "UBAH UKURAN WM"
@@ -1735,7 +1735,7 @@ msgid "ENABLE AI TRANSLATION SERVICE"
 msgstr "AKTIFKAN LAYANAN PENERJEMAHAN AI"
 
 msgid "TARGET LANGUAGE"
-msgstr "BAHASA TARGET"
+msgstr "TARGET BAHASA"
 
 msgid "AI TRANSLATION SERVICE URL"
 msgstr "URL LAYANAN PENERJEMAHAN AI"
@@ -2546,6 +2546,9 @@ msgstr "Pilih lobi permainan untuk bergabung"
 msgid "FAILED"
 msgstr "GAGAL"
 
+msgid "NO GAMES FOUND"
+msgstr "GAME TIDAK DITEMUKAN"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSI ROM TIDAK DIKENAL"
 
@@ -2558,14 +2561,17 @@ msgstr "ROM SAMA"
 msgid "UNAVAILABLE CORE"
 msgstr "CORE TIDAK TERSEDIA"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "GAME TERSEDIA"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "GAME TIDAK TERSEDIA"
 
-msgid "NO GAMES FOUND"
-msgstr "GAME TIDAK DITEMUKAN"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "GABUNG GAME"
@@ -2641,13 +2647,13 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "GAMBARKAN CROSHAIR GUN"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "PERILAKU"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "BATASI HOTKEY UNTUK KELUAR"
 
 msgid "default"
-msgstr "default"
+msgstr "standar"
 
 msgid "BORDER SIZE"
 msgstr "UKURAN"
@@ -2824,19 +2830,19 @@ msgid "SHOW GAME INFO"
 msgstr "TAMPILKAN INFORMASI GAME"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "TAMPILKAN WAKTU TANGGAL"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMAT TANGGAL"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMAT WAKTU"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "GUNAKAN MARQUEE SEBAGAI INFO GAME"
 
 msgid "DECORATION SET USED"
-msgstr "SET DEKORASI yang DIGUNAKAN"
+msgstr "SET DEKORASI YANG DIGUNAKAN"
 
 msgid "STRETCH VIDEOS"
 msgstr "RENTANG-KAN VIDEOS"
@@ -2887,7 +2893,7 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Diperlukan akun yang valid. Silakan daftarkan akun di https://"
+"Diperlukan akun yang valid. Silahkan daftarkan akun di https://"
 "retroachievements.org"
 
 msgid "Full"
@@ -2933,13 +2939,13 @@ msgstr "Waktu bermain"
 #, c-format
 msgid "This folder contains %i game, including :%s"
 msgid_plural "This folder contains %i games, including :%s"
-msgstr[0] "Folder ini berisi %i Permainan, termasuk :%s"
+msgstr[0] "Folder ini berisi %i permainan, termasuk :%s"
 
 msgid "SYSTEM INFO"
-msgstr "SISTEM INFORMASI"
+msgstr "INFORMASI SISTEM"
 
 msgid "ERROR: EVERY SYSTEM IS HIDDEN, RE-DISPLAYING ALL OF THEM NOW"
-msgstr "ERROR: SETIAP SISTEM TERSEMBUNYI, TAMPILKAN KEMBALI SEMUANYA SEKARANG"
+msgstr "ERROR: SEMUA SISTEM DISEMBUNYIKAN, SEDANG MENAMPILKAN ULANG"
 
 msgid "QUICK SEARCH"
 msgstr "PENCARIAN CEPAT"
@@ -2985,9 +2991,8 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"PERINGATAN: EMULATOR/INTI YANG SEBELUMNYA DI ATUR TIDAK MENDUKUNG FILE GAME "
-"INI YA.\n"
-"TETAP INGIN JALANKAN?"
+"BUSET: EMULATOR/CORE YANG DIPAKAI TIDAK SUPPORT GAME MU, NIH.\n"
+"TETAP INGIN COBA?"
 
 msgid ""
 "WARNING: THE SYSTEM HAS MISSING BIOS FILE(S) AND THE GAME MAY NOT WORK "
@@ -3104,7 +3109,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERROR TAK DIKETAHUI"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "interlaced"
 
 msgid "all games"
 msgstr "semua game"
@@ -3504,14 +3509,14 @@ msgid "HOLD ANY BUTTON TO SKIP"
 msgstr "TAHAN TOMBOL APAPUN UNTUK LEWATI"
 
 msgid "-NOT DEFINED-"
-msgstr "TIDAK TERDEFINISI"
+msgstr "-TIDAK TERDEFINISI-"
 
 msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
 "A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
-"TIDAK ADA TOMBOL HOTKEY YANG DIPILIH. INI DIPERLUKAN UNTUK KELUAR GAME "
-"DENGAN KONTROLER. ANDA INGIN MENGGUNAKAN TOMBOL SELECT SEBAGAI HOTKEY?"
+"TIDAK ADA TOMBOL HOTKEY YANG DIPILIH. HOTKEY DIPERLUKAN UNTUK KELUAR GAME "
+"DENGAN KONTROLER. GUNAKAN TOMBOL SELECT SEBAGAI HOTKEY?"
 
 msgid "SET SELECT AS HOTKEY"
 msgstr "PILIH SELECT SEBAGAI HOTKEY"
@@ -3540,7 +3545,7 @@ msgid ""
 "CALIBRATING GUN\n"
 "Fire on targets to calibrate"
 msgstr ""
-"KALIBRASI SENJATA\n"
+"KALIBRASI GUN\n"
 "Sesuaikan Target untuk Melakukan Kalibrasi"
 
 #~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"

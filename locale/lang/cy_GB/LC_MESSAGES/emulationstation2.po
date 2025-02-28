@@ -2515,6 +2515,9 @@ msgstr ""
 msgid "FAILED"
 msgstr "METHU"
 
+msgid "NO GAMES FOUND"
+msgstr ""
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "FERSIWN ROM ANHYSBYS"
 
@@ -2527,13 +2530,16 @@ msgstr "UN ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "CRAIDD ANNERBYNIOL"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "GEMAU AR GAEL"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "GEMAU ANNERBYNIOL"
 
-msgid "NO GAMES FOUND"
+msgid "LAN GAMES"
 msgstr ""
 
 msgid "JOIN GAME"

@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -2568,6 +2568,9 @@ msgstr "Seleciona uma sala de jogo para juntar-se"
 msgid "FAILED"
 msgstr "FALHOU"
 
+msgid "NO GAMES FOUND"
+msgstr "NENHUM JOGO ENCONTRADO"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSÃO DE ROM DESCONHECIDA"
 
@@ -2580,14 +2583,17 @@ msgstr "MESMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "JOGOS INDISPONÍVEIS"
 
-msgid "NO GAMES FOUND"
-msgstr "NENHUM JOGO ENCONTRADO"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "ENTRAR NO JOGO"
@@ -2665,10 +2671,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR A MIRA DA ARMA"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "COMPORTAMENTO"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTRINGIR ATALHOS PARA SAIR"
 
 msgid "default"
 msgstr "padrão"
@@ -3132,7 +3138,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Interlaced"
 
 msgid "all games"
 msgstr "todos os jogos"

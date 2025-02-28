@@ -2560,6 +2560,9 @@ msgstr "Selecciona una sala de juego para unirte"
 msgid "FAILED"
 msgstr "FALLÓ"
 
+msgid "NO GAMES FOUND"
+msgstr "NO SE HAN ENCONTRADO JUEGOS"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSIÓN DESCONOCIDA DE LA ROM"
 
@@ -2572,14 +2575,17 @@ msgstr "LA ROM ES IGUAL"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NO DISPONIBLE"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "JUEGOS DISPONIBLES"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "JUEGOS NO DISPONIBLES"
 
-msgid "NO GAMES FOUND"
-msgstr "NO SE HAN ENCONTRADO JUEGOS"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "UNIRTE A LA PARTIDA"

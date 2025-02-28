@@ -2549,6 +2549,9 @@ msgstr "Vyberte herní lobby, do které se chcete připojit"
 msgid "FAILED"
 msgstr "NEÚSPĚŠNÉ"
 
+msgid "NO GAMES FOUND"
+msgstr "NENALEZENY ŽÁDNÉ HRY"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "NEZNÁMÁ VERZE ROM"
 
@@ -2561,14 +2564,17 @@ msgstr "STEJNÁ ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NEDOSTUPNÉ JÁDRO"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "DOSTUPNÉ HRY"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "NEDOSTUPNÉ HRY"
 
-msgid "NO GAMES FOUND"
-msgstr "NENALEZENY ŽÁDNÉ HRY"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "PŘIPOJIT HRU"

@@ -2558,6 +2558,9 @@ msgstr "Selecione uma sala de jogo para se juntar"
 msgid "FAILED"
 msgstr "FALHOU"
 
+msgid "NO GAMES FOUND"
+msgstr "NENHUM JOGO ENCONTRADO"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSÃO DA ROM DESCONHECIDA"
 
@@ -2570,14 +2573,17 @@ msgstr "MESMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "CORE INDISPONÍVEL"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "JOGOS INDISPONÍVEIS"
 
-msgid "NO GAMES FOUND"
-msgstr "NENHUM JOGO ENCONTRADO"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "ENTRAR NO JOGO"
@@ -2653,10 +2659,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR ARMA CROSSHAIR"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "COMPORTAMENTO"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTRINGIR TECLAS DE ATALHO PARA SAIR"
 
 msgid "default"
 msgstr "predefinição"
@@ -2836,13 +2842,13 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "MOSTRAR DATA HORA"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMATO DE DATA"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMATO DE HORA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COM INFORMAÇÃO DO JOGO"
@@ -3564,32 +3570,6 @@ msgid ""
 msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "Permite escolher entre online, offline ou aderir a outro jogo."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR RELAY"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Os jogos de servidor relay têm uma maior probabilidade de entrada bem-"
-#~ "sucedida."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Selecione um lobby de jogo para criar ou participar"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "JOGAR ONLINE COMO HOST"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "JOGAR OFFLINE"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "JUNTAR-SE AO JOGO EXISTENTE"
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

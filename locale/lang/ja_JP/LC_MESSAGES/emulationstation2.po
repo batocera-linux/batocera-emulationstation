@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: batocera-es v42b(2025/02/22)\n"
+"Project-Id-Version: batocera-es v42b(2025/02/27)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-22 07:56+0900\n"
+"PO-Revision-Date: 2025-02-27 11:31+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -2549,6 +2549,9 @@ msgstr "参加したいゲームロビーを選択"
 msgid "FAILED"
 msgstr "失敗"
 
+msgid "NO GAMES FOUND"
+msgstr "ゲームが見つかりません"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "不明なROMバージョン"
 
@@ -2561,14 +2564,17 @@ msgstr "同じROM"
 msgid "UNAVAILABLE CORE"
 msgstr "利用できないコア"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "参加可能なゲーム"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "参加できないゲーム"
 
-msgid "NO GAMES FOUND"
-msgstr "ゲームが見つかりません"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "ゲームに参加"
@@ -2828,13 +2834,13 @@ msgid "SHOW GAME INFO"
 msgstr "ゲーム情報を表示"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "日時を表示"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "日付表示形式"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "時刻表示形式"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ゲーム情報としてマーキーを使用"

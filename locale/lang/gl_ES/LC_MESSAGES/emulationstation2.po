@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-01-13 02:39+0100\n"
+"PO-Revision-Date: 2025-02-28 19:33+0100\n"
 "Last-Translator: enfeitizador <fedellar@enfeitizador.es>\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -2566,6 +2566,9 @@ msgstr "Selecciona una sala de xogo para unirte"
 msgid "FAILED"
 msgstr "FALLOU"
 
+msgid "NO GAMES FOUND"
+msgstr "NON SE ATOPARON XOGOS"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSIÓN DE ROM DESCOÑECIDA"
 
@@ -2578,14 +2581,17 @@ msgstr "MESMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NON DISPOÑÍBEL"
 
+msgid "ONLINE GAMES"
+msgstr ""
+
 msgid "AVAILABLE GAMES"
 msgstr "XOGOS DISPOÑÍBEIS"
 
 msgid "UNAVAILABLE GAMES"
 msgstr "XOGOS NON DISPOÑÍBEIS"
 
-msgid "NO GAMES FOUND"
-msgstr "NON SE ATOPARON XOGOS"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "UNIRSE A PARTIDA"
@@ -2661,10 +2667,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "DEBUXAR PUNTO DE MIRA DA PISTOLA"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "COMPORTAMENTO"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTRINXIR OS ATALLOS PARA SAÍR"
 
 msgid "default"
 msgstr "por defecto"
@@ -2844,13 +2850,13 @@ msgid "SHOW GAME INFO"
 msgstr "AMOSAR INFO DO XOGO"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "AMOSAR DATA E HORA"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMATO DE DATA"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMATO DE HORA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR MARQUESIÑA COMO INFO. DO XOGO"
@@ -3128,7 +3134,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERRO DESCOÑECIDO"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Entrelazado"
 
 msgid "all games"
 msgstr "todos os xogos"
