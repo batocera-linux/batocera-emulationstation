@@ -328,11 +328,13 @@ void GuiNetPlay::lanLobbyRequest()
 {
 	if (mLanLobbySocket < 0)
 	{
+#if WIN32
 		WSADATA wsaData;
 		if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
 			std::cerr << "WSAStartup failed" << std::endl;
 			return;
 		}
+#endif
 
 		mLanLobbySocket = socket(AF_INET, SOCK_DGRAM, 0);
 		if (mLanLobbySocket < 0)
