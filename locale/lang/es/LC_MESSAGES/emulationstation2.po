@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2025-01-03 00:00+0100\n"
+"PO-Revision-Date: 2025-02-28 00:00+0100\n"
 "Last-Translator: roliverosc\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -2586,7 +2586,7 @@ msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NO DISPONIBLE"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "JUEGOS ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JUEGOS DISPONIBLES"
@@ -2595,7 +2595,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "JUEGOS NO DISPONIBLES"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "JUEGOS RED LOCAL"
 
 msgid "JOIN GAME"
 msgstr "UNIRTE A LA PARTIDA"
@@ -2674,10 +2674,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "DIBUJAR PUNTO DE MIRA DE ARMA"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "COMPORTAMIENTO"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "RESTRINGIR TECLAS DE ACCESO RÁPIDO PARA SALIR"
 
 msgid "default"
 msgstr "defecto"
@@ -2857,13 +2857,13 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMACIÓN DEL JUEGO"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "MOSTRAR FECHA Y HORA"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMATO DE FECHA"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMATO DE HORA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR MARQUESINA COMO INFORMACIÓN DEL JUEGO"
@@ -3141,7 +3141,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONOCIDO"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Entrelazado"
 
 msgid "all games"
 msgstr "todos los juegos"

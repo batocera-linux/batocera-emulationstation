@@ -2584,7 +2584,7 @@ msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "JOGOS ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -2593,7 +2593,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "JOGOS INDISPONÍVEIS"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "JOGOS EM LAN"
 
 msgid "JOIN GAME"
 msgstr "ENTRAR NO JOGO"
@@ -2854,13 +2854,13 @@ msgid "SHOW GAME INFO"
 msgstr "EXIBIR INFORMAÇÃO DO JOGO"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "MOSTRAR RELÓGIO"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMATO DE DATA"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMATO DE TEMPO"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
