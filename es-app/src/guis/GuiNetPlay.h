@@ -8,6 +8,7 @@
 #include "components/TextComponent.h"
 #include <memory>
 #include <unordered_set>
+#include <vector>
 
 class HttpReq;
 class FileData;
@@ -80,8 +81,12 @@ public:
 
 private:
 	void startRequest();
+	
 	bool populateFromJson(const std::string json);
 	bool populateFromLan();
+
+	bool populateList();
+
 	void launchGame(LobbyAppEntry entry);
 	void lanLobbyRequest();
 
@@ -89,6 +94,8 @@ private:
 	bool coreExists(FileData* file, std::string core_name);
 
 	int								mLanLobbySocket;
+	int								mLanLobbySocketTimeout;
+
 	NinePatchComponent				mBackground;
 	ComponentGrid					mGrid;
 
@@ -103,4 +110,7 @@ private:
 	BusyComponent					mBusyAnim;
 
 	std::unique_ptr<HttpReq>		mLobbyRequest;
+
+	std::vector<LobbyAppEntry>		mLanEntries;
+	std::vector<LobbyAppEntry>		mLobbyEntries;
 };
