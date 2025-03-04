@@ -2576,7 +2576,7 @@ msgid "UNAVAILABLE CORE"
 msgstr "NIEDOSTĘPNE JĄDRO EMULATORA"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "GRY ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -2585,7 +2585,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "NIEDOSTĘPNE GRY"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "GRY SIECIOWE"
 
 msgid "JOIN GAME"
 msgstr "DOŁĄCZ DO GRY"
@@ -2662,10 +2662,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "RYSUJ CELOWNIK BRONI"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "ZACHOWANIE"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "OGRANICZ SKRÓTY DO WYJŚCIA"
 
 msgid "default"
 msgstr "domyślnie"
@@ -2845,13 +2845,13 @@ msgid "SHOW GAME INFO"
 msgstr "POKAŻ INFORMACJE O GRZE"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "POKAŻ CZAS I DATĘ"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMAT DATY"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMAT CZASU"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UŻYJ MARQUEE JAKO INFORMACJI O GRZE"
@@ -3130,7 +3130,7 @@ msgid "UKNOWN ERROR"
 msgstr "NIEZNANY BŁĄD"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Z przeplotem"
 
 msgid "all games"
 msgstr "wszystkie gry"

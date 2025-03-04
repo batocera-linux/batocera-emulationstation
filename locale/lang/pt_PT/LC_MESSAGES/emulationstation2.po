@@ -2574,7 +2574,7 @@ msgid "UNAVAILABLE CORE"
 msgstr "CORE INDISPONÍVEL"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "JOGOS ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -2583,7 +2583,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "JOGOS INDISPONÍVEIS"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "JOGOS EM LAN"
 
 msgid "JOIN GAME"
 msgstr "ENTRAR NO JOGO"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-01-09 13:58+0100\n"
+"PO-Revision-Date: 2025-03-03 10:05+0100\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -2583,7 +2583,7 @@ msgid "UNAVAILABLE CORE"
 msgstr "NEM ELÉRHETŐ CORE"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "ONLINE JÁTÉKOK"
 
 msgid "AVAILABLE GAMES"
 msgstr "ELÉRHETŐ JÁTÉKOK"
@@ -2592,7 +2592,7 @@ msgid "UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "LAN JÁTÉKOK"
 
 msgid "JOIN GAME"
 msgstr "CSATLAKOZÁS JÁTÉKHOZ"
@@ -2669,10 +2669,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "PISZTOLY CÉLKERESZTET RAJZOLÁS"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "VISELKEDÉS"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "A KILÉPÉSHEZ SZÜKSÉGES GYORSBILLENTYŰK KORLÁTOZÁSA"
 
 msgid "default"
 msgstr "alap"
@@ -2852,13 +2852,13 @@ msgid "SHOW GAME INFO"
 msgstr "JÁTÉK INFORMÁCIÓK MEGJELENÍTÉSE"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "DÁTUM IDŐ MEGJELENÍTÉS"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "DÁTUM FORMÁTUM"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "IDŐ FORMÁTUM"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "MARQUEE HASZNÁLATA JÁTÉK INFORMÁCIÓKÉNT"
@@ -3136,7 +3136,7 @@ msgid "UKNOWN ERROR"
 msgstr "ISMERETLEN HIBA"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Váltott soros"
 
 msgid "all games"
 msgstr "minden játék"
