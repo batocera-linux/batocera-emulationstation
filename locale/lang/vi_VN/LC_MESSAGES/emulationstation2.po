@@ -2558,9 +2558,6 @@ msgstr "Chọn sảnh trò chơi để tham gia"
 msgid "FAILED"
 msgstr "LỖI"
 
-msgid "NO GAMES FOUND"
-msgstr "KHÔNG TÌM THẤY TRÒ CHƠI"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "KHÔNG RÕ PHIÊN BẢN ROM"
 
@@ -2573,6 +2570,9 @@ msgstr "CÙNG ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "LÕI KHÔNG KHẢ DỤNG"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2582,8 +2582,8 @@ msgstr "TRÒ CHƠI CÓ SẴN"
 msgid "UNAVAILABLE GAMES"
 msgstr "TRÒ CHƠI KHÔNG CÓ SẴN"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "KHÔNG TÌM THẤY TRÒ CHƠI"
 
 msgid "JOIN GAME"
 msgstr "THAM GIA TRÒ CHƠI"

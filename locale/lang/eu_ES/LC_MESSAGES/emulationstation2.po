@@ -2554,9 +2554,6 @@ msgstr "Aukeratu zein joko gelara batu nahi duzun"
 msgid "FAILED"
 msgstr "HUTS EGIN DU"
 
-msgid "NO GAMES FOUND"
-msgstr "EZ DA JOKORIK AURKITU"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "ROM BERTSIO EZEZAGUNA"
 
@@ -2569,6 +2566,9 @@ msgstr "ROM BERDINA"
 msgid "UNAVAILABLE CORE"
 msgstr "NUKLEO ESKURAEZINA"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2578,8 +2578,8 @@ msgstr "JOKO ESKURAGARRIAK"
 msgid "UNAVAILABLE GAMES"
 msgstr "JOKO ESKURAEZINAK"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "EZ DA JOKORIK AURKITU"
 
 msgid "JOIN GAME"
 msgstr "BATU JOKORA"

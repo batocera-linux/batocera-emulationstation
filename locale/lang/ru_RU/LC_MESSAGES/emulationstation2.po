@@ -2549,9 +2549,6 @@ msgstr "Выберите лобби для присоединения"
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
 
-msgid "NO GAMES FOUND"
-msgstr "ИГР НЕ НАЙДЕНО"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "НЕИЗВЕСТНАЯ ROM ВЕРСИЯ"
 
@@ -2564,6 +2561,9 @@ msgstr "ОДИНАКОВЫЙ ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2573,8 +2573,8 @@ msgstr "ДОСТУПНЫЕ ИГРЫ"
 msgid "UNAVAILABLE GAMES"
 msgstr "НЕДОСТУПНЫЕ ИГРЫ"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "ИГР НЕ НАЙДЕНО"
 
 msgid "JOIN GAME"
 msgstr "ПРИСОЕДИНИТЬСЯ К ИГРЕ"

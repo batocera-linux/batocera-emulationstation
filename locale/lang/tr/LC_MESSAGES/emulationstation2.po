@@ -2555,9 +2555,6 @@ msgstr "Katılmak için oyun lobisi seç"
 msgid "FAILED"
 msgstr "BAŞARISIZ"
 
-msgid "NO GAMES FOUND"
-msgstr "HİÇBİR OYUN BULUNAMADI"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "BİLİNMEYEN ROM VERSİYONU"
 
@@ -2570,6 +2567,9 @@ msgstr "AYNI ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "MEVCUT OLMAYAN ÇEKİRDEK"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2579,8 +2579,8 @@ msgstr "MEVCUT OYUNLAR"
 msgid "UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLAR"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "HİÇBİR OYUN BULUNAMADI"
 
 msgid "JOIN GAME"
 msgstr "OYUNA KATIL"

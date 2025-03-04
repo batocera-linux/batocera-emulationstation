@@ -2570,9 +2570,6 @@ msgstr "Eine Spiel-Lobby zum Beitreten auswählen"
 msgid "FAILED"
 msgstr "FEHLGESCHLAGEN"
 
-msgid "NO GAMES FOUND"
-msgstr "KEINE SPIELE GEFUNDEN"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "UNBEKANNTE ROM-VERSION"
 
@@ -2585,6 +2582,9 @@ msgstr "GLEICHE ROM-DATEI"
 msgid "UNAVAILABLE CORE"
 msgstr "NICHT VERFÜGBARER CORE"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2594,8 +2594,8 @@ msgstr "VERFÜGBARE SPIELE"
 msgid "UNAVAILABLE GAMES"
 msgstr "NICHT VERFÜGBARE SPIELE"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "KEINE SPIELE GEFUNDEN"
 
 msgid "JOIN GAME"
 msgstr "SPIEL BEITRETEN"

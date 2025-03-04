@@ -2534,9 +2534,6 @@ msgstr "참가할 게임 로비 선택"
 msgid "FAILED"
 msgstr "실패함"
 
-msgid "NO GAMES FOUND"
-msgstr "발견된 게임 없음"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "알 수 없는 롬 버전"
 
@@ -2549,6 +2546,9 @@ msgstr "동일 롬"
 msgid "UNAVAILABLE CORE"
 msgstr "사용할 수 없는 코어"
 
+msgid "LAN GAMES"
+msgstr "랜 게임"
+
 msgid "ONLINE GAMES"
 msgstr "온라인 게임"
 
@@ -2558,8 +2558,8 @@ msgstr "실행 가능한 게임"
 msgid "UNAVAILABLE GAMES"
 msgstr "실행할 수 없는 게임"
 
-msgid "LAN GAMES"
-msgstr "랜 게임"
+msgid "NO GAMES FOUND"
+msgstr "발견된 게임 없음"
 
 msgid "JOIN GAME"
 msgstr "게임 참가"

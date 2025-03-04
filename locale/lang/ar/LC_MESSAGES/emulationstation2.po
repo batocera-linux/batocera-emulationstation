@@ -2569,9 +2569,6 @@ msgstr "اختر حُجرَة اللعبة للانضمام"
 msgid "FAILED"
 msgstr "فشل"
 
-msgid "NO GAMES FOUND"
-msgstr "لا توجد ألعاب"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "نسخة مِلف اللعبة (روم) غير معروفة"
 
@@ -2584,6 +2581,9 @@ msgstr "نفس الروم"
 msgid "UNAVAILABLE CORE"
 msgstr "النواة غير متوفرة"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2593,8 +2593,8 @@ msgstr "ألعاب متوفرة"
 msgid "UNAVAILABLE GAMES"
 msgstr "ألعاب غير متوفرة"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "لا توجد ألعاب"
 
 msgid "JOIN GAME"
 msgstr "الانضمام إلى لُعبة"

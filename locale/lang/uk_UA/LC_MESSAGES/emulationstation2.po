@@ -2517,9 +2517,6 @@ msgstr ""
 msgid "FAILED"
 msgstr "ПОМИЛКА"
 
-msgid "NO GAMES FOUND"
-msgstr "НЕ ЗНАЙДЕНО ЖОДНОЇ ГРИ"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "НЕВІДОМА ВЕРСІЯ ГРИ"
 
@@ -2532,6 +2529,9 @@ msgstr "ТА Ж САМА ГРА"
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНЕ ЯДРО"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2541,8 +2541,8 @@ msgstr "ДОСТУПНІ ІГРИ"
 msgid "UNAVAILABLE GAMES"
 msgstr "НЕДОСТУПНІ ІГРИ"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "НЕ ЗНАЙДЕНО ЖОДНОЇ ГРИ"
 
 msgid "JOIN GAME"
 msgstr "ПРИЄДНАТИСЬ ДО ГРИ"

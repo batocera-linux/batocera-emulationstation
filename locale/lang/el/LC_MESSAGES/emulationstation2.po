@@ -2536,9 +2536,6 @@ msgstr ""
 msgid "FAILED"
 msgstr "ΑΠΕΤΥΧΕ"
 
-msgid "NO GAMES FOUND"
-msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΠΑΙΧΝΙΔΙΑ"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "ΑΓΝΩΣΗ ΕΚΔΟΣΗ ROM"
 
@@ -2551,6 +2548,9 @@ msgstr "ΙΔΙΟ ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "ΜΗ ΔΙΑΘΕΣΙΜΟΣ ΠYΡHΝΑΣ"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2560,8 +2560,8 @@ msgstr "ΔΙΑΘΕΣΙΜΑ ΠΑΙΧΝΙΔΙΑ"
 msgid "UNAVAILABLE GAMES"
 msgstr "ΜΗ ΔΙΑΘΕΣΙΜΑ ΠΑΙΧΝΙΔΙΑ"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΠΑΙΧΝΙΔΙΑ"
 
 msgid "JOIN GAME"
 msgstr "ΜΠΕΙΤΕ ΣΤΟ ΠΑΙΧΝΙΔΙ"

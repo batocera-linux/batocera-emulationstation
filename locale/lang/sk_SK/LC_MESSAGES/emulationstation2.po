@@ -2549,9 +2549,6 @@ msgstr "Vyberte hernú miestnosť na pripojenie"
 msgid "FAILED"
 msgstr "Zlyhalo"
 
-msgid "NO GAMES FOUND"
-msgstr "Nenašli sa hry"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "Neznáma verzia ROM"
 
@@ -2564,6 +2561,9 @@ msgstr "Rovnaký ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "Nedostupné jadro"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2573,8 +2573,8 @@ msgstr "Dostupné hry"
 msgid "UNAVAILABLE GAMES"
 msgstr "Nedostupné hry"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "Nenašli sa hry"
 
 msgid "JOIN GAME"
 msgstr "Pripojiť k hre"

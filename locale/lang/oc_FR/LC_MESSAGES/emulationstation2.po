@@ -2515,9 +2515,6 @@ msgstr ""
 msgid "FAILED"
 msgstr "FRACÀS"
 
-msgid "NO GAMES FOUND"
-msgstr ""
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSION DE ROM DESCONEGUDA"
 
@@ -2530,6 +2527,9 @@ msgstr "ROM IDENTICA"
 msgid "UNAVAILABLE CORE"
 msgstr "CÒS PAS DISPONIBLE"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2539,7 +2539,7 @@ msgstr "JÒCS DISPONIBLES"
 msgid "UNAVAILABLE GAMES"
 msgstr "JÒCS PAS DISPONIBLES"
 
-msgid "LAN GAMES"
+msgid "NO GAMES FOUND"
 msgstr ""
 
 msgid "JOIN GAME"

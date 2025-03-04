@@ -2505,9 +2505,6 @@ msgstr ""
 msgid "FAILED"
 msgstr ""
 
-msgid "NO GAMES FOUND"
-msgstr ""
-
 msgid "UNKNOWN ROM VERSION"
 msgstr ""
 
@@ -2520,6 +2517,9 @@ msgstr ""
 msgid "UNAVAILABLE CORE"
 msgstr ""
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2529,7 +2529,7 @@ msgstr ""
 msgid "UNAVAILABLE GAMES"
 msgstr ""
 
-msgid "LAN GAMES"
+msgid "NO GAMES FOUND"
 msgstr ""
 
 msgid "JOIN GAME"

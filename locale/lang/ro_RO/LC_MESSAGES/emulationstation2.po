@@ -2565,9 +2565,6 @@ msgstr "Alege o sală pentru te alătura"
 msgid "FAILED"
 msgstr "EȘUAT"
 
-msgid "NO GAMES FOUND"
-msgstr "NU S-AU GĂSIT JOCURI"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSIUNE ROM NECUNOSCUTĂ"
 
@@ -2580,6 +2577,9 @@ msgstr "ACELAȘI ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NUCLEU INDISPONIBIL"
 
+msgid "LAN GAMES"
+msgstr "JOCURI ÎN REȚEA"
+
 msgid "ONLINE GAMES"
 msgstr "JOCURI ONLINE"
 
@@ -2589,8 +2589,8 @@ msgstr "JOCURI DISPONIBILE"
 msgid "UNAVAILABLE GAMES"
 msgstr "JOCURI INDISPONIBILE"
 
-msgid "LAN GAMES"
-msgstr "JOCURI ÎN REȚEA"
+msgid "NO GAMES FOUND"
+msgstr "NU S-AU GĂSIT JOCURI"
 
 msgid "JOIN GAME"
 msgstr "ALĂTURĂ-TE JOCULUI"

@@ -2522,9 +2522,6 @@ msgstr "选择要加入的游戏大厅"
 msgid "FAILED"
 msgstr "失败"
 
-msgid "NO GAMES FOUND"
-msgstr "找不到游戏"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "未知ROM版本"
 
@@ -2537,6 +2534,9 @@ msgstr "相同的ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "核心不可用"
 
+msgid "LAN GAMES"
+msgstr "局域网游戏"
+
 msgid "ONLINE GAMES"
 msgstr "在线游戏"
 
@@ -2546,8 +2546,8 @@ msgstr "可用的游戏"
 msgid "UNAVAILABLE GAMES"
 msgstr "不可用的游戏"
 
-msgid "LAN GAMES"
-msgstr "局域网游戏"
+msgid "NO GAMES FOUND"
+msgstr "找不到游戏"
 
 msgid "JOIN GAME"
 msgstr "加入游戏"

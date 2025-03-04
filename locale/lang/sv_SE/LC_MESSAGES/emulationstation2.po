@@ -2548,9 +2548,6 @@ msgstr "Välj en spellobby att ansluta till"
 msgid "FAILED"
 msgstr "MISSLYCKADES"
 
-msgid "NO GAMES FOUND"
-msgstr "INGA SPEL HITTADES"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "OKÄND ROM-VERSION"
 
@@ -2563,6 +2560,9 @@ msgstr "SAMMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "OTILLGÄNGLIG KÄRNA"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2572,8 +2572,8 @@ msgstr "TILLGÄNGLIGA SPEL"
 msgid "UNAVAILABLE GAMES"
 msgstr "OTILLGÄNGLIGA SPEL"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "INGA SPEL HITTADES"
 
 msgid "JOIN GAME"
 msgstr "ANSLUT TILL SPEL"

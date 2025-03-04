@@ -2560,9 +2560,6 @@ msgstr "Wybierz lobby gry do której chcesz dołączyć"
 msgid "FAILED"
 msgstr "NIE POWIODŁO SIĘ"
 
-msgid "NO GAMES FOUND"
-msgstr "NIE ZNALEZIONO GIER"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "NIEZNANA WERSJA ROM"
 
@@ -2575,6 +2572,9 @@ msgstr "TEN SAM ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NIEDOSTĘPNE JĄDRO EMULATORA"
 
+msgid "LAN GAMES"
+msgstr "GRY SIECIOWE"
+
 msgid "ONLINE GAMES"
 msgstr "GRY ONLINE"
 
@@ -2584,8 +2584,8 @@ msgstr "DOSTĘPNE GRY"
 msgid "UNAVAILABLE GAMES"
 msgstr "NIEDOSTĘPNE GRY"
 
-msgid "LAN GAMES"
-msgstr "GRY SIECIOWE"
+msgid "NO GAMES FOUND"
+msgstr "NIE ZNALEZIONO GIER"
 
 msgid "JOIN GAME"
 msgstr "DOŁĄCZ DO GRY"

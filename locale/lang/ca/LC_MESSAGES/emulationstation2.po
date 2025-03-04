@@ -2566,9 +2566,6 @@ msgstr "Seleccionar una sala de joc per unir-se"
 msgid "FAILED"
 msgstr "HA FALLAT"
 
-msgid "NO GAMES FOUND"
-msgstr "NO S'HA TROBAT JOCS"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSIÓ DESCONEGUDA DE LA ROM"
 
@@ -2581,6 +2578,9 @@ msgstr "LA ROM ÉS IGUAL"
 msgid "UNAVAILABLE CORE"
 msgstr "NUCLI NO DISPONIBLE"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2590,8 +2590,8 @@ msgstr "JOCS DISPONIBLES"
 msgid "UNAVAILABLE GAMES"
 msgstr "JOCS NO DISPONIBLES"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "NO S'HA TROBAT JOCS"
 
 msgid "JOIN GAME"
 msgstr "UNIR-SE A LA PARTIDA"

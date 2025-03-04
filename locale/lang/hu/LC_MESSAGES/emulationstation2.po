@@ -2567,9 +2567,6 @@ msgstr "Válassza ki azt a játéklobbyt, amelyhez csatlakozni szeretne"
 msgid "FAILED"
 msgstr "SIKERTELEN"
 
-msgid "NO GAMES FOUND"
-msgstr "NEM TALÁLHATÓ JÁTÉK"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "ISMERETLEN ROM VERZIÓ"
 
@@ -2582,6 +2579,9 @@ msgstr "AZONOS ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NEM ELÉRHETŐ CORE"
 
+msgid "LAN GAMES"
+msgstr "LAN JÁTÉKOK"
+
 msgid "ONLINE GAMES"
 msgstr "ONLINE JÁTÉKOK"
 
@@ -2591,8 +2591,8 @@ msgstr "ELÉRHETŐ JÁTÉKOK"
 msgid "UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK"
 
-msgid "LAN GAMES"
-msgstr "LAN JÁTÉKOK"
+msgid "NO GAMES FOUND"
+msgstr "NEM TALÁLHATÓ JÁTÉK"
 
 msgid "JOIN GAME"
 msgstr "CSATLAKOZÁS JÁTÉKHOZ"

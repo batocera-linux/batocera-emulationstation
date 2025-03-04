@@ -2558,9 +2558,6 @@ msgstr "Choisir la partie à rejoindre"
 msgid "FAILED"
 msgstr "ÉCHEC"
 
-msgid "NO GAMES FOUND"
-msgstr "AUCUN JEU TROUVÉ"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSION DE ROM INCONNUE"
 
@@ -2573,6 +2570,9 @@ msgstr "ROM IDENTIQUE"
 msgid "UNAVAILABLE CORE"
 msgstr "CŒUR NON DISPONIBLE"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2582,8 +2582,8 @@ msgstr "JEUX DISPONIBLES"
 msgid "UNAVAILABLE GAMES"
 msgstr "JEUX NON DISPONIBLES"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "AUCUN JEU TROUVÉ"
 
 msgid "JOIN GAME"
 msgstr "REJOINDRE LE JEU"

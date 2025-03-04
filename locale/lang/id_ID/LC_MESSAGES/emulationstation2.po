@@ -2546,9 +2546,6 @@ msgstr "Pilih lobi permainan untuk bergabung"
 msgid "FAILED"
 msgstr "GAGAL"
 
-msgid "NO GAMES FOUND"
-msgstr "GAME TIDAK DITEMUKAN"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSI ROM TIDAK DIKENAL"
 
@@ -2561,6 +2558,9 @@ msgstr "ROM SAMA"
 msgid "UNAVAILABLE CORE"
 msgstr "CORE TIDAK TERSEDIA"
 
+msgid "LAN GAMES"
+msgstr "GAME LAN"
+
 msgid "ONLINE GAMES"
 msgstr "GAME DARING"
 
@@ -2570,8 +2570,8 @@ msgstr "GAME TERSEDIA"
 msgid "UNAVAILABLE GAMES"
 msgstr "GAME TIDAK TERSEDIA"
 
-msgid "LAN GAMES"
-msgstr "GAME LAN"
+msgid "NO GAMES FOUND"
+msgstr "GAME TIDAK DITEMUKAN"
 
 msgid "JOIN GAME"
 msgstr "GABUNG GAME"

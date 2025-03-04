@@ -2547,9 +2547,6 @@ msgstr "Velg en spill-lobby å bli med i"
 msgid "FAILED"
 msgstr "FEILET"
 
-msgid "NO GAMES FOUND"
-msgstr "INGEN SPILL FUNNET"
-
 msgid "UNKNOWN ROM VERSION"
 msgstr "UKJENT ROM VERSJON"
 
@@ -2562,6 +2559,9 @@ msgstr "SAMME ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "UTILGJENGELIG KJERNE"
 
+msgid "LAN GAMES"
+msgstr ""
+
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2571,8 +2571,8 @@ msgstr "TILGJENGELIGE SPILL"
 msgid "UNAVAILABLE GAMES"
 msgstr "UTILGJENGELIG SPILL"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "NO GAMES FOUND"
+msgstr "INGEN SPILL FUNNET"
 
 msgid "JOIN GAME"
 msgstr "BLI MED I SPILLET"
