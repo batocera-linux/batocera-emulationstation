@@ -2457,6 +2457,21 @@ static std::string getFeatureMenuDescription(const std::string& configName, cons
 				}
 			}
 
+			if (item.preset == "switchoff" || item.preset == "switch_default_off_reverse_value")
+			{
+				if (storedValue == "0")
+					storedValue = _("ON");
+				else if (storedValue == "1")
+					storedValue = _("OFF");
+			}
+			else if (Utils::String::startsWith(item.preset, "switch"))
+			{
+				if (storedValue == "0")
+					storedValue = _("OFF");
+				else if (storedValue == "1")
+					storedValue = _("ON");
+			}
+
 			text += " : " + Utils::String::toUpper(storedValue);
 
 			if (description.empty())
