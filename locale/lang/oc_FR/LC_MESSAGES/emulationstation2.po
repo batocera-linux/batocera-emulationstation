@@ -556,6 +556,18 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
@@ -1964,6 +1976,21 @@ msgstr ""
 
 msgid "NOW PLAYING"
 msgstr ""
+
+msgid "SAVE TO FAVORITES"
+msgstr "ENREGISTRAR DINS LOS FAVORITS"
+
+msgid "Save current song to favorites playlist"
+msgstr "Enregistrar la cançon actuala dins la lista de lectura dels favorits"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "SUPRIMIR LA CANÇON DELS FAVORITS"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Suprimir la cançon actuala de la lista de lectura dels favorits"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "UTILIZAR LA LISTA DE FAVORITS"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVIAR L'ESTALVIADOR D'ECRAN"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v42b(2025/03/01)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-01 12:31+0900\n"
+"PO-Revision-Date: 2025-03-19 06:02+0900\n"
 "Last-Translator: mikakunin\n"
 "Language-Team: mikakunin\n"
 "Language: ja\n"
@@ -551,6 +551,18 @@ msgstr "カスタム"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "カスタムリレーサーバー"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "ロビーを自動的に作成"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "ゲームを開始時に、自動的にネットプレイ ロビーを作成します"
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "リレーサーバーゲームのみを表示"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "リレーサーバーゲームは参加に成功する可能性が高くなります"
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "利用不可ゲームを表示"
@@ -1994,6 +2006,21 @@ msgstr "次の曲にスキップ"
 msgid "NOW PLAYING"
 msgstr "現在再生中の曲名"
 
+msgid "SAVE TO FAVORITES"
+msgstr "お気に入りに保存"
+
+msgid "Save current song to favorites playlist"
+msgstr "現在の曲をお気に入りプレイリストに保存"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "お気に入りから曲を削除"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "現在の曲をお気に入りプレイリストから削除"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "お気に入りプレイリストを使用"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
 
@@ -2654,7 +2681,7 @@ msgid "BEHAVIOR"
 msgstr "動作"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "ホットキーでの終了を制限"
+msgstr "ホットキーの機能を制限(終了以外)"
 
 msgid "default"
 msgstr "標準"
@@ -3558,12 +3585,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "オンライン、オフライン、別のゲームへの参加を選択できます"
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "リレーサーバーゲームのみを表示"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "リレーサーバーゲームは参加に成功する可能性が高くなります"
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "作成または参加するゲーム ロビーを選択"

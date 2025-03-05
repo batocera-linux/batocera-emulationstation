@@ -554,6 +554,18 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
@@ -1962,6 +1974,21 @@ msgstr ""
 
 msgid "NOW PLAYING"
 msgstr ""
+
+msgid "SAVE TO FAVORITES"
+msgstr "CADW I'R HOFFTERAU"
+
+msgid "Save current song to favorites playlist"
+msgstr "Cadw'r gân gyfredol i restr chwarae hoffterau"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "DILEU CAN O'R HOFFTERAU"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Tynnu'r gân gyfredol o restr chwarae hoffterau"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "DEFNYDDIO RHESTR CHWARAE HOFFTERAU"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSIO ARBEDYDD SGRIN"

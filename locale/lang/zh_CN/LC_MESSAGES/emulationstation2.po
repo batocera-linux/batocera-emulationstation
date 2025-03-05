@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: batocera-es v34beta(2022/04/06)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-01 11:46+0800\n"
+"PO-Revision-Date: 2025-03-17 09:15+0800\n"
 "Last-Translator: wanger\n"
 "Language-Team: mikakunin,王二,monyxie\n"
 "Language: zh_CN\n"
@@ -361,7 +361,7 @@ msgid "No items"
 msgstr "在此视角下没东西"
 
 msgid "PLEASE WAIT"
-msgstr "请稍后"
+msgstr "请稍候"
 
 msgid "UPDATE"
 msgstr "更新"
@@ -547,6 +547,18 @@ msgstr "定制"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "定制中继服务器"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "自动创建大厅"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "开始游戏时自动创建网络游戏大厅."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "仅显示中继服务器游戏"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "中继服务器游戏有更高机会成功进入."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
@@ -1967,6 +1979,21 @@ msgstr "下一首音乐"
 
 msgid "NOW PLAYING"
 msgstr "正在播放音乐"
+
+msgid "SAVE TO FAVORITES"
+msgstr "保存到收藏夹"
+
+msgid "Save current song to favorites playlist"
+msgstr "将当前歌曲保存到收藏播放列表"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "从收藏夹中删除歌曲"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "从收藏播放列表中删除当前歌曲"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "使用收藏播放列表"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
@@ -3526,12 +3553,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "允许选择在线、离线或加入其他游戏."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "仅显示中继服务器游戏"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "中继服务器游戏有更高机会成功进入."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "选择要创建或加入的游戏大厅"

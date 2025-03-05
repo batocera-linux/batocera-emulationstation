@@ -42,6 +42,15 @@ public:
 	virtual void onSettingChanged(const std::string& name) = 0;
 };
 
+enum class SettingType
+{
+	Unknown,
+	String,
+	Int,
+	Float,
+	Bool	
+};
+
 //This is a singleton for storing settings.
 class Settings
 {
@@ -50,6 +59,9 @@ public:
 
 	void loadFile();
 	bool saveFile();
+
+	SettingType getSettingType(const std::string& name);
+	std::vector<std::string> getSettingsNames();
 
 	//You will get a warning if you try a get on a key that is not already present.
 	bool getBool(const std::string& name);
@@ -95,6 +107,8 @@ public:
 	DEFINE_BOOL_SETTING(ThreadedLoading)
 	DEFINE_BOOL_SETTING(CheevosCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
+	DEFINE_BOOL_SETTING(NetPlayAutomaticallyCreateLobby)
+	DEFINE_BOOL_SETTING(NetPlayShowOnlyRelayServerGames)
 	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)			
 	DEFINE_BOOL_SETTING(LoadEmptySystems)		
 	DEFINE_BOOL_SETTING(HideUniqueGroups)

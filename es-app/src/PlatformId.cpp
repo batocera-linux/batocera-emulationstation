@@ -86,6 +86,7 @@ namespace PlatformIds
 		{ "vectrex",				VECTREX },
 		{ "trs-80",					TRS80_COLOR_COMPUTER },
 		{ "coco",					TANDY },
+		{ "dragon32",				DRAGON32 },
 		{ "supergrafx",				SUPERGRAFX },
 		{ "amigacd32",				AMIGACD32 },
 		{ "amigacdtv",				AMIGACDTV },
@@ -145,6 +146,7 @@ namespace PlatformIds
 		{ "ti99_4a",				TI99 },
 		{ "pico8",					PICO8 },
 		{ "sgb",					SUPER_GAME_BOY },
+		{ "vc4000",					VC4000 },
 
 		{ "watara",					WATARA_SUPERVISION },
 		{ "supervision",			WATARA_SUPERVISION },

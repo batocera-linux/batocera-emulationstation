@@ -552,6 +552,18 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "הצג משחקים לא זמינים"
 
@@ -1960,6 +1972,21 @@ msgstr "דילוג על השיר הבא"
 
 msgid "NOW PLAYING"
 msgstr "מנגן"
+
+msgid "SAVE TO FAVORITES"
+msgstr "שמור למועדפים"
+
+msgid "Save current song to favorites playlist"
+msgstr "שמור את השיר הנוכחי לרשימת ההשמעה של מועדפים"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "מחק שיר מהמועדפים"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "הסר את השיר הנוכחי מרשימת ההשמעה של מועדפים"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "השתמש ברשימת מועדפים"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"

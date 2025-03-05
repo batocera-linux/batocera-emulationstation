@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-01 22:07+0200\n"
+"PO-Revision-Date: 2025-03-29 14:16+0200\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -550,6 +550,20 @@ msgstr "PERSONALIZAT"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CREEAZĂ O SALĂ AUTOMAT"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Creează automat o sală Netplay la lansarea unui joc."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Jocurile cu server de retranslație au o șansă mai mare de a permite "
+"alăturarea cu succes."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
@@ -1824,13 +1838,13 @@ msgid "SHOW FOLDERS"
 msgstr "ARATĂ DOSARELE"
 
 msgid "always"
-msgstr "MEREU"
+msgstr "mereu"
 
 msgid "never"
-msgstr "NICIODATĂ"
+msgstr "niciodată"
 
 msgid "having multiple games"
-msgstr "CÂND CONȚIN MAI MULTE JOCURI"
+msgstr "când conțin mai multe jocuri"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ARATĂ DOSARUL PĂRINTE „..”"
@@ -2008,6 +2022,21 @@ msgstr "TRECI LA URMĂTORUL CÂNTEC"
 
 msgid "NOW PLAYING"
 msgstr "ACUM SE REDĂ"
+
+msgid "SAVE TO FAVORITES"
+msgstr "SALVEAZĂ ÎN FAVORITE"
+
+msgid "Save current song to favorites playlist"
+msgstr "Salvează melodia curentă în lista de redare favorite"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "ȘTERGE MELODIA DIN FAVORITE"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Șterge melodia curentă din lista de favorite"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "FOLOSEȘTE LISTA DE FAVORITE"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSEAZĂ ECONOMIZORUL DE ECRAN"
@@ -3599,14 +3628,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Permite alegerea online, offline sau alăturarea la un alt joc."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Jocurile cu server de retranslație au o șansă mai mare de a permite "
-#~ "alăturarea cu succes."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Alege o sală pentru a crea sau a te alătura"

@@ -551,6 +551,18 @@ msgstr "PERSONALIZZATO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "RELAY SERVER PERSONALIZZATO"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CREA LOBBY AUTOMATICAMENTE"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Crea automaticamenta una lobby Netplay all'avvio del gioco."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "MOSTRA SOLO I GIOCHI RELAY SERVER"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "I giochi relay server hanno migliori chance di successo."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRA GIOCHI NON DISPONIBILI"
 
@@ -1996,6 +2008,21 @@ msgstr "PASSA ALLA TRACCIA SUCCESSIVA"
 msgid "NOW PLAYING"
 msgstr "IN ASCOLTO"
 
+msgid "SAVE TO FAVORITES"
+msgstr "AGGIUNGI AI PREFERITI"
+
+msgid "Save current song to favorites playlist"
+msgstr "Salva la canzone attuale nella playlist dei preferiti"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "RIMUOVI DAI PREFERITI"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Rimuovi la canzone attuale dalla playlist dei preferiti"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "USA LA PLAYLIST DEI PREFERITI"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
 
@@ -2564,10 +2591,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "CORE NON DISPONIBILE"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "GIOCHI LAN"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "GIOCHI ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "GIOCHI DISPONIBILI"
@@ -2652,10 +2679,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "DISEGNA MIRINO"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "COMPORTAMENTO"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "LIMITA HOTKEYS ALL'USCITA"
 
 msgid "default"
 msgstr "default"
@@ -2835,13 +2862,13 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRA INFORMAZIONI DEL GIOCO"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "MOSTRA L'ORA"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMATO DATA"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMATO ORA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USA BANNER COME INFO DI GIOCO"
@@ -3119,7 +3146,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERRORE SCONOSCIUTO"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Interlacciato"
 
 msgid "all games"
 msgstr "tutti i giochi"
@@ -3573,12 +3600,6 @@ msgstr ""
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr ""
 #~ "Permette di scegliere se online, offline o partecipare ad un altro gioco."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "MOSTRA SOLO I GIOCHI RELAY SERVER"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "I giochi relay server hanno migliori chance di successo."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Scegli una lobby gioco da creare o entrare"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-26 00:00+0100\n"
-"PO-Revision-Date: 2025-02-28 00:00+0100\n"
+"PO-Revision-Date: 2025-03-23 00:00+0100\n"
 "Last-Translator: roliverosc\n"
 "Language-Team: spanish\n"
 "Language: es\n"
@@ -547,6 +547,20 @@ msgstr "PERSONALIZAR"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "PERSONALIZAR SERVIDOR DE RETRANSMISIÓN"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CREAR LOBBY AUTOMÁTICAMENTE"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Crea automáticamente un lobby de Netplay al iniciar un juego."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "MOSTRAR SOLO JUEGOS DE SERVIDOR DE RETRANSMISIÓN"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Los juegos con servidores de retransmisión tienen mayores posibilidades de "
+"acceso con éxito."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
@@ -2013,6 +2027,21 @@ msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 
 msgid "NOW PLAYING"
 msgstr "REPRODUCIENDO"
+
+msgid "SAVE TO FAVORITES"
+msgstr "GUARDAR EN FAVORITOS"
+
+msgid "Save current song to favorites playlist"
+msgstr "Guardar la canción actual en la lista de favoritos"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "ELIMINAR CANCIÓN DE FAVORITOS"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Eliminar la canción actual de la lista de favoritos"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "USAR LISTA DE FAVORITOS"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
@@ -3593,14 +3622,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Permite elegir entre jugar online, offline o unirse a otro juego."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "MOSTRAR SOLO JUEGOS DE SERVIDOR DE RETRANSMISIÓN"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Los juegos con servidores de retransmisión tienen mayores posibilidades "
-#~ "de acceso con éxito."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Selecciona una sala de juego para crear o unirte"

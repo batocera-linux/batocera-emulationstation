@@ -549,6 +549,18 @@ msgstr "ÖZEL"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ÖZEL RELAY SUNUCUSU"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLARI GÖSTER"
 
@@ -1998,6 +2010,21 @@ msgstr "SONRAKİ ŞARKIYA GEÇ"
 
 msgid "NOW PLAYING"
 msgstr "ŞİMDİ OYNANIYOR"
+
+msgid "SAVE TO FAVORITES"
+msgstr "FAVORİLERE KAYDET"
+
+msgid "Save current song to favorites playlist"
+msgstr "Mevcut şarkıyı favoriler çalma listesine kaydet"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "FAVORİLERDEN ŞARKIYI SİL"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Mevcut şarkıyı favoriler çalma listesinden kaldır"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "FAVORİLER ÇALMA LİSTESİNİ KULLAN"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"

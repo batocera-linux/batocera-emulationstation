@@ -107,6 +107,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VECTREX, 102 },
 	{ TRS80_COLOR_COMPUTER, 144 },
 	{ TANDY, 144 },
+	{ DRAGON32, 91 },
 	{ SUPERGRAFX, 105 },
 	{ GP32, 101},
 
@@ -184,7 +185,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VIRCON32, 272 },
 	{ GAMATE, 266 },
 	{ ARDUBOY, 263 },
-	{ LOWRESNX, 244 }
+	{ LOWRESNX, 244 },
+	{ VC4000, 281 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()

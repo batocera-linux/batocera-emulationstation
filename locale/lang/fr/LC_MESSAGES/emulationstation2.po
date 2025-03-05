@@ -549,6 +549,18 @@ msgstr "PERSONNALISÉ"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVEUR RELAI PERSONNALISÉ"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CRÉER AUTOMATIQUEMENT UN LOBBY"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Créer automatiquement un lobby Netplay au démarrage d’une partie."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "AFFICHER UNIQUEMENT LES JEUX AVEC SERVEUR RELAIS"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Les connections à des jeux sur serveur relais ont plus de chances d'aboutir."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFFICHER LES JEUX NON DISPONIBLES"
 
@@ -2003,6 +2015,21 @@ msgstr "PASSER A LA MUSIQUE SUIVANTE"
 msgid "NOW PLAYING"
 msgstr "A L’ÉCOUTE"
 
+msgid "SAVE TO FAVORITES"
+msgstr "ENREGISTRER DANS LES FAVORIS"
+
+msgid "Save current song to favorites playlist"
+msgstr "Enregistrer la chanson actuelle dans la playlist des favoris"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "SUPPRIMER LA CHANSON DES FAVORIS"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Supprimer la chanson actuelle de la playlist des favoris"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "UTILISER LA PLAYLIST DES FAVORIS"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCONOMISEUR D'ÉCRAN"
 
@@ -2571,10 +2598,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "CŒUR NON DISPONIBLE"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "JEUX EN RÉSEAU"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "JEUX EN LIGNE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"
@@ -2843,13 +2870,13 @@ msgid "SHOW GAME INFO"
 msgstr "AFFICHER LES INFORMATIONS DU JEU"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "AFFICHE DATE HEURE"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMAT DATE"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMAT HEURE"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UTILISER LES LOGOS POUR LES INFOS JEU"
@@ -3128,7 +3155,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Entrelacé"
 
 msgid "all games"
 msgstr "tous les jeux"
@@ -3580,12 +3607,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Permettre de choisir de jouer en ligne, hors ligne."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "AFFICHER SEUELEMENT LE SERVEUR RELAIS DES JEUX"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Le serveur de relais des jeux à généralement davantage d'entrées."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Choisir la partie à créer ou rejoindre"

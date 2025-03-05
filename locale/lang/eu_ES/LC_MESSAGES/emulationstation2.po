@@ -546,6 +546,18 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ERAKUTSI ESKURAGARRI EZ DAUDEN JOKOAK"
 
@@ -1996,6 +2008,21 @@ msgstr "SALTATU HURRENGO ABESTIA"
 
 msgid "NOW PLAYING"
 msgstr "ORAIN ERREPRODUZITZEN"
+
+msgid "SAVE TO FAVORITES"
+msgstr "GEHITU GOGOKOETARA"
+
+msgid "Save current song to favorites playlist"
+msgstr "Gorde uneko abestia gogokoen zerrendan"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "KENDU ABESTIA GOGOKOETATIK"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Kendu uneko abestia gogokoen zerrendatik"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "ERABILI GOGOKOEN ZERRENDA"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "ABIARAZI PANTAILA BABESLEA"

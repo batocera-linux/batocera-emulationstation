@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-03 10:05+0100\n"
+"PO-Revision-Date: 2025-04-02 11:38+0200\n"
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -548,6 +548,18 @@ msgstr "EGYEDI"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGYÉNI RELAY SZERVER"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "AUTOMATIKUSAN LÉTREHOZZA A LOBBIT"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "A játék indításakor automatikusan létrehoz egy Netplay-lobbit."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK MEGJELENÍTÉSE"
@@ -2009,6 +2021,21 @@ msgstr "UGRÁS A KÖVETKEZŐ DALRA"
 
 msgid "NOW PLAYING"
 msgstr "MOST JÁTSZOTT"
+
+msgid "SAVE TO FAVORITES"
+msgstr "MENTÉS A KEDVENCEK KÖZÉ"
+
+msgid "Save current song to favorites playlist"
+msgstr "Aktuális dal mentése a kedvencek listájára"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "DAL TÖRLÉSE A KEDVENCEKBŐL"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Az aktuális dal eltávolítása a kedvencek közül"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "KEDVENCEK LEJÁTSZÁSI LISTÁJÁNAK HASZNÁLATA"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "KÉPERNYŐVÉDŐ INDÍTÁSA"
@@ -3591,13 +3618,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Lehetővé teszi az online és offline választást, vagy egy másik játékhoz "
 #~ "való csatlakozást."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr ""

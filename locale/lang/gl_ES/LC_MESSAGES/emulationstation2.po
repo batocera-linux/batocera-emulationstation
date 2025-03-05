@@ -555,6 +555,19 @@ msgstr "PERSONALIZADO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR CENTRAL PERSONALIZADO"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "CREAR SALA AUTOMATICAMENTE"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+"Crea automaticamente unha sala de xogo en liña ao iniciar unha partida."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Os xogos con servidor central teñen máis probabilidades de conexión."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AMOSAR XOGOS NON DISPOÑÍBEIS"
 
@@ -2010,6 +2023,21 @@ msgstr "SALTAR Á SEGUINTE CANCIÓN"
 
 msgid "NOW PLAYING"
 msgstr "REPRODUCINDO"
+
+msgid "SAVE TO FAVORITES"
+msgstr "GARDAR NOS FAVORITOS"
+
+msgid "Save current song to favorites playlist"
+msgstr "Gardar a canción actual na lista de favoritos"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "ELIMINAR CANCIÓN DOS FAVORITOS"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Eliminar a canción actual da lista de favoritos"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "USAR LISTA DE FAVORITOS"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
@@ -3588,13 +3616,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Permite escoller entre xogar en liña, desconectado ou unirse a outra "
 #~ "partida."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Os xogos con servidor central teñen máis probabilidades de conexión."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Selecciona una sala de xogo para crear ou unirte"

@@ -730,6 +730,31 @@ void ThemeData::loadFile(const std::string& system, const std::map<std::string, 
 	mVariables["themePath"] = Utils::FileSystem::getParent(mPaths.back());
 	mVariables["region"] = mRegion;
 	
+	for (auto name : Settings::getInstance()->getSettingsNames())
+	{
+		if (name.find(".") != std::string::npos)
+			continue;
+
+		std::string variableName = "settings." + name;
+
+		SettingType type = Settings::getInstance()->getSettingType(name);
+		switch (type)
+		{
+		case SettingType::String:
+			mVariables[variableName] = Settings::getInstance()->getString(name);
+			break;
+		case SettingType::Bool:
+			mVariables[variableName] = Settings::getInstance()->getBool(name) ? "true" : "false";
+			break;
+		case SettingType::Int:
+			mVariables[variableName] = std::to_string(Settings::getInstance()->getInt(name));
+			break;
+		case SettingType::Float:
+			mVariables[variableName] = std::to_string(Settings::getInstance()->getFloat(name));
+			break;
+		}
+	}
+
 	for (auto var : mVariables)
 	{
 		if (var.first == "screen.height" || var.first == "screen.width")

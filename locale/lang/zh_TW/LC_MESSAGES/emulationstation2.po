@@ -550,6 +550,18 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "顯示無法使用的遊戲"
 
@@ -1968,6 +1980,21 @@ msgstr "跳至下一首歌"
 
 msgid "NOW PLAYING"
 msgstr "正在播放"
+
+msgid "SAVE TO FAVORITES"
+msgstr "儲存到我的最愛"
+
+msgid "Save current song to favorites playlist"
+msgstr "將目前歌曲儲存到我的最愛播放清單"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "從最愛中刪除歌曲"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "從最愛播放清單中移除目前的歌曲"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "使用最愛播放清單"
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"

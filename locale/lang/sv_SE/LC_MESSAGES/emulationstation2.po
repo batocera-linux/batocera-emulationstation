@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2024-08-26 19:39+0200\n"
-"Last-Translator: iBibicus\n"
-"Language-Team: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-04-04 15:13+0200\n"
+"Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
+"Language-Team: sv\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.6\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SKANNAR BLUETOOTH"
@@ -71,10 +71,10 @@ msgid "enter path to video"
 msgstr "ange sökväg till video"
 
 msgid "Logo"
-msgstr "Logga"
+msgstr "Logotyp"
 
 msgid "enter path to logo"
-msgstr "ange sökväg till logga"
+msgstr "ange sökväg till logotyp"
 
 msgid "Box"
 msgstr "Fodral"
@@ -83,10 +83,10 @@ msgid "enter path to box"
 msgstr "ange sökväg till fodral"
 
 msgid "Fan art"
-msgstr "Entusiastkonst"
+msgstr "Fanbilder"
 
 msgid "enter path to fanart"
-msgstr "ange sökväg till entusiastkonst"
+msgstr "ange sökväg till fanbilder"
 
 msgid "Title shot"
 msgstr "Titelbild"
@@ -236,7 +236,7 @@ msgid "Crc32"
 msgstr "CRC32"
 
 msgid "Crc32 checksum"
-msgstr "CRC32-checksumma"
+msgstr "CRC32-kontrollsumma"
 
 msgid "Md5"
 msgstr "MD5"
@@ -272,7 +272,7 @@ msgid "Cheevos Game ID"
 msgstr "Cheevos Spel-ID"
 
 msgid "Screenscraper Game ID"
-msgstr "Screenscraper Spel-ID"
+msgstr "Spel-ID för Screenscraper"
 
 #, c-format
 msgid "This collection contains %i game:%s"
@@ -290,7 +290,7 @@ msgid "Extracting"
 msgstr "Packar upp"
 
 msgid "DOWNLOADING"
-msgstr "LADDAR NED"
+msgstr "HÄMTAR"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALLERAT"
@@ -332,7 +332,7 @@ msgid "CANCEL"
 msgstr "AVBRYT"
 
 msgid "Downloading"
-msgstr "Laddar ned"
+msgstr "Hämtar"
 
 msgid "SEARCH FOR"
 msgstr "SÖK EFTER"
@@ -341,7 +341,7 @@ msgid "ACCEPT RESULT"
 msgstr "ACCEPTERA RESULTAT"
 
 msgid "THEMES DOWNLOADER"
-msgstr "TEMANEDLADDARE"
+msgstr "TEMAHÄMTARE"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VÄLJ TEMAN ATT INSTALLERA/TA BORT"
@@ -362,14 +362,14 @@ msgid "No items"
 msgstr "Inga objekt"
 
 msgid "PLEASE WAIT"
-msgstr "VÄNLIGEN VÄNTA"
+msgstr "VÄNTA"
 
 msgid "UPDATE"
 msgstr "UPPDATERA"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' HAR LAGTS TILL I NEDLADDNINGSKÖN"
+msgstr "'%s' HAR LAGTS TILL I HÄMTNINGSKÖN"
 
 msgid "REMOVE"
 msgstr "TA BORT"
@@ -385,7 +385,7 @@ msgstr "AKTUELLT TEMA"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "FINNS JUST NU I NEDLADDNINGSKÖN"
+msgstr "FINNS JUST NU I HÄMTNINGSKÖN"
 
 msgid "FINISHED"
 msgstr "SLUTFÖRD"
@@ -549,6 +549,18 @@ msgstr "ANPASSAD"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ANPASSAD RELÄSERVER"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "SKAPA LOBBY AUTOMATISKT"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Skapar automatiskt en Netplay-lobby när du startar ett spel."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "VISA ENDAST SPEL MED RELÄSERVER"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Reläserverspel har en större chans att lyckas med deltagandet."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VISA OTILLGÄNGLIGA SPEL"
 
@@ -614,7 +626,7 @@ msgstr "HARDCORE-LÄGE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Inaktivera laddningstillstånd, spola tillbaka och fuska för fler poäng."
+"Inaktivera inläsningstillstånd, spola tillbaka och fuska för fler poäng."
 
 msgid "LEADERBOARDS"
 msgstr "TOPPLISTOR"
@@ -833,13 +845,13 @@ msgid "fade"
 msgstr "tona"
 
 msgid "fast fade"
-msgstr ""
+msgstr "snabb toning"
 
 msgid "slide"
 msgstr "glid"
 
 msgid "fast slide"
-msgstr ""
+msgstr "snabb glidning"
 
 msgid "fade & slide"
 msgstr "tona & glid"
@@ -881,37 +893,37 @@ msgid "Cpu feature"
 msgstr "CPU-teknologi"
 
 msgid "Available Memory"
-msgstr ""
+msgstr "Tillgängligt minne"
 
 msgid "Display Resolution"
-msgstr ""
+msgstr "Skärmupplösning"
 
 msgid "Display Refresh Rate"
-msgstr ""
+msgstr "Skärmens uppdateringsfrekvens"
 
 msgid "OpenGL Driver Version"
-msgstr ""
+msgstr "Version för OpenGL-drivrutin"
 
 msgid "Vulkan Driver Name"
-msgstr ""
+msgstr "Namn för Vulkan-drivrutin"
 
 msgid "Vulkan Driver Version"
-msgstr ""
+msgstr "Version för Vulkan-drivrutin"
 
 msgid "Data Partition Format"
-msgstr ""
+msgstr "Format för datapartition"
 
 msgid "Data Partition Available Space"
-msgstr ""
+msgstr "Ledigt utrymme på datapartition"
 
 msgid "Network IP Address"
-msgstr ""
+msgstr "Nätverkets IP-adress"
 
 msgid "UEFI Boot"
-msgstr ""
+msgstr "UEFI Boot"
 
 msgid "Secure Boot"
-msgstr ""
+msgstr "Secure Boot"
 
 msgctxt "game_options"
 msgid "SHARP-BILINEAR-SIMPLE"
@@ -994,7 +1006,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "EMULATORINSTÄLLNINGAR"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "UPPDATERINGAR & NEDLADDNINGAR"
+msgstr "UPPDATERINGAR & HÄMTNINGAR"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
@@ -1039,7 +1051,7 @@ msgid "SIMULATOR (for web dmd)"
 msgstr "SIMULATOR (för webb-dmd)"
 
 msgid "dmd server"
-msgstr "DMD-server"
+msgstr "dmd-server"
 
 msgid "FORMAT"
 msgstr "FORMAT"
@@ -1048,7 +1060,7 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "dmd matrix size"
-msgstr "DMD-matris storlek"
+msgstr "dmd-matris storlek"
 
 msgid "BRIGHTNESS"
 msgstr "LJUSSTYRKA"
@@ -1169,7 +1181,7 @@ msgid "RESET GAMELISTS USAGE DATA"
 msgstr "ÅTERSTÄLL SPELLISTORS ANVÄNDARDATA"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
-msgstr ""
+msgstr "Nollställ värden för GameTime, PlayCount och LastPlayed-metadata."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "ÅTERSTÄLL FILÄNDELSER"
@@ -1222,7 +1234,7 @@ msgstr "AKTIVERA SPELFILTRERING"
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
-"Om spelfiltreringsinställningar ska visas eller ej i visningsalternativen."
+"Om spelfiltreringsinställningar ska visas eller inte i visningsalternativen."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "SPARA METADATA VID AVSLUT"
@@ -1255,7 +1267,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "SNABBT SYSTEMVAL"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "SNABBHOPPA TILL BOKSTAV"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "SKÄRMTANGENTBORD"
@@ -1307,7 +1319,7 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMERINGAR"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "FÖRLADDA ANVÄNDARGRÄNSSNITT VID UPPSTART"
+msgstr "FÖRINLÄS ANVÄNDARGRÄNSSNITT VID UPPSTART"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
@@ -1316,7 +1328,7 @@ msgstr ""
 "uppstartstiden"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr "FÖRLADDA METADATA-MEDIA VID UPPSTART"
+msgstr "FÖRINLÄS METADATA-MEDIA VID UPPSTART"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
@@ -1326,10 +1338,10 @@ msgstr ""
 "uppstartstiden"
 
 msgid "THREADED LOADING"
-msgstr "TRÅDAD LADDNING"
+msgstr "TRÅDAD INLÄSNING"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "ASYNKRON BILDLADDNING"
+msgstr "ASYNKRON BILDINLÄSNING"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMERA BILDERS VRAM-ANVÄNDNING"
@@ -1341,10 +1353,10 @@ msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "OMSTART KRÄVS FÖR ATT VERKSTÄLLA DE NYA INSTÄLLNINGARNA"
 
 msgid "DOWNLOADS"
-msgstr "NEDLADDNINGAR"
+msgstr "HÄMTNINGAR"
 
 msgid "CONTENT DOWNLOADER"
-msgstr "INNEHÅLLSNEDLADDARE"
+msgstr "INNEHÅLLSHÄMTARE"
 
 msgid "THEMES"
 msgstr "TEMAN"
@@ -1614,11 +1626,11 @@ msgid "SAVESTATES"
 msgstr "SAVESTATES"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "SPARA/LADDA AUTOMATISKT"
+msgstr "SPARA/LÄS IN AUTOMATISKT"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Ladda senaste sparläge vid spelstart och sparläge när du avslutar spelet."
+"Läs in senaste sparläge vid spelstart och sparläge när du avslutar spelet."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLA SAVE STATES"
@@ -1648,7 +1660,7 @@ msgid "ALWAYS"
 msgstr "ALLTID"
 
 msgid "IF NOT EMPTY"
-msgstr "OM EJ TOM"
+msgstr "OM INTE TOM"
 
 msgid "Display savestate manager before launching a game."
 msgstr "Visa sparlägeshanteraren innan du startar ett spel."
@@ -1844,10 +1856,10 @@ msgid "SHOW WHEEL ICON"
 msgstr "VISA HJULIKON"
 
 msgid "SHOW TRACKBALL ICON"
-msgstr ""
+msgstr "VISA IKON FÖR STYRKULA"
 
 msgid "SHOW SPINNER ICON"
-msgstr ""
+msgstr "VISA IKON FÖR SPINNER"
 
 msgid "SHOW FILENAMES INSTEAD"
 msgstr "VISA FILNAMN ISTÄLLET"
@@ -1993,6 +2005,21 @@ msgstr "HOPPA TILL NÄSTA LÅT"
 msgid "NOW PLAYING"
 msgstr "SPELAS NU"
 
+msgid "SAVE TO FAVORITES"
+msgstr "SPARA I FAVORITER"
+
+msgid "Save current song to favorites playlist"
+msgstr "Spara aktuell låt i spellistan Favoriter"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "TA BORT LÅT FRÅN FAVORITER"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Ta bort aktuell låt från spellistan Favoriter"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "ANVÄND FAVORITSPELLISTA"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
 
@@ -2039,11 +2066,11 @@ msgid "REALLY QUIT?"
 msgstr "VILL DU VERKLIGEN AVSLUTA?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
+msgstr "SPARA/LÄS IN AUTOMATISKT VID SPELSTART"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
-"Ladda senaste sparläge vid spelstart och spara läge när du avslutar spelet."
+"Läs in senaste sparläge vid spelstart och spara läge när du avslutar spelet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA SPELKONTROLLOVERLAYS"
@@ -2398,10 +2425,10 @@ msgid "SHOW EMPTY SYSTEMS"
 msgstr "VISA TOMMA SYSTEM"
 
 msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
-msgstr ""
+msgstr "VISA INTE GRUPPER MED ENDAST ETT SYSTEM"
 
 msgid "Loading..."
-msgstr "Laddar..."
+msgstr "Läser in..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "VÄLJ SAMLINGAR"
@@ -2561,10 +2588,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "OTILLGÄNGLIG KÄRNA"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "LAN-SPEL"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "ONLINE-SPEL"
 
 msgid "AVAILABLE GAMES"
 msgstr "TILLGÄNGLIGA SPEL"
@@ -2591,7 +2618,7 @@ msgid "CONTROLLERS PRIORITY"
 msgstr "SPELKONTROLLPRIORITET"
 
 msgid "PLAYER ASSIGNMENTS"
-msgstr "SPELARANGIVELSE"
+msgstr "SPELARTILLDELNINGAR"
 
 #, c-format
 msgid "CONTROLLER #%i"
@@ -2616,10 +2643,10 @@ msgstr ""
 "IN NÅGON KNAPP. TRYCK PÅ DEN SÖDRA KNAPPEN FÖR ATT BEKRÄFTA NÄR DU ÄR KLAR."
 
 msgid "SINDEN GUN SETTINGS"
-msgstr "SINDENPISTOLINSTÄLLNINGAR"
+msgstr "INSTÄLLNINGAR FÖR SINDEN-PISTOL"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTEPISTOLINSTÄLLNINGAR"
+msgstr "INSTÄLLNINGAR FÖR WIIMOTE-PISTOL"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
 msgstr "STEAMDECK-MUS/PISTOLINSTÄLLNINGAR"
@@ -2631,10 +2658,10 @@ msgid "ENABLE BLUETOOTH"
 msgstr "AKTIVERA BLUETOOTH"
 
 msgid "PAIR BLUETOOTH PADS AUTOMATICALLY"
-msgstr "PARA BLÅTANDSKONTROLLER AUTOMATISKT"
+msgstr "PARA IHOP BLÅTANDSKONTROLLER AUTOMATISKT"
 
 msgid "PAIR A BLUETOOTH DEVICE MANUALLY"
-msgstr "PARA EN BLÅTANDSENHET MANUELLT"
+msgstr "PARA IHOP EN BLÅTANDSENHET MANUELLT"
 
 msgid "SHOW CONTROLLER NOTIFICATIONS"
 msgstr "VISA HANDKONTROLLSAVISERINGAR"
@@ -2646,13 +2673,13 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "VISA BATTERINIVÅ FÖR SPELKONTROLL"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
+msgstr "RITA UT PISTOLENS HÅRKORS"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "BETEENDE"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "BEGRÄNSA SNABBTANGENTER FÖR AVSLUT"
 
 msgid "default"
 msgstr "standard"
@@ -2688,7 +2715,7 @@ msgid "WHITE"
 msgstr "VIT"
 
 msgid "BORDER RATIO"
-msgstr ""
+msgstr "RAMFÖRHÅLLANDE"
 
 msgid "CAMERA CONTRAST"
 msgstr "KAMERAKONTRAST"
@@ -2832,13 +2859,13 @@ msgid "SHOW GAME INFO"
 msgstr "VISA SPELINFORMATION"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "VISA DATUM/TID"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "DATUMFORMAT"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "TIDSFORMAT"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ANVÄND MARQUEE SOM SPELINFORMATION"
@@ -2895,8 +2922,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Ett giltigt konto krävs. Registrera ett konto på https://retroachievements."
-"org"
+"Ett giltigt konto krävs. Registrera ett konto på https://"
+"retroachievements.org"
 
 msgid "Full"
 msgstr "Fullständig"
@@ -3011,13 +3038,13 @@ msgstr ""
 "VILL DU STARTA DET I ALLA FALL?"
 
 msgid "Preloading UI"
-msgstr "Förladdar användargränssnittet"
+msgstr "Förinläser användargränssnittet"
 
 msgid "Loading theme"
-msgstr "Laddar tema"
+msgstr "Läser in tema"
 
 msgid "Loading gamelists"
-msgstr "Laddar spellistor"
+msgstr "Läser in spellistor"
 
 msgid "MENU"
 msgstr "MENY"
@@ -3062,10 +3089,10 @@ msgid "STEERING WHEEL"
 msgstr "RATT"
 
 msgid "TRACKBALL"
-msgstr ""
+msgstr "STYRKULA"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "HAR MEDIER"
@@ -3089,10 +3116,10 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPPDATERA SPELLISTOR FÖR ATT VERKSTÄLLA ÄNDRINGAR."
 
 msgid "Loading system config..."
-msgstr "Laddar systemkonfiguration..."
+msgstr "Läser in systemkonfiguration..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "SPARAR METADATA, VÄNTA…"
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATORN AVSLUTADES OVÄNTAT"
@@ -3116,7 +3143,7 @@ msgid "UKNOWN ERROR"
 msgstr "OKÄNT FEL"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Interlaced"
 
 msgid "all games"
 msgstr "alla spel"
@@ -3152,10 +3179,10 @@ msgid "wheel games"
 msgstr "rattspel"
 
 msgid "trackball games"
-msgstr ""
+msgstr "spel för styrkula"
 
 msgid "spinner games"
-msgstr ""
+msgstr "spinner-spel"
 
 msgid "collections"
 msgstr "samlingar"
@@ -3523,7 +3550,7 @@ msgid "HOLD ANY BUTTON TO SKIP"
 msgstr "HÅLL NÅGON KNAPP NEDTRYCKT FÖR ATT HOPPA ÖVER"
 
 msgid "-NOT DEFINED-"
-msgstr "-EJ DEFINIERAD-"
+msgstr "-INTE DEFINIERAD-"
 
 msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "

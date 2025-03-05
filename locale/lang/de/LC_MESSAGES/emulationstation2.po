@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-02-26 19:14+0000\n"
+"PO-Revision-Date: 2025-03-17 20:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -550,6 +550,19 @@ msgstr "BENUTZERDEFINIERT"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "BENUTZERDEFINIERTER RELAY-SERVER"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "AUTOMATISCH LOBBY ERSTELLEN"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Erstellt beim Start eines Spiels automatisch eine Netplay-Lobby."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "NUR RELAY-SERVER-SPIELE ANZEIGEN"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Relaisserver-Spiele haben eine höhere Chance auf eine erfolgreiche Teilnahme."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NICHT VERFÜGBARE SPIELE ANZEIGEN"
@@ -2013,6 +2026,21 @@ msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
 msgid "NOW PLAYING"
 msgstr "AKTUELLER SONGTITEL"
 
+msgid "SAVE TO FAVORITES"
+msgstr "ZU FAVORITEN HINZUFÜGEN"
+
+msgid "Save current song to favorites playlist"
+msgstr "Aktuellen Titel zur Favoritenliste hinzufügen"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "TITEL AUS FAVORITEN ENTFERNEN"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Aktuellen Titel aus der Favoritenliste entfernen"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "FAVORITENLISTE VERWENDEN"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "BILDSCHIRMSCHONER STARTEN"
 
@@ -2583,10 +2611,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "NICHT VERFÜGBARER CORE"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "LAN-SPIELE"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "ONLINE-SPIELE"
 
 msgid "AVAILABLE GAMES"
 msgstr "VERFÜGBARE SPIELE"

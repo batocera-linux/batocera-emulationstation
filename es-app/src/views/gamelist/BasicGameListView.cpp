@@ -213,3 +213,15 @@ bool BasicGameListView::onMouseWheel(int delta)
 {
 	return mList.onMouseWheel(delta);
 }
+
+void BasicGameListView::onShow()
+{
+	ISimpleGameListView::onShow();
+
+	if (typeid(*this) == typeid(BasicGameListView))
+	{
+		FileData* selectedGame = getCursor();
+		if (selectedGame != nullptr)
+			selectedGame->setSelectedGame();
+	}
+}

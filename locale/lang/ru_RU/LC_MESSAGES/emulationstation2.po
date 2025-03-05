@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНИРОВАНИЕ"
@@ -550,6 +550,18 @@ msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ RELAY-СЕРВЕР"
+
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr "АВТОМАТИЧЕСКИ СОЗДАВАТЬ ЛОББИ"
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr "Автоматически создает лобби Netplay при начале игры."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Игры на relay-серверах имеют больше шансов на успешное подключение."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
@@ -1907,7 +1919,7 @@ msgid "SHOW FOLDERS FIRST"
 msgstr "ПОКАЗЫВАТЬ ПАПКИ ПЕРВЫМИ"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКИ"
+msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКЕ"
 
 msgid "Ignore 'The' and 'A' if at the start."
 msgstr "Игнорует 'The' и 'A', если они находятся в начале."
@@ -1993,6 +2005,21 @@ msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
+msgid "SAVE TO FAVORITES"
+msgstr "СОХРАНИТЬ В ИЗБРАННОЕ"
+
+msgid "Save current song to favorites playlist"
+msgstr "Сохранить текущую песню в список избранного"
+
+msgid "ERASE SONG FROM FAVORITES"
+msgstr "УДАЛИТЬ ПЕСНЮ ИЗ ИЗБРАННОГО"
+
+msgid "Remove current song from the favorites playlist"
+msgstr "Удалить текущую песню из списка избранного"
+
+msgid "USE FAVORITES PLAYLIST"
+msgstr "ИСПОЛЬЗОВАТЬ СПИСОК ИЗБРАННОГО"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 
@@ -2000,10 +2027,10 @@ msgid "VIEW USER MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
 msgid "DISABLE PLANE MODE"
-msgstr "ОТКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
+msgstr "ОТКЛЮЧИТЬ АВИАРЕЖИМ"
 
 msgid "ENABLE PLANE MODE"
-msgstr "ВКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
+msgstr "ВКЛЮЧИТЬ АВИАРЕЖИМ"
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -2562,10 +2589,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "ИГРЫ ПО ЛОКАЛЬНОЙ СЕТИ"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "СЕТЕВЫЕ ИГРЫ"
 
 msgid "AVAILABLE GAMES"
 msgstr "ДОСТУПНЫЕ ИГРЫ"
@@ -2650,10 +2677,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "ОТОБРАЖАТЬ ПЕРЕКРЕСТИЕ ПИСТОЛЕТА"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "ПОВЕДЕНИЕ"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЛЯ ВЫХОДА"
 
 msgid "default"
 msgstr "по умолчанию"
@@ -2833,13 +2860,13 @@ msgid "SHOW GAME INFO"
 msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "ПОКАЗАТЬ ДАТУ И ВРЕМЯ"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "ФОРМАТ ДАТЫ"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "ФОРМАТ ВРЕМЕНИ"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ИСПОЛЬЗОВАТЬ БАНЕР КАК ИНФОРМАЦИЮ О ИГРЕ"
@@ -3119,7 +3146,7 @@ msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Чересстрочной"
 
 msgid "all games"
 msgstr "все игры"
@@ -3579,12 +3606,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Позволяет выбрать онлайн, офлайн или присоединиться к другой игре."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Игры на relay-серверах имеют больше шансов на успешное подключение."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Выберите игровое лобби, чтобы создать или присоединиться к нему"
