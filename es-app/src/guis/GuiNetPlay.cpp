@@ -768,6 +768,8 @@ bool GuiNetPlay::populateList()
 
 		mGrid.moveCursor(Vector2i(0, 1));
 	}
+
+	return true;
 }
 
 bool GuiNetPlay::populateFromJson(const std::string json)
