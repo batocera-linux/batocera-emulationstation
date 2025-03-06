@@ -2564,10 +2564,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "CORE NON DISPONIBILE"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "GIOCHI LAN"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "GIOCHI ONLINE"
 
 msgid "AVAILABLE GAMES"
 msgstr "GIOCHI DISPONIBILI"
@@ -2652,10 +2652,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "DISEGNA MIRINO"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "COMPORTAMENTO"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "LIMITA HOTKEYS ALL'USCITA"
 
 msgid "default"
 msgstr "default"
@@ -2835,13 +2835,13 @@ msgid "SHOW GAME INFO"
 msgstr "MOSTRA INFORMAZIONI DEL GIOCO"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "MOSTRA L'ORA"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMATO DATA"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMATO ORA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USA BANNER COME INFO DI GIOCO"
@@ -3119,7 +3119,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERRORE SCONOSCIUTO"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Interlacciato"
 
 msgid "all games"
 msgstr "tutti i giochi"

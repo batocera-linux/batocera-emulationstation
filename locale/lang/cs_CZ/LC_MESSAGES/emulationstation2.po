@@ -2562,10 +2562,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "NEDOSTUPNÉ JÁDRO"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "HRY LOKÁLNÍ SÍTĚ"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "ONLINE HRY"
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTUPNÉ HRY"
@@ -2651,10 +2651,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "VYKRESLIT ZAMĚŘOVAČ ZBRANĚ"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "BEHAVIOR"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "OMEZIT HORKÉ KLÁVESY PRO UKONČENÍ"
 
 msgid "default"
 msgstr "výchozí"
@@ -2834,13 +2834,13 @@ msgid "SHOW GAME INFO"
 msgstr "ZOBRAZIT INFO O HŘE"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "ZOBRAZIT DATUM ČAS"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMÁT DATUMU"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMÁT ČASU"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "POUŽIJ MARQUEE JAKO INFORMACE O HŘE"
@@ -3121,7 +3121,7 @@ msgid "UKNOWN ERROR"
 msgstr "NEZNÁMA CHYBA"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Prokládaný"
 
 msgid "all games"
 msgstr "všechny hry"
