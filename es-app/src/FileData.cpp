@@ -662,6 +662,7 @@ std::string FileData::getMessageFromExitCode(int exitCode)
 	case 205:
 		return _("CORE IS MISSING");
 	case 299:
+	case 250:
 		{
 	#if WIN32
 			std::string messageFile = Utils::FileSystem::combine(Utils::FileSystem::getTempPath(), "launch_error.log");
