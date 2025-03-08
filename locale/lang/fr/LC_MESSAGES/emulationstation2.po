@@ -2571,10 +2571,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "CŒUR NON DISPONIBLE"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "JEUX EN RÉSEAU"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "JEUX EN LIGNE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JEUX DISPONIBLES"
@@ -2843,13 +2843,13 @@ msgid "SHOW GAME INFO"
 msgstr "AFFICHER LES INFORMATIONS DU JEU"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "AFFICHE DATE HEURE"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "FORMAT DATE"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "FORMAT HEURE"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UTILISER LES LOGOS POUR LES INFOS JEU"
@@ -3128,7 +3128,7 @@ msgid "UKNOWN ERROR"
 msgstr "ERREUR INCONNUE"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Entrelacé"
 
 msgid "all games"
 msgstr "tous les jeux"
