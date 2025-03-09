@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-23 10:21+0100\n"
-"PO-Revision-Date: 2025-03-01 18:13+0900\n"
+"PO-Revision-Date: 2025-03-08 21:14+0900\n"
 "Last-Translator: DDinghoya <ddinghoya@gmail.com>\n"
 "Language-Team: Dodam Enterprise, DDinghoya\n"
 "Language: ko\n"
@@ -1681,7 +1681,7 @@ msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
 msgstr "베젤 늘리기 (4K & 울트라 와이드)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "베젤 위에 문신 표시"
+msgstr "베젤 위에 컨트롤러 매핑 각인 표시"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "시스템 컨트롤러"
@@ -1693,7 +1693,7 @@ msgid "Show an image overlaid on top of the bezel."
 msgstr "베젤 위에 겹쳐진 이미지 표시합니다."
 
 msgid "TATTOO CORNER"
-msgstr "문신 코너"
+msgstr "컨트롤러 매핑 각인 코너"
 
 msgid "NORTH WEST"
 msgstr "↖"
@@ -1711,10 +1711,10 @@ msgid "CUSTOM .PNG IMAGE PATH"
 msgstr "커스텀 .PNG 이미지 경로"
 
 msgid "RESIZE TATTOO"
-msgstr "문신 크기조절"
+msgstr "컨트롤러 매핑 각인 크기조절"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "베젤 테두리에 맞게 문신을 축소/확대합니다."
+msgstr "베젤 테두리에 맞게 컨트롤러 매핑 각인을 축소/확대합니다."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI 게임 번역"
@@ -3377,7 +3377,7 @@ msgid "SHIFT"
 msgstr "시프트 키"
 
 msgid "SPACE"
-msgstr "스페이스 키"
+msgstr "스페이스"
 
 msgctxt "joystick"
 msgid "NORTH"
