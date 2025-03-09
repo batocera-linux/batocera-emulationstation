@@ -551,6 +551,27 @@ msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ RELAY-СЕРВЕР"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
+
+msgid "PLAYER PASSWORD"
+msgstr "ПАРОЛЬ ИГРОКА"
+
+msgid "VIEWER PASSWORD"
+msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr "ПОКАЗЫВАТЬ NETPLAY ОПЦИИ ПРИ ЗАПУСКЕ ИГРЫ"
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr "Позволяет выбрать онлайн, офлайн или присоединиться к другой игре."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Игры на relay-серверах имеют больше шансов на успешное подключение."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ПОКАЗАТЬ НЕДОСТУПНЫЕ ИГРЫ"
 
@@ -1052,6 +1073,12 @@ msgstr "АВТО"
 
 msgid "dmd matrix size"
 msgstr "dmd размер матрицы"
+
+msgid "MATRIX"
+msgstr "МАТРИЦА"
+
+msgid "rgb dmd order"
+msgstr "порядок rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "ЯРКОСТЬ"
@@ -1993,6 +2020,36 @@ msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "СОХРАНИТЬ В ИЗБРАННУЮ МУЗЫКУ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Копировать текущую песню в папку избранного"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ИСПОЛЬЗОВАТЬ КАТАЛОГ ИЗБРАННОЙ МУЗЫКИ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Переключить использование каталога избранной музыки"
+
+msgid "Song added to favorite list!"
+msgstr "Песня добавлена в список избранного!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Ошибка: Не удалось открыть файл избранного."
+
+msgid "No song is currently playing."
+msgstr "В данный момент музыка не играет."
+
+msgid "Favorite music directory activated!"
+msgstr "Каталог избранной музыки активирован!"
+
+msgid "Default music directory activated!"
+msgstr "Каталог музыки по умолчанию активирован!"
+
+msgid "This song is already in Favorites."
+msgstr "Эта песня уже в избранном."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 
@@ -2169,15 +2226,6 @@ msgstr "НАЧАТЬ ИГРУ"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "ХОСТ NETPLAY ИГРЫ"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ПУБЛИЧНО АНОНСИРУЕМАЯ ИГРА"
-
-msgid "PLAYER PASSWORD"
-msgstr "ПАРОЛЬ ИГРОКА"
-
-msgid "VIEWER PASSWORD"
-msgstr "ПАРОЛЬ ЗРИТЕЛЯ"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "НАЙТИ ПОХОЖИЕ ИГРЫ..."
@@ -2546,6 +2594,9 @@ msgstr "ПОДКЛЮЧИТЬСЯ К NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Выберите лобби для присоединения"
 
+msgid "Select a game lobby to create or join"
+msgstr "Выберите игровое лобби, чтобы создать или присоединиться к нему"
+
 msgid "FAILED"
 msgstr "НЕ УДАЛОСЬ"
 
@@ -2561,11 +2612,14 @@ msgstr "ОДИНАКОВЫЙ ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "PLAY ONLINE AS HOST"
+msgstr "ИГРАТЬ ОНЛАЙН В КАЧЕСТВЕ ХОСТА"
 
-msgid "ONLINE GAMES"
-msgstr ""
+msgid "PLAY OFFLINE"
+msgstr "ИГРАТЬ ОФФЛАЙН"
+
+msgid "JOIN EXISTING GAME"
+msgstr "ПРИСОЕДИНИТЬСЯ К СУЩЕСТВУЮЩЕЙ ИГРЕ"
 
 msgid "AVAILABLE GAMES"
 msgstr "ДОСТУПНЫЕ ИГРЫ"
@@ -2648,12 +2702,6 @@ msgstr "ПОКАЗАТЬ УРОВЕНЬ ЗАРЯДА КОНТРОЛЛЕРА"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "ОТОБРАЖАТЬ ПЕРЕКРЕСТИЕ ПИСТОЛЕТА"
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
 
 msgid "default"
 msgstr "по умолчанию"
@@ -2831,15 +2879,6 @@ msgstr "ИСПОЛЬЗОВАТЬ OMX ПЛЕЕР ДЛЯ ЗАСТАВКИ"
 
 msgid "SHOW GAME INFO"
 msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ИСПОЛЬЗОВАТЬ БАНЕР КАК ИНФОРМАЦИЮ О ИГРЕ"
@@ -3117,9 +3156,6 @@ msgstr "ЯДРО ОТСУТСТВУЕТ"
 
 msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
-
-msgid "Interlaced"
-msgstr ""
 
 msgid "all games"
 msgstr "все игры"
@@ -3573,36 +3609,6 @@ msgid ""
 msgstr ""
 "КАЛИБРОВКА ПИСТОЛЕТА\n"
 "Стреляйте по мишеням для калибровки"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "ПОКАЗЫВАТЬ NETPLAY ОПЦИИ ПРИ ЗАПУСКЕ ИГРЫ"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "Позволяет выбрать онлайн, офлайн или присоединиться к другой игре."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Игры на relay-серверах имеют больше шансов на успешное подключение."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Выберите игровое лобби, чтобы создать или присоединиться к нему"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "ИГРАТЬ ОНЛАЙН В КАЧЕСТВЕ ХОСТА"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "ИГРАТЬ ОФФЛАЙН"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "ПРИСОЕДИНИТЬСЯ К СУЩЕСТВУЮЩЕЙ ИГРЕ"
-
-#~ msgid "MATRIX"
-#~ msgstr "МАТРИЦА"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "порядок rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

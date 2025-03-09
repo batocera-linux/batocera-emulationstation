@@ -554,6 +554,27 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ILMOITA PELISTÄ JULKISESTI"
+
+msgid "PLAYER PASSWORD"
+msgstr "PELAAJAN SALASANA"
+
+msgid "VIEWER PASSWORD"
+msgstr "KATSELIJAN SALASANA"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NÄYTÄ EI SAATAVILLA OLEVAT PELIT"
 
@@ -1049,6 +1070,12 @@ msgid "AUTO"
 msgstr "AUTOMAATTINEN"
 
 msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
 msgstr ""
 
 msgid "BRIGHTNESS"
@@ -1988,6 +2015,36 @@ msgstr "HYPPÄÄ SEURAAVAAN KAPPALEESEEN"
 msgid "NOW PLAYING"
 msgstr "NYT SOITETAAN"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "TALLENNA SUOSIKKIMUSIIKKIIN"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopioi nykyinen kappale suosikkikansioon"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "KÄYTÄ SUOSIKKIMUSIIKIN HAKEMISTOA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Vaihda suosikkimusiikin hakemiston käyttöä"
+
+msgid "Song added to favorite list!"
+msgstr "Kappale lisätty suosikkilistalle!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Virhe: Suosikkitiedostoa ei voitu avata."
+
+msgid "No song is currently playing."
+msgstr "Mikään kappale ei soi tällä hetkellä."
+
+msgid "Favorite music directory activated!"
+msgstr "Suosikkimusiikkihakemisto aktivoitu!"
+
+msgid "Default music directory activated!"
+msgstr "Oletusmusiikkihakemisto aktivoitu!"
+
+msgid "This song is already in Favorites."
+msgstr "Tämä kappale on jo suosikeissa."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "KÄYNNISTÄ NÄYTÖNSÄÄSTÄJÄ"
 
@@ -2164,15 +2221,6 @@ msgstr "KÄYNNISTÄ PELI"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "ISÄNNÖI VERKKOPELI"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ILMOITA PELISTÄ JULKISESTI"
-
-msgid "PLAYER PASSWORD"
-msgstr "PELAAJAN SALASANA"
-
-msgid "VIEWER PASSWORD"
-msgstr "KATSELIJAN SALASANA"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "ETSI SAMANKALTAISIA PELEJÄ..."
@@ -2542,6 +2590,9 @@ msgstr "YHDISTÄ VERKKOPELIIN"
 msgid "Select a game lobby to join"
 msgstr "Valitse pelialue johon liittyä"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "EPÄONNISTUI"
 
@@ -2557,10 +2608,13 @@ msgstr "SAMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "YDIN EI SAATAVILLA"
 
-msgid "LAN GAMES"
+msgid "PLAY ONLINE AS HOST"
 msgstr ""
 
-msgid "ONLINE GAMES"
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2639,12 +2693,6 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "NÄYTÄ OHJAIMEN AKUNTASO"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2823,15 +2871,6 @@ msgstr ""
 
 msgid "SHOW GAME INFO"
 msgstr "NÄYTÄ PELIN TIEDOT"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr ""
@@ -3106,9 +3145,6 @@ msgstr "YDIN PUUTTUU"
 
 msgid "UKNOWN ERROR"
 msgstr "TUNTEMATON VIRHE"
-
-msgid "Interlaced"
-msgstr ""
 
 msgid "all games"
 msgstr "kaikki pelit"

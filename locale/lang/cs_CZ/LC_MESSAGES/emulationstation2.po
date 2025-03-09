@@ -550,6 +550,27 @@ msgstr "VLASTNÍ"
 msgid "CUSTOM RELAY SERVER"
 msgstr "VLASTNÍ RELAY SERVER"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "VEŘEJNĚ OZNÁMIT HRU"
+
+msgid "PLAYER PASSWORD"
+msgstr "HESLO HRÁČE"
+
+msgid "VIEWER PASSWORD"
+msgstr "HESLO PROHLÍŽEČE"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr "ZOBRAZIT MOŽNOSTI NETPLAY PŘI SPUŠTĚNÍ HRY"
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr "Umožňuje volbu online, offline nebo připojení k jiné hře."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ZOBRAZIT NEDOSTUPNÉ HRY"
 
@@ -1048,6 +1069,12 @@ msgstr "AUTOMATICKY"
 
 msgid "dmd matrix size"
 msgstr "velikost dmd matrix"
+
+msgid "MATRIX"
+msgstr "MATRIX"
+
+msgid "rgb dmd order"
+msgstr "pořadí rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "JAS"
@@ -1992,6 +2019,36 @@ msgstr "PŘESKOČIT NA DALŠÍ SKLADBU"
 msgid "NOW PLAYING"
 msgstr "PRÁVĚ SE PŘEHRÁVÁ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ULOŽIT DO OBLÍBENÉ HUDBY"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopírovat aktuální skladbu do oblíbené složky"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "POUŽÍT ADRESÁŘ OBLÍBENÉ HUDBY"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Přepnout použití adresáře oblíbené hudby"
+
+msgid "Song added to favorite list!"
+msgstr "Píseň byla přidána do seznamu oblíbených!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Chyba: Nelze otevřít soubor oblíbených."
+
+msgid "No song is currently playing."
+msgstr "Žádná skladba se momentálně nehraje."
+
+msgid "Favorite music directory activated!"
+msgstr "Adresář oblíbené hudby byl aktivován!"
+
+msgid "Default music directory activated!"
+msgstr "Výchozí hudební adresář byl aktivován!"
+
+msgid "This song is already in Favorites."
+msgstr "Tato píseň je již v oblíbených."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "SPUSTIT SPOŘIČ OBRAZOVKY"
 
@@ -2168,15 +2225,6 @@ msgstr "START HRY"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "HOSTIT NETPLAY HRU"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "VEŘEJNĚ OZNÁMIT HRU"
-
-msgid "PLAYER PASSWORD"
-msgstr "HESLO HRÁČE"
-
-msgid "VIEWER PASSWORD"
-msgstr "HESLO PROHLÍŽEČE"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "NAJÍT PODOBNÉ HRY..."
@@ -2545,6 +2593,9 @@ msgstr "PŘIPOJIT SE K SÍTI"
 
 msgid "Select a game lobby to join"
 msgstr "Vyberte herní lobby, do které se chcete připojit"
+
+msgid "Select a game lobby to create or join"
+msgstr "Vyberte herní lobby, kterou chcete vytvořit nebo se k ní připojit"
 
 msgid "FAILED"
 msgstr "NEÚSPĚŠNÉ"
@@ -3575,36 +3626,6 @@ msgid ""
 msgstr ""
 "KALIBRACE ZBRANĚ\n"
 "Střelba na cíle pro kalibraci"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "ZOBRAZIT MOŽNOSTI NETPLAY PŘI SPUŠTĚNÍ HRY"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "Umožňuje volbu online, offline nebo připojení k jiné hře."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Vyberte herní lobby, kterou chcete vytvořit nebo se k ní připojit"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "HRÁT ONLINE JAKO HOST"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "HRÁT OFFLINE"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "PŘIPOJIT SE K JIŽ EXISTUJÍCÍ HŘE"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRIX"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "pořadí rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

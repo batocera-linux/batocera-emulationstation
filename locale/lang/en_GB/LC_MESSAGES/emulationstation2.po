@@ -1984,6 +1984,36 @@ msgstr "SKIP TO THE NEXT SONG"
 msgid "NOW PLAYING"
 msgstr "NOW PLAYING"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SAVE TO FAVORITE MUSIC"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copy current song to favorite folder"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USE FAVORITE MUSIC DIRECTORY"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Toggle usage of favorite music directory"
+
+msgid "Song added to favorite list!"
+msgstr "Song added to favorite list!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: Could not open favorites file."
+
+msgid "No song is currently playing."
+msgstr "No song is currently playing."
+
+msgid "Favorite music directory activated!"
+msgstr "Favorite music directory activated!"
+
+msgid "Default music directory activated!"
+msgstr "Default music directory activated!"
+
+msgid "This song is already in Favorites."
+msgstr "This song is already in Favorites."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "LAUNCH SCREENSAVER"
 
@@ -2539,6 +2569,9 @@ msgstr "Select a game lobby to join"
 msgid "FAILED"
 msgstr "FAILED"
 
+msgid "NO GAMES FOUND"
+msgstr "NO GAMES FOUND"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "UNKNOWN ROM VERSION"
 
@@ -2551,9 +2584,6 @@ msgstr "SAME ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "UNAVAILABLE CORE"
 
-msgid "LAN GAMES"
-msgstr ""
-
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2563,8 +2593,8 @@ msgstr "AVAILABLE GAMES"
 msgid "UNAVAILABLE GAMES"
 msgstr "UNAVAILABLE GAMES"
 
-msgid "NO GAMES FOUND"
-msgstr "NO GAMES FOUND"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "JOIN GAME"

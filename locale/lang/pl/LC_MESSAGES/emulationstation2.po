@@ -2004,6 +2004,36 @@ msgstr "PRZEJDŹ DO NASTĘPNEGO UTWORU"
 msgid "NOW PLAYING"
 msgstr "ODTWARZANE OBECNIE"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ZAPISZ DO ULUBIONEJ MUZYKI"
+
+msgid "Copy current song to favorite folder"
+msgstr "Skopiuj aktualną piosenkę do folderu ulubionych"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UŻYJ KATALOGU ULUBIONEJ MUZYKI"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Przełącz użycie katalogu ulubionej muzyki"
+
+msgid "Song added to favorite list!"
+msgstr "Piosenka dodana do listy ulubionych!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Błąd: Nie można otworzyć pliku ulubionych."
+
+msgid "No song is currently playing."
+msgstr "Żadna piosenka nie jest obecnie odtwarzana."
+
+msgid "Favorite music directory activated!"
+msgstr "Folder ulubionej muzyki aktywowany!"
+
+msgid "Default music directory activated!"
+msgstr "Domyślny folder muzyki aktywowany!"
+
+msgid "This song is already in Favorites."
+msgstr "Ta piosenka jest już w Ulubionych."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "URUCHOM WYGASZACZ"
 
@@ -2560,6 +2590,9 @@ msgstr "Wybierz lobby gry do której chcesz dołączyć"
 msgid "FAILED"
 msgstr "NIE POWIODŁO SIĘ"
 
+msgid "NO GAMES FOUND"
+msgstr "NIE ZNALEZIONO GIER"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "NIEZNANA WERSJA ROM"
 
@@ -2572,11 +2605,8 @@ msgstr "TEN SAM ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NIEDOSTĘPNE JĄDRO EMULATORA"
 
-msgid "LAN GAMES"
-msgstr "GRY SIECIOWE"
-
 msgid "ONLINE GAMES"
-msgstr "GRY ONLINE"
+msgstr ""
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -2584,8 +2614,8 @@ msgstr "DOSTĘPNE GRY"
 msgid "UNAVAILABLE GAMES"
 msgstr "NIEDOSTĘPNE GRY"
 
-msgid "NO GAMES FOUND"
-msgstr "NIE ZNALEZIONO GIER"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "DOŁĄCZ DO GRY"
@@ -2662,10 +2692,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "RYSUJ CELOWNIK BRONI"
 
 msgid "BEHAVIOR"
-msgstr "ZACHOWANIE"
+msgstr ""
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "OGRANICZ SKRÓTY DO WYJŚCIA"
+msgstr ""
 
 msgid "default"
 msgstr "domyślnie"
@@ -2845,13 +2875,13 @@ msgid "SHOW GAME INFO"
 msgstr "POKAŻ INFORMACJE O GRZE"
 
 msgid "SHOW DATE TIME"
-msgstr "POKAŻ CZAS I DATĘ"
+msgstr ""
 
 msgid "DATE FORMAT"
-msgstr "FORMAT DATY"
+msgstr ""
 
 msgid "TIME FORMAT"
-msgstr "FORMAT CZASU"
+msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UŻYJ MARQUEE JAKO INFORMACJI O GRZE"
@@ -3130,7 +3160,7 @@ msgid "UKNOWN ERROR"
 msgstr "NIEZNANY BŁĄD"
 
 msgid "Interlaced"
-msgstr "Z przeplotem"
+msgstr ""
 
 msgid "all games"
 msgstr "wszystkie gry"

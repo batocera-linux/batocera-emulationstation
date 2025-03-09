@@ -551,6 +551,27 @@ msgstr "EGENDEFINERT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGENDEFINERT RELAY SERVER"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "OFFENTLIG KUNNGJØR SPILLET"
+
+msgid "PLAYER PASSWORD"
+msgstr "SPILLER PASSORD"
+
+msgid "VIEWER PASSWORD"
+msgstr "SEERPASSORD"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr "VIS NETTSPILL-VALG VED OPPSTART AV SPILL"
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr "Tillater valg av online, offline eller bli med i et annet spill."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "VIS KUN RELAY-SERVER SPILL"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Relay-server-spill har tilgangen større sjanse for å lykkes."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VIS UTILGJENGELIGE SPILL"
 
@@ -1049,6 +1070,12 @@ msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "dmd matrise størrelse"
+
+msgid "MATRIX"
+msgstr "MATRISE"
+
+msgid "rgb dmd order"
+msgstr "rgb dmd rekkefølge"
 
 msgid "BRIGHTNESS"
 msgstr "LYSSTYRKE"
@@ -1991,6 +2018,36 @@ msgstr "HOPP TIL NESTE SANG"
 msgid "NOW PLAYING"
 msgstr "SPILLER NÅ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "LAGRE TIL FAVORITTMUSIKK"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopier den nåværende sangen til favorittmappen"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "BRUK FAVORITTMUSIKK-KATALOGEN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Veksle bruk av favorittmusikk-katalogen"
+
+msgid "Song added to favorite list!"
+msgstr "Sang lagt til i favorittlisten!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Feil: Kunne ikke åpne favorittfilen."
+
+msgid "No song is currently playing."
+msgstr "Ingen sang spilles for øyeblikket."
+
+msgid "Favorite music directory activated!"
+msgstr "Favorittmusikkmappen aktivert!"
+
+msgid "Default music directory activated!"
+msgstr "Standard musikkmappe aktivert!"
+
+msgid "This song is already in Favorites."
+msgstr "Denne sangen er allerede i Favoritter."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "START SKJERMSPARER"
 
@@ -2167,15 +2224,6 @@ msgstr "START SPILL"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "VERT ET NETTSPILL"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "OFFENTLIG KUNNGJØR SPILLET"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPILLER PASSORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "SEERPASSORD"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "FINN LIGNENDE SPILL..."
@@ -2544,6 +2592,9 @@ msgstr "KOBLE TIL NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Velg en spill-lobby å bli med i"
 
+msgid "Select a game lobby to create or join"
+msgstr "Velg en spill-lobby å lage eller bli med i"
+
 msgid "FAILED"
 msgstr "FEILET"
 
@@ -2559,11 +2610,14 @@ msgstr "SAMME ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "UTILGJENGELIG KJERNE"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "PLAY ONLINE AS HOST"
+msgstr "SPILL ONLINE SOM VERT"
 
-msgid "ONLINE GAMES"
-msgstr ""
+msgid "PLAY OFFLINE"
+msgstr "SPILL OFFLINE"
+
+msgid "JOIN EXISTING GAME"
+msgstr "BLI MED I EKSISTERENDE SPILL"
 
 msgid "AVAILABLE GAMES"
 msgstr "TILGJENGELIGE SPILL"
@@ -2646,12 +2700,6 @@ msgstr "VIS KONTROLLER BATTERYNIVÅ"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DRAW GUN CROSSHAIR"
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
 
 msgid "default"
 msgstr "standard"
@@ -2829,15 +2877,6 @@ msgstr "BRUK OMX SPILLER FOR SKJERMSPARER"
 
 msgid "SHOW GAME INFO"
 msgstr "VIS SPILL INFORMASJON"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "BRUK MARQUEE SOM SPILL INFO"
@@ -3113,9 +3152,6 @@ msgstr "KJERNE MANGLER"
 
 msgid "UKNOWN ERROR"
 msgstr "Ukjent feil"
-
-msgid "Interlaced"
-msgstr ""
 
 msgid "all games"
 msgstr "alle spill"
@@ -3561,36 +3597,6 @@ msgid ""
 msgstr ""
 "KALIBRERER PISTOL\n"
 "Skyt på mål for å kalibrere"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "VIS NETTSPILL-VALG VED OPPSTART AV SPILL"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "Tillater valg av online, offline eller bli med i et annet spill."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "VIS KUN RELAY-SERVER SPILL"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Relay-server-spill har tilgangen større sjanse for å lykkes."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Velg en spill-lobby å lage eller bli med i"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "SPILL ONLINE SOM VERT"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "SPILL OFFLINE"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "BLI MED I EKSISTERENDE SPILL"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRISE"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "rgb dmd rekkefølge"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

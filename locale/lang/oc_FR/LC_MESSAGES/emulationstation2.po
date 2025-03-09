@@ -1956,14 +1956,44 @@ msgstr "WIFI ACTIVAT"
 msgid "WIFI CONFIGURATION ERROR"
 msgstr "ERROR DE CONFIGURACION WIFI"
 
-msgid "QUICK ACCESS"
-msgstr ""
+msgid "QUICK ACCESS"  
+msgstr "ACCES RAPID"
 
-msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgid "SKIP TO THE NEXT SONG"  
+msgstr "PASSAR A LA CANÇON SEGUENTA"  
 
-msgid "NOW PLAYING"
-msgstr ""
+msgid "NOW PLAYING"  
+msgstr "EN REPRODUCCION ARA"  
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ENREGISTRAR DINS LA MUSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar la cançon actuala dins lo dorsièr favorit"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILIZAR LO REPERTÒRI DE MUSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar l’usatge del repertòri de musica favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Cançon aponduda a la lista dels preferits!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: Impossible d'obrir lo fichièr dels preferits."
+
+msgid "No song is currently playing."
+msgstr "Cap de cançon es pas en reproduccion actualament."
+
+msgid "Favorite music directory activated!"
+msgstr "Repertòri de musica preferida activat!"
+
+msgid "Default music directory activated!"
+msgstr "Repertòri de musica per defaut activat!"
+
+msgid "This song is already in Favorites."
+msgstr "Aquesta cançon es ja dins los Favorits."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVIAR L'ESTALVIADOR D'ECRAN"
@@ -2515,6 +2545,9 @@ msgstr ""
 msgid "FAILED"
 msgstr "FRACÀS"
 
+msgid "NO GAMES FOUND"
+msgstr ""
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSION DE ROM DESCONEGUDA"
 
@@ -2527,9 +2560,6 @@ msgstr "ROM IDENTICA"
 msgid "UNAVAILABLE CORE"
 msgstr "CÒS PAS DISPONIBLE"
 
-msgid "LAN GAMES"
-msgstr ""
-
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2539,7 +2569,7 @@ msgstr "JÒCS DISPONIBLES"
 msgid "UNAVAILABLE GAMES"
 msgstr "JÒCS PAS DISPONIBLES"
 
-msgid "NO GAMES FOUND"
+msgid "LAN GAMES"
 msgstr ""
 
 msgid "JOIN GAME"

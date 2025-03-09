@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "SCANNING BLUETOOTH"
@@ -550,6 +550,27 @@ msgstr "PERSONALIZAR"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR PERSONALIZADO"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+
+msgid "PLAYER PASSWORD"
+msgstr "SENHA DO JOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "SENHA DE ESPECTADOR"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr "Permite a escolha de jogar online, offline ou entrar em outro jogo."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Os jogos em servidor têm uma chance maior de entrada bem-sucedida."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "EXIBIR JOGOS INDISPONÍVEIS"
 
@@ -1057,6 +1078,12 @@ msgstr "AUTOMÁTICO"
 
 msgid "dmd matrix size"
 msgstr "tamanho da matriz dmd"
+
+msgid "MATRIX"
+msgstr "MATRIZ"
+
+msgid "rgb dmd order"
+msgstr "ordem dmd rgb"
 
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
@@ -1692,8 +1719,7 @@ msgid "REWIND"
 msgstr "REBOBINAR"
 
 msgid "Store past states to rewind to in realtime, if the core supports it."
-msgstr ""
-"Armazena estados passados para rebobinar em tempo real, se o núcleo suportar."
+msgstr "Armazena estados passados para rebobinar em tempo real, se o núcleo suportar."
 
 msgid "INTEGER SCALING (PIXEL PERFECT)"
 msgstr "ESCALA INTEIRA (PIXEL PERFEITO)"
@@ -2011,6 +2037,36 @@ msgstr "PULE PARA A PRÓXIMA MÚSICA"
 msgid "NOW PLAYING"
 msgstr "REPRODUZINDO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SALVAR NA MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar a música atual para a pasta de favoritos"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR O DIRETÓRIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar o uso do diretório de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Música adicionada à lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erro: Não foi possível abrir o arquivo de favoritos."
+
+msgid "No song is currently playing."
+msgstr "Nenhuma música está tocando no momento."
+
+msgid "Favorite music directory activated!"
+msgstr "Diretório de músicas favoritas ativado!"
+
+msgid "Default music directory activated!"
+msgstr "Diretório de músicas padrão ativado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta música já está nos Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE TELA"
 
@@ -2187,15 +2243,6 @@ msgstr "INICIAR JOGO"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "ORGANIZAR JOGO EM REDE"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
-
-msgid "PLAYER PASSWORD"
-msgstr "SENHA DO JOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "SENHA DE ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "JOGOS SEMELHANTES..."
@@ -2565,6 +2612,9 @@ msgstr "CONECTE-SE AOS JOGOS EM REDE"
 msgid "Select a game lobby to join"
 msgstr "Seleciona uma sala de jogo para juntar-se"
 
+msgid "Select a game lobby to create or join"
+msgstr "Selecione uma sala de jogo para criar ou entrar"
+
 msgid "FAILED"
 msgstr "FALHOU"
 
@@ -2580,11 +2630,14 @@ msgstr "MESMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO INDISPONÍVEL"
 
-msgid "LAN GAMES"
-msgstr "JOGOS EM LAN"
+msgid "PLAY ONLINE AS HOST"
+msgstr "JOGAR ONLINE COMO HOST"
 
-msgid "ONLINE GAMES"
-msgstr "JOGOS ONLINE"
+msgid "PLAY OFFLINE"
+msgstr "JOGAR OFFLINE"
+
+msgid "JOIN EXISTING GAME"
+msgstr "ENTRAR NUM JOGO EXISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -2669,12 +2722,6 @@ msgstr "EXIBIR NÍVEL DA BATERIA DO CONTROLE"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR A MIRA DA ARMA"
-
-msgid "BEHAVIOR"
-msgstr "COMPORTAMENTO"
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINGIR ATALHOS PARA SAIR"
 
 msgid "default"
 msgstr "padrão"
@@ -2852,15 +2899,6 @@ msgstr "USAR O LEITOR OMX PARA A PROTEÇÃO DE TELA"
 
 msgid "SHOW GAME INFO"
 msgstr "EXIBIR INFORMAÇÃO DO JOGO"
-
-msgid "SHOW DATE TIME"
-msgstr "MOSTRAR RELÓGIO"
-
-msgid "DATE FORMAT"
-msgstr "FORMATO DE DATA"
-
-msgid "TIME FORMAT"
-msgstr "FORMATO DE TEMPO"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COMO INFORMAÇÃO DO JOGO"
@@ -3136,9 +3174,6 @@ msgstr "ESTÁ FALTANDO NÚCLEO"
 
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
-
-msgid "Interlaced"
-msgstr "Interlaced"
 
 msgid "all games"
 msgstr "todos os jogos"
@@ -3585,36 +3620,6 @@ msgid ""
 msgstr ""
 "CALIBRANDO ARMA\n"
 "Atire nos alvos para calibrar"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr "Permite a escolha de jogar online, offline ou entrar em outro jogo."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Os jogos em servidor têm uma chance maior de entrada bem-sucedida."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Selecione uma sala de jogo para criar ou entrar"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "JOGAR ONLINE COMO HOST"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "JOGAR OFFLINE"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "ENTRAR NUM JOGO EXISTENTE"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRIZ"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "ordem dmd rgb"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

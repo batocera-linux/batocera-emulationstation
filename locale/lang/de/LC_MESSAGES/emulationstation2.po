@@ -551,6 +551,31 @@ msgstr "BENUTZERDEFINIERT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "BENUTZERDEFINIERTER RELAY-SERVER"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "SPIEL ÖFFENTLICH ANKÜNDIGEN"
+
+msgid "PLAYER PASSWORD"
+msgstr "SPIELER-PASSWORT"
+
+msgid "VIEWER PASSWORD"
+msgstr "ZUSCHAUER-PASSWORT"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr "NETPLAY-OPTIONEN BEIM SPIELSTART ANZEIGEN"
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+"Ermöglicht die Wahl zwischen Online, Offline oder der Teilnahme an einem "
+"anderen Spiel."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "NUR RELAY-SERVER-SPIELE ANZEIGEN"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Bei Relay-Server-Spielen ist die Chance auf einen erfolgreichen Einstieg "
+"höher."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NICHT VERFÜGBARE SPIELE ANZEIGEN"
 
@@ -1054,6 +1079,12 @@ msgstr "AUTO"
 
 msgid "dmd matrix size"
 msgstr "DMD-Matrix Größe"
+
+msgid "MATRIX"
+msgstr "MATRIX"
+
+msgid "rgb dmd order"
+msgstr "RGB DMD-Order"
 
 msgid "BRIGHTNESS"
 msgstr "HELLIGKEIT"
@@ -2013,6 +2044,36 @@ msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
 msgid "NOW PLAYING"
 msgstr "AKTUELLER SONGTITEL"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "IN LIEBLINGSMUSIK SPEICHERN"
+
+msgid "Copy current song to favorite folder"
+msgstr "Aktuellen Song in den Favoriten-Ordner kopieren"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "LIEBLINGSMUSIK-VERZEICHNIS VERWENDEN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Verwendung des Lieblingsmusik-Verzeichnisses umschalten"
+
+msgid "Song added to favorite list!"
+msgstr "Lied zur Favoritenliste hinzugefügt!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Fehler: Die Favoritendatei konnte nicht geöffnet werden."
+
+msgid "No song is currently playing."
+msgstr "Es wird gerade kein Lied abgespielt."
+
+msgid "Favorite music directory activated!"
+msgstr "Favoriten-Musikverzeichnis aktiviert!"
+
+msgid "Default music directory activated!"
+msgstr "Standard-Musikverzeichnis aktiviert!"
+
+msgid "This song is already in Favorites."
+msgstr "Dieses Lied ist bereits in den Favoriten."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "BILDSCHIRMSCHONER STARTEN"
 
@@ -2189,15 +2250,6 @@ msgstr "SPIEL STARTEN"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "HOSTE EIN NETPLAY-SPIEL"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "SPIEL ÖFFENTLICH ANKÜNDIGEN"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPIELER-PASSWORT"
-
-msgid "VIEWER PASSWORD"
-msgstr "ZUSCHAUER-PASSWORT"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "ÄHNLICHE SPIELE FINDEN..."
@@ -2567,6 +2619,10 @@ msgstr "MIT NETPLAY VERBINDEN"
 msgid "Select a game lobby to join"
 msgstr "Eine Spiel-Lobby zum Beitreten auswählen"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+"Wählen Sie eine Spiel-Lobby aus, die Sie erstellen oder beitreten möchten"
+
 msgid "FAILED"
 msgstr "FEHLGESCHLAGEN"
 
@@ -2671,12 +2727,6 @@ msgstr "CONTROLLER AKKUSTAND ANZEIGEN"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "FADENKREUZ ANZEIGEN"
-
-msgid "BEHAVIOR"
-msgstr "VERHALTEN"
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "HOTKEYS ZUM BEENDEN EINSCHRÄNKEN"
 
 msgid "default"
 msgstr "Standard"
@@ -2854,15 +2904,6 @@ msgstr "OMX PLAYER FÜR BILDSCHIRMSCHONER VERWENDEN"
 
 msgid "SHOW GAME INFO"
 msgstr "SPIELINFORMATIONEN ANZEIGEN"
-
-msgid "SHOW DATE TIME"
-msgstr "ZEIGE DATUM/UHRZEIT"
-
-msgid "DATE FORMAT"
-msgstr "DATUMSFORMAT"
-
-msgid "TIME FORMAT"
-msgstr "ZEITFORMAT"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "BANNER ALS SPIELINFO VERWENDEN"
@@ -3138,9 +3179,6 @@ msgstr "CORE FEHLT"
 
 msgid "UKNOWN ERROR"
 msgstr "UNBEKANNTER FEHLER"
-
-msgid "Interlaced"
-msgstr "Interlaced"
 
 msgid "all games"
 msgstr "alle Spiele"

@@ -551,6 +551,27 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "MOSTRAR COM PARTIDA PÚBLICA"
+
+msgid "PLAYER PASSWORD"
+msgstr "CONTRASENYA DEL JUGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "CONTRASENYA PER ESPECTADORS"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOCS NO DISPONIBLES"
 
@@ -1054,6 +1075,12 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
 msgstr ""
 
 msgid "BRIGHTNESS"
@@ -2010,6 +2037,36 @@ msgstr "SALTAR A LA SEGÜENT CANÇÓ"
 msgid "NOW PLAYING"
 msgstr "REPRODUÏNT ARA"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "DESA A LA MÚSICA PREFERIDA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copia la cançó actual a la carpeta preferida"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILITZA EL DIRECTORI DE MÚSICA PREFERIDA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Activa o desactiva l'ús del directori de música preferida"
+
+msgid "Song added to favorite list!"
+msgstr "Cançó afegida a la llista de preferides!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: No s'ha pogut obrir el fitxer de preferits."
+
+msgid "No song is currently playing."
+msgstr "No hi ha cap cançó en reproducció."
+
+msgid "Favorite music directory activated!"
+msgstr "Directori de música preferida activat!"
+
+msgid "Default music directory activated!"
+msgstr "Directori de música per defecte activat!"
+
+msgid "This song is already in Favorites."
+msgstr "Aquesta cançó ja és a Preferits."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR ESTALVI DE PANTALLA"
 
@@ -2185,15 +2242,6 @@ msgstr "INICIAR JOC"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "ALLOTJAR UN JOC NETGAME"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "MOSTRAR COM PARTIDA PÚBLICA"
-
-msgid "PLAYER PASSWORD"
-msgstr "CONTRASENYA DEL JUGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "CONTRASENYA PER ESPECTADORS"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCAR JOCS SIMILARS…"
@@ -2563,6 +2611,9 @@ msgstr "CONNECTAR A NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Seleccionar una sala de joc per unir-se"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "HA FALLAT"
 
@@ -2578,10 +2629,13 @@ msgstr "LA ROM ÉS IGUAL"
 msgid "UNAVAILABLE CORE"
 msgstr "NUCLI NO DISPONIBLE"
 
-msgid "LAN GAMES"
+msgid "PLAY ONLINE AS HOST"
 msgstr ""
 
-msgid "ONLINE GAMES"
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2665,12 +2719,6 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVELL DE BATERIA DEL COMANDAMENT"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2849,15 +2897,6 @@ msgstr "UTILITZAR REPRODUCTOR OMX A L’ESTALVI DE PANTALLA"
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMACIÓ DEL JOC"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UTILITZAR MARQUESINA COM A INFORMACIÓ DEL JOC"
@@ -3132,9 +3171,6 @@ msgstr "NUCLI INEXISTENT"
 
 msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONEGUT"
-
-msgid "Interlaced"
-msgstr ""
 
 msgid "all games"
 msgstr "tots el jocs"

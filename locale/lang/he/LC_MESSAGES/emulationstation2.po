@@ -1961,6 +1961,36 @@ msgstr "דילוג על השיר הבא"
 msgid "NOW PLAYING"
 msgstr "מנגן"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "שמור במוזיקה המועדפת"
+
+msgid "Copy current song to favorite folder"
+msgstr "העתק את השיר הנוכחי לתיקיית המועדפים"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "השתמש בתיקיית המוזיקה המועדפת"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "הפעל או בטל את השימוש בתיקיית המוזיקה המועדפת"
+
+msgid "Song added to favorite list!"
+msgstr "השיר נוסף לרשימת המועדפים!"
+
+msgid "Error: Could not open favorites file."
+msgstr "שגיאה: לא ניתן לפתוח את קובץ המועדפים."
+
+msgid "No song is currently playing."
+msgstr "אין שיר שמתנגן כרגע."
+
+msgid "Favorite music directory activated!"
+msgstr "תיקיית המוזיקה המועדפת הופעלה!"
+
+msgid "Default music directory activated!"
+msgstr "תיקיית המוזיקה המוגדרת כברירת מחדל הופעלה!"
+
+msgid "This song is already in Favorites."
+msgstr "השיר הזה כבר נמצא במועדפים."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "הפעלת שומר מסך"
 
@@ -2511,6 +2541,9 @@ msgstr "בחר לובי משחק בכדי להתחבר"
 msgid "FAILED"
 msgstr "נכשל"
 
+msgid "NO GAMES FOUND"
+msgstr "לא נמצאו משחקים"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "גרסה לא ידועה ROM"
 
@@ -2523,9 +2556,6 @@ msgstr "אותו ה ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "ליבה לא זמינה"
 
-msgid "LAN GAMES"
-msgstr ""
-
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2535,8 +2565,8 @@ msgstr "משחקים זמנים"
 msgid "UNAVAILABLE GAMES"
 msgstr "משחקים לא זמינים"
 
-msgid "NO GAMES FOUND"
-msgstr "לא נמצאו משחקים"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "הצטרפות למשחק"
