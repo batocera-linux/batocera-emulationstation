@@ -631,6 +631,16 @@ int main(int argc, char* argv[])
 	else
 		AudioManager::getInstance()->playRandomMusic();
 
+#if !WIN32
+	// Set rumble (if supported)
+	if (ApiSystem::getInstance()->getRumble()) {
+		bool rumbleEnabled = Settings::getInstance()->getBool("RumbleEnabled");
+		if (rumbleEnabled)
+			ApiSystem::getInstance()->setRumble(true);
+		else
+			ApiSystem::getInstance()->setRumble(false);
+	}
+#endif
 
 #ifdef WIN32	
 	DWORD displayFrequency = 60;
