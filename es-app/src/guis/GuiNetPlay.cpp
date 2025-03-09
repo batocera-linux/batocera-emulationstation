@@ -784,6 +784,8 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		return false;
 	}
 
+	bool netPlayShowOnlyRelayServerGames = Settings::NetPlayShowOnlyRelayServerGames();
+
 	std::vector<LobbyAppEntry> entries;
 	entries.reserve(doc.Size());
 
@@ -798,6 +800,12 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 		LobbyAppEntry game;	
 		game.isCrcValid = false;
+
+		if (fields.HasMember("host_method") && fields["host_method"].IsInt())
+			game.host_method = fields["host_method"].GetInt();
+
+		if (netPlayShowOnlyRelayServerGames && game.host_method != 3)
+			continue;
 
 		if (fields.HasMember("core_name") && fields["core_name"].IsString())
 			game.core_name = fields["core_name"].GetString();
@@ -849,9 +857,6 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 
 		if (fields.HasMember("country") && fields["country"].IsString())
 			game.country = fields["country"].GetString();
-
-		if (fields.HasMember("host_method") && fields["host_method"].IsInt())
-			game.host_method = fields["host_method"].GetInt();
 
 		if (fields.HasMember("has_password") && fields["has_password"].IsBool())
 			game.has_password = fields["has_password"].GetBool();

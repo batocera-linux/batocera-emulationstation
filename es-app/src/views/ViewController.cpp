@@ -555,6 +555,8 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 
 	if (!SystemConf::getInstance()->getBool("global.netplay") || ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED" || !game->isNetplaySupported())
 		options.netPlayMode = DISABLED;
+	else if (options.netPlayMode == DISABLED && Settings::getInstance()->getBool("NetPlayAutomaticallyCreateLobby"))
+		options.netPlayMode = SERVER;
 	
 	Transform4x4f origCamera = mCamera;
 	origCamera.translation() = -mCurrentView->getPosition();

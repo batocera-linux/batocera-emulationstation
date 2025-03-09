@@ -357,6 +357,8 @@ void Settings::setDefaults()
 	mIntMap["audio.display_titles_time"] = 10;
 
 	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
+	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
+	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
 	mBoolMap["NetPlayShowMissingGames"] = false;
 	
 	mBoolMap["CheevosCheckIndexesAtStart"] = false;	
