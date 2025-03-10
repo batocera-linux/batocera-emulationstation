@@ -550,6 +550,27 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "公開的遊戲"
+
+msgid "PLAYER PASSWORD"
+msgstr "玩家密碼"
+
+msgid "VIEWER PASSWORD"
+msgstr "觀眾密碼"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "顯示無法使用的遊戲"
 
@@ -1045,6 +1066,12 @@ msgid "AUTO"
 msgstr "自動"
 
 msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
 msgstr ""
 
 msgid "BRIGHTNESS"
@@ -1969,6 +1996,36 @@ msgstr "跳至下一首歌"
 msgid "NOW PLAYING"
 msgstr "正在播放"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "保存到最愛音樂"
+
+msgid "Copy current song to favorite folder"
+msgstr "將當前歌曲複製到最愛資料夾"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "使用最愛音樂目錄"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "切換最愛音樂目錄的使用"
+
+msgid "Song added to favorite list!"
+msgstr "歌曲已添加到收藏列表！"
+
+msgid "Error: Could not open favorites file."
+msgstr "錯誤：無法打開收藏文件。"
+
+msgid "No song is currently playing."
+msgstr "當前沒有正在播放的歌曲。"
+
+msgid "Favorite music directory activated!"
+msgstr "已啟用收藏音樂目錄！"
+
+msgid "Default music directory activated!"
+msgstr "已啟用默認音樂目錄！"
+
+msgid "This song is already in Favorites."
+msgstr "這首歌已在收藏夾中。"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "啟動螢幕保護程式"
 
@@ -2143,15 +2200,6 @@ msgstr "開始遊戲"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "主持一場連線遊戲"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公開的遊戲"
-
-msgid "PLAYER PASSWORD"
-msgstr "玩家密碼"
-
-msgid "VIEWER PASSWORD"
-msgstr "觀眾密碼"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "尋找相似的遊戲..."
@@ -2520,6 +2568,9 @@ msgstr "連線到多人遊戲"
 msgid "Select a game lobby to join"
 msgstr "選擇您要加入的遊戲大廳"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "失敗"
 
@@ -2535,10 +2586,13 @@ msgstr "相同的 ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "無法使用的核心"
 
-msgid "LAN GAMES"
+msgid "PLAY ONLINE AS HOST"
 msgstr ""
 
-msgid "ONLINE GAMES"
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2620,12 +2674,6 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "顯示遊戲控制器的電池電量"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2804,15 +2852,6 @@ msgstr "螢幕保護程式使用 OMX 播放器"
 
 msgid "SHOW GAME INFO"
 msgstr "顯示遊戲資訊"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用跑馬燈作為遊戲資訊"
@@ -3080,9 +3119,6 @@ msgstr "核心遺失"
 
 msgid "UKNOWN ERROR"
 msgstr "未知的錯誤"
-
-msgid "Interlaced"
-msgstr ""
 
 msgid "all games"
 msgstr "所有遊戲"

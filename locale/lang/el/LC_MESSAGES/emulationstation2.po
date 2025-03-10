@@ -1981,6 +1981,36 @@ msgstr "ΜΕΤΑΒΑΣΗ ΣΤΟ ΕΠΟΜΕΝΟ ΤΡΑΓΟΥΔΙ"
 msgid "NOW PLAYING"
 msgstr "ΤΩΡΑ ΠΑΙΖΕΙ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ΑΠΟΘΗΚΕΥΣΗ ΣΤΗΝ ΑΓΑΠΗΜΕΝΗ ΜΟΥΣΙΚΗ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Αντιγραφή του τρέχοντος τραγουδιού στο αγαπημένο φάκελο"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ΧΡΗΣΗ ΚΑΤΑΛΟΓΟΥ ΑΓΑΠΗΜΕΝΗΣ ΜΟΥΣΙΚΗΣ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Εναλλαγή χρήσης του καταλόγου αγαπημένης μουσικής"
+
+msgid "Song added to favorite list!"
+msgstr "Το τραγούδι προστέθηκε στη λίστα αγαπημένων!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Σφάλμα: Δεν ήταν δυνατή η ανοίγμα του αρχείου αγαπημένων."
+
+msgid "No song is currently playing."
+msgstr "Δεν αναπαράγεται κανένα τραγούδι αυτή τη στιγμή."
+
+msgid "Favorite music directory activated!"
+msgstr "Ο φάκελος αγαπημένης μουσικής ενεργοποιήθηκε!"
+
+msgid "Default music directory activated!"
+msgstr "Ο προεπιλεγμένος φάκελος μουσικής ενεργοποιήθηκε!"
+
+msgid "This song is already in Favorites."
+msgstr "Αυτό το τραγούδι βρίσκεται ήδη στα Αγαπημένα."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ΕΝΑΡΞΗ ΠΡΟΦΥΛΑΞΗΣ ΟΘΟΝΗΣ"
 
@@ -2536,6 +2566,9 @@ msgstr ""
 msgid "FAILED"
 msgstr "ΑΠΕΤΥΧΕ"
 
+msgid "NO GAMES FOUND"
+msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΠΑΙΧΝΙΔΙΑ"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "ΑΓΝΩΣΗ ΕΚΔΟΣΗ ROM"
 
@@ -2548,9 +2581,6 @@ msgstr "ΙΔΙΟ ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "ΜΗ ΔΙΑΘΕΣΙΜΟΣ ΠYΡHΝΑΣ"
 
-msgid "LAN GAMES"
-msgstr ""
-
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2560,8 +2590,8 @@ msgstr "ΔΙΑΘΕΣΙΜΑ ΠΑΙΧΝΙΔΙΑ"
 msgid "UNAVAILABLE GAMES"
 msgstr "ΜΗ ΔΙΑΘΕΣΙΜΑ ΠΑΙΧΝΙΔΙΑ"
 
-msgid "NO GAMES FOUND"
-msgstr "ΔΕΝ ΒΡΕΘΗΚΑΝ ΠΑΙΧΝΙΔΙΑ"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "ΜΠΕΙΤΕ ΣΤΟ ΠΑΙΧΝΙΔΙ"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-28 19:33+0100\n"
+"PO-Revision-Date: 2025-01-13 02:39+0100\n"
 "Last-Translator: enfeitizador <fedellar@enfeitizador.es>\n"
 "Language-Team: Galician\n"
 "Language: gl_ES\n"
@@ -555,6 +555,28 @@ msgstr "PERSONALIZADO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR CENTRAL PERSONALIZADO"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE A PARTIDA"
+
+msgid "PLAYER PASSWORD"
+msgstr "CONTRASINAL DO XOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "CONTRASINAL DO ESPECTADOR"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr "AMOSAR OPCIÓNS DO XOGO EN REDE AO INICIAR O XOGO"
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+"Permite escoller entre xogar en liña, desconectado ou unirse a outra partida."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Os xogos con servidor central teñen máis probabilidades de conexión."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AMOSAR XOGOS NON DISPOÑÍBEIS"
 
@@ -633,8 +655,7 @@ msgid "VERBOSE MODE"
 msgstr "MODO DETALLADO"
 
 msgid "Show achievement progression on game launch and other notifications."
-msgstr ""
-"Amosa a progresión de fazañas no inicio do xogo e outras notificacións."
+msgstr "Amosa a progresión de fazañas no inicio do xogo e outras notificacións."
 
 msgid "RICH PRESENCE"
 msgstr "PRESENZA ENRIQUECIDA"
@@ -1059,6 +1080,12 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "tamaño da matriz dmd"
 
+msgid "MATRIX"
+msgstr "MATRIZ"
+
+msgid "rgb dmd order"
+msgstr "orde rgb dmd"
+
 msgid "BRIGHTNESS"
 msgstr "BRILLO"
 
@@ -1181,8 +1208,8 @@ msgstr "RESTABELECER DATOS DE USO DA LISTAXE DE XOGOS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Restabelece valores dos datos de tempo de xogo, contador de partidas e "
-"última vez xogado."
+"Restabelece valores dos datos de tempo de xogo, contador de partidas e última "
+"vez xogado."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESTABELECER EXTENSIÓNS DE FICHEIRO"
@@ -1298,8 +1325,8 @@ msgid ""
 "Switches to short-press North for Savestates & long-press South button for "
 "Game Options"
 msgstr ""
-"Muda á pulsación curta do botón Norte para as partidas gardadas e á "
-"pulsación longa do botón Sur para as opcións do xogo"
+"Muda á pulsación curta do botón Norte para as partidas gardadas e á pulsación "
+"longa do botón Sur para as opcións do xogo"
 
 msgid "CONTROL EMULATIONSTATION WITH FIRST JOYSTICK ONLY"
 msgstr "CONTROLAR EMULATIONSTATION SÓ CO JOYSTICK PRINCIPAL"
@@ -1328,8 +1355,8 @@ msgstr "PRECARGAR ELEMENTOS DA INTERFACE NO ARRANQUE"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Reduce o atraso ao inserir listaxes de xogos desde o menú do sistema, "
-"aumenta o tempo de arranque"
+"Reduce o atraso ao inserir listaxes de xogos desde o menú do sistema, aumenta "
+"o tempo de arranque"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "PRECARGAR METADATOS NO ARRANQUE"
@@ -1338,8 +1365,8 @@ msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
 "time"
 msgstr ""
-"Reduce o atraso ao desprazarse por unha listaxe de xogos totalmente "
-"auditada, aumenta o tempo de arranque"
+"Reduce o atraso ao desprazarse por unha listaxe de xogos totalmente auditada, "
+"aumenta o tempo de arranque"
 
 msgid "THREADED LOADING"
 msgstr "ACELERAR CARGA DO SISTEMA"
@@ -1434,8 +1461,7 @@ msgid ""
 msgstr ""
 "Estas cambiando a interface de usuario a modo restrinxido:\n"
 "Isto ocultará a maioría das opcións do menú para evitar cambios no sistema.\n"
-"Para desbloquear e volver á interface de usuario completa, insire este "
-"código:"
+"Para desbloquear e volver á interface de usuario completa, insire este código:"
 
 msgid "Do you want to proceed?"
 msgstr "Queres seguir?"
@@ -1681,8 +1707,7 @@ msgstr "PROPORCIÓN DO XOGO"
 msgid "Force the game to render in this aspect ratio."
 msgstr "Forza que o xogo se renderice nesta relación de aspecto."
 
-msgid ""
-"Sets the display's resolution. Does not affect the rendering resolution."
+msgid "Sets the display's resolution. Does not affect the rendering resolution."
 msgstr ""
 "Estabelece a resolución da pantalla. Non afecta á resolución de renderizado."
 
@@ -2011,6 +2036,36 @@ msgstr "SALTAR Á SEGUINTE CANCIÓN"
 msgid "NOW PLAYING"
 msgstr "REPRODUCINDO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GARDAR NA MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar a canción actual ao cartafol favorito"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR O DIRECTORIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar o uso do directorio de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Canción engadida á lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erro: Non se puido abrir o ficheiro de favoritos."
+
+msgid "No song is currently playing."
+msgstr "Non hai ningunha canción en reprodución."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorio de música favorita activado!"
+
+msgid "Default music directory activated!"
+msgstr "Directorio de música predeterminado activado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta canción xa está en Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
 
@@ -2186,15 +2241,6 @@ msgstr "COMEZAR XOGO"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "HOSPEDAR XOGO EN REDE"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE A PARTIDA"
-
-msgid "PLAYER PASSWORD"
-msgstr "CONTRASINAL DO XOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "CONTRASINAL DO ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "ATOPAR XOGOS SIMILARES..."
@@ -2563,6 +2609,9 @@ msgstr "CONECTAR A XOGO EN REDE"
 msgid "Select a game lobby to join"
 msgstr "Selecciona una sala de xogo para unirte"
 
+msgid "Select a game lobby to create or join"
+msgstr "Selecciona una sala de xogo para crear ou unirte"
+
 msgid "FAILED"
 msgstr "FALLOU"
 
@@ -2578,11 +2627,14 @@ msgstr "MESMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NON DISPOÑÍBEL"
 
-msgid "LAN GAMES"
-msgstr ""
+msgid "PLAY ONLINE AS HOST"
+msgstr "XOGAR EN LIÑA COMO ANFITRIÓN"
 
-msgid "ONLINE GAMES"
-msgstr ""
+msgid "PLAY OFFLINE"
+msgstr "XOGAR DESCONECTADO"
+
+msgid "JOIN EXISTING GAME"
+msgstr "UNIRSE A PARTIDA EXISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "XOGOS DISPOÑÍBEIS"
@@ -2625,13 +2677,13 @@ msgstr "DISPOSICIÓN DO MANDO"
 msgid ""
 "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION, NOT "
 "ITS PHYSICAL LABEL. IF YOU DO NOT HAVE A SPECIAL BUTTON FOR HOTKEY, USE THE "
-"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY "
-"BUTTON. PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
+"SELECT BUTTON. SKIP ALL BUTTONS/STICKS YOU DO NOT HAVE BY HOLDING ANY BUTTON. "
+"PRESS THE SOUTH BUTTON TO CONFIRM WHEN DONE."
 msgstr ""
 "VAS CONFIGURAR UN MANDO. A DISPOSICIÓN BASEASE NA POSICIÓN DO BOTÓN, NON DA "
 "ETIQUETA FÍSICA. SE NON TES UN BOTÓN ESPECIAL DE TECLA RÁPIDA, USA O BOTÓN "
-"SELECT. OMITE TODO BOTÓN/PANCA QUE NON TEÑAS PREMENDO CALQUERA BOTÓN. PREME "
-"O BOTÓN SUR PARA CONFIRMAR CANDO REMATES."
+"SELECT. OMITE TODO BOTÓN/PANCA QUE NON TEÑAS PREMENDO CALQUERA BOTÓN. PREME O "
+"BOTÓN SUR PARA CONFIRMAR CANDO REMATES."
 
 msgid "SINDEN GUN SETTINGS"
 msgstr "AXUSTES PISTOLA SINDEN"
@@ -2665,12 +2717,6 @@ msgstr "AMOSAR NIVEL DE BATERÍA DO MANDO"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DEBUXAR PUNTO DE MIRA DA PISTOLA"
-
-msgid "BEHAVIOR"
-msgstr "COMPORTAMENTO"
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINXIR OS ATALLOS PARA SAÍR"
 
 msgid "default"
 msgstr "por defecto"
@@ -2849,15 +2895,6 @@ msgstr "USAR REPRODUCTOR OMX PARA O SALVAPANTALLAS"
 msgid "SHOW GAME INFO"
 msgstr "AMOSAR INFO DO XOGO"
 
-msgid "SHOW DATE TIME"
-msgstr "AMOSAR DATA E HORA"
-
-msgid "DATE FORMAT"
-msgstr "FORMATO DE DATA"
-
-msgid "TIME FORMAT"
-msgstr "FORMATO DE HORA"
-
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR MARQUESIÑA COMO INFO. DO XOGO"
 
@@ -2913,8 +2950,8 @@ msgid ""
 "A valid account is required. Please register an account on https://"
 "retroachievements.org"
 msgstr ""
-"Requírese unha conta válida. Rexistra unha conta en https://"
-"retroachievements.org"
+"Requírese unha conta válida. Rexistra unha conta en https://retroachievements."
+"org"
 
 msgid "Full"
 msgstr "Completo"
@@ -3024,8 +3061,8 @@ msgid ""
 "CORRECTLY.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"AVISO: AO SISTEMA FÁLTANLLE FICHEIROS BIOS, É POSÍBEL QUE O XOGO NON "
-"FUNCIONE CORRECTAMENTE.\n"
+"AVISO: AO SISTEMA FÁLTANLLE FICHEIROS BIOS, É POSÍBEL QUE O XOGO NON FUNCIONE "
+"CORRECTAMENTE.\n"
 "QUERES INICIALO IGUALMENTE?"
 
 msgid "Preloading UI"
@@ -3132,9 +3169,6 @@ msgstr "FALTA O NÚCLEO"
 
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCOÑECIDO"
-
-msgid "Interlaced"
-msgstr "Entrelazado"
 
 msgid "all games"
 msgstr "todos os xogos"
@@ -3544,8 +3578,8 @@ msgid "-NOT DEFINED-"
 msgstr "-SEN DEFINIR-"
 
 msgid ""
-"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "
-"A CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
+"NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH A "
+"CONTROLLER. DO YOU WANT TO USE THE SELECT BUTTON AS YOUR HOTKEY?"
 msgstr ""
 "NON SE ASGINOU NINGUNHA TECLA RÁPIDA. REQUÍRESE PARA SAÍR DOS XOGOS CUN "
 "MANDO. QUERES USAR O BOTÓN SELECT COMO A TÚA TECLA RÁPIDA?"
@@ -3580,39 +3614,6 @@ msgid ""
 msgstr ""
 "CALIBRANDO PISTOLA\n"
 "Dispara aos obxectivos para calibrar"
-
-#~ msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
-#~ msgstr "AMOSAR OPCIÓNS DO XOGO EN REDE AO INICIAR O XOGO"
-
-#~ msgid "Allows choice of online, offline, or joining another game."
-#~ msgstr ""
-#~ "Permite escoller entre xogar en liña, desconectado ou unirse a outra "
-#~ "partida."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Os xogos con servidor central teñen máis probabilidades de conexión."
-
-#~ msgid "Select a game lobby to create or join"
-#~ msgstr "Selecciona una sala de xogo para crear ou unirte"
-
-#~ msgid "PLAY ONLINE AS HOST"
-#~ msgstr "XOGAR EN LIÑA COMO ANFITRIÓN"
-
-#~ msgid "PLAY OFFLINE"
-#~ msgstr "XOGAR DESCONECTADO"
-
-#~ msgid "JOIN EXISTING GAME"
-#~ msgstr "UNIRSE A PARTIDA EXISTENTE"
-
-#~ msgid "MATRIX"
-#~ msgstr "MATRIZ"
-
-#~ msgid "rgb dmd order"
-#~ msgstr "orde rgb dmd"
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr ""

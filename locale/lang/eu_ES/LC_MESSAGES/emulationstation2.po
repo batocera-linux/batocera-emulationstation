@@ -546,6 +546,27 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "JOKOA PUBLIKOKI IRAGARRI"
+
+msgid "PLAYER PASSWORD"
+msgstr "JOKALARI PASAHITZA"
+
+msgid "VIEWER PASSWORD"
+msgstr "IKUSI PASAHITZA"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ERAKUTSI ESKURAGARRI EZ DAUDEN JOKOAK"
 
@@ -1047,6 +1068,12 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
 msgstr ""
 
 msgid "BRIGHTNESS"
@@ -1997,6 +2024,36 @@ msgstr "SALTATU HURRENGO ABESTIA"
 msgid "NOW PLAYING"
 msgstr "ORAIN ERREPRODUZITZEN"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GORDE GOGOKO MUSIKAN"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopiatu une honetako abestia gogoko karpetara"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ERABILI GOGOKO MUSIKAREN DIREKTORIOA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Ezkutatu gogoko musika direktorioaren erabilera"
+
+msgid "Song added to favorite list!"
+msgstr "Abestia gogokoen zerrendara gehitu da!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Errorea: Ezin izan da gogokoen fitxategia ireki."
+
+msgid "No song is currently playing."
+msgstr "Ez dago abestirik jotzen une honetan."
+
+msgid "Favorite music directory activated!"
+msgstr "Gogoko musikaren direktorioa aktibatuta!"
+
+msgid "Default music directory activated!"
+msgstr "Musika lehenetsitako direktorioa aktibatuta!"
+
+msgid "This song is already in Favorites."
+msgstr "Abesti hau dagoeneko Gogokoetan dago."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ABIARAZI PANTAILA BABESLEA"
 
@@ -2172,15 +2229,6 @@ msgstr "HASI JOKOA"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "SARE JOKO BATEN ANFITRIOIA IZAN"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "JOKOA PUBLIKOKI IRAGARRI"
-
-msgid "PLAYER PASSWORD"
-msgstr "JOKALARI PASAHITZA"
-
-msgid "VIEWER PASSWORD"
-msgstr "IKUSI PASAHITZA"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "AURKITU ANTZEKO JOKOAK..."
@@ -2551,6 +2599,9 @@ msgstr "KONEKTATU SARE JOKORA"
 msgid "Select a game lobby to join"
 msgstr "Aukeratu zein joko gelara batu nahi duzun"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "HUTS EGIN DU"
 
@@ -2566,10 +2617,13 @@ msgstr "ROM BERDINA"
 msgid "UNAVAILABLE CORE"
 msgstr "NUKLEO ESKURAEZINA"
 
-msgid "LAN GAMES"
+msgid "PLAY ONLINE AS HOST"
 msgstr ""
 
-msgid "ONLINE GAMES"
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2653,12 +2707,6 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "ERAKUTSI KONTROLATZAILE BATERIA MAILA"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2837,15 +2885,6 @@ msgstr "ERABILI OMX IRAKURGAILUA PANTAILA BABESLEARENTZAT"
 
 msgid "SHOW GAME INFO"
 msgstr "ERAKUTSI JOKO INFORMAZIOA"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ERABILI MARKESINA JOKO INFORMAZIO BEZALA"
@@ -3121,9 +3160,6 @@ msgstr "NUKLEOA EZ DAGO ESKURAGARRI"
 
 msgid "UKNOWN ERROR"
 msgstr "ERRORE EZEZAGUNA"
-
-msgid "Interlaced"
-msgstr ""
 
 msgid "all games"
 msgstr "joko guztiak"

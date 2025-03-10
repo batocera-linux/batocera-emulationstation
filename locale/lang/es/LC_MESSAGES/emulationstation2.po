@@ -2014,6 +2014,36 @@ msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 msgid "NOW PLAYING"
 msgstr "REPRODUCIENDO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GUARDAR EN MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar la canción actual a la carpeta favorita"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR DIRECTORIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar el uso del directorio de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Canción añadida a la lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: No se pudo abrir el archivo de favoritos."
+
+msgid "No song is currently playing."
+msgstr "No hay ninguna canción en reproducción."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorio de música favorita activado!"
+
+msgid "Default music directory activated!"
+msgstr "Directorio de música predeterminado activado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta canción ya está en Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
 
@@ -2570,6 +2600,9 @@ msgstr "Selecciona una sala de juego para unirte"
 msgid "FAILED"
 msgstr "FALLÓ"
 
+msgid "NO GAMES FOUND"
+msgstr "NO SE HAN ENCONTRADO JUEGOS"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSIÓN DE ROM DESCONOCIDA"
 
@@ -2582,9 +2615,6 @@ msgstr "MISMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NO DISPONIBLE"
 
-msgid "LAN GAMES"
-msgstr "JUEGOS RED LOCAL"
-
 msgid "ONLINE GAMES"
 msgstr "JUEGOS ONLINE"
 
@@ -2594,8 +2624,8 @@ msgstr "JUEGOS DISPONIBLES"
 msgid "UNAVAILABLE GAMES"
 msgstr "JUEGOS NO DISPONIBLES"
 
-msgid "NO GAMES FOUND"
-msgstr "NO SE HAN ENCONTRADO JUEGOS"
+msgid "LAN GAMES"
+msgstr "JUEGOS RED LOCAL"
 
 msgid "JOIN GAME"
 msgstr "UNIRTE A LA PARTIDA"

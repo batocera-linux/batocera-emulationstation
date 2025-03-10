@@ -1955,6 +1955,36 @@ msgstr ""
 msgid "NOW PLAYING"
 msgstr ""
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "LAGRE TIL FAVORITTMUSIKK"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopier den nåværende sangen til favorittmappen"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "BRUK FAVORITTMUSIKK-KATALOGEN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Veksle bruk av favorittmusikk-katalogen"
+
+msgid "Song added to favorite list!"
+msgstr "Sang lagt til i favorittlisten!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Feil: Kunne ikke åpne favorittfilen."
+
+msgid "No song is currently playing."
+msgstr "Ingen sang spilles for øyeblikket."
+
+msgid "Favorite music directory activated!"
+msgstr "Favorittmusikkmappen aktivert!"
+
+msgid "Default music directory activated!"
+msgstr "Standard musikkmappe aktivert!"
+
+msgid "This song is already in Favorites."
+msgstr "Denne sangen er allerede i Favoritter."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr ""
 
@@ -2505,6 +2535,9 @@ msgstr ""
 msgid "FAILED"
 msgstr ""
 
+msgid "NO GAMES FOUND"
+msgstr ""
+
 msgid "UNKNOWN ROM VERSION"
 msgstr ""
 
@@ -2517,9 +2550,6 @@ msgstr ""
 msgid "UNAVAILABLE CORE"
 msgstr ""
 
-msgid "LAN GAMES"
-msgstr ""
-
 msgid "ONLINE GAMES"
 msgstr ""
 
@@ -2529,7 +2559,7 @@ msgstr ""
 msgid "UNAVAILABLE GAMES"
 msgstr ""
 
-msgid "NO GAMES FOUND"
+msgid "LAN GAMES"
 msgstr ""
 
 msgid "JOIN GAME"

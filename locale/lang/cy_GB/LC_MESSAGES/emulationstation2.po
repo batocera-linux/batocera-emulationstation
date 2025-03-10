@@ -554,6 +554,27 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr ""
+
+msgid "PLAYER PASSWORD"
+msgstr ""
+
+msgid "VIEWER PASSWORD"
+msgstr ""
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
@@ -1042,6 +1063,12 @@ msgid "AUTO"
 msgstr "AWTO"
 
 msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
 msgstr ""
 
 msgid "BRIGHTNESS"
@@ -1958,10 +1985,40 @@ msgid "QUICK ACCESS"
 msgstr "MYNEDIAD CYFLYM"
 
 msgid "SKIP TO THE NEXT SONG"
-msgstr ""
+msgstr "NEIDIO I’R GÂN NESAF"
 
 msgid "NOW PLAYING"
-msgstr ""
+msgstr "YN CHWARAE NAWR"
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "CADW I GERDDORIAETH FFAVORIT"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copïo’r gân gyfredol i’r ffolder ffefryn"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "DEFNYDDIO CYFEIRLYFR CERDDORIAETH FFAVORIT"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Toglo defnydd o’r cyfeirlyfr cerddoriaeth ffefryn"
+
+msgid "Song added to favorite list!"
+msgstr "Ychwanegwyd cân at y rhestr ffefryn!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Gwall: Methu agor y ffeil ffefrynnau."
+
+msgid "No song is currently playing."
+msgstr "Nid oes cân yn chwarae ar hyn o bryd."
+
+msgid "Favorite music directory activated!"
+msgstr "Wedi actifadu cyfeirlyfr cerddoriaeth ffefryn!"
+
+msgid "Default music directory activated!"
+msgstr "Wedi actifadu cyfeirlyfr cerddoriaeth rhagosodedig!"
+
+msgid "This song is already in Favorites."
+msgstr "Mae'r gân hon eisoes yn y Ffefrynnau."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSIO ARBEDYDD SGRIN"
@@ -2136,15 +2193,6 @@ msgid "START GAME"
 msgstr "DECHRAU GAME"
 
 msgid "HOST A NETPLAY GAME"
-msgstr ""
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr ""
-
-msgid "PLAYER PASSWORD"
-msgstr ""
-
-msgid "VIEWER PASSWORD"
 msgstr ""
 
 msgid "FIND SIMILAR GAMES..."
@@ -2512,6 +2560,9 @@ msgstr "CYSYLLTWCH Â RHWYDWAITH"
 msgid "Select a game lobby to join"
 msgstr ""
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "METHU"
 
@@ -2527,10 +2578,13 @@ msgstr "UN ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "CRAIDD ANNERBYNIOL"
 
-msgid "LAN GAMES"
+msgid "PLAY ONLINE AS HOST"
 msgstr ""
 
-msgid "ONLINE GAMES"
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2609,12 +2663,6 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr ""
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2793,15 +2841,6 @@ msgstr "DEFNYDDIWCH CHWARAEWR OMX AM ARBEDYDD SGRIN"
 
 msgid "SHOW GAME INFO"
 msgstr "DANGOS GWYBODAETH GÊM"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "DEFNYDDIWCH MARQUEE FEL GWYBODAETH GÊM"
@@ -3085,9 +3124,6 @@ msgid "CORE IS MISSING"
 msgstr ""
 
 msgid "UKNOWN ERROR"
-msgstr ""
-
-msgid "Interlaced"
 msgstr ""
 
 msgid "all games"
