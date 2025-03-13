@@ -1907,7 +1907,7 @@ msgid "SHOW FOLDERS FIRST"
 msgstr "ПОКАЗЫВАТЬ ПАПКИ ПЕРВЫМИ"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКИ"
+msgstr "ИГНОРИРОВАТЬ АРТИКЛЬ ПРИ СОРТИРОВКЕ"
 
 msgid "Ignore 'The' and 'A' if at the start."
 msgstr "Игнорует 'The' и 'A', если они находятся в начале."
@@ -2000,10 +2000,10 @@ msgid "VIEW USER MANUAL"
 msgstr "РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ"
 
 msgid "DISABLE PLANE MODE"
-msgstr "ОТКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
+msgstr "ОТКЛЮЧИТЬ АВИАРЕЖИМ"
 
 msgid "ENABLE PLANE MODE"
-msgstr "ВКЛЮЧИТЬ РЕЖИМ ПЛОСКОСТИ"
+msgstr "ВКЛЮЧИТЬ АВИАРЕЖИМ"
 
 msgid "RESTART SYSTEM"
 msgstr "ПЕРЕЗАГРУЗИТЬ СИСТЕМУ"
@@ -2562,10 +2562,10 @@ msgid "UNAVAILABLE CORE"
 msgstr "НЕДОСТУПНОЕ ЯДРО"
 
 msgid "LAN GAMES"
-msgstr ""
+msgstr "ИГРЫ ПО ЛОКАЛЬНОЙ СЕТИ"
 
 msgid "ONLINE GAMES"
-msgstr ""
+msgstr "СЕТЕВЫЕ ИГРЫ"
 
 msgid "AVAILABLE GAMES"
 msgstr "ДОСТУПНЫЕ ИГРЫ"
@@ -2833,13 +2833,13 @@ msgid "SHOW GAME INFO"
 msgstr "ПОКАЗАТЬ ИНФОРМАЦИЮ ОБ ИГРЕ"
 
 msgid "SHOW DATE TIME"
-msgstr ""
+msgstr "ПОКАЗАТЬ ДАТУ И ВРЕМЯ"
 
 msgid "DATE FORMAT"
-msgstr ""
+msgstr "ФОРМАТ ДАТЫ"
 
 msgid "TIME FORMAT"
-msgstr ""
+msgstr "ФОРМАТ ВРЕМЕНИ"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "ИСПОЛЬЗОВАТЬ БАНЕР КАК ИНФОРМАЦИЮ О ИГРЕ"
