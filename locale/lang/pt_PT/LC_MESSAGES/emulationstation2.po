@@ -549,6 +549,29 @@ msgstr "PERSONALIZADO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR DE RELÉ PERSONALIZADO"
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
+
+msgid "PLAYER PASSWORD"
+msgstr "PASSWORD DO JOGADOR"
+
+msgid "VIEWER PASSWORD"
+msgstr "PASSWORD DO ESPECTADOR"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr "MOSTRAR OPÇÕES DE NETPLAY AO INICIAR O JOGO"
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr "Permite escolher entre online, offline ou aderir a outro jogo."
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "MOSTRAR APENAS JOGOS DO SERVIDOR RELAY"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Os jogos de servidor relay têm uma maior probabilidade de entrada bem-"
+"sucedida."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JOGOS INDISPONÍVEIS"
 
@@ -1055,6 +1078,12 @@ msgstr "AUTOMÁTICO"
 
 msgid "dmd matrix size"
 msgstr "tamanho da matriz dmd"
+
+msgid "MATRIX"
+msgstr "MATRIZ"
+
+msgid "rgb dmd order"
+msgstr "ordem rgb dmd"
 
 msgid "BRIGHTNESS"
 msgstr "BRILHO"
@@ -2001,6 +2030,36 @@ msgstr "PASSAR PARA A PRÓXIMA MÚSICA"
 msgid "NOW PLAYING"
 msgstr "A REPRODUZIR"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GUARDAR NA MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar a música atual para a pasta de favoritos"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR O DIRETÓRIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar a utilização do diretório de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Música adicionada à lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erro: Não foi possível abrir o arquivo de favoritos."
+
+msgid "No song is currently playing."
+msgstr "Nenhuma música está tocando no momento."
+
+msgid "Favorite music directory activated!"
+msgstr "Diretório de músicas favoritas ativado!"
+
+msgid "Default music directory activated!"
+msgstr "Diretório de músicas padrão ativado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta música já está nos Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR PROTEÇÃO DE ECRÃ"
 
@@ -2177,15 +2236,6 @@ msgstr "INICIAR JOGO"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "ORGANIZAR JOGO EM REDE"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANUNCIAR PUBLICAMENTE O JOGO"
-
-msgid "PLAYER PASSWORD"
-msgstr "PASSWORD DO JOGADOR"
-
-msgid "VIEWER PASSWORD"
-msgstr "PASSWORD DO ESPECTADOR"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "JOGOS SEMELHANTES..."
@@ -2555,6 +2605,9 @@ msgstr "CONECTAR-SE AOS JOGOS EM REDE"
 msgid "Select a game lobby to join"
 msgstr "Selecione uma sala de jogo para se juntar"
 
+msgid "Select a game lobby to create or join"
+msgstr "Selecione um lobby de jogo para criar ou participar"
+
 msgid "FAILED"
 msgstr "FALHOU"
 
@@ -2570,11 +2623,14 @@ msgstr "MESMA ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "CORE INDISPONÍVEL"
 
-msgid "LAN GAMES"
-msgstr "JOGOS EM LAN"
+msgid "PLAY ONLINE AS HOST"
+msgstr "JOGAR ONLINE COMO HOST"
 
-msgid "ONLINE GAMES"
-msgstr "JOGOS ONLINE"
+msgid "PLAY OFFLINE"
+msgstr "JOGAR OFFLINE"
+
+msgid "JOIN EXISTING GAME"
+msgstr "JUNTAR-SE AO JOGO EXISTENTE"
 
 msgid "AVAILABLE GAMES"
 msgstr "JOGOS DISPONÍVEIS"
@@ -2657,12 +2713,6 @@ msgstr "MOSTRAR NÍVEL DA BATERIA DO COMANDO"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "DESENHAR ARMA CROSSHAIR"
-
-msgid "BEHAVIOR"
-msgstr "COMPORTAMENTO"
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "RESTRINGIR TECLAS DE ATALHO PARA SAIR"
 
 msgid "default"
 msgstr "predefinição"
@@ -2840,15 +2890,6 @@ msgstr "USAR O LEITOR OMX NA PROTEÇÃO DE ECRÃ"
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMAÇÃO DO JOGO"
-
-msgid "SHOW DATE TIME"
-msgstr "MOSTRAR DATA HORA"
-
-msgid "DATE FORMAT"
-msgstr "FORMATO DE DATA"
-
-msgid "TIME FORMAT"
-msgstr "FORMATO DE HORA"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR LETREIRO COM INFORMAÇÃO DO JOGO"
@@ -3122,9 +3163,6 @@ msgstr "O CORE ESTÁ EM FALTA"
 
 msgid "UKNOWN ERROR"
 msgstr "ERRO DESCONHECIDO"
-
-msgid "Interlaced"
-msgstr "Entrelaçado"
 
 msgid "all games"
 msgstr "todos os jogos"
@@ -3570,6 +3608,8 @@ msgid ""
 msgstr ""
 "CALIBRAR ARMA\n"
 "Atire nos alvos para calibrar"
+
+
 
 #~ msgid ""
 #~ "YOU ARE GOING TO MAP A CONTROLLER. MAP BASED ON THE BUTTON'S POSITION "

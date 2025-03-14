@@ -69,6 +69,9 @@ public:
 
 	static std::string findEmulationStationFile(const std::string& fileName);
 
+    	static std::string getUserDataPath();
+    	static std::string getUserFavoriteMusicPath();
+
 private:
 	static Paths* getInstance() 
 	{
@@ -109,4 +112,5 @@ private:
 	std::string mUserManualPath;
 	std::string mVersionInfoPath;
 	std::string mKodiPath;	
+	std::string mFavoritesPath;
 };

@@ -551,6 +551,27 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+msgid "PUBLICLY ANNOUNCE GAME"
+msgstr "MOSTRAR COMO PARTIDA PÚBLICA"
+
+msgid "PLAYER PASSWORD"
+msgstr "CONTRASEÑA PARA JUGADORES"
+
+msgid "VIEWER PASSWORD"
+msgstr "CONTRASEÑA PARA ESPECTADORES"
+
+msgid "SHOW NETPLAY OPTIONS WHEN LAUNCHING GAME"
+msgstr ""
+
+msgid "Allows choice of online, offline, or joining another game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr ""
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
 
@@ -1055,6 +1076,12 @@ msgid "AUTO"
 msgstr "AUTO"
 
 msgid "dmd matrix size"
+msgstr ""
+
+msgid "MATRIX"
+msgstr ""
+
+msgid "rgb dmd order"
 msgstr ""
 
 msgid "BRIGHTNESS"
@@ -2004,6 +2031,36 @@ msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 msgid "NOW PLAYING"
 msgstr "SONANDO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GUARDAR EN MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar la canción actual a la carpeta favorita"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR DIRECTORIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar el uso del directorio de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Canción añadida a la lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: No se pudo abrir el archivo de favoritos."
+
+msgid "No song is currently playing."
+msgstr "No hay ninguna canción en reproducción."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorio de música favorita activado!"
+
+msgid "Default music directory activated!"
+msgstr "Directorio de música predeterminado activado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta canción ya está en Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
 
@@ -2179,15 +2236,6 @@ msgstr "INICIAR JUEGO"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "HOSPEDAR PARTIDA EN NET PLAY"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "MOSTRAR COMO PARTIDA PÚBLICA"
-
-msgid "PLAYER PASSWORD"
-msgstr "CONTRASEÑA PARA JUGADORES"
-
-msgid "VIEWER PASSWORD"
-msgstr "CONTRASEÑA PARA ESPECTADORES"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "BUSCAR JUEGOS SIMILARES..."
@@ -2557,6 +2605,9 @@ msgstr "CONECTAR A NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Selecciona una sala de juego para unirte"
 
+msgid "Select a game lobby to create or join"
+msgstr ""
+
 msgid "FAILED"
 msgstr "FALLÓ"
 
@@ -2572,10 +2623,13 @@ msgstr "LA ROM ES IGUAL"
 msgid "UNAVAILABLE CORE"
 msgstr "NÚCLEO NO DISPONIBLE"
 
-msgid "LAN GAMES"
+msgid "PLAY ONLINE AS HOST"
 msgstr ""
 
-msgid "ONLINE GAMES"
+msgid "PLAY OFFLINE"
+msgstr ""
+
+msgid "JOIN EXISTING GAME"
 msgstr ""
 
 msgid "AVAILABLE GAMES"
@@ -2659,12 +2713,6 @@ msgid "SHOW CONTROLLER BATTERY LEVEL"
 msgstr "MOSTRAR EL NIVEL DE BATERÍA DEL MANDO"
 
 msgid "DRAW GUN CROSSHAIR"
-msgstr ""
-
-msgid "BEHAVIOR"
-msgstr ""
-
-msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
 msgid "default"
@@ -2843,15 +2891,6 @@ msgstr "USAR REPRODUCTOR OMX EN SALVAPANTALLAS"
 
 msgid "SHOW GAME INFO"
 msgstr "MOSTRAR INFORMACIÓN DEL JUEGO"
-
-msgid "SHOW DATE TIME"
-msgstr ""
-
-msgid "DATE FORMAT"
-msgstr ""
-
-msgid "TIME FORMAT"
-msgstr ""
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "USAR MARQUESINA COMO INFORMACIÓN DEL JUEGO"
@@ -3126,9 +3165,6 @@ msgstr "FALTA EL NÚCLEO"
 
 msgid "UKNOWN ERROR"
 msgstr "ERROR DESCONOCIDO"
-
-msgid "Interlaced"
-msgstr ""
 
 msgid "all games"
 msgstr "todos los juegos"
