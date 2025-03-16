@@ -86,6 +86,7 @@ namespace PlatformIds
 		{ "vectrex",				VECTREX },
 		{ "trs-80",					TRS80_COLOR_COMPUTER },
 		{ "coco",					TANDY },
+		{ "dragon32",				DRAGON32 },
 		{ "supergrafx",				SUPERGRAFX },
 		{ "amigacd32",				AMIGACD32 },
 		{ "amigacdtv",				AMIGACDTV },
