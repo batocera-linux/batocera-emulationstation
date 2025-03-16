@@ -548,6 +548,18 @@ msgstr "定制"
 msgid "CUSTOM RELAY SERVER"
 msgstr "定制中继服务器"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "仅显示中继服务器游戏"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "中继服务器游戏有更高机会成功进入."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "显示不可用的游戏"
 
@@ -3526,12 +3538,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "允许选择在线、离线或加入其他游戏."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "仅显示中继服务器游戏"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "中继服务器游戏有更高机会成功进入."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "选择要创建或加入的游戏大厅"

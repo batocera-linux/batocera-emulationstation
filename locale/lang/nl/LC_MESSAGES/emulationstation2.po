@@ -551,6 +551,18 @@ msgstr "AANGEPAST"
 msgid "CUSTOM RELAY SERVER"
 msgstr "AANGEPASTE RELAY SERVER"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ALLEEN RELAY SERVER SPELLEN TONEN"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Relay server spellen hebben een grotere kans op succesvolle toegang."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "TOON NIET-BESCHIKBARE SPELLEN"
 
@@ -3591,13 +3603,6 @@ msgstr ""
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr ""
 #~ "Biedt de keuze tussen online, offline of deelnemen aan een ander spel."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "ALLEEN RELAY SERVER SPELLEN TONEN"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Relay server spellen hebben een grotere kans op succesvolle toegang."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Selecteer een gamelobby om aan te maken of eraan deel te nemen"

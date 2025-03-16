@@ -551,6 +551,20 @@ msgstr "PERSONALIZAT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Jocurile cu server de retranslație au o șansă mai mare de a permite "
+"alăturarea cu succes."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFIȘEAZĂ JOCURILE INDISPONIBILE"
 
@@ -3599,14 +3613,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Permite alegerea online, offline sau alăturarea la un alt joc."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Jocurile cu server de retranslație au o șansă mai mare de a permite "
-#~ "alăturarea cu succes."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Alege o sală pentru a crea sau a te alătura"

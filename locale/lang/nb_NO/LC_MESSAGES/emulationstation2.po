@@ -551,6 +551,18 @@ msgstr "EGENDEFINERT"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGENDEFINERT RELAY SERVER"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "VIS KUN RELAY-SERVER SPILL"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Relay-server-spill har tilgangen større sjanse for å lykkes."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "VIS UTILGJENGELIGE SPILL"
 
@@ -3567,12 +3579,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Tillater valg av online, offline eller bli med i et annet spill."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "VIS KUN RELAY-SERVER SPILL"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Relay-server-spill har tilgangen større sjanse for å lykkes."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Velg en spill-lobby å lage eller bli med i"

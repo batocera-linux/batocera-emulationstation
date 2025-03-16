@@ -549,6 +549,18 @@ msgstr "EGYEDI"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGYÉNI RELAY SZERVER"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK MEGJELENÍTÉSE"
 
@@ -3591,13 +3603,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Lehetővé teszi az online és offline választást, vagy egy másik játékhoz "
 #~ "való csatlakozást."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr ""

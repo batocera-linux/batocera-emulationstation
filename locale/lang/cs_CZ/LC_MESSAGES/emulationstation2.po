@@ -550,6 +550,18 @@ msgstr "VLASTNÍ"
 msgid "CUSTOM RELAY SERVER"
 msgstr "VLASTNÍ RELAY SERVER"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "ZOBRAZIT NEDOSTUPNÉ HRY"
 
@@ -3581,12 +3593,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Umožňuje volbu online, offline nebo připojení k jiné hře."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "ZOBRAZIT POUZE HRY SERVERU RELAY"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Hry na Relay serveru mají větší šanci na úspěšný vstup."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Vyberte herní lobby, kterou chcete vytvořit nebo se k ní připojit"

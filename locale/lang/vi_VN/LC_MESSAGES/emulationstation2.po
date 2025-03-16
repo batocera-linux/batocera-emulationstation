@@ -554,6 +554,18 @@ msgstr "TÙY CHỈNH"
 msgid "CUSTOM RELAY SERVER"
 msgstr "TÙY CHỈNH MÁY CHỦ CHUYỂN TIẾP"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "CHỈ HIỂN THỊ MÁY CHỦ TRÒ CHƠI CHUYỂN TIẾP"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Máy chủ trò chơi chuyển tiếp có cơ hội tham gia thành công cao hơn."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "HIỂN THỊ TRÒ CHƠI KHÔNG CÓ SẴN"
 
@@ -3566,12 +3578,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Cho phép chọn trực tuyến, ngoại tuyến, hoặc tham gia trò chơi khác."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "CHỈ HIỂN THỊ MÁY CHỦ TRÒ CHƠI CHUYỂN TIẾP"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Máy chủ trò chơi chuyển tiếp có cơ hội tham gia thành công cao hơn."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Chọn một sảnh trò chơi để tạo hoặc tham gia"

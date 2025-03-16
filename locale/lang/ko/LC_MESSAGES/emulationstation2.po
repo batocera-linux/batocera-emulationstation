@@ -548,6 +548,18 @@ msgstr "커스텀"
 msgid "CUSTOM RELAY SERVER"
 msgstr "커스텀 중계 서버"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "릴레이 서버 게임만 표시"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "릴레이 서버 게임은 성공적으로 진입할 확률이 더 높습니다."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "실행할 수 없는 게임 표시"
 
@@ -3540,12 +3552,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "온라인, 오프라인 또는 다른 게임에 참여할 수 있습니다."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "릴레이 서버 게임만 표시"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "릴레이 서버 게임은 성공적으로 진입할 확률이 더 높습니다."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "만들거나 참여할 게임 로비를 선택"

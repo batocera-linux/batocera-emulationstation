@@ -550,6 +550,19 @@ msgstr "KUSTOM"
 msgid "CUSTOM RELAY SERVER"
 msgstr "KUSTOM SERVER RELAY"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "TAMPILKAN SERVER RELAY GAME SAJA"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Game di server relay memiliki peluang keberhasilan masuk yang lebih tinggi."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "TAMPILKAN GAME YANG TIDAK TERSEDIA"
 
@@ -3553,14 +3566,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Izinkan pilihan untuk daring, luring, atau gabung game lain."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "TAMPILKAN SERVER RELAY GAME SAJA"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Game di server relay memiliki peluang keberhasilan masuk yang lebih "
-#~ "tinggi."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Pilih lobi permainan untuk dibuat/bergabung"

@@ -552,6 +552,18 @@ msgstr "カスタム"
 msgid "CUSTOM RELAY SERVER"
 msgstr "カスタムリレーサーバー"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "リレーサーバーゲームのみを表示"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "リレーサーバーゲームは参加に成功する可能性が高くなります"
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "利用不可ゲームを表示"
 
@@ -3558,12 +3570,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "オンライン、オフライン、別のゲームへの参加を選択できます"
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "リレーサーバーゲームのみを表示"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "リレーサーバーゲームは参加に成功する可能性が高くなります"
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "作成または参加するゲーム ロビーを選択"

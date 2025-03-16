@@ -551,6 +551,18 @@ msgstr "WŁASNY"
 msgid "CUSTOM RELAY SERVER"
 msgstr "WŁASNY SERWER POŚREDNICZĄCY"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Gry z serwerem pośredniczącym mają większą szansę na udane wejście."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "POKAŻ NIEDOSTĘPNE GRY"
 
@@ -3590,12 +3602,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Umożliwia wybór trybu online, offline lub dołączenie do innej gry."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr "Gry z serwerem pośredniczącym mają większą szansę na udane wejście."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Wybierz lobby gry aby stworzyć lub dołączyć"

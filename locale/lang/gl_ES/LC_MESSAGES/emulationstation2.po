@@ -555,6 +555,18 @@ msgstr "PERSONALIZADO"
 msgid "CUSTOM RELAY SERVER"
 msgstr "SERVIDOR CENTRAL PERSONALIZADO"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr "Os xogos con servidor central teñen máis probabilidades de conexión."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AMOSAR XOGOS NON DISPOÑÍBEIS"
 
@@ -3588,13 +3600,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Permite escoller entre xogar en liña, desconectado ou unirse a outra "
 #~ "partida."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "AMOSAR SÓ XOGOS DO SERVIDOR CENTRAL"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Os xogos con servidor central teñen máis probabilidades de conexión."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Selecciona una sala de xogo para crear ou unirte"

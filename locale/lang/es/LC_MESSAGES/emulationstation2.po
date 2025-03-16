@@ -548,6 +548,20 @@ msgstr "PERSONALIZAR"
 msgid "CUSTOM RELAY SERVER"
 msgstr "PERSONALIZAR SERVIDOR DE RETRANSMISIÓN"
 
+msgid "AUTOMATICALLY CREATE LOBBY"
+msgstr ""
+
+msgid "Automatically creates a Netplay lobby when starting a game."
+msgstr ""
+
+msgid "SHOW RELAY SERVER GAMES ONLY"
+msgstr "MOSTRAR SOLO JUEGOS DE SERVIDOR DE RETRANSMISIÓN"
+
+msgid "Relay server games have a higher chance of successful entry."
+msgstr ""
+"Los juegos con servidores de retransmisión tienen mayores posibilidades de "
+"acceso con éxito."
+
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MOSTRAR JUEGOS NO DISPONIBLES"
 
@@ -3593,14 +3607,6 @@ msgstr ""
 
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Permite elegir entre jugar online, offline o unirse a otro juego."
-
-#~ msgid "SHOW RELAY SERVER GAMES ONLY"
-#~ msgstr "MOSTRAR SOLO JUEGOS DE SERVIDOR DE RETRANSMISIÓN"
-
-#~ msgid "Relay server games have a higher chance of successful entry."
-#~ msgstr ""
-#~ "Los juegos con servidores de retransmisión tienen mayores posibilidades "
-#~ "de acceso con éxito."
 
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Selecciona una sala de juego para crear o unirte"
