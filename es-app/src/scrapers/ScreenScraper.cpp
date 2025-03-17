@@ -107,6 +107,7 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VECTREX, 102 },
 	{ TRS80_COLOR_COMPUTER, 144 },
 	{ TANDY, 144 },
+	{ DRAGON32, 91 },
 	{ SUPERGRAFX, 105 },
 	{ GP32, 101},
 
