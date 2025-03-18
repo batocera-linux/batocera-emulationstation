@@ -144,12 +144,16 @@ namespace Utils
 
 			return 1;
 #else
-			std::string cmdOutput = " 2> " + Utils::FileSystem::combine(Paths::getLogPath(), stderrFilename) + " | head -300 > " + Utils::FileSystem::combine(Paths::getLogPath(), stdoutFilename);
+			// getting the output when in a pipe is not easy...
+			// https://stackoverflow.com/questions/1221833/pipe-output-and-capture-exit-status-in-bash
+			std::string cmdOutput = "((((" + cmd_utf8 + " 2> " + Utils::FileSystem::combine(Paths::getLogPath(), stderrFilename) + " ; echo $? >&3) | head -300 > " + Utils::FileSystem::combine(Paths::getLogPath(), stdoutFilename) + ") 3>&1) | (read xs; exit $xs))";
 			if (!Log::enabled())
-				cmdOutput = " 2> /dev/null | head -300 > /dev/null";
+			  cmdOutput = "((((" + cmd_utf8 + " 2> /dev/null ; echo $? >&3) | head -300 > /dev/null) 3>&1) | (read xs; exit $xs))";
 
-			if (waitForExit)
-				return system((cmd_utf8 + cmdOutput).c_str());
+			if (waitForExit) {
+			  int n = system(cmdOutput.c_str());
+			  return WEXITSTATUS(n);
+			}
 
 			// fork the current process
 			pid_t ret = fork();
@@ -158,7 +162,7 @@ namespace Utils
 				ret = fork();
 				if (ret == 0)
 				{
-					execl("/bin/sh", "sh", "-c", (cmd_utf8 + cmdOutput).c_str(), (char *) NULL);
+					execl("/bin/sh", "sh", "-c", cmdOutput.c_str(), (char *) NULL);
 					_exit(1); // execl failed
 				}
 				_exit(0); // exit the child process
