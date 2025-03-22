@@ -70,7 +70,31 @@ class GlobalBinding : public IBindable
 	std::string getBindableTypeName() override { return "global"; }
 };
 
+class SettingsBinding : public IBindable
+{
+	BindableProperty getProperty(const std::string& name) override
+	{
+		SettingType type = Settings::getInstance()->getSettingType(name);
+		switch (type)
+		{
+		case SettingType::String:
+			return Settings::getInstance()->getString(name);
+		case SettingType::Bool:
+			return Settings::getInstance()->getBool(name);
+		case SettingType::Int:
+			return Settings::getInstance()->getInt(name);
+		case SettingType::Float:
+			return Settings::getInstance()->getFloat(name);
+		}
+
+		return BindableProperty::Null;
+	}
+
+	std::string getBindableTypeName() override { return "settings"; }
+};
+
 static GlobalBinding globalBinding;
+static SettingsBinding settingsBinding;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // BindingManager
@@ -156,6 +180,8 @@ std::string BindingManager::updateBoundExpression(std::string& xp, IBindable* bi
 	}
 
 	bindValues(&globalBinding, xp, showDefaultText, evaluableExpression);
+	bindValues(&settingsBinding, xp, showDefaultText, evaluableExpression);
+	
 	return evaluableExpression;
 }
 
