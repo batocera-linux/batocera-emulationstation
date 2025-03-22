@@ -3,6 +3,18 @@ EmulationStation
 
 EmulationStation is a cross-platform graphical front-end for emulators with controller navigation.
 
+ADDING TWO MENUS IN MENU "QUICK ACCES" To keep track of the music you like when you hear it in
+a directory of favourite music in /userdata/favorite_songs/ with a file called favorite.txt. There
+are into this file the paths and the names of the songs and they will play in random way.
+
+2 Options :
+
+1) SAVE TO FAVORITE MUSIC
+(Copy current song to favorite folder)
+2) USE FAVORITE MUSIC DIRECTORY            no (o )  yes ( o)
+
+this fork comes from https://github.com/batocera-linux/batocera-emulationstation
+
 Building
 ========
 

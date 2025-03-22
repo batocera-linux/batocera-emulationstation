@@ -1063,6 +1063,12 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dimensioni matrice dmd"
 
+msgid "MATRIX"
+msgstr "MATRICE"
+
+msgid "rgb dmd order"
+msgstr "ordine rgb dmd"
+
 msgid "BRIGHTNESS"
 msgstr "LUMINOSITÀ"
 
@@ -2008,6 +2014,36 @@ msgstr "PASSA ALLA TRACCIA SUCCESSIVA"
 msgid "NOW PLAYING"
 msgstr "IN ASCOLTO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SALVA NELLA MUSICA PREFERITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copia la canzone attuale nella cartella preferita"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USA LA CARTELLA DELLA MUSICA PREFERITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Attiva o disattiva l'uso della cartella della musica preferita"
+
+msgid "Song added to favorite list!"
+msgstr "Canzone aggiunta alla lista dei preferiti!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Errore: impossibile aprire il file dei preferiti."
+
+msgid "No song is currently playing."
+msgstr "Nessuna canzone è in riproduzione."
+
+msgid "Favorite music directory activated!"
+msgstr "Cartella della musica preferita attivata!"
+
+msgid "Default music directory activated!"
+msgstr "Cartella della musica predefinita attivata!"
+
+msgid "This song is already in Favorites."
+msgstr "Questa canzone è già tra i Preferiti."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "AVVIA SALVASCHERMO"
 
@@ -2183,15 +2219,6 @@ msgstr "INIZIA LA PARTITA"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "OSPITA UNA PARTITA NETPLAY"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "ANNUNCIA PUBBLICAMENTE LA PARTITA"
-
-msgid "PLAYER PASSWORD"
-msgstr "PASSWORD GIOCATORE"
-
-msgid "VIEWER PASSWORD"
-msgstr "PASSWORD SPETTATORE"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "CERCA GIOCHI SIMILI..."
@@ -2559,6 +2586,9 @@ msgstr "COLLEGATI SU NETPLAY"
 
 msgid "Select a game lobby to join"
 msgstr "Seleziona una stanza di gioco a cui unirti"
+
+msgid "Select a game lobby to create or join"
+msgstr "Scegli una lobby gioco da creare o entrare"
 
 msgid "FAILED"
 msgstr "FALLITO"
@@ -3603,6 +3633,7 @@ msgstr ""
 
 #~ msgid "rgb dmd order"
 #~ msgstr "ordine rgb dmd"
+
 
 #~ msgid "Reset values of GameTime, PlayCount and LastPlayed metadatas."
 #~ msgstr "Resetta i valori dei metadata GameTime, PlayCount e LastPlayed"

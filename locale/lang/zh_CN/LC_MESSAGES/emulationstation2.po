@@ -1057,6 +1057,12 @@ msgstr "自动"
 msgid "dmd matrix size"
 msgstr "dmd矩阵大小"
 
+msgid "MATRIX"
+msgstr "矩阵"
+
+msgid "rgb dmd order"
+msgstr "rgb dmd顺序"
+
 msgid "BRIGHTNESS"
 msgstr "亮度"
 
@@ -1980,6 +1986,36 @@ msgstr "下一首音乐"
 msgid "NOW PLAYING"
 msgstr "正在播放音乐"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "保存到收藏音乐"
+
+msgid "Copy current song to favorite folder"
+msgstr "将当前歌曲复制到收藏文件夹"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "使用收藏音乐目录"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "切换收藏音乐目录的使用"
+
+msgid "Song added to favorite list!"
+msgstr "歌曲已添加到收藏列表！"
+
+msgid "Error: Could not open favorites file."
+msgstr "错误：无法打开收藏文件。"
+
+msgid "No song is currently playing."
+msgstr "当前没有正在播放的歌曲。"
+
+msgid "Favorite music directory activated!"
+msgstr "已激活收藏音乐目录！"
+
+msgid "Default music directory activated!"
+msgstr "已激活默认音乐目录！"
+
+msgid "This song is already in Favorites."
+msgstr "这首歌已在收藏夹中。"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
 
@@ -2154,15 +2190,6 @@ msgstr "开始游戏"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "建立联网主机"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "公开的游戏"
-
-msgid "PLAYER PASSWORD"
-msgstr "玩家口令"
-
-msgid "VIEWER PASSWORD"
-msgstr "观众口令"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "寻找类似游戏..."
@@ -2531,6 +2558,9 @@ msgstr "进行联网游戏"
 msgid "Select a game lobby to join"
 msgstr "选择要加入的游戏大厅"
 
+msgid "Select a game lobby to create or join"
+msgstr "选择要创建或加入的游戏大厅"
+
 msgid "FAILED"
 msgstr "失败"
 
@@ -2546,11 +2576,14 @@ msgstr "相同的ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "核心不可用"
 
-msgid "LAN GAMES"
-msgstr "局域网游戏"
+msgid "PLAY ONLINE AS HOST"
+msgstr "以主机身份在线玩游戏"
 
-msgid "ONLINE GAMES"
-msgstr "在线游戏"
+msgid "PLAY OFFLINE"
+msgstr "离线游玩"
+
+msgid "JOIN EXISTING GAME"
+msgstr "加入现有游戏"
 
 msgid "AVAILABLE GAMES"
 msgstr "可用的游戏"
@@ -2632,12 +2665,6 @@ msgstr "显示手柄电池电量"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "绘制枪的准星"
-
-msgid "BEHAVIOR"
-msgstr "行为"
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "限制热键退出"
 
 msgid "default"
 msgstr "默认"
@@ -2815,15 +2842,6 @@ msgstr "屏保使用 OMX 播放器"
 
 msgid "SHOW GAME INFO"
 msgstr "显示游戏信息"
-
-msgid "SHOW DATE TIME"
-msgstr "显示日期时间"
-
-msgid "DATE FORMAT"
-msgstr "日期格式"
-
-msgid "TIME FORMAT"
-msgstr "时间格式"
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "使用悬浮蒙版图片作为游戏信息"
@@ -3092,9 +3110,6 @@ msgstr "核心缺失"
 
 msgid "UKNOWN ERROR"
 msgstr "未知错误"
-
-msgid "Interlaced"
-msgstr "隔行扫描"
 
 msgid "all games"
 msgstr "所有游戏"
