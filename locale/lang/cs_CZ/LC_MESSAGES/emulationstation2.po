@@ -2004,6 +2004,36 @@ msgstr "PŘESKOČIT NA DALŠÍ SKLADBU"
 msgid "NOW PLAYING"
 msgstr "PRÁVĚ SE PŘEHRÁVÁ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ULOŽIT DO OBLÍBENÉ HUDBY"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopírovat aktuální skladbu do oblíbené složky"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "POUŽÍT ADRESÁŘ OBLÍBENÉ HUDBY"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Přepnout použití adresáře oblíbené hudby"
+
+msgid "Song added to favorite list!"
+msgstr "Píseň byla přidána do seznamu oblíbených!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Chyba: Nelze otevřít soubor oblíbených."
+
+msgid "No song is currently playing."
+msgstr "Žádná skladba se momentálně nehraje."
+
+msgid "Favorite music directory activated!"
+msgstr "Adresář oblíbené hudby byl aktivován!"
+
+msgid "Default music directory activated!"
+msgstr "Výchozí hudební adresář byl aktivován!"
+
+msgid "This song is already in Favorites."
+msgstr "Tato píseň je již v oblíbených."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "SPUSTIT SPOŘIČ OBRAZOVKY"
 

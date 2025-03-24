@@ -45,6 +45,8 @@ Paths::Paths()
 	mSaveStatesPath = "/userdata/saves";
 	mMusicPath = "/usr/share/batocera/music";
 	mUserMusicPath = "/userdata/music";
+	mFavoriteMusicPath = "/usr/share/batocera/favorite_music";
+	mUserFavoriteMusicPath = "/userdata/favorite_music";
 	mThemesPath = "/usr/share/emulationstation/themes";
 	mUserThemesPath = "/userdata/themes";
 	mKeyboardMappingsPath = "/usr/share/evmapy";
@@ -61,6 +63,9 @@ Paths::Paths()
 	mUserManualPath = "/usr/share/batocera/doc/notice.pdf";
 	mVersionInfoPath = "/usr/share/batocera/batocera.version";
 	mKodiPath = "/usr/bin/kodi";
+	
+	mFavoritesPath = mUserFavoriteMusicPath + "/favorites.txt";
+	
 #endif
 
 /* EmuElec sample locations.
@@ -82,6 +87,33 @@ Paths::Paths()
 	loadCustomConfiguration(true); // Load paths overrides from emulationstation.ini file
 }
 
+
+
+#ifdef WIN32
+#include <windows.h>
+#include <shlobj.h>
+
+std::string Paths::getWin32UserDataPath()
+{
+    char path[MAX_PATH];
+    if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_APPDATA, NULL, 0, path)))
+    {
+        return std::string(path) + "\\batocera\\";
+    }
+    return "C:\\batocera\\";
+}
+#endif
+
+
+std::string Paths::getUserDataPath()
+{
+#ifdef WIN32
+    return getWin32UserDataPath();
+#else
+    return "/userdata/";
+#endif
+}
+
 void Paths::loadCustomConfiguration(bool overridesOnly)
 {
 	// Files
@@ -90,7 +122,9 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 		{ "config", &mSystemConfFilePath },
 		{ "manual", &mUserManualPath },
 		{ "versioninfo", &mVersionInfoPath },
-		{ "kodi", &mKodiPath }
+		{ "kodi", &mKodiPath },
+		{ "favorites", &mFavoritesPath }
+	
 	};
 
 	std::map<std::string, std::string*> folders = 
@@ -102,6 +136,8 @@ void Paths::loadCustomConfiguration(bool overridesOnly)
 		{ "saves", &mSaveStatesPath },
 		{ "system.music", &mMusicPath },
 		{ "music", &mUserMusicPath },
+		{ "system.favoritemusic", &mFavoriteMusicPath },
+		{ "favoritemusic", &mUserFavoriteMusicPath },
 		{ "system.themes", &mThemesPath },
 		{ "themes", &mUserThemesPath },
 		{ "system.padtokey", &mKeyboardMappingsPath },

@@ -2015,6 +2015,36 @@ msgstr "PASSER A LA MUSIQUE SUIVANTE"
 msgid "NOW PLAYING"
 msgstr "A L’ÉCOUTE"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ENREGISTRER DANS SA MUSIQUE PRÉFÉRÉE"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copier la chanson en cours dans le dossier favori"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILISER LE RÉPERTOIRE DES MUSIQUES PRÉFÉRÉES" 
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Utilisation du répertoire des musiques préférées"
+
+msgid "Song added to favorite list!"
+msgstr "Chanson ajoutée à la liste des favoris !"
+
+msgid "Error: Could not open favorites file."
+msgstr "Erreur : Impossible d'ouvrir le fichier des favoris."
+
+msgid "No song is currently playing."
+msgstr "Aucune chanson n'est en cours de lecture."
+
+msgid "Favorite music directory activated!"
+msgstr "Répertoire de musique favorite activé !"
+
+msgid "Default music directory activated!"
+msgstr "Répertoire de musique par défaut activé !"
+
+msgid "This song is already in Favorites."  
+msgstr "Cette chanson est déjà dans les Favoris."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANCER L'ÉCONOMISEUR D'ÉCRAN"
 
