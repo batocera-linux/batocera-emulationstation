@@ -552,10 +552,10 @@ msgid "CUSTOM RELAY SERVER"
 msgstr "WŁASNY SERWER POŚREDNICZĄCY"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
+msgstr "AUTOMATYCZNIE UTWÓRZ LOBBY"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
+msgstr "Automatycznie tworzy lobby Netplay podczas rozpoczynania gry."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"

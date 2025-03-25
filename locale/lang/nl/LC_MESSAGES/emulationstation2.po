@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-03-17 10:48+0000\n"
+"PO-Revision-Date: 2025-03-24 09:42+0000\n"
 "Last-Translator: THa MuSHeR\n"
 "Language-Team: Dutch (Netherlands)\n"
 "Language: nl-NL\n"
@@ -22,7 +22,7 @@ msgid "Searching for devices..."
 msgstr "Zoeken naar apparaten..."
 
 msgid "BLUETOOTH SCAN IS ALREADY RUNNING."
-msgstr "BLUETOOTH SCAN IS AL BEZIG."
+msgstr "DE BLUETOOTH SCAN IS AL BEZIG."
 
 msgid "FORMATTING DEVICE"
 msgstr "APPARAAT FORMATTEREN"
@@ -31,7 +31,7 @@ msgid "Formatting"
 msgstr "Formatteren"
 
 msgid "A REBOOT IS REQUIRED TO COMPLETE THE OPERATION"
-msgstr "EEN HERSTART IS BENODIGD OM DE ACTIE TE VOLTOOIEN"
+msgstr "OPNIEUW OPSTARTEN IS BENODIGD OM DE ACTIE TE VOLTOOIEN"
 
 msgid "A DRIVE IS ALREADY BEING FORMATTED."
 msgstr "ER WORDT AL EEN SCHIJF GEFORMATTEERD."
@@ -115,10 +115,10 @@ msgid "enter path to map"
 msgstr "voer pad naar map in"
 
 msgid "Bezel (16:9)"
-msgstr "Omlijsting (16:9)"
+msgstr "Schermrand (16:9)"
 
 msgid "enter path to bezel (16:9)"
-msgstr "voer pad naar omlijsting (16:9) in"
+msgstr "voer pad naar schermrand (16:9) in"
 
 msgid "Cartridge"
 msgstr "Cartridge"
@@ -295,7 +295,7 @@ msgid "DOWNLOADING"
 msgstr "DOWNLOADEN"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
-msgstr "THEMA SUCCESVOL GEINSTALLEERD"
+msgstr "THEMA SUCCESVOL GEÏNSTALLEERD"
 
 msgid "AN ERROR OCCURRED"
 msgstr "ER IS EEN FOUT OPGETREDEN"
@@ -304,10 +304,10 @@ msgid "THEME UNINSTALLED SUCCESSFULLY"
 msgstr "THEMA SUCCESVOL VERWIJDERD"
 
 msgid "BEZELS INSTALLED SUCCESSFULLY"
-msgstr "OMLIJSTINGEN SUCCESVOL GEINSTALLEERD"
+msgstr "SCHERMRANDEN SUCCESVOL GEÏNSTALLEERD"
 
 msgid "BEZELS UNINSTALLED SUCCESSFULLY"
-msgstr "OMLIJSTINGEN SUCCESVOL GEDEINSTALLEERD"
+msgstr "SCHERMRANDEN SUCCESVOL GEDEÏNSTALLEERD"
 
 msgid "PACKAGE INSTALLED SUCCESSFULLY"
 msgstr "PAKKET SUCCESVOL GEÏNSTALLEERD"
@@ -480,7 +480,7 @@ msgid "EDIT DESCRIPTION"
 msgstr "WIJZIG BESCHRIJVING"
 
 msgid "ARE YOU SURE YOU WANT TO DELETE THIS ITEM?"
-msgstr "WEET U ZEKER DAT U DIT ITEM WIL VERWIJDEREN?"
+msgstr "WEET U ZEKER DAT U DIT ITEM WILT VERWIJDEREN?"
 
 msgid "DELETE MAPPING"
 msgstr "VERWIJDER MAPPING"
@@ -495,13 +495,13 @@ msgid "INFORMATION"
 msgstr "INFORMATIE"
 
 msgid "VERSION"
-msgstr "VERSIE"
+msgstr "BUILD VERSIE"
 
 msgid "USER DISK USAGE"
-msgstr "GEBRUIK SCHIJFRUIMTE USER"
+msgstr "GEBRUIK SCHIJFRUIMTE VAN USER"
 
 msgid "SYSTEM DISK USAGE"
-msgstr "GEBRUIK SCHIJFRUIMTE SYSTEEM"
+msgstr "GEBRUIK SCHIJFRUIMTE VAN SYSTEEM"
 
 msgid "SYSTEM"
 msgstr "SYSTEEM"
@@ -615,7 +615,7 @@ msgid "LAUNCH"
 msgstr "START"
 
 msgid "RETROACHIEVEMENT SETTINGS"
-msgstr "RETROPRESTATIE INSTELLINGEN"
+msgstr "INSTELLINGEN RETROPRESTATIE"
 
 msgid "USERNAME"
 msgstr "GEBRUIKERSNAAM"
@@ -708,10 +708,10 @@ msgid "ARE YOU SURE YOU WANT TO REMOVE '%s' ?"
 msgstr "WEET U ZEKER DAT U '%s' WILT VERWIJDEREN?"
 
 msgid "THE BEZEL PROJECT"
-msgstr "HET OMLIJSTING PROJECT"
+msgstr "HET SCHERMRAND PROJECT"
 
 msgid "SELECT BEZELS TO INSTALL/REMOVE"
-msgstr "SELECTEER OMLIJSTINGEN OM TE INSTALLEREN/VERWIJDEREN"
+msgstr "SELECTEER SCHERMRANDEN OM TE INSTALLEREN/VERWIJDEREN"
 
 #, c-format
 msgid "UPDATING %s"
@@ -721,7 +721,7 @@ msgid "UPDATE IS READY"
 msgstr "DE UPDATE IS KLAAR"
 
 msgid "REBOOT TO APPLY"
-msgstr "HERSTART OM DIT TOE TE PASSEN"
+msgstr "OPNIEUW OPSTARTEN OM DIT TOE TE PASSEN"
 
 msgid "REALLY UPDATE?"
 msgstr "WILT U ECHT UPDATEN?"
@@ -731,8 +731,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"DE HUIDIGE VERSIE IS %s\n"
-"WILT U UPDATEN NAAR VERSIE %s?"
+"DE HUIDIGE BUILD VERSIE IS %s\n"
+"WILT U UPDATEN NAAR BUILD VERSIE %s?"
 
 #, c-format
 msgid ""
@@ -742,7 +742,7 @@ msgid ""
 msgstr ""
 "ONOFFICIËLE SYSTEEMWIJZIGINGEN GEDETECTEERD.\n"
 "UPGRADEN KAN UW SYSTEEM BREKEN.\n"
-"WILT U UPDATEN NAAR VERSIE %s?"
+"WILT U UPDATEN NAAR BUILD VERSIE %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "NETWERK VERBINDING BENODIGD"
@@ -763,7 +763,7 @@ msgid "SCRAPE FROM"
 msgstr "SCRAPE VAN"
 
 msgid "SCRAPER SETTINGS"
-msgstr "SCRAPER INSTELLINGEN"
+msgstr "INSTELLINGEN SCRAPER"
 
 msgid "FILTERS"
 msgstr "FILTERS"
@@ -996,25 +996,25 @@ msgid "USER INTERFACE SETTINGS"
 msgstr "GEBRUIKERSINTERFACE"
 
 msgid "GAME COLLECTION SETTINGS"
-msgstr "SPELCOLLECTIE INSTELLINGEN"
+msgstr "INSTELLINGEN SPELCOLLECTIE"
 
 msgid "SOUND SETTINGS"
 msgstr "GELUIDSINSTELLINGEN"
 
 msgid "NETWORK SETTINGS"
-msgstr "NETWERK INSTELLINGEN"
+msgstr "INSTELLINGEN NETWERK"
 
 msgid "CONFIGURE INPUT"
 msgstr "CONFIGUREER INVOER"
 
 msgid "EMULATOR SETTINGS"
-msgstr "EMULATOR INSTELLINGEN"
+msgstr "INSTELLINGEN EMULATOR"
 
 msgid "UPDATES & DOWNLOADS"
 msgstr "DOWNLOADS & UPDATES"
 
 msgid "SYSTEM SETTINGS"
-msgstr "SYSTEEM INSTELLINGEN"
+msgstr "INSTELLINGEN SYSTEEM"
 
 msgid "UNLOCK USER INTERFACE MODE"
 msgstr "ONTGRENDELEN GEBRUIKERSINTERFACE MODUS"
@@ -1023,7 +1023,7 @@ msgid "QUIT"
 msgstr "STOPPEN"
 
 msgid "ARE YOU SURE YOU WANT TO CONFIGURE THE INPUT?"
-msgstr "WEET U ZEKER DAT U DE INVOER WIL CONFIGUREREN?"
+msgstr "WEET U ZEKER DAT U DE INVOER WILT CONFIGUREREN?"
 
 msgid "THIS FUNCTION IS DISABLED WHILE THE SCRAPER IS RUNNING"
 msgstr "DEZE FUNCTIE IS UITGESCHAKELD ALS DE SCRAPER BEZIG IS"
@@ -1192,8 +1192,8 @@ msgstr "RESET SPELLIJSTEN GEBRUIKSGEGEVENS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
-"Waarden van GameTime-, PlayCount- en LastPlayed-metagegevens opnieuw "
-"instellen."
+"Stel de waarden van Speeltijd-, Aantal Spellen- en Laatst Gespeeld-"
+"metagegevens opnieuw in."
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESET FILTEREXTENSIES"
@@ -1204,7 +1204,7 @@ msgstr ""
 "standaardwaarden."
 
 msgid "REDETECT ALL GAMES' LANG/REGION"
-msgstr "OPNIEUW TAAL/REGIO VAN ALLE SPELLEN DETECTEREN"
+msgstr "OPNIEUW DE TAAL/REGIO VAN ALLE SPELLEN DETECTEREN"
 
 msgid "FIND ALL GAMES WITH NETPLAY/ACHIEVEMENTS"
 msgstr "VIND ALLE SPELLEN MET NETPLAY/PRESTATIES"
@@ -1219,7 +1219,7 @@ msgid "Building image cache"
 msgstr "Image cache aan het opbouwen"
 
 msgid "DISPLAY SETTINGS"
-msgstr "BEELDSCHERM INSTELLINGEN"
+msgstr "INSTELLINGEN BEELDSCHERM"
 
 msgid "MENU FONT SCALE"
 msgstr "MENU LETTERTYPESCHAAL"
@@ -1237,7 +1237,7 @@ msgid "FORCE SMALL SCREEN THEMING"
 msgstr "FORCEER KLEIN SCHERM THEMA"
 
 msgid "DATA MANAGEMENT"
-msgstr "DATA BEHEER"
+msgstr "DATABEHEER"
 
 msgid "IGNORE MULTI-FILE DISK CONTENT (CUE/GDI/CCD/M3U)"
 msgstr "NEGEER MULTI-BESTAND SCHIJFINHOUD (CUE/GDI/CCD/M3U)"
@@ -1248,7 +1248,7 @@ msgstr "SPEL FILTEREN INSCHAKELEN"
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
-"Of gamefilter gerelateerde instellingen in de weergaveopties moeten worden "
+"Of spelfilter-gerelateerde instellingen in de weergaveopties moeten worden "
 "weergegeven of verborgen."
 
 msgid "SAVE METADATA ON EXIT"
@@ -1339,8 +1339,8 @@ msgstr "GEBRUIKERSINTERFACE ELEMENTEN VOORLADEN BIJ OPSTARTEN"
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
 msgstr ""
-"Vermindert lag bij het openen van gamelists vanuit het systeem menu, "
-"vermeerderd opstart tijd"
+"Vermindert lag bij het openen van spellijsten vanuit het systeem menu, "
+"vermeerdert opstart tijd"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
 msgstr "METADATA VOORLADEN BIJ OPSTARTEN"
@@ -1350,7 +1350,7 @@ msgid ""
 "time"
 msgstr ""
 "Vermindert lag bij het scrollen door volledig gescrapete spellijsten, "
-"vermeerderd opstart tijd"
+"vermeerdert opstarttijd"
 
 msgid "THREADED LOADING"
 msgstr "THREADED LADEN"
@@ -1365,7 +1365,7 @@ msgid "OPTIMIZE VIDEO VRAM USAGE"
 msgstr "OPTIMALISEER GEBRUIK VIDEO VRAM"
 
 msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
-msgstr "HERSTART IS BENODIGD OM DE NIEUWE CONFIGURATIE TOE TE PASSEN"
+msgstr "OPNIEUW OPSTARTEN IS BENODIGD OM DE NIEUWE CONFIGURATIE TOE TE PASSEN"
 
 msgid "DOWNLOADS"
 msgstr "DOWNLOADS"
@@ -1454,7 +1454,7 @@ msgid "Do you want to proceed?"
 msgstr "Wilt u doorgaan?"
 
 msgid "KODI SETTINGS"
-msgstr "KODI INSTELLINGEN"
+msgstr "INSTELLINGEN KODI"
 
 msgid "ENABLE KODI"
 msgstr "KODI INSCHAKELEN"
@@ -1492,13 +1492,13 @@ msgid "BATOCERA SPLASH IMAGE"
 msgstr "BATOCERA SPLASH AFBEELDING"
 
 msgid "SPLASH SETTING"
-msgstr "SPLASH INSTELLING"
+msgstr " INSTELLINGEN SPLASH"
 
 msgid "MISSING BIOS CHECK"
 msgstr "CHECK ONTBREKENDE BIOS"
 
 msgid "CHECK BIOS FILES BEFORE RUNNING A GAME"
-msgstr "CONTROLEER BIOS-BESTANDEN VOOR EEN SPEL START"
+msgstr "CONTROLEER BIOS-BESTANDEN VOORDAT EEN SPEL START"
 
 msgid "MULTIMEDIA KEYS"
 msgstr "MULTIMEDIA TOETSEN"
@@ -1594,7 +1594,7 @@ msgid "RUN-AHEAD FRAMES"
 msgstr "RUN-AHEAD FRAMES"
 
 msgid "High numbers can result in visible jitter."
-msgstr "Hoge cijfers kunnen resulteren in zichtbare jitter."
+msgstr "Hoge cijfers kunnen resulteren in zichtbare onregelmatigheden."
 
 msgid "USE SECOND INSTANCE FOR RUN-AHEAD"
 msgstr "GEBRUIK EEN TWEEDE INSTANTIE VOOR RUN-AHEAD"
@@ -1640,7 +1640,7 @@ msgid "ACCOUNTS"
 msgstr "ACCOUNTS"
 
 msgid "BIOS SETTINGS"
-msgstr "BIOS INSTELLINGEN"
+msgstr "INSTELLINGEN BIOS"
 
 msgid "SAVESTATES"
 msgstr "SAVESTATES"
@@ -1684,7 +1684,7 @@ msgid "IF NOT EMPTY"
 msgstr "ALS NIET LEEG"
 
 msgid "Display savestate manager before launching a game."
-msgstr "Geef SaveState Manager weer voordat u een spel start."
+msgstr "Geef savestate manager weer voordat u een spel start."
 
 msgid "DEFAULT GLOBAL SETTINGS"
 msgstr "STANDAARD GLOBALE INSTELLINGEN"
@@ -1702,7 +1702,7 @@ msgstr ""
 "weergaveresolutie."
 
 msgid "SMOOTH GAMES (BILINEAR FILTERING)"
-msgstr "SPELLEN GLADMAKEN (BILINEAR FILTERING)"
+msgstr "SPELLEN GLADDER MAKEN (BILINEAR FILTERING)"
 
 msgid "REWIND"
 msgstr "TERUGSPOELEN"
@@ -1725,10 +1725,10 @@ msgid "DECORATIONS"
 msgstr "DECORATIES"
 
 msgid "STRETCH BEZELS (4K & ULTRAWIDE)"
-msgstr "STREK OMLIJSTINGEN (4K & ULTRAWIDE)"
+msgstr "STREK SCHERMRANDEN (4K & ULTRAWIDE)"
 
 msgid "SHOW TATTOO OVER BEZEL"
-msgstr "TOON TATTOO OVER OMLIJSTING"
+msgstr "TOON TATTOO OVER SCHERMRANDEN"
 
 msgid "SYSTEM CONTROLLERS"
 msgstr "SYSTEEMCONTROLLERS"
@@ -1737,7 +1737,7 @@ msgid "CUSTOM IMAGE"
 msgstr "AANGEPASTE IMAGE"
 
 msgid "Show an image overlaid on top of the bezel."
-msgstr "Toon een afbeelding over de omlijsting."
+msgstr "Toon een afbeelding over de schermrand."
 
 msgid "TATTOO CORNER"
 msgstr "TATTOO HOEK"
@@ -1761,7 +1761,7 @@ msgid "RESIZE TATTOO"
 msgstr "TATTOO GROOTTE AANPASSEN"
 
 msgid "Shrink/expand tattoo to fit within the bezel's border."
-msgstr "Krimp/rek tattoo om binnen de rand van de omlijsting te passen."
+msgstr "Krimp/rek tattoo om binnen de rand van de schermrand te passen."
 
 msgid "AI GAME TRANSLATION"
 msgstr "AI SPELVERTALING"
@@ -1908,7 +1908,7 @@ msgid "DISPLAY OPTIONS"
 msgstr "WEERGAVEOPTIES"
 
 msgid "SCREENSAVER SETTINGS"
-msgstr "SCHERMBEVEILIGING INSTELLINGEN"
+msgstr "INSTELLINGEN SCHERMBEVEILIGING"
 
 msgid "LIST TRANSITION"
 msgstr "LIJST TRANSITIE"
@@ -1920,7 +1920,7 @@ msgid "GAME LAUNCH TRANSITION"
 msgstr "SPEL START TRANSITIE"
 
 msgid "GAME MEDIAS DURING FAST SCROLLING"
-msgstr "SPELMEDIAS TIJDENS SNEL SCROLLEN"
+msgstr "SPELMEDIA TIJDENS SNEL SCROLLEN"
 
 msgid "SHOW CLOCK"
 msgstr "TOON KLOK"
@@ -2040,25 +2040,25 @@ msgid "ENABLE PLANE MODE"
 msgstr "VLIEGTUIGMODUS INSCHAKELEN"
 
 msgid "RESTART SYSTEM"
-msgstr "HERSTARTEN"
+msgstr "SYSTEEM OPNIEUW OPSTARTEN"
 
 msgid "REALLY RESTART?"
-msgstr "WILT U ECHT HERSTARTEN?"
+msgstr "WILT U ECHT OPNIEUW OPSTARTEN?"
 
 msgid "SUSPEND SYSTEM"
-msgstr "SLAAPSTAND"
+msgstr "SYSTEEM IN SLAAPSTAND"
 
 msgid "REALLY SUSPEND ?"
 msgstr "WILT U ECHT DE SLAAPSTAND INSTELLEN?"
 
 msgid "SHUTDOWN SYSTEM"
-msgstr "AFSLUITEN"
+msgstr "SYSTEEM AFSLUITEN"
 
 msgid "REALLY SHUTDOWN?"
 msgstr "WILT U ECHT AFSLUITEN?"
 
 msgid "FAST SHUTDOWN SYSTEM"
-msgstr "SNEL AFSLUITEN"
+msgstr "SYSTEEM SNEL AFSLUITEN"
 
 msgid "Shutdown without saving metadata."
 msgstr "Afsluiten zonder metadata op te slaan."
@@ -2073,7 +2073,7 @@ msgid "REALLY QUIT?"
 msgstr "WILT U ECHT STOPPEN?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "AUTOMATISCH OPSLAAN/LADEN BIJ STARTEN VAN SPEL"
+msgstr "AUTOMATISCH OPSLAAN/LADEN BIJ STARTEN VAN EEN SPEL"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
@@ -2135,7 +2135,7 @@ msgid "SELECTED OPTIONS ARE INVALID"
 msgstr "GESELECTEERDE OPTIES ZIJN ONGELDIG"
 
 msgid "ARE YOU SURE YOU WANT TO FORMAT THIS DRIVE?"
-msgstr "WEET U ZEKER DAT U DEZE SCHIJF WIL FORMATTEREN?"
+msgstr "WEET U ZEKER DAT U DEZE SCHIJF WILT FORMATTEREN?"
 
 msgid "Points"
 msgstr "Punten"
@@ -2172,7 +2172,7 @@ msgid "VIEW FULLSCREEN VIDEO"
 msgstr "BEKIJK VIDEO OP VOLLEDIG SCHERM"
 
 msgid "VIEW GAME MEDIA"
-msgstr "BEKIJK SPEL MEDIA"
+msgstr "BEKIJK SPELMEDIA"
 
 msgid "CURRENT CORE IS NOT COMPATIBLE"
 msgstr "HUIDIGE CORE IS NIET COMPATIBEL"
@@ -2338,7 +2338,7 @@ msgid "FANART"
 msgstr "FANART"
 
 msgid "BEZEL (16:9)"
-msgstr "OMLIJSTING (16:9)"
+msgstr "Schermrand (16:9)"
 
 msgid "BOX BACKSIDE"
 msgstr "DOOS ACHTERKANT"
@@ -2350,7 +2350,7 @@ msgid "MANUAL"
 msgstr "HANDLEIDING"
 
 msgid "PADTOKEY SETTINGS"
-msgstr "PAD-TO-KEY INSTELLINGEN"
+msgstr "INSTELLINGEN PAD-TO-KEY"
 
 msgid "ACCOUNT"
 msgstr "ACCOUNT"
@@ -2615,10 +2615,10 @@ msgid "WATCH GAME"
 msgstr "BEKIJK SPEL"
 
 msgid "CONTROLLER SETTINGS"
-msgstr "CONTROLLER INSTELLINGEN"
+msgstr "INSTELLINGEN CONTROLLER"
 
 msgid "CONTROLLER & BLUETOOTH SETTINGS"
-msgstr "CONTROLLER & BLUETOOTH INSTELLINGEN"
+msgstr "INSTELLINGEN CONTROLLER & BLUETOOTH"
 
 msgid "CONTROLLERS PRIORITY"
 msgstr "CONTROLLERS PRIORITEIT"
@@ -2650,13 +2650,13 @@ msgstr ""
 "WANNEER U KLAAR BENT."
 
 msgid "SINDEN GUN SETTINGS"
-msgstr "SINDEN GUN INSTELLINGEN"
+msgstr "INSTELLINGEN VAN SINDEN GUN"
 
 msgid "WIIMOTE GUN SETTINGS"
-msgstr "WIIMOTE GUN INSTELLINGEN"
+msgstr "INSTELLINGEN VAN WIIMOTE GUN"
 
 msgid "STEAMDECK MOUSE/GUN SETTINGS"
-msgstr "STEAMDECK MUIS/GUN INSTELLINGEN"
+msgstr "INSTELLINGEN VAN STEAMDECK MUIS/GUN"
 
 msgid "BLUETOOTH"
 msgstr "BLUETOOTH"
@@ -2854,7 +2854,7 @@ msgid "STOP MUSIC ON SCREENSAVER"
 msgstr "STOP MUZIEK TIJDENS SCHERMBEVEILIGING"
 
 msgid "RANDOM VIDEO SCREENSAVER SETTINGS"
-msgstr "WILLEKEURIGE VIDEO SCHERMBEVEILIGING INSTELLINGEN"
+msgstr "INSTELLINGEN VAN WILLEKEURIGE VIDEO SCHERMBEVEILIGING"
 
 msgid "VIDEO DURATION (SECS)"
 msgstr "VIDEO LENGTE (SECONDEN)"
@@ -2902,7 +2902,7 @@ msgid "CUSTOM VIDEO FILE EXTENSIONS"
 msgstr "AANGEPASTE VIDEO BESTANDEXTENSIES"
 
 msgid "SLIDESHOW SCREENSAVER SETTINGS"
-msgstr "DIAVOORSTELLING SCHERMBEVEILIGING INSTELLINGEN"
+msgstr "INSTELLINGEN VAN DIAVOORSTELLING SCHERMBEVEILIGING"
 
 msgid "IMAGE DURATION (SECS)"
 msgstr "AFBEELDINGSTIJD (SECONDEN)"
@@ -3031,7 +3031,7 @@ msgid ""
 "FORMAT.\n"
 "DO YOU WANT TO LAUNCH IT ANYWAY?"
 msgstr ""
-"WAARSCHUWING: DE HUIDIGE EMULATOR/CORE ONDERSTEUND HET BESTANDSFORMAAT VAN "
+"WAARSCHUWING: DE HUIDIGE EMULATOR/CORE ONDERSTEUNT HET BESTANDSFORMAAT VAN "
 "DIT SPEL NIET.\n"
 "WILT U HET TOCH OPSTARTEN?"
 
@@ -3183,7 +3183,7 @@ msgid "lightgun games"
 msgstr "lightgun spellen"
 
 msgid "wheel games"
-msgstr "spellen met stuurwiel"
+msgstr "stuurwiel spellen"
 
 msgid "trackball games"
 msgstr "trackball spellen"
