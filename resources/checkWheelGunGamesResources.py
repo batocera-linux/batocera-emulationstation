@@ -9,12 +9,12 @@ def xml2systemsArrays(path):
     root = tree.getroot()
 
     for nodesystem in root.findall(".//system"):
-        system = nodesystem.get("name")
+        system = nodesystem.get("id")
         if system in res:
             raise Exception("duplicated system found")
         res[system] = []
         for nodegame in nodesystem:
-            res[system].append(nodegame.get("name"))
+            res[system].append(nodegame.get("id"))
     return res
 
 def checkSystemGames(system, games):
