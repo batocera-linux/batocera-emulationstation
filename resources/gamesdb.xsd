@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="systems">
     <xs:complexType>
@@ -12,7 +12,7 @@
       <xs:sequence>
         <xs:element ref="game" maxOccurs="unbounded"/>
       </xs:sequence>
-      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="game">
@@ -22,8 +22,11 @@
         <xs:element ref="video" minOccurs="0"/>
         <xs:element ref="controller" minOccurs="0"/>
         <xs:element ref="wheel" minOccurs="0"/>
+        <xs:element ref="spinner" minOccurs="0"/>
+        <xs:element ref="trackball" minOccurs="0"/>
       </xs:sequence>
-      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="name" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="gun">
@@ -56,8 +59,8 @@
       <xs:attribute name="wheel" type="xs:string"/>
       <xs:attribute name="deadzone" type="xs:string"/>
       <xs:attribute name="midzone" type="xs:string"/>
-      <xs:attribute name="upshift" type="xs:string"/>      
-      <xs:attribute name="downshift" type="xs:string"/>      
+      <xs:attribute name="upshift" type="xs:string"/>
+      <xs:attribute name="downshift" type="xs:string"/>
       <xs:attribute name="a" type="xs:string"/>
       <xs:attribute name="b" type="xs:string"/>
       <xs:attribute name="x" type="xs:string"/>
@@ -72,6 +75,16 @@
   <xs:element name="video">
     <xs:complexType>
       <xs:attribute name="widescreen" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="spinner">
+    <xs:complexType>
+      <xs:attribute name="type" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="trackball">
+    <xs:complexType>
+      <xs:attribute name="type" type="xs:string"/>
     </xs:complexType>
   </xs:element>
 </xs:schema>
