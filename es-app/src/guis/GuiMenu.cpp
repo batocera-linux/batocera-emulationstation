@@ -4093,7 +4093,6 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		                                  [window]()
 		                                  {
 		                                      AudioManager::getInstance()->playRandomMusic(false);
-		                                      window->pushGui(new GuiMsgBox(window, _("Skipped to next song."), _("OK")));
 		                                  },
 		                                  "iconSound");
 		
@@ -4102,13 +4101,31 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		                                  {},
 		                                  [window, currentSongPath, songName]()
 		                                  {
-		                                      if (!currentSongPath.empty())
+		                                      std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
+		
+		                                      bool alreadyExists = false;
+		                                      std::ifstream infile(favoritesFile);
+		                                      std::string line;
+		                                      while (std::getline(infile, line))
 		                                      {
-		                                          std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
+		                                          if (line.find(currentSongPath + ";" + songName) != std::string::npos)
+		                                          {
+		                                              alreadyExists = true;
+		                                              break;
+		                                          }
+		                                      }
+		                                      infile.close();
+		
+		                                      if (alreadyExists)
+		                                      {
+		                                          window->pushGui(new GuiMsgBox(window, _("This song is already in favorites."), _("OK")));
+		                                      }
+		                                      else
+		                                      {
 		                                          std::ofstream ofs(favoritesFile, std::ios::app);
 		                                          if (ofs.is_open())
 		                                          {
-		                                              ofs << currentSongPath << ";" << songName << "";
+		                                              ofs << currentSongPath << ";" << songName << "\n";
 		                                              ofs.close();
 		                                              window->pushGui(new GuiMsgBox(window, _("Song added to favorites!"), _("OK")));
 		                                          }
@@ -4116,10 +4133,8 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		                                          {
 		                                              window->pushGui(new GuiMsgBox(window, _("Could not open favorites file."), _("OK")));
 		                                          }
-		                                      }
-		                                      else
-		                                      {
-		                                          window->pushGui(new GuiMsgBox(window, _("No song is currently playing."), _("OK")));
+		
+		                                          AudioManager::getInstance()->playRandomMusic(true);
 		                                      }
 		                                  },
 		                                  "iconFavorite");
@@ -4139,49 +4154,8 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		
 		                AudioManager::getInstance()->playRandomMusic(useFavorite);
 		            });
-			}
-		}
-		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
-			{
-				Window* w = window;
-				window->postToUiThread([w]()
-					{
-						w->startScreenSaver();
-						w->renderScreenSaver();
-					});
-				delete s;
-
-			}, "iconScraper", true);
-
-		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(Paths::getUserManualPath()))
-		{
-			s->addEntry(_("VIEW USER MANUAL"), false, [s, window]
-				{
-					GuiImageViewer::showPdf(window, Paths::getUserManualPath());
-					delete s;
-				}, "iconManual");
-		}
-
-		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::WRITEPLANEMODE))
-		{
-			if (ApiSystem::getInstance()->isPlaneMode())
-			{
-				s->addEntry(_("DISABLE PLANE MODE"), false, [window, s]
-					{
-						ApiSystem::getInstance()->setPlaneMode(false);
-						delete s;
-					}, "iconPlanemode");
-			}
-			else 
-			{
-				s->addEntry(_("ENABLE PLANE MODE"), false, [window, s]
-					{
-						ApiSystem::getInstance()->setPlaneMode(true);
-						delete s;
-					}, "iconPlanemode");
-			}
-		}
-	}
+		        }
+		    }
 
 	if (quickAccessMenu)
 		s->addGroup(_("QUIT"));
