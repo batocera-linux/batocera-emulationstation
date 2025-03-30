@@ -4156,7 +4156,48 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		            });
 		        }
 		    }
+		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
+			{
+				Window* w = window;
+				window->postToUiThread([w]()
+					{
+						w->startScreenSaver();
+						w->renderScreenSaver();
+					});
+				delete s;
 
+			}, "iconScraper", true);
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::ScriptId::PDFEXTRACTION) && Utils::FileSystem::exists(Paths::getUserManualPath()))
+		{
+			s->addEntry(_("VIEW USER MANUAL"), false, [s, window]
+				{
+					GuiImageViewer::showPdf(window, Paths::getUserManualPath());
+					delete s;
+				}, "iconManual");
+		}
+
+		if (ApiSystem::getInstance()->isScriptingSupported(ApiSystem::WRITEPLANEMODE))
+		{
+			if (ApiSystem::getInstance()->isPlaneMode())
+			{
+				s->addEntry(_("DISABLE PLANE MODE"), false, [window, s]
+					{
+						ApiSystem::getInstance()->setPlaneMode(false);
+						delete s;
+					}, "iconPlanemode");
+			}
+			else 
+			{
+				s->addEntry(_("ENABLE PLANE MODE"), false, [window, s]
+					{
+						ApiSystem::getInstance()->setPlaneMode(true);
+						delete s;
+					}, "iconPlanemode");
+			}
+		}
+	}
+	
 	if (quickAccessMenu)
 		s->addGroup(_("QUIT"));
 
