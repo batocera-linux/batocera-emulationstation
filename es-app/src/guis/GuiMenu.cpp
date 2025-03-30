@@ -4140,22 +4140,26 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		                                      }
 		                                  },
 		                                  "iconFavorite");
-		
-		            auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
-		            favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
-		
-		            s->addWithLabel(_("USE FAVORITES PLAYLIST"), favoriteSwitch);
-		            s->addSaveFunc([window, favoriteSwitch]()
-		            {
-		                bool useFavorite = favoriteSwitch->getState();
-		                Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
-		                Settings::getInstance()->saveFile();
-		
-		                std::string msg = useFavorite ? _("Favorites playlist activated!") : _("Default music folder activated!");
-		                window->pushGui(new GuiMsgBox(window, msg, _("OK")));
-		
-		                AudioManager::getInstance()->playRandomMusic(useFavorite);
-		            });
+				
+					std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
+					if (Utils::FileSystem::exists(favoritesFile))
+					{
+					    auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
+					    favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
+				
+					    s->addWithLabel(_("USE FAVORITES PLAYLIST"), favoriteSwitch);
+					    s->addSaveFunc([window, favoriteSwitch]()
+					    {
+						bool useFavorite = favoriteSwitch->getState();
+						Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
+						Settings::getInstance()->saveFile();
+				
+						std::string msg = useFavorite ? _("Favorites playlist activated!") : _("Default music folder activated!");
+						window->pushGui(new GuiMsgBox(window, msg, _("OK")));
+				
+						AudioManager::getInstance()->playRandomMusic(useFavorite);
+					    });
+					}
 		        }
 		    }
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
