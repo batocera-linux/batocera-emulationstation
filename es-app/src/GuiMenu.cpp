@@ -4079,32 +4079,32 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	if (quickAccessMenu)
 	{
     		s->addGroup(_("QUICK ACCESS"));
-		
-		if (AudioManager::getInstance()->isSongPlaying())
+
+		    if (AudioManager::getInstance()->isSongPlaying())
 		    {
 		        std::string songName = AudioManager::getInstance()->getSongName();
 		        std::string currentSongPath = AudioManager::getInstance()->getCurrentSongPath();
 		
 		        if (!songName.empty())
 		        {
-		            
 		            s->addWithDescription(_("SKIP TO THE NEXT SONG"),
-                      				_("NOW PLAYING") + ": " + songName,
-                      				{},
-                      				[s, window]()
-                      				{
-                          			     Window* w = window;                          
-                          			     AudioManager::getInstance()->playRandomMusic(false);
-                          			     GuiMenu::openQuitMenu_static(w, true, false);
-                      				},
-                      				"iconSound");
-		         
+					      _("NOW PLAYING") + ": " + songName,
+					      {},
+					      [s, window]()
+					      {
+						  Window* w = window;                          
+						  AudioManager::getInstance()->playRandomMusic(false);
+						  GuiMenu::openQuitMenu_static(w, true, false);
+					      },
+					      "iconSound");
+		
 		            s->addWithDescription(_("SAVE TO FAVORITES"),
 		                                  _("Save current song to favorites"),
 		                                  {},
 		                                  [window, currentSongPath, songName]()
 		                                  {
 		                                      std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
+		
 		                                      bool alreadyExists = false;
 		                                      std::ifstream infile(favoritesFile);
 		                                      std::string line;
@@ -4140,26 +4140,22 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		                                      }
 		                                  },
 		                                  "iconFavorite");
-				
-					std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
-					if (Utils::FileSystem::exists(favoritesFile))
-					{
-					    auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
-					    favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
-				
-					    s->addWithLabel(_("USE FAVORITES PLAYLIST"), favoriteSwitch);
-					    s->addSaveFunc([window, favoriteSwitch]()
-					    {
-						bool useFavorite = favoriteSwitch->getState();
-						Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
-						Settings::getInstance()->saveFile();
-				
-						std::string msg = useFavorite ? _("Favorites playlist activated!") : _("Default music folder activated!");
-						window->pushGui(new GuiMsgBox(window, msg, _("OK")));
-				
-						AudioManager::getInstance()->playRandomMusic(useFavorite);
-					    });
-					}
+		
+		            auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
+		            favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
+		
+		            s->addWithLabel(_("USE FAVORITES PLAYLIST"), favoriteSwitch);
+		            s->addSaveFunc([window, favoriteSwitch]()
+		            {
+		                bool useFavorite = favoriteSwitch->getState();
+		                Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
+		                Settings::getInstance()->saveFile();
+		
+		                std::string msg = useFavorite ? _("Favorites playlist activated!") : _("Default music folder activated!");
+		                window->pushGui(new GuiMsgBox(window, msg, _("OK")));
+		
+		                AudioManager::getInstance()->playRandomMusic(useFavorite);
+		            });
 		        }
 		    }
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]

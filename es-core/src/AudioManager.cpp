@@ -30,28 +30,27 @@
 AudioManager* AudioManager::sInstance = NULL;
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
 
-namespace 
+namespace
 {
-	   std::vector<std::pair<std::string, std::string>> loadFavoriteSongs(const std::string &favoritesFile)
-	   {
-		    std::vector<std::pair<std::string, std::string>> favorites;
-		    std::list<std::string> lines = Utils::FileSystem::readAllLines(favoritesFile);
-		    for (const auto &line : lines)
-		    {
-			if (line.empty())
-			    continue;
-			size_t pos = line.find(';');
-			if (pos != std::string::npos)
-			{
-			    std::string path = line.substr(0, pos);
-			    std::string name = line.substr(pos + 1);
-			    favorites.push_back(std::make_pair(path, name));
-			}
-	    }
-	    return favorites;
-	}
-} 
-
+    std::vector<std::pair<std::string, std::string>> loadFavoriteSongs(const std::string &favoritesFile)
+    {
+        std::vector<std::pair<std::string, std::string>> favorites;
+        std::list<std::string> lines = Utils::FileSystem::readAllLines(favoritesFile);
+        for (const auto &line : lines)
+        {
+            if (line.empty())
+                continue;
+            size_t pos = line.find(';');
+            if (pos != std::string::npos)
+            {
+                std::string path = line.substr(0, pos);
+                std::string name = line.substr(pos + 1);
+                favorites.push_back(std::make_pair(path, name));
+            }
+        }
+        return favorites;
+    }
+}
 
 AudioManager::AudioManager() : mInitialized(false), mCurrentMusic(nullptr), mMusicVolume(MIX_MAX_VOLUME), mVideoPlaying(false)
 {
@@ -233,17 +232,15 @@ bool AudioManager::songWasPlayedRecently(const std::string& song)
 	return false;
 }
 
-
-
-void AudioManager::playRandomMusic(bool continueIfPlaying) 
+void AudioManager::playRandomMusic(bool continueIfPlaying)
 {
     if (!Settings::BackgroundMusic())
         return;
 
     if (Settings::getInstance()->getBool("audio.useFavoriteMusic"))
     {
-    std::string favoritesFile = Paths::getFavoritesMusicFilePath();
-        auto favorites = loadFavoriteSongs(favoritesFile); 
+        std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
+        auto favorites = loadFavoriteSongs(favoritesFile);
 
         if (favorites.empty())
         {
@@ -252,13 +249,12 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
         }
 
         int randomIndex = Randomizer::random(favorites.size());
-        
         std::string chosenSongPath = favorites[randomIndex].first;
 
         if (mCurrentMusic != nullptr && continueIfPlaying)
             return;
 
-        LOG(LogInfo) << "Playing favorite music: " << favorites[randomIndex].second 
+        LOG(LogInfo) << "Playing favorite music: " << favorites[randomIndex].second
                      << " (" << chosenSongPath << ")";
         playMusic(chosenSongPath);
         playSong(chosenSongPath);
@@ -266,7 +262,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
         mPlayingSystemThemeSong = "";
         return;
     }
-    
+
     std::vector<std::string> musics;
 
     if (!mCurrentThemeMusicDirectory.empty())
@@ -287,7 +283,7 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
     int randomIndex = Randomizer::random(musics.size());
     while (songWasPlayedRecently(musics.at(randomIndex)))
     {
-        LOG(LogDebug) << "The music \"" << musics.at(randomIndex) << "\" was played recently, selecting a new one";
+        LOG(LogDebug) << "Music "" << musics.at(randomIndex) << "" was played recently, trying again";
         randomIndex = Randomizer::random(musics.size());
     }
 
