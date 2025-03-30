@@ -39,14 +39,11 @@ Paths::Paths()
 	mRootPath = "/userdata";
 	mEmulationStationPath = "/usr/share/emulationstation";
 	mUserEmulationStationPath = "/userdata/system/configs/emulationstation";
-
 	mLogPath = "/userdata/system/logs";
 	mScreenShotsPath = "/userdata/screenshots";
 	mSaveStatesPath = "/userdata/saves";
 	mMusicPath = "/usr/share/batocera/music";
 	mUserMusicPath = "/userdata/music";
-	mFavoriteMusicPath = "/usr/share/batocera/favorite_music";
-	mUserFavoriteMusicPath = "/userdata/favorite_music";
 	mThemesPath = "/usr/share/emulationstation/themes";
 	mUserThemesPath = "/userdata/themes";
 	mKeyboardMappingsPath = "/usr/share/evmapy";
@@ -58,14 +55,10 @@ Paths::Paths()
 	mTimeZonesPath = "/usr/share/zoneinfo/";
 	mRetroachivementSounds = "/usr/share/libretro/assets/sounds";
 	mUserRetroachivementSounds = "/userdata/sounds/retroachievements";
-	
 	mSystemConfFilePath = "/userdata/system/batocera.conf";
 	mUserManualPath = "/usr/share/batocera/doc/notice.pdf";
 	mVersionInfoPath = "/usr/share/batocera/batocera.version";
 	mKodiPath = "/usr/bin/kodi";
-	
-	mFavoritesPath = mUserFavoriteMusicPath + "/favorites.txt";
-	
 #endif
 
 /* EmuElec sample locations.
@@ -116,170 +109,167 @@ std::string Paths::getUserDataPath()
 
 void Paths::loadCustomConfiguration(bool overridesOnly)
 {
-	// Files
-	std::map<std::string, std::string*> files =
-	{
-		{ "config", &mSystemConfFilePath },
-		{ "manual", &mUserManualPath },
-		{ "versioninfo", &mVersionInfoPath },
-		{ "kodi", &mKodiPath },
-		{ "favorites", &mFavoritesPath }
-	
-	};
+    // Files
+    std::map<std::string, std::string*> files =
+    {
+        { "config", &mSystemConfFilePath },
+        { "manual", &mUserManualPath },
+        { "versioninfo", &mVersionInfoPath },
+        { "kodi", &mKodiPath }
+    };
 
-	std::map<std::string, std::string*> folders = 
-	{
-		// Folders
-		{ "root", &mRootPath },
-		{ "log", &mLogPath },
-		{ "screenshots", &mScreenShotsPath },
-		{ "saves", &mSaveStatesPath },
-		{ "system.music", &mMusicPath },
-		{ "music", &mUserMusicPath },
-		{ "system.favoritemusic", &mFavoriteMusicPath },
-		{ "favoritemusic", &mUserFavoriteMusicPath },
-		{ "system.themes", &mThemesPath },
-		{ "themes", &mUserThemesPath },
-		{ "system.padtokey", &mKeyboardMappingsPath },
-		{ "padtokey", &mUserKeyboardMappingsPath },
-		{ "system.decorations", &mDecorationsPath },
-		{ "decorations", &mUserDecorationsPath },
-		{ "system.shaders", &mShadersPath },
-		{ "shaders", &mUserShadersPath },
-		{ "system.videofilters", &mVideoFiltersPath },
-		{ "videofilters", &mUserVideoFiltersPath },
-		{ "system.retroachievementsounds", &mRetroachivementSounds },
-		{ "retroachievementsounds", &mUserRetroachivementSounds },
-		{ "timezones", &mTimeZonesPath },
+    std::map<std::string, std::string*> folders =
+    {
+        // Folders
+        { "root", &mRootPath },
+        { "log", &mLogPath },
+        { "screenshots", &mScreenShotsPath },
+        { "saves", &mSaveStatesPath },
+        { "system.music", &mMusicPath },
+        { "music", &mUserMusicPath },
+        { "system.themes", &mThemesPath },
+        { "themes", &mUserThemesPath },
+        { "system.padtokey", &mKeyboardMappingsPath },
+        { "padtokey", &mUserKeyboardMappingsPath },
+        { "system.decorations", &mDecorationsPath },
+        { "decorations", &mUserDecorationsPath },
+        { "system.shaders", &mShadersPath },
+        { "shaders", &mUserShadersPath },
+        { "system.videofilters", &mVideoFiltersPath },
+        { "videofilters", &mUserVideoFiltersPath },
+        { "system.retroachievementsounds", &mRetroachivementSounds },
+        { "retroachievementsounds", &mUserRetroachivementSounds },
+        { "timezones", &mTimeZonesPath },
 #if WIN32
-		{ "kodi", &mKodiPath }
+        { "kodi", &mKodiPath }
 #endif
-	};
+    };
 
-	std::map<std::string, std::string> ret;
+    std::map<std::string, std::string> ret;
 
-	std::string path = mEmulationStationPath + std::string("/") + SETTINGS_FILENAME;
-	if (!Utils::FileSystem::exists(path))
-		path = mUserEmulationStationPath + std::string("/") + SETTINGS_FILENAME;
-	if (!Utils::FileSystem::exists(path))
-		path = Utils::FileSystem::getParent(mUserEmulationStationPath) + std::string("/") + SETTINGS_FILENAME;
+    std::string path = mEmulationStationPath + std::string("/") + SETTINGS_FILENAME;
+    if (!Utils::FileSystem::exists(path))
+        path = mUserEmulationStationPath + std::string("/") + SETTINGS_FILENAME;
+    if (!Utils::FileSystem::exists(path))
+        path = Utils::FileSystem::getParent(mUserEmulationStationPath) + std::string("/") + SETTINGS_FILENAME;
 
-	if (!Utils::FileSystem::exists(path))
-		return;
-		
-	std::string relativeTo = Utils::FileSystem::getParent(path);
+    if (!Utils::FileSystem::exists(path))
+        return;
 
-	if (!overridesOnly)
-	{
-		for (auto var : folders)
-		{
-			std::string variable = var.first;
+    std::string relativeTo = Utils::FileSystem::getParent(path);
 
-			if (variable == "root")
-			{
-				ret[variable] = Utils::FileSystem::getParent(relativeTo);
-				continue;
-			}
+    if (!overridesOnly)
+    {
+        for (auto var : folders)
+        {
+            std::string variable = var.first;
 
-			if (variable == "log")
-			{
-				ret[variable] = mUserEmulationStationPath;
-				continue;
-			}
+            if (variable == "root")
+            {
+                ret[variable] = Utils::FileSystem::getParent(relativeTo);
+                continue;
+            }
+
+            if (variable == "log")
+            {
+                ret[variable] = mUserEmulationStationPath;
+                continue;
+            }
 
 #if WIN32
-			if (variable == "kodi")
-			{
-				if (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe"))
-					ret[variable] = "C:\\Program Files\\Kodi\\kodi.exe";
-				else if (Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"))
-					ret[variable] = "C:\\Program Files (x86)\\Kodi\\kodi.exe";
-				else if (Utils::FileSystem::exists(Utils::FileSystem::combine(Utils::FileSystem::getParent(relativeTo), "kodi\\kodi.exe")))
-					ret[variable] = Utils::FileSystem::combine(Utils::FileSystem::getParent(relativeTo), "kodi\\kodi.exe");
+            if (variable == "kodi")
+            {
+                if (Utils::FileSystem::exists("C:\\Program Files\\Kodi\\kodi.exe"))
+                    ret[variable] = "C:\\Program Files\\Kodi\\kodi.exe";
+                else if (Utils::FileSystem::exists("C:\\Program Files (x86)\\Kodi\\kodi.exe"))
+                    ret[variable] = "C:\\Program Files (x86)\\Kodi\\kodi.exe";
+                else if (Utils::FileSystem::exists(Utils::FileSystem::combine(Utils::FileSystem::getParent(relativeTo), "kodi\\kodi.exe")))
+                    ret[variable] = Utils::FileSystem::combine(Utils::FileSystem::getParent(relativeTo), "kodi\\kodi.exe";
 
-				continue;
-			}
+                continue;
+            }
 #endif
 
-			if (Utils::String::startsWith(variable, "system."))
-			{
-				auto name = Utils::FileSystem::getGenericPath(variable.substr(7));
+            if (Utils::String::startsWith(variable, "system."))
+            {
+                auto name = Utils::FileSystem::getGenericPath(variable.substr(7));
 
-				auto dir = Utils::FileSystem::getCanonicalPath(mUserEmulationStationPath + "/" + name);
-				if (Utils::FileSystem::isDirectory(dir))
-					ret[variable] = dir;
-				else
-				{
-					auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../system/" + name);
-					if (Utils::FileSystem::isDirectory(dir))
-						ret[variable] = dir;
-				}
-			}
-			else
-			{
-				auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../" + variable);
-				if (Utils::FileSystem::isDirectory(dir))
-					ret[variable] = dir;
-				else
-				{
-					auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../system/" + variable);
-					if (Utils::FileSystem::isDirectory(dir))
-						ret[variable] = dir;
-				}
-			}
-		}
+                auto dir = Utils::FileSystem::getCanonicalPath(mUserEmulationStationPath + "/" + name);
+                if (Utils::FileSystem::isDirectory(dir))
+                    ret[variable] = dir;
+                else
+                {
+                    auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../system/" + name);
+                    if (Utils::FileSystem::isDirectory(dir))
+                        ret[variable] = dir;
+                }
+            }
+            else
+            {
+                auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../" + variable);
+                if (Utils::FileSystem::isDirectory(dir))
+                    ret[variable] = dir;
+                else
+                {
+                    auto dir = Utils::FileSystem::getCanonicalPath(relativeTo + "/../system/" + variable);
+                    if (Utils::FileSystem::isDirectory(dir))
+                        ret[variable] = dir;
+                }
+            }
+        }
 
-		for (auto var : files)
-		{
-			auto file = Utils::FileSystem::resolveRelativePath(var.first, relativeTo, true);
-			if (Utils::FileSystem::exists(file) && !Utils::FileSystem::isDirectory(file))
-				ret[var.first] = file;
-		}
-	}
-	else
-	{
-		std::string line;
-		std::ifstream systemConf(path);
-		if (systemConf && systemConf.is_open())
-		{
-			while (std::getline(systemConf, line))
-			{
-				int idx = line.find("=");
-				if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
-					continue;
+        for (auto var : files)
+        {
+            auto file = Utils::FileSystem::resolveRelativePath(var.first, relativeTo, true);
+            if (Utils::FileSystem::exists(file) && !Utils::FileSystem::isDirectory(file))
+                ret[var.first] = file;
+        }
+    }
+    else
+    {
+        std::string line;
+        std::ifstream systemConf(path);
+        if (systemConf && systemConf.is_open())
+        {
+            while (std::getline(systemConf, line))
+            {
+                int idx = line.find("=");
+                if (idx == std::string::npos || line.find("#") == 0 || line.find(";") == 0)
+                    continue;
 
-				std::string key = line.substr(0, idx);
-				std::string value = Utils::String::replace(line.substr(idx + 1), "\\", "/");
-				if (!key.empty() && !value.empty())
-				{
-					auto dir = Utils::FileSystem::resolveRelativePath(value, relativeTo, true);
-					if (Utils::FileSystem::isDirectory(dir))
-						ret[key] = dir;
-				}
-			}
+                std::string key = line.substr(0, idx);
+                std::string value = Utils::String::replace(line.substr(idx + 1), "\\", "/");
+                if (!key.empty() && !value.empty())
+                {
+                    auto dir = Utils::FileSystem::resolveRelativePath(value, relativeTo, true);
+                    if (Utils::FileSystem::isDirectory(dir))
+                        ret[key] = dir;
+                }
+            }
 
-			systemConf.close();
-		}
-	}
+            systemConf.close();
+        }
+    }
 
-	for (auto vv : folders)
-	{
-		auto it = ret.find(vv.first);
-		if (it == ret.cend())
-			continue;
+    for (auto vv : folders)
+    {
+        auto it = ret.find(vv.first);
+        if (it == ret.cend())
+            continue;
 
-		(*vv.second) = it->second;
-	}
+        (*vv.second) = it->second;
+    }
 
-	for (auto vv : files)
-	{
-		auto it = ret.find(vv.first);
-		if (it == ret.cend())
-			continue;
+    for (auto vv : files)
+    {
+        auto it = ret.find(vv.first);
+        if (it == ret.cend())
+            continue;
 
-		(*vv.second) = it->second;
-	}
+        (*vv.second) = it->second;
+    }
 }
+
 
 static std::string homePath;
 
