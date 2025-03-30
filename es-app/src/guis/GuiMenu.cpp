@@ -4088,13 +4088,15 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		        if (!songName.empty())
 		        {
 		            s->addWithDescription(_("SKIP TO THE NEXT SONG"),
-		                                  _("NOW PLAYING") + ": " + songName,
-		                                  {},
-		                                  [window]()
-		                                  {
-		                                      AudioManager::getInstance()->playRandomMusic(false);
-		                                  },
-		                                  "iconSound");
+					      _("NOW PLAYING") + ": " + songName,
+					      {},
+					      [s, window]()
+					      {
+						  Window* w = window;                          
+						  AudioManager::getInstance()->playRandomMusic(false);
+						  GuiMenu::openQuitMenu_static(w, true, false);
+					      },
+					      "iconSound");
 		
 		            s->addWithDescription(_("SAVE TO FAVORITES"),
 		                                  _("Save current song to favorites"),
