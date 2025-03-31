@@ -4133,7 +4133,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		                                          }
 		                                          else
 		                                          {
-		                                              window->pushGui(new GuiMsgBox(window, _("Could not open favorites file."), _("OK")));
+		                                              window->pushGui(new GuiMsgBox(window, _("Could not open favorites playfile."), _("OK")));
 		                                          }
 		
 		                                          AudioManager::getInstance()->playRandomMusic(true);
