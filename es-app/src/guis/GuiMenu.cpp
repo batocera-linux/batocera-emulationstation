@@ -4100,7 +4100,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
                       				"iconSound");
 		         
 		            s->addWithDescription(_("SAVE TO FAVORITES"),
-		                                  _("Save current song to favorites"),
+		                                  _("Save current song to favorites playlist"),
 		                                  {},
 		                                  [window, currentSongPath, songName]()
 		                                  {
@@ -4120,7 +4120,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		
 		                                      if (alreadyExists)
 		                                      {
-		                                          window->pushGui(new GuiMsgBox(window, _("This song is already in favorites."), _("OK")));
+		                                          window->pushGui(new GuiMsgBox(window, _("This song is already in favorites playlist."), _("OK")));
 		                                      }
 		                                      else
 		                                      {
@@ -4129,7 +4129,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 		                                          {
 		                                              ofs << currentSongPath << ";" << songName << "\n";
 		                                              ofs.close();
-		                                              window->pushGui(new GuiMsgBox(window, _("Song added to favorites!"), _("OK")));
+		                                              window->pushGui(new GuiMsgBox(window, _("Song added to favorites playlist!"), _("OK")));
 		                                          }
 		                                          else
 		                                          {
