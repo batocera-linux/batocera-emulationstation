@@ -19,8 +19,14 @@
     <game id="2spicy" name="2 Spicy">
       <gun/>
     </game>
-    <game id="abclimax" name="After Burner Climax (Export)" />
-    <game id="abclisdx" name="After Burner Climax (SDX)" />
+    <game id="abclimax" name="After Burner Climax (Export) (Rev B)">
+    </game>
+    <game id="abclimaxa" name="After Burner Climax (Export) (Rev A)">
+    </game>
+    <game id="abclimsdx" name="After Burner Climax (SDX) (Rev A)">
+    </game>
+    <game id="abclimse" name="After Burner Climax (SE) (Rev A)">
+    </game>
     <game id="2Spicy" name="2 Spicy">
       <gun/>
     </game>
@@ -794,25 +800,25 @@
     <game id="countryc">
       <trackball/>
     </game>
-    <game id="CP_HD">
+    <game id="CP_HD" name="Crime Patrol">
       <gun/>
     </game>
-    <game id="CP2DW_HD">
+    <game id="CP2DW_HD" name="Crime Patrol 2: Drug Wars">
       <gun/>
     </game>
-    <game id="cpower1">
+    <game id="cpower1" name="Captain Power: Future Force Training">
       <gun/>
     </game>
-    <game id="cpower2">
+    <game id="cpower2" name="Captain Power: Bio Dread Strike Mission">
       <gun/>
     </game>
-    <game id="cpower3">
+    <game id="cpower3" name="Captain Power: Raid On Volcania">
       <gun/>
     </game>
-    <game id="cpower4">
+    <game id="cpower4" name="Captain Power: Lord Dread Strikes Back">
       <gun/>
     </game>
-    <game id="cpowergh">
+    <game id="cpowergh" name="Captain Power: Greatest Hits">
       <gun/>
     </game>
     <game id="cracksht">
@@ -833,10 +839,10 @@
     <game id="crimepat">
       <gun/>
     </game>
-    <game id="crimepatrol">
+    <game id="crimepatrol" name="Crime Patrol">
       <gun/>
     </game>
-    <game id="crimepatrol-hd">
+    <game id="crimepatrol-hd" name="Crime Patrol">
       <gun/>
     </game>
     <game id="crimepat_12">
@@ -1160,10 +1166,10 @@
     <game id="driveyes">
       <wheel rotation="270"/>
     </game>
-    <game id="drugwars">
+    <game id="drugwars" name="Crime Patrol 2: Drug Wars">
       <gun/>
     </game>
-    <game id="drugwars-hd">
+    <game id="drugwars-hd" name="Crime Patrol 2: Drug Wars">
       <gun/>
     </game>
     <game id="duckhunt">
@@ -1442,7 +1448,7 @@
     <game id="GaiaAttack4">
       <gun/>
     </game>
-	<game id="gallagher">
+	<game id="gallagher" name="Gallagher's Gallery">
       <gun/>
     </game>
     <game id="gallgall">
@@ -2045,6 +2051,9 @@
     <game id="hotd4a" name="The House of the Dead 4 (Rev A)">
       <gun/>
     </game>
+    <game id="hotd4b" name="The House of the Dead 4 (Rev B)">
+      <gun/>
+    </game>
     <game id="HOTD4ELF2">
       <gun/>
     </game>
@@ -2054,10 +2063,13 @@
     <game id="HOTD4SPELF2">
       <gun/>
     </game>
-    <game id="hotd4sp">
+    <game id="hotd4sp" name="The House of the Dead 4 Special">
       <gun/>
     </game>
-    <game id="hotdex">
+    <game id="hotd4spb" name="The House of the Dead 4 Special (Rev B)">
+      <gun/>
+    </game>
+    <game id="hotdex" name="The House of the Dead EX">
       <gun/>
     </game>
     <game id="HOTDEX">
@@ -2087,7 +2099,13 @@
     <game id="hummer" name="Hummer">
       <wheel rotation="270"/>
     </game>
+    <game id="hummerlx" name="Hummer (SDLX)">
+      <wheel rotation="270"/>
+    </game>
     <game id="hummerxt" name="Hummer Extreme Edition">
+      <wheel rotation="270"/>
+    </game>
+    <game id="hummerxtm" name="Hummer Extreme Edition (MDX)">
       <wheel rotation="270"/>
     </game>
     <game id="hummerextreme">
@@ -2145,46 +2163,46 @@
       <wheel rotation="360"/>
     </game>
     <game id="inidv3ca">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="inidv3cy">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initd">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdexp">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdexpo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdv2e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdv2j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdv2ja">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdv2jo">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdv3e">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdv3j">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initdv3jb">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initiad4" name="Initial D Arcade Stage 4 (Rev G)">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
     </game>
     <game id="initiad4a" name="Initial D Arcade Stage 4 (Rev A)">
       <wheel rotation="270"/>
@@ -2193,7 +2211,10 @@
       <wheel rotation="270"/>
     </game>
     <game id="initiad4c" name="Initial D Arcade Stage 4 (Rev C)">
-      <wheel rotation="270" downshift="a" upshift="b" b="down"/>
+      <wheel rotation="270"/>
+    </game>
+    <game id="initiad4d" name="Initial D Arcade Stage 4 (Rev D)">
+      <wheel rotation="270"/>
     </game>
     <game id="initiad4ex" name="Initial D 4 (Export) (Rev D)">
       <wheel rotation="270"/>
@@ -2204,7 +2225,7 @@
     <game id="initiad4exc" name="Initial D 4 (Export) (Rev C)">
       <wheel rotation="270"/>
     </game>
-    <game id="initiad5" name="Initial D Arcade Stage 5 (Rev B)">
+    <game id="initiad5" name="Initial D Arcade Stage 5 (Rev F)">
       <wheel rotation="270"/>
     </game>
     <game id="initiad5a" name="Initial D Arcade Stage 5 (Rev A)">
@@ -2214,6 +2235,9 @@
       <wheel rotation="270"/>
     </game>
     <game id="initiad5exa" name="Initial D 5 (Export) (2.0)">
+      <wheel rotation="270"/>
+    </game>
+    <game id="initiad5exab" name="Initial D 5 (Export) (2.0) (Rev A)">
       <wheel rotation="270"/>
     </game>
     <game id="invasnab">
@@ -2246,13 +2270,13 @@
     <game id="jnero">
       <gun/>
     </game>
-    <game id="johnnyrock">
+    <game id="johnnyrock" name="Who Shot Johnny Rock?">
       <gun/>
     </game>
-    <game id="johnnyrock-hd">
+    <game id="johnnyrock-hd" name="Who Shot Johnny Rock?">
       <gun/>
     </game>
-    <game id="johnnyrocknoir">
+    <game id="johnnyrocknoir" name="Who Shot Johnny Rock? (Noir)">
       <gun/>
     </game>
     <game id="jpark">
@@ -2333,13 +2357,13 @@
     <game id="lastbh">
       <gun/>
     </game>
-    <game id="lbh">
+    <game id="lbh" name="Last Bounty Hunter, The">
       <gun/>
     </game>
-    <game id="lbh-hd">
+    <game id="lbh-hd" name="Last Bounty Hunter, The">
       <gun/>
     </game>
-    <game id="LBH_HD">
+    <game id="LBH_HD" name="Last Bounty Hunter, The">
       <gun/>
     </game>
     <game id="lastbh_006">
@@ -2399,7 +2423,10 @@
     <game id="lethalj">
       <gun/>
     </game>
-    <game id="letsgoju" name="Let's Go Jungle! (Export)">
+    <game id="letsgoju" name="Let's Go Jungle!: Lost on the Island of Spice (Export)">
+      <gun/>
+    </game>
+    <game id="letsgojua" name="Let's Go Jungle!: Lost on the Island of Spice (Export) (Rev A)">
       <gun/>
     </game>
     <game id="letsgojusp" name="Let's Go Jungle! Special (Export)">
@@ -2497,22 +2524,22 @@
     <game id="maddog">
       <gun/>
     </game>
-    <game id="maddog-hd">
+    <game id="maddog-hd" name="Mad Dog McCree">
       <gun/>
     </game>
-    <game id="Maddog_HD">
+    <game id="Maddog_HD" name="Mad Dog McCree">
       <gun/>
     </game>
-    <game id="maddog_202">
+    <game id="maddog_202" name="Mad Dog McCree">
       <gun/>
     </game>
     <game id="maddog2">
       <gun/>
     </game>
-    <game id="maddog2-hd">
+    <game id="maddog2-hd" name="Mad Dog II: The Lost Gold">
       <gun/>
     </game>
-    <game id="Maddog2_HD">
+    <game id="Maddog2_HD" name="Mad Dog II: The Lost Gold">
       <gun/>
     </game>
     <game id="maddog2_100">
@@ -2874,6 +2901,12 @@
     <game id="outr2sdx" name="OutRun 2 SP SDX">
       <wheel rotation="270"/>
     </game>
+    <game id="outr2sdxa" name="OutRun 2 SP SDX (Rev A)">
+      <wheel rotation="270"/>
+    </game>
+    <game id="outr2sdxg" name="OutRun 2 SP SDX (Bootleg)">
+      <wheel rotation="270"/>
+    </game>
     <game id="outr2st">
       <wheel rotation="270"/>
     </game>
@@ -3002,6 +3035,9 @@
     </game>
     <game id="pegglet">
       <trackball/>
+    </game>
+    <game id="platoon" name="Platoon (Prototype)">
+      <gun/>
     </game>
     <game id="plctr13b">
       <gun/>
@@ -3561,7 +3597,7 @@
     <game id="rrvac2">
       <wheel rotation="270"/>
     </game>
-    <game id="rtuned" name="R-Tuned Ultimate Street Racing">
+    <game id="rtuned" name="R-Tuned: Ultimate Street Racing">
       <wheel rotation="270"/>
     </game>
     <game id="R-Tuned">
@@ -3906,13 +3942,13 @@
     <game id="spacepir">
       <gun/>
     </game>
-    <game id="spacepirates">
+    <game id="spacepirates" name="Space Pirates">
       <gun/>
     </game>
-    <game id="spacepirates-hd">
+    <game id="spacepirates-hd" name="Space Pirates">
       <gun/>
     </game>
-    <game id="Space_Pirates_HD">
+    <game id="Space_Pirates_HD" name="Space Pirates">
       <gun/>
     </game>
     <game id="spacepir_14">
@@ -4689,6 +4725,10 @@
     <game id="vsgshoe">
       <gun/>
     </game>
+    <game id="vtennis3a" name="Virtua Tennis 3 (Japan) (Rev A)">
+    </game>
+    <game id="vtennis3b" name="Virtua Tennis 3 (Japan) (Rev B)">
+    </game>
     <game id="wacko">
       <trackball/>
     </game>
@@ -4902,7 +4942,7 @@
     <game id="wsjr">
       <gun/>
     </game>
-    <game id="WSJR_HD">
+    <game id="WSJR_HD" name="Who Shot Johnny Rock?">
       <gun/>
     </game>
     <game id="wsjr_15">
