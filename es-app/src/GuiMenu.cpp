@@ -4221,7 +4221,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			                );
 			            }
 			        }
-				    
+				else   
 			        {
 			            std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
 			            if (Utils::FileSystem::exists(favoritesFile))
