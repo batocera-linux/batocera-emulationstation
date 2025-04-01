@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-16 08:31+0100\n"
+"PO-Revision-Date: 2025-04-01 07:50+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -290,7 +290,7 @@ msgid "Extracting"
 msgstr "Packar upp"
 
 msgid "DOWNLOADING"
-msgstr "LADDAR NED"
+msgstr "HÄMTAR"
 
 msgid "THEME INSTALLED SUCCESSFULLY"
 msgstr "TEMA INSTALLERAT"
@@ -332,7 +332,7 @@ msgid "CANCEL"
 msgstr "AVBRYT"
 
 msgid "Downloading"
-msgstr "Laddar ned"
+msgstr "Hämtar"
 
 msgid "SEARCH FOR"
 msgstr "SÖK EFTER"
@@ -341,7 +341,7 @@ msgid "ACCEPT RESULT"
 msgstr "ACCEPTERA RESULTAT"
 
 msgid "THEMES DOWNLOADER"
-msgstr "TEMANEDLADDARE"
+msgstr "TEMAHÄMTARE"
 
 msgid "SELECT THEMES TO INSTALL/REMOVE"
 msgstr "VÄLJ TEMAN ATT INSTALLERA/TA BORT"
@@ -369,7 +369,7 @@ msgstr "UPPDATERA"
 
 #, c-format
 msgid "'%s' ADDED TO DOWNLOAD QUEUE"
-msgstr "'%s' HAR LAGTS TILL I NEDLADDNINGSKÖN"
+msgstr "'%s' HAR LAGTS TILL I HÄMTNINGSKÖN"
 
 msgid "REMOVE"
 msgstr "TA BORT"
@@ -385,7 +385,7 @@ msgstr "AKTUELLT TEMA"
 
 #, c-format
 msgid "CURRENTLY IN DOWNLOAD QUEUE"
-msgstr "FINNS JUST NU I NEDLADDNINGSKÖN"
+msgstr "FINNS JUST NU I HÄMTNINGSKÖN"
 
 msgid "FINISHED"
 msgstr "SLUTFÖRD"
@@ -626,7 +626,7 @@ msgstr "HARDCORE-LÄGE"
 
 msgid "Disable loading states, rewind and cheats for more points."
 msgstr ""
-"Inaktivera laddningstillstånd, spola tillbaka och fuska för fler poäng."
+"Inaktivera inläsningstillstånd, spola tillbaka och fuska för fler poäng."
 
 msgid "LEADERBOARDS"
 msgstr "TOPPLISTOR"
@@ -1006,7 +1006,7 @@ msgid "EMULATOR SETTINGS"
 msgstr "EMULATORINSTÄLLNINGAR"
 
 msgid "UPDATES & DOWNLOADS"
-msgstr "UPPDATERINGAR & NEDLADDNINGAR"
+msgstr "UPPDATERINGAR & HÄMTNINGAR"
 
 msgid "SYSTEM SETTINGS"
 msgstr "SYSTEMINSTÄLLNINGAR"
@@ -1234,7 +1234,7 @@ msgstr "AKTIVERA SPELFILTRERING"
 msgid ""
 "Whether to show or hide game filtering related settings in the view options."
 msgstr ""
-"Om spelfiltreringsinställningar ska visas eller ej i visningsalternativen."
+"Om spelfiltreringsinställningar ska visas eller inte i visningsalternativen."
 
 msgid "SAVE METADATA ON EXIT"
 msgstr "SPARA METADATA VID AVSLUT"
@@ -1319,7 +1319,7 @@ msgid "OPTIMIZATIONS"
 msgstr "OPTIMERINGAR"
 
 msgid "PRELOAD UI ELEMENTS ON BOOT"
-msgstr "FÖRLADDA ANVÄNDARGRÄNSSNITT VID UPPSTART"
+msgstr "FÖRINLÄS ANVÄNDARGRÄNSSNITT VID UPPSTART"
 
 msgid ""
 "Reduces lag when entering gamelists from the system menu, increases boot time"
@@ -1328,7 +1328,7 @@ msgstr ""
 "uppstartstiden"
 
 msgid "PRELOAD METADATA MEDIA ON BOOT"
-msgstr "FÖRLADDA METADATA-MEDIA VID UPPSTART"
+msgstr "FÖRINLÄS METADATA-MEDIA VID UPPSTART"
 
 msgid ""
 "Reduces lag when scrolling through a fully scraped gamelist, increases boot "
@@ -1338,10 +1338,10 @@ msgstr ""
 "uppstartstiden"
 
 msgid "THREADED LOADING"
-msgstr "TRÅDAD LADDNING"
+msgstr "TRÅDAD INLÄSNING"
 
 msgid "ASYNC IMAGE LOADING"
-msgstr "ASYNKRON BILDLADDNING"
+msgstr "ASYNKRON BILDINLÄSNING"
 
 msgid "OPTIMIZE IMAGES VRAM USE"
 msgstr "OPTIMERA BILDERS VRAM-ANVÄNDNING"
@@ -1353,10 +1353,10 @@ msgid "REBOOT REQUIRED TO APPLY THE NEW CONFIGURATION"
 msgstr "OMSTART KRÄVS FÖR ATT VERKSTÄLLA DE NYA INSTÄLLNINGARNA"
 
 msgid "DOWNLOADS"
-msgstr "NEDLADDNINGAR"
+msgstr "HÄMTNINGAR"
 
 msgid "CONTENT DOWNLOADER"
-msgstr "INNEHÅLLSNEDLADDARE"
+msgstr "INNEHÅLLSHÄMTARE"
 
 msgid "THEMES"
 msgstr "TEMAN"
@@ -1626,11 +1626,11 @@ msgid "SAVESTATES"
 msgstr "SAVESTATES"
 
 msgid "AUTO SAVE/LOAD"
-msgstr "SPARA/LADDA AUTOMATISKT"
+msgstr "SPARA/LÄS IN AUTOMATISKT"
 
 msgid "Load latest savestate on game launch and savestate when exiting game."
 msgstr ""
-"Ladda senaste sparläge vid spelstart och sparläge när du avslutar spelet."
+"Läs in senaste sparläge vid spelstart och sparläge när du avslutar spelet."
 
 msgid "INCREMENTAL SAVESTATES"
 msgstr "INKREMENTELLA SAVE STATES"
@@ -1660,7 +1660,7 @@ msgid "ALWAYS"
 msgstr "ALLTID"
 
 msgid "IF NOT EMPTY"
-msgstr "OM EJ TOM"
+msgstr "OM INTE TOM"
 
 msgid "Display savestate manager before launching a game."
 msgstr "Visa sparlägeshanteraren innan du startar ett spel."
@@ -2051,11 +2051,11 @@ msgid "REALLY QUIT?"
 msgstr "VILL DU VERKLIGEN AVSLUTA?"
 
 msgid "AUTO SAVE/LOAD ON GAME LAUNCH"
-msgstr "SPARA/LADDA AUTOMATISKT VID SPELSTART"
+msgstr "SPARA/LÄS IN AUTOMATISKT VID SPELSTART"
 
 msgid "Load latest save state on game launch and save state when exiting game."
 msgstr ""
-"Ladda senaste sparläge vid spelstart och spara läge när du avslutar spelet."
+"Läs in senaste sparläge vid spelstart och spara läge när du avslutar spelet."
 
 msgid "SHOW CONTROLLER OVERLAYS"
 msgstr "VISA SPELKONTROLLOVERLAYS"
@@ -2413,7 +2413,7 @@ msgid "DON'T SHOW GROUPS WITH ONLY ONE SYSTEM"
 msgstr "VISA INTE GRUPPER MED ENDAST ETT SYSTEM"
 
 msgid "Loading..."
-msgstr "Laddar..."
+msgstr "Läser in..."
 
 msgid "SELECT COLLECTIONS"
 msgstr "VÄLJ SAMLINGAR"
@@ -3023,13 +3023,13 @@ msgstr ""
 "VILL DU STARTA DET I ALLA FALL?"
 
 msgid "Preloading UI"
-msgstr "Förladdar användargränssnittet"
+msgstr "Förinläser användargränssnittet"
 
 msgid "Loading theme"
-msgstr "Laddar tema"
+msgstr "Läser in tema"
 
 msgid "Loading gamelists"
-msgstr "Laddar spellistor"
+msgstr "Läser in spellistor"
 
 msgid "MENU"
 msgstr "MENY"
@@ -3101,7 +3101,7 @@ msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "UPPDATERA SPELLISTOR FÖR ATT VERKSTÄLLA ÄNDRINGAR."
 
 msgid "Loading system config..."
-msgstr "Laddar systemkonfiguration..."
+msgstr "Läser in systemkonfiguration..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
 msgstr "SPARAR METADATA, VÄNTA…"
@@ -3535,7 +3535,7 @@ msgid "HOLD ANY BUTTON TO SKIP"
 msgstr "HÅLL NÅGON KNAPP NEDTRYCKT FÖR ATT HOPPA ÖVER"
 
 msgid "-NOT DEFINED-"
-msgstr "-EJ DEFINIERAD-"
+msgstr "-INTE DEFINIERAD-"
 
 msgid ""
 "NO HOTKEY BUTTON HAS BEEN ASSIGNED. THIS IS REQUIRED FOR EXITING GAMES WITH "

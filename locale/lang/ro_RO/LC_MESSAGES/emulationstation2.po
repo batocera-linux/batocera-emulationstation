@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-01 22:07+0200\n"
+"PO-Revision-Date: 2025-03-29 14:16+0200\n"
 "Last-Translator: Mihai Vasiliu <mihai.vasiliu.93@gmail.com>\n"
 "Language-Team: \n"
 "Language: ro_RO\n"
@@ -552,10 +552,10 @@ msgid "CUSTOM RELAY SERVER"
 msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
+msgstr "CREEAZĂ O SALĂ AUTOMAT"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
+msgstr "Creează automat o sală Netplay la lansarea unui joc."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
@@ -1838,13 +1838,13 @@ msgid "SHOW FOLDERS"
 msgstr "ARATĂ DOSARELE"
 
 msgid "always"
-msgstr "MEREU"
+msgstr "mereu"
 
 msgid "never"
-msgstr "NICIODATĂ"
+msgstr "niciodată"
 
 msgid "having multiple games"
-msgstr "CÂND CONȚIN MAI MULTE JOCURI"
+msgstr "când conțin mai multe jocuri"
 
 msgid "SHOW '..' PARENT FOLDER"
 msgstr "ARATĂ DOSARUL PĂRINTE „..”"

@@ -361,7 +361,7 @@ msgid "No items"
 msgstr "在此视角下没东西"
 
 msgid "PLEASE WAIT"
-msgstr "请稍后"
+msgstr "请稍候"
 
 msgid "UPDATE"
 msgstr "更新"
