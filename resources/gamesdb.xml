@@ -23,9 +23,9 @@
     </game>
     <game id="abclimaxa" name="After Burner Climax (Export) (Rev A)">
     </game>
-    <game id="abclimsdx" name="After Burner Climax (SDX) (Rev A)">
+    <game id="abclisdx" name="After Burner Climax (SDX) (Rev A)">
     </game>
-    <game id="abclimse" name="After Burner Climax (SE) (Rev A)">
+    <game id="abclise" name="After Burner Climax (SE) (Rev A)">
     </game>
     <game id="2Spicy" name="2 Spicy">
       <gun/>
@@ -4682,6 +4682,30 @@
     </game>
     <game id="vcopa">
       <gun/>
+    </game>
+    <game id="vf5a" name="Virtua Fighter 5 (Rev A)">
+    </game>
+    <game id="vf5b" name="Virtua Fighter 5 (Rev B)">
+    </game>
+    <game id="vf5c" name="Virtua Fighter 5 (Rev C)">
+    </game>
+    <game id="vf5d" name="Virtua Fighter 5 (Rev D)">
+    </game>
+    <game id="vf5e" name="Virtua Fighter 5 (Rev E)(ver C)">
+    </game>
+    <game id="vf5r" name="Virtua Fighter 5 R (Rev G)">
+    </game>
+    <game id="vf5rd" name="Virtua Fighter 5 R (Rev D)">
+    </game>
+    <game id="vf5fs" name="Virtua Fighter 5 Final Showdown (Rev B, v6.0)">
+    </game>
+    <game id="vf5fsa1" name="Virtua Fighter 5 Final Showdown (Rev A, v1.0)">
+    </game>
+    <game id="vf5fsa2" name="Virtua Fighter 5 Final Showdown (Rev A, v2.0)">
+    </game>
+    <game id="vf5fsa6" name="Virtua Fighter 5 Final Showdown (Rev A, v6.0)">
+    </game>
+    <game id="vf5fsb1" name="Virtua Fighter 5 Final Showdown (Rev B, v1.0)">
     </game>
     <game id="vformula">
       <wheel rotation="270"/>
