@@ -553,13 +553,13 @@ msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "CRÉER AUTOMATIQUEMENT UN LOBBY"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr "Crée automatiquement un lobby Netplay au démarrage d’une partie."
+msgstr "Créer automatiquement un lobby Netplay au démarrage d’une partie."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
-msgstr "AFFICHER SEUELEMENT LE SERVEUR RELAIS DES JEUX"
+msgstr "AFFICHER UNIQUEMENT LES JEUX AVEC SERVEUR RELAIS"
 
 msgid "Relay server games have a higher chance of successful entry."
-msgstr "Le serveur de relais des jeux à généralement davantage d'entrées."
+msgstr "Les connections à des jeux sur serveur relais ont plus de chances d'aboutir."
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "AFFICHER LES JEUX NON DISPONIBLES"
