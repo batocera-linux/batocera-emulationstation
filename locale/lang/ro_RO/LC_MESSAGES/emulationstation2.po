@@ -552,10 +552,10 @@ msgid "CUSTOM RELAY SERVER"
 msgstr "SERVER RETRANSLAȚIE PERSONALIZAT"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
+msgstr "CREEAZĂ O SALĂ AUTOMAT"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
+msgstr "Creează automat o sală Netplay la lansarea unui joc."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "ARATĂ DOAR JOCURILE CU SERVER DE RETRANSLAȚIE"
