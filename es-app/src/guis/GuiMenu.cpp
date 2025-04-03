@@ -4160,7 +4160,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	if (quickAccessMenu)
 	{
     		 s->addGroup(_("QUICK ACCESS"));
-
+			
 			if (AudioManager::getInstance()->isSongPlaying())
 			{
 			    std::string songName = AudioManager::getInstance()->getSongName();
@@ -4253,9 +4253,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			                bool useFavorite = favoriteSwitch->getState();
 			                Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
 			                Settings::getInstance()->saveFile();
-			
-			                std::string msg = useFavorite ? _("Favorites playlist activated!") : _("Default music folder activated!");
-			                window->pushGui(new GuiMsgBox(window, msg, _("OK")));
+
 			                AudioManager::getInstance()->playRandomMusic(useFavorite);
 			            });
 			        }
