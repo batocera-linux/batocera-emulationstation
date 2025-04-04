@@ -2027,6 +2027,36 @@ msgstr "الموسيقى التالية"
 msgid "NOW PLAYING"
 msgstr "تشتغل حاليا"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "حفظ في الموسيقى المفضلة"
+
+msgid "Copy current song to favorite folder"
+msgstr "نسخ الأغنية الحالية إلى المجلد المفضل"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "استخدام دليل الموسيقى المفضلة"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "تبديل استخدام دليل الموسيقى المفضلة"
+
+msgid "Song added to favorite list!"
+msgstr "تمت إضافة الأغنية إلى قائمة المفضلة!"
+
+msgid "Error: Could not open favorites file."
+msgstr "خطأ: تعذر فتح ملف المفضلات."
+
+msgid "No song is currently playing."
+msgstr "لا يتم تشغيل أي أغنية حالياً."
+
+msgid "Favorite music directory activated!"
+msgstr "تم تفعيل دليل الموسيقى المفضلة!"
+
+msgid "Default music directory activated!"
+msgstr "تم تفعيل دليل الموسيقى الافتراضي!"
+
+msgid "This song is already in Favorites."
+msgstr "هذه الأغنية موجودة بالفعل في المفضلة."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "بدء شاشة التوقف"
 

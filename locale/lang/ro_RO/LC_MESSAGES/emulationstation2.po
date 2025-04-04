@@ -2023,6 +2023,36 @@ msgstr "TRECI LA URMĂTORUL CÂNTEC"
 msgid "NOW PLAYING"
 msgstr "ACUM SE REDĂ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SALVEAZĂ ÎN MUZICA FAVORITĂ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiază melodia actuală în folderul favorit"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UTILIZEAZĂ DIRECTORUL DE MUZICĂ FAVORITĂ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Comută utilizarea directorului de muzică favorită"
+
+msgid "Song added to favorite list!"
+msgstr "Melodia a fost adăugată la lista de favorite!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Eroare: Nu s-a putut deschide fișierul de favorite."
+
+msgid "No song is currently playing."
+msgstr "Nicio melodie nu este redată în prezent."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorul de muzică preferat a fost activat!"
+
+msgid "Default music directory activated!"
+msgstr "Directorul de muzică implicit a fost activat!"
+
+msgid "This song is already in Favorites."
+msgstr "Această melodie este deja în Favorite."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "LANSEAZĂ ECONOMIZORUL DE ECRAN"
 

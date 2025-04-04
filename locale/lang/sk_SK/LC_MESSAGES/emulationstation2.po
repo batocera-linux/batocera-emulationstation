@@ -1999,11 +1999,38 @@ msgstr "Chyba konfigurácie Wi-Fi"
 msgid "QUICK ACCESS"
 msgstr "Rýchly prístup"
 
-msgid "SKIP TO THE NEXT SONG"
-msgstr "Preskočiť na ďalšiu skladbu"
-
 msgid "NOW PLAYING"
 msgstr "Teraz hrá"
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ULOŽIŤ DO OBĽÚBENEJ HUDBY"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopírovať aktuálnu skladbu do priečinka obľúbených"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "POUŽIŤ ADRESÁR OBĽÚBENEJ HUDBY"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Prepnúť používanie adresára obľúbenej hudby"
+
+msgid "Song added to favorite list!"
+msgstr "Pieseň pridaná do zoznamu obľúbených!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Chyba: Nepodarilo sa otvoriť súbor obľúbených."
+
+msgid "No song is currently playing."
+msgstr "Momentálne nehrá žiadna pieseň."
+
+msgid "Favorite music directory activated!"
+msgstr "Adresár obľúbenej hudby aktivovaný!"
+
+msgid "Default music directory activated!"
+msgstr "Predvolený adresár hudby aktivovaný!"
+
+msgid "This song is already in Favorites."
+msgstr "Táto skladba je už v obľúbených."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "Spustiť šetrič obrazovky"

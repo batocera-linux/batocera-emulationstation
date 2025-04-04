@@ -1994,6 +1994,36 @@ msgstr "다음 노래로 건너뜀"
 msgid "NOW PLAYING"
 msgstr "지금 재생 중"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "즐겨찾는 음악에 저장"
+
+msgid "Copy current song to favorite folder"
+msgstr "현재 곡을 즐겨찾는 폴더에 복사"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "즐겨찾는 음악 디렉토리 사용"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "즐겨찾는 음악 디렉토리 사용 전환"
+
+msgid "Song added to favorite list!"
+msgstr "노래가 즐겨찾기 목록에 추가되었습니다!"
+
+msgid "Error: Could not open favorites file."
+msgstr "오류: 즐겨찾기 파일을 열 수 없습니다."
+
+msgid "No song is currently playing."
+msgstr "현재 재생 중인 노래가 없습니다."
+
+msgid "Favorite music directory activated!"
+msgstr "즐겨찾기 음악 디렉토리가 활성화되었습니다!"
+
+msgid "Default music directory activated!"
+msgstr "기본 음악 디렉토리가 활성화되었습니다!"
+
+msgid "This song is already in Favorites."
+msgstr "이 노래는 이미 즐겨찾기에 있습니다."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "화면 보호기 실행"
 

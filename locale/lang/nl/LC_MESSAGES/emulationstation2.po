@@ -1067,6 +1067,12 @@ msgstr "AUTO"
 msgid "dmd matrix size"
 msgstr "dmd matrix grootte"
 
+msgid "MATRIX"
+msgstr "MATRIX"
+
+msgid "rgb dmd order"
+msgstr "RGB DMD volgorde"
+
 msgid "BRIGHTNESS"
 msgstr "HELDERHEID"
 
@@ -2027,6 +2033,36 @@ msgstr "SKIP NAAR HET VOLGENDE NUMMER"
 msgid "NOW PLAYING"
 msgstr "SPEELT NU"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "OPSLAAN IN FAVORIETE MUZIEK"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopieer het huidige nummer naar de favorietenmap"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "GEBRUIK FAVORIETE MUZIEKMAP"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Schakel het gebruik van de favorietenmap in of uit"
+
+msgid "Song added to favorite list!"
+msgstr "Nummer toegevoegd aan favorietenlijst!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Fout: Kon het favorietenbestand niet openen."
+
+msgid "No song is currently playing."
+msgstr "Er wordt momenteel geen nummer afgespeeld."
+
+msgid "Favorite music directory activated!"
+msgstr "Favoriete muziekmap geactiveerd!"
+
+msgid "Default music directory activated!"
+msgstr "Standaard muziekmap geactiveerd!"
+
+msgid "This song is already in Favorites."
+msgstr "Dit nummer staat al in Favorieten."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "START DE SCHERMBEVEILIGING"
 
@@ -2203,15 +2239,6 @@ msgstr "START SPEL"
 
 msgid "HOST A NETPLAY GAME"
 msgstr "HOST EEN NETPLAY SPEL"
-
-msgid "PUBLICLY ANNOUNCE GAME"
-msgstr "EEN SPEL PUBLIEKELIJK AANKONDIGEN"
-
-msgid "PLAYER PASSWORD"
-msgstr "SPELER WACHTWOORD"
-
-msgid "VIEWER PASSWORD"
-msgstr "TOESCHOUWER WACHTWOORD"
 
 msgid "FIND SIMILAR GAMES..."
 msgstr "VIND SOORTGELIJKE SPELLEN..."
@@ -2578,6 +2605,9 @@ msgstr "VERBIND MET NETPLAY"
 msgid "Select a game lobby to join"
 msgstr "Selecteer een spel lobby voor deelname"
 
+msgid "Select a game lobby to create or join"
+msgstr "Selecteer een gamelobby om aan te maken of eraan deel te nemen"
+
 msgid "FAILED"
 msgstr "MISLUKT"
 
@@ -2681,12 +2711,6 @@ msgstr "TOON BATTERIJNIVEAU CONTROLLER"
 
 msgid "DRAW GUN CROSSHAIR"
 msgstr "TEKEN PISTOOL KRUIS"
-
-msgid "BEHAVIOR"
-msgstr "GEDRAG"
-
-msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr "BEPERK SNELTOETSEN OM AF TE SLUITEN"
 
 msgid "default"
 msgstr "standaard"
@@ -3148,9 +3172,6 @@ msgstr "CORE ONTBREEKT"
 
 msgid "UKNOWN ERROR"
 msgstr "ONBEKENDE FOUT"
-
-msgid "Interlaced"
-msgstr "Geïnterlinieerd"
 
 msgid "all games"
 msgstr "alle spellen"

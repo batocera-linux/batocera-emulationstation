@@ -2005,6 +2005,36 @@ msgstr "ПРОПУСТИТЬ ПЕСНЮ"
 msgid "NOW PLAYING"
 msgstr "СЕЙЧАС ИГРАЕТ"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "СОХРАНИТЬ В ИЗБРАННУЮ МУЗЫКУ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Копировать текущую песню в папку избранного"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ИСПОЛЬЗОВАТЬ КАТАЛОГ ИЗБРАННОЙ МУЗЫКИ"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Переключить использование каталога избранной музыки"
+
+msgid "Song added to favorite list!"
+msgstr "Песня добавлена в список избранного!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Ошибка: Не удалось открыть файл избранного."
+
+msgid "No song is currently playing."
+msgstr "В данный момент музыка не играет."
+
+msgid "Favorite music directory activated!"
+msgstr "Каталог избранной музыки активирован!"
+
+msgid "Default music directory activated!"
+msgstr "Каталог музыки по умолчанию активирован!"
+
+msgid "This song is already in Favorites."
+msgstr "Эта песня уже в избранном."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "ЗАПУСТИТЬ ЗАСТАВКУ"
 

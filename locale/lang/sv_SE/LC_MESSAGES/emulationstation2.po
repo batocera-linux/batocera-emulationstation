@@ -2005,6 +2005,36 @@ msgstr "HOPPA TILL NÄSTA LÅT"
 msgid "NOW PLAYING"
 msgstr "SPELAS NU"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SPARA TILL FAVORITMUSIK"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopiera aktuell låt till favoritmappen"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ANVÄND FAVORITMUSIKMAPPEN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Växla användning av favoritmusikmappen"
+
+msgid "Song added to favorite list!"
+msgstr "Låt tillagd i favoritlistan!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Fel: Kunde inte öppna favoritfilen."
+
+msgid "No song is currently playing."
+msgstr "Ingen låt spelas just nu."
+
+msgid "Favorite music directory activated!"
+msgstr "Favoritmusikmapp aktiverad!"
+
+msgid "Default music directory activated!"
+msgstr "Standardmusikmapp aktiverad!"
+
+msgid "This song is already in Favorites."
+msgstr "Den här låten finns redan i Favoriter."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"
 
