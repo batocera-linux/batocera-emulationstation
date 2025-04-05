@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 msgid "SCANNING BLUETOOTH"
 msgstr "BLUETOOTH СКАНИРОВАНИЕ"
@@ -552,10 +552,10 @@ msgid "CUSTOM RELAY SERVER"
 msgstr "ПОЛЬЗОВАТЕЛЬСКИЙ RELAY-СЕРВЕР"
 
 msgid "AUTOMATICALLY CREATE LOBBY"
-msgstr ""
+msgstr "АВТОМАТИЧЕСКИ СОЗДАВАТЬ ЛОББИ"
 
 msgid "Automatically creates a Netplay lobby when starting a game."
-msgstr ""
+msgstr "Автоматически создает лобби Netplay при начале игры."
 
 msgid "SHOW RELAY SERVER GAMES ONLY"
 msgstr "ПОКАЗАТЬ ТОЛЬКО ИГРЫ RELAY-СЕРВЕРА"
@@ -2662,10 +2662,10 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "ОТОБРАЖАТЬ ПЕРЕКРЕСТИЕ ПИСТОЛЕТА"
 
 msgid "BEHAVIOR"
-msgstr ""
+msgstr "ПОВЕДЕНИЕ"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
-msgstr ""
+msgstr "ОГРАНИЧИТЬ ХОТКЕИ ДЛЯ ВЫХОДА"
 
 msgid "default"
 msgstr "по умолчанию"
@@ -3131,7 +3131,7 @@ msgid "UKNOWN ERROR"
 msgstr "НЕИЗВЕСТНАЯ ОШИБКА"
 
 msgid "Interlaced"
-msgstr ""
+msgstr "Чересстрочной"
 
 msgid "all games"
 msgstr "все игры"
