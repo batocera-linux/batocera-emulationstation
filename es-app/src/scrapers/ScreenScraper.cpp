@@ -185,7 +185,8 @@ const std::map<PlatformId, unsigned short> screenscraper_platformid_map{
 	{ VIRCON32, 272 },
 	{ GAMATE, 266 },
 	{ ARDUBOY, 263 },
-	{ LOWRESNX, 244 }
+	{ LOWRESNX, 244 },
+	{ VC4000, 281 }
 };
 
 const std::set<Scraper::ScraperMediaSource>& ScreenScraperScraper::getSupportedMedias()
