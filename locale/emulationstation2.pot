@@ -553,7 +553,7 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
-<<<<<<< HEAD
+// --- conflict divider ---
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
@@ -566,8 +566,9 @@ msgstr ""
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
 
+// --- conflict divider ---
 =======
->>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
+>>>>>>> be96bcae2 (Update emulationstation2.pot)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 
