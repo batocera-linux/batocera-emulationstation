@@ -357,11 +357,13 @@ void Settings::setDefaults()
 	mIntMap["audio.display_titles_time"] = 10;
 
 	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
-<<<<<<< HEAD
 	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
 	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
+// --- conflict divider ---
 =======
->>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
+	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
+	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
+>>>>>>> 34baf12f6 (Update Settings.cpp)
 	mBoolMap["NetPlayShowMissingGames"] = false;
 	
 	mBoolMap["CheevosCheckIndexesAtStart"] = false;	
@@ -593,4 +595,6 @@ std::vector<std::string> Settings::getSettingsNames()
 		ret.push_back(item.first);
 
 	return ret;
+// --- conflict divider ---
+}
 }
