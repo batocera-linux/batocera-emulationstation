@@ -199,12 +199,21 @@ void HttpReq::performRequest(const std::string& url, HttpReqOptions* options)
 		return;
 	}
 
-	//set curl restrict redirect protocols
+	// set curl restrict redirect protocols
 #if WIN32
+	curl_version_info_data* version_info = curl_version_info(CURLVERSION_NOW);
+
+	unsigned int major, minor, patch;
+	if (version_info && sscanf(version_info->version, "%u.%u.%u", &major, &minor, &patch) == 3)
+		err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");
+	else 
+		err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
+#elif CURL_AT_LEAST_VERSION(7,85,0)
+	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");	
+#else
 	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
-#else 
-	err = curl_easy_setopt(mHandle, CURLOPT_REDIR_PROTOCOLS_STR, "http,https");
 #endif
+
 	if(err != CURLE_OK)
 	{
 		mStatus = REQ_IO_ERROR;
