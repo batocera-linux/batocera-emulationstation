@@ -360,10 +360,11 @@ void Settings::setDefaults()
 	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
 	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
 // --- conflict divider ---
-=======
+// --- conflict divider ---
 	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
 	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
->>>>>>> 34baf12f6 (Update Settings.cpp)
+=======
+>>>>>>> 179712c03 (Update Settings.cpp)
 	mBoolMap["NetPlayShowMissingGames"] = false;
 	
 	mBoolMap["CheevosCheckIndexesAtStart"] = false;	
