@@ -1980,36 +1980,6 @@ msgstr "下一首音乐"
 msgid "NOW PLAYING"
 msgstr "正在播放音乐"
 
-msgid "SAVE TO FAVORITE MUSIC"
-msgstr "保存到收藏音乐"
-
-msgid "Copy current song to favorite folder"
-msgstr "将当前歌曲复制到收藏文件夹"
-
-msgid "USE FAVORITE MUSIC DIRECTORY"
-msgstr "使用收藏音乐目录"
-
-msgid "Toggle usage of favorite music directory"
-msgstr "切换收藏音乐目录的使用"
-
-msgid "Song added to favorite list!"
-msgstr "歌曲已添加到收藏列表！"
-
-msgid "Error: Could not open favorites file."
-msgstr "错误：无法打开收藏文件。"
-
-msgid "No song is currently playing."
-msgstr "当前没有正在播放的歌曲。"
-
-msgid "Favorite music directory activated!"
-msgstr "已激活收藏音乐目录！"
-
-msgid "Default music directory activated!"
-msgstr "已激活默认音乐目录！"
-
-msgid "This song is already in Favorites."
-msgstr "这首歌已在收藏夹中。"
-
 msgid "LAUNCH SCREENSAVER"
 msgstr "启动屏保"
 

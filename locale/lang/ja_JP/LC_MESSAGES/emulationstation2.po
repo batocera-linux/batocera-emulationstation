@@ -2006,36 +2006,6 @@ msgstr "次の曲にスキップ"
 msgid "NOW PLAYING"
 msgstr "現在再生中の曲名"
 
-msgid "SAVE TO FAVORITE MUSIC"
-msgstr "お気に入りの音楽に保存"
-
-msgid "Copy current song to favorite folder"
-msgstr "現在の曲をお気に入りフォルダーにコピー"
-
-msgid "USE FAVORITE MUSIC DIRECTORY"
-msgstr "お気に入りの音楽ディレクトリを使用"
-
-msgid "Toggle usage of favorite music directory"
-msgstr "お気に入りの音楽ディレクトリの使用を切り替え"
-
-msgid "Song added to favorite list!"
-msgstr "お気に入りリストに曲を追加しました！"
-
-msgid "Error: Could not open favorites file."
-msgstr "エラー: お気に入りファイルを開けませんでした。"
-
-msgid "No song is currently playing."
-msgstr "現在再生中の曲はありません。"
-
-msgid "Favorite music directory activated!"
-msgstr "お気に入りの音楽ディレクトリが有効になりました！"
-
-msgid "Default music directory activated!"
-msgstr "デフォルトの音楽ディレクトリが有効になりました！"
-
-msgid "This song is already in Favorites."
-msgstr "この曲はすでにお気に入りに登録されています。"
-
 msgid "LAUNCH SCREENSAVER"
 msgstr "スクリーンセーバーを起動"
 
