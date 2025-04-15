@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-15 23:48+0100\n"
-"PO-Revision-Date: 2025-04-12 12:16+0300\n"
+"PO-Revision-Date: 2025-04-13 12:16+0300\n"
 "Last-Translator: Serdar Sağlam\n"
 "Language-Team: \n"
 "Language: tr\n"
@@ -400,10 +400,10 @@ msgid "INPUT MANUALLY"
 msgstr "EL İLE GİRİŞ"
 
 msgid "NO WI-FI NETWORKS FOUND"
-msgstr "WIFI AĞI BULUNAMADI"
+msgstr "WİFİ AĞI BULUNAMADI"
 
 msgid "SEARCHING WI-FI NETWORKS"
-msgstr "WIFI AĞLARI TARANIYOR"
+msgstr "WİFİ AĞLARI TARANIYOR"
 
 msgid "DEVICE OPTIONS"
 msgstr "CİHAZ SEÇENEKLERİ"
@@ -728,8 +728,8 @@ msgid ""
 "YOU ARE CURRENTLY USING VERSION %s\n"
 "DO YOU WANT TO UPDATE TO VERSION %s?"
 msgstr ""
-"ŞU AN KULLANILAN VERSİYON %s\n"
-"ŞU VERSİYONA GÜNCELLENMESİNİ İSTİYOR MUSUN %s?"
+"ŞU AN KULLANILAN SÜRÜM %s\n"
+"ŞU SÜRÜME GÜNCELLENMESİNİ İSTİYOR MUSUN %s?"
 
 #, c-format
 msgid ""
@@ -739,7 +739,7 @@ msgid ""
 msgstr ""
 "RESMİ OLMAYAN SİSTEM DEĞİŞİKLİKLERİ TESPİT EDİLDİ.\n"
 "GÜNCELLEMEK SİSTEMİNİZİ BOZABİLİR.\n"
-"ŞU VERSİYONA GÜNCELLENMESİNİ İSTİYOR MUSUN %s?"
+"ŞU SÜRÜME GÜNCELLENMESİNİ İSTİYOR MUSUN %s?"
 
 msgid "NETWORK CONNECTION NEEDED"
 msgstr "AĞ BAĞLANTISI GEREKİYOR"
@@ -1272,7 +1272,7 @@ msgid "QUICK SYSTEM SELECT"
 msgstr "HIZLI SİSTEM SEÇİMİ"
 
 msgid "QUICK JUMP LETTER"
-msgstr ""
+msgstr "HIZLI ATLAMA LİSTESİ"
 
 msgid "ON-SCREEN KEYBOARD"
 msgstr "EKRAN KLAVYESİ"
@@ -1836,7 +1836,7 @@ msgid "having multiple games"
 msgstr "çoklu oyun mevcut"
 
 msgid "SHOW '..' PARENT FOLDER"
-msgstr "'..' UN ÜST KLASÖRÜNÜ GÖRÜNTÜLE"
+msgstr "'..' ÜST KLASÖRÜ GÖSTER"
 
 msgid "BEFORE NAME"
 msgstr "ÖNCEKİ İSİM"
@@ -1845,7 +1845,7 @@ msgid "AFTER NAME"
 msgstr "SONRAKİ İSİM"
 
 msgid "SHOW REGION FLAG"
-msgstr "LİSTEDE DİL BAYRAKLARINI GÖRÜNTÜLE"
+msgstr "DİL BAYRAKLARINI GÖTER"
 
 msgid "SHOW SAVESTATE ICON"
 msgstr "DURUM KAYDI SİMGESİNİ GÖSTER"
@@ -1926,7 +1926,7 @@ msgid "SHOW FOLDERS FIRST"
 msgstr "KLASÖRLERİ ÖNCE GÖSTER"
 
 msgid "IGNORE LEADING ARTICLES WHEN SORTING"
-msgstr "SIRALAMA SIRASINDA BAŞLICA MAKALELERİ GÖRMEZDEN GEL"
+msgstr "SIRALAMA ESNASINDA BAŞLICA MAKALELERİ YOKSAY"
 
 msgid "Ignore 'The' and 'A' if at the start."
 msgstr "Açılışta 'The' ve 'A' yı görmezden gel."
@@ -1968,7 +1968,7 @@ msgid "SOUNDS"
 msgstr "SESLER"
 
 msgid "ENABLE NAVIGATION SOUNDS"
-msgstr "NAVİGASYON SESLERİNİ ETKİNLEŞTİR"
+msgstr "GEZİNTİ SESLERİNİ ETKİNLEŞTİR"
 
 msgid "ENABLE VIDEO PREVIEW AUDIO"
 msgstr "VİDEO SESİNİ ETKİNLEŞTİR"
@@ -1989,19 +1989,19 @@ msgid "HOSTNAME"
 msgstr "SUNUCU ADI"
 
 msgid "ENABLE WIFI"
-msgstr "WIFI ETKİNLEŞTİR"
+msgstr "WİFİ ETKİNLEŞTİR"
 
 msgid "WIFI SSID"
-msgstr "WIFI SSID"
+msgstr "WİFİ SSID"
 
 msgid "WIFI KEY"
-msgstr "WIFI ANAHTARI"
+msgstr "WİFİ ANAHTARI"
 
 msgid "WIFI ENABLED"
-msgstr "WIFI ETKİN"
+msgstr "WİFİ ETKİN"
 
 msgid "WIFI CONFIGURATION ERROR"
-msgstr "WIFI YAPILANDIRMA HATASI"
+msgstr "WİFİ YAPILANDIRMA HATASI"
 
 msgid "QUICK ACCESS"
 msgstr "HIZLI ERİŞİM"
@@ -2016,7 +2016,7 @@ msgid "LAUNCH SCREENSAVER"
 msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"
 
 msgid "VIEW USER MANUAL"
-msgstr "KULLANICI KLAVUZUNU GÖSTER"
+msgstr "KULLANICI KILAVUZUNU GÖSTER"
 
 msgid "DISABLE PLANE MODE"
 msgstr "UÇAK MODU KAPALI"
@@ -2487,7 +2487,7 @@ msgid "VIEW OPTIONS"
 msgstr "SEÇENEKLERİ GÖSTER"
 
 msgid "NAVIGATION"
-msgstr "NAVİGASYON"
+msgstr "GEZİNTİ"
 
 msgid "OTHER FILTERS"
 msgstr "DİĞER FİLTRELER"
@@ -2569,7 +2569,7 @@ msgid "FAILED"
 msgstr "BAŞARISIZ"
 
 msgid "UNKNOWN ROM VERSION"
-msgstr "BİLİNMEYEN ROM VERSİYONU"
+msgstr "BİLİNMEYEN ROM SÜRÜMÜ"
 
 msgid "DIFFERENT ROM"
 msgstr "FARKLI ROM"
@@ -3004,7 +3004,7 @@ msgstr[1] "%i ÖĞE"
 msgid "%i GAME"
 msgid_plural "%i GAMES"
 msgstr[0] "%i OYUN"
-msgstr[1] "%i OYUNLARI"
+msgstr[1] "%i OYUN"
 
 msgid "NAVIGATION BAR"
 msgstr "GEZİNTİ ÇUBUĞU"
@@ -3030,10 +3030,10 @@ msgstr ""
 "YİNE DE BAŞLATMAK İSTER MİSİNİZ?"
 
 msgid "Preloading UI"
-msgstr "ARAYÜZ Önyükleniyor"
+msgstr "Arayüz önyükleniyor"
 
 msgid "Loading theme"
-msgstr "Tema Yükleniyor"
+msgstr "Tema yükleniyor"
 
 msgid "Loading gamelists"
 msgstr "Oyun listeleri yükleniyor"
@@ -3084,7 +3084,7 @@ msgid "TRACKBALL"
 msgstr "TRACKBALL"
 
 msgid "SPINNER"
-msgstr ""
+msgstr "SPINNER"
 
 msgid "HAVING MEDIAS"
 msgstr "MEDYALARINIZ"
@@ -3102,7 +3102,7 @@ msgid "SCRAPE FAILED"
 msgstr "BİLGİLER GETİRİLEMEDİ"
 
 msgid "SCRAPING FINISHED"
-msgstr "KAZIMA TAMAMLANDI"
+msgstr "BİLGİ GETİRME TAMAMLANDI"
 
 msgid "UPDATE GAMELISTS TO APPLY CHANGES."
 msgstr "DEĞİŞİKLİKLERİ UYGULAMAK İÇİN OYUN LİSTELERİNİ GÜNCELLE."
@@ -3111,7 +3111,7 @@ msgid "Loading system config..."
 msgstr "Sistem yapılandırması yükleniyor..."
 
 msgid "SAVING METADATA. PLEASE WAIT..."
-msgstr ""
+msgstr "ÜST VERİ KAYDEDİLİYOR. LÜTFEN BEKLEYİN..."
 
 msgid "THE EMULATOR EXITED UNEXPECTEDLY"
 msgstr "EMULATÖRDEN BEKLENMEDİK ŞEKİLDE ÇIKILDI"
@@ -3174,7 +3174,7 @@ msgid "trackball games"
 msgstr "trackball oyunları"
 
 msgid "spinner games"
-msgstr ""
+msgstr "spinner oyunları"
 
 msgid "collections"
 msgstr "koleksiyonlar"
@@ -3366,7 +3366,7 @@ msgid "up/down"
 msgstr "yukarı/aşağı"
 
 msgid "accept"
-msgstr "kabul et"
+msgstr "onayla"
 
 msgid "SELECT ALL"
 msgstr "TÜMÜNÜ SEÇ"
