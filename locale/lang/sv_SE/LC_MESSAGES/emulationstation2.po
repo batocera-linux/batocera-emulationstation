@@ -3,7 +3,11 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
+<<<<<<< HEAD
 "PO-Revision-Date: 2025-04-04 15:13+0200\n"
+=======
+"PO-Revision-Date: 2025-04-01 07:50+0200\n"
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: sv\n"
 "Language: sv_SE\n"
@@ -11,7 +15,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+<<<<<<< HEAD
 "X-Generator: Poedit 3.6\n"
+=======
+"X-Generator: Poedit 3.5\n"
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "SCANNING BLUETOOTH"
 msgstr "SKANNAR BLUETOOTH"
@@ -2004,6 +2012,36 @@ msgstr "HOPPA TILL NÄSTA LÅT"
 
 msgid "NOW PLAYING"
 msgstr "SPELAS NU"
+
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SPARA TILL FAVORITMUSIK"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopiera aktuell låt till favoritmappen"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "ANVÄND FAVORITMUSIKMAPPEN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Växla användning av favoritmusikmappen"
+
+msgid "Song added to favorite list!"
+msgstr "Låt tillagd i favoritlistan!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Fel: Kunde inte öppna favoritfilen."
+
+msgid "No song is currently playing."
+msgstr "Ingen låt spelas just nu."
+
+msgid "Favorite music directory activated!"
+msgstr "Favoritmusikmapp aktiverad!"
+
+msgid "Default music directory activated!"
+msgstr "Standardmusikmapp aktiverad!"
+
+msgid "This song is already in Favorites."
+msgstr "Den här låten finns redan i Favoriter."
 
 msgid "LAUNCH SCREENSAVER"
 msgstr "STARTA SKÄRMSLÄCKARE"

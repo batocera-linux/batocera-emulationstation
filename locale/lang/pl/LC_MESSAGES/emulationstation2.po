@@ -551,6 +551,7 @@ msgstr "WŁASNY"
 msgid "CUSTOM RELAY SERVER"
 msgstr "WŁASNY SERWER POŚREDNICZĄCY"
 
+<<<<<<< HEAD
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "AUTOMATYCZNIE UTWÓRZ LOBBY"
 
@@ -563,6 +564,8 @@ msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"
 msgid "Relay server games have a higher chance of successful entry."
 msgstr "Gry z serwerem pośredniczącym mają większą szansę na udane wejście."
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "POKAŻ NIEDOSTĘPNE GRY"
 
@@ -2016,6 +2019,36 @@ msgstr "PRZEJDŹ DO NASTĘPNEGO UTWORU"
 msgid "NOW PLAYING"
 msgstr "ODTWARZANE OBECNIE"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "ZAPISZ DO ULUBIONEJ MUZYKI"
+
+msgid "Copy current song to favorite folder"
+msgstr "Skopiuj aktualną piosenkę do folderu ulubionych"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "UŻYJ KATALOGU ULUBIONEJ MUZYKI"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Przełącz użycie katalogu ulubionej muzyki"
+
+msgid "Song added to favorite list!"
+msgstr "Piosenka dodana do listy ulubionych!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Błąd: Nie można otworzyć pliku ulubionych."
+
+msgid "No song is currently playing."
+msgstr "Żadna piosenka nie jest obecnie odtwarzana."
+
+msgid "Favorite music directory activated!"
+msgstr "Folder ulubionej muzyki aktywowany!"
+
+msgid "Default music directory activated!"
+msgstr "Domyślny folder muzyki aktywowany!"
+
+msgid "This song is already in Favorites."
+msgstr "Ta piosenka jest już w Ulubionych."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "URUCHOM WYGASZACZ"
 
@@ -2572,6 +2605,9 @@ msgstr "Wybierz lobby gry do której chcesz dołączyć"
 msgid "FAILED"
 msgstr "NIE POWIODŁO SIĘ"
 
+msgid "NO GAMES FOUND"
+msgstr "NIE ZNALEZIONO GIER"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "NIEZNANA WERSJA ROM"
 
@@ -2584,11 +2620,16 @@ msgstr "TEN SAM ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NIEDOSTĘPNE JĄDRO EMULATORA"
 
+<<<<<<< HEAD
 msgid "LAN GAMES"
 msgstr "GRY SIECIOWE"
 
 msgid "ONLINE GAMES"
 msgstr "GRY ONLINE"
+=======
+msgid "ONLINE GAMES"
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "AVAILABLE GAMES"
 msgstr "DOSTĘPNE GRY"
@@ -2596,8 +2637,8 @@ msgstr "DOSTĘPNE GRY"
 msgid "UNAVAILABLE GAMES"
 msgstr "NIEDOSTĘPNE GRY"
 
-msgid "NO GAMES FOUND"
-msgstr "NIE ZNALEZIONO GIER"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "DOŁĄCZ DO GRY"
@@ -2674,10 +2715,17 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "RYSUJ CELOWNIK BRONI"
 
 msgid "BEHAVIOR"
+<<<<<<< HEAD
 msgstr "ZACHOWANIE"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "OGRANICZ SKRÓTY DO WYJŚCIA"
+=======
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "default"
 msgstr "domyślnie"
@@ -2857,6 +2905,7 @@ msgid "SHOW GAME INFO"
 msgstr "POKAŻ INFORMACJE O GRZE"
 
 msgid "SHOW DATE TIME"
+<<<<<<< HEAD
 msgstr "POKAŻ CZAS I DATĘ"
 
 msgid "DATE FORMAT"
@@ -2864,6 +2913,15 @@ msgstr "FORMAT DATY"
 
 msgid "TIME FORMAT"
 msgstr "FORMAT CZASU"
+=======
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "UŻYJ MARQUEE JAKO INFORMACJI O GRZE"
@@ -3142,7 +3200,11 @@ msgid "UKNOWN ERROR"
 msgstr "NIEZNANY BŁĄD"
 
 msgid "Interlaced"
+<<<<<<< HEAD
 msgstr "Z przeplotem"
+=======
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "all games"
 msgstr "wszystkie gry"
@@ -3603,6 +3665,15 @@ msgstr ""
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Umożliwia wybór trybu online, offline lub dołączenie do innej gry."
 
+<<<<<<< HEAD
+=======
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "POKAŻ TYLKO GRY Z SERWEREM POŚREDNICZĄCYM"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr "Gry z serwerem pośredniczącym mają większą szansę na udane wejście."
+
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Wybierz lobby gry aby stworzyć lub dołączyć"
 

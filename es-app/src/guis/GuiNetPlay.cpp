@@ -770,6 +770,11 @@ bool GuiNetPlay::populateList()
 	}
 
 	return true;
+// --- conflict divider ---
+=======
+
+	return true;
+>>>>>>> d755fa0c5 (Update GuiNetPlay.cpp)
 }
 
 bool GuiNetPlay::populateFromJson(const std::string json)
@@ -784,7 +789,13 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		return false;
 	}
 
+// --- conflict divider ---
 	bool netPlayShowOnlyRelayServerGames = Settings::NetPlayShowOnlyRelayServerGames();
+	std::vector<LobbyAppEntry> entries;
+	entries.reserve(doc.Size());
+=======
+	bool netPlayShowOnlyRelayServerGames = Settings::NetPlayShowOnlyRelayServerGames();
+>>>>>>> d755fa0c5 (Update GuiNetPlay.cpp)
 
 	std::vector<LobbyAppEntry> entries;
 	entries.reserve(doc.Size());
@@ -858,6 +869,12 @@ bool GuiNetPlay::populateFromJson(const std::string json)
 		if (fields.HasMember("country") && fields["country"].IsString())
 			game.country = fields["country"].GetString();
 
+// --- conflict divider ---
+		if (fields.HasMember("host_method") && fields["host_method"].IsInt())
+			game.host_method = fields["host_method"].GetInt();
+
+=======
+>>>>>>> d755fa0c5 (Update GuiNetPlay.cpp)
 		if (fields.HasMember("has_password") && fields["has_password"].IsBool())
 			game.has_password = fields["has_password"].GetBool();
 

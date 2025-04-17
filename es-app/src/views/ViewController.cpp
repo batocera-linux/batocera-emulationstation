@@ -556,6 +556,11 @@ void ViewController::launch(FileData* game, LaunchGameOptions options, Vector3f 
 	if (!SystemConf::getInstance()->getBool("global.netplay") || ApiSystem::getInstance()->getIpAddress() == "NOT CONNECTED" || !game->isNetplaySupported())
 		options.netPlayMode = DISABLED;
 	else if (options.netPlayMode == DISABLED && Settings::getInstance()->getBool("NetPlayAutomaticallyCreateLobby"))
+// --- conflict divider ---
+	else if (options.netPlayMode == DISABLED && SystemConf::getInstance()->getBool("global.netplay_public_announce"))
+=======
+	else if (options.netPlayMode == DISABLED && Settings::getInstance()->getBool("NetPlayAutomaticallyCreateLobby"))
+>>>>>>> 1639b0202 (Update ViewController.cpp)
 		options.netPlayMode = SERVER;
 	
 	Transform4x4f origCamera = mCamera;

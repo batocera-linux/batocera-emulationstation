@@ -549,6 +549,7 @@ msgstr "ÖZEL"
 msgid "CUSTOM RELAY SERVER"
 msgstr "ÖZEL ARA SUNUCU"
 
+<<<<<<< HEAD
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "OTOMATİK LOBİ OLUŞTUR"
 
@@ -561,6 +562,8 @@ msgstr "SADECE ARA SUNUCULU OYUNLARI GÖSTER"
 msgid "Relay server games have a higher chance of successful entry."
 msgstr "Ara sunuculu oyunlara giriş şansı daha yüksektir."
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLARI GÖSTER"
 
@@ -2011,6 +2014,36 @@ msgstr "SONRAKİ ŞARKIYA GEÇ"
 msgid "NOW PLAYING"
 msgstr "ŞİMDİ OYNATILIYOR"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "FAVORİ MÜZİĞE KAYDET"
+
+msgid "Copy current song to favorite folder"
+msgstr "Geçerli şarkıyı favori klasörüne kopyala"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "FAVORİ MÜZİK DİZİNİNİ KULLAN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Favori müzik dizini kullanımını değiştir"
+
+msgid "Song added to favorite list!"
+msgstr "Şarkı favori listesine eklendi!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Hata: Favoriler dosyası açılamadı."
+
+msgid "No song is currently playing."
+msgstr "Şu anda çalan bir şarkı yok."
+
+msgid "Favorite music directory activated!"
+msgstr "Favori müzik dizini etkinleştirildi!"
+
+msgid "Default music directory activated!"
+msgstr "Varsayılan müzik dizini etkinleştirildi!"
+
+msgid "This song is already in Favorites."
+msgstr "Bu şarkı zaten Favorilerde."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "EKRAN KORUYUCUYU ÇALIŞTIR"
 
@@ -2567,6 +2600,9 @@ msgstr "Katılmak için oyun lobisi seç"
 msgid "FAILED"
 msgstr "BAŞARISIZ"
 
+msgid "NO GAMES FOUND"
+msgstr "HİÇBİR OYUN BULUNAMADI"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "BİLİNMEYEN ROM SÜRÜMÜ"
 
@@ -2579,9 +2615,12 @@ msgstr "AYNI ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "MEVCUT OLMAYAN ÇEKİRDEK"
 
+<<<<<<< HEAD
 msgid "LAN GAMES"
 msgstr "YEREL AĞ OYUNLAR"
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "ONLINE GAMES"
 msgstr "ÇEVRİMİÇİ OYUNLAR"
 
@@ -2591,8 +2630,8 @@ msgstr "MEVCUT OYUNLAR"
 msgid "UNAVAILABLE GAMES"
 msgstr "MEVCUT OLMAYAN OYUNLAR"
 
-msgid "NO GAMES FOUND"
-msgstr "HİÇBİR OYUN BULUNAMADI"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "OYUNA KATIL"

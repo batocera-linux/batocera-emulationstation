@@ -553,6 +553,7 @@ msgstr ""
 msgid "CUSTOM RELAY SERVER"
 msgstr ""
 
+// --- conflict divider ---
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
 
@@ -565,6 +566,9 @@ msgstr ""
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
 
+// --- conflict divider ---
+=======
+>>>>>>> be96bcae2 (Update emulationstation2.pot)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr ""
 

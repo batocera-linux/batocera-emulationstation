@@ -2016,6 +2016,36 @@ msgstr "SALTAR A LA SIGUIENTE CANCIÓN"
 msgid "NOW PLAYING"
 msgstr "SONANDO"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "GUARDAR EN MÚSICA FAVORITA"
+
+msgid "Copy current song to favorite folder"
+msgstr "Copiar la canción actual a la carpeta favorita"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "USAR DIRECTORIO DE MÚSICA FAVORITA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Alternar el uso del directorio de música favorita"
+
+msgid "Song added to favorite list!"
+msgstr "Canción añadida a la lista de favoritos!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Error: No se pudo abrir el archivo de favoritos."
+
+msgid "No song is currently playing."
+msgstr "No hay ninguna canción en reproducción."
+
+msgid "Favorite music directory activated!"
+msgstr "Directorio de música favorita activado!"
+
+msgid "Default music directory activated!"
+msgstr "Directorio de música predeterminado activado!"
+
+msgid "This song is already in Favorites."
+msgstr "Esta canción ya está en Favoritos."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "INICIAR SALVAPANTALLAS"
 
@@ -2673,12 +2703,15 @@ msgstr "MOSTRAR EL NIVEL DE BATERÍA DEL MANDO"
 msgid "DRAW GUN CROSSHAIR"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "BEHAVIOR"
 msgstr ""
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr ""
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "default"
 msgstr "predeterminado"
 

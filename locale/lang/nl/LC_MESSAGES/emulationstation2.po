@@ -1192,8 +1192,13 @@ msgstr "RESET SPELLIJSTEN GEBRUIKSGEGEVENS"
 
 msgid "Reset values of GameTime, PlayCount and LastPlayed metadata."
 msgstr ""
+<<<<<<< HEAD
 "Stel de waarden van Speeltijd-, Aantal Spellen- en Laatst Gespeeld-"
 "metagegevens opnieuw in."
+=======
+"Waarden van GameTime-, PlayCount- en LastPlayed-metagegevens opnieuw "
+"instellen."
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "RESET FILE EXTENSIONS"
 msgstr "RESET FILTEREXTENSIES"
@@ -2027,6 +2032,36 @@ msgstr "SKIP NAAR HET VOLGENDE NUMMER"
 msgid "NOW PLAYING"
 msgstr "SPEELT NU"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "OPSLAAN IN FAVORIETE MUZIEK"
+
+msgid "Copy current song to favorite folder"
+msgstr "Kopieer het huidige nummer naar de favorietenmap"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "GEBRUIK FAVORIETE MUZIEKMAP"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Schakel het gebruik van de favorietenmap in of uit"
+
+msgid "Song added to favorite list!"
+msgstr "Nummer toegevoegd aan favorietenlijst!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Fout: Kon het favorietenbestand niet openen."
+
+msgid "No song is currently playing."
+msgstr "Er wordt momenteel geen nummer afgespeeld."
+
+msgid "Favorite music directory activated!"
+msgstr "Favoriete muziekmap geactiveerd!"
+
+msgid "Default music directory activated!"
+msgstr "Standaard muziekmap geactiveerd!"
+
+msgid "This song is already in Favorites."
+msgstr "Dit nummer staat al in Favorieten."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "START DE SCHERMBEVEILIGING"
 
@@ -2682,12 +2717,15 @@ msgstr "TOON BATTERIJNIVEAU CONTROLLER"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "TEKEN PISTOOL KRUIS"
 
+<<<<<<< HEAD
 msgid "BEHAVIOR"
 msgstr "GEDRAG"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "BEPERK SNELTOETSEN OM AF TE SLUITEN"
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "default"
 msgstr "standaard"
 

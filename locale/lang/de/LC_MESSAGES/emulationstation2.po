@@ -2026,6 +2026,36 @@ msgstr "ZUM NÄCHSTEN SONG SPRINGEN"
 msgid "NOW PLAYING"
 msgstr "AKTUELLER SONGTITEL"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "IN LIEBLINGSMUSIK SPEICHERN"
+
+msgid "Copy current song to favorite folder"
+msgstr "Aktuellen Song in den Favoriten-Ordner kopieren"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "LIEBLINGSMUSIK-VERZEICHNIS VERWENDEN"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Verwendung des Lieblingsmusik-Verzeichnisses umschalten"
+
+msgid "Song added to favorite list!"
+msgstr "Lied zur Favoritenliste hinzugefügt!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Fehler: Die Favoritendatei konnte nicht geöffnet werden."
+
+msgid "No song is currently playing."
+msgstr "Es wird gerade kein Lied abgespielt."
+
+msgid "Favorite music directory activated!"
+msgstr "Favoriten-Musikverzeichnis aktiviert!"
+
+msgid "Default music directory activated!"
+msgstr "Standard-Musikverzeichnis aktiviert!"
+
+msgid "This song is already in Favorites."
+msgstr "Dieses Lied ist bereits in den Favoriten."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "BILDSCHIRMSCHONER STARTEN"
 
@@ -2685,12 +2715,15 @@ msgstr "CONTROLLER AKKUSTAND ANZEIGEN"
 msgid "DRAW GUN CROSSHAIR"
 msgstr "FADENKREUZ ANZEIGEN"
 
+<<<<<<< HEAD
 msgid "BEHAVIOR"
 msgstr "VERHALTEN"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "HOTKEYS ZUM BEENDEN EINSCHRÄNKEN"
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "default"
 msgstr "Standard"
 

@@ -549,6 +549,7 @@ msgstr "KUSTOM"
 
 msgid "CUSTOM RELAY SERVER"
 msgstr "KUSTOM SERVER RELAY"
+<<<<<<< HEAD
 
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr ""
@@ -562,6 +563,8 @@ msgstr "TAMPILKAN SERVER RELAY GAME SAJA"
 msgid "Relay server games have a higher chance of successful entry."
 msgstr ""
 "Game di server relay memiliki peluang keberhasilan masuk yang lebih tinggi."
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "TAMPILKAN GAME YANG TIDAK TERSEDIA"
@@ -2005,6 +2008,36 @@ msgstr "SKIP KE LAGU BERIKUTNYA"
 msgid "NOW PLAYING"
 msgstr "SEDANG DIMAINKAN"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "SIMPAN KE MUSIK FAVORIT"
+
+msgid "Copy current song to favorite folder"
+msgstr "Salin lagu saat ini ke folder favorit"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "GUNAKAN DIREKTORI MUSIK FAVORIT"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Aktifkan atau nonaktifkan penggunaan direktori musik favorit"
+
+msgid "Song added to favorite list!"
+msgstr "Lagu ditambahkan ke daftar favorit!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Kesalahan: Tidak dapat membuka file favorit."
+
+msgid "No song is currently playing."
+msgstr "Tidak ada lagu yang sedang diputar."
+
+msgid "Favorite music directory activated!"
+msgstr "Direktori musik favorit diaktifkan!"
+
+msgid "Default music directory activated!"
+msgstr "Direktori musik default diaktifkan!"
+
+msgid "This song is already in Favorites."
+msgstr "Lagu ini sudah ada di Favorit."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "LUNCURKAN SCREENSAVER"
 
@@ -2559,6 +2592,9 @@ msgstr "Pilih lobi permainan untuk bergabung"
 msgid "FAILED"
 msgstr "GAGAL"
 
+msgid "NO GAMES FOUND"
+msgstr "GAME TIDAK DITEMUKAN"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "VERSI ROM TIDAK DIKENAL"
 
@@ -2571,9 +2607,12 @@ msgstr "ROM SAMA"
 msgid "UNAVAILABLE CORE"
 msgstr "CORE TIDAK TERSEDIA"
 
+<<<<<<< HEAD
 msgid "LAN GAMES"
 msgstr "GAME LAN"
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "ONLINE GAMES"
 msgstr "GAME DARING"
 
@@ -2583,8 +2622,8 @@ msgstr "GAME TERSEDIA"
 msgid "UNAVAILABLE GAMES"
 msgstr "GAME TIDAK TERSEDIA"
 
-msgid "NO GAMES FOUND"
-msgstr "GAME TIDAK DITEMUKAN"
+msgid "LAN GAMES"
+msgstr "GAME LAN"
 
 msgid "JOIN GAME"
 msgstr "GABUNG GAME"
@@ -3567,6 +3606,17 @@ msgstr ""
 #~ msgid "Allows choice of online, offline, or joining another game."
 #~ msgstr "Izinkan pilihan untuk daring, luring, atau gabung game lain."
 
+<<<<<<< HEAD
+=======
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "TAMPILKAN SERVER RELAY GAME SAJA"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr ""
+#~ "Game di server relay memiliki peluang keberhasilan masuk yang lebih "
+#~ "tinggi."
+
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr "Pilih lobi permainan untuk dibuat/bergabung"
 

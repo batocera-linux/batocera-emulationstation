@@ -359,6 +359,12 @@ void Settings::setDefaults()
 	mBoolMap["NetPlayCheckIndexesAtStart"] = false;
 	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
 	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
+// --- conflict divider ---
+// --- conflict divider ---
+	mBoolMap["NetPlayAutomaticallyCreateLobby"] = false;
+	mBoolMap["NetPlayShowOnlyRelayServerGames"] = false;
+=======
+>>>>>>> 179712c03 (Update Settings.cpp)
 	mBoolMap["NetPlayShowMissingGames"] = false;
 	
 	mBoolMap["CheevosCheckIndexesAtStart"] = false;	
@@ -590,4 +596,6 @@ std::vector<std::string> Settings::getSettingsNames()
 		ret.push_back(item.first);
 
 	return ret;
+// --- conflict divider ---
+}
 }

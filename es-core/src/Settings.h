@@ -109,6 +109,11 @@ public:
 	DEFINE_BOOL_SETTING(NetPlayCheckIndexesAtStart)
 	DEFINE_BOOL_SETTING(NetPlayAutomaticallyCreateLobby)
 	DEFINE_BOOL_SETTING(NetPlayShowOnlyRelayServerGames)
+// --- conflict divider ---
+=======
+	DEFINE_BOOL_SETTING(NetPlayAutomaticallyCreateLobby)
+	DEFINE_BOOL_SETTING(NetPlayShowOnlyRelayServerGames)
+>>>>>>> 2bbee4d8e (Update Settings.h)
 	DEFINE_BOOL_SETTING(NetPlayShowMissingGames)			
 	DEFINE_BOOL_SETTING(LoadEmptySystems)		
 	DEFINE_BOOL_SETTING(HideUniqueGroups)

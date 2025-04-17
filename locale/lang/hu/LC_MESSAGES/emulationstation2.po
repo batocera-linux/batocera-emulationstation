@@ -3,7 +3,11 @@ msgstr ""
 "Project-Id-Version: emulationstation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
+<<<<<<< HEAD
 "PO-Revision-Date: 2025-04-02 11:38+0200\n"
+=======
+"PO-Revision-Date: 2025-01-09 13:58+0100\n"
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 "Last-Translator: Szoldán Albert\n"
 "Language-Team: \n"
 "Language: hu\n"
@@ -549,6 +553,7 @@ msgstr "EGYEDI"
 msgid "CUSTOM RELAY SERVER"
 msgstr "EGYÉNI RELAY SZERVER"
 
+<<<<<<< HEAD
 msgid "AUTOMATICALLY CREATE LOBBY"
 msgstr "AUTOMATIKUSAN LÉTREHOZZA A LOBBIT"
 
@@ -561,6 +566,8 @@ msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
 msgid "Relay server games have a higher chance of successful entry."
 msgstr "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
 
+=======
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 msgid "SHOW UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK MEGJELENÍTÉSE"
 
@@ -2022,6 +2029,36 @@ msgstr "UGRÁS A KÖVETKEZŐ DALRA"
 msgid "NOW PLAYING"
 msgstr "MOST JÁTSZOTT"
 
+msgid "SAVE TO FAVORITE MUSIC"
+msgstr "MENTÉS A KEDVENC ZENÉK KÖZÉ"
+
+msgid "Copy current song to favorite folder"
+msgstr "Másolja az aktuális dalt a kedvenc mappába"
+
+msgid "USE FAVORITE MUSIC DIRECTORY"
+msgstr "KEDVENC ZENE KÖNYVTÁR HASZNÁLATA"
+
+msgid "Toggle usage of favorite music directory"
+msgstr "Kedvenc zene könyvtár használatának váltása"
+
+msgid "Song added to favorite list!"
+msgstr "A dal hozzáadva a kedvencek listájához!"
+
+msgid "Error: Could not open favorites file."
+msgstr "Hiba: Nem sikerült megnyitni a kedvencek fájlt."
+
+msgid "No song is currently playing."
+msgstr "Jelenleg nem szól zene."
+
+msgid "Favorite music directory activated!"
+msgstr "Kedvenc zenei könyvtár aktiválva!"
+
+msgid "Default music directory activated!"
+msgstr "Alapértelmezett zenei könyvtár aktiválva!"
+
+msgid "This song is already in Favorites."
+msgstr "Ez a dal már a kedvencek között van."
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "KÉPERNYŐVÉDŐ INDÍTÁSA"
 
@@ -2579,6 +2616,9 @@ msgstr "Válassza ki azt a játéklobbyt, amelyhez csatlakozni szeretne"
 msgid "FAILED"
 msgstr "SIKERTELEN"
 
+msgid "NO GAMES FOUND"
+msgstr "NEM TALÁLHATÓ JÁTÉK"
+
 msgid "UNKNOWN ROM VERSION"
 msgstr "ISMERETLEN ROM VERZIÓ"
 
@@ -2591,11 +2631,16 @@ msgstr "AZONOS ROM"
 msgid "UNAVAILABLE CORE"
 msgstr "NEM ELÉRHETŐ CORE"
 
+<<<<<<< HEAD
 msgid "LAN GAMES"
 msgstr "LAN JÁTÉKOK"
 
 msgid "ONLINE GAMES"
 msgstr "ONLINE JÁTÉKOK"
+=======
+msgid "ONLINE GAMES"
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "AVAILABLE GAMES"
 msgstr "ELÉRHETŐ JÁTÉKOK"
@@ -2603,8 +2648,8 @@ msgstr "ELÉRHETŐ JÁTÉKOK"
 msgid "UNAVAILABLE GAMES"
 msgstr "NEM ELÉRHETŐ JÁTÉKOK"
 
-msgid "NO GAMES FOUND"
-msgstr "NEM TALÁLHATÓ JÁTÉK"
+msgid "LAN GAMES"
+msgstr ""
 
 msgid "JOIN GAME"
 msgstr "CSATLAKOZÁS JÁTÉKHOZ"
@@ -2681,10 +2726,17 @@ msgid "DRAW GUN CROSSHAIR"
 msgstr "PISZTOLY CÉLKERESZTET RAJZOLÁS"
 
 msgid "BEHAVIOR"
+<<<<<<< HEAD
 msgstr "VISELKEDÉS"
 
 msgid "RESTRICT HOTKEYS TO EXIT"
 msgstr "A KILÉPÉSHEZ SZÜKSÉGES GYORSBILLENTYŰK KORLÁTOZÁSA"
+=======
+msgstr ""
+
+msgid "RESTRICT HOTKEYS TO EXIT"
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "default"
 msgstr "alap"
@@ -2864,6 +2916,7 @@ msgid "SHOW GAME INFO"
 msgstr "JÁTÉK INFORMÁCIÓK MEGJELENÍTÉSE"
 
 msgid "SHOW DATE TIME"
+<<<<<<< HEAD
 msgstr "DÁTUM IDŐ MEGJELENÍTÉS"
 
 msgid "DATE FORMAT"
@@ -2871,6 +2924,15 @@ msgstr "DÁTUM FORMÁTUM"
 
 msgid "TIME FORMAT"
 msgstr "IDŐ FORMÁTUM"
+=======
+msgstr ""
+
+msgid "DATE FORMAT"
+msgstr ""
+
+msgid "TIME FORMAT"
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "USE MARQUEE AS GAME INFO"
 msgstr "MARQUEE HASZNÁLATA JÁTÉK INFORMÁCIÓKÉNT"
@@ -3148,7 +3210,11 @@ msgid "UKNOWN ERROR"
 msgstr "ISMERETLEN HIBA"
 
 msgid "Interlaced"
+<<<<<<< HEAD
 msgstr "Váltott soros"
+=======
+msgstr ""
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 
 msgid "all games"
 msgstr "minden játék"
@@ -3604,6 +3670,16 @@ msgstr ""
 #~ "Lehetővé teszi az online és offline választást, vagy egy másik játékhoz "
 #~ "való csatlakozást."
 
+<<<<<<< HEAD
+=======
+#~ msgid "SHOW RELAY SERVER GAMES ONLY"
+#~ msgstr "CSAK RELAY SZERVER JÁTÉKOK MUTATÁSA"
+
+#~ msgid "Relay server games have a higher chance of successful entry."
+#~ msgstr ""
+#~ "Relay szerver játékoknak nagyobb az esélyük a sikeres csatlakozáshoz."
+
+>>>>>>> 9981083ad (Generate or refresh cheevos token at startup)
 #~ msgid "Select a game lobby to create or join"
 #~ msgstr ""
 #~ "Válassza ki azt a játéklobbyt, amelyet létre akar hozni, vagy amelyhez "
