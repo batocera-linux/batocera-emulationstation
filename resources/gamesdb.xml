@@ -8151,7 +8151,7 @@
       <gun vertical_offset="15" yaw="18.9" pitch="18.9"/>
     </game>
     <game id="ghostsquad">
-      <gun vertical_offset="15" yaw="18.7" pitch="19"/>
+      <gun vertical_offset="15" yaw="18.7" pitch="19" select="2"/>
     </game>
     <game id="buildnrace">
       <wheel wheel="joystick1left" accelerate="a" brake="b"/>
