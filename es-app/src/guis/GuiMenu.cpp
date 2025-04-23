@@ -4172,7 +4172,13 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			        {
 			            auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
 			            favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
-			            s->addWithLabel(_("      USE FAVORITES PLAYLIST"), favoriteSwitch);
+					
+				    s->addWithDescription(_("USE FAVORITES PLAYLIST"),
+						    	_("Only play music from your saved favorites"),
+						    	favoriteSwitch,
+						    	nullptr,
+					    		"iconSound"
+							);
 			            s->addSaveFunc([favoriteSwitch]()
 					{
 					    bool useFavorite = favoriteSwitch->getState();
