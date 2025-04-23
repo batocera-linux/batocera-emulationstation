@@ -323,8 +323,11 @@ bool TextureData::loadFromVideo()
 		libvlc_media_player_set_time(vlcMediaPlayer, ms);
 
 		auto time = libvlc_media_player_get_time(vlcMediaPlayer);
-		while (time <= ms)
+		int n = 100; // avoid infinite loop
+		while (time <= ms && n > 0) {
 			time = libvlc_media_player_get_time(vlcMediaPlayer);
+			n++;
+		}
 
 		int result = libvlc_video_take_snapshot(vlcMediaPlayer, 0, localFile.c_str(), 0, 0);
 
