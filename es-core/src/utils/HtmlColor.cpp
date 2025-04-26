@@ -159,6 +159,40 @@ namespace Utils
 			{ "yellowgreen", 0x9acd32 },
 		};
 
+		bool isHtmlColor(const std::string& str)
+		{
+			if (str[0] >= 'a' && str[0] <= 'z')
+			{
+				auto htmlColor = htmlColors.find(str);
+				if (htmlColor != htmlColors.cend())
+					return true;
+
+				return false;
+			}
+			else if (str[0] == '#')
+			{
+				size_t len = str.length();
+				if (len != 7 && len != 9)
+					return false;
+
+				for (int i = 1; i < len; ++i)
+					if (!isxdigit(str[i]))
+						return false;
+
+				return true;
+			}
+
+			size_t len = str.length();
+			if (len != 6 && len != 8)
+				return false;
+
+			for (int i = 0; i < len; ++i)
+				if (!isxdigit(str[i]))
+					return false;
+			
+			return true;
+		}
+
 		unsigned int parse(const std::string& str)
 		{
 			if (str.empty() || str == "transparent")

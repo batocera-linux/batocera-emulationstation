@@ -1671,7 +1671,14 @@ void ThemeData::processElement(const pugi::xml_node& root, ThemeElement& element
 		break;
 
 	case COLOR:
-		element.properties[name] = Utils::HtmlColor::parse(str);
+		if (str.find("{") != std::string::npos && str.find(":") != std::string::npos && str.find("}") != std::string::npos)
+			element.properties[name + "_binding"] = str;
+		else
+		{
+			element.properties.erase(name + "_binding");
+			element.properties[name] = Utils::HtmlColor::parse(str);
+		}
+				
 		break;
 
 	case BOOLEAN:
