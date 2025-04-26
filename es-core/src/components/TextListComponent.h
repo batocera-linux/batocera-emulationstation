@@ -644,7 +644,7 @@ void TextListComponent<T>::onCursorChanged(const CursorState& state)
 			}
 		}
 
-		if (mLastCursor >= 0 && mLastCursor < mEntries.size())
+		if (mLastCursor >= 0 && mLastCursor != mCursor && mLastCursor < mEntries.size())
 		{
 			typename IList<TextListData, T>::Entry& entry = mEntries.at(mLastCursor);
 			if (entry.data.itemTemplate)
