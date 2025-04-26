@@ -931,7 +931,7 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 			if (!appliesToAttr.empty())
 				subSet.appliesTo = Utils::String::splitAny(appliesToAttr, ", ", true);
 
-			mSubsets.push_back(subSet);
+			mSubsets.push_back(subSet);			
 		}
 	}
 	
@@ -941,10 +941,18 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else if (nameAttr == mColorset || (mColorset.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "iconset")
 	{
@@ -952,20 +960,36 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else if (nameAttr == mIconset || (mIconset.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "menu")
 	{
 		if (nameAttr == mMenu || (mMenu.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "systemview")
 	{
 		if (nameAttr == mSystemview || (mSystemview.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else if (subsetAttr == "gamelistview")
 	{
@@ -973,10 +997,18 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else if (nameAttr == mGamelistview || (mGamelistview.empty() && isFirstSubset(node)))
+		{
+			mVariables["subset." + subsetAttr] = nameAttr;
+			mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 			return true;
+		}
 	}
 	else
 	{
@@ -984,20 +1016,26 @@ bool ThemeData::parseSubset(const pugi::xml_node& node)
 		if (!perSystemSetName.empty())
 		{
 			if (nameAttr == perSystemSetName)
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 		else
 		{
 			std::string setID = Settings::getInstance()->getString("subset." + subsetAttr);
 			if (nameAttr == setID || (setID.empty() && isFirstSubset(node)))
+			{
+				mVariables["subset." + subsetAttr] = nameAttr;
+				mEvaluatorVariables["subset." + subsetAttr] = nameAttr;
 				return true;
+			}
 		}
 	}
 
 	return false;
 }
-
-
 
 void ThemeData::parseInclude(const pugi::xml_node& node)
 {
