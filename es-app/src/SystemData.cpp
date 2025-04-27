@@ -1416,6 +1416,8 @@ GameCountInfo* SystemData::getGameCountInfo()
 	mGameCountInfo->playTime = 0;
 	
 	int mostPlayCount = 0;
+	long gameTime = 0;
+	std::string mostCountPlayed;
 
 	for (auto game : games)
 	{
@@ -1430,22 +1432,33 @@ GameCountInfo* SystemData::getGameCountInfo()
 		{
 			mGameCountInfo->gamesPlayed++;
 			mGameCountInfo->playCount += playCount;
-
+			
 			if (playCount > mostPlayCount)
 			{
-				mGameCountInfo->mostPlayed = game->getName();
+				mostCountPlayed = game->getName();
 				mostPlayCount = playCount;
 			}
 		}
 
 		long seconds = atol(game->getMetadata(MetaDataId::GameTime).c_str());
 		if (seconds > 0)
+		{
 			mGameCountInfo->playTime += seconds;
+			
+			if (seconds > gameTime)
+			{
+				mGameCountInfo->mostPlayed = game->getName();
+				gameTime = seconds;
+			}
+		}
 
 		auto lastPlayed = game->getMetadata(MetaDataId::LastPlayed);
 		if (!lastPlayed.empty() && lastPlayed > mGameCountInfo->lastPlayedDate)
 			mGameCountInfo->lastPlayedDate = lastPlayed;
 	}
+
+	if (mGameCountInfo->mostPlayed.empty() && !mostCountPlayed.empty())
+		mGameCountInfo->mostPlayed = mostCountPlayed;
 
 	return mGameCountInfo;
 	/*
