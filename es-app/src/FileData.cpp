@@ -2011,9 +2011,9 @@ BindableProperty FileData::getProperty(const std::string& name)
 		return Utils::String::toFloat(finalValue);
 	case MetaDataType::MD_BOOL:
 		return finalValue == "1" || finalValue == "true";
-	case MetaDataType::MD_DATE:
 	case MetaDataType::MD_TIME:
-		return finalValue.empty() ? "" : Utils::Time::timeToString(Utils::Time::DateTime(finalValue).getTime(), Utils::Time::getSystemDateFormat());
+	case MetaDataType::MD_DATE:
+		return finalValue.empty() ? "" : Utils::Time::timeToString(Utils::Time::DateTime(finalValue).getTime(), Utils::Time::getSystemDateFormat(type == MetaDataType::MD_TIME));
 	}
 
 	return finalValue;
