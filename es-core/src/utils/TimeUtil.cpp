@@ -1,6 +1,7 @@
 #include "utils/TimeUtil.h"
 #include "utils/StringUtil.h"
 #include "LocaleES.h"
+#include "Settings.h";
 
 #if WIN32
 #include <Windows.h>
@@ -12,11 +13,15 @@ namespace Utils
 {
 	namespace Time
 	{
-		std::string getSystemDateFormat()
+		std::string getSystemDateFormat(bool includeHours)
 		{
 			static std::string value;
-			if (!value.empty())
+			if (!includeHours && !value.empty())
 				return value;
+
+			static std::string valueWithHours;
+			if (includeHours && !valueWithHours.empty())
+				return valueWithHours;
 
 			std::string ret;
 
@@ -70,6 +75,13 @@ namespace Utils
 					ret = Utils::String::replace(ret, "ss", "%S");
 				}
 
+				if (includeHours && ret.find("%H") == std::string::npos)
+				{
+					if (Settings::ClockMode12())
+						ret += " %I:%M %p";
+					else
+						ret += " %H:%M";
+				}
 
 				delete[] buffer;
 			}
@@ -80,9 +92,23 @@ namespace Utils
 #endif
 
 			if (ret.empty())
-				ret = "%m/%d/%Y";
+			{
+				if (includeHours)
+				{
+					if (Settings::ClockMode12())
+						ret = "%m/%d/%Y %I:%M %p";
+					else
+						ret = "%m/%d/%Y %H:%M";
+				}
+				else 
+					ret = "%m/%d/%Y";
+			}
 
-			value = ret;
+			if (includeHours)
+				valueWithHours = ret;
+			else
+				value = ret;
+
 			return ret;
 		}
 
@@ -268,6 +294,30 @@ namespace Utils
 							{
 								timeStruct.tm_hour  = (*s++ - '0') * 10;
 								timeStruct.tm_hour += (*s++ - '0');
+							}
+
+							parsedChars += 2;
+						}
+						break;
+
+						case 'I': // The hour (12-hour clock) [00,11]
+						{
+							if ((parsedChars + 2) <= _string.length())
+							{
+								timeStruct.tm_hour = (*s++ - '0') * 10;
+								timeStruct.tm_hour += (*s++ - '0');
+							}
+
+							parsedChars += 2;
+						}
+						break;
+
+						case 'p': // The 12-hour clock AM / PM value
+						{
+							if ((parsedChars + 2) <= _string.length())
+							{
+								if (s[0] == 'P' && timeStruct.tm_hour < 12)
+									timeStruct.tm_hour += 12;
 							}
 
 							parsedChars += 2;
