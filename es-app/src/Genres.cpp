@@ -312,8 +312,8 @@ GameGenre* Genres::fromGenreName(const std::string& name)
 bool Genres::genreExists(MetaDataList* file, int id)
 {
 	auto idToFind = std::to_string(id);
-	auto ids = Utils::String::split(file->get(MetaDataId::GenreIds), ',', true);
-	for (auto id : ids)
+
+	for (auto id : getGenreFiltersNames(file))
 		if (id == idToFind)
 			return true;
 
