@@ -616,7 +616,12 @@ int main(int argc, char* argv[])
 	TextToSpeech::getInstance()->enable(Settings::getInstance()->getBool("TTS"), false);
 	
 	if (errorMsg == NULL)
+	{
+		if (splashScreen)
+			window.renderSplashScreen(_("Loading theme"));
+
 		ViewController::get()->goToStart(true);
+	}
 
 	window.closeSplashScreen();
 

@@ -127,7 +127,7 @@ CollectionSystemManager::CollectionSystemManager(Window* window) : mWindow(windo
 	mCollectionEnvData = new SystemEnvironmentData;
 	mCollectionEnvData->mStartPath = "";
 	mCollectionEnvData->mLaunchCommand = "";
-	mCollectionEnvData->mPlatformIds.push_back(PlatformIds::PLATFORM_IGNORE);
+	mCollectionEnvData->mPlatformIds.insert(PlatformIds::PLATFORM_IGNORE);
 
 	std::string path = getCollectionsFolder();
 	if(!Utils::FileSystem::exists(path))
@@ -970,8 +970,10 @@ void CollectionSystemManager::populateAutoCollection(CollectionSystemData* sysDa
 		if (!hiddenSystemsShowGames && std::find(hiddenSystems.cbegin(), hiddenSystems.cend(), system->getName()) != hiddenSystems.cend())
 			continue;
 
-		std::vector<PlatformIds::PlatformId> platforms = system->getPlatformIds();
-		bool isArcade = std::find(platforms.begin(), platforms.end(), PlatformIds::ARCADE) != platforms.end();
+		if (system->hasPlatformId(PlatformIds::PLATFORM_IGNORE) || system->hasPlatformId(PlatformIds::IMAGEVIEWER))
+			continue;
+
+		bool isArcade = system->hasPlatformId(PlatformIds::ARCADE);
 
 		std::vector<std::string> hiddenExts;
 		for (auto ext : Utils::String::split(Settings::getInstance()->getString(system->getName() + ".HiddenExt"), ';'))
