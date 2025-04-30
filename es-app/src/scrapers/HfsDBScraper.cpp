@@ -305,7 +305,7 @@ static std::vector<std::string> getMediaTagNames(std::string imageSource)
 	if (imageSource == "box-3D")
 		return{ "cover3d", "cover2d/front" };
 
-	if (imageSource == "wheel")
+	if (imageSource == "wheel" || imageSource == "wheel-hd")
 		return { "logo" };
 
 	if (imageSource == "marquee")
