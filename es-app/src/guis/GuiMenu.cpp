@@ -4149,7 +4149,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			        }
 			        else
 			        {
-			            s->addWithDescription(_("SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"),_(""),			                                  _(""),
+			            s->addWithDescription(_("SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"),_(""),
 			                                  nullptr,
 			                                  [s, window, currentSongPath, songName]()
 			                                  {
