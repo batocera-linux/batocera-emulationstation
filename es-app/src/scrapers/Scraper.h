@@ -232,7 +232,8 @@ public:
 		Ratings = 16,
 		Bezel_16_9 = 17,
 		ShortTitle = 18,
-		Region = 19
+		Region = 19,
+		WheelHD = 20,
 	};
 
 	static std::vector<std::pair<std::string, Scraper*>> scrapers;
