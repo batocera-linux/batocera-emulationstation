@@ -4133,8 +4133,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			
 			        if (inFavorites)
 			        {
-			            s->addWithDescription(_("ERASE SONG FROM FAVORITES"),
-			                                  _("Remove current song from the favorites playlist"),
+			            s->addWithDescription(_("REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"), _(""),
 			                                  nullptr,
 			                                  [s, window, currentSongPath, songName]()
 			                                  {
@@ -4150,8 +4149,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			        }
 			        else
 			        {
-			            s->addWithDescription(_("SAVE TO FAVORITES"),
-			                                  _("Save current song to favorites playlist"),
+			            s->addWithDescription(_("SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"),_("")			                                  _(""),
 			                                  nullptr,
 			                                  [s, window, currentSongPath, songName]()
 			                                  {
@@ -4173,8 +4171,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			            auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
 			            favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
 					
-				    s->addWithDescription(_("USE FAVORITES PLAYLIST"),
-						    	_("Only play music from your saved favorites"),
+				    s->addWithDescription(_("PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"),_(""),
 						    	favoriteSwitch,
 						    	nullptr,
 					    		"iconSound"
