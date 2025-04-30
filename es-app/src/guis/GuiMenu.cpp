@@ -4133,7 +4133,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			
 			        if (inFavorites)
 			        {
-			            s->addWithDescription(_("REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"), _(""),
+			            s->addWithDescription(_("REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"),_(""),
 			                                  nullptr,
 			                                  [s, window, currentSongPath, songName]()
 			                                  {
@@ -4149,7 +4149,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			        }
 			        else
 			        {
-			            s->addWithDescription(_("SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"),_("")			                                  _(""),
+			            s->addWithDescription(_("SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"),_(""),			                                  _(""),
 			                                  nullptr,
 			                                  [s, window, currentSongPath, songName]()
 			                                  {
