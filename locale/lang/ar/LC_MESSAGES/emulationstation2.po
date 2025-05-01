@@ -2027,6 +2027,15 @@ msgstr "الموسيقى التالية"
 msgid "NOW PLAYING"
 msgstr "تشتغل حاليا"
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr "احْفَظ الأُغْنِيَة الحَالِيَة فِي قَائِمَة المُفَضَّلَات"
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr "أَزِل الأُغْنِيَة الحَالِيَة مِن قَائِمَة المُفَضَّلَات"
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr "تَشْغِيل الأُغْنِيَات فَقَط مِن قَائِمَة المُفَضَّلَات الخَاصَّة بِكَ"
+
 msgid "LAUNCH SCREENSAVER"
 msgstr "بدء شاشة التوقف"
 
