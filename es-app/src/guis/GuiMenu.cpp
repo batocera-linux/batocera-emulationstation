@@ -60,6 +60,7 @@
 #include "Gamelist.h"
 #include "TextToSpeech.h"
 #include "Paths.h"
+#include <set> 
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -231,7 +232,6 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f);
 	}
 }
-
 void GuiMenu::openScraperSettings()
 {		
 	mWindow->pushGui(new GuiScraperStart(mWindow));
@@ -4091,9 +4091,10 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUICK ACCESS") : _("QUIT")).c_str());
 	s->setCloseButton("select");
 
+	
 	if (quickAccessMenu)
 	{
-		s->addGroup(_("QUICK ACCESS"));
+    		s->addGroup(_("QUICK ACCESS"));
 
 			if (AudioManager::getInstance()->isSongPlaying())
 			{
@@ -4114,7 +4115,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			                              },
 			                              "iconSound");
 			
-			        std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
+                    std::string favoritesFile = FavoriteMusicManager::getFavoriteMusicFilePath();
 			        std::list<std::string> lines;
 			
 			        if (Utils::FileSystem::exists(favoritesFile))
@@ -4186,7 +4187,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			        }
 			    }
 			}
-
+					
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 			{
 				Window* w = window;
@@ -4228,7 +4229,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			}
 		}
 	}
-
+	
 	if (quickAccessMenu)
 		s->addGroup(_("QUIT"));
 
@@ -4253,7 +4254,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			_("NO"), nullptr));
 	}, "iconShutdown");
 
-	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"), _("Shutdown without saving metadata."), nullptr, [window] {
+	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"),_("Shutdown without saving metadata."), nullptr, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATA?"), 
 			_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::FAST_SHUTDOWN); },
 			_("NO"), nullptr));
