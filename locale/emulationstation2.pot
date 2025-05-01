@@ -1974,6 +1974,15 @@ msgstr ""
 msgid "NOW PLAYING"
 msgstr ""
 
+msgid "SAVE CURRENT SONG TO THE FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "REMOVE CURRENT SONG FROM THE FAVORITES PLAYLIST"
+msgstr ""
+
+msgid "PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"
+msgstr ""
+
 msgid "LAUNCH SCREENSAVER"
 msgstr ""
 

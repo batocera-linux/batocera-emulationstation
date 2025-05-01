@@ -47,6 +47,7 @@ public:
 	void unregisterSound(std::shared_ptr<Sound> & sound);
 
 	void play();
+    std::string getCurrentSongPath() const;
 	void stop();
 
 	void playRandomMusic(bool continueIfPlaying = true);
