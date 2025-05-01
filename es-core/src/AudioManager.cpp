@@ -1,3 +1,4 @@
+#include "FavoriteMusicManager.h"
 #include "AudioManager.h"
 
 #include "Log.h"
@@ -29,28 +30,6 @@
 
 AudioManager* AudioManager::sInstance = NULL;
 std::vector<std::shared_ptr<Sound>> AudioManager::sSoundVector;
-
-namespace
-{
-    std::vector<std::pair<std::string, std::string>> loadFavoriteSongs(const std::string &favoritesFile)
-    {
-        std::vector<std::pair<std::string, std::string>> favorites;
-        std::list<std::string> lines = Utils::FileSystem::readAllLines(favoritesFile);
-        for (const auto &line : lines)
-        {
-            if (line.empty())
-                continue;
-            size_t pos = line.find(';');
-            if (pos != std::string::npos)
-            {
-                std::string path = line.substr(0, pos);
-                std::string name = line.substr(pos + 1);
-                favorites.push_back(std::make_pair(path, name));
-            }
-        }
-        return favorites;
-    }
-}
 
 AudioManager::AudioManager() : mInitialized(false), mCurrentMusic(nullptr), mMusicVolume(MIX_MAX_VOLUME), mVideoPlaying(false)
 {
@@ -239,8 +218,8 @@ void AudioManager::playRandomMusic(bool continueIfPlaying)
 
     if (Settings::getInstance()->getBool("audio.useFavoriteMusic"))
     {
-        std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
-        auto favorites = loadFavoriteSongs(favoritesFile);
+        std::string favoritesFile = FavoriteMusicManager::getFavoriteMusicFilePath();
+        auto favorites = FavoriteMusicManager::loadFavoriteSongs(favoritesFile);
 
         if (favorites.empty())
         {

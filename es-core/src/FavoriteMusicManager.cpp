@@ -1,11 +1,11 @@
 #include "FavoriteMusicManager.h"
+#include "Paths.h"
+#include "LocaleES.h"
 #include "utils/FileSystemUtil.h"
 #include "Settings.h"
 #include "Window.h"
 #include "guis/GuiMsgBox.h"
-#include "Paths.h"
-#include <libintl.h> 
-#define _(String) gettext(String) 
+
 
 #include <fstream>
 
@@ -15,14 +15,42 @@ FavoriteMusicManager& FavoriteMusicManager::getInstance()
     return instance;
 }
 
-std::string FavoriteMusicManager::getFavoritesFilePath() const
+std::string FavoriteMusicManager::getFavoriteMusicFilePath()
 {
-    return Paths::getUserMusicPath() + "/favorites.m3u";
+    return Utils::FileSystem::combine(getFavoriteMusicPath(), "favorites.m3u");
+}
+
+std::string FavoriteMusicManager::getFavoriteMusicPath()
+{
+    if (!Paths::getUserMusicPath().empty())
+        return Paths::getUserMusicPath();
+
+    return Paths::getMusicPath();
+}
+
+
+std::vector<std::pair<std::string, std::string>> FavoriteMusicManager::loadFavoriteSongs(const std::string& favoritesFile)
+{
+    std::vector<std::pair<std::string, std::string>> favorites;
+    std::list<std::string> lines = Utils::FileSystem::readAllLines(favoritesFile);
+    for (const auto& line : lines)
+    {
+        if (line.empty())
+            continue;
+        size_t pos = line.find(';');
+        if (pos != std::string::npos)
+        {
+            std::string path = line.substr(0, pos);
+            std::string name = line.substr(pos + 1);
+            favorites.emplace_back(path, name);
+        }
+    }
+    return favorites;
 }
 
 bool FavoriteMusicManager::saveSongToFavorites(const std::string& path, const std::string& name, Window* window)
 {
-    std::string favoritesFile = getFavoritesFilePath();
+    std::string favoritesFile = getFavoriteMusicFilePath();
     bool alreadyExists = false;
     std::ifstream infile(favoritesFile);
     std::string line;
@@ -55,7 +83,7 @@ bool FavoriteMusicManager::saveSongToFavorites(const std::string& path, const st
 
 bool FavoriteMusicManager::removeSongFromFavorites(const std::string& path, const std::string& name, Window* window)
 {
-    std::string favoritesFile = getFavoritesFilePath();
+    std::string favoritesFile = getFavoriteMusicFilePath();
     if (!Utils::FileSystem::exists(favoritesFile))
         return false;
 

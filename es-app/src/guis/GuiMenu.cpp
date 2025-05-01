@@ -60,6 +60,7 @@
 #include "Gamelist.h"
 #include "TextToSpeech.h"
 #include "Paths.h"
+#include <set> 
 
 #if WIN32
 #include "Win32ApiSystem.h"
@@ -231,7 +232,6 @@ GuiMenu::GuiMenu(Window *window, bool animate) : GuiComponent(window), mMenu(win
 			setPosition((Renderer::getScreenWidth() - mSize.x()) / 2, Renderer::getScreenHeight() * 0.15f);
 	}
 }
-
 void GuiMenu::openScraperSettings()
 {		
 	mWindow->pushGui(new GuiScraperStart(mWindow));
@@ -3949,6 +3949,22 @@ void GuiMenu::openSoundSettings()
 	
 	s->addSwitch(_("DISPLAY SONG TITLES"), "audio.display_titles", true);
 
+
+    if (Utils::FileSystem::exists(FavoriteMusicManager::getFavoriteMusicFilePath()))
+	    {
+		    auto favoriteSwitch = std::make_shared<SwitchComponent>(mWindow);
+		    favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
+
+		    s->addWithDescription(_("PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"), "", favoriteSwitch, nullptr);
+
+		    s->addSaveFunc([favoriteSwitch]() {
+			    bool useFavorite = favoriteSwitch->getState();
+			    Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
+			    Settings::getInstance()->saveFile();
+			    AudioManager::getInstance()->playRandomMusic(useFavorite);
+		    });
+	    }
+   
 	// how long to display the song titles?
 	auto titles_time = std::make_shared<SliderComponent>(mWindow, 2.f, 120.f, 2.f, "s");
 	titles_time->setValue(Settings::getInstance()->getInt("audio.display_titles_time"));
@@ -4091,9 +4107,10 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 	auto s = new GuiSettings(window, (quickAccessMenu ? _("QUICK ACCESS") : _("QUIT")).c_str());
 	s->setCloseButton("select");
 
+	
 	if (quickAccessMenu)
 	{
-		s->addGroup(_("QUICK ACCESS"));
+    		s->addGroup(_("QUICK ACCESS"));
 
 			if (AudioManager::getInstance()->isSongPlaying())
 			{
@@ -4114,7 +4131,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			                              },
 			                              "iconSound");
 			
-			        std::string favoritesFile = Paths::getUserMusicPath() + "/favorites.m3u";
+                    std::string favoritesFile = FavoriteMusicManager::getFavoriteMusicFilePath();
 			        std::list<std::string> lines;
 			
 			        if (Utils::FileSystem::exists(favoritesFile))
@@ -4164,29 +4181,9 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			                                  },
 			                                  "iconSound");
 			        }
-			
-			        if (!lines.empty() || Settings::getInstance()->getBool("audio.useFavoriteMusic"))
-			        {
-			            auto favoriteSwitch = std::make_shared<SwitchComponent>(window);
-			            favoriteSwitch->setState(Settings::getInstance()->getBool("audio.useFavoriteMusic"));
-					
-				    s->addWithDescription(_("PLAY ONLY SONGS FROM YOUR FAVORITES PLAYLIST"),"",
-						    	favoriteSwitch,
-						    	nullptr,
-					    		"iconSound"
-							);
-			            s->addSaveFunc([favoriteSwitch]()
-					{
-					    bool useFavorite = favoriteSwitch->getState();
-					    Settings::getInstance()->setBool("audio.useFavoriteMusic", useFavorite);
-					    Settings::getInstance()->saveFile();
-					    AudioManager::getInstance()->playRandomMusic(useFavorite);
-					});
-
-			        }
 			    }
 			}
-
+					
 		s->addEntry(_("LAUNCH SCREENSAVER"), false, [s, window]
 			{
 				Window* w = window;
@@ -4228,7 +4225,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			}
 		}
 	}
-
+	
 	if (quickAccessMenu)
 		s->addGroup(_("QUIT"));
 
@@ -4253,7 +4250,7 @@ void GuiMenu::openQuitMenu_static(Window *window, bool quickAccessMenu, bool ani
 			_("NO"), nullptr));
 	}, "iconShutdown");
 
-	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"), _("Shutdown without saving metadata."), nullptr, [window] {
+	s->addWithDescription(_("FAST SHUTDOWN SYSTEM"),_("Shutdown without saving metadata."), nullptr, [window] {
 		window->pushGui(new GuiMsgBox(window, _("REALLY SHUTDOWN WITHOUT SAVING METADATA?"), 
 			_("YES"), [] { Utils::Platform::quitES(Utils::Platform::QuitMode::FAST_SHUTDOWN); },
 			_("NO"), nullptr));
