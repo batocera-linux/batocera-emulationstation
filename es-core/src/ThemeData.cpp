@@ -2008,8 +2008,8 @@ void ThemeData::parseElement(const pugi::xml_node& root, const std::map<std::str
 				node.set_name("animateSelection");
 			else if (element.type == "shader" || element.type == "screenshader" || element.type == "menuShader" || element.type == "fadeShader")
 			{
-				// Child properties of shaders are to be added dynamically. They can't be described here as they are used for uniforms arguments
-				type = STRING;
+				// Child properties of shaders are to be added dynamically. They can't be described here as they are used for uniforms arguments, except "path"
+				type = (name == "path") ? PATH : STRING;
 			}
 			else if (name == "itemTemplate" && sSupportedItemTemplate.find(root.name()) != sSupportedItemTemplate.cend())
 			{
