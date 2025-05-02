@@ -410,7 +410,10 @@ GuiGameOptions::GuiGameOptions(Window* window, FileData* game) : GuiComponent(wi
 		});
 	}
 	if (hasZaparoo) {
-		mMenu.addEntry(_("WRITE GAME ON NFC TAG"), false, std::bind(&GuiGameOptions::openMetaDataEd, this));
+		mMenu.addEntry(_("WRITE GAME ON NFC TAG"), false, [this, game]
+		{
+			executeScript("/userdata/system/zaparoo -write" + game->getFullPath())
+		});
 	}
 
 	if (Renderer::ScreenSettings::fullScreenMenus())
